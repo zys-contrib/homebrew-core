@@ -5,22 +5,25 @@ class Po4a < Formula
 
   desc "Documentation translation maintenance tool"
   homepage "https://po4a.org"
-  url "https://github.com/mquinson/po4a/releases/download/v0.61/po4a-0.61.tar.gz"
-  sha256 "62954cb0537eff33124a45fa194ae3b92552ee6f6eef74f4953a577f640b86db"
-  license "GPL-2.0"
-  head "https://github.com/mquinson/po4a.git"
+  url "https://github.com/mquinson/po4a/releases/download/v0.63/po4a-0.63.tar.gz"
+  sha256 "e21be3ee545444bae2fe6a44aeb9d320604708cc2e4c601bcb3cc440db75b4ce"
+  license "GPL-2.0-or-later"
+  revision 2
+  head "https://github.com/mquinson/po4a.git", branch: "master"
 
   bottle do
-    cellar :any
-    sha256 "8caa5beaaa149a61cc1e491e2d38311dfaf4d5079bb059e407a97338780d6674" => :catalina
-    sha256 "d6fab13fda127a91eeadbb7e4d031cc7e9d0f7292fef8579539db76228b908f9" => :mojave
-    sha256 "31ef1111f0d6d4a1ff0f50d37dbacaef5e0d017fa0f95c621d4d395bcda9b616" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "4cf546fc79d0aeb9c75c3fdea4130c1d0d9cfc82d3970681d4994f7cf1c24170"
+    sha256 cellar: :any,                 big_sur:       "220aecaeb38f1e07661d8c73d8768fcdb61c747f7da530c4bffbdb508a7a2a31"
+    sha256 cellar: :any,                 catalina:      "87ba2758545027e71dbf025dc647c26c4fe24ced01e3db58f54b99b7ff2427c6"
+    sha256 cellar: :any,                 mojave:        "8d6f320c3c41fdc9b1d5c501cb14393ab2100b6a2f6875d1de97ea3cd23cbf58"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "646513735eda2d4be0b1ff81f027952c69357556ca079480716552e65444c8e3"
   end
 
   depends_on "docbook-xsl" => :build
   depends_on "gettext"
+  depends_on "perl"
 
-  uses_from_macos "perl"
+  uses_from_macos "libxslt"
 
   resource "Locale::gettext" do
     url "https://cpan.metacpan.org/authors/id/P/PV/PVANDRY/gettext-1.07.tar.gz"
@@ -28,8 +31,6 @@ class Po4a < Formula
   end
 
   resource "Module::Build" do
-    # po4a requires Module::Build v0.4200 and above, while standard
-    # MacOS Perl installation has 0.4003
     url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4231.tar.gz"
     sha256 "7e0f4c692c1740c1ac84ea14d7ea3d8bc798b2fb26c09877229e04f430b2b717"
   end
@@ -44,7 +45,7 @@ class Po4a < Formula
     sha256 "550c9245291c8df2242f7e88f7921a0f636c7eec92c644418e7d89cfea70b2bd"
   end
 
-  resource "Term::ReadKey" do
+  resource "TermReadKey" do
     url "https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.38.tar.gz"
     sha256 "5a645878dc570ac33661581fbb090ff24ebce17d43ea53fd22e105a856a47290"
   end

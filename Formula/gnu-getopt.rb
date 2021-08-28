@@ -1,26 +1,32 @@
 class GnuGetopt < Formula
   desc "Command-line option parsing utility"
   homepage "https://github.com/karelzak/util-linux"
-  url "https://www.kernel.org/pub/linux/utils/util-linux/v2.36/util-linux-2.36.1.tar.xz"
-  sha256 "09fac242172cd8ec27f0739d8d192402c69417617091d8c6e974841568f37eed"
-  license "GPL-2.0"
+  url "https://www.kernel.org/pub/linux/utils/util-linux/v2.37/util-linux-2.37.2.tar.xz"
+  sha256 "6a0764c1aae7fb607ef8a6dd2c0f6c47d5e5fd27aa08820abaad9ec14e28e9d9"
+  license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "3a9e3eed0d4d9dd91a6a87f4faccad9a2a653581b119fa8cfb637efbb0f5f260" => :big_sur
-    sha256 "5b79b3c5e0792ef471e8a45e7be1c6b53cfc82b06dc702269404bc2105c801e1" => :catalina
-    sha256 "be850eb3ab001ca8ef8f34fbe7fed93b784462a9b88c68011854a977cf492b06" => :mojave
-    sha256 "94ec5fdb67ca588ae797498c9a3a5b53aa8fea773cb6350d0d611f1248ab693a" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0accef38c1961b29622380bc5d3dc0a58b22158b510f6f39b72485da5cdfa7ae"
+    sha256 cellar: :any_skip_relocation, big_sur:       "71316eadcf6481acbbe020d23d51fbd0b004ed51b680c97b82a08fc11668d3d9"
+    sha256 cellar: :any_skip_relocation, catalina:      "f6fa9b03686181c83f17936c1e9c5d5fa396ea8ca0b80ff82b1eb9ff64e224e2"
+    sha256 cellar: :any_skip_relocation, mojave:        "75a567d2d0b9d1e4e8c7a385eb2205073918ef1b68fdea848e406be04c732580"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fcc3de837a5b93ff5c8ba2c5af599df827f2e00a0eab532c256f5fd346ed3b7a"
   end
 
   keg_only :provided_by_macos
+
+  depends_on "asciidoctor" => :build
+
+  on_linux do
+    keg_only "conflicts with util-linux"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
 
-    system "make", "getopt"
+    system "make", "getopt", "misc-utils/getopt.1"
 
     bin.install "getopt"
     man1.install "misc-utils/getopt.1"

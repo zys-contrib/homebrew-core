@@ -1,19 +1,30 @@
 class Ppsspp < Formula
   desc "PlayStation Portable emulator"
   homepage "https://ppsspp.org/"
-  url "https://github.com/hrydgard/ppsspp.git",
-      tag:      "v1.10.3",
-      revision: "087de849bdc74205dd00d8e6e11ba17a591213ab"
   license all_of: ["GPL-2.0-or-later", "BSD-3-Clause"]
-  revision 1
-  head "https://github.com/hrydgard/ppsspp.git"
+  head "https://github.com/hrydgard/ppsspp.git", branch: "master"
+
+  # Remove stable block when patch is removed
+  stable do
+    url "https://github.com/hrydgard/ppsspp.git",
+        tag:      "v1.11.3",
+        revision: "f7ace3b8ee33e97e156f3b07f416301e885472c5"
+
+    # Fix build with latest FFmpeg. Remove in the next release.
+    # See https://github.com/hrydgard/ppsspp/pull/14176
+    patch do
+      url "https://github.com/hrydgard/ppsspp/commit/8a69c3d1226fe174c49437514a2d3ca7e411c3fa.patch?full_index=1"
+      sha256 "1ae7265d299f26beffcff0f05c1567dcda6dd02d1ba1655892061530d5d6c008"
+    end
+  end
 
   bottle do
-    cellar :any
-    sha256 "61164c952a552c94c384ba618b429e8725d812142b58e55c02b89962ce8b28c2" => :big_sur
-    sha256 "637651f2a60d63b33d4944fb075b8e8a564a4a0b94ce824ccf0ba69b6d101f88" => :catalina
-    sha256 "ef1850d442ed09bdec54ace53e6bedf2eb081ca3da4d2ca9fba91293a98f0f6e" => :mojave
-    sha256 "a42d7af34d1aab6f25345aec6711fccedad54fd506eb12947c7c6c8b7e095a55" => :high_sierra
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "e2fbd7a06918037ba8d7cd4cd63aac2a91da169109846858d289abf2c506dbea"
+    sha256 cellar: :any,                 big_sur:       "1fb64f1bf453622476e94460904d4f033e05f42755d3f6793775233e9a55dec9"
+    sha256 cellar: :any,                 catalina:      "9b375483a60f6e4e631c5c01a0f5b69c15ff69570749d31f0af77014a6e2c373"
+    sha256 cellar: :any,                 mojave:        "6d22974f4e46d094860b1b1de2ed5b1d9a77e41ae777519fe77e8172fc1ada54"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6c3d227fe076c5bd40e7a9d3e5f389cfcc06a5659ced66478026efdb81aa645"
   end
 
   depends_on "cmake" => :build
@@ -35,9 +46,14 @@ class Ppsspp < Formula
     mkdir "build" do
       system "cmake", "..", *args
       system "make"
-      prefix.install "PPSSPPSDL.app"
-      bin.write_exec_script "#{prefix}/PPSSPPSDL.app/Contents/MacOS/PPSSPPSDL"
-      mv "#{bin}/PPSSPPSDL", "#{bin}/ppsspp"
+      on_macos do
+        prefix.install "PPSSPPSDL.app"
+        bin.write_exec_script "#{prefix}/PPSSPPSDL.app/Contents/MacOS/PPSSPPSDL"
+        mv "#{bin}/PPSSPPSDL", "#{bin}/ppsspp"
+      end
+      on_linux do
+        bin.install "PPSSPPSDL" => "ppsspp"
+      end
     end
   end
 end

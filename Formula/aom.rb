@@ -2,15 +2,16 @@ class Aom < Formula
   desc "Codec library for encoding and decoding AV1 video streams"
   homepage "https://aomedia.googlesource.com/aom"
   url "https://aomedia.googlesource.com/aom.git",
-      tag:      "v2.0.1",
-      revision: "b52ee6d44adaef8a08f6984390de050d64df9faa"
+      tag:      "v3.1.2",
+      revision: "ae2be8030200925895fa6e98bd274ffdb595cbf6"
   license "BSD-2-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c03472a3e8dd38972fe30ee245dade96626c7927f511b7c39eb5b1b6f789e34b" => :big_sur
-    sha256 "ebac8d7473e89b82ad00046243ef47207c0823e410c4d3c40483a81324ad2a4c" => :catalina
-    sha256 "99912d7dfc789ce059c33ea739f736930c40ea59ce58a70a6ee2478199b4363b" => :mojave
+    sha256 cellar: :any,                 arm64_big_sur: "cab48a0f87dce96cd34be83f306c76b1b12ffdc36924f66db4e5b23c7d02ed9b"
+    sha256 cellar: :any,                 big_sur:       "7caa96eb1b5ffed1e77fd7bf287b8aee925a415a462209228800ad1d18b34a0f"
+    sha256 cellar: :any,                 catalina:      "8755252819aa338bb5992e88e88f13e9f0e9b6b6d4bcea909fbd772d6eb80f02"
+    sha256 cellar: :any,                 mojave:        "104a6c66a752c4d245830922658adaf9b0f47a4036089141d25ca6ff46ccbe92"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4445426d87356c91869cce415d85c3d8bb63cdbab52ec3696e439ffce825be8a"
   end
 
   depends_on "cmake" => :build
@@ -23,11 +24,13 @@ class Aom < Formula
 
   def install
     mkdir "macbuild" do
-      args = std_cmake_args.concat(["-DENABLE_DOCS=off",
+      args = std_cmake_args.concat(["-DCMAKE_INSTALL_RPATH=#{rpath}",
+                                    "-DENABLE_DOCS=off",
                                     "-DENABLE_EXAMPLES=on",
                                     "-DENABLE_TESTDATA=off",
                                     "-DENABLE_TESTS=off",
-                                    "-DENABLE_TOOLS=off"])
+                                    "-DENABLE_TOOLS=off",
+                                    "-DBUILD_SHARED_LIBS=on"])
       # Runtime CPU detection is not currently enabled for ARM on macOS.
       args << "-DCONFIG_RUNTIME_CPU_DETECT=0" if Hardware::CPU.arm?
       system "cmake", "..", *args

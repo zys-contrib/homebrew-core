@@ -1,8 +1,9 @@
 class UBootTools < Formula
   desc "Universal boot loader"
   homepage "https://www.denx.de/wiki/U-Boot/"
-  url "https://ftp.denx.de/pub/u-boot/u-boot-2020.10.tar.bz2"
-  sha256 "0d481bbdc05c0ee74908ec2f56a6daa53166cc6a78a0e4fac2ac5d025770a622"
+  url "https://ftp.denx.de/pub/u-boot/u-boot-2021.07.tar.bz2"
+  sha256 "312b7eeae44581d1362c3a3f02c28d806647756c82ba8c72241c7cdbe68ba77e"
+  license all_of: ["GPL-2.0-only", "GPL-2.0-or-later", "BSD-3-Clause"]
 
   livecheck do
     url "https://ftp.denx.de/pub/u-boot/"
@@ -10,13 +11,14 @@ class UBootTools < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "38d66ae4e6d926bc35e4eb833f6810a367f2cf3cdd8ec5185a861daadc30743e" => :big_sur
-    sha256 "c4e1c77a34e57576f9ab599781be090820a4d5911f4147e10d0e99114cd3c8c6" => :catalina
-    sha256 "44d21cc3ac974b0538d24d4e5a74f25e3df764c8b5fc3458214890bacfa138ac" => :mojave
-    sha256 "afb5dea722a9ae646809a3c8b59dbbd80b55042e3c3de8f45741e6ebb460df6a" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "795b546108fe9bb26d5f19105722f5d4004f8f7cb607b4c5c22ef00001aab494"
+    sha256 cellar: :any,                 big_sur:       "14ec1c7ecbd9f2988b5375684d7808eb1eee0c3b96f21eaf0525993f770d9eb4"
+    sha256 cellar: :any,                 catalina:      "c47f93bad1f4dc106528afd47a6c5d2f1a840c4de8ad4b6bc8c23ebd74d2b444"
+    sha256 cellar: :any,                 mojave:        "4123e118d4c499416fabdedd1e6e3ba4c097b5aa494832b8894c08193dfda26d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc4d6167a0f8770ee60cc2d33d31ac664ee021f33f09065b4fd9fba96bbeb12c"
   end
 
+  depends_on "coreutils" => :build # Makefile needs $(gdate)
   depends_on "openssl@1.1"
 
   uses_from_macos "bison" => :build
@@ -26,8 +28,8 @@ class UBootTools < Formula
     # Replace keyword not present in make 3.81
     inreplace "Makefile", "undefine MK_ARCH", "unexport MK_ARCH"
 
-    system "make", "sandbox_defconfig"
-    system "make", "tools", "NO_SDL=1"
+    system "make", "tools-only_defconfig"
+    system "make", "tools-only", "NO_SDL=1"
     bin.install "tools/mkimage"
     bin.install "tools/dumpimage"
     man1.install "doc/mkimage.1"

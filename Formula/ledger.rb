@@ -4,19 +4,20 @@ class Ledger < Formula
   url "https://github.com/ledger/ledger/archive/v3.2.1.tar.gz"
   sha256 "92bf09bc385b171987f456fe3ee9fa998ed5e40b97b3acdd562b663aa364384a"
   license "BSD-3-Clause"
-  revision 3
+  revision 6
   head "https://github.com/ledger/ledger.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    sha256 "4946e7b57a72305beb26c88191dcce36e795108525f5eeea10873168c35fe13d" => :big_sur
-    sha256 "3aa99883691fcd92825ba5596633cd7958ccdbc7b14d54879a906b20c8936d2d" => :catalina
-    sha256 "4c50dd4776d1014f83f3f08242af9d0309db9c6afddd45e88912025be803adae" => :mojave
-    sha256 "c63574b6f1df94721c5f20c7d04607a1fe6c3b85f3e72064fd2a10525d12dcd2" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "7c4c05ee4ba9fa1eb98e13dd8fdb08204847051d60235d7ed41acb511bc59e88"
+    sha256 cellar: :any,                 big_sur:       "b38e4088c5c4639db36583dee90969851ce3a6dd697542f40c35c4fd4a26ba63"
+    sha256 cellar: :any,                 catalina:      "4bf9603c5db081f8264ab20d48f5b3b7c00760032a69da857be8412c8fc7f538"
+    sha256 cellar: :any,                 mojave:        "73e2a88b71ad45ce03bb552889c615f552415332e5602711608a0a3aead94c8e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2900cd872e239fe43409bbe4e07546897f1785e56f91059edfafcbef118c2c07"
   end
 
   depends_on "cmake" => :build
@@ -26,6 +27,14 @@ class Ledger < Formula
   depends_on "python@3.9"
 
   uses_from_macos "groff"
+
+  # Compatibility with Boost 1.76
+  # https://github.com/ledger/ledger/issues/2030
+  # https://github.com/ledger/ledger/pull/2036
+  patch do
+    url "https://github.com/ledger/ledger/commit/e60717ccd78077fe4635315cb2657d1a7f539fca.patch?full_index=1"
+    sha256 "edba1dd7bde707f510450db3197922a77102d5361ed7a5283eb546fbf2221495"
+  end
 
   def install
     ENV.cxx11

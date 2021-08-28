@@ -6,10 +6,12 @@ class Libnfc < Formula
   license "LGPL-3.0"
 
   bottle do
-    sha256 "566a81b623abfb5d68480274b59b13c44fc098cd1d8cbf59dc112295a58a363c" => :big_sur
-    sha256 "6659f67e40774cdb8e95548c03542bbc123ccabc0f4a6160504c03e43fa43c26" => :catalina
-    sha256 "9bc90c84f89408a8960289a668af7ad9b7b17d34a02996b83ec960c5cbefafeb" => :mojave
-    sha256 "8e6abd4d61ef9aff76ef25b092806b95614c07a9e46a0e13ca6e915271454a92" => :high_sierra
+    sha256 arm64_big_sur: "6e97d8892b2129437513be8a21fccf7e3c6a23b14dd28e3d43aea1fce9b97ed7"
+    sha256 big_sur:       "566a81b623abfb5d68480274b59b13c44fc098cd1d8cbf59dc112295a58a363c"
+    sha256 catalina:      "6659f67e40774cdb8e95548c03542bbc123ccabc0f4a6160504c03e43fa43c26"
+    sha256 mojave:        "9bc90c84f89408a8960289a668af7ad9b7b17d34a02996b83ec960c5cbefafeb"
+    sha256 high_sierra:   "8e6abd4d61ef9aff76ef25b092806b95614c07a9e46a0e13ca6e915271454a92"
+    sha256 x86_64_linux:  "db84cf74f8217a9cb32aa5c804cf20c9b74464ce21ea2a87805b0c8de5abdfe6"
   end
 
   head do
@@ -22,6 +24,8 @@ class Libnfc < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libusb-compat"
+
+  uses_from_macos "pcsc-lite"
 
   def install
     system "autoreconf", "-vfi" if build.head?

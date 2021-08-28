@@ -1,17 +1,18 @@
 class NatsStreamingServer < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
-  url "https://github.com/nats-io/nats-streaming-server/archive/v0.19.0.tar.gz"
-  sha256 "2c5996f8bf1d99ab06273bdb596694146e940276fec82c657fac6416b6f23b67"
+  url "https://github.com/nats-io/nats-streaming-server/archive/refs/tags/v0.22.1.tar.gz"
+  sha256 "116035f0c3c7e6154b7b1352d53ab16bd90b89afbce4afb70fe5d686ca4f24b0"
   license "Apache-2.0"
   head "https://github.com/nats-io/nats-streaming-server.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4d162bcdfdf6b36c950956d31b756eaf6ad68881e4d0a0c78d6b82a5ed64c7ab" => :big_sur
-    sha256 "0708b9268e65c6c3cf1b09da7dbb47c8b1068af0d30a29024227a62855a24e28" => :catalina
-    sha256 "e568f972d3bb095f70f20b708b2318e5db8fd2e58311140651cd1e0361ac619a" => :mojave
-    sha256 "ac0ab25c8c1e58123d3900f408295bae4d38fb99f19923d818b339b0a60c4739" => :high_sierra
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7be754512246cbc8d4b4885c94eb8210736b0794a98615e7fe006e31e7b62270"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cebeb9cf1dc610edc6ebe295618e83b64b8afbffd5d2a8451e10d6a22bba9394"
+    sha256 cellar: :any_skip_relocation, catalina:      "5c160c9dfd4652d8eb58a975641968fdc302b60fb1a43a7c864f5a4ac0663b24"
+    sha256 cellar: :any_skip_relocation, mojave:        "81e07ce9a896ea551e332bb831ed5d05282f4a7865377f41837330a567cb2c03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7df96690d23eb8bddfc8acee69810ee712568f81d64e53fa0849cc168420a72e"
   end
 
   depends_on "go" => :build
@@ -21,25 +22,8 @@ class NatsStreamingServer < Formula
     prefix.install_metafiles
   end
 
-  plist_options manual: "nats-streaming-server"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/nats-streaming-server</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run opt_bin/"nats-streaming-server"
   end
 
   test do

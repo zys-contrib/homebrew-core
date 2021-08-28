@@ -1,17 +1,17 @@
 class Quill < Formula
   desc "C++14 Asynchronous Low Latency Logging Library"
   homepage "https://github.com/odygrd/quill"
-  url "https://github.com/odygrd/quill/archive/v1.5.2.tar.gz"
-  sha256 "e409fda0bd949e997f63de4d422a8f17ccc9cb0d58f11403bd309c7a93aa0d6b"
+  url "https://github.com/odygrd/quill/archive/v1.6.2.tar.gz"
+  sha256 "9c27cd7fdf4459c75d1722dd9f2226b5e82ad96b5dbf58559bc8ba3df6af8839"
   license "MIT"
-  head "https://github.com/odygrd/quill.git"
+  head "https://github.com/odygrd/quill.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9bd7b9972f4b0dba81202bb49a47695c08e7b6581627cd7df94e8072c66c0aa5" => :big_sur
-    sha256 "005bd68d183a4ef347d73b59ddbd273b1c8bc2d35400f5acef88294fbb288bc8" => :catalina
-    sha256 "a665a6c752e4482c0582bdbd0fe1248f72b5369bce53d331bae366db53fe2b10" => :mojave
-    sha256 "d76aae3da313beb3338b134472377298f5fb56d6d619bd0cd1465557e25870c5" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "01409dc369de300077b23a0c5bf2fb6bf677ed66fca43712f5fe084d47361fec"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b02566a1d53b41e8d09e828183cce4be7e80533671f952173576db728c4927f3"
+    sha256 cellar: :any_skip_relocation, catalina:      "0745cc442c7e9f71dc999cc47acc6b6147d8ccbdf0c1261da7fdebd526c53ff8"
+    sha256 cellar: :any_skip_relocation, mojave:        "dbcd03e89bea2d0817561537857268a7cbb216efaa1b182cfe297ed8f3968737"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d2c2ca95ff4daeb3bbb738ff5db920a5ba312e38cff09749e1c2d70358f692c"
   end
 
   depends_on "cmake" => :build
@@ -39,7 +39,7 @@ class Quill < Formula
       }
     EOS
 
-    system ENV.cxx, "-std=c++14", "test.cpp", "-I#{include}", "-L#{lib}", "-lquill", "-o", "test"
+    system ENV.cxx, "-std=c++14", "test.cpp", "-I#{include}", "-L#{lib}", "-lquill", "-o", "test", "-pthread"
     system "./test"
     assert_predicate testpath/"basic-log.txt", :exist?
     assert_match "Test", (testpath/"basic-log.txt").read

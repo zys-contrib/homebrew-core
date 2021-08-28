@@ -1,16 +1,17 @@
 class Zstd < Formula
   desc "Zstandard is a real-time compression algorithm"
   homepage "https://facebook.github.io/zstd/"
-  url "https://github.com/facebook/zstd/archive/v1.4.5.tar.gz"
-  sha256 "734d1f565c42f691f8420c8d06783ad818060fc390dee43ae0a89f86d0a4f8c2"
+  url "https://github.com/facebook/zstd/archive/v1.5.0.tar.gz"
+  sha256 "0d9ade222c64e912d6957b11c923e214e2e010a18f39bec102f572e693ba2867"
   license "BSD-3-Clause"
+  head "https://github.com/facebook/zstd.git", branch: "dev"
 
   bottle do
-    cellar :any
-    sha256 "4143146aa691738893d19f6dc7de4ae983dbbf7023717094df8ff2d36cb839b5" => :big_sur
-    sha256 "2375c206a934090c4ba53362d038e4e191d8dd09eec734e8e72106089aa24e9d" => :catalina
-    sha256 "86b04bfd318315486d772b29d30b361e734a74269ae48805eeb3eae1d562b984" => :mojave
-    sha256 "61de5a45183f4d029c66024d645ad44b0a625d58f9f583b47af42346a7c90fe5" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "e8962c7923904213f312c86372b670b6b5a7ac7103ee63254ab3d1c349913246"
+    sha256 cellar: :any,                 big_sur:       "eae17621cfc664d6e527a6d6aa6a000343eced0f60c81b4e2dd9a9aed7b79c3f"
+    sha256 cellar: :any,                 catalina:      "571d031a8fe1b96f68c4c50c2e72532adbad273c565420cb0825cf4745f512bc"
+    sha256 cellar: :any,                 mojave:        "8089b1b5c398c95af5eaacea6033829dd8d255c9f32d6fa2f0c436821c902087"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0fcd15f865d47d9140af51b05c99a3bab12fdfa10f78b47e296eb82f53f685ba"
   end
 
   depends_on "cmake" => :build
@@ -18,12 +19,14 @@ class Zstd < Formula
   uses_from_macos "zlib"
 
   def install
-    system "make", "install", "PREFIX=#{prefix}/"
-
-    # Build parallel version
-    system "make", "-C", "contrib/pzstd", "googletest"
-    system "make", "-C", "contrib/pzstd", "PREFIX=#{prefix}"
-    bin.install "contrib/pzstd/pzstd"
+    cd "build/cmake" do
+      system "cmake", "-S", ".", "-B", "builddir",
+                      "-DZSTD_BUILD_CONTRIB=ON",
+                      "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                      *std_cmake_args
+      system "cmake", "--build", "builddir"
+      system "cmake", "--install", "builddir"
+    end
   end
 
   test do

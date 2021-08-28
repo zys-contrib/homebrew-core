@@ -1,21 +1,28 @@
 class Opencascade < Formula
   desc "3D modeling and numerical simulation software for CAD/CAM/CAE"
-  homepage "https://www.opencascade.com/content/overview"
-  url "https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=refs/tags/V7_5_0;sf=tgz"
-  version "7.5.0"
-  sha256 "c8df7d23051b86064f61299a5f7af30004c115bdb479df471711bab0c7166654"
+  homepage "https://dev.opencascade.org/"
+  url "https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=refs/tags/V7_5_3;sf=tgz"
+  version "7.5.3"
+  sha256 "cc3d3fd9f76526502c3d9025b651f45b034187430f231414c97dda756572410b"
+  license "LGPL-2.1-only"
 
+  # The first-party download page (https://dev.opencascade.org/release)
+  # references version 7.5.0 and hasn't been updated for later maintenance
+  # releases (e.g., 7.5.3, 7.5.2), so we check the Git tags instead. Release
+  # information is posted at https://dev.opencascade.org/forums/occt-releases
+  # but the text varies enough that we can't reliably match versions from it.
   livecheck do
-    url "https://www.opencascade.com/content/latest-release"
-    regex(/href=.*?opencascade[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://git.dev.opencascade.org/repos/occt.git"
+    regex(/^v?(\d+(?:[._]\d+)+(?:p\d+)?)$/i)
+    strategy :git do |tags, regex|
+      tags.map { |tag| tag[regex, 1]&.gsub("_", ".") }.compact
+    end
   end
 
   bottle do
-    cellar :any
-    sha256 "d8da69190c25ca94d888b17dd46cdc90fb79379d22463366a4501c5d8e17d96d" => :big_sur
-    sha256 "dff73d65e119f968e9f64a0da66fa31f4eb3e3b0cddd2241add58dfb3dd641a0" => :catalina
-    sha256 "d55ddd954f14f50fe8fb4898fe17b0872a2a95a89fb15978585e01887d925915" => :mojave
-    sha256 "c1b1f1c3b05082464df1e130e518b536857beb8a07dea5d1f43120826346d6f0" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "8952db5aa30f06b1a0bfb8dda92f4aee1d64559e5015796bac0b24f6555fdfef"
+    sha256 cellar: :any, big_sur:       "26b5e960b52eb222a23419139b3b9eb28e8ae5908b2d611d9d4bd02d1aab08c1"
+    sha256 cellar: :any, catalina:      "6d0a12b0f347117f2763274e30eb0b6002c47c830e1f5983ed7ce6295e586ed6"
   end
 
   depends_on "cmake" => :build
@@ -23,9 +30,11 @@ class Opencascade < Formula
   depends_on "rapidjson" => :build
   depends_on "freeimage"
   depends_on "freetype"
-  depends_on "tbb"
+  depends_on "tbb@2020"
+  depends_on "tcl-tk"
 
   def install
+    tcltk = Formula["tcl-tk"]
     system "cmake", ".",
                     "-DUSE_FREEIMAGE=ON",
                     "-DUSE_RAPIDJSON=ON",
@@ -35,10 +44,16 @@ class Opencascade < Formula
                     "-D3RDPARTY_FREETYPE_DIR=#{Formula["freetype"].opt_prefix}",
                     "-D3RDPARTY_RAPIDJSON_DIR=#{Formula["rapidjson"].opt_prefix}",
                     "-D3RDPARTY_RAPIDJSON_INCLUDE_DIR=#{Formula["rapidjson"].opt_include}",
-                    "-D3RDPARTY_TBB_DIR=#{Formula["tbb"].opt_prefix}",
-                    "-D3RDPARTY_TCL_DIR:PATH=#{MacOS.sdk_path_if_needed}/usr",
-                    "-D3RDPARTY_TCL_INCLUDE_DIR=#{MacOS.sdk_path_if_needed}/usr/include",
-                    "-D3RDPARTY_TK_INCLUDE_DIR=#{MacOS.sdk_path_if_needed}/usr/include",
+                    "-D3RDPARTY_TBB_DIR=#{Formula["tbb@2020"].opt_prefix}",
+                    "-D3RDPARTY_TCL_DIR:PATH=#{tcltk.opt_prefix}",
+                    "-D3RDPARTY_TK_DIR:PATH=#{tcltk.opt_prefix}",
+                    "-D3RDPARTY_TCL_INCLUDE_DIR:PATH=#{tcltk.opt_include}",
+                    "-D3RDPARTY_TK_INCLUDE_DIR:PATH=#{tcltk.opt_include}",
+                    "-D3RDPARTY_TCL_LIBRARY_DIR:PATH=#{tcltk.opt_lib}",
+                    "-D3RDPARTY_TK_LIBRARY_DIR:PATH=#{tcltk.opt_lib}",
+                    "-D3RDPARTY_TCL_LIBRARY:FILEPATH=#{tcltk.opt_lib}/libtcl#{tcltk.version.major_minor}.dylib",
+                    "-D3RDPARTY_TK_LIBRARY:FILEPATH=#{tcltk.opt_lib}/libtk#{tcltk.version.major_minor}.dylib",
+                    "-DCMAKE_INSTALL_RPATH:FILEPATH=#{lib}",
                     *std_cmake_args
     system "make", "install"
 

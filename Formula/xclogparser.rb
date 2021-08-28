@@ -1,18 +1,17 @@
 class Xclogparser < Formula
   desc "Tool to parse the SLF serialization format used by Xcode"
   homepage "https://github.com/spotify/XCLogParser"
-  url "https://github.com/spotify/XCLogParser/archive/v0.2.21.tar.gz"
-  sha256 "ee0a031bd096766046af7904595685bb154d3d3f777123615fefa4c5927f9a59"
+  url "https://github.com/spotify/XCLogParser/archive/v0.2.28.tar.gz"
+  sha256 "b47885b599b9dce44a69e5b30d9da32f7abf9f25e5decd12f5f3313322e93242"
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2a3533e4deb8716cd7fcac136942594df2ae9207ff82f5826d111dcfbfc7a4d1" => :big_sur
-    sha256 "4775a922d6d8c7a212b9f19ac4a79da1eda3a4302a26cd1f5eec7db003db44d2" => :catalina
-    sha256 "1b241c193fb22f5efac69aa76a3af7dd1859feb9e79e8fc1a5d6726adb975ca1" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c5d3033285545ac4e9f6102bd262ef16d0fff388a2fd913a93ebd9d7c25eeb53"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ca727b0d65c4069cc1a9683d6b69b932f6cab163c91537f923f50d936aa344b2"
+    sha256 cellar: :any_skip_relocation, catalina:      "e023d7644d5e9f790a66037b8427c711f1fa6c881f5df7c341447c2576a30f65"
   end
 
-  depends_on xcode: "11.0"
+  depends_on xcode: "12.0"
 
   resource "test_log" do
     url "https://github.com/tinder-maxwellelliott/XCLogParser/releases/download/0.2.9/test.xcactivitylog"

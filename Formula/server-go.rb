@@ -2,16 +2,20 @@ class ServerGo < Formula
   desc "Server for OpenIoTHub"
   homepage "https://github.com/OpenIoTHub/server-go"
   url "https://github.com/OpenIoTHub/server-go.git",
-      tag:      "v1.1.59",
-      revision: "53d0a8d6fbf982a20651d0c420eca3b1f1e95523"
+      tag:      "v1.1.77",
+      revision: "1c096fa17a6b529bb0002c224c9b035df368f30e"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0e168e5705de596db16a8b7e5bfbb07fc8d25d52ce7536badfa2ca06963e27fd" => :big_sur
-    sha256 "a8f9eb48ac79a628aa71ca08caeb8577a85e47b81e81968475aa5b318c536b42" => :catalina
-    sha256 "58996b6453268397e81337f7feb94b346297ba14cf1db24c23b0f05d0c19e420" => :mojave
-    sha256 "8e49eb94a30c9f97b53a6201a165e7f07e1904f4ad9e933c4bc9e613e7c6ff75" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:      "48b01c329bbf329c08da2d827c3891659f7a82eb15913b5f666cad9ca835d5eb"
+    sha256 cellar: :any_skip_relocation, catalina:     "d0c6e7d29e40bdf3535103019722db0dcfdc787e18747b1b3c72b87f7a52c33a"
+    sha256 cellar: :any_skip_relocation, mojave:       "80bf7c30103432008ea9fe2e5dea8d32de5d71e0d563e2a5c0aa59192238dad4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "3c575de6caf4916eedf3791c3efb703153f171d9b12c3ba9e9bac579b86d2fe6"
   end
 
   depends_on "go" => :build
@@ -19,36 +23,15 @@ class ServerGo < Formula
   def install
     (etc/"server-go").mkpath
     system "go", "build", "-mod=vendor", "-ldflags",
-             "-s -w -X main.version=#{version} -X main.commit=#{stable.specs[:revision]} -X main.builtBy=homebrew",
-             *std_go_args
+      "-s -w -X main.version=#{version} -X main.commit=#{Utils.git_head} -X main.builtBy=homebrew", *std_go_args
     etc.install "server-go.yaml" => "server-go/server-go.yaml"
   end
 
-  plist_options manual: "server-go -c #{HOMEBREW_PREFIX}/etc/server-go/server-go.yaml"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>KeepAlive</key>
-          <true/>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/server-go</string>
-            <string>-c</string>
-            <string>#{etc}/server-go/server-go.yaml</string>
-          </array>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/server-go.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/server-go.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"server-go", "-c", etc/"server-go/server-go.yaml"]
+    keep_alive true
+    log_path var/"log/server-go.log"
+    error_log_path var/"log/server-go.log"
   end
 
   test do

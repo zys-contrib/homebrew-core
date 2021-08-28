@@ -1,37 +1,27 @@
-require "language/go"
-
 class SSearch < Formula
   desc "Web search from the terminal"
   homepage "https://github.com/zquestz/s"
-  url "https://github.com/zquestz/s/archive/v0.5.14.tar.gz"
-  sha256 "c32eedf6a4080cbe221c902cf7f63b1668b3927edfc448d963d69ed66c8ec2fb"
+  url "https://github.com/zquestz/s/archive/v0.5.16.tar.gz"
+  sha256 "08b7082ff900c7ec61905d954b7025dc6f780c23c81f2f13e200b2bbd7a2ef9c"
   license "MIT"
-  head "https://github.com/zquestz/s.git"
+  head "https://github.com/zquestz/s.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "477cae54c3f7a8914298f8a06b890b0ecf62be4fa8281691ac5c636880968706" => :big_sur
-    sha256 "cd7352e1c4092774fdd4cbff61bd107e6447ea00e96ec94431dcbc1be7bbade5" => :catalina
-    sha256 "04281fb66e28cf23c3ea1cd23ec6286432191fde31ac8c7b6c9c13bc6b365b0a" => :mojave
-    sha256 "4a0c5595943e8b7b4892ff3caf4d03b29533405a411268a77e0a51272a3d7823" => :high_sierra
-    sha256 "b9d547b1bcc45516396ed8398b624ac83a1c4ade7bf13f130b1b063b9aec1590" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "04e743860f3014288e42d7194b2d34b88b30dbdf0d47b1362181e87e67ef3585"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3271073adc7ffccc4835afde6ccf5d1098181b064e4ae761a7052e24bd7e1212"
+    sha256 cellar: :any_skip_relocation, catalina:      "218f0203ae8164d878fc80e678c9b726f812c80f9b6b56462e73d6216993ab91"
+    sha256 cellar: :any_skip_relocation, mojave:        "da6d5042d9afbf3b6d313f4defe2b055e268e3049f013fe791e3624367853601"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "53bf8ba8f98766b256717d2c300035e6a9fa15880a7b85e44dcc0bae0075ac39"
   end
 
   depends_on "go" => :build
 
-  go_resource "github.com/FiloSottile/gvt" do
-    url "https://github.com/FiloSottile/gvt.git",
-        revision: "50d83ea21cb0405e81efd284951e111b3a68d701"
-  end
-
   def install
-    ENV["GOPATH"] = buildpath
-    Language::Go.stage_deps resources, buildpath/"src"
-    cd("src/github.com/FiloSottile/gvt") { system "go", "install" }
-    (buildpath/"src/github.com/zquestz").mkpath
-    ln_s buildpath, "src/github.com/zquestz/s"
-    system buildpath/"bin/gvt", "restore"
-    system "go", "build", "-o", bin/"s"
+    system "go", "build", *std_go_args, "-ldflags", "-s -w"
+    mv bin/"s-search", bin/"s"
+
+    bash_completion.install "autocomplete/s-completion.bash"
+    fish_completion.install "autocomplete/s.fish"
   end
 
   test do

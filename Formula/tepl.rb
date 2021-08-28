@@ -1,19 +1,20 @@
 class Tepl < Formula
   desc "GNOME Text Editor Product Line"
   homepage "https://wiki.gnome.org/Projects/Tepl"
-  url "https://download.gnome.org/sources/tepl/5.0/tepl-5.0.1.tar.xz"
-  sha256 "b1274967609f524484b38775fa9ecb296c6d6616aabd052f286339a289912804"
+  url "https://download.gnome.org/sources/tepl/6.00/tepl-6.00.0.tar.xz"
+  sha256 "a86397a895dca9c0de7a5ccb063bda8f7ef691cccb950ce2cfdee367903e7a63"
   license "LGPL-2.1-or-later"
 
-  livecheck do
-    url :stable
+  bottle do
+    sha256 arm64_big_sur: "ffb98f11bf159e2352d8ed7ca0bb4c62c48f4ba5781c7e2757a02ad5458fc1a0"
+    sha256 big_sur:       "b5c8dfff1540875f6bd03ec4a7e58ba68d5df65597e80eb7e469ce88c6bd4175"
+    sha256 catalina:      "0c2d2161a8f65a3728e479d26ba2dc736e163b7fe902ec59666d138bfc0de47e"
+    sha256 mojave:        "44b4a1c68e07df9275cb2275f6852e6b713e306f764833c620542a2cb741e565"
+    sha256 x86_64_linux:  "427e014f684cb2d7b3ddea724baa0d93123564be224efbd8632283df1f9fbd14"
   end
 
-  bottle do
-    sha256 "6c38d94b1b6229fc7d19d0e69f8ef120ce4240d37a92be886aeab5e34975b0b2" => :big_sur
-    sha256 "675eed4ccdb966979a976569153b4fc9e7523f33e745bf4af6816c57c110f753" => :catalina
-    sha256 "d2f9ce09157721d7c2b6b989c999b286e26e6cd626c98d8dd110cf5465091891" => :mojave
-  end
+  # See: https://gitlab.gnome.org/Archive/tepl
+  deprecate! date: "2021-05-25", because: :repo_archived
 
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
@@ -25,8 +26,8 @@ class Tepl < Formula
 
   # Submitted upstream at https://gitlab.gnome.org/GNOME/tepl/-/merge_requests/8
   patch do
-    url "https://gitlab.gnome.org/GNOME/tepl/-/commit/a8075b0685764d1243762e569fc636fa4673d244.patch"
-    sha256 "cf4966f9975026ad349eac05980bdbc6cdfc2ed581b04c099ed892777db0767c"
+    url "https://gitlab.gnome.org/GNOME/tepl/-/commit/a8075b0685764d1243762e569fc636fa4673d244.diff"
+    sha256 "b5d646c194955b0c14bbb7604c96e237a82632dc548f66f2d0163595ef18ee88"
   end
 
   def install
@@ -98,7 +99,7 @@ class Tepl < Formula
       -L#{lib}
       -L#{pango.opt_lib}
       -latk-1.0
-      -lamtk-5.0
+      -lamtk-5
       -lcairo
       -lcairo-gobject
       -lgdk-3
@@ -106,13 +107,15 @@ class Tepl < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -ltepl-5
+      -ltepl-6
       -lgtk-3
-      -lgtksourceview-4.0
-      -lintl
+      -lgtksourceview-4
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

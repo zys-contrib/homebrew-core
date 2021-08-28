@@ -1,17 +1,20 @@
 class Openvdb < Formula
   desc "Sparse volume processing toolkit"
   homepage "https://www.openvdb.org/"
-  url "https://github.com/AcademySoftwareFoundation/openvdb/archive/v7.0.0.tar.gz"
-  sha256 "97bc8ae35ef7ccbf49a4e25cb73e8c2eccae6b235bac86f2150707efcd1e910d"
+  # Check whether this can be switched to `openexr`, `imath`, and `tbb` at version bump
+  # https://github.com/AcademySoftwareFoundation/openvdb/issues/1034
+  # https://github.com/AcademySoftwareFoundation/openvdb/issues/932
+  url "https://github.com/AcademySoftwareFoundation/openvdb/archive/v8.1.0.tar.gz"
+  sha256 "3e09d47331429be7409a3a3c27fdd3c297f96d31d2153febe194e664a99d6183"
   license "MPL-2.0"
-  revision 2
-  head "https://github.com/AcademySoftwareFoundation/openvdb.git"
+  head "https://github.com/AcademySoftwareFoundation/openvdb.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 "9b19f5e3486376fa6ec29d40f4b6517725d377320674d5ddb5ec26c4cfc1bb3e" => :big_sur
-    sha256 "4259cbdb907f5190f19ef9aa14cea92e68f94513a5ab37c10f7c5f81f51bfaf9" => :catalina
-    sha256 "bd7827344942ebbc393beaecec6e58d55e2ab5d4ba7204deaf5f5aeeba4f4de2" => :mojave
+    sha256 cellar: :any,                 arm64_big_sur: "3b009e6f335c6dd6264c391ede13d7dcda7731851f8e6bb8d7f1395d1baa1338"
+    sha256 cellar: :any,                 big_sur:       "09b92c96f974aa12123a31b92c5cda3fec0678d6491c5e9895d7cdd8dbfdde50"
+    sha256 cellar: :any,                 catalina:      "55ec23082cdec8e584dbacc3b566430a6d83f847b7fbaf58fcc817e05194b255"
+    sha256 cellar: :any,                 mojave:        "2a82056566ede58322204b6881cd00600b210d8fd9a781fc46499a39d254830a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8c1520e74d9762f6aa607dae1a6d1a111e83808f3f7458c986b3e498fd3487d"
   end
 
   depends_on "cmake" => :build
@@ -21,8 +24,14 @@ class Openvdb < Formula
   depends_on "glfw"
   depends_on "ilmbase"
   depends_on "jemalloc"
-  depends_on "openexr"
-  depends_on "tbb"
+  depends_on "openexr@2"
+  depends_on "tbb@2020"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   resource "test_file" do
     url "https://artifacts.aswf.io/io/aswf/openvdb/models/cube.vdb/1.0.0/cube.vdb-1.0.0.zip"
@@ -33,6 +42,7 @@ class Openvdb < Formula
     cmake_args = [
       "-DDISABLE_DEPENDENCY_VERSION_CHECKS=ON",
       "-DOPENVDB_BUILD_DOCS=ON",
+      "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{rpath}",
     ]
 
     mkdir "build" do
@@ -43,6 +53,6 @@ class Openvdb < Formula
 
   test do
     resource("test_file").stage testpath
-    system "#{bin}/vdb_print", "-m", "cube.vdb"
+    system bin/"vdb_print", "-m", "cube.vdb"
   end
 end

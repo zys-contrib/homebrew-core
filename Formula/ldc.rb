@@ -1,44 +1,64 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
-  url "https://github.com/ldc-developers/ldc/releases/download/v1.24.0/ldc-1.24.0-src.tar.gz"
-  sha256 "fd9561ade916e9279bdcc166cf0e4836449c24e695ab4470297882588adbba3c"
+  url "https://github.com/ldc-developers/ldc/releases/download/v1.27.1/ldc-1.27.1-src.tar.gz"
+  sha256 "93c8f500b39823dcdabbd73e1bcb487a1b93cb9a60144b0de1c81ab50200e59c"
   license "BSD-3-Clause"
-  head "https://github.com/ldc-developers/ldc.git", shallow: false
+  head "https://github.com/ldc-developers/ldc.git"
 
   livecheck do
-    url "https://github.com/ldc-developers/ldc/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    sha256 "50fbf7f844bdbf0b7ddadfd4e028509192fe0c12f7c2dfafd57158d649856a82" => :catalina
-    sha256 "fbb02c825000d7e2d68061d390279769eb0ee332f8dffc5fabb405e42df0dee6" => :mojave
-    sha256 "64cd2a36a85803fe72ee075f35b1a71d4e5f3ddf06115c8885df72874abfec0d" => :high_sierra
+    sha256 arm64_big_sur: "a08707a392ab7328a11f2534ce7831b41c082da562593071eff4cd2c97e05940"
+    sha256 big_sur:       "105e995ace02a6d41a833f1405192d0f7551c4b74d11760c69cf95eaa77c5518"
+    sha256 catalina:      "858571e2c58d67e0fe05f94182fcff9249dd09bc56ad0c6b5f20c54065a5987d"
+    sha256 mojave:        "7d36db8c9ff855a75fa5c93c992d7269e836b2562aece4de20185df77fbf04f4"
+    sha256 x86_64_linux:  "a0df8131a2a5bb4a829714f880287447f50db1fef119caadf840a227c8024594"
   end
 
   depends_on "cmake" => :build
   depends_on "libconfig" => :build
-  depends_on "llvm@9" # due to a bug in llvm 10 https://bugs.llvm.org/show_bug.cgi?id=47226
+  depends_on "pkg-config" => :build
+  depends_on "llvm"
 
   uses_from_macos "libxml2" => :build
 
-  on_linux do
-    depends_on "pkg-config" => :build
-  end
+  fails_with :gcc
 
   resource "ldc-bootstrap" do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.24.0/ldc2-1.24.0-osx-x86_64.tar.xz"
-    sha256 "91b74856982d4d5ede6e026f24e33887d931db11b286630554fc2ad0438cda44"
+    on_macos do
+      if Hardware::CPU.intel?
+        url "https://github.com/ldc-developers/ldc/releases/download/v1.27.1/ldc2-1.27.1-osx-x86_64.tar.xz"
+        sha256 "52d9958c424683d93c61c791029934df6812f32f76872c6647269e8a55939e6b"
+      else
+        url "https://github.com/ldc-developers/ldc/releases/download/v1.27.1/ldc2-1.27.1-osx-arm64.tar.xz"
+        sha256 "d9b5a4c1dbcde921912c7a1a6a719fc8010318036bc75d844bafe20b336629db"
+      end
+    end
+
+    on_linux do
+      # ldc 1.27 requires glibc 2.27, which is too new for Ubuntu 16.04 LTS.  The last version we can bootstrap with
+      # is 1.26.  Change this when we migrate to Ubuntu 18.04 LTS.
+      url "https://github.com/ldc-developers/ldc/releases/download/v1.26.0/ldc2-1.26.0-linux-x86_64.tar.xz"
+      sha256 "06063a92ab2d6c6eebc10a4a9ed4bef3d0214abc9e314e0cd0546ee0b71b341e"
+    end
   end
 
   def install
     ENV.cxx11
     (buildpath/"ldc-bootstrap").install resource("ldc-bootstrap")
 
+    on_linux do
+      # Fix ldc-bootstrap/bin/ldmd2: error while loading shared libraries: libxml2.so.2
+      ENV.prepend_path "LD_LIBRARY_PATH", Formula["libxml2"].lib
+    end
+
     mkdir "build" do
       args = std_cmake_args + %W[
-        -DLLVM_ROOT_DIR=#{Formula["llvm@9"].opt_prefix}
+        -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
         -DINCLUDE_INSTALL_DIR=#{include}/dlang/ldc
         -DD_COMPILER=#{buildpath}/ldc-bootstrap/bin/ldmd2
       ]
@@ -46,6 +66,11 @@ class Ldc < Formula
       system "cmake", "..", *args
       system "make"
       system "make", "install"
+
+      on_macos do
+        # Workaround for https://github.com/ldc-developers/ldc/issues/3670
+        cp Formula["llvm"].opt_lib/"libLLVM.dylib", lib/"libLLVM.dylib"
+      end
     end
   end
 

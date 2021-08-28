@@ -1,8 +1,9 @@
 class Libarchive < Formula
   desc "Multi-format archive and compression library"
   homepage "https://www.libarchive.org"
-  url "https://www.libarchive.org/downloads/libarchive-3.4.3.tar.xz"
-  sha256 "0bfc3fd40491768a88af8d9b86bf04a9e95b6d41a94f9292dbc0ec342288c05f"
+  url "https://www.libarchive.org/downloads/libarchive-3.5.2.tar.xz"
+  sha256 "f0b19ff39c3c9a5898a219497ababbadab99d8178acc980155c7e1271089b5a0"
+  license "BSD-2-Clause"
 
   livecheck do
     url "https://libarchive.org/downloads/"
@@ -10,11 +11,11 @@ class Libarchive < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "8177c2abd5a7eb3cce7ac240d7a5f3144e279f8bd5bdaaa4699a009c56a89ccb" => :big_sur
-    sha256 "ec29541614dd1acd7189e69c6e6a689f959d25e1fb52acf06e52b9a4c38166c4" => :catalina
-    sha256 "5cdfab0da88b4a1141cd2f512ad2815f69191bf7d9adc49e0cb9c814af286688" => :mojave
-    sha256 "df697f70e6100533afeffb949ec2c22c7fcdf23821a2a76c460977cecfbb01b8" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "54ce08391c24b94f6a78380dcaa9829eb3c10b1cf7f9681fa51325034fc5e4a6"
+    sha256 cellar: :any,                 big_sur:       "465c65961a4bb3b17ad6c59ccc3077bf38ef7b3d862bd1d6b4cc4c08a9fdb086"
+    sha256 cellar: :any,                 catalina:      "b6a3b5424cfc25a2514c35988aaa4b1e274105cfeae3f6083ed5864a85c87b6e"
+    sha256 cellar: :any,                 mojave:        "6f5a155af0e351635e4f547c39b8a1a9aea845e043bc996f908b4b10b3385ae4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2628745c8bcf953cecd72ac4b7e0b9a1c3e7136525039aa6c91ee4535fd3cbf4"
   end
 
   keg_only :provided_by_macos
@@ -27,6 +28,11 @@ class Libarchive < Formula
   uses_from_macos "bzip2"
   uses_from_macos "expat"
   uses_from_macos "zlib"
+
+  on_linux do
+    conflicts_with "cpio", because: "both install `cpio` binaries"
+    conflicts_with "gnu-tar", because: "both install `tar` binaries"
+  end
 
   def install
     system "./configure",
@@ -49,6 +55,6 @@ class Libarchive < Formula
   test do
     (testpath/"test").write("test")
     system bin/"bsdtar", "-czvf", "test.tar.gz", "test"
-    assert_match /test/, shell_output("#{bin}/bsdtar -xOzf test.tar.gz")
+    assert_match "test", shell_output("#{bin}/bsdtar -xOzf test.tar.gz")
   end
 end

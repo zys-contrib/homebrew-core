@@ -1,16 +1,16 @@
 class Tengo < Formula
   desc "Fast script language for Go"
   homepage "https://tengolang.com"
-  url "https://github.com/d5/tengo/archive/v2.6.2.tar.gz"
-  sha256 "6ec3e8d668aa2451cab9adfa3c8712660eac2622bf60e1e45d5bdb198433eb79"
+  url "https://github.com/d5/tengo/archive/v2.8.0.tar.gz"
+  sha256 "445c7e240b1281359409f63804371424bba0b6ccb5e73465e9d9d5737261b2fd"
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cb5e85ed9514dee925ffa888f3227e51dce06a1729df74dc7bc9af2415a22dee" => :big_sur
-    sha256 "85740f093117930ce8a885a1fd9cad7e260c222d2e38be2d7299464806bffee8" => :catalina
-    sha256 "843a89b74e67bc348c99419750292fd0e4ff2c77913badb99a4de784493c75b1" => :mojave
-    sha256 "035c213b4c8b252bfb81667a80b3bdef77bdb0dd7bed28fa7c557b1958f0e3e1" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9b6280d3ff67dcc14e298cb3907bf43ddac9929f5ad2fa379a66594fc9eb6f7a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ef70b95dc064e4f69cbff40bd5ddc35016e583dcce360c5c00b2dd34c866c9d0"
+    sha256 cellar: :any_skip_relocation, catalina:      "ef70b95dc064e4f69cbff40bd5ddc35016e583dcce360c5c00b2dd34c866c9d0"
+    sha256 cellar: :any_skip_relocation, mojave:        "ef70b95dc064e4f69cbff40bd5ddc35016e583dcce360c5c00b2dd34c866c9d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "009006527b6ea9e9865650e12f19b3c86f71d5939d2212fcc472ff65b29ce27a"
   end
 
   depends_on "go" => :build

@@ -1,27 +1,22 @@
 class F3d < Formula
   desc "Fast and minimalist 3D viewer"
   homepage "https://kitware.github.io/F3D/"
-  url "https://gitlab.kitware.com/f3d/f3d/-/archive/v1.0.1/f3d-v1.0.1.tar.gz"
-  sha256 "fb362dba3ccf49db9e8841d8a5310f37399bfea8866b6e040ce85670d54b97f7"
+  url "https://gitlab.kitware.com/f3d/f3d/-/archive/v1.1.0/f3d-v1.1.0.tar.gz"
+  sha256 "93aa9759efcc4e77beac4568280aaeaca21bfb233d3c9f60262207ca595bde79"
   license "BSD-3-Clause"
+  revision 2
 
   bottle do
-    cellar :any
-    sha256 "0bf1315a83f055c0a31d93d4ef7d906e774b8271979e4727ab3b544452a531b1" => :big_sur
-    sha256 "09a4635338429517f2892be552dc1909aabb4b433d6ade7515826cec6588f0c3" => :catalina
-    sha256 "d70d0469a39e6201238cb5212d6b900528d60dd19bc6949da2966a2c273b372b" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "b199843d36c965a4ca51147d3114bfd5c9fd4a6aa1867b0bd7c34946734ddcd5"
+    sha256 cellar: :any, big_sur:       "0fee7380115fcabee6ded441b91a607435b13da1b6fc478bc1db6101c779d1a3"
+    sha256 cellar: :any, catalina:      "916545a539076217350a0858fcb0e016992c054ca48eccbad26c46091233419d"
+    sha256 cellar: :any, mojave:        "0965ddce0fe74abbfb857fe585d1f504fc2758434d5a22f64663f2c519466193"
   end
 
   depends_on "cmake" => :build
   depends_on "vtk"
 
   def install
-    # Is fixed upstream, remove this line for v1.1
-    inreplace "src/F3DOptions.cxx",
-      "directoryPath = vtksys::SystemTools::GetProgramPath(programFilePath);",
-      "programFilePath = vtksys::SystemTools::GetRealPath(programFilePath);" \
-      "directoryPath = vtksys::SystemTools::GetProgramPath(programFilePath);"
-
     args = std_cmake_args + %W[
       -DMACOSX_BUILD_BUNDLE:BOOL=OFF
       -DBUILD_SHARED_LIBS:BOOL=ON
@@ -48,8 +43,8 @@ class F3d < Formula
     EOS
 
     f3d_out = shell_output("#{bin}/f3d --verbose --no-render --geometry-only #{testpath}/test.obj 2>&1").strip
-    assert_match /Loading.+obj/, f3d_out
-    assert_match /Number of points: 3/, f3d_out
-    assert_match /Number of polygons: 1/, f3d_out
+    assert_match(/Loading.+obj/, f3d_out)
+    assert_match "Number of points: 3", f3d_out
+    assert_match "Number of polygons: 1", f3d_out
   end
 end

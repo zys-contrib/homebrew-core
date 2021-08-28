@@ -5,14 +5,12 @@ class Glade < Formula
   sha256 "98fc87647d88505c97dd2f30f2db2d3e9527515b3af11694787d62a8d28fbab7"
   license "LGPL-2.1-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    sha256 "0fb77b21e6176c6690410a76d843f4582c1ef833e54ce5efa620bfce514e7af7" => :big_sur
-    sha256 "e5c239c3d05350ff8a8710ce6beecf7fd22461336e77d55febb338b6a1456a61" => :catalina
-    sha256 "0b641d56f385a798fafe8fe424191de83207dea5b0edcf9d06c8b8b03ad0c68f" => :mojave
+    sha256 arm64_big_sur: "2a55e22c571d0d158c1b66bf18c35c44aeaed0694d139f13c48f5a6642b4785b"
+    sha256 big_sur:       "0fb77b21e6176c6690410a76d843f4582c1ef833e54ce5efa620bfce514e7af7"
+    sha256 catalina:      "e5c239c3d05350ff8a8710ce6beecf7fd22461336e77d55febb338b6a1456a61"
+    sha256 mojave:        "0b641d56f385a798fafe8fe424191de83207dea5b0edcf9d06c8b8b03ad0c68f"
+    sha256 x86_64_linux:  "1ab1f368edebbb88fd763659089ffa8f987f2416583f3f59fb732300088b4f8e"
   end
 
   depends_on "docbook-xsl" => :build
@@ -24,9 +22,14 @@ class Glade < Formula
   depends_on "adwaita-icon-theme"
   depends_on "gettext"
   depends_on "gtk+3"
-  depends_on "gtk-mac-integration"
   depends_on "hicolor-icon-theme"
   depends_on "libxml2"
+
+  uses_from_macos "libxslt" => :build
+
+  on_macos do
+    depends_on "gtk-mac-integration"
+  end
 
   def install
     # Find our docbook catalog
@@ -48,7 +51,8 @@ class Glade < Formula
 
   test do
     # executable test (GUI)
-    system "#{bin}/glade", "--version"
+    # fails in Linux CI with (glade:20337): Gtk-WARNING **: 21:45:31.876: cannot open display:
+    on_macos { system "#{bin}/glade", "--version" }
     # API test
     (testpath/"test.c").write <<~EOS
       #include <gladeui/glade.h>
@@ -111,11 +115,13 @@ class Glade < Formula
       -lglib-2.0
       -lgobject-2.0
       -lgtk-3
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
       -lxml2
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

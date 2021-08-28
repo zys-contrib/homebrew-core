@@ -1,37 +1,31 @@
 class BoostBuild < Formula
   desc "C++ build system"
   homepage "https://www.boost.org/build/"
-  url "https://github.com/boostorg/build/archive/boost-1.73.0.tar.gz"
-  sha256 "3490f9859a08cf46d963f0cfb834d30cd2c9f4cf5e0738dc19287b5849a316c2"
+  url "https://github.com/boostorg/build/archive/boost-1.77.0.tar.gz"
+  sha256 "17ad1addbc08d1cc6ef52f7140097915bc4904c28c7d6d733c4a1a20d40bbc1c"
   license "BSL-1.0"
   version_scheme 1
-  head "https://github.com/boostorg/build.git"
+  head "https://github.com/boostorg/build.git", branch: "develop"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^boost[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6ec734b5891c13db71b2698cf897b25758e4d9e65e0f907b6976655286cf76a5" => :big_sur
-    sha256 "f6bb502b7848e98f4b184c2bf2604cc005e4bad599b1078a35119c2e8a2dccf1" => :catalina
-    sha256 "68b1dea12cdbab911e66842020a3f66690b85612ccf539e337ed71129747ed89" => :mojave
-    sha256 "2422cb690b00b75fa6dd4bfe63e7a775abd7659a537a627aec33115af051907e" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e73b2881104b13fef6c2c6a0fff30bd2bf41ff998936850a0d9cbc7cac5b86b1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "651353d33f97fa5183c9acde956f7cfd67e36f288a4a35afaf907838e69dca36"
+    sha256 cellar: :any_skip_relocation, catalina:      "bc8909293558dd1d3c55a9d2d5cdfa155e63b3540da63a719a33fa872f371921"
+    sha256 cellar: :any_skip_relocation, mojave:        "26da04379b8dd9506778273f12277eb00b257653c11502d8ff50d3218587cc10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9119799f6a153292e094509fdce67cb553b83cb8f32db717324b7a529cf99939"
   end
 
   conflicts_with "b2-tools", because: "both install `b2` binaries"
 
-  # Fix Xcode 11.4 compatibility.
-  # Remove with the next release.
-  patch do
-    url "https://github.com/boostorg/build/commit/b3a59d265929a213f02a451bb63cea75d668a4d9.patch?full_index=1"
-    sha256 "04a4df38ed9c5a4346fbb50ae4ccc948a1440328beac03cb3586c8e2e241be08"
-  end
-
   def install
     system "./bootstrap.sh"
     system "./b2", "--prefix=#{prefix}", "install"
+    pkgshare.install "boost-build.jam"
   end
 
   test do
@@ -42,7 +36,9 @@ class BoostBuild < Formula
     (testpath/"Jamroot.jam").write("exe hello : hello.cpp ;")
 
     system bin/"b2", "release"
-    out = Dir["bin/darwin-*/release/hello"]
+
+    compiler = File.basename(ENV.cc)
+    out = Dir["bin/#{compiler}*/release/hello"]
     assert out.length == 1
     assert_predicate testpath/out[0], :exist?
     assert_equal "Hello world", shell_output(out[0])

@@ -1,22 +1,22 @@
 class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
-  url "https://github.com/google/or-tools/archive/v8.0.tar.gz"
-  sha256 "ac01d7ebde157daaeb0e21ce54923a48e4f1d21faebd0b08a54979f150f909ee"
+  url "https://github.com/google/or-tools/archive/v9.0.tar.gz"
+  sha256 "fa7700b614ea2a5b2b6e37b76874bd2c3f04a80f03cbbf7871a2d2d5cd3a6091"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/google/or-tools.git"
 
   livecheck do
-    url "https://github.com/google/or-tools/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    cellar :any
-    sha256 "07a181c96be3b85baae0733608951628fcfc6d3e4aa7d867a54d2eb0d7e5bf0c" => :big_sur
-    sha256 "228404a86e3474bc2db1ab8c30344385d2f25e147ce5dbeabd7f8b3d4c80630c" => :catalina
-    sha256 "e2fd75040b662a648b7b38003f8bd3e275ad8ac0aab8d8bbdcef34f0e9e90316" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "2e20a4c6156c99bc5adddff41fdb089de87e3ab2bd1f12d635507cc7473060e0"
+    sha256 cellar: :any, big_sur:       "94132d3b6f84eec31adbcc8ef6a0ae3864a20bd2fc7ac3a397cec9fff859c291"
+    sha256 cellar: :any, catalina:      "b544d25c7a8303129fe514053e586259bda9917d37ce8be3bedac42808a41032"
+    sha256 cellar: :any, mojave:        "891e86fe2441ecd820ed381d4c86697dbf03b6a47fa5cb713d4c21a8fe44fac8"
   end
 
   depends_on "cmake" => :build
@@ -26,8 +26,6 @@ class OrTools < Formula
   depends_on "cgl"
   depends_on "clp"
   depends_on "coinutils"
-  depends_on "gflags"
-  depends_on "glog"
   depends_on "osi"
   depends_on "protobuf"
 
@@ -45,22 +43,17 @@ class OrTools < Formula
     # Linear Solver & Glop Solver
     system ENV.cxx, "-std=c++17",
            "-I#{include}", "-L#{lib}", "-lortools",
-           "-L#{Formula["gflags"].opt_lib}", "-lgflags",
-           "-L#{Formula["glog"].opt_lib}", "-lglog",
+           "-L#{Formula["abseil"].opt_lib}", "-labsl_time",
            pkgshare/"simple_lp_program.cc", "-o", "simple_lp_program"
     system "./simple_lp_program"
     # Routing Solver
     system ENV.cxx, "-std=c++17",
            "-I#{include}", "-L#{lib}", "-lortools",
-           "-L#{Formula["gflags"].opt_lib}", "-lgflags",
-           "-L#{Formula["glog"].opt_lib}", "-lglog",
            pkgshare/"simple_routing_program.cc", "-o", "simple_routing_program"
     system "./simple_routing_program"
     # Sat Solver
     system ENV.cxx, "-std=c++17",
            "-I#{include}", "-L#{lib}", "-lortools",
-           "-L#{Formula["gflags"].opt_lib}", "-lgflags",
-           "-L#{Formula["glog"].opt_lib}", "-lglog",
            pkgshare/"simple_sat_program.cc", "-o", "simple_sat_program"
     system "./simple_sat_program"
   end

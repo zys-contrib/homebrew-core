@@ -2,15 +2,16 @@ class Argocd < Formula
   desc "GitOps Continuous Delivery for Kubernetes"
   homepage "https://argoproj.io"
   url "https://github.com/argoproj/argo-cd.git",
-      tag:      "v1.7.10",
-      revision: "bcb05b0c2e0f8006aa2d2abaf780e73c9e73c945"
+      tag:      "v2.0.5",
+      revision: "4c94d886f56bcb2f9d5b3251fdc049c2d1354b88"
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1242f304ab3f70e8c7301e1f0b319576799dbb0b8eb42bbe1ea716b1ccd4005b" => :big_sur
-    sha256 "6099dfb387414cf1020b4842bae955523465e665c9018b9f87c63af9e2e13722" => :catalina
-    sha256 "a6a29f0d77cde398d835dabf71ae5c4555a6bb419a0b4b96fec2006f0e668b54" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0745c99d82b1b040663cf620fcab3f4d1a236e938ced81371683c62d28c0f309"
+    sha256 cellar: :any_skip_relocation, big_sur:       "57befda523e53d7fc95958b4f3838d659f58376c6e24b6dba16c0a1fc339c772"
+    sha256 cellar: :any_skip_relocation, catalina:      "faff4aeda6104aaf51f076351eed0f2f7c183daaa233efec10cca1f9ac1def69"
+    sha256 cellar: :any_skip_relocation, mojave:        "30b62ec6e5bb23470bc7648793cc0e28ca5af2194937b20c0726c9e89c5cfb8d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4261b573789019b3e8c232152facb13a23ecb292d23ae82868ad80a5b8bca1a2"
   end
 
   depends_on "go" => :build
@@ -20,6 +21,7 @@ class Argocd < Formula
     inreplace "Makefile", "CGO_ENABLED=0", ""
     system "make", "cli-local"
     bin.install "dist/argocd"
+    bin.install_symlink "argocd" => "argocd-util"
 
     output = Utils.safe_popen_read("#{bin}/argocd", "completion", "bash")
     (bash_completion/"argocd").write output
@@ -30,6 +32,9 @@ class Argocd < Formula
   test do
     assert_match "argocd controls a Argo CD server",
       shell_output("#{bin}/argocd --help")
+
+    assert_match "argocd-util has internal utility tools used by Argo CD",
+      shell_output("#{bin}/argocd-util --help")
 
     # Providing argocd with an empty config file returns the contexts table header
     touch testpath/"argocd-config"

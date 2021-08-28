@@ -6,18 +6,17 @@ class Py2cairo < Formula
   license "LGPL-2.1"
   revision 1
 
-  livecheck do
-    url :stable
-    regex(/^v?(1\.18(?:\.\d+)*)$/i)
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "de68fca224353b7e7b8426e24324fdb6fd0cc5a6180db4ad0ccd02b43919b0bc"
+    sha256 cellar: :any, big_sur:       "80feea24d8039acef848c76075f8911493762d75b883b56bf4d87f14d5a3bbac"
+    sha256 cellar: :any, catalina:      "78ab70984d612ac9feba4d673615e3918110aebc4aa0b360a854e81fc7ac0ea7"
+    sha256 cellar: :any, mojave:        "f01c39e8f71339cdec156309fb7358f5bb3e292fb0a84a071c3a935b58234120"
+    sha256 cellar: :any, high_sierra:   "76dbdbbd42c2a59cae7e9ddc05ad26d331194c8a132e24e7316ceb551a40272b"
   end
 
-  bottle do
-    cellar :any
-    sha256 "80feea24d8039acef848c76075f8911493762d75b883b56bf4d87f14d5a3bbac" => :big_sur
-    sha256 "78ab70984d612ac9feba4d673615e3918110aebc4aa0b360a854e81fc7ac0ea7" => :catalina
-    sha256 "f01c39e8f71339cdec156309fb7358f5bb3e292fb0a84a071c3a935b58234120" => :mojave
-    sha256 "76dbdbbd42c2a59cae7e9ddc05ad26d331194c8a132e24e7316ceb551a40272b" => :high_sierra
-  end
+  # Python 2 support was dropped in version 1.19.0 and this formula is pinned
+  # to the last preceding version.
+  deprecate! date: "2021-03-15", because: :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "cairo"

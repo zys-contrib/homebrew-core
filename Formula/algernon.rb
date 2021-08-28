@@ -1,33 +1,31 @@
 class Algernon < Formula
   desc "Pure Go web server with Lua, Markdown, HTTP/2 and template support"
-  homepage "https://algernon.roboticoverlords.org/"
-  url "https://github.com/xyproto/algernon/archive/1.12.8.tar.gz"
-  sha256 "562d6f1145980d5e4c8eaefc2780801b163d228720599f22165135182018d6bf"
+  homepage "https://github.com/xyproto/algernon"
+  url "https://github.com/xyproto/algernon/archive/1.12.14.tar.gz"
+  sha256 "cab5b01923142e0326ea2a01797814bb2e8ea9f7c6c41a3ea0ae7df3b667e86e"
   license "MIT"
-  revision 1
   version_scheme 1
-  head "https://github.com/xyproto/algernon.git"
+  head "https://github.com/xyproto/algernon.git", branch: "main"
 
   livecheck do
-    url "https://github.com/xyproto/algernon/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f37e15b90dc31fdcecdeba0b30e97387488aa055a6abf98fb8d81cb6430401ac" => :big_sur
-    sha256 "86789f00d6b8d3469c5d3df5087149a72d1673cb7f2b7e31360672a6193e4eb2" => :catalina
-    sha256 "71d88d3e20c865c299b4083ce9143b8f5594be8be2d5e6a511d6d7187b8465c3" => :mojave
-    sha256 "b78c41a051aac0d969b8d7b49507a11e3e1b69990efe22aa88f9d5a5d544eb46" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0eaa6910677a3aa0a1be868af31c73e7390d420f41c7950e905d6d52556bde0b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ffe7eed6b3576166e41b66beecdccc47aabed4644119190a1534ec8210fb25cc"
+    sha256 cellar: :any_skip_relocation, catalina:      "57e11ff2b146da5e254189058ec5502bda66d7213996daf8846756cca5de38ec"
+    sha256 cellar: :any_skip_relocation, mojave:        "c06af8b3677a3d46e7be0160533e8da8b7512b848a24105d498c0a9b1d381125"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ccdca9ac607c215c4981e35dc13101c5acc0533edd1a5441bd3c874dea275b2a"
   end
 
-  depends_on "go@1.14" => :build
+  depends_on "go" => :build
 
   def install
-    system "go", "build", "-trimpath", "-mod=vendor", "-o", bin/"algernon"
+    system "go", "build", *std_go_args, "-mod=vendor"
 
     bin.install "desktop/mdview"
-    prefix.install_metafiles
   end
 
   test do
@@ -38,7 +36,7 @@ class Algernon < Formula
     end
     sleep 20
     output = shell_output("curl -sIm3 -o- http://localhost:#{port}")
-    assert_match /200 OK.*Server: Algernon/m, output
+    assert_match(/200 OK.*Server: Algernon/m, output)
   ensure
     Process.kill("HUP", pid)
   end

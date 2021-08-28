@@ -3,16 +3,17 @@ class Gitless < Formula
 
   desc "Simplified version control system on top of git"
   homepage "https://gitless.com/"
-  url "https://github.com/gitless-vcs/gitless/archive/v0.8.8.tar.gz"
-  sha256 "470aab13d51baec2ab54d7ceb6d12b9a2937f72d840516affa0cb34a6360523c"
+  url "https://files.pythonhosted.org/packages/9c/2e/457ae38c636c5947d603c84fea1cf51b7fcd0c8a5e4a9f2899b5b71534a0/gitless-0.8.8.tar.gz"
+  sha256 "590d9636d2ca743fdd972d9bf1f55027c1d7bc2ab1d5e877868807c3359b78ef"
   license "MIT"
-  revision 6
+  revision 7
 
   bottle do
-    cellar :any
-    sha256 "7e42410c00782d142475e2ac03b69f0252171896d7810eca236b542f88594bb0" => :big_sur
-    sha256 "a9e98e5ccaa560eecef92231da263ca3e1664ab4cc98009a26fde08a2e139588" => :catalina
-    sha256 "7790557c2d8c054fa08df99abf55a1c37cad8dcfc57342ca5fc2923e7352f8a3" => :mojave
+    sha256 cellar: :any,                 arm64_big_sur: "8fe3da387f2212fe2618a07b2e1682e3bae08be20f105734e21079f0f3df7d79"
+    sha256 cellar: :any,                 big_sur:       "4c845e5cc5e9fafccda5ab5b2dfeb1e9cbbbe8f67ab9c2f72060c09a8d7743e4"
+    sha256 cellar: :any,                 catalina:      "1f52f84f5a9f9c9633e7fc9ef7ef8227431abd37ca6629f33986766b61470cc0"
+    sha256 cellar: :any,                 mojave:        "50884b829598dab4558bc9f338b96b6ac18302c426ad6cfd440d2d721b1cb30a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f96f40ad37f7d67f323345dacd66ec82fbafba42700950f89e2754550deaf2dd"
   end
 
   depends_on "libgit2"
@@ -35,8 +36,8 @@ class Gitless < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/93/1a/ab8c62b5838722f29f3daffcc8d4bd61844aa9b5f437341cc890ceee483b/cffi-1.12.3.tar.gz"
-    sha256 "041c81822e9f84b1d9c401182e174996f0bae9991f33725d059b771744290774"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "clint" do

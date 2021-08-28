@@ -1,18 +1,19 @@
 class Manticoresearch < Formula
   desc "Open source text search engine"
   homepage "https://www.manticoresearch.com"
-  url "https://repo.manticoresearch.com/repository/manticoresearch_source/release/manticore-3.5.2-201002-8b2c175-release-source.tar.gz"
-  version "3.5.2"
-  sha256 "9eb41e68d422a9e0043415ffc5e2f6d39e8d94eae9c843b4b55b54eacc33a517"
-  license "GPL-2.0"
+  url "https://repo.manticoresearch.com/repository/manticoresearch_source/release/manticore-3.6.0-210504-96d61d8-release-source.tar.gz"
+  version "3.6.0"
+  sha256 "320a19c837caf827a75e19e11755a9586487435aeb8b8aa80e8bef552fd5e1f5"
+  license "GPL-2.0-only"
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git"
 
   bottle do
-    sha256 "565ac86782740cac8722fe21fc5ccbfed1396b95975187c8d4ef16601ad75a67" => :big_sur
-    sha256 "6e8eab5ea85129311caca57dd605bae1bad03e7e9a021fbad9c6a2ebc5a204a5" => :catalina
-    sha256 "9413bdb874c9e02936326f22b2f3343d9b4b1312db95c324b12045741f71f729" => :mojave
-    sha256 "173f37791179e84ddf9d4304eee37a3a0ea6485847aa4d8ec7359623e884a1d2" => :high_sierra
+    rebuild 1
+    sha256 arm64_big_sur: "e285345ff7b6a8a99c0cbac69232301a6ad97cd09abae93bfffce5d3885f6ac2"
+    sha256 big_sur:       "11dfe819517e1b8c379d761ed9391192bb585564588a0ee23f85880a4b7e2f8c"
+    sha256 catalina:      "77c342a7a0d4a7c786b2c777b92522ab8b9eae7806074b0f81112cd7890c4d91"
+    sha256 mojave:        "f20768ffb1961f40fe39b3bebd20491f31cd2d91f9c43c4b5897458a50354a06"
   end
 
   depends_on "boost" => :build
@@ -31,6 +32,10 @@ class Manticoresearch < Formula
       -DBoost_NO_BOOST_CMAKE=ON
       -DWITH_ODBC=OFF
     ]
+
+    # Disable support for Manticore Columnar Library on ARM (since the library itself doesn't support it as well)
+    args << "-DWITH_COLUMNAR=OFF" if Hardware::CPU.arm?
+
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, *args
       system "make", "install"
@@ -43,32 +48,10 @@ class Manticoresearch < Formula
     (var/"manticore/data").mkpath
   end
 
-  plist_options manual: "searchd --config #{HOMEBREW_PREFIX}/etc/manticore/manticore.conf"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <false/>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_bin}/searchd</string>
-              <string>--config</string>
-              <string>#{etc}/manticore/manticore.conf</string>
-              <string>--nodetach</string>
-          </array>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"searchd", "--config", etc/"manticore/manticore.conf", "--nodetach"]
+    keep_alive false
+    working_dir HOMEBREW_PREFIX
   end
 
   test do

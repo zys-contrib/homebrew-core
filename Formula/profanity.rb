@@ -1,15 +1,15 @@
 class Profanity < Formula
   desc "Console based XMPP client"
   homepage "https://profanity-im.github.io"
-  url "https://profanity-im.github.io/profanity-0.9.5.tar.gz"
-  sha256 "23f7b2e5c6cf85913b9e7a228802bca9ecb1d1cf3bf8f8f285e9676176a24902"
-  license "GPL-3.0"
+  url "https://profanity-im.github.io/profanity-0.11.0.tar.gz"
+  sha256 "3fc9809816f69186dbb860b27183f6cd2aef0a52a7d14e20e4ef6c3a7f0f3606"
+  license "GPL-3.0-or-later"
 
   bottle do
-    sha256 "e674dc595aef44e934d0ae9ca90b46a42b2b10295b8dcd732f55475cb20c1acb" => :big_sur
-    sha256 "b53f7fbd103d911f55337861bf36957cfaead39e8c38478ed03eceb41b507872" => :catalina
-    sha256 "7112d51c1a187ca47b6d245d5600b46b3f0765efd5f2a215ce1a2d2327f2b884" => :mojave
-    sha256 "21837ee57161928d0389dcd7170245b61e0d2f2c8b2f702dc6127bd98380b477" => :high_sierra
+    sha256 big_sur:      "969adf8ec31291af0845c5908d3aff338fd941dc3b938ece43a1962357f53622"
+    sha256 catalina:     "76b3363d89c561b19cb9ac9a10fa1e81b433545400a2aa0f648b9541a1ffd7bb"
+    sha256 mojave:       "cb5376e9ccd4f1b0f43d5c5f43cf9677f6b87f47a649224b7a2cb41da8a913e9"
+    sha256 x86_64_linux: "8a08554c08409622eaf7c22a20922fce2cd90f54266f11fa59435da5cc7c30b9"
   end
 
   head do
@@ -22,6 +22,8 @@ class Profanity < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python@3.9" => :build
+  depends_on "curl"
   depends_on "glib"
   depends_on "gnutls"
   depends_on "gpgme"
@@ -31,13 +33,13 @@ class Profanity < Formula
   depends_on "openssl@1.1"
   depends_on "readline"
 
-  uses_from_macos "curl"
-
   on_macos do
     depends_on "terminal-notifier"
   end
 
   def install
+    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
+
     system "./bootstrap.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",

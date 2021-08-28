@@ -1,38 +1,17 @@
 class Emacs < Formula
   desc "GNU Emacs text editor"
   homepage "https://www.gnu.org/software/emacs/"
+  url "https://ftp.gnu.org/gnu/emacs/emacs-27.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/emacs/emacs-27.2.tar.xz"
+  sha256 "b4a7cc4e78e63f378624e0919215b910af5bb2a0afc819fad298272e9f40c1b9"
   license "GPL-3.0-or-later"
 
-  stable do
-    url "https://ftp.gnu.org/gnu/emacs/emacs-27.1.tar.xz"
-    mirror "https://ftpmirror.gnu.org/emacs/emacs-27.1.tar.xz"
-    sha256 "4a4c128f915fc937d61edfc273c98106711b540c9be3cd5d2e2b9b5b2f172e41"
-
-    # The emacs binary is patched with a signature after linking. This invalidates the code
-    # signature. Code signing is required on Apple Silicon. This patch adds a step to resign
-    # the binary after it is patched.
-    patch do
-      url "https://github.com/emacs-mirror/emacs/commit/868f51324ac96bc3af49a826e1db443548c9d6cc.patch?full_index=1"
-      sha256 "d2b19fcca66338d082c15fa11d57abf7ad6b40129478bef4c6234c19966db988"
-    end
-
-    # Back-ported patch for configure and configure.guess to allow configure to complete
-    # for aarch64-apple-darwin targets.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/25c1e1797d4004a9e5b9453779399afc63d04b97/emacs/arm.patch"
-      sha256 "5f812fc413b722e294c7f7abd38f3a9bbda84ec68537cea42900a81e57c7ecb1"
-    end
-  end
-
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    sha256 "054fd70aa5e4c6bf44b5f37d965e49f415abaf7a94566ad1ac89780256537bee" => :big_sur
-    sha256 "6586559b5aa8c51ce6cc7738abe4796ef7e803ab3389dc2e30eda7bb5e46b85d" => :catalina
-    sha256 "6704d9430ac4b602a5dc7046f845d8b93d00cb509fc70244403f14af6c97bc3b" => :mojave
-    sha256 "a4808d9f5433bcc9512ae4c62dba04b7954a1c0ee47e01b34ba5a401f227f375" => :high_sierra
+    sha256 arm64_big_sur: "f08cd18fa19f49b85606cc4a871272ef4ff9da656c4c952bd91ac03a70dbb0e3"
+    sha256 big_sur:       "5d3af874e5acd76ddc881406ed1e7db8b84f96e01812961f3bee347d278a28ac"
+    sha256 catalina:      "53b0d78af688a20e12e89751217c9da81cc9621222f289836d44011762355879"
+    sha256 mojave:        "4b3cd25d5f6977ecad49d9b5ebd2dec3c7e41efa8f4f22d2805917e0024cf3af"
+    sha256 x86_64_linux:  "3a22201d4ecf2d32fc7a0d402e14e20ce043bc25b6ac53ec15d48f585e51c9e2"
   end
 
   head do
@@ -55,6 +34,11 @@ class Emacs < Formula
   end
 
   def install
+    # Mojave uses the Catalina SDK which causes issues like
+    # https://github.com/Homebrew/homebrew-core/issues/46393
+    # https://github.com/Homebrew/homebrew-core/pull/70421
+    ENV["ac_cv_func_aligned_alloc"] = "no" if MacOS.version == :mojave
+
     args = %W[
       --disable-silent-rules
       --enable-locallisppath=#{HOMEBREW_PREFIX}/share/emacs/site-lisp
@@ -67,6 +51,7 @@ class Emacs < Formula
       --with-modules
       --without-ns
       --without-imagemagick
+      --without-selinux
     ]
 
     if build.head?
@@ -92,28 +77,9 @@ class Emacs < Formula
     (man1/"ctags.1.gz").unlink
   end
 
-  plist_options manual: "emacs"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/emacs</string>
-          <string>--fg-daemon</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"emacs", "--fg-daemon"]
+    keep_alive true
   end
 
   test do

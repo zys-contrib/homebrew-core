@@ -13,22 +13,15 @@ class Ntfs3g < Formula
     end
   end
 
-  livecheck do
-    url :head
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "512daef6a2d9d74416ebb67c08d1c750cae0ba717b6338bd188b3434ad5725db" => :catalina
-    sha256 "58304b5065b3ec2e32f2e455c9cc2bcd7f60b6f177c57c60dd0a3eb607d6d4a1" => :mojave
-    sha256 "0c52a06810814dafc2837fa631a08e607a49da99e3be000ee61cd763f24ca7fc" => :high_sierra
+    sha256 cellar: :any, catalina:    "512daef6a2d9d74416ebb67c08d1c750cae0ba717b6338bd188b3434ad5725db"
+    sha256 cellar: :any, mojave:      "58304b5065b3ec2e32f2e455c9cc2bcd7f60b6f177c57c60dd0a3eb607d6d4a1"
+    sha256 cellar: :any, high_sierra: "0c52a06810814dafc2837fa631a08e607a49da99e3be000ee61cd763f24ca7fc"
   end
 
   head do
-    url "https://git.code.sf.net/p/ntfs-3g/ntfs-3g.git",
-        branch: "edge"
+    url "https://git.code.sf.net/p/ntfs-3g/ntfs-3g.git", branch: "edge"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -36,12 +29,17 @@ class Ntfs3g < Formula
     depends_on "libtool" => :build
   end
 
-  deprecate! because: "requires FUSE"
-
   depends_on "pkg-config" => :build
   depends_on "coreutils" => :test
   depends_on "gettext"
-  depends_on :osxfuse
+
+  on_macos do
+    disable! date: "2021-04-08", because: "requires closed-source macFUSE"
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     ENV.append "LDFLAGS", "-lintl"
@@ -95,6 +93,18 @@ class Ntfs3g < Formula
           "$@" >> /var/log/mount-ntfs-3g.log 2>&1
 
         exit $?;
+      EOS
+    end
+  end
+
+  def caveats
+    on_macos do
+      <<~EOS
+        The reasons for disabling this formula can be found here:
+          https://github.com/Homebrew/homebrew-core/pull/64491
+
+        An external tap may provide a replacement formula. See:
+          https://docs.brew.sh/Interesting-Taps-and-Forks
       EOS
     end
   end

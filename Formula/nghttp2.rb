@@ -1,15 +1,16 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.42.0/nghttp2-1.42.0.tar.xz"
-  sha256 "c5a7f09020f31247d0d1609078a75efadeccb7e5b86fc2e4389189b1b431fe63"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.44.0/nghttp2-1.44.0.tar.xz"
+  sha256 "5699473b29941e8dafed10de5c8cb37a3581edf62ba7d04b911ca247d4de3c5d"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 "caef493f1b11fb991abc2f3802d221b0d7de8941cb74fee1678cbdd739172b37" => :big_sur
-    sha256 "48259656881f1604ecb9c6b95d60ea1e95e62e44407fe641df5129ec9aab9d64" => :catalina
-    sha256 "d0e538dc1cf2b150354a3603aab81bfbcdca2f996741c37b1f34dfb181589307" => :mojave
+    sha256 arm64_big_sur: "457a010c631153515c73fe61432b1bc5f43f47256b51fd91c499a72c238f63f0"
+    sha256 big_sur:       "8db30133ceaeeb92c004d98f43d8142c499c018654dea07aae604201037af848"
+    sha256 catalina:      "4029dae4ea56be84955735e6d1e9694d2bbbbbf85ffc3d0ce751d6c7d3333d74"
+    sha256 mojave:        "e545859a65c983367e439d642988533a4d9c3e664a06049c29fb770c9fafdc7d"
+    sha256 x86_64_linux:  "030dcffbdbe8b3495f6ede4b1dff3e5dd65a943a35413f14e69932c44a6a4ac7"
   end
 
   head do
@@ -20,37 +21,43 @@ class Nghttp2 < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "cunit" => :build
   depends_on "pkg-config" => :build
-  depends_on "sphinx-doc" => :build
   depends_on "c-ares"
-  depends_on "jansson"
   depends_on "jemalloc"
   depends_on "libev"
-  depends_on "libevent"
   depends_on "openssl@1.1"
 
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
+  on_linux do
+    # Fix: shrpx_api_downstream_connection.cc:57:3: error:
+    # array must be initialized with a brace-enclosed initializer
+    # https://github.com/nghttp2/nghttp2/pull/1269
+    patch do
+      url "https://github.com/nghttp2/nghttp2/commit/829258e7038fe7eff849677f1ccaeca3e704eb67.patch?full_index=1"
+      sha256 "c4bcf5cf73d5305fc479206676027533bb06d4ff2840eb672f6265ba3239031e"
+    end
+  end
+
   def install
-    ENV.cxx11
+    # fix for clang not following C++14 behaviour
+    # https://github.com/macports/macports-ports/commit/54d83cca9fc0f2ed6d3f873282b6dd3198635891
+    inreplace "src/shrpx_client_handler.cc", "return dconn;", "return std::move(dconn);"
 
     args = %W[
       --prefix=#{prefix}
       --disable-silent-rules
       --enable-app
+      --disable-examples
+      --disable-hpack-tools
       --disable-python-bindings
       --without-systemd
     ]
 
-    # requires thread-local storage features only available in 10.11+
-    args << "--disable-threads" if MacOS.version < :el_capitan
-
     system "autoreconf", "-ivf" if build.head?
     system "./configure", *args
     system "make"
-    system "make", "check"
     system "make", "install"
   end
 

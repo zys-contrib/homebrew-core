@@ -1,17 +1,16 @@
 class GitCinnabar < Formula
   desc "Git remote helper to interact with mercurial repositories"
   homepage "https://github.com/glandium/git-cinnabar"
-  url "https://github.com/glandium/git-cinnabar/archive/0.5.6.tar.gz"
-  sha256 "64c483e93eea5ec9ef142988e272f949428db2ef685aecc31ce112e24f55f3c9"
+  url "https://github.com/glandium/git-cinnabar/archive/0.5.7.tar.gz"
+  sha256 "1f30b79b89b421ba33e47f00a8301da5b7533e10cc6314c4febd23ad6ed4b17b"
   license "GPL-2.0-only"
   head "https://github.com/glandium/git-cinnabar.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c5a93076b2e9594362fa665edf9aab87ad5f6861a179ec2e16fb87241caf135d" => :big_sur
-    sha256 "074ae846819011d8632aadec2f3532dd2c1bf8c36385f09b09b7d8d977c3f411" => :catalina
-    sha256 "049b1d43555be25052dd9857fbdb35a871daf0c4b25b23568d881bac4e69aa75" => :mojave
-    sha256 "ab04140cfeea3a7c0370aae72b4b0ebf98bb5c6b72aaf1fc02cd9cdf7eb3ecce" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8b626b0efd0fa40519709c9611ac32134adbe6bbe83ca9ac4068a2f8ce5babc6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "68a335fc1ed34f8207dc50a1772424d25c3f670e8a6ee643d6ac31e95dd7df61"
+    sha256 cellar: :any_skip_relocation, catalina:      "d9b9bdf7c8c135a469842f62b8d95ab68d7135cd3bab11bf350eacc70b9ccd51"
+    sha256 cellar: :any_skip_relocation, mojave:        "c137a58d44bcdc96eac89581334411fe95e5eb98824b558ee4249c30bef9aa67"
   end
 
   depends_on :macos # Due to Python 2

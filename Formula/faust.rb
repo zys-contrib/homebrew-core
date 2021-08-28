@@ -1,15 +1,15 @@
 class Faust < Formula
   desc "Functional programming language for real time signal processing"
   homepage "https://faust.grame.fr"
-  url "https://github.com/grame-cncm/faust/releases/download/2.20.2/faust-2.20.2.tar.gz"
-  sha256 "bea8675446c5e5ef4ac4ba1fb1d64b3a2af99f5f293be0492ccaf32baf7fcb5c"
-  license "GPL-2.0"
+  url "https://github.com/grame-cncm/faust/releases/download/2.33.1/faust-2.33.1.tar.gz"
+  sha256 "7185b43615588e4e52fac5f455ae0078661e20f87da806b31c4942ca377f9a0a"
+  license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "48f36d87c5d99c94dd5480fd24aacf1d12f7a1e0910c7c51d1486d00c732ead7" => :catalina
-    sha256 "1e1c7d96ce8b9aae9742fa9933e3b9f400a0396fb37f1acc493b7af99cee53fe" => :mojave
-    sha256 "a304cdfea4858109db24f99a54f16b95ad451804fd569d1b601bb4ba01921452" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "408e07036801864f2e41bef989fcf378789a286d205cab9d2299e40d7d92ccf4"
+    sha256 cellar: :any, big_sur:       "071c793ef6c12f81dbf18d3b2b8259376728892ae5c4bfef12334fc50510d12b"
+    sha256 cellar: :any, catalina:      "695cb71022281a137a2a360afc17df4612f7739e6c5ff1542605ff59918e4908"
+    sha256 cellar: :any, mojave:        "24af862cea2bdb7dc5435a3beca58b54622219a424b4998986ea9f98808c3702"
   end
 
   depends_on "cmake" => :build

@@ -1,37 +1,42 @@
 class Libosinfo < Formula
   desc "Operating System information database"
   homepage "https://libosinfo.org/"
-  url "https://releases.pagure.org/libosinfo/libosinfo-1.8.0.tar.xz"
-  sha256 "49ff32be0d209f6c99480e28b94340ac3dd0158322ae4303adfbdfe973a108a5"
+  url "https://releases.pagure.org/libosinfo/libosinfo-1.9.0.tar.xz"
+  sha256 "b4f3418154ef3f43d9420827294916aea1827021afc06e1644fc56951830a359"
   license "LGPL-2.0-or-later"
-  revision 3
+  revision 1
 
   livecheck do
     url "https://releases.pagure.org/libosinfo/?C=M&O=D"
-    regex(/href=.*?libosinfo[._-]v?([\d.]+)\.t/i)
+    regex(/href=.*?libosinfo[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 "485f4ed04f60420b754b32014321e797d05a52f56c066ef8e0d5bd084e03b101" => :big_sur
-    sha256 "6a779d888f548649d3482452583ced807c9aceca45bb0989122b22822ec82316" => :catalina
-    sha256 "60e18106b7dca908a79e1edf59cd090ecb3a11d611d84330806aa0941fedb035" => :mojave
-    sha256 "eabb00c969fe4686063a44b6d58170bc566972278d8b27468ac56341e7d083d3" => :high_sierra
+    sha256 arm64_big_sur: "1199868b862e37760d20b26afb666460dd3d3104a9f21861b8265c86085e47c3"
+    sha256 big_sur:       "54aaddce26d9b06828248633b5e1eddfc670ec920c30fcf8bd8b2b7022e5243a"
+    sha256 catalina:      "dbdc6c6b8c1135795a1d160976da8d7c6f95de6cbf0533731e602472330bf92d"
+    sha256 mojave:        "b482b0cd02bf75b2d528cf2d691904ce85826512a0df03aa921564034eb4d1db"
+    sha256 x86_64_linux:  "c5d49269e114512e1a8248673054cf561f0bdbe8e2e15ee591238321496a6164"
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "check"
+  depends_on "vala" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "libsoup"
-  depends_on "libxml2"
+  depends_on "osinfo-db"
   depends_on "usb.ids"
 
+  uses_from_macos "pod2man" => :build
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
+
   resource "pci.ids" do
-    url "https://raw.githubusercontent.com/pciutils/pciids/791050fc4eca1e19db3a985a284081f9038c21aa/pci.ids"
-    sha256 "587aa462719ffa840254e88b7b79fb499da2c3af227496a45d7e8b7c87f790f6"
+    url "https://raw.githubusercontent.com/pciutils/pciids/7906a7b1f2d046072fe5fed27236381cff4c5624/pci.ids"
+    sha256 "255229b8b37474c949736bc4a048a721e31180bb8dae9d8f210e64af51089fe8"
   end
 
   def install
@@ -47,7 +52,7 @@ class Libosinfo < Formula
       system "meson", *std_meson_args, *flags, ".."
       system "ninja", "install", "-v"
     end
-    (share/"osinfo/.keep").write ""
+    share.install_symlink HOMEBREW_PREFIX/"share/osinfo"
   end
 
   test do

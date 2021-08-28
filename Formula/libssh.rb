@@ -1,17 +1,17 @@
 class Libssh < Formula
   desc "C library SSHv1/SSHv2 client and server protocols"
   homepage "https://www.libssh.org/"
-  url "https://www.libssh.org/files/0.9/libssh-0.9.5.tar.xz"
-  sha256 "acffef2da98e761fc1fd9c4fddde0f3af60ab44c4f5af05cd1b2d60a3fa08718"
+  url "https://www.libssh.org/files/0.9/libssh-0.9.6.tar.xz"
+  sha256 "86bcf885bd9b80466fe0e05453c58b877df61afa8ba947a58c356d7f0fab829b"
   license "LGPL-2.1-or-later"
   head "https://git.libssh.org/projects/libssh.git"
 
   bottle do
-    cellar :any
-    sha256 "fe61461e16b891d6e8f52ee03492f0f84de879f80d51d36c86dbfac366608495" => :big_sur
-    sha256 "e990bf70a0eea0f91970ab4e8ffe414cfad55fcba459a7a08d704a3b26200cd3" => :catalina
-    sha256 "9f7af086488d919155cd0c72a66a914b27d278a74d6231d77b07bbafff25ec33" => :mojave
-    sha256 "f6615bdb785f88763212f4b0d393dc302237353abcf299d4d6151531ecbf13f4" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "d6c0de919fb07df2cc4c637eba40c85f2dd19808fae5d7dcabeeb8c9b8477de2"
+    sha256 cellar: :any,                 big_sur:       "cf2110fe6b71f0a5d59a2a4a7bc7badfa5bf53c59bfa2968ac1160519aa7285f"
+    sha256 cellar: :any,                 catalina:      "3aff6528d21c6844b4592862628ab197bb5e34e4c506008d24b63afacc116900"
+    sha256 cellar: :any,                 mojave:        "c230e01e4990691096acce9e33222f51f1db8fa21b93c8998b82efad871afcf3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be12ab5dbd45956b1bd8c26c3c6f5e1a8d7ee20e7e60170a693969f2734309e2"
   end
 
   depends_on "cmake" => :build
@@ -21,10 +21,11 @@ class Libssh < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", "-DWITH_STATIC_LIB=ON",
+      system "cmake", "..", "-DBUILD_STATIC_LIB=ON",
                             "-DWITH_SYMBOL_VERSIONING=OFF",
                             *std_cmake_args
       system "make", "install"
+      lib.install "src/libssh.a"
     end
   end
 
@@ -41,8 +42,8 @@ class Libssh < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lssh",
-           testpath/"test.c", "-o", testpath/"test"
+    system ENV.cc, "-I#{include}", testpath/"test.c",
+           "-L#{lib}", "-lssh", "-o", testpath/"test"
     system "./test"
   end
 end

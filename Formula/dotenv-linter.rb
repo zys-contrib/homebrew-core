@@ -1,17 +1,17 @@
 class DotenvLinter < Formula
   desc "Lightning-fast linter for .env files written in Rust"
   homepage "https://dotenv-linter.github.io"
-  url "https://github.com/dotenv-linter/dotenv-linter/archive/v2.2.1.tar.gz"
-  sha256 "0ccf8f221a84c935bb885b863ba54283cc26a9724aae6a15766a387ccc4d3f4d"
+  url "https://github.com/dotenv-linter/dotenv-linter/archive/v3.1.1.tar.gz"
+  sha256 "6cef2d5ea947f786d7259c3adfb6071fd77909e2889e4721805b4ac50166930c"
   license "MIT"
   head "https://github.com/dotenv-linter/dotenv-linter.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ced7a6252dfccabeef5bebe57d826ff2d47ad169fe675769194ff8a670a74261" => :big_sur
-    sha256 "ea3cd8fbb12d6c5aaa962d20a07f6a3aabb418cf6142a9fff057fecbf63c02cd" => :catalina
-    sha256 "6dc5965ef3f36811e133c28636dec3b06eed99782fbfc980e83d775722a979e0" => :mojave
-    sha256 "8bdecac347a74490c4972a31a4c713cfb438e5531b5dc626fea42d495ad932c3" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bcfbdff2f21f9d7fa1b28bf5edb68c695721eec092b4e240ec68d5102c565050"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5b6fd178bf335818ffc7e35a7f333bb47bb451829c24671e70f4140e37e0e080"
+    sha256 cellar: :any_skip_relocation, catalina:      "2f6ccdd1a2c589bbea2deefdbf5f017a9c0380cc1ee4e6e16f45b0160fe1faa6"
+    sha256 cellar: :any_skip_relocation, mojave:        "ca344c71611590a50f18c25c7dc4a1dc945d018e9de8fb77fb4b67db516761f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39b46bf6ca08601e0af98d5cd1fecb715d1789c1df8e2c358255a2fd93eda0d6"
   end
 
   depends_on "rust" => :build
@@ -21,7 +21,7 @@ class DotenvLinter < Formula
   end
 
   test do
-    checks = shell_output("#{bin}/dotenv-linter --show-checks").split("\n")
+    checks = shell_output("#{bin}/dotenv-linter list").split("\n")
     assert_includes checks, "DuplicatedKey"
     assert_includes checks, "UnorderedKey"
     assert_includes checks, "LeadingCharacter"
@@ -36,8 +36,8 @@ class DotenvLinter < Formula
       _FOO=bar
     EOS
     output = shell_output("#{bin}/dotenv-linter", 1)
-    assert_match /\.env:2\s+DuplicatedKey/, output
-    assert_match /\.env:3\s+UnorderedKey/, output
-    assert_match /\.env.test:1\s+LeadingCharacter/, output
+    assert_match(/\.env:2\s+DuplicatedKey/, output)
+    assert_match(/\.env:3\s+UnorderedKey/, output)
+    assert_match(/\.env.test:1\s+LeadingCharacter/, output)
   end
 end

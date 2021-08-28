@@ -1,36 +1,37 @@
 class Cgns < Formula
   desc "CFD General Notation System"
   homepage "http://cgns.org/"
-  url "https://github.com/CGNS/CGNS/archive/v4.1.2.tar.gz"
-  sha256 "951653956f509b8a64040f1440c77f5ee0e6e2bf0a9eef1248d370f60a400050"
+  url "https://github.com/CGNS/CGNS/archive/v4.2.0.tar.gz"
+  sha256 "090ec6cb0916d90c16790183fc7c2bd2bd7e9a5e3764b36c8196ba37bf1dc817"
   license "BSD-3-Clause"
-  head "https://github.com/CGNS/CGNS.git"
+  revision 1
+  head "https://github.com/CGNS/CGNS.git", branch: "develop"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    cellar :any
-    sha256 "e2e5eb665f0f5c94c7782f0aed3708124705792ff5a7adf945a537369db6d724" => :big_sur
-    sha256 "4371c695cad1aa0bccbaaf0deccb9a8f5ddf7271dcbbddf6307b8d0bc254cec5" => :catalina
-    sha256 "d9904ca7c839a5d0421b99ba784e98fec047971de47efa5d3cc00725cd892e26" => :mojave
-    sha256 "8bfeb33c22f79c998b31fea6aafc60aecf2edf18ea754799c67c012d90555ec9" => :high_sierra
+    sha256 arm64_big_sur: "990a1aa3109f6738e6f35317bbbea723281d1c1ac4ca79ad59eee7c6e86f7ab2"
+    sha256 big_sur:       "ea9d83f6f0d4385054814f42152993db58582e7acd5dbde4b667aa5c7242207d"
+    sha256 catalina:      "517dfe99a307d2f4d96aa4931707596a6862bcd30b64a798375bcd7ec40cc232"
+    sha256 mojave:        "ee6e9edeb0e1b7d7b630501dd2e76091354a05e0f31c2850ca2288ed159445ce"
   end
 
   depends_on "cmake" => :build
-  depends_on "gcc"
+  depends_on "gcc" # for gfortran
   depends_on "hdf5"
   depends_on "szip"
 
   uses_from_macos "zlib"
 
   def install
-    args = std_cmake_args
-    args << "-DCGNS_ENABLE_64BIT=YES" if Hardware::CPU.is_64_bit?
-    args << "-DCGNS_ENABLE_FORTRAN=YES"
-    args << "-DCGNS_ENABLE_HDF5=YES"
+    args = std_cmake_args + %w[
+      -DCGNS_ENABLE_64BIT=YES
+      -DCGNS_ENABLE_FORTRAN=YES
+      -DCGNS_ENABLE_HDF5=YES
+    ]
 
     mkdir "build" do
       system "cmake", "..", *args
@@ -39,7 +40,7 @@ class Cgns < Formula
     end
 
     # Avoid references to Homebrew shims
-    inreplace include/"cgnsBuild.defs", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
+    inreplace include/"cgnsBuild.defs", %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/#{ENV.cc}}, ENV.cc
   end
 
   test do

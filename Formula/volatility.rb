@@ -7,13 +7,12 @@ class Volatility < Formula
   sha256 "a8dfdbdb2aaa0885387b709b821bb8250e698086fb32015bc2896ea55f359058"
   license "GPL-2.0"
   revision 2
-  head "https://github.com/volatilityfoundation/volatility.git"
+  head "https://github.com/volatilityfoundation/volatility.git", branch: "master"
 
   bottle do
-    cellar :any
-    sha256 "f41ce1f3f70a5bb1eab7efac3d74ace7dad7bdf581bcb16b7a09d34e27e38d50" => :catalina
-    sha256 "5bcfa94349a26dc291af274bcf3427851ed2654e36781d05e3774018ee8f7781" => :mojave
-    sha256 "0d156b81c472080d117d567167d7a6d294376bab6d3c4751b4ca343a25fefa3d" => :high_sierra
+    sha256 cellar: :any, catalina:    "f41ce1f3f70a5bb1eab7efac3d74ace7dad7bdf581bcb16b7a09d34e27e38d50"
+    sha256 cellar: :any, mojave:      "5bcfa94349a26dc291af274bcf3427851ed2654e36781d05e3774018ee8f7781"
+    sha256 cellar: :any, high_sierra: "0d156b81c472080d117d567167d7a6d294376bab6d3c4751b4ca343a25fefa3d"
   end
 
   depends_on "freetype"
@@ -156,15 +155,18 @@ class Volatility < Formula
 
     resource("Pillow").stage do
       inreplace "setup.py" do |s|
+        s.gsub! "openjpeg.h", "probably_not_a_header_called_this_eh.hi"
+
         sdkprefix = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
-        s.gsub! "openjpeg.h", "probably_not_a_header_called_this_eh.h"
         s.gsub! "ZLIB_ROOT = None", "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
+
+        jpeg_opt_prefix = Formula["jpeg"].opt_prefix
         s.gsub! "JPEG_ROOT = None",
-                "JPEG_ROOT = ('#{Formula["jpeg"].opt_prefix}/lib', " \
-                             "'#{Formula["jpeg"].opt_prefix}/include')"
+                "JPEG_ROOT = ('#{jpeg_opt_prefix}/lib', '#{jpeg_opt_prefix}/include')"
+
+        freetype_opt_prefix = Formula["freetype"].opt_prefix
         s.gsub! "FREETYPE_ROOT = None",
-                "FREETYPE_ROOT = ('#{Formula["freetype"].opt_prefix}/lib', " \
-                                 "'#{Formula["freetype"].opt_prefix}/include')"
+                "FREETYPE_ROOT = ('#{freetype_opt_prefix}/lib', '#{freetype_opt_prefix}/include')"
       end
 
       begin

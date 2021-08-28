@@ -2,36 +2,30 @@
 class Macvim < Formula
   desc "GUI for vim, made for macOS"
   homepage "https://github.com/macvim-dev/macvim"
-  url "https://github.com/macvim-dev/macvim/archive/snapshot-166.tar.gz"
-  version "8.2-166"
-  sha256 "d9745f01c45fb2c1c99ce3b74bf1db6b888805bbb2d2a570bfb5742828ca601a"
+  url "https://github.com/macvim-dev/macvim/archive/snapshot-171.tar.gz"
+  version "8.2-171"
+  sha256 "1ef6766abefc6d67dd717f1a92aa294304817a462a98153f2696e83340ffce25"
   license "Vim"
   revision 1
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
-    rebuild 1
-    sha256 "b98573c13003954924cd43b50a168749e5c676b694eb17dd83b061f7116c5ef8" => :big_sur
-    sha256 "f6af8203d4992c8164bf30a96707f6e402acfe33c280708ef3e68cf75053b346" => :catalina
-    sha256 "153aacee8534ec783d8325daf5b713caea7f6783b1e50cd29baeba0296a4427b" => :mojave
+    sha256 arm64_big_sur: "87e1904216e8f0131e055f5a44b2c863b812ed855c53f377ec1d0afe81c30230"
+    sha256 big_sur:       "607b58cfc70e02d68aa491f8c968f11341386c6f0972d2a113d41c69658c51a7"
+    sha256 catalina:      "eba980cb563fb4766e330e45d0bb7fa3f1f1be020b3490d0421e0816c266ea19"
+    sha256 mojave:        "a13d4c099c2f0769bfb31fdbafcf9c3a6dd53e583b82d0f2076f39310118ac8b"
   end
 
   depends_on xcode: :build
   depends_on "cscope"
   depends_on "gettext"
   depends_on "lua"
+  depends_on :macos
   depends_on "python@3.9"
   depends_on "ruby"
 
   conflicts_with "vim",
     because: "vim and macvim both install vi* binaries"
-
-  # Fix for Big Sur bug, remove in next version
-  # https://github.com/macvim-dev/macvim/issues/1113
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/bd6637/macvim/big_sur.patch"
-    sha256 "1d3737d664b39f902d22da392869c66397b6b5d8a420d1a83f34f9ffaf963c38"
-  end
 
   def install
     # Avoid issues finding Ruby headers
@@ -57,7 +51,8 @@ class Macvim < Formula
                           "--with-lua-prefix=#{Formula["lua"].opt_prefix}",
                           "--enable-luainterp",
                           "--enable-python3interp",
-                          "--disable-sparkle"
+                          "--disable-sparkle",
+                          "--with-macarchs=#{Hardware::CPU.arch}"
     system "make"
 
     prefix.install "src/MacVim/build/Release/MacVim.app"

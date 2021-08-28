@@ -3,41 +3,41 @@ require "language/node"
 class Lanraragi < Formula
   desc "Web application for archival and reading of manga/doujinshi"
   homepage "https://github.com/Difegue/LANraragi"
-  url "https://github.com/Difegue/LANraragi/archive/v.0.7.4.tar.gz"
-  sha256 "5732df2b959033872fc59981eb74491543836ef71ad83d5d9ecd0da79835708c"
+  url "https://github.com/Difegue/LANraragi/archive/v.0.7.9.tar.gz"
+  sha256 "ca14c0d27d9ad28aba835f14c904406414c4094cab904d1d763a0c7608afa5b6"
   license "MIT"
   head "https://github.com/Difegue/LANraragi.git"
 
   bottle do
-    cellar :any
-    sha256 "e3f87759273fd856ac242a651ea4d5c4cec92939a92a31d7e0808d28e7b7bb9f" => :big_sur
-    sha256 "0815af31c4b839d92e787a4bded8afd0416bcd9f01152db094cfd11714f4caad" => :catalina
-    sha256 "9114bf6aa5a2b13a87d6102028bd07739393ddbf589681e48b97fd309a8fb742" => :mojave
-    sha256 "4e9a6f6f8c47965704f90183682e574d1de54cd3a476bccc2298af18719051cd" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "6618adee2d3b6a71b9cb220cb0907e106094a989784aea575a79978ccdb339a7"
+    sha256 cellar: :any, big_sur:       "3cfd0c8ae777152d21227e7b93f9d9b3a895bd2a14ee46667b8079b8dab4d9c1"
+    sha256 cellar: :any, catalina:      "73afcbc35062d26ac62ebb0edc0caf765af027fcbf26c4396b5ea1c7976f6b73"
+    sha256 cellar: :any, mojave:        "12051614f04822583ba7f352700991e885ee35f804fb60ff7d532b96d5863f00"
   end
 
   depends_on "pkg-config" => :build
   depends_on "cpanminus"
   depends_on "ghostscript"
   depends_on "giflib"
-  depends_on "imagemagick@6"
+  depends_on "imagemagick"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "node"
   depends_on "openssl@1.1"
   depends_on "perl"
   depends_on "redis"
+  depends_on "zstd"
+
   uses_from_macos "libarchive"
 
   resource "Image::Magick" do
-    url "https://cpan.metacpan.org/authors/id/J/JC/JCRISTY/PerlMagick-6.89-1.tar.gz"
-    sha256 "c8f81869a4f007be63e67fddf724b23256f6209f16aa95e14d0eaef283772a59"
+    url "https://cpan.metacpan.org/authors/id/J/JC/JCRISTY/Image-Magick-7.0.11-1.tar.gz"
+    sha256 "734bee16656af5bca94000419d912518842ba6460ac2d0ff07e3e5a0103272e2"
   end
 
-  # libarchive headers from macOS 10.15 source
-  resource "libarchive-headers-10.15" do
-    url "https://opensource.apple.com/tarballs/libarchive/libarchive-72.11.2.tar.gz"
-    sha256 "655b9270db794ba0b27052fd37b1750514b06769213656ab81e30727322e401f"
+  resource "libarchive-headers" do
+    url "https://opensource.apple.com/tarballs/libarchive/libarchive-83.100.2.tar.gz"
+    sha256 "e54049be1b1d4f674f33488fdbcf5bb9f9390db5cc17a5b34cbeeb5f752b207a"
   end
 
   resource "Archive::Peek::Libarchive" do
@@ -46,13 +46,16 @@ class Lanraragi < Formula
   end
 
   def install
-    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
-    ENV.prepend_path "PERL5LIB", libexec/"lib"
-    ENV["CFLAGS"] = "-I"+libexec/"include"
+    ENV.prepend_create_path "PERL5LIB", "#{libexec}/lib/perl5"
+    ENV.prepend_path "PERL5LIB", "#{libexec}/lib"
+    ENV["CFLAGS"] = "-I#{libexec}/include"
+    ENV["OPENSSL_PREFIX"] = Formula["openssl@1.1"].opt_prefix
 
+    imagemagick = Formula["imagemagick"]
     resource("Image::Magick").stage do
       inreplace "Makefile.PL" do |s|
-        s.gsub! "/usr/local/include/ImageMagick-6", "#{Formula["imagemagick@6"].opt_include}/ImageMagick-6"
+        s.gsub! "/usr/local/include/ImageMagick-#{imagemagick.version.major}",
+                "#{imagemagick.opt_include}/ImageMagick-#{imagemagick.version.major}"
       end
 
       system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
@@ -60,9 +63,10 @@ class Lanraragi < Formula
       system "make", "install"
     end
 
-    resource("libarchive-headers-10.15").stage do
-      (libexec/"include").install "libarchive/libarchive/archive.h"
-      (libexec/"include").install "libarchive/libarchive/archive_entry.h"
+    resource("libarchive-headers").stage do
+      cd "libarchive/libarchive" do
+        (libexec/"include").install "archive.h", "archive_entry.h"
+      end
     end
 
     resource("Archive::Peek::Libarchive").stage do
@@ -80,15 +84,12 @@ class Lanraragi < Formula
     system "perl", "./tools/install.pl", "install-full"
 
     prefix.install "README.md"
-    bin.install "tools/build/homebrew/lanraragi"
     (libexec/"lib").install Dir["lib/*"]
-    libexec.install "script"
-    libexec.install "package.json"
-    libexec.install "public"
-    libexec.install "templates"
-    libexec.install "tests"
-    libexec.install "tools/build/homebrew/redis.conf"
-    libexec.install "lrr.conf"
+    libexec.install "script", "package.json", "public", "templates", "tests", "lrr.conf"
+    cd "tools/build/homebrew" do
+      bin.install "lanraragi"
+      libexec.install "redis.conf"
+    end
   end
 
   def caveats
@@ -99,6 +100,13 @@ class Lanraragi < Formula
   end
 
   test do
+    # Make sure lanraragi writes files to a path allowed by the sandbox
+    ENV["LRR_LOG_DIRECTORY"] = ENV["LRR_TEMP_DIRECTORY"] = testpath
+    %w[server.pid shinobu.pid minion.pid].each { |file| touch file }
+
+    # Set PERL5LIB as we're not calling the launcher script
+    ENV["PERL5LIB"] = libexec/"lib/perl5"
+
     # This can't have its _user-facing_ functionality tested in the `brew test`
     # environment because it needs Redis. It fails spectacularly tho with some
     # table flip emoji. So let's use those to confirm _some_ functionality.
@@ -108,6 +116,7 @@ class Lanraragi < Formula
       It appears your Redis database is currently not running.
       The program will cease functioning now.
     EOS
-    assert_match output, shell_output("#{bin}/lanraragi", 1)
+    # Execute through npm to avoid starting a redis-server
+    assert_match output, shell_output("npm start --prefix #{libexec}", 61)
   end
 end

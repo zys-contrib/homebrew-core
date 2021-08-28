@@ -1,8 +1,8 @@
 class K3d < Formula
   desc "Little helper to run Rancher Lab's k3s in Docker"
   homepage "https://k3d.io"
-  url "https://github.com/rancher/k3d/archive/v3.3.0.tar.gz"
-  sha256 "f253337e99685053958d8e799eee6bdc13bf117425d6c8af0a07d5508451a8f2"
+  url "https://github.com/rancher/k3d/archive/v4.4.8.tar.gz"
+  sha256 "d576441faa0b3ec140e5dc3a3f5b2dd8018ddb9b39bc2f19a58a2e66d8e4e074"
   license "MIT"
 
   livecheck do
@@ -11,10 +11,11 @@ class K3d < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a8a778f929bdb8610640ca4633bb1f6295b7b32dfc181b3704d35e6e76be11d0" => :big_sur
-    sha256 "cdd66d870390613591ece810c90775eb624f09e07901c0d25b947bd6c1f94a77" => :catalina
-    sha256 "8246119e04ec70ebd1a0b70fc974da45b48062b5994f95927749d8943ade5a07" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a0a8c2a561c496916eebc943e3c68ff25795c55782b2077e42a70215146626ad"
+    sha256 cellar: :any_skip_relocation, big_sur:       "09ef92951dee11c02ac78c313f98bd39159cfc85c96ccfc7a71837821a11cf0d"
+    sha256 cellar: :any_skip_relocation, catalina:      "0327dd00710fa18934e14cc143a0c367081107155da26facc1b8bf33b203ae30"
+    sha256 cellar: :any_skip_relocation, mojave:        "951dddec084d22bcfbdd534e9bc1b64c90ab3f32ccfd201b77503af29d4b8022"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7850a4084645cdd45892045e76b26284f9e8bf98e2d16fc96a7faae0b412d5ae"
   end
 
   depends_on "go" => :build
@@ -23,7 +24,7 @@ class K3d < Formula
     system "go", "build",
            "-mod", "vendor",
            "-ldflags", "-s -w -X github.com/rancher/k3d/v#{version.major}/version.Version=v#{version}"\
-           " -X github.com/rancher/k3d/v#{version.major}/version.K3sVersion=latest",
+                       " -X github.com/rancher/k3d/v#{version.major}/version.K3sVersion=latest",
            "-trimpath", "-o", bin/"k3d"
 
     # Install bash completion
@@ -33,6 +34,10 @@ class K3d < Formula
     # Install zsh completion
     output = Utils.safe_popen_read("#{bin}/k3d", "completion", "zsh")
     (zsh_completion/"_k3d").write output
+
+    # Install fish completion
+    output = Utils.safe_popen_read("#{bin}/k3d", "completion", "fish")
+    (fish_completion/"k3d.fish").write output
   end
 
   test do

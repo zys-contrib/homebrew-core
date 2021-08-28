@@ -3,21 +3,17 @@ require "language/node"
 class Eleventy < Formula
   desc "Simpler static site generator"
   homepage "https://www.11ty.dev"
-  url "https://registry.npmjs.org/@11ty/eleventy/-/eleventy-0.11.1.tgz"
-  sha256 "55dfb1dedffff5598a1f9900250530ad8b1d7b91eb5ef0760ef8e27104f7ed5f"
+  url "https://registry.npmjs.org/@11ty/eleventy/-/eleventy-0.12.1.tgz"
+  sha256 "688cd47c4e23ed67a98392e2639c170bf6b65f896739acb8cbf55b4258bef24d"
   license "MIT"
   head "https://github.com/11ty/eleventy.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    cellar :any_skip_relocation
-    sha256 "64da97482a293690e92c421891298f82c6c97a3fa3a96ef2c0b40b1a320d5593" => :big_sur
-    sha256 "48934e50a9eee9eb34e6011eeb829c9995c102a5bd7d1c02eb041d0ba119ee52" => :catalina
-    sha256 "0d259029be276276315bfa3cef874a0af1cbe4553ad5a6d5e09794ad70a7a6fb" => :mojave
-    sha256 "bd861131b89565c4637c60f11d7e2dfdb76220517005ab22bb8ef4f52720ed5c" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1be838b599d0c0dca800c43821d05fdffd641627089025245dc99e301227c096"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2b035df0dbb58ace4727c1af9a9de3140e2ba3b9fa5206d934cfd254577a5a0b"
+    sha256 cellar: :any_skip_relocation, catalina:      "324dfe311d783ff2a507d1b55ec94bb3152d84ed26041450853032ad427237d7"
+    sha256 cellar: :any_skip_relocation, mojave:        "8db3de4db3dd1a611585724b1f9ec38816a2573309caa0fdad88f46f67e3fbbb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "041abbc16db2ffcf6aad345b58d80234fa05e388969fff4707ef4dc623f5f9b4"
   end
 
   depends_on "node"

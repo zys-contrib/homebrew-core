@@ -1,18 +1,15 @@
 class Ktmpl < Formula
   desc "Parameterized templates for Kubernetes manifests"
   homepage "https://github.com/jimmycuadra/ktmpl"
-  url "https://github.com/jimmycuadra/ktmpl/archive/0.9.0.tar.gz"
-  sha256 "b2f05ae4b36f31f6801f4dcd2f5aec31d7b53b8b6dea6ddf974b22c88d8bc62b"
+  url "https://github.com/jimmycuadra/ktmpl/archive/0.9.1.tar.gz"
+  sha256 "3377f10477775dd40e78f9b3d65c3db29ecd0553e9ce8a5bdcb8d09414c782e9"
   license "MIT"
-  head "https://github.com/jimmycuadra/ktmpl.git"
+  head "https://github.com/jimmycuadra/ktmpl.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "3bd2b7dcd24cfdf57ea6bffdbbd9c9380a084e4df9ffcd6231a4af8089781b59" => :big_sur
-    sha256 "d8c1e6fd18fc96f615e119c64cd7df67940cb0a9b3113450e49f567b9875c9ee" => :catalina
-    sha256 "7c91c4a9674effc29e0ef187fc05163500a81ac5a7c0502552b12098c72633dd" => :mojave
-    sha256 "2cc0b69a68bbd12cfd02e17d079363f773006a7bd07b77588cf83d7207950b3f" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:  "0a0b3e7477b6ceb8c1b32ebb47572df7ab5b050ec1d625259cf1c92c03c02e23"
+    sha256 cellar: :any_skip_relocation, catalina: "706ba7f987af4076525132bd8867c9905d96a842a46c5f6b3991439b5893f05c"
+    sha256 cellar: :any_skip_relocation, mojave:   "3a884032f3b3d81433b6cc275637459a7dddd58db8d5f5bd5d044e07df5782c7"
   end
 
   depends_on "rust" => :build
@@ -31,7 +28,7 @@ class Ktmpl < Formula
       objects:
         - kind: "Service"
           apiVersion: "v1"
-          metdata:
+          metadata:
             name: "test"
           spec:
             ports:

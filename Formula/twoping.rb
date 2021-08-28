@@ -1,18 +1,14 @@
 class Twoping < Formula
   desc "Ping utility to determine directional packet loss"
   homepage "https://www.finnie.org/software/2ping/"
-  url "https://www.finnie.org/software/2ping/2ping-4.5.tar.gz"
-  sha256 "867009928bf767d36279f90ff8f891855804c0004849f9554ac77fcd7f0fdb7b"
-  license "GPL-2.0"
-  revision 1
+  url "https://www.finnie.org/software/2ping/2ping-4.5.1.tar.gz"
+  sha256 "b56beb1b7da1ab23faa6d28462bcab9785021011b3df004d5d3c8a97ed7d70d8"
+  license "MPL-2.0"
   head "https://github.com/rfinnie/2ping.git", branch: "main"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "afc820a8d8805247357685e70a6537ff4698ac7ede216c82ced88b2cc33825ef" => :big_sur
-    sha256 "7628092d50cccc8ca82ce8cc452e1642a583331bcc80d072fb259c8d121ddbe1" => :catalina
-    sha256 "142e2753a32f3b55338238c5cef360c1edb1cbd013a9c36b8c7bb98e2e86a76f" => :mojave
-    sha256 "02f9e697dc2cd30675db1006ab304c3c7a4f2e02dbff217fbbbd7d6511ccbe17" => :high_sierra
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "5da1355d4aa2d6c8729362449bd49b8a726e1daa7d908e68c410818f7a439dfe"
   end
 
   depends_on "python@3.9"
@@ -25,37 +21,15 @@ class Twoping < Formula
     man1.install_symlink "2ping.1" => "2ping6.1"
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bash_completion.install "2ping.bash_completion" => "2ping"
   end
 
-  plist_options manual: "2ping --listen", startup: true
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/2ping</string>
-            <string>--listen</string>
-            <string>--quiet</string>
-          </array>
-          <key>UserName</key>
-          <string>nobody</string>
-          <key>StandardErrorPath</key>
-          <string>/dev/null</string>
-          <key>StandardOutPath</key>
-          <string>/dev/null</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-        </dict>
-      </plist>
-    EOS
+  plist_options startup: true
+  service do
+    run [opt_bin/"2ping", "--listen", "--quiet"]
+    keep_alive true
+    log_path "/dev/null"
+    error_log_path "/dev/null"
   end
 
   test do

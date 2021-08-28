@@ -1,43 +1,25 @@
 class Sdl2 < Formula
   desc "Low-level access to audio, keyboard, mouse, joystick, and graphics"
   homepage "https://www.libsdl.org/"
+  url "https://libsdl.org/release/SDL2-2.0.16.tar.gz"
+  sha256 "65be9ff6004034b5b2ce9927b5a4db1814930f169c4b2dae0a1e4697075f287b"
   license "Zlib"
-  revision 1
-
-  stable do
-    url "https://libsdl.org/release/SDL2-2.0.12.tar.gz"
-    sha256 "349268f695c02efbc9b9148a70b85e58cefbbf704abd3e91be654db7f1e2c863"
-
-    # Fix library extension in CMake config file.
-    # https://bugzilla.libsdl.org/show_bug.cgi?id=5039
-    patch do
-      url "https://bugzilla.libsdl.org/attachment.cgi?id=4263"
-      sha256 "07ea066e805f82d85e6472e767ba75d265cb262053901ac9a9e22c5f8ff187a5"
-    end
-
-    # Fix configure script detects Apple Silicon Macs as iPhones.
-    # https://bugzilla.libsdl.org/show_bug.cgi?id=5232
-    patch do
-      url "https://hg.libsdl.org/SDL/raw-rev/af22dd6c0787"
-      sha256 "df68efb43e451789c1bf2873dabc9a70c66264f8b7ad360a71ea4c643c6acc37"
-    end
-  end
 
   livecheck do
     url "https://www.libsdl.org/download-2.0.php"
-    regex(/SDL2[._-]v?(\d+(?:\.\d+)*)/i)
+    regex(/href=.*?SDL2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    cellar :any
-    rebuild 2
-    sha256 "bdf2c30a7267e33a214a0170b6639a31f6a86b5ae524ebfa9dcb06c54d2c1514" => :big_sur
-    sha256 "d02d45d59eabad3ed6ffdd780e44f798f35748a1080ce48ded17934bd0db2e05" => :catalina
-    sha256 "6ff1b92dc1515a631549343ea7f52ddc108e5a08cd5f462f2ba0a31a04fd0d13" => :mojave
+    sha256 cellar: :any,                 arm64_big_sur: "6adac3ca2899ab923427b9b9322c8a4a412485ac7fe6448e276b4aae598f7a49"
+    sha256 cellar: :any,                 big_sur:       "71fe247bc197133b02186fac4e8f296d7f457a9507e0c77357b1069e5ee2ca61"
+    sha256 cellar: :any,                 catalina:      "4634185a35d9fc37c8fc07f884e45e7e2fbaa3fdec615171e647a9e02c395bd4"
+    sha256 cellar: :any,                 mojave:        "9966890d7d39147e75e92d6a7390ef5fb2f043b08f913e751638bdeef8c1c220"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "664cf8d5df1066a7d1bd4121e5805ac8bb7230e068237bbbb4654b7f085e7150"
   end
 
   head do
-    url "https://hg.libsdl.org/SDL", using: :hg
+    url "https://github.com/libsdl-org/SDL.git", branch: "main"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -46,17 +28,42 @@ class Sdl2 < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "libice"
+    depends_on "libxcursor"
+    depends_on "libxscrnsaver"
+    depends_on "libxxf86vm"
+    depends_on "xinput"
+    depends_on "pulseaudio"
   end
 
   def install
-    # we have to do this because most build scripts assume that all SDL modules
+    # We have to do this because most build scripts assume that all SDL modules
     # are installed to the same prefix. Consequently SDL stuff cannot be
     # keg-only but I doubt that will be needed.
     inreplace %w[sdl2.pc.in sdl2-config.in], "@prefix@", HOMEBREW_PREFIX
 
     system "./autogen.sh" if build.head?
 
-    args = %W[--prefix=#{prefix} --without-x --enable-hidapi]
+    args = %W[--prefix=#{prefix} --enable-hidapi]
+    on_macos do
+      args << "--without-x"
+    end
+    on_linux do
+      args << "--with-x"
+      args << "--enable-pulseaudio"
+      args << "--enable-pulseaudio-shared"
+      args << "--enable-video-dummy"
+      args << "--enable-video-opengl"
+      args << "--enable-video-opengles"
+      args << "--enable-video-x11"
+      args << "--enable-video-x11-scrnsaver"
+      args << "--enable-video-x11-xcursor"
+      args << "--enable-video-x11-xinerama"
+      args << "--enable-video-x11-xinput"
+      args << "--enable-video-x11-xrandr"
+      args << "--enable-video-x11-xshape"
+      args << "--enable-x11-shared"
+    end
     system "./configure", *args
     system "make", "install"
   end

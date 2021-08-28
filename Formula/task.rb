@@ -1,31 +1,31 @@
 class Task < Formula
   desc "Feature-rich console based todo list manager"
   homepage "https://taskwarrior.org/"
-  url "https://taskwarrior.org/download/task-2.5.1.tar.gz"
-  sha256 "d87bcee58106eb8a79b850e9abc153d98b79e00d50eade0d63917154984f2a15"
+  url "https://github.com/GothenburgBitFactory/taskwarrior/releases/download/v2.5.3/task-2.5.3.tar.gz"
+  sha256 "7243d75e0911d9e2c9119ad94a61a87f041e4053e197f7280c42410aa1ee963b"
   license "MIT"
-  head "https://github.com/GothenburgBitFactory/taskwarrior.git", branch: "2.6.0", shallow: false
+  revision 1
+  head "https://github.com/GothenburgBitFactory/taskwarrior.git", branch: "2.6.0"
 
   livecheck do
-    url "https://taskwarrior.org/download/"
-    regex(/href=.*?task[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    sha256 "0a5aa472b0830025324a8f73c58215fecef5c3c1bf8f1b0990a1fd370931c4c0" => :big_sur
-    sha256 "24c80011867aa34766864a4bbac071493fb45c93bd3e08b3e9979b3ba4780fa2" => :catalina
-    sha256 "bba98b6bdfb3f79f1434229d8ade4b0622119320353da0eb8fec39809d66947d" => :mojave
-    sha256 "6a651be957b736bef14633efedef011a81c49ee37178eae4d8ef863549d7c584" => :high_sierra
-    sha256 "d1cb582ab9ee211ec154690634b5988f8058ead31000c74d5cdfa949d319d0ed" => :sierra
-    sha256 "07aa2c19ae6d7a9a46b286bfc48fa970aa9a9e0237e034bbaab354dcfc4f6848" => :el_capitan
-    sha256 "113fc7ce057c51ea14021006a4106c25d29e361e4b70113e33fb7a83e57ee8d1" => :yosemite
-    sha256 "7888e42210edb6691ff57d056585536abd318d62b43a898bb98e286373519164" => :mavericks
+    sha256 arm64_big_sur: "f6cc717032d0b9fb61f160e18d0d529aaf140109493b749af8df0b67d9cfbeb2"
+    sha256 big_sur:       "6e39bda4bf09836a2c8957024008fb23c568d1f1793ec0cf75986616b1c6702c"
+    sha256 catalina:      "26985b801af3eb7ce1edb1a4294dd9258c869be2fedc694856bf8c1781dfdcd2"
+    sha256 mojave:        "8d4d6b2c44aa2d813bb34314f367679d3677ba60e264e06b235a094ac39f5b66"
+    sha256 x86_64_linux:  "e3db87ee3f43f83b61183ddae86f5149c6838dd32097dfe5e06c94441914dc3a"
   end
 
   depends_on "cmake" => :build
   depends_on "gnutls"
 
   on_linux do
+    depends_on "linux-headers@4.4"
+    depends_on "readline"
     depends_on "util-linux"
   end
 

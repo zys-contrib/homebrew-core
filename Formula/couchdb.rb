@@ -5,16 +5,12 @@ class Couchdb < Formula
   mirror "https://archive.apache.org/dist/couchdb/source/3.1.1/apache-couchdb-3.1.1.tar.gz"
   sha256 "8ffe766bba2ba39a7b49689a0732afacf69caffdf8e2d95447e82fb173c78ca3"
   license "Apache-2.0"
-
-  livecheck do
-    url :stable
-  end
+  revision 2
 
   bottle do
-    cellar :any
-    sha256 "8d192716d7cb1aabe1e0d556ee86717c11c9079e18699d718ffd3aa7c94d57ec" => :catalina
-    sha256 "d683b22eecb84fe5326b8644d8ff5a0f72a0c935e84d0411369271e521a7b7dc" => :mojave
-    sha256 "ba42a4ef666858aa21beccaa8b3d80799860e5501af9453dd649988d5603cade" => :high_sierra
+    sha256 cellar: :any, big_sur:  "a5f39bc7837033ef94ce64bd004ab640d0dbcc36723048a5eecbf0fe7f79b83e"
+    sha256 cellar: :any, catalina: "5736d9943ec1ac5935f72eb6fb102a34b9533a796e7701baf4b7e000360b46c6"
+    sha256 cellar: :any, mojave:   "d285b3dccb394ae6e73f6686acb541505f5c3fe31c42fb1d4b9adfcfef6053c3"
   end
 
   depends_on "autoconf" => :build
@@ -57,27 +53,9 @@ class Couchdb < Formula
     EOS
   end
 
-  plist_options manual: "couchdb"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{bin}/couchdb</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run opt_bin/"couchdb"
+    keep_alive true
   end
 
   test do
@@ -90,7 +68,7 @@ class Couchdb < Formula
     fork do
       exec "#{bin}/couchdb -couch_ini #{testpath}/etc/default.ini #{testpath}/etc/local.ini"
     end
-    sleep 2
+    sleep 30
 
     output = JSON.parse shell_output("curl --silent localhost:#{port}")
     assert_equal "Welcome", output["couchdb"]

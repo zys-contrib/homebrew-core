@@ -2,16 +2,17 @@ class Cpr < Formula
   desc "C++ Requests, a spiritual port of Python Requests"
   homepage "https://whoshuu.github.io/cpr/"
   url "https://github.com/whoshuu/cpr.git",
-      tag:      "v1.5.1",
-      revision: "5e87cb5f45ac99858f0286dc1c35a6cd27c3bcb9"
+      tag:      "1.6.2",
+      revision: "f4622efcb59d84071ae11404ae61bd821c1c344b"
   license "MIT"
-  head "https://github.com/whoshuu/cpr.git"
+  head "https://github.com/whoshuu/cpr.git", branch: "master"
 
   bottle do
-    cellar :any
-    sha256 "3de3156e76c50a9c0177f2f6b7856f83d36a7687d070c467acc9424a986a43b1" => :catalina
-    sha256 "477db140c07296b4fb3969b26d136afd1b7106625082cb57dfd8c274dd53da23" => :mojave
-    sha256 "b0c9560ba7c1fe39dfdb316541526494ea685f7c34944882ed7823f769e1cda9" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "6b725644e68fd8fd18ee1624248de28bff8e0c206d566852a4821714fed3099e"
+    sha256 cellar: :any,                 big_sur:       "f531320c598e51d6fa215fe35caf9766882349bb1e5d89319ec6a0937202f627"
+    sha256 cellar: :any,                 catalina:      "3c3d0ebe3de5371c93a5b1b68b599e9aee2d5abe2e8598a6775b463be05bcddc"
+    sha256 cellar: :any,                 mojave:        "608ac5168dd4ca3ab78d84827ccfce0abba0ad9699bef82ffad074a0b51aefc4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8de8dbf9435d2d5ed2bf84013134b6387354ae96f0c4ad8b7a8c2597bed20273"
   end
 
   depends_on "cmake" => :build
@@ -20,9 +21,10 @@ class Cpr < Formula
   uses_from_macos "curl"
 
   def install
-    args = std_cmake_args
-    args << "-DUSE_SYSTEM_CURL=ON"
-    args << "-DBUILD_CPR_TESTS=OFF"
+    args = std_cmake_args + %w[
+      -DCPR_FORCE_USE_SYSTEM_CURL=ON
+      -DCPR_BUILD_TESTS=OFF
+    ]
 
     system "cmake", ".", *args, "-DBUILD_SHARED_LIBS=ON"
     system "make", "install"
@@ -46,8 +48,8 @@ class Cpr < Formula
       }
     EOS
 
-    system ENV.cxx, "-std=c++11", "-I#{include}", "-L#{lib}", "-lcpr",
-                    "test.cpp", "-o", testpath/"test"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}", "-L#{lib}",
+                    "-lcpr", "-o", testpath/"test"
     assert_match "200", shell_output("./test")
   end
 end

@@ -1,21 +1,21 @@
 class Suricata < Formula
   desc "Network IDS, IPS, and security monitoring engine"
-  homepage "https://suricata-ids.org/"
-  url "https://www.openinfosecfoundation.org/download/suricata-6.0.0.tar.gz"
-  sha256 "3c175a6dee9071141391f64828502cfb6e48dc1a20833e1411fb45be5368923b"
+  homepage "https://suricata.io"
+  url "https://www.openinfosecfoundation.org/download/suricata-6.0.3.tar.gz"
+  sha256 "daf134bb2d7c980035e9ae60f7aaf313323a809340009f26e48110ccde81f602"
   license "GPL-2.0-only"
-  revision 1
 
   livecheck do
-    url "https://suricata-ids.org/download/"
+    url "https://suricata.io/download/"
     regex(/href=.*?suricata[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 "1ea262ba672f76134a1f03b5807fe51b2a9836be5aa425195403933ca7d41ace" => :big_sur
-    sha256 "357f14c8a5904953453139e1d9363388d1f5779fa21ab413357a4b476eff6c24" => :catalina
-    sha256 "aa86c75ad788ab24ccd6b3dcf47e21e2766bcf018a302d67bfa569289da59edb" => :mojave
-    sha256 "5d885e9492f79dcc5cb039f3a5012dc8eb3549ccbf91695c563e73ffd205a329" => :high_sierra
+    sha256 arm64_big_sur: "d0561f0b1d46352fa3fd8978595f33db686fedb8b8477aeae7933afdf8170212"
+    sha256 big_sur:       "4094fdeeaf0aa94612e22df2d45475f0e8c4063d8e17acf187c40f1af3943445"
+    sha256 catalina:      "7e9a56df59a2627ae561819f21213583d2b68156bcfbf0a07de2b96db7f67f66"
+    sha256 mojave:        "0d03f52c6826445b736021546b5fe8df9baeb06f41e4c4ebdc66e030229213f9"
+    sha256 x86_64_linux:  "2dfc82962d8f0dace13037232917a5bac8a2e7a2f096025d5106db9291590485"
   end
 
   depends_on "pkg-config" => :build
@@ -30,19 +30,21 @@ class Suricata < Formula
   depends_on "pcre"
   depends_on "python@3.9"
 
+  uses_from_macos "libpcap"
+
   resource "argparse" do
     url "https://files.pythonhosted.org/packages/18/dd/e617cfc3f6210ae183374cd9f6a26b20514bbb5a792af97949c5aacddf0f/argparse-1.4.0.tar.gz"
     sha256 "62b089a55be1d8949cd2bc7e0df0bddb9e028faefc8c32038cc84862aefdd6e4"
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
-    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
+    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
+    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
   end
 
   resource "simplejson" do
-    url "https://files.pythonhosted.org/packages/98/87/a7b98aa9256c8843f92878966dc3d8d914c14aad97e2c5ce4798d5743e07/simplejson-3.17.0.tar.gz"
-    sha256 "2b4b2b738b3b99819a17feaf118265d0753d5536049ea570b3c43b51c4701e81"
+    url "https://files.pythonhosted.org/packages/49/45/a16db4f0fa383aaf0676fb7e3c660304fe390415c243f41a77c7f917d59b/simplejson-3.17.2.tar.gz"
+    sha256 "75ecc79f26d99222a084fbdd1ce5aad3ac3a8bd535cd9059528452da38b68841"
   end
 
   def install
@@ -71,8 +73,16 @@ class Suricata < Formula
       --with-libmagic-libraries=#{libmagic.opt_lib}
       --with-libnet-includes=#{libnet.opt_include}
       --with-libnet-libraries=#{libnet.opt_lib}
-      --enable-ipfw
     ]
+
+    on_macos do
+      args << "--enable-ipfw"
+    end
+
+    on_linux do
+      args << "--with-libpcap-includes=#{Formula["libpcap"].opt_include}"
+      args << "--with-libpcap-libraries=#{Formula["libpcap"].opt_lib}"
+    end
 
     system "./configure", *args
     system "make", "install-full"

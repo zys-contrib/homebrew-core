@@ -1,17 +1,17 @@
 class Gosec < Formula
   desc "Golang security checker"
   homepage "https://securego.io/"
-  url "https://github.com/securego/gosec/archive/v2.5.0.tar.gz"
-  sha256 "5d4967570f953c8478a3e51a0dee5cfe6313f2570eca15e6fabd5d6379e530f4"
+  url "https://github.com/securego/gosec/archive/v2.8.1.tar.gz"
+  sha256 "54820f7120265745710f54246ea5cde0fbdd6a9024cec8147f34b3c1855bdcec"
   license "Apache-2.0"
   head "https://github.com/securego/gosec.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "730bfb268da4ca072d44fc01c8d3f3ba87a1293d637447d996d18c5176e83b84" => :big_sur
-    sha256 "f2ab2597115da15b5310c5456a4fe363e591432bc283dd2666f1f587b8f2cde3" => :catalina
-    sha256 "c0217676973c37182efc63f728471659f7c5129f413df6923b73b1e91ea744db" => :mojave
-    sha256 "8b70996fcd2624ac7bec3602a5f2002935924ad6cf8bbd90a670b9764540759c" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4452d763462f9558721289ee8c1d9fbba04e36fb2b2eb1c9bf8ac59edaf759d9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "54e7772a0413cc7ba0e45e3476ae51b7cb13b4b8232b52540a56a4eb9bb4059f"
+    sha256 cellar: :any_skip_relocation, catalina:      "805fce42a1339373b7cda4ed947ab57f0808600f3f02ffcd59567df2877e1e3f"
+    sha256 cellar: :any_skip_relocation, mojave:        "1c334b925541f89af00c3fe31194f67446dcf75beae2506713625e55376685c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0482159716aee50b31fc9e6327e41750a032089e4ac3087447b4c50d3812779e"
   end
 
   depends_on "go"
@@ -36,6 +36,6 @@ class Gosec < Formula
 
     output = shell_output("#{bin}/gosec ./...", 1)
     assert_match "G101 (CWE-798)", output
-    assert_match "Issues: 1", output
+    assert_match "Issues : \e[1;31m1\e[0m", output
   end
 end

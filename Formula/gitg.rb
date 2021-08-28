@@ -5,14 +5,10 @@ class Gitg < Formula
   sha256 "24a4aabf8a42aa2e783e1fb5996ebb3c2a82a01b9689269f1329517ef124ef5a"
   revision 6
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    sha256 "b2451ec4e4ef9126af4cb262d58d03beda0a06fcad12c9200f206af46b277bd2" => :big_sur
-    sha256 "6f9af292508a1a80622bc544f2aa182a46b63345ed8c9dc89e3034a9e2a2178d" => :catalina
-    sha256 "c771ecd10a224156e0810d46d3834421c548a75080d6d239d30b714875a21065" => :mojave
+    sha256 big_sur:  "b2451ec4e4ef9126af4cb262d58d03beda0a06fcad12c9200f206af46b277bd2"
+    sha256 catalina: "6f9af292508a1a80622bc544f2aa182a46b63345ed8c9dc89e3034a9e2a2178d"
+    sha256 mojave:   "c771ecd10a224156e0810d46d3834421c548a75080d6d239d30b714875a21065"
   end
 
   depends_on "intltool" => :build
@@ -37,8 +33,8 @@ class Gitg < Formula
   # Fix libgitg compile on macOS from https://gitlab.gnome.org/GNOME/gitg/-/merge_requests/142
   # Remove for next version
   patch do
-    url "https://gitlab.gnome.org/GNOME/gitg/-/commit/67f5cd6925e8bf1e4c7e5b65fe9370c2cdd1d273.patch"
-    sha256 "e81c59f77aceb8c1ae3914ffebf24f5a0287bd2cf9511996eb8a3f4282e8542d"
+    url "https://gitlab.gnome.org/GNOME/gitg/-/commit/67f5cd6925e8bf1e4c7e5b65fe9370c2cdd1d273.diff"
+    sha256 "b9b842d1be3e435ce14a57d30702138a0e08ba0f9ef95249876fc05aeac2417c"
   end
 
   def install

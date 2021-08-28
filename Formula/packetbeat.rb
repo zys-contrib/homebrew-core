@@ -2,46 +2,30 @@ class Packetbeat < Formula
   desc "Lightweight Shipper for Network Data"
   homepage "https://www.elastic.co/products/beats/packetbeat"
   url "https://github.com/elastic/beats.git",
-    tag:      "v7.10.0",
-    revision: "1428d58cf2ed945441fb2ed03961cafa9e4ad3eb"
+      tag:      "v7.14.0",
+      revision: "e127fc31fc6c00fdf8649808f9421d8f8c28b5db"
   license "Apache-2.0"
-  head "https://github.com/elastic/beats.git"
+  head "https://github.com/elastic/beats.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c419cf096b27ac963377ea1aafe3b94f7a1150539dc13d36f864f1634c85bde5" => :big_sur
-    sha256 "76a1693e1cacefacd2f2df224506ebe78007cd0f014b5f322015fc82b978d642" => :catalina
-    sha256 "f2094e3c5bcadbec510466a0ece80a4414d9dc4ab353d0d6355ccfe9d9b11e12" => :mojave
-    sha256 "cebcc53e84d8923de252f8f4bf7c233d98cfaa0fb4e8d6fb13b28bc45d5f4895" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c68f6098509af8777faf45a9bf3816817af5549dc0072b21bae4742bf6487b0c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8b8da72ce166ceafd3091ec20682a886ac2eb27dfacf63a3577bf9c3d776346c"
+    sha256 cellar: :any_skip_relocation, catalina:      "f2aa4114f1857d76bf110cc8d1f2dca1d1ac3eb61ca7593e078d612eb3691313"
+    sha256 cellar: :any_skip_relocation, mojave:        "c0ad59975d41df6c764ad983741b2610acd727b7ba77327499daa20bec854ac7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d48873c24d487788fad5273af475fa77932dc93e7289614eecde38bfa4b57dc"
   end
 
   depends_on "go" => :build
-  depends_on "python@3.8" => :build
+  depends_on "mage" => :build
+  depends_on "python@3.9" => :build
 
-  resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/b1/72/2d70c5a1de409ceb3a27ff2ec007ecdd5cc52239e7c74990e32af57affe9/virtualenv-15.2.0.tar.gz"
-    sha256 "1d7e241b431e7afce47e77f8843a276f652699d1fa4f93b9d8ce0076fd7b0b54"
-  end
+  uses_from_macos "libpcap"
 
   def install
     # remove non open source files
     rm_rf "x-pack"
 
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/elastic/beats").install buildpath.children
-
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python#{xy}/site-packages"
-
-    resource("virtualenv").stage do
-      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(buildpath/"vendor")
-    end
-
-    ENV.prepend_path "PATH", buildpath/"vendor/bin" # for virtualenv
-    ENV.prepend_path "PATH", buildpath/"bin" # for mage (build tool)
-
-    cd "src/github.com/elastic/beats/packetbeat" do
-      system "make", "mage"
+    cd "packetbeat" do
       # prevent downloading binary wheels during python setup
       system "make", "PIP_INSTALL_PARAMS=--no-binary :all", "python-env"
       system "mage", "-v", "build"
@@ -55,8 +39,6 @@ class Packetbeat < Formula
       prefix.install "_meta/kibana"
     end
 
-    prefix.install_metafiles buildpath/"src/github.com/elastic/beats"
-
     (bin/"packetbeat").write <<~EOS
       #!/bin/sh
       exec #{libexec}/bin/packetbeat \
@@ -68,28 +50,14 @@ class Packetbeat < Formula
     EOS
   end
 
-  plist_options manual: "packetbeat"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
-      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>Program</key>
-          <string>#{opt_bin}/packetbeat</string>
-          <key>RunAtLoad</key>
-          <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run opt_bin/"packetbeat"
   end
 
   test do
-    assert_match "0: en0", shell_output("#{bin}/packetbeat devices")
+    eth = "en"
+    on_linux { eth = "eth" }
+    assert_match "0: #{eth}0", shell_output("#{bin}/packetbeat devices")
     assert_match version.to_s, shell_output("#{bin}/packetbeat version")
   end
 end

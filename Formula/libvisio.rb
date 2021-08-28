@@ -3,7 +3,7 @@ class Libvisio < Formula
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libvisio"
   url "https://dev-www.libreoffice.org/src/libvisio/libvisio-0.1.7.tar.xz"
   sha256 "8faf8df870cb27b09a787a1959d6c646faa44d0d8ab151883df408b7166bea4c"
-  revision 2
+  revision 4
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -11,11 +11,10 @@ class Libvisio < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "a284e8c456caa89555af24f961f0679423add081798fff96dbce645516d208ea" => :big_sur
-    sha256 "a32916487b500b927b22b2e3cbd0f3ec5de65a56dd5306472ee6dc09080c7a38" => :catalina
-    sha256 "2866289c378dcf276526de732f830dff28d1dbb12eb690209140e987b6bf2f10" => :mojave
-    sha256 "793fa03c334b4faea7b94c2b4e2992b40070358a94914272a119c411060baabd" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "9dbc60f38f0b2cf07e5df55fcc4a67d9d31a8698cfdc8f411b269d1e3daae0bf"
+    sha256 cellar: :any, big_sur:       "09a9e29742cf5667ad9f935a7d686641b54383c1ff8d5581c1a7c145a966760d"
+    sha256 cellar: :any, catalina:      "e431e0e6e96f2ac918d37e4e10f264cf23b7af0dbc54d3f82ab80b309efbd079"
+    sha256 cellar: :any, mojave:        "af67f5b493aebbe8c072fd0254e47bd8b205a00eb29049ea38046a9065fe8876"
   end
 
   depends_on "cppunit" => :build

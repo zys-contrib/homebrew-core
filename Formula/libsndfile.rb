@@ -1,22 +1,21 @@
 class Libsndfile < Formula
   desc "C library for files containing sampled sound"
   homepage "https://libsndfile.github.io/libsndfile/"
-  url "https://github.com/erikd/libsndfile/releases/download/v1.0.30/libsndfile-1.0.30.tar.bz2"
-  sha256 "9df273302c4fa160567f412e10cc4f76666b66281e7ba48370fb544e87e4611a"
+  url "https://github.com/libsndfile/libsndfile/releases/download/1.0.31/libsndfile-1.0.31.tar.bz2"
+  sha256 "a8cfb1c09ea6e90eff4ca87322d4168cdbe5035cb48717b40bf77e751cc02163"
   license "LGPL-2.1-or-later"
 
   livecheck do
-    url "https://github.com/erikd/libsndfile/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "5f5f3336e19849c21cf00531cd2a04c92f4cd724c9fce2449335a684c195c62c" => :big_sur
-    sha256 "5f5f4ad1f22b2893b115fdf972c1f8f30a4919719f12fe0f3d186f879eae3051" => :catalina
-    sha256 "5e0f78600b00ca0ebdbafe83e0a0a0a4833810233d714300acac13babb7553bf" => :mojave
-    sha256 "83fe3a19e7c679b07ed791dafeb2e942540092ae714f7c73ae7168ba2115179b" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "8e2fc3b0df09a21840f8643f644bd3a0bb3c3551d21f600b344f6b316d3ef44d"
+    sha256 cellar: :any,                 big_sur:       "a4a734e58220fc8615d86e4563e9a874447d568151b366aa94391dfe07c4e0fb"
+    sha256 cellar: :any,                 catalina:      "671a3cc9c7dafd89cbaffeccf4de826262c144184bf5779320c236e87e7636cc"
+    sha256 cellar: :any,                 mojave:        "8b2876610f9188e8125f636e85bcbd525343b216c6d0787954e78b88dfe8f101"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3949f7d627ea3a217a8f9461ee8ad7f333ed48f0490db897a5f03d9dfd5995f5"
   end
 
   depends_on "autoconf" => :build

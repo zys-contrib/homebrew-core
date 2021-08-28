@@ -1,15 +1,15 @@
 class Nvc < Formula
   desc "VHDL compiler and simulator"
   homepage "https://github.com/nickg/nvc"
-  url "https://github.com/nickg/nvc/releases/download/r1.5.0/nvc-1.5.tar.gz"
-  sha256 "4da984ba95eb3b8dd2893fb7a676675de869ff114b827a9f5490dfd54bc95fcb"
-  license "GPL-3.0"
-  revision 1
+  url "https://github.com/nickg/nvc/releases/download/r1.5.2/nvc-1.5.2.tar.gz"
+  sha256 "56b71a091d9bebeaca28e2cffb1546de91068de8788d96a92d209cec7402349c"
+  license "GPL-3.0-or-later"
 
   bottle do
-    sha256 "7ba6e4a374fa45ac6727a3a94b68ec1e317989999aeace6e16e2d2374f1adef9" => :catalina
-    sha256 "f7096c9a1f5430b7540a5384c21548e3d58937a571b894362d00326400ec52cb" => :mojave
-    sha256 "9235685aba9cdb880d6d76336fa94e918762bbd5e7de2c150a5ab4d887ec2b74" => :high_sierra
+    sha256 arm64_big_sur: "ed81b83101417314e47d4c9e27c1efc2cd5aa8b2f6d360d16ff4ff4a39693dd7"
+    sha256 big_sur:       "878fc444b7f6694cbb12ec4d1f6e644d1c7f853d109915ab49c5e77b151100ee"
+    sha256 catalina:      "fe88883631d30f010b06fc8c7ff7f5ae7cd8a67cdcde8e28f262ad4f1fcb3e29"
+    sha256 mojave:        "5d42447afee153063a563b0b32d8d2a98c955aff3860bbbe30d994d8c82f4dac"
   end
 
   head do
@@ -21,20 +21,25 @@ class Nvc < Formula
 
   depends_on "check" => :build
   depends_on "pkg-config" => :build
-  # llvm 8+ is not supported https://github.com/nickg/nvc/commit/c3d1ae5700cfba6070293ad1bb5a6c198c631195
-  depends_on "llvm@7"
+  depends_on "llvm"
 
   resource "vim-hdl-examples" do
     url "https://github.com/suoto/vim-hdl-examples.git",
-        revision: "c112c17f098f13719784df90c277683051b61d05"
+        revision: "fcb93c287c8e4af7cc30dc3e5758b12ee4f7ed9b"
+  end
+
+  # remove in next release
+  patch do
+    url "https://github.com/nickg/nvc/commit/64c2521260e868224ed94e6913f378c306ef2909.patch?full_index=1"
+    sha256 "3bdb4770df20751079d7c6899a7546cfe43c4a3b56387d5a6188ecd7617bb23a"
   end
 
   def install
     system "./autogen.sh" if build.head?
-    system "./tools/fetch-ieee.sh"
-    system "./configure", "--with-llvm=#{Formula["llvm@7"].opt_bin}/llvm-config",
+    system "./configure", "--with-llvm=#{Formula["llvm"].opt_bin}/llvm-config",
                           "--prefix=#{prefix}",
-                          "--with-system-cc=/usr/bin/clang"
+                          "--with-system-cc=/usr/bin/clang",
+                          "--enable-vhpi"
     system "make"
     system "make", "install"
   end

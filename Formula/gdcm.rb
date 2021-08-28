@@ -1,21 +1,21 @@
 class Gdcm < Formula
   desc "Grassroots DICOM library and utilities for medical files"
   homepage "https://sourceforge.net/projects/gdcm/"
-  url "https://github.com/malaterre/GDCM/archive/v3.0.8.tar.gz"
-  sha256 "47b96be345b1611784f9e65fc39367c7450c9a1ef81c21f8acddfb6207098315"
+  url "https://github.com/malaterre/GDCM/archive/v3.0.9.tar.gz"
+  sha256 "fcfc50ea8809bd4a173550c7d7bb4f8722ae0781fbf17240ce84a04e90af0e9b"
   license "BSD-3-Clause"
-  revision 1
+  revision 3
 
   livecheck do
-    url "https://github.com/malaterre/GDCM/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    sha256 "2f416ce53cbca29849bf6d3720d289f0b778593620937ba8a833c75a257aaf89" => :big_sur
-    sha256 "d5ce02b3b5473665b241484eff50b226d7b7f800253255362c26195fc69e40eb" => :catalina
-    sha256 "3e75b52ddc6151a6f39a63e2d4403c960247b0a6b780a2488cc6bda293a773fa" => :mojave
-    sha256 "8a5ac94c29c78add6e335dd5a07ef2f2b2f2d0c7da9704d7655d9800f5278dd8" => :high_sierra
+    sha256 arm64_big_sur: "dc3b35c1e010fa296be33d8e3c6716fcb6ceed2b8a2faa052d912d73b50502d3"
+    sha256 big_sur:       "7bff75beab06c8250e57f71edc9db13deee5e8436b6601f04a5488bb2e1d4f5d"
+    sha256 catalina:      "48c5d04a2a95db995522d31e5efffd9a9dcf97afb4896d64610a2347431a3481"
+    sha256 mojave:        "6837489e4b3a300a96e15506c6e2bb092bda59f4b1e8d96448ecd923c9568317"
   end
 
   depends_on "cmake" => :build
@@ -26,6 +26,9 @@ class Gdcm < Formula
   depends_on "openssl@1.1"
   depends_on "python@3.9"
   depends_on "vtk@8.2"
+
+  uses_from_macos "expat"
+  uses_from_macos "zlib"
 
   def install
     ENV.cxx11
@@ -45,6 +48,9 @@ class Gdcm < Formula
       -DGDCM_BUILD_EXAMPLES=OFF
       -DGDCM_BUILD_DOCBOOK_MANPAGES=OFF
       -DGDCM_USE_VTK=ON
+      -DGDCM_USE_SYSTEM_EXPAT=ON
+      -DGDCM_USE_SYSTEM_ZLIB=ON
+      -DGDCM_USE_SYSTEM_UUID=ON
       -DGDCM_USE_SYSTEM_OPENJPEG=ON
       -DGDCM_USE_SYSTEM_OPENSSL=ON
       -DGDCM_WRAP_PYTHON=ON
@@ -56,7 +62,9 @@ class Gdcm < Formula
     ]
 
     mkdir "build" do
-      ENV.append "LDFLAGS", "-undefined dynamic_lookup"
+      on_macos do
+        ENV.append "LDFLAGS", "-undefined dynamic_lookup"
+      end
 
       system "cmake", "..", *args
       system "ninja"

@@ -1,16 +1,17 @@
 class Pastel < Formula
   desc "Command-line tool to generate, analyze, convert and manipulate colors"
   homepage "https://github.com/sharkdp/pastel"
-  url "https://github.com/sharkdp/pastel/archive/v0.8.0.tar.gz"
-  sha256 "603dc63d6aa261f159178dffeb389471a845c1a5d62187a275a3d33a66fe9a69"
+  url "https://github.com/sharkdp/pastel/archive/v0.8.1.tar.gz"
+  sha256 "e1afcd8035a4c1da7f6d0fc8d5fc703dee72baa77bd0588a67d3b606e70146cb"
   license "Apache-2.0"
+  head "https://github.com/sharkdp/pastel.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fdae83eea8c1c098ddc551cbd18f010683b266fbffb111a93f3812709f581403" => :big_sur
-    sha256 "e2478748ed0561c76af8f68b4067f42cd365ad7735a9d44dda159e9bd35a1c1d" => :catalina
-    sha256 "3d9fcb9c4f2e70010681b88f0ceca5795773b849e7bc6f59689e90ad969a673c" => :mojave
-    sha256 "06f87da95e1d1b0f53fbcd9c9ff36e4c8a0d3ea85825ac7bc648b3ab445e61ee" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d0acfb78bf2984605f33eff15d1514482f2f15920d3d93aa054f565beaa83dec"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d8732bd4a5f40bab0c9ac933227d75890ca70ab4f8641d6c7e6bd06327d76a22"
+    sha256 cellar: :any_skip_relocation, catalina:      "1651b1afc8a63413679b2779317d3d0617edf72bdee29baf92b74dd865f1d146"
+    sha256 cellar: :any_skip_relocation, mojave:        "a0e9bd8535cb95385d081c1bf657068adb5bf2cf4b2aaf00df5f7ad6cbaf512f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cfc649b121ef6db213d2ccf0d852ac60436ffaebe1b59d8c8b7a287bcb8788be"
   end
 
   depends_on "rust" => :build

@@ -1,25 +1,27 @@
 class Faudio < Formula
   desc "Accuracy-focused XAudio reimplementation for open platforms"
   homepage "https://fna-xna.github.io/"
-  url "https://github.com/FNA-XNA/FAudio/archive/20.11.tar.gz"
-  sha256 "551f1573a98082973e8e2f0ef14be8f34299c9813d58387f9edd32142e6f913b"
+  url "https://github.com/FNA-XNA/FAudio/archive/21.08.tar.gz"
+  sha256 "42a3a295da44721c63f06fcbf5edf8077a42fdb78313b9e1c065afad12df8063"
   license "Zlib"
-  head "https://github.com/FNA-XNA/FAudio.git"
+  head "https://github.com/FNA-XNA/FAudio.git", branch: "master"
 
   bottle do
-    cellar :any
-    sha256 "85bfabeddc282a11cc9357342fa004417aedee644efe2ac9bcfd8068f841bf1d" => :big_sur
-    sha256 "760e3a2b0d9978f936d760424f091aa5dfe400eba58d8deb26c8171d7a672837" => :catalina
-    sha256 "5f471633c508cbd62168bbb6802cc32d44e94259f7ed47adf5ca100f063b8ebe" => :mojave
-    sha256 "2920a196fa5880e7021475bf279dca9ca5b5c7795d73e2e28a134e5c81b4273a" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "07e49b48488a33b2ad7bc3e1312cdbf6bae72de52eb870599a801319c1897a7b"
+    sha256 cellar: :any,                 big_sur:       "30b7ad5f185b807c2eed5387d074db740951bd7860f6343a66fdb688411a62a7"
+    sha256 cellar: :any,                 catalina:      "5dad0ae2b04dea6972d528b1c5a864d41917e9218567eb6e6b2caadace829290"
+    sha256 cellar: :any,                 mojave:        "d0d535518f89a0a7169a52b17e6518c60a00c44aa8efba8dfa278003d10ccf09"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26239fb5269c0ce6107082a8bf4843b7ef0cd563269dbe63aad25a394b5471de"
   end
 
   depends_on "cmake" => :build
   depends_on "sdl2"
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   def caveats
@@ -37,7 +39,7 @@ class Faudio < Formula
         return FAudioCreate(&audio, 0, FAUDIO_DEFAULT_PROCESSOR);
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lfaudio", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lFAudio", "-o", "test"
     system "./test"
   end
 end

@@ -1,21 +1,22 @@
 class ChibiScheme < Formula
   desc "Small footprint Scheme for use as a C Extension Language"
   homepage "https://github.com/ashinn/chibi-scheme"
-  url "https://github.com/ashinn/chibi-scheme/archive/0.9.1.tar.gz"
-  sha256 "a9ee2afd7671418bc09a4d386448dbfd0662421ea1eb1c5ed3b68c071307854d"
+  url "https://github.com/ashinn/chibi-scheme/archive/0.10.tar.gz"
+  sha256 "ae1d2057138b7f438f01bfb1e072799105faeea1de0ab3cc10860adf373993b3"
   license "BSD-3-Clause"
-  head "https://github.com/ashinn/chibi-scheme.git"
+  head "https://github.com/ashinn/chibi-scheme.git", branch: "master"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    sha256 "4f474285e01e463347b461187271229e345c0a3771642f4dd39b22008be9583e" => :big_sur
-    sha256 "75122fe5413f7f206e9fcc717307d3603041a39a93b895c4b89a02845ac4c683" => :catalina
-    sha256 "0ce202e52817dbed3e87e5911a74ad7f85e6f081b45deba0427d5d09b1dcb6ae" => :mojave
-    sha256 "c3dac9e5642a0d725ae1d77e0a9139e829b24c7c34e8e85eb58e506d7ba2e240" => :high_sierra
+    sha256 arm64_big_sur: "18fc48f1b5623936fd24b7259b4bcb0e611a91ebe2354b2e1ca8b3dc99dd3eb6"
+    sha256 big_sur:       "2547ea8be7276702a7db43cd70ca284d74fd7176d612e4b2bab2837343fd3736"
+    sha256 catalina:      "38846d601710212a1e2769fd7415d176f0ee439798108ca022f86328fd23b42d"
+    sha256 mojave:        "e24e63d2279cdc92dd95d61520c031b8c6ed1f57a3bbe5f7c971376c930112a1"
+    sha256 x86_64_linux:  "d1e2da39ca7ade3c5cd55d95132c56ba7d73b6d70c60ad5b55aa0866aa4fc879"
   end
 
   def install

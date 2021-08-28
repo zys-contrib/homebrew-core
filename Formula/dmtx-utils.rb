@@ -4,14 +4,14 @@ class DmtxUtils < Formula
   url "https://github.com/dmtx/dmtx-utils/archive/v0.7.6.tar.gz"
   sha256 "0d396ec14f32a8cf9e08369a4122a16aa2e5fa1675e02218f16f1ab777ea2a28"
   license "LGPL-2.1"
-  revision 2
+  revision 4
 
   bottle do
-    cellar :any
-    sha256 "97e1235bf73de14de83c96baa9ea3ff32b72c27f49d776af3d672fd5bd779d3b" => :big_sur
-    sha256 "0985c4c4a239de3a85eb2201f15c8ae12dbb49ccc9036f93f728e13d0d46705b" => :catalina
-    sha256 "7f2702b52b6e627607593542f0276a092b08de852200fa8fbc051ca76a00a3b5" => :mojave
-    sha256 "0de24aad51177bb26b8e33c7e459919e158fad2357436314410ccefc60e18024" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "9db11b5cb18a18e7e02d369353730e2c6e574e2154db95e60fd9a82983d8be83"
+    sha256 cellar: :any,                 big_sur:       "0f5cbe20fda6fcc8db3bf57039ced929283a31b666f38da8a64ba5c6c19d76cd"
+    sha256 cellar: :any,                 catalina:      "20b46ae2ba790f10191d8f53c8ce3095222d1b814db72990e7fc48a501fabba9"
+    sha256 cellar: :any,                 mojave:        "810dec06d01994da047123c4169d7398efacd4060adc639fdbcb845f3c6e2606"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "189265385499967b8f5e1c6eb8659f54b388ac013947a211f08607a0aaf95925"
   end
 
   depends_on "autoconf" => :build

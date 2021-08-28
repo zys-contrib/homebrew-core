@@ -7,11 +7,13 @@ class Yuicompressor < Formula
   revision 1
 
   livecheck do
-    url "https://github.com/yui/yuicompressor/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "73a3f4108453d611444f384cc93dd7c33e45d0196018e2300b8309ced95952ae"
+  end
 
   depends_on "openjdk"
 

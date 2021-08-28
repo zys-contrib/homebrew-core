@@ -1,23 +1,13 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
+  url "https://ffmpeg.org/releases/ffmpeg-4.4.tar.xz"
+  sha256 "06b10a183ce5371f915c6bb15b7b1fffbe046e8275099c96affc29e17645d909"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 4
+  revision 2
   head "https://github.com/FFmpeg/FFmpeg.git"
-
-  stable do
-    url "https://ffmpeg.org/releases/ffmpeg-4.3.1.tar.xz"
-    sha256 "ad009240d46e307b4e03a213a0f49c11b650e445b1f8be0dda2a9212b34d2ffb"
-
-    # https://trac.ffmpeg.org/ticket/8760
-    # Remove in next release
-    patch do
-      url "https://github.com/FFmpeg/FFmpeg/commit/7c59e1b0f285cd7c7b35fcd71f49c5fd52cf9315.patch?full_index=1"
-      sha256 "1cbe1b68d70eadd49080a6e512a35f3e230de26b6e1b1c859d9119906417737f"
-    end
-  end
 
   livecheck do
     url "https://ffmpeg.org/download.html"
@@ -25,10 +15,11 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    sha256 "32d496fe08e4bd5e8b5589d92cc7c6b9e6abb29a3d05f092760eabba81e98a45" => :big_sur
-    sha256 "fa20f49d1650469cc4ea6fe6ef6c8d949106235cec8de9a386dec5839c2bb047" => :catalina
-    sha256 "7bf14f3a7ffee5a74dd75f2693bd42c35e2cd479dfa59cdc5db976618494814f" => :mojave
-    sha256 "5faa06d8ac2008a03d9ed826e1db8b39f14f5c585b9af20250e798db16247dae" => :high_sierra
+    sha256 arm64_big_sur: "d603441a90e72b165e70ef1787b2045c6e969f077dcadd1529d04162fbd18ab3"
+    sha256 big_sur:       "9da28933b9f1abc3b1cf92382d1a8ea051c98f9dd0f4ef47e8d37d2aa9a4769a"
+    sha256 catalina:      "3fcc129951906c60f6e2130131fde64e449bc562a605f64be74fc950cac930ea"
+    sha256 mojave:        "8becf08fae7806a6365b489c3dcde8f6f0ddb49a64e96386c2c190a15604a486"
+    sha256 x86_64_linux:  "303961f673338cc304e8a13daa7899cb807b6433be9a7bf78ceaed3fd48d5822"
   end
 
   depends_on "nasm" => :build
@@ -50,7 +41,6 @@ class Ffmpeg < Formula
   depends_on "openjpeg"
   depends_on "opus"
   depends_on "rav1e"
-  depends_on "rtmpdump"
   depends_on "rubberband"
   depends_on "sdl2"
   depends_on "snappy"
@@ -63,10 +53,16 @@ class Ffmpeg < Formula
   depends_on "x265"
   depends_on "xvid"
   depends_on "xz"
+  depends_on "zeromq"
+  depends_on "zimg"
 
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "libxv"
+  end
 
   def install
     args = %W[
@@ -74,7 +70,6 @@ class Ffmpeg < Formula
       --enable-shared
       --enable-pthreads
       --enable-version3
-      --enable-avresample
       --cc=#{ENV.cc}
       --host-cflags=#{ENV.cflags}
       --host-ldflags=#{ENV.ldflags}
@@ -108,13 +103,22 @@ class Ffmpeg < Formula
       --enable-libopencore-amrnb
       --enable-libopencore-amrwb
       --enable-libopenjpeg
-      --enable-librtmp
       --enable-libspeex
       --enable-libsoxr
-      --enable-videotoolbox
+      --enable-libzmq
+      --enable-libzimg
       --disable-libjack
       --disable-indev=jack
     ]
+
+    # libavresample has been deprecated and removed but some non-updated formulae are still linked to it
+    # Remove in the next release
+    args << "--enable-avresample" unless build.head?
+
+    on_macos do
+      # Needs corefoundation, coremedia, corevideo
+      args << "--enable-videotoolbox"
+    end
 
     system "./configure", *args
     system "make", "install"

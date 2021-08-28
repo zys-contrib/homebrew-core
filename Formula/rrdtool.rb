@@ -7,10 +7,12 @@ class Rrdtool < Formula
   revision 1
 
   bottle do
-    sha256 "9d4f04228051780a37f8351c79773e3ed7492d5989b75e403e307d819163f35a" => :big_sur
-    sha256 "ce57cda576f452e7790e091d645887231d4aa5b691e2c33b4ea93b3dd92d7757" => :catalina
-    sha256 "fae6691230b527c93670d1d00b266e43497744fc09df06c9977265e578b529fc" => :mojave
-    sha256 "858013744cfc3d31a47b7e3629198922d1994f20d0d44c11f6c921ce6f2b9942" => :high_sierra
+    sha256 arm64_big_sur: "ad12dac7aa98a147308996e0428a0a1c7cd00ad61a79b4256fc4b328037f11a8"
+    sha256 big_sur:       "9d4f04228051780a37f8351c79773e3ed7492d5989b75e403e307d819163f35a"
+    sha256 catalina:      "ce57cda576f452e7790e091d645887231d4aa5b691e2c33b4ea93b3dd92d7757"
+    sha256 mojave:        "fae6691230b527c93670d1d00b266e43497744fc09df06c9977265e578b529fc"
+    sha256 high_sierra:   "858013744cfc3d31a47b7e3629198922d1994f20d0d44c11f6c921ce6f2b9942"
+    sha256 x86_64_linux:  "f05f4ccf30058ab7f637b428ad155e318b8a03c7b8c64b8a8d22e6cfdad3a32f"
   end
 
   head do
@@ -23,6 +25,8 @@ class Rrdtool < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "pango"
+
+  uses_from_macos "groff"
 
   def install
     # fatal error: 'ruby/config.h' file not found

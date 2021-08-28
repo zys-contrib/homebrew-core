@@ -5,25 +5,26 @@ class Geckodriver < Formula
   head "https://hg.mozilla.org/mozilla-central/", using: :hg
 
   stable do
-    # Get the hg_revision for stable releases from https://github.com/mozilla/geckodriver/releases
-    hg_revision = "c00d2b6acd3fb1b197b25662fba0a96c11669b66"
+    # Get the hg_revision for stable releases from
+    # https://searchfox.org/mozilla-central/source/testing/geckodriver/CHANGES.md
+    hg_revision = "970ef713fe58cbc8a29bfb2fb452a57e010bdb08"
     url "https://hg.mozilla.org/mozilla-central/archive/#{hg_revision}.zip/testing/geckodriver/"
-    version "0.28.0"
-    sha256 "278b0f57b4659c82a22be260e754a38d0e61fc28cb76bf8a4b672020456c2f08"
+    version "0.29.1"
+    sha256 "23176305a3795163fac81748a28459e8c5d0051f014f1e713c78980df50b9069"
 
     resource "webdriver" do
       url "https://hg.mozilla.org/mozilla-central/archive/#{hg_revision}.zip/testing/webdriver/"
-      sha256 "eddf228980cd00a357f549435e5225a7d291305583c1d5010b0930039f6ddfb7"
+      sha256 "8c7f7aa42f4b239846d222f617d3faf6d7805f315414e603cb8504495325b7e2"
     end
 
     resource "mozbase" do
       url "https://hg.mozilla.org/mozilla-central/archive/#{hg_revision}.zip/testing/mozbase/rust/"
-      sha256 "1049fa9f18ffc7bb03da0523d782c6f52f12bdee8b5ee3d705ee618a1e95011e"
+      sha256 "3cec9cc1c2a0cc0d79b00f2c45caabbf229596b5cdc2a48c2612498073e7296b"
     end
 
     resource "Cargo.lock" do
       url "https://hg.mozilla.org/mozilla-central/raw-file/#{hg_revision}/Cargo.lock"
-      sha256 "e2b6ba6af118d2fde12cdc05dfd0feca0d1d583f8bd083255dd48544fd416ca9"
+      sha256 "9e91f8b8dbb4dd7a85a6d8b7b0b6a9df3a31a22479083133f1db11dbff1cb975"
     end
   end
 
@@ -33,15 +34,16 @@ class Geckodriver < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "7fa8c7402cf7b076094ca1ef3286236866641530b270dda9f4e11ad2f4d93ba6" => :big_sur
-    sha256 "a20476cfe9b256bdceb599e58e0d8364d9407c7c83a49a9a7c7933367c14de56" => :catalina
-    sha256 "06808179a65aebbddcea493ba1c6002cd0abb396473f01947a11e2789f9354d2" => :mojave
-    sha256 "986d06965c069a00d36246a8d12bcf73d5869433519919e64edfc6076b236d97" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "170d84b545509d7ef6759b84b59d209e6374c5cdb6a414113e783e61e0f591e5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "136b5d41ebac01aa5baf8c355eaf4ee4ce3d3f08c1fc0758d438442daf520636"
+    sha256 cellar: :any_skip_relocation, catalina:      "a09021c739b414fb0ac165cf76ab22b9033be3ed52e1d83c5d3096640b91b554"
+    sha256 cellar: :any_skip_relocation, mojave:        "8be96031b68db4170630416c4c8c10578f0bac179d7b768962bd5bb77dd60d88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8fa50edf1a3f83d1928d379a13025f7a317005854df10f7d09492117794155d"
   end
 
   depends_on "rust" => :build
 
+  uses_from_macos "netcat" => :test
   uses_from_macos "unzip"
 
   def install

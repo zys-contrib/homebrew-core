@@ -1,22 +1,30 @@
 class Ccls < Formula
   desc "C/C++/ObjC language server"
   homepage "https://github.com/MaskRay/ccls"
-  url "https://github.com/MaskRay/ccls/archive/0.20201025.tar.gz"
-  sha256 "1470797b2c1a466e2d8a069efd807aac6fefdef8a556e1edf2d44f370c949221"
+  url "https://github.com/MaskRay/ccls/archive/0.20210330.tar.gz"
+  sha256 "28c228f49dfc0f23cb5d581b7de35792648f32c39f4ca35f68ff8c9cb5ce56c2"
   license "Apache-2.0"
-  head "https://github.com/MaskRay/ccls.git"
+  revision 1
+  head "https://github.com/MaskRay/ccls.git", branch: "master"
 
   bottle do
-    sha256 "aef6e8248dda65a8c4ec322e46c2c96ccdfa3d3086e2f96353f0a5fdca6cc739" => :big_sur
-    sha256 "9eeac4bcb801299d73e1d8a838b9b75701cef86506928082c5b63603949fad4e" => :catalina
-    sha256 "eb2e73b77b5c3221fe9bc2b3330b9a2456b95558fc3b326fc29d35739467847d" => :mojave
-    sha256 "578e24f878766fdcc3e024ddfcd6d124fbeaa79c79e32b89f6286f58d1213894" => :high_sierra
+    sha256                               arm64_big_sur: "4b2edaf5fa08c9846ca7bc5cc20d36cbf6c6299af4df34527fbd511bbdebb5d7"
+    sha256                               big_sur:       "cde35a76dbcadb48c962ded6e8e42e232e2a9084d46f01671b4a372a71dcc6cc"
+    sha256                               catalina:      "86b111c8e74d39fb31558870c8b11b45625fab9573bbced33600319c53448530"
+    sha256                               mojave:        "f8c02843ad68842a00b2b1d7015f3e73577b2717eef55c5c614231f0a4b57212"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea19ed9887e21ba1cfec720431fac2ec6b28cd0464746f2f9930f39bea1a42e3"
   end
 
   depends_on "cmake" => :build
   depends_on "rapidjson" => :build
   depends_on "llvm"
   depends_on macos: :high_sierra # C++ 17 is required
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     system "cmake", *std_cmake_args

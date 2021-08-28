@@ -1,41 +1,70 @@
 class Ocp < Formula
   desc "UNIX port of the Open Cubic Player"
   homepage "https://stian.cubic.org/project-ocp.php"
-  url "https://stian.cubic.org/ocp/ocp-0.2.1.tar.bz2"
-  sha256 "238ed6547e4c96b775d93aa6e4252982a763f62ecd201f6312f041212edc1798"
-  license "GPL-2.0"
+  url "https://stian.cubic.org/ocp/ocp-0.2.90.tar.xz"
+  sha256 "e5bb775648c4708c821cb8313932a8fef7dcf1b5035208e56e57779984d60911"
+  license "GPL-2.0-or-later"
+  head "https://github.com/mywave82/opencubicplayer.git"
 
-  bottle do
-    sha256 "d9c557bc2f3161818fcf4701e7cc123bd6d2f85ff9e80df5976392de9102a737" => :catalina
-    sha256 "e23ff51d2b5b9adaa44f5d851da94c836f68886bacc2cd739b30166a2ec04312" => :mojave
-    sha256 "6b40bde3ba007a8b18451502bcf49841d8a3f75ec06a7d6a8e748f508e7dc1f9" => :high_sierra
+  livecheck do
+    url :homepage
+    regex(/href=.*?ocp[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 arm64_big_sur: "4e39e14e21a39d835a98ac386b88cbc01d1eb7c45cf590a982a38b48691c6da2"
+    sha256 big_sur:       "b1a86ede27aa902aa73ae8d304c1b48a6fd51f4c40597a6d7c96c8f6f9b25195"
+    sha256 catalina:      "796c250a21ccae79be58dd293a9a46544e0dcdbbdce2e6eb75f168213ff4fe60"
+    sha256 mojave:        "c1d02d5c7f9c8e0b4de6ddecec03dffc9347b0b52d4597fd9e480c94ac63630f"
+  end
+
+  depends_on "pkg-config" => :build
+  depends_on "xa" => :build
   depends_on "flac"
+  depends_on "freetype"
+  depends_on "jpeg-turbo"
+  depends_on "libpng"
   depends_on "libvorbis"
   depends_on "mad"
 
-  # Fix duplicate symbol errors, remove in next release
-  # https://github.com/mywave82/opencubicplayer/issues/15
-  patch do
-    url "https://github.com/mywave82/opencubicplayer/commit/04368dc54e649050517fe3a058e919fb5fb5f150.patch?full_index=1"
-    sha256 "27ba15871499ffcc540a59fcb2435945ab842af74265d1032a1bf0831c5cbe2b"
+  if MacOS.version < :catalina
+    depends_on "sdl"
+  else
+    depends_on "sdl2"
   end
-  patch do
-    url "https://github.com/mywave82/opencubicplayer/commit/1907b8f85e3e5fa61a02ad0ca3ce9bd30bfc0ea6.patch?full_index=1"
-    sha256 "3260bcfbd27e4aa64081674081e9f06963b705b3f89ba8aabaa8f54bb995986f"
+
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
+  resource "unifont" do
+    url "https://ftp.gnu.org/gnu/unifont/unifont-13.0.06/unifont-13.0.06.tar.gz"
+    sha256 "68def7a46df44241c7bf62de7ce0444e8ee9782f159c4b7553da9cfdc00be925"
   end
 
   def install
     ENV.deparallelize
 
+    # Required for SDL2
+    resource("unifont").stage do
+      cd "font/precompiled" do
+        share.install "unifont-13.0.06.ttf" => "unifont.ttf"
+        share.install "unifont_csur-13.0.06.ttf" => "unifont_csur.ttf"
+        share.install "unifont_upper-13.0.06.ttf" => "unifont_upper.ttf"
+      end
+    end
+
     args = %W[
       --prefix=#{prefix}
       --without-x11
-      --without-sdl
-      --without-sdl2
       --without-desktop_file_install
+      --with-unifontdir=#{share}
     ]
+
+    args << if MacOS.version < :catalina
+      "--without-sdl2"
+    else
+      "--without-sdl"
+    end
 
     system "./configure", *args
     system "make"

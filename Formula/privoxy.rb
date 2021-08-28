@@ -1,8 +1,8 @@
 class Privoxy < Formula
   desc "Advanced filtering web proxy"
   homepage "https://www.privoxy.org/"
-  url "https://downloads.sourceforge.net/project/ijbswa/Sources/3.0.29%20%28stable%29/privoxy-3.0.29-stable-src.tar.gz"
-  sha256 "25c6069efdaf577d47c257da63b03cd6d063fb790e19cc39603d82e5db72489d"
+  url "https://downloads.sourceforge.net/project/ijbswa/Sources/3.0.32%20%28stable%29/privoxy-3.0.32-stable-src.tar.gz"
+  sha256 "c61de4008c62445ec18f1f270407cbf2372eaba93beaccdc9e3238bb2defeed7"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,10 +11,11 @@ class Privoxy < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "7b49313bc0ca6074e83753c56c192cc8c922e63f37a07ffd6954d81f63b39e69" => :big_sur
-    sha256 "8e6f41dd3f0828b17ed3ee516de139ae4baa66d7c01c633bf3fc95097029e5a8" => :catalina
-    sha256 "8c382bc37d0a27ca33786a09e435942f38aac55bb48b22f4dafe8810002a06da" => :mojave
+    sha256 cellar: :any,                 arm64_big_sur: "c30372261661ab924bd6e3df9c86804d188dd130d0810e55e81aaa3431f924df"
+    sha256 cellar: :any,                 big_sur:       "2edd70c7227801bd01df3b6ee756802daa63d8567c3d7d79bceb80233f18bbff"
+    sha256 cellar: :any,                 catalina:      "b6b4b6fb269021a16685b7ee407ff8384699cf05910d3afbfac191afd6f1e588"
+    sha256 cellar: :any,                 mojave:        "d7302bde6de73110eff0a8e86554414641d7a2eac7ebe4aff54956f7609acc5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e7d8a8671f959df63a6af51510e044ea179b947b1a2c38b954804cf9950877e"
   end
 
   depends_on "autoconf" => :build
@@ -38,33 +39,11 @@ class Privoxy < Formula
     system "make", "install"
   end
 
-  plist_options manual: "privoxy #{HOMEBREW_PREFIX}/etc/privoxy/config"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>WorkingDirectory</key>
-        <string>#{var}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{sbin}/privoxy</string>
-          <string>--no-daemon</string>
-          <string>#{etc}/privoxy/config</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/privoxy/logfile</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_sbin/"privoxy", "--no-daemon", etc/"privoxy/config"]
+    keep_alive true
+    working_dir var
+    error_log_path var/"log/privoxy/logfile"
   end
 
   test do
@@ -73,7 +52,8 @@ class Privoxy < Formula
     begin
       server = IO.popen("#{sbin}/privoxy --no-daemon #{testpath}/config")
       sleep 1
-      assert_match "200 OK", shell_output("/usr/bin/curl -I -x #{bind_address} https://github.com")
+      assert_match "HTTP/1.1 200 Connection established",
+                   shell_output("/usr/bin/curl -I -x #{bind_address} https://github.com")
     ensure
       Process.kill("SIGINT", server.pid)
       Process.wait(server.pid)

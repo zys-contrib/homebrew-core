@@ -1,23 +1,22 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
   homepage "https://fnproject.io"
-  url "https://github.com/fnproject/cli/archive/0.5.102.tar.gz"
-  sha256 "2d0bea1d6a492101e44c1dfa710efa90ccbfbea81a252fdb82f4efc0c2bfd4e3"
+  url "https://github.com/fnproject/cli/archive/0.6.8.tar.gz"
+  sha256 "eebfc7bea0da0f56cbe392c0dc62b35804f6531ba9dd6b49ddf4875f32505fae"
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c71cb42d008f663f57588b8b9379aeaa9944ad9173a12cc58cba7f83dbaf5f8d" => :big_sur
-    sha256 "582d8a1bd26240a5b9832dd229af100639c03c752e40f224b23f80ccfe9db36f" => :catalina
-    sha256 "5528881001e7df693778ff794d430c45b3b1180a52f9fd422a73b1a29850d9f3" => :mojave
-    sha256 "1548f6ce7b1c2624084719b1eed4f6b8eaf6946c7a4c0a47a97aafab61d6c153" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f05b0e3cd6375632eddb33bebfff9a88529cd203e816a6ea554c87bc50bb0379"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c556a28674afde6a2af8863f7379672c7a34019964b09c9934612586fce548ed"
+    sha256 cellar: :any_skip_relocation, catalina:      "f54b7aac76ce204ff59836c248234f9930f7ab30e3cd312563742869661daafe"
+    sha256 cellar: :any_skip_relocation, mojave:        "ea758f6762f87e6c965c290a59d94d03a13c320f68117e75deb28d54c5ba4b15"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f1086364187f4e5b87e255ab4624cf58d8f044d4541dbdc3af31bdc5e080ac79"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", "#{bin}/fn"
-    prefix.install_metafiles
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
@@ -29,18 +28,23 @@ class Fn < Formula
     server = TCPServer.new("localhost", port)
     pid = fork do
       loop do
+        response = {
+          id:         "01CQNY9PADNG8G00GZJ000000A",
+          name:       "myapp",
+          created_at: "2018-09-18T08:56:08.269Z",
+          updated_at: "2018-09-18T08:56:08.269Z",
+        }.to_json
+
         socket = server.accept
-        response =
-          '{"id":"01CQNY9PADNG8G00GZJ000000A","name":"myapp",' \
-           '"created_at":"2018-09-18T08:56:08.269Z","updated_at":"2018-09-18T08:56:08.269Z"}'
         socket.print "HTTP/1.1 200 OK\r\n" \
-                    "Content-Length: #{response.bytesize}\r\n" \
-                    "Connection: close\r\n"
+                     "Content-Length: #{response.bytesize}\r\n" \
+                     "Connection: close\r\n"
         socket.print "\r\n"
         socket.print response
         socket.close
       end
     end
+    sleep 1
     begin
       ENV["FN_API_URL"] = "http://localhost:#{port}"
       ENV["FN_REGISTRY"] = "fnproject"

@@ -3,20 +3,21 @@ class Networkit < Formula
 
   desc "Performance toolkit for large-scale network analysis"
   homepage "https://networkit.github.io"
-  url "https://github.com/networkit/networkit.git",
-      tag:      "7.1",
-      revision: "4c6dcc4367b51005a34221242048609c357ffbd6"
+  url "https://github.com/networkit/networkit/archive/9.0.tar.gz"
+  sha256 "c574473bc7d86934f0f4b3049c0eeb9c4444cfa873e5fecda194ee5b1930f82c"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 "e9e7a572043c181f4aca4c76099b4d1d15e64108c15f5a85f308e9670a23afe4" => :catalina
-    sha256 "b89291dd82191c1f0723260297b0b95be0a060380dc820cd4041b00a4a48e149" => :mojave
-    sha256 "4c5688263e090b92933eda18a481a6c4de5e30460b1d503148fdc614c0324b2c" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "6830b5a174f2faa428c162a31cbac98867ac91847e20c44fc0b942a054dc172c"
+    sha256 cellar: :any, big_sur:       "734ae79b47e434f3e3d1e8ddaf2ae0edef1b48b4e4a6bd2f82ba201abdb51cbe"
+    sha256 cellar: :any, catalina:      "05e4c80f053b211a5fc3bb905c93a96dfd488c2f078c926de6b6459aeb7409e4"
+    sha256 cellar: :any, mojave:        "f39d81732bf9dc5093bb3537b7f1436a23b02956fa5856fd4b46a8ac7de67a93"
   end
 
   depends_on "cmake" => :build
   depends_on "cython" => :build
+  depends_on "tlx" => :build
+
   depends_on "libnetworkit"
   depends_on "numpy"
   depends_on "python@3.9"
@@ -30,7 +31,8 @@ class Networkit < Formula
     ENV.append_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python#{xy}/site-packages"
     system Formula["python@3.9"].opt_bin/"python3", "setup.py", "build_ext",
           "--networkit-external-core",
-           "--rpath=@loader_path;#{rpath_addons}"
+          "--external-tlx=#{Formula["tlx"].opt_prefix}",
+          "--rpath=@loader_path;#{rpath_addons}"
     system Formula["python@3.9"].opt_bin/"python3", "setup.py", "install",
            "--single-version-externally-managed",
            "--record=installed.txt",

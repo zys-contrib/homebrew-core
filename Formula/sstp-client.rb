@@ -1,9 +1,10 @@
 class SstpClient < Formula
   desc "SSTP (Microsofts Remote Access Solution for PPP over SSL) client"
   homepage "https://sstp-client.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/sstp-client/sstp-client/sstp-client-1.0.13.tar.gz"
-  sha256 "961258fca0795d8ad60b047942cf7cb53d025d353fd1e4ba08c2b75799f5321b"
-  license "GPL-2.0"
+  url "https://downloads.sourceforge.net/project/sstp-client/sstp-client/sstp-client-1.0.15.tar.gz"
+  sha256 "8484aa51fbfbe418a0ebad58ad20a8ee1c46ed71f800be18bcd23b42e6baad64"
+  license "GPL-2.0-or-later"
+  version_scheme 1
 
   livecheck do
     url :stable
@@ -11,10 +12,11 @@ class SstpClient < Formula
   end
 
   bottle do
-    sha256 "dfa678dbed0f557f73449091d107882f7f8f02debcbd6f665d180882c59f3a0a" => :big_sur
-    sha256 "07d9e21c21591a675d760f059838f26bbbe02a04b27518bce5d3a9b0d0069194" => :catalina
-    sha256 "0c32039442cbe0c26bc90660fd99e19940b71677637b60d03350a4c90b3ca35c" => :mojave
-    sha256 "cfc794cfd038b84da0b1f329bc7eb6f5c5165e1727ec53c259a5d93ab48d47b0" => :high_sierra
+    sha256 arm64_big_sur: "b4d5f320170ae3d03b27ee6aad79fedcc69dc74adcb7775dd284625515bf6d7b"
+    sha256 big_sur:       "4456c0d7626d757558f3e5916fa2ec6dc5d0e16bd70dffbf1d9856c88f9f57ed"
+    sha256 catalina:      "9d745ca078013a4a01009fd2e5d713d9c26e26097f3ca00878068ae8137cc516"
+    sha256 mojave:        "1bc3a7e3a40676213301589608312b18298ce0f430c4d49fc0cc0ff18297d54c"
+    sha256 x86_64_linux:  "0ab9094ef5d0a3c0e1b8936eef9d07d8e2adc460ff5a97e028402a944a4cf219"
   end
 
   depends_on "pkg-config" => :build

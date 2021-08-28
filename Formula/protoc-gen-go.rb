@@ -1,24 +1,24 @@
 class ProtocGenGo < Formula
   desc "Go support for Google's protocol buffers"
-  homepage "https://github.com/golang/protobuf"
-  url "https://github.com/golang/protobuf/archive/v1.4.3.tar.gz"
-  sha256 "5736f943f8647362f5559689df6154f3c85d261fb088867c8a68494e2a767610"
+  homepage "https://github.com/protocolbuffers/protobuf-go"
+  url "https://github.com/protocolbuffers/protobuf-go/archive/v1.27.1.tar.gz"
+  sha256 "3ec41a8324431e72f85e0dc0c2c098cc14c3cb1ee8820996c8f46afca2d65609"
   license "BSD-3-Clause"
-  revision 1
-  head "https://github.com/golang/protobuf.git"
+  head "https://github.com/protocolbuffers/protobuf-go.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "72b0d9ecea80b943041b675e7b4b7cd30eb7c8b8c7e259ea9f10d8ea80a300d7" => :big_sur
-    sha256 "342612ad4c08732410ae7d159d5743a2c66f3a6a1ea410a8fed64fcad195118e" => :catalina
-    sha256 "cb8c75a45f9035bee99008a9101207ba0e74e41a28ef3ebdb4e1e492c769bd3d" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "577196328ed1d829d999d7eb7a1fbdcd340831619b5e53db1e9ff880bb0514cb"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3990c0be0447ef4cebc03575c737a01a8a7af9e3766cb014addc4c932eeb4228"
+    sha256 cellar: :any_skip_relocation, catalina:      "3990c0be0447ef4cebc03575c737a01a8a7af9e3766cb014addc4c932eeb4228"
+    sha256 cellar: :any_skip_relocation, mojave:        "3990c0be0447ef4cebc03575c737a01a8a7af9e3766cb014addc4c932eeb4228"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf23c02b98cfea6ed4a0d293a6f669b61fa11c6a04f5288ae6d910b20c0a8f4c"
   end
 
   depends_on "go" => :build
   depends_on "protobuf"
 
   def install
-    system "go", "build", *std_go_args, "-ldflags", "-s -w", "./protoc-gen-go"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/protoc-gen-go"
     prefix.install_metafiles
   end
 
@@ -27,12 +27,13 @@ class ProtocGenGo < Formula
     protofile.write <<~EOS
       syntax = "proto3";
       package proto3;
+      option go_package = "package/test";
       message Request {
         string name = 1;
         repeated int64 key = 2;
       }
     EOS
-    system "protoc", "--go_out=.", "proto3.proto"
+    system "protoc", "--go_out=.", "--go_opt=paths=source_relative", "proto3.proto"
     assert_predicate testpath/"proto3.pb.go", :exist?
     refute_predicate (testpath/"proto3.pb.go").size, :zero?
   end

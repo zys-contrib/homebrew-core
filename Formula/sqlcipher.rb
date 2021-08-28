@@ -1,19 +1,24 @@
 class Sqlcipher < Formula
   desc "SQLite extension providing 256-bit AES encryption"
   homepage "https://www.zetetic.net/sqlcipher/"
-  url "https://github.com/sqlcipher/sqlcipher/archive/v4.4.2.tar.gz"
-  sha256 "87458e0e16594b3ba6c7a1f046bc1ba783d002d35e0e7b61bb6b7bb862f362a7"
+  url "https://github.com/sqlcipher/sqlcipher/archive/v4.4.3.tar.gz"
+  sha256 "b8df69b998c042ce7f8a99f07cf11f45dfebe51110ef92de95f1728358853133"
   license "BSD-3-Clause"
-  head "https://github.com/sqlcipher/sqlcipher.git"
+  head "https://github.com/sqlcipher/sqlcipher.git", branch: "master"
 
   bottle do
-    cellar :any
-    sha256 "cac60b27489ae08e4be4fffcb80c66208cc628889ce89295802983581a39febc" => :big_sur
-    sha256 "b6e926a4630f8b4547e5d71f5195bdde461ef08e54b9ae90a45644b11543cd9d" => :catalina
-    sha256 "8d216a324ade956c2ec9b4dc94a676b27342e590c948b1c80ba49d602c885ccb" => :mojave
+    sha256 cellar: :any,                 arm64_big_sur: "2395b5999cde9cd6c8f53dd595a2827d8e2bdef8b801879b753378728a3cc94f"
+    sha256 cellar: :any,                 big_sur:       "97328f386addff936379b66ae032b3341cc6f047b7453e1a837cdc8a00b06653"
+    sha256 cellar: :any,                 catalina:      "826fa6703434de743eec33ca60db392fe772ace12e4eb3720c106d675c3edc70"
+    sha256 cellar: :any,                 mojave:        "123c63643cec4a0503993ba6f9a124a5f781db317c311103da82d91a895808e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "994d4f361a64199f7330b1a3018f098ac9237a12580038eddd277f76d4665ac9"
   end
 
   depends_on "openssl@1.1"
+
+  # Build scripts require tclsh. `--disable-tcl` only skips building extension
+  uses_from_macos "tcl-tk" => :build
+  uses_from_macos "sqlite"
 
   def install
     args = %W[
@@ -25,8 +30,19 @@ class Sqlcipher < Formula
     ]
 
     # Build with full-text search enabled
-    args << "CFLAGS=-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_JSON1 -DSQLITE_ENABLE_FTS3 " \
-                   "-DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_COLUMN_METADATA"
+    cflags = %w[
+      -DSQLITE_HAS_CODEC
+      -DSQLITE_ENABLE_JSON1
+      -DSQLITE_ENABLE_FTS3
+      -DSQLITE_ENABLE_FTS3_PARENTHESIS
+      -DSQLITE_ENABLE_FTS5
+      -DSQLITE_ENABLE_COLUMN_METADATA
+    ].join(" ")
+    args << "CFLAGS=#{cflags}"
+
+    on_linux do
+      args << "LIBS=-lm"
+    end
 
     system "./configure", *args
     system "make"

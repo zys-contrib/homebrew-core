@@ -1,17 +1,15 @@
 class Ispc < Formula
   desc "Compiler for SIMD programming on the CPU"
   homepage "https://ispc.github.io"
-  url "https://github.com/ispc/ispc/archive/v1.14.1.tar.gz"
-  sha256 "3a7ee9ab90b9e9932b7b4effc9bb3ef45ca271d60d9ec6bc8c335242b5ec097b"
+  url "https://github.com/ispc/ispc/archive/v1.16.1.tar.gz"
+  sha256 "e5dcd0d85df6ed5feb454ad9ec295083a07d7459fcaba00d5dd6266ceb476399"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
-    cellar :any
-    sha256 "633a23c16499ef408171d25d2350510ae91d7f73c4449a1fe29514a1aa8ddd08" => :big_sur
-    sha256 "7d830ca3028045971afbd4bd9adc6c73caf6bc79d0da341bb72acef0067e978b" => :catalina
-    sha256 "a93ed9cd6c35b8b8cda6e0128438fa12f5f2bf8b92ced82d507c8f792a229634" => :mojave
-    sha256 "1607e7d662670ed74fe122004c1ac7ace19ab1eb6c3939fe196155e90ebbd897" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "774925e3f76b5bc791c697ccb33ba6ddb06263afc42afed3d3b5c042d1e418b2"
+    sha256 cellar: :any, big_sur:       "056f8214241e142cc25f5f0e80a7691676e301d53dd221a3e9f37eacbad9ddbb"
+    sha256 cellar: :any, catalina:      "f6cbc37b4e9288c21009fd9b575a74d201563736e67e9bbd03c3df72ad332e5e"
+    sha256 cellar: :any, mojave:        "b761277279a3b20607c33a0ada33caa467ee4d14dcec08ac96b272fd4b02c75a"
   end
 
   depends_on "bison" => :build
@@ -27,6 +25,7 @@ class Ispc < Formula
       -DISPC_INCLUDE_UTILS=OFF
       -DLLVM_TOOLS_BINARY_DIR='#{Formula["llvm"].opt_bin}'
       -DISPC_NO_DUMPS=ON
+      -DARM_ENABLED=#{Hardware::CPU.arm? ? "ON" : "OFF"}
     ]
 
     mkdir "build" do
@@ -49,7 +48,15 @@ class Ispc < Formula
         }
       }
     EOS
-    system bin/"ispc", "--arch=x86-64", "--target=sse2", testpath/"simple.ispc",
+
+    if Hardware::CPU.arm?
+      arch = "aarch64"
+      target = "neon"
+    else
+      arch = "x86-64"
+      target = "sse2"
+    end
+    system bin/"ispc", "--arch=#{arch}", "--target=#{target}", testpath/"simple.ispc",
       "-o", "simple_ispc.o", "-h", "simple_ispc.h"
 
     (testpath/"simple.cpp").write <<~EOS

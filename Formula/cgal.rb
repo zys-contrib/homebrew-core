@@ -1,19 +1,19 @@
 class Cgal < Formula
   desc "Computational Geometry Algorithms Library"
   homepage "https://www.cgal.org/"
-  url "https://github.com/CGAL/cgal/releases/download/v5.1.1/CGAL-5.1.1.tar.xz"
-  sha256 "162250d37ab85017041ad190afa1ef5146f8b08ed908d890a64d8dbaa5910ca0"
+  url "https://github.com/CGAL/cgal/releases/download/v5.3/CGAL-5.3.tar.xz"
+  sha256 "2c242e3f27655bc80b34e2fa5e32187a46003d2d9cd7dbec8fbcbc342cea2fb6"
   license "GPL-3.0-or-later"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d82b343d3912336491fbc95f1dc6aa2bb135b3c6347a1d958adcbb8e9c53be30" => :big_sur
-    sha256 "acf16e9f81335601997a29d88ceca034a97095e76c98f5a43744d43ddea9441a" => :catalina
-    sha256 "f35b64d3f1ace5f185458fe3d716f6ce4abe273830968998ddcc46f3275e746e" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e894e9e89727aa1b23360c902ea971c8cfde4a86613c870acdf4a5c484b836ac"
+    sha256 cellar: :any_skip_relocation, big_sur:       "30fc29fc49aeb79af65c39a14b6ab4a1560e53358574ee796adc1914b499d6ae"
+    sha256 cellar: :any_skip_relocation, catalina:      "30fc29fc49aeb79af65c39a14b6ab4a1560e53358574ee796adc1914b499d6ae"
+    sha256 cellar: :any_skip_relocation, mojave:        "30fc29fc49aeb79af65c39a14b6ab4a1560e53358574ee796adc1914b499d6ae"
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "qt" => [:build, :test]
+  depends_on "qt@5" => [:build, :test]
   depends_on "boost"
   depends_on "eigen"
   depends_on "gmp"
@@ -32,6 +32,7 @@ class Cgal < Formula
     system "cmake", ".", *args
     system "make", "install"
   end
+
   test do
     # https://doc.cgal.org/latest/Triangulation_2/Triangulation_2_2draw_triangulation_2_8cpp-example.html and  https://doc.cgal.org/latest/Algebraic_foundations/Algebraic_foundations_2interoperable_8cpp-example.html
     (testpath/"surprise.cpp").write <<~EOS
@@ -72,10 +73,13 @@ class Cgal < Formula
       cmake_minimum_required(VERSION 3.1...3.15)
       find_package(CGAL COMPONENTS Qt5)
       add_definitions(-DCGAL_USE_BASIC_VIEWER -DQT_NO_KEYWORDS)
+      include_directories(surprise BEFORE SYSTEM #{Formula["qt@5"].opt_include})
       add_executable(surprise surprise.cpp)
+      target_include_directories(surprise BEFORE PUBLIC #{Formula["qt@5"].opt_include})
       target_link_libraries(surprise PUBLIC CGAL::CGAL_Qt5)
     EOS
-    system "cmake", "-L", "-DQt5_DIR=#{Formula["qt"].opt_lib}/cmake/Qt5",
+    system "cmake", "-L", "-DQt5_DIR=#{Formula["qt@5"].opt_lib}/cmake/Qt5",
+           "-DCMAKE_PREFIX_PATH=#{Formula["qt@5"].opt_lib}",
            "-DCMAKE_BUILD_RPATH=#{HOMEBREW_PREFIX}/lib", "-DCMAKE_PREFIX_PATH=#{prefix}", "."
     system "cmake", "--build", ".", "-v"
     assert_equal "15\n15", shell_output("./surprise").chomp

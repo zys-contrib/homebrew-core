@@ -1,22 +1,22 @@
 class VorbisTools < Formula
   desc "Ogg Vorbis CODEC tools"
   homepage "https://github.com/xiph/vorbis-tools"
-  url "https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.0.tar.gz"
-  sha256 "a389395baa43f8e5a796c99daf62397e435a7e73531c9f44d9084055a05d22bc"
-  revision 2
+  url "https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.2.tar.gz", using: :homebrew_curl
+  mirror "https://ftp.osuosl.org/pub/xiph/releases/vorbis/vorbis-tools-1.4.2.tar.gz"
+  sha256 "db7774ec2bf2c939b139452183669be84fda5774d6400fc57fde37f77624f0b0"
 
   livecheck do
-    url "https://downloads.xiph.org/releases/vorbis/"
+    url "https://ftp.osuosl.org/pub/xiph/releases/vorbis/?C=M&O=D"
     regex(/href=.*?vorbis-tools[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "671568dbd6ae11ccaafc0e0a3a4bd467898bfa6d700b2e21db8457f900c44778" => :big_sur
-    sha256 "71a81bbeec2d79ddd7f39858cf66a450fac9d542824c30a064298229d6637594" => :catalina
-    sha256 "c3e402519ad170a0a37d80d394d8afbe905985784f8ea5d93fcc84a4486a9977" => :mojave
-    sha256 "e929c31331ffcb58d21cb086184ed747185dd8d0f4b7ee1b98134cabe44490bc" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "04a17ea863d62a4ea5839e6a2c2a86314d06ed6d13883a62b19745994d745317"
+    sha256 cellar: :any,                 big_sur:       "96ba6cde73391d6a892e9bf2dc858264450481fd82abf7b5b18d51e50f925337"
+    sha256 cellar: :any,                 catalina:      "b01d184e0950457c156be75a93e58f33d3e68fc1c563d11c3d4201bd91835f1e"
+    sha256 cellar: :any,                 mojave:        "a9564d93b704d270a94dc5831f20a1033a18f4ad8f7c90270eeeb1c65abcd578"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6e13cfa641da45da07d912c1b6dcacf9e3603ea2152266605ad212188183259"
   end
 
   depends_on "pkg-config" => :build
@@ -28,18 +28,7 @@ class VorbisTools < Formula
   uses_from_macos "curl"
 
   def install
-    # Fix `brew linkage --test` "Missing libraries: /usr/lib/libnetwork.dylib"
-    # Prevent bogus linkage to the libnetwork.tbd in Xcode 7's SDK
-    ENV.delete("SDKROOT") if MacOS.version == :yosemite
-
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-nls
-      --prefix=#{prefix}
-    ]
-
-    system "./configure", *args
+    system "./configure", *std_configure_args, "--disable-nls"
     system "make", "install"
   end
 

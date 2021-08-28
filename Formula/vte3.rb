@@ -1,30 +1,36 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://developer.gnome.org/vte/"
-  url "https://download.gnome.org/sources/vte/0.62/vte-0.62.1.tar.xz"
-  sha256 "c369e87c0c8284e09109d0a9aac821f543558f51c0cb9c7acfff3df64153308d"
+  url "https://download.gnome.org/sources/vte/0.64/vte-0.64.2.tar.xz"
+  sha256 "2b3c820b65a667c1d8859ba20478be626d1519cc3159dac25f703330c6d07e18"
   license "LGPL-2.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    sha256 "648845b96b5175bc135671b5d6812871973344baaf988634e1fb79e45df22bb8" => :big_sur
-    sha256 "682bd63b12521e701f58b13f72f0a9f3449314670320e491b06d437de309daff" => :catalina
-    sha256 "617d21b21c0ffc0d53dea2ca5dc4ebf796afc9e3f0a46fc0c85ef9a01b2d6e28" => :mojave
+    sha256 arm64_big_sur: "805b98e4a5b77ac8385fdf15c555bdbc6cfa19fa586e140d7f030366c80b1f69"
+    sha256 big_sur:       "80db6f9c0b62cd99beaf9eaadde7be8cfe3c09a54eb9b385bd103891d7a12af8"
+    sha256 catalina:      "ad7a7e195ce43afdf30eff81f83e606b79e78db8e6ed39f0370ef34ebeeb39e4"
+    sha256 mojave:        "2404d321dc1eb3e61c5f6282c214395beae288e97ae62d6d6b5afe3edd9b7adf"
+    sha256 x86_64_linux:  "fb813f9bc1317086d4e1374aa003f0796084aeabc85fa077a40e0a785b877a54"
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "vala" => :build
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "gtk+3"
   depends_on macos: :mojave
   depends_on "pcre2"
-  depends_on "vala"
+
+  on_linux do
+    depends_on "linux-headers@4.15" => :build
+    depends_on "gcc" # for C++17
+    depends_on "systemd"
+  end
+
+  fails_with gcc: "5"
 
   # submitted upstream as https://gitlab.gnome.org/tschoonj/vte/merge_requests/1
   patch :DATA
@@ -112,12 +118,14 @@ class Vte3 < Formula
       -lgnutls
       -lgobject-2.0
       -lgtk-3
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
       -lvte-2.91
       -lz
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

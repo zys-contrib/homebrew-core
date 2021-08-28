@@ -3,35 +3,31 @@ class Diffoscope < Formula
 
   desc "In-depth comparison of files, archives, and directories"
   homepage "https://diffoscope.org"
-  url "https://files.pythonhosted.org/packages/e4/e0/12e7be308303e894e38ab1357bb50e4857a13cc3258a87fcb9af027c4434/diffoscope-162.tar.gz"
-  sha256 "7e5c24f56311f37078cc13f97be7912b34248f0cea04981cad06a5a8ba910729"
+  url "https://files.pythonhosted.org/packages/7a/40/1f85289a5070f8dd0858e69249e8de9d01c93252878d94ebab07af84f411/diffoscope-182.tar.gz"
+  sha256 "5969c6f0060c5c553e5ae9fdff45fbd344f102ee8fb2c5673cf0c73999c50df4"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f08a319f268522b1b779d4f8d2515df5480fdff262566518071bf2ceeee880c8" => :big_sur
-    sha256 "4c4be91cedef8b7b761d657ff0ba9d70be4fde2de7a2ddcb72e8e015393e529f" => :catalina
-    sha256 "e0d457d9a07dce84bb4eacb2e307a337c7174618a4edf23dff319e7fcbcf4cd1" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "af1e8597abd0d9e7c23809dc4660ecd80192233596ecc7e4e08e6d7f87a1485a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "098ea8bc8b378e8a8455fe2e84d5ed611c0f04465824cf8bf984d4386d8801a9"
+    sha256 cellar: :any_skip_relocation, catalina:      "9e66f9134675372ac5c4efdb2fb1681a9ba8fafb2f67a59d5f3d44b24096e3ef"
+    sha256 cellar: :any_skip_relocation, mojave:        "4dac1fe3c53fa32870108eb27a67837f794473c94a128aee518a5ab8653f42e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "787f947672e728832c28dc55b606f1904c90eebe9a59acc5d3b01ed9468ff215"
   end
 
-  depends_on "gnu-tar"
   depends_on "libarchive"
   depends_on "libmagic"
   depends_on "python@3.9"
 
   # Use resources from diffoscope[cmdline]
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/cb/53/d2e3d11726367351b00c8f078a96dacb7f57aef2aca0d3b6c437afc56b55/argcomplete-1.12.2.tar.gz"
-    sha256 "de0e1282330940d52ea92a80fea2e4b9e0da1932aaa570f84d268939d1897b04"
+    url "https://files.pythonhosted.org/packages/6a/b4/3b1d48b61be122c95f4a770b2f42fc2552857616feba4d51f34611bd1352/argcomplete-1.12.3.tar.gz"
+    sha256 "2c7dbffd8c045ea534921e63b0be6fe65e88599990d8dc408ac8c542b72a5445"
   end
 
   resource "libarchive-c" do
-    url "https://files.pythonhosted.org/packages/63/fe/9e6c78db381934e28c7ec3d30d4f209fe24442d17f1bd8c56d13ae185cf6/libarchive-c-2.9.tar.gz"
-    sha256 "9919344cec203f5db6596a29b5bc26b07ba9662925a05e24980b84709232ef60"
+    url "https://files.pythonhosted.org/packages/53/d5/bee2190570a2b4c372a022f16ebfc2313ff717a023f277f5d6f9ebf281a2/libarchive-c-3.1.tar.gz"
+    sha256 "618a7ecfbfb58ca15e11e3138d4a636498da3b6bc212811af158298530fbb87e"
   end
 
   resource "progressbar" do
@@ -40,8 +36,8 @@ class Diffoscope < Formula
   end
 
   resource "python-magic" do
-    url "https://files.pythonhosted.org/packages/e3/85/1aff76b966622868a73717abd8b501a3c91890e23a65e5f574ff6df1970f/python-magic-0.4.18.tar.gz"
-    sha256 "b757db2a5289ea3f1ced9e60f072965243ea43a2221430048fd8cacab17be0ce"
+    url "https://files.pythonhosted.org/packages/3a/70/76b185393fecf78f81c12f9dc7b1df814df785f6acb545fc92b016e75a7e/python-magic-0.4.24.tar.gz"
+    sha256 "de800df9fb50f8ec5974761054a708af6e4246b03b4bdaee993f948947b0ebcf"
   end
 
   def install

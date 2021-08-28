@@ -4,19 +4,18 @@ class Lablgtk < Formula
   url "https://github.com/garrigue/lablgtk/archive/2.18.11.tar.gz"
   sha256 "ff3c551df4e220b0c0fb9a3da6429413bff14f8fc93f4dd6807a35463982c863"
   license "LGPL-2.1"
-  revision 1
+  revision 3
 
   livecheck do
-    url "https://github.com/garrigue/lablgtk/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    cellar :any
-    sha256 "597788b6c0736a9ef41a660fec64191b4c4556239fca28495b44099cd846a573" => :big_sur
-    sha256 "e544b612c7067d60de3c58df5cc48f08ac32266dce56ef72a50b4895a841d21f" => :catalina
-    sha256 "ff8fd335cb687977105f9b18efabc78abafa5965aafce64733888c0f035f92ae" => :mojave
-    sha256 "127d47f712f5f0d914be06a87fa96344eaee9166cba08c50793cc28a8fef02dc" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "684afad25502ebfcdb6c20d870590c98310de235efbde39c1b4950635b3d8f86"
+    sha256 cellar: :any, big_sur:       "5a7b9fb8ff6ac9d8ce0f952c59e5705f295849df5f00e10b4771f2edbd4fb056"
+    sha256 cellar: :any, catalina:      "e9e7ed3fba9b4aea756fd38e46b178d9cbafd588fd4b6160683e08ba1ba2ae3a"
+    sha256 cellar: :any, mojave:        "60ecd5b76592917ec79b3fd2851d655eac39f3c08b945f24d154e4743a16fca1"
   end
 
   depends_on "pkg-config" => :build

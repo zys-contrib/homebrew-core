@@ -4,14 +4,14 @@ class LibbitcoinProtocol < Formula
   url "https://github.com/libbitcoin/libbitcoin-protocol/archive/v3.6.0.tar.gz"
   sha256 "fc41c64f6d3ee78bcccb63fd0879775c62bba5326f38c90b4c6804e2b9e8686e"
   license "AGPL-3.0"
-  revision 5
+  revision 7
 
   bottle do
-    cellar :any
-    sha256 "2cb09e5ce9b433b9ab28c843d99b7f79084af63700d2f30fbd7e98e8d731997a" => :big_sur
-    sha256 "e6d636c0f911028bde68c355ccd8c2559dd5de5c98bccf25e29abf513858f7c8" => :catalina
-    sha256 "dbf5a7bb317424c6be91de02cd905f8b7363aa44dacbe7615fba646b8d1c5f39" => :mojave
-    sha256 "ed1cd5adabdafe839a4abf22ead5c697cf6856c5a2e9d135f62615554a13b073" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "aafbba752b3be4a662fe4e1c3ee2bc915d323a41b9e51ec1dcced932c4cf1d7c"
+    sha256 cellar: :any,                 big_sur:       "aace6881bbd222da139ac545f8c1f77be1d6515a48a9153e4d7e605d242006cb"
+    sha256 cellar: :any,                 catalina:      "e04f1896d57ca53344e59c20372809419735fae379b3350cadaabc04a8c57780"
+    sha256 cellar: :any,                 mojave:        "af7dbd9acf2a65efa468e14e4923d33a69605e8ace1d91f697acf399ab6a6ca7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7353cdeff1b5ac4341580e031078ac5bc454fbc37d4d3dc448fb48dc6d909894"
   end
 
   depends_on "autoconf" => :build
@@ -22,16 +22,19 @@ class LibbitcoinProtocol < Formula
   depends_on "zeromq"
 
   def install
+    ENV.cxx11
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin"].opt_libexec/"lib/pkgconfig"
 
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--with-boost-libdir=#{Formula["boost"].opt_lib}"
     system "make", "install"
   end
 
   test do
+    boost = Formula["boost"]
     (testpath/"test.cpp").write <<~EOS
       #include <bitcoin/protocol.hpp>
       int main() {
@@ -44,7 +47,7 @@ class LibbitcoinProtocol < Formula
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
                     "-L#{Formula["libbitcoin"].opt_lib}", "-lbitcoin",
                     "-L#{lib}", "-lbitcoin-protocol",
-                    "-L#{Formula["boost"].opt_lib}", "-lboost_system"
+                    "-L#{boost.opt_lib}", "-lboost_system"
     system "./test"
   end
 end

@@ -1,31 +1,35 @@
 class Caf < Formula
   # Renamed from libccpa
   desc "Implementation of the Actor Model for C++"
-  homepage "https://actor-framework.org/"
-  url "https://github.com/actor-framework/actor-framework/archive/0.17.6.tar.gz"
-  sha256 "e2bf5bd243f08bb7d8adde197cfe3e6d71314ed3378fe0692f8932f4c3b3928c"
+  homepage "https://www.actor-framework.org/"
+  url "https://github.com/actor-framework/actor-framework/archive/0.18.5.tar.gz"
+  sha256 "4c96f896f000218bb65890b4d7175451834add73750d5f33b0c7fe82b7d5a679"
   license "BSD-3-Clause"
-  head "https://github.com/actor-framework/actor-framework.git"
+  head "https://github.com/actor-framework/actor-framework.git", branch: "master"
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "0779640072ac88745f00f5946958a815f0deeb19dba46509181fd2ee944d4aa8" => :big_sur
-    sha256 "131af3b3422867d6cb4c9e46d773e7b102e2dd9209be5d844cbbe99a1a7c6883" => :catalina
-    sha256 "20b60e3ee9f2953ac5453aeb1c5d724b1141f5b90be8b2b2d611f9f0938ff913" => :mojave
-    sha256 "be54ecedb3968591490e165d7260b0b8c19745e44d125fde2a5cd209fa71fc16" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "ab16a7c7af1cb9ebcf94b0f51185d2318de6c658e2c58fea826011eecd3e09f9"
+    sha256 cellar: :any,                 big_sur:       "804cec1ee5419983767ced84f1eaa357ea1d96676725be2f0db85245625c4a17"
+    sha256 cellar: :any,                 catalina:      "8f11ac81d1c3efdd0b4813478336c5e215df2d44d0bd04e770d04bddd598b02e"
+    sha256 cellar: :any,                 mojave:        "ef6ea69f637a890f191b6f584167f9cb9fbe990e040ccce147f64331d305bfda"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9dd022da722c0bdecfbf643251d9529fde48b2b13576a95fc706df751941df2"
   end
 
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
 
+  on_linux do
+    depends_on "gcc" # For C++17
+  end
+
+  fails_with gcc: "5"
+
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--build-static",
-                          "--no-examples",
-                          "--no-unit-tests",
-                          "--no-opencl"
-    system "make", "--directory=build", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args, "-DCAF_ENABLE_TESTING=OFF"
+      system "make"
+      system "make", "install"
+    end
   end
 
   test do
@@ -41,7 +45,7 @@ class Caf < Formula
       }
       CAF_MAIN()
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lcaf_core", "-o", "test"
+    system ENV.cxx, "-std=c++17", "test.cpp", "-L#{lib}", "-lcaf_core", "-o", "test"
     system "./test"
   end
 end

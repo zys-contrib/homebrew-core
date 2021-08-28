@@ -6,12 +6,17 @@ class Freediameter < Formula
   license "BSD-3-Clause"
   head "http://www.freediameter.net/hg/freeDiameter", using: :hg
 
+  livecheck do
+    url "http://www.freediameter.net/hg/freeDiameter/json-tags"
+    regex(/["']tag["']:\s*?["']v?(\d+(?:\.\d+)+)["']/i)
+  end
+
   bottle do
-    cellar :any
-    sha256 "2c99cc840e0daebf52793d55e91ec616416c7fc7c4f4a8c332c6fe8c52fd181d" => :big_sur
-    sha256 "92933b4a5076f85098b784f47f3943065444b9dda243c6165d38aaffb9122b68" => :catalina
-    sha256 "3d5aa2577193d90113f4deadd81c6db0b40384a4cf3cca096e6edeb76ee734e3" => :mojave
-    sha256 "a242566b7096b737a094ebe7c792fe306ab6f06f28cded3b5c6660962b812610" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "a2fd2271af79fd86ec7162e0af3adbaf611f280563a84dc2a98af96b7b3a3a4d"
+    sha256 cellar: :any, big_sur:       "2c99cc840e0daebf52793d55e91ec616416c7fc7c4f4a8c332c6fe8c52fd181d"
+    sha256 cellar: :any, catalina:      "92933b4a5076f85098b784f47f3943065444b9dda243c6165d38aaffb9122b68"
+    sha256 cellar: :any, mojave:        "3d5aa2577193d90113f4deadd81c6db0b40384a4cf3cca096e6edeb76ee734e3"
+    sha256 cellar: :any, high_sierra:   "a242566b7096b737a094ebe7c792fe306ab6f06f28cded3b5c6660962b812610"
   end
 
   depends_on "cmake" => :build
@@ -52,26 +57,9 @@ class Freediameter < Formula
 
   plist_options startup: true
 
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/freeDiameterd</string>
-          </array>
-          <key>KeepAlive</key>
-          <dict>
-            <key>NetworkState</key>
-            <true/>
-          </dict>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run opt_bin/"freeDiameterd"
+    keep_alive true
   end
 
   test do

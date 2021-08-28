@@ -1,24 +1,24 @@
 class Netcdf < Formula
   desc "Libraries and data formats for array-oriented scientific data"
   homepage "https://www.unidata.ucar.edu/software/netcdf"
-  url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.7.4.tar.gz"
-  mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-c-4.7.4.tar.gz"
-  sha256 "0e476f00aeed95af8771ff2727b7a15b2de353fb7bb3074a0d340b55c2bd4ea8"
+  url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.8.0.tar.gz"
+  mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-c-4.8.0.tar.gz"
+  sha256 "679635119a58165c79bb9736f7603e2c19792dd848f19195bf6881492246d6d5"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/Unidata/netcdf-c.git"
 
   livecheck do
-    url :head
-    regex(/^(?:netcdf-|v)?(\d+(?:\.\d+)+)$/i)
+    url "https://www.unidata.ucar.edu/downloads/netcdf/"
+    regex(/href=.*?netcdf-c[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    rebuild 1
-    sha256 "945407cca07cd5096c8f9e00520e5b51fef5d30d6e4bf68775de508268100f4e" => :big_sur
-    sha256 "bf768c6f17428104b463b55420ed6a57c64870c13f2c475604a3446122a0e6de" => :catalina
-    sha256 "1ef8f155374e15879156ba393750ef0449f5cea5215f625fcb457176350ea17b" => :mojave
-    sha256 "1866c199aaa33565c687d83f163a50ad779949d98dd563e967d9b385bdc030f1" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "0c50d7fa0859656c1eb01da3de8be9eba53189c6038a901da6679746915fdb32"
+    sha256 cellar: :any,                 big_sur:       "71057c8d7e1ebb521973d2f5841f0b1d093df47cbd930091ee0add6f58e91f53"
+    sha256 cellar: :any,                 catalina:      "e75f036bc6f9a8979ab702b9293c5eaede59d7721f1e05ce62ff9b87cb224398"
+    sha256 cellar: :any,                 mojave:        "15488b7028f4b086ebe2e540cbbfd2e8c6109593ed33a14af467addc84faf9f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2ad1d7bc3c8aecd74b25592f154dc7290b6c607199212baf3e96a087025b0ef"
   end
 
   depends_on "cmake" => :build
@@ -33,16 +33,11 @@ class Netcdf < Formula
     sha256 "6a1189a181eed043b5859e15d5c080c30d0e107406fbb212c8fb9814e90f3445"
   end
 
-  resource "cxx-compat" do
-    url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-cxx-4.2.tar.gz"
-    mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-cxx-4.2.tar.gz"
-    sha256 "95ed6ab49a0ee001255eac4e44aacb5ca4ea96ba850c08337a3e4c9a0872ccd1"
-  end
-
   resource "fortran" do
-    url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-fortran-4.5.2.tar.gz"
-    mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-fortran-4.5.2.tar.gz"
-    sha256 "b959937d7d9045184e9d2040a915d94a7f4d0185f4a9dceb8f08c94b0c3304aa"
+    # Source tarball at official domains are missing some configuration files
+    # Switch back at version bump
+    url "https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.3.tar.gz"
+    sha256 "c6da30c2fe7e4e614c1dff4124e857afbd45355c6798353eccfa60c0702b495a"
   end
 
   def install
@@ -54,6 +49,11 @@ class Netcdf < Formula
       args = common_args.dup
       args << "-DNC_EXTRA_DEPS=-lmpi" if Tab.for_name("hdf5").with? "mpi"
       args << "-DENABLE_TESTS=OFF" << "-DENABLE_NETCDF_4=ON" << "-DENABLE_DOXYGEN=OFF"
+
+      # Extra CMake flags for compatibility with hdf5 1.12
+      # Remove with the following PR lands in a release:
+      # https://github.com/Unidata/netcdf-c/pull/1973
+      args << "-DCMAKE_C_FLAGS='-I#{Formula["hdf5"].include} -DH5_USE_110_API'"
 
       system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *args
       system "make", "install"
@@ -97,31 +97,25 @@ class Netcdf < Formula
       end
     end
 
-    ENV.prepend "CPPFLAGS", "-I#{include}"
-    ENV.prepend "LDFLAGS", "-L#{lib}"
-    resource("cxx-compat").stage do
-      system "./configure", "--disable-dependency-tracking",
-                            "--enable-shared",
-                            "--enable-static",
-                            "--prefix=#{prefix}"
-      system "make"
-      system "make", "install"
-    end
-
     # Remove some shims path
     inreplace [
       bin/"nf-config", bin/"ncxx4-config", bin/"nc-config",
       lib/"pkgconfig/netcdf.pc", lib/"pkgconfig/netcdf-fortran.pc",
       lib/"cmake/netCDF/netCDFConfig.cmake",
       lib/"libnetcdf.settings", lib/"libnetcdf-cxx.settings"
-    ], HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
+    ], %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/#{ENV.cc}}, ENV.cc
 
-    # SIP causes system Python not to play nicely with @rpath
-    libnetcdf = (lib/"libnetcdf.dylib").readlink
-    %w[libnetcdf-cxx4.dylib libnetcdf_c++.dylib].each do |f|
-      macho = MachO.open("#{lib}/#{f}")
-      macho.change_dylib("@rpath/#{libnetcdf}",
-                         "#{lib}/#{libnetcdf}")
+    on_linux do
+      inreplace bin/"ncxx4-config",
+                %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/#{Regexp.escape(ENV.cxx)}},
+                ENV.cxx
+    end
+
+    on_macos do
+      # SIP causes system Python not to play nicely with @rpath
+      libnetcdf = (lib/"libnetcdf.dylib").readlink
+      macho = MachO.open("#{lib}/libnetcdf-cxx4.dylib")
+      macho.change_dylib("@rpath/#{libnetcdf}", "#{lib}/#{libnetcdf}")
       macho.write!
     end
   end
@@ -139,7 +133,7 @@ class Netcdf < Formula
     system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-lnetcdf",
                    "-o", "test"
     if head?
-      assert_match /^\d+(?:\.\d+)+/, `./test`
+      assert_match(/^\d+(?:\.\d+)+/, `./test`)
     else
       assert_equal version.to_s, `./test`
     end

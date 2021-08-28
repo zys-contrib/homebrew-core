@@ -1,8 +1,8 @@
 class Lxc < Formula
   desc "CLI client for interacting with LXD"
   homepage "https://linuxcontainers.org"
-  url "https://linuxcontainers.org/downloads/lxd/lxd-4.8.tar.gz"
-  sha256 "de4f096c71448ceb358c0d0d63e34d17ea8e49c15eb9d4f8af5030ce0535337f"
+  url "https://linuxcontainers.org/downloads/lxd/lxd-4.17.tar.gz"
+  sha256 "54524a25398e366d7ff20726e3bd59a3ac9a4da34b49a370e27ff0599e7ff5cf"
   license "Apache-2.0"
 
   livecheck do
@@ -11,11 +11,11 @@ class Lxc < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "54a721303f341f48a4dfe85983eb3ad80e36a5f1047c46087400fbdbb11a33aa" => :big_sur
-    sha256 "8675b214d8d8dba0cea05084104952fce09f25ef43e0a3b1759d2b736823cda5" => :catalina
-    sha256 "9a8303d460b15e9fd4c95ff980df5485efa2011fc96170f50fbf851c3158b3da" => :mojave
-    sha256 "ebd08abe30cd9d0e27cad7b494b0b850c552f98770d7bf4181f7093fb09926d5" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "37b46913ca4af3a6de2423432f38e6e894db775ea2c802496b2d14608cf124d2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9f755f476ad13aca974fe9ce0aa8f6fb24a0ebbd8aa8eeee90c6f0908cf6178f"
+    sha256 cellar: :any_skip_relocation, catalina:      "cbd593b852065b84524ec5ba2b5a887915de7b8d3e6be5ac3df206932627e7ff"
+    sha256 cellar: :any_skip_relocation, mojave:        "741ab3a57abc315b92f8e831609598721ac1ad98b01e4161b914d9e5c630e915"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd354e5877ab407ea981bb9cc86d0a581770b580e3e7027ee62e8b991dddba19"
   end
 
   depends_on "go" => :build
@@ -23,6 +23,7 @@ class Lxc < Formula
   def install
     ENV["GOPATH"] = buildpath
     ENV["GOBIN"] = bin
+    ENV["GO111MODULE"] = "auto"
 
     ln_s buildpath/"_dist/src", buildpath/"src"
     system "go", "install", "-v", "github.com/lxc/lxd/lxc"

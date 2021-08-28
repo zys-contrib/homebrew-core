@@ -1,20 +1,22 @@
 class Katago < Formula
   desc "Neural Network Go engine with no human-provided knowledge"
   homepage "https://github.com/lightvector/KataGo"
-  url "https://github.com/lightvector/KataGo/archive/v1.7.0.tar.gz"
-  sha256 "0c40c0c539f34f5dbeee351099b8f1e73e0cafd809531e7f16ad30403315ff6c"
+  url "https://github.com/lightvector/KataGo/archive/v1.9.1.tar.gz"
+  sha256 "4992ddca600d19630692b8fd468187d872274493d2db2eed5576b7b550895cda"
   license "MIT"
 
   livecheck do
-    url "https://github.com/lightvector/KataGo/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    cellar :any
-    sha256 "278282e94065baace12f121cd1546669a03e8f478b54dc3f8f559cd83c755516" => :big_sur
-    sha256 "d7f063eaf687df83ccd62fbac4ed459fa7bc1a0a14147caca9d5429ea78550b8" => :catalina
-    sha256 "0ddb4fadbbe466cf9aa14e8c4bebacb8d2d9002d8868120cdf446f1d1b79d97d" => :mojave
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "8b9ce57f58048bca92d019ab2df91152de094de9b7d44c195fe8aaf65ed8c04d"
+    sha256 cellar: :any,                 big_sur:       "837691d8ede674a8014670730d0ead7f8baf19e80ab6e9c4aac0696d3b1ea023"
+    sha256 cellar: :any,                 catalina:      "72adea451bc3894d56d79ac7ca70fe872fe06003fd2d272fea7453d1d4b693b3"
+    sha256 cellar: :any,                 mojave:        "deb04355924e2eb64d756110ea89f87fbeb81d09a1d4e5ba48a7612e163450a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dca36af81fecda82fc5cca6405ff3cf0118d3b9f1cfbfaf3f776c70fd1d58afa"
   end
 
   depends_on "cmake" => :build
@@ -39,8 +41,12 @@ class Katago < Formula
 
   def install
     cd "cpp" do
-      system "cmake", ".", "-DBUILD_MCTS=1", "-DUSE_BACKEND=OPENCL", "-DNO_GIT_REVISION=1",
-                           "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}", *std_cmake_args
+      args = %w[-DBUILD_MCTS=1 -DNO_GIT_REVISION=1]
+      on_macos do
+        args << "-DUSE_BACKEND=OPENCL"
+        args << "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}"
+      end
+      system "cmake", ".", *args, *std_cmake_args
       system "make"
       bin.install "katago"
       pkgshare.install "configs"
@@ -52,6 +58,6 @@ class Katago < Formula
 
   test do
     system "#{bin}/katago", "version"
-    assert_match /All tests passed$/, shell_output("#{bin}/katago runtests").strip
+    assert_match(/All tests passed$/, shell_output("#{bin}/katago runtests").strip)
   end
 end

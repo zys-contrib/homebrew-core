@@ -11,19 +11,14 @@ class Fontconfig < Formula
   end
 
   bottle do
-    sha256 "ee5961891c9e943c8bea6ad280d2346caa2d3efafdbd726670e663d0bdfdb010" => :big_sur
-    sha256 "64ff208b28613dfe2a65b9d74fd9b0129f3ca7e423db78329144cdaf51b36f70" => :catalina
-    sha256 "1c704a5a4249252bf42dc4f2a458f911a7858a931858ad257d9ec39978ca5095" => :mojave
-    sha256 "3b763143a4d6e3c74b3a8b237d2e5a383696347ea3599d07957f73a3f6521d23" => :high_sierra
-    sha256 "631531c4eb502bd97e4a5bef30760d1eef87dd50306ef2defb9460ac3338cfe1" => :sierra
-    sha256 "40d70137a970e257de5cf1251b10d56d7db835faee88a9f4c020b4a4e4f82eb1" => :el_capitan
-  end
-
-  pour_bottle? do
-    reason "The bottle needs to be installed into #{Homebrew::DEFAULT_PREFIX}."
-    # c.f. the identical hack in lua
-    # https://github.com/Homebrew/homebrew/issues/47173
-    satisfy { HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX }
+    sha256 arm64_big_sur: "19dd1db44a74a3fedf20bc6576f81469d0ba6c4301fc865a56c3bbda2733d519"
+    sha256 big_sur:       "ee5961891c9e943c8bea6ad280d2346caa2d3efafdbd726670e663d0bdfdb010"
+    sha256 catalina:      "64ff208b28613dfe2a65b9d74fd9b0129f3ca7e423db78329144cdaf51b36f70"
+    sha256 mojave:        "1c704a5a4249252bf42dc4f2a458f911a7858a931858ad257d9ec39978ca5095"
+    sha256 high_sierra:   "3b763143a4d6e3c74b3a8b237d2e5a383696347ea3599d07957f73a3f6521d23"
+    sha256 sierra:        "631531c4eb502bd97e4a5bef30760d1eef87dd50306ef2defb9460ac3338cfe1"
+    sha256 el_capitan:    "40d70137a970e257de5cf1251b10d56d7db835faee88a9f4c020b4a4e4f82eb1"
+    sha256 x86_64_linux:  "eccabe463fb0ecc1537d19628240caec276095a4afbbbc80233ac03c841cd4fe"
   end
 
   head do
@@ -38,11 +33,11 @@ class Fontconfig < Formula
   depends_on "pkg-config" => :build
   depends_on "freetype"
 
+  uses_from_macos "gperf" => :build
   uses_from_macos "bzip2"
   uses_from_macos "expat"
 
   on_linux do
-    depends_on "gperf" => :build
     depends_on "gettext" => :build
     depends_on "json-c" => :build
     depends_on "util-linux"

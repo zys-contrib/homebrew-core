@@ -1,17 +1,21 @@
 class Mg < Formula
   desc "Small Emacs-like editor"
   homepage "https://github.com/ibara/mg"
-  url "https://github.com/ibara/mg/releases/download/mg-6.7/mg-6.7.tar.gz"
-  sha256 "02583d90df743e994fb1e411befbd23488fd1eaeb82c9db1fd4957d1a8f1abde"
+  url "https://github.com/ibara/mg/releases/download/mg-6.9/mg-6.9.tar.gz"
+  sha256 "3d66079d6a9a2bfba414260f6afd5de5eb148406782772e84850b8585e901925"
+  license all_of: [:public_domain, "ISC", :cannot_represent]
   version_scheme 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "975bb4daa585692060eeb257abebc4380a1a7851f376521b9d39cb21180afe37" => :big_sur
-    sha256 "44271237cfb495988cd88029e0ac465a46e14bdb583ac09c1acdf73f95bd4fc4" => :catalina
-    sha256 "ac5ac7054d3feb7aaef8746482678e66380893958299a36eeff1101cfa407d92" => :mojave
-    sha256 "dfff27703d404052738009ab8c19a6d94b3a784c346962001eb80fa5cd9de4c4" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c795e184150e4e26b69ee7f9a862ff93ed3b7db6cda9dbc46c6671d65ae51ef0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "de2654a08096b3d8dd824c2204b85a32986ff035e2132e28706c9cf9a3b207e0"
+    sha256 cellar: :any_skip_relocation, catalina:      "e620ee1c1ec65e5713c8c477fac02f6f52fa4f1c0ab85261034c45a602a41d32"
+    sha256 cellar: :any_skip_relocation, mojave:        "13c778ce17746ad6531448eb48c23b8d882d7a203dcf9dda04d3fd61d0b0a28d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd7e44ce6fb5a6940358eff10e183a5cb4708ce7c089123cf79c1b4affc45e37"
   end
+
+  uses_from_macos "expect" => :test
+  uses_from_macos "ncurses"
 
   def install
     system "./configure", "--prefix=#{prefix}",
@@ -21,16 +25,14 @@ class Mg < Formula
   end
 
   test do
-    (testpath/"command.sh").write <<~EOS
-      #!/usr/bin/expect -f
+    (testpath/"command.exp").write <<~EOS
       set timeout -1
       spawn #{bin}/mg
       match_max 100000
       send -- "\u0018\u0003"
       expect eof
     EOS
-    chmod 0755, testpath/"command.sh"
 
-    system testpath/"command.sh"
+    system "expect", "-f", "command.exp"
   end
 end

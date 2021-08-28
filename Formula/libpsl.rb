@@ -4,14 +4,14 @@ class Libpsl < Formula
   url "https://github.com/rockdaboot/libpsl/releases/download/0.21.1/libpsl-0.21.1.tar.gz"
   sha256 "ac6ce1e1fbd4d0254c4ddb9d37f1fa99dec83619c1253328155206b896210d4c"
   license "MIT"
-  revision 1
+  revision 3
 
   bottle do
-    cellar :any
-    sha256 "78fffedcd4db590a59c3f6c0cee4cc06745f12c12bcd55ca86312480e9dc4346" => :big_sur
-    sha256 "556831eb0cbd09ab25778ce94edcbc25e111ab777f80b2e85e9610c0187fa1a6" => :catalina
-    sha256 "e4143e4f14c0182904d8680de693f5dbbc4ec3292655fe044ec1f23d7901631f" => :mojave
-    sha256 "62824a3515a7c8c7847fff9d91caa21dbca05653ccbd6bdf29805ee0cfbaa73c" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "f2330a5e4084401e4c60bec2da48cc2d877e777c51f8106f9c11653612dc7337"
+    sha256 cellar: :any,                 big_sur:       "dfb143c0316dd1319165c09d9cfd8cb3ed47a572e538b88755bae8f90de594b9"
+    sha256 cellar: :any,                 catalina:      "6ebd02eb47c7a10b1b60360c6f2467677feba8d81a3a4e9e4cb09c08180395f5"
+    sha256 cellar: :any,                 mojave:        "7ce4c33579aa8d7263df78f1814166a8a14a26b28866bbd8772c9a0bea9726a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e95d796f1b490d7720f3aa1a9dd6d3799ccf99be87194dd2b4bcd72d00c626a8"
   end
 
   depends_on "meson" => :build

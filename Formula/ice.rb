@@ -1,32 +1,30 @@
 class Ice < Formula
   desc "Comprehensive RPC framework"
   homepage "https://zeroc.com"
-  url "https://github.com/zeroc-ice/ice/archive/v3.7.4.tar.gz"
-  sha256 "57f200bd2916799bce12960e579d9f9e5b6a9801addaf93d97bb4ce15c760a44"
-  license "GPL-2.0"
+  url "https://github.com/zeroc-ice/ice/archive/v3.7.6.tar.gz"
+  sha256 "75b18697c0c74f363bd0b85943f15638736e859c26778337cbfe72d31f5cfb47"
+  license "GPL-2.0-only"
 
   livecheck do
-    url "https://github.com/zeroc-ice/ice/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    cellar :any
-    sha256 "2b1fb05867bdbc31844aa82742923e39bc03da19c95aeab06ef465abbcbf0041" => :big_sur
-    sha256 "ed026c50e889b8eab856b8310d9b57a5a09487775b85e0fd3a745c3703234aa3" => :catalina
-    sha256 "d8ddc0c493286e78174f61eb8feb7af105c6c4b33580435f6df4515aefa56b0a" => :mojave
-    sha256 "d80dfe41a72184cfb820940e926acd8204d5338327b0ff1007fe77e7662a8164" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "aba8e77b6144ab02730670f94205ea2de3efd4581b6e1f167ae1ae48bd5405ae"
+    sha256 cellar: :any, big_sur:       "0c63ce1c5ea37d98b1cd64411e5c6d9e445330c44ab6cb864bd1995b1d5fb91f"
+    sha256 cellar: :any, catalina:      "107f893606aa135531ca17cbb0328f1e664040d36c5373e83a856ba525ba3647"
   end
 
   depends_on "lmdb"
+  depends_on macos: :catalina
   depends_on "mcpp"
 
   def install
-    ENV.O2 # Os causes performance issues
-
     args = [
       "prefix=#{prefix}",
       "V=1",
+      "USR_DIR_INSTALL=yes", # ensure slice and man files are installed to share
       "MCPP_HOME=#{Formula["mcpp"].opt_prefix}",
       "LMDB_HOME=#{Formula["lmdb"].opt_prefix}",
       "CONFIGS=shared cpp11-shared xcodesdk cpp11-xcodesdk",
@@ -34,6 +32,7 @@ class Ice < Formula
       "SKIP=slice2confluence",
       "LANGUAGES=cpp objective-c",
     ]
+    inreplace "cpp/include/Ice/Object.h", /^#.+"-Wdeprecated-copy-dtor"+/, "" # fails with Xcode < 12.5
     system "make", "install", *args
 
     (libexec/"bin").mkpath

@@ -4,15 +4,17 @@ class Chisel < Formula
   url "https://github.com/facebook/chisel/archive/2.0.1.tar.gz"
   sha256 "6f019d5e7ab5eb06542a9eccbbe29e7d26165d3676828a32e143575ff102d5f9"
   license "MIT"
-  head "https://github.com/facebook/chisel.git"
+  head "https://github.com/facebook/chisel.git", branch: "master"
 
   bottle do
-    cellar :any
-    sha256 "bec2fe6d1e6afec5b3b1c79f5f11b9f2219ff8e22d81e1b343cf525b91ea220e" => :big_sur
-    sha256 "7ef6b79ffa9641e0617b2aec1b4f3dfcea59fc4059887c0d734baa1bda20441d" => :catalina
-    sha256 "70b49b0ba45571db3341adf586e1498a041492745cfa2130b2ef95b81d14fb85" => :mojave
-    sha256 "41797386262e226cf471995eac8ec50dffbf622140634254c6a7dab8a9471b48" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "bd381685bf1bf3682e51c355acbca980b35659b8161f226329b3a0196aab55df"
+    sha256 cellar: :any, big_sur:       "bec2fe6d1e6afec5b3b1c79f5f11b9f2219ff8e22d81e1b343cf525b91ea220e"
+    sha256 cellar: :any, catalina:      "7ef6b79ffa9641e0617b2aec1b4f3dfcea59fc4059887c0d734baa1bda20441d"
+    sha256 cellar: :any, mojave:        "70b49b0ba45571db3341adf586e1498a041492745cfa2130b2ef95b81d14fb85"
+    sha256 cellar: :any, high_sierra:   "41797386262e226cf471995eac8ec50dffbf622140634254c6a7dab8a9471b48"
   end
+
+  depends_on :macos
 
   def install
     libexec.install Dir["*.py", "commands"]

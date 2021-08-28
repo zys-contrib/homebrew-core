@@ -1,17 +1,17 @@
 class UutilsCoreutils < Formula
   desc "Cross-platform Rust rewrite of the GNU coreutils"
   homepage "https://github.com/uutils/coreutils"
-  url "https://github.com/uutils/coreutils/archive/0.0.1.tar.gz"
-  sha256 "67b3fafd21e204cef4ffe04b055e148799523bc021a8ae08a399a9c847ce8e7f"
+  url "https://github.com/uutils/coreutils/archive/0.0.7.tar.gz"
+  sha256 "066359e9548940ee99c3d8911e951d5091aa1f2d7d409cb577c811f3993a1e7d"
   license "MIT"
-  head "https://github.com/uutils/coreutils.git"
+  head "https://github.com/uutils/coreutils.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cd49ec02727d0c4b48e1b17c0580576d4130256c3dcefa5fe66e5683eda0ad49" => :big_sur
-    sha256 "bd2d08c082e4249d9d73dcdc251f8a441d6dad6f949547110ecb96a023c7f84e" => :catalina
-    sha256 "421ae0f39ebdea7acf3bfd9f569f376ee9008b4e7bb72340c09628e5b50021d1" => :mojave
-    sha256 "b8eb6f2ff0292941b52d1b1ecafad239844b8447a0bce67792b7d4b61b7aece8" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d36cc1ff02e590820905007cb38dbf301b8876f9819e40e25a68b8174e3a8db4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "da3f830dd5b8e000a1034fc774fa5e94f7be860f17d00cedfb5b1c07bbd03dea"
+    sha256 cellar: :any_skip_relocation, catalina:      "b6b0a749cf8c48a20ec5ada4d027052ba7ae8a8b008ce5f63a765224e03e32ec"
+    sha256 cellar: :any_skip_relocation, mojave:        "e47dd3b756765216dc9200c0afdddbc05519b5263a4729a847d4fd2fb978a51f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d00eed1d93ef0748c7def130f03065e27e41e81d7a6a42ce24df633d6827b5f1"
   end
 
   depends_on "make" => :build

@@ -1,8 +1,9 @@
 class ShibbolethSp < Formula
   desc "Shibboleth 2 Service Provider daemon"
   homepage "https://wiki.shibboleth.net/confluence/display/SHIB2"
-  url "https://shibboleth.net/downloads/service-provider/3.1.0/shibboleth-sp-3.1.0.tar.bz2"
-  sha256 "40dfedbb0f8e604ed4b6d606143de7980b4f8c13fc4682375ace94f8ac194654"
+  url "https://shibboleth.net/downloads/service-provider/3.2.3/shibboleth-sp-3.2.3.tar.bz2"
+  sha256 "a02b441c09dc766ca65b78fe631277a17c5eb2f0a441b035cdb6a4720fb94024"
+  license "Apache-2.0"
 
   livecheck do
     url "https://shibboleth.net/downloads/service-provider/latest/"
@@ -10,10 +11,11 @@ class ShibbolethSp < Formula
   end
 
   bottle do
-    sha256 "13c6f207d88563c9e96514e22a6ec537be5a7ffa020580e4b37fa174f9cd191c" => :big_sur
-    sha256 "0e9ce54b4624d94327ad5d0c67ebcb6dc01d4a47f9bef359424c050b332ffe82" => :catalina
-    sha256 "d6f41e0976912dd5bf59bada50f91c4254a42eb45b9371a84f9ba8e4177706f3" => :mojave
-    sha256 "25841e4f4a66c574dd42f94ad9d2ef18e793b64ff94c7d193740fb5067d8f6bf" => :high_sierra
+    rebuild 1
+    sha256 arm64_big_sur: "9419b75809d2dbbfd2bae48ada293865da370f65da27c9dd4c774cc41b54da08"
+    sha256 big_sur:       "bf144be06888e2b528dcb08c5cbc28fbc0b75fe3748da19d4707f00ecef3193a"
+    sha256 catalina:      "99ff6cb2607d142870f44cbcacdfdf88ed57d15e89e8696467bcbd3129e3328a"
+    sha256 mojave:        "55a51d5773d4a186687d905d58d44be92d6fa2ea1e5bbb8598535cc4f8772493"
   end
 
   depends_on "apr" => :build
@@ -55,31 +57,10 @@ class ShibbolethSp < Formula
     (var/"cache/shibboleth").mkpath
   end
 
-  plist_options startup: true, manual: "shibd"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_sbin}/shibd</string>
-          <string>-F</string>
-          <string>-f</string>
-          <string>-p</string>
-          <string>#{var}/run/shibboleth/shibd.pid</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <true/>
-      </dict>
-      </plist>
-    EOS
+  plist_options startup: true
+  service do
+    run [opt_sbin/"shibd", "-F", "-f", "-p", var/"run/shibboleth/shibd.pid"]
+    keep_alive true
   end
 
   test do

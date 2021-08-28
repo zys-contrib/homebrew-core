@@ -1,22 +1,22 @@
 class Hebcal < Formula
   desc "Perpetual Jewish calendar for the command-line"
   homepage "https://github.com/hebcal/hebcal"
-  url "https://github.com/hebcal/hebcal/archive/v4.22.tar.gz"
-  sha256 "337a4d040717c38063dbec313e816de71ef6bbea2d5d8b2b609b0f4016aee4dc"
+  url "https://github.com/hebcal/hebcal/archive/v4.26.tar.gz"
+  sha256 "71cec27564259981a5ed03173207a577ca8700c368bd3396b37345132bae1025"
   license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f6e790acc45c8c23ef75170752861cef1c2797759ea0221422f3bdaba05298b0" => :big_sur
-    sha256 "d6bcc551ab5a7f4da895483e648186db77ed80a8d6f446a79bc62fa0e9bba8ab" => :catalina
-    sha256 "be4e928b3b2e02e80797bc2526625b91f368b234d1e8f8e1801eb9bd24be86da" => :mojave
-    sha256 "1b6d05812ade070433b47ebfb332db7859c23eb60636dcc70f65cca6ad04fa04" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fa79fc15a78234ae5481933d56056c707415e5472ae722e21c06f050e244912c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f402c687a0dcf887164ec9ac26f7cf8b415398de36fd2f350cab862c3df2ef77"
+    sha256 cellar: :any_skip_relocation, catalina:      "1605b9ab02ba26aaa0ed09b09e95df5c4294c89bcfca2b1af90caae0c13d30fe"
+    sha256 cellar: :any_skip_relocation, mojave:        "e9c44f3c065dbb13fc50e85e72f7957ca89c25bc29f492861d7e227032a395ee"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
   def install
+    system "autoreconf", "-fiv"
     system "./configure", "--prefix=#{prefix}", "ACLOCAL=aclocal", "AUTOMAKE=automake"
     system "make", "install"
   end

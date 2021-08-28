@@ -1,28 +1,23 @@
 class TomcatNative < Formula
   desc "Lets Tomcat use some native resources for performance"
   homepage "https://tomcat.apache.org/native-doc/"
-  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-connectors/native/1.2.25/source/tomcat-native-1.2.25-src.tar.gz"
-  mirror "https://archive.apache.org/dist/tomcat/tomcat-connectors/native/1.2.25/source/tomcat-native-1.2.25-src.tar.gz"
-  sha256 "b62f29ebd1f5df25ea33698427d7eb53e3bbde953dfbcc0c9c4c6c13ed23a33b"
+  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-connectors/native/1.2.30/source/tomcat-native-1.2.30-src.tar.gz"
+  mirror "https://archive.apache.org/dist/tomcat/tomcat-connectors/native/1.2.30/source/tomcat-native-1.2.30-src.tar.gz"
+  sha256 "92dbf7450907f2f55ef495b22f9fc10584f7bf6dd69c7926c2a1b440e9fed335"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    cellar :any
-    sha256 "d3836e9add8c77dc8985898e5247fd2179b8e01c28fcbe20b33ea32b98a0671a" => :big_sur
-    sha256 "4b6c29db536582d170a979ca5fec140d3a252576a0ac587de45f0cc4517917a0" => :catalina
-    sha256 "48d5b5a3e06e33fb8c861caa75817e95081e5198f872090c97b2d247f355b895" => :mojave
-    sha256 "9fa1374046bc6bd35c13e6f82c1066a50fbda6ed31cd18efc658816caa5ea561" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "c1871b1b96ce328260184458fa598eb6664a4afdef2e92f8de6dc2574f2f077e"
+    sha256 cellar: :any,                 big_sur:       "8c740bb2aed61249b111b7d40e0c09988c5c5b717ae3af5724f3fbcc616c3dee"
+    sha256 cellar: :any,                 catalina:      "8f840854bbab495964cd8e49f47f38db7f8aae94ede0c80cdfa64bf45cbd3610"
+    sha256 cellar: :any,                 mojave:        "f4912c4d778256a7104b20ff7d767fb12c2c78db7d321e1e8e7e7f301473d903"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b9c54d40c405527d1540122cea43b9d01d550151625b74bdc7c2df5ace6c8db"
   end
 
   depends_on "libtool" => :build
   depends_on "apr"
   depends_on "openjdk"
   depends_on "openssl@1.1"
-  depends_on "tomcat"
 
   def install
     cd "native" do

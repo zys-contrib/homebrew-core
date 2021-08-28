@@ -6,8 +6,12 @@ class Scalariform < Formula
   license "MIT"
 
   livecheck do
-    url "https://github.com/scala-ide/scalariform/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
+  end
+
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "3acab532156fd394ec7f9e116058be407834d673f63bc9ae243e7dc8c7f318a5"
   end
 
   head do
@@ -15,7 +19,7 @@ class Scalariform < Formula
     depends_on "sbt" => :build
   end
 
-  bottle :unneeded
+  depends_on "openjdk"
 
   def install
     if build.head?

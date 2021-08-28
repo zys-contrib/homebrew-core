@@ -2,21 +2,22 @@ class Octant < Formula
   desc "Kubernetes introspection tool for developers"
   homepage "https://octant.dev"
   url "https://github.com/vmware-tanzu/octant.git",
-      tag:      "v0.16.1",
-      revision: "8aebb34922f83894fb02ad393740e96ee1b3d8fe"
+      tag:      "v0.23.0",
+      revision: "fbe2be3b687b3e2199ea32753281c9de1f334171"
   license "Apache-2.0"
   head "https://github.com/vmware-tanzu/octant.git"
 
   livecheck do
-    url "https://github.com/vmware-tanzu/octant/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "30a8f2ff4c498c638647ce0c4a223ca1bb7712b940e2c333498b3c66b073ee76" => :catalina
-    sha256 "1327671fd6c2658fca5e9d7c2b1cc7be4e7971979dfee9a1867bb5a38ea0e9c7" => :mojave
-    sha256 "85cee095a6fcdd835de7ca830e9da0e92b00c0ccdbc9e4af2c2ecd3db91e554f" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c071e032b501ea669d62a91025c2b56513738e70c84d5268d69e41437954f892"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bdd354d48a3fc55eaa371badf2aa9085fab75972298c9e45a2fe6ef753dd6443"
+    sha256 cellar: :any_skip_relocation, catalina:      "2fb18a44106cbb6c54756951b9355d83de113e8c7fbfb9169af94b5497a42f63"
+    sha256 cellar: :any_skip_relocation, mojave:        "e6c0dce913f776cecf1eb5a2ce7c1115baf0a2489dfe2d61c45ff830e4475538"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c0e1ff4dc41061a0092ac2b283475563f6c636e526badbbbf9b0e511665688ac"
   end
 
   depends_on "go" => :build
@@ -35,17 +36,13 @@ class Octant < Formula
       system "go", "run", "build.go", "go-install"
       ENV.prepend_path "PATH", buildpath/"bin"
 
-      system "go", "generate", "./pkg/plugin/plugin.go"
       system "go", "run", "build.go", "web-build"
 
-      commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
-      build_time = Utils.safe_popen_read("date -u +'%Y-%m-%dT%H:%M:%SZ' 2> /dev/null").chomp
       ldflags = ["-X \"main.version=#{version}\"",
-                 "-X \"main.gitCommit=#{commit}\"",
-                 "-X \"main.buildTime=#{build_time}\""]
+                 "-X \"main.gitCommit=#{Utils.git_head}\"",
+                 "-X \"main.buildTime=#{time.iso8601}\""].join(" ")
 
-      system "go", "build", "-o", bin/"octant", "-ldflags", ldflags.join(" "),
-              "-v", "./cmd/octant"
+      system "go", "build", "-tags", "embedded", *std_go_args(ldflags: ldflags), "-v", "./cmd/octant"
     end
   end
 
@@ -53,7 +50,7 @@ class Octant < Formula
     fork do
       exec bin/"octant", "--kubeconfig", testpath/"config", "--disable-open-browser"
     end
-    sleep 2
+    sleep 5
 
     output = shell_output("curl -s http://localhost:7777")
     assert_match "<title>Octant</title>", output, "Octant did not start"

@@ -1,9 +1,9 @@
 class Pcb < Formula
   desc "Interactive printed circuit board editor"
   homepage "http://pcb.geda-project.org/"
-  url "https://downloads.sourceforge.net/project/pcb/pcb/pcb-4.2.2/pcb-4.2.2.tar.gz"
-  sha256 "1ceeaf1bdbe0508b9b140ca421eb600836579114c04dee939341c5d594f36e5d"
-  license "GPL-2.0"
+  url "https://downloads.sourceforge.net/project/pcb/pcb/pcb-4.3.0/pcb-4.3.0.tar.gz"
+  sha256 "ae852f46af84aba7f51d813fb916fc7fcdbeea43f7134f150507024e1743fb5e"
+  license "GPL-2.0-or-later"
   version_scheme 1
 
   livecheck do
@@ -12,10 +12,10 @@ class Pcb < Formula
   end
 
   bottle do
-    sha256 "41ab3778b80a09ffc21771a22189eb6fac9c4d9882e0a682029520470bd11f2f" => :big_sur
-    sha256 "a1dca0926d6752943013906f21eb4f1d14156fcbb3dfc9906953df52ab7e7b51" => :catalina
-    sha256 "0f598ed594a62cf96451a20635e186967957db8a536c20398285d26d88505772" => :mojave
-    sha256 "95e752fd6939e81b4fe3a1b5e035a2240921e8ad9e507373735b5c81336978e1" => :high_sierra
+    sha256 arm64_big_sur: "41a14f1d1a3439469248dd6b58535c082f084376a90ecf3ccca2513e70cd2028"
+    sha256 big_sur:       "f73590271ddcf104d25fecad90c916e4d535a5041280a1bbd661acdafc806b24"
+    sha256 catalina:      "a8937f1ce318a6472532eae067dc581ddef61518a5b56db83883cb2119c2bf32"
+    sha256 mojave:        "0607471efce526eb3fd06286f28fa664276ab8b4c3f407b14e18eb3c426cad59"
   end
 
   head do

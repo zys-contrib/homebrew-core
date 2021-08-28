@@ -1,17 +1,23 @@
 class Adios2 < Formula
   desc "Next generation of ADIOS developed in the Exascale Computing Program"
   homepage "https://adios2.readthedocs.io"
-  url "https://github.com/ornladios/ADIOS2/archive/v2.6.0.tar.gz"
-  sha256 "45b41889065f8b840725928db092848b8a8b8d1bfae1b92e72f8868d1c76216c"
+  url "https://github.com/ornladios/ADIOS2/archive/v2.7.1.tar.gz"
+  sha256 "c8e237fd51f49d8a62a0660db12b72ea5067512aa7970f3fcf80b70e3f87ca3e"
   license "Apache-2.0"
-  revision 3
+  revision 1
   head "https://github.com/ornladios/ADIOS2.git", branch: "master"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 "2e6889eacff86171837feafd9c53cf3c3f5ecb47323a4d5a50bba6439e743b6e" => :big_sur
-    sha256 "b2e21f05ce51864584440bbee0df419a4adf1c842159af0a975415f2d31dbb9d" => :catalina
-    sha256 "9b91ada3dc230fa55c94f8a13fbb7fa0483b5487d84c464d31b04fcc831148ba" => :mojave
-    sha256 "3d12753838588f88e5e55de6095bc93af2731b34ff65c807414208cf443a3442" => :high_sierra
+    sha256 arm64_big_sur: "b6b6dbcbe7d3d1ad478d47b4004d9ac932707a2503f810439680672a87b89e2b"
+    sha256 big_sur:       "7d1abe16be0173d2c1e645c51641b59fea8983c140c5caef132016d4e1416568"
+    sha256 catalina:      "6826ba1d0cf70bd775a97a152fa2423b0091dfb196500d5a1eef0884f6e9d2f8"
+    sha256 mojave:        "ec0da5f5869f0473b3c7b906cb4ea86d7673f4ff3bb479d6cf88621beb990507"
+    sha256 x86_64_linux:  "1ff13a5c092bdbecb0ae8e3b5ec7a0b7910550c22ac7376c41ec92708138b67e"
   end
 
   depends_on "cmake" => :build
@@ -26,19 +32,11 @@ class Adios2 < Formula
   depends_on "zeromq"
   uses_from_macos "bzip2"
 
-  # macOS 10.13 configuration-time issue detecting float types
-  # reference: https://github.com/ornladios/ADIOS2/pull/2305
-  # can be removed after v2.6.0
-  patch do
-    url "https://github.com/ornladios/ADIOS2/commit/e92f052bc26816b30d3399343a005ea82b88afaf.patch?full_index=1"
-    sha256 "6d0b84af71d6ccf4cf1cdad5e064cca837d505334316e7e78d18fa30a959666a"
-  end
-
   def install
     # fix `include/adios2/common/ADIOSConfig.h` file audit failure
     inreplace "source/adios2/common/ADIOSConfig.h.in" do |s|
-      s.gsub! ": @CMAKE_C_COMPILER@", ": /usr/bin/clang"
-      s.gsub! ": @CMAKE_CXX_COMPILER@", ": /usr/bin/clang++"
+      s.gsub! ": @CMAKE_C_COMPILER@", ": #{ENV.cc}"
+      s.gsub! ": @CMAKE_CXX_COMPILER@", ": #{ENV.cxx}"
     end
 
     args = std_cmake_args + %W[
@@ -60,7 +58,8 @@ class Adios2 < Formula
       -DCMAKE_DISABLE_FIND_PACKAGE_FLEX=TRUE
       -DCMAKE_DISABLE_FIND_PACKAGE_LibFFI=TRUE
       -DCMAKE_DISABLE_FIND_PACKAGE_NVSTREAM=TRUE
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+      -DPython_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+      -DCMAKE_INSTALL_PYTHONDIR=#{prefix/Language::Python.site_packages("python3")}
       -DADIOS2_BUILD_TESTING=OFF
       -DADIOS2_BUILD_EXAMPLES=OFF
     ]

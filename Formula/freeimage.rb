@@ -5,26 +5,33 @@ class Freeimage < Formula
   version "3.18.0"
   sha256 "f41379682f9ada94ea7b34fe86bf9ee00935a3147be41b6569c9605a53e438fd"
   license "FreeImage"
-
-  livecheck do
-    url :stable
-  end
+  head "https://svn.code.sf.net/p/freeimage/svn/FreeImage/trunk/"
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "3cd5e0aa1f14c7895f9fff9ce6f08dc2283efbbe29467155e1f1dfba8c500ad5" => :big_sur
-    sha256 "75e29ff6d4b7ebf62e9ef610f60bd8521cd749a57d2a2d5c967685a7b8c7e998" => :catalina
-    sha256 "8d8b14e27793669cd6d43bbb5956c312301e94562f0f5bfb8ee88709d4deed83" => :mojave
-    sha256 "fbb88260ac76a166399deca5b8fa4eb23fbbb02cbecaf418c8310d3d7b6fb192" => :high_sierra
+    rebuild 3
+    sha256 cellar: :any,                 arm64_big_sur: "02080c0a6c32413b1e85f6e1393559426b77f0a7e5dcfda406617bc6e46a13e0"
+    sha256 cellar: :any,                 big_sur:       "948feca0476789f7061b3a0502aaa7820366a309ebad1abd73ff6b7a0c242402"
+    sha256 cellar: :any,                 catalina:      "fabc22f3effecdb629ea6585e005aa09b9d3c3cf73fa0e3021370550e6f8832e"
+    sha256 cellar: :any,                 mojave:        "f9b3f364e75ce8f0d61be663ef022d88a9b401d2d675599949ff9b19fbf39bc0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6c63d08f4adf2395f983ad5f8a51f36ac1e749de9fe6428d056859b199ac6e6"
   end
 
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/4dcf528/freeimage/3.17.0.patch"
-    sha256 "8ef390fece4d2166d58e739df76b5e7996c879efbff777a8a94bcd1dd9a313e2"
+    on_macos do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/4dcf528/freeimage/3.17.0.patch"
+      sha256 "8ef390fece4d2166d58e739df76b5e7996c879efbff777a8a94bcd1dd9a313e2"
+    end
+    on_linux do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/freeimage/3.17.0-linux.patch"
+      sha256 "537a4045d31a3ce1c3bab2736d17b979543758cf2081e97fff4d72786f1830dc"
+    end
   end
 
   def install
+    # Temporary workaround for ARM. Upstream tracking issue:
+    # https://sourceforge.net/p/freeimage/bugs/325/
+    # https://sourceforge.net/p/freeimage/discussion/36111/thread/cc4cd71c6e/
+    ENV["CFLAGS"] = "-O3 -fPIC -fexceptions -fvisibility=hidden -DPNG_ARM_NEON_OPT=0" if Hardware::CPU.arm?
     system "make", "-f", "Makefile.gnu"
     system "make", "-f", "Makefile.gnu", "install", "PREFIX=#{prefix}"
     system "make", "-f", "Makefile.fip"

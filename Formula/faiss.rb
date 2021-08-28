@@ -1,8 +1,8 @@
 class Faiss < Formula
   desc "Efficient similarity search and clustering of dense vectors"
   homepage "https://github.com/facebookresearch/faiss"
-  url "https://github.com/facebookresearch/faiss/archive/v1.6.3.tar.gz"
-  sha256 "e1a41c159f0b896975fbb133e0240a233af5c9286c09a28fde6aefff5336e542"
+  url "https://github.com/facebookresearch/faiss/archive/v1.7.1.tar.gz"
+  sha256 "d676d3107ad41203a49e0afda2630519299dc8666f8d23322cbe1eac0c431871"
   license "MIT"
 
   livecheck do
@@ -11,26 +11,27 @@ class Faiss < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "9a246c8f1cd335c9f9faba1a26b38cd6c91156ef25a2400e5ff0aa2d61042701" => :big_sur
-    sha256 "457e410d8e5b009bf12cb1b5881485f03461646ef18ff8afb69dbbc7113519b4" => :catalina
-    sha256 "b3eb242ff373017f8d7ba621fde32d745a6d7d6c5c7ca5de888b7f8087e94776" => :mojave
-    sha256 "03b95260a4fdd6cceaa69bb4e7168939aadf2b608f998079f7511aec6171f2d1" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "6c6e739ef44832c1d17f1d3bd330dde1a8f1c68ca691362061f48672d0081fa7"
+    sha256 cellar: :any, big_sur:       "ca98be5aa73a7f48fb1e22bcae35687f0503a76f1ff00be7d56c88e0dcf6f111"
+    sha256 cellar: :any, catalina:      "d0ec19a749f8bf7a5a48cb828d7f6f1b7da9dff457d47c83b4a34cfedfb6d58a"
+    sha256 cellar: :any, mojave:        "a719758b2de8c7489bdcbd795b2d1c81780c82a191c3baf2477c71fb38c8ff2f"
   end
 
+  depends_on "cmake" => :build
   depends_on "libomp"
-
-  on_linux do
-    depends_on "openblas"
-  end
+  depends_on "openblas"
 
   def install
-    system "./configure", "--without-cuda",
-                          "--prefix=#{prefix}",
-                          "ac_cv_prog_cxx_openmp=-Xpreprocessor -fopenmp",
-                          "LIBS=-lomp"
-    system "make"
-    system "make", "install"
+    args = *std_cmake_args + %w[
+      -DFAISS_ENABLE_GPU=OFF
+      -DFAISS_ENABLE_PYTHON=OFF
+      -DBUILD_SHARED_LIBS=ON
+    ]
+    system "cmake", "-B", "build", ".", *args
+    cd "build" do
+      system "make"
+      system "make", "install"
+    end
     pkgshare.install "demos"
   end
 

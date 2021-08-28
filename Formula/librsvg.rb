@@ -1,18 +1,16 @@
 class Librsvg < Formula
   desc "Library to render SVG files using Cairo"
   homepage "https://wiki.gnome.org/Projects/LibRsvg"
-  url "https://download.gnome.org/sources/librsvg/2.50/librsvg-2.50.2.tar.xz"
-  sha256 "6211f271ce4cd44a7318190d36712e9cea384a933d3e3570004edeb210a056d3"
+  url "https://download.gnome.org/sources/librsvg/2.50/librsvg-2.50.7.tar.xz"
+  sha256 "fffb61b08cd5282aaae147a02b305166a7426fad22a8b9427708f0f2fc426ebc"
   license "LGPL-2.1-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    sha256 "37f06d5645603a844550a8ef7fd9b2b1b5abdfde4865fdc97530744673c31a38" => :big_sur
-    sha256 "31e57e1d77eb1ffde7abebaca3bcb1a8552dc7cdaf9484687f575865a9f02906" => :catalina
-    sha256 "9b9242aeb3b35e08fd08a9a46df3ed11d30e22031be23465a2e4aafe2dadf82d" => :mojave
+    sha256                               arm64_big_sur: "373e91782be11de752c5d738a19c4b0b7631319612982fa9366e5477d4f444b2"
+    sha256                               big_sur:       "7849cab410dfd63c3f8f635e0a0152cf34425524f728c2f01a36d7631f34688b"
+    sha256                               catalina:      "454d94e2c72567744613b69a9d879dde0a0bd9593c32929d520266b04f6b51b8"
+    sha256                               mojave:        "312d0f2fade5525cfe58f0c0e16cccc1e9c73925bb2fc8f1c320d3a0f8a3f4fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48c4693a1f62fc8c870f3831867d9f082d0f9f42cb3151f0be77733b4c3e7ac4"
   end
 
   depends_on "gobject-introspection" => :build
@@ -24,9 +22,6 @@ class Librsvg < Formula
   depends_on "pango"
 
   def install
-    # https://gitlab.gnome.org/GNOME/librsvg/issues/545#note_753842
-    ENV.append "LDFLAGS", "-lobjc"
-
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
@@ -95,10 +90,12 @@ class Librsvg < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
       -lm
       -lrsvg-2
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

@@ -1,21 +1,21 @@
 class Pgrouting < Formula
   desc "Provides geospatial routing for PostGIS/PostgreSQL database"
   homepage "https://pgrouting.org/"
-  url "https://github.com/pgRouting/pgrouting/releases/download/v3.1.1/pgrouting-3.1.1.tar.gz"
-  sha256 "b32e50269c79d65cb31bc611473c2ff0f9948b1a15dcaeef077ffcdfbd1c2730"
-  license "GPL-2.0"
-  head "https://github.com/pgRouting/pgrouting.git"
+  url "https://github.com/pgRouting/pgrouting/releases/download/v3.2.1/pgrouting-3.2.1.tar.gz"
+  sha256 "daeb7ba8703dde9b6cc84129eab64a0f2e1f819f00b9a9168a197c150583a5fd"
+  license "GPL-2.0-or-later"
+  head "https://github.com/pgRouting/pgrouting.git", branch: "main"
 
   livecheck do
-    url "https://github.com/pgRouting/pgrouting/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8dd1f43010f394c8e14b800fbde42c40d45f9971d6f454d85528f94bfc82c385" => :big_sur
-    sha256 "1b9dc198fc5da90672d10f265ba978c5f2912c83e1e2c0dbd2f0ec56a462eb36" => :catalina
-    sha256 "3c281f0526e7df9cbced0a345d88459edcd5cd43e393cc9110e62762a6d4b2bc" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "03b5237e1971242e2b8af01514943c61d289f9fe8630653c7a99a8f39529c7a4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "402d0d183b3246c12fb45c74110a4e9d5607c3681a42f2e47debb2e50e02d2f2"
+    sha256 cellar: :any_skip_relocation, catalina:      "369e843e9c3c7eff94c0a94d13694d75c1f9024a9710763fc68c6834cec4d52d"
+    sha256 cellar: :any_skip_relocation, mojave:        "f4e8a237208ebf9264a442fa3fc1364d7ffd42cdee769c3206c028fb95975144"
   end
 
   depends_on "cmake" => :build
@@ -35,25 +35,5 @@ class Pgrouting < Formula
 
     lib.install Dir["stage/**/lib/*"]
     (share/"postgresql/extension").install Dir["stage/**/share/postgresql/extension/*"]
-  end
-
-  test do
-    return if ENV["CI"]
-
-    pg_bin = Formula["postgresql"].opt_bin
-    pg_port = "55561"
-    system "#{pg_bin}/initdb", testpath/"test"
-    pid = fork { exec "#{pg_bin}/postgres", "-D", testpath/"test", "-p", pg_port }
-
-    begin
-      sleep 2
-      system "#{pg_bin}/createdb", "-p", pg_port
-      system "#{pg_bin}/psql", "-p", pg_port, "--command", "CREATE DATABASE test;"
-      system "#{pg_bin}/psql", "-p", pg_port, "-d", "test", "--command", "CREATE EXTENSION postgis;"
-      system "#{pg_bin}/psql", "-p", pg_port, "-d", "test", "--command", "CREATE EXTENSION pgrouting;"
-    ensure
-      Process.kill 9, pid
-      Process.wait pid
-    end
   end
 end

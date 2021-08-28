@@ -1,17 +1,16 @@
 class Singular < Formula
   desc "Computer algebra system for polynomial computations"
   homepage "https://www.singular.uni-kl.de/"
-  url "https://www.mathematik.uni-kl.de/ftp/pub/Math/Singular/src/4-1-3/singular-4.1.3p2.tar.gz"
-  version "4.1.3p2"
-  sha256 "ee7ac6076d7f8622a1f24d37e9b632bae0700c6e314f56728400be136df64494"
-  license "GPL-2.0"
-  revision 2
+  url "https://service.mathematik.uni-kl.de/ftp/pub/Math/Singular/src/4-2-1/singular-4.2.1.tar.gz"
+  sha256 "28a56df84f85b116e0068ffecf92fbe08fc27bd4c5ba902997f1a367db0bfe8d"
+  license "GPL-2.0-or-later"
 
   bottle do
-    sha256 "470cce62a2e4de91b9ddbd6fef610b8c30fa23b6180ba7ad37ee3f5394a6c15b" => :big_sur
-    sha256 "75f8a2d324d2d9bff14ec7063ccc23992502f899ddacc6603102dd7e0047f482" => :catalina
-    sha256 "6462648583c2d1a3f21e6bcd341ff75ffc6cf9e2a945b80d268093187591dcd4" => :mojave
-    sha256 "f0c3ef15a16f9e59290da7ad7530a5c6897aacf2b825b41db5ea4da61bb7cf25" => :high_sierra
+    sha256 arm64_big_sur: "572bb81755f0b7af0657d97a1dab4f34e76f9d56950345aa6be711c139abea68"
+    sha256 big_sur:       "4aff7bd1cc68f2c55c65721a545f6757e08787d451983887395bc01f7300497b"
+    sha256 catalina:      "ced038f600f6e87f538777c4912301613808fd9d8d6b87925086fc390728ab0a"
+    sha256 mojave:        "3d09e569067e2a4b6d3784cf08925079f42be9d7ae02b334ecb17eea7814dc42"
+    sha256 x86_64_linux:  "c87843c7be3f7a91e742917916f334fc6d9cbf1e735e25c25efc164c2703bc42"
   end
 
   head do

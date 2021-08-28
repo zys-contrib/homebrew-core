@@ -1,21 +1,23 @@
 class TerraformAT012 < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.12.29.tar.gz"
-  sha256 "17df1258f99865681fda2086c804336246407e74c195ae7a45e3e34de98b82ca"
+  url "https://github.com/hashicorp/terraform/archive/v0.12.31.tar.gz"
+  sha256 "f53aef1f1ea9d72a30145f0018cc16fea076ae09bd93faa320645af7bce3bf4d"
   license "MPL-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f51cd1a653fa830f6bb199b1fb24a91c980262ee19d08e1ba68c8bec2c54e129" => :big_sur
-    sha256 "6dd856617186380d96a3b277e6df15f9df0a929c44c1567e70cc1cff8fcc58e3" => :catalina
-    sha256 "6dd856617186380d96a3b277e6df15f9df0a929c44c1567e70cc1cff8fcc58e3" => :mojave
-    sha256 "6dd856617186380d96a3b277e6df15f9df0a929c44c1567e70cc1cff8fcc58e3" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "46b7341d0710f40ec6532bf16de55226e1df553408e99a97dce9aaa668efac27"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bcbadc631d4a94c210c5d2b7a82120dee050f6263abc8d2cda78eb5ad0c2cfc5"
+    sha256 cellar: :any_skip_relocation, catalina:      "bcbadc631d4a94c210c5d2b7a82120dee050f6263abc8d2cda78eb5ad0c2cfc5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75fd648fb8fd2dcb7e922d7ca2f5ca8c044c4967c625144a758e05368b4ace1c"
   end
 
   keg_only :versioned_formula
 
-  depends_on "go@1.13" => :build
+  deprecate! date: "2021-04-14", because: :unsupported
+
+  depends_on "go" => :build
+  depends_on macos: :catalina
 
   def install
     # v0.6.12 - source contains tests which fail if these environment variables are set locally.

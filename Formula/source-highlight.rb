@@ -4,7 +4,7 @@ class SourceHighlight < Formula
   url "https://ftp.gnu.org/gnu/src-highlite/source-highlight-3.1.9.tar.gz"
   mirror "https://ftpmirror.gnu.org/src-highlite/source-highlight-3.1.9.tar.gz"
   sha256 "3a7fd28378cb5416f8de2c9e77196ec915145d44e30ff4e0ee8beb3fe6211c91"
-  revision 3
+  revision 5
 
   livecheck do
     url :stable
@@ -12,15 +12,17 @@ class SourceHighlight < Formula
   end
 
   bottle do
-    sha256 "e2adc58909aabadad02e5d02ca5ff6ff754bbee2fd0cb604c0900a32117b92fd" => :big_sur
-    sha256 "e11d0a5ba8039635b7462ad70b6b01b9c8f44ba52ed50d0a1e07b4cbdb0f7695" => :catalina
-    sha256 "655ff057f0faa1c048e123eb593264fd3060e70e10b311fe11b34252372acde5" => :mojave
-    sha256 "0a4b58f6b35335861e29d6f662d87076fb68c20a78599389fec6406ceab295de" => :high_sierra
+    sha256 arm64_big_sur: "5571281923274d301cadd6ea132603c76a8865fe222b1f9b912ed54618ce8944"
+    sha256 big_sur:       "22764adfe8f5adef5fe50654e9d4218dd0966272cebfae37cb37004bb7e7f88e"
+    sha256 catalina:      "defe1639783fd04bb3993487e15a68958bc53413229f008b6c5307bee623fa07"
+    sha256 mojave:        "7c955cdd528a707e3ae17352314b3fa47eebf57b4b544eb9a3dc7e75a6875f6a"
+    sha256 x86_64_linux:  "a625c44295563eb13bb41edff00bde62fce1bbe5a99ddadea99cae4c3f660119"
   end
 
   depends_on "boost"
 
   def install
+    ENV.cxx11
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-boost=#{Formula["boost"].opt_prefix}"
@@ -30,6 +32,6 @@ class SourceHighlight < Formula
   end
 
   test do
-    assert_match /GNU Source-highlight #{version}/, shell_output("#{bin}/source-highlight -V")
+    assert_match "GNU Source-highlight #{version}", shell_output("#{bin}/source-highlight -V")
   end
 end

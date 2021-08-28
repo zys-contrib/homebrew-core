@@ -1,9 +1,10 @@
 class Visp < Formula
   desc "Visual Servoing Platform library"
   homepage "https://visp.inria.fr/"
-  url "https://gforge.inria.fr/frs/download.php/latestfile/475/visp-3.3.0.tar.gz"
-  sha256 "f2ed11f8fee52c89487e6e24ba6a31fa604b326e08fb0f561a22c877ebdb640d"
-  revision 10
+  url "https://visp-doc.inria.fr/download/releases/visp-3.4.0.tar.gz"
+  sha256 "6c12bab1c1ae467c75f9e5831e01a1f8912ab7eae64249faf49d3a0b84334a77"
+  license "GPL-2.0-or-later"
+  revision 3
 
   livecheck do
     url "https://visp.inria.fr/download/"
@@ -11,9 +12,10 @@ class Visp < Formula
   end
 
   bottle do
-    sha256 "928fb42332e4da6954d643ad3a003e1d309c53ea94821f8e75434ae899aac06e" => :catalina
-    sha256 "b9819cad207fbfc0a200422ae0c7f5e57f52ab138243f55b96629e771bd8d813" => :mojave
-    sha256 "8cf7ccba0cc069a589d8a21492267625724bbab209ea517c3f0e43cbc76ebb6d" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "b01cbf7ea0d548fb4a72e8c15468ee76cd307d516d753df14c758ad852ec5867"
+    sha256 cellar: :any, big_sur:       "7150997159bca01932f0e62f3a2733bf9e05833999492b3857f0ee3dd94d78cd"
+    sha256 cellar: :any, catalina:      "79238c6cea6aa43df6f2a3901493cb3f49f6ad06394c74b80c33cd4d106b8ba6"
+    sha256 cellar: :any, mojave:        "22831eda54ae54b2bf1bcee260eae6b6709cd154624fb39d3a1beec382eff773"
   end
 
   depends_on "cmake" => :build
@@ -27,29 +29,23 @@ class Visp < Formula
   depends_on "pcl"
   depends_on "zbar"
 
-  # from first commit at https://github.com/lagadic/visp/pull/768 - remove in next release
-  patch do
-    url "https://github.com/lagadic/visp/commit/61c8beb8442f9e0fe7df8966e2e874929af02344.patch?full_index=1"
-    sha256 "429bf02498fc03fff7bc2a2ad065dea6d8a8bfbde6bb1adb516fa821b1e5c96f"
-  end
+  uses_from_macos "libxml2"
+  uses_from_macos "zlib"
 
-  # Fixes build on OpenCV >= 4.4.0
-  # Extracted from https://github.com/lagadic/visp/pull/795
+  # Fix Apple Silicon build
   patch :DATA
 
   def install
     ENV.cxx11
 
-    sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
-
     # Avoid superenv shim references
     inreplace "CMakeLists.txt" do |s|
-      s.sub! /CMake build tool:"\s+\${CMAKE_BUILD_TOOL}/,
-             "CMake build tool:            gmake\""
-      s.sub! /C\+\+ Compiler:"\s+\${VISP_COMPILER_STR}/,
-             "C++ Compiler:                clang++\""
-      s.sub! /C Compiler:"\s+\${CMAKE_C_COMPILER}/,
-             "C Compiler:                  clang\""
+      s.sub!(/CMake build tool:"\s+\${CMAKE_BUILD_TOOL}/,
+             "CMake build tool:            gmake\"")
+      s.sub!(/C\+\+ Compiler:"\s+\${VISP_COMPILER_STR}/,
+             "C++ Compiler:                clang++\"")
+      s.sub!(/C Compiler:"\s+\${CMAKE_C_COMPILER}/,
+             "C Compiler:                  clang\"")
     end
 
     system "cmake", ".", "-DBUILD_DEMOS=OFF",
@@ -77,23 +73,33 @@ class Visp < Formula
                          "-DPNG_PNG_INCLUDE_DIR=#{Formula["libpng"].opt_include}",
                          "-DPNG_LIBRARY_RELEASE=#{Formula["libpng"].opt_lib}/libpng.dylib",
                          "-DUSE_PTHREAD=ON",
-                         "-DPTHREAD_INCLUDE_DIR=#{sdk}/usr/include",
-                         "-DPTHREAD_LIBRARY=/usr/lib/libpthread.dylib",
                          "-DUSE_PYLON=OFF",
                          "-DUSE_REALSENSE=OFF",
                          "-DUSE_REALSENSE2=OFF",
                          "-DUSE_X11=OFF",
                          "-DUSE_XML2=ON",
-                         "-DXML2_INCLUDE_DIR=#{sdk}/usr/include/libxml2",
-                         "-DXML2_LIBRARY=/usr/lib/libxml2.dylib",
                          "-DUSE_ZBAR=ON",
                          "-DZBAR_INCLUDE_DIRS=#{Formula["zbar"].opt_include}",
                          "-DZBAR_LIBRARIES=#{Formula["zbar"].opt_lib}/libzbar.dylib",
                          "-DUSE_ZLIB=ON",
-                         "-DZLIB_INCLUDE_DIR=#{sdk}/usr/include",
-                         "-DZLIB_LIBRARY_RELEASE=/usr/lib/libz.dylib",
                          *std_cmake_args
+
+    # Replace generated references to OpenCV's Cellar path
+    opencv = Formula["opencv"]
+    opencv_references = Dir[
+      "CMakeCache.txt",
+      "CMakeFiles/Export/lib/cmake/visp/VISPModules.cmake",
+      "VISPConfig.cmake",
+      "VISPGenerateConfigScript.info.cmake",
+      "VISPModules.cmake",
+      "modules/**/flags.make",
+      "unix-install/VISPConfig.cmake",
+    ]
+    inreplace opencv_references, opencv.prefix.realpath, opencv.opt_prefix
     system "make", "install"
+
+    # Make sure software built against visp don't reference opencv's cellar path either
+    inreplace lib/"pkgconfig/visp.pc", opencv.prefix.realpath, opencv.opt_prefix
   end
 
   test do
@@ -111,26 +117,29 @@ class Visp < Formula
     assert_equal version.to_s, shell_output("./test").chomp
   end
 end
+
 __END__
-diff --git a/modules/vision/src/key-point/vpKeyPoint.cpp b/modules/vision/src/key-point/vpKeyPoint.cpp
-index dd5cabf..23ed382 100644
---- a/modules/vision/src/key-point/vpKeyPoint.cpp
-+++ b/modules/vision/src/key-point/vpKeyPoint.cpp
-@@ -2269,7 +2269,7 @@ void vpKeyPoint::initDetector(const std::string &detectorName)
- 
-   if (detectorNameTmp == "SIFT") {
- #ifdef VISP_HAVE_OPENCV_XFEATURES2D
--    cv::Ptr<cv::FeatureDetector> siftDetector = cv::xfeatures2d::SIFT::create();
-+    cv::Ptr<cv::FeatureDetector> siftDetector = cv::SIFT::create();
-     if (!usePyramid) {
-       m_detectors[detectorNameTmp] = siftDetector;
-     } else {
-@@ -2447,7 +2447,7 @@ void vpKeyPoint::initExtractor(const std::string &extractorName)
- #else
-   if (extractorName == "SIFT") {
- #ifdef VISP_HAVE_OPENCV_XFEATURES2D
--    m_extractors[extractorName] = cv::xfeatures2d::SIFT::create();
-+    m_extractors[extractorName] = cv::SIFT::create();
- #else
-     std::stringstream ss_msg;
-     ss_msg << "Fail to initialize the extractor: SIFT. OpenCV version  " << std::hex << VISP_HAVE_OPENCV_VERSION
+diff --git a/3rdparty/simdlib/Simd/SimdEnable.h b/3rdparty/simdlib/Simd/SimdEnable.h
+index a5ca71702..6c79eb0d9 100644
+--- a/3rdparty/simdlib/Simd/SimdEnable.h
++++ b/3rdparty/simdlib/Simd/SimdEnable.h
+@@ -44,8 +44,8 @@
+ #include <TargetConditionals.h>             // To detect OSX or IOS using TARGET_OS_IPHONE or TARGET_OS_IOS macro
+ #endif
+
+-// The following includes <sys/auxv.h> and <asm/hwcap.h> are not available for iOS.
+-#if (TARGET_OS_IOS == 0) // not iOS
++// The following includes <sys/auxv.h> and <asm/hwcap.h> are not available for macOS, iOS.
++#if !defined(__APPLE__) // not macOS, iOS
+ #if defined(SIMD_PPC_ENABLE) || defined(SIMD_PPC64_ENABLE) || defined(SIMD_ARM_ENABLE) || defined(SIMD_ARM64_ENABLE)
+ #include <unistd.h>
+ #include <fcntl.h>
+@@ -124,7 +124,7 @@ namespace Simd
+     }
+ #endif//defined(SIMD_X86_ENABLE) || defined(SIMD_X64_ENABLE)
+
+-#if (TARGET_OS_IOS == 0) // not iOS
++#if !defined(__APPLE__) // not macOS, iOS
+ #if defined(__GNUC__) && (defined(SIMD_PPC_ENABLE) || defined(SIMD_PPC64_ENABLE) || defined(SIMD_ARM_ENABLE) || defined(SIMD_ARM64_ENABLE))
+     namespace CpuInfo
+     {

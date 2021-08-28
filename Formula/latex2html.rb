@@ -1,9 +1,9 @@
 class Latex2html < Formula
   desc "LaTeX-to-HTML translator"
   homepage "https://www.latex2html.org"
-  url "https://github.com/latex2html/latex2html/archive/v2020.2.tar.gz"
-  sha256 "09f2d7f086fee9538523fd5074ada8ebadbdbc2227ca11d9d36189e698e5cfaf"
-  license "GPL-2.0"
+  url "https://github.com/latex2html/latex2html/archive/v2021.2.tar.gz"
+  sha256 "892714d87d2ab357488679bda91ae1333b1da6d9743fd42443cc71aaf069cb83"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
@@ -11,11 +11,11 @@ class Latex2html < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d9e1606ef1316a3945c6b17b7a327c0f3afd6ee98573924d55ceae911d555614" => :big_sur
-    sha256 "f5448ddd27e175bc6cf388581f3332a188bc52a15c69d41b8002cc5303471cf4" => :catalina
-    sha256 "fc170658ac170d9bf484a05d99fc052fdefdf9d39ada1cb0b2cffa20950e7ed5" => :mojave
-    sha256 "1057bbb3c6c991e3ce62425b2b11852558d40be5fab478560784ee2b60ec2591" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2f36d7818ab517829c087122323281ac9e66cbcf89a9a105c16f11f6efc7466b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bcfcf542ab089c183d2e112f92ffb5b5319ca7114fce654923a289cf8978fb47"
+    sha256 cellar: :any_skip_relocation, catalina:      "e02b5c3a133eb5d4f3c570dc785aebae13bc7c2af0880cbfe2165cdd80df63a5"
+    sha256 cellar: :any_skip_relocation, mojave:        "dd89940ad2d5d7c2e9100a051221b072645f684d0fa73456ca116c315ec7a680"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17be21fc177c428856ad769efadb47a2cb2b2a3ab874fa2fbed0f3d776fc9dca"
   end
 
   depends_on "ghostscript"
@@ -39,6 +39,6 @@ class Latex2html < Formula
       \\end{document}
     EOS
     system "#{bin}/latex2html", "test.tex"
-    assert_match /Experimental Setup/, File.read("test/test.html")
+    assert_match "Experimental Setup", File.read("test/test.html")
   end
 end

@@ -1,21 +1,22 @@
 class Libgit2 < Formula
   desc "C library of Git core methods that is re-entrant and linkable"
   homepage "https://libgit2.github.com/"
-  url "https://github.com/libgit2/libgit2/archive/v1.1.0.tar.gz"
-  sha256 "41a6d5d740fd608674c7db8685685f45535323e73e784062cf000a633d420d1e"
+  url "https://github.com/libgit2/libgit2/archive/v1.1.1.tar.gz"
+  sha256 "13a525373f64c711a00a058514d890d1512080265f98e0935ab279393f21a620"
   license "GPL-2.0-only"
   head "https://github.com/libgit2/libgit2.git"
 
   livecheck do
-    url "https://github.com/libgit2/libgit2/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    cellar :any
-    sha256 "8f441c63c8c7737c0278b0537f095c84f0eacf80ff8231df57b5be92474884c2" => :big_sur
-    sha256 "55559e477a533a5682da7853f03149000cce14371ed7b0ffc5ceaff285b6348b" => :catalina
-    sha256 "0bb2d00f1e5b6133df5792c06fd726ad15a9364e184d05653bde6b6c1d5095ae" => :mojave
+    sha256 cellar: :any,                 arm64_big_sur: "71ddae10a8e81012cdfb6877791ffeefef8421efcc7077e61d995aca5cc85275"
+    sha256 cellar: :any,                 big_sur:       "86c3794bf3890b7cbe622a1838517a93c4ee380682dae5da9f24c24d9256c094"
+    sha256 cellar: :any,                 catalina:      "9284d9a772c9bc29b52a0eef78f5c4f8a5f1ad659eb4024c53ebe6286a50facd"
+    sha256 cellar: :any,                 mojave:        "f8c6f89c82c013531e7355d79643dff7c7bf658bedaa9ff3fdfa44ee440b2abe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "06a55904d78e73ea93567d825fbca98102abb496cfcbeb05bfc1a464672bdf53"
   end
 
   depends_on "cmake" => :build

@@ -1,25 +1,21 @@
 class GitAnnex < Formula
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-8.20201103/git-annex-8.20201103.tar.gz"
-  sha256 "f4a6ade8a86d9640b5b2d81e45fc4c93c8e35bd90a1fc49d47c4aff1f59d31fd"
+  url "https://hackage.haskell.org/package/git-annex-8.20210803/git-annex-8.20210803.tar.gz"
+  sha256 "628d6d9da30da85165df3fea9e4d24f179533b2296290e46ca7fbe450ac1e71c"
   license all_of: ["AGPL-3.0-or-later", "BSD-2-Clause", "BSD-3-Clause",
                    "GPL-2.0-only", "GPL-3.0-or-later", "MIT"]
-  head "git://git-annex.branchable.com/"
-
-  livecheck do
-    url :stable
-  end
+  head "git://git-annex.branchable.com/", branch: "master"
 
   bottle do
-    cellar :any
-    sha256 "3f8f894d3b23689d01b36bdf0ea1e00dd420e032e9743eb1055bc7d99702ad29" => :catalina
-    sha256 "c4ff88e616211ce2b24ebd7c892496df39b8cab7daea28461df2e53ace936afa" => :mojave
-    sha256 "e44b30c9af8692dc08f0f6ff315268d7fb02bf9568d0d38dcf97152a9f81bcbd" => :high_sierra
+    sha256 cellar: :any,                 big_sur:      "96687ab13a5ff943949aa765a787d0cb6b89e25a0da5b3763ebfe5e5baae6a93"
+    sha256 cellar: :any,                 catalina:     "4b73c0d7e72324d780c458d279fd8825d1c7041412ab87ee3dd84183acadbdca"
+    sha256 cellar: :any,                 mojave:       "6b08f1209252b7d8445937c6bdb8bfeebf978a10812b63ebc2d79fd96efc3c9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "f6ad7e4442086ddbe35fb874874f3ece25ab7a26230a93820c361a08affdd20d"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.6" => :build
+  depends_on "ghc" => :build
   depends_on "pkg-config" => :build
   depends_on "gsasl"
   depends_on "libmagic"
@@ -32,29 +28,8 @@ class GitAnnex < Formula
     bin.install_symlink "git-annex" => "git-annex-shell"
   end
 
-  plist_options manual: "git annex assistant --autostart"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <false/>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/git-annex</string>
-            <string>assistant</string>
-            <string>--autostart</string>
-          </array>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"git-annex", "assistant", "--autostart"]
   end
 
   test do
@@ -67,14 +42,14 @@ class GitAnnex < Formula
     system "git", "annex", "init"
     (testpath/"Hello.txt").write "Hello!"
     assert !File.symlink?("Hello.txt")
-    assert_match /^add Hello.txt.*ok.*\(recording state in git\.\.\.\)/m, shell_output("git annex add .")
+    assert_match(/^add Hello.txt.*ok.*\(recording state in git\.\.\.\)/m, shell_output("git annex add ."))
     system "git", "commit", "-a", "-m", "Initial Commit"
     assert File.symlink?("Hello.txt")
 
     # make sure the various remotes were built
     assert_match shell_output("git annex version | grep 'remote types:'").chomp,
                  "remote types: git gcrypt p2p S3 bup directory rsync web bittorrent " \
-                 "webdav adb tahoe glacier ddar git-lfs httpalso hook external"
+                 "webdav adb tahoe glacier ddar git-lfs httpalso borg hook external"
 
     # The steps below are necessary to ensure the directory cleanly deletes.
     # git-annex guards files in a way that isn't entirely friendly of automatically

@@ -1,8 +1,8 @@
 class Libdrm < Formula
   desc "Library for accessing the direct rendering manager"
   homepage "https://dri.freedesktop.org"
-  url "https://dri.freedesktop.org/libdrm/libdrm-2.4.102.tar.xz"
-  sha256 "8bcbf9336c28e393d76c1f16d7e79e394a7fce8a2e929d52d3ad7ad8525ba05b"
+  url "https://dri.freedesktop.org/libdrm/libdrm-2.4.107.tar.xz"
+  sha256 "c554cef03b033636a975543eab363cc19081cb464595d3da1ec129f87370f888"
   license "MIT"
 
   livecheck do
@@ -10,9 +10,11 @@ class Libdrm < Formula
     regex(/href=.*?libdrm[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  depends_on "docbook" => :build
-  depends_on "docbook-xsl" => :build
-  depends_on "libxslt" => :build
+  bottle do
+    sha256 x86_64_linux: "df125614ad1312e7fc25d910396e0508ef6b1dbde961bead8d6120200ea93f63"
+  end
+
+  depends_on "docutils" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
@@ -29,10 +31,9 @@ class Libdrm < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
-      #include "libdrm_lists.h"
-
+      #include <libdrm/drm.h>
       int main(int argc, char* argv[]) {
-        struct drmMMListHead *listHead;
+        struct drm_gem_open open;
         return 0;
       }
     EOS

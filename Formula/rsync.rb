@@ -5,7 +5,7 @@ class Rsync < Formula
   mirror "https://mirrors.kernel.org/gentoo/distfiles/rsync-3.2.3.tar.gz"
   mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.2.3.tar.gz"
   sha256 "becc3c504ceea499f4167a260040ccf4d9f2ef9499ad5683c179a697146ce50e"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url "https://rsync.samba.org/ftp/rsync/?C=M&O=D"
@@ -13,11 +13,12 @@ class Rsync < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "def7f5cd96f4abc05ef344a16c084c11879dca54b91ea5dd56a6de63298cc1dd" => :big_sur
-    sha256 "fd92045e16b9b83ab6c281a1e658e27731ef9af53fcb6bb7ce6b9533851e728e" => :catalina
-    sha256 "1be1e9754c4f4a4b043aece33299d90f50d01274682f63c29eca7d9bcb8a2090" => :mojave
-    sha256 "5cf9c6e0014687c4abb4044e7f5e12d5d453b81c5dbadd472438b4131c655a1f" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "05437fe41f5c05db284cb9b70c14ad47071976d3720d2148b62f83a2bfb0391a"
+    sha256 cellar: :any,                 big_sur:       "def7f5cd96f4abc05ef344a16c084c11879dca54b91ea5dd56a6de63298cc1dd"
+    sha256 cellar: :any,                 catalina:      "fd92045e16b9b83ab6c281a1e658e27731ef9af53fcb6bb7ce6b9533851e728e"
+    sha256 cellar: :any,                 mojave:        "1be1e9754c4f4a4b043aece33299d90f50d01274682f63c29eca7d9bcb8a2090"
+    sha256 cellar: :any,                 high_sierra:   "5cf9c6e0014687c4abb4044e7f5e12d5d453b81c5dbadd472438b4131c655a1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c170f9fa6e10c5626434cc7a2ec17c1d0de7f3f16b3ffea4ce8bc27cec58208a"
   end
 
   depends_on "lz4"
@@ -48,7 +49,7 @@ class Rsync < Formula
     ]
 
     # SIMD code throws ICE or is outright unsupported due to lack of support for
-    # function multiversioning on older verions of macOS
+    # function multiversioning on older versions of macOS
     args << "--disable-simd" if MacOS.version < :catalina
 
     system "./configure", *args

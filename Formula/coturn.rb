@@ -1,8 +1,8 @@
 class Coturn < Formula
   desc "Free open source implementation of TURN and STUN Server"
   homepage "https://github.com/coturn/coturn"
-  url "http://turnserver.open-sys.org/downloads/v4.5.1.3/turnserver-4.5.1.3.tar.gz"
-  sha256 "408bf7fde455d641bb2a23ba2df992ea0ae87b328de74e66e167ef58d8e9713a"
+  url "http://turnserver.open-sys.org/downloads/v4.5.2/turnserver-4.5.2.tar.gz"
+  sha256 "1cbef88cd4ab0de0d4d7011f4e7eaf39a344b485e9a272f3055eb53dd303b6e1"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,11 +11,14 @@ class Coturn < Formula
   end
 
   bottle do
-    sha256 "027e54c623df2dca0cb5b281123a01b5ab4625d277d7a1f7ac2bd998df790b01" => :catalina
-    sha256 "f5d4351c3ae9d4b8949012379f6b7cb680f4f0fdb6b01c55ff84bd735bd3a490" => :mojave
-    sha256 "4bfb3e74a8d467f7935ccb316097a70b3b14018b31316bccf7c758e65f2479e8" => :high_sierra
+    sha256 arm64_big_sur: "daebf6cf1b50a886b5f647c2331d0f9b811205148b04f03f60c79b0ef9b4b34f"
+    sha256 big_sur:       "cbf4ffbe501023ff20d1d0798c0d3976c16fe29062fe18ce9e03230031c55f5b"
+    sha256 catalina:      "9fcb011c5da93820c3b567ddb6488fb6812cd8d40477d167990023db5d510749"
+    sha256 mojave:        "eef1e160c7951bd96f3f59a395d2474529fa03c12d380dd7daf9625435003c31"
+    sha256 x86_64_linux:  "3b0cb1660a6f9c5f9b340f5d697b9cd0e853e0404f0479f31ca1340a8211e3a4"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "hiredis"
   depends_on "libevent"
   depends_on "libpq"
@@ -38,38 +41,12 @@ class Coturn < Formula
     man1.install Dir["man/man1/*"]
   end
 
-  plist_options manual: "turnserver -c #{HOMEBREW_PREFIX}/etc/turnserver.conf --userdb=#{HOMEBREW_PREFIX}/opt/coturn/var/db/turndb --daemon"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <dict>
-            <key>SuccessfulExit</key>
-            <false/>
-          </dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/turnserver</string>
-            <string>-c</string>
-            <string>#{etc}/turnserver.conf</string>
-          </array>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/coturn.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/coturn.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"turnserver", "-c", etc/"turnserver.conf"]
+    keep_alive true
+    error_log_path var/"log/coturn.log"
+    log_path var/"log/coturn.log"
+    working_dir HOMEBREW_PREFIX
   end
 
   test do

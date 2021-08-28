@@ -1,22 +1,22 @@
 class Tmux < Formula
   desc "Terminal multiplexer"
   homepage "https://tmux.github.io/"
-  url "https://github.com/tmux/tmux/releases/download/3.1c/tmux-3.1c.tar.gz"
-  sha256 "918f7220447bef33a1902d4faff05317afd9db4ae1c9971bef5c787ac6c88386"
+  url "https://github.com/tmux/tmux/releases/download/3.2a/tmux-3.2a.tar.gz"
+  sha256 "551553a4f82beaa8dadc9256800bcc284d7c000081e47aa6ecbb6ff36eacd05f"
   license "ISC"
-  revision 1
 
   livecheck do
-    url "https://github.com/tmux/tmux/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+[a-z]?)["' >]}i)
   end
 
   bottle do
-    cellar :any
-    sha256 "6f9b667c08719ca7a164c571740d510236d55c922058b1d71fb38f66163a394e" => :big_sur
-    sha256 "e1148f3043ef1e77e942bc654e6b3867f40401b0ba93e6d44a460467c51e0a3b" => :catalina
-    sha256 "3ba85f3524acbf5e1fb04135fa9b7f2bbdd5d3c8ed94189685be50ca19722bbe" => :mojave
-    sha256 "ec5fcbdc337221efdbf3f21121fb087b998dd7d3bf6dd5bb72e352d9c9463a57" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "3138a67aceee5eea374c6a61e799073f661ce132f8b8ff2ee2b5cef06fb93725"
+    sha256 cellar: :any,                 big_sur:       "db717e09b9e53769b9bc6f277d25f20c8ec159eb90093a45c0ceefb54105509a"
+    sha256 cellar: :any,                 catalina:      "9aa7eba75f4f56f099182ecd7d41cad0117ce1a11f9fcbd8319a22015c317898"
+    sha256 cellar: :any,                 mojave:        "fa64cb30acc5300390f65f29ed95b4a816f1431b3dbd94051ee695243cf5c63e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c516a5986729c70f0a7ca385a41267b73e88694b8d705a3ec7272562c4958d60"
   end
 
   head do
@@ -25,6 +25,8 @@ class Tmux < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
+
+    uses_from_macos "bison" => :build
   end
 
   depends_on "pkg-config" => :build
@@ -68,6 +70,16 @@ class Tmux < Formula
   end
 
   test do
-    system "#{bin}/tmux", "-V"
+    system bin/"tmux", "-V"
+
+    require "pty"
+
+    socket = testpath/tap.user
+    PTY.spawn bin/"tmux", "-S", socket, "-f", "/dev/null"
+    sleep 10
+
+    assert_predicate socket, :exist?
+    assert_predicate socket, :socket?
+    assert_equal "no server running on #{socket}", shell_output("#{bin}/tmux -S#{socket} list-sessions 2>&1", 1).chomp
   end
 end

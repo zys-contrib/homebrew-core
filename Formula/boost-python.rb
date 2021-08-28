@@ -1,18 +1,12 @@
 class BoostPython < Formula
   desc "C++ library for C++/Python2 interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.74.0/source/boost_1_74_0.tar.bz2"
-  mirror "https://dl.bintray.com/homebrew/mirror/boost_1_74_0.tar.bz2"
+  url "https://downloads.sourceforge.net/project/boost/boost/1.74.0/boost_1_74_0.tar.bz2"
   sha256 "83bfc1507731a0906e387fc28b7ef5417d591429e51e788417fe9ff025e116b1"
   license "BSL-1.0"
-  head "https://github.com/boostorg/boost.git"
+  head "https://github.com/boostorg/boost.git", branch: "master"
 
-  bottle do
-    cellar :any
-    sha256 "2bfdf94233748ade31906e2d97fd2f6f486b11aa4216eaa7b95184857f8eb2e0" => :catalina
-    sha256 "322e42a7162fdb8007d2fd43301de78bd6d8d2f322524a6b63c5c8f48253a672" => :mojave
-    sha256 "7300cdd1653d195336215d7c2374377e575f770b8b37ac6722abf41b65a86c46" => :high_sierra
-  end
+  disable! date: "2021-04-08", because: :does_not_build
 
   depends_on "boost"
   depends_on :macos # Due to Python 2
@@ -72,8 +66,8 @@ class BoostPython < Formula
     EOS
 
     pyprefix = `python-config --prefix`.chomp
-    pyincludes = Utils.popen_read("python-config", "--includes").chomp.split(" ")
-    pylib = Utils.popen_read("python-config", "--ldflags").chomp.split(" ")
+    pyincludes = Utils.popen_read("python-config", "--includes").chomp.split
+    pylib = Utils.popen_read("python-config", "--ldflags").chomp.split
 
     system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python27",
                     "-o", "hello.so", "-I#{pyprefix}/include/python2.7",

@@ -1,22 +1,21 @@
 class Pazpar2 < Formula
   desc "Metasearching middleware webservice"
-  homepage "https://www.indexdata.com/pazpar2"
-  url "http://ftp.indexdata.dk/pub/pazpar2/pazpar2-1.14.0.tar.gz"
+  homepage "https://www.indexdata.com/resources/software/pazpar2/"
+  url "https://ftp.indexdata.com/pub/pazpar2/pazpar2-1.14.0.tar.gz"
   sha256 "3b0012450c66d6932009ac0decb72436690cc939af33e2ad96c0fec85863d13d"
-  license "GPL-2.0"
-  revision 2
+  license "GPL-2.0-or-later"
+  revision 4
 
   livecheck do
-    url "http://ftp.indexdata.dk/pub/pazpar2/"
+    url :homepage
     regex(/href=.*?pazpar2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    cellar :any
-    sha256 "17618f15fd88ee0512684d6844fa04abf01b9f6491ebe943ab6a38f6750949c5" => :big_sur
-    sha256 "6341978a6229069f3078497aa242dfacfb265fdd54c22a8864a516906c83921d" => :catalina
-    sha256 "1921d7b34876024b8c0145df01e1c88a385c2851752fb30b2dc918f9ed8ee6d8" => :mojave
-    sha256 "bde0d429ddb8f2012ea87a66a0ea1928ef491d414eec5efe231dec219f4d4675" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "0021f3e79b53e697e1cf36eb6b2bd47d84941c9f8318577c1e46aaccb4cee28b"
+    sha256 cellar: :any, big_sur:       "d3d553d0d264f72f7da041463b670c52afd453e233434113ff48676874ee4fe8"
+    sha256 cellar: :any, catalina:      "e36beb9a3bbc585db1682cca88ff38d5599aa7559a5cbad55bb1ca578be167f1"
+    sha256 cellar: :any, mojave:        "48abe4b5d2e20e541a1e9d2a5a96be12e3f886daa354cffcd93220a296a9164a"
   end
 
   head do

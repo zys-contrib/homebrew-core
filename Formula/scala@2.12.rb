@@ -1,19 +1,23 @@
 class ScalaAT212 < Formula
   desc "JVM-based programming language"
   homepage "https://www.scala-lang.org/"
-  url "https://downloads.lightbend.com/scala/2.12.12/scala-2.12.12.tgz"
-  mirror "https://www.scala-lang.org/files/archive/scala-2.12.12.tgz"
-  mirror "https://downloads.typesafe.com/scala/2.12.12/scala-2.12.12.tgz"
-  sha256 "3520cd1f3c9efff62baee75f32e52d1e5dc120be2ccf340649e470e48f527e2b"
+  url "https://downloads.lightbend.com/scala/2.12.14/scala-2.12.14.tgz"
+  mirror "https://www.scala-lang.org/files/archive/scala-2.12.14.tgz"
+  mirror "https://downloads.typesafe.com/scala/2.12.14/scala-2.12.14.tgz"
+  sha256 "fd7e3e4032288013a29c0a1447c597faf7b0e499762c0d981db21099e9780426"
   license "Apache-2.0"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "cdf530f84277789ecac9c149fe5b3c13e68dcabfef366194b02b463a5ac1ae1d"
+  end
 
   keg_only :versioned_formula
 
   depends_on "openjdk"
 
   def install
+    inreplace Dir["man/man1/scala{,c}.1"], "/usr/local", HOMEBREW_PREFIX
+
     rm_f Dir["bin/*.bat"]
     doc.install Dir["doc/*"]
     share.install "man"

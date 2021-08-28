@@ -1,8 +1,8 @@
 class Homebank < Formula
   desc "Manage your personal accounts at home"
   homepage "http://homebank.free.fr"
-  url "http://homebank.free.fr/public/homebank-5.4.3.tar.gz"
-  sha256 "9222d7ed7cc44fcfff3f1fe20935a1b7fe91bb4d9f90003cb3c6f3b893298d0b"
+  url "http://homebank.free.fr/public/homebank-5.5.3.tar.gz"
+  sha256 "073607918a9610087791f36f59e70d1261fee8e4e1146a5cfd5871a1d2d91093"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,9 +11,11 @@ class Homebank < Formula
   end
 
   bottle do
-    sha256 "a619932ee182db41e813df9229aa82ca6fc3c61f37c1e4f6cdd688010ac0736b" => :catalina
-    sha256 "f22d80fc1de3ee5075505c6d2bdc7a168f875ab6351cbda7c6ac2394d1281f8e" => :mojave
-    sha256 "871e8f75ea31d3c362497f0cf3a4ab87072efb6a3adf8e546763e182046720be" => :high_sierra
+    sha256 arm64_big_sur: "a1aaa55de58c02e3d231bf3405d9d08e3ad95f11805627d668563e10b8bbaedb"
+    sha256 big_sur:       "e5b90fc6091d2fdb03ce91eddf19a7dbbc9858414d582872ad285d3cec89e7cd"
+    sha256 catalina:      "7dae6924cc50f1f445550ffb09a45518821936e5f6320661700e3b001c645f3e"
+    sha256 mojave:        "9effe333c729e3b2c3622d1595f27ef6e187d20a7917adad53cfb922d83f9b91"
+    sha256 x86_64_linux:  "d19777f6595d8b37ec6242b66f75c9297bbceea976eddd3fc4bf1d127c351d60"
   end
 
   depends_on "intltool" => :build
@@ -28,6 +30,12 @@ class Homebank < Formula
   depends_on "libsoup"
 
   def install
+    on_linux do
+      # Needed to find intltool (xml::parser)
+      ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5"
+      ENV["INTLTOOL_PERL"] = Formula["perl"].bin/"perl"
+    end
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--with-ofx"
     chmod 0755, "./install-sh"

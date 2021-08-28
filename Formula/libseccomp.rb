@@ -6,8 +6,12 @@ class Libseccomp < Formula
   license "LGPL-2.1-only"
 
   livecheck do
-    url "https://github.com/seccomp/libseccomp/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
+  end
+
+  bottle do
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "415b12edd357491a221a8e5a778f4376c69b6779da529e25554ff66ded234c39"
   end
 
   depends_on "autoconf" => :build

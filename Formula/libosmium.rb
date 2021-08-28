@@ -1,17 +1,15 @@
 class Libosmium < Formula
   desc "Fast and flexible C++ library for working with OpenStreetMap data"
   homepage "https://osmcode.org/libosmium/"
-  url "https://github.com/osmcode/libosmium/archive/v2.15.6.tar.gz"
-  sha256 "55879b9da0f3756f3216f9fb857f35afb3b01294b5f18e0d1719334e7d4f5ac9"
+  url "https://github.com/osmcode/libosmium/archive/v2.17.0.tar.gz"
+  sha256 "4a7672d7caf4da3bc68619912b298462370c423c697871a0be6273c6686e10d6"
   license "BSL-1.0"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "ebdd53b3aee1ab3b070488479c5073748f8f979cf8caaddc221d64f7e793cb45" => :big_sur
-    sha256 "dadd63f6645e8f030f245083218f5a6bfd60bf97a6fa7e8a212010a934fa0b1a" => :catalina
-    sha256 "dadd63f6645e8f030f245083218f5a6bfd60bf97a6fa7e8a212010a934fa0b1a" => :mojave
-    sha256 "dadd63f6645e8f030f245083218f5a6bfd60bf97a6fa7e8a212010a934fa0b1a" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a670f374f814891e2db3d00de8a156d2d177cbce453435388fa180de343d1f27"
+    sha256 cellar: :any_skip_relocation, big_sur:       "71432c9f74dfe76886bbe1e89d128bf5fa80e2e1ef9d3ea15a18fc9d7a739f34"
+    sha256 cellar: :any_skip_relocation, catalina:      "71432c9f74dfe76886bbe1e89d128bf5fa80e2e1ef9d3ea15a18fc9d7a739f34"
+    sha256 cellar: :any_skip_relocation, mojave:        "3e4d4f6cc29087f12b21f8354c44b0088d7dea65064b9d705d95217ddc9ab248"
   end
 
   depends_on "boost" => :build
@@ -64,7 +62,7 @@ class Libosmium < Formula
       }
     EOS
 
-    system ENV.cxx, "-std=c++11", "-stdlib=libc++", "-lexpat", "-o", "libosmium_read", "test.cpp"
+    system ENV.cxx, "-std=c++11", "-lexpat", "-o", "libosmium_read", "-pthread", "test.cpp"
     system "./libosmium_read", "test.osm"
   end
 end

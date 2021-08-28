@@ -2,19 +2,16 @@ class Libewf < Formula
   desc "Library for support of the Expert Witness Compression Format"
   homepage "https://github.com/libyal/libewf"
   # The main libewf repository is currently "experimental".
-  url "https://github.com/libyal/libewf-legacy/releases/download/20140810/libewf-20140810.tar.gz"
-  sha256 "44a134256970b5e1e3c8ff9ab5e4edf2bb8cf5bf26387282a4da975b4d12fb79"
+  url "https://github.com/libyal/libewf-legacy/releases/download/20140812/libewf-20140812.tar.gz"
+  sha256 "be90b7af2a63cc3f15d32ce722a19fbd5bbb0173ce20995ba2b27cc9072d6f25"
   license "LGPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    cellar :any
-    sha256 "d724c07aa4e7e063e0e065f91f9234cbe951be8888c4f9bdb9989698cfda0b6f" => :big_sur
-    sha256 "ebe6e340255e59bff651b4e59807c45e279ec3d2058e308e147567f0a7d394b8" => :catalina
-    sha256 "a74019c27df3e7e6a16b54c32c7dd9ed3f5eba83d31269647098f21b2fc4e788" => :mojave
+    sha256 cellar: :any,                 arm64_big_sur: "a86d3ab0f59dcb04fbf49ce271c79817694b4890a3f041ad297847b26117b968"
+    sha256 cellar: :any,                 big_sur:       "01223ea80696527795667054cf517c08160e5beb015ed9d7098639f3786d540c"
+    sha256 cellar: :any,                 catalina:      "16f6fe5bc2d8a30f216241ecc70ef23b3122043e4e75992d166fda26dad1463c"
+    sha256 cellar: :any,                 mojave:        "5669d19089228d1702a8b6469189d0fff7af625514fcd5a56b08f1f98ff81a33"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9647ae8e75c956ee90c8e836b8938c13d9d052fa37e33d9d8440b8c75b7fa086"
   end
 
   head do

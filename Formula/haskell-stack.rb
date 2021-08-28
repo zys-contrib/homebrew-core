@@ -1,31 +1,28 @@
 class HaskellStack < Formula
   desc "Cross-platform program for developing Haskell projects"
   homepage "https://haskellstack.org/"
-  url "https://github.com/commercialhaskell/stack/archive/v2.3.3.tar.gz"
-  sha256 "57042c0c7b53a6f8dba7f31679e9049c28351a86b8bc2786f7e37eda4733634e"
+  url "https://github.com/commercialhaskell/stack/archive/v2.7.3.tar.gz"
+  sha256 "37f4bc0177534782609ec3a67ec413548d3f2cabff7c4c0bc8a92a36e49c6877"
   license "BSD-3-Clause"
   head "https://github.com/commercialhaskell/stack.git"
 
   livecheck do
-    url "https://github.com/commercialhaskell/stack/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0e72e5dcc47ad2a71d842bde6aa742a0ae87d68d5fc22c948db6585d2be400da" => :catalina
-    sha256 "4407ef8eb595ebd28d5d2a1256c0356466cd4239a2b95e99ffd02b0b306a7ffb" => :mojave
-    sha256 "4f3617f2778d5f30f46c8a6c20ccbe7ea4488332734b9b8ca399e476b6dfd03f" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1febdf95d90161093914f0b130a2e560e3e536316b414ab4d894195f2ffbec61"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5e9185c5fb43ee4aa892bd5e9460fba19874c741df8cb0791af25ec7dab40575"
+    sha256 cellar: :any_skip_relocation, catalina:      "eff4da14356490588c31bbdf4d327605c5209957956d2964eb42e65bb9f687ba"
+    sha256 cellar: :any_skip_relocation, mojave:        "f57fdcf4118acc46b507b6e091f8898f9f1200f5041d20460ac97cc57fe21364"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c0e6d39df1e8c28c0ed815df4a2f02a3e302a758fb9dade1aaf3d13212ce5ad"
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
 
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "gmp"
-  end
 
   def install
     system "cabal", "v2-update"

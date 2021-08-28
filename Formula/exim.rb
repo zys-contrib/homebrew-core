@@ -1,27 +1,39 @@
 class Exim < Formula
   desc "Complete replacement for sendmail"
   homepage "https://exim.org"
-  url "https://ftp.exim.org/pub/exim/exim4/exim-4.94.tar.xz"
-  mirror "https://dl.bintray.com/homebrew/mirror/exim-4.94.tar.xz"
-  sha256 "f77ee8faf04f5db793243c3ae81c1f4e452cd6ad7dd515a80edf755c4b144bdb"
-  license "GPL-2.0"
+  url "https://ftp.exim.org/pub/exim/exim4/exim-4.94.2.tar.xz"
+  sha256 "051861fc89f06205162f12129fb7ebfe473383bb6194bf8642952bfd50329274"
+  license "GPL-2.0-or-later"
 
-  # The upstream download page at https://ftp.exim.org/pub/exim/exim4/ places
-  # maintenance releases (e.g., 4.93.0.4) in a separate "fixes" subdirectory.
-  # As a result, we can't create a check that finds both the main releases
-  # (e.g., 4.93) and the aforementioned maintenance releases. The Git repo tags
-  # seem to be the best solution currently and we're using the GitHub mirror
-  # below since the upstream repo (git://git.exim.org/exim.git) doesn't work
-  # over https.
+  # Maintenance releases are kept in a `fixes` subdirectory, so it's necessary
+  # to check both the main `exim4` directory and the `fixes` subdirectory to
+  # identify the latest version.
   livecheck do
-    url "https://github.com/Exim/exim.git"
-    regex(/^exim[._-]v?(\d+(?:\.\d+)+)$/i)
+    url "https://ftp.exim.org/pub/exim/exim4/"
+    regex(/href=.*?exim[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    strategy :page_match do |page, regex|
+      # Match versions from files in the `exim4` directory
+      versions = page.scan(regex).flatten.uniq
+
+      # Return versions if a `fixes` subdirectory isn't present
+      next versions if page.match(%r{href=["']?fixes/?["' >]}i).blank?
+
+      # Fetch the page for the `fixes` directory
+      fixes_page = Homebrew::Livecheck::Strategy.page_content(URI.join(@url, "fixes").to_s)
+      next versions if fixes_page[:content].blank?
+
+      # Match maintenance releases and add them to the versions array
+      versions += fixes_page[:content].scan(regex).flatten
+      versions
+    end
   end
 
   bottle do
-    sha256 "74e195304b29ce8ce47fbccc2c58e468a677482a94efecc1cfd9dcc0210c07d1" => :catalina
-    sha256 "bae912aa71182fd91e5e65b38cba3ea162f7d63d4dc4b4b365ef6532c4329a7a" => :mojave
-    sha256 "230f63be05a2dde5fcb4487e7159db758abe984cbc70d495a697c209107fc284" => :high_sierra
+    sha256 arm64_big_sur: "27beb8798303a6435aa2d66380dda416d525ec9a148885ffc47a0ea854cce61b"
+    sha256 big_sur:       "db5cb6710964ec20b9a3a0f291241cc3ff9580705e2367aac781caeff626508b"
+    sha256 catalina:      "c090fcc24665c6506ec53fbc46d56b24f51783d6e3325b917c833206413be6e8"
+    sha256 mojave:        "5953883752ecffe5defcb5b337feaf8fd2fdce0ad88b0d02bb5f2723ee7b3cdf"
+    sha256 x86_64_linux:  "1ac738364c2e540e39ce0668ff3c106691847c35719bd21b62c988d11264b20f"
   end
 
   depends_on "berkeley-db@4"
@@ -38,6 +50,8 @@ class Exim < Formula
       s.gsub! "/var/spool/exim", var/"spool/exim"
       # https://trac.macports.org/ticket/38654
       s.gsub! 'TMPDIR="/tmp"', "TMPDIR=/tmp"
+    end
+    open("Local/Makefile", "a") do |s|
       s << "AUTH_PLAINTEXT=yes\n"
       s << "SUPPORT_TLS=yes\n"
       s << "USE_OPENSSL=yes\n"

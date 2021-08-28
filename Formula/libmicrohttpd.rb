@@ -1,28 +1,25 @@
 class Libmicrohttpd < Formula
   desc "Light HTTP/1.1 server library"
   homepage "https://www.gnu.org/software/libmicrohttpd/"
-  url "https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.71.tar.gz"
-  mirror "https://ftpmirror.gnu.org/libmicrohttpd/libmicrohttpd-0.9.71.tar.gz"
-  sha256 "e8f445e85faf727b89e9f9590daea4473ae00ead38b237cf1eda55172b89b182"
-
-  livecheck do
-    url :stable
-  end
+  url "https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.73.tar.gz"
+  mirror "https://ftpmirror.gnu.org/libmicrohttpd/libmicrohttpd-0.9.73.tar.gz"
+  sha256 "a37b2f1b88fd1bfe74109586be463a434d34e773530fc2a74364cfcf734c032e"
+  license "LGPL-2.1-or-later"
 
   bottle do
-    cellar :any
-    sha256 "de891c6fd4290b2686b569b253436b8038d8e7a048dd411b340c844c30acd457" => :big_sur
-    sha256 "4b726d32231d5178a6e9fb1eff7a4a2e27776fe434fb5e40ecff377ac300719c" => :catalina
-    sha256 "03c40981973ceca4b9efbe13d28254378fceba98b45470492a9d677595ce1d0c" => :mojave
-    sha256 "87f16499f102b9bf25d31bce38bd396d0d09a8517b036ba2ad57bf9ace7709a5" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "92216bc689b42d660f2282fcb085394033b6cfcc251f8443650ec01be4e09176"
+    sha256 cellar: :any,                 big_sur:       "035f1dd8caeb642f47c82f8efeabde09d2476af9b5a73b7ef6337f0c6373090e"
+    sha256 cellar: :any,                 catalina:      "61f7cd6b76713ad189ac09c59b7f798cdda9383b022c55fdd5c48da1360ef6fb"
+    sha256 cellar: :any,                 mojave:        "eba382f3e0e66eb18e11bebc64c28d1adc9e1a34775a931a00ae1ff606d62f43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b642a2233df4ded848a7d781b1733c18d02d300cd976b67fadaf8765a568a4a"
   end
 
   depends_on "gnutls"
-  depends_on "libgcrypt"
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
+                          "--enable-https",
                           "--prefix=#{prefix}"
     system "make", "install"
     (pkgshare/"examples").install Dir.glob("doc/examples/*.c")
@@ -34,6 +31,6 @@ class Libmicrohttpd < Formula
       "return 0",
       "printf(\"daemon %p\", daemon) ; return 0"
     system ENV.cc, "-o", "foo", "simplepost.c", "-I#{include}", "-L#{lib}", "-lmicrohttpd"
-    assert_match /daemon 0x[0-9a-f]+[1-9a-f]+/, pipe_output("./foo")
+    assert_match(/daemon 0x[0-9a-f]+[1-9a-f]+/, pipe_output("./foo"))
   end
 end

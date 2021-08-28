@@ -1,22 +1,27 @@
 class Binaryen < Formula
   desc "Compiler infrastructure and toolchain library for WebAssembly"
   homepage "https://webassembly.org/"
-  url "https://github.com/WebAssembly/binaryen/archive/version_98.tar.gz"
-  sha256 "9f805db6735869ab52cde7c0404879c90cf386888c0f587e944737550171c1c4"
+  url "https://github.com/WebAssembly/binaryen/archive/version_101.tar.gz"
+  sha256 "5d7cdec89957549f01b7c93f080d08827c87bbd4789a34694c740d15d077c041"
   license "Apache-2.0"
-  head "https://github.com/WebAssembly/binaryen.git"
+  head "https://github.com/WebAssembly/binaryen.git", branch: "main"
 
   bottle do
-    cellar :any
-    sha256 "5d5ac79ec3aabebd8e62433c84bd0d61b0f4ee44d56e4c4f47475276a6428bd8" => :big_sur
-    sha256 "260a8deac0c78a9fead982cf6d05fd818330bc4e28cdc73ecd5de6952ded6e8b" => :catalina
-    sha256 "7a68230a62307fbd61638803e942e4d556f99b8e4d6fbbdd3dbaf6997b3b2843" => :mojave
-    sha256 "4656a9b10a7db143e3619126ea1e0c169d05b06b27c7e75d5f641c86135c7b1f" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "7c9f6e7464dd612d8fd5ecf97eb28be3a0e785807656971760355dbaee2ab308"
+    sha256 cellar: :any,                 big_sur:       "b5b7f3d6275bcbb2497135dbaa92856172def96355c2e1c4dd3f6d11cbdd4f77"
+    sha256 cellar: :any,                 catalina:      "3c1ec0bef52f4113e4898aec902fb3a631aa36b4ee82c4cbd9732357c5f6f79d"
+    sha256 cellar: :any,                 mojave:        "d69a70807fee88c855c53594d135d358e9b51a4a7d9b50518c7ea09b0df76dc6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f95c9ed168f39f4e5bea1ba2316257b42025ba80ffe9fb8208177e7a83b1e29"
   end
 
   depends_on "cmake" => :build
   depends_on "python@3.9" => :build
-  depends_on macos: :el_capitan # needs thread-local storage
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     ENV.cxx11

@@ -1,8 +1,8 @@
 class Pgroonga < Formula
   desc "PostgreSQL plugin to use Groonga as index"
   homepage "https://pgroonga.github.io/"
-  url "https://packages.groonga.org/source/pgroonga/pgroonga-2.2.7.tar.gz"
-  sha256 "12f115ad733d55dcf0022b6b6c26a323ce7cda2a19118f7c7917e7745567a3e5"
+  url "https://packages.groonga.org/source/pgroonga/pgroonga-2.3.1.tar.gz"
+  sha256 "832c8a0ab4735f207f528abfbac9e686bca09df6190bd9fc96a2e0af1714206c"
   license "PostgreSQL"
 
   livecheck do
@@ -11,11 +11,10 @@ class Pgroonga < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "7cf0bdb802bfd5d6aebb115f471266e61ee406a73048d2555d400bf3080f1fef" => :big_sur
-    sha256 "d0de2d71d1d643d130ad2823d51b3cf06e38f5d48158fc40fcba1d697b2f73fc" => :catalina
-    sha256 "86e7ae187aefe8db8956cee2457d7434039d5dbb9201457b7b12fae604c22c12" => :mojave
-    sha256 "43c3241de15a83eb86978ad51c103e42813357cdcc5629858ab8ac571da4c031" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "965c4bc5b92d99b8a98c2743248447d0260d2925c7d50c8717255d0502bcd676"
+    sha256 cellar: :any, big_sur:       "fe3c58f82c97e7da2c0889b4a3dd3de817fc6c48627970b5aa65d28d208417f5"
+    sha256 cellar: :any, catalina:      "7917e151527fb4dbd97ce7788723c25b2612bf6c565c3057d58d3aaec19e0fd7"
+    sha256 cellar: :any, mojave:        "31ebc734c68b5fa6f43ff20e8becc7c1b6ba3423445b10127e261a662300b573"
   end
 
   depends_on "pkg-config" => :build
@@ -29,24 +28,5 @@ class Pgroonga < Formula
 
     lib.install Dir["stage/**/lib/*"]
     (share/"postgresql/extension").install Dir["stage/**/share/postgresql/extension/*"]
-  end
-
-  test do
-    return if ENV["CI"]
-
-    pg_bin = Formula["postgresql"].opt_bin
-    pg_port = "55561"
-    system "#{pg_bin}/initdb", testpath/"test"
-    pid = fork { exec "#{pg_bin}/postgres", "-D", testpath/"test", "-p", pg_port }
-
-    begin
-      sleep 2
-      system "#{pg_bin}/createdb", "-p", pg_port
-      system "#{pg_bin}/psql", "-p", pg_port, "--command", "CREATE DATABASE test;"
-      system "#{pg_bin}/psql", "-p", pg_port, "-d", "test", "--command", "CREATE EXTENSION pgroonga;"
-    ensure
-      Process.kill 9, pid
-      Process.wait pid
-    end
   end
 end

@@ -7,17 +7,18 @@ class Hqx < Formula
   license "LGPL-2.1"
 
   bottle do
-    cellar :any
-    sha256 "14a68ef6155118b80a663827075e5a98a9f889f0edbe0fac77905ea69be9b334" => :catalina
-    sha256 "557085364f580e05f98df85ba471d686563820c1cf4b890c8c577ea1a1ac6e27" => :mojave
-    sha256 "efdbc80364955ad0c66fe7729d298affb7644a72ee780012ad99f506088aedf9" => :high_sierra
-    sha256 "2925d0405549e466e967124d8192e88a27a83b8b4619e88e9b5b1a109eb4e7ac" => :sierra
+    rebuild 2
+    sha256 cellar: :any, arm64_big_sur: "d782e36758fe3e2a3b354a3c9e021078230934c2bbc2bd4f7043cf7ad570f542"
+    sha256 cellar: :any, big_sur:       "8eccb719985ba896880e42efd7266c24ee920c3952441ac90f8fb327c875b1c0"
+    sha256 cellar: :any, catalina:      "d59524a43357e8590e15fbb039891261b2d3c6c33bf073fece8bfa568c3b9710"
+    sha256 cellar: :any, mojave:        "3714c62ed8c552ddf8242b87845c5d35d17341d44ffea5cc3feceaa2e4c7e960"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "php" => :test
   depends_on "devil"
 
   def install

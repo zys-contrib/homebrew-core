@@ -1,25 +1,26 @@
 class Osm2pgsql < Formula
   desc "OpenStreetMap data to PostgreSQL converter"
-  homepage "https://wiki.openstreetmap.org/wiki/Osm2pgsql"
-  url "https://github.com/openstreetmap/osm2pgsql/archive/1.3.0.tar.gz"
-  sha256 "1c0f229047491cf7d054c6f8fcb846eb3163c336340fa82035e19cc2bb7f0179"
+  homepage "https://osm2pgsql.org"
+  url "https://github.com/openstreetmap/osm2pgsql/archive/1.5.1.tar.gz"
+  sha256 "4df0d332e5d77a9d363f2f06f199da0ac23a0dc7890b3472ea1b5123ac363f6e"
   license "GPL-2.0-only"
   head "https://github.com/openstreetmap/osm2pgsql.git"
 
   bottle do
-    sha256 "b9c7c27b5c1903c04ccbf6f55404369d94475a3f461fc86a7fd3585c054cad6c" => :big_sur
-    sha256 "324bdc79fb0fabceb5f605982b13fca817eecd0017736e77481246be2f793015" => :catalina
-    sha256 "cacdde87d5fc923df8cd9f6d366d3840facdeea335741b2c82a68d526d59f2e6" => :mojave
-    sha256 "9d7c59f529112c64bee0083a28fdc5791a43390b4761ccabf50578abaa6a0da3" => :high_sierra
+    sha256 arm64_big_sur: "ece6fdfa41191aa1f7f5c82b6c197e668e5550cfae6d72271bf0253f3a4d166f"
+    sha256 big_sur:       "3b55656f6199e13de0705586978e4fd6bbc24b8a4125d0380f7331ac171f5a2f"
+    sha256 catalina:      "f400b7edec6fcd957360a69c43212868a3a7a0dcd3b8c0a96a9cd1d3b725ec90"
+    sha256 mojave:        "e9b3b5a2cac886bb1afbfb9586cdda65c01a50248727a04c5e93ca2bd7e686f7"
+    sha256 x86_64_linux:  "bb9666b44020e017f3867c7a2d71d739988f0953a12eca0200c65955db994f5c"
   end
 
   depends_on "cmake" => :build
+  depends_on "lua" => :build
   depends_on "boost"
   depends_on "geos"
-  depends_on "lua"
-  depends_on "luajit"
+  depends_on "luajit-openresty"
   depends_on "postgresql"
-  depends_on "proj"
+  depends_on "proj@7"
 
   def install
     # This is essentially a CMake disrespects superenv problem
@@ -40,6 +41,7 @@ class Osm2pgsql < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/osm2pgsql -h 2>&1")
+    assert_match "Connecting to database failed: could not connect to server",
+                 shell_output("#{bin}/osm2pgsql /dev/null 2>&1", 1)
   end
 end

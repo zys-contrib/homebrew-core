@@ -2,16 +2,17 @@ class Wownero < Formula
   desc "Official wallet and node software for the Wownero cryptocurrency"
   homepage "https://wownero.org"
   url "https://git.wownero.com/wownero/wownero.git",
-    tag:      "v0.9.1.0",
-    revision: "21fa2b944ba2b4325d0df1c2bf564617818a7b0c"
+      tag:      "v0.10.0.3",
+      revision: "2bdd70d65d266beeca043f207ebb1964463f4a3b"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
-    cellar :any
-    sha256 "7dcdd75623cb7bc1c628a36b44a2c1cb6d695fdfa3c0fafdd1e791fca39eb442" => :big_sur
-    sha256 "3458461681748020c7906a47cad6c421d82a353f63fe08c3b40da051095b9692" => :catalina
-    sha256 "780b99fba1fdd4fa577b46d8c8f0f87b9c6537160b679d7c467ce6e5b99ef55c" => :mojave
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "0faaed980b9edadc285a0110e6a12219636f49ca2cc20c5a00d2cfa3259426ac"
+    sha256 cellar: :any,                 big_sur:       "9c12417ea6310d12b295ae3df4f2a099673509062a307eeb840ec89bb9e04001"
+    sha256 cellar: :any,                 catalina:      "a743feb558aeac26118636c893a5e3bd422b606b5b121ed2eb9c2e94a696f7b7"
+    sha256 cellar: :any,                 mojave:        "7f7e40f2aa800e7db13f4f582e47e76905cafae8d9cccc2b6090491ee2e3dffb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce96a0d3b3c105269ab805c518a4a18446d2e76a5dede3b2ce2bb076ff4460e5"
   end
 
   depends_on "cmake" => :build
@@ -25,48 +26,44 @@ class Wownero < Formula
   depends_on "unbound"
   depends_on "zeromq"
 
-  conflicts_with "miniupnpc", because: "wownero ships its own copy of miniupnpc"
   conflicts_with "monero", because: "both install a wallet2_api.h header"
+
+  # Boost 1.76 compatibility
+  # https://github.com/loqs/monero/commit/5e902e5e32c672661dfe5677c4a950c4dd409198
+  patch :DATA
 
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
-
-    # Fix conflict with miniupnpc.
-    # This has been reported at https://github.com/monero-project/monero/issues/3862
-    rm lib/"libminiupnpc.a"
   end
 
-  plist_options manual: "wownerod --non-interactive"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/wownerod</string>
-          <string>--non-interactive</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"wownerod", "--non-interactive"]
   end
 
   test do
     cmd = "yes '' | #{bin}/wownero-wallet-cli --restore-deterministic-wallet " \
-      "--password brew-test --restore-height 238084 --generate-new-wallet wallet " \
-      "--electrum-seed 'maze vixen spiders luggage vibrate western nugget older " \
-      "emails oozed frown isolated ledge business vaults budget " \
-      "saucepan faxed aloof down emulate younger jump legion saucepan'" \
-      "--command address"
+          "--password brew-test --restore-height 238084 --generate-new-wallet wallet " \
+          "--electrum-seed 'maze vixen spiders luggage vibrate western nugget older " \
+          "emails oozed frown isolated ledge business vaults budget " \
+          "saucepan faxed aloof down emulate younger jump legion saucepan'" \
+          "--command address"
     address = "Wo3YLuTzJLTQjSkyNKPQxQYz5JzR6xi2CTS1PPDJD6nQAZ1ZCk1TDEHHx8CRjHNQ9JDmwCDGhvGF3CZXmmX1sM9a1YhmcQPJM"
     assert_equal address, shell_output(cmd).lines.last.split[1]
   end
 end
+
+__END__
+diff --git a/contrib/epee/include/storages/portable_storage.h b/contrib/epee/include/storages/portable_storage.h
+index f77e89cb6..066e12878 100644
+--- a/contrib/epee/include/storages/portable_storage.h
++++ b/contrib/epee/include/storages/portable_storage.h
+@@ -39,6 +39,8 @@
+ #include "span.h"
+ #include "int-util.h"
+
++#include <boost/mpl/contains.hpp>
++
+ namespace epee
+ {
+   class byte_slice;

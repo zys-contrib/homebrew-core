@@ -6,11 +6,9 @@ class Fmpp < Formula
   license "Apache-2.0"
   revision 2
 
-  livecheck do
-    url :stable
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "dc3512d37ce269108177103bb974dd7d033985a4ab441428217362b9fc8513ef"
   end
-
-  bottle :unneeded
 
   depends_on "openjdk"
 

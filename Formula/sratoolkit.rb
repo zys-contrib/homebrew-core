@@ -1,16 +1,15 @@
 class Sratoolkit < Formula
   desc "Data tools for INSDC Sequence Read Archive"
   homepage "https://github.com/ncbi/sra-tools"
-  url "https://github.com/ncbi/sra-tools/archive/2.10.8.tar.gz"
-  sha256 "4adb969a9a998f6a50020f99aa66f6ae27916f7dc83ddf6722fc0fea4a3a4d17"
-  head "https://github.com/ncbi/sra-tools.git"
+  url "https://github.com/ncbi/sra-tools/archive/2.11.0.tar.gz"
+  sha256 "10ac0a4d1fafc274bc107de811891d3e803d0713a247581dece4448231883810"
+  license all_of: [:public_domain, "GPL-3.0-or-later", "MIT"]
+  head "https://github.com/ncbi/sra-tools.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "07759cc3d1ffe835f251f22bfc05b48073156f59a14a3811e70ddedc475b505c" => :big_sur
-    sha256 "2f5dba15de1efbf19142a6c89e8c3c1c8cb4e081ba3375d66536b1af3381645f" => :catalina
-    sha256 "49c589cf081c862f544b346b1e6878c5ab6d9a01b8a8582b054d61b153136199" => :mojave
-    sha256 "0e8fd8c3dca32ab66080dccc7050d1fefff0802809217b695cb888b79f5b2312" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:  "87602a3b77c5d58a037bf2e93423e6cb925bd586fe424680035885894359aeb0"
+    sha256 cellar: :any_skip_relocation, catalina: "15a8306c7a3b550ee120a0eb6ab7c87e0e53a3f33549a0a0f3c5a218c6e75d13"
+    sha256 cellar: :any_skip_relocation, mojave:   "b9b36c564d65e79d3726e4de473e18d892f109221f45dbb91768ecac5758df59"
   end
 
   depends_on "hdf5"
@@ -19,53 +18,14 @@ class Sratoolkit < Formula
   uses_from_macos "libxml2"
   uses_from_macos "perl"
 
-  on_linux do
-    depends_on "pkg-config" => :build
-
-    resource "which" do
-      url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Which-1.23.tar.gz"
-      sha256 "b79dc2244b2d97b6f27167fc3b7799ef61a179040f3abd76ce1e0a3b0bc4e078"
-    end
-
-    resource "build" do
-      url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Build-1.92.tar.gz"
-      sha256 "cd95173a72e988bdd7270a22699e6c9764b6aed6e6c4c022c623b1ce72040a79"
-    end
-
-    resource "tiny" do
-      url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.108.tar.gz"
-      sha256 "3c49482be2b3eb7ddd7e73a5b90cff648393f5d5de334ff126ce7a3632723ff5"
-    end
-
-    resource "chdir" do
-      url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/File-chdir-0.1010.tar.gz"
-      sha256 "efc121f40bd7a0f62f8ec9b8bc70f7f5409d81cd705e37008596c8efc4452b01"
-    end
-
-    resource "capture" do
-      url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.48.tar.gz"
-      sha256 "6c23113e87bad393308c90a207013e505f659274736638d8c79bac9c67cc3e19"
-    end
-
-    resource "libxml2" do
-      url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Libxml2-0.11.tar.gz"
-      sha256 "aa583d8e7677f944476bd595e3a25a99935ba15ca0b6a50927951e2ab8415ff3"
-    end
-
-    resource "libxml" do
-      url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0201.tar.gz"
-      sha256 "e008700732502b3f1f0890696ec6e2dc70abf526cd710efd9ab7675cae199bc2"
-    end
-  end
-
   resource "ngs-sdk" do
-    url "https://github.com/ncbi/ngs/archive/2.10.8.tar.gz"
-    sha256 "f20fae21439b69b6a3573c864a175e0f9aa47ca6dd12bea15e429b7c5a9b81b5"
+    url "https://github.com/ncbi/ngs/archive/2.11.0.tar.gz"
+    sha256 "5fde50784760c00b403c2cc42ead15a4e9477697ee439f0a16edb4de3f52dfcc"
   end
 
   resource "ncbi-vdb" do
-    url "https://github.com/ncbi/ncbi-vdb/archive/2.10.8.tar.gz"
-    sha256 "7a593aa22584db9443bb56ac01409707bca01b8f9601fe530dac81b73f1a44df"
+    url "https://github.com/ncbi/ncbi-vdb/archive/2.11.0.tar.gz"
+    sha256 "9a65e3885b9ae1ebecbec871f04ce3162ac3764fb556ecdc8c1e61993e2164aa"
   end
 
   def install

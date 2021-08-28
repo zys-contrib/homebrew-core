@@ -1,24 +1,24 @@
 class Caddy < Formula
   desc "Powerful, enterprise-ready, open source web server with automatic HTTPS"
   homepage "https://caddyserver.com/"
-  url "https://github.com/caddyserver/caddy/archive/v2.2.1.tar.gz"
-  sha256 "dd1f313968a54c3e6be9b5d007b8b2ed88c46fbefc1eed49dcac35c08fbef1e2"
+  url "https://github.com/caddyserver/caddy/archive/v2.4.3.tar.gz"
+  sha256 "10317b5ab7bee861631a8d94d13aeafb62e9665759271a6c65422a70d6584d6b"
   license "Apache-2.0"
-  head "https://github.com/caddyserver/caddy.git"
+  head "https://github.com/caddyserver/caddy.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "186273c4f7f247081fc3876775d89d4d55c805f093853a359496cd1f1f579cdf" => :big_sur
-    sha256 "6fe2b49e1ed11f60247932bae0f56db205844174eb5e7f9733bcabcd2a8656a5" => :catalina
-    sha256 "1249e2364e8464f955f5bc444aafa7546e9db601d5cdeeaa8f6cc738dbb94acc" => :mojave
-    sha256 "5322bd55245c5ba434837edea091008d696a1042f332dbd68b0244899d7d1011" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b3c3e8b95721eb7562d11326d8cfbff6cada1a318f71ca7e181ec55e6f356a05"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e40f7566a45c4342ab7d27906c856ef28ead44ee5926b037df8f38a8ec7b5db8"
+    sha256 cellar: :any_skip_relocation, catalina:      "e40f7566a45c4342ab7d27906c856ef28ead44ee5926b037df8f38a8ec7b5db8"
+    sha256 cellar: :any_skip_relocation, mojave:        "e40f7566a45c4342ab7d27906c856ef28ead44ee5926b037df8f38a8ec7b5db8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "041f6bbbd340bf60b486c23f5836019f89413a2f47f04a640cb7be9a2e84655b"
   end
 
   depends_on "go" => :build
 
   resource "xcaddy" do
-    url "https://github.com/caddyserver/xcaddy/archive/v0.1.5.tar.gz"
-    sha256 "eb84bf79f5cb5b64d6929a88d2082d3fdafabd928c862c122a385b0d4c68284c"
+    url "https://github.com/caddyserver/xcaddy/archive/v0.1.9.tar.gz"
+    sha256 "399880f59bf093394088cf2d802b19e666377aea563b7ada5001624c489b62c9"
   end
 
   def install
@@ -29,34 +29,11 @@ class Caddy < Formula
     end
   end
 
-  plist_options manual: "caddy run --config #{HOMEBREW_PREFIX}/etc/Caddyfile"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <true/>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/caddy</string>
-            <string>run</string>
-            <string>--config</string>
-            <string>#{etc}/Caddyfile</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/caddy.log</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/caddy.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"caddy", "run", "--config", etc/"Caddyfile"]
+    keep_alive true
+    error_log_path var/"log/caddy.log"
+    log_path var/"log/caddy.log"
   end
 
   test do

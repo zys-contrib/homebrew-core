@@ -6,10 +6,12 @@ class Akka < Formula
   license "Apache-2.0"
   revision 1
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "a1b321e709c3c0165d5254fa009f2c8596e7803cf1c0fb8e9753562910c34239"
+  end
 
   # https://github.com/akka/akka/issues/25046
-  deprecate! because: "is recommended to use Akka with a build tool"
+  deprecate! date: "2020-07-09", because: "is recommended to use Akka with a build tool"
 
   depends_on "openjdk"
 
@@ -22,9 +24,9 @@ class Akka < Formula
 
     inreplace ["bin/akka", "bin/akka-cluster"] do |s|
       # Translate akka script
-      s.gsub! /^declare AKKA_HOME=.*$/, "declare AKKA_HOME=#{libexec}"
+      s.gsub!(/^declare AKKA_HOME=.*$/, "declare AKKA_HOME=#{libexec}")
       # dos to unix (bug fix for version 2.3.11)
-      s.gsub! /\r?/, ""
+      s.gsub!(/\r?/, "")
     end
 
     libexec.install Dir["*"]

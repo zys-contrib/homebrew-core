@@ -1,25 +1,22 @@
 class Libmatio < Formula
   desc "C library for reading and writing MATLAB MAT files"
   homepage "https://matio.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/matio/matio/1.5.19/matio-1.5.19.tar.gz"
-  sha256 "a4fa4d248b0414fc72f3d6155f710c470d5628d3c31af834f8d5ccf06b60286f"
+  url "https://downloads.sourceforge.net/project/matio/matio/1.5.21/matio-1.5.21.tar.gz"
+  sha256 "21809177e55839e7c94dada744ee55c1dea7d757ddaab89605776d50122fb065"
   license "BSD-2-Clause"
-
-  livecheck do
-    url :stable
-  end
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "6581c5cc3897753a78031740d10ccc534e9d0e8bde17d7c97d578b0b034d0475" => :big_sur
-    sha256 "ceb9363a18078ce2c25154d230a359ec3ce3db0cea9c2aaea3cfd41119806363" => :catalina
-    sha256 "f015d539a7c798899a45b3a35d2795bc64aef3856b2ef5ef08fba6cf21295e25" => :mojave
-    sha256 "41b16e1b850d33c612c474b2780b27396ba83da81f875a869014e5232d1f06da" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "b3a64b70d10cdfc86f00a4131724c3924e84d7cdc432eab12952859f368019f6"
+    sha256 cellar: :any,                 big_sur:       "06e8056f9862feace810dd233860e9b77af58e20e3eb916f48525c586e08eb42"
+    sha256 cellar: :any,                 catalina:      "84f08acf62972b2fda425f589809892255c401f268b4fbe9465cfdca1a03a3de"
+    sha256 cellar: :any,                 mojave:        "36629f8d449fa124cf0557deec222bb732c0ded477b5109011448726bd4f51d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5737ad4a0096f6ff36ec2d208baf1678f0c267b88c1d02a006fdf57172f966d"
   end
 
   depends_on "hdf5"
 
-  resource "test_mat_file" do
+  resource "homebrew-test_mat_file" do
     url "https://web.uvic.ca/~monahana/eos225/poc_data.mat.sfx"
     sha256 "a29df222605476dcfa660597a7805176d7cb6e6c60413a3e487b62b6dbf8e6fe"
   end
@@ -38,7 +35,7 @@ class Libmatio < Formula
   end
 
   test do
-    testpath.install resource("test_mat_file")
+    testpath.install resource("homebrew-test_mat_file")
     (testpath/"mat.c").write <<~'EOS'
       #include <stdlib.h>
       #include <matio.h>

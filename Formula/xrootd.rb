@@ -1,22 +1,22 @@
 class Xrootd < Formula
   desc "High performance, scalable, fault-tolerant access to data"
   homepage "https://xrootd.slac.stanford.edu/"
-  url "https://xrootd.slac.stanford.edu/download/v4.12.5/xrootd-4.12.5.tar.gz"
-  sha256 "164c83171e0bfc4d15ed55abde5f8b4d6413aa516c6b1faefabca0e6ba18275f"
+  url "https://xrootd.slac.stanford.edu/download/v5.3.1/xrootd-5.3.1.tar.gz"
+  sha256 "7ea3a112ae9d8915eb3a06616141e5a0ee366ce9a5e4d92407b846b37704ee98"
   license "LGPL-3.0-or-later"
-  head "https://github.com/xrootd/xrootd.git"
+  head "https://github.com/xrootd/xrootd.git", branch: "master"
 
   livecheck do
-    url "http://xrootd.org/dload.html"
+    url "https://xrootd.slac.stanford.edu/dload.html"
     regex(/href=.*?xrootd[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    cellar :any
-    sha256 "93c151aa365834913a5a6ebe2110185acdbd7e61373776b4ef37c18e195a8e67" => :big_sur
-    sha256 "22b2413b91bfc41aadc51bd16d7f25662b285065e1a2faca0cfb531191b69919" => :catalina
-    sha256 "ca118b5416a139b7b65e847eaa1c3b5384dae26754fdb2fd86286ff9a8e06fd7" => :mojave
-    sha256 "6b3e11548b8251999277d709c9c449f4ef92ae28265f65e6718db354f7c5bd6d" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "362424b968ff53f18f064954e2c5ced9565d7c2401e86b921efd645e66bfe0c9"
+    sha256 cellar: :any,                 big_sur:       "c3a2b3d0e6078523c33a8256461615bde15c5444ce44da8ffba50ce6184db70e"
+    sha256 cellar: :any,                 catalina:      "60141a86efe1880508a94a9aa935d7eeea4708d710fb1d32c39b84b4a3cac779"
+    sha256 cellar: :any,                 mojave:        "402b1697b621101b2952acbbc9aae36d0b953b3a20acb1dbabc2ef9910e4734c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e05c2784cb3c302cdc0951d1755790cea3b63d3e05c78d3f672204a5f70b9e8"
   end
 
   depends_on "cmake" => :build
@@ -32,7 +32,9 @@ class Xrootd < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DENABLE_PYTHON=OFF"
+      system "cmake", "..", *std_cmake_args,
+                            "-DENABLE_PYTHON=OFF",
+                            "-DCMAKE_INSTALL_RPATH=#{rpath}"
       system "make", "install"
     end
   end

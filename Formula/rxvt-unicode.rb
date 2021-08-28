@@ -1,16 +1,21 @@
 class RxvtUnicode < Formula
   desc "Rxvt fork with Unicode support"
   homepage "http://software.schmorp.de/pkg/rxvt-unicode.html"
-  url "http://dist.schmorp.de/rxvt-unicode/rxvt-unicode-9.22.tar.bz2"
-  sha256 "e94628e9bcfa0adb1115d83649f898d6edb4baced44f5d5b769c2eeb8b95addd"
+  url "http://dist.schmorp.de/rxvt-unicode/rxvt-unicode-9.26.tar.bz2"
+  sha256 "643116b9a25d29ad29f4890131796d42e6d2d21312282a613ef66c80c5b8c98b"
   license "GPL-3.0-only"
-  revision 4
+
+  livecheck do
+    url "http://dist.schmorp.de/rxvt-unicode/"
+    regex(/href=.*?rxvt-unicode[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "db278d2c19f2b837f1fa44dfa4a72bac3ed8c8359a13732fb7db854ba1c6b450" => :big_sur
-    sha256 "ed894bfefa87992845b652fc3ccf0104b1b4743e2dbdd1f2b7146c73433c165f" => :catalina
-    sha256 "6c9e5a04bf611a3e4b342f2554a32db25ef105f5795183bf22512922a1e57a59" => :mojave
-    sha256 "e54074cfd9c978a71847abe7af73d5d3c174fc85b4b1a60f254dd831ff5b5714" => :high_sierra
+    sha256 arm64_big_sur: "2ad5cfb39d86aff0d7f3b785aee5058ce2b0bf113b13b24f963c1b8d60679ff3"
+    sha256 big_sur:       "5e3a94dc348d57ada5dcb55eafee51b1ffa8bf78e10a8a2b0af9ac56b2d2ff02"
+    sha256 catalina:      "b97c65d257344a16accd34497c77ec3638674c7c596b7f05c190d606975de9af"
+    sha256 mojave:        "ecec482ad2b840b1cdb3945a42bcc31656d61a83ae3d08af2d2dafb1a4002d9d"
+    sha256 x86_64_linux:  "33700270809fe7d85c106cc6ef8aeb0c85c053ea52f39e6124464cfbf01a8309"
   end
 
   depends_on "pkg-config" => :build
@@ -21,6 +26,8 @@ class RxvtUnicode < Formula
   depends_on "libxmu"
   depends_on "libxrender"
   depends_on "libxt"
+
+  uses_from_macos "perl"
 
   # Patches 1 and 2 remove -arch flags for compiling perl support
   # Patch 3 fixes `make install` target on case-insensitive filesystems

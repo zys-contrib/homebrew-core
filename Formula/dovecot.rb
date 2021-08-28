@@ -1,8 +1,9 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.3/dovecot-2.3.10.1.tar.gz"
-  sha256 "6642e62f23b1b23cfac235007ca6e21cb67460cca834689fad450724456eb10c"
+  url "https://dovecot.org/releases/2.3/dovecot-2.3.16.tar.gz"
+  sha256 "03a71d53055bd9ec528d55e07afaf15c09dec9856cba734904bfd05acbc6cf12"
+  license all_of: ["BSD-3-Clause", "LGPL-2.1-or-later", "MIT", "Unicode-DFS-2016", :public_domain]
 
   livecheck do
     url "https://dovecot.org/download"
@@ -10,19 +11,25 @@ class Dovecot < Formula
   end
 
   bottle do
-    sha256 "e68a1d2cdc48124f27cce6ad8fe0c3a9081367be55b0704021c9f8460aee4f0b" => :big_sur
-    sha256 "e8d7b6bf587b5673826b467c3a30b148a191ed94246797609fcdad42e3ad40e4" => :catalina
-    sha256 "3b05663fc50f7669b2f16f6b55821f6fb2abf54fea8a858301ed7d5dbf7de7b5" => :mojave
-    sha256 "3f35d37650ccc397e11584b5a31ef13157e63b7db3b4886a5f3b7c4fb73a3e7b" => :high_sierra
+    sha256 arm64_big_sur: "cf575ab457beca6bc27f67d5044d3b46dd3dfaff7693f0b8306b7a57f96dd7af"
+    sha256 big_sur:       "c1feffb201e4febf583cae5597f09ffcb595ed050af95b59f3ef342ef394a60e"
+    sha256 catalina:      "f3c3f3fce439ab75e20fe6fc49f8e186653afb68c0a9779791a31dd8e04b4850"
+    sha256 mojave:        "a8867734064460304e21056d59156f8f01e0b0ec15341e3fac901167eff0bc8f"
+    sha256 x86_64_linux:  "c4c1beb8368da32f6743e58c7a0db23397081c366ceddedf026598a4d215241e"
   end
 
   depends_on "openssl@1.1"
+
   uses_from_macos "bzip2"
   uses_from_macos "sqlite"
 
+  on_linux do
+    depends_on "linux-pam"
+  end
+
   resource "pigeonhole" do
-    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.9.tar.gz"
-    sha256 "36da68aae5157b83e21383f711b8977e5b6f5477f369f71e7e22e76a738bbd05"
+    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.16.tar.gz"
+    sha256 "5ca36780e23b99e6206440f1b3fe3c6598eda5b699b99cebb15d418ba3c6e938"
   end
 
   def install
@@ -64,40 +71,11 @@ class Dovecot < Formula
 
   plist_options startup: true
 
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>KeepAlive</key>
-          <false/>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_sbin}/dovecot</string>
-            <string>-F</string>
-          </array>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/dovecot/dovecot.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/dovecot/dovecot.log</string>
-          <key>SoftResourceLimits</key>
-          <dict>
-          <key>NumberOfFiles</key>
-          <integer>1000</integer>
-          </dict>
-          <key>HardResourceLimits</key>
-          <dict>
-          <key>NumberOfFiles</key>
-          <integer>1024</integer>
-          </dict>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_sbin/"dovecot", "-F"]
+    environment_variables PATH: std_service_path_env
+    error_log_path var/"log/dovecot/dovecot.log"
+    log_path var/"log/dovecot/dovecot.log"
   end
 
   test do

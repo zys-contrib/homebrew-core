@@ -1,19 +1,16 @@
 class JsonGlib < Formula
   desc "Library for JSON, based on GLib"
   homepage "https://wiki.gnome.org/Projects/JsonGlib"
-  url "https://download.gnome.org/sources/json-glib/1.6/json-glib-1.6.0.tar.xz"
-  sha256 "0d7c67602c4161ea7070fab6c5823afd9bd7f7bc955f652a50d3753b08494e73"
+  url "https://download.gnome.org/sources/json-glib/1.6/json-glib-1.6.6.tar.xz"
+  sha256 "96ec98be7a91f6dde33636720e3da2ff6ecbb90e76ccaa49497f31a6855a490e"
   license "LGPL-2.1-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    sha256 "9f694420f25e652d73e0e93798304ce26023e50bb5e4aeb5322e30b19e957ed0" => :big_sur
-    sha256 "7a4f86a42a66360951fcbeac7ddcda95288fa3cd7fc5aee8d297fe31540e048f" => :catalina
-    sha256 "8f0e9b27a61d547cb185eb2952fb81e2bcf2ad502e459a7ec2037e505281e060" => :mojave
-    sha256 "6b72cc181e7ee816a8444adc59373b51033712dc8fc58b73531cc9fefbd0bd5e" => :high_sierra
+    sha256 arm64_big_sur: "dbaac34029a64a5d23c4c3d58f579cca68a9b65fa2ba6d8e44cac55781acce32"
+    sha256 big_sur:       "a3fb508a2f6f41c61d4b6a2392e9c1b724176325bfc75e8df298e77a04b07e12"
+    sha256 catalina:      "b583d641d9a5f529d4f54e2b58a8ed081dfcb8047ae107919d1144ce18c9681c"
+    sha256 mojave:        "4e6b678d4ec9dc003e261ca69be62178f49429425b29a84fee2fa47897fe0465"
+    sha256 x86_64_linux:  "5def8d6b0014378f86ed161dcf1570e2ca5432c5616d34e7f96c84d6fd4ff97d"
   end
 
   depends_on "gobject-introspection" => :build
@@ -53,9 +50,11 @@ class JsonGlib < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
       -ljson-glib-1.0
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

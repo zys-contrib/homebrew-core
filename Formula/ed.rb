@@ -1,21 +1,17 @@
 class Ed < Formula
   desc "Classic UNIX line editor"
   homepage "https://www.gnu.org/software/ed/ed.html"
-  url "https://ftp.gnu.org/gnu/ed/ed-1.16.tar.lz"
-  mirror "https://ftpmirror.gnu.org/ed/ed-1.16.tar.lz"
-  sha256 "cfc07a14ab048a758473ce222e784fbf031485bcd54a76f74acfee1f390d8b2c"
-  revision 1
-
-  livecheck do
-    url :stable
-  end
+  url "https://ftp.gnu.org/gnu/ed/ed-1.17.tar.lz"
+  mirror "https://ftpmirror.gnu.org/ed/ed-1.17.tar.lz"
+  sha256 "71de39883c25b6fab44add80635382a10c9bf154515b94729f4a6529ddcc5e54"
+  license "GPL-3.0-or-later"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0272fda8ecb6dd16a0d9b98701a1c2b039bb75eea93d0c423e16f0cfefde4e4a" => :big_sur
-    sha256 "c8ffa15f236faed29b760318f598903144a8f30ed6a09161f67578b9789760c9" => :catalina
-    sha256 "2d8205eb80873325eb1b485238270df1d0e4ad71212d02f48dffbbdb77b529ed" => :mojave
-    sha256 "57b85675d5c24f9fa076b9e115274f03c8ec136a36400956b488d6e11fb37e5c" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5c564d371bbcdfbbe568291254d591c12d220b23a502944aa68d3a890d4f73e3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "57c700308a2ae32fb9a161f33665e040432a0bce4eafc746ece9c1a515b4097d"
+    sha256 cellar: :any_skip_relocation, catalina:      "7ed89b34fe7b4120255d4a6bd493a924c07c3ad31f3e8099a81ef526dc60b704"
+    sha256 cellar: :any_skip_relocation, mojave:        "2de3bede199b9f95bb617315e8eb8c8e30276dfcda7f17836c9fcc2dc5253580"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ecd2f65aa59dc4a5748db7e74fe2e840df872b271c31859e2b5991e586a9b47a"
   end
 
   keg_only :provided_by_macos
@@ -23,35 +19,51 @@ class Ed < Formula
   def install
     ENV.deparallelize
 
-    system "./configure", "--prefix=#{prefix}", "--program-prefix=g"
+    args = ["--prefix=#{prefix}"]
+    on_macos do
+      args << "--program-prefix=g"
+    end
+
+    system "./configure", *args
     system "make"
     system "make", "install"
 
-    %w[ed red].each do |prog|
-      (libexec/"gnubin").install_symlink bin/"g#{prog}" => prog
-      (libexec/"gnuman/man1").install_symlink man1/"g#{prog}.1" => "#{prog}.1"
+    on_macos do
+      %w[ed red].each do |prog|
+        (libexec/"gnubin").install_symlink bin/"g#{prog}" => prog
+        (libexec/"gnuman/man1").install_symlink man1/"g#{prog}.1" => "#{prog}.1"
+      end
     end
 
     libexec.install_symlink "gnuman" => "man"
   end
 
   def caveats
-    <<~EOS
-      All commands have been installed with the prefix "g".
-      If you need to use these commands with their normal names, you
-      can add a "gnubin" directory to your PATH from your bashrc like:
-        PATH="#{opt_libexec}/gnubin:$PATH"
-    EOS
+    on_macos do
+      <<~EOS
+        All commands have been installed with the prefix "g".
+        If you need to use these commands with their normal names, you
+        can add a "gnubin" directory to your PATH from your bashrc like:
+          PATH="#{opt_libexec}/gnubin:$PATH"
+      EOS
+    end
   end
 
   test do
     testfile = testpath/"test"
     testfile.write "Hello world\n"
 
-    pipe_output("#{bin}/ged -s #{testfile}", ",s/o//\nw\n", 0)
-    assert_equal "Hell world\n", testfile.read
+    on_macos do
+      pipe_output("#{bin}/ged -s #{testfile}", ",s/o//\nw\n", 0)
+      assert_equal "Hell world\n", testfile.read
 
-    pipe_output("#{opt_libexec}/gnubin/ed -s #{testfile}", ",s/l//g\nw\n", 0)
-    assert_equal "He word\n", testfile.read
+      pipe_output("#{opt_libexec}/gnubin/ed -s #{testfile}", ",s/l//g\nw\n", 0)
+      assert_equal "He word\n", testfile.read
+    end
+
+    on_linux do
+      pipe_output("#{bin}/ed -s #{testfile}", ",s/o//\nw\n", 0)
+      assert_equal "Hell world\n", testfile.read
+    end
   end
 end

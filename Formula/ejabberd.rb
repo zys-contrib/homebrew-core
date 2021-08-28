@@ -1,16 +1,15 @@
 class Ejabberd < Formula
   desc "XMPP application server"
   homepage "https://www.ejabberd.im"
-  url "https://static.process-one.net/ejabberd/downloads/20.07/ejabberd-20.07.tgz"
-  sha256 "9e922b938458ae9d72d4e5fdd2d08a1fbad651aae47c9a9d15b79d0bbd1e11f8"
-  license "GPL-2.0"
-  revision 1
+  url "https://static.process-one.net/ejabberd/downloads/21.07/ejabberd-21.07.tgz"
+  sha256 "0e90cfd6c03191ca8aef344b9d543a038e272770be14c2288d83cc4d34825868"
+  license "GPL-2.0-only"
 
   bottle do
-    cellar :any
-    sha256 "e196794bf1e7a303e57dc8fe7d86a8c20ff3377c7898dee386e576aa97f32fbe" => :catalina
-    sha256 "162ee337822b273b41a2c8321a5f5fc9d40175d70dcd9b1d334c6b0b38139b2d" => :mojave
-    sha256 "49b8ba3a3c253fa2e0cf3a856d9895cceafad05b3ad54ff0d207056e78c8f9d3" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "c22a2bd2a9dfcbbdc1e6df1ea63ae25924234f1ddd4cb5f4b016fc2013b97487"
+    sha256 cellar: :any, big_sur:       "61ae3c224f34b18973bca8c311cdf990fe4e1c2be444d69ae5f9e2ecab6984b2"
+    sha256 cellar: :any, catalina:      "e864b717afec626c0a2b1e1038c1dcef082f6ef34d72085581f594d77b7a0ad1"
+    sha256 cellar: :any, mojave:        "8856dec9f546db393d17f66ec8427e0429650658e2622cad22f47347b563495b"
   end
 
   head do
@@ -57,13 +56,15 @@ class Ejabberd < Formula
     (var/"lib/ejabberd").mkpath
     (var/"spool/ejabberd").mkpath
 
-    # Create the vm.args file, to generate a cookie
-    require "securerandom"
-    cookie = SecureRandom.hex
+    # Create the vm.args file, if it does not exist. Put a random cookie in it to secure the instance.
     vm_args_file = etc/"ejabberd/vm.args"
-    vm_args_file.write <<~EOS
-      -setcookie #{cookie}
-    EOS
+    unless vm_args_file.exist?
+      require "securerandom"
+      cookie = SecureRandom.hex
+      vm_args_file.write <<~EOS
+        -setcookie #{cookie}
+      EOS
+    end
   end
 
   def caveats

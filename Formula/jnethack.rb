@@ -6,21 +6,16 @@ class Jnethack < Formula
   homepage "https://jnethack.osdn.jp/"
   # We use a git checkout to avoid patching the upstream NetHack tarball.
   url "https://scm.osdn.net/gitroot/jnethack/source.git",
-    tag:      "v3.6.6-0.1",
-    revision: "0ffd620440b5b61e21b40bf32e148d20c0c8349f"
-  version "3.6.6-0.1"
+      tag:      "v3.6.6-0.3",
+      revision: "b540f584f32fa4257d793526126f8a002d632913"
   license "NGPL"
   head "https://github.com/jnethack/jnethack-alpha.git", branch: "develop"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    sha256 "9f9ffb883c96a2341c2ea098c941035f39ac428413bf0dd93c29d0a1192dce1e" => :big_sur
-    sha256 "059b8ffd6b13d6335e746b70ac59706b632982eff307a2c9d66c1e4114bab994" => :catalina
-    sha256 "6f985e89658c5c5e4443a2fa88dafef23bbad24c01ea9dbc29661eb3b1028133" => :mojave
-    sha256 "34845f6e7a2773374e778043b0ca456f23aeff7f1fd72389a551a6bbe160d871" => :high_sierra
+    sha256 arm64_big_sur: "543cc702bdbcec370efb5f8820ffdec835c4d5628f320a065b03cccaefbc7672"
+    sha256 big_sur:       "468df05f39f3567eeb4c4eecf1faa98f0ce316df637178eea466293b5595d3d9"
+    sha256 catalina:      "324892f392e85b73180a2ac0790d2235e5a328051e82f7b07b3e62eef98a4a72"
+    sha256 mojave:        "95030dd28a07b2a099878a47758bdee17f2ea855333269b428f35fe3a0f4361f"
   end
 
   depends_on "nkf" => :build

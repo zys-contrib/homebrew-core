@@ -1,26 +1,29 @@
 class I686ElfBinutils < Formula
   desc "GNU Binutils for i686-elf cross development"
   homepage "https://www.gnu.org/software/binutils/"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.35.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.35.1.tar.xz"
-  sha256 "3ced91db9bf01182b7e420eab68039f2083aed0a214c0424e257eae3ddee8607"
-  license "GPL-2.0"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.37.tar.xz"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.37.tar.xz"
+  sha256 "820d9724f020a3e69cb337893a0b63c2db161dadcb0e06fc11dc29eb1e84a32c"
+  license "GPL-3.0-or-later"
 
   livecheck do
-    url :stable
+    formula "binutils"
   end
 
   bottle do
-    sha256 "0f5e842acd46e0d467ee349c39ea1816b659acd229e1c9144245b6fa49a59753" => :big_sur
-    sha256 "a71d3f952d1a1d9a59c3759dc7b87fdd4ec0036fb77d0156ff3f84627bbc1a1c" => :catalina
-    sha256 "845a38bb82fdcd66d2b7464e21d228b8db5e34551671056079c488e6c714f818" => :mojave
-    sha256 "f591e9b3514229690865b05a66d12e1418cbdd217d88a2bf4e7006375e594de0" => :high_sierra
+    sha256 arm64_big_sur: "04659e65f3d10dc3881947446255bc02f946783669a26daaf79386e99e00039c"
+    sha256 big_sur:       "5fff1dc8e6b6b0859f21ade50d38937bc04c03b7a36e0c48f3e6848efacf8b46"
+    sha256 catalina:      "e67e663a6462dbd85b644a4428c96e7e9ae711b6d70f994383e553b778244541"
+    sha256 mojave:        "e7d88b4c27231de4e75cd4568a37c6ad17261ed3857dafc199f130d0bb92d9c9"
+    sha256 x86_64_linux:  "adc65062f3bb607eab945a84dee5031394abc3bb9c0f8751bf111c27003c4a02"
   end
 
   def install
-    system "./configure", "--target=i686-elf",
+    target = "i686-elf"
+    system "./configure", "--target=#{target}",
                           "--prefix=#{prefix}",
-                          "--infodir=#{info}/i686-elf-binutils",
+                          "--libdir=#{lib}/#{target}",
+                          "--infodir=#{info}/#{target}",
                           "--disable-nls"
     system "make"
     system "make", "install"

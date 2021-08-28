@@ -1,8 +1,8 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.5.8/source/mariadb-10.5.8.tar.gz"
-  sha256 "eb4824f6f2c532cd3fc6a6bce7bf78ea7c6b949f8bdd07656b2c84344e757be8"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.6.4/source/mariadb-10.6.4.tar.gz"
+  sha256 "75bf9b147a95d38160d01a73b098d50a1960563b46d16a235971fff64d99643c"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,27 +11,44 @@ class Mariadb < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "cc13a943751cb2bff630af6b1a85259867030c1a94534b625d7221824c0962fa" => :big_sur
-    sha256 "6c4ab91c7eadee170806cf2d95d5690a6b00a35e3811298f9906f2da79f1c11f" => :catalina
-    sha256 "b22a037c88a4327dea62f83cc60c0ad70855c1e078625d7eb7c483bf3f7d3e30" => :mojave
-    sha256 "d370191e26c5940cfd5ab0ff28dedeed21957b6a7675ffcbac69dacf3ae797e9" => :high_sierra
+    sha256 arm64_big_sur: "b68638debac644c1818e23c6b92007c10696dc9ded1bfd57707fec1a5f0b69ea"
+    sha256 big_sur:       "618039a83fbea4ad919c9062482793ae70103402644fe6466e868209149ce235"
+    sha256 catalina:      "cdfde8963d10dfea9d11402720d4151762e41209940fe39eab908f9926656bb4"
+    sha256 mojave:        "1e360d01735f007d930a6436eb1880fe159bb35d751d733b62449b28c4d1c246"
+    sha256 x86_64_linux:  "ba618ba8e2db07798bb40d9c1233a1a129d420e72223f46f03cbbab35dc52df7"
   end
 
+  depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "groonga"
   depends_on "openssl@1.1"
+  depends_on "pcre2"
 
-  uses_from_macos "bison" => :build
   uses_from_macos "bzip2"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
+
+  on_macos do
+    # Need patch to remove MYSQL_SOURCE_DIR from include path because it contains
+    # file called VERSION.
+    # https://github.com/Homebrew/homebrew-core/pull/76887#issuecomment-840851149
+    # Originally reported upstream at https://jira.mariadb.org/browse/MDEV-7209,
+    # but only partially fixed.
+    patch :DATA
+  end
+
+  on_linux do
+    depends_on "gcc"
+    depends_on "linux-pam"
+  end
 
   conflicts_with "mysql", "percona-server",
     because: "mariadb, mysql, and percona install the same binaries"
   conflicts_with "mytop", because: "both install `mytop` binaries"
   conflicts_with "mariadb-connector-c", because: "both install `mariadb_config`"
+
+  fails_with gcc: "5"
 
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
@@ -53,20 +70,26 @@ class Mariadb < Formula
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INFODIR=share/info
       -DINSTALL_MYSQLSHAREDIR=share/mysql
-      -DWITH_PCRE=bundled
       -DWITH_READLINE=yes
       -DWITH_SSL=yes
       -DWITH_UNIT_TESTS=OFF
       -DDEFAULT_CHARSET=utf8mb4
       -DDEFAULT_COLLATION=utf8mb4_general_ci
       -DINSTALL_SYSCONFDIR=#{etc}
-      -DCOMPILATION_COMMENT=Homebrew
+      -DCOMPILATION_COMMENT=#{tap.user}
     ]
 
-    # disable TokuDB, which is currently not supported on macOS
-    args << "-DPLUGIN_TOKUDB=NO"
+    on_linux do
+      args << "-DWITH_NUMA=OFF"
+      args << "-DENABLE_DTRACE=NO"
+      args << "-DCONNECT_WITH_JDBC=OFF"
+    end
+
+    # Disable RocksDB on Apple Silicon (currently not supported)
+    args << "-DPLUGIN_ROCKSDB=NO" if Hardware::CPU.arm?
 
     system "cmake", ".", *std_cmake_args, *args
+
     system "make"
     system "make", "install"
 
@@ -100,7 +123,7 @@ class Mariadb < Formula
       wsrep_sst_rsync
       wsrep_sst_mariabackup
     ].each do |f|
-      inreplace "#{bin}/#{f}", "$(dirname $0)/wsrep_sst_common",
+      inreplace "#{bin}/#{f}", "$(dirname \"$0\")/wsrep_sst_common",
                                "#{libexec}/wsrep_sst_common"
     end
 
@@ -117,6 +140,10 @@ class Mariadb < Formula
   def post_install
     # Make sure the var/mysql directory exists
     (var/"mysql").mkpath
+
+    # Don't initialize database, it clashes when testing other MySQL-like implementations.
+    return if ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     unless File.exist? "#{var}/mysql/mysql/user.frm"
       ENV["TMPDIR"] = nil
       system "#{bin}/mysql_install_db", "--verbose", "--user=#{ENV["USER"]}",
@@ -160,8 +187,35 @@ class Mariadb < Formula
   end
 
   test do
-    system bin/"mysqld", "--version"
-    prune_file = etc/"my.cnf.d/.homebrew_dont_prune_me"
-    assert_predicate prune_file, :exist?, "Failed to find #{prune_file}!"
+    (testpath/"mysql").mkpath
+    (testpath/"tmp").mkpath
+    system bin/"mysql_install_db", "--no-defaults", "--user=#{ENV["USER"]}",
+      "--basedir=#{prefix}", "--datadir=#{testpath}/mysql", "--tmpdir=#{testpath}/tmp",
+      "--auth-root-authentication-method=normal"
+    port = free_port
+    fork do
+      system "#{bin}/mysqld", "--no-defaults", "--user=#{ENV["USER"]}",
+        "--datadir=#{testpath}/mysql", "--port=#{port}", "--tmpdir=#{testpath}/tmp"
+    end
+    sleep 5
+    assert_match "information_schema",
+      shell_output("#{bin}/mysql --port=#{port} --user=root --password= --execute='show databases;'")
+    system "#{bin}/mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
   end
 end
+
+__END__
+diff --git a/storage/mroonga/CMakeLists.txt b/storage/mroonga/CMakeLists.txt
+index 555ab248751..cddb6f2f2a6 100644
+--- a/storage/mroonga/CMakeLists.txt
++++ b/storage/mroonga/CMakeLists.txt
+@@ -215,8 +215,7 @@ set(MYSQL_INCLUDE_DIRS
+   "${MYSQL_REGEX_INCLUDE_DIR}"
+   "${MYSQL_RAPIDJSON_INCLUDE_DIR}"
+   "${MYSQL_LIBBINLOGEVENTS_EXPORT_DIR}"
+-  "${MYSQL_LIBBINLOGEVENTS_INCLUDE_DIR}"
+-  "${MYSQL_SOURCE_DIR}")
++  "${MYSQL_LIBBINLOGEVENTS_INCLUDE_DIR}")
+
+ if(MRN_BUNDLED)
+   set(MYSQL_PLUGIN_DIR "${INSTALL_PLUGINDIR}")

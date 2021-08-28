@@ -7,14 +7,7 @@ class Komposition < Formula
   revision 5
   head "https://github.com/owickstrom/komposition.git"
 
-  bottle do
-    cellar :any
-    sha256 "dc76316ff64beb2d4756ba554844a57d546a0bbe8a300ce1879a6cddcb72ebf8" => :catalina
-    sha256 "e78904afced48a6365ec5cec4b9e97ecccf4bf81401c5576a0c3b21fa1078264" => :mojave
-    sha256 "137747b62de4e68164bceccd009beb65606ae6ba2c94fbe9a72b0eee50ae0961" => :high_sierra
-  end
-
-  disable! because: :does_not_build
+  disable! date: "2021-04-08", because: :does_not_build
 
   depends_on "cabal-install" => :build
   depends_on "ghc@8.8" => :build

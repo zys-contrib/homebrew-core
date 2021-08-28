@@ -3,20 +3,16 @@ require "language/node"
 class Triton < Formula
   desc "Joyent Triton CLI"
   homepage "https://www.npmjs.com/package/triton"
-  url "https://registry.npmjs.org/triton/-/triton-7.11.0.tgz"
-  sha256 "42a49cb112ae91015116b360a3d75da509d459d6f03d3c5b4c38ed20b6436294"
+  url "https://registry.npmjs.org/triton/-/triton-7.15.0.tgz"
+  sha256 "96d2f68caf6bb68187da619ccfa305f8d85126a2e5199b2830255a6b1fc9a67c"
   license "MPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4528a56cd7632fb80f4382c81edcd31feedbca174603df7b38a5c4017335b2fb" => :big_sur
-    sha256 "c641a16f691b80643d5d9bf68056953dba80044956b87bef3269f008433bbb0d" => :catalina
-    sha256 "64bf5b0274d9fd434c6d8d80489fd13ebebd1e2f1bd7acaed285fc2a4749b36d" => :mojave
-    sha256 "0893698205caab0e12f9a75291649de97d2e409e850fec41eac0373d3ea05964" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "df4487f4d2822294ed4bde9b4f8af1a67bf23e467dceaba168ecff50c4865b8d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "58babe7098da230bf1daa9b7e7838b683ee97b7a82d6a68e32ac1dc9699f8f84"
+    sha256 cellar: :any_skip_relocation, catalina:      "e3c6ee7a64059050fed8b4577af8711be23d63c0e765371347842a4233b36d3b"
+    sha256 cellar: :any_skip_relocation, mojave:        "de43242aef253303a8303740989570dc99a2ec2a9015668064e14ce4ec4a4d79"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b396ddfa00af45a207b18615542e7d82257ef808da5999c6e3f8a4efc1619940"
   end
 
   depends_on "node"
@@ -29,6 +25,6 @@ class Triton < Formula
 
   test do
     output = shell_output("#{bin}/triton profile ls")
-    assert_match /\ANAME  CURR  ACCOUNT  USER  URL$/, output
+    assert_match(/\ANAME  CURR  ACCOUNT  USER  URL$/, output)
   end
 end

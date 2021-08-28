@@ -1,15 +1,21 @@
 class Pnetcdf < Formula
   desc "Parallel netCDF library for scientific data using the OpenMPI library"
   homepage "https://parallel-netcdf.github.io/index.html"
-  url "https://parallel-netcdf.github.io/Release/pnetcdf-1.12.1.tar.gz"
-  sha256 "56f5afaa0ddc256791c405719b6436a83b92dcd5be37fe860dea103aee8250a2"
+  url "https://parallel-netcdf.github.io/Release/pnetcdf-1.12.2.tar.gz"
+  sha256 "3ef1411875b07955f519a5b03278c31e566976357ddfc74c2493a1076e7d7c74"
   license "NetCDF"
   revision 1
 
+  livecheck do
+    url "https://parallel-netcdf.github.io/wiki/Download.html"
+    regex(/href=.*?pnetcdf[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 "89fe221a5cfb46dac697259ace423488721524a62cf9753e2f2b0824a5092316" => :catalina
-    sha256 "ca2024aecf06507fa3f5018773f59aaa2b6be3291107b73565002f19ed0def02" => :mojave
-    sha256 "218b5b009bb564ed50117a0ad5842ee2d20b4b29cc134587fd5e30a3e703412b" => :high_sierra
+    sha256 arm64_big_sur: "e15cc2caf8c4aeffa65126c52e3dceffdf6fc93dee09eed8dae9db2085756f38"
+    sha256 big_sur:       "c2f92ef84469ce44c4b502c72120a750ff64eb06b08e0ed6ebdbf74c11f026d2"
+    sha256 catalina:      "4813fb99e57bd2399fe44683d58cae95638ee4a7837ef00a0fb7ef9e7151842c"
+    sha256 mojave:        "845ad46ce85c49bb2e680fb2f3313bf86bce98d4dc0756be208dc60c678fb429"
   end
 
   depends_on "gcc"
@@ -20,11 +26,14 @@ class Pnetcdf < Formula
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--enable-shared",
-                          # Fix for GCC 10, remove in next version
-                          # https://github.com/Parallel-NetCDF/PnetCDF/pull/63
-                          "FFLAGS=-fallow-argument-mismatch",
-                          "FCFLAGS=-fallow-argument-mismatch"
+                          "--enable-shared"
+
+    cd "src/utils" do
+      # Avoid references to Homebrew shims
+      inreplace ["pnetcdf-config", "pnetcdf_version/Makefile"], "#{HOMEBREW_SHIMS_PATH}/mac/super/",
+                                                                "/usr/bin/"
+    end
+
     system "make", "install"
   end
 

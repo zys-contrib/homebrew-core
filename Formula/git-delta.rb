@@ -1,17 +1,17 @@
 class GitDelta < Formula
   desc "Syntax-highlighting pager for git and diff output"
   homepage "https://github.com/dandavison/delta"
-  url "https://github.com/dandavison/delta/archive/0.4.4.tar.gz"
-  sha256 "4068cb88a4110bbef24b8148e3ae283ff007f4f6aa4780789cda7a412928daa0"
+  url "https://github.com/dandavison/delta/archive/0.8.3.tar.gz"
+  sha256 "cf48d52d20a12e11a3a6afd436a75550e78fc39c358e85a75caa08b39e4e75c6"
   license "MIT"
   head "https://github.com/dandavison/delta.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9ca2f88662822e52195b10e52f16f0261a3faebddf4ec30496997fab3ebc699c" => :big_sur
-    sha256 "3561fccb1ff28c7021d5cc5ed549f3be47dfd4127787510aac38192670077f17" => :catalina
-    sha256 "6ece760a0d39fbee0b2d40237c3a0e81c1d67df655502072dc06077676ac43ea" => :mojave
-    sha256 "a5767a8e9621884bb26cfb4205ffb9b2e2c0ff53536d79981ee2e22ff823a474" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c1863678cb96ffb95451fc4677cea5ef2fb2280d61efe7061884e21fddc0c4f9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "784f02aca241d3055f7932a4ebdc983955dbfa1551cf96b99a67c67da382e9e5"
+    sha256 cellar: :any_skip_relocation, catalina:      "50954d3cc47cdf353f050ca12f378779e827f724c41a48e40b3d4b6a7ebb53d6"
+    sha256 cellar: :any_skip_relocation, mojave:        "45420b913807614d341c14e715253be518ac9b77ebaa947af2b32528c3ed0382"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b20c3983f9578a40a3644fa9b6078bf4cc77c63e18ac80ef2c751104b5f91c5"
   end
 
   depends_on "rust" => :build
@@ -21,6 +21,8 @@ class GitDelta < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+    bash_completion.install "etc/completion/completion.bash" => "delta"
+    zsh_completion.install "etc/completion/completion.zsh" => "_delta"
   end
 
   test do

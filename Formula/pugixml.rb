@@ -1,21 +1,28 @@
 class Pugixml < Formula
   desc "Light-weight C++ XML processing library"
   homepage "https://pugixml.org/"
-  url "https://github.com/zeux/pugixml/releases/download/v1.11/pugixml-1.11.tar.gz"
-  sha256 "26913d3e63b9c07431401cf826df17ed832a20d19333d043991e611d23beaa2c"
+  url "https://github.com/zeux/pugixml/releases/download/v1.11.4/pugixml-1.11.4.tar.gz"
+  sha256 "8ddf57b65fb860416979a3f0640c2ad45ddddbbafa82508ef0a0af3ce7061716"
   license "MIT"
+  revision 2
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6467a14e11171c7c01d1c2188afe4c0563d2a4332538f430995ed16fe52c3fc7" => :big_sur
-    sha256 "fa4b6e0c3e5b9f446c2c48e9802cfcd0e66822fc3e1bdd76fe4b3555446dda15" => :catalina
-    sha256 "ddb195caceb2c0eed78941b9fc8c525df45f6e615b48d9d378c02be7df5a2c7d" => :mojave
+    sha256 cellar: :any,                 arm64_big_sur: "72487f35e935099779ea88bbbf6dd205406710df262674e6295972edff2a9ac1"
+    sha256 cellar: :any,                 big_sur:       "450e11f4eafe21828d3987620406eb42695a60c15086b7741898d483bb05fa8d"
+    sha256 cellar: :any,                 catalina:      "112dda2780766cf7403426252180cea172cd396f7b52aee42a690aa7539c933b"
+    sha256 cellar: :any,                 mojave:        "60d558fea876933be7a5322267ca58c0850eb23ec05d71b3d2c3876793b01367"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c6e3c671984d4a3c53e58f79ecf45be27b3c57d1073223aa2c0c4dde91aa80e"
   end
 
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", "-DBUILD_SHARED_LIBS=OFF",
+    system "cmake", ".", "-DBUILD_SHARED_AND_STATIC_LIBS=ON",
                          "-DBUILD_PKGCONFIG=ON", *std_cmake_args
     system "make", "install"
   end

@@ -1,16 +1,24 @@
 class Tectonic < Formula
   desc "Modernized, complete, self-contained TeX/LaTeX engine"
   homepage "https://tectonic-typesetting.github.io/"
-  url "https://github.com/tectonic-typesetting/tectonic/archive/tectonic@0.3.3.tar.gz"
-  sha256 "c0aa60186f2e7f37af67dafbdccfc7a99ca5ce084651d8fcabe7561b941dcb97"
+  url "https://github.com/tectonic-typesetting/tectonic/archive/tectonic@0.7.1.tar.gz"
+  sha256 "0082f3aca5e9e8cf827aacbe260383faf1e036d0e8d04a3aef11deeadfff2baf"
   license "MIT"
 
+  # As of writing, only the tags starting with `tectonic@` are release versions.
+  # NOTE: The `GithubLatest` strategy cannot be used here because the "latest"
+  # release on GitHub sometimes points to a tag that isn't a release version.
+  livecheck do
+    url :stable
+    regex(/^tectonic@v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    cellar :any
-    sha256 "374962deea5595efb5b0e7b36821a9c97727e1e6035063edd1b59dd519ae61a0" => :big_sur
-    sha256 "b0aab588b2ad733f37aa380bd8b6ef1985ffb1f41a345ad6829193a7eba6381e" => :catalina
-    sha256 "566f6be7025d4f228f66c26f45eb1342cedfadbe33d9979aa72da89e2c5e4ee7" => :mojave
-    sha256 "d5c2e447def3051174e6a9f1578d7df132b10ab95db3e86c41a49bb1fe8d5761" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "e25d8cbedaefa978556832e64b3bf943f7e0e8052ed313c129fac339e81225cc"
+    sha256 cellar: :any,                 big_sur:       "86e8dc87ff7dca9d2ccfc10a8ec6ee78e37743be3d9cda3ff398816264fd5cf8"
+    sha256 cellar: :any,                 catalina:      "ed6bdde2a3dd1a57fa7e2730844e21b4ffb90cf934976c1a86874b2b0282b814"
+    sha256 cellar: :any,                 mojave:        "70b8b06aeb5b36c5b1e1820179d556f1eddce139d1e01ed44959b95d61a8893c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c62eb6bfb7a9776c9ba595f27b2c5bb1540abed3f5a1dfaf4f04137d717a5d73"
   end
 
   depends_on "pkg-config" => :build
@@ -31,7 +39,7 @@ class Tectonic < Formula
     # https://crates.io/crates/openssl#manual-configuration
     ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
 
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", "--features", "external-harfbuzz", *std_cargo_args
   end
 
   test do

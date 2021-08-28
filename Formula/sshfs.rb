@@ -1,46 +1,46 @@
 class Sshfs < Formula
   desc "File system client based on SSH File Transfer Protocol"
-  homepage "https://osxfuse.github.io/"
-  url "https://github.com/libfuse/sshfs/releases/download/sshfs-2.10/sshfs-2.10.tar.gz"
-  sha256 "70845dde2d70606aa207db5edfe878e266f9c193f1956dd10ba1b7e9a3c8d101"
-  license "GPL-2.0"
-  revision 2
-
-  livecheck do
-    url :stable
-    regex(/^sshfs[._-]v?(\d+(?:\.\d+)+)$/i)
-  end
+  homepage "https://github.com/libfuse/sshfs"
+  url "https://github.com/libfuse/sshfs/archive/sshfs-3.7.2.tar.gz"
+  sha256 "8a9b0d980e9d34d0d18eacb9e1ca77fc499d1cf70b3674cc3e02f3eafad8ab14"
+  license any_of: ["LGPL-2.1-only", "GPL-2.0-only"]
 
   bottle do
-    cellar :any
-    sha256 "aceff3131dd0b098bdef8b5dda54d117b5dd5269ca146f7a5032ecde3c99b6d2" => :catalina
-    sha256 "5f69267c0f1f2489989e108919d66210e058423d0d1f1661812c0194b164619c" => :mojave
-    sha256 "58d222f37622b399352f16eaf823d3e564445d9e951629e965281ac31de5ef4a" => :high_sierra
-    sha256 "dc4a7f24c2cbebd7c35891200b043d737ba6586a28992708ef849ffedff7bb01" => :sierra
+    sha256 x86_64_linux: "1fcf1f7994d56b8fac40224364d2b554084a4fde6fb07a8c4323d0e5957c92bb"
   end
 
-  deprecate! because: "requires FUSE"
-
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on :osxfuse
 
-  # Apply patch that clears one remaining roadblock that prevented setting
-  # a custom I/O buffer size on macOS. With this patch in place, it's
-  # recommended to use e.g. `-o iosize=1048576` (or other, reasonable value)
-  # when lauching `sshfs`, for improved performance.
-  # See also: https://github.com/libfuse/sshfs/issues/11
-  patch do
-    url "https://github.com/libfuse/sshfs/commit/667cf34622e2e873db776791df275c7a582d6295.patch?full_index=1"
-    sha256 "ab2aa697d66457bf8a3f469e89572165b58edb0771aa1e9c2070f54071fad5f6"
+  on_macos do
+    disable! date: "2021-04-08", because: "requires closed-source macFUSE"
+  end
+
+  on_linux do
+    depends_on "libfuse"
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", ".."
+      system "meson", "configure", "--prefix", prefix
+      system "ninja", "--verbose"
+      system "ninja", "install", "--verbose"
+    end
+  end
+
+  def caveats
+    on_macos do
+      <<~EOS
+        The reasons for disabling this formula can be found here:
+          https://github.com/Homebrew/homebrew-core/pull/64491
+
+        An external tap may provide a replacement formula. See:
+          https://docs.brew.sh/Interesting-Taps-and-Forks
+      EOS
+    end
   end
 
   test do

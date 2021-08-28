@@ -1,22 +1,22 @@
 class Pc6001vx < Formula
   desc "PC-6001 emulator"
   homepage "https://eighttails.seesaa.net/"
-  url "https://eighttails.up.seesaa.net/bin/PC6001VX_3.5.3_src.tar.gz"
-  sha256 "7473055dbcd9c288c0d303a0dbead82a6e4e0d9c351785284b96a2a28a733d70"
-  license "LGPL-2.1"
-  head "https://github.com/eighttails/PC6001VX.git"
+  url "https://eighttails.up.seesaa.net/bin/PC6001VX_3.7.0_src.tar.gz"
+  sha256 "8a735fa6769b1a268fc64c0ed92d7e27c5990b120f53ad50be255024db35b2b8"
+  license "LGPL-2.1-or-later"
+  revision 1
+  head "https://github.com/eighttails/PC6001VX.git", branch: "master"
 
   bottle do
-    cellar :any
-    sha256 "3442ef43b00439c58b714acd3e701c57f79608e32fe9e97875979f83c44b1ea0" => :big_sur
-    sha256 "041a6c242ad02363b601a7d60e09cecd300cfea7e4f9306c2f88dba49e95f8af" => :catalina
-    sha256 "b581bdbe91848b915bf05d4517c821b93ecc7b3e5d5e2256c3f0c5636e9bfb09" => :mojave
-    sha256 "d877ea218e51d60d7a48d48c7f27c2260e9c56db4714b9b861330a36ee1462f3" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "aee07f4792310c51d12c85a460ec600468169c9b584c47f56b1980ef1ad2ab25"
+    sha256 cellar: :any, big_sur:       "955a851714857a6316552a47e4456f1767c0031da42eb639f3bd256881f19633"
+    sha256 cellar: :any, catalina:      "26437cbcb26ef046a957c42c6a3a2ba1c35ddd35680efb1c9bbeecdf628574ab"
+    sha256 cellar: :any, mojave:        "84e0986b4d0db0802f75ed155e18b2fcf8305707ad031696179a51d28c2ff7b5"
   end
 
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "sdl2"
 
   def install
@@ -28,7 +28,8 @@ class Pc6001vx < Formula
     # Use libc++ explicitly, otherwise build fails
     ENV.append_to_cflags "-stdlib=libc++" if ENV.compiler == :clang
 
-    system "qmake", "PREFIX=#{prefix}", "QMAKE_CXXFLAGS=#{ENV.cxxflags}", "CONFIG+=c++11"
+    qt5 = Formula["qt@5"].opt_prefix
+    system "#{qt5}/bin/qmake", "PREFIX=#{prefix}", "QMAKE_CXXFLAGS=#{ENV.cxxflags}", "CONFIG+=c++11"
     system "make"
     prefix.install "PC6001VX.app"
     bin.write_exec_script "#{prefix}/PC6001VX.app/Contents/MacOS/PC6001VX"

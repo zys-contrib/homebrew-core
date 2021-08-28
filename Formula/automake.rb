@@ -1,38 +1,24 @@
 class Automake < Formula
   desc "Tool for generating GNU Standards-compliant Makefiles"
   homepage "https://www.gnu.org/software/automake/"
-  url "https://ftp.gnu.org/gnu/automake/automake-1.16.3.tar.xz"
-  mirror "https://ftpmirror.gnu.org/automake/automake-1.16.3.tar.xz"
-  sha256 "ff2bf7656c4d1c6fdda3b8bebb21f09153a736bcba169aaf65eab25fa113bf3a"
+  url "https://ftp.gnu.org/gnu/automake/automake-1.16.4.tar.xz"
+  mirror "https://ftpmirror.gnu.org/automake/automake-1.16.4.tar.xz"
+  sha256 "80facc09885a57e6d49d06972c0ae1089c5fa8f4d4c7cfe5baea58e5085f136d"
   license "GPL-2.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b19be0f4672d3ed2c258eee5f676d27429e5da189c80dc04ba8d01bc44ead320" => :big_sur
-    sha256 "25fe47e5fb1af734423e1e73f0dc53637e89d825ef8d8199add239352b5b974e" => :catalina
-    sha256 "6e25193e573d0e11376322018c9cdf96ddd68ad7e4fe7bb464212380d5e6b9cf" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8e1bc79fe3243bb6853728d2471bddd0997aa8a6e04c79f023e6a358f8891dea"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c1f2f46b26a2ffa42f86165e0421d80728b6f97c6b42b61c9ff1e57199f36f64"
+    sha256 cellar: :any_skip_relocation, catalina:      "c1f2f46b26a2ffa42f86165e0421d80728b6f97c6b42b61c9ff1e57199f36f64"
+    sha256 cellar: :any_skip_relocation, mojave:        "c1f2f46b26a2ffa42f86165e0421d80728b6f97c6b42b61c9ff1e57199f36f64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4df29c31b1e8b00c289aa857bf70dfd6eb189e7959864a8047aaaf4f4d8d699"
   end
 
   depends_on "autoconf"
 
-  # Download more up-to-date config scripts.
-  resource "config" do
-    url "https://git.savannah.gnu.org/cgit/config.git/snapshot/config-0b5188819ba6091770064adf26360b204113317e.tar.gz"
-    sha256 "3dfb73df7d073129350b6896d62cabb6a70f479d3951f00144b408ba087bdbe8"
-    version "2020-08-17"
-  end
-
   def install
     on_macos do
       ENV["PERL"] = "/usr/bin/perl"
-    end
-
-    resource("config").stage do
-      cp Dir["config.*"], buildpath/"lib"
     end
 
     system "./configure", "--prefix=#{prefix}"

@@ -2,16 +2,16 @@ class Solarus < Formula
   desc "Action-RPG game engine"
   homepage "https://www.solarus-games.org/"
   url "https://gitlab.com/solarus-games/solarus.git",
-      tag:      "v1.6.4",
-      revision: "6d2a11ddd1d07d21695ab7304c3ddd462fd37c26"
+      tag:      "v1.6.5",
+      revision: "3aec70b0556a8d7aed7903d1a3e4d9a18c5d1649"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "80970673e8217a282440a21de4e4db8fa4435f9743e94c74f300fa55f2963014" => :big_sur
-    sha256 "23c646e9a69c966e0f2930ac225661dab3d8b97fbb9e34c12cb49cdfe1e56d67" => :catalina
-    sha256 "6d02a298994633961ed83feb34471cf743059aa9daf90d9b5153f2613337e8d2" => :mojave
-    sha256 "dedfe91badd887dfdcf0e0d55b662fde86890c1f8e287dddd224b29b0339f4b9" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "f3b35b5252b2ee2c4068f7f4e2b952a1f88cbc9cacd4d84fb19680cea344bd7e"
+    sha256 cellar: :any, big_sur:       "21eb9b511e6d49a1f17830ba8a7adcab4f0e3265c63f02679efba837ff77c55b"
+    sha256 cellar: :any, catalina:      "819dc6f84e1b4e56ba679d8b798412b2a3f71350c0923cf340ab49e76075e202"
+    sha256 cellar: :any, mojave:        "417dff62c280dd7e9bb742eef82fbae408a6e5fefcf427daf8d2af5955cc660a"
   end
 
   depends_on "cmake" => :build
@@ -19,7 +19,7 @@ class Solarus < Formula
   depends_on "libmodplug"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "luajit"
+  depends_on "luajit-openresty"
   depends_on "physfs"
   depends_on "sdl2"
   depends_on "sdl2_image"
@@ -30,6 +30,8 @@ class Solarus < Formula
       ENV.append_to_cflags "-I#{Formula["glm"].opt_include}"
       ENV.append_to_cflags "-I#{Formula["physfs"].opt_include}"
       system "cmake", "..",
+                      "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                      "-DSOLARUS_ARCH=#{Hardware::CPU.arch}",
                       "-DSOLARUS_GUI=OFF",
                       "-DVORBISFILE_INCLUDE_DIR=#{Formula["libvorbis"].opt_include}",
                       "-DOGG_INCLUDE_DIR=#{Formula["libogg"].opt_include}",

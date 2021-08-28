@@ -3,18 +3,19 @@ class ShallowBackup < Formula
 
   desc "Git-integrated backup tool for macOS and Linux devs"
   homepage "https://github.com/alichtman/shallow-backup"
-  url "https://github.com/alichtman/shallow-backup/archive/v5.0.1.tar.gz"
-  sha256 "a4f2e2702ca656d43852b26a85e7ae0056f7c89297b1288b11c0526449c62f8e"
+  url "https://files.pythonhosted.org/packages/42/fc/4ecead7b7539b0fd29ef97fb6c3134327d1702936bb38797352862d0a924/shallow-backup-5.0.1.tar.gz"
+  sha256 "8c0a57e6a5004cf3dbc74a54da1a254e685077c973266e7198aca62441c72a0b"
   license "MIT"
   revision 1
-  head "https://github.com/alichtman/shallow-backup.git"
+  head "https://github.com/alichtman/shallow-backup.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ed8d7fd1723a6cc043f76799099cf7267f96baa8e9d2a9ea01f6b29ba1167c27" => :big_sur
-    sha256 "ab0480d15430cc6fdfcde70fca423784efcf2a4e32aa5286a60b53ba5d713b23" => :catalina
-    sha256 "1dbe77e521a242d1b1c3d833b981427724006c82c3885fb87062c30d272e4cc2" => :mojave
-    sha256 "1de7f1b14391ee61eb08f4016d92ecac7e431337bfea369bcb6bb95cfb1461f6" => :high_sierra
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "54e0db13cd94663dc668a6a219d4eb82146ee203b7734362c25e9d73f3f2b33e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e1ad3d711a2c18d700033fc80c16f21ebf40a1a0ba40d41352fe5c3e13339a5a"
+    sha256 cellar: :any_skip_relocation, catalina:      "180c2239489893d858f7a12d729d07c47d0eed52bb77b0fc31dedba920697672"
+    sha256 cellar: :any_skip_relocation, mojave:        "84fe6770d371202f7f6bda5e55b7dc1d54744faa38a25ed498d36eab4ef8be5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7f06faa5e61303fa3e2442245af5b07b3dfb8830e67a3c130ebe542ad4306f3"
   end
 
   depends_on "python@3.9"
@@ -84,7 +85,7 @@ class ShallowBackup < Formula
     # Creates a config file and adds a test file to it
     # There is colour in stdout, hence there are ANSI escape codes
     assert_equal "\e[34m\e[1mCreating config file at: \e[22m#{pwd}/.config/shallow-backup.conf\e[0m\n" \
-    "\e[34m\e[1mAdded: \e[22m#{test_fixtures("test.svg")}\e[0m",
+                 "\e[34m\e[1mAdded: \e[22m#{test_fixtures("test.svg")}\e[0m",
     shell_output("#{bin}/shallow-backup --add-dot #{test_fixtures("test.svg")}").strip
 
     # Checks if config file was created

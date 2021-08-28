@@ -1,23 +1,22 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org/"
-  url "http://xmlsoft.org/sources/libxml2-2.9.10.tar.gz"
-  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libxml2/libxml2-2.9.10.tar.gz"
-  sha256 "aafee193ffb8fe0c82d4afef6ef91972cbaf5feea100edc2f262750611b4be1f"
+  url "http://xmlsoft.org/sources/libxml2-2.9.12.tar.gz"
+  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libxml2/libxml2-2.9.12.tar.gz"
+  sha256 "c8d6681e38c56f172892c85ddc0852e1fd4b53b4209e7f4ebf17f7e2eae71d92"
   license "MIT"
-  revision 2
 
   livecheck do
-    url "http://xmlsoft.org/sources"
-    regex(/href=.*?libxml2[._-]v?([\d.]+\.[\d.]+\.[\d.]+)\.t/i)
+    url "http://xmlsoft.org/sources/"
+    regex(/href=.*?libxml2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    cellar :any
-    sha256 "0170a16da823ce77d1aad7db927b23a1adb12285a174f36a918275d7952eaaae" => :big_sur
-    sha256 "2983d5a448504389888720bf951713114ed7f010d96cde9289fdc5c4b539d303" => :catalina
-    sha256 "7bcd780db5693475c7711eefbbcf703507865e06483e7338ab61027ec375c4bc" => :mojave
-    sha256 "34d84eaef7f80632a6547903d640be06c6d92b9ca2b815b64b74943b4cf73e63" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "a08e1ca1be7f5d1b1cf4eee4efabf906fb59fec8422292fe124002aa98d11540"
+    sha256 cellar: :any,                 big_sur:       "fbc422ede343b2bd4047ccdf2f697430da636b66fc550697a2f921b97cebe18f"
+    sha256 cellar: :any,                 catalina:      "eb2c8a444b4cf1f09e35c23b91e7cc16c11bc63527bfc3e19a4442e41cfd4b4d"
+    sha256 cellar: :any,                 mojave:        "cf7b2b2ddb047582b9fb5c649d76ab6d4025ea328dff5ad22bcc4d929a8730ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28c0f1b5ed535d8ac6ae60d8ecde883605ed21691ad89be8869d47427a44b7a2"
   end
 
   head do
@@ -31,7 +30,7 @@ class Libxml2 < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "python@3.9"
+  depends_on "python@3.9" => [:build, :test]
   depends_on "readline"
 
   uses_from_macos "zlib"
@@ -45,21 +44,13 @@ class Libxml2 < Formula
     sha256 "37eb81a8ec6929eed1514e891bff2dd05b450bcf0c712153880c485b7366c17c"
   end
 
-  # Resolves CVE-2018-8048, CVE-2018-3740, CVE-2018-3741
-  # Upstream hasn't patched this bug, but Nokogiri distributes
-  # libxml2 with this patch to fix this issue
-  # https://bugzilla.gnome.org/show_bug.cgi?id=769760
-  # https://github.com/sparklemotion/nokogiri/pull/1746
-  patch do
-    url "https://raw.githubusercontent.com/sparklemotion/nokogiri/38721829c1df30e93bdfbc88095cc36838e497f3/patches/libxml2/0001-Revert-Do-not-URI-escape-in-server-side-includes.patch"
-    sha256 "c755e6e17c02584bfbfc8889ffc652384b010c0bd71879d7ff121ca60a218fcd"
-  end
-
-  # Fix compatibility with Python 3.9
-  # https://gitlab.gnome.org/GNOME/libxml2/-/issues/149
-  patch do
-    url "https://gitlab.gnome.org/nwellnhof/libxml2/-/commit/e4fb36841800038c289997432ca547c9bfef9db1.patch"
-    sha256 "c3fa874b78d76b8de8afbbca9f83dc94e9a0da285eaf6ee1f6976ed4cd41e367"
+  def sdk_include
+    on_macos do
+      return MacOS.sdk_path/"usr/include"
+    end
+    on_linux do
+      return HOMEBREW_PREFIX/"include"
+    end
   end
 
   def install
@@ -75,7 +66,7 @@ class Libxml2 < Formula
     cd "python" do
       # We need to insert our include dir first
       inreplace "setup.py", "includes_dir = [",
-                            "includes_dir = ['#{include}', '#{MacOS.sdk_path}/usr/include',"
+                            "includes_dir = ['#{include}', '#{sdk_include}',"
       system Formula["python@3.9"].opt_bin/"python3", "setup.py", "install", "--prefix=#{prefix}"
     end
   end
@@ -93,8 +84,8 @@ class Libxml2 < Formula
         return 0;
       }
     EOS
-    args = shell_output("#{bin}/xml2-config --cflags --libs").split
-    args += %w[test.c -o test]
+    args = %w[test.c -o test]
+    args += shell_output("#{bin}/xml2-config --cflags --libs").split
     system ENV.cc, *args
     system "./test"
 

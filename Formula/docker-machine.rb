@@ -8,19 +8,21 @@ class DockerMachine < Formula
   head "https://github.com/docker/machine.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c1645c52f9548d7b5e69d061952a2b4aec93459e749c87f7e63599b990dd22f1" => :big_sur
-    sha256 "99b50d9809a0aa881e01686e3356fbd17fa61e5a5e8cb937a2a9e9ff103be097" => :catalina
-    sha256 "cc56a9c37702ecaeea1a5034326d87fa145fbc4cb613d151756571b78ca8f1ab" => :mojave
-    sha256 "320ef0f8b7fba8e679c784f854155314c7bdcbc4e7d43fd11dbce6e0e3e0f85b" => :high_sierra
-    sha256 "23a2165e741ea1a9321476d3037a5d76bc24bd494ae0bd8b16f35e3248c0aa77" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8ed6a73a1d30c911811e8f6fb0e61e41bc3be4aea62bc2b77f7b6dca50b517a9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "720ea8bbbfdc6b9d0701f02014e09f6a46e6785bcbdb36ebe3e95bddd0849dfa"
+    sha256 cellar: :any_skip_relocation, catalina:      "e27501077ccc67fc468ca8e2881366a9fc23260296ed93a3f436b4d12f41ec43"
+    sha256 cellar: :any_skip_relocation, mojave:        "0cfe7d344bd6c2b3bc0d1c1de472c430162a45dd54454b268e82750094b9cf9f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f08e7ba29eb793a79b8126631485ee4100cf07b9e1e5654a7c4db8c2d229d5af"
   end
 
   depends_on "automake" => :build
   depends_on "go" => :build
 
+  conflicts_with "docker-machine-completion", because: "docker-machine already includes completion scripts"
+
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/docker/machine").install buildpath.children
     cd "src/github.com/docker/machine" do
       system "make", "build"
@@ -32,33 +34,11 @@ class DockerMachine < Formula
   end
 
   plist_options manual: "docker-machine start"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>EnvironmentVariables</key>
-          <dict>
-              <key>PATH</key>
-              <string>/usr/bin:/bin:/usr/sbin:/sbin:#{HOMEBREW_PREFIX}/bin</string>
-          </dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_bin}/docker-machine</string>
-              <string>start</string>
-              <string>default</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"docker-machine", "start", "default"]
+    environment_variables PATH: std_service_path_env
+    run_type :immediate
+    working_dir HOMEBREW_PREFIX
   end
 
   test do

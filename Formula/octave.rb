@@ -1,19 +1,16 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  url "https://ftp.gnu.org/gnu/octave/octave-6.1.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/octave/octave-6.1.0.tar.xz"
-  sha256 "d6cd6b79ef023e300b9287b56aa79333cfb6b651771d43ade7cbde63ca5a6010"
+  url "https://ftp.gnu.org/gnu/octave/octave-6.3.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/octave/octave-6.3.0.tar.xz"
+  sha256 "fb472cb957c748670391cbc3385ff230cf44832bc314fee359e43c69cf9da5ef"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    sha256 "efcf591df4a8a2acc37fcb9318236f7707d4740f437ad78f661a5ecb1a54a464" => :big_sur
-    sha256 "4bbd1ad9938b8c109147e27b88f602a0ce2e5d484d6abf0c4b8e8a2862c5604c" => :catalina
-    sha256 "a9150b5d2a3919be506ded34f87aefd90b92db66a5bf7b52b925ffccd2cbe695" => :mojave
+    sha256 arm64_big_sur: "6bf235731cccb20bba3e58414147bcb63f3b2d3c8f33a2f05d4ca139f9b8f55a"
+    sha256 big_sur:       "ffb80919aab7e5224ae38873397a6e7d292dd3cfe6b74cba3972c7f7093ebb58"
+    sha256 catalina:      "4360b1bae83bcb42203b12e52da2ffa8c15a56df7a0a49f3cdf10e78d463c57b"
+    sha256 mojave:        "b6932ada3ff047d5911bedad215b37c191fb2018101e18c322f4288741a8625e"
   end
 
   head do
@@ -53,13 +50,20 @@ class Octave < Formula
   depends_on "qhull"
   depends_on "qrupdate"
   depends_on "qscintilla2"
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "readline"
   depends_on "suite-sparse"
   depends_on "sundials"
   depends_on "texinfo"
 
   uses_from_macos "curl"
+
+  on_linux do
+    depends_on "autoconf"
+    depends_on "automake"
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
 
   # Dependencies use Fortran, leading to spurious messages about GCC
   cxxstdlib_check :skip
@@ -77,25 +81,42 @@ class Octave < Formula
     ENV["QCOLLECTIONGENERATOR"] = "qhelpgenerator"
     # These "shouldn't" be necessary, but the build breaks without them.
     # https://savannah.gnu.org/bugs/?55883
-    ENV["QT_CPPFLAGS"]="-I#{Formula["qt"].opt_include}"
-    ENV.append "CPPFLAGS", "-I#{Formula["qt"].opt_include}"
-    ENV["QT_LDFLAGS"]="-F#{Formula["qt"].opt_lib}"
-    ENV.append "LDFLAGS", "-F#{Formula["qt"].opt_lib}"
+    ENV["QT_CPPFLAGS"]="-I#{Formula["qt@5"].opt_include}"
+    ENV.append "CPPFLAGS", "-I#{Formula["qt@5"].opt_include}"
+    ENV["QT_LDFLAGS"]="-F#{Formula["qt@5"].opt_lib}"
+    ENV.append "LDFLAGS", "-F#{Formula["qt@5"].opt_lib}"
 
     system "./bootstrap" if build.head?
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--enable-link-all-dependencies",
-                          "--enable-shared",
-                          "--disable-static",
-                          "--with-hdf5-includedir=#{Formula["hdf5"].opt_include}",
-                          "--with-hdf5-libdir=#{Formula["hdf5"].opt_lib}",
-                          "--with-java-homedir=#{Formula["openjdk"].opt_prefix}",
-                          "--with-x=no",
-                          "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
-                          "--with-portaudio",
-                          "--with-sndfile"
+    args = ["--prefix=#{prefix}",
+            "--disable-dependency-tracking",
+            "--disable-silent-rules",
+            "--enable-link-all-dependencies",
+            "--enable-shared",
+            "--disable-static",
+            "--with-hdf5-includedir=#{Formula["hdf5"].opt_include}",
+            "--with-hdf5-libdir=#{Formula["hdf5"].opt_lib}",
+            "--with-java-homedir=#{Formula["openjdk"].opt_prefix}",
+            "--with-x=no",
+            "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
+            "--with-portaudio",
+            "--with-sndfile"]
+
+    on_linux do
+      # Explicitly specify aclocal and automake without versions
+      args << "ACLOCAL=aclocal"
+      args << "AUTOMAKE=automake"
+
+      # Mesa OpenGL location must be supplied by LDFLAGS on Linux
+      args << "LDFLAGS=-L#{Formula["mesa"].opt_lib} -L#{Formula["mesa-glu"].opt_lib}"
+
+      # Docs building is broken on Linux
+      args << "--disable-docs"
+
+      # Need to regenerate aclocal.m4 so that it will work with brewed automake
+      system "aclocal"
+    end
+
+    system "./configure", *args
     system "make", "all"
 
     # Avoid revision bumps whenever fftw's, gcc's or OpenBLAS' Cellar paths change

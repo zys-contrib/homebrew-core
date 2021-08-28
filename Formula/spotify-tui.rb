@@ -1,33 +1,39 @@
 class SpotifyTui < Formula
   desc "Terminal-based client for Spotify"
   homepage "https://github.com/Rigellute/spotify-tui"
-  url "https://github.com/Rigellute/spotify-tui/archive/v0.22.0.tar.gz"
-  sha256 "3bac0ca34db6b71721af66ba423cea59780c43410bfb52d870198facc6a6a906"
+  url "https://github.com/Rigellute/spotify-tui/archive/v0.25.0.tar.gz"
+  sha256 "9d6fa998e625ceff958a5355b4379ab164ba76575143a7b6d5d8aeb6c36d70a7"
   license "MIT"
-  head "https://github.com/Rigellute/spotify-tui.git"
-
-  livecheck do
-    url :stable
-  end
+  head "https://github.com/Rigellute/spotify-tui.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9d316a5047e3b4f5b398fb76ae05dc8bcc227976712127a5bdb7172086022217" => :big_sur
-    sha256 "5fb0e8a727a268fab75e58a8be2643867cfc7a5e3af72003b94c64bd6caa2074" => :catalina
-    sha256 "b4872366c45c70ef9104b2f5c07905615cf5726a1aa634fd9c80d4f05d8409e8" => :mojave
-    sha256 "17e97d214e6e9220531cf22b2e8595bcfc0639cd373470a39077c79922d7ea2a" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4ef8afcda5e9fc500a7dd2abc77f3b49f7d7fca7ae1da4acb9b54d263bfa434b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b47628e9447d374a0687c4335ad4d3403bdb104a5014a97f90455b5cd43aaf1c"
+    sha256 cellar: :any_skip_relocation, catalina:      "3dedb376c70bd12c90c328e0135e00251fa8f1a1f5abbd1755b1d547641945e7"
+    sha256 cellar: :any_skip_relocation, mojave:        "8304187e14830a1e879563caab9de18b13eca95dc4a65de1da36179eafb887a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ccfd440c8cf171b997b747f7a15ba272351cb3ed2101f05b08672bbd2a73ed1d"
   end
 
   depends_on "rust" => :build
+
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "libxcb"
+    depends_on "openssl@1.1"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args
   end
 
   test do
-    pid = fork { exec "#{bin}/spt -c #{testpath/"client.yml"} 2>&1 > output" }
-    sleep 2
-    Process.kill "TERM", pid
-    assert_match /Enter your Client ID/, File.read("output")
+    output = testpath/"output"
+    fork do
+      $stdout.reopen(output)
+      $stderr.reopen(output)
+      exec "#{bin}/spt -c #{testpath}/client.yml"
+    end
+    sleep 10
+    assert_match "Enter your Client ID", output.read
   end
 end

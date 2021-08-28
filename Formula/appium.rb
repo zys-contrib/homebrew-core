@@ -3,27 +3,39 @@ require "language/node"
 class Appium < Formula
   desc "Automation for Apps"
   homepage "https://appium.io/"
-  url "https://registry.npmjs.org/appium/-/appium-1.18.1.tgz"
-  sha256 "938783100df8be224cb85b5dbdcebeb91d164f003d4cdd2aa9c801480bd027b4"
+  url "https://registry.npmjs.org/appium/-/appium-1.21.0.tgz"
+  sha256 "8d61454f8f969260aecc1f46f4ca0123c55c2fbe4ecd3303d095ec90ecd3dc4f"
   license "Apache-2.0"
-  head "https://github.com/appium/appium.git"
-
-  livecheck do
-    url :stable
-  end
+  head "https://github.com/appium/appium.git", branch: "master"
 
   bottle do
-    cellar :any
-    sha256 "4ea1dbc255495f77ccd8b8eef8a8e0244ce0c4d5e302f39f0ca4ed07d4fb087c" => :catalina
-    sha256 "ed7587c1b90e17ace1d8882bb393e9af52fe85e35c2fcb944b906878e39ee243" => :mojave
-    sha256 "e16208f7f59caa4b0676051413e849556a6f9865b2da3f965eaac44d52f42bfe" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "4dd71c228058ccb1d8d5228bfe2e185f56b6bf3319bc0eb7a869063061a5d865"
+    sha256 cellar: :any,                 big_sur:       "23444487c2d7cf59ac07501c52fe8a93811176242d7a46c4a24fa28fe00cf8a6"
+    sha256 cellar: :any,                 catalina:      "23444487c2d7cf59ac07501c52fe8a93811176242d7a46c4a24fa28fe00cf8a6"
+    sha256 cellar: :any,                 mojave:        "23444487c2d7cf59ac07501c52fe8a93811176242d7a46c4a24fa28fe00cf8a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86610b38b79b8f02a9ab65c5f8f93462720754d335118ee9a955fd58d17c6623"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec), "--chromedriver-skip-install"
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    # Delete obsolete module appium-ios-driver, which installs universal binaries
+    rm_rf libexec/"lib/node_modules/appium/node_modules/appium-ios-driver"
+  end
+
+  plist_options manual: "appium"
+
+  service do
+    run opt_bin/"appium"
+    environment_variables PATH: std_service_path_env
+    run_type :immediate
+    keep_alive true
+    error_log_path var/"log/appium-error.log"
+    log_path var/"log/appium.log"
+    working_dir var
   end
 
   test do
@@ -37,7 +49,7 @@ class Appium < Formula
       end
       sleep 3
 
-      assert_match "The URL '/' did not map to a valid resource", shell_output("curl -s 127.0.0.1:#{port}")
+      assert_match "unknown command", shell_output("curl -s 127.0.0.1:#{port}")
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)

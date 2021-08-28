@@ -3,20 +3,16 @@ class Glib < Formula
 
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.66/glib-2.66.2.tar.xz"
-  sha256 "ec390bed4e8dd0f89e918f385e8d4cfd7470b1ef7c1ce93ec5c4fc6e3c6a17c4"
+  url "https://download.gnome.org/sources/glib/2.68/glib-2.68.4.tar.xz"
+  sha256 "62fd061d08a75492617e625a73e2c05e259f831acbb8e1f8b9c81f23f7993a3b"
   license "LGPL-2.1-or-later"
-  revision 1
-
-  livecheck do
-    url :stable
-  end
 
   bottle do
-    sha256 "43eb87fa1004b3c5329ca342ea681b243423818002a08f9cdf37125356563438" => :big_sur
-    sha256 "55989b3ad3b8da0314749ab1abf699beecfa19479a4bbbc47e981aa282840fe1" => :catalina
-    sha256 "0715e8debe9a6a1e1f8223759a29c300eccb151c2fd5e4c376f8f71636501e0d" => :mojave
-    sha256 "f7c78253be38a52794ff424dcf493d60bd9a2534e49043b88ff2e75906bc17c6" => :high_sierra
+    sha256 arm64_big_sur: "e21de4937ed890a80511c967b5b82a22b847aa088476bf4edd549d3128839184"
+    sha256 big_sur:       "ad356cbc8651147276eff312f762a05fabe846d598886858d4960e6935795823"
+    sha256 catalina:      "392a02c839b4b05e9575afb18c3357038d423a146a103e44fc09670168baaeed"
+    sha256 mojave:        "38232f3c93be6a25722c2124f9d7f80220c4ad80a76dc67691bdf4c8468f4ba4"
+    sha256 x86_64_linux:  "94f22db8b46fe2f0fd9177633702c104ff86b3f783c89847650d3ee94af732b8"
   end
 
   depends_on "meson" => :build
@@ -31,20 +27,20 @@ class Glib < Formula
     depends_on "util-linux"
   end
 
-  # https://bugzilla.gnome.org/show_bug.cgi?id=673135 Resolved as wontfix,
-  # but needed to fix an assumption about the location of the d-bus machine
-  # id file.
+  # replace several hardcoded paths with homebrew counterparts
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6164294a75541c278f3863b111791376caa3ad26/glib/hardcoded-paths.diff"
-    sha256 "a57fec9e85758896ff5ec1ad483050651b59b7b77e0217459ea650704b7d422b"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/43467fd8dfc0e8954892ecc08fab131242dca025/glib/hardcoded-paths.diff"
+    sha256 "d81c9e8296ec5b53b4ead6917f174b06026eeb0c671dfffc4965b2271fb6a82c"
   end
 
   def install
-    inreplace %w[gio/gdbusprivate.c gio/xdgmime/xdgmime.c glib/gutils.c],
+    inreplace %w[gio/xdgmime/xdgmime.c glib/gutils.c],
       "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
 
     # Disable dtrace; see https://trac.macports.org/ticket/30413
     args = std_meson_args + %W[
+      --default-library=both
+      --localstatedir=#{var}
       -Diconv=auto
       -Dgio_module_dir=#{HOMEBREW_PREFIX}/lib/gio/modules
       -Dbsymbolic_functions=false
@@ -65,14 +61,16 @@ class Glib < Formula
               "giomoduledir=#{HOMEBREW_PREFIX}/lib/gio/modules",
               "giomoduledir=${libdir}/gio/modules"
 
-    # `pkg-config --libs glib-2.0` includes -lintl, and gettext itself does not
-    # have a pkgconfig file, so we add gettext lib and include paths here.
-    gettext = Formula["gettext"].opt_prefix
-    inreplace lib+"pkgconfig/glib-2.0.pc" do |s|
-      s.gsub! "Libs: -L${libdir} -lglib-2.0 -lintl",
-              "Libs: -L${libdir} -lglib-2.0 -L#{gettext}/lib -lintl"
-      s.gsub! "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include",
-              "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include -I#{gettext}/include"
+    on_macos do
+      # `pkg-config --libs glib-2.0` includes -lintl, and gettext itself does not
+      # have a pkgconfig file, so we add gettext lib and include paths here.
+      gettext = Formula["gettext"].opt_prefix
+      inreplace lib+"pkgconfig/glib-2.0.pc" do |s|
+        s.gsub! "Libs: -L${libdir} -lglib-2.0 -lintl",
+                "Libs: -L${libdir} -lglib-2.0 -L#{gettext}/lib -lintl"
+        s.gsub! "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include",
+                "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include -I#{gettext}/include"
+      end
     end
 
     # `pkg-config --print-requires-private gobject-2.0` includes libffi,

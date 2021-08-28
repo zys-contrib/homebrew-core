@@ -1,8 +1,9 @@
 class Strongswan < Formula
   desc "VPN based on IPsec"
   homepage "https://www.strongswan.org"
-  url "https://download.strongswan.org/strongswan-5.9.1.tar.bz2"
-  sha256 "a337c9fb63d973b8440827755c784031648bf423b7114a04918b0b00fd42cafb"
+  url "https://download.strongswan.org/strongswan-5.9.3.tar.bz2"
+  sha256 "9325ab56a0a4e97e379401e1d942ce3e0d8b6372291350ab2caae0755862c6f7"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://download.strongswan.org/"
@@ -10,10 +11,10 @@ class Strongswan < Formula
   end
 
   bottle do
-    sha256 "963f3fbde531f92f196f0533fc6d80532d2d00161f98233af393dc3513c01bbe" => :big_sur
-    sha256 "5d8438b75c7f6a14fc90968cd6adf0a4bd90071568b4ded22c8fa494cc26fa5b" => :catalina
-    sha256 "c742593fc457f35256ff47ffa4fce347f5bd1d635320572f6ba107aa6e06b73d" => :mojave
-    sha256 "420d23c085cb5f125043f23239e3d3dbf9f023e825766a43c963f7be75f416a7" => :high_sierra
+    sha256 arm64_big_sur: "0f1e4ce71721da3159ae758863a23e94daf4830d3c84eb431d8edfb673b1a51c"
+    sha256 big_sur:       "210a8f1fe7469c4f660259de33605226f5fa6c02436888754a581e0f35c8f607"
+    sha256 catalina:      "bec3e5c02784130c788a861c3ac78e88b8080f825e9ac3ec9a575891a341de6d"
+    sha256 mojave:        "307035e5a5807685ba2c960a4ec68d533039d3a3157adf351108e63b7db551c2"
   end
 
   head do

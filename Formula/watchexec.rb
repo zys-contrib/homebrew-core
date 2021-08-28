@@ -1,31 +1,33 @@
 class Watchexec < Formula
   desc "Execute commands when watched files change"
   homepage "https://github.com/watchexec/watchexec"
-  url "https://github.com/watchexec/watchexec/archive/1.14.1.tar.gz"
-  sha256 "23ca90f1f070b0d30e821667c8b9deaf174d020373ea032e9e22f1a78adcfa1c"
+  url "https://github.com/watchexec/watchexec/archive/cli-v1.17.1.tar.gz"
+  sha256 "3bc82174729628010d29c85f2d2c61cc45cef5cc729f13153b1422c8f647d33f"
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d53e7eccb32fcefde96e0237d8a900a64fcda304d94b9a675528c75dd0cc419a" => :big_sur
-    sha256 "bd5816dbe23399183808f0a407a4d605d7113644c0e8fcf815439fefaf734dfb" => :catalina
-    sha256 "c8ba045ce6c7d45bbd5b3c12dc4a17038b1ca1d1ffbd2a1742d13c8a971e15bd" => :mojave
-    sha256 "2add0c1e367f4626d16ded8470adbc3e1780811259d0b2faf52e8d0aaf50f91e" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d83500db72a7e0dff3fc8fd8e2526e11e6d25a104ab155dc967fcc519a082b50"
+    sha256 cellar: :any_skip_relocation, big_sur:       "dd7198eb2dbb92f608a8a8eeb254d2810182f3d647f303831a5bfeeab5ab51c8"
+    sha256 cellar: :any_skip_relocation, catalina:      "52aa742b6924b99190019d0347660734d5c846a8c0e79b5b1e5658f2c1b24659"
+    sha256 cellar: :any_skip_relocation, mojave:        "9d243c2296dc406c164045adbedee423c4b0a3b74f9a8aaad1676f1a96e16d8c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ca6f89236f83d52799189baa14c733c7532e9245834ed31a07d4d367579a45d"
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args
+    cd "cli" do
+      system "cargo", "install", *std_cargo_args
+    end
     man1.install "doc/watchexec.1"
   end
 
   test do
     o = IO.popen("#{bin}/watchexec -1 --postpone -- echo 'saw file change'")
-    sleep 1
+    sleep 15
     touch "test"
-    sleep 1
-    Process.kill("INT", o.pid)
+    sleep 15
+    Process.kill("TERM", o.pid)
     assert_match "saw file change", o.read
   end
 end

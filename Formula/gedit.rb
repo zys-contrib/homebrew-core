@@ -1,18 +1,16 @@
 class Gedit < Formula
   desc "GNOME text editor"
   homepage "https://wiki.gnome.org/Apps/Gedit"
-  url "https://download.gnome.org/sources/gedit/3.38/gedit-3.38.1.tar.xz"
-  sha256 "0053853d2cd59cad8a1662f5b4fdcfab47b4c0940063bacd6790a9948642844d"
+  url "https://download.gnome.org/sources/gedit/40/gedit-40.1.tar.xz"
+  sha256 "55e394a82cb65678b1ab49526cf5bd43f00d8fba21476a4849051a8e137d3691"
   license "GPL-2.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    sha256 "841bf24ceaaace6e6f844bbdf328b5a482682856e70243cd9e9acc041a53c502" => :big_sur
-    sha256 "c1960a0d6062d4dd90839c331654bce9af5ad47fd46aff8612bdb565db6ff63c" => :catalina
-    sha256 "ce6bf4a9ee9e03ea5634b50f26f50a0a7cd032e0f613434fde66de49989b7c01" => :mojave
+    sha256 arm64_big_sur: "944db5b9131011efb9ac1ca370342b21895bc8c2220138c90fd137cc883ccc1e"
+    sha256 big_sur:       "7cee9c8a408d1f8bfc28f05475babd0e9d0236cfb2411042c56112c97d6ccbd7"
+    sha256 catalina:      "f36d6723b16e6271e0c5327b6d7723ed501c51bd1ab07a4c3c125ed877ff4e99"
+    sha256 mojave:        "5a842c19e3ff549f23d6854265423064666686548356d0c188df63b741d49d77"
+    sha256 x86_64_linux:  "43fd433db4952cba82e79d384f06abc89d5dbd46d8ed6b37fca84a002ebadff4"
   end
 
   depends_on "itstool" => :build
@@ -39,6 +37,7 @@ class Gedit < Formula
 
   def install
     ENV["DESTDIR"] = "/"
+    on_linux { ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/gedit" }
 
     mkdir "build" do
       system "meson", *std_meson_args, ".."
@@ -48,8 +47,8 @@ class Gedit < Formula
   end
 
   def post_install
-    system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
-    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-qtf", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
+    system Formula["glib"].opt_bin/"glib-compile-schemas", HOMEBREW_PREFIX/"share/glib-2.0/schemas"
+    system Formula["gtk+3"].opt_bin/"gtk3-update-icon-cache", "-qtf", HOMEBREW_PREFIX/"share/icons/hicolor"
   end
 
   test do
@@ -96,7 +95,7 @@ class Gedit < Formula
       -I#{gtksourceview4.opt_include}/gtksourceview-4
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{harfbuzz.opt_include}/harfbuzz
-      -I#{include}/gedit-3.38
+      -I#{include}/gedit-40.0
       -I#{libepoxy.opt_include}
       -I#{libffi.opt_lib}/libffi-3.0.13/include
       -I#{libpeas.opt_include}/libpeas-1.0
@@ -121,20 +120,25 @@ class Gedit < Formula
       -lcairo-gobject
       -lgdk-3
       -lgdk_pixbuf-2.0
-      -lgedit-3.38
+      -lgedit-40.0
       -lgio-2.0
       -lgirepository-1.0
       -lglib-2.0
       -lgmodule-2.0
       -lgobject-2.0
       -lgtk-3
-      -lgtksourceview-4.0
-      -lintl
+      -lgtksourceview-4
       -lpango-1.0
       -lpangocairo-1.0
       -lpeas-1.0
       -lpeas-gtk-1.0
     ]
+    on_macos do
+      flags << "-lintl"
+    end
+    on_linux do
+      flags << "-Wl,-rpath,#{lib}/gedit"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

@@ -1,21 +1,33 @@
 class Highlight < Formula
   desc "Convert source code to formatted text with syntax highlighting"
   homepage "http://www.andre-simon.de/doku/highlight/en/highlight.php"
-  url "http://www.andre-simon.de/zip/highlight-3.59.tar.bz2"
-  sha256 "85926ca8e08e69b497fa4a0c93bec595e15c1ca18c4ee494ea3f1c9a78c249a2"
+  url "http://www.andre-simon.de/zip/highlight-4.1.tar.bz2"
+  sha256 "3a4b6aa55b9837ea217f78e1f52bb294dbf3aaf4ccf8a5553cf859be4fbf3907"
   license "GPL-3.0-or-later"
   head "https://gitlab.com/saalen/highlight.git"
 
+  livecheck do
+    url "http://www.andre-simon.de/zip/download.php"
+    regex(/href=.*?highlight[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 "67843a8aa6d820f309ae03678db88cc1c515f84d01a2c3db3003c37190bb3bbe" => :big_sur
-    sha256 "6ebc0f20fa97135b27033bf086de0f7847f451587a34e9f7f2f0a72ae8529688" => :catalina
-    sha256 "8af8c75e2b1463383d79826a70141017db9eca6f78ec2634069d91a601ce6cb7" => :mojave
-    sha256 "e68f5df12c9b8365b04226c424960ed252f01a86c429a93f5589b92833c5e752" => :high_sierra
+    sha256 arm64_big_sur: "90c97137575b00aaa9050fb14f049e6b1dcfe236ae4266d7e684706f09a58f0f"
+    sha256 big_sur:       "e364d145b581f0622acf1cc9476142b8e318efa60495ca6e9c1f44ed560a2d66"
+    sha256 catalina:      "4238b72def77283c7cedf385639bd9b28b5d0e3fb5d5c0bc6ec6fe6d06ae7bcf"
+    sha256 mojave:        "81057a5898f59793eda32340275cb8bf87da61e6330bb5d0e925690c678b606b"
+    sha256 x86_64_linux:  "f6f656122700a511ed946ca5a3d4db0e05db5c6f4f988567e866dfc50938a406"
   end
 
   depends_on "boost" => :build
   depends_on "pkg-config" => :build
   depends_on "lua"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # needs C++17
 
   def install
     conf_dir = etc/"highlight/" # highlight needs a final / for conf_dir

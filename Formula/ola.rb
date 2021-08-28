@@ -1,17 +1,16 @@
 class Ola < Formula
   desc "Open Lighting Architecture for lighting control information"
   homepage "https://www.openlighting.org/ola/"
-  url "https://github.com/OpenLightingProject/ola/releases/download/0.10.7/ola-0.10.7.tar.gz"
-  sha256 "8a65242d95e0622a3553df498e0db323a13e99eeb1accc63a8a2ca8913ab31a0"
+  url "https://github.com/OpenLightingProject/ola/releases/download/0.10.8/ola-0.10.8.tar.gz"
+  sha256 "102aa3114562a2a71dbf7f77d2a0fb9fc47acc35d6248a70b6e831365ca71b13"
   license "GPL-2.0"
-  revision 5
+  revision 2
   head "https://github.com/OpenLightingProject/ola.git"
 
   bottle do
-    sha256 "09501dc5e47fe41c1232ca432bb214443b3bb78e662571f4dc73905a40307534" => :big_sur
-    sha256 "0d1e17e8fe6fe3807861fd861d005f5bd9bdcd363d41d6c66839959dcd2b7fa5" => :catalina
-    sha256 "e34574637827ecc45ed31f9d4d1f628cf80ba567c1803436c3293126c2bd699d" => :mojave
-    sha256 "8297329aff21747ce86d0b182f2eb41f3982f9ed3d55e7c22f708a4ea83e584c" => :high_sierra
+    sha256 big_sur:  "6c53064698383dd904dab9489cd0a5fe7f0c623f9f469f3580913bf6c16ed463"
+    sha256 catalina: "152adf6422b17ae113df546083721c71a87553116505317bb6e85a6a12b4f441"
+    sha256 mojave:   "421497863cb85eb279283b991e14cb8460f5a4e0dde04642476e3c35d968eb6d"
   end
 
   depends_on "autoconf" => :build
@@ -22,20 +21,13 @@ class Ola < Formula
   depends_on "libmicrohttpd"
   depends_on "libusb"
   depends_on "numpy"
-  depends_on "protobuf@3.6"
+  depends_on "protobuf"
   depends_on "python@3.9"
 
-  # remove in version 0.11
+  # remove in version 0.10.9
   patch do
-    url "https://raw.githubusercontent.com/macports/macports-ports/89b697d200c7112839e8f2472cd2ff8dfa6509de/net/ola/files/patch-protobuf3.diff"
-    sha256 "bbbcb5952b0bdcd01083cef92b72a747d3adbe7ca9e50d865a0c69ae31a8fb4a"
-  end
-
-  # Fix compatibility with libmicrohttpd
-  # Remove in next version
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/4dcd2679/ola/libmicrohttpd.diff"
-    sha256 "752f46b6cfe2d9c278c3fd0e68ff753479ca4bba34a3b41f82d523daafde8d08"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/add0354bf13253a4cc89e151438a630314df0efa/ola/protobuf3.diff"
+    sha256 "e06ffef1610c3b09807212d113138dae8bdc7fc8400843c25c396fa486594ebf"
   end
 
   def install

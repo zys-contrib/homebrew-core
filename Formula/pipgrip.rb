@@ -3,24 +3,21 @@ class Pipgrip < Formula
 
   desc "Lightweight pip dependency resolver"
   homepage "https://github.com/ddelange/pipgrip"
-  url "https://files.pythonhosted.org/packages/23/ae/2fd700b44b86f4bfbb0943be60043e92a35c73e96f3b075ba295cf687d34/pipgrip-0.6.1.tar.gz"
-  sha256 "b2dcd453e509185fba95ba36c14955ed27c81f5ab8f620818a21b8d7c5909737"
+  url "https://files.pythonhosted.org/packages/6d/58/498fceb2264c03e3a7cc672aea29c363995ff7a61d169f2cce7bc297eeba/pipgrip-0.6.10.tar.gz"
+  sha256 "775b82aa6fc33b31bfadb483946172c235285d019f0577ab40fde219a7ff977d"
   license "BSD-3-Clause"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    cellar :any_skip_relocation
-    sha256 "03e4cec7b8ab773febf3e1fc0fb16972f6ac2fd8a7585b4cbaff094d7befef46" => :catalina
-    sha256 "5cc8c1676b079f8b9fa7ca5f159086adc1a6eb7e23a1ab2975b83fb7de27ac26" => :mojave
-    sha256 "0046981ebb80c278a9ad46eddc05d0890575df55960238b3ebd81827fa551cba" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c52cb1d2e5972128efe598fcc62745b5e1fa6f066901d1366dbbbea4c0a9fe62"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c9e14ba251606734a6d88de7594d82e4d62a843800772058275707c291c07fc8"
+    sha256 cellar: :any_skip_relocation, catalina:      "7dfd7fe685e31aba9deace2a2d4d51c21bab66ac74ed2876a822c10356223150"
+    sha256 cellar: :any_skip_relocation, mojave:        "09a8db46fa81ece85eb5819d911447e9feaf4c5b36da8650a7a59ef0f937806f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b45eb66bb44eb6774f6157b8ca749b9b942fe8a7409fe3e80e8ebcda82b07c9f"
   end
 
-  depends_on "gcc"
   depends_on "python@3.9"
+  depends_on "six"
 
   resource "anytree" do
     url "https://files.pythonhosted.org/packages/d8/45/de59861abc8cb66e9e95c02b214be4d52900aa92ce34241a957dcf1d569d/anytree-2.8.0.tar.gz"
@@ -28,18 +25,18 @@ class Pipgrip < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz"
-    sha256 "d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a"
+    url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
+    sha256 "8c04c11192119b1ef78ea049e0a6f0463e4c48ef00a30160c704337586f3ad7a"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/55/fd/fc1aca9cf51ed2f2c11748fa797370027babd82f87829c7a8e6dbe720145/packaging-20.4.tar.gz"
-    sha256 "4357f74f47b9c12db93624a82154e9b120fa8293699949152b22065d556079f8"
+    url "https://files.pythonhosted.org/packages/86/3c/bcd09ec5df7123abcf695009221a52f90438d877a2f1499453c6938f5728/packaging-20.9.tar.gz"
+    sha256 "5b327ac1320dc863dca72f4514ecc086f31186744b84a230374cc1fd776feae5"
   end
 
   resource "pkginfo" do
-    url "https://files.pythonhosted.org/packages/6c/04/fd6683d24581894be8b25bc8c68ac7a0a73bf0c4d74b888ac5fe9a28e77f/pkginfo-1.5.0.1.tar.gz"
-    sha256 "7424f2c8511c186cd5424bbf31045b77435b37a8d604990b79d4e70d741148bb"
+    url "https://files.pythonhosted.org/packages/36/d3/f56bbbb9e03812de99be566a4c8ed90a0202b9aebd4528b2ad98900b9063/pkginfo-1.7.0.tar.gz"
+    sha256 "029a70cb45c6171c329dfc890cde0879f8c52d6f3922794796e06f577bb03db4"
   end
 
   resource "pyparsing" do
@@ -47,20 +44,13 @@ class Pipgrip < Formula
     sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
-    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
+  resource "wheel" do
+    url "https://files.pythonhosted.org/packages/ed/46/e298a50dde405e1c202e316fa6a3015ff9288423661d7ea5e8f22f589071/wheel-0.36.2.tar.gz"
+    sha256 "e11eefd162658ea59a60a0f6c7d493a7190ea4b9a85e335b33489d9f17e0245e"
   end
 
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
-    venv.pip_install resources
-    venv.pip_install buildpath
-
-    gcc_path = Formula["gcc"].opt_bin
-    gcc_version = Formula["gcc"].any_installed_version.major
-    (bin/"pipgrip").write_env_script(libexec/"bin/pipgrip",
-                                     { CC: gcc_path/"gcc-#{gcc_version}", CXX: gcc_path/"g++-#{gcc_version}" })
+    virtualenv_install_with_resources
   end
 
   test do

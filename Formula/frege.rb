@@ -7,11 +7,14 @@ class Frege < Formula
   revision 3
 
   livecheck do
-    url "https://github.com/Frege/frege/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(/href=.*?frege[._-]?(\d+(?:\.\d+)+)\.jar/i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "8db1da28b4b5b2a376e5fff8577f3547d4e8c28271e528623e3aa7d8c44fa036"
+  end
 
   depends_on "openjdk"
 

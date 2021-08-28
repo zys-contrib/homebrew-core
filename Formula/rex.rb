@@ -5,20 +5,12 @@ class Rex < Formula
   sha256 "73269e5ddad0b88f1cf269173a9eff2f2addff230c303112fda5f43e269c49c5"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "de0ca43e439023982668c5563f41340a82d3ae8c45159b457749c1ab0f15d3c5" => :catalina
-    sha256 "24da3a602c3b434d0069244f546ed33f14e8bd3bbee1f7a99b91ca97a48b0c37" => :mojave
-    sha256 "dc0b2bb90327f2fc716eb95655366fd7a3ac36d7880f25a69777c9976260d508" => :high_sierra
+    sha256 cellar: :any_skip_relocation, catalina:    "de0ca43e439023982668c5563f41340a82d3ae8c45159b457749c1ab0f15d3c5"
+    sha256 cellar: :any_skip_relocation, mojave:      "24da3a602c3b434d0069244f546ed33f14e8bd3bbee1f7a99b91ca97a48b0c37"
+    sha256 cellar: :any_skip_relocation, high_sierra: "dc0b2bb90327f2fc716eb95655366fd7a3ac36d7880f25a69777c9976260d508"
   end
 
   uses_from_macos "perl"
-
-  on_macos do
-    resource "LWP::UserAgent" do
-      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.43.tar.gz"
-      sha256 "e9849d7ee6fd0e89cc999e63d7612c951afd6aeea6bc721b767870d9df4ac40d"
-    end
-  end
 
   resource "Module::Build" do
     # AWS::Signature4 requires Module::Build v0.4205 and above, while standard
@@ -115,6 +107,11 @@ class Rex < Formula
   resource "JSON::MaybeXS" do
     url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/JSON-MaybeXS-1.004000.tar.gz"
     sha256 "59bda02e8f4474c73913723c608b539e2452e16c54ed7f0150c01aad06e0a126"
+  end
+
+  resource "LWP::UserAgent" do
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.43.tar.gz"
+    sha256 "e9849d7ee6fd0e89cc999e63d7612c951afd6aeea6bc721b767870d9df4ac40d"
   end
 
   resource "LWP::MediaTypes" do
@@ -235,8 +232,13 @@ class Rex < Formula
       system "./Build", "PERL5LIB=#{ENV["PERL5LIB"]}"
       system "./Build", "install"
     elsif File.exist? "Makefile.PL"
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}",
-                     "INC=-I#{MacOS.sdk_path}/System/Library/Perl/5.18/darwin-thread-multi-2level/CORE"
+      on_macos do
+        path = "#{MacOS.sdk_path}/System/Library/Perl/#{MacOS.preferred_perl_version}/darwin-thread-multi-2level/CORE"
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "INC=-I#{path}"
+      end
+      on_linux do
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+      end
       system "make", "PERL5LIB=#{ENV["PERL5LIB"]}"
       system "make", "install"
     else

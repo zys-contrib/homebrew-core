@@ -1,22 +1,22 @@
 class Wapm < Formula
   desc "WebAssembly Package Manager (CLI)"
   homepage "https://wapm.io/"
-  url "https://github.com/wasmerio/wapm-cli/archive/v0.5.0.tar.gz"
-  sha256 "7731d476585105fbb0ac5766661b4b68f1680b7071635654042bdaeef3b66987"
+  url "https://github.com/wasmerio/wapm-cli/archive/v0.5.1.tar.gz"
+  sha256 "e01dcf040cfa32cfcd1ad7aa18a0cb40a7b8040fb34a58de8ebce2c47ad154a5"
   license "MIT"
-  head "https://github.com/wasmerio/wapm-cli.git"
+  head "https://github.com/wasmerio/wapm-cli.git", branch: "master"
 
   livecheck do
-    url "https://github.com/wasmerio/wapm-cli/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0486738558d41ea02a4798cf54538942d1fd4f292ff230cd522f51d27b91e376" => :big_sur
-    sha256 "4f1c18ce08a6f4a483a50888ad9769898a203bd826b992f877010f38a80ca710" => :catalina
-    sha256 "db34bd4d679207ae7d903a4beada8e30e3568f16c55fd610a196931c440716ef" => :mojave
-    sha256 "70e4c8f038838547a2e70116567c1042f2f4cec53542e0750d4d061f80dc7b23" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a669b38d7f9d849aea1a16ec1b2b93a3d10cb8d7d64b98e2e89ee774bab23acc"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ef83086768af8348415cc720b3b4241d20cc7b1c00946d6b4f09ecb4c8242e19"
+    sha256 cellar: :any_skip_relocation, catalina:      "b9cecfbe7298d07700898408a94862c6caf0aa69e18322e404df87d0172001d5"
+    sha256 cellar: :any_skip_relocation, mojave:        "15070099aa602582bcc3d701a1a6626f9f17bfce559ffab53c4a62eebcc2f170"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "005d9339f8a52dae6524b6b94fbef2a0d5032dca3bd6cd85d8963c0ed7943d75"
   end
 
   depends_on "rust" => :build
@@ -32,7 +32,7 @@ class Wapm < Formula
     Dir.mkdir ENV["WASMER_DIR"]
     Dir.mkdir ENV["WASMER_CACHE_DIR"]
 
-    system "#{bin}/wapm", "install", "cowsay"
+    system bin/"wapm", "install", "cowsay"
 
     expected_output = <<~'EOF'
        _____________

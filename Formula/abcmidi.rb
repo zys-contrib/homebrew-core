@@ -1,8 +1,8 @@
 class Abcmidi < Formula
   desc "Converts abc music notation files to MIDI files"
   homepage "https://ifdo.ca/~seymour/runabc/top.html"
-  url "https://ifdo.ca/~seymour/runabc/abcMIDI-2020.11.07.zip"
-  sha256 "60dacfc3debc54587048fe3a91c05c33d514532e20445a78f01663768311eb2a"
+  url "https://ifdo.ca/~seymour/runabc/abcMIDI-2021.06.27.zip"
+  sha256 "08ecbdda0ab81551f4d319e2db71f81f566b21adba252d8793c70a137bc0dd38"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,19 +11,14 @@ class Abcmidi < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "61f25dced3545688bf5c9e9e47b2b0be3bf2f6e6c808cab9df2c02352b8de023" => :big_sur
-    sha256 "95a8b89c8bfb987fcade3a4f5ab86040921bb72cc21cb63ea76a092d726aa82b" => :catalina
-    sha256 "3815dd9eb4ff1de2fc2c183855e0a7eb143edb10cf915a37eea88d73ae3b4b22" => :mojave
-    sha256 "83258be364124a742a60c70f0a19a5c9fd3a8a1e77d53415eb51eb8d419cda4d" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "309575c221d6195a13aa77b95235fc6e11cad5153ebc74b8baed5e9252c92deb"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7240f1f7c440845ed966a4cc4f0f163af65627591411efd6753f82cd6e3f39f0"
+    sha256 cellar: :any_skip_relocation, catalina:      "3d3b7913725363d966cc6d115a7601352110281f78c2efd30c396a4d3edf3516"
+    sha256 cellar: :any_skip_relocation, mojave:        "d79407deb993baa511a74a8b63985ca9d5467a3d236f6b408acf38f8f05e2c4e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b31103ca8b0030546ccb3a5be517a4d13009c58d363b4751bf8a70662fc1ba90"
   end
 
   def install
-    # configure creates a "Makefile" file. A "makefile" file already exist in
-    # the tarball. On case-sensitive file-systems, the "makefile" file won't
-    # be overridden and will be chosen over the "Makefile" file.
-    rm "makefile"
-
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"

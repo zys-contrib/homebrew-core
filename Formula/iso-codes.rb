@@ -1,18 +1,13 @@
 class IsoCodes < Formula
   desc "Provides lists of various ISO standards"
   homepage "https://salsa.debian.org/iso-codes-team/iso-codes"
-  url "https://deb.debian.org/debian/pool/main/i/iso-codes/iso-codes_4.5.0.orig.tar.xz"
-  sha256 "2a63118f8c91faa2102e6381ae498e7fa83b2bdf667963e0f7dbae2a23b827dd"
-  license "LGPL-2.1"
+  url "https://deb.debian.org/debian/pool/main/i/iso-codes/iso-codes_4.7.0.orig.tar.xz"
+  sha256 "bdfd06cdd77d73d491dcd57d6c946cb95a939f19f7ffc6a31f2f93923412219b"
+  license "LGPL-2.1-or-later"
   head "https://salsa.debian.org/iso-codes-team/iso-codes.git"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "118b191fb44a9620d8c0c354f8ac922792d3e75d54bc39ca1510be016c3a2d92" => :big_sur
-    sha256 "7188c8c30f91805fb9a57fdb2724372e3c322df32cf429b9aa83947a1fda06be" => :catalina
-    sha256 "976ba22be91927b7b3ef72c657b642b3b2c29c78d9c8ae2ce427ffd10fdca830" => :mojave
-    sha256 "eae28b543407ce32653a9c6611f89c6d7fafee8adbd84e76f4785ec962d5bcd0" => :high_sierra
+    sha256 cellar: :any_skip_relocation, all: "e73500953641acc8108dac1d15b3929b48c50f91140387af201a126581cbd05d"
   end
 
   depends_on "gettext" => :build

@@ -1,16 +1,16 @@
 class Gitleaks < Formula
   desc "Audit git repos for secrets"
   homepage "https://github.com/zricethezav/gitleaks"
-  url "https://github.com/zricethezav/gitleaks/archive/v6.2.0.tar.gz"
-  sha256 "7f2d96baba62325e208d11ff34f4bcf349be702f76dbf23faabb6e880e7f9665"
+  url "https://github.com/zricethezav/gitleaks/archive/v7.5.0.tar.gz"
+  sha256 "9b06dbec9d1bc220630bb85298158d8a54d4be6f068472a0b3a0cc7a89cdfec7"
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cb6ab29d2d9beebc5fc37326d389d6078052b4f490960a50e2f3e602a881511a" => :big_sur
-    sha256 "038438f9856f5c9e24d5cf22ce5530344d83497bf77436bdb1e8127bdeef138e" => :catalina
-    sha256 "4b518371d187541f5fd08e9e9a7749c6e3058b42e1b9f6cd30701741ef5ea531" => :mojave
-    sha256 "f7611a12cda9e3fee060612b7818bfe1bf07ce757dadb1f26770607c3e0d5c44" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6bbdb1d03b712b5646cd6a642df17395cbfa6d3ede59e773fca847eb331a9429"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e2b4b0a51b2570e73336ab89d51f40f962a801a663795e73feeb19e90ed54e56"
+    sha256 cellar: :any_skip_relocation, catalina:      "22f51a910f778865734a9a4068d9cda3f53beb23cf319cec5fa1c43e1e1f5ed5"
+    sha256 cellar: :any_skip_relocation, mojave:        "b1686d4627cf6a2ca03a00b92584a5289120ddc20a8be31c72e4a8c548e7a432"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54751f444c9e1cfca69bcae7fa0e6958c9636fe261cee151f00a68fa26f219fd"
   end
 
   depends_on "go" => :build
@@ -21,8 +21,10 @@ class Gitleaks < Formula
   end
 
   test do
-    assert_match "remote repository is empty",
-      shell_output("#{bin}/gitleaks -r https://github.com/gitleakstest/emptyrepo.git", 2)
+    output = shell_output("#{bin}/gitleaks -r https://github.com/gitleakstest/emptyrepo.git 2>&1", 1)
+    assert_match "level=info msg=\"cloning... https://github.com/gitleakstest/emptyrepo.git\"", output
+    assert_match "level=error msg=\"remote repository is empty\"", output
+
     assert_equal version, shell_output("#{bin}/gitleaks --version")
   end
 end

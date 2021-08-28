@@ -2,55 +2,37 @@ class Filebeat < Formula
   desc "File harvester to ship log files to Elasticsearch or Logstash"
   homepage "https://www.elastic.co/products/beats/filebeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v7.10.0",
-      revision: "1428d58cf2ed945441fb2ed03961cafa9e4ad3eb"
+      tag:      "v7.14.0",
+      revision: "e127fc31fc6c00fdf8649808f9421d8f8c28b5db"
   # Outside of the "x-pack" folder, source code in a given file is licensed
   # under the Apache License Version 2.0
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b2b6f2e33c75bd740432dfebca186eca0df7c5fdde11e3b5920f40a0173cd7dd" => :big_sur
-    sha256 "2871a49ac7b332ee5283f2f3931c53cf32099b70b5700e6685d1be16923e4def" => :catalina
-    sha256 "ce32aac3c948bccef455d8fcbb4765ea048bbb9f434ea8fa979cf2ececcf087f" => :mojave
-    sha256 "1c0f1e69fc8930682202253d1fdef9f68d0d5fcf1fa9085710747a86f1e6fa46" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "deb0f2d123f04eaf0cd95320429b3930b1044618bfe566a01726b824b27ca9fe"
+    sha256 cellar: :any_skip_relocation, big_sur:       "90f6672cc9b121e579e473093ee3ce5730069bb48d2472abdccfa633f3712d06"
+    sha256 cellar: :any_skip_relocation, catalina:      "98b6c436ab4a98e878e5b3d0ceaa204da555706a55b66f1b7f17e02bc42bb74b"
+    sha256 cellar: :any_skip_relocation, mojave:        "8c7936c8faa7516a6fa7e892319583e7ced2a0f8e6f5aab5b54867a47847cccd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0a5230f2a947ea849432b7ccab568c2e6cba590e69c9f5fb4d8680d5a6c6680"
   end
 
   depends_on "go" => :build
-  depends_on "python@3.8" => :build
+  depends_on "mage" => :build
+  depends_on "python@3.9" => :build
 
   uses_from_macos "rsync" => :build
-
-  resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/b1/72/2d70c5a1de409ceb3a27ff2ec007ecdd5cc52239e7c74990e32af57affe9/virtualenv-15.2.0.tar.gz"
-    sha256 "1d7e241b431e7afce47e77f8843a276f652699d1fa4f93b9d8ce0076fd7b0b54"
-  end
 
   def install
     # remove non open source files
     rm_rf "x-pack"
 
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/elastic/beats").install Dir["{*,.git,.gitignore}"]
-
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python#{xy}/site-packages"
-
-    resource("virtualenv").stage do
-      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(buildpath/"vendor")
-    end
-
-    ENV.prepend_path "PATH", buildpath/"vendor/bin" # for virtualenv
-    ENV.prepend_path "PATH", buildpath/"bin" # for mage (build tool)
-
-    cd "src/github.com/elastic/beats/filebeat" do
+    cd "filebeat" do
       # don't build docs because it would fail creating the combined OSS/x-pack
       # docs and we aren't installing them anyway
       inreplace "magefile.go", "mg.SerialDeps(Fields, Dashboards, Config, includeList, fieldDocs,",
                                "mg.SerialDeps(Fields, Dashboards, Config, includeList,"
 
-      system "make", "mage"
       # prevent downloading binary wheels during python setup
       system "make", "PIP_INSTALL_PARAMS=--no-binary :all", "python-env"
       system "mage", "-v", "build"
@@ -61,8 +43,6 @@ class Filebeat < Formula
       (libexec/"bin").install "filebeat"
       prefix.install "build/kibana"
     end
-
-    prefix.install_metafiles buildpath/"src/github.com/elastic/beats"
 
     (bin/"filebeat").write <<~EOS
       #!/bin/sh
@@ -75,24 +55,8 @@ class Filebeat < Formula
     EOS
   end
 
-  plist_options manual: "filebeat"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
-      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>Program</key>
-          <string>#{opt_bin}/filebeat</string>
-          <key>RunAtLoad</key>
-          <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run opt_bin/"filebeat"
   end
 
   test do

@@ -1,19 +1,14 @@
 class Libtensorflow < Formula
-  include Language::Python::Virtualenv
-
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/v2.3.1.tar.gz"
-  sha256 "ee534dd31a811f7a759453567257d1e643f216d8d55a25c32d2fbfff8153a1ac"
+  url "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.6.0.tar.gz"
+  sha256 "41b32eeaddcbc02b0583660bcf508469550e4cd0f86b22d2abe72dfebeacde0f"
   license "Apache-2.0"
-  revision 2
 
   bottle do
-    cellar :any
-    sha256 "c48e0b193c0094c2235d480177b74d9c7719c90da5ddb99f4a048504022f43f4" => :big_sur
-    sha256 "0d95170da7f97c7744ad544c0ebd7a2c69db7b463c6dca5f9c082976452e96f6" => :catalina
-    sha256 "2fa9f87fe4706c9c3a020b16ec26ea9dbec18ace6d5d98c29bd341ec13d67878" => :mojave
-    sha256 "2e405f287eb13ef4c6837ee66cf48afdda2d86849c8785c14c4ed399e56cd400" => :high_sierra
+    sha256 cellar: :any, big_sur:  "69baf5524268e1d3d6ce4af15781d732ff3da465c779f1a90f1145560e365f90"
+    sha256 cellar: :any, catalina: "200274bd3af3bb4093f0a90f32e8561abd9b8328a3a04de0648ff66f2d028e68"
+    sha256 cellar: :any, mojave:   "73cde8bd727caae50b85fe9efe466a24d59453d231f234cba0103200d4d76707"
   end
 
   depends_on "bazel" => :build
@@ -67,7 +62,7 @@ class Libtensorflow < Formula
     system "bazel", "build", *bazel_args, *targets
 
     lib.install Dir["bazel-bin/tensorflow/*.so*", "bazel-bin/tensorflow/*.dylib*"]
-    (include/"tensorflow/c").install Dir["bazel-bin/tensorflow/include/tensorflow/c/*"]
+    include.install "bazel-bin/tensorflow/include/tensorflow"
     bin.install %w[
       bazel-bin/tensorflow/tools/benchmark/benchmark_model
       bazel-bin/tensorflow/tools/graph_transforms/summarize_graph
@@ -98,7 +93,7 @@ class Libtensorflow < Formula
 
     summarize_graph_output = shell_output("#{bin}/summarize_graph --in_graph=#{testpath}/graph.pb 2>&1")
     variables_match = /Found \d+ variables:.+$/.match(summarize_graph_output)
-    assert_not_nil variables_match, "Unexpected stdout from summarize_graph for graph.pb (no found variables)"
+    refute_nil variables_match, "Unexpected stdout from summarize_graph for graph.pb (no found variables)"
     variables_names = variables_match[0].scan(/name=([^,]+)/).flatten.sort
 
     transform_command = %W[
@@ -116,16 +111,16 @@ class Libtensorflow < Formula
 
     new_summarize_graph_output = shell_output("#{bin}/summarize_graph --in_graph=#{testpath}/graph-new.pb 2>&1")
     new_variables_match = /Found \d+ variables:.+$/.match(new_summarize_graph_output)
-    assert_not_nil new_variables_match, "Unexpected summarize_graph output for graph-new.pb (no found variables)"
+    refute_nil new_variables_match, "Unexpected summarize_graph output for graph-new.pb (no found variables)"
     new_variables_names = new_variables_match[0].scan(/name=([^,]+)/).flatten.sort
 
-    assert_not_equal variables_names, new_variables_names, "transform_graph didn't obfuscate variable names"
+    refute_equal variables_names, new_variables_names, "transform_graph didn't obfuscate variable names"
 
     benchmark_model_match = /benchmark_model -- (.+)$/.match(new_summarize_graph_output)
-    assert_not_nil benchmark_model_match,
+    refute_nil benchmark_model_match,
       "Unexpected summarize_graph output for graph-new.pb (no benchmark_model example)"
 
-    benchmark_model_args = benchmark_model_match[1].split(" ")
+    benchmark_model_args = benchmark_model_match[1].split
     benchmark_model_args.delete("--show_flops")
 
     benchmark_model_command = [

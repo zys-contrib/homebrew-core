@@ -1,19 +1,20 @@
 class Lldpd < Formula
   desc "Implementation of IEEE 802.1ab (LLDP)"
-  homepage "https://vincentbernat.github.io/lldpd/"
-  url "https://media.luffy.cx/files/lldpd/lldpd-1.0.7.tar.gz"
-  sha256 "1df79179d489c841b49265f2ab5ff05f284a647e95862d2f3c02b3fb079a87e1"
+  homepage "https://lldpd.github.io/"
+  url "https://media.luffy.cx/files/lldpd/lldpd-1.0.12.tar.gz"
+  sha256 "d194c65b5b9c98d194a2842ddc75ba17ebdee7ebd5499f81a98d24031628daf1"
   license "ISC"
 
   livecheck do
-    url "https://github.com/vincentbernat/lldpd.git"
+    url "https://github.com/lldpd/lldpd.git"
   end
 
   bottle do
-    sha256 "5d984d695c1fd07140da9eb2076e859339ccee48e132a6f76a6272c8be5a116a" => :big_sur
-    sha256 "b4445feaa32fb902e0619923d19c0368be1ec4a1f6ce24d6933e03d5b5e0b21f" => :catalina
-    sha256 "59afd24eb756f886e6c8b8d357bbff4bb1becb22b98fea94986ff287964f8d6f" => :mojave
-    sha256 "944ba7de01a2f0eb90536b7bd711f077c39a1a608b240d466f53eb40b4c17214" => :high_sierra
+    sha256 arm64_big_sur: "8984826e95e004de9684e27686016a83ea79dd330dbfeb986ae1da382dfe9741"
+    sha256 big_sur:       "1875a47b0f6c506e5e1589e61b939d6e6bb8849ba4e3da27f7e50951f12b802a"
+    sha256 catalina:      "f7a97457480a6729c8fbe2360d0d8b3a3f8dbe55cbe05ae9e7ced15e5bd99d26"
+    sha256 mojave:        "7727979d19df29e689f5ffea1921c5e8bcc9cecb86fd4623cd29d3c1d4912910"
+    sha256 x86_64_linux:  "ba438cefa8414d35140c5eaebe36f6fa7abe8bdf3fa77245d48e8ab412f33c93"
   end
 
   depends_on "pkg-config" => :build
@@ -49,23 +50,8 @@ class Lldpd < Formula
   end
 
   plist_options startup: true
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_sbin}/lldpd</string>
-        </array>
-        <key>RunAtLoad</key><true/>
-        <key>KeepAlive</key><true/>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run opt_sbin/"lldpd"
+    keep_alive true
   end
 end

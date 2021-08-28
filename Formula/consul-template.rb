@@ -2,28 +2,27 @@ class ConsulTemplate < Formula
   desc "Generic template rendering and notifications with Consul"
   homepage "https://github.com/hashicorp/consul-template"
   url "https://github.com/hashicorp/consul-template.git",
-      tag:      "v0.25.1",
-      revision: "171d54d1d3e732a7e960988b72ff9c2fddb3cd8f"
+      tag:      "v0.27.0",
+      revision: "d4af0222e8853b1ae1435cadf0b819651a6f149b"
   license "MPL-2.0"
-  head "https://github.com/hashicorp/consul-template.git"
+  head "https://github.com/hashicorp/consul-template.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "978bab61f0209e37b5a14a1af8d9b55a767701cb5cded8107e9c7447e5e0b78d" => :big_sur
-    sha256 "79c0b42239bae3e2771b9cce86d2e816654126aa6c5907be3999eadec34ecd8a" => :catalina
-    sha256 "169f7d647729d546330b8268f5e07eb378fc95e35831fb6f24d508901f607499" => :mojave
-    sha256 "37f32e5b0d9e2ffc20846be7f4e97607e76f5b27b29cf015c941c9c03cc506f4" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "954a0becbeafa3a6e0811ee83b749e9711f41302125713484edc3692e5b32449"
+    sha256 cellar: :any_skip_relocation, big_sur:       "87d005515948c2685d0d1bfddf3be691e23f0ba13dd9d1d23df33e039378dd70"
+    sha256 cellar: :any_skip_relocation, catalina:      "97ab8ab5bd375ad6123c7c5619051c7928644815890fb00ab1d99f8eaa7d7d07"
+    sha256 cellar: :any_skip_relocation, mojave:        "b1a6257d01f844bce985509fa786f4352d28f418caa49908a54b804401145646"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a9dc180cc14a3a33cf9ff92c18f6519714ec62981f44a95a1999cb16bdf651d"
   end
 
   depends_on "go" => :build
 
   def install
     project = "github.com/hashicorp/consul-template"
-    commit = Utils.safe_popen_read("git", "rev-parse", "--short", "HEAD").chomp
     ldflags = %W[
       -s -w
       -X #{project}/version.Name=consul-template
-      -X #{project}/version.GitCommit=#{commit}
+      -X #{project}/version.GitCommit=#{Utils.git_short_head}
     ]
     system "go", "build", "-ldflags", ldflags.join(" "), *std_go_args
     prefix.install_metafiles

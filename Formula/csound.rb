@@ -2,21 +2,21 @@ class Csound < Formula
   desc "Sound and music computing system"
   homepage "https://csound.com"
   url "https://github.com/csound/csound.git",
-    tag:      "6.15.0",
-    revision: "18c2c7897425f462b9a7743cee157cb410c88198"
+      tag:      "6.16.2",
+      revision: "fb5bdb3681e15f56c216b4e4487b45848aa6b9f4"
   license "LGPL-2.1-or-later"
-  revision 3
+  revision 1
   head "https://github.com/csound/csound.git", branch: "develop"
 
   livecheck do
-    url "https://github.com/csound/csound/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    sha256 "fe156a8b5d87b8339fc8a0176c29a2ceaa5b0e41f8abac916585eaf1dc0eca41" => :catalina
-    sha256 "d5c6e5ef29d0d16e33ba5ca97869fca304e73ce223fbcaddf8b423bf7fe39729" => :mojave
-    sha256 "1a3c4ff27f85e70974ff6b66e3d6daab7b2ec7ddd411c31cd36a7a868caaaa82" => :high_sierra
+    sha256 big_sur:  "e64c6a2f06edfae3c8675ce782c0a0db71cd7b4047ee7a450e5c5923603e783a"
+    sha256 catalina: "2bd927839ca82942bcc0957d4196ddfe85baedeb4e7d6cd4b435b877e5ca00a4"
+    sha256 mojave:   "d50de5525fdc9b265a864cde9dd86f03cc9a0e3f2159afffaa01fc349bb3b261"
   end
 
   depends_on "asio" => :build
@@ -33,11 +33,11 @@ class Csound < Formula
   depends_on "libpng"
   depends_on "libsamplerate"
   depends_on "libsndfile"
-  depends_on :macos # Due to Python 2
   depends_on "numpy"
   depends_on "openjdk"
   depends_on "portaudio"
   depends_on "portmidi"
+  depends_on "python@3.9"
   depends_on "stk"
   depends_on "wiiuse"
 
@@ -50,8 +50,13 @@ class Csound < Formula
   conflicts_with "pkcrack", because: "both install `extract` binaries"
 
   resource "ableton-link" do
-    url "https://github.com/Ableton/link/archive/Link-3.0.2.tar.gz"
-    sha256 "2716e916a9dd9445b2a4de1f2325da818b7f097ec7004d453c83b10205167100"
+    url "https://github.com/Ableton/link/archive/Link-3.0.3.tar.gz"
+    sha256 "195b46f7a33bb88800de19bb08065ec0235e5a920d203a4b2c644c18fbcaff11"
+  end
+
+  resource "csound-plugins" do
+    url "https://github.com/csound/plugins.git",
+        revision: "63b784625e66109babd3b669abcb55f5b404f976"
   end
 
   resource "getfem" do
@@ -62,16 +67,12 @@ class Csound < Formula
   def install
     ENV["JAVA_HOME"] = Formula["openjdk"].libexec/"openjdk.jdk/Contents/Home"
 
-    resource("ableton-link").stage { cp_r "include/ableton", buildpath }
     resource("getfem").stage { cp_r "src/gmm", buildpath }
 
     args = std_cmake_args + %W[
-      -DABLETON_LINK_HOME=#{buildpath}/ableton
-      -DBUILD_ABLETON_LINK_OPCODES=ON
       -DBUILD_JAVA_INTERFACE=ON
       -DBUILD_LINEAR_ALGEBRA_OPCODES=ON
       -DBUILD_LUA_INTERFACE=OFF
-      -DBUILD_PYTHON_INTERFACE=OFF
       -DBUILD_WEBSOCKET_OPCODE=OFF
       -DCMAKE_INSTALL_RPATH=#{frameworks}
       -DCS_FRAMEWORK_DEST=#{frameworks}
@@ -92,6 +93,23 @@ class Csound < Formula
     (lib/"python#{python_version}/site-packages/homebrew-csound.pth").write <<~EOS
       import site; site.addsitedir('#{libexec}')
     EOS
+
+    resource("ableton-link").stage buildpath/"ableton-link"
+
+    resource("csound-plugins").stage do
+      mkdir "build" do
+        system "cmake", "..",
+                        "-DABLETON_LINK_HOME=#{buildpath}/ableton-link",
+                        "-DBUILD_ABLETON_LINK_OPCODES=ON",
+                        "-DBUILD_CHUA_OPCODES=OFF",
+                        "-DCSOUNDLIB=CsoundLib64",
+                        "-DCSOUND_INCLUDE_DIR=#{include}/csound",
+                        "-DCS_FRAMEWORK_DEST=#{frameworks}",
+                        "-DUSE_FLTK=OFF",
+                        *std_cmake_args
+        system "make", "install"
+      end
+    end
   end
 
   def caveats
@@ -114,10 +132,8 @@ class Csound < Formula
       gi_programHandle faustcompile "process = _;", "--vectorize --loop-variant 1"
       FLrun
       gi_fluidEngineNumber fluidEngine
-      gi_image imagecreate 1, 1
       gi_realVector la_i_vr_create 1
       pyinit
-      pyruni "print('hello, world')"
       instr 1
           a_, a_, a_ chuap 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
           a_signal STKPlucked 440, 1
@@ -137,9 +153,8 @@ class Csound < Formula
     ENV["SADIR"] = frameworks/"CsoundLib64.framework/Versions/Current/samples"
 
     output = shell_output "#{bin}/csound test.orc test.sco 2>&1"
-    assert_match /^hello, world$/, output
-    assert_match /^rtaudio:/, output
-    assert_match /^rtmidi:/, output
+    assert_match(/^rtaudio:/, output)
+    assert_match(/^rtmidi:/, output)
 
     assert_predicate testpath/"test.aif", :exist?
     assert_predicate testpath/"test.h5", :exist?

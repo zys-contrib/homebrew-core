@@ -1,16 +1,16 @@
 class Gotop < Formula
   desc "Terminal based graphical activity monitor inspired by gtop and vtop"
   homepage "https://github.com/xxxserxxx/gotop"
-  url "https://github.com/xxxserxxx/gotop/archive/v4.0.1.tar.gz"
-  sha256 "38a34543ed828ed8cedd93049d9634c2e578390543d4068c19f0d0c20aaf7ba0"
+  url "https://github.com/xxxserxxx/gotop/archive/v4.1.2.tar.gz"
+  sha256 "81518fecfdab4f4c25a4713e24d9c033ba8311bbd3e2c0435ba76349028356da"
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "398d3e2e32c2d59d08a36086f625c5fe5e3cf94c518e6a5dc1d3a90ea9edc49f" => :big_sur
-    sha256 "5a61acb05457b28a32d342fc75376785873ec8f9fd73209f079550051851ea54" => :catalina
-    sha256 "c758b1001a0de9af2572871c05cd3ec78341e31e2e870a9a147cea493f85baa6" => :mojave
-    sha256 "194a6ee2f9ab9922b23a91d8868ac7802f611f238d56d10c79da4c9263a9afa4" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "47c9145672b69c861a48673a6cbf28e3464151d7fab27b20fe89c9ab6cc9c0a1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "efd1caec91fefb19d4954b99b1041d26637e7078b645a95c46831b62cb4b9883"
+    sha256 cellar: :any_skip_relocation, catalina:      "a7ddc70bd7959a66cef214cc166bd961d988d38be5c4f58a417da8411e0f73ed"
+    sha256 cellar: :any_skip_relocation, mojave:        "93f01869987239375db866d1560f0fa63284532404b481168b9718593dd01b19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75142f7d992b17f2789a29de44b697c63be74b5eb6605f56e65d912c5aadc9da"
   end
 
   depends_on "go" => :build
@@ -25,6 +25,11 @@ class Gotop < Formula
     assert_match version.to_s, shell_output("#{bin}/gotop --version").chomp
 
     system bin/"gotop", "--write-config"
-    assert_predicate testpath/"Library/Application Support/gotop/gotop.conf", :exist?
+    on_macos do
+      assert_predicate testpath/"Library/Application Support/gotop/gotop.conf", :exist?
+    end
+    on_linux do
+      assert_predicate testpath/".config/gotop/gotop.conf", :exist?
+    end
   end
 end

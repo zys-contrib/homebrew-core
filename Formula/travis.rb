@@ -4,13 +4,14 @@ class Travis < Formula
   url "https://github.com/travis-ci/travis.rb/archive/v1.10.0.tar.gz"
   sha256 "b63991faebbd5da0e92bf1547775b69a0dbed01dd57e8b469d23a2a7bd79da43"
   license "MIT"
+  revision 2
 
   bottle do
-    cellar :any
-    sha256 "21ab8e73b2aab1a67e6ad0cf2dfe4e0f2337b1fd743d22b134baf27354c9dd54" => :big_sur
-    sha256 "e6c6d41d24822636377d55de42b627fd901a6864512efbc1dab418dec752911d" => :catalina
-    sha256 "cdc6ac367f2c79ecce4b33d6ad0c3c5c71457db7ff818eb6de67411a2820ce52" => :mojave
-    sha256 "24bebab17d6e415efacc5314f4fc9c94b93b0da4c31b21069187acba83fc6be0" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "8f1ccd0d3968312e30c5451e80704472d9b717275ad09d64c2d475fc92666d3e"
+    sha256 cellar: :any,                 big_sur:       "99dc7883369970404609ba84dae65605c9c53be3deda72591fe19ffc67c06ef7"
+    sha256 cellar: :any,                 catalina:      "cd76462008b4094ecc79d7b715bc8bbe25c16648c2ae4be0a939415fa61b6d02"
+    sha256 cellar: :any,                 mojave:        "23356035200869589c3cf664a6d137477529a27c60bc1ce2a68e6fc6f084693d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c1d5934c77e544e698fe91a52e9739dcd2e3d8b463e8dc0a10c8a2d01f219df"
   end
 
   depends_on "pkg-config" => :build

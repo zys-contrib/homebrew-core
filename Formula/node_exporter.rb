@@ -1,22 +1,23 @@
 class NodeExporter < Formula
   desc "Prometheus exporter for machine metrics"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/node_exporter/archive/v1.0.1.tar.gz"
-  sha256 "a841bf3e236376840be9e1d8e6c4a38196be6f3957b0982d1c7970a5e416b0ad"
+  url "https://github.com/prometheus/node_exporter/archive/v1.2.2.tar.gz"
+  sha256 "3b7b710dad97d9d2b4cb8c3f166ee1c86f629cce59062b09d4fb22459163ec86"
   license "Apache-2.0"
   head "https://github.com/prometheus/node_exporter.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "578debf101f25fd7c0386cfb4fc1f2c2ea7f71f68ea5f88444cd0ef899ad6569" => :big_sur
-    sha256 "7b68d39007278906d3a749370131c4ee7026f410350c48de3f65eeb4bd0c9310" => :catalina
-    sha256 "1ff2d6c27e863565b9b6415ee406d8f2585366c855f7ff9d64577043dec78b7e" => :mojave
-    sha256 "3d902e39d3d2be664928596a6a1af176af4a73194d3714341c6e365be3894d86" => :high_sierra
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "08defe8d74459977bc0bf5b5da1e0c09bada5943fd6bbb78d053deb0f6ad1505"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bbac191f8d01fe6a3cd41a389d02ac800e6b823ddb0a5bb9fc60f4d7e59da41c"
+    sha256 cellar: :any_skip_relocation, catalina:      "71aa1e6052258257c504b3968027c43238e62ab583efaf1937670ba25defce19"
+    sha256 cellar: :any_skip_relocation, mojave:        "d79d282260ddd651b834688c74b5255d74ccd0c67d9c504efe71882503ebd6a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5937f64800a35b0205c36e679d7d7f83042092e8e9cb5ef71fb145b22e4e296c"
   end
 
   depends_on "go" => :build
@@ -46,35 +47,15 @@ class NodeExporter < Formula
     EOS
   end
 
-  plist_options manual: "node_exporter"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-        <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/node_exporter_brew_services</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <false/>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/node_exporter.err.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/node_exporter.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"node_exporter_brew_services"]
+    keep_alive false
+    log_path var/"log/node_exporter.log"
+    error_log_path var/"log/node_exporter.err.log"
   end
 
   test do
-    assert_match /node_exporter/, shell_output("#{bin}/node_exporter --version 2>&1")
+    assert_match "node_exporter", shell_output("#{bin}/node_exporter --version 2>&1")
 
     fork { exec bin/"node_exporter" }
     sleep 2

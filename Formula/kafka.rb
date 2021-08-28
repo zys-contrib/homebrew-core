@@ -1,22 +1,17 @@
 class Kafka < Formula
-  desc "Publish-subscribe messaging rethought as a distributed commit log"
+  desc "Open-source distributed event streaming platform"
   homepage "https://kafka.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=kafka/2.6.0/kafka_2.13-2.6.0.tgz"
-  mirror "https://archive.apache.org/dist/kafka/2.6.0/kafka_2.13-2.6.0.tgz"
-  sha256 "7c789adaa89654d935a5558d0dacff7466e2cfec9620cb8177cec141e7b0fb92"
+  url "https://www.apache.org/dyn/closer.lua?path=kafka/2.8.0/kafka_2.13-2.8.0.tgz"
+  mirror "https://archive.apache.org/dist/kafka/2.8.0/kafka_2.13-2.8.0.tgz"
+  sha256 "3fa380ae5d1385111ee9c83b0d1806172924ffec2e29399fd1a42671a97492c6"
   license "Apache-2.0"
-  revision 1
-
-  livecheck do
-    url :stable
-  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "12f128d0371a9dd24b2ed9909311c4626310ccbf90774d6c559e310f6b03f975" => :big_sur
-    sha256 "83589fb8053e087bb0c667c491f1d688e186864fdb1ae40ea9c4c910c4b8cc02" => :catalina
-    sha256 "8d3b3d4db0bbf7f8e6e9a606099570bfeabfd3ebe5c965203f884b6bfc900c7a" => :mojave
-    sha256 "d6b2a8e37b0c682c49a3b9c6b47c5587b6a9e2f14505de84d56c26f3bd5777a4" => :high_sierra
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, big_sur:      "b3057db03fb73b120e48fb99a2310add57b92427d8f003569a19455fce45c2e8"
+    sha256 cellar: :any_skip_relocation, catalina:     "b3057db03fb73b120e48fb99a2310add57b92427d8f003569a19455fce45c2e8"
+    sha256 cellar: :any_skip_relocation, mojave:       "b3057db03fb73b120e48fb99a2310add57b92427d8f003569a19455fce45c2e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "f1e857fb03756014713ddeb8c240e10cf57cda6cc58e43879a346836d83cad03"
   end
 
   depends_on "openjdk"
@@ -47,34 +42,12 @@ class Kafka < Formula
     (var+"log/kafka").mkpath
   end
 
-  plist_options manual: "zookeeper-server-start #{HOMEBREW_PREFIX}/etc/kafka/zookeeper.properties & kafka-server-start #{HOMEBREW_PREFIX}/etc/kafka/server.properties"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_bin}/kafka-server-start</string>
-              <string>#{etc}/kafka/server.properties</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/kafka/kafka_output.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/kafka/kafka_output.log</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"kafka-server-start", etc/"kafka/server.properties"]
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
+    log_path var/"log/kafka/kafka_output.log"
+    error_log_path var/"log/kafka/kafka_output.log"
   end
 
   test do
@@ -85,6 +58,14 @@ class Kafka < Formula
     cp "#{etc}/kafka/server.properties", testpath/"kafka"
     inreplace "#{testpath}/kafka/zookeeper.properties", "#{var}/lib", testpath
     inreplace "#{testpath}/kafka/server.properties", "#{var}/lib", testpath
+
+    zk_port = free_port
+    kafka_port = free_port
+    inreplace "#{testpath}/kafka/zookeeper.properties", "clientPort=2181", "clientPort=#{zk_port}"
+    inreplace "#{testpath}/kafka/server.properties" do |s|
+      s.gsub! "zookeeper.connect=localhost:2181", "zookeeper.connect=localhost:#{zk_port}"
+      s.gsub! "#listeners=PLAINTEXT://:9092", "listeners=PLAINTEXT://:#{kafka_port}"
+    end
 
     begin
       fork do
@@ -101,20 +82,21 @@ class Kafka < Formula
 
       sleep 30
 
-      system "#{bin}/kafka-topics --zookeeper localhost:2181 --create --if-not-exists --replication-factor 1 " \
-             "--partitions 1 --topic test > #{testpath}/kafka/demo.out 2>/dev/null"
-      pipe_output "#{bin}/kafka-console-producer --broker-list localhost:9092 --topic test 2>/dev/null",
-                  "test message"
-      system "#{bin}/kafka-console-consumer --bootstrap-server localhost:9092 --topic test --from-beginning " \
-             "--max-messages 1 >> #{testpath}/kafka/demo.out 2>/dev/null"
-      system "#{bin}/kafka-topics --zookeeper localhost:2181 --delete --topic test >> #{testpath}/kafka/demo.out " \
+      system "#{bin}/kafka-topics --bootstrap-server localhost:#{kafka_port} --create --if-not-exists " \
+             "--replication-factor 1 --partitions 1 --topic test > #{testpath}/kafka/demo.out " \
              "2>/dev/null"
+      pipe_output "#{bin}/kafka-console-producer --bootstrap-server localhost:#{kafka_port} --topic test 2>/dev/null",
+                  "test message"
+      system "#{bin}/kafka-console-consumer --bootstrap-server localhost:#{kafka_port} --topic test " \
+             "--from-beginning --max-messages 1 >> #{testpath}/kafka/demo.out 2>/dev/null"
+      system "#{bin}/kafka-topics --bootstrap-server localhost:#{kafka_port} --delete --topic test " \
+             ">> #{testpath}/kafka/demo.out 2>/dev/null"
     ensure
       system "#{bin}/kafka-server-stop"
       system "#{bin}/zookeeper-server-stop"
       sleep 10
     end
 
-    assert_match(/test message/, IO.read("#{testpath}/kafka/demo.out"))
+    assert_match(/test message/, File.read("#{testpath}/kafka/demo.out"))
   end
 end

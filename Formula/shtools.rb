@@ -1,18 +1,16 @@
 class Shtools < Formula
   desc "Spherical Harmonic Tools"
   homepage "https://shtools.github.io/SHTOOLS/"
-  url "https://github.com/SHTOOLS/SHTOOLS/archive/v4.7.1.tar.gz"
-  sha256 "6ed2130eed7b741df3b19052b29b3324601403581c7b9afb015e0370e299a2bd"
+  url "https://github.com/SHTOOLS/SHTOOLS/releases/download/v4.9.1/SHTOOLS-4.9.1.tar.gz"
+  sha256 "5c22064f9daf6e9aa08cace182146993aa6b25a6ea593d92572c59f4013d53c2"
   license "BSD-3-Clause"
-  revision 1
-  head "https://github.com/SHTOOLS/homebrew-shtools.git"
+  head "https://github.com/SHTOOLS/SHTOOLS.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5c5163cc734b57d538fc8507a974fbafa7fd52769ff3d51f18f69bef8a399b18" => :big_sur
-    sha256 "02042f2cf73c441cc6f0a98654ededcaccefe1851d7817bdb7dde72d6f7a8af4" => :catalina
-    sha256 "b8f08723ebb0811022c50a8e86cab9a9844427859ddc708660c7d5375825983b" => :mojave
-    sha256 "e96a79e0e15a37acd2758c10c2b3d3bb7a98d5372f8fb856205a1a8b10a4891f" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fc51eae35bb14ae633451c030eadac4f4460e706aa00fb4510c943a15d555baf"
+    sha256 cellar: :any_skip_relocation, big_sur:       "967d6cf5bc8da7bb1f35733425670790ef7241bd21dc31bddbb1b0dd4e0d7c72"
+    sha256 cellar: :any_skip_relocation, catalina:      "143f85cefb75fc760b2cedde24fa2ca51f18503f48cac8391f02f9b2f1dcf3dd"
+    sha256 cellar: :any_skip_relocation, mojave:        "ef58dfe8056ba34bc5aff640a23e374e59bd969949c06262cd16580c9e2ca1c4"
   end
 
   depends_on "fftw"
@@ -22,16 +20,11 @@ class Shtools < Formula
   def install
     system "make", "fortran"
     system "make", "fortran-mp"
-
-    pkgshare.install "examples/fortran/", "examples/ExampleDataFiles/"
-
-    lib.install "lib/libSHTOOLS.a", "lib/libSHTOOLS-mp.a"
-    include.install "include/fftw3.mod", "include/planetsconstants.mod", "include/shtools.mod", "include/ftypes.mod"
-    share.install "man"
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
-    cp_r pkgshare, testpath
+    cp_r "#{share}/examples/shtools", testpath
     system "make", "-C", "shtools/fortran",
                    "run-fortran-tests-no-timing",
                    "F95=gfortran",

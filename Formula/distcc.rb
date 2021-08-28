@@ -1,25 +1,31 @@
 class Distcc < Formula
   desc "Distributed compiler client and server"
   homepage "https://github.com/distcc/distcc/"
-  url "https://github.com/distcc/distcc/releases/download/v3.3.3/distcc-3.3.3.tar.gz"
-  sha256 "bead25471d5a53ecfdf8f065a6fe48901c14d5008956c318c700e56bc87bf0bc"
-  license "GPL-2.0"
-  revision 2
+  url "https://github.com/distcc/distcc/releases/download/v3.4/distcc-3.4.tar.gz"
+  sha256 "2b99edda9dad9dbf283933a02eace6de7423fe5650daa4a728c950e5cd37bd7d"
+  license "GPL-2.0-or-later"
   head "https://github.com/distcc/distcc.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 "3a6363381e34f80e4c589ae8029cac12f60fa317db23c1d1ef4a0419a88b562d" => :catalina
-    sha256 "b1dd27aba40dd04de69f094f07d6a474045d83cc09c7972ab07c6ad77e750109" => :mojave
-    sha256 "feff6f640a0b3154242e6f0a1567cd0a93b523f033fddd1ac5702bc47f0ea805" => :high_sierra
+    sha256 arm64_big_sur: "04069e9b45f06f5a439446418d1f34e6f96cdfa46c88011a2ea262c83a7bc902"
+    sha256 big_sur:       "7ed33d20026cb81aadb27a99de88dc38fde50c0af5aa15ac28476bf8e4d9b472"
+    sha256 catalina:      "82d5031a707c7805a5d5629315db68b9baacca9581361d10445266071e784d66"
+    sha256 mojave:        "fd555e2ee84db99b171684e4a83a6944b95785780501ff85786013058ce4a7db"
+    sha256 x86_64_linux:  "3f229f1afb8e011f440eaf5361b8d7371b3a740373745e4fc26512b000f4fd71"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "libiberty" do
-    url "https://deb.debian.org/debian/pool/main/libi/libiberty/libiberty_20200409.orig.tar.xz"
-    sha256 "1807b6d4c70040d71d5c93abdbcb2c05c9ad4f64ed1802583d1107fcdfc2c722"
+    url "https://ftp.debian.org/debian/pool/main/libi/libiberty/libiberty_20210106.orig.tar.xz"
+    sha256 "9df153d69914c0f5a9145e0abbb248e72feebab6777c712a30f1c3b8c19047d4"
   end
 
   def install
@@ -43,32 +49,10 @@ class Distcc < Formula
     system "make", "install"
   end
 
-  plist_options manual: "distccd"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_prefix}/bin/distccd</string>
-              <string>--daemon</string>
-              <string>--no-detach</string>
-              <string>--allow=192.168.0.1/24</string>
-          </array>
-          <key>WorkingDirectory</key>
-          <string>#{opt_prefix}</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"distcc", "--allow=192.168.0.1/24"]
+    keep_alive true
+    working_dir opt_prefix
   end
 
   test do

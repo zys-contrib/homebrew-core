@@ -6,22 +6,29 @@ class Elm < Formula
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e1bbfe4ff7deba3ed60eb55b81b86b6d3346325bea584802ca1212369f0fa0bb" => :catalina
-    sha256 "288eeb47caccfaa9bae220492cee8de7206d40b7760e1e309a139a2398f9710d" => :mojave
-    sha256 "7fb65ff925701c39bbc7d9a5099cd88f10a56949ae019bc8817035ed1d56edbd" => :high_sierra
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7efd5b1f3446827c5c06502a65c4bf80cabde7ecf11156e206a373d0c568af35"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8054bda935a4760f4cfd799f2bef0bb8fd2b25c10cc2d1fc1c0824625eaf30a3"
+    sha256 cellar: :any_skip_relocation, catalina:      "0df96547e648ed70d25f67cbec301e8b1e9af814da5dba059c0c54cb594d1d0d"
+    sha256 cellar: :any_skip_relocation, mojave:        "a826ba1bd9a92f3a5384a772533bf90c8d87e5f6c4ca8f30a6877c10ee9bab2f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "810bfd7c5a40e9c6f4bae78af527acf2df4fbea11bc1af632526e90429fb68e0"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.6" => :build
+  depends_on "ghc" => :build
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  def install
-    # elm-compiler needs to be staged in a subdirectory for the build process to succeed
-    (buildpath/"elm-compiler").install Dir["*"]
+  patch do
+    # elm's tarball is not a proper cabal tarball, it contains multiple cabal files.
+    # Add `cabal.project` lets cabal-install treat this tarball as cabal project correctly.
+    # https://github.com/elm/compiler/pull/2159
+    url "https://github.com/elm/compiler/commit/eb566e901a419a6620e43c18faf89f57f0827124.patch?full_index=1"
+    sha256 "556ff15fb4d8e5ca6e853280e35389c8875fa31a543204b315b55ec2ac967624"
+  end
 
+  def install
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args
   end

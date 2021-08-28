@@ -3,13 +3,14 @@ class Zbackup < Formula
   homepage "http://zbackup.org"
   url "https://github.com/zbackup/zbackup/archive/1.4.4.tar.gz"
   sha256 "efccccd2a045da91576c591968374379da1dc4ca2e3dec4d3f8f12628fa29a85"
-  revision 16
+  revision 18
 
   bottle do
-    cellar :any
-    sha256 "8463384c48b1fc5d96166d15b2e9a29ac42a0d27cb7c82a4076686b7f94a812f" => :big_sur
-    sha256 "8fd3d32ae8d088580aad9508af9e2a6cf6460b798bbf8a80ee1f9274ad164915" => :catalina
-    sha256 "1601c36693ddea9f1c5426a6f9f772d1e9b09a1a8750b307ac68eb5727525692" => :mojave
+    sha256 cellar: :any,                 arm64_big_sur: "cedb77ca64655bb9ffe5cc97fee5cd7def3b433c6b9a83f06f05aa3894f0bc74"
+    sha256 cellar: :any,                 big_sur:       "a6112a600f2cf830f0e22412aea86bc64eb89d745644c2f4c7c1829bf9dfc35d"
+    sha256 cellar: :any,                 catalina:      "a1ed4faae8a672799571687663350ae6095b532200456b5ac4a2cc88845d1682"
+    sha256 cellar: :any,                 mojave:        "1f49f633a49527ccee4dc95b996f0e7e41b0c1266da874d50e3ea9c450695c0d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32bbbc5a45c4080a4ef11da4e318c13f60ca4f9884a3c145f9e4897c67e82d6a"
   end
 
   depends_on "cmake" => :build

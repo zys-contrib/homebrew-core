@@ -1,10 +1,10 @@
 class MidnightCommander < Formula
   desc "Terminal-based visual file manager"
   homepage "https://www.midnight-commander.org/"
-  url "https://www.midnight-commander.org/downloads/mc-4.8.25.tar.xz"
-  mirror "https://ftp.osuosl.org/pub/midnightcommander/mc-4.8.25.tar.xz"
-  sha256 "ffc19617f20ebb23330acd3998b7fd559a042d172fa55746d53d246697b2548a"
-  license "GPL-3.0"
+  url "https://www.midnight-commander.org/downloads/mc-4.8.27.tar.xz"
+  mirror "https://ftp.osuosl.org/pub/midnightcommander/mc-4.8.27.tar.xz"
+  sha256 "31be59225ffa9920816e9a8b3be0ab225a16d19e4faf46890f25bdffa02a4ff4"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url "https://ftp.osuosl.org/pub/midnightcommander/"
@@ -12,10 +12,11 @@ class MidnightCommander < Formula
   end
 
   bottle do
-    sha256 "1cf10d6382ee603a2b15735029d31b7bea7bb65f29a50dbbc1c61a828d3cf433" => :big_sur
-    sha256 "2c36f252c47b8ecff2fa4afb4191a963af7c3d30a8aeb267a40f967873a01643" => :catalina
-    sha256 "224d6aa6577e51952833ee65888bb99eacb89508dc9ac2f82a0e679b4635d7e3" => :mojave
-    sha256 "79c2208b2097941cf3a792f47ad1f280ddbc3add7bd631084484163b7ba14ae9" => :high_sierra
+    sha256 arm64_big_sur: "3f45e1b92e6f263924e4544f0c935b4d18c1e37fdfcf0b7f7d5be369e05910b9"
+    sha256 big_sur:       "31c1399b014432a36b0dcbb7b3834c50f7c5ac0809a8d1ae7bf8df8afbe838c1"
+    sha256 catalina:      "1b39f54060789701af81163180ae7dab3fffcee18cc07bc6255f3f712504a3a3"
+    sha256 mojave:        "dc2578f9825aa95824489fe52bfde70a130dadcd1c232c4fb07d538f1d9b19d1"
+    sha256 x86_64_linux:  "2c3ec573057f385886b1c20515a8788e3c0b0d9767829dd3a93c74b5973a5cb3"
   end
 
   head do
@@ -51,6 +52,10 @@ class MidnightCommander < Formula
     system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make", "install"
+
+    on_macos do
+      inreplace share/"mc/syntax/Syntax", HOMEBREW_SHIMS_PATH/"mac/super", "/usr/bin"
+    end
   end
 
   test do

@@ -1,10 +1,10 @@
 class Varnish < Formula
   desc "High-performance HTTP accelerator"
   homepage "https://www.varnish-cache.org/"
-  url "https://varnish-cache.org/_downloads/varnish-6.5.1.tgz"
-  sha256 "11964c688f9852237c99c1e327d54dc487549ddb5f0f5aa7996e521333d7cdb5"
+  url "https://varnish-cache.org/_downloads/varnish-6.6.1.tgz"
+  mirror "https://fossies.org/linux/www/varnish-6.6.1.tgz"
+  sha256 "ab1a6884332731f983c8dab675c636deb3883a206c8a0127a7c663af2422e628"
   license "BSD-2-Clause"
-  revision 1
 
   livecheck do
     url "https://varnish-cache.org/releases/"
@@ -12,10 +12,11 @@ class Varnish < Formula
   end
 
   bottle do
-    sha256 "272ffac77b37af6c977de1e0d47e5188f345ada3b74c6694bb5f70d6d84cd77e" => :big_sur
-    sha256 "ccb2255702590d79a54f01da8cf908817e429038b0beaf9aea540b2377f89f2c" => :catalina
-    sha256 "eee4d8ac5ca6f6f5abf86730301f5001806b4696a4576fb039379e53886f466d" => :mojave
-    sha256 "0f9d912916432054e482785fc1bc3b475e8446250dc86638180d537287a00d9e" => :high_sierra
+    rebuild 1
+    sha256 arm64_big_sur: "46491a9c57df2f0c3152076fc632ef50e22186bf7759b690acec8b39a6fdbf19"
+    sha256 big_sur:       "1c90d1916d4e6dc927cd98ab5ab109a256d16c70fb42526d7c89ff93d8f9b57c"
+    sha256 catalina:      "b26e8b5d1432a83ec038b052bc84e6d01bea4e6c76b7271680d11db231de76c3"
+    sha256 mojave:        "4560be9295105df0da5c68109f53a76feb071c7dd3a1ed5bfa2e698241af0ad7"
   end
 
   depends_on "docutils" => :build
@@ -36,44 +37,13 @@ class Varnish < Formula
     (var/"varnish").mkpath
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/sbin/varnishd -n #{HOMEBREW_PREFIX}/var/varnish -f #{HOMEBREW_PREFIX}/etc/varnish/default.vcl -s malloc,1G -T 127.0.0.1:2000 -a 0.0.0.0:8080 -F"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_sbin}/varnishd</string>
-          <string>-n</string>
-          <string>#{var}/varnish</string>
-          <string>-f</string>
-          <string>#{etc}/varnish/default.vcl</string>
-          <string>-s</string>
-          <string>malloc,1G</string>
-          <string>-T</string>
-          <string>127.0.0.1:2000</string>
-          <string>-a</string>
-          <string>0.0.0.0:8080</string>
-          <string>-F</string>
-        </array>
-        <key>KeepAlive</key>
-        <true/>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/varnish/varnish.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/varnish/varnish.log</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_sbin/"varnishd", "-n", var/"varnish", "-f", etc/"varnish/default.vcl", "-s", "malloc,1G", "-T",
+         "127.0.0.1:2000", "-a", "0.0.0.0:8080", "-F"]
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
+    log_path var/"varnish/varnish.log"
+    error_log_path var/"varnish/varnish.log"
   end
 
   test do

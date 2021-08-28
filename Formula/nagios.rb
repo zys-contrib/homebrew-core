@@ -11,11 +11,11 @@ class Nagios < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "0e8c1624e0265e3889c16ce76609b49752ea8e2d3a3b55f5c48cb4e891db402f" => :big_sur
-    sha256 "a9c2c8baae137bfbfa46f67d62f7fb29a0fb4327b7a366cfe44a1502207d62fd" => :catalina
-    sha256 "c074419ad5ee9d3446410e7ff05b8454c840771f5cae1246a9de20e33775d4f0" => :mojave
-    sha256 "162b5d50061d7a2ef4bfa8a9899d7fad3558ccfea80e105c43a66061d1780cd9" => :high_sierra
+    rebuild 2
+    sha256 arm64_big_sur: "1ed969491c110280e2a679170c7848d78b15eb9a06bcef27a3fef551aad06b9c"
+    sha256 big_sur:       "6472fe7ecf390a6e320619c07c646177667b5f9fc1b142385b24fa07c6577d81"
+    sha256 catalina:      "f8e2718a8f2c5bc9041085a9ee8a79f3496330ed1f896cfcc66b84a3de4f08c8"
+    sha256 mojave:        "f74727cd114d3afb3b413391e2f34703b243292232de3e1344db43ab6259c7d8"
   end
 
   depends_on "gd"
@@ -89,7 +89,7 @@ class Nagios < Formula
         sudo chgrp _www #{nagios_var}/rw
         sudo chmod 2775 #{nagios_var}/rw
 
-      Then install the Nagios web frontend into Apple's build-in Apache:
+      Then install the Nagios web frontend into Apple's built-in Apache:
 
         1) Turn on Personal Web Sharing.
 
@@ -114,32 +114,12 @@ class Nagios < Formula
     EOS
   end
 
-  plist_options startup: true, manual: "nagios #{HOMEBREW_PREFIX}/etc/nagios/nagios.cfg"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/nagios</string>
-          <string>#{nagios_etc}/nagios.cfg</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>StandardErrorPath</key>
-        <string>/dev/null</string>
-        <key>StandardOutPath</key>
-        <string>/dev/null</string>
-      </dict>
-      </plist>
-    EOS
+  plist_options startup: true
+  service do
+    run [opt_bin/"nagios", etc/"nagios/nagios.cfg"]
+    keep_alive true
+    log_path "/dev/null"
+    error_log_path "/dev/null"
   end
 
   test do

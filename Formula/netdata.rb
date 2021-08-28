@@ -1,8 +1,8 @@
 class Netdata < Formula
   desc "Diagnose infrastructure problems with metrics, visualizations & alarms"
   homepage "https://netdata.cloud/"
-  url "https://github.com/netdata/netdata/releases/download/v1.26.0/netdata-v1.26.0.tar.gz"
-  sha256 "33af27eb57f954e50059a32bec624815aa742fe03182845b1d9b577f1e20e30a"
+  url "https://github.com/netdata/netdata/releases/download/v1.29.3/netdata-v1.29.3.tar.gz"
+  sha256 "eeba8b18519a9123a3cc8b450dcd042e23a3b145a78a7017a14c47ed36d923df"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,10 +11,12 @@ class Netdata < Formula
   end
 
   bottle do
-    sha256 "781b2daf7c212416145cc15395d8fce21a7453d271c6a64c8e0b83985b00bc51" => :big_sur
-    sha256 "bd2e4c457cb565f03c632527ac62eef558bf54ea770a06bd06a4c53a100d043f" => :catalina
-    sha256 "e2a1165f6dcabb048cc8298213b5ea2b212fb393ab19e24245b6403edb128764" => :mojave
-    sha256 "0e27a3c39108a37709aaaf549b57bbb1d4726f31e2abfdb5f0ba73432bbcc849" => :high_sierra
+    rebuild 1
+    sha256 arm64_big_sur: "96e5940c2b39c8d0cf4c3d6400f388d17c4d8a2f6a7feeca6937ed2270cdcf8b"
+    sha256 big_sur:       "d3bad874d783b3b59407768d7ef796c4a596e89aca6aaa7ea66194c7b809a193"
+    sha256 catalina:      "f4c04a549cdacdfce6549bae882621cf91c08c3aeb974947ed61724fc9feb057"
+    sha256 mojave:        "52acdf9ac5b1986cdc7f02d079a74486db527e32e09036ce2505c38c85c8d125"
+    sha256 x86_64_linux:  "bd46e05291b7d286be7bc9e50ddb4a04dd162135f71708e5e4a8513996af5266"
   end
 
   depends_on "autoconf" => :build
@@ -24,6 +26,12 @@ class Netdata < Formula
   depends_on "libuv"
   depends_on "lz4"
   depends_on "openssl@1.1"
+
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "util-linux"
+  end
 
   resource "judy" do
     url "https://downloads.sourceforge.net/project/judy/judy/Judy-1.0.5/Judy-1.0.5.tar.gz"
@@ -50,18 +58,27 @@ class Netdata < Formula
     ENV.append "LDFLAGS", "-L#{judyprefix}/lib"
 
     system "autoreconf", "-ivf"
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}",
-                          "--localstatedir=#{var}",
-                          "--libexecdir=#{libexec}",
-                          "--with-math",
-                          "--with-zlib",
-                          "--enable-dbengine",
-                          "--with-user=netdata",
-                          "UUID_CFLAGS=-I/usr/include",
-                          "UUID_LIBS=-lc"
+    args = %W[
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+      --sysconfdir=#{etc}
+      --localstatedir=#{var}
+      --libexecdir=#{libexec}
+      --with-math
+      --with-zlib
+      --enable-dbengine
+      --with-user=netdata
+    ]
+    on_macos do
+      args << "UUID_LIBS=-lc"
+      args << "UUID_CFLAGS=-I/usr/include"
+    end
+    on_linux do
+      args << "UUID_LIBS=-luuid"
+      args << "UUID_CFLAGS=-I#{Formula["util-linux"].opt_include}"
+    end
+    system "./configure", *args
     system "make", "clean"
     system "make", "install"
 
@@ -80,28 +97,9 @@ class Netdata < Formula
     (var/"netdata").mkpath
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/sbin/netdata -D"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_sbin}/netdata</string>
-              <string>-D</string>
-          </array>
-          <key>WorkingDirectory</key>
-          <string>#{var}</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_sbin/"netdata", "-D"]
+    working_dir var
   end
 
   test do

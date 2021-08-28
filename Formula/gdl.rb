@@ -5,15 +5,13 @@ class Gdl < Formula
   sha256 "858b30f0cdce4c4cb3e8365a7d54ce57c388beff38ea583be5449bc78dda8d02"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    sha256 "30164281abee8e2047138cddc735d9a9e1ec520f673d468a601b6cfbc988cdd3" => :big_sur
-    sha256 "5acba250d8c77d17be5ff312bf11d6aa33cb609c4c351b2a1cd1bf565e73e81a" => :catalina
-    sha256 "2e2e04543eaf7ee02a791433fbab570d3b5f44651cec8dd56a40a519c2a38d24" => :mojave
-    sha256 "abd9360935baecd914847697e5a21e7b7d91b94c0d5878509921cdb2ba72799c" => :high_sierra
+    sha256                               arm64_big_sur: "ef295dc3cfd05bf245b94552e008acc047e03e2806e93374879e7881b5c94871"
+    sha256                               big_sur:       "30164281abee8e2047138cddc735d9a9e1ec520f673d468a601b6cfbc988cdd3"
+    sha256                               catalina:      "5acba250d8c77d17be5ff312bf11d6aa33cb609c4c351b2a1cd1bf565e73e81a"
+    sha256                               mojave:        "2e2e04543eaf7ee02a791433fbab570d3b5f44651cec8dd56a40a519c2a38d24"
+    sha256                               high_sierra:   "abd9360935baecd914847697e5a21e7b7d91b94c0d5878509921cdb2ba72799c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8c6f276a6341d271f31979ee5f8b88216d08c2b51495187f621be0fe8d151a9"
   end
 
   depends_on "gobject-introspection" => :build
@@ -23,6 +21,12 @@ class Gdl < Formula
   depends_on "libxml2"
 
   def install
+    on_linux do
+      # Needed to find intltool (xml::parser)
+      ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5"
+      ENV["INTLTOOL_PERL"] = Formula["perl"].bin/"perl"
+    end
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
@@ -88,10 +92,12 @@ class Gdl < Formula
       -lglib-2.0
       -lgobject-2.0
       -lgtk-3
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

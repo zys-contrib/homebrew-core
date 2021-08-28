@@ -1,57 +1,66 @@
 class UtilLinux < Formula
   desc "Collection of Linux utilities"
   homepage "https://github.com/karelzak/util-linux"
-  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.36/util-linux-2.36.tar.xz"
-  sha256 "9e4b1c67eb13b9b67feb32ae1dc0d50e08ce9e5d82e1cccd0ee771ad2fa9e0b1"
-  license "GPL-2.0"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/util-linux-2.37.tar.xz"
+  sha256 "bd07b7e98839e0359842110525a3032fdb8eaf3a90bedde3dd1652d32d15cce5"
+  license all_of: [
+    "BSD-3-Clause",
+    "BSD-4-Clause-UC",
+    "GPL-2.0-only",
+    "GPL-2.0-or-later",
+    "GPL-3.0-or-later",
+    "LGPL-2.1-or-later",
+    :public_domain,
+  ]
 
   bottle do
-    cellar :any
-    sha256 "ed9a186cf000a4d1faf05e1918f29e89750d6a465afba72ce13982ca48cdcd5c" => :big_sur
-    sha256 "b2b01c8554fdc4071e16bbe74c2956bdeb748b1a62eef4e6314aad005d7227c7" => :catalina
-    sha256 "55bcb266293b3780e934b4cabf6885247fdd2d40bf7a27715142b263de3256d4" => :mojave
-    sha256 "c464328c920e63e017ef642aefed04ad9d34c755064e9ce41d6362b1d119f74a" => :high_sierra
+    sha256 arm64_big_sur: "922d09f5174a8987fdd7de56103eb6415a561c7490ab149e86bd8959c5832044"
+    sha256 big_sur:       "cfca1e4ceeccb7b27f043b6e63d29cd5a2d64908d995530b37f270d751baa208"
+    sha256 catalina:      "8edf1edb90bab5bfd76c11dacfd8f8e9a212d154284113d56089ac225944f05d"
+    sha256 mojave:        "4d7d5e3771db846dd2f1c6b74c867ad1119983a5fb96ac503d40860cf2fc37f4"
+    sha256 x86_64_linux:  "e06a8924c46aae6e7c62ad4a61dcb1771db5222aaa94582c67d162682e4ddd77"
   end
 
-  keg_only "macOS provides the uuid.h header"
+  keg_only :shadowed_by_macos, "macOS provides the uuid.h header"
+
+  depends_on "asciidoctor" => :build
+  depends_on "gettext"
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  # These binaries are already available in macOS
-  def system_bins
-    %w[
-      cal col colcrt colrm
-      getopt
-      hexdump
-      logger look
-      mesg more
-      nologin
-      renice rev
-      ul
-      whereis
-    ]
-  end
+  conflicts_with "rename", because: "both install `rename` binaries"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--disable-ipcs",  # does not build on macOS
-                          "--disable-ipcrm", # does not build on macOS
-                          "--disable-wall",  # already comes with macOS
-                          "--enable-libuuid" # conflicts with ossp-uuid
+    args = std_configure_args + %w[
+      --disable-silent-rules
+    ]
 
-    system "make", "install"
-
-    # Remove binaries already shipped by macOS
-    system_bins.each do |prog|
-      rm_f bin/prog
-      rm_f sbin/prog
-      rm_f man1/"#{prog}.1"
-      rm_f man8/"#{prog}.8"
-      rm_f share/"bash-completion/completions/#{prog}"
+    on_macos do
+      args << "--disable-hardlink" # does not build on macOS
+      args << "--disable-ipcs" # does not build on macOS
+      args << "--disable-ipcrm" # does not build on macOS
+      args << "--disable-wall" # already comes with macOS
+      args << "--disable-libmount" # does not build on macOS
+      args << "--enable-libuuid" # conflicts with ossp-uuid
     end
+    on_linux do
+      args << "--disable-use-tty-group" # Fix chgrp: changing group of 'wall': Operation not permitted
+      args << "--disable-kill" # Conflicts with coreutils.
+      args << "--disable-cal" # Conflicts with bsdmainutils
+      args << "--without-systemd" # Do not install systemd files
+      args << "--with-bashcompletiondir=#{bash_completion}"
+      args << "--disable-chfn-chsh"
+      args << "--disable-login"
+      args << "--disable-su"
+      args << "--disable-runuser"
+      args << "--disable-makeinstall-chown"
+      args << "--disable-makeinstall-setuid"
+      args << "--without-python"
+    end
+
+    system "./configure", *args
+    system "make", "install"
 
     # install completions only for installed programs
     Pathname.glob("bash-completion/*") do |prog|
@@ -67,7 +76,7 @@ class UtilLinux < Formula
       delpart dmesg
       eject
       fallocate fdformat fincore findmnt fsck fsfreeze fstrim
-      hwclock
+      hardlink hwclock
       ionice ipcrm ipcs
       kill
       last ldattach losetup lsblk lscpu lsipc lslocks lslogins lsmem lsns
@@ -81,12 +90,12 @@ class UtilLinux < Formula
       wall wdctl
       zramctl
     ]
-    <<~EOS
-      The following tools are not supported under macOS, and are therefore not included:
-      #{Formatter.wrap(Formatter.columns(linux_only_bins), 80)}
-      The following tools are already shipped by macOS, and are therefore not included:
-      #{Formatter.wrap(Formatter.columns(system_bins), 80)}
-    EOS
+    on_macos do
+      <<~EOS
+        The following tools are not supported for macOS, and are therefore not included:
+        #{Formatter.columns(linux_only_bins)}
+      EOS
+    end
   end
 
   test do
@@ -99,7 +108,7 @@ class UtilLinux < Formula
       sum.insert 0, ((stat.mode & (2 ** index)).zero? ? "-" : flag)
     end
 
-    out = shell_output("#{bin}/namei -lx /usr").split("\n").last.split(" ")
+    out = shell_output("#{bin}/namei -lx /usr").split("\n").last.split
     assert_equal ["d#{perms}", owner, group, "usr"], out
   end
 end

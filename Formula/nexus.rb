@@ -1,20 +1,23 @@
 class Nexus < Formula
   desc "Repository manager for binary software components"
   homepage "https://www.sonatype.org/"
-  url "https://github.com/sonatype/nexus-public/archive/release-3.28.1-01.tar.gz"
-  sha256 "2b17b3fee3fd81b299bf7d5d818d248a1c82554580aa51210c78f89f2a5b2c37"
+  url "https://github.com/sonatype/nexus-public/archive/release-3.33.1-01.tar.gz"
+  sha256 "56de3e024242823a1f9b42a3f018ef18361bc38dd1b5623855c5c44bd465d557"
   license "EPL-1.0"
 
+  # As of writing, upstream is publishing both v2 and v3 releases. The "latest"
+  # release on GitHub isn't reliable, as it can point to a release from either
+  # one of these major versions depending on which was published most recently.
   livecheck do
-    url "https://github.com/sonatype/nexus-public/releases/latest"
-    regex(%r{href=.*?/tag/release[._-]v?(\d+(?:[.-]\d+)+)["' >]}i)
+    url :stable
+    regex(/^(?:release[._-])?v?(\d+(?:[.-]\d+)+)$/i)
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "de3a5e6934087a0d7a52ddfcd5bf9c2b547ee19812cff2316afaca91f638fb82" => :big_sur
-    sha256 "3eb3a774ba71339596c7a255a03e7dd88a003cf9326d51c6e6f32d99bff0bd8a" => :catalina
-    sha256 "aa2dde0621bc26d80d87a2b325b9ba37b0a9c36dcdd57b66c30a95320be19cae" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:      "86c9622264de9a9df1f70634ae11c7a310f7cd4d025a9c63f686ee08f45980f3"
+    sha256 cellar: :any_skip_relocation, catalina:     "55987d7725b0a838c82ada7e434021d971de24b9a13eeb8a671d745aade3d0a3"
+    sha256 cellar: :any_skip_relocation, mojave:       "6628362c9336def076a73cec32b1096659879dc5675fcb25e792d97fa157e3a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "9501e3f4ad36014f8cb6979685d867dfb5c36849aa006058de44b6774bda9f49"
   end
 
   depends_on "maven" => :build
@@ -47,26 +50,8 @@ class Nexus < Formula
     mkdir "#{etc}/nexus" unless (etc/"nexus").exist?
   end
 
-  plist_options manual: "nexus start"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>com.sonatype.nexus</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/nexus</string>
-            <string>start</string>
-          </array>
-          <key>RunAtLoad</key>
-        <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"nexus", "start"]
   end
 
   test do
@@ -75,7 +60,7 @@ class Nexus < Formula
       ENV["NEXUS_KARAF_DATA"] = testpath/"data"
       exec "#{bin}/nexus", "server"
     end
-    sleep 60
+    sleep 100
     assert_match "<title>Nexus Repository Manager</title>", shell_output("curl --silent --fail http://localhost:8081")
   end
 end

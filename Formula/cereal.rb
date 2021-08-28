@@ -7,11 +7,12 @@ class Cereal < Formula
   head "https://github.com/USCiLab/cereal.git", branch: "develop"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a91e1e24d8bad693211e5854f9270bc54167c261c8b7d5434d5a8983af06a792" => :big_sur
-    sha256 "a8320898b751c2df4777d1fd77f9982a812972b46630fa060b21e412c545a14d" => :catalina
-    sha256 "a8320898b751c2df4777d1fd77f9982a812972b46630fa060b21e412c545a14d" => :mojave
-    sha256 "a8320898b751c2df4777d1fd77f9982a812972b46630fa060b21e412c545a14d" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "62497644813556eff7bc7da0aad2d13e8d21ef98d21ee12b090bcfbcd909e0e8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a91e1e24d8bad693211e5854f9270bc54167c261c8b7d5434d5a8983af06a792"
+    sha256 cellar: :any_skip_relocation, catalina:      "a8320898b751c2df4777d1fd77f9982a812972b46630fa060b21e412c545a14d"
+    sha256 cellar: :any_skip_relocation, mojave:        "a8320898b751c2df4777d1fd77f9982a812972b46630fa060b21e412c545a14d"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "a8320898b751c2df4777d1fd77f9982a812972b46630fa060b21e412c545a14d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b3c9e8d3da8a3b7526a7376ea434c3fe005e08ee14269219659a74539abff3b"
   end
 
   depends_on "cmake" => :build
@@ -71,7 +72,8 @@ class Cereal < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-std=c++11", "-stdlib=libc++", "-lc++", "-o", "test", "test.cpp"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}", "-o", "test"
     system "./test"
+    assert_predicate testpath/"out.cereal", :exist?
   end
 end

@@ -1,24 +1,20 @@
 class NodeAT10 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v10.23.0/node-v10.23.0.tar.xz"
-  sha256 "fd356039d5c223f020db514b64e4619b285e669f8f5f0b6232458d4440c6741f"
+  url "https://nodejs.org/dist/v10.24.1/node-v10.24.1.tar.xz"
+  sha256 "d72fc2c244603b4668da94081dc4d6067d467fdfa026e06a274012f16600480c"
   license "MIT"
-
-  livecheck do
-    url "https://nodejs.org/dist/"
-    regex(%r{href=["']?v?(10(?:\.\d+)+)/?["' >]}i)
-  end
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "b2780736458b36291d8a406447da9e14da2c58b7fd8f596e4fea6e26a1f96428" => :big_sur
-    sha256 "a989ef58b07b8cac0b75bda295995406116ec2a775a5f1e8c88ff1c865f20c3b" => :catalina
-    sha256 "b1154a6516e6041caf3847eb011ec157010d7ec5c4d15b739ac1264205611011" => :mojave
-    sha256 "daba3ab331fb6b4033ff45f96e36d13424a150d779ae2820f55e4f4cff74340b" => :high_sierra
+    sha256 cellar: :any, big_sur:  "84095e53ee88c7acc39a574a64e7832bbb7326be76a4de502ed55fdd47e784c4"
+    sha256 cellar: :any, catalina: "be200f225fd88d1a4a1efba2470b305accbddff927bf7d5287eeb4777fb02b9c"
+    sha256 cellar: :any, mojave:   "cdaf548a304fb2eda428a61c8b25c406e2ada5f9eb7cf5b56174d0753f153598"
   end
 
   keg_only :versioned_formula
+
+  deprecate! date: "2021-04-30", because: :unsupported
 
   depends_on "pkg-config" => :build
   depends_on "icu4c"

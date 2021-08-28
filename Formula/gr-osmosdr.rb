@@ -3,16 +3,24 @@ class GrOsmosdr < Formula
 
   desc "Osmocom GNU Radio Blocks"
   homepage "https://osmocom.org/projects/sdr/wiki/GrOsmoSDR"
-  url "https://github.com/osmocom/gr-osmosdr/archive/v0.2.2.tar.gz"
-  sha256 "5a7ce7afee38a56191b5d16cb4a91c92476729ff16ed09cbba5a3851ac619713"
+  url "https://github.com/osmocom/gr-osmosdr/archive/v0.2.3.tar.gz"
+  sha256 "11b1eb13725ced5ded9121a10aaf7bccf2430c5c69d020791408219968665b71"
   license "GPL-3.0-or-later"
-  revision 2
 
   bottle do
-    sha256 "1589cb2357dd7e8fa1608de624beab565f2e45898e70c1d2e0cd72c6cb46710d" => :big_sur
-    sha256 "0bda1bf94288809bcb2c7168bfd787bab8cae3c6a284b5c7d92baf0d07bd4147" => :catalina
-    sha256 "b0b2c889159663f0c99da4a7037278e0db49133062988e5103e31396d264ab17" => :mojave
+    sha256 big_sur:  "54c41d6a6ad6ff508d1a9fb3fcebf1d245ecd50eded905b9ca51f26fb6f4d01a"
+    sha256 catalina: "781bf31b9c0ef7764dad1509148fadade96b1c8c43042951bf3e0b3ade05ae3e"
+    sha256 mojave:   "1316ec1150647972436f96a9d957b5c5b7889f6f962217b181e6185a939aa2e2"
   end
+
+  head do
+    url "https://github.com/osmocom/gr-osmosdr.git"
+
+    depends_on "pybind11" => :build
+  end
+
+  # gr-osmosdr does not build with gnuradio 3.9+
+  disable! date: "2021-01-17", because: :does_not_build
 
   depends_on "cmake" => :build
   depends_on "swig" => :build

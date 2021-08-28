@@ -1,20 +1,21 @@
 class Eccodes < Formula
   desc "Decode and encode messages in the GRIB 1/2 and BUFR 3/4 formats"
   homepage "https://confluence.ecmwf.int/display/ECC"
-  url "https://software.ecmwf.int/wiki/download/attachments/45757960/eccodes-2.19.1-Source.tar.gz"
-  sha256 "9964bed5058e873d514bd4920951122a95963128b12f55aa199d9afbafdd5d4b"
+  url "https://confluence.ecmwf.int/download/attachments/45757960/eccodes-2.23.0-Source.tar.gz"
+  sha256 "cbdc8532537e9682f1a93ddb03440416b66906a4cc25dec3cbd73940d194bf0c"
   license "Apache-2.0"
 
   livecheck do
-    url "https://software.ecmwf.int/wiki/display/ECC/Releases"
+    url "https://confluence.ecmwf.int/display/ECC/Releases"
     regex(/href=.*?eccodes[._-]v?(\d+(?:\.\d+)+)-Source\.t/i)
   end
 
   bottle do
-    sha256 "ccfc4b45800180876004b8e468b43a7ccec83cc54b52a36aa46987f4a461f98f" => :big_sur
-    sha256 "776e898b7bc2e0ac5702df71ece3e542db8975d9a14cff6481bed1f761a6d535" => :catalina
-    sha256 "1c45326fa7887c878d00997bdfff1837c7b9366d7f1ce7fe226111e7b78ff773" => :mojave
-    sha256 "bcdea4208f061cf2a11d631821758f4e57896397fb8778bdf0ba68d529d8da24" => :high_sierra
+    sha256 arm64_big_sur: "b16288b8e285a187f91ae6b7cec94face9fc1f28bfc888eb8e1bf50aa74a765b"
+    sha256 big_sur:       "b9bda6733d23098c49062f172ab721c2ccc56e37becf133c1e2d88fad17a904a"
+    sha256 catalina:      "0d7e1a89a8631e9683e5303098be30a549f1369b98350d6475020e2708789f71"
+    sha256 mojave:        "ec525f2dc9352dc64c33be76c8e0c6e24913caf6d7ec0302bc3e830305d6f9b9"
+    sha256 x86_64_linux:  "36ade0ba4eb6d09766097abba7d2cd9d76fdf4b2a4233f782deefc265c3a142b"
   end
 
   depends_on "cmake" => :build
@@ -24,22 +25,18 @@ class Eccodes < Formula
   depends_on "netcdf"
 
   def install
-    # Fix for GCC 10, remove with next version
-    # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=957159
-    ENV.prepend "FFLAGS", "-fallow-argument-mismatch"
-
     inreplace "CMakeLists.txt", "find_package( OpenJPEG )", ""
 
     mkdir "build" do
       system "cmake", "..", "-DENABLE_NETCDF=ON", "-DENABLE_PNG=ON",
-                            "-DENABLE_PYTHON=OFF", *std_cmake_args
+                            "-DENABLE_PYTHON=OFF", "-DENABLE_ECCODES_THREADS=ON",
+                             *std_cmake_args
       system "make", "install"
     end
 
     # Avoid references to Homebrew shims directory
-    inreplace include/"eccodes_ecbuild_config.h", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
-    inreplace lib/"pkgconfig/eccodes.pc", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
-    inreplace lib/"pkgconfig/eccodes_f90.pc", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
+    shim_references = [include/"eccodes_ecbuild_config.h", lib/"pkgconfig/eccodes.pc", lib/"pkgconfig/eccodes_f90.pc"]
+    inreplace shim_references, %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/#{ENV.cc}}, ENV.cc
   end
 
   test do

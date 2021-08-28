@@ -1,19 +1,11 @@
 class Go < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://golang.org"
+  url "https://golang.org/dl/go1.17.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.17.src.tar.gz"
+  sha256 "3a70e5055509f347c0fb831ca07a2bf3b531068f349b14a3c652e9b5b67beb5d"
   license "BSD-3-Clause"
-
-  stable do
-    url "https://golang.org/dl/go1.15.5.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.15.5.src.tar.gz"
-    sha256 "c1076b90cf94b73ebed62a81d802cd84d43d02dea8c07abdc922c57a071c84f1"
-
-    go_version = version.major_minor
-    resource "gotools" do
-      url "https://go.googlesource.com/tools.git",
-          branch: "release-branch.go#{go_version}"
-    end
-  end
+  head "https://go.googlesource.com/go.git"
 
   livecheck do
     url "https://golang.org/dl/"
@@ -21,30 +13,31 @@ class Go < Formula
   end
 
   bottle do
-    sha256 "61f04e266ba1f69573ae46766f8988029c5a34f4ae4f1ac0951cf3daf4d919d1" => :big_sur
-    sha256 "77f172eb6849a0f86eed4fa8eaeb9e8c69223b7f154a86505a7507b4ea78de79" => :catalina
-    sha256 "70969a6147bad6960136bdea78063d39b527c993a725ad525a3cf6e9f8ad6fa5" => :mojave
-    sha256 "7d39badbe6096ffd120c3e997ee16fd026d12c4037eb055d26290a39f2689582" => :high_sierra
-  end
-
-  head do
-    url "https://go.googlesource.com/go.git"
-
-    resource "gotools" do
-      url "https://go.googlesource.com/tools.git"
-    end
+    sha256 arm64_big_sur: "9f5a37bfbe05c5a65eae3ec3f98664cfffe1643348877c8d988633614694899f"
+    sha256 big_sur:       "16df4eed5e579c6ea8e75b35cdd4e351297be05911f2c768bb97588df6c816e2"
+    sha256 catalina:      "89479b19d41e72c3cd615f92a2c1f408662b7a07a30253feac846bed7e553d3c"
+    sha256 mojave:        "31a55e8c57f194a5f6d44b9968582a5f4e65ccd3b533d1c323b6d2a7c46828dc"
+    sha256 x86_64_linux:  "34f67172a3c5afa67755508aa36decd2d4055e7c6f9cf481ea7b5fda2ff34578"
   end
 
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
     on_macos do
-      url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
-      sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
+      if Hardware::CPU.arm?
+        url "https://storage.googleapis.com/golang/go1.16.darwin-arm64.tar.gz"
+        version "1.16"
+        sha256 "4dac57c00168d30bbd02d95131d5de9ca88e04f2c5a29a404576f30ae9b54810"
+      else
+        url "https://storage.googleapis.com/golang/go1.16.darwin-amd64.tar.gz"
+        version "1.16"
+        sha256 "6000a9522975d116bf76044967d7e69e04e982e9625330d9a539a8b45395f9a8"
+      end
     end
 
     on_linux do
-      url "https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz"
-      sha256 "702ad90f705365227e902b42d91dd1a40e48ca7f67a2f4b2fd052aaa4295cd95"
+      url "https://storage.googleapis.com/golang/go1.16.linux-amd64.tar.gz"
+      version "1.16"
+      sha256 "013a489ebb3e24ef3d915abe5b94c3286c070dfe0818d5bca8108f1d6e8440d2"
     end
   end
 
@@ -64,15 +57,11 @@ class Go < Formula
 
     system bin/"go", "install", "-race", "std"
 
-    # Build and install godoc
-    ENV.prepend_path "PATH", bin
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/golang.org/x/tools").install resource("gotools")
-    cd "src/golang.org/x/tools/cmd/godoc/" do
-      system "go", "build"
-      (libexec/"bin").install "godoc"
-    end
-    bin.install_symlink libexec/"bin/godoc"
+    # Remove useless files.
+    # Breaks patchelf because folder contains weird debug/test files
+    (libexec/"src/debug/elf/testdata").rmtree
+    # Binaries built for an incompatible architecture
+    (libexec/"src/runtime/pprof/testdata").rmtree
   end
 
   test do
@@ -89,10 +78,6 @@ class Go < Formula
     # This is a a bare minimum of go working as it uses fmt, build, and run.
     system bin/"go", "fmt", "hello.go"
     assert_equal "Hello World\n", shell_output("#{bin}/go run hello.go")
-
-    # godoc was installed
-    assert_predicate libexec/"bin/godoc", :exist?
-    assert_predicate libexec/"bin/godoc", :executable?
 
     ENV["GOOS"] = "freebsd"
     ENV["GOARCH"] = "amd64"

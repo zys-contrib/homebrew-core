@@ -1,11 +1,10 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.12.0.tar.gz"
-  sha256 "5b9253a97812f24419bf2e6b3ad28c69287261cf8c8fa79e3e9f6d3bf7ef5835"
+  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.13.2.tar.gz"
+  sha256 "0a13b547f3b92a026b5ebd0423f54c991e5718037fd9f72445817f6a040e1a83"
   license "BSD-3-Clause"
-  revision 1
-  head "https://github.com/NLnetLabs/unbound.git"
+  head "https://github.com/NLnetLabs/unbound.git", branch: "master"
 
   # We check the GitHub repo tags instead of
   # https://nlnetlabs.nl/downloads/unbound/ since the first-party site has a
@@ -16,9 +15,11 @@ class Unbound < Formula
   end
 
   bottle do
-    sha256 "93024a8982fe47e46d6c7b772d634202504a5c06f5ba07cbff6b06d387f52229" => :big_sur
-    sha256 "a4a23f579f3f75907a3b55c135cf372ef85c90cbb07e227fa5067aec59c9721c" => :catalina
-    sha256 "fc3a5cdbe4ba68fcdddc22f5fddd737c4581bf56fae9e4c5454a585da10b7b0e" => :mojave
+    sha256 arm64_big_sur: "81f5590b866fd09a8910863c2bef3eefa98b7c9cef293a0bc140aa16a9c68b07"
+    sha256 big_sur:       "4e4b82b339beb0a6adc5385e39f7a44165deda8759ed6b80f08b947a3b6db994"
+    sha256 catalina:      "46d5cce43c8e9f99d04c597f925a4c4ee9e84d2d33cc03d3344e9d659fafb292"
+    sha256 mojave:        "0ecc5fa9233d3fb74789f80c553ede84b9d783a9f6f886cf9a29937b6a8b3bf8"
+    sha256 x86_64_linux:  "dc3753893877d41d6929bd2b73ecfefd9ba9099e253b8251f2d360ae53ecebda"
   end
 
   depends_on "libevent"
@@ -39,7 +40,12 @@ class Unbound < Formula
       --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
-    args << "--with-libexpat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
+    on_macos do
+      args << "--with-libexpat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
+    end
+    on_linux do
+      args << "--with-libexpat=#{Formula["expat"].opt_prefix}"
+    end
     system "./configure", *args
 
     inreplace "doc/example.conf", 'username: "unbound"', 'username: "@@HOMEBREW-UNBOUND-USER@@"'

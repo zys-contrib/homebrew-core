@@ -1,69 +1,45 @@
 class Spotifyd < Formula
   desc "Spotify daemon"
   homepage "https://github.com/Spotifyd/spotifyd"
-  url "https://github.com/Spotifyd/spotifyd/archive/v0.2.24.tar.gz"
-  sha256 "d3763f4647217a8f98ee938b50e141d67a5f3d33e9378894fde2a92c9845ef80"
+  url "https://github.com/Spotifyd/spotifyd/archive/v0.3.2.tar.gz"
+  sha256 "d1d5442e6639cde7fbd390a65335489611eec62a1cfcba99a4aba8e8977a9d9c"
   license "GPL-3.0-only"
-  head "https://github.com/Spotifyd/spotifyd.git"
+  head "https://github.com/Spotifyd/spotifyd.git", branch: "master"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "5b5f8cae3d600eb6aee6ac3ac9ccdd036d37308820e2ac11b9b49bcd2ae41983" => :big_sur
-    sha256 "e86e0a3ece83eccdfecfd584b4a6dea2682c857b766945821dfbf792370540de" => :catalina
-    sha256 "d7e0da5e772657ce9cbdb3a6f48aa47cc55a87b563913f957cf35ba678814991" => :mojave
-    sha256 "d745753724407c3b7e1d88743c4abfac7c1c945a9f03608dc7be4d90f1878bd0" => :high_sierra
+    rebuild 2
+    sha256 cellar: :any,                 arm64_big_sur: "fe8f92ca3a00fc2b8dc28a6c6d868c49f0febbe26ad818755045af763102e04f"
+    sha256 cellar: :any,                 big_sur:       "027e2994c8471dcde0b06ceda61c07166fa9083d3a08f4056ba986be37f21db0"
+    sha256 cellar: :any,                 catalina:      "b2a8c0dffe45b557509e6a70a47d9cd96c6222cdd2ab2d44c7366806ba3d7721"
+    sha256 cellar: :any,                 mojave:        "2c047d9f19710edd8795e14351e36aac051c5f9397e262f4199cf9beffe1483b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "804c7e8e5855f5082734c558606c650c6004ea4e9cfc11d342f5d802cca0c1b4"
   end
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "dbus"
+  depends_on "portaudio"
 
   def install
     ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path_if_needed
     system "cargo", "install", "--no-default-features",
-                               "--features=dbus_keyring,rodio_backend",
+                               "--features", "dbus_keyring,portaudio_backend",
                                *std_cargo_args
   end
 
-  def caveats
-    <<~EOS
-      Configure spotifyd using these instructions:
-        https://github.com/Spotifyd/spotifyd#configuration-file
-    EOS
-  end
-
-  plist_options manual: "spotifyd --no-daemon"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>KeepAlive</key>
-          <true/>
-          <key>ThrottleInterval</key>
-          <integer>30</integer>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_bin}/spotifyd</string>
-              <string>--no-daemon</string>
-          </array>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"spotifyd", "--no-daemon", "--backend", "portaudio"]
+    keep_alive true
   end
 
   test do
-    cmd = "#{bin}/spotifyd --username homebrew_fake_user_for_testing --password homebrew --no-daemon --backend rodio"
-    assert_match /Authentication failed/, shell_output(cmd, 101)
+    cmd = "#{bin}/spotifyd --username homebrew_fake_user_for_testing \
+      --password homebrew --no-daemon --backend portaudio"
+    assert_match "Authentication failed", shell_output(cmd, 101)
   end
 end

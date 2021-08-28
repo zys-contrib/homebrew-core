@@ -1,20 +1,17 @@
 class Hbase < Formula
   desc "Hadoop database: a distributed, scalable, big data store"
   homepage "https://hbase.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=hbase/2.3.3/hbase-2.3.3-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/hbase/2.3.3/hbase-2.3.3-bin.tar.gz"
-  sha256 "783fec0f1ca67cef53524a2e05f1744c84821454d1a69355e373acb09efeea06"
+  url "https://www.apache.org/dyn/closer.lua?path=hbase/2.4.5/hbase-2.4.5-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/hbase/2.4.5/hbase-2.4.5-bin.tar.gz"
+  sha256 "7fb61e0ab05ec8b6aaeaa24e2037ea8e5753ce7e9a36c99796f102a263bf7ffa"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    sha256 "d59f469c0fc89b942be566b057e5243cbd19ac6229ec75f93245779474acd1ef" => :big_sur
-    sha256 "f703e3ddce84f7a365e55075d4a488971b7857f2b8c310005d0fa239728a3727" => :catalina
-    sha256 "6f6a789f2bc0a72c81c7ae393438add0506e426365acf81045fea89be5778874" => :mojave
-    sha256 "487a62bec9fa66f7303c4863587cfed140630a4b14510076d771f10f38f31f37" => :high_sierra
+    rebuild 1
+    sha256 arm64_big_sur: "81780e60d8e593165365fd5113d5602a0438482db4983da90c37aabd473e403e"
+    sha256 big_sur:       "b794e8d9c358441726196a905f0ece2136f8a91ee3c9e91f1a1c31e8a5a63aed"
+    sha256 catalina:      "316f0a2cfd4cbfd04e78a7dae813e386651082e9437ef957946b9d1cafd72de7"
+    sha256 mojave:        "ee24a9af687b09c40138cf6b11007616681b19ed5f1279edd2325465285e7d08"
   end
 
   depends_on "ant" => :build
@@ -57,15 +54,15 @@ class Hbase < Formula
       # upstream bugs for ipv6 incompatibility:
       # https://issues.apache.org/jira/browse/HADOOP-8568
       # https://issues.apache.org/jira/browse/HADOOP-3619
-      s.gsub! /^# export HBASE_OPTS$/,
-              "export HBASE_OPTS=\"-Djava.net.preferIPv4Stack=true -XX:+UseConcMarkSweepGC\""
-      s.gsub! /^# export JAVA_HOME=.*/,
-              "export JAVA_HOME=\"${JAVA_HOME:-#{java_home}}\""
+      s.gsub!(/^# export HBASE_OPTS$/,
+              "export HBASE_OPTS=\"-Djava.net.preferIPv4Stack=true -XX:+UseConcMarkSweepGC\"")
+      s.gsub!(/^# export JAVA_HOME=.*/,
+              "export JAVA_HOME=\"${JAVA_HOME:-#{java_home}}\"")
 
       # Default `$HBASE_HOME/logs` is unsuitable as it would cause writes to the
       # formula's prefix. Provide a better default but still allow override.
-      s.gsub! /^# export HBASE_LOG_DIR=.*$/,
-              "export HBASE_LOG_DIR=\"${HBASE_LOG_DIR:-#{var}/log/hbase}\""
+      s.gsub!(/^# export HBASE_LOG_DIR=.*$/,
+              "export HBASE_LOG_DIR=\"${HBASE_LOG_DIR:-#{var}/log/hbase}\"")
     end
 
     # makes hbase usable out of the box
@@ -107,52 +104,24 @@ class Hbase < Formula
     (var/"run/hbase").mkpath
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/opt/hbase/bin/start-hbase.sh"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>EnvironmentVariables</key>
-        <dict>
-         <key>HBASE_MASTER_OPTS</key><string> -XX:PermSize=128m -XX:MaxPermSize=128m</string>
-         <key>HBASE_LOG_DIR</key><string>#{var}/hbase</string>
-         <key>HBASE_HOME</key><string>#{opt_libexec}</string>
-         <key>HBASE_SECURITY_LOGGER</key><string>INFO,RFAS</string>
-         <key>HBASE_PID_DIR</key><string>#{var}/run/hbase</string>
-         <key>HBASE_NICENESS</key><string>0</string>
-         <key>HBASE_IDENT_STRING</key><string>root</string>
-         <key>HBASE_REGIONSERVER_OPTS</key><string> -XX:PermSize=128m -XX:MaxPermSize=128m</string>
-         <key>HBASE_OPTS</key><string>-XX:+UseConcMarkSweepGC</string>
-         <key>HBASE_ROOT_LOGGER</key><string>INFO,RFA</string>
-         <key>HBASE_LOG_PREFIX</key><string>hbase-root-master</string>
-         <key>HBASE_LOGFILE</key><string>hbase-root-master.log</string>
-        </dict>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/hbase</string>
-          <string>--config</string>
-          <string>#{opt_libexec}/conf</string>
-          <string>master</string>
-          <string>start</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/hbase/hbase.log</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/hbase/hbase.err</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"hbase", "--config", opt_libexec/"conf", "master", "start"]
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
+    log_path var/"hbase/hbase.log"
+    error_log_path var/"hbase/hbase.err"
+    environment_variables HBASE_HOME:              opt_libexec,
+                          HBASE_IDENT_STRING:      "root",
+                          HBASE_LOG_DIR:           var/"hbase",
+                          HBASE_LOG_PREFIX:        "hbase-root-master",
+                          HBASE_LOGFILE:           "hbase-root-master.log",
+                          HBASE_MASTER_OPTS:       " -XX:PermSize=128m -XX:MaxPermSize=128m",
+                          HBASE_NICENESS:          "0",
+                          HBASE_OPTS:              "-XX:+UseConcMarkSweepGC",
+                          HBASE_PID_DIR:           var/"run/hbase",
+                          HBASE_REGIONSERVER_OPTS: " -XX:PermSize=128m -XX:MaxPermSize=128m",
+                          HBASE_ROOT_LOGGER:       "INFO,RFA",
+                          HBASE_SECURITY_LOGGER:   "INFO,RFAS"
   end
 
   test do
@@ -161,9 +130,9 @@ class Hbase < Formula
 
     cp_r (libexec/"conf"), testpath
     inreplace (testpath/"conf/hbase-site.xml") do |s|
-      s.gsub! /(hbase.rootdir.*)\n.*/, "\\1\n<value>file://#{testpath}/hbase</value>"
-      s.gsub! /(hbase.zookeeper.property.dataDir.*)\n.*/, "\\1\n<value>#{testpath}/zookeeper</value>"
-      s.gsub! /(hbase.zookeeper.property.clientPort.*)\n.*/, "\\1\n<value>#{port}</value>"
+      s.gsub!(/(hbase.rootdir.*)\n.*/, "\\1\n<value>file://#{testpath}/hbase</value>")
+      s.gsub!(/(hbase.zookeeper.property.dataDir.*)\n.*/, "\\1\n<value>#{testpath}/zookeeper</value>")
+      s.gsub!(/(hbase.zookeeper.property.clientPort.*)\n.*/, "\\1\n<value>#{port}</value>")
     end
 
     ENV["HBASE_LOG_DIR"]  = testpath/"logs"

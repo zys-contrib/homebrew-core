@@ -2,22 +2,40 @@ class Volta < Formula
   desc "JavaScript toolchain manager for reproducible environments"
   homepage "https://volta.sh"
   url "https://github.com/volta-cli/volta.git",
-      tag:      "v0.9.2",
-      revision: "8f9e8689a622fcda7a6b41c5a93c8b0ffe6ad1e4"
+      tag:      "v1.0.4",
+      revision: "e4ab3604097bd48b5d32fa8adf69daa336d66c21"
   license "BSD-2-Clause"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2a6e425ea344015228a4d9ce10792a8b754f1b747a65be2f9bd07ff819b2c924" => :big_sur
-    sha256 "4ad0a1987c96c59b41a89c97b81b11a437176308e44672391a6776c4f5e805ca" => :catalina
-    sha256 "a21224ba822d847eaa199e8d4da8dff0d2dd91e8a514f16092d0ed16aba83ada" => :mojave
-    sha256 "261320ab49c1877a2f7fe0e1d6be111697bf2c52a8e5ee39256fee6875cecbdd" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b48dd9fcdeaf5bd99d19670b90435ecef8b40b0f6e8b406a302f1e7f0d9d804e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b05113b680e109746163c3bf082ca7a2b2a00da1dcebb899416d7822e68d3a67"
+    sha256 cellar: :any_skip_relocation, catalina:      "dc76e1f95915f42a5289f7f368cdd970771f002992200e19160d7ae89651ebd2"
+    sha256 cellar: :any_skip_relocation, mojave:        "4f7ad7853a922751e34e48ac78656beea5fcb51b1c0c65f1d30010f2acbc85dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6716f92c0a3051e3b153a2ce005d7609cf787b57336b3afe1d387e3074e3861"
   end
 
   depends_on "rust" => :build
 
+  uses_from_macos "openssl@1.1"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
+
+    bash_output = Utils.safe_popen_read("#{bin}/volta", "completions", "bash")
+    (bash_completion/"volta").write bash_output
+    zsh_output = Utils.safe_popen_read("#{bin}/volta", "completions", "zsh")
+    (zsh_completion/"_volta").write zsh_output
+    fish_output = Utils.safe_popen_read("#{bin}/volta", "completions", "fish")
+    (fish_completion/"volta.fish").write fish_output
   end
 
   test do

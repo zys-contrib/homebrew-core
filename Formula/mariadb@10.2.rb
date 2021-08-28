@@ -1,8 +1,8 @@
 class MariadbAT102 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.2.36/source/mariadb-10.2.36.tar.gz"
-  sha256 "652997e5f11db8c3953aa01cd583513306a2571294020f3022ac2d7bd6f2d2c0"
+  url "https://downloads.mariadb.org/f/mariadb-10.2.40/source/mariadb-10.2.40.tar.gz"
+  sha256 "2fb5bbdb8c2c7afa01eecf3338001e338350a7efb1267af048e038c1ec658142"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,18 +11,50 @@ class MariadbAT102 < Formula
   end
 
   bottle do
-    sha256 "3d6766c25029eb473e23ee8b5f1087e648d450fb239761eafa045787cd04be42" => :big_sur
-    sha256 "49ee54b5851c2c7319ba3a6b197546c47ddeed4470c090baf4c66a9f4a4a3d0c" => :catalina
-    sha256 "55b500d26c5c41b3c4db7415ac2208c2d76bc839cd43c8e2eb5e016fbf9277f7" => :mojave
-    sha256 "9630fbada4370ee79a97adc06dbd4eacfd492ea3e29d5522f9b4f7ba62db664a" => :high_sierra
+    sha256 big_sur:      "73c9a73db7852d59b07da552d5d775f7e2a2adcbcfb815b42b306ed702080e4c"
+    sha256 catalina:     "c85b70d15bdb6e2aacaa27940a4edf54d044b3d68f9791eb3fce338b39a6315b"
+    sha256 mojave:       "e73586fb778dac70e938b5409914aebf80eda8028d9c4125d71c0da41ba9a9d9"
+    sha256 x86_64_linux: "b0fff6d2d809ca77b671a367250bc4051336c65d43011cf2b3ac5c2ec64ce8d5"
   end
 
   keg_only :versioned_formula
 
+  # See: https://mariadb.com/kb/en/changes-improvements-in-mariadb-102/
+  deprecate! date: "2022-05-01", because: :unsupported
+
+  depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "groonga"
   depends_on "openssl@1.1"
+  depends_on "pcre2"
+
+  uses_from_macos "bzip2"
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
+  on_macos do
+    # Need patch to remove MYSQL_SOURCE_DIR from include path because it contains
+    # file called VERSION
+    # https://github.com/Homebrew/homebrew-core/pull/76887#issuecomment-840851149
+    # Originally reported upstream at https://jira.mariadb.org/browse/MDEV-7209,
+    # but only partially fixed.
+    patch :DATA
+  end
+
+  # This upstream commit was added for MariaDB 10.3+, but not 10.2. If it is not
+  # added in the next release, we should open an upstream PR to do so.
+  on_linux do
+    depends_on "gcc"
+    depends_on "linux-pam"
+  end
+
+  fails_with gcc: "5"
+
+  patch do
+    url "https://github.com/MariaDB/server/commit/9d5967f74bd0c471153c80ced240e586721e0e03.patch?full_index=1"
+    sha256 "f1b359c49dfd79182febe67f202bb13a8eaae66ca8474d197c0d6e56845f25d6"
+  end
 
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
@@ -44,7 +76,6 @@ class MariadbAT102 < Formula
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INFODIR=share/info
       -DINSTALL_MYSQLSHAREDIR=share/mysql
-      -DWITH_PCRE=bundled
       -DWITH_READLINE=yes
       -DWITH_SSL=yes
       -DWITH_UNIT_TESTS=OFF
@@ -54,10 +85,17 @@ class MariadbAT102 < Formula
       -DCOMPILATION_COMMENT=Homebrew
     ]
 
+    on_linux do
+      args << "-DWITH_NUMA=OFF"
+      args << "-DENABLE_DTRACE=NO"
+      args << "-DCONNECT_WITH_JDBC=OFF"
+    end
+
     # disable TokuDB, which is currently not supported on macOS
     args << "-DPLUGIN_TOKUDB=NO"
 
     system "cmake", ".", *std_cmake_args, *args
+
     system "make"
     system "make", "install"
 
@@ -92,7 +130,7 @@ class MariadbAT102 < Formula
       wsrep_sst_xtrabackup
       wsrep_sst_xtrabackup-v2
     ].each do |f|
-      inreplace "#{bin}/#{f}", "$(dirname $0)/wsrep_sst_common",
+      inreplace "#{bin}/#{f}", "$(dirname \"$0\")/wsrep_sst_common",
                                "#{libexec}/wsrep_sst_common"
     end
 
@@ -109,6 +147,10 @@ class MariadbAT102 < Formula
   def post_install
     # Make sure the var/mysql directory exists
     (var/"mysql").mkpath
+
+    # Don't initialize database, it clashes when testing other MySQL-like implementations.
+    return if ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     unless File.exist? "#{var}/mysql/mysql/user.frm"
       ENV["TMPDIR"] = nil
       system "#{bin}/mysql_install_db", "--verbose", "--user=#{ENV["USER"]}",
@@ -155,6 +197,35 @@ class MariadbAT102 < Formula
   end
 
   test do
-    system bin/"mysqld", "--version"
+    (testpath/"mysql").mkpath
+    (testpath/"tmp").mkpath
+    system bin/"mysql_install_db", "--no-defaults", "--user=#{ENV["USER"]}",
+      "--basedir=#{prefix}", "--datadir=#{testpath}/mysql", "--tmpdir=#{testpath}/tmp",
+      "--auth-root-authentication-method=normal"
+    port = free_port
+    fork do
+      system "#{bin}/mysqld", "--no-defaults", "--user=#{ENV["USER"]}",
+        "--datadir=#{testpath}/mysql", "--port=#{port}", "--tmpdir=#{testpath}/tmp"
+    end
+    sleep 5
+    assert_match "information_schema",
+      shell_output("#{bin}/mysql --port=#{port} --user=root --password= --execute='show databases;'")
+    system "#{bin}/mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
   end
 end
+
+__END__
+diff --git a/storage/mroonga/CMakeLists.txt b/storage/mroonga/CMakeLists.txt
+index 555ab248751..cddb6f2f2a6 100644
+--- a/storage/mroonga/CMakeLists.txt
++++ b/storage/mroonga/CMakeLists.txt
+@@ -215,8 +215,7 @@ set(MYSQL_INCLUDE_DIRS
+   "${MYSQL_REGEX_INCLUDE_DIR}"
+   "${MYSQL_RAPIDJSON_INCLUDE_DIR}"
+   "${MYSQL_LIBBINLOGEVENTS_EXPORT_DIR}"
+-  "${MYSQL_LIBBINLOGEVENTS_INCLUDE_DIR}"
+-  "${MYSQL_SOURCE_DIR}")
++  "${MYSQL_LIBBINLOGEVENTS_INCLUDE_DIR}")
+
+ if(MRN_BUNDLED)
+   set(MYSQL_PLUGIN_DIR "${INSTALL_PLUGINDIR}")

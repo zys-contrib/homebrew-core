@@ -1,16 +1,17 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/2.5/src/tarantool-2.5.2.0.tar.gz"
-  sha256 "f64b8ef772d42017bd938770912b4a1727ce6302087efcd5c7faac9e425d9ac4"
+  url "https://download.tarantool.org/tarantool/2.7/src/tarantool-2.7.2.0.tar.gz"
+  sha256 "9dfbd67d7c46404507a13dfeac4169b53aaa4e4237a6b84e4bbe9435a4a30080"
   license "BSD-2-Clause"
-  head "https://github.com/tarantool/tarantool.git", branch: "2.5", shallow: false
+  revision 1
+  version_scheme 1
+  head "https://github.com/tarantool/tarantool.git", branch: "master"
 
   bottle do
-    cellar :any
-    sha256 "10240e8f72bc8c9a2463e22fbc6ea4033b6b775b50419040f6f1491ae91ef0ff" => :catalina
-    sha256 "76d89fbaa6d7a4265051ee2acf5bea261b829041b312335047466f4a8c85723c" => :mojave
-    sha256 "35f468f277d8b6d4889199c05462d675bc37f09794ef11a8b657ab13db648c95" => :high_sierra
+    sha256 big_sur:  "5e98389b6a0239a8aeea044669945e4d80ec14dd8dfe6c58f4d1ebd91a28b366"
+    sha256 catalina: "61934bd99237595810bf56a9546f99f20531afd38ef498ab9a7a82e4dfb45fad"
+    sha256 mojave:   "b4c338aeeeadebd49bafc500f8e866a32b6a8f89fc288b005b5a691dfe285529"
   end
 
   depends_on "cmake" => :build
@@ -22,7 +23,13 @@ class Tarantool < Formula
   uses_from_macos "ncurses"
 
   def install
-    sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+    if MacOS.version >= :big_sur
+      sdk = MacOS.sdk_path_if_needed
+      lib_suffix = "tbd"
+    else
+      sdk = ""
+      lib_suffix = "dylib"
+    end
 
     # Necessary for luajit to build on macOS Mojave (see luajit formula)
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
@@ -41,10 +48,10 @@ class Tarantool < Formula
     args << "-DREADLINE_ROOT=#{Formula["readline"].opt_prefix}"
     args << "-DENABLE_BUNDLED_LIBCURL=OFF"
     args << "-DCURL_INCLUDE_DIR=#{sdk}/usr/include"
-    args << "-DCURL_LIBRARY=/usr/lib/libcurl.dylib"
+    args << "-DCURL_LIBRARY=#{sdk}/usr/lib/libcurl.#{lib_suffix}"
     args << "-DCURSES_NEED_NCURSES=TRUE"
     args << "-DCURSES_NCURSES_INCLUDE_PATH=#{sdk}/usr/include"
-    args << "-DCURSES_NCURSES_LIBRARY=/usr/lib/libncurses.dylib"
+    args << "-DCURSES_NCURSES_LIBRARY=#{sdk}/usr/lib/libncurses.#{lib_suffix}"
     args << "-DICONV_INCLUDE_DIR=#{sdk}/usr/include"
 
     system "cmake", ".", *args

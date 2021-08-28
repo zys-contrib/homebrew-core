@@ -1,9 +1,9 @@
 class Libpst < Formula
   desc "Utilities for the PST file format"
   homepage "https://www.five-ten-sg.com/libpst/"
-  url "https://www.five-ten-sg.com/libpst/packages/libpst-0.6.75.tar.gz"
-  sha256 "4ca98fed8ba208d902c954d82eaf2bf5e071c609df695ec4eb34af110f719987"
-  license "GPL-2.0"
+  url "https://www.five-ten-sg.com/libpst/packages/libpst-0.6.76.tar.gz"
+  sha256 "3d291beebbdb48d2b934608bc06195b641da63d2a8f5e0d386f2e9d6d05a0b42"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://www.five-ten-sg.com/libpst/packages/"
@@ -11,10 +11,11 @@ class Libpst < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "5c106b4d8bab127e674d0d2c8d69b60431b0eda93ef9c6efcd46f3aeb8aabd11" => :catalina
-    sha256 "bdd85c6f92d23eb95c0c0211857e2371dfc2853589b6dbaba4a02fdc28974d36" => :mojave
-    sha256 "77a6520ed29669112fb05cbfcfaccf95ba70522ec2e3f361a176a5570953ae2f" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "d7b9d9f537b1575cbd299b56e2a82f38f661aff617cc8a3a03b44cf8acb1e3c0"
+    sha256 cellar: :any,                 big_sur:       "be3136353a0d0c538070a6c1261b75620abffda9d2cee435daf3debbc5fe2f8e"
+    sha256 cellar: :any,                 catalina:      "d6ec30b4b9ca7d8968c5155b98c2a32dca502910c6c95ac860dc50065de89f65"
+    sha256 cellar: :any,                 mojave:        "9ba873578452d668ac195f1e3b332f692f45ee5db1a6c55e68e57e8d08d3878a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ef7024943254ef22bbf082c8c96ce8d207c30a1b9fe77a8d6f4432d09f924aa"
   end
 
   depends_on "pkg-config" => :build

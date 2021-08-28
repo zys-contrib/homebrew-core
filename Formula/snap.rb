@@ -7,16 +7,17 @@ class Snap < Formula
   license "GPL-3.0-only"
 
   livecheck do
-    url "https://github.com/snapcore/snapd/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5eab0fff68577152411e85ce6b93598ef3619d886edf68dbc6a658d2f4112f85" => :big_sur
-    sha256 "0879922d7e220a6af8e6e14056e3785f105d79a1e5b7c8ed6152fedf891f32bf" => :catalina
-    sha256 "548d0fa5791b84ae340c33ce7ee4c00ae34afeac08c40c2dd7865e39e6aa39b0" => :mojave
-    sha256 "b79ccf4586bcdd234c108527fcc25e8cba2068f11a22e588095a3cdbbd1f4043" => :high_sierra
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "736643f2e11f651d081b6515f04127c3bca06afb4b86734436d45534abead197"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9cb1d7db5a7f7854fecedf029d130977238a0ed9a8a32a4454225712d3542878"
+    sha256 cellar: :any_skip_relocation, catalina:      "f60a56adf86fdc4c86b5d38b47f21c52e0459612c9ed7ae15905a4c838e51787"
+    sha256 cellar: :any_skip_relocation, mojave:        "febbdc8548096fb9d0159c8b7cbaa4281ba8b868625264b254aab3ce4d2b7924"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ed92bc9ab2a0e2fe25f5b71d7d240f617a6e2e91e5bc191bb8fa3f49a9cbf5e"
   end
 
   depends_on "go" => :build
@@ -24,6 +25,7 @@ class Snap < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/snapcore/snapd").install buildpath.children
 
     cd "src/github.com/snapcore/snapd" do

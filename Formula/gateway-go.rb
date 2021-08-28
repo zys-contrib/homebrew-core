@@ -2,53 +2,37 @@ class GatewayGo < Formula
   desc "GateWay Client for OpenIoTHub"
   homepage "https://github.com/OpenIoTHub"
   url "https://github.com/OpenIoTHub/gateway-go.git",
-      tag:      "v0.1.92",
-      revision: "8c635b52b883d01563e715b48fed1231227c178d"
+      tag:      "v0.2.1",
+      revision: "a11b5bb2f7a39846510a82b54b7d7f0cb376c8cc"
   license "MIT"
+  head "https://github.com/OpenIoTHub/gateway-go.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "930cf80740aef58a36aa4de90931f07195128dbaa90f158b0734e0fa6de14658" => :big_sur
-    sha256 "a7f46eb4d8257be3f24c84f971fa6d95582172abda87aeb1e3f6ffb1d85752e6" => :catalina
-    sha256 "083175571da3825c9c159c03a7028b01aa065baca9aeda5f0f6ef9916e2c8f74" => :mojave
-    sha256 "6c6e994988b6f09dc0ff80d51a45b14153834f573746f726c3d00585b1869e8d" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1289511baccbc884e1c79e92e30445a305651485dd2cb1a8b6242ac6b38844ee"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e8fce6b06613433741f6a8c2c5bcb9c89afc5498de24c35c89a7a1b4747c4a84"
+    sha256 cellar: :any_skip_relocation, catalina:      "7b229dc97e840c50f850831492dd54fe20f1bbf76ab124559a0eedbc58f66847"
+    sha256 cellar: :any_skip_relocation, mojave:        "e054ab5529e2bf8dff5537da85d8eb43c550894614e8e59968c235b0b5589b82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81394624d4f5bf2a35f565dfa9342f49badf78495b124d0a6ad14103f581050c"
   end
 
   depends_on "go" => :build
 
   def install
-    (etc/"gateway-go").mkpath
-    system "go", "build", "-mod=vendor", "-ldflags",
-             "-s -w -X main.version=#{version} -X main.commit=#{stable.specs[:revision]} -X main.builtBy=homebrew",
-             *std_go_args
-    etc.install "gateway-go.yaml" => "gateway-go/gateway-go.yaml"
+    ldflags = %W[
+      -s -w
+      -X main.version=#{version}
+      -X main.commit=#{Utils.git_head}
+      -X main.builtBy=homebrew
+    ]
+    system "go", "build", "-mod=vendor", "-ldflags", ldflags.join(" "), *std_go_args
+    (etc/"gateway-go").install "gateway-go.yaml"
   end
 
-  plist_options manual: "gateway-go -c #{HOMEBREW_PREFIX}/etc/gateway-go/gateway-go.yaml"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>KeepAlive</key>
-          <true/>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/gateway-go</string>
-            <string>-c</string>
-            <string>#{etc}/gateway-go/gateway-go.yaml</string>
-          </array>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/gateway-go.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/gateway-go.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"gateway-go", "-c", etc/"gateway-go.yaml"]
+    keep_alive true
+    error_log_path var/"log/gateway-go.log"
+    log_path var/"log/gateway-go.log"
   end
 
   test do

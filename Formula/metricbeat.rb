@@ -2,36 +2,33 @@ class Metricbeat < Formula
   desc "Collect metrics from your systems and services"
   homepage "https://www.elastic.co/beats/metricbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v7.10.0",
-      revision: "1428d58cf2ed945441fb2ed03961cafa9e4ad3eb"
+      tag:      "v7.14.0",
+      revision: "e127fc31fc6c00fdf8649808f9421d8f8c28b5db"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e8b70d41e9f356b77f8499e142bd6d64f9252d6777ea78a2071147687163e719" => :big_sur
-    sha256 "85c21c85871154bf167fd82a130ffa89a1163b1714e94ade2af3b4569ed5f90d" => :catalina
-    sha256 "17bc52c02530e33e4a4fdc4f5b89d7690c95c0d3475e47bfeb557fd4c0ebbc5b" => :mojave
-    sha256 "878565910ac7e3d43a3457482fd39accbd1da6a7afb0dbb6d3f3bb6a99c58126" => :high_sierra
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "58ac37c3a9c06c7cfcafbb97e32a00eb7a303d5a0394d5df3ce97e37c57efa41"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cd39c9314c57875191d8a24e882137bb6cf140a5b9f693148b5b8de529196a84"
+    sha256 cellar: :any_skip_relocation, catalina:      "fa509869c27d2e661f372d2560cf5c352ff8a530d00b3854f15750f07ad07d0d"
+    sha256 cellar: :any_skip_relocation, mojave:        "a8aafc256f5faaec771ed72892a16cb3d8bd290187e7c964ebcb93e23cac361b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5bc292bbe7a486703cf9c385481b029a54628714219154d8c2bbe66bcbe2a189"
   end
 
   depends_on "go" => :build
+  depends_on "mage" => :build
   depends_on "python@3.9" => :build
 
   def install
     # remove non open source files
     rm_rf "x-pack"
 
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/elastic/beats").install buildpath.children
-    ENV.prepend_path "PATH", buildpath/"bin" # for mage (build tool)
-
-    cd "src/github.com/elastic/beats/metricbeat" do
+    cd "metricbeat" do
       # don't build docs because it would fail creating the combined OSS/x-pack
       # docs and we aren't installing them anyway
       inreplace "magefile.go", "mg.Deps(CollectDocs, FieldsDocs)", ""
 
-      system "make", "mage"
       system "mage", "-v", "build"
       ENV.deparallelize
       system "mage", "-v", "update"
@@ -40,8 +37,6 @@ class Metricbeat < Formula
       (libexec/"bin").install "metricbeat"
       prefix.install "build/kibana"
     end
-
-    prefix.install_metafiles buildpath/"src/github.com/elastic/beats"
 
     (bin/"metricbeat").write <<~EOS
       #!/bin/sh
@@ -54,24 +49,8 @@ class Metricbeat < Formula
     EOS
   end
 
-  plist_options manual: "metricbeat"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
-      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>Program</key>
-          <string>#{opt_bin}/metricbeat</string>
-          <key>RunAtLoad</key>
-          <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run opt_bin/"metricbeat"
   end
 
   test do

@@ -1,10 +1,10 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/4.5.0.tar.gz"
-  sha256 "dde4bf8d6639a5d3fe34d5515eab4a15669ded609a1d622350c7ff20dace1907"
+  url "https://github.com/opencv/opencv/archive/4.5.3.tar.gz"
+  sha256 "77f616ae4bea416674d8c373984b20c8bd55e7db887fd38c6df73463a0647bab"
   license "Apache-2.0"
-  revision 5
+  revision 2
 
   livecheck do
     url :stable
@@ -12,9 +12,10 @@ class Opencv < Formula
   end
 
   bottle do
-    sha256 "d509e0e1bf40f9e0ab63e10eb8fed20012465cd4215c3151279615f362611e65" => :big_sur
-    sha256 "53c0e54e14cd884c586c5f75f009e15eb919bb431d70df759349836e5d2fcc07" => :catalina
-    sha256 "26bba5b3741c786ac4a5bc4411e81cd9b24a41ee00bd5bd9b7a15120ab7c1290" => :mojave
+    sha256 arm64_big_sur: "eb90e4fc4608ce7285e0836586f1e1db8ffd1c150fa2accfec4574a8368a5bf5"
+    sha256 big_sur:       "a66bb42ee8e14bc77656b330267ad0bf2c83bd2df0abb0f1ad6da357bcbc94f2"
+    sha256 catalina:      "66bfff6d709f9f0dc0875701a05df2fc2c052f48b67a6c91c106a58ac4be1932"
+    sha256 mojave:        "bdd113015b81013f74206b0be03ab37a6d57af9cf924592c8f61658d63aada63"
   end
 
   depends_on "cmake" => :build
@@ -37,8 +38,8 @@ class Opencv < Formula
   depends_on "webp"
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/4.5.0.tar.gz"
-    sha256 "a65f1f0b98b2c720abbf122c502044d11f427a43212d85d8d2402d7a6339edda"
+    url "https://github.com/opencv/opencv_contrib/archive/4.5.3.tar.gz"
+    sha256 "73da052fd10e73aaba2560eaff10cc5177e2dcc58b27f8aedf7c649e24c233bc"
   end
 
   def install
@@ -88,27 +89,31 @@ class Opencv < Formula
       -DPYTHON3_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
     ]
 
-    # The compiler on older Mac OS cannot build some OpenCV files using AVX2
-    # extensions, failing with errors such as
-    # "error: use of undeclared identifier '_mm256_cvtps_ph'"
-    # Work around this by not trying to build AVX2 code.
-    args << "-DCPU_DISPATCH=SSE4_1,SSE4_2,AVX" if MacOS.version <= :yosemite
-
-    args << "-DENABLE_AVX=OFF" << "-DENABLE_AVX2=OFF"
-    args << "-DENABLE_SSE41=OFF" << "-DENABLE_SSE42=OFF" unless MacOS.version.requires_sse42?
+    if Hardware::CPU.intel?
+      args << "-DENABLE_AVX=OFF" << "-DENABLE_AVX2=OFF"
+      args << "-DENABLE_SSE41=OFF" << "-DENABLE_SSE42=OFF" unless MacOS.version.requires_sse42?
+    end
 
     mkdir "build" do
+      shim_prefix_regex = %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/}o
+
       system "cmake", "..", *args
-      inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
+      inreplace "modules/core/version_string.inc", shim_prefix_regex, ""
+
       system "make"
       system "make", "install"
+
       system "make", "clean"
       system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *args
-      inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
+      inreplace "modules/core/version_string.inc", shim_prefix_regex, ""
+
       system "make"
       lib.install Dir["lib/*.a"]
       lib.install Dir["3rdparty/**/*.a"]
     end
+
+    # Prevent dependents from using fragile Cellar paths
+    inreplace lib/"pkgconfig/opencv#{version.major}.pc", prefix, opt_prefix
   end
 
   test do

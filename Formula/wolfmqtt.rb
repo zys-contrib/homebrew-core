@@ -1,26 +1,22 @@
 class Wolfmqtt < Formula
   desc "Small, fast, portable MQTT client C implementation"
   homepage "https://github.com/wolfSSL/wolfMQTT"
-  url "https://github.com/wolfSSL/wolfMQTT/releases/download/v1.7/wolfmqtt-1.7.0.tar.gz"
-  sha256 "fd9aa74e4c7ad4fec8f2d4c40ce32785b5bb55d7c013c5acc846062583f09a9c"
+  url "https://github.com/wolfSSL/wolfMQTT/releases/download/v1.9/wolfMQTT-1.9.tar.gz"
+  sha256 "7f3668b7e5f025d0bf2b4d32dc26c292e617b04f5e531a66240af086f2062b62"
   license "GPL-2.0-or-later"
+  head "https://github.com/wolfSSL/wolfMQTT.git", branch: "master"
 
   bottle do
-    cellar :any
-    sha256 "e07f57c741c69ef671c74c08a2dc9207235c9f31392a147570f27c17bfe532a9" => :big_sur
-    sha256 "073807b984df8fb86ffde192cb3c0ace7c7f139d81da937e71874fcaa02e820b" => :catalina
-    sha256 "32e32e9f2d87974550fdc18e054f639d0a138e74aace8a2ceb639b992cdd54f1" => :mojave
-    sha256 "3e2a29fd675291511f203d094e235461483a7a0d8135b286c94900dd9e25f963" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "9dbed9dab1a056b8def79ca789b583f8e3b28b4f1b3571b849bd79fe2844c1bc"
+    sha256 cellar: :any,                 big_sur:       "0e500f223cdac295647510e777e4afaf37b51670a23e38e576e6d1244d4feff8"
+    sha256 cellar: :any,                 catalina:      "ee6bbe790e69aba3891af042d7a3f2bde6af8e7b19cce2392258e2ebc1a32dcb"
+    sha256 cellar: :any,                 mojave:        "246f40624e64bf5219a93a174cfd0462317786d2de69db74ba2b348b35e5e03e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c74ea2dc25d01d2be2a2586d0e710415b69b1a58eb74bc4a989b9de9ce7b05c"
   end
 
-  head do
-    url "https://github.com/wolfSSL/wolfMQTT.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "wolfssl"
 
   def install
@@ -38,7 +34,7 @@ class Wolfmqtt < Formula
       --enable-sn
     ]
 
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
     system "./configure", *args
     system "make"
     system "make", "install"

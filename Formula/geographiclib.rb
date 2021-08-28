@@ -1,26 +1,27 @@
 class Geographiclib < Formula
   desc "C++ geography library"
   homepage "https://geographiclib.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/geographiclib/distrib/GeographicLib-1.51.tar.gz"
-  sha256 "34370949617df5105bd6961e0b91581aef758dc455fe8629eb5858516022d310"
+  url "https://downloads.sourceforge.net/project/geographiclib/distrib/GeographicLib-1.52.tar.gz"
+  sha256 "5d4145cd16ebf51a2ff97c9244330a340787d131165cfd150e4b2840c0e8ac2b"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    cellar :any
-    sha256 "e07ad5fe631f3877b528d10857055e2c8c3d25ba0405dddf6c3522cddd9b2364" => :big_sur
-    sha256 "8a525a6c0f80a6081791a40892e64a71f1f9bf819097c78ce4fa94b2f1a4e170" => :catalina
-    sha256 "fb92606cfaa6ec7cf519bed8089886679ade7b98be2609c0c46b783a825bac18" => :mojave
+    sha256 cellar: :any,                 arm64_big_sur: "302202edfb516879e561d78a6cf81a3476aba292f1a6cf23bb272c9a60bc301c"
+    sha256 cellar: :any,                 big_sur:       "13facfd20eec2fe0a6ad291a0090a4e66b38e74830306b69cca5ac54674c0072"
+    sha256 cellar: :any,                 catalina:      "beeca9653f64dc20bdd907fdeae179d53c9b1cf58590b452f5f02f1d70a7905b"
+    sha256 cellar: :any,                 mojave:        "c10d4bb46beafe818efa240b7dd7916e0dc2a9567dcef0a26823e564e1e679b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2338e72cf9eb6bb5a7a382857d89dd32cf29ba46a69d10093dfbbe503d6bbe9"
   end
 
   depends_on "cmake" => :build
 
   def install
     mkdir "build" do
-      system "cmake", "..", "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}", *std_cmake_args
+      args = std_cmake_args
+      on_macos do
+        args << "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}"
+      end
+      system "cmake", "..", *args
       system "make", "install"
     end
   end

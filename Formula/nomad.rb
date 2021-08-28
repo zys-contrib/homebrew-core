@@ -1,61 +1,36 @@
 class Nomad < Formula
   desc "Distributed, Highly Available, Datacenter-Aware Scheduler"
   homepage "https://www.nomadproject.io"
-  url "https://github.com/hashicorp/nomad/archive/v0.12.9.tar.gz"
-  sha256 "22616dcb3e254a14a367bce1090edbebcd1155424b9b5097816f6584f1260e7d"
+  url "https://github.com/hashicorp/nomad/archive/v1.1.4.tar.gz"
+  sha256 "b5064c7453f24f7029707b6a9b1ca3000a4a99264ef06bdea3b3d2c387baaf6a"
   license "MPL-2.0"
-  head "https://github.com/hashicorp/nomad.git"
+  head "https://github.com/hashicorp/nomad.git", branch: "main"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "517ba4b2e17bcbc0d4a2c45bc70ef42a50b4ac67e33ca20c41bcdaca38e1625c" => :big_sur
-    sha256 "883a73f26ca8e1c80d0ef5266a443ca43774fb6355d4da417834b5e9be10bad1" => :catalina
-    sha256 "c76e3b12b64e897018b2348a37799860c33e028a5355ac68685ba9f1f1665ed3" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "24c97212a30225373e2b540b1483c611449ec0a8c3267d19b2d94390beaef331"
+    sha256 cellar: :any_skip_relocation, big_sur:       "dd3706ae0be742f69d7cf9a3800fa2afc0ca5287e83f31edb604e3f43b81f70e"
+    sha256 cellar: :any_skip_relocation, catalina:      "a97f752a4f01e8fc40e85759e4e024f4f08b421ac678f9d3a7f9efa5661aa445"
+    sha256 cellar: :any_skip_relocation, mojave:        "9b06e7280d7d08d5d2598e8652ef3fb7a25082a235b0337ec5ac5dd6322b8f23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e5240a2fa90f74995075d3908ef7bf58e74ff5aea3d8ef0cb89fef07643bcb3"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "-tags", "ui"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "-tags", "ui"
   end
 
-  plist_options manual: "nomad agent -dev"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <dict>
-            <key>SuccessfulExit</key>
-            <false/>
-          </dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/nomad</string>
-            <string>agent</string>
-            <string>-dev</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{var}</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/nomad.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/nomad.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"nomad", "agent", "-dev"]
+    keep_alive true
+    working_dir var
+    log_path var/"log/nomad.log"
+    error_log_path var/"log/nomad.log"
   end
 
   test do

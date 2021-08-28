@@ -1,51 +1,44 @@
 class Fish < Formula
   desc "User-friendly command-line shell for UNIX-like operating systems"
   homepage "https://fishshell.com"
-  url "https://github.com/fish-shell/fish-shell/releases/download/3.1.2/fish-3.1.2.tar.gz"
-  sha256 "d5b927203b5ca95da16f514969e2a91a537b2f75bec9b21a584c4cd1c7aa74ed"
-  license "GPL-2.0"
+  url "https://github.com/fish-shell/fish-shell/releases/download/3.3.1/fish-3.3.1.tar.xz"
+  sha256 "b5b4ee1a5269762cbbe993a4bd6507e675e4100ce9bbe84214a5eeb2b19fae89"
+  license "GPL-2.0-only"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ef7f5a2fd69ba2baed78d02ee162cc8fb85644161dd765d47b570b56db9569cf" => :big_sur
-    sha256 "b158b7f8640feb7c622ff3ca92b1bd88565f274f3e761499f5926bb124eeff7d" => :catalina
-    sha256 "6797636eaba364d0cbbc0459103a8767598e985f01846cca6cb57c986dfee7b8" => :mojave
-    sha256 "2609577a0d9f6b661331adccf5d1d8e010662ffe128869757e0af9a6760e26fb" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "b38561f401a18c3347b34cfee074d812728bc027fc351eaab95a872564f102d9"
+    sha256 cellar: :any,                 big_sur:       "eb6c0068f4a2fce0992048d31f1204ebaad31237a17e2ada18843a54afea162c"
+    sha256 cellar: :any,                 catalina:      "50b1d13f3cf765f6b7933b317e48c76bcd42ce65fb5cbd5eeb1279229d6937a7"
+    sha256 cellar: :any,                 mojave:        "25119dc2f23d89aad5666dcd6ebdf58a1c250c5a86942c187a65b72ab19e287c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13846c25ad06b9327782e430ed9e7e1d7faec4712704a28001b65ba5073df84c"
   end
 
   head do
-    url "https://github.com/fish-shell/fish-shell.git", shallow: false
+    url "https://github.com/fish-shell/fish-shell.git"
 
     depends_on "sphinx-doc" => :build
   end
 
   depends_on "cmake" => :build
+  # Apple ncurses (5.4) is 15+ years old and
+  # has poor support for modern terminals
+  depends_on "ncurses"
   depends_on "pcre2"
 
-  uses_from_macos "ncurses"
-
   def install
-    # Disable code signing in cmake, so we can codesign ourselves in brew
-    # Backport of https://github.com/fish-shell/fish-shell/issues/6952
-    # See https://github.com/fish-shell/fish-shell/issues/7467
-    # Remove in 3.2.0
-    inreplace "CMakeLists.txt", "CODESIGN_ON_MAC(${target})", "" if build.stable?
-
-    # In Homebrew's 'superenv' sed's path will be incompatible, so
-    # the correct path is passed into configure here.
     args = %W[
       -Dextra_functionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_functions.d
       -Dextra_completionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d
       -Dextra_confdir=#{HOMEBREW_PREFIX}/share/fish/vendor_conf.d
-      -DSED=/usr/bin/sed
     ]
-    system "cmake", ".", *std_cmake_args, *args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   def post_install

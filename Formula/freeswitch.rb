@@ -2,13 +2,13 @@ class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
   license "MPL-1.1"
-  revision 2
+  revision 3
   head "https://github.com/signalwire/freeswitch.git"
 
   stable do
     url "https://github.com/signalwire/freeswitch.git",
-      tag:      "v1.10.5",
-      revision: "25569c16311afb3fe04a445830a8ab5c88488a5e"
+        tag:      "v1.10.5",
+        revision: "25569c16311afb3fe04a445830a8ab5c88488a5e"
 
     # Fix find_if_index
     # see https://github.com/signalwire/freeswitch/issues/859 and https://github.com/signalwire/freeswitch/pull/863
@@ -39,15 +39,15 @@ class Freeswitch < Formula
   end
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    sha256 "fcb517b506a3bf57f3c8330ce900b37d82130aa450e183e2020e6cc880aa58cb" => :big_sur
-    sha256 "98b7f70806d0fc0db8b68fb1f4bc60b20c8f5e651e783fca9b603acaec4612b8" => :catalina
-    sha256 "3ce8827fb84989cfeb54faafbd91ef1fe4f0271a85190c7352826fee93022f08" => :mojave
-    sha256 "ffc4904104a0dbba2cd9d10ea4e6485d77f41618b9311950e7f31d0d762e89cc" => :high_sierra
+    sha256 arm64_big_sur: "119079ed092cc07ff5cdedfd8006707720817f4be61a15b450f509a977e027d9"
+    sha256 big_sur:       "19e0a370f2fe60614b445320390d5ebe50394888656504b3f1e880ff25c86ba5"
+    sha256 catalina:      "fa3a8be21c9e496242bdb03328bc00c082482e23fab48dad194b2c4fa73e5936"
+    sha256 mojave:        "a0be2b29eda5a4343b3dc7f244af901ddfa7e6f790da6a49d16ea4ac056c1cc9"
   end
 
   depends_on "autoconf" => :build
@@ -135,22 +135,28 @@ class Freeswitch < Formula
   # There's no tags for now https://github.com/freeswitch/spandsp/issues/13
   resource "spandsp" do
     url "https://github.com/freeswitch/spandsp.git",
-      revision: "6351b1824a7634853bf963c0ec399e783e35d4d1"
+        revision: "6351b1824a7634853bf963c0ec399e783e35d4d1"
   end
 
   resource "libks" do
     url "https://github.com/signalwire/libks.git",
-      tag:      "1.6.0",
-      revision: "637e0e3db192a6d73a248cf0e794a4b03424805b"
+        tag:      "1.6.0",
+        revision: "637e0e3db192a6d73a248cf0e794a4b03424805b"
   end
 
   resource "signalwire-c" do
     url "https://github.com/signalwire/signalwire-c.git",
-      tag:      "1.3.0",
-      revision: "e2f3abf59c800c6d39234e9f0a85fb15d1486d8d"
+        tag:      "1.3.0",
+        revision: "e2f3abf59c800c6d39234e9f0a85fb15d1486d8d"
   end
 
   def install
+    # Fix build error "use of undeclared identifier 'NSIG'"
+    # Remove when fixed upstream: https://github.com/signalwire/freeswitch/issues/1145
+    on_macos do
+      ENV.append_to_cflags "-D_DARWIN_C_SOURCE"
+    end
+
     resource("spandsp").stage do
       system "./bootstrap.sh"
       system "./configure", "--disable-debug",
@@ -206,31 +212,9 @@ class Freeswitch < Formula
     end
   end
 
-  plist_options manual: "freeswitch -nc -nonat"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-          <true/>
-        <key>Label</key>
-          <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/freeswitch</string>
-            <string>-nc</string>
-            <string>-nonat</string>
-          </array>
-        <key>RunAtLoad</key>
-          <true/>
-        <key>ServiceIPC</key>
-          <true/>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"freeswitch", "-nc", "-nonat"]
+    keep_alive true
   end
 
   test do

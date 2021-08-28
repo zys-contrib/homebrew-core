@@ -2,16 +2,16 @@ class Openrct2 < Formula
   desc "Open source re-implementation of RollerCoaster Tycoon 2"
   homepage "https://openrct2.io/"
   url "https://github.com/OpenRCT2/OpenRCT2.git",
-      tag:      "v0.3.2",
-      revision: "cea5fab238e5dd17a2f958c0a484ad97035264ae"
+      tag:      "v0.3.4.1",
+      revision: "5087e77032e1342006021f680eb9cad2dc6dabef"
   license "GPL-3.0-only"
   head "https://github.com/OpenRCT2/OpenRCT2.git", branch: "develop"
 
   bottle do
-    cellar :any
-    sha256 "109a8f7a28f2f13a23a4bf42ac84438db7f624fbdd2f1ed757580e6f8663fcb3" => :big_sur
-    sha256 "dad7b09f8b99e6fc19cc50a7d83d752b7245d869df90006e4eac2cde76ff6e11" => :catalina
-    sha256 "d1e3f34d2bf5cde75033a84b04962ad2947622e7f845146a2c85b72cc3ae0179" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "5a75b78d7d74c9eaadff1867bededb84553bf087d1487b54f0fa1899d405b15d"
+    sha256 cellar: :any, big_sur:       "3027a49a14f166ba899a076e5b62648f49a312fb62da37e21c81959463da91c5"
+    sha256 cellar: :any, catalina:      "6991d066861d381439123af05c53baa20bf70d5e36cea9475d6aa50564e1830e"
+    sha256 cellar: :any, mojave:        "d6ee68373bc7d6d0af9a61f92b2f11ec68584fdf39a8960c53345ac3115559e7"
   end
 
   depends_on "cmake" => :build
@@ -34,8 +34,8 @@ class Openrct2 < Formula
   end
 
   resource "objects" do
-    url "https://github.com/OpenRCT2/objects/releases/download/v1.0.17/objects.zip"
-    sha256 "bc31ca8ca56f40f9ff7958416611bc712932c1eda80ca94861789aa57da1740e"
+    url "https://github.com/OpenRCT2/objects/archive/v1.2.1.tar.gz"
+    sha256 "07816ab18779ab5988d737e1c21c25f0d95404c82919758dfdc44fdd3edf8ab5"
   end
 
   def install
@@ -44,7 +44,12 @@ class Openrct2 < Formula
     (buildpath/"data/object").install resource("objects")
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *std_cmake_args,
+                            "-DWITH_TESTS=OFF",
+                            "-DDOWNLOAD_TITLE_SEQUENCES=OFF",
+                            "-DDOWNLOAD_OBJECTS=OFF",
+                            "-DMACOS_USE_DEPENDENCIES=OFF",
+                            "-DDISABLE_DISCORD_RPC=ON"
       system "make", "install"
     end
 

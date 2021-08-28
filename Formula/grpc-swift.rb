@@ -1,26 +1,24 @@
 class GrpcSwift < Formula
   desc "Swift language implementation of gRPC"
   homepage "https://github.com/grpc/grpc-swift"
-  url "https://github.com/grpc/grpc-swift/archive/0.11.0.tar.gz"
-  sha256 "82e0a3d8fe2b9ee813b918e1a674f5a7c6dc024abe08109a347b686db6e57432"
+  url "https://github.com/grpc/grpc-swift/archive/1.3.0.tar.gz"
+  sha256 "9d944cb397dfe88cb372c0c4d5095d6eba7f107bdcc3e373ac53b92032e48ac0"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/grpc/grpc-swift.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a0be8359b1b6052cc554f3a9b672162eed4ab6e7e20928c424c0916d110e286f" => :big_sur
-    sha256 "5a13e8a2f8e6111ceb163fd1aac8810a278f32317ebffb3563d5860a9a510db2" => :catalina
-    sha256 "0311e7d2eb0f1c5569fd51732dd7e9e917423bcad57e651d4d8a5c468168a55a" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ba2ea3cb5eac186c74dc2c3cb52a4778d8165d0722f9255db46652a3d4bf68d1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d07dc821fe534041914a14be3ff9d64ccfcc20cdd01f50e60b7b9512104b0689"
+    sha256 cellar: :any_skip_relocation, catalina:      "f5bfa9de8d2b0ad1cc7fa93dfdb6a6ea7a08960d2c7f7dd221e0d3f1ff3bcb4b"
   end
 
-  depends_on xcode: ["10.0", :build]
+  depends_on xcode: ["12.0", :build]
   depends_on "protobuf"
   depends_on "swift-protobuf"
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release", "--product", "protoc-gen-swiftgrpc"
-    bin.install ".build/release/protoc-gen-swiftgrpc"
+    system "swift", "build", "--disable-sandbox", "-c", "release", "--product", "protoc-gen-grpc-swift"
+    bin.install ".build/release/protoc-gen-grpc-swift"
   end
 
   test do
@@ -39,7 +37,7 @@ class GrpcSwift < Formula
         string text = 1;
       }
     EOS
-    system Formula["protobuf"].opt_bin/"protoc", "echo.proto", "--swiftgrpc_out=."
+    system Formula["protobuf"].opt_bin/"protoc", "echo.proto", "--grpc-swift_out=."
     assert_predicate testpath/"echo.grpc.swift", :exist?
   end
 end

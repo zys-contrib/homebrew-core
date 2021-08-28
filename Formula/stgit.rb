@@ -1,18 +1,13 @@
 class Stgit < Formula
   desc "Manage Git commits as a stack of patches"
   homepage "https://stacked-git.github.io"
-  url "https://github.com/stacked-git/stgit/releases/download/v0.23/stgit-0.23.tar.gz"
-  sha256 "17c2b2e02341468f4d5f8d4d79c36f7fdb7febe18177277ca472502f673c50fd"
-  license "GPL-2.0"
-  revision 1
-  head "https://github.com/stacked-git/stgit.git"
+  url "https://github.com/stacked-git/stgit/releases/download/v1.1/stgit-1.1.tar.gz"
+  sha256 "fc9674943c8e5534122ad96646078b4f07b7b69fc202b57eaa9b430ee13f0d9b"
+  license "GPL-2.0-only"
+  head "https://github.com/stacked-git/stgit.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2f50630b1249e5340768702184e7c713af8cf97c09a3b06963a11163f439a5b8" => :big_sur
-    sha256 "9731655f9bd99aea5170be4862f2857a630f711fba241bdc87898916914c6634" => :catalina
-    sha256 "f1352a1dbdfefd630ac1a5e6018858225cf06988305b71605a8799d54fc5972c" => :mojave
-    sha256 "b6d112ee69bc0c131240ad47e53ba22500a0c595fc499a1b48b4b3beba785e2f" => :high_sierra
+    sha256 cellar: :any_skip_relocation, all: "227e183a55224f7d8386a57330c37d7e3ef0d472b35603ed42b78ed04142dffa"
   end
 
   depends_on "asciidoc" => :build

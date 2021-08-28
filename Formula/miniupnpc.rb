@@ -1,26 +1,25 @@
 class Miniupnpc < Formula
   desc "UPnP IGD client library and daemon"
   homepage "https://miniupnp.tuxfamily.org"
-  url "https://miniupnp.tuxfamily.org/files/download.php?file=miniupnpc-2.1.tar.gz"
-  sha256 "e19fb5e01ea5a707e2a8cb96f537fbd9f3a913d53d804a3265e3aeab3d2064c6"
+  url "http://miniupnp.tuxfamily.org/files/download.php?file=miniupnpc-2.2.2.tar.gz"
+  sha256 "888fb0976ba61518276fe1eda988589c700a3f2a69d71089260d75562afd3687"
+  license "BSD-3-Clause"
 
   # We only match versions with only a major/minor since versions like 2.1 are
   # stable and versions like 2.1.20191224 are unstable/development releases.
   livecheck do
     url "https://miniupnp.tuxfamily.org/files/"
-    regex(/href=.*?miniupnpc[._-]v?(\d+\.\d+)\.t/i)
+    regex(/href=.*?miniupnpc[._-]v?(\d+\.\d+(?>.\d{1,7})*)\.t/i)
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "9fab3b162f13e509a2f5dd1858a91374961898808f28aeb4153f6294b9f1a2b4" => :big_sur
-    sha256 "fd72b75df14dc0a23f566031fbddef7110acf0e90b34092ef09ef62fa74a6117" => :catalina
-    sha256 "78f72e56f2edb01fb2d7949836050cca173fe9c342b602c7b9c3a8dc31693849" => :mojave
-    sha256 "ac7dcda27fedebab8e8c47ce08c74283626a0169b646a09b34de5bd91b673e1a" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "8895acaf9fa55bb5cd0f5feb6cd104512657494035ae1650a8b73dccdded5b0f"
+    sha256 cellar: :any,                 big_sur:       "e1295aef25a9cfbcbbace72d1a2a76aff88c5334848b4ce2f88fde84a326ff62"
+    sha256 cellar: :any,                 catalina:      "5b3510471e85184f82cb7bc594d819c6a303e44d2853b726c708c1b9b2fba245"
+    sha256 cellar: :any,                 mojave:        "59b55d5ef7cb08a7ee55b6c06f7313b58ed520e4f84cf74ca77e6066c3e08d1e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9b866d13fd88d34f1c0728cf08dc86556c473d42e486409ec1d95919db3659b"
   end
-
-  conflicts_with "wownero", because: "wownero ships its own copy of miniupnpc"
 
   def install
     system "make", "INSTALLPREFIX=#{prefix}", "install"

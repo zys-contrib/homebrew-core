@@ -4,18 +4,17 @@ class CouchdbLucene < Formula
   url "https://github.com/rnewson/couchdb-lucene/archive/v2.1.0.tar.gz"
   sha256 "8297f786ab9ddd86239565702eb7ae8e117236781144529ed7b72a967224b700"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "714f23364619652be6321a45982688acf42be2a6b58aebbe654625b5ca6c69a3" => :catalina
-    sha256 "7df53cd760b08390dcf985ef6d033e4540e6759cbe6975add36ce0888f48b544" => :mojave
-    sha256 "087475d3e5852700d5d5a96f802072657fa623e1ed23d0b57707d1ef9eeb98c2" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:  "8c75a95f3c1909e99602f51ed4c55fc2eb495910d8772b9b693347c633141715"
+    sha256 cellar: :any_skip_relocation, catalina: "5888b91cbf5c0fe4744ee9f1cf0ca204f9dd89e125a06fc928375b1d2770ae87"
+    sha256 cellar: :any_skip_relocation, mojave:   "d7e8191c66bc938d7c8e15c10c13612be41ef601f5f6ab78b9ef5275c04bf89d"
   end
 
   depends_on "maven" => :build
   depends_on "couchdb"
-  depends_on "openjdk@8"
+  depends_on "openjdk"
 
   def install
     system "mvn"
@@ -25,22 +24,16 @@ class CouchdbLucene < Formula
     rm_rf Dir["bin/*.bat"]
     libexec.install Dir["*"]
 
+    env = Language::Java.overridable_java_home_env
+    env["CL_BASEDIR"] = libexec/"bin"
     Dir.glob("#{libexec}/bin/*") do |path|
       bin_name = File.basename(path)
       cmd = "cl_#{bin_name}"
-      (bin/cmd).write shim_script(bin_name)
+      (bin/cmd).write_env_script libexec/"bin/#{bin_name}", env
       (libexec/"clbin").install_symlink bin/cmd => bin_name
     end
 
     ini_path.write(ini_file) unless ini_path.exist?
-  end
-
-  def shim_script(target)
-    <<~EOS
-      #!/bin/bash
-      export CL_BASEDIR=#{libexec}/bin
-      exec "$CL_BASEDIR/#{target}" "$@"
-    EOS
   end
 
   def ini_path
@@ -65,45 +58,19 @@ class CouchdbLucene < Formula
     EOS
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/opt/couchdb-lucene/bin/cl_run"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
-        "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>EnvironmentVariables</key>
-          <dict>
-            <key>HOME</key>
-            <string>~</string>
-          </dict>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/cl_run</string>
-          </array>
-          <key>StandardOutPath</key>
-          <string>/dev/null</string>
-          <key>StandardErrorPath</key>
-          <string>/dev/null</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run opt_bin/"cl_run"
+    environment_variables HOME: "~"
+    run_type :immediate
+    keep_alive true
   end
 
   test do
     # This seems to be the easiest way to make the test play nicely in our
     # sandbox. If it works here, it'll work in the normal location though.
     cp_r Dir[opt_prefix/"*"], testpath
-    inreplace "bin/cl_run", "CL_BASEDIR=#{libexec}/bin",
-                            "CL_BASEDIR=#{testpath}/libexec/bin"
+    inreplace "bin/cl_run", "CL_BASEDIR=\"#{libexec}/bin\"",
+                            "CL_BASEDIR=\"#{testpath}/libexec/bin\""
     port = free_port
     inreplace "libexec/conf/couchdb-lucene.ini", "port=5985", "port=#{port}"
 

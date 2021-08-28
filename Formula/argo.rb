@@ -1,20 +1,21 @@
 class Argo < Formula
   desc "Get stuff done with container-native workflows for Kubernetes"
   homepage "https://argoproj.io"
-  url "https://github.com/argoproj/argo.git",
-      tag:      "v2.11.8",
-      revision: "310e099f82520030246a7c9d66f3efaadac9ade2"
+  url "https://github.com/argoproj/argo-workflows.git",
+      tag:      "v3.1.8",
+      revision: "0df0f3a98fac4e2aa5bc02213fb0a2ccce9a682a"
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "dea33d13d1a112f61c66394f7927a41a463275581d6c6a7357664af032bac033" => :big_sur
-    sha256 "418962f6ce91690d993eb22290eae2826b2ed8961c2a0f8271e38d8e7bd9be01" => :catalina
-    sha256 "45d215d408dd5dcbe2cc61197d966bae9a628492ec7e5053a535ce8ed4760746" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1f8b04699e665a8252fd500761064b36bb1e2fbbf73160b388ba3256c029aed5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c9346a5334135ac40dafef1661ce1164b1f2dbf176c45c21241af79825c2c607"
+    sha256 cellar: :any_skip_relocation, catalina:      "b67cda110eb285caa8c1474614234c80c55c6eb5c57c20da8000da099a36cb68"
+    sha256 cellar: :any_skip_relocation, mojave:        "b02666cee25d2195ee17c17d20ea5e15d22eed985018569c3f584cc7e52390d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e68dcff03fee6597f6f1dec9c103f3cc90c404ed74667d05ff38021c24c69c4e"
   end
 
   depends_on "go" => :build
-  depends_on "node" => :build
+  depends_on "node@14" => :build
   depends_on "yarn" => :build
 
   def install
@@ -30,13 +31,13 @@ class Argo < Formula
   end
 
   test do
-    assert_match "argo is the command line interface to Argo",
-      shell_output("#{bin}/argo --help")
+    assert_match "argo:",
+      shell_output("#{bin}/argo version")
 
     # argo consumes the Kubernetes configuration with the `--kubeconfig` flag
     # Since it is an empty file we expect it to be invalid
     touch testpath/"kubeconfig"
     assert_match "invalid configuration",
-      shell_output("#{bin}/argo lint --kubeconfig ./kubeconfig 2>&1", 1)
+      shell_output("#{bin}/argo lint --kubeconfig ./kubeconfig ./kubeconfig 2>&1", 1)
   end
 end

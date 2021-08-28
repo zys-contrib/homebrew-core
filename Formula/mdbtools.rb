@@ -1,32 +1,42 @@
 class Mdbtools < Formula
   desc "Tools to facilitate the use of Microsoft Access databases"
-  homepage "https://github.com/brianb/mdbtools/"
-  url "https://github.com/brianb/mdbtools/archive/0.7.1.tar.gz"
-  sha256 "dcf310dc7b07e7ad2f9f6be16047dc81312cfe1ab1bd94d0fa739c8059af0b16"
-  license "GPL-2.0"
-  revision 3
+  homepage "https://github.com/mdbtools/mdbtools/"
+  url "https://github.com/mdbtools/mdbtools/releases/download/v0.9.4/mdbtools-0.9.4.tar.gz"
+  sha256 "6b75aa88cb1dc49ea0144be381c8f14b2ae47c945c895656dbebc155cd9ee14b"
+  license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "0b35d9f656db9764cf1d52232e23e3f229e6884b657ae7f30ef4a16b6a6d4b27" => :big_sur
-    sha256 "3c14e11a6603273676d09141b8da9fed42bacd992dbb7d82979c1279ed488ba4" => :catalina
-    sha256 "7ba58781f1d60f4b5ea1e9af6f75d52be36a7cfec10fef414e1e99d447ad10e5" => :mojave
-    sha256 "57bc1d0d1df78a20881b0d0340a302ec3a7d359a80eaffe78d809bf4dc150521" => :high_sierra
-    sha256 "1e1f75dc87ac2f423ecbf993a118220fe8d309ad179ec9986d099b98f959f216" => :sierra
+    sha256 cellar: :any,                 arm64_big_sur: "7e61d1793850007b50e3183e681579a86b0ba9cecd52afbf58fba7468b43159e"
+    sha256 cellar: :any,                 big_sur:       "701aa107dbe59e6e1d28436e754e6947be68f3bdd0db248f2e587f0003eda711"
+    sha256 cellar: :any,                 catalina:      "0bd9e0b1055dc5fe6c541694f70e778372b2eb6bff62f165380c1d14effc1a76"
+    sha256 cellar: :any,                 mojave:        "a65b18abe40ed2e1825e2ecd05dcae546803a2a1f0099e2b0a2d0918a8bd580b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "912565cef4ebae2afa1d3bc0726ac30bc0673a3271843150dd5004b9e0aa772c"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "bison" => :build
+  depends_on "gawk" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+
   depends_on "glib"
   depends_on "readline"
 
   def install
-    ENV.deparallelize
-
-    system "autoreconf", "-i", "-f"
-    system "./configure", "--prefix=#{prefix}", "--disable-man"
+    system "autoreconf", "-fvi"
+    system "./configure", "--prefix=#{prefix}",
+                          "--enable-man"
     system "make", "install"
+  end
+
+  test do
+    output = shell_output("#{bin}/mdb-schema --drop-table test 2>&1", 1)
+
+    expected_output = <<~EOS
+      File not found
+      Could not open file
+    EOS
+    assert_match expected_output, output
   end
 end

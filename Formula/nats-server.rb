@@ -1,18 +1,17 @@
 class NatsServer < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
-  url "https://github.com/nats-io/nats-server/archive/v2.1.9.tar.gz"
-  sha256 "643b3688063f9a626798ccdac419fc6dd814219113559c9995556cbd12d28049"
+  url "https://github.com/nats-io/nats-server/archive/refs/tags/v2.4.0.tar.gz"
+  sha256 "c2401a88b03cbeaa2a63776485799db78a0f34c507ea6886769ad9830f3b65e2"
   license "Apache-2.0"
   head "https://github.com/nats-io/nats-server.git"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "48e5ce9c0aac69f8ca0f27db652227900df5c772472bb391b8702457ecfe0caf" => :big_sur
-    sha256 "42c81987bbcffffee20ece6c4534a77612496c2b082723681f4468eab7a0fd61" => :catalina
-    sha256 "c5e96271283bee73b7ff9cfa68f6d1f566765bf2e41374c67ae66c51e502e2d8" => :mojave
-    sha256 "e4d101f7ea1263dabd9a95a3b90925082a003274d1a45c2168b4bf7bbb8a1fa1" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bcda8d0429084ebcf76af4d0c4a10222e1d486e08bee9a6f13f534465e04e8aa"
+    sha256 cellar: :any_skip_relocation, big_sur:       "dfcfa6c75fe835bde1cc35cea4df269b171e8088701dfef4e51b1e455ad0e404"
+    sha256 cellar: :any_skip_relocation, catalina:      "401ef2d53a0db24e2c0fc6265d515c4a250505560a844392bf9e9a3b62b104f0"
+    sha256 cellar: :any_skip_relocation, mojave:        "49ef5eb4d18451797bd79f0c396cd03489688cbe274677fda4bb0a407a11b2ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "738c2c63e48b09d0a99fef30fde3768aa7426611e79927da2fe9afa530782811"
   end
 
   depends_on "go" => :build
@@ -21,25 +20,8 @@ class NatsServer < Formula
     system "go", "build", "-ldflags", "-s -w", *std_go_args
   end
 
-  plist_options manual: "nats-server"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/nats-server</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run opt_bin/"nats-server"
   end
 
   test do

@@ -2,22 +2,23 @@ class Wolfssl < Formula
   desc "Embedded SSL Library written in C"
   homepage "https://www.wolfssl.com"
   url "https://github.com/wolfSSL/wolfssl.git",
-      tag:      "v4.5.0-stable",
-      revision: "0fa5af9929ce2ee99e8789996a3048f41a99830e"
+      tag:      "v4.8.1-stable",
+      revision: "723ed009ae5dc68acc14cd7664f93503d64cd51d"
   license "GPL-2.0-or-later"
-  head "https://github.com/wolfSSL/wolfssl.git"
+  head "https://github.com/wolfSSL/wolfssl.git", branch: "master"
 
   livecheck do
-    url "https://github.com/wolfSSL/wolfssl/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)[._-]stable["' >]}i)
   end
 
   bottle do
-    cellar :any
-    sha256 "1e5847f867e0c69a25c5fa46aad44e4c14381ddefd508ca17eb7a1d516b21cef" => :big_sur
-    sha256 "65dc4e927eadda0948058bdbb2dbd93ad3e0949dd5f3ec4a40a13147166fab07" => :catalina
-    sha256 "fb1db5f016b181902c78dd438136b881b2fbc4c361caaaa9cf173f18e3420e95" => :mojave
-    sha256 "4ec178ea428a5045b73a076f1342535a6b38ca06511638bb83c7fe7559ae8039" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "630d303a592f178e4af58d75c1d957b8330e1e72ffb8b815aebd059c768f2452"
+    sha256 cellar: :any,                 big_sur:       "753f16d4de6f2a439ecdf3a554608edeaa7af98b9f6e724421c786a23c64a8e7"
+    sha256 cellar: :any,                 catalina:      "2cffe3c281ead906a9449ec5f85a4c1d7be09ab7a90d4c37ecac0d76f81d2428"
+    sha256 cellar: :any,                 mojave:        "13dcbf8ef5cbccb7bf18aeb017e04d8a1ac116a4ec0eb3e44a842eabd91a0aa9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b23130ec9484bdd913cd3fb7e8ec1ca6800b4f2c60d635bf5e5a0e66a98c21e2"
   end
 
   depends_on "autoconf" => :build
@@ -79,10 +80,12 @@ class Wolfssl < Formula
       --enable-fasthugemath
     ]
 
-    # Extra flag is stated as a needed for the Mac platform.
-    # https://www.wolfssl.com/docs/wolfssl-manual/ch2/
-    # Also, only applies if fastmath is enabled.
-    ENV.append_to_cflags "-mdynamic-no-pic"
+    on_macos do
+      # Extra flag is stated as a needed for the Mac platform.
+      # https://www.wolfssl.com/docs/wolfssl-manual/ch2/
+      # Also, only applies if fastmath is enabled.
+      ENV.append_to_cflags "-mdynamic-no-pic"
+    end
 
     system "./autogen.sh"
     system "./configure", *args

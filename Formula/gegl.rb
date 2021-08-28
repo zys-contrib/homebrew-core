@@ -1,22 +1,23 @@
 class Gegl < Formula
   desc "Graph based image processing framework"
   homepage "https://www.gegl.org/"
-  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.26.tar.xz"
-  sha256 "0f371e2ed2b92162fefd3dde743e648ca08a6a1b2b05004867fbddc7e211e424"
+  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.30.tar.xz"
+  sha256 "c112782cf4096969e23217ccdfabe42284e35d5435ff0c43d40e4c70faeca8dd"
   license all_of: ["LGPL-3.0-or-later", "GPL-3.0-or-later", "BSD-3-Clause", "MIT"]
   head "https://gitlab.gnome.org/GNOME/gegl.git"
 
   livecheck do
     url "https://download.gimp.org/pub/gegl/0.4/"
-    regex(/href=.*?gegl[._-]v?(\d+(?:\.\d+)*)\.t/i)
+    regex(/href=.*?gegl[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    rebuild 1
-    sha256 "b0c2c4a4d420f51f2034e8767214cef5638e7750f34a10ebcc9958cb3b23531c" => :big_sur
-    sha256 "a3540f7585cc3bad21608ff58dee983e6309d8af74068aa1bea99d8864c11c42" => :catalina
-    sha256 "74edbefe0d2ec7f76fdb4566ae8b02ce728049c78f10fd2205a3381db26f3337" => :mojave
-    sha256 "f1ac9e40057da12f5132db71ceca4f9f55c60d4787ea630278e8cb9b445bcbee" => :high_sierra
+    rebuild 2
+    sha256 arm64_big_sur: "7be88b13044176edd867bbb191b255ed88f14c9a46ff39d386d9ad9284aab2e6"
+    sha256 big_sur:       "50caef9fb7dcc591ab035c2c1cd372573617ddb538701e9060a779814032726d"
+    sha256 catalina:      "2788808e5d0ec106649e389c99ef8cca417dda53b5f78c3d6c621a571d32e8c4"
+    sha256 mojave:        "80ca109fdf78762a536828c2a606878eb335c5d28dae232144a3b24d6d55983e"
+    sha256 x86_64_linux:  "bb02e24b7988c1cf5f407b9b12f2bccc0391f493e427fe82f410b29c18c30dae"
   end
 
   depends_on "glib" => :build
@@ -39,11 +40,11 @@ class Gegl < Formula
 
   def install
     args = std_meson_args + %w[
-      -Dwith-docs=false
-      -Dwith-cairo=false
-      -Dwith-jasper=false
-      -Dwith-umfpack=false
-      -Dwith-libspiro=false
+      -Ddocs=false
+      -Dcairo=disabled
+      -Djasper=disabled
+      -Dumfpack=disabled
+      -Dlibspiro=disabled
       --force-fallback-for=libnsgif,poly2tri-c
     ]
 
@@ -74,12 +75,14 @@ class Gegl < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}/gegl-0.4", "-L#{lib}", "-lgegl-0.4",
+    system ENV.cc,
            "-I#{Formula["babl"].opt_include}/babl-0.1",
            "-I#{Formula["glib"].opt_include}/glib-2.0",
            "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
            "-L#{Formula["glib"].opt_lib}", "-lgobject-2.0", "-lglib-2.0",
-           testpath/"test.c", "-o", testpath/"test"
+           testpath/"test.c",
+           "-I#{include}/gegl-0.4", "-L#{lib}", "-lgegl-0.4",
+           "-o", testpath/"test"
     system "./test"
   end
 end

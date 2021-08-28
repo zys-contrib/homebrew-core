@@ -2,31 +2,48 @@ class Istioctl < Formula
   desc "Istio configuration command-line utility"
   homepage "https://istio.io/"
   url "https://github.com/istio/istio.git",
-      tag:      "1.8.0",
-      revision: "c87a4c874df27e37a3e6c25fa3d1ef6279685d23"
+      tag:      "1.11.1",
+      revision: "ce6205d503e5c5e41af496ebbe01ece7dc6c3547"
   license "Apache-2.0"
   head "https://github.com/istio/istio.git"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "13412f071699e9cd6cd6c326283762b310788826751834f94c6a739a98ca39bf" => :big_sur
-    sha256 "4054c9d31253d0de7150b9c28fd29151d18345a6bb94f07843c138521c9f1a3e" => :catalina
-    sha256 "c097dc572691619571e769d6a98f005a6b89c37d2aeb247d0af4c1db5dc0ae99" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3495695cd8ffd91a7556803b8d81724522becf11f42459f41a168ecac16f0375"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c44a82896d9c46b335aadda3dcdf37b7eb2ba8df69f320317c93626e5e16dbb0"
+    sha256 cellar: :any_skip_relocation, catalina:      "c44a82896d9c46b335aadda3dcdf37b7eb2ba8df69f320317c93626e5e16dbb0"
+    sha256 cellar: :any_skip_relocation, mojave:        "c44a82896d9c46b335aadda3dcdf37b7eb2ba8df69f320317c93626e5e16dbb0"
   end
 
   depends_on "go" => :build
   depends_on "go-bindata" => :build
 
   def install
+    # make parallelization should be fixed in version > 1.11.1
+    ENV.deparallelize
     ENV["VERSION"] = version.to_s
     ENV["TAG"] = version.to_s
     ENV["ISTIO_VERSION"] = version.to_s
     ENV["HUB"] = "docker.io/istio"
     ENV["BUILD_WITH_CONTAINER"] = "0"
 
-    system "make", "gen-charts", "istioctl", "istioctl.completion"
-    cd "out/darwin_amd64" do
+    dirpath = nil
+    on_macos do
+      if Hardware::CPU.arm?
+        # Fix missing "amd64" for macOS ARM in istio/common/scripts/setup_env.sh
+        # Can remove when upstream adds logic to detect `$(uname -m) == "arm64"`
+        ENV["TARGET_ARCH"] = "arm64"
+
+        dirpath = "darwin_arm64"
+      else
+        dirpath = "darwin_amd64"
+      end
+    end
+    on_linux do
+      dirpath = "linux_amd64"
+    end
+
+    system "make", "istioctl", "istioctl.completion"
+    cd "out/#{dirpath}" do
       bin.install "istioctl"
       bash_completion.install "release/istioctl.bash"
       zsh_completion.install "release/_istioctl"

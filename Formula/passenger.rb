@@ -1,23 +1,23 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://github.com/phusion/passenger/releases/download/release-6.0.7/passenger-6.0.7.tar.gz"
-  sha256 "e1e723cc6eae054afcd1585d734cfb167e5c33a8629b83976ee21257080e9b13"
+  url "https://github.com/phusion/passenger/releases/download/release-6.0.10/passenger-6.0.10.tar.gz"
+  sha256 "3eb2c52652c96a136cc69cf342e3a61a8dd0e92cdbe9310a7aae249ab1abe0d4"
   license "MIT"
-  revision 1
   head "https://github.com/phusion/passenger.git", branch: "stable-6.0"
 
   bottle do
-    cellar :any
-    sha256 "b98280261bc27e2d7adc241f6998487591f86b0f8c2abbb2bc3bd90068c06d08" => :big_sur
-    sha256 "2cef3b5708549713b24818c007e18062e769cd31831af759dfdf2b61c8c27ea4" => :catalina
-    sha256 "c95e0c25c4f45d9a9b0f241d16397aa466ce689783108f7f1d261bf778a4e28f" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "1822d611ddac669b76ccc2519e7529ed251fc5c6ef41e31798f4337385a228ea"
+    sha256 cellar: :any, big_sur:       "3e56f6fd3afa1b36435e64b39ae36db97642dbbc89e98d38d85f1da679752af9"
+    sha256 cellar: :any, catalina:      "718a353511df67865cc188d315724cf2d0d682c539610a5a176c526614228da8"
+    sha256 cellar: :any, mojave:        "c516f5b61984f6b8bea3fba648803279e3881bcf6c67deb50f0a02ea5a573fee"
   end
 
   # to build nginx module
   depends_on "nginx" => [:build, :test]
   depends_on "openssl@1.1"
   depends_on "pcre"
+  uses_from_macos "ruby", since: :catalina
 
   def install
     if MacOS.version >= :mojave && MacOS::CLT.installed?

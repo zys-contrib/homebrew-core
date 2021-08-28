@@ -5,15 +5,16 @@ class ProofGeneral < Formula
   sha256 "1ba236d81768a87afa0287f49d4b2223097bc61d180468cbd997d46ab6132e7e"
   license "GPL-2.0"
   revision 2
-  head "https://github.com/ProofGeneral/PG.git"
+  head "https://github.com/ProofGeneral/PG.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 3
-    sha256 "4fbcb27cb3b5bbdc7fba3cf07ca70953ab66cdd7749c85b06097d272cc31a630" => :big_sur
-    sha256 "ccc115760830d046c9e53277a571f451eb251c9b10c09589c627f146f4a9a4dd" => :catalina
-    sha256 "ccc115760830d046c9e53277a571f451eb251c9b10c09589c627f146f4a9a4dd" => :mojave
-    sha256 "ccc115760830d046c9e53277a571f451eb251c9b10c09589c627f146f4a9a4dd" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "89bdd53f3c8afd028343bbb03ce2311cdeeab93924b96817b1b408117adc60fd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4fbcb27cb3b5bbdc7fba3cf07ca70953ab66cdd7749c85b06097d272cc31a630"
+    sha256 cellar: :any_skip_relocation, catalina:      "ccc115760830d046c9e53277a571f451eb251c9b10c09589c627f146f4a9a4dd"
+    sha256 cellar: :any_skip_relocation, mojave:        "ccc115760830d046c9e53277a571f451eb251c9b10c09589c627f146f4a9a4dd"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "ccc115760830d046c9e53277a571f451eb251c9b10c09589c627f146f4a9a4dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "277a264e49e065837b17eb67754b58e1447cf1e44c3b8b1ef65075d914b7e9f7"
   end
 
   depends_on "texi2html" => :build

@@ -1,10 +1,9 @@
 class LinkGrammar < Formula
   desc "Carnegie Mellon University's link grammar parser"
   homepage "https://www.abisource.com/projects/link-grammar/"
-  url "https://www.abisource.com/downloads/link-grammar/5.8.0/link-grammar-5.8.0.tar.gz"
-  sha256 "ad65a6b47ca0665b814430a5a8ff4de51f4805f7fb76642ced90297b4e7f16ed"
+  url "https://www.abisource.com/downloads/link-grammar/5.9.1/link-grammar-5.9.1.tar.gz"
+  sha256 "e03febaa820696f47eabb033f04d713d849040c24c45579133d1d021b8ecb0ba"
   license "LGPL-2.1"
-  revision 1
 
   livecheck do
     url :homepage
@@ -12,10 +11,11 @@ class LinkGrammar < Formula
   end
 
   bottle do
-    sha256 "6416c4a870cf3a11a345ffc0d1fecfb64e402dc264648febe89c6b9cb903f514" => :big_sur
-    sha256 "d2125eec68c573874249d6b3629b54b9c55c7c378343f9ae969440dfdbb3497d" => :catalina
-    sha256 "5c6e347b0c82683ae1a3c8838bec8bf9b840c06fbe33e59a494ea3495256b0e0" => :mojave
-    sha256 "64a9aa4bebc23fe23063f436cd18bca518e11f3be4322ca60d2d710c9ed6cd8c" => :high_sierra
+    sha256 arm64_big_sur: "93066eeefacc4e8095976cd3fc192dd4d9c9f3f6b6d24a7ad49d1de501ba92ac"
+    sha256 big_sur:       "c80d1bef9073e1761f04074d636936036657c7347c12b1f313dbb16d3e3971db"
+    sha256 catalina:      "dbd8dee3d34417e1be978ff916f7159ba77036c9a2af069d8dab23dc11243a38"
+    sha256 mojave:        "8eb72ea314d9e6d5b99df22a0e7635eb5fa26e809010bdcaf2cd5f53ae6ebdc1"
+    sha256 x86_64_linux:  "cf949ec99c89825d66a94e83b4cb183a49d172d4a73acf66ee95db8279245e7d"
   end
 
   depends_on "ant" => :build
@@ -33,7 +33,6 @@ class LinkGrammar < Formula
     inreplace "bindings/python/Makefile.am",
       "$(PYTHON_LDFLAGS) -module -no-undefined",
       "$(PYTHON_LDFLAGS) -module"
-    inreplace "link-grammar/link-grammar.def", "regex_tokenizer_test\n", ""
     system "autoreconf", "-fiv"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",

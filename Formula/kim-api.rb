@@ -1,9 +1,10 @@
 class KimApi < Formula
   desc "Knowledgebase of Interatomic Models (KIM) API"
   homepage "https://openkim.org"
-  url "https://s3.openkim.org/kim-api/kim-api-2.1.3.txz"
-  sha256 "88a5416006c65a2940d82fad49de0885aead05bfa8b59f87d287db5516b9c467"
-  revision 1
+  url "https://s3.openkim.org/kim-api/kim-api-2.2.1.txz"
+  sha256 "1d5a12928f7e885ebe74759222091e48a7e46f77e98d9147e26638c955efbc8e"
+  license "CDDL-1.0"
+  revision 3
 
   livecheck do
     url "https://openkim.org/kim-api/previous-versions/"
@@ -11,31 +12,51 @@ class KimApi < Formula
   end
 
   bottle do
-    sha256 "219b78d162ecdfc83ba00dcc933e25422bdbaad3d05c4f34a107a9cefd742b23" => :big_sur
-    sha256 "585be65f52b6c5dd3b9c5ea0da1af889e24ef085f8174485d9256b84d9b01d84" => :catalina
-    sha256 "29743babbc332f529773cba2962512e3d29c0e269675bbb033effedbe1f92da3" => :mojave
-    sha256 "8f64683177ac688908e33c98ca57ae3b2c3c59215e70b77296b40843b6e69a0f" => :high_sierra
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "bc69df6522ce9a9f76399e03b78255ae82faedd70c5a8f3d4535de4d3f89f6a8"
+    sha256 cellar: :any,                 big_sur:       "0324105634345be3ed3cb5f7bdd7d31379e84e5afdf966b3a699ad5355b8da49"
+    sha256 cellar: :any,                 catalina:      "2d3e050c3af7adb392213906db110f79bc6c637a68a77231bcd94ca201555f2e"
+    sha256 cellar: :any,                 mojave:        "34a1e8943c72ae99512a7069c08738f57f1b11e0adfb9a6ba5724ad953d06745"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25cab6d99de536975418877447a40e436a884b16423056b06902f3aaf0884a61"
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "gcc" # for gfortran
 
+  uses_from_macos "xz"
+
   def install
-    args = std_cmake_args
+    # change file(COPY) to configure_file() to avoid symlink issue; will be fixed in 2.2.2
+    inreplace "cmake/items-macros.cmake.in", /file\(COPY ([^ ]+) DESTINATION ([^ ]*)\)/,
+                                             "configure_file(\\1 \\2 COPYONLY)"
+    args = std_cmake_args + [
+      # adjust libexec dir
+      "-DCMAKE_INSTALL_LIBEXECDIR=lib",
+      # adjust directories for system collection
+      "-DKIM_API_SYSTEM_MODEL_DRIVERS_DIR=:#{HOMEBREW_PREFIX}/lib/openkim-models/model-drivers",
+      "-DKIM_API_SYSTEM_PORTABLE_MODELS_DIR=:#{HOMEBREW_PREFIX}/lib/openkim-models/portable-models",
+      "-DKIM_API_SYSTEM_SIMULATOR_MODELS_DIR=:#{HOMEBREW_PREFIX}/lib/openkim-models/simulator-models",
+      # adjust zsh completion install
+      "-DZSH_COMPLETION_COMPLETIONSDIR=#{zsh_completion}",
+      "-DBASH_COMPLETION_COMPLETIONSDIR=#{bash_completion}",
+    ]
     # adjust compiler settings for package
-    args << "-DKIM_API_CMAKE_C_COMPILER=/usr/bin/clang"
-    args << "-DKIM_API_CMAKE_CXX_COMPILER=/usr/bin/clang++"
-    # adjust directories for system collection
-    args << "-DKIM_API_SYSTEM_MODEL_DRIVERS_DIR=:#{HOMEBREW_PREFIX}/lib/openkim-models/model-drivers"
-    args << "-DKIM_API_SYSTEM_PORTABLE_MODELS_DIR=:#{HOMEBREW_PREFIX}/lib/openkim-models/portable-models"
-    args << "-DKIM_API_SYSTEM_SIMULATOR_MODELS_DIR=:#{HOMEBREW_PREFIX}/lib/openkim-models/simulator-models"
-    # adjust zsh completion install
-    args << "-DZSH_COMPLETION_COMPLETIONSDIR=#{zsh_completion}"
-    system "cmake", ".", *args
-    system "make"
-    system "make", "docs"
-    system "make", "install"
+    on_macos do
+      args << "-DKIM_API_CMAKE_C_COMPILER=/usr/bin/clang"
+      args << "-DKIM_API_CMAKE_CXX_COMPILER=/usr/bin/clang++"
+    end
+    on_linux do
+      args << "-DKIM_API_CMAKE_C_COMPILER=/usr/bin/gcc"
+      args << "-DKIM_API_CMAKE_CXX_COMPILER=/usr/bin/g++"
+    end
+
+    mkdir "build" do
+      system "cmake", "..", *args
+      system "make"
+      system "make", "docs"
+      system "make", "install"
+    end
   end
 
   test do

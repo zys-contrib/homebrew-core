@@ -1,16 +1,16 @@
 class Kubeless < Formula
   desc "Kubernetes Native Serverless Framework"
   homepage "https://kubeless.io"
-  url "https://github.com/kubeless/kubeless/archive/v1.0.7.tar.gz"
-  sha256 "8aedb768da672e60c489cce1a8757cb21841c9651bfe3ef7112570eaa13720fa"
+  url "https://github.com/kubeless/kubeless/archive/v1.0.8.tar.gz"
+  sha256 "c25dd4908747ac9e2b1f815dfca3e1f5d582378ea5a05c959f96221cafd3e4cf"
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0f0bed8b5c424de1bc1552ba8a4063ab9f68213dd32114166388624958fe69f6" => :big_sur
-    sha256 "94927a41f4778a3e99934154bda7db05c4048e83d49a840ecf7eca6ddfbc32e4" => :catalina
-    sha256 "0b0f24835a3fb21b5a5459a030f821f2c13691ad8978a02067dfb38f15d8ac6f" => :mojave
-    sha256 "ec427f71d144c616cfc1803da51caf69f6ead7cefd5ade2f8c23129d73eec705" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "457c1b5b7f10562288c98ec9a5bd75378256a930ebead0f4acd1dd02a157c81a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "617d7ec712263ee395d113e427a8557a0b4da5f0a13904aaa7b6dd88076d2e34"
+    sha256 cellar: :any_skip_relocation, catalina:      "622d26db25c0c672ab9204caf7478453912916c6d3cf4626818afb1e7e029f56"
+    sha256 cellar: :any_skip_relocation, mojave:        "4892e5ecc077136f2259e496b82951e4601fbe4e5fc2b5c5d3cf84216b15f29d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b87b97575b27569433e254396eaa15c265fd9f11de80c916e346e7fb0271559f"
   end
 
   depends_on "go" => :build
@@ -33,42 +33,51 @@ class Kubeless < Formula
       loop do
         socket = server.accept
         request = socket.gets
-        request_path = request.split(" ")[1]
+        request_path = request.split[1]
+        runtime_images_data = <<-'EOS'.gsub(/\s+/, "")
+        [{
+          \"ID\": \"python\",
+          \"versions\": [{
+            \"name\": \"python27\",
+            \"version\": \"2.7\",
+            \"httpImage\": \"kubeless/python\"
+          }]
+        }]
+        EOS
         response = case request_path
         when "/api/v1/namespaces/kubeless/configmaps/kubeless-config"
-          '{
+          <<-EOS
+          {
             "kind": "ConfigMap",
             "apiVersion": "v1",
             "metadata": { "name": "kubeless-config", "namespace": "kubeless" },
             "data": {
-              "runtime-images": "[{' \
-                '\"ID\": \"python\",' \
-                '\"versions\": [{' \
-                  '\"name\": \"python27\",' \
-                  '\"version\": \"2.7\",' \
-                  '\"httpImage\": \"kubeless/python\"' \
-                  "}]" \
-                '}]"
-              }
-            }'
+              "runtime-images": "#{runtime_images_data}"
+            }
+          }
+          EOS
         when "/apis/kubeless.io/v1beta1/namespaces/default/functions"
-          '{
+          <<-EOS
+          {
             "apiVersion": "kubeless.io/v1beta1",
             "kind": "Function",
             "metadata": { "name": "get-python", "namespace": "default" }
-            }'
+          }
+          EOS
         when "/apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/functions.kubeless.io"
-          '{
+          <<-EOS
+          {
             "apiVersion": "apiextensions.k8s.io/v1beta1",
             "kind": "CustomResourceDefinition",
             "metadata": { "name": "functions.kubeless.io" }
-            }'
+          }
+          EOS
         else
           "OK"
         end
         socket.print "HTTP/1.1 200 OK\r\n" \
-                    "Content-Length: #{response.bytesize}\r\n" \
-                    "Connection: close\r\n"
+                     "Content-Length: #{response.bytesize}\r\n" \
+                     "Connection: close\r\n"
         socket.print "\r\n"
         socket.print response
         socket.close

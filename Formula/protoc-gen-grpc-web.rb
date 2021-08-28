@@ -6,13 +6,14 @@ class ProtocGenGrpcWeb < Formula
   url "https://github.com/grpc/grpc-web/archive/1.2.1.tar.gz"
   sha256 "23cf98fbcb69743b8ba036728b56dfafb9e16b887a9735c12eafa7669862ec7b"
   license "Apache-2.0"
-  revision 1
+  revision 3
 
   bottle do
-    cellar :any
-    sha256 "0ad66a3cf6e5132dc51920722e2213f50ebc57c843d7120dd07636896ac09a03" => :big_sur
-    sha256 "26bc7c5c83a68b2fdd4b031807b410bffc9ce03619a0b75e228ddbcd058c467e" => :catalina
-    sha256 "b8b91ccdca4ea4d0014ea5ef890391c1e3ec88d10f1abcfa04cb0fabd99733c9" => :mojave
+    sha256 cellar: :any,                 arm64_big_sur: "8625843e386cf1aec90d4f750ad1480586f10e90fa5f8d2092037b92583379d3"
+    sha256 cellar: :any,                 big_sur:       "c706a6449039679963254536a30511f031fe11705ac36ed5d2f3ab2fd83a2aba"
+    sha256 cellar: :any,                 catalina:      "3917c4c2ff273a01472cd46265b5d12a6df0012e721cb271f4c512a894e3ccd5"
+    sha256 cellar: :any,                 mojave:        "b4486c699cd657005acd262ef592784f3bbf3b50408e90d2a84d42dcb5205853"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f57d007f37bd720b813f7254d32c6683257de8c1afe95a93f3dc23c9641c093"
   end
 
   depends_on "cmake" => :build
@@ -57,6 +58,7 @@ class ProtocGenGrpcWeb < Formula
     EOS
     (testpath/"test.ts").write testts
     system "npm", "install", *Language::Node.local_npm_install_args, "grpc-web", "@types/google-protobuf"
-    system "tsc", "test.ts"
+    # Specify including lib for `tsc` since `es6` is required for `@types/google-protobuf`.
+    system "tsc", "--lib", "es6", "test.ts"
   end
 end

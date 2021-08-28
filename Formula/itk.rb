@@ -1,21 +1,21 @@
 class Itk < Formula
   desc "Insight Toolkit is a toolkit for performing registration and segmentation"
   homepage "https://itk.org"
-  url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.1.1/InsightToolkit-5.1.1.tar.gz"
-  sha256 "39e2a63840054361b728878a35b21bbe38374682ffb4b5c4f8f8f7514dedb58e"
+  url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.2.1/InsightToolkit-5.2.1.tar.gz"
+  sha256 "192d41bcdd258273d88069094f98c61c38693553fd751b54f8cda308439555db"
   license "Apache-2.0"
   head "https://github.com/InsightSoftwareConsortium/ITK.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    sha256 "fc3663a70cf636219ede4bfd9a8b92d4d2613e938f0b865020abba0e91957b0b" => :big_sur
-    sha256 "0f61a4a6db8935c74dad672472a9df7a920dcad0081db2ff9b8af62291cd27f7" => :catalina
-    sha256 "cdab5fa00fc056cb691b95ee762bee986af9f90bf388dc178cd71fc708be5cab" => :mojave
-    sha256 "6693ad5cd1d63c568eb9613553333e04b0fd808a6ebace4e6fdaee2cddaee0fd" => :high_sierra
+    sha256 arm64_big_sur: "7b59055f5a4d15929975183ff03593a0500f6f9a4ff70d740ab184b29e182b99"
+    sha256 big_sur:       "b7b30cd49b92cfcbd05404a4d0a592f3623f122354a82e458d5ee01ac2f9aa73"
+    sha256 catalina:      "2e87abe07201cd013ac9535b02f3a012e79b049327d5ecc6ff015b1752c0a7f8"
+    sha256 mojave:        "d2020a7710d5b42d0d833ff04ee2d821ff8080f34c8d2d00a86feaa39f6dfa25"
   end
 
   depends_on "cmake" => :build

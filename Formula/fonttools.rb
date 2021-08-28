@@ -3,16 +3,17 @@ class Fonttools < Formula
 
   desc "Library for manipulating fonts"
   homepage "https://github.com/fonttools/fonttools"
-  url "https://github.com/fonttools/fonttools/releases/download/4.17.1/fonttools-4.17.1.zip"
-  sha256 "7097b194babc05c8decfff6cbc81b184221fdcfbda568630fe441c63dadb3ab4"
+  url "https://files.pythonhosted.org/packages/15/10/c087a7e87346332e40ef24f2a18e3b288b0c0e8196c02e06f94ba4d964b7/fonttools-4.26.2.zip"
+  sha256 "c1c0e03dd823e9e905232e875ea02dbb2dcd2ba195418c6d11bfaea49b9c774d"
   license "MIT"
   head "https://github.com/fonttools/fonttools.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f2f8dd58a70e8a78c9c603f57a6870b4d864324482d4340d1c1b24713ba7b633" => :big_sur
-    sha256 "b9092af6bb6860e99363b24114ddf308d683024f1256170a57c092e47466d33a" => :catalina
-    sha256 "842d5e0cd09948c59f295b38276d8db9b4d29974332747d13200da2c093fb9f5" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9110168b0c239e2deb66d6b28b42204a965a714d38a500d8f89c273b0946e740"
+    sha256 cellar: :any_skip_relocation, big_sur:       "adf628d7849203f72a49a2a1c13385e2135805b0bb9aa56c1da18fded4354935"
+    sha256 cellar: :any_skip_relocation, catalina:      "adf628d7849203f72a49a2a1c13385e2135805b0bb9aa56c1da18fded4354935"
+    sha256 cellar: :any_skip_relocation, mojave:        "adf628d7849203f72a49a2a1c13385e2135805b0bb9aa56c1da18fded4354935"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17be4952fb6a4a7b443ee9617965fdbdc0e40834ac4c4e2efbc3925a95195c6a"
   end
 
   depends_on "python@3.9"
@@ -22,7 +23,12 @@ class Fonttools < Formula
   end
 
   test do
-    cp "/System/Library/Fonts/ZapfDingbats.ttf", testpath
-    system bin/"ttx", "ZapfDingbats.ttf"
+    on_macos do
+      cp "/System/Library/Fonts/ZapfDingbats.ttf", testpath
+      system bin/"ttx", "ZapfDingbats.ttf"
+    end
+    on_linux do
+      assert_match "usage", shell_output("#{bin}/ttx -h")
+    end
   end
 end

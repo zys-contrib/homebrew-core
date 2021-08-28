@@ -3,17 +3,26 @@ class Psftools < Formula
   homepage "https://www.seasip.info/Unix/PSF/"
   # psftools-1.1.10.tar.gz (dated 2017) was a typo of 1.0.10 and has since been deleted.
   # You may still find it on some mirrors but it should not be used.
-  url "https://www.seasip.info/Unix/PSF/psftools-1.0.13.tar.gz"
-  sha256 "9c61e6885dca2f9591b4aa5fe821e16d4779cd071c3a45ead326629f210def65"
+  url "https://www.seasip.info/Unix/PSF/psftools-1.0.14.tar.gz"
+  sha256 "dcf8308fa414b486e6df7c48a2626e8dcb3c8a472c94ff04816ba95c6c51d19e"
   license "GPL-2.0"
   version_scheme 1
 
+  # The development release on the homepage uses the same filename format as
+  # the stable release (e.g., psftools-1.1.1.tar.gz). However, the "Development
+  # Release" section comes before the "Stable Release" section, so we can use
+  # this heading to anchor stable releases for now.
+  livecheck do
+    url :homepage
+    regex(/Stable Release.+?href=.*?psftools[._-]v?(\d+(?:\.\d+)+)\.t/im)
+  end
+
   bottle do
-    cellar :any
-    sha256 "f4f46e695337976c5820baf6afc98cb16612dff9d4042d65c03a8a093ab77bb1" => :big_sur
-    sha256 "30d2a62f05343fbd172a0b7d094e84755d3441fae6e9a5734793cf363a9e8c40" => :catalina
-    sha256 "9a04003b9ff3529c3e1e94f63b062c120b8a5e4af66a99965347d63827004128" => :mojave
-    sha256 "cd1682c76f401ff6fc6c4dce3e4c5d31aeb50a2deb4b56a31b8bab5830c6ec4b" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "474daee5c218ce90013ce498fa84dc5486bfdd1ff736535a87bd618fa72f3da9"
+    sha256 cellar: :any,                 big_sur:       "42056401c680e3a2372f2b16c78936b6e06c1cb3f8125f1a7c0fff8d23372de9"
+    sha256 cellar: :any,                 catalina:      "ac3cc35325cd2b565044a9e864bbf4b3c2e34a39f46b267ae3fc753d63857a83"
+    sha256 cellar: :any,                 mojave:        "8e53985d7a48b4f927d94ac27339ba7d293181b90fe33d05f22c71ff1e48c126"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c750eb92e19169c1bb81129ab8ce270963e9168500b7c59d59d8bb7fc68ee7b4"
   end
 
   depends_on "autoconf" => :build

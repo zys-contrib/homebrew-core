@@ -5,7 +5,12 @@ class Fits < Formula
   sha256 "1378a78892db103b3a00e45c510b58c70e19a1a401b3720ff4d64a51438bfe0b"
   license "Apache-2.0"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "18ae09e9e92d45f14502dd3b7a5323be6f1b1ac19fb45fd1c367b2417d9db929"
+    sha256 cellar: :any, big_sur:       "70a94bc9728e70e82c57d726ec958880da89dd5af6c2d65ae4351e6cf7543366"
+    sha256 cellar: :any, catalina:      "70a94bc9728e70e82c57d726ec958880da89dd5af6c2d65ae4351e6cf7543366"
+    sha256 cellar: :any, mojave:        "70a94bc9728e70e82c57d726ec958880da89dd5af6c2d65ae4351e6cf7543366"
+  end
 
   depends_on "openjdk"
 
@@ -17,8 +22,8 @@ class Fits < Formula
                     Dir["*.properties"]
 
     inreplace "fits-env.sh" do |s|
-      s.gsub! /^FITS_HOME=.*/, "FITS_HOME=#{libexec}"
-      s.gsub! "${FITS_HOME}/lib", libexec/"lib"
+      s.gsub!(/^FITS_HOME=.*/, "FITS_HOME=#{libexec}")
+      s.gsub! "${FITS_HOME}/lib", "#{libexec}/lib"
     end
 
     inreplace %w[fits.sh fits-ngserver.sh],
@@ -27,9 +32,9 @@ class Fits < Formula
     # fits-env.sh is a helper script that sets up environment
     # variables, so we want to tuck this away in libexec
     libexec.install "fits-env.sh"
-    bin.install "fits.sh", "fits-ngserver.sh"
-    bin.install_symlink bin/"fits.sh" => "fits"
-    bin.install_symlink bin/"fits-ngserver.sh" => "fits-ngserver"
+    (libexec/"bin").install %w[fits.sh fits-ngserver.sh]
+    (bin/"fits").write_env_script libexec/"bin/fits.sh", Language::Java.overridable_java_home_env
+    (bin/"fits-ngserver").write_env_script libexec/"bin/fits.sh", Language::Java.overridable_java_home_env
   end
 
   test do

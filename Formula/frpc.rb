@@ -2,15 +2,16 @@ class Frpc < Formula
   desc "Client app of fast reverse proxy to expose a local server to the internet"
   homepage "https://github.com/fatedier/frp"
   url "https://github.com/fatedier/frp.git",
-      tag:      "v0.34.3",
-      revision: "aa0a41ee4e3fd332978d509dcdbb09a7f457c880"
+      tag:      "v0.37.1",
+      revision: "997d406ec25832e7d16f140d110e4016f908d8cf"
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "16c2574a266ba143cfb8a21c1a861c7cdf72fee01bba872e8ad791bdb79c26d9" => :big_sur
-    sha256 "cbb573268565ade29a95e20f458678ffe2182367603e4640ed8cec12ff3b9285" => :catalina
-    sha256 "8781e241ebe52fad10c329292cdd4cb12438ac74f45348c7e3d398e3ad573578" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "479f16efe4cd84aab82c9ed5b9faab80efe43c6241dfe634c391ae8377363237"
+    sha256 cellar: :any_skip_relocation, big_sur:       "97c8de1d03db9974378e144e8f21e2c2797b68205e82f40822f699a4686bda46"
+    sha256 cellar: :any_skip_relocation, catalina:      "97c8de1d03db9974378e144e8f21e2c2797b68205e82f40822f699a4686bda46"
+    sha256 cellar: :any_skip_relocation, mojave:        "97c8de1d03db9974378e144e8f21e2c2797b68205e82f40822f699a4686bda46"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7738425459a3304854d9a9cd1c87880657d5911a430d35a6ca4fe881100fe536"
   end
 
   depends_on "go" => :build
@@ -25,31 +26,11 @@ class Frpc < Formula
     etc.install "conf/frpc_full.ini" => "frp/frpc_full.ini"
   end
 
-  plist_options manual: "frpc -c #{HOMEBREW_PREFIX}/etc/frp/frpc.ini"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>KeepAlive</key>
-          <true/>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/frpc</string>
-            <string>-c</string>
-            <string>#{etc}/frp/frpc.ini</string>
-          </array>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/frpc.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/frpc.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"frpc", "-c", etc/"frp/frpc.ini"]
+    keep_alive true
+    error_log_path var/"log/frpc.log"
+    log_path var/"log/frpc.log"
   end
 
   test do

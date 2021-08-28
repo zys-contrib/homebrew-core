@@ -4,13 +4,13 @@ class OpencvAT2 < Formula
   url "https://github.com/opencv/opencv/archive/2.4.13.7.tar.gz"
   sha256 "192d903588ae2cdceab3d7dc5a5636b023132c8369f184ca89ccec0312ae33d0"
   license "BSD-3-Clause"
-  revision 11
+  revision 12
 
   bottle do
-    sha256 "22ae4740a37fe1ea19a377bb7207e2f06417fd62e5fe9c19626aea1b740a7506" => :big_sur
-    sha256 "180d6d38c261fbb8d8a874fe21018c0ad1fa9e9a526e9234ff5645affe04512f" => :catalina
-    sha256 "9beadffa6f23d7c7ea58a501d88e8512a67ac4f0848b8a9920209fc6430ab0ed" => :mojave
-    sha256 "b90a2e7e26ef9d18a2f87a954a786a6bc983047fbcae2280b662df66e254e76c" => :high_sierra
+    sha256 arm64_big_sur: "80480cb6ead5fdcdb15ff6a15ce76ab6650da02b1d41f29e719afaf311e9cc4c"
+    sha256 big_sur:       "ccca6d5ab6c409984409b978bb1f44d753cb973e0d11dd8721fdda7dffa9713c"
+    sha256 catalina:      "f3d3e73afb743e429cbcfe84c44ef461eedb85fe040a3e2da15979ee3ddabfd3"
+    sha256 mojave:        "04149e97504dff8e9d76258126f403e24dabe31245620091dbc452af6722dc2a"
   end
 
   keg_only :versioned_formula
@@ -67,7 +67,8 @@ class OpencvAT2 < Formula
     # https://github.com/Homebrew/homebrew-science/issues/2302
     args << "-DCMAKE_PREFIX_PATH=#{py_prefix}"
 
-    args << "-DENABLE_SSE41=ON" << "-DENABLE_SSE42=ON" if MacOS.version.requires_sse42?
+    args << "-DENABLE_SSE41=ON" << "-DENABLE_SSE42=ON" \
+      if Hardware::CPU.intel? && MacOS.version.requires_sse42?
 
     mkdir "build" do
       system "cmake", "..", *args

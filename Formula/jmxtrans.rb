@@ -1,22 +1,22 @@
 class Jmxtrans < Formula
   desc "Tool to connect to JVMs and query their attributes"
   homepage "https://github.com/jmxtrans/jmxtrans"
-  url "https://github.com/jmxtrans/jmxtrans/archive/jmxtrans-parent-271.tar.gz"
-  sha256 "4aee400641eaeee7f33e1253043b1e644f8a9ec18f95ddc911ff8d35e2ca6530"
+  url "https://github.com/jmxtrans/jmxtrans/archive/jmxtrans-parent-272.tar.gz"
+  sha256 "73691dc634be8ff504ed33867807266545d9ff9402e365c09fcf0272720cc160"
   license "MIT"
-  revision 1
   version_scheme 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "96faa92ad0e8117a5376a7fc24432027429caafe40c1d918cdb738089d1d9f28" => :big_sur
-    sha256 "5fee07fef9c31f52a0b00441e1a8e0bf2cb2d5c64e7d2349c7482c220516c816" => :catalina
-    sha256 "4c5edee577aca39e0559011f715169a1cc9e29f94439acfd9625242a6fef114c" => :mojave
-    sha256 "7968cefc0a3b6b81afc15121cef7025c32e540636b36e70691a0e752ed6abdf8" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:      "f83bb65c93c0149c4af9b3277d2ec1eee6fd0e94f2a27af0de47c18d3932e9fb"
+    sha256 cellar: :any_skip_relocation, catalina:     "f8e5ac84ca621fbb2c0b0c9715899c8e7b2e86f198330b49c7ba7e3d993ec24c"
+    sha256 cellar: :any_skip_relocation, mojave:       "8dd69723155a4f2580b7327ca2babc8389cc9678f21dc1934ce3b73e7c67c89b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "33004f7a6ece9cc9b0c6a0fa1640bf3176237a860012a2df0b2c71ce0a722396"
   end
 
   depends_on "maven" => :build
   depends_on "openjdk@8"
+
+  uses_from_macos "netcat" => :test
 
   def install
     ENV["JAVA_HOME"] = Formula["openjdk@8"].opt_prefix
@@ -29,7 +29,7 @@ class Jmxtrans < Formula
     cd "jmxtrans" do
       # Point JAR_FILE into Cellar where we've installed the jar file
       inreplace "jmxtrans.sh", "$( cd \"$( dirname \"${BASH_SOURCE[0]}\" )/../lib\" "\
-                ">/dev/null && pwd )/jmxtrans-all.jar",
+                               ">/dev/null && pwd )/jmxtrans-all.jar",
                 libexec/"target/jmxtrans-#{version}-all.jar"
 
       # Exec java to avoid forking the server into a new process
@@ -42,6 +42,9 @@ class Jmxtrans < Formula
     end
 
     (bin/"jmxtrans").write_env_script libexec/"jmxtrans.sh", JAVA_HOME: Formula["openjdk@8"].opt_prefix
+
+    # Delete 32-bit Linux binaries
+    rm Dir[libexec/"target/generated-resources/appassembler/jsw/jmxtrans/{bin,lib}/*wrapper-linux-x86-32*"]
   end
 
   test do

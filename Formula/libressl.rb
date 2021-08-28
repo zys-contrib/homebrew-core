@@ -2,9 +2,9 @@ class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
   homepage "https://www.libressl.org/"
   # Please ensure when updating version the release is from stable branch.
-  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.2.2.tar.gz"
-  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-3.2.2.tar.gz"
-  sha256 "a9d1e1d030b8bcc67bf6428b8c0fff14a5602e2236257b9e3d77acaf12e2a7a1"
+  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.3.4.tar.gz"
+  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-3.3.4.tar.gz"
+  sha256 "bcce767a3fed252bfd1210f8a7e3505a2b54d3008f66e43d9b95e3f30c072931"
   license "OpenSSL"
 
   livecheck do
@@ -13,10 +13,11 @@ class Libressl < Formula
   end
 
   bottle do
-    sha256 "2a3625bdbdb264bc96357a77db73f5e445f454d1935c0f1b2a6d3882f064f197" => :big_sur
-    sha256 "00d8d05fd6e3a712f8220e49a1e405ab5067028b1839f70c450c31ab2ceccb30" => :catalina
-    sha256 "903fa188bd18598a9caecc6e3f7a799be8f0574b102aa69d383ab6ad653a39ca" => :mojave
-    sha256 "e6dc8d2b2c6634cdfb6456d176cde1e94ad8e11ebf3e518d5b394edfb1cca823" => :high_sierra
+    sha256 arm64_big_sur: "9ecfbd5de9cf3cf38da317f9920eff3434a50e89b96d22dd19e89a3d6f6935a6"
+    sha256 big_sur:       "f8cd6129c381324094c0511958dcc66133b7167ac47db4acc345c66da2118e81"
+    sha256 catalina:      "270a0a04a1ef7d365d4fca0eeb343f2566c7dd66214f22f120740f16d79d1545"
+    sha256 mojave:        "ee7a539db2b8a9d9bdfcf91a985582977d84ce7b27575597247bd4c47384ae35"
+    sha256 x86_64_linux:  "ce58b8983a6d82d81355ac7d47ffbd828fd1c4f3e51a81d3ce7b67b0870d9b32"
   end
 
   head do
@@ -28,6 +29,10 @@ class Libressl < Formula
   end
 
   keg_only :provided_by_macos
+
+  on_linux do
+    keg_only "it conflicts with OpenSSL formula"
+  end
 
   def install
     args = %W[
@@ -46,27 +51,50 @@ class Libressl < Formula
   end
 
   def post_install
-    keychains = %w[
-      /System/Library/Keychains/SystemRootCertificates.keychain
-    ]
+    on_macos do
+      ohai "Regenerating CA certificate bundle from keychain, this may take a while..."
 
-    certs_list = `security find-certificate -a -p #{keychains.join(" ")}`
-    certs = certs_list.scan(
-      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
-    )
+      keychains = %w[
+        /Library/Keychains/System.keychain
+        /System/Library/Keychains/SystemRootCertificates.keychain
+      ]
 
-    valid_certs = certs.select do |cert|
-      IO.popen("#{bin}/openssl x509 -inform pem -checkend 0 -noout", "w") do |openssl_io|
-        openssl_io.write(cert)
-        openssl_io.close_write
+      certs_list = `security find-certificate -a -p #{keychains.join(" ")}`
+      certs = certs_list.scan(
+        /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
+      )
+
+      # Check that the certificate has not expired
+      valid_certs = certs.select do |cert|
+        IO.popen("#{bin}/openssl x509 -inform pem -checkend 0 -noout &>/dev/null", "w") do |openssl_io|
+          openssl_io.write(cert)
+          openssl_io.close_write
+        end
+
+        $CHILD_STATUS.success?
       end
 
-      $CHILD_STATUS.success?
-    end
+      # Check that the certificate is trusted in keychain
+      trusted_certs = begin
+        tmpfile = Tempfile.new
 
-    # LibreSSL install a default pem - We prefer to use macOS for consistency.
-    rm_f %W[#{etc}/libressl/cert.pem #{etc}/libressl/cert.pem.default]
-    (etc/"libressl/cert.pem").atomic_write(valid_certs.join("\n"))
+        valid_certs.select do |cert|
+          tmpfile.rewind
+          tmpfile.write cert
+          tmpfile.truncate cert.size
+          tmpfile.flush
+          IO.popen("/usr/bin/security verify-cert -l -L -R offline -c #{tmpfile.path} &>/dev/null")
+
+          $CHILD_STATUS.success?
+        end
+      ensure
+        tmpfile&.close!
+      end
+
+      # LibreSSL install a default pem - We prefer to use macOS for consistency.
+      rm_f %W[#{etc}/libressl/cert.pem #{etc}/libressl/cert.pem.default]
+      (etc/"libressl/cert.pem").atomic_write(trusted_certs.join("\n") << "\n")
+    end
   end
 
   def caveats

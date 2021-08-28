@@ -1,20 +1,17 @@
 class Mailutils < Formula
   desc "Swiss Army knife of email handling"
   homepage "https://mailutils.org/"
-  url "https://ftp.gnu.org/gnu/mailutils/mailutils-3.10.tar.gz"
-  mirror "https://ftpmirror.gnu.org/mailutils/mailutils-3.10.tar.gz"
-  sha256 "1a4025280f504ff56269f0fc25859cfea20a39dd45d12abfffe1f89ee54e708a"
+  url "https://ftp.gnu.org/gnu/mailutils/mailutils-3.13.tar.gz"
+  mirror "https://ftpmirror.gnu.org/mailutils/mailutils-3.13.tar.gz"
+  sha256 "41234389452805e5a47cec4fd57c61feee0cdaa6de94d0ded0cd33e778f58de2"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    sha256 "2bd00bf5866505474733869b501295dfa0cd4790bb958e2ddf797c54cc4e3dff" => :big_sur
-    sha256 "2a0c02530447ce4edeeaab7b84cec370e342b02a5606eb36b6ab611d6a308eb9" => :catalina
-    sha256 "dbdbd2b06de4ad016feaf7f89f3bd4536b205489476daac87e8a7e60e8350fd6" => :mojave
-    sha256 "f03c50b72974082a31d51f2665786d723ab853b19ab3df35dd8a2b8c39e27901" => :high_sierra
+    sha256 arm64_big_sur: "30207f5919cdd31f2fb409d3c1ce2ed7b3f80dd1919c6cfe5fe17b92ae70000a"
+    sha256 big_sur:       "1182bc30b75d80f84753b5ddf53c74cb7bbeae001286747d402fc8e046c9cfa0"
+    sha256 catalina:      "fe4db7c7eb259f4cd9a657c8f876d045baa4026b7fdb3a5e1ee6bb46e5105973"
+    sha256 mojave:        "511990696c674dab6a9b1d180f987bb53a214e1bc889387d09dea134f6669216"
+    sha256 x86_64_linux:  "dd024392296a37d55a74566cc7fd5299597ddc4a69347991c0bc7e200bf1d1c4"
   end
 
   depends_on "gnutls"

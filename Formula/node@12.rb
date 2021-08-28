@@ -1,8 +1,8 @@
 class NodeAT12 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v12.20.0/node-v12.20.0.tar.gz"
-  sha256 "b91065ebe60981faa0e1f0a37d1788154141c710bb0521635a900895a7ce8dd8"
+  url "https://nodejs.org/dist/v12.22.5/node-v12.22.5.tar.gz"
+  sha256 "119cf027c9ba0a71268914d02d2aa430f7eeb6adef5a9fa0bc9ed6dd1b12cd8c"
   license "MIT"
 
   livecheck do
@@ -11,10 +11,11 @@ class NodeAT12 < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "6dac918cba462900f5cd600439ffcdd709f91bb015523037f22680e8579133ca" => :big_sur
-    sha256 "2ace2ef2e9f1c70372de85c654392c49bf42d92eb6a178e130cf52acf4305ab9" => :catalina
-    sha256 "a7d6d129fadf836ae949dfb44179f3c4da75b962ffa628f2c58b350db88951b8" => :mojave
+    sha256 cellar: :any,                 arm64_big_sur: "b0299f9b0433f532e43132f8878ab3636144eaadd19f1543fc3e9ee42e1b4138"
+    sha256 cellar: :any,                 big_sur:       "29941f38a6a292df46b10cd9d6b53b6a50ed422ab7c45e1698460fec39e91c07"
+    sha256 cellar: :any,                 catalina:      "8d1f9ac1190942bdf32aaeb546057d865a5fd5f19b11779dec63c78a0b444be3"
+    sha256 cellar: :any,                 mojave:        "6ea18482ca59e331114472a4e16828450307ff6248dcb059d80659e35520e51a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f1c0a3c6325ae8c412f300a5ab09f86ca2f95f7c146c8c1e835b387562fa3c7"
   end
 
   keg_only :versioned_formula
@@ -23,12 +24,26 @@ class NodeAT12 < Formula
   depends_on "python@3.9" => :build
   depends_on "icu4c"
 
+  on_macos do
+    depends_on "macos-term-size"
+  end
+
   def install
     # make sure subprocesses spawned by make are using our Python 3
     ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
     system "python3", "configure.py", "--prefix=#{prefix}", "--with-intl=system-icu"
     system "make", "install"
+
+    term_size_vendor_dir = lib/"node_modules/npm/node_modules/term-size/vendor"
+    term_size_vendor_dir.rmtree # remove pre-built binaries
+
+    on_macos do
+      macos_dir = term_size_vendor_dir/"macos"
+      macos_dir.mkpath
+      # Replace the vendored pre-built term-size with one we build ourselves
+      ln_sf (Formula["macos-term-size"].opt_bin/"term-size").relative_path_from(macos_dir), macos_dir
+    end
   end
 
   def post_install

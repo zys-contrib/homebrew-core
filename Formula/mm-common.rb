@@ -1,21 +1,16 @@
 class MmCommon < Formula
   desc "Build utilities for C++ interfaces of GTK+ and GNOME packages"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.2.tar.xz"
-  sha256 "a2a99f3fa943cf662f189163ed39a2cfc19a428d906dd4f92b387d3659d1641d"
+  url "https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.3.tar.xz"
+  sha256 "e81596625899aacf1d0bf27ccc2fcc7f373405ec48735ca1c7273c0fbcdc1ef5"
   license "GPL-2.0-or-later"
-  revision 1
-
-  livecheck do
-    url :stable
-  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a416e9010403d5ee9e6c80ffa384a31b8989613109e9ceb047d48d2538f75ceb" => :big_sur
-    sha256 "0848953327bb61223c30f3fc08c3cf8845c8e7387cafeaca31001967e990c2ae" => :catalina
-    sha256 "82e99d77f2e543ebda262f6bf98cef0cfde5142a95a09a2374358f9ba7d3c781" => :mojave
-    sha256 "292ce8133ff860d6083d049fa2e6d1cb357e8ce9c41453894fbba742ea7bdc20" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f40a6de3865dbb9c453f82b2eae422bb54ae0e422ee287ad41cea24f4b084937"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f40a6de3865dbb9c453f82b2eae422bb54ae0e422ee287ad41cea24f4b084937"
+    sha256 cellar: :any_skip_relocation, catalina:      "85f048b6c104120336d3d1e727ddef7faca85feaad37bb404f502202437d1a41"
+    sha256 cellar: :any_skip_relocation, mojave:        "85f048b6c104120336d3d1e727ddef7faca85feaad37bb404f502202437d1a41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "015f6833761b100ad4610a505700d44fc1db448147f68ae502cc8e9383048ef9"
   end
 
   depends_on "meson" => :build

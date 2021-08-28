@@ -1,8 +1,8 @@
 class Gradle < Formula
   desc "Open-source build automation tool based on the Groovy and Kotlin DSL"
   homepage "https://www.gradle.org/"
-  url "https://services.gradle.org/distributions/gradle-6.7.1-all.zip"
-  sha256 "22449f5231796abd892c98b2a07c9ceebe4688d192cd2d6763f8e3bf8acbedeb"
+  url "https://services.gradle.org/distributions/gradle-7.2-all.zip"
+  sha256 "a8da5b02437a60819cad23e10fc7e9cf32bcb57029d9cb277e26eeff76ce014b"
   license "Apache-2.0"
 
   livecheck do
@@ -10,14 +10,30 @@ class Gradle < Formula
     regex(/href=.*?gradle[._-]v?(\d+(?:\.\d+)+)-all\.(?:[tz])/i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "303a0a5cc54ee43b085f1b8a7cb2753ca2b21305b05628b3bf03383d71080cc2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "271f05a8828d3e763fc615ce1d709d1e01d5957f7a001f0723303ffe130a8251"
+    sha256 cellar: :any_skip_relocation, catalina:      "271f05a8828d3e763fc615ce1d709d1e01d5957f7a001f0723303ffe130a8251"
+    sha256 cellar: :any_skip_relocation, mojave:        "271f05a8828d3e763fc615ce1d709d1e01d5957f7a001f0723303ffe130a8251"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15d4fa8e444f0127ea833fcb53099b3a92e13a0a39e7bffc5dd824a029f60736"
+  end
 
-  depends_on "openjdk"
+  # gradle currently does not support Java 17
+  if Hardware::CPU.arm?
+    depends_on "openjdk@11"
+  else
+    depends_on "openjdk"
+  end
 
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install %w[bin docs lib src]
-    (bin/"gradle").write_env_script libexec/"bin/gradle", Language::Java.overridable_java_home_env
+    env = if Hardware::CPU.arm?
+      Language::Java.overridable_java_home_env("11")
+    else
+      Language::Java.overridable_java_home_env
+    end
+    (bin/"gradle").write_env_script libexec/"bin/gradle", env
   end
 
   test do

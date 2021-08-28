@@ -1,17 +1,16 @@
 class Libfido2 < Formula
   desc "Provides library functionality for FIDO U2F & FIDO 2.0, including USB"
   homepage "https://developers.yubico.com/libfido2/"
-  url "https://github.com/Yubico/libfido2/archive/1.5.0.tar.gz"
-  sha256 "5990f923c9390fe1e6a00ba5d1d1f74030e7344b855e971d9fb7223e70ff3122"
+  url "https://github.com/Yubico/libfido2/archive/1.8.0.tar.gz"
+  sha256 "554291188f24ab595cb947f9d2b6ec40ce5afe39d9257c1e2cd0bdef8bf7fd1d"
   license "BSD-2-Clause"
-  revision 1
 
   bottle do
-    cellar :any
-    sha256 "892cb19ff972bd6e118e7d8eb82ccec51ba55227717277935c7b9a5187aadae0" => :big_sur
-    sha256 "3160d880a6c2175777523c26a82629500ea2cea52aabc54d31b868c15ad823c2" => :catalina
-    sha256 "ff215921abe2965e55f66bab26eaa5cc6b6d822d0b9068f0a6e85b3e2a071586" => :mojave
-    sha256 "018430b7f86e69a66fa01c1400054e5e05b7cbf44a95622909b9c010f313c736" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "dc337533af36a3756e758f13590a09a62b9dbe92740f14129af70fc0f48f1f20"
+    sha256 cellar: :any,                 big_sur:       "c128be0d0ff853f9db7c921c1b1272a11671525aa6b2d34b11a8d8ea26989d7d"
+    sha256 cellar: :any,                 catalina:      "13c88e8935bae584abcc70e817328009689689e1e057b6f0e0df99f88481b702"
+    sha256 cellar: :any,                 mojave:        "faa172bd93fb5976aa8044ec0a4b1ce07832d4681b70309529bdc5207e7b7392"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4ee18fc6862c83e0662060a240acad3ae0b7a10c139df78da277d342280d4d5"
   end
 
   depends_on "cmake" => :build
@@ -20,9 +19,19 @@ class Libfido2 < Formula
   depends_on "libcbor"
   depends_on "openssl@1.1"
 
+  on_linux do
+    depends_on "systemd" # for libudev
+  end
+
   def install
+    args = std_cmake_args
+
+    on_linux do
+      args << "-DUDEV_RULES_DIR=#{lib}/udev/rules.d"
+    end
+
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *args
       system "make"
       system "make", "man_symlink_html"
       system "make", "man_symlink"
@@ -49,7 +58,7 @@ class Libfido2 < Formula
       fido_dev_info_free(&devlist, max_devices);
     }
     EOF
-    system ENV.cc, "-std=c99", "test.c", "-I#{include}", "-I#{Formula["openssl@1.1"].include}", "-o", "test",
+    system ENV.cc, "test.c", "-I#{include}", "-I#{Formula["openssl@1.1"].include}", "-o", "test",
                    "-L#{lib}", "-lfido2"
     system "./test"
   end

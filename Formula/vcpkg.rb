@@ -1,22 +1,27 @@
 class Vcpkg < Formula
   desc "C++ Library Manager"
   homepage "https://github.com/microsoft/vcpkg"
-  url "https://github.com/microsoft/vcpkg/archive/2020.11-1.tar.gz"
-  version "2020.11-1"
-  sha256 "dcae747fddfc1540b57d576afd2ad5191611013cce0bf30f184a1535c3d90fbe"
+  url "https://github.com/microsoft/vcpkg/archive/2021.05.12.tar.gz"
+  sha256 "907f26a5357c30e255fda9427f1388a39804f607a11fa4c083cc740cb268f5dc"
   license "MIT"
-  head "https://github.com/microsoft/vcpkg.git"
+  head "https://github.com/microsoft/vcpkg.git", branch: "master"
 
   bottle do
-    cellar :any
-    sha256 "5d02a65c2f0d49ee6af1b6af90a3daa5fbabf62c8b1552d18ae10c85eb6cba1f" => :big_sur
-    sha256 "585cc3fd22497deca02ec61dd63b14653fcb59258f14f3313110d323f240102d" => :catalina
-    sha256 "0e5f3a484461879e358301f2b3e26d26fbd726d5d0495e57c934ecab99e189a7" => :mojave
-    sha256 "79a09d5626c2dc3230e03d412b27762531ae7d7a223653a29666a93d30acdd43" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e58d2e3fbf843883563579ec544828788ca051c9b5bd46edc0e5df71c35b90dc"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d963bef9ed861e8e67c4ef2080f04adf3a91bb971776f60f3f40bd5a6a875e07"
+    sha256 cellar: :any_skip_relocation, catalina:      "143a0c4e50b0d96bdaa7ed913105654188664ac105500c74f66add89fe1cf098"
+    sha256 cellar: :any,                 mojave:        "301a0c5460bebfa3f05fb2ed8d264fce2a9fe9f261853fed991a59d1c1cd58ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aac3ac181306d79ac32984bdfecf34c9fa90703ed11e78044fae8630ca085222"
   end
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
+
+  on_linux do
+    depends_on "gcc" # for C++17
+  end
+
+  fails_with gcc: "5"
 
   if MacOS.version <= :mojave
     depends_on "gcc"

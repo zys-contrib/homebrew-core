@@ -2,14 +2,15 @@ class Grc < Formula
   include Language::Python::Shebang
 
   desc "Colorize logfiles and command output"
-  homepage "https://korpus.juls.savba.sk/~garabik/software/grc.html"
-  url "https://github.com/garabik/grc/archive/v1.11.3.tar.gz"
-  sha256 "b167babd8f073a68f5a3091f833e4036fb8d86504e746694747a3ee5048fa7a9"
-  license "GPL-2.0"
-  revision 2
-  head "https://github.com/garabik/grc.git"
+  homepage "http://kassiopeia.juls.savba.sk/~garabik/software/grc.html"
+  url "https://github.com/garabik/grc/archive/v1.13.tar.gz"
+  sha256 "a7b10d4316b59ca50f6b749f1d080cea0b41cb3b7258099c3eb195659d1f144f"
+  license "GPL-2.0-or-later"
+  head "https://github.com/garabik/grc.git", branch: "devel"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "5032986a02da858c72ea6124457e83ba43710a6ae6a027d6e2d2350176eae51d"
+  end
 
   depends_on "python@3.9"
 
@@ -17,27 +18,21 @@ class Grc < Formula
 
   def install
     # fix non-standard prefix installs
-    inreplace ["grc", "grc.1"], "/etc", etc
-    inreplace ["grcat", "grcat.1"], "/usr/local", HOMEBREW_PREFIX
+    inreplace "grc", "/usr/local/etc/", "#{etc}/"
+    inreplace "grc.1", " /etc/", " #{etc}/"
+    inreplace ["grcat", "grcat.1"], "/usr/local/share/grc/", "#{pkgshare}/"
 
     # so that the completions don't end up in etc/profile.d
     inreplace "install.sh",
-      "mkdir -p $PROFILEDIR\ncp -fv grc.bashrc $PROFILEDIR", ""
+      "mkdir -p $PROFILEDIR\ncp -fv grc.sh $PROFILEDIR", ""
 
     rewrite_shebang detected_python_shebang, "grc", "grcat"
 
     system "./install.sh", prefix, HOMEBREW_PREFIX
-    etc.install "grc.bashrc"
+    etc.install "grc.sh"
     etc.install "grc.zsh"
     etc.install "grc.fish"
     zsh_completion.install "_grc"
-  end
-
-  # Apply the upstream fix from garabik/grc@ddc789bf to preexisting config files
-  def post_install
-    grc_bashrc = etc/"grc.bashrc"
-    bad = /^    alias ls='colourify ls --color'$/
-    inreplace grc_bashrc, bad, "    alias ls='colourify ls'" if grc_bashrc.exist? && File.read(grc_bashrc) =~ bad
   end
 
   test do

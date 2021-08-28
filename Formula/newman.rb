@@ -3,20 +3,16 @@ require "language/node"
 class Newman < Formula
   desc "Command-line collection runner for Postman"
   homepage "https://www.getpostman.com"
-  url "https://registry.npmjs.org/newman/-/newman-5.2.1.tgz"
-  sha256 "17240e5ebb6a270f150b307e51f39459f50149eb59c100d3453c67e01701aa9d"
+  url "https://registry.npmjs.org/newman/-/newman-5.2.4.tgz"
+  sha256 "cd65415463aba3c5f57e92b93e4603eab4ad823dbf3b0e960640cfdf18e417fa"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    cellar :any_skip_relocation
-    sha256 "564ac0ed7eb9da953f707fddc3d9d79ab1a39922f343ce09992d82cacf7d7e3f" => :big_sur
-    sha256 "b2357bcee103b650137d97b39d393b1c7745762fe87ed49e8eaaf22ac9726ce8" => :catalina
-    sha256 "42b862e8121ef26bd7c1d25aebfbfc380c24a5c7787f68aeaa8e24e0a40531c0" => :mojave
-    sha256 "caf8168c44fea1b87a60f136f0b17f8a09eea9f080b9bb0c9c2092efdc2679cf" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "21130a928c057859222d1902adfa6429daa2e34a596505bbbd304284257f6d54"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ed2748b227245376f268f0d0b560fefe96b560e284acf5976068e900abfddcb6"
+    sha256 cellar: :any_skip_relocation, catalina:      "ed2748b227245376f268f0d0b560fefe96b560e284acf5976068e900abfddcb6"
+    sha256 cellar: :any_skip_relocation, mojave:        "ed2748b227245376f268f0d0b560fefe96b560e284acf5976068e900abfddcb6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d64accb250a0fee5ebc201230b1a7ffff0f8f4a5c457c614e26211f96d8cb8a"
   end
 
   depends_on "node"
@@ -64,7 +60,7 @@ class Newman < Formula
       }
     EOS
 
-    assert_match /newman/, shell_output("#{bin}/newman run #{path}")
+    assert_match "newman", shell_output("#{bin}/newman run #{path}")
     assert_equal version.to_s, shell_output("#{bin}/newman --version").strip
   end
 end

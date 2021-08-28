@@ -7,11 +7,9 @@ class Flume < Formula
   license "Apache-2.0"
   revision 1
 
-  livecheck do
-    url :stable
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "734753080fb6c3c2446b483ddf29032c997886c75470e0f43f7a0f489eceb3d8"
   end
-
-  bottle :unneeded
 
   depends_on "hadoop"
   depends_on "openjdk"

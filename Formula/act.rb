@@ -1,16 +1,17 @@
 class Act < Formula
   desc "Run your GitHub Actions locally 🚀"
   homepage "https://github.com/nektos/act"
-  url "https://github.com/nektos/act/archive/v0.2.17.tar.gz"
-  sha256 "124bfda32da78d38ba9d439a5671228fadb97c636092cdc9c911565bf2614c37"
+  url "https://github.com/nektos/act/archive/v0.2.24.tar.gz"
+  sha256 "c6bc09cac52483e175f25d50a262e6b0815789a243a657b6b0c597f048487e0f"
   license "MIT"
+  head "https://github.com/nektos/act.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2faa63c64245afacf70f1c61ae445a26571bfe7c190ee39169ab0d73b47cceda" => :big_sur
-    sha256 "e91282fdbe17e8e559f99ac0e0d704ea541197587277428a21b9927cb30b009c" => :catalina
-    sha256 "37e68207cd6dd80222e79501a2fc6870e0093b257c8b2700a428f91e4cefc834" => :mojave
-    sha256 "259e716e51ba28f1b73f203acd3af2cd368789d41f83b000e7a8cf6b98c6e1ac" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a20e74be00a60813dda3b8cf2ff6b15ee16127989b9b5e316796b311391997c9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "dda88098e1615b3d69ea03a8edefde476ea2128427ee12915ef5913b3adde8c4"
+    sha256 cellar: :any_skip_relocation, catalina:      "91b2522b430fc0a8045ef844633903b651432a4f355ce2e1b142ab35e55254bf"
+    sha256 cellar: :any_skip_relocation, mojave:        "20e5acc8fe34351772ffee1367febe509045cf7abea85e24112040043b9399c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f09351f33ce63078e1b2e195fc7b12405b15bc90eff9065061972827aaa910ee"
   end
 
   depends_on "go" => :build
@@ -21,7 +22,15 @@ class Act < Formula
   end
 
   test do
+    (testpath/".actrc").write <<~EOS
+      -P ubuntu-latest=node:12.6-buster-slim
+      -P ubuntu-12.04=node:12.6-buster-slim
+      -P ubuntu-18.04=node:12.6-buster-slim
+      -P ubuntu-16.04=node:12.6-stretch-slim
+    EOS
+
     system "git", "clone", "https://github.com/stefanzweifel/laravel-github-actions-demo.git"
+
     cd "laravel-github-actions-demo" do
       system "git", "checkout", "v2.0"
 

@@ -4,29 +4,30 @@ class Dmd < Formula
   license "BSL-1.0"
 
   stable do
-    url "https://github.com/dlang/dmd/archive/v2.094.2.tar.gz"
-    sha256 "0f7406cf45b5fb36f2ec8cc4454398302f0131853b6ff1c9d4c8133d0dc5904a"
+    url "https://github.com/dlang/dmd/archive/v2.097.2.tar.gz"
+    sha256 "10e8fc9b99864bf68f384ca85f0c527221478be08d331ac477a90a2d83b71f4f"
 
     resource "druntime" do
-      url "https://github.com/dlang/druntime/archive/v2.094.2.tar.gz"
-      sha256 "e0872190136cafe0c4c78ebc8750759eabf43f5af714c5619f4499ae3385a6e7"
+      url "https://github.com/dlang/druntime/archive/v2.097.2.tar.gz"
+      sha256 "ee09d6e37887bba856c767b9aa36f61b290f2cfe0c470eb4a9ccd7f2e24d4bcd"
     end
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.094.2.tar.gz"
-      sha256 "efc9fe827a480521df2a9391170d733320b0d78ae679592821d551fd76968801"
+      url "https://github.com/dlang/phobos/archive/v2.097.2.tar.gz"
+      sha256 "3f407f94d5d50a43498acf7f463f56a96f66534901068f8d6be850a1bd12135c"
     end
 
     resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.094.2.tar.gz"
-      sha256 "eed24c4b10035d52e4de6edf48199b8310c01e2d51e369562e7e3445eeea8574"
+      url "https://github.com/dlang/tools/archive/v2.097.2.tar.gz"
+      sha256 "b04c7ebd16fa1b48aea4667f3906fdb62b4ff94c661eb216ba477f3310faf882"
     end
   end
 
   bottle do
-    sha256 "2e9456d05fbcda78e4b2a7dbd56ba423a36ff06b754c80a15c4a1b483ed484bd" => :big_sur
-    sha256 "4524e9544890a56bcac7adf0928f91fc918c438d6a174fe4c97d7808c4b80412" => :catalina
-    sha256 "7a8683ad4e9c67dbcd9f0851ae677649150620d1a167a9901ec1bab69f941581" => :mojave
+    sha256 big_sur:      "3d9352cd4ce2ed8874c9da854540a6c3928b3bc81b77788c7e8a09c8580bfbe0"
+    sha256 catalina:     "c9fb6b53f38ca780febac7c9d343928a9a2e88bec7aa5a6b7a05b70949915ca2"
+    sha256 mojave:       "9ccdddbfac184379c83150a87c2e230863c51866dd099ad9609c4eb22cf4f107"
+    sha256 x86_64_linux: "4fe16fa1889fe81062e0484eca751883c06ebea11c0df177f2b9b6fc8a3a24d8"
   end
 
   head do
@@ -44,6 +45,8 @@ class Dmd < Formula
       url "https://github.com/dlang/tools.git"
     end
   end
+
+  depends_on arch: :x86_64
 
   uses_from_macos "unzip" => :build
   uses_from_macos "xz" => :build

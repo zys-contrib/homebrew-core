@@ -1,30 +1,28 @@
 class Tundra < Formula
   desc "Code build system that tries to be fast for incremental builds"
   homepage "https://github.com/deplinenoise/tundra"
-  url "https://github.com/deplinenoise/tundra/archive/v2.15.tar.gz"
-  sha256 "c4656a8fb97b0488bda3bfadeb36c3f9d64d9a20095d81f93d59db7d24e34e2b"
+  url "https://github.com/deplinenoise/tundra/archive/v2.16.1.tar.gz"
+  sha256 "eaf86f183a731c59ad72e3232a1f8b33ca1dc68c39503f99fc9b0cc6e33b50c1"
   license "MIT"
 
   livecheck do
-    url "https://github.com/deplinenoise/tundra/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "039b959316767f2e594f3ba2975f8b9607d526e12549ca7cdbf7bf7256b504d5" => :big_sur
-    sha256 "782e5cffac2df8f04a2f86a994a0e6f3dbc5d6c0627119fa2e7e8e9c048b58aa" => :catalina
-    sha256 "0fb994652330be64e5375a8a21924c2b6f65505685dfaac7d1dcdf4f26f54016" => :mojave
-    sha256 "065e6fc51e912585a278de152b5b149c1d86fc6dd3843d5add5b0a0230c6b118" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f813f11bfda97c4e172e926c01a1104097f6bd61d344cf01031cf359e422d5da"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5e7970c3893238a41438bcc2dfb96f24b826ccf93a2c1c75dfdec4ab5a39186c"
+    sha256 cellar: :any_skip_relocation, catalina:      "72abfc5263693f27df124037c5b40764bbce51bf7922316d1f2dcdc5fbe5f2d1"
+    sha256 cellar: :any_skip_relocation, mojave:        "ea38828937d82358d09da4c756b31bf6ee7c5884b40a750900e2b45566946c35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d1d1d7343ad50600eb93665e46db9da7c0fb6e64240eed31b9078b249a42aab"
   end
 
-  resource "gtest" do
-    url "https://github.com/google/googletest/archive/release-1.10.0.tar.gz"
-    sha256 "9dc9157a9a1551ec7a7e43daea9a694a0bb5fb8bec81235d8a1e6ef64c716dcb"
-  end
+  depends_on "googletest" => :build
 
   def install
-    (buildpath/"unittest/googletest").install resource("gtest")
+    ENV.append "CFLAGS", "-I#{Formula["googletest"].opt_include}/googletest/googletest"
+
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
   end
@@ -37,7 +35,15 @@ class Tundra < Formula
         return 0;
       }
     EOS
-    (testpath/"tundra.lua").write <<~'EOS'
+
+    os = "macosx"
+    cc = "clang"
+    on_linux do
+      os = "linux"
+      cc = "gcc"
+    end
+
+    (testpath/"tundra.lua").write <<~EOS
       Build {
         Units = function()
           local test = Program {
@@ -48,14 +54,14 @@ class Tundra < Formula
         end,
         Configs = {
           {
-            Name = "macosx-clang",
-            DefaultOnHost = "macosx",
-            Tools = { "clang-osx" },
+            Name = "#{os}-#{cc}",
+            DefaultOnHost = "#{os}",
+            Tools = { "#{cc}" },
           },
         },
       }
     EOS
     system bin/"tundra2"
-    system "./t2-output/macosx-clang-debug-default/test"
+    system "./t2-output/#{os}-#{cc}-debug-default/test"
   end
 end

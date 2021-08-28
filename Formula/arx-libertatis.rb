@@ -1,31 +1,21 @@
 class ArxLibertatis < Formula
   desc "Cross-platform, open source port of Arx Fatalis"
   homepage "https://arx-libertatis.org/"
-  license "GPL-3.0"
-  revision 2
-
-  stable do
-    url "https://arx-libertatis.org/files/arx-libertatis-1.1.2.tar.xz"
-    sha256 "82adb440a9c86673e74b84abd480cae968e1296d625b6d40c69ca35b35ed4e42"
-
-    # Add a missing include to CMakeLists.txt
-    patch do
-      url "https://github.com/arx/ArxLibertatis/commit/442ba4af978160abd3856a9daec38f5b6e213cb4.patch?full_index=1"
-      sha256 "de361866cc51c14f317a67dcfd3b736160a577238f931c78a525ea2864b1add9"
-    end
-  end
+  url "https://arx-libertatis.org/files/arx-libertatis-1.2/arx-libertatis-1.2.tar.xz"
+  sha256 "bacf7768c4e21c9166c7ea57083d4f20db0deb8f0ee7d96b5f2829e73a75ad0c"
+  license "GPL-3.0-or-later"
 
   livecheck do
-    url :head
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    url "https://arx-libertatis.org/files/"
+    regex(%r{href=["']?arx-libertatis[._-]v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle do
-    cellar :any
-    sha256 "2a9e06b2b91e1133389728b2ad0c81f23d95a266a451144fb8639953b5a96cd3" => :big_sur
-    sha256 "b93ffc0870dffd0bab99117814e3c094fc019c2315bdd8fc35f687c1009dd661" => :catalina
-    sha256 "39fc49249e5a82bd067c05bcd056b454a90ace91f364b3c33534901827247b2c" => :mojave
-    sha256 "2fe2043845655c6f3e75be1dc7213826fd142f806fd7b59006fdef940584e92a" => :high_sierra
+    sha256 arm64_big_sur: "e469206c5bb34427edef5f81ca7a5a2511e2657b8acb26842a189362629d630e"
+    sha256 big_sur:       "3f03719e92c9606c8ea9b9dbd891fb021cb64dab0f900ccdb4461fd9e148dcea"
+    sha256 catalina:      "92502b8e62cb44e1fdedd2dccba4f52e50dc84d43ba49e9701bad63068398b74"
+    sha256 mojave:        "fd6ca5b5c434e60283a830f15320e40863a74d6c86fb4c5f2301cb27b6b60489"
+    sha256 x86_64_linux:  "77ab00fa5362582badc7471df2b653af79e8345ea2a915cc1eeb6760de28cabd"
   end
 
   head do
@@ -48,24 +38,6 @@ class ArxLibertatis < Formula
 
   def install
     args = std_cmake_args
-
-    # The patches for these aren't straightforward to backport because of
-    # other changes; these minimal inreplaces get it building.
-    # HEAD is fine, and the next stable release will contain these changes.
-    if build.stable?
-      # https://github.com/arx/ArxLibertatis/commit/39fb9a0e3a6888a6a5f040e39896e88750c89065
-      inreplace "src/platform/Time.cpp", "clock_t ", "clockid_t "
-
-      # Version parsing is broken in the current stable; fixed upstream.
-      # This hardcodes the current version based on data from VERSION.
-      inreplace "src/core/Version.cpp.in" do |s|
-        s.gsub! "${VERSION_COUNT}", "5"
-        s.gsub! "${VERSION_2}", "10"
-        s.gsub! "${VERSION_0}", "1.1.2"
-        s.gsub! "${GIT_SUFFIX_5}", "+Homebrew-1"
-        s.gsub! "${VERSION_4}", "Rhaa Movis"
-      end
-    end
 
     # Install prebuilt icons to avoid inkscape and imagemagick deps
     if build.head?

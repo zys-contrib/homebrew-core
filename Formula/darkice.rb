@@ -6,16 +6,16 @@ class Darkice < Formula
   license "GPL-3.0"
 
   livecheck do
-    url "https://github.com/rafael2k/darkice/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    cellar :any
-    sha256 "500b7d4a2ccd852588c4ac9cd65f901817f19961ad21e8c2355b82318efd74d4" => :big_sur
-    sha256 "c312949cef4bec0b37951d4e9f3b9211a0a0c04d8666cb14bfde0a9f6c85ad5e" => :catalina
-    sha256 "b41dd758dcda3daa8bcde6c5f161fb73d9268bef1bd68940e320fe0374b8272e" => :mojave
-    sha256 "a8b0c02c6b00f614c9eac9d05fa17aee233021879edf7abc8cd81d1de34881e4" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "3a4f9f7d9203130529868ad9b0ff539bb795c531b4603090d6255441d5b15dbc"
+    sha256 cellar: :any, big_sur:       "500b7d4a2ccd852588c4ac9cd65f901817f19961ad21e8c2355b82318efd74d4"
+    sha256 cellar: :any, catalina:      "c312949cef4bec0b37951d4e9f3b9211a0a0c04d8666cb14bfde0a9f6c85ad5e"
+    sha256 cellar: :any, mojave:        "b41dd758dcda3daa8bcde6c5f161fb73d9268bef1bd68940e320fe0374b8272e"
+    sha256 cellar: :any, high_sierra:   "a8b0c02c6b00f614c9eac9d05fa17aee233021879edf7abc8cd81d1de34881e4"
   end
 
   depends_on "pkg-config" => :build

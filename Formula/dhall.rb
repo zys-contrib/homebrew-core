@@ -1,24 +1,23 @@
 class Dhall < Formula
   desc "Interpreter for the Dhall language"
   homepage "https://dhall-lang.org/"
-  url "https://hackage.haskell.org/package/dhall-1.36.0/dhall-1.36.0.tar.gz"
-  sha256 "9207c8becbbc1890568b861d35a623e10451feea0e0d34b317ec77966b6f8b04"
+  url "https://hackage.haskell.org/package/dhall-1.40.1/dhall-1.40.1.tar.gz"
+  sha256 "21c23ed7c3949f6c8adb439666a934460a07636320ae4b3dfaced03455e24e54"
   license "BSD-3-Clause"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c0f806e50e86f3292e3ad56680733fbcb819af9e1c3ee8ef71aca221aba409f4" => :big_sur
-    sha256 "02331205e3f27d14f8c5fe108bbd69497c01d7b2e795c92158fa5c0cbe628913" => :catalina
-    sha256 "53dacefb2ccf077ee0b8545c33da906aae9fa262d306da709f9eb13c38aae7f5" => :mojave
-    sha256 "f332b105f50c549fe3e96e9b077d2c076e47e312397bdf48f70bb68990b27c02" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d5813e732f904689c01bd850dacfbadefc7cc7eabc9de698eae354f6da536487"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7419b77dbe5d0c193fee5fcc025b4498093827c49b7bb72cd5a1ea9049df2ace"
+    sha256 cellar: :any_skip_relocation, catalina:      "5237942d82f12c997ed07086c1be7610ce4ba998dc87b24a3dec2d88bd382d71"
+    sha256 cellar: :any_skip_relocation, mojave:        "dad39b07677cd3dc786e269a9160e938f3cdb1cdd7c35d7856293d61c7aad741"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d59fbea133108d39b418633a411f102ab282754d2bccb3164bc43ae2fbf9480d"
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   def install
     system "cabal", "v2-update"
@@ -28,6 +27,6 @@ class Dhall < Formula
   test do
     assert_match "{=}", pipe_output("#{bin}/dhall format", "{ = }", 0)
     assert_match "8", pipe_output("#{bin}/dhall normalize", "(\\(x : Natural) -> x + 3) 5", 0)
-    assert_match "∀(x : Natural) → Natural", pipe_output("#{bin}/dhall type", "\\(x: Natural) -> x + 3", 0)
+    assert_match "(x : Natural) -> Natural", pipe_output("#{bin}/dhall type", "\\(x: Natural) -> x + 3", 0)
   end
 end

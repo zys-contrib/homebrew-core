@@ -1,20 +1,16 @@
 class Cython < Formula
   desc "Compiler for writing C extensions for the Python language"
   homepage "https://cython.org/"
-  url "https://files.pythonhosted.org/packages/6c/9f/f501ba9d178aeb1f5bf7da1ad5619b207c90ac235d9859961c11829d0160/Cython-0.29.21.tar.gz"
-  sha256 "e57acb89bd55943c8d8bf813763d20b9099cc7165c0f16b707631a7654be9cad"
-  revision 1
-
-  livecheck do
-    url :stable
-  end
+  url "https://files.pythonhosted.org/packages/59/e3/78c921adf4423fff68da327cc91b73a16c63f29752efe7beb6b88b6dd79d/Cython-0.29.24.tar.gz"
+  sha256 "cdf04d07c3600860e8c2ebaad4e8f52ac3feb212453c1764a49ac08c827e8443"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fd74db80cbd06970855b2bd78d71593c919fad34d165c351663503f2429193c4" => :big_sur
-    sha256 "8642f6bff6de2c04fc5eea73b63af6a7029665a3fc053d5fa94043af0e9842ce" => :catalina
-    sha256 "1b53458978d40017cb1b3be75aadfa9e99ecaffd73f6c3d4885d6a5d5b0ddaca" => :mojave
-    sha256 "f6474509ad079919250de3f536e2d57e4230e72b1614603b5797c24a08e67391" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "980ed66e30d5adf3dd2102f3a536a09c935fa058f9fef8915a8c14f24d6757a3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3ea67bcf72c2fb408a9bfdc74052f17793fe86d463dbb09b50074e8e3bc229aa"
+    sha256 cellar: :any_skip_relocation, catalina:      "854687421737032cf7a531a2957f55537e74e3bb3ae2b778ffa73acf3703ce13"
+    sha256 cellar: :any_skip_relocation, mojave:        "fd84920b5a706cf47bd9b927137b99f24549608fe3eb3cca4d50757e80589984"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "84aa64f585372c910dbac840f6164502a1fdb887f79b2f38e222672988c8585c"
   end
 
   keg_only <<~EOS

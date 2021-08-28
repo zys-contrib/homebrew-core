@@ -4,25 +4,32 @@ class Gambit < Formula
   url "https://github.com/gambitproject/gambit/archive/v16.0.1.tar.gz"
   sha256 "56bb86fd17575827919194e275320a5dd498708fd8bb3b20845243d492c10fef"
   license "Apache-2.0"
+  revision 3
 
   bottle do
-    cellar :any
-    sha256 "c1bf628cb87dbed50a0bd5299b3921545a001999af7a061343caf6aa75784cf5" => :catalina
-    sha256 "849760c07650bf6d240e3d488ed984ef3f1520976cc402ec1afe215ac881aa08" => :mojave
-    sha256 "f5d187618279c18de8e290151ba7683a5b68e4b96203db1a05600eb84002d391" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "067cb4ce13d125296e4db92c28c63ae90c6107079b8cd4a6e1fc935565bf864f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c99a930bc6bd33cd8ccd07602c472c9a64006b8a6ca2a846081c0faecaf39bf7"
+    sha256 cellar: :any_skip_relocation, catalina:      "ca119805ce3e9aa8a02d91362ba8cab410762b34e84c67616c78006acebd7d44"
+    sha256 cellar: :any_skip_relocation, mojave:        "0ed6547bd2c50529879b3f1d19dcd1afa685dcc3ed030866d6cbd104c6402dc6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "946f395529bd8d582781d198adac36c2617b0636db95b8b7b5337d0542f0f7eb"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "wxmac"
+  depends_on "wxwidgets@3.0"
 
   def install
+    wxwidgets = Formula["wxwidgets@3.0"]
+    ENV["WX_CONFIG"] = wxwidgets.opt_bin/"wx-config-#{wxwidgets.version.major_minor}"
+
     system "autoreconf", "-fvi"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+    # Sanitise references to Homebrew shims
+    rm Dir["contrib/**/Makefile*"]
     pkgshare.install "contrib"
   end
 

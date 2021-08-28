@@ -1,20 +1,21 @@
 class Openldap < Formula
   desc "Open source suite of directory software"
   homepage "https://www.openldap.org/software/"
-  url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.4.56.tgz"
-  sha256 "25520e0363c93f3bcb89802a4aa3db33046206039436e0c7c9262db5a61115e0"
+  url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.5.7.tgz"
+  sha256 "ea9757001bc36295037f0030ede16810a1bb7438bbe8f871a35cc2a2b439d9ab"
   license "OLDAP-2.8"
 
   livecheck do
     url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/"
-    regex(/href=.*?openldap[._-]v?(\d+(?:\.\d+)*)\.t/i)
+    regex(/href=.*?openldap[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 "345810c84de13512ecf41b3ff0b606d8e59b093ab6bb3532e2cc3488a76c77fe" => :big_sur
-    sha256 "c51d24181e4291ece30b4ff8504f864bc4e0432a0dc85b64d6f4cac68b4f43dd" => :catalina
-    sha256 "8a9151d93ef5d9fe13aefe74b9cbba128524cfa5646d3bafa84b44180ffcba22" => :mojave
-    sha256 "517c23bda49065c883a38d4d2ea0b1816860913c0b30013be170a01d3518a824" => :high_sierra
+    sha256 arm64_big_sur: "c4d9a59ec4d441285110a2dfa0d67f51f5c3143bae306312f2b452a9f3f48225"
+    sha256 big_sur:       "84724691666b037bc57a88be1c76a9ff30c8559c89780fea8cac439f5350e499"
+    sha256 catalina:      "b8ab256ce13cd4e4ab969f086cb37dc4a192ed9fe65fd476ff4085d2b29855e5"
+    sha256 mojave:        "44112f8f14f19d469c98eecf0c390fa8205e69a14429df199ae86c5b9a835ba9"
+    sha256 x86_64_linux:  "b107a8e433dbe115672a023a3b9466f5cbad67a5314cfb9b660627a2d679d360"
   end
 
   keg_only :provided_by_macos
@@ -50,6 +51,16 @@ class Openldap < Formula
       --enable-unique
       --enable-valsort
     ]
+
+    on_linux do
+      args << "--without-systemd"
+
+      # Disable manpage generation, because it requires groff which has a huge
+      # dependency tree on Linux
+      inreplace "Makefile.in" do |s|
+        s.change_make_var! "SUBDIRS", "include libraries clients servers"
+      end
+    end
 
     system "./configure", *args
     system "make", "install"

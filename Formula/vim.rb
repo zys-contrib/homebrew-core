@@ -2,24 +2,25 @@ class Vim < Formula
   desc "Vi 'workalike' with many additional features"
   homepage "https://www.vim.org/"
   # vim should only be updated every 50 releases on multiples of 50
-  url "https://github.com/vim/vim/archive/v8.2.2050.tar.gz"
-  sha256 "e1013e6c013f57e6d9843c7bb549256673c778e2afd5fbbb131b7aa14e021743"
+  url "https://github.com/vim/vim/archive/v8.2.3350.tar.gz"
+  sha256 "f705470b5c95a2c02f96344d6b3c570f8f0eee23893b9118370cb7812815f9ce"
   license "Vim"
-  head "https://github.com/vim/vim.git"
+  head "https://github.com/vim/vim.git", branch: "master"
 
   bottle do
-    sha256 "2a7bcbf31dfa147fce3709144becdcdf97911d489eb4fa7f68f8bbbb2a336e61" => :big_sur
-    sha256 "dc88da9a1f742b46ce76956180201689cac58fedd2ddfd9ff21d0295b318af44" => :catalina
-    sha256 "7333e2d2f9e1f8bf9670a3f25719171d40ccf914e94fa05108b0b97ec74e6bd3" => :mojave
+    sha256 arm64_big_sur: "5c67e5167efd0fea36b3f99cdf8fe149a9834496d15c116620be9e3b8468da54"
+    sha256 big_sur:       "556a574a53633a0ba4d7dfbe36856590227504d185b0225446cd6d4845314325"
+    sha256 catalina:      "3341d122c9cde85167ea6e1257a13e52679fb4726a40c707c166f527229874e1"
+    sha256 mojave:        "12de00eaf17ad46c900b694de20dfae5319b2c95fbb051120fe0c394ef31a1fb"
+    sha256 x86_64_linux:  "c0980c4674c4a6cffd4d464befdfd6c90402b46cf2959fa99e35d2523deaa399"
   end
 
   depends_on "gettext"
   depends_on "lua"
+  depends_on "ncurses"
   depends_on "perl"
   depends_on "python@3.9"
   depends_on "ruby"
-
-  uses_from_macos "ncurses"
 
   conflicts_with "ex-vi",
     because: "vim and ex-vi both install bin/ex and bin/view"

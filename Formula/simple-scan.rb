@@ -1,18 +1,15 @@
 class SimpleScan < Formula
   desc "GNOME document scanning application"
   homepage "https://gitlab.gnome.org/GNOME/simple-scan"
-  url "https://download.gnome.org/sources/simple-scan/3.38/simple-scan-3.38.1.tar.xz"
-  sha256 "1e82f80c5ddd4855a94763a2490432bd6d550e44b06f4cd44c47f265d2673a3f"
+  url "https://download.gnome.org/sources/simple-scan/40/simple-scan-40.1.tar.xz"
+  sha256 "ebee39ab1fe4ca053c4ed2bd3a3ca76742ff109436dd0645d3415622132ba0b4"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    sha256 "6b49711531ec4066744a184e2bad8b8ae11213edd8ae17649e03bfa3279e8581" => :catalina
-    sha256 "bd5bdfa081cc5cfb39ab5453d9b5af8c3fe2eff9dcc8062c5015c865adb1d8b7" => :mojave
-    sha256 "22646109f4b948ab2a1cc30f6a02120cbfa296859e5b1d8ed298863a11fd7d4c" => :high_sierra
+    sha256 arm64_big_sur: "a3682dd1d9b1f0c33f523469d8971286c6cb4300ae82eb31825bcbc0d2fd21c0"
+    sha256 big_sur:       "73592584299577d4567501ff336cb23ce39b1a7d74bfc05cbb22e74326a2cec8"
+    sha256 catalina:      "7a0a0234992e2dcb3e650d492456fc17bf0400c2bc36a99f4d8d3b011e0096f6"
+    sha256 mojave:        "47d31029f77ad42d17899786c4159201a5536227ffe52942b1ea490dcd9a8c7c"
   end
 
   depends_on "itstool" => :build
@@ -23,6 +20,7 @@ class SimpleScan < Formula
   depends_on "glib"
   depends_on "gtk+3"
   depends_on "libgusb"
+  depends_on "libhandy"
   depends_on "sane-backends"
   depends_on "webp"
 

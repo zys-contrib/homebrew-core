@@ -3,17 +3,14 @@ class Prefixsuffix < Formula
   homepage "https://github.com/murraycu/prefixsuffix"
   url "https://download.gnome.org/sources/prefixsuffix/0.6/prefixsuffix-0.6.9.tar.xz"
   sha256 "fc3202bddf2ebbb93ffd31fc2a079cfc05957e4bf219535f26e6d8784d859e9b"
-  license "GPL-2.0"
-  revision 6
-
-  livecheck do
-    url :stable
-  end
+  license "GPL-2.0-or-later"
+  revision 9
 
   bottle do
-    sha256 "bdcc8e8a29554fa2044a43ee87b0719c4cfcbc29f6704ca627baf33cf64a6cd7" => :big_sur
-    sha256 "cd5e8a3bf6d9cdc08dcb9f22b9980f8e6171ee6ae6a7ec7efea7cd0f7828cdf1" => :catalina
-    sha256 "e2292a094523141912e01fe8432833637439bbf7a2111187135f7d96934aa8a4" => :mojave
+    sha256 arm64_big_sur: "03a102fc5cbf319029a6b536b60caf5db40396b25e1d6de1eda1baf297cb0d81"
+    sha256 big_sur:       "4300af03702b1873b307890bfb3bf9e08da08e43c401c958a2dcf796d56a34e8"
+    sha256 catalina:      "8384f85dfc725d9a754030a2f94320124845b3d63968a2a3348a918afd096415"
+    sha256 mojave:        "3e25c1930c085b61c073b5015895db250ec1113b3102384ebf84c1f8d0a65731"
   end
 
   depends_on "intltool" => :build

@@ -1,8 +1,8 @@
 class Krb5 < Formula
   desc "Network authentication protocol"
   homepage "https://web.mit.edu/kerberos/"
-  url "https://kerberos.org/dist/krb5/1.18/krb5-1.18.3.tar.gz"
-  sha256 "e61783c292b5efd9afb45c555a80dd267ac67eebabca42185362bee6c4fbd719"
+  url "https://kerberos.org/dist/krb5/1.19/krb5-1.19.2.tar.gz"
+  sha256 "10453fee4e3a8f8ce6129059e5c050b8a65dab1c257df68b99b3112eaa0cdf6a"
   license :cannot_represent
 
   livecheck do
@@ -11,9 +11,11 @@ class Krb5 < Formula
   end
 
   bottle do
-    sha256 "ce41211e7264912be6fc05d8e5ed3bbc141679b0ab6c9b4099a36da811077a9f" => :big_sur
-    sha256 "f50ff30a8268899f65150363f294ddcbd1969759f8700efac874caa181bca75d" => :catalina
-    sha256 "4e5751f16b7e6d9f27968a9efb1ba5f702292c7fefdb25a32c940ef71f81b7cd" => :mojave
+    sha256 arm64_big_sur: "62a2882f4193d6871d9c8116b897a8d33d6a4fedb954646a0eefdc4bfe623110"
+    sha256 big_sur:       "6ae8cffb08f9cba4842a21fc92618e22403a474fbd6d05820c3755401d55688d"
+    sha256 catalina:      "5d0157ff13610f06bc262350978ef1f754e2b7ed0721ba27c431cfd5b5b16639"
+    sha256 mojave:        "9dd6fca906e634be1c1b05a99fa8f28735a969e3eb4d939048e89f322c3a4278"
+    sha256 x86_64_linux:  "2626ed3b8a8e5448aabeac56f6fe91b199fe896a5fd84394d5475213fde1a139"
   end
 
   keg_only :provided_by_macos
@@ -21,6 +23,10 @@ class Krb5 < Formula
   depends_on "openssl@1.1"
 
   uses_from_macos "bison"
+
+  on_linux do
+    depends_on "gettext"
+  end
 
   def install
     cd "src" do
@@ -37,7 +43,8 @@ class Krb5 < Formula
                             "--disable-dependency-tracking",
                             "--disable-silent-rules",
                             "--prefix=#{prefix}",
-                            "--without-system-verto"
+                            "--without-system-verto",
+                            "--without-keyutils"
       system "make"
       system "make", "install"
     end

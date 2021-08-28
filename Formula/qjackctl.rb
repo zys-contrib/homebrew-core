@@ -1,10 +1,10 @@
 class Qjackctl < Formula
   desc "Simple Qt application to control the JACK sound server daemon"
   homepage "https://qjackctl.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/qjackctl/qjackctl/0.6.3/qjackctl-0.6.3.tar.gz"
-  sha256 "9db46376cfacb2e2ee051312245f5f7c383c9f5a958c0e3d661b9bd2a9246b7d"
-  license "GPL-2.0"
-  head "https://git.code.sf.net/p/qjackctl/code.git"
+  url "https://downloads.sourceforge.net/project/qjackctl/qjackctl/0.9.4/qjackctl-0.9.4.tar.gz"
+  sha256 "febf7019f775a07d167f255756c27e55832656ccf69d1c744b4ce563e478d9a0"
+  license "GPL-2.0-or-later"
+  head "https://git.code.sf.net/p/qjackctl/code.git", branch: "master"
 
   livecheck do
     url :stable
@@ -12,15 +12,15 @@ class Qjackctl < Formula
   end
 
   bottle do
-    sha256 "14ca4a66d897c1b8d6dcec1da501b778a11bd175be0623fa79ee056451bf3fc2" => :big_sur
-    sha256 "8e30b2f2b2587c3177287a8a47f785862d0f6201e92f8cfc90ea16e17e2e405c" => :catalina
-    sha256 "902219e2f8d6e223a2375eeeb92470e0fefce0acb4d960b250a5c2ac5e5cef97" => :mojave
-    sha256 "c77bf5a0063a9c265b1c9c343a47e399f000a49acc496ace4c081398fa6e16cb" => :high_sierra
+    sha256 arm64_big_sur: "186c081fcdb6bdd0fd58175c8aea96f164bfaa465da97136cd2f8ab9ee1b2227"
+    sha256 big_sur:       "4ed17595db8a68f83e15117bd056b3e67fc45b0f35f22dcd5bbc25c321ad407b"
+    sha256 catalina:      "616930b85129a5cc17239da15363b37c6037731858a17c493fa3dbef737f1373"
+    sha256 mojave:        "c1b716c18fb6fa8c3fd6b4745aa86692666625ae4ab45fd2bb9fa59e22b7eeaf"
   end
 
   depends_on "pkg-config" => :build
   depends_on "jack"
-  depends_on "qt"
+  depends_on "qt@5"
 
   def install
     ENV.cxx11
@@ -30,7 +30,7 @@ class Qjackctl < Formula
                           "--disable-xunique",
                           "--prefix=#{prefix}",
                           "--with-jack=#{Formula["jack"].opt_prefix}",
-                          "--with-qt=#{Formula["qt"].opt_prefix}"
+                          "--with-qt=#{Formula["qt@5"].opt_prefix}"
 
     system "make", "install"
     prefix.install bin/"qjackctl.app"

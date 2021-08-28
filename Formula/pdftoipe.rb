@@ -4,14 +4,13 @@ class Pdftoipe < Formula
   url "https://github.com/otfried/ipe-tools/archive/v7.2.20.1.tar.gz"
   sha256 "233f5629986ade3d70de6dd1af85d578d6aa0f92f9bcd1ecd4e8e5a94b508376"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 11
 
   bottle do
-    cellar :any
-    sha256 "f692c819249e96bbbe00ecb2240953a6b76f4b64d45532413711563e4b166d5a" => :big_sur
-    sha256 "332ffd9755c4da9cef34de4b9a2913ecf5f1acf73a563d819348c126cbb2416f" => :catalina
-    sha256 "cfac0579dc11896ce6164ed4872653810ee9221c6f03b99a06e4f754803bac96" => :mojave
-    sha256 "580fda4da8f66cc7586ba9f8d1e8c12097f5a7dfd1fa7e38c56c14c54be214e7" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "d578ed23ceac30c4d9092769f566723018ddd5facfe0a2cc713e0bc4faaabc18"
+    sha256 cellar: :any, big_sur:       "57ec6b5b7c1dfafe7e278b0f1539d0486efe9a679fa0557e483beadba852bae3"
+    sha256 cellar: :any, catalina:      "a3533c326f8b1fddbd61c6b3c167d1cf0c0690d230f50fbe99b852b5f87c544c"
+    sha256 cellar: :any, mojave:        "f02a6fa619fde074fdb7088dec0d82d7800de5b0ae6fbcfd7326fbfeff3ec124"
   end
 
   depends_on "pkg-config" => :build

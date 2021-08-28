@@ -7,11 +7,8 @@ class ScmManager < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0bf3a43daf080e5b84cd36512b28bc13c5ac74c24c711436358d00e060f84a86" => :big_sur
-    sha256 "a7d1d6994937ca3170f5bc078886339910520eb1261b835c9c6f1173fe9d5496" => :catalina
-    sha256 "6b0ed9e9d667ec92070b3f4b53f9dc90cbb508d2c6649684f39182e3bb23d6ac" => :mojave
-    sha256 "3e71fdc3039b4cc46fbbb49ae7976b8be09d8b9c4f6e5c0e052d30016668ac74" => :high_sierra
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "3f20a7255368f9e664b6901f4760ae890b9adced776659c004b4240df695a3e3"
   end
 
   depends_on "openjdk@8"
@@ -35,26 +32,8 @@ class ScmManager < Formula
     bin.write_jar_script libexec/"tools/scm-cli-client-#{version}-jar-with-dependencies.jar", "scm-cli-client", java_version: "1.8"
   end
 
-  plist_options manual: "scm-server start"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/scm-server</string>
-            <string>start</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"scm-server", "start"]
   end
 
   test do

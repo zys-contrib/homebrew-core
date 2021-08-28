@@ -2,15 +2,16 @@ class Helmsman < Formula
   desc "Helm Charts as Code tool"
   homepage "https://github.com/Praqma/helmsman"
   url "https://github.com/Praqma/helmsman.git",
-    tag:      "v3.6.2",
-    revision: "7bfad8d3a80385bab4186b82a50b724f16dcbb24"
+      tag:      "v3.7.2",
+      revision: "6d7e6ddb2c7747b8789dd72db7714431fe17e779"
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c2a77c0fc09e21576284ecf696fd5292003593947052ec60b54586ab1b20c65f" => :big_sur
-    sha256 "659eded9fe7d41d58ec7db54e4054d980cabbb340af420f12f31234a6b2905df" => :catalina
-    sha256 "52af46e0d35a06e85079da7b4f3b877226fbc3da3cd8baf1d9b5ac4b80e8bcc7" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a307ed84ab8c572b9256fb54aaad6a7300f9384c94163dfeafc7419188aed4d0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2f8fa84afd13560540da1be94ba442d8d140821436e14b038b8f034e561d7ca7"
+    sha256 cellar: :any_skip_relocation, catalina:      "c0604c09ea08fd0aefb7ad9f24ec6df256156670fa8d30c180365c9b479cf99f"
+    sha256 cellar: :any_skip_relocation, mojave:        "4841f957b4825a3501faa2ccf437d79042ea9019389ad344d4f20f9cecfe3830"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd61ceab712bafb407449a97d4e5e3df51bf50514f27c4bdd228796032748527"
   end
 
   depends_on "go" => :build
@@ -18,10 +19,7 @@ class Helmsman < Formula
   depends_on "kubernetes-cli"
 
   def install
-    system "go", "build",
-      "-ldflags", "-s -w -X main.version=#{version}",
-      "-trimpath", "-o", bin/"helmsman", "cmd/helmsman/main.go"
-    prefix.install_metafiles
+    system "go", "build", *std_go_args, "-ldflags", "-s -w -X main.version=#{version}", "./cmd/helmsman"
     pkgshare.install "examples/example.yaml"
   end
 
@@ -29,6 +27,6 @@ class Helmsman < Formula
     assert_match version.to_s, shell_output("#{bin}/helmsman version")
 
     output = shell_output("#{bin}/helmsman --apply -f #{pkgshare}/example.yaml 2>&1", 1)
-    assert_match "helm diff plugin is not installed", output
+    assert_match "helm diff not found", output
   end
 end

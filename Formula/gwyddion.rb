@@ -1,9 +1,9 @@
 class Gwyddion < Formula
   desc "Scanning Probe Microscopy visualization and analysis tool"
   homepage "http://gwyddion.net/"
-  url "http://gwyddion.net/download/2.56/gwyddion-2.56.tar.gz"
-  sha256 "4714ebd28482decceb0d9f83f7af200df5919530e02416b8b2121affe5ae6818"
-  license "GPL-2.0"
+  url "http://gwyddion.net/download/2.59/gwyddion-2.59.tar.gz"
+  sha256 "b777eaa9a53a971c55a5ae2f7cd6695d1dbde78ffb84b9cf8885361400f051c7"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "http://gwyddion.net/download.php"
@@ -11,10 +11,10 @@ class Gwyddion < Formula
   end
 
   bottle do
-    sha256 "319ecf28afd492ed5237e77f851af931e72e04001050aa70d778c9591038f36b" => :big_sur
-    sha256 "4172123e804c37db82b8b2ce473f36f4f644f1c2af6029f4e36a35576f792635" => :catalina
-    sha256 "a7d84f53539e1f9d77e0f11ccddd17a000733bf50d169c1af567ed157755502f" => :mojave
-    sha256 "e9a3d12639dc7018e50a0b422b5ea144a651c692818b9e7eb5b168670b8462d3" => :high_sierra
+    sha256 arm64_big_sur: "84daa1965a976e10f7fc3c86181060ab41de374e60e40f4c583d1708c62f4e2d"
+    sha256 big_sur:       "0843f910f945f7ccfa32b172e499733f03f5bd1ffb5651cd09dd9e4908bfa098"
+    sha256 catalina:      "ff6670705c707245cc11ae74a4b7c3ae973e6a5fdda03a4edf2cd1a114da0c13"
+    sha256 mojave:        "78eb5e116ce465537772408846a45680195b1184f616fc3663fe60fa3db6a02b"
   end
 
   depends_on "pkg-config" => :build

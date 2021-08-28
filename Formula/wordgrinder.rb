@@ -3,19 +3,21 @@ class Wordgrinder < Formula
   homepage "https://cowlark.com/wordgrinder"
   url "https://github.com/davidgiven/wordgrinder/archive/0.8.tar.gz"
   sha256 "856cbed2b4ccd5127f61c4997a30e642d414247970f69932f25b4b5a81b18d3f"
-  head "https://github.com/davidgiven/wordgrinder.git"
+  license "MIT"
+  revision 1
+  head "https://github.com/davidgiven/wordgrinder.git", branch: "master"
 
   bottle do
-    cellar :any
-    sha256 "cbb4777f6f4851a305e0aa4bddc1f83cfd452d521c5845db7202ec8179c5c972" => :big_sur
-    sha256 "34217b351fac13fc71bdcf99757e27547d31b028720ede8cff75dd8df98d731b" => :catalina
-    sha256 "044ee7c9874894b65e2b407e38fef047dae2277f8bb4ad85e927f038612cfa82" => :mojave
-    sha256 "7fe55fe2030606991d37ca2d0541674e3761e17dc02192ab62e54e8fceaec3f0" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "370093b3705f72a5d6b87bacd2e64e229f3d6ac82e52e92fe147c037d65f210b"
+    sha256 cellar: :any,                 big_sur:       "d2cb8d569e0a7a02abae8deb32adf8a564042cfd6cddaeef4bc1dc16ab05e53b"
+    sha256 cellar: :any,                 catalina:      "e084da6193fd984ac541e7c21044f80927b60b85ab69512d3824255be1c54d17"
+    sha256 cellar: :any,                 mojave:        "143c53429552e244089211458fc42bcdbb79171d5f98ae17db9c7175208c8ae4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07fdfa2bd3da72697fbd54cc93a8bc59b2c3afc3ddbfd55a46cde0e557011ca4"
   end
 
+  depends_on "lua" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "lua"
   depends_on "ncurses"
 
   uses_from_macos "zlib"

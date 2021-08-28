@@ -1,16 +1,16 @@
 class Tendermint < Formula
   desc "BFT state machine replication for applications in any programming languages"
   homepage "https://tendermint.com/"
-  url "https://github.com/tendermint/tendermint/archive/v0.34.0.tar.gz"
-  sha256 "3a28fac4c5e610fc32763db1b717ec0a1e12d39262e321d6da223c3b0acfea7f"
+  url "https://github.com/tendermint/tendermint/archive/v0.34.12.tar.gz"
+  sha256 "ffbf7db05a52f15462df33e7fd14c81291eb55dabf2cb686e8113f992dc8b06a"
   license "Apache-2.0"
-  head "https://github.com/tendermint/tendermint.git"
+  head "https://github.com/tendermint/tendermint.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ad7854f901ae4ac1ab4f7af7f02d4ee00d807789914515fd25b1c5b2c8c2ca04" => :big_sur
-    sha256 "3901a4b32d2fd8c576929b52603c2166f08978a228f8c18491b258c72f0777e9" => :catalina
-    sha256 "65a04941f0c97cdb98ffdf3b4e16fe4640566d35b107b634bcd789779fa58deb" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d069288a129924e9c6c8c80af2ccaf78b71b724c794e1830ebbbba6669d09f0d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9473894f1f5e2d7e08817844045172af8a62b17db2ddd819fb019aa9014aa587"
+    sha256 cellar: :any_skip_relocation, catalina:      "9473894f1f5e2d7e08817844045172af8a62b17db2ddd819fb019aa9014aa587"
+    sha256 cellar: :any_skip_relocation, mojave:        "9473894f1f5e2d7e08817844045172af8a62b17db2ddd819fb019aa9014aa587"
   end
 
   depends_on "go" => :build
@@ -23,8 +23,8 @@ class Tendermint < Formula
   test do
     mkdir(testpath/"staging")
     shell_output("#{bin}/tendermint init --home #{testpath}/staging")
-    assert_true File.exist?(testpath/"staging/config/genesis.json")
-    assert_true File.exist?(testpath/"staging/config/config.toml")
-    assert_true Dir.exist?(testpath/"staging/data")
+    assert_predicate testpath/"staging/config/genesis.json", :exist?
+    assert_predicate testpath/"staging/config/config.toml", :exist?
+    assert_predicate testpath/"staging/data", :exist?
   end
 end

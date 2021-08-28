@@ -5,6 +5,15 @@ class LadspaSdk < Formula
   sha256 "4229959b09d20c88c8c86f4aa76427843011705df22d9c28b38359fd1829fded"
   license "LGPL-2.1-only"
 
+  livecheck do
+    url "https://www.ladspa.org/download/"
+    regex(/href=.*?ladspa[._-]sdk[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
+  bottle do
+    sha256 x86_64_linux: "7ca6444acaf57f0a1a15bd6fc8cce571a434b0c3d1d4c0ae375300e2da93d4ed"
+  end
+
   depends_on :linux
 
   def install

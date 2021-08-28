@@ -1,18 +1,22 @@
 class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
+  # NOTE: Do not bump version to one with a non-open-source license
   url "https://github.com/elastic/kibana.git",
-      tag:      "v7.10.0",
-      revision: "1796b5ec8fa1e60ccea63f2e5c25ccc665b92fdc"
+      tag:      "v7.10.2",
+      revision: "a0b793698735eb1d0ab1038f8e5d7a951524e929"
   license "Apache-2.0"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "18f55a7e615160830390bb6b9ef09ff00d620a3085ee78f40a790c7b58a20dc8" => :big_sur
-    sha256 "8ddd2830d0b87aaba02cb54beef5dfab61e37afea6b8c62783c9253c4081dcd4" => :catalina
-    sha256 "d3ea8991e0adae31c382d990f39729092c5a73c8c7dcd2913b9568460fc6612c" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "c218ab10fca2ebdddd11ab27326d0a6d0530a7f26bc2adc26d1751e4326b0198"
+    sha256 cellar: :any_skip_relocation, catalina: "c1ee01e41c34677dba144152142808d469db2855658fdd3e4fcafbae77a10774"
+    sha256 cellar: :any_skip_relocation, mojave:   "fb818924d852b07ab0417e8ff52899400b98f25bd24714f77a8c472224269690"
   end
+
+  # elasticsearch will be relicensed before v7.11.
+  # https://www.elastic.co/blog/licensing-change
+  deprecate! date: "2021-01-14", because: "is switching to an incompatible license"
 
   depends_on "python@3.9" => :build
   depends_on "yarn" => :build

@@ -1,17 +1,17 @@
 class MongoCDriver < Formula
   desc "C driver for MongoDB"
   homepage "https://github.com/mongodb/mongo-c-driver"
-  url "https://github.com/mongodb/mongo-c-driver/releases/download/1.17.2/mongo-c-driver-1.17.2.tar.gz"
-  sha256 "bc53d5f72ab628a1ae549db6888325d6dc34db3ca31c5e16e550c1bb4266d864"
+  url "https://github.com/mongodb/mongo-c-driver/releases/download/1.19.0/mongo-c-driver-1.19.0.tar.gz"
+  sha256 "23c365d319f0a53af81dd7d56f35e90c24ec32a21823c2f36c5d8c2d1edcdd6f"
   license "Apache-2.0"
   head "https://github.com/mongodb/mongo-c-driver.git"
 
   bottle do
-    cellar :any
-    sha256 "5d79631ce0c7f57a96f0e2cd64fc869f65a2dc827620347f1b9a05053b6a1eb1" => :big_sur
-    sha256 "7d34fe918a27b7dbfde916994d1e068f317d22b95d2e3f0852ca1fad7fb924ee" => :catalina
-    sha256 "21268df63f6f1a0d6c21791ea4b2e57bc89cd132058de1cba0c8ded151aa3912" => :mojave
-    sha256 "ab28880884d121306ea193343c7c530c174cfd04247c125d3c8bf1b14af3f029" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "fb4cbfa74810524b991c1271e82c1ecf7bea06236ef4b8780ca2b4a0e0354546"
+    sha256 cellar: :any,                 big_sur:       "443fb61faf8b00fb7c9bb1980c020aecdb78b773ad9a20d94c50a2227d881840"
+    sha256 cellar: :any,                 catalina:      "55361a759155c4920aeaab5029fca739f4b041745f3a4606dbd06a46c0ef2af8"
+    sha256 cellar: :any,                 mojave:        "5b0fea8d91eaaa6dbd1fcd007197d55b8824228501ee4b69d42f7a6bc6c1508c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26271cdc780a6a39ab73c08c9f8c44232700ac1f0d55f7e4341c2506a7e28789"
   end
 
   depends_on "cmake" => :build
@@ -24,6 +24,7 @@ class MongoCDriver < Formula
   def install
     cmake_args = std_cmake_args
     cmake_args << "-DBUILD_VERSION=1.18.0-pre" if build.head?
+    cmake_args << "-DCMAKE_INSTALL_RPATH=#{rpath}"
     inreplace "src/libmongoc/src/mongoc/mongoc-config.h.in", "@MONGOC_CC@", ENV.cc
     system "cmake", ".", *cmake_args
     system "make", "install"

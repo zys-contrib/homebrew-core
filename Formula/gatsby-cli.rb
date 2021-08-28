@@ -4,29 +4,52 @@ class GatsbyCli < Formula
   desc "Gatsby command-line interface"
   homepage "https://www.gatsbyjs.org/docs/gatsby-cli/"
   # gatsby-cli should only be updated every 10 releases on multiples of 10
-  url "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-2.14.0.tgz"
-  sha256 "0050adf5035393a5a2e9696826ac450d0e23ea0c95c1ae0cdfff6d720bd47f04"
+  url "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-3.12.0.tgz"
+  sha256 "6bc2a52847bc24054780ddf8035b42fdf23544884fc9b0e54e351109d0d81cb4"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    cellar :any_skip_relocation
-    sha256 "7e14518950995abe75f8a5c5a0dfb49fd23bfea22d5c28787662da9ea3f8c09b" => :big_sur
-    sha256 "5b0128cf9e00a03d05aec2cafdafa42792f5c9ff220fa09c4a8a6aa0a9a730fb" => :catalina
-    sha256 "501df19565d8036daa47d49cff753e6f9d0d465324cb9d250eab79341f32277e" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c5be9ad2cd5dfc253b7574ee765d5c4e546da1dcec9066161c8eb1fd1ca45da4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "73c3ec8aee12aa372e2cd7eb039cfcb27c297c03d2843e32c84ce9156912ff14"
+    sha256 cellar: :any_skip_relocation, catalina:      "a526cb71e4b058f5e71f31bb67314a0b30e068a1de5d46c8a9d99d01217470ca"
+    sha256 cellar: :any_skip_relocation, mojave:        "73c3ec8aee12aa372e2cd7eb039cfcb27c297c03d2843e32c84ce9156912ff14"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "92b742ead2cb4edcc53624353f3f42c88545413e3bc639fc9bb4d19adeef86f3"
   end
 
   depends_on "node"
 
+  on_macos do
+    depends_on "macos-term-size"
+  end
+
+  on_linux do
+    depends_on "xsel"
+  end
+
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install_symlink Dir[libexec/"bin/*"]
 
     # Avoid references to Homebrew shims
-    rm_f "#{libexec}/lib/node_modules/gatsby-cli/node_modules/websocket/builderror.log"
+    rm_f libexec/"lib/node_modules/gatsby-cli/node_modules/websocket/builderror.log"
+
+    term_size_vendor_dir = libexec/"lib/node_modules/#{name}/node_modules/term-size/vendor"
+    term_size_vendor_dir.rmtree # remove pre-built binaries
+    on_macos do
+      macos_dir = term_size_vendor_dir/"macos"
+      macos_dir.mkpath
+      # Replace the vendored pre-built term-size with one we build ourselves
+      ln_sf (Formula["macos-term-size"].opt_bin/"term-size").relative_path_from(macos_dir), macos_dir
+    end
+
+    clipboardy_fallbacks_dir = libexec/"lib/node_modules/#{name}/node_modules/clipboardy/fallbacks"
+    clipboardy_fallbacks_dir.rmtree # remove pre-built binaries
+    on_linux do
+      linux_dir = clipboardy_fallbacks_dir/"linux"
+      linux_dir.mkpath
+      # Replace the vendored pre-built xsel with one we build ourselves
+      ln_sf (Formula["xsel"].opt_bin/"xsel").relative_path_from(linux_dir), linux_dir
+    end
   end
 
   test do

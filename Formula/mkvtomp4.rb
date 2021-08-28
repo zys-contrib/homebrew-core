@@ -3,21 +3,18 @@ class Mkvtomp4 < Formula
 
   desc "Convert mkv files to mp4"
   homepage "https://github.com/gavinbeatty/mkvtomp4/"
-  url "https://github.com/gavinbeatty/mkvtomp4/archive/mkvtomp4-v2.0.tar.gz"
-  sha256 "0f9aa1754d4b33a6a83c0a71a373836d4872b3288dae9cfb6168c35f09887f2d"
+  url "https://files.pythonhosted.org/packages/89/27/7367092f0d5530207e049afc76b167998dca2478a5c004018cf07e8a5653/mkvtomp4-2.0.tar.gz"
+  sha256 "8514aa744963ea682e6a5c4b3cfab14c03346bfc78194c3cdc8b3a6317902f12"
   license "MIT"
   revision 2
-
-  livecheck do
-    url :stable
-    regex(/^mkvtomp4[._-]v?(\d+(?:\.\d+)+)$/i)
-  end
+  head "https://github.com/gavinbeatty/mkvtomp4.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e28f9ae16e682b2fecfe4d0a7d93c9b0997266083dcdcc63a42362cd5eb590a6" => :big_sur
-    sha256 "87db5af32a6a707a10c11280169dff12f9df3874f93428e49aa14cbfd88eb313" => :catalina
-    sha256 "16a6465c2e78d1755d43d1eeba3f1c20605e44a236d892eafcd5cb402c47f060" => :mojave
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "76e2587009f31923054390bd434b37f0fbf898088a79832b00a5ea6331066ae6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7122210c51f74465371eb6a92b3d1dd80a27f68f08335dce119b3aeffb9c00cc"
+    sha256 cellar: :any_skip_relocation, catalina:      "a4c3cdb9f62d23b6f66827f9fa646c377d60f9d0e5b3dad81eb6c5a67d2798ac"
+    sha256 cellar: :any_skip_relocation, mojave:        "d7ba96f07d2a82d2c5e2d5cce1b80836abdebe0a990f238c763c06aec305ad0a"
   end
 
   depends_on "ffmpeg"

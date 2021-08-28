@@ -1,16 +1,16 @@
 class Scdoc < Formula
   desc "Small man page generator"
-  homepage "https://git.sr.ht/~sircmpwn/scdoc/"
-  url "https://git.sr.ht/~sircmpwn/scdoc/archive/1.11.0.tar.gz"
-  sha256 "8ac3e7e08fdfab0d75a312b1abcb6eafbd9114a5deaafbaba0fe5ec7e880929d"
+  homepage "https://sr.ht/~sircmpwn/scdoc/"
+  url "https://git.sr.ht/~sircmpwn/scdoc/archive/1.11.1.tar.gz"
+  sha256 "1098a1ed2e087596fc0b3f657c1c8a5e00412267aa4baf3619e36824306645b1"
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e25d34166767ea413d324d979d90f9c045ea463b427f5f0959d238584e496969" => :big_sur
-    sha256 "cd14869a1ee30fb2cbb096f9a9f73438448fad68fbd048a4eed46394695f62ca" => :catalina
-    sha256 "12f800d4af4950f91eceba248a2576dfc2eb6100d35e400ffcd043d0c6885a82" => :mojave
-    sha256 "d6913f7e41d5e6f000a7b0e83d86d9d6975cd0d98769e73e88c0248be3b48685" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2aac49cd42efd595338cb631a42ffa7f418c46a144eb15398d60c38bee6644df"
+    sha256 cellar: :any_skip_relocation, big_sur:       "81dd4cefe0f4df18d14726d318b5dbcf8b42085041834e5da8852f6ec02e8b73"
+    sha256 cellar: :any_skip_relocation, catalina:      "ea37af44324b83e8368af5965ef5cb198ef1a4b4dbabcd81e0da9297366a245b"
+    sha256 cellar: :any_skip_relocation, mojave:        "9ad77b02592b8be119ceafd2286a24c383a537a3b1e169b91aba049e82d41dee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a2a6b095d84fc5b37fddb558cfd527d382cffb0186b42fa561d9e142562e9d9"
   end
 
   def install

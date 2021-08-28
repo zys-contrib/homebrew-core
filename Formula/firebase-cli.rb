@@ -3,30 +3,40 @@ require "language/node"
 class FirebaseCli < Formula
   desc "Firebase command-line tools"
   homepage "https://firebase.google.com/docs/cli/"
-  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-8.16.2.tgz"
-  sha256 "c3c7fd30ee57ab1997a55ac63d4d867469d7f663dad778cd469fb7175c422f42"
+  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-9.16.6.tgz"
+  sha256 "313e7a8216d39d106acf3d572300ab3d51debf1b2a908e5b5af27fa32e645fcf"
   license "MIT"
   head "https://github.com/firebase/firebase-tools.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1c9c1b2c285e750368e27d6717e7e767de6943f97820c3125dcab7d69105dfb0" => :big_sur
-    sha256 "64fb5ac517d004cdc4f7296ba16ce9ed9cc595aa814eed995323d24a97c5523b" => :catalina
-    sha256 "9549bfbe548cae8102d0fcf5fd2737a478dbf23004426c561f91ff4ad20e30ed" => :mojave
-    sha256 "b9bf5fc81b1b9858c7fb61fd1a7ca77c148d614e38bdeaa048458b65993fac9c" => :high_sierra
+    sha256                               arm64_big_sur: "61b400ad650881ec9d6cfea2aeda6bfa8545717b92076811c67e9e0e99d8aeba"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7181546f95f14a2b99fe028017b336cccd67469c10e6353567d057d0657a070b"
+    sha256 cellar: :any_skip_relocation, catalina:      "7181546f95f14a2b99fe028017b336cccd67469c10e6353567d057d0657a070b"
+    sha256 cellar: :any_skip_relocation, mojave:        "7181546f95f14a2b99fe028017b336cccd67469c10e6353567d057d0657a070b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ac08b574abd6795276fb2affed3c25be11fb6e876d8a2bfd3fdeb2672a030c1"
   end
 
   depends_on "node"
 
   uses_from_macos "expect" => :test
 
+  on_macos do
+    depends_on "macos-term-size"
+  end
+
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    term_size_vendor_dir = libexec/"lib/node_modules/firebase-tools/node_modules/term-size/vendor"
+    term_size_vendor_dir.rmtree # remove pre-built binaries
+
+    on_macos do
+      macos_dir = term_size_vendor_dir/"macos"
+      macos_dir.mkpath
+      # Replace the vendored pre-built term-size with one we build ourselves
+      ln_sf (Formula["macos-term-size"].opt_bin/"term-size").relative_path_from(macos_dir), macos_dir
+    end
   end
 
   test do

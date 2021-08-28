@@ -1,14 +1,21 @@
 class Remind < Formula
   desc "Sophisticated calendar and alarm"
   homepage "https://dianne.skoll.ca/projects/remind/"
-  url "https://dianne.skoll.ca/projects/remind/download/remind-03.03.01.tar.gz"
-  sha256 "d1a164d1c2d1e963d5f1f251457a8065cae12f36e3914cac1e54275180499478"
+  url "https://dianne.skoll.ca/projects/remind/download/remind-03.03.07.tar.gz"
+  sha256 "87c94e29d1e18954ff5d22247d7eca307ce621e11d22c14208f903f68a3b8a3d"
+  license "GPL-2.0-only"
+  head "https://dianne.skoll.ca/projects/remind/git/Remind.git"
+
+  livecheck do
+    url :homepage
+    regex(%r{href=.*?/download/remind-(\d+(?:[._]\d+)+)\.t}i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cb1470b7207336fee89f03b6a7d540ff21720ec27f3a18abb0c938a815efca05" => :catalina
-    sha256 "09c627b85760732ba5a9e52e184458e1ea6be7b69d35cad34fe1c0e2d6189d4c" => :mojave
-    sha256 "2c99a0b697e0b93cd8d43c39fd81f4c220c280ee2c260e573c39ff2f749e01b6" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8889b0d310444a0dc0172e7f13d50685e0e31bca7e972d52c0201871f3ba8203"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c01cb172254512e7d7b917dd8a99c91fdd73ddd67a09eab9742f318a39fa3c76"
+    sha256 cellar: :any_skip_relocation, catalina:      "bf974275e590f8499d3a1083eb2f4ee65adad59d53d3a6106dc856775fee62c7"
+    sha256 cellar: :any_skip_relocation, mojave:        "e7504ca7732c99321a678add4d98f20efc38e9a503bcb207ab575ad514156ab2"
   end
 
   conflicts_with "rem", because: "both install `rem` binaries"
@@ -18,7 +25,7 @@ class Remind < Formula
     inreplace "configure", "sleep 1", "true"
     inreplace "src/init.c" do |s|
       s.gsub! "sleep(5);", ""
-      s.gsub! /rkrphgvba\(.\);/, ""
+      s.gsub!(/rkrphgvba\(.\);/, "")
     end
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"

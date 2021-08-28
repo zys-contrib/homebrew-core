@@ -1,18 +1,22 @@
 class Openblas < Formula
   desc "Optimized BLAS library"
   homepage "https://www.openblas.net/"
-  url "https://github.com/xianyi/OpenBLAS/archive/v0.3.12.tar.gz"
-  sha256 "65a7d3a4010a4e3bd5c0baa41a234797cd3a1735449a4a5902129152601dc57b"
+  url "https://github.com/xianyi/OpenBLAS/archive/v0.3.17.tar.gz"
+  sha256 "df2934fa33d04fd84d839ca698280df55c690c86a5a1133b3f7266fce1de279f"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/xianyi/OpenBLAS.git", branch: "develop"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    cellar :any
-    sha256 "8def8b61291e35a289076dfeb63ccaee07f7f28528d2b2de9c64d8903527dbbe" => :big_sur
-    sha256 "3a8a800e16c419c04461186ee4bf2973fe980ef441492508fca0e180d8c1611d" => :catalina
-    sha256 "e9526801fff63549e268e1bee22d0181b765e6b22b11dc27269692124dae9abb" => :mojave
-    sha256 "176a723045e04c26df8bb9477b0af370a86ae105f8e570669dc0492025a9a1b1" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "c9ae01370ce517ab827b58d78908765b6a786d04f6f70c86bccdb5978cecef7e"
+    sha256 cellar: :any,                 big_sur:       "1cbdb7f1dfd423ff76b92825c6a073166f555a785f012bba9ad86f3b8eae4752"
+    sha256 cellar: :any,                 catalina:      "14891978c20a81ab3b4839e5c6cc5504daee971ca39a3806a36e8a0a90a38ef0"
+    sha256 cellar: :any,                 mojave:        "a5c4b0222ae4225f96fb72046921bc5c625445e10361407dfacbc4719aa90283"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "110436100fa51f165c534e88ad6283cb666d131b857e7e3ee8d4cfa2de05b9f3"
   end
 
   keg_only :shadowed_by_macos, "macOS provides BLAS in Accelerate.framework"
@@ -21,9 +25,11 @@ class Openblas < Formula
   fails_with :clang
 
   def install
+    ENV.runtime_cpu_detection
+    ENV.deparallelize # build is parallel by default, but setting -j confuses it
+
     ENV["DYNAMIC_ARCH"] = "1"
     ENV["USE_OPENMP"] = "1"
-    ENV["NO_AVX512"] = "1"
     # Force a large NUM_THREADS to support larger Macs than the VMs that build the bottles
     ENV["NUM_THREADS"] = "56"
     ENV["TARGET"] = case Hardware.oldest_cpu

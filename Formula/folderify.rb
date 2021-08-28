@@ -3,26 +3,21 @@ class Folderify < Formula
 
   desc "Generate pixel-perfect macOS folder icons in the native style"
   homepage "https://github.com/lgarron/folderify"
-  url "https://github.com/lgarron/folderify.git",
-    tag:      "v2.1.1",
-    revision: "7ca2e7e3f0fc51a370e480a879f87d8ea4e5ab51"
+  url "https://files.pythonhosted.org/packages/02/80/b7476fe2518f0a6382d523e4a8878c3efa00c6980e9ad69fd6237e820177/folderify-2.2.3.tar.gz"
+  sha256 "d6754df2f001657a01062d851e5980622adb43cafb35ab6bc7c26e62529f3291"
   license "MIT"
   # Default branch is "main" not "master"
   head "https://github.com/lgarron/folderify.git", branch: "main"
 
-  livecheck do
-    url :head
-    regex(/^v\d+\.\d+\.\d+$/i)
-  end
-
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b54441414ed46cb54a40fdd64dc8e0d1457d5cc370809417073705eefd2e9a81" => :big_sur
-    sha256 "c3ef91fc66d46514d556f7d0cbf038a09e80dee34c5aaec7ee6efcebeb98378e" => :catalina
-    sha256 "c86cb0415afa5a41e2c2d4f7e9ca2a9035187ad14ab4c750dd1adf4a7133c9c7" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "683eeb71c2dd1f10514d9a7223493d6f99773617ede84ed8b3dfe3f396342b83"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9cd792687f566751d98e81b7a4c0d48ae0099273f4b99fc7743f2337f92dfe0c"
+    sha256 cellar: :any_skip_relocation, catalina:      "ddf121696c9d8a78208377ea2abbba6cd45734b6f1dde623af4f87b2dd6244f8"
+    sha256 cellar: :any_skip_relocation, mojave:        "b83fde65d2dc9eec57207c31ac7e6f89e5bac43426c0ce73776b55c57f0e2eb0"
   end
 
   depends_on "imagemagick"
+  depends_on :macos
   depends_on "python@3.9"
 
   def install

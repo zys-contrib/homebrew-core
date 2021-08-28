@@ -3,28 +3,21 @@ class Dnsviz < Formula
 
   desc "Tools for analyzing and visualizing DNS and DNSSEC behavior"
   homepage "https://github.com/dnsviz/dnsviz/"
-  url "https://files.pythonhosted.org/packages/25/d2/0ebfe23440a1adfdca403d7773570d3c05a3a8c5bcbaa0c091b5114d0224/dnsviz-0.8.2.tar.gz"
-  sha256 "a81ff254c23718cd6f364b03bf6e9c80468fa4663fd5be66043de7b0bece1cab"
-  license "GPL-2.0"
-  revision 5
-
-  livecheck do
-    url :stable
-  end
+  url "https://files.pythonhosted.org/packages/1f/76/c64f7b445d5a869a65c633ff9f5c04c8d72a75a5ca11e9a18fd104edfaf8/dnsviz-0.9.3.tar.gz"
+  sha256 "6f38f3d71b2b9ca3f4cffb003c828574d0c413bcc5112bb52921fa9db4e69259"
+  license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "894e6863cfc58d8f4efb0d8c7da584819fd929c879279cf4bb6e6f58cc9d5e46" => :big_sur
-    sha256 "98841730e89ea63774ef33bc723f3f55ce74e965aef94df623dafaef277e8f05" => :catalina
-    sha256 "d1cfccf7a3eee282d072f7e8b704ecf447e0fe57c57b6453cde69bf68454b147" => :mojave
-    sha256 "7a84c44a46a4dd1e7cd4d6b951ca3011ae662275c67b9f0fecf35626ab66ce8f" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "3db7cc32c451761409b59b1ee15b41b46392892ba76859a4f48b1029216b15bb"
+    sha256 cellar: :any, big_sur:       "5f8ab0c06c72486bfaee86b789c15482ecae3a78ecc6912c4986aff5d3bb8819"
+    sha256 cellar: :any, catalina:      "b4a5a0647e673fb99c41a261bddd92c0b1d601ba539d18cfe1ae9a9abd0e2037"
+    sha256 cellar: :any, mojave:        "05b5c37f1c92e3992e27b6348097bb11234ae934e0fa3c797d745987b2c8d6ea"
   end
 
   depends_on "pkg-config" => :build
   depends_on "swig" => :build
   depends_on "bind" => :test
   depends_on "graphviz"
-  depends_on "libsodium"
   depends_on "openssl@1.1"
   depends_on "python@3.9"
 
@@ -34,23 +27,18 @@ class Dnsviz < Formula
   end
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/67/d0/639a9b5273103a18c5c68a7a9fc02b01cffa3403e72d553acec444f85d5b/dnspython-2.0.0.zip"
-    sha256 "044af09374469c3a39eeea1a146e8cac27daec951f1f1f157b1962fc7cb9d1b7"
-  end
-
-  resource "libnacl" do
-    url "https://files.pythonhosted.org/packages/08/9b/16725e8cbb278569db379ea6e4eb24b2e8c574be1ec7617ac2dff8f91b2b/libnacl-1.7.1.tar.gz"
-    sha256 "33f31c4686541aee24876706b46a846f93c60e62d6b4211bc16bd08ba71d8fb8"
+    url "https://files.pythonhosted.org/packages/13/27/5277de856f605f3429d752a39af3588e29d10181a3aa2e2ee471d817485a/dnspython-2.1.0.zip"
+    sha256 "e4a87f0b573201a0f3727fa18a516b055fd1107e0e5477cded4a2de497df1dd4"
   end
 
   resource "M2Crypto" do
-    url "https://files.pythonhosted.org/packages/ff/df/84609ed874b5e6fcd3061a517bf4b6e4d0301f553baf9fa37bef2b509797/M2Crypto-0.36.0.tar.gz"
-    sha256 "1542c18e3ee5c01db5031d0b594677536963e3f54ecdf5315aeecb3a595b4dc1"
+    url "https://files.pythonhosted.org/packages/aa/36/9fef97358e378c1d3bd567c4e8f8ca0428a8d7e869852cef445ee6da91fd/M2Crypto-0.37.1.tar.gz"
+    sha256 "e4e42f068b78ccbf113e5d0a72ae5f480f6c3ace4940b91e4fff5598cfff6fb3"
   end
 
   resource "pygraphviz" do
-    url "https://files.pythonhosted.org/packages/1e/19/acf3b8dbd378a2b38c6d9aaa6fa9fcd9f7b4aea5fcd3460014999ff92b3c/pygraphviz-1.6.zip"
-    sha256 "411ae84a5bc313e3e1523a1cace59159f512336318a510573b47f824edef8860"
+    url "https://files.pythonhosted.org/packages/3a/d6/2c56f09ee83dbebb62c40487e4c972135661b9984fec9b30b77fb497090c/pygraphviz-1.7.zip"
+    sha256 "a7bec6609f37cf1e64898c59f075afd659106cf9356c5f387cecaa2e0cdb2304"
   end
 
   def install

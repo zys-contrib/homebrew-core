@@ -1,26 +1,24 @@
 class Graphviz < Formula
   desc "Graph visualization software from AT&T and Bell Labs"
   homepage "https://www.graphviz.org/"
-  url "https://www2.graphviz.org/Packages/stable/portable_source/graphviz-2.44.1.tar.gz"
-  sha256 "8e1b34763254935243ccdb83c6ce108f531876d7a5dfd443f255e6418b8ea313"
+  url "https://gitlab.com/graphviz/graphviz.git",
+      tag:      "2.48.0",
+      revision: "0e477c1e151e57c7d1865ed14e6add1c63c0b03a"
   license "EPL-1.0"
   version_scheme 1
   head "https://gitlab.com/graphviz/graphviz.git"
 
-  livecheck do
-    url "https://www2.graphviz.org/Packages/stable/portable_source/"
-    regex(/href=.*?graphviz[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
-    rebuild 1
-    sha256 "b38583d700c03638f21f0e71c53ae61231353aa31fa207cc048063981fab412f" => :big_sur
-    sha256 "3ffa8ff77c3017ebcc9998216a2df08ff461fa3c6866e233c189b9d53cd01b18" => :catalina
-    sha256 "ab61b971ce56a1caae7aeff6a4957b1141b4267e232caaf42124378c5708caa8" => :mojave
+    sha256 arm64_big_sur: "452ad2a405771fc2d4655d5183f7b3e70520c1cca66c7ccf1567edd8e82a8a11"
+    sha256 big_sur:       "36bb031ebbc2080491538c2e3394c8295f7049db86eb3d9c0d6bb550f1bad10c"
+    sha256 catalina:      "b320c6481e7cc897ec533d7268b57bd668a079e471a7408b642137229872d12e"
+    sha256 mojave:        "0014adcf96e5eff7ede0e08e7b3e045681b03e779c2d5ede2b09dc308050f68c"
+    sha256 x86_64_linux:  "cdbcdcbd4d50288bc1c260eb59d35f5f4adfdf9bbb188d1ae171e5992f2d2833"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "bison" => :build
   depends_on "pkg-config" => :build
   depends_on "gd"
   depends_on "gts"
@@ -36,14 +34,6 @@ class Graphviz < Formula
     depends_on "ghostscript" => :build
   end
 
-  # See https://github.com/Homebrew/homebrew-core/pull/57132
-  # Fixes:
-  # groff -Tps -man cdt.3 >cdt.3.ps
-  #   CCLD     libcdt.la
-  #   CCLD     libcdt_C.la
-  # false cdt.3.ps cdt.3.pdf
-  patch :DATA
-
   def install
     args = %W[
       --disable-debug
@@ -51,18 +41,21 @@ class Graphviz < Formula
       --prefix=#{prefix}
       --disable-php
       --disable-swig
+      --disable-tcl
       --with-quartz
       --without-freetype2
       --without-gdk
       --without-gdk-pixbuf
       --without-gtk
+      --without-poppler
       --without-qt
       --without-x
       --with-gts
     ]
 
-    system "autoreconf", "-fiv"
+    system "./autogen.sh"
     system "./configure", *args
+    system "make"
     system "make", "install"
 
     (bin/"gvmap.sh").unlink
@@ -78,18 +71,3 @@ class Graphviz < Formula
     system "#{bin}/dot", "-Tpdf", "-o", "sample.pdf", "sample.dot"
   end
 end
-
-__END__
-diff --git a/configure.ac b/configure.ac
-index cf42504..68db027 100644
---- a/configure.ac
-+++ b/configure.ac
-@@ -284,8 +284,7 @@ AC_CHECK_PROGS(SORT,gsort sort,false)
-
- AC_CHECK_PROG(EGREP,egrep,egrep,false)
- AC_CHECK_PROG(GROFF,groff,groff,false)
--AC_CHECK_PROG(PS2PDF,ps2pdf,ps2pdf,false)
--AC_CHECK_PROG(PS2PDF,pstopdf,pstopdf,false)
-+AC_CHECK_PROGS(PS2PDF,ps2pdf pstopdf,false)
-
- PKG_PROG_PKG_CONFIG

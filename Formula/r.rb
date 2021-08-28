@@ -1,8 +1,8 @@
 class R < Formula
   desc "Software environment for statistical computing"
   homepage "https://www.r-project.org/"
-  url "https://cran.r-project.org/src/base/R-4/R-4.0.3.tar.gz"
-  sha256 "09983a8a78d5fb6bc45d27b1c55f9ba5265f78fa54a55c13ae691f87c5bb9e0d"
+  url "https://cran.r-project.org/src/base/R-4/R-4.1.1.tar.gz"
+  sha256 "515e03265752257d0b7036f380f82e42b46ed8473f54f25c7b67ed25bbbdd364"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,13 +11,15 @@ class R < Formula
   end
 
   bottle do
-    sha256 "c19dce6be64d7b79bf0a3e2a7201aa6f3a9466ac665752b4021532cfda620ab6" => :big_sur
-    sha256 "4050483a8ea4ff9fbe1531f5e9cbe98fb1c7d8091b42184e40a5bcc678733cf3" => :catalina
-    sha256 "59f6e7ec476e78f4dbd99e01100cd6e937d97a3ecd818a00ad8c60dcb8ee7bea" => :mojave
-    sha256 "a95f0100c9c16a0a45edd271dca3d70b20a4bc9599774510eb1544b901e3d89a" => :high_sierra
+    sha256 arm64_big_sur: "11dc03536024f748a0889ff037c224b20bc73bceffa96403d066d788282de143"
+    sha256 big_sur:       "094853f678a1a13474e26f81edaaf21ffac080c21569cc55872efe1db88aad58"
+    sha256 catalina:      "ae5d7cf5f7c05ffbdc583b32e79c28f3c290aa5d5d7b03765b9104332fe3ea51"
+    sha256 mojave:        "5a79c1a2f55638b23ad41cfa92e2975b232cb6bef8eec7136c4b4f1b31a66ca6"
+    sha256 x86_64_linux:  "573f7af1a4535bb5a843a609d288ed90473543626482317386b8afe8c4f6f82a"
   end
 
   depends_on "pkg-config" => :build
+  depends_on "cairo"
   depends_on "gcc" # for gfortran
   depends_on "gettext"
   depends_on "jpeg"
@@ -25,34 +27,59 @@ class R < Formula
   depends_on "openblas"
   depends_on "pcre2"
   depends_on "readline"
+  depends_on "tcl-tk"
   depends_on "xz"
+
+  uses_from_macos "curl"
+
+  on_linux do
+    depends_on "pango"
+    depends_on "libice"
+    depends_on "libx11"
+    depends_on "libxt"
+    depends_on "libtirpc"
+  end
 
   # needed to preserve executable permissions on files without shebangs
   skip_clean "lib/R/bin", "lib/R/doc"
 
   def install
-    # Fix dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? &&
-       MacOS::Xcode.version >= "8.0"
-      ENV["ac_cv_have_decl_clock_gettime"] = "no"
-    end
+    # BLAS detection fails with Xcode 12 due to missing prototype
+    # https://bugs.r-project.org/bugzilla/show_bug.cgi?id=18024
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 
     args = [
       "--prefix=#{prefix}",
       "--enable-memory-profiling",
-      "--without-cairo",
-      "--without-tcltk",
-      "--without-x",
-      "--with-aqua",
-      "--with-lapack",
-      "--enable-R-shlib",
-      "SED=/usr/bin/sed", # don't remember Homebrew's sed shim
-      "--disable-java",
+      "--with-tcl-config=#{Formula["tcl-tk"].opt_lib}/tclConfig.sh",
+      "--with-tk-config=#{Formula["tcl-tk"].opt_lib}/tkConfig.sh",
       "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
+      "--enable-R-shlib",
+      "--disable-java",
+      "--with-cairo",
     ]
 
+    on_macos do
+      args << "--without-x"
+      args << "--with-aqua"
+    end
+
+    on_linux do
+      args << "--libdir=#{lib}" # avoid using lib64 on CentOS
+
+      # Avoid references to homebrew shims
+      args << "LD=ld"
+
+      # If LDFLAGS contains any -L options, configure sets LD_LIBRARY_PATH to
+      # search those directories. Remove -LHOMEBREW_PREFIX/lib from LDFLAGS.
+      ENV.remove "LDFLAGS", "-L#{HOMEBREW_PREFIX}/lib"
+
+      ENV.append "CPPFLAGS", "-I#{Formula["libtirpc"].opt_include}/tirpc"
+      ENV.append "LDFLAGS", "-L#{Formula["libtirpc"].opt_lib}"
+    end
+
     # Help CRAN packages find gettext and readline
-    ["gettext", "readline"].each do |f|
+    ["gettext", "readline", "xz"].each do |f|
       ENV.append "CPPFLAGS", "-I#{Formula[f].opt_include}"
       ENV.append "LDFLAGS", "-L#{Formula[f].opt_lib}"
     end
@@ -83,8 +110,13 @@ class R < Formula
     lib.install_symlink Dir[r_home/"lib/*"]
 
     # avoid triggering mandatory rebuilds of r when gcc is upgraded
+    check_replace = true
+    on_linux do
+      check_replace = false
+    end
     inreplace lib/"R/etc/Makeconf", Formula["gcc"].prefix.realpath,
-                                    Formula["gcc"].opt_prefix
+                                    Formula["gcc"].opt_prefix,
+                                    check_replace
   end
 
   def post_install
@@ -97,10 +129,21 @@ class R < Formula
 
   test do
     assert_equal "[1] 2", shell_output("#{bin}/Rscript -e 'print(1+1)'").chomp
-    assert_equal ".dylib", shell_output("#{bin}/R CMD config DYLIB_EXT").chomp
+    assert_equal shared_library(""), shell_output("#{bin}/R CMD config DYLIB_EXT").chomp
+    system bin/"Rscript", "-e", "if(!capabilities('cairo')) stop('cairo not available')"
 
     system bin/"Rscript", "-e", "install.packages('gss', '.', 'https://cloud.r-project.org')"
     assert_predicate testpath/"gss/libs/gss.so", :exist?,
                      "Failed to install gss package"
+
+    winsys = "[1] \"aqua\""
+    on_linux do
+      # Fails in Linux CI with: no DISPLAY variable so Tk is not available
+      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
+
+      winsys = "[1] \"x11\""
+    end
+    assert_equal winsys,
+                 shell_output("#{bin}/Rscript -e 'library(tcltk)' -e 'tclvalue(.Tcl(\"tk windowingsystem\"))'").chomp
   end
 end

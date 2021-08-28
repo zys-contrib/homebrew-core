@@ -3,6 +3,8 @@ class Djview4 < Formula
   homepage "https://djvu.sourceforge.io/djview4.html"
   url "https://downloads.sourceforge.net/project/djvu/DjView/4.12/djview-4.12.tar.gz"
   sha256 "5673c6a8b7e195b91a1720b24091915b8145de34879db1158bc936b100eaf3e3"
+  license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -10,10 +12,10 @@ class Djview4 < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "6dd9895644f2bc9be226ccab8affe012c31cd9a27835cd62dd3d4edddd2c0049" => :big_sur
-    sha256 "67dc7e3fab1c0c1407ec62c346071ec45e2981185948ec6015e75762e179cf0f" => :catalina
-    sha256 "6ae80a29abde4d055c6ee544f997a8cd6bfe5bc5d9a0fa3bd7584d29cd32c73f" => :mojave
+    rebuild 1
+    sha256 cellar: :any, big_sur:  "e9764b18d1b3a47b052ed924c09f36b31428b429dce1aaa7ade4e679f1c52339"
+    sha256 cellar: :any, catalina: "f77e017d7a0acdfbdadf62c2e5773b254d72691f9e51301fb91130ea3cb3d42a"
+    sha256 cellar: :any, mojave:   "03517ea84af4e35f7997e7e5a25bee8c786d9ca3ef8a681066405ef31304e031"
   end
 
   depends_on "autoconf" => :build
@@ -21,7 +23,7 @@ class Djview4 < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "djvulibre"
-  depends_on "qt"
+  depends_on "qt@5"
 
   def install
     system "autoreconf", "-fiv"
@@ -36,6 +38,21 @@ class Djview4 < Formula
     # From the djview4.8 README:
     # NOTE: Do not use command "make install".
     # Simply copy the application bundle where you want it.
-    prefix.install "src/djview.app"
+    on_macos do
+      prefix.install "src/djview.app"
+      bin.write_exec_script prefix/"djview.app/Contents/MacOS/djview"
+    end
+    on_linux do
+      prefix.install "src/djview"
+    end
+  end
+
+  test do
+    on_macos do
+      assert_predicate prefix/"djview.app", :exist?
+    end
+    on_linux do
+      assert_predicate prefix/"djview", :exist?
+    end
   end
 end

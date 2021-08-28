@@ -1,16 +1,16 @@
 class Webp < Formula
   desc "Image format providing lossless and lossy compression for web images"
   homepage "https://developers.google.com/speed/webp/"
-  url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.1.0.tar.gz"
-  sha256 "98a052268cc4d5ece27f76572a7f50293f439c17a98e67c4ea0c7ed6f50ef043"
+  url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.2.1.tar.gz"
+  sha256 "808b98d2f5b84e9b27fdef6c5372dac769c3bda4502febbfa5031bd3c4d7d018"
   license "BSD-3-Clause"
 
   bottle do
-    cellar :any
-    sha256 "5723d4b2701f6c4348419164c38b11cd9c274dca35925fc8c3fbf0c8c14cfc4d" => :big_sur
-    sha256 "27c76a7054277ff5a2e844c5996fc731d8644acbaaa505d35dba42c4a48a0c51" => :catalina
-    sha256 "819c76cbf75c1d1d51db88602b69a9d9cd24975cc65834a9eb5a804c4b96ee35" => :mojave
-    sha256 "069cac577750d53095cc43a05a3eab54310c35ea819ea05fa6bf425bcb0313d2" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "20c16f99690230e4ea9ba7a15fe9c482d56baa2f893261de8d785a8ff88c6171"
+    sha256 cellar: :any,                 big_sur:       "82435d74c96ff1a8482981458f110a9526472e452968e2969e37dc6b48fbe3e5"
+    sha256 cellar: :any,                 catalina:      "43953ec86a790330c17c714d88087f0388c739f6a15be2ae18480e397df25d61"
+    sha256 cellar: :any,                 mojave:        "372e3ce46f089e0ae89fcdc62a8f360634dabcedeabade508d8cc7fd4fd6405c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af503080f936897776b59b9000e3e230c76e1eb694cf6f8366fa776f5207b75a"
   end
 
   head do

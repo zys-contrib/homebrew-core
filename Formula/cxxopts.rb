@@ -4,14 +4,15 @@ class Cxxopts < Formula
   url "https://github.com/jarro2783/cxxopts/archive/v2.2.1.tar.gz"
   sha256 "984aa3c8917d649b14d7f6277104ce38dd142ce378a9198ec926f03302399681"
   license "MIT"
-  head "https://github.com/jarro2783/cxxopts.git"
+  head "https://github.com/jarro2783/cxxopts.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "40c3c76fe2008d8a31f51748970af0873b622d3540ccde6462caac0e1322fbca" => :big_sur
-    sha256 "d4a289fb314e5efdb8c889c560340c259c04b19b9d1e7087b58d0d24aafd5ed2" => :catalina
-    sha256 "d4a289fb314e5efdb8c889c560340c259c04b19b9d1e7087b58d0d24aafd5ed2" => :mojave
-    sha256 "d4a289fb314e5efdb8c889c560340c259c04b19b9d1e7087b58d0d24aafd5ed2" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "dffc57a1cc6de42f042163c6d44e42e24a778bd1cdf7f7e45e96f9b07b64880c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "40c3c76fe2008d8a31f51748970af0873b622d3540ccde6462caac0e1322fbca"
+    sha256 cellar: :any_skip_relocation, catalina:      "d4a289fb314e5efdb8c889c560340c259c04b19b9d1e7087b58d0d24aafd5ed2"
+    sha256 cellar: :any_skip_relocation, mojave:        "d4a289fb314e5efdb8c889c560340c259c04b19b9d1e7087b58d0d24aafd5ed2"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "d4a289fb314e5efdb8c889c560340c259c04b19b9d1e7087b58d0d24aafd5ed2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e201e81cc6246a4691bb97168dfab6bd5bcdde73cccd1ac702079be15463715a"
   end
 
   depends_on "cmake" => :build

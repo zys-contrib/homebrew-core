@@ -3,21 +3,16 @@ class Peru < Formula
 
   desc "Dependency retriever for version control and archives"
   homepage "https://github.com/buildinspace/peru"
-  url "https://files.pythonhosted.org/packages/14/ef/9226d6a47f34afacb241b3d8acf25e5cd958a17f7bdb9f24d3b284aa59e0/peru-1.2.0.tar.gz"
-  sha256 "5bcf70b49fd5a6b089a23d49d93fd6deb05bde560219704de53ae5e48cb49acb"
+  url "https://files.pythonhosted.org/packages/d5/40/d97b481076e7691bb7593bfbce209d64da7fb17d1fc5c170fe7a656dbb03/peru-1.3.0.tar.gz"
+  sha256 "e70f11633422ac95595f943e693f3b72da0ac852b9b43220e04096c92d5d2c35"
   license "MIT"
-  revision 2
-
-  livecheck do
-    url :stable
-  end
 
   bottle do
-    cellar :any
-    sha256 "57f925b823115f0eaa2ae96f25dcac171496737e0caa1a7fb86972cd80c86045" => :big_sur
-    sha256 "505d7ab6f8c65dd5414a67e88b1a30ca0a1dbab35415b4c48aea8ab99616362f" => :catalina
-    sha256 "31f7ea3a66e854e6dddfa1127b3d208f6a04406cb0aa6e4b94a034c63c7bd2db" => :mojave
-    sha256 "c4eb15429ad2c832220b2ac782745e06bfc29dd8c6a7a3bce15b9291246793ac" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "aa4a20ed7347ab1cf91c6adc484279ca27d17f7b65f23d25be4b63f283491f7c"
+    sha256 cellar: :any,                 big_sur:       "bcc6478c675786f51934108b92b5e47d2798dc2a4b0ef8bfae99f130fa2f473e"
+    sha256 cellar: :any,                 catalina:      "31220d37966a4dc4edb016b44a80e70ca291c669ed56176dc08b00eeeeafe683"
+    sha256 cellar: :any,                 mojave:        "c0e0c051d79f223765f095524f5fea92fd5275c51d2f59281d12e9456e9ee2c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe15d9a12d971f7a0be3ee5a132fc2d4482f70e20578ecacdab13dad15fc8b58"
   end
 
   depends_on "libyaml"
@@ -29,8 +24,8 @@ class Peru < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
-    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
+    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
+    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
   end
 
   def install

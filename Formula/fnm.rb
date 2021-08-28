@@ -1,22 +1,22 @@
 class Fnm < Formula
   desc "Fast and simple Node.js version manager"
   homepage "https://fnm.vercel.app"
-  url "https://github.com/Schniz/fnm/archive/v1.22.8.tar.gz"
-  sha256 "d294f1bd9f6fa75d53c5ba12283ca63a09812d4e3631aa314d781e50e8c9aec3"
+  url "https://github.com/Schniz/fnm/archive/v1.26.0.tar.gz"
+  sha256 "fedb9745d6c82fa6e0593856b1b995b286782f52f3497861839c6ee46559c881"
   license "GPL-3.0-only"
   head "https://github.com/Schniz/fnm.git"
 
   livecheck do
-    url "https://github.com/Schniz/fnm/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "15e957f33a7474f9b41463f9de587db55fc2ac2c8ed7a9d120c108207376b763" => :big_sur
-    sha256 "785aedf913a65e97029e2bed1c3e52a686d3707245183dbee84056ef6057d3da" => :catalina
-    sha256 "8622fde031ee84e1ecf498250962b2be3972b9f161999e15ea64f50299b7e597" => :mojave
-    sha256 "fb445426396192450f9b99ab43e798fa3dc18432ad25990d7b1c2ba5163783ad" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f222bc246bb34b6e6b01287cbdcb52f78fd1cf9c0220ca79e0db2307c84cd8ed"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ef6680b7f1c89f9864e8fbbb7ceed6dac81d237ddf001f4808200a2524c3e005"
+    sha256 cellar: :any_skip_relocation, catalina:      "3e6d64efd270f7d081de052f6380ded8a1ebb436cba26fbb41d1a32098652f5b"
+    sha256 cellar: :any_skip_relocation, mojave:        "ce025c6632c739424486532bcd3c460571366e9933392b31d153bc5a8084eae4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75b4b360ff4565c3a6ceed6381373702b3cec7b842d5170fe6d39b57116618d5"
   end
 
   depends_on "rust" => :build

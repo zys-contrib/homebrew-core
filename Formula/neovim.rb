@@ -1,21 +1,17 @@
 class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
-  url "https://github.com/neovim/neovim/archive/v0.4.4.tar.gz"
-  sha256 "2f76aac59363677f37592e853ab2c06151cca8830d4b3fe4675b4a52d41fc42c"
+  url "https://github.com/neovim/neovim/archive/v0.5.0.tar.gz"
+  sha256 "2294caa9d2011996499fbd70e4006e4ef55db75b99b6719154c09262e23764ef"
   license "Apache-2.0"
+  head "https://github.com/neovim/neovim.git"
 
   bottle do
-    rebuild 1
-    sha256 "83957460b7c664b65f7339c6e37a6b468274ca747ba8f8746616c4cebf97caa9" => :big_sur
-    sha256 "736260e14d50d9a42562fb0fe2215d5154a9cef3e3227469a961d030b45358fd" => :catalina
-    sha256 "9f8a7cb52a0060c524d4d4f96b2590d034257cc4f255a8f05dfbf464bef29cf1" => :mojave
-    sha256 "7286d497b92cf31f5839af325a1fc7760fb3006fa4a0dad7e547ab9c966cb491" => :high_sierra
-  end
-
-  head do
-    url "https://github.com/neovim/neovim.git"
-    depends_on "tree-sitter"
+    sha256 arm64_big_sur: "8c2031ed12ca5a2af5d317f74a3878b2acdfc8b8bd61f8c58ca99b52bfc2f29a"
+    sha256 big_sur:       "c5e9addc65899936e06676db8a4c0239ca6e6c44936b21df1ade343dfe860995"
+    sha256 catalina:      "13d31cb537237f3b9245c6c2de0e55ae4d7730d06742aec5a3e98a5365934eae"
+    sha256 mojave:        "8f7a519050bf438143c4f7933f63d6aa1ccb1c062f4ae76ccaa7bf22d35f2f6e"
+    sha256 x86_64_linux:  "31f3eed841555c4d2027bc9dd9b7aefde33708231fa6166e0cdb5ab215960767"
   end
 
   depends_on "cmake" => :build
@@ -25,9 +21,18 @@ class Neovim < Formula
   depends_on "libtermkey"
   depends_on "libuv"
   depends_on "libvterm"
-  depends_on "luajit"
+  depends_on "luajit-openresty"
+  depends_on "luv"
   depends_on "msgpack"
+  depends_on "tree-sitter"
   depends_on "unibilium"
+
+  uses_from_macos "gperf" => :build
+  uses_from_macos "unzip" => :build
+
+  on_linux do
+    depends_on "libnsl"
+  end
 
   # Keep resources updated according to:
   # https://github.com/neovim/neovim/blob/v#{version}/third-party/CMakeLists.txt
@@ -42,21 +47,6 @@ class Neovim < Formula
     sha256 "e0d0d687897f06588558168eeb1902ac41a11edd1b58f1aa61b99d0ea0abbfbc"
   end
 
-  resource "inspect" do
-    url "https://luarocks.org/manifests/kikito/inspect-3.1.1-0.src.rock"
-    sha256 "ea1f347663cebb523e88622b1d6fe38126c79436da4dbf442674208aa14a8f4c"
-  end
-
-  resource "lua-compat-5.3" do
-    url "https://github.com/keplerproject/lua-compat-5.3/archive/v0.7.tar.gz"
-    sha256 "bec3a23114a3d9b3218038309657f0f506ad10dfbc03bb54e91da7e5ffdba0a2"
-  end
-
-  resource "luv" do
-    url "https://github.com/luvit/luv/releases/download/1.30.0-0/luv-1.30.0-0.tar.gz"
-    sha256 "5cc75a012bfa9a5a1543d0167952676474f31c2d7fd8d450b56d8929dbebb5ef"
-  end
-
   def install
     resources.each do |r|
       r.stage(buildpath/"deps-build/build/src/#{r.name}")
@@ -64,18 +54,12 @@ class Neovim < Formula
 
     ENV.prepend_path "LUA_PATH", "#{buildpath}/deps-build/share/lua/5.1/?.lua"
     ENV.prepend_path "LUA_CPATH", "#{buildpath}/deps-build/lib/lua/5.1/?.so"
-    lua_path = "--lua-dir=#{Formula["luajit"].opt_prefix}"
-
-    cmake_compiler_args = %w[
-      -DCMAKE_C_COMPILER=/usr/bin/clang
-      -DCMAKE_CXX_COMPILER=/usr/bin/clang++
-    ]
+    lua_path = "--lua-dir=#{Formula["luajit-openresty"].opt_prefix}"
 
     cd "deps-build" do
       %w[
         mpack/mpack-1.0.8-0.rockspec
         lpeg/lpeg-1.0.2-1.src.rock
-        inspect/inspect-3.1.1-0.src.rock
       ].each do |rock|
         dir, rock = rock.split("/")
         cd "build/src/#{dir}" do
@@ -86,31 +70,12 @@ class Neovim < Formula
           end
         end
       end
-
-      cd "build/src/luv" do
-        cmake_args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"] }
-        cmake_args += cmake_compiler_args
-        cmake_args += %W[
-          -DCMAKE_INSTALL_PREFIX=#{buildpath}/deps-build
-          -DLUA_BUILD_TYPE=System
-          -DWITH_SHARED_LIBUV=ON
-          -DBUILD_SHARED_LIBS=OFF
-          -DBUILD_MODULE=OFF
-          -DLUA_COMPAT53_DIR=#{buildpath}/deps-build/build/src/lua-compat-5.3
-        ]
-        system "cmake", ".", *cmake_args
-        system "make", "install"
-      end
     end
 
     mkdir "build" do
-      cmake_args = std_cmake_args
-      cmake_args += cmake_compiler_args
-      cmake_args += %W[
-        -DLIBLUV_INCLUDE_DIR=#{buildpath}/deps-build/include
-        -DLIBLUV_LIBRARY=#{buildpath}/deps-build/lib/libluv.a
-      ]
-      system "cmake", "..", *cmake_args
+      system "cmake", "..", *std_cmake_args, "-DLIBLUV_LIBRARY=#{Formula["luv"].opt_lib/shared_library("libluv")}"
+      # Patch out references to Homebrew shims
+      inreplace "config/auto/versiondef.h", /#{HOMEBREW_LIBRARY}[^ ]+/o, ENV.cc
       system "make", "install"
     end
   end

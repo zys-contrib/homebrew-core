@@ -1,22 +1,23 @@
 class Htop < Formula
   desc "Improved top (interactive process viewer)"
   homepage "https://htop.dev/"
-  url "https://github.com/htop-dev/htop/archive/3.0.2.tar.gz"
-  sha256 "b4744a3bea279f2a3725ed8e5e35ffd9cb10d66673bf07c8fe21feb3c4661305"
+  url "https://github.com/htop-dev/htop/archive/3.0.5.tar.gz"
+  sha256 "4c2629bd50895bd24082ba2f81f8c972348aa2298cc6edc6a21a7fa18b73990c"
   license "GPL-2.0-or-later"
   head "https://github.com/htop-dev/htop.git"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    cellar :any
-    sha256 "059d986c7148b98f3fceea5944d9cfa799dd9bc5e43b4d0daed4bb1f9a756ebf" => :big_sur
-    sha256 "5bfd853dd4f051eb9a53c85ccdf21f66691f1a839036f5cff6c20a1f0ab05967" => :catalina
-    sha256 "8b577984d03fd78706384024e579dc68df3a96013fc35d251534281ff3ec7ae4" => :mojave
-    sha256 "1187ac4a948631e883539e0d2dd2362a1a64292ea562cf58ba8ec0b061150a49" => :high_sierra
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "4dd5d67e6a0ce026916e082e834a9a3e8e8e01c4ac3a79a3de29119dd6cc8393"
+    sha256 cellar: :any,                 big_sur:       "21f7d036b92a40bb57dc28c64249f137efcbec7489190944d8c38f940c86df9f"
+    sha256 cellar: :any,                 catalina:      "0b9cb4738ad23eed5e2d24bb2bdc10e662c3b54ba7feb22d798fd9107ace5e21"
+    sha256 cellar: :any,                 mojave:        "7be858d053b14ab834cd1a1832beaf367501639d17c7a43c5cc0e563c025a4af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3ecd7b41016d7c5deadd4255982b654c05bf46cc97792dbe38a0f71ff17d477"
   end
 
   depends_on "autoconf" => :build
@@ -26,9 +27,15 @@ class Htop < Formula
   depends_on "python@3.9" => :build
   depends_on "ncurses" # enables mouse scroll
 
+  on_linux do
+    depends_on "lm-sensors"
+  end
+
   def install
     system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}"
+    args = ["--prefix=#{prefix}"]
+    on_linux { args << "--enable-sensors" }
+    system "./configure", *args
     system "make", "install"
   end
 

@@ -5,18 +5,15 @@ class PandocIncludeCode < Formula
   sha256 "5d01a95f8a28cd858144d503631be6bb2d015faf9284326ee3c82c8d8433501d"
   license "MPL-2.0"
   revision 2
-  head "https://github.com/owickstrom/pandoc-include-code.git"
-
-  livecheck do
-    url :stable
-  end
+  head "https://github.com/owickstrom/pandoc-include-code.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "dc076e4b3a63c70309a63b8c631500418b0b9ba5db2a0a46718527fe780d5136" => :big_sur
-    sha256 "63300eec1d6a9e05208917453d202436384beaa35a50c9e46cff101bac589849" => :catalina
-    sha256 "707af9306e01c8f183bad3232797c9220583a9cdba3baf7d99d77add6faccd87" => :mojave
-    sha256 "46561ef2e3dbbc9b15cb84ca1b82f7c6510ed900ca3c6e7252d45eb00ac8c991" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "116b050084dbeca5e70da5f02d8e71502ff6d2b971e27ef1fb4e8411b6678745"
+    sha256 cellar: :any_skip_relocation, big_sur:       "dc076e4b3a63c70309a63b8c631500418b0b9ba5db2a0a46718527fe780d5136"
+    sha256 cellar: :any_skip_relocation, catalina:      "63300eec1d6a9e05208917453d202436384beaa35a50c9e46cff101bac589849"
+    sha256 cellar: :any_skip_relocation, mojave:        "707af9306e01c8f183bad3232797c9220583a9cdba3baf7d99d77add6faccd87"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "46561ef2e3dbbc9b15cb84ca1b82f7c6510ed900ca3c6e7252d45eb00ac8c991"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab22b3df53ac6762dcc8b564ebbefdc96a814ba31f93fc4dd701bbb28bacb958"
   end
 
   depends_on "cabal-install" => :build

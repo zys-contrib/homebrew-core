@@ -1,17 +1,16 @@
 class Gopass < Formula
   desc "Slightly more awesome Standard Unix Password Manager for Teams"
   homepage "https://github.com/gopasspw/gopass"
-  url "https://github.com/gopasspw/gopass/releases/download/v1.10.1/gopass-1.10.1.tar.gz"
-  sha256 "23e7cf39938fcc34856ec4e6abce740a9be9fe8fa68cf8a6f61ca497fe6f9283"
+  url "https://github.com/gopasspw/gopass/releases/download/v1.12.8/gopass-1.12.8.tar.gz"
+  sha256 "1c4fc907f02e4a339dda84935940b9cf96c33ea57c6ab1cad4ec624df0950696"
   license "MIT"
-  head "https://github.com/gopasspw/gopass.git"
+  head "https://github.com/gopasspw/gopass.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "eaeba339220efef431cb87934369a1b06790a1105fb8ba8d15b958ddaee68791" => :big_sur
-    sha256 "a9cb1f08e282ab8a9abe4c96553b336141b9c6abeaca11949134de35e45046fd" => :catalina
-    sha256 "8cb98e59bf7622afb658d5115ff18ac21bd7c2d52fab74dffdb8db344c1c11b2" => :mojave
-    sha256 "7eb6e87bccacafcd03a69aacfff0d4081fa413dc9d0d4aa55bfbdca6ea25dc26" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "09267405b3ffc3cdf2dc90152409c3dc1330a493c82f0a83970b764ff69800c2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3995f1758172162cd836dcfc641516cb42a31e2c6cfe8e495f244090731d1631"
+    sha256 cellar: :any_skip_relocation, catalina:      "136f73775965aaabe467d683f9ca45c4822ee7f5d7982c3e263606ad174b95cf"
+    sha256 cellar: :any_skip_relocation, mojave:        "24de14bdb7dd176ee50b8879ed1988673939994525e2ce73b3abbdc2a794612b"
   end
 
   depends_on "go" => :build
@@ -22,18 +21,7 @@ class Gopass < Formula
   end
 
   def install
-    ENV["GOBIN"] = bin
-
-    system "go", "install", "-ldflags", "-s -w -X main.version=#{version}", "./..."
-
-    output = Utils.safe_popen_read({ "SHELL" => "bash" }, "#{bin}/gopass", "completion", "bash")
-    (bash_completion/"gopass").write output
-
-    output = Utils.safe_popen_read({ "SHELL" => "zsh" }, "#{bin}/gopass", "completion", "zsh")
-    (zsh_completion/"_gopass").write output
-
-    output = Utils.safe_popen_read({ "SHELL" => "fish" }, "#{bin}/gopass", "completion", "fish")
-    (fish_completion/"gopass.fish").write output
+    system "make", "install", "PREFIX=#{prefix}/"
   end
 
   test do

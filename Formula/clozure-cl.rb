@@ -1,56 +1,77 @@
 class ClozureCl < Formula
   desc "Common Lisp implementation with a long history"
   homepage "https://ccl.clozure.com"
-  url "https://github.com/Clozure/ccl/archive/v1.12.tar.gz"
-  sha256 "774a06b4fb6dc4b51dfb26da8e1cc809c605e7706c12180805d1be6f2885bd52"
+  url "https://github.com/Clozure/ccl/archive/v1.12.1.tar.gz"
+  sha256 "bd005fdb24cee2f7b20077cbca5e9174c10a82d98013df5cc3eabc7f31ccd933"
   license "Apache-2.0"
-  head "https://github.com/Clozure/ccl.git"
+  head "https://github.com/Clozure/ccl.git", branch: "master"
 
   livecheck do
-    url "https://github.com/Clozure/ccl/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "44532f82d79ee308886614d8a8ccafd65e049a8621cc7a54a6af15d9985486e7" => :catalina
-    sha256 "b17d10463b8101707ad7385a896e3252e6ffd4231c0334ac25aa7967c689226f" => :mojave
-    sha256 "3e2a8e6263055e8e21ae373b0def8f4ad5aebaa4e64df12d67b148bbb3fde177" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:      "2e8a3a3d80b28ab52584b2b6314f4739e7b2747d4efb1fead8b66e18045826c8"
+    sha256 cellar: :any_skip_relocation, catalina:     "1a61c4c36d12ea0707ddffb61456a65a7b585e009f900daafa9745b292384fd5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "9d7ccfcd028e68959e5d105ef9f942febdd44ba2f47f18c93b259cae0a8c8806"
   end
 
   depends_on xcode: :build
+  depends_on macos: :catalina # The GNU assembler frontend which ships macOS 10.14 is incompatible with clozure-ccl: https://github.com/Clozure/ccl/issues/271
+
+  on_linux do
+    depends_on "m4"
+  end
 
   resource "bootstrap" do
-    url "https://github.com/Clozure/ccl/releases/download/v1.12/darwinx86.tar.gz"
-    sha256 "9434fb5ebc01fc923625ad56726fdd217009e2d3c107cfa3c5435cb7692ba7ca"
+    on_macos do
+      url "https://github.com/Clozure/ccl/releases/download/v1.12.1/darwinx86.tar.gz"
+      sha256 "92c5776ba1ba8548361669b50ae1655d7f127ff01d6e2107d8dccb97f2a585cd"
+    end
+
+    on_linux do
+      url "https://github.com/Clozure/ccl/releases/download/v1.12.1/linuxx86.tar.gz"
+      sha256 "ec98d881abc3826b7fd5ec811f01f9bb77e4491ac4eb7f1cea5e3b26d5098052"
+    end
   end
 
   def install
     tmpdir = Pathname.new(Dir.mktmpdir)
     tmpdir.install resource("bootstrap")
-    buildpath.install tmpdir/"dx86cl64.image"
-    buildpath.install tmpdir/"darwin-x86-headers64"
-    cd "lisp-kernel/darwinx8664" do
-      args = []
 
-      if DevelopmentTools.clang_build_version == 1100 && MacOS::CLT.installed?
-        # Xcode 11.0-11.3 assembler is broken. Try the CLT in case it is older.
-        # https://github.com/Clozure/ccl/issues/271
-        # NOTE: ccl NEEDS the system assembler - it is not compatible with Clang's
-        args << "AS=/Library/Developer/CommandLineTools/usr/bin/as"
+    on_macos do
+      buildpath.install tmpdir/"dx86cl64.image"
+      buildpath.install tmpdir/"darwin-x86-headers64"
+      cd "lisp-kernel/darwinx8664" do
+        system "make"
       end
+    end
 
-      system "make", *args
+    on_linux do
+      buildpath.install tmpdir/"lx86cl64"
+      buildpath.install tmpdir/"lx86cl64.image"
+      buildpath.install tmpdir/"x86-headers64"
     end
 
     ENV["CCL_DEFAULT_DIRECTORY"] = buildpath
 
-    system "./dx86cl64", "-n", "-l", "lib/x8664env.lisp",
-                         "-e", "(ccl:xload-level-0)",
-                         "-e", "(ccl:compile-ccl)",
-                         "-e", "(quit)"
-    (buildpath/"image").write('(ccl:save-application "dx86cl64.image")\n(quit)\n')
-    system "cat image | ./dx86cl64 -n --image-name x86-boot64.image"
+    on_macos do
+      system "./dx86cl64", "-n", "-l", "lib/x8664env.lisp",
+            "-e", "(ccl:xload-level-0)",
+            "-e", "(ccl:compile-ccl)",
+            "-e", "(quit)"
+      (buildpath/"image").write('(ccl:save-application "dx86cl64.image")\n(quit)\n')
+      system "cat image | ./dx86cl64 -n --image-name x86-boot64.image"
+    end
+
+    on_linux do
+      system "./lx86cl64", "-n", "-l", "lib/x8664env.lisp",
+            "-e", "(ccl:rebuild-ccl :full t)",
+            "-e", "(quit)"
+      (buildpath/"image").write('(ccl:save-application "lx86cl64.image")\n(quit)\n')
+      system "cat image | ./lx86cl64 -n --image-name x86-boot64"
+    end
 
     prefix.install "doc/README"
     doc.install Dir["doc/*"]

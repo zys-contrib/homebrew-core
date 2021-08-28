@@ -1,20 +1,21 @@
 class Pidgin < Formula
   desc "Multi-protocol chat client"
   homepage "https://pidgin.im/"
-  url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.14.1/pidgin-2.14.1.tar.bz2"
-  sha256 "f132e18d551117d9e46acce29ba4f40892a86746c366999166a3862b51060780"
-  license "GPL-2.0"
+  url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.14.6/pidgin-2.14.6.tar.bz2"
+  sha256 "bb45f7c032f9efd6922a5dbf2840995775e5584771b23992d04f6eff7dff5336"
+  license "GPL-2.0-or-later"
 
   livecheck do
-    url :stable
-    regex(%r{url=.*?/pidgin[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    url "https://sourceforge.net/projects/pidgin/files/Pidgin/"
+    regex(%r{href=.*?/v?(\d+(?:\.\d+)+)/?["' >]}i)
+    strategy :page_match
   end
 
   bottle do
-    sha256 "db281d2a0ba80382da619c2a5478db48592b40ab1dfaaf39c33f36f3469c37f3" => :big_sur
-    sha256 "4634da7bc606d00dcdc9e3ea42f00d33a9764d6d231b6a7baef0c7a3ef451e74" => :catalina
-    sha256 "a549ae59ccff2482dd02c9eea51db80fb831ab7e720f7f2ec7df37c60eb7f1d8" => :mojave
-    sha256 "99708561a57b3e47d603b8b46b9f3a7dd8fc7f6bb08746ce996130c10ef13784" => :high_sierra
+    sha256 arm64_big_sur: "fd09b46fab5d0f4e52d6b460081814cbed9dc446cc6cb379976678acf48045a9"
+    sha256 big_sur:       "65c8b20b138eccee7e7a45280080c161f643cb570ba2b8258b9912dfd2784f00"
+    sha256 catalina:      "54287daa973969e51387ebd2cbf46d58d29d010b6f8902a1029852fdb83b20ff"
+    sha256 mojave:        "a1e76cc27f0aec4899968c82c85db0f78fd2f1b9ec9e266799ca83e32d03abd3"
   end
 
   depends_on "intltool" => :build
@@ -79,5 +80,10 @@ class Pidgin < Formula
 
   test do
     system "#{bin}/finch", "--version"
+    system "#{bin}/pidgin", "--version"
+
+    pid = fork { exec "#{bin}/pidgin", "--config=#{testpath}" }
+    sleep 5
+    Process.kill "SIGTERM", pid
   end
 end

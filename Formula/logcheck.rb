@@ -1,9 +1,9 @@
 class Logcheck < Formula
   desc "Mail anomalies in the system logfiles to the administrator"
   homepage "https://packages.debian.org/sid/logcheck"
-  url "https://deb.debian.org/debian/pool/main/l/logcheck/logcheck_1.3.20.tar.xz"
-  sha256 "9fb6d02b933470d0b1d1efb54ea186e0d0d27336f9d146be592f65ce60dfb3e6"
-  license "GPL-2.0"
+  url "https://deb.debian.org/debian/pool/main/l/logcheck/logcheck_1.3.23.tar.xz"
+  sha256 "a2188ba549fff4412c82074b271884ff66d25f3fdb2a41916e817ce676855b29"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://packages.debian.org/unstable/logcheck"
@@ -11,12 +11,11 @@ class Logcheck < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8bc85cf12dd6e76956cc0ddc53d85d7465b5b2f45ed9f6a79e5896c29fcbbc83" => :big_sur
-    sha256 "9e354b3fe568c0751443a702251949b5227a5ce09e3bbae4c28664aa1d7f0631" => :catalina
-    sha256 "111520f51e26088aa012bd42dc772e0a00e41decec22011a2bcf71c2ee3e20cc" => :mojave
-    sha256 "111520f51e26088aa012bd42dc772e0a00e41decec22011a2bcf71c2ee3e20cc" => :high_sierra
-    sha256 "12caeda115373b2b964509c07c2101926ab2e67154176078bf72353f3aeab7a3" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c158a2e122bc100e2d6cdc418f774e75608cedc5fe63dc63bef450e0b608dabd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f7d2d31cdd38d9b05c4b4d75d0f547204542ad12b54af4e6af80ed7f42e3db46"
+    sha256 cellar: :any_skip_relocation, catalina:      "790e11ad036bfd77384e5b1bff4427560c21f942b2909b6495dd04824511f156"
+    sha256 cellar: :any_skip_relocation, mojave:        "a075ab3e36e8d5a9f8f51815357cb4640193c94bf72f8623424266c640f7d63e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73d2a94487c26620d13bf3fd8093d96e9d9420caab4f36b5e34c36b3032e6eb9"
   end
 
   def install

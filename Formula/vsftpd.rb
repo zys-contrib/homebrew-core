@@ -1,9 +1,10 @@
 class Vsftpd < Formula
   desc "Secure FTP server for UNIX"
   homepage "https://security.appspot.com/vsftpd.html"
-  url "https://security.appspot.com/downloads/vsftpd-3.0.3.tar.gz"
-  mirror "https://fossies.org/linux/misc/vsftpd-3.0.3.tar.gz"
-  sha256 "9d4d2bf6e6e2884852ba4e69e157a2cecd68c5a7635d66a3a8cf8d898c955ef7"
+  url "https://security.appspot.com/downloads/vsftpd-3.0.5.tar.gz"
+  mirror "https://fossies.org/linux/misc/vsftpd-3.0.5.tar.gz"
+  sha256 "26b602ae454b0ba6d99ef44a09b6b9e0dfa7f67228106736df1f278c70bc91d3"
+  license "GPL-2.0-only"
 
   livecheck do
     url :homepage
@@ -11,20 +12,20 @@ class Vsftpd < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 "43b17ac94b152a4922a915b7e2efc89c3da7ee53e00f860136c5c58489e2b782" => :catalina
-    sha256 "5605a908ab4b24008e48f2280107695a7afaae8a1a521964b8f2248d2baa960a" => :mojave
-    sha256 "dbfc9b28f5ea49dda09d31fb630d995b72fd63b83b358e04156329252c3ab25b" => :high_sierra
-    sha256 "22349437bd4d75b1ffd2fddfd90f92367e0a4f478f540b9086457541883f2c3b" => :sierra
-    sha256 "108243559f3fea06d140173a3e3cb497c2f22c47d45e85ae108c088c1a1370df" => :el_capitan
-    sha256 "25a9d2e92ca7e3efda6c9882a62ad5927c0c5e450eca4d62d7829c467dd086d9" => :yosemite
+    sha256 arm64_big_sur: "11589c537eaaaba8cfd68207f078d8d4d0485b40d8553c23ae7caf76ab5104d7"
+    sha256 big_sur:       "1ede9475ee1dc93ad54a413ca82bdd15d3b0f50b9d6f731cf7e3578cae8b0cbd"
+    sha256 catalina:      "79b378cfa6134e01ff2d253578c24601e5bb2d2514e7427da083a9af0446ac14"
+    sha256 mojave:        "d6ebf6f6f786c417698436901442203446bc6c64a9d50e6134b4035e2c0c5002"
+    sha256 x86_64_linux:  "124a191424c1d2f2261a858bc2d2a8319dc91572035f62c9f7065c08cdfd6e5b"
   end
+
+  uses_from_macos "perl" => :build
 
   # Patch to remove UTMPX dependency, locate macOS's PAM library, and
   # remove incompatible LDFLAGS. (reported to developer via email)
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/vsftpd/3.0.3.patch"
-    sha256 "7947d91f75cb02b834783382bcd2a2ef41565a76e31a5667a1ea0bd5bef48011"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/5fbea7b01a521f840f51be6ffec29f612a37eed3/vsftpd/3.0.3.patch"
+    sha256 "c158fac428e06e16219e332c3897c3f730586e55d0ef3a670ed3c716e3de5371"
   end
 
   def install
@@ -51,26 +52,9 @@ class Vsftpd < Formula
     EOS
   end
 
-  plist_options startup: true, manual: "sudo vsftpd"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{sbin}/vsftpd</string>
-          <string>#{etc}/vsftpd.conf</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-      </plist>
-    EOS
+  plist_options startup: true
+  service do
+    run [opt_sbin/"vsftpd", etc/"vsftpd.conf"]
   end
 
   test do

@@ -1,9 +1,10 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
-  url "https://download.osgeo.org/gdal/3.2.0/gdal-3.2.0.tar.xz"
-  sha256 "b051f852600ffdf07e337a7f15673da23f9201a9dbb482bd513756a3e5a196a6"
+  url "https://download.osgeo.org/gdal/3.3.1/gdal-3.3.1.tar.xz"
+  sha256 "48ab00b77d49f08cf66c60ccce55abb6455c3079f545e60c90ee7ce857bccb70"
   license "MIT"
+  revision 3
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -11,10 +12,10 @@ class Gdal < Formula
   end
 
   bottle do
-    sha256 "fb1c58e1f7a06f89a744e4f55cce483cb9cc7fddb2bbf747e1665eafd5066855" => :big_sur
-    sha256 "2a74c66bb4dd479b809bcaee9b2ed31afbadb26d2fed57cbb96bf81420d50265" => :catalina
-    sha256 "1d0bd96e0edf8f85bbadc47a12a3b3f71f3d1b1458f904df5eb3c6223ef4f479" => :mojave
-    sha256 "d00526a862cae5b405f2cee3d2dfab285d4cdfcfa921e9ac7bdeeb5bcf61fe9d" => :high_sierra
+    sha256 arm64_big_sur: "63d1f92d6123d4f3fb5142b16a2d8898b0b48aa2d9133651c09f974f1575a560"
+    sha256 big_sur:       "4895d4f179c3264abe86fab90d673571f6a3a559fa5d4d27ddf16d2007cf372f"
+    sha256 catalina:      "47d4586c2b7bbbea2f70dbaee7f2aaea2e8d7d46bea69d2d476ad63d1a950015"
+    sha256 mojave:        "0f57ca35e42fd11e201056124b7c077a7ef3ca73e3857581c5fce28f74ddc002"
   end
 
   head do
@@ -23,7 +24,6 @@ class Gdal < Formula
   end
 
   depends_on "pkg-config" => :build
-
   depends_on "cfitsio"
   depends_on "epsilon"
   depends_on "expat"
@@ -44,8 +44,8 @@ class Gdal < Formula
   depends_on "numpy"
   depends_on "openjpeg"
   depends_on "pcre"
-  depends_on "poppler"
-  depends_on "proj"
+  depends_on "poppler-qt5"
+  depends_on "proj@7"
   depends_on "python@3.9"
   depends_on "sqlite" # To ensure compatibility with SpatiaLite
   depends_on "unixodbc" # macOS version is not complete enough
@@ -54,10 +54,13 @@ class Gdal < Formula
   depends_on "xz" # get liblzma compression algorithm library from XZutils
   depends_on "zstd"
 
+  uses_from_macos "curl"
+
   on_linux do
     depends_on "bash-completion"
   end
 
+  conflicts_with "avce00", because: "both install a cpl_conv.h header"
   conflicts_with "cpl", because: "both install cpl_error.h"
 
   def install
@@ -77,7 +80,6 @@ class Gdal < Formula
       "--with-pcraster=internal",
 
       # Homebrew backends
-      "--with-curl=/usr/bin/curl-config",
       "--with-expat=#{Formula["expat"].prefix}",
       "--with-freexl=#{Formula["freexl"].opt_prefix}",
       "--with-geos=#{Formula["geos"].opt_prefix}/bin/geos-config",
@@ -90,7 +92,7 @@ class Gdal < Formula
       "--with-png=#{Formula["libpng"].opt_prefix}",
       "--with-spatialite=#{Formula["libspatialite"].opt_prefix}",
       "--with-sqlite3=#{Formula["sqlite"].opt_prefix}",
-      "--with-proj=#{Formula["proj"].opt_prefix}",
+      "--with-proj=#{Formula["proj@7"].opt_prefix}",
       "--with-zstd=#{Formula["zstd"].opt_prefix}",
       "--with-liblzma=yes",
       "--with-cfitsio=#{Formula["cfitsio"].opt_prefix}",
@@ -107,6 +109,7 @@ class Gdal < Formula
       # Explicitly disable some features
       "--with-armadillo=no",
       "--with-qhull=no",
+      "--without-exr",
       "--without-grass",
       "--without-jasper",
       "--without-jpeg12",
@@ -138,11 +141,11 @@ class Gdal < Formula
       "--without-sosi",
     ]
 
-    # Work around "error: no member named 'signbit' in the global namespace"
-    # Remove once support for macOS 10.12 Sierra is dropped
-    if DevelopmentTools.clang_build_version >= 900
-      ENV.delete "SDKROOT"
-      ENV.delete "HOMEBREW_SDKROOT"
+    on_macos do
+      args << "--with-curl=/usr/bin/curl-config"
+    end
+    on_linux do
+      args << "--with-curl=#{Formula["curl"].opt_bin}/curl-config"
     end
 
     system "./configure", *args

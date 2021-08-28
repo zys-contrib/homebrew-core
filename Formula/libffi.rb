@@ -6,13 +6,14 @@ class Libffi < Formula
   mirror "https://github.com/libffi/libffi/releases/download/v3.3/libffi-3.3.tar.gz"
   sha256 "72fba7922703ddfa7a028d513ac15a85c8d54c8d67f55fa5a4802885dc652056"
   license "MIT"
+  revision 3
 
   bottle do
-    cellar :any
-    sha256 "76e28c8fbcddd000f371ce146ee3ca980b7feb54596d649e9309a1edc3225a99" => :big_sur
-    sha256 "dd94d39946f53a8f11f78e998f22e46be9666bb265f80bb4714d5d63c1e16a68" => :catalina
-    sha256 "d6e5efd7521676dfc58fcba567514b898091c8580df4d6253f5dd40a7ee67c82" => :mojave
-    sha256 "7065f0d426921fa069c2494beded9de61e8720954f3f346103c8f871daa4ff8b" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "10a6d66c264f9a23d1162e535fe49f27c23f6ef452b4701ed7110f06aaf1e01d"
+    sha256 cellar: :any,                 big_sur:       "8a7a02cffb368dfdeaeb1176a7a7bcc6402371aee0a30bb001aff3452a4202c6"
+    sha256 cellar: :any,                 catalina:      "66caa8a807684ce5d5173ffc4db1eaa7167eabd634335a2ce3b8ba667efe2686"
+    sha256 cellar: :any,                 mojave:        "1205c19a1d51940726534923db0e1c291b001a3ea541d0694afccad7968343a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fab61c20c0548c253b2d873b4d69b2c1a23b61d2a7868a4a0fdcf11e95e6375f"
   end
 
   head do
@@ -24,15 +25,19 @@ class Libffi < Formula
 
   keg_only :provided_by_macos
 
-  def install
-    # This can be removed in the future when libffi properly detects the CPU on ARM.
-    # https://github.com/libffi/libffi/issues/571#issuecomment-655223391
-    extra_args = []
-    extra_args << "--build=aarch64-apple-darwin#{OS.kernel_version}" if Hardware::CPU.arm?
+  on_macos do
+    if Hardware::CPU.arm?
+      # Improved aarch64-apple-darwin support. See https://github.com/libffi/libffi/pull/565
+      patch do
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/06252df03c68aee70856e5842f85f20b259e5250/libffi/libffi-3.3-arm64.patch"
+        sha256 "9290aba7f3131ca19eb28fa7ded836b80f15cf633ffac95dc52b14d0a668d1fa"
+      end
+    end
+  end
 
+  def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}", *extra_args
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 

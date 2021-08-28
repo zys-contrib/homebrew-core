@@ -1,25 +1,28 @@
 class Zile < Formula
   desc "Text editor development kit"
   homepage "https://www.gnu.org/software/zile/"
-  url "https://ftp.gnu.org/gnu/zile/zile-2.4.15.tar.gz"
-  mirror "https://ftpmirror.gnu.org/zile/zile-2.4.15.tar.gz"
-  sha256 "39c300a34f78c37ba67793cf74685935a15568e14237a3a66fda8fcf40e3035e"
-
-  livecheck do
-    url :stable
-  end
+  # Before bumping to a new version, check the NEWS file to make sure it is a
+  # stable release: https://git.savannah.gnu.org/cgit/zile.git/plain/NEWS
+  # For context, see: https://github.com/Homebrew/homebrew-core/issues/67379
+  url "https://ftp.gnu.org/gnu/zile/zile-2.6.2.tar.gz"
+  mirror "https://ftpmirror.gnu.org/zile/zile-2.6.2.tar.gz"
+  sha256 "77eb7daff3c98bdc88daa1ac040dccca72b81dc32fc3166e079dd7a63e42c741"
+  license "GPL-3.0-or-later"
+  version_scheme 1
 
   bottle do
-    cellar :any
-    sha256 "a968a290fab30518570f4b3b0c01c91014e421109d9b91ecbb4a42ee865aad69" => :big_sur
-    sha256 "c87e1675d9eb1c34e66531c8dabdfb290acaff89c16649b57f0d225ae84fbf72" => :catalina
-    sha256 "f153836d786658870d684374b310ce47a6658ad590bcaccc981c7a6b7c66947e" => :mojave
-    sha256 "943f7ce5aba23fd916e4e89da5bae329471cafdd4261f13cd4bc6696d21bd4e6" => :high_sierra
+    sha256 arm64_big_sur: "2975be9af2cd9d330bcf85dc81f9f74b2f30d17972e987db3fd225212b0483ff"
+    sha256 big_sur:       "128190a766b6a418d57718f597e33502b381ee1441b01edb35396fc486196665"
+    sha256 catalina:      "a57829f30757e2cd9092e0178505a8f6b6dce9f50f5b9fada78b0c1eb2cbd692"
+    sha256 mojave:        "bfac60d46d213913b7bccc3d6cdf998f487d080fef4a46c5608d20ab09a8b988"
+    sha256 x86_64_linux:  "d300cfd773adeb8071731a7cdc19a68be46732e17e95ffd6373844b8ae6c4e0d"
   end
 
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
+  depends_on "glib"
+  depends_on "libgee"
 
   uses_from_macos "ncurses"
 

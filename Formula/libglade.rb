@@ -5,17 +5,15 @@ class Libglade < Formula
   sha256 "c41d189b68457976069073e48d6c14c183075d8b1d8077cb6dfb8b7c5097add3"
   revision 4
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
-    sha256 "7408ed79b9c5c118628b566cda02c6fec57cb8cbdbad4db83759f41324d5171f" => :big_sur
-    sha256 "f87fe8b63946d78fd43586ef25fbd108d9f81fda2089a66f40cbdc0216601f8e" => :catalina
-    sha256 "3fdb8055e888e22f7054432b185aad35a20c0d48b3c07c97429cab2b7a0bd3cc" => :mojave
-    sha256 "fd198334f49180de53d5bde9406e17aa4e3051ee5c421defdab9dbb0f3a1e681" => :high_sierra
-    sha256 "019f499d6ca86f279d5bfec74bf71ffe11a89bb6bc70f6901b7074e14885132c" => :sierra
+    sha256 arm64_big_sur: "d4590501ed823f6ba28905f2a7ab3e5d64b6497393b11829fb753c7ed56cc1d3"
+    sha256 big_sur:       "7408ed79b9c5c118628b566cda02c6fec57cb8cbdbad4db83759f41324d5171f"
+    sha256 catalina:      "f87fe8b63946d78fd43586ef25fbd108d9f81fda2089a66f40cbdc0216601f8e"
+    sha256 mojave:        "3fdb8055e888e22f7054432b185aad35a20c0d48b3c07c97429cab2b7a0bd3cc"
+    sha256 high_sierra:   "fd198334f49180de53d5bde9406e17aa4e3051ee5c421defdab9dbb0f3a1e681"
+    sha256 sierra:        "019f499d6ca86f279d5bfec74bf71ffe11a89bb6bc70f6901b7074e14885132c"
+    sha256 x86_64_linux:  "bcdaaabe9019e832d451948a90c49f999d28b576610d4c46ea6bf2594b1fbc66"
   end
 
   depends_on "pkg-config" => :build
@@ -77,18 +75,24 @@ class Libglade < Formula
       -L#{pango.opt_lib}
       -latk-1.0
       -lcairo
-      -lgdk-quartz-2.0
       -lgdk_pixbuf-2.0
       -lgio-2.0
       -lglade-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lgtk-quartz-2.0
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
       -lxml2
     ]
+    on_macos do
+      flags << "-lgdk-quartz-2.0"
+      flags << "-lgtk-quartz-2.0"
+      flags << "-lintl"
+    end
+    on_linux do
+      flags << "-lgdk-x11-2.0"
+      flags << "-lgtk-x11-2.0"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

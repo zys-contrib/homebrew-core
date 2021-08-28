@@ -1,44 +1,47 @@
 class Earthly < Formula
-  desc "Build automation tool for the post-container era"
+  desc "Build automation tool for the container era"
   homepage "https://earthly.dev/"
-  url "https://github.com/earthly/earthly/archive/v0.3.15.tar.gz"
-  sha256 "97c4504cd746962765d4ed560c16311e0b67ead15187f5a46da64532f3926a77"
-  license "MPL-2.0"
+  url "https://github.com/earthly/earthly/archive/v0.5.17.tar.gz"
+  sha256 "1dcc56b419413480fa2e116606cab2c8003483e0b8052443aa7b7da0572ce47f"
+  license "BUSL-1.1"
   head "https://github.com/earthly/earthly.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8eee13ef74f53d9a4463f1ae90d6fb3eaf5475bb5d17d2c7f6e8a85c62466f82" => :big_sur
-    sha256 "d5db79ea4d4d466e0fc952da047bf377ea62daa06ee1ec228f2cdff4c3b2e58b" => :catalina
-    sha256 "d527e537a97b980e88bf6bd8c2e871cf1b8600b0df9991b673ef33327921a0c6" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6ced4b644da7733596ddb225d4d07dddcdf3cea9975a1dcdce724e65093142fb"
+    sha256 cellar: :any_skip_relocation, big_sur:       "45b1406d85fbc167590873e727dd63624ed17bceadc289bb4c6c7f8e8a669317"
+    sha256 cellar: :any_skip_relocation, catalina:      "16c593502fd9a7270edab13a2ed8c9ca44486eb90bc97dceef99ec8c092ddadf"
+    sha256 cellar: :any_skip_relocation, mojave:        "a9a09599ccebca0c987ea802cfc861097055ab2662db97c417bfeb83756fdb90"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78f6b33643db61f1944ceaf27d27ad001f8ba7a865b358a040cf1374fd618a96"
   end
+
+  disable! date: "2021-07-15", because: "has an incompatible license"
 
   depends_on "go" => :build
 
   def install
     ldflags = "-X main.DefaultBuildkitdImage=earthly/buildkitd:v#{version} -X main.Version=v#{version} " \
-              "-X main.GitSha=3edfa71924e2ccf1f5dc4cbb1019d50b92f60fb0 "
+              "-X main.GitSha=bdeda2542465cb0bc0c8985a905aa2e3579a3f7b "
     tags = "dfrunmount dfrunsecurity dfsecrets dfssh dfrunnetwork"
     system "go", "build",
         "-tags", tags,
         "-ldflags", ldflags,
         *std_go_args,
-        "-o", bin/"earth",
-        "./cmd/earth/main.go"
-    bash_output = Utils.safe_popen_read("#{bin}/earth", "bootstrap", "--source", "bash")
-    (bash_completion/"earth").write bash_output
-    zsh_output = Utils.safe_popen_read("#{bin}/earth", "bootstrap", "--source", "zsh")
-    (zsh_completion/"_earth").write zsh_output
+        "./cmd/earthly/main.go"
+
+    bash_output = Utils.safe_popen_read("#{bin}/earthly", "bootstrap", "--source", "bash")
+    (bash_completion/"earthly").write bash_output
+    zsh_output = Utils.safe_popen_read("#{bin}/earthly", "bootstrap", "--source", "zsh")
+    (zsh_completion/"_earthly").write zsh_output
   end
 
   test do
-    (testpath/"build.earth").write <<~EOS
+    (testpath/"build.earthly").write <<~EOS
 
       default:
       \tRUN echo Homebrew
     EOS
 
-    output = shell_output("#{bin}/earth --buildkit-host 127.0.0.1 +default 2>&1", 1).strip
-    assert_match "Error while dialing invalid address 127.0.0.1", output
+    output = shell_output("#{bin}/earthly --buildkit-host 127.0.0.1 +default 2>&1", 6).strip
+    assert_match "buildkitd failed to start", output
   end
 end

@@ -1,17 +1,23 @@
 class Maven < Formula
   desc "Java-based project management"
   homepage "https://maven.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz"
-  sha256 "26ad91d751b3a9a53087aefa743f4e16a17741d3915b219cf74112bf87a438c5"
+  url "https://www.apache.org/dyn/closer.lua?path=maven/maven-3/3.8.2/binaries/apache-maven-3.8.2-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/maven/maven-3/3.8.2/binaries/apache-maven-3.8.2-bin.tar.gz"
+  sha256 "8dae10b09feb7b8e4c079fc39a11f3296ab630fd9bc44ecea0fb288cec7770f7"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
-    url :stable
+    url "https://maven.apache.org/download.cgi"
+    regex(/href=.*?apache-maven[._-]v?(\d+(?:\.\d+)+)-bin\.t/i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8bffe25b9b0a9bffdca2da60da2c5773970b33a04035a7826557ddb3f14f64e4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "73ad9de723ec4f67465e4fc84070f01b198be6a101392b90002673d8c4c444c3"
+    sha256 cellar: :any_skip_relocation, catalina:      "73ad9de723ec4f67465e4fc84070f01b198be6a101392b90002673d8c4c444c3"
+    sha256 cellar: :any_skip_relocation, mojave:        "73ad9de723ec4f67465e4fc84070f01b198be6a101392b90002673d8c4c444c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91d12d057fd0b0ebecf270e4779d0a9f06d53c73c26e442b4cc5accf728c2890"
+  end
 
   depends_on "openjdk"
 

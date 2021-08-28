@@ -2,33 +2,49 @@ class Kubebuilder < Formula
   desc "SDK for building Kubernetes APIs using CRDs"
   homepage "https://github.com/kubernetes-sigs/kubebuilder"
   url "https://github.com/kubernetes-sigs/kubebuilder.git",
-      tag:      "v2.3.1",
-      revision: "8b53abeb4280186e494b726edf8f54ca7aa64a49"
+      tag:      "v3.1.0",
+      revision: "92e0349ca7334a0a8e5e499da4fb077eb524e94a"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/kubebuilder.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c9fbe3f2af36d56afc501528827dd63aa7c2e450ae55d29372ea83b717b34d59" => :big_sur
-    sha256 "b587ddd6d67b12a7fd2635f8f4da56402133a036fe79e635b08427b401a9b71b" => :catalina
-    sha256 "7de399f00ecd47e3150e05d213a44886f499456ed5480c095100e329203ab399" => :mojave
-    sha256 "62040031af53761dbe639796b5dc95278be2a048380f691563fb9cd4ef7f8041" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5995e72a7882ed0bbceb0502fa67dae7c8c341f702ff418cad10009fc3418694"
+    sha256 cellar: :any_skip_relocation, big_sur:       "df42a3b0d95979ddde607db44ef7b068121144fb81a1cf3823e5d1f82c9aac4e"
+    sha256 cellar: :any_skip_relocation, catalina:      "7ea09c20fe9e1f8d59976b46ccf8719d55b2da0bebdb1e9843d56febb0440152"
+    sha256 cellar: :any_skip_relocation, mojave:        "4a1cd3cbbfd579bf148c1dac9939c6309c9558471ff92b9594b95caa9cf47936"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52e39983c8bbcc14fc5a321163172cdcab74fddcaeaf98b0bb64ee8122eebb09"
   end
 
   depends_on "git-lfs" => :build
   depends_on "go"
 
   def install
-    system "make", "build"
-    bin.install "bin/kubebuilder"
-    prefix.install_metafiles
+    goos = Utils.safe_popen_read("#{Formula["go"].bin}/go", "env", "GOOS").chomp
+    goarch = Utils.safe_popen_read("#{Formula["go"].bin}/go", "env", "GOARCH").chomp
+    ldflags = %W[
+      -X main.kubeBuilderVersion=#{version}
+      -X main.goos=#{goos}
+      -X main.goarch=#{goarch}
+      -X main.gitCommit=#{Utils.git_head}
+      -X main.buildDate=#{time.iso8601}
+    ]
+    system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "./cmd"
+
+    output = Utils.safe_popen_read(bin/"kubebuilder", "completion", "bash")
+    (bash_completion/"kubebuilder").write output
+    output = Utils.safe_popen_read(bin/"kubebuilder", "completion", "zsh")
+    (zsh_completion/"_kubebuilder").write output
+    output = Utils.safe_popen_read(bin/"kubebuilder", "completion", "fish")
+    (fish_completion/"kubebuilder.fish").write output
   end
 
   test do
+    assert_match "KubeBuilderVersion:\"#{version}\"", shell_output("#{bin}/kubebuilder version 2>&1")
     mkdir "test" do
+      system "go", "mod", "init", "example.com"
       system "#{bin}/kubebuilder", "init",
-        "--repo=github.com/example/example-repo", "--domain=example.com",
-        "--license=apache2", "--owner='The Example authors'", "--fetch-deps=false"
+        "--plugins", "go/v3", "--project-version", "3",
+        "--skip-go-version-check"
     end
   end
 end

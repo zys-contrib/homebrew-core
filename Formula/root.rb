@@ -1,10 +1,10 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch/"
-  url "https://root.cern.ch/download/root_v6.22.04.source.tar.gz"
-  sha256 "a2f066d85db8eb5b5f1c72573923484a6782a47b94954eff64879609f360e951"
+  url "https://root.cern.ch/download/root_v6.24.04.source.tar.gz"
+  sha256 "4a416f3d7aa25dba46d05b641505eb074c5f07b3ec1d21911451046adaea3ee7"
   license "LGPL-2.1-or-later"
-  head "https://github.com/root-project/root.git"
+  head "https://github.com/root-project/root.git", branch: "master"
 
   livecheck do
     url "https://root.cern.ch/download/"
@@ -12,21 +12,11 @@ class Root < Formula
   end
 
   bottle do
-    sha256 "438b73d8ad8e731e58edd302a86f1d87e90245a5d8cc51e197f19e330bb3ad4d" => :catalina
-    sha256 "acbe14d4b26fd847a0cc7fdc4be0fab92f2394d1ad706523c1f1cc4efde0d116" => :mojave
-    sha256 "aca8fc57aa9d5777b6897a457a5660604c41898a578003431a6867274fe96a77" => :high_sierra
-  end
-
-  # https://github.com/Homebrew/homebrew-core/issues/30726
-  # strings libCling.so | grep Xcode:
-  #  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1
-  #  /Applications/Xcode.app/Contents/Developer
-  pour_bottle? do
-    reason "The bottle hardcodes locations inside Xcode.app"
-    satisfy do
-      MacOS::Xcode.installed? &&
-        MacOS::Xcode.prefix.to_s.include?("/Applications/Xcode.app/")
-    end
+    sha256 arm64_big_sur: "b047f553b56962b417f1a8deeb43c9a814de15e776aa52287e074e83fd9ea09d"
+    sha256 big_sur:       "1fa26f261a9a86327106fbb5f2dd48687efa39979c207696f85eb6d6a7814fef"
+    sha256 catalina:      "2c925c6cfea7e222a1aaec1c0bec0e74d6a6f56ca24afd0f36cf0b3ef97b01f6"
+    sha256 mojave:        "75c2a278276d76be14f0ed92a78e104a39cdcf0d7e506dda0d172b83747d7ed7"
+    sha256 x86_64_linux:  "91c253a9e56202f9469ae864ffaf053e5096cc6345ca09972a04757ab2f349f8"
   end
 
   depends_on "cmake" => :build
@@ -38,26 +28,30 @@ class Root < Formula
   depends_on "gl2ps"
   depends_on "graphviz"
   depends_on "gsl"
-  # Temporarily depend on Homebrew libxml2 to work around a brew issue:
-  # https://github.com/Homebrew/brew/issues/5068
-  depends_on "libxml2" if MacOS.version >= :mojave
   depends_on "lz4"
   depends_on "numpy" # for tmva
   depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "python@3.9"
   depends_on "tbb"
+  depends_on :xcode if MacOS.version <= :catalina
   depends_on "xrootd"
   depends_on "xz" # for LZMA
   depends_on "zstd"
+
+  uses_from_macos "libxml2"
+
+  on_linux do
+    depends_on "libxft"
+    depends_on "libxpm"
+  end
 
   conflicts_with "glew", because: "root ships its own copy of glew"
 
   skip_clean "bin"
 
   def install
-    # Work around "error: no member named 'signbit' in the global namespace"
-    ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
+    on_linux { ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/root" }
 
     # Freetype/afterimage/gl2ps/lz4 are vendored in the tarball, so are fine.
     # However, this is still permitting the build process to make remote
@@ -96,12 +90,15 @@ class Root < Formula
     cxx_version = (MacOS.version < :mojave) ? 14 : 17
     args << "-DCMAKE_CXX_STANDARD=#{cxx_version}"
 
+    # Homebrew now sets CMAKE_INSTALL_LIBDIR to /lib, which is incorrect
+    # for ROOT with gnuinstall, so we set it back here.
+    args << "-DCMAKE_INSTALL_LIBDIR=lib/root"
+
     # Workaround the shim directory being embedded into the output
     inreplace "build/unix/compiledata.sh", "`type -path $CXX`", ENV.cxx
 
     mkdir "builddir" do
       system "cmake", "..", *args
-
       system "ninja", "install"
 
       chmod 0755, Dir[bin/"*.*sh"]
@@ -152,12 +149,10 @@ class Root < Formula
         return 0;
       }
     EOS
-    (testpath/"test_compile.bash").write <<~EOS
-      $(root-config --cxx) $(root-config --cflags) $(root-config --libs) $(root-config --ldflags) test.cpp
-      ./a.out
-    EOS
-    assert_equal "Hello, world!\n",
-                 shell_output("/bin/bash test_compile.bash")
+    flags = %w[cflags libs ldflags].map { |f| "$(root-config --#{f})" }
+    on_linux { flags << "-Wl,-rpath,#{lib}/root" }
+    shell_output("$(root-config --cxx) test.cpp #{flags.join(" ")}")
+    assert_equal "Hello, world!\n", shell_output("./a.out")
 
     # Test Python module
     system Formula["python@3.9"].opt_bin/"python3", "-c", "import ROOT; ROOT.gSystem.LoadAllLibraries()"

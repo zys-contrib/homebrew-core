@@ -1,16 +1,16 @@
 class Mongoose < Formula
   desc "Web server build on top of Libmongoose embedded library"
   homepage "https://github.com/cesanta/mongoose"
-  url "https://github.com/cesanta/mongoose/archive/6.17.tar.gz"
-  sha256 "5bff3cc70bb2248cf87d06a3543f120f3b29b9368d25a7715443cb10612987cc"
+  url "https://github.com/cesanta/mongoose/archive/7.3.tar.gz"
+  sha256 "9166cf794e98d352df775f10119fc45b9dcedaf07b0d5f6e1a0791d5cb3c899c"
   license "GPL-2.0-only"
 
   bottle do
-    cellar :any
-    sha256 "180bc1cd1f5aecd01ee647be39884eed4bb0985c82beb39076ff1082a1d56a40" => :big_sur
-    sha256 "3eb55e73c26957e647dcc4f978fa7d4d5ae2b223fa631d208f07b341d26ac0d5" => :catalina
-    sha256 "cb43e1b9e539db8348d6038fbe56ca787b02428f3c585cd0528c3c4521a26222" => :mojave
-    sha256 "a65aaee3abb441a26728b8f08c5fa81845f5636d676fadaba5881da4da04ee71" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "be10036a119761682e5c9f32c3bd978acf276ecd06563b82d4cde8a8c011fee2"
+    sha256 cellar: :any,                 big_sur:       "c5ef89da82e99a598d31ce123065318add458d5ba1b007b2a23e867efaf4a5c9"
+    sha256 cellar: :any,                 catalina:      "e59f2e2c32835593d7e919c9334280bbb345d5480014f312cfbe014622cfc777"
+    sha256 cellar: :any,                 mojave:        "9a73787553ae39eb1510b9ba46cb95718403682a859eabc636ca046532df22be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17f1e400a66f7be82e5ad2c774674efb308733e5302b91c75aa0924644fb01e2"
   end
 
   depends_on "openssl@1.1"
@@ -20,15 +20,21 @@ class Mongoose < Formula
   def install
     # No Makefile but is an expectation upstream of binary creation
     # https://github.com/cesanta/mongoose/issues/326
-    cd "examples/simplest_web_server" do
-      system "make"
-      bin.install "simplest_web_server" => "mongoose"
+    cd "examples/http-server" do
+      system "make", "mongoose_mac", "PROG=mongoose_mac"
+      bin.install "mongoose_mac" => "mongoose"
     end
 
-    system ENV.cc, "-dynamiclib", "mongoose.c", "-o", "libmongoose.dylib"
+    on_macos do
+      system ENV.cc, "-dynamiclib", "mongoose.c", "-o", "libmongoose.dylib"
+    end
+    on_linux do
+      system ENV.cc, "-fPIC", "-c", "mongoose.c"
+      system ENV.cc, "-shared", "-Wl,-soname,libmongoose.so", "-o", "libmongoose.so", "mongoose.o", "-lc", "-lpthread"
+    end
+    lib.install shared_library("libmongoose")
     include.install "mongoose.h"
-    lib.install "libmongoose.dylib"
-    pkgshare.install "examples", "jni"
+    pkgshare.install "examples"
     doc.install Dir["docs/*"]
   end
 

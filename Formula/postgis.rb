@@ -1,8 +1,8 @@
 class Postgis < Formula
   desc "Adds support for geographic objects to PostgreSQL"
   homepage "https://postgis.net/"
-  url "https://download.osgeo.org/postgis/source/postgis-3.0.3.tar.gz"
-  sha256 "07fedbd046cbed55d24bb22474890a4651d0223b6e12d2dac1517b9a43674817"
+  url "https://download.osgeo.org/postgis/source/postgis-3.1.3.tar.gz"
+  sha256 "71e929553bb73a0413206a0f92df5180ac6579c500d8ddce3a03559f1b349fcb"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,10 +11,10 @@ class Postgis < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "ce676a244923aadd1eefa3e2443f9e9d75bc379cdc6d3ecb2864e57e425f6962" => :big_sur
-    sha256 "26b457d330035a9168976101a534dadd7cd0c4983dd5738885cf42cbee0dd942" => :catalina
-    sha256 "c6fb0a2457ba0793ff5be7c8dc90e9e33033809a5dcaa30cfbe50d842e95dcbe" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "d9d4b2c3f78267a6874343c6b89391b327ef0a60bab41eda87956a7ae795e6a7"
+    sha256 cellar: :any, big_sur:       "0ceed87827d6d5498962bb491665f5e66399bcaf7bf6f9c1a5917444ebb19b89"
+    sha256 cellar: :any, catalina:      "cb262d75f5a910a4b014f1092f8fd05618dab11a7ad36a89243efb4f1f27fbef"
+    sha256 cellar: :any, mojave:        "30a08d37b4baafb362585b4975aada6d58e7460ce6a0e263f9ebc01cd2ffc8c4"
   end
 
   head do
@@ -32,7 +32,7 @@ class Postgis < Formula
   depends_on "json-c" # for GeoJSON and raster handling
   depends_on "pcre"
   depends_on "postgresql"
-  depends_on "proj"
+  depends_on "proj@7"
   depends_on "protobuf-c" # for MVT (map vector tiles) support
   depends_on "sfcgal" # for advanced 2D/3D functions
 
@@ -40,7 +40,7 @@ class Postgis < Formula
     ENV.deparallelize
 
     args = [
-      "--with-projdir=#{Formula["proj"].opt_prefix}",
+      "--with-projdir=#{Formula["proj@7"].opt_prefix}",
       "--with-jsondir=#{Formula["json-c"].opt_prefix}",
       "--with-pgconfig=#{Formula["postgresql"].opt_bin}/pg_config",
       "--with-protobufdir=#{Formula["protobuf-c"].opt_bin}",

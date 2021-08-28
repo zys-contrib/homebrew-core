@@ -2,7 +2,7 @@ class Perkeep < Formula
   desc "Lets you permanently keep your stuff, for life"
   homepage "https://perkeep.org/"
   license "Apache-2.0"
-  head "https://github.com/perkeep/perkeep.git"
+  head "https://github.com/perkeep/perkeep.git", branch: "master"
 
   stable do
     url "https://github.com/perkeep/perkeep.git",
@@ -17,10 +17,11 @@ class Perkeep < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "893d6cfc23b18401987de13cb5630bb259f9d3d4d0de56ebaa7d2f3f7e93333a" => :big_sur
-    sha256 "c676479c6b5f7e5bbee45c7b0d31b26c05915195c2ab7b61156ac46257b14cb6" => :catalina
-    sha256 "e05528f7efbb84fa9bbb39a68f3d0bb48073806a204eba8d0f70a52871ed83fc" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9df8643ff9e18a35f5c36e7ad3f894ac9c1ca6ec005964d0d7d67e7f1df34c4a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "893d6cfc23b18401987de13cb5630bb259f9d3d4d0de56ebaa7d2f3f7e93333a"
+    sha256 cellar: :any_skip_relocation, catalina:      "c676479c6b5f7e5bbee45c7b0d31b26c05915195c2ab7b61156ac46257b14cb6"
+    sha256 cellar: :any_skip_relocation, mojave:        "e05528f7efbb84fa9bbb39a68f3d0bb48073806a204eba8d0f70a52871ed83fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec90f3dab9f58090d10ab37c5043d98832493e60af73794cc668584c6fe5c524"
   end
 
   depends_on "go" => :build
@@ -51,28 +52,9 @@ class Perkeep < Formula
     end
   end
 
-  plist_options manual: "perkeepd"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/perkeepd</string>
-          <string>-openbrowser=false</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"perkeepd", "-openbrowser=false"]
+    keep_alive true
   end
 
   test do

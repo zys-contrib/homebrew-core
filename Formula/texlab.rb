@@ -1,17 +1,17 @@
 class Texlab < Formula
   desc "Implementation of the Language Server Protocol for LaTeX"
   homepage "https://texlab.netlify.com/"
-  url "https://github.com/latex-lsp/texlab/archive/v2.2.0.tar.gz"
-  sha256 "313b7c230c71a0087a2a5aadbba1d8ba1a929e1e8f98b8b7553ca956fc567835"
-  license "GPL-3.0"
-  head "https://github.com/latex-lsp/texlab.git"
+  url "https://github.com/latex-lsp/texlab/archive/v3.2.0.tar.gz"
+  sha256 "230fe594ceeb2e64f60776ef00c2674dda5b2e10e960b051536336c94c7523b0"
+  license "GPL-3.0-only"
+  head "https://github.com/latex-lsp/texlab.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0a187e026109f7c95049dc939342b96f23615ff42a015b89802a304fcaf473d6" => :big_sur
-    sha256 "27c48990087cf5e0c83ed2f18e2312026214e25ff0948d1b440486029ead5433" => :catalina
-    sha256 "e0c354c84d065702a8683cce427f8311e1b264792f9295da496098db7182d350" => :mojave
-    sha256 "e94b88352e4e10f186f4b3f475b3af70674afb92d2bb78259a59d872bcbf218b" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ace13aa023a0f469b5a8d6f84866df772aec49df9da25ed8f3956655178ebf4e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bc5bbf32d1c5faf7dd0996b992a2f9c78b27c3ed6187850521917ea61849b6e1"
+    sha256 cellar: :any_skip_relocation, catalina:      "f8801c58a8bf07e9a4a9b506b11ce538fa17db718338f0fd1d962378a3791e8b"
+    sha256 cellar: :any_skip_relocation, mojave:        "662267d2e6bd6d36cc5066b36807625d0de0fc03cb5c4709434872d51700803c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f17ba954bc373e843a9a1be540e6b08551c3e5fc9d35fb27f883369bcfa361ca"
   end
 
   depends_on "rust" => :build
@@ -21,20 +21,51 @@ class Texlab < Formula
   end
 
   test do
-    require "open3"
-
-    begin
-      stdin, stdout, _, wait_thr = Open3.popen3("#{bin}/texlab")
-      pid = wait_thr.pid
-      stdin.write <<~EOF
-        Content-Length: 103
-
-        {"jsonrpc": "2.0", "id": 0, "method": "initialize", "params": { "rootUri": null, "capabilities": {}}}
-
-      EOF
-      assert_match "Content-Length:", stdout.gets("\n")
-    ensure
-      Process.kill "SIGKILL", pid
+    def rpc(json)
+      "Content-Length: #{json.size}\r\n" \
+        "\r\n" \
+        "#{json}"
     end
+
+    input = rpc <<-EOF
+    {
+      "jsonrpc":"2.0",
+      "id":1,
+      "method":"initialize",
+      "params": {
+        "rootUri": "file:/dev/null",
+        "capabilities": {}
+      }
+    }
+    EOF
+
+    input += rpc <<-EOF
+    {
+      "jsonrpc":"2.0",
+      "method":"initialized",
+      "params": {}
+    }
+    EOF
+
+    input += rpc <<-EOF
+    {
+      "jsonrpc":"2.0",
+      "id": 1,
+      "method":"shutdown",
+      "params": null
+    }
+    EOF
+
+    input += rpc <<-EOF
+    {
+      "jsonrpc":"2.0",
+      "method":"exit",
+      "params": {}
+    }
+    EOF
+
+    output = /Content-Length: \d+\r\n\r\n/
+
+    assert_match output, pipe_output("#{bin}/texlab", input, 0)
   end
 end

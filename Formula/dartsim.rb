@@ -1,16 +1,15 @@
 class Dartsim < Formula
   desc "Dynamic Animation and Robotics Toolkit"
   homepage "https://dartsim.github.io/"
-  url "https://github.com/dartsim/dart/archive/v6.9.5.tar.gz"
-  sha256 "624c00b65e3a753cba50de038620860c86e2ac47b1793ae51f9427a4bcb14c32"
+  url "https://github.com/dartsim/dart/archive/v6.11.1.tar.gz"
+  sha256 "1a59b9d8f55433ad111089431826cd8abbec71f61c72a8558b655d92164f8de4"
   license "BSD-2-Clause"
-  revision 1
 
   bottle do
-    sha256 "0272c14be39d1dc6e68ee7f527f7b5412809c7e687086bb922045050f943a4cf" => :big_sur
-    sha256 "6bc3941b914e7052855cc887a33794efd910e5e97716ef8ab60662d9fc80e3bb" => :catalina
-    sha256 "f9b521725e18122b4174f4a97919248362df4b04892b91e9229f218343814741" => :mojave
-    sha256 "10b1a4aa99a6a8e399439137ad871ef5d0b780c5dca96db0843bf26ee7983042" => :high_sierra
+    sha256 arm64_big_sur: "e78dc5a0caf61ba16024aaf6b166ad2ac79720ee6b822f20b2bd799928f482d0"
+    sha256 big_sur:       "b456a6e2ba1b6261ba46595702a232a27d489fa27e99598f2a4bea05e0ba7ba5"
+    sha256 catalina:      "b96bca2cfe1481d17c4545d3b3666522d71278635e0883ee60054992afe2d960"
+    sha256 mojave:        "23b84cec2916360cfc23fd2f5c338b05a38017863a21321555bc325172c4310c"
   end
 
   depends_on "cmake" => :build
@@ -31,11 +30,18 @@ class Dartsim < Formula
 
   def install
     ENV.cxx11
+    args = std_cmake_args
 
-    # Force to link to system GLUT (see: https://cmake.org/Bug/view.php?id=16045)
-    system "cmake", ".", "-DGLUT_glut_LIBRARY=/System/Library/Frameworks/GLUT.framework",
-                         *std_cmake_args
-    system "make", "install"
+    on_macos do
+      # Force to link to system GLUT (see: https://cmake.org/Bug/view.php?id=16045)
+      glut_lib = "#{MacOS.sdk_path}/System/Library/Frameworks/GLUT.framework"
+      args << "-DGLUT_glut_LIBRARY=#{glut_lib}"
+    end
+
+    mkdir "build" do
+      system "cmake", "..", *args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
+      system "make", "install"
+    end
 
     # Clean up the build file garbage that has been installed.
     rm_r Dir["#{share}/doc/dart/**/CMakeFiles/"]

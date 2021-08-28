@@ -1,18 +1,20 @@
 class Bpytop < Formula
   include Language::Python::Virtualenv
+  include Language::Python::Shebang
 
   desc "Linux/OSX/FreeBSD resource monitor"
   homepage "https://github.com/aristocratos/bpytop"
-  url "https://files.pythonhosted.org/packages/ba/df/8d73c1134944116f96cd13cb82bf0295e0d1832450b783b023764b00d5a1/bpytop-1.0.50.tar.gz"
-  sha256 "0a06b621d77b7b7223cef6421f6ceb04da4bfce20836d1c473ebfaa89dc1c838"
+  url "https://github.com/aristocratos/bpytop/archive/v1.0.67.tar.gz"
+  sha256 "e3f0267bd40a58016b5ac81ed6424f1c8d953b33a537546b22dd1a2b01b07a97"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "2b1f3d2ed30ceb229ad0dd2cdb438b2f050291aa386e057d6edcda8550e060d1" => :big_sur
-    sha256 "63678217e7a4aa2f9952c2dff52a02e3a07728e1010540a5b7a1fda71537c2ac" => :catalina
-    sha256 "d2d8be76d473030d004f1ade5b386e6e02bb565493259dece438003d817f6553" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2628a4b51b898319842f449e0e6ccc33eca3559b4a828cb72713cc7523c42e08"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9767462c51c491bf1b4e4b0b1098f75edded649990cce5e5813d73d415dac4e0"
+    sha256 cellar: :any_skip_relocation, catalina:      "73f93ec6992cfa6aa5f5e5b77482ced3b3a94297f5976fc14f3773eaf59707ac"
+    sha256 cellar: :any_skip_relocation, mojave:        "4c0fa73e1f3a1e947d4238804553d7e2b29339a15ce25ea4515be65480e5a9e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2e9a290e3973226449e28ea5a41e388a5bb9e3548a65c29837b00206e6e91dc"
   end
 
   depends_on "python@3.9"
@@ -21,17 +23,24 @@ class Bpytop < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/33/e0/82d459af36bda999f82c7ea86c67610591cf5556168f48fd6509e5fa154d/psutil-5.7.3.tar.gz"
-    sha256 "af73f7bcebdc538eda9cc81d19db1db7bf26f103f91081d780bbacfcb620dee2"
+    url "https://files.pythonhosted.org/packages/e1/b0/7276de53321c12981717490516b7e612364f2cb372ee8901bd4a66a000d7/psutil-5.8.0.tar.gz"
+    sha256 "0c9ccb99ab76025f2f0bbecf341d4656e9c1351db8cc8a03ccd62e318ab4b5c6"
   end
 
   def install
-    virtualenv_install_with_resources
-    pkgshare.install "bpytop-themes" => "themes"
+    venv = virtualenv_create(libexec, "python3")
+    venv.pip_install resources
+    system "make", "install", "PREFIX=#{prefix}"
+    pkgshare.install "themes"
+
+    # Replace shebang with virtualenv python
+    rw_info = python_shebang_rewrite_info("#{libexec}/bin/python")
+    rewrite_shebang rw_info, bin/"bpytop"
   end
 
   test do
     config = (testpath/".config/bpytop")
+    mkdir config/"themes"
     (config/"bpytop.conf").write <<~EOS
       #? Config file for bpytop v. #{version}
 
@@ -49,7 +58,7 @@ class Bpytop < Formula
 
     log = (config/"error.log").read
     assert_match "bpytop version #{version} started with pid #{pid}", log
-    assert_not_match /ERROR:/, log
+    refute_match(/ERROR:/, log)
   ensure
     Process.kill("TERM", pid)
   end

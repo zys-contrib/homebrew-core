@@ -2,17 +2,18 @@ class Helm < Formula
   desc "Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/helm/helm.git",
-      tag:      "v3.4.1",
-      revision: "c4e74854886b2efe3321e185578e6db9be0a6e29"
+      tag:      "v3.6.3",
+      revision: "d506314abfb5d21419df8c7e7e68012379db2354"
   license "Apache-2.0"
-  head "https://github.com/helm/helm.git"
+  head "https://github.com/helm/helm.git", branch: "main"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "06dcbe4ca7fbfa88d4af33d4f0dfa53d5395473f6d613c7994bcf27bc5c38dd2" => :big_sur
-    sha256 "67ac12e45426ebf355a9245cd21270874938d649fa84093f046832ac27ff39e7" => :catalina
-    sha256 "62d4fe60217d65485965ae53fc33084d191fe4e4d37ffb91fdf336b8b0166e66" => :mojave
-    sha256 "49f954049e04e42efa8f9a27778e0ff2322e7527ee67a5fb396d782b8814ac43" => :high_sierra
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "981dd0b115b8c58c445f44a2960b79b7f9709639161d8e911014da09a1b2404a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "45fd0dfb23a1d0873a605c114151e4737fbbf097aec401fe03d5b0045bd2201d"
+    sha256 cellar: :any_skip_relocation, catalina:      "c875589d2f82757fc1c9f3d08035deb1845f4d7e5587eaecbbce368c0156ebba"
+    sha256 cellar: :any_skip_relocation, mojave:        "731bd2ab02448ff37f0bd0ef285ef330c78ad47114ede11c90444c0411933247"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e592f9b5de73fdc1956d4714adc3ab05e05ad76077d233f474133fa4893fcdf"
   end
 
   depends_on "go" => :build
@@ -26,11 +27,14 @@ class Helm < Formula
       man1.install Dir["*"]
     end
 
-    output = Utils.safe_popen_read({ "SHELL" => "bash" }, bin/"helm", "completion", "bash")
+    output = Utils.safe_popen_read(bin/"helm", "completion", "bash")
     (bash_completion/"helm").write output
 
-    output = Utils.safe_popen_read({ "SHELL" => "zsh" }, bin/"helm", "completion", "zsh")
+    output = Utils.safe_popen_read(bin/"helm", "completion", "zsh")
     (zsh_completion/"_helm").write output
+
+    output = Utils.safe_popen_read(bin/"helm", "completion", "fish")
+    (fish_completion/"helm.fish").write output
   end
 
   test do

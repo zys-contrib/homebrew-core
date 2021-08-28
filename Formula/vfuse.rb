@@ -5,11 +5,16 @@ class Vfuse < Formula
   sha256 "fbf5f8a1c664b03c7513a70aa05c3fc501a7ebdb53f128f1f05c24395871a314"
 
   livecheck do
-    url "https://github.com/chilcote/vfuse/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    strategy :github_latest
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f8184d1fd9ed9a9053df739ad09fa721686131c8a6c2a13b294aec564016cf19"
+    sha256 cellar: :any_skip_relocation, big_sur:       "95be83b370683ec27d9052f897028bd939241568d81939a67d3bb985d89a06df"
+    sha256 cellar: :any_skip_relocation, catalina:      "95be83b370683ec27d9052f897028bd939241568d81939a67d3bb985d89a06df"
+    sha256 cellar: :any_skip_relocation, mojave:        "95be83b370683ec27d9052f897028bd939241568d81939a67d3bb985d89a06df"
+  end
 
   def install
     # Fix upstream artifact packaging issue

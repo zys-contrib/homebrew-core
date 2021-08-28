@@ -1,8 +1,8 @@
 class Rebar3 < Formula
   desc "Erlang build tool"
   homepage "https://github.com/erlang/rebar3"
-  url "https://github.com/erlang/rebar3/archive/3.14.2.tar.gz"
-  sha256 "19fcdc73debb90d405864f728e188cbc5b61c3939b911e58c0b59bf1619c4810"
+  url "https://github.com/erlang/rebar3/archive/3.16.1.tar.gz"
+  sha256 "a14711b09f6e1fc1b080b79d78c304afebcbb7fafed9d0972eb739f0ed89121b"
   license "Apache-2.0"
 
   livecheck do
@@ -11,10 +11,11 @@ class Rebar3 < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2bb6e52f2a7a9ec29e7dc659092d8152635089891006a9c2e5a9dea742632ac4" => :big_sur
-    sha256 "e2cb4c82c7efe1b1173f577e20f2fd095dac99a7441fae559d666df1b1f7377d" => :catalina
-    sha256 "5d685653f64fd914b113a8a3ae7052a871154fb725265b0815535c9e2391dc50" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "01ef700fd26e97906fcfff22eca55fd2699f836662547b49cd783a6747483fbc"
+    sha256 cellar: :any_skip_relocation, big_sur:       "94c570851114c38bdf20407dd3ed443e7ae0003cfc70bedfb6e4aca4b97020cf"
+    sha256 cellar: :any_skip_relocation, catalina:      "0c67a76dc37ad80d72d8320feb9d15b67b413eff4d2e4c058b1a6d524d8f8d88"
+    sha256 cellar: :any_skip_relocation, mojave:        "abf392fe4bedf8a778a4db2e13e9e9b68e0f2e816376747916e4d9987c70a2e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5af9f371649f8bbbf30a5ddce23fe8d52428109adf8d927917336bcd5db692b1"
   end
 
   depends_on "erlang"

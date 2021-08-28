@@ -3,23 +3,17 @@ class Pyinvoke < Formula
 
   desc "Pythonic task management & command execution"
   homepage "https://www.pyinvoke.org/"
-  url "https://github.com/pyinvoke/invoke/archive/1.4.1.tar.gz"
-  sha256 "ac5880fb5d21f06cc1b29f89736cb8a43b85abea9204b4bb4277458ae025d0b7"
+  url "https://files.pythonhosted.org/packages/37/b3/0b88358ee07789688d17ec7074a656da68ced50a122183187be12928b535/invoke-1.6.0.tar.gz"
+  sha256 "374d1e2ecf78981da94bfaf95366216aaec27c2d6a7b7d5818d92da55aa258d3"
   license "BSD-2-Clause"
-  revision 2
-  head "https://github.com/pyinvoke/invoke.git"
-
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
+  head "https://github.com/pyinvoke/invoke.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1cd69f9ee6ef73e26b781a7c8260ce80e430a56d2362054ba610e2a783265837" => :big_sur
-    sha256 "eccd4bc025f6e8aeb6239105bdd2054d33b19a26070ed5980d3797f1f7d05ee1" => :catalina
-    sha256 "b1ae4b3f79dfb446e8d7ca9786fd64af088797b37fea00a093cc032c4aac02f6" => :mojave
-    sha256 "2cbd9d88b790af9d6f43e854481a5956e614a6d69d229911530cdffdaeba9cba" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d5299fac1aede1c601d70315a6c50877286372e3a57b41c6be1afeee3039f25d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a2603322a31663ae178003c4df6c6b22e9623a870244231288f5bfc8404e1eb9"
+    sha256 cellar: :any_skip_relocation, catalina:      "a2603322a31663ae178003c4df6c6b22e9623a870244231288f5bfc8404e1eb9"
+    sha256 cellar: :any_skip_relocation, mojave:        "a2603322a31663ae178003c4df6c6b22e9623a870244231288f5bfc8404e1eb9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7347fdf05d5924430baa47e9936cda6d96f7c873200c7516fa81ac9888938339"
   end
 
   depends_on "python@3.9"

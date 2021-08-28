@@ -1,16 +1,16 @@
 class Gau < Formula
   desc "Open Threat Exchange, Wayback Machine, and Common Crawl URL fetcher"
   homepage "https://github.com/lc/gau"
-  url "https://github.com/lc/gau/archive/v1.0.7.tar.gz"
-  sha256 "5672bd30f9da06b34a7d5b49f9f5e9ef1c8b83968f5801da3114a38fa563d8ad"
+  url "https://github.com/lc/gau/archive/v1.2.0.tar.gz"
+  sha256 "fb363fab0d63fc3a46b4a42bcbf71bc817995b9f14523c0f4fce8ba9c0d89ffa"
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0ae2d716079e4c4d418126c7396446aafc714340368b4fb2ebbd29f63cb2ff30" => :big_sur
-    sha256 "314c4c8636714511a7d09c14a68bf4e60d5096a3e8121863365f35843891ef57" => :catalina
-    sha256 "2ab669a1b9e3321a5c9be26765e62625fb835cf253b7bd3fb702e32036f2c7d8" => :mojave
-    sha256 "1030ebef25ac3961a59c9794a16697d894c084d14933e7df7201d4c99313705b" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7377ed366bd992706f59143c8e471cdc0cf3a69b9c440e2db3be73f02ee7802a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e07435d1b92a2249a588a6937a153cb3bc8e35ca3cdf137ed5d181242a1c8c41"
+    sha256 cellar: :any_skip_relocation, catalina:      "0e7265809d066b9c6d6d1e79b320038307b7b7f666e9e3bae6324a34bd58b357"
+    sha256 cellar: :any_skip_relocation, mojave:        "8ab1292a808320aa1223f50d9975749a58eac7c579cb5ecbfbad0bbbcbfcc5a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a7d71eb5b940fbac4e1eca4cf3030804834ddb57f5e8c0724a7cf3e20da6c7c"
   end
 
   depends_on "go" => :build

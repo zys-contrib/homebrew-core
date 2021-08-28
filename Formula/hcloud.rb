@@ -1,30 +1,23 @@
 class Hcloud < Formula
   desc "Command-line interface for Hetzner Cloud"
   homepage "https://github.com/hetznercloud/cli"
-  url "https://github.com/hetznercloud/cli/archive/v1.20.0.tar.gz"
-  sha256 "116089f671f3f484b45fa8264cd016f92246421ba8c444a98d5bc18741e625e5"
+  url "https://github.com/hetznercloud/cli/archive/v1.28.0.tar.gz"
+  sha256 "1e12d771d44b3c25c2b6d96a56465cd3712ec557f5059bad59741108f48f8b3d"
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2430a366d43eb83d64cad15d49681918dcda9a46300a8bf9ac8c23f9fb00eb98" => :big_sur
-    sha256 "eae32494202f0802d016674a7d7d88ed835fe3c53736a4e95aac5071fcdebc76" => :catalina
-    sha256 "0a2006376bae1e28cc3f6f1254aa78a43ff5206423b61720f87770b55c903375" => :mojave
-    sha256 "0b4c72eaeac1f22e2e6a54004ef963a7f90c1cecdb681c09d82238abf9725261" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f61671545385598f8d9e8f069f708c3a855ab0b4b22c8aece6ed2151623f28f7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3c1d4840a1a211664685999b99653c7ae00005926fc08c88239053ec9d8e63b6"
+    sha256 cellar: :any_skip_relocation, catalina:      "8d7a8f748575f9dfd0607a12d68afd6ae62ca6e376293b7d921f07202d074b59"
+    sha256 cellar: :any_skip_relocation, mojave:        "883144bbecba98fbd2418f394ffc3b425f86599482ce619271301ca483b8c023"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eda3b5c6e7c941fbc579aa57dcd01e486ee564062e1613aba39c8ff83d06e0aa"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-    (buildpath/"src/github.com/hetznercloud/cli").install buildpath.children
-
-    cd "src/github.com/hetznercloud/cli" do
-      ldflags = "-w -X github.com/hetznercloud/cli/cli.Version=v#{version}"
-      system "go", "build", "-o", bin/"hcloud", "-ldflags", ldflags,
-                   "./cmd/hcloud"
-      prefix.install_metafiles
-    end
+    ldflags = "-s -w -X github.com/hetznercloud/cli/internal/version.Version=v#{version}"
+    system "go", "build", *std_go_args, "-ldflags", ldflags, "./cmd/hcloud"
 
     output = Utils.safe_popen_read("#{bin}/hcloud", "completion", "bash")
     (bash_completion/"hcloud").write output

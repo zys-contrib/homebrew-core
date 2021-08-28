@@ -1,16 +1,16 @@
 class Libolm < Formula
   desc "Implementation of the Double Ratchet cryptographic ratchet"
   homepage "https://gitlab.matrix.org/matrix-org/olm"
-  url "https://gitlab.matrix.org/matrix-org/olm/-/archive/3.2.1/olm-3.2.1.tar.gz"
-  sha256 "d947d9570345e68696668cb855f1a6a7141b7b89cbcc15a08b1fae18535c4c45"
+  url "https://gitlab.matrix.org/matrix-org/olm/-/archive/3.2.4/olm-3.2.4.tar.gz"
+  sha256 "d6033363fe27bb1ad88940f2acfff5517b1ba9e32b556f5b0fa4c365e5ec892a"
   license "Apache-2.0"
 
   bottle do
-    cellar :any
-    sha256 "0634af436ccc158ea8ba3e15a53df9b3677b88db950691aaf1174189a925c8a5" => :big_sur
-    sha256 "850ca4e75b42221ea5ec4ed0ffb845b9f9d032f711b6ceb600d85813e81d50a3" => :catalina
-    sha256 "09cad39ec7953a8f3d0c9848673490624153107f1fce18db4a489147fa1170bf" => :mojave
-    sha256 "efe5613af63cc93f582b0e6f6dbe81ec9863d49dc347bf354e202ed8c9ed3ed6" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "045f0bc56bafeaae9744901421f656bead5039c6cb4a21188aebb35add7f2066"
+    sha256 cellar: :any,                 big_sur:       "82e30127cb2da730a3e88d37122a3d9bcf1766a4f17bc446f9c9a2964213f6b5"
+    sha256 cellar: :any,                 catalina:      "b9b37a7a344e2d0fd81b2c534f5ee1847620c7ee27dfca3eddbc98124795f818"
+    sha256 cellar: :any,                 mojave:        "ec54d3a11b1bfa84653372af1a9b9adf9e599b9413dde97ee7085bf9e6a79f11"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e45084c5396fd83c5e6031e681686f80d92d8d5a6bc3d772d074a4f5d311eda"
   end
 
   depends_on "cmake" => :build
@@ -24,6 +24,7 @@ class Libolm < Formula
     (testpath/"test.cpp").write <<~EOS
       #include <iostream>
       #include <vector>
+      #include <stdlib.h>
 
       #include "olm/olm.h"
 
@@ -33,8 +34,9 @@ class Libolm < Formula
         void * utility_buffer = malloc(::olm_utility_size());
         ::OlmUtility * utility = ::olm_utility(utility_buffer);
 
-        uint8_t output[43];
+        uint8_t output[44];
         ::olm_sha256(utility, "Hello, World", 12, output, 43);
+        output[43] = '\0';
         cout << output;
         return 0;
       }

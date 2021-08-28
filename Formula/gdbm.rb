@@ -1,22 +1,17 @@
 class Gdbm < Formula
   desc "GNU database manager"
   homepage "https://www.gnu.org/software/gdbm/"
-  url "https://ftp.gnu.org/gnu/gdbm/gdbm-1.18.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gdbm/gdbm-1.18.1.tar.gz"
-  sha256 "86e613527e5dba544e73208f42b78b7c022d4fa5a6d5498bf18c8d6f745b91dc"
-  license "GPL-3.0"
-  revision 1
-
-  livecheck do
-    url :stable
-  end
+  url "https://ftp.gnu.org/gnu/gdbm/gdbm-1.20.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gdbm/gdbm-1.20.tar.gz"
+  sha256 "3aeac05648b3482a10a2da986b9f3a380a29ad650be80b9817a435fb8114a292"
+  license "GPL-3.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "36b492f1b0910367dd394cbdcffe1606f64ab41ec6701210becfb591a8557dee" => :big_sur
-    sha256 "f7b5ab7363961fa6defcb66b4ffdf5365264fcb97d35bc413e754f173a3b1912" => :catalina
-    sha256 "0f65874bcd50d31aaf8b2e6c8ef414cb65a8d8b9eb6d1fa4ef179c6e0a94983c" => :mojave
-    sha256 "4a644af2fcc2781c3a161209deff7b62d760058bc1bac7c4f91a5ce5738f0798" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "5c3247c107bc2975dec7baecff33bde0b40d50800da0d44eae17b07d4712a27c"
+    sha256 cellar: :any, big_sur:       "ea88ce09e934407b1c7dfcc1b74e2d4f1b409f8264b4475b816369a129c6cd25"
+    sha256 cellar: :any, catalina:      "2c62d9ef89fc346310fe219ce55c37f8673cd95672f21c5c7af6d991a52dc7fb"
+    sha256 cellar: :any, mojave:        "e31aaf7e8d02d811883dba4fd804954f226d8f112974293c6d6b7a8b66648554"
+    sha256               x86_64_linux:  "0cef41f29293302f68aac94fab6d6363217de9c867aad59d41c42e3cab73589a"
   end
 
   # --enable-libgdbm-compat for dbm.h / gdbm-ndbm.h compatibility:
@@ -43,6 +38,6 @@ class Gdbm < Formula
   test do
     pipe_output("#{bin}/gdbmtool --norc --newdb test", "store 1 2\nquit\n")
     assert_predicate testpath/"test", :exist?
-    assert_match /2/, pipe_output("#{bin}/gdbmtool --norc test", "fetch 1\nquit\n")
+    assert_match "2", pipe_output("#{bin}/gdbmtool --norc test", "fetch 1\nquit\n")
   end
 end

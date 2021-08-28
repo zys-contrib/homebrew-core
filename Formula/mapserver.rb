@@ -1,16 +1,19 @@
 class Mapserver < Formula
   desc "Publish spatial data and interactive mapping apps to the web"
   homepage "https://mapserver.org/"
-  url "https://download.osgeo.org/mapserver/mapserver-7.6.1.tar.gz"
-  sha256 "2d250874d55bee44e0dbbb3a38e612f8572730705edada00c6ab8b2c9e890581"
-  revision 2
+  url "https://download.osgeo.org/mapserver/mapserver-7.6.4.tar.gz"
+  sha256 "b46c884bc42bd49873806a05325872e4418fc34e97824d4e13d398e86ea474ac"
+  license "MIT"
+
+  livecheck do
+    url "https://mapserver.org/download.html"
+    regex(/href=.*?mapserver[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "0163f58a94ee7bfd1ed488cd4f17400776ee3ea81dc70464ba06e38ea5323bb4" => :big_sur
-    sha256 "cec1b9cc79516438b6d3059d6683532a0496b61f9d5ddc5e01c2303dc9bf63bd" => :catalina
-    sha256 "fc60de6d05e4f08f7b1aa12b573227e7c9d24bae4c0b289b0d0ac5f3485b51bd" => :mojave
-    sha256 "cc1407aabd178afcb49fcc6becf08d69554c6109b48efa3e653af5457cff8760" => :high_sierra
+    sha256 cellar: :any, big_sur:  "613314de0ebaeb0df201178f4ee23d36fea4f9302a5ca20d875b356004220cd9"
+    sha256 cellar: :any, catalina: "3f434172773dc3312a3787f5018e7a61849534f036082c45ad285dd2a8f4280d"
+    sha256 cellar: :any, mojave:   "aa2236e1cc9e14a965996188bc9c1988f6327266ef62891a70c8f0f6588c38a1"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +28,7 @@ class Mapserver < Formula
   depends_on "giflib"
   depends_on "libpng"
   depends_on "postgresql"
-  depends_on "proj"
+  depends_on "proj@7"
   depends_on "protobuf-c"
   depends_on "python@3.9"
 

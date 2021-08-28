@@ -1,19 +1,16 @@
 class Gnumeric < Formula
   desc "GNOME Spreadsheet Application"
   homepage "https://projects.gnome.org/gnumeric/"
-  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.48.tar.xz"
-  sha256 "57cce33a41d34db81292e9eebae8b5046f30e5d919d848256fbb75bfc132a590"
+  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.50.tar.xz"
+  sha256 "758819ba1bd6983829f9e7c6d71a7fa20cd75a3652a271e5bb003d5d8bcc14b8"
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    sha256 "c744003a24dd677bedcc09d1f9064a553da3e2539bfbe14173bf6110fb231419" => :big_sur
-    sha256 "d9edd4ae0d044bfe837cc94adfb5f2cc812ae5706b0e7f8a96a0c7b2f9dae63b" => :catalina
-    sha256 "43780a97ecfad5fc206241cebbb2d3f16ced32b36a2f095ea047ab6c27dee1c0" => :mojave
-    sha256 "67df679b5fe937f17c339812cf1e06aa7b5d5971f6ebfc5c6772b59952745fb7" => :high_sierra
+    sha256 arm64_big_sur: "e35e87954fd36d10ba7d5eb67eb55cda22480501b0244d11d73227efac32eb84"
+    sha256 big_sur:       "308986adac6fc8ee0439f78fc88b3800dec488f3c19059e188d7b89703976517"
+    sha256 catalina:      "c6629015a88979e534383df04b19b371e4f579670538abd057159371d769d9f6"
+    sha256 mojave:        "783045a4b518267f8dad893ba2768701065af8d3f170d37cb2ae1658d96d5474"
+    sha256 x86_64_linux:  "8028a3a6bdad2a160df06aad38c2476a61a448879764cc8311e896d888c7e20f"
   end
 
   depends_on "intltool" => :build
@@ -25,7 +22,30 @@ class Gnumeric < Formula
   depends_on "libxml2"
   depends_on "rarian"
 
+  uses_from_macos "bison"
+
+  on_linux do
+    depends_on "perl"
+
+    resource "XML::Parser" do
+      url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz"
+      sha256 "1ae9d07ee9c35326b3d9aad56eae71a6730a73a116b9fe9e8a4758b7cc033216"
+    end
+  end
+
   def install
+    on_linux do
+      ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+
+      resources.each do |res|
+        res.stage do
+          system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+          system "make", "PERL5LIB=#{ENV["PERL5LIB"]}"
+          system "make", "install"
+        end
+      end
+    end
+
     # ensures that the files remain within the keg
     inreplace "component/Makefile.in",
               "GOFFICE_PLUGINS_DIR = @GOFFICE_PLUGINS_DIR@",

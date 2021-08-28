@@ -1,21 +1,30 @@
 class Wren < Formula
   desc "Small, fast, class-based concurrent scripting language"
   homepage "https://wren.io"
-  url "https://github.com/wren-lang/wren/archive/0.3.0.tar.gz"
-  sha256 "c566422b52a18693f57b15ae4c9459604e426ea64eddb5fbf2844d8781aa4eb7"
+  url "https://github.com/wren-lang/wren/archive/0.4.0.tar.gz"
+  sha256 "23c0ddeb6c67a4ed9285bded49f7c91714922c2e7bb88f42428386bf1cf7b339"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "d9bad5cf08d732c215d5272618bdbe79ea9b5b8a57ab5879fdcc21bdd3ff073f" => :big_sur
-    sha256 "21bb30d077f3de93293d6e6f3c41e8f923e6de7d8d04df2f48c7378f76b3d16f" => :catalina
-    sha256 "d3837f28ed556d33753beb658f22b197f0afdb2aac3b30de26b2859397123d51" => :mojave
-    sha256 "529a384d6d1665dd269ef7b6e8ea61f1edccddd5478ce82ec30839346af3d3b5" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "cbe4d9028c361a3e725091eb9d15b9b040160f03508d674de3052df405691e24"
+    sha256 cellar: :any,                 big_sur:       "c54db478f8ec48d08dc4992bb8efe1308d478f20f3177513d0154460e26ad1f0"
+    sha256 cellar: :any,                 catalina:      "afa48d4ceca7e0e2227bf6fd6204194de239c3b67436a46485a7563673fb4fed"
+    sha256 cellar: :any,                 mojave:        "f55d068b6db418338ba1f4622b75d5c36b2b3462e27f28c0844e32c980b6b881"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9129580dd56d4ad4ad66ac59e1d43533b54816936fc18d0216a445d576598e0"
   end
 
   def install
-    system "make", "-C", "projects/make.mac"
+    on_macos do
+      system "make", "-C", "projects/make.mac"
+    end
+    on_linux do
+      system "make", "-C", "projects/make"
+    end
     lib.install Dir["lib/*"]
     include.install Dir["src/include/*"]
     pkgshare.install "example"

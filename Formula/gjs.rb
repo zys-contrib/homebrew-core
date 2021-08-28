@@ -1,21 +1,17 @@
 class Gjs < Formula
   desc "JavaScript Bindings for GNOME"
   homepage "https://gitlab.gnome.org/GNOME/gjs/wikis/Home"
-  url "https://download.gnome.org/sources/gjs/1.66/gjs-1.66.1.tar.xz"
-  sha256 "8d4240455eff642c8bf6d9805077e33e0a60cb2ea13f77a55f7f30c29668344c"
+  url "https://download.gnome.org/sources/gjs/1.68/gjs-1.68.3.tar.xz"
+  sha256 "821c7f4f78f1500da6a56c5463723bd8ff80de633ccba43a5ab03d8ccca21d3f"
   license all_of: ["LGPL-2.0-or-later", "MIT"]
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    sha256 "1d10fa86fecf3d354dc595db175548427f112943f84a5076222b978c9aff9cf7" => :big_sur
-    sha256 "819aaf721030c22a9f479fca06f52490a2df2b9d2731377d35bf017509723a17" => :catalina
-    sha256 "bc1a84cd054dc1b0918f956b9c88601edf95af714a3a41e08ec3c6c310d4d2c3" => :mojave
-    sha256 "2289aed2c52497f646b73861b4d7f6291a860abf332c5cab65f3581c441b2ad9" => :high_sierra
+    sha256 big_sur:  "895a1fd43b095dc790ed323733da4cc6bfcffbcf66c665b0936e9cda1597d4fb"
+    sha256 catalina: "cca0c61978c5bc68b939519de12e608754a9d0fec50685d29be0af0cf3a6ca5f"
+    sha256 mojave:   "c2e0750012d24e80e5585aefc529b96b5eff4c02ae8f5d7e62a22b04e113dc9b"
   end
 
+  depends_on "autoconf@2.13" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
@@ -27,34 +23,18 @@ class Gjs < Formula
   depends_on "nspr"
   depends_on "readline"
 
-  resource "autoconf@213" do
-    url "https://ftp.gnu.org/gnu/autoconf/autoconf-2.13.tar.gz"
-    mirror "https://ftpmirror.gnu.org/autoconf/autoconf-2.13.tar.gz"
-    sha256 "f0611136bee505811e9ca11ca7ac188ef5323a8e2ef19cffd3edb3cf08fd791e"
-  end
-
   resource "six" do
     url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
     sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "mozjs78" do
-    url "https://archive.mozilla.org/pub/firefox/releases/78.2.0esr/source/firefox-78.2.0esr.source.tar.xz"
-    sha256 "965ccfcbb8c0aa97639911997c54be0fcf896fd388b03138952089af675ea918"
+    url "https://archive.mozilla.org/pub/firefox/releases/78.10.1esr/source/firefox-78.10.1esr.source.tar.xz"
+    sha256 "c41f45072b0eb84b9c5dcb381298f91d49249db97784c7e173b5f210cd15cf3f"
   end
 
   def install
     ENV.cxx11
-
-    resource("autoconf@213").stage do
-      system "./configure", "--disable-debug",
-                            "--disable-dependency-tracking",
-                            "--program-suffix=213",
-                            "--prefix=#{buildpath}/autoconf",
-                            "--infodir=#{buildpath}/autoconf/share/info",
-                            "--datadir=#{buildpath}/autoconf/share"
-      system "make", "install"
-    end
 
     resource("six").stage do
       system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(buildpath/"vendor")
@@ -63,7 +43,7 @@ class Gjs < Formula
     resource("mozjs78").stage do
       inreplace "build/moz.configure/toolchain.configure",
                 "sdk_max_version = Version('10.15.4')",
-                "sdk_max_version = Version('11.0')"
+                "sdk_max_version = Version('11.99')"
       inreplace "config/rules.mk",
                 "-install_name $(_LOADER_PATH)/$(SHARED_LIBRARY) ",
                 "-install_name #{lib}/$(SHARED_LIBRARY) "

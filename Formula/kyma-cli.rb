@@ -1,25 +1,30 @@
 class KymaCli < Formula
   desc "Kyma command-line interface"
   homepage "https://kyma-project.io"
-  url "https://github.com/kyma-project/cli.git",
-      tag:      "1.15.1",
-      revision: "5513567a73cc8d4104b6965937a15771a066e6ed"
+  url "https://github.com/kyma-project/cli/archive/1.24.4.tar.gz"
+  sha256 "738bbb2660017b59bd20b4c6a9f4316743b3b6b8ef4a8f9ce6f03b654060efdf"
   license "Apache-2.0"
   head "https://github.com/kyma-project/cli.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "02eac441770cf4244ff275489f597a9ceeede0ae4ddb09e49a69a7e89b5ca3d7" => :big_sur
-    sha256 "4366d652edb19f7c46454607de15f5eea7092ae0bfb7723fb84cb950b2a4211d" => :catalina
-    sha256 "a128466fb724f79119318fe080db1f88c591485a4b0c6c4c1ada4aae76bdfd3f" => :mojave
-    sha256 "04c3120713e92b6ebe1d6aaf07445f514dd282e917da80cc4225093070ef595e" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "002abb8885e6bb868c795162aabd334b3131cfe22a8372d17e73b7be034ea8f7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8b04e86c9acf19ace877e9517c753a8e3379062f4eec3e738d43f02c9ca1c0a1"
+    sha256 cellar: :any_skip_relocation, catalina:      "775804744e8e9ac709e46b8ef2b65abc62ea127cffbd2c79ab9b2db55943a40a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ada3b5c8dbaf0d3646c80e424e9eca30823dc710e11726879c59ef5b6d1fb25"
   end
 
-  depends_on "go@1.14" => :build
+  depends_on "go" => :build
+  depends_on macos: :catalina
 
   def install
-    system "make", "build-darwin"
-    bin.install "bin/kyma-darwin" => "kyma"
+    ldflags = %W[
+      -s -w
+      -X github.com/kyma-project/cli/cmd/kyma/version.Version=#{version}
+      -X github.com/kyma-project/cli/cmd/kyma/install.DefaultKymaVersion=#{version}
+      -X github.com/kyma-project/cli/cmd/kyma/upgrade.DefaultKymaVersion=#{version}
+    ].join(" ")
+
+    system "go", "build", *std_go_args, "-o", bin/"kyma", "-ldflags", ldflags, "./cmd"
   end
 
   test do

@@ -1,8 +1,8 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.23.tar.xz"
-  sha256 "5d864d248357a2251545b3387b35942de5f66e4c66013f0962eb5cb6f8dae2b1"
+  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.30.tar.xz"
+  sha256 "ba75bfff320ad1f4cfbee92ba813ec336322cc3c660d406aad014b07087a3ba9"
   license "LGPL-2.0-or-later"
 
   livecheck do
@@ -11,10 +11,11 @@ class Gtkx3 < Formula
   end
 
   bottle do
-    sha256 "2d51c5d6bca63533190929db8a2f6d82d618db912e650c446afcf98bd1d5ade4" => :big_sur
-    sha256 "94b7fbbd4b2557e511b7971998d46b9e96a050b9b5468f8df6410c4b1f28ba18" => :catalina
-    sha256 "ea959fea33bb7ebc455249f782372f1f7f89aa6f19113f2f8a16c8539b6f0ea2" => :mojave
-    sha256 "c5ec8329feaa8a798714bea712ba07836014aa04d28d42a9b63bd5e0adc4e659" => :high_sierra
+    sha256 arm64_big_sur: "50f08798c70f1ec428f8a577af2fedd2a8b5a7ffff09d4636d42f48e67873db7"
+    sha256 big_sur:       "af17c723acf1cb4f699ff55346c1443ad3e6d0803a403af8409cc766fb35e34a"
+    sha256 catalina:      "24a97ee2d3b5195d2e2b22213157bbbffce7e7cc89523bf5edb7ed41a01dc198"
+    sha256 mojave:        "e5af02a39f1bcd45f7668b43d3235524d3aeef3760a248eeea4c00b25ecbf761"
+    sha256 x86_64_linux:  "e99eb8f0774deae335e39954b464b5f2b5a47765d7a666692ee2043d693016b0"
   end
 
   depends_on "docbook" => :build
@@ -33,14 +34,27 @@ class Gtkx3 < Formula
 
   uses_from_macos "libxslt" => :build # for xsltproc
 
+  on_linux do
+    depends_on "cmake" => :build
+    depends_on "at-spi2-atk"
+    depends_on "cairo"
+    depends_on "iso-codes"
+    depends_on "libxkbcommon"
+    depends_on "xorgproto"
+    depends_on "wayland-protocols"
+  end
+
   def install
     args = std_meson_args + %w[
-      -Dx11_backend=false
-      -Dquartz_backend=true
       -Dgtk_doc=false
       -Dman=true
       -Dintrospection=true
     ]
+
+    on_macos do
+      args << "-Dquartz_backend=true"
+      args << "-Dx11_backend=false"
+    end
 
     # ensure that we don't run the meson post install script
     ENV["DESTDIR"] = "/"
@@ -119,10 +133,12 @@ class Gtkx3 < Formula
       -lglib-2.0
       -lgobject-2.0
       -lgtk-3
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
     # include a version check for the pkg-config files

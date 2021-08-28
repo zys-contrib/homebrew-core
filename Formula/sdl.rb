@@ -2,7 +2,7 @@ class Sdl < Formula
   desc "Low-level access to audio, keyboard, mouse, joystick and graphics"
   homepage "https://www.libsdl.org/"
   license "LGPL-2.1-only"
-  revision 2
+  revision 3
 
   stable do
     url "https://www.libsdl.org/release/SDL-1.2.15.tar.gz"
@@ -35,28 +35,35 @@ class Sdl < Formula
         sha256 "5a89ddce5deaf72348792d33e12b5f66d0dab4f9747718bb5021d3067bdab283"
       end
     end
-  end
 
-  livecheck do
-    url "https://www.libsdl.org/release/"
-    regex(/href=.*?SDL[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    # Fix audio initialization issues on Big Sur, upstream patch
+    # https://github.com/libsdl-org/SDL-1.2/commit/a2047dc403ffb58b89b717929637352045699743
+    if MacOS.version >= :big_sur
+      patch do
+        url "https://github.com/libsdl-org/SDL-1.2/commit/a2047dc403ffb58b89b717929637352045699743.patch?full_index=1"
+        sha256 "7684a923dfd0c13f1a78e09ca0cea2632850e4d41023867b504707946ec495d4"
+      end
+    end
   end
 
   bottle do
-    cellar :any
-    sha256 "dc52b4a8c94132129f803cf26c37a468daf722858fe3ddba77749ef3884a72b1" => :big_sur
-    sha256 "d3d792b866320f064fa3c399a8f89a905ef72a73237d73b8f2c0125db2cbf74a" => :catalina
-    sha256 "fc4018807cc7dcb4e3682a2e301b85e932cebd1ffff38117a466f46055a513d8" => :mojave
-    sha256 "7284c872248c61d8016c7e200a218bd9533f346b7b5c6f9c818eeb82c60841c3" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "c3fda7b3047ffff537ba6f2a5711fd03f50fa776546d7788f42a4df325944fcf"
+    sha256 cellar: :any,                 big_sur:       "d97aac056338f24b09ff065d8a80c6f5e9b6e16aed93003764054f6703093ecd"
+    sha256 cellar: :any,                 catalina:      "060c0297dd0af2e289196aa196341ece04f3ab4a3458d173e74f2a3865046a8f"
+    sha256 cellar: :any,                 mojave:        "683450f850acbc501144207d237d28a9c3d0af86533065db7bf7b23ae2d1f6e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b620e55f97a2b9aa076a9e7f6ed3aa0ed42f3f0b2debd9f250bccce7cb7d8939"
   end
 
   head do
-    url "https://hg.libsdl.org/SDL", branch: "SDL-1.2", using: :hg
+    url "https://github.com/libsdl-org/SDL-1.2.git", branch: "main"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
+
+  # SDL 1.2 is deprecated, unsupported, and not recommended for new projects.
+  deprecate! date: "2013-08-17", because: :deprecated_upstream
 
   def install
     # we have to do this because most build scripts assume that all sdl modules

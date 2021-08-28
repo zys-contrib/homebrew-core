@@ -1,26 +1,27 @@
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
-  url "https://github.com/coq/coq/archive/V8.12.1.tar.gz"
-  sha256 "dabad911239c69ecf79931b513cb427101c2f15f0451af056fbf181df526f8a5"
+  url "https://github.com/coq/coq/archive/V8.13.2.tar.gz"
+  sha256 "1e7793d8483f1e939f62df6749f843df967a15d843a4a5acb024904b76e25a14"
   license "LGPL-2.1-only"
-  head "https://github.com/coq/coq.git"
+  head "https://github.com/coq/coq.git", branch: "master"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    sha256 "a48a662668ade325781a8ce65da3de1dc37f97a4fe28839d7dc6b410ea766331" => :big_sur
-    sha256 "829b50bb3170e75c5f03f5f2a6260ab6a4fb15d924eae46b510d6e0e1f21fbef" => :catalina
-    sha256 "7de6bce7d480b06cb46ebbee170d3c723fd93373e2903573d2e286b96319c5c9" => :mojave
-    sha256 "e411c3338f14185e41269693fd481db3e37ed7115038a0ccbdda3589381abce6" => :high_sierra
+    sha256 arm64_big_sur: "1471fe7afec4c1ed3580071dc6d36e1150fc43d2fb323c5e36fe4b3d7562420a"
+    sha256 big_sur:       "4592a482157e17284fe52fa9d7966e952a212a9bcbb53936f6431abd9f4fed25"
+    sha256 catalina:      "9d1deb99aa8cc14f240462656f1a6cf3191b1cb168ac0f572f78f80cfc69e44d"
+    sha256 mojave:        "cd645950af03d8ef9f062e42397edac1c2c9b03afcb49dcf50256ca3cbcc9a14"
+    sha256 x86_64_linux:  "7925d346b3da3451e167bca3db8aded4ec99f801519f283b98d555611e0c1480"
   end
 
   depends_on "ocaml-findlib" => :build
   depends_on "ocaml"
-  depends_on "ocaml-num"
+  depends_on "ocaml-zarith"
 
   uses_from_macos "m4" => :build
   uses_from_macos "unzip" => :build
@@ -37,7 +38,7 @@ class Coq < Formula
 
   test do
     (testpath/"testing.v").write <<~EOS
-      Require Coq.omega.Omega.
+      Require Coq.micromega.Lia.
       Require Coq.ZArith.ZArith.
 
       Inductive nat : Set :=
@@ -53,12 +54,12 @@ class Coq < Formula
       intros n; induction n; simpl; auto; rewrite IHn; auto.
       Qed.
 
-      Import Coq.omega.Omega.
+      Import Coq.micromega.Lia.
       Import Coq.ZArith.ZArith.
       Open Scope Z.
       Lemma add_O_r_Z : forall (n: Z), n + 0 = n.
       Proof.
-      intros; omega.
+      intros; lia.
       Qed.
     EOS
     system("#{bin}/coqc", "#{testpath}/testing.v")

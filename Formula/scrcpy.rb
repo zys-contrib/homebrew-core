@@ -1,16 +1,15 @@
 class Scrcpy < Formula
   desc "Display and control your Android device"
   homepage "https://github.com/Genymobile/scrcpy"
-  url "https://github.com/Genymobile/scrcpy/archive/v1.16.tar.gz"
-  sha256 "94cbd59e26faa08ca25d5126d6c8d45e831b6a9e716ce05cd57bc4bcc751f742"
+  url "https://github.com/Genymobile/scrcpy/archive/v1.18.tar.gz"
+  sha256 "2995d74409e9a486e4f69d0f623299ebf615d9427d8e974dfd82355538a313e9"
   license "Apache-2.0"
-  revision 2
 
   bottle do
-    sha256 "c9658d00be68ecb6e0a4375a94d241f0f9499bf1495cf5713c61a5b6dd238de4" => :big_sur
-    sha256 "e6201c5231f70f2a2ea894e5103fc3de4ac6ecd3646898642346dea3973b5943" => :catalina
-    sha256 "b0d097de2bbec45803d193a4e7f49245ba97e30ef3a23b4f68a8dc38756847e9" => :mojave
-    sha256 "67b0df2cfc95417ce5f300229fb14f84e20003f409bda70e76a8e75fa51c9df5" => :high_sierra
+    sha256 arm64_big_sur: "0fd6c2d4d56cdbc09df21e7a8aabbeaa75a7658f99eb8478bdfd6b97d510dad6"
+    sha256 big_sur:       "6c960c8555c710cd1058e256b34e6c93be8b3294a6b34bbc58ead2344d6da740"
+    sha256 catalina:      "c6262834293a4667e870ec7977e90fe1b5dda59d646555f9c71435195ac4a970"
+    sha256 mojave:        "1c5e721c141ecb90418ccf5500756c94bf48c2dc1ead190e6cc16024b5449430"
   end
 
   depends_on "meson" => :build
@@ -20,15 +19,8 @@ class Scrcpy < Formula
   depends_on "sdl2"
 
   resource "prebuilt-server" do
-    url "https://github.com/Genymobile/scrcpy/releases/download/v1.16/scrcpy-server-v1.16"
-    sha256 "94a79e05b4498d0460ab7bd9d12cbf05156e3a47bf0c5d1420cee1d4493b3832"
-  end
-
-  # Fix build on Xcode 12 (https://github.com/Genymobile/scrcpy/issues/1726)
-  # Remove in the next release
-  patch do
-    url "https://github.com/Genymobile/scrcpy/commit/bd9f656933e79f7b21b42993f8a70a761ab47226.patch?full_index=1"
-    sha256 "3ab1c2d4b9cc38fe94ae24c49c74b4008a36ffb8079442545feeffa5d3448540"
+    url "https://github.com/Genymobile/scrcpy/releases/download/v1.18/scrcpy-server-v1.18"
+    sha256 "641c5c6beda9399dfae72d116f5ff43b5ed1059d871c9ebc3f47610fd33c51a3"
   end
 
   def install
@@ -50,7 +42,7 @@ class Scrcpy < Formula
       At runtime, adb must be accessible from your PATH.
 
       You can install adb from Homebrew Cask:
-        brew cask install android-platform-tools
+        brew install --cask android-platform-tools
     EOS
   end
 

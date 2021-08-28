@@ -1,18 +1,17 @@
 class Hamlib < Formula
   desc "Ham radio control libraries"
   homepage "http://www.hamlib.org/"
-  url "https://github.com/Hamlib/Hamlib/releases/download/3.3/hamlib-3.3.tar.gz"
-  sha256 "c90b53949c767f049733b442cd6e0a48648b55d99d4df5ef3f852d985f45e880"
+  url "https://github.com/Hamlib/Hamlib/releases/download/4.2/hamlib-4.2.tar.gz"
+  sha256 "e200b22f307e9a0c826187c2b08fe81c7d0283cf07056e6db3463d1481580fd5"
   license "LGPL-2.1-or-later"
   head "https://github.com/hamlib/hamlib.git"
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "d02431f4e66de4b0c9fadafb49d9b8f262559de56579f09f16341e97bd64eed8" => :big_sur
-    sha256 "e4e6a62579bb7dd47bc73a528aca90d1ef1e58cacedff63b7c361fa59e6810cd" => :catalina
-    sha256 "2c1a41c0f49147e27a43f4df51ec259faff810d5d186c7043b644ae70a641b78" => :mojave
-    sha256 "b212b498824c486ff9805eb4e313a0ab709442b73c2267168b3ac36b593ecea9" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "c7dfb2164dc7bbe147c948b265d944e2a41c9ab9f294214bc9165b7ad4614537"
+    sha256 cellar: :any,                 big_sur:       "f1fa8a3f93559bbbd1ad1b755f8eb2ce5921b92fef9f518272bc6899839598d9"
+    sha256 cellar: :any,                 catalina:      "ac504c6406287a191b5a2f1db43825834565d3c6449dbe2c53223dac7a852710"
+    sha256 cellar: :any,                 mojave:        "b13365794825287c71d659ef7314e3321c7123b0451e68b34fb1995292a8ee6a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4949924decbe7c6347c3096b97e9356eab6756d19858ee9c5d477f7dc13dacb4"
   end
 
   depends_on "autoconf" => :build
@@ -20,6 +19,12 @@ class Hamlib < Formula
   depends_on "pkg-config" => :build
   depends_on "libtool"
   depends_on "libusb-compat"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     system "./bootstrap" if build.head?

@@ -1,16 +1,16 @@
 class Loki < Formula
   desc "Horizontally-scalable, highly-available log aggregation system"
   homepage "https://grafana.com/loki"
-  url "https://github.com/grafana/loki/archive/v2.0.0.tar.gz"
-  sha256 "e7ab246d98be52caf7b475245f5ea2cf62fb00f61d6e5377f31423414847556b"
-  license "Apache-2.0"
+  url "https://github.com/grafana/loki/archive/v2.3.0.tar.gz"
+  sha256 "c71174a2fbb7b6183cb84fc3a5e328cb4276a495c7c0be8ec53c377ec0363489"
+  license "AGPL-3.0-only"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f57e122a4f478e15a804faa21fa582282663ef79f1ec1c57bda8dab95fdef241" => :big_sur
-    sha256 "cdafcfbd3692972dfbb0830e3c57f4cfbd325292783d7f96fde9894c9983c2ec" => :catalina
-    sha256 "c9e1ad411938e2f224d5b6c6b68c93c9b8405eece3a9fd2e29e3628f03c09708" => :mojave
-    sha256 "0177decc1efb4cb56c78a5aa8cc91405800c3e428fead5a53afe18cde8553994" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "29e269c258de9b5e0f3024db55c8cca0023a372a3f4372adbb82f6d83fc37af1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8c9c206eaaedb9a6d40f0d0cba0d21118ea3f35bd592b6cfc8d7f7d2862ba49b"
+    sha256 cellar: :any_skip_relocation, catalina:      "e10eda7df50a4f13858e76389bc2d3bf62b86f35926a254266fbb618471ddc08"
+    sha256 cellar: :any_skip_relocation, mojave:        "06307778ef44db3b181461e0f42c31a95796162af5c774c7a0248848e6005fcc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8476435961971f582f3baaf20852c6ea87c4129fd06f25fb13a613443a207153"
   end
 
   depends_on "go" => :build
@@ -23,37 +23,12 @@ class Loki < Formula
     end
   end
 
-  plist_options manual: "loki -config.file=#{HOMEBREW_PREFIX}/etc/loki-local-config.yaml"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <dict>
-            <key>SuccessfulExit</key>
-            <false/>
-          </dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/loki</string>
-            <string>-config.file=#{etc}/loki-local-config.yaml</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{var}</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/loki.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/loki.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"loki", "-config.file=#{etc}/loki-local-config.yaml"]
+    keep_alive true
+    working_dir var
+    log_path var/"log/loki.log"
+    error_log_path var/"log/loki.log"
   end
 
   test do

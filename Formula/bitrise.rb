@@ -1,32 +1,24 @@
 class Bitrise < Formula
   desc "Command-line automation tool"
   homepage "https://github.com/bitrise-io/bitrise"
-  url "https://github.com/bitrise-io/bitrise/archive/1.44.0.tar.gz"
-  sha256 "f71d01b4dc1ba8f6719c01859526f23edd1d7b493f8ab098e2b32e9d1c84aa9b"
+  url "https://github.com/bitrise-io/bitrise/archive/1.47.2.tar.gz"
+  sha256 "f4847a9f864492364085005e3288ceb0a917616cc19230915c903028d1d06cf3"
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1e6ee861f087d4f292102006d30f8e65e941c640188efebf29c1c303f2bdd07c" => :big_sur
-    sha256 "5ac037f160d5e1501559883a2e768d27a2a9cdf6e64db72db5f917d771d58ce0" => :catalina
-    sha256 "194a587583c0a716b1f0d789c559c71e744f48d4d4f3aa7004e60043b07e32ce" => :mojave
-    sha256 "019485b3aa3aefd9d274d4499f1b9bcf9dbaf7a2d6bf996bfd79f01974b5f462" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ef7aaf94c060b3d2f2e528d58ba566e41dbcd3e169e997d798b9d9a395d38884"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f84b6aac91c201586f7fee7320bda16245c0059bb07839d8bd9129fbcd09ba4d"
+    sha256 cellar: :any_skip_relocation, catalina:      "201164203fa6dd3877110538b3195a31a5aa60b731de5312d6689406cf87b653"
+    sha256 cellar: :any_skip_relocation, mojave:        "6da13e00379086989793cd50e3f5bd44ccd2c42355568ee807448efccdcd9543"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "117812c8112334d6aa34951b2836d5c22a7e573cd847d6a62fee5c46186097ae"
   end
 
   depends_on "go" => :build
 
+  uses_from_macos "rsync"
+
   def install
-    ENV["GOPATH"] = buildpath
-
-    # Install bitrise
-    bitrise_go_path = buildpath/"src/github.com/bitrise-io/bitrise"
-    bitrise_go_path.install Dir["*"]
-
-    cd bitrise_go_path do
-      prefix.install_metafiles
-
-      system "go", "build", "-o", bin/"bitrise"
-    end
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do

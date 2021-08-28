@@ -2,32 +2,42 @@ class Xgboost < Formula
   desc "Scalable, Portable and Distributed Gradient Boosting Library"
   homepage "https://xgboost.ai/"
   url "https://github.com/dmlc/xgboost.git",
-      tag:      "v1.2.1",
-      revision: "bcb15a980f611ac0b7540ddcb55091d0ab9655aa"
+      tag:      "v1.4.2",
+      revision: "522b8977c27b422a4cdbe1ecc59a4d57a5df2c36"
   license "Apache-2.0"
 
   bottle do
-    cellar :any
-    sha256 "51634738fabc05059dadc938b602bbd5c627e135eed4466c543f59b03c69ad86" => :big_sur
-    sha256 "6458d02e2907e74a9cc7b4d6ae22d132a7dc83f37a13e79a87f409567d46bd68" => :catalina
-    sha256 "bd6bdd967e100e38130b834f93b01a82c3cfa1ea6581533ffa0d897d611656c1" => :mojave
-    sha256 "5ea7f8b48ded860e69166b8f7f5adedc34c7007fab4154f5d802ee126d09bc3f" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "5db187f5a6d6c66a3fd546f7d1855cdfa102c67475de1289d3ec04dd7fbedec5"
+    sha256 cellar: :any,                 big_sur:       "e81b8fd6533fce3a66f0b013dfc0d3c0eede4b54d2071dc6933201d22b135f34"
+    sha256 cellar: :any,                 catalina:      "919b6d95848c782d2c330a7abbb273be7dd3babd4e38395b9ab2065bcea793d0"
+    sha256 cellar: :any,                 mojave:        "a0bc2283a8dfd93406e1b9449286eb4153f306c0cdea70fc88349e970ace4bf7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1cd8501d05de50109670a59d23ad8d079e0b10ad5e43dc431058f02974e75fb"
   end
 
   depends_on "cmake" => :build
   depends_on "libomp"
+  depends_on "numpy"
+  depends_on "scipy"
 
-  resource "numpy" do
-    url "https://files.pythonhosted.org/packages/bf/e8/15aea783ea72e2d4e51e3ec365e8dc4a1a32c9e5eb3a6d695b0d58e67cdd/numpy-1.19.2.zip"
-    sha256 "0d310730e1e793527065ad7dde736197b705d0e4c9999775f212b03c44a8484c"
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1100
   end
 
-  resource "scipy" do
-    url "https://files.pythonhosted.org/packages/93/63/4a566494594a13697c5d5d8a754d6e329d018ddf881520775e0229fa29ef/scipy-1.5.3.tar.gz"
-    sha256 "ddae76784574cc4c172f3d5edd7308be16078dd3b977e8746860c76c195fa707"
+  fails_with :clang do
+    build 1100
+    cause <<-EOS
+      clang: error: unable to execute command: Segmentation fault: 11
+      clang: error: clang frontend command failed due to signal (use -v to see invocation)
+      make[2]: *** [src/CMakeFiles/objxgboost.dir/tree/updater_quantile_hist.cc.o] Error 254
+    EOS
   end
 
   def install
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
+    on_macos do
+      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1100
+    end
+
     mkdir "build" do
       system "cmake", *std_cmake_args, ".."
       system "make"
@@ -37,9 +47,12 @@ class Xgboost < Formula
   end
 
   test do
+    # Force use of Clang on Mojave
+    on_macos { ENV.clang }
+
     cp_r (pkgshare/"demo"), testpath
     cd "demo/data" do
-      cp "../binary_classification/mushroom.conf", "."
+      cp "../CLI/binary_classification/mushroom.conf", "."
       system "#{bin}/xgboost", "mushroom.conf"
     end
   end

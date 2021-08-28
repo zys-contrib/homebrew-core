@@ -1,22 +1,22 @@
 class WlaDx < Formula
   desc "Yet another crossassembler package"
   homepage "https://github.com/vhelin/wla-dx"
-  url "https://github.com/vhelin/wla-dx/archive/v9.11-fix-fix-fix.tar.gz"
-  sha256 "7ac29b50492ece1d3d47db040219488a120f6cd613110b1e4c5d5d79790b1139"
+  url "https://github.com/vhelin/wla-dx/archive/v10.0.tar.gz"
+  sha256 "0ccc2b9a43b9ae9f6a95a6df6032e15d0815132476ec176e5759b9d14d0077d4"
   license "GPL-2.0"
-  revision 1
 
   livecheck do
-    url "https://github.com/vhelin/wla-dx/releases/latest"
+    url :stable
+    strategy :github_latest
     regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)(?:-fix)*["' >]}i)
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "66a1b0e894ef405ba43690d9692c03756db1698deca8f40b6b15340519ec07d9" => :big_sur
-    sha256 "8f0d4747eb9ef0885ddf6c08b3d4ac980bd2b6dbaaa9f5048ea7aa4bc6f681b8" => :catalina
-    sha256 "b515cc9b31fd4d978143c518555b02873fabff5ef390d369575c3d3e99606326" => :mojave
-    sha256 "0ed73304d947e4ea44431c06df38bb6887a7551f575ade25a6b63ce7b27187c7" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8d3ae6b8ecb78d43c5d475c3e12a2ab139608682ac50205541aa2792738121a8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b5f923d5b2868582fb46f23ed340246d921fd6f58e4119cb65172eb76f5156f7"
+    sha256 cellar: :any_skip_relocation, catalina:      "5158594f32b15295a50814c6108800d7f689371e39a5a363e035f3be49e18be9"
+    sha256 cellar: :any_skip_relocation, mojave:        "a01d1aab6f7380a4fa44facf9aeb31a9578d25acc093c2cb8743cbec7ecacf10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0dc2d2cc7aaa6f84b5795290bb7404ed0e95786d2ad89a58230dfe7bed705d6"
   end
 
   depends_on "cmake" => :build

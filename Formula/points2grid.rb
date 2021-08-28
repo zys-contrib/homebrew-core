@@ -4,15 +4,15 @@ class Points2grid < Formula
   url "https://github.com/CRREL/points2grid/archive/1.3.1.tar.gz"
   sha256 "6e2f2d3bbfd6f0f5c2d0c7d263cbd5453745a6fbe3113a3a2a630a997f4a1807"
   license "BSD-4-Clause"
-  revision 9
+  revision 12
 
   bottle do
-    cellar :any
-    sha256 "28e47b4fd671bd71072983e55340abe1a6552f5de9de40365656073428378e8d" => :big_sur
-    sha256 "29ad8732fb7848d6252f94ba0f1ef5500d93afc762bf7dbe83bd6ae7bcbf631d" => :catalina
-    sha256 "f17d1ab719822ecf2db6ff06930891fe0dc2fabbeb9c7c18f7d65b0ae76dfc34" => :mojave
-    sha256 "bfc619bd4f796b07e2fc20092bd76701414dcf634311c9d121d54a72907f566f" => :high_sierra
+    sha256 cellar: :any, big_sur:  "2f165bbc5c54e67fbe9c0d52875898ef82689a3a5a1e145a4567b60dd440cb19"
+    sha256 cellar: :any, catalina: "1e3ec7e78cd4652a7f43fca2d9917bd61d7dbd66461f3ac428e9d3f62d8bac97"
+    sha256 cellar: :any, mojave:   "d3e4412d6830dc9a2c8bcfc9494497eaeb4d9f606ee0211a74ce10f60382aff8"
   end
+
+  deprecate! date: "2021-05-06", because: :repo_archived
 
   depends_on "cmake" => :build
   depends_on "boost"

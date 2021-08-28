@@ -4,26 +4,27 @@ class Zsh < Formula
   url "https://downloads.sourceforge.net/project/zsh/zsh/5.8/zsh-5.8.tar.xz"
   mirror "https://www.zsh.org/pub/zsh-5.8.tar.xz"
   sha256 "dcc4b54cc5565670a65581760261c163d720991f0d06486da61f8d839b52de27"
+  license "MIT-Modern-Variant"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    sha256 "a93717bcbb1a41829ac7549f7dea0e2be4bb11985be734f03801150338d6b8e6" => :big_sur
-    sha256 "aaf19f69f79ac2ef80ff31d3b2f0017f400bf40022f8626d5ae046990961a5f5" => :catalina
-    sha256 "a40a54e4b686eb75f04e7dcc57391245a4f6b08a39825f7f6ebc9f76ebcbff46" => :mojave
-    sha256 "edfbc09a9571fadf351e0f94e545a88aa33763518a3330c0bae497a6a259d63f" => :high_sierra
+    sha256 arm64_big_sur: "01ae59e3ea21dd7691120aec89552e4f4c10c6489a24b9cc23256129e3cbe7b6"
+    sha256 big_sur:       "a93717bcbb1a41829ac7549f7dea0e2be4bb11985be734f03801150338d6b8e6"
+    sha256 catalina:      "aaf19f69f79ac2ef80ff31d3b2f0017f400bf40022f8626d5ae046990961a5f5"
+    sha256 mojave:        "a40a54e4b686eb75f04e7dcc57391245a4f6b08a39825f7f6ebc9f76ebcbff46"
+    sha256 high_sierra:   "edfbc09a9571fadf351e0f94e545a88aa33763518a3330c0bae497a6a259d63f"
+    sha256 x86_64_linux:  "f37a99a35ac7b20d78a5e0d83420b4ad74d63cedc426cfd3d964cebe79935183"
   end
 
   head do
-    url "https://git.code.sf.net/p/zsh/code.git"
+    url "https://git.code.sf.net/p/zsh/code.git", branch: "master"
     depends_on "autoconf" => :build
   end
 
   depends_on "ncurses"
   depends_on "pcre"
+
+  uses_from_macos "texinfo"
 
   resource "htmldoc" do
     url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.8/zsh-5.8-doc.tar.xz"

@@ -1,9 +1,9 @@
 class SharedMimeInfo < Formula
   desc "Database of common MIME types"
   homepage "https://wiki.freedesktop.org/www/Software/shared-mime-info"
-  url "https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/0440063a2e6823a4b1a6fb2f2af8350f/shared-mime-info-2.0.tar.xz"
-  sha256 "23c1cb7919f31cf97aeb5225548f75705f706aa5cc7d1c4c503364bcc8681e06"
-  license "GPL-2.0"
+  url "https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/0ee50652091363ab0d17e335e5e74fbe/shared-mime-info-2.1.tar.xz"
+  sha256 "b2d40cfcdd84e835d0f2c9107b3f3e77e9cf912f858171fe779946da634e8563"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://gitlab.freedesktop.org/api/v4/projects/1205/releases"
@@ -11,11 +11,11 @@ class SharedMimeInfo < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "a89243613f2b5108a735abbe0a65ee02dcc39b5246a8f8b284c28cc9d8b86014" => :big_sur
-    sha256 "5aefdc7964e569188cb67a49f4a428c64130f7c048ffd55106c656eb0c6caa25" => :catalina
-    sha256 "26629464888f464e3aacfec50d6b5c28ecd91c9c56ae74a418eac49b07abc3a3" => :mojave
-    sha256 "c548f5a23851ce6d807fd9e152c57e65ad99c3d0cf2cd40a473b55346935ec61" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "c2c98a7a02e1b23f5c7f7baafe0e4b04f22a7b1a6df73912a7450ea73c162819"
+    sha256 cellar: :any, big_sur:       "4857d9f38c0f3cbf23984d60c4ec6280d84b457123d34b9c01e96f3deb8b0bb2"
+    sha256 cellar: :any, catalina:      "8cb87ae2f3014998ecebab2d8c37ac9ff364f1164417420c4d8778a38ca17d29"
+    sha256 cellar: :any, mojave:        "786d1c053d03676c985de3a7c15d764b69626f5d12e7e36e4048055bdc36413c"
+    sha256               x86_64_linux:  "6099cf602b42eb8f23022b02c292b0bbdce2e22f4ff5b5e8f4d8a3c4575b298f"
   end
 
   head do

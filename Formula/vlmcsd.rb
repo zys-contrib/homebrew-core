@@ -4,22 +4,23 @@ class Vlmcsd < Formula
   url "https://github.com/Wind4/vlmcsd/archive/svn1113.tar.gz"
   version "svn1113"
   sha256 "62f55c48f5de1249c2348ab6b96dabbe7e38899230954b0c8774efb01d9c42cc"
-  head "https://github.com/Wind4/vlmcsd.git"
+  head "https://github.com/Wind4/vlmcsd.git", branch: "master"
 
   livecheck do
-    url "https://github.com/Wind4/vlmcsd/releases/latest"
-    regex(%r{href=.*?/tag/([^"' >]+)["' >]}i)
+    url :stable
+    regex(%r{href=["']?[^"' >]*?/tag/([^"' >]+)["' >]}i)
+    strategy :github_latest
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a146afc78975084e13a441c939accd492ef3611a7147b97990151723e809fc25" => :big_sur
-    sha256 "3f3cc34de780b15b2c5eb32660f79a95bd28674c7cebb78452f9f8888d9d8b38" => :catalina
-    sha256 "512da18ff22fe4dbc539aa31020acad022fdf6b19c6b14d49a361e1615af58fb" => :mojave
-    sha256 "0cb2abe0a85b0ca14602d565b6ef3c69afa1f466123b37503936dfe064581b54" => :high_sierra
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7b3abfda639485474805f9d4d93f2c6e47efacd9e8affbed3aca44bda55c1964"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4e7ff7a7b2b24f12671783aba5e87a444576418ec0220d037dbe25d5f1e2ff71"
+    sha256 cellar: :any_skip_relocation, catalina:      "1b6375150a6cbd27eb386f0fae0bcbbccdfc9b3079dc6cfb5a9ce633029d5484"
+    sha256 cellar: :any_skip_relocation, mojave:        "d2b0cccd86ab053118aebc1885b362130b7c7e0f73f3b60c768e4907532254cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8bacd07ef0cda2ea4ad4c5d7274b97bf8b067b69fd4412d20272b0d1c8828d1c"
   end
 
-  depends_on "make" => :build
   uses_from_macos "llvm" => :build
 
   def install
@@ -50,37 +51,16 @@ class Vlmcsd < Formula
     EOS
   end
 
-  plist_options manual: "vlmcsd"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <false/>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{bin}/vlmcsd</string>
-            <string>-i</string>
-            <string>#{etc}/vlmcsd/vlmcsd.ini</string>
-            <string>-D</string>
-          </array>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [bin/"vlmcsd", "-i", etc/"vlmcsd/vlmcsd.ini", "-D"]
+    keep_alive false
   end
 
   test do
     output = shell_output("#{bin}/vlmcsd -V")
-    assert_match /vlmcsd/, output
+    assert_match "vlmcsd", output
     output = shell_output("#{bin}/vlmcs -V")
-    assert_match /vlmcs/, output
+    assert_match "vlmcs", output
     begin
       pid = fork do
         exec "#{bin}/vlmcsd", "-D"
@@ -89,7 +69,7 @@ class Vlmcsd < Formula
       # the running status of vlmcsd
       sleep 2
       output = shell_output("#{bin}/vlmcs")
-      assert_match /successful/, output
+      assert_match "successful", output
       sleep 2
     ensure
       Process.kill 9, pid

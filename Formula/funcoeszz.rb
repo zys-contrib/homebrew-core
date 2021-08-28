@@ -1,15 +1,18 @@
 class Funcoeszz < Formula
   desc "Dozens of command-line mini-applications (Portuguese)"
   homepage "https://funcoeszz.net/"
-  url "https://funcoeszz.net/download/funcoeszz-18.3.sh"
-  sha256 "c1348fbaf79e7ac97568785674edee602077c3a747d3a1bfa4cf63af343c4352"
+  url "https://funcoeszz.net/download/funcoeszz-21.1.sh"
+  sha256 "630017119208b576387e18db8734dbda9d9e7750c742f9c3ffec7232b7636856"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://funcoeszz.net/download/"
     regex(/href=.*?funcoeszz[._-]v?(\d+(?:\.\d+)+)\.sh/i)
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "f2c2872df39cc30fc4cf4c277a2b37d299d27eb038d079584e4774cf146476ee"
+  end
 
   depends_on "bash"
 

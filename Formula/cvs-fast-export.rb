@@ -1,20 +1,34 @@
 class CvsFastExport < Formula
   desc "Export an RCS or CVS history as a fast-import stream"
   homepage "http://www.catb.org/~esr/cvs-fast-export/"
-  url "http://www.catb.org/~esr/cvs-fast-export/cvs-fast-export-1.55.tar.gz"
-  sha256 "af58e16667c6e02e8431ff666effe306d3b30086fab483170257890da1afc21b"
+  url "http://www.catb.org/~esr/cvs-fast-export/cvs-fast-export-1.58.tar.gz"
+  sha256 "8d8fc65116ba5b350bc299e8a819b355074ae161fde6d7f9f6fd3bcbc8077963"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?cvs-fast-export[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    cellar :any_skip_relocation
-    sha256 "57328518c731d726a7c7f4d1af902638c042711e79f73e34002d71f08a70d432" => :catalina
-    sha256 "70e1bc966678021164929473ca45b68b3fc3a1daa94646ab75c1e24d409ab4d6" => :mojave
-    sha256 "b95ad7499c774198531e33bbfc0dc6872af239d17e40a9e9fbf7102de8fdb067" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "66ac0fb37d3e4a33d2a1cf562d2297a36373a8017e0850f9cf1c3c4218c3f414"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2e22e212cd8aac46d6e4aad35afe9bc45fa79ac81f67b12bad4442f2adb0e691"
+    sha256 cellar: :any_skip_relocation, catalina:      "ffefb6abe0cc10db5a854cb25b51bec3b0506327695d69572d8e5c303272c182"
+    sha256 cellar: :any_skip_relocation, mojave:        "81d7a4592179d55d6e0a223c5678573e3fbdf53eb656f9be5537597c94d1c304"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "265a49c7aff2adf6cdaa534786bfd68281a9bdf9d924721aa70244b13868154b"
+  end
+
+  head do
+    url "https://gitlab.com/esr/cvs-fast-export.git"
+    depends_on "bison" => :build
   end
 
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
   depends_on "cvs" => :test
+
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"

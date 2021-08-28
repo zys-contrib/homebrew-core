@@ -1,16 +1,12 @@
 class CreateDmg < Formula
   desc "Shell script to build fancy DMGs"
   homepage "https://github.com/create-dmg/create-dmg"
-  url "https://github.com/create-dmg/create-dmg/archive/v1.0.8.tar.gz"
-  sha256 "6eb256e6835e650e4a529c9ea0630c409e6d1d5413fc9076b94d231674fa4cae"
+  url "https://github.com/create-dmg/create-dmg/archive/v1.0.9.tar.gz"
+  sha256 "f0284d0a386353cd127df2f15af526c821995c664ba4063863ee500a374aada4"
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "579aa12677f4d4772436afbf22e730bd0be8a8045597995c9aadd94a8f0a77d1" => :big_sur
-    sha256 "42ba5df600cee3cc0c2ea3da594e2c09b710e93345f36941bf11cbece30464be" => :catalina
-    sha256 "42ba5df600cee3cc0c2ea3da594e2c09b710e93345f36941bf11cbece30464be" => :mojave
-    sha256 "42ba5df600cee3cc0c2ea3da594e2c09b710e93345f36941bf11cbece30464be" => :high_sierra
+    sha256 cellar: :any_skip_relocation, all: "fbbb2e726579852cfa16abe27bc34bf78a2df0c991a9d9d6994c2ffbd5c2773d"
   end
 
   def install

@@ -1,8 +1,9 @@
 class Eprover < Formula
   desc "Theorem prover for full first-order logic with equality"
   homepage "https://eprover.org/"
-  url "https://wwwlehre.dhbw-stuttgart.de/~sschulz/WORK/E_DOWNLOAD/V_2.5/E.tgz"
-  sha256 "3a72cb5bcf24899134c84cb6c797c699d8d7ddfad0de7b5b654581bb17b3c814"
+  url "https://wwwlehre.dhbw-stuttgart.de/~sschulz/WORK/E_DOWNLOAD/V_2.6/E.tgz"
+  sha256 "aa1f3deaa229151e60d607560301a46cd24b06a51009e0a9ba86071e40d73edd"
+  license any_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   livecheck do
     url "https://wwwlehre.dhbw-stuttgart.de/~sschulz/WORK/E_DOWNLOAD/"
@@ -10,10 +11,11 @@ class Eprover < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "224dffbf0f507dd756b45f8ab9f06ec65e963ecfeeea69dcf72e76cc95bf760d" => :catalina
-    sha256 "598fb6477f28822a593fe6c0fb218b4e70140ba44f6cd21feb6c0381c0b64641" => :mojave
-    sha256 "9b2ece8fa609748d06a102d398c7315ab09c0da9af2d8b17daff11cb634767f6" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6c5b3ef3fe7c4d8a83d6bc36414cc31a75ee9ec0444e8bc3a53ad9c0e398d388"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5ca253b65f824844b7238c6a48870d62aa7c59759b30caaaf297019dddb1546f"
+    sha256 cellar: :any_skip_relocation, catalina:      "fdad068ad22a703c18f58502d91a24fa16ba2fce017b0f39b9145583930b19c2"
+    sha256 cellar: :any_skip_relocation, mojave:        "2d9b6284695c33af156b99e32026eb934a889ffa0d8891cb1f7f49a8a1b72942"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5038a0c14455835be07e268a78233512aed9ecc0cfcb22bb0041c533d58cdbe"
   end
 
   def install

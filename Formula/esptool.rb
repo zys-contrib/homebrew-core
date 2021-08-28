@@ -3,18 +3,19 @@ class Esptool < Formula
 
   desc "ESP8266 and ESP32 serial bootloader utility"
   homepage "https://github.com/espressif/esptool"
-  url "https://github.com/espressif/esptool/archive/v3.0.tar.gz"
-  sha256 "4c0069f0dccdf9c0927e890dafd8e0307a29872bf15f6deed12c8776acd1579d"
+  url "https://files.pythonhosted.org/packages/9c/c8/28f21b3d3b5e1f1d249be52cdd91793c8c3f7c4f4f255ece7d50984fb05d/esptool-3.1.tar.gz"
+  sha256 "ec6b943c53b4d71f87f98776333d5b4b99905766898a7002c28a9090b92b2de4"
   license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "971f3fdd8ef856c00a274bf8764637853489dbb23a0d77017b7de040345e362b" => :big_sur
-    sha256 "3adf28370ae055d19fb546334fe076d80ed0d151b54972a1a1876cf56f121995" => :catalina
-    sha256 "2301134224ef45fed4bd5f739ad907b561c59455fda3a0a2b2833e4daefde692" => :mojave
-    sha256 "5a4ac5ccfd87d4355b1be991195f0547f1e99340526ed20c1e1dfa8de5b05112" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "e2916044d6ce93795993340af2904bc088324c54b238f0663f672b35d5d2ff01"
+    sha256 cellar: :any,                 big_sur:       "286a2dbf4c4243d0fc244c07d9e41d2eea34e1b60d686b310eb1246f216854b2"
+    sha256 cellar: :any,                 catalina:      "c88e132957e5b312946aea44eb0aded7dab11a64fa629190af16ab4f317d496b"
+    sha256 cellar: :any,                 mojave:        "0905b46bbefd70aa8a0666651cd51b0664b8390f85c1353d087aab0de5559a1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b719d2fdc74b53c3bcb4bf507120d00dd08ae4562e2a1ebcccd752164cfdf8c5"
   end
 
+  depends_on "rust" => :build
   depends_on "python@3.9"
 
   resource "bitstring" do
@@ -23,18 +24,18 @@ class Esptool < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/cb/ae/380e33d621ae301770358eb11a896a34c34f30db188847a561e8e39ee866/cffi-1.14.3.tar.gz"
-    sha256 "f92f789e4f9241cd262ad7a555ca2c648a98178a953af117ef7fad46aa1d5591"
+    url "https://files.pythonhosted.org/packages/a8/20/025f59f929bbcaa579704f443a438135918484fffaacfaddba776b374563/cffi-1.14.5.tar.gz"
+    sha256 "fd78e5fee591709f32ef6edb9a015b4aa1a5022598e36227500c8f4e02328d9c"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/94/5c/42de91c7fbdb817b2d9a4e64b067946eb38a4eb36c1a09c96c87a0f86a82/cryptography-3.2.1.tar.gz"
-    sha256 "d3d5e10be0cf2a12214ddee45c6bd203dab435e3d83b4560c03066eda600bfe3"
+    url "https://files.pythonhosted.org/packages/9b/77/461087a514d2e8ece1c975d8216bc03f7048e6090c5166bc34115afdaa53/cryptography-3.4.7.tar.gz"
+    sha256 "3d10de8116d25649631977cb37da6cbdd2d6fa0e0281d014a5b7d337255ca713"
   end
 
   resource "ecdsa" do
-    url "https://files.pythonhosted.org/packages/23/c3/81b0040f2976775d6685c3bb3748355bb2b725a9210a4ea50afc5a90e7d9/ecdsa-0.16.0.tar.gz"
-    sha256 "494c6a853e9ed2e9be33d160b41d47afc50a6629b993d2b9c5ad7bb226add892"
+    url "https://files.pythonhosted.org/packages/bf/3d/3d909532ad541651390bf1321e097404cbd39d1d89c2046f42a460220fb3/ecdsa-0.17.0.tar.gz"
+    sha256 "b9f500bb439e4153d0330610f5d26baaf18d17b8ced1bc54410d189385ea68aa"
   end
 
   resource "pycparser" do
@@ -43,8 +44,8 @@ class Esptool < Formula
   end
 
   resource "pyserial" do
-    url "https://files.pythonhosted.org/packages/cc/74/11b04703ec416717b247d789103277269d567db575d2fd88f25d9767fe3d/pyserial-3.4.tar.gz"
-    sha256 "6e2d401fdee0eab996cf734e67773a0143b932772ca8b42451440cfed942c627"
+    url "https://files.pythonhosted.org/packages/1e/7d/ae3f0a63f41e4d2f6cb66a5b57197850f919f59e558159a4dd3a818f5082/pyserial-3.5.tar.gz"
+    sha256 "3c77e014170dfffbd816e6ffc205e9842efb10be9f58ec16d3e8675b4925cddb"
   end
 
   resource "reedsolo" do
@@ -53,8 +54,8 @@ class Esptool < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
-    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   def install

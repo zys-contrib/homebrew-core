@@ -1,16 +1,20 @@
 class VapoursynthSub < Formula
   desc "VapourSynth filters - Subtitling filter"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R52.tar.gz"
-  sha256 "4d5dc7950f4357da695d29708bc98013bc3e0bd72fc5d697f8c91ce3c4a4b2ac"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R54.tar.gz"
+  sha256 "ad0c446adcb3877c253dc8c1372a053ad35022bcf42600889b927d2797c5330b"
   license "ISC"
-  head "https://github.com/vapoursynth/vapoursynth.git"
+  head "https://github.com/vapoursynth/vapoursynth.git", branch: "master"
+
+  livecheck do
+    formula "vapoursynth"
+  end
 
   bottle do
-    cellar :any
-    sha256 "d184945229dcc2027f16fcdf3e88a1ca244f5a2033bd120dcf606af9a2402692" => :big_sur
-    sha256 "dd909916af32c7f6d9ac8da934a3e19c6aec6885562f903b63491f7d371b0b5e" => :catalina
-    sha256 "479e31fc345e2d9778ce28cfd7eaeac70c99403f05f3558ff2c827bf86a8e425" => :mojave
+    sha256 cellar: :any, arm64_big_sur: "e00dd437364121c4633ac304e1494bffa20a9fad1e4f4fee4de3cd16015a17f2"
+    sha256 cellar: :any, big_sur:       "40eda0329ae57f8deaac051521a8ee8f1fe6f5106db3ef024f2fce9ce3432f09"
+    sha256 cellar: :any, catalina:      "29204e101abc88a961a53518abc868c67af788b1369e3fc07e8df439442859d7"
+    sha256 cellar: :any, mojave:        "291ec2fad5ccca0b0046b29a2bcb842a700e8395d106747058faf60032735cd4"
   end
 
   depends_on "autoconf" => :build

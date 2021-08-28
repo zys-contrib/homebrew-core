@@ -1,23 +1,41 @@
 class Suil < Formula
   desc "Lightweight C library for loading and wrapping LV2 plugin UIs"
   homepage "https://drobilla.net/software/suil/"
-  url "https://download.drobilla.net/suil-0.10.8.tar.bz2"
-  sha256 "91cd87e17e80d2e43d64700369b93a5c2d0f1648e36411e0233253a0c3840f40"
+  url "https://download.drobilla.net/suil-0.10.10.tar.bz2"
+  sha256 "750f08e6b7dc941a5e694c484aab02f69af5aa90edcc9fb2ffb4fb45f1574bfb"
   license "ISC"
+  revision 1
+  head "https://gitlab.com/lv2/suil.git", branch: "master"
+
+  livecheck do
+    url "https://download.drobilla.net/"
+    regex(/href=.*?suil[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "aea75cb3be00abce7094eed0be51b10ce8fd5d7ac8bd3514989dfa5e9e209880" => :big_sur
-    sha256 "24627d37fb66084ea3c0577d2dac5df714611004fb5c8cd9fddf747005eaa5be" => :catalina
-    sha256 "f84ea1b5e7a2b786e5f989093d72b2c7270218ef637b30a60df73e0ee7a517fb" => :mojave
-    sha256 "9b197d98140760bbb1293b90674941a0b3d5614c9a7f8353bd5ff64c23f0cd3f" => :high_sierra
+    sha256 arm64_big_sur: "11af96a8cd470b08da0bd49cb3b620ae81d89e9589c5ed44a533e2cb93d5133f"
+    sha256 big_sur:       "02a8eed42b15c099954dce4741c71b0e5f9ae652fce48921e4920a3efc779e01"
+    sha256 catalina:      "4a74f4c1cbf9b1e67c7fbda45e5ca67b5163757b70ee62c33a7e66b136a2d4c1"
+    sha256 mojave:        "2bc87e39cf2cb0a66c983c01834d39c2f1cccdddbe4db28331e0dcb6cf64c3fb"
   end
 
   depends_on "pkg-config" => :build
   depends_on "gtk+"
+  depends_on "gtk+3"
   depends_on "lv2"
+  depends_on "qt@5"
+
+  # Disable qt5_in_gtk3 because it depends upon X11
+  # Can be removed if https://gitlab.com/lv2/suil/-/merge_requests/1 is merged
+  patch do
+    url "https://gitlab.com/lv2/suil/-/commit/33ea47e18ddc1eb384e75622c0e75164d351f2c0.diff"
+    sha256 "2f335107e26c503460965953f94410e458c5e8dd86a89ce039f65c4e3ae16ba7"
+  end
 
   def install
-    system "./waf", "configure", "--prefix=#{prefix}"
+    ENV.cxx11
+    system "./waf", "configure", "--prefix=#{prefix}", "--no-x11",
+        "--gtk2-lib-name=#{shared_library("libgtk-quartz-2.0.0")}", "--gtk3-lib-name=#{shared_library("libgtk-3.0")}"
     system "./waf", "install"
   end
 

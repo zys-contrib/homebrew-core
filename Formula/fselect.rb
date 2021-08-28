@@ -1,15 +1,16 @@
 class Fselect < Formula
   desc "Find files with SQL-like queries"
   homepage "https://github.com/jhspetersson/fselect"
-  url "https://github.com/jhspetersson/fselect/archive/0.7.2.tar.gz"
-  sha256 "8b2cbf8aff709ffcab49ed59330655669ab185a524e89a101141d80cc025063b"
+  url "https://github.com/jhspetersson/fselect/archive/0.7.6.tar.gz"
+  sha256 "bea8a7c09ddb88a8ad253305744847c4e4d63cb16afbec6c8cfff89b264f67d7"
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4126d38a8952a7e51d3c0f3c4481518ca5718611137f9c864955786c39651a12" => :big_sur
-    sha256 "368e4013f2a28775244c7758aea027e0809d6f9e676701ee386138cdefae9c94" => :catalina
-    sha256 "b869be256a65037aafe9e474f57ab1310f60630bdf6a22004359035e8ec73868" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "57571c72929bf97d6992c7c8f7826d6ed1574bc29ace961429ff563524ef8452"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a662d57fb34649294ece8d5e75332f73bce6394bf139d31167c4a2a83b3d59e6"
+    sha256 cellar: :any_skip_relocation, catalina:      "3a0154264d20257b7376d49be91a9d03f24624fa1e57281cbb79640038e9b1ae"
+    sha256 cellar: :any_skip_relocation, mojave:        "16259c0ce60aeba0646452b3f7081a1ad9a7233bf30b3981da24624b781b9790"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ffdc104dcdd3060fdc227a132be59dc9f7cb9e28ddb3d4e9bfea561fdb85e030"
   end
 
   depends_on "rust" => :build

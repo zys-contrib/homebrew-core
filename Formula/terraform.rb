@@ -1,10 +1,10 @@
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.13.5.tar.gz"
-  sha256 "c4bdb9e636550795862f13e0ae667a1d381bf2f6cd30c4dde54411afdd07aeab"
+  url "https://github.com/hashicorp/terraform/archive/v1.0.5.tar.gz"
+  sha256 "191cf75d7f68592d23983d36a0ead27956e150403fafece4613e0f7762716315"
   license "MPL-2.0"
-  head "https://github.com/hashicorp/terraform.git"
+  head "https://github.com/hashicorp/terraform.git", branch: "main"
 
   livecheck do
     url "https://releases.hashicorp.com/terraform/"
@@ -12,16 +12,24 @@ class Terraform < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "24f4a6829d66eb746b4ea832903c97447508a4901f87dfe19751ad88957c50bd" => :big_sur
-    sha256 "dce0277c24dbebe0f7b0f1ae5f1eb7bebc5f0c9df8481a1a9a710e6a4eaf0e93" => :catalina
-    sha256 "94b57cec31514334a68b6b31939f7bd465fb792cf663a04bde9ca4752d77aed5" => :mojave
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "35551b090abaf0af89c575b7e755bfdccd65b2abd349a47ed7a7338718fb3f1f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1fd4215977639bd3bd736703b59dbe706fa3868a625ccff97a6b71680be9e0d0"
+    sha256 cellar: :any_skip_relocation, catalina:      "5163dbc7870c3feec550ce71b4dfb24fa058e917b5f781066ade294c6be8b711"
+    sha256 cellar: :any_skip_relocation, mojave:        "b716800264f580e706d41d5562e5d1b1b80ec4fa22a11d735f6916f59cda2685"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3788da8ae16ff5c86711b3daf2117588b5135b49c5a88ad81ba6403115430bd2"
   end
 
-  depends_on "go@1.14" => :build
+  depends_on "go" => :build
+
+  on_linux do
+    depends_on "gcc"
+  end
 
   conflicts_with "tfenv", because: "tfenv symlinks terraform binaries"
+
+  # Needs libraries at runtime:
+  # /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by node)
+  fails_with gcc: "5"
 
   def install
     # v0.6.12 - source contains tests which fail if these environment variables are set locally.
@@ -32,7 +40,7 @@ class Terraform < Formula
     # https://github.com/hashicorp/terraform/issues/26532#issuecomment-720570774
     ENV["CGO_ENABLED"] = "1"
 
-    system "go", "build", *std_go_args, "-ldflags", "-s -w", "-mod=vendor"
+    system "go", "build", *std_go_args, "-ldflags", "-s -w"
   end
 
   test do

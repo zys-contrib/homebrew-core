@@ -1,17 +1,17 @@
 class OcamlNum < Formula
   desc "OCaml legacy Num library for arbitrary-precision arithmetic"
   homepage "https://github.com/ocaml/num"
-  url "https://github.com/ocaml/num/archive/v1.3.tar.gz"
-  sha256 "4f79c30e81ea9553c5b2c5b5b57bb19968ccad1e85256b3c446b5df58f33e94d"
+  url "https://github.com/ocaml/num/archive/v1.4.tar.gz"
+  sha256 "015088b68e717b04c07997920e33c53219711dfaf36d1196d02313f48ea00f24"
   license "LGPL-2.1"
   revision 2
 
   bottle do
-    cellar :any
-    sha256 "11159571ab66414961a6718bd051734adedecf9f7f6967eb7501305bd63657ab" => :big_sur
-    sha256 "545f99711189baa3a903adc55ac696aa75dd954298fd6135edf11d2a4047dc3b" => :catalina
-    sha256 "26022dbe85f98f4f051dd33e1743ac7e631320a4a31583b825dcdfd69731fd5b" => :mojave
-    sha256 "50101019c768a94a15f1b387464b2280f7c8e0db8e1e1349bca070a9fb4506ba" => :high_sierra
+    sha256 cellar: :any,                 arm64_big_sur: "f1f22afab148209110159c9fcbe9cdfd7f27ca6a25b55ddd11358c130da033fb"
+    sha256 cellar: :any,                 big_sur:       "4563053ebf720e623e0afeb935f803ab1aedc3c15d6d99d6bc2818301eeb4ecb"
+    sha256 cellar: :any,                 catalina:      "26b165d15abd314baafa8c8a055236684eb26ae86740d85edca087321c5c311c"
+    sha256 cellar: :any,                 mojave:        "c14f476a964f149d3dc3145cb219286fea6585962351ada79aa1ed4606d9f781"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a73e9edb89bf0770888357b1d3020a704bbb068cf3cede057db573ed0f4f7be2"
   end
 
   depends_on "ocaml-findlib" => :build

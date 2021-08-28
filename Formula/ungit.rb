@@ -3,20 +3,16 @@ require "language/node"
 class Ungit < Formula
   desc "Easiest way to use Git. On any platform. Anywhere"
   homepage "https://github.com/FredrikNoren/ungit"
-  url "https://registry.npmjs.org/ungit/-/ungit-1.5.13.tgz"
-  sha256 "84849130bca8670f7abfcd285e99105aa982e7d09c09fb29d37c11b43fb6d250"
+  url "https://registry.npmjs.org/ungit/-/ungit-1.5.18.tgz"
+  sha256 "7bc917ccbb9aa33773b8915400c4c7fbae375a346dba6613e5b0eaae7cad6fb8"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
-    cellar :any_skip_relocation
-    sha256 "3ced4848318d45a0cda134de736985c0c5f951537e0b799eea21ec4e65948166" => :big_sur
-    sha256 "4532b8cdcebb312719952234b74c131e33300764a32904c5e92d3ffac89064a4" => :catalina
-    sha256 "48ed6d0ba522cf36e0e6ec25cc03fba0305d52f9200911242387061cbffe5a56" => :mojave
-    sha256 "16fc839b21c419de4b446bb7df046b407fd70125fc3202af5c1ce31f34cac643" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "54ab4e9703e79db7145005c5f4e8a2b09001bc6a6a4c0ca0e074d20cb71b252a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6768008e7ce0700279019566b2c5fab0a906823696b225e54b883bc30d4b52b7"
+    sha256 cellar: :any_skip_relocation, catalina:      "6768008e7ce0700279019566b2c5fab0a906823696b225e54b883bc30d4b52b7"
+    sha256 cellar: :any_skip_relocation, mojave:        "6768008e7ce0700279019566b2c5fab0a906823696b225e54b883bc30d4b52b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5fed1c88fef55106397629b390d0c369cb1b7f179922b9b938e9e5b9a02f0698"
   end
 
   depends_on "node"
