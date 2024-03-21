@@ -4,6 +4,7 @@ class CargoRelease < Formula
   url "https://github.com/crate-ci/cargo-release/archive/refs/tags/v0.25.10.tar.gz"
   sha256 "3db220c865caa9820bf2d66c0c5a5ad5a3c7be7ec91c27c623c0f62c3754ea8b"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/crate-ci/cargo-release.git", branch: "master"
 
   bottle do
@@ -19,7 +20,7 @@ class CargoRelease < Formula
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "rustup-init" => :test
-  depends_on "libgit2"
+  depends_on "libgit2@1.7"
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
@@ -49,7 +50,7 @@ class CargoRelease < Formula
     end
 
     [
-      Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2@1.7"].opt_lib/shared_library("libgit2"),
     ].each do |library|
       assert check_binary_linkage(bin/"cargo-release", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
