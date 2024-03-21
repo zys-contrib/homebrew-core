@@ -4,6 +4,7 @@ class Prr < Formula
   url "https://github.com/danobi/prr/archive/refs/tags/v0.18.0.tar.gz"
   sha256 "3c32911854a33a1a7870382db0e759923315ec943b5d43dec42d751820473094"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/danobi/prr.git", branch: "master"
 
   bottle do
@@ -18,7 +19,7 @@ class Prr < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "libgit2"
+  depends_on "libgit2@1.7"
   depends_on "openssl@3"
 
   uses_from_macos "zlib"
@@ -45,7 +46,7 @@ class Prr < Formula
     assert_match "Failed to read config", shell_output("#{bin}/prr get Homebrew/homebrew-core/6 2>&1", 1)
 
     [
-      Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2@1.7"].opt_lib/shared_library("libgit2"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
     ].each do |library|
