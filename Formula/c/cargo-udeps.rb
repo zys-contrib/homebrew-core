@@ -4,6 +4,7 @@ class CargoUdeps < Formula
   url "https://github.com/est31/cargo-udeps/archive/refs/tags/v0.1.49.tar.gz"
   sha256 "f3beaaa9c11526f4fc52dff140214b8948622b69ebf2878a607132056e6b3c33"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "d26fff7e646a5447d6ccdafcb6899e17c91f60fbb3ae27b36fd4c3c818b526e5"
@@ -17,7 +18,7 @@ class CargoUdeps < Formula
 
   depends_on "rust" => :build
   depends_on "rustup-init" => :test
-  depends_on "libgit2"
+  depends_on "libgit2@1.7"
   depends_on "libssh2"
   depends_on "openssl@3"
 
@@ -69,7 +70,7 @@ class CargoUdeps < Formula
     end
 
     [
-      Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2@1.7"].opt_lib/shared_library("libgit2"),
       Formula["libssh2"].opt_lib/shared_library("libssh2"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
