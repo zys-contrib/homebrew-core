@@ -4,6 +4,7 @@ class Pixi < Formula
   url "https://github.com/prefix-dev/pixi/archive/refs/tags/v0.25.0.tar.gz"
   sha256 "1d7ae4ee972dee923ac5b9156f9116dc0bd0af5a190589279d59739372e8855b"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/prefix-dev/pixi.git", branch: "main"
 
   # There can be a notable gap between when a version is tagged and a
@@ -28,7 +29,7 @@ class Pixi < Formula
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
 
-  depends_on "libgit2"
+  depends_on "libgit2@1.7"
   depends_on "openssl@3"
 
   uses_from_macos "bzip2"
@@ -59,7 +60,7 @@ class Pixi < Formula
     assert_path_exists testpath/"pixi.toml"
 
     linked_libraries = [
-      Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2@1.7"].opt_lib/shared_library("libgit2"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
     ]
