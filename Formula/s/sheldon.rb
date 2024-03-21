@@ -4,6 +4,7 @@ class Sheldon < Formula
   url "https://github.com/rossmacarthur/sheldon/archive/refs/tags/0.7.4.tar.gz"
   sha256 "5d8ecd432a99852d416580174be7ab8f29fe9231d9804f0cc26ba2b158f49cdf"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/rossmacarthur/sheldon.git", branch: "trunk"
 
   bottle do
@@ -19,7 +20,7 @@ class Sheldon < Formula
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "curl"
-  depends_on "libgit2"
+  depends_on "libgit2@1.7"
   depends_on "openssl@3"
 
   def install
@@ -52,7 +53,7 @@ class Sheldon < Formula
     assert_predicate testpath/"plugins.lock", :exist?
 
     [
-      Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2@1.7"].opt_lib/shared_library("libgit2"),
       Formula["curl"].opt_lib/shared_library("libcurl"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
