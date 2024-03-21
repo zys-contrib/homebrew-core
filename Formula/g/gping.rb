@@ -4,6 +4,7 @@ class Gping < Formula
   url "https://github.com/orf/gping/archive/refs/tags/gping-v1.16.1.tar.gz"
   sha256 "557dad6e54b5dd23f88224ea7914776b7636672f237d9cbbea59972235ca89a8"
   license "MIT"
+  revision 1
   head "https://github.com/orf/gping.git", branch: "master"
 
   # The GitHub repository has a "latest" release but it can sometimes point to
@@ -27,7 +28,7 @@ class Gping < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "libgit2"
+  depends_on "libgit2@1.7"
 
   on_linux do
     depends_on "iputils"
@@ -46,7 +47,7 @@ class Gping < Formula
 
     r, w, = PTY.spawn("#{bin}/gping google.com")
     r.winsize = [80, 130]
-    sleep 1
+    sleep 10
     w.write "q"
 
     begin
@@ -68,7 +69,7 @@ class Gping < Formula
     linkage_with_libgit2 = (bin/"gping").dynamically_linked_libraries.any? do |dll|
       next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
 
-      File.realpath(dll) == (Formula["libgit2"].opt_lib/shared_library("libgit2")).realpath.to_s
+      File.realpath(dll) == (Formula["libgit2@1.7"].opt_lib/shared_library("libgit2")).realpath.to_s
     end
     assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."
   end
