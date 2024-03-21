@@ -6,6 +6,7 @@ class Snapcraft < Formula
   url "https://github.com/snapcore/snapcraft/archive/refs/tags/8.3.1.tar.gz"
   sha256 "0dd22b2e6bb7fe7d104edcabfc4a5f475560e64a620c57bd969645372df02fab"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url :stable
@@ -22,7 +23,7 @@ class Snapcraft < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "49645d8f13d45e6b4ebe620b5ad2530b20f158f5ff6ddcedfe22bc2d94fa10b5"
   end
 
-  depends_on "libgit2"
+  depends_on "libgit2@1.7"
   depends_on "libsodium"
   depends_on "libyaml"
   depends_on "lxc"
