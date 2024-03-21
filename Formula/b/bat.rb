@@ -4,6 +4,7 @@ class Bat < Formula
   url "https://github.com/sharkdp/bat/archive/refs/tags/v0.24.0.tar.gz"
   sha256 "907554a9eff239f256ee8fe05a922aad84febe4fe10a499def72a4557e9eedfb"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/sharkdp/bat.git", branch: "master"
 
   bottle do
@@ -18,7 +19,7 @@ class Bat < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "libgit2"
+  depends_on "libgit2@1.7"
   depends_on "oniguruma"
 
   def install
@@ -50,7 +51,7 @@ class Bat < Formula
     assert_match "Homebrew test", output
 
     [
-      Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2@1.7"].opt_lib/shared_library("libgit2"),
       Formula["oniguruma"].opt_lib/shared_library("libonig"),
     ].each do |library|
       assert check_binary_linkage(bin/"bat", library),
