@@ -4,6 +4,7 @@ class GitCliff < Formula
   url "https://github.com/orhun/git-cliff/archive/refs/tags/v2.3.0.tar.gz"
   sha256 "a234fa1b78f7d9807ef1e41e6c36e56f178e65aa0f6e1fb7100cf144def2f180"
   license all_of: ["Apache-2.0", "MIT"]
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "0671857570d54832691f72961ed13e4a7ba7427a62173a1900a03f5185c00ca2"
@@ -17,7 +18,7 @@ class GitCliff < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "libgit2"
+  depends_on "libgit2@1.7"
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
@@ -62,7 +63,7 @@ class GitCliff < Formula
     linkage_with_libgit2 = (bin/"git-cliff").dynamically_linked_libraries.any? do |dll|
       next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
 
-      File.realpath(dll) == (Formula["libgit2"].opt_lib/shared_library("libgit2")).realpath.to_s
+      File.realpath(dll) == (Formula["libgit2@1.7"].opt_lib/shared_library("libgit2")).realpath.to_s
     end
 
     assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."
