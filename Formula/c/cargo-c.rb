@@ -4,6 +4,7 @@ class CargoC < Formula
   url "https://github.com/lu-zero/cargo-c/archive/refs/tags/v0.10.2.tar.gz"
   sha256 "0217c26fee99f3af867ce52719a39349d19ec6cfac084eea3901f8046f4607c6"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -25,7 +26,7 @@ class CargoC < Formula
   # be missing despite its presence.
   # Try switching to `uses_from_macos` when that's resolved.
   depends_on "curl"
-  depends_on "libgit2"
+  depends_on "libgit2@1.7"
   depends_on "libssh2"
   depends_on "openssl@3"
 
@@ -60,7 +61,7 @@ class CargoC < Formula
 
     [
       Formula["curl"].opt_lib/shared_library("libcurl"),
-      Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2@1.7"].opt_lib/shared_library("libgit2"),
       Formula["libssh2"].opt_lib/shared_library("libssh2"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
