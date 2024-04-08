@@ -23,12 +23,12 @@ class Flix < Formula
 
   depends_on "gradle" => :build
   depends_on "scala" => :build
-  depends_on "openjdk"
+  depends_on "openjdk@21"
 
   def install
     system Formula["gradle"].bin/"gradle", "build", "jar"
     prefix.install "build/libs/flix-#{version}.jar"
-    bin.write_jar_script prefix/"flix-#{version}.jar", "flix"
+    bin.write_jar_script prefix/"flix-#{version}.jar", "flix", java_version: "21"
   end
 
   test do
