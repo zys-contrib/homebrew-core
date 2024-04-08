@@ -1,4 +1,6 @@
 class Openvino < Formula
+  include Language::Python::Virtualenv
+
   desc "Open Visual Inference And Optimization toolkit for AI inference"
   homepage "https://docs.openvino.ai"
   url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2024.2.0.tar.gz"
@@ -30,7 +32,6 @@ class Openvino < Formula
   depends_on "python@3.12" => [:build, :test]
   depends_on "numpy"
   depends_on "pugixml"
-  depends_on "python-packaging"
   depends_on "snappy"
   depends_on "tbb"
 
@@ -72,6 +73,16 @@ class Openvino < Formula
   resource "onnx" do
     url "https://github.com/onnx/onnx/archive/refs/tags/v1.15.0.tar.gz"
     sha256 "c757132e018dd0dd171499ef74fca88b74c5430a20781ec53da19eb7f937ef68"
+  end
+
+  resource "openvino-telemetry" do
+    url "https://files.pythonhosted.org/packages/37/dd/675a6349e4b5a1d5bfaab940cd52a70c988099b6f4c1689af1884c49815a/openvino-telemetry-2023.2.1.tar.gz"
+    sha256 "ca2106b84671c6edfdc562c03b1c6dd3434d649a4c2174aa47f4628aa66e660a"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
+    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
   end
 
   def python3
@@ -133,7 +144,10 @@ class Openvino < Formula
     ENV["PYTHON_EXTENSIONS_ONLY"] = "1"
     ENV["CPACK_GENERATOR"] = "BREW"
 
-    system python3, "-m", "pip", "install", *std_pip_args, "./src/bindings/python/wheel"
+    venv = virtualenv_create(libexec, python3)
+    venv.pip_install resources.select { |r| r.url.start_with?("https://files.pythonhosted.org/") }
+    venv.pip_install_and_link "./src/bindings/python/wheel"
+    (prefix/Language::Python.site_packages(python3)/"homebrew-openvino.pth").write venv.site_packages
   end
 
   test do
