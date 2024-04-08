@@ -17,19 +17,19 @@ class KotlinLanguageServer < Formula
   end
 
   depends_on "gradle" => :build
-  depends_on "openjdk"
+  depends_on "openjdk@21"
 
   def install
-    ENV["JAVA_HOME"] = Language::Java.java_home
+    ENV["JAVA_HOME"] = Language::Java.java_home("21")
     #  Remove Windows files
     rm "gradlew.bat"
 
-    system "gradle", ":server:installDist", "-PjavaVersion=#{Formula["openjdk"].version.major}"
+    system "gradle", ":server:installDist", "-PjavaVersion=#{Formula["openjdk@21"].version.major}"
 
     libexec.install Dir["server/build/install/server/*"]
 
     (bin/"kotlin-language-server").write_env_script libexec/"bin/kotlin-language-server",
-      Language::Java.overridable_java_home_env
+      Language::Java.overridable_java_home_env("21")
   end
 
   test do
