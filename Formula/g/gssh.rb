@@ -17,7 +17,7 @@ class Gssh < Formula
   end
 
   depends_on "gradle" => :build
-  depends_on "openjdk"
+  depends_on "openjdk@21"
 
   # gradle 8 build patch, remove in next release
   patch :DATA
@@ -27,7 +27,7 @@ class Gssh < Formula
     ENV["GROOVY_SSH_VERSION"] = version
     system "gradle", "shadowJar", "--no-daemon"
     libexec.install "cli/build/libs/gssh.jar"
-    bin.write_jar_script libexec/"gssh.jar", "gssh"
+    bin.write_jar_script libexec/"gssh.jar", "gssh", java_version: "21"
   end
 
   test do
