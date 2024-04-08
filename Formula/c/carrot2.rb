@@ -19,7 +19,7 @@ class Carrot2 < Formula
   depends_on "gradle" => :build
   depends_on "node" => :build
   depends_on "yarn" => :build
-  depends_on "openjdk"
+  depends_on "openjdk@21"
 
   def install
     # Make possible to build the formula with the latest available in Homebrew gradle
@@ -42,7 +42,7 @@ class Carrot2 < Formula
     end
 
     (bin/"carrot2").write_env_script "#{libexec}/dcs/dcs",
-      JAVA_CMD:    "exec '#{Formula["openjdk"].opt_bin}/java'",
+      JAVA_CMD:    "exec '#{Formula["openjdk@21"].opt_bin}/java'",
       SCRIPT_HOME: libexec/"dcs"
   end
 
