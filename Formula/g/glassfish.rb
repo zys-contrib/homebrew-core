@@ -15,7 +15,9 @@ class Glassfish < Formula
     sha256 cellar: :any_skip_relocation, all: "eccb506fc6021318a113c083245af2945b6815ec8b5514f158ffde53d6138b84"
   end
 
-  depends_on "openjdk"
+  # no java 22 support for glassfish 7.x
+  # https://github.com/eclipse-ee4j/glassfish/blob/master/docs/website/src/main/resources/download.md
+  depends_on "openjdk@21"
 
   conflicts_with "payara", because: "both install the same scripts"
 
@@ -26,7 +28,7 @@ class Glassfish < Formula
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/bin/*"]
 
-    env = Language::Java.overridable_java_home_env
+    env = Language::Java.overridable_java_home_env("21")
     env["GLASSFISH_HOME"] = libexec
     bin.env_script_all_files libexec/"bin", env
 
