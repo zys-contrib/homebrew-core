@@ -18,7 +18,7 @@ class Cbmc < Formula
 
   depends_on "cmake" => :build
   depends_on "maven" => :build
-  depends_on "openjdk" => :build
+  depends_on "openjdk@21" => :build
   depends_on "rust" => :build
 
   uses_from_macos "bison" => :build
@@ -30,6 +30,7 @@ class Cbmc < Formula
     # Fixes: *** No rule to make target 'bin/goto-gcc',
     # needed by '/tmp/cbmc-20240525-215493-ru4krx/regression/goto-gcc/archives/libour_archive.a'.  Stop.
     ENV.deparallelize
+    ENV["JAVA_HOME"] = Formula["openjdk@21"].opt_prefix
 
     system "cmake", "-S", ".", "-B", "build", "-Dsat_impl=minisat2;cadical", *std_cmake_args
     system "cmake", "--build", "build"
