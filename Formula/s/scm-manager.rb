@@ -21,7 +21,7 @@ class ScmManager < Formula
   end
 
   depends_on "jsvc"
-  depends_on "openjdk"
+  depends_on "openjdk@21"
 
   def install
     # Replace pre-built `jsvc` with formula to add Apple Silicon support
@@ -29,7 +29,7 @@ class ScmManager < Formula
     rm Dir["libexec/jsvc-*"]
     libexec.install Dir["*"]
 
-    env = Language::Java.overridable_java_home_env
+    env = Language::Java.overridable_java_home_env("21")
     env["BASEDIR"] = libexec
     env["REPO"] = libexec/"lib"
     (bin/"scm-server").write_env_script libexec/"bin/scm-server", env
