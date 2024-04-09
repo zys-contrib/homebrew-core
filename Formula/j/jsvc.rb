@@ -16,7 +16,7 @@ class Jsvc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "78e7084642c481492d64a4f30ff92bab922dfb3c62875569b3caa28fb1e07039"
   end
 
-  depends_on "openjdk"
+  depends_on "openjdk@21"
 
   def install
     prefix.install %w[NOTICE.txt LICENSE.txt RELEASE-NOTES.txt]
@@ -25,11 +25,11 @@ class Jsvc < Formula
       # https://github.com/Homebrew/homebrew-core/pull/168294#issuecomment-2104388230
       ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
 
-      system "./configure", "--with-java=#{Formula["openjdk"].opt_prefix}"
+      system "./configure", "--with-java=#{Formula["openjdk@21"].opt_prefix}"
       system "make"
 
       libexec.install "jsvc"
-      (bin/"jsvc").write_env_script libexec/"jsvc", Language::Java.overridable_java_home_env
+      (bin/"jsvc").write_env_script libexec/"jsvc", Language::Java.overridable_java_home_env("21")
     end
   end
 
