@@ -9,11 +9,11 @@ class ProcyonDecompiler < Formula
     sha256 cellar: :any_skip_relocation, all: "ee55d23c048aa221e0f2c76eaa0ac264f83b0ac6ebf7388479878cc387fad122"
   end
 
-  depends_on "openjdk"
+  depends_on "openjdk@21"
 
   def install
     libexec.install "procyon-decompiler-#{version}.jar"
-    bin.write_jar_script libexec/"procyon-decompiler-#{version}.jar", "procyon-decompiler"
+    bin.write_jar_script libexec/"procyon-decompiler-#{version}.jar", "procyon-decompiler", java_version: "21"
   end
 
   test do
@@ -26,7 +26,7 @@ class ProcyonDecompiler < Formula
       }
     EOS
     (testpath/"T.java").write fixture
-    system "#{Formula["openjdk"].bin}/javac", "T.java"
+    system "#{Formula["openjdk@21"].bin}/javac", "T.java"
     assert_match fixture, pipe_output([bin/"procyon-decompiler", "T.class"])
   end
 end
