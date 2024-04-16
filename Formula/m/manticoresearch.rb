@@ -9,6 +9,7 @@ class Manticoresearch < Formula
     { "GPL-2.0-only" => { with: "x11vnc-openssl-exception" } }, # galera
     { any_of: ["Unlicense", "MIT"] }, # uni-algo (our formula is too new)
   ]
+  revision 1
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git", branch: "master"
 
@@ -36,7 +37,7 @@ class Manticoresearch < Formula
 
   # NOTE: `libpq`, `mysql-client`, `unixodbc` and `zstd` are dynamically loaded rather than linked
   depends_on "cctz"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "libpq"
   depends_on "mysql-client"
   depends_on "openssl@3"
@@ -57,7 +58,8 @@ class Manticoresearch < Formula
     # Issue ref: https://github.com/manticoresoftware/manticoresearch/issues/2393
     ENV.append_to_cflags "-fpermissive" if OS.linux?
 
-    ENV["ICU_ROOT"] = Formula["icu4c"].opt_prefix.to_s
+    icu4c = deps.map(&:to_formula).find { |f| f.name.match?(/^icu4c@\d+$/) }
+    ENV["ICU_ROOT"] = icu4c.opt_prefix.to_s
     ENV["OPENSSL_ROOT_DIR"] = Formula["openssl@3"].opt_prefix.to_s
     ENV["MYSQL_ROOT_DIR"] = Formula["mysql-client"].opt_prefix.to_s
     ENV["PostgreSQL_ROOT"] = Formula["libpq"].opt_prefix.to_s
