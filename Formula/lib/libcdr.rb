@@ -4,7 +4,7 @@ class Libcdr < Formula
   url "https://dev-www.libreoffice.org/src/libcdr/libcdr-0.1.7.tar.xz"
   sha256 "5666249d613466b9aa1e987ea4109c04365866e9277d80f6cd9663e86b8ecdd4"
   license "MPL-2.0"
-  revision 6
+  revision 7
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -25,11 +25,14 @@ class Libcdr < Formula
 
   depends_on "boost" => :build
   depends_on "pkg-config" => :build
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "librevenge"
   depends_on "little-cms2"
 
   def install
+    # icu4c 75+ needs C++17
+    ENV.append "CXXFLAGS", "-std=gnu++17"
+
     system "./configure", "--disable-silent-rules",
                           "--disable-tests",
                           "--disable-werror",
