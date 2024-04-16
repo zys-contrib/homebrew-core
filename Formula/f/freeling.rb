@@ -4,7 +4,7 @@ class Freeling < Formula
   url "https://github.com/TALP-UPC/FreeLing/releases/download/4.2/FreeLing-src-4.2.1.tar.gz"
   sha256 "c672a6379142ac2e872741e7662f17eccd8230bffc680564d2843d87480f1600"
   license "AGPL-3.0-only"
-  revision 5
+  revision 6
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "247d7a29b0f294b2907de43d169bc1a248675b87b7981c211b8283a0e4fe72a5"
@@ -19,16 +19,18 @@ class Freeling < Formula
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
 
   conflicts_with "dynet", because: "freeling ships its own copy of dynet"
   conflicts_with "eigen", because: "freeling ships its own copy of eigen"
   conflicts_with "foma", because: "freeling ships its own copy of foma"
   conflicts_with "hunspell", because: "both install 'analyze' binary"
-
   conflicts_with "crfsuite", because: "both install `crfsuite` binaries"
 
   def install
+    # icu4c 75+ needs C++17
+    inreplace "CMakeLists.txt", "set(CMAKE_CXX_STANDARD 11)", "set(CMAKE_CXX_STANDARD 17)"
+
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
