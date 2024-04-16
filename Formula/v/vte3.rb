@@ -4,6 +4,7 @@ class Vte3 < Formula
   url "https://download.gnome.org/sources/vte/0.76/vte-0.76.4.tar.xz"
   sha256 "9c52d1da6c6f7409289351fc1cba8948cd3b47d048cbfede763a0f75b77453cc"
   license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_sequoia:  "e9968ae162ed90b8c97aa6c8628263a4287f83475e4bb94e3d16f4345831b4b0"
@@ -30,7 +31,7 @@ class Vte3 < Formula
   depends_on "gnutls"
   depends_on "gtk+3"
   depends_on "gtk4"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "lz4"
   depends_on macos: :mojave
   depends_on "pango"
@@ -64,9 +65,13 @@ class Vte3 < Formula
 
   def install
     if OS.mac? && DevelopmentTools.clang_build_version <= 1500
+      llvm = Formula["llvm"]
       ENV.llvm_clang
       if DevelopmentTools.clang_build_version <= 1400
-        ENV.prepend "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/c++ -L#{Formula["llvm"].opt_lib} -lunwind"
+        ENV.prepend "LDFLAGS", "-L#{llvm.opt_lib}/c++ -L#{llvm.opt_lib} -lunwind"
+      else
+        # Avoid linkage to LLVM libunwind. Should have been handled by superenv but still occurs
+        ENV.remove "HOMEBREW_LIBRARY_PATHS", llvm.opt_lib
       end
     end
 
