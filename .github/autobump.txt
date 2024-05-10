@@ -1400,6 +1400,7 @@ mimalloc
 mimirtool
 minder
 minetest
+minica
 minigraph
 minikube
 minipro

@@ -1,8 +1,8 @@
 class Minica < Formula
   desc "Small, simple certificate authority"
   homepage "https://github.com/jsha/minica"
-  url "https://github.com/jsha/minica/archive/refs/tags/v1.0.2.tar.gz"
-  sha256 "c5b7e6c890ad472eb39f7e44d777da1b623930fd099b414213ced14bb599c6ec"
+  url "https://github.com/jsha/minica/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "4f56ea73d2a943656f8a5b533e554b435bc10f56c12d0b53836e84a96b513bf7"
   license "MIT"
 
   bottle do
