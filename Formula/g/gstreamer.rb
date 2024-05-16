@@ -4,13 +4,26 @@ class Gstreamer < Formula
   license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
 
   stable do
-    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.24.7/gstreamer-1.24.7.tar.bz2"
-    sha256 "72b4454664dac0a0816dcddf673206296ad3b974afcbdb9a8cecddcc14312aa6"
+    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.24.8/gstreamer-1.24.8.tar.bz2"
+    sha256 "41fd1325acebb69cec23a46c6c2fe68b4bcf9b25c392b94ffadb3b222bb2422b"
+
+    # Fix build failure with new gobject-introspection
+    # https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/7554
+    patch do
+      url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/commit/f1aedd65f4c276578b767b4555ba7cdf68fe024b.diff"
+      sha256 "830de511c0c6c53fc96b16acc03d433c0942ab5686afca5d3386dd77cc7d7c13"
+    end
+
+    # Backport fix for build of gst-plugins-rs when using uninstalled pkgconfig files
+    patch do
+      url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/commit/6ce72488face35277643d3781d3da7c4f95d5e1e.diff"
+      sha256 "e8526ba4da7a92904a0e55608bacb3ca823f60c398a922877b5945f65c5ddbfb"
+    end
 
     # When updating this resource, use the tag that matches the GStreamer version.
     resource "rs" do
-      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.24.7/gst-plugins-rs-gstreamer-1.24.7.tar.bz2"
-      sha256 "0d499a6854920c31034587bbbabbddbf8b3949387ceb615749a80998da9d440f"
+      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.24.8/gst-plugins-rs-gstreamer-1.24.8.tar.bz2"
+      sha256 "a355edefea2d2de555fad9702079fe219e6c071198fe811a4692b5b48cb7b139"
 
       # Backport support for newer `dav1d`
       # upstream commit ref, https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/commit/7e1ab086de00125bc0d596f9ec5d74c9b82b2cc0
@@ -18,12 +31,6 @@ class Gstreamer < Formula
         url "https://raw.githubusercontent.com/Homebrew/formula-patches/6fff2c4c62f1fb32b5ade46ec9246fc239935d7a/gstreamer/gst-plugins-rs-dav1d.patch"
         sha256 "d17677a523af021b226969937550f19151b8042f6962eae9fa39ee0e0fc0fe3a"
       end
-    end
-
-    # Backport fix for build of gst-plugins-rs when using uninstalled pkgconfig files
-    patch do
-      url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/commit/6ce72488face35277643d3781d3da7c4f95d5e1e.diff"
-      sha256 "e8526ba4da7a92904a0e55608bacb3ca823f60c398a922877b5945f65c5ddbfb"
     end
   end
 
@@ -78,6 +85,7 @@ class Gstreamer < Formula
   depends_on "json-glib"
   depends_on "lame"
   depends_on "libass"
+  depends_on "libnice"
   depends_on "libogg"
   depends_on "libpng"
   depends_on "libshout"
@@ -223,7 +231,7 @@ class Gstreamer < Formula
     # https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/issues/279
     plugin_dir = lib/"gstreamer-1.0"
     rpath_args = [loader_path, rpath(source: plugin_dir)].map { |path| "-rpath,#{path}" }
-    ENV["RUSTFLAGS"] = "--codegen link-args=-Wl,#{rpath_args.join(",")}"
+    ENV.append "RUSTFLAGS", "--codegen link-args=-Wl,#{rpath_args.join(",")}"
     inreplace "subprojects/gst-plugins-rs/cargo_wrapper.py",
               "env['RUSTFLAGS'] = shlex_join(rust_flags)",
               "env['RUSTFLAGS'] = ' '.join(rust_flags)"
@@ -235,6 +243,14 @@ class Gstreamer < Formula
     system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
+  end
+
+  def post_install
+    # Support finding the `libnice` plugin, which is in a separate formula.
+    # Needs to be done in `post_install`, since bottling prunes this symlink.
+    libnice_gst_plugin = Formula["libnice-gstreamer"].opt_libexec/"gstreamer-1.0"/shared_library("libgstnice")
+    gst_plugin_dir = lib/"gstreamer-1.0"
+    ln_sf libnice_gst_plugin.relative_path_from(gst_plugin_dir), gst_plugin_dir
   end
 
   def caveats
