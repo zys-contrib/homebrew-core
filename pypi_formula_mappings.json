@@ -253,14 +253,8 @@
     "exclude_packages": ["certifi", "cryptography"]
   },
   "duplicity": {
-    "extra_packages": [
-      "atom", "azure-storage-blob", "b2sdk", "boto3", "botocore", "boxsdk[jwt]",
-      "dropbox", "fasteners", "gdata-python3", "google-api-python-client",
-      "google-auth-oauthlib", "httplib2", "jottalib", "keyring", "megatools",
-      "paramiko", "pexpect", "pydrive2",
-      "python-swiftclient[keystone]", "requests[security]", "requests-oauthlib"
-    ],
-    "exclude_packages": ["certifi", "cryptography"]
+    "exclude_packages": ["certifi", "cryptography"],
+    "extra_packages": ["python-novaclient>18", "stone==3.2.1"]
   },
   "dvc": {
     "package_name": "dvc[all]",
