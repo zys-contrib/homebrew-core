@@ -43,7 +43,7 @@ class GalleryDl < Formula
   end
 
   def install
-    system "make" if build.head?
+    system "make", "man", "completion" if build.head?
     virtualenv_install_with_resources
     man1.install_symlink libexec/"share/man/man1/gallery-dl.1"
     man5.install_symlink libexec/"share/man/man5/gallery-dl.conf.5"
