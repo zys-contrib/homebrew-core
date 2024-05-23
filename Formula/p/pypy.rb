@@ -4,6 +4,7 @@ class Pypy < Formula
   url "https://downloads.python.org/pypy/pypy2.7-v7.3.16-src.tar.bz2"
   sha256 "43721cc0c397f0f3560b325c20c70b11f7c76c27910d3df09f8418cec4f9c2ad"
   license "MIT"
+  revision 1
   head "https://github.com/pypy/pypy.git", branch: "main"
 
   livecheck do
@@ -79,6 +80,17 @@ class Pypy < Formula
     inreplace "lib_pypy/_tkinter/tklib_build.py" do |s|
       s.gsub! "/usr/local/opt/tcl-tk/", Formula["tcl-tk"].opt_prefix/""
       s.gsub! "/include'", "/include/tcl-tk'"
+    end
+
+    if OS.mac?
+      # Allow python modules to use ctypes.find_library to find homebrew's stuff
+      # even if homebrew is not a /usr/local/lib. Try this with:
+      # `brew install enchant && pip install pyenchant`
+      inreplace "lib-python/2.7/ctypes/macholib/dyld.py" do |f|
+        f.gsub! "DEFAULT_LIBRARY_FALLBACK = [",
+                "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib',"
+        f.gsub! "DEFAULT_FRAMEWORK_FALLBACK = [", "DEFAULT_FRAMEWORK_FALLBACK = [ '#{HOMEBREW_PREFIX}/Frameworks',"
+      end
     end
 
     # See https://github.com/Homebrew/homebrew/issues/24364
