@@ -1,10 +1,9 @@
 class Camlp5 < Formula
   desc "Preprocessor and pretty-printer for OCaml"
   homepage "https://camlp5.github.io/"
-  url "https://github.com/camlp5/camlp5/archive/refs/tags/8.02.01.tar.gz"
-  sha256 "58d4bce0c20fa1151fc2c15f172f5884472e2044a4b0da22aababf46c361e515"
+  url "https://github.com/camlp5/camlp5/archive/refs/tags/8.03.00.tar.gz"
+  sha256 "0dae6d32184aca6f2cdbe818ee2f26aa58baa87d9e82f820914c63b35aa075de"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/camlp5/camlp5.git", branch: "master"
 
   livecheck do
@@ -51,7 +50,9 @@ class Camlp5 < Formula
       # ocaml files are in sync with the camlp5 files.  If camlp5 has been
       # compiled with an older version of the ocaml compiler, then an error
       # "interface mismatch" will occur.
-      shell_output("#{bin}/camlp5 #{lib}/ocaml/camlp5/pa_o.cmo #{lib}/ocaml/camlp5/pr_o.cmo " \
+      shell_output("#{bin}/camlp5 #{lib}/ocaml/camlp5/pa_o.cmo " \
+                   "#{lib}/ocaml/camlp5/o_keywords.cmo " \
+                   "#{lib}/ocaml/camlp5/pr_o.cmo " \
                    "#{ocaml.opt_lib}/ocaml/str/str.cma hi.ml")
   end
 end
