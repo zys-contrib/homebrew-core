@@ -4,6 +4,7 @@ class Coq < Formula
   url "https://github.com/coq/coq/releases/download/V8.19.1/coq-8.19.1.tar.gz"
   sha256 "1e535ed924234f18394efce94b12d9247a67e8af29241eb79615804160f21674"
   license "LGPL-2.1-only"
+  revision 1
   head "https://github.com/coq/coq.git", branch: "master"
 
   livecheck do
@@ -31,6 +32,10 @@ class Coq < Formula
   uses_from_macos "unzip" => :build
 
   def install
+    # Work around for https://github.com/Homebrew/homebrew-test-bot/issues/805
+    if ENV["HOMEBREW_GITHUB_ACTIONS"] && !(Formula["ocaml-findlib"].etc/"findlib.conf").exist?
+      ENV["OCAMLFIND_CONF"] = Formula["ocaml-findlib"].opt_libexec/"findlib.conf"
+    end
     ENV.prepend_path "OCAMLPATH", Formula["ocaml-zarith"].opt_lib/"ocaml"
     ENV.prepend_path "OCAMLPATH", Formula["ocaml-findlib"].opt_lib/"ocaml"
     system "./configure", "-prefix", prefix,
@@ -49,6 +54,10 @@ class Coq < Formula
   end
 
   test do
+    # Work around for https://github.com/Homebrew/homebrew-test-bot/issues/805
+    if ENV["HOMEBREW_GITHUB_ACTIONS"] && !(Formula["ocaml-findlib"].etc/"findlib.conf").exist?
+      ENV["OCAMLFIND_CONF"] = Formula["ocaml-findlib"].opt_libexec/"findlib.conf"
+    end
     (testpath/"testing.v").write <<~EOS
       Require Coq.micromega.Lia.
       Require Coq.ZArith.ZArith.
