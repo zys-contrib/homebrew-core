@@ -1,9 +1,9 @@
 class Gsl < Formula
   desc "Numerical library for C and C++"
   homepage "https://www.gnu.org/software/gsl/"
-  url "https://ftp.gnu.org/gnu/gsl/gsl-2.7.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gsl/gsl-2.7.1.tar.gz"
-  sha256 "dcb0fbd43048832b757ff9942691a8dd70026d5da0ff85601e52687f6deeb34b"
+  url "https://ftp.gnu.org/gnu/gsl/gsl-2.8.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gsl/gsl-2.8.tar.gz"
+  sha256 "6a99eeed15632c6354895b1dd542ed5a855c0f15d9ad1326c6fe2b2c9e423190"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -19,16 +19,9 @@ class Gsl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "daf456a559c5f031b5584db251ffe07aa02fbb04c3d7dc06e1202cfd9109a0c7"
   end
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
-
   def install
-    ENV.deparallelize
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
-    system "make" # A GNU tool which doesn't support just make install! Shameful!
+    system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] }
+    system "make"
     system "make", "install"
   end
 

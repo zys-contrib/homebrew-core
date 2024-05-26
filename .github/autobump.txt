@@ -997,6 +997,7 @@ grpc
 grpc-swift
 grype
 gsettings-desktop-schemas
+gsl
 gsmartcontrol
 gsoap
 gstreamer
