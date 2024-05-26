@@ -4,6 +4,7 @@ class Apophenia < Formula
   url "https://github.com/b-k/apophenia/archive/refs/tags/v1.0.tar.gz"
   sha256 "c753047a9230f9d9e105541f671c4961dc7998f4402972424e591404f33b82ca"
   license "GPL-2.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "e4bba2d4900aa22557d6b3dcc7015de6b195c990cb9df78c7a7838c0ef87aae9"
