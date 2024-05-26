@@ -3,7 +3,7 @@ class Oscats < Formula
   homepage "https://code.google.com/archive/p/oscats/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/oscats/oscats-0.6.tar.gz"
   sha256 "2f7c88cdab6a2106085f7a3e5b1073c74f7d633728c76bd73efba5dc5657a604"
-  revision 6
+  revision 7
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "1ae4dc36efb3274c86c16e3c8aa03eb0d25d0a473adcd434c0e28fe6f97c97ff"
