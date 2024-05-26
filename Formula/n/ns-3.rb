@@ -6,6 +6,7 @@ class Ns3 < Formula
   url "https://gitlab.com/nsnam/ns-3-dev/-/archive/ns-3.42/ns-3-dev-ns-3.42.tar.gz"
   sha256 "c31f8e7615ffe55b31f9592f4ea04c6516c3e6855a58480f897fb1169650131b"
   license "GPL-2.0-only"
+  revision 1
 
   bottle do
     sha256                               arm64_sonoma:   "8c69705c4cb9e6c9a6479db916d7d00e03e2c5ec448740235aa9795d38271ce6"
@@ -25,6 +26,13 @@ class Ns3 < Formula
   uses_from_macos "python" => :build
   uses_from_macos "libxml2"
   uses_from_macos "sqlite"
+
+  # build patch for `error: variable 'index' set but not used`
+  # upstream patch pr, https://gitlab.com/nsnam/ns-3-dev/-/merge_requests/2019
+  patch do
+    url "https://gitlab.com/nsnam/ns-3-dev/-/commit/0f3e29041b2f6e4ea23026e401da54efe1b77e59.diff"
+    sha256 "86ee319a7c49c24a7595a7c19fe7112cf2d64f2d60d79c17327e0a7daae91068"
+  end
 
   def install
     # Fix binding's rpath
