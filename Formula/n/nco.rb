@@ -4,6 +4,7 @@ class Nco < Formula
   url "https://github.com/nco/nco/archive/refs/tags/5.2.4.tar.gz"
   sha256 "44efa9151825487fa0562fa5c6d68837624059a8e2da9d15c83ceb4d498f7902"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "2eeacf6f6ca687eeade92c237edc923b5f1ff7516216bc3b751ba7df4a4859f7"
