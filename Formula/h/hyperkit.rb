@@ -4,6 +4,7 @@ class Hyperkit < Formula
   url "https://github.com/moby/hyperkit/archive/refs/tags/v0.20210107.tar.gz"
   sha256 "095f5f5ef550d7cad10e4d13e9c9ce8b58cc319d654a6d837d8d87ee70537835"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, ventura:  "3b67078315551718bc3c752b943b933713ddb69058f3cb72a0f65faa6e9295ab"
