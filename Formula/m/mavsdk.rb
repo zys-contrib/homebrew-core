@@ -5,6 +5,7 @@ class Mavsdk < Formula
       tag:      "v2.10.2",
       revision: "8fb12e35a38a8aaf0ca2e5273f9e97ba3e59eb75"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -32,6 +33,7 @@ class Mavsdk < Formula
   depends_on "protobuf"
   depends_on "re2"
   depends_on "tinyxml2"
+  depends_on "xz"
 
   uses_from_macos "zlib"
 
