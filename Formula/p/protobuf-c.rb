@@ -4,7 +4,7 @@ class ProtobufC < Formula
   url "https://github.com/protobuf-c/protobuf-c/releases/download/v1.5.0/protobuf-c-1.5.0.tar.gz"
   sha256 "7b404c63361ed35b3667aec75cc37b54298d56dd2bcf369de3373212cc06fd98"
   license "BSD-2-Clause"
-  revision 4
+  revision 5
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "46202d08682f502230220a3fa472d79168dc701354841e99379723b9cd600d2c"
@@ -25,6 +25,7 @@ class ProtobufC < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "abseil"
   depends_on "protobuf"
 
   # Apply commits from open PR to support Protobuf 26.
