@@ -4,6 +4,7 @@ class Ncnn < Formula
   url "https://github.com/Tencent/ncnn/archive/refs/tags/20240410.tar.gz"
   sha256 "328fe282b98457d85ab56184fa896467f6bf640d4e48e91fcefc8d31889f92b7"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/Tencent/ncnn.git", branch: "master"
 
   bottle do
@@ -21,9 +22,11 @@ class Ncnn < Formula
 
   on_macos do
     depends_on "vulkan-headers" => [:build, :test]
+    depends_on "abseil"
     depends_on "glslang"
     depends_on "libomp"
     depends_on "molten-vk"
+    depends_on "spirv-tools"
   end
 
   def install
@@ -31,12 +34,13 @@ class Ncnn < Formula
     # https://stackoverflow.com/a/55086637
     ENV.append "LDFLAGS", "-Wl,--copy-dt-needed-entries" if OS.linux?
 
-    args = std_cmake_args + %w[
+    args = %W[
       -DCMAKE_CXX_STANDARD=17
       -DCMAKE_CXX_STANDARD_REQUIRED=ON
       -DNCNN_SHARED_LIB=ON
       -DNCNN_BUILD_BENCHMARK=OFF
       -DNCNN_BUILD_EXAMPLES=OFF
+      -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
 
     if OS.mac?
@@ -50,7 +54,7 @@ class Ncnn < Formula
     end
 
     inreplace "src/gpu.cpp", "glslang/glslang", "glslang"
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
