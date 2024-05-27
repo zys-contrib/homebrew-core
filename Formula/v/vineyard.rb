@@ -6,7 +6,7 @@ class Vineyard < Formula
   url "https://github.com/v6d-io/v6d/releases/download/v0.22.1/v6d-0.22.1.tar.gz"
   sha256 "16aea4dc63830925c2d8cd89dc36580ff80dd7610793d56ae5d0d09972cf2fcc"
   license "Apache-2.0"
-  revision 4
+  revision 5
 
   bottle do
     sha256                               arm64_sonoma:   "bbdded3a7cb58ebb1923715759a7cc40f025e1f06fe0eafa24f39a76b796a236"
@@ -77,6 +77,7 @@ class Vineyard < Formula
                     "-DUSE_LIBUNWIND=OFF",
                     "-DLIBGRAPELITE_INCLUDE_DIRS=#{Formula["libgrape-lite"].opt_include}",
                     "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
+                    "-DBUILD_VINEYARD_SERVER_ETCD=OFF", # Fails with protobuf 27
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
