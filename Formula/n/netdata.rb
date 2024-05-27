@@ -4,7 +4,7 @@ class Netdata < Formula
   url "https://github.com/netdata/netdata/releases/download/v1.44.3/netdata-v1.44.3.tar.gz"
   sha256 "50df30a9aaf60d550eb8e607230d982827e04194f7df3eba0e83ff7919270ad2"
   license "GPL-3.0-or-later"
-  revision 3
+  revision 4
 
   livecheck do
     url :stable
@@ -25,6 +25,7 @@ class Netdata < Formula
   depends_on "automake" => :build
   depends_on "m4" => :build
   depends_on "pkg-config" => :build
+  depends_on "abseil"
   depends_on "json-c"
   depends_on "libuv"
   depends_on "libyaml"
