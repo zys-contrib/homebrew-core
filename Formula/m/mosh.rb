@@ -4,7 +4,7 @@ class Mosh < Formula
   url "https://github.com/mobile-shell/mosh/releases/download/mosh-1.4.0/mosh-1.4.0.tar.gz"
   sha256 "872e4b134e5df29c8933dff12350785054d2fd2839b5ae6b5587b14db1465ddd"
   license "GPL-3.0-or-later"
-  revision 14
+  revision 15
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "153379d64ac0d29a5b7b158bfe377666dedc79e1825f62885e0189595a50c014"
@@ -24,6 +24,7 @@ class Mosh < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "abseil"
   depends_on "protobuf"
 
   uses_from_macos "ncurses"
