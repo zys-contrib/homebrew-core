@@ -4,7 +4,7 @@ class EtcdCppApiv3 < Formula
   url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/archive/refs/tags/v0.15.4.tar.gz"
   sha256 "4516ecfa420826088c187efd42dad249367ca94ea6cdfc24e3030c3cf47af7b4"
   license "BSD-3-Clause"
-  revision 6
+  revision 7
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "a8c4eeaa7336bb1891f535402d6066e9aa50d64df4a5791232e92f7305c37562"
@@ -19,11 +19,14 @@ class EtcdCppApiv3 < Formula
   depends_on "cmake" => :build
   depends_on "etcd" => :test
 
+  depends_on "abseil"
   depends_on "boost"
+  depends_on "c-ares"
   depends_on "cpprestsdk"
   depends_on "grpc"
   depends_on "openssl@3"
   depends_on "protobuf"
+  depends_on "re2"
 
   fails_with gcc: "5"
 
