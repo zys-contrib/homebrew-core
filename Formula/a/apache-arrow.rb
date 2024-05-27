@@ -5,6 +5,7 @@ class ApacheArrow < Formula
   mirror "https://archive.apache.org/dist/arrow/arrow-16.1.0/apache-arrow-16.1.0.tar.gz"
   sha256 "c9e60c7e87e59383d21b20dc874b17153729ee153264af6d21654b7dff2c60d7"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apache/arrow.git", branch: "main"
 
   bottle do
@@ -49,6 +50,7 @@ class ApacheArrow < Formula
     llvm = Formula["llvm"]
     ENV.remove "HOMEBREW_LIBRARY_PATHS", llvm.opt_lib if DevelopmentTools.clang_build_version >= 1500
 
+    # We set `ARROW_ORC=OFF` because it fails to build with Protobuf 27.0
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DLLVM_ROOT=#{llvm.opt_prefix}
@@ -62,7 +64,7 @@ class ApacheArrow < Formula
       -DARROW_GANDIVA=ON
       -DARROW_HDFS=ON
       -DARROW_JSON=ON
-      -DARROW_ORC=ON
+      -DARROW_ORC=OFF
       -DARROW_PARQUET=ON
       -DARROW_PROTOBUF_USE_SHARED=ON
       -DARROW_S3=ON
