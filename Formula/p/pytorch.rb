@@ -6,7 +6,7 @@ class Pytorch < Formula
   url "https://github.com/pytorch/pytorch/releases/download/v2.2.0/pytorch-v2.2.0.tar.gz"
   sha256 "e12d18c3dbb12d7ae2f61f5ab9a21023e3dd179d67ed87279ef96600b9ac08c5"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
 
   livecheck do
     url :stable
@@ -27,6 +27,7 @@ class Pytorch < Formula
   depends_on "ninja" => :build
   depends_on "python@3.12" => [:build, :test]
   depends_on xcode: :build
+  depends_on "abseil"
   depends_on "eigen"
   depends_on "libuv"
   depends_on "libyaml"
