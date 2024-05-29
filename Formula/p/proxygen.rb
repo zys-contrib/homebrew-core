@@ -1,8 +1,8 @@
 class Proxygen < Formula
   desc "Collection of C++ HTTP libraries"
   homepage "https://github.com/facebook/proxygen"
-  url "https://github.com/facebook/proxygen/releases/download/v2024.05.06.00/proxygen-v2024.05.06.00.tar.gz"
-  sha256 "e461ef198412defd4d0ff4445bf27462e7fd310747b31b93e3c29bd7ad84e1fb"
+  url "https://github.com/facebook/proxygen/releases/download/v2024.06.10.00/proxygen-v2024.06.10.00.tar.gz"
+  sha256 "a2bebfcab5107d6abf477e0bb8d391cbc8801c497bb851f2441767fc03cc7755"
   license "BSD-3-Clause"
   head "https://github.com/facebook/proxygen.git", branch: "main"
 
@@ -17,13 +17,13 @@ class Proxygen < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "mvfst" => :build
   depends_on "boost"
   depends_on "fizz"
   depends_on "fmt"
   depends_on "folly"
   depends_on "gflags"
   depends_on "libsodium"
+  depends_on "mvfst"
   depends_on "openssl@3"
   depends_on "wangle"
   depends_on "zstd"
