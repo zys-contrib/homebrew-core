@@ -1,14 +1,14 @@
 class Inform6 < Formula
   desc "Design system for interactive fiction"
   homepage "https://inform-fiction.org/inform6.html"
-  url "http://ifarchive.org/if-archive/infocom/compilers/inform6/source/inform-6.42-r1.tar.gz"
+  url "https://ifarchive.org/if-archive/infocom/compilers/inform6/source/inform-6.42-r1.tar.gz"
   version "6.42-r1"
   sha256 "25968c840e0cf9f0e0939dad582268906f49fdad7e1501cbefe571013e0f810a"
   license "Artistic-2.0"
   head "https://gitlab.com/DavidGriffith/inform6unix.git", branch: "master"
 
   livecheck do
-    url "http://ifarchive.org/if-archive/infocom/compilers/inform6/source/"
+    url "https://ifarchive.org/if-archive/infocom/compilers/inform6/source/"
     regex(/href=.*?inform[._-]v?(\d+(?:[.-]\d+)+(?:[._-]r\d+)?)\.t/i)
   end
 
