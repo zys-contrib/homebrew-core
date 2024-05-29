@@ -1,8 +1,8 @@
 class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
-  url "https://github.com/facebook/watchman/archive/refs/tags/v2024.05.06.00.tar.gz"
-  sha256 "456fb61eacd9296bd452ef030b9727a1470933a31f326bdaddb52a59b2feef16"
+  url "https://github.com/facebook/watchman/archive/refs/tags/v2024.06.10.00.tar.gz"
+  sha256 "b440440b3447b5a36f5823fc93dd69dfb63f7d0cf4c4801a3756fe9489a0ee16"
   license "MIT"
   head "https://github.com/facebook/watchman.git", branch: "main"
 
@@ -23,7 +23,6 @@ class Watchman < Formula
   depends_on "cpptoml" => :build
   depends_on "edencommon" => :build
   depends_on "googletest" => :build
-  depends_on "mvfst" => :build
   depends_on "pkg-config" => :build
   depends_on "python-setuptools" => :build
   depends_on "rust" => :build
@@ -36,6 +35,7 @@ class Watchman < Formula
   depends_on "glog"
   depends_on "libevent"
   depends_on "libsodium"
+  depends_on "mvfst"
   depends_on "openssl@3"
   depends_on "pcre2"
   depends_on "python@3.12"
