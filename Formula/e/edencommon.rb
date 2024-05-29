@@ -1,8 +1,8 @@
 class Edencommon < Formula
   desc "Shared library for Watchman and Eden projects"
   homepage "https://github.com/facebookexperimental/edencommon"
-  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2024.05.06.00.tar.gz"
-  sha256 "02238f2a05e46f8189bf6826057b642f7aa03bd36684a245a900f8b6dc4afb7e"
+  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2024.06.10.00.tar.gz"
+  sha256 "2b3b749e0b4457f90f9ccd08d6bb49de4abeb38f29311f60cd2af689da4f4424"
   license "MIT"
   head "https://github.com/facebookexperimental/edencommon.git", branch: "main"
 
@@ -18,13 +18,13 @@ class Edencommon < Formula
 
   depends_on "cmake" => :build
   depends_on "googletest" => :build
-  depends_on "mvfst" => :build
   depends_on "fb303"
   depends_on "fbthrift"
   depends_on "folly"
   depends_on "gflags"
   depends_on "glog"
   depends_on "libsodium"
+  depends_on "mvfst"
   depends_on "openssl@3"
   depends_on "wangle"
 
