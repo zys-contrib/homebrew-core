@@ -1,8 +1,8 @@
 class Mvfst < Formula
   desc "QUIC transport protocol implementation"
   homepage "https://github.com/facebookincubator/mvfst"
-  url "https://github.com/facebookincubator/mvfst/archive/refs/tags/v2024.05.06.00.tar.gz"
-  sha256 "9bfbdf7a73fdaf2e135050a9efccec577be1590e8ecbb262543a78fea14424b5"
+  url "https://github.com/facebookincubator/mvfst/archive/refs/tags/v2024.06.10.00.tar.gz"
+  sha256 "cc75889429a66463cc8e607ba09d584fb4e6d2e69b1127a538043b367c54a1ae"
   license "MIT"
   head "https://github.com/facebookincubator/mvfst.git", branch: "main"
 
@@ -27,10 +27,12 @@ class Mvfst < Formula
   depends_on "openssl@3"
 
   def install
+    shared_args = ["-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}"]
+    shared_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup" if OS.mac?
     system "cmake", "-S", ".", "-B", "_build",
                     "-DBUILD_TESTS=OFF",
                     "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
-                    *std_cmake_args
+                    *shared_args, *std_cmake_args
     system "cmake", "--build", "_build"
     system "cmake", "--install", "_build"
   end
