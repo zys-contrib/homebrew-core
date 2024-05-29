@@ -1,8 +1,8 @@
 class Fizz < Formula
   desc "C++14 implementation of the TLS-1.3 standard"
   homepage "https://github.com/facebookincubator/fizz"
-  url "https://github.com/facebookincubator/fizz/releases/download/v2024.05.06.00/fizz-v2024.05.06.00.tar.gz"
-  sha256 "8392773f029f7a0a596942ad668d2f07a15e09ecd1c565ee61e58f0e65d67673"
+  url "https://github.com/facebookincubator/fizz/releases/download/v2024.06.10.00/fizz-v2024.06.10.00.tar.gz"
+  sha256 "84d6dfa32370412d2a7c6fa5a66ad26d124a633e9c1f2cdfbd85e881bae72302"
   license "BSD-3-Clause"
   head "https://github.com/facebookincubator/fizz.git", branch: "main"
 
@@ -31,13 +31,6 @@ class Fizz < Formula
   depends_on "zstd"
 
   fails_with gcc: "5"
-
-  # Fix build failure.
-  # https://github.com/facebookincubator/fizz/pull/116
-  patch do
-    url "https://github.com/facebookincubator/fizz/commit/d1757073d2695415963195aeed02443e9b94649b.patch?full_index=1"
-    sha256 "a18cf51af20b45e6a1149cd54f64f2cc3a7cb6ca703e5ed6a564c90c77ad9e96"
-  end
 
   def install
     system "cmake", "-S", "fizz", "-B", "build",
