@@ -4,7 +4,7 @@ class Libbi < Formula
   url "https://github.com/lawmurray/LibBi/archive/refs/tags/1.4.5.tar.gz"
   sha256 "af2b6d30e1502f99a3950d63ceaf7d7275a236f4d81eff337121c24fbb802fbe"
   license "GPL-2.0-only"
-  revision 4
+  revision 5
   head "https://github.com/lawmurray/LibBi.git", branch: "master"
 
   bottle do
@@ -127,6 +127,14 @@ class Libbi < Formula
     end
 
     resource("thrust").stage { (include/"thrust").install Dir["thrust/*"] }
+
+    # make Homebrew packages discoverable for compilation/linking
+    inreplace "share/configure.ac" do |s|
+      cppflags = s.get_make_var("CPPFLAGS").delete('"')
+      ldflags = s.get_make_var("LDFLAGS").delete('"')
+      s.change_make_var! "CPPFLAGS", "\"#{cppflags} -I#{HOMEBREW_PREFIX}/include\""
+      s.change_make_var! "LDFLAGS", "\"#{ldflags} -L#{HOMEBREW_PREFIX}/lib\""
+    end
 
     system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "INSTALLSITESCRIPT=#{bin}"
 
