@@ -1473,6 +1473,7 @@ mfem
 micro
 micromamba
 micronaut
+micropython
 microsocks
 mighttpd2
 mill
