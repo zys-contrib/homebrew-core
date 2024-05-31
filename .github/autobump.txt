@@ -949,6 +949,7 @@ gossip
 gostatic
 gosu
 got
+gotestsum
 gotestwaf
 gotpm
 govc
