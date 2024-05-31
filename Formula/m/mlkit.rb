@@ -12,10 +12,10 @@ class Mlkit < Formula
   end
 
   bottle do
-    sha256 sonoma:       "acac8b822a94932815fac507151554a7d0c6be378b51a1d3911e837de142138a"
-    sha256 ventura:      "a04578933968b94132e149505203cfba2f978e74d0b21f9bd011b0e9c8649d55"
-    sha256 monterey:     "046c60a758960f9cd5d6864e4da3a76ec496e13da734577f6ac405185bdecc37"
-    sha256 x86_64_linux: "e09dcf348415255b807f09e617bd2ee7b21c8c3dfdeb7ada585b980060eeae74"
+    sha256 sonoma:       "f2377eb6bc298f6d74952c162ac42a63ceaf065482d394618c7a3ae4ea9f2948"
+    sha256 ventura:      "d892893970977c99a7dacfa4baf40125e5f3bbfe0fb98c2bf40dfe8f28741e76"
+    sha256 monterey:     "5a2f3026a252bc8f692839d091c565fbddbea8e22769badc517b21f7c71c1ece"
+    sha256 x86_64_linux: "6fdf329df0ef660895e2cbf172104b0a5bd0716118081c266789c83f5cbdf332"
   end
 
   depends_on "autoconf" => :build
