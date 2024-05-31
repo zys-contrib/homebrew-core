@@ -1004,6 +1004,7 @@ hadoop
 halide
 hapi-fhir-cli
 haproxy
+haproxy@2.8
 harfbuzz
 haskell-language-server
 haskell-stack
