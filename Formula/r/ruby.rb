@@ -14,6 +14,11 @@ class Ruby < Formula
     resource "rubygems" do
       url "https://rubygems.org/rubygems/rubygems-3.5.9.tgz"
       sha256 "2b203642191e6bb9ece19075f62275a88526319b124684c46667415dca4363f1"
+
+      livecheck do
+        url "https://rubygems.org/pages/download"
+        regex(/href=.*?rubygems[._-]v?(\d+(?:\.\d+)+)\.t/i)
+      end
     end
   end
 
