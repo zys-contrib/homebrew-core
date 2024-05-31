@@ -1,8 +1,8 @@
 class MediaInfo < Formula
   desc "Unified display of technical and tag data for audio/video"
   homepage "https://mediaarea.net/"
-  url "https://mediaarea.net/download/binary/mediainfo/24.04/MediaInfo_CLI_24.04_GNU_FromSource.tar.bz2"
-  sha256 "05a12f991ac2a275c64f9944d5012548dc768339c677b530b6ee473cc1d501e4"
+  url "https://mediaarea.net/download/binary/mediainfo/24.05/MediaInfo_CLI_24.05_GNU_FromSource.tar.bz2"
+  sha256 "b208a1c975caed95b66af81174cc74c304efe9a63ce68a47e006efe8d87cd1e3"
   license "BSD-2-Clause"
   head "https://github.com/MediaArea/MediaInfo.git", branch: "master"
 
