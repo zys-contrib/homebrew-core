@@ -990,6 +990,7 @@ gtk-gnutella
 gtk+3
 gtk4
 gtkmm4
+gtksourceview5
 gtranslator
 gucharmap
 gulp-cli
