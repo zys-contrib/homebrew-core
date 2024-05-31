@@ -1747,6 +1747,7 @@ pdftk-java
 pdm
 pdns
 pdnsrec
+pedump
 perl
 perltidy
 pfetch-rs
