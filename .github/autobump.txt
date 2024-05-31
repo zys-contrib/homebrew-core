@@ -242,6 +242,7 @@ bupstash
 busted
 butane
 bwa
+bwfmetaedit
 byacc
 byobu
 byteman
