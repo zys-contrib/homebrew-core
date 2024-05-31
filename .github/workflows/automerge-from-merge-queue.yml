@@ -19,20 +19,12 @@ env:
   GH_PROMPT_DISABLED: 1
 
 jobs:
-  debug:
-    runs-on: ubuntu-latest
-    if: always()
-    steps:
-      - run: |
-          echo "workflow_run.conclusion = ${{ github.event.workflow_run.conclusion }}"
-          echo "workflow_run.event      = ${{ github.event.workflow_run.event }}"
-
   status-check:
     runs-on: ubuntu-latest
     if: >
       github.repository_owner == 'Homebrew' &&
       github.event.workflow_run.conclusion != 'success' &&
-      github.event.workflow_run.event == 'merge_queue'
+      github.event.workflow_run.event == 'merge_group'
     outputs:
       pull-number: ${{ steps.pr.outputs.number }}
       publishable: ${{ steps.check-labels.outputs.publishable }}
