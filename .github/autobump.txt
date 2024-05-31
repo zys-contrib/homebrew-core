@@ -1668,6 +1668,7 @@ opencl-icd-loader
 opendetex
 opendht
 openexr
+openfa
 openfast
 openfga
 openfortivpn
