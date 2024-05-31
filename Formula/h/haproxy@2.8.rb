@@ -10,6 +10,16 @@ class HaproxyAT28 < Formula
     regex(/href=.*?haproxy[._-]v?(2\.8(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "0e87ff40bc52b27f3092587eb146088f0a2001955aa593888a4b980969d79de8"
+    sha256 cellar: :any,                 arm64_ventura:  "9097e1a1e762e2786ae0ca1518d6f5e0140ef9059b7230565ae0032d776f7756"
+    sha256 cellar: :any,                 arm64_monterey: "237e7951c019a459194a7e4130f383392b4d60039050cbe412fbba8de85dd3e5"
+    sha256 cellar: :any,                 sonoma:         "7a1366c470499a8597ac3922c836db54e115ce46437df072cf5629706c92fe49"
+    sha256 cellar: :any,                 ventura:        "7086eb033df6e3c6efa50d6707e06259ea0a0f45e013ddecd546c435444a8000"
+    sha256 cellar: :any,                 monterey:       "236ec94341a17dc8ada809c5bfefe4d4d17b58d0ad5bb1d51e499d09d6038948"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e931b569fe026381165b5e790f9df6dd15db113ebf03f07332b6822b608457d4"
+  end
+
   keg_only :versioned_formula
 
   # https://www.haproxy.org/
