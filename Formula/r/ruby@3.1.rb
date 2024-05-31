@@ -6,7 +6,7 @@ class RubyAT31 < Formula
   license "Ruby"
 
   livecheck do
-    url "https://www.ruby-lang.org/en/downloads/"
+    url "https://www.ruby-lang.org/en/downloads/releases/"
     regex(/href=.*?ruby[._-]v?(3\.1(?:\.\d+)+)\.t/i)
   end
 
