@@ -2242,6 +2242,7 @@ template-glib
 tendermint
 tengo
 tenv
+terminator
 termshark
 terracognita
 terraform-inventory
