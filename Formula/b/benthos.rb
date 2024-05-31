@@ -1,10 +1,10 @@
 class Benthos < Formula
   desc "Stream processor for mundane tasks written in Go"
-  homepage "https://www.benthos.dev"
-  url "https://github.com/benthosdev/benthos/archive/refs/tags/v4.27.0.tar.gz"
-  sha256 "f196b90d1df54641110f9ac04e7b82c079190495e1a26785056cc9bd8abd2e09"
+  homepage "https://github.com/redpanda-data/benthos"
+  url "https://github.com/redpanda-data/benthos/archive/refs/tags/v4.28.1.tar.gz"
+  sha256 "779e59a1c3d53c0cbb49382b2c8e57338022696fdb69f189cd43c36959ce4249"
   license "MIT"
-  head "https://github.com/benthosdev/benthos.git", branch: "main"
+  head "https://github.com/redpanda-data/benthos.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9453f921c00364cfb6bc8efcf7dbeb6da3f4630bf49d6866fa830e472fa2295d"
@@ -19,8 +19,7 @@ class Benthos < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "VERSION=#{version}"
-    bin.install "target/bin/benthos"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/benthos"
   end
 
   test do
