@@ -1,8 +1,8 @@
 class GrafanaAgent < Formula
   desc "Exporter for Prometheus Metrics, Loki Logs, and Tempo Traces"
   homepage "https://grafana.com/docs/agent/"
-  url "https://github.com/grafana/agent/archive/refs/tags/v0.40.5.tar.gz"
-  sha256 "621d64f4e4600fdf19292ac0fcb37f3413e561988993997c6503a75eb91afd88"
+  url "https://github.com/grafana/agent/archive/refs/tags/v0.41.0.tar.gz"
+  sha256 "461df99f8d3fb241e1ce1e5400a35f67aacad01d57db391301f398419aa1df1d"
   license "Apache-2.0"
 
   bottle do
@@ -26,16 +26,16 @@ class GrafanaAgent < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/grafana/agent/pkg/build.Branch=HEAD
-      -X github.com/grafana/agent/pkg/build.Version=v#{version}
-      -X github.com/grafana/agent/pkg/build.BuildUser=#{tap.user}
-      -X github.com/grafana/agent/pkg/build.BuildDate=#{time.iso8601}
+      -X github.com/grafana/agent/internal/build.Branch=HEAD
+      -X github.com/grafana/agent/internal/build.Version=v#{version}
+      -X github.com/grafana/agent/internal/build.BuildUser=#{tap.user}
+      -X github.com/grafana/agent/internal/build.BuildDate=#{time.iso8601}
     ]
     args = std_go_args(ldflags:) + %w[-tags=builtinassets,noebpf]
 
     # Build the UI, which is baked into the final binary when the builtinassets
     # tag is set.
-    cd "web/ui" do
+    cd "internal/web/ui" do
       system "yarn"
       system "yarn", "run", "build"
     end
