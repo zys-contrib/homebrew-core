@@ -1,8 +1,8 @@
 class TerraformDocs < Formula
   desc "Tool to generate documentation from Terraform modules"
   homepage "https://github.com/terraform-docs/terraform-docs"
-  url "https://github.com/terraform-docs/terraform-docs/archive/refs/tags/v0.17.0.tar.gz"
-  sha256 "698537c9cc170f8760cda862d560bfeaa24f2a705bbc70c22a8facbf05a829e0"
+  url "https://github.com/terraform-docs/terraform-docs/archive/refs/tags/v0.18.0.tar.gz"
+  sha256 "ed4c51a8f8be8f9cf5117331005b200d807f362604447ddeb6781c744e5f4743"
   license "MIT"
 
   bottle do
