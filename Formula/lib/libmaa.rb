@@ -1,8 +1,8 @@
 class Libmaa < Formula
   desc "Low-level data structures including hash tables, sets, lists"
-  homepage "http://www.dict.org/"
-  url "https://downloads.sourceforge.net/project/dict/libmaa/libmaa-1.4.7/libmaa-1.4.7.tar.gz"
-  sha256 "4e01a9ebc5d96bc9284b6706aa82bddc2a11047fa9bd02e94cf8753ec7dcb98e"
+  homepage "https://dict.org/bin/Dict"
+  url "https://downloads.sourceforge.net/project/dict/libmaa/libmaa-1.5.1/libmaa-1.5.1.tar.gz"
+  sha256 "3a30e25f038e99c4715125545516490d991fe3a505825cc832b1a956e31bf669"
   license "MIT"
   head "https://github.com/cheusov/libmaa.git", branch: "master"
 
