@@ -6,7 +6,13 @@ class Pmd < Formula
   license "BSD-4-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "8cab947b4f6623dc3c1640d15ca207ddc17250fe120f686ce1d623d5dfb690b4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f8947acf64627ef6dde887d3b9faa5a16ebf81504d0964d29b7d8698b0ceb7dd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f8947acf64627ef6dde887d3b9faa5a16ebf81504d0964d29b7d8698b0ceb7dd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f8947acf64627ef6dde887d3b9faa5a16ebf81504d0964d29b7d8698b0ceb7dd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f8947acf64627ef6dde887d3b9faa5a16ebf81504d0964d29b7d8698b0ceb7dd"
+    sha256 cellar: :any_skip_relocation, ventura:        "f8947acf64627ef6dde887d3b9faa5a16ebf81504d0964d29b7d8698b0ceb7dd"
+    sha256 cellar: :any_skip_relocation, monterey:       "f8947acf64627ef6dde887d3b9faa5a16ebf81504d0964d29b7d8698b0ceb7dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "084d5f8d7cb841daa6880f350e1d8e4564c1ed294a57761a001316044df74c40"
   end
 
   depends_on "openjdk"
