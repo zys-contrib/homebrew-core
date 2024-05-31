@@ -1,8 +1,8 @@
 class Rdkit < Formula
   desc "Open-source chemoinformatics library"
   homepage "https://rdkit.org/"
-  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2024_03_2.tar.gz"
-  sha256 "63d33aa44dba1f37a303f6d125cb02bdb0755fb65ac0f0c75b56d775798605cf"
+  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2024_03_3.tar.gz"
+  sha256 "52f79c6bf1d446cdb5c86a35de655d96bad0c52a5f4ecbe15f08eaf334e6f76a"
   license "BSD-3-Clause"
   head "https://github.com/rdkit/rdkit.git", branch: "master"
 
@@ -24,11 +24,13 @@ class Rdkit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0109b5ac1d4df5b9d61a8732d2b8c46988f2268d98fab95f05826451c6a727e6"
   end
 
+  depends_on "catch2" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "swig" => :build
   depends_on "boost"
   depends_on "boost-python3"
+  depends_on "cairo"
   depends_on "eigen"
   depends_on "freetype"
   depends_on "numpy"
