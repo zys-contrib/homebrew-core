@@ -6,13 +6,13 @@ class Libchewing < Formula
   license "LGPL-2.1-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "2dc3ecc2bed611df306ce6ca74922d631d9e832b036663ed0d802f512dd319ed"
-    sha256 cellar: :any,                 arm64_ventura:  "3016e913c1fd5f87bc1e1b60955f58b96305e0e11243edf577e52a1e4bdf3a26"
-    sha256 cellar: :any,                 arm64_monterey: "c10a1c9a3245c157d8098867d0b0efc40d8778df9db3c69fb5a6bbe4d7065a76"
-    sha256 cellar: :any,                 sonoma:         "611bbc2315e7228a2deef89cc161a2d99ed826960b185865f7277b766152aa70"
-    sha256 cellar: :any,                 ventura:        "2e04b74f0ee6d81f56797d99fbe18b0771686d17d9709174760c6c2bf65c7616"
-    sha256 cellar: :any,                 monterey:       "8912cfbde607c76d60f58547f18217a5eaaef780f76208a369aabd23354bfb35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f47bcdc7cf36ccec22f25d3f2074e5876e666408bc7029e5d25ed28ded350550"
+    sha256 cellar: :any,                 arm64_sonoma:   "7f1a299fcae44b3ff5c4b857e7218ea8b9ec689eec261a7787efce48084a99e7"
+    sha256 cellar: :any,                 arm64_ventura:  "39f8feb5a332fb7e5c5ccf7a7c34f2962ea06af11821dc2a797d6d6a9f44c6eb"
+    sha256 cellar: :any,                 arm64_monterey: "c5d4c657ae42255346a6948686c6c133be6759b074fac940e666d7fe06a6ab47"
+    sha256 cellar: :any,                 sonoma:         "72f4a959c958f5cc3857cc70e993130c946932fa720a45cb7fc35ec2f2eafa8a"
+    sha256 cellar: :any,                 ventura:        "7fadf43898c394b03850e0135cb4bcf1e49503d624ac67107f5f5467c3be1542"
+    sha256 cellar: :any,                 monterey:       "7fb74f41c2c0709f5167733b54bf7a533848b02d2d03d4c6abffe7ccdbd4557a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b1c2e758831df267ae0a6245a69a2002086bc26ce7ee30be9e5c1a9d55e1252"
   end
 
   depends_on "cmake" => :build
