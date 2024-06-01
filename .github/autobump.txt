@@ -2121,6 +2121,7 @@ solana
 solhint
 sollya
 solr
+sonar-scanner
 sonarqube
 sonarqube-lts
 sonobuoy
