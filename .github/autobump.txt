@@ -2055,6 +2055,7 @@ sh4d0wup
 shaderc
 shadowenv
 shadowsocks-rust
+shairport-sync
 sheldon
 shell2http
 shellcheck
