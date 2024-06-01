@@ -1,8 +1,8 @@
 class Libchewing < Formula
   desc "Intelligent phonetic input method library"
   homepage "https://chewing.im/"
-  url "https://github.com/chewing/libchewing/releases/download/v0.8.3/libchewing-0.8.3.tar.zst"
-  sha256 "6c8734eb3e5bbb7e9ba407d1315ffdaa8770e4c21fca835fb045329ef7fd3a1c"
+  url "https://github.com/chewing/libchewing/releases/download/v0.8.4/libchewing-0.8.4.tar.zst"
+  sha256 "c272e85c9aff03265db08641cac25709b9faf45b4602e04ea6cb39317103b3fa"
   license "LGPL-2.1-only"
 
   bottle do
@@ -30,12 +30,6 @@ class Libchewing < Formula
   patch do
     url "https://github.com/chewing/libchewing/commit/b21ff8f118e6138b795da4d37026712516a12676.patch?full_index=1"
     sha256 "13d64e23d42c0549117bc2f6239cd09da03d17d2f8015a81fb1a3307aeaf708f"
-  end
-  # cmake build patch, https://github.com/chewing/libchewing/pull/576
-  # remove in 0.8.4 release
-  patch do
-    url "https://github.com/chewing/libchewing/commit/633977ad822deab43d5563112638d701a6bc9279.patch?full_index=1"
-    sha256 "be099a6e70839b7f1fdc49b24ab618a149890dbfc4a4bff9543ae4ce12a7b818"
   end
 
   def install
