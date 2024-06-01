@@ -1,8 +1,8 @@
 class Killport < Formula
   desc "Command-line tool to kill processes listening on a specific port"
   homepage "https://github.com/jkfran/killport"
-  url "https://github.com/jkfran/killport/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "c98625b94f658979d82f5d1fa563d8380a35e2155f13e435639bd32d4d5656f7"
+  url "https://github.com/jkfran/killport/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "07bdc3d36b0cefd9c03c78a04fea46e5e9f487942c99cd70fcaf71676c45bf16"
   license "MIT"
 
   bottle do
