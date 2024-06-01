@@ -1,8 +1,8 @@
 class Overtls < Formula
   desc "Simple proxy tunnel for bypassing the GFW"
   homepage "https://github.com/ShadowsocksR-Live/overtls"
-  url "https://github.com/ShadowsocksR-Live/overtls/archive/refs/tags/v0.2.25.tar.gz"
-  sha256 "e295665dc139eee0cf174086b6f24359a8706408a0cf5d94a01e4ca677874555"
+  url "https://github.com/ShadowsocksR-Live/overtls/archive/refs/tags/v0.2.26.tar.gz"
+  sha256 "3ffcdad396848559ac8f300c0d66d7f07713b1c200602943267ce18ced62fb34"
   license "MIT"
   head "https://github.com/ShadowsocksR-Live/overtls.git", branch: "master"
 
@@ -17,6 +17,12 @@ class Overtls < Formula
   end
 
   depends_on "rust" => :build
+
+  # version patch, upstream pr ref, https://github.com/ShadowsocksR-Live/overtls/pull/57
+  patch do
+    url "https://github.com/ShadowsocksR-Live/overtls/commit/33db5c7b33b0884f92b559f21b566de0751bf701.patch?full_index=1"
+    sha256 "710c30129d490cccb65ebc9023dada0e0072b0e07b3e26686cd3f80ce14e4180"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args
