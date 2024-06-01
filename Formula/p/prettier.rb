@@ -9,7 +9,13 @@ class Prettier < Formula
   head "https://github.com/prettier/prettier.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "31b9dd40c1df1c293950570fdbddef08bcd16654c602cbd0c028739dc76e90f2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "33c81840f9c28c88666b44c22eef14416c41871041c79b9eb369add35b857614"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "33c81840f9c28c88666b44c22eef14416c41871041c79b9eb369add35b857614"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "33c81840f9c28c88666b44c22eef14416c41871041c79b9eb369add35b857614"
+    sha256 cellar: :any_skip_relocation, sonoma:         "33c81840f9c28c88666b44c22eef14416c41871041c79b9eb369add35b857614"
+    sha256 cellar: :any_skip_relocation, ventura:        "33c81840f9c28c88666b44c22eef14416c41871041c79b9eb369add35b857614"
+    sha256 cellar: :any_skip_relocation, monterey:       "33c81840f9c28c88666b44c22eef14416c41871041c79b9eb369add35b857614"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b0cdaffdc7bd1af6150b504029a5827e7d71c132d09601abf0253569b0d10f9"
   end
 
   depends_on "node"
