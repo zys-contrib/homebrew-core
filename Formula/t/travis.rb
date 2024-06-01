@@ -6,13 +6,13 @@ class Travis < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "2f65f4d4c87f7e495738447c4611e3185daae3843c43598c7a6579813b031b23"
-    sha256 cellar: :any,                 arm64_ventura:  "97f5a55d76e5705fbd115b1245e3d3298ac5aa264ff6c11fe8d95f4edd246624"
-    sha256 cellar: :any,                 arm64_monterey: "806951224f44ededcaa6133aa5a327f25b23fcd12eca6680f686070a1c0792dc"
-    sha256 cellar: :any,                 sonoma:         "525ce73c6bf2b3eab4656b1698acebef0b8b5478d987d898e9b4116585dbbb34"
-    sha256 cellar: :any,                 ventura:        "6268c5e6afda03121560a8fe7070161a51345a116b3edb2f2c8d1c576656bf99"
-    sha256 cellar: :any,                 monterey:       "94175386e959e0bf8aaa1400dca6d198059334541a04b58d72a6dff465f2afac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b18c8115c15be6aecd5784e38cc18676fe81a6dc095ea51bf5c5fea8b3ad8648"
+    sha256 cellar: :any,                 arm64_sonoma:   "5766618d480fb76e3005eba00f3a7a7ed5a7d51dfc324371d72babe0c4ff3910"
+    sha256 cellar: :any,                 arm64_ventura:  "159636202070bdb08a71e8536d3f3fec6a1c1cb2337f7e7155541069eae7db65"
+    sha256 cellar: :any,                 arm64_monterey: "d29494581f310f89b031c7890aa97f543135142ab5358b4822354091c6691c25"
+    sha256 cellar: :any,                 sonoma:         "644741937292acf07e3906cb16e5da38f6f38a3f1b3a5b4b6635e228f5b785ec"
+    sha256 cellar: :any,                 ventura:        "8608c07f7223723636ff0f0006e581ca79b192aa43bb4c1a7463f208e7f5efb1"
+    sha256 cellar: :any,                 monterey:       "259c73779364bf1ffa6e4742697f16909f84499180cf30b153ee38d146126e7e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c12a3598e9cfdf75556100cbd028916085d5de6c6f49c9d50c27f8c5935fe6b"
   end
 
   depends_on "pkg-config" => :build
