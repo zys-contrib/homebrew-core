@@ -1,8 +1,8 @@
 class WoodpeckerCli < Formula
   desc "CLI client for the Woodpecker Continuous Integration server"
   homepage "https://woodpecker-ci.org/"
-  url "https://github.com/woodpecker-ci/woodpecker/archive/refs/tags/v2.4.1.tar.gz"
-  sha256 "0d0d86a2cb776a9c0389d683b82274aee68d9ec308468035b071cafae500c9ce"
+  url "https://github.com/woodpecker-ci/woodpecker/archive/refs/tags/v2.5.0.tar.gz"
+  sha256 "54dc09cb1e1b9670bce1e0730a5b19eccd2494f381b0026b13cd1339bdf3607c"
   license "Apache-2.0"
   head "https://github.com/woodpecker-ci/woodpecker.git", branch: "main"
 
@@ -25,7 +25,7 @@ class WoodpeckerCli < Formula
 
   test do
     output = shell_output("#{bin}/woodpecker-cli info 2>&1", 1)
-    assert_match "woodpecker-cli is not setup", output
+    assert_match "woodpecker-cli is not yet set up", output
 
     output = shell_output("#{bin}/woodpecker-cli lint 2>&1", 1)
     assert_match "could not detect pipeline config", output
