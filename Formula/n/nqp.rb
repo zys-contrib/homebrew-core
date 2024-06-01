@@ -1,8 +1,8 @@
 class Nqp < Formula
   desc "Lightweight Raku-like environment for virtual machines"
   homepage "https://github.com/Raku/nqp"
-  url "https://github.com/Raku/nqp/releases/download/2024.04/nqp-2024.04.tar.gz"
-  sha256 "cea588b0c7c0c03095541989383fef509b78f5ad4ab0657a32baeab6579b8ae9"
+  url "https://github.com/Raku/nqp/releases/download/2024.05/nqp-2024.05.tar.gz"
+  sha256 "74304a2781bb681ec0be97a45a9d4002e263ec00cc624f0350b217b6c0abbe82"
   license "Artistic-2.0"
 
   livecheck do
