@@ -1,8 +1,8 @@
 class Goaccess < Formula
   desc "Log analyzer and interactive viewer for the Apache Webserver"
   homepage "https://goaccess.io/"
-  url "https://tar.goaccess.io/goaccess-1.9.2.tar.gz"
-  sha256 "4064234320ab8248ee7a3575b36781744ff7c534a9dbc2de8b2d1679f10ae41d"
+  url "https://tar.goaccess.io/goaccess-1.9.3.tar.gz"
+  sha256 "49f0ee49e3c4a95f5f75f6806b0406746fcbf2f9ad971cae23e2ea95d3ec7837"
   license "MIT"
   head "https://github.com/allinurl/goaccess.git", branch: "master"
 
@@ -26,6 +26,8 @@ class Goaccess < Formula
   depends_on "gettext"
   depends_on "libmaxminddb"
   depends_on "tokyo-cabinet"
+
+  uses_from_macos "ncurses"
 
   def install
     ENV.append_path "PATH", Formula["gettext"].bin
