@@ -4,7 +4,7 @@ class Siril < Formula
   url "https://free-astro.org/download/siril-1.2.1.tar.bz2"
   sha256 "b1b44e9334df137bea5a73d9a84ebe71072bf622c63020a2a7a5536ecff1cd91"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
   head "https://gitlab.com/free-astro/siril.git", branch: "master"
 
   bottle do
