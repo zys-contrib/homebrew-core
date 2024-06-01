@@ -1,8 +1,8 @@
 class Rakudo < Formula
   desc "Mature, production-ready implementation of the Raku language"
   homepage "https://rakudo.org"
-  url "https://github.com/rakudo/rakudo/releases/download/2024.04/rakudo-2024.04.tar.gz"
-  sha256 "c9a8e470c2d203e42ba7115a2c0a0ee8006f0377993de8ec34d2dfa1359c6a89"
+  url "https://github.com/rakudo/rakudo/releases/download/2024.05/rakudo-2024.05.tar.gz"
+  sha256 "26be283bee73c696bd5089e07cad5ec6d79c7f65f9b422fbc7aca75321ee1f16"
   license "Artistic-2.0"
 
   livecheck do
@@ -22,6 +22,7 @@ class Rakudo < Formula
 
   depends_on "libtommath"
   depends_on "libuv"
+  depends_on "moarvm"
   depends_on "nqp"
   depends_on "zstd"
 
