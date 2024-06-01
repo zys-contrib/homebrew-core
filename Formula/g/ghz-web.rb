@@ -1,8 +1,8 @@
 class GhzWeb < Formula
   desc "Web interface for ghz"
   homepage "https://ghz.sh"
-  url "https://github.com/bojand/ghz/archive/refs/tags/v0.118.0.tar.gz"
-  sha256 "179bbc7ee390a6485074cc3c6ed8c2be141e386ba3a24e2b739c0d14ce60215a"
+  url "https://github.com/bojand/ghz/archive/refs/tags/v0.120.0.tar.gz"
+  sha256 "e058b1dc3aa09ca7594a79f92bad3b481c4193a0db31b2ac310b54ad802b2580"
   license "Apache-2.0"
 
   livecheck do
@@ -23,8 +23,8 @@ class GhzWeb < Formula
   depends_on xcode: :build
 
   def install
-    ENV["CGO_ENABLED"] = "1"
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "cmd/ghz-web/main.go"
+    ldflags = "-s -w -X main.version=#{version}"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/ghz-web"
   end
 
   test do
