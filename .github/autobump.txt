@@ -2309,6 +2309,7 @@ trafilatura
 translate-toolkit
 transmission-cli
 trash-cli
+travis
 tree
 tree-sitter
 triangle
