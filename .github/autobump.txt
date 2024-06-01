@@ -1300,6 +1300,7 @@ libksba
 liblc3
 liblinear
 liblouis
+libmaa
 libmatio
 libmicrohttpd
 libmxml
