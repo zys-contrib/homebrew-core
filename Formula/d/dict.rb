@@ -4,6 +4,7 @@ class Dict < Formula
   url "https://downloads.sourceforge.net/project/dict/dictd/dictd-1.13.1/dictd-1.13.1.tar.gz"
   sha256 "e4f1a67d16894d8494569d7dc9442c15cc38c011f2b9631c7f1cc62276652a1b"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     rebuild 1
@@ -24,6 +25,9 @@ class Dict < Formula
   uses_from_macos "zlib"
 
   def install
+    # Workaround for Xcode 14.3
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     ENV["LIBTOOL"] = "glibtool"
     system "./configure", *std_configure_args,
                           "--sysconfdir=#{etc}",
