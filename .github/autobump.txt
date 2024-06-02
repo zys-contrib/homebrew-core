@@ -753,6 +753,7 @@ file-roller
 filebeat
 findent
 findomain
+findutils
 fio
 firebase-cli
 firefoxpwa
