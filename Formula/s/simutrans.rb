@@ -1,10 +1,9 @@
 class Simutrans < Formula
   desc "Transport simulator"
   homepage "https://www.simutrans.com/"
-  url "svn://servers.simutrans.org/simutrans/trunk/", revision: "11164"
-  version "124.0"
+  url "svn://servers.simutrans.org/simutrans/trunk/", revision: "11266"
+  version "124.1"
   license "Artistic-1.0"
-  revision 1
   head "https://github.com/simutrans/simutrans.git", branch: "master"
 
   livecheck do
@@ -29,6 +28,7 @@ class Simutrans < Formula
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "libpng"
+  depends_on "miniupnpc"
   depends_on "sdl2"
   depends_on "zstd"
 
@@ -40,8 +40,8 @@ class Simutrans < Formula
   fails_with gcc: "5"
 
   resource "pak64" do
-    url "https://downloads.sourceforge.net/project/simutrans/pak64/124-0/simupak64-124-0.zip"
-    sha256 "0defc5e7ce4c2c3620b621d94d0735dacc3ff13b1af24dee3a127ca76603b2a3"
+    url "https://downloads.sourceforge.net/project/simutrans/pak64/124-1/simupak64-124-1.zip"
+    sha256 "5a70e8ad28c3fa25474388dd2a197e76d769f3f78f8a33052b32ad83fe1a4efd"
   end
   resource "soundfont" do
     url "https://src.fedoraproject.org/repo/pkgs/PersonalCopy-Lite-soundfont/PCLite.sf2/629732b7552c12a8fae5b046d306273a/PCLite.sf2"
@@ -52,7 +52,7 @@ class Simutrans < Formula
     # These translations are dynamically generated.
     system "./tools/get_lang_files.sh"
 
-    system "cmake", "-B", "build", "-S", ".", *std_cmake_args, "-DSIMUTRANS_USE_REVISION=#{version}"
+    system "cmake", "-B", "build", "-S", ".", *std_cmake_args, "-DSIMUTRANS_USE_REVISION=#{stable.specs[:revision]}"
     system "cmake", "--build", "build"
     system "cmake", "--build", "build", "--target", "makeobj"
     system "cmake", "--build", "build", "--target", "nettool"
