@@ -3,8 +3,8 @@ class Ns3 < Formula
 
   desc "Discrete-event network simulator"
   homepage "https://www.nsnam.org/"
-  url "https://gitlab.com/nsnam/ns-3-dev/-/archive/ns-3.41/ns-3-dev-ns-3.41.tar.gz"
-  sha256 "1b11d609e26cfb684404e77f44a3951f4d238220618b0bdbfc766a701c1cc5a8"
+  url "https://gitlab.com/nsnam/ns-3-dev/-/archive/ns-3.42/ns-3-dev-ns-3.42.tar.gz"
+  sha256 "c31f8e7615ffe55b31f9592f4ea04c6516c3e6855a58480f897fb1169650131b"
   license "GPL-2.0-only"
 
   bottle do
@@ -43,10 +43,9 @@ class Ns3 < Formula
   end
 
   test do
-    system ENV.cxx, pkgshare/"first.cc", "-I#{include}", "-L#{lib}",
+    system ENV.cxx, "-std=c++20", "-o", "test", pkgshare/"first.cc", "-I#{include}", "-L#{lib}",
            "-lns#{version}-core", "-lns#{version}-network", "-lns#{version}-internet",
-           "-lns#{version}-point-to-point", "-lns#{version}-applications",
-           "-std=c++17", "-o", "test"
+           "-lns#{version}-point-to-point", "-lns#{version}-applications"
     system "./test"
   end
 end
