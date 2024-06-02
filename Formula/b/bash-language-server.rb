@@ -3,8 +3,8 @@ require "language/node"
 class BashLanguageServer < Formula
   desc "Language Server for Bash"
   homepage "https://github.com/bash-lsp/bash-language-server"
-  url "https://registry.npmjs.org/bash-language-server/-/bash-language-server-5.3.3.tgz"
-  sha256 "a199ba7527574eb6f0c6adb0e15ec057f388b378d38c77fbc6f30afc92275c67"
+  url "https://registry.npmjs.org/bash-language-server/-/bash-language-server-5.3.4.tgz"
+  sha256 "dc9adfbf30ccf3db011dfe9a9466d0d913942cea27e8a3063c00f0b89bf367d3"
   license "MIT"
 
   bottle do
