@@ -1,8 +1,8 @@
 class Jnv < Formula
   desc "Interactive JSON filter using jq"
   homepage "https://github.com/ynqa/jnv"
-  url "https://github.com/ynqa/jnv/archive/refs/tags/v0.2.3.tar.gz"
-  sha256 "87338cb8b3f8fbcfcfa4380ebeb3aa86e39f3bce57149f845ea76c9087e58f21"
+  url "https://github.com/ynqa/jnv/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "4cbb0700b3b1c4212c97edca577039abf4ea238ca8c966978825d537f13f8885"
   license "MIT"
   head "https://github.com/ynqa/jnv.git", branch: "main"
 
