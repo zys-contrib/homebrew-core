@@ -131,6 +131,7 @@ aws-nuke
 aws-rotate-key
 aws-sam-cli
 aws-sso-cli
+aws-sso-util
 awscli
 awscli@1
 awscurl
