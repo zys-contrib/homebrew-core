@@ -3,8 +3,8 @@ class Pipx < Formula
 
   desc "Execute binaries from Python packages in isolated environments"
   homepage "https://pipx.pypa.io"
-  url "https://files.pythonhosted.org/packages/97/a2/901a10ebedc68c12e686ac79f2d981fb748dd41fc54414bc408e502b8db0/pipx-1.5.0.tar.gz"
-  sha256 "2371af2b772954cdb5c1dbfa0170219e3d2c09d9ff9b18e975f65562eeb7ab0a"
+  url "https://files.pythonhosted.org/packages/2d/f3/c04c5cd0a5795fe6bb09d56c4892384e53cb75813fc08e5cbfa4d080664a/pipx-1.6.0.tar.gz"
+  sha256 "840610e00103e3d49ae24b6b51804b60988851a5dd65468adb71e5a97e2699b2"
   license "MIT"
   head "https://github.com/pypa/pipx.git", branch: "main"
 
@@ -21,8 +21,8 @@ class Pipx < Formula
   depends_on "python@3.12"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/3c/c0/031c507227ce3b715274c1cd1f3f9baf7a0f7cec075e22c7c8b5d4e468a9/argcomplete-3.2.3.tar.gz"
-    sha256 "bf7900329262e481be5a15f56f19736b376df6f82ed27576fa893652c5de6c23"
+    url "https://files.pythonhosted.org/packages/79/51/fd6e293a64ab6f8ce1243cf3273ded7c51cbc33ef552dce3582b6a15d587/argcomplete-3.3.0.tar.gz"
+    sha256 "fd03ff4a5b9e6580569d34b273f741e85cd9e072f3feeeee3eba4891c70eda62"
   end
 
   resource "click" do
@@ -36,8 +36,8 @@ class Pipx < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/96/dc/c1d911bf5bb0fdc58cc05010e9f3efe3b67970cef779ba7fbc3183b987a8/platformdirs-4.2.0.tar.gz"
-    sha256 "ef0cc731df711022c174543cb70a9b5bd22e5a9337c8624ef2c2ceb8ddad8768"
+    url "https://files.pythonhosted.org/packages/f5/52/0763d1d976d5c262df53ddda8d8d4719eedf9594d046f117c25a27261a19/platformdirs-4.2.2.tar.gz"
+    sha256 "38b7b51f512eed9e84a22788b4bce1de17c0adb134d6becb09836e37d8654cd3"
   end
 
   resource "userpath" do
