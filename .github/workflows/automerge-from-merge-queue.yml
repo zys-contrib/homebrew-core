@@ -36,6 +36,15 @@ jobs:
       pull-requests: read
       actions: read
     steps:
+      - name: Upload metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: event_payload
+          path: ${{ github.event_path }}
+
+      - name: Dump metadata
+        run: jq . "$GITHUB_EVENT_PATH"
+
       - name: Get PR number
         id: pr
         env:
