@@ -1,9 +1,9 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://mkvtoolnix.download/"
-  url "https://mkvtoolnix.download/sources/mkvtoolnix-84.0.tar.xz"
-  mirror "https://fossies.org/linux/misc/mkvtoolnix-84.0.tar.xz"
-  sha256 "e9176dea435c3b06b4716fb131d53c8f2621977576ccc4aee8ff9050c0d9ea7a"
+  url "https://mkvtoolnix.download/sources/mkvtoolnix-85.0.tar.xz"
+  mirror "https://fossies.org/linux/misc/mkvtoolnix-85.0.tar.xz"
+  sha256 "702442c80706c7c770ac04f7b4eed7a57e9e03ead6c5e6e90b9655dd84c8d829"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -48,6 +48,7 @@ class Mkvtoolnix < Formula
 
   uses_from_macos "libxslt" => :build
   uses_from_macos "ruby" => :build
+  uses_from_macos "zlib"
 
   fails_with gcc: "5"
 
