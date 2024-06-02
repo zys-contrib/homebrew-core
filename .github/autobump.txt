@@ -345,6 +345,7 @@ checkov
 checkstyle
 cherrytree
 chezmoi
+chibi-scheme
 chkrootkit
 choose-rust
 chroma
