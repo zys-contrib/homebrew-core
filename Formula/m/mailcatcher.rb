@@ -6,14 +6,13 @@ class Mailcatcher < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256                               arm64_sonoma:   "c85d5f3a0c97e3b7b7e357d917669be97b353d905455c1c747879866280d08f7"
-    sha256                               arm64_ventura:  "fd7fa603aabb411b81c707f49b22897c787e2f86065caf2c5d61b3c6bb939e9f"
-    sha256                               arm64_monterey: "6c09858a458e3199bae7e7dba6c86fd60e9b9a893f14f97faee71a0a2763bc83"
-    sha256                               sonoma:         "b00ed7cd9a86d74ee3c82026bc15e9f26559344709aaae343ed2175070d2f3a9"
-    sha256                               ventura:        "db0aff94dc9b18f0a3e673da85c5b45a7d035433ba02837c20672e89df34fd62"
-    sha256                               monterey:       "5745336d4646f97b2fa877bfab48aa698a8dcb32ed5d12f04b452c36ec1437d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5837b1a898a930baa899624efb0b957365c14bfebdeaed8cd3c9cb11e555986"
+    sha256 cellar: :any,                 arm64_sonoma:   "b1e3e8c79312f8a9cfc995ebf3323750c1673da1bcc46129a516124575dd4116"
+    sha256 cellar: :any,                 arm64_ventura:  "48ba775de03b394c5c7981e4e990094c1e7d98781af790f0658d8596f6126250"
+    sha256 cellar: :any,                 arm64_monterey: "72fd292521f629a91abc5a99d386689e263553cee6fe70be5ed87f1feec8a3cd"
+    sha256 cellar: :any,                 sonoma:         "c9df904bb52b0d9d3f0e4ef939d2b213fc9de876ade935ac59a215962754ee10"
+    sha256 cellar: :any,                 ventura:        "989284e497267b0c55b25e7102650703d7938d4f0ac985c1cf44f62deb930bab"
+    sha256 cellar: :any,                 monterey:       "30f848d4cbd189a75d7870b2ac8a78b6f411076c82530e24e1930d5c16819b4c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c70607653632478ba936cb62f56377dc9e17670f453e4018ea39694a15cd2837"
   end
 
   depends_on "pkg-config" => :build
