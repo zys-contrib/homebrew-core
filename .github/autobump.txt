@@ -1398,6 +1398,7 @@ lndir
 localstack
 locust
 log4cxx
+logrotate
 logstash
 lout
 lsd
