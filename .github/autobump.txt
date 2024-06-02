@@ -1791,6 +1791,7 @@ pip-tools
 pipdeptree
 pipenv
 pipgrip
+pipx
 pixi
 pkgconf
 pkl
