@@ -22,7 +22,6 @@ class Eksctl < Formula
   depends_on "go-bindata" => :build
   depends_on "ifacemaker" => :build
   depends_on "mockery" => :build
-  depends_on "aws-iam-authenticator"
 
   def install
     ENV["GOBIN"] = HOMEBREW_PREFIX/"bin"
