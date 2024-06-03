@@ -1,8 +1,8 @@
 class Ugrep < Formula
   desc "Ultra fast grep with query UI, fuzzy search, archive search, and more"
   homepage "https://ugrep.com/"
-  url "https://github.com/Genivia/ugrep/archive/refs/tags/v6.0.0.tar.gz"
-  sha256 "ee155c8561747b1f694e1cf4a064c2e4d504094d0714e908e3f9ea2ac9b7a9aa"
+  url "https://github.com/Genivia/ugrep/archive/refs/tags/v6.1.0.tar.gz"
+  sha256 "587ebb694dd3d2f5bef9f35df5b9e196b89da981cfe1084539e55b8d9a62fd65"
   license "BSD-3-Clause"
 
   bottle do
@@ -20,6 +20,9 @@ class Ugrep < Formula
   depends_on "pcre2"
   depends_on "xz"
   depends_on "zstd"
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--enable-color",
