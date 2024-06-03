@@ -2504,6 +2504,7 @@ yamale
 yamlfmt
 yamllint
 yara
+yara-x
 yash
 ydiff
 ykman
