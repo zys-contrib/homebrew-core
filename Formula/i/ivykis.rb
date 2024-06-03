@@ -1,8 +1,8 @@
 class Ivykis < Formula
   desc "Async I/O-assisting library"
   homepage "https://sourceforge.net/projects/libivykis/"
-  url "https://github.com/buytenh/ivykis/archive/refs/tags/v0.43-trunk.tar.gz"
-  sha256 "29174b99f45a39bea13f79079d5e17dd58bb800f62e78b44de044715d13d4bdb"
+  url "https://github.com/buytenh/ivykis/archive/refs/tags/v0.43.1-trunk.tar.gz"
+  sha256 "49b61734b8e5393b720f77258e8cf296e3b4a69cb895316412119b43f645751e"
   license "LGPL-2.1-only"
 
   livecheck do
