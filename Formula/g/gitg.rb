@@ -41,7 +41,7 @@ class Gitg < Formula
   depends_on "libgit2"
   depends_on "libgit2-glib"
   depends_on "libhandy"
-  depends_on "libpeas"
+  depends_on "libpeas@1"
   depends_on "libsecret"
 
   def install
