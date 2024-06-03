@@ -1485,6 +1485,7 @@ liquidprompt
 lit
 litecli
 literate-git
+litmusctl
 little-cms2
 livekit
 livekit-cli
