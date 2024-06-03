@@ -107,9 +107,7 @@ jobs:
           publishable=true
           while IFS='' read -r label
           do
-            if [[ "$label" = "new formula" ]] ||
-               [[ "$label" = "automerge-skip" ]] ||
-               [[ "$label" = "pre-release" ]] ||
+            if [[ "$label" = "pre-release" ]] ||
                [[ "$label" = "CI-published-bottle-commits" ]]
             then
               publishable=false
