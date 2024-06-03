@@ -42,7 +42,7 @@ class Gedit < Formula
   depends_on "gtk+3"
   depends_on "libgedit-amtk"
   depends_on "libgedit-gtksourceview"
-  depends_on "libpeas"
+  depends_on "libpeas@1"
   depends_on "libsoup"
   depends_on "libxml2"
   depends_on "pango"
@@ -65,6 +65,7 @@ class Gedit < Formula
 
   test do
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["icu4c"].opt_lib/"pkgconfig" if OS.mac?
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libpeas@1"].opt_lib/"pkgconfig"
 
     # main executable test
     system bin/"gedit", "--version"
