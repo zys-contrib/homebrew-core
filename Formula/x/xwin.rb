@@ -1,8 +1,8 @@
 class Xwin < Formula
   desc "Microsoft CRT and Windows SDK headers and libraries loader"
   homepage "https://github.com/Jake-Shadle/xwin"
-  url "https://github.com/Jake-Shadle/xwin/archive/refs/tags/0.5.2.tar.gz"
-  sha256 "96f58c79e87a3ebf8c9b707907c6f2cb915958704761e2a22c377ed730ccb0e3"
+  url "https://github.com/Jake-Shadle/xwin/archive/refs/tags/0.6.0.tar.gz"
+  sha256 "f6fb9a9a4e78ae00426aa7faa90f60408dd581990c831e4d571be3eb1df92bf5"
   license "Apache-2.0"
 
   bottle do
