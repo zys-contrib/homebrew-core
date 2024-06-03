@@ -6,6 +6,16 @@ class YaraX < Formula
   license "BSD-3-Clause"
   head "https://github.com/VirusTotal/yara-x.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "93c0d6b8b0bc61256b4a8baa69f0c0012f8318280de87a05f621138a4dc4703b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "af45dd347dc467923f00a59cf8349362442a1cb2fd74e73df922a5c3566830b7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "28f88c471c3634ebfc0debc607258c35db6faf854f18392d5cc53e61ed05946d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2ec9af4a00acaf8c49d2ce00a529cd63ea61abe9e207c71b747b97439dde63bb"
+    sha256 cellar: :any_skip_relocation, ventura:        "cd1172c6efe3b7076f20037495e1b217690d77fb76e939b728ee75cb79f460bd"
+    sha256 cellar: :any_skip_relocation, monterey:       "817ae76b912458610e79d387d7e45bd8d76e095332901dc06736c314e4afebdb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "827535c006de0ebd9281bab2d013f5a8ab26c41f95dc146c9ac3241f6abc98be"
+  end
+
   depends_on "rust" => :build
 
   def install
