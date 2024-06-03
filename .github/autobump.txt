@@ -2209,6 +2209,7 @@ superfile
 suricata
 svgbob
 svgo
+svlint
 svt-av1
 svtplay-dl
 swagger-codegen
