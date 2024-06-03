@@ -2391,6 +2391,7 @@ verapdf
 vercel-cli
 verovio
 vet
+vexctl
 vfox
 vgmstream
 vgrep
