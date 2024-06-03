@@ -1686,6 +1686,7 @@ openfpgaloader
 openh264
 openimageio
 openiothub-server
+openj9
 openjdk
 openjdk@11
 openjdk@17
