@@ -1,10 +1,9 @@
 class Libpeas < Formula
   desc "GObject plugin library"
   homepage "https://wiki.gnome.org/Projects/Libpeas"
-  url "https://download.gnome.org/sources/libpeas/1.36/libpeas-1.36.0.tar.xz"
-  sha256 "297cb9c2cccd8e8617623d1a3e8415b4530b8e5a893e3527bbfd1edd13237b4c"
+  url "https://download.gnome.org/sources/libpeas/2.0/libpeas-2.0.2.tar.xz"
+  sha256 "f30dffed63ca2f40477b40e171c0a31f80d91425ba1e1e47320ee6425480ecc3"
   license "LGPL-2.1-or-later"
-  revision 1
 
   bottle do
     sha256 arm64_sonoma:   "249a30363c03546d15f68df7d8c3f0fe102effb6bac4b5ee3af6c1c57266eef5"
@@ -20,6 +19,7 @@ class Libpeas < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
+  depends_on "gjs"
   depends_on "glib"
   depends_on "gobject-introspection"
   depends_on "gtk+3"
@@ -32,11 +32,10 @@ class Libpeas < Formula
     inreplace "meson.build", "'python3-embed'", "'python-#{pyver}-embed'"
 
     args = %w[
+      -Dlua51=false
       -Dpython3=true
       -Dintrospection=true
       -Dvapi=true
-      -Dwidgetry=true
-      -Ddemos=false
     ]
 
     system "meson", "setup", "build", *args, *std_meson_args
@@ -46,7 +45,7 @@ class Libpeas < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
-      #include <libpeas/peas.h>
+      #include <libpeas.h>
 
       int main(int argc, char *argv[]) {
         PeasObjectModule *mod = peas_object_module_new("test", "test", FALSE);
@@ -62,7 +61,7 @@ class Libpeas < Formula
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gobject_introspection.opt_include}/gobject-introspection-1.0
-      -I#{include}/libpeas-1.0
+      -I#{include}/libpeas-2
       -I#{libffi.opt_lib}/libffi-3.0.13/include
       -D_REENTRANT
       -L#{gettext.opt_lib}
@@ -74,7 +73,7 @@ class Libpeas < Formula
       -lglib-2.0
       -lgmodule-2.0
       -lgobject-2.0
-      -lpeas-1.0
+      -lpeas-2
     ]
     flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
