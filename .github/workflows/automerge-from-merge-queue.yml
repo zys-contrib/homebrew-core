@@ -49,15 +49,16 @@ jobs:
         id: pr
         env:
           GH_TOKEN: ${{ github.token }}
-          WORKFLOW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
+          WORKFLOW_RUN_NODE_ID: ${{ github.event.workflow_run.node_id }}
           QUERY: |-
-            query($url: URI!) {
-              resource(url: $url) {
+            query($id: ID!) {
+              node(id: $id) {
                 ... on WorkflowRun {
                   checkSuite {
                     commit {
                       parents(last: 2) {
                         nodes {
+                          oid
                           associatedPullRequests(last: 1) {
                             nodes {
                               number
@@ -72,13 +73,20 @@ jobs:
             }
         run: |
           # Get the latest PR associated with the second parent of the merge commit created for the merge_group.
-          number="$(
+          head_commit_data="$(
             gh api graphql \
-              --field url="$WORKFLOW_RUN_URL" \
+              --field id="$WORKFLOW_RUN_NODE_ID" \
               --raw-field query="$QUERY" \
-              --jq '.data.resource.checkSuite.commit.parents.nodes |
-                      last.associatedPullRequests.nodes[].number'
+              --jq '.data.node.checkSuite.commit.parents.nodes | last'
           )"
+          number="$(jq --raw-output '.associatedPullRequests.nodes[].number' <<<"$head_commit_data")"
+
+          # Fall back to using the commit SHA if the associated PR is not available from the GraphQL API.
+          if [[ -z "$number" ]]
+          then
+            commit_sha="$(jq --raw-output '.oid' <<<"$head_commit_data")"
+            number="$(gh pr list --search "$commit_sha" --state open --limit 1 --json number --jq '.[].number')"
+          fi
 
           if [[ -z "$number" ]]
           then
