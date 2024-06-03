@@ -1,8 +1,8 @@
 class Jackett < Formula
   desc "API Support for your favorite torrent trackers"
   homepage "https://github.com/Jackett/Jackett"
-  url "https://github.com/Jackett/Jackett/archive/refs/tags/v0.21.2943.tar.gz"
-  sha256 "af7cebca32ae574727da027db0a8a502b9960e4b64eabe665a8f33b76cfb42a6"
+  url "https://github.com/Jackett/Jackett/archive/refs/tags/v0.22.43.tar.gz"
+  sha256 "9df23859b93fbecd996f728a9f1eceefb1e3d5ed36f62ca0ebae71d5fd21bf16"
   license "GPL-2.0-only"
   head "https://github.com/Jackett/Jackett.git", branch: "master"
 
@@ -14,10 +14,10 @@ class Jackett < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "822bff83a4d704255d2b9d0a59a66912028d6f2f300e872d2873ea7c5ea1eb8d"
   end
 
-  depends_on "dotnet@6"
+  depends_on "dotnet"
 
   def install
-    dotnet = Formula["dotnet@6"]
+    dotnet = Formula["dotnet"]
     os = OS.mac? ? "osx" : OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
 
