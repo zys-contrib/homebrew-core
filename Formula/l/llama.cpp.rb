@@ -3,8 +3,8 @@ class LlamaCpp < Formula
   homepage "https://github.com/ggerganov/llama.cpp"
   # CMake uses Git to generate version information.
   url "https://github.com/ggerganov/llama.cpp.git",
-      tag:      "b3078",
-      revision: "bde7cd3cd949c1a85d3a199498ac98e78039d46f"
+      tag:      "b3080",
+      revision: "3b38d48609280aa5f8ab7ea135a4351b2a5ee240"
   license "MIT"
   head "https://github.com/ggerganov/llama.cpp.git", branch: "master"
 
