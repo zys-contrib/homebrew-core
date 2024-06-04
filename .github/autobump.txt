@@ -1521,6 +1521,7 @@ mods
 modsecurity
 mold
 molecule
+mongo-c-driver
 mongo-cxx-driver
 mongocli
 mongodb-atlas-cli
