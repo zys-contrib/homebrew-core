@@ -8,7 +8,13 @@ class Mvnvm < Formula
   head "https://bitbucket.org/mjensen/mvnvm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "24779d38d6951058a609d6819b97a6cc01ca9220848ea78587fcc427209453c2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ce257f2b19fca7291f6ba8c2d0b691be868e3547b5bcf7ebe630cd616b835e5f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ce257f2b19fca7291f6ba8c2d0b691be868e3547b5bcf7ebe630cd616b835e5f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ce257f2b19fca7291f6ba8c2d0b691be868e3547b5bcf7ebe630cd616b835e5f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ce257f2b19fca7291f6ba8c2d0b691be868e3547b5bcf7ebe630cd616b835e5f"
+    sha256 cellar: :any_skip_relocation, ventura:        "ce257f2b19fca7291f6ba8c2d0b691be868e3547b5bcf7ebe630cd616b835e5f"
+    sha256 cellar: :any_skip_relocation, monterey:       "ce257f2b19fca7291f6ba8c2d0b691be868e3547b5bcf7ebe630cd616b835e5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c337aaf385ce221759c33e6564f01057c65d06116d2c0770a6d675e714f42666"
   end
 
   depends_on "openjdk"
