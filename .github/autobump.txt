@@ -2142,6 +2142,7 @@ source-to-image
 sourcekitten
 sourcery
 spack
+spades
 spatialindex
 spectral-cli
 spglib
