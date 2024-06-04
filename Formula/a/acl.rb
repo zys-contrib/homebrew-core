@@ -14,7 +14,7 @@ class Acl < Formula
     sha256 x86_64_linux: "1396de40585eeb80034e800377c3dcd69d26550ea39d29152145ea4a79174e94"
   end
 
-  depends_on "attr"
+  depends_on "attr" => :build
   depends_on :linux
 
   def install
