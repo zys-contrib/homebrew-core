@@ -2,8 +2,8 @@ class Mvnvm < Formula
   desc "Maven version manager"
   # upstream homepage bug report, https://bitbucket.org/mjensen/mvnvm/issues/41/https-mvnvmorg-is-not-reachable
   homepage "https://bitbucket.org/mjensen/mvnvm/"
-  url "https://bitbucket.org/mjensen/mvnvm/get/mvnvm-1.0.26.tar.gz"
-  sha256 "9f3572114ae983b24c5bd36e2ef5124daa606298be33986e726b79fcd44d486c"
+  url "https://bitbucket.org/mjensen/mvnvm/get/mvnvm-1.0.27.tar.gz"
+  sha256 "0199150051bb195bc1cafe6a9be5455f5fb21e7c9ac6585f619c613c9f05e425"
   license "Apache-2.0"
   head "https://bitbucket.org/mjensen/mvnvm.git", branch: "master"
 
