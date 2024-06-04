@@ -1,9 +1,9 @@
 class OpensslAT30 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-3.0.13.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.0.13.tar.gz"
-  sha256 "88525753f79d3bec27d2fa7c66aa0b92b3aa9498dafd93d7cfa4b3780cdae313"
+  url "https://www.openssl.org/source/openssl-3.0.14.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.0.14.tar.gz"
+  sha256 "eeca035d4dd4e84fc25846d952da6297484afa0650a6f84c682e39df3a4123ca"
   license "Apache-2.0"
 
   livecheck do
@@ -28,15 +28,15 @@ class OpensslAT30 < Formula
 
   on_linux do
     resource "Test::Harness" do
-      url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.44.tar.gz"
-      mirror "http://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.44.tar.gz"
-      sha256 "7eb591ea6b499ece6745ff3e80e60cee669f0037f9ccbc4e4511425f593e5297"
+      url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.49_01.tar.gz"
+      mirror "http://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.49_01.tar.gz"
+      sha256 "0607cf6c34d6afe9f48b3e33ac75dbf229d99609709a559af4173284c54dfbde"
     end
 
     resource "Test::More" do
-      url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302195.tar.gz"
-      mirror "http://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302195.tar.gz"
-      sha256 "b390bb23592e0b946c95adbb3c30b11bc634a286b2847be611ad929c57e39a6c"
+      url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302199.tar.gz"
+      mirror "http://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302199.tar.gz"
+      sha256 "7b4b03cee7f9e928fe10e8a3efef02b2a286f0877979694b2a9ef99250bd8c5c"
     end
 
     resource "ExtUtils::MakeMaker" do
@@ -65,12 +65,6 @@ class OpensslAT30 < Formula
       args += (ENV.ldflags || "").split
     end
     args
-  end
-
-  # Fixes CVE-2024-2511. Remove in next release.
-  patch do
-    url "https://github.com/openssl/openssl/commit/b52867a9f618bb955bed2a3ce3db4d4f97ed8e5d.patch?full_index=1"
-    sha256 "6f36d0980ddbd7d40c34cb1a340fc1f726a91d7e75573806a77ae0778af37989"
   end
 
   def install
