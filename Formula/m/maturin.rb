@@ -1,8 +1,8 @@
 class Maturin < Formula
   desc "Build and publish Rust crates as Python packages"
   homepage "https://github.com/PyO3/maturin"
-  url "https://github.com/PyO3/maturin/archive/refs/tags/v1.5.1.tar.gz"
-  sha256 "18198cc9421d04933586b9730abcdd80fe3484e209d2b8223aa7dc1f12c4c3fe"
+  url "https://github.com/PyO3/maturin/archive/refs/tags/v1.6.0.tar.gz"
+  sha256 "10809d4df85532cb70d9f186117cac8b2d2fa9b03c8f2fb53a8dc8a531f5afeb"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/PyO3/maturin.git", branch: "main"
 
@@ -18,6 +18,8 @@ class Maturin < Formula
 
   depends_on "python@3.12" => :test
   depends_on "rust"
+
+  uses_from_macos "bzip2"
 
   def install
     # Work around an Xcode 15 linker issue which causes linkage against LLVM's
