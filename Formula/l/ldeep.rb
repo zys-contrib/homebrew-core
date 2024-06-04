@@ -3,8 +3,8 @@ class Ldeep < Formula
 
   desc "LDAP enumeration utility"
   homepage "https://github.com/franc-pentest/ldeep"
-  url "https://files.pythonhosted.org/packages/35/a5/52af77c7a347757c9890dcfbb10f5e13e8ef778dbc2cb8ff18cfc66c462e/ldeep-1.0.56.tar.gz"
-  sha256 "bff4b348eecc80f307771cc0d49ec2f497430bdda9fbb78252455ade4c35eb00"
+  url "https://files.pythonhosted.org/packages/27/d5/09356660bfc2a8db767445c61fcff2e13b6a61c8dba47d4012ac6d78d4c1/ldeep-1.0.57.tar.gz"
+  sha256 "97bbec604cb4e8c25752f0032dccd36e9ca920598033c00a1dbefcf54fd4f0f8"
   license "MIT"
   head "https://github.com/franc-pentest/ldeep.git", branch: "master"
 
@@ -88,9 +88,6 @@ class Ldeep < Formula
     sha256 "e4d936c9de8727928f3be6079590e97d9abfe8d39a590be678eb5919ffc186bb"
   end
 
-  # add missing VERSION file, upstream pr ref, https://github.com/franc-pentest/ldeep/pull/78
-  patch :DATA
-
   def install
     virtualenv_install_with_resources
   end
@@ -100,29 +97,3 @@ class Ldeep < Formula
     assert_match "[!] Unable to open connection with ldap://127.0.0.1:389", output
   end
 end
-
-__END__
-diff --git a/VERSION b/VERSION
-new file mode 100644
-index 0000000..ed453e6
---- /dev/null
-+++ b/VERSION
-@@ -0,0 +1 @@
-+1.0.56
-diff --git a/pyproject.toml b/pyproject.toml
-index fcb3ac1..8b58514 100644
---- a/pyproject.toml
-+++ b/pyproject.toml
-@@ -45,6 +45,12 @@ Homepage = "https://github.com/franc-pentest/ldeep"
- [project.scripts]
- ldeep = "ldeep.__main__:main"
-
-+[tool.pdm.build]
-+includes = [
-+    "ldeep/**",
-+    "VERSION",
-+]
-+
- [tool.pdm.version]
- source = "call"
- getter = "ldeep:get_version"
