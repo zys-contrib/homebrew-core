@@ -744,6 +744,7 @@ feishu2md
 felinks
 fend
 fennel
+fern-api
 feroxbuster
 ffmpeg
 ffms2
