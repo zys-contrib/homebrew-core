@@ -3,8 +3,8 @@ class Ansible < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://files.pythonhosted.org/packages/e4/85/23d1a1884f8c6bd437edc5a0f55709c77250f357a198469d8060071237f9/ansible-9.6.0.tar.gz"
-  sha256 "58732a4ad74a746d299ecfa48b7a91cb217e2c0bd3a44493f2d9f29af2f3ab61"
+  url "https://files.pythonhosted.org/packages/f8/f4/9b52e828afa340c7d610ff35246e89bee3ca163dd2fe021db13142b2830c/ansible-10.0.0.tar.gz"
+  sha256 "6257efa3b4989f99cf85a4f51fdf941f52e0c40b29aa3677ff07f0a3cf34b0f1"
   license "GPL-3.0-or-later"
   head "https://github.com/ansible/ansible.git", branch: "devel"
 
@@ -41,8 +41,8 @@ class Ansible < Formula
   end
 
   resource "ansible-core" do
-    url "https://files.pythonhosted.org/packages/6b/1b/6a9e9012b250b9f13680eaabaf9ec5eae51622a1c519a851046d0eac4e3b/ansible_core-2.16.7.tar.gz"
-    sha256 "a8c8f4facba30514571d47abec5c62a5768b86fef3d80d724911c8f20b7b34b7"
+    url "https://files.pythonhosted.org/packages/a7/e5/956a16811044c28663d88740932de9c3fbbe2ec14fabe86a69b3cfe4842b/ansible_core-2.17.0.tar.gz"
+    sha256 "bd16e30ecac405dac594de3e1b1b4d9cc6fa1a9f7a01a6a8d4c471b20660716d"
   end
 
   resource "ansible-pylibssh" do
@@ -71,13 +71,13 @@ class Ansible < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/ee/b4/8fc1043365aa5bf1056426acda0b15b38551b669eaec5ed3cd019c6b4c8b/boto3-1.34.114.tar.gz"
-    sha256 "eeb11bca9b19d12baf93436fb8a16b8b824f1f7e8b9bcc722607e862c46b1b08"
+    url "https://files.pythonhosted.org/packages/2e/88/e95f657115c3117316076065a2fd54da5ea3c2ef6ac3fbcaf80e7e8797d9/boto3-1.34.118.tar.gz"
+    sha256 "4eb8019421cb664a6fcbbee6152aa95a28ce8bbc1c4ee263871c09cdd58bf8ee"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/4c/7c/0a169bb7389625b97c95daed070e807a6e89580f013ba422a65a635d11c1/botocore-1.34.114.tar.gz"
-    sha256 "5705f74fda009656a218ffaf4afd81228359160f2ab806ab8222d07e9da3a73b"
+    url "https://files.pythonhosted.org/packages/b9/eb/4142b054eec03b2b6954a9bdae95b28a58f8dc292561fd4bcc254fcee214/botocore-1.34.118.tar.gz"
+    sha256 "0a3d1ec0186f8b516deb39474de3d226d531f77f92a0f56ad79b80219db3ae9e"
   end
 
   resource "cachetools" do
@@ -221,8 +221,8 @@ class Ansible < Formula
   end
 
   resource "ntc-templates" do
-    url "https://files.pythonhosted.org/packages/69/da/31a8500430f3527f82423499dfe89bc03624aa2af0baa89802c3b883e05c/ntc_templates-5.0.0.tar.gz"
-    sha256 "56919fbe83da582de03474f8a204d945dadeef0c98e630743c3c069a9bcf1120"
+    url "https://files.pythonhosted.org/packages/a6/20/6cc8564322c713d8ebecab26cf25c7a0e99265b56c32c3d79c0868022638/ntc_templates-5.1.0.tar.gz"
+    sha256 "820583f35a8d7411c86b70635a6acd65ce357b8bc19e1f408ce836eac30a6371"
   end
 
   resource "oauthlib" do
@@ -406,8 +406,8 @@ class Ansible < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/86/ec/535bf6f9bd280de6a4637526602a146a68fde757100ecf8c9333173392db/requests-2.32.2.tar.gz"
-    sha256 "dd951ff5ecf3e3b3aa26b40703ba77495dab41da839ae72ef3c8e5d8e2433289"
+    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
+    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
   end
 
   resource "requests-credssp" do
