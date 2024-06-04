@@ -2,8 +2,8 @@ class Mavsdk < Formula
   desc "API and library for MAVLink compatible systems written in C++17"
   homepage "https://mavsdk.mavlink.io"
   url "https://github.com/mavlink/MAVSDK.git",
-      tag:      "v2.11.0",
-      revision: "11f569bbae3dc4c807bb1e80db121779401d912b"
+      tag:      "v2.12.2",
+      revision: "e6de742abc41b6f3717ec1df0749dc151247be03"
   license "BSD-3-Clause"
 
   livecheck do
@@ -53,7 +53,7 @@ class Mavsdk < Formula
   # MAVLINK_GIT_HASH in https://github.com/mavlink/MAVSDK/blob/v#{version}/third_party/mavlink/CMakeLists.txt
   resource "mavlink" do
     url "https://github.com/mavlink/mavlink.git",
-        revision: "9840105a275db1f48f9711d0fb861e8bf77a2245"
+        revision: "f1d42e2774cae767a1c0651b0f95e3286c587257"
   end
 
   def install
