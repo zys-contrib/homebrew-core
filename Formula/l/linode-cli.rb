@@ -3,10 +3,9 @@ class LinodeCli < Formula
 
   desc "CLI for the Linode API"
   homepage "https://github.com/linode/linode-cli"
-  url "https://files.pythonhosted.org/packages/b7/81/1d3f969f9ebd99bc80c052e87234269ef63e8deef9c9a8bc1561766bed4d/linode_cli-5.49.1.tar.gz"
-  sha256 "7609390dbccb72967481ac43e76f2a92c253ac8bb501a6628b77404187573b63"
+  url "https://files.pythonhosted.org/packages/6d/ca/358b725ddcf59706bb8b83fb794d8f72d598561f423944564c9b827ae198/linode_cli-5.50.0.tar.gz"
+  sha256 "3829ceec17f6b439c2e20ee4612d1616557da65012db919bcd13ba9a90d86319"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/linode/linode-cli.git", branch: "main"
 
   bottle do
@@ -24,8 +23,8 @@ class LinodeCli < Formula
   depends_on "python@3.12"
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/db/4d/3970183622f0330d3c23d9b8a5f52e365e50381fd484d08e3285104333d3/anyio-4.3.0.tar.gz"
-    sha256 "f75253795a87df48568485fd18cdd2a3fa5c4f7c5be8e5e36637733fce06fed6"
+    url "https://files.pythonhosted.org/packages/e6/e3/c4c8d473d6780ef1853d630d581f70d655b4f8d7553c6997958c283039a2/anyio-4.4.0.tar.gz"
+    sha256 "5aadc6a1bbb7cdb0bede386cac5e2940f5e2ff3aa20277e991cf028e0585ce94"
   end
 
   resource "charset-normalizer" do
@@ -89,8 +88,8 @@ class LinodeCli < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/86/ec/535bf6f9bd280de6a4637526602a146a68fde757100ecf8c9333173392db/requests-2.32.2.tar.gz"
-    sha256 "dd951ff5ecf3e3b3aa26b40703ba77495dab41da839ae72ef3c8e5d8e2433289"
+    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
+    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
   end
 
   resource "rich" do
