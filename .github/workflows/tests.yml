@@ -203,7 +203,7 @@ jobs:
           logs-directory: ${{ format('{0}/logs', env.BOTTLES_DIR) }}
 
   conclusion:
-    needs: [tests, setup_tests, setup_runners]
+    needs: [tests, test_deps, setup_tests, setup_runners]
     if: always() && github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
