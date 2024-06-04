@@ -1,8 +1,8 @@
 class Talhelper < Formula
   desc "Configuration helper for talos clusters"
   homepage "https://budimanjojo.github.io/talhelper/latest/"
-  url "https://github.com/budimanjojo/talhelper/archive/refs/tags/v2.4.10.tar.gz"
-  sha256 "1ece5d27eff473755b492efbde2abbdfa50ba37f787ab519eab1877c381b90fe"
+  url "https://github.com/budimanjojo/talhelper/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "28a91243315adad48315f3403905d83f064ed1602cb4cbbba1227b8921704e03"
   license "BSD-3-Clause"
   head "https://github.com/budimanjojo/talhelper.git", branch: "master"
 
@@ -19,7 +19,7 @@ class Talhelper < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/budimanjojo/talhelper/cmd.version=#{version}"
+    ldflags = "-s -w -X github.com/budimanjojo/talhelper/v#{version.major}/cmd.version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"talhelper", "completion")
