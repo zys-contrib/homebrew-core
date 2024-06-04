@@ -22,19 +22,24 @@ class Protobuf < Formula
 
   depends_on "cmake" => :build
   depends_on "abseil"
-  depends_on "jsoncpp"
-
   uses_from_macos "zlib"
+
+  on_macos do
+    # We currently only run tests on macOS.
+    # Running them on Linux requires rebuilding googletest with `-fPIC`.
+    depends_on "googletest" => :build
+  end
 
   def install
     # Keep `CMAKE_CXX_STANDARD` in sync with the same variable in `abseil.rb`.
     abseil_cxx_standard = 17
-    cmake_args = %w[
+    cmake_args = %W[
       -DBUILD_SHARED_LIBS=ON
       -Dprotobuf_BUILD_LIBPROTOC=ON
       -Dprotobuf_BUILD_SHARED_LIBS=ON
       -Dprotobuf_INSTALL_EXAMPLES=ON
-      -Dprotobuf_BUILD_TESTS=OFF
+      -Dprotobuf_BUILD_TESTS=#{OS.mac? ? "ON" : "OFF"}
+      -Dprotobuf_USE_EXTERNAL_GTEST=ON
       -Dprotobuf_ABSL_PROVIDER=package
       -Dprotobuf_JSONCPP_PROVIDER=package
     ]
@@ -42,6 +47,7 @@ class Protobuf < Formula
 
     system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
     system "cmake", "--build", "build"
+    system "ctest", "--test-dir", "build", "--verbose" if OS.mac?
     system "cmake", "--install", "build"
 
     (share/"vim/vimfiles/syntax").install "editors/proto.vim"
