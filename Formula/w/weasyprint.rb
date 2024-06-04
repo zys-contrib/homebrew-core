@@ -3,8 +3,8 @@ class Weasyprint < Formula
 
   desc "Convert HTML to PDF"
   homepage "https://www.courtbouillon.org/weasyprint"
-  url "https://files.pythonhosted.org/packages/3b/0b/b2b165439954c1d4ed4045ad95cb7fb2bd0c696e3b90ecba56533b8aa12f/weasyprint-62.1.tar.gz"
-  sha256 "bf3c1a9ac4194271a7cf117229c093744105b50ac2fa64c0a6e44e68ae742992"
+  url "https://files.pythonhosted.org/packages/c4/c6/02995082a0f02cb4f8de4b3f1d4cf31965322e0c1609fb84bb91842edfb3/weasyprint-62.2.tar.gz"
+  sha256 "a08ac400e11919d996d76becaa33160d7c1ac55ba160628c42ce7586574c1a51"
   license "BSD-3-Clause"
 
   bottle do
@@ -39,8 +39,8 @@ class Weasyprint < Formula
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/73/e4/5f31f97c859e2223d59ce3da03c67908eb8f8f90d96f2537b73b68aa2a5a/fonttools-4.51.0.tar.gz"
-    sha256 "dc0673361331566d7a663d7ce0f6fdcbfbdc1f59c6e3ed1165ad7202ca183c68"
+    url "https://files.pythonhosted.org/packages/a4/6e/681d39b71d5f0d6a1b1dc87d7333331f9961b5ab6a2ad6372d6cf3f8b04c/fonttools-4.53.0.tar.gz"
+    sha256 "c93ed66d32de1559b6fc348838c7572d5c0ac1e4a258e76763a5caddd8944002"
   end
 
   resource "html5lib" do
