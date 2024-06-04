@@ -1,9 +1,9 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://cdn.zabbix.com/zabbix/sources/stable/6.4/zabbix-6.4.15.tar.gz"
-  sha256 "0ad98d0aecc355c8628e29d6728a779465135464b625b89009b9aeb325c142f6"
-  license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
+  url "https://cdn.zabbix.com/zabbix/sources/stable/7.0/zabbix-7.0.0.tar.gz"
+  sha256 "520641483223f680ef6e685284b556ba34a496d886a38dc3bca085cde21031b1"
+  license "AGPL-3.0-only"
   head "https://github.com/zabbix/zabbix.git", branch: "master"
 
   livecheck do
@@ -27,11 +27,9 @@ class Zabbix < Formula
 
   def install
     args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --sysconfdir=#{etc}/zabbix
       --enable-agent
       --with-libpcre2
+      --sysconfdir=#{pkgetc}
       --with-openssl=#{Formula["openssl@3"].opt_prefix}
     ]
 
@@ -40,7 +38,7 @@ class Zabbix < Formula
       args << "--with-iconv=#{sdk}/usr"
     end
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 
