@@ -2,6 +2,7 @@ class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
+  revision 1
   head "https://gcc.gnu.org/git/gcc.git", branch: "master"
 
   stable do
@@ -14,6 +15,12 @@ class Gcc < Formula
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/82b5c1cd38826ab67ac7fc498a8fe74376a40f4a/gcc/gcc-14.1.0.diff"
       sha256 "1529cff128792fe197ede301a81b02036c8168cb0338df21e4bc7aafe755305a"
+    end
+
+    # Addition patch to be more portable across various SDK headers
+    patch do
+      url "https://github.com/iains/gcc-14-branch/commit/75ff8c390327ac693f6a1c40510bc0d35d7a1e22.patch?full_index=1"
+      sha256 "13a7ef21fafa39b268e63c3aaed6a78a1d744176a08ffb8d0fbf2f0083e0c850"
     end
   end
 
@@ -97,6 +104,8 @@ class Gcc < Formula
       # System headers may not be in /usr/include
       sdk = MacOS.sdk_path_if_needed
       args << "--with-sysroot=#{sdk}" if sdk
+
+      make_args = []
     else
       # Fix cc1: error while loading shared libraries: libisl.so.15
       args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV.ldflags}"
@@ -110,11 +119,16 @@ class Gcc < Formula
       # Change the default directory name for 64-bit libraries to `lib`
       # https://stackoverflow.com/a/54038769
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
+
+      make_args = %W[
+        BOOT_CFLAGS=-I#{Formula["zlib"].opt_include}
+        BOOT_LDFLAGS=-L#{Formula["zlib"].opt_lib}
+      ]
     end
 
     mkdir "build" do
       system "../configure", *args
-      system "make"
+      system "make", *make_args
 
       # Do not strip the binaries on macOS, it makes them unsuitable
       # for loading plugins
