@@ -1,8 +1,8 @@
 class LibvirtPython < Formula
   desc "Libvirt virtualization API python binding"
   homepage "https://www.libvirt.org/"
-  url "https://download.libvirt.org/python/libvirt-python-10.3.0.tar.gz"
-  sha256 "0333781ffef915d984f36a9b475ae8df6d01763883eefbd138d14c7591f51f2f"
+  url "https://download.libvirt.org/python/libvirt-python-10.4.0.tar.gz"
+  sha256 "a20273a3374fcacb45b5ac4fd135e2c40460bb4a3a290d26c4aa8d0eaf1225b5"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -22,8 +22,8 @@ class LibvirtPython < Formula
 
   depends_on "pkg-config" => :build
   depends_on "python-setuptools" => :build
-  depends_on "python@3.12" => [:build, :test]
   depends_on "libvirt"
+  depends_on "python@3.12"
 
   def pythons
     deps.map(&:to_formula)
