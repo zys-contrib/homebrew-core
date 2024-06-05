@@ -9,13 +9,13 @@ class Prettier < Formula
   head "https://github.com/prettier/prettier.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "33c81840f9c28c88666b44c22eef14416c41871041c79b9eb369add35b857614"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "33c81840f9c28c88666b44c22eef14416c41871041c79b9eb369add35b857614"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "33c81840f9c28c88666b44c22eef14416c41871041c79b9eb369add35b857614"
-    sha256 cellar: :any_skip_relocation, sonoma:         "33c81840f9c28c88666b44c22eef14416c41871041c79b9eb369add35b857614"
-    sha256 cellar: :any_skip_relocation, ventura:        "33c81840f9c28c88666b44c22eef14416c41871041c79b9eb369add35b857614"
-    sha256 cellar: :any_skip_relocation, monterey:       "33c81840f9c28c88666b44c22eef14416c41871041c79b9eb369add35b857614"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b0cdaffdc7bd1af6150b504029a5827e7d71c132d09601abf0253569b0d10f9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "98a924f398fc9445d789eaeb81079b4b9542b4497866eec69b9defab608d6839"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "98a924f398fc9445d789eaeb81079b4b9542b4497866eec69b9defab608d6839"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "98a924f398fc9445d789eaeb81079b4b9542b4497866eec69b9defab608d6839"
+    sha256 cellar: :any_skip_relocation, sonoma:         "98a924f398fc9445d789eaeb81079b4b9542b4497866eec69b9defab608d6839"
+    sha256 cellar: :any_skip_relocation, ventura:        "98a924f398fc9445d789eaeb81079b4b9542b4497866eec69b9defab608d6839"
+    sha256 cellar: :any_skip_relocation, monterey:       "98a924f398fc9445d789eaeb81079b4b9542b4497866eec69b9defab608d6839"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "037092a9d85f7bf0332b58420846bb0cb9079f2edcd70678bed0fa1647f0ee2b"
   end
 
   depends_on "node"
