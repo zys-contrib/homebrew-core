@@ -14,13 +14,13 @@ class Serverless < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a36747821d2c1650b5196c2ed25a0c1cb3622246556b55c32c09b525a8f6e2fc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a36747821d2c1650b5196c2ed25a0c1cb3622246556b55c32c09b525a8f6e2fc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a36747821d2c1650b5196c2ed25a0c1cb3622246556b55c32c09b525a8f6e2fc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "29ebd0578d088b62943e728501b6bf4a91d962416aac03782ce1d6517a1ed221"
-    sha256 cellar: :any_skip_relocation, ventura:        "29ebd0578d088b62943e728501b6bf4a91d962416aac03782ce1d6517a1ed221"
-    sha256 cellar: :any_skip_relocation, monterey:       "29ebd0578d088b62943e728501b6bf4a91d962416aac03782ce1d6517a1ed221"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e8d8d6518fee287db03291589566adec65083981167ce3d80a7a4ace069e693"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1e02bdf9c7eef601c900ef5a53ab322401177dde6d819bf5d45a680516e02eb0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1e02bdf9c7eef601c900ef5a53ab322401177dde6d819bf5d45a680516e02eb0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1e02bdf9c7eef601c900ef5a53ab322401177dde6d819bf5d45a680516e02eb0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b66193d11a01a3796d856e79ec07d97729c2f589d0d9c478baaa9c7b31f881bc"
+    sha256 cellar: :any_skip_relocation, ventura:        "b66193d11a01a3796d856e79ec07d97729c2f589d0d9c478baaa9c7b31f881bc"
+    sha256 cellar: :any_skip_relocation, monterey:       "b66193d11a01a3796d856e79ec07d97729c2f589d0d9c478baaa9c7b31f881bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a06872b8191f9c75f9b346aa19a134db12ac6641683039ffe87eecebf8df9582"
   end
 
   depends_on "node"
