@@ -7,7 +7,14 @@ class Jmeter < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5107d96ba3897ce857dc916c88874fe857b6eb4b5b1a05a67a25008d38e8bf89"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2ba8629c1a14bfd30658feb0e04a1274c8c148e8e80a1663ac7654d92a1476db"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2ba8629c1a14bfd30658feb0e04a1274c8c148e8e80a1663ac7654d92a1476db"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2ba8629c1a14bfd30658feb0e04a1274c8c148e8e80a1663ac7654d92a1476db"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2ba8629c1a14bfd30658feb0e04a1274c8c148e8e80a1663ac7654d92a1476db"
+    sha256 cellar: :any_skip_relocation, ventura:        "2ba8629c1a14bfd30658feb0e04a1274c8c148e8e80a1663ac7654d92a1476db"
+    sha256 cellar: :any_skip_relocation, monterey:       "2ba8629c1a14bfd30658feb0e04a1274c8c148e8e80a1663ac7654d92a1476db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "952ad8cae3674686a6314b1e24e1a672f8901a60e7684c54f31bb2933fdb4bf2"
   end
 
   depends_on "openjdk@21"
