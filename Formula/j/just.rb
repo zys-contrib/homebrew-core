@@ -1,8 +1,8 @@
 class Just < Formula
   desc "Handy way to save and run project-specific commands"
   homepage "https://github.com/casey/just"
-  url "https://github.com/casey/just/archive/refs/tags/1.27.0.tar.gz"
-  sha256 "3f7af44ce43fef5e54df2b64574930e036baadae4a66645e996c4bb2164bf2a3"
+  url "https://github.com/casey/just/archive/refs/tags/1.28.0.tar.gz"
+  sha256 "4c421d1e7b62c41055d53822a44752617ff13aebc76abd6713eb99875c127166"
   license "CC0-1.0"
   head "https://github.com/casey/just.git", branch: "master"
 
@@ -26,10 +26,8 @@ class Just < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    man1.install "man/just.1"
-    bash_completion.install "completions/just.bash" => "just"
-    fish_completion.install "completions/just.fish"
-    zsh_completion.install "completions/just.zsh" => "_just"
+    generate_completions_from_executable(bin/"just", "--completions")
+    (man1/"just.1").write Utils.safe_popen_read(bin/"just", "--man")
   end
 
   test do
@@ -39,5 +37,7 @@ class Just < Formula
     EOS
     system bin/"just"
     assert_predicate testpath/"it-worked", :exist?
+
+    assert_match version.to_s, shell_output("#{bin}/just --version")
   end
 end
