@@ -10,6 +10,16 @@ class OpenjdkAT21 < Formula
     regex(/^jdk[._-]v?(21+(?:\.\d+)*)-ga$/i)
   end
 
+  bottle do
+    sha256 cellar: :any, arm64_sonoma:   "9a47d5fa08dd6cf6a68ea44cf52e34ce45838927060ea470b3772fe7e210dd8f"
+    sha256 cellar: :any, arm64_ventura:  "8e8d2c411193fcd13f2ce05d37e377582d06e1ce7bc1b797918fd650bf51dc5b"
+    sha256 cellar: :any, arm64_monterey: "8ef0cb75011a9028acc124906a7561856481e96b3000a371b27179fcae386dcb"
+    sha256 cellar: :any, sonoma:         "cf7e20bebe3d0e0d5435bae4fdb09e3739c6349fc438a46e97293edd74b11678"
+    sha256 cellar: :any, ventura:        "c160c242dfa792ddb6cdfaaa555b77461a3fdf435fdcc9bdd8b3ab96c078e109"
+    sha256 cellar: :any, monterey:       "dee3491fd650e010d8a02ef63ede76db26dc3a06fc232e9e08c14c11b68a2168"
+    sha256               x86_64_linux:   "db0b039ffb1accf89552864287bb0e4466d356e0d5f031d8dfb23f8d0ee2d668"
+  end
+
   keg_only :versioned_formula
 
   depends_on "autoconf" => :build
