@@ -1,8 +1,8 @@
 class Hysteria < Formula
   desc "Feature-packed proxy & relay tool optimized for lossy, unstable connections"
   homepage "https://hysteria.network/"
-  url "https://github.com/apernet/hysteria/archive/refs/tags/app/v2.4.4.tar.gz"
-  sha256 "bbfe5ae78a7c90ec3b5bff5af34accc73eb2daa7dd7cf5ac954768a2833f8d60"
+  url "https://github.com/apernet/hysteria/archive/refs/tags/app/v2.4.5.tar.gz"
+  sha256 "e0d5ffb3ddd5e98092f29e908edb64468b1d8b40af78281cc0054b26f542a48b"
   license "MIT"
   head "https://github.com/apernet/hysteria.git", branch: "master"
 
@@ -19,14 +19,15 @@ class Hysteria < Formula
   depends_on "go" => :build
 
   def install
+    pkg = "github.com/apernet/hysteria/app/v2/cmd"
     ldflags = %W[
       -s -w
-      -X github.com/apernet/hysteria/app/cmd.appVersion=v#{version}
-      -X github.com/apernet/hysteria/app/cmd.appDate=#{time.iso8601}
-      -X github.com/apernet/hysteria/app/cmd.appType=release
-      -X github.com/apernet/hysteria/app/cmd.appCommit=#{tap.user}
-      -X github.com/apernet/hysteria/app/cmd.appPlatform=#{OS.kernel_name.downcase}
-      -X github.com/apernet/hysteria/app/cmd.appArch=#{Hardware::CPU.arch}
+      -X #{pkg}.appVersion=v#{version}
+      -X #{pkg}.appDate=#{time.iso8601}
+      -X #{pkg}.appType=release
+      -X #{pkg}.appCommit=#{tap.user}
+      -X #{pkg}.appPlatform=#{OS.kernel_name.downcase}
+      -X #{pkg}.appArch=#{Hardware::CPU.arch}
     ]
     system "go", "build", *std_go_args(ldflags:), "./app"
 
