@@ -1,8 +1,8 @@
 class CoreLightning < Formula
   desc "Lightning Network implementation focusing on spec compliance and performance"
   homepage "https://github.com/ElementsProject/lightning"
-  url "https://github.com/ElementsProject/lightning/releases/download/v24.02.2/clightning-v24.02.2.zip"
-  sha256 "2904bfe15994c4990da6f3dcc4be54a7d7f6e657a23f3be2d8088abb3450983a"
+  url "https://github.com/ElementsProject/lightning/releases/download/v24.05/clightning-v24.05.zip"
+  sha256 "143ec914cf34c2baeea815a3627247661d9fd86649e970d09944345deb675818"
   license "MIT"
 
   livecheck do
@@ -24,17 +24,19 @@ class CoreLightning < Formula
   depends_on "automake" => :build
   depends_on "gettext" => :build
   depends_on "gnu-sed" => :build
+  depends_on "jq" => :build
   depends_on "libtool" => :build
   depends_on "lowdown" => :build
   depends_on "pkg-config" => :build
   depends_on "poetry" => :build
   depends_on "protobuf" => :build
-
   depends_on "bitcoin"
   depends_on "gmp"
   depends_on "libsodium"
+
   uses_from_macos "python"
   uses_from_macos "sqlite"
+  uses_from_macos "zlib"
 
   def install
     (buildpath/"external/lowdown").rmtree
