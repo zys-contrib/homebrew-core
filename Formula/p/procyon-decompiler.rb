@@ -6,7 +6,14 @@ class ProcyonDecompiler < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ee55d23c048aa221e0f2c76eaa0ac264f83b0ac6ebf7388479878cc387fad122"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5e49bf95df9cae386854919754f48bb49c6b5444fa52b42a4312148b1157c25c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5e49bf95df9cae386854919754f48bb49c6b5444fa52b42a4312148b1157c25c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5e49bf95df9cae386854919754f48bb49c6b5444fa52b42a4312148b1157c25c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5e49bf95df9cae386854919754f48bb49c6b5444fa52b42a4312148b1157c25c"
+    sha256 cellar: :any_skip_relocation, ventura:        "5e49bf95df9cae386854919754f48bb49c6b5444fa52b42a4312148b1157c25c"
+    sha256 cellar: :any_skip_relocation, monterey:       "5e49bf95df9cae386854919754f48bb49c6b5444fa52b42a4312148b1157c25c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23c98cad8ada38a9cdf8089be7d9371e448cef29bbec7dcc9109010d55af4ebf"
   end
 
   depends_on "openjdk@21"
