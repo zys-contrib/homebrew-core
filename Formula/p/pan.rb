@@ -1,8 +1,8 @@
 class Pan < Formula
   desc "Usenet newsreader that's good at both text and binaries"
   homepage "https://gitlab.gnome.org/GNOME/pan"
-  url "https://gitlab.gnome.org/GNOME/pan/-/archive/v0.158/pan-v0.158.tar.bz2"
-  sha256 "fb3673ef34fb3fb1008af7ed22fe6c82cfb603b16df9d1edba4259595cb9d303"
+  url "https://gitlab.gnome.org/GNOME/pan/-/archive/v0.159/pan-v0.159.tar.bz2"
+  sha256 "96f05c4ff60a009969bec79b6ba76b01528186d9c86fce55d158f2b4dc0876e2"
   license "GPL-2.0-only"
 
   bottle do
@@ -30,11 +30,10 @@ class Pan < Formula
   depends_on "harfbuzz"
   depends_on "pango"
 
-  # Specify C++11 standard to fix the build on macOS
-  # upstream build patch, https://gitlab.gnome.org/GNOME/pan/-/merge_requests/51
-  patch do
-    url "https://gitlab.gnome.org/GNOME/pan/-/commit/bd9e8fbcbda40c8c8c4cc6d77f2776382c82ae15.diff"
-    sha256 "ab31b1cc25638b0eab18ec0f387c38f30d197570aa6741559d25e8044fa7cedf"
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "at-spi2-core"
   end
 
   def install
