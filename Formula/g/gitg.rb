@@ -2,7 +2,7 @@ class Gitg < Formula
   desc "GNOME GUI client to view git repositories"
   homepage "https://wiki.gnome.org/Apps/Gitg"
   url "https://download.gnome.org/sources/gitg/44/gitg-44.tar.xz"
-  sha256 "5b0e99ab3e7b94b0daa98ca8041d5ec9280ee0a2c28338a5506a968ac52e2354"
+  sha256 "342a31684dab9671cd341bd3e3ce665adcee0460c2a081ddc493cdbc03132530"
   license "GPL-2.0-or-later"
   revision 1
 
@@ -21,6 +21,7 @@ class Gitg < Formula
     sha256 x86_64_linux:   "102e277be5f21e445cc3c1ffc9920226e79df6e78eb1d8acbec58a97d4178ba8"
   end
 
+  depends_on "gettext" => :build # for `msgfmt`
   depends_on "intltool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -43,8 +44,8 @@ class Gitg < Formula
   depends_on "libsecret"
 
   def install
-    # Fix version output. Remove on next release.
-    inreplace "meson.build", "version: '45.alpha'", "version: '#{version}'"
+    # Work-around for build issue with Xcode 15.3: https://gitlab.gnome.org/GNOME/gitg/-/issues/465
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
 
     ENV["DESTDIR"] = "/"
     system "meson", "setup", "build", "-Dpython=false", *std_meson_args
