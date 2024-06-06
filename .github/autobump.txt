@@ -492,6 +492,7 @@ cxxopts
 cyclonedx-gomod
 cyclonedx-python
 cycode
+cyctl
 cypher-shell
 cyrus-sasl
 cython
