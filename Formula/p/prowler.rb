@@ -3,8 +3,8 @@ class Prowler < Formula
 
   desc "Tool for cloud security assessments, audits, incident response, and more"
   homepage "https://prowler.com/"
-  url "https://files.pythonhosted.org/packages/81/60/b4e8bc72cefc1fb4ca89b818b922865ff2a5fa7c1905e0a24cdcebf5897c/prowler-4.2.2.tar.gz"
-  sha256 "a328081f2c9545ee3f325b965c16227b0b136182e3b3f2f8b28e5b8c04f349a5"
+  url "https://files.pythonhosted.org/packages/ce/70/3d53c971086a728bced11da4a3135beb8cfae313129c94f2509fb3f5d288/prowler-4.2.3.tar.gz"
+  sha256 "02d36dde3dbb674ccad3b654b1e9f2b9f6be7400e7312d751e315bd86e8fa6af"
   license "Apache-2.0"
 
   bottle do
@@ -72,8 +72,8 @@ class Prowler < Formula
   end
 
   resource "azure-core" do
-    url "https://files.pythonhosted.org/packages/51/0d/b76383f028aa3570419edf97ab504cb84b839e3cbc8c8b2048f16bbea2d3/azure-core-1.30.1.tar.gz"
-    sha256 "26273a254131f84269e8ea4464f3560c731f29c0c1f69ac99010845f239c1a8f"
+    url "https://files.pythonhosted.org/packages/99/d4/1f469fa246f554b86fb5cebc30eef1b2a38b7af7a2c2791bce0a4c6e4604/azure-core-1.30.2.tar.gz"
+    sha256 "a14dc210efcd608821aa472d9fb8e8d035d29b68993819147bc290a8ac224472"
   end
 
   resource "azure-identity" do
