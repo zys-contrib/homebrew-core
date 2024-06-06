@@ -962,6 +962,7 @@ govulncheck
 gowsdl
 gpac
 gpg-tui
+gprof2dot
 gpsim
 gptscript
 gradle
