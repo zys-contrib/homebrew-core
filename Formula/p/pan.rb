@@ -6,13 +6,13 @@ class Pan < Formula
   license "GPL-2.0-only"
 
   bottle do
-    sha256 arm64_sonoma:   "89f06d595c6eb77742628c0033548344218de3c2656ffa39ad1198ab2202897f"
-    sha256 arm64_ventura:  "1dd8b88602d5a43b10a3efe90d14aa7222908834c2867b9c1db21b676248e251"
-    sha256 arm64_monterey: "6a2697c9055f1507948b595c02c9bb89e001c5e0123d29c9c95a53ca77f80e04"
-    sha256 sonoma:         "66270b958f281c5f4b13cb96d228fc0415a3acbd96c38de3bc917ed443b67b2d"
-    sha256 ventura:        "83311358c94d27d3e1e4e8ca77c293a459b11678f7b5f2559a19609f57e39173"
-    sha256 monterey:       "1c39a380c4bb4333cffea6a48a27e66e7ce33f236a1cf3fd7deb7ab70bfea6d0"
-    sha256 x86_64_linux:   "186ae8e0a3d60c00cc0bf8aa35f8dda9247bd0644d7a6e887a8e0da721288063"
+    sha256 arm64_sonoma:   "54d0b93e0ce8513bde012288e8545fddda341667dc3ff79b67e96342d3959ecf"
+    sha256 arm64_ventura:  "c4ddc501ebde818151ce5724c2d799049f59f1165b2afc8ec01c9f5216d028ac"
+    sha256 arm64_monterey: "440da042ec88422d11264f02ee6dce1f530e8644e602f70f3abf719b8df33610"
+    sha256 sonoma:         "487918c021182d240cf4153a2f7e8680303a4e21ab38deb3b003524565d61497"
+    sha256 ventura:        "6d9cb747b69a89f1cc3d893a1ec88697646e8c2c27275f0dc1f049ca247a2150"
+    sha256 monterey:       "328c72198d69c3b8f5af8c14c366f81d86c9aa61074efa0e29601cd78f6864a9"
+    sha256 x86_64_linux:   "12943f01d60be32ca5f87e8877994a6a46ca6ab3af96d3c3fefdbfec7bde6eeb"
   end
 
   depends_on "cmake" => :build
