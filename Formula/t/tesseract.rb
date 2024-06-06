@@ -1,10 +1,9 @@
 class Tesseract < Formula
   desc "OCR (Optical Character Recognition) engine"
   homepage "https://github.com/tesseract-ocr/"
-  url "https://github.com/tesseract-ocr/tesseract/archive/refs/tags/5.3.4.tar.gz"
-  sha256 "141afc12b34a14bb691a939b4b122db0d51bd38feda7f41696822bacea7710c7"
+  url "https://github.com/tesseract-ocr/tesseract/archive/refs/tags/5.4.0.tar.gz"
+  sha256 "30ceffd9b86780f01cbf4eaf9b7fc59abddfcbaf5bbd52f9a633c6528cb183fd"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/tesseract-ocr/tesseract.git", branch: "main"
 
   livecheck do
@@ -49,11 +48,6 @@ class Tesseract < Formula
     sha256 "36f772980ff17c66a767f584a0d80bf2302a1afa585c01a226c1863afcea1392"
   end
 
-  resource "test_resource" do
-    url "https://raw.githubusercontent.com/tesseract-ocr/test/6dd816cdaf3e76153271daf773e562e24c928bf5/testing/eurotext.tif"
-    sha256 "7b9bd14aba7d5e30df686fbb6f71782a97f48f81b32dc201a1b75afe6de747d6"
-  end
-
   def install
     # explicitly state leptonica header location, as the makefile defaults to /usr/local/include,
     # which doesn't work for non-default homebrew location
@@ -84,7 +78,12 @@ class Tesseract < Formula
   end
 
   test do
-    resource("test_resource").stage do
+    resource "homebrew-test_resource" do
+      url "https://raw.githubusercontent.com/tesseract-ocr/test/6dd816cdaf3e76153271daf773e562e24c928bf5/testing/eurotext.tif"
+      sha256 "7b9bd14aba7d5e30df686fbb6f71782a97f48f81b32dc201a1b75afe6de747d6"
+    end
+
+    resource("homebrew-test_resource").stage do
       system bin/"tesseract", "./eurotext.tif", "./output", "-l", "eng"
       assert_match "The (quick) [brown] {fox} jumps!\n", File.read("output.txt")
     end
