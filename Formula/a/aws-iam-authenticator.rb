@@ -2,14 +2,18 @@ class AwsIamAuthenticator < Formula
   desc "Use AWS IAM credentials to authenticate to Kubernetes"
   homepage "https://github.com/kubernetes-sigs/aws-iam-authenticator"
   url "https://github.com/kubernetes-sigs/aws-iam-authenticator.git",
-      tag:      "v0.6.14",
-      revision: "b978afae7be72c6c27f8ed2000685b1e9268cd0e"
+      tag:      "v0.6.20",
+      revision: "774efb85b060370538c2d47576fb3ba3e58b2c38"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/aws-iam-authenticator.git", branch: "master"
 
+  # Upstream has marked a version as "pre-release" in the past, so we check
+  # GitHub releases instead of Git tags. Upstream also doesn't always mark the
+  # highest version as the "Latest" release, so we have to use the
+  # `GithubReleases` strategy (instead of `GithubLatest`) for now.
   livecheck do
     url :stable
-    strategy :github_latest
+    strategy :github_releases
   end
 
   bottle do
