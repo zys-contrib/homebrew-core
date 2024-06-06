@@ -2287,6 +2287,7 @@ tetra
 texlab
 texmath
 tfautomv
+tfel
 tfmigrate
 tfproviderlint
 tfsec
