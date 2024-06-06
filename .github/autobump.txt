@@ -2516,6 +2516,7 @@ xxhash
 xz
 yaegi
 yamale
+yaml-language-server
 yamlfmt
 yamllint
 yara
