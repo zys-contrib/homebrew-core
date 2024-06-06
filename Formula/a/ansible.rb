@@ -3,8 +3,8 @@ class Ansible < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://files.pythonhosted.org/packages/f8/f4/9b52e828afa340c7d610ff35246e89bee3ca163dd2fe021db13142b2830c/ansible-10.0.0.tar.gz"
-  sha256 "6257efa3b4989f99cf85a4f51fdf941f52e0c40b29aa3677ff07f0a3cf34b0f1"
+  url "https://files.pythonhosted.org/packages/96/78/95e152c98f1b9349854cf8f4a9cea1d6ad55bf132e66a81207c650f92d01/ansible-10.0.1.tar.gz"
+  sha256 "b2ab79d54883837f3c5b9b95fd779dff76e5fc5d9ef8555c969575ed24f9f2e1"
   license "GPL-3.0-or-later"
   head "https://github.com/ansible/ansible.git", branch: "devel"
 
@@ -70,13 +70,13 @@ class Ansible < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/2e/88/e95f657115c3117316076065a2fd54da5ea3c2ef6ac3fbcaf80e7e8797d9/boto3-1.34.118.tar.gz"
-    sha256 "4eb8019421cb664a6fcbbee6152aa95a28ce8bbc1c4ee263871c09cdd58bf8ee"
+    url "https://files.pythonhosted.org/packages/f9/23/ff7c23f027f301baf6dcecce5d50bae6ebc5210e1fadee561177fdc37758/boto3-1.34.120.tar.gz"
+    sha256 "38893db8269d25b72cc6fbab97633bfc863eefde5456847169d06149a16aa6e0"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/b9/eb/4142b054eec03b2b6954a9bdae95b28a58f8dc292561fd4bcc254fcee214/botocore-1.34.118.tar.gz"
-    sha256 "0a3d1ec0186f8b516deb39474de3d226d531f77f92a0f56ad79b80219db3ae9e"
+    url "https://files.pythonhosted.org/packages/4c/23/a0bf68a3098af517cfe2b615af100c2a83d7355cd0f7811f14a93e626e8e/botocore-1.34.120.tar.gz"
+    sha256 "5cc0fca43cb2aad54917a394a001ac9ba774d21ad6a08828002d54b601776f78"
   end
 
   resource "cachetools" do
