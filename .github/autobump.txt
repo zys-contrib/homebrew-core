@@ -1278,6 +1278,7 @@ libdap
 libdeflate
 libdnet
 libdpp
+libdrm
 libedit
 libepoxy
 libewf
