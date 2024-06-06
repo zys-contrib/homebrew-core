@@ -12,13 +12,13 @@ class Camlp5 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "b759ee090fbf543cdc3fc06316f6e49688031dadc5f596dcb7d202c5e9b6259d"
-    sha256 arm64_ventura:  "fecb24a088b59346812faa716de555a939e6ff0efd38cec825ce4178834c3ba7"
-    sha256 arm64_monterey: "6b9fb48113e2cb84683f72fa3744da3bbe00f483df59ea1e07016a2e06352a9f"
-    sha256 sonoma:         "23da0a4d852c4d00da8523d2a2303b482dbddd40a9eb8d674f87907d9f718937"
-    sha256 ventura:        "07d9c205a10282211954729926982a14215def6e5ebf511bba15a39d0f77adf4"
-    sha256 monterey:       "582c31c1fd609b1904515b878ce4a2f886391a042ae6b9de6d595dabf832fda9"
-    sha256 x86_64_linux:   "6dbd19efdc0c99cd9fb94ee55ce1b8d5f6ee12e73ae93a3146c5bdec602e04d3"
+    sha256 arm64_sonoma:   "351bc6f9bba7beebcd961e5bab9ebca32d8b4bd0507e1901cceb1e2930c6c493"
+    sha256 arm64_ventura:  "be8a0d5f7f033e1b79e416654b5b3eccca3201f689726d42b408faff6c8f6fe3"
+    sha256 arm64_monterey: "4eb4dbe6e3e66708c4e942e2ed10d90178cced35ea75367286c63b9ca21c07d5"
+    sha256 sonoma:         "906ffd7b6316f20a10d349d1170752298aeb0191eac7dcff6c22c01fb7618005"
+    sha256 ventura:        "23b352596c1e729f9094f5e05822d9c10b1a2b28e5c6d3b6bde5ae01d95c15a8"
+    sha256 monterey:       "8f42fe3372d348d38f9f3272036967bf0e6425de81df130a6aeebf76842e4e20"
+    sha256 x86_64_linux:   "6d732cb0df6a06f0f9ece5791d12169d032326ddb58306e17ea276d95abd3ebb"
   end
 
   depends_on "ocaml-findlib" => :build
