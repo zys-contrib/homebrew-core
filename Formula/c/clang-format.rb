@@ -7,22 +7,22 @@ class ClangFormat < Formula
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.6/llvm-18.1.6.src.tar.xz"
-    sha256 "c231d0a5445db2aafab855e052c247bdd9856ff9d7d9bffdd04e9f0bf8d5366f"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.7/llvm-18.1.7.src.tar.xz"
+    sha256 "17ba3d57c3db185722c36e736a189b2110e8cb842cc9e53dcc74e938bdadb97e"
 
     resource "clang" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.6/clang-18.1.6.src.tar.xz"
-      sha256 "54e0817f918b90b5f94684e9729ac2f9d3820fce040d6395d71c1f19ffa3b03c"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.7/clang-18.1.7.src.tar.xz"
+      sha256 "c9191e4896e43425a8fbbb29e3b25b3a83050781809fbd4d0ad2382bc4a5c43d"
     end
 
     resource "cmake" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.6/cmake-18.1.6.src.tar.xz"
-      sha256 "a643261ed98ff76ab10f1a7039291fa841c292435ba1cfe11e235c2231b95cdb"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.7/cmake-18.1.7.src.tar.xz"
+      sha256 "f0b67599f51cddcdbe604c35b6de97f2d0a447e18b9c30df300c82bf1ee25bd7"
     end
 
     resource "third-party" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.6/third-party-18.1.6.src.tar.xz"
-      sha256 "4ae7b394d341aea6fb7d3d373a4f561ba8e48c0fecded4bb4f1f5f12ba9bd2b6"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.7/third-party-18.1.7.src.tar.xz"
+      sha256 "8d8192598b251b44cf900109dc83dd9cde33bb465d7930a8cdadf5586d632320"
     end
   end
 
