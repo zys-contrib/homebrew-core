@@ -1,8 +1,10 @@
 class Yosys < Formula
   desc "Framework for Verilog RTL synthesis"
   homepage "https://yosyshq.net/yosys/"
-  url "https://github.com/YosysHQ/yosys/archive/refs/tags/yosys-0.41.tar.gz"
-  sha256 "b0037d0a5864550a07a72ba81346e52a7d5f76b3027ef1d7c71b975d2c8bd2b2"
+  # pull from git tag to get submodules
+  url "https://github.com/YosysHQ/yosys.git",
+      tag:      "yosys-0.42",
+      revision: "9b6afcf3f83fea413b57c3790c25ba43b9914ce2"
   license "ISC"
   head "https://github.com/YosysHQ/yosys.git", branch: "main"
 
