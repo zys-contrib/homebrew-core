@@ -3,8 +3,8 @@ class Prowler < Formula
 
   desc "Tool for cloud security assessments, audits, incident response, and more"
   homepage "https://prowler.com/"
-  url "https://files.pythonhosted.org/packages/ce/70/3d53c971086a728bced11da4a3135beb8cfae313129c94f2509fb3f5d288/prowler-4.2.3.tar.gz"
-  sha256 "02d36dde3dbb674ccad3b654b1e9f2b9f6be7400e7312d751e315bd86e8fa6af"
+  url "https://files.pythonhosted.org/packages/9a/63/0914bbc02a14bfbeda8d08c3facce48f6b4499df8011aa0e93435ea45de4/prowler-4.2.4.tar.gz"
+  sha256 "611a343a4d649e395aff75f537b2aef178cd339b020bd3e3a6dce7e2fce95487"
   license "Apache-2.0"
 
   bottle do
@@ -282,8 +282,8 @@ class Prowler < Formula
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/18/b2/f14129111cfd61793609643a07ecb03651a71dd65c6974f63b0310ff4b45/google-auth-2.29.0.tar.gz"
-    sha256 "672dff332d073227550ffc7457868ac4218d6c500b155fe6cc17d2b13602c360"
+    url "https://files.pythonhosted.org/packages/be/f6/b22ef3a4b24b5b0d0fcf8426080eab66ccdfaaf73a61e37e76693c43f7f6/google-auth-2.30.0.tar.gz"
+    sha256 "ab630a1320f6720909ad76a7dbdb6841cdf5c66b328d690027e4867bdfb16688"
   end
 
   resource "google-auth-httplib2" do
@@ -627,8 +627,8 @@ class Prowler < Formula
   end
 
   resource "std-uritemplate" do
-    url "https://files.pythonhosted.org/packages/f9/9f/49ff2699b874d936e95e48f8782faad6009be9027921f5cc4430b5da5a32/std_uritemplate-0.0.57.tar.gz"
-    sha256 "f4adc717aec138562e652b95da74fc6815a942231d971314856b81f434c1b94c"
+    url "https://files.pythonhosted.org/packages/17/78/3f8a60037cb910e8e55b1619799c95c54a295c2db2266202fbf1f43e30f8/std_uritemplate-0.0.59.tar.gz"
+    sha256 "2d91e789034810fda9d622228262e892c7bb3fb3c5caa6e317ec62e043b09cb7"
   end
 
   resource "tabulate" do
