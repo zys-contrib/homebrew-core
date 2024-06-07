@@ -1,8 +1,8 @@
 class Spatialindex < Formula
   desc "General framework for developing spatial indices"
   homepage "https://libspatialindex.org/"
-  url "https://github.com/libspatialindex/libspatialindex/releases/download/1.9.3/spatialindex-src-1.9.3.tar.bz2"
-  sha256 "4a529431cfa80443ab4dcd45a4b25aebbabe1c0ce2fa1665039c80e999dcc50a"
+  url "https://github.com/libspatialindex/libspatialindex/releases/download/2.0.0/spatialindex-src-2.0.0.tar.bz2"
+  sha256 "949e3fdcad406a63075811ab1b11afcc4afddc035fbc69a3acfc8b655b82e9a5"
   license "MIT"
 
   livecheck do
@@ -28,7 +28,9 @@ class Spatialindex < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
