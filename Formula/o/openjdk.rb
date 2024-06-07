@@ -1,8 +1,8 @@
 class Openjdk < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk22u/archive/refs/tags/jdk-22-ga.tar.gz"
-  sha256 "684efabcd2ff8d58d3dc36c79e3bf9724a5a31121e17450dba45880ffa63f7bd"
+  url "https://github.com/openjdk/jdk22u/archive/refs/tags/jdk-22.0.1-ga.tar.gz"
+  sha256 "dd2d8acd685c07e0ccf5f8b4ac562f50ff31421db90f121be36f06e54dfe41f1"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
 
   livecheck do
@@ -43,6 +43,7 @@ class Openjdk < Formula
     depends_on "freetype"
     depends_on "libx11"
     depends_on "libxext"
+    depends_on "libxi"
     depends_on "libxrandr"
     depends_on "libxrender"
     depends_on "libxt"
