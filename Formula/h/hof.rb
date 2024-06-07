@@ -1,9 +1,8 @@
 class Hof < Formula
   desc "Flexible data modeling & code generation system"
   homepage "https://hofstadter.io/"
-  url "https://github.com/hofstadter-io/hof.git",
-      tag:      "v0.6.8",
-      revision: "112659fe982a3efbe0acdb151c659e0b8b2e081f"
+  url "https://github.com/hofstadter-io/hof/archive/refs/tags/v0.6.9.tar.gz"
+  sha256 "aa6e084dbf8a74015504fd0e57c127c6322bf824df4a70c17990094786184665"
   license "Apache-2.0"
   head "https://github.com/hofstadter-io/hof.git", branch: "_dev"
 
@@ -35,14 +34,13 @@ class Hof < Formula
     ldflags = %W[
       -s -w
       -X github.com/hofstadter-io/hof/cmd/hof/verinfo.Version=#{version}
-      -X github.com/hofstadter-io/hof/cmd/hof/verinfo.Commit=#{Utils.git_head}
+      -X github.com/hofstadter-io/hof/cmd/hof/verinfo.Commit=
       -X github.com/hofstadter-io/hof/cmd/hof/verinfo.BuildDate=#{time.iso8601}
       -X github.com/hofstadter-io/hof/cmd/hof/verinfo.GoVersion=#{Formula["go"].version}
       -X github.com/hofstadter-io/hof/cmd/hof/verinfo.BuildOS=#{os}
       -X github.com/hofstadter-io/hof/cmd/hof/verinfo.BuildArch=#{arch}
     ]
 
-    ENV["CGO_ENABLED"] = "0"
     ENV["HOF_TELEMETRY_DISABLED"] = "1"
     system "go", "build", *std_go_args(ldflags:), "./cmd/hof"
 
@@ -51,8 +49,8 @@ class Hof < Formula
 
   test do
     ENV["HOF_TELEMETRY_DISABLED"] = "1"
-    # upstream bug report, https://github.com/hofstadter-io/hof/issues/257
-    # assert_match "v#{version}", shell_output("#{bin}/hof version")
+
+    assert_match version.to_s, shell_output("#{bin}/hof version")
 
     system bin/"hof", "mod", "init", "brew.sh/brewtest"
     assert_predicate testpath/"cue.mod", :exist?
