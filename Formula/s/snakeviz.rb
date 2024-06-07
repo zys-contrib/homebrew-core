@@ -9,13 +9,13 @@ class Snakeviz < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f1e8c5454e204c47519daa78a0f81ee26142b3b55461ab1ac0a54a700c5ddaeb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b92423ff12040f8bb58932da3e85de8ccc9f4a0d03062e38011e50fa58ba4648"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b720d5d592f63fd467d4ce86e3423ea9ce5866548de519db11f39fc768f28ab7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c8408abc7756e010d8cd9c4a4d7872b4e9a35f9c80c17ae94d5877e4dbccfdc1"
-    sha256 cellar: :any_skip_relocation, ventura:        "e976d6136f4a25ee8f9db7bb7df42c2882381ac88500bbb77ecb3dc695218d25"
-    sha256 cellar: :any_skip_relocation, monterey:       "4b76ec91b173fa652dcc1efbcffd14cd9c5c6dcc661c362dae45fc4f5ce4adee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16e8caa4e320d0ce6a05b0a8af600efe4a23d11b18d09e932dd94497eb5c0fef"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aa7305a6deb93e6f5659181b44de5d0155a4220a8b390f542308008478b112db"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0e4a0b2bf73dd3a2e0400b6a2623ca34cc38d3d59017f5584324f3c2698fc6d9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "94190c13027e896e8ae9bb85e4ee3a76c4a93170b46875781e0ba2c61ce8a4e5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ad322f258ad80a9a34abee4555ad4c5fbfa612b70b03f18e19c0b07593f519ed"
+    sha256 cellar: :any_skip_relocation, ventura:        "f834932028976a74ee9edbc4fc9250426a754cf153ef28b04dba6843484406a8"
+    sha256 cellar: :any_skip_relocation, monterey:       "758e512224f61b752d846d70c0ea628eb18cf0ec099b195fd472f8370a2c6683"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bcc336d17fcdb88dd008ace56a09467c24aec73841ed063b9f2ccd2ff96b2a36"
   end
 
   depends_on "python@3.12"
