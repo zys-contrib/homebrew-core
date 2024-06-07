@@ -844,6 +844,7 @@ gegl
 genact
 geogram
 geoipupdate
+geos
 geoserver
 geph4
 getmail6
