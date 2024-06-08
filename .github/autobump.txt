@@ -1324,6 +1324,7 @@ liboqs
 libpano
 libphonenumber
 libpipeline
+libplctag
 libplist
 libpng
 libpq
