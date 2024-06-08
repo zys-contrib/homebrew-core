@@ -2455,6 +2455,7 @@ wasmer
 wasmtime
 watchexec
 wavpack
+wayland
 wayland-protocols
 wazero
 weasyprint
