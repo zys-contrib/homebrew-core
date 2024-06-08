@@ -1,8 +1,8 @@
 class Dillo < Formula
   desc "Fast and small graphical web browser"
   homepage "https://dillo-browser.github.io/"
-  url "https://github.com/dillo-browser/dillo/releases/download/v3.1.0/dillo-3.1.0.tar.bz2"
-  sha256 "f56766956d90dac0ccca31755917cba8a4014bcf43b3e36c7d86efe1d20f9d92"
+  url "https://github.com/dillo-browser/dillo/releases/download/v3.1.1/dillo-3.1.1.tar.bz2"
+  sha256 "5b85adc2315cff1f6cc29c4fa7e285a964cc3adb7b4cd652349c178292a4fb9e"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -23,7 +23,15 @@ class Dillo < Formula
   end
 
   depends_on "fltk"
+  depends_on "jpeg-turbo"
+  depends_on "libpng"
   depends_on "openssl@3"
+
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "libx11"
+  end
 
   def install
     if build.head?
