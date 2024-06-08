@@ -112,6 +112,7 @@ asyncapi
 at-spi2-core
 atlantis
 atlas
+atomicparsley
 atuin
 auditbeat
 autobrr
