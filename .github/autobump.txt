@@ -1045,6 +1045,7 @@ himalaya
 hive
 hivemind
 hledger
+hof
 hoverfly
 hpack
 hpp-fcl
