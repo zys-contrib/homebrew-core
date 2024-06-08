@@ -352,6 +352,7 @@ choose-rust
 chroma
 chromaprint
 chronograf
+chsrc
 chuck
 cidr
 cilium-cli
