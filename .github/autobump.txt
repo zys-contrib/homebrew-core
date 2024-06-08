@@ -2398,6 +2398,7 @@ valkey
 vapor
 vapoursynth
 vault-cli
+vc
 vcluster
 vcsh
 veclibfort
