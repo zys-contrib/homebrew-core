@@ -1,9 +1,9 @@
 class Gnunet < Formula
   desc "Framework for distributed, secure and privacy-preserving applications"
   homepage "https://gnunet.org/"
-  url "https://ftp.gnu.org/gnu/gnunet/gnunet-0.21.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gnunet/gnunet-0.21.1.tar.gz"
-  sha256 "93e68b3eaca7087273e3d7685fe6ae38b2e8055e4c9e700d360dd4055249785c"
+  url "https://ftp.gnu.org/gnu/gnunet/gnunet-0.21.2.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gnunet/gnunet-0.21.2.tar.gz"
+  sha256 "8c2351268e9b8ba2ad288b8b337ce399f79c18e3ffd960803f4ed5de7dda9fa1"
   license "AGPL-3.0-or-later"
 
   bottle do
@@ -37,8 +37,12 @@ class Gnunet < Formula
   end
 
   test do
-    system "#{bin}/gnunet-config", "--rewrite"
-    output = shell_output("#{bin}/gnunet-config -s arm")
-    assert_match "BINARY = gnunet-service-arm", output
+    (testpath/"gnunet.conf").write <<~EOS
+      [arm]
+      START_DAEMON = YES
+      START_SERVICES = "dns,hostlist,ats"
+    EOS
+
+    system bin/"gnunet-arm", "-c", "gnunet.conf", "-s"
   end
 end
