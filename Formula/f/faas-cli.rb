@@ -1,9 +1,8 @@
 class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "https://www.openfaas.com/"
-  url "https://github.com/openfaas/faas-cli.git",
-      tag:      "0.16.27",
-      revision: "6e26edd4f9ae0d0fac9d6916a1b831f4f41d8096"
+  url "https://github.com/openfaas/faas-cli/archive/refs/tags/0.16.29.tar.gz"
+  sha256 "f546576083a8787159d276f01c48e869246b370ae1761154543dc1ba241f1ea3"
   license "MIT"
   head "https://github.com/openfaas/faas-cli.git", branch: "master"
 
@@ -30,7 +29,7 @@ class FaasCli < Formula
     project = "github.com/openfaas/faas-cli"
     ldflags = %W[
       -s -w
-      -X #{project}/version.GitCommit=#{Utils.git_head}
+      -X #{project}/version.GitCommit=
       -X #{project}/version.Version=#{version}
     ]
     system "go", "build", *std_go_args(ldflags:), "-a", "-installsuffix", "cgo"
@@ -82,9 +81,7 @@ class FaasCli < Formula
       output = shell_output("#{bin}/faas-cli deploy --tls-no-verify -yaml test.yml", 1)
       assert_match "Deploying: dummy_function.", output
 
-      commit_regex = /[a-f0-9]{40}/
       faas_cli_version = shell_output("#{bin}/faas-cli version")
-      assert_match commit_regex, faas_cli_version
       assert_match version.to_s, faas_cli_version
     ensure
       Process.kill("TERM", pid)
