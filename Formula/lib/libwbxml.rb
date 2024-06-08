@@ -1,9 +1,9 @@
 class Libwbxml < Formula
   desc "Library and tools to parse and encode WBXML documents"
   homepage "https://github.com/libwbxml/libwbxml"
-  url "https://github.com/libwbxml/libwbxml/archive/refs/tags/libwbxml-0.11.8.tar.gz"
-  sha256 "a6fe0e55369280c1a7698859a5c2bb37c8615c57a919b574cd8c16458279db66"
-  license "LGPL-2.1"
+  url "https://github.com/libwbxml/libwbxml/archive/refs/tags/libwbxml-0.11.9.tar.gz"
+  sha256 "704029f7745abfd58e26b54f15ce7de0d801048a9a359a7e9967f8346baeff3f"
+  license "LGPL-2.1-or-later"
   head "https://github.com/libwbxml/libwbxml.git", branch: "master"
 
   bottle do

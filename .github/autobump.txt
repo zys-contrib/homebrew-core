@@ -1361,6 +1361,7 @@ libusbmuxd
 libuv
 libva
 libvirt
+libwbxml
 libwpe
 libx11
 libxaw3d
