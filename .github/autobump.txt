@@ -2165,6 +2165,7 @@ spglib
 sphinx-doc
 spicetify-cli
 spidermonkey
+spirv-llvm-translator
 sponge
 spot
 spotbugs
