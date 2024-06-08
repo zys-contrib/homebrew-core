@@ -3,8 +3,8 @@ class Glances < Formula
 
   desc "Alternative to top/htop"
   homepage "https://nicolargo.github.io/glances/"
-  url "https://files.pythonhosted.org/packages/6e/19/62010365c0694f801a878b4d0ace6b638312241228b6731f4dddd1c16c8c/glances-4.0.7.tar.gz"
-  sha256 "f476e86552da231799bd36e6e7e86e3463eb00505267181f6595c8a4125068f9"
+  url "https://files.pythonhosted.org/packages/7c/80/8eefe7e32a3aae422ed06c88c1689cdd31301c0d8ac33db913525496d1be/glances-4.0.8.tar.gz"
+  sha256 "5caaf44f252d693fc9fc1e921285a207b911c62f5997d804c38541d143ee474f"
   license "LGPL-3.0-or-later"
 
   bottle do
@@ -17,11 +17,17 @@ class Glances < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "398f9bdb1e339be194a222a5983bf6073ca6c9ecd3cfc35f36181cfe52e2f3fa"
   end
 
+  depends_on "rust" => :build # for orjson
   depends_on "python@3.12"
 
   resource "defusedxml" do
     url "https://files.pythonhosted.org/packages/0f/d5/c66da9b79e5bdb124974bfe172b4daf3c984ebd9c2a06e2b8a4dc7331c72/defusedxml-0.7.1.tar.gz"
     sha256 "1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"
+  end
+
+  resource "orjson" do
+    url "https://files.pythonhosted.org/packages/f8/16/c10c42b69beeebe8bd136ee28b76762837479462787be57f11e0ab5d6f5d/orjson-3.10.3.tar.gz"
+    sha256 "2b166507acae7ba2f7c315dcf185a9111ad5e992ac81f2d507aac39193c2c818"
   end
 
   resource "packaging" do
@@ -32,11 +38,6 @@ class Glances < Formula
   resource "psutil" do
     url "https://files.pythonhosted.org/packages/90/c7/6dc0a455d111f68ee43f27793971cf03fe29b6ef972042549db29eec39a2/psutil-5.9.8.tar.gz"
     sha256 "6be126e3225486dff286a8fb9a06246a5253f4c7c53b475ea5f5ac934e64194c"
-  end
-
-  resource "ujson" do
-    url "https://files.pythonhosted.org/packages/f0/00/3110fd566786bfa542adb7932d62035e0c0ef662a8ff6544b6643b3d6fd7/ujson-5.10.0.tar.gz"
-    sha256 "b3cd8f3c5d8c7738257f1018880444f7b7d9b66232c64649f562d7ba86ad4bc1"
   end
 
   def install
