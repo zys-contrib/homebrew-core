@@ -2263,6 +2263,7 @@ tcsh
 tctl
 tealdeer
 tectonic
+teensy_loader_cli
 teip
 tektoncd-cli
 teku
