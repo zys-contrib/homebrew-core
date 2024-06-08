@@ -1,8 +1,8 @@
 class TeensyLoaderCli < Formula
   desc "Command-line integration for Teensy USB development boards"
   homepage "https://www.pjrc.com/teensy/loader_cli.html"
-  url "https://github.com/PaulStoffregen/teensy_loader_cli/archive/refs/tags/2.2.tar.gz"
-  sha256 "103c691f412d04906c4f46038c234d3e5f78322c1b78ded102df9f900724cd54"
+  url "https://github.com/PaulStoffregen/teensy_loader_cli/archive/refs/tags/2.3.tar.gz"
+  sha256 "d9c5357d7e8b99e9a9ae93f5e921c35a133a4a5d399f57eec10f3a606be5d89f"
   license "GPL-3.0-only"
   head "https://github.com/PaulStoffregen/teensy_loader_cli.git", branch: "master"
 
