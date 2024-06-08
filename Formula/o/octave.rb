@@ -1,11 +1,10 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  url "https://ftp.gnu.org/gnu/octave/octave-9.1.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/octave/octave-9.1.0.tar.xz"
-  sha256 "ed654b024aea56c44b26f131d31febc58b7cf6a82fad9f0b0bf6e3e9aa1a134b"
+  url "https://ftp.gnu.org/gnu/octave/octave-9.2.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/octave/octave-9.2.0.tar.xz"
+  sha256 "21417afb579105b035cac0bea09201522e384893ae90a781b8727efa32765807"
   license "GPL-3.0-or-later"
-  revision 3
 
   # New tarballs appear on https://ftp.gnu.org/gnu/octave/ before a release is
   # announced, so we check the octave.org download page instead.
@@ -35,10 +34,7 @@ class Octave < Formula
   end
 
   # Complete list of dependencies at https://wiki.octave.org/Building
-  depends_on "autoconf" => :build # for the patches
-  depends_on "automake" => :build # for the patches
   depends_on "gnu-sed" => :build # https://lists.gnu.org/archive/html/octave-maintainers/2016-09/msg00193.html
-  depends_on "libtool" => :build # for the patches
   depends_on "openjdk" => :build
   depends_on "pkg-config" => :build
   depends_on "arpack"
@@ -83,20 +79,6 @@ class Octave < Formula
   cxxstdlib_check :skip
 
   fails_with gcc: "5"
-
-  # Fix build for Qt 6.7.0
-  # https://hg.savannah.gnu.org/hgweb/octave/rev/f428a432ed4f
-  patch do
-    url "https://hg.savannah.gnu.org/hgweb/octave/raw-rev/f428a432ed4f"
-    sha256 "a9dd08ffecff5b310039b14847e8012e150de9b71337adc0955b0e668eea1d37"
-  end
-
-  # Fix opengl-partial-update bug causing crashes on figure() and plot() with Qt 6.7.0
-  # https://hg.savannah.gnu.org/hgweb/octave/rev/317fa0e5c8de
-  patch do
-    url "https://hg.savannah.gnu.org/hgweb/octave/raw-rev/317fa0e5c8de"
-    sha256 "909dc65614d0ef2520c35c5f8d4f78c451b189b2673e837f4f21c18a776273f0"
-  end
 
   def install
     # Default configuration passes all linker flags to mkoctfile, to be
