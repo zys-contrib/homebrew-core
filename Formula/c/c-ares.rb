@@ -1,24 +1,10 @@
 class CAres < Formula
   desc "Asynchronous DNS library"
   homepage "https://c-ares.org/"
+  url "https://github.com/c-ares/c-ares/releases/download/v1.30.0/c-ares-1.30.0.tar.gz"
+  sha256 "4fea312112021bcef081203b1ea020109842feb58cd8a36a3d3f7e0d8bc1138c"
   license "MIT"
   head "https://github.com/c-ares/c-ares.git", branch: "main"
-
-  # Remove `stable` block when `dnsinfo.h` resource is no longer needed.
-  stable do
-    # Don't forget to change both instances of the version in the first mirror. (e.g. `cares-1_xy_z`)
-    url "https://c-ares.org/download/c-ares-1.29.0.tar.gz"
-    mirror "https://github.com/c-ares/c-ares/releases/download/cares-1_29_0/c-ares-1.29.0.tar.gz"
-    mirror "http://fresh-center.net/linux/misc/dns/c-ares-1.29.0.tar.gz"
-    mirror "http://fresh-center.net/linux/misc/dns/legacy/c-ares-1.29.0.tar.gz"
-    sha256 "0b89fa425b825c4c7bc708494f374ae69340e4d1fdc64523bdbb2750bfc02ea7"
-
-    # TODO: Remove at next release.
-    resource "dnsinfo.h" do
-      url "https://raw.githubusercontent.com/c-ares/c-ares/6bbdcf766eeab31b3c8f3e471fb6beceb18ff351/src/lib/thirdparty/apple/dnsinfo.h"
-      sha256 "9b8b3c820a6708f0add91887e8332e2700f7dfab6d9c2cf74866d4c2f26d58ea"
-    end
-  end
 
   livecheck do
     url :homepage
@@ -38,11 +24,6 @@ class CAres < Formula
   depends_on "cmake" => :build
 
   def install
-    if build.stable?
-      (buildpath/"src/lib/thirdparty/apple").install resource("dnsinfo.h")
-      odie "The `dnsinfo.h` resource should be removed!" if version > "1.29.0"
-    end
-
     args = %W[
       -DCARES_STATIC=ON
       -DCARES_SHARED=ON
@@ -69,6 +50,6 @@ class CAres < Formula
     system ENV.cc, "test.c", "-L#{lib}", "-lcares", "-o", "test"
     system "./test"
 
-    system "#{bin}/ahost", "127.0.0.1"
+    system bin/"ahost", "127.0.0.1"
   end
 end
