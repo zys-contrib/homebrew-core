@@ -4,14 +4,14 @@ class Ortp < Formula
   license "GPL-3.0-or-later"
 
   stable do
-    url "https://gitlab.linphone.org/BC/public/ortp/-/archive/5.3.56/ortp-5.3.56.tar.bz2"
-    sha256 "cf7307878fac2acd5baff59d855f68106d07e7c4ab540d047372448397e5ecf2"
+    url "https://gitlab.linphone.org/BC/public/ortp/-/archive/5.3.57/ortp-5.3.57.tar.bz2"
+    sha256 "12232058b659bc6906675d972dfe5d8fa99c6d88e604182f31fe7617fe92e25e"
 
     # bctoolbox appears to follow ortp's version. This can be verified at the GitHub mirror:
     # https://github.com/BelledonneCommunications/bctoolbox
     resource "bctoolbox" do
-      url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/5.3.56/bctoolbox-5.3.56.tar.bz2"
-      sha256 "9405a7c47bcac8a116e8acd033f9cf05e6ece1f3f6516aa1779096cb128a4437"
+      url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/5.3.57/bctoolbox-5.3.57.tar.bz2"
+      sha256 "4ef48b42aa1a193e9ce585e77bb6f97098ab7334368b45d37a20dc64b8d607da"
     end
   end
 
