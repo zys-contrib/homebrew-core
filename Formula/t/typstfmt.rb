@@ -1,8 +1,8 @@
 class Typstfmt < Formula
   desc "Formatter for typst"
   homepage "https://github.com/astrale-sharp/typstfmt"
-  url "https://github.com/astrale-sharp/typstfmt/archive/refs/tags/0.2.9.tar.gz"
-  sha256 "fa24ee1705ff5fec4db45e301d38439d0bd3d6d4ee04b280ba997b2f94ba16d9"
+  url "https://github.com/astrale-sharp/typstfmt/archive/refs/tags/0.2.10.tar.gz"
+  sha256 "5a3f413a428b2590552c2d0ab0ab04c7a745e1cca128844b7b82ea49326d65c4"
   license one_of: ["MIT", "Apache-2.0"]
   head "https://github.com/astrale-sharp/typstfmt.git", branch: "main"
 
@@ -15,6 +15,8 @@ class Typstfmt < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "f1b2b049e67eb424c44c33ae4e2321d7ed018eb5c8b373640224df3ba8e1719a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f2282db238b16329daff514c79902b36c8d0c0035f1bc45a0749641568889de"
   end
+
+  deprecate! date: "2024-06-08", because: :unmaintained
 
   depends_on "rust" => :build
 

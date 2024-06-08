@@ -2359,7 +2359,6 @@ typescript
 typescript-language-server
 typos-cli
 typst
-typstfmt
 typstyle
 tz
 tzdiff
