@@ -313,6 +313,7 @@ cdxgen
 cekit
 censys
 cern-ndiff
+certbot
 certigo
 cf2tf
 cfengine
