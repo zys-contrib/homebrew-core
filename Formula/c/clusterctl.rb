@@ -38,7 +38,7 @@ class Clusterctl < Formula
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/clusterctl"
 
-    generate_completions_from_executable(bin/"clusterctl", "completion", shells: [:bash, :zsh])
+    generate_completions_from_executable(bin/"clusterctl", "completion", shells: [:bash, :zsh, :fish])
   end
 
   test do
