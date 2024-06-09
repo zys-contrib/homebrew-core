@@ -12,13 +12,13 @@ class FaasCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ee31a49cb401adad0872a88186130e6db96f171339931cbab7e675f9d20ac6d9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d70b39809c5093ebbbcea5f6e7e7d4faebbf5e6b749a3a005de99e049075b917"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "74e26d6969517a4fad89f4a8c1199cec01b311109283eb9cfc0879df65fc2cf3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f25fddf6007d1ac9e3d07e726e030c668b8e9154798f21b66b8839d418ab07c0"
-    sha256 cellar: :any_skip_relocation, ventura:        "cd9088eccbf36175cb53c6dac97fa50bf546f6e0022b8571d3335149dfa3b6a2"
-    sha256 cellar: :any_skip_relocation, monterey:       "45706f33d05734316b56e521fcd3803ca9b0b2c17f295b923f95a172b1cd2e1b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c643feeaafa74171e8a51c8e36dab29a01d938df85a3ddc87ff04c678baaaf6e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1e178250429dbf8ce373ca080ed8bc452c9b22b73cecc7be44598dbd2d08bdbf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "910cc032189a4e9530205be57e1f67d1c7e82a44729a5658fcc6301e878bbef4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d79f5d75e8aca2c6e65e09bc16b45badabd0e97fe6d0f7872b2722b25458f6be"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a7321cb4ba493958bc8e5cfb8bdc6f380f6bb14c7a05df906b24f00623a90993"
+    sha256 cellar: :any_skip_relocation, ventura:        "3313160bceab37c021360899482bc5ec8de63facefdf5812b1657cfea0089ed5"
+    sha256 cellar: :any_skip_relocation, monterey:       "22b26c1ba8bac021cb30d1b49a2a4e1b5be919d2169a6f02fee14bca2b28b378"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f889acd0e8c270722f851c152824d9972dbada3da52201e80716321f675df8ab"
   end
 
   depends_on "go" => :build
