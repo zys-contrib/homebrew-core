@@ -12,13 +12,13 @@ class Libopenmpt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f5a27dadccbdda77dc43e6efce4265c9f6f2e4afd18e5d7c1489ec25f4c1deab"
-    sha256 cellar: :any,                 arm64_ventura:  "facd4882b492d14d05594a1f3afe391671ced099a0669556278458112e62454c"
-    sha256 cellar: :any,                 arm64_monterey: "fce8c8bcc2be3299216f0e859de1604e54ab19608bb3675dddba0a9ab402086a"
-    sha256 cellar: :any,                 sonoma:         "1fcbba0710ea623b60efb6ac18f6ce8a30b025cad9e35382c5d6da8dffe59574"
-    sha256 cellar: :any,                 ventura:        "4d77b3d3409a2f1b3d29b9570e284da389ea6f8fe8671c166b615c5e3033feb0"
-    sha256 cellar: :any,                 monterey:       "5acf3f4f22b34312ae5b2aeeac6664b8d15f8e2c07cb943c45dba6960f23a3be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa27accffb34e1cdba9867d5ac2bdb966ea90d5d84326e242b5b46e7e52016f8"
+    sha256 cellar: :any,                 arm64_sonoma:   "7d6937e4498f93a2a261823d9f80a0b0b0b349ab97255792d3b360a3ed2a67a4"
+    sha256 cellar: :any,                 arm64_ventura:  "cc77ddfb029e3a8da4c32e3d268fe387d267668fe5914e3f9fad05f31f779316"
+    sha256 cellar: :any,                 arm64_monterey: "2deed484cb038c79a7a70d42f7fba7eca863fb11533326bd686f3eae94c0db1d"
+    sha256 cellar: :any,                 sonoma:         "ec9084470c1d3120f4ca31a34e387e2d1f1de40d47e233868b29f72f367dc300"
+    sha256 cellar: :any,                 ventura:        "c29c6a8b2b9f0581c9627117f561781e65fb746764ca9a42466240363188e80d"
+    sha256 cellar: :any,                 monterey:       "4a76fd9e4f585ddc71326fbf149c1ab4a696126672aa7b0747a9484252c68246"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "05f64c9589c8bdabaf5205b272e4a7f6d88f30e435eca1b23ac453de6817db3b"
   end
 
   depends_on "pkg-config" => :build
