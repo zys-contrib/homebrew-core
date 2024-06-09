@@ -1,10 +1,20 @@
 class Groestlcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://groestlcoin.org/groestlcoin-core-wallet/"
-  url "https://github.com/Groestlcoin/groestlcoin/releases/download/v27.0/groestlcoin-27.0.tar.gz"
-  sha256 "cf8de03ef104e67aa7c0c1f69fd78e19ea6fa3e8187d890d7916c1c72a3be530"
   license "MIT"
+  revision 1
   head "https://github.com/groestlcoin/groestlcoin.git", branch: "master"
+
+  stable do
+    url "https://github.com/Groestlcoin/groestlcoin/releases/download/v27.0/groestlcoin-27.0.tar.gz"
+    sha256 "cf8de03ef104e67aa7c0c1f69fd78e19ea6fa3e8187d890d7916c1c72a3be530"
+
+    # miniupnpc 2.2.8 compatibility patch
+    patch do
+      url "https://github.com/Groestlcoin/groestlcoin/commit/8acdf66540834b9f9cf28f16d389e8b6a48516d5.patch?full_index=1"
+      sha256 "08ddebda702cf654f1b0cef22fb0b71ee2d97d0373e382a6ccf878738aade96a"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "40bae4088292ac22e77b60cc99a83d538c281a7d94bf2ee2466cc7975b319c54"
