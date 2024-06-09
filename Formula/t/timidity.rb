@@ -3,6 +3,7 @@ class Timidity < Formula
   homepage "https://timidity.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/timidity/TiMidity++/TiMidity++-2.15.0/TiMidity++-2.15.0.tar.bz2"
   sha256 "161fc0395af16b51f7117ad007c3e434c825a308fa29ad44b626ee8f9bb1c8f5"
+  license "GPL-2.0-or-later"
   revision 2
 
   livecheck do
@@ -37,6 +38,7 @@ class Timidity < Formula
   end
 
   def install
+    ENV.append_to_cflags "-DSTDC_HEADERS" if OS.mac?
     audio_options = %w[
       vorbis
       flac
