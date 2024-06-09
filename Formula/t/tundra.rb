@@ -24,6 +24,7 @@ class Tundra < Formula
 
   def install
     ENV.append "CFLAGS", "-I#{Formula["googletest"].opt_include}/googletest/googletest"
+    inreplace "Makefile", "c++11", "c++17"
 
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
