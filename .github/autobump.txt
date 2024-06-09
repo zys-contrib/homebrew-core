@@ -2130,6 +2130,7 @@ sloc
 slsa-verifier
 slurm
 smake
+smartdns
 smimesign
 sn0int
 snakefmt
