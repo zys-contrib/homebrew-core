@@ -1,8 +1,8 @@
 class AppstreamGlib < Formula
   desc "Helper library for reading and writing AppStream metadata"
   homepage "https://github.com/hughsie/appstream-glib"
-  url "https://github.com/hughsie/appstream-glib/archive/refs/tags/appstream_glib_0_8_2.tar.gz"
-  sha256 "83907d3b2c13029c72dfd11191762ef19f4031ac05c758297914cf0eb04bc641"
+  url "https://github.com/hughsie/appstream-glib/archive/refs/tags/appstream_glib_0_8_3.tar.gz"
+  sha256 "15ad7690b0132d883bd066699a7b55f6cef4c0f266d18d781ce5d8112fb4ee63"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -31,6 +31,10 @@ class AppstreamGlib < Formula
   uses_from_macos "gperf" => :build
   uses_from_macos "curl"
 
+  on_macos do
+    depends_on "gettext"
+  end
+
   on_linux do
     depends_on "util-linux"
   end
@@ -42,7 +46,7 @@ class AppstreamGlib < Formula
     # Find our docbook catalog
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
-    system "meson", *std_meson_args, "build", "-Dbuilder=false", "-Drpm=false", "-Ddep11=false", "-Dstemmer=false"
+    system "meson", *std_meson_args, "build", "-Dbuilder=false", "-Drpm=false", "-Ddep11=false"
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
