@@ -7,13 +7,13 @@ class Dzr < Formula
   head "https://github.com/yne/dzr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "36beb7afb6b802a00ae8b19bd04ce94a0d2cfd951bfafafa0ea878af7abd4fda"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "36beb7afb6b802a00ae8b19bd04ce94a0d2cfd951bfafafa0ea878af7abd4fda"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "36beb7afb6b802a00ae8b19bd04ce94a0d2cfd951bfafafa0ea878af7abd4fda"
-    sha256 cellar: :any_skip_relocation, sonoma:         "36beb7afb6b802a00ae8b19bd04ce94a0d2cfd951bfafafa0ea878af7abd4fda"
-    sha256 cellar: :any_skip_relocation, ventura:        "36beb7afb6b802a00ae8b19bd04ce94a0d2cfd951bfafafa0ea878af7abd4fda"
-    sha256 cellar: :any_skip_relocation, monterey:       "36beb7afb6b802a00ae8b19bd04ce94a0d2cfd951bfafafa0ea878af7abd4fda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc1ca35f8f4694a4c3a2144e79012001fe140ba20d1952e8905af19da9225722"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4cc2a38c370cd729ef941b45cee61ae8a4f11b3fd256c9e8672217d683655d30"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4cc2a38c370cd729ef941b45cee61ae8a4f11b3fd256c9e8672217d683655d30"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4cc2a38c370cd729ef941b45cee61ae8a4f11b3fd256c9e8672217d683655d30"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4cc2a38c370cd729ef941b45cee61ae8a4f11b3fd256c9e8672217d683655d30"
+    sha256 cellar: :any_skip_relocation, ventura:        "4cc2a38c370cd729ef941b45cee61ae8a4f11b3fd256c9e8672217d683655d30"
+    sha256 cellar: :any_skip_relocation, monterey:       "4cc2a38c370cd729ef941b45cee61ae8a4f11b3fd256c9e8672217d683655d30"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3634f1f247ca10ff9b0e86d94dcca5d3bd995400eaa6800f672f5579780a7773"
   end
 
   depends_on "dialog"
