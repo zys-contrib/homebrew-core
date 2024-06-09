@@ -1331,6 +1331,7 @@ libplctag
 libplist
 libpng
 libpq
+libpqxx
 libproxy
 libpulsar
 librdkafka
