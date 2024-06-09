@@ -4,6 +4,7 @@ class DosboxX < Formula
   url "https://github.com/joncampbell123/dosbox-x/archive/refs/tags/dosbox-x-v2024.03.01.tar.gz"
   sha256 "2a89d3196ddc15361f6dc7e6ab142bfe95945d93d527cfd6bacca1f7a401a513"
   license "GPL-2.0-or-later"
+  revision 1
   version_scheme 1
   head "https://github.com/joncampbell123/dosbox-x.git", branch: "master"
 
@@ -50,7 +51,7 @@ class DosboxX < Formula
 
     # See flags in `build-macos-sdl2`.
     args = %w[
-      --enable-core-inline
+      --enable-debug=heavy
       --enable-sdl2
       --disable-sdl2test
       --disable-sdl
