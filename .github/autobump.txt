@@ -530,6 +530,7 @@ define
 dehydrated
 delve
 deno
+dep-tree
 dependency-check
 deployer
 derby
