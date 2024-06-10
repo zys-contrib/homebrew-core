@@ -2,8 +2,8 @@ class Ipfs < Formula
   desc "Peer-to-peer hypermedia protocol"
   homepage "https://ipfs.tech/"
   url "https://github.com/ipfs/kubo.git",
-      tag:      "v0.28.0",
-      revision: "e7f0f340c65379c1dd2d80967ae625614f1b9eae"
+      tag:      "v0.29.0",
+      revision: "3f0947b74e3b5abbce25ac910a01de6268b7dd8e"
   license all_of: [
     "MIT",
     any_of: ["MIT", "Apache-2.0"],
