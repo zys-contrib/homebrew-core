@@ -1,8 +1,8 @@
 class Atuin < Formula
   desc "Improved shell history for zsh, bash, fish and nushell"
   homepage "https://github.com/atuinsh/atuin"
-  url "https://github.com/atuinsh/atuin/archive/refs/tags/v18.2.0.tar.gz"
-  sha256 "7fb87902ce09af2d29459e9158bc83c18519690d555259709cab40d9ee75b024"
+  url "https://github.com/atuinsh/atuin/archive/refs/tags/v18.3.0.tar.gz"
+  sha256 "d05d978d1f1b6a633ac24a9ac9bde3b1dfb7416165b053ef54240fff898aded3"
   license "MIT"
 
   bottle do
@@ -15,10 +15,11 @@ class Atuin < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee2fcbdc3084214e964a4c9e7c6afda2fb6adb9598d49a073580cf3106517661"
   end
 
+  depends_on "protobuf" => :build
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "atuin")
+    system "cargo", "install", *std_cargo_args(path: "crates/atuin")
 
     generate_completions_from_executable(bin/"atuin", "gen-completion", "--shell")
   end
