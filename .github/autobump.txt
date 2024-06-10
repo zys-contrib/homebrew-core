@@ -1417,6 +1417,7 @@ logrotate
 logstash
 lout
 lsd
+lsix
 lsof
 lttng-ust
 luacheck
