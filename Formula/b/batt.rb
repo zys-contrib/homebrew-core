@@ -6,6 +6,12 @@ class Batt < Formula
     revision: "90df4aaefb930ab05a6763c96866e8db0faf698e"
   license "GPL-2.0-only"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9aea7e73d8f35fecb4538915741bc9338d0e076d07d68882137cd2f895acca57"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ab9b98798b385d490d20244727705067cbb98a2245f2a9edd00179f6615ca30b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fe4b87bb7e401deed1cc4db56a40d36f79f1b41bfbf44628805517eb112ff11c"
+  end
+
   depends_on "go" => :build
   depends_on arch: :arm64
   depends_on :macos
