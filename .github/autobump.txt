@@ -2213,6 +2213,7 @@ stgit
 stockfish
 storj-uplink
 storm
+stormlib
 stow
 strace
 streamlink
