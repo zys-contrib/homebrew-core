@@ -8,13 +8,13 @@ class Promptfoo < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "412a367c840c38d0a78b9218e694bd9dba694fd2ab0f081858b3c1ef4cc8907c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6b18fac8194a2aee9201292abbba22a3fbfc977f75b521590781fb73d44d9a50"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0c6671a3e9c8ea0139f50eff73bb27af9be0bbdf5fc0b7390aba7ebfd1551662"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a62ebf77f83009e22b77262fdcc2f651870c052a6e088fcd17f09353673280b8"
-    sha256 cellar: :any_skip_relocation, ventura:        "91a2a168ae9e2001f509e1304c5484d3391e3770457b913d2e80d04603895e5f"
-    sha256 cellar: :any_skip_relocation, monterey:       "f0bbbb2931f741542fe12e2e115ce429851e988c81b7756b29647a0b92527147"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1dd0228a83a95a95b270a47a1b4abdebe443d5584b1805431ea6a8828d5af522"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "72fdb9edccfbf9ecca97814af7bfad94f88c4701d1cb67afaf5235ce643fe790"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f06a7fb22a1d48f226907aeb929ff6d8ba9eca41ce1f69e2efa3884e4b229218"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "50f33a1623d26b4e753eee4ef8481504e3014f507860b5c368c50ea95d0f52e3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4944f6228df3ece7267fada3ca4f96a0416e68db88bd85dec636e2612cd4e0ab"
+    sha256 cellar: :any_skip_relocation, ventura:        "828d13700e06c9f711c3365e0bfc58d1d45002efe0d077cb9029323640d8dab4"
+    sha256 cellar: :any_skip_relocation, monterey:       "b56ef8d6fbfb44183f8acc7af4208ff8061ac6b04606bb7877b2336a30edc5c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "efa63c0b4c429155d2a0889e640c5fa8d6cb2a0d3ce905d4c3e7873c410fb779"
   end
 
   depends_on "node"
