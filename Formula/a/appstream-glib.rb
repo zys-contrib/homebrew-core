@@ -6,15 +6,13 @@ class AppstreamGlib < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "a4f2cc335d188d441983d924633f37a79f6dd8cc3675fb0ba3c26d32e5e7c338"
-    sha256 cellar: :any, arm64_ventura:  "c3f6d2c0984122b0713f4feb1602dbef56ff7cb387845f743e9eb141f27bcba2"
-    sha256 cellar: :any, arm64_monterey: "90068630f6442eb177f80f7b724df77cf7bca37ab06d6b23f60e0473589c4e4f"
-    sha256 cellar: :any, arm64_big_sur:  "44cf000fc5d424c0381ccfde90746356a135554a5fd8f9c7d5c6f1122f0cba2a"
-    sha256 cellar: :any, sonoma:         "eb83692e9f3f9a4823ae28b96cf6997f194d78d5f19a6737bebc702949b3bbbc"
-    sha256 cellar: :any, ventura:        "791389da6a2ba026ad09b35a28d7dce14c57eb6d267ed3bf71aca3c0dd2dd618"
-    sha256 cellar: :any, monterey:       "1f0c23d95b641c365c5ae51c9243c4e0c4b7eb3241c5a0fb826329a99fa76e4c"
-    sha256 cellar: :any, big_sur:        "51567bf93b2dbd9aabb0dd044f7a05ece05a93f1e5b126e204f21d78a34d1e42"
-    sha256               x86_64_linux:   "33cb7d8c477932888efedeb104d6b769963962b29c89ac9dbccbb067b7371ff6"
+    sha256 cellar: :any, arm64_sonoma:   "436c07f995a7eebb35d00956d96b5a3a7839fe406ad2ecfcb870ba47c2fe14cf"
+    sha256 cellar: :any, arm64_ventura:  "5fc017681fbd7c6900cc1a81412d922d681266fc53842b81b14b76975a4ec76e"
+    sha256 cellar: :any, arm64_monterey: "ec5bcbd5802db3070ef6f9e2401608d45e1a0b26820342dab42b7b123861298e"
+    sha256 cellar: :any, sonoma:         "9ee04a0e10295134da81fe789ff2acac90c3d64ffb2d33a5e6700a4bdd5f6a6c"
+    sha256 cellar: :any, ventura:        "ea40ca29ab320034cc36833efd33aa20c8ebe128fb013bfa3e2a3cef4e3eecc6"
+    sha256 cellar: :any, monterey:       "648ab1fde37e8da156d657d26c5f9d5e2b2d18acf36896c7cf9508f11819ab25"
+    sha256               x86_64_linux:   "e3817d099c3f3d7bcdb0aec2920ff5b92e76454398d4efda5acb72c6d2ac4a1f"
   end
 
   depends_on "docbook" => :build
