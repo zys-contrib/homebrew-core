@@ -1,8 +1,8 @@
 class Zfind < Formula
   desc "Search for files (even inside tar/zip/7z/rar) using a SQL-WHERE filter"
   homepage "https://github.com/laktak/zfind"
-  url "https://github.com/laktak/zfind/archive/refs/tags/v0.4.1.tar.gz"
-  sha256 "66dd6a6e88c651767b2b721226367d8a1211adc3662a04e5b9febf5e43d42ebe"
+  url "https://github.com/laktak/zfind/archive/refs/tags/v0.4.2.tar.gz"
+  sha256 "767a0b61605ca63be8ebfca19b56ccded2e9ed22920d6d31db3f4b723ed56f43"
   license "MIT"
   head "https://github.com/laktak/zfind.git", branch: "master"
 
@@ -25,7 +25,7 @@ class Zfind < Formula
 
   test do
     output = shell_output("#{bin}/zfind --csv")
-    assert_match "name,path,container,size,date,time,type,archive", output
+    assert_match "name,path,container,size,date,time,ext,ext2,type,archive", output
 
     assert_match version.to_s, shell_output("#{bin}/zfind --version")
   end
