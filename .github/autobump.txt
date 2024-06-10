@@ -366,6 +366,7 @@ cjson
 clair
 clamav
 clang-format
+claws-mail
 clazy
 clblast
 clhep
