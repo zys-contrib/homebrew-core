@@ -3,8 +3,8 @@ require "language/node"
 class DbmlCli < Formula
   desc "Convert DBML file to SQL and vice versa"
   homepage "https://www.dbml.org/cli/"
-  url "https://registry.npmjs.org/@dbml/cli/-/cli-3.5.0.tgz"
-  sha256 "44ecbdf432abe97d825b227afb02759f1e3cdfb602354ffab95b3a36f0a9dfaf"
+  url "https://registry.npmjs.org/@dbml/cli/-/cli-3.5.1.tgz"
+  sha256 "3e260a3c49a1e57309c04ba40e08423e0eb3d73b40557df94f5dbfabd2493c1b"
   license "Apache-2.0"
 
   bottle do
