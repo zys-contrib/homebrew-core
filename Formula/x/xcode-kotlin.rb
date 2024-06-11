@@ -2,8 +2,8 @@ class XcodeKotlin < Formula
   desc "Kotlin Native Xcode Plugin"
   homepage "https://github.com/touchlab/xcode-kotlin"
   url "https://github.com/touchlab/xcode-kotlin.git",
-    tag:      "1.3.1",
-    revision: "595d5b0bca5e56362abbb2e0ca11de4020392f4f"
+    tag:      "1.3.2",
+    revision: "2a937d270f1ff286f9b87ec934b4b47b2c275909"
   license "Apache-2.0"
   head "https://github.com/touchlab/xcode-kotlin.git", branch: "main"
 
