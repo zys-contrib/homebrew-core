@@ -1519,6 +1519,7 @@ minizinc
 minizip
 minizip-ng
 minuit2
+mist-cli
 mk-configure
 mkdocs
 mkfontscale
