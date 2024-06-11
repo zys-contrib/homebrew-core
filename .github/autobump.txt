@@ -1090,6 +1090,7 @@ imagemagick@6
 imap-backup
 imapsync
 imath
+imessage-exporter
 imgproxy
 immortal
 immudb
