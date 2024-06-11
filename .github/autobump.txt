@@ -1853,6 +1853,7 @@ postgresql@15
 postgresql@16
 postgrest
 powerman
+powerman-dockerize
 pqiv
 pre-commit
 presenterm
