@@ -2069,6 +2069,7 @@ scilla
 scip
 scipy
 scm-manager
+scnlib
 scons
 scorecard
 scotch
