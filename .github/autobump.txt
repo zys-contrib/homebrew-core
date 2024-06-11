@@ -1927,6 +1927,7 @@ qbe
 qbs
 qcachegrind
 qd
+qemu
 qjackctl
 qmmp
 qpdf
