@@ -15,7 +15,6 @@ class Flyctl < Formula
   livecheck do
     url :stable
     strategy :github_latest
-    throttle 5
   end
 
   bottle do
