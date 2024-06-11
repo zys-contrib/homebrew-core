@@ -1961,6 +1961,7 @@ rattler-build
 rav1e
 raven
 raxml-ng
+rbtools
 rbw
 rclone
 rcs
