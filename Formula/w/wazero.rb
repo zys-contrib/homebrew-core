@@ -1,8 +1,8 @@
 class Wazero < Formula
   desc "Zero dependency WebAssembly runtime"
   homepage "https://wazero.io"
-  url "https://github.com/tetratelabs/wazero/archive/refs/tags/v1.7.2.tar.gz"
-  sha256 "6348e07bd3e73fef3126687c5d881ccbcaf24075769a97ed583a2cd6aee271fe"
+  url "https://github.com/tetratelabs/wazero/archive/refs/tags/v1.7.3.tar.gz"
+  sha256 "abc19b77acb6eec6a4abb33366a6b4be1ccf987496f424c64c41d90b016c4e51"
   license "Apache-2.0"
 
   livecheck do
