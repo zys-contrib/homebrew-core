@@ -9,13 +9,13 @@ class RobotFramework < Formula
   head "https://github.com/robotframework/robotframework.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "85c61e7253b6490a3e6f7aacaad6029c0eefcd98814e48653c59f42f68c6c60a"
-    sha256 cellar: :any,                 arm64_ventura:  "75e92cf3438f9010b18b2c83580129e2bb44a565b9844c7bceefa7e3151833bb"
-    sha256 cellar: :any,                 arm64_monterey: "73cf375b7dfce9ed3f0ea8cb07076e49047fd64e971fbc39b84d6371fb17e61a"
-    sha256 cellar: :any,                 sonoma:         "986a7388fbe6964ea7663ef0f1fbac0b8c503a34e767cc20994679824120572c"
-    sha256 cellar: :any,                 ventura:        "9f82826acedd21b1ef9a6d4cd4cfa48481f9f7ae5c72314349fb6880e77a889a"
-    sha256 cellar: :any,                 monterey:       "69a525460618d43a6c23366d411033a377ab5472d5194d25dc9f5b0135ff8518"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "950b4835cdaf32cb36b7fa66ad992b2af78f7f05e4dceb32d174d259a251223b"
+    sha256 cellar: :any,                 arm64_sonoma:   "57eb2d1a2847d8da2ebda67709da71c95a907e18162fe55dee2d53822daec4cc"
+    sha256 cellar: :any,                 arm64_ventura:  "21d27ce7a953a7dd27745837dd18bf29ab6deff7017044ddfd16cd12df14550d"
+    sha256 cellar: :any,                 arm64_monterey: "b124b7fd2b804944b00007f5cd147d2df2484d767d20d130a65b28e712b5011e"
+    sha256 cellar: :any,                 sonoma:         "85016ea6e0b8e2b10347068b9169a68169f6feea3f254b4a9fc7b911d91ccd7d"
+    sha256 cellar: :any,                 ventura:        "b0b99c33636a0619cfb616bf66e4d02a9a580c7a77069581063a65411f22d130"
+    sha256 cellar: :any,                 monterey:       "6282c77137de323be3de94b002877b6b195feb52b201620ee6a600954b1c363f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8abde7f1d1cd37d97ccc75bc9618008f64f39c6d161316d7343596270b117f6e"
   end
 
   depends_on "rust" => :build # for bcrypt
