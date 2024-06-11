@@ -1317,6 +1317,7 @@ liblinear
 liblouis
 libmaa
 libmatio
+libmaxminddb
 libmicrohttpd
 libmxml
 libnfs
