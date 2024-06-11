@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/3a/ce/147b7dad21e8be5910484fdfea0d99d03efa5d516f8526516970716ec5fc/snakemake-8.13.0.tar.gz"
-  sha256 "1db3eee3d6de19d10e0abf8f297c116c9ad69f755087487563a2bc2b632d9bdf"
+  url "https://files.pythonhosted.org/packages/2f/07/5d283f068f74e7bd6df9c9aba87fa5cf0d2e7c65171f2e43101c998ac133/snakemake-8.14.0.tar.gz"
+  sha256 "f7ea6ce0fc7544ef4329fa808d6e2e1c1b3adff2b4658dcc096a41741a7e8d81"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -135,8 +135,8 @@ class Snakemake < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
-    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
+    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
+    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
   end
 
   resource "plac" do
