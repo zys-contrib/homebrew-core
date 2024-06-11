@@ -91,6 +91,7 @@ arrayfire
 artillery
 arttime
 arturo
+arxiv_latex_cleaner
 ascii
 asciidoctor
 asciidoctorj
