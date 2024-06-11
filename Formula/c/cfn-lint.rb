@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-lint/"
-  url "https://files.pythonhosted.org/packages/a9/23/887d6e461be07541c3a946e4cadc78360fabc34112cebe148c74c308f5ae/cfn_lint-0.87.5.tar.gz"
-  sha256 "41e1195712c84d4de70c2ede1113fef0d62b9f2fb237d77e18da4328463c5660"
+  url "https://files.pythonhosted.org/packages/90/b6/1b473b10fc4b6e0dd5e3994a30227b1bb50ab7901e03563d4f7eb780cb18/cfn_lint-0.87.6.tar.gz"
+  sha256 "aba311b0dae2be77422e8152974da2047f048d24a287b16d9c78b234d0714592"
   license "MIT-0"
 
   livecheck do
@@ -42,13 +42,13 @@ class CfnLint < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/bb/96/1c2dd3f8d256cd83713515ba48a5081bd24523ccb13893025b392c8f79b2/boto3-1.34.122.tar.gz"
-    sha256 "56840d8ce91654d182f1c113f0791fa2113c3aa43230c50b4481f235348a6037"
+    url "https://files.pythonhosted.org/packages/d5/d3/20b9ef9ab1bedd8fa3780d2a57494cf9dc3a4f185cfe95b7e9ef938e079b/boto3-1.34.123.tar.gz"
+    sha256 "42b140fc850cf261ee4b1e8ef527fa071b1f1592a6d6a68d34b29f37cc46b4dd"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/68/12/0d229d21c69e8276fc3365923a85a700dfb5b005fe5b7416b22a06bd1250/botocore-1.34.122.tar.gz"
-    sha256 "9374e16a36f1062c3e27816e8599b53eba99315dfac71cc84fc3aee3f5d3cbe3"
+    url "https://files.pythonhosted.org/packages/80/ab/74ca7a8ab9c05685afea002f6cd8682b4a0cefb372d6b55891d4100a1cf8/botocore-1.34.123.tar.gz"
+    sha256 "a8577f6574600c4d159b5cd103ee05744a443d77f7778304e17307940b369c4f"
   end
 
   resource "jmespath" do
@@ -67,13 +67,13 @@ class CfnLint < Formula
   end
 
   resource "jsonpickle" do
-    url "https://files.pythonhosted.org/packages/72/4b/8c2df97303521f99a0a2cc9be7373ee175dbc01d4befb653ff7b8d32b442/jsonpickle-3.0.4.tar.gz"
-    sha256 "a1b14c8d6221cd8f394f2a97e735ea1d7edc927fbd135b26f2f8700657c8c62b"
+    url "https://files.pythonhosted.org/packages/fa/2d/806d7ce5743131a6a137c49016ad80db3c3a757288b863795bb50eb99603/jsonpickle-3.2.1.tar.gz"
+    sha256 "4b6d7640974199f7acf9035295365b5a1a71a91109effa15ba170fbb48cf871c"
   end
 
   resource "jsonpointer" do
-    url "https://files.pythonhosted.org/packages/8f/5e/67d3ab449818b629a0ffe554bb7eb5c030a71f7af5d80fbf670d7ebe62bc/jsonpointer-2.4.tar.gz"
-    sha256 "585cee82b70211fa9e6043b7bb89db6e1aa49524340dde8ad6b63206ea689d88"
+    url "https://files.pythonhosted.org/packages/6a/0a/eebeb1fa92507ea94016a2a790b93c2ae41a7e18778f85471dc54475ed25/jsonpointer-3.0.0.tar.gz"
+    sha256 "2b2d729f2091522d61c3b31f82e11870f60b68f43fbc705cb76bf4b832af59ef"
   end
 
   resource "jsonschema" do
