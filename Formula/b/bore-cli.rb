@@ -1,8 +1,8 @@
 class BoreCli < Formula
   desc "Modern, simple TCP tunnel in Rust that exposes local ports to a remote server"
   homepage "https://github.com/ekzhang/bore"
-  url "https://github.com/ekzhang/bore/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "d084024cfa14b3b1df065fdf760fced511c228ff2441eda7874e3608f7563783"
+  url "https://github.com/ekzhang/bore/archive/refs/tags/v0.5.1.tar.gz"
+  sha256 "8da3d83647f7f1159553e66d28a94c944ffc55f44962340d3f8046fda1528533"
   license "MIT"
   head "https://github.com/ekzhang/bore.git", branch: "main"
 
@@ -31,6 +31,5 @@ class BoreCli < Formula
     assert_match version.to_s, shell_output("#{bin}/bore --version")
   ensure
     Process.kill("TERM", wait_thr.pid)
-    Process.wait(wait_thr.pid)
   end
 end
