@@ -2,20 +2,10 @@ class Pc6001vx < Formula
   desc "PC-6001 emulator"
   # http://eighttails.seesaa.net/ gives 405 error
   homepage "https://github.com/eighttails/PC6001VX"
+  url "https://eighttails.up.seesaa.net/bin/PC6001VX_4.2.6_src.tar.gz"
+  sha256 "47cc6328cb2febc1042c0fa03dcc5043e7756560cc0528bdc7b8a03a0ff4cf1e"
   license "LGPL-2.1-or-later"
-  revision 2
   head "https://github.com/eighttails/PC6001VX.git", branch: "master"
-
-  stable do
-    url "https://eighttails.up.seesaa.net/bin/PC6001VX_4.2.5_src.tar.gz"
-    sha256 "4f44df8940db6d412bf4d316c950c540f03c5ab543b028b793998bfeeaac64ac"
-
-    # backport a fix for incorrectly handling SIGTERM
-    patch do
-      url "https://github.com/eighttails/PC6001VX/commit/93f2a366d1944237d4712a6de4290ac1bda15771.patch?full_index=1"
-      sha256 "f4e9d7f23ec7d0f87d869cfcef84de80f1371cc703600313a00970f84d77c632"
-    end
-  end
 
   bottle do
     sha256 cellar: :any, arm64_sonoma:   "d9f0c85994080637e87e46e657c1fa0a585d69d74548a2305654dd9a1f545e08"
