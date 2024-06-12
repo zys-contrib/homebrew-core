@@ -2,9 +2,9 @@ class Systemd < Formula
   include Language::Python::Virtualenv
 
   desc "System and service manager"
-  homepage "https://wiki.freedesktop.org/www/Software/systemd/"
-  url "https://github.com/systemd/systemd-stable/archive/refs/tags/v255.7.tar.gz"
-  sha256 "da29f2490c192ca743511098b1d15e385b1b5e7744979661dc30514c1ac61f0e"
+  homepage "https://systemd.io"
+  url "https://github.com/systemd/systemd/archive/refs/tags/v256.4.tar.gz"
+  sha256 "7861d544190f938cac1b242624d78c96fe2ebbc7b72f86166e88b50451c6fa58"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
   head "https://github.com/systemd/systemd.git", branch: "main"
 
@@ -16,7 +16,6 @@ class Systemd < Formula
   depends_on "docbook-xsl" => :build
   depends_on "gettext" => :build
   depends_on "gperf" => :build
-  depends_on "intltool" => :build
   depends_on "libgpg-error" => :build
   depends_on "libtool" => :build
   depends_on "libxml2" => :build
@@ -77,17 +76,18 @@ class Systemd < Formula
     args = %W[
       --sysconfdir=#{etc}
       --localstatedir=#{var}
-      -Drootprefix=#{prefix}
       -Dsysvinit-path=#{etc}/init.d
       -Dsysvrcnd-path=#{etc}/rc.d
       -Dpamconfdir=#{etc}/pam.d
       -Dbashcompletiondir=#{bash_completion}
+      -Dsshconfdir=no
+      -Dsshdconfdir=no
       -Dcreate-log-dirs=false
       -Dhwdb=false
-      -Dlz4=true
-      -Dgcrypt=false
-      -Dp11kit=false
-      -Dman=true
+      -Dlz4=enabled
+      -Dman=enabled
+      -Dgcrypt=disabled
+      -Dp11kit=disabled
     ]
 
     %w[docbook oasis-open-4.2 oasis-open-4.5].each do |r|
