@@ -782,6 +782,7 @@ flowpipe
 fluent-bit
 fluid-synth
 flume
+flux
 flyctl
 flyscrape
 flyway
