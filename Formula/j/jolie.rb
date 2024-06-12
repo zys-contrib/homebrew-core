@@ -6,7 +6,13 @@ class Jolie < Formula
   license "LGPL-2.1-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "8eaa95aec0b0e612db2afffe95a24a169b30063ab0699bccf08092d8532d090e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0f120e4134af5b1034b44d3f84230d67bc70ad47dbc393e853a798388ebbd93b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0f120e4134af5b1034b44d3f84230d67bc70ad47dbc393e853a798388ebbd93b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0f120e4134af5b1034b44d3f84230d67bc70ad47dbc393e853a798388ebbd93b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0f120e4134af5b1034b44d3f84230d67bc70ad47dbc393e853a798388ebbd93b"
+    sha256 cellar: :any_skip_relocation, ventura:        "0f120e4134af5b1034b44d3f84230d67bc70ad47dbc393e853a798388ebbd93b"
+    sha256 cellar: :any_skip_relocation, monterey:       "0f120e4134af5b1034b44d3f84230d67bc70ad47dbc393e853a798388ebbd93b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7787f5b6977b4500ec51580f601eb4b5760a92b1b3ce730492726baf34c576e1"
   end
 
   depends_on "openjdk"
