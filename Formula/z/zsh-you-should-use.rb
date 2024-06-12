@@ -6,13 +6,13 @@ class ZshYouShouldUse < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "39e5a4a5da8cba7c88f4badc2910dc46224c10dd62b6a827631265db651f8351"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "39e5a4a5da8cba7c88f4badc2910dc46224c10dd62b6a827631265db651f8351"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "39e5a4a5da8cba7c88f4badc2910dc46224c10dd62b6a827631265db651f8351"
-    sha256 cellar: :any_skip_relocation, sonoma:         "39e5a4a5da8cba7c88f4badc2910dc46224c10dd62b6a827631265db651f8351"
-    sha256 cellar: :any_skip_relocation, ventura:        "39e5a4a5da8cba7c88f4badc2910dc46224c10dd62b6a827631265db651f8351"
-    sha256 cellar: :any_skip_relocation, monterey:       "39e5a4a5da8cba7c88f4badc2910dc46224c10dd62b6a827631265db651f8351"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6489c8642bb013394563408bed73bf2996f8d950c2ad659c6db15a0ad77b4a0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5764d2e20956a16c98e711b6ba3fff9810aec7de91447e2c2a0f0de3cdc525e3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5764d2e20956a16c98e711b6ba3fff9810aec7de91447e2c2a0f0de3cdc525e3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5764d2e20956a16c98e711b6ba3fff9810aec7de91447e2c2a0f0de3cdc525e3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5764d2e20956a16c98e711b6ba3fff9810aec7de91447e2c2a0f0de3cdc525e3"
+    sha256 cellar: :any_skip_relocation, ventura:        "5764d2e20956a16c98e711b6ba3fff9810aec7de91447e2c2a0f0de3cdc525e3"
+    sha256 cellar: :any_skip_relocation, monterey:       "5764d2e20956a16c98e711b6ba3fff9810aec7de91447e2c2a0f0de3cdc525e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9db10641647efc842b34437ea84e3e3a2695aa3c4c486422e2ef3ffa891b7aa2"
   end
 
   uses_from_macos "zsh"
