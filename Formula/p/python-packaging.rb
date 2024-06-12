@@ -6,7 +6,13 @@ class PythonPackaging < Formula
   license any_of: ["Apache-2.0", "BSD-2-Clause"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "2cf07e8f77ff012e840b93321f30017d29b0b9408e11b8071ee0b4bbd647bcd1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4cf828add4d1558cf6dc594c3891afe1f23d45cc127c0be28afcc8845aaa8059"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4cf828add4d1558cf6dc594c3891afe1f23d45cc127c0be28afcc8845aaa8059"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4cf828add4d1558cf6dc594c3891afe1f23d45cc127c0be28afcc8845aaa8059"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4cf828add4d1558cf6dc594c3891afe1f23d45cc127c0be28afcc8845aaa8059"
+    sha256 cellar: :any_skip_relocation, ventura:        "4cf828add4d1558cf6dc594c3891afe1f23d45cc127c0be28afcc8845aaa8059"
+    sha256 cellar: :any_skip_relocation, monterey:       "4cf828add4d1558cf6dc594c3891afe1f23d45cc127c0be28afcc8845aaa8059"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00f80a3334512e058ba367fdb71e9dd40bf5edac49820fcd7ff734a40dc29ed2"
   end
 
   depends_on "python@3.11" => [:build, :test]
