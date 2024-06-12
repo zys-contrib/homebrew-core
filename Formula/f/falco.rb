@@ -1,8 +1,8 @@
 class Falco < Formula
   desc "VCL parser and linter optimized for Fastly"
   homepage "https://github.com/ysugimoto/falco"
-  url "https://github.com/ysugimoto/falco/archive/refs/tags/v1.7.0.tar.gz"
-  sha256 "3e41f830f48d8026c1f96184e60f7e0740fee7fa0995355a93bb6059f41ce335"
+  url "https://github.com/ysugimoto/falco/archive/refs/tags/v1.8.0.tar.gz"
+  sha256 "2871d575f3ed5df2213ff06763712785e4da49f4202d153ba52e8d0c5c930157"
   license "MIT"
   head "https://github.com/ysugimoto/falco.git", branch: "main"
 
@@ -45,6 +45,6 @@ class Falco < Formula
       }
     EOS
     assert_match "Type mismatch: req.backend requires type REQBACKEND",
-      shell_output("#{bin}/falco #{fail_vcl} 2>&1", 1)
+      shell_output("#{bin}/falco #{fail_vcl} 2>&1")
   end
 end
