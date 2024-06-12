@@ -15,17 +15,17 @@ class Flyctl < Formula
   livecheck do
     url :stable
     strategy :github_latest
-    throttle 5
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b7344fc767beb2801ed1fa4db8317a1215cc92122134c217cd2802b6214595af"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7344fc767beb2801ed1fa4db8317a1215cc92122134c217cd2802b6214595af"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b7344fc767beb2801ed1fa4db8317a1215cc92122134c217cd2802b6214595af"
-    sha256 cellar: :any_skip_relocation, sonoma:         "31e28ac1d6124bd820bf92959dc9586c8cec8e62caf64bc116d6be3ac1fc44c7"
-    sha256 cellar: :any_skip_relocation, ventura:        "31e28ac1d6124bd820bf92959dc9586c8cec8e62caf64bc116d6be3ac1fc44c7"
-    sha256 cellar: :any_skip_relocation, monterey:       "31e28ac1d6124bd820bf92959dc9586c8cec8e62caf64bc116d6be3ac1fc44c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec527bc8c5e9ed9f4a9481c78fea23f26c9c75184c405ee48789a08276212632"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3bab4e96cd64af3fac5b0bac1252e56b5e9b408ad1d3ac6b81f886e610c2e488"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3bab4e96cd64af3fac5b0bac1252e56b5e9b408ad1d3ac6b81f886e610c2e488"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3bab4e96cd64af3fac5b0bac1252e56b5e9b408ad1d3ac6b81f886e610c2e488"
+    sha256 cellar: :any_skip_relocation, sonoma:         "72cf914622f9b915cf8d2ff94bf85ea124e289d50e01a9658edd2eb92d087720"
+    sha256 cellar: :any_skip_relocation, ventura:        "72cf914622f9b915cf8d2ff94bf85ea124e289d50e01a9658edd2eb92d087720"
+    sha256 cellar: :any_skip_relocation, monterey:       "72cf914622f9b915cf8d2ff94bf85ea124e289d50e01a9658edd2eb92d087720"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "58fd5895f85ea15d2cd00e294195d2da3c0fc9edd8f3a14ffa9a8acc45fda11d"
   end
 
   depends_on "go" => :build
