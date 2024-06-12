@@ -1,9 +1,8 @@
 class Arkade < Formula
   desc "Open Source Kubernetes Marketplace"
   homepage "https://blog.alexellis.io/kubernetes-marketplace-two-year-update/"
-  url "https://github.com/alexellis/arkade.git",
-      tag:      "0.11.14",
-      revision: "97254cab24f9de320a470e327f2db99be6f2f15c"
+  url "https://github.com/alexellis/arkade/archive/refs/tags/0.11.15.tar.gz"
+  sha256 "d97012206ab8901d020167a5f39b6638a3b1be0f5368b74061582eee7a50c392"
   license "MIT"
 
   livecheck do
@@ -27,7 +26,7 @@ class Arkade < Formula
     ldflags = %W[
       -s -w
       -X github.com/alexellis/arkade/pkg.Version=#{version}
-      -X github.com/alexellis/arkade/pkg.GitCommit=#{Utils.git_head}
+      -X github.com/alexellis/arkade/pkg.GitCommit=#{tap.user}
     ]
     system "go", "build", *std_go_args(ldflags:)
 
