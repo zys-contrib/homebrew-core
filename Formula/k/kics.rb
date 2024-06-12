@@ -1,8 +1,8 @@
 class Kics < Formula
   desc "Detect vulnerabilities, compliance issues, and misconfigurations"
   homepage "https://kics.io/"
-  url "https://github.com/Checkmarx/kics/archive/refs/tags/v2.0.1.tar.gz"
-  sha256 "7c4b5c5e2d696db4edf5a319aad39c8108156c2832fbf2c4429c92c6ee2ada2f"
+  url "https://github.com/Checkmarx/kics/archive/refs/tags/v2.1.0.tar.gz"
+  sha256 "097072c07616ab4dbcaedb91e8b1591da20fa599323c1b56657cf4e677d6dfa3"
   license "Apache-2.0"
   head "https://github.com/Checkmarx/kics.git", branch: "master"
 
@@ -24,10 +24,7 @@ class Kics < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/Checkmarx/kics/internal/constants.Version=#{version}
-    ]
+    ldflags = "-s -w -X github.com/Checkmarx/kics/v#{version.major}/internal/constants.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/console"
 
     pkgshare.install "assets"
