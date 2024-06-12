@@ -1148,6 +1148,7 @@ jmeter
 jnethack
 jnv
 joker
+jolie
 joplin-cli
 jose
 jpeg-turbo
