@@ -1778,6 +1778,7 @@ passenger
 patat
 patchelf
 payara
+pc6001vx
 pciutils
 pcl
 pcsc-lite
