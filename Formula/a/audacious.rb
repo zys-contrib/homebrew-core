@@ -2,24 +2,14 @@ class Audacious < Formula
   desc "Lightweight and versatile audio player"
   homepage "https://audacious-media-player.org/"
   license "BSD-2-Clause"
-  revision 1
 
   stable do
-    url "https://distfiles.audacious-media-player.org/audacious-4.3.1.tar.bz2"
-    sha256 "85e9e26841505b51e342ee72a2d05f19bef894f567a029ebb3f3e0c1adb42042"
+    url "https://distfiles.audacious-media-player.org/audacious-4.4.tar.bz2"
+    sha256 "aadc5d26ea2954236a00153e424094d9e6eb55c5c324c08fd0491b7c2ae2f830"
 
     resource "plugins" do
-      url "https://distfiles.audacious-media-player.org/audacious-plugins-4.3.1.tar.bz2"
-      sha256 "2dea26e3af583a2d684df240b27b2b2932bcd653df4db500a85f4fe5d5fdc8a6"
-    end
-
-    # Fixes: ../src/libaudcore/vfs.h:78:62: error: integer value -1 is outside
-    # the valid range of values [0, 3] for this enumeration type
-    # [-Wenum-constexpr-conversion]
-    # Remove when included in a release.
-    patch do
-      url "https://github.com/audacious-media-player/audacious/commit/4967240899b6f36e3e5dfc68f1b8963824562fe9.patch?full_index=1"
-      sha256 "f1232ab272927c4d042e2475d02d08e99965b5f01a5a1a7c57a76c669224d688"
+      url "https://distfiles.audacious-media-player.org/audacious-plugins-4.4.tar.bz2"
+      sha256 "3caf3a5fe5b6f2808f461f85132fbff4ae22a53ef9f3d26d9e6030f6c6d5baa2"
     end
   end
 
@@ -93,9 +83,10 @@ class Audacious < Formula
   fails_with gcc: "5"
 
   def install
+    odie "plugins resource needs to be updated" if build.stable? && version != resource("plugins").version
+
     args = %w[
       -Dgtk=false
-      -Dqt6=true
     ]
 
     system "meson", "setup", "build", *std_meson_args, *args, "-Ddbus=false"

@@ -115,6 +115,7 @@ atlantis
 atlas
 atomicparsley
 atuin
+audacious
 auditbeat
 autobrr
 autodiff
