@@ -1,8 +1,8 @@
 class Tt < Formula
   desc "Command-line utility to manage Tarantool applications"
   homepage "https://github.com/tarantool/tt"
-  url "https://github.com/tarantool/tt/releases/download/v2.3.0/tt-2.3.0-complete.tar.gz"
-  sha256 "bd516b457cd0df19c4be9f905568219ca33d1955940c60c2a3e5b7e265ca29fd"
+  url "https://github.com/tarantool/tt/releases/download/v2.3.1/tt-2.3.1-complete.tar.gz"
+  sha256 "0e6a467cd8570b2719d7cf08fd707b3e6f2e473a9cb0d3f36b6322c392b4c86a"
   license "BSD-2-Clause"
 
   bottle do
