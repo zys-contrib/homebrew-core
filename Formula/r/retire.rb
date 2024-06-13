@@ -9,13 +9,13 @@ class Retire < Formula
   head "https://github.com/RetireJS/retire.js.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "88b33ce8cb62690d38866f4fac985cff018fddaf845678e37dc9469b8f09c3af"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "88b33ce8cb62690d38866f4fac985cff018fddaf845678e37dc9469b8f09c3af"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "88b33ce8cb62690d38866f4fac985cff018fddaf845678e37dc9469b8f09c3af"
-    sha256 cellar: :any_skip_relocation, sonoma:         "88b33ce8cb62690d38866f4fac985cff018fddaf845678e37dc9469b8f09c3af"
-    sha256 cellar: :any_skip_relocation, ventura:        "88b33ce8cb62690d38866f4fac985cff018fddaf845678e37dc9469b8f09c3af"
-    sha256 cellar: :any_skip_relocation, monterey:       "88b33ce8cb62690d38866f4fac985cff018fddaf845678e37dc9469b8f09c3af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0aeaf97e01dc4d9ff71952b00619a728f2b0cfa08d8f7cc8ee4e36cb3a73ebf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "34f925e170fc98e2747c9c041c4d6046337ada00b677cea59cf36fa9c8d79cd2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "34f925e170fc98e2747c9c041c4d6046337ada00b677cea59cf36fa9c8d79cd2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "34f925e170fc98e2747c9c041c4d6046337ada00b677cea59cf36fa9c8d79cd2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "34f925e170fc98e2747c9c041c4d6046337ada00b677cea59cf36fa9c8d79cd2"
+    sha256 cellar: :any_skip_relocation, ventura:        "34f925e170fc98e2747c9c041c4d6046337ada00b677cea59cf36fa9c8d79cd2"
+    sha256 cellar: :any_skip_relocation, monterey:       "34f925e170fc98e2747c9c041c4d6046337ada00b677cea59cf36fa9c8d79cd2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1eb9df55ab18cf43dd141a6e7a0e14dbb03156e2b79a5a81c2a9f9f35af53807"
   end
 
   depends_on "node"
