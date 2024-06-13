@@ -8,13 +8,13 @@ class Datasette < Formula
   head "https://github.com/simonw/datasette.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "daf9403113f894d9ea4a0eb445642e2f94d6cf3f5b1dbc4791365047c3fdcb4e"
-    sha256 cellar: :any,                 arm64_ventura:  "7689df8e4e9ebdb094555dc19bc274764c55a31181714b8fdddcb8d34be298a1"
-    sha256 cellar: :any,                 arm64_monterey: "403a1b59642c779a8d1bfe56acd39698b39fd2a1ba42b9d7791b05470369065e"
-    sha256 cellar: :any,                 sonoma:         "0dba08736c54561c7b885a3949020a2a86251776d664e2e0fcf270d92c614273"
-    sha256 cellar: :any,                 ventura:        "4dda6617c66a918bbcac794b4c1ddc1c538b2a127d67eac4b9727f09b6105abb"
-    sha256 cellar: :any,                 monterey:       "5eec23a87de311b2a3d1b3aaacc131b83e214b12b836411787a42eabcf9c024a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4fdde85fc2e4428a0f4ec912c0fe15e877e2419b5f3bc7d1c6ba28bbfad55f01"
+    sha256 cellar: :any,                 arm64_sonoma:   "a3a44e1824eaa79cfeecb1618c975ba025de9d7ac3a10ddfebd599de90f62d26"
+    sha256 cellar: :any,                 arm64_ventura:  "600804defe84c2844714f1662fd3ff848be125a107b199eaeb7ce50370193124"
+    sha256 cellar: :any,                 arm64_monterey: "a1f55194396797c37a0e617942f627a37518e64353ebdd7fb88be2ccb7c8e23c"
+    sha256 cellar: :any,                 sonoma:         "ccb8f9e59dcf36b9a36c0a470e4f37d14f8cd8a9f1e4fd7f9f1813e62193b584"
+    sha256 cellar: :any,                 ventura:        "d187ae236d9b104dc6f1c6524a3b998ff2da418ce262cad0a54108a9844e2067"
+    sha256 cellar: :any,                 monterey:       "b0adc947fd42902676b9c4d15f201b2e75c3de4e04faec0c72cd3857516d1c96"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0dfc42ae1b3963c4b00183ffd968270cb1125bb5c4135bcfd4d1dc919c82076"
   end
 
   depends_on "certifi"
