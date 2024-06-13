@@ -1,8 +1,8 @@
 class Clblast < Formula
   desc "Tuned OpenCL BLAS library"
   homepage "https://github.com/CNugteren/CLBlast"
-  url "https://github.com/CNugteren/CLBlast/archive/refs/tags/1.6.2.tar.gz"
-  sha256 "d7c1fb61162a6e2fa4eb6e95fafacbe22ee8460cd82371478f794f195aad267f"
+  url "https://github.com/CNugteren/CLBlast/archive/refs/tags/1.6.3.tar.gz"
+  sha256 "c05668c7461e8440fce48c9f7a8966a6f9e0923421acd7c0357ece9b1d83f20e"
   license "Apache-2.0"
 
   bottle do
