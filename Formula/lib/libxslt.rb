@@ -1,8 +1,8 @@
 class Libxslt < Formula
   desc "C XSLT library for GNOME"
   homepage "http://xmlsoft.org/XSLT/"
-  url "https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.39.tar.xz"
-  sha256 "2a20ad621148339b0759c4d4e96719362dee64c9a096dbba625ba053846349f0"
+  url "https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.40.tar.xz"
+  sha256 "194715db023035f65fb566402f2ad2b5eab4c29d541f511305c40b29b1f48d13"
   license "X11"
 
   # We use a common regex because libxslt doesn't use GNOME's "even-numbered
@@ -35,6 +35,10 @@ class Libxslt < Formula
   depends_on "icu4c"
   depends_on "libgcrypt"
   depends_on "libxml2"
+
+  on_macos do
+    depends_on "libgpg-error"
+  end
 
   on_linux do
     depends_on "pkg-config" => :build
