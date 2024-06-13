@@ -18,21 +18,22 @@ class Mvfst < Formula
 
   depends_on "cmake" => [:build, :test]
   depends_on "googletest" => :test
-  depends_on "boost"
+  depends_on "double-conversion"
   depends_on "fizz"
   depends_on "fmt"
   depends_on "folly"
   depends_on "gflags"
   depends_on "glog"
+  depends_on "libsodium"
   depends_on "openssl@3"
 
   def install
     shared_args = ["-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}"]
-    shared_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup" if OS.mac?
-    system "cmake", "-S", ".", "-B", "_build",
-                    "-DBUILD_TESTS=OFF",
-                    "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
-                    *shared_args, *std_cmake_args
+    linker_flags = %w[-undefined dynamic_lookup -dead_strip_dylibs]
+    linker_flags << "-ld_classic" if OS.mac? && MacOS.version == :ventura
+    shared_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,#{linker_flags.join(",")}" if OS.mac?
+
+    system "cmake", "-S", ".", "-B", "_build", "-DBUILD_TESTS=OFF", *shared_args, *std_cmake_args
     system "cmake", "--build", "_build"
     system "cmake", "--install", "_build"
   end
