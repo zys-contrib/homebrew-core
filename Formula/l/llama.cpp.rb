@@ -3,8 +3,8 @@ class LlamaCpp < Formula
   homepage "https://github.com/ggerganov/llama.cpp"
   # CMake uses Git to generate version information.
   url "https://github.com/ggerganov/llama.cpp.git",
-      tag:      "b3140",
-      revision: "a9cae48003dfc4fe95b8f5c81682fc6e63425235"
+      tag:      "b3143",
+      revision: "f578b86b2123d0f92afbaa98a031df4d4464e582"
   license "MIT"
   head "https://github.com/ggerganov/llama.cpp.git", branch: "master"
 
@@ -26,6 +26,7 @@ class LlamaCpp < Formula
   uses_from_macos "curl"
 
   on_linux do
+    depends_on "pkg-config" => :build
     depends_on "openblas"
   end
 
@@ -51,22 +52,14 @@ class LlamaCpp < Formula
     system "cmake", "--install", "build"
 
     libexec.install bin.children
-    libexec.children.each do |file|
-      next unless file.executable?
-
-      new_name = if file.basename.to_s == "main"
-        "llama"
-      else
-        "llama-#{file.basename}"
-      end
-
-      bin.install_symlink file => new_name
-    end
+    bin.install_symlink libexec.children.select { |file|
+                          file.executable? && !file.basename.to_s.start_with?("test-")
+                        }
   end
 
   test do
-    system bin/"llama", "--hf-repo", "ggml-org/tiny-llamas",
-                        "-m", "stories260K.gguf",
-                        "-n", "400", "-p", "I", "-ngl", "0"
+    system bin/"llama-cli", "--hf-repo", "ggml-org/tiny-llamas",
+                            "-m", "stories260K.gguf",
+                            "-n", "400", "-p", "I", "-ngl", "0"
   end
 end
