@@ -849,6 +849,7 @@ gdu
 geeqie
 gegl
 genact
+geni
 geogram
 geoipupdate
 geos
