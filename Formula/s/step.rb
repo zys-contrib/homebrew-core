@@ -1,8 +1,8 @@
 class Step < Formula
   desc "Crypto and x509 Swiss-Army-Knife"
   homepage "https://smallstep.com"
-  url "https://github.com/smallstep/cli/releases/download/v0.26.1/step_0.26.1.tar.gz"
-  sha256 "8a8bf893337a03b64af29265f4fa573760c78fe878b17990f49e7f5b582f9ea0"
+  url "https://github.com/smallstep/cli/releases/download/v0.26.2/step_0.26.2.tar.gz"
+  sha256 "00b7eb0de2f9f09fc7c4c56e87e2103f9771903e5d4c0e74ad3411d6b08cf8ae"
   license "Apache-2.0"
 
   bottle do
@@ -18,8 +18,8 @@ class Step < Formula
   depends_on "go" => :build
 
   resource "certificates" do
-    url "https://github.com/smallstep/certificates/releases/download/v0.26.1/step-ca_0.26.1.tar.gz"
-    sha256 "9efb44d13ea4280a2445e00a0a2516bda55a3a1badcaddc1db33cc70af2cb745"
+    url "https://github.com/smallstep/certificates/releases/download/v0.26.2/step-ca_0.26.2.tar.gz"
+    sha256 "260685b49f4814493d5f8490dce4a763bfde436ab51b69a8abd3438a245401e7"
   end
 
   def install
