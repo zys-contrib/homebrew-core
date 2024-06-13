@@ -1,10 +1,9 @@
 class GitInteractiveRebaseTool < Formula
   desc "Native sequence editor for Git interactive rebase"
   homepage "https://gitrebasetool.mitmaro.ca/"
-  url "https://github.com/MitMaro/git-interactive-rebase-tool/archive/refs/tags/2.3.0.tar.gz"
-  sha256 "4af63703b3504370ef298693abc5061fe5bf215536e6d45952afda33a92f8101"
+  url "https://github.com/MitMaro/git-interactive-rebase-tool/archive/refs/tags/2.4.0.tar.gz"
+  sha256 "25d76f5565d2283f320491fa7d7fe2fd12ef2664fa29fb7e332e048e687b8178"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url :stable
@@ -25,18 +24,22 @@ class GitInteractiveRebaseTool < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "libgit2"
 
   uses_from_macos "zlib"
 
-  # build patch to compile with rust 1.77.0+
-  # upstream PR ref, https://github.com/MitMaro/git-interactive-rebase-tool/pull/907
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/eef8b6250a14aa76c60ad013b676b1d45831ea2c/git-interactive-rebase-tool/2.3.0.patch"
-    sha256 "1c5177347a4bb036f1c2485d7eb16c1a7cdf43d77e12e38bc67751cea8aaf1f9"
+  def install
+    ENV["LIBGIT2_NO_VENDOR"] = "1"
+
+    system "cargo", "install", *std_cargo_args
   end
 
-  def install
-    system "cargo", "install", *std_cargo_args
+  def check_binary_linkage(binary, library)
+    binary.dynamically_linked_libraries.any? do |dll|
+      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
+
+      File.realpath(dll) == File.realpath(library)
+    end
   end
 
   test do
@@ -64,5 +67,12 @@ class GitInteractiveRebaseTool < Formula
 
     assert_equal 0, $CHILD_STATUS.exitstatus
     assert_equal expected_git_rebase_todo, todo_file.read
+
+    [
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
+    ].each do |library|
+      assert check_binary_linkage(bin/"interactive-rebase-tool", library),
+             "No linkage with #{library.basename}! Cargo is likely using a vendored version."
+    end
   end
 end
