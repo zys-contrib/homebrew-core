@@ -1,19 +1,20 @@
 class DepTree < Formula
   desc "Tool for visualizing dependencies between files and enforcing dependency rules"
-  homepage "https://dep-tree-explorer.vercel.app/"
-  url "https://github.com/gabotechs/dep-tree/archive/refs/tags/v0.20.4.tar.gz"
-  sha256 "961801bcf8cdabd59d8b2be1a175d2689e308202329967a71b8b2c890a6ab978"
+  # homepage site down issue, https://github.com/gabotechs/dep-tree/issues/95
+  homepage "https://github.com/gabotechs/dep-tree"
+  url "https://github.com/gabotechs/dep-tree/archive/refs/tags/v0.20.5.tar.gz"
+  sha256 "54a7c802b24b3e19377e9291370c7a4ab1c13a21d6e756c0eb6ebb3671fdbc00"
   license "MIT"
   head "https://github.com/gabotechs/dep-tree.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f92a494aa6ba89315ebb91b49b03ca374e8cb2ef62977253ddf74e965c9a97f2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "36e5e1c5df6c7e4f1121942058f07fe1a29098f4e995135ceb86841cd320b952"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5fa36cdf0eb34f6564a1e1bf5d0a5ecf73868eb0ae0657c0f2aff40ecb391700"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c38fefbe8a3be3694a66c846d694fe11d1bc822ebdaeb40407e0b64421e830a3"
-    sha256 cellar: :any_skip_relocation, ventura:        "866afd34ab3861eb72e69a902729310dec3ee2c658492af46473312a26638e98"
-    sha256 cellar: :any_skip_relocation, monterey:       "85d3c5b8d7fd64b123e662a0941f903f7196e3e5624cc9624384eed8efe9ecf3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "68cec1280cb882a20d4e71960a47b0c8ebb7b0e36792c4662e2cbdeeec538175"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5d71f9df94a89e1d4437d6e81847570ef0ca763805eef364a07f84258dbd2cdf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5df6fcd4fda8a1292b1716e398883b25a9e90f3727512d5e13c2f35f842c5cb0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7c2bee4ee5b09bd00b8841b8004fb611d830680c55875524d8e5c70c92f902c4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9c5595a882cfcccff4c48082f01f562b0879bb8ecfe1b3506cde00aecc315244"
+    sha256 cellar: :any_skip_relocation, ventura:        "cf36c4f0c5022b75c8bbf996554f45811ab533fe0aad1402541da9591d255451"
+    sha256 cellar: :any_skip_relocation, monterey:       "43371e0351ffe82069265a7698f118563510dffc70ddbf0b70165fc7bd2bf9a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a2e56b8bc3cf2805f9d310fa0594330598393c474b600fd5e2e1a5e40e4798ed"
   end
 
   depends_on "go" => :build
