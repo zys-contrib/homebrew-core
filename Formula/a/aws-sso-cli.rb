@@ -1,9 +1,8 @@
 class AwsSsoCli < Formula
   desc "Securely manage AWS API credentials using AWS SSO"
   homepage "https://github.com/synfinatic/aws-sso-cli"
-  url "https://github.com/synfinatic/aws-sso-cli.git",
-      tag:      "v1.15.1",
-      revision: "e2ec94d101ba9f9c8af8d766d3961f92e116a025"
+  url "https://github.com/synfinatic/aws-sso-cli/archive/refs/tags/v1.16.1.tar.gz"
+  sha256 "276d3f257ad8299d43c60ed4c87ddc72c9c14d29efa91fa8b27b3fb49f2acbd0"
   license "GPL-3.0-only"
   head "https://github.com/synfinatic/aws-sso-cli.git", branch: "main"
 
@@ -21,7 +20,14 @@ class AwsSsoCli < Formula
   depends_on xcode: :build
 
   def install
-    system "make", "install", "INSTALL_PREFIX=#{prefix}"
+    ldflags = %W[
+      -s -w
+      -X main.Version=#{version}
+      -X main.Buildinfos=#{time.iso8601}
+      -X main.Tag=#{version}
+      -X main.CommitID=#{tap.user}
+    ]
+    system "go", "build", *std_go_args(ldflags:, output: bin/"aws-sso"), "./cmd/aws-sso"
   end
 
   test do
