@@ -6,13 +6,13 @@ class Libjuice < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "e5aa96beafb42dbe58ab41409b11c38db2a2dd204a919178044dfcc330456467"
-    sha256 cellar: :any,                 arm64_ventura:  "b54f4de814b2178a1a9e6651b508825c557a4b85561b6696f0b44d538d59b672"
-    sha256 cellar: :any,                 arm64_monterey: "fc54af35a5ad00e5fa9489393d3ac072830b8f7b80a2de4c1778617cdd6e0b95"
-    sha256 cellar: :any,                 sonoma:         "e8f3f361eeed8703733103de20fc2bcdf02bf98598322eff3d23e7a679303a72"
-    sha256 cellar: :any,                 ventura:        "e789d10298bbdedaf5cd6e1a26bf0316b82ae5e3e0cdae078b6c441f92bf6a17"
-    sha256 cellar: :any,                 monterey:       "9dd920a2745da6da3a71ba0858602b81030a8195bcedc8734771254ef569dce4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b9da2455b698d0df85a0ce45327bade205e501f571ddbf60def964403f67aad"
+    sha256 cellar: :any,                 arm64_sonoma:   "4bd4ca23472949dea0ef436370f12ec7fcfdb8d60b30980ebca34e43e0d12dfe"
+    sha256 cellar: :any,                 arm64_ventura:  "abff935658a807c2acacaa5179b5cd11b533315ae6fb45707c23ccef54b9c1cb"
+    sha256 cellar: :any,                 arm64_monterey: "44a4921010935abbb0edeee3f2ffe92f725c272993549df530ea303b081cf926"
+    sha256 cellar: :any,                 sonoma:         "45eddcbc035567fef87f8781b24700b17ccea241f8bc9b97965c8f7f6aea9913"
+    sha256 cellar: :any,                 ventura:        "11c209a12bdfe1167da640c5d2e88344ad333301579d6de6e23610be1b0b8601"
+    sha256 cellar: :any,                 monterey:       "5a60ca59447e0eaf27cd4451698e021f08e45890fd558c336dda3344787dbc09"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0c95931044be39d947c1255fa08cd91d5a3571b92470b228f63bf0080a2269e"
   end
 
   depends_on "cmake" => :build
