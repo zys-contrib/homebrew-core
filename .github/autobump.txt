@@ -1640,6 +1640,7 @@ node@20
 nodeenv
 nomino
 noseyparker
+notation
 notcurses
 nox
 npm-check-updates
