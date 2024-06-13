@@ -1,8 +1,8 @@
 class Editorconfig < Formula
   desc "Maintain consistent coding style between multiple editors"
   homepage "https://editorconfig.org/"
-  url "https://github.com/editorconfig/editorconfig-core-c/archive/refs/tags/v0.12.7.tar.gz"
-  sha256 "f89d2e144fd67bdf0d7acfb2ac7618c6f087e1b3f2c3a707656b4180df422195"
+  url "https://github.com/editorconfig/editorconfig-core-c/archive/refs/tags/v0.12.8.tar.gz"
+  sha256 "508f7633416a2ce3c05104ea7daac61c4953803c9935cca6e059086cfa67ee63"
   license "BSD-2-Clause"
   head "https://github.com/editorconfig/editorconfig-core-c.git", branch: "master"
 
