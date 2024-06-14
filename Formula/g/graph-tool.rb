@@ -4,8 +4,8 @@ class GraphTool < Formula
   desc "Efficient network analysis for Python 3"
   homepage "https://graph-tool.skewed.de/"
   # TODO: Update build for matplotlib>=3.9.0 to use `--config-settings=setup-args=...` for system dependencies
-  url "https://downloads.skewed.de/graph-tool/graph-tool-2.69.tar.bz2"
-  sha256 "9ff092f2697f689d5289d2c57d8c4710304637a55a669ff20e927de34cc361db"
+  url "https://downloads.skewed.de/graph-tool/graph-tool-2.70.tar.bz2"
+  sha256 "86884680e9f13f59dbf0d7e40d160f274f2cc74107f0fc57ed16e59353cb9489"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -30,6 +30,7 @@ class GraphTool < Formula
   depends_on "cairomm@1.14"
   depends_on "cgal"
   depends_on "freetype"
+  depends_on "gmp"
   depends_on "google-sparsehash"
   depends_on "gtk+3"
   depends_on macos: :mojave # for C++17
@@ -42,7 +43,12 @@ class GraphTool < Formula
   depends_on "scipy"
   depends_on "zstd"
 
-  uses_from_macos "expat" => :build
+  uses_from_macos "expat"
+
+  on_macos do
+    depends_on "cairo"
+    depends_on "libsigc++@2"
+  end
 
   on_linux do
     depends_on "patchelf" => :build
