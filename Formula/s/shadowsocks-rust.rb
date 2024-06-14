@@ -1,8 +1,8 @@
 class ShadowsocksRust < Formula
   desc "Rust port of Shadowsocks"
   homepage "https://github.com/shadowsocks/shadowsocks-rust"
-  url "https://github.com/shadowsocks/shadowsocks-rust/archive/refs/tags/v1.19.4.tar.gz"
-  sha256 "241a722c7267418443f354e56f89f8790b9e5cc3ea6e286d37028a607d1fc206"
+  url "https://github.com/shadowsocks/shadowsocks-rust/archive/refs/tags/v1.20.0.tar.gz"
+  sha256 "c818124252528886dd2a26c0f4730a34cdeb5764c3812cae0d98e9fc9c1d8ce9"
   license "MIT"
   head "https://github.com/shadowsocks/shadowsocks-rust.git", branch: "master"
 
