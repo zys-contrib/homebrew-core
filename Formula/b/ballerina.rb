@@ -18,7 +18,13 @@ class Ballerina < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4e066774e422aa72322e53af2cec52964d761a814b06ef786229eb133ebd962b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "06e52a3f2cd00780a562e4522f7cac42c940550572ea7b538441750d21488c3f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "06e52a3f2cd00780a562e4522f7cac42c940550572ea7b538441750d21488c3f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "06e52a3f2cd00780a562e4522f7cac42c940550572ea7b538441750d21488c3f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "06e52a3f2cd00780a562e4522f7cac42c940550572ea7b538441750d21488c3f"
+    sha256 cellar: :any_skip_relocation, ventura:        "06e52a3f2cd00780a562e4522f7cac42c940550572ea7b538441750d21488c3f"
+    sha256 cellar: :any_skip_relocation, monterey:       "06e52a3f2cd00780a562e4522f7cac42c940550572ea7b538441750d21488c3f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f53893bdcfb47b87245ff304c9eb7091c9a01347ba16e2dc8f5d85db5ae9062"
   end
 
   depends_on "openjdk"
