@@ -3,8 +3,8 @@ require "language/node"
 class Zrok < Formula
   desc "Geo-scale, next-generation sharing platform built on top of OpenZiti"
   homepage "https://zrok.io"
-  url "https://github.com/openziti/zrok/archive/refs/tags/v0.4.30.tar.gz"
-  sha256 "b952c8d5c88c282d72ef7ecd4f3a6f1541b07867cc1aa35b7ec03eeea51a3fe5"
+  url "https://github.com/openziti/zrok/archive/refs/tags/v0.4.31.tar.gz"
+  sha256 "2f44a042ec5681e9da4a31d931c5e1826d4518d115758464bf77738f7b1eb9fe"
   license "Apache-2.0"
   head "https://github.com/openziti/zrok.git", branch: "main"
 
@@ -26,17 +26,27 @@ class Zrok < Formula
       system "npm", "install", *Language::Node.local_npm_install_args
       system "npm", "run", "build"
     end
-    ldflags = ["-X github.com/openziti/zrok/build.Version=#{version}",
-               "-X github.com/openziti/zrok/build.Hash=brew"]
-    system "go", "build", *std_go_args(ldflags:), "github.com/openziti/zrok/cmd/zrok"
+
+    ldflags = %W[
+      -s -w
+      -X github.com/openziti/zrok/build.Version=#{version}
+      -X github.com/openziti/zrok/build.Hash=#{tap.user}
+    ]
+    system "go", "build", *std_go_args(ldflags:), "./cmd/zrok"
   end
 
   test do
     (testpath/"ctrl.yml").write <<~EOS
-      v: 3
+      v: 4
       maintenance:
         registration:
-          expiration_timeout: 24h
+          expiration_timeout:           24h
+          check_frequency:              1h
+          batch_limit:                  500
+        reset_password:
+          expiration_timeout:           15m
+          check_frequency:              15m
+          batch_limit:                  500
     EOS
 
     version_output = shell_output("#{bin}/zrok version")
