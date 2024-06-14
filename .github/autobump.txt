@@ -2142,6 +2142,7 @@ sing-box
 singular
 singularity
 sip
+siril
 sispmctl
 sjk
 skaffold
