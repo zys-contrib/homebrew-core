@@ -11,15 +11,13 @@ class GitInteractiveRebaseTool < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5ed399366f8adb76ce2f58488ccd962a8ef16447f6290b5f229f4c9dc3daf883"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3c2a767bc773ffcbc636fbd55af0aeaf23bd69b07111413161f2a574c5224cbb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "828c794f3ee0e7e402a83ce15a897327d9760cd78156a5cce665f1e545dd2020"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "529cdbf5aa5ddda0b1aeb19d09fc506e5d605167b12930ba24374b9543db8eab"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b6bd256d7ab001da82c749b08cbd793ed902d3ca8cb09f2e9665e27b3c619572"
-    sha256 cellar: :any_skip_relocation, ventura:        "9e609bed5b3c38e26f9b1c15f5ebd6d033f26cba28cf60462efd828ce6e27944"
-    sha256 cellar: :any_skip_relocation, monterey:       "4bae4961c755dd4995ac74a33099d9fd47b0ac24a25d0702959d6f4f953049d1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3c3252f9714a5b51fb5f7237087dd3e9a0029ab63fd03c0a1d3f6e41829356da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36d0dd310b6ed752543b98dc359f904606306099b719667099cfd6fe85eb84c4"
+    sha256 cellar: :any,                 arm64_sonoma:   "8429e444bd9bed7cabacce6b949e3422d2e35b5d092020773154370aefb0e7ac"
+    sha256 cellar: :any,                 arm64_ventura:  "3f072ba39641bfd213c9fd9145f63375a7d101cddcdea4adc28234c53505c97f"
+    sha256 cellar: :any,                 arm64_monterey: "3d7070c4913492785ca75a0a17b86b13136f9481b05941a950b51445120e1bd8"
+    sha256 cellar: :any,                 sonoma:         "785162ad5c56856a764aa4b71de7bd28ab19339d27a06b9abfd361733b277896"
+    sha256 cellar: :any,                 ventura:        "157a34883bc15a1ebc4e59bfea8eb21f680100cad5f8cacda7cc93cec24580aa"
+    sha256 cellar: :any,                 monterey:       "7c6147296984de54844c4eaaf4afed7a7c0df23ddd4dbcd0f22bf5633ef97d23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c96a2122bbaa4a975e2bc8710934eae851351a885dbd5b2fc3af34cdf7c1439f"
   end
 
   depends_on "pkg-config" => :build
