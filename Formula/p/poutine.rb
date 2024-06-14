@@ -6,6 +6,16 @@ class Poutine < Formula
   license "Apache-2.0"
   head "https://github.com/boostsecurityio/poutine.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9c713feb6dd0b2e1ec3b9e08faa5311e2ae617e33cbcdf7c9603b0f3e0bd4292"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd43a9647275c7d9dcb9bc01b92dc36ad42ac0396b76c0bce91b0c4d9ef7ae97"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c53f6c621f827801a0ae38f31699fe80421d535c2c5d1525c560ee493a60fa51"
+    sha256 cellar: :any_skip_relocation, sonoma:         "93b7ab36efd7fc9f9be6600442bee9daa564298bde6d3cfbf5fdab6aeeff52b2"
+    sha256 cellar: :any_skip_relocation, ventura:        "8afff2452c7cae88dd1d8490ca9109eef52b3785e59f4afaef650b0f358c9d05"
+    sha256 cellar: :any_skip_relocation, monterey:       "33cdd6874af910daaf9d7cb8d0e1a31522023fa69f6355bfff038213dcc35ea0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f09e612a17c6a1657ef53b6415976a4b20e25406cec85c1024712fb8e88a9149"
+  end
+
   depends_on "go" => :build
 
   def install
