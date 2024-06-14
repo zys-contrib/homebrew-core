@@ -1,8 +1,8 @@
 class Gmic < Formula
   desc "Full-Featured Open-Source Framework for Image Processing"
   homepage "https://gmic.eu/"
-  url "https://gmic.eu/files/source/gmic_3.3.6.tar.gz"
-  sha256 "783db018dece6dc443349ddf1cc85ff06b2aeb9a4612f795859c39c85d38fddf"
+  url "https://gmic.eu/files/source/gmic_3.4.0.tar.gz"
+  sha256 "4fc0c79eed360c4f804d8110d7955bc8e0db9a14fba9483fe494f02c3640be69"
   license "CECILL-2.1"
   head "https://github.com/GreycLab/gmic.git", branch: "master"
 
@@ -25,6 +25,7 @@ class Gmic < Formula
   depends_on "pkg-config" => :build
   depends_on "cimg"
   depends_on "fftw"
+  depends_on "imath"
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
