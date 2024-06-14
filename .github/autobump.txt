@@ -1869,6 +1869,7 @@ postgresql@14
 postgresql@15
 postgresql@16
 postgrest
+poutine
 powerman
 powerman-dockerize
 pqiv
