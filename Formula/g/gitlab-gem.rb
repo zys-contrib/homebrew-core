@@ -6,16 +6,13 @@ class GitlabGem < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7985faeadb47c3590bd5cd64f316ae8718211f2702ceaffd0da3b4a2a2cecdc1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "86b43558c3f09fc837044a34807dcf485098351a237f81394b52dfa4467416b9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "86b43558c3f09fc837044a34807dcf485098351a237f81394b52dfa4467416b9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b163e735208a52ae23a48b72b21e838062e834e112aa0e215e0aca85ca8d52c4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7985faeadb47c3590bd5cd64f316ae8718211f2702ceaffd0da3b4a2a2cecdc1"
-    sha256 cellar: :any_skip_relocation, ventura:        "86b43558c3f09fc837044a34807dcf485098351a237f81394b52dfa4467416b9"
-    sha256 cellar: :any_skip_relocation, monterey:       "86b43558c3f09fc837044a34807dcf485098351a237f81394b52dfa4467416b9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b163e735208a52ae23a48b72b21e838062e834e112aa0e215e0aca85ca8d52c4"
-    sha256 cellar: :any_skip_relocation, catalina:       "b163e735208a52ae23a48b72b21e838062e834e112aa0e215e0aca85ca8d52c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95066291140c4f67a5b74667427a3ead59f5d7e5b6dbd7611a5f5fbe2cdae83f"
+    sha256 cellar: :any,                 arm64_sonoma:   "c4b34ccc6d5ce5675a7dcbabc284a2cb9c78ae915b1bc72e274e0f703f27fc02"
+    sha256 cellar: :any,                 arm64_ventura:  "6e184ac89b243b7066782698fa335239b48b3bfe9731dea1894e09558282670f"
+    sha256 cellar: :any,                 arm64_monterey: "bd09da68a956d0da8dcb3b7815503091fbf4d52a18ed3a85745a52ccef57bbab"
+    sha256 cellar: :any,                 sonoma:         "6081be99988d24e027fa18cc8d7620b7cdfc1ad57e90768d2e43220d344a27dd"
+    sha256 cellar: :any,                 ventura:        "1d310c144551add97d0a6042a4742fcbb4b870e7b31e5423e7d3484a8b584e92"
+    sha256 cellar: :any,                 monterey:       "8ba80fbf9ee3f1eb352b415679de063dc291af003f191b0d99fce43edb342ceb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f05028ad35fce6b26c53901a3d46bede96447f968fb756186cdf592274b50f0"
   end
 
   depends_on "ruby"
