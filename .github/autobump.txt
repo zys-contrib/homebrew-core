@@ -2488,6 +2488,7 @@ virtctl
 virtualenv
 virtualenvwrapper
 virtualfish
+virtuoso
 virustotal-cli
 vis
 vite
