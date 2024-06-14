@@ -1,8 +1,8 @@
 class Testssl < Formula
   desc "Tool which checks for the support of TLS/SSL ciphers and flaws"
   homepage "https://testssl.sh/"
-  url "https://github.com/drwetter/testssl.sh/archive/refs/tags/v3.0.8.tar.gz"
-  sha256 "22c5dc6dfc7500db94b6f8a48775f72b5149d0a372b8552ed7666016ee79edf0"
+  url "https://github.com/drwetter/testssl.sh/archive/refs/tags/v3.0.9.tar.gz"
+  sha256 "75ecbe4470e74f9ad17f4c4ac733be123b0f67d676ed24cc2b30adb41561e05f"
   license "GPL-2.0-only"
   head "https://github.com/drwetter/testssl.sh.git", branch: "3.2"
 
@@ -30,6 +30,6 @@ class Testssl < Formula
   end
 
   test do
-    system "#{bin}/testssl.sh", "--local", "--warnings", "off"
+    system bin/"testssl.sh", "--local", "--warnings", "off"
   end
 end
