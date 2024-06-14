@@ -1,10 +1,9 @@
 class Stp < Formula
   desc "Simple Theorem Prover, an efficient SMT solver for bitvectors"
   homepage "https://stp.github.io/"
-  url "https://github.com/stp/stp/archive/refs/tags/2.3.3.tar.gz"
-  sha256 "ea6115c0fc11312c797a4b7c4db8734afcfce4908d078f386616189e01b4fffa"
+  url "https://github.com/stp/stp/archive/refs/tags/2.3.4.tar.gz"
+  sha256 "dc197e337c058dc048451b712169a610f7040b31d0078b6602b831fbdcbec990"
   license "MIT"
-  revision 10
   head "https://github.com/stp/stp.git", branch: "master"
 
   livecheck do
@@ -29,6 +28,7 @@ class Stp < Formula
   depends_on "python-setuptools" => :build
   depends_on "boost"
   depends_on "cryptominisat"
+  depends_on "gmp"
   depends_on "minisat"
   depends_on "python@3.12"
 
