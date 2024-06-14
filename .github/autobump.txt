@@ -1396,6 +1396,7 @@ libxmlb
 libxmlsec1
 libxmu
 libxo
+libxslt
 libxvmc
 libzim
 libzzip
