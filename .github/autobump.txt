@@ -1232,6 +1232,7 @@ kubectl-cnpg
 kubectl-rook-ceph
 kubefirst
 kubekey
+kubelogin
 kubergrunt
 kubernetes-cli
 kubescape
