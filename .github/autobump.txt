@@ -1303,6 +1303,7 @@ libepoxy
 libewf
 libfabric
 libffi
+libfido2
 libfontenc
 libgedit-gtksourceview
 libgeotiff
