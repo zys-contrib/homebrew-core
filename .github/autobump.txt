@@ -214,6 +214,7 @@ blueutil
 bluez
 bmake
 bnd
+bob
 boolector
 bore-cli
 borgbackup
