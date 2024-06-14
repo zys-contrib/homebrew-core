@@ -882,6 +882,7 @@ git-delete-merged-branches
 git-delta
 git-extras
 git-grab
+git-interactive-rebase-tool
 git-lfs
 git-machete
 git-quick-stats
