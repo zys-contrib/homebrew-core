@@ -2242,6 +2242,7 @@ storj-uplink
 storm
 stormlib
 stow
+stp
 strace
 streamlink
 stress-ng
