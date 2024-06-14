@@ -894,6 +894,7 @@ gitbucket
 gitea
 github-markdown-toc
 gitlab-ci-local
+gitlab-gem
 gitlab-runner
 gitleaks
 gitmoji
