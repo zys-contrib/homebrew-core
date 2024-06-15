@@ -9,13 +9,14 @@ class Chatblade < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "e303ba05888aadb7bbd9f9989ff327a9e4d27417c606ae4127f585939bc7231f"
-    sha256 cellar: :any,                 arm64_ventura:  "b07589bc06e8511b6f7dedbf7fde515690fcc721f5a9faeb6cf685a0774c1113"
-    sha256 cellar: :any,                 arm64_monterey: "7c79e552c2e43eb0fb3ce582b141d78817eeb8cc050f9568db164dfd0aba77ba"
-    sha256 cellar: :any,                 sonoma:         "595dc5ca13a16ece79832d985bf228871bbfbd835a25561dae0fc394376069c8"
-    sha256 cellar: :any,                 ventura:        "3d8c3df72607c091f77ba1ae8c205e72e8a2a8d89ac1ee46298879862ca28fd7"
-    sha256 cellar: :any,                 monterey:       "08e975844e2cb6ddc9da2dea920531cf0d4763814f33a0a9518553d15d06216c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0e9793148db8c02d60851e4b93549270aa5a3ad03edc7e855739107ad5310d8"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "c2087557180642b147eeed68fe8b2751fc1fd3959f8140f00c3658ea5994887b"
+    sha256 cellar: :any,                 arm64_ventura:  "ae87f452ce90deb30c53837ef1c9fb66bea02bc6c639163c2136183c5c1baccf"
+    sha256 cellar: :any,                 arm64_monterey: "6e78e81ab13e0b8051e5f1024b17a7f23171b69c4eef6501273080ef9fd04dbc"
+    sha256 cellar: :any,                 sonoma:         "673bddc715cbad38c977f1367d524535ba4301f0fb118b0ce53a68625f950ffe"
+    sha256 cellar: :any,                 ventura:        "8e5180b939907d31f40dbe6648127f9787a59b2364ddc9e61c2f7a17bf6ee65c"
+    sha256 cellar: :any,                 monterey:       "1a7547c44ecf2025660006e0b73a558e2db52e310d9425511831b4315000554f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c1a0d034095c6355fa260f001a540a85ce4ff3a045cb3ba876fe7b3d55ec183d"
   end
 
   depends_on "rust" => :build
