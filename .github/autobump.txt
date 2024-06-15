@@ -1403,6 +1403,7 @@ libzim
 libzzip
 license-eye
 licensefinder
+lightgbm
 lighthouse
 lighttpd
 lima
