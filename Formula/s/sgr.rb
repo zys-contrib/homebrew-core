@@ -9,13 +9,14 @@ class Sgr < Formula
   revision 11
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "007eaa707a19cbb7fb1c1ab50681af74d84f68956e5f72675ca50ce48896f977"
-    sha256 cellar: :any,                 arm64_ventura:  "a33316fdd214f985e1e04fab73f0a710e1b48210ec216454f7689d50c0f6be25"
-    sha256 cellar: :any,                 arm64_monterey: "137d66e49c8f11df0145bd80bec50ed06f579b1ab546798cd4abfda125893e2c"
-    sha256 cellar: :any,                 sonoma:         "8d39ae2429a9ca2203db82a34d2dd6073d76f90a40a42ae88c157b7a56c042f7"
-    sha256 cellar: :any,                 ventura:        "c8b301c0ad724fe2a386eadb6650337632e4ff443f9df42e2cf09b398a784821"
-    sha256 cellar: :any,                 monterey:       "ea07150c55489e9f3b8e7389d8dee0c00912b1f664d53afd71785a9758e14f25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9621c400f9407246cfe146baa2cbeacb13399bf9f6208e751a2b5d89fb95cba6"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "4f76283db46670d48f38be240869170034a243afd079e32e4f04a5a9f938e82f"
+    sha256 cellar: :any,                 arm64_ventura:  "d9821cb17c76e3557394dbd54fdb7e7a572636ebf7b89ba59ee6248db7760b23"
+    sha256 cellar: :any,                 arm64_monterey: "eaff6e1b644143e73ba70ffd8ce740483462512b3ee5aa52ecfa5ee8815252c5"
+    sha256 cellar: :any,                 sonoma:         "c612c29bd206799603320db238cc819d4bad041c947be0b10245fa1a4e0d2751"
+    sha256 cellar: :any,                 ventura:        "9652ecefbefc30f04c2462c20d58bc883e834a50b62068405975ac175f2faeea"
+    sha256 cellar: :any,                 monterey:       "2b00e4d973f273677197dd75f0a87f547c983089078860f8acef3e1c842e0f5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fc6792e463a52acce385cccebb2d635a2a63e90759d5950321c065109e863d8c"
   end
 
   depends_on "cython" => :build # TODO: remove with newer `pglast` (4.4+)
