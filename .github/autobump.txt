@@ -693,6 +693,7 @@ envchain
 envd
 envoy
 enzyme
+epic5
 epr
 eprover
 erdtree
