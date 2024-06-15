@@ -1,8 +1,8 @@
 class Scnlib < Formula
   desc "Scanf for modern C++"
   homepage "https://scnlib.dev"
-  url "https://github.com/eliaskosunen/scnlib/archive/refs/tags/v3.0.0.tar.gz"
-  sha256 "4435489aeaf4cdb8f81d0c48c4185e8436d80c57cff3e6cc7d1decd236f62fa6"
+  url "https://github.com/eliaskosunen/scnlib/archive/refs/tags/v3.0.1.tar.gz"
+  sha256 "bc8a668873601d00cce6841c2d0f2c93f836f63f0fbc77997834dea12e951eb1"
   license "Apache-2.0"
   head "https://github.com/eliaskosunen/scnlib.git", branch: "master"
 
