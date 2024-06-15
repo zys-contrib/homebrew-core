@@ -758,6 +758,7 @@ fennel
 fern-api
 feroxbuster
 ffmpeg
+ffmpeg@5
 ffms2
 ffsend
 ffuf
