@@ -2449,6 +2449,7 @@ veilid
 velero
 verapdf
 vercel-cli
+verilator
 verovio
 vet
 vexctl
