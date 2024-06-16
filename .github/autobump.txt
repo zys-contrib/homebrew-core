@@ -774,6 +774,7 @@ firebase-cli
 firefoxpwa
 fisher
 flac
+flake8
 flank
 flann
 flarectl
