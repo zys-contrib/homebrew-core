@@ -3,8 +3,8 @@ class Icloudpd < Formula
 
   desc "Tool to download photos from iCloud"
   homepage "https://github.com/icloud-photos-downloader/icloud_photos_downloader"
-  url "https://github.com/icloud-photos-downloader/icloud_photos_downloader/archive/refs/tags/v1.19.1.tar.gz"
-  sha256 "58653c234c1ff1d95792b27edf82e18be96f616e89125ba0c792d1cae560fc8b"
+  url "https://github.com/icloud-photos-downloader/icloud_photos_downloader/archive/refs/tags/v1.20.0.tar.gz"
+  sha256 "ac2d194b1d2d06989516c11ade8866386b5c762c9acf633180aec99f0269b9e4"
   license "MIT"
   head "https://github.com/icloud-photos-downloader/icloud_photos_downloader.git", branch: "master"
 
