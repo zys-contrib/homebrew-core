@@ -1920,6 +1920,7 @@ putty
 pwntools
 py-spy
 py3cairo
+pycodestyle
 pycparser
 pyenv
 pyenv-virtualenv
