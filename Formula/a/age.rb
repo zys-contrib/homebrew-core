@@ -1,8 +1,8 @@
 class Age < Formula
   desc "Simple, modern, secure file encryption"
   homepage "https://github.com/FiloSottile/age"
-  url "https://github.com/FiloSottile/age/archive/refs/tags/v1.1.1.tar.gz"
-  sha256 "f1f3dbade631976701cd295aa89308681318d73118f5673cced13f127a91178c"
+  url "https://github.com/FiloSottile/age/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "cefe9e956401939ad86a9c9d7dcf843a43b6bcdf4ee7d8e4508864f227a3f6f0"
   license "BSD-3-Clause"
   head "https://github.com/FiloSottile/age.git", branch: "main"
 
