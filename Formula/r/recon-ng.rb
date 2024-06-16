@@ -13,14 +13,14 @@ class ReconNg < Formula
   revision 1
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any,                 arm64_sonoma:   "9558290efc3f7165e733ed4f443a2c8de6193925c3d9c7d0b94dbcc7fda6b7c4"
-    sha256 cellar: :any,                 arm64_ventura:  "1c23268facfa9116189eb611ea3c282c09ae2f8fc5608a89edbc312d0da0dd14"
-    sha256 cellar: :any,                 arm64_monterey: "f111fbfca64e7ed0f1ce23e9df8dcd7b7a2a0327909fa2a27f55df452151dc1a"
-    sha256 cellar: :any,                 sonoma:         "4ae6a6718d1dcdf854c0b0b636f62e37ef3e4de4c630836afcbe66e3f5c5d454"
-    sha256 cellar: :any,                 ventura:        "f66debf0afb9cc70ffe480efc455a2ccc9adbbb17bbb841ce2a8470094d2145a"
-    sha256 cellar: :any,                 monterey:       "bddfa636abeb702de819749021900f7bfee062882f10dfcc055e156f54c9b153"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d74f449f8cb11c5ed84808638d5dbcdd4d3b3faa23b6cca7668e11d997c7c31"
+    rebuild 6
+    sha256 cellar: :any,                 arm64_sonoma:   "3dc206cd3f8da1fa47c3a10ffcb238c860fca78a243ada53cfea56f84fc9c9a8"
+    sha256 cellar: :any,                 arm64_ventura:  "647b0fdb1772d54fa556c956c37cc80c692e8f1a86d3ec6f39436daee1c5d754"
+    sha256 cellar: :any,                 arm64_monterey: "2b1905f0796d683c2f1e7f94280eb96e85ae4d87c0b86608138221a4f9dee79c"
+    sha256 cellar: :any,                 sonoma:         "de909a4b5d420f9791451bdcb044ab78f4ddeb79bdd5a53295781e06b71bd776"
+    sha256 cellar: :any,                 ventura:        "d5ebc31d0008d66aed5d9d323749560afbabcd7bf12e564f0d1b424204b8b20b"
+    sha256 cellar: :any,                 monterey:       "2548b7e1939ada378f49f0d08e254a74899b65d010a9802d6c3e3c878b403b61"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dfbec288e41bf152731449d5129eb556671f321437861adf8ca6ee6dbf3cefc2"
   end
 
   depends_on "rust" => :build # for rpds-py
