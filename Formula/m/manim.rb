@@ -10,14 +10,13 @@ class Manim < Formula
   head "https://github.com/manimCommunity/manim.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "80312d55f28aa5a9097a4972106c6b38490d9da74c49f2dc54aeebb5b08cfad0"
-    sha256 cellar: :any,                 arm64_ventura:  "f2ce1f0e77dde117adfef2440614220517c231d7ad9de1fcb042a20067fba247"
-    sha256 cellar: :any,                 arm64_monterey: "64377a34f12fc8f5ed4f5f8d7af2294400fe56eb484fe765e7a497a1e65d3b57"
-    sha256 cellar: :any,                 sonoma:         "f3f67a3b98acd8f86d2eef689f9f3481f26d967805dc23fbcb4d5d4177063a7b"
-    sha256 cellar: :any,                 ventura:        "e148eca9fa8b261f02219009df6a5257dad1ab6daf9e8fe89360c6cc87ee3589"
-    sha256 cellar: :any,                 monterey:       "c3982b85e3cf97767adf860277bd2fc28b1f458dd0ca60994e203b43f6bb6e96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "153047b915cfe722ed249127fbd109edfc43428128405bf94af7c8550202e905"
+    sha256 cellar: :any,                 arm64_sonoma:   "cfd5d44782f8ef0faad36e22e5210813af2b97e476fa32fd7cf1b387a6154a2c"
+    sha256 cellar: :any,                 arm64_ventura:  "5be605d9c07ce4ea4cf9cc24fcdcf788794a77eddde695ebe0ddd252913e3bae"
+    sha256 cellar: :any,                 arm64_monterey: "683b3c4af57d99ae22b2869a243a922a7fa146cda31513a292138e5f0921b492"
+    sha256 cellar: :any,                 sonoma:         "758b99d11ec4ab2d9af63eeb72fdda594b81828dddedad511167e62cbcb5de24"
+    sha256 cellar: :any,                 ventura:        "e2d7e33dd275a7fa60919dc986f0f645cede8c0227f5170c6a4ad20acab214fb"
+    sha256 cellar: :any,                 monterey:       "cbd5fae3387103ad6ea249163afff396e32762330d0a46418e19976698c5990b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "daaf7088daa8a4811f71f6164dfb59d83ce18277d0bd8223a13a266afc85c0e0"
   end
 
   depends_on "cython" => :build
