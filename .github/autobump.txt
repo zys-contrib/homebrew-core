@@ -2407,6 +2407,7 @@ twine
 tygo
 typescript
 typescript-language-server
+typical
 typos-cli
 typst
 typstyle
