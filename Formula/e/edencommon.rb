@@ -18,15 +18,22 @@ class Edencommon < Formula
 
   depends_on "cmake" => :build
   depends_on "googletest" => :build
+  depends_on "wangle" => :build
+  depends_on "boost"
   depends_on "fb303"
   depends_on "fbthrift"
+  depends_on "fmt"
   depends_on "folly"
   depends_on "gflags"
   depends_on "glog"
-  depends_on "libsodium"
-  depends_on "mvfst"
   depends_on "openssl@3"
-  depends_on "wangle"
+
+  # Build shared libraries
+  # https://github.com/facebookexperimental/edencommon/pull/20
+  patch do
+    url "https://github.com/facebookexperimental/edencommon/commit/01bca703032ff108665a83274fb56617b46882aa.patch?full_index=1"
+    sha256 "50f704ad44aa6fa8df35d913966c5c28f8fddb8871b35b3420875c804efc386a"
+  end
 
   def install
     # Fix "Process terminated due to timeout" by allowing a longer timeout.
@@ -40,7 +47,12 @@ class Edencommon < Formula
     # Avoid having to build FBThrift py library
     inreplace "CMakeLists.txt", "COMPONENTS cpp2 py)", "COMPONENTS cpp2)"
 
-    system "cmake", "-S", ".", "-B", "_build", *std_cmake_args
+    shared_args = ["-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}"]
+    linker_flags = %w[-undefined dynamic_lookup -dead_strip_dylibs]
+    linker_flags << "-ld_classic" if OS.mac? && MacOS.version == :ventura
+    shared_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,#{linker_flags.join(",")}" if OS.mac?
+
+    system "cmake", "-S", ".", "-B", "_build", *shared_args, *std_cmake_args
     system "cmake", "--build", "_build"
     system "cmake", "--install", "_build"
   end
