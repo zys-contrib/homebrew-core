@@ -23,7 +23,7 @@ class Bazarr < Formula
   depends_on "gcc"
   depends_on "numpy"
   depends_on "pillow"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "unar"
 
   uses_from_macos "libxml2", since: :ventura
@@ -31,8 +31,13 @@ class Bazarr < Formula
   uses_from_macos "zlib"
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/63/f7/ffbb6d2eb67b80a45b8a0834baa5557a14a5ffce0979439e7cd7f0c4055b/lxml-5.2.2.tar.gz"
-    sha256 "bb2dc4898180bea79863d5487e5f9c7c34297414bad54bcd0f0852aee9cfdb87"
+    url "https://files.pythonhosted.org/packages/e7/6b/20c3a4b24751377aaa6307eb230b66701024012c29dd374999cc92983269/lxml-5.3.0.tar.gz"
+    sha256 "4e109ca30d1edec1ac60cdbe341905dc3b8f55b16855e03a54aaf59e51ec8c6f"
+  end
+
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/5e/11/487b18cc768e2ae25a919f230417983c8d5afa1b6ee0abd8b6db0b89fa1d/setuptools-72.1.0.tar.gz"
+    sha256 "8d243eff56d095e5817f796ede6ae32941278f542e0f941867cc05ae52b162ec"
   end
 
   resource "webrtcvad-wheels" do
@@ -41,9 +46,7 @@ class Bazarr < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages("python3.11")
-    venv = virtualenv_create(libexec, "python3.11")
-
+    venv = virtualenv_create(libexec, "python3.12")
     venv.pip_install resources
 
     if build.head?
@@ -56,17 +59,20 @@ class Bazarr < Formula
 
     # Stop program from automatically downloading its own binaries.
     binaries_file = buildpath/"bazarr/utilities/binaries.json"
-    rm binaries_file
+    binaries_file.unlink
     binaries_file.write "[]"
 
+    # Prevent strange behavior of searching for a different python executable on macOS,
+    # which won't have the required dependencies
+    inreplace "bazarr.py", "def get_python_path():", "def get_python_path():\n    return sys.executable"
+
     libexec.install Dir["*"]
-    (bin/"bazarr").write_env_script libexec/"bin/python", "#{libexec}/bazarr.py",
+    (bin/"bazarr").write_env_script venv.root/"bin/python", libexec/"bazarr.py",
       NO_UPDATE:  "1",
       PATH:       "#{Formula["ffmpeg"].opt_bin}:#{HOMEBREW_PREFIX/"bin"}:$PATH",
-      PYTHONPATH: ENV["PYTHONPATH"]
+      PYTHONPATH: venv.site_packages
 
     pkgvar = var/"bazarr"
-
     pkgvar.mkpath
     pkgvar.install_symlink pkgetc => "config"
 
@@ -102,8 +108,7 @@ class Bazarr < Formula
 
     system bin/"bazarr", "--help"
 
-    config_file = testpath/"config/config.ini"
-    config_file.write <<~EOS
+    (testpath/"config/config.ini").write <<~EOS
       [backup]
       folder = #{testpath}/custom_backup
     EOS
@@ -111,7 +116,7 @@ class Bazarr < Formula
     port = free_port
 
     Open3.popen3(bin/"bazarr", "--no-update", "--config", testpath, "-p", port.to_s) do |_, _, stderr, wait_thr|
-      Timeout.timeout(30) do
+      Timeout.timeout(45) do
         stderr.each do |line|
           refute_match "ERROR", line unless line.match? "Error trying to get releases from Github"
           break if line.include? "BAZARR is started and waiting for request on http://0.0.0.0:#{port}"
@@ -123,9 +128,7 @@ class Bazarr < Formula
     end
 
     assert_predicate (testpath/"config/config.ini.old"), :exist?
-    new_config_file = testpath/"config/config.yaml"
-    assert_includes File.read(new_config_file), "#{testpath}/custom_backup"
-    bazarr_log = testpath/"log/bazarr.log"
-    assert_match "BAZARR is started and waiting for request", bazarr_log.read
+    assert_includes (testpath/"config/config.yaml").read, "#{testpath}/custom_backup"
+    assert_match "BAZARR is started and waiting for request", (testpath/"log/bazarr.log").read
   end
 end
