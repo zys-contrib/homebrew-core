@@ -1797,6 +1797,7 @@ payara
 pc6001vx
 pciutils
 pcl
+pcre2
 pcsc-lite
 pdal
 pdfalyzer
