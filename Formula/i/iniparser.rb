@@ -1,8 +1,8 @@
 class Iniparser < Formula
   desc "Library for parsing ini files"
   homepage "https://gitlab.com/iniparser/iniparser"
-  url "https://gitlab.com/iniparser/iniparser/-/archive/v4.2.3/iniparser-v4.2.3.tar.bz2"
-  sha256 "cf9afba93f524e04483a6438698de8d6b4b4a3c817c2f2ca5df46919b47c8b75"
+  url "https://gitlab.com/iniparser/iniparser/-/archive/v4.2.4/iniparser-v4.2.4.tar.bz2"
+  sha256 "767963cff69aa7b0c7e48b74954886d5e498835056727fce25aecb19ff551d43"
   license "MIT"
   head "https://gitlab.com/iniparser/iniparser.git", branch: "main"
 
