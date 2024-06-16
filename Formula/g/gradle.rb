@@ -4,6 +4,7 @@ class Gradle < Formula
   url "https://services.gradle.org/distributions/gradle-8.8-all.zip"
   sha256 "f8b4f4772d302c8ff580bc40d0f56e715de69b163546944f787c87abf209c961"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://gradle.org/install/"
@@ -21,14 +22,13 @@ class Gradle < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "834067560a7903b2bbd9c686b4830e736157ddbcedeb655a19fb565e735c42de"
   end
 
-  # no java 22 support for gradle 8.7
   # https://github.com/gradle/gradle/blob/master/platforms/documentation/docs/src/docs/userguide/releases/compatibility.adoc
-  depends_on "openjdk@21"
+  depends_on "openjdk"
 
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install %w[bin docs lib src]
-    env = Language::Java.overridable_java_home_env("21")
+    env = Language::Java.overridable_java_home_env
     (bin/"gradle").write_env_script libexec/"bin/gradle", env
   end
 
