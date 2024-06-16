@@ -1,8 +1,8 @@
 class Typical < Formula
   desc "Data interchange with algebraic data types"
   homepage "https://github.com/stepchowfun/typical"
-  url "https://github.com/stepchowfun/typical/archive/refs/tags/v0.9.7.tar.gz"
-  sha256 "5a467c3f84dbaaf223b6ab21ad61034583cd48615c89a4cca62dddbc4ca95b91"
+  url "https://github.com/stepchowfun/typical/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "27e8d7a2cde6ab942e4ab814851fb231d61e77327e008c6f4ba84be7d095f26c"
   license "MIT"
 
   bottle do
