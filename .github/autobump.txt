@@ -182,6 +182,7 @@ bcftools
 bcoin
 bde
 beagle
+beancount
 bear
 bench
 benthos
