@@ -45,6 +45,7 @@ class Asitop < Formula
 
   def install
     virtualenv_install_with_resources
+    bin.env_script_all_files(libexec, PYTHONDONTWRITEBYTECODE: "1")
   end
 
   test do
