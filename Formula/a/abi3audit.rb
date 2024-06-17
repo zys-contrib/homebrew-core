@@ -9,13 +9,13 @@ class Abi3audit < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9315642a19eaf8e85bad5074e460f5e1c3712be81ee4cc82a258fe7519e8fd9f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9315642a19eaf8e85bad5074e460f5e1c3712be81ee4cc82a258fe7519e8fd9f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9315642a19eaf8e85bad5074e460f5e1c3712be81ee4cc82a258fe7519e8fd9f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0e9e9157e8cb9f1ba7ce50fe38121db48ab459611729b7aa28c7a6226db63789"
-    sha256 cellar: :any_skip_relocation, ventura:        "0e9e9157e8cb9f1ba7ce50fe38121db48ab459611729b7aa28c7a6226db63789"
-    sha256 cellar: :any_skip_relocation, monterey:       "0e9e9157e8cb9f1ba7ce50fe38121db48ab459611729b7aa28c7a6226db63789"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "579fa37d98dc14e3c41de5349e665ef665d894654c78bb02bb21ffa2f419f429"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9c45a3f9c902494765edd9f5705cb2b3da3d5b0c8effae3ecedb1d9dbd7b1ad2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c45a3f9c902494765edd9f5705cb2b3da3d5b0c8effae3ecedb1d9dbd7b1ad2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9c45a3f9c902494765edd9f5705cb2b3da3d5b0c8effae3ecedb1d9dbd7b1ad2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d429d98655add0a8be836f3f1a1d366cac5bb31b899856468b24716b5e970648"
+    sha256 cellar: :any_skip_relocation, ventura:        "d429d98655add0a8be836f3f1a1d366cac5bb31b899856468b24716b5e970648"
+    sha256 cellar: :any_skip_relocation, monterey:       "d429d98655add0a8be836f3f1a1d366cac5bb31b899856468b24716b5e970648"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ae139ee8bf273db0bd5d0ce65d98e1b24345dcdf733ddd615af60ff357cb884"
   end
 
   depends_on "cmake" => :build
