@@ -1,8 +1,8 @@
 class Libmobi < Formula
   desc "C library for handling Kindle (MOBI) formats of ebook documents"
   homepage "https://github.com/bfabiszewski/libmobi"
-  url "https://github.com/bfabiszewski/libmobi/releases/download/v0.11/libmobi-0.11.tar.gz"
-  sha256 "6a7cbfb2b8f00849f02af3d913a694a0d7c7e7acb6b801625373f32e57db8051"
+  url "https://github.com/bfabiszewski/libmobi/releases/download/v0.12/libmobi-0.12.tar.gz"
+  sha256 "9a6fb2c56b916f8fa8b15e0c71008d908109508c944ea1d297881d4e277bf7e7"
   license "LGPL-3.0-or-later"
 
   bottle do
