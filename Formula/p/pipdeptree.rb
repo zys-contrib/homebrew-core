@@ -3,8 +3,8 @@ class Pipdeptree < Formula
 
   desc "CLI to display dependency tree of the installed Python packages"
   homepage "https://github.com/tox-dev/pipdeptree"
-  url "https://files.pythonhosted.org/packages/44/cc/6fd69029c44b353ff50c3e9b39194dcfa4cd9dedc5c6d5062deffa657e33/pipdeptree-2.22.0.tar.gz"
-  sha256 "6e1728ee922d102b0ffbdcabf1388f0a44d69d221bb746083b815e3da9f47396"
+  url "https://files.pythonhosted.org/packages/0e/93/7ad37d2531445121642d529e196b9cc88b00816ffb99944f5edff2282624/pipdeptree-2.23.0.tar.gz"
+  sha256 "09597cbee3f42857c8de78e51b7646d389a294b2faf4cd833a206e69a615ebcd"
   license "MIT"
 
   bottle do
@@ -20,8 +20,8 @@ class Pipdeptree < Formula
   depends_on "python@3.12"
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
-    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
+    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
+    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
   end
 
   def install
