@@ -1,8 +1,8 @@
 class Ehco < Formula
   desc "Network relay tool and a typo :)"
   homepage "https://github.com/Ehco1996/ehco"
-  url "https://github.com/Ehco1996/ehco/archive/refs/tags/v1.1.3.tar.gz"
-  sha256 "9d91dcc122578cf814574ed88d5c8517c74a2574e8af72d9d02f79376fcdb4bf"
+  url "https://github.com/Ehco1996/ehco/archive/refs/tags/v1.1.4.tar.gz"
+  sha256 "7409064ad97040988826c86ae62a6230943f6ae1667571f39798e311e535fb79"
   license "GPL-3.0-only"
   head "https://github.com/Ehco1996/ehco.git", branch: "master"
 
@@ -33,7 +33,10 @@ class Ehco < Formula
       -X github.com/Ehco1996/ehco/internal/constant.BuildTime=#{time.iso8601}
     ]
 
-    system "go", "build", *std_go_args(ldflags:), "cmd/ehco/main.go"
+    # -tags added here are via upstream's Makefile/CI builds
+    system "go", "build",
+            "-tags", "nofibrechannel,nomountstats",
+            *std_go_args(ldflags:), "cmd/ehco/main.go"
   end
 
   test do
