@@ -1,8 +1,8 @@
 class Openvino < Formula
   desc "Open Visual Inference And Optimization toolkit for AI inference"
   homepage "https://docs.openvino.ai"
-  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2024.1.0.tar.gz"
-  sha256 "b298a91b5aae252ef9883e0f2017e88677be88a9839b1aa2f6e9f70067d98ce6"
+  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2024.2.0.tar.gz"
+  sha256 "b624481efb7814cf2d98a29163c3b914fa2f23c1417289b13561d0b5e32fc67c"
   license "Apache-2.0"
   head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
 
@@ -41,8 +41,8 @@ class Openvino < Formula
     depends_on "opencl-icd-loader"
 
     resource "onednn_gpu" do
-      url "https://github.com/oneapi-src/oneDNN/archive/4e6ff043c439652fcf6c400ac4e0c81bbac7c71c.tar.gz"
-      sha256 "c3543d560fbbb7297df91c191cc9bf682322c5554302e256f1bf4a757424a331"
+      url "https://github.com/oneapi-src/oneDNN/archive/37f48519b87cf8b5e5ef2209340a1948c3e87d72.tar.gz"
+      sha256 "58131e094408460f88bf941977b5206232dc2bc8dbf227250d1e2236b43153a5"
     end
   end
 
@@ -50,8 +50,8 @@ class Openvino < Formula
     depends_on "scons" => :build
 
     resource "arm_compute" do
-      url "https://github.com/ARM-software/ComputeLibrary/archive/refs/tags/v24.02.1.tar.gz"
-      sha256 "590d5cb710355bce2ddfe7117529c2f492cd253b548f709bbfe84702203d99c8"
+      url "https://github.com/ARM-software/ComputeLibrary/archive/refs/tags/v24.04.tar.gz"
+      sha256 "6d7aebfa9be74d29ecd2dbeb17f69e00c667c36292401f210121bf26a30b38a5"
     end
   end
 
@@ -65,8 +65,8 @@ class Openvino < Formula
   end
 
   resource "onednn_cpu" do
-    url "https://github.com/openvinotoolkit/oneDNN/archive/26633ae49edd4353a29b7170d9fcef6b2d79f4b3.tar.gz"
-    sha256 "3cd4a2aea30cd6ca689e63545cf986f8e83c88333b73d42bb750fcaf08940b17"
+    url "https://github.com/openvinotoolkit/oneDNN/archive/373e65b660c0ba274631cf30c422f10606de1618.tar.gz"
+    sha256 "c205b81f9024952c742e765090556a18c9463fff245753a2afa42c344bd6379d"
   end
 
   resource "onnx" do
