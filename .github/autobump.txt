@@ -1338,6 +1338,7 @@ libmaa
 libmatio
 libmaxminddb
 libmicrohttpd
+libmobi
 libmxml
 libnfs
 libnghttp3
