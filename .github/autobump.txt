@@ -2234,6 +2234,7 @@ srtp
 ssh-audit
 sshs
 sslh
+sslscan
 stackql
 stanford-corenlp
 star
