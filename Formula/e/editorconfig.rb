@@ -1,8 +1,8 @@
 class Editorconfig < Formula
   desc "Maintain consistent coding style between multiple editors"
   homepage "https://editorconfig.org/"
-  url "https://github.com/editorconfig/editorconfig-core-c/archive/refs/tags/v0.12.8.tar.gz"
-  sha256 "508f7633416a2ce3c05104ea7daac61c4953803c9935cca6e059086cfa67ee63"
+  url "https://github.com/editorconfig/editorconfig-core-c/archive/refs/tags/v0.12.9.tar.gz"
+  sha256 "4aaa4e3883332aac7ec19c169dcf128f5f0f963f61d09beb299eb2bce5944e2c"
   license "BSD-2-Clause"
   head "https://github.com/editorconfig/editorconfig-core-c.git", branch: "master"
 
@@ -20,13 +20,12 @@ class Editorconfig < Formula
   depends_on "pcre2"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
-    system "#{bin}/editorconfig", "--version"
+    system bin/"editorconfig", "--version"
   end
 end
