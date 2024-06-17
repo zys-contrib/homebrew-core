@@ -6,6 +6,7 @@ class AnsibleAT9 < Formula
   url "https://files.pythonhosted.org/packages/e4/85/23d1a1884f8c6bd437edc5a0f55709c77250f357a198469d8060071237f9/ansible-9.6.0.tar.gz"
   sha256 "58732a4ad74a746d299ecfa48b7a91cb217e2c0bd3a44493f2d9f29af2f3ab61"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "341846f3f10c23616a5b5a8c526ea14bd133b3133bcaeebc51aef034305291cd"
@@ -44,8 +45,8 @@ class AnsibleAT9 < Formula
   end
 
   resource "ansible-core" do
-    url "https://files.pythonhosted.org/packages/6b/1b/6a9e9012b250b9f13680eaabaf9ec5eae51622a1c519a851046d0eac4e3b/ansible_core-2.16.7.tar.gz"
-    sha256 "a8c8f4facba30514571d47abec5c62a5768b86fef3d80d724911c8f20b7b34b7"
+    url "https://files.pythonhosted.org/packages/3e/3a/da391cfed746ff206c6b245a3a406e34cb0c29f2877e6bbbcbfa943f9ad9/ansible_core-2.16.8.tar.gz"
+    sha256 "59e4aa40ed5acdb4ef9bbf3d058918fff93f66a149373d8159c8a29604410bda"
   end
 
   resource "ansible-pylibssh" do
@@ -74,13 +75,13 @@ class AnsibleAT9 < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/08/37/f6d2c33abf8e97442b83693d7ff43f8eebeb65d6a8950432763d8a29b58a/boto3-1.34.127.tar.gz"
-    sha256 "58ccdeae3a96811ecc9d5d866d8226faadbd0ee1891756e4a04d5186e9a57a64"
+    url "https://files.pythonhosted.org/packages/81/f5/0c7d1b745462d9fe0c2b4709dc6a4b1cbe399c02ad60b26ae2837714d455/boto3-1.34.128.tar.gz"
+    sha256 "43a6e99f53a8d34b3b4dbe424dbcc6b894350dc41a85b0af7c7bc24a7ec2cead"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/62/3e/8476354a4ed974a61875ec67d4869cd13b45598f3e33275056fed0d2e718/botocore-1.34.127.tar.gz"
-    sha256 "a377871742c40603d559103f19acb7bc93cfaf285e68f21b81637ec396099877"
+    url "https://files.pythonhosted.org/packages/9e/c9/844ad5680d847d94adb97b22c30b938ddda86f8a815d439503d4ee545484/botocore-1.34.128.tar.gz"
+    sha256 "8d8e03f7c8c080ecafda72036eb3b482d649f8417c90b5dca33b7c2c47adb0c9"
   end
 
   resource "cachetools" do
@@ -499,8 +500,8 @@ class AnsibleAT9 < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
+    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
   resource "wcwidth" do
