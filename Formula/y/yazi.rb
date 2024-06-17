@@ -28,7 +28,17 @@ class Yazi < Formula
 
   def install
     ENV["VERGEN_GIT_SHA"] = tap.user
+    ENV["YAZI_GEN_COMPLETIONS"] = "1"
     system "cargo", "install", *std_cargo_args(path: "yazi-fm")
+    system "cargo", "install", *std_cargo_args(path: "yazi-cli")
+
+    bash_completion.install "yazi-boot/completions/yazi.bash" => "yazi"
+    zsh_completion.install "yazi-boot/completions/_yazi"
+    fish_completion.install "yazi-boot/completions/yazi.fish"
+
+    bash_completion.install "yazi-cli/completions/ya.bash" => "ya"
+    zsh_completion.install "yazi-cli/completions/_ya"
+    fish_completion.install "yazi-cli/completions/ya.fish"
   end
 
   test do
