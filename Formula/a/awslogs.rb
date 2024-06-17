@@ -6,6 +6,7 @@ class Awslogs < Formula
   url "https://files.pythonhosted.org/packages/15/f5/8f3bd0f4a927b1fbb3a5e6a5b036f29e4263977fb167b301bc4a5f4db2b9/awslogs-0.15.0.tar.gz"
   sha256 "19f223bb1c0703cea0689d94b1d293006529095e6ab8971f6b52289a2e545dd5"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/jorgebastida/awslogs.git", branch: "master"
 
   bottle do
@@ -23,13 +24,13 @@ class Awslogs < Formula
   uses_from_macos "zlib"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/50/71/4382017bf4ddb37250966b077e3347e944522873aea49de546053bbd71fb/boto3-1.34.75.tar.gz"
-    sha256 "eaec72fda124084105a31bcd67eafa1355b34df6da70cadae0c0f262d8a4294f"
+    url "https://files.pythonhosted.org/packages/81/f5/0c7d1b745462d9fe0c2b4709dc6a4b1cbe399c02ad60b26ae2837714d455/boto3-1.34.128.tar.gz"
+    sha256 "43a6e99f53a8d34b3b4dbe424dbcc6b894350dc41a85b0af7c7bc24a7ec2cead"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/8b/c0/14e3d01ff8a58adef587f032e04486cccb4e8137b132f65ddb8123c5578c/botocore-1.34.75.tar.gz"
-    sha256 "06113ee2587e6160211a6bd797e135efa6aa21b5bde97bf455c02f7dff40203c"
+    url "https://files.pythonhosted.org/packages/9e/c9/844ad5680d847d94adb97b22c30b938ddda86f8a815d439503d4ee545484/botocore-1.34.128.tar.gz"
+    sha256 "8d8e03f7c8c080ecafda72036eb3b482d649f8417c90b5dca33b7c2c47adb0c9"
   end
 
   resource "jmespath" do
@@ -58,8 +59,8 @@ class Awslogs < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
+    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
   def install
