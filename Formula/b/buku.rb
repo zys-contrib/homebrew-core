@@ -6,7 +6,7 @@ class Buku < Formula
   url "https://github.com/jarun/buku/archive/refs/tags/v4.9.tar.gz"
   sha256 "1e432270ae78c7852110dcf2c2e215893bcc338299a4998f14a1f6b26e37bfac"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/jarun/buku.git", branch: "master"
 
   bottle do
@@ -117,8 +117,8 @@ class Buku < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/0c/39/64487bf07df2ed854cc06078c27c0d0abc59bd27b32232876e403c333a08/urllib3-1.26.18.tar.gz"
-    sha256 "f8ecc1bba5667413457c529ab955bf8c67b45db799d159066261719e328580a0"
+    url "https://files.pythonhosted.org/packages/c8/93/65e479b023bbc46dab3e092bda6b0005424ea3217d711964ccdede3f9b1b/urllib3-1.26.19.tar.gz"
+    sha256 "3e3d753a8618b86d7de333b4223005f68720bcd6a7d2bcb9fbd2229ec7c1e429"
   end
 
   resource "visitor" do
