@@ -1,8 +1,8 @@
 class Cfonts < Formula
   desc "Sexy ANSI fonts for the console"
   homepage "https://github.com/dominikwilkowski/cfonts"
-  url "https://github.com/dominikwilkowski/cfonts/archive/refs/tags/v1.1.4rust.tar.gz"
-  sha256 "49228dc3dd4529bd86d537f46c8aa9a47043f060ec7d050e5cb739a030222407"
+  url "https://github.com/dominikwilkowski/cfonts/archive/refs/tags/v1.2.0rust.tar.gz"
+  sha256 "8337423201558b43ae48e0749058a58623700cfb777288f3a520dcdb0d723a6f"
   license "GPL-3.0-or-later"
   head "https://github.com/dominikwilkowski/cfonts.git", branch: "released"
 
