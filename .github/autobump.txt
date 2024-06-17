@@ -2193,6 +2193,7 @@ solr
 sonar-scanner
 sonarqube
 sonarqube-lts
+sonic
 sonobuoy
 soplex
 sound-touch
