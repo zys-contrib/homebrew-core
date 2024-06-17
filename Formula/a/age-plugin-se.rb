@@ -6,6 +6,13 @@ class AgePluginSe < Formula
   license "MIT"
   head "https://github.com/remko/age-plugin-se.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fdafa89da43cac1983dbc16e5f974766b729c8eda0fe79b67f85f55c546da28f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a1e9f1d63e3860bb88c049baa8b4adaacb3263ce69b95b3bd78951752ad576fe"
+    sha256 cellar: :any_skip_relocation, sonoma:        "599dfc3ab78c9c6cf7bbacf9e3e0feab93a092d7689b66d485a6c8fc5971cdcc"
+    sha256 cellar: :any_skip_relocation, ventura:       "b5be656138ce5035388f1430e884a0ef0424464c409c45d1ef1a7d8f439f83d3"
+  end
+
   depends_on "scdoc" => :build
   depends_on xcode: ["14.0", :build]
   depends_on "age" => :test
