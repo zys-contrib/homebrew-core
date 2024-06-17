@@ -1,8 +1,8 @@
 class Pkl < Formula
   desc "CLI for the Pkl programming language"
   homepage "https://pkl-lang.org"
-  url "https://github.com/apple/pkl/archive/refs/tags/0.25.3.tar.gz"
-  sha256 "864f4971e7f6b3c679703b486a493a3d827efd9c79c04e42859905190ecd02cc"
+  url "https://github.com/apple/pkl/archive/refs/tags/0.26.0.tar.gz"
+  sha256 "2c01c67ad05ad0dad800395781d380fa1ce7f837af23bcff016e9e80b8b930e9"
   license "Apache-2.0"
 
   bottle do
@@ -21,24 +21,10 @@ class Pkl < Formula
 
   uses_from_macos "zlib"
 
-  # To build for macOS/arm64, Pkl relies on a patch that bumps the version of GraalVM.
-  # This is not a bug; this is how Pkl is actually built.
-  # https://github.com/apple/pkl/blob/277f1e0cdb51deb9fc8af25563eec734bcdf01ba/.circleci/jobs/BuildNativeJob.pkl#L119-L126
-  on_macos do
-    on_arm do
-      patch do
-        # Update me during version bump.
-        url "https://raw.githubusercontent.com/apple/pkl/c1a9e9e12ff290a1e765ad03db2ec6072f292301/patches/graalVm23.patch"
-        sha256 "fbec8d5759b0629c53cad7440dcadb78bdba56f68c36b55cdb9fae14185eeeb6"
-      end
-    end
-  end
-
   def install
     ENV["JAVA_HOME"] = Formula["openjdk@17"].opt_prefix
     # Need to set this so that native-image passes through env vars when calling out to the C toolchain.
-    # This is only needed for GraalVM 23.0, which is only used when building for macOS/aarch64.
-    ENV["NATIVE_IMAGE_DEPRECATED_BUILDER_SANITATION"] = "true" if OS.mac? && Hardware::CPU.arm?
+    ENV["NATIVE_IMAGE_DEPRECATED_BUILDER_SANITATION"] = "true"
 
     arch = Hardware::CPU.arm? ? "aarch64" : "amd64"
     job_name = "#{OS.mac? ? "mac" : "linux"}Executable#{arch.capitalize}"
