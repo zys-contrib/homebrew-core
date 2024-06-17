@@ -1666,6 +1666,7 @@ npth
 ns-3
 nsd
 nsq
+nsync
 ntfy
 nuclei
 nudoku
