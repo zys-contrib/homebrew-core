@@ -6,14 +6,13 @@ class Pkl < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "02ea7423366e9f1a0e42b4ad1eca3760d66e2b4f93cf2fa63fda171173c0b656"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d091b125838eb6a51d41d13d28b3145beb9167de90726173675c42b7bac113f9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "235953bd9e72b4522c7bf0b0c556448e52fec962c9e8e5ca511a44e99d48191c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "766b2bbb4f4ec439a02abf26b7290ad893d63299f44a3b646d0aa8972b98258a"
-    sha256 cellar: :any_skip_relocation, ventura:        "99f8dc74e5feb287ae483e742a20e2be87e578d8c5d7508386e9abfa02feef6f"
-    sha256 cellar: :any_skip_relocation, monterey:       "c4f736300847a85d17f14f7815a550ee842a3f2eacad44c15baa0c5ab98b87a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a45d2a4de3b038bffb36eb976ed107f440f65c10b3ba15506d97a6868f653caf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "248a5e6c8f668f21416a8b1ba4ac6b7b2d2b9f46221bd4d705610c625050901b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "76acd8bc30560d79a7917ad04eb9e2a2156e57387963b030404568bfc849515f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3d50a6e5b1f16b8a4d1117e3582c6a20bd2a9798e1e4fdeea08bdc3d183b1d27"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e3dd4e30884a99a512dd6a396c8edfc31f7103f215cfa543e17a7ac4d7ade616"
+    sha256 cellar: :any_skip_relocation, ventura:        "4e2c1a6ccb588311663b725cc0d1b3fbf801420b57c5bf03d699aaebf972a4c5"
+    sha256 cellar: :any_skip_relocation, monterey:       "6742090a59116698879e6e9bba3128b46a7355dd3d413da529351b60fcdb4145"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d902768b87e60643ebdbc9f5081c9cc39b3b5e869cb1cd66a98354cf733daa8"
   end
 
   # Can change this to 21 in later releases.
