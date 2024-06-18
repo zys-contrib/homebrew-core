@@ -3,10 +3,9 @@ class Checkov < Formula
 
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
-  url "https://files.pythonhosted.org/packages/0a/2f/14a055f4847fe100c795638dc4a5338b607d3b38f76da4e9a0857093c7e9/checkov-3.2.130.tar.gz"
-  sha256 "a3774ebc27feab3c6be30cf57f3a12cd4f026f32fb03687d2343a2f9616311e9"
+  url "https://files.pythonhosted.org/packages/51/ff/c599f964d6446e52954a5b0ce772df57737d62e2f269abff068b1bfaf093/checkov-3.2.140.tar.gz"
+  sha256 "1da294ed5525931749a21b37463dd8b5365c49fad58d64106f038d513f91e98f"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url "https://pypi.org/rss/project/checkov/releases.xml"
@@ -18,13 +17,13 @@ class Checkov < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c8d87517b914a6786727bc3c1a11dfc6b44ff160cf194c3bd08d0d2f3582b75e"
-    sha256 cellar: :any,                 arm64_ventura:  "71b3e42621eb6b4cbee1e3d035746650cec5fe814b82ed607164d11a4d834a83"
-    sha256 cellar: :any,                 arm64_monterey: "d1c09ee7ffd6af22908fffd570f565c646212414aab6d5cfaf88f5d4b19c70ec"
-    sha256 cellar: :any,                 sonoma:         "fa53d79f1e9f585f37727e85fd872f627a6d719db4365a5eabddee915bbbeb45"
-    sha256 cellar: :any,                 ventura:        "b33f69e0dc7f9246cceb91042650dfd614b0947d5e3122d4a0828d65b5a5fd3b"
-    sha256 cellar: :any,                 monterey:       "9771fa4742c69ef1e0681855eb0369aaa6bb64a87842acb837b966c38bcfa362"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73694f6248f2d9def7a1762b340971b46ea13b06bc64b47b51da0b161b4256a4"
+    sha256 cellar: :any,                 arm64_sonoma:   "365f98ae448d2911cbde40a699b4e5755c273449c734f825aee52e8dd2a919d2"
+    sha256 cellar: :any,                 arm64_ventura:  "613b2d7c7facb990bdbc0e773187a923d578eb6d3ce9aa849941caba1bdc141d"
+    sha256 cellar: :any,                 arm64_monterey: "84f6189d0c32e4dd1a6051fccd2f5fc332eb9fc68e81b67cb71397805c241075"
+    sha256 cellar: :any,                 sonoma:         "5d34ad17af11ffa183898cfb1f819327050c1c472adaddc5401dd471d2d4b1a1"
+    sha256 cellar: :any,                 ventura:        "34ba295924601a25227dca13893164fefd7e0215da5bcaf798919c5250fb4ab7"
+    sha256 cellar: :any,                 monterey:       "a4032136ed95b5b585402c953c216a536c3138eefa52931457de25b0b98da996"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "99cdadfd3ce1442ee2991b235f1b391671c8f84c0a50ee39e6528edb826f1d52"
   end
 
   depends_on "cmake" => :build # for igraph
@@ -72,8 +71,8 @@ class Checkov < Formula
   end
 
   resource "bc-detect-secrets" do
-    url "https://files.pythonhosted.org/packages/23/93/9014407b4c94e701f8c9fb79d9c53da3a7d288e67973dfad79bdaf1f5dbc/bc-detect-secrets-1.5.11.tar.gz"
-    sha256 "6f7ceafdf81b9bb4073ba60631ae1a3a3e5f14f8f3b7c5420ce8a8f001c76bc3"
+    url "https://files.pythonhosted.org/packages/a1/a0/55bbdf4583a656fff67cee77bfb94fc0832cfac58999ca2029bda228024b/bc-detect-secrets-1.5.12.tar.gz"
+    sha256 "7c163a019b7a0bc1473f013a10f112b5228afa737c724bad647394bdb73a8b25"
   end
 
   resource "bc-jsonpath-ng" do
