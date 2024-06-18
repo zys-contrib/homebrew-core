@@ -6,6 +6,7 @@ class Checkov < Formula
   url "https://files.pythonhosted.org/packages/0a/2f/14a055f4847fe100c795638dc4a5338b607d3b38f76da4e9a0857093c7e9/checkov-3.2.130.tar.gz"
   sha256 "a3774ebc27feab3c6be30cf57f3a12cd4f026f32fb03687d2343a2f9616311e9"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://pypi.org/rss/project/checkov/releases.xml"
@@ -17,13 +18,13 @@ class Checkov < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f6684eb2683a3f1ce0cd8a0440ffd4b5749a6b9b1fbfeb3e9e9be22275b67bff"
-    sha256 cellar: :any,                 arm64_ventura:  "1de1dc97fefdf178d847f4ec2b35a45ec4f3de5867c37d1dc356a81ac4c5a084"
-    sha256 cellar: :any,                 arm64_monterey: "b8837a308db24efb7249f7693c40b36021262cc52115d310c60c4e6e726b2b67"
-    sha256 cellar: :any,                 sonoma:         "1c07a39d877ee1f27a75d1cfe43d2ec64e328ffb5d487c936b8e0e09f40e72c4"
-    sha256 cellar: :any,                 ventura:        "98e59d8b27affcc5ff7d6b6725f59cf6c7e0e0fe8514ac498c7119611153b211"
-    sha256 cellar: :any,                 monterey:       "4ce9a5230ca839d8dbf78bc297b6ff962719376d0c96c29c0f627544c3891651"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d28ca450f950467dba36b2d0a6f70b4fabb252381f8bc22d3be1dbfc6e940ba"
+    sha256 cellar: :any,                 arm64_sonoma:   "c8d87517b914a6786727bc3c1a11dfc6b44ff160cf194c3bd08d0d2f3582b75e"
+    sha256 cellar: :any,                 arm64_ventura:  "71b3e42621eb6b4cbee1e3d035746650cec5fe814b82ed607164d11a4d834a83"
+    sha256 cellar: :any,                 arm64_monterey: "d1c09ee7ffd6af22908fffd570f565c646212414aab6d5cfaf88f5d4b19c70ec"
+    sha256 cellar: :any,                 sonoma:         "fa53d79f1e9f585f37727e85fd872f627a6d719db4365a5eabddee915bbbeb45"
+    sha256 cellar: :any,                 ventura:        "b33f69e0dc7f9246cceb91042650dfd614b0947d5e3122d4a0828d65b5a5fd3b"
+    sha256 cellar: :any,                 monterey:       "9771fa4742c69ef1e0681855eb0369aaa6bb64a87842acb837b966c38bcfa362"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73694f6248f2d9def7a1762b340971b46ea13b06bc64b47b51da0b161b4256a4"
   end
 
   depends_on "cmake" => :build # for igraph
@@ -61,8 +62,8 @@ class Checkov < Formula
   end
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/79/51/fd6e293a64ab6f8ce1243cf3273ded7c51cbc33ef552dce3582b6a15d587/argcomplete-3.3.0.tar.gz"
-    sha256 "fd03ff4a5b9e6580569d34b273f741e85cd9e072f3feeeee3eba4891c70eda62"
+    url "https://files.pythonhosted.org/packages/db/ca/45176b8362eb06b68f946c2bf1184b92fc98d739a3f8c790999a257db91f/argcomplete-3.4.0.tar.gz"
+    sha256 "c2abcdfe1be8ace47ba777d4fce319eb13bf8ad9dace8d085dcad6eded88057f"
   end
 
   resource "attrs" do
@@ -326,8 +327,8 @@ class Checkov < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/21/76/a622bd8e7b0b751f65884f54c0430e5910d523b8aeccf11a8bcef26fb17e/pydantic-2.7.3.tar.gz"
-    sha256 "c46c76a40bb1296728d7a8b99aa73dd70a48c3510111ff290034f860c99c419e"
+    url "https://files.pythonhosted.org/packages/0d/fc/ccd0e8910bc780f1a4e1ab15e97accbb1f214932e796cff3131f9a943967/pydantic-2.7.4.tar.gz"
+    sha256 "0c84efd9548d545f63ac0060c1e4d39bb9b14db8b3c0652338aecc07b5adec52"
   end
 
   resource "pydantic-core" do
@@ -451,8 +452,8 @@ class Checkov < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/0c/39/64487bf07df2ed854cc06078c27c0d0abc59bd27b32232876e403c333a08/urllib3-1.26.18.tar.gz"
-    sha256 "f8ecc1bba5667413457c529ab955bf8c67b45db799d159066261719e328580a0"
+    url "https://files.pythonhosted.org/packages/c8/93/65e479b023bbc46dab3e092bda6b0005424ea3217d711964ccdede3f9b1b/urllib3-1.26.19.tar.gz"
+    sha256 "3e3d753a8618b86d7de333b4223005f68720bcd6a7d2bcb9fbd2229ec7c1e429"
   end
 
   resource "wcwidth" do
