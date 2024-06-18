@@ -9,13 +9,13 @@ class AnsibleAT9 < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "341846f3f10c23616a5b5a8c526ea14bd133b3133bcaeebc51aef034305291cd"
-    sha256 cellar: :any,                 arm64_ventura:  "b8298f28ed4bc357e6879ab56e306292f174f9487930dd1bc7bc33dad82a1d0c"
-    sha256 cellar: :any,                 arm64_monterey: "b2ae951a6a61300d0b03160a678332c98c34d4b2caeab54e7bef5b456add89e5"
-    sha256 cellar: :any,                 sonoma:         "3f12fbad1a9d18dc43a070c0c7c3a1375b13ee6c5b32aa7903064ef80186b265"
-    sha256 cellar: :any,                 ventura:        "107608c5c1555c4c083e22f116b73ff74dfb6a05c48281fffdbfbcf14bf46158"
-    sha256 cellar: :any,                 monterey:       "a1dd1694125ac8869e4bc94a33865166901efda01928020c5b207cc468bd8751"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c7d432dcd710d650be5de99c510041b46a866be0d36c6c6c8bb43eb23729a4b"
+    sha256 cellar: :any,                 arm64_sonoma:   "1ed448c4c839d9307f0ba4b703c6f5313da75bbc85d59484ee494525405b2ba1"
+    sha256 cellar: :any,                 arm64_ventura:  "99cb2b40cb844365103a957ec1d5498109f5377db0b1626554532e3311379c7a"
+    sha256 cellar: :any,                 arm64_monterey: "a0ccbe29c97afba9ef5262335f1d1de0ed9c18cb48b1af7b7701cf856fae0bdb"
+    sha256 cellar: :any,                 sonoma:         "92e9042597975968f053f25a1d91bf17d10fa0e82ce05ec6327cc2e61069ffa3"
+    sha256 cellar: :any,                 ventura:        "18ce0841d8df757d73c11d00c4c8c457e9bee36238872e5525d6e41135e70eca"
+    sha256 cellar: :any,                 monterey:       "9b34c371c6012e961d3ffba9e32b54f55208d71f280ab92a15ca43c86161e4f7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4687e6e9cc38d1981bc6d202fd6597e2fe3b98f2666b82b968232f664ab59fd1"
   end
 
   keg_only :versioned_formula
