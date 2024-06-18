@@ -6,7 +6,7 @@ class Forbidden < Formula
   url "https://files.pythonhosted.org/packages/fa/03/9f18651dbe09f130e444b836c448b3b3b8a6ddec4996c4183c17e9131592/forbidden-11.2.tar.gz"
   sha256 "be837a5f9bf22ab4f73dfe900f10f2b28baea7d766771becaeebe788968e78bb"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/ivan-sincek/forbidden.git", branch: "main"
 
   bottle do
@@ -65,8 +65,8 @@ class Forbidden < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/d8/c1/f32fb7c02e7620928ef14756ff4840cae3b8ef1d62f7e596bc5413300a16/requests-2.32.1.tar.gz"
-    sha256 "eb97e87e64c79e64e5b8ac75cee9dd1f97f49e289b083ee6be96268930725685"
+    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
+    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
   end
 
   resource "setuptools" do
@@ -85,13 +85,13 @@ class Forbidden < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
+    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
   resource "zope-interface" do
-    url "https://files.pythonhosted.org/packages/1f/41/d0bdb50947f77341e979241de26f348e538a5d0f3ddb2482bc3907a3d728/zope_interface-6.4.tar.gz"
-    sha256 "b11f2b67ccc990a1522fa8cd3f5d185a068459f944ab2d0e7a1b15d31bcb4af4"
+    url "https://files.pythonhosted.org/packages/09/06/7c1202972bc99dd1b731c3c01157855cbc8d0944894c3b234473b1f4119c/zope.interface-6.4.post2.tar.gz"
+    sha256 "1c207e6f6dfd5749a26f5a5fd966602d6b824ec00d2df84a7e9a924e8933654e"
   end
 
   def install
