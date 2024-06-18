@@ -9,13 +9,13 @@ class Woob < Formula
   revision 6
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "69ed9cecca4bb485bdf2f25fdecd0ea5bdd54d9aeebff7f6c6418b3ece633fcb"
-    sha256 cellar: :any,                 arm64_ventura:  "27186fff630cd3d1bab9ce6dbe2e6e213c9814871539396298d1b2288d343ca2"
-    sha256 cellar: :any,                 arm64_monterey: "f00dded0ed9db56376ea3f3f181028cc2e9c22ba93d3cdf9c62757cc3e59b0ea"
-    sha256 cellar: :any,                 sonoma:         "fab5834d48e965ade9474b16207ccf53120ef9745c7380e7843d3e4a0c5df175"
-    sha256 cellar: :any,                 ventura:        "69650888286ba465dff036dbd2d313a24cad36396c0ad2db558ca1d666a1ee79"
-    sha256 cellar: :any,                 monterey:       "4b3abf7738d3d01acb4dc3dac4510471eab9f5db02e08ca6404bf46039d56d00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "455e65f5da6fcbb951f00d3203532f0b4f6d45afc1ba658afece375473cd5642"
+    sha256 cellar: :any,                 arm64_sonoma:   "1626f36d4a3f3c0c93470a0ee55c9699ed487cf9d6c89712468a1fb63cef4010"
+    sha256 cellar: :any,                 arm64_ventura:  "4f5ab5be3993c62e941c88b739dd05e5a03f09719efbb2800fab7259c8760aef"
+    sha256 cellar: :any,                 arm64_monterey: "c2570ebb36aad8d7a2e4b861a667b91c065e696ed316e179c29cef8ac148225a"
+    sha256 cellar: :any,                 sonoma:         "450ac9a9b961ca87cd97f0912c1cf324877da7b7a1e093a3116ff05abaabbe06"
+    sha256 cellar: :any,                 ventura:        "4831b8c173ec772bda0358797696b5596225b3ca9c3449094f6cddc24d80e230"
+    sha256 cellar: :any,                 monterey:       "5bdbd89ebc34c3a5c285e0311a21c25296b5d4f4b2b2a11733c6899f446909a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "376fd653f661fb993ce8529e0f33b7e7ff344f078b7e0456a664715136209d83"
   end
 
   depends_on "certifi"
