@@ -6,6 +6,7 @@ class Localstack < Formula
   url "https://files.pythonhosted.org/packages/2c/72/0cd94b0d9f896012a494f57b04f55685e0192a0f4beb6380fc07b7720334/localstack-3.5.0.tar.gz"
   sha256 "79f0a1b9bc2d90f68cbbbb26286ba493554db0be908d480d6d0986d023ad8834"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "3c2c1976950816c2e03faf834d761062741e0ab5a4d73c2de2e70de607006407"
@@ -179,8 +180,8 @@ class Localstack < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
+    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
   def install
