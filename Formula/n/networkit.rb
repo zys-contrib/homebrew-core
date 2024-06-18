@@ -31,6 +31,12 @@ class Networkit < Formula
     which("python3.12")
   end
 
+  # Add compat for numpy 2.0
+  patch do
+    url "https://github.com/networkit/networkit/commit/165503580caac864c7a31558b4c5fee27bcb007e.patch?full_index=1"
+    sha256 "67bd2d1fe3ebccb42ccdd1f7cf5aeea40967caa4e9bc96cc69737dc14ffa9654"
+  end
+
   def install
     site_packages = Language::Python.site_packages(python3)
 
