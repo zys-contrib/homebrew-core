@@ -7,6 +7,7 @@ class MetaPackageManager < Formula
   url "https://files.pythonhosted.org/packages/c2/2a/6baf9e33b3bb63ef4857b903b44700e91a06609160e31070f58b387a9e46/meta_package_manager-5.16.0.tar.gz"
   sha256 "5620d653cc31f98d9ae36b594929a5dca70438e25c2a9bdcd4a11b0677f30f9c"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "ccb9e4c0acdc51587d4329856329ea3087c114dc88c01aa8ffeb2f15bfe1d14f"
@@ -43,8 +44,8 @@ class MetaPackageManager < Formula
   end
 
   resource "click-extra" do
-    url "https://files.pythonhosted.org/packages/69/ff/6e97860dac64823a8c36c2e0c18781561f3f2f20e26207a969c220a0fc03/click_extra-4.8.1.tar.gz"
-    sha256 "ed7c8b078dd413fb7ff17c7ee14249051f1456e4f63166f06ef7c25c3a7c25fc"
+    url "https://files.pythonhosted.org/packages/f4/30/f411e19756fb2f512ea118e55207dff0558234f5bf504929c951a153b39c/click_extra-4.8.3.tar.gz"
+    sha256 "d0a2409d1c65ba40de73193bf5a589d4aa6ea913cd85bbcce72689a8844b0601"
   end
 
   resource "cloup" do
@@ -78,8 +79,8 @@ class MetaPackageManager < Formula
   end
 
   resource "packageurl-python" do
-    url "https://files.pythonhosted.org/packages/93/d7/6ab8c91b1ef802d6b5905abe16289e1d84d426976ef0c475aa05f1499501/packageurl-python-0.15.0.tar.gz"
-    sha256 "f219b2ce6348185a27bd6a72e6fdc9f984e6c9fa157effa7cb93e341c49cdcc2"
+    url "https://files.pythonhosted.org/packages/56/1b/cdd6305870afd6f2333a4d9fddc9321058a8da8f512639ca8f3cc3559084/packageurl_python-0.15.1.tar.gz"
+    sha256 "9a37b9a7cad9a2872b4612151ba3749fd9dec90485577c14d374b6e66b7edf03"
   end
 
   resource "pyyaml" do
@@ -93,8 +94,8 @@ class MetaPackageManager < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/86/ec/535bf6f9bd280de6a4637526602a146a68fde757100ecf8c9333173392db/requests-2.32.2.tar.gz"
-    sha256 "dd951ff5ecf3e3b3aa26b40703ba77495dab41da839ae72ef3c8e5d8e2433289"
+    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
+    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
   end
 
   resource "tabulate" do
@@ -108,8 +109,8 @@ class MetaPackageManager < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
+    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
   resource "wcmatch" do
