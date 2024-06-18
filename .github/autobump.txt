@@ -1863,6 +1863,7 @@ pnpm
 pnpm@8
 po4a
 pocketbase
+pocl
 poco
 podlet
 podman

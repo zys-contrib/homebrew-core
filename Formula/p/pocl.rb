@@ -1,9 +1,8 @@
 class Pocl < Formula
   desc "Portable Computing Language"
   homepage "https://portablecl.org/"
-  # TODO: Check if we can use unversioned `llvm` at version bump.
-  url "https://github.com/pocl/pocl/archive/refs/tags/v5.0.tar.gz"
-  sha256 "fd0bb6e50c2286278c11627b71177991519e1f7ab2576bd8d8742974db414549"
+  url "https://github.com/pocl/pocl/archive/refs/tags/v6.0.tar.gz"
+  sha256 "de9710223fc1855f833dbbf42ea2681e06aa8ec0464f0201104dc80a74dfd1f2"
   license "MIT"
   head "https://github.com/pocl/pocl.git", branch: "main"
 
@@ -26,14 +25,14 @@ class Pocl < Formula
   depends_on "opencl-headers" => :build
   depends_on "pkg-config" => :build
   depends_on "hwloc"
-  depends_on "llvm@16"
+  depends_on "llvm"
   depends_on "opencl-icd-loader"
   uses_from_macos "python" => :build
 
   fails_with gcc: "5" # LLVM is built with GCC
 
   def install
-    llvm = Formula["llvm@16"]
+    llvm = Formula["llvm"]
     # Install the ICD into #{prefix}/etc rather than #{etc} as it contains the realpath
     # to the shared library and needs to be kept up-to-date to work with an ICD loader.
     # This relies on `brew link` automatically creating and updating #{etc} symlinks.
