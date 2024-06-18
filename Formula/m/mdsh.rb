@@ -1,8 +1,8 @@
 class Mdsh < Formula
   desc "Markdown shell pre-processor"
   homepage "https://zimbatm.github.io/mdsh/"
-  url "https://github.com/zimbatm/mdsh/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "987fc01340b2d80029e7a1dca073cca4e7c8eb53a8eb980e8c2919833de63179"
+  url "https://github.com/zimbatm/mdsh/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "6d87498bf600ef3b0d5ac8813e676ee1e7913057cf9290a288b4d93c7ffcc4e9"
   license "MIT"
   head "https://github.com/zimbatm/mdsh.git", branch: "main"
 

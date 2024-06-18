@@ -1504,6 +1504,7 @@ mcfly
 md4c
 mdbook
 mdless
+mdsh
 mdzk
 mediamtx
 mednafen
