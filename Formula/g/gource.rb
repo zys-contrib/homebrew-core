@@ -1,10 +1,9 @@
 class Gource < Formula
   desc "Version Control Visualization Tool"
   homepage "https://github.com/acaudwell/Gource"
-  url "https://github.com/acaudwell/Gource/releases/download/gource-0.54/gource-0.54.tar.gz"
-  sha256 "1dcbcedf65d2cf4d69fe0b633e54c202926c08b829bcad0b73eaf9e29cd6fae5"
+  url "https://github.com/acaudwell/Gource/releases/download/gource-0.55/gource-0.55.tar.gz"
+  sha256 "c8239212d28b07508d9e477619976802681628fc25eb3e04f6671177013c0142"
   license "GPL-3.0-or-later"
-  revision 4
 
   bottle do
     sha256 arm64_sonoma:   "0a22e1eeb613eeeb43e82650c78058db8f9be241ca52588f235267f0137aff8e"
@@ -33,13 +32,6 @@ class Gource < Formula
   depends_on "pcre2"
   depends_on "sdl2"
   depends_on "sdl2_image"
-
-  # Fix build with `boost` 1.85.0 using open PR.
-  # PR ref: https://github.com/acaudwell/Gource/pull/326
-  patch do
-    url "https://github.com/acaudwell/Gource/commit/4357df0e3cf3a5f2c8bcff74bf562e5f346c930a.patch?full_index=1"
-    sha256 "8c566c312e18ee293eb1cf14864b6c3658cfcc971eaf887ee0d308b67572c3e6"
-  end
 
   def install
     ENV.cxx11
