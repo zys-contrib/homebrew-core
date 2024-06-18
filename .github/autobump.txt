@@ -977,6 +977,7 @@ got
 gotestsum
 gotestwaf
 gotpm
+gource
 govc
 govulncheck
 gowsdl
