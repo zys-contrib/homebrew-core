@@ -9,14 +9,13 @@ class Principalmapper < Formula
   revision 4
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "39c91c47b0168bd27ed5e72514791d3539143883755ab101fabaae6398dad4c3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "98e0059909b81c8db7504ed1ab368829353abd208d767c29be8105f151701a42"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "912f3b13b00b1005eedd854ce36389d3a06c216cb0d828b104cba1c806dd7f6f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0627e606a615ce55918f6707d7bf1471f6d95c83917e0d6a25056cb77c68b42c"
-    sha256 cellar: :any_skip_relocation, ventura:        "c4ba43acd5d1961d66c6592f91e043c9337c8963abef08669705f6c53dec7d0b"
-    sha256 cellar: :any_skip_relocation, monterey:       "0d9aad2145eff7ac4afddc62276f9d38d9ab06cc4c264794f5870c6981506701"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6d317dd3f7b54fcc7ebd7d704a217b0c89c5e92e6e5b7a923cdcbf3d183ae9b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8ba66a19c2f3e1a1f23656651819f41e943350d3d4b23e99dfb2779e58881ef5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8ba66a19c2f3e1a1f23656651819f41e943350d3d4b23e99dfb2779e58881ef5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8ba66a19c2f3e1a1f23656651819f41e943350d3d4b23e99dfb2779e58881ef5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a20093b5e9f325981fc15c4fcf75a0f7d623b7ba52449f4715d6dba276b8f4a2"
+    sha256 cellar: :any_skip_relocation, ventura:        "a20093b5e9f325981fc15c4fcf75a0f7d623b7ba52449f4715d6dba276b8f4a2"
+    sha256 cellar: :any_skip_relocation, monterey:       "8ba66a19c2f3e1a1f23656651819f41e943350d3d4b23e99dfb2779e58881ef5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d90c4241ac562ef113060f47a93f1d9c83ea55ebbba42f28bcf0e4ed9f5d3409"
   end
 
   depends_on "python@3.12"
