@@ -335,6 +335,7 @@ cgal
 cgl
 cglm
 cgrep
+chafa
 chain-bench
 chainhook
 chainloop-cli
