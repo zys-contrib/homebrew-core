@@ -3,20 +3,19 @@ class Ansible < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://files.pythonhosted.org/packages/96/78/95e152c98f1b9349854cf8f4a9cea1d6ad55bf132e66a81207c650f92d01/ansible-10.0.1.tar.gz"
-  sha256 "b2ab79d54883837f3c5b9b95fd779dff76e5fc5d9ef8555c969575ed24f9f2e1"
+  url "https://files.pythonhosted.org/packages/32/e8/3bbd91286c1b858afafac59a4f582c5f0344efabb4f4e013de9d1d9c21c2/ansible-10.1.0.tar.gz"
+  sha256 "7d8c44557f570687306e19d0e3296ad230593cb12bda35dcfc9274a6063af22a"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/ansible/ansible.git", branch: "devel"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "9b1579ee2199c75cb39b7be9f9fff6646bdcff78c8bc95185288a7ede846eb82"
-    sha256 cellar: :any,                 arm64_ventura:  "3d6dd937ee88f0dcd192566ec1e1950300d26b1bc98267494ad1a4da524d5b0a"
-    sha256 cellar: :any,                 arm64_monterey: "d2065f0a0aa4578ea6d4ea84dbfb57f35e732c98ca056a40dc8b25ea63b79f31"
-    sha256 cellar: :any,                 sonoma:         "d87117407a069624d93fb35a30af0e7827ffe7b8097a4e39c176757ae1ae26c7"
-    sha256 cellar: :any,                 ventura:        "3fcd2b402c74b07e17bf66529073107fecb945c40a04d3e47125e1f61a3170dd"
-    sha256 cellar: :any,                 monterey:       "33526114d29a0157a3f7674e4b34ac6d794aa8a347f168529d688b80dfab74f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "722c310fbc9254f808968039a743430e0f97a5082e1058fafd50ac19699a9af9"
+    sha256 cellar: :any,                 arm64_sonoma:   "ae32a306279ee598cb34eaa2146dbe1b42848b0a00ece94cf76257ce138adc44"
+    sha256 cellar: :any,                 arm64_ventura:  "ec36b778da3e521aad5b9286ebb9b1b82c3a258716f9580a3cfc0eaee9bbe11c"
+    sha256 cellar: :any,                 arm64_monterey: "c32190ac48353c4ebdfe7117174644e8bade2df619e9ad2f94b1d00018bd614d"
+    sha256 cellar: :any,                 sonoma:         "1a5a0b6913911a1b0f3f69e9c8fd78a59d77d1e3aa70566ae96bc520779454b0"
+    sha256 cellar: :any,                 ventura:        "38acede110e7de1e38f1e2bbed0f5b7d40d3fbd4226025868f60af4505264ab4"
+    sha256 cellar: :any,                 monterey:       "01d2d7a8c22512551e0849ea237fa51e634b7f37ed7104ccafba6e45659bd3f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "855a3a5cd291401432382db2d06e484926e1f0380f5105aa72c378dc62e442aa"
   end
 
   # `pkg-config` and `rust` are for bcrypt
