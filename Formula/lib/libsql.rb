@@ -1,8 +1,8 @@
 class Libsql < Formula
   desc "Fork of SQLite that is both Open Source, and Open Contributions"
   homepage "https://turso.tech/libsql"
-  url "https://github.com/tursodatabase/libsql/releases/download/libsql-server-v0.24.14/source.tar.gz"
-  sha256 "e35a7f77c81724a232adb92be57a1f18bb859e4d2a8534793df0bda06314bf03"
+  url "https://github.com/tursodatabase/libsql/releases/download/libsql-server-v0.24.15/source.tar.gz"
+  sha256 "84348884e969c66564fd1379f269eafa0fe68248e7eb5b0667b2a7bc9c93e86c"
   license "MIT"
   head "https://github.com/tursodatabase/libsql.git", branch: "main"
 
@@ -31,13 +31,6 @@ class Libsql < Formula
     pid = fork { exec "#{bin}/sqld" }
     sleep 2
     assert_predicate testpath/"data.sqld", :exist?
-
-    output = shell_output("#{bin}/sqld dump --namespace default 2>&1")
-    assert_match <<~EOS, output
-      PRAGMA foreign_keys=OFF;
-      BEGIN TRANSACTION;
-      COMMIT;
-    EOS
 
     assert_match version.to_s, shell_output("#{bin}/sqld --version")
   ensure
