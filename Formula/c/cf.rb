@@ -1,8 +1,8 @@
 class Cf < Formula
   desc "Filter to replace numeric timestamps with a formatted date time"
   homepage "https://ee.lbl.gov/"
-  url "https://ee.lbl.gov/downloads/cf/cf-1.2.7.tar.gz"
-  sha256 "cdb8d7aa1c45f2baa4b3c2b355ab8653a8a4b222fce6d9092edb4c3a98fef081"
+  url "https://ee.lbl.gov/downloads/cf/cf-1.2.8.tar.gz"
+  sha256 "52ce4302f7f9dd67227e5a3d09fc289127bf0ad256d24d8e1698733ea2e1fd48"
   license "BSD-3-Clause"
 
   livecheck do
