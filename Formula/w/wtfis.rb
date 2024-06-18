@@ -6,6 +6,7 @@ class Wtfis < Formula
   url "https://files.pythonhosted.org/packages/c8/8e/d8005d43adcfd263723de2ee643eb2a6a48e645a9338202c7eda800a0df5/wtfis-0.10.0.tar.gz"
   sha256 "1a364350e51d3daca0fba2135207f5eb5234cebd43ac40bda82f7e7b6817bf36"
   license "MIT"
+  revision 1
   head "https://github.com/pirxthepilot/wtfis.git", branch: "main"
 
   bottle do
@@ -48,8 +49,8 @@ class Wtfis < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/06/ae/f8e03746f0b62018dcf1120f5ad0a1db99e55991f2cda0cf46edc8b897ea/filelock-3.14.0.tar.gz"
-    sha256 "6ea72da3be9b8c82afd3edcf99f2fffbb5076335a5ae4d03248bb5b6c3eae78a"
+    url "https://files.pythonhosted.org/packages/69/7d/73d36db6955bde2ed495ce40ce02c9a2533b8c7b64fd42a38b1ee879ea18/filelock-3.15.1.tar.gz"
+    sha256 "58a2549afdf9e02e10720eaa4d4470f56386d7a6f72edd7d0596337af8ed7ad8"
   end
 
   resource "idna" do
@@ -68,8 +69,8 @@ class Wtfis < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/21/76/a622bd8e7b0b751f65884f54c0430e5910d523b8aeccf11a8bcef26fb17e/pydantic-2.7.3.tar.gz"
-    sha256 "c46c76a40bb1296728d7a8b99aa73dd70a48c3510111ff290034f860c99c419e"
+    url "https://files.pythonhosted.org/packages/0d/fc/ccd0e8910bc780f1a4e1ab15e97accbb1f214932e796cff3131f9a943967/pydantic-2.7.4.tar.gz"
+    sha256 "0c84efd9548d545f63ac0060c1e4d39bb9b14db8b3c0652338aecc07b5adec52"
   end
 
   resource "pydantic-core" do
@@ -113,13 +114,13 @@ class Wtfis < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/e8/fb/4217a963512b9646274fe4ce0aebc8ebff09bbb86c458c6163846bb65d9d/typing_extensions-4.12.1.tar.gz"
-    sha256 "915f5e35ff76f56588223f15fdd5938f9a1cf9195c0de25130c627e4d597f6d1"
+    url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
+    sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
+    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
   resource "xlsxwriter" do
