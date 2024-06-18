@@ -1,10 +1,10 @@
 class ApacheFlink < Formula
   desc "Scalable batch and stream data processing"
   homepage "https://flink.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=flink/flink-1.19.0/flink-1.19.0-bin-scala_2.12.tgz"
-  mirror "https://archive.apache.org/dist/flink/flink-1.19.0/flink-1.19.0-bin-scala_2.12.tgz"
-  version "1.19.0"
-  sha256 "3119c6db3a8f4813defce1c89cac46111df9d0cb9712a264da0b3a3b7290bf86"
+  url "https://www.apache.org/dyn/closer.lua?path=flink/flink-1.19.1/flink-1.19.1-bin-scala_2.12.tgz"
+  mirror "https://archive.apache.org/dist/flink/flink-1.19.1/flink-1.19.1-bin-scala_2.12.tgz"
+  version "1.19.1"
+  sha256 "596169f3efca71d41932f03f92b589b137f7c1edfe2850117226d739e799bdce"
   license "Apache-2.0"
   head "https://github.com/apache/flink.git", branch: "master"
 
