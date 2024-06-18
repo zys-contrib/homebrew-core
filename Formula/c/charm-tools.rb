@@ -11,13 +11,13 @@ class CharmTools < Formula
   revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "56b6a34220b6b95499b25808c36c065b34699cc44fd09749b2ae5d6c3282d75c"
-    sha256 cellar: :any,                 arm64_ventura:  "92e9461f5a3e7547cbe876bc152c738c099c1a60c91520d8d3cd276a7b249614"
-    sha256 cellar: :any,                 arm64_monterey: "7518941e52cfe1fabf4a84e0fc4b80123eefbbfa7ad4dbc1e48b24c8c2fde04a"
-    sha256 cellar: :any,                 sonoma:         "9915b4563cfd7eba48dd17999967c4b9b9e2655f3a49ff21f8ea006870655526"
-    sha256 cellar: :any,                 ventura:        "31080fafed152bdceaf4fa9956256f4a2164e82d70ec0ce11dc0b4c0c47016df"
-    sha256 cellar: :any,                 monterey:       "a5e1f7c4b8e870ad7bad9c7cd769698ee14b9019122b321aa5035343118d8895"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b68e276442c00c96d7c810c6934be2fe1b80605ac841088e9db5246dad019bf3"
+    sha256 cellar: :any,                 arm64_sonoma:   "bc4112e2b32b244d26264506858218e39de4a3df92780adc956c5c460382a10b"
+    sha256 cellar: :any,                 arm64_ventura:  "fca8a687ef7fabd6a13cca9035d9eaa61cc862ed0548aa2e0e0ad8157949fbed"
+    sha256 cellar: :any,                 arm64_monterey: "120309fcfa7fc3cd7eae506c2efc8f6b091bca86f38d5eb49f17f177f4969597"
+    sha256 cellar: :any,                 sonoma:         "7250ae05fbff81568af7ec2c77f0526515f7e3916093badd83de2b57b0e84ad5"
+    sha256 cellar: :any,                 ventura:        "b997513724fd573b2bbbcf0c2cb6ba0a314a24314f9347900aaecbc2c3b0f984"
+    sha256 cellar: :any,                 monterey:       "535ff95787f22aced18ff55e0a304580c9912e020f481fa5e7d6aa1858c2bb44"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5ae42fa5e9ec3252c8af936524d4613c8b1d2f9b44eabdeaa7295f16f7d8140c"
   end
 
   depends_on "certifi"
