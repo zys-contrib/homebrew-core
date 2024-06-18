@@ -6,6 +6,7 @@ class GalleryDl < Formula
   url "https://files.pythonhosted.org/packages/3a/5a/2648a7a0d090170be8b0009ffa3edc738c0c93cfdcaaa0c82982b01b61f4/gallery_dl-1.27.0.tar.gz"
   sha256 "ccc8a61e3697830392b7c1db49e738a34cb77bd5dfead145888e0acecacff39d"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/mikf/gallery-dl.git", branch: "master"
 
   bottle do
@@ -37,8 +38,8 @@ class GalleryDl < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
+    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
   def install
