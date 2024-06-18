@@ -9,13 +9,13 @@ class Prowler < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "edafded92fbe429d78cf78cf3eb1281c14d170fcc5a157967aa42175c418f27b"
-    sha256 cellar: :any,                 arm64_ventura:  "aabb9d04e71baff3bdeb5c5a4b29e44188719f4ba22c5bfa395938cbb5e4e8dc"
-    sha256 cellar: :any,                 arm64_monterey: "f36a4bde57eb8921e25394527b34704b7d22be1b6c8dfda5769b11b78aa12f92"
-    sha256 cellar: :any,                 sonoma:         "f40879a1a0672892319a7807da42325b3517b095758a3c8b8943c31ab71fc027"
-    sha256 cellar: :any,                 ventura:        "e8a00501195441217ae344e04afe66c66f3aa08525bb1193ff622b8034487479"
-    sha256 cellar: :any,                 monterey:       "589b0d3f9eacd91bf7b438c67f2d89c20fc04084d13616f9b9c1ea45f8d61f35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0154a59e1db9d5be508a567c4ac92b405f6216c579aad5482b878134802f48d"
+    sha256 cellar: :any,                 arm64_sonoma:   "0d7df7b97074d128966096f9afcdb08e9d05078815082f5dbd3d10d6b98f84a6"
+    sha256 cellar: :any,                 arm64_ventura:  "74c3b37e13134e07a2af21fea48487ff5e3c9cb88ad1743dc775556d9c9963c1"
+    sha256 cellar: :any,                 arm64_monterey: "7fd281ce2a7d6b6aab3adcdd11ff463acd8bb48ff48ff71c3043e7d67f20a8e0"
+    sha256 cellar: :any,                 sonoma:         "359241d5b89dfe4d2ed9847abab0a0717d31a85bca1dd9ed679210c31d7501f4"
+    sha256 cellar: :any,                 ventura:        "b650e21656428cddc17ebff5ae97b1581cd24de0f0f9d09a549b3e6917d84954"
+    sha256 cellar: :any,                 monterey:       "b69ddfb59b9f09e5c771697835131464330fc1a72694cde2a9c01f7df3fdf0a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c209e3e615f15769ccc2ee883d9a1238366c6435cd1f8d3acf93a2dbf199770d"
   end
 
   depends_on "cmake" => :build
