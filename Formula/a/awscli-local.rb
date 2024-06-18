@@ -9,14 +9,13 @@ class AwscliLocal < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4a1a6d14ba1703b371655f76fbd4e3c1fc1a5305c0057d88a248bb3574941419"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4e7f0f292f91a43f0826a27fc78d4777658613b479fdb2598e2e88ffcff9efab"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "80cbb97d4adb633da5a90cc933e124e59ca87aae5941d073b76cafa8644a95f0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8b25d7ab6accf7b1ce62b0e040dab8e378cc258dd19dab67a48c4147d4496928"
-    sha256 cellar: :any_skip_relocation, ventura:        "4618ee7cf772cd6ffaf99eb4d6f4b0ccb25b04478a4b3d943c6a993cd4eaf20d"
-    sha256 cellar: :any_skip_relocation, monterey:       "a7d804ed824d80a78a14bb8a9d718bc0add1d660988e891d67200b72f7f5c1d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da3c9208ffd1f92e21f67a1de1b2e5c351f110b7b02721454cde00136e8aa1f3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "db5e119a2b5ccca2f51384cce154572769410afab93432965bdcad8f97700972"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "db5e119a2b5ccca2f51384cce154572769410afab93432965bdcad8f97700972"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "db5e119a2b5ccca2f51384cce154572769410afab93432965bdcad8f97700972"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0a0c31a12aad8d73d4d569a2d43462563cc1d4ffab1bfe0bfee7cb56a3a2e376"
+    sha256 cellar: :any_skip_relocation, ventura:        "0a0c31a12aad8d73d4d569a2d43462563cc1d4ffab1bfe0bfee7cb56a3a2e376"
+    sha256 cellar: :any_skip_relocation, monterey:       "0a0c31a12aad8d73d4d569a2d43462563cc1d4ffab1bfe0bfee7cb56a3a2e376"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "047c13425215e180d3bbc570d03a766881235369cceb1d45ad50daa00d0cc4e7"
   end
 
   depends_on "awscli" => :test # awscli-local can work with any version of awscli
