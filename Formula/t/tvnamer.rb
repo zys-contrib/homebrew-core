@@ -10,13 +10,13 @@ class Tvnamer < Formula
   head "https://github.com/dbr/tvnamer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "09da33b9005570db2cb38b3fb04e69c53e56c234d3735c9c7d62f30636fd4d92"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1e364b6e030f4658a59dc835513ad35be116f597f65d5b4d6af0021aba5e9cc7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "670f0887cf553e62e032f9e9a801d53ab4b9c65446edd33b462e3756b57b5129"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0fa0557340008766219bedf8996747b944130f87eb16100944831d237279ffa0"
-    sha256 cellar: :any_skip_relocation, ventura:        "c882175165b27388e5126a519495b91184b545a0a1603d6b59a0dffce3671aa7"
-    sha256 cellar: :any_skip_relocation, monterey:       "83cfa597aaaf273a140ae89154d05f70729e2cbf86cb5c300ddcc0de1fdbe239"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1cc567c6b0f96f4545185b4648f6612514ad074d16402dacbc4d049744142236"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2052694f5a9c996975e767709d0e9e46217904a11729bc3f07b27f2ea6ce40de"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c87efde56f3579b46e9134aa1bf0d0d6043e590980c8648502285287625dfdd3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c87efde56f3579b46e9134aa1bf0d0d6043e590980c8648502285287625dfdd3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f1038d8194aa675271b4fdd35d5fadc2fd9e553e18fc7397579306aaa0b6c17f"
+    sha256 cellar: :any_skip_relocation, ventura:        "f1038d8194aa675271b4fdd35d5fadc2fd9e553e18fc7397579306aaa0b6c17f"
+    sha256 cellar: :any_skip_relocation, monterey:       "018758f7067a788b064c080b7b43b7e50459a46ab1f8680318f0dab5dde12d57"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed381ee0b253ea88247a0ac8b7af69ae1451c5cdb1b6f67d65fe2b377a8600e1"
   end
 
   depends_on "certifi"
