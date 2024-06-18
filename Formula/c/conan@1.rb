@@ -6,7 +6,7 @@ class ConanAT1 < Formula
   url "https://files.pythonhosted.org/packages/ce/a0/6e0014057ff382428cbee2254d9e29c6ce09baa8e0bc3dd440e388aee7fd/conan-1.64.1.tar.gz"
   sha256 "969c5e2f504963ef9211605939a519588d63fd218ada5bb227272a8c653f2ec4"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://github.com/conan-io/conan.git"
@@ -107,8 +107,8 @@ class ConanAT1 < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/d8/c1/f32fb7c02e7620928ef14756ff4840cae3b8ef1d62f7e596bc5413300a16/requests-2.32.1.tar.gz"
-    sha256 "eb97e87e64c79e64e5b8ac75cee9dd1f97f49e289b083ee6be96268930725685"
+    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
+    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
   end
 
   resource "six" do
@@ -122,8 +122,8 @@ class ConanAT1 < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/0c/39/64487bf07df2ed854cc06078c27c0d0abc59bd27b32232876e403c333a08/urllib3-1.26.18.tar.gz"
-    sha256 "f8ecc1bba5667413457c529ab955bf8c67b45db799d159066261719e328580a0"
+    url "https://files.pythonhosted.org/packages/c8/93/65e479b023bbc46dab3e092bda6b0005424ea3217d711964ccdede3f9b1b/urllib3-1.26.19.tar.gz"
+    sha256 "3e3d753a8618b86d7de333b4223005f68720bcd6a7d2bcb9fbd2229ec7c1e429"
   end
 
   def install
