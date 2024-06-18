@@ -9,13 +9,13 @@ class Internetarchive < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "20d05bfaea3824ddabf5d2fc1810d6771bb889fea0ab2850e2d08655b86bb16f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c4f5ebae54b9a857473fb76cf3252ea06f00bf479c2b5d8a4908b301e1248748"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a911a60aca5933bf4417b615f73531551dabab3da65b7bab85ed0eddd1f71f8d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d5f4e90efb1df9d6985ac49018b331ba93e904fe0a574d357cba5499e70fcc70"
-    sha256 cellar: :any_skip_relocation, ventura:        "d4623b0550965db79fb86c29a4f560c055ddf6449f6543e7cb42908f1454954b"
-    sha256 cellar: :any_skip_relocation, monterey:       "88a7cd7ec95058c6224a12fbfd247dac6bff4bfd1f665a0873b2b12d9396aa1e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b0241a93e6145890f0c137f61b346418dbc4202552dc58fa321a2d779b717a9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "96ff7412b8276164101dd14d9d669a1c25e3f17be42d0a4a22212f45111d8b97"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "96ff7412b8276164101dd14d9d669a1c25e3f17be42d0a4a22212f45111d8b97"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "96ff7412b8276164101dd14d9d669a1c25e3f17be42d0a4a22212f45111d8b97"
+    sha256 cellar: :any_skip_relocation, sonoma:         "96ff7412b8276164101dd14d9d669a1c25e3f17be42d0a4a22212f45111d8b97"
+    sha256 cellar: :any_skip_relocation, ventura:        "96ff7412b8276164101dd14d9d669a1c25e3f17be42d0a4a22212f45111d8b97"
+    sha256 cellar: :any_skip_relocation, monterey:       "96ff7412b8276164101dd14d9d669a1c25e3f17be42d0a4a22212f45111d8b97"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7880876b688a12b91d7f69e26efc8995d9e6f7ab7d1329ee96eb0e088a14cab"
   end
 
   depends_on "certifi"
