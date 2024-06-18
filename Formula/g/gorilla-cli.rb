@@ -9,13 +9,13 @@ class GorillaCli < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "942159fd88e15d5d12dc10a21370ec42e2f37f89d5cfea4e0c41a277269c7610"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ba57929848a6634fad2bea174d0d4352f13394521378ac1ef51a26b337fe9077"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fe7da9313dcee6a2da2226d6768631db1eaf69429bf78f2796672e5bb16ab969"
-    sha256 cellar: :any_skip_relocation, sonoma:         "91a3e84455a76eb7fd11860fea6117412933a5940cd811e672338ac8bbab7390"
-    sha256 cellar: :any_skip_relocation, ventura:        "36efe2cbab19dd2c7cc68a617ccf310665ff1ea8cf6ff4b5c2f8e0fbc25250f5"
-    sha256 cellar: :any_skip_relocation, monterey:       "45acd6e24b40ae6be7c4e6f67e336e9467fd10b8232d6aed55646e65d7a6e0bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "382cc90e905b06fff9a5dc26cc8aeb9efdac82d7bf1ebab6df62f02e524b83a2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6d416ebe00b2ab118491bf6447fc71ef43c0921d2d69b646d5a312e929cc5bb2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6d416ebe00b2ab118491bf6447fc71ef43c0921d2d69b646d5a312e929cc5bb2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6d416ebe00b2ab118491bf6447fc71ef43c0921d2d69b646d5a312e929cc5bb2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "79f99c8ac65244d108103af279b02b2601e3a12531ea221e6e51873b105c2429"
+    sha256 cellar: :any_skip_relocation, ventura:        "79f99c8ac65244d108103af279b02b2601e3a12531ea221e6e51873b105c2429"
+    sha256 cellar: :any_skip_relocation, monterey:       "6d416ebe00b2ab118491bf6447fc71ef43c0921d2d69b646d5a312e929cc5bb2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c3909a9070a0bc65842f887b937bb8f8613b5c40e4e4de86e8cd1ef4e82a41c2"
   end
 
   depends_on "certifi"
