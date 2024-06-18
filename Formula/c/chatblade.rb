@@ -6,7 +6,7 @@ class Chatblade < Formula
   url "https://files.pythonhosted.org/packages/55/4a/61b7d54354a57837dd1555fcec400c2ce291c26fb1c587ba408fe991ac32/chatblade-0.4.0.tar.gz"
   sha256 "02313ed4c9129193ad1143ca10f04a4379fe68e07c730b28ac1a4be6c90db245"
   license "GPL-3.0-only"
-  revision 3
+  revision 4
 
   bottle do
     rebuild 1
@@ -140,8 +140,8 @@ class Chatblade < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
+    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
   def install
