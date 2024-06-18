@@ -6,7 +6,7 @@ class Checkdmarc < Formula
   url "https://files.pythonhosted.org/packages/df/06/e61a492a70a2126ac62fea72694aa0ce6f645cbe44ea513d9a68e2df822b/checkdmarc-5.3.1.tar.gz"
   sha256 "1d71e7fa611fa8faa36fad09416b5e2c3265d026d3b5209c051f4e292565e332"
   license "Apache-2.0"
-  revision 2
+  revision 3
   head "https://github.com/domainaware/checkdmarc.git", branch: "master"
 
   bottle do
@@ -44,8 +44,8 @@ class Checkdmarc < Formula
   end
 
   resource "publicsuffixlist" do
-    url "https://files.pythonhosted.org/packages/34/be/78f21c540b536e6e0fa3f29b3d996dd2ca6e48a406a8124e9b4c1ac8e717/publicsuffixlist-0.10.0.20240515.tar.gz"
-    sha256 "d0195ba9e7d80e3611216bf95208d34489c3d76975c06a7e9e7c09044e6f6d7b"
+    url "https://files.pythonhosted.org/packages/af/57/3ea928fac754715161b13560582e5c46e9914880d211e9caf3fda91ef930/publicsuffixlist-0.10.1.20240616.tar.gz"
+    sha256 "7d598406bf689ac09e440b1a3d4674ef2d629ff6f1ec97861c83f0ac1c46a58f"
   end
 
   resource "pyleri" do
@@ -54,8 +54,8 @@ class Checkdmarc < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/d8/c1/f32fb7c02e7620928ef14756ff4840cae3b8ef1d62f7e596bc5413300a16/requests-2.32.1.tar.gz"
-    sha256 "eb97e87e64c79e64e5b8ac75cee9dd1f97f49e289b083ee6be96268930725685"
+    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
+    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
   end
 
   resource "timeout-decorator" do
@@ -64,8 +64,8 @@ class Checkdmarc < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
+    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
   def install
