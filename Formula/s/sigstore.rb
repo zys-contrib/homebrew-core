@@ -6,7 +6,7 @@ class Sigstore < Formula
   url "https://files.pythonhosted.org/packages/08/02/49fb5e4f9c1e3dec6ab9b94b4d2b9778ad90a2bf6034e7bc7ccf6936d009/sigstore-3.0.0.tar.gz"
   sha256 "a6a9538a648e112a0c3d8092d3f73a351c7598164764f1e73a6b5ba406a3a0bd"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -45,8 +45,8 @@ class Sigstore < Formula
   end
 
   resource "email-validator" do
-    url "https://files.pythonhosted.org/packages/63/82/2914bff80ebee8c027802a664ad4b4caad502cd594e358f76aff395b5e56/email_validator-2.1.1.tar.gz"
-    sha256 "200a70680ba08904be6d1eef729205cc0d687634399a5924d842533efb824b84"
+    url "https://files.pythonhosted.org/packages/85/23/faab91ba691ddcff25db67c2835cbe65b0fbb0177cbbc532c6230b826d12/email_validator-2.1.2.tar.gz"
+    sha256 "14c0f3d343c4beda37400421b39fa411bbe33a75df20825df73ad53e06a9f04c"
   end
 
   resource "grpclib" do
@@ -180,8 +180,8 @@ class Sigstore < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
+    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
   def install
