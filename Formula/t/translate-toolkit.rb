@@ -9,13 +9,13 @@ class TranslateToolkit < Formula
   head "https://github.com/translate/translate.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f92be498a69dd91fd954ddd1765e5d7a9046a1c6f1d57676795a895b92873df6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f6bacf92f41742f22a59cbdba16b190d01909f7442de25a0ebbd180d34b90e7a"
-    sha256 cellar: :any,                 arm64_monterey: "ec99c46119d603f3965343dce4fe7ff3279a898840d91288d86e83bfafc71553"
-    sha256 cellar: :any_skip_relocation, sonoma:         "22f3d2c282d8db6de8b18eadacc1f19f0c2b18c8da12b95760375f72e1674eea"
-    sha256 cellar: :any_skip_relocation, ventura:        "70b1863e050d5c310277e8a909011bbdc743b1954332d1459a92e10c4a42f11e"
-    sha256 cellar: :any,                 monterey:       "c56a54251dfde0c818ac0a6a92017015b25fb766f0570ff3eca28f094aa97188"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7fd4ddcd10de08244104e093aba34d6da26e95983828aae80bcb096388f48673"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "30e68022e0e11186167be58861c8c4acf7e683e12d3f2e0e10cdf5c77d8f52f3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "04b4d47a48f37e8ddc622ad09d8a1093ad6991c459bd959012141c8048e96445"
+    sha256 cellar: :any,                 arm64_monterey: "ba632b3b5836c299f74f8291e2539418aff1bd136baa5c6316e777edae46313a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9be544a529e8bc432f061d597dc07de5c3f24e4d31f18d51bdb03334ab74738b"
+    sha256 cellar: :any_skip_relocation, ventura:        "242b310c5dfd0827e25f143a53b1b0a30b631fcbf029fb08b0917b59cd2ec98f"
+    sha256 cellar: :any,                 monterey:       "85752ca47102361639ffbde46af2ac67f31e58753b0b4e713c39d5dfff2bf992"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "83e9f1023920f5b634460d0f62584c118cbf7fdcbe9e1073fd514d095fd2839d"
   end
 
   depends_on "python@3.12"
