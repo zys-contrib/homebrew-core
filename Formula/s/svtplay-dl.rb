@@ -9,13 +9,13 @@ class SvtplayDl < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f4e2939a4916cb3d7cb37c512c2da9fb3f4f99948101fcd373d3980b4a41be97"
-    sha256 cellar: :any,                 arm64_ventura:  "1ac86be86b0ff9ff76a2ad9073251179df67314fc817825cbb45a93b93945965"
-    sha256 cellar: :any,                 arm64_monterey: "bbd1613adefd160d1d3b300ad1c0807a030acf9711bdf805fa0357e136e19a72"
-    sha256 cellar: :any,                 sonoma:         "c84550b9f3a6af09c1dee0fb4536122fb98fcb5064fb4ecdc244584987e5c0af"
-    sha256 cellar: :any,                 ventura:        "522fc0d3db0c76ce8c1c6a4901640162c4a2e3862e9e4e740a194be364245161"
-    sha256 cellar: :any,                 monterey:       "185da2cc4f2d24d942fd397b7f919cb5a1919cd7892868d0b1ea61c33a68076a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "472644f4fd1c6730efb2cc9668580f43bbfde39cfa2504fe5e912d824c3b8f9e"
+    sha256 cellar: :any,                 arm64_sonoma:   "9559d62dc3a3d9c6ae375defb425b54ca45e84c3a09ea6d31825535cf5092d21"
+    sha256 cellar: :any,                 arm64_ventura:  "b3ec820f1165524b26dc3f0d687d9ec0dc798a4532d30ca9aa0c54cbcdc30e49"
+    sha256 cellar: :any,                 arm64_monterey: "3517d54db829b73cd31532eff7cce958506d75c1633bba56c59c3425453a8e09"
+    sha256 cellar: :any,                 sonoma:         "5ea36cd44c6a7445ff30fcbe06913f45c16429f15f3dd863a41b35521a2f521a"
+    sha256 cellar: :any,                 ventura:        "2e0aa37c6f6fc1f17ec5f7e6842c4e2ff1984e08bf7a5ed0bc3d80f58bf6def8"
+    sha256 cellar: :any,                 monterey:       "7099b0b4d5a23fafc7d301507a5d6f175dedf078d6c68fe0918fe451142fbcac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1e240cfdb15624c6b5c04aaa32f5c9c9a904b16e4693531ffbeca9e9e81098e"
   end
 
   depends_on "certifi"
