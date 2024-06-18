@@ -9,13 +9,13 @@ class Sail < Formula
   revision 5
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b1745159c4941e9e56291b6abe29cc1c01d18affc53585e16119de9df0b5dc0c"
-    sha256 cellar: :any,                 arm64_ventura:  "a6ef4af4fd1b8322f9e323fa730ce8b92b3b768430bd676ea512c4705da0c447"
-    sha256 cellar: :any,                 arm64_monterey: "d0de29a6ea4f698dc5e519a1326929f60e5d08476b638878eec9cc7ed82db0c1"
-    sha256 cellar: :any,                 sonoma:         "d9b8c09ba2d4f1f57d3c92bc0f831f88e0688274fa8890c4012250b7500d4225"
-    sha256 cellar: :any,                 ventura:        "af5bd8728649f600e57f5914f504360db583bf22a64731510b852f69bbec8ef2"
-    sha256 cellar: :any,                 monterey:       "35cc7f77f86d3063e137949729b76501e4be6ec843aa98f94600f6e77cb658c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3999679c05c079298b6ece1d298d3db792cd5ae2ef6ae815df059aa7924204ca"
+    sha256 cellar: :any,                 arm64_sonoma:   "e9ccbb15749b49ac5db928bb94bc6b8759b92dc7db63fe9b0dd5df2efb64c28e"
+    sha256 cellar: :any,                 arm64_ventura:  "491edc0ba6c7775ffdf64d052aecc16cf8f6618871fb7f9d572b45ed1ed81fb4"
+    sha256 cellar: :any,                 arm64_monterey: "622d688b68788fe6ccae410d5ee48addbb957d17afff5a0b3c92d7e3b356269b"
+    sha256 cellar: :any,                 sonoma:         "89a852e2b134f66705088cf73a09a22055156622b087c56e413f1ccd45d15f60"
+    sha256 cellar: :any,                 ventura:        "44d2fe7fa5078f0f176a6a54f8b008fa5aca862a7a504aed5ae5249bab543925"
+    sha256 cellar: :any,                 monterey:       "d1bb8cd852cff3faaf6559235269e95c077eb8ef35c14951bd79b7b2bee95b67"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e18bb3a4402577a337268f395f3a23bf69a6ee5b55abdf9314155f158d5c970"
   end
 
   depends_on "rust" => :build
