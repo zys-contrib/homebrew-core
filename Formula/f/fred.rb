@@ -9,13 +9,13 @@ class Fred < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "675320e55680b33458c48d949c6c20dabaeff937064d30a06a9f1e8c941d20d8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "90fb0f2491070fb44861fe53836f5ae688a81611c6f498f3d4d3b579a07d4f21"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3efdb1b83a8ea7466e3639bc693f550917bdf32c0a6db8448f6e15cb382bc469"
-    sha256 cellar: :any_skip_relocation, sonoma:         "127463b053ffa4cb29b24deaeeb6368aad24d31799732f40b48e2dae32fb7eac"
-    sha256 cellar: :any_skip_relocation, ventura:        "75b6c69e4ca1ae322f0feeabee6b0571e09dad6c2e7a306e29599f4e83704463"
-    sha256 cellar: :any_skip_relocation, monterey:       "778a773dacf5f16d1c7ff77aee9c4e80da4ead54a6fc7a8ce742cc9cca85d5ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "073f4405c4cc293a456c0eec8a91bd26d67615b297f21d0a54633ed1861c1601"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "332268a4c045e2b272778b376bc4b224e3dedd00e0d13992368c144263f1381c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "332268a4c045e2b272778b376bc4b224e3dedd00e0d13992368c144263f1381c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "332268a4c045e2b272778b376bc4b224e3dedd00e0d13992368c144263f1381c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fe5fb53240776f2d22ad0d9217eccc1dc40dde0156632b3ffa9a87bd2bf9f393"
+    sha256 cellar: :any_skip_relocation, ventura:        "fe5fb53240776f2d22ad0d9217eccc1dc40dde0156632b3ffa9a87bd2bf9f393"
+    sha256 cellar: :any_skip_relocation, monterey:       "a120ff8b16427079a9aca516869beb3ea50f97464a05aea37b1da84676c331f7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b22ba4ed312a504934d61f498bd4119afe2e740ad2b94b63712c5c93a9ead56e"
   end
 
   depends_on "certifi"
