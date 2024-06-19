@@ -3,8 +3,8 @@ class Spaceship < Formula
   # site cert issue, https://github.com/spaceship-prompt/spaceship-prompt/issues/1431
   # homepage "https://spaceship-prompt.sh"
   homepage "https://github.com/spaceship-prompt/spaceship-prompt"
-  url "https://github.com/spaceship-prompt/spaceship-prompt/archive/refs/tags/v4.15.3.tar.gz"
-  sha256 "e4ecde51931ad85f9fa32716b5ff86ecbee8459ed3b6e12c2796708db60f7733"
+  url "https://github.com/spaceship-prompt/spaceship-prompt/archive/refs/tags/v4.16.0.tar.gz"
+  sha256 "267d31609d4a34ac61bbe8655af7c8de74a51bd77d651114666866479621425f"
   license "MIT"
   head "https://github.com/spaceship-prompt/spaceship-prompt.git", branch: "master"
 
