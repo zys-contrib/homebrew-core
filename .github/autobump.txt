@@ -332,6 +332,7 @@ cfripper
 cfssl
 cfv
 cgal
+cgif
 cgl
 cglm
 cgrep
