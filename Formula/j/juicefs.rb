@@ -1,8 +1,8 @@
 class Juicefs < Formula
   desc "Cloud-based, distributed POSIX file system built on top of Redis and S3"
   homepage "https://juicefs.com"
-  url "https://github.com/juicedata/juicefs/archive/refs/tags/v1.1.2.tar.gz"
-  sha256 "378dccf9e0ca90d3643b91bfb88bb353fb4101f41f9df9519d67d255fb18af58"
+  url "https://github.com/juicedata/juicefs/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "661cf04d83b06e676cbce7a33a37d742787b098c7703ed528b1456391b6017ec"
   license "Apache-2.0"
   head "https://github.com/juicedata/juicefs.git", branch: "main"
 
@@ -22,7 +22,7 @@ class Juicefs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5eb55ea704a4f917c44db6eaabbac9edcf825ad9b753aa54842a5ee88c49c093"
   end
 
-  depends_on "go@1.21" => :build # use "go" again when https://github.com/juicedata/juicefs/pull/4340 is released
+  depends_on "go" => :build
 
   def install
     system "make"

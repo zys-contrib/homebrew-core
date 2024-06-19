@@ -1181,6 +1181,7 @@ jsonnet
 jsontoolkit
 jsvc
 jtbl
+juicefs
 juju
 julia
 jupyterlab
