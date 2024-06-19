@@ -9,13 +9,13 @@ class DockerfileLanguageServer < Formula
   head "https://github.com/rcjsuen/dockerfile-language-server.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "036ee1fea5ae2faf37be1a72d4bb7cbabe1e3e5c38f790ee0586f130364a37c5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c78531b193726a9b6130b8c7e9de29192c4c4a37b3037e1b920747b20fe8a48"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "653dbd6a9f9a8c341c210fd8ad030c1c73ff83abd4e465df5a315fbebd6e5a6a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "daf6ccfe5ee534909bc62ceb6f5c41f957a29c5f09c8a947a9c729ebb5ae33bd"
-    sha256 cellar: :any_skip_relocation, ventura:        "59494f7b7c09cdb637659a54f97caef64185b3f64396386e2b7d814b53619e0f"
-    sha256 cellar: :any_skip_relocation, monterey:       "18458522460177a1276155c765e637b45da465d00a6d370123a16ba963a1ee4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "47f572f5c1a42796f2b2922c93b49291342d31cd67d9bb21e1a47aa31de4e22a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8aabd17fbdaf0480be3a769abb74e4b48c97dc60742c38a7054d9e6336e9c97a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8aabd17fbdaf0480be3a769abb74e4b48c97dc60742c38a7054d9e6336e9c97a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8aabd17fbdaf0480be3a769abb74e4b48c97dc60742c38a7054d9e6336e9c97a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a05541b349d4d4e2998f12f9b5683a3028635c0b1435d8faedf8674604923347"
+    sha256 cellar: :any_skip_relocation, ventura:        "a05541b349d4d4e2998f12f9b5683a3028635c0b1435d8faedf8674604923347"
+    sha256 cellar: :any_skip_relocation, monterey:       "a05541b349d4d4e2998f12f9b5683a3028635c0b1435d8faedf8674604923347"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "35ea4c4c48e6f7eda7df3b66823d4b8c4a5ff2ec28e90a27a24edee1596a8392"
   end
 
   depends_on "node"
