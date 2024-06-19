@@ -612,6 +612,7 @@ dosbox-x
 dotenv-linter
 dotnet
 dotslash
+dotter
 double-conversion
 doxygen
 dpkg
