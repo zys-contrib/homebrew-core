@@ -1,8 +1,8 @@
 class Build2 < Formula
   desc "C/C++ Build Toolchain"
   homepage "https://build2.org"
-  url "https://download.build2.org/0.16.0/build2-toolchain-0.16.0.tar.xz"
-  sha256 "23793f682a17b1d95c80bbd849244735ed59a3e27361529aa4865d2776ff8adc"
+  url "https://download.build2.org/0.17.0/build2-toolchain-0.17.0.tar.xz"
+  sha256 "3722a89ea86df742539d0f91bb4429fd46bbf668553a350780a63411b648bf5d"
   license "MIT"
 
   livecheck do
@@ -20,16 +20,10 @@ class Build2 < Formula
     sha256 x86_64_linux:   "92b0ca8b79c117d3e4b0462cf0ab7e1d2d4fffe7c17331e02a7e0b336ac505ab"
   end
 
-  depends_on "pkgconf"
-
   uses_from_macos "curl"
   uses_from_macos "openssl"
-  uses_from_macos "sqlite"
 
   def install
-    pkgconf = Formula["pkgconf"]
-    sqlite = Formula["sqlite"] if OS.linux?
-
     # Suppress loading of default options files.
     ENV["BUILD2_DEF_OPT"] = "0"
 
@@ -44,21 +38,8 @@ class Build2 < Formula
              "-j", ENV.make_jobs,
              "config.cxx=#{ENV.cxx}",
              "config.bin.lib=static",
-             "config.build2.libpkgconf=true",
-             "config.cc.poptions=-I#{pkgconf.include}/pkgconf",
-             "config.cc.loptions=-L#{pkgconf.lib}",
              "build2/exe{b}"
       mv "build2/b", "build2/b-boot"
-    end
-
-    loptions = "-L#{pkgconf.lib}"
-    loptions += " -L#{sqlite.lib}" if OS.linux?
-
-    # Work around macOS dylib cache in /usr/lib (can be dropped after 0.17.0).
-    if OS.mac?
-      mkdir "#{buildpath}/build/lib"
-      ln_s "#{MacOS.sdk_path}/usr/lib/libsqlite3.tbd", "#{buildpath}/build/lib/libsqlite3.dylib"
-      loptions += " -L#{buildpath}/build/lib"
     end
 
     # Note that while Homebrew's clang wrapper will strip any optimization
@@ -69,13 +50,9 @@ class Build2 < Formula
     system "build2/build2/b-boot", "-V",
            "config.cxx=#{ENV.cxx}",
            "config.cc.coptions=-O3",
-           "config.cc.loptions=#{loptions}",
            "config.bin.lib=shared",
            "config.bin.rpath='#{rpath}'",
            "config.install.root=#{prefix}",
-           "config.import.libsqlite3=",
-           "config.build2.libpkgconf=true",
-           "config.config.persist='config.*'@unused=drop",
            "configure"
 
     system "build2/build2/b-boot", "-v",
