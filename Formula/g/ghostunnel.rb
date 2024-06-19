@@ -1,8 +1,8 @@
 class Ghostunnel < Formula
   desc "Simple SSL/TLS proxy with mutual authentication"
   homepage "https://github.com/ghostunnel/ghostunnel"
-  url "https://github.com/ghostunnel/ghostunnel/archive/refs/tags/v1.7.3.tar.gz"
-  sha256 "eea12aff83447f4d84e4ce64c16ca7e57cf2bafa83afa95aee7d718b26d56488"
+  url "https://github.com/ghostunnel/ghostunnel/archive/refs/tags/v1.8.0.tar.gz"
+  sha256 "f6f228d305a508b63a94961f68ec0222f3b08b4a84183b9e5893b24ff208929a"
   license "Apache-2.0"
   head "https://github.com/ghostunnel/ghostunnel.git", branch: "master"
 
