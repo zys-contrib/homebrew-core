@@ -1,8 +1,8 @@
 class Libxslt < Formula
   desc "C XSLT library for GNOME"
   homepage "http://xmlsoft.org/XSLT/"
-  url "https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.40.tar.xz"
-  sha256 "194715db023035f65fb566402f2ad2b5eab4c29d541f511305c40b29b1f48d13"
+  url "https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.41.tar.xz"
+  sha256 "3ad392af91115b7740f7b50d228cc1c5fc13afc1da7f16cb0213917a37f71bda"
   license "X11"
 
   # We use a common regex because libxslt doesn't use GNOME's "even-numbered
