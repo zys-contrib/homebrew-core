@@ -2,10 +2,18 @@ class Vcluster < Formula
   desc "Creates fully functional virtual k8s cluster inside host k8s cluster's namespace"
   homepage "https://www.vcluster.com"
   url "https://github.com/loft-sh/vcluster.git",
-      tag:      "v0.19.5",
-      revision: "38a919a551838204f5d6298d65770966ed4629f2"
+      tag:      "v0.19.6",
+      revision: "37892ff5668e1401536f4fd07706839343bca65a"
   license "Apache-2.0"
   head "https://github.com/loft-sh/vcluster.git", branch: "main"
+
+  # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
+  # labeled as "pre-release" on GitHub before the version is released, so it's
+  # necessary to use the `GithubLatest` strategy.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dfeeaab3049f379192d40162a8d7c4215c294f929743f8d630868542a43dd60d"
