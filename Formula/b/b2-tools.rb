@@ -3,10 +3,9 @@ class B2Tools < Formula
 
   desc "B2 Cloud Storage Command-Line Tools"
   homepage "https://github.com/Backblaze/B2_Command_Line_Tool"
-  url "https://files.pythonhosted.org/packages/87/e0/259cb2b16949ce534b4d9f7b7c34488978e30da3408a9038bfc993dcb4e3/b2-4.0.2.tar.gz"
-  sha256 "d9002443d66deac92a476eb88c6c00c93da9fb87dcefad6dc9bf06b5efb06b27"
+  url "https://files.pythonhosted.org/packages/6a/62/21755a38d90cc0f646f00bc4459fcf3d83a5e94fa77cf2b892e3c80b68ef/b2-4.0.3.tar.gz"
+  sha256 "f4e3f1c82c9762f889bb2dd6690d4f3d1d5696888fe772bc986d475caf6186d2"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c6cde728041e1a2af8f83cd0b145238aae1183c58c644f983afe08a9641d5b88"
@@ -39,8 +38,8 @@ class B2Tools < Formula
   end
 
   resource "b2sdk" do
-    url "https://files.pythonhosted.org/packages/33/49/c6370ad84445b4a85ea88475511160ee00e368511bcf2dc9c9eedf11d3e8/b2sdk-2.4.0.tar.gz"
-    sha256 "95122d163819c233e8b11b4a1d87fcd3b9c4eb62db78b69bd231e20aa91547fb"
+    url "https://files.pythonhosted.org/packages/d9/08/f5ef4c18b379f282e0a6b4b13ffed649d2bfc06e8884b7cff0429e71d11a/b2sdk-2.4.1.tar.gz"
+    sha256 "257510b7c661dc6d513588560b436f2424fcbb4213834fa3ca52c7a5fd8d44b7"
   end
 
   resource "charset-normalizer" do
