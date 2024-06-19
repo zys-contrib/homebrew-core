@@ -8,13 +8,13 @@ class FernApi < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "964cbd8145356a437b6e3f703b8a2dfa46447ed55573ffe105084adaddc2e330"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "964cbd8145356a437b6e3f703b8a2dfa46447ed55573ffe105084adaddc2e330"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "964cbd8145356a437b6e3f703b8a2dfa46447ed55573ffe105084adaddc2e330"
-    sha256 cellar: :any_skip_relocation, sonoma:         "964cbd8145356a437b6e3f703b8a2dfa46447ed55573ffe105084adaddc2e330"
-    sha256 cellar: :any_skip_relocation, ventura:        "964cbd8145356a437b6e3f703b8a2dfa46447ed55573ffe105084adaddc2e330"
-    sha256 cellar: :any_skip_relocation, monterey:       "964cbd8145356a437b6e3f703b8a2dfa46447ed55573ffe105084adaddc2e330"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20df56958815c44ef03e9a04ff8ce717d6ceb5bab19f1d3ee537020705da6fb3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1b3862ce10196080f620239afaca179fa8314d00640770e2838143eb105d5332"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1b3862ce10196080f620239afaca179fa8314d00640770e2838143eb105d5332"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1b3862ce10196080f620239afaca179fa8314d00640770e2838143eb105d5332"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1b3862ce10196080f620239afaca179fa8314d00640770e2838143eb105d5332"
+    sha256 cellar: :any_skip_relocation, ventura:        "1b3862ce10196080f620239afaca179fa8314d00640770e2838143eb105d5332"
+    sha256 cellar: :any_skip_relocation, monterey:       "1b3862ce10196080f620239afaca179fa8314d00640770e2838143eb105d5332"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd5022058cb942723a75ae177602ae1f3b53a7e03bff38dc17ac7a3ff4574928"
   end
 
   depends_on "node"
