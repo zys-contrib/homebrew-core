@@ -1,8 +1,8 @@
 class Swtpm < Formula
   desc "Software TPM Emulator based on libtpms"
   homepage "https://github.com/stefanberger/swtpm"
-  url "https://github.com/stefanberger/swtpm/archive/refs/tags/v0.8.2.tar.gz"
-  sha256 "b281b4e8c39f68e1928675f788abc70072e4081152e129144359a8c5c304c06b"
+  url "https://github.com/stefanberger/swtpm/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "9679ca171e8aaa3c4e4053e8bc1d10c8dabf0220bd4b16aba78743511c25f731"
   license "BSD-3-Clause"
 
   bottle do
@@ -21,6 +21,8 @@ class Swtpm < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "socat" => :build
+  depends_on "glib"
+  depends_on "gmp"
   depends_on "gnutls"
   depends_on "json-glib"
   depends_on "libtasn1"
@@ -28,6 +30,10 @@ class Swtpm < Formula
   depends_on "openssl@3"
 
   uses_from_macos "expect"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   on_linux do
     depends_on "libseccomp"
