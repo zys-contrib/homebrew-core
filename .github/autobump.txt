@@ -2624,6 +2624,7 @@ zigmod
 zipkin
 zk
 zlib
+zlib-ng
 zlint
 zls
 zmap
