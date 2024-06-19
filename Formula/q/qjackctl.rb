@@ -12,13 +12,13 @@ class Qjackctl < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "2259f8733d7ad6d3f7c2dd6315996e2c22d78366d96de73b82de3e1829802b56"
-    sha256 arm64_ventura:  "719d3cf7f639f6b04b4e797c902fcc6c5b01c039be21a5b9297210f01075c6bb"
-    sha256 arm64_monterey: "66e32203b605cf8f8bf1e540aa87a1db88f7bfdeb403a599afdffa917b57c0b2"
-    sha256 sonoma:         "a2f7566f12abe09a1cc87d7ac358be19dab130f9560a88af8401991e065cff68"
-    sha256 ventura:        "1e946d8830de71ad8d15db44aa5ceafe449152d1d1bceebc26ff1c8be4d64242"
-    sha256 monterey:       "bb2400a3bbe9788d84e13239321b7b5e7b4e69f6071f333890076465f5c226cb"
-    sha256 x86_64_linux:   "c733bb060b1a1bb5e428d92ad5e7c38ac481729128e388701fdbce5eb42f692b"
+    sha256 arm64_sonoma:   "5c0c5ad6ba0075f2dd20c6d9a82ead064eab67c79a44052311c08da7e63da7cc"
+    sha256 arm64_ventura:  "1b1dbce842f4c95fa9d8e7f840ba0eb83a0adb2db6e86d3fd09da7ad033e4c86"
+    sha256 arm64_monterey: "f5546e6f2ac99a06a563609f5573c83624f98100c2d8744100899f6af5cca1ac"
+    sha256 sonoma:         "1925f9f15f47d005272349625395eb3bdcbf39bdac5373036436e3a8856a22c8"
+    sha256 ventura:        "d6a0941befdc9ea76145775a226c59f7a3284658502928ce56e1ede67a8af653"
+    sha256 monterey:       "f03f835c3ba99f5f8537e5496f5678cc6d03edf679702090cb4a8b24b1ba205f"
+    sha256 x86_64_linux:   "69d441dcdde3bce1906a5331d3df5821a98d0e0c9b36e85eee4db802c03e78ea"
   end
 
   depends_on "cmake" => :build
