@@ -1,8 +1,8 @@
 class CargoZigbuild < Formula
   desc "Compile Cargo project with zig as linker"
   homepage "https://github.com/rust-cross/cargo-zigbuild"
-  url "https://github.com/rust-cross/cargo-zigbuild/archive/refs/tags/v0.18.4.tar.gz"
-  sha256 "842422e0255b5fc5f274deaebb66f82e6a9a61b1b936869fa3453dc6f817e10c"
+  url "https://github.com/rust-cross/cargo-zigbuild/archive/refs/tags/v0.19.1.tar.gz"
+  sha256 "335f441157560d8cf9bc3f5ea4e6b5dd29da8aaa70b7504c1b904442840bb55f"
   license "MIT"
   head "https://github.com/rust-cross/cargo-zigbuild.git", branch: "main"
 
@@ -30,6 +30,7 @@ class CargoZigbuild < Formula
     # Remove errant CPATH environment variable for `cargo zigbuild` test
     # https://github.com/ziglang/zig/issues/10377
     ENV.delete "CPATH"
+    ENV.delete "RUSTFLAGS"
 
     system "#{Formula["rustup-init"].bin}/rustup-init", "-y", "--no-modify-path"
     ENV.prepend_path "PATH", HOMEBREW_CACHE/"cargo_cache/bin"
@@ -37,7 +38,7 @@ class CargoZigbuild < Formula
 
     system "cargo", "new", "hello_world", "--bin"
     cd "hello_world" do
-      system "cargo", "zigbuild", "--target", "aarch64-unknown-linux-gnu.2.17"
+      system "cargo", "zigbuild", "--target", "aarch64-unknown-linux-gnu"
     end
   end
 end
