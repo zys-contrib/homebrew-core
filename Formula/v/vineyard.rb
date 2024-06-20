@@ -3,8 +3,8 @@ class Vineyard < Formula
 
   desc "In-memory immutable data manager. (Project under CNCF)"
   homepage "https://v6d.io"
-  url "https://github.com/v6d-io/v6d/releases/download/v0.22.2/v6d-0.22.2.tar.gz"
-  sha256 "f8a9231edf38f6dff37004746dcd4bdeb4a8de30b10ecadd41a6bbbd51047af1"
+  url "https://github.com/v6d-io/v6d/releases/download/v0.23.0/v6d-0.23.0.tar.gz"
+  sha256 "3da41a90dbd94beca6b3cff1e178c241c3062c155f06f989553fc50aa317d5d3"
   license "Apache-2.0"
 
   bottle do
@@ -44,8 +44,8 @@ class Vineyard < Formula
   fails_with gcc: "5"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/aa/60/5db2249526c9b453c5bb8b9f6965fcab0ddb7f40ad734420b3b421f7da44/setuptools-70.0.0.tar.gz"
-    sha256 "f211a66637b8fa059bb28183da127d4e86396c991a942b028c6650d4319c3fd0"
+    url "https://files.pythonhosted.org/packages/1c/1c/8a56622f2fc9ebb0df743373ef1a96c8e20410350d12f44ef03c588318c3/setuptools-70.1.0.tar.gz"
+    sha256 "01a1e793faa5bd89abc851fa15d0a0db26f160890c7102cd8dce643e886b47f5"
   end
 
   def install
