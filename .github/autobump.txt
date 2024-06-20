@@ -1446,6 +1446,7 @@ little-cms2
 livekit
 livekit-cli
 llama.cpp
+llgo
 llm
 llvm
 lmdb
