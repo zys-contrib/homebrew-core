@@ -8,13 +8,13 @@ class Mvnvm < Formula
   head "https://bitbucket.org/mjensen/mvnvm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ce257f2b19fca7291f6ba8c2d0b691be868e3547b5bcf7ebe630cd616b835e5f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ce257f2b19fca7291f6ba8c2d0b691be868e3547b5bcf7ebe630cd616b835e5f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ce257f2b19fca7291f6ba8c2d0b691be868e3547b5bcf7ebe630cd616b835e5f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ce257f2b19fca7291f6ba8c2d0b691be868e3547b5bcf7ebe630cd616b835e5f"
-    sha256 cellar: :any_skip_relocation, ventura:        "ce257f2b19fca7291f6ba8c2d0b691be868e3547b5bcf7ebe630cd616b835e5f"
-    sha256 cellar: :any_skip_relocation, monterey:       "ce257f2b19fca7291f6ba8c2d0b691be868e3547b5bcf7ebe630cd616b835e5f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c337aaf385ce221759c33e6564f01057c65d06116d2c0770a6d675e714f42666"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3adbd5be39a2aa867449bea8686dd3b55b451cdf18a4b4303b0bbcc19b507c52"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3adbd5be39a2aa867449bea8686dd3b55b451cdf18a4b4303b0bbcc19b507c52"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3adbd5be39a2aa867449bea8686dd3b55b451cdf18a4b4303b0bbcc19b507c52"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3adbd5be39a2aa867449bea8686dd3b55b451cdf18a4b4303b0bbcc19b507c52"
+    sha256 cellar: :any_skip_relocation, ventura:        "3adbd5be39a2aa867449bea8686dd3b55b451cdf18a4b4303b0bbcc19b507c52"
+    sha256 cellar: :any_skip_relocation, monterey:       "3adbd5be39a2aa867449bea8686dd3b55b451cdf18a4b4303b0bbcc19b507c52"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "494854b1b1051b9e45fc86a28d68978601043bd848000d9767c67bbdeae235db"
   end
 
   depends_on "openjdk"
