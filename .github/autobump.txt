@@ -663,6 +663,7 @@ eccodes
 ecflow-ui
 echidna
 ecl
+ecs-deploy
 ed
 edbrowse
 edgevpn
