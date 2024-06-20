@@ -266,6 +266,9 @@
   "dxpy": {
     "exclude_packages": ["cryptography", "certifi"]
   },
+  "ecs-deploy": {
+    "exclude_packages": ["certifi"]
+  },
   "enex2notion": {
     "exclude_packages": ["certifi", "pymupdf"]
   },
