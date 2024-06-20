@@ -3,8 +3,8 @@ require "language/node"
 class Promptfoo < Formula
   desc "Test your LLM app locally"
   homepage "https://promptfoo.dev/"
-  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.65.1.tgz"
-  sha256 "bc3c6d8b0e8c11f53a106bcbdce91d47dea4ad15153dc88426d185f8728e35ba"
+  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.65.2.tgz"
+  sha256 "d3079b2bcc90d9193f8f5cca195c3c23e72767e0a8760d59c408da0220ecd762"
   license "MIT"
 
   bottle do
@@ -29,7 +29,7 @@ class Promptfoo < Formula
 
     system bin/"promptfoo", "init", "--no-interactive"
     assert_predicate testpath/"promptfooconfig.yaml", :exist?
-    assert_match "description: 'My eval'", (testpath/"promptfooconfig.yaml").read
+    assert_match "description: \"My eval\"", (testpath/"promptfooconfig.yaml").read
 
     assert_match version.to_s, shell_output("#{bin}/promptfoo --version")
   end
