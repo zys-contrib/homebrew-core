@@ -3,8 +3,8 @@ class Fortls < Formula
 
   desc "Fortran language server"
   homepage "https://fortls.fortran-lang.org/"
-  url "https://files.pythonhosted.org/packages/38/56/38b11a3b5e3025dcb6054b16e00772b7d3d6701442fabd25722ff311996c/fortls-3.1.1.tar.gz"
-  sha256 "ef248ce72bd1656d37ddb4d52f67c4764926102c749fc65b58429dcf9120e48d"
+  url "https://files.pythonhosted.org/packages/f1/82/b0f91372538de824bccb5e4fe8936e47f6771dbd700a74d35e19045050b5/fortls-3.1.2.tar.gz"
+  sha256 "93ea78598492ac699f7cefb624e89bf5012d44604d07fbe5ad4a31e32fc977bc"
   license "MIT"
   head "https://github.com/fortran-lang/fortls.git", branch: "master"
 
@@ -28,8 +28,8 @@ class Fortls < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
-    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
+    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
+    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
   end
 
   def install
