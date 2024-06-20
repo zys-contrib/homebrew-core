@@ -1,8 +1,8 @@
 class CargoBinstall < Formula
   desc "Binary installation for rust projects"
   homepage "https://github.com/cargo-bins/cargo-binstall"
-  url "https://github.com/cargo-bins/cargo-binstall/archive/refs/tags/v1.7.1.tar.gz"
-  sha256 "594b1f0abdb02c588bbc9245ef7a922befb21228254f0c61742c0003abe9e843"
+  url "https://github.com/cargo-bins/cargo-binstall/archive/refs/tags/v1.7.2.tar.gz"
+  sha256 "2a7b774b01522587601db1c45e785ee9304ccd52c86389a728bc6e94db910e83"
   license "GPL-3.0-only"
   head "https://github.com/cargo-bins/cargo-binstall.git", branch: "main"
 
@@ -23,10 +23,6 @@ class CargoBinstall < Formula
 
   depends_on "rust" => :build
 
-  # Remove after this is resolved:
-  # https://github.com/cargo-bins/cargo-binstall/pull/1781
-  patch :DATA
-
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/bin")
   end
@@ -38,20 +34,3 @@ class CargoBinstall < Formula
     assert_equal version.to_s, shell_output("#{bin}/cargo-binstall -V").chomp
   end
 end
-__END__
-diff --git a/.cargo/config.toml b/.cargo/config.toml
-index 65dd57802..0a23a07bc 100644
---- a/.cargo/config.toml
-+++ b/.cargo/config.toml
-@@ -9,8 +9,8 @@ rustflags = ["-C", "link-arg=-fuse-ld=lld"]
- rustflags = ["-C", "link-arg=-fuse-ld=lld"]
- 
- [target.x86_64-apple-darwin]
--rustflags = ["-C", "link-arg=-fuse-ld=lld"]
-+rustflags = ["-C", "link-arg=-fuse-ld=ld"]
- [target.x86_64h-apple-darwin]
--rustflags = ["-C", "link-arg=-fuse-ld=lld"]
-+rustflags = ["-C", "link-arg=-fuse-ld=ld"]
- [target.aarch64-apple-darwin]
--rustflags = ["-C", "link-arg=-fuse-ld=lld"]
-+rustflags = ["-C", "link-arg=-fuse-ld=ld"]
