@@ -2601,6 +2601,7 @@ yamllint
 yara
 yara-x
 yash
+yaz
 ydiff
 ykman
 yle-dl
