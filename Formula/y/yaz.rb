@@ -1,10 +1,9 @@
 class Yaz < Formula
   desc "Toolkit for Z39.50/SRW/SRU clients/servers"
   homepage "https://www.indexdata.com/resources/software/yaz/"
-  url "https://ftp.indexdata.com/pub/yaz/yaz-5.34.0.tar.gz"
-  sha256 "bcbea894599a13342910003401c17576f0fb910092aecb51cb54065d0cd2d613"
+  url "https://ftp.indexdata.com/pub/yaz/yaz-5.34.1.tar.gz"
+  sha256 "c7fd8e0222b3b0d1115ad8e7a2ee67be7a2807624d61d5b71854bf5e167ab7a9"
   license "BSD-3-Clause"
-  revision 2
 
   # The latest version text is currently omitted from the homepage for this
   # software, so we have to check the related directory listing page.
@@ -42,13 +41,6 @@ class Yaz < Formula
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
-
-  # Fix build with libxml2 2.12. Remove if upstream PR is merged and in release.
-  # PR Ref: https://github.com/indexdata/yaz/pull/103
-  patch do
-    url "https://github.com/indexdata/yaz/commit/b10643c42ea64b1ee09fe53aec2490129f903bcb.patch?full_index=1"
-    sha256 "7dba5fc599bfa3c54694c87f6978f24dd584ab746aab68bc82a41411da81bec6"
-  end
 
   def install
     if build.head?
