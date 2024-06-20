@@ -1,8 +1,8 @@
 class Imposm3 < Formula
   desc "Imports OpenStreetMap data into PostgreSQL/PostGIS databases"
   homepage "https://imposm.org"
-  url "https://github.com/omniscale/imposm3/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "cdc8cdc6af5d2ac1eb471f666e7b9e4de2c5012bbbf2d7d61c5a237b12bd6573"
+  url "https://github.com/omniscale/imposm3/archive/refs/tags/v0.13.2.tar.gz"
+  sha256 "a4edb7626d929919224c3778af5a2f2d11539a5d5c30fec00bacacbc39dfb7a0"
   license "Apache-2.0"
 
   bottle do
