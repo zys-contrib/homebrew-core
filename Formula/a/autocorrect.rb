@@ -1,8 +1,8 @@
 class Autocorrect < Formula
   desc "Linter and formatter to improve copywriting, correct spaces, words between CJK"
   homepage "https://huacnlee.github.io/autocorrect/"
-  url "https://github.com/huacnlee/autocorrect/archive/refs/tags/v2.10.0.tar.gz"
-  sha256 "d6800d783edbab75769da72ca06b89375c371855c7b1990651c1bf58ff66a5f0"
+  url "https://github.com/huacnlee/autocorrect/archive/refs/tags/v2.11.1.tar.gz"
+  sha256 "c29b065db7733ede2da152dd8eb1be44dad86ec345e406715b8b487b1f9cd81d"
   license "MIT"
   head "https://github.com/huacnlee/autocorrect.git", branch: "main"
 
@@ -25,6 +25,8 @@ class Autocorrect < Formula
   test do
     (testpath/"autocorrect.md").write "Hello世界"
     out = shell_output("#{bin}/autocorrect autocorrect.md").chomp
-    assert_equal "Hello 世界", out
+    assert_match "Hello 世界", out
+
+    assert_match version.to_s, shell_output("#{bin}/autocorrect --version")
   end
 end
