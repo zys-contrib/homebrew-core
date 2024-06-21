@@ -3,10 +3,9 @@ class Mvt < Formula
 
   desc "Mobile device forensic toolkit"
   homepage "https://docs.mvt.re/en/latest/"
-  url "https://files.pythonhosted.org/packages/0b/a7/e12932647247b7cd253698e6aa0d5f831700d3dd7688c366af85eb255b62/mvt-2.5.3.tar.gz"
-  sha256 "5727877815b3d5a2a98e21a6be9da51c3629eb548e424457e9e78ae183344264"
+  url "https://files.pythonhosted.org/packages/0d/12/a87132ab005aaa685663348df0a927c123a921ad8385813c83098c544269/mvt-2.5.4.tar.gz"
+  sha256 "bb539d853ad27d6499acbe03f9f4686b8738c624b68d226e1794fa1358f1dd0e"
   license :cannot_represent # Adaptation of MPL-2.0
-  revision 2
   head "https://github.com/mvt-project/mvt.git", branch: "main"
 
   bottle do
