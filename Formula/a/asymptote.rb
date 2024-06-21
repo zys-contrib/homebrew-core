@@ -2,10 +2,9 @@ class Asymptote < Formula
   desc "Powerful descriptive vector graphics language"
   homepage "https://asymptote.sourceforge.io"
   # Keep version in sync with manual below
-  url "https://downloads.sourceforge.net/project/asymptote/2.89/asymptote-2.89.src.tgz"
-  sha256 "f64e62b4ee4f85f1a78640c4f1e8a6f98e91f54edacab19727c7cabe94a57f5b"
+  url "https://downloads.sourceforge.net/project/asymptote/2.90/asymptote-2.90.src.tgz"
+  sha256 "8c6956fb808bf44a8f2497295b4fa6bae98c41892b40f3ee8fc758a924707340"
   license "LGPL-3.0-only"
-  revision 1
 
   livecheck do
     url :stable
@@ -32,14 +31,17 @@ class Asymptote < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "freeglut"
+    depends_on "libtirpc"
+    depends_on "mesa"
   end
 
   resource "manual" do
-    url "https://downloads.sourceforge.net/project/asymptote/2.89/asymptote.pdf"
-    sha256 "c14f388e05d814462693f04090ad18d9090a5eadd885e5287d1cde3788a5160b"
+    url "https://downloads.sourceforge.net/project/asymptote/2.90/asymptote.pdf"
+    sha256 "871e323cb373b8397415982d7a48241363590900bde6a606f1dfc3879fb6a54c"
   end
 
   def install
