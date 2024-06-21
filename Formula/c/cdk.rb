@@ -1,8 +1,8 @@
 class Cdk < Formula
   desc "Curses development kit provides predefined curses widget for apps"
   homepage "https://invisible-island.net/cdk/"
-  url "https://invisible-mirror.net/archives/cdk/cdk-5.0-20240331.tgz"
-  sha256 "8c5d7c6138ae3d76cf149027e1b10a6727c52fd0a7177fca934436890bb0f2de"
+  url "https://invisible-mirror.net/archives/cdk/cdk-5.0-20240619.tgz"
+  sha256 "436f14e8a756e63ddff5927eef70c9dcf71e4c59d56587e26302a4f726a19eff"
   license "BSD-4-Clause-UC"
 
   livecheck do
