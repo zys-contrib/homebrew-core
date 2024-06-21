@@ -1,8 +1,8 @@
 class Papilo < Formula
   desc "Parallel Presolve for Integer and Linear Optimization"
   homepage "https://www.scipopt.org"
-  url "https://github.com/scipopt/papilo/archive/refs/tags/v2.2.1.tar.gz"
-  sha256 "b022af82bda3db1a594fe67524d98be82e67279f9d9d645b2fcdfc9349cdc6f7"
+  url "https://github.com/scipopt/papilo/archive/refs/tags/v2.3.0.tar.gz"
+  sha256 "7e8727b8fcb9c58712e00276d6c342b0319652d0f1c665472af9d22475bce9c1"
   license all_of: ["LGPL-3.0-only", "GPL-3.0-only"]
   version_scheme 1
 
