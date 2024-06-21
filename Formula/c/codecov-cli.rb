@@ -3,19 +3,19 @@ class CodecovCli < Formula
 
   desc "Codecov's command-line interface"
   homepage "https://cli.codecov.io/"
-  url "https://files.pythonhosted.org/packages/63/4f/7a503044f27bb2c414c7be1cde73525bcea5af23de1ccdf8bfa73a4da328/codecov-cli-0.7.0.tar.gz"
-  sha256 "4c3cd8a552dc5a1663cd3b08b9d6a7bc759e81fead77320e87cb1c7984e991c9"
+  url "https://files.pythonhosted.org/packages/ba/ce/b73c75f6014b4df6e1344fe559f83072daf5187ac46f771f2d909be2c796/codecov-cli-0.7.1.tar.gz"
+  sha256 "af25f001827395e99b4ab686f6fae2e9f3b903b5cfc40de69552d7f3828fe970"
   license "Apache-2.0"
   head "https://github.com/codecov/codecov-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "e15a90e366398b49ee50fc9545d3a6e1abcbb8c6d4e72040b876223642156752"
-    sha256 cellar: :any,                 arm64_ventura:  "95a78f2895413864b8a5abbe2a3f5c11819c749ae3e97cd314619f50fb11e7d8"
-    sha256 cellar: :any,                 arm64_monterey: "c94fde3bf5c3f9c0d2f5889547bb485ba87926dacfde8eb306c20cb7689af2f5"
-    sha256 cellar: :any,                 sonoma:         "1d4207130e164fbc6c00c4c33921bbeb6d0297ea8c4c617409d4646976f2e658"
-    sha256 cellar: :any,                 ventura:        "79bb2fd19994f66deea9324c729dcbb2c426a18a1363e0343d4b6c4299a8c3fb"
-    sha256 cellar: :any,                 monterey:       "dd94fd78c83289613d4d50df1ac6bd717d397f875b75a2d154d7089fea717c75"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a60f4639456481982507ccbcc766aabcca922f8548237c666b6414e7e05ac245"
+    sha256 cellar: :any,                 arm64_sonoma:   "32b6d54588a796c2db481d037ddc7f19f273295fab7cfaa3915a16264e59e6f6"
+    sha256 cellar: :any,                 arm64_ventura:  "d65dee153f4eee247de0ce96db92e0643d68a297a2d18e587f4958cf6ca73aa3"
+    sha256 cellar: :any,                 arm64_monterey: "7242386da4b17ed61a7cdc1a6a1ed98724a3981c00555135020ea46fcddd3500"
+    sha256 cellar: :any,                 sonoma:         "90afdfb597d1fd61dbcef58021bc28b11bf40c4ac11be41d1817634154c6cce6"
+    sha256 cellar: :any,                 ventura:        "2c3042547127ef41846f925ffecad6886884f410dc3326cab1dac431b1905dfb"
+    sha256 cellar: :any,                 monterey:       "b383f4813bad0ee432d99a92ebb0a89a922ceb689dba9325068c1980cfb17744"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "443ecd6bbd3eb690d917d6dc7d49ebb9d3eda9baf46d49fc7b7733d066d7007e"
   end
 
   depends_on "rust" => :build
