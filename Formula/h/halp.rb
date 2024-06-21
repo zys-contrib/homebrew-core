@@ -1,8 +1,8 @@
 class Halp < Formula
   desc "CLI tool to get help with CLI tools"
   homepage "https://halp.cli.rs/"
-  url "https://github.com/orhun/halp/archive/refs/tags/v0.1.7.tar.gz"
-  sha256 "ec074ceb472c4a85dbd321ef3928014d6ac2e60a23f2ef8055e3133ecd845b88"
+  url "https://github.com/orhun/halp/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "de4e931aebd420e800007c446115f9fa3e2e581cbb4f2db9cb10488862e5f98b"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/orhun/halp.git", branch: "main"
 

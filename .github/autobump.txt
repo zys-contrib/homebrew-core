@@ -1035,6 +1035,7 @@ gyb
 hackrf
 hadoop
 halide
+halp
 hapi-fhir-cli
 haproxy
 haproxy@2.8
