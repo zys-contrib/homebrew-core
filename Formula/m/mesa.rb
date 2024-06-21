@@ -3,8 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-24.0.7.tar.xz"
-  sha256 "7454425f1ed4a6f1b5b107e1672b30c88b22ea0efea000ae2c7d96db93f6c26a"
+  url "https://mesa.freedesktop.org/archive/mesa-24.1.2.tar.xz"
+  sha256 "a2c584c8d57d3bd8ba11790a6e9ae3713f8821df96c059b78afb29dd975c9f45"
   license "MIT"
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
@@ -30,6 +30,7 @@ class Mesa < Formula
   depends_on "libxcb"
   depends_on "libxdamage"
   depends_on "libxext"
+  depends_on "libxrandr"
 
   uses_from_macos "flex" => :build
   uses_from_macos "llvm"
@@ -49,7 +50,6 @@ class Mesa < Formula
     depends_on "libva"
     depends_on "libvdpau"
     depends_on "libxfixes"
-    depends_on "libxrandr"
     depends_on "libxshmfence"
     depends_on "libxv"
     depends_on "libxxf86vm"
@@ -63,8 +63,8 @@ class Mesa < Formula
   fails_with gcc: "5"
 
   resource "glxgears.c" do
-    url "https://gitlab.freedesktop.org/mesa/demos/-/raw/391cafee6d43a28afaf87a269475e0ede7d97469/src/xdemos/glxgears.c"
-    sha256 "294d7b9984eb1194a110a5a5500878df8b8d7b7922ec56257e9d8d8ae5e578e6"
+    url "https://gitlab.freedesktop.org/mesa/demos/-/raw/878cd7fb84b7712d29e5d1b38355ed9c5899a403/src/xdemos/glxgears.c"
+    sha256 "af7927d14bd9cc989347ad0c874b35c4bfbbe9f408956868b1c5564391e21eed"
   end
 
   resource "gl_wrap.h" do
@@ -73,8 +73,8 @@ class Mesa < Formula
   end
 
   resource "mako" do
-    url "https://files.pythonhosted.org/packages/0a/dc/48e8853daf4b32748d062ce9cd47a744755fb60691ebc211ca689b849c1c/Mako-1.3.3.tar.gz"
-    sha256 "e16c01d9ab9c11f7290eef1cfefc093fb5a45ee4a3da09e2fec2e4d1bae54e73"
+    url "https://files.pythonhosted.org/packages/67/03/fb5ba97ff65ce64f6d35b582aacffc26b693a98053fa831ab43a437cbddb/Mako-1.3.5.tar.gz"
+    sha256 "48dbc20568c1d276a2698b36d968fa76161bf127194907ea6fc594fa81f943bc"
   end
 
   resource "markupsafe" do
@@ -83,8 +83,8 @@ class Mesa < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
-    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
+    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
+    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
   end
 
   resource "pygments" do
