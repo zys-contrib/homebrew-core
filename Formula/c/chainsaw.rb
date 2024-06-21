@@ -1,8 +1,8 @@
 class Chainsaw < Formula
   desc "Rapidly Search and Hunt through Windows Forensic Artefacts"
   homepage "https://github.com/WithSecureLabs/chainsaw"
-  url "https://github.com/WithSecureLabs/chainsaw/archive/refs/tags/v2.9.0.tar.gz"
-  sha256 "babe48ef1d6c7129299b1a3696aec12fbd4938a7e2b77006ec0c9f76e6e8dc4e"
+  url "https://github.com/WithSecureLabs/chainsaw/archive/refs/tags/v2.9.1.tar.gz"
+  sha256 "72a729607989d8ff1676e3a19559d895938a56e4ae6d84d864b59ea5d78fd82e"
   license "GPL-3.0-only"
   head "https://github.com/WithSecureLabs/chainsaw.git", branch: "master"
 
@@ -27,7 +27,7 @@ class Chainsaw < Formula
       output = shell_output("#{bin}/chainsaw lint --kind chainsaw . 2>&1")
       assert_match "Validated 0 detection rules out of 0", output
 
-      output = shell_output("#{bin}/chainsaw dump --json . 2>&1")
+      output = shell_output("#{bin}/chainsaw dump --json . 2>&1", 1)
       assert_match "Dumping the contents of forensic artefact", output
     end
 
