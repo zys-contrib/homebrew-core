@@ -2376,6 +2376,7 @@ tile38
 timg
 tin
 tintin
+tinymist
 tinyproxy
 tio
 tippecanoe
