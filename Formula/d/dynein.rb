@@ -1,8 +1,8 @@
 class Dynein < Formula
   desc "DynamoDB CLI"
   homepage "https://github.com/awslabs/dynein"
-  url "https://github.com/awslabs/dynein/archive/refs/tags/v0.2.1.tar.gz"
-  sha256 "1946d521b74da303bafd19a0a36fd7510a9f8c9fc5cf64d2e6742b4b0b2c9389"
+  url "https://github.com/awslabs/dynein/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "40be5866288f565ac00494910d5dbb266ca0c34d56d50d839bc2c2aad34dc470"
   license "Apache-2.0"
   head "https://github.com/awslabs/dynein.git", branch: "main"
 
@@ -19,7 +19,10 @@ class Dynein < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "075dad3a402d915e8645bd192254f0bbcd68f419e1cd94b936223f2bf319cd78"
   end
 
+  depends_on "cmake" => :build # for libz-ng-sys crate
   depends_on "rust" => :build
+
+  uses_from_macos "bzip2"
 
   on_linux do
     depends_on "pkg-config" => :build
