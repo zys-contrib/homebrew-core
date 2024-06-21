@@ -867,6 +867,7 @@ gegl
 genact
 geni
 geogram
+geoip2fast
 geoipupdate
 geos
 geoserver
