@@ -931,6 +931,7 @@ glooctl
 glslang
 gmailctl
 gmic
+gmime
 gmsh
 gnmic
 gnu-getopt

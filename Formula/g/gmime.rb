@@ -1,10 +1,9 @@
 class Gmime < Formula
   desc "MIME mail utilities"
   homepage "https://github.com/jstedfast/gmime"
-  url "https://github.com/jstedfast/gmime/releases/download/3.2.14/gmime-3.2.14.tar.xz"
-  sha256 "a5eb3dd675f72e545c8bc1cd12107e4aad2eaec1905eb7b4013cdb1fbe5e2317"
+  url "https://github.com/jstedfast/gmime/releases/download/3.2.15/gmime-3.2.15.tar.xz"
+  sha256 "84cd2a481a27970ec39b5c95f72db026722904a2ccf3fdbd57b280cf2d02b5c4"
   license "LGPL-2.1-or-later"
-  revision 1
 
   bottle do
     sha256                               arm64_sonoma:   "6e16acb81604f4148018f68bd7cd6f5b490fe32b735bfd0aad835f285bee6f75"
