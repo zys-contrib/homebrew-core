@@ -1,8 +1,8 @@
 class Dialog < Formula
   desc "Display user-friendly message boxes from shell scripts"
   homepage "https://invisible-island.net/dialog/"
-  url "https://invisible-mirror.net/archives/dialog/dialog-1.3-20240307.tgz"
-  sha256 "339d311c6abb240213426b99ad63565cbcb3e8641ef1989c033e945b754d34ef"
+  url "https://invisible-mirror.net/archives/dialog/dialog-1.3-20240619.tgz"
+  sha256 "5d8c4318963db3fd383525340276e0e05ee3dea9a6686c20779f5433b199547d"
   license "LGPL-2.1-or-later"
 
   livecheck do

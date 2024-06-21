@@ -559,6 +559,7 @@ dhall-bash
 dhall-json
 dhall-lsp-server
 dhall-yaml
+dialog
 diamond
 dicebear
 diesel
