@@ -2131,6 +2131,7 @@ seaweedfs
 secp256k1
 securefs
 selene
+selenium-server
 semgrep
 sentencepiece
 seqkit
