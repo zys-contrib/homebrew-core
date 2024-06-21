@@ -9,13 +9,13 @@ class CodecovCli < Formula
   head "https://github.com/codecov/codecov-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8e975dfbd498fddd22e79962ee11e602aa513c3d1f640af5d1b65cd7f6d62276"
-    sha256 cellar: :any,                 arm64_ventura:  "cff035dba90bc12da01a53bbd086cfdbc2bd733d4ed185021edbf227fd5084a1"
-    sha256 cellar: :any,                 arm64_monterey: "ead3bea04825b2d9591c8f5e195150b514d3ca6041f7da3efd5133ca568789ff"
-    sha256 cellar: :any,                 sonoma:         "9ca8ac37fbde4dbd2d68e3aa9823e3cfa403ddd1813a7f43ee481b6c80b3c993"
-    sha256 cellar: :any,                 ventura:        "0b43db0f5791a3e80418b5158c758d4754a14ece2a1f0d3628b05c85e853e7a5"
-    sha256 cellar: :any,                 monterey:       "e0c1e5af8f97a8b755cf2ae3b8cbe5a21a45bc50f1c84923db5a2600a1f4ff9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cbd543ebfdaec24eac3ea268925274a76180e5684aab4de509fc4ba521d722a"
+    sha256 cellar: :any,                 arm64_sonoma:   "e15a90e366398b49ee50fc9545d3a6e1abcbb8c6d4e72040b876223642156752"
+    sha256 cellar: :any,                 arm64_ventura:  "95a78f2895413864b8a5abbe2a3f5c11819c749ae3e97cd314619f50fb11e7d8"
+    sha256 cellar: :any,                 arm64_monterey: "c94fde3bf5c3f9c0d2f5889547bb485ba87926dacfde8eb306c20cb7689af2f5"
+    sha256 cellar: :any,                 sonoma:         "1d4207130e164fbc6c00c4c33921bbeb6d0297ea8c4c617409d4646976f2e658"
+    sha256 cellar: :any,                 ventura:        "79bb2fd19994f66deea9324c729dcbb2c426a18a1363e0343d4b6c4299a8c3fb"
+    sha256 cellar: :any,                 monterey:       "dd94fd78c83289613d4d50df1ac6bd717d397f875b75a2d154d7089fea717c75"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a60f4639456481982507ccbcc766aabcca922f8548237c666b6414e7e05ac245"
   end
 
   depends_on "rust" => :build
