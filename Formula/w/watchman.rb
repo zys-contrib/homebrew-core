@@ -1,10 +1,16 @@
 class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
-  url "https://github.com/facebook/watchman/archive/refs/tags/v2024.06.10.00.tar.gz"
-  sha256 "b440440b3447b5a36f5823fc93dd69dfb63f7d0cf4c4801a3756fe9489a0ee16"
   license "MIT"
   head "https://github.com/facebook/watchman.git", branch: "main"
+
+  stable do
+    url "https://github.com/facebook/watchman/archive/refs/tags/v2024.06.17.00.tar.gz"
+    sha256 "70c70101af0fdfd12386bc2529bd61f1e34f5d0709e155ba06d6457028685298"
+
+    # rust build patch, upstream commit ref, https://github.com/facebook/watchman/commit/58a8b4e39385d5e8ef8dfd12c1f5237177340e10
+    patch :DATA
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "9a0d0e3791ceebc1a880b83eacdc7f1a8f5b231266f4d5c4de9b770559cf8758"
@@ -21,12 +27,12 @@ class Watchman < Formula
 
   depends_on "cmake" => :build
   depends_on "cpptoml" => :build
-  depends_on "edencommon" => :build
   depends_on "googletest" => :build
   depends_on "pkg-config" => :build
   depends_on "python-setuptools" => :build
   depends_on "rust" => :build
   depends_on "boost"
+  depends_on "edencommon"
   depends_on "fb303"
   depends_on "fbthrift"
   depends_on "fmt"
@@ -85,3 +91,17 @@ class Watchman < Formula
     assert_equal(version.to_s, shell_output("#{bin}/watchman -v").chomp)
   end
 end
+
+__END__
+diff --git a/watchman/rust/watchman_client/src/lib.rs b/watchman/rust/watchman_client/src/lib.rs
+index a53e60a..dc315fd 100644
+--- a/watchman/rust/watchman_client/src/lib.rs
++++ b/watchman/rust/watchman_client/src/lib.rs
+@@ -587,6 +587,7 @@ impl ClientTask {
+         use serde::Deserialize;
+         #[derive(Deserialize, Debug)]
+         pub struct Unilateral {
++            #[allow(unused)]
+             pub unilateral: bool,
+             pub subscription: String,
+             #[serde(default)]
