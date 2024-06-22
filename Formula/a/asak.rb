@@ -6,6 +6,16 @@ class Asak < Formula
   license "MIT"
   head "https://github.com/chaosprint/asak.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3b49a2b7183e38d8afb462a21f0d2b3f8773e0f34cd848b234296e71de286a59"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "48cb2cf400c140c6e8cda9ebb5673d4163145e4faa5f4c93be4887f164e810ac"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3f2a4f570ecee1f7bb25f79c6f85eac005afcb864cd98f14dbb235bc70e7b892"
+    sha256 cellar: :any_skip_relocation, sonoma:         "abf9484dec6102a52ecfa42ff1bd6c3bffe9cdeb790d5a809498eed73cde71cc"
+    sha256 cellar: :any_skip_relocation, ventura:        "7f01ddb93a0fc05e250b3f02714ff48a948846adb09d4ac4523731f1dbbfd751"
+    sha256 cellar: :any_skip_relocation, monterey:       "2c0ef06f470534c2f48ee34d1d711e7647bdc05d684a3e125c0ceb182549ae9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd7c4ef4628e5e217ffdb2734748773d871890232e3183ba7a09eacfe4f1a453"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "jack"
