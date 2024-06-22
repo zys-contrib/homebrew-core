@@ -2,11 +2,11 @@ class PyqtBuilder < Formula
   include Language::Python::Virtualenv
 
   desc "Tool to build PyQt"
-  homepage "https://www.riverbankcomputing.com/software/pyqt-builder/intro"
+  homepage "https://pyqt-builder.readthedocs.io/"
   url "https://files.pythonhosted.org/packages/f0/73/9e2755469405520b38162a4f594db1e0a28e2d29ab367acba1cd3c0783b5/pyqt_builder-1.16.3.tar.gz"
   sha256 "3ce5c03dc3fc856b782da3f53b4f3f3b6556aad7bd8416d7bbfc274d03bcf032"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
-  head "https://www.riverbankcomputing.com/hg/PyQt-builder", using: :hg
+  head "https://github.com/Python-PyQt/PyQt-builder.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "27a3e3783db9fd3777fad2e41e5229e9f360c9cc114dd22addd8d096c60725c4"

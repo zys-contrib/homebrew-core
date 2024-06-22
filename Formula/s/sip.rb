@@ -2,12 +2,11 @@ class Sip < Formula
   include Language::Python::Virtualenv
 
   desc "Tool to create Python bindings for C and C++ libraries"
-  # upstream page 404 report, https://github.com/Python-SIP/sip/issues/7
   homepage "https://python-sip.readthedocs.io/en/latest/"
   url "https://files.pythonhosted.org/packages/9f/aa/8c767fc6521fa69a0632d155dc6dad82ecbd522475d60caaefb444f98abc/sip-6.8.4.tar.gz"
   sha256 "c8f4032f656de3fedbf81243cdbc9e9fd4064945b8c6961eaa81f03cd88554cb"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
-  head "https://www.riverbankcomputing.com/hg/sip", using: :hg
+  head "https://github.com/Python-SIP/sip.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5166559a1a609ede21b1462a91430ded1bc13c4da31eebf2495582c79cd57a05"
