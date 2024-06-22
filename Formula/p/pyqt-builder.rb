@@ -9,13 +9,13 @@ class PyqtBuilder < Formula
   head "https://www.riverbankcomputing.com/hg/PyQt-builder", using: :hg
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aafeb8bb22373ace45fc2d063ab271a70b90917a5dcb8fef2c741e72b7383697"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aafeb8bb22373ace45fc2d063ab271a70b90917a5dcb8fef2c741e72b7383697"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "aafeb8bb22373ace45fc2d063ab271a70b90917a5dcb8fef2c741e72b7383697"
-    sha256 cellar: :any_skip_relocation, sonoma:         "dfc6aa9124c647c925b34481f4819a39847f991e4683577a0251837bff8cd802"
-    sha256 cellar: :any_skip_relocation, ventura:        "dfc6aa9124c647c925b34481f4819a39847f991e4683577a0251837bff8cd802"
-    sha256 cellar: :any_skip_relocation, monterey:       "dfc6aa9124c647c925b34481f4819a39847f991e4683577a0251837bff8cd802"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a72dfffcf78fa58f6af5594100ef4a2435dcf0e524a461597ed14fb6eedcc7f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "27a3e3783db9fd3777fad2e41e5229e9f360c9cc114dd22addd8d096c60725c4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "27a3e3783db9fd3777fad2e41e5229e9f360c9cc114dd22addd8d096c60725c4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "27a3e3783db9fd3777fad2e41e5229e9f360c9cc114dd22addd8d096c60725c4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1d15a1270ba725b24532ed1985d08fc38c3f827318ea96f6a7a6744bd778637e"
+    sha256 cellar: :any_skip_relocation, ventura:        "1d15a1270ba725b24532ed1985d08fc38c3f827318ea96f6a7a6744bd778637e"
+    sha256 cellar: :any_skip_relocation, monterey:       "1d15a1270ba725b24532ed1985d08fc38c3f827318ea96f6a7a6744bd778637e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a509ee40f702fcc7964ce321862a021bb76a8674a52c63db2ba9c897e432cf2a"
   end
 
   depends_on "python@3.12"
