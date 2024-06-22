@@ -854,6 +854,7 @@ fwupd
 fx
 fzf
 g-ls
+gallery-dl
 gateway-go
 gator
 gatsby-cli
