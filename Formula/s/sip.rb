@@ -3,19 +3,19 @@ class Sip < Formula
 
   desc "Tool to create Python bindings for C and C++ libraries"
   homepage "https://python-sip.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/9f/aa/8c767fc6521fa69a0632d155dc6dad82ecbd522475d60caaefb444f98abc/sip-6.8.4.tar.gz"
-  sha256 "c8f4032f656de3fedbf81243cdbc9e9fd4064945b8c6961eaa81f03cd88554cb"
-  license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
+  url "https://files.pythonhosted.org/packages/3e/f5/85bfb3c716b8eda9e2b0c0c5f36acb701746045c828a4497a44e581db3a6/sip-6.8.5.tar.gz"
+  sha256 "5dddd5966e9875d89ecde9d3e6ac63225f9972e4d25c09e20fa22f1819409c70"
+  license "BSD-2-Clause"
   head "https://github.com/Python-SIP/sip.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5166559a1a609ede21b1462a91430ded1bc13c4da31eebf2495582c79cd57a05"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5166559a1a609ede21b1462a91430ded1bc13c4da31eebf2495582c79cd57a05"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5166559a1a609ede21b1462a91430ded1bc13c4da31eebf2495582c79cd57a05"
-    sha256 cellar: :any_skip_relocation, sonoma:         "10f91e96f31d796efa5100b0843acfd9a5fa38321564f478bc530b1778762c00"
-    sha256 cellar: :any_skip_relocation, ventura:        "10f91e96f31d796efa5100b0843acfd9a5fa38321564f478bc530b1778762c00"
-    sha256 cellar: :any_skip_relocation, monterey:       "10f91e96f31d796efa5100b0843acfd9a5fa38321564f478bc530b1778762c00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "026973a84e2f213a792080539d290c599ed716571ec4424acc87fd28b75d9891"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4efa47c9d2d33bf5897fe994aef25905611c59d3d80db8f8591aadfee43bdb4b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4efa47c9d2d33bf5897fe994aef25905611c59d3d80db8f8591aadfee43bdb4b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4efa47c9d2d33bf5897fe994aef25905611c59d3d80db8f8591aadfee43bdb4b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f0838e9d57c425db439eef5bde3707c0b7ddc09e4f222a6e8f0f3e5a519b0339"
+    sha256 cellar: :any_skip_relocation, ventura:        "f0838e9d57c425db439eef5bde3707c0b7ddc09e4f222a6e8f0f3e5a519b0339"
+    sha256 cellar: :any_skip_relocation, monterey:       "f0838e9d57c425db439eef5bde3707c0b7ddc09e4f222a6e8f0f3e5a519b0339"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11c3e5fffd8754227f3c8938e0cebcc6b30d17d80a99abb22fa909055b851463"
   end
 
   depends_on "python@3.12"
