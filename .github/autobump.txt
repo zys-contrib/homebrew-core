@@ -692,6 +692,7 @@ elixir-ls
 elm-format
 elvis
 elvish
+emacs
 emacs-dracula
 embree
 emqx
