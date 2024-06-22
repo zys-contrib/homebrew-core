@@ -5,6 +5,7 @@ class Wolfssl < Formula
       tag:      "v5.7.0-stable",
       revision: "8970ff4c34034dbb3594943d11f8c9d4c5512bd5"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/wolfSSL/wolfssl.git", branch: "master"
 
   livecheck do
@@ -44,6 +45,7 @@ class Wolfssl < Formula
       --disable-webserver
       --enable-aesccm
       --enable-aesgcm
+      --enable-aesgcm-stream
       --enable-alpn
       --enable-blake2
       --enable-camellia
