@@ -1,8 +1,8 @@
 class Zfind < Formula
   desc "Search for files (even inside tar/zip/7z/rar) using a SQL-WHERE filter"
   homepage "https://github.com/laktak/zfind"
-  url "https://github.com/laktak/zfind/archive/refs/tags/v0.4.3.tar.gz"
-  sha256 "ea7a30b650a1f89afb39136d46386b009b44d7dbccc907f8aedf1c348b3bfd1a"
+  url "https://github.com/laktak/zfind/archive/refs/tags/v0.4.4.tar.gz"
+  sha256 "a26b7e4726bb587164d7ff5bb34ad7a84d24af27555fd864bc580f7cc5620a2f"
   license "MIT"
   head "https://github.com/laktak/zfind.git", branch: "master"
 
