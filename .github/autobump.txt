@@ -94,6 +94,7 @@ artillery
 arttime
 arturo
 arxiv_latex_cleaner
+asak
 ascii
 asciidoctor
 asciidoctorj
