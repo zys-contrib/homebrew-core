@@ -2526,6 +2526,7 @@ vvdec
 vvenc
 wabt
 wakatime-cli
+walk
 wallpaper
 wartremover
 wasm-micro-runtime
