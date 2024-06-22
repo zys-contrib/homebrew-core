@@ -2259,6 +2259,7 @@ ssh-audit
 sshs
 sslh
 sslscan
+ssocr
 stackql
 stanford-corenlp
 star
