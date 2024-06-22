@@ -1,8 +1,8 @@
 class GitlabGem < Formula
   desc "Ruby client and CLI for GitLab API"
   homepage "https://narkoz.github.io/gitlab/"
-  url "https://github.com/NARKOZ/gitlab/archive/refs/tags/v4.20.1.tar.gz"
-  sha256 "2505a4e4b572be808c613a69903d3a91bc4c28d6db3f632679d42d3f395d957a"
+  url "https://github.com/NARKOZ/gitlab/archive/refs/tags/v5.0.0.tar.gz"
+  sha256 "c08305b376275be73b6da01c14d3e004d49860925770e8e2f760afc3abedd629"
   license "BSD-2-Clause"
 
   bottle do
@@ -20,8 +20,8 @@ class GitlabGem < Formula
   # list with `gem install --explain httparty terminal-table`
 
   resource "bigdecimal" do
-    url "https://rubygems.org/gems/bigdecimal-3.1.5.gem"
-    sha256 "534faee5ae3b4a0a6369fe56cd944e907bf862a9209544a9e55f550592c22fac"
+    url "https://rubygems.org/gems/bigdecimal-3.1.8.gem"
+    sha256 "a89467ed5a44f8ae01824af49cbc575871fa078332e8f77ea425725c1ffe27be"
   end
 
   resource "multi_xml" do
@@ -35,8 +35,8 @@ class GitlabGem < Formula
   end
 
   resource "csv" do
-    url "https://rubygems.org/gems/csv-3.2.8.gem"
-    sha256 "2f5e11e8897040b97baf2abfe8fa265b314efeb8a9b7f756db9ebcf79e7db9fe"
+    url "https://rubygems.org/gems/csv-3.3.0.gem"
+    sha256 "0bbd1defdc31134abefed027a639b3723c2753862150f4c3ee61cab71b20d67d"
   end
 
   resource "httparty" do
