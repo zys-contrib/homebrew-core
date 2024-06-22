@@ -2,8 +2,8 @@ class Datasette < Formula
   include Language::Python::Virtualenv
   desc "Open source multi-tool for exploring and publishing data"
   homepage "https://docs.datasette.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/a6/57/ec9d7317241c40663e8adc0144579ebd0caaea9ecb55ffdfd5bef637d993/datasette-0.64.7.tar.gz"
-  sha256 "171e11a213eb747302166c6986487e41f6a9a8847a84fef7861bf88bf1b439b9"
+  url "https://files.pythonhosted.org/packages/51/34/11b90a0235386058d7ce8e6fcfc089fc0cde54b90d68b8e7cc1c0969d8c0/datasette-0.64.8.tar.gz"
+  sha256 "ee54d87152b2e3e6d4552f157e3431918f5fa929c17afd0548b0d04becbd4c97"
   license "Apache-2.0"
   head "https://github.com/simonw/datasette.git", branch: "main"
 
@@ -137,8 +137,8 @@ class Datasette < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/aa/60/5db2249526c9b453c5bb8b9f6965fcab0ddb7f40ad734420b3b421f7da44/setuptools-70.0.0.tar.gz"
-    sha256 "f211a66637b8fa059bb28183da127d4e86396c991a942b028c6650d4319c3fd0"
+    url "https://files.pythonhosted.org/packages/1c/1c/8a56622f2fc9ebb0df743373ef1a96c8e20410350d12f44ef03c588318c3/setuptools-70.1.0.tar.gz"
+    sha256 "01a1e793faa5bd89abc851fa15d0a0db26f160890c7102cd8dce643e886b47f5"
   end
 
   resource "sniffio" do
