@@ -584,6 +584,7 @@ dmenu
 dnscontrol
 dnscrypt-proxy
 dnsdist
+dnsgen
 dnsmasq
 dnsperf
 dnstwist
