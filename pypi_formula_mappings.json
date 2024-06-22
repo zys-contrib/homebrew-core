@@ -226,6 +226,9 @@
     "exclude_packages": ["certifi"]
   },
   "diffoscope": "diffoscope[cmdline]",
+  "dnsgen": {
+    "exclude_packages": ["certifi"]
+  },
   "dnsrobocert": {
     "exclude_packages": ["certifi", "cryptography"]
   },
