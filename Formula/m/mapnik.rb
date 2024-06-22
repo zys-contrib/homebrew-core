@@ -14,13 +14,13 @@ class Mapnik < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8b70e858715271ea57910edb147cf52bcfb5d41e28056e91eb2ddfe2b916b470"
-    sha256 cellar: :any,                 arm64_ventura:  "276a500cbd99981a1cc240f023b0f8a7265bdf92caa0b2c3342c8ecdbe630f0a"
-    sha256 cellar: :any,                 arm64_monterey: "73953b83a7dce9bae6e6ddfeaf109ab4c93601c3564d2249c9649eb998963023"
-    sha256 cellar: :any,                 sonoma:         "60df6eb48932bf4502cd7837639f542b8f1050e8d9997baa54c8ecd592af100b"
-    sha256 cellar: :any,                 ventura:        "c1004613b0b7d554a57270509d664d1fbc55a65401b6f7bec1f59f671bc299a0"
-    sha256 cellar: :any,                 monterey:       "c645d88bde9888ae6954b11b6dec8f060edad97b6b901ccf830cd83b7fe636bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "689925341a4ef8a29cf1eb7a6c18ec1a177da427c831da77fd0646330de244a7"
+    sha256 cellar: :any,                 arm64_sonoma:   "7cfb7dd093232bccb0e355ca39647f482153318278333ad58aa7afb711c6209b"
+    sha256 cellar: :any,                 arm64_ventura:  "df8ea8fc3350cb1a7067ce94cc67b0f1b491e3a85117b415cf1f9bac2035dd94"
+    sha256 cellar: :any,                 arm64_monterey: "bdeb878366d5c0a0bb869b9189d336755b46f75a0af8cdc69423e1fcdd39a885"
+    sha256 cellar: :any,                 sonoma:         "b834a8ba4b4694b816612bec2c2a2ca41304cf0f32b975fd3d3dbcc294b88cdc"
+    sha256 cellar: :any,                 ventura:        "9198b79e4bdcaba38e7567395450aa72c11441cadd00a8df4c83a018ef35a88e"
+    sha256 cellar: :any,                 monterey:       "5ff00ec8942ceb8becac05f8243ba0b51c8170f0d4a633bda679d70b4bd00bd0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c133c069eeec60ee72ffdb033720b494f7a98a9b89038abf8f531a694802ed5"
   end
 
   depends_on "cmake" => :build
