@@ -8,6 +8,16 @@ class Dnsgen < Formula
   license "MIT"
   head "https://github.com/AlephNullSK/dnsgen.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "38fe8f1e5c63609f9af6c9f7be7a388f9356f2c5d2022af50062bf909b184b2a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "38fe8f1e5c63609f9af6c9f7be7a388f9356f2c5d2022af50062bf909b184b2a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "38fe8f1e5c63609f9af6c9f7be7a388f9356f2c5d2022af50062bf909b184b2a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "38fe8f1e5c63609f9af6c9f7be7a388f9356f2c5d2022af50062bf909b184b2a"
+    sha256 cellar: :any_skip_relocation, ventura:        "38fe8f1e5c63609f9af6c9f7be7a388f9356f2c5d2022af50062bf909b184b2a"
+    sha256 cellar: :any_skip_relocation, monterey:       "38fe8f1e5c63609f9af6c9f7be7a388f9356f2c5d2022af50062bf909b184b2a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3e142090204b7f6b028c213e3eeb137390dd57bb8a47cff77ad2ef66d973ffc"
+  end
+
   depends_on "certifi"
   depends_on "python@3.12"
 
