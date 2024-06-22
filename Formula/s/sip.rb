@@ -9,13 +9,13 @@ class Sip < Formula
   head "https://github.com/Python-SIP/sip.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5166559a1a609ede21b1462a91430ded1bc13c4da31eebf2495582c79cd57a05"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5166559a1a609ede21b1462a91430ded1bc13c4da31eebf2495582c79cd57a05"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5166559a1a609ede21b1462a91430ded1bc13c4da31eebf2495582c79cd57a05"
-    sha256 cellar: :any_skip_relocation, sonoma:         "10f91e96f31d796efa5100b0843acfd9a5fa38321564f478bc530b1778762c00"
-    sha256 cellar: :any_skip_relocation, ventura:        "10f91e96f31d796efa5100b0843acfd9a5fa38321564f478bc530b1778762c00"
-    sha256 cellar: :any_skip_relocation, monterey:       "10f91e96f31d796efa5100b0843acfd9a5fa38321564f478bc530b1778762c00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "026973a84e2f213a792080539d290c599ed716571ec4424acc87fd28b75d9891"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4efa47c9d2d33bf5897fe994aef25905611c59d3d80db8f8591aadfee43bdb4b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4efa47c9d2d33bf5897fe994aef25905611c59d3d80db8f8591aadfee43bdb4b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4efa47c9d2d33bf5897fe994aef25905611c59d3d80db8f8591aadfee43bdb4b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f0838e9d57c425db439eef5bde3707c0b7ddc09e4f222a6e8f0f3e5a519b0339"
+    sha256 cellar: :any_skip_relocation, ventura:        "f0838e9d57c425db439eef5bde3707c0b7ddc09e4f222a6e8f0f3e5a519b0339"
+    sha256 cellar: :any_skip_relocation, monterey:       "f0838e9d57c425db439eef5bde3707c0b7ddc09e4f222a6e8f0f3e5a519b0339"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11c3e5fffd8754227f3c8938e0cebcc6b30d17d80a99abb22fa909055b851463"
   end
 
   depends_on "python@3.12"
