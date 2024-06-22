@@ -735,6 +735,9 @@
   "sigstore": {
     "exclude_packages": ["certifi", "cryptography"]
   },
+  "sip": {
+    "extra_packages": ["setuptools"]
+  },
   "slither-analyzer": {
     "exclude_packages": ["certifi"]
   },
