@@ -1272,6 +1272,7 @@ kubeshark
 kubespy
 kubevela
 kubevious
+kubevpn
 kubie
 kumactl
 kustomize
