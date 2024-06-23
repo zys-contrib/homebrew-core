@@ -1,8 +1,8 @@
 class LivekitCli < Formula
   desc "Command-line interface to LiveKit"
   homepage "https://livekit.io"
-  url "https://github.com/livekit/livekit-cli/archive/refs/tags/v1.4.3.tar.gz"
-  sha256 "ce1ef64f0718f96a32af6187a89526b9be8084050e212be6c3c00f3b370f707d"
+  url "https://github.com/livekit/livekit-cli/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "e852eaf467e7d294a2afa2dc5b2321cbc92002fd713f2feefe93cdae592ff3d4"
   license "Apache-2.0"
   head "https://github.com/livekit/livekit-cli.git", branch: "main"
 
@@ -18,8 +18,14 @@ class LivekitCli < Formula
 
   depends_on "go" => :build
 
+  # patch release version, upstream pr ref, https://github.com/livekit/livekit-cli/pull/344
+  patch do
+    url "https://github.com/livekit/livekit-cli/commit/571ca1601b37bfd5028359eb4179fd282f398d04.patch?full_index=1"
+    sha256 "c3bd561555b8e0e5d8453759610c6a73964c432f1072cf55666eb57e86d6e516"
+  end
+
   def install
-    system "go", "build", *std_go_args, "./cmd/livekit-cli"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/livekit-cli"
   end
 
   test do
