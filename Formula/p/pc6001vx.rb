@@ -2,23 +2,28 @@ class Pc6001vx < Formula
   desc "PC-6001 emulator"
   # http://eighttails.seesaa.net/ gives 405 error
   homepage "https://github.com/eighttails/PC6001VX"
-  url "https://eighttails.up.seesaa.net/bin/PC6001VX_4.2.6_src.tar.gz"
-  sha256 "47cc6328cb2febc1042c0fa03dcc5043e7756560cc0528bdc7b8a03a0ff4cf1e"
+  url "https://eighttails.up.seesaa.net/bin/PC6001VX_4.2.7_src.tar.gz"
+  sha256 "95a5cd12c0519d4d826de8e81a514d4dfb1bddae6cac6f198cace972f0f45e73"
   license "LGPL-2.1-or-later"
   head "https://github.com/eighttails/PC6001VX.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "b1baea3be049d1b630c4552c40295f56e112d5f5a5fcd79c582d10bbd79f1981"
-    sha256 cellar: :any, arm64_ventura:  "fc296773e9ac1220d7c3d570404e8182918a6f5a6d00ba6e5cabebd270e90087"
-    sha256 cellar: :any, arm64_monterey: "0a2ee943446f7bcb508eecfa8fb70e60d7e9b484a245a5353ae76f7f2a06c115"
-    sha256 cellar: :any, sonoma:         "4fde6d51d7ed38eccdc780777009fec6aadad8950ce2733081f1039f4468ae0e"
-    sha256 cellar: :any, ventura:        "b756277c12d40f433f77a5478c781e012f27a46acf1f506225badf8aebd1da8d"
-    sha256 cellar: :any, monterey:       "fdab432f8dc538adb2f54ce293c585e80f135e944a21d7fda2e507041e934b94"
+    sha256 cellar: :any, arm64_sonoma:   "eb94c7d377ecec997c0dc16f75fdbebe1e5c6f95c66ef4eab47b5be4af3ad86b"
+    sha256 cellar: :any, arm64_ventura:  "d1d69d055e56c8d7f71d4309ac2bb07ec8dc363f18398abe33735c6c978491b5"
+    sha256 cellar: :any, arm64_monterey: "b0f1ebbdeadccd8a14942f83a8f0d8facfb8f22669e09ea2e8ec02c474197680"
+    sha256 cellar: :any, sonoma:         "5bec39dccbf04f4d4a6437d720b5debff48c550e8690a5803c00b52cd52305ec"
+    sha256 cellar: :any, ventura:        "d1084cb81da89c09bb51b15ca1af56676481b67469010d7760919bc9e8870cb9"
+    sha256 cellar: :any, monterey:       "9e74efd930f82983c2198e47d5e92ab6a667fe58c23180dcf63ce59ca31727b8"
   end
 
   depends_on "pkg-config" => :build
   depends_on "ffmpeg@6"
   depends_on "qt"
+  depends_on "sdl2"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
