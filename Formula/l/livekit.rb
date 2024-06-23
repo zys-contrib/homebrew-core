@@ -6,6 +6,14 @@ class Livekit < Formula
   license "Apache-2.0"
   head "https://github.com/livekit/livekit.git", branch: "master"
 
+  # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
+  # labeled as "pre-release" on GitHub before the version is released, so it's
+  # necessary to use the `GithubLatest` strategy.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5c01309445c956805ef664b66fa9d58ca9dacaefd435643a80c52e793354f1ed"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "724c31f4099cf67182b67dbb67e16ec1c86b42de5bce4a0960a402a6eaa4934d"
