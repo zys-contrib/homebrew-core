@@ -1245,6 +1245,7 @@ krakend
 krew
 ktfmt
 kube-linter
+kube-ps1
 kubeaudit
 kubebuilder
 kubecfg
