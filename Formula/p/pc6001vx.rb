@@ -8,12 +8,12 @@ class Pc6001vx < Formula
   head "https://github.com/eighttails/PC6001VX.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "eb94c7d377ecec997c0dc16f75fdbebe1e5c6f95c66ef4eab47b5be4af3ad86b"
-    sha256 cellar: :any, arm64_ventura:  "d1d69d055e56c8d7f71d4309ac2bb07ec8dc363f18398abe33735c6c978491b5"
-    sha256 cellar: :any, arm64_monterey: "b0f1ebbdeadccd8a14942f83a8f0d8facfb8f22669e09ea2e8ec02c474197680"
-    sha256 cellar: :any, sonoma:         "5bec39dccbf04f4d4a6437d720b5debff48c550e8690a5803c00b52cd52305ec"
-    sha256 cellar: :any, ventura:        "d1084cb81da89c09bb51b15ca1af56676481b67469010d7760919bc9e8870cb9"
-    sha256 cellar: :any, monterey:       "9e74efd930f82983c2198e47d5e92ab6a667fe58c23180dcf63ce59ca31727b8"
+    sha256 cellar: :any, arm64_sonoma:   "6b5e394c0c5e4cc3ff91ed130256e6bcbf42fc95e982ba074dcf7fcb38e56ce0"
+    sha256 cellar: :any, arm64_ventura:  "8127057088cbe8fbb33525ab5fbaa73fef600ed551bc5aa2983b066bb6e3ec58"
+    sha256 cellar: :any, arm64_monterey: "8f4dd14bf5027483bd5ffdd610375fbd0bd31490b69cf5fc70b5cb34a8e34b0b"
+    sha256 cellar: :any, sonoma:         "bb40a0aad2d32b91819cd7b240b6b514265490f5965b60a7e18cf6766265ee94"
+    sha256 cellar: :any, ventura:        "835bd689bb35e2d7e63c17f4e514044cb5185684a3c459c1748faf2e225499e8"
+    sha256 cellar: :any, monterey:       "9ba8b6b9087109613b97bd799b969838abaf1de03280a9268c7f7833df058048"
   end
 
   depends_on "pkg-config" => :build
