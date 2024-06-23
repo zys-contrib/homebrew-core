@@ -1,8 +1,8 @@
 class RpkiClient < Formula
   desc "OpenBSD portable rpki-client"
   homepage "https://www.rpki-client.org/"
-  url "https://ftp.openbsd.org/pub/OpenBSD/rpki-client/rpki-client-9.0.tar.gz"
-  sha256 "c364e38ba5501a36540521c1a76169dd9356e48dab941ae4147d155d2d55e12a"
+  url "https://ftp.openbsd.org/pub/OpenBSD/rpki-client/rpki-client-9.1.tar.gz"
+  sha256 "0e8248d079401df6f18b41de13694452a147dff252db6b9a76bdc3cdc5ca2b0b"
   license "ISC"
 
   livecheck do
