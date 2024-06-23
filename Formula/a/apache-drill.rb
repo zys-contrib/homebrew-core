@@ -12,7 +12,13 @@ class ApacheDrill < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "658a78091b62b685d9456503bee644376838dd67d316aa4dab4fce22b5aec117"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bd822ed8d1754add90f7bff790c2ddbefbb6c74ed1041aa99ef77a0154e52c07"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd822ed8d1754add90f7bff790c2ddbefbb6c74ed1041aa99ef77a0154e52c07"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bd822ed8d1754add90f7bff790c2ddbefbb6c74ed1041aa99ef77a0154e52c07"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bd822ed8d1754add90f7bff790c2ddbefbb6c74ed1041aa99ef77a0154e52c07"
+    sha256 cellar: :any_skip_relocation, ventura:        "bd822ed8d1754add90f7bff790c2ddbefbb6c74ed1041aa99ef77a0154e52c07"
+    sha256 cellar: :any_skip_relocation, monterey:       "bd822ed8d1754add90f7bff790c2ddbefbb6c74ed1041aa99ef77a0154e52c07"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "895478c53621805c15c2c1a8d984e2c2630b8bf2fcd9e561926bdd30a6281ccf"
   end
 
   depends_on "openjdk@11"
