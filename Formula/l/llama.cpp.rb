@@ -3,8 +3,8 @@ class LlamaCpp < Formula
   homepage "https://github.com/ggerganov/llama.cpp"
   # CMake uses Git to generate version information.
   url "https://github.com/ggerganov/llama.cpp.git",
-      tag:      "b3135",
-      revision: "73bac2b11d7d3e20982fc9ee607625836387db8b"
+      tag:      "b3212",
+      revision: "8cb508d0d5c024e12692370d85237b45469a004b"
   license "MIT"
   head "https://github.com/ggerganov/llama.cpp.git", branch: "master"
 
@@ -14,18 +14,19 @@ class LlamaCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ccd4711114dd8747e1fed554b7be1b987082d9ac1f33681cb63a8af63fcc4c59"
-    sha256 cellar: :any,                 arm64_ventura:  "40dfdde580afce7862f513bcbf98f138ebd4ab5d595a46626181372c853938da"
-    sha256 cellar: :any,                 arm64_monterey: "dc9260b5eaec8c43b001f1d798693b2cdc250e0b0b66e8912dfa9c5543dd48f4"
-    sha256 cellar: :any,                 sonoma:         "5f439a885e446b1cb0232b1f1006891eb95ed3e6844c37f30c864946b8f56cc7"
-    sha256 cellar: :any,                 ventura:        "26f653349b0a87155cff456e23ef5fa4ff8ced8aecb549d8f507b6a5d2f146cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1aac1041a16baa3809a9bb1d7524fe6ebbdccde600b03f4d4362f50142c67af8"
+    sha256 cellar: :any,                 arm64_sonoma:   "7beb70c05f97fbca1093576975326df30d631b8c4706f0cf7ff1bca477038c94"
+    sha256 cellar: :any,                 arm64_ventura:  "b2e5428aa790a69334e98e98994a62cb965c1e15c19bb24cf18395c5879ba4f6"
+    sha256 cellar: :any,                 arm64_monterey: "81447a3aeeecddf179ac0b42d0de358be8b42fc53786a12cd108e6701ecb1811"
+    sha256 cellar: :any,                 sonoma:         "02126ca9b7c49c45772e5ab000c2dcc3ac1de6f86ae7d51e3a5124df7bcb7fc6"
+    sha256 cellar: :any,                 ventura:        "c74b030355e1851fbbc899d887b5603819e9adde82c7e901b71afa48be8bdb12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2bcbfe2e20b6e9cf4b219552fce22b7894f2d3a064ab4398252e96705620f6d"
   end
 
   depends_on "cmake" => :build
   uses_from_macos "curl"
 
   on_linux do
+    depends_on "pkg-config" => :build
     depends_on "openblas"
   end
 
@@ -51,22 +52,14 @@ class LlamaCpp < Formula
     system "cmake", "--install", "build"
 
     libexec.install bin.children
-    libexec.children.each do |file|
-      next unless file.executable?
-
-      new_name = if file.basename.to_s == "main"
-        "llama"
-      else
-        "llama-#{file.basename}"
-      end
-
-      bin.install_symlink file => new_name
-    end
+    bin.install_symlink libexec.children.select { |file|
+                          file.executable? && !file.basename.to_s.start_with?("test-")
+                        }
   end
 
   test do
-    system bin/"llama", "--hf-repo", "ggml-org/tiny-llamas",
-                        "-m", "stories260K.gguf",
-                        "-n", "400", "-p", "I", "-ngl", "0"
+    system bin/"llama-cli", "--hf-repo", "ggml-org/tiny-llamas",
+                            "-m", "stories260K.gguf",
+                            "-n", "400", "-p", "I", "-ngl", "0"
   end
 end

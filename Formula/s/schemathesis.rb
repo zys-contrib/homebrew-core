@@ -3,18 +3,18 @@ class Schemathesis < Formula
 
   desc "Testing tool for web applications with specs"
   homepage "https://schemathesis.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/5d/29/e2916668859ce7e6f4af8dc1bc3554030aca1b04b137eb6a7c53fd6eb0fb/schemathesis-3.29.2.tar.gz"
-  sha256 "b32f75bfdb5a56c5fea56e9cdc269cb5fa20549db3266632e22fbab343ed04e3"
+  url "https://files.pythonhosted.org/packages/0d/23/e83e7f09bfd6872e59596032af46dedc6e47aaa31f5405a1e76f94ba965a/schemathesis-3.30.1.tar.gz"
+  sha256 "2c0c1de0b15172cfb2fb4f721e476120d3205c4aab71f666738481c2f631477f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "df04c9e0d6e7161532cb0f6c8ef7007a9d4a1a98f6a172fe217c97a8e9810b03"
-    sha256 cellar: :any,                 arm64_ventura:  "911e4130678397e19a47c2e09aa018da5166d2e673e1dfc82d0fbe6cef407f17"
-    sha256 cellar: :any,                 arm64_monterey: "3ec6906eb5cf26d1492c244640ad08f3cc9617fe882fd17c6806c540c730e26a"
-    sha256 cellar: :any,                 sonoma:         "b22da3861307f6c9263fad10b3e5a689554fc367cccfcc0602ed7ecd0fcd14d6"
-    sha256 cellar: :any,                 ventura:        "13c5aa09dc1a5637950ff7978c5485e96561a9e1d1249058bf7ce427b712cae9"
-    sha256 cellar: :any,                 monterey:       "668c2102f517f5a0a66b014a77bea84681739e6f8b7dda81458530e9e77f8495"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8d9789bdc42d1ffc607367c8ec007ad214beccbe138ca78394e439121835044"
+    sha256 cellar: :any,                 arm64_sonoma:   "4379de8b1929653e1cf731131fc3b70e2ba46e19a32edce952201dda852a6f61"
+    sha256 cellar: :any,                 arm64_ventura:  "5256cd3bc5019ad05c1429481ca98899591d57c9f706f9dd7e8b1def8e26e02d"
+    sha256 cellar: :any,                 arm64_monterey: "17a112409b9be6cf8c6df9ff723a04823ebd3cdea8538c816f4ff8db2743aba8"
+    sha256 cellar: :any,                 sonoma:         "8012545173589003b7b2896ee5094f31f262e06034ef69823ec45c7f9d61cc47"
+    sha256 cellar: :any,                 ventura:        "6d41f59a1eaef910dd8f1c70d9a2b85c13e917bb7c285cfe44a62ab68ccfa067"
+    sha256 cellar: :any,                 monterey:       "8aa8541f0b26db5458543bf78e2b8c30c74d514736a966cbb355dd61ad50a068"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6001a1d5080f553230815fec0945dab3e4137a5c2916ac60c74b39569413391a"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -73,8 +73,8 @@ class Schemathesis < Formula
   end
 
   resource "hypothesis" do
-    url "https://files.pythonhosted.org/packages/2d/de/cac5c24afddfe47b80b554e2f797c96866cd69a833593c695d80e836604d/hypothesis-6.103.0.tar.gz"
-    sha256 "7fe91917b99fc98ac150ec295775a687448c7c42c2276ab6e4a6969a4b285bb5"
+    url "https://files.pythonhosted.org/packages/f2/cd/70ed04510c9d8b6f3bada2845ae4368b57c5ca8e34e266b8fdfdc2cb8c26/hypothesis-6.103.5.tar.gz"
+    sha256 "9c455baa7bf0a40538e9afeb2ab21d91bc1d2a5a8db1a3536df868cfc605f307"
   end
 
   resource "hypothesis-graphql" do
@@ -123,8 +123,8 @@ class Schemathesis < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
-    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
+    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
+    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
   end
 
   resource "pluggy" do
@@ -138,8 +138,8 @@ class Schemathesis < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/cf/4e/0ceea141f0e5d09de4053c5338c62615ae2bd9bd3f013813f5ec62e3cf97/pytest-8.2.1.tar.gz"
-    sha256 "5046e5b46d8e4cac199c373041f26be56fdb81eb4e67dc11d4e10811fc3408fd"
+    url "https://files.pythonhosted.org/packages/a6/58/e993ca5357553c966b9e73cb3475d9c935fe9488746e13ebdf9b80fae508/pytest-8.2.2.tar.gz"
+    sha256 "de4bb8104e201939ccdc688b27a89a7be2079b22e2bd2b07f806b6ba71117977"
   end
 
   resource "pytest-subtests" do
@@ -203,8 +203,8 @@ class Schemathesis < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
+    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
   resource "werkzeug" do

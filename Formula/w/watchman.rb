@@ -1,19 +1,25 @@
 class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
-  url "https://github.com/facebook/watchman/archive/refs/tags/v2024.05.06.00.tar.gz"
-  sha256 "456fb61eacd9296bd452ef030b9727a1470933a31f326bdaddb52a59b2feef16"
   license "MIT"
   head "https://github.com/facebook/watchman.git", branch: "main"
 
+  stable do
+    url "https://github.com/facebook/watchman/archive/refs/tags/v2024.06.17.00.tar.gz"
+    sha256 "70c70101af0fdfd12386bc2529bd61f1e34f5d0709e155ba06d6457028685298"
+
+    # rust build patch, upstream commit ref, https://github.com/facebook/watchman/commit/58a8b4e39385d5e8ef8dfd12c1f5237177340e10
+    patch :DATA
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "9410b4b119812956ec5c064d97bd431d40819228fb796762ef4939cc1ef5fd06"
-    sha256 cellar: :any,                 arm64_ventura:  "faa946e214d25678421fd6c4408f7d6887442bd3caf8c2e4341b1be965725bdf"
-    sha256 cellar: :any,                 arm64_monterey: "eaa4dc834ad4a577b00a6577c6a78c51987c7ffae5f8cee1052c05df7c70bff3"
-    sha256 cellar: :any,                 sonoma:         "d8488eb7b1189a56aecd3a20ad30317f135d7f72e1562e181802f0f5ce341263"
-    sha256 cellar: :any,                 ventura:        "509d971921f135c36e21a6a64d0542f655ff495eb838dd99d4ef3fd59e161751"
-    sha256 cellar: :any,                 monterey:       "95423e2cb2927a8b30d204258f53d15f1414ca0f0c24836e147863e3f529e67e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24919bbc7c971be7fe37ea161ea4268604c67dcfe6435dc2258b2050cb4495c3"
+    sha256 cellar: :any,                 arm64_sonoma:   "fcf5691a1b200cd867fd382c6800525cdd2d4f974dd07691da3c17d3eec1b3d8"
+    sha256 cellar: :any,                 arm64_ventura:  "c2ea954636895ea1b398ee842e8020ce9cad4339bfee1d6aa5d449015f0405c5"
+    sha256 cellar: :any,                 arm64_monterey: "07f9d12fa7b930106d73c39f0b7473e12d2b375ff1503440bd15176be6b1cdd8"
+    sha256 cellar: :any,                 sonoma:         "650426e049ac9f23de1f4175f318e4de9c103b6a36ebc2933cba2bf9987046c7"
+    sha256 cellar: :any,                 ventura:        "75e1f8b3f1fbcce0207294a005462de9b8653fc7f59563c00b19258641f70157"
+    sha256 cellar: :any,                 monterey:       "1a40aca3dbd803a899238c726031a68312ddcc670413b1c49b68e94c5357b13a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "693c8b0144090c1163d0f4a47bc86bd14cc526044323d03e2f6196cc50e078a6"
   end
 
   # https://github.com/facebook/watchman/issues/963
@@ -21,13 +27,12 @@ class Watchman < Formula
 
   depends_on "cmake" => :build
   depends_on "cpptoml" => :build
-  depends_on "edencommon" => :build
   depends_on "googletest" => :build
-  depends_on "mvfst" => :build
   depends_on "pkg-config" => :build
   depends_on "python-setuptools" => :build
   depends_on "rust" => :build
   depends_on "boost"
+  depends_on "edencommon"
   depends_on "fb303"
   depends_on "fbthrift"
   depends_on "fmt"
@@ -35,7 +40,6 @@ class Watchman < Formula
   depends_on "gflags"
   depends_on "glog"
   depends_on "libevent"
-  depends_on "libsodium"
   depends_on "openssl@3"
   depends_on "pcre2"
   depends_on "python@3.12"
@@ -52,18 +56,22 @@ class Watchman < Formula
               /gtest_discover_tests\((.*)\)/,
               "gtest_discover_tests(\\1 DISCOVERY_TIMEOUT 60)"
 
+    args = %W[
+      -DENABLE_EDEN_SUPPORT=ON
+      -DPython3_EXECUTABLE=#{which("python3.12")}
+      -DWATCHMAN_VERSION_OVERRIDE=#{version}
+      -DWATCHMAN_BUILDINFO_OVERRIDE=#{tap&.user || "Homebrew"}
+      -DWATCHMAN_STATE_DIR=#{var}/run/watchman
+    ]
+    # Avoid overlinking with libsodium and mvfst
+    args << "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
+
     # NOTE: Setting `BUILD_SHARED_LIBS=ON` will generate DSOs for Eden libraries.
     #       These libraries are not part of any install targets and have the wrong
     #       RPATHs configured, so will need to be installed and relocated manually
     #       if they are built as shared libraries. They're not used by any other
     #       formulae, so let's link them statically instead. This is done by default.
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DENABLE_EDEN_SUPPORT=ON",
-                    "-DPython3_EXECUTABLE=#{which("python3.12")}",
-                    "-DWATCHMAN_VERSION_OVERRIDE=#{version}",
-                    "-DWATCHMAN_BUILDINFO_OVERRIDE=#{tap.user}",
-                    "-DWATCHMAN_STATE_DIR=#{var}/run/watchman",
-                    *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
@@ -75,10 +83,25 @@ class Watchman < Formula
 
   def post_install
     (var/"run/watchman").mkpath
-    chmod 042777, var/"run/watchman"
+    # Don't make me world-writeable! This admits symlink attacks that makes upstream dislike usage of `/tmp`.
+    chmod 03775, var/"run/watchman"
   end
 
   test do
     assert_equal(version.to_s, shell_output("#{bin}/watchman -v").chomp)
   end
 end
+
+__END__
+diff --git a/watchman/rust/watchman_client/src/lib.rs b/watchman/rust/watchman_client/src/lib.rs
+index a53e60a..dc315fd 100644
+--- a/watchman/rust/watchman_client/src/lib.rs
++++ b/watchman/rust/watchman_client/src/lib.rs
+@@ -587,6 +587,7 @@ impl ClientTask {
+         use serde::Deserialize;
+         #[derive(Deserialize, Debug)]
+         pub struct Unilateral {
++            #[allow(unused)]
+             pub unilateral: bool,
+             pub subscription: String,
+             #[serde(default)]

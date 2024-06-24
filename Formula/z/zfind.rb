@@ -1,19 +1,19 @@
 class Zfind < Formula
   desc "Search for files (even inside tar/zip/7z/rar) using a SQL-WHERE filter"
   homepage "https://github.com/laktak/zfind"
-  url "https://github.com/laktak/zfind/archive/refs/tags/v0.4.2.tar.gz"
-  sha256 "767a0b61605ca63be8ebfca19b56ccded2e9ed22920d6d31db3f4b723ed56f43"
+  url "https://github.com/laktak/zfind/archive/refs/tags/v0.4.4.tar.gz"
+  sha256 "a26b7e4726bb587164d7ff5bb34ad7a84d24af27555fd864bc580f7cc5620a2f"
   license "MIT"
   head "https://github.com/laktak/zfind.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2c689b84b617b0777f55f4e4d56c3f76c9f09a9fdb408526f232d766508c8f60"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f5279a26326d0c2400f47b2940a372dc07703036dd85ba7875c05f40ffa31a35"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "168f671e2d02f8575f345be59f8f0b7701d9edad796bf8361d591f97b270223d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ef052695c40b0a9c653c43897b93a31ec7d6bf46bacec53c7afbbaddc877e61b"
-    sha256 cellar: :any_skip_relocation, ventura:        "050423c3a15d4d5ad425aeedaf37702d293274b75e68c36d8eed3e80bf2be79b"
-    sha256 cellar: :any_skip_relocation, monterey:       "97a9505275b4b1472df29dd34e469edd3b9580b9d88cce31ffb735927ce53510"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "05a487a536dd37a19d06ba256d1a6f642d2731a17ecde54ba02473557a1e8498"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "18d818ec6b543da419a0d6a34f7a5f530d14e8738c0595159c2338dd28a2ed42"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6aba86df95aaec25e62db2cd32d36f98f71970e0593d880bc894845a2dc4f85c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "68a63f60cd5e1376dfd3e2510b58185db021e12c6e29c5e7d7c3ed9510910ff3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7617b3f1b2650f952e3a3b398d93e0bf35ea53772e736680ebfc31bd00bf1472"
+    sha256 cellar: :any_skip_relocation, ventura:        "69d70aba623fb44e10d145216929f59dafe648f45b7b0ff24b86463e29963a84"
+    sha256 cellar: :any_skip_relocation, monterey:       "5e0345d6f7e239c97575f881694d2e6dffab1ddaff750ee5f5e5060e8fd8be3e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe40cf01b4605da467aef02945672dfe07d830ad2ca1c0a6a03e0db651999bd9"
   end
 
   depends_on "go" => :build

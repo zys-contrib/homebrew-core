@@ -1,7 +1,7 @@
 class Aubio < Formula
   desc "Extract annotations from audio signals"
   homepage "https://github.com/aubio/aubio"
-  url "http://sources.buildroot.net/aubio/aubio-0.4.9.tar.bz2"
+  url "https://sources.buildroot.net/aubio/aubio-0.4.9.tar.bz2"
   sha256 "d48282ae4dab83b3dc94c16cf011bcb63835c1c02b515490e1883049c3d1f3da"
   license "GPL-3.0-or-later"
   revision 3
@@ -50,8 +50,8 @@ class Aubio < Formula
   end
 
   def install
-    # Needed due to issue with recent clang (-fno-fused-madd))
-    ENV.refurbish_args
+    # Work-around for build issue with Xcode 15.3: https://github.com/aubio/aubio/issues/402
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
 
     system python3, "./waf", "configure", "--prefix=#{prefix}"
     system python3, "./waf", "build"

@@ -3,18 +3,18 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/e3/af/f3a8858df0fd364a459293bc8f64e69e03664c1266bfadb6190ce87995b9/esphome-2024.5.5.tar.gz"
-  sha256 "b300164b414bece1efdd4583a014fca15800cf219aa65f61c4a243b2d48733ed"
+  url "https://files.pythonhosted.org/packages/19/cb/199da5ca6a287b683dd96588136510ec97b8a715a50b14aa9ac0d4bd8da7/esphome-2024.6.1.tar.gz"
+  sha256 "463f0a451b9d9df5ca610077fe1d0fc5e28847723cdf1c89ac3ca62e4ae9df28"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d73a791b9255ee3c95fb019bb4b17d682d029e8bf25905b248b7c516c846c4f5"
-    sha256 cellar: :any,                 arm64_ventura:  "f16262ed164df08a799245b92f7f60acf1eeaf17068aec32cb9583506c8fc597"
-    sha256 cellar: :any,                 arm64_monterey: "01a8e007e9b0d40d14093d4a5a8055c03ccc4b5c97d4f2f4780942d5e5a50890"
-    sha256 cellar: :any,                 sonoma:         "7b45249e9b083cb57db683cc45046bc8462dd177dbc5ae761446082bb8559125"
-    sha256 cellar: :any,                 ventura:        "eb48354d3ece8fbe836823096d9e1510072f10cf48164a3b3fe81551f6781375"
-    sha256 cellar: :any,                 monterey:       "1f89f75bc36dc584275c12a284ed424be2582b3d5b8ed979b54e9e41284c86b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b80e573464002b6d32907a593a6e93d43cbdbbb80bd63b0ae9b476de057c37a7"
+    sha256 cellar: :any,                 arm64_sonoma:   "6a0d8c426a28ac54d6e5cdd2a451a63cd9da6f1674fa3ab77635ad56c5b22261"
+    sha256 cellar: :any,                 arm64_ventura:  "005dc5b24ca10caedc0f27a8aceca3af669683fc5b06c7f9561aae63dfa69c67"
+    sha256 cellar: :any,                 arm64_monterey: "26991a034377835f244d91bf7e4497f52411686ed68c43b17589542f28856ae5"
+    sha256 cellar: :any,                 sonoma:         "65477b1f6bd440a0cf9b2ffc9f49a415d0b36774d204da08797a75e20bac70f9"
+    sha256 cellar: :any,                 ventura:        "6aa31c916e75fdfefaca25d2060ecf72ed9372eab88b653b055511e9168bf790"
+    sha256 cellar: :any,                 monterey:       "7f1541acde2e99405f98bbbf0f829914eccd674c67e5bf8f2a9a200561047629"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c21c12c9288416c29781d4d761ca98b1e8b0c1b036c0c27c16df18ff1c3a2ea5"
   end
 
   depends_on "certifi"
@@ -45,8 +45,8 @@ class Esphome < Formula
   end
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/79/51/fd6e293a64ab6f8ce1243cf3273ded7c51cbc33ef552dce3582b6a15d587/argcomplete-3.3.0.tar.gz"
-    sha256 "fd03ff4a5b9e6580569d34b273f741e85cd9e072f3feeeee3eba4891c70eda62"
+    url "https://files.pythonhosted.org/packages/db/ca/45176b8362eb06b68f946c2bf1184b92fc98d739a3f8c790999a257db91f/argcomplete-3.4.0.tar.gz"
+    sha256 "c2abcdfe1be8ace47ba777d4fce319eb13bf8ad9dace8d085dcad6eded88057f"
   end
 
   resource "async-interrupt" do
@@ -95,8 +95,8 @@ class Esphome < Formula
   end
 
   resource "esphome-dashboard" do
-    url "https://files.pythonhosted.org/packages/ad/1f/583c28b40593bb320eeeddcb9937dad69195ccfaaf076f2d4838cc6aff46/esphome-dashboard-20240412.0.tar.gz"
-    sha256 "313fc4a59f240ca1e12461789e3761e90fb17bc185e056316a82228214a0ba24"
+    url "https://files.pythonhosted.org/packages/d4/1b/65ccbe1bccfe3c9750f63ce4fd1f626bccbbc3d07c2c8cff01849e46bb7b/esphome_dashboard-20240620.0.tar.gz"
+    sha256 "971de2f19d8f51e7f289b08d890e333c4c1f817afaaff4d56bd4c1174604e5f0"
   end
 
   resource "esptool" do
@@ -135,8 +135,8 @@ class Esphome < Formula
   end
 
   resource "marshmallow" do
-    url "https://files.pythonhosted.org/packages/a2/16/06ad266adc423f9d7ee49dce26787b973907aa70213760c9fe1711745405/marshmallow-3.21.2.tar.gz"
-    sha256 "82408deadd8b33d56338d2182d455db632c6313aa2af61916672146bb32edc56"
+    url "https://files.pythonhosted.org/packages/d6/31/0881962e77efa2d524ca80566ba1fb7cab000edaa9f4152b97a39b8d9a2d/marshmallow-3.21.3.tar.gz"
+    sha256 "4f57c5e050a54d66361e826f94fba213eb10b67b2fdb02c3e0343ce207ba1662"
   end
 
   resource "noiseprotocol" do
@@ -145,8 +145,8 @@ class Esphome < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
-    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
+    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
+    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
   end
 
   resource "paho-mqtt" do
@@ -160,8 +160,8 @@ class Esphome < Formula
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/73/cb/8d83e166a822d893c2c07ef4a57598873634b65a68153ca62b6ba85f67b9/protobuf-5.27.0.tar.gz"
-    sha256 "07f2b9a15255e3cf3f137d884af7972407b556a7a220912b252f26dc3121e6bf"
+    url "https://files.pythonhosted.org/packages/20/5f/00d891817d4031bbf4e846a99834bf949a76714c10a726833aa184176772/protobuf-5.27.1.tar.gz"
+    sha256 "df5e5b8e39b7d1c25b186ffdf9f44f40f810bbcc9d2b71d9d3156fee5a9adf15"
   end
 
   resource "pyelftools" do
@@ -250,8 +250,8 @@ class Esphome < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
+    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
   resource "uvicorn" do
