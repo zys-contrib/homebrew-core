@@ -11,14 +11,13 @@ class ScmManager < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dc40e1ab0dc62ad344d6adf8da3370116c71ac53dfdff9379441cbd25017371f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dc40e1ab0dc62ad344d6adf8da3370116c71ac53dfdff9379441cbd25017371f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dc40e1ab0dc62ad344d6adf8da3370116c71ac53dfdff9379441cbd25017371f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "dc40e1ab0dc62ad344d6adf8da3370116c71ac53dfdff9379441cbd25017371f"
-    sha256 cellar: :any_skip_relocation, ventura:        "dc40e1ab0dc62ad344d6adf8da3370116c71ac53dfdff9379441cbd25017371f"
-    sha256 cellar: :any_skip_relocation, monterey:       "dc40e1ab0dc62ad344d6adf8da3370116c71ac53dfdff9379441cbd25017371f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a17779339d3d1359b170d8518523cab99b3b73e5049c1e3ad2516eda0660051"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b59171d2a8d569f23531480112b06f68b711e642f03c669c62d747b79857b69b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b59171d2a8d569f23531480112b06f68b711e642f03c669c62d747b79857b69b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b59171d2a8d569f23531480112b06f68b711e642f03c669c62d747b79857b69b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b59171d2a8d569f23531480112b06f68b711e642f03c669c62d747b79857b69b"
+    sha256 cellar: :any_skip_relocation, ventura:        "b59171d2a8d569f23531480112b06f68b711e642f03c669c62d747b79857b69b"
+    sha256 cellar: :any_skip_relocation, monterey:       "b59171d2a8d569f23531480112b06f68b711e642f03c669c62d747b79857b69b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e1229fd774769e505df30d51edce64f2e56ea2bcc1662aec50c2f92196da8ec"
   end
 
   depends_on "jsvc"
