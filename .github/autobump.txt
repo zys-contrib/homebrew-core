@@ -1982,6 +1982,7 @@ pythran
 pyyaml
 qbe
 qbs
+qca
 qcachegrind
 qd
 qemu
