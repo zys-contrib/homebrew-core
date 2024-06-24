@@ -5,6 +5,16 @@ class Llgo < Formula
   sha256 "be6979d47bcc8f89f2156f6b2d6f603854104fea7452519bac144400fbecabf0"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "abc5716d772b22aedbdda36a3cb5baf4fdf530658e29aa0885e17a3e5be9f7a0"
+    sha256 cellar: :any,                 arm64_ventura:  "ad30f0756be67379f590cf8b9c67f30fffabe97ec37aaad6e4fcdd75aa648a11"
+    sha256 cellar: :any,                 arm64_monterey: "3dbff3f8d50f91fc69ebd99a2a613cc62c1b8ce7a9a1125b3ca7067fb535ba1a"
+    sha256 cellar: :any,                 sonoma:         "7f934f76c9ad4c8bafe6ca1489396b1721883e96846b290bf38f5d3fa7cb5924"
+    sha256 cellar: :any,                 ventura:        "4bff48ed3503b926fce89e079e0de2c5350ef1fe4928c1cdad1a78980d4f2ed4"
+    sha256 cellar: :any,                 monterey:       "fbe63b1b5c5325df3ce31d4d0a1f6a926eb92f6ec9ae84564c33d0dc70781132"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a442a318be75c0eff9c372c54120eb99d4c0be3093887caa6b4b8da6eb0e8479"
+  end
+
   depends_on "bdw-gc"
   depends_on "cjson"
   depends_on "go"
