@@ -4,8 +4,8 @@ class OpensearchDashboards < Formula
   desc "Open source visualization dashboards for OpenSearch"
   homepage "https://opensearch.org/docs/dashboards/index/"
   url "https://github.com/opensearch-project/OpenSearch-Dashboards.git",
-      tag:      "2.11.1",
-      revision: "989d8f41f37cca3275bf3fedc5c2057a717d1d64"
+      tag:      "2.15.0",
+      revision: "aa37a6921f56a6ef6355b5ed8a6bd7b6017aae6a"
   license "Apache-2.0"
 
   bottle do
@@ -26,7 +26,6 @@ class OpensearchDashboards < Formula
   depends_on "node@18"
 
   # - Do not download node and discard all actions related to this node
-  # - Support Apple Silicon (https://github.com/opensearch-project/OpenSearch-Dashboards/pull/4983)
   patch :DATA
 
   def install
@@ -91,6 +90,7 @@ class OpensearchDashboards < Formula
     end
 
     (testpath/"config.yml").write <<~EOS
+      server.host: "127.0.0.1"
       path.data: #{testpath}/data
       opensearch.hosts: ["http://127.0.0.1:#{os_port}"]
     EOS
@@ -118,18 +118,6 @@ class OpensearchDashboards < Formula
 end
 
 __END__
-diff --git a/src/dev/build/args.ts b/src/dev/build/args.ts
-index 7e131174e3..71745e5305 100644
---- a/src/dev/build/args.ts
-+++ b/src/dev/build/args.ts
-@@ -133,6 +133,7 @@ export function readCliArgs(argv: string[]) {
-     targetPlatforms: {
-       windows: Boolean(flags.windows),
-       darwin: Boolean(flags.darwin),
-+      darwinArm: Boolean(flags['darwin-arm']),
-       linux: Boolean(flags.linux),
-       linuxArm: Boolean(flags['linux-arm']),
-     },
 diff --git a/src/dev/build/build_distributables.ts b/src/dev/build/build_distributables.ts
 index d764c5df28..e37b71e04a 100644
 --- a/src/dev/build/build_distributables.ts
@@ -143,42 +131,11 @@ index d764c5df28..e37b71e04a 100644
 
    /**
     * run platform-generic build tasks
-diff --git a/src/dev/build/lib/config.ts b/src/dev/build/lib/config.ts
-index 6af5b8e690..1296eb65e4 100644
---- a/src/dev/build/lib/config.ts
-+++ b/src/dev/build/lib/config.ts
-@@ -155,6 +155,7 @@ export class Config {
-
-     const platforms: Platform[] = [];
-     if (this.targetPlatforms.darwin) platforms.push(this.getPlatform('darwin', 'x64'));
-+    if (this.targetPlatforms.darwinArm) platforms.push(this.getPlatform('darwin', 'arm64'));
-     if (this.targetPlatforms.linux) platforms.push(this.getPlatform('linux', 'x64'));
-     if (this.targetPlatforms.windows) platforms.push(this.getPlatform('win32', 'x64'));
-     if (this.targetPlatforms.linuxArm) platforms.push(this.getPlatform('linux', 'arm64'));
-diff --git a/src/dev/build/lib/platform.ts b/src/dev/build/lib/platform.ts
-index 673356ec62..f83107f737 100644
---- a/src/dev/build/lib/platform.ts
-+++ b/src/dev/build/lib/platform.ts
-@@ -33,6 +33,7 @@ export type PlatformArchitecture = 'x64' | 'arm64';
-
- export interface TargetPlatforms {
-   darwin: boolean;
-+  darwinArm: boolean;
-   linuxArm: boolean;
-   linux: boolean;
-   windows: boolean;
-@@ -78,5 +79,6 @@ export const ALL_PLATFORMS = [
-   new Platform('linux', 'x64', 'linux-x64'),
-   new Platform('linux', 'arm64', 'linux-arm64'),
-   new Platform('darwin', 'x64', 'darwin-x64'),
-+  new Platform('darwin', 'arm64', 'darwin-arm64'),
-   new Platform('win32', 'x64', 'windows-x64'),
- ];
 diff --git a/src/dev/build/tasks/create_archives_sources_task.ts b/src/dev/build/tasks/create_archives_sources_task.ts
-index 55d9b5313f..b4ecbb0d3d 100644
+index 5ba01ad129..b4ecbb0d3d 100644
 --- a/src/dev/build/tasks/create_archives_sources_task.ts
 +++ b/src/dev/build/tasks/create_archives_sources_task.ts
-@@ -41,34 +41,6 @@ export const CreateArchivesSources: Task = {
+@@ -41,38 +41,6 @@ export const CreateArchivesSources: Task = {
            source: build.resolvePath(),
            destination: build.resolvePathForPlatform(platform),
          });
@@ -197,17 +154,21 @@ index 55d9b5313f..b4ecbb0d3d 100644
 -
 -        // ToDo [NODE14]: Remove this Node.js 14 fallback download
 -        // Copy the Node.js 14 binaries into node/fallback to be used by `use_node`
--        await scanCopy({
--          source: (
--            await getNodeVersionDownloadInfo(
--              NODE14_FALLBACK_VERSION,
--              platform.getNodeArch(),
--              platform.isWindows(),
--              config.resolveFromRepo()
--            )
--          ).extractDir,
--          destination: build.resolvePathForPlatform(platform, 'node', 'fallback'),
--        });
+-        if (platform.getBuildName() === 'darwin-arm64') {
+-          log.warning(`There are no fallback Node.js versions released for darwin-arm64.`);
+-        } else {
+-          await scanCopy({
+-            source: (
+-              await getNodeVersionDownloadInfo(
+-                NODE14_FALLBACK_VERSION,
+-                platform.getNodeArch(),
+-                platform.isWindows(),
+-                config.resolveFromRepo()
+-              )
+-            ).extractDir,
+-            destination: build.resolvePathForPlatform(platform, 'node', 'fallback'),
+-          });
+-        }
 -
 -        log.debug('Node.js copied into', platform.getNodeArch(), 'specific build directory');
        })
