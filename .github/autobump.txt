@@ -1036,6 +1036,7 @@ gtkmm4
 gtksourceview5
 gtranslator
 gucharmap
+guile
 gulp-cli
 gum
 gupnp
