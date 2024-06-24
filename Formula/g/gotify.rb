@@ -1,8 +1,8 @@
 class Gotify < Formula
   desc "Command-line interface for pushing messages to gotify/server"
   homepage "https://github.com/gotify/cli"
-  url "https://github.com/gotify/cli/archive/refs/tags/v2.2.3.tar.gz"
-  sha256 "9446aa09a675bca2a8fd0448e6c45e28630e31f7578cc9e1587d09f24e59f66a"
+  url "https://github.com/gotify/cli/archive/refs/tags/v2.2.4.tar.gz"
+  sha256 "6a7adfb7910a29342b106f5e79d7bbbe955b268bb34c994ed3d31350ee62caa3"
   license "MIT"
   head "https://github.com/gotify/cli.git", branch: "master"
 

@@ -992,6 +992,7 @@ gosu
 got
 gotestsum
 gotestwaf
+gotify
 gotpm
 gource
 govc
