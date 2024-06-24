@@ -1,8 +1,8 @@
 class ChromeCli < Formula
   desc "Control Google Chrome from the command-line"
   homepage "https://github.com/prasmussen/chrome-cli"
-  url "https://github.com/prasmussen/chrome-cli/archive/refs/tags/1.9.3.tar.gz"
-  sha256 "cc213ebd087bafd6f1faaaeb4cc1fae4da2a7e1c484ee9265cf113f6ce108376"
+  url "https://github.com/prasmussen/chrome-cli/archive/refs/tags/1.10.0.tar.gz"
+  sha256 "d8ff25fb608ca4145d4af688e999ea106128e75b95fb1edc6861499133e9bb8c"
   license "MIT"
   head "https://github.com/prasmussen/chrome-cli.git", branch: "master"
 
@@ -31,6 +31,7 @@ class ChromeCli < Formula
     bin.install "scripts/brave-cli"
     bin.install "scripts/vivaldi-cli"
     bin.install "scripts/edge-cli"
+    bin.install "scripts/arc-cli"
   end
 
   test do

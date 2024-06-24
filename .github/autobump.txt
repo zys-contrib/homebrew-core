@@ -364,6 +364,7 @@ chkrootkit
 choose-rust
 chroma
 chromaprint
+chrome-cli
 chronograf
 chsrc
 chuck
