@@ -1,8 +1,8 @@
 class Moon < Formula
   desc "Task runner and repo management tool for the web ecosystem, written in Rust"
   homepage "https://moonrepo.dev/moon"
-  url "https://github.com/moonrepo/moon/archive/refs/tags/v1.25.6.tar.gz"
-  sha256 "e67b03f46e020a8a422f48dbaecbcf0b95bd0a0894e899aff71593b83999e8e0"
+  url "https://github.com/moonrepo/moon/archive/refs/tags/v1.26.1.tar.gz"
+  sha256 "2ca19432f861a8dd1782d96ff4dae0608977e1115c08621b9afa732e714e81be"
   license "MIT"
   head "https://github.com/moonrepo/moon.git", branch: "master"
 
@@ -30,7 +30,7 @@ class Moon < Formula
   end
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "legacy/cli")
+    system "cargo", "install", *std_cargo_args(path: "crates/cli")
     generate_completions_from_executable(bin/"moon", "completions", "--shell")
 
     bin.each_child do |f|
