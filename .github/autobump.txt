@@ -1280,6 +1280,7 @@ kwok
 kyma-cli
 kyverno
 lacework-cli
+lando-cli
 languagetool
 lastpass-cli
 laszip
