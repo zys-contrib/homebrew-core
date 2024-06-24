@@ -1,25 +1,31 @@
 class LivekitCli < Formula
   desc "Command-line interface to LiveKit"
   homepage "https://livekit.io"
-  url "https://github.com/livekit/livekit-cli/archive/refs/tags/v1.4.3.tar.gz"
-  sha256 "ce1ef64f0718f96a32af6187a89526b9be8084050e212be6c3c00f3b370f707d"
+  url "https://github.com/livekit/livekit-cli/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "e852eaf467e7d294a2afa2dc5b2321cbc92002fd713f2feefe93cdae592ff3d4"
   license "Apache-2.0"
   head "https://github.com/livekit/livekit-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c0896748800d9ea7dbbe482194d45a085048aeeece890a44b4fcc6cb7df65604"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd0e4acb0e728acc0a698e926473966bbe122e66e0384d8369388d3d1bfb8e92"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b9b54e0f14a1075f23fa810bfa822f609bd62024c4933228d0817634f4d13e7c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "638e2a122d0cb081eb2f6a2cd17bb63e06424c1b0bf62e7fb1b4febf3a948bf8"
-    sha256 cellar: :any_skip_relocation, ventura:        "a51bcb7d24d6af87f9de75610eab0c09c7fbc1e06089409b7c832d83c0bfada9"
-    sha256 cellar: :any_skip_relocation, monterey:       "48cbf23809bb1db4d59cc1ce5c7698ecb74ffeee37a08eb5db2cdb1b60db642b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "327c6317beff261d8c88516ca9bbe769c4c98488de2c29f0a838de0e3a1218c2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "723f9db0e4dd92676bef2c53a40d3bbf69955dfaedad5c40ec1ee9df84e27313"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8157d3ba39c00de1cad5354a0946aeb7c9e5e48136eb84f7728b5facc91daf63"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e16946c0d79ae6459cb3dda4f6a81b1797eddcc5aca71023431f572b29ff57e0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "25166f561d661bc9d9ea48c269061491e9cc227c630854e4d0b419ca47c31e99"
+    sha256 cellar: :any_skip_relocation, ventura:        "a983b708fe5a5f802625d33098b5c8a366fc4d697acd56fe620d5a107b861e5f"
+    sha256 cellar: :any_skip_relocation, monterey:       "56db10fb5eaaada6cff27b9dc9325ce3c4b38c10d662c7bf9ff21bfc22eb7112"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5ab186e12edd2ecd7727e0c435f1628adcb59144ccfb86bed17b9a25edcc2b13"
   end
 
   depends_on "go" => :build
 
+  # patch release version, upstream pr ref, https://github.com/livekit/livekit-cli/pull/344
+  patch do
+    url "https://github.com/livekit/livekit-cli/commit/571ca1601b37bfd5028359eb4179fd282f398d04.patch?full_index=1"
+    sha256 "c3bd561555b8e0e5d8453759610c6a73964c432f1072cf55666eb57e86d6e516"
+  end
+
   def install
-    system "go", "build", *std_go_args, "./cmd/livekit-cli"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/livekit-cli"
   end
 
   test do
