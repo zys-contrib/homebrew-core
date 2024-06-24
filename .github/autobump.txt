@@ -561,6 +561,7 @@ dhall-bash
 dhall-json
 dhall-lsp-server
 dhall-yaml
+di
 dialog
 diamond
 dicebear
