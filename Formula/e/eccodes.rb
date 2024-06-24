@@ -1,8 +1,8 @@
 class Eccodes < Formula
   desc "Decode and encode messages in the GRIB 1/2 and BUFR 3/4 formats"
   homepage "https://confluence.ecmwf.int/display/ECC"
-  url "https://confluence.ecmwf.int/download/attachments/45757960/eccodes-2.35.0-Source.tar.gz"
-  sha256 "16888fb6679b1e241f50b69f300ac50124a3192342ae2ea903d7621b664e79ea"
+  url "https://confluence.ecmwf.int/download/attachments/45757960/eccodes-2.36.0-Source.tar.gz"
+  sha256 "da74143a64b2beea25ea27c63875bc8ec294e69e5bd0887802040eb04151d79a"
   license "Apache-2.0"
 
   livecheck do
@@ -22,6 +22,7 @@ class Eccodes < Formula
 
   depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
+  depends_on "libaec"
   depends_on "libpng"
   depends_on "netcdf"
   depends_on "openjpeg"
