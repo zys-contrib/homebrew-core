@@ -16,13 +16,13 @@ class HasuraCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "631d6e6b73ce0f68eebdf3ed2a2f5c355469466f3e5d8741da6c42416bd6fa6c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9b48c62e203b00baf391773a9bd493c76d41d0710edc4a79410f0a0353b7b6e4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f644bebfb7c167eb835e031d3232218e276a5ffa0dcf2ced7658d94cadae1f5f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "10b7e795ba579e722ca29239d76443d2b5877a8554b9c1cb09f964115ec4de29"
-    sha256 cellar: :any_skip_relocation, ventura:        "0f8d8b93a01a3edc64bff034ad20edf3a17e2d5af0a4262cf9d5c1b274483e44"
-    sha256 cellar: :any_skip_relocation, monterey:       "21ad2a1cdbfd83c59343f5390c380ec0451e6d4e954dfe0cd850bc05f5d1467d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9eb253077c0b1a4ad9576028f10ac7ea96b2c2fb08090fd1aa3491809e58025"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b3e921d28c3946431d8fdbf44f980525e42da7c9ecd77aa55e8f8cfec9238f93"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1edf00326227cf6c19e7039e02953925dadfe0e35f803b9f4e17b700f7c8550e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bcfb9c619d370be00529819428fdb4abc713acb72d134448c069ff42375bb895"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a1a0946fffc7dd325849a88825950ad537aaab4cbd063dff7e44779b62b67465"
+    sha256 cellar: :any_skip_relocation, ventura:        "af33b6205ed25183897e4fc7232964c690e044163f12ade325fd4ac11bd90b6c"
+    sha256 cellar: :any_skip_relocation, monterey:       "29d54d944ea48fc76c2666992e139386871740e3c2aba81bedcf5061c01bdf8d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11ed679d26d06544b84787ed50de3d5c35a737c369f294afb6e65d4f35d321be"
   end
 
   depends_on "go" => :build
