@@ -141,6 +141,7 @@ aws-sso-util
 awscli
 awscli@1
 awscurl
+awsdac
 awslogs
 axel
 azcopy
