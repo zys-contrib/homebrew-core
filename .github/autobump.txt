@@ -1838,6 +1838,7 @@ pdm
 pdns
 pdnsrec
 pedump
+percona-xtrabackup
 perl
 perltidy
 pfetch-rs

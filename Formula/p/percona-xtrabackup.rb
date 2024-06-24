@@ -2,10 +2,9 @@ class PerconaXtrabackup < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
   # TODO: Check if we can use unversioned `protobuf` at version bump
-  url "https://downloads.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.35-30/source/tarball/percona-xtrabackup-8.0.35-30.tar.gz"
-  sha256 "8a3632a5a7a91834800f4f83902468bccff1d979e82347c0372b39a97b0c85f0"
+  url "https://downloads.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.35-31/source/tarball/percona-xtrabackup-8.0.35-31.tar.gz"
+  sha256 "c6bda1e7f983e5a667bff22d1d67d33404db4e741676d03c9c60bbd4b263cabf"
   license "GPL-2.0-only"
-  revision 3
 
   livecheck do
     url "https://docs.percona.com/percona-xtrabackup/latest/"
@@ -42,6 +41,7 @@ class PerconaXtrabackup < Formula
   depends_on "mysql-client"
   depends_on "openssl@3"
   depends_on "protobuf@21"
+  depends_on "zlib"
   depends_on "zstd"
 
   uses_from_macos "vim" => :build # needed for xxd
@@ -49,7 +49,10 @@ class PerconaXtrabackup < Formula
   uses_from_macos "cyrus-sasl"
   uses_from_macos "libedit"
   uses_from_macos "perl"
-  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "libgpg-error"
+  end
 
   on_linux do
     depends_on "patchelf" => :build
@@ -75,8 +78,8 @@ class PerconaXtrabackup < Formula
   end
 
   resource "DBD::mysql" do
-    url "https://cpan.metacpan.org/authors/id/D/DV/DVEEDEN/DBD-mysql-5.004.tar.gz"
-    sha256 "33a6bf1b685cc50c46eb1187a3eb259ae240917bc189d26b81418790aa6da5df"
+    url "https://cpan.metacpan.org/authors/id/D/DV/DVEEDEN/DBD-mysql-5.006.tar.gz"
+    sha256 "4ca6c6415552a8acd3d8e01a96d0ac5a4a936e845c4c0e6a7ac6a10ad3798db7"
   end
 
   # https://github.com/percona/percona-xtrabackup/blob/percona-xtrabackup-#{version}/cmake/boost.cmake
