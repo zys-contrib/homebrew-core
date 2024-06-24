@@ -2334,6 +2334,7 @@ t-completion
 tailscale
 tailspin
 tailwindcss
+tailwindcss-language-server
 talhelper
 talisman
 tanka
