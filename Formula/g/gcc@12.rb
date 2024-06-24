@@ -1,9 +1,9 @@
 class GccAT12 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-12.3.0/gcc-12.3.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-12.3.0/gcc-12.3.0.tar.xz"
-  sha256 "949a5d4f99e786421a93b532b22ffab5578de7321369975b91aec97adfda8c3b"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-12.4.0/gcc-12.4.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-12.4.0/gcc-12.4.0.tar.xz"
+  sha256 "704f652604ccbccb14bdabf3478c9511c89788b12cb3bbffded37341916a9175"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   livecheck do
@@ -44,8 +44,8 @@ class GccAT12 < Formula
   # Branch from the Darwin maintainer of GCC, with a few generic fixes and
   # Apple Silicon support, located at https://github.com/iains/gcc-12-branch
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/f1188b90d610e2ed170b22512ff7435ba5c891e2/gcc/gcc-12.3.0.diff"
-    sha256 "9da2f964d8aeaea7c30623d253c3d36d398baa3db907ebe38e2a9ce1f005818b"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ca7047dad38f16fb02eb63bd4447e17d0b68b3bb/gcc/gcc-12.4.0.diff"
+    sha256 "c0e8e94fbf65a6ce13286e7f13beb5a1d84b182a610489026ce3e2420fc3d45c"
   end
 
   def install
@@ -91,6 +91,8 @@ class GccAT12 < Formula
         toolchain_path = "/Library/Developer/CommandLineTools"
         args << "--with-ld=#{toolchain_path}/usr/bin/ld-classic"
       end
+
+      make_args = []
     else
       # Fix cc1: error while loading shared libraries: libisl.so.15
       args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV.ldflags}"
@@ -104,11 +106,16 @@ class GccAT12 < Formula
       # Change the default directory name for 64-bit libraries to `lib`
       # https://stackoverflow.com/a/54038769
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
+
+      make_args = %W[
+        BOOT_CFLAGS=-I#{Formula["zlib"].opt_include}
+        BOOT_LDFLAGS=-L#{Formula["zlib"].opt_lib}
+      ]
     end
 
     mkdir "build" do
       system "../configure", *args
-      system "make"
+      system "make", *make_args
 
       # Do not strip the binaries on macOS, it makes them unsuitable
       # for loading plugins
