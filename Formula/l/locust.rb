@@ -3,10 +3,9 @@ class Locust < Formula
 
   desc "Scalable user load testing tool written in Python"
   homepage "https://locust.io/"
-  url "https://files.pythonhosted.org/packages/4a/02/7b50fbee3f55f561fd76e035624ced58f4692d62087cc03ccf95a6b939c2/locust-2.29.0.tar.gz"
-  sha256 "649c99ce49d00720a3084c0109547035ad9021222835386599a8b545d31ebe51"
+  url "https://files.pythonhosted.org/packages/60/46/615406ab9a2e3114deed02cf04194f479c296a63c1494822b76e00dd1d7b/locust-2.29.1.tar.gz"
+  sha256 "2e0628a59e2689a50cb4735a9a43709e30f2da7ed276c15d877c5325507f44b1"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "15433d9829498d1a7e7343a73a9d02271d1bfe572118aecfa6c33e5f5cb583bf"
@@ -105,8 +104,8 @@ class Locust < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/90/c7/6dc0a455d111f68ee43f27793971cf03fe29b6ef972042549db29eec39a2/psutil-5.9.8.tar.gz"
-    sha256 "6be126e3225486dff286a8fb9a06246a5253f4c7c53b475ea5f5ac934e64194c"
+    url "https://files.pythonhosted.org/packages/18/c7/8c6872f7372eb6a6b2e4708b88419fb46b857f7a2e1892966b851cc79fc9/psutil-6.0.0.tar.gz"
+    sha256 "8faae4f310b6d969fa26ca0545338b21f73c6b15db7c4a8d934a5482faa818f2"
   end
 
   resource "pyzmq" do
@@ -120,8 +119,8 @@ class Locust < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/aa/60/5db2249526c9b453c5bb8b9f6965fcab0ddb7f40ad734420b3b421f7da44/setuptools-70.0.0.tar.gz"
-    sha256 "f211a66637b8fa059bb28183da127d4e86396c991a942b028c6650d4319c3fd0"
+    url "https://files.pythonhosted.org/packages/0d/9d/c587bea18a7e40099857015baee4cece7aca32cd404af953bdeb95ac8e47/setuptools-70.1.1.tar.gz"
+    sha256 "937a48c7cdb7a21eb53cd7f9b59e525503aa8abaf3584c730dc5f7a5bec3a650"
   end
 
   resource "urllib3" do
