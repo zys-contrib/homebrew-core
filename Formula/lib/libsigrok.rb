@@ -83,6 +83,11 @@ class Libsigrok < Formula
   depends_on "pygobject3"
   depends_on "python@3.12"
 
+  on_macos do
+    depends_on "gettext"
+    depends_on "libsigc++@2"
+  end
+
   resource "fw-fx2lafw" do
     url "https://sigrok.org/download/binary/sigrok-firmware-fx2lafw/sigrok-firmware-fx2lafw-bin-0.1.7.tar.gz"
     sha256 "c876fd075549e7783a6d5bfc8d99a695cfc583ddbcea0217d8e3f9351d1723af"
