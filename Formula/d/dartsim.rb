@@ -1,10 +1,9 @@
 class Dartsim < Formula
   desc "Dynamic Animation and Robotics Toolkit"
   homepage "https://dartsim.github.io/"
-  url "https://github.com/dartsim/dart/archive/refs/tags/v6.13.2.tar.gz"
-  sha256 "02699a8f807276231c80ffc5dbc3f66dc1c3612364340c91bcad63a837c01576"
+  url "https://github.com/dartsim/dart/archive/refs/tags/v6.14.1.tar.gz"
+  sha256 "07bc1442a80abc03b2c1984bdb9b5843446047ac6a37c18b834533c871631fde"
   license "BSD-2-Clause"
-  revision 3
 
   bottle do
     sha256                               arm64_sonoma:   "d482ac5d4fced6f80b4161342f6532fd736fdbc2ba536d03d108205597fe16f0"
@@ -18,6 +17,7 @@ class Dartsim < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+
   depends_on "assimp"
   depends_on "bullet"
   depends_on "eigen"
@@ -38,7 +38,6 @@ class Dartsim < Formula
   fails_with gcc: "5"
 
   def install
-    ENV.cxx11
     args = std_cmake_args
 
     if OS.mac?
@@ -47,10 +46,12 @@ class Dartsim < Formula
       args << "-DGLUT_glut_LIBRARY=#{glut_lib}"
     end
 
-    mkdir "build" do
-      system "cmake", "..", *args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
-      system "make", "install"
-    end
+    args << "-DBUILD_TESTING=OFF"
+    args << "-DDART_BUILD_DARTPY=OFF"
+
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     # Clean up the build file garbage that has been installed.
     rm_r Dir["#{share}/doc/dart/**/CMakeFiles/"]
