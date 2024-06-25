@@ -1414,6 +1414,7 @@ libusbmuxd
 libuv
 libva
 libvirt
+libvirt-python
 libwbxml
 libwpe
 libx11
