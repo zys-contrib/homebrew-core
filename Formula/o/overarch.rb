@@ -6,13 +6,13 @@ class Overarch < Formula
   license "EPL-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4a5496b305fcbe45b2c674b09f08fba230267ad02d57f3189e48d317d90fb257"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4a5496b305fcbe45b2c674b09f08fba230267ad02d57f3189e48d317d90fb257"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4a5496b305fcbe45b2c674b09f08fba230267ad02d57f3189e48d317d90fb257"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4a5496b305fcbe45b2c674b09f08fba230267ad02d57f3189e48d317d90fb257"
-    sha256 cellar: :any_skip_relocation, ventura:        "4a5496b305fcbe45b2c674b09f08fba230267ad02d57f3189e48d317d90fb257"
-    sha256 cellar: :any_skip_relocation, monterey:       "4a5496b305fcbe45b2c674b09f08fba230267ad02d57f3189e48d317d90fb257"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a05cb71bfe9c822b640683eb604da2bda023835fbfb984f4988480b2d473e876"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "10fe588be90dfbc0040a18e828005d49f230ed7fce598f26b340db91acbf6015"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "10fe588be90dfbc0040a18e828005d49f230ed7fce598f26b340db91acbf6015"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "10fe588be90dfbc0040a18e828005d49f230ed7fce598f26b340db91acbf6015"
+    sha256 cellar: :any_skip_relocation, sonoma:         "10fe588be90dfbc0040a18e828005d49f230ed7fce598f26b340db91acbf6015"
+    sha256 cellar: :any_skip_relocation, ventura:        "10fe588be90dfbc0040a18e828005d49f230ed7fce598f26b340db91acbf6015"
+    sha256 cellar: :any_skip_relocation, monterey:       "10fe588be90dfbc0040a18e828005d49f230ed7fce598f26b340db91acbf6015"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f77f25a3d43e3b2c5277fbc5d2338ff3d13b042f20987d46824cfaa8f4dc8c1"
   end
 
   head do
