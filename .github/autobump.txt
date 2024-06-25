@@ -258,6 +258,7 @@ byobu
 byteman
 bzt
 c-ares
+c-blosc
 c-blosc2
 c2048
 c2rust
