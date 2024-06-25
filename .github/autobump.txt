@@ -712,6 +712,7 @@ ensmallen
 entr
 envchain
 envd
+envelope
 envoy
 enzyme
 epic5
