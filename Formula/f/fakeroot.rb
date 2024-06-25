@@ -11,13 +11,13 @@ class Fakeroot < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "72011d7a6ab77df0d175e5eea69ba257b50d8b5c77bd8bb4d54b12139d4970d3"
-    sha256 cellar: :any,                 arm64_ventura:  "71a31debb6559d221a9804dd9f0297620b176f2ee09dd806af809874e64ea977"
-    sha256 cellar: :any,                 arm64_monterey: "945602311b20f923c2996d2c2b881ed00866f14a5afacc4044045f1aeafb5489"
-    sha256 cellar: :any,                 sonoma:         "b1af58ac78e12d3a9946c44729bd06ea57355bb5e61f700d76e744b2ae667437"
-    sha256 cellar: :any,                 ventura:        "812798c4eb5a49ce0c6d0d3688b82ca7737570cffffe0a9046c3001ff547726b"
-    sha256 cellar: :any,                 monterey:       "efa1be8d3409b8299d02b9239b61334b977a6659bcf0c9676a8f223a92614794"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e50b091c9eecd84da0b487351c486132df03e7f6284f8524698fd17009c7f1d"
+    sha256 cellar: :any,                 arm64_sonoma:   "20991a847ab51f210d5c91be35226e87657d3df7e6e73cc10855d2f89881cb29"
+    sha256 cellar: :any,                 arm64_ventura:  "377efb661d6595713e9018799964562da2ffc4c46932683130f9c81831995def"
+    sha256 cellar: :any,                 arm64_monterey: "aaff012a3b5ef26548e827b3d2793c3489ce7715b0c66452b2f750a0d76ca2c6"
+    sha256 cellar: :any,                 sonoma:         "931c80e3e5133c4f6ed0de1a5cf6fa43bd78fb9c88129c606d95e07b5c6b1715"
+    sha256 cellar: :any,                 ventura:        "aaeb651df301f4bda927f0c40e639187c5515e0d1d5d59148334545fc4f7ff4c"
+    sha256 cellar: :any,                 monterey:       "99b1230055d0bf34057587970377321e9795af2024085c5881ff2558e838a96c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f319cc0fd4acbf1508bfe5b8b73e878d04c0bee463eb05a4501ec3d2ebb0351b"
   end
 
   # Needed to apply patches below. Remove when no longer needed.
