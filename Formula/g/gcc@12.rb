@@ -12,14 +12,13 @@ class GccAT12 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_sonoma:   "5484357fe4f2083bf035868e0449fede58fdf022b51d4da5e7fc601ab0c28f68"
-    sha256                               arm64_ventura:  "5b711c76aef4746ee930106d403c6144a1934d9258eed36f0944fd474be549ad"
-    sha256                               arm64_monterey: "d8559e6a8b872e445fa77a65919c3738b454ae446a1bf00853035bff6d10fbd3"
-    sha256                               sonoma:         "68da751c328ca66f52a2e748d589de6ffe71ad96fb94c0e8f91f1800131d8713"
-    sha256                               ventura:        "0682c6c199cc26d0f8271b9025aa6ccec38edb2d564506999a0056ce0c0027f8"
-    sha256                               monterey:       "b055d3a58443ec08cf96e951de9c98d112a58b5c5477bdb7460be3be6c9ab888"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3da0ff551e7b2fcb708b4ae708bb7911f8b93e6b56ff34c938c495b6e109506f"
+    sha256                               arm64_sonoma:   "55614581a8985550c5cc84cd29f7122d4aca5d11f60c5ff119e7432419c2b9d8"
+    sha256                               arm64_ventura:  "1466d203d2b62e3771a0d1935314747e6a098793622f6a007c23acaf8185731b"
+    sha256                               arm64_monterey: "94bc560bcbfc98966d891656b3a0705958bdac330dfab3a9913c4c412e2f5885"
+    sha256                               sonoma:         "de57cdd8fc489a7fb88f7af19a730af87a14418c7181e5ba03e20c40e4d65738"
+    sha256                               ventura:        "cbaf8ac753711e7c39e90cc3abf3dee9847dea8908e5e575bd4065ffeef0c9b0"
+    sha256                               monterey:       "436e51d082e7cfaa612458fdd2703f530abcd49730e7634ce659700fedb033e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "50b8eb4f9125e36b9daad5dcd7cf470d6780d1ab2a1bad652793299fc6036770"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
