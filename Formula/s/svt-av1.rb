@@ -7,13 +7,13 @@ class SvtAv1 < Formula
   head "https://gitlab.com/AOMediaCodec/SVT-AV1.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b843eacec8834c587a2b0cd25de80ee65a60a07b49db0f15d029055f9133b125"
-    sha256 cellar: :any,                 arm64_ventura:  "f1edb8865720344f4e4948c8da7b1c0922d5fe78001551407f03021784890f51"
-    sha256 cellar: :any,                 arm64_monterey: "aa0763bb4aff892dc0f7eebd83f206db45a95d77311e2ac92a5c061125a72c90"
-    sha256 cellar: :any,                 sonoma:         "46bbf89c2fc13645a70e0fb127e6c7cffde54fa2d80d6416e6103446c65293d3"
-    sha256 cellar: :any,                 ventura:        "30c5bd1a44c7ccd689fd96ff57247173d58db8b1f13153f8f07bc7466f193af8"
-    sha256 cellar: :any,                 monterey:       "78073d02739c5424baef87139ff11ab5ecf7039badc38756b70e7c88c84d4981"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e889146385d5e64c79c2c3877b0f9626b02cbd9e4b5592b2e23b816847a7dc9"
+    sha256 cellar: :any,                 arm64_sonoma:   "8c58d8fc74ad6311c234d1c0446a9d5159c4555dac50d96e43c96f4981cdf5c0"
+    sha256 cellar: :any,                 arm64_ventura:  "5b7c74a40f3c7739c5c0d88b5754811594ecad3563673a0cf4c09d49058b6f16"
+    sha256 cellar: :any,                 arm64_monterey: "2d24f7b92fee95cbb761bc0996ed3c3bfeea659e96d45f615336dbb3ca4fbbfe"
+    sha256 cellar: :any,                 sonoma:         "e44548f6ba85bf40f7808c3a274a0e281801a2e65d42b595e1a4042696da922b"
+    sha256 cellar: :any,                 ventura:        "9ccc4fbad61b3333f02d335e5824408c680976ad64e1fa2d427e908914ba82a2"
+    sha256 cellar: :any,                 monterey:       "3581e27d942b8b2dadff606b6bc29139c1614a8ff88c899ff0cb9bfee15e2c71"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c651f8891379b157d550b64c2e9ac1fbee5ba7478f599b37fdaa5ededeedd733"
   end
 
   depends_on "cmake" => :build
