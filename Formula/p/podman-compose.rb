@@ -3,8 +3,8 @@ class PodmanCompose < Formula
 
   desc "Alternative to docker-compose using podman"
   homepage "https://github.com/containers/podman-compose"
-  url "https://files.pythonhosted.org/packages/65/a8/d77d2eaa85414d013047584d3aa10fac47edb328f5180ca54a13543af03a/podman-compose-1.0.6.tar.gz"
-  sha256 "2db235049fca50a5a4ffd511a917808c960dacb8defd5481dd8b36a77d4da2e5"
+  url "https://files.pythonhosted.org/packages/b1/8c/29ba5e15196edd8ca15d08e75e217dfec0f1126544f6d98df46ae57775cf/podman_compose-1.1.0.tar.gz"
+  sha256 "3cf28b83082119a19cae35b59c29422fd04480c4970f5940094a9116ed8b0a9d"
   license "GPL-2.0-only"
 
   bottle do
@@ -37,6 +37,8 @@ class PodmanCompose < Formula
   end
 
   test do
+    ENV["COMPOSE_PROJECT_NAME"] = "brewtest"
+
     port = free_port
 
     (testpath/"compose.yml").write <<~EOS
@@ -50,10 +52,11 @@ class PodmanCompose < Formula
             - NGINX_PORT=80
     EOS
 
+    assert_match "podman ps --filter label=io.podman.compose.project=brewtest",
+      shell_output("#{bin}/podman-compose up -d 2>&1", 1)
     # If it's trying to connect to Podman, we know it at least found the
     # compose.yml file and parsed/validated the contents
     expected = OS.linux? ? "Error: cannot re-exec process" : "Cannot connect to Podman"
-    assert_match expected, shell_output("#{bin}/podman-compose up -d 2>&1", 1)
     assert_match expected, shell_output("#{bin}/podman-compose down 2>&1")
   end
 end
