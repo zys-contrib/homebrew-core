@@ -4,6 +4,7 @@ class Mlpack < Formula
   url "https://mlpack.org/files/mlpack-4.4.0.tar.gz"
   sha256 "61c604026d05af26c244b0e47024698bbf150dfcc9d77b64057941d7d64d6cf6"
   license all_of: ["BSD-3-Clause", "MPL-2.0", "BSL-1.0", "MIT"]
+  revision 1
   head "https://github.com/mlpack/mlpack.git", branch: "master"
 
   bottle do
