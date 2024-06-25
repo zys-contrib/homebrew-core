@@ -9,13 +9,13 @@ class YouGet < Formula
   head "https://github.com/soimort/you-get.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "44db7e8ed6b8cd539df6e9eb8323dee1d1f8dcafcc2e3df4b120bf45d04f52cb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5be0e99a1242bf98bdee82387986568089d405cae42f3f5eccda511038ae34da"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "027883df0ea0e7ee7ce198d29d9bc9f25a35c77cb23a1d0368e372872c03d223"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c8915d2d55f9efd64fc2d92ca1c03416f3c60048c170ad773de57c52d360f007"
-    sha256 cellar: :any_skip_relocation, ventura:        "7be679382bbf7ea9fe0104dbc5947b320040ae46e1964c91a50be1018c56ffd7"
-    sha256 cellar: :any_skip_relocation, monterey:       "f21f40a5f4bc7bf8a50eabecea4fed5dcefe9d8db466e6cb3c4e6031d23f4430"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37ad289e626860506fa04e4758dec81146ebdf42027d6a9177547f66228c6f2a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0936c0215687f211bf847e57c0090a686412eb604a0630f1efb9e4d36fb29b38"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7131263466868076f11d8b13b2a2fa00e7fcb7728896b103a91a8a508b200d13"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5d316dc249ff1128206102615c9038d74ea3b0658fa6660a430bfa461f612f55"
+    sha256 cellar: :any_skip_relocation, sonoma:         "679e88c4c4e10cd4441e6c09ea6a91646057de10362b5802659da7b85b671f75"
+    sha256 cellar: :any_skip_relocation, ventura:        "7082200b4cf6e59a5548b94b76ec61016f8d133302a69a66c13e3ebc1528a2a2"
+    sha256 cellar: :any_skip_relocation, monterey:       "46be605755b6ca9d6b7d12f66fdd9bbfe4a1c375489317af6241a22a87dcfade"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4465656d3df215d433be695d83a7f734e8fd3da47604b0ddf50c81a58291b64f"
   end
 
   depends_on "python@3.12"
