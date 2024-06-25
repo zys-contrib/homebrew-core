@@ -1,8 +1,8 @@
 class SvtAv1 < Formula
   desc "AV1 encoder"
   homepage "https://gitlab.com/AOMediaCodec/SVT-AV1"
-  url "https://gitlab.com/AOMediaCodec/SVT-AV1/-/archive/v2.1.0/SVT-AV1-v2.1.0.tar.bz2"
-  sha256 "2bfd098770bba185cd1ced8e1ff389837e3dca0d8b5cfb0d97c925a61dbbf955"
+  url "https://gitlab.com/AOMediaCodec/SVT-AV1/-/archive/v2.1.1/SVT-AV1-v2.1.1.tar.bz2"
+  sha256 "e490d8e8ef8cd1f8f814fd207590f36dc1c1eb228efec959cfea113c57797ced"
   license "BSD-3-Clause"
   head "https://gitlab.com/AOMediaCodec/SVT-AV1.git", branch: "master"
 
@@ -19,18 +19,6 @@ class SvtAv1 < Formula
   depends_on "cmake" => :build
   depends_on "nasm" => :build
 
-  resource "homebrew-testvideo" do
-    url "https://github.com/grusell/svt-av1-homebrew-testdata/raw/main/video_64x64_yuv420p_25frames.yuv"
-    sha256 "0c5cc90b079d0d9c1ded1376357d23a9782a704a83e01731f50ccd162e246492"
-  end
-
-  # Remove patch in next release.
-  # Upstream PR: https://gitlab.com/AOMediaCodec/SVT-AV1/-/merge_requests/2240
-  patch do
-    url "https://gitlab.com/AOMediaCodec/SVT-AV1/-/commit/c0c4e12d5a50dfce0e53e375492b4280911b2fe6.diff"
-    sha256 "7c496363dc5380335fb2d7750a9acfe7146201ae2f0c97d1cb5a0cb6bc01bfbe"
-  end
-
   def install
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
     system "cmake", "--build", "build"
@@ -38,6 +26,11 @@ class SvtAv1 < Formula
   end
 
   test do
+    resource "homebrew-testvideo" do
+      url "https://github.com/grusell/svt-av1-homebrew-testdata/raw/main/video_64x64_yuv420p_25frames.yuv"
+      sha256 "0c5cc90b079d0d9c1ded1376357d23a9782a704a83e01731f50ccd162e246492"
+    end
+
     testpath.install resource("homebrew-testvideo")
     system "#{bin}/SvtAv1EncApp", "-w", "64", "-h", "64", "-i", "video_64x64_yuv420p_25frames.yuv", "-b", "output.ivf"
     assert_predicate testpath/"output.ivf", :exist?
