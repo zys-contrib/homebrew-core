@@ -3,8 +3,8 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/19/cb/199da5ca6a287b683dd96588136510ec97b8a715a50b14aa9ac0d4bd8da7/esphome-2024.6.1.tar.gz"
-  sha256 "463f0a451b9d9df5ca610077fe1d0fc5e28847723cdf1c89ac3ca62e4ae9df28"
+  url "https://files.pythonhosted.org/packages/38/86/4b817c089688423e54a9782975988f0b8b0d8f816a042f227a827ffc3623/esphome-2024.6.2.tar.gz"
+  sha256 "92a14c82cb35905578d6444c1ba000d0a172ce249ef9ca742635b2556411a34d"
   license "MIT"
 
   bottle do
@@ -50,8 +50,8 @@ class Esphome < Formula
   end
 
   resource "async-interrupt" do
-    url "https://files.pythonhosted.org/packages/6e/cb/4e2b30cb2b99fbf02bf8d56f2f3ef71cc69bbbc6c0ef2906a470d69b1ea0/async_interrupt-1.1.1.tar.gz"
-    sha256 "1e5999f0980b5db21293e4cd022518eeaf52284c0499631932a1df250cb99215"
+    url "https://files.pythonhosted.org/packages/6f/77/4f112bdec407a017d5b40dad56408877ce5a5f1f56d5dd063179d3f6b1c9/async_interrupt-1.1.2.tar.gz"
+    sha256 "7a67c229d3d337e8db852cfe3c7e3012930a39eb4a4b30c036452a6f278d08f1"
   end
 
   resource "bitarray" do
