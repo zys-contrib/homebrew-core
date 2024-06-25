@@ -3,8 +3,8 @@ class LlamaCpp < Formula
   homepage "https://github.com/ggerganov/llama.cpp"
   # CMake uses Git to generate version information.
   url "https://github.com/ggerganov/llama.cpp.git",
-      tag:      "b3216",
-      revision: "a818f3028d1497a51cb2b8eb7d993ad58784940e"
+      tag:      "b3218",
+      revision: "2df373ac40ea581ccca8a58c713f03ad9d4b658d"
   license "MIT"
   head "https://github.com/ggerganov/llama.cpp.git", branch: "master"
 
@@ -14,12 +14,12 @@ class LlamaCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "727b4b5ff0902238f5d81f2a4ac6ca3eebe63b78f314d242029f61f7fc1451ed"
-    sha256 cellar: :any,                 arm64_ventura:  "29d99bf66ff446080ca35988256fc1b2fd574fb30ff42b10a11afe9116eda673"
-    sha256 cellar: :any,                 arm64_monterey: "f9b3eb09fa9b19a8fbf0ca6740973b6476814f9e149c5dcf1c9e5cc660e65fd0"
-    sha256 cellar: :any,                 sonoma:         "8b699fe707fd4a60f3ad3469587a641f2cbcdc1645613d8b56e31956b6b17b17"
-    sha256 cellar: :any,                 ventura:        "203d3fb23f0e4001739216897c74ce1ffbc85c60500905794d0120b1c36a6875"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d73219893f8e672d94670f34214233433fea02f1e927267526999f00c46a18fd"
+    sha256 cellar: :any,                 arm64_sonoma:   "39f9007bbd51da535422483964bc6715227ee8d313bf381222fdb61058b276ca"
+    sha256 cellar: :any,                 arm64_ventura:  "62f5053771d034c1224abeb07dfcf457c47df469a7e1925b63f9df5c56bcda8b"
+    sha256 cellar: :any,                 arm64_monterey: "90cc5c0ed95d2cc8f39bdf9563937cc24d643ce56e5ad697946a637f77b50da2"
+    sha256 cellar: :any,                 sonoma:         "2c5208942a0bf813e8c4b885353a63dd433c6b9f45ede3a95ef2fb049f2a159c"
+    sha256 cellar: :any,                 ventura:        "9d6f55bbf9d39a7e7ef1eb3fc3ff8b98aefea4a5ce4460d6613b74d972b03165"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dce0c8f492efe0ab6670e574dd877f802bae314ea186ddd0a78697e76600080f"
   end
 
   depends_on "cmake" => :build
