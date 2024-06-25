@@ -3,10 +3,9 @@ class Ggshield < Formula
 
   desc "Scanner for secrets and sensitive data in code"
   homepage "https://www.gitguardian.com"
-  url "https://files.pythonhosted.org/packages/05/f9/c4968af9346ecad66f5c419f6bd0efe6a7071a4ee91d5218a93dc17d85ce/ggshield-1.28.0.tar.gz"
-  sha256 "4ca067fb8675c93b6ecb733dd532a88657442b27e949b3bec6f0ff55219b23ac"
+  url "https://files.pythonhosted.org/packages/f0/2d/f189c7da207693637fbf968f05df20ee3f5d32d29c01323e6431894a1e95/ggshield-1.29.0.tar.gz"
+  sha256 "37fbfc82807ceddf842ce9e48b84e8227c755d4203ec148e8e6757e259f912a5"
   license "MIT"
-  revision 1
   head "https://github.com/GitGuardian/ggshield.git", branch: "main"
 
   bottle do
@@ -75,8 +74,8 @@ class Ggshield < Formula
   end
 
   resource "pygitguardian" do
-    url "https://files.pythonhosted.org/packages/9e/8b/409389c1c43ef019b0b65e9a239ef4065a5ae29902a2cd7006d69ebe5b49/pygitguardian-1.14.0.tar.gz"
-    sha256 "52f3a2820dd0eb448bf235993669bcd814233daaa52f0a133a2d83303bb5284a"
+    url "https://files.pythonhosted.org/packages/ec/e2/0d518647fed3c712fb9a492e6cf6f720e72816405a122ebed8243ec35b22/pygitguardian-1.15.2.tar.gz"
+    sha256 "430d237184d7988d77eb122658116233cdbf11f78afad0ea172441061b29648d"
   end
 
   resource "pygments" do
@@ -100,13 +99,18 @@ class Ggshield < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
-    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
+    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
+    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
   end
 
   resource "rich" do
     url "https://files.pythonhosted.org/packages/bb/2d/c902484141330ded63c6c40d66a9725f8da5e818770f67241cf429eef825/rich-12.5.1.tar.gz"
     sha256 "63a5c5ce3673d3d5fbbf23cd87e11ab84b6b451436f1b7f19ec54b6bc36ed7ca"
+  end
+
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/0d/9d/c587bea18a7e40099857015baee4cece7aca32cd404af953bdeb95ac8e47/setuptools-70.1.1.tar.gz"
+    sha256 "937a48c7cdb7a21eb53cd7f9b59e525503aa8abaf3584c730dc5f7a5bec3a650"
   end
 
   resource "typing-extensions" do
