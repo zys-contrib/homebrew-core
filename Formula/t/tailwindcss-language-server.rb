@@ -3,8 +3,8 @@ require "language/node"
 class TailwindcssLanguageServer < Formula
   desc "LSP for TailwindCSS"
   homepage "https://github.com/tailwindlabs/tailwindcss-intellisense/tree/HEAD/packages/tailwindcss-language-server"
-  url "https://registry.npmjs.org/@tailwindcss/language-server/-/language-server-0.0.17.tgz"
-  sha256 "c542f965c3bebbb6569577609219c9a355d2b74b4f74ded1680ef6e204d38de5"
+  url "https://registry.npmjs.org/@tailwindcss/language-server/-/language-server-0.0.18.tgz"
+  sha256 "984bc9fcff05ab5d45d9c52ac1f0934fdab513688ff8733c5783877e155c35a3"
   license "MIT"
 
   bottle do
