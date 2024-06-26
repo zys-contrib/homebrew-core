@@ -3,10 +3,9 @@ class SigmaCli < Formula
 
   desc "CLI based on pySigma"
   homepage "https://github.com/SigmaHQ/sigma-cli"
-  url "https://files.pythonhosted.org/packages/cf/45/eef555a909ff716108ded653decf0a7642bc80169fff9590b665638164a0/sigma_cli-1.0.2.tar.gz"
-  sha256 "8cb46dca0c5787969f33152c3cd085989fbc07a121d1c9a795664f7264c7ce9f"
+  url "https://files.pythonhosted.org/packages/e9/7e/6d086e07a9074ff87ec1ce8253f0bfdf164a4bf897e87a9599aceeb17355/sigma_cli-1.0.3.tar.gz"
+  sha256 "6274a43b710f1af95b6e769efca7586a7392d0b847ef4ec9fe0064bd867a4c8d"
   license "LGPL-2.1-or-later"
-  revision 2
   head "https://github.com/SigmaHQ/sigma-cli.git", branch: "main"
 
   bottle do
