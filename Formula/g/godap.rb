@@ -1,8 +1,8 @@
 class Godap < Formula
   desc "Complete TUI (terminal user interface) for LDAP"
   homepage "https://github.com/Macmod/godap"
-  url "https://github.com/Macmod/godap/archive/refs/tags/v2.7.1.tar.gz"
-  sha256 "71cac1aaedc08ea2831ebc756e0277425000a9f7949b7ff80d9f38dc38d539f3"
+  url "https://github.com/Macmod/godap/archive/refs/tags/v2.7.2.tar.gz"
+  sha256 "3754d0932c0bb1cb59d1007ca77f7136e10dc2be13c922317604b07632db9941"
   license "MIT"
 
   bottle do
@@ -16,12 +16,6 @@ class Godap < Formula
   end
 
   depends_on "go" => :build
-
-  # release version patch, upstream pr ref, https://github.com/Macmod/godap/pull/9
-  patch do
-    url "https://github.com/Macmod/godap/commit/db329a75cc801b5b524ba5fdc303b7b2eb917003.patch?full_index=1"
-    sha256 "885de4f2dc192a3b16871ea7821b6e8638b8401b2ca3857c3ba69fa9a5987635"
-  end
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=#{version}")
