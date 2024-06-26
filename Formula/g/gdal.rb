@@ -1,10 +1,9 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
-  url "https://github.com/OSGeo/gdal/releases/download/v3.9.0/gdal-3.9.0.tar.gz"
-  sha256 "3b29b573b60d156cf160805290474b625c4197ca36a79fd14f83ec8f77f29ba0"
+  url "https://github.com/OSGeo/gdal/releases/download/v3.9.1/gdal-3.9.1.tar.gz"
+  sha256 "46cd95ad0f270af0cd317ddc28fa5e0a7ad0b0fd160a7bd22909150df53e3418"
   license "MIT"
-  revision 1
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -39,9 +38,11 @@ class Gdal < Formula
   depends_on "geos"
   depends_on "giflib"
   depends_on "hdf5"
+  depends_on "imath"
   depends_on "jpeg-turbo"
   depends_on "jpeg-xl"
   depends_on "json-c"
+  depends_on "libaec"
   depends_on "libarchive"
   depends_on "libgeotiff"
   depends_on "libheif"
@@ -52,6 +53,7 @@ class Gdal < Formula
   depends_on "libspatialite"
   depends_on "libtiff"
   depends_on "libxml2"
+  depends_on "lz4"
   depends_on "netcdf"
   depends_on "numpy"
   depends_on "openexr"
@@ -70,6 +72,12 @@ class Gdal < Formula
   depends_on "zstd"
 
   uses_from_macos "curl"
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "minizip"
+    depends_on "uriparser"
+  end
 
   on_linux do
     depends_on "util-linux"
