@@ -1,8 +1,8 @@
 class Opensearch < Formula
   desc "Open source distributed and RESTful search engine"
   homepage "https://github.com/opensearch-project/OpenSearch"
-  url "https://github.com/opensearch-project/OpenSearch/archive/refs/tags/2.14.0.tar.gz"
-  sha256 "72eab7e3882e3dd8d16aad39d077b46576ef583e267c6ccdfe3bffdd429ff6fb"
+  url "https://github.com/opensearch-project/OpenSearch/archive/refs/tags/2.15.0.tar.gz"
+  sha256 "047f0c26ec3ae54f6b0213d7191c346290c9d4ac2b8a6d21b0d947f9d36b83a6"
   license "Apache-2.0"
 
   bottle do
@@ -17,6 +17,9 @@ class Opensearch < Formula
 
   depends_on "gradle" => :build
   depends_on "openjdk"
+
+  # upstream patch PR, https://github.com/opensearch-project/OpenSearch/pull/14182
+  patch :DATA
 
   def install
     platform = OS.kernel_name.downcase
@@ -106,3 +109,18 @@ class Opensearch < Formula
     system "#{bin}/opensearch-plugin", "list"
   end
 end
+
+__END__
+diff --git a/buildSrc/src/main/java/org/opensearch/gradle/info/GlobalBuildInfoPlugin.java b/buildSrc/src/main/java/org/opensearch/gradle/info/GlobalBuildInfoPlugin.java
+index 448ba8a..669a67e 100644
+--- a/buildSrc/src/main/java/org/opensearch/gradle/info/GlobalBuildInfoPlugin.java
++++ b/buildSrc/src/main/java/org/opensearch/gradle/info/GlobalBuildInfoPlugin.java
+@@ -199,7 +199,7 @@ public class GlobalBuildInfoPlugin implements Plugin<Project> {
+     }
+
+     private JvmInstallationMetadata getJavaInstallation(File javaHome) {
+-        final InstallationLocation location = new InstallationLocation(javaHome, "Java home");
++        final InstallationLocation location = InstallationLocation.userDefined(javaHome, "Java home");
+
+         try {
+             try {
