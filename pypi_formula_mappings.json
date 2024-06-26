@@ -794,7 +794,7 @@
     "exclude_packages": ["certifi"]
   },
   "twine": {
-    "exclude_packages": ["certifi"]
+    "exclude_packages": ["certifi", "cryptography"]
   },
   "unoconv":{
     "extra_packages": ["setuptools"]
