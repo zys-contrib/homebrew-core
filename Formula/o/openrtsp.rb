@@ -1,10 +1,10 @@
 class Openrtsp < Formula
   desc "Command-line RTSP client"
   homepage "http://www.live555.com/openRTSP"
-  url "http://www.live555.com/liveMedia/public/live.2024.05.30.tar.gz"
-  mirror "https://download.videolan.org/pub/videolan/testing/contrib/live555/live.2024.05.30.tar.gz"
+  url "http://www.live555.com/liveMedia/public/live.2024.06.26.tar.gz"
+  mirror "https://download.videolan.org/pub/videolan/testing/contrib/live555/live.2024.06.26.tar.gz"
   # Keep a mirror as upstream tarballs are removed after each version
-  sha256 "8550b06d8d54c0075f80e95ef6742a9dc677fcafc2dbb8247f03832fb9ad564f"
+  sha256 "97e9fa015fc6559808955ec7a0c90fe4000b868f04c58794ff627f8a562d2f1c"
   license "LGPL-3.0-or-later"
 
   livecheck do
