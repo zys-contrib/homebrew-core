@@ -1996,6 +1996,7 @@ qjackctl
 qmmp
 qpdf
 qpid-proton
+qrtool
 qsoas
 qsv
 qthreads
