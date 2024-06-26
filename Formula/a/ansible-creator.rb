@@ -3,8 +3,8 @@ class AnsibleCreator < Formula
 
   desc "CLI tool for scaffolding Ansible Content"
   homepage "https://ansible.readthedocs.io/projects/creator/"
-  url "https://files.pythonhosted.org/packages/f6/7d/72547d62b755884eec83efa86cb59890ac544e321b4854335af472fdd0b2/ansible_creator-24.6.0.tar.gz"
-  sha256 "dd5633623c2fd53f20e2d77a0b8b3616b48b3474df91ce4d17a40bf763906079"
+  url "https://files.pythonhosted.org/packages/49/85/be475bcc37aef4a755731ac3cd479855fadc65dda569050adcdfea7792b4/ansible_creator-24.6.1.tar.gz"
+  sha256 "fc3caad7e0bda4a23718c5fd1c803af558e5d82c4eeed92ad98f746e3e101955"
   license "Apache-2.0"
 
   bottle do
@@ -41,8 +41,10 @@ class AnsibleCreator < Formula
 
   test do
     ENV["ANSIBLE_REMOTE_TEMP"] = testpath/"tmp"
-    system bin/"ansible-creator", "init", "exampleNamespace.exampleName",
+    system bin/"ansible-creator", "init", "examplenamespace.examplename",
       "--init-path", testpath/"example"
     assert_predicate testpath/"example/galaxy.yml", :exist?
+
+    assert_match version.to_s, shell_output("#{bin}/ansible-creator --version")
   end
 end
