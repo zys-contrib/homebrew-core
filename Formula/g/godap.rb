@@ -6,13 +6,13 @@ class Godap < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b838faed1f39aa934aef887bf74b323384ef7fa51dfa57a3c2eea5d162b58bb4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "82ad27862569916d54b77dd530ae5517ced77e57bee695092b954f3fddd6afe7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d544f55d795e6ab9a4d640668c66ad90f3cf257dbdfac33c40d4cb24b6006736"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b0fbbe2be9840a058ac84b6ed889b14b43a509e60df5c22c3f4d68ac4e85ba55"
-    sha256 cellar: :any_skip_relocation, ventura:        "0fd1f12b7ed8eef84fc8e85ecf60d691a2bf5458aecedffe732cfe4d70c88b95"
-    sha256 cellar: :any_skip_relocation, monterey:       "200a16d5b0bd1174ee9205b134f4aa5068d1db54841b3619d3aaaa384000337d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f01a3de351570cba29ef1979b07bcc107b91f8a2f48120cafb1d661c932c3c0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "30527dbf65b613b3f0c768b172ee7a8548998a10c6fb21ad66893cc9f3ee553f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a9c0178c4bf4e4d4b52d8c46ce6d7164eab40f001b1da0e669589c4bc6600861"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2f73a04a481bad967b04911d11fc4f11c3d26782eda035dbd467f8c4300e1e52"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9db34cc209612b59eac6cfbea345d815753d0a1f5f405400eb044b1bb5d5139d"
+    sha256 cellar: :any_skip_relocation, ventura:        "585c51e99e4abd052c2f4a2eb120458228efaa79b7f7c83fc8d817042ff661cf"
+    sha256 cellar: :any_skip_relocation, monterey:       "a94497f3582fb570ea002fc5279f1934f1d16f1df64365cfda5787e48a0209ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3236a658e051f443326776df19d039564a63858be8f9d3e8939dea0506a8627"
   end
 
   depends_on "go" => :build
