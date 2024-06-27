@@ -1,8 +1,8 @@
 class GitInteractiveRebaseTool < Formula
   desc "Native sequence editor for Git interactive rebase"
   homepage "https://gitrebasetool.mitmaro.ca/"
-  url "https://github.com/MitMaro/git-interactive-rebase-tool/archive/refs/tags/2.4.0.tar.gz"
-  sha256 "25d76f5565d2283f320491fa7d7fe2fd12ef2664fa29fb7e332e048e687b8178"
+  url "https://github.com/MitMaro/git-interactive-rebase-tool/archive/refs/tags/2.4.1.tar.gz"
+  sha256 "0b1ba68a1ba1548f44209ce1228d17d6d5768d72ffa991909771df8e9d42d70d"
   license "GPL-3.0-or-later"
 
   livecheck do
