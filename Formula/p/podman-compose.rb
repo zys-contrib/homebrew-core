@@ -3,8 +3,8 @@ class PodmanCompose < Formula
 
   desc "Alternative to docker-compose using podman"
   homepage "https://github.com/containers/podman-compose"
-  url "https://files.pythonhosted.org/packages/b1/8c/29ba5e15196edd8ca15d08e75e217dfec0f1126544f6d98df46ae57775cf/podman_compose-1.1.0.tar.gz"
-  sha256 "3cf28b83082119a19cae35b59c29422fd04480c4970f5940094a9116ed8b0a9d"
+  url "https://files.pythonhosted.org/packages/bd/67/0f8cf5ef346a22ce73dfdd0e60cf81342329b71a7fc118128929f0c07b62/podman_compose-1.2.0.tar.gz"
+  sha256 "e47665546598a48d83d30ca2709a679412824bbe84b93f61779bc863e1a6f060"
   license "GPL-2.0-only"
 
   bottle do
