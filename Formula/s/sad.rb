@@ -1,8 +1,8 @@
 class Sad < Formula
   desc "CLI search and replace | Space Age seD"
   homepage "https://github.com/ms-jpq/sad"
-  url "https://github.com/ms-jpq/sad/archive/refs/tags/v0.4.30.tar.gz"
-  sha256 "2f16ef0b904e27220491382d3de9e60ea1d5f62245869205c54a6d33f9e5dc34"
+  url "https://github.com/ms-jpq/sad/archive/refs/tags/v0.4.31.tar.gz"
+  sha256 "c717e54798e21356340271e32e43de5b05ba064ae64edf639fede27b1ed15ceb"
   license "MIT"
   head "https://github.com/ms-jpq/sad.git", branch: "senpai"
 
@@ -19,12 +19,6 @@ class Sad < Formula
   depends_on "rust" => :build
 
   uses_from_macos "python" => :build
-
-  # patch release version, upstream pr ref, https://github.com/ms-jpq/sad/pull/327
-  patch do
-    url "https://github.com/ms-jpq/sad/commit/d2a8bae6f3b64cc695020536e6f59b9ec7eb95e4.patch?full_index=1"
-    sha256 "7e41c3739288928fcd718a0428c4e51d6c50818f07f5047bb9605cb269dd3af4"
-  end
 
   def install
     system "cargo", "install", *std_cargo_args
