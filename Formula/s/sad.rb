@@ -7,13 +7,13 @@ class Sad < Formula
   head "https://github.com/ms-jpq/sad.git", branch: "senpai"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5092ae04fc8303d5a667caff1d98aebff6856133ed7dfe1c2d65d18a76aff30d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "20a5298d599586f6489a7442aa8893e1135a4964b43f91e37f75fa8e1fe6186a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3754731da88ea672806c2696d875d7ce12eb20dcfea6198e7f1027d586fd6432"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c2446f7033467d72f8905b48205d5e52d7364286c05295e526b0a72674f91180"
-    sha256 cellar: :any_skip_relocation, ventura:        "15d8349ac822ac48e59c458d76d93831c5666715e6247c7e605b804c761349fa"
-    sha256 cellar: :any_skip_relocation, monterey:       "9f3fb6941202633ee051bb6be2d3b72fc289c491c07f0c058d8e732560b78110"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7fb51b271c3627a7a5768687485514740546015647e84b9bf1da22694f3aff38"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b00670462d88554d12552f1d5cadd9e7a50f2c554a748caf72207554f963a5ee"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7cca8c7f173c82a878f710b1e561faf96f789b3f364879c34a1b219dcef09cf1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dafd23514a8391cd619b466bf3b20ed583bcafca6ad6eb4b100b98dbf4bba7fd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "844c2133809440e5564902c5540ce23bb29182591bada43290ff71c3ece2c04a"
+    sha256 cellar: :any_skip_relocation, ventura:        "8be1e9706e82d20f44c8be658e534d51f5edccb365f05798aa2edc4058aaacae"
+    sha256 cellar: :any_skip_relocation, monterey:       "5214c329e436a930c654e9c060c178bb8eb1a818472e232e220cee63a68c4857"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31a9b810e1e7edf4e84b7404e60849777d016ab18fb7deba2ae46c047541a2d8"
   end
 
   depends_on "rust" => :build
