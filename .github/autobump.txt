@@ -1464,6 +1464,7 @@ lndir
 localstack
 locust
 log4cxx
+logdy
 logrotate
 logstash
 lout
