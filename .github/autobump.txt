@@ -1248,6 +1248,7 @@ kor
 kotlin
 kpcli
 krakend
+krb5
 krew
 ktfmt
 kube-linter
