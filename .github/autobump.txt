@@ -1608,6 +1608,7 @@ mpg123
 mpi4py
 mpich
 mpop
+mprocs
 mpv
 mqttui
 mrboom
