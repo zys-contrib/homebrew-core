@@ -47,6 +47,7 @@ angle-grinder
 angular-cli
 animdl
 ansible
+ansible-creator
 ansible-lint
 ant
 ant@1.9
