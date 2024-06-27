@@ -3,8 +3,8 @@ require "language/node"
 class GitSplitDiffs < Formula
   desc "Syntax highlighted side-by-side diffs in your terminal"
   homepage "https://github.com/banga/git-split-diffs"
-  url "https://registry.npmjs.org/git-split-diffs/-/git-split-diffs-1.1.0.tgz"
-  sha256 "124709db0b14ba1543553e8774d44c0c2361f4d4765f71df5d9d6d345cc104ed"
+  url "https://registry.npmjs.org/git-split-diffs/-/git-split-diffs-1.2.0.tgz"
+  sha256 "d75cf4a0e45c461fb49f76a064c771cf1a8146fd339bae17a48c179d5bf404e1"
   license "MIT"
 
   bottle do
