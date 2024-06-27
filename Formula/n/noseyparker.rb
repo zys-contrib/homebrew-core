@@ -1,9 +1,8 @@
 class Noseyparker < Formula
   desc "Finds secrets and sensitive information in textual data and Git history"
   homepage "https://github.com/praetorian-inc/noseyparker"
-  url "https://github.com/praetorian-inc/noseyparker.git",
-      tag:      "v0.17.0",
-      revision: "41f30e2ca0186435ed3649e220549d4a4516109f"
+  url "https://github.com/praetorian-inc/noseyparker/archive/refs/tags/v0.18.0.tar.gz"
+  sha256 "2178f66a776c88c46d0b1913be4901f59867db19a351201328fcad1abe5f1347"
   license "Apache-2.0"
   head "https://github.com/praetorian-inc/noseyparker.git", branch: "main"
 
@@ -17,6 +16,7 @@ class Noseyparker < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ba2a98bb72af407674b5d60cda47a6a584b6a0f1272a8955c192a16d172e3df"
   end
 
+  depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
@@ -26,6 +26,9 @@ class Noseyparker < Formula
   end
 
   def install
+    ENV["VERGEN_GIT_BRANCH"] = "main"
+    ENV["VERGEN_GIT_COMMIT_TIMESTAMP"] = time.iso8601
+    ENV["VERGEN_GIT_SHA"] = tap.user
     system "cargo", "install", "--features", "release", *std_cargo_args(path: "crates/noseyparker-cli")
     mv bin/"noseyparker-cli", bin/"noseyparker"
 
