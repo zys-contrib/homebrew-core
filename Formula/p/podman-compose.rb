@@ -3,16 +3,16 @@ class PodmanCompose < Formula
 
   desc "Alternative to docker-compose using podman"
   homepage "https://github.com/containers/podman-compose"
-  url "https://files.pythonhosted.org/packages/b1/8c/29ba5e15196edd8ca15d08e75e217dfec0f1126544f6d98df46ae57775cf/podman_compose-1.1.0.tar.gz"
-  sha256 "3cf28b83082119a19cae35b59c29422fd04480c4970f5940094a9116ed8b0a9d"
+  url "https://files.pythonhosted.org/packages/bd/67/0f8cf5ef346a22ce73dfdd0e60cf81342329b71a7fc118128929f0c07b62/podman_compose-1.2.0.tar.gz"
+  sha256 "e47665546598a48d83d30ca2709a679412824bbe84b93f61779bc863e1a6f060"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "783ac4b2510eabc348829774901fce491d2d23c3bb17ac47f1f9c355f1b5e8de"
-    sha256 cellar: :any,                 arm64_ventura: "583cb828ec81f48ff5fc36d5ca462666b8e5d7c2137da6ac010f85d8fce78c3b"
-    sha256 cellar: :any,                 sonoma:        "eececc20a02d2655ebcce4fcabfd4e12f3b2c525522fa157814007d394e2cdf8"
-    sha256 cellar: :any,                 ventura:       "10f1fca3c03c36a3897ff0cf53fc88f967641fe057dc745579bb03fceadea1b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1e5123bb5c25c48ee67e50f1ad070e5134734100afd9543159cb0ff67694f49"
+    sha256 cellar: :any,                 arm64_sonoma:  "10dde7d6207bd40143e7e2c57ea1c46dab8599d541ed7fb04e3a8c673d96936a"
+    sha256 cellar: :any,                 arm64_ventura: "e795544ff6e7ec30ffe28e8f27f8533f3e08d3ee587b540d5dcd95ea6a785eaa"
+    sha256 cellar: :any,                 sonoma:        "030a9bd00b8ba60f8c91450d2d138f6a022503e178ac48993ddf6b9136dce7e4"
+    sha256 cellar: :any,                 ventura:       "77bc7b087a72453dfde46e5e22988403fe472bd06691b0a89e7f723d4a898092"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9adcf18992eccc71f72b3652959d6ac65dd9710dd4bf823d3e1334648a5f9042"
   end
 
   depends_on "libyaml"
