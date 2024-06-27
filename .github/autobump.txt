@@ -361,6 +361,7 @@ checkstyle
 cherrytree
 chezmoi
 chibi-scheme
+chkbit
 chkrootkit
 choose-rust
 chroma
