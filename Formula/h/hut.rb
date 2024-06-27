@@ -1,10 +1,10 @@
 class Hut < Formula
   desc "CLI tool for sr.ht"
-  homepage "https://sr.ht/~emersion/hut"
-  url "https://git.sr.ht/~emersion/hut/archive/v0.5.0.tar.gz"
-  sha256 "0f78917a2da718b0317cd73307549f429340c7f5cac84c6356341e4fae800cc1"
+  homepage "https://sr.ht/~xenrox/hut"
+  url "https://git.sr.ht/~xenrox/hut/archive/v0.6.0.tar.gz"
+  sha256 "f6abe54b433c30557c49aa41d351ec97ef24b4bee3f9dbc91e7db8f366592f99"
   license "AGPL-3.0-or-later"
-  head "https://git.sr.ht/~emersion/hut", branch: "master"
+  head "https://git.sr.ht/~xenrox/hut", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "28deaf07b2c40db379d480d1bf234aa409c0236fed8d11d7b73b334e51ae6b42"
