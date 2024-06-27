@@ -1897,6 +1897,7 @@ pocl
 poco
 podlet
 podman
+podman-compose
 podsync
 poetry
 poke
