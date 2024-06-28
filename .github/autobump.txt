@@ -1477,6 +1477,7 @@ lsd
 lsix
 lsof
 lttng-ust
+lua
 luacheck
 luarocks
 luau
