@@ -755,6 +755,9 @@
   "streamlink": {
     "exclude_packages": ["certifi"]
   },
+  "subliminal": {
+    "exclude_packages": ["certifi"]
+  },
   "svtplay-dl": {
     "exclude_packages": ["certifi", "cryptography"]
   },

@@ -2308,6 +2308,7 @@ stunnel
 stylelint
 stylish-haskell
 subfinder
+subliminal
 subnetcalc
 subversion
 suite-sparse
