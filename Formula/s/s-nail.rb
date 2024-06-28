@@ -1,8 +1,8 @@
 class SNail < Formula
   desc "Fork of Heirloom mailx"
   homepage "https://www.sdaoden.eu/code.html"
-  url "https://www.sdaoden.eu/downloads/s-nail-14.9.24.tar.xz"
-  sha256 "2714d6b8fb2af3b363fc7c79b76d058753716345d1b6ebcd8870ecd0e4f7ef8c"
+  url "https://www.sdaoden.eu/downloads/s-nail-14.9.25.tar.xz"
+  sha256 "20ff055be9829b69d46ebc400dfe516a40d287d7ce810c74355d6bdc1a28d8a9"
   license all_of: [
     "BSD-2-Clause", # file-dotlock.h
     "BSD-3-Clause",
@@ -11,7 +11,6 @@ class SNail < Formula
     "HPND-sell-variant", # GSSAPI code
     "RSA-MD", # MD5 code
   ]
-  revision 1
 
   livecheck do
     url :homepage

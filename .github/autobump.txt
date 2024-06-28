@@ -2104,6 +2104,7 @@ rustfmt
 rustscan
 rustup-init
 rye
+s-nail
 s-search
 s2geometry
 s2n
