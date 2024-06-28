@@ -3,8 +3,8 @@ class SigmaCli < Formula
 
   desc "CLI based on pySigma"
   homepage "https://github.com/SigmaHQ/sigma-cli"
-  url "https://files.pythonhosted.org/packages/e9/7e/6d086e07a9074ff87ec1ce8253f0bfdf164a4bf897e87a9599aceeb17355/sigma_cli-1.0.3.tar.gz"
-  sha256 "6274a43b710f1af95b6e769efca7586a7392d0b847ef4ec9fe0064bd867a4c8d"
+  url "https://files.pythonhosted.org/packages/70/e8/6a4e6aa2875494af43483a37c1715039d42a0ba54cb1353db5c3ebfded69/sigma_cli-1.0.4.tar.gz"
+  sha256 "30db40f7b6ea1cff8da5c03668ee37326fa371fa343129455741a6b8b68d81b2"
   license "LGPL-2.1-or-later"
   head "https://github.com/SigmaHQ/sigma-cli.git", branch: "main"
 
@@ -68,8 +68,8 @@ class SigmaCli < Formula
   end
 
   resource "pysigma" do
-    url "https://files.pythonhosted.org/packages/dd/6b/964e015e1ef78647696eddf6ca58807f1c3ef409f26d9c0601db7b3b86dc/pysigma-0.11.7.tar.gz"
-    sha256 "0414db911bdb8aea11967e64a53da4288b869374135ee81a0e5e3658c7a79eb6"
+    url "https://files.pythonhosted.org/packages/47/32/19ab0e65b24f2e65f7409485065697abf93e5e8e9807a52e7eff81054470/pysigma-0.11.8.tar.gz"
+    sha256 "08ae6d134567960c39a1907c9111504a1a4cdbabe71555c1f62f7d67a6228298"
   end
 
   resource "pysigma-backend-sqlite" do
