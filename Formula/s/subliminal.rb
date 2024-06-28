@@ -8,6 +8,16 @@ class Subliminal < Formula
   license "MIT"
   head "https://github.com/Diaoul/subliminal.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "83e5cbf4d08c12b0a4f33e20172ba94c299a4de4f8530696940729d3f38718db"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "83e5cbf4d08c12b0a4f33e20172ba94c299a4de4f8530696940729d3f38718db"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "83e5cbf4d08c12b0a4f33e20172ba94c299a4de4f8530696940729d3f38718db"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3ddc0b09a97e669a5cbd40195bec33d4a04307c1b1bc4d9af87d41c91e496e6c"
+    sha256 cellar: :any_skip_relocation, ventura:        "3ddc0b09a97e669a5cbd40195bec33d4a04307c1b1bc4d9af87d41c91e496e6c"
+    sha256 cellar: :any_skip_relocation, monterey:       "3ddc0b09a97e669a5cbd40195bec33d4a04307c1b1bc4d9af87d41c91e496e6c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d36126b86f96f580b5394027b4e9b49e541463be777551a7d8fec090664e5af"
+  end
+
   depends_on "certifi"
   depends_on "python@3.12"
 
