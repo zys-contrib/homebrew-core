@@ -188,6 +188,7 @@ bde
 beagle
 beancount
 bear
+bee
 bench
 benthos
 berglas
