@@ -3,8 +3,8 @@ class Cppman < Formula
 
   desc "C++ 98/11/14/17/20 manual pages from cplusplus.com and cppreference.com"
   homepage "https://github.com/aitjcize/cppman"
-  url "https://files.pythonhosted.org/packages/55/32/beede58634c85d82b92139a64e514718e4af914461c5477d5779c4e9b6c4/cppman-0.5.6.tar.gz"
-  sha256 "3cd1a6bcea268a496b4c4f4f8e43ca011c419270b24d881317903300a1d5e9e0"
+  url "https://files.pythonhosted.org/packages/f7/c1/0ee5b360b7e5941fac6b3e4749e0f02c45154b1747f097ca925e8f605ea2/cppman-0.5.7.tar.gz"
+  sha256 "008729416e754dd2f4b59df83496cb36c8174605f5ed02813c7d28c36c560f1a"
   license "GPL-3.0-or-later"
 
   bottle do
