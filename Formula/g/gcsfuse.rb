@@ -12,7 +12,7 @@ class Gcsfuse < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d9bffd2ced4a8f2c0a645f144b7f10806bfff785948eda019df7cb522c0faeb0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a249ccd61837c1bb35ab7acbdef5f47ee46f50398d01c2817c97e6cd14dc8d86"
   end
 
   depends_on "go" => :build
