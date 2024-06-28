@@ -3,8 +3,8 @@ class Subliminal < Formula
 
   desc "Library to search and download subtitles"
   homepage "https://subliminal.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/32/07/9ea2a7d67fbcc8ff132d72d6162548ad19b742a0350ddf2b82fe8a18a34e/subliminal-2.2.0.tar.gz"
-  sha256 "f103380d1e2ef09b7cb194beff5bf4a19492d5f3bbf336dec03a7451c992a593"
+  url "https://files.pythonhosted.org/packages/e3/24/36cdb82e90afc602e2ed36c34e022ca545d35f5be9aa7ef9ddb0af7967b2/subliminal-2.2.1.tar.gz"
+  sha256 "2ed6024a07bbb3c68fe3db76374244ad91adfca9d93fc24d3ddb9ef61825756e"
   license "MIT"
   head "https://github.com/Diaoul/subliminal.git", branch: "main"
 
