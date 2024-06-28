@@ -1284,6 +1284,7 @@ kyma-cli
 kyverno
 lacework-cli
 languagetool
+lanraragi
 lastpass-cli
 laszip
 latex2html
