@@ -1,10 +1,9 @@
 class Inspircd < Formula
   desc "Modular C++ Internet Relay Chat daemon"
   homepage "https://www.inspircd.org/"
-  url "https://github.com/inspircd/inspircd/archive/refs/tags/v3.17.0.tar.gz"
-  sha256 "181de90130e11a26ec107fcb6b74005cbce3051b89b500347e416054e29c3166"
+  url "https://github.com/inspircd/inspircd/archive/refs/tags/v3.17.1.tar.gz"
+  sha256 "921fa8726676f74a9ea8670b41601c975955ad9c131e9b6eb129fa6034433cdb"
   license "GPL-2.0-only"
-  revision 1
 
   livecheck do
     url :stable
@@ -28,6 +27,12 @@ class Inspircd < Formula
   depends_on "mysql-client"
 
   uses_from_macos "openldap"
+
+  on_macos do
+    depends_on "openssl@3"
+    depends_on "zlib"
+    depends_on "zstd"
+  end
 
   skip_clean "data"
   skip_clean "logs"

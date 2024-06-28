@@ -1138,6 +1138,7 @@ inform6
 inframap
 iniparser
 inlyne
+inspircd
 instaloader
 internetarchive
 inxi
