@@ -470,6 +470,7 @@ cpp-httplib
 cppad
 cppcheck
 cppinsights
+cppman
 cpr
 cpu_features
 cpufetch
