@@ -1,8 +1,8 @@
 class Ejabberd < Formula
   desc "XMPP application server"
   homepage "https://www.ejabberd.im"
-  url "https://github.com/processone/ejabberd/archive/refs/tags/24.02.tar.gz"
-  sha256 "b6d48d3bf2bef368e9321e35436381c86d78444b9042649c6c4aab0089395c07"
+  url "https://github.com/processone/ejabberd/archive/refs/tags/24.06.tar.gz"
+  sha256 "34ef56370d39bdc9a3c58d7775a65a2c1d4e8c52e6aa80e77a8435d414dda81e"
   license "GPL-2.0-only"
   head "https://github.com/processone/ejabberd.git", branch: "master"
 
@@ -30,6 +30,8 @@ class Ejabberd < Formula
   depends_on "gd"
   depends_on "libyaml"
   depends_on "openssl@3"
+
+  uses_from_macos "expat"
 
   on_linux do
     depends_on "linux-pam"
