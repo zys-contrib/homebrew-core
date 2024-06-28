@@ -3,20 +3,10 @@ require "language/node"
 class Lanraragi < Formula
   desc "Web application for archival and reading of manga/doujinshi"
   homepage "https://github.com/Difegue/LANraragi"
+  url "https://github.com/Difegue/LANraragi/archive/refs/tags/v.0.9.10.tar.gz"
+  sha256 "03d00928a84705e7b89a667c6aea85b529ca1d1c08a153e0c2e2922ec64fd0d1"
   license "MIT"
   head "https://github.com/Difegue/LANraragi.git", branch: "dev"
-
-  stable do
-    url "https://github.com/Difegue/LANraragi/archive/refs/tags/v.0.9.0.tar.gz"
-    sha256 "76390a12c049216c708b522372a7eed9f2fcf8f8d462af107d881dbb1ce3a79f"
-
-    # patch for `Can't load application from file ".../lanraragi": Can't open file "oshino"`
-    # remove in next release
-    patch do
-      url "https://github.com/Difegue/LANraragi/commit/d2ab6807cc4b1ed1fe902c264cba7750ae07f435.patch?full_index=1"
-      sha256 "3edc8e1248e5931bfc7f983af93b92354bb85368582d4ccedcd1af93013ce24a"
-    end
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "3b49498cbc0a34297dcb42c3afb77eebf5db20e38499ab7e35ebd0d985ec0f93"
@@ -46,14 +36,14 @@ class Lanraragi < Formula
 
   resource "libarchive-headers" do
     on_macos do
-      url "https://github.com/apple-oss-distributions/libarchive/archive/refs/tags/libarchive-121.tar.gz"
-      sha256 "f38736ffdbf9005726bdc126e68ff34ddaee25326ae51d58e4385de717bc773f"
+      url "https://github.com/apple-oss-distributions/libarchive/archive/refs/tags/libarchive-131.tar.gz"
+      sha256 "8d0e4d71d2b039a968d2c7b4230806912785da98ce5d3a10c60024016ac343bb"
     end
   end
 
   resource "Image::Magick" do
-    url "https://cpan.metacpan.org/authors/id/J/JC/JCRISTY/Image-Magick-7.1.1-20.tar.gz"
-    sha256 "a0c0305d0071b95d8580f1c18548beb683453d59d12cd8d9a9d3f6abe922ea38"
+    url "https://cpan.metacpan.org/authors/id/J/JC/JCRISTY/Image-Magick-7.1.1-28.tar.gz"
+    sha256 "bc54137346c1d45626e7075015f7d1dae813394af885457499f54878cfc19e0b"
   end
 
   def install
