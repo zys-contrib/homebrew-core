@@ -1,8 +1,8 @@
 class Nsync < Formula
   desc "C library that exports various synchronization primitives"
   homepage "https://github.com/google/nsync"
-  url "https://github.com/google/nsync/archive/refs/tags/1.29.1.tar.gz"
-  sha256 "3045a8922171430426b695edf794053182d245f6a382ddcc59ef4a6190848e98"
+  url "https://github.com/google/nsync/archive/refs/tags/1.29.2.tar.gz"
+  sha256 "1d63e967973733d2c97e841e3c05fac4d3fa299f01d14c86f2695594c7a4a2ec"
   license "Apache-2.0"
 
   bottle do
