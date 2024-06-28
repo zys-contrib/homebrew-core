@@ -832,6 +832,7 @@ fossil
 fourmolu
 fourstore
 fping
+fq
 fred
 freeciv
 freeglut
