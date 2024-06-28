@@ -1,8 +1,8 @@
 class EcflowUi < Formula
   desc "User interface for client/server workflow package"
   homepage "https://confluence.ecmwf.int/display/ECFLOW"
-  url "https://confluence.ecmwf.int/download/attachments/8650755/ecFlow-5.13.0-Source.tar.gz"
-  sha256 "a14f4e97cc9123bc6cadfb3ecbf3899e27b6deb53058590bba7a4dae12f3e029"
+  url "https://confluence.ecmwf.int/download/attachments/8650755/ecFlow-5.13.1-Source.tar.gz"
+  sha256 "5358992b3e64ed3d330cb019790ff95cdbd0c9d9942614c7ce27a700294851a2"
   license "Apache-2.0"
 
   livecheck do
@@ -24,6 +24,8 @@ class EcflowUi < Formula
   depends_on "cmake" => :build
   depends_on "openssl@3"
   depends_on "qt"
+
+  uses_from_macos "libxcrypt"
 
   # requires C++17 compiler to build with Qt
   fails_with gcc: "5"
