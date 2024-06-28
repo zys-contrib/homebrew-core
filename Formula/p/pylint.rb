@@ -8,13 +8,13 @@ class Pylint < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f715a2ed613c688a7628b71c8ea2f8fbb56bcb3b0e32993b31142ad32574dc7f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f715a2ed613c688a7628b71c8ea2f8fbb56bcb3b0e32993b31142ad32574dc7f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f715a2ed613c688a7628b71c8ea2f8fbb56bcb3b0e32993b31142ad32574dc7f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c04795e267ffad09c8969af7b16e9f297660d2406c03012f21b6dc22951112e1"
-    sha256 cellar: :any_skip_relocation, ventura:        "c04795e267ffad09c8969af7b16e9f297660d2406c03012f21b6dc22951112e1"
-    sha256 cellar: :any_skip_relocation, monterey:       "c04795e267ffad09c8969af7b16e9f297660d2406c03012f21b6dc22951112e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a1c1db9fd95212ca64aa3b839e4908a65787980ce8d535d1656074f938765d0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c1d9d29eb1948e4147f3fee637973e6f6f55a0e6bbdb5da8aff0692fb97cf6fe"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c1d9d29eb1948e4147f3fee637973e6f6f55a0e6bbdb5da8aff0692fb97cf6fe"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c1d9d29eb1948e4147f3fee637973e6f6f55a0e6bbdb5da8aff0692fb97cf6fe"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4321c0221cc982c5fd1118cc5c2ab9ac8d6c5f3cf6b3897b554d257c02dca9c7"
+    sha256 cellar: :any_skip_relocation, ventura:        "4321c0221cc982c5fd1118cc5c2ab9ac8d6c5f3cf6b3897b554d257c02dca9c7"
+    sha256 cellar: :any_skip_relocation, monterey:       "4321c0221cc982c5fd1118cc5c2ab9ac8d6c5f3cf6b3897b554d257c02dca9c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce129e435cf1409bb8b28b1337efe3081a12884300c3c4700ab1b137cd688b29"
   end
 
   depends_on "python@3.12"
