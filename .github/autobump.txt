@@ -1937,6 +1937,7 @@ proteinortho
 proto
 protoc-gen-go
 protoc-gen-go-grpc
+protoc-gen-grpc-web
 protolint
 prowler
 proxify
