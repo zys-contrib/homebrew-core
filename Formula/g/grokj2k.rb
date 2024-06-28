@@ -1,8 +1,8 @@
 class Grokj2k < Formula
   desc "JPEG 2000 Library"
   homepage "https://github.com/GrokImageCompression/grok"
-  url "https://github.com/GrokImageCompression/grok/archive/refs/tags/v12.0.2.tar.gz"
-  sha256 "591ee84e883c9af6eb0ca0bba4cb153202b1909efba0e95f4b333086c279cf8e"
+  url "https://github.com/GrokImageCompression/grok/archive/refs/tags/v12.0.3.tar.gz"
+  sha256 "8f35ea6559c7ce6f17268b16a6642fa704a64a81a7c35daa045466b11ad4a274"
   license "AGPL-3.0-or-later"
   head "https://github.com/GrokImageCompression/grok.git", branch: "master"
 
@@ -36,6 +36,8 @@ class Grokj2k < Formula
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1200
+    depends_on "xz"
+    depends_on "zstd"
   end
 
   fails_with :clang do
