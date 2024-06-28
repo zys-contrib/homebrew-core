@@ -4,6 +4,7 @@ class RattlerBuild < Formula
   url "https://github.com/prefix-dev/rattler-build/archive/refs/tags/v0.18.1.tar.gz"
   sha256 "d351851282cf16048e1180a534441d694a8d89ad3a6302e45b0de3430623e9d7"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/prefix-dev/rattler-build.git", branch: "main"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -33,7 +34,7 @@ class RattlerBuild < Formula
   uses_from_macos "zlib"
 
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", "--features", "tui", *std_cargo_args
 
     generate_completions_from_executable(bin/"rattler-build", "completion", "--shell")
   end
