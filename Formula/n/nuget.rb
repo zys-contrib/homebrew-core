@@ -1,8 +1,8 @@
 class Nuget < Formula
   desc "Package manager for Microsoft development platform including .NET"
   homepage "https://www.nuget.org/"
-  url "https://dist.nuget.org/win-x86-commandline/v6.10.0/nuget.exe"
-  sha256 "bad75b985cef3b2e52fa6141b207db25bafa8724189a420400fcf2787248bf4e"
+  url "https://dist.nuget.org/win-x86-commandline/v6.10.1/nuget.exe"
+  sha256 "e41e724f541c1f0425e9e92856d19a0e87a8eb4cb692cada6e0399feb4b2b026"
   license "MIT"
 
   livecheck do
