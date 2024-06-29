@@ -3,10 +3,9 @@ class Instaloader < Formula
 
   desc "Download media from Instagram"
   homepage "https://instaloader.github.io/"
-  url "https://files.pythonhosted.org/packages/7e/35/1f8d36c0656d4797fc5089c016995447f2b439e8fb9df02bf9d7873566fc/instaloader-4.11.tar.gz"
-  sha256 "7478a1f0ed5c05911832c50cb19747243a461b5d434907f9fdb7d2d750d1b4f5"
+  url "https://files.pythonhosted.org/packages/85/f9/b044e398b4fe6de8d0173091f18e72e9c3dcf0f30c85f127bfc5f6a6b375/instaloader-4.12.tar.gz"
+  sha256 "0e3fa65dd4b033f2ef6022a04f95fec18e0258535aee985d0643895713f2eec3"
   license "MIT"
-  revision 3
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "08c103c7e609770f6ca32650894cc27376ad307fe49f629ad4e6bb3dcdbd5fcf"
@@ -46,8 +45,8 @@ class Instaloader < Formula
   end
 
   test do
-    output = shell_output("#{bin}/instaloader --login foo --password bar 2>&1", 1)
-    assert_match "Fatal error: Login error:", output
+    output = shell_output("#{bin}/instaloader --login foo --password bar 2>&1", 3)
+    assert_match "Login error", output
 
     assert_match version.to_s, shell_output("#{bin}/instaloader --version")
   end
