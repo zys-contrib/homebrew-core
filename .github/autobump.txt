@@ -954,6 +954,7 @@ gmic
 gmime
 gmsh
 gnmic
+gnu-apl
 gnu-getopt
 gnu-units
 gnumeric

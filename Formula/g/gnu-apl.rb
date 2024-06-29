@@ -1,19 +1,10 @@
 class GnuApl < Formula
   desc "GNU implementation of the programming language APL"
   homepage "https://www.gnu.org/software/apl/"
-  license "GPL-3.0"
-
-  stable do
-    url "https://ftp.gnu.org/gnu/apl/apl-1.8.tar.gz"
-    mirror "https://ftpmirror.gnu.org/apl/apl-1.8.tar.gz"
-    sha256 "144f4c858a0d430ce8f28be90a35920dd8e0951e56976cb80b55053fa0d8bbcb"
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-      sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
-    end
-  end
+  url "https://ftp.gnu.org/gnu/apl/apl-1.9.tar.gz"
+  mirror "https://ftpmirror.gnu.org/apl/apl-1.9.tar.gz"
+  sha256 "291867f1b1937693abb57be7d9a37618b0376e3e2709574854a7bbe52bb28eb8"
+  license "GPL-3.0-or-later"
 
   bottle do
     rebuild 1
@@ -37,14 +28,13 @@ class GnuApl < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "pkg-config" => :build
+  depends_on "gtk+3"
   depends_on "readline" # GNU Readline is required, libedit won't work
 
   def install
-    system "autoreconf", "-fiv" if build.head?
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
