@@ -135,6 +135,7 @@ aws-auth
 aws-cdk
 aws-elasticbeanstalk
 aws-es-proxy
+aws-iam-authenticator
 aws-nuke
 aws-rotate-key
 aws-sam-cli
