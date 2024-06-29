@@ -90,6 +90,7 @@ arjun
 arkade
 armadillo
 arp-scan
+arping
 arrayfire
 artillery
 arttime
