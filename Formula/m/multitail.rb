@@ -1,9 +1,9 @@
 class Multitail < Formula
   desc "Tail multiple files in one terminal simultaneously"
   homepage "https://vanheusden.com/multitail/"
-  url "https://github.com/folkertvanheusden/multitail/archive/refs/tags/7.1.2.tar.gz"
-  sha256 "c8552e10093f0690b8baef84945753c878e234d7b3d0e3ff27e509ed5515998c"
-  license "Apache-2.0"
+  url "https://github.com/folkertvanheusden/multitail/archive/refs/tags/7.1.3.tar.gz"
+  sha256 "f55732781f7319e137a3ff642a347af1aaf3ed5265ed12526bdd0666d708d805"
+  license "MIT"
   head "https://github.com/folkertvanheusden/multitail.git"
 
   bottle do

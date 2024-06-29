@@ -1628,6 +1628,7 @@ mtools
 mu
 muffet
 mujs
+multitail
 murex
 mutt
 mvnvm
