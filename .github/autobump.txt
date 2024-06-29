@@ -2457,6 +2457,7 @@ trash-cli
 travis
 tree
 tree-sitter
+treefmt
 treefrog
 triangle
 trino

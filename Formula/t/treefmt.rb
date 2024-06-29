@@ -1,11 +1,10 @@
 class Treefmt < Formula
   desc "One CLI to format the code tree"
   homepage "https://github.com/numtide/treefmt"
-  url "https://github.com/numtide/treefmt/archive/refs/tags/v0.6.1.tar.gz"
-  sha256 "5bb67936c5e1dfdb0f260e0f1795e1624697e266c6c1b9e47914df4aa17c5107"
+  url "https://github.com/numtide/treefmt/archive/refs/tags/v2.0.1.tar.gz"
+  sha256 "2b0e8d1ec0bcf8cefbdfb41c98fc325d274e35a81eca2e3eddcb2c0d76ca2b06"
   license "MIT"
-
-  head "https://github.com/numtide/treefmt.git", branch: "master"
+  head "https://github.com/numtide/treefmt.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bba21b0bdd6ae7fd7569524b658681208c89672cb0eb92629c758f21e488e16c"
@@ -17,14 +16,15 @@ class Treefmt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "00f0145abdd2b5c97fae57564e6f3db8349c712f6f935f33e3d941d27e1bf124"
   end
 
-  depends_on "rust" => :build
+  depends_on "go" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args
+    ldflags = "-s -w -X git.numtide.com/numtide/treefmt/build.Version=#{version}"
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
-    # Test that treefmt responds as expected when run without treefmt.toml config
-    assert_match "treefmt.toml could not be found", shell_output("#{bin}/treefmt 2>&1", 1)
+    assert_match "error: could not find treefmt.toml", shell_output("#{bin}/treefmt 2>&1", 1)
+    assert_match version.to_s, shell_output("#{bin}/treefmt --version")
   end
 end
