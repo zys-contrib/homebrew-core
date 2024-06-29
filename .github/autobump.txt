@@ -1816,6 +1816,7 @@ osm2pgsql
 ospray
 osslsigncode
 osv-scanner
+otree
 ott
 overarch
 overmind
