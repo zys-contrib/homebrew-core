@@ -1253,6 +1253,7 @@ kotlin
 kpcli
 krakend
 krew
+ksops
 ktfmt
 kube-linter
 kube-ps1
