@@ -6,13 +6,13 @@ class Scrcpy < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_sonoma:   "50ae5100944caee2fb98ee68766a124822c6b981998057052c60f94a8f17ded6"
-    sha256 arm64_ventura:  "bc0db20754cf6f069b7e5159208e8ebdaf6c4407a2deda8a379da368488f5be1"
-    sha256 arm64_monterey: "65bc818c9a9a54896ffbc2a4af5bfd7835d793d8f79a1b812472fc498c81dec5"
-    sha256 sonoma:         "f62672fd35bfc3e512a6aad7d5fd6a0595bccb38e14bfaa6134cbc0aa829cdbf"
-    sha256 ventura:        "501a4e7673f201635eddcd743914ab3865989aa21dc00e15bd43c5da56dfd37a"
-    sha256 monterey:       "58bed9cf4e04545bc372867e877041a327261f6d36ea126ece2b1967dd5006fc"
-    sha256 x86_64_linux:   "fcf8197e0c8dbf9dbc3a92bebbb2650d0ca6c3ec21420133c2109a97041a4c14"
+    sha256 arm64_sonoma:   "1d7fe865c98fb90da644d0ddf7c81de13cc0900f5280a253528e2417fdb8f942"
+    sha256 arm64_ventura:  "95ae467b41ba2bf559edb2aff33f0635107c592df1f258f972ea9f05f09b6480"
+    sha256 arm64_monterey: "e7f7fc4c69f2d0bf5612847a2149d52faa6be0dcc1158db65a3b6c452aad9796"
+    sha256 sonoma:         "c1b8d1cd973220b5a06821f6dd9f7dc9fb03c712fb43a7d609623c172c4ce142"
+    sha256 ventura:        "ec1e4bac035b64646ea9b3c7deea19fa92819d3db7e0223f14964fc4fb910536"
+    sha256 monterey:       "76e217312622f57a76e27d69cf6920729c0ff0baf4162d938dcad0eddc358db7"
+    sha256 x86_64_linux:   "3406538ee4d73a93eac98005329cff4ad2e4002ce5449b3dfaa30434abafba45"
   end
 
   depends_on "meson" => :build
