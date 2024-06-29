@@ -6,7 +6,7 @@ class Pytorch < Formula
   url "https://github.com/pytorch/pytorch/releases/download/v2.2.0/pytorch-v2.2.0.tar.gz"
   sha256 "e12d18c3dbb12d7ae2f61f5ab9a21023e3dd179d67ed87279ef96600b9ac08c5"
   license "BSD-3-Clause"
-  revision 5
+  revision 6
 
   livecheck do
     url :stable
@@ -101,6 +101,12 @@ class Pytorch < Formula
   resource "typing-extensions" do
     url "https://files.pythonhosted.org/packages/0c/1d/eb26f5e75100d531d7399ae800814b069bc2ed2a7410834d57374d010d96/typing_extensions-4.9.0.tar.gz"
     sha256 "23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"
+  end
+
+  # Support numpy 2.0: https://github.com/pytorch/pytorch/pull/121880
+  patch do
+    url "https://github.com/pytorch/pytorch/commit/38d9bb5abcc31ba97927a5399b88afe2cf60bf64.patch?full_index=1"
+    sha256 "c9bf84d154e5f3f9b67a68d25765f32a08b9deb3127254971ed6351231eba228"
   end
 
   # Backport usage of SLEEF_CONST from upstream commit
