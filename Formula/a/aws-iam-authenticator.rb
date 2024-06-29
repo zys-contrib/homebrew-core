@@ -1,9 +1,8 @@
 class AwsIamAuthenticator < Formula
   desc "Use AWS IAM credentials to authenticate to Kubernetes"
   homepage "https://github.com/kubernetes-sigs/aws-iam-authenticator"
-  url "https://github.com/kubernetes-sigs/aws-iam-authenticator.git",
-      tag:      "v0.6.20",
-      revision: "774efb85b060370538c2d47576fb3ba3e58b2c38"
+  url "https://github.com/kubernetes-sigs/aws-iam-authenticator/archive/refs/tags/v0.6.21.tar.gz"
+  sha256 "0358a392f49fba10301815b41f97abe99ab9c0e26f4c1a93aca2051241575303"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/aws-iam-authenticator.git", branch: "master"
 
@@ -29,12 +28,13 @@ class AwsIamAuthenticator < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = ["-s", "-w",
-               "-X sigs.k8s.io/aws-iam-authenticator/pkg.Version=#{version}",
-               "-X sigs.k8s.io/aws-iam-authenticator/pkg.CommitID=#{Utils.git_head}",
-               "-buildid=''"]
+    ldflags = %W[
+      -s -w
+      -X sigs.k8s.io/aws-iam-authenticator/pkg.Version=#{version}
+      -X sigs.k8s.io/aws-iam-authenticator/pkg.CommitID=#{tap.user}
+      -buildid=
+    ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/aws-iam-authenticator"
-    prefix.install_metafiles
   end
 
   test do
