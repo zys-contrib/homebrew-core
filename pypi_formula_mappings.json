@@ -746,8 +746,7 @@
     "extra_packages": ["numpydoc"]
   },
   "ssh-mitm": {
-    "exclude_packages": ["cryptography"],
-    "extra_packages": ["setuptools"]
+    "exclude_packages": ["cryptography"]
   },
   "sslyze": {
     "exclude_packages": ["typing-extensions", "pycparser"]
