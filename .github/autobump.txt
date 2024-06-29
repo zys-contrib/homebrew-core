@@ -2588,6 +2588,7 @@ vscode-langservers-extracted
 vsearch
 vsh
 vte3
+vtk
 vue-cli
 vultr
 vunnel
