@@ -514,6 +514,7 @@ cyclonedx-gomod
 cyclonedx-python
 cycode
 cyctl
+cyme
 cypher-shell
 cyrus-sasl
 cython
