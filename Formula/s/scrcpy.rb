@@ -1,10 +1,9 @@
 class Scrcpy < Formula
   desc "Display and control your Android device"
   homepage "https://github.com/Genymobile/scrcpy"
-  url "https://github.com/Genymobile/scrcpy/archive/refs/tags/v2.4.tar.gz"
-  sha256 "60596f6d4c11163083da3e6805666326873ed57f7defd8a20256b928a1d3503b"
+  url "https://github.com/Genymobile/scrcpy/archive/refs/tags/v2.5.tar.gz"
+  sha256 "9a29ac5171dd81c250337d9b0500f1edbaf01044645b35f8993a191ffbb8597f"
   license "Apache-2.0"
-  revision 1
 
   bottle do
     sha256 arm64_sonoma:   "50ae5100944caee2fb98ee68766a124822c6b981998057052c60f94a8f17ded6"
@@ -26,8 +25,8 @@ class Scrcpy < Formula
   fails_with gcc: "5"
 
   resource "prebuilt-server" do
-    url "https://github.com/Genymobile/scrcpy/releases/download/v2.4/scrcpy-server-v2.4"
-    sha256 "93c272b7438605c055e127f7444064ed78fa9ca49f81156777fd201e79ce7ba3"
+    url "https://github.com/Genymobile/scrcpy/releases/download/v2.5/scrcpy-server-v2.5"
+    sha256 "1488b1105d6aff534873a26bf610cd2aea06ee867dd7a4d9c6bb2c091396eb15"
   end
 
   def install
