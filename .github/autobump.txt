@@ -1288,6 +1288,7 @@ kwok
 kyma-cli
 kyverno
 lacework-cli
+lando-cli
 languagetool
 lanraragi
 lastpass-cli
