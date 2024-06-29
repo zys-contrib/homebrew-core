@@ -1406,6 +1406,7 @@ libsoundio
 libspelling
 libsql
 libstrophe
+libtensorflow
 libtiff
 libtommath
 libtrace
