@@ -1,8 +1,8 @@
 class Dartsim < Formula
   desc "Dynamic Animation and Robotics Toolkit"
   homepage "https://dartsim.github.io/"
-  url "https://github.com/dartsim/dart/archive/refs/tags/v6.14.1.tar.gz"
-  sha256 "07bc1442a80abc03b2c1984bdb9b5843446047ac6a37c18b834533c871631fde"
+  url "https://github.com/dartsim/dart/archive/refs/tags/v6.14.2.tar.gz"
+  sha256 "6bbaf452f8182b97bf22adeab6cc7f3dc1cd2733358543131fa130e07c0860fc"
   license "BSD-2-Clause"
 
   bottle do
@@ -27,6 +27,7 @@ class Dartsim < Formula
   depends_on "ipopt"
   depends_on "libccd"
   depends_on "nlopt"
+  depends_on "octomap"
   depends_on "ode"
   depends_on "open-scene-graph"
   depends_on "spdlog"
@@ -34,6 +35,10 @@ class Dartsim < Formula
   depends_on "urdfdom"
 
   uses_from_macos "python" => :build
+
+  on_linux do
+    depends_on "mesa"
+  end
 
   fails_with gcc: "5"
 
