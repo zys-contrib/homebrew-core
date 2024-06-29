@@ -1,8 +1,8 @@
 class Txr < Formula
   desc "Lisp-like programming language for convenient data munging"
   homepage "https://www.nongnu.org/txr/"
-  url "https://www.kylheku.com/cgit/txr/snapshot/txr-294.tar.bz2"
-  sha256 "41d90de05c286c644f40d4067070bad968b987042ab20c8ba3d7ad61811fa837"
+  url "https://www.kylheku.com/cgit/txr/snapshot/txr-295.tar.bz2"
+  sha256 "d072eb6cee2fe207e4f79c394885de43fa0d40c08c2810e486d54989542d0985"
   license "BSD-2-Clause"
 
   livecheck do
