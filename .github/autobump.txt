@@ -688,6 +688,7 @@ editorconfig-checker
 efl
 efm-langserver
 eg-examples
+egctl
 eget
 ehco
 eigenpy
