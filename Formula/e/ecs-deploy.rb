@@ -8,13 +8,13 @@ class EcsDeploy < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c1c34b3f0d4a0658da6c70e9e98df4a8c00583da6f75b00e522d66c3802eacec"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c1c34b3f0d4a0658da6c70e9e98df4a8c00583da6f75b00e522d66c3802eacec"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c1c34b3f0d4a0658da6c70e9e98df4a8c00583da6f75b00e522d66c3802eacec"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3d6cfae65b6db404027729ae3d1cd5f81a5f2462a047dbb3c6384805df0e013e"
-    sha256 cellar: :any_skip_relocation, ventura:        "3d6cfae65b6db404027729ae3d1cd5f81a5f2462a047dbb3c6384805df0e013e"
-    sha256 cellar: :any_skip_relocation, monterey:       "3d6cfae65b6db404027729ae3d1cd5f81a5f2462a047dbb3c6384805df0e013e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16d484e2c629d2ddbc81015c0d808d554ab0af859ae39f2c4d1c4459a48427a3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f70502bc919d266ec26287a517f385675c465b34862a2d00f15d73848e9526ba"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f70502bc919d266ec26287a517f385675c465b34862a2d00f15d73848e9526ba"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f70502bc919d266ec26287a517f385675c465b34862a2d00f15d73848e9526ba"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f70502bc919d266ec26287a517f385675c465b34862a2d00f15d73848e9526ba"
+    sha256 cellar: :any_skip_relocation, ventura:        "f70502bc919d266ec26287a517f385675c465b34862a2d00f15d73848e9526ba"
+    sha256 cellar: :any_skip_relocation, monterey:       "f70502bc919d266ec26287a517f385675c465b34862a2d00f15d73848e9526ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bfbc4a97ca89ced505c472b547c372c8019212b85ea0910f72f35fe1e6db7822"
   end
 
   depends_on "certifi"
