@@ -1,8 +1,8 @@
 class MagicEnum < Formula
   desc "Static reflection for enums (to string, from string, iteration) for modern C++"
   homepage "https://github.com/Neargye/magic_enum"
-  url "https://github.com/Neargye/magic_enum/archive/refs/tags/v0.9.5.tar.gz"
-  sha256 "44ad80db5a72f5047e01d90e18315751d9ac90c0ab42cbea7a6f9ec66a4cd679"
+  url "https://github.com/Neargye/magic_enum/archive/refs/tags/v0.9.6.tar.gz"
+  sha256 "814791ff32218dc869845af7eb89f898ebbcfa18e8d81aa4d682d18961e13731"
   license "MIT"
 
   bottle do
