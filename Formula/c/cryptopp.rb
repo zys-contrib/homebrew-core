@@ -28,7 +28,7 @@ class Cryptopp < Formula
 
   def install
     ENV.cxx11
-    system "make", "all", "libcryptopp.pc"
+    system "make", "all", "libcryptopp.pc", "PREFIX=#{prefix}"
     system "make", "test"
     system "make", "install-lib", "PREFIX=#{prefix}"
   end
