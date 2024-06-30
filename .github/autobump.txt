@@ -1741,6 +1741,7 @@ oauth2_proxy
 oauth2c
 objfw
 ocaml-findlib
+ocamlbuild
 oci-cli
 ocicl
 ocm
