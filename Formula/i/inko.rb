@@ -1,8 +1,8 @@
 class Inko < Formula
   desc "Safe and concurrent object-oriented programming language"
   homepage "https://inko-lang.org/"
-  url "https://releases.inko-lang.org/0.14.0.tar.gz"
-  sha256 "4e2c82911d6026f76c42ccc164dc45b1b5e331db2e9557460d9319d682668e65"
+  url "https://releases.inko-lang.org/0.15.0.tar.gz"
+  sha256 "a28205c4776cc87894ef0deb0e7a043d42a790eab913558ad25d27884ffd2006"
   license "MPL-2.0"
   head "https://github.com/inko-lang/inko.git", branch: "main"
 
@@ -18,11 +18,17 @@ class Inko < Formula
 
   depends_on "coreutils" => :build
   depends_on "rust" => :build
-  depends_on "llvm@15"
+  depends_on "llvm"
   depends_on "zstd"
 
   uses_from_macos "libffi", since: :catalina
+  uses_from_macos "ncurses"
   uses_from_macos "ruby", since: :sierra
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "z3"
+  end
 
   def install
     ENV.prepend_path "PATH", Formula["coreutils"].opt_libexec/"gnubin"
@@ -32,7 +38,7 @@ class Inko < Formula
 
   test do
     (testpath/"hello.inko").write <<~EOS
-      import std.stdio.STDOUT
+      import std.stdio (STDOUT)
 
       class async Main {
         fn async main {

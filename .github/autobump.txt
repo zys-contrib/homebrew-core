@@ -1147,6 +1147,7 @@ influxdb@1
 inform6
 inframap
 iniparser
+inko
 inlyne
 inspircd
 instaloader
