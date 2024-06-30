@@ -1,8 +1,8 @@
 class GoTask < Formula
   desc "Task is a task runner/build tool that aims to be simpler and easier to use"
   homepage "https://taskfile.dev/"
-  url "https://github.com/go-task/task/archive/refs/tags/v3.37.2.tar.gz"
-  sha256 "ed735d663527691d53e44af98d24b3df91fa9da96ff6e05e9b6c7b78cc05c913"
+  url "https://github.com/go-task/task/archive/refs/tags/v3.38.0.tar.gz"
+  sha256 "09d597ed0618fd57dae944b61efa474f522f8d05d7ebeb0bc282cb5292b1d085"
   license "MIT"
   head "https://github.com/go-task/task.git", branch: "main"
 
@@ -20,6 +20,12 @@ class GoTask < Formula
 
   conflicts_with "task", because: "both install `task` binaries"
 
+  # Fix ldflags for --version
+  patch do
+    url "https://github.com/go-task/task/commit/9ee4f21d62382714ac829df6f9bbf1637406eb5b.patch?full_index=1"
+    sha256 "166c8150416568b34f900c87f0d40eba715d04cc41b780aa6393ee2532b422a2"
+  end
+
   def install
     ldflags = %W[
       -s -w
@@ -32,11 +38,10 @@ class GoTask < Formula
   end
 
   test do
-    str_version = shell_output("#{bin}/task --version")
-    assert_match "Task version: #{version}", str_version
+    output = shell_output("#{bin}/task --version")
+    assert_match "Task version: #{version}", output
 
-    taskfile = testpath/"Taskfile.yml"
-    taskfile.write <<~EOS
+    (testpath/"Taskfile.yml").write <<~EOS
       version: '3'
 
       tasks:
@@ -45,12 +50,7 @@ class GoTask < Formula
             - echo 'Testing Taskfile'
     EOS
 
-    args = %W[
-      --taskfile #{taskfile}
-      --silent
-    ].join(" ")
-
-    ok_test = shell_output("#{bin}/task #{args} test")
-    assert_match "Testing Taskfile", ok_test
+    output = shell_output("#{bin}/task --silent test")
+    assert_match "Testing Taskfile", output
   end
 end
