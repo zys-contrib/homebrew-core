@@ -1,8 +1,8 @@
 class Poke < Formula
   desc "Extensible editor for structured binary data"
   homepage "https://jemarch.net/poke"
-  url "https://ftp.gnu.org/gnu/poke/poke-4.1.tar.gz"
-  sha256 "08ecaea41f7374acd4238e12bbf97e8cd5e572d5917e956b73b9d43026e9d740"
+  url "https://ftp.gnu.org/gnu/poke/poke-4.2.tar.gz"
+  sha256 "8aaf36e61e367a53140ea40e2559e9ec512e779c42bee34e7ac24b34ba119bde"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -27,14 +27,7 @@ class Poke < Formula
 
   uses_from_macos "ncurses"
 
-  # fix jitter configure script, upstream commit ref, https://git.ageinghacker.net/jitter/commit/?id=b8a882e765e720fb9a4b66ddd9bdbd78f545ee47
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/9db6349936a3cbaba02968015348e61833a917ff/poke/poke-4.1-jitter-config.patch"
-    sha256 "5b9bb230c41b86e45d04813a61c4bea2492b885719e51e1796070ab95511cbd4"
-  end
-
   def install
-    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args, "--disable-silent-rules", "--with-lispdir=#{elisp}"
     system "make"
     system "make", "install"
