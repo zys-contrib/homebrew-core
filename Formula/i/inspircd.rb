@@ -1,8 +1,8 @@
 class Inspircd < Formula
   desc "Modular C++ Internet Relay Chat daemon"
   homepage "https://www.inspircd.org/"
-  url "https://github.com/inspircd/inspircd/archive/refs/tags/v3.17.1.tar.gz"
-  sha256 "921fa8726676f74a9ea8670b41601c975955ad9c131e9b6eb129fa6034433cdb"
+  url "https://github.com/inspircd/inspircd/archive/refs/tags/v4.0.0.tar.gz"
+  sha256 "528199a6c857973611d496e5a4b4d125770525c9f52cbc5f7387ecdfdfcf885c"
   license "GPL-2.0-only"
 
   livecheck do
@@ -40,7 +40,7 @@ class Inspircd < Formula
   def install
     ENV.cxx11
     system "./configure", "--enable-extras",
-                          "argon2 ldap mysql pgsql regex_posix regex_stdlib ssl_gnutls sslrehashsignal"
+                          "argon2 ldap mysql pgsql regex_posix ssl_gnutls sslrehashsignal"
     system "./configure", "--disable-auto-extras",
                           "--distribution-label", "homebrew-#{revision}",
                           "--prefix", prefix
@@ -48,6 +48,6 @@ class Inspircd < Formula
   end
 
   test do
-    assert_match("ERROR: Cannot open config file", shell_output("#{bin}/inspircd", 2))
+    assert_match("ERROR: Cannot open config file", shell_output("#{bin}/inspircd", 1))
   end
 end
