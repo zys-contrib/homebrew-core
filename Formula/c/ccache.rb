@@ -1,27 +1,10 @@
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.dev/"
+  url "https://github.com/ccache/ccache/releases/download/v4.10.1/ccache-4.10.1.tar.xz"
+  sha256 "3a43442ce3916ea48bb6ccf6f850891cbff01d1feddff7cd4bbd49c5cf1188f6"
   license "GPL-3.0-or-later"
   head "https://github.com/ccache/ccache.git", branch: "master"
-
-  stable do
-    # TODO: Remove `stable` block at next release (after removing patches below)
-    url "https://github.com/ccache/ccache/releases/download/v4.10/ccache-4.10.tar.xz"
-    sha256 "83630b5e922b998ab2538823e0cad962c0f956fad1fcf443dd5288269a069660"
-
-    # Fix detection of system blake3
-    # https://github.com/ccache/ccache/pull/1464
-    patch do
-      url "https://github.com/ccache/ccache/commit/d159306db8398da233df6481ac3fd83460ef0f0b.patch?full_index=1"
-      sha256 "1db1a39677b94cd365b98d8df1fcd0b116866175d4a55730af9bfa1ab443e4be"
-    end
-
-    # Fix blake3 include. Same PR as above.
-    patch do
-      url "https://github.com/ccache/ccache/commit/fa4046966e71011587364b0241255130b62858fb.patch?full_index=1"
-      sha256 "c0d5d61e3ef594c0587e249798e95c9d508f41452fd649685b8f6a00e667be80"
-    end
-  end
 
   bottle do
     rebuild 2
