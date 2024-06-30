@@ -6,6 +6,16 @@ class Egctl < Formula
   license "Apache-2.0"
   head "https://github.com/envoyproxy/gateway.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "442ef19cd8d4abd3929ce289e8259b4618e915fe076a0b28cb433a83e83ee345"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "98026117b40295bd0dbccde6d7d5483669ed0cce00c66432712bd1631b809839"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "babab75268c48dd69cea1ded164a70e3c3fb63af258b488b7c6d58653f40bb60"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c39ebd95cad867bc1b8612f8ced46628f8598468258b63dd3254885733311dd4"
+    sha256 cellar: :any_skip_relocation, ventura:        "2283eeb99931b79594b94f3c93ba50b03cb8af69643d174ce31614414b843c97"
+    sha256 cellar: :any_skip_relocation, monterey:       "2789de921dd337393c43f85b2e808a35214f12f24f53505b8f72e31371f2f2e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e623e4318e5e60496222dbfaee3fe4c7a6ee885d0b5875b5551ea730b87b49d5"
+  end
+
   depends_on "go" => :build
 
   def install
