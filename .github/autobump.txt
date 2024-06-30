@@ -2476,6 +2476,7 @@ ttyd
 ttyplot
 tup
 twine
+txr
 tygo
 typescript
 typescript-language-server
