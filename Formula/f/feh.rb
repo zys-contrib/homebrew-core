@@ -1,8 +1,8 @@
 class Feh < Formula
   desc "X11 image viewer"
   homepage "https://feh.finalrewind.org/"
-  url "https://feh.finalrewind.org/feh-3.10.2.tar.bz2"
-  sha256 "5f94a77de25c5398876f0cf431612d782b842f4db154d2139b778c8f196e8969"
+  url "https://feh.finalrewind.org/feh-3.10.3.tar.bz2"
+  sha256 "5426e2799770217af1e01c2e8c182d9ca8687d84613321d8ab4a66fe4041e9c8"
   license "MIT-feh"
 
   livecheck do
@@ -22,6 +22,7 @@ class Feh < Formula
 
   depends_on "imlib2"
   depends_on "libexif"
+  depends_on "libpng"
   depends_on "libx11"
   depends_on "libxinerama"
   depends_on "libxt"
