@@ -6,13 +6,13 @@ class Poke < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "3d9297de5d81573ebd887c0cc4cd60708035243ffa76b4b55c017d209990d1f0"
-    sha256 arm64_ventura:  "9f7f2774471a422cf1e3d5e88c47a36e74464ad91ea3f5df85ac116f638bb6bc"
-    sha256 arm64_monterey: "47bfef8768ab688bf91baa185ded5e4a1a472a1cf9fe40f915c944dd7a31ac0a"
-    sha256 sonoma:         "0bee499d3c558c3e0356a8213253ca174d5e2df2ae652500b0fc1dd48cb81976"
-    sha256 ventura:        "596a59a1c0963fefafaae893abe5079ddaa406f8bc76bb37e9d059b7a0b0b0d0"
-    sha256 monterey:       "a27a1107d42548ba66f4b5a5c74cb5550d7696f0f7f3e4b97ba117eacbcbf065"
-    sha256 x86_64_linux:   "6187cd9c0982529ead1c5731fd77dbe30115053b96fbd9a3a6858b9c47bda753"
+    sha256 arm64_sonoma:   "83f4976a5a44529059e78a544632ab5848fcb3c705d5e70e91db0136344319a4"
+    sha256 arm64_ventura:  "a500fc9175ce7d850b6740b81fa6f1a32f3b6672490883c00590884154b35d4f"
+    sha256 arm64_monterey: "7fbb646c34866360030ba47081a061f3bf2dc2bd9a5c427c238c253de51f7700"
+    sha256 sonoma:         "c7316c243e71fe22e5e91e3142f2e67ec68d58bb88cc148fb9bb21bcf85fdccc"
+    sha256 ventura:        "795e9c8f88627a655ad7c0a5327731283d624259f77db86db838f69c93aa95b8"
+    sha256 monterey:       "8932a216598088d7505fc7c74f8e5f5c57737b689d164fd9febc4dbcf40e4225"
+    sha256 x86_64_linux:   "492e0262c792aa4e2b6c3cd68124acff4ef85613715b6b1c1f5d23ddb77fa3c6"
   end
 
   depends_on "autoconf" => :build
