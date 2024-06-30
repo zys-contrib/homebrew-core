@@ -1652,6 +1652,7 @@ mvnvm
 mvt
 mx
 mycli
+mycorrhiza
 mydumper
 mypy
 mysqltuner
