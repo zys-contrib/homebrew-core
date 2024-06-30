@@ -2676,6 +2676,7 @@ yorkie
 yosys
 you-get
 youtubedr
+youtubeuploader
 yq
 yt-dlp
 yubico-piv-tool
