@@ -1552,6 +1552,7 @@ mdbook
 mdless
 mdsh
 mdzk
+mediaconch
 mediamtx
 mednafen
 meilisearch
