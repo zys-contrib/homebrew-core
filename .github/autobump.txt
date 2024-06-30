@@ -1509,6 +1509,7 @@ mackup
 mactop
 mafft
 mage
+magic_enum
 magic-wormhole
 mailcatcher
 mailpit
