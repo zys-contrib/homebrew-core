@@ -7,13 +7,13 @@ class DepTree < Formula
   head "https://github.com/gabotechs/dep-tree.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3e9091f27ae6049f3cc2dd9480125dc79750ef9d3121db8a034fde545b8dd057"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "41830de68d7820cf0cdac780404d02f2e81dce6a3c873c5d55ac2f76ff6f1b31"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8cc479761a7c688f42f667a280b4efe7e0eeab41417f69afba4035e384a76461"
-    sha256 cellar: :any_skip_relocation, sonoma:         "138a50450b472852084733a5987a2fc72d2c9d86f826185c65b72cfc061dc41a"
-    sha256 cellar: :any_skip_relocation, ventura:        "89947af9db27140299c9595eee7ff52047594b88473de27ded7dbdb404d577fb"
-    sha256 cellar: :any_skip_relocation, monterey:       "2da852b65bd7b79276e693fb4a695a7ba24d6195224574ddfc344e0b095d47e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a7c3c6018917eff9b4ec99753b0f394ac1c995752b0e64d473940e086b4808b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2ccd25e65e1160440fca987398eebb77b20cef3e236ad649e2de50d41f7d28c8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ec07b9efb3d4868dcdb4aa110e248f6829f08f872679389015b1a24070832714"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "43110c4488d035a2db92978fe7d9cbb88f90b37240929f4c578f47291aaf5408"
+    sha256 cellar: :any_skip_relocation, sonoma:         "32dfcd37266880b782757171aa5c2ad6f5a00f6f5b1f0ba111a64d0c8630b532"
+    sha256 cellar: :any_skip_relocation, ventura:        "d2558710a9a58bd840ed08299da39d123b70cdd301bdb8cea0d70eaad0c66c04"
+    sha256 cellar: :any_skip_relocation, monterey:       "b55b4ca68350ddd03b2d9fee591fef82f548900b0aecca41276ebeb00c7d20d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d5b26050609780d6282683a6d7099cc77013cb7835150ce5b061cac86016584"
   end
 
   depends_on "go" => :build
