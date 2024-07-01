@@ -1,10 +1,9 @@
 class Eza < Formula
   desc "Modern, maintained replacement for ls"
   homepage "https://github.com/eza-community/eza"
-  url "https://github.com/eza-community/eza/archive/refs/tags/v0.18.18.tar.gz"
-  sha256 "437ea76838fea2464b9592f1adef7df0412e27c9fc2a3e7ff47efcdfb17457f5"
+  url "https://github.com/eza-community/eza/archive/refs/tags/v0.18.21.tar.gz"
+  sha256 "53cee12706be2b5bedcf40b97e077a18b254f0f53f1aee52d1d74136466045bc"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "d12d9b7c8b63cd3c058fee0fe6fe55d38b40dc1c1b299727b56d9aefb8a9e8a6"
@@ -19,9 +18,11 @@ class Eza < Formula
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "libgit2@1.7"
+  depends_on "libgit2"
 
   def install
+    ENV["LIBGIT2_NO_VENDOR"] = "1"
+
     system "cargo", "install", *std_cargo_args
 
     bash_completion.install "completions/bash/eza"
@@ -59,7 +60,7 @@ class Eza < Formula
     linkage_with_libgit2 = (bin/"eza").dynamically_linked_libraries.any? do |dll|
       next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
 
-      File.realpath(dll) == (Formula["libgit2@1.7"].opt_lib/shared_library("libgit2")).realpath.to_s
+      File.realpath(dll) == (Formula["libgit2"].opt_lib/shared_library("libgit2")).realpath.to_s
     end
 
     assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."
