@@ -1,10 +1,9 @@
 class Tree < Formula
   desc "Display directories as trees (with optional color/HTML output)"
   homepage "https://oldmanprogrammer.net/source.php?dir=projects/tree"
-  url "https://github.com/Old-Man-Programmer/tree/archive/refs/tags/2.1.1.tar.gz"
-  sha256 "1b70253994dca48a59d6ed99390132f4d55c486bf0658468f8520e7e63666a06"
+  url "https://github.com/Old-Man-Programmer/tree/archive/refs/tags/2.1.2.tar.gz"
+  sha256 "d2a09b7c57473bf0451c37c2dbd5a72406ea2ee0810e97bd01a6a5459c0ea3fb"
   license "GPL-2.0-or-later"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2d1c490c83719c983ec360085e9d0049418ff424259bc00122869f8acf68ed63"
