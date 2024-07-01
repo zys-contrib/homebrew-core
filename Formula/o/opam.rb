@@ -1,8 +1,8 @@
 class Opam < Formula
   desc "OCaml package manager"
   homepage "https://opam.ocaml.org"
-  url "https://github.com/ocaml/opam/releases/download/2.1.6/opam-full-2.1.6.tar.gz"
-  sha256 "d2af5edc85f552e0cf5ec0ddcc949d94f2dc550dc5df595174a06a4eaf8af628"
+  url "https://github.com/ocaml/opam/releases/download/2.2.0/opam-full-2.2.0-1.tar.gz"
+  sha256 "d8847873a83247b0e2b45914576a41819c8c3ec2b5f6edc86f13f429bbc6d8b4"
   license "LGPL-2.1-only"
   head "https://github.com/ocaml/opam.git", branch: "master"
 
@@ -24,8 +24,7 @@ class Opam < Formula
   def install
     ENV.deparallelize
 
-    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
-    system "make", "lib-ext"
+    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}", "--with-vendored-deps", "--with-mccs"
     system "make"
     system "make", "install"
 
