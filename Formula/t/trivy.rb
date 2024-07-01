@@ -1,8 +1,8 @@
 class Trivy < Formula
   desc "Vulnerability scanner for container images, file systems, and Git repos"
   homepage "https://aquasecurity.github.io/trivy/"
-  url "https://github.com/aquasecurity/trivy/archive/refs/tags/v0.52.2.tar.gz"
-  sha256 "001b02cdf03da2986001aaa9b21170d1705757f33cc3361fff24fb97de873500"
+  url "https://github.com/aquasecurity/trivy/archive/refs/tags/v0.53.0.tar.gz"
+  sha256 "958a5f2ea846f102ca14d3c0627b04117f85c5b35b30ac68119184d13faa791e"
   license "Apache-2.0"
   head "https://github.com/aquasecurity/trivy.git", branch: "main"
 
@@ -21,7 +21,7 @@ class Trivy < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/aquasecurity/trivy/pkg/version.ver=#{version}
+      -X github.com/aquasecurity/trivy/pkg/version/app.ver=#{version}
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/trivy"
   end
