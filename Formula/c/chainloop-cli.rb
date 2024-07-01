@@ -7,13 +7,13 @@ class ChainloopCli < Formula
   head "https://github.com/chainloop-dev/chainloop.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f45ae24c09c2b2e4f51fe525d0309fb8fde1df910bef75d7c0d8ab56621944ae"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "71eb35452a2f6e55c327f4d074a4bcfffb5036c7ab7eedfe7d56baf02b8b1020"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "346a63cf3ce58c6de12ed69c9dc052a209a3785815dd6ca625537a2a2c176725"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ad8071b229ecf6d1e997592853aab656b7e1bbe220cc6d9f52abf67210943ab3"
-    sha256 cellar: :any_skip_relocation, ventura:        "8b735c07defa7552235eb890de7a7a2b45ce5155e3451d0621588eb251fe73cd"
-    sha256 cellar: :any_skip_relocation, monterey:       "8f3a74d3621834154dbf9b39644add45993252ce92885adae534d3c426efde9c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f38dafad17a62d48cc95850652e275d8a6c19f9339b41aead492c10df6fdc151"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fc7677492214badeed3760fe16c3af508f1efa97680ffea14e62bac7268fa198"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9067c030aa0987a12e22ad6de4eed8c5a010db63b5c05e2a4f1c3fe9e1990ab0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0a693c2a30fc087f7d105572baee99621a62b30b81e337a30460d29664b063b9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ad91db0e45c195be7314811bf252e02f5c9ad3ac2d9642b963d8574525e86a7b"
+    sha256 cellar: :any_skip_relocation, ventura:        "d46ea6cf6a65351bb24e5f56f0ffbf197ed9d434f80748aa9cd9a12c9b02d05d"
+    sha256 cellar: :any_skip_relocation, monterey:       "a5a018fc5dad65ebb1d89fb7daec1d79bc19875e2358fd1c674d9a4d8ee2e27b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b608124d4d9ef8ac1979f5d1af7a2395dc51ea542c9da6c76519c1290c2b849"
   end
 
   depends_on "go" => :build
