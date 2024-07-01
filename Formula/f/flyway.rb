@@ -11,13 +11,13 @@ class Flyway < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2df0ecbf23e8076d4be14da739e1793cb01014353cdaf1f7196adda4f47599a7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2df0ecbf23e8076d4be14da739e1793cb01014353cdaf1f7196adda4f47599a7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2df0ecbf23e8076d4be14da739e1793cb01014353cdaf1f7196adda4f47599a7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2df0ecbf23e8076d4be14da739e1793cb01014353cdaf1f7196adda4f47599a7"
-    sha256 cellar: :any_skip_relocation, ventura:        "2df0ecbf23e8076d4be14da739e1793cb01014353cdaf1f7196adda4f47599a7"
-    sha256 cellar: :any_skip_relocation, monterey:       "2df0ecbf23e8076d4be14da739e1793cb01014353cdaf1f7196adda4f47599a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "02e42cdeffbb270a8b6c90841463977e0102dc7f2c941b98432ba4e7080997d3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f2fda2aebf40c3cb2790245702c2bc68331ca2de78956d2b75baf6c429fb0aca"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f2fda2aebf40c3cb2790245702c2bc68331ca2de78956d2b75baf6c429fb0aca"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f2fda2aebf40c3cb2790245702c2bc68331ca2de78956d2b75baf6c429fb0aca"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f2fda2aebf40c3cb2790245702c2bc68331ca2de78956d2b75baf6c429fb0aca"
+    sha256 cellar: :any_skip_relocation, ventura:        "f2fda2aebf40c3cb2790245702c2bc68331ca2de78956d2b75baf6c429fb0aca"
+    sha256 cellar: :any_skip_relocation, monterey:       "f2fda2aebf40c3cb2790245702c2bc68331ca2de78956d2b75baf6c429fb0aca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe5c0582f9e4260adbeebfa3fc1aff0ee6037b132e191b444fcabbb62972488a"
   end
 
   depends_on "openjdk"
