@@ -3,8 +3,8 @@ require "language/node"
 class FernApi < Formula
   desc "Stripe-level SDKs and Docs for your API"
   homepage "https://buildwithfern.com/"
-  url "https://registry.npmjs.org/fern-api/-/fern-api-0.31.7.tgz"
-  sha256 "21c17fb8d0a4d9b351f35c7dff16ac4b64b78d6b657f192253bfc0b18bf4cc29"
+  url "https://registry.npmjs.org/fern-api/-/fern-api-0.31.8.tgz"
+  sha256 "1ebc93a814d7ca148ab484cffade4186891f3e4444796500bb1a8847d76a558e"
   license "MIT"
 
   bottle do
