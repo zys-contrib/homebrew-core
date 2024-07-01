@@ -3,10 +3,9 @@ class Copier < Formula
 
   desc "Utility for rendering projects templates"
   homepage "https://copier.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/3e/65/4059cf029a8782706f53871bcd5402873923bf04353014bf27bc8d5fb2d7/copier-9.2.0.tar.gz"
-  sha256 "4ed9012579923955d3fc61d049568907fabe6d9a47e5f871236c6aae0b7472f1"
+  url "https://files.pythonhosted.org/packages/ad/94/7d68e4bf431f5dec256a7dfafe081161f2b7dd41cf87c8726afb9bd1a6e0/copier-9.3.0.tar.gz"
+  sha256 "99adf780b1f044f94538bcd5f694850b11ed40957fd866ce2cb19ee2b4e82dca"
   license "MIT"
-  revision 1
 
   bottle do
     rebuild 1
@@ -34,8 +33,8 @@ class Copier < Formula
   end
 
   resource "dunamai" do
-    url "https://files.pythonhosted.org/packages/e0/84/e321b67334207eefeda01942cd57c93ed985e2a4b5e1af1cd60458d7d0d0/dunamai-1.21.1.tar.gz"
-    sha256 "d7fea28ad2faf20a6ca5ec121e5c68e55eec6b8ada23d9c387e4e7a574cc559f"
+    url "https://files.pythonhosted.org/packages/c2/71/7cc5ba60aabefebfaa800e18d82388b0eb48f8f0becbfa5838afe7920484/dunamai-1.21.2.tar.gz"
+    sha256 "05827fb5f032f5596bfc944b23f613c147e676de118681f3bb1559533d8a65c4"
   end
 
   resource "funcy" do
