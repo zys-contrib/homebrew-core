@@ -2526,6 +2526,7 @@ uutils-diffutils
 uutils-findutils
 uuu
 uv
+uvg266
 uvicorn
 uwsgi
 v2ray
