@@ -1,8 +1,8 @@
 class DockerCompletion < Formula
   desc "Bash, Zsh and Fish completion for Docker"
   homepage "https://www.docker.com/"
-  url "https://github.com/docker/cli/archive/refs/tags/v27.0.2.tar.gz"
-  sha256 "a2b31d4c8143c8b126e98a359639f51727fc83fc1e61670efbdeaa7dea92fd5a"
+  url "https://github.com/docker/cli/archive/refs/tags/v27.0.3.tar.gz"
+  sha256 "f992e895c949852686abef9a6fa9efd622826c4f4d70b83876569a4641c4c8fc"
   license "Apache-2.0"
   head "https://github.com/docker/cli.git", branch: "master"
 
