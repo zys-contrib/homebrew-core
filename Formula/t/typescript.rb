@@ -9,13 +9,13 @@ class Typescript < Formula
   head "https://github.com/Microsoft/TypeScript.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0252c491a4b9cdaf59af0b41d4cc4acb7fabc0500d3480be36e74ca1887e7da5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0252c491a4b9cdaf59af0b41d4cc4acb7fabc0500d3480be36e74ca1887e7da5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0252c491a4b9cdaf59af0b41d4cc4acb7fabc0500d3480be36e74ca1887e7da5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0252c491a4b9cdaf59af0b41d4cc4acb7fabc0500d3480be36e74ca1887e7da5"
-    sha256 cellar: :any_skip_relocation, ventura:        "0252c491a4b9cdaf59af0b41d4cc4acb7fabc0500d3480be36e74ca1887e7da5"
-    sha256 cellar: :any_skip_relocation, monterey:       "0252c491a4b9cdaf59af0b41d4cc4acb7fabc0500d3480be36e74ca1887e7da5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "04877163aecb209e935bf45c52efeb3a4bf146ef0671317206273557e7f61621"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "356dcef9f8ad0f1789d1f295c71085c9ba5f631fe037f26c5633b966be9df9b2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "356dcef9f8ad0f1789d1f295c71085c9ba5f631fe037f26c5633b966be9df9b2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "356dcef9f8ad0f1789d1f295c71085c9ba5f631fe037f26c5633b966be9df9b2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "356dcef9f8ad0f1789d1f295c71085c9ba5f631fe037f26c5633b966be9df9b2"
+    sha256 cellar: :any_skip_relocation, ventura:        "356dcef9f8ad0f1789d1f295c71085c9ba5f631fe037f26c5633b966be9df9b2"
+    sha256 cellar: :any_skip_relocation, monterey:       "356dcef9f8ad0f1789d1f295c71085c9ba5f631fe037f26c5633b966be9df9b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a7b3199e241f01b3983e59c69a08a242a4715a0e2cc84f979b5b9281b0d546a"
   end
 
   depends_on "node"
