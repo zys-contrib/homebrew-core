@@ -1323,6 +1323,7 @@ lego
 leiningen
 leptonica
 lerna
+less
 lesspipe
 lexbor
 lexicon
