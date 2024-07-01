@@ -3,8 +3,8 @@ require "language/node"
 class Hexo < Formula
   desc "Fast, simple & powerful blog framework"
   homepage "https://hexo.io/"
-  url "https://registry.npmjs.org/hexo/-/hexo-7.2.0.tgz"
-  sha256 "26e9a3261d7c7dc121be04cc9c592164a2504f2a1940dab0f0a2447ded32c879"
+  url "https://registry.npmjs.org/hexo/-/hexo-7.3.0.tgz"
+  sha256 "807b356fef2aa9623788b0e2b997fc6955c4c0a2a70fc1a8776c281194e4277e"
   license "MIT"
   head "https://github.com/hexojs/hexo.git", branch: "master"
 
