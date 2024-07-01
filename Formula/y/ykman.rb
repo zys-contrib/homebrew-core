@@ -3,8 +3,8 @@ class Ykman < Formula
 
   desc "Tool for managing your YubiKey configuration"
   homepage "https://developers.yubico.com/yubikey-manager/"
-  url "https://files.pythonhosted.org/packages/94/1a/93777ec4776013f0c51b2d5f0c61fec8b7b54d6150a4c22bd6e2b4463d71/yubikey_manager-5.5.0.tar.gz"
-  sha256 "27a616443f79690a5a74d694c642f15b6c887160a7bd81ae43b624bb325e7662"
+  url "https://files.pythonhosted.org/packages/b5/50/9b446ca65124bbd7bc0e74304cda737248a6bceb602e5dba957114ab64df/yubikey_manager-5.5.1.tar.gz"
+  sha256 "2b1f4e70813973c646eb301c8f2513faf5e4736dd3c564422efdce0349c02afd"
   license "BSD-2-Clause"
   head "https://github.com/Yubico/yubikey-manager.git", branch: "main"
 
@@ -67,8 +67,8 @@ class Ykman < Formula
   end
 
   resource "pyscard" do
-    url "https://files.pythonhosted.org/packages/27/f9/290e3af3b9cf367d8bc9ffe13f537d26ba37ba93b1eae90777125d22d822/pyscard-2.0.8.tar.gz"
-    sha256 "2eb16ee0e89ab27759fcb36f032c40a5774ed5926c0e03309837bdeb563a6032"
+    url "https://files.pythonhosted.org/packages/7a/d9/8dd344c82d19c240349695a8de71e9d9cd9c55d62ae3952a103147e4687c/pyscard-2.0.10.tar.gz"
+    sha256 "4b9b865df03b29522e80ebae17790a8b3a096a9d885cda19363b44b1a6bf5c1c"
   end
 
   resource "secretstorage" do
@@ -80,7 +80,15 @@ class Ykman < Formula
     # Fixes: smartcard/scard/helpers.c:28:22: fatal error: winscard.h: No such file or directory
     ENV.append "CFLAGS", "-I#{Formula["pcsc-lite"].opt_include}/PCSC" if OS.linux?
 
-    virtualenv_install_with_resources
+    venv = virtualenv_install_with_resources without: "pyscard"
+    # Use brewed swig
+    # https://github.com/Homebrew/homebrew-core/pull/176069#issuecomment-2200583084
+    # https://github.com/LudovicRousseau/pyscard/issues/169#issuecomment-2200632337
+    resource("pyscard").stage do
+      inreplace "pyproject.toml", 'requires = ["setuptools","swig"]', 'requires = ["setuptools"]'
+      venv.pip_install Pathname.pwd
+    end
+
     man1.install "man/ykman.1"
 
     # Click doesn't support generating completions for Bash versions older than 4.4
