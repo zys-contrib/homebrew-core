@@ -300,6 +300,7 @@ cargo-make
 cargo-nextest
 cargo-outdated
 cargo-release
+cargo-udeps
 cargo-watch
 cargo-zigbuild
 cariddi
