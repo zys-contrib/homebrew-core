@@ -1841,6 +1841,7 @@ p11-kit
 pacapt
 packetbeat
 packmol
+pacparser
 pan
 pandoc
 pandoc-crossref
