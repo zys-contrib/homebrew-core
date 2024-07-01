@@ -1,9 +1,9 @@
 class Httpd < Formula
   desc "Apache HTTP server"
   homepage "https://httpd.apache.org/"
-  url "https://dlcdn.apache.org/httpd/httpd-2.4.59.tar.bz2"
-  mirror "https://downloads.apache.org/httpd/httpd-2.4.59.tar.bz2"
-  sha256 "ec51501ec480284ff52f637258135d333230a7d229c3afa6f6c2f9040e321323"
+  url "https://dlcdn.apache.org/httpd/httpd-2.4.60.tar.bz2"
+  mirror "https://downloads.apache.org/httpd/httpd-2.4.60.tar.bz2"
+  sha256 "7b1ec7ec5635da7cb01550513215a90f8b2f52bb7c90cf3e97ede936d3e55b0f"
   license "Apache-2.0"
 
   bottle do
@@ -23,6 +23,7 @@ class Httpd < Formula
   depends_on "openssl@3"
   depends_on "pcre2"
 
+  uses_from_macos "libxcrypt"
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
 

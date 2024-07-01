@@ -1109,6 +1109,7 @@ htmltest
 htpdate
 htslib
 httm
+httpd
 httping
 httpx
 httpyac
