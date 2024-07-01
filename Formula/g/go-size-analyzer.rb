@@ -20,6 +20,8 @@ class GoSizeAnalyzer < Formula
   depends_on "node" => :build
   depends_on "pnpm" => :build
 
+  conflicts_with "gwenhywfar", because: "both install `gsa` binaries"
+
   def install
     system "pnpm", "--dir", "ui", "install"
     system "pnpm", "--dir", "ui", "build:ui"
