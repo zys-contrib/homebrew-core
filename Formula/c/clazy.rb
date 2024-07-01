@@ -1,33 +1,10 @@
 class Clazy < Formula
   desc "Qt oriented static code analyzer"
   homepage "https://www.kdab.com/"
+  url "https://download.kde.org/stable/clazy/1.12/src/clazy-1.12.tar.xz"
+  sha256 "611749141d07ce1e006f8a1253f9b2dbd5b7b44d2d5322d471d62430ec2849ac"
   license "LGPL-2.0-or-later"
-  revision 3
   head "https://invent.kde.org/sdk/clazy.git", branch: "master"
-
-  stable do
-    url "https://download.kde.org/stable/clazy/1.11/src/clazy-1.11.tar.xz"
-    sha256 "66165df33be8785218720c8947aa9099bae6d06c90b1501953d9f95fdfa0120a"
-
-    # Backport support for LLVM 15
-    patch do
-      url "https://invent.kde.org/sdk/clazy/-/commit/20fca52da739ebefa47e35f6b338bb99a0da3cfe.diff"
-      sha256 "b6f76075f9ecd9fad0d1bea84c3868de07d128df6d24c99d2de761e5718429f5"
-    end
-
-    # Backport support for LLVM 16
-    patch do
-      url "https://invent.kde.org/sdk/clazy/-/commit/a05ac7eb6f6198c3f478bd7b5b4bfc062a8d63cc.diff"
-      sha256 "4257ed252eee84e1fa2b2b072d6cd3ff01a0a8d82a4b2f224ef783d88e341510"
-    end
-
-    # Backport support for LLVM 17
-    patch :DATA # https://invent.kde.org/sdk/clazy/-/commit/05d4020614379557f733739d7f6495dc0c2ad0bd
-    patch do
-      url "https://invent.kde.org/sdk/clazy/-/commit/a9aabd821d8be7932c954e1cdd8d4e10f38f8785.diff"
-      sha256 "15816ee3b0af43e9c4e2d81fd1811b4ed14f384dca32057ea58930961627af1c"
-    end
-  end
 
   livecheck do
     url :head
@@ -103,36 +80,3 @@ class Clazy < Formula
       shell_output("make VERBOSE=1 2>&1")
   end
 end
-
-__END__
-diff --git a/src/checks/manuallevel/unexpected-flag-enumerator-value.cpp b/src/checks/manuallevel/unexpected-flag-enumerator-value.cpp
-index ae1e607..f20c42d 100644
---- a/src/checks/manuallevel/unexpected-flag-enumerator-value.cpp
-+++ b/src/checks/manuallevel/unexpected-flag-enumerator-value.cpp
-@@ -58,11 +58,13 @@ static bool isIntentionallyNotPowerOf2(EnumConstantDecl *en) {
-     constexpr unsigned MinOnesToQualifyAsMask = 3;
-
-     const auto val = en->getInitVal();
--    if (val.isMask() && val.countTrailingOnes() >= MinOnesToQualifyAsMask)
-+    if (val.isMask() && val.countTrailingOnes() >= MinOnesToQualifyAsMask) {
-         return true;
-+    }
-
--    if (val.isShiftedMask() && val.countPopulation() >= MinOnesToQualifyAsMask)
-+    if (val.isShiftedMask() && val.countPopulation() >= MinOnesToQualifyAsMask) {
-         return true;
-+    }
-
-     if (clazy::contains_lower(en->getName(), "mask"))
-         return true;
-@@ -159,8 +161,9 @@ void UnexpectedFlagEnumeratorValue::VisitDecl(clang::Decl *decl)
-     for (EnumConstantDecl* enumerator : enumerators) {
-         const auto &initVal = enumerator->getInitVal();
-         if (!initVal.isPowerOf2() && !initVal.isNullValue() && !initVal.isNegative()) {
--            if (isIntentionallyNotPowerOf2(enumerator))
-+            if (isIntentionallyNotPowerOf2(enumerator)) {
-                 continue;
-+            }
-             const auto value = enumerator->getInitVal().getLimitedValue();
-             Expr *initExpr = enumerator->getInitExpr();
-             emitWarning(initExpr ? initExpr->getBeginLoc() : enumerator->getBeginLoc(), "Unexpected non power-of-2 enumerator value: " + std::to_string(value));
