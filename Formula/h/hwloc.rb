@@ -11,13 +11,13 @@ class Hwloc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "19cbbbca07f9a59c9616df503effac71e54c077b534d9326f4df8c9525c1a3c4"
-    sha256 cellar: :any,                 arm64_ventura:  "fc15adcc45bafd0bbf640875501375c8b64a6b857960c20ac771dfadbd3a0a0f"
-    sha256 cellar: :any,                 arm64_monterey: "4e3a3403dcb48a28115689ac204ec581765280b75458a7fe5074d919dc6641d4"
-    sha256 cellar: :any,                 sonoma:         "0060d6e3988ea5ce00e7f73940b42f107a4800e644db12cdb24cbe2fa5c557c7"
-    sha256 cellar: :any,                 ventura:        "bd8025b89ae95b6f5af1686e217533e9890ea454415b3e34adccaae34ef5aefb"
-    sha256 cellar: :any,                 monterey:       "403695717af1e987d7c6e297942657a4adadf69858cc29de9be7081d2e8013c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8e85eaa4947cdf8fc3ea0d14034ece7ad3ee3dc7ef7d687cad3575014024a5e"
+    sha256 cellar: :any,                 arm64_sonoma:   "82bd05d6b04a01854c9a3601a21405673951b57485c61ed61f21c851dfbd52bd"
+    sha256 cellar: :any,                 arm64_ventura:  "b3c48332505261821ba1f2c4b7ad0b0f83a243f68ac973e317315c2fb9bb1441"
+    sha256 cellar: :any,                 arm64_monterey: "c209599a54a7a3c56ec72880d71fefed4c28d4bc7b118eb59a0b4311edea5890"
+    sha256 cellar: :any,                 sonoma:         "7e166a0ef235e401f02fa59e55fa61f31fd6caa206085b8aa6249eb0bf6ac9f6"
+    sha256 cellar: :any,                 ventura:        "0a676c53ef17512fdebe5d9b23abdaaaae06202b989ea0f45962221e4ad312d6"
+    sha256 cellar: :any,                 monterey:       "f66cac578955754c0f2ae9048e0029329a1a68daa0825e15923f9392aeae6184"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a9781058a82bec16e2d9138343dbc66a630e1c2937160926fea3b611f7085f7"
   end
 
   head do
