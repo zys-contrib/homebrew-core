@@ -1,8 +1,8 @@
 class Cariddi < Formula
   desc "Scan for endpoints, secrets, API keys, file extensions, tokens and more"
   homepage "https://github.com/edoardottt/cariddi"
-  url "https://github.com/edoardottt/cariddi/archive/refs/tags/v1.3.4.tar.gz"
-  sha256 "422d5d764ff44c7226947aa82a1396e6298082db2582ba320d41043aa700dbb1"
+  url "https://github.com/edoardottt/cariddi/archive/refs/tags/v1.3.5.tar.gz"
+  sha256 "f3eb60db36fe59655e13dabad8612cd9fa1b669c4a0c5c29c9bfe88b7c045db8"
   license "GPL-3.0-or-later"
   head "https://github.com/edoardottt/cariddi.git", branch: "main"
 
