@@ -1263,6 +1263,7 @@ kor
 kotlin
 kpcli
 krakend
+krb5
 krew
 ksops
 ktfmt
