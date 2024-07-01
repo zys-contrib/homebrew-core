@@ -1,8 +1,8 @@
 class Doggo < Formula
   desc "Command-line DNS Client for Humans"
   homepage "https://doggo.mrkaran.dev/"
-  url "https://github.com/mr-karan/doggo/archive/refs/tags/v0.5.7.tar.gz"
-  sha256 "3f70c40ccc9ffba539fd37c0ed8c5a1a0ab89f29815994826bfeb8e0b60e2eff"
+  url "https://github.com/mr-karan/doggo/archive/refs/tags/v0.6.3.tar.gz"
+  sha256 "0af32a5481bc4f55147ea5c9cf3814c86dcab837ef932541fbdf4d9ab07f4cda"
   license "GPL-3.0-or-later"
   head "https://github.com/mr-karan/doggo.git", branch: "main"
 
@@ -21,16 +21,10 @@ class Doggo < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X main.buildVersion=#{version}
-      -X main.buildDate=#{time.iso8601}
-    ]
+    ldflags = "-s -w -X main.buildVersion=#{version} -X main.buildDate=#{time.iso8601}"
+    system "go", "build", *std_go_args(ldflags:), "./cmd"
 
-    system "go", "build", *std_go_args(ldflags:), "./cmd/doggo"
-
-    zsh_completion.install "completions/doggo.zsh" => "_doggo"
-    fish_completion.install "completions/doggo.fish"
+    generate_completions_from_executable(bin/"doggo", "completions")
   end
 
   test do
