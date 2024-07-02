@@ -8,13 +8,13 @@ class Astgen < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3016bd27a2d0c2b01a6c2880072d2f7858826ac45efd23217627ccb0da9903b1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3016bd27a2d0c2b01a6c2880072d2f7858826ac45efd23217627ccb0da9903b1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3016bd27a2d0c2b01a6c2880072d2f7858826ac45efd23217627ccb0da9903b1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3016bd27a2d0c2b01a6c2880072d2f7858826ac45efd23217627ccb0da9903b1"
-    sha256 cellar: :any_skip_relocation, ventura:        "3016bd27a2d0c2b01a6c2880072d2f7858826ac45efd23217627ccb0da9903b1"
-    sha256 cellar: :any_skip_relocation, monterey:       "3016bd27a2d0c2b01a6c2880072d2f7858826ac45efd23217627ccb0da9903b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8d037eaf6c46383213bfd3c9fbef70131db4ac0562da3957a446fca230958e4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ed39988aab49ef7a4f34118af779465a330dd25bf0a793146552c2c659aed178"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ed39988aab49ef7a4f34118af779465a330dd25bf0a793146552c2c659aed178"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ed39988aab49ef7a4f34118af779465a330dd25bf0a793146552c2c659aed178"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ed39988aab49ef7a4f34118af779465a330dd25bf0a793146552c2c659aed178"
+    sha256 cellar: :any_skip_relocation, ventura:        "ed39988aab49ef7a4f34118af779465a330dd25bf0a793146552c2c659aed178"
+    sha256 cellar: :any_skip_relocation, monterey:       "ed39988aab49ef7a4f34118af779465a330dd25bf0a793146552c2c659aed178"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f050211f92e11b55282dcefa185607a3eccd2dc3ea481a3fe84ccab532e46fc4"
   end
 
   depends_on "node"
