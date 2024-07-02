@@ -1,8 +1,8 @@
 class IrcdHybrid < Formula
   desc "High-performance secure IRC server"
   homepage "https://www.ircd-hybrid.org/"
-  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.44/ircd-hybrid-8.2.44.tgz"
-  sha256 "6bf0c2ff5fc643dc1757a232c9bd5825d33891c7cc1837f024ad4fff7c61c679"
+  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.45/ircd-hybrid-8.2.45.tgz"
+  sha256 "951ae032ab04a87b47e602339e07e0d06b6e87bd5a4eb334f3b395be14f75e44"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -33,13 +33,12 @@ class IrcdHybrid < Formula
   def install
     ENV.deparallelize # build system trips over itself
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--localstatedir=#{var}",
+    system "./configure", "--localstatedir=#{var}",
                           "--sysconfdir=#{etc}",
-                          "--enable-openssl=#{Formula["openssl@3"].opt_prefix}"
+                          "--with-tls=openssl",
+                          *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
-    etc.install "doc/reference.conf" => "ircd.conf"
+    etc.install "doc/reference.modules.conf" => "ircd.conf"
   end
 
   def caveats
