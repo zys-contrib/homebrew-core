@@ -7,7 +7,7 @@ class RapidfuzzCpp < Formula
   head "https://github.com/maxbachmann/rapidfuzz-cpp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "389eb01bf897402a8912fe918071117674784e5a0d7a79c3d6dc134179562907"
+    sha256 cellar: :any_skip_relocation, all: "af7926b7fd79e17687628341e6a4e249bb8e8497319c8e6758af188db572797e"
   end
 
   depends_on "cmake" => :build
