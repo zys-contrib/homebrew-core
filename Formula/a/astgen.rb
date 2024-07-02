@@ -3,8 +3,8 @@ require "language/node"
 class Astgen < Formula
   desc "Generate AST in json format for JS/TS"
   homepage "https://github.com/joernio/astgen"
-  url "https://github.com/joernio/astgen/archive/refs/tags/v3.15.0.tar.gz"
-  sha256 "3eec781e5f794a3086f75775e683f441da84403bf081f8add3df2b70c7e8ad74"
+  url "https://github.com/joernio/astgen/archive/refs/tags/v3.16.0.tar.gz"
+  sha256 "3097f0db0d7dc223c851ed42e2692d2991f36f0e4446321f5f4ef22413af696c"
   license "Apache-2.0"
 
   bottle do
@@ -18,6 +18,8 @@ class Astgen < Formula
   end
 
   depends_on "node"
+
+  uses_from_macos "zlib"
 
   def install
     # Disable custom postinstall script
