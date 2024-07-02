@@ -7,13 +7,13 @@ class Doggo < Formula
   head "https://github.com/mr-karan/doggo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3bb46b4e3376a0990e0d34c788931153a6b55a357a456ba969673ea6c21010b4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0cd40e5cb34f19a73d7483602c897988761a88daa3536be49cfa6de90f6d95f8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ced6713b0465fea2582757afa4773101d1a5f0d86582dd497f95eef34fdee76d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "06b3594b2eb05e656f295e85ac4f2bc9d41ad83f6d6fa075a5c2150d9f5d0093"
-    sha256 cellar: :any_skip_relocation, ventura:        "3a3579ace8912596588e837de62e38d5bef20c99d3e1d5f85fe224e980281d71"
-    sha256 cellar: :any_skip_relocation, monterey:       "0e6d918c75dfff6b9a3c6e93ac502fab10ca3bb5e1bbffac6a8a74df857dbffb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ba67bf20855259609c27eda9612bd0ea4f72f490e5469ce384597a549f9ca86"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "42d0acacbd17caac6893be27553e2b3a2073409134482fe0f2fb6c448954001a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8a1f3c72e74d7690ffe0e1b9c9ee2b55fd69fb46a3445345171559d6ef569c42"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "33cedbb7407392ccf307bbdac09d51a53623f657ff94479d89d7306f206cf13a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0c59a35c34c50dc8e646963386df207798a94d58dd28930f94293a0e70a43404"
+    sha256 cellar: :any_skip_relocation, ventura:        "0c13a5167e684660ff6de1357a29f6839f8047eae8b020374c8b6ac41727bcac"
+    sha256 cellar: :any_skip_relocation, monterey:       "c35e33fe3edb8c15b85df3e1f61fc1d69296ac7820432dc734beb7a773bde75f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "811500996d8d721b0934122a7de05905355f8c41ff739ed771e05ba6bcf42b43"
   end
 
   depends_on "go" => :build
