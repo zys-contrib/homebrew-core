@@ -1200,6 +1200,7 @@ jlog
 jmeter
 jnethack
 jnv
+johnnydep
 joker
 jolie
 joplin-cli
