@@ -1,8 +1,8 @@
 class Ain < Formula
   desc "HTTP API client for the terminal"
   homepage "https://github.com/jonaslu/ain"
-  url "https://github.com/jonaslu/ain/archive/refs/tags/v1.4.1.tar.gz"
-  sha256 "dd0037d319085a29c5ba24d50853995f857feda7de482bc9a60887497ce19129"
+  url "https://github.com/jonaslu/ain/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "f886d5df83abd6788ac4f1875844f51d609fa1f466b8af5a5cc8acab92781cc5"
   license "MIT"
   head "https://github.com/jonaslu/ain.git", branch: "main"
 
