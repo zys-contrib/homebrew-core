@@ -1,8 +1,8 @@
 class StripNondeterminism < Formula
   desc "Tool for stripping bits of non-deterministic information from files"
   homepage "https://salsa.debian.org/reproducible-builds/strip-nondeterminism"
-  url "https://salsa.debian.org/reproducible-builds/strip-nondeterminism/-/archive/1.13.1/strip-nondeterminism-1.13.1.tar.bz2"
-  sha256 "0bde4b23edd6cdb82fcdc4745ef9dc8ca0743e7c7e4fb2ea0bf78c76511f49f3"
+  url "https://salsa.debian.org/reproducible-builds/strip-nondeterminism/-/archive/1.14.0/strip-nondeterminism-1.14.0.tar.bz2"
+  sha256 "a401c4a3bec46ae01da84c4de1c41b81402bbd2355c7978ba700cbad9873950f"
   license "GPL-3.0-or-later"
   head "https://salsa.debian.org/reproducible-builds/strip-nondeterminism.git", branch: "master"
 
@@ -32,13 +32,8 @@ class StripNondeterminism < Formula
   end
 
   resource "Getopt::Long" do
-    url "https://cpan.metacpan.org/authors/id/J/JV/JV/Getopt-Long-2.54.tar.gz"
-    sha256 "584ba3c99bb2d6b341375212f9b874613f706cfb01cee21b8a2676a98ab985fe"
-  end
-
-  resource "Sub::Override" do
-    url "https://cpan.metacpan.org/authors/id/O/OV/OVID/Sub-Override-0.09.tar.gz"
-    sha256 "939a67c1f729968e0cc81b74958db750e1bdb7c020bee1a263332f422c2e25b5"
+    url "https://cpan.metacpan.org/authors/id/J/JV/JV/Getopt-Long-2.58.tar.gz"
+    sha256 "1305ed46ea21f794304e97aa3dcd3a38519059785e9db7415daf2c218506c569"
   end
 
   def install
