@@ -4,13 +4,12 @@ class Dmd < Formula
   license "BSL-1.0"
 
   stable do
-    # make sure resources also use the same version
-    url "https://github.com/dlang/dmd/archive/refs/tags/v2.109.0.tar.gz"
-    sha256 "e6df7517fbdce8406e234119c5a30ebf924efa590831fea689eccef8c73cbda4"
+    url "https://github.com/dlang/dmd/archive/refs/tags/v2.109.1.tar.gz"
+    sha256 "8c2ce18945e3807a1568f6ec6ce0a8f2b88efa472ce0397ea1305fc2a1b8a587"
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/refs/tags/v2.109.0.tar.gz"
-      sha256 "22b1dbd4326d7c2ee2fc9bc56c681db921c604280046296fcc21d706d328b632"
+      url "https://github.com/dlang/phobos/archive/refs/tags/v2.109.1.tar.gz"
+      sha256 "28974debe14d18eb58591db0dad3ddd4139e8f34783c3648c86619b67d7ba6f2"
     end
   end
 
