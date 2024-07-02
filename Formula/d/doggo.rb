@@ -1,8 +1,8 @@
 class Doggo < Formula
   desc "Command-line DNS Client for Humans"
   homepage "https://doggo.mrkaran.dev/"
-  url "https://github.com/mr-karan/doggo/archive/refs/tags/v1.0.1.tar.gz"
-  sha256 "3358c6017d3f3220e84ed86b7a67bdf15a079e4052eb85f51e87b16b6d2961c2"
+  url "https://github.com/mr-karan/doggo/archive/refs/tags/v1.0.2.tar.gz"
+  sha256 "d63947f3f944be319bb1ae6438d2cde5b923d796b544403fb3905e0460864385"
   license "GPL-3.0-or-later"
   head "https://github.com/mr-karan/doggo.git", branch: "main"
 
@@ -20,7 +20,7 @@ class Doggo < Formula
 
   def install
     ldflags = "-s -w -X main.buildVersion=#{version} -X main.buildDate=#{time.iso8601}"
-    system "go", "build", *std_go_args(ldflags:), "./cmd"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/doggo"
 
     generate_completions_from_executable(bin/"doggo", "completions")
   end
