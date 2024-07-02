@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-lint/"
-  url "https://files.pythonhosted.org/packages/1b/39/e47e6f08e3c3298d5fb004e2075479d0846f169c13f731944002bd510040/cfn_lint-1.4.2.tar.gz"
-  sha256 "5f70df127c438117bb7f6da73e2310cebcf1901ba5ed001c6fbb0715c09efdde"
+  url "https://files.pythonhosted.org/packages/aa/b5/b8db6db99441da8140a9b997b27260187ab9cbde2e272d82072b991490c6/cfn_lint-1.5.0.tar.gz"
+  sha256 "7fdcf1b1393ace49d50f7e8f047f90811a1c463a1cd57489d4781a31f205a8d0"
   license "MIT-0"
 
   livecheck do
@@ -42,13 +42,13 @@ class CfnLint < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/62/0a/68b3c21e216cdbbefa7359e112366fbb9814a95f5685fe48cd645e42a11e/boto3-1.34.135.tar.gz"
-    sha256 "344f635233c85dbb509b87638232ff9132739f90bb5e6bf01fa0e0a521a9107e"
+    url "https://files.pythonhosted.org/packages/36/32/b766eafe67488ab84382f39b04b7aecc1d25f97e154ba56fed414a8f2c2b/boto3-1.34.137.tar.gz"
+    sha256 "0b21b84db4619b3711a6f643d465a5a25e81231ee43615c55a20ff6b89c6cc3c"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/a5/5c/daf47c0a9b31c0e57652bad6b22891c9efea5272fb0d62ee5429f0fb37e8/botocore-1.34.135.tar.gz"
-    sha256 "2e72f37072f75cb1391fca9d7a4c32cecb52a3557d62431d0f59d5311dc7d0cf"
+    url "https://files.pythonhosted.org/packages/53/14/0289e386626f646817b8e8001c35c76dfa2d2ebdc42e5a7cca1578e7bc5c/botocore-1.34.137.tar.gz"
+    sha256 "e29c8e9bfda0b20a1997792968e85868bfce42fefad9730f633a81adcff3f2ef"
   end
 
   resource "jmespath" do
@@ -87,13 +87,13 @@ class CfnLint < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/0d/fc/ccd0e8910bc780f1a4e1ab15e97accbb1f214932e796cff3131f9a943967/pydantic-2.7.4.tar.gz"
-    sha256 "0c84efd9548d545f63ac0060c1e4d39bb9b14db8b3c0652338aecc07b5adec52"
+    url "https://files.pythonhosted.org/packages/8b/7b/23dc30fba5793d7be3307f33bebb36e08f78f8af9c03fce608833f01bebd/pydantic-2.8.0.tar.gz"
+    sha256 "d970ffb9d030b710795878940bd0489842c638e7252fc4a19c3ae2f7da4d6141"
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/02/d0/622cdfe12fb138d035636f854eb9dc414f7e19340be395799de87c1de6f6/pydantic_core-2.18.4.tar.gz"
-    sha256 "ec3beeada09ff865c344ff3bc2f427f5e6c26401cc6113d77e372c3fdac73864"
+    url "https://files.pythonhosted.org/packages/7d/fa/9802d053f33dbcf110d46e3f28667b06cd764b164f1e3f4189848cdd6e78/pydantic_core-2.20.0.tar.gz"
+    sha256 "366be8e64e0cb63d87cf79b4e1765c0703dd6313c729b22e7b9e378db6b96877"
   end
 
   resource "python-dateutil" do
