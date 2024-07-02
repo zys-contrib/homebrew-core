@@ -11,13 +11,13 @@ class DependencyCheck < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eac49e5409f44caef9e6bdb210f3d54692f12f988455517e2b49ed282eb65a51"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eac49e5409f44caef9e6bdb210f3d54692f12f988455517e2b49ed282eb65a51"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "eac49e5409f44caef9e6bdb210f3d54692f12f988455517e2b49ed282eb65a51"
-    sha256 cellar: :any_skip_relocation, sonoma:         "eac49e5409f44caef9e6bdb210f3d54692f12f988455517e2b49ed282eb65a51"
-    sha256 cellar: :any_skip_relocation, ventura:        "eac49e5409f44caef9e6bdb210f3d54692f12f988455517e2b49ed282eb65a51"
-    sha256 cellar: :any_skip_relocation, monterey:       "eac49e5409f44caef9e6bdb210f3d54692f12f988455517e2b49ed282eb65a51"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "060b99f1b4f7b99e2fe0f4d932023cad1e67493533df85cb96f74afa36d734e7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7f9dacf8fff74df486856cfa625a21d411ed48ebe56ada289646fe18dae098e9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7f9dacf8fff74df486856cfa625a21d411ed48ebe56ada289646fe18dae098e9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7f9dacf8fff74df486856cfa625a21d411ed48ebe56ada289646fe18dae098e9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7f9dacf8fff74df486856cfa625a21d411ed48ebe56ada289646fe18dae098e9"
+    sha256 cellar: :any_skip_relocation, ventura:        "7f9dacf8fff74df486856cfa625a21d411ed48ebe56ada289646fe18dae098e9"
+    sha256 cellar: :any_skip_relocation, monterey:       "7f9dacf8fff74df486856cfa625a21d411ed48ebe56ada289646fe18dae098e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f87709cec094b2b3a0ce720c84bcb28fe43ab3ea960567d7f8eee03967af1da4"
   end
 
   depends_on "openjdk"
