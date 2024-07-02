@@ -6,13 +6,13 @@ class ApibuilderCli < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "79672b8fc92835089a5ce4e1ac85aca4dddea758b5201b870e077cb5ac8e0553"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "79672b8fc92835089a5ce4e1ac85aca4dddea758b5201b870e077cb5ac8e0553"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "79672b8fc92835089a5ce4e1ac85aca4dddea758b5201b870e077cb5ac8e0553"
-    sha256 cellar: :any_skip_relocation, sonoma:         "79672b8fc92835089a5ce4e1ac85aca4dddea758b5201b870e077cb5ac8e0553"
-    sha256 cellar: :any_skip_relocation, ventura:        "79672b8fc92835089a5ce4e1ac85aca4dddea758b5201b870e077cb5ac8e0553"
-    sha256 cellar: :any_skip_relocation, monterey:       "79672b8fc92835089a5ce4e1ac85aca4dddea758b5201b870e077cb5ac8e0553"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "145081bf4bf85d25e14c330e68e03e19a02d9b97cf5e207b459ed7667577596d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9c4bd91432bf2ff1b0b7844e4ee7d8c5b878fa134428f84f526baf54690b4e9c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c4bd91432bf2ff1b0b7844e4ee7d8c5b878fa134428f84f526baf54690b4e9c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9c4bd91432bf2ff1b0b7844e4ee7d8c5b878fa134428f84f526baf54690b4e9c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0509b9d214aea380aa1153696cafc75c5b388236a0b81b21f2f912ab9ceba390"
+    sha256 cellar: :any_skip_relocation, ventura:        "0509b9d214aea380aa1153696cafc75c5b388236a0b81b21f2f912ab9ceba390"
+    sha256 cellar: :any_skip_relocation, monterey:       "9c4bd91432bf2ff1b0b7844e4ee7d8c5b878fa134428f84f526baf54690b4e9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "39e06906a2a7378e587d69b13c10b433cebd86f6b6fa2e7d96d5ed77fbd5f050"
   end
 
   uses_from_macos "ruby"
