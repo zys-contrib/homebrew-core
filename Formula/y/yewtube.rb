@@ -6,7 +6,7 @@ class Yewtube < Formula
   url "https://github.com/mps-youtube/yewtube/archive/refs/tags/v2.10.5.tar.gz"
   sha256 "8100466a5e89c84249d882e2e9ea9ff282a2d4f7f68135157cb942e6eb927b29"
   license "GPL-3.0-or-later"
-  revision 4
+  revision 5
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8c9b263a9b9e201a7d7ffee92ff67a158c5c5ff5b1de455ad43b35e48d1e7c11"
@@ -77,8 +77,8 @@ class Yewtube < Formula
   end
 
   resource "pyperclip" do
-    url "https://files.pythonhosted.org/packages/a7/2c/4c64579f847bd5d539803c8b909e54ba087a79d01bb3aba433a95879a6c5/pyperclip-1.8.2.tar.gz"
-    sha256 "105254a8b04934f0bc84e9c24eb360a591aaf6535c9def5f29d92af107a9bf57"
+    url "https://files.pythonhosted.org/packages/30/23/2f0a3efc4d6a32f3b63cdff36cd398d9701d26cda58e3ab97ac79fb5e60d/pyperclip-1.9.0.tar.gz"
+    sha256 "b7de0142ddc81bfc5c7507eea19da920b92252b548b96186caf94a5e2527d310"
   end
 
   resource "requests" do
@@ -107,8 +107,8 @@ class Yewtube < Formula
   end
 
   resource "yt-dlp" do
-    url "https://files.pythonhosted.org/packages/08/9c/6dc54bc591d50eb9378a0e0442e5b69f28eff1ead4f234b7837b6d582761/yt_dlp-2024.5.27.tar.gz"
-    sha256 "3566c0de240d0cd3d1c2285ce655f72ca38dfc618d634d46818b00d89d5288be"
+    url "https://files.pythonhosted.org/packages/5a/c3/ebb3aa4b46550aaa1e125db81db8c4efbfe1436221e8ed60ee5a18930890/yt_dlp-2024.7.2.tar.gz"
+    sha256 "2b0c86b579d4a044eaf3c4b00e3d7b24d82e6e26869fa11c288ea4395b387f41"
   end
 
   # Fix SyntaxWarning's on python 3.12
