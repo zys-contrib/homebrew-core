@@ -8,13 +8,13 @@ class GitMachete < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fa9132c8317ab326b01e09561fb45cff026aff0314b09a92aa3fb48fda4aebc8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fa9132c8317ab326b01e09561fb45cff026aff0314b09a92aa3fb48fda4aebc8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fa9132c8317ab326b01e09561fb45cff026aff0314b09a92aa3fb48fda4aebc8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fa9132c8317ab326b01e09561fb45cff026aff0314b09a92aa3fb48fda4aebc8"
-    sha256 cellar: :any_skip_relocation, ventura:        "fa9132c8317ab326b01e09561fb45cff026aff0314b09a92aa3fb48fda4aebc8"
-    sha256 cellar: :any_skip_relocation, monterey:       "fa9132c8317ab326b01e09561fb45cff026aff0314b09a92aa3fb48fda4aebc8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "52de9878ca479f1d5c6b9ecab811e0c01c27c402a2c22735a8ca501ab15aff62"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "927044b24e84ed0d4f48ba6029d3bf8f63daf48c5920c29789b5197b5e3bd048"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "927044b24e84ed0d4f48ba6029d3bf8f63daf48c5920c29789b5197b5e3bd048"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "927044b24e84ed0d4f48ba6029d3bf8f63daf48c5920c29789b5197b5e3bd048"
+    sha256 cellar: :any_skip_relocation, sonoma:         "927044b24e84ed0d4f48ba6029d3bf8f63daf48c5920c29789b5197b5e3bd048"
+    sha256 cellar: :any_skip_relocation, ventura:        "927044b24e84ed0d4f48ba6029d3bf8f63daf48c5920c29789b5197b5e3bd048"
+    sha256 cellar: :any_skip_relocation, monterey:       "927044b24e84ed0d4f48ba6029d3bf8f63daf48c5920c29789b5197b5e3bd048"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "125de2617881ce939b88d5354314b391300a31171e79c01f5862042dc19d69bf"
   end
 
   depends_on "python@3.12"
