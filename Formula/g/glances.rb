@@ -8,13 +8,13 @@ class Glances < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8a01f4b473db4f13bd35d8c81f7a1964788d2f282d6483e2e6520b5026c6f8f0"
-    sha256 cellar: :any,                 arm64_ventura:  "51af708864dec28c459dba90ff75292fc711bc9186261a940b311e71bc504255"
-    sha256 cellar: :any,                 arm64_monterey: "1fe3392293ad3d721d732269ad8ebf2309250b548dcd7a542bf469139c8da978"
-    sha256 cellar: :any,                 sonoma:         "d01098e938a261bdd88e41659ea09c9dcd29d8fbe4325f30dcc25f425940b9cd"
-    sha256 cellar: :any,                 ventura:        "a72e89bd88e0219059fc082fd9528aba54c1a5e612eec41eba6537ae45131cc0"
-    sha256 cellar: :any,                 monterey:       "480cb774a76d9c01046fd7640545ab47d40456ed0a5d86fd113253839295c10f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ec7c59706e873c0662c97d2ac0fee76ba7f1ff191f9a69cdbf9863a528c480d"
+    sha256 cellar: :any,                 arm64_sonoma:   "698bad2838ec19a2e5adae2aa9fb7f10aaf908851f6b06663635d78f22ec912f"
+    sha256 cellar: :any,                 arm64_ventura:  "f2c54cf99f7cfbfe35d651540167051c503affba52c9658bb3a399edbcfc51c1"
+    sha256 cellar: :any,                 arm64_monterey: "97a01a7b7324eb1daeefbdbc90922f6b1dbf69e5a4c2b628cce940505cfc52b2"
+    sha256 cellar: :any,                 sonoma:         "e45f77794a5a8aeb06747930bd76505acc5131807214895d88caa7ea03602f14"
+    sha256 cellar: :any,                 ventura:        "9a9f36e95316b455c1d7e2ca4382050769d52d7bf22c80b1f0c577b6cf986f1b"
+    sha256 cellar: :any,                 monterey:       "586546a07528b8b410219dd19a487f56d1b4c70a45bce25fc4e5d5d8c6e33efc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "55f0c482d95ed6830a1c0d8df4d43b08e6c6645157e32e27e8e87134a0cc204f"
   end
 
   depends_on "rust" => :build # for orjson
