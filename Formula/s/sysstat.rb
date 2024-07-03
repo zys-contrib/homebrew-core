@@ -1,8 +1,8 @@
 class Sysstat < Formula
   desc "Performance monitoring tools for Linux"
   homepage "https://github.com/sysstat/sysstat"
-  url "https://github.com/sysstat/sysstat/archive/refs/tags/v12.7.5.tar.gz"
-  sha256 "a4d30e37c0c894214b941b51184723e19d492118c946cfdeac74b6d1f0068016"
+  url "https://github.com/sysstat/sysstat/archive/refs/tags/v12.7.6.tar.gz"
+  sha256 "dc77a08871f8e8813448ea31048833d4acbab7276dd9a456cd2526c008bd5301"
   license "GPL-2.0-or-later"
   head "https://github.com/sysstat/sysstat.git", branch: "master"
 
