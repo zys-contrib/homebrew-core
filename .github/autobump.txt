@@ -1908,6 +1908,7 @@ picard-tools
 pidgin
 pig
 pillow
+pinentry
 pinocchio
 pinot
 pint
