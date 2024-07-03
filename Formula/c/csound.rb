@@ -2,7 +2,7 @@ class Csound < Formula
   desc "Sound and music computing system"
   homepage "https://csound.com"
   license "LGPL-2.1-or-later"
-  revision 8
+  revision 9
   head "https://github.com/csound/csound.git", branch: "master"
 
   # Remove `stable` block when patches are no longer needed
@@ -79,8 +79,8 @@ class Csound < Formula
   fails_with gcc: "5"
 
   resource "ableton-link" do
-    url "https://github.com/Ableton/link/archive/refs/tags/Link-3.1.1.tar.gz"
-    sha256 "90f9c8bd6526776235dc36dec71620ea82dbd89761294b6270595335cd2e2078"
+    url "https://github.com/Ableton/link/archive/refs/tags/Link-3.1.2.tar.gz"
+    sha256 "2673dfad75b1484e8388deb8393673c3304b3ab5662dd5828e08e029ca8797aa"
   end
 
   resource "csound-plugins" do
