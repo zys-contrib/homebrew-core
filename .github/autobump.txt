@@ -1528,6 +1528,7 @@ mailutils
 makedepend
 makensis
 makepkg
+mako
 man-db
 manifest-tool
 mantra
