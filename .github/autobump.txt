@@ -1760,6 +1760,7 @@ octave
 octomap
 octosql
 ode
+odo-dev
 odpi
 oh-my-posh
 oha
