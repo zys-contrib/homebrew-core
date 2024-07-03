@@ -881,6 +881,7 @@ gcem
 gcovr
 gcsfuse
 gdal
+gdbm
 gdcm
 gdk-pixbuf
 gdu
