@@ -1,10 +1,9 @@
 class F3d < Formula
   desc "Fast and minimalist 3D viewer"
   homepage "https://f3d-app.github.io/f3d/"
-  url "https://github.com/f3d-app/f3d/archive/refs/tags/v2.4.0.tar.gz"
-  sha256 "3286ad1b324b995fd95818679b4ced80ebc3cc3b4bd4c8e6964695c05c934c8f"
+  url "https://github.com/f3d-app/f3d/archive/refs/tags/v2.5.0.tar.gz"
+  sha256 "d7f6dd7d9e4465c1f44d168c3a38aad24569a25907673180c8791a783e73f02f"
   license "BSD-3-Clause"
-  revision 1
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
   # labeled as "pre-release" on GitHub before the version is released, so it's
@@ -15,20 +14,39 @@ class F3d < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "e8456d3aaeeea2ec816e083e2d2005d9ed2940282706e19531834db86141a953"
-    sha256 cellar: :any,                 arm64_ventura:  "b182344007d4fe0a1040e94944bfd0b38b3725e1805f29e909cbf35bc19cde57"
-    sha256 cellar: :any,                 arm64_monterey: "df78c97b486eb22be12d929f92e84f635e0f90d6bbdc8d92da6077a40f7d33f3"
-    sha256 cellar: :any,                 sonoma:         "b8e5d4dfc12e6a5318a3f9592a176eadb11346ad29e11eca3ab5115d8335c344"
-    sha256 cellar: :any,                 ventura:        "661157c0d070e2592193335151a7e9646e2d3537426566e743cffd79e2738f04"
-    sha256 cellar: :any,                 monterey:       "483ef8a4631c4316fe611b774b3a0a4aba77cebcc90a63711f1d15c78204993b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2526e2052e571406b6d31c6460541ddb04f995e5acf8259f1c65f44b9a626483"
+    sha256 cellar: :any,                 arm64_sonoma:   "e0d2c8478ff2ed91cc63b0487b7efb8419ff795452b6af5aa9fa5b50e5abbd64"
+    sha256 cellar: :any,                 arm64_ventura:  "2d6e94fd894eec0699cd3224d7aeb3e2de0f65923d3665ba803ebdafe98af8c0"
+    sha256 cellar: :any,                 arm64_monterey: "f32293f353e053ccb8bad03754d880af62ea7c425dfc4e641810d5e890f98c5c"
+    sha256 cellar: :any,                 sonoma:         "02d07cbf856898c8dd4a9a81a01457a6ec613e5cccc578659218d84031063f10"
+    sha256 cellar: :any,                 ventura:        "5e72748c00e7ef3c6a2fea32768181a3b644b0618907caa42061b45d8fdeb38a"
+    sha256 cellar: :any,                 monterey:       "3a5f6be6f0b625f838fceb0e89b052c0c561f89dfc878e1e94c870d9229bf2c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f8dbf39fd5bf1dd7fffd476197f714572bfca9a50b93dbf0a91e9d4a469fe2c"
   end
 
   depends_on "cmake" => :build
   depends_on "alembic"
   depends_on "assimp"
+  depends_on "glew"
   depends_on "opencascade"
   depends_on "vtk"
+
+  on_macos do
+    depends_on "freeimage"
+    depends_on "freetype"
+    depends_on "glew"
+    depends_on "hdf5"
+    depends_on "imath"
+    depends_on "jsoncpp"
+    depends_on "libaec"
+    depends_on "netcdf"
+    depends_on "tbb"
+    depends_on "tcl-tk"
+    depends_on "zstd"
+  end
+
+  on_linux do
+    depends_on "mesa"
+  end
 
   def install
     args = %W[
