@@ -189,6 +189,7 @@ bcftools
 bcoin
 bde
 beagle
+beakerlib
 beancount
 bear
 bee
