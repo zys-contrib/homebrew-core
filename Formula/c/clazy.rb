@@ -12,13 +12,13 @@ class Clazy < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "fc1764ea6472e02a49f65ea8b84b7e804fde9e1ac93068e4ecaa899e04c0700d"
-    sha256 cellar: :any,                 arm64_ventura:  "4b099260bc2cc27fb8d2ffd6076d0b4669fdb60de681008d532165e99944b115"
-    sha256 cellar: :any,                 arm64_monterey: "718d6f9641dcf3ec83a209dae25f5ecd92bb9f457683ebe78eb6a343e764e6d9"
-    sha256 cellar: :any,                 sonoma:         "7b2be755cf6e8aece62b91278a39cd9a4a212f2cf522a0a85a8ab15ef13e376c"
-    sha256 cellar: :any,                 ventura:        "0bb9b8009089e1008f032d161ea020fb063b0bce5efc8547403c0d0bbc63ca17"
-    sha256 cellar: :any,                 monterey:       "5e579784f42382d246f33932a3a234246240b21f9aa1d4cf5a68ca0c761c3814"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e20abd041669c16180b468c6b40df869dae2d6457eddd6aa781bb645b5d66b3e"
+    sha256 cellar: :any,                 arm64_sonoma:   "80dc170c7ddac95d9965a56a6c4692222d39f6163177427aace94c9021caa9d8"
+    sha256 cellar: :any,                 arm64_ventura:  "00bb1c34c4834dccf37b8a482ebb330877a7c389b44bb3639d3bb758008610bb"
+    sha256 cellar: :any,                 arm64_monterey: "c82c91308487e7ac63bcdf0873723b4aa67fc5d01f1701f6e24ef3bf560c5c38"
+    sha256 cellar: :any,                 sonoma:         "02191ae7a0ad0299d036b8302fcf8b58a6b97fa5054f185a9181fae5e933822a"
+    sha256 cellar: :any,                 ventura:        "882362cce46ab78383f72b2aefe4e18df5f867760f1bae674fc1c7f40b05f83e"
+    sha256 cellar: :any,                 monterey:       "eed61eae5ed8a521181fb4d99ce75fc15b8d3de0fff387df7500fe4d96bc9de8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4e28a3724c3444ce21c5f7fe53fc68e87ac3508c9d44236c36026a0cf8bc863"
   end
 
   depends_on "cmake"   => [:build, :test]
