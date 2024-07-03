@@ -1,8 +1,8 @@
 class Geni < Formula
   desc "Standalone database migration tool"
   homepage "https://github.com/emilpriver/geni"
-  url "https://github.com/emilpriver/geni/archive/refs/tags/v1.0.10.tar.gz"
-  sha256 "e85e8afeac78bdb5c5800caf3fd955dc8b9342c58e39cedd2d64fe3be2395d7d"
+  url "https://github.com/emilpriver/geni/archive/refs/tags/v1.0.11.tar.gz"
+  sha256 "510ba96a3a9abbc85dade9780e81aa6b46427261e690a5c0dede3bb5bca25f1a"
   license "MIT"
 
   bottle do
