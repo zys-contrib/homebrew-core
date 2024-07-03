@@ -3,8 +3,8 @@ class Sqlfluff < Formula
 
   desc "SQL linter and auto-formatter for Humans"
   homepage "https://docs.sqlfluff.com/"
-  url "https://files.pythonhosted.org/packages/52/53/e100ffc7261b9b84e4986b2f5c1d1c1b17c113eed64b02e70a5005e1f999/sqlfluff-3.0.7.tar.gz"
-  sha256 "d49b52c4577ce113ef6318a933c7a7fedd25852dea5e9fe0981cf301c6b73927"
+  url "https://files.pythonhosted.org/packages/a9/fd/a5a6900862b5634acc14d71e7c89c1cca71ccc3d9d35fdb45ef6667591e9/sqlfluff-3.1.0.tar.gz"
+  sha256 "24afa24f74c8fdb4df0d709e60062c7e1791b6fa052d8e8a23959132dc2c953c"
   license "MIT"
 
   bottle do
@@ -41,8 +41,8 @@ class Sqlfluff < Formula
   end
 
   resource "diff-cover" do
-    url "https://files.pythonhosted.org/packages/dd/23/d26ca0d7401c362fd1d760947c8436790fd4e76fcf110323f1a2e35ab981/diff_cover-9.0.0.tar.gz"
-    sha256 "1dc851d3f3f320c048d03618e4c0d9861fa4a1506b425d2d09a564b20c95674a"
+    url "https://files.pythonhosted.org/packages/50/4f/3305c8d78dbb776017aad02f4ec8eb49cffed6ed80f5773259b9e16844c6/diff_cover-9.1.0.tar.gz"
+    sha256 "c6c9f7f1eacd9019d118cafb75908445caa41a79f65f36f9f506c9626dbcbc70"
   end
 
   resource "iniconfig" do
@@ -61,8 +61,8 @@ class Sqlfluff < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
-    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
+    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
+    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
   end
 
   resource "pathspec" do
@@ -81,8 +81,8 @@ class Sqlfluff < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/cf/4e/0ceea141f0e5d09de4053c5338c62615ae2bd9bd3f013813f5ec62e3cf97/pytest-8.2.1.tar.gz"
-    sha256 "5046e5b46d8e4cac199c373041f26be56fdb81eb4e67dc11d4e10811fc3408fd"
+    url "https://files.pythonhosted.org/packages/a6/58/e993ca5357553c966b9e73cb3475d9c935fe9488746e13ebdf9b80fae508/pytest-8.2.2.tar.gz"
+    sha256 "de4bb8104e201939ccdc688b27a89a7be2079b22e2bd2b07f806b6ba71117977"
   end
 
   resource "pyyaml" do
