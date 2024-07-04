@@ -5,8 +5,8 @@ class ApifyCli < Formula
 
   desc "Apify command-line interface"
   homepage "https://docs.apify.com/cli"
-  url "https://registry.npmjs.org/apify-cli/-/apify-cli-0.19.5.tgz"
-  sha256 "bddd03175b0e542737e44ef246f5f7f195901ae4c27b42cd4f9811ee532b3849"
+  url "https://registry.npmjs.org/apify-cli/-/apify-cli-0.20.2.tgz"
+  sha256 "dfe8bf7a168cf221ef85380b78c3b7b56c1b19b059f8ec4003f3e9c9c2bd6bb0"
   license "Apache-2.0"
 
   bottle do
@@ -29,15 +29,15 @@ class ApifyCli < Formula
     # which might be a different version than the one installed by Homebrew,
     # causing issues that `node_modules` were installed with one Node.js version
     # but the CLI is running them with another Node.js version.
-    rewrite_shebang detected_node_shebang, libexec/"lib/node_modules/apify-cli/src/bin/run"
+    rewrite_shebang detected_node_shebang, libexec/"lib/node_modules/apify-cli/bin/run.js"
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do
-    output = shell_output("#{bin}/apify init -y testing-actor")
-    assert_match "Success: The Apify actor has been initialized", output
+    output = shell_output("#{bin}/apify init -y testing-actor 2>&1")
+    assert_includes output, "Success: The Actor has been initialized in the current directory"
     assert_predicate testpath/"storage/key_value_stores/default/INPUT.json", :exist?
 
-    assert_match version.to_s, shell_output("#{bin}/apify --version")
+    assert_includes shell_output("#{bin}/apify --version 2>&1"), version.to_s
   end
 end
