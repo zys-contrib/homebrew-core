@@ -4,6 +4,7 @@ class Dartsim < Formula
   url "https://github.com/dartsim/dart/archive/refs/tags/v6.14.2.tar.gz"
   sha256 "6bbaf452f8182b97bf22adeab6cc7f3dc1cd2733358543131fa130e07c0860fc"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     sha256                               arm64_sonoma:   "13675f61990e33b4878b22e02685b0db1515b649b547fd609697166863d3d684"
@@ -53,6 +54,7 @@ class Dartsim < Formula
 
     args << "-DBUILD_TESTING=OFF"
     args << "-DDART_BUILD_DARTPY=OFF"
+    args << "-DDART_ENABLE_SIMD=OFF"
 
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *args
     system "cmake", "--build", "build"
