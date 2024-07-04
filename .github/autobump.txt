@@ -1403,6 +1403,7 @@ libpano
 libpeas
 libphonenumber
 libpipeline
+libplacebo
 libplctag
 libplist
 libpng
