@@ -1,8 +1,8 @@
 class UtilLinux < Formula
   desc "Collection of Linux utilities"
   homepage "https://github.com/util-linux/util-linux"
-  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.40/util-linux-2.40.1.tar.xz"
-  sha256 "59e676aa53ccb44b6c39f0ffe01a8fa274891c91bef1474752fad92461def24f"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.40/util-linux-2.40.2.tar.xz"
+  sha256 "d78b37a66f5922d70edf3bdfb01a6b33d34ed3c3cafd6628203b2a2b67c8e8b3"
   license all_of: [
     "BSD-3-Clause",
     "BSD-4-Clause-UC",
@@ -12,7 +12,6 @@ class UtilLinux < Formula
     "LGPL-2.1-or-later",
     :public_domain,
   ]
-  revision 1
 
   # The directory listing where the `stable` archive is found uses major/minor
   # version directories, where it's necessary to check inside a directory to
@@ -58,17 +57,6 @@ class UtilLinux < Formula
     conflicts_with "rename", because: "both install `rename` binaries"
   end
 
-  # Fix for https://github.com/util-linux/util-linux/issues/3071
-  # Remove with `autoconf` and `automake` build deps when included in a release.
-  patch do
-    url "https://github.com/util-linux/util-linux/commit/ff8ee29d648111eb222612ad4251e4c3b236a389.patch?full_index=1"
-    sha256 "0fcdcd07c7fe5c66b80917976064b260bac84635599e4437bff13857e8771075"
-  end
-  patch do
-    url "https://github.com/util-linux/util-linux/commit/0309a6f5ca018d83420e49e0f9d046fecdb29261.patch?full_index=1"
-    sha256 "0923e85a7381a33b888984ab79b079d6e52f2d96d274f85632a696b6cc352863"
-  end
-
   # uuid_time function compatibility fix on macos
   # upstream patch PR, https://github.com/util-linux/util-linux/pull/3013
   patch do
@@ -104,7 +92,7 @@ class UtilLinux < Formula
       args << "--without-python"
     end
 
-    system "./configure", *std_configure_args, *args
+    system "./configure", *args, *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
 
     # install completions only for installed programs
