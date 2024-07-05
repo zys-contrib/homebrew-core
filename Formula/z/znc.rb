@@ -1,13 +1,9 @@
 class Znc < Formula
   desc "Advanced IRC bouncer"
-  # Temporary URLs as znc.in certificate has expired
-  # FIXME: homepage "https://wiki.znc.in/ZNC"
-  homepage "https://github.com/znc/znc"
-  url "https://deb.debian.org/debian/pool/main/z/znc/znc_1.9.0.orig.tar.gz"
-  mirror "https://znc.in/releases/archive/znc-1.9.0.tar.gz"
-  sha256 "8b99c9dbb21c1309705073460be9bfacb6f7b0e83a15fe5d4b7140201b39d2a1"
+  homepage "https://wiki.znc.in/ZNC"
+  url "https://znc.in/releases/znc-1.9.1.tar.gz"
+  sha256 "e8a7cf80e19aad510b4e282eaf61b56bc30df88ea2e0f64fadcdd303c4894f3c"
   license "Apache-2.0"
-  revision 2
 
   bottle do
     sha256 arm64_sonoma:   "ece54a18459b4d498a699278daef03cae8f37d008645313afe0116e9e5a5f263"
@@ -35,10 +31,12 @@ class Znc < Formula
     # Fixes: CMake Error: Problem with archive_write_header(): Can't create 'swigpyrun.h'
     ENV.deparallelize
 
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DWANT_PYTHON=ON",
-                    "-DWANT_PYTHON_VERSION=python-#{xy}",
-                    *std_cmake_args
+    args = %W[
+      -DWANT_PYTHON=ON
+      -DWANT_PYTHON_VERSION=python-#{xy}
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
