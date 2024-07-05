@@ -6,13 +6,13 @@ class Znc < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_sonoma:   "ece54a18459b4d498a699278daef03cae8f37d008645313afe0116e9e5a5f263"
-    sha256 arm64_ventura:  "6caf5ebc8490cb565f951e1eb14f24da2dc3eddd0e510133db6325b788e8656c"
-    sha256 arm64_monterey: "6120a847b16ac4bca100f332c3a4ad9c64b000de89d757979533ed04a97b955f"
-    sha256 sonoma:         "3af5963b24f8444d3ab144bb9c57c31950c6e1d8c22dc4a4a25599f59a937f51"
-    sha256 ventura:        "e98891934fcbeb85ac8d80d9b44df2fe0a6de07a4a9aa1d9d8a0f537d76fd7c5"
-    sha256 monterey:       "0b4ebe72752d4c810c3a2a6e335cab10ac3aca8676785344100baf6d8570bd61"
-    sha256 x86_64_linux:   "3541c695090d2e083f89ca537df3925d7dd8884e656425f3b533bb65f724bc77"
+    sha256 arm64_sonoma:   "ee6eaf54730ba8dbb41db83afaf55dd576fb40d5d4d7240e91350b52bde15553"
+    sha256 arm64_ventura:  "b2b61efde97fb30819e20401df289b60b0785ebb50d59f6ed55e2d52883855f8"
+    sha256 arm64_monterey: "1ec419a63bc8bd6af046d8cab7cbc0faa0fd13385b90dea59c0d359548a41c91"
+    sha256 sonoma:         "97d86798faf0e95e85b1a7383c1e0ff4eacbce118af2ad76d6bcf10e1ffab337"
+    sha256 ventura:        "82d0ea87748360a70f0be47072f4a080396f8bc1bbce669d13dd68924fcdb40b"
+    sha256 monterey:       "21fa98d7aaa364cdc304fd4568897e241ec819441c345a3c1a9081703c722e3d"
+    sha256 x86_64_linux:   "f17e3e7b444ff827b864d63389e7e42e1cdbddfdd5faf0c1208d09ef62a86917"
   end
 
   depends_on "cmake" => :build
