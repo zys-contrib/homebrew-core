@@ -1658,6 +1658,7 @@ muffet
 mujs
 multitail
 murex
+musikcube
 mutt
 mvnvm
 mvt
