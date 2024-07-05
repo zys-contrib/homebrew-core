@@ -6,13 +6,13 @@ class Cobalt < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "baffd28842c1e7c0f25870a1b73077981035eeaa96dd4ded0e675a0e2ba647ec"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "77bcf76daabef23be4a574e03d6c01e3f9a745a4c57e3f1be5604317e0f848d1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1e23ea9e2cf165b9bf10c7990929e383391b2252e126daf4b30f39e81944e5c3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "15f025a0a52e07790b600595b83507c6bc81f348a94a9f5d03b377888e9891f8"
-    sha256 cellar: :any_skip_relocation, ventura:        "e11e16e00497640e6036cbc313309a9191bf2b97be7583bbbbca218843b5c855"
-    sha256 cellar: :any_skip_relocation, monterey:       "2ed5a49253a2d11dd80a1c7b8535fc1c9840c8e80d21e0c307f33c2913e6415b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8dc05eada084d0a925711d6adefe5a2acf525b1194da3ab6281c0999ab72120f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3efbfc9532e3f74d987e19d484979595f6880fbdb6c08435a1aeb2e9cdf09a18"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fc3de2bd3082aa20295fb7daa40864acef003492a4b610ad9ba40d609078a414"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c2cc00f4ad13549382cd15f5ee8e996881a85408e1c22ecaadd8295111698fa7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "eaf758a83e78347290b3bf5a6781683fa6fecb470a9b8b7d8d760073cc5f5702"
+    sha256 cellar: :any_skip_relocation, ventura:        "151ff84806b6331e06f380c32fbe1e89ce01dfd10c40ed0ce0b5764ba3e91d3d"
+    sha256 cellar: :any_skip_relocation, monterey:       "fc681dc5f9c90a956ea871583bebd2828fbb552a598f36ab3f63ee61a8a53ba8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0af2c93c4df9ebec24fb4ea004fa9453dd0412d2cb8da60b3a77b115549c8320"
   end
 
   depends_on "rust" => :build
