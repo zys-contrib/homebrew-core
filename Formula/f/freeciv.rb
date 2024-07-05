@@ -1,8 +1,8 @@
 class Freeciv < Formula
   desc "Free and Open Source empire-building strategy game"
   homepage "https://freeciv.org/"
-  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%203.1/3.1.1/freeciv-3.1.1.tar.xz"
-  sha256 "b2bd00c0e2a6c81bcb52aa0dddf81f2f4543705bf7a9fcd5afac3f7b3fff5ef6"
+  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%203.1/3.1.2/freeciv-3.1.2.tar.xz"
+  sha256 "7ab19d218a023306091a34e5c3bc3fd70981d8ebc4b9542c1646827dede55828"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -45,6 +45,7 @@ class Freeciv < Formula
   depends_on "sdl2"
   depends_on "sdl2_mixer"
   depends_on "sqlite" # try to change to uses_from_macos after python is not a dependency
+  depends_on "zstd"
 
   uses_from_macos "bzip2"
   uses_from_macos "curl"
