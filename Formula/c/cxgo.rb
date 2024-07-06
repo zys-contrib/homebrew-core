@@ -1,9 +1,8 @@
 class Cxgo < Formula
   desc "Transpiling C to Go"
   homepage "https://github.com/gotranspile/cxgo"
-  url "https://github.com/gotranspile/cxgo.git",
-      tag:      "v0.3.7",
-      revision: "cfc1ca865f59182eea902a45ce96b4cdda0f2b8c"
+  url "https://github.com/gotranspile/cxgo/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "d17a69ae9d6bc96341a989d0f673f1f6b8f65686987ddbe4c903b571e56c665f"
   license "MIT"
   head "https://github.com/gotranspile/cxgo.git", branch: "main"
 
@@ -26,7 +25,7 @@ class Cxgo < Formula
     ldflags = %W[
       -s -w
       -X main.version=#{version}
-      -X main.commit=#{Utils.git_head}
+      -X main.commit=#{tap.user}
       -X main.date=#{time.iso8601}
     ]
 
