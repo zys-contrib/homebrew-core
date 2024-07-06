@@ -1731,6 +1731,7 @@ notcurses
 nox
 npm-check-updates
 npth
+nq
 ns-3
 nsd
 nsq
