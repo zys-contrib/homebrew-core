@@ -873,6 +873,7 @@ fx
 fzf
 g-ls
 gallery-dl
+gat
 gateway-go
 gator
 gatsby-cli
