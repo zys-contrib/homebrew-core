@@ -2176,6 +2176,7 @@ scamper
 scarb
 scc
 sccache
+schema-evolution-manager
 schemathesis
 scikit-image
 scilla
