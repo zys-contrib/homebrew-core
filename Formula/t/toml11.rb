@@ -11,7 +11,7 @@ class Toml11 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e893c6b4c7584f148e457f939cc5fdade1c8aa2f1af773da99e18542b6144c96"
+    sha256 cellar: :any_skip_relocation, all: "7243b83a9a49f42b06ace15c554d5fa1f9e260089f3363aa964f4bc088bb616f"
   end
 
   depends_on "cmake" => :build
