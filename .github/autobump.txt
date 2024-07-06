@@ -2187,6 +2187,7 @@ scotch
 scrapy
 scrcpy
 scriptisto
+scs
 scummvm
 scummvm-tools
 scw
