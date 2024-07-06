@@ -3,8 +3,8 @@ class Polynote < Formula
 
   desc "Polyglot notebook with first-class Scala support"
   homepage "https://polynote.org/"
-  url "https://github.com/polynote/polynote/releases/download/0.5.1/polynote-dist.tar.gz"
-  sha256 "e7715dd7e044cdf4149a1178b42a506c639a31bcb9bf97d08cec4d1fe529bf18"
+  url "https://github.com/polynote/polynote/releases/download/0.6.0/polynote-dist.tar.gz"
+  sha256 "ec4e0e434f5996e83fd9490dbd6b99cbb724a39fa4074d3198eb16662ddf1d4a"
   license "Apache-2.0"
 
   # Upstream marks all releases as "pre-release", so we have to use
@@ -65,6 +65,7 @@ class Polynote < Formula
 
     env = Language::Java.overridable_java_home_env
     env["PYTHONPATH"] = libexec/"vendor"/Language::Python.site_packages(python3)
+    env["LD_LIBRARY_PATH"] = lib
     (bin/"polynote").write_env_script libexec/"polynote.py", env
   end
 

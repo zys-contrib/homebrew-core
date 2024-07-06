@@ -1950,6 +1950,7 @@ podsync
 poetry
 poke
 policy_sentry
+polynote
 ponyc
 popeye
 portablegl
