@@ -1,8 +1,8 @@
 class Tflint < Formula
   desc "Linter for Terraform files"
   homepage "https://github.com/terraform-linters/tflint"
-  url "https://github.com/terraform-linters/tflint/archive/refs/tags/v0.51.2.tar.gz"
-  sha256 "3f85218f3ec9554faa37c7b9791486329804ba32bac1b20befbe1deed61b0bca"
+  url "https://github.com/terraform-linters/tflint/archive/refs/tags/v0.52.0.tar.gz"
+  sha256 "18ccb225df4616b3c91681d5b2ace423e4522c4cc71c68e6d1df665d6f0a7cdd"
   license "MPL-2.0"
   head "https://github.com/terraform-linters/tflint.git", branch: "master"
 
@@ -25,6 +25,8 @@ class Tflint < Formula
   test do
     (testpath/"test.tf").write <<~EOS
       terraform {
+        required_version = ">= 1.0"
+
         required_providers {
           aws = {
             source = "hashicorp/aws"
