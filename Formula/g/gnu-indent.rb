@@ -42,7 +42,7 @@ class GnuIndent < Formula
       (libexec/"gnuman/man1").install_symlink man1/"gindent.1" => "indent.1"
     end
 
-    libexec.install_symlink "gnuman" => "man"
+    (libexec/"gnubin").install_symlink "../gnuman" => "man"
   end
 
   def caveats
