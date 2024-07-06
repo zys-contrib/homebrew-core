@@ -55,7 +55,7 @@ class Gawk < Formula
     (bin/"awk").unlink if OS.mac?
     (libexec/"gnubin").install_symlink bin/"gawk" => "awk"
     (libexec/"gnuman/man1").install_symlink man1/"gawk.1" => "awk.1"
-    libexec.install_symlink "gnuman" => "man"
+    (libexec/"gnubin").install_symlink "../gnuman" => "man"
   end
 
   def caveats
