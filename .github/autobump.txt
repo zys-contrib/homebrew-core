@@ -1400,6 +1400,7 @@ libobjc2
 libomp
 libopenmpt
 liboqs
+liborigin
 libpano
 libpeas
 libphonenumber

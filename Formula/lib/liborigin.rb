@@ -1,8 +1,8 @@
 class Liborigin < Formula
   desc "Library for reading OriginLab OPJ project files"
   homepage "https://sourceforge.net/projects/liborigin/"
-  url "https://downloads.sourceforge.net/project/liborigin/liborigin/3.0/liborigin-3.0.2.tar.gz"
-  sha256 "2581420d427481eee8c371ad5b6ebeba83bd7faa8df117c7a3f7d3250b4429ca"
+  url "https://downloads.sourceforge.net/project/liborigin/liborigin/3.0/liborigin-3.0.3.tar.gz"
+  sha256 "b394e3bf633888f9f4a3e1449d7c7eb39b778a2e657424177a04cde4afe6965a"
   license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later"]
 
   livecheck do
