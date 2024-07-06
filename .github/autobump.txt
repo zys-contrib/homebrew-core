@@ -2708,6 +2708,7 @@ zbctl
 zeek
 zellij
 zenith
+zenity
 zeromq
 zf
 zfind
