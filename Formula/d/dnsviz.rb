@@ -3,10 +3,9 @@ class Dnsviz < Formula
 
   desc "Tools for analyzing and visualizing DNS and DNSSEC behavior"
   homepage "https://github.com/dnsviz/dnsviz/"
-  url "https://files.pythonhosted.org/packages/a5/7c/b38750c866e7e29bc76450c75f61ede6c2560e75cfe36df81e9517612434/dnsviz-0.9.4.tar.gz"
-  sha256 "6448d4c6e7c1844aa2a394d60f7cc53721ad985e0e830c30265ef08a74a7aa28"
+  url "https://files.pythonhosted.org/packages/cd/6e/8e285523108cc91b32f0584c2b4a7b006348af597cdc84e728206df15b3b/dnsviz-0.10.0.tar.gz"
+  sha256 "8e2c4d0636296acf704f7eca1ca8fea98b022c920c5517b39dfdc982ce685cd3"
   license "GPL-2.0-or-later"
-  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "1a681d17c245dded85b9d6c0d11245e57c24970a151d61520b7658611ccfaedc"
@@ -42,8 +41,8 @@ class Dnsviz < Formula
   end
 
   resource "pygraphviz" do
-    url "https://files.pythonhosted.org/packages/f0/2a/3a7e5f6ba25c0a8998ded9234127c88c5c867bd03cfc3a7b18ef00876599/pygraphviz-1.12.tar.gz"
-    sha256 "8b0b9207954012f3b670e53b8f8f448a28d12bdbbcf69249313bd8dbe680152f"
+    url "https://files.pythonhosted.org/packages/8c/41/7b9a22df38bb7884012b34f2986d765691dbe41bf5e7af881dfd09f8145f/pygraphviz-1.13.tar.gz"
+    sha256 "6ad8aa2f26768830a5a1cfc8a14f022d13df170a8f6fdfd68fd1aa1267000964"
   end
 
   def install
