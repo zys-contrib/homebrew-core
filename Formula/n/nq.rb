@@ -1,8 +1,8 @@
 class Nq < Formula
   desc "Unix command-line queue utility"
   homepage "https://github.com/leahneukirchen/nq"
-  url "https://github.com/leahneukirchen/nq/archive/refs/tags/v0.5.tar.gz"
-  sha256 "3f01aaf0b8eee4f5080ed1cd71887cb6485d366257d4cf5470878da2b734b030"
+  url "https://github.com/leahneukirchen/nq/archive/refs/tags/v1.0.tar.gz"
+  sha256 "d5b79a488a88f4e4d04184efa0bc116929baf9b34617af70d8debfb37f7431f4"
   license "CC0-1.0"
   head "https://github.com/leahneukirchen/nq.git", branch: "master"
 
@@ -24,8 +24,8 @@ class Nq < Formula
   end
 
   test do
-    system "#{bin}/nq", "touch", "TEST"
-    assert_match "exited with status 0", shell_output("#{bin}/fq -a")
+    system bin/"nq", "touch", "TEST"
+    assert_match "exited with status 0", shell_output("#{bin}/nqtail -a 2>&1")
     assert_predicate testpath/"TEST", :exist?
   end
 end
