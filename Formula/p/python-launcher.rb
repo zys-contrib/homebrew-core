@@ -1,8 +1,8 @@
 class PythonLauncher < Formula
   desc "Launch your Python interpreter the lazy/smart way"
   homepage "https://github.com/brettcannon/python-launcher"
-  url "https://github.com/brettcannon/python-launcher/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "31e5a4e50e3db4506e8484db06f6503df1225f482b40a892ffb5131b4ec11a43"
+  url "https://github.com/brettcannon/python-launcher/archive/refs/tags/v1.0.1.tar.gz"
+  sha256 "6f868da0217b74e05775e7ebcbec4779ce12956728397ea57fd59c8529c56b6d"
   license "MIT"
   head "https://github.com/brettcannon/python-launcher.git", branch: "main"
 
@@ -25,7 +25,7 @@ class PythonLauncher < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    man1.install "docs/man-page/py.1"
+    man1.install "man-page/py.1"
     fish_completion.install "completions/py.fish"
   end
 
