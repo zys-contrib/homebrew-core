@@ -4,6 +4,7 @@ class Glibmm < Formula
   url "https://download.gnome.org/sources/glibmm/2.80/glibmm-2.80.0.tar.xz"
   sha256 "539b0a29e15a96676c4f0594541250566c5ca44da5d4d87a3732fa2d07909e4a"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_sonoma:   "8146911c8de1e567e11c9125e200d980aa8fcc949670be77f005337fc13d1539"
@@ -27,6 +28,12 @@ class Glibmm < Formula
     system "meson", "setup", "build", "-Dbuild-examples=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
+
+    return unless OS.mac?
+
+    inreplace lib/"glibmm-2.68/proc/gmmproc",
+              "#{HOMEBREW_LIBRARY}/Homebrew/shims/mac/super/m4",
+              "#{HOMEBREW_PREFIX}/bin/m4"
   end
 
   test do
