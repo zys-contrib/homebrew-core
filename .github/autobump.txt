@@ -2032,6 +2032,7 @@ pyright
 pyside@2
 python-argcomplete
 python-build
+python-launcher
 python-lxml
 python-matplotlib
 python-setuptools
