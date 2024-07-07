@@ -1,8 +1,8 @@
 class X3270 < Formula
   desc "IBM 3270 terminal emulator for the X Window System and Windows"
   homepage "http://x3270.bgp.nu/"
-  url "http://x3270.bgp.nu/download/04.03/suite3270-4.3ga8-src.tgz"
-  sha256 "81c0ba4447d97a7b483c40e11b39d4498bbc9af55fa4f78ccff064b3e378dc59"
+  url "http://x3270.bgp.nu/download/04.03/suite3270-4.3ga9-src.tgz"
+  sha256 "6404d27b29a40d896daab35ff153cab157d85094b38bdeb4ebaaaf2673ce4db1"
   license "BSD-3-Clause"
 
   livecheck do
@@ -23,6 +23,7 @@ class X3270 < Formula
   depends_on "openssl@3"
   depends_on "readline"
 
+  uses_from_macos "ncurses"
   uses_from_macos "tcl-tk"
 
   def install
