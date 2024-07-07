@@ -7,7 +7,13 @@ class Nifi < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b88c9ca49d024544d2437c04b8c40e7140fdbd3f9748e991278ff6f996a7d2b7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "882eb2dbe88af89ba5fd00fad64d4de27db4fb67aa9c91accfad09ae6fd48588"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "882eb2dbe88af89ba5fd00fad64d4de27db4fb67aa9c91accfad09ae6fd48588"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "882eb2dbe88af89ba5fd00fad64d4de27db4fb67aa9c91accfad09ae6fd48588"
+    sha256 cellar: :any_skip_relocation, sonoma:         "882eb2dbe88af89ba5fd00fad64d4de27db4fb67aa9c91accfad09ae6fd48588"
+    sha256 cellar: :any_skip_relocation, ventura:        "882eb2dbe88af89ba5fd00fad64d4de27db4fb67aa9c91accfad09ae6fd48588"
+    sha256 cellar: :any_skip_relocation, monterey:       "882eb2dbe88af89ba5fd00fad64d4de27db4fb67aa9c91accfad09ae6fd48588"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8c4429e38a8f9d05f1a43c1320ca0e7396c1c7a2b29d1d943d34e316df674d6"
   end
 
   depends_on "openjdk@11"
