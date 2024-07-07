@@ -1,6 +1,7 @@
 class Otf2 < Formula
   desc "Open Trace Format 2 file handling library"
   homepage "https://www.vi-hps.org/projects/score-p/"
+  # TODO: check if we can remove `autoconf` + `automake` at version bump.
   url "https://perftools.pages.jsc.fz-juelich.de/cicd/otf2/tags/otf2-3.0.3/otf2-3.0.3.tar.gz", using: :homebrew_curl
   sha256 "18a3905f7917340387e3edc8e5766f31ab1af41f4ecc5665da6c769ca21c4ee8"
   license "BSD-3-Clause"
@@ -21,10 +22,13 @@ class Otf2 < Formula
     sha256 x86_64_linux:   "aba1c2972673732577d9348d8fb9b604d9652440c3d8e13c76a0c424f025ca88"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "python-setuptools" => :build
   depends_on "sphinx-doc" => :build
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
@@ -44,7 +48,7 @@ class Otf2 < Formula
   end
 
   def python3
-    "python3.11"
+    "python3.12"
   end
 
   def install
@@ -56,6 +60,9 @@ class Otf2 < Formula
     ENV["PYTHON"] = which(python3)
     ENV["SPHINX"] = Formula["sphinx-doc"].opt_bin/"sphinx-build"
 
+    # Bundled `build-config/py-compile` isn't compatabile with python 3.12 due to `imp` usage
+    # TODO: check if we can remove this and `autoconf` + `automake` deps
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "install"
