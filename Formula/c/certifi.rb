@@ -6,13 +6,13 @@ class Certifi < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "09d9ee1944c9578779c2ba70082d624d626809cf31a6a9d67c174db98567a35b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "09d9ee1944c9578779c2ba70082d624d626809cf31a6a9d67c174db98567a35b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "09d9ee1944c9578779c2ba70082d624d626809cf31a6a9d67c174db98567a35b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3c9222fc5169b0fe356bd8e4c776a1158b7cfd5f8c862ab0132f6da7bd8ca22c"
-    sha256 cellar: :any_skip_relocation, ventura:        "3c9222fc5169b0fe356bd8e4c776a1158b7cfd5f8c862ab0132f6da7bd8ca22c"
-    sha256 cellar: :any_skip_relocation, monterey:       "3c9222fc5169b0fe356bd8e4c776a1158b7cfd5f8c862ab0132f6da7bd8ca22c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09d9ee1944c9578779c2ba70082d624d626809cf31a6a9d67c174db98567a35b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4106d660c4417641c4384ee68ab6c4146da998c22da4798ff94b03acd9ea31b4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4106d660c4417641c4384ee68ab6c4146da998c22da4798ff94b03acd9ea31b4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4106d660c4417641c4384ee68ab6c4146da998c22da4798ff94b03acd9ea31b4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "eecaf796430a3551f53fbe900e1455236af45d3996940288788293cda464dd92"
+    sha256 cellar: :any_skip_relocation, ventura:        "eecaf796430a3551f53fbe900e1455236af45d3996940288788293cda464dd92"
+    sha256 cellar: :any_skip_relocation, monterey:       "a33c294eb85e0ec0aadffe848e9b2be405c676a8435c50c7f9ddb5891ab633b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4106d660c4417641c4384ee68ab6c4146da998c22da4798ff94b03acd9ea31b4"
   end
 
   depends_on "python@3.11" => [:build, :test]
