@@ -1,10 +1,8 @@
 class Uni2ascii < Formula
   desc "Bi-directional conversion between UTF-8 and various ASCII flavors"
-  # homepage/url: "the website you are looking for is suspended"
-  # Switched to Debian mirrors June 2015.
   homepage "https://billposer.org/Software/uni2ascii.html"
-  url "https://deb.debian.org/debian/pool/main/u/uni2ascii/uni2ascii_4.18.orig.tar.gz"
-  sha256 "9e24bb6eb2ced0a2945e2dabed5e20c419229a8bf9281c3127fa5993bfa5930e"
+  url "http://billposer.org/Software/Downloads/uni2ascii-4.20.tar.bz2"
+  sha256 "0c5002f54b262d937ba3a8249dd3148791a3f6ec383d80ec479ae60ee0de681a"
   license "GPL-3.0-only"
 
   livecheck do
@@ -27,9 +25,27 @@ class Uni2ascii < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "acc769baafa054d67c74f3965d7f7810ba19e45ea64d8e4f6ce7c83bf766f426"
   end
 
+  on_macos do
+    depends_on "gettext"
+  end
+
+  # notified upstream about this patch
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/bb92449ad6b3878b4d6f472237152df28080df86/uni2ascii/uni2ascii-4.20.patch"
+    sha256 "250a529eda136d0edf9e63b92a6fe95f4ef5dfad3f94e6fd8d877138ada857f8"
+  end
+
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    if OS.mac?
+      gettext = Formula["gettext"]
+      ENV.append "CFLAGS", "-I#{gettext.include}"
+      ENV.append "LDFLAGS", "-L#{gettext.lib}"
+      ENV.append "LDFLAGS", "-lintl"
+    end
+
     ENV["MKDIRPROG"]="mkdir -p"
+
+    system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
   end
 
