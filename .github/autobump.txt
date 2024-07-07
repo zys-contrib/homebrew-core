@@ -1064,6 +1064,7 @@ gupnp-tools
 gwyddion
 gxml
 gyb
+h26forge
 hackrf
 hadoop
 halide
