@@ -1,8 +1,8 @@
 class Rdkit < Formula
   desc "Open-source chemoinformatics library"
   homepage "https://rdkit.org/"
-  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2024_03_3.tar.gz"
-  sha256 "52f79c6bf1d446cdb5c86a35de655d96bad0c52a5f4ecbe15f08eaf334e6f76a"
+  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2024_03_4.tar.gz"
+  sha256 "cbb39098f720748efd50bde9c26df2166dc89197dbdedf9664d0debaf14319ef"
   license "BSD-3-Clause"
   head "https://github.com/rdkit/rdkit.git", branch: "master"
 
@@ -66,7 +66,7 @@ class Rdkit < Formula
     end
     py3include = py3prefix/"include/python#{py3ver}"
     site_packages = Language::Python.site_packages(python_executable)
-    numpy_include = Formula["numpy"].opt_prefix/site_packages/"numpy/core/include"
+    numpy_include = Formula["numpy"].opt_prefix/site_packages/"numpy/_core/include"
 
     # Prevent trying to install into pg_config-defined dirs
     inreplace "Code/PgSQL/rdkit/CMakeLists.txt" do |s|
