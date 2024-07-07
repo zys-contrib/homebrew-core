@@ -2537,6 +2537,7 @@ uncover
 ungit
 uni
 uni-algo
+uni2ascii
 unison
 universal-ctags
 uriparser
