@@ -4,8 +4,8 @@ class MysqlAT80 < Formula
   # TODO: Check if we can use unversioned `protobuf` at version bump
   # https://bugs.mysql.com/bug.php?id=111469
   # https://bugs.mysql.com/bug.php?id=113045
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.37.tar.gz"
-  sha256 "fe0c7986f6a2d6a2ddf65e00aadb90fa6cb73da38c4172dc2b930dd1c2dc4af6"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.38.tar.gz"
+  sha256 "2b8d1620d96e8adda715bf6b060c324223d9e80db487a04cbaa2be8ec5fed718"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
