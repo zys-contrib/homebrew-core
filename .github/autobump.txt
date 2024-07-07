@@ -2293,6 +2293,7 @@ sonarqube
 sonarqube-lts
 sonic
 sonobuoy
+sophus
 soplex
 sops
 sound-touch
