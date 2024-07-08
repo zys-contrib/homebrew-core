@@ -7,7 +7,13 @@ class Asn < Formula
   head "https://github.com/nitefood/asn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "325d5e4d052fcd83fb190f3ef5729343daa6c6e08776cd6b4e65d58e29ae609b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6c1a396fa685821955254033fffbb501cb9ab17f2bbd7cb31bf3eaf5f368f499"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6c1a396fa685821955254033fffbb501cb9ab17f2bbd7cb31bf3eaf5f368f499"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6c1a396fa685821955254033fffbb501cb9ab17f2bbd7cb31bf3eaf5f368f499"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6c1a396fa685821955254033fffbb501cb9ab17f2bbd7cb31bf3eaf5f368f499"
+    sha256 cellar: :any_skip_relocation, ventura:        "6c1a396fa685821955254033fffbb501cb9ab17f2bbd7cb31bf3eaf5f368f499"
+    sha256 cellar: :any_skip_relocation, monterey:       "6c1a396fa685821955254033fffbb501cb9ab17f2bbd7cb31bf3eaf5f368f499"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8ffd7227239b3e63a8eee536055030b23fe0642c2aa44b82aff6cb9568a2bef"
   end
 
   depends_on "aha"
