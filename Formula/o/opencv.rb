@@ -1,10 +1,10 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/refs/tags/4.9.0.tar.gz"
-  sha256 "ddf76f9dffd322c7c3cb1f721d0887f62d747b82059342213138dc190f28bc6c"
+  url "https://github.com/opencv/opencv/archive/refs/tags/4.10.0.tar.gz"
+  sha256 "b2171af5be6b26f7a06b1229948bbb2bdaa74fcf5cd097e0af6378fce50a6eb9"
   license "Apache-2.0"
-  revision 12
+  head "https://github.com/opencv/opencv.git", branch: "4.x"
 
   livecheck do
     url :stable
@@ -66,30 +66,12 @@ class Opencv < Formula
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/refs/tags/4.9.0.tar.gz"
-    sha256 "8952c45a73b75676c522dd574229f563e43c271ae1d5bbbd26f8e2b6bc1a4dae"
-
-    # TODO: remove with next OpenCV release. Fix https://github.com/opencv/opencv_contrib/pull/3624
-    patch do
-      url "https://github.com/opencv/opencv_contrib/commit/46fb893f9a632012990713c4003d7d3cab4f2f25.patch?full_index=1"
-      sha256 "8f89f3db9fd022ffbb30dd1992df6d20603980fadfe090384e12c57731a9e062"
-    end
+    url "https://github.com/opencv/opencv_contrib/archive/refs/tags/4.10.0.tar.gz"
+    sha256 "65597f8fb8dc2b876c1b45b928bbcc5f772ddbaf97539bf1b737623d0604cba1"
   end
 
   def python3
     "python3.12"
-  end
-
-  # Patch for DNN module to work with OpenVINO API 2.0(enabled starting OV 2022.1 release)
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a10057a843de773896a50e9b18f4559a8bbc4d27/opencv/openvino-api2.0.patch"
-    sha256 "08f918fa762715d0fbc558baee9867be8f059ee3008831dc0a09af63404a9048"
-  end
-
-  # Patch for G-API to work with OpenVINO API 2.0(enabled starting OV 2022.1 release)
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a10057a843de773896a50e9b18f4559a8bbc4d27/opencv/gapi-openvino-api2.0.patch"
-    sha256 "b67aa8882559858824c5841ba3d0746078273be081540b0d339c0ff58dc9452d"
   end
 
   def install
@@ -189,6 +171,9 @@ class Opencv < Formula
 
     # Prevent dependents from using fragile Cellar paths
     inreplace lib/"pkgconfig/opencv#{version.major}.pc", prefix, opt_prefix
+
+    # Replace universal binaries with their native slices
+    deuniversalize_machos
   end
 
   test do
