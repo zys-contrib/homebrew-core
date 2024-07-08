@@ -3,10 +3,8 @@ require "language/node"
 class BitwardenCli < Formula
   desc "Secure and free password manager for all of your devices"
   homepage "https://bitwarden.com/"
-  # Do not use npmjs for the next release as it will contain non-open-source code.
-  # https://github.com/Homebrew/homebrew-core/pull/175702
-  url "https://registry.npmjs.org/@bitwarden/cli/-/cli-2024.6.0.tgz"
-  sha256 "c6cc40900db37dd7653eb24bb095dbedbe00bb27a1024642dbf12c31a03dceeb"
+  url "https://github.com/bitwarden/clients/archive/refs/tags/cli-v2024.6.1.tar.gz"
+  sha256 "1dff0f6af422864aa9a4e8c226282cb3f4346a4c8e661effe2571e1553603e56"
   license "GPL-3.0-only"
 
   bottle do
@@ -22,10 +20,17 @@ class BitwardenCli < Formula
   depends_on "node"
 
   def install
-    raise "Formula requires changes to only use GPL assets." if version > "2024.6.0"
-
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir[libexec/"bin/*"]
+    Language::Node.setup_npm_environment
+    system "npm", "ci", "--ignore-scripts"
+    cli_root = buildpath/"apps/cli" # Bitwarden's source code is a monorepo
+    cd cli_root do
+      # The `oss` build of Bitwarden is a GPL backed build
+      system "npm", "run", "build:oss:prod", "--ignore-scripts"
+      cd cli_root/"build" do
+        system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+        bin.install_symlink Dir[libexec/"bin/*"]
+      end
+    end
 
     generate_completions_from_executable(
       bin/"bw", "completion",
