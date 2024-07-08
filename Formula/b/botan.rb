@@ -1,8 +1,8 @@
 class Botan < Formula
   desc "Cryptographic algorithms and formats library in C++"
   homepage "https://botan.randombit.net/"
-  url "https://botan.randombit.net/releases/Botan-3.4.0.tar.xz"
-  sha256 "71843afcc0a2c585f8f33fa304f0b58ae4b9c5d8306f894667b3746044277557"
+  url "https://botan.randombit.net/releases/Botan-3.5.0.tar.xz"
+  sha256 "67e8dae1ca2468d90de4e601c87d5f31ff492b38e8ab8bcbd02ddf7104ed8a9f"
   license "BSD-2-Clause"
   head "https://github.com/randombit/botan.git", branch: "master"
 
@@ -22,6 +22,7 @@ class Botan < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "ca-certificates"
   depends_on "python@3.12"
   depends_on "sqlite"
 
@@ -29,7 +30,7 @@ class Botan < Formula
   uses_from_macos "zlib"
 
   on_macos do
-    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1400
+    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1400
   end
 
   fails_with :clang do
@@ -44,8 +45,7 @@ class Botan < Formula
   end
 
   def install
-    ENV.cxx11
-    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1400
+    ENV.runtime_cpu_detection
 
     args = %W[
       --prefix=#{prefix}
@@ -53,7 +53,16 @@ class Botan < Formula
       --with-zlib
       --with-bzip2
       --with-sqlite3
+      --system-cert-bundle=#{Formula["ca-certificates"].pkgetc}/cert.pem
     ]
+    args << "--with-commoncrypto" if OS.mac?
+
+    if OS.mac? && DevelopmentTools.clang_build_version <= 1400
+      ENV.llvm_clang
+
+      ldflags = %W[-L#{Formula["llvm"].opt_lib}/c++ -L#{Formula["llvm"].opt_lib} -lunwind]
+      args << "--ldflags=#{ldflags.join(" ")}"
+    end
 
     system python3, "configure.py", *args
     system "make", "install"
