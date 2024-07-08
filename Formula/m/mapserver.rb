@@ -1,8 +1,8 @@
 class Mapserver < Formula
   desc "Publish spatial data and interactive mapping apps to the web"
   homepage "https://mapserver.org/"
-  url "https://download.osgeo.org/mapserver/mapserver-8.0.2.tar.gz"
-  sha256 "0830c43feefeca132171b429403716a2cbaef0626d439f00e8a3a27a877724fe"
+  url "https://download.osgeo.org/mapserver/mapserver-8.2.0.tar.gz"
+  sha256 "26ec2d951ca502483586bf7849dc99b8b378cd4764e47bf0555a3f12fa3d9053"
   license "MIT"
 
   livecheck do
@@ -67,8 +67,8 @@ class Mapserver < Formula
     if OS.mac?
       mapscript_rpath = rpath(source: prefix/Language::Python.site_packages(python3)/"mapscript")
       # Install within our sandbox and add missing RPATH due to _mapscript.so not using CMake install()
-      inreplace "mapscript/python/CMakeLists.txt", "${Python_LIBRARIES}",
-                                                   "-Wl,-undefined,dynamic_lookup,-rpath,#{mapscript_rpath}"
+      inreplace "src/mapscript/python/CMakeLists.txt", "${Python_LIBRARIES}",
+                                                       "-Wl,-undefined,dynamic_lookup,-rpath,#{mapscript_rpath}"
     end
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
@@ -92,7 +92,7 @@ class Mapserver < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "./build/mapscript/python"
+    system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "./build/src/mapscript/python"
   end
 
   test do
