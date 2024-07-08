@@ -1,8 +1,8 @@
 class Llgo < Formula
   desc "Go compiler based on LLVM integrate with the C ecosystem and Python"
   homepage "https://github.com/goplus/llgo"
-  url "https://github.com/goplus/llgo/archive/refs/tags/v0.8.8.tar.gz"
-  sha256 "be6979d47bcc8f89f2156f6b2d6f603854104fea7452519bac144400fbecabf0"
+  url "https://github.com/goplus/llgo/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "fdf145f85b2570a50e4bdf29ae2bf93f2197b16546e3bce37c4622eee97f39cb"
   license "Apache-2.0"
 
   bottle do
@@ -18,24 +18,35 @@ class Llgo < Formula
   depends_on "bdw-gc"
   depends_on "cjson"
   depends_on "go"
-  depends_on "llvm@17"
+  depends_on "llvm"
   depends_on "pkg-config"
   depends_on "python@3.12"
+  depends_on "raylib"
+  depends_on "sqlite"
+  depends_on "zlib"
 
   def install
     ENV["GOBIN"] = libexec/"bin"
-    ENV.prepend "CGO_LDFLAGS", "-L#{Formula["llvm@17"].opt_lib}"
+    ENV.prepend "CGO_LDFLAGS", "-L#{Formula["llvm"].opt_lib}"
     system "go", "install", "./..."
+
+    Dir.glob("*/**/*.lla").each do |f|
+      system "unzip", f, "-d", File.dirname(f)
+    end
 
     libexec.install Dir["*"] - Dir[".*"]
 
-    path = ["llvm@17", "go", "pkg-config"].map { |f| Formula[f].opt_bin }.join(":")
+    path = %w[llvm go pkg-config].map { |f| Formula[f].opt_bin }.join(":")
+    opt_lib = %w[bdw-gc cjson raylib zlib raylib].map { |f| Formula[f].opt_lib }.join(":")
 
     (libexec/"bin").children.each do |f|
       next if f.directory?
 
       cmd = File.basename(f)
-      (bin/cmd).write_env_script libexec/"bin"/cmd, LLGOROOT: libexec, PATH: "#{path}:$PATH"
+      (bin/cmd).write_env_script libexec/"bin"/cmd,
+        LLGOROOT:        libexec,
+        PATH:            "#{path}:$PATH",
+        LD_LIBRARY_PATH: "#{opt_lib}:$LD_LIBRARY_PATH"
     end
   end
 
@@ -56,6 +67,8 @@ class Llgo < Formula
 
     system "go", "get", "github.com/goplus/llgo/c"
     system bin/"llgo", "build", "-o", "hello", "."
-    assert_equal "Hello LLGO\n", shell_output("./hello")
+    opt_lib = %w[bdw-gc cjson raylib zlib raylib].map { |f| Formula[f].opt_lib }.join(":")
+    output = Utils.popen_read({ "LD_LIBRARY_PATH" => "#{opt_lib}:$LD_LIBRARY_PATH" }, "./hello")
+    assert_equal "Hello LLGO\n", output
   end
 end
