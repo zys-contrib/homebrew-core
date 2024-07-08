@@ -6,6 +6,16 @@ class Wcurl < Formula
   license "curl"
   head "https://salsa.debian.org/debian/wcurl.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5c65bb98d00279bedfb286a2fd324c139e4ddf20c97382418e86db25b2cefcf1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5c65bb98d00279bedfb286a2fd324c139e4ddf20c97382418e86db25b2cefcf1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5c65bb98d00279bedfb286a2fd324c139e4ddf20c97382418e86db25b2cefcf1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5c65bb98d00279bedfb286a2fd324c139e4ddf20c97382418e86db25b2cefcf1"
+    sha256 cellar: :any_skip_relocation, ventura:        "5c65bb98d00279bedfb286a2fd324c139e4ddf20c97382418e86db25b2cefcf1"
+    sha256 cellar: :any_skip_relocation, monterey:       "5c65bb98d00279bedfb286a2fd324c139e4ddf20c97382418e86db25b2cefcf1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "736e2648b6fcb39fea97a85c7eecfebd834e029421bf454e4d5f380785e8357d"
+  end
+
   depends_on "curl"
 
   def install
