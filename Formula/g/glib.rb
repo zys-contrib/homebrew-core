@@ -2,9 +2,9 @@ class Glib < Formula
   include Language::Python::Shebang
 
   desc "Core application library for C"
-  homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.80/glib-2.80.3.tar.xz"
-  sha256 "3947a0eaddd0f3613d0230bb246d0c69e46142c19022f5c4b1b2e3cba236d417"
+  homepage "https://docs.gtk.org/glib/"
+  url "https://download.gnome.org/sources/glib/2.80/glib-2.80.4.tar.xz"
+  sha256 "24e029c5dfc9b44e4573697adf33078a9827c48938555004b3b9096fa4ea034f"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -53,8 +53,8 @@ class Glib < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
-    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
+    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
+    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
   end
 
   # replace several hardcoded paths with homebrew counterparts
