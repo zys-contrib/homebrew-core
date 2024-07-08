@@ -1,8 +1,8 @@
 class Libchewing < Formula
   desc "Intelligent phonetic input method library"
   homepage "https://chewing.im/"
-  url "https://github.com/chewing/libchewing/releases/download/v0.8.4/libchewing-0.8.4.tar.zst"
-  sha256 "c272e85c9aff03265db08641cac25709b9faf45b4602e04ea6cb39317103b3fa"
+  url "https://github.com/chewing/libchewing/releases/download/v0.8.5/libchewing-0.8.5.tar.zst"
+  sha256 "472881fc7df7f1bc90383937c504589d80d542b5f2c4c5c007017c13a21f534e"
   license "LGPL-2.1-only"
 
   bottle do
