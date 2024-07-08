@@ -6,7 +6,13 @@ class AdwaitaIconTheme < Formula
   license any_of: ["LGPL-3.0-or-later", "CC-BY-SA-3.0"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "380e2eac20713968f6e73603bfaeab035d0c6d07a1fa16e431decbc3c8aeb1cd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b3d359d575a07d463dae85557e6d348fe19bec5afb3c9b427ae6b331969b80dc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b3d359d575a07d463dae85557e6d348fe19bec5afb3c9b427ae6b331969b80dc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b3d359d575a07d463dae85557e6d348fe19bec5afb3c9b427ae6b331969b80dc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b3d359d575a07d463dae85557e6d348fe19bec5afb3c9b427ae6b331969b80dc"
+    sha256 cellar: :any_skip_relocation, ventura:        "b3d359d575a07d463dae85557e6d348fe19bec5afb3c9b427ae6b331969b80dc"
+    sha256 cellar: :any_skip_relocation, monterey:       "b3d359d575a07d463dae85557e6d348fe19bec5afb3c9b427ae6b331969b80dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d460a6991524bce66ca08453f5acaaf2529bfe00f18871f2bd95b47d3520efc1"
   end
 
   depends_on "gettext" => :build
