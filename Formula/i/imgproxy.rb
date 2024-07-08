@@ -1,8 +1,8 @@
 class Imgproxy < Formula
   desc "Fast and secure server for resizing and converting remote images"
   homepage "https://imgproxy.net"
-  url "https://github.com/imgproxy/imgproxy/archive/refs/tags/v3.24.1.tar.gz"
-  sha256 "dc75ffd728450b04c8eaa7cd172836d518b129d552026bbaef87fd32e078573d"
+  url "https://github.com/imgproxy/imgproxy/archive/refs/tags/v3.25.0.tar.gz"
+  sha256 "14c76764b33174eebaf22f201b325dfa36434b6dcd9f79a86bb925a5eecfe69b"
   license "MIT"
   head "https://github.com/imgproxy/imgproxy.git", branch: "master"
 
@@ -20,6 +20,10 @@ class Imgproxy < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "vips"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     ENV["CGO_LDFLAGS_ALLOW"]="-s|-w"
