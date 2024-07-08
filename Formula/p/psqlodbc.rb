@@ -1,13 +1,17 @@
 class Psqlodbc < Formula
   desc "Official PostgreSQL ODBC driver"
   homepage "https://odbc.postgresql.org"
-  url "https://ftp.postgresql.org/pub/odbc/versions/src/psqlodbc-16.00.0000.tar.gz"
-  sha256 "afd892f89d2ecee8d3f3b2314f1bd5bf2d02201872c6e3431e5c31096eca4c8b"
+  url "https://github.com/postgresql-interfaces/psqlodbc/archive/refs/tags/REL-16_00_0005.tar.gz"
+  sha256 "1aa1bd5f9cb26ac1a4729ed2ab48974b29c335bebff6830d66aaac8bcd081ab0"
   license "LGPL-2.0-or-later"
+  head "https://github.com/postgresql-interfaces/psqlodbc.git", branch: "main"
 
   livecheck do
-    url "https://ftp.postgresql.org/pub/odbc/versions/src/"
-    regex(/href=.*?psqlodbc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :stable
+    regex(/^REL[._-]?v?(\d+(?:[._]\d+)+)$/i)
+    strategy :git do |tags, regex|
+      tags.filter_map { |tag| tag[regex, 1]&.tr("_", ".") }
+    end
   end
 
   bottle do
@@ -22,18 +26,14 @@ class Psqlodbc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e7abbebf5c82fff0fd95e55c2af66c164ee7562dffef391c2a96e9a1a371c0c"
   end
 
-  head do
-    url "https://git.postgresql.org/git/psqlodbc.git", branch: "master"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "libpq"
   depends_on "unixodbc"
 
   def install
-    system "./bootstrap" if build.head?
+    system "./bootstrap"
     system "./configure", "--prefix=#{prefix}",
                           "--with-unixodbc=#{Formula["unixodbc"].opt_prefix}"
     system "make"
