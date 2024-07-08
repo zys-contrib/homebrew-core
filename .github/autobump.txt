@@ -2630,6 +2630,7 @@ wavpack
 wayland
 wayland-protocols
 wazero
+wcurl
 weasyprint
 web-ext
 webdis
