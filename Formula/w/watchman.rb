@@ -1,8 +1,8 @@
 class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
-  url "https://github.com/facebook/watchman/archive/refs/tags/v2024.07.01.00.tar.gz"
-  sha256 "d56a1672802c5ea0b9b853a3a9d1dcf1644d72a56e5c6069db6319310b271d32"
+  url "https://github.com/facebook/watchman/archive/refs/tags/v2024.07.08.00.tar.gz"
+  sha256 "140f5ce335cd2639945e45e778f5203581add5fc30e64a166ee37140fe8970e4"
   license "MIT"
   head "https://github.com/facebook/watchman.git", branch: "main"
 
@@ -43,12 +43,6 @@ class Watchman < Formula
   end
 
   fails_with gcc: "5"
-
-  # watchman_client dependency version bump, upstream pr ref, https://github.com/facebook/watchman/pull/1229
-  patch do
-    url "https://github.com/facebook/watchman/commit/681074fe3cc4c0dce2f7fad61c1063a3e614d554.patch?full_index=1"
-    sha256 "7931c7f4e24c39ea597ea9b125c3003ccdb892292fc455b4c66971c65a48f5f6"
-  end
 
   def install
     # Fix "Process terminated due to timeout" by allowing a longer timeout.
