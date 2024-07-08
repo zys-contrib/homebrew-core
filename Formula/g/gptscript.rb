@@ -21,11 +21,12 @@ class Gptscript < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/gptscript-ai/gptscript/pkg/version.Tag=#{version}
+      -X github.com/gptscript-ai/gptscript/pkg/version.Tag=v#{version}
     ]
     system "go", "build", *std_go_args(ldflags:)
 
     pkgshare.install "examples"
+    generate_completions_from_executable(bin/"gptscript", "completion")
   end
 
   test do
