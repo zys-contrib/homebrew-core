@@ -4,10 +4,9 @@ class MetaPackageManager < Formula
 
   desc "Wrapper around all package managers with a unifying CLI"
   homepage "https://kdeldycke.github.io/meta-package-manager/"
-  url "https://files.pythonhosted.org/packages/c2/2a/6baf9e33b3bb63ef4857b903b44700e91a06609160e31070f58b387a9e46/meta_package_manager-5.16.0.tar.gz"
-  sha256 "5620d653cc31f98d9ae36b594929a5dca70438e25c2a9bdcd4a11b0677f30f9c"
+  url "https://files.pythonhosted.org/packages/c5/c0/35fc343df6f7fb9ca58d36f224132447ed613124c88e7e5f5604de5e05f1/meta_package_manager-5.17.0.tar.gz"
+  sha256 "96ba190a8e9bb67d6b230865ff06ff9c9bcc447377a0b219c0a8765f7e6f326d"
   license "GPL-2.0-or-later"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "0d5180d3d49a40b13cc5a788536c01432350ce2582049b8c6cf112a4eac52a21"
@@ -58,11 +57,6 @@ class MetaPackageManager < Formula
     sha256 "42f9f231d97d93aff3286a4dc0de39bfd91ae823d1d9eba9fa901fe0c7113dd4"
   end
 
-  resource "docutils" do
-    url "https://files.pythonhosted.org/packages/ae/ed/aefcc8cd0ba62a0560c3c18c33925362d46c6075480bfa4df87b28e169a9/docutils-0.21.2.tar.gz"
-    sha256 "3a6b18732edf182daa3cd12775bbb338cf5691468f91eeeb109deff6ebfa986f"
-  end
-
   resource "idna" do
     url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
     sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
@@ -78,9 +72,14 @@ class MetaPackageManager < Formula
     sha256 "0096d52e9dad9939c3d975a774666af186eda617e6ca84df4c94dec30004f2a8"
   end
 
+  resource "more-itertools" do
+    url "https://files.pythonhosted.org/packages/01/33/77f586de725fc990d12dda3d4efca4a41635be0f99a987b9cc3a78364c13/more-itertools-10.3.0.tar.gz"
+    sha256 "e5d93ef411224fbcef366a6e8ddc4c5781bc6359d43412a65dd5964e46111463"
+  end
+
   resource "packageurl-python" do
-    url "https://files.pythonhosted.org/packages/56/1b/cdd6305870afd6f2333a4d9fddc9321058a8da8f512639ca8f3cc3559084/packageurl_python-0.15.1.tar.gz"
-    sha256 "9a37b9a7cad9a2872b4612151ba3749fd9dec90485577c14d374b6e66b7edf03"
+    url "https://files.pythonhosted.org/packages/b5/0c/08dfe9c4bf1dbb4aa06e1095bdbe636095e3b02e8212d3def3ea77c94c44/packageurl_python-0.15.2.tar.gz"
+    sha256 "9cd10eeedbc6680728c10a1585c6dd7bbad4ef4b389d80cd0ac223205e9c87df"
   end
 
   resource "pyyaml" do
