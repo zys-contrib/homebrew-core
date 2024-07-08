@@ -1,10 +1,9 @@
 class GitAbsorb < Formula
   desc "Automatic git commit --fixup"
   homepage "https://github.com/tummychow/git-absorb"
-  url "https://github.com/tummychow/git-absorb/archive/refs/tags/0.6.13.tar.gz"
-  sha256 "5646857dd764d0a486405e777b3ec4e919511abc96bd0e02e71ec9e94d151115"
+  url "https://github.com/tummychow/git-absorb/archive/refs/tags/0.6.15.tar.gz"
+  sha256 "630e61a6edf1e244c38145bda98a522217c34d3ab70a3399af1f29f19e7ced26"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "692e781c789759f5543d82249f6a2f3aa1fd9a5cb5767febc1de7da40b78b094"
@@ -18,7 +17,7 @@ class GitAbsorb < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "libgit2@1.7"
+  depends_on "libgit2"
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
@@ -47,7 +46,7 @@ class GitAbsorb < Formula
     linkage_with_libgit2 = (bin/"git-absorb").dynamically_linked_libraries.any? do |dll|
       next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
 
-      File.realpath(dll) == (Formula["libgit2@1.7"].opt_lib/shared_library("libgit2")).realpath.to_s
+      File.realpath(dll) == (Formula["libgit2"].opt_lib/shared_library("libgit2")).realpath.to_s
     end
 
     assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."
