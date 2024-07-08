@@ -11,13 +11,13 @@ class TomcatAT9 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7cd770729d57646c044dadf0a6da9555a658c9ff6ff2a8c50694f4259e8c744b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7cd770729d57646c044dadf0a6da9555a658c9ff6ff2a8c50694f4259e8c744b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7cd770729d57646c044dadf0a6da9555a658c9ff6ff2a8c50694f4259e8c744b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7cd770729d57646c044dadf0a6da9555a658c9ff6ff2a8c50694f4259e8c744b"
-    sha256 cellar: :any_skip_relocation, ventura:        "7cd770729d57646c044dadf0a6da9555a658c9ff6ff2a8c50694f4259e8c744b"
-    sha256 cellar: :any_skip_relocation, monterey:       "7cd770729d57646c044dadf0a6da9555a658c9ff6ff2a8c50694f4259e8c744b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49cf6dcf30d756af974bfe7342d0fab0c80134ca201436c9a311f91eb460ef15"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "81411a5152288067fdadb290f55ffc6a0498be7a27372108ea9eb12990d47f90"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "81411a5152288067fdadb290f55ffc6a0498be7a27372108ea9eb12990d47f90"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "81411a5152288067fdadb290f55ffc6a0498be7a27372108ea9eb12990d47f90"
+    sha256 cellar: :any_skip_relocation, sonoma:         "81411a5152288067fdadb290f55ffc6a0498be7a27372108ea9eb12990d47f90"
+    sha256 cellar: :any_skip_relocation, ventura:        "81411a5152288067fdadb290f55ffc6a0498be7a27372108ea9eb12990d47f90"
+    sha256 cellar: :any_skip_relocation, monterey:       "81411a5152288067fdadb290f55ffc6a0498be7a27372108ea9eb12990d47f90"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c749b1162aee583327345c6ddbefa64f0e9328da0ca7f5b383fb2a610ee2325"
   end
 
   keg_only :versioned_formula
