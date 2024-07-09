@@ -8,6 +8,16 @@ class Cortexso < Formula
   license "Apache-2.0"
   head "https://github.com/janhq/cortex.git", branch: "dev"
 
+  bottle do
+    sha256                               arm64_sonoma:   "603541444d5e2c2c49057a3f847d5b5138f83ec14e9048743636ab598f0f0835"
+    sha256                               arm64_ventura:  "016e6b942350f1712ae95152bd74178b51297b45b6ab5737f5fde0f4d6bfee75"
+    sha256                               arm64_monterey: "36ae8f2a9b21aacaf97c24ddb11eba0be72fcfd1d136b04d06aa9601076c7103"
+    sha256                               sonoma:         "236a3bfc8d6d5f9d04336b3ae30c2a9d0f17edc1b5e3f90c209c746972c5fda6"
+    sha256                               ventura:        "57c9518227cbc44e3723f66f54d7794863310905635eb182ff02c0954b3cb8cb"
+    sha256                               monterey:       "6e40acad0fed2c2e9122dfab590a62f7d689176fcd804af4181469027e3341f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "771ea24e5640bf6eba8fd81a4499acc2b2fea6db7912abbff406dd28c2943b25"
+  end
+
   depends_on "python-setuptools" => :build
   depends_on "python@3.12" => :build
   depends_on "node"
