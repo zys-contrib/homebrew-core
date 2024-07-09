@@ -38,7 +38,7 @@ class Libtool < Formula
         (libexec/"gnubin").install_symlink bin/"g#{prog}" => prog
         (libexec/"gnuman/man1").install_symlink man1/"g#{prog}.1" => "#{prog}.1"
       end
-      libexec.install_symlink "gnuman" => "man"
+      (libexec/"gnubin").install_symlink "../gnuman" => "man"
     end
 
     if OS.linux?
