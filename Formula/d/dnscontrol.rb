@@ -1,8 +1,8 @@
 class Dnscontrol < Formula
   desc "Synchronize your DNS to multiple providers from a simple DSL"
   homepage "https://dnscontrol.org/"
-  url "https://github.com/StackExchange/dnscontrol/archive/refs/tags/v4.12.3.tar.gz"
-  sha256 "88696f622e614d687caaa592144a57e32cdb6e36712cf4a57a71860cb5ec45cb"
+  url "https://github.com/StackExchange/dnscontrol/archive/refs/tags/v4.12.4.tar.gz"
+  sha256 "9b77c20ddc3ff7f9a180722eac282abea790aa4f55b03e1d4ab9e865965b8152"
   license "MIT"
   version_scheme 1
 
@@ -53,9 +53,6 @@ class Dnscontrol < Formula
     EOS
 
     output = shell_output("#{bin}/dnscontrol check #{testpath}/dnsconfig.js 2>&1").strip
-    assert_equal <<~EOS.strip, output
-      DOMAIN: 4 example.com
-      No errors.
-    EOS
+    assert_equal "No errors.", output
   end
 end
