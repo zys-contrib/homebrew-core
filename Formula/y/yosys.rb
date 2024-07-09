@@ -3,8 +3,8 @@ class Yosys < Formula
   homepage "https://yosyshq.net/yosys/"
   # pull from git tag to get submodules
   url "https://github.com/YosysHQ/yosys.git",
-      tag:      "yosys-0.42",
-      revision: "9b6afcf3f83fea413b57c3790c25ba43b9914ce2"
+      tag:      "yosys-0.43",
+      revision: "ead4718e567aed2e552dcfe46294b132aa04c158"
   license "ISC"
   head "https://github.com/YosysHQ/yosys.git", branch: "main"
 
@@ -26,6 +26,7 @@ class Yosys < Formula
   uses_from_macos "flex"
   uses_from_macos "libffi", since: :catalina
   uses_from_macos "tcl-tk"
+  uses_from_macos "zlib"
 
   def install
     system "make", "install", "PREFIX=#{prefix}", "PRETTY=0"
