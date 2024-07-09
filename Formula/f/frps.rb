@@ -1,10 +1,10 @@
 class Frps < Formula
   desc "Server app of fast reverse proxy to expose a local server to the internet"
   homepage "https://github.com/fatedier/frp"
-  url "https://github.com/fatedier/frp.git",
-      tag:      "v0.59.0",
-      revision: "243ca994e01d672bd6f07788936fdc1118adc460"
+  url "https://github.com/fatedier/frp/archive/refs/tags/v0.59.0.tar.gz"
+  sha256 "eb4848119a9684b7762171d7633aa5ee29d195e63f53e89e7b549096bdf4a5a9"
   license "Apache-2.0"
+  head "https://github.com/fatedier/frp.git", branch: "dev"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a105317a3aa8b9453984bf87013c8e8cc209343f81d5d07865606732bf2d6fae"
@@ -19,12 +19,10 @@ class Frps < Formula
   depends_on "go" => :build
 
   def install
-    (buildpath/"bin").mkpath
-    (etc/"frp").mkpath
+    ENV["CGO_ENABLED"] = "0"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "-tags=frps", "./cmd/frps"
 
-    system "make", "frps"
-    bin.install "bin/frps"
-    etc.install "conf/frps.toml" => "frp/frps.toml"
+    (etc/"frp").install "conf/frps.toml"
   end
 
   service do
