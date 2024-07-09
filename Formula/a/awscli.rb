@@ -9,13 +9,13 @@ class Awscli < Formula
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "efe5b45d6a7da627e4d458e032d9fc5af5c8d038e77cd8de7fdc1baa519c93e5"
-    sha256 cellar: :any,                 arm64_ventura:  "d31a11435874fd42ec2c434f49051e81801491e54162063ede1487c4be588bb4"
-    sha256 cellar: :any,                 arm64_monterey: "96864df2bdb8f9f76d95bf02430c99629b51741cddbb49e2270b1f5fedf1b15b"
-    sha256 cellar: :any,                 sonoma:         "bfdc11f8d3bb76707f5967563058622f9284a5c5b9851fb02def93aa89060cb7"
-    sha256 cellar: :any,                 ventura:        "26fd3e9526cc659058b0149ea43e21033c73e944cd50289c635e1e4d97f68944"
-    sha256 cellar: :any,                 monterey:       "e0c02d2236cbe36285fe3b60567cfa0e4ca94b59a59dcf86bf3a5c668abf4052"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9464a4b8344ee731027c50c8b915bf2590d9eaa4b55071b9800282c3bfc60990"
+    sha256 cellar: :any,                 arm64_sonoma:   "130e5c8ef935a8884d1939b0330bd072b509a61f40d0c5c444f59edc1a279a77"
+    sha256 cellar: :any,                 arm64_ventura:  "dc76afcfd45ca149389244ff2d23fac5480fe5873d6ba792efc5e4e42cf7e6d8"
+    sha256 cellar: :any,                 arm64_monterey: "28e5b8b5a96b27298d67a43aac9f904c6dc41710d7042353fd13feabef426f5e"
+    sha256 cellar: :any,                 sonoma:         "c34b8d1a635f1f0c843b8ee90c9fa304c26b796427cfb71ef4950ec5ee9a9da7"
+    sha256 cellar: :any,                 ventura:        "023f119f7e582717cb6469dccb8afa8cc78ed589be43ce6ab250666601354525"
+    sha256 cellar: :any,                 monterey:       "c6a599311d1978379e83ef8057d5b8d93e34fed1bacb17809d49f9e67fc045c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d2bf3f47ff6667923c56607ddbcafef53b25fda6573be178b1c4a63b4638dd99"
   end
 
   # `pkg-config`, `rust`, and `openssl@3` are for cryptography.
