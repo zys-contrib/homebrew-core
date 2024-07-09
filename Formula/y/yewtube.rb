@@ -6,7 +6,7 @@ class Yewtube < Formula
   url "https://github.com/mps-youtube/yewtube/archive/refs/tags/v2.10.5.tar.gz"
   sha256 "8100466a5e89c84249d882e2e9ea9ff282a2d4f7f68135157cb942e6eb927b29"
   license "GPL-3.0-or-later"
-  revision 6
+  revision 7
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "707474d4ebc4f2648d28d1fe49621c4fa61beadc44621c753998fed00aad59bb"
@@ -107,8 +107,8 @@ class Yewtube < Formula
   end
 
   resource "yt-dlp" do
-    url "https://files.pythonhosted.org/packages/5a/c3/ebb3aa4b46550aaa1e125db81db8c4efbfe1436221e8ed60ee5a18930890/yt_dlp-2024.7.2.tar.gz"
-    sha256 "2b0c86b579d4a044eaf3c4b00e3d7b24d82e6e26869fa11c288ea4395b387f41"
+    url "https://files.pythonhosted.org/packages/2d/2a/9eeaaf4f3c9253c332d065ae9adf925742f46bf033864754d01a2aae66ec/yt_dlp-2024.7.9.tar.gz"
+    sha256 "e19f00f9e55e90bca1c94bcaf809aa33e51634be9f0de2df84a72d3206934f94"
   end
 
   # Fix SyntaxWarning's on python 3.12
