@@ -1839,7 +1839,6 @@ oras
 orc
 orc-tools
 ord
-organize-tool
 orientdb
 ormolu
 orocos-kdl
