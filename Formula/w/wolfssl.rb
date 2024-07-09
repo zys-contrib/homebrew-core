@@ -2,10 +2,9 @@ class Wolfssl < Formula
   desc "Embedded SSL Library written in C"
   homepage "https://www.wolfssl.com"
   url "https://github.com/wolfSSL/wolfssl.git",
-      tag:      "v5.7.0-stable",
-      revision: "8970ff4c34034dbb3594943d11f8c9d4c5512bd5"
+      tag:      "v5.7.2-stable",
+      revision: "00e42151ca061463ba6a95adb2290f678cbca472"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/wolfSSL/wolfssl.git", branch: "master"
 
   livecheck do
@@ -61,7 +60,6 @@ class Wolfssl < Formula
       --enable-eccencrypt
       --enable-ed25519
       --enable-filesystem
-      --enable-hc128
       --enable-hkdf
       --enable-inline
       --enable-ipv6
@@ -72,7 +70,6 @@ class Wolfssl < Formula
       --enable-poly1305
       --enable-psk
       --enable-quic
-      --enable-rabbit
       --enable-ripemd
       --enable-savesession
       --enable-savecert
