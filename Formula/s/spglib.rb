@@ -1,8 +1,8 @@
 class Spglib < Formula
   desc "C library for finding and handling crystal symmetries"
   homepage "https://spglib.readthedocs.io/"
-  url "https://github.com/spglib/spglib/archive/refs/tags/v2.4.0.tar.gz"
-  sha256 "e33694b189c6864f719a59c31e2af55301a524fb68ba9fb65f08e95af471847d"
+  url "https://github.com/spglib/spglib/archive/refs/tags/v2.5.0.tar.gz"
+  sha256 "80c060b1a606a76b15f2cc708e9fdd4a83479924ebff9ac16ed26a87a0eac1a9"
   license "BSD-3-Clause"
 
   bottle do
@@ -23,6 +23,7 @@ class Spglib < Formula
     # https://github.com/spglib/spglib/issues/352#issuecomment-1784943807
     common_args = %w[
       -DSPGLIB_WITH_Fortran=OFF
+      -DSPGLIB_WITH_TESTS=OFF
     ]
     system "cmake", "-S", ".", "-B", "build_shared",
                    *common_args, "-DSPGLIB_SHARED_LIBS=ON", *std_cmake_args
