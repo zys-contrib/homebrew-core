@@ -4,6 +4,7 @@ class Htslib < Formula
   url "https://github.com/samtools/htslib/releases/download/1.20/htslib-1.20.tar.bz2"
   sha256 "e52d95b14da68e0cfd7d27faf56fef2f88c2eaf32a2be51c72e146e3aa928544"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -20,6 +21,7 @@ class Htslib < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e5690f88f816c9291f96558338954b4dd27edb166b32cedb5edcf49c3034c95"
   end
 
+  depends_on "libdeflate"
   depends_on "xz"
 
   uses_from_macos "bzip2"
@@ -31,7 +33,7 @@ class Htslib < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--enable-libcurl"
+    system "./configure", "--prefix=#{prefix}", "--enable-libcurl", "--with-libdeflate"
     system "make", "install"
   end
 
