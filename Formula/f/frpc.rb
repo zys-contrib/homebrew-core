@@ -1,10 +1,10 @@
 class Frpc < Formula
   desc "Client app of fast reverse proxy to expose a local server to the internet"
   homepage "https://github.com/fatedier/frp"
-  url "https://github.com/fatedier/frp.git",
-      tag:      "v0.59.0",
-      revision: "243ca994e01d672bd6f07788936fdc1118adc460"
+  url "https://github.com/fatedier/frp/archive/refs/tags/v0.59.0.tar.gz"
+  sha256 "eb4848119a9684b7762171d7633aa5ee29d195e63f53e89e7b549096bdf4a5a9"
   license "Apache-2.0"
+  head "https://github.com/fatedier/frp.git", branch: "dev"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4574f30fbaf792cd399969bb3128e27e86de0cea25d81a00d33d8f5b01390b98"
@@ -19,12 +19,9 @@ class Frpc < Formula
   depends_on "go" => :build
 
   def install
-    (buildpath/"bin").mkpath
-    (etc/"frp").mkpath
-
-    system "make", "frpc"
-    bin.install "bin/frpc"
-    etc.install "conf/frpc.toml" => "frp/frpc.toml"
+    ENV["CGO_ENABLED"] = "0"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "-tags=frpc", "./cmd/frpc"
+    (etc/"frp").install "conf/frpc.toml"
   end
 
   service do
