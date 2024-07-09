@@ -7,13 +7,13 @@ class RubyBuild < Formula
   head "https://github.com/rbenv/ruby-build.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "93eff75df85b57532beb27602ad643bd045323c8e0e26e866901055fc2941e30"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "93eff75df85b57532beb27602ad643bd045323c8e0e26e866901055fc2941e30"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "93eff75df85b57532beb27602ad643bd045323c8e0e26e866901055fc2941e30"
-    sha256 cellar: :any_skip_relocation, sonoma:         "93eff75df85b57532beb27602ad643bd045323c8e0e26e866901055fc2941e30"
-    sha256 cellar: :any_skip_relocation, ventura:        "93eff75df85b57532beb27602ad643bd045323c8e0e26e866901055fc2941e30"
-    sha256 cellar: :any_skip_relocation, monterey:       "93eff75df85b57532beb27602ad643bd045323c8e0e26e866901055fc2941e30"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06ad1ea3d42c1462198a7056f7ab29bdeb3937fe8736ca80ee7376c0dc2564b2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8d1c74af0fbfdcf4b3dec26f03ed4a346800f703cf264cac80630021a15942e3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d1c74af0fbfdcf4b3dec26f03ed4a346800f703cf264cac80630021a15942e3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8d1c74af0fbfdcf4b3dec26f03ed4a346800f703cf264cac80630021a15942e3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8d1c74af0fbfdcf4b3dec26f03ed4a346800f703cf264cac80630021a15942e3"
+    sha256 cellar: :any_skip_relocation, ventura:        "8d1c74af0fbfdcf4b3dec26f03ed4a346800f703cf264cac80630021a15942e3"
+    sha256 cellar: :any_skip_relocation, monterey:       "8d1c74af0fbfdcf4b3dec26f03ed4a346800f703cf264cac80630021a15942e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "000781df2b407ed286b9ffa261fec271d4da181f4b86153b766346e2a2a2631a"
   end
 
   depends_on "autoconf"
