@@ -16,13 +16,13 @@ class Ollama < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b2030357577820ab67b3617f24421775abba0fbfe380af1b5c6f9c4e55ef5f41"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6ad1d18a61ec987ad670ca79e538f62a1d6e97f110733647906b22da26a2e7ed"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9eef2677e4514e6297ce3a49225dba1486a607b93466ab2e3d7ce39fb6dbacfd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9c12622a45ed0f8cdbaca33306fdd6c7695c4025f41724d40d5454ff15abd0ee"
-    sha256 cellar: :any_skip_relocation, ventura:        "b18824ada77bfaca18036165d64e5c4fd44914358eb733b103839c2270cb35ea"
-    sha256 cellar: :any_skip_relocation, monterey:       "71e640fe66649bdad1da97c1637a3764832731710f17764e96128d6504344100"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4de18aa996527e202bafd87d8bdafe512f08f006aa3193fe6082dde8778a039"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8ee96f25182e7a732986d361afbc8cf23087c7a8cb9fdaec35953d70ebc7f246"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fe85c8f10f177a223eaafe5dea759ff0bb944430e61a5fd10a023a39803ae65d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2b00d26ae92e108dc44845b857676eaab84a3d7ce3ba08cf02e39722bb158994"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f9fe31c6192be0017a8f040eadd8b55d0545325dbf20c79cfb9e01c25a37ce90"
+    sha256 cellar: :any_skip_relocation, ventura:        "7d04884da60552334082ab11640bfe9e3bc8cddacd824e10988ccbc27359fe0b"
+    sha256 cellar: :any_skip_relocation, monterey:       "a76f9260fca185255f01d45091a7e02bef201284ae92f5bf58f45d368451c861"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0aafe8e360e486a46feb00b91d6156a69c83d246cec9e71b0798c652bfd2d9de"
   end
 
   depends_on "cmake" => :build
