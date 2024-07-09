@@ -8,10 +8,10 @@ class Gdb < Formula
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
   bottle do
-    sha256 sonoma:       "ee07ec8292ea65493971dc8ab7d65380efdade32c86cd487f55275ba6b182b2c"
-    sha256 ventura:      "c2a54fa9c09eddf858d2f7f1c5e7e1ad09473d8fb9daf0f695d828395cb69147"
-    sha256 monterey:     "cafd2299a0070a912dd89a9cbccad0696a0be70b8d8784200d29d74da2d356b8"
-    sha256 x86_64_linux: "e9bd1f639ec4732d1ced581f9eee17194da161f200b0b2c055f64476db60de64"
+    sha256 sonoma:       "0bbcc58f6570f60b7a077157fbce8f838a5b6320298e6220f3bd89dd86d9d508"
+    sha256 ventura:      "4f70690e1f132c66629f14092ac8dcd9fc65583e6ed31afb009ee982be47df46"
+    sha256 monterey:     "6e77121eddb5bf69cdd731aa9375ea55916aa26e159c81a3da47dc19e6811bde"
+    sha256 x86_64_linux: "dd11325ca2297ad1be34eb940e64c3be5522e491daae7460e5b1b3ac63842206"
   end
 
   depends_on arch: :x86_64 # gdb is not supported on macOS ARM
