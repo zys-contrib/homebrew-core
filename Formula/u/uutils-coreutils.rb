@@ -47,7 +47,7 @@ class UutilsCoreutils < Formula
       (libexec/"uuman"/"man1").install_symlink man1/"u#{cmd}" => cmd
     end
 
-    libexec.install_symlink "uuman" => "man"
+    (libexec/"uubin").install_symlink "../uuman" => "man"
 
     # Symlink non-conflicting binaries
     no_conflict = if OS.mac?
