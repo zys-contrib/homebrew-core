@@ -3,8 +3,8 @@ require "language/node"
 class Cortexso < Formula
   desc "Drop-in, local AI alternative to the OpenAI stack"
   homepage "https://jan.ai/cortex"
-  url "https://registry.npmjs.org/cortexso/-/cortexso-0.1.0.tgz"
-  sha256 "ad32120974c37b1e6bb8e745edf83ccf611045b38a21bafb8cd55fe2c638aeb9"
+  url "https://registry.npmjs.org/cortexso/-/cortexso-0.1.1.tgz"
+  sha256 "48efc16761eebfdd60e50211049554e7b781b30e56461042c6bf100e84d8d244"
   license "Apache-2.0"
   head "https://github.com/janhq/cortex.git", branch: "dev"
 
@@ -18,14 +18,18 @@ class Cortexso < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "771ea24e5640bf6eba8fd81a4499acc2b2fea6db7912abbff406dd28c2943b25"
   end
 
-  depends_on "python-setuptools" => :build
-  depends_on "python@3.12" => :build
   depends_on "node"
+
+  on_linux do
+    # Workaround for old `node-gyp` that needs distutils.
+    # TODO: Remove when `node-gyp` is v10+
+    depends_on "python-setuptools" => :build
+  end
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    # @cpu-instructions bundles all binaries for other platforms & architectures
-    # This deletes the non-matching architecture otherwise brew audit will complain.
+    bin.install_symlink Dir["#{libexec}/bin/*"]
+
     # Remove incompatible pre-built binaries
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
@@ -33,12 +37,11 @@ class Cortexso < Formula
     node_modules.each_child do |dir|
       dir.rmtree if dir.basename.to_s != "#{os}-#{arch}"
     end
-    bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do
     port = free_port
-    pid = fork { exec "#{bin}/cortex", "serve", "--port", port.to_s }
+    pid = fork { exec bin/"cortex", "serve", "--port", port.to_s }
     sleep 10
     begin
       assert_match "OK", shell_output("curl -s localhost:#{port}/v1/health")
