@@ -2,9 +2,9 @@ class Homebank < Formula
   desc "Manage your personal accounts at home"
   homepage "http://homebank.free.fr"
   # A mirror is used as primary URL because the official one is unstable.
-  url "https://deb.debian.org/debian/pool/main/h/homebank/homebank_5.7.4.orig.tar.gz"
-  mirror "http://homebank.free.fr/public/sources/homebank-5.7.4.tar.gz"
-  sha256 "42ce7146c875ea0ca3c93391b6a9bf4714db4621c63f4a094dcc6f8985bb54e4"
+  url "https://deb.debian.org/debian/pool/main/h/homebank/homebank_5.8.1.orig.tar.gz"
+  mirror "http://homebank.free.fr/public/sources/homebank-5.8.1.tar.gz"
+  sha256 "60c35feafe341aec8fed9de4b0a875dc0f5c1674c5f5804ff7190a6c6c53dc01"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -39,6 +39,11 @@ class Homebank < Formula
     depends_on "perl-xml-parser" => :build
   end
 
+  # Fix scope of 'name' variable in rep-budget.c
+  # upstream bug report, https://bugs.launchpad.net/homebank/+bug/2067543
+  # nixpkg patch commit, https://github.com/NixOS/nixpkgs/commit/5b15ea1e00e33223d52c3aabb821de402265b326
+  patch :DATA
+
   def install
     if OS.linux?
       ENV.prepend_path "PERL5LIB", Formula["perl-xml-parser"].libexec/"lib/perl5"
@@ -52,6 +57,22 @@ class Homebank < Formula
   end
 
   test do
-    system "#{bin}/homebank", "--version"
+    # homebank is a GUI application
+    system bin/"homebank", "--help"
   end
 end
+
+__END__
+diff --git a/src/rep-budget.c b/src/rep-budget.c
+index eb5cce6..61e2e77 100644
+--- a/src/rep-budget.c
++++ b/src/rep-budget.c
+@@ -255,7 +255,7 @@ gint tmpmode;
+ 	}
+ 	else
+ 	{
+-libname:
++libname: ;
+ 	gchar *name;
+
+ 		gtk_tree_model_get(model, iter,

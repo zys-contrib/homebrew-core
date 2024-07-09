@@ -1107,6 +1107,7 @@ hive
 hivemind
 hledger
 hof
+homebank
 hoverfly
 hpack
 hpp-fcl
