@@ -1,9 +1,8 @@
 class Helm < Formula
   desc "Kubernetes package manager"
   homepage "https://helm.sh/"
-  url "https://github.com/helm/helm.git",
-      tag:      "v3.15.2",
-      revision: "1a500d5625419a524fdae4b33de351cc4f58ec35"
+  url "https://github.com/helm/helm/archive/refs/tags/v3.15.3.tar.gz"
+  sha256 "f4eb30fa8285091ceffba16cf5ad7ec4b444897bd1df615af4bef3842f6d6d0e"
   license "Apache-2.0"
   head "https://github.com/helm/helm.git", branch: "main"
 
@@ -20,8 +19,15 @@ class Helm < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "build"
-    bin.install "bin/helm"
+    ldflags = %W[
+      -s -w
+      -X helm.sh/helm/v3/internal/version.version=v#{version}
+      -X helm.sh/helm/v3/internal/version.metadata=
+      -X helm.sh/helm/v3/internal/version.gitCommit=#{tap.user}
+      -X helm.sh/helm/v3/internal/version.gitTreeState=clean
+    ]
+
+    system "go", "build", *std_go_args(ldflags:), "./cmd/helm"
 
     mkdir "man1" do
       system bin/"helm", "docs", "--type", "man"
@@ -35,12 +41,8 @@ class Helm < Formula
     system bin/"helm", "create", "foo"
     assert File.directory? testpath/"foo/charts"
 
-    version_output = shell_output(bin/"helm version 2>&1")
+    version_output = shell_output(bin/"helm version")
     assert_match "GitTreeState:\"clean\"", version_output
-    if build.stable?
-      revision = stable.specs[:revision]
-      assert_match "GitCommit:\"#{revision}\"", version_output
-      assert_match "Version:\"v#{version}\"", version_output
-    end
+    assert_match "Version:\"v#{version}\"", version_output
   end
 end
