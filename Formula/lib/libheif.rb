@@ -1,10 +1,9 @@
 class Libheif < Formula
   desc "ISO/IEC 23008-12:2017 HEIF file format decoder and encoder"
   homepage "https://www.libde265.org/"
-  url "https://github.com/strukturag/libheif/releases/download/v1.17.6/libheif-1.17.6.tar.gz"
-  sha256 "8390baf4913eda0a183e132cec62b875fb2ef507ced5ddddc98dfd2f17780aee"
+  url "https://github.com/strukturag/libheif/releases/download/v1.18.0/libheif-1.18.0.tar.gz"
+  sha256 "3f25f516d84401d7c22a24ef313ae478781b95f235c250b06152701c401055c3"
   license "LGPL-3.0-only"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "d3e6043da49e8af564ff89e35885c1a66ed9c8e9c1f133ca89ed592261737b04"
@@ -18,11 +17,14 @@ class Libheif < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+
   depends_on "aom"
   depends_on "jpeg-turbo"
   depends_on "libde265"
   depends_on "libpng"
+  depends_on "libtiff"
   depends_on "shared-mime-info"
+  depends_on "webp"
   depends_on "x265"
 
   def install
