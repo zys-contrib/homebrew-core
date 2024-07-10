@@ -7,13 +7,13 @@ class Wcurl < Formula
   head "https://salsa.debian.org/debian/wcurl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5c65bb98d00279bedfb286a2fd324c139e4ddf20c97382418e86db25b2cefcf1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5c65bb98d00279bedfb286a2fd324c139e4ddf20c97382418e86db25b2cefcf1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5c65bb98d00279bedfb286a2fd324c139e4ddf20c97382418e86db25b2cefcf1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5c65bb98d00279bedfb286a2fd324c139e4ddf20c97382418e86db25b2cefcf1"
-    sha256 cellar: :any_skip_relocation, ventura:        "5c65bb98d00279bedfb286a2fd324c139e4ddf20c97382418e86db25b2cefcf1"
-    sha256 cellar: :any_skip_relocation, monterey:       "5c65bb98d00279bedfb286a2fd324c139e4ddf20c97382418e86db25b2cefcf1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "736e2648b6fcb39fea97a85c7eecfebd834e029421bf454e4d5f380785e8357d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d7c86c3062340c46b0f34fe4c17635d8a454524bf2f8fd86afc7efeb066686aa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d7c86c3062340c46b0f34fe4c17635d8a454524bf2f8fd86afc7efeb066686aa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d7c86c3062340c46b0f34fe4c17635d8a454524bf2f8fd86afc7efeb066686aa"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d7c86c3062340c46b0f34fe4c17635d8a454524bf2f8fd86afc7efeb066686aa"
+    sha256 cellar: :any_skip_relocation, ventura:        "d7c86c3062340c46b0f34fe4c17635d8a454524bf2f8fd86afc7efeb066686aa"
+    sha256 cellar: :any_skip_relocation, monterey:       "d7c86c3062340c46b0f34fe4c17635d8a454524bf2f8fd86afc7efeb066686aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32103a14a42d6532c6a4b3d4558c3ebd0b07cffbfc761ef83e5300b38f18c23c"
   end
 
   depends_on "curl"
