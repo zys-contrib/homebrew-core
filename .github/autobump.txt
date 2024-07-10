@@ -1701,6 +1701,7 @@ neon
 neonctl
 neosync
 nerdctl
+nerdfetch
 nest
 nestopia-ue
 netaddr
