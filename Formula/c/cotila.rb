@@ -6,6 +6,10 @@ class Cotila < Formula
   license "Apache-2.0"
   head "https://github.com/calebzulawski/cotila.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "8144c977b0567dff23206cbf5e24f7fc4aed78092dd187517e8813ca1e12f495"
+  end
+
   depends_on "cmake" => :build
 
   def install
