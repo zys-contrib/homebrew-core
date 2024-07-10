@@ -1,8 +1,8 @@
 class Wcurl < Formula
   desc "Wrapper around curl to easily download files"
   homepage "https://samueloph.dev/blog/announcing-wcurl-a-curl-wrapper-to-download-files/"
-  url "https://salsa.debian.org/debian/wcurl/-/archive/2024-07-07/wcurl-2024-07-07.tar.gz"
-  sha256 "5ee1d686aeef4353cb023be341f4b34401d8c6f55039cdda5d52d47cf8db4932"
+  url "https://salsa.debian.org/debian/wcurl/-/archive/2024.07.10/wcurl-2024.07.10.tar.gz"
+  sha256 "962bb72e36e6f6cedbd21c8ca3af50e7dadd587a49d2482ab3226e76cf6dcc97"
   license "curl"
   head "https://salsa.debian.org/debian/wcurl.git", branch: "main"
 
