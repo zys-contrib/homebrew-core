@@ -7,6 +7,16 @@ class Kaskade < Formula
   sha256 "2c3b4c87710f1586a6f68d283db6ae2ed0f13eb520ee6c20755c4addab8d9405"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "45f30e7fd8bb282a7641d30197cf502b20ef584188414ddc57e38cd7b8ca909c"
+    sha256 cellar: :any,                 arm64_ventura:  "97c527f5907d0c74d7ecaaf4724120d045fda592c28d9bf15e280249ba7ad49d"
+    sha256 cellar: :any,                 arm64_monterey: "77b4851d8c5fdc307b23331a6d1a2b0ead1fb8aee911729c31261e53d8e7d8a2"
+    sha256 cellar: :any,                 sonoma:         "d615fc9ad027cad7ba00e554858e81b5bf41f4767faa5e2a4c2e7d463572f91f"
+    sha256 cellar: :any,                 ventura:        "5eb61341aa1bd6f5dc9b4a15cc57550f498cd16a3cececbb01d5f7e617932eaa"
+    sha256 cellar: :any,                 monterey:       "2f9e05ae43c0f13bd02ea2d95e74802db66f568055dea7b047f666b17296dd50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b8e707a1f5c7b4bb07d393ba7f3548197c5b4be0bc6cd589aa72f73571891110"
+  end
+
   depends_on "rust" => :build # for rpds-py
   depends_on "certifi"
   depends_on "librdkafka"
