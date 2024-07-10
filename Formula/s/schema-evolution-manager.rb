@@ -6,13 +6,13 @@ class SchemaEvolutionManager < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "532e903f99eb00a35648b9d46296d45d002765650d73b879f963262314629f4a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "532e903f99eb00a35648b9d46296d45d002765650d73b879f963262314629f4a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "532e903f99eb00a35648b9d46296d45d002765650d73b879f963262314629f4a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "532e903f99eb00a35648b9d46296d45d002765650d73b879f963262314629f4a"
-    sha256 cellar: :any_skip_relocation, ventura:        "532e903f99eb00a35648b9d46296d45d002765650d73b879f963262314629f4a"
-    sha256 cellar: :any_skip_relocation, monterey:       "532e903f99eb00a35648b9d46296d45d002765650d73b879f963262314629f4a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea19ecdd41782c60a1060c2512b3726e98cfc419a37f40ba1172871fe1e2081f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8768c530ce69593150340ea0c6a75b14d42802f0d9005020276c35fea68b81dc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8768c530ce69593150340ea0c6a75b14d42802f0d9005020276c35fea68b81dc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8768c530ce69593150340ea0c6a75b14d42802f0d9005020276c35fea68b81dc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8768c530ce69593150340ea0c6a75b14d42802f0d9005020276c35fea68b81dc"
+    sha256 cellar: :any_skip_relocation, ventura:        "8768c530ce69593150340ea0c6a75b14d42802f0d9005020276c35fea68b81dc"
+    sha256 cellar: :any_skip_relocation, monterey:       "8768c530ce69593150340ea0c6a75b14d42802f0d9005020276c35fea68b81dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75b0dae0c12ec18579ce05a9e992e51abc6822bea440244ad9efed34dd51a667"
   end
 
   uses_from_macos "ruby"
