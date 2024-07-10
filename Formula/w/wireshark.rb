@@ -1,9 +1,9 @@
 class Wireshark < Formula
   desc "Network analyzer and capture tool - without graphical user interface"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-4.2.5.tar.xz"
-  mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.2.5.tar.xz"
-  sha256 "55e793ab87a9a73aac44336235c92cb76c52180c469b362ed3a54f26fbb1261f"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-4.2.6.tar.xz"
+  mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.2.6.tar.xz"
+  sha256 "5ec6028df29068d889c98489bf194a884b00831106fea1e921fea3c65f2003f5"
   license "GPL-2.0-or-later"
   head "https://gitlab.com/wireshark/wireshark.git", branch: "master"
 
