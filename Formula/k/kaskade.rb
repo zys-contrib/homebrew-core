@@ -3,8 +3,8 @@ class Kaskade < Formula
 
   desc "TUI for Kafka"
   homepage "https://github.com/sauljabin/kaskade"
-  url "https://files.pythonhosted.org/packages/79/4a/3f748f9bf4f6c17c2e83ef9a2f9a5c15f6b9fb973d5e268eb30be6c74078/kaskade-2.1.3.tar.gz"
-  sha256 "2c3b4c87710f1586a6f68d283db6ae2ed0f13eb520ee6c20755c4addab8d9405"
+  url "https://files.pythonhosted.org/packages/56/fc/b882173a8c3bd8c2f4ac68a6a6cd28474be6cda828cca83c423288f881bf/kaskade-2.1.4.tar.gz"
+  sha256 "57cada495141a8088efe491f6fa537288a4e66cfb91b85ae4e9febeffe04cb51"
   license "MIT"
 
   bottle do
@@ -90,11 +90,6 @@ class Kaskade < Formula
   resource "protobuf" do
     url "https://files.pythonhosted.org/packages/71/a5/d61e4263e62e6db1990c120d682870e5c50a30fb6b26119a214c7a014847/protobuf-5.27.2.tar.gz"
     sha256 "f3ecdef226b9af856075f28227ff2c90ce3a594d092c39bee5513573f25e2714"
-  end
-
-  resource "pyfiglet" do
-    url "https://files.pythonhosted.org/packages/a0/f2/2649b2acace54f861eccd4ab163bfd914236fc93ddb1df02dad2a2552b14/pyfiglet-1.0.2.tar.gz"
-    sha256 "758788018ab8faaddc0984e1ea05ff330d3c64be663c513cc1f105f6a3066dab"
   end
 
   resource "pygments" do
