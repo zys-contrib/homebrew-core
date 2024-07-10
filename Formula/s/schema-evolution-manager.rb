@@ -1,18 +1,18 @@
 class SchemaEvolutionManager < Formula
   desc "Manage postgresql database schema migrations"
   homepage "https://github.com/mbryzek/schema-evolution-manager"
-  url "https://github.com/mbryzek/schema-evolution-manager/archive/refs/tags/0.9.52.tar.gz"
-  sha256 "41ec749c436d7b802731090c428120e642db89ea1ef3fd3d921a0f97ac65d800"
+  url "https://github.com/mbryzek/schema-evolution-manager/archive/refs/tags/0.9.53.tar.gz"
+  sha256 "699a184a2725ce6cd878ea219fba4c5f7ca937c44386435c24fe0a9c9c224445"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8768c530ce69593150340ea0c6a75b14d42802f0d9005020276c35fea68b81dc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8768c530ce69593150340ea0c6a75b14d42802f0d9005020276c35fea68b81dc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8768c530ce69593150340ea0c6a75b14d42802f0d9005020276c35fea68b81dc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8768c530ce69593150340ea0c6a75b14d42802f0d9005020276c35fea68b81dc"
-    sha256 cellar: :any_skip_relocation, ventura:        "8768c530ce69593150340ea0c6a75b14d42802f0d9005020276c35fea68b81dc"
-    sha256 cellar: :any_skip_relocation, monterey:       "8768c530ce69593150340ea0c6a75b14d42802f0d9005020276c35fea68b81dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75b0dae0c12ec18579ce05a9e992e51abc6822bea440244ad9efed34dd51a667"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "68e92c7419b1938535058bdacb7317801df1869745f72f055bb419d166414ff1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "68e92c7419b1938535058bdacb7317801df1869745f72f055bb419d166414ff1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "68e92c7419b1938535058bdacb7317801df1869745f72f055bb419d166414ff1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "68e92c7419b1938535058bdacb7317801df1869745f72f055bb419d166414ff1"
+    sha256 cellar: :any_skip_relocation, ventura:        "68e92c7419b1938535058bdacb7317801df1869745f72f055bb419d166414ff1"
+    sha256 cellar: :any_skip_relocation, monterey:       "68e92c7419b1938535058bdacb7317801df1869745f72f055bb419d166414ff1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "568707ac58d57d539ef383eae2fba642adb3edd7f5f9b9317ebb245baaed674b"
   end
 
   uses_from_macos "ruby"
