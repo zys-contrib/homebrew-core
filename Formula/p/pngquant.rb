@@ -21,8 +21,16 @@ class Pngquant < Formula
   depends_on "libpng"
   depends_on "little-cms2"
 
+  # remove when upstream merge and release https://github.com/kornelski/pngquant/pull/418
+  resource "manpage" do
+    url "https://raw.githubusercontent.com/kornelski/pngquant/53a332a58f44357b6b41842a54d74aa1e245913d/pngquant.1"
+    sha256 "831f485ccb3664436e72c4c8142f15cc35b93854e18c5f01f0d2f3dbc918d374"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
+
+    man1.install resource("manpage")
   end
 
   test do
