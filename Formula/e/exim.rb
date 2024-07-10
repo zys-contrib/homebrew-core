@@ -1,8 +1,8 @@
 class Exim < Formula
   desc "Complete replacement for sendmail"
   homepage "https://exim.org"
-  url "https://ftp.exim.org/pub/exim/exim4/exim-4.97.1.tar.xz"
-  sha256 "bd782057509a793593508528590626d185ea160ce32cb34beda262e99cefdfa9"
+  url "https://ftp.exim.org/pub/exim/exim4/exim-4.98.tar.xz"
+  sha256 "0ebc108a779f9293ba4b423c20818f9a3db79b60286d96abc6ba6b85a15852f7"
   license "GPL-2.0-or-later"
 
   # Maintenance releases are kept in a `fixes` subdirectory, so it's necessary
@@ -49,12 +49,16 @@ class Exim < Formula
     url "https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/File-Next-1.18.tar.gz"
     sha256 "f900cb39505eb6e168a9ca51a10b73f1bbde1914b923a09ecd72d9c02e6ec2ef"
   end
+
   resource "File::FcntlLock" do
     url "https://cpan.metacpan.org/authors/id/J/JT/JTT/File-FcntlLock-0.22.tar.gz"
     sha256 "9a9abb2efff93ab73741a128d3f700e525273546c15d04e7c51c704ab09dbcdf"
   end
 
   def install
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     # fix `Cannot read timezone file /usr/share/zoneinfo/UTC0` issue
     ENV["TZ"] = "UTC"
 
