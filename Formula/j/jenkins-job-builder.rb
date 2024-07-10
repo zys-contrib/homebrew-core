@@ -3,8 +3,8 @@ class JenkinsJobBuilder < Formula
 
   desc "Configure Jenkins jobs with YAML files stored in Git"
   homepage "https://docs.openstack.org/infra/jenkins-job-builder/"
-  url "https://files.pythonhosted.org/packages/88/0d/8bc4b2cdacaffe2d08d5507082ef983a463183d595eaaa762ac718efe539/jenkins-job-builder-6.4.0.tar.gz"
-  sha256 "82fce7c10d5ea68f7b06fa5cbea09b8b12352e99950a3592c3388966a3e97dbb"
+  url "https://files.pythonhosted.org/packages/c7/a1/0182d77739b546830015d8ff180e7287ed2f7f2533f0b4f98e1e371287e6/jenkins-job-builder-6.4.1.tar.gz"
+  sha256 "45eeeb340726d1ca52c75b664b34e37c3956ef2db7ea5cc52858d5c34b944e6c"
   license "Apache-2.0"
 
   bottle do
