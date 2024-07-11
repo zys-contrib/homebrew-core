@@ -6,13 +6,13 @@ class Mmv < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c7aa9476b38e87544ae2b503fb26b07c6797af48d6599e35fd36e36146dd703c"
-    sha256 cellar: :any,                 arm64_ventura:  "f31f06317a02f971057af3ff2270d5f6bad1477fafd726e5d45bab0bf7528f30"
-    sha256 cellar: :any,                 arm64_monterey: "675f1116463e152f9ebce257b12cc7751033f44699c1f9fd424c6991dc65b7e6"
-    sha256 cellar: :any,                 sonoma:         "30f0afc5ae3ae60453be909614fca5744be8ca266c583be8f9210816ee5653ad"
-    sha256 cellar: :any,                 ventura:        "f0ae4b832a19d6295ac1c4a06f9580386ddaec418e95c7fe87bd6eb25f38e760"
-    sha256 cellar: :any,                 monterey:       "9f9c382404016cdbc966e8c4e1d191e0620b219033dcede7e88f31c2b253422c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "66d09ff4bda9665a4d90eac5b93f2ad01621f3d45ecbbb6817a38c13e361de8f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "44f737a7861fc7692883eada12e02ecd673d2db2428e912b01e37fd1b5508e1c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a667fc3965a68ce82e8061940b2a2915cb30590b2302e3bb81f3feb92d9274d2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b59c98077002707111ce2e8b490db9be55cdf3e385d2cb75799f83c3a5a4cda1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5e002f3bd903786200bcd2798faac24e743c3fad64d8783c8c060fddeb9f630e"
+    sha256 cellar: :any_skip_relocation, ventura:        "28cf147b34c926e2128d916c0270f2bb7be13e3811aa7f9e6510b7cb2c6f9018"
+    sha256 cellar: :any_skip_relocation, monterey:       "5535a2af0359dcd6e5efe6d37fb7ba3d9d92dcd748ba63104497b9dc64007771"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8fe30b30ee1bff52f9d14a95fbd17d99cb45359677dfaf4ca9ff6051596e4588"
   end
 
   depends_on "help2man" => :build # for patch
