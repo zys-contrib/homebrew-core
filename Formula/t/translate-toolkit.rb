@@ -3,8 +3,8 @@ class TranslateToolkit < Formula
 
   desc "Toolkit for localization engineers"
   homepage "https://toolkit.translatehouse.org/"
-  url "https://files.pythonhosted.org/packages/c4/8f/e703d7eb64e54b0b9f5cc4f9af6798a987acd70daf920097e1146161fdd8/translate_toolkit-3.13.1.tar.gz"
-  sha256 "4f1e56668dc01fb0967d8c6fee11984869353f849036c4b1a130db64eaf26730"
+  url "https://files.pythonhosted.org/packages/cd/ea/1883a6bb09c1905e6ec60bb641889c41e040c5368229bf92f1b4bd737906/translate_toolkit-3.13.2.tar.gz"
+  sha256 "f79cc801e94548d2b9f9fd4663c0d48073c34014b92bef542e35da49a6b4c163"
   license "GPL-2.0-or-later"
   head "https://github.com/translate/translate.git", branch: "master"
 
@@ -26,6 +26,11 @@ class TranslateToolkit < Formula
   resource "lxml" do
     url "https://files.pythonhosted.org/packages/63/f7/ffbb6d2eb67b80a45b8a0834baa5557a14a5ffce0979439e7cd7f0c4055b/lxml-5.2.2.tar.gz"
     sha256 "bb2dc4898180bea79863d5487e5f9c7c34297414bad54bcd0f0852aee9cfdb87"
+  end
+
+  resource "wcwidth" do
+    url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz"
+    sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
   end
 
   def install
