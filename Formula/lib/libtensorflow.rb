@@ -1,8 +1,8 @@
 class Libtensorflow < Formula
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.16.2.tar.gz"
-  sha256 "023849bf253080cb1e4f09386f5eb900492da2288274086ed6cfecd6d99da9eb"
+  url "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.17.0.tar.gz"
+  sha256 "9cc4d5773b8ee910079baaecb4086d0c28939f024dd74b33fc5e64779b6533dc"
   license "Apache-2.0"
 
   bottle do
@@ -26,6 +26,12 @@ class Libtensorflow < Formula
   resource "homebrew-test-model" do
     url "https://github.com/tensorflow/models/raw/v1.13.0/samples/languages/java/training/model/graph.pb"
     sha256 "147fab50ddc945972818516418942157de5e7053d4b67e7fca0b0ada16733ecb"
+  end
+
+  # Backport fix for installation of some headers
+  patch do
+    url "https://github.com/tensorflow/tensorflow/commit/364b0cae088b7199a479899ef7bd99ddb9441728.patch?full_index=1"
+    sha256 "86a225177dcee2965a1d2aa7cd5df3179365cf8ba637ba94d7fd61693f9a9fbb"
   end
 
   def install
