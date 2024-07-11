@@ -1,4 +1,6 @@
 class PythonTabulate < Formula
+  include Language::Python::Virtualenv
+
   desc "Pretty-print tabular data in Python"
   homepage "https://github.com/astanin/python-tabulate"
   url "https://files.pythonhosted.org/packages/ec/fe/802052aecb21e3797b8f7902564ab6ea0d60ff8ca23952079064155d1ae1/tabulate-0.9.0.tar.gz"
@@ -17,35 +19,13 @@ class PythonTabulate < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a2594750f8c12674c7932cf82e2b2e40b0aef5d91da0cf8fb4906ea8cd173e2"
   end
 
-  depends_on "python-setuptools" => :build
-  depends_on "python@3.11" => [:build, :test]
-  depends_on "python@3.12" => [:build, :test] # FIXME: should be runtime dependency
-
-  def pythons
-    deps.map(&:to_formula)
-        .select { |f| f.name.match?(/^python@\d\.\d+$/) }
-        .sort_by(&:version)
-  end
+  depends_on "python@3.12"
 
   def install
-    pythons.each do |python|
-      python_exe = python.opt_libexec/"bin/python"
-      system python_exe, "-m", "pip", "install", *std_pip_args, "."
-    end
-  end
-
-  def caveats
-    <<~EOS
-      To run `tabulate`, you may need to `brew install #{pythons.last}`
-    EOS
+    virtualenv_install_with_resources
   end
 
   test do
-    pythons.each do |python|
-      python_exe = python.opt_libexec/"bin/python"
-      system python_exe, "-c", "from tabulate import tabulate"
-    end
-
     (testpath/"in.txt").write <<~EOS
       name qty
       eggs 451
