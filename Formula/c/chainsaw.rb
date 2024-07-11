@@ -1,8 +1,8 @@
 class Chainsaw < Formula
   desc "Rapidly Search and Hunt through Windows Forensic Artefacts"
   homepage "https://github.com/WithSecureLabs/chainsaw"
-  url "https://github.com/WithSecureLabs/chainsaw/archive/refs/tags/v2.9.1.tar.gz"
-  sha256 "72a729607989d8ff1676e3a19559d895938a56e4ae6d84d864b59ea5d78fd82e"
+  url "https://github.com/WithSecureLabs/chainsaw/archive/refs/tags/v2.9.2.tar.gz"
+  sha256 "3d7a60c4b5cdb6bbe8f33a5cb45761ae0e1d1d008bf73cd7a1ea50f1ea2955b8"
   license "GPL-3.0-only"
   head "https://github.com/WithSecureLabs/chainsaw.git", branch: "master"
 
