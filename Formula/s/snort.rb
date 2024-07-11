@@ -5,7 +5,7 @@ class Snort < Formula
   mirror "https://fossies.org/linux/misc/snort3-3.1.84.0.tar.gz"
   sha256 "dca1707a66f6ca56ddd526163b2d951cefdb168bddc162c791adc74c0d226c7f"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
   head "https://github.com/snort3/snort3.git", branch: "master"
 
   # There can be a notable gap between when a version is tagged and a
@@ -30,8 +30,8 @@ class Snort < Formula
   depends_on "flex" => :build # need flex>=2.6.0
   depends_on "pkg-config" => :build
   depends_on "daq"
-  depends_on "gperftools" # for tcmalloc
   depends_on "hwloc"
+  depends_on "jemalloc"
   depends_on "libdnet"
   depends_on "libpcap" # macOS version segfaults
   depends_on "luajit"
@@ -49,15 +49,11 @@ class Snort < Formula
   fails_with gcc: "5"
 
   def install
-    # Work around `std::ptr_fun` usage.
-    # Issue ref: https://github.com/snort3/snort3/issues/347
-    ENV.append "CXXFLAGS", "-D_LIBCPP_ENABLE_CXX17_REMOVED_BINDERS" if ENV.compiler == :clang
-
     # These flags are not needed for LuaJIT 2.1 (Ref: https://luajit.org/install.html).
     # On Apple ARM, building with flags results in broken binaries and they need to be removed.
     inreplace "cmake/FindLuaJIT.cmake", " -pagezero_size 10000 -image_base 100000000\"", "\""
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DENABLE_TCMALLOC=ON"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DENABLE_JEMALLOC=ON"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
