@@ -1,8 +1,8 @@
 class AwsSsoCli < Formula
   desc "Securely manage AWS API credentials using AWS SSO"
   homepage "https://github.com/synfinatic/aws-sso-cli"
-  url "https://github.com/synfinatic/aws-sso-cli/archive/refs/tags/v1.16.1.tar.gz"
-  sha256 "276d3f257ad8299d43c60ed4c87ddc72c9c14d29efa91fa8b27b3fb49f2acbd0"
+  url "https://github.com/synfinatic/aws-sso-cli/archive/refs/tags/v1.17.0.tar.gz"
+  sha256 "60e1c76b652f8c005f45e1755a6ecf16772f05e43a11f7ad26d27aef762c28b6"
   license "GPL-3.0-only"
   head "https://github.com/synfinatic/aws-sso-cli.git", branch: "main"
 
@@ -32,7 +32,7 @@ class AwsSsoCli < Formula
 
   test do
     assert_match "AWS SSO CLI Version #{version}", shell_output("#{bin}/aws-sso version")
-    assert_match "No AWS SSO providers have been configured.",
+    assert_match "no AWS SSO providers have been configured",
         shell_output("#{bin}/aws-sso --config /dev/null 2>&1", 1)
   end
 end
