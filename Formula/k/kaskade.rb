@@ -3,8 +3,8 @@ class Kaskade < Formula
 
   desc "TUI for Kafka"
   homepage "https://github.com/sauljabin/kaskade"
-  url "https://files.pythonhosted.org/packages/56/fc/b882173a8c3bd8c2f4ac68a6a6cd28474be6cda828cca83c423288f881bf/kaskade-2.1.4.tar.gz"
-  sha256 "57cada495141a8088efe491f6fa537288a4e66cfb91b85ae4e9febeffe04cb51"
+  url "https://files.pythonhosted.org/packages/3e/27/df702ce723bc132957a67f92db0d77bf7fadf7d8f82e6fdac753d559da09/kaskade-2.1.5.tar.gz"
+  sha256 "a700cc1875a015d4986f206b0d7d23b0fdc1abedf17b4c3d2c06bda37e4d6be2"
   license "MIT"
 
   bottle do
@@ -43,8 +43,8 @@ class Kaskade < Formula
   end
 
   resource "confluent-kafka" do
-    url "https://files.pythonhosted.org/packages/a7/ea/514e45f106979862aaba3d70098115b2aa991a456dbbc8da7c43633aeb21/confluent-kafka-2.4.0.tar.gz"
-    sha256 "201c6182304c5864c8a1b1aae2f99bf51fa332017abbec05a3a1fb2ff242c41d"
+    url "https://files.pythonhosted.org/packages/94/51/2e8f4048edbcde0346047dcd5228985ddcd0ef4d518f878321c07cc1b39c/confluent-kafka-2.5.0.tar.gz"
+    sha256 "551cabaade717bb56ec13eb860ce439bedbcf1c97f4a4aa26957572ed1bfa74f"
   end
 
   resource "fastavro" do
