@@ -1,8 +1,8 @@
 class Libavif < Formula
   desc "Library for encoding and decoding .avif files"
   homepage "https://github.com/AOMediaCodec/libavif"
-  url "https://github.com/AOMediaCodec/libavif/archive/refs/tags/v1.0.4.tar.gz"
-  sha256 "dc56708c83a4b934a8af2b78f67f866ba2fb568605c7cf94312acf51ee57d146"
+  url "https://github.com/AOMediaCodec/libavif/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "edb31951005d7a143be1724f24825809599a4832073add50eaf987733defb5c8"
   license "BSD-2-Clause"
 
   bottle do
@@ -24,13 +24,16 @@ class Libavif < Formula
   uses_from_macos "zlib"
 
   def install
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                    "-DAVIF_CODEC_AOM=ON",
-                    "-DAVIF_BUILD_APPS=ON",
-                    "-DAVIF_BUILD_EXAMPLES=OFF",
-                    "-DAVIF_BUILD_TESTS=OFF",
-                    *std_cmake_args
+    args = %W[
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DAVIF_CODEC_AOM=SYSTEM
+      -DAVIF_BUILD_APPS=ON
+      -DAVIF_BUILD_EXAMPLES=OFF
+      -DAVIF_BUILD_TESTS=OFF
+      -DAVIF_LIBYUV=OFF
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     pkgshare.install "examples"
