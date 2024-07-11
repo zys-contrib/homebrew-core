@@ -3,8 +3,8 @@ class Streamlink < Formula
 
   desc "CLI for extracting streams from various websites to a video player"
   homepage "https://streamlink.github.io/"
-  url "https://files.pythonhosted.org/packages/be/c6/0162a8d6f27da9e90f6cab4f77300051dac7cc71e20e9820062f309d2e83/streamlink-6.8.2.tar.gz"
-  sha256 "9c1b66f024727a270faf0026d71a7e63abdd88f102957ca152c0d2620717bc98"
+  url "https://files.pythonhosted.org/packages/ec/6d/1f0de989d3c6635e944ff7762341c78b3698aff70e53ea9feecc2b28f6e1/streamlink-6.8.3.tar.gz"
+  sha256 "e3f51a567c08703092f91d0497a3fc2aefe327efcd725d03e66f3dcd11ed9b68"
   license "BSD-2-Clause"
   head "https://github.com/streamlink/streamlink.git", branch: "master"
 
@@ -100,8 +100,8 @@ class Streamlink < Formula
   end
 
   resource "trio" do
-    url "https://files.pythonhosted.org/packages/b9/37/74d6556dda898c0dec707a5877c3d7a12a294682151616cee58643accd17/trio-0.25.1.tar.gz"
-    sha256 "9f5314f014ea3af489e77b001861c535005c3858d38ec46b6b071ebfa339d7fb"
+    url "https://files.pythonhosted.org/packages/73/66/bc155385503674288a440384c1c262c755af4c218e56e61e4b90635b15af/trio-0.26.0.tar.gz"
+    sha256 "67c5ec3265dd4abc7b1d1ab9ca4fe4c25b896f9c93dac73713778adab487f9c4"
   end
 
   resource "trio-websocket" do
