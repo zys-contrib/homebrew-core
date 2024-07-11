@@ -663,6 +663,7 @@ dumpling
 dunamai
 dune
 duo_unix
+duply
 dust
 dvc
 dwarfutils
