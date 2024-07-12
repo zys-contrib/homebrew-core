@@ -125,6 +125,7 @@ audacious
 auditbeat
 autobrr
 autodiff
+automake
 autopep8
 autorest
 autorestic
