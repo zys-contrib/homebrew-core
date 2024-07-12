@@ -1,8 +1,8 @@
 class OktaAwsCli < Formula
   desc "Okta federated identity for AWS CLI"
   homepage "https://github.com/okta/okta-aws-cli"
-  url "https://github.com/okta/okta-aws-cli/archive/refs/tags/v2.2.0.tar.gz"
-  sha256 "178edd27148424af461acda4e5da85fdea6c045d55af6d72a5484847a3c9814e"
+  url "https://github.com/okta/okta-aws-cli/archive/refs/tags/v2.3.0.tar.gz"
+  sha256 "e7ac241007f4a50b637ea2d0d15f3e1123245e3d874c16d7e5d8ab9812688830"
   license "Apache-2.0"
 
   livecheck do
@@ -27,10 +27,9 @@ class OktaAwsCli < Formula
   end
 
   test do
-    str_help = shell_output("#{bin}/okta-aws-cli --help")
-    assert_match "Usage:", str_help
-    assert_match "Flags:", str_help
-    str_error = shell_output("#{bin}/okta-aws-cli -o example.org -c homebrew-test 2>&1", 1)
-    assert_match 'Error: authorize received API response "404 Not Found"', str_error
+    output = shell_output("#{bin}/okta-aws-cli list-profiles")
+    assert_match "Profiles:", output
+
+    assert_match version.to_s, shell_output("#{bin}/okta-aws-cli --version")
   end
 end
