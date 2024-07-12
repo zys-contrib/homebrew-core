@@ -6,13 +6,13 @@ class Powerman < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "449897522c30bbf6038ec585e5468431a9375b7c60181cc69205f3e32727d6c8"
-    sha256 arm64_ventura:  "b2575429a427c64419b73cec8cfefd025c5c63115a5bd9fc74591dcb1472d6f0"
-    sha256 arm64_monterey: "1b34a44d3c1b602cc3f626202599fc35da5227625a114f197c6a8b4851b27502"
-    sha256 sonoma:         "bedfb4bc34c7a486261dec7d938e161e468bfd1306d6faa19ef119105766b71e"
-    sha256 ventura:        "ff90dab0175a46c5d69fc7fcf2f496e3f2bc7cd2d6bcbec995cfd224af552f6d"
-    sha256 monterey:       "41364ffc8b3ad19c29757b462b15955c46884f20030c1b704499045f81d5f961"
-    sha256 x86_64_linux:   "6337235e996ed7cf93257f77da3788f6a0bb61e707cdb5e016736fe2063d345e"
+    sha256 arm64_sonoma:   "4ded224dcefa7bcd8cf88f3c2c361c3b4fde34e2739a230671fbbffcc1115921"
+    sha256 arm64_ventura:  "0f6aa7fdc471762140bd9485f93e466bfe1fb17b1737963f1e42e163365a392b"
+    sha256 arm64_monterey: "3da5b7a83bd6406fb856c62eed30ff3864d23c5d98f0ae4495bc058412a84752"
+    sha256 sonoma:         "36824e6553bb800aa748e95b12fe8c5807906737f608841d58d657d026f0c1e2"
+    sha256 ventura:        "946f99d1cf3388b604f313b859e2b070110bac55a90acc52e8d42865a6b719d4"
+    sha256 monterey:       "c61f02cd33ea47dccaa4e9d631e2cea5939035db8f817811761286956e3cac84"
+    sha256 x86_64_linux:   "df224350c628e8c2311973ef8e72ddbfa92f13151babef1a7dd3edfafad8ca92"
   end
 
   head do
