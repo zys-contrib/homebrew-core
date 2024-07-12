@@ -3,8 +3,8 @@ require "language/node"
 class BalenaCli < Formula
   desc "Command-line tool for interacting with the balenaCloud and balena API"
   homepage "https://www.balena.io/docs/reference/cli/"
-  url "https://registry.npmjs.org/balena-cli/-/balena-cli-18.2.25.tgz"
-  sha256 "c5aa11a902a73744ad1acd07004c46244fc709b5ac44239a56b1b94a9d66b1d0"
+  url "https://registry.npmjs.org/balena-cli/-/balena-cli-18.2.33.tgz"
+  sha256 "9bbec6f27fe46c9028a929e3a9cba679ada54fa527288d3e36f1f1e1c5bf6740"
   license "Apache-2.0"
 
   livecheck do
@@ -24,10 +24,6 @@ class BalenaCli < Formula
 
   # need node@20, and also align with upstream, https://github.com/balena-io/balena-cli/blob/master/.github/actions/publish/action.yml#L21
   depends_on "node@20"
-
-  on_macos do
-    depends_on "macos-term-size"
-  end
 
   on_linux do
     depends_on "libusb"
@@ -50,24 +46,6 @@ class BalenaCli < Formula
 
     (node_modules/"lzma-native/build").rmtree
     (node_modules/"usb").rmtree if OS.linux?
-
-    term_size_vendor_dir = node_modules/"term-size/vendor"
-    term_size_vendor_dir.rmtree # remove pre-built binaries
-
-    if OS.mac?
-      macos_dir = term_size_vendor_dir/"macos"
-      macos_dir.mkpath
-      # Replace the vendored pre-built term-size with one we build ourselves
-      ln_sf (Formula["macos-term-size"].opt_bin/"term-size").relative_path_from(macos_dir), macos_dir
-
-      unless Hardware::CPU.intel?
-        # Replace pre-built x86_64 binaries with native binaries
-        %w[denymount macmount].each do |mod|
-          (node_modules/mod/"bin"/mod).unlink
-          system "make", "-C", node_modules/mod
-        end
-      end
-    end
 
     # Replace universal binaries with native slices
     deuniversalize_machos
