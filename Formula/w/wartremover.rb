@@ -12,7 +12,13 @@ class Wartremover < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6a60d9d37d34f088f20d9409026d78e20ae8ce467b9ce62d48b56b1897a47300"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b94038cde8b7d5343838a841af6415111f4ce3672d70b68c84acc23ab9a363a7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b94038cde8b7d5343838a841af6415111f4ce3672d70b68c84acc23ab9a363a7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b94038cde8b7d5343838a841af6415111f4ce3672d70b68c84acc23ab9a363a7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b94038cde8b7d5343838a841af6415111f4ce3672d70b68c84acc23ab9a363a7"
+    sha256 cellar: :any_skip_relocation, ventura:        "b94038cde8b7d5343838a841af6415111f4ce3672d70b68c84acc23ab9a363a7"
+    sha256 cellar: :any_skip_relocation, monterey:       "b94038cde8b7d5343838a841af6415111f4ce3672d70b68c84acc23ab9a363a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e77cf2555174e7f5f06be5a444f94a7b33c6ea23358b0faea66d972f91b1565"
   end
 
   depends_on "sbt" => :build
