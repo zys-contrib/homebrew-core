@@ -24,13 +24,13 @@ class ServiceWeaver < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a6817a81bb899f3846d39f2fc785ca7108cf13b136afe85e4284dacb14126100"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dbeb4e16a1396c2c2c03d3387dbb1b213fab7fe8e024fbe6609bbb90655e6dc5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f34793aa6b67d5396ac63aaddad0288497251723319d3972eed9d00a3817e763"
-    sha256 cellar: :any_skip_relocation, sonoma:         "721e3f14ad194c307e376c26ad08551227df6ed81ee8780ecc2deb8b1e585073"
-    sha256 cellar: :any_skip_relocation, ventura:        "ec66b8daa95606c6289a358cdb07b47bdc4f4e7ee7ab6e529a18b754d082cb82"
-    sha256 cellar: :any_skip_relocation, monterey:       "363cc2bef4fea58e2cdafbab06739aa29c87b4bad93f45118388326802fe6150"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c69fd420528965f3fa8a9f3be6f6660c21a99d4d59c70db87706d5d9845a2070"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1f9ccf8020607a0466a5e146f104f787f6b206c91d64cd96e3e0fd6b3c934f41"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ebb13fa1407af9903c5cf75d1b6c99cb63fdcaacabe69d44d509f538d116b6e6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cabfcc86d386fc67c4e656ba30b9598a0ac0542cfd0fe4cd71fa2aae616f8d46"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5cae9e1f6ad983666ae2a529b61275699bdccd9bc56d535cb3162fd124dbd5d5"
+    sha256 cellar: :any_skip_relocation, ventura:        "4bb99d7c3a0c2f3333510196a2967acb33f074a2b08db010580eac5ebddbd7dd"
+    sha256 cellar: :any_skip_relocation, monterey:       "95e6e699a0110b48a18cd0aaca15504c9f97736e2e9e4b9b025f10fbc625c4af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd36b1ca4e6cf4c2c9978543e943b0c382fdcbba38cc18a30134e9df8b729907"
   end
 
   head do
