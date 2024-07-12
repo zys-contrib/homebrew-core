@@ -1,8 +1,8 @@
 class Neosync < Formula
   desc "CLI for interfacing with Neosync"
   homepage "https://www.neosync.dev/"
-  url "https://github.com/nucleuscloud/neosync/archive/refs/tags/v0.4.43.tar.gz"
-  sha256 "b9feb900bdf79a5c542342f447f9a02b3d449a9fdace90f80cfb305568cc4cc7"
+  url "https://github.com/nucleuscloud/neosync/archive/refs/tags/v0.4.44.tar.gz"
+  sha256 "606d8d3b3fd8313b62b6dfad44ace26c0a2d7a983ac7517284ccd17f787ee235"
   license "MIT"
   head "https://github.com/nucleuscloud/neosync.git", branch: "main"
 
