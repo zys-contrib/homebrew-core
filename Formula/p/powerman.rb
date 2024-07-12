@@ -1,8 +1,8 @@
 class Powerman < Formula
   desc "Control (remotely and in parallel) switched power distribution units"
   homepage "https://github.com/chaos/powerman"
-  url "https://github.com/chaos/powerman/releases/download/v2.4.2/powerman-2.4.2.tar.gz"
-  sha256 "8465d1669745a72e3822fdc73f3e4a06737d8579a59190fef0b8aa259d7fc13f"
+  url "https://github.com/chaos/powerman/releases/download/v2.4.3/powerman-2.4.3.tar.gz"
+  sha256 "a6a3e1221fd89f9470651e87f95bd6515628aba49548dc8542f31db7a6515f77"
   license "GPL-2.0-or-later"
 
   bottle do
