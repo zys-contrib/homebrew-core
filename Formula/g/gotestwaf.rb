@@ -1,8 +1,8 @@
 class Gotestwaf < Formula
   desc "Tool for API and OWASP attack simulation"
   homepage "https://lab.wallarm.com/test-your-waf-before-hackers/"
-  url "https://github.com/wallarm/gotestwaf/archive/refs/tags/v0.4.19.tar.gz"
-  sha256 "a19feb83ca8a318826185b405e13dd8cd60634a99ab210c0ee2d467fc5243fd1"
+  url "https://github.com/wallarm/gotestwaf/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "d4813d56031748b1dee52a7cd02185fbd35a443cb78b036673fd789f8f7339fd"
   license "MIT"
   head "https://github.com/wallarm/gotestwaf.git", branch: "master"
 
@@ -20,7 +20,7 @@ class Gotestwaf < Formula
 
   def install
     ldflags = "-s -w -X github.com/wallarm/gotestwaf/internal/version.Version=#{version}"
-    system "go", "build", *std_go_args(ldflags:), "./cmd"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/gotestwaf"
 
     pkgetc.install "config.yaml"
   end
