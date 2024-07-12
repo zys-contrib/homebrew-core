@@ -1,8 +1,8 @@
 class Step < Formula
   desc "Crypto and x509 Swiss-Army-Knife"
   homepage "https://smallstep.com"
-  url "https://github.com/smallstep/cli/releases/download/v0.26.2/step_0.26.2.tar.gz"
-  sha256 "00b7eb0de2f9f09fc7c4c56e87e2103f9771903e5d4c0e74ad3411d6b08cf8ae"
+  url "https://github.com/smallstep/cli/releases/download/v0.27.1/step_0.27.1.tar.gz"
+  sha256 "29385a9d385ea338885768eb82446c9c62609528607da8ea250b34d2f968f3f1"
   license "Apache-2.0"
 
   bottle do
@@ -18,13 +18,11 @@ class Step < Formula
   depends_on "go" => :build
 
   resource "certificates" do
-    url "https://github.com/smallstep/certificates/releases/download/v0.26.2/step-ca_0.26.2.tar.gz"
-    sha256 "260685b49f4814493d5f8490dce4a763bfde436ab51b69a8abd3438a245401e7"
+    url "https://github.com/smallstep/certificates/releases/download/v0.27.0/step-ca_0.27.0.tar.gz"
+    sha256 "95f753bf2b94e864cc1c4e1a1b1100b40bdb9f88c405593e31947790279c5940"
   end
 
   def install
-    odie "certificates resource needs to be updated" if version != resource("certificates").version
-
     ENV["VERSION"] = version.to_s
     ENV["CGO_OVERRIDE"] = "CGO_ENABLED=1"
     system "make", "build"
