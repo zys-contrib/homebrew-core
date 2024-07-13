@@ -1,8 +1,8 @@
 class Lazygit < Formula
   desc "Simple terminal UI for git commands"
   homepage "https://github.com/jesseduffield/lazygit/"
-  url "https://github.com/jesseduffield/lazygit/archive/refs/tags/v0.42.0.tar.gz"
-  sha256 "50a502b44fa5d28ce046def9388c6fd3e484f678691deea64c729bfd728c7f77"
+  url "https://github.com/jesseduffield/lazygit/archive/refs/tags/v0.43.0.tar.gz"
+  sha256 "2777e0b01fd38040a53decb06609567efc18c292da4db0bd8e8aec4b1d2cb43d"
   license "MIT"
   head "https://github.com/jesseduffield/lazygit.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Lazygit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "51d02b3c1e2226dcf163a0aa0bc7857ae5c257c0b4b3d5a9bd1e0935c1b7e1e5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a6167521dbe60a9b06726f5cb6265dc7b55c4e39e24b943c6c58160262f2db7b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fece88d6f5cdcf6b3efdc2960eb13a05cee4274a717d162a6b5a479732112dbd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "900a96767b08ee9f99960d5b15866d08c6eec39973cf26ad4e366bf0fa04be2b"
-    sha256 cellar: :any_skip_relocation, ventura:        "1c546ef98437966baac8919640490bbd3e0f7795b6d90154e99a41a74489630e"
-    sha256 cellar: :any_skip_relocation, monterey:       "e740a4edfdd5b3ed5594e6bbc1d8663d97cbc8bbe2b1f81e56e4f10c95b4d41b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "755b550869518dca3805cf5974eea17c4726be2b4279f33697167c791ad381ef"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4a996d11e30fb44b10e0ed54784d24b7c97c18bd212b4285c4607177338d7a19"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4fb3bc02985211fa49327940a714205b976082f49a6b4122379a3afc55d23531"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d8e18b03b7d9453c477e8feb1a92a5945f6cbc0a5f8e8784904b53b6ee2f9e9b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "475e7a9e12d54532af30bba4057a58721e046db433738906b75f3e9a316e3cbc"
+    sha256 cellar: :any_skip_relocation, ventura:        "f1ec91b9f5b4ee43056f70a06497af5f98cd731134014a8eda5dc754bcd6c7e5"
+    sha256 cellar: :any_skip_relocation, monterey:       "2a85ca675b0622d6fc468c0de6e2c9e01f9d2de1b6d9127a24cd8740561dbddd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e330c1c8705ae09372eb4bf41edd0fd54289a1ba43d2d35e365b834f08808656"
   end
 
   depends_on "go" => :build
