@@ -2037,6 +2037,7 @@ pyinstaller
 pylint
 pylyzer
 pymol
+pymupdf
 pyoxidizer
 pypy
 pypy3.10
