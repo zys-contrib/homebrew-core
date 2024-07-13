@@ -858,6 +858,7 @@ freetype
 freexl
 frei0r
 fribidi
+frizbee
 frpc
 frps
 frugal
