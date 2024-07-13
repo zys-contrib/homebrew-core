@@ -537,6 +537,7 @@ daq
 dar
 darcs
 darkhttpd
+darkice
 darkstat
 dart-sdk
 dartsim
