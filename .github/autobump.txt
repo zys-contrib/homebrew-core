@@ -2426,6 +2426,7 @@ task
 tbb
 tbls
 tcl-tk
+tcpreplay
 tcsh
 tctl
 tealdeer
