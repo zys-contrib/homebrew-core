@@ -459,7 +459,7 @@
     "exclude_packages": ["cryptography"]
   },
   "manim": {
-    "exclude_packages": ["numpy"]
+    "exclude_packages": ["pillow", "numpy", "scipy"]
   },
   "mapproxy": {
     "exclude_packages": ["certifi", "pillow"],
