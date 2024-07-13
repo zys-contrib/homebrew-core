@@ -1706,6 +1706,7 @@ neomutt
 neon
 neonctl
 neosync
+neovide
 nerdctl
 nerdfetch
 nest
