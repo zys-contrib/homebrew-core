@@ -5,10 +5,9 @@ class PerconaToolkit < Formula
 
   desc "Command-line tools for MySQL, MariaDB and system tasks"
   homepage "https://www.percona.com/software/percona-toolkit/"
-  url "https://www.percona.com/downloads/percona-toolkit/3.5.5/source/tarball/percona-toolkit-3.5.5.tar.gz"
-  sha256 "629a3c619c9f81c8451689b7840e50d13c656073a239d1ef2e5bcc250a80f884"
+  url "https://www.percona.com/downloads/percona-toolkit/3.6.0/source/tarball/percona-toolkit-3.6.0.tar.gz"
+  sha256 "48c2a0f7cfc987e683f60e9c7a29b0ca189e2f4b503f6d01c5baca403c09eb8d"
   license any_of: ["GPL-2.0-only", "Artistic-1.0-Perl"]
-  revision 2
   head "lp:percona-toolkit", using: :bzr
 
   livecheck do
@@ -26,10 +25,16 @@ class PerconaToolkit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "09bc4a57472177454c1f5098b92a60e560f6376ff58d22e30210b8422709aee1"
   end
 
+  depends_on "go" => :build
   depends_on "mysql-client"
   depends_on "openssl@3"
 
   uses_from_macos "perl"
+  uses_from_macos "zlib", since: :sonoma
+
+  on_intel do
+    depends_on "zstd"
+  end
 
   # Should be installed before DBD::mysql
   resource "Devel::CheckLib" do
@@ -43,8 +48,8 @@ class PerconaToolkit < Formula
   end
 
   resource "DBD::mysql" do
-    url "https://cpan.metacpan.org/authors/id/D/DV/DVEEDEN/DBD-mysql-5.004.tar.gz"
-    sha256 "33a6bf1b685cc50c46eb1187a3eb259ae240917bc189d26b81418790aa6da5df"
+    url "https://cpan.metacpan.org/authors/id/D/DV/DVEEDEN/DBD-mysql-5.007.tar.gz"
+    sha256 "5b943a86e6130885068088c5b6f97803a96b2b5cab8433bbd6beb98478ad1b3a"
   end
 
   resource "JSON" do
