@@ -1,8 +1,8 @@
 class Darkice < Formula
   desc "Live audio streamer"
   homepage "http://www.darkice.org/"
-  url "https://github.com/rafael2k/darkice/releases/download/v1.4/darkice-1.4.tar.gz"
-  sha256 "e6a8ec2b447cf5b4ffaf9b62700502b6bdacebf00b476f4e9bf9f9fe1e3dd817"
+  url "https://github.com/rafael2k/darkice/releases/download/v1.5/darkice-1.5.tar.gz"
+  sha256 "18b4c4573a7ccfe09c1094eb5798159e2a9892106ea62d753933f6f2a746058e"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -24,24 +24,30 @@ class Darkice < Formula
   end
 
   depends_on "pkg-config" => :build
+
   depends_on "faac"
   depends_on "jack"
   depends_on "lame"
+  depends_on "libogg"
   depends_on "libsamplerate"
   depends_on "libvorbis"
   depends_on "two-lame"
 
+  on_linux do
+    depends_on "alsa-lib"
+  end
+
   def install
     ENV.cxx11
-    system "./configure", *std_configure_args,
-                          "--sysconfdir=#{etc}",
+    system "./configure", "--sysconfdir=#{etc}",
                           "--with-lame-prefix=#{Formula["lame"].opt_prefix}",
                           "--with-faac-prefix=#{Formula["faac"].opt_prefix}",
                           "--with-twolame",
                           "--with-jack",
                           "--with-vorbis",
                           "--with-samplerate",
-                          "--without-opus"
+                          "--without-opus",
+                          *std_configure_args
     system "make", "install"
   end
 
