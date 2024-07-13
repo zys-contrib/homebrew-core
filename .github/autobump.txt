@@ -1685,6 +1685,7 @@ n
 naabu
 nagios
 nagios-plugins
+nano
 nanoflann
 nasm
 nats-server
