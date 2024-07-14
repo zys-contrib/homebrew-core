@@ -3,8 +3,8 @@ class Kaskade < Formula
 
   desc "TUI for Kafka"
   homepage "https://github.com/sauljabin/kaskade"
-  url "https://files.pythonhosted.org/packages/bb/de/32612086137119208038f7b978def5ac4f19669614fd89f2b1489d3c10b6/kaskade-2.1.6.tar.gz"
-  sha256 "2a8015b4c6b3c3a121ba73c3ffd87af48e687c5d812de6d257239f12090a1235"
+  url "https://files.pythonhosted.org/packages/17/c7/ac969a1b7d0e1ce84fd8d2ebd3fca46ef0a4f77c733dcdbc0ff394290d4d/kaskade-2.2.0.tar.gz"
+  sha256 "eb00cc837c1825ca234c0be3e31ea339c305803534d541db825f04735c55a6bb"
   license "MIT"
 
   bottle do
@@ -40,6 +40,11 @@ class Kaskade < Formula
   resource "click" do
     url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
     sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
+  end
+
+  resource "cloup" do
+    url "https://files.pythonhosted.org/packages/cf/71/608e4546208e5a421ef00b484f582e58ce0f17da05459b915c8ba22dfb78/cloup-3.0.5.tar.gz"
+    sha256 "c92b261c7bb7e13004930f3fb4b3edad8de2d1f12994dcddbe05bc21990443c5"
   end
 
   resource "confluent-kafka" do
