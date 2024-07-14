@@ -1,8 +1,8 @@
 class Latexindent < Formula
   desc "Add indentation to LaTeX files"
   homepage "https://latexindentpl.readthedocs.io"
-  url "https://github.com/cmhughes/latexindent.pl/archive/refs/tags/V3.24.2.tar.gz"
-  sha256 "09a424814d3c5323dbc8d2f127854b351ae65e44498ff995a55280b348abf8f6"
+  url "https://github.com/cmhughes/latexindent.pl/archive/refs/tags/V3.24.3.tar.gz"
+  sha256 "756d0d2a1e7f5756422c760e2d3635c160b98583391f307f2c3ac8939e6df68c"
   license "GPL-3.0-or-later"
 
   bottle do
