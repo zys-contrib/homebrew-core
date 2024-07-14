@@ -16,41 +16,54 @@ class Llgo < Formula
   end
 
   depends_on "bdw-gc"
-  depends_on "cjson"
   depends_on "go"
   depends_on "llvm"
   depends_on "pkg-config"
-  depends_on "python@3.12"
-  depends_on "raylib"
-  depends_on "sqlite"
-  depends_on "zlib"
 
   def install
-    ENV["GOBIN"] = libexec/"bin"
-    ENV.prepend "CGO_LDFLAGS", "-L#{Formula["llvm"].opt_lib}"
-    system "go", "install", "./..."
-
-    Dir.glob("*/**/*.lla").each do |f|
-      system "unzip", f, "-d", File.dirname(f)
+    if OS.linux?
+      ENV.prepend "CGO_CPPFLAGS",
+        "-I#{Formula["llvm"].opt_include} " \
+        "-D_GNU_SOURCE " \
+        "-D__STDC_CONSTANT_MACROS " \
+        "-D__STDC_FORMAT_MACROS " \
+        "-D__STDC_LIMIT_MACROS"
+      ENV.prepend "CGO_LDFLAGS", "-L#{Formula["llvm"].opt_lib} -lLLVM"
     end
 
-    libexec.install Dir["*"] - Dir[".*"]
+    ldflags = %W[
+      -s -w
+      -X github.com/goplus/llgo/xtool/env.buildVersion=v#{version}
+      -X github.com/goplus/llgo/xtool/env.buildDate=#{time.iso8601}
+      -X github.com/goplus/llgo/xtool/env/llvm.ldLLVMConfigBin=#{Formula["llvm"].opt_bin/"llvm-config"}
+    ]
+    build_args = *std_go_args(ldflags:)
+    build_args += ["-tags", "byollvm"] if OS.linux?
+    system "go", "build", *build_args, "-o", libexec/"bin/", "./cmd/llgo"
 
-    path = %w[llvm go pkg-config].map { |f| Formula[f].opt_bin }.join(":")
-    opt_lib = %w[bdw-gc cjson raylib zlib raylib].map { |f| Formula[f].opt_lib }.join(":")
+    libexec.install "LICENSE", "README.md"
+
+    path = %w[go llvm pkg-config].map { |f| Formula[f].opt_bin }.join(":")
+    opt_lib = %w[bdw-gc].map { |f| Formula[f].opt_lib }.join(":")
 
     (libexec/"bin").children.each do |f|
       next if f.directory?
 
       cmd = File.basename(f)
       (bin/cmd).write_env_script libexec/"bin"/cmd,
-        LLGOROOT:        libexec,
         PATH:            "#{path}:$PATH",
         LD_LIBRARY_PATH: "#{opt_lib}:$LD_LIBRARY_PATH"
     end
   end
 
   test do
+    opt_lib = %w[bdw-gc].map { |f| Formula[f].opt_lib }.join(":")
+    ENV.prepend_path "LD_LIBRARY_PATH", opt_lib
+
+    goos = shell_output(Formula["go"].opt_bin/"go env GOOS").chomp
+    goarch = shell_output(Formula["go"].opt_bin/"go env GOARCH").chomp
+    assert_equal "llgo v#{version} #{goos}/#{goarch}", shell_output("#{bin}/llgo version").chomp unless head?
+
     (testpath/"hello.go").write <<~EOS
       package main
 
@@ -60,15 +73,11 @@ class Llgo < Formula
         c.Printf(c.Str("Hello LLGO\\n"))
       }
     EOS
-
     (testpath/"go.mod").write <<~EOS
       module hello
     EOS
-
-    system "go", "get", "github.com/goplus/llgo/c"
+    system Formula["go"].opt_bin/"go", "get", "github.com/goplus/llgo@v#{version}"
     system bin/"llgo", "build", "-o", "hello", "."
-    opt_lib = %w[bdw-gc cjson raylib zlib raylib].map { |f| Formula[f].opt_lib }.join(":")
-    output = Utils.popen_read({ "LD_LIBRARY_PATH" => "#{opt_lib}:$LD_LIBRARY_PATH" }, "./hello")
-    assert_equal "Hello LLGO\n", output
+    assert_equal "Hello LLGO\n", shell_output("./hello")
   end
 end
