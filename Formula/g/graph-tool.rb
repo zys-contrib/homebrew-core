@@ -4,10 +4,9 @@ class GraphTool < Formula
   desc "Efficient network analysis for Python 3"
   homepage "https://graph-tool.skewed.de/"
   # TODO: Update build for matplotlib>=3.9.0 to use `--config-settings=setup-args=...` for system dependencies
-  url "https://downloads.skewed.de/graph-tool/graph-tool-2.71.tar.bz2"
-  sha256 "315784100c6f73a7c49906ad9539fd5c608e4cd91c0aff28b8d6d8a8bebd03c5"
+  url "https://downloads.skewed.de/graph-tool/graph-tool-2.72.tar.bz2"
+  sha256 "7c89c4cf26ae24f4e3394e17011d139080dba408e58beae9cc7fbe8b3b6e9c74"
   license "LGPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url "https://downloads.skewed.de/graph-tool/"
@@ -66,8 +65,8 @@ class GraphTool < Formula
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/a4/6e/681d39b71d5f0d6a1b1dc87d7333331f9961b5ab6a2ad6372d6cf3f8b04c/fonttools-4.53.0.tar.gz"
-    sha256 "c93ed66d32de1559b6fc348838c7572d5c0ac1e4a258e76763a5caddd8944002"
+    url "https://files.pythonhosted.org/packages/c6/cb/cd80a0da995adde8ade6044a8744aee0da5efea01301cadf770f7fbe7dcc/fonttools-4.53.1.tar.gz"
+    sha256 "e128778a8e9bc11159ce5447f76766cefbd876f44bd79aff030287254e4752c4"
   end
 
   resource "kiwisolver" do
@@ -76,8 +75,8 @@ class GraphTool < Formula
   end
 
   resource "matplotlib" do
-    url "https://files.pythonhosted.org/packages/c5/a4/a7236bf8b0137deff48737c6ccf2154ef4486e57c6a5b7c309bf515992bd/matplotlib-3.9.0.tar.gz"
-    sha256 "e6d29ea6c19e34b30fb7d88b7081f869a03014f66fe06d62cc77d5a6ea88ed7a"
+    url "https://files.pythonhosted.org/packages/22/06/9e8ba6ec8b716a215404a5d1938b61f5a28001be493cf35344dda9a4072a/matplotlib-3.9.1.tar.gz"
+    sha256 "de06b19b8db95dd33d0dc17c926c7c9ebed9f572074b6fac4f65068a6814d010"
   end
 
   resource "packaging" do
@@ -96,8 +95,8 @@ class GraphTool < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/0d/9d/c587bea18a7e40099857015baee4cece7aca32cd404af953bdeb95ac8e47/setuptools-70.1.1.tar.gz"
-    sha256 "937a48c7cdb7a21eb53cd7f9b59e525503aa8abaf3584c730dc5f7a5bec3a650"
+    url "https://files.pythonhosted.org/packages/65/d8/10a70e86f6c28ae59f101a9de6d77bf70f147180fbf40c3af0f64080adc3/setuptools-70.3.0.tar.gz"
+    sha256 "f171bab1dfbc86b132997f26a119f6056a57950d058587841a0082e8830f9dc5"
   end
 
   resource "six" do
