@@ -2,6 +2,9 @@
   "aiven-client": {
     "exclude_packages": ["certifi"]
   },
+  "alot": {
+    "exclude_packages": ["notmuch2"]
+  },
   "animdl": {
     "exclude_packages": ["certifi"]
   },
