@@ -864,6 +864,7 @@ frps
 frugal
 fselect
 fsql
+ftnchek
 fuc
 fuego-firestore
 func-e
