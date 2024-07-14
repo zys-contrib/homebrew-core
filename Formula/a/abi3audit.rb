@@ -3,8 +3,8 @@ class Abi3audit < Formula
 
   desc "Scans Python packages for abi3 violations and inconsistencies"
   homepage "https://github.com/trailofbits/abi3audit"
-  url "https://files.pythonhosted.org/packages/fb/4f/c81d13426d85491766affc93c08e7ee65e12f1e12202dd1874410f6ffeec/abi3audit-0.0.11.tar.gz"
-  sha256 "8f527908e4c1e90218b9a62958ed4124c7edc1ec115dc5ee019f92e5752a10b7"
+  url "https://files.pythonhosted.org/packages/f1/16/e4388c9681abea98959d16ac31bce69c8140adda8e42bce82b58b673f4a8/abi3audit-0.0.12.tar.gz"
+  sha256 "fbf7651a3289942c93f09bf3edd7110a85eb621e2cf05dc3ddc86cc4cb29f7a2"
   license "MIT"
 
   bottle do
