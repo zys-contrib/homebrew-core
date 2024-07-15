@@ -2729,6 +2729,7 @@ yamllint
 yara
 yara-x
 yash
+yaws
 yaz
 ydiff
 ykman

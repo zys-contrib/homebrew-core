@@ -1,8 +1,8 @@
 class Yaws < Formula
   desc "Webserver for dynamic content (written in Erlang)"
-  homepage "http://yaws.hyber.org"
-  url "https://github.com/erlyaws/yaws/archive/refs/tags/yaws-2.1.1.tar.gz"
-  sha256 "aeb74f0051fe9a2925b1a1b4f13af31ec5404acfbe000ac32cda25ee9779f4bf"
+  homepage "https://erlyaws.github.io/"
+  url "https://github.com/erlyaws/yaws/archive/refs/tags/yaws-2.2.0.tar.gz"
+  sha256 "39318736472c165d4aec769c89ac4edfe3cab7ff7759f32de0a4e699ef6c88e8"
   license "BSD-3-Clause"
   head "https://github.com/erlyaws/yaws.git", branch: "master"
 
@@ -100,7 +100,7 @@ class Yaws < Formula
     fork do
       exec bin/"yaws", "-c", testpath/"yaws.conf", "--erlarg", "-noshell"
     end
-    sleep 3
+    sleep 6
 
     output = shell_output("curl --silent localhost:#{port}/example.txt")
     assert_match "401 authentication needed", output
