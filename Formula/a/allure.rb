@@ -11,7 +11,13 @@ class Allure < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c86a7ce74feb18ce05dd5133d09958cfbe3ccaa079d0fe9fb312741d25779526"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0dcc88d31dacc90ea42157fd33aeaf308bffc0d2ba821848435345f293c2f3d4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0dcc88d31dacc90ea42157fd33aeaf308bffc0d2ba821848435345f293c2f3d4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0dcc88d31dacc90ea42157fd33aeaf308bffc0d2ba821848435345f293c2f3d4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0dcc88d31dacc90ea42157fd33aeaf308bffc0d2ba821848435345f293c2f3d4"
+    sha256 cellar: :any_skip_relocation, ventura:        "0dcc88d31dacc90ea42157fd33aeaf308bffc0d2ba821848435345f293c2f3d4"
+    sha256 cellar: :any_skip_relocation, monterey:       "0dcc88d31dacc90ea42157fd33aeaf308bffc0d2ba821848435345f293c2f3d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aba96abd6775fb70188e8f9cab54fd1ee362f184a99d891b3dc8a5e5901e4c37"
   end
 
   depends_on "openjdk"
