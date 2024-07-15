@@ -2019,6 +2019,7 @@ ptex
 ptpython
 pueue
 pug
+pulsarctl
 pure
 purescript
 purescript-language-server
