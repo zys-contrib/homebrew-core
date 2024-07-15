@@ -6,13 +6,14 @@ class Llgo < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "26df457b0095ea1e8695cebdf87cfeac93a1645ae4c72805279a2ac6c02d696e"
-    sha256 cellar: :any,                 arm64_ventura:  "a8c21824ee916d81cb34c77240b361287f7afeffd17a8eb21fdc0f5153b31849"
-    sha256 cellar: :any,                 arm64_monterey: "ac8e670daed38d90f1e672bbf60feedd43e510a9495e13b6688c2ff8ea0cab4c"
-    sha256 cellar: :any,                 sonoma:         "1ebbc9f5ca2046e31265c38c48b440d6a2ecce637b48e8c70a151ae73bad9eca"
-    sha256 cellar: :any,                 ventura:        "866bc6abc4b8b4e794e2fc0a87705d1ae00b0a6ff5df87e6d3589b439b3b0037"
-    sha256 cellar: :any,                 monterey:       "d5353cc1308d15b5ffd2e4c16efa3026cfdcd48a0f87072eb15335acd4ba4bc5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1c58d95df55862f8df250f0f479401793eabc0c1a3f1d2b10eacf62bf66cddaa"
+    rebuild 1
+    sha256 cellar: :any, arm64_sonoma:   "8294041a96e4228053933ecbc4bd9a0acbdb37cae9818777d5a920018bb41ef0"
+    sha256 cellar: :any, arm64_ventura:  "76b026771d3a0730f813ae5aba9a58a2a551068cdf6581b4c1d76aac8f7d3301"
+    sha256 cellar: :any, arm64_monterey: "262d54fd59104c3e8fc0e5950b0c476ab8dd834637561f2bc26fa5946622ac6e"
+    sha256 cellar: :any, sonoma:         "e64d222a7bed11b2e019a5fc7409d49e0ef15cbb907a9e7c26688678e4a9d796"
+    sha256 cellar: :any, ventura:        "d67e679cad8870d1c57e3ffd863592f916f78549271637f8fa8ec0552776185d"
+    sha256 cellar: :any, monterey:       "383e0f0e2cd6a2d2070f467b5867a75212eb0977265fc247bc6ac4312c2f274e"
+    sha256               x86_64_linux:   "c63c792e00e88f86a79fbf46f718782d9b7c8a608d737c4e23b03877fc7b67a1"
   end
 
   depends_on "bdw-gc"
