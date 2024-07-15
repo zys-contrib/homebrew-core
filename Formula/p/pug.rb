@@ -1,8 +1,8 @@
 class Pug < Formula
   desc "Drive terraform at terminal velocity"
   homepage "https://github.com/leg100/pug"
-  url "https://github.com/leg100/pug/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "a6f446e77fccb05b0478f5cb4802ef37fb70c680adf9932e8b4bd7b053f99910"
+  url "https://github.com/leg100/pug/archive/refs/tags/v0.4.1.tar.gz"
+  sha256 "e2ba80d56cee8c43eb2d740554ee1ee73099e13097ae07c182672f1da7d7de65"
   license "MPL-2.0"
   head "https://github.com/leg100/pug.git", branch: "master"
 
