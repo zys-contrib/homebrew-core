@@ -1,8 +1,8 @@
 class Fdupes < Formula
   desc "Identify or delete duplicate files"
   homepage "https://github.com/adrianlopezroche/fdupes"
-  url "https://github.com/adrianlopezroche/fdupes/releases/download/v2.3.1/fdupes-2.3.1.tar.gz"
-  sha256 "2482b4b8c931bd17cea21f4c27fa4747b877523029d57f794a2b48e6c378db17"
+  url "https://github.com/adrianlopezroche/fdupes/releases/download/v2.3.2/fdupes-2.3.2.tar.gz"
+  sha256 "808d8decbe7fa41cab407ae4b7c14bfc27b8cb62227540c3dcb6caf980592ac7"
   license "MIT"
   version_scheme 1
 

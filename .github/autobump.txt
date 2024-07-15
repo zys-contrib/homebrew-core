@@ -783,6 +783,7 @@ fd
 fdk-aac-encoder
 fdroidcl
 fdroidserver
+fdupes
 feh
 feishu2md
 felinks
