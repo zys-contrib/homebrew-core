@@ -4,7 +4,7 @@ class Gitg < Formula
   url "https://download.gnome.org/sources/gitg/44/gitg-44.tar.xz"
   sha256 "342a31684dab9671cd341bd3e3ce665adcee0460c2a081ddc493cdbc03132530"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -38,8 +38,8 @@ class Gitg < Formula
   depends_on "json-glib"
   depends_on "libdazzle"
   depends_on "libgee"
-  depends_on "libgit2"
   depends_on "libgit2-glib"
+  depends_on "libgit2@1.7"
   depends_on "libhandy"
   depends_on "libpeas@1"
   depends_on "libsecret"
@@ -86,7 +86,7 @@ class Gitg < Formula
     libepoxy = Formula["libepoxy"]
     libffi = Formula["libffi"]
     libgee = Formula["libgee"]
-    libgit2 = Formula["libgit2"]
+    libgit2 = Formula["libgit2@1.7"]
     libgit2_glib = Formula["libgit2-glib"]
     libhandy = Formula["libhandy"]
     libpng = Formula["libpng"]
@@ -110,7 +110,7 @@ class Gitg < Formula
       -I#{libepoxy.opt_include}
       -I#{libgee.opt_include}/gee-0.8
       -I#{libffi.opt_lib}/libffi-3.0.13/include
-      -I#{libgit2}/include
+      -I#{libgit2.opt_include}
       -I#{libgit2_glib.opt_include}/libgit2-glib-1.0
       -I#{libhandy.opt_include}/libhandy-1
       -I#{libpng.opt_include}/libpng16
