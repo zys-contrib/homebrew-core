@@ -1,8 +1,8 @@
 class Aerc < Formula
   desc "Email client that runs in your terminal"
   homepage "https://aerc-mail.org/"
-  url "https://git.sr.ht/~rjarry/aerc/archive/0.18.0.tar.gz"
-  sha256 "d20382d7eb6a93b8b6fe508b87c83eb1bb600a0443f173ab1edef0e81ea9f66a"
+  url "https://git.sr.ht/~rjarry/aerc/archive/0.18.1.tar.gz"
+  sha256 "f8a2923b1749b1b0eaa9ce221121536d13974297143b597f812b11ebbef0c1bf"
   license "MIT"
   head "https://git.sr.ht/~rjarry/aerc", branch: "master"
 
