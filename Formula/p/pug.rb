@@ -1,19 +1,19 @@
 class Pug < Formula
   desc "Drive terraform at terminal velocity"
   homepage "https://github.com/leg100/pug"
-  url "https://github.com/leg100/pug/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "a6f446e77fccb05b0478f5cb4802ef37fb70c680adf9932e8b4bd7b053f99910"
+  url "https://github.com/leg100/pug/archive/refs/tags/v0.4.1.tar.gz"
+  sha256 "e2ba80d56cee8c43eb2d740554ee1ee73099e13097ae07c182672f1da7d7de65"
   license "MPL-2.0"
   head "https://github.com/leg100/pug.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d82dc825ff6fe4414b7f7a79351388f18a873b8aba8b4412237d1f988e54dd73"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bf1cb42fab37b32bba436ad173fb84e1bf9d51371f524864ae08974680f24d92"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bb5e00b7ed3f62931d1e6ff52151a86cf9ac64adf2bc72d46f311aa81c3259b8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "046a0d302f8896d4cb2a530fa7af42419fdc76dd8713039b047f9d62fe38ffd9"
-    sha256 cellar: :any_skip_relocation, ventura:        "350e7c19b31d8d4a8df95fe67fdd3bd022735eca403eecf7fbe2ef4ccdf62be1"
-    sha256 cellar: :any_skip_relocation, monterey:       "a6e7620fef6a91e2abf46b064be973964445d278403c044e744bda1e8390ae8e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "209a18c841a706d3b137e2ed9bfbd515ef411df4c423fd2d52e288f0b0dac369"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e8fe5e6ad5754fde25d7880ccd353e263fbb725a5f1b3d537d111587893d08c9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5fe20c4fcb9ad09d6cab52ae80f1bd732b8581c18a0d9c4548271263c8ee0815"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7bcd8ae6d76a1be30e3b0d503c9bbe79b232dba8ab73ed11b3a3c1d251d23b83"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7dd72e2adf512a8f1bb9d4fea404b08f25fc08bb8bc78ad2863ff2e5957631e8"
+    sha256 cellar: :any_skip_relocation, ventura:        "16ed7dd76460a5a80a7255858f1c6c714c06166d1be4cf8c0a95ea136fe21500"
+    sha256 cellar: :any_skip_relocation, monterey:       "4626e0e4dd126da88a01567c196527c2f2ab73a5ddf34068e642e773135ad712"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d7b7ccd583fae648c38f60eab710098336084fa0d6fadb378b8e38ae0c76fe0"
   end
 
   depends_on "go" => :build
