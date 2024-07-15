@@ -1960,6 +1960,7 @@ po4a
 pocketbase
 pocl
 poco
+pod2man
 podlet
 podman
 podman-compose

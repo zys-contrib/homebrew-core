@@ -1,8 +1,8 @@
 class Pod2man < Formula
   desc "Perl documentation generator"
   homepage "https://www.eyrie.org/~eagle/software/podlators/"
-  url "https://archives.eyrie.org/software/perl/podlators-5.01.tar.xz"
-  sha256 "76260ab7e2b343b38351dff42f576f9cd61166d1ff5cc8e15c0f79f28d518e77"
+  url "https://archives.eyrie.org/software/perl/podlators-v6.0.2.tar.xz"
+  sha256 "22f5941c848756c05396356437dc799b32703f4fc282f0f281b9c83696500183"
 
   livecheck do
     url "https://archives.eyrie.org/software/perl/"
@@ -24,8 +24,8 @@ class Pod2man < Formula
   keg_only "perl ships with pod2man"
 
   resource "Pod::Simple" do
-    url "https://cpan.metacpan.org/authors/id/K/KH/KHW/Pod-Simple-3.43.tar.gz"
-    sha256 "65abe3f5363fa4cdc108f5ad9ce5ce91e7a39186a1b297bb7a06fa1b0f45d377"
+    url "https://cpan.metacpan.org/authors/id/K/KH/KHW/Pod-Simple-3.45.tar.gz"
+    sha256 "8483bb95cd3e4307d66def092a3779f843af772482bfdc024e3e00d0c4db0cfa"
   end
 
   def install
@@ -47,6 +47,6 @@ class Pod2man < Formula
     (testpath/"test.pod").write "=head2 Test heading\n"
     manpage = shell_output("#{bin}/pod2man #{testpath}/test.pod")
     assert_match '.SS "Test heading"', manpage
-    assert_match "Pod::Man #{version}", manpage
+    assert_match "Pod::Man v#{version}", manpage
   end
 end
