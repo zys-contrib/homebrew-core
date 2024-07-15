@@ -22,6 +22,7 @@ class AstGrep < Formula
     system "cargo", "install", *std_cargo_args(path: "crates/cli")
 
     generate_completions_from_executable(bin/"ast-grep", "completions")
+    generate_completions_from_executable(bin/"sg", "completions")
   end
 
   test do
