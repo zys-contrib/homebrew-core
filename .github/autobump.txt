@@ -2239,6 +2239,7 @@ shaderc
 shadowenv
 shadowsocks-rust
 shairport-sync
+shallow-backup
 sheldon
 shell2http
 shellcheck
