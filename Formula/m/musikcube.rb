@@ -1,8 +1,8 @@
 class Musikcube < Formula
   desc "Terminal-based audio engine, library, player and server"
   homepage "https://musikcube.com"
-  url "https://github.com/clangen/musikcube/archive/refs/tags/3.0.3.tar.gz"
-  sha256 "329c57719969cc4490d5173a926f6d4d71b1b650fe2d66431bbc9c782e0c6313"
+  url "https://github.com/clangen/musikcube/archive/refs/tags/3.0.4.tar.gz"
+  sha256 "25bb95b8705d8c79bde447e7c7019372eea7eaed9d0268510278e7fcdb1378a5"
   license "BSD-3-Clause"
   head "https://github.com/clangen/musikcube.git", branch: "master"
 
@@ -23,6 +23,7 @@ class Musikcube < Formula
   depends_on "asio" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+
   depends_on "ffmpeg"
   depends_on "game-music-emu"
   depends_on "gnutls"
@@ -36,7 +37,13 @@ class Musikcube < Formula
   depends_on "ncurses"
   depends_on "openssl@3"
   depends_on "taglib"
+
   uses_from_macos "curl"
+
+  on_macos do
+    depends_on "mpg123"
+    depends_on "portaudio"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
