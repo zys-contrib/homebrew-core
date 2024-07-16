@@ -553,6 +553,13 @@ class Jupyterlab < Formula
     EOS
   end
 
+  service do
+    run [opt_bin/"jupyter-lab"]
+    keep_alive true
+    log_path var/"log/jupyterlab.log"
+    error_log_path var/"log/jupyterlab.log"
+  end
+
   test do
     system bin/"jupyter-console --help"
     assert_match python3, shell_output("#{bin}/jupyter kernelspec list")
