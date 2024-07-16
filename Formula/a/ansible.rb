@@ -3,8 +3,8 @@ class Ansible < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://files.pythonhosted.org/packages/32/e8/3bbd91286c1b858afafac59a4f582c5f0344efabb4f4e013de9d1d9c21c2/ansible-10.1.0.tar.gz"
-  sha256 "7d8c44557f570687306e19d0e3296ad230593cb12bda35dcfc9274a6063af22a"
+  url "https://files.pythonhosted.org/packages/89/c6/c61a1aa2cbddf8a426eca157d4ab19d346247d86bc45cc6ac40efc41a2c2/ansible-10.2.0.tar.gz"
+  sha256 "8aa0629ba8eced6465e2ceb49029e93d337c4a6fc5a3e6e98825c258dd6a7057"
   license "GPL-3.0-or-later"
   head "https://github.com/ansible/ansible.git", branch: "devel"
 
@@ -41,8 +41,8 @@ class Ansible < Formula
   end
 
   resource "ansible-core" do
-    url "https://files.pythonhosted.org/packages/69/9d/62cf1cb023710f9556d88c663950117014082387ddcf0fcc4c419a4bf0fb/ansible_core-2.17.2.tar.gz"
-    sha256 "3dfa15249069ea0d001257902c968ddf9bb71d965769b8802bce85187556c5d8"
+    url "https://files.pythonhosted.org/packages/3c/f2/6b407947f6e2c91d4fb8a3b61958f941a077c68d0ef0a37c3c0df3d96026/ansible_core-2.17.3.tar.gz"
+    sha256 "917557065339fe36e7078e9bea47eefab6d6877f3bd435fa5f0d766d04c58485"
   end
 
   resource "ansible-pylibssh" do
@@ -71,13 +71,13 @@ class Ansible < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/33/ee/df4ec3cb6f292cfcc665562fbafafb68a6fe525c5a6476ab48a92b5ab669/boto3-1.34.158.tar.gz"
-    sha256 "5b7b2ce0ec1e498933f600d29f3e1c641f8c44dd7e468c26795359d23d81fa39"
+    url "https://files.pythonhosted.org/packages/fd/a8/e825d84cdcf9136cedc89c1f317f80023179685f83469a6ad04b3b0709f4/boto3-1.35.0.tar.gz"
+    sha256 "bdc242e3ea81decc6ea551b04b2c122f088c29269d8e093b55862946aa0fcfc6"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/dc/14/77b36078a68e756ffc05c0101a0eb4039430fda00f5aa601a6340f7a9fb6/botocore-1.34.158.tar.gz"
-    sha256 "5934082e25ad726673afbf466092fb1223dafa250e6e756c819430ba6b1b3da5"
+    url "https://files.pythonhosted.org/packages/38/f5/2b9df08eb22ecc0407e08086ec5c1a424ce66237f3b9fc0b6686712be247/botocore-1.35.0.tar.gz"
+    sha256 "6ab2f5a5cbdaa639599e3478c65462c6d6a10173dc8b941bfc69b0c9eb548f45"
   end
 
   resource "cachetools" do
@@ -276,8 +276,8 @@ class Ansible < Formula
   end
 
   resource "oslo-serialization" do
-    url "https://files.pythonhosted.org/packages/21/ff/78cc62d4282cf26d322eedf7409a39f7cd5f8c1a83329dc0a65bfa545bd4/oslo.serialization-5.4.0.tar.gz"
-    sha256 "315cb3465e99c685cb091b90365cb701bee7140e204ba3e5fc2d8a20b4ec6e76"
+    url "https://files.pythonhosted.org/packages/3d/99/5d314298d154a58343050b4d8bb972cbbbb728ef943b57aef7f247c372f8/oslo.serialization-5.5.0.tar.gz"
+    sha256 "9e752fc5d8a975956728dd96a82186783b3fefcacbb3553acd933058861e15a6"
   end
 
   resource "oslo-utils" do
@@ -316,8 +316,8 @@ class Ansible < Formula
   end
 
   resource "prettytable" do
-    url "https://files.pythonhosted.org/packages/4c/90/e1c8c06235d53c3adaae74d295669612beea5f5a2052b3184a763e7bdd62/prettytable-3.10.2.tar.gz"
-    sha256 "29ec6c34260191d42cd4928c28d56adec360ac2b1208a26c7e4f14b90cc8bc84"
+    url "https://files.pythonhosted.org/packages/28/57/0a642bec16d5736b9baaac7e830bedccd10341dc2858075c34d5aec5c8b6/prettytable-3.11.0.tar.gz"
+    sha256 "7e23ca1e68bbfd06ba8de98bf553bf3493264c96d5e8a615c0471025deeba722"
   end
 
   resource "proxmoxer" do
@@ -456,8 +456,8 @@ class Ansible < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/5e/11/487b18cc768e2ae25a919f230417983c8d5afa1b6ee0abd8b6db0b89fa1d/setuptools-72.1.0.tar.gz"
-    sha256 "8d243eff56d095e5817f796ede6ae32941278f542e0f941867cc05ae52b162ec"
+    url "https://files.pythonhosted.org/packages/ce/ef/013ded5b0d259f3fa636bf35de186f0061c09fbe124020ce6b8db68c83af/setuptools-72.2.0.tar.gz"
+    sha256 "80aacbf633704e9c8bfa1d99fa5dd4dc59573efcf9e4042c13d3bcef91ac2ef9"
   end
 
   resource "shade" do
