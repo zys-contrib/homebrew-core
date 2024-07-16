@@ -1000,6 +1000,7 @@ golangci-lint
 google-authenticator-libpam
 google-benchmark
 google-java-format
+googletest
 goose
 gopass
 gopass-jsonapi
