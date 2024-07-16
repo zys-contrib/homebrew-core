@@ -9,14 +9,13 @@ class Diceware < Formula
   revision 1
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4c6ecc1155edaf131229b4419e6ca8271e32896fa091bbb33e6449bad4f51513"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ac29db679db5b09dc6a5ebfa01674c9017c4fa8fa883581423de518b8f34d56c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "927f4dcd92b7cc5ab0a4e71aec0b6749e66b95c26df587eb09bc743ded817358"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3f01d968d9545f38b443b985cec9315ba768b925ab5dad7a74c114eeaa0776ba"
-    sha256 cellar: :any_skip_relocation, ventura:        "16a5f7e354160529d334f8cc196f59b70d9e8508a0938f94ba2dc87bd786ca93"
-    sha256 cellar: :any_skip_relocation, monterey:       "4c1ae92e608c4b6c27d983d9eec19b3dbde35892a5e3b2412b4206a16f22f6fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "198d662c21378d2a4b6e0d4979de37d42a8c7b8801d024be822c26d70be4d72f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6bade6f11a1c53d8392b0f20b367bd7bc01c39485488b7a5dacf13a7223a6dd2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6bade6f11a1c53d8392b0f20b367bd7bc01c39485488b7a5dacf13a7223a6dd2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6bade6f11a1c53d8392b0f20b367bd7bc01c39485488b7a5dacf13a7223a6dd2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d7d85bb88516b88f82118101047be74b214304d32cfc8428b81db6546180cf4d"
+    sha256 cellar: :any_skip_relocation, ventura:        "d7d85bb88516b88f82118101047be74b214304d32cfc8428b81db6546180cf4d"
+    sha256 cellar: :any_skip_relocation, monterey:       "d7d85bb88516b88f82118101047be74b214304d32cfc8428b81db6546180cf4d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "47e6638b7655607aa3151db297d2d8e3621f0bfb9a3d8b4af17b79a4d9fd21a9"
   end
 
   depends_on "python@3.12"
