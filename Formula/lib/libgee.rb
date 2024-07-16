@@ -6,16 +6,14 @@ class Libgee < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "101f70ccbc7358b45e29cdf31cba5941089dda1ea52ed1158ce442afec8175ba"
-    sha256 cellar: :any,                 arm64_ventura:  "17b6833c15dcc5a55942ab6efcb13aec78855da1f7caadeb813bdbaf86936990"
-    sha256 cellar: :any,                 arm64_monterey: "f4d10b610efe36fcda4140bf67fd793928ab78ee1e1504d3ea41b568ad7de726"
-    sha256 cellar: :any,                 arm64_big_sur:  "e68e6466bdb5bd784e482f38187977b844eebde81dc73bff222172d7a2f4a80a"
-    sha256 cellar: :any,                 sonoma:         "ca981251c8491963f8af017b9d09abda3f29fa7b621f7032e50a3090efeec4f1"
-    sha256 cellar: :any,                 ventura:        "776df5810ebd490091f65aefe8b4f2157fd70670aeb09b940466cfddf09b292d"
-    sha256 cellar: :any,                 monterey:       "a7b8c8955ee24c3ec80eeb037ea5f8dafde3fd8070c3db61a45c271530b78e5d"
-    sha256 cellar: :any,                 big_sur:        "b9c9f8e2f261e7694ce63061bbf46264392493615cc470b243720a4ae2c7d6ae"
-    sha256 cellar: :any,                 catalina:       "859c21092eaf6cb269f2f5f65e7f5a441eb3a73a21abc0bc00a8a103e3413e4a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6268b9a5755df29c908c02893e7c784e6f37a4f340ae4bc4b17cf05ef8114b6e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "0f3ac7bcee7e8a3ef342362cc6fb67c7f20f6e616ccaebe0b6d187069498f559"
+    sha256 cellar: :any,                 arm64_ventura:  "648c253edc216944b0e678393a1376050dce9c2136a2e23543e0c2c399d9c27b"
+    sha256 cellar: :any,                 arm64_monterey: "4db78ce506f169e6cf5e958f3fe5b53b53cd8b89658b27177021d38446705ec1"
+    sha256 cellar: :any,                 sonoma:         "81a4559f30db3797dc6f91af8e0cc639814ddbb36a625fdfcaad51de153a7990"
+    sha256 cellar: :any,                 ventura:        "49e93aa588f553b9781e84a7e9e0e9fe2dcb511976218ef2385983da6e318d67"
+    sha256 cellar: :any,                 monterey:       "1514560672301f3b58ea438cbe537af7e878b0def106674bee39f022902a2508"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cfcece11cd71b887bf40f1ea11e69d2fdb14133ae914b1d67858213b6e49fe0c"
   end
 
   depends_on "gobject-introspection" => :build
