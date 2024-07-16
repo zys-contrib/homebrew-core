@@ -213,6 +213,7 @@ bingrep
 biodiff
 biome
 bitrise
+bitwarden-cli
 bk
 bkcrack
 bkt
