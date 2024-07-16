@@ -11,13 +11,13 @@ class Orientdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b60aa53cf4dd28d499ef06e03c484f8620879a3293aa71d573ee7279032f527a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b60aa53cf4dd28d499ef06e03c484f8620879a3293aa71d573ee7279032f527a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b60aa53cf4dd28d499ef06e03c484f8620879a3293aa71d573ee7279032f527a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b60aa53cf4dd28d499ef06e03c484f8620879a3293aa71d573ee7279032f527a"
-    sha256 cellar: :any_skip_relocation, ventura:        "b60aa53cf4dd28d499ef06e03c484f8620879a3293aa71d573ee7279032f527a"
-    sha256 cellar: :any_skip_relocation, monterey:       "b60aa53cf4dd28d499ef06e03c484f8620879a3293aa71d573ee7279032f527a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64aca2c8c47d576e0194b015ea99fbb65ad7dc10f21344a0eb48d4d5b50b7763"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a2a4881490ffbbaa3dd8c207e4836be7adb532672f488d896c5390efb251d893"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a2a4881490ffbbaa3dd8c207e4836be7adb532672f488d896c5390efb251d893"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a2a4881490ffbbaa3dd8c207e4836be7adb532672f488d896c5390efb251d893"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a2a4881490ffbbaa3dd8c207e4836be7adb532672f488d896c5390efb251d893"
+    sha256 cellar: :any_skip_relocation, ventura:        "a2a4881490ffbbaa3dd8c207e4836be7adb532672f488d896c5390efb251d893"
+    sha256 cellar: :any_skip_relocation, monterey:       "a2a4881490ffbbaa3dd8c207e4836be7adb532672f488d896c5390efb251d893"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f8afe80cd3810472c8ebc377710a5a153f17779bd1041b40a6c902be49603c3"
   end
 
   depends_on "maven" => :build
