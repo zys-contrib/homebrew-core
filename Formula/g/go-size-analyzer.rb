@@ -1,8 +1,8 @@
 class GoSizeAnalyzer < Formula
   desc "Analyzing the dependencies in compiled Golang binaries"
   homepage "https://github.com/Zxilly/go-size-analyzer"
-  url "https://github.com/Zxilly/go-size-analyzer/archive/refs/tags/v1.4.3.tar.gz"
-  sha256 "0598913ea4580e2b22df376c6f2021a01c4227cb44d70e1b3c6270d9d5f8f9cf"
+  url "https://github.com/Zxilly/go-size-analyzer/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "94b658d94c415b0e1d29b74d67cfa2a0ca2cbf452aa4251afc09fd24f9b04bd1"
   license "AGPL-3.0-only"
   head "https://github.com/Zxilly/go-size-analyzer.git", branch: "master"
 
