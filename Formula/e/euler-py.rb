@@ -3,10 +3,10 @@ class EulerPy < Formula
 
   desc "Project Euler command-line tool written in Python"
   homepage "https://github.com/iKevinY/EulerPy"
-  url "https://github.com/iKevinY/EulerPy/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "0d2f633bc3985c8acfd62bc76ff3f19d0bfb2274f7873ec7e40c2caef315e46d"
+  url "https://files.pythonhosted.org/packages/a6/41/f074081bc036fbe2f066746e44020947ecf06ac53b6319a826023b8b5333/EulerPy-1.4.0.tar.gz"
+  sha256 "83b2175ee1d875e0f52b0d7bae1fb8500f5098ac6de5364a94bc540fb9408d23"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/iKevinY/EulerPy.git", branch: "master"
 
   bottle do
@@ -25,11 +25,6 @@ class EulerPy < Formula
   resource "click" do
     url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
     sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
-  end
-
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/c9/3d/74c56f1c9efd7353807f8f5fa22adccdba99dc72f34311c30a69627a0fad/setuptools-69.1.0.tar.gz"
-    sha256 "850894c4195f09c4ed30dba56213bf7c3f21d86ed6bdaafb5df5972593bfc401"
   end
 
   def install
