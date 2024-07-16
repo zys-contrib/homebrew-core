@@ -1,8 +1,8 @@
 class Echidna < Formula
   desc "Ethereum smart contract fuzzer"
   homepage "https://github.com/crytic/echidna"
-  url "https://github.com/crytic/echidna/archive/refs/tags/v2.2.3.tar.gz"
-  sha256 "5d52aa22b360cc27155f195480a39d4e6cdfa8c88b39b8f25a64ef5799cb2f8e"
+  url "https://github.com/crytic/echidna/archive/refs/tags/v2.2.4.tar.gz"
+  sha256 "5dd35a3f7e95bdc9f31be93f87cfa8e0e76f974fbe9d0bf4ce6c5829dce09c62"
   license "AGPL-3.0-only"
   head "https://github.com/crytic/echidna.git", branch: "master"
 
