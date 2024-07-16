@@ -23,11 +23,7 @@ class GrammarlyLanguageserver < Formula
 
   def install
     system "npm", "install", *std_npm_args
-    (bin/"grammarly-languageserver").write <<~EOS
-      #! /usr/bin/env sh
-
-      #{Formula["node@16"].bin}/node #{libexec}/bin/grammarly-languageserver "$@"
-    EOS
+    bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do
