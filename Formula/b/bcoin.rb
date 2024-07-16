@@ -1,5 +1,3 @@
-require "language/node"
-
 class Bcoin < Formula
   desc "Javascript bitcoin library for node.js and browsers"
   homepage "https://bcoin.io"
@@ -32,8 +30,8 @@ class Bcoin < Formula
   end
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    (bin/"bcoin").write_env_script libexec/"bin/bcoin", PATH: "#{node.opt_bin}:$PATH"
+    system "npm", "install", *std_npm_args
+    bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do
