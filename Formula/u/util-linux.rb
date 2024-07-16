@@ -35,8 +35,6 @@ class UtilLinux < Formula
 
   keg_only :shadowed_by_macos, "macOS provides the uuid.h header"
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "pkg-config" => :build
 
   uses_from_macos "libxcrypt"
