@@ -1,8 +1,4 @@
-require "language/node"
-
 class ApifyCli < Formula
-  include Language::Node::Shebang
-
   desc "Apify command-line interface"
   homepage "https://docs.apify.com/cli"
   url "https://registry.npmjs.org/apify-cli/-/apify-cli-0.20.2.tgz"
@@ -23,13 +19,6 @@ class ApifyCli < Formula
 
   def install
     system "npm", "install", *std_npm_args
-    # We have to replace the shebang in the main executable from "/usr/bin/env node"
-    # to point to the Homebrew-provided `node`,
-    # because otherwise the CLI will run with the system-provided Node.js,
-    # which might be a different version than the one installed by Homebrew,
-    # causing issues that `node_modules` were installed with one Node.js version
-    # but the CLI is running them with another Node.js version.
-    rewrite_shebang detected_node_shebang, libexec/"lib/node_modules/apify-cli/bin/run.js"
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
