@@ -12,17 +12,13 @@ class Libgnt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "a66452550322ba230ac6702de7e9191a65635c6e043d9aa0feb77e12efc8eef0"
-    sha256 cellar: :any, arm64_ventura:  "a9de916fc69770d8bbc6ad92c36950a3d3810d745cb4a8c9b55d7c4cff4a03cd"
-    sha256 cellar: :any, arm64_monterey: "5b9638fd113cb8a914c26d16d50865c313c5ce57d57e7afa5e857f6ef576d9c7"
-    sha256 cellar: :any, arm64_big_sur:  "a4c4c927df6b0fb2dd4bc6dbf742085eb171c146a448f218448f53e1a21d5015"
-    sha256 cellar: :any, sonoma:         "353a2a0f4f9cec6688edf17bd965e41e8b08963376e6b537131c1317e9e9fb32"
-    sha256 cellar: :any, ventura:        "62c52f2e13689bf9b1d7dbb7d9323df4334518425276f8cf5858ea6fc00e0fa2"
-    sha256 cellar: :any, monterey:       "dcc301110a688e48df0946e77ad07b7112c6bd88fc459b6ae9c6d752b0883c87"
-    sha256 cellar: :any, big_sur:        "97d22f2f66bfc361cc88dd7ef38a912c11db9bf77346f20645bec433a3444f38"
-    sha256 cellar: :any, catalina:       "ac0543b64dfccaed26f40fd585b9546dede02550afa4063fb76b8f970a2379d8"
-    sha256 cellar: :any, mojave:         "b558ad3400f33a9559ace90c2d53e7e578ca674cbae105b2ec620ab277da21cf"
-    sha256               x86_64_linux:   "ebff16ba92fadae787c491dae1094706039b2c73a44a1fcacbc2371b031ee647"
+    sha256 cellar: :any, arm64_sonoma:   "92cb079a6648bbd97c733c00ab6d0ca2bbaa10fa07dd7edafe0e467d59cd928d"
+    sha256 cellar: :any, arm64_ventura:  "cef0929d73436e28d17b5373a7088b7cbebddb53cd2aa5ae332e8b3c7264b2d5"
+    sha256 cellar: :any, arm64_monterey: "0345644c556d7cca3a1974f1d716ca906b3a9819122b8832af2f5fe436febe44"
+    sha256 cellar: :any, sonoma:         "b935c28f5db2f8b807c8550f02eb766793bf324a7b6beaa5f7e83b4dd4671e37"
+    sha256 cellar: :any, ventura:        "9e74dedfc9bc7dd2d44936fa08782aa46bf4e8b9fcf448ba6dfbab1390b229d5"
+    sha256 cellar: :any, monterey:       "b8ee230409a87a54eb1739b0df20eb82c121d0a6d53674b2d8503476fd315b27"
+    sha256               x86_64_linux:   "a1aeee55bd6025c795083d7889415358ab4241b74bc37cd7392833e971eae98d"
   end
 
   depends_on "gtk-doc" => :build
