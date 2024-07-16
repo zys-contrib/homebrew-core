@@ -8,13 +8,13 @@ class Sqlparse < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ee42af947580da7a99717c7bd97ddf384ad28691e5e3e7849fd7e4aa5b884bc2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ee42af947580da7a99717c7bd97ddf384ad28691e5e3e7849fd7e4aa5b884bc2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ee42af947580da7a99717c7bd97ddf384ad28691e5e3e7849fd7e4aa5b884bc2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ee42af947580da7a99717c7bd97ddf384ad28691e5e3e7849fd7e4aa5b884bc2"
-    sha256 cellar: :any_skip_relocation, ventura:        "ee42af947580da7a99717c7bd97ddf384ad28691e5e3e7849fd7e4aa5b884bc2"
-    sha256 cellar: :any_skip_relocation, monterey:       "ee42af947580da7a99717c7bd97ddf384ad28691e5e3e7849fd7e4aa5b884bc2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "52d20223df7fb8a57b7d2330a4dbe6c8930cce48ade3c999932d8f91c29141d9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5ac1ed03b6d3ca689ad633ff3fffc2b4be12312dc38617d1a8ac40f8081e11fd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5ac1ed03b6d3ca689ad633ff3fffc2b4be12312dc38617d1a8ac40f8081e11fd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5ac1ed03b6d3ca689ad633ff3fffc2b4be12312dc38617d1a8ac40f8081e11fd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5ac1ed03b6d3ca689ad633ff3fffc2b4be12312dc38617d1a8ac40f8081e11fd"
+    sha256 cellar: :any_skip_relocation, ventura:        "5ac1ed03b6d3ca689ad633ff3fffc2b4be12312dc38617d1a8ac40f8081e11fd"
+    sha256 cellar: :any_skip_relocation, monterey:       "5ac1ed03b6d3ca689ad633ff3fffc2b4be12312dc38617d1a8ac40f8081e11fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8de1c1b68822f597b5c3539c078346097bfe91fa73b2362b1b2a1a238e41af34"
   end
 
   depends_on "python@3.12"
