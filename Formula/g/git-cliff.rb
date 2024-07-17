@@ -7,13 +7,13 @@ class GitCliff < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0671857570d54832691f72961ed13e4a7ba7427a62173a1900a03f5185c00ca2"
-    sha256 cellar: :any,                 arm64_ventura:  "11d4d46ef6112ff352dba65cbd16682f33d8ce935530f1778c106f20c6813d61"
-    sha256 cellar: :any,                 arm64_monterey: "c6a4548c6f9de17f28d00cd49edaced9578d7850632e058ef240930068a2dfbc"
-    sha256 cellar: :any,                 sonoma:         "504ddfe5b54dd637a6db093816c8a79b01aaa97945ed295ea9ebcdb46d7ac8ae"
-    sha256 cellar: :any,                 ventura:        "a741b3bba2777733488207a929bed589779051dd773a84730d9fb85ec7920190"
-    sha256 cellar: :any,                 monterey:       "eeef9104cdc38294a62ce38f8a02b2848f23869fd3ad3ebf0231f073a2205bc2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b92548599ce8164a49641809cc092682db0380880d5226b109f95c97e97e2538"
+    sha256 cellar: :any,                 arm64_sonoma:   "207bdcb164c7cd34c471c98c03041cf81c7547b2601fe8b0791e65c146089ede"
+    sha256 cellar: :any,                 arm64_ventura:  "bade64bc3036cd9068687a2e622a0f9220c095f606d03b50f84dc2cf37ec1064"
+    sha256 cellar: :any,                 arm64_monterey: "2ea155180b931d28816d63533537f742a5d39499bcf8cdd6c19816812e00b54b"
+    sha256 cellar: :any,                 sonoma:         "ea449a64066cc45a41d9f1d9fd12739fc778f251d6316de238b55cb86f51bb60"
+    sha256 cellar: :any,                 ventura:        "70befd07de8cde8e3c5416b59134381115505868515b220e3cc93d974e382212"
+    sha256 cellar: :any,                 monterey:       "d833941acc4563c1f0679d814cad38a5a144e9769d7db6ae170ae469b8516435"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d5cbf03feddd894afe0e11e9db29370d3c1a71cba59e8478423bc70b58f919b"
   end
 
   depends_on "pkg-config" => :build
