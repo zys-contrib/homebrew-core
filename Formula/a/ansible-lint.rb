@@ -6,6 +6,7 @@ class AnsibleLint < Formula
   url "https://files.pythonhosted.org/packages/c2/44/8751d04184a2c4f3e60be27ef7a14f04257096303dcb8122167672d3cd6a/ansible_lint-24.7.0.tar.gz"
   sha256 "ca2edc7e4e80cf19df4b28cbf4c118f761ce6cdd6a5ef9c8561e454ed7af5a24"
   license all_of: ["MIT", "GPL-3.0-or-later"]
+  revision 1
 
   bottle do
     rebuild 1
@@ -31,8 +32,8 @@ class AnsibleLint < Formula
   end
 
   resource "ansible-core" do
-    url "https://files.pythonhosted.org/packages/69/9d/62cf1cb023710f9556d88c663950117014082387ddcf0fcc4c419a4bf0fb/ansible_core-2.17.2.tar.gz"
-    sha256 "3dfa15249069ea0d001257902c968ddf9bb71d965769b8802bce85187556c5d8"
+    url "https://files.pythonhosted.org/packages/3c/f2/6b407947f6e2c91d4fb8a3b61958f941a077c68d0ef0a37c3c0df3d96026/ansible_core-2.17.3.tar.gz"
+    sha256 "917557065339fe36e7078e9bea47eefab6d6877f3bd435fa5f0d766d04c58485"
   end
 
   resource "attrs" do
