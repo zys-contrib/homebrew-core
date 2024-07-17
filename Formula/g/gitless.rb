@@ -18,6 +18,9 @@ class Gitless < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd06e1a7154b24652d81b9f2f679c18bb8286851d862ef6bf06e8ddcec0735d6"
   end
 
+  # https://github.com/gitless-vcs/gitless/issues/248
+  deprecate! date: "2024-07-17", because: :unmaintained
+
   depends_on "libgit2@1.7"
   depends_on "python@3.12"
 
