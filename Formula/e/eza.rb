@@ -7,13 +7,13 @@ class Eza < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c3eadfc9c81742884c3d45bbb79245206c3498f9cc917d877b7fc31f63ec1eb8"
-    sha256 cellar: :any,                 arm64_ventura:  "ca84616dc290841037b9d0390139c003d520b01197042be5426320f3db6e0e3e"
-    sha256 cellar: :any,                 arm64_monterey: "cd08982de41eaa9d6c9d64e75843dcd21a65ead22d0d155460d1e0831bfefba0"
-    sha256 cellar: :any,                 sonoma:         "be71d5bdd8198f1a05a74db70a76e3b231039f95c4aa6202c70b135bb92ef3c5"
-    sha256 cellar: :any,                 ventura:        "b36755e5e8ceb4b88d254906cd1362154e9c0c63f306f13887098353fad960c5"
-    sha256 cellar: :any,                 monterey:       "babefc16fef5b7be2187598daabd5fd2034140cbd871ea5b7a4480ba74dd2b4a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c83bd8ef9f52e1ad2b38159bfc51d53d605523a886c49174d070f9512f0a974"
+    sha256 cellar: :any,                 arm64_sonoma:   "d12d9b7c8b63cd3c058fee0fe6fe55d38b40dc1c1b299727b56d9aefb8a9e8a6"
+    sha256 cellar: :any,                 arm64_ventura:  "58309e18570fb61f85075566e4422cca4a8ccf4157387715ca22d41bfc6adbc3"
+    sha256 cellar: :any,                 arm64_monterey: "799cf7743ef7f2311e474770c6c94eaa95dd649dcc3b9853669871b4cf8c44c2"
+    sha256 cellar: :any,                 sonoma:         "d362540612ba4022aa63f2fccdadc119accebc534fb43f80a2520f83ba359e7e"
+    sha256 cellar: :any,                 ventura:        "6c2893114950b22bc2aba64904a147321ca1f1d5d8737dc5fd7154bd53237da2"
+    sha256 cellar: :any,                 monterey:       "51e81b6017418f99c82d7e0091af93b04d76785f3e8f4ae907fd71bb9345cc9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4bdafde1b7348ae8821dca062196a3890265a6d10fa2a1eb8c15069676d32aea"
   end
 
   depends_on "pandoc" => :build
