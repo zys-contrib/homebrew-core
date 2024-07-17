@@ -7,13 +7,13 @@ class Weechat < Formula
   head "https://github.com/weechat/weechat.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "0e323f9e5085d6bb923fc788071252b39f83e051e840f353ec76ecc202ba842c"
-    sha256 arm64_ventura:  "ef6b600e3c44da9490265c6bfa1c65bdbed83be4b4a0fc3dce101857a152b117"
-    sha256 arm64_monterey: "abd6535db40afeb5db1c956c1255a1b9b2b8cf60695ec7ee83e5c930f0f1ab3e"
-    sha256 sonoma:         "22a2bd7624907fc016eb577d06b8f9c7c6b8a7252ca9ce77c5f3b55da84d12e2"
-    sha256 ventura:        "e692e0f4d97656f1c59c0b89bfc5e03b668c760cbfb3448bf92c73ed01ec5ce6"
-    sha256 monterey:       "7922c099b0d8a6a521162d3e5c7bd84637d5fd3827211b761a665ddd8ea58b00"
-    sha256 x86_64_linux:   "cb11a0c962be1ed24d2f139576a7c00f9fcba0a8d4f9668a3ff5d388d255bd9e"
+    sha256 arm64_sonoma:   "ab70eb9c68cba4494a9df1a94ab835a634e41f5e81851efde93ac27850beda04"
+    sha256 arm64_ventura:  "80d8b850d77efeddd210c32023bed60e50e8a301f156e887e7e93ea0c5c7d6d4"
+    sha256 arm64_monterey: "927cd5e5279204f34a1ccbdc10c93147c3a25dedea96fe47d1f813317b2015c2"
+    sha256 sonoma:         "eb03de462230bc6fcec5b2ab9a180b78def0584760fed6fc1daeda6bd1f69ea7"
+    sha256 ventura:        "b72899bbef5031af14573309dbc54b64ed48f4405b24fac1595bf6cc8dd7f472"
+    sha256 monterey:       "eb892dfef7893fad909d6579889790b97ad4018f5d8b21320c7b96de0a054c4a"
+    sha256 x86_64_linux:   "b43ee6aed5cad62a5660c6cd17171f960b43d8c72a73ff91a0757454b7479b79"
   end
 
   depends_on "asciidoctor" => :build
