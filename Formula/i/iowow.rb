@@ -6,6 +6,16 @@ class Iowow < Formula
   license "MIT"
   head "https://github.com/Softmotions/iowow.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "2fba078871f285e4275e5335150ef00f6615d5739d7a9280919edf787f9a0b5f"
+    sha256 cellar: :any,                 arm64_ventura:  "653db3534479fa6987b0276850e13ae821507a3eb40131f9170e4ce1158bf56e"
+    sha256 cellar: :any,                 arm64_monterey: "02ac4f8dc19959efbfd5bbac2685c2532e9de9488f3f51a218e15b2767727559"
+    sha256 cellar: :any,                 sonoma:         "bfdd0df35ade257dfc24898f77d0134176f5d3c13a12338c4d0e705451bb269d"
+    sha256 cellar: :any,                 ventura:        "e222abf0c1723ef6439607386f136582ef7384aa2c5df9e989386f3be4c5e5c1"
+    sha256 cellar: :any,                 monterey:       "791aad132a5be42cbde1b97c8f38dc6c63f84f382aa94980b9fc5371778deb20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c50abbc4cf8ac933da6dc4be5dab2ca27db4e653fa7eb7189f00378561c3d7e"
+  end
+
   depends_on "cmake" => :build
 
   def install
