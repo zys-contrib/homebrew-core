@@ -21,9 +21,9 @@ class Charmcraft < Formula
   depends_on "rust" => :build
   depends_on "certifi"
   depends_on "cryptography"
-  depends_on "libgit2"
   depends_on "libsodium"
   depends_on "libyaml"
+  depends_on "pygit2"
   depends_on "python@3.12"
 
   resource "attrs" do
@@ -194,11 +194,6 @@ class Charmcraft < Formula
   resource "pydantic-yaml" do
     url "https://files.pythonhosted.org/packages/9e/e7/30713a0fae04001f8886b0219cad667b0fbf56149f4ea3ee5a84e8e0c9e7/pydantic_yaml-0.11.2.tar.gz"
     sha256 "19c8f3c9a97041b0a3d8fc06ca5143ff71c0846c45b39fde719cfbc98be7a00c"
-  end
-
-  resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/f0/5e/6e05213a9163bad15489beda5f958500881d45889b0df01d7b8964f031bf/pygit2-1.14.1.tar.gz"
-    sha256 "ec5958571b82a6351785ca645e5394c31ae45eec5384b2fa9c4e05dde3597ad6"
   end
 
   resource "pymacaroons" do
