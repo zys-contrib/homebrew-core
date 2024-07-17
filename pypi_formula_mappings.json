@@ -770,6 +770,9 @@
   "sysaidmin": {
     "exclude_packages": ["certifi"]
   },
+  "tartufo": {
+    "exclude_packages": ["pygit2"]
+  },
   "theharvester": {
     "exclude_packages": ["certifi"]
   },
