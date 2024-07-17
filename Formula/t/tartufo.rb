@@ -6,20 +6,20 @@ class Tartufo < Formula
   url "https://files.pythonhosted.org/packages/d5/ea/6248387282150270f1886d75111f776f43e694f488a3a1ea3b5b0d1195f1/tartufo-5.0.0.tar.gz"
   sha256 "99ab6652cae6de295aeb31089e9ba27d66d0ad695af493d2d5cbc795397d1c84"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
   head "https://github.com/godaddy/tartufo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8f684681220701497493bea2b2d354bb77e2cb48891b00ebfb030a3c8883c951"
-    sha256 cellar: :any,                 arm64_ventura:  "71d7ecb5b71477b306f02efd53807ef08cd5987908d55fa06ed1f38732f025f8"
-    sha256 cellar: :any,                 arm64_monterey: "7ae51faea90a2ee86ab0ebce6a260c07885d8839cf36cbf52168826ebe12c2ab"
-    sha256 cellar: :any,                 sonoma:         "f3b6f6d7f1a99ad94a9e00bf7b09fe6d6c8b2989f1e7e950d17f00261bf034ca"
-    sha256 cellar: :any,                 ventura:        "a31b499051c106bf60e14253d03f91861da3b414a24e178d91d3208b9733cbba"
-    sha256 cellar: :any,                 monterey:       "78fae9022fb120fb5f605c8ef57a69d604857b37dbacc6386158d5521b91c8f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f73241c51a2ce44fa61e4553d42f7dd99382692b83033d743f98012a0b7b7db9"
+    sha256 cellar: :any,                 arm64_sonoma:   "82cbe9b21439b6e66ea5226ecaf4248adf9fcc67fbccca2bc6f140f0425c40f8"
+    sha256 cellar: :any,                 arm64_ventura:  "259625dd7034d7243204fea940b1599469a20cdd60290f0f5a1ee30169fabaa8"
+    sha256 cellar: :any,                 arm64_monterey: "73d1b16bd1aef66347a682fa6298e81f297cda1264c2658589b5e20ee8ec3426"
+    sha256 cellar: :any,                 sonoma:         "a642c1ddf6c9074bb206df05e8ae5e33e0de453e598f4549bcf89d95a02adb2e"
+    sha256 cellar: :any,                 ventura:        "50f57bed0f4b3e940f36b76bd069d5f09b68dbee9e572405f18eb6041b1d77a1"
+    sha256 cellar: :any,                 monterey:       "1a0c06e0f3bc4d9f200712c83f12aa6c7b9ef3c2013f7d311ad6905cd86d58de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f44c5168bfefe9795d915ea7b527d1b67f39500e1186cbb6a4bcaa0b329ee7a"
   end
 
-  depends_on "libgit2"
+  depends_on "libgit2@1.7"
   depends_on "python@3.12"
 
   uses_from_macos "libffi"
