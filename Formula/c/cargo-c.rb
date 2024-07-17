@@ -17,6 +17,7 @@ class CargoC < Formula
     sha256 cellar: :any,                 arm64_monterey: "05e03fcc85dccfaa7c57c951d954dc41934056bb2dc056fd24f8d3a9ceec27a5"
     sha256 cellar: :any,                 sonoma:         "ac33123a71f8a727d6bb810b27130c43dc9580e99df914142d50fd51a48afc9a"
     sha256 cellar: :any,                 ventura:        "aa129258503fb6f6be647d5ed1e3a46f143c063472f7891d53dfce8af9354d9d"
+    sha256 cellar: :any,                 monterey:       "479a68f12cb3b494507b60eb56e3f705ee216e5f117e9102cc013446f2349b68"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8cd506221f794844239b7d8b17cdf05f41b9b7e5bba4a4018d2294ccf47a1cde"
   end
 
