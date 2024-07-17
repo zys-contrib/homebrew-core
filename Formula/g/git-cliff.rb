@@ -6,13 +6,13 @@ class GitCliff < Formula
   license all_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "207bdcb164c7cd34c471c98c03041cf81c7547b2601fe8b0791e65c146089ede"
-    sha256 cellar: :any,                 arm64_ventura:  "bade64bc3036cd9068687a2e622a0f9220c095f606d03b50f84dc2cf37ec1064"
-    sha256 cellar: :any,                 arm64_monterey: "2ea155180b931d28816d63533537f742a5d39499bcf8cdd6c19816812e00b54b"
-    sha256 cellar: :any,                 sonoma:         "ea449a64066cc45a41d9f1d9fd12739fc778f251d6316de238b55cb86f51bb60"
-    sha256 cellar: :any,                 ventura:        "70befd07de8cde8e3c5416b59134381115505868515b220e3cc93d974e382212"
-    sha256 cellar: :any,                 monterey:       "d833941acc4563c1f0679d814cad38a5a144e9769d7db6ae170ae469b8516435"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d5cbf03feddd894afe0e11e9db29370d3c1a71cba59e8478423bc70b58f919b"
+    sha256 cellar: :any,                 arm64_sonoma:   "1bad06f26baac7f0221892aca5b1acc0900ba7d302d16a758de42588079b9c05"
+    sha256 cellar: :any,                 arm64_ventura:  "fe46ef9c25cb57e4ab01e62bc2327eb19fe4b2768f4e966c885a4f158654fdc2"
+    sha256 cellar: :any,                 arm64_monterey: "3ab5b74d79888c5d344e3d317a2ce572b31eb20b6292b61acf1eed3128ce7166"
+    sha256 cellar: :any,                 sonoma:         "799e11a01fe28b60f87db38473c1b3ec9cce267ffe466683c76a8e4a9608cb65"
+    sha256 cellar: :any,                 ventura:        "00ad01967b2e0b0883e425d5a2f636cfa61b07c6ec6046169c75a8057b0c8228"
+    sha256 cellar: :any,                 monterey:       "24de5cefc74db91f258bfeb05d5308dd44c8f9f813e017dbfe229e4b8a82eb78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e11c07cd67b47a9886b0d8e176132f4af00c824935ca044e47fdb64a27352d2"
   end
 
   depends_on "pkg-config" => :build
