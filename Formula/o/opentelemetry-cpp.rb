@@ -1,8 +1,8 @@
 class OpentelemetryCpp < Formula
   desc "OpenTelemetry C++ Client"
   homepage "https://opentelemetry.io/"
-  url "https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v1.16.0.tar.gz"
-  sha256 "2209af23f43094651ddf007d44153c23facd41d9891b9b2d8cbc2dc9bb8064dd"
+  url "https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v1.16.1.tar.gz"
+  sha256 "b8a78bb2a3a78133dbb08bcd04342f4b1e03cb4a19079b8416d408d905fffc37"
   license "Apache-2.0"
   head "https://github.com/open-telemetry/opentelemetry-cpp.git", branch: "main"
 
