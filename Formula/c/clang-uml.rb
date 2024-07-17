@@ -6,6 +6,16 @@ class ClangUml < Formula
   license "Apache-2.0"
   head "https://github.com/bkryza/clang-uml.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "36d0aa1fa346deb13d765fb462e630b22b99c682e499456f7a00422feb96788a"
+    sha256 cellar: :any,                 arm64_ventura:  "38d9e81d54fa5d33b7d45f33b10b8179497d77fe8b028e84ef58bdac808e2ccd"
+    sha256 cellar: :any,                 arm64_monterey: "d1de2315c0e6bf8fab645a6a9f5fb2a07909987054d0fa06ecee7a41c00892cd"
+    sha256 cellar: :any,                 sonoma:         "894596aee232128d1065aee22091c7757161de84763c8ec278f61d8ac1ce0433"
+    sha256 cellar: :any,                 ventura:        "c9718ceba293590886e83858d3272621182900a51336d0777b1c9be613564019"
+    sha256 cellar: :any,                 monterey:       "ab9b40e24efb743cb1ae94c6d71a39c2729735de62674dff332e094823ff2c33"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "595c11370d9eaf6d557974d8b21c5398bc956e765cd0af9ce9233c116e2da6a5"
+  end
+
   depends_on "cmake" => [:build, :test]
   depends_on "pkg-config" => :build
   depends_on "llvm"
