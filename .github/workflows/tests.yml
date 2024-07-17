@@ -110,7 +110,7 @@ jobs:
             echo "### Analytics about: ${TESTING_FORMULAE}"
             echo "<details><summary>Click to expand</summary>"
             echo ""
-            echo "| Formula | Errors | 30d | 90d | 356d |"
+            echo "| Formula | Errors | 30d | 90d | 365d |"
             echo "|---|---|---|---|---|"
             for formula in ${TESTING_FORMULAE//,/ }
             do
