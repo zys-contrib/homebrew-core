@@ -1,8 +1,8 @@
 class Ncdc < Formula
   desc "NCurses direct connect"
   homepage "https://dev.yorhel.nl/ncdc"
-  url "https://dev.yorhel.nl/download/ncdc-1.24.tar.gz"
-  sha256 "233510d5355fc72fdad3578ebc8ab35d1da95b21d2774990f3a1356b7112da1e"
+  url "https://dev.yorhel.nl/download/ncdc-1.24.1.tar.gz"
+  sha256 "2a8ab9ad7d43f018fc73ba8babd689dfa44aba8cec53b88e4770185cb97778f7"
   license "MIT"
 
   livecheck do
@@ -38,12 +38,6 @@ class Ncdc < Formula
 
   on_macos do
     depends_on "gettext"
-  end
-
-  # newer clang build patch, remove in next release
-  patch do
-    url "https://code.blicky.net/yorhel/ncdc/commit/42590da4741baf93889773df96e0f3546d2e7f20.patch"
-    sha256 "52140c8b108e085b0e5792afdc21fc7f6b731036e8b3f7a4842f8519ab940ace"
   end
 
   def install

@@ -1702,6 +1702,7 @@ nasm
 nats-server
 nats-streaming-server
 navi
+ncdc
 ncnn
 nco
 ncspot
