@@ -1,8 +1,8 @@
 class Nerdfix < Formula
   desc "Find/fix obsolete Nerd Font icons"
   homepage "https://github.com/loichyan/nerdfix"
-  url "https://github.com/loichyan/nerdfix/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "72e835aeb349495be87e92f74f405b43dac982ec137cfd7e180e72146b6f6fb7"
+  url "https://github.com/loichyan/nerdfix/archive/refs/tags/v0.4.1.tar.gz"
+  sha256 "37f13ccf0eb6567b31862bc46e694a60177cbf5b76667fe73f22cef8f7ea68df"
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
