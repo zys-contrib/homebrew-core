@@ -2,8 +2,8 @@ class Haxe < Formula
   desc "Multi-platform programming language"
   homepage "https://haxe.org/"
   url "https://github.com/HaxeFoundation/haxe.git",
-      tag:      "4.3.4",
-      revision: "dc1a43dc52f98b9c480f68264885c6155e570f3e"
+      tag:      "4.3.5",
+      revision: "bd79571b89d719a45db7860d239da2164147dd15"
   license all_of: ["GPL-2.0-or-later", "MIT"]
   head "https://github.com/HaxeFoundation/haxe.git", branch: "development"
 
@@ -34,6 +34,7 @@ class Haxe < Formula
   uses_from_macos "perl" => :build
   uses_from_macos "rsync" => :build
   uses_from_macos "unzip" => :build
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "node" => :test
