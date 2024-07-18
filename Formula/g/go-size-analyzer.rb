@@ -1,8 +1,8 @@
 class GoSizeAnalyzer < Formula
   desc "Analyzing the dependencies in compiled Golang binaries"
   homepage "https://github.com/Zxilly/go-size-analyzer"
-  url "https://github.com/Zxilly/go-size-analyzer/archive/refs/tags/v1.5.1.tar.gz"
-  sha256 "bef2529772da5070aedc7fedebcf1edd29c713cf1d78b55e9cd79edd08922e29"
+  url "https://github.com/Zxilly/go-size-analyzer/archive/refs/tags/v1.5.3.tar.gz"
+  sha256 "fe9e681eef747e6e65d419dca586c20831c9bc74e519a7b41d2eba257866586f"
   license "AGPL-3.0-only"
   head "https://github.com/Zxilly/go-size-analyzer.git", branch: "master"
 
@@ -39,9 +39,8 @@ class GoSizeAnalyzer < Formula
   end
 
   test do
-    assert_includes shell_output("#{bin}/gsa --version"), version
-
-    assert_includes shell_output("#{bin}/gsa invalid", 1), "Usage"
+    assert_match version.to_s, shell_output("#{bin}/gsa --version")
+    assert_match "Usage", shell_output("#{bin}/gsa invalid 2>&1", 1)
 
     (testpath/"hello.go").write <<~EOS
       package main
@@ -53,11 +52,10 @@ class GoSizeAnalyzer < Formula
       }
     EOS
 
-    system "go", "build", "-o", testpath/"hello", testpath/"hello.go"
+    system "go", "build", testpath/"hello.go"
 
     output = shell_output("#{bin}/gsa #{testpath}/hello 2>&1")
-
-    assert_includes output, "runtime"
-    assert_includes output, "main"
+    assert_match "runtime", output
+    assert_match "main", output
   end
 end
