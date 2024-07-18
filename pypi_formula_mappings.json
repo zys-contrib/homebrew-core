@@ -164,7 +164,7 @@
   },
   "charmcraft": {
     "extra_packages": ["jeepney", "secretstorage"],
-    "exclude_packages": ["certifi", "cryptography"]
+    "exclude_packages": ["certifi", "cryptography", "pygit2"]
   },
   "chatblade": {
     "exclude_packages": ["certifi"]
