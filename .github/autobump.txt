@@ -797,6 +797,7 @@ ffmpeg@5
 ffms2
 ffsend
 ffuf
+fgbio
 fheroes2
 fig2dev
 file-roller
