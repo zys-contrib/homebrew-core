@@ -2,8 +2,8 @@ class Gossip < Formula
   desc "Desktop client for Nostr written in Rust"
   homepage "https://github.com/mikedilger/gossip"
   url "https://github.com/mikedilger/gossip.git",
-      tag:      "v0.10.1",
-      revision: "622ff8c0ddaefe40830199571f5f76229ba7be5a"
+      tag:      "v0.11",
+      revision: "5b0fb2ae5f1134793c5c3318aefda880738a07ac"
   license "MIT"
   head "https://github.com/mikedilger/gossip.git", branch: "master"
 
