@@ -1,10 +1,9 @@
 class Votca < Formula
   desc "Versatile Object-oriented Toolkit for Coarse-graining Applications"
   homepage "https://www.votca.org/"
-  url "https://github.com/votca/votca/archive/refs/tags/v2024.tar.gz"
-  sha256 "be1f8ad3de2ce86f0c01014aa5358c181f128a847bc4508ba0a4bffd5c82a1cf"
+  url "https://github.com/votca/votca/archive/refs/tags/v2024.1.tar.gz"
+  sha256 "74d447f976a7d5c05ec65ab99f52b75379cafa3b40b8bc3b9b328f8402bc53dc"
   license "Apache-2.0"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "504f8ab09074e72ba32a4a295445c25b69b72de16c1250887ce1992c59a56e09"
@@ -34,13 +33,8 @@ class Votca < Formula
   uses_from_macos "expat"
 
   on_macos do
+    depends_on "libaec"
     depends_on "libomp"
-  end
-
-  # Backport fix for build failure with `boost` 1.85.0. Remove in the next release.
-  patch do
-    url "https://github.com/votca/votca/commit/9a29a3a82ea23c5159d43b0f25218601e12085b4.patch?full_index=1"
-    sha256 "814fad24b533b84855f5171dda6789552872f16e1bbc3bebf8a3ebb2394440af"
   end
 
   def install

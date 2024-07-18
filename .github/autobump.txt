@@ -2638,6 +2638,7 @@ vnstat
 volatility
 volk
 volta
+votca
 vpn-slice
 vrc-get
 vscode-langservers-extracted
