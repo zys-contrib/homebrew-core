@@ -1599,6 +1599,7 @@ melange
 melody
 memcached
 memray
+menhir
 mercurial
 meson
 meta-package-manager
