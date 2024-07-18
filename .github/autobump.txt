@@ -369,6 +369,7 @@ checkstyle
 cherrytree
 chezmoi
 chibi-scheme
+chicken
 chkbit
 chkrootkit
 choose-rust
