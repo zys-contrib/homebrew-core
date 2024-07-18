@@ -7,7 +7,13 @@ class Fuseki < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "be7e8d5fc8c529e1fe854c8c2ca6979dc6ca7cc79cf44cb74dc5d81dd357f7f6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f44dda213f4230b6eb0cc41fbffc7a22760de441e22875f35a9f05b3ddb00e3d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f44dda213f4230b6eb0cc41fbffc7a22760de441e22875f35a9f05b3ddb00e3d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f44dda213f4230b6eb0cc41fbffc7a22760de441e22875f35a9f05b3ddb00e3d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f44dda213f4230b6eb0cc41fbffc7a22760de441e22875f35a9f05b3ddb00e3d"
+    sha256 cellar: :any_skip_relocation, ventura:        "f44dda213f4230b6eb0cc41fbffc7a22760de441e22875f35a9f05b3ddb00e3d"
+    sha256 cellar: :any_skip_relocation, monterey:       "f44dda213f4230b6eb0cc41fbffc7a22760de441e22875f35a9f05b3ddb00e3d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e3956585094480502279735cba84a79bbe82869518b392f480e55cffe74a07e"
   end
 
   depends_on "openjdk"
