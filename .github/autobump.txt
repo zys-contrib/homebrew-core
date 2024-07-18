@@ -1548,6 +1548,7 @@ mafft
 mage
 magic_enum
 magic-wormhole
+magic-wormhole.rs
 mailcatcher
 mailpit
 mailsy
