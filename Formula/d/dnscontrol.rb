@@ -1,8 +1,8 @@
 class Dnscontrol < Formula
   desc "Synchronize your DNS to multiple providers from a simple DSL"
   homepage "https://dnscontrol.org/"
-  url "https://github.com/StackExchange/dnscontrol/archive/refs/tags/v4.12.4.tar.gz"
-  sha256 "9b77c20ddc3ff7f9a180722eac282abea790aa4f55b03e1d4ab9e865965b8152"
+  url "https://github.com/StackExchange/dnscontrol/archive/refs/tags/v4.12.5.tar.gz"
+  sha256 "c4c4bec6f49f48deee3cb7f611f3ebd42ff1ccabd35d856ab694bdd6e07b7203"
   license "MIT"
   version_scheme 1
 
