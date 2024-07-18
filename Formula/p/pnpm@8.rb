@@ -13,13 +13,13 @@ class PnpmAT8 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "6e5f78f2649e82f81a52b64155c981710d582aa8ce3431e9acdc029e6b338bf5"
-    sha256 cellar: :any,                 arm64_ventura:  "6e5f78f2649e82f81a52b64155c981710d582aa8ce3431e9acdc029e6b338bf5"
-    sha256 cellar: :any,                 arm64_monterey: "6e5f78f2649e82f81a52b64155c981710d582aa8ce3431e9acdc029e6b338bf5"
-    sha256 cellar: :any,                 sonoma:         "02606673fcfd5d5a8bcfcfeac8fd4fa53e778fab5d71044cfdc4f7efe6b947a4"
-    sha256 cellar: :any,                 ventura:        "02606673fcfd5d5a8bcfcfeac8fd4fa53e778fab5d71044cfdc4f7efe6b947a4"
-    sha256 cellar: :any,                 monterey:       "02606673fcfd5d5a8bcfcfeac8fd4fa53e778fab5d71044cfdc4f7efe6b947a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8dd87bf2b969e693605590e9689a126d6653418541b5a70bd4b283717b1e3d83"
+    sha256 cellar: :any,                 arm64_sonoma:   "1817fa1a56d40c80b7dc0537277deaccc5f59b60592d58378ecede03a9978a29"
+    sha256 cellar: :any,                 arm64_ventura:  "1817fa1a56d40c80b7dc0537277deaccc5f59b60592d58378ecede03a9978a29"
+    sha256 cellar: :any,                 arm64_monterey: "1817fa1a56d40c80b7dc0537277deaccc5f59b60592d58378ecede03a9978a29"
+    sha256 cellar: :any,                 sonoma:         "9ed339801ba354d0a29eae81280393417485d47a41cb2ae37822ad3222b0d7c9"
+    sha256 cellar: :any,                 ventura:        "9ed339801ba354d0a29eae81280393417485d47a41cb2ae37822ad3222b0d7c9"
+    sha256 cellar: :any,                 monterey:       "9ed339801ba354d0a29eae81280393417485d47a41cb2ae37822ad3222b0d7c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16489457ee27235fa2c6be678875d549e56c7cc5c9ba20588d2a02471c00eebe"
   end
 
   keg_only :versioned_formula
