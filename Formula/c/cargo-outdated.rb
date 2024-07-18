@@ -9,6 +9,7 @@ class CargoOutdated < Formula
   url "https://static.crates.io/crates/cargo-outdated/cargo-outdated-0.15.0.crate"
   sha256 "0641d14a828fe7dcf73e6df54d31ce19d4def4654d6fa8ec709961e561658a4d"
   license "MIT"
+  revision 1
   head "https://github.com/kbknapp/cargo-outdated.git", branch: "master"
 
   bottle do
@@ -24,7 +25,7 @@ class CargoOutdated < Formula
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "rustup-init" => :test
-  depends_on "libgit2"
+  depends_on "libgit2@1.7"
   depends_on "openssl@3"
 
   def install
@@ -72,7 +73,7 @@ class CargoOutdated < Formula
     end
 
     [
-      Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2@1.7"].opt_lib/shared_library("libgit2"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
     ].each do |library|
