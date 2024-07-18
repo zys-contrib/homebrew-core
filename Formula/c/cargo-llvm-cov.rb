@@ -2,8 +2,8 @@ class CargoLlvmCov < Formula
   desc "Cargo subcommand to easily use LLVM source-based code coverage"
   homepage "https://github.com/taiki-e/cargo-llvm-cov"
   # cannot use github tarball due to https://github.com/taiki-e/cargo-llvm-cov/pull/152#issuecomment-1107055622
-  url "https://static.crates.io/crates/cargo-llvm-cov/cargo-llvm-cov-0.6.10.crate"
-  sha256 "8c9f81a298cfd7bf22c7bfd09475859ee6408c056ddace5749bc6f87dbeb4ffa"
+  url "https://static.crates.io/crates/cargo-llvm-cov/cargo-llvm-cov-0.6.11.crate"
+  sha256 "a18c672177efaee994adc1127c8dceb705305a9da482724227ca90969964f06b"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/taiki-e/cargo-llvm-cov.git", branch: "main"
 
