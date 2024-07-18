@@ -27,8 +27,7 @@ class Step < Formula
     ENV["CGO_OVERRIDE"] = "CGO_ENABLED=1"
     system "make", "build"
     bin.install "bin/step" => "step"
-    bash_completion.install "autocomplete/bash_autocomplete" => "step"
-    zsh_completion.install "autocomplete/zsh_autocomplete" => "_step"
+    generate_completions_from_executable(bin/"step", "completion")
 
     resource("certificates").stage do |r|
       ENV["VERSION"] = r.version.to_s
