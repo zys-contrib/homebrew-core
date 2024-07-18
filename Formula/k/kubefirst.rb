@@ -1,8 +1,8 @@
 class Kubefirst < Formula
   desc "GitOps Infrastructure & Application Delivery Platform for kubernetes"
   homepage "https://kubefirst.io/"
-  url "https://github.com/kubefirst/kubefirst/archive/refs/tags/v2.4.12.tar.gz"
-  sha256 "435e7425005106700e2023bd0c784ec1a76c4e8a7c404937dc0c66fdf9ede95f"
+  url "https://github.com/kubefirst/kubefirst/archive/refs/tags/v2.4.13.tar.gz"
+  sha256 "ef873999070e3f615686a45054622e78ff3998aae8de8066c7e8f2b88efe5154"
   license "MIT"
   head "https://github.com/kubefirst/kubefirst.git", branch: "main"
 
@@ -26,7 +26,7 @@ class Kubefirst < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/kubefirst/runtime/configs.K1Version=v#{version}"
+    ldflags = "-s -w -X github.com/kubefirst/kubefirst-api/configs.K1Version=v#{version}"
     system "go", "build", *std_go_args(ldflags:)
   end
 
