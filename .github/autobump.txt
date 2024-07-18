@@ -928,6 +928,7 @@ git-credential-oauth
 git-delete-merged-branches
 git-delta
 git-extras
+git-filter-repo
 git-grab
 git-interactive-rebase-tool
 git-lfs
