@@ -1306,6 +1306,7 @@ kubekey
 kubelogin
 kubergrunt
 kubernetes-cli
+kubernetes-cli@1.29
 kubescape
 kubeseal
 kubeshark
