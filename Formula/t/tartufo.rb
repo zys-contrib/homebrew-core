@@ -10,13 +10,13 @@ class Tartufo < Formula
   head "https://github.com/godaddy/tartufo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "82cbe9b21439b6e66ea5226ecaf4248adf9fcc67fbccca2bc6f140f0425c40f8"
-    sha256 cellar: :any,                 arm64_ventura:  "259625dd7034d7243204fea940b1599469a20cdd60290f0f5a1ee30169fabaa8"
-    sha256 cellar: :any,                 arm64_monterey: "73d1b16bd1aef66347a682fa6298e81f297cda1264c2658589b5e20ee8ec3426"
-    sha256 cellar: :any,                 sonoma:         "a642c1ddf6c9074bb206df05e8ae5e33e0de453e598f4549bcf89d95a02adb2e"
-    sha256 cellar: :any,                 ventura:        "50f57bed0f4b3e940f36b76bd069d5f09b68dbee9e572405f18eb6041b1d77a1"
-    sha256 cellar: :any,                 monterey:       "1a0c06e0f3bc4d9f200712c83f12aa6c7b9ef3c2013f7d311ad6905cd86d58de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f44c5168bfefe9795d915ea7b527d1b67f39500e1186cbb6a4bcaa0b329ee7a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7b2dde8f4519f9279df16776e0d8980b89b44c4b94925b6539bc42fb734fdaeb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7b2dde8f4519f9279df16776e0d8980b89b44c4b94925b6539bc42fb734fdaeb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7b2dde8f4519f9279df16776e0d8980b89b44c4b94925b6539bc42fb734fdaeb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0622862e7b007ad202e55a94c7f2bef2ad6314afae83a74d976525f7f89c8871"
+    sha256 cellar: :any_skip_relocation, ventura:        "0622862e7b007ad202e55a94c7f2bef2ad6314afae83a74d976525f7f89c8871"
+    sha256 cellar: :any_skip_relocation, monterey:       "0622862e7b007ad202e55a94c7f2bef2ad6314afae83a74d976525f7f89c8871"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "94090ab1f2288440f1bc42dfd41e009e90272bfbc67af83077052f215cfb3791"
   end
 
   depends_on "pygit2"
