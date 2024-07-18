@@ -1,10 +1,9 @@
 class Menhir < Formula
   desc "LR(1) parser generator for the OCaml programming language"
   homepage "http://cristal.inria.fr/~fpottier/menhir"
-  url "https://gitlab.inria.fr/fpottier/menhir/-/archive/20231231/menhir-20231231.tar.bz2"
-  sha256 "fb76a37b84e28acd3ecf58efea3abc8c7a9a70987a44915837e81093a7853d3a"
+  url "https://gitlab.inria.fr/fpottier/menhir/-/archive/20240715/menhir-20240715.tar.bz2"
+  sha256 "b986cfb9f30d4955e52387b37f56bc642b0be8962b1f64b134e878b30a3fe640"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "51bd3947698d7b10bb3c564ac1af6253939cc2c92a213a987eab78b69eca413e"
@@ -19,11 +18,6 @@ class Menhir < Formula
   depends_on "dune" => :build
   depends_on "ocamlbuild" => :build
   depends_on "ocaml"
-
-  # Allow to compile with OCaml >= 5.2.0
-  # Shall be removed once the first new version of menhir after 20231231 is released.
-  # https://gitlab.inria.fr/fpottier/menhir/-/commit/9b49658fc64736511ec41a06bb474afbf3dc6690
-  patch :DATA
 
   def install
     system "dune", "build", "@install"
@@ -53,18 +47,3 @@ class Menhir < Formula
     assert_predicate testpath/"test.mli", :exist?
   end
 end
-
-__END__
-diff --git a/sdk/cmly_api.ml b/sdk/cmly_api.ml
-index acbb8714..88c93951 100644
---- a/sdk/cmly_api.ml
-+++ b/sdk/cmly_api.ml
-@@ -146,7 +146,7 @@ module type GRAMMAR = sig
-     val default_reduction : t -> production option
- 
-     val reductions   : t -> (terminal * production list) list
--    [@@@ocaml.deprecated "Please use [get_reductions]"]
-+    [@@ocaml.deprecated "Please use [get_reductions]"]
-   end
- 
-   module Print : sig
