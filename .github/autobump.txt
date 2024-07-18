@@ -218,6 +218,7 @@ bk
 bkcrack
 bkt
 black
+blast
 blis
 blocky
 bluepill

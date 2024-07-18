@@ -1,9 +1,9 @@
 class Blast < Formula
   desc "Basic Local Alignment Search Tool"
   homepage "https://blast.ncbi.nlm.nih.gov/"
-  url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.15.0/ncbi-blast-2.15.0+-src.tar.gz"
-  version "2.15.0"
-  sha256 "6918c370524c8d44e028bf491e8f245a895e07c66c77b261ce3b38d6058216e0"
+  url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.16.0/ncbi-blast-2.16.0+-src.tar.gz"
+  version "2.16.0"
+  sha256 "17c93cf009721023e5aecf5753f9c6a255d157561638b91b3ad7276fd6950c2b"
   license :public_domain
 
   livecheck do
