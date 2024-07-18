@@ -1740,6 +1740,7 @@ nextdns
 nexttrace
 nfdump
 nfpm
+nftables
 nginx
 ngt
 nickel
