@@ -1,8 +1,8 @@
 class MagicWormholeRs < Formula
   desc "Rust implementation of Magic Wormhole, with new features and enhancements"
   homepage "https://github.com/magic-wormhole/magic-wormhole.rs"
-  url "https://github.com/magic-wormhole/magic-wormhole.rs/archive/refs/tags/0.6.1.tar.gz"
-  sha256 "522db57161bb7df10feb4b0ca8dec912186f24a0974647dc4fccdd8f70649f96"
+  url "https://github.com/magic-wormhole/magic-wormhole.rs/archive/refs/tags/0.7.0.tar.gz"
+  sha256 "dee1f6784310c0855473aed5fa45866b74e90baf3807e881dee8139caf20c9b3"
   license "EUPL-1.2"
   head "https://github.com/magic-wormhole/magic-wormhole.rs.git", branch: "master"
 
@@ -30,9 +30,10 @@ class MagicWormholeRs < Formula
     sleep 1
     begin
       received = "received.svg"
-      exec bin/"wormhole-rs", "receive", "--noconfirm", "--rename=#{received}", "#{n}-homebrew-test"
+      exec bin/"wormhole-rs", "receive", "--noconfirm", "#{n}-homebrew-test"
       assert_predicate testpath/received, :exist?
     ensure
+      Process.kill("TERM", pid)
       Process.wait(pid)
     end
   end
