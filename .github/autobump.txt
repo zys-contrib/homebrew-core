@@ -2753,6 +2753,7 @@ yyjson
 z3
 zabbix
 zbctl
+zchunk
 zeek
 zellij
 zenith
