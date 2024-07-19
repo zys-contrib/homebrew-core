@@ -1,8 +1,8 @@
 class Signmykey < Formula
   desc "Automated SSH Certificate Authority"
   homepage "https://signmykey.io"
-  url "https://github.com/signmykeyio/signmykey/archive/refs/tags/v0.8.6.tar.gz"
-  sha256 "16c34d874bf6cec0d83dbefb8dea0b89afacd0884a1069e2d9f5ee8b499133ed"
+  url "https://github.com/signmykeyio/signmykey/archive/refs/tags/v0.8.7.tar.gz"
+  sha256 "d9697c1d289280395188caaa8b2e10a23cc4c94ca33a493ae398c3a6be500155"
   license "MIT"
   head "https://github.com/signmykeyio/signmykey.git", branch: "master"
 
