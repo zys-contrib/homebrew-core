@@ -8,17 +8,14 @@ class GnuTypist < Formula
   revision 2
 
   bottle do
-    sha256 arm64_ventura:  "1680a0da992d03808e31f28c258317c5fdeec3b69c0d0347da09b53bc911c220"
-    sha256 arm64_monterey: "11053d3574c7c569cd3bdddd8e48e0609af0abdc0638346f810168570411f16d"
-    sha256 arm64_big_sur:  "b241409e921daccc7d82bfd1641ba1b6fd43966d19458fc580d4245641306fe2"
-    sha256 ventura:        "c9d69f252c6f74fb9d82c7ba6c79f37b9e4180a8348c2ad7b518eabb6dbaa153"
-    sha256 monterey:       "100c51f8f078f96c5e4307ed3f7d2aced6ae5975ae91df6aa208932211113d5e"
-    sha256 big_sur:        "74506e983cf7d74abcd8cfa4007d8429cdae7283a1b3cd3a3f0272d4380df024"
-    sha256 catalina:       "2a824f3fad3871cbf43f15009c23563aa03872597f22e823f9e2551d35fe1e26"
-    sha256 mojave:         "9f0fcdd42b9a041408b132882778db2eb479749a7169b82f2caf1f4fd486b599"
-    sha256 high_sierra:    "72503afd4efafe7a8485ea22332819937008263976a6f5f5b42818565d59edbf"
-    sha256 sierra:         "d32708d6e8a640101ac618ceac23be6b9d1a6a4caa127c5fd12a44b4e57c09e9"
-    sha256 x86_64_linux:   "46bb2345984a78a4ff0bb6b91d3417311c54105ff5bc96e851f74919d78f86db"
+    rebuild 1
+    sha256 arm64_sonoma:   "ec0daf0f5a1f0ceae0482b59a88ad8d24489c5d04334f36f052afff193dd47be"
+    sha256 arm64_ventura:  "4ea5b5536d71dcce549c137487e1f253de1c65eb731cc96f96c6f840552538a2"
+    sha256 arm64_monterey: "55bc014edf3a03938527035d043b5f993d9574e0b77a9ecd6d332eb4e8efcd18"
+    sha256 sonoma:         "5994bfad16531f2491e6749b2bc1219f1a20e1f9c46713d3dedef188b66c00d8"
+    sha256 ventura:        "63a4ab5d80a451ac4a64c4f8210d6fef5be03ed16ce91d121d3f6054f9b60dc9"
+    sha256 monterey:       "9176597b6394a63864ef693f4815b74930a63f245a36b66656e9f203bf49d509"
+    sha256 x86_64_linux:   "a992581b5efb631c92abb7b43ac1f126acb16fda1479beff3fd137276a04197f"
   end
 
   depends_on "gettext"
