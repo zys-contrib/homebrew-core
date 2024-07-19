@@ -1416,6 +1416,7 @@ libmicrohttpd
 libmobi
 libmxml
 libnfs
+libnftnl
 libnghttp3
 libnice
 libntlm
@@ -1741,6 +1742,7 @@ nextdns
 nexttrace
 nfdump
 nfpm
+nftables
 nginx
 ngt
 nickel
