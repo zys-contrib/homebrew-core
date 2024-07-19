@@ -7,13 +7,13 @@ class SignalCli < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5f7ef62c79f4cc9051ab2abecaff62232bfc32771dab48c61891034bbfc393c6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "31c313634f2011a9e1b2677b48cd1d045a58b90146f46d854b18ba6326b3272c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "57dee3d98645fff6f3bd319eba57ce9b753dfc381fbb4f66556fdeed01217aca"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fdbba15efb9ef63d39ccec3632cab2d510b911fd26485d7c959b8d87d8f9e64a"
-    sha256 cellar: :any_skip_relocation, ventura:        "d03338dbd84b97d075e10c266f2463d7d0c5df6afdb5914d6a4fed826d8c7fb4"
-    sha256 cellar: :any_skip_relocation, monterey:       "9473f13034421ae41caba9fe811af42c4582c35f621318899a25caa5a2490ea9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8029b42a980628e48ed24cfca4cc50a8d2d69c1eaec712748d5a0374bbf931e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1136c4c0b661dcdaa854f144528ce25c8b8c67c7effbd2ee603623931d72c343"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "57090d32f75e684983730345b20a7dbbd0a35cee682627be146db615b7fc4c1f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3d0e6f60d8d8acb8d0b82e1939e9505c0be04af190e691b106b1e1172d26f8a7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "932339d14a6d67a975fb13d525d0cc3f6db3dbdfc70caa4ff999e5143baa1295"
+    sha256 cellar: :any_skip_relocation, ventura:        "b1d8b76438b90073a56109013e62b8d80fc806a213dea9767e52b0e15041b4ea"
+    sha256 cellar: :any_skip_relocation, monterey:       "bf794f5735b1733e4476b78fed1f7ba1e42bc1f47fd50930bc7af41044d83352"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "195e1dd36212945d8f8fff806eb5e88566ba3e784cda684edcaf45243aa29636"
   end
 
   depends_on "cmake" => :build # For `boring-sys` crate in `libsignal-client`
