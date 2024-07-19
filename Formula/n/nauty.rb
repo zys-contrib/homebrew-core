@@ -31,7 +31,7 @@ class Nauty < Formula
   patch :DATA
 
   def install
-    system "./configure", "--includedir=#{include}/nauty", *std_configure_args
+    system "./configure", "--enable-tls", "--includedir=#{include}/nauty", *std_configure_args
     system "make", "all", "TLSlibs"
     system "make", "install", "TLSinstall"
 
