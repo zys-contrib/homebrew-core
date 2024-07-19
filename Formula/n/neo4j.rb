@@ -4,6 +4,7 @@ class Neo4j < Formula
   url "https://neo4j.com/artifact.php?name=neo4j-community-5.21.2-unix.tar.gz"
   sha256 "19fd2ddbedf9fab526cdec55d1d5cbc9ebda282984f8af9fb7216d9dbc7d0af6"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://neo4j.com/deployment-center/"
@@ -21,13 +22,12 @@ class Neo4j < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a866261cbce0b07890ad2571fd9ed041081c2221a343618c8b0c7eb304039363"
   end
 
-  depends_on "openjdk"
-
-  conflicts_with "cypher-shell", because: "both install `cypher-shell` binaries"
+  depends_on "cypher-shell"
+  depends_on "openjdk@21"
 
   def install
     env = {
-      JAVA_HOME:  Formula["openjdk"].opt_prefix,
+      JAVA_HOME:  Formula["openjdk@21"].opt_prefix,
       NEO4J_HOME: libexec,
     }
     # Remove windows files
@@ -37,7 +37,7 @@ class Neo4j < Formula
     libexec.install Dir["*"]
 
     # Symlink binaries
-    bin.install Dir["#{libexec}/bin/neo4j{,-shell,-import,-shared.sh,-admin}", "#{libexec}/bin/cypher-shell"]
+    bin.install Dir["#{libexec}/bin/neo4j{,-shell,-import,-shared.sh,-admin}"]
     bin.env_script_all_files(libexec/"bin", env)
 
     # Adjust UDC props
