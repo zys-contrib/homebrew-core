@@ -20,7 +20,7 @@ class Tinysearch < Formula
 
   depends_on "rust" => :build
 
-  depends_on "rustup-init"
+  depends_on "rustup"
   depends_on "wasm-pack"
 
   def install
@@ -29,7 +29,7 @@ class Tinysearch < Formula
   end
 
   test do
-    ENV.prepend_path "PATH", Formula["rustup-init"].bin
+    ENV.prepend_path "PATH", Formula["rustup"].bin
     system "rustup", "default", "stable"
     system "rustup", "set", "profile", "minimal"
 
