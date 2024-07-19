@@ -1,8 +1,8 @@
 class Libnl < Formula
   desc "Netlink Library Suite"
   homepage "https://github.com/thom311/libnl"
-  url "https://github.com/thom311/libnl/releases/download/libnl3_9_0/libnl-3.9.0.tar.gz"
-  sha256 "aed507004d728a5cf11eab48ca4bf9e6e1874444e33939b9d3dfed25018ee9bb"
+  url "https://github.com/thom311/libnl/releases/download/libnl3_10_0/libnl-3.10.0.tar.gz"
+  sha256 "49b3e2235fdb58f5910bbb3ed0de8143b71ffc220571540502eb6c2471f204f5"
   license "LGPL-2.1-or-later"
 
   bottle do
