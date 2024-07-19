@@ -4,6 +4,7 @@ class CypherShell < Formula
   url "https://dist.neo4j.org/cypher-shell/cypher-shell-5.21.0.zip"
   sha256 "98120a168bf67c6040429d0abab44371c588577680508edcd741a70c2ceca8a6"
   license "GPL-3.0-only"
+  revision 1
   version_scheme 1
 
   livecheck do
@@ -21,16 +22,17 @@ class CypherShell < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b00df5fc90076b5d584167114f8d9ea33cd59568cb8584a321707900ba3367ff"
   end
 
-  depends_on "openjdk"
+  depends_on "openjdk@21"
 
   conflicts_with "neo4j", because: "both install `cypher-shell` binaries"
 
   def install
     libexec.install Dir["*"]
-    (bin/"cypher-shell").write_env_script libexec/"bin/cypher-shell", Language::Java.overridable_java_home_env
+    (bin/"cypher-shell").write_env_script libexec/"bin/cypher-shell", Language::Java.overridable_java_home_env("21")
   end
 
   test do
+    refute_match "unsupported version of the Java runtime", shell_output("#{bin}/cypher-shell -h 2>&1", 1)
     # The connection will fail and print the name of the host
     assert_match "doesntexist", shell_output("#{bin}/cypher-shell -a bolt://doesntexist 2>&1", 1)
   end
