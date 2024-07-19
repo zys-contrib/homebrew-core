@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package and dependency manager supporting the latest PEP standards"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/0c/06/c6151dbcb54d0bfebec4922c894c403b9d058066d3c663f32e5add8041dd/pdm-2.17.0.tar.gz"
-  sha256 "de23086b6d0a82e40cca70c2171b8d29c19fcfc164e79b93c144025ffd0232fa"
+  url "https://files.pythonhosted.org/packages/ca/4f/e2a350b543e0986b2e0d76adb5db802cd86eb79ff1c4fa81bec63d342651/pdm-2.17.1.tar.gz"
+  sha256 "9e1a28ecca83f3627aa700b1e3d52cd3f82f10fc908ac6499119baf7a3d4ea6c"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -32,8 +32,8 @@ class Pdm < Formula
   end
 
   resource "dep-logic" do
-    url "https://files.pythonhosted.org/packages/ab/c5/afb10abeb1ee2b096f3b88b0d83808f482cdae6347b8ea36aeb9126c34d8/dep_logic-0.4.2.tar.gz"
-    sha256 "c2f6e938ec30788952ee3e0c51da90d043e0354460c96b4fa608ac43a5ce566f"
+    url "https://files.pythonhosted.org/packages/fa/f3/111eff9a04e309d2cea122d083b3646229f8c5231a3a11a3155a304b1909/dep_logic-0.4.3.tar.gz"
+    sha256 "e4768f0a26c8c1c0e39fd520f3e0bd099ca528ec6a8f20359fbc89ffcdf8da45"
   end
 
   resource "distlib" do
