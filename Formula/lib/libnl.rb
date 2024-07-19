@@ -6,7 +6,7 @@ class Libnl < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 x86_64_linux: "07804611bd9c14d970bba5b051a54e71045331061861dc1a9c128ef5ab6d80ca"
+    sha256 x86_64_linux: "1a9b2071dd76f8b2d35c2064fa5305dabaf610e0f408c50024ce8bcc7902ba28"
   end
 
   depends_on "bison" => :build
