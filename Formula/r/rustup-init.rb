@@ -7,13 +7,14 @@ class RustupInit < Formula
   head "https://github.com/rust-lang/rustup.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1248c64af2a4c08f32d39ef40c4c65472f4d7cf9c447deeb7bc74fd6c8d1195b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cbbac142b00f35868ca7e34d2a5aa0e9922db072f38efd9fbb68d0bd4d4b4be2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a7018b1fe83019ab4c5925c79248bfd56b690ee65f7a2d9ff3eb6ef392a7aca9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c9b11990998ed99fbedca4e8aadcb65d953f0f0711ce72620274b1b4d800c68f"
-    sha256 cellar: :any_skip_relocation, ventura:        "a847079013df936ee23ee50e4bd4a4cabcec0e6fcbd3512efb11eabe3d514dd4"
-    sha256 cellar: :any_skip_relocation, monterey:       "e0e14890c70d0c103753a2861cda3b44092471acdec51b14ce0c7ffa1b10261d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d9ff7b986a355cb60bff64754c0cb7213361a48e02991e246d8f7b242f38de9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "013f6c53bb2e86339ce87aa9b0037c3f4b8f90b284f7ffe5cd6c61c40009fb11"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "108787dd49e54c94323548f4d1e734d014d2393b1a2d4f2809ed45a25c7e2287"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "af73b45b59e043cb9289bb3b542dae84f2a971d688a140e61c5946f3242cecb6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6c02a888a58c2d3814b4fbca069002155321fdb1e3de895e96eb99721fced270"
+    sha256 cellar: :any_skip_relocation, ventura:        "8785b4a6132a59a3d9db5fa5c0c5e723d3113ffc5e1e1069de961b8b5072a2f7"
+    sha256 cellar: :any_skip_relocation, monterey:       "70883eb56cf51f9bf8eca13d79b3a86e2621a197c3a5ebdaf20e8721d1d34eaa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24da7814d4e6496bb1edca5baf93e52150a163065ab4cf24c826846252e26208"
   end
 
   keg_only "it conflicts with rust"
