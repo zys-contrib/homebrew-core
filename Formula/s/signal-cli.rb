@@ -4,6 +4,7 @@ class SignalCli < Formula
   url "https://github.com/AsamK/signal-cli/archive/refs/tags/v0.13.4.tar.gz"
   sha256 "a09d355fa5ece4dd6d9d4847c0c1c255159f29304007d02a3aa733c7b02144a3"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5f7ef62c79f4cc9051ab2abecaff62232bfc32771dab48c61891034bbfc393c6"
@@ -24,7 +25,7 @@ class SignalCli < Formula
   # allows us to use a toolchain that lives in HOMEBREW_CACHE
   depends_on "rustup-init" => :build
 
-  depends_on "openjdk"
+  depends_on "openjdk@21"
 
   uses_from_macos "llvm" => :build # For `libclang`, used by `boring-sys` crate
   uses_from_macos "zip" => :build
@@ -39,11 +40,12 @@ class SignalCli < Formula
   end
 
   def install
+    ENV["JAVA_HOME"] = Language::Java.java_home("21")
     system "gradle", "build"
     system "gradle", "installDist"
     libexec.install (buildpath/"build/install/signal-cli").children
     (libexec/"bin/signal-cli.bat").unlink
-    (bin/"signal-cli").write_env_script libexec/"bin/signal-cli", Language::Java.overridable_java_home_env
+    (bin/"signal-cli").write_env_script libexec/"bin/signal-cli", Language::Java.overridable_java_home_env("21")
 
     # this will install the necessary cargo/rustup toolchain bits in HOMEBREW_CACHE
     system Formula["rustup-init"].bin/"rustup-init", "-qy", "--no-modify-path"
