@@ -6,13 +6,14 @@ class Step < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "196de0fa666b1433a319200a39728d7c72b5d247555c30fdf88a388e4a0c211c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2554c61fc386140b2503b7536f24faa9ed9cd340c39a112b497c7d048d012eed"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c517a628442b36bc7061e7adedde5aa31185a1c77d8857b632aa0eac53421248"
-    sha256 cellar: :any_skip_relocation, sonoma:         "239217afa4a04da41674b248aa874edcb30a60f8dd232ae5f98b4e2da937ed3f"
-    sha256 cellar: :any_skip_relocation, ventura:        "80a0b6ac76f7d16630f6dddb439c8647f8684e2329ce0e9fd9ef15655477babe"
-    sha256 cellar: :any_skip_relocation, monterey:       "453ad5e866cc5a2e51442b6e28313e02790df32c9cd0563079064906f86af50a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c25b8a843394d60103dd8f0cacd3b156e5afb18ff1b564c4fb379da89e7e3ad"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d2fd72f6b183b782bd882ee66a578f99d1b6480f95a29d607a83e7e19e7e393c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ee97ffc03562a870af07e5d224b4438e3bfdafb998ed2a18fa98e979650f029f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5ffe5ab6f5fec755c72d3d4e14219e99139120badcc029a537bc37cc46564560"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a8f2f752313d3f254cf14f9047233538d7c6f95fe79040d48e2d7b759314e87f"
+    sha256 cellar: :any_skip_relocation, ventura:        "1974734cb083fa69781c26dcc7f7fdfce995d0e9e3b67969cc26ec2240efb5f7"
+    sha256 cellar: :any_skip_relocation, monterey:       "29e53f592451b01f5f0c3124055e6f025e400578ed17fe63bedb3d189f363fdf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c4df09c2ae47446563147ca00df88fdad4eb62f6b1dd600513a5c83823486e5"
   end
 
   depends_on "go" => :build
@@ -27,8 +28,7 @@ class Step < Formula
     ENV["CGO_OVERRIDE"] = "CGO_ENABLED=1"
     system "make", "build"
     bin.install "bin/step" => "step"
-    bash_completion.install "autocomplete/bash_autocomplete" => "step"
-    zsh_completion.install "autocomplete/zsh_autocomplete" => "_step"
+    generate_completions_from_executable(bin/"step", "completion")
 
     resource("certificates").stage do |r|
       ENV["VERSION"] = r.version.to_s
