@@ -1455,6 +1455,7 @@ libsoundio
 libspelling
 libsql
 libstrophe
+libsvm
 libtensorflow
 libtiff
 libtommath
