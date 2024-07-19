@@ -6,7 +6,13 @@ class Antidote < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "70568d56d68f37189305205974dd216378cfb4fb752d60cda4c59db1b542f7b2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0800c00d9ecd35ecaa23c8e27453e71d30003b8ed005e5ff03b923205b67fd58"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0800c00d9ecd35ecaa23c8e27453e71d30003b8ed005e5ff03b923205b67fd58"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0800c00d9ecd35ecaa23c8e27453e71d30003b8ed005e5ff03b923205b67fd58"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0800c00d9ecd35ecaa23c8e27453e71d30003b8ed005e5ff03b923205b67fd58"
+    sha256 cellar: :any_skip_relocation, ventura:        "0800c00d9ecd35ecaa23c8e27453e71d30003b8ed005e5ff03b923205b67fd58"
+    sha256 cellar: :any_skip_relocation, monterey:       "0800c00d9ecd35ecaa23c8e27453e71d30003b8ed005e5ff03b923205b67fd58"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d01823dffb00d349adeb9411c77a17c6f72695c3919124486525ebca12aee908"
   end
 
   uses_from_macos "zsh"
