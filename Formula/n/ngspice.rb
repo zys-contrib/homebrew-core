@@ -1,8 +1,8 @@
 class Ngspice < Formula
   desc "Spice circuit simulator"
   homepage "https://ngspice.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/42/ngspice-42.tar.gz"
-  sha256 "737fe3846ab2333a250dfadf1ed6ebe1860af1d8a5ff5e7803c772cc4256e50a"
+  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/43/ngspice-43.tar.gz"
+  sha256 "14dd6a6f08531f2051c13ae63790a45708bd43f3e77886a6a84898c297b13699"
   license :cannot_represent
 
   livecheck do
@@ -29,18 +29,36 @@ class Ngspice < Formula
   end
 
   depends_on "fftw"
+  depends_on "freetype"
   depends_on "libngspice"
+  depends_on "libx11"
+  depends_on "libxaw"
+  depends_on "libxt"
   depends_on "readline"
 
   uses_from_macos "bison" => :build
+  uses_from_macos "ncurses"
+
+  on_macos do
+    depends_on "libice"
+    depends_on "libsm"
+    depends_on "libxext"
+    depends_on "libxmu"
+  end
 
   def install
     system "./autogen.sh" if build.head?
 
+    # Xft #includes <ft2build.h>, not <freetype2/ft2build.h>, hence freetype2
+    # must be put into the search path.
+    ENV.append "CFLAGS", "-I#{Formula["freetype"].opt_include}/freetype2"
+
     args = %w[
-      --with-readline=yes
+      --enable-cider
       --enable-xspice
-      --without-x
+      --disable-openmp
+      --enable-pss
+      --with-readline=yes
     ]
 
     system "./configure", *args, *std_configure_args
