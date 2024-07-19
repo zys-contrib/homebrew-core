@@ -13,18 +13,17 @@ class CypherShell < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5707effb6d5ad2233f912ed7220c37e07219cfdd5122ef85ebc350cb28beba52"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5707effb6d5ad2233f912ed7220c37e07219cfdd5122ef85ebc350cb28beba52"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5707effb6d5ad2233f912ed7220c37e07219cfdd5122ef85ebc350cb28beba52"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5707effb6d5ad2233f912ed7220c37e07219cfdd5122ef85ebc350cb28beba52"
-    sha256 cellar: :any_skip_relocation, ventura:        "5707effb6d5ad2233f912ed7220c37e07219cfdd5122ef85ebc350cb28beba52"
-    sha256 cellar: :any_skip_relocation, monterey:       "5707effb6d5ad2233f912ed7220c37e07219cfdd5122ef85ebc350cb28beba52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "82984c4e4e34e0c098f7cf57951f795cf8cbb9da2bf586ca95b9e97ab0711819"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2b15234e48cda90b4016156b29be6a1358771a97b21c38882d23b3baf1301030"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2b15234e48cda90b4016156b29be6a1358771a97b21c38882d23b3baf1301030"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2b15234e48cda90b4016156b29be6a1358771a97b21c38882d23b3baf1301030"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2b15234e48cda90b4016156b29be6a1358771a97b21c38882d23b3baf1301030"
+    sha256 cellar: :any_skip_relocation, ventura:        "4ea149e155a93b4cb5b4da0715bf8962565155cabdf66c008e7e43ee437b7256"
+    sha256 cellar: :any_skip_relocation, monterey:       "2b15234e48cda90b4016156b29be6a1358771a97b21c38882d23b3baf1301030"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03ea1f073944ac41767c4d2de93f0c3387312693b542d3efe628770012216929"
   end
 
   depends_on "openjdk@21"
-
-  conflicts_with "neo4j", because: "both install `cypher-shell` binaries"
 
   def install
     libexec.install Dir["*"]
