@@ -20,6 +20,8 @@ class GnuTypist < Formula
 
   depends_on "gettext"
 
+  uses_from_macos "ncurses"
+
   # patch based on upstream master to fix implicit declaration errors
   # we cannot use the commit directly since it doesn't apply cleanly on 2.9.5
   # https://git.savannah.gnu.org/cgit/gtypist.git/patch/?id=05639625b68131e648dfe2aec4dcc82ea6b95c6e
