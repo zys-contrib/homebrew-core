@@ -1,8 +1,8 @@
 class Simutrans < Formula
   desc "Transport simulator"
   homepage "https://www.simutrans.com/"
-  url "svn://servers.simutrans.org/simutrans/trunk/", revision: "11266"
-  version "124.1"
+  url "svn://servers.simutrans.org/simutrans/trunk/", revision: "11351"
+  version "124.2"
   license "Artistic-1.0"
   head "https://github.com/simutrans/simutrans.git", branch: "master"
 
@@ -40,8 +40,8 @@ class Simutrans < Formula
   fails_with gcc: "5"
 
   resource "pak64" do
-    url "https://downloads.sourceforge.net/project/simutrans/pak64/124-1/simupak64-124-1.zip"
-    sha256 "5a70e8ad28c3fa25474388dd2a197e76d769f3f78f8a33052b32ad83fe1a4efd"
+    url "https://downloads.sourceforge.net/project/simutrans/pak64/124-2/simupak64-124-2.zip"
+    sha256 "e690e4647a1a617032a3778a2457c8812cc4510afad0f5bf8524999468146d86"
   end
   resource "soundfont" do
     url "https://src.fedoraproject.org/repo/pkgs/PersonalCopy-Lite-soundfont/PCLite.sf2/629732b7552c12a8fae5b046d306273a/PCLite.sf2"
