@@ -1,8 +1,8 @@
 class Medusa < Formula
   desc "Solidity smart contract fuzzer powered by go-ethereum"
   homepage "https://github.com/crytic/medusa"
-  url "https://github.com/crytic/medusa/archive/refs/tags/v0.1.4.tar.gz"
-  sha256 "7b101077a378b41b89c94571ff12425c5d37decc961b089910a5e5c4b89787ad"
+  url "https://github.com/crytic/medusa/archive/refs/tags/v0.1.5.tar.gz"
+  sha256 "fd5b2f3a9dd4aad51397b892a695d644809f15194b200d0e4221d1a99f43f4f6"
   license "AGPL-3.0-only"
   head "https://github.com/crytic/medusa.git", branch: "master"
 
