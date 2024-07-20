@@ -3,8 +3,8 @@ class Schemathesis < Formula
 
   desc "Testing tool for web applications with specs"
   homepage "https://schemathesis.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/0b/9d/21d5d60935c88c30122b64564db577f225bcfeb63b19a2d6b0177d0c4ae9/schemathesis-3.32.0.tar.gz"
-  sha256 "12b83af38758c7893808fcdd8de1022a3aec05e486a440c6f242fadf4bee4efd"
+  url "https://files.pythonhosted.org/packages/62/17/467edf31229b953881a8f03a4db1832d0c951f7f7ce67e6caa9efe4d6640/schemathesis-3.33.0.tar.gz"
+  sha256 "5c0d907e9a72104701f42bbe4627a10ad5be94e67a11bef02a81a0a9be43f3fd"
   license "MIT"
 
   bottle do
@@ -80,8 +80,8 @@ class Schemathesis < Formula
   end
 
   resource "hypothesis" do
-    url "https://files.pythonhosted.org/packages/6d/e7/a56575e21e01022620ea52c8ce765c7990848daecbb5e8845b95470302a5/hypothesis-6.108.0.tar.gz"
-    sha256 "24183b2a4d05c15834f5a80fe51cf933cdc812c4f7dc036209c9902b81d4e8e5"
+    url "https://files.pythonhosted.org/packages/aa/a2/81707815a0b5a1be4432833f28f5d827d6257fc6e270ea383873992867ab/hypothesis-6.108.2.tar.gz"
+    sha256 "62cf1c16bd98548b6a84007c5fb8cf6d9cb358dad870adb4f236c795ef162fdd"
   end
 
   resource "hypothesis-graphql" do
@@ -145,8 +145,8 @@ class Schemathesis < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/a6/58/e993ca5357553c966b9e73cb3475d9c935fe9488746e13ebdf9b80fae508/pytest-8.2.2.tar.gz"
-    sha256 "de4bb8104e201939ccdc688b27a89a7be2079b22e2bd2b07f806b6ba71117977"
+    url "https://files.pythonhosted.org/packages/ae/ac/c8baa2d7d1402a580219aff3d8437bfd2f413df025ef00de036c10204409/pytest-8.3.0.tar.gz"
+    sha256 "0fe75465746a643f2485f642edf5eb7af7918135177230471150409343f84a6b"
   end
 
   resource "pytest-subtests" do
@@ -190,8 +190,8 @@ class Schemathesis < Formula
   end
 
   resource "starlette" do
-    url "https://files.pythonhosted.org/packages/61/b5/6bceb93ff20bd7ca36e6f7c540581abb18f53130fabb30ba526e26fd819b/starlette-0.37.2.tar.gz"
-    sha256 "9af890290133b79fc3db55474ade20f6220a364a0402e0b556e7cd5e1e093823"
+    url "https://files.pythonhosted.org/packages/13/1c/a0005d1b8e775823b4aa2c4b4ce1b540833c6364ed5de55b6a8754bdc17c/starlette-0.38.0.tar.gz"
+    sha256 "1ac2291e946a56bb5ca929dbb2332fc0dfd1e609c7e4d4f2056925cc0442874e"
   end
 
   resource "starlette-testclient" do
