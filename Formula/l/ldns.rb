@@ -1,10 +1,9 @@
 class Ldns < Formula
   desc "DNS library written in C"
   homepage "https://nlnetlabs.nl/projects/ldns/"
-  url "https://nlnetlabs.nl/downloads/ldns/ldns-1.8.3.tar.gz"
-  sha256 "c3f72dd1036b2907e3a56e6acf9dfb2e551256b3c1bbd9787942deeeb70e7860"
+  url "https://nlnetlabs.nl/downloads/ldns/ldns-1.8.4.tar.gz"
+  sha256 "838b907594baaff1cd767e95466a7745998ae64bc74be038dccc62e2de2e4247"
   license "BSD-3-Clause"
-  revision 1
 
   # https://nlnetlabs.nl/downloads/ldns/ since the first-party site has a
   # tendency to lead to an `execution expired` error.
@@ -31,20 +30,15 @@ class Ldns < Formula
 
   conflicts_with "drill", because: "both install a `drill` binary"
 
-  # build patch to work with swig 4.2.0, upstream pr ref, https://github.com/NLnetLabs/ldns/pull/231
-  patch do
-    url "https://github.com/NLnetLabs/ldns/commit/40a946995c0b8e4efebdc51dc88e320ce72b104f.patch?full_index=1"
-    sha256 "b0556d9e24784fd37ecf0d0e8ab51265e8c8e2e1847692453a4b9f6ad80bdd3b"
-  end
-
   def install
     python3 = "python3.12"
-    args = *std_configure_args + %W[
+    args = %W[
       --with-drill
       --with-examples
       --with-ssl=#{Formula["openssl@3"].opt_prefix}
       --with-pyldns
-      PYTHON_SITE_PKG=#{prefix/Language::Python.site_packages(python3)}
+      PYTHON_PLATFORM_SITE_PKG=#{prefix/Language::Python.site_packages(python3)}
+      top_builddir=#{buildpath}
       --disable-dane-verify
       --without-xcode-sdk
     ]
@@ -53,6 +47,10 @@ class Ldns < Formula
     inreplace "contrib/python/ldns.i", "#include \"ldns.h\"", "#include <ldns/ldns.h>"
 
     ENV["PYTHON"] = which(python3)
+
+    # Exclude unrecognized options
+    args += std_configure_args.reject { |s| s["--disable-debug"] || s["--disable-dependency-tracking"] }
+
     system "./configure", *args
 
     if OS.mac?
