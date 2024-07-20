@@ -794,6 +794,7 @@ fend
 fennel
 fern-api
 feroxbuster
+fetchmail
 ffmpeg
 ffmpeg@5
 ffms2
