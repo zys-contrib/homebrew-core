@@ -2467,6 +2467,7 @@ teku
 telegraf
 teller
 template-glib
+temporal
 tendermint
 tengo
 tenv
