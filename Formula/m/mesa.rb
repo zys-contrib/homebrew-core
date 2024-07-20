@@ -3,8 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-24.1.6.tar.xz"
-  sha256 "da94c0908d5662467369b69ed8236da1e1577141a6e7d25171a9bf56383b34e8"
+  url "https://mesa.freedesktop.org/archive/mesa-24.2.1.tar.xz"
+  sha256 "fc9a495f3a9af906838be89367564e10ef335e058f88965ad49ccc3e9a3b420b"
   license all_of: [
     "MIT",
     "Apache-2.0", # include/{EGL,GLES*,vk_video,vulkan}, src/egl/generate/egl.xml, src/mapi/glapi/registry/gl.xml
@@ -33,6 +33,7 @@ class Mesa < Formula
   end
 
   depends_on "bison" => :build # can't use from macOS, needs '> 2.3'
+  depends_on "libyaml" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
@@ -92,6 +93,11 @@ class Mesa < Formula
     sha256 "00c7c1aaa88358b9c765b6d3000c6eec0ba42abca5351b095321aef446081da3"
   end
 
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+  end
+
   def python3
     "python3.12"
   end
@@ -107,7 +113,7 @@ class Mesa < Formula
       -Dosmesa=true
     ]
     if OS.mac?
-      args << "-Dgallium-drivers=swrast"
+      args << "-Dgallium-drivers=softpipe"
     else
       args += %w[
         -Ddri3=enabled
@@ -137,7 +143,7 @@ class Mesa < Formula
         -Dvulkan-layers=device-select,intel-nullhw,overlay
       ]
       if Hardware::CPU.intel?
-        args << "-Dgallium-drivers=r300,r600,radeonsi,nouveau,virgl,svga,swrast,i915,iris,crocus,zink"
+        args << "-Dgallium-drivers=r300,r600,radeonsi,nouveau,virgl,svga,softpipe,llvmpipe,i915,iris,crocus,zink"
       end
       # Strip executables/libraries/object files to reduce their size
       args << "-Dstrip=true"
