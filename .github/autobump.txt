@@ -1599,6 +1599,7 @@ mdzk
 mediaconch
 mediamtx
 mednafen
+medusa
 meilisearch
 melange
 melody
