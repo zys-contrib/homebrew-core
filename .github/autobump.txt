@@ -1565,6 +1565,7 @@ man-db
 manifest-tool
 mantra
 mapcidr
+mapproxy
 mapserver
 mariadb
 mariadb@10.11
