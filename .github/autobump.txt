@@ -2758,6 +2758,7 @@ yo
 yorkie
 yosys
 you-get
+youplot
 youtubedr
 youtubeuploader
 yq
