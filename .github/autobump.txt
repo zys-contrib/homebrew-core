@@ -2479,6 +2479,7 @@ terraformer
 terragrunt
 terragrunt-atlantis-config
 terrahash
+terramaid
 terramate
 terrascan
 tesseract
