@@ -1,8 +1,8 @@
 class Zchunk < Formula
   desc "Compressed file format for efficient deltas"
   homepage "https://github.com/zchunk/zchunk"
-  url "https://github.com/zchunk/zchunk/archive/refs/tags/1.5.0.tar.gz"
-  sha256 "0a1568482357f0c5d08175177c282c1deb318a74b83120bb013909819676f23d"
+  url "https://github.com/zchunk/zchunk/archive/refs/tags/1.5.1.tar.gz"
+  sha256 "2c187055e2206e62cef4559845e7c2ec6ec5a07ce1e0a6044e4342e0c5d7771d"
   license "BSD-2-Clause"
   head "https://github.com/zchunk/zchunk.git", branch: "main"
 
