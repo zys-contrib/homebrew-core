@@ -2361,6 +2361,7 @@ sqlc
 sqlcipher
 sqlcmd
 sqlfluff
+sqlite-utils
 sqlmap
 sqlpage
 sqlparse
