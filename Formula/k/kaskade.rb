@@ -3,8 +3,8 @@ class Kaskade < Formula
 
   desc "TUI for Kafka"
   homepage "https://github.com/sauljabin/kaskade"
-  url "https://files.pythonhosted.org/packages/17/c7/ac969a1b7d0e1ce84fd8d2ebd3fca46ef0a4f77c733dcdbc0ff394290d4d/kaskade-2.2.0.tar.gz"
-  sha256 "eb00cc837c1825ca234c0be3e31ea339c305803534d541db825f04735c55a6bb"
+  url "https://files.pythonhosted.org/packages/60/b7/ae8ef2fe9df50ace6870124647ab4115604ee89e012551c4093685d5d240/kaskade-2.3.2.tar.gz"
+  sha256 "2d43877270a7a4f18b2ec0d081800eefa170cff026a3f6cc1e78dff3ca672ce2"
   license "MIT"
 
   bottle do
@@ -153,7 +153,7 @@ class Kaskade < Formula
 
   test do
     r, _w, pid = PTY.spawn("#{bin}/kaskade admin -b localhost:9092")
-    assert_match "all:     escape describe: enter", r.readline
+    assert_match "\e[?1049h\e[?1000h\e[?1003h\e[?1015h\e[?1006h\e[?25l", r.readline
 
     assert_match version.to_s, shell_output("#{bin}/kaskade --version")
   ensure
