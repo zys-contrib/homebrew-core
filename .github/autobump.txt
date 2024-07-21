@@ -1337,6 +1337,7 @@ lanraragi
 lastpass-cli
 laszip
 latex2html
+latexdiff
 latexindent
 latexml
 lazydocker
