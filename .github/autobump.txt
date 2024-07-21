@@ -1398,6 +1398,7 @@ libgsf
 libgusb
 libgweather
 libhandy
+libheif
 libical
 libidn2
 libimagequant
