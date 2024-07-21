@@ -1,10 +1,9 @@
 class Gping < Formula
   desc "Ping, but with a graph"
   homepage "https://github.com/orf/gping"
-  url "https://github.com/orf/gping/archive/refs/tags/gping-v1.16.1.tar.gz"
-  sha256 "557dad6e54b5dd23f88224ea7914776b7636672f237d9cbbea59972235ca89a8"
+  url "https://github.com/orf/gping/archive/refs/tags/gping-v1.17.3.tar.gz"
+  sha256 "bed3e1d46c2311ae15cad114700458a138e7d29fd45322cb9dd2c1108eb5a68e"
   license "MIT"
-  revision 1
   head "https://github.com/orf/gping.git", branch: "master"
 
   # The GitHub repository has a "latest" release but it can sometimes point to
@@ -28,7 +27,6 @@ class Gping < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "libgit2@1.7"
 
   on_linux do
     depends_on "iputils"
@@ -37,7 +35,6 @@ class Gping < Formula
   conflicts_with "inetutils", because: "both install `gping` binaries"
 
   def install
-    ENV["LIBGIT2_NO_VENDOR"] = "1"
     system "cargo", "install", *std_cargo_args(path: "gping")
   end
 
@@ -63,14 +60,5 @@ class Gping < Formula
     rescue Errno::EIO
       # GNU/Linux raises EIO when read is done on closed pty
     end
-
-    return unless OS.mac?
-
-    linkage_with_libgit2 = (bin/"gping").dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == (Formula["libgit2@1.7"].opt_lib/shared_library("libgit2")).realpath.to_s
-    end
-    assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."
   end
 end
