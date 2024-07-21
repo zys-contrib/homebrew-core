@@ -6,6 +6,16 @@ class Rustup < Formula
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/rust-lang/rustup.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "560483ea618feb0ab45e6ba6cd53e28dddf8cc3d0c409baaec3fbd8e2e69e3ee"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7dadf8e846a2601466f2b6975f2f73622c3c18f7c3e48e91b046ea40495c7a8d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dcde370fff27a1b49dc2945a372c7e6e42913b47c5f6c5de80a3bf28f2590146"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1d3ff694ccc56d65c43334301c3bc9a772923cd3e0adee3c09be656ff66ff167"
+    sha256 cellar: :any_skip_relocation, ventura:        "149c5498411875a4bbaee5c1bf93c3db3f4352cbcdf9c0ea4044648d62f306eb"
+    sha256 cellar: :any_skip_relocation, monterey:       "8039f9b672acbdaa7ff0bf985992fcd96c054a392b53e65c44cc2e10b919c36c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "380ff9d1495472783139dd5ab76cb416a01b99423f550e215b75a02592a07451"
+  end
+
   keg_only "it conflicts with rust"
 
   depends_on "rust" => :build
