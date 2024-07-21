@@ -1345,6 +1345,7 @@ lcov
 ld-find-code-refs
 ldc
 ldeep
+ldns
 leaf-proxy
 leakcanary-shark
 lean-cli
