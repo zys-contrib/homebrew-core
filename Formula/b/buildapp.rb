@@ -20,6 +20,7 @@ class Buildapp < Formula
   end
 
   depends_on "sbcl"
+  depends_on "zstd"
 
   def install
     bin.mkpath
@@ -27,10 +28,11 @@ class Buildapp < Formula
   end
 
   test do
+    # Fails in Linux CI with "Can't find sbcl.core"
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     code = "(defun f (a) (declare (ignore a)) (write-line \"Hello, homebrew\"))"
-    system "#{bin}/buildapp", "--eval", code,
-                              "--entry", "f",
-                              "--output", "t"
+    system bin/"buildapp", "--eval", code, "--entry", "f", "--output", "t"
     assert_equal `./t`, "Hello, homebrew\n"
   end
 end
