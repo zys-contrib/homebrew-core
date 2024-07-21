@@ -1,8 +1,8 @@
 class HelmLs < Formula
   desc "Language server for Helm"
   homepage "https://github.com/mrjosh/helm-ls"
-  url "https://github.com/mrjosh/helm-ls/archive/refs/tags/v0.0.18.tar.gz"
-  sha256 "c0bf6286857e2d530d46e83ac25000b3a4b0aeb58d2e5e7feae3695558e176e5"
+  url "https://github.com/mrjosh/helm-ls/archive/refs/tags/v0.0.19.tar.gz"
+  sha256 "cb8cf5dc748db1b6399c07f39b06181983e542d4d607f03f0f7c2cb2780bf9a5"
   license "MIT"
   head "https://github.com/mrjosh/helm-ls.git", branch: "master"
 
