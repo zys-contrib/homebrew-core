@@ -3,8 +3,8 @@ class PolicySentry < Formula
 
   desc "Generate locked-down AWS IAM Policies"
   homepage "https://policy-sentry.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/0b/76/52009505879c765ad57c68a9e2a53fc7bcee886b6ccba8f9f981b85a7c18/policy_sentry-0.12.15.tar.gz"
-  sha256 "93532cdc085d122b090cdd741852a646fd796c3607232a7cc5e8aa9ac5480198"
+  url "https://files.pythonhosted.org/packages/52/4f/02922c178ca4acbe21f5d1252209ccc05bb70d515ca406925ae7e34e164f/policy_sentry-0.13.1.tar.gz"
+  sha256 "6bb0133d897a45349aed78942459b4f583542051bb181e3a64464d13af8190b0"
   license "MIT"
   head "https://github.com/salesforce/policy_sentry.git", branch: "master"
 
@@ -18,6 +18,7 @@ class PolicySentry < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a0e7e3ac7efd1dc44a45431b67e148eaffb76458ec13262b6a7872444103a53"
   end
 
+  depends_on "rust" => :build # for orjson
   depends_on "certifi"
   depends_on "libyaml"
   depends_on "python@3.12"
@@ -40,6 +41,11 @@ class PolicySentry < Formula
   resource "idna" do
     url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
     sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
+  end
+
+  resource "orjson" do
+    url "https://files.pythonhosted.org/packages/70/24/8be1c9f6d21e3c510c441d6cbb6f3a75f2538b42a45f0c17ffb2182882f1/orjson-3.10.6.tar.gz"
+    sha256 "e54b63d0a7c6c54a5f5f726bc93a2078111ef060fec4ecbf34c5db800ca3b3a7"
   end
 
   resource "pyyaml" do
@@ -74,7 +80,9 @@ class PolicySentry < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/policy_sentry --version")
 
-    system bin/"policy_sentry", "initialize"
-    assert_predicate testpath/".policy_sentry/iam-definition.json", :exist?
+    test_file = testpath/"policy_sentry.yml"
+    output = shell_output("#{bin}/policy_sentry create-template -o #{test_file} -t actions")
+    assert_match "write-policy template file written to: #{test_file}", output
+    assert_match "mode: actions", test_file.read
   end
 end
