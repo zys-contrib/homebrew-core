@@ -13,14 +13,13 @@ class Ldns < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sonoma:   "5a0d64836a94921e9bcb63fb6e6477784f479571c51d221b1572a40de9e00498"
-    sha256 cellar: :any,                 arm64_ventura:  "ce8189cd452571aea8d3a5d2f15f715c707807471071600fe78246c10ef4cc41"
-    sha256 cellar: :any,                 arm64_monterey: "b7c0d00545d1f15b307f6c78ffba724989d7f799aad71d7f336437a7e8954d84"
-    sha256 cellar: :any,                 sonoma:         "e50234b63ec0068ecbbaa9a7f1976cbafd83a9ab0774b1889d3c5b5eeb653953"
-    sha256 cellar: :any,                 ventura:        "c733862096dc3e1baefde2eef0b40e18c59e0b381d6d98f5722148ccc3fc4436"
-    sha256 cellar: :any,                 monterey:       "c0f2ad78dc5131aa0c0fe7afd2630d00f295ee639749b8d0482d1621a6ec24b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ce187a921a1143e42be0f75b28c5690645a10e3d76c423899bd2755e7b5d1da"
+    sha256 cellar: :any,                 arm64_sonoma:   "7dfc3b636d9b41f1697678de47415fee711f497f9e837708027b8e401435e006"
+    sha256 cellar: :any,                 arm64_ventura:  "741fa5c80857655f1df62a4016591b17ec8d6cbff9aac4bdf28d4ffc6e0c8d93"
+    sha256 cellar: :any,                 arm64_monterey: "dc37a2cbf234ba5d639dd7bde6fba7768a8cd27dca2e7e253706fef90df732e4"
+    sha256 cellar: :any,                 sonoma:         "c14da9be67894ff294e802e10415237300b92f970afcd223113c9e066a27c155"
+    sha256 cellar: :any,                 ventura:        "e51669bed782dd848c7f66af9c13ce1b580b33b0dea3797fa42721bb28ca871d"
+    sha256 cellar: :any,                 monterey:       "6541a7aeae1dc75afe6a9a7e41e63a57b8eb13713e13c2f97b203f1d44d85a0a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "18e17dee3c78315e4b42f3aa15d8cb2b1f2efbc21b3fb444f373e3afa119ff84"
   end
 
   depends_on "python-setuptools" => :build
