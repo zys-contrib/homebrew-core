@@ -5,8 +5,8 @@ class DosboxStaging < Formula
   head "https://github.com/dosbox-staging/dosbox-staging.git", branch: "main"
 
   stable do
-    url "https://github.com/dosbox-staging/dosbox-staging/archive/refs/tags/v0.81.1.tar.gz"
-    sha256 "2b389fdc338454f916240aab5a2ae5560d1dd9808d63c70f34ec9a91e60b535a"
+    url "https://github.com/dosbox-staging/dosbox-staging/archive/refs/tags/v0.81.2.tar.gz"
+    sha256 "6676a3b6957c144a80ca8c3ffec2a0bec0320274382f23af9c57dd1c20b2eb1b"
 
     # Backport fix to bypass SDL wraps on macOS
     patch do
@@ -46,6 +46,7 @@ class DosboxStaging < Formula
   depends_on "sdl2_image"
   depends_on "sdl2_net"
   depends_on "speexdsp"
+
   uses_from_macos "zlib"
 
   on_linux do
