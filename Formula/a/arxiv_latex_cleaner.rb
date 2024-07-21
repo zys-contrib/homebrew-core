@@ -9,13 +9,13 @@ class ArxivLatexCleaner < Formula
   head "https://github.com/google-research/arxiv-latex-cleaner.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "199097f12165c2d0e99c45df44cf5b5120f5203ef894e8fe134709d90b615a86"
-    sha256 cellar: :any,                 arm64_ventura:  "cc362c9e3f269d5c5e2af6b005db01ebeb4ef68b5d6246a09968d123cabae109"
-    sha256 cellar: :any,                 arm64_monterey: "1490f77d4c16068ba49b323c7926e75c61762df6b2dc6166367a16d9c813c624"
-    sha256 cellar: :any,                 sonoma:         "9d9de5c14132d82225eea8fc4d5f47788e6d7435fcfc28e5dbce2a4b1bc1bdb6"
-    sha256 cellar: :any,                 ventura:        "c30ecde049903234c8f8c904fd0ea70090c04f2b6921dfdf294b961ece570c60"
-    sha256 cellar: :any,                 monterey:       "e5874bf8bfe74d6b01ff4e7a2f5d9e9da4d43f2126dd2876cf7731056e734422"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b743c497d9e22261d607535b2a80a852d8071805b2143429fe47e942e0d96699"
+    sha256 cellar: :any,                 arm64_sonoma:   "5a37569df6a66eef2a53b02bbb13a782ba83f4e894022645480204fc24992602"
+    sha256 cellar: :any,                 arm64_ventura:  "313087287b015b42b510f91bd9c6c7d19b8364c9bf41b8ef3aa9a8a047afce11"
+    sha256 cellar: :any,                 arm64_monterey: "68cc793418d3ab532bf37f3f6e40583818eb5116520ce2ec53640ae997dadc7c"
+    sha256 cellar: :any,                 sonoma:         "0213afa6a370cfb86fd1186795d2fb81ab550a5a5094575a50209d23707b41bc"
+    sha256 cellar: :any,                 ventura:        "d0d00917ffe829b1974b4520480cfaecf5670022590028fa90900c13feaee46c"
+    sha256 cellar: :any,                 monterey:       "7ae2853822bc7fbaa35854e0bcb77ed7269ba01ed4b3eb9c36755547eb788dd7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f84700ec1a08e5bcf4bd094f277893e89858b93ca394db5b580c188d562b6aa7"
   end
 
   depends_on "libyaml"
