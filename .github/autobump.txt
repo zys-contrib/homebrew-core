@@ -2660,6 +2660,7 @@ vrc-get
 vscode-langservers-extracted
 vsearch
 vsh
+vtclock
 vte3
 vtk
 vttest
