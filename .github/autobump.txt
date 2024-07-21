@@ -1464,6 +1464,7 @@ libtensorflow
 libtiff
 libtommath
 libtrace
+libtrng
 libucl
 libunibreak
 libuninameslist
