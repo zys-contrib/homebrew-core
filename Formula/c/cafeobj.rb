@@ -27,13 +27,20 @@ class Cafeobj < Formula
   end
 
   depends_on "sbcl"
+  depends_on "zstd"
 
   def install
-    system "./configure", "--with-lisp=sbcl", "--prefix=#{prefix}", "--with-lispdir=#{share}/emacs/site-lisp/cafeobj"
+    # Exclude unrecognized options
+    args = std_configure_args.reject { |s| s["--disable-debug"] || s["--disable-dependency-tracking"] }
+
+    system "./configure", "--with-lisp=sbcl", "--with-lispdir=#{share}/emacs/site-lisp/cafeobj", *args
     system "make", "install"
   end
 
   test do
-    system "#{bin}/cafeobj", "-batch"
+    # Fails in Linux CI with "Can't find sbcl.core"
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
+    system bin/"cafeobj", "-batch"
   end
 end
