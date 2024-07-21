@@ -24,13 +24,25 @@ class Pgloader < Formula
   end
 
   depends_on "buildapp" => :build
+
   depends_on "freetds"
   depends_on "libpq"
   depends_on "openssl@3"
   depends_on "sbcl"
+  depends_on "zstd"
 
   def install
     system "make"
     bin.install "bin/pgloader"
+  end
+
+  test do
+    # Fails in Linux CI with "Can't find sbcl.core"
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
+    output = shell_output("#{bin}/pgloader --summary 2>&1", 2)
+    assert_match "pgloader [ option ... ] SOURCE TARGET", output
+
+    assert_match version.to_s, shell_output("#{bin}/pgloader --version")
   end
 end
