@@ -18,7 +18,7 @@ class WasmPack < Formula
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
-  depends_on "rustup-init"
+  depends_on "rustup"
 
   def install
     system "cargo", "install", *std_cargo_args
@@ -27,7 +27,7 @@ class WasmPack < Formula
   test do
     assert_match "wasm-pack #{version}", shell_output("#{bin}/wasm-pack --version")
 
-    ENV.prepend_path "PATH", Formula["rustup-init"].bin
+    ENV.prepend_path "PATH", Formula["rustup"].bin
     system "rustup", "default", "stable"
     system "rustup", "set", "profile", "minimal"
 

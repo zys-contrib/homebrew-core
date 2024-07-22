@@ -142,6 +142,7 @@
   "root6": "root",
   "rt-audio": "rtaudio",
   "rtx": "mise",
+  "rustup-init": "rustup",
   "screenbrightness": "brightness",
   "sdl": "sdl12-compat",
   "selenium-server-standalone": "selenium-server",

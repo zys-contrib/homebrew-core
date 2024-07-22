@@ -21,7 +21,7 @@ class SignalCli < Formula
   depends_on "protobuf" => :build
   # libsignal-client requires a specific version of rustc
   # https://github.com/signalapp/libsignal/blob/#{libsignal-client.version}/rust-toolchain
-  depends_on "rustup-init" => :build
+  depends_on "rustup" => :build
 
   depends_on "openjdk@21"
 
