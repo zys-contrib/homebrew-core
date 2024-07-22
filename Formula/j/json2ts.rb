@@ -3,8 +3,8 @@ require "language/node"
 class Json2ts < Formula
   desc "Compile JSONSchema to TypeScript type declarations"
   homepage "https://github.com/bcherny/json-schema-to-typescript"
-  url "https://registry.npmjs.org/json-schema-to-typescript/-/json-schema-to-typescript-14.1.0.tgz"
-  sha256 "76e8e65b8a4d0d3965e08a069d53cce1cc301074a58c7e14f63b850c8388593b"
+  url "https://registry.npmjs.org/json-schema-to-typescript/-/json-schema-to-typescript-15.0.0.tgz"
+  sha256 "2788e695dcad9b99cee12d77cc9624ee807f30a9ee173131608b3195471313c1"
   license "MIT"
 
   bottle do
