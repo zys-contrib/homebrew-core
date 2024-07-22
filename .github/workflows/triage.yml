@@ -241,14 +241,18 @@ jobs:
                 mpich|\
                 node|\
                 nwchem|\
+                octave|\
+                opencascade|\
+                pcl|\
                 ponyc|\
                 pytorch|\
-                rust|\
-                swift|\
-                texlive|\
                 qt|\
                 root|\
+                rtabmap|\
+                rust|\
                 souffle|\
+                swift|\
+                texlive|\
                 v8|\
                 vtk\
                 )(@[0-9]+)?.rb"
