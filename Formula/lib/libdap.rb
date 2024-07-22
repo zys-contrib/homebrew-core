@@ -61,8 +61,8 @@ class Libdap < Formula
   end
 
   test do
-    # Versions like `1.2.3-4` simply appear appear as `1.2.3` in the output,
-    # so we have to remove the suffix from the formula version.
+    # Versions like `1.2.3-4` with a suffix appear as `1.2.3` in the output, so
+    # we have to remove the suffix (if any) from the formula version to match.
     assert_match version.to_s.sub(/-\d+$/, ""), shell_output("#{bin}/dap-config --version")
   end
 end
