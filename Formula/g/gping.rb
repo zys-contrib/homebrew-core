@@ -16,13 +16,13 @@ class Gping < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c620c9087b5cf4aa3848ca4fc068209164cfde8f0dd54284794118a3232622fd"
-    sha256 cellar: :any,                 arm64_ventura:  "d83c2735767e7ec8f483315df1e5865ea615c45d6cd8989db161f75cdb56d1b8"
-    sha256 cellar: :any,                 arm64_monterey: "131c1f7da640bbc4a2c7fdfd315b35f0c94238684d7f58cab8d742b4400063ed"
-    sha256 cellar: :any,                 sonoma:         "dbb3e46597fde402108c54ebda1887fa890bbec1395e5a81c944d38cc7cafda4"
-    sha256 cellar: :any,                 ventura:        "ccfb2382fb3d1c733421d9b7405c273d89ac1149de03ec09236dca977402c573"
-    sha256 cellar: :any,                 monterey:       "6741f1ec2ef9a930ea5ae07694f35aa38dc7412f15ef808fda1104b8bc5545cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ccf8e3a8152e86c8204a4eb65300e686f33e820cb463b011318e3831c77a5733"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e6eb418ec57e33d1bfcfda69a0738e5e164de6a1d197849dbde6da4c63756d91"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f959a7aa732520112d44a85bc11012239ceb3e275a8dcf46ecc19b464caf5e0a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3b48ca5b370e8eb0f569d4f21e6663da95d2a0de3ed734a3e8b1e3177d258590"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9aa68b0f94c94e6427408eb1f1f529ffcb834a03d89b6d903e252be94b53a886"
+    sha256 cellar: :any_skip_relocation, ventura:        "de2141acb5076142902729d31b6e61355cb881c31a4d5a66f2865436f70a3788"
+    sha256 cellar: :any_skip_relocation, monterey:       "fec4f74efb785001b2c963521c08112ad4f783aab0f1c2aeb9cfb00371577bf4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b4bb666c77ecb5e01cb365cef6e6064f75c136bebb4aa0a9786893dc9a9edc28"
   end
 
   depends_on "pkg-config" => :build
