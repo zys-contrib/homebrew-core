@@ -1,8 +1,8 @@
 class Libsql < Formula
   desc "Fork of SQLite that is both Open Source, and Open Contributions"
   homepage "https://turso.tech/libsql"
-  url "https://github.com/tursodatabase/libsql/releases/download/libsql-server-v0.24.17/source.tar.gz"
-  sha256 "499a24ee4b25f638f83a605a3395a1b895d5c7f1c017996e0a879a7e5c3000dd"
+  url "https://github.com/tursodatabase/libsql/releases/download/libsql-server-v0.24.18/source.tar.gz"
+  sha256 "f35775ffb30d39a4ed91ee4d813973cae00d3b960c100989aa4ff78204beff1e"
   license "MIT"
   head "https://github.com/tursodatabase/libsql.git", branch: "main"
 
