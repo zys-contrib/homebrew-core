@@ -21,10 +21,8 @@ class Rustfmt < Formula
   uses_from_macos "zlib"
 
   def install
-    system "rustup-init", "--profile", "minimal", "-qy", "--no-modify-path", "--default-toolchain", "none"
-    ENV.prepend_path "PATH", HOMEBREW_CACHE/"cargo_cache/bin"
-
     ENV["CFG_RELEASE_CHANNEL"] = "stable"
+    system "rustup", "set", "profile", "minimal"
     system "cargo", "install", *std_cargo_args
 
     # Bundle the shared libraries used by the executables.
@@ -56,10 +54,8 @@ class Rustfmt < Formula
   end
 
   test do
-    system "cargo", "new", "hello_world", "--bin"
-    cd "hello_world" do
-      system bin/"rustfmt", "--check", "./src/main.rs"
-    end
+    system Formula["rust"].bin/"cargo", "init", "--name=brew", "--bin"
+    system bin/"rustfmt", "--check", "./src/main.rs"
 
     # Make sure all the executables work after patching.
     bin.each_child { |exe| system exe, "--help" }
