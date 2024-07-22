@@ -1,9 +1,8 @@
 class Gitversion < Formula
   desc "Easy semantic versioning for projects using Git"
   homepage "https://gitversion.net"
-  # TODO: Switch `dotnet@6` to `dotnet` with v6 release
-  url "https://github.com/GitTools/GitVersion/archive/refs/tags/5.12.0.tar.gz"
-  sha256 "fe2ecbd2d63a4458f19eb9f0ee6853b5041e8b2f6d7c75b0fa606be2d1a81476"
+  url "https://github.com/GitTools/GitVersion/archive/refs/tags/6.0.0.tar.gz"
+  sha256 "b0de243cbf3a59a1415efce35aec8531caef17dd05562d18e9777f98a4a4b973"
   license "MIT"
 
   bottle do
@@ -16,10 +15,10 @@ class Gitversion < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "145cf97b7cf3542f18a5cb1bde69518a090672cdefef3c6681ce4f5415934c6e"
   end
 
-  depends_on "dotnet@6"
+  depends_on "dotnet"
 
   def install
-    dotnet = Formula["dotnet@6"]
+    dotnet = Formula["dotnet"]
     os = OS.mac? ? "osx" : OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
 
@@ -32,8 +31,9 @@ class Gitversion < Formula
       -p:PublishSingleFile=true
       -p:Version=#{version}
     ]
-    args << "-p:OsxArm64=true" if OS.mac? && Hardware::CPU.arm?
 
+    # GitVersion uses a global.json file to pin the latest SDK version, which may not be available
+    File.rename("global.json", "global.json.ignored")
     system "dotnet", "publish", "src/GitVersion.App/GitVersion.App.csproj", *args
     env = { DOTNET_ROOT: "${DOTNET_ROOT:-#{dotnet.opt_libexec}}" }
     (bin/"gitversion").write_env_script libexec/"gitversion", env
@@ -49,6 +49,6 @@ class Gitversion < Formula
     system "git", "config", "user.email", "test@example.com"
     system "git", "add", "test.txt"
     system "git", "commit", "-q", "--message='Test'"
-    assert_match '"FullSemVer": "0.1.0+0"', shell_output("#{bin}/gitversion -output json")
+    assert_match '"FullSemVer": "0.0.1-1"', shell_output("#{bin}/gitversion -output json")
   end
 end
