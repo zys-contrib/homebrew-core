@@ -119,7 +119,7 @@ class Agda < Formula
     end
 
     # Clean up references to Homebrew shims in the standard library
-    rm_rf "#{agdalib}/dist-newstyle/cache"
+    rm_r("#{agdalib}/dist-newstyle/cache")
 
     # generate the cubical library's documentation files
     cubicallib = agdalib/"cubical"
