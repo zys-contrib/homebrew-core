@@ -7,13 +7,13 @@ class Ox < Formula
   head "https://github.com/curlpipe/ox.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d6f58178c3f0121bf2a0491ad8fec13a73185052e8d23686613874e28d36552e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "593562012797f414832ae1982c80afc7664b8a1ec9c9cc919fabe5cff4d7704d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9981db992e4578159f0614df97f1496266e9d326e2edf287c8a6cbc4d4b0068c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "577f2ea0675a1a4b012f65083f3818ac368de3af1d828f18d5d89882c69ca8b3"
-    sha256 cellar: :any_skip_relocation, ventura:        "6dda5ea2e8d089fb81f40ef17133a4dc1e4fa6d7b8aac5603e9a65f1ef4051e8"
-    sha256 cellar: :any_skip_relocation, monterey:       "b4a3f55d4de94f44b9b576a31a3589c80130b12b3f0eb19b1f546d4bce13dbc0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6bd48a5cc191e48fc6ed3ff318cf1f24d724128a51ef4194bb4e8888ade70de6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8b1d1e79bdf0c30347225c9c5a9bfdf5cb8ba112ca9b70381a0cc46f62bdb595"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d2b7fbbc98b4fde2b803728a4b8186a4c9811d881acaa1880fd1952fa3b27dfa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3b47b8af796173e22857997780e587145d52c7e8f7ded4640585f058fa60f05b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a7b31f1bc613e21358bddef9f935d18bb24001c11c1bf9e7b8f990dc26770738"
+    sha256 cellar: :any_skip_relocation, ventura:        "04dbad947c201e1f228345134293fc6ad017cd4ed1d1d39b0502d46f3eba3104"
+    sha256 cellar: :any_skip_relocation, monterey:       "e85fe56ea917a57aa56e8adf4e0e8676aebbda28fe09f28374733b9b20759372"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "199c220ac410468c64b0f7f5cdad4e160cb0b1ca031f0db5735a833442991a6e"
   end
 
   depends_on "rust" => :build
