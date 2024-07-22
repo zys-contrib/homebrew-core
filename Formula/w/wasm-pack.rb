@@ -27,8 +27,9 @@ class WasmPack < Formula
   test do
     assert_match "wasm-pack #{version}", shell_output("#{bin}/wasm-pack --version")
 
-    system "#{Formula["rustup-init"].bin}/rustup-init", "-y", "--no-modify-path"
-    ENV.prepend_path "PATH", HOMEBREW_CACHE/"cargo_cache/bin"
+    ENV.prepend_path "PATH", Formula["rustup-init"].bin
+    system "rustup", "default", "stable"
+    system "rustup", "set", "profile", "minimal"
 
     system bin/"wasm-pack", "new", "hello-wasm"
     system bin/"wasm-pack", "build", "hello-wasm"
