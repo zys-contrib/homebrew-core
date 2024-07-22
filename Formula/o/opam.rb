@@ -1,10 +1,25 @@
 class Opam < Formula
   desc "OCaml package manager"
   homepage "https://opam.ocaml.org"
-  url "https://github.com/ocaml/opam/releases/download/2.2.0/opam-full-2.2.0-1.tar.gz"
-  sha256 "d8847873a83247b0e2b45914576a41819c8c3ec2b5f6edc86f13f429bbc6d8b4"
+  url "https://github.com/ocaml/opam/releases/download/2.2.0/opam-full-2.2.0-2.tar.gz"
+  sha256 "459ed64e6643f05c677563a000e3baa05c76ce528064e9cb9ce6db49fff37c97"
   license "LGPL-2.1-only"
   head "https://github.com/ocaml/opam.git", branch: "master"
+
+  # Upstream sometimes publishes tarballs with a version suffix (e.g. 2.2.0-2)
+  # to an existing tag (e.g. 2.2.0), so we match versions from release assets.
+  livecheck do
+    url :stable
+    regex(/^opam-full[._-]v?(\d+(?:[.-]\d+)+)\.t/i)
+    strategy :github_latest do |json, regex|
+      json["assets"]&.map do |asset|
+        match = asset["name"]&.match(regex)
+        next if match.blank?
+
+        match[1]
+      end
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1f8505fa0fbd68dad75ef1ec596083b75df6f7fa7043b15316809b847103c3e3"
