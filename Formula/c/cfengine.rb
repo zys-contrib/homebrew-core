@@ -1,8 +1,8 @@
 class Cfengine < Formula
   desc "Help manage and understand IT infrastructure"
   homepage "https://cfengine.com/"
-  url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-community-3.23.0.tar.gz"
-  sha256 "fcf4b6ddb325ffe99c949cdee8d0f5a40b5f5c9a482df1a4eba0b38892d354f9"
+  url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-community-3.24.0.tar.gz"
+  sha256 "5bda099d7db16dc33fee137ca8768dd9544e3c345e803289c3576bb8e2c99391"
   license all_of: ["BSD-3-Clause", "GPL-2.0-or-later", "GPL-3.0-only", "LGPL-2.0-or-later"]
 
   livecheck do
@@ -22,7 +22,7 @@ class Cfengine < Formula
 
   depends_on "lmdb"
   depends_on "openssl@3"
-  depends_on "pcre"
+  depends_on "pcre2"
 
   uses_from_macos "curl", since: :ventura # uses CURLOPT_PROTOCOLS_STR, available since curl 7.85.0
   uses_from_macos "libxml2"
@@ -32,26 +32,24 @@ class Cfengine < Formula
   end
 
   resource "masterfiles" do
-    url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-masterfiles-3.23.0.tar.gz"
-    sha256 "47a47afa141d980793b1b4f832095bc3e680bcec2a4534458c86cbf1649368e2"
+    url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-masterfiles-3.24.0.tar.gz"
+    sha256 "0611c3137cc3142d46b45055ea4473b1c115593d013ebe02121bd7304bc7ab79"
   end
 
   def install
     odie "masterfiles resource needs to be updated" if version != resource("masterfiles").version
 
     args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
       --with-workdir=#{var}/cfengine
       --with-lmdb=#{Formula["lmdb"].opt_prefix}
-      --with-pcre=#{Formula["pcre"].opt_prefix}
+      --with-pcre2=#{Formula["pcre2"].opt_prefix}
       --without-mysql
       --without-postgresql
     ]
 
     args << "--with-systemd-service=no" if OS.linux?
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
     (pkgshare/"CoreBase").install resource("masterfiles")
   end
