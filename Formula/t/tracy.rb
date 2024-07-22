@@ -1,8 +1,8 @@
 class Tracy < Formula
   desc "Real-time, nanosecond resolution frame profiler"
   homepage "https://github.com/wolfpld/tracy"
-  url "https://github.com/wolfpld/tracy/archive/refs/tags/v0.10.tar.gz"
-  sha256 "a76017d928f3f2727540fb950edd3b736caa97b12dbb4e5edce66542cbea6600"
+  url "https://github.com/wolfpld/tracy/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "b591ef2820c5575ccbf17e2e7a1dc1f6b9a2708f65bfd00f4ebefad2a1ccf830"
   license "BSD-3-Clause"
 
   bottle do
@@ -15,6 +15,7 @@ class Tracy < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bab7235ba26d16cecb2c91532d0b4e48d29ef9550a08c2288dd56cbd5948501f"
   end
 
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "capstone"
   depends_on "freetype"
@@ -24,24 +25,26 @@ class Tracy < Formula
   on_linux do
     depends_on "dbus"
     depends_on "libxkbcommon"
+    depends_on "mesa"
+    depends_on "wayland"
   end
 
   fails_with gcc: "5" # C++17
 
   def install
-    %w[capture csvexport import-chrome update].each do |f|
-      system "make", "-C", "#{f}/build/unix", "release"
-      bin.install "#{f}/build/unix/#{f}-release" => "tracy-#{f}"
+    %w[capture csvexport import-chrome update profiler].each do |f|
+      system "cmake", "-S", f, "-B", "#{f}/build", *std_cmake_args
+      system "cmake", "--build", "#{f}/build"
+      if f == "profiler"
+        bin.install "#{f}/build/tracy-#{f}" => "tracy"
+      else
+        bin.install "#{f}/build/tracy-#{f}" => "tracy-#{f}"
+      end
     end
 
-    system "make", "-C", "profiler/build/unix", "release"
-    bin.install "profiler/build/unix/Tracy-release" => "tracy"
-    system "make", "-C", "library/unix", "release"
-    lib.install "library/unix/libtracy-release.so" => "libtracy.so"
-
-    %w[client common tracy].each do |f|
-      (include/"Tracy/#{f}").install Dir["public/#{f}/*.{h,hpp}"]
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
