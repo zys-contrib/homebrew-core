@@ -3,8 +3,8 @@ class Ptpython < Formula
 
   desc "Advanced Python REPL"
   homepage "https://github.com/prompt-toolkit/ptpython"
-  url "https://files.pythonhosted.org/packages/38/64/82141647a2fb8b370fd2102eb6bd3de620bf79e3048a56e22594e1130951/ptpython-3.0.28.tar.gz"
-  sha256 "bc506f54dbaf447ca474c851cad371e49e2b760d8919c422740307fad22a5087"
+  url "https://files.pythonhosted.org/packages/56/61/352792c9f47de98a910526ff8a684466a6217e53ffa6627b3781960e4f0d/ptpython-3.0.29.tar.gz"
+  sha256 "b9d625183aef93a673fc32cbe1c1fcaf51412e7a4f19590521cdaccadf25186e"
   license "BSD-3-Clause"
   head "https://github.com/prompt-toolkit/ptpython.git", branch: "master"
 
