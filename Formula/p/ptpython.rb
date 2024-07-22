@@ -3,19 +3,19 @@ class Ptpython < Formula
 
   desc "Advanced Python REPL"
   homepage "https://github.com/prompt-toolkit/ptpython"
-  url "https://files.pythonhosted.org/packages/61/8c/cd6f18bbd33bc83c628124fbbf61ce348e64523ec62fdce28e1b9d8a9a1c/ptpython-3.0.27.tar.gz"
-  sha256 "24b0fda94b73d1c99a27e6fd0d08be6f2e7cda79a2db995c7e3c7b8b1254bad9"
+  url "https://files.pythonhosted.org/packages/38/64/82141647a2fb8b370fd2102eb6bd3de620bf79e3048a56e22594e1130951/ptpython-3.0.28.tar.gz"
+  sha256 "bc506f54dbaf447ca474c851cad371e49e2b760d8919c422740307fad22a5087"
   license "BSD-3-Clause"
   head "https://github.com/prompt-toolkit/ptpython.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a282e45c8e20f1feb5d66673234135475c0195c17e46ace33df8e52c43729d33"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a282e45c8e20f1feb5d66673234135475c0195c17e46ace33df8e52c43729d33"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a282e45c8e20f1feb5d66673234135475c0195c17e46ace33df8e52c43729d33"
-    sha256 cellar: :any_skip_relocation, sonoma:         "45c7ebca632778d04e1c4fd67937561ea3c3b301de2650de3e15228986aeefca"
-    sha256 cellar: :any_skip_relocation, ventura:        "45c7ebca632778d04e1c4fd67937561ea3c3b301de2650de3e15228986aeefca"
-    sha256 cellar: :any_skip_relocation, monterey:       "45c7ebca632778d04e1c4fd67937561ea3c3b301de2650de3e15228986aeefca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e56a3092044442fcfbba2284068a09f4690ac65f62a5a10c944c313ca3b192f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "40e2bf670545eea36b15e0da4fdc3bedd376a3ef4d80f1611139dbaca44e55d8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "40e2bf670545eea36b15e0da4fdc3bedd376a3ef4d80f1611139dbaca44e55d8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "40e2bf670545eea36b15e0da4fdc3bedd376a3ef4d80f1611139dbaca44e55d8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c8ae68df4ee81b63de3ba403135e6b9c4224497fc04e1ae11478fa20013c80e8"
+    sha256 cellar: :any_skip_relocation, ventura:        "c8ae68df4ee81b63de3ba403135e6b9c4224497fc04e1ae11478fa20013c80e8"
+    sha256 cellar: :any_skip_relocation, monterey:       "c8ae68df4ee81b63de3ba403135e6b9c4224497fc04e1ae11478fa20013c80e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e37676594f70258e87c2483892b077c923e231035cc855d703da5a652729fdaf"
   end
 
   depends_on "python@3.12"
@@ -36,8 +36,8 @@ class Ptpython < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/d5/88/869b717061b03b0025a3df923516cf999366954c0f0f8e13facd9dd166fa/prompt_toolkit-3.0.44.tar.gz"
-    sha256 "c1dfd082c4259964bc8bcce1f8460d9dbeb5d4a37bfc25b8082bc02cd41c8af6"
+    url "https://files.pythonhosted.org/packages/47/6d/0279b119dafc74c1220420028d490c4399b790fc1256998666e3a341879f/prompt_toolkit-3.0.47.tar.gz"
+    sha256 "1e1b29cb58080b1e69f207c893a1a7bf16d127a5c30c9d17a25a5d77792e5360"
   end
 
   resource "pygments" do
