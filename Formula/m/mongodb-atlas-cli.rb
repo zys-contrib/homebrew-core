@@ -21,7 +21,6 @@ class MongodbAtlasCli < Formula
 
   depends_on "go" => :build
   depends_on "mongosh"
-  depends_on "podman"
 
   conflicts_with "nim", because: "both install `atlas` executable"
 
