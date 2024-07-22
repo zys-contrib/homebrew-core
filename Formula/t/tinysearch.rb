@@ -29,8 +29,9 @@ class Tinysearch < Formula
   end
 
   test do
-    system "#{Formula["rustup-init"].bin}/rustup-init", "-y", "--no-modify-path"
-    ENV.prepend_path "PATH", HOMEBREW_CACHE/"cargo_cache/bin"
+    ENV.prepend_path "PATH", Formula["rustup-init"].bin
+    system "rustup", "default", "stable"
+    system "rustup", "set", "profile", "minimal"
 
     system bin/"tinysearch", pkgshare/"fixtures/index.json"
     assert_predicate testpath/"wasm_output/tinysearch_engine_bg.wasm", :exist?
