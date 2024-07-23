@@ -11,13 +11,13 @@ class Cfengine < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "28b96d1f0f2daf07422bc23ec9538b1c61f56847d49cbeb86cf36721cdc943db"
-    sha256 arm64_ventura:  "1570f76deae4f2d02ee25fe7226cfe0eeec7849b656d0217ac994f4938fd76c5"
-    sha256 arm64_monterey: "c7ff210a0fa52481fb287eb8d2c5e9ce3966f211a9b8ebd75d4bbe11eed5e37b"
-    sha256 sonoma:         "88cbe41b16a6fbb7dea06a0f866b87d67f8adf6a4b1bf06f33c360523065c32a"
-    sha256 ventura:        "d6be87f933d40caeff5132f15b50291a5883d693dc1454925d59be2f471b7e00"
-    sha256 monterey:       "24ba49dd05ecf2c8136dfd6f11ed77bc907841cff05181a2262def819cf97e32"
-    sha256 x86_64_linux:   "cf4f1070ffbc86d5273b80788370a82503788227a82a67c7822f3fec364eec36"
+    sha256 arm64_sonoma:   "18719079eb21bc965564edc3b4bd68cf3efab30ed315b03a5aae9fd85d1f466f"
+    sha256 arm64_ventura:  "119f1b3f3a22031fb2d4e3c642cc07b359f671b195759ddcdb6eb2eb40006c43"
+    sha256 arm64_monterey: "9aa1cd2fb9135ebc8ebd5c2f4b0c7ca3d759d4879ba209c08cdf3ce0137940ef"
+    sha256 sonoma:         "270fd431b6fad619d4d3184668ce7af7490710936ae42e6f52ea6b55fd6e70a1"
+    sha256 ventura:        "dfa881b76a8944a39d8f0b65740ff9a300c22106cdd586f69d25002d0fb40fc0"
+    sha256 monterey:       "c729c653b85d0470709964c2d400105182519556e885e90456000d705811c081"
+    sha256 x86_64_linux:   "191903064ba2fd218876311949c1f555f95f9e11874681021eccfbae1d8e94be"
   end
 
   depends_on "lmdb"
