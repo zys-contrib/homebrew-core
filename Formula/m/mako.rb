@@ -3,8 +3,8 @@ require "language/node"
 class Mako < Formula
   desc "Production-grade web bundler based on Rust"
   homepage "https://makojs.dev"
-  url "https://registry.npmjs.org/@umijs/mako/-/mako-0.7.6.tgz"
-  sha256 "cb857d92a77eedf14df9592c127ed60968a89dfda0140acd81d6ddf69fd8c2dd"
+  url "https://registry.npmjs.org/@umijs/mako/-/mako-0.7.7.tgz"
+  sha256 "53cbbbae4b956a7e26be2298363dfbe6ac12b1bc3371c73ae3b10de7c962a821"
   license "MIT"
 
   bottle do
