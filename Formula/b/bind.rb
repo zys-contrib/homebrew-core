@@ -8,8 +8,8 @@ class Bind < Formula
   # "version_scheme" because someone upgraded to 9.15.0, and required a
   # downgrade.
 
-  url "https://downloads.isc.org/isc/bind9/9.18.27/bind-9.18.27.tar.xz"
-  sha256 "ea3f3d8cfa2f6ae78c8722751d008f54bc17a3aed2be3f7399eb7bf5f4cda8f1"
+  url "https://downloads.isc.org/isc/bind9/9.20.0/bind-9.20.0.tar.xz"
+  sha256 "cc580998017b51f273964058e8cb3aa5482bc785243dea71e5556ec565a13347"
   license "MPL-2.0"
   version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git", branch: "main"
@@ -32,13 +32,21 @@ class Bind < Formula
   end
 
   depends_on "pkg-config" => :build
+
   depends_on "json-c"
   depends_on "libidn2"
   depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "openssl@3"
+  depends_on "readline"
+  depends_on "userspace-rcu"
 
   uses_from_macos "libxml2"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "libcap"
+  end
 
   def install
     args = [
@@ -50,7 +58,6 @@ class Bind < Formula
       "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
       "--without-lmdb",
     ]
-    args << "--disable-linux-caps" if OS.linux?
     system "./configure", *args
 
     system "make"
