@@ -1,8 +1,8 @@
 class Pdnsrec < Formula
   desc "Non-authoritative/recursing DNS server"
   homepage "https://www.powerdns.com/powerdns-recursor"
-  url "https://downloads.powerdns.com/releases/pdns-recursor-5.1.0.tar.bz2"
-  sha256 "25e1614022f77e81f0b359b0b72b9ae4761ab96681f01f30168f90fa2bbbe152"
+  url "https://downloads.powerdns.com/releases/pdns-recursor-5.1.1.tar.bz2"
+  sha256 "5b7ab793ace822294a3f38092fe72ee64748ff0cbb8a5283dc77f40780605ae9"
   license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
 
   livecheck do
