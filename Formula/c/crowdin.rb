@@ -11,13 +11,13 @@ class Crowdin < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1b19b41212f20f9c517123e7741ec126a5c45fa683ae0677c758283c77a0874d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1b19b41212f20f9c517123e7741ec126a5c45fa683ae0677c758283c77a0874d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1b19b41212f20f9c517123e7741ec126a5c45fa683ae0677c758283c77a0874d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1b19b41212f20f9c517123e7741ec126a5c45fa683ae0677c758283c77a0874d"
-    sha256 cellar: :any_skip_relocation, ventura:        "1b19b41212f20f9c517123e7741ec126a5c45fa683ae0677c758283c77a0874d"
-    sha256 cellar: :any_skip_relocation, monterey:       "1b19b41212f20f9c517123e7741ec126a5c45fa683ae0677c758283c77a0874d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "767084eb6bf6d0fe6e748df225bb2fa7e29ad890e8d86d75d8b716fdc0d14916"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ade82f03827f5d2f1db1a9cd44c7cbdf0244bc4c5d8b08b224c16ae5b57dccaa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ade82f03827f5d2f1db1a9cd44c7cbdf0244bc4c5d8b08b224c16ae5b57dccaa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ade82f03827f5d2f1db1a9cd44c7cbdf0244bc4c5d8b08b224c16ae5b57dccaa"
+    sha256 cellar: :any_skip_relocation, sonoma:         "83e56efb4d6fe564b4f66ae1abf33f2db9b193e13dcc5ab3335ee363db0a0e66"
+    sha256 cellar: :any_skip_relocation, ventura:        "ee200c74bc878770ec16d8defe2ba40c1538a9f387f6fd9cc94ef0b37c176525"
+    sha256 cellar: :any_skip_relocation, monterey:       "ade82f03827f5d2f1db1a9cd44c7cbdf0244bc4c5d8b08b224c16ae5b57dccaa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8de2fc505dad2e5a64661f32d717a5a565ba5cedeca5de4a89cc3fdf1a8517ef"
   end
 
   depends_on "openjdk"
