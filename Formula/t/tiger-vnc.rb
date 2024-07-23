@@ -1,8 +1,8 @@
 class TigerVnc < Formula
   desc "High-performance, platform-neutral implementation of VNC"
   homepage "https://tigervnc.org/"
-  url "https://github.com/TigerVNC/tigervnc/archive/refs/tags/v1.13.1.tar.gz"
-  sha256 "b7c5b8ed9e4e2c2f48c7b2c9f21927db345e542243b4be88e066b2daa3d1ae25"
+  url "https://github.com/TigerVNC/tigervnc/archive/refs/tags/v1.14.0.tar.gz"
+  sha256 "5700f9919802a2f0529cc058b8caded03281cdbf0335581f2dcc7df03f783419"
   license "GPL-2.0-or-later"
 
   # Tags with a 90+ patch are unstable (e.g., the 1.9.90 tag is used for the
@@ -27,9 +27,13 @@ class TigerVnc < Formula
   depends_on "cmake" => :build
   depends_on "fltk"
   depends_on "gettext"
+  depends_on "gmp"
   depends_on "gnutls"
   depends_on "jpeg-turbo"
+  depends_on "nettle"
   depends_on "pixman"
+
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "libx11"
