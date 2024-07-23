@@ -1,10 +1,9 @@
 class PgCron < Formula
   desc "Run periodic jobs in PostgreSQL"
   homepage "https://github.com/citusdata/pg_cron"
-  url "https://github.com/citusdata/pg_cron/archive/refs/tags/v1.6.2.tar.gz"
-  sha256 "9f4eb3193733c6fa93a6591406659aac54b82c24a5d91ffaf4ec243f717d94a0"
+  url "https://github.com/citusdata/pg_cron/archive/refs/tags/v1.6.3.tar.gz"
+  sha256 "ea2af24ab8c501037a15d5c74351ef53dbd0a0a3cd035c78f7108574030d61ee"
   license "PostgreSQL"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "ab537999d98dd7cb8183f1dd8ac5a2a1c0b6b144e917d0088c4df624bb49d019"

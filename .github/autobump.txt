@@ -1937,6 +1937,7 @@ percona-xtrabackup
 perl
 perltidy
 pfetch-rs
+pg_cron
 pg_partman
 pgbadger
 pgbouncer
