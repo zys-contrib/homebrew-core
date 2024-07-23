@@ -1,8 +1,8 @@
 class Vitess < Formula
   desc "Database clustering system for horizontal scaling of MySQL"
   homepage "https://vitess.io"
-  url "https://github.com/vitessio/vitess/archive/refs/tags/v20.0.0.tar.gz"
-  sha256 "b59a5fb4a865c195e21f9d1f56306e6fb32b02dd9aa71752e9c690bc8dd37ab6"
+  url "https://github.com/vitessio/vitess/archive/refs/tags/v20.0.1.tar.gz"
+  sha256 "186028b1cf9e2087330b9cbe7d57c772c5b040156cb23b2056871a5bcd249232"
   license "Apache-2.0"
 
   bottle do
@@ -71,7 +71,7 @@ class Vitess < Formula
                          "--cells_to_watch", cell,
                          "--port", port.to_s
     end
-    sleep 5
+    sleep 8
 
     output = shell_output("curl -s localhost:#{port}/debug/health")
     assert_equal "ok", output
