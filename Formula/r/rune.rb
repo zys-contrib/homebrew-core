@@ -1,8 +1,8 @@
 class Rune < Formula
   desc "Embeddable dynamic programming language for Rust"
   homepage "https://rune-rs.github.io"
-  url "https://github.com/rune-rs/rune/archive/refs/tags/0.13.3.tar.gz"
-  sha256 "09da8e340d492ce70a6e191b27df5f39cf7a78d746a49919009292d96e35edb2"
+  url "https://github.com/rune-rs/rune/archive/refs/tags/0.13.4.tar.gz"
+  sha256 "f6a1e89e4824d98319ec46722c05f1e62434543875ff3667732c161a0807ae20"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/rune-rs/rune.git", branch: "main"
 
