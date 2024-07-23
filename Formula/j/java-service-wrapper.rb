@@ -1,8 +1,8 @@
 class JavaServiceWrapper < Formula
   desc "Simplify the deployment, launch and monitoring of Java applications"
   homepage "https://wrapper.tanukisoftware.com/"
-  url "https://downloads.sourceforge.net/project/wrapper/wrapper_src/Wrapper_3.5.58_20240625/wrapper_3.5.58_src.tar.gz"
-  sha256 "9b07cb0997e302d28d7e9f4273c8642c038aa3a55f283de5f880e25c33f62d5f"
+  url "https://downloads.sourceforge.net/project/wrapper/wrapper_src/Wrapper_3.5.59_20240723/wrapper_3.5.59_src.tar.gz"
+  sha256 "3b47e7facdd1208ae2570eac301da748a006b551744f3e8db3825bf4ea5c6e06"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
 
   bottle do
@@ -17,15 +17,19 @@ class JavaServiceWrapper < Formula
 
   depends_on "ant" => :build
   depends_on "openjdk@11" => :build
+
   on_linux do
     depends_on "cunit" => :build
   end
 
   def install
     ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
+
     # Default javac target version is 1.4, use 1.6 which is the minimum available on openjdk@11
     system "ant", "-Dbits=64", "-Djavac.target.version=1.6"
+
     libexec.install "lib", "bin", "src/bin" => "scripts"
+
     if OS.mac?
       if Hardware::CPU.arm?
         ln_s "libwrapper.dylib", libexec/"lib/libwrapper.jnilib"
@@ -37,6 +41,7 @@ class JavaServiceWrapper < Formula
 
   test do
     ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
+
     output = shell_output("#{libexec}/bin/testwrapper status", 1)
     assert_match("Test Wrapper Sample Application", output)
   end
