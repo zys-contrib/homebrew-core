@@ -24,6 +24,9 @@ class Qsv < Formula
 
   def install
     system "cargo", "install", *std_cargo_args, "--features", "apply,luau,feature_capable"
+    bash_completion.install "contrib/completions/examples/qsv.bash" => "qsv"
+    fish_completion.install "contrib/completions/examples/qsv.fish"
+    zsh_completion.install "contrib/completions/examples/qsv.zsh" => "_qsv"
   end
 
   test do
