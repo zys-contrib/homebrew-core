@@ -2543,6 +2543,7 @@ tor
 tox
 toxiproxy
 tproxy
+tracy
 trader
 traefik
 traefik@2
