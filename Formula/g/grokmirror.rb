@@ -3,10 +3,9 @@ class Grokmirror < Formula
 
   desc "Framework to smartly mirror git repositories"
   homepage "https://github.com/mricon/grokmirror"
-  url "https://files.pythonhosted.org/packages/b0/ef/ffad6177d84dafb7403ccaca2fef735745d5d43200167896a2068422ae89/grokmirror-2.0.11.tar.gz"
-  sha256 "6bc1310dc9a0e97836201e6bb14ecbbee332b0f812b9ff345a8386cb267c908c"
+  url "https://files.pythonhosted.org/packages/26/91/af8831185ef4e5bef5d210039ab67abdc8c27a09a585d3963a10cf774789/grokmirror-2.0.12.tar.gz"
+  sha256 "5264b6b2030bcb48ff5610173dacaba227b77b6ed39b17fc473bed91d4eb218b"
   license "GPL-3.0-or-later"
-  revision 7
   head "https://github.com/mricon/grokmirror.git", branch: "master"
 
   bottle do
