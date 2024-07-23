@@ -1,10 +1,9 @@
 class Colmap < Formula
   desc "Structure-from-Motion and Multi-View Stereo"
   homepage "https://colmap.github.io/"
-  url "https://github.com/colmap/colmap/archive/refs/tags/3.9.1.tar.gz"
-  sha256 "f947ad80802baa8f00f30f26d316d8c608ab2626465eac1c81cf325d57879862"
+  url "https://github.com/colmap/colmap/archive/refs/tags/3.10.tar.gz"
+  sha256 "61850f323e201ab6a1abbfb0e4a8b3ba1c4cedbf55e0a5716bdea1df8ae1813a"
   license "BSD-3-Clause"
-  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "9d00fc57d1f732a4fefb741ab48e221f480e2cb16deeb9ca8f513b6a21ae6e73"
@@ -26,12 +25,23 @@ class Colmap < Formula
   depends_on "gflags"
   depends_on "glew"
   depends_on "glog"
+  depends_on "gmp"
   depends_on "lz4"
   depends_on "metis"
   depends_on "qt@5"
   depends_on "suite-sparse"
 
   uses_from_macos "sqlite"
+
+  on_macos do
+    depends_on "libomp"
+    depends_on "mpfr"
+    depends_on "sqlite"
+  end
+
+  on_linux do
+    depends_on "mesa"
+  end
 
   # Remove this patch after https://github.com/colmap/colmap/pull/2338 is included in
   # a future release
@@ -50,6 +60,7 @@ class Colmap < Formula
     assert_path_exists (testpath / "db")
   end
 end
+
 __END__
 diff --git a/src/colmap/image/line.cc b/src/colmap/image/line.cc
 index 3637c3dc..33fff7da 100644
