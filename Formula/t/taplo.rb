@@ -1,8 +1,8 @@
 class Taplo < Formula
   desc "TOML toolkit written in Rust"
   homepage "https://taplo.tamasfe.dev"
-  url "https://github.com/tamasfe/taplo/archive/refs/tags/release-taplo-cli-0.9.0.tar.gz"
-  sha256 "7d292f52c2d97d9e9c447a725d6d4e59096fce10e2f72ec6b80387034c20ba35"
+  url "https://github.com/tamasfe/taplo/archive/refs/tags/0.9.2.tar.gz"
+  sha256 "0debff1ceede3ca57b0eed98b2dbfd3b2f32abb74a3e5942acb1357c2f249314"
   license "MIT"
   head "https://github.com/tamasfe/taplo.git", branch: "master"
 
@@ -13,7 +13,7 @@ class Taplo < Formula
   # to identify the correct version.
   livecheck do
     url :stable
-    regex(/^release-taplo-cli[._-]v?(\d+(?:\.\d+)+)$/i)
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
     strategy :github_releases
   end
 
