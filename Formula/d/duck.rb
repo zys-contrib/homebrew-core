@@ -1,8 +1,8 @@
 class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
-  url "https://dist.duck.sh/duck-src-9.0.0.41777.tar.gz"
-  sha256 "4c92be3cc3cce94788f971476b6d57cefd27ac6361706ebb2d1c9c0dfb4fa584"
+  url "https://dist.duck.sh/duck-src-9.0.1.41941.tar.gz"
+  sha256 "265c6bfef4a500336417c6d674f224f64f1cd53ef91b308be88c15367f233cca"
   license "GPL-3.0-only"
   head "https://github.com/iterate-ch/cyberduck.git", branch: "master"
 
@@ -33,11 +33,16 @@ class Duck < Formula
   on_linux do
     depends_on "alsa-lib"
     depends_on "freetype"
+    depends_on "giflib"
+    depends_on "harfbuzz"
+    depends_on "jpeg-turbo"
+    depends_on "libpng"
     depends_on "libx11"
     depends_on "libxext"
     depends_on "libxi"
     depends_on "libxrender"
     depends_on "libxtst"
+    depends_on "little-cms2"
   end
 
   conflicts_with "duckscript", because: "both install `duck` binaries"
