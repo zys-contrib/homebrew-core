@@ -25,10 +25,13 @@ class GnuSed < Formula
       --disable-dependency-tracking
     ]
 
-    args << if OS.mac?
-      "--program-prefix=g"
+    args += if OS.mac?
+      %w[--program-prefix=g]
     else
-      "--without-selinux"
+      %w[
+        --disable-acl
+        --without-selinux
+      ]
     end
     system "./configure", *args
     system "make", "install"
