@@ -1,8 +1,8 @@
 class SwiProlog < Formula
   desc "ISO/Edinburgh-style Prolog interpreter"
   homepage "https://www.swi-prolog.org/"
-  url "https://www.swi-prolog.org/download/stable/src/swipl-9.2.5.tar.gz"
-  sha256 "b9f40771906c7e04be80ae4cfaa4463aeb44c52010a478edd8c7a4c022fe8781"
+  url "https://www.swi-prolog.org/download/stable/src/swipl-9.2.6.tar.gz"
+  sha256 "0cb9b80b9922be8165cbac384ebe050d94553e72cf7aebfc980b4395ff01d05d"
   license "BSD-2-Clause"
   head "https://github.com/SWI-Prolog/swipl-devel.git", branch: "master"
 
@@ -22,6 +22,7 @@ class SwiProlog < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "berkeley-db@5" # keep berkeley-db < 6 to avoid AGPL incompatibility
   depends_on "gmp"
@@ -37,18 +38,12 @@ class SwiProlog < Formula
   uses_from_macos "zlib"
 
   def install
-    # Remove shim paths from binary files `swipl-ld` and `libswipl.so.*`
-    if OS.linux?
-      inreplace "cmake/Params.cmake" do |s|
-        s.gsub! "${CMAKE_C_COMPILER}", "\"gcc\""
-        s.gsub! "${CMAKE_CXX_COMPILER}", "\"g++\""
-      end
-    end
-
     args = %W[
       -DSWIPL_PACKAGES_JAVA=OFF
       -DSWIPL_PACKAGES_X=OFF
       -DCMAKE_INSTALL_RPATH=#{loader_path}
+      -DSWIPL_CC=#{ENV.cc}
+      -DSWIPL_CXX=#{ENV.cxx}
     ]
     if OS.mac?
       macosx_dependencies_from = case HOMEBREW_PREFIX.to_s
