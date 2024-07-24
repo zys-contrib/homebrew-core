@@ -941,6 +941,7 @@ git-machete
 git-quick-stats
 git-review
 git-split-diffs
+git-subrepo
 git-sync
 git-town
 git-xargs
