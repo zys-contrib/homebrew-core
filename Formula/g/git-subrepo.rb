@@ -1,8 +1,8 @@
 class GitSubrepo < Formula
   desc "Git Submodule Alternative"
   homepage "https://github.com/ingydotnet/git-subrepo"
-  url "https://github.com/ingydotnet/git-subrepo/archive/refs/tags/0.4.6.tar.gz"
-  sha256 "6dcfce781007e7a755444c59e3622eb436e5671c197b8031eaf69fdbaea2b189"
+  url "https://github.com/ingydotnet/git-subrepo/archive/refs/tags/0.4.8.tar.gz"
+  sha256 "2e1ce45441d3055af192584f59e200e1cdcbfacefb157aeb1cd8908e72cc171e"
   license "MIT"
   head "https://github.com/ingydotnet/git-subrepo.git", branch: "master"
 
@@ -25,7 +25,13 @@ class GitSubrepo < Formula
 
   depends_on "bash"
 
+  on_macos do
+    depends_on "gnu-sed" => :build
+  end
+
   def install
+    ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin" if OS.mac?
+
     libexec.mkpath
     system "make", "PREFIX=#{prefix}", "INSTALL_LIB=#{libexec}", "install"
     bin.install_symlink libexec/"git-subrepo"
