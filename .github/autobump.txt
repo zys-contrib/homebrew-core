@@ -1836,6 +1836,7 @@ open-image-denoise
 open-mesh
 open-mpi
 open62541
+openbao
 opencl-clhpp-headers
 opencl-headers
 opencl-icd-loader
