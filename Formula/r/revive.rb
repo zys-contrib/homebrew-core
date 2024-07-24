@@ -2,8 +2,8 @@ class Revive < Formula
   desc "Fast, configurable, extensible, flexible, and beautiful linter for Go"
   homepage "https://revive.run"
   url "https://github.com/mgechev/revive.git",
-      tag:      "v1.3.7",
-      revision: "5c5d6c1075a82337d9840e7f8195c0eaccdb959c"
+      tag:      "v1.3.9",
+      revision: "9ec5e553e9be5cbf9efd3950d789dbd767137ea0"
   license "MIT"
   head "https://github.com/mgechev/revive.git", branch: "master"
 
@@ -17,7 +17,7 @@ class Revive < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a0eaf687ce44344266c7681757cba8b28ffe70bdb91ab9f434fde4158b5476c"
   end
 
-  depends_on "go" => :build
+  depends_on "go" => [:build, :test]
 
   def install
     ldflags = %W[
@@ -40,6 +40,8 @@ class Revive < Formula
         fmt.Println(my_string)
       }
     EOS
+
+    system "go", "mod", "init", "brewtest"
     output = shell_output("#{bin}/revive main.go")
     assert_match "don't use underscores in Go names", output
   end
