@@ -22,8 +22,7 @@ class Votca < Formula
   depends_on "fftw"
   depends_on "gcc" # for OpenMP
   # add gromacs dep back once it was built with clang
-  # Use hdf5@1.10: Unable to determine HDF5 CXX flags from HDF5 wrapper.
-  depends_on "hdf5@1.10"
+  depends_on "hdf5"
   depends_on "libecpint"
   depends_on "libint"
   depends_on "libxc"
