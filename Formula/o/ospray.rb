@@ -1,10 +1,9 @@
 class Ospray < Formula
   desc "Ray-tracing-based rendering engine for high-fidelity visualization"
   homepage "https://www.ospray.org/"
-  url "https://github.com/ospray/ospray/archive/refs/tags/v3.1.0.tar.gz"
-  sha256 "0b9d7df900fe0474b12e5a2641bb9c3f5a1561217b2789834ebf994a15288a82"
+  url "https://github.com/ospray/ospray/archive/refs/tags/v3.2.0.tar.gz"
+  sha256 "2c8108df2950bc5d1bc2a62f74629233dbe4f36e3f6a8ea032907d4a3fdc6750"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/ospray/ospray.git", branch: "master"
 
   livecheck do
@@ -28,8 +27,8 @@ class Ospray < Formula
   depends_on "tbb"
 
   resource "rkcommon" do
-    url "https://github.com/ospray/rkcommon/archive/refs/tags/v1.13.0.tar.gz"
-    sha256 "8ae9f911420085ceeca36e1f16d1316a77befbf6bf6de2a186d65440ac66ff1f"
+    url "https://github.com/ospray/rkcommon/archive/refs/tags/v1.14.0.tar.gz"
+    sha256 "5aef75afc8d4fccf9e70df4cbdf29a1b28b39ee51b5588b94b83a14c6a166d83"
   end
 
   resource "openvkl" do
