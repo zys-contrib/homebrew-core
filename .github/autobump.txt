@@ -442,6 +442,7 @@ codespell
 cog
 coinutils
 colima
+colmap
 commitizen
 commitlint
 composer
