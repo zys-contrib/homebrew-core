@@ -3,8 +3,8 @@ class Mapproxy < Formula
 
   desc "Accelerating web map proxy"
   homepage "https://mapproxy.org/"
-  url "https://files.pythonhosted.org/packages/a7/24/2c6e761c2552a92e2b68484fe528ed75d6a8a8ce432e8598325ebbcad27d/MapProxy-2.1.1.tar.gz"
-  sha256 "8e1c391d2fc4c064ac8293962f44b5d639c600e1d26905b140099a2ff5127da3"
+  url "https://files.pythonhosted.org/packages/c8/c5/dd0f9e5bc140f6078bd7a9f62e90f2ac8b7d23e557d939283f2380e19e1a/MapProxy-2.2.0.tar.gz"
+  sha256 "d851207dda3c8bf479954d06e75e3325c68845ef32eb4566d231ce0446a81302"
   license "Apache-2.0"
 
   bottle do
@@ -34,11 +34,6 @@ class Mapproxy < Formula
     sha256 "bd2968309307861edae1458a4f8a4f3598c03be43b97521076aebf5d94c07b05"
   end
 
-  resource "importlib-resources" do
-    url "https://files.pythonhosted.org/packages/c8/9d/6ee73859d6be81c6ea7ebac89655e92740296419bd37e5c8abdb5b62fd55/importlib_resources-6.4.0.tar.gz"
-    sha256 "cdb2b453b8046ca4e3798eb1d84f3cce1446a0e8e7b5ef4efb600f19fc398145"
-  end
-
   resource "jsonschema" do
     url "https://files.pythonhosted.org/packages/38/2e/03362ee4034a4c917f697890ccd4aec0800ccf9ded7f511971c75451deec/jsonschema-4.23.0.tar.gz"
     sha256 "d71497fef26351a33265337fa77ffeb82423f3ea21283cd9467bb03999266bc4"
@@ -65,8 +60,8 @@ class Mapproxy < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/36/a2/83c3e2024cefb9a83d832e8835f9db0737a7a2b04ddfdd241c650b703db0/rpds_py-0.19.0.tar.gz"
-    sha256 "4fdc9afadbeb393b4bbbad75481e0ea78e4469f2e1d713a90811700830b553a9"
+    url "https://files.pythonhosted.org/packages/2f/fe/5217efe981c2ae8647b503ba3b8f55efc837df62f63667572b4bb75b30bc/rpds_py-0.19.1.tar.gz"
+    sha256 "31dd5794837f00b46f4096aa8ccaa5972f73a938982e32ed817bb520c465e520"
   end
 
   resource "werkzeug" do
