@@ -1,8 +1,8 @@
 class Lefthook < Formula
   desc "Fast and powerful Git hooks manager for any type of projects"
   homepage "https://github.com/evilmartians/lefthook"
-  url "https://github.com/evilmartians/lefthook/archive/refs/tags/v1.7.5.tar.gz"
-  sha256 "f4c900f5ae33567a8928ca3bde2106da4254ad8f7a973a4fd785ecf4b7bab58d"
+  url "https://github.com/evilmartians/lefthook/archive/refs/tags/v1.7.6.tar.gz"
+  sha256 "6cb7b0a4967f3de03d6da1ab8af2efc8bec56b7e843f3c5bf1ef7a10cbba40dd"
   license "MIT"
   head "https://github.com/evilmartians/lefthook.git", branch: "master"
 
@@ -19,7 +19,7 @@ class Lefthook < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", "-tags", "no_self_update", *std_go_args(ldflags: "-s -w")
 
     generate_completions_from_executable(bin/"lefthook", "completion")
   end
