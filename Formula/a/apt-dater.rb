@@ -40,7 +40,7 @@ class AptDater < Formula
     system "make", "install"
     # Global config overrides local config, so delete global config to prioritize the
     # config in $HOME/.config/apt-dater
-    (prefix/"etc").rmtree
+    rm_r(prefix/"etc")
   end
 
   test do
