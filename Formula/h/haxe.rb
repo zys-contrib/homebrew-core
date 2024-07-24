@@ -1,11 +1,21 @@
 class Haxe < Formula
   desc "Multi-platform programming language"
   homepage "https://haxe.org/"
-  url "https://github.com/HaxeFoundation/haxe.git",
-      tag:      "4.3.5",
-      revision: "bd79571b89d719a45db7860d239da2164147dd15"
   license all_of: ["GPL-2.0-or-later", "MIT"]
+  revision 1
   head "https://github.com/HaxeFoundation/haxe.git", branch: "development"
+
+  stable do
+    url "https://github.com/HaxeFoundation/haxe.git",
+        tag:      "4.3.5",
+        revision: "bd79571b89d719a45db7860d239da2164147dd15"
+
+    # Backport support for mbedtls 3.x
+    patch do
+      url "https://github.com/HaxeFoundation/haxe/commit/c3258892c3c829ddd9faddcc0167108e62c84390.patch?full_index=1"
+      sha256 "d92fa85053ed4303f147e784e528380f6a0f6f08d35b5d93fbdfbf072ca7ed3e"
+    end
+  end
 
   livecheck do
     url :stable
@@ -26,15 +36,15 @@ class Haxe < Formula
   depends_on "ocaml" => :build
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
-  depends_on "mbedtls@2"
+  depends_on "mbedtls"
   depends_on "neko"
   depends_on "pcre2"
+  depends_on "zlib" # due to `mysql-client`
 
   uses_from_macos "m4" => :build
   uses_from_macos "perl" => :build
   uses_from_macos "rsync" => :build
   uses_from_macos "unzip" => :build
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "node" => :test
