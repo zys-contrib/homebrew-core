@@ -1,8 +1,8 @@
 class Nushell < Formula
   desc "Modern shell for the GitHub era"
   homepage "https://www.nushell.sh"
-  url "https://github.com/nushell/nushell/archive/refs/tags/0.95.0.tar.gz"
-  sha256 "f41a0f41af3996581f9bd485cfe5d55f26dd486dc3812b386bd43439c72a6d16"
+  url "https://github.com/nushell/nushell/archive/refs/tags/0.96.0.tar.gz"
+  sha256 "ed3035487b2f6eed0a958532edd68a379617649a9381480726265f15dd6eabad"
   license "MIT"
   head "https://github.com/nushell/nushell.git", branch: "main"
 
@@ -25,6 +25,7 @@ class Nushell < Formula
   depends_on "rust" => :build
   depends_on "openssl@3"
 
+  uses_from_macos "curl"
   uses_from_macos "zlib"
 
   on_linux do
