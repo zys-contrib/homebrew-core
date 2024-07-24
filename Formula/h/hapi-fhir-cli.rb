@@ -16,13 +16,13 @@ class HapiFhirCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cc329f14a88ef4d84ceba627ff2bc9ab3c9e2a11b0c69bd355d4a8d7d0ad1644"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cc329f14a88ef4d84ceba627ff2bc9ab3c9e2a11b0c69bd355d4a8d7d0ad1644"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cc329f14a88ef4d84ceba627ff2bc9ab3c9e2a11b0c69bd355d4a8d7d0ad1644"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cc329f14a88ef4d84ceba627ff2bc9ab3c9e2a11b0c69bd355d4a8d7d0ad1644"
-    sha256 cellar: :any_skip_relocation, ventura:        "cc329f14a88ef4d84ceba627ff2bc9ab3c9e2a11b0c69bd355d4a8d7d0ad1644"
-    sha256 cellar: :any_skip_relocation, monterey:       "cc329f14a88ef4d84ceba627ff2bc9ab3c9e2a11b0c69bd355d4a8d7d0ad1644"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "881142b88632e6afab408cb36dd1d34e445320037222336aa6e6c11ec2378421"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e9cce37f4d6f332b1d3fc2d275ce9bc3346ef7b35032df6648ff11dc9ce4994a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e9cce37f4d6f332b1d3fc2d275ce9bc3346ef7b35032df6648ff11dc9ce4994a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e9cce37f4d6f332b1d3fc2d275ce9bc3346ef7b35032df6648ff11dc9ce4994a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e9cce37f4d6f332b1d3fc2d275ce9bc3346ef7b35032df6648ff11dc9ce4994a"
+    sha256 cellar: :any_skip_relocation, ventura:        "e9cce37f4d6f332b1d3fc2d275ce9bc3346ef7b35032df6648ff11dc9ce4994a"
+    sha256 cellar: :any_skip_relocation, monterey:       "e9cce37f4d6f332b1d3fc2d275ce9bc3346ef7b35032df6648ff11dc9ce4994a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b67824bf820f01e0e5d76e95761c24599ae2ca57003564c490505c58141807c"
   end
 
   depends_on "openjdk"
