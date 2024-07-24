@@ -37,10 +37,8 @@ class ClangUml < Formula
     # to provide the version using a CMake option
     args << "-DGIT_VERSION=#{version}" if build.stable?
 
-    if OS.mac? && (MacOS.version >= :ventura)
-      ENV.append "LDFLAGS", "-L#{llvm.opt_lib}/c++"
-      args << "-DCMAKE_INSTALL_RPATH=#{rpath(target: llvm.opt_lib)}"
-    end
+    # Use LLVM-provided libc++
+    args << "-DCMAKE_EXE_LINKER_FLAGS=-L#{llvm.opt_lib}/c++ -L#{llvm.opt_lib} -lunwind" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
