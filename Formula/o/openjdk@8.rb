@@ -1,9 +1,9 @@
 class OpenjdkAT8 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u412-ga.tar.gz"
-  version "1.8.0-412"
-  sha256 "f63bb60fbc6e798b0bbf5b6477765c66740a2b3cceab2d6713be879057f1c99b"
+  url "https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u422-ga.tar.gz"
+  version "1.8.0-422"
+  sha256 "3931898b4336f0e583a5e97df7e5c339d859d53afaff6dafe20124107e836ebe"
   license "GPL-2.0-only"
 
   livecheck do
@@ -94,11 +94,6 @@ class OpenjdkAT8 < Formula
         s.gsub! "$(subst .,,$(MACOSX_VERSION_MIN))", ENV["HOMEBREW_MACOS_VERSION_NUMERIC"]
         s.gsub! "MACOSX_VERSION_MIN=10.7.0", "MACOSX_VERSION_MIN=#{MacOS.version}"
       end
-
-      # Fix Xcode 13 detection.
-      inreplace "common/autoconf/toolchain.m4",
-                "if test \"${XC_VERSION_PARTS[[0]]}\" != \"6\"",
-                "if test \"${XC_VERSION_PARTS[[0]]}\" != \"#{MacOS::Xcode.version.major}\""
     else
       # Fix linker errors on brewed GCC
       inreplace "common/autoconf/flags.m4", "-Xlinker -O1", ""
