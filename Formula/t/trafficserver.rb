@@ -1,9 +1,9 @@
 class Trafficserver < Formula
   desc "HTTP/1.1 and HTTP/2 compliant caching proxy server"
   homepage "https://trafficserver.apache.org/"
-  url "https://downloads.apache.org/trafficserver/trafficserver-9.2.4.tar.bz2"
-  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-9.2.4.tar.bz2"
-  sha256 "fd4601677817de55d841376bb2deecf731f1adf317387148cf9a02f11375b7e4"
+  url "https://downloads.apache.org/trafficserver/trafficserver-9.2.5.tar.bz2"
+  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-9.2.5.tar.bz2"
+  sha256 "c502b2c26756b104ce3114639abbe3fd8fb2c7cbd481f633f9bc1d7b1513a8ab"
   license "Apache-2.0"
 
   bottle do
@@ -30,6 +30,9 @@ class Trafficserver < Formula
   depends_on "openssl@3"
   depends_on "pcre" # PCRE2 issue: https://github.com/apache/trafficserver/issues/8780
   depends_on "yaml-cpp"
+
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   on_macos do
     # Need to regenerate configure to fix macOS 11+ build error due to undefined symbols
