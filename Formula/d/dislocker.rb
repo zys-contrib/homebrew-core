@@ -12,7 +12,13 @@ class Dislocker < Formula
   depends_on "cmake" => :build
   depends_on "libfuse@2"
   depends_on :linux # on macOS, requires closed-source macFUSE
-  depends_on "mbedtls@2"
+  depends_on "mbedtls"
+
+  # Backport support for mbedtls 3.x
+  patch do
+    url "https://github.com/Aorimn/dislocker/commit/2cfbba2c8cc07e529622ba134d0a6982815d2b30.patch?full_index=1"
+    sha256 "07e0e3cac520a04a478f1f08d612340fc2743fd492b0835c7fb41cfdb5ef4244"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_DISABLE_FIND_PACKAGE_Ruby=TRUE", *std_cmake_args
