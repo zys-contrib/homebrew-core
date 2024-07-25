@@ -1,9 +1,8 @@
 class Postgrest < Formula
   desc "Serves a fully RESTful API from any existing PostgreSQL database"
   homepage "https://github.com/PostgREST/postgrest"
-  # TODO: Try to switch `ghc@9.2` to `ghc` when postgrest.cabal allows base>=4.17
-  url "https://github.com/PostgREST/postgrest/archive/refs/tags/v12.0.3.tar.gz"
-  sha256 "cdc3524f5a44a2b6236e7909861d17ae8b8871fc3763d2f1c3c07c56ab52ff70"
+  url "https://github.com/PostgREST/postgrest/archive/refs/tags/v12.2.2.tar.gz"
+  sha256 "dadd6adfeb5cde85b66efe330c6c06ff92a5f7d550a7cdc5223f9b9014aa7b6f"
   license "MIT"
   head "https://github.com/PostgREST/postgrest.git", branch: "main"
 
@@ -22,19 +21,18 @@ class Postgrest < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "923af96f7e1232988be2f694ab1541805314ecc94bc64ccf86d92d5baf2c57ba"
   end
 
-  depends_on "cabal-install" => :build
-  depends_on "ghc@9.2" => :build
+  depends_on "ghc@9.6" => :build
+  depends_on "haskell-stack" => :build
   depends_on "libpq"
 
   def install
-    system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args
+    system "stack", "install", "--system-ghc", "--no-install-ghc", "--skip-ghc-check", "--local-bin-path=#{bin}"
   end
 
   test do
     output = shell_output("#{bin}/postgrest --dump-config 2>&1")
     assert_match "db-anon-role", output
-    assert_match "An error ocurred when trying to query database settings", output
+    assert_match "Failed to query database settings for the config parameters", output
 
     assert_match version.to_s, shell_output("#{bin}/postgrest --version")
   end
