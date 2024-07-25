@@ -1,8 +1,8 @@
 class Poutine < Formula
   desc "Security scanner that detects vulnerabilities in build pipelines"
   homepage "https://boostsecurityio.github.io/poutine/"
-  url "https://github.com/boostsecurityio/poutine/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "d36f1e5849599d5b56a8838818a1dc41e30e113a5f1a098607cf40b32e5639fb"
+  url "https://github.com/boostsecurityio/poutine/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "5f77df5275a7df91ed79a55fcb605735c894c94c75d40962d32010dfa76095f0"
   license "Apache-2.0"
   head "https://github.com/boostsecurityio/poutine.git", branch: "main"
 
