@@ -1,10 +1,9 @@
 class RattlerBuild < Formula
   desc "Universal conda package builder"
   homepage "https://github.com/prefix-dev/rattler-build"
-  url "https://github.com/prefix-dev/rattler-build/archive/refs/tags/v0.18.1.tar.gz"
-  sha256 "d351851282cf16048e1180a534441d694a8d89ad3a6302e45b0de3430623e9d7"
+  url "https://github.com/prefix-dev/rattler-build/archive/refs/tags/v0.18.2.tar.gz"
+  sha256 "f7d9030f54187d68f23c880c8737dd5b722d098a60de9fa2be4697495312b742"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/prefix-dev/rattler-build.git", branch: "main"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
