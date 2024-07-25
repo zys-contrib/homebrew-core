@@ -30,7 +30,7 @@ class Fanyi < Formula
     bin.install_symlink Dir[libexec/"bin/*"]
 
     term_size_vendor_dir = libexec/"lib/node_modules"/name/"node_modules/term-size/vendor"
-    term_size_vendor_dir.rmtree # remove pre-built binaries
+    rm_r(term_size_vendor_dir) # remove pre-built binaries
 
     if OS.mac?
       macos_dir = term_size_vendor_dir/"macos"
