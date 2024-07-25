@@ -1,8 +1,8 @@
 class GitSubrepo < Formula
   desc "Git Submodule Alternative"
   homepage "https://github.com/ingydotnet/git-subrepo"
-  url "https://github.com/ingydotnet/git-subrepo/archive/refs/tags/0.4.8.tar.gz"
-  sha256 "2e1ce45441d3055af192584f59e200e1cdcbfacefb157aeb1cd8908e72cc171e"
+  url "https://github.com/ingydotnet/git-subrepo/archive/refs/tags/0.4.9.tar.gz"
+  sha256 "6e4784d9739a9153377d4a00bd3256618eee732ee988b85b4c70f1ba48566458"
   license "MIT"
   head "https://github.com/ingydotnet/git-subrepo.git", branch: "master"
 
