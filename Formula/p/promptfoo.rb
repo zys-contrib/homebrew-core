@@ -3,8 +3,8 @@ require "language/node"
 class Promptfoo < Formula
   desc "Test your LLM app locally"
   homepage "https://promptfoo.dev/"
-  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.73.5.tgz"
-  sha256 "9f421fb8706661942dfcc2dcde34f4e8d2504d8f4c6f1fba485838a9aba71d00"
+  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.73.6.tgz"
+  sha256 "2d4862044fc9de75d7feaf2a2a9eadb389c3d6ac39206ac1b74dc55ff5b01fe0"
   license "MIT"
 
   bottle do
