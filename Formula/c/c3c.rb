@@ -1,19 +1,10 @@
 class C3c < Formula
   desc "Compiler for the C3 language"
   homepage "https://github.com/c3lang/c3c"
+  url "https://github.com/c3lang/c3c/archive/refs/tags/v0.6.1.tar.gz"
+  sha256 "472c5026b7bf9c709208d31f3a9ae3eba920dc5a78293356a6194fca463f42f1"
   license "LGPL-3.0-only"
   head "https://github.com/c3lang/c3c.git", branch: "master"
-
-  stable do
-    url "https://github.com/c3lang/c3c/archive/refs/tags/v0.6.0.tar.gz"
-    sha256 "d852ba9879a72582312fccc0d63f507d8a55f4716de2db423fe0ce329795ccbd"
-
-    # Fix incorrect INLINE on const init function
-    patch do
-      url "https://github.com/c3lang/c3c/commit/8381dbbd8fc334778504ea96e11f929c5568ebe0.patch?full_index=1"
-      sha256 "bdcf04510643c926a0508373db73a098d5b795f50051955fca2ecab516032560"
-    end
-  end
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
   # labeled as "pre-release" on GitHub before the version is released, so it's
