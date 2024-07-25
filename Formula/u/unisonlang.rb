@@ -7,20 +7,18 @@ class Unisonlang < Formula
 
   stable do
     url "https://github.com/unisonweb/unison.git",
-        tag:      "release/M5j",
-        revision: "7778bdc1a1e97e82a6ae3910a7ed10074297ff27"
-    version "M5j"
+        tag:      "release/0.5.25",
+        revision: "7301b693c8a9f9a8647de4e2b8f65e96cb3260b0"
 
     resource "local-ui" do
-      url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/M5j.tar.gz"
-      version "M5j"
-      sha256 "99f8dd4c86b1cae263f16b2e04ace88764a8a1b138cead4756ceaadb7899c338"
+      url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/0.5.25.tar.gz"
+      sha256 "04565fb26f7ba8367968f382ee20edaecda917c548a51a93ed7c69057f0796b7"
     end
   end
 
   livecheck do
     url :stable
-    regex(%r{^release/(M\d+[a-z]*)$}i)
+    regex(%r{^release/v?(\d+(?:\.\d+)+)$}i)
   end
 
   bottle do
@@ -41,9 +39,10 @@ class Unisonlang < Formula
     end
   end
 
-  depends_on "ghc@9.2" => :build # GHC 9.4 PR: https://github.com/unisonweb/unison/pull/4009
+  depends_on "elm" => :build
+  depends_on "ghc@9.6" => :build
   depends_on "haskell-stack" => :build
-  depends_on "node@18" => :build
+  depends_on "node@20" => :build
 
   uses_from_macos "python" => :build
   uses_from_macos "xz" => :build
@@ -51,10 +50,6 @@ class Unisonlang < Formula
 
   on_linux do
     depends_on "ncurses"
-  end
-
-  on_arm do
-    depends_on "elm" => :build
   end
 
   def install
@@ -66,12 +61,10 @@ class Unisonlang < Formula
     # Build and install the web interface
     resource("local-ui").stage do
       system "npm", "install", *Language::Node.local_npm_install_args
-      if Hardware::CPU.arm?
-        # Replace x86_64 elm binary to avoid dependency on Rosetta
-        elm = Pathname("node_modules/elm/bin/elm")
-        elm.unlink
-        elm.parent.install_symlink Formula["elm"].opt_bin/"elm"
-      end
+      # Replace pre-built x86_64 elm binary
+      elm = Pathname("node_modules/elm/bin/elm")
+      elm.unlink
+      elm.parent.install_symlink Formula["elm"].opt_bin/"elm"
       # HACK: Flaky command occasionally stalls build indefinitely so we force fail
       # if that occurs. Problem seems to happening while running `elm-json install`.
       # Issue ref: https://github.com/zwilias/elm-json/issues/50
@@ -83,13 +76,13 @@ class Unisonlang < Formula
       prefix.install "dist/unisonLocal" => "ui"
     end
 
-    stack_args = [
-      "-v",
-      "--system-ghc",
-      "--no-install-ghc",
-      "--skip-ghc-check",
-      "--copy-bins",
-      "--local-bin-path=#{buildpath}",
+    stack_args = %W[
+      -v
+      --system-ghc
+      --no-install-ghc
+      --skip-ghc-check
+      --copy-bins
+      --local-bin-path=#{buildpath}
     ]
 
     system "stack", "-j#{jobs}", "build", "--flag", "unison-parser-typechecker:optimized", *stack_args
@@ -111,7 +104,7 @@ class Unisonlang < Formula
 
     (testpath/"hello.md").write <<~EOS
       ```ucm
-      .> project.create test
+      scratch/main> project.create test
       test/main> load hello.u
       test/main> add
       test/main> run hello
