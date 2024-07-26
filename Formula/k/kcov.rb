@@ -14,12 +14,13 @@ class Kcov < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "476ce484dd142076f04dad5584324d7598b7ec364c03077c39487739d508702d"
-    sha256 arm64_monterey: "bf315702b4328a6cd4acc2da03d867309af69a3d1a8fa418355a756300edae6d"
-    sha256 ventura:        "9c25df1dfe0c2d36848105ad8339f39febc2880df838de7cb047ae4f437753bd"
-    sha256 monterey:       "f2b4facad420ed243fd15a776ba46e4f2eb98769c0d95735a9840b3be1028c7d"
-    sha256 x86_64_linux:   "c1b0c02c2c91e11096b2cdebaf1e388349e5d78ddd1922cff70aaf30899db411"
+    sha256 arm64_sonoma:   "94d6789bde6e8890e31d5b572b72fac76ade148172c0899c502349678c5835bf"
+    sha256 arm64_ventura:  "9b67dcb9cc579b68aff46237a149dce6e17f7be5b584b5a9f2b162858b80e29a"
+    sha256 arm64_monterey: "791011db4ed3b46ab785f7553249de53f848841aeecba334a5a35766e7e80bca"
+    sha256 sonoma:         "2c1319f3032eed31ecd3c41452383a525a44b1a2aa4e7a0a2c0a9094d0e58f91"
+    sha256 ventura:        "62dfd4348ff4fe56aeb5960c04c5e52f25dd3605964c6d9f4a7e460e3b34ff90"
+    sha256 monterey:       "b7205b776c7509a7fa80a4788308604ec44b8bb37496716e547ee7fc0dad1ab4"
+    sha256 x86_64_linux:   "e2854f13f8bf4b6ff6db16c274f95e558eaa9bd61e80f0074556c543b6a4ac5f"
   end
 
   depends_on "cmake" => :build
