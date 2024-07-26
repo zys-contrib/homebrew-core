@@ -1,8 +1,8 @@
 class Moarvm < Formula
   desc "VM with adaptive optimization and JIT compilation, built for Rakudo"
   homepage "https://moarvm.org"
-  url "https://github.com/MoarVM/MoarVM/releases/download/2024.06/MoarVM-2024.06.tar.gz"
-  sha256 "24ecedd1220e215742cbfa9228797812f6f281ba87bf5dc58e8caac0c0d404d0"
+  url "https://github.com/MoarVM/MoarVM/releases/download/2024.07/MoarVM-2024.07.tar.gz"
+  sha256 "625241fe1578341f6099784f0ea82a62b8a638855c3b8fa604d6ce9e5024fe29"
   license "Artistic-2.0"
 
   livecheck do
@@ -31,8 +31,8 @@ class Moarvm < Formula
   conflicts_with "rakudo-star", because: "rakudo-star currently ships with moarvm included"
 
   resource "nqp" do
-    url "https://github.com/Raku/nqp/releases/download/2024.06/nqp-2024.06.tar.gz"
-    sha256 "0af0bd5a70aed446ffd246f2d354d88181e555aa6de826f1c40d76ab416bfa94"
+    url "https://github.com/Raku/nqp/releases/download/2024.07/nqp-2024.07.tar.gz"
+    sha256 "ab13f2de962817bfedc971088aa6b54911c424150dc284623444ef64878af07e"
   end
 
   def install
