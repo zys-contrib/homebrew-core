@@ -2,10 +2,9 @@ class Mavsdk < Formula
   desc "API and library for MAVLink compatible systems written in C++17"
   homepage "https://mavsdk.mavlink.io"
   url "https://github.com/mavlink/MAVSDK.git",
-      tag:      "v2.12.2",
-      revision: "e6de742abc41b6f3717ec1df0749dc151247be03"
+      tag:      "v2.12.3",
+      revision: "fda7259d846bb5c8a6328dc574909be4a558fc06"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url :stable
@@ -51,7 +50,9 @@ class Mavsdk < Formula
 
   fails_with gcc: "5"
 
-  # MAVLINK_GIT_HASH in https://github.com/mavlink/MAVSDK/blob/v#{version}/third_party/mavlink/CMakeLists.txt
+  # ver={version} && \
+  # curl -s https://raw.githubusercontent.com/mavlink/MAVSDK/v$ver/third_party/mavlink/CMakeLists.txt && \
+  # | grep 'MAVLINK_GIT_HASH'
   resource "mavlink" do
     url "https://github.com/mavlink/mavlink.git",
         revision: "f1d42e2774cae767a1c0651b0f95e3286c587257"
