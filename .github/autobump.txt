@@ -2467,6 +2467,7 @@ talisman
 tanka
 taplo
 tarantool
+tartufo
 task
 tbb
 tbls

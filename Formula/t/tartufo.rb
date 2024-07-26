@@ -3,10 +3,9 @@ class Tartufo < Formula
 
   desc "Searches through git repositories for high entropy strings and secrets"
   homepage "https://tartufo.readthedocs.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/d5/ea/6248387282150270f1886d75111f776f43e694f488a3a1ea3b5b0d1195f1/tartufo-5.0.0.tar.gz"
-  sha256 "99ab6652cae6de295aeb31089e9ba27d66d0ad695af493d2d5cbc795397d1c84"
+  url "https://files.pythonhosted.org/packages/f3/be/a004a02e3b2be08c998f66f391df238de701320af3f0a0438e724db943e2/tartufo-5.0.1.tar.gz"
+  sha256 "5eda46cd6a68dfe35b61b0f18a63bc0a7fc9bb6c096e4a26c8e1aaec8dea9324"
   license "GPL-2.0-only"
-  revision 3
   head "https://github.com/godaddy/tartufo.git", branch: "main"
 
   bottle do
@@ -50,14 +49,8 @@ class Tartufo < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/10/37/dd53019ccb72ef7d73fff0bee9e20b16faff9658b47913a35d79e89978af/tomlkit-0.11.8.tar.gz"
-    sha256 "9330fc7faa1db67b541b28e62018c17d20be733177d290a13b24c62d1614e0c3"
-  end
-
-  # pygit 1.15.1 build patch, upstream pr ref, https://github.com/godaddy/tartufo/pull/532
-  patch do
-    url "https://github.com/godaddy/tartufo/commit/c4fe2cb4011c3f830945f20593df81adfd4bcf17.patch?full_index=1"
-    sha256 "45d63c2c3bef7c11ffd37020f1b4e0276a930a212ca596de44b86807ff8eb062"
+    url "https://files.pythonhosted.org/packages/4b/34/f5f4fbc6b329c948a90468dd423aaa3c3bfc1e07d5a76deec269110f2f6e/tomlkit-0.13.0.tar.gz"
+    sha256 "08ad192699734149f5b97b45f1f18dad7eb1b6d16bc72ad0c2335772650d7b72"
   end
 
   def install
