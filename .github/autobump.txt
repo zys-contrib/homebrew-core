@@ -2674,6 +2674,7 @@ vte3
 vtk
 vttest
 vue-cli
+vulkan-volk
 vultr
 vunnel
 vvdec
