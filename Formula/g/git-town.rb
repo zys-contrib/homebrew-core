@@ -1,8 +1,8 @@
 class GitTown < Formula
   desc "High-level command-line interface for Git"
   homepage "https://www.git-town.com/"
-  url "https://github.com/git-town/git-town/archive/refs/tags/v14.3.1.tar.gz"
-  sha256 "7de12e299f22bbd86ad6c11ce288f2bc1cf20c78c0e04aea509795753d1ee967"
+  url "https://github.com/git-town/git-town/archive/refs/tags/v14.4.0.tar.gz"
+  sha256 "5ebdf7ba5c1e0289439442a95cbf2c728f980d0fb7d2d32112b93a4b783ff3e1"
   license "MIT"
 
   bottle do
