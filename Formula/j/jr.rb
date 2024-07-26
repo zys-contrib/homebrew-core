@@ -1,8 +1,8 @@
 class Jr < Formula
   desc "CLI program that helps you to create quality random data for your applications"
   homepage "https://jrnd.io/"
-  url "https://github.com/ugol/jr/archive/refs/tags/v0.3.7.tar.gz"
-  sha256 "30e431bbce6382f49d555028e6120c394580f74f81b46022f18890d5bd379963"
+  url "https://github.com/ugol/jr/archive/refs/tags/v0.3.8.tar.gz"
+  sha256 "be0b28a1c4a3de2807303d0e42e16d65e7d99793c3e753c8d47ac824338a5ae7"
   license "MIT"
   head "https://github.com/ugol/jr.git", branch: "main"
 
@@ -19,7 +19,7 @@ class Jr < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "all"
+    ENV.deparallelize { system "make", "all" }
     libexec.install Dir["build/*"]
     pkgetc.install "config/jrconfig.json"
     pkgetc.install "templates"
