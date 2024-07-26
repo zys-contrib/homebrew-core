@@ -2517,6 +2517,7 @@ theharvester
 thrift
 thriftgo
 tig
+tiger-vnc
 tika
 tile38
 timg
