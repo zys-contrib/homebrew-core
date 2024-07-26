@@ -3,8 +3,10 @@ class Icloudpd < Formula
 
   desc "Tool to download photos from iCloud"
   homepage "https://github.com/icloud-photos-downloader/icloud_photos_downloader"
-  url "https://github.com/icloud-photos-downloader/icloud_photos_downloader/archive/refs/tags/v1.21.0.tar.gz"
-  sha256 "f63e1ae321055b7775d3253dee8f41643a9c50855605852de242b7eb7526da59"
+  # We use a git checkout as scripts/patch_version runs git commands to update SHA
+  url "https://github.com/icloud-photos-downloader/icloud_photos_downloader.git",
+      tag:      "v1.23.0",
+      revision: "39000ac28eb250d27f63ad943d95525f9fd8447f"
   license "MIT"
   head "https://github.com/icloud-photos-downloader/icloud_photos_downloader.git", branch: "master"
 
@@ -19,6 +21,10 @@ class Icloudpd < Formula
   end
 
   depends_on "python@3.12"
+
+  on_macos do
+    depends_on "gnu-sed" => :build
+  end
 
   resource "blinker" do
     url "https://files.pythonhosted.org/packages/1e/57/a6a1721eff09598fb01f3c7cda070c1b6a0f12d63c83236edf79a440abcc/blinker-1.8.2.tar.gz"
@@ -161,6 +167,10 @@ class Icloudpd < Formula
   end
 
   def install
+    ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if OS.mac?
+    # https://github.com/icloud-photos-downloader/icloud_photos_downloader/issues/922#issuecomment-2252928501
+    system "scripts/patch_version"
+
     virtualenv_install_with_resources
   end
 
