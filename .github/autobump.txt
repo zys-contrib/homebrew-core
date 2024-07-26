@@ -2270,6 +2270,7 @@ seqkit
 ser2net
 serverless
 service-weaver
+sfcgal
 sh4d0wup
 shaderc
 shadowenv
