@@ -255,7 +255,7 @@ jobs:
                 texlive|\
                 v8|\
                 vtk\
-                )(@[0-9]+)?.rb"
+                )(@[0-9.]+)?.rb"
               keep_if_no_match: true
               allow_any_match: true
 
