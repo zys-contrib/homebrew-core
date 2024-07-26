@@ -1194,6 +1194,7 @@ ipinfo-cli
 ipmiutil
 ipopt
 iproute2
+ipsw
 ipython
 ircd-hybrid
 iredis
