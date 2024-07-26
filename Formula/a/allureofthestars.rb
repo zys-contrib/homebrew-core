@@ -4,7 +4,7 @@ class Allureofthestars < Formula
   url "https://hackage.haskell.org/package/Allure-0.11.0.0/Allure-0.11.0.0.tar.gz"
   sha256 "6125cc585e2a5f28c88855c3c328385c1f21bed093d7606478f1b2af0cb2b6d6"
   license all_of: ["AGPL-3.0-or-later", "GPL-2.0-or-later", "OFL-1.1", "MIT", :cannot_represent]
-  revision 5
+  revision 6
   head "https://github.com/AllureOfTheStars/Allure.git", branch: "master"
 
   bottle do
@@ -18,14 +18,16 @@ class Allureofthestars < Formula
   end
 
   depends_on "cabal-install" => :build
+  depends_on "ghc@9.6" => :build
   depends_on "pkg-config" => :build
-  depends_on "ghc@9.6"
-  depends_on "gmp"
+  depends_on "sdl2"
   depends_on "sdl2_ttf"
+
+  uses_from_macos "zlib"
 
   def install
     system "cabal", "v2-update"
-    system "cabal", "--store-dir=#{libexec}", "v2-install", *std_cabal_v2_args
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
