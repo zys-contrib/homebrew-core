@@ -3,8 +3,8 @@ class Erlang < Formula
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
   # Don't forget to update the documentation resource along with the url!
-  url "https://github.com/erlang/otp/releases/download/OTP-26.2.5/otp_src_26.2.5.tar.gz"
-  sha256 "de155c4ad9baab2b9e6c96dbd03bf955575a04dd6feee9c08758beb28484c9f6"
+  url "https://github.com/erlang/otp/releases/download/OTP-27.1/otp_src_27.1.tar.gz"
+  sha256 "5e65d421c6afcac05c6ef38ee49d6f87e74227f282a639d32e890f6b6c456ec0"
   license "Apache-2.0"
 
   livecheck do
@@ -26,7 +26,6 @@ class Erlang < Formula
     url "https://github.com/erlang/otp.git", branch: "master"
 
     depends_on "autoconf" => :build
-    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
@@ -35,14 +34,28 @@ class Erlang < Formula
   depends_on "wxwidgets" # for GUI apps like observer
 
   uses_from_macos "libxslt" => :build
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "mesa-glu"
+  end
 
   resource "html" do
-    url "https://github.com/erlang/otp/releases/download/OTP-26.2.5/otp_doc_html_26.2.5.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_html_26.2.5.tar.gz"
-    sha256 "7c9c99695f8b0218f655ec154954bac1d70e25fe3d54810cf81590e1eb711e47"
+    url "https://github.com/erlang/otp/releases/download/OTP-27.1/otp_doc_html_27.1.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_html_27.1.tar.gz"
+    sha256 "b0e6d508449eb00f6dd762f5e8ba6eadd0ea3785c79782a3b68c641996d9d168"
+  end
+
+  # https://github.com/erlang/otp/blob/#{version}/make/ex_doc_link
+  resource "ex_doc" do
+    url "https://github.com/elixir-lang/ex_doc/releases/download/v0.34.1/ex_doc_otp_26"
+    sha256 "d1e09ef6772132f36903fbb1c13d6972418b74ff2da71ab8e60fa3770fc56ec7"
   end
 
   def install
+    ex_doc_url = (buildpath/"make/ex_doc_link").read.strip
+    odie "`ex_doc` resource needs updating!" if ex_doc_url != resource("ex_doc").url
     odie "html resource needs to be updated" if version != resource("html").version
 
     # Unset these so that building wx, kernel, compiler and
@@ -73,6 +86,10 @@ class Erlang < Formula
     system "./configure", *std_configure_args, *args
     system "make"
     system "make", "install"
+    resource("ex_doc").stage do |r|
+      (buildpath/"bin").install File.basename(r.url) => "ex_doc"
+    end
+    chmod "+x", "bin/ex_doc"
 
     # Build the doc chunks (manpages are also built by default)
     ENV.deparallelize { system "make", "docs", "DOC_TARGETS=chunks" }
