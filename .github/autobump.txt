@@ -2100,6 +2100,7 @@ qbs
 qca
 qcachegrind
 qd
+qdmr
 qemu
 qjackctl
 qmmp
