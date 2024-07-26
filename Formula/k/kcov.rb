@@ -1,8 +1,8 @@
 class Kcov < Formula
   desc "Code coverage tester for compiled programs, Python, and shell scripts"
   homepage "https://simonkagstrom.github.io/kcov/"
-  url "https://github.com/SimonKagstrom/kcov/archive/refs/tags/v42.tar.gz"
-  sha256 "2c47d75397af248bc387f60cdd79180763e1f88f3dd71c94bb52478f8e74a1f8"
+  url "https://github.com/SimonKagstrom/kcov/archive/refs/tags/v43.tar.gz"
+  sha256 "4cbba86af11f72de0c7514e09d59c7927ed25df7cebdad087f6d3623213b95bf"
   license "GPL-2.0-or-later"
   head "https://github.com/SimonKagstrom/kcov.git", branch: "master"
 
@@ -24,6 +24,7 @@ class Kcov < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+
   depends_on "dwarfutils"
   depends_on "openssl@3"
 
@@ -34,9 +35,6 @@ class Kcov < Formula
   on_linux do
     depends_on "elfutils"
   end
-
-  # Fix build on Big Sur, remove with next release
-  patch :DATA
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DSPECIFY_RPATH=ON"
@@ -49,25 +47,8 @@ class Kcov < Formula
       #!/bin/bash
       echo "Hello, world!"
     EOS
-    system "#{bin}/kcov", testpath/"out", testpath/"hello.bash"
+
+    system bin/"kcov", testpath/"out", testpath/"hello.bash"
     assert_predicate testpath/"out/hello.bash/coverage.json", :exist?
   end
 end
-__END__
-diff --git a/src/engines/mach-engine.cc b/src/engines/mach-engine.cc
-index ece8a1d..d9d475b 100644
---- a/src/engines/mach-engine.cc
-+++ b/src/engines/mach-engine.cc
-@@ -26,7 +26,12 @@
- #include <set>
- #include <signal.h>
- #include <spawn.h>
-+#include <sys/errno.h>
-+// clang-format off
-+// sys/ptrace.h needs sys/types.h, so make sure clang-format doesn't change the order
-+#include <sys/types.h>
- #include <sys/ptrace.h>
-+// clang-format on
- #include <unistd.h>
- #include <unordered_map>
- #include <utils.hh>

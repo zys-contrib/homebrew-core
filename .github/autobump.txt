@@ -1268,6 +1268,7 @@ karmadactl
 kaskade
 katana
 kcat
+kcov
 kcptun
 kepubify
 kerl
