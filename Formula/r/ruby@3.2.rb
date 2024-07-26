@@ -1,8 +1,8 @@
 class RubyAT32 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.4.tar.gz"
-  sha256 "c72b3c5c30482dca18b0f868c9075f3f47d8168eaf626d4e682ce5b59c858692"
+  url "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.5.tar.gz"
+  sha256 "ef0610b498f60fb5cfd77b51adb3c10f4ca8ed9a17cb87c61e5bea314ac34a16"
   license "Ruby"
 
   livecheck do
@@ -33,14 +33,20 @@ class RubyAT32 < Formula
   uses_from_macos "gperf"
   uses_from_macos "libffi"
   uses_from_macos "libxcrypt"
+  uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
   # Should be updated only when Ruby is updated (if an update is available).
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-3.5.9.tgz"
-    sha256 "2b203642191e6bb9ece19075f62275a88526319b124684c46667415dca4363f1"
+    url "https://rubygems.org/rubygems/rubygems-3.5.16.tgz"
+    sha256 "7fd10de9e5e933321b62b8f1194256ae64703ba2541cab91ec31244a018d9012"
+
+    livecheck do
+      url "https://rubygems.org/pages/download"
+      regex(/href=.*?rubygems[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    end
   end
 
   def api_version
