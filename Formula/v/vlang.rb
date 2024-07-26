@@ -2,10 +2,9 @@ class Vlang < Formula
   desc "V programming language"
   homepage "https://vlang.io"
   # NOTE: Keep this in sync with V compiler below when updating
-  url "https://github.com/vlang/v/archive/refs/tags/0.4.6.tar.gz"
-  sha256 "0f8eeb05eb9026f833ea3726bb505f0fa556e2baf3d8ced132af9a9d3ad5735f"
+  url "https://github.com/vlang/v/archive/refs/tags/0.4.7.tar.gz"
+  sha256 "fee48c07fb4fa7f21ea92a23d0f8aa566239b1733e314e2cf96608b497d12291"
   license "MIT"
-  revision 1
 
   livecheck do
     url :stable
@@ -31,7 +30,7 @@ class Vlang < Formula
     # "[v:master] {short SHA of the vlang release commit} - {vlang version number}".
     # The sources of this V compiler commit need to be used here
     url "https://github.com/vlang/vc.git",
-        revision: "4473fd24458a10a426fcc95d9a5b0251226ad7fc"
+        revision: "8c681ed423243939500f98e2c7a2550f0bc9b33a"
 
     on_big_sur :or_older do
       patch do
@@ -80,23 +79,23 @@ end
 
 __END__
 diff --git a/vlib/builtin/builtin_d_gcboehm.c.v b/vlib/builtin/builtin_d_gcboehm.c.v
-index 2ace0b5..9f874c2 100644
+index 161a6de..a2ee3a2 100644
 --- a/vlib/builtin/builtin_d_gcboehm.c.v
 +++ b/vlib/builtin/builtin_d_gcboehm.c.v
-@@ -37,13 +37,8 @@ $if dynamic_boehm ? {
+@@ -43,13 +43,13 @@ $if dynamic_boehm ? {
  } $else {
  	$if macos || linux {
  		#flag -DGC_BUILTIN_ATOMIC=1
 -		#flag -I @VEXEROOT/thirdparty/libgc/include
 -		$if (prod && !tinyc && !debug) || !(amd64 || arm64 || i386 || arm32) {
--			// TODO: replace the architecture check with a `!$exists("@VEXEROOT/thirdparty/tcc/lib/libgc.a")` comptime call
--			#flag @VEXEROOT/thirdparty/libgc/gc.o
--		} $else {
--			#flag @VEXEROOT/thirdparty/tcc/lib/libgc.a
--		}
 +		#flag -I @PREFIX@/include
-+		#flag @PREFIX@/lib/libgc.a
- 		$if macos {
- 			#flag -DMPROTECT_VDB=1
++		$if (!macos && prod && !tinyc && !debug) || !(amd64 || arm64 || i386 || arm32) {
+ 			// TODO: replace the architecture check with a `!$exists("@VEXEROOT/thirdparty/tcc/lib/libgc.a")` comptime call
+ 			#flag @VEXEROOT/thirdparty/libgc/gc.o
+ 		} $else {
+ 			$if !use_bundled_libgc ? {
+-				#flag @VEXEROOT/thirdparty/tcc/lib/libgc.a
++				#flag @PREFIX@/lib/libgc.a
+ 			}
  		}
-
+ 		$if macos {
