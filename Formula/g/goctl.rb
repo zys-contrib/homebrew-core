@@ -1,8 +1,8 @@
 class Goctl < Formula
   desc "Generates server-side and client-side code for web and RPC services"
   homepage "https://go-zero.dev"
-  url "https://github.com/zeromicro/go-zero/archive/refs/tags/tools/goctl/v1.6.6.tar.gz"
-  sha256 "30a61361b442282bc0f2eda7922c139bc1ecf267a077edb219cd4bccda6524ba"
+  url "https://github.com/zeromicro/go-zero/archive/refs/tags/tools/goctl/v1.7.0.tar.gz"
+  sha256 "ec494c7527a9805a5d330df212b2e38b9389c81e9dcb48089c3e6a0ba10beef2"
   license "MIT"
 
   bottle do
@@ -16,6 +16,12 @@ class Goctl < Formula
   end
 
   depends_on "go" => :build
+
+  # patch go.mod/go.sum, upstream patch PR, https://github.com/zeromicro/go-zero/pull/4279
+  patch do
+    url "https://github.com/zeromicro/go-zero/commit/481c9e6a604da0bdfaf1a8f383a897ef4b3b7ef2.patch?full_index=1"
+    sha256 "8c34eba9e5f423f6c9da9fbe180867b9d71cdf214984c475ab53581d487c901c"
+  end
 
   def install
     chdir "tools/goctl" do
