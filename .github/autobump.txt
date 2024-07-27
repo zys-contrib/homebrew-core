@@ -2637,6 +2637,7 @@ vcluster
 vcsh
 veclibfort
 vedic
+vegeta
 veilid
 velero
 verapdf
