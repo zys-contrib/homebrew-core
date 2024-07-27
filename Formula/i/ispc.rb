@@ -27,7 +27,7 @@ class Ispc < Formula
   depends_on "cmake" => :build
   depends_on "flex" => :build
   depends_on "python@3.12" => :build
-  depends_on "llvm@17"
+  depends_on "llvm"
 
   on_linux do
     depends_on "tbb"
