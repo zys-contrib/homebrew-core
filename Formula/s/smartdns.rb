@@ -1,8 +1,8 @@
 class Smartdns < Formula
   desc "Rule-based DNS server for fast IP resolution, DoT/DoQ/DoH/DoH3 supported"
   homepage "https://github.com/mokeyish/smartdns-rs"
-  url "https://github.com/mokeyish/smartdns-rs/archive/refs/tags/v0.8.5.tar.gz"
-  sha256 "799b78fa37e50095b37ec09416a529f3f980dc8e02d0b5caef03193841531bb5"
+  url "https://github.com/mokeyish/smartdns-rs/archive/refs/tags/v0.8.6.tar.gz"
+  sha256 "1c8de7906a789c3ec7e593cdc3803131508058429ea4e8f59d1759bf06494b0c"
   license "GPL-3.0-only"
   head "https://github.com/mokeyish/smartdns-rs.git", branch: "main"
 
@@ -18,6 +18,8 @@ class Smartdns < Formula
 
   depends_on "just" => :build
   depends_on "rust" => :build
+
+  uses_from_macos "llvm" # for libclang
 
   on_linux do
     depends_on "openssl@3" =>  :build # cargo patch
