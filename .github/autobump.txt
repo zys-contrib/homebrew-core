@@ -1347,6 +1347,7 @@ latexdiff
 latexindent
 latexml
 lazydocker
+lbdb
 lc0
 lcov
 ld-find-code-refs
