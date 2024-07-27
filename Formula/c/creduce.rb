@@ -35,6 +35,20 @@ class Creduce < Formula
       url "https://github.com/csmith-project/creduce/commit/8ab9a69caf13ce24172737e8bfd09de51a1ecb6a.patch?full_index=1"
       sha256 "fb5dfed2f0255ea524f0c0074a5b162ae2acbcabb9ff1f31adf45ca025dd4419"
     end
+
+    # Port to LLVM 17.0
+    # Remove with the next release
+    patch do
+      url "https://github.com/csmith-project/creduce/commit/a4f6cf3689d44513fd944b1090ca8fd6d5ae8cd5.patch?full_index=1"
+      sha256 "2752eba5204de7f0eeac215bdabc2fb02441b79cbd17e5584e021cc29b8521c5"
+    end
+
+    # Port to LLVM 18.0
+    # Remove with the next release
+    patch do
+      url "https://github.com/csmith-project/creduce/commit/98baa64699aedb943520f175a5e731582df2806f.patch?full_index=1"
+      sha256 "7a5a04ed394de464c09174997020a6cca0cc05154f58a3e855f20c8423fc8865"
+    end
   end
 
   livecheck do
@@ -54,7 +68,7 @@ class Creduce < Formula
   end
 
   depends_on "astyle"
-  depends_on "llvm@16" # LLVM 17: https://github.com/csmith-project/creduce/pull/264
+  depends_on "llvm"
 
   uses_from_macos "flex" => :build
   uses_from_macos "perl"
