@@ -1917,6 +1917,7 @@ pan
 pandoc
 pandoc-crossref
 pango
+pangomm
 papilo
 parallel
 pari
