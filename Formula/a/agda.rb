@@ -74,12 +74,21 @@ class Agda < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  # TODO: Remove when lib:Agda install works with latest cabal-install
+  # Ref: https://github.com/agda/agda/issues/7401
+  resource "cabal-install" do
+    url "https://hackage.haskell.org/package/cabal-install-3.10.3.0/cabal-install-3.10.3.0.tar.gz"
+    sha256 "a8e706f0cf30cd91e006ae8b38137aecf65983346f44d0cba4d7a60bbfa3da9e"
+  end
+
   def install
+    cabal_args = std_cabal_v2_args.reject { |s| s["installdir"] }
+
     system "cabal", "v2-update"
     # expose certain packages for building and testing
     system "cabal", "--store-dir=#{libexec}", "v2-install",
            "base", "ieee754", "text", "directory", "--lib",
-           *(std_cabal_v2_args.reject { |s| s["installdir"] })
+           *cabal_args
     agdalib = lib/"agda"
 
     # install main Agda library and binaries
@@ -90,14 +99,17 @@ class Agda < Formula
     # relying on the Agda library just installed
     resource("agda2hs").stage "agda2hs-build"
     cd "agda2hs-build" do
-      system "cabal", "--store-dir=#{libexec}", "v2-install", *std_cabal_v2_args
+      # TODO: Remove when lib:Agda install works with latest cabal-install
+      resource("cabal-install").stage do
+        system "cabal", "v2-install", *cabal_args, "--installdir=#{buildpath}/agda2hs-build"
+      end
+
+      system "./cabal", "--store-dir=#{libexec}", "v2-install", *std_cabal_v2_args
     end
 
     # generate the standard library's documentation and vim highlighting files
     resource("stdlib").stage agdalib
     cd agdalib do
-      cabal_args = std_cabal_v2_args.reject { |s| s["installdir"] }
-      system "cabal", "v2-update"
       system "cabal", "--store-dir=#{libexec}", "v2-install", *cabal_args, "--installdir=#{lib}/agda"
       system "./GenerateEverything"
       cd "doc" do
