@@ -2,8 +2,8 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://v8.dev/docs"
   # Track V8 version from Chrome stable: https://chromiumdash.appspot.com/releases?platform=Mac
-  url "https://github.com/v8/v8/archive/refs/tags/12.1.285.24.tar.gz"
-  sha256 "30942df4ec837b212b697895b9453459b2cdce118eed2e07656dcefea465da72"
+  url "https://github.com/v8/v8/archive/refs/tags/12.7.224.16.tar.gz"
+  sha256 "00425fe7fd851f11839537256922addbfee0f5d27c6bf5ab375b9d0347d8ed94"
   license "BSD-3-Clause"
 
   livecheck do
@@ -38,9 +38,8 @@ class V8 < Formula
   uses_from_macos "python" => :build
 
   on_macos do
-    on_intel do
-      depends_on "llvm@16" => :build if DevelopmentTools.clang_build_version <= 1400
-    end
+    depends_on "llvm" => :build
+    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1400
   end
 
   on_linux do
@@ -54,61 +53,55 @@ class V8 < Formula
   # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/<version>/DEPS#74
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "7367b0df0a0aa25440303998d54045bda73935a5"
-  end
-
-  resource "v8/base/trace_event/common" do
-    url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
-        revision: "29ac73db520575590c3aceb0a6f1f58dda8934f6"
+        revision: "b3a0bff47dd81073bfe67a402971bad92e4f2423"
   end
 
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-        revision: "9b8bc79c291c01ddcdb0383ace9316e3dcccce2f"
+        revision: "faf20f32f1d19bd492f8f16ac4a7ecfabdbb60c1"
+  end
 
-    # Use Arch Linux Chromium package patch to remove some LLVM/Clang 18 flags
-    patch :p2 do
-      url "https://gitlab.archlinux.org/archlinux/packaging/packages/chromium/-/raw/46f81f58f555dc99f5f789167c64950e88c38e63/drop-flags-unsupported-by-clang16.patch"
-      sha256 "8d1cdf3ddd8ff98f302c90c13953f39cd804b3479b13b69b8ef138ac57c83556"
-    end
+  resource "v8/third_party/fp16/src" do
+    url "https://chromium.googlesource.com/external/github.com/Maratyszcza/FP16.git",
+        revision: "0a92994d729ff76a58f692d3028ca1b64b145d91"
   end
 
   resource "v8/third_party/googletest/src" do
     url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-        revision: "af29db7ec28d6df1c7f0f745186884091e602e07"
+        revision: "a7f443b80b105f940225332ed3c31f2790092f47"
   end
 
   resource "v8/third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        revision: "a622de35ac311c5ad390a7af80724634e5dc61ed"
+        revision: "98f2494518c2dbb9c488e83e507b070ea5910e95"
   end
 
   resource "v8/third_party/jinja2" do
     url "https://chromium.googlesource.com/chromium/src/third_party/jinja2.git",
-        revision: "515dd10de9bf63040045902a4a310d2ba25213a0"
+        revision: "2f6f2ff5e4c1d727377f5e1b9e1903d871f41e74"
   end
 
   resource "v8/third_party/markupsafe" do
     url "https://chromium.googlesource.com/chromium/src/third_party/markupsafe.git",
-        revision: "006709ba3ed87660a17bd4548c45663628f5ed85"
+        revision: "e582d7f0edb9d67499b0f5abd6ae5550e91da7f2"
   end
 
   resource "v8/third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-        revision: "dd5fc1316c9bfe87091c4f418e427633590a84a4"
+        revision: "209717dd69cd62f24cbacc4758261ae2dd78cfac"
   end
 
   resource "v8/third_party/abseil-cpp" do
     url "https://chromium.googlesource.com/chromium/src/third_party/abseil-cpp.git",
-        revision: "0764ad493e54a79c7e3e02fc3412ef55b4835b9e"
+        revision: "bfe59c2726fda7494a800f7d0ee461f0564653b3"
   end
 
   def install
     (buildpath/"build").install resource("v8/build")
     (buildpath/"third_party/jinja2").install resource("v8/third_party/jinja2")
     (buildpath/"third_party/markupsafe").install resource("v8/third_party/markupsafe")
+    (buildpath/"third_party/fp16/src").install resource("v8/third_party/fp16/src")
     (buildpath/"third_party/googletest/src").install resource("v8/third_party/googletest/src")
-    (buildpath/"base/trace_event/common").install resource("v8/base/trace_event/common")
     (buildpath/"third_party/icu").install resource("v8/third_party/icu")
     (buildpath/"third_party/zlib").install resource("v8/third_party/zlib")
     (buildpath/"third_party/abseil-cpp").install resource("v8/third_party/abseil-cpp")
@@ -133,6 +126,7 @@ class V8 < Formula
       is_debug:                     false,
       is_component_build:           true,
       v8_use_external_startup_data: false,
+      v8_enable_fuzztest:           false,
       v8_enable_i18n_support:       true,  # enables i18n support with icu
       clang_use_chrome_plugins:     false, # disable the usage of Google's custom clang plugins
       use_custom_libcxx:            false, # uses system libc++ instead of Google's custom one
@@ -150,10 +144,15 @@ class V8 < Formula
       gn_args[:use_rbe] = false
     else
       ENV["DEVELOPER_DIR"] = ENV["HOMEBREW_DEVELOPER_DIR"] # help run xcodebuild when xcode-select is set to CLT
-      gn_args[:clang_base_path] = if Hardware::CPU.intel? && DevelopmentTools.clang_build_version <= 1400
-        "\"#{Formula["llvm@16"].opt_prefix}\"" # uses Homebrew clang instead of Google clang
-      else
-        '"/usr"' # uses Apple clang instead of Google clang
+      gn_args[:clang_base_path] = "\"#{Formula["llvm"].opt_prefix}\"" # uses Homebrew clang instead of Google clang
+      # Work around failure mixing newer `llvm` headers with older Xcode's libc++:
+      # Undefined symbols for architecture x86_64:
+      #   "std::__1::__libcpp_verbose_abort(char const*, ...)", referenced from:
+      #       std::__1::__throw_length_error[abi:nn180100](char const*) in stack_trace.o
+      if DevelopmentTools.clang_build_version <= 1400
+        gn_args[:fatal_linker_warnings] = false
+        inreplace "build/config/mac/BUILD.gn", "[ \"-Wl,-ObjC\" ]",
+                                               "[ \"-Wl,-ObjC\", \"-L#{Formula["llvm"].opt_lib}/c++\" ]"
       end
     end
 
@@ -202,7 +201,7 @@ class V8 < Formula
     EOS
 
     # link against installed libc++
-    system ENV.cxx, "-std=c++17", "test.cpp",
+    system ENV.cxx, "-std=c++20", "test.cpp",
                     "-I#{include}", "-L#{lib}",
                     "-Wl,-rpath,#{libexec}",
                     "-lv8", "-lv8_libplatform"
