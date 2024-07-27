@@ -21,12 +21,10 @@ class Clazy < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4e28a3724c3444ce21c5f7fe53fc68e87ac3508c9d44236c36026a0cf8bc863"
   end
 
-  depends_on "cmake"   => [:build, :test]
-  depends_on "qt"      => :test
+  depends_on "cmake" => [:build, :test]
+  depends_on "qt" => :test
   depends_on "coreutils"
-  # TODO: Backport patch for LLVM 18 support
-  # https://github.com/KDE/clazy/commit/be6ec9a3f3e1e4cb7168845008fd4d0593877b64
-  depends_on "llvm@17"
+  depends_on "llvm"
 
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
@@ -35,7 +33,6 @@ class Clazy < Formula
   fails_with gcc: "5" # C++17
 
   def install
-    ENV.append "CXXFLAGS", "-std=gnu++17" # Fix `std::regex` support detection.
     system "cmake", "-S", ".", "-B", "build", "-DCLAZY_LINK_CLANG_DYLIB=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
