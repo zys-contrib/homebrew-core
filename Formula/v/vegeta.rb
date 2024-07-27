@@ -1,18 +1,18 @@
 class Vegeta < Formula
   desc "HTTP load testing tool and library"
   homepage "https://github.com/tsenart/vegeta"
-  url "https://github.com/tsenart/vegeta/archive/refs/tags/v12.11.2.tar.gz"
-  sha256 "6030a319b1d660e148ccd5424e38478441bfa5049d0da3c170c3777f9b3063cc"
+  url "https://github.com/tsenart/vegeta/archive/refs/tags/v12.11.3.tar.gz"
+  sha256 "7106d7e81a03d32a58391b18921d69d54e710b9052b59fa4943c1b552500196f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fb7a71b57fe22f9e6e43210dfbf221c7642613dfb7f4585427449ad792d5cc75"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "46b208e8f50824c5a847a1896eca058b705edf63c25e0013c37389b9266c462a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a777b58efb752c08e1b0c0432fdf8bd221520105cbf01138628a166412f4d8a1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4b0e452d79cc5123d9ce4d7d2d74e3367737183f6ba9cd4fcbbd92f8680cad1c"
-    sha256 cellar: :any_skip_relocation, ventura:        "b501b39899483e884c73e4e546256f8f06eddbfd7984ba5c0a532b65ba8bda3e"
-    sha256 cellar: :any_skip_relocation, monterey:       "a671d8e4b67cdcc83ddea5bd29a7e55e45b24e04e82d4705c3f3105807db83a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "92f717d5e6bba690c712ec8414dd2017cd826d752d7498d753d426d1b9d6fad1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bb1464c40cbd016773c726df941089179c2671568fecc17753ebdddd441be250"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ca91aa5b68e88e730912d1267c5c95b87f16f361d91bbc33d22fb170af33d252"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b625ee805e8bc2109318d660a4080387a066b29378c76cea3261816d2ea91c04"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9cbe3cf4373c904f54bc078dcdf6d507e55e7019de5517548a4948506a17d1cd"
+    sha256 cellar: :any_skip_relocation, ventura:        "3e4447b8bb61c4edfb1b58e3d4f40455cc34fdf40388bea1e9c50630dafdca89"
+    sha256 cellar: :any_skip_relocation, monterey:       "503f966033bfc760c400c3d96e4701000408cad9eb8fb39a45eedda505cb884a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4587eaa1d1d6a8f2f840057710ac71824784fc76c93cc632c0b12ba7598b2a9c"
   end
 
   depends_on "go" => :build
