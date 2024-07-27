@@ -1,8 +1,8 @@
 class Pangomm < Formula
   desc "C++ interface to Pango"
   homepage "https://www.pango.org/"
-  url "https://download.gnome.org/sources/pangomm/2.52/pangomm-2.52.0.tar.xz"
-  sha256 "34a134126a6484ff12f774358c36ecc44d0e9df094e1b83796d9774bb7d24947"
+  url "https://download.gnome.org/sources/pangomm/2.54/pangomm-2.54.0.tar.xz"
+  sha256 "4a5b1fd1b7c47a1af45277ea82b5abeaca8e08fb10a27daa6394cf88d74e7acf"
   license "LGPL-2.1-only"
 
   bottle do
@@ -18,8 +18,11 @@ class Pangomm < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
+
   depends_on "cairomm"
+  depends_on "glib"
   depends_on "glibmm"
+  depends_on "libsigc++"
   depends_on "pango"
 
   fails_with gcc: "5"
