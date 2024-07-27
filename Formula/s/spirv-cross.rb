@@ -32,10 +32,10 @@ class SpirvCross < Formula
   depends_on "glslang" => :test
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
     # required for tests
     prefix.install "samples"
     (include/"spirv_cross").install Dir["include/spirv_cross/*"]
@@ -43,6 +43,7 @@ class SpirvCross < Formula
 
   test do
     cp_r Dir[prefix/"samples/cpp/*"], testpath
+
     inreplace "Makefile", "-I../../include", "-I#{include}"
     inreplace "Makefile", "../../spirv-cross", bin/"spirv-cross"
     inreplace "Makefile", "glslangValidator", Formula["glslang"].bin/"glslangValidator"
@@ -55,12 +56,14 @@ class SpirvCross < Formula
 
       #version 310 es
     EOS
+
     after = <<~EOS
       #version 310 es
       // Copyright 2016-2021 The Khronos Group Inc.
       // SPDX-License-Identifier: Apache-2.0
 
     EOS
+
     (Dir["*.comp"]).each do |shader_file|
       inreplace shader_file, before, after
     end
