@@ -120,6 +120,7 @@ at-spi2-core
 atlantis
 atlas
 atomicparsley
+atop
 atuin
 audacious
 auditbeat
