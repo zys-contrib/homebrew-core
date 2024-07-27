@@ -3,8 +3,8 @@ class Schemathesis < Formula
 
   desc "Testing tool for web applications with specs"
   homepage "https://schemathesis.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/81/3c/3638c0302cd5f149047346bbb5f3afe23b2f2977f09aa9a532a80c8840ab/schemathesis-3.33.1.tar.gz"
-  sha256 "c74bbb7396267f31ae179eb70840664096302593316e7fd739008a8edb01d119"
+  url "https://files.pythonhosted.org/packages/be/d7/0aad52dde0c00f33d96ffe1d3d9b5579bfcd12986917b9dda603c896059c/schemathesis-3.33.2.tar.gz"
+  sha256 "5f201492d0d727f739e53a39494d5d20f6b364d171e10fd698666f3de61cb53d"
   license "MIT"
 
   bottle do
@@ -80,8 +80,8 @@ class Schemathesis < Formula
   end
 
   resource "hypothesis" do
-    url "https://files.pythonhosted.org/packages/5e/78/188bed383925f4ead46be06f0a70070bd7c37bf370b8ef4bf5b1379b9210/hypothesis-6.108.3.tar.gz"
-    sha256 "095f2b049fba33f7920889e513b675dbf112bb740bc8d1ea433fdf7fd23cf37e"
+    url "https://files.pythonhosted.org/packages/d8/4c/ce36d12e34538f58e819d6f040285be72c24ffe76f9fbc3cf9daacaefe8f/hypothesis-6.108.4.tar.gz"
+    sha256 "bab99a308ea39be53882f1d89ab77db48e0c03b5c37fbedd2f59f9b656ada301"
   end
 
   resource "hypothesis-graphql" do
@@ -145,8 +145,8 @@ class Schemathesis < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/bc/7f/a6f79e033aa8318b6dfe2173fa6409ee75dafccf409d90884bf921433d88/pytest-8.3.1.tar.gz"
-    sha256 "7e8e5c5abd6e93cb1cc151f23e57adc31fcf8cfd2a3ff2da63e23f732de35db6"
+    url "https://files.pythonhosted.org/packages/b4/8c/9862305bdcd6020bc7b45b1b5e7397a6caf1a33d3025b9a003b39075ffb2/pytest-8.3.2.tar.gz"
+    sha256 "c132345d12ce551242c87269de812483f5bcc87cdbb4722e48487ba194f9fdce"
   end
 
   resource "pytest-subtests" do
@@ -170,8 +170,8 @@ class Schemathesis < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/36/a2/83c3e2024cefb9a83d832e8835f9db0737a7a2b04ddfdd241c650b703db0/rpds_py-0.19.0.tar.gz"
-    sha256 "4fdc9afadbeb393b4bbbad75481e0ea78e4469f2e1d713a90811700830b553a9"
+    url "https://files.pythonhosted.org/packages/2f/fe/5217efe981c2ae8647b503ba3b8f55efc837df62f63667572b4bb75b30bc/rpds_py-0.19.1.tar.gz"
+    sha256 "31dd5794837f00b46f4096aa8ccaa5972f73a938982e32ed817bb520c465e520"
   end
 
   resource "six" do
@@ -190,8 +190,8 @@ class Schemathesis < Formula
   end
 
   resource "starlette" do
-    url "https://files.pythonhosted.org/packages/13/1c/a0005d1b8e775823b4aa2c4b4ce1b540833c6364ed5de55b6a8754bdc17c/starlette-0.38.0.tar.gz"
-    sha256 "1ac2291e946a56bb5ca929dbb2332fc0dfd1e609c7e4d4f2056925cc0442874e"
+    url "https://files.pythonhosted.org/packages/21/fe/2da6181514acc31a779492172a39d7502fe7b216845cf44d12cd166bfe42/starlette-0.38.1.tar.gz"
+    sha256 "890e89d9b1b367bad6fd11a6e191f40d03504df1ff55fd15674a3b35a122990e"
   end
 
   resource "starlette-testclient" do
