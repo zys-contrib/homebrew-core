@@ -1,8 +1,8 @@
 class MonitoringPlugins < Formula
   desc "Plugins for nagios compatible monitoring systems"
   homepage "https://www.monitoring-plugins.org"
-  url "https://www.monitoring-plugins.org/download/monitoring-plugins-2.3.5.tar.gz"
-  sha256 "f3edd79a9254f231a1b46b32d14def806648f5267e133ef0c0d39329587ee38b"
+  url "https://www.monitoring-plugins.org/download/monitoring-plugins-2.4.0.tar.gz"
+  sha256 "e5dfd4ad8fde0a40da50aab3aff6d9a27020b8f283e332bc4da6ef9914f4028c"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -20,10 +20,11 @@ class MonitoringPlugins < Formula
     sha256 x86_64_linux:   "ab67fd985f70e7756cace887a597f7ea4391a019cf0e29ef2ade27fcd1eecc85"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "gettext"
   depends_on "openssl@3"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   on_linux do
     depends_on "bind"
@@ -31,25 +32,16 @@ class MonitoringPlugins < Formula
 
   conflicts_with "nagios-plugins", because: "both install their plugins to the same folder"
 
-  # Prevent -lcrypto from showing up in Makefile dependencies
-  # Reported upstream: https://github.com/monitoring-plugins/monitoring-plugins/pull/1970
-  patch :DATA
-
   def install
-    # Fix compile with newer Clang
-    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+    # workaround for Xcode 14.3
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
     args = %W[
-      --disable-dependency-tracking
-      --prefix=#{libexec}
       --libexecdir=#{libexec}/sbin
       --with-openssl=#{Formula["openssl@3"].opt_prefix}
     ]
 
-    system "aclocal", "-I", "gl/m4", "-I", "m4"
-    system "autoupdate"
-    system "automake", "--add-missing"
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
     sbin.write_exec_script Dir["#{libexec}/sbin/*"]
   end
@@ -66,29 +58,3 @@ class MonitoringPlugins < Formula
     assert_match "DNS OK", output
   end
 end
-
-__END__
-diff --git a/plugins-root/Makefile.am b/plugins-root/Makefile.am
-index 40aa020..a80229e 100644
---- a/plugins-root/Makefile.am
-+++ b/plugins-root/Makefile.am
-@@ -26,7 +26,7 @@ EXTRA_PROGRAMS = pst3
- 
- EXTRA_DIST = t pst3.c
- 
--BASEOBJS = ../plugins/utils.o ../lib/libmonitoringplug.a ../gl/libgnu.a $(LIB_CRYPTO)
-+BASEOBJS = ../plugins/utils.o ../lib/libmonitoringplug.a ../gl/libgnu.a
- NETOBJS = ../plugins/netutils.o $(BASEOBJS) $(EXTRA_NETOBJS)
- NETLIBS = $(NETOBJS) $(SOCKETLIBS)
- 
-@@ -80,8 +80,8 @@ install-exec-local: $(noinst_PROGRAMS)
- 
- ##############################################################################
- # the actual targets
--check_dhcp_LDADD = @LTLIBINTL@ $(NETLIBS)
--check_icmp_LDADD = @LTLIBINTL@ $(NETLIBS) $(SOCKETLIBS)
-+check_dhcp_LDADD = @LTLIBINTL@ $(NETLIBS) $(LIB_CRYPTO)
-+check_icmp_LDADD = @LTLIBINTL@ $(NETLIBS) $(SOCKETLIBS) $(LIB_CRYPTO)
- 
- # -m64 needed at compiler and linker phase
- pst3_CFLAGS = @PST3CFLAGS@
