@@ -3,8 +3,8 @@ require "language/node"
 class Cdxgen < Formula
   desc "Creates CycloneDX Software Bill-of-Materials (SBOM) for projects"
   homepage "https://github.com/CycloneDX/cdxgen"
-  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-10.8.1.tgz"
-  sha256 "61247d7d6bceb19fa66f731ca968bb184ee1df00af8eecba8b4fbcb1a93444e6"
+  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-10.8.9.tgz"
+  sha256 "f497786d587ad23226c5f5930bcf0ee64166a5f5a61f028244df042e4a5fcdd3"
   license "Apache-2.0"
 
   bottle do
@@ -33,10 +33,6 @@ class Cdxgen < Formula
 
       rm f
     end
-
-    # remove pre-built osquery plugin for macos intel builds
-    osquery_plugin = node_modules/"@cyclonedx/cdxgen-plugins-bin-darwin-amd64/plugins/osquery"
-    rm_r(osquery_plugin) if OS.mac? && Hardware::CPU.intel?
   end
 
   test do
