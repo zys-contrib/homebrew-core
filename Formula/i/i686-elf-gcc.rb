@@ -24,6 +24,7 @@ class I686ElfGcc < Formula
   depends_on "i686-elf-binutils"
   depends_on "libmpc"
   depends_on "mpfr"
+  depends_on "zstd"
 
   def install
     target = "i686-elf"
@@ -56,8 +57,9 @@ class I686ElfGcc < Formula
         return i;
       }
     EOS
-    system "#{bin}/i686-elf-gcc", "-c", "-o", "test-c.o", "test-c.c"
-    assert_match "file format elf32-i386",
-      shell_output("#{Formula["i686-elf-binutils"].bin}/i686-elf-objdump -a test-c.o")
+
+    system bin/"i686-elf-gcc", "-c", "-o", "test-c.o", "test-c.c"
+    output = shell_output("#{Formula["i686-elf-binutils"].bin}/i686-elf-objdump -a test-c.o")
+    assert_match "file format elf32-i386", output
   end
 end
