@@ -1,10 +1,10 @@
 class ParquetCli < Formula
   desc "Apache Parquet command-line tools and utilities"
   homepage "https://parquet.apache.org/"
-  url "https://github.com/apache/parquet-mr.git",
-      tag:      "apache-parquet-1.14.1",
-      revision: "97ede968377400d1d79e3196636ba3de392196ba"
+  url "https://github.com/apache/parquet-java/archive/refs/tags/apache-parquet-1.14.1.tar.gz"
+  sha256 "e187ec57c60e1057f4c91a38fd9fb10a636b56b0dac5b2d25649e85901a61434"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apache/parquet-mr.git", branch: "master"
 
   bottle do
@@ -13,11 +13,6 @@ class ParquetCli < Formula
   end
 
   depends_on "maven" => :build
-
-  # parquet-cli has problems running on Linux, for more information:
-  # https://github.com/Homebrew/homebrew-core/pull/94318#issuecomment-1049229342
-  depends_on :macos
-
   depends_on "openjdk"
 
   def install
@@ -34,6 +29,7 @@ class ParquetCli < Formula
     end
 
     (pkgshare/"test").install "parquet-avro/src/test/avro/stringBehavior.avsc"
+    (pkgshare/"test").install "parquet-avro/src/test/resources/strings-2.parquet"
   end
 
   test do
@@ -47,6 +43,18 @@ class ParquetCli < Formula
           "name" : "default_class",
           "type" : "string"
         }, {
+    EOS
+
+    output = shell_output("#{bin}/parquet schema #{pkgshare}/test/strings-2.parquet")
+    assert_match <<~EOS, output
+      {
+        "type" : "record",
+        "name" : "mystring",
+        "fields" : [ {
+          "name" : "text",
+          "type" : "string"
+        } ]
+      }
     EOS
   end
 end
