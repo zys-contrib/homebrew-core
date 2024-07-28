@@ -23,8 +23,9 @@ class Got < Formula
   depends_on "bison" => :build
   depends_on "pkg-config" => :build
   depends_on "libevent"
-  depends_on "libressl"
+  depends_on "libretls"
   depends_on "ncurses"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
@@ -35,10 +36,9 @@ class Got < Formula
   end
 
   def install
-    inreplace "configure", %r{\$\{HOMEBREW_PREFIX?\}/opt/openssl@\d+(\.\d+)?}, Formula["libressl"].opt_prefix
-    system "./configure", "--disable-silent-rules",
-                          "--with-libtls=#{Formula["libressl"].opt_prefix}",
-                          *std_configure_args
+    ENV["LIBTLS_CFLAGS"] = "-I#{Formula["libretls"].opt_include}"
+    ENV["LIBTLS_LIBS"] = "-L#{Formula["libretls"].opt_lib} -ltls"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
