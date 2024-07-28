@@ -25,6 +25,12 @@ class Kin < Formula
     sha256 "3cd282f5ea7cfb841537fe01f143350fdb1c0b1ce7981443a2fa8513fddb6d1a"
   end
 
+  # Drop unneeded argparse requirement: https://github.com/Serchinastico/Kin/pull/115
+  patch do
+    url "https://github.com/Serchinastico/Kin/commit/02251e6babc56e3b3d5dfda18559d2f86f147975.patch?full_index=1"
+    sha256 "838b4e9fe54c9afcff0f38a6b6f1eda83883ff724c7089bfa08521f96615fbca"
+  end
+
   def install
     virtualenv_install_with_resources
   end
