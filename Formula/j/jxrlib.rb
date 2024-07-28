@@ -2,10 +2,20 @@ class Jxrlib < Formula
   desc "Tools for JPEG-XR image encoding/decoding"
   homepage "https://tracker.debian.org/pkg/jxrlib"
   url "https://deb.debian.org/debian/pool/main/j/jxrlib/jxrlib_1.2~git20170615.f752187.orig.tar.xz"
-  version "1.2_git20170615-f752187.orig"
+  version "1.2_git20170615-f752187"
   sha256 "3e3c9d3752b0bbf018ed9ce01b43dcd4be866521dc2370dc9221520b5bd440d4"
   license "BSD-2-Clause"
-  revision 1
+  version_scheme 1
+
+  livecheck do
+    url "https://deb.debian.org/debian/pool/main/j/jxrlib/"
+    regex(/href=.*?jxrlib[._-]v?(\d+(?:\.\d+)+[^"' >]*?)\.orig\.t/i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map do |match|
+        match[0].tr("~", "_").sub(/\.(\h{7})$/, '-\1')
+      end
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "7717bc3eed54f09fafdeb39e3a061343736a4ebf778e7de16ab3f9f1c8f1c7f6"
