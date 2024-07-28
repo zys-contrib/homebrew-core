@@ -1,8 +1,8 @@
 class Jdupes < Formula
   desc "Duplicate file finder and an enhanced fork of 'fdupes'"
   homepage "https://codeberg.org/jbruchon/jdupes"
-  url "https://codeberg.org/jbruchon/jdupes/archive/v1.27.3.tar.gz"
-  sha256 "1c75ed30dc95b3b5024019ab2ba3f78a14835c11d5b71249aa94374fde650c16"
+  url "https://codeberg.org/jbruchon/jdupes/archive/v1.28.0.tar.gz"
+  sha256 "a8f21c04fff5e3ff0a92e8ac76114b2195ed43dc32b84bf343f5256e7ba9cb04"
   license "MIT"
 
   livecheck do
@@ -24,8 +24,8 @@ class Jdupes < Formula
 
   resource "libjodycode" do
     url "https://codeberg.org/jbruchon/libjodycode.git",
-        tag:      "v3.1",
-        revision: "e44699edc8915f65635d2fa1c9dcfac38b1784c7"
+        tag:      "v3.1.1",
+        revision: "0dc008e8d95c4899c9fc66fdb3ee5fc029df0470"
   end
 
   def install
@@ -37,7 +37,8 @@ class Jdupes < Formula
       system "make", "install", "PREFIX=#{prefix}"
     end
 
-    system "make", "install", "PREFIX=#{prefix}", "ENABLE_DEDUPE=1"
+    system "make", "ENABLE_DEDUPE=1"
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
