@@ -1,8 +1,8 @@
 class GruntCompletion < Formula
   desc "Bash and Zsh completion for Grunt"
   homepage "https://gruntjs.com/"
-  url "https://github.com/gruntjs/grunt-cli/archive/refs/tags/v1.4.3.tar.gz"
-  sha256 "3bf07d807d61adbf04fa93589a7dd58fbc4da7a5f1febfd8a99b3ccb0d682009"
+  url "https://github.com/gruntjs/grunt-cli/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "0ed2f1bbe6ba85c5b2b3ae1233c52b7622db092c078aafbba75dbb435a6a9d20"
   license "MIT"
   head "https://github.com/gruntjs/grunt-cli.git", branch: "main"
 
