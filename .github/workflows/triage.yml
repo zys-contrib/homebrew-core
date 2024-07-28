@@ -306,7 +306,7 @@ jobs:
                 unbound|\
                 xz|\
                 zstd\
-                )(@[0-9]+)?.rb"
+                ).rb"
               keep_if_no_match: true
               allow_any_match: true
 
