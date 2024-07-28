@@ -2,7 +2,7 @@ require "language/node"
 
 class Insect < Formula
   desc "High precision scientific calculator with support for physical units"
-  homepage "https://insect.sh/"
+  homepage "https://github.com/sharkdp/insect"
   url "https://registry.npmjs.org/insect/-/insect-5.9.0.tgz"
   sha256 "dcb8d696e9209157f596c7c102cdc436d520629d2aed71585767af77bde2cb70"
   license "MIT"
