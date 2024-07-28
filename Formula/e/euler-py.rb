@@ -27,15 +27,14 @@ class EulerPy < Formula
   end
 
   def install
+    # Unpin old click version: https://github.com/iKevinY/EulerPy/commit/9923d2ee026608e33026909bb95c444724b08ba2
+    inreplace "requirements.txt", "click==4.0", "click"
     virtualenv_install_with_resources
   end
 
   test do
-    require "open3"
-    output = Open3.capture2("#{bin}/euler", stdin_data: "\n")
-    # output[0] is the stdout text, output[1] is the exit code
-    assert_match 'Successfully created "001.py".', output[0]
-    assert_equal 0, output[1]
+    output = pipe_output("#{bin}/euler", "Y\n")
+    assert_match 'Successfully created "001.py".', output
     assert_predicate testpath/"001.py", :exist?
   end
 end
