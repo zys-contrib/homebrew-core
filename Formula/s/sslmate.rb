@@ -2,7 +2,6 @@ require "language/perl"
 
 class Sslmate < Formula
   include Language::Perl::Shebang
-  include Language::Python::Virtualenv
 
   desc "Buy SSL certs from the command-line"
   homepage "https://sslmate.com"
@@ -27,8 +26,6 @@ class Sslmate < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "68e7576fa7b3fbc78c7303c4778f8c41e1ecf3313bc39783edb281aa271e2d72"
   end
 
-  depends_on "python@3.12"
-
   uses_from_macos "perl"
 
   on_linux do
@@ -43,20 +40,10 @@ class Sslmate < Formula
     end
   end
 
-  resource "boto3" do
-    url "https://files.pythonhosted.org/packages/d7/1e/919989cd5ffc34ac7bc1107cca3eb1a9e03bbe05232c5ae61f923ecb689e/boto3-1.29.6.tar.gz"
-    sha256 "d1d0d979a70bf9b0b13ae3b017f8523708ad953f62d16f39a602d67ee9b25554"
-  end
-
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"vendor/lib/perl5"
 
-    venv = virtualenv_create(libexec, "python3.12")
-    venv.pip_install resource("boto3")
-
     resources.each do |r|
-      next if r.name == "boto3"
-
       r.stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}/vendor"
         system "make"
@@ -67,19 +54,16 @@ class Sslmate < Formula
     system "make", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"
 
-    env = { PERL5LIB: ENV["PERL5LIB"] }
-    env[:PYTHONPATH] = ENV["PYTHONPATH"]
-    bin.env_script_all_files(libexec/"bin", env)
-
+    bin.env_script_all_files libexec/"bin", PERL5LIB: ENV["PERL5LIB"]
     rewrite_shebang detected_perl_shebang, libexec/"bin/sslmate"
   end
 
   test do
-    system "#{bin}/sslmate", "req", "www.example.com"
+    system bin/"sslmate", "req", "www.example.com"
     # Make sure well-formed files were generated:
     system "openssl", "rsa", "-in", "www.example.com.key", "-noout"
     system "openssl", "req", "-in", "www.example.com.csr", "-noout"
     # The version command tests the HTTP client:
-    system "#{bin}/sslmate", "version"
+    system bin/"sslmate", "version"
   end
 end
