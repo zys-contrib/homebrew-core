@@ -2612,6 +2612,7 @@ uni
 uni-algo
 uni2ascii
 unison
+unisonlang
 universal-ctags
 uriparser
 urlscan
