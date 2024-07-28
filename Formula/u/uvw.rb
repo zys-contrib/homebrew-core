@@ -6,6 +6,16 @@ class Uvw < Formula
   sha256 "c16600573871a5feeb524234b378ab832c8971b2a68d030c6bd0e3077d416ade"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bd6b702c8f2b647f207611e843ec0d36731982a20b61759e9aae7465f5e8cb8f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d9cdb35b83cb69c02172ba1e43007e5d605d3fb4c3b3af40ebf24e34cd7dcba1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5dfb062fab38ca015d435f5f324208a67a9414e2a823541eba2c720fb884af6a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6e9929a431e28be34456a3c4eeffa04c4b045a98e416acc4727423d54a2c6815"
+    sha256 cellar: :any_skip_relocation, ventura:        "d4a069f5c1bbb5d81410483e2a1989498acd3788827abb2ee38d30f590f5b65e"
+    sha256 cellar: :any_skip_relocation, monterey:       "8bc362bc8cb3cf30ea27a8d4f4f9b5cd44b8290b45b440f6b6da97a6b22a7284"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1df5b81661883a5eb47d2156a1def7b605a78d8270c255e8c367b347d8b06ceb"
+  end
+
   depends_on "cmake" => [:build, :test]
   depends_on "pkg-config" => :test
   depends_on "libuv"
