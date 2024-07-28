@@ -1,9 +1,20 @@
 class Cracklib < Formula
   desc "LibCrack password checking library"
   homepage "https://github.com/cracklib/cracklib"
-  url "https://github.com/cracklib/cracklib/releases/download/v2.9.11/cracklib-2.9.11.tar.bz2"
-  sha256 "ca8b049a3c2d3b2225a1e8d15d613798ebc748e3950388eda2694de507ba6020"
   license "LGPL-2.1-only"
+  head "https://github.com/cracklib/cracklib.git", branch: "main"
+
+  stable do
+    url "https://github.com/cracklib/cracklib/releases/download/v2.10.1/cracklib-2.10.1.tar.bz2"
+    sha256 "102ffe74865152a7ce03b5122135ac896b06cfb06684983abe3179e468787a51"
+
+    # Fix missing endian-related functions when building on macOS (from https://github.com/cracklib/cracklib/pull/97)
+    # Changes included upstream, remove on 2.10.2 or newer
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/3bd3ae1a12ffc359a7250dc4d7aeda0029f792e5/cracklib/2.10.1-endian.patch"
+      sha256 "965c6ec5d9119c56cf2e07af8a67fb4e2e4dafc577c1a4933976e18bb81e94b8"
+    end
+  end
 
   livecheck do
     url :stable
@@ -22,20 +33,29 @@ class Cracklib < Formula
     sha256 x86_64_linux:   "c0c98e94bf0217fd21363d1543d51c13a86c83c56039e2f7ce128b30bbaed5a2"
   end
 
+  # Patch touches Makefile.am, autotools is needed to run autoreconf before build
+  # At 2.10.2 or newer, autotools is only needed for HEAD builds
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
   depends_on "gettext"
 
+  uses_from_macos "zlib"
+
   resource "cracklib-words" do
-    url "https://github.com/cracklib/cracklib/releases/download/v2.9.11/cracklib-words-2.9.11.bz2"
+    url "https://github.com/cracklib/cracklib/releases/download/v2.10.1/cracklib-words-2.10.1.bz2"
     sha256 "ec25ac4a474588c58d901715512d8902b276542b27b8dd197e9c2ad373739ec4"
   end
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
-
   def install
+    # At 2.10.2 or newer, all source code (including autotools files) are in src subdirectory
+    # (replace with a `cd do` block when possible)
+    Dir.chdir "src" if build.head?
+
+    # At 2.10.2 or newer, autoreconf is only needed for HEAD builds
+    system "autoreconf", "--force", "--install", "--verbose"
+
     system "./configure", *std_configure_args,
                           "--disable-silent-rules",
                           "--sbindir=#{bin}",
@@ -48,11 +68,11 @@ class Cracklib < Formula
 
   def post_install
     (var/"cracklib").mkpath
-    cp share/"cracklib-words-#{version}", var/"cracklib/cracklib-words"
+    cp share/"cracklib-words-#{resource("cracklib-words").version}", var/"cracklib/cracklib-words"
     system "#{bin}/cracklib-packer < #{var}/cracklib/cracklib-words"
   end
 
   test do
-    assert_match "password: it is based on a dictionary word", pipe_output("#{bin}/cracklib-check", "password", 0)
+    assert_match "password: it is based on a dictionary word", pipe_output(bin/"cracklib-check", "password", 0)
   end
 end
