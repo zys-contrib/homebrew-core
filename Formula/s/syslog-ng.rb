@@ -6,6 +6,8 @@ class SyslogNg < Formula
   url "https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-4.8.0/syslog-ng-4.8.0.tar.gz"
   sha256 "f2035546af5fcc0c03a8d03f5f0e929ce19131a428d611c982a5fea608a5d9d6"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
+  revision 1
+  head "https://github.com/syslog-ng/syslog-ng.git", branch: "master"
 
   bottle do
     sha256 arm64_sonoma:   "c12c97cb63cc78dd24bd11184b3a603d315c57c9768661762b0121ff85f382f1"
@@ -41,6 +43,10 @@ class SyslogNg < Formula
 
   uses_from_macos "curl"
 
+  on_macos do
+    depends_on "gettext"
+  end
+
   def install
     # In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/c++/v1/compare:157:
     # ./version:1:1: error: expected unqualified-id
@@ -48,9 +54,13 @@ class SyslogNg < Formula
     ENV["VERSION"] = version
 
     python3 = "python3.12"
-    sng_python_ver = Language::Python.major_minor_version python3
+    venv = virtualenv_create(libexec, python3)
+    # FIXME: we should use resource blocks but there is no upstream pip support besides this requirements.txt
+    # https://github.com/syslog-ng/syslog-ng/blob/master/requirements.txt
+    args = std_pip_args(prefix: false, build_isolation: true).reject { |s| s["--no-deps"] }
+    system python3, "-m", "pip", "--python=#{venv.root}/bin/python",
+                          "install", *args, "--requirement=#{buildpath}/requirements.txt"
 
-    venv_path = libexec/"python-venv"
     system "./configure", *std_configure_args,
                           "CXXFLAGS=-std=c++17",
                           "--disable-silent-rules",
@@ -58,25 +68,18 @@ class SyslogNg < Formula
                           "--sysconfdir=#{pkgetc}",
                           "--localstatedir=#{var}/#{name}",
                           "--with-ivykis=system",
-                          "--with-python=#{sng_python_ver}",
-                          "--with-python-venv-dir=#{venv_path}",
+                          "--with-python=#{Language::Python.major_minor_version python3}",
+                          "--with-python-venv-dir=#{venv.root}",
                           "--disable-example-modules",
                           "--disable-java",
                           "--disable-java-modules",
-                          "--disable-smtp",
-                          # enable this after v4.8.0 is released: https://github.com/syslog-ng/syslog-ng/pull/4924
-                          "--disable-grpc"
+                          "--disable-smtp"
     system "make", "install"
-
-    requirements = lib/"syslog-ng/python/requirements.txt"
-    venv = virtualenv_create(venv_path, python3)
-    venv.pip_install requirements.read.gsub(/#.*$/, "")
-    cp requirements, venv_path
   end
 
   test do
-    assert_equal "syslog-ng #{version.major} (#{version})",
-                 shell_output("#{sbin}/syslog-ng --version").lines.first.chomp
-    system "#{sbin}/syslog-ng", "--cfgfile=#{pkgetc}/syslog-ng.conf", "--syntax-only"
+    output = shell_output("#{sbin}/syslog-ng --version")
+    assert_equal "syslog-ng #{version.major} (#{version})", output.lines.first.chomp
+    system sbin/"syslog-ng", "--cfgfile=#{pkgetc}/syslog-ng.conf", "--syntax-only"
   end
 end
