@@ -1,10 +1,23 @@
 class Hashlink < Formula
   desc "Virtual machine for Haxe"
   homepage "https://hashlink.haxe.org/"
-  url "https://github.com/HaxeFoundation/hashlink/archive/refs/tags/1.14.tar.gz"
-  sha256 "7def473c8fa620011c7359dc36524246c83d0b6a25d495d421750ecb7182cc99"
   license "MIT"
   head "https://github.com/HaxeFoundation/hashlink.git", branch: "master"
+
+  stable do
+    url "https://github.com/HaxeFoundation/hashlink/archive/refs/tags/1.14.tar.gz"
+    sha256 "7def473c8fa620011c7359dc36524246c83d0b6a25d495d421750ecb7182cc99"
+
+    # Backport support for mbedtls 3.x
+    patch do
+      url "https://github.com/HaxeFoundation/hashlink/commit/5406694b010f30a244d28626c8fd93fc335adcec.patch?full_index=1"
+      sha256 "4bf2739b2e1177e6ad325829dcd5e4e2b600051549773efbb1b01a53349365a6"
+    end
+    patch do
+      url "https://github.com/HaxeFoundation/hashlink/commit/54e97e34f29e80bcdccdb69af8ccd02bd7c0bc3a.patch?full_index=1"
+      sha256 "d5c1cd0a1aed504b01eee275459cc54d219092265f71f505a5491cced6e0061b"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 sonoma:       "9bc18cb2e8a82cb99b34a7eaf19eeb8ff4405c3d79483fa23d9ec88b72bff2e3"
@@ -19,11 +32,12 @@ class Hashlink < Formula
   depends_on "libpng"
   depends_on "libuv"
   depends_on "libvorbis"
-  depends_on "mbedtls@2"
+  depends_on "mbedtls"
   depends_on "openal-soft"
   depends_on "sdl2"
 
   uses_from_macos "sqlite"
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "mesa"
