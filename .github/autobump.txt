@@ -1677,6 +1677,7 @@ mongodb-atlas-cli
 mongoose
 monika
 monit
+monitoring-plugins
 monolith
 moon
 morpheus
