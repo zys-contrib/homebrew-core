@@ -16,14 +16,14 @@ class Sslmate < Formula
   end
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bb39df31804e5f153a76080268c3c8752742e5c4a76f00dea551a05aca24d5d4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "659740379424a373de6480d44ef56bce23499dcf2aaf3081582fbde5e92e9fd5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6db9446504bcecebd1e1505f86a29c87c99c4ce6e63710aa855453e5a6a66a1a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f35883d50f0c3c8a5a8f2827efff697d20355b61d12c4e6dfda2e5ca07619972"
-    sha256 cellar: :any_skip_relocation, ventura:        "432bb73e85b906bb964a52b0a28847c909aec0477e6efdbf63c2beaae9283d60"
-    sha256 cellar: :any_skip_relocation, monterey:       "0addd0ca9e4abbedda048348471b912aee0e03291267a2adfa3054cb37ab5d61"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "68e7576fa7b3fbc78c7303c4778f8c41e1ecf3313bc39783edb281aa271e2d72"
+    rebuild 5
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c52eea8ffcdd759de0bb3cb1d6cd8d540b7b7923e13c1fec0a41c8bddb1f6f1f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c52eea8ffcdd759de0bb3cb1d6cd8d540b7b7923e13c1fec0a41c8bddb1f6f1f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c52eea8ffcdd759de0bb3cb1d6cd8d540b7b7923e13c1fec0a41c8bddb1f6f1f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1099c1cd94fa37d7eba861e8b1ef68b3bdf13f6d5750c6d15e82736e7333109c"
+    sha256 cellar: :any_skip_relocation, ventura:        "1099c1cd94fa37d7eba861e8b1ef68b3bdf13f6d5750c6d15e82736e7333109c"
+    sha256 cellar: :any_skip_relocation, monterey:       "1099c1cd94fa37d7eba861e8b1ef68b3bdf13f6d5750c6d15e82736e7333109c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4ec200b4bec7150dba1b0d590dabee471de7683ccf7281e9612ca549a8edd7c"
   end
 
   uses_from_macos "perl"
