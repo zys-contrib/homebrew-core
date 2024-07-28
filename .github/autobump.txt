@@ -1472,6 +1472,7 @@ libstrophe
 libsvm
 libtensorflow
 libtiff
+libtirpc
 libtommath
 libtrace
 libtrng
