@@ -3,10 +3,9 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "https://pre-commit.com/"
-  url "https://files.pythonhosted.org/packages/aa/46/cc214ef6514270328910083d0119d0a80a6d2c4ec8c6608c0219db0b74cf/pre_commit-3.7.1.tar.gz"
-  sha256 "8ca3ad567bc78a4972a3f1a477e94a79d4597e8140a6e0b651c5e33899c3654a"
+  url "https://files.pythonhosted.org/packages/64/10/97ee2fa54dff1e9da9badbc5e35d0bbaef0776271ea5907eccf64140f72f/pre_commit-3.8.0.tar.gz"
+  sha256 "8bb6494d4a20423842e198980c9ecf9f96607a07ea29549e180eef9ae80fe7af"
   license "MIT"
-  revision 1
   head "https://github.com/pre-commit/pre-commit.git", branch: "main"
 
   bottle do
