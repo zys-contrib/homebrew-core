@@ -23,7 +23,7 @@ class ParquetCli < Formula
     cd "parquet-cli" do
       system "mvn", "clean", "package", "-DskipTests=true"
       system "mvn", "dependency:copy-dependencies"
-      libexec.install "target/parquet-cli-#{version}-runtime.jar"
+      libexec.install "target/parquet-cli-#{version}.jar"
       libexec.install Dir["target/dependency/*"]
       (bin/"parquet").write <<~EOS
         #!/bin/sh
