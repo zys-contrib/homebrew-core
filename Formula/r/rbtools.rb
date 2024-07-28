@@ -32,8 +32,8 @@ class Rbtools < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/a0/fc/c4e6078d21fc4fa56300a241b87eae76766aa380a23fc450fc85bb7bf547/importlib_metadata-7.1.0.tar.gz"
-    sha256 "b78938b926ee8d5f020fc4772d487045805a55ddbad2ecf21c6d60938dc7fcd2"
+    url "https://files.pythonhosted.org/packages/f6/a1/db39a513aa99ab3442010a994eef1cb977a436aded53042e69bee6959f74/importlib_metadata-8.2.0.tar.gz"
+    sha256 "72e8d4399996132204f9a16dcc751af254a48f8d1b20b9ff0f98d4a8f901e73d"
   end
 
   resource "importlib-resources" do
@@ -42,15 +42,15 @@ class Rbtools < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
-    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
+    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
+    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
   end
 
   resource "pydiffx" do
     url "https://files.pythonhosted.org/packages/d3/76/ad0677d82b7c75deb4da63151d463a9f90e97f3817b83f4e3f74034eb384/pydiffx-1.1.tar.gz"
     sha256 "0986dbb0a87cbf79e244e2f1c0e2b696d8e86b3861ea2955757a61d38e139228"
 
-    # upstream patch ref, https://github.com/beanbaginc/diffx/pull/2
+    # Workaround needing six pre-installed: https://github.com/beanbaginc/diffx/pull/2
     patch :DATA
   end
 
@@ -70,8 +70,8 @@ class Rbtools < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/e8/fb/4217a963512b9646274fe4ce0aebc8ebff09bbb86c458c6163846bb65d9d/typing_extensions-4.12.1.tar.gz"
-    sha256 "915f5e35ff76f56588223f15fdd5938f9a1cf9195c0de25130c627e4d597f6d1"
+    url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
+    sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
   end
 
   resource "zipp" do
@@ -80,9 +80,7 @@ class Rbtools < Formula
   end
 
   def install
-    # Work around pydiffx needing six pre-installed
-    # Upstream PR: https://github.com/beanbaginc/diffx/pull/2
-    virtualenv_install_with_resources end_with: "pydiffx"
+    virtualenv_install_with_resources
 
     bash_completion.install "rbtools/commands/conf/completions/bash" => "rbt"
     zsh_completion.install "rbtools/commands/conf/completions/zsh" => "_rbt"
@@ -90,7 +88,7 @@ class Rbtools < Formula
 
   test do
     system "git", "init"
-    system "#{bin}/rbt", "setup-repo", "--server", "https://demo.reviewboard.org"
+    system bin/"rbt", "setup-repo", "--server", "https://demo.reviewboard.org"
     out = shell_output("#{bin}/rbt clear-cache")
     assert_match "Cleared cache in", out
   end
@@ -98,42 +96,23 @@ end
 
 __END__
 diff --git a/setup.py b/setup.py
-index ed91128..860ef81 100755
+index ed91128..87edbc2 100755
 --- a/setup.py
 +++ b/setup.py
-@@ -8,10 +8,9 @@ import sys
-
+@@ -8,7 +8,6 @@ import sys
+ 
  from setuptools import setup, find_packages
-
+ 
 -from pydiffx import get_package_version
--
-
+ 
+ 
  PACKAGE_NAME = 'pydiffx'
-+version = '1.1'
-
- # NOTE: When updating, make sure you update the classifiers below.
- SUPPORTED_PYVERS = ['2.7', '3.6', '3.7', '3.8', '3.9', '3.10', '3.11']
 @@ -36,7 +35,7 @@ with open('README.rst', 'r') as fp:
-
-
+ 
+ 
  setup(name=PACKAGE_NAME,
 -      version=get_package_version(),
-+      version=version,
++      version='1.1',
        license='MIT',
        description='Python module for reading and writing DiffX files.',
        long_description=long_description,
-@@ -48,7 +47,14 @@ setup(name=PACKAGE_NAME,
-       maintainer_email='christian@beanbaginc.com',
-       install_requires=[
-           'six',
-+          'pygments',
-       ],
-+      extras_require={
-+          'test': [
-+              'pytest',
-+              'kgb ~= 7.1.1'
-+          ]
-+      },
-       entry_points={
-           'pygments.lexers': [
-               'diffx = pydiffx.integrations.pygments_lexer:DiffXLexer',
