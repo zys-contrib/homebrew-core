@@ -11,13 +11,13 @@ class MonitoringPlugins < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "8964ad146aab38fc46b9d3794d94607b038e578f807b12df7335cbe747fea689"
-    sha256 arm64_ventura:  "42ace3f93ed42a299e9e055c44f85c62ccdfe120bef31f1ee272c731f5ef8bb0"
-    sha256 arm64_monterey: "38c990c7c13cc49e958997972fb95207aaf35b0071aefd0a1e02d2a007915a14"
-    sha256 sonoma:         "fda974f1768ad4544c67476ddd08a8107131474a51d860f99cdd8982a1f28b83"
-    sha256 ventura:        "8713781f32bed97eccc5f12040b264f942f3709298bb0bef4abcfad9603e2b74"
-    sha256 monterey:       "b07aa720eb6a8dd39fc0f865cae3403e0a51e0cc559d382fa1a30dd195c50635"
-    sha256 x86_64_linux:   "ab67fd985f70e7756cace887a597f7ea4391a019cf0e29ef2ade27fcd1eecc85"
+    sha256 cellar: :any, arm64_sonoma:   "f8eee9b8e4b8300633bd73e365aa6e2daffcca7a58962ef7f20064b1bb378e12"
+    sha256 cellar: :any, arm64_ventura:  "0a6a841f7d31c47c25418a08bcbe3622e95ec5a9cdc31aef8f95c7630c64f3fd"
+    sha256 cellar: :any, arm64_monterey: "a5d15e7a30db8d11d30973cd12985e6fb62f95fa74c73696d960912f52492e40"
+    sha256 cellar: :any, sonoma:         "8e139e077e10f664e33c4dafa4bc404d6bf47bcf1e82bfa5c1a8daa481a85af3"
+    sha256 cellar: :any, ventura:        "3407ba5eda8acc2806ab7eec27af3f339852b857cf935954fca1c7ab38c75bf0"
+    sha256 cellar: :any, monterey:       "6879fa228c284f01e3688078e66b7a0374012e37147183cfa08c5d9ff1b0e47e"
+    sha256               x86_64_linux:   "27b58371aa6e210a9510c9fd0b64ed2f0923425b336eeda2b5c9eb0fd08509ac"
   end
 
   depends_on "openssl@3"
