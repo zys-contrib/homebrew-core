@@ -9,14 +9,14 @@ class Tarsnapper < Formula
   revision 1
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any,                 arm64_sonoma:   "9742393b148810a665b9af397ecb3084d84e83d5653ed1e76e955f8b9f897652"
-    sha256 cellar: :any,                 arm64_ventura:  "55097042c81e1a943970310f57c471ad3b8dd174665d9587d459dcd761a64b5b"
-    sha256 cellar: :any,                 arm64_monterey: "c37b0bca9437389af8569f18724d3510612a528c9a443e21b4ccfeafe319487c"
-    sha256 cellar: :any,                 sonoma:         "d1f61623dcc854af71e22d44f1efeec81d6c9a42c050eed02d5fa52f09d30982"
-    sha256 cellar: :any,                 ventura:        "bd26e2b4728637414f25ccce75e0a000ce7d4788070157370280ca8fef89487c"
-    sha256 cellar: :any,                 monterey:       "b6bf153731a8f5a0242c3b69ab84f32579e8a905522a1e3abcaf38d121ebfeae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca4f4379c2c1309b50cdfaebb62082088a9af18a5a3353267d975413fe688b0f"
+    rebuild 6
+    sha256 cellar: :any,                 arm64_sonoma:   "7922f887ef1f2c23b843435951889a33145c859b8056eda662eec00d04d8b5d3"
+    sha256 cellar: :any,                 arm64_ventura:  "769ab15671e835ba1756c30c3ea76032a5c52ba1927bf9fdde439e7082075d61"
+    sha256 cellar: :any,                 arm64_monterey: "1b66153ebd94f85ee560cdf236a8d26ecef1e620a8efd98ca63281a141a5ee15"
+    sha256 cellar: :any,                 sonoma:         "b8e11ff3fa7bf119727cea4cdcc6ebf2ba981f8997c99b2d270f2ebd611c248d"
+    sha256 cellar: :any,                 ventura:        "62e6e995e43df7c081980a7c31023c159433abb3e986a97e401f93f6756c884d"
+    sha256 cellar: :any,                 monterey:       "daca75dc6b4cf283f8e435fdcea2370928a329ec75d12fd6cf9b0777e3ad927e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "122789a1d359511eef13ffcb1b0c377659e9dc601c194fab1efbdefa20a6fa90"
   end
 
   depends_on "libyaml"
