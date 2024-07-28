@@ -1,10 +1,9 @@
 class MscGenerator < Formula
   desc "Draws signalling charts from textual description"
   homepage "https://gitlab.com/msc-generator/msc-generator"
-  url "https://gitlab.com/api/v4/projects/31167732/packages/generic/msc-generator/8.5/msc-generator-8.5.tar.gz"
-  sha256 "134da30f58458a5ddda0cf6c7a43872636dfc6cae1b8e8a02efe28a0cc9f35d3"
+  url "https://gitlab.com/api/v4/projects/31167732/packages/generic/msc-generator/8.6.2/msc-generator-8.6.2.tar.gz"
+  sha256 "7d565cf5ff39e2ecb04d29daec0eaf674278f6d0a1cb507eed580fe8bc8a0893"
   license "AGPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url "https://gitlab.com/api/v4/projects/31167732/packages"
@@ -33,8 +32,11 @@ class MscGenerator < Formula
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
+  depends_on "fontconfig"
+  depends_on "gcc"
   depends_on "glpk"
   depends_on "graphviz"
+  depends_on "libpng"
   depends_on "sdl2"
   depends_on "tinyxml2"
 
@@ -42,7 +44,6 @@ class MscGenerator < Formula
     # Some upstream sed discussions in https://gitlab.com/msc-generator/msc-generator/-/issues/92
     depends_on "gnu-sed" => :build
     depends_on "make" => :build # needs make 4.3+
-    depends_on "gcc"
   end
 
   on_linux do
@@ -52,11 +53,16 @@ class MscGenerator < Formula
   fails_with :clang # needs std::range
 
   fails_with :gcc do
-    version "9"
-    cause "needs std::range"
+    version "12"
+    cause "needs std::range::contains"
   end
 
   def install
+    # Issue ref: https://gitlab.com/msc-generator/msc-generator/-/issues/96
+    odie "Check if workarounds for newer GraphViz can be removed!" if version > "8.6.2"
+    ENV.append_to_cflags "-DGRAPHVIZ_VER=#{Formula["graphviz"].version.major}00 -DTRUE=1"
+    inreplace "src/libgvgen/gvgraphs.cpp", "std::max((float)0, std::min((float)1,", "std::max(0.0, std::min(1.0,"
+
     args = %w[--disable-font-checks --disable-silent-rules]
     make = "make"
 
