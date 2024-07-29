@@ -2,8 +2,8 @@ class Koka < Formula
   desc "Compiler for the Koka language"
   homepage "http://koka-lang.org"
   url "https://github.com/koka-lang/koka.git",
-    tag:      "v2.4.2",
-    revision: "0649baaa2a4509c0a5adb743b6f2b5f1ef32a5a9"
+      tag:      "v3.1.2",
+      revision: "3c4e721dd48d48b409a3740b42fc459bf6d7828e"
   license "Apache-2.0"
   head "https://github.com/koka-lang/koka.git", branch: "master"
 
@@ -24,16 +24,25 @@ class Koka < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "139adefa77ae0b43b1d48161695cc7633c627c524f7a7794e8fc3d17f421f249"
   end
 
-  depends_on "cabal-install" => :build
-  depends_on "ghc@9.4" => :build
+  depends_on "ghc@9.6" => :build
+  depends_on "haskell-stack" => :build
   depends_on "pcre2" => :build
 
   def install
-    system "cabal", "update"
-    system "cabal", "build", "-j"
-    system "cabal", "run", "koka", "--",
+    inreplace "src/Compile/Options.hs" do |s|
+      s.gsub! '["/usr/local/lib"', "[\"#{HOMEBREW_PREFIX}/lib\""
+      s.gsub! '"-march=haswell"', "\"-march=#{ENV.effective_arch}\"" if Hardware::CPU.intel? && build.bottle?
+    end
+
+    stack_args = %w[
+      --system-ghc
+      --no-install-ghc
+      --skip-ghc-check
+    ]
+    system "stack", "build", *stack_args
+    system "stack", "exec", "koka", *stack_args, "--",
            "-e", "util/bundle.kk", "--",
-           "--prefix=#{prefix}", "--install"
+           "--prefix=#{prefix}", "--install", "--system-ghc"
   end
 
   test do
