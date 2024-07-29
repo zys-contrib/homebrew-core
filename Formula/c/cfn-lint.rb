@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-lint/"
-  url "https://files.pythonhosted.org/packages/66/e9/5c41c08a3a950eff9c634bf27c2903e63848302a3099fcce573d6654ee56/cfn_lint-1.8.2.tar.gz"
-  sha256 "8c3f8a6946d7829c4e4858bb646c15b0b20c8290c2200c69d9e008b5e5bcadaf"
+  url "https://files.pythonhosted.org/packages/04/6b/e0f4e86b2a6364a4db9092618a0fab0bc4151b15df0fc5d63a8df0ee1553/cfn_lint-1.9.0.tar.gz"
+  sha256 "103d4964e37af6e3c1a0c625a649f42f1784fc35ca77b4b15e4c90fe77373de7"
   license "MIT-0"
 
   livecheck do
@@ -42,13 +42,13 @@ class CfnLint < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/c6/ce/be379d702f4cd84d5fc4fa7eec314ca59fa102de9641541d7b805f30eea9/boto3-1.34.145.tar.gz"
-    sha256 "ac770fb53dde1743aec56bd8e56b7ee2e2f5ad42a37825968ec4ff8428822640"
+    url "https://files.pythonhosted.org/packages/96/40/c8d85f14e0aea7b80859595fadad5ad80f6662ac78f150d844c4e25fe90b/boto3-1.34.149.tar.gz"
+    sha256 "f4e6489ba9dc7fb37d53e0e82dbc97f2cb0a4969ef3970e2c88b8f94023ae81a"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/c5/1c/cb3d89036535de3e88ec28f0bbd8ef2b4ded45017b7cad7e3f428d52736e/botocore-1.34.145.tar.gz"
-    sha256 "edf0fb4c02186ae29b76263ac5fda18b0a085d334a310551c9984407cf1079e6"
+    url "https://files.pythonhosted.org/packages/33/cb/acc65294eb572c83cec1d25cc637fb82745a7b40e69680a09855ee397b49/botocore-1.34.149.tar.gz"
+    sha256 "2e1eb5ef40102a3d796bb3dd05f2ac5e8fb43fe1ff114b4f6d33153437f5a372"
   end
 
   resource "jmespath" do
@@ -112,13 +112,13 @@ class CfnLint < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/7a/db/5ddc89851e9cc003929c3b08b9b88b429459bf9acbf307b4556d51d9e49b/regex-2024.5.15.tar.gz"
-    sha256 "d3ee02d9e5f482cc8309134a91eeaacbdd2261ba111b0fef3748eeb4913e6a2c"
+    url "https://files.pythonhosted.org/packages/3f/51/64256d0dc72816a4fe3779449627c69ec8fee5a5625fd60ba048f53b3478/regex-2024.7.24.tar.gz"
+    sha256 "9cfd009eed1a46b27c14039ad5bbc5e71b6367c5b2e6d5f5da0ea91600817506"
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/36/a2/83c3e2024cefb9a83d832e8835f9db0737a7a2b04ddfdd241c650b703db0/rpds_py-0.19.0.tar.gz"
-    sha256 "4fdc9afadbeb393b4bbbad75481e0ea78e4469f2e1d713a90811700830b553a9"
+    url "https://files.pythonhosted.org/packages/2f/fe/5217efe981c2ae8647b503ba3b8f55efc837df62f63667572b4bb75b30bc/rpds_py-0.19.1.tar.gz"
+    sha256 "31dd5794837f00b46f4096aa8ccaa5972f73a938982e32ed817bb520c465e520"
   end
 
   resource "s3transfer" do
