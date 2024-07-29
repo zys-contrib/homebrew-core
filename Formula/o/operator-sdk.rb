@@ -2,8 +2,8 @@ class OperatorSdk < Formula
   desc "SDK for building Kubernetes applications"
   homepage "https://sdk.operatorframework.io/"
   url "https://github.com/operator-framework/operator-sdk.git",
-      tag:      "v1.35.0",
-      revision: "e95abdbd5ccb7ca0fd586e0c6f578e491b0a025b"
+      tag:      "v1.36.0",
+      revision: "72167bf0fab99c2b533cf20f8d1c405616f15cf1"
   license "Apache-2.0"
   head "https://github.com/operator-framework/operator-sdk.git", branch: "master"
 
@@ -22,8 +22,7 @@ class OperatorSdk < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8102410241e3ef5ff368f5da37cf2f1a200ff891cf2ba060bf54b49c0571e68c"
   end
 
-  # use "go" again when https://github.com/operator-framework/operator-sdk/issues/6644 is resolved and released
-  depends_on "go@1.21"
+  depends_on "go"
 
   def install
     ENV["GOBIN"] = bin
@@ -33,21 +32,16 @@ class OperatorSdk < Formula
   end
 
   test do
-    ENV.prepend_path "PATH", Formula["go@1.21"].bin
-
     if build.stable?
-      version_output = shell_output("#{bin}/operator-sdk version")
-      assert_match "version: \"v#{version}\"", version_output
-      commit_regex = /[a-f0-9]{40}/
-      assert_match commit_regex, version_output
+      output = shell_output("#{bin}/operator-sdk version")
+      assert_match "version: \"v#{version}\"", output
+      assert_match stable.specs[:revision], output
     end
 
-    mkdir "test" do
-      output = shell_output("#{bin}/operator-sdk init --domain=example.com --repo=github.com/example/memcached")
-      assert_match "$ operator-sdk create api", output
+    output = shell_output("#{bin}/operator-sdk init --domain=example.com --repo=github.com/example/memcached")
+    assert_match "$ operator-sdk create api", output
 
-      output = shell_output("#{bin}/operator-sdk create api --group c --version v1 --kind M --resource --controller")
-      assert_match "$ make manifests", output
-    end
+    output = shell_output("#{bin}/operator-sdk create api --group c --version v1 --kind M --resource --controller")
+    assert_match "$ make manifests", output
   end
 end
