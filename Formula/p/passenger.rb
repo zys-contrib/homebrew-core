@@ -1,10 +1,9 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://github.com/phusion/passenger/releases/download/release-6.0.22/passenger-6.0.22.tar.gz"
-  sha256 "1fc2a89196fc83469b10fea1ac7b57002fb9bf2552d70f03b780c92d7d9ed044"
+  url "https://github.com/phusion/passenger/releases/download/release-6.0.23/passenger-6.0.23.tar.gz"
+  sha256 "897555224fb11340677780d929b5099da62303b1ae15f2e7c65cd3f6d3e7920c"
   license "MIT"
-  revision 1
   head "https://github.com/phusion/passenger.git", branch: "stable-6.0"
 
   bottle do
@@ -30,13 +29,6 @@ class Passenger < Formula
   uses_from_macos "libxcrypt"
   uses_from_macos "ruby", since: :catalina
   uses_from_macos "zlib"
-
-  # Fix upstream_config.limit_rate initialization for Nginx 1.27.0 compatibility
-  # upstream pr ref, https://github.com/phusion/passenger/pull/2548
-  patch do
-    url "https://github.com/phusion/passenger/commit/4038e18f8f9231f6edc58f444aae1f282db4aa9b.patch?full_index=1"
-    sha256 "8a8cb3232506090279bfe23d37fdd6f5ad265f94bd64f60a9d6f3428afe73724"
-  end
 
   def install
     if OS.mac? && MacOS.version >= :mojave && MacOS::CLT.installed?
