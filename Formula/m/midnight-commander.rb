@@ -31,32 +31,38 @@ class MidnightCommander < Formula
   end
 
   depends_on "pkg-config" => :build
+
   depends_on "glib"
   depends_on "libssh2"
   depends_on "openssl@3"
   depends_on "s-lang"
 
+  on_macos do
+    depends_on "diffutils"
+    depends_on "gettext"
+  end
+
   conflicts_with "minio-mc", because: "both install an `mc` binary"
 
   def install
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
+    args = %w[
       --disable-silent-rules
-      --prefix=#{prefix}
       --without-x
       --with-screen=slang
       --enable-vfs-sftp
     ]
 
     system "./autogen.sh" if build.head?
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
 
-    inreplace share/"mc/syntax/Syntax", Superenv.shims_path, "/usr/bin" if OS.mac?
+    if OS.mac?
+      inreplace share/"mc/syntax/Syntax", Superenv.shims_path, "/usr/bin"
+      bin.env_script_all_files(libexec/"bin", PATH: "#{Formula["diffutils"].opt_bin}:$PATH")
+    end
   end
 
   test do
-    assert_match "GNU Midnight Commander", shell_output("#{bin}/mc --version")
+    assert_match version.to_s, shell_output("#{bin}/mc --version")
   end
 end
