@@ -1,10 +1,44 @@
 class Cherrytree < Formula
   desc "Hierarchical note taking application featuring rich text and syntax highlighting"
   homepage "https://www.giuspen.com/cherrytree/"
-  url "https://www.giuspen.com/software/cherrytree_1.1.4.tar.xz"
-  sha256 "46cb974efe050584c2ec7bcc36eb6bb52b1360288c9da1b00746762e3bc823d8"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/giuspen/cherrytree.git", branch: "master"
+
+  stable do
+    url "https://www.giuspen.com/software/cherrytree_1.1.4.tar.xz"
+    sha256 "46cb974efe050584c2ec7bcc36eb6bb52b1360288c9da1b00746762e3bc823d8"
+
+    # fmt 11 compatibility
+    patch do
+      url "https://github.com/giuspen/cherrytree/commit/ccc2d101f24a409efddb2f29e8c14002c9836a85.patch?full_index=1"
+      sha256 "6f1ee0baf40f536aae4820fcb4d51f108ed21e4168f5164e69fe190416366a36"
+    end
+
+    # fmt 11 compatibility
+    patch do
+      url "https://github.com/giuspen/cherrytree/commit/76f0030e2e2b6e1488148d3828baeb8f5911eb8d.patch?full_index=1"
+      sha256 "6def501a9c094a989d5ee9cd79bda730476f4669cdcda6b03fdda096ecdf62c7"
+    end
+
+    # fmt 11 compatibility
+    patch do
+      url "https://github.com/giuspen/cherrytree/commit/22142f3b44fef81e67c9bfbcdaed2f80ab2ff5de.patch?full_index=1"
+      sha256 "48f08ad7a6ef1b63656cb1a8eb5621c586f926c84bdc5178b8da566c7ca534c9"
+    end
+
+    # fmt 11 compatibility
+    patch do
+      url "https://github.com/giuspen/cherrytree/commit/05233db2b25977037c7520a8316183636a262130.patch?full_index=1"
+      sha256 "53b6dbcd7b7c07bb222cad3e02567ee0978815689beb9c32f007000f0a3412b4"
+    end
+
+    # fmt 11 compatibility
+    patch do
+      url "https://github.com/giuspen/cherrytree/commit/fc1d7499067b9db9841175b5a2d6934dc65e4522.patch?full_index=1"
+      sha256 "9b8c09e1fa82bf646fe9bd884223bb1ba4b94171a9077bb8d6af9bdc2e99b810"
+    end
+  end
 
   livecheck do
     url :homepage
