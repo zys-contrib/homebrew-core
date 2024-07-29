@@ -1,8 +1,8 @@
 class Presenterm < Formula
   desc "Terminal slideshow tool"
   homepage "https://github.com/mfontanini/presenterm"
-  url "https://github.com/mfontanini/presenterm/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "6a1fcaef8ba7039f4d907083ea42c9b9a100ed2f4d0fb300a11c6f04e17540da"
+  url "https://github.com/mfontanini/presenterm/archive/refs/tags/v0.8.0.tar.gz"
+  sha256 "6462153e549124a70660eba2a47072f261dbca381639d929d1b49d1c08692b60"
   license "BSD-2-Clause"
   head "https://github.com/mfontanini/presenterm.git", branch: "master"
 
