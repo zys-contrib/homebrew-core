@@ -20,10 +20,11 @@ class Hashlink < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 sonoma:       "9bc18cb2e8a82cb99b34a7eaf19eeb8ff4405c3d79483fa23d9ec88b72bff2e3"
-    sha256 cellar: :any,                 ventura:      "be5138e19ca169d89599973b99cab4cd328c3a6705e31eb9c297d8a3198ef275"
-    sha256 cellar: :any,                 monterey:     "60a333d41591f12ff610ccb1940280c76a4878455ee0a826dedd0e480f956cb3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "71c452f956c884f225622ebd0374eca54105c21284e704e024b6b86afb673dfa"
+    rebuild 1
+    sha256 cellar: :any,                 sonoma:       "634e38f8a64155e16ddb999eab19427709d6fe291196bedf29031a1b968323d9"
+    sha256 cellar: :any,                 ventura:      "77e7de64a612b4361d83d1aa7a1330922b79af11e6d601effc93a80c09f41a2a"
+    sha256 cellar: :any,                 monterey:     "d1c623f5da8cdd74858a29225dd640ea49e004bc3fbf1e079ad79ad9dec87100"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "2b9d5a710e10e612ba4ac82c74bec61354d9606912735e7f6a706298a68fcf75"
   end
 
   depends_on "haxe" => :test
