@@ -4,6 +4,7 @@ class Spdlog < Formula
   url "https://github.com/gabime/spdlog/archive/refs/tags/v1.14.1.tar.gz"
   sha256 "1586508029a7d0670dfcb2d97575dcdc242d3868a259742b69f100801ab4e16b"
   license "MIT"
+  revision 1
   head "https://github.com/gabime/spdlog.git", branch: "v1.x"
 
   bottle do
@@ -34,6 +35,7 @@ class Spdlog < Formula
     args = std_cmake_args + %W[
       -Dpkg_config_libdir=#{lib}
       -DSPDLOG_BUILD_BENCH=OFF
+      -DSPDLOG_BUILD_EXAMPLE=OFF
       -DSPDLOG_BUILD_TESTS=OFF
       -DSPDLOG_FMT_EXTERNAL=ON
     ]
