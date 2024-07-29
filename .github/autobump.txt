@@ -732,6 +732,7 @@ envelope
 envoy
 enzyme
 epic5
+epoll-shim
 epr
 eprover
 erdtree
