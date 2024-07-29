@@ -1,11 +1,26 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://github.com/MusicPlayerDaemon/MPD"
-  url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.23.15.tar.gz"
-  sha256 "d2865d8f8ea79aa509b1465b99a2b8f3f449fe894521c97feadc2dca85a6ecd2"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
+
+  stable do
+    url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.23.15.tar.gz"
+    sha256 "d2865d8f8ea79aa509b1465b99a2b8f3f449fe894521c97feadc2dca85a6ecd2"
+
+    # Compatibility with fmt 11
+    patch do
+      url "https://github.com/MusicPlayerDaemon/MPD/commit/3648475f871c33daa9e598c102a16e5a1a4d4dfc.patch?full_index=1"
+      sha256 "5733f66678b3842c8721c75501f6c25085808efc42881847af11696cc545848e"
+    end
+
+    # Fix missing include
+    patch do
+      url "https://github.com/MusicPlayerDaemon/MPD/commit/e380ae90ebb6325d1820b6f34e10bf3474710899.patch?full_index=1"
+      sha256 "661492a420adc11a3d8ca0c4bf15e771f56e2dcf1fd0042eb6ee4fb3a736bd12"
+    end
+  end
 
   bottle do
     sha256 cellar: :any, arm64_sonoma:   "75aaa76bf8c7ca80c95031dca7edb2f5d2be3be5ca4497f892991af5f46c84e1"
