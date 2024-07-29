@@ -221,6 +221,8 @@
     "exclude_packages": ["certifi"]
   },
   "datalad": {
+    "package_name": "datalad[misc]",
+    "extra_packages": ["jeepney", "secretstorage"],
     "exclude_packages": ["certifi", "cryptography"]
   },
   "datasette": {
