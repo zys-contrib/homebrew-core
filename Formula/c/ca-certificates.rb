@@ -121,7 +121,7 @@ class CaCertificates < Formula
   end
 
   def linux_post_install
-    rm(pkgetc/"cert.pem") if pkgetc/"cert.pem".exist?
+    rm(pkgetc/"cert.pem") if (pkgetc/"cert.pem").exist?
     pkgetc.mkpath
     cp pkgshare/"cacert.pem", pkgetc/"cert.pem"
   end
