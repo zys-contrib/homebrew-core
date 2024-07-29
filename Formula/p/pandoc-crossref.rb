@@ -5,6 +5,7 @@ class PandocCrossref < Formula
   version "0.3.17.1b"
   sha256 "39e81ac089c23aa302ba3925147135df1425c63c5fe497b26f47e3c04789b638"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5ea253a9acc52534c9bfa7f05385b103d8506ecc56c6cd9c7f76b4a2bf7bdaae"
@@ -22,6 +23,12 @@ class PandocCrossref < Formula
 
   uses_from_macos "unzip" => :build
   uses_from_macos "zlib"
+
+  # pandoc 3.3 support patch, upstream pr ref, https://github.com/lierdakil/pandoc-crossref/pull/447
+  patch do
+    url "https://github.com/lierdakil/pandoc-crossref/commit/aecc631ecf871bf37e94e20010d92420d86ac30c.patch?full_index=1"
+    sha256 "3fc40a218eef05e9a7c31a37967d374c114b53060026333a425101fdf41f10dc"
+  end
 
   def install
     rm("cabal.project.freeze")
