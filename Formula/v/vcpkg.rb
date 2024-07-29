@@ -1,9 +1,10 @@
 class Vcpkg < Formula
   desc "C++ Library Manager"
   homepage "https://github.com/microsoft/vcpkg"
-  url "https://github.com/microsoft/vcpkg-tool/archive/refs/tags/2024-03-14.tar.gz"
-  version "2024.03.14"
-  sha256 "2b89635be4832ced505915bf46bbdd09d8a13ffd4c9ae11754929c7d07f1b903"
+  # Newer than what livecheck picks up, but we need it for fmt 11.
+  url "https://github.com/microsoft/vcpkg-tool/archive/refs/tags/2024-08-01.tar.gz"
+  version "2024.08.01"
+  sha256 "cb94fa640676e4577ed39fc763178f4661848b5321207c74b3ea411e45f1a95c"
   license "MIT"
   head "https://github.com/microsoft/vcpkg-tool.git", branch: "main"
 
@@ -48,6 +49,7 @@ class Vcpkg < Formula
                     "-DVCPKG_BASE_VERSION=#{version.to_s.tr(".", "-")}",
                     "-DVCPKG_VERSION=#{version}",
                     "-DVCPKG_DEPENDENCY_EXTERNAL_FMT=ON",
+                    "-DHOMEBREW_ALLOW_FETCHCONTENT=ON", # FIXME: Remove this
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
