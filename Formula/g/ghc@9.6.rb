@@ -16,13 +16,13 @@ class GhcAT96 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "4090536366174048455a6cbc22dfcfde6bd651a4514d1c5db2616dad6fa856b2"
-    sha256 cellar: :any,                 arm64_ventura:  "4cb14f641c0528875106cd2da6467d16bb4a2f235668713ff53e65d59936b334"
-    sha256 cellar: :any,                 arm64_monterey: "4780ec3532aaa127f5af54da4b80852b185403cd3df62d6d862679836228716a"
-    sha256 cellar: :any,                 sonoma:         "217e396300b2f4409280a60cf5cb0f807474ba60cc9fa7f94b2b30ebbdf5a170"
-    sha256 cellar: :any,                 ventura:        "c120f617c6e869bf0f3665445da22c7c2ad5e5b87dc2845411d97519bdb4ba24"
-    sha256 cellar: :any,                 monterey:       "6073bbdf81da5055ec819eeb19fd6c9c3a589755e63db5b2e1d3240ddcb8e9a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c5a089e4157c5f5230050c272606661a902840f66bb8ebbb963548b6ca9e23e3"
+    sha256 cellar: :any,                 arm64_sonoma:   "c743179f1acb1dd0587eb5c81afe4063b597b01e36f33df96ff91578041f4f59"
+    sha256 cellar: :any,                 arm64_ventura:  "ca978842ded4cd067ae9fb240ea6f0265d5f5ddef3f66c53032ef9fa8c6fe628"
+    sha256 cellar: :any,                 arm64_monterey: "c45b5f329a05b78f0e1c37d70808d5026f19f5cb1a9ded56e9d4ef16118f3938"
+    sha256 cellar: :any,                 sonoma:         "96bccb2f76d066ba34caca9fc810230d7354576c8e4f65f2ec0f2ce2b2116004"
+    sha256 cellar: :any,                 ventura:        "f80fbe96a9def21638df7bdfbd10258f049ed7d0df84a256d225c0a856a8f042"
+    sha256 cellar: :any,                 monterey:       "2069497d6c4847352cd1a38afa4e2581384ccb16d6e84692be22cdfb6a7012eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c7dce17539c201eaf653bb1d48fc68209eab4cd6a8f3f816d135abc47577d35"
   end
 
   keg_only :versioned_formula
