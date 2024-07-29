@@ -2,8 +2,8 @@ class KubectlCnpg < Formula
   desc "CloudNativePG plugin for kubectl"
   homepage "https://cloudnative-pg.io/"
   url "https://github.com/cloudnative-pg/cloudnative-pg.git",
-      tag:      "v1.23.2",
-      revision: "4bef841286ef84c4b435a6204a7ee632e1d4fb57"
+      tag:      "v1.23.3",
+      revision: "2b489ad6a0b5013af1534adc282592a15aaf9869"
   license "Apache-2.0"
   head "https://github.com/cloudnative-pg/cloudnative-pg.git", branch: "main"
 
