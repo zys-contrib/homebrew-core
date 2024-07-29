@@ -11,13 +11,13 @@ class ProtocGenGoGrpc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1e35b4df0a9c69c4c4679479704004e6db0496c04957f00828707dd8106197cb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1e35b4df0a9c69c4c4679479704004e6db0496c04957f00828707dd8106197cb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1e35b4df0a9c69c4c4679479704004e6db0496c04957f00828707dd8106197cb"
-    sha256 cellar: :any_skip_relocation, sonoma:         "577227f26db84d126e9802d11475319688691cee6ff141cb2d63bca09e68a424"
-    sha256 cellar: :any_skip_relocation, ventura:        "577227f26db84d126e9802d11475319688691cee6ff141cb2d63bca09e68a424"
-    sha256 cellar: :any_skip_relocation, monterey:       "577227f26db84d126e9802d11475319688691cee6ff141cb2d63bca09e68a424"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1321dd4fbc200d03f8faac5b3b023e2c504bdc765dbc7e4a5a73757718544d25"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7e92a04eb0c88228fff5b5e9088d9e1b278214418a59ebcd35bf721a54ad7e98"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7e92a04eb0c88228fff5b5e9088d9e1b278214418a59ebcd35bf721a54ad7e98"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7e92a04eb0c88228fff5b5e9088d9e1b278214418a59ebcd35bf721a54ad7e98"
+    sha256 cellar: :any_skip_relocation, sonoma:         "916c049867e8311c96322dba2c05a976fac1104d842114cebfe6cfb42f63db8a"
+    sha256 cellar: :any_skip_relocation, ventura:        "916c049867e8311c96322dba2c05a976fac1104d842114cebfe6cfb42f63db8a"
+    sha256 cellar: :any_skip_relocation, monterey:       "916c049867e8311c96322dba2c05a976fac1104d842114cebfe6cfb42f63db8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6252fdd5f14faaa8467cd9f5ce529b22c22aa2b8b4625ade71b52e28a2a2cb1"
   end
 
   depends_on "go" => :build
