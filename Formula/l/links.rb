@@ -1,8 +1,8 @@
 class Links < Formula
   desc "Lynx-like WWW browser that supports tables, menus, etc."
   homepage "http://links.twibright.com/"
-  url "http://links.twibright.com/download/links-2.29.tar.bz2"
-  sha256 "22aa96c0b38e1a6f8f7ed9d7a4167a47fc37246097759ef6059ecf8f9ead7998"
+  url "http://links.twibright.com/download/links-2.30.tar.bz2"
+  sha256 "c4631c6b5a11527cdc3cb7872fc23b7f2b25c2b021d596be410dadb40315f166"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
 
   livecheck do
