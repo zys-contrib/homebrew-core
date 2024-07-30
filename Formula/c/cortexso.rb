@@ -1,5 +1,3 @@
-require "language/node"
-
 class Cortexso < Formula
   desc "Drop-in, local AI alternative to the OpenAI stack"
   homepage "https://jan.ai/cortex"
@@ -29,7 +27,7 @@ class Cortexso < Formula
   conflicts_with "cortex", because: "both install `cortex` binaries"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
     # Remove incompatible pre-built binaries
