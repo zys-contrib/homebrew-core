@@ -1,5 +1,3 @@
-require "language/node"
-
 class Bit < Formula
   desc "Distributed Code Component Manager"
   homepage "https://bit.dev"
@@ -31,7 +29,7 @@ class Bit < Formula
   conflicts_with "bit-git", because: "both install `bit` binaries"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
 
     # Remove incompatible pre-built binaries
