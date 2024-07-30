@@ -7,13 +7,14 @@ class Ocicl < Formula
   revision 2
 
   bottle do
-    sha256 arm64_sonoma:   "db598f1150c7c62388b389f0773785270ff1ee5f054c2c838c596164c685d351"
-    sha256 arm64_ventura:  "bf6240551321c7cc58de3a1979127e791b620003071e010067493637aff8a365"
-    sha256 arm64_monterey: "81a78edf6a178b28a86321cded4347067cb704d295bc8294878526698ee51ae1"
-    sha256 sonoma:         "fa527e051513d14a3b723444e231891a117214fd0f2a3f436dba52d471a79243"
-    sha256 ventura:        "5ff6f116b0139d70e5798f263076bc85cce41a699606fe63a700b3766a567a65"
-    sha256 monterey:       "5d70004fb71d255b9165b8fce6bac2218bb795ab75cac8ae9feff43b21df1af9"
-    sha256 x86_64_linux:   "68fa8acf7a31529cf254d14ad63a528a283de6249c6c184e0b96a226e54de825"
+    rebuild 1
+    sha256 arm64_sonoma:   "868705dc6d56812ef11a65338a5189201a666d07592fca056797edfd84b9290e"
+    sha256 arm64_ventura:  "c9b9bd7fd62ad64e41af5ce41366272099fbbd6e3db31438c684943cfffe3d7c"
+    sha256 arm64_monterey: "f90a4d359badfcce5c2e08b85388209212f47ce807b8dc77238f5d79738fcd73"
+    sha256 sonoma:         "7749c25f20111f4a2f63e644bd944f4137586f505d7ad798ff9a06d0d5925b34"
+    sha256 ventura:        "081ac94cc8d8d4c5de41d851bd8cb742eee8e8b28abcb54419c443e18cf9cb22"
+    sha256 monterey:       "07f470b507c463cbbc8ea90c23e6b70f8802691b835397e99fc7ec9d2d2f9a1c"
+    sha256 x86_64_linux:   "33b3c1b83795a2317c1668d037628bd6e05494ebd0c21aaa24fcb73034101cc5"
   end
 
   depends_on "oras"
@@ -40,6 +41,7 @@ class Ocicl < Formula
     # Write a shell script to wrap ocicl
     (bin/"ocicl").write <<~EOS
       #!/usr/bin/env -S sbcl --core #{libexec}/ocicl.core --script
+      (uiop:restore-image)
       (ocicl:main)
     EOS
 
