@@ -1,5 +1,3 @@
-require "language/node"
-
 class Coffeescript < Formula
   desc "Unfancy JavaScript"
   homepage "https://coffeescript.org/"
@@ -17,7 +15,7 @@ class Coffeescript < Formula
   conflicts_with "cake", because: "both install `cake` binaries"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
