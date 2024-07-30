@@ -1,8 +1,8 @@
 class Kcptun < Formula
   desc "Stable & Secure Tunnel based on KCP with N:M multiplexing and FEC"
   homepage "https://github.com/xtaci/kcptun"
-  url "https://github.com/xtaci/kcptun/archive/refs/tags/v20240716.tar.gz"
-  sha256 "60d0f0f55e046ad095d072a7955fadfd99993d708db5b6a8b44221a5cca79c08"
+  url "https://github.com/xtaci/kcptun/archive/refs/tags/v20240730.tar.gz"
+  sha256 "5df860bf29fca4db7c9a716f9704bec3e02df6fc6e93b4f8a8c9960d572194e8"
   license "MIT"
   head "https://github.com/xtaci/kcptun.git", branch: "master"
 
@@ -32,7 +32,7 @@ class Kcptun < Formula
     system "go", "build", *std_go_args(ldflags:, output: bin/"kcptun_client"), "./client"
     system "go", "build", *std_go_args(ldflags:, output: bin/"kcptun_server"), "./server"
 
-    etc.install "examples/local.json" => "kcptun_client.json"
+    etc.install "dist/local.json.example" => "kcptun_client.json"
   end
 
   service do
