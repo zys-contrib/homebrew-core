@@ -1,8 +1,8 @@
 class CqlProxy < Formula
   desc "DataStax cql-proxy enables Cassandra apps to use Astra DB without code changes"
   homepage "https://github.com/datastax/cql-proxy"
-  url "https://github.com/datastax/cql-proxy/archive/refs/tags/v0.1.5.tar.gz"
-  sha256 "e3b2833a983607140af9575ae82782565f7f089f7c75eae4bc4dca402824ea5d"
+  url "https://github.com/datastax/cql-proxy/archive/refs/tags/v0.1.6.tar.gz"
+  sha256 "f781abd69142551bc90e98bf986e82c191a39a9e1c45370d12a073268bc79c86"
   license "Apache-2.0"
 
   bottle do
