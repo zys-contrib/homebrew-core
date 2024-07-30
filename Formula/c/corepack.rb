@@ -1,6 +1,4 @@
 class Corepack < Formula
-  require "language/node"
-
   desc "Package acting as bridge between Node projects and their package managers"
   homepage "https://github.com/nodejs/corepack"
   url "https://registry.npmjs.org/corepack/-/corepack-0.29.3.tgz"
@@ -29,7 +27,7 @@ class Corepack < Formula
   conflicts_with "pnpm", because: "both install `pnpm` and `pnpx` binaries"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
