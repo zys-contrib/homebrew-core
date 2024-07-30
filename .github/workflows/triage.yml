@@ -224,6 +224,7 @@ jobs:
                 apache-pulsar|\
                 arangodb|\
                 aws-sdk-cpp|\
+                cbmc|\
                 cp2k|\
                 deno|\
                 dotnet|\
