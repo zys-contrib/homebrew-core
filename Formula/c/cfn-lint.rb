@@ -13,13 +13,13 @@ class CfnLint < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "bc6b0124e4f4cce9071b32a70e7c21184c4ba0f8c5a35086c43388a0e24703a4"
-    sha256 cellar: :any,                 arm64_ventura:  "d3dceb97d2243a7fc042a54c0abd48a374ed914a22987aef6e34e1756ec05dee"
-    sha256 cellar: :any,                 arm64_monterey: "9442abd284a097d7e4493b33892f9bad4d87b0f87f4972f2fced1636e0f204c1"
-    sha256 cellar: :any,                 sonoma:         "f3c9abbc31dd08eb9a140e9ef00dddd064fc31abd928e75952c9ba636ce8280a"
-    sha256 cellar: :any,                 ventura:        "66bf5ee280f7fd7f756f2e6a32001371a2b51293ad1e29ee3546edcd63c697cf"
-    sha256 cellar: :any,                 monterey:       "819e58168b92d9819ab83b4709a8d990d11fddbc022a5132480f98bb566fa596"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62f1e8835c2278accf955357fbe03043d05bc86bf0cbd561f86367a62e05060b"
+    sha256 cellar: :any,                 arm64_sonoma:   "38d15425388a912127b5a399cc76c71776810f2eb7e2250b7ba97bd6d1522c6f"
+    sha256 cellar: :any,                 arm64_ventura:  "5f547bffb49269ea452bdd8b98506cde274f9dc0ef7de0011f883496d39f402a"
+    sha256 cellar: :any,                 arm64_monterey: "bd48033b3e7c56621d1e0e61452cac2d0c39cf50fc50a7c1ffe864ecec576e91"
+    sha256 cellar: :any,                 sonoma:         "af94e1f160d5bfa6686b25eb556482ddbaf5c28b6410cb14329f760718a60fc6"
+    sha256 cellar: :any,                 ventura:        "c9085b9b40dbe5327ec84728f9c7aa7cd2b59ead5e6097d66ab1843e773ba383"
+    sha256 cellar: :any,                 monterey:       "3cacda76e3c3bcbd639239c96d30e2c05dff10f78dae3fe13d000f99f338ccac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f24b6f2103d9b68d8336992eae464e63519c36fed38aef8fd5eceab89370a595"
   end
 
   depends_on "rust" => :build
