@@ -1330,6 +1330,7 @@ kubeconform
 kubectl-cnpg
 kubectl-rook-ceph
 kubefirst
+kubehound
 kubekey
 kubelogin
 kubergrunt
