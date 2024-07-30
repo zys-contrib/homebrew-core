@@ -1,5 +1,3 @@
-require "language/node"
-
 class BitwardenCli < Formula
   desc "Secure and free password manager for all of your devices"
   homepage "https://bitwarden.com/"
@@ -25,14 +23,12 @@ class BitwardenCli < Formula
   depends_on "node"
 
   def install
-    Language::Node.setup_npm_environment
     system "npm", "ci", "--ignore-scripts"
-    cli_root = buildpath/"apps/cli" # Bitwarden's source code is a monorepo
-    cd cli_root do
+    cd buildpath/"apps/cli" do
       # The `oss` build of Bitwarden is a GPL backed build
       system "npm", "run", "build:oss:prod", "--ignore-scripts"
-      cd cli_root/"build" do
-        system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+      cd "./build" do
+        system "npm", "install", *std_npm_args
         bin.install_symlink Dir[libexec/"bin/*"]
       end
     end
