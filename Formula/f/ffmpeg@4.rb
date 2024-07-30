@@ -1,12 +1,11 @@
 class FfmpegAT4 < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-4.4.4.tar.xz"
-  sha256 "e80b380d595c809060f66f96a5d849511ef4a76a26b76eacf5778b94c3570309"
+  url "https://ffmpeg.org/releases/ffmpeg-4.4.5.tar.xz"
+  sha256 "f9514e0d3515aee5a271283df71636e1d1ff7274b15853bcd84e144be416ab07"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 5
 
   livecheck do
     url "https://ffmpeg.org/download.html"
@@ -70,12 +69,6 @@ class FfmpegAT4 < Formula
   end
 
   fails_with gcc: "5"
-
-  # Fixes assembling with binutil as >= 2.41
-  patch do
-    url "https://github.com/FFmpeg/FFmpeg/commit/effadce6c756247ea8bae32dc13bb3e6f464f0eb.patch?full_index=1"
-    sha256 "9800c708313da78d537b61cfb750762bb8ad006ca9335b1724dbbca5669f5b24"
-  end
 
   def install
     args = %W[

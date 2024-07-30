@@ -800,6 +800,7 @@ feroxbuster
 fetchmail
 ffmpeg
 ffmpeg@5
+ffmpeg@4
 ffms2
 ffsend
 ffuf
