@@ -4,6 +4,7 @@ class Ipsw < Formula
   url "https://github.com/blacktop/ipsw/archive/refs/tags/v3.1.531.tar.gz"
   sha256 "39b506c88b8eac59c90d12996578012929b5f43f6835e55ad9a4dab2e558668b"
   license "MIT"
+  revision 1
   head "https://github.com/blacktop/ipsw.git", branch: "master"
 
   livecheck do
@@ -30,6 +31,7 @@ class Ipsw < Formula
       -X github.com/blacktop/ipsw/cmd/ipsw/cmd.AppBuildCommit=Homebrew
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/ipsw"
+    generate_completions_from_executable(bin/"ipsw", "completion")
   end
 
   test do
