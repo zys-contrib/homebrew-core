@@ -1300,6 +1300,7 @@ kompose
 kops
 kor
 kotlin
+kotlin-language-server
 kpcli
 krakend
 krb5
