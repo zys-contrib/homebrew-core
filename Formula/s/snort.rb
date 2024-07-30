@@ -1,11 +1,10 @@
 class Snort < Formula
   desc "Flexible Network Intrusion Detection System"
   homepage "https://www.snort.org"
-  url "https://github.com/snort3/snort3/archive/refs/tags/3.1.84.0.tar.gz"
-  mirror "https://fossies.org/linux/misc/snort3-3.1.84.0.tar.gz"
-  sha256 "dca1707a66f6ca56ddd526163b2d951cefdb168bddc162c791adc74c0d226c7f"
+  url "https://github.com/snort3/snort3/archive/refs/tags/3.3.2.0.tar.gz"
+  mirror "https://fossies.org/linux/misc/snort3-3.3.2.0.tar.gz"
+  sha256 "4d37814404650582260d1a9e77eb5bfa907f8747b60c6898e0f38521b14df87d"
   license "GPL-2.0-only"
-  revision 2
   head "https://github.com/snort3/snort3.git", branch: "master"
 
   # There can be a notable gap between when a version is tagged and a
@@ -52,6 +51,9 @@ class Snort < Formula
     # These flags are not needed for LuaJIT 2.1 (Ref: https://luajit.org/install.html).
     # On Apple ARM, building with flags results in broken binaries and they need to be removed.
     inreplace "cmake/FindLuaJIT.cmake", " -pagezero_size 10000 -image_base 100000000\"", "\""
+
+    # https://github.com/snort3/snort3/pull/370
+    inreplace "src/actions/actions_module.h", "#include <vector>", "#include <vector>\n#include <array>"
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DENABLE_JEMALLOC=ON"
     system "cmake", "--build", "build"
