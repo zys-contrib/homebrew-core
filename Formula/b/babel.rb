@@ -9,13 +9,13 @@ class Babel < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d9167302f71686a2e493cf0fe3bbd30e0af378a8260915e799981d86314142ca"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d9167302f71686a2e493cf0fe3bbd30e0af378a8260915e799981d86314142ca"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d9167302f71686a2e493cf0fe3bbd30e0af378a8260915e799981d86314142ca"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8db65cad4746608832cddc36aab5d16059ccfda0f2c7f4bef05e06977afe3de7"
-    sha256 cellar: :any_skip_relocation, ventura:        "3a540d0c6d7569f80cb29d0da9551483bd7a360f8748a0b7b2941a9b9c4a0830"
-    sha256 cellar: :any_skip_relocation, monterey:       "d9167302f71686a2e493cf0fe3bbd30e0af378a8260915e799981d86314142ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d9d3edb1e988bda520c4d19277d76e9bcdaab3f9cedb981a5c428376764b9af"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4e1909b2f685fb27c48edb0b1796c7978094378602decc65d6e2a55dde70fccf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4e1909b2f685fb27c48edb0b1796c7978094378602decc65d6e2a55dde70fccf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4e1909b2f685fb27c48edb0b1796c7978094378602decc65d6e2a55dde70fccf"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bb5ef195bc8b9df1db4ba6853e5039b2a517711739cf913a5abafde072faa6b2"
+    sha256 cellar: :any_skip_relocation, ventura:        "bb5ef195bc8b9df1db4ba6853e5039b2a517711739cf913a5abafde072faa6b2"
+    sha256 cellar: :any_skip_relocation, monterey:       "4e1909b2f685fb27c48edb0b1796c7978094378602decc65d6e2a55dde70fccf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9af7f9fd8b98b7e1aad7b6027241f75dc491a9ee4292db01e2620de818fc451b"
   end
 
   depends_on "node"
