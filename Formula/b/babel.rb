@@ -1,4 +1,3 @@
-require "language/node"
 require "json"
 
 class Babel < Formula
@@ -30,10 +29,10 @@ class Babel < Formula
     buildpath.install resource("babel-cli")
 
     cd buildpath/"node_modules/@babel/core" do
-      system "npm", "install", *Language::Node.local_npm_install_args, "--production"
+      system "npm", "install", *std_npm_args(prefix: false), "--production"
     end
 
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
