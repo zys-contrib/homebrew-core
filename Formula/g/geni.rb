@@ -1,8 +1,8 @@
 class Geni < Formula
   desc "Standalone database migration tool"
   homepage "https://github.com/emilpriver/geni"
-  url "https://github.com/emilpriver/geni/archive/refs/tags/v1.0.12.tar.gz"
-  sha256 "1dc41d7eb599bf9bfb583239ecc99c93e90fad2b3a0fad968de6f2243d08b48f"
+  url "https://github.com/emilpriver/geni/archive/refs/tags/v1.0.13.tar.gz"
+  sha256 "7edfcbe29003373c6c562d6f0e2d2613cc1d023b9d9578b87e0a7ea37ee72c91"
   license "MIT"
 
   bottle do
@@ -16,6 +16,12 @@ class Geni < Formula
   end
 
   depends_on "rust" => :build
+
+  # patch version and cargo update, upstream pr ref, https://github.com/emilpriver/geni/pull/152
+  patch do
+    url "https://github.com/emilpriver/geni/commit/03c2800c0aadf235412ee3d9e2f8c8ff1c41755b.patch?full_index=1"
+    sha256 "ef0b577a92319abc51530053c9a58ce03ec14769a01ad4b888af31d17a5e49c9"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args
