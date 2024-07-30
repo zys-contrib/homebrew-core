@@ -40,7 +40,7 @@ class Truffle < Formula
         else
           # Remove incompatible pre-built binaries
           dir.glob("*.musl.node").map(&:unlink)
-          dir.rmtree if dir.basename.to_s != "#{os}-#{arch}"
+          rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}"
         end
       end
     end
