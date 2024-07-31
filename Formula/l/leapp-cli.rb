@@ -1,5 +1,3 @@
-require "language/node"
-
 class LeappCli < Formula
   desc "Cloud credentials manager cli"
   homepage "https://github.com/noovolari/leapp"
@@ -28,15 +26,13 @@ class LeappCli < Formula
   end
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   def caveats
     <<~EOS
-      This formula only installs the command-line utilities by default.
-
-      Install Leapp.app with Homebrew Cask:
+      Only the `leap` CLI is installed. For Leapp.app:
         brew install --cask leapp
     EOS
   end
