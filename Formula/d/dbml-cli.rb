@@ -1,5 +1,3 @@
-require "language/node"
-
 class DbmlCli < Formula
   desc "Convert DBML file to SQL and vice versa"
   homepage "https://www.dbml.org/cli/"
@@ -8,19 +6,20 @@ class DbmlCli < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "28894b9a1ded4709811120125320219ba25988411f33c08d44e1db2387599489"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "28894b9a1ded4709811120125320219ba25988411f33c08d44e1db2387599489"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "28894b9a1ded4709811120125320219ba25988411f33c08d44e1db2387599489"
-    sha256 cellar: :any_skip_relocation, sonoma:         "83c8cba1988393d248c3fd6e118b5224044a1ce71752481f1b5848ec8c07634b"
-    sha256 cellar: :any_skip_relocation, ventura:        "83c8cba1988393d248c3fd6e118b5224044a1ce71752481f1b5848ec8c07634b"
-    sha256 cellar: :any_skip_relocation, monterey:       "5da7c085730f8fa4c963cd97f7426e19f19daa997be51b1b912e3c2b18f23219"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2ccc0207cf763f8c945d5a9d1df48ab96fb680fcd97e6728df237029d93a6be"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "26a00a46ccb9f40b84fc56ab59f4c9dc08f84e836e203068e7166a9b3bdb8ae1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "26a00a46ccb9f40b84fc56ab59f4c9dc08f84e836e203068e7166a9b3bdb8ae1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "26a00a46ccb9f40b84fc56ab59f4c9dc08f84e836e203068e7166a9b3bdb8ae1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "411ebc2decc79803251343de21b7111459208b6c051f6da94a95fe08f787285e"
+    sha256 cellar: :any_skip_relocation, ventura:        "411ebc2decc79803251343de21b7111459208b6c051f6da94a95fe08f787285e"
+    sha256 cellar: :any_skip_relocation, monterey:       "411ebc2decc79803251343de21b7111459208b6c051f6da94a95fe08f787285e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4a12bebf91b927d725ff200a5ef73c537deaffb3993433368d7886e8ec83f8a"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
     # Replace universal binaries with native slices
