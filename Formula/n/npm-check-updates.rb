@@ -3,8 +3,8 @@ require "language/node"
 class NpmCheckUpdates < Formula
   desc "Find newer versions of dependencies than what your package.json allows"
   homepage "https://github.com/raineorshine/npm-check-updates"
-  url "https://registry.npmjs.org/npm-check-updates/-/npm-check-updates-16.14.20.tgz"
-  sha256 "cd17eab112d418e8b8e75695700457e2169b9a504b32acba68a27d76edb08076"
+  url "https://registry.npmjs.org/npm-check-updates/-/npm-check-updates-17.0.0.tgz"
+  sha256 "7465072fb47059068f862cb9210b206a43e294e6b3841d19bd1cee86b3270216"
   license "Apache-2.0"
 
   bottle do
