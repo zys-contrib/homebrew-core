@@ -1,8 +1,8 @@
 class Llgo < Formula
   desc "Go compiler based on LLVM integrate with the C ecosystem and Python"
   homepage "https://github.com/goplus/llgo"
-  url "https://github.com/goplus/llgo/archive/refs/tags/v0.9.2.tar.gz"
-  sha256 "a3bf64aadefee0d145f823b8271c08e1ee24ca182bd2b354d8c667a6d4fdcc28"
+  url "https://github.com/goplus/llgo/archive/refs/tags/v0.9.4.tar.gz"
+  sha256 "51fc0349b3d9230647f3bfac2dd7caef3b5cd8e7e1f8f22dcbc53d37403be0c7"
   license "Apache-2.0"
 
   bottle do
@@ -18,6 +18,7 @@ class Llgo < Formula
   depends_on "bdw-gc"
   depends_on "go"
   depends_on "llvm"
+  depends_on "openssl@3"
   depends_on "pkg-config"
 
   def install
@@ -33,8 +34,8 @@ class Llgo < Formula
 
     ldflags = %W[
       -s -w
-      -X github.com/goplus/llgo/xtool/env.buildVersion=v#{version}
-      -X github.com/goplus/llgo/xtool/env.buildDate=#{time.iso8601}
+      -X github.com/goplus/llgo/x/env.buildVersion=v#{version}
+      -X github.com/goplus/llgo/x/env.buildTime=#{time.iso8601}
       -X github.com/goplus/llgo/xtool/env/llvm.ldLLVMConfigBin=#{Formula["llvm"].opt_bin/"llvm-config"}
     ]
     build_args = *std_go_args(ldflags:)
@@ -44,7 +45,7 @@ class Llgo < Formula
     libexec.install "LICENSE", "README.md"
 
     path = %w[go llvm pkg-config].map { |f| Formula[f].opt_bin }.join(":")
-    opt_lib = %w[bdw-gc].map { |f| Formula[f].opt_lib }.join(":")
+    opt_lib = %w[bdw-gc openssl@3].map { |f| Formula[f].opt_lib }.join(":")
 
     (libexec/"bin").children.each do |f|
       next if f.directory?
@@ -57,7 +58,7 @@ class Llgo < Formula
   end
 
   test do
-    opt_lib = %w[bdw-gc].map { |f| Formula[f].opt_lib }.join(":")
+    opt_lib = %w[bdw-gc openssl@3].map { |f| Formula[f].opt_lib }.join(":")
     ENV.prepend_path "LD_LIBRARY_PATH", opt_lib
 
     goos = shell_output(Formula["go"].opt_bin/"go env GOOS").chomp
