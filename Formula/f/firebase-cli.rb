@@ -1,5 +1,3 @@
-require "language/node"
-
 class FirebaseCli < Formula
   desc "Firebase command-line tools"
   homepage "https://firebase.google.com/docs/cli/"
@@ -23,7 +21,7 @@ class FirebaseCli < Formula
   uses_from_macos "expect" => :test
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
