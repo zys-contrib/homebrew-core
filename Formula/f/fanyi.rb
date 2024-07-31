@@ -1,5 +1,3 @@
-require "language/node"
-
 class Fanyi < Formula
   desc "Chinese and English translate tool in your command-line"
   homepage "https://github.com/afc163/fanyi"
@@ -26,7 +24,7 @@ class Fanyi < Formula
   end
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir[libexec/"bin/*"]
 
     term_size_vendor_dir = libexec/"lib/node_modules"/name/"node_modules/term-size/vendor"
