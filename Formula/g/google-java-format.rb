@@ -8,7 +8,13 @@ class GoogleJavaFormat < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "56ca8b8d305c56efcf9cc5951bc15010fb7b29d44a6bc8f43cc33d41ec5d5573"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "be0c8abed3e983a3802fbb131113aaf96fd4e9a413cdc8b47a5145d8a79ce41b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "be0c8abed3e983a3802fbb131113aaf96fd4e9a413cdc8b47a5145d8a79ce41b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "be0c8abed3e983a3802fbb131113aaf96fd4e9a413cdc8b47a5145d8a79ce41b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "be0c8abed3e983a3802fbb131113aaf96fd4e9a413cdc8b47a5145d8a79ce41b"
+    sha256 cellar: :any_skip_relocation, ventura:        "be0c8abed3e983a3802fbb131113aaf96fd4e9a413cdc8b47a5145d8a79ce41b"
+    sha256 cellar: :any_skip_relocation, monterey:       "be0c8abed3e983a3802fbb131113aaf96fd4e9a413cdc8b47a5145d8a79ce41b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "526ece906208ab12abfcc5607e650c5a85e5dce46652d061c3a5385e25f810b6"
   end
 
   depends_on "openjdk"
