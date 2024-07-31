@@ -1,8 +1,8 @@
 class Valkey < Formula
   desc "High-performance data structure server that primarily serves key/value workloads"
   homepage "https://valkey.io"
-  url "https://github.com/valkey-io/valkey/archive/refs/tags/7.2.5.tar.gz"
-  sha256 "c7c7a758edabe7693b3692db58fe5328130036b06224df64ab1f0c12fe265a76"
+  url "https://github.com/valkey-io/valkey/archive/refs/tags/7.2.6.tar.gz"
+  sha256 "5272f244deecd5655d805aabc71c84a7c7699bc4fa009dd7fc550806a042d512"
   license "BSD-3-Clause"
   head "https://github.com/valkey-io/valkey.git", branch: "unstable"
 
