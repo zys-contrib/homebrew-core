@@ -1,5 +1,3 @@
-require "language/node"
-
 class GrammarlyLanguageserver < Formula
   desc "Language Server for Grammarly"
   homepage "https://github.com/znck/grammarly"
@@ -17,7 +15,7 @@ class GrammarlyLanguageserver < Formula
   depends_on "node@16" # try `node` after https://github.com/znck/grammarly/issues/334
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     (bin/"grammarly-languageserver").write <<~EOS
       #! /usr/bin/env sh
 
