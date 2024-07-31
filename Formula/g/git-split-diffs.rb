@@ -1,5 +1,3 @@
-require "language/node"
-
 class GitSplitDiffs < Formula
   desc "Syntax highlighted side-by-side diffs in your terminal"
   homepage "https://github.com/banga/git-split-diffs"
@@ -20,7 +18,7 @@ class GitSplitDiffs < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
