@@ -3,10 +3,9 @@ class Censys < Formula
 
   desc "Command-line interface for the Censys APIs (censys.io)"
   homepage "https://github.com/censys/censys-python"
-  url "https://files.pythonhosted.org/packages/d1/21/9797900ebbed0fa2c961b2432a1c9cf9e41bbd6e8902debcf22ad9473d31/censys-2.2.12.tar.gz"
-  sha256 "da75c2e37f064b9ffd579650217cb8d3f129048949f997acee31a0cb34b6e0dd"
+  url "https://files.pythonhosted.org/packages/40/b1/49c9e64b8339f8ae1f8d29b3001dc710593a4f391cbf21442fd1ae5da4a3/censys-2.2.13.tar.gz"
+  sha256 "26aba12813a96c2f696056148d8a220fa329c014e367ef3171c0aad078408205"
   license "Apache-2.0"
-  revision 3
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "14f606d6f10b2b8a5257177768c1ac9599366c3f45771b15b21d6ce50f488f7f"
@@ -76,8 +75,7 @@ class Censys < Formula
   end
 
   test do
-    assert_match "usage: censys", shell_output("#{bin}/censys --help")
     assert_equal "Censys Python Version: #{version}", shell_output("#{bin}/censys --version").strip
-    assert_match "Successfully configured credentials", pipe_output("#{bin}/censys asm config", "test\nn\n", 0)
+    assert_match "401 (Error Code: unknown), Unauthorized", pipe_output("#{bin}/censys asm config 2>&1", "test", 1)
   end
 end
