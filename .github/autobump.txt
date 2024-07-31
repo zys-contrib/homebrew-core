@@ -799,8 +799,8 @@ fern-api
 feroxbuster
 fetchmail
 ffmpeg
-ffmpeg@5
 ffmpeg@4
+ffmpeg@5
 ffms2
 ffsend
 ffuf
@@ -2283,6 +2283,7 @@ semgrep
 sentencepiece
 seqkit
 ser2net
+serpl
 serverless
 service-weaver
 sh4d0wup
