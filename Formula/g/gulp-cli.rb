@@ -1,5 +1,3 @@
-require "language/node"
-
 class GulpCli < Formula
   desc "Command-line utility for Gulp"
   homepage "https://github.com/gulpjs/gulp-cli"
@@ -20,13 +18,13 @@ class GulpCli < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do
     system "npm", "init", "-y"
-    system "npm", "install", *Language::Node.local_npm_install_args, "gulp"
+    system "npm", "install", *std_npm_args(prefix: false), "gulp"
 
     output = shell_output("#{bin}/gulp --version")
     assert_match "CLI version: #{version}", output
