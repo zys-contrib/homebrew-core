@@ -1,5 +1,3 @@
-require "language/node"
-
 class Dicebear < Formula
   desc "CLI for DiceBear - An avatar library for designers and developers"
   homepage "https://github.com/dicebear/dicebear"
@@ -24,7 +22,7 @@ class Dicebear < Formula
   end
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
     node_modules = libexec/"lib/node_modules/dicebear/node_modules"
