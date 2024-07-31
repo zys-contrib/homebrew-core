@@ -6,7 +6,14 @@ class Graphqlviz < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "62665fa4b145517916c55a51b222a0f896106797a5cf7d63d2967da10f75b0e8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "826441385e304866c5a59798740b8b40a43f07692e19282b1ee4feb446e7cd9d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "826441385e304866c5a59798740b8b40a43f07692e19282b1ee4feb446e7cd9d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "826441385e304866c5a59798740b8b40a43f07692e19282b1ee4feb446e7cd9d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "826441385e304866c5a59798740b8b40a43f07692e19282b1ee4feb446e7cd9d"
+    sha256 cellar: :any_skip_relocation, ventura:        "826441385e304866c5a59798740b8b40a43f07692e19282b1ee4feb446e7cd9d"
+    sha256 cellar: :any_skip_relocation, monterey:       "826441385e304866c5a59798740b8b40a43f07692e19282b1ee4feb446e7cd9d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d37c65f45fb8a2db41b90fa7c502c6b749c3ce2f9e67ebb102ddfa8efbefe59"
   end
 
   depends_on "node"
