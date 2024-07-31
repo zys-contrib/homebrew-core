@@ -1,5 +1,3 @@
-require "language/node"
-
 class InstallPeerdeps < Formula
   desc "CLI to automatically install peerDeps"
   homepage "https://github.com/nathanhleung/install-peerdeps"
@@ -14,7 +12,7 @@ class InstallPeerdeps < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
