@@ -1,5 +1,3 @@
-require "language/node"
-
 class Keploy < Formula
   desc "Testing Toolkit creates test-cases and data mocks from API calls, DB queries"
   homepage "https://keploy.io"
@@ -31,7 +29,7 @@ class Keploy < Formula
   def install
     resource("ui").stage do
       ENV["SHARP_IGNORE_GLOBAL_LIBVIPS"] = "1"
-      system "npm", "install", "--legacy-peer-deps", *Language::Node.local_npm_install_args
+      system "npm", "install", "--legacy-peer-deps", *std_npm_args(prefix: false)
       system "gatsby", "build"
       buildpath.install "./public"
     end
