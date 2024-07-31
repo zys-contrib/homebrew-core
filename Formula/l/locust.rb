@@ -3,8 +3,8 @@ class Locust < Formula
 
   desc "Scalable user load testing tool written in Python"
   homepage "https://locust.io/"
-  url "https://files.pythonhosted.org/packages/60/46/615406ab9a2e3114deed02cf04194f479c296a63c1494822b76e00dd1d7b/locust-2.29.1.tar.gz"
-  sha256 "2e0628a59e2689a50cb4735a9a43709e30f2da7ed276c15d877c5325507f44b1"
+  url "https://files.pythonhosted.org/packages/b8/26/2405820f1325947ca1cea1cb897c773b72ab74bc517bcf6d19d62a3aa538/locust-2.30.0.tar.gz"
+  sha256 "8923aefc9bca15e9496c6bbc1e1e9817cb6cbe4b578099bab3677b2316b110f5"
   license "MIT"
 
   bottle do
@@ -119,8 +119,8 @@ class Locust < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/0d/9d/c587bea18a7e40099857015baee4cece7aca32cd404af953bdeb95ac8e47/setuptools-70.1.1.tar.gz"
-    sha256 "937a48c7cdb7a21eb53cd7f9b59e525503aa8abaf3584c730dc5f7a5bec3a650"
+    url "https://files.pythonhosted.org/packages/5e/11/487b18cc768e2ae25a919f230417983c8d5afa1b6ee0abd8b6db0b89fa1d/setuptools-72.1.0.tar.gz"
+    sha256 "8d243eff56d095e5817f796ede6ae32941278f542e0f941867cc05ae52b162ec"
   end
 
   resource "urllib3" do
@@ -144,6 +144,9 @@ class Locust < Formula
   end
 
   def install
+    # skip frontend build
+    ENV["SKIP_PRE_BUILD"] = "true"
+
     virtualenv_install_with_resources
   end
 
