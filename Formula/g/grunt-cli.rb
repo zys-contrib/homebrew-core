@@ -1,5 +1,3 @@
-require "language/node"
-
 class GruntCli < Formula
   desc "JavaScript Task Runner"
   homepage "https://gruntjs.com/"
@@ -20,7 +18,7 @@ class GruntCli < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
@@ -43,7 +41,7 @@ class GruntCli < Formula
       };
     EOS
 
-    system "npm", "install", *Language::Node.local_npm_install_args
+    system "npm", "install", *std_npm_args(prefix: false)
     system bin/"grunt"
     assert_predicate testpath/"output.txt", :exist?, "output.txt was not generated"
   end
