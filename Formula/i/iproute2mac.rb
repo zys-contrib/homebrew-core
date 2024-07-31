@@ -7,6 +7,10 @@ class Iproute2mac < Formula
   sha256 "c0999a7c06a2dbc781a89935c55be0c09f51569c1cdc0809ad8010cdb751e029"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "1b55d4a07c67d7315c47c6f009653d85bc98843f672a3162f09f9434098ff26b"
+  end
+
   depends_on :macos
   depends_on "python@3.12"
 
