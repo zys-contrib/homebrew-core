@@ -7,8 +7,14 @@ class GenerateJsonSchema < Formula
   head "https://github.com/Nijikokun/generate-schema.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "35954058f0fef5823d56b73ae541c63664d6d599b6810812609139050a2c7a3e"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cef6ca97403e624d9f0b6beb575964bb56b0ec382215c6b81442e4aa446e61ac"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cef6ca97403e624d9f0b6beb575964bb56b0ec382215c6b81442e4aa446e61ac"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cef6ca97403e624d9f0b6beb575964bb56b0ec382215c6b81442e4aa446e61ac"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cef6ca97403e624d9f0b6beb575964bb56b0ec382215c6b81442e4aa446e61ac"
+    sha256 cellar: :any_skip_relocation, ventura:        "cef6ca97403e624d9f0b6beb575964bb56b0ec382215c6b81442e4aa446e61ac"
+    sha256 cellar: :any_skip_relocation, monterey:       "cef6ca97403e624d9f0b6beb575964bb56b0ec382215c6b81442e4aa446e61ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30f419aaa80a5d9c5387c22ec3803abe4d3e9b3ddaac9ccfbd4f044c70a89422"
   end
 
   depends_on "node"
