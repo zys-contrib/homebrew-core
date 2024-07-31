@@ -1,5 +1,3 @@
-require "language/node"
-
 class GatsbyCli < Formula
   desc "Gatsby command-line interface"
   homepage "https://www.gatsbyjs.org/docs/gatsby-cli/"
@@ -24,7 +22,7 @@ class GatsbyCli < Formula
   end
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir[libexec/"bin/*"]
 
     # Remove incompatible pre-built binaries
