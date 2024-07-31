@@ -1,5 +1,3 @@
-require "language/node"
-
 class Hsd < Formula
   desc "Handshake Daemon & Full Node"
   homepage "https://handshake.org"
@@ -26,7 +24,7 @@ class Hsd < Formula
   depends_on "unbound"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir[libexec/"bin/*"]
   end
 
