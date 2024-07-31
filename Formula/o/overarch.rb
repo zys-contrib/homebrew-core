@@ -1,18 +1,18 @@
 class Overarch < Formula
   desc "Data driven description of software architecture"
   homepage "https://github.com/soulspace-org/overarch"
-  url "https://github.com/soulspace-org/overarch/releases/download/v0.28.0/overarch.jar"
-  sha256 "d7db3fc42e57a462323d06f1d95b3340fbddaa2e80d3dc85ddff34aba047fcd6"
+  url "https://github.com/soulspace-org/overarch/releases/download/v0.29.0/overarch.jar"
+  sha256 "d91142150604aafe8a7f45edf6496a12ab5e32be314fb0b461b789ea304c3de8"
   license "EPL-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d431125387fd12acecdf9eceee71467847ae73157b89893709f26f312bcff2f7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d431125387fd12acecdf9eceee71467847ae73157b89893709f26f312bcff2f7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d431125387fd12acecdf9eceee71467847ae73157b89893709f26f312bcff2f7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1767e72c62b95557c3fc0d55b94a7e0de72d2f84141f9512f8808bc2027f525f"
-    sha256 cellar: :any_skip_relocation, ventura:        "1767e72c62b95557c3fc0d55b94a7e0de72d2f84141f9512f8808bc2027f525f"
-    sha256 cellar: :any_skip_relocation, monterey:       "d431125387fd12acecdf9eceee71467847ae73157b89893709f26f312bcff2f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e01594396ca8a578d9990378ad942f822deb616cf40fb7285365bc0cb12c44c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f6f29ccbfb5489e0885ca80adadc915654bff61a4710c4ca208e2f5738cb21b3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f6f29ccbfb5489e0885ca80adadc915654bff61a4710c4ca208e2f5738cb21b3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f6f29ccbfb5489e0885ca80adadc915654bff61a4710c4ca208e2f5738cb21b3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f6f29ccbfb5489e0885ca80adadc915654bff61a4710c4ca208e2f5738cb21b3"
+    sha256 cellar: :any_skip_relocation, ventura:        "f6f29ccbfb5489e0885ca80adadc915654bff61a4710c4ca208e2f5738cb21b3"
+    sha256 cellar: :any_skip_relocation, monterey:       "f6f29ccbfb5489e0885ca80adadc915654bff61a4710c4ca208e2f5738cb21b3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c431519e3287d346f1e12e51080801e9cb2e8f3945255419c27e74627c68883"
   end
 
   head do
