@@ -1,5 +1,3 @@
-require "language/node"
-
 class DockerfileLanguageServer < Formula
   desc "Language server for Dockerfiles powered by Node, TypeScript, and VSCode"
   homepage "https://github.com/rcjsuen/dockerfile-language-server"
@@ -21,7 +19,7 @@ class DockerfileLanguageServer < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
