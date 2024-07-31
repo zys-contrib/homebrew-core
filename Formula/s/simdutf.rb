@@ -1,8 +1,8 @@
 class Simdutf < Formula
   desc "Unicode conversion routines, fast"
   homepage "https://github.com/simdutf/simdutf"
-  url "https://github.com/simdutf/simdutf/archive/refs/tags/v5.3.0.tar.gz"
-  sha256 "9b568d6e66b14810bdbcf645f19b103475ab8175201b5c85828222c0ff0a735c"
+  url "https://github.com/simdutf/simdutf/archive/refs/tags/v5.3.1.tar.gz"
+  sha256 "373e1e66a1c245817f0aa08ae8693b71d1703f9355d364e0d9d002929738ddcc"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/simdutf/simdutf.git", branch: "master"
 
@@ -26,7 +26,7 @@ class Simdutf < Formula
 
   uses_from_macos "python" => :build
 
-  # VERSION=#{version} && curl -s https://raw.githubusercontent.com/simdutf/simdutf/v$VERSION/benchmarks/base64/CMakeLists.txt | grep -C 1 'name = "VERSION"'
+  # VERSION=#{version} && curl -s https://raw.githubusercontent.com/simdutf/simdutf/v$VERSION/benchmarks/base64/CMakeLists.txt | grep -C 1 'VERSION'
   resource "base64" do
     url "https://github.com/aklomp/base64/archive/refs/tags/v0.5.2.tar.gz"
     sha256 "723a0f9f4cf44cf79e97bcc315ec8f85e52eb104c8882942c3f2fba95acc080d"
