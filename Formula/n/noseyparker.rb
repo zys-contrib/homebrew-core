@@ -1,8 +1,8 @@
 class Noseyparker < Formula
   desc "Finds secrets and sensitive information in textual data and Git history"
   homepage "https://github.com/praetorian-inc/noseyparker"
-  url "https://github.com/praetorian-inc/noseyparker/archive/refs/tags/v0.18.1.tar.gz"
-  sha256 "065729ad1c2b3c618603f0eebfff1a235aaa6fe44fda64dc535f63d9466fd44c"
+  url "https://github.com/praetorian-inc/noseyparker/archive/refs/tags/v0.19.0.tar.gz"
+  sha256 "cfa74ef3e2e3472823ac712f384e4fbc99f84cc9a9752cf4d22266b4e93921ca"
   license "Apache-2.0"
   head "https://github.com/praetorian-inc/noseyparker.git", branch: "main"
 
@@ -38,7 +38,7 @@ class Noseyparker < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/noseyparker -V")
 
-    output = shell_output(bin/"noseyparker scan --git-url https://github.com/Homebrew/brew")
+    output = shell_output(bin/"noseyparker scan --git-url https://github.com/homebrew/.github")
     assert_match "0/0 new matches", output
   end
 end
