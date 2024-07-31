@@ -2,7 +2,7 @@ class Agda < Formula
   desc "Dependently typed functional programming language"
   homepage "https://wiki.portal.chalmers.se/agda/"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/agda/agda/archive/refs/tags/v2.6.4.3-r1.tar.gz"
@@ -10,8 +10,8 @@ class Agda < Formula
     version "2.6.4.3"
 
     resource "stdlib" do
-      url "https://github.com/agda/agda-stdlib/archive/refs/tags/v2.0.tar.gz"
-      sha256 "14eecb83d62495f701e1eb03ffba59a2f767491f728a8ab8c8bb9243331399d8"
+      url "https://github.com/agda/agda-stdlib/archive/refs/tags/v2.1.tar.gz"
+      sha256 "72ca3ea25094efa0439e106f0d949330414232ec4cc5c3c3316e7e70dd06d431"
     end
 
     resource "cubical" do
@@ -75,13 +75,6 @@ class Agda < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  # TODO: Remove when lib:Agda install works with latest cabal-install
-  # Ref: https://github.com/agda/agda/issues/7401
-  resource "cabal-install" do
-    url "https://hackage.haskell.org/package/cabal-install-3.10.3.0/cabal-install-3.10.3.0.tar.gz"
-    sha256 "a8e706f0cf30cd91e006ae8b38137aecf65983346f44d0cba4d7a60bbfa3da9e"
-  end
-
   def install
     cabal_args = std_cabal_v2_args.reject { |s| s["installdir"] }
 
@@ -100,12 +93,21 @@ class Agda < Formula
     # relying on the Agda library just installed
     resource("agda2hs").stage "agda2hs-build"
     cd "agda2hs-build" do
-      # TODO: Remove when lib:Agda install works with latest cabal-install
-      resource("cabal-install").stage do
-        system "cabal", "v2-install", *cabal_args, "--installdir=#{buildpath}/agda2hs-build"
+      # Use previously built Agda binary to work around build error with Cabal 3.12
+      # Issue ref: https://github.com/agda/agda/issues/7401
+      # TODO: Try removing workaround when Agda 2.7.0 is released
+      if build.stable?
+        odie "Try to remove Setup.hs workaround!" if version > "2.6.4.3"
+        Pathname("cabal.project.local").write "packages: ./agda2hs.cabal ../Agda.cabal"
+        inreplace buildpath/"Setup.hs", ' agda = bdir </> "agda" </> "agda" <.> agdaExeExtension',
+                                        " agda = \"#{bin}/agda\" <.> agdaExeExtension"
       end
 
-      system "./cabal", "--store-dir=#{libexec}", "v2-install", *std_cabal_v2_args
+      # Work around to build agda2hs with GHC 9.10
+      # Issue ref: https://github.com/agda/agda2hs/issues/347
+      inreplace "agda2hs.cabal", /( base .*&&) < 4\.20,/, "\\1 < 4.21,", build.stable?
+
+      system "cabal", "--store-dir=#{libexec}", "v2-install", *std_cabal_v2_args
     end
 
     # generate the standard library's documentation and vim highlighting files
