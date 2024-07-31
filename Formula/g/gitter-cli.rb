@@ -1,5 +1,3 @@
-require "language/node"
-
 class GitterCli < Formula
   desc "Extremely simple Gitter client for terminals"
   homepage "https://github.com/RodrigoEspinosa/gitter-cli"
@@ -27,7 +25,7 @@ class GitterCli < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink libexec/"bin/gitter-cli"
   end
 
