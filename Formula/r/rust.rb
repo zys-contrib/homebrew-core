@@ -93,7 +93,7 @@ class Rust < Formula
     ENV.prepend_path "PATH", buildpath/"cargobootstrap/bin"
 
     cargo_src_path = buildpath/"src/tools/cargo"
-    cargo_src_path.rmtree
+    rm_r(cargo_src_path)
     resource("cargo").stage cargo_src_path
     if OS.mac?
       inreplace cargo_src_path/"Cargo.toml",
@@ -136,12 +136,12 @@ class Rust < Formula
     system "make", "install"
 
     (lib/"rustlib/src/rust").install "library"
-    rm_f [
+    rm([
       bin.glob("*.old"),
       lib/"rustlib/install.log",
       lib/"rustlib/uninstall.sh",
       (lib/"rustlib").glob("manifest-*"),
-    ]
+    ])
   end
 
   def post_install
