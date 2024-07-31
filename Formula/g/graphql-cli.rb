@@ -33,7 +33,7 @@ class GraphqlCli < Formula
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
     # Avoid references to Homebrew shims
-    rm_f "#{libexec}/lib/node_modules/graphql-cli/node_modules/websocket/builderror.log"
+    rm("#{libexec}/lib/node_modules/graphql-cli/node_modules/websocket/builderror.log")
   end
 
   test do
