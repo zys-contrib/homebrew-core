@@ -1,8 +1,8 @@
 class Observerward < Formula
   desc "Web application and service fingerprint identification tool"
   homepage "https://emo-crab.github.io/observer_ward/"
-  url "https://github.com/emo-crab/observer_ward/archive/refs/tags/v2024.7.25.tar.gz"
-  sha256 "82c4420270b0322d1f1f31bcc9e46a9a2d5d105c802a4134537a202058c48849"
+  url "https://github.com/emo-crab/observer_ward/archive/refs/tags/v2024.7.31.tar.gz"
+  sha256 "a0a31371e6551fd36f69091b67b096ea5f4204e98fa0508a07253ee593641b34"
   license "GPL-3.0-only"
 
   bottle do
