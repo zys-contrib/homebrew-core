@@ -1,8 +1,8 @@
 class Bitrise < Formula
   desc "Command-line automation tool"
   homepage "https://github.com/bitrise-io/bitrise"
-  url "https://github.com/bitrise-io/bitrise/archive/refs/tags/2.18.0.tar.gz"
-  sha256 "9c6e4dac6164c153000b3f6332b79fd62b3d00bb60434201bcff1fccd7cbe7a2"
+  url "https://github.com/bitrise-io/bitrise/archive/refs/tags/2.19.0.tar.gz"
+  sha256 "3725ed058bd9e4d8968538db8043d5abfccbdc356dda03af12ed32c66ccc8f99"
   license "MIT"
 
   livecheck do
