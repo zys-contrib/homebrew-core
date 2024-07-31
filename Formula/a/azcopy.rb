@@ -1,8 +1,8 @@
 class Azcopy < Formula
   desc "Azure Storage data transfer utility"
   homepage "https://github.com/Azure/azure-storage-azcopy"
-  url "https://github.com/Azure/azure-storage-azcopy/archive/refs/tags/v10.25.1.tar.gz"
-  sha256 "d62f0a88e8899a611d9ef627252e4379bee8530177caca081f155e28917e70d3"
+  url "https://github.com/Azure/azure-storage-azcopy/archive/refs/tags/v10.26.0.tar.gz"
+  sha256 "71684c5c1a2c192fb1168ec57a11cd76a3691bb6e1631cab3c1fe61a4dad1bc7"
   license "MIT"
 
   livecheck do
@@ -29,7 +29,7 @@ class Azcopy < Formula
   end
 
   test do
-    assert_match "ERROR CODE: AuthorizationFailure",
-                 shell_output("#{bin}/azcopy list https://storageaccountname.blob.core.windows.net/containername/", 1)
+    assert_match "Existing Jobs", shell_output("#{bin}/azcopy jobs list")
+    assert_match version.to_s, shell_output("#{bin}/azcopy --version")
   end
 end
