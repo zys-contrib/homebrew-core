@@ -1,5 +1,3 @@
-require "language/node"
-
 class GraphqlCli < Formula
   desc "Command-line tool for common GraphQL development workflows"
   homepage "https://github.com/Urigo/graphql-cli"
@@ -35,7 +33,7 @@ class GraphqlCli < Formula
   uses_from_macos "expect" => :test
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
     # Avoid references to Homebrew shims
