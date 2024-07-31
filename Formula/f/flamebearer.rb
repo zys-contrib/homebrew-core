@@ -1,5 +1,3 @@
-require "language/node"
-
 class Flamebearer < Formula
   desc "Blazing fast flame graph tool for V8 and Node"
   homepage "https://github.com/mapbox/flamebearer"
@@ -24,7 +22,7 @@ class Flamebearer < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
