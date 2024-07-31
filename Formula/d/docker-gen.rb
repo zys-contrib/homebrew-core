@@ -1,8 +1,8 @@
 class DockerGen < Formula
   desc "Generate files from docker container metadata"
   homepage "https://github.com/nginx-proxy/docker-gen"
-  url "https://github.com/nginx-proxy/docker-gen/archive/refs/tags/0.14.0.tar.gz"
-  sha256 "3b8c6045a7657207c255d0353fff79d8966f0c7709f1b53800e851631bfab7c0"
+  url "https://github.com/nginx-proxy/docker-gen/archive/refs/tags/0.14.1.tar.gz"
+  sha256 "6e9363ce91a2cfb4396cbe7583728a8df0e5fddb03c10d0b8aaa426a93cf075a"
   license "MIT"
   head "https://github.com/nginx-proxy/docker-gen.git", branch: "main"
 
