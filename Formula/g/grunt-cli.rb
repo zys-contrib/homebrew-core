@@ -6,13 +6,14 @@ class GruntCli < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "52938716a78abfbea7f2411345684025a55413025d04b05d0d3d5e4cbde689a9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "52938716a78abfbea7f2411345684025a55413025d04b05d0d3d5e4cbde689a9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "52938716a78abfbea7f2411345684025a55413025d04b05d0d3d5e4cbde689a9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "72457d71db50dbf7b6d39177731bf52331f058dec02f9ccd79a52bdda134fdfc"
-    sha256 cellar: :any_skip_relocation, ventura:        "72457d71db50dbf7b6d39177731bf52331f058dec02f9ccd79a52bdda134fdfc"
-    sha256 cellar: :any_skip_relocation, monterey:       "72457d71db50dbf7b6d39177731bf52331f058dec02f9ccd79a52bdda134fdfc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b9f4fe978157694ed1a9a4060ed52f9f4321426fb5ba91794b6fb6b63d01529"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2dd1c3cbca5634e0af5e6f0cdecde2700c3b28fef7995b59527cbc225cc133a7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2dd1c3cbca5634e0af5e6f0cdecde2700c3b28fef7995b59527cbc225cc133a7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2dd1c3cbca5634e0af5e6f0cdecde2700c3b28fef7995b59527cbc225cc133a7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "be6201a69eafbd7b9d93fa919cd410dc0c8e03eef63f686836690fdee13b9fe0"
+    sha256 cellar: :any_skip_relocation, ventura:        "be6201a69eafbd7b9d93fa919cd410dc0c8e03eef63f686836690fdee13b9fe0"
+    sha256 cellar: :any_skip_relocation, monterey:       "be6201a69eafbd7b9d93fa919cd410dc0c8e03eef63f686836690fdee13b9fe0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9383dff764eb6833c08ecf8ac67a869c40c5830ec27471577094357feabac56"
   end
 
   depends_on "node"
