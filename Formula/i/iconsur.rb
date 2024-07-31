@@ -1,5 +1,3 @@
-require "language/node"
-
 class Iconsur < Formula
   include Language::Python::Virtualenv
 
@@ -43,7 +41,7 @@ class Iconsur < Formula
   end
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
 
     if MacOS.version >= :monterey
       venv = virtualenv_create(libexec/"venv", "python3.12")
