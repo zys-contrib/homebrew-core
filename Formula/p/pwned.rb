@@ -1,5 +1,3 @@
-require "language/node"
-
 class Pwned < Formula
   desc "CLI for the 'Have I been pwned?' service"
   homepage "https://github.com/wKovacs64/pwned"
@@ -22,7 +20,7 @@ class Pwned < Formula
   conflicts_with "bash-snippets", because: "both install `pwned` binaries"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
