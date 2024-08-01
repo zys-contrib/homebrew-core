@@ -1,5 +1,3 @@
-require "language/node"
-
 class Standard < Formula
   desc "JavaScript Style Guide, with linter & automatic code fixer"
   homepage "https://standardjs.com/"
@@ -22,7 +20,7 @@ class Standard < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
