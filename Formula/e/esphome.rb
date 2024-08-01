@@ -294,6 +294,6 @@ class Esphome < Formula
     return if Hardware::CPU.arm?
 
     ENV.remove_macosxsdk if OS.mac?
-    system "#{bin}/esphome", "compile", "test.yaml"
+    system bin/"esphome", "compile", "test.yaml"
   end
 end
