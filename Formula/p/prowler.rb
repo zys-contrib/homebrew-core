@@ -3,8 +3,8 @@ class Prowler < Formula
 
   desc "Tool for cloud security assessments, audits, incident response, and more"
   homepage "https://prowler.com/"
-  url "https://files.pythonhosted.org/packages/a7/a5/80e83f512e795d739ee92c92608aadddb909acb1a3940d26f6b4c8bb15e0/prowler-4.3.0.tar.gz"
-  sha256 "8a40442a1ae4d231ef8f114c50ddfc03c8b3351f798ff38662f9b5e12c1623ad"
+  url "https://files.pythonhosted.org/packages/52/d2/3231c53af98c25b4baa302eee16febd1e047a182e087bc145c791ad54b25/prowler-4.3.1.tar.gz"
+  sha256 "d8d220de1f5aaaaab863b68674f00162035617696598e3934a2fbf4e4f0e1be4"
   license "Apache-2.0"
 
   bottle do
@@ -36,9 +36,14 @@ class Prowler < Formula
     sha256 "6a538862d33ce67d997429d14998310e1dbfda6cb7d9bbfbf799c4709847fece"
   end
 
+  resource "aiohappyeyeballs" do
+    url "https://files.pythonhosted.org/packages/3c/c1/52b8ecc87576f8b06fd5132e3ab8550209c958fb450e6d185b15835da82c/aiohappyeyeballs-2.3.4.tar.gz"
+    sha256 "7e1ae8399c320a8adec76f6c919ed5ceae6edd4c3672f4d9eae2b27e37c80ff6"
+  end
+
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/04/a4/e3679773ea7eb5b37a2c998e25b017cc5349edf6ba2739d1f32855cfb11b/aiohttp-3.9.5.tar.gz"
-    sha256 "edea7d15772ceeb29db4aff55e482d4bcfb6ae160ce144f2682de02f6d693551"
+    url "https://files.pythonhosted.org/packages/bc/97/328a9e18e2bc229e5bf1391c9d5f6712104b2b5759c56f51fe03a1b702f1/aiohttp-3.10.0.tar.gz"
+    sha256 "e8dd7da2609303e3574c95b0ec9f1fd49647ef29b94701a2862cceae76382e1d"
   end
 
   resource "aiosignal" do
@@ -177,13 +182,13 @@ class Prowler < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/96/40/c8d85f14e0aea7b80859595fadad5ad80f6662ac78f150d844c4e25fe90b/boto3-1.34.149.tar.gz"
-    sha256 "f4e6489ba9dc7fb37d53e0e82dbc97f2cb0a4969ef3970e2c88b8f94023ae81a"
+    url "https://files.pythonhosted.org/packages/76/f2/a24febe8e1d5f2074ffc775ac9ba9aab72d95a64a6c11a9e80c503d6a53c/boto3-1.34.151.tar.gz"
+    sha256 "30498a76b6f651ee2af7ae8edc1704379279ab8b91f1a8dd1f4ddf51259b0bc2"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/33/cb/acc65294eb572c83cec1d25cc637fb82745a7b40e69680a09855ee397b49/botocore-1.34.149.tar.gz"
-    sha256 "2e1eb5ef40102a3d796bb3dd05f2ac5e8fb43fe1ff114b4f6d33153437f5a372"
+    url "https://files.pythonhosted.org/packages/ca/69/a4d6edaab0ff8711755cd442d95965521961e4b5d30fadf61480c081323d/botocore-1.34.151.tar.gz"
+    sha256 "0d0968e427a94378f295b49d59170dad539938487ec948de3d030f06092ec6dc"
   end
 
   resource "cachetools" do
@@ -277,8 +282,8 @@ class Prowler < Formula
   end
 
   resource "google-api-python-client" do
-    url "https://files.pythonhosted.org/packages/32/ba/510bc5d8e786acff203f2bc77749a4d464592ddc13cfdb75a526ba6294cd/google_api_python_client-2.138.0.tar.gz"
-    sha256 "31080fbf0e64687876135cc23d1bec1ca3b80d7702177dd17b04131ea889eb70"
+    url "https://files.pythonhosted.org/packages/d9/a1/0bd557922bd9cf8b544547f3e91346fda767c11831250cf90f1d7ec920d5/google_api_python_client-2.139.0.tar.gz"
+    sha256 "ed4bc3abe2c060a87412465b4e8254620bbbc548eefc5388e2c5ff912d36a68b"
   end
 
   resource "google-auth" do
@@ -507,8 +512,8 @@ class Prowler < Formula
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/71/a5/d61e4263e62e6db1990c120d682870e5c50a30fb6b26119a214c7a014847/protobuf-5.27.2.tar.gz"
-    sha256 "f3ecdef226b9af856075f28227ff2c90ce3a594d092c39bee5513573f25e2714"
+    url "https://files.pythonhosted.org/packages/1b/61/0671db2ab2aee7c92d6c1b617c39b30a4cd973950118da56d77e7f397a9d/protobuf-5.27.3.tar.gz"
+    sha256 "82460903e640f2b7e34ee81a947fdaad89de796d324bcbc38ff5430bcdead82c"
   end
 
   resource "py-ocsf-models" do
