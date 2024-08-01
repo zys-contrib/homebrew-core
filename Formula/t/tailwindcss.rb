@@ -1,5 +1,3 @@
-require "language/node"
-
 class Tailwindcss < Formula
   desc "Utility-first CSS framework"
   homepage "https://tailwindcss.com"
@@ -20,11 +18,11 @@ class Tailwindcss < Formula
   depends_on "node" => :build
 
   def install
-    system "npm", "install", *Language::Node.local_npm_install_args
+    system "npm", "install", *std_npm_args(prefix: false)
     system "npm", "run", "build"
 
     cd "standalone-cli" do
-      system "npm", "install", *Language::Node.local_npm_install_args
+      system "npm", "install", *std_npm_args(prefix: false)
       system "npm", "run", "build"
       os = OS.mac? ? "macos" : "linux"
       cpu = Hardware::CPU.arm? ? "arm64" : "x64"
