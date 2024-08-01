@@ -1,5 +1,3 @@
-require "language/node"
-
 class Pandemics < Formula
   desc "Converts your markdown document in a simplified framework"
   homepage "https://pandemics.gitlab.io"
@@ -26,9 +24,9 @@ class Pandemics < Formula
     ENV["PANDEMICS_DEPS"]="0"
     # npm ignores config and ENV when in global mode so:
     # - install without running the package install script
-    system "npm", "install", "--ignore-scripts", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", "--ignore-scripts", *std_npm_args
     # - call install script manually to ensure ENV is respected
-    system "npm", "run", "--prefix", "#{libexec}/lib/node_modules/pandemics", "install"
+    system "npm", "run", "--prefix", libexec/"lib/node_modules/pandemics", "install"
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
