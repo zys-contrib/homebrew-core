@@ -6,7 +6,14 @@ class TypescriptLanguageServer < Formula
   license all_of: ["MIT", "Apache-2.0"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a8cb6820449852e3ef466eda32f7a5f55a3473d0fdde51624beaac49b21ae1f4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bec63299439d68c64e8708c57a32baa931bb6c8406e6869597bcddccb1014fd4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bec63299439d68c64e8708c57a32baa931bb6c8406e6869597bcddccb1014fd4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bec63299439d68c64e8708c57a32baa931bb6c8406e6869597bcddccb1014fd4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bec63299439d68c64e8708c57a32baa931bb6c8406e6869597bcddccb1014fd4"
+    sha256 cellar: :any_skip_relocation, ventura:        "bec63299439d68c64e8708c57a32baa931bb6c8406e6869597bcddccb1014fd4"
+    sha256 cellar: :any_skip_relocation, monterey:       "bec63299439d68c64e8708c57a32baa931bb6c8406e6869597bcddccb1014fd4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "086d02b72242797c29431078c399e4daf1ffa3c27bf48bf65984d09e86dc403c"
   end
 
   depends_on "node"
