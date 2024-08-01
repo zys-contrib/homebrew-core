@@ -1,5 +1,3 @@
-require "language/node"
-
 class Neonctl < Formula
   desc "Neon CLI tool"
   homepage "https://neon.tech/docs/reference/neon-cli"
@@ -20,11 +18,11 @@ class Neonctl < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
     %w[neonctl neon].each do |cmd|
-      generate_completions_from_executable(bin/cmd, "completion")
+      generate_completions_from_executable(bin/cmd, "completion", base_name: cmd, shells: [:bash, :zsh])
     end
   end
 
