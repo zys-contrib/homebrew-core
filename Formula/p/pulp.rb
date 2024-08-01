@@ -1,5 +1,3 @@
-require "language/node"
-
 class Pulp < Formula
   desc "Build tool for PureScript projects"
   homepage "https://github.com/purescript-contrib/pulp"
@@ -21,14 +19,14 @@ class Pulp < Formula
   depends_on "purescript"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/pulp --version")
 
-    system("#{bin}/pulp", "init")
+    system bin/"pulp", "init"
     assert_predicate testpath/".gitignore", :exist?
     assert_predicate testpath/"bower.json", :exist?
   end
