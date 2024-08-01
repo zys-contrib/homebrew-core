@@ -1,5 +1,3 @@
-require "language/node"
-
 class SqlLint < Formula
   desc "SQL linter to do sanity checks on your queries and bring errors back from the DB"
   homepage "https://github.com/joereynolds/sql-lint"
@@ -23,7 +21,7 @@ class SqlLint < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
