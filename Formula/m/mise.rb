@@ -60,7 +60,7 @@ class Mise < Formula
   end
 
   test do
-    system "#{bin}/mise", "install", "terraform@1.5.7"
+    system bin/"mise", "install", "terraform@1.5.7"
     assert_match "1.5.7", shell_output("#{bin}/mise exec terraform@1.5.7 -- terraform -v")
 
     [
