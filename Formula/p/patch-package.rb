@@ -1,5 +1,3 @@
-require "language/node"
-
 class PatchPackage < Formula
   desc "Fix broken node modules instantly"
   homepage "https://github.com/ds300/patch-package"
@@ -20,7 +18,7 @@ class PatchPackage < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
