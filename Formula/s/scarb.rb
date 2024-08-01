@@ -1,8 +1,8 @@
 class Scarb < Formula
   desc "Cairo package manager"
   homepage "https://docs.swmansion.com/scarb/"
-  url "https://github.com/software-mansion/scarb/archive/refs/tags/v2.6.5.tar.gz"
-  sha256 "1eb59b27e7af487e133e7ba6be1f75781b95d6bae99f81cff31c56b1d91a3fdb"
+  url "https://github.com/software-mansion/scarb/archive/refs/tags/v2.7.0.tar.gz"
+  sha256 "9ef9b3a2242f9b951194effc2b087a62cb2947d4ac6af5f90c974d6eefc400d5"
   license "MIT"
   head "https://github.com/software-mansion/scarb.git", branch: "main"
 
@@ -36,6 +36,8 @@ class Scarb < Formula
   end
 
   test do
+    ENV["SCARB_INIT_TEST_RUNNER"] = "cairo-test"
+
     assert_match "#{testpath}/Scarb.toml", shell_output("#{bin}/scarb manifest-path")
 
     system bin/"scarb", "init", "--name", "brewtest", "--no-vcs"
