@@ -40,6 +40,6 @@ class Streamripper < Formula
   end
 
   test do
-    system "#{bin}/streamripper", "--version"
+    system bin/"streamripper", "--version"
   end
 end
