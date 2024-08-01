@@ -29,6 +29,7 @@ class Dagger < Formula
     ldflags = %W[
       -s -w
       -X github.com/dagger/dagger/engine.Version=v#{version}
+      -X github.com/dagger/dagger/engine.Tag=v#{version}
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/dagger"
 
