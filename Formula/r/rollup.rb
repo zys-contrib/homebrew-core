@@ -1,5 +1,3 @@
-require "language/node"
-
 class Rollup < Formula
   desc "Next-generation ES module bundler"
   homepage "https://rollupjs.org/"
@@ -8,19 +6,20 @@ class Rollup < Formula
   license all_of: ["ISC", "MIT"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0669a1348a8ad16b9827f4f66645eee51cb04c1e0d2622934ab6f0b70e935360"
-    sha256 cellar: :any,                 arm64_ventura:  "0669a1348a8ad16b9827f4f66645eee51cb04c1e0d2622934ab6f0b70e935360"
-    sha256 cellar: :any,                 arm64_monterey: "0669a1348a8ad16b9827f4f66645eee51cb04c1e0d2622934ab6f0b70e935360"
-    sha256 cellar: :any,                 sonoma:         "a310f777a3f5b0ac9801c6b7edfbb9e83623980b6170b161b4cb7a2c78e982b6"
-    sha256 cellar: :any,                 ventura:        "a310f777a3f5b0ac9801c6b7edfbb9e83623980b6170b161b4cb7a2c78e982b6"
-    sha256 cellar: :any,                 monterey:       "a310f777a3f5b0ac9801c6b7edfbb9e83623980b6170b161b4cb7a2c78e982b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf3eb04b548547d97e01b9b55bdc447051901be25a293a84163c3acbbd61479e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "ee374cbe8476fced83dd74237d8ddd0330827a1924d8651c370e137a04915e2a"
+    sha256 cellar: :any,                 arm64_ventura:  "ee374cbe8476fced83dd74237d8ddd0330827a1924d8651c370e137a04915e2a"
+    sha256 cellar: :any,                 arm64_monterey: "ee374cbe8476fced83dd74237d8ddd0330827a1924d8651c370e137a04915e2a"
+    sha256 cellar: :any,                 sonoma:         "84df2e8ad46d055558e0bbee78e210feccaacc2b50dd05041789d68dd32e57e3"
+    sha256 cellar: :any,                 ventura:        "84df2e8ad46d055558e0bbee78e210feccaacc2b50dd05041789d68dd32e57e3"
+    sha256 cellar: :any,                 monterey:       "84df2e8ad46d055558e0bbee78e210feccaacc2b50dd05041789d68dd32e57e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a95e0e64ee2bab85973358526bf67b37235ccd87fbb89ee4c776623117020b9"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
     deuniversalize_machos

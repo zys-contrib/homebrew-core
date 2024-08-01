@@ -1,5 +1,3 @@
-require "language/node"
-
 class Renovate < Formula
   desc "Automated dependency updates. Flexible so you don't need to be"
   homepage "https://github.com/renovatebot/renovate"
@@ -19,13 +17,14 @@ class Renovate < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4353076fc10658be25fd8a58c611d656e832abf113f6ceb97948b7016948de34"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f1235a9228bc1055b5374a73783444b67a3266e246f1e213e6b664887c0b515c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9e7acf523273bb56ba57ef2b030ab921e8167757ac1806c10b4fb2d8665c7f5d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "495711cf6633d1d4d7a71d806bb6b55bb77e0815d0ce68a7c2df29610a5a12db"
-    sha256 cellar: :any_skip_relocation, ventura:        "b5c9470c0fa1031627640de28184c018fab1891c5c80e19a80c8c9fc5fc9eeea"
-    sha256 cellar: :any_skip_relocation, monterey:       "baf40f3aa03edf5a92af38bb473c9ca7e8a07531bec16e69a28ae1bcdd810da0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "70cdea73e4195162dd3ef594ffd359382267a408299bf0cd9dfc7564871509bf"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4dd5e2b313142845c4b2a8187dc360ca72eb025fe71694c68e93ac62e89506b7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3a0df6d8f554cd95c204d48cac050d4a001afabbb6e09ca3ac1c0cd78efbaaef"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9341dc76f11a7c0faa219aead35e63b72b33a35f97482809c63427e5ff7229a0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3411fb95875c37c450fb3b3ce1e00223b85cd046230fc8bb8b6d769740ee14b5"
+    sha256 cellar: :any_skip_relocation, ventura:        "096808882c5e26f986bf6c104d2a8e14d717357a36abebec35ce6c377a179d24"
+    sha256 cellar: :any_skip_relocation, monterey:       "b9adf0d8fa8dccaf31b7e33aed7efa7ae595bb6c7f289cfc5e87c3a9cf3dd7d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2b2563f5532c01939bf8daecc80fd5d5ed967a179681cb4f0e6a72f6acf87009"
   end
 
   depends_on "node"
@@ -33,7 +32,7 @@ class Renovate < Formula
   uses_from_macos "git", since: :monterey
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
