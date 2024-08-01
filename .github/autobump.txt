@@ -2286,6 +2286,7 @@ ser2net
 serpl
 serverless
 service-weaver
+sfcgal
 sh4d0wup
 shaderc
 shadowenv
