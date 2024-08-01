@@ -70,7 +70,7 @@ class Json2ts < Formula
       }
     TS
 
-    output = pipe_output("#{bin}/json2ts", schema)
+    output = pipe_output(bin/"json2ts", schema)
     assert_equal output, typescript
   end
 end
