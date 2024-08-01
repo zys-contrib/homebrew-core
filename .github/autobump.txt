@@ -1394,6 +1394,7 @@ libcouchbase
 libcpuid
 libdap
 libdeflate
+libdivide
 libdnet
 libdpp
 libdrm
