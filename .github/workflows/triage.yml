@@ -363,7 +363,6 @@ jobs:
                 mesa|\
                 minizip|\
                 mpfr|\
-                mysql-connector-c\\+\\+|\
                 nss|\
                 numpy|\
                 open-mpi|\
