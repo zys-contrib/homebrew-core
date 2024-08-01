@@ -1,8 +1,8 @@
 class Libdivide < Formula
   desc "Optimized integer division"
   homepage "https://libdivide.com"
-  url "https://github.com/ridiculousfish/libdivide/archive/refs/tags/5.0.tar.gz"
-  sha256 "01ffdf90bc475e42170741d381eb9cfb631d9d7ddac7337368bcd80df8c98356"
+  url "https://github.com/ridiculousfish/libdivide/archive/refs/tags/v5.1.tar.gz"
+  sha256 "fec2e4141878c58eb92cfcd478accc3b7f34b39491c1e638566f083d378cc7d4"
   license any_of: ["Zlib", "BSL-1.0"]
   head "https://github.com/ridiculousfish/libdivide.git", branch: "master"
 
