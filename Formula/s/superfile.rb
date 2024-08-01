@@ -1,8 +1,8 @@
 class Superfile < Formula
   desc "Modern and pretty fancy file manager for the terminal"
   homepage "https://github.com/yorukot/superfile"
-  url "https://github.com/yorukot/superfile/archive/refs/tags/v1.1.3.tar.gz"
-  sha256 "1735a2a7886b670ff392f1331b2af142416691ac86303945feccbc4a1f2c6a43"
+  url "https://github.com/yorukot/superfile/archive/refs/tags/v1.1.4.tar.gz"
+  sha256 "3b1060deab226f9d6de8e57abbcfcf80f356332f1b9de1b042aece94d0571c25"
   license "MIT"
 
   bottle do
