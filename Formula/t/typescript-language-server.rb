@@ -1,5 +1,3 @@
-require "language/node"
-
 class TypescriptLanguageServer < Formula
   desc "Language Server Protocol implementation for TypeScript wrapping tsserver"
   homepage "https://github.com/typescript-language-server/typescript-language-server"
@@ -15,7 +13,7 @@ class TypescriptLanguageServer < Formula
   depends_on "typescript"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
 
     node_modules = libexec/"lib/node_modules"
     typescript = Formula["typescript"].opt_libexec/"lib/node_modules/typescript"
