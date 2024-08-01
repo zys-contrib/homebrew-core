@@ -25,6 +25,6 @@ class Marked < Formula
   end
 
   test do
-    assert_equal "<p>hello <em>world</em></p>", pipe_output("#{bin}/marked", "hello *world*").strip
+    assert_equal "<p>hello <em>world</em></p>", pipe_output(bin/"marked", "hello *world*").strip
   end
 end
