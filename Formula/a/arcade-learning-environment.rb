@@ -3,8 +3,8 @@ class ArcadeLearningEnvironment < Formula
 
   desc "Platform for AI research"
   homepage "https://github.com/Farama-Foundation/Arcade-Learning-Environment"
-  url "https://github.com/Farama-Foundation/Arcade-Learning-Environment/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "7625ffbb9eb6c0efc6716f34b93bc8339f2396ea5e31191a251cb31bdd363f80"
+  url "https://github.com/Farama-Foundation/Arcade-Learning-Environment/archive/refs/tags/v0.9.1.tar.gz"
+  sha256 "eaf60c7c3a6450decff3deee02b0c46224537d322cc2f77abed565a835f2d524"
   license "GPL-2.0-only"
   head "https://github.com/Farama-Foundation/Arcade-Learning-Environment.git", branch: "master"
 
@@ -34,13 +34,6 @@ class ArcadeLearningEnvironment < Formula
   resource "roms" do
     url "https://gist.githubusercontent.com/jjshoots/61b22aefce4456920ba99f2c36906eda/raw/00046ac3403768bfe45857610a3d333b8e35e026/Roms.tar.gz.b64"
     sha256 "02ca777c16476a72fa36680a2ba78f24c3ac31b2155033549a5f37a0653117de"
-  end
-
-  # Allow building with system pybind11
-  # https://github.com/Farama-Foundation/Arcade-Learning-Environment/pull/528
-  patch do
-    url "https://github.com/Farama-Foundation/Arcade-Learning-Environment/commit/52b326151972d7df663c6afe44d0b699a531739d.patch?full_index=1"
-    sha256 "4322db4e4578e08ae9882cee260b7bc4f3477869bcd9295f3f4f3e6c56b29026"
   end
 
   def python3
