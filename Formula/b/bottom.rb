@@ -1,8 +1,8 @@
 class Bottom < Formula
   desc "Yet another cross-platform graphical process/system monitor"
   homepage "https://clementtsang.github.io/bottom/"
-  url "https://github.com/ClementTsang/bottom/archive/refs/tags/0.9.7.tar.gz"
-  sha256 "29c3f75323ae0245576ea23268bb0956757352bf3b16d05f511357655b9cc71e"
+  url "https://github.com/ClementTsang/bottom/archive/refs/tags/0.10.0.tar.gz"
+  sha256 "c6e2be9ccd2b7014015a35559701bb543ecd484c9b30620b5634ed5831b80ebe"
   license "MIT"
   head "https://github.com/ClementTsang/bottom.git", branch: "main"
 
@@ -15,13 +15,13 @@ class Bottom < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ddc0189ccf66af970eaace8442072a6b4fc3549099f70811c8fe49eaa653d436"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "767a3b5bc3ee69bbdaaaf8b71320ea93795da1387597b91286c75967fdca3206"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c6fab0d7a1e322d68586a664ba30066bc2bd0f6fe1f069b2e865d7c18616d42f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "837c004767ea25431890e1a2186434dff17463b8290730bf0378e423fba8ce18"
-    sha256 cellar: :any_skip_relocation, ventura:        "a4b093d689599cac6cb6980d89321caa544db5d1b4a8a068e57c960a989e9c20"
-    sha256 cellar: :any_skip_relocation, monterey:       "a710710e02d61c21ab44462dc42a68025a601fc2c50de54f0d769dcf0ab1ea8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "972ea2c2796bdc51cbd28ad54f2a95d584092785ddfcc40a735e18b3721d3faa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b9317f6bc4fa67e19b736286a92916dc9d6feea0c6a39179c642333fb0aac1a2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5624ee3437c1a42dda35a135db1ae62ac14e37dbd1f7d5bc0b2d812366e0630f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "aa5f9d9ffa8a3e94d50fde543aa6212de50071a17b78effac81646f41fe2aae0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c4cb492c4ce4739eaf2ad402ffa5e00b0cacfb161b32d51357fe283fdfd8198d"
+    sha256 cellar: :any_skip_relocation, ventura:        "83d80fa54b74ee8125833bce789e6681ae3ce13b814b68bf963b20df2018b81c"
+    sha256 cellar: :any_skip_relocation, monterey:       "a4413cb6a6c217740828c42dfd436214c2219e6e6e81767a2482cf0b82bff207"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "08a0ecf3985e6991c7847351574b00a63fb62e7e6060eb2b41605b5448b28bfc"
   end
 
   depends_on "rust" => :build
