@@ -2700,6 +2700,7 @@ vunnel
 vvdec
 vvenc
 wabt
+waffle
 wakatime-cli
 walk
 wallpaper
