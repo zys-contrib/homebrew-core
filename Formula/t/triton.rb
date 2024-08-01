@@ -1,5 +1,3 @@
-require "language/node"
-
 class Triton < Formula
   desc "Joyent Triton CLI"
   homepage "https://www.npmjs.com/package/triton"
@@ -20,9 +18,9 @@ class Triton < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
-    generate_completions_from_executable(bin/"triton", "completion", shells: [:bash], shell_parameter_format: :none)
+    generate_completions_from_executable(bin/"triton", "completion", shells: [:bash])
   end
 
   test do
