@@ -127,7 +127,7 @@ class RubyAT31 < Formula
     rm(%W[
       #{rubygems_bindir}/bundle
       #{rubygems_bindir}/bundler
-    ])
+    ].select { |file| File.exist?(file) })
     rm_r(Dir[HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/gems/bundler-*"])
     rubygems_bindir.install_symlink Dir[libexec/"gembin/*"]
 
