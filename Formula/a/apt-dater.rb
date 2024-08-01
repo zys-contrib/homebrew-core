@@ -44,6 +44,6 @@ class AptDater < Formula
   end
 
   test do
-    system "#{bin}/apt-dater", "-v"
+    system bin/"apt-dater", "-v"
   end
 end
