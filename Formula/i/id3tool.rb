@@ -39,7 +39,7 @@ class Id3tool < Formula
     mp3 = "#{testpath}/test.mp3"
     cp test_fixtures("test.mp3"), mp3
 
-    system "#{bin}/id3tool", "-t", "Homebrew", mp3
+    system bin/"id3tool", "-t", "Homebrew", mp3
     assert_match(/Song Title:\s+Homebrew/,
                  shell_output("#{bin}/id3tool #{mp3}").chomp)
   end
