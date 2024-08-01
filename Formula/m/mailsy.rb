@@ -1,5 +1,3 @@
-require "language/node"
-
 class Mailsy < Formula
   desc "Quickly generate a temporary email address"
   homepage "https://github.com/BalliAsghar/Mailsy"
@@ -20,7 +18,7 @@ class Mailsy < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
