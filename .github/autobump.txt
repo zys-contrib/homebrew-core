@@ -1665,7 +1665,6 @@ mlpack
 mlt
 mlx
 mmark
-mmctl
 mmv
 mockery
 mockolo
