@@ -1428,6 +1428,7 @@ liblc3
 liblinear
 liblouis
 libmaa
+libmapper
 libmatio
 libmaxminddb
 libmicrohttpd
