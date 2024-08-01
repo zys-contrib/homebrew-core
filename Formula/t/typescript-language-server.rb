@@ -44,7 +44,7 @@ class TypescriptLanguageServer < Formula
       }
     JSON
 
-    Open3.popen3("#{bin}/typescript-language-server", "--stdio") do |stdin, stdout|
+    Open3.popen3(bin/"typescript-language-server", "--stdio") do |stdin, stdout|
       stdin.write "Content-Length: #{json.size}\r\n\r\n#{json}"
       assert_match(/^Content-Length: \d+/i, stdout.readline)
     end

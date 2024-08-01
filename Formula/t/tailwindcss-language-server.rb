@@ -50,7 +50,7 @@ class TailwindcssLanguageServer < Formula
       }
     JSON
 
-    Open3.popen3("#{bin}/tailwindcss-language-server", "--stdio") do |stdin, stdout|
+    Open3.popen3(bin/"tailwindcss-language-server", "--stdio") do |stdin, stdout|
       stdin.write "Content-Length: #{json.size}\r\n\r\n#{json}"
       sleep 3
       assert_match(/^Content-Length: \d+/i, stdout.readline)
