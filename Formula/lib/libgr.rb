@@ -17,7 +17,6 @@ class Libgr < Formula
 
   depends_on "cmake" => :build
   depends_on "cairo"
-  depends_on "ffmpeg@6"
   depends_on "freetype"
   depends_on "glfw"
   depends_on "jpeg-turbo"
@@ -28,12 +27,23 @@ class Libgr < Formula
   depends_on "qt"
   depends_on "zeromq"
 
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "ffmpeg"
+  end
+
+  on_linux do
+    depends_on "ffmpeg@6"
+    depends_on "libx11"
+    depends_on "libxt"
+    depends_on "mesa"
+  end
+
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
