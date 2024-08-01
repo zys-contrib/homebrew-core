@@ -1,8 +1,8 @@
 class Scrcpy < Formula
   desc "Display and control your Android device"
   homepage "https://github.com/Genymobile/scrcpy"
-  url "https://github.com/Genymobile/scrcpy/archive/refs/tags/v2.5.tar.gz"
-  sha256 "9a29ac5171dd81c250337d9b0500f1edbaf01044645b35f8993a191ffbb8597f"
+  url "https://github.com/Genymobile/scrcpy/archive/refs/tags/v2.6.tar.gz"
+  sha256 "d13ff4149d2ee0b40099348a57fa6d16e3fdebe7f6168f02f65ea9b3ceb337c1"
   license "Apache-2.0"
 
   livecheck do
@@ -30,8 +30,8 @@ class Scrcpy < Formula
   fails_with gcc: "5"
 
   resource "prebuilt-server" do
-    url "https://github.com/Genymobile/scrcpy/releases/download/v2.5/scrcpy-server-v2.5"
-    sha256 "1488b1105d6aff534873a26bf610cd2aea06ee867dd7a4d9c6bb2c091396eb15"
+    url "https://github.com/Genymobile/scrcpy/releases/download/v2.6/scrcpy-server-v2.6"
+    sha256 "7b723ff79a27f14e6ebaaaae7ef9548c40651c94e64d178612b13adf7158eb2e"
   end
 
   def install
