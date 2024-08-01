@@ -3,8 +3,8 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/47/49/4766106dab938aeb668ea42922a00f2979e4ac9237166375dce519fe1433/esphome-2024.7.2.tar.gz"
-  sha256 "ec1fe04d16a84fb93241900c8239badf57b70a2966fb71197cc4c7d509892da1"
+  url "https://files.pythonhosted.org/packages/b9/27/36fae72bac314116c7dfa098a64ad6a6529aed887c05e711211ae6128e33/esphome-2024.7.3.tar.gz"
+  sha256 "fb1b9675e552c83f24984794f134c327283ea3801496ab5e36fcc9d2e1063595"
   license "MIT"
 
   bottle do
@@ -31,8 +31,8 @@ class Esphome < Formula
   end
 
   resource "aiohappyeyeballs" do
-    url "https://files.pythonhosted.org/packages/cc/83/f731ac54f82fc25984ee4d6abadf69b824dde03b629a1348f459e7b35d5a/aiohappyeyeballs-2.3.2.tar.gz"
-    sha256 "77e15a733090547a1f5369a1287ddfc944bd30df0eb8993f585259c34b405f4e"
+    url "https://files.pythonhosted.org/packages/3c/c1/52b8ecc87576f8b06fd5132e3ab8550209c958fb450e6d185b15835da82c/aiohappyeyeballs-2.3.4.tar.gz"
+    sha256 "7e1ae8399c320a8adec76f6c919ed5ceae6edd4c3672f4d9eae2b27e37c80ff6"
   end
 
   resource "ajsonrpc" do
@@ -73,11 +73,6 @@ class Esphome < Formula
   resource "chacha20poly1305-reuseable" do
     url "https://files.pythonhosted.org/packages/c8/f5/de042f4f0a3580541d173db5bb98988f525e3557651d40f04b132350ca38/chacha20poly1305_reuseable-0.12.2.tar.gz"
     sha256 "378801cc9902d881511a0d1f817f9571a63bf41bf072b0f02d2daab3ae5cf30b"
-  end
-
-  resource "chardet" do
-    url "https://files.pythonhosted.org/packages/f3/0d/f7b6ab21ec75897ed80c17d79b15951a719226b9fababf1e40ea74d69079/chardet-5.2.0.tar.gz"
-    sha256 "1b3b6ff479a8c414bc3fa2c0852995695c4a026dcd6d0633b2dd092ca39c1cf7"
   end
 
   resource "charset-normalizer" do
@@ -166,8 +161,8 @@ class Esphome < Formula
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/71/a5/d61e4263e62e6db1990c120d682870e5c50a30fb6b26119a214c7a014847/protobuf-5.27.2.tar.gz"
-    sha256 "f3ecdef226b9af856075f28227ff2c90ce3a594d092c39bee5513573f25e2714"
+    url "https://files.pythonhosted.org/packages/1b/61/0671db2ab2aee7c92d6c1b617c39b30a4cd973950118da56d77e7f397a9d/protobuf-5.27.3.tar.gz"
+    sha256 "82460903e640f2b7e34ee81a947fdaad89de796d324bcbc38ff5430bcdead82c"
   end
 
   resource "pyelftools" do
