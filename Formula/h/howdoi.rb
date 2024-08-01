@@ -9,13 +9,14 @@ class Howdoi < Formula
   revision 9
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a5c28f21d2e7357942b10e5cfc93007617fb0ab1b84f197bfc41c571b130d835"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8ded6aa318d6531f2165093355f7c3d6ed86870c80e18a8e4fb443ccba7ffdc1"
-    sha256 cellar: :any,                 arm64_monterey: "2f4cd16d1af84a88a78c32577898999cbff813026332a9a36f9a85c4dd3e8e87"
-    sha256 cellar: :any_skip_relocation, sonoma:         "60c48f986dfcbd633cb18de6979842ea7a0ea0699c03dc83e6a32ff576d73897"
-    sha256 cellar: :any_skip_relocation, ventura:        "b4d70115086bd5b8b16af11a9c869635cae5a5490bd07b1a4ad4d8ea642b71b2"
-    sha256 cellar: :any,                 monterey:       "3189a45e051a6a5616c9b312bc0032abc64fe18abdbd1b1852ef43c92b89c0d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "83bf82d3a00ca204892e2248b633320006ba6c61f90daeffcabc54eca5f659de"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2aba154864418a4c8c1c38c8a868f3e68148376fac6ed49292c975019cb0f12b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4aac1db10e831ea0980d1da458b721b7b96c6950710f1c16e6e2abcc1d29c5ec"
+    sha256 cellar: :any,                 arm64_monterey: "8da6c648eb6447c81c8bf5c6321b7744091eca31e6c7af3687ce1a42b02a50fa"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a6599bf83d1c11b5bf40126e1af5386f5b396ba8419e87bfbf1fc570780631d5"
+    sha256 cellar: :any_skip_relocation, ventura:        "d636094f9780dbdd6ff5ed66a4242aac0a4fa8d82b2a949e01a0bd13ec426a64"
+    sha256 cellar: :any,                 monterey:       "fad155e8b9ef5523d6fac103af068079861be1f97cf176139db097acff2ee031"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a4cac62a69c3f6531ba3e1cf534e6353a3b2b26f52d91cd1394d7f3cdb061bf"
   end
 
   depends_on "certifi"
