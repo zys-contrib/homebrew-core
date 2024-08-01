@@ -1,8 +1,8 @@
 class Qjackctl < Formula
   desc "Simple Qt application to control the JACK sound server daemon"
   homepage "https://qjackctl.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/qjackctl/qjackctl/1.0.0/qjackctl-1.0.0.tar.gz"
-  sha256 "0adcc7c45938766b6cd7ab089a86232514c5051f15d48c62be702aaeffd012c8"
+  url "https://downloads.sourceforge.net/project/qjackctl/qjackctl/1.0.1/qjackctl-1.0.1.tar.gz"
+  sha256 "b955b00e72272da027f8fffa02822529d6d993b3c4782a764cda9c4c2f27c13d"
   license "GPL-2.0-or-later"
   head "https://git.code.sf.net/p/qjackctl/code.git", branch: "master"
 
@@ -26,18 +26,22 @@ class Qjackctl < Formula
   depends_on "jack"
   depends_on "qt"
 
+  on_linux do
+    depends_on "alsa-lib"
+  end
+
   fails_with gcc: "5"
 
   def install
-    args = std_cmake_args + %w[
+    args = %w[
       -DCONFIG_DBUS=OFF
       -DCONFIG_PORTAUDIO=OFF
       -DCONFIG_XUNIQUE=OFF
     ]
 
-    system "cmake", *args
-    system "cmake", "--build", "."
-    system "cmake", "--install", "."
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     if OS.mac?
       prefix.install bin/"qjackctl.app"
