@@ -1,6 +1,4 @@
 class NodeSass < Formula
-  require "language/node"
-
   desc "JavaScript implementation of a Sass compiler"
   homepage "https://github.com/sass/dart-sass"
   url "https://registry.npmjs.org/sass/-/sass-1.77.8.tgz"
@@ -20,7 +18,7 @@ class NodeSass < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
