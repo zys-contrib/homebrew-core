@@ -1,5 +1,3 @@
-require "language/node"
-
 class Zrok < Formula
   desc "Geo-scale, next-generation sharing platform built on top of OpenZiti"
   homepage "https://zrok.io"
@@ -23,7 +21,7 @@ class Zrok < Formula
 
   def install
     cd buildpath/"ui" do
-      system "npm", "install", *Language::Node.local_npm_install_args
+      system "npm", "install", *std_npm_args(prefix: false)
       system "npm", "run", "build"
     end
 
