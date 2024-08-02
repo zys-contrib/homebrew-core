@@ -22,7 +22,7 @@ class ApifyCli < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     # We have to replace the shebang in the main executable from "/usr/bin/env node"
     # to point to the Homebrew-provided `node`,
     # because otherwise the CLI will run with the system-provided Node.js,
