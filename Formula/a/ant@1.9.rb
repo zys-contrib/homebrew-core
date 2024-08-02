@@ -6,11 +6,6 @@ class AntAT19 < Formula
   sha256 "57ceb0b249708cb28d081a72045657ab067fc4bc4a0d1e4af252496be44c2e66"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-    regex(/href=.*?apache-ant[._-]v?(1\.9(?:\.\d+)*)(?:-bin)?\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, all: "94ee3db86c4f18ca79a37125ad2bfeb56298a46ae197f9ac570c1364b6dac3da"
   end
