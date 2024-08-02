@@ -1,8 +1,8 @@
 class Vapoursynth < Formula
   desc "Video processing framework with simplicity in mind"
   homepage "https://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/refs/tags/R68.tar.gz"
-  sha256 "3bd787f7d1e5feb9e57861b6b9a4646b88300e26a3b9302fe21c6102b1f193f0"
+  url "https://github.com/vapoursynth/vapoursynth/archive/refs/tags/R69.tar.gz"
+  sha256 "cbd5421df85ba58228ea373cc452ca677e0e2ec61b59944d7e514234633057d9"
   license "LGPL-2.1-or-later"
   head "https://github.com/vapoursynth/vapoursynth.git", branch: "master"
 
@@ -30,9 +30,22 @@ class Vapoursynth < Formula
   depends_on "python@3.12"
   depends_on "zimg"
 
+  # std::to_chars requires at least MACOSX_DEPLOYMENT_TARGET=13.3
+  # so it is possible to avoid LLVM dependency on Ventura but the
+  # bottle would have issues if system was on macOS 13.2 or older.
+  on_ventura :or_older do
+    depends_on "llvm"
+    fails_with :clang
+  end
+
   fails_with gcc: "5"
 
   def install
+    if OS.mac? && MacOS.version <= :ventura
+      ENV.llvm_clang
+      ENV.prepend "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/c++"
+    end
+
     system "./autogen.sh"
     inreplace "Makefile.in", "pkglibdir = $(libdir)", "pkglibdir = $(exec_prefix)"
     system "./configure", "--prefix=#{prefix}",
