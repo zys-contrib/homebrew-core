@@ -1,18 +1,10 @@
 class LibgeditGtksourceview < Formula
   desc "Text editor widget for code editing"
-  homepage "https://gedit-technology.github.io"
-  url "https://github.com/gedit-technology/libgedit-gtksourceview/releases/download/299.0.5/libgedit-gtksourceview-299.0.5.tar.xz"
-  sha256 "4bdac3c6dd885a2af8064a7265618ff8505b2324ab02fb00b0ce55e02978d3d6"
+  homepage "https://gitlab.gnome.org/World/gedit/libgedit-gtksourceview"
+  url "https://gitlab.gnome.org/World/gedit/libgedit-gtksourceview/-/archive/299.2.1/libgedit-gtksourceview-299.2.1.tar.bz2"
+  sha256 "b183a816f3958df4bf5e186fef6f9a9e31d7747e6fafecc5cf1650b4807920b5"
   license "LGPL-2.1-only"
-  head "https://github.com/gedit-technology/libgedit-gtksourceview.git", branch: "main"
-
-  # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
-  # labeled as "pre-release" on GitHub before the version is released, so it's
-  # necessary to use the `GithubLatest` strategy.
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
+  head "https://gitlab.gnome.org/World/gedit/libgedit-gtksourceview.git", branch: "main"
 
   bottle do
     sha256 arm64_sonoma:   "e72a85aa5b87ec2d2850ec41a7d3158e7c9986658eee1c5537aa4955e753941a"
@@ -24,15 +16,24 @@ class LibgeditGtksourceview < Formula
     sha256 x86_64_linux:   "704afbcba67f32813fca21c5534469f529e85e8e6567b53e3f54c2180dd374ba"
   end
 
+  depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
+  depends_on "cairo"
+  depends_on "gdk-pixbuf"
+  depends_on "glib"
   depends_on "gtk+3"
   depends_on "libxml2" # Dependent `gedit` uses Homebrew `libxml2`
+  depends_on "pango"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
-    system "meson", "setup", "build", *std_meson_args, "-Dgtk_doc=false"
+    system "meson", "setup", "build", "-Dgtk_doc=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
@@ -46,6 +47,7 @@ class LibgeditGtksourceview < Formula
         return 0;
       }
     EOS
+
     flags = shell_output("pkg-config --cflags --libs libgedit-gtksourceview-300").strip.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
