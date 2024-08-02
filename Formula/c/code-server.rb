@@ -1,5 +1,3 @@
-require "language/node"
-
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/coder/code-server"
@@ -33,8 +31,7 @@ class CodeServer < Formula
     # Fix broken node-addon-api: https://github.com/nodejs/node/issues/52229
     ENV.append "CXXFLAGS", "-DNODE_API_EXPERIMENTAL_NOGC_ENV_OPT_OUT"
 
-    node = Formula["node@20"]
-    system "npm", "install", *Language::Node.local_npm_install_args, "--unsafe-perm", "--omit", "dev"
+    system "npm", "install", *std_npm_args(prefix: false), "--unsafe-perm", "--omit", "dev"
 
     # @parcel/watcher bundles all binaries for other platforms & architectures
     # This deletes the non-matching architecture otherwise brew audit will complain.
@@ -47,8 +44,7 @@ class CodeServer < Formula
     unneeded_prebuilds.map(&:rmtree)
 
     libexec.install Dir["*"]
-    env = { PATH: "#{node.opt_bin}:$PATH" }
-    (bin/"code-server").write_env_script "#{libexec}/out/node/entry.js", env
+    bin.install_symlink libexec/"out/node/entry.js" => "code-server"
   end
 
   def caveats
