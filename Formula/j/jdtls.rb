@@ -3,9 +3,9 @@ class Jdtls < Formula
 
   desc "Java language specific implementation of the Language Server Protocol"
   homepage "https://github.com/eclipse-jdtls/eclipse.jdt.ls"
-  url "https://download.eclipse.org/jdtls/milestones/1.37.0/jdt-language-server-1.37.0-202406271335.tar.gz"
-  version "1.37.0"
-  sha256 "d04cd9f4df45ce85ae9cf49530c72a1a324b14eee747af26e3374500e36b5bd0"
+  url "https://download.eclipse.org/jdtls/milestones/1.38.0/jdt-language-server-1.38.0-202408011337.tar.gz"
+  version "1.38.0"
+  sha256 "ba697788a19f2ba57b16302aba6b343c649928c95f76b0d170494ac12d17ac78"
   license "EPL-2.0"
   version_scheme 1
 
@@ -28,11 +28,7 @@ class Jdtls < Formula
   depends_on "python@3.12"
 
   def install
-    libexec.install %w[
-      bin features plugins
-      config_mac config_mac_arm config_ss_mac config_ss_mac_arm
-      config_linux config_linux_arm config_ss_linux config_ss_linux_arm
-    ]
+    libexec.install buildpath.glob("*") - buildpath.glob("config*win*")
     rewrite_shebang detected_python_shebang, libexec/"bin/jdtls"
     (bin/"jdtls").write_env_script libexec/"bin/jdtls", Language::Java.overridable_java_home_env
   end
@@ -52,8 +48,7 @@ class Jdtls < Formula
       }
     JSON
 
-    Open3.popen3(bin/"jdtls", "-configuration", "#{testpath}/config", "-data",
-        "#{testpath}/data") do |stdin, stdout, _e, w|
+    Open3.popen3(bin/"jdtls", "-configuration", testpath/"config", "-data", testpath/"data") do |stdin, stdout, _e, w|
       stdin.write "Content-Length: #{json.size}\r\n\r\n#{json}"
       sleep 3
       assert_match(/^Content-Length: \d+/i, stdout.readline)
