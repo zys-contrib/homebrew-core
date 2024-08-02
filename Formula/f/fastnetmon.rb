@@ -80,7 +80,7 @@ class Fastnetmon < Formula
            "--log_to_console"
     end
 
-    sleep 15
+    sleep 30
 
     assert_path_exists testpath/"fastnetmon.dat"
 
