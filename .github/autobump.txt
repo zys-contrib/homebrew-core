@@ -2492,6 +2492,7 @@ tcl-tk
 tcpreplay
 tcsh
 tctl
+tdb
 tealdeer
 tectonic
 teensy_loader_cli
