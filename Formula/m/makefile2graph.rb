@@ -40,6 +40,6 @@ class Makefile2graph < Formula
     system "make -Bnd >make-Bnd"
     system "#{bin}/make2graph <make-Bnd"
     system "#{bin}/make2graph --root <make-Bnd"
-    system "#{bin}/makefile2graph"
+    system bin/"makefile2graph"
   end
 end
