@@ -40,7 +40,7 @@ class Paperkey < Formula
 
   test do
     resource("homebrew-test_sec").stage do
-      system "#{bin}/paperkey", "--secret-key", "papertest-rsa.sec", "--output", "test"
+      system bin/"paperkey", "--secret-key", "papertest-rsa.sec", "--output", "test"
       assert_predicate Pathname.pwd/"test", :exist?
     end
   end

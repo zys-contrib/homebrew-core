@@ -187,8 +187,8 @@ class Podman < Formula
       system bin/"podman-remote", "machine", "rm", "-f", "homebrew-testvm"
     else
       assert_equal %W[
-        #{bin}/podman
-        #{bin}/podman-remote
+        bin/"podman"
+        bin/"podman-remote"
         #{bin}/podmansh
       ].sort, Dir[bin/"*"]
       assert_equal %W[
