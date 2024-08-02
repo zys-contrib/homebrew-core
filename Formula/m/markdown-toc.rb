@@ -6,7 +6,14 @@ class MarkdownToc < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1fcb47b953cf9becfdcf24c6de36fbff454877e4c05ac47bc40be8d2df76ba0f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4a99991af6d567dcdc4f34d0a7af4190de420dfd435b1b8b5704d6bd978776f6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4a99991af6d567dcdc4f34d0a7af4190de420dfd435b1b8b5704d6bd978776f6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4a99991af6d567dcdc4f34d0a7af4190de420dfd435b1b8b5704d6bd978776f6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4a99991af6d567dcdc4f34d0a7af4190de420dfd435b1b8b5704d6bd978776f6"
+    sha256 cellar: :any_skip_relocation, ventura:        "4a99991af6d567dcdc4f34d0a7af4190de420dfd435b1b8b5704d6bd978776f6"
+    sha256 cellar: :any_skip_relocation, monterey:       "4a99991af6d567dcdc4f34d0a7af4190de420dfd435b1b8b5704d6bd978776f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fece6d2074d2656d6bb80409133100048172bea6d3541954bf850355940f7f55"
   end
 
   depends_on "node"
