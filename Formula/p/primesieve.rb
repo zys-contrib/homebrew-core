@@ -24,6 +24,6 @@ class Primesieve < Formula
   end
 
   test do
-    system "#{bin}/primesieve", "100", "--count", "--print"
+    system bin/"primesieve", "100", "--count", "--print"
   end
 end
