@@ -4,6 +4,7 @@ class Protobuf < Formula
   url "https://github.com/protocolbuffers/protobuf/releases/download/v27.3/protobuf-27.3.tar.gz"
   sha256 "1535151efbc7893f38b0578e83cac584f2819974f065698976989ec71c1af84a"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
