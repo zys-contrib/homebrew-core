@@ -6,11 +6,6 @@ class ErlangAT24 < Formula
   sha256 "2f0661b1f98b01c26e2bde7234ef587f77e5ee0e384f3b1221496782bf9c8b28"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-    regex(/^OTP[._-]v?(24(?:\.\d+)+)$/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "435837edaf050c74b206c802ddaca9acc8b4bc91a47dc6f7387940c87be60be5"
     sha256 cellar: :any,                 arm64_ventura:  "b2e6f1ff79876b37f0f87b83bea3cd59cf61a386752dd949320a3a6cc4067061"
