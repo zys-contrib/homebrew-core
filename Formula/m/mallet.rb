@@ -16,11 +16,6 @@ class Mallet < Formula
 
   depends_on "openjdk"
 
-  resource "testdata" do
-    url "https://raw.githubusercontent.com/mimno/Mallet/master/sample-data/stackexchange/tsv/testing.tsv"
-    sha256 "06b4a0b3f27afa532ded841e8304449764a604fb202ba60eb762eaa79e9e02f3"
-  end
-
   def install
     rm Dir["bin/*.{bat,dll,exe}"] # Remove all windows files
     libexec.install Dir["*"]
@@ -29,7 +24,12 @@ class Mallet < Formula
   end
 
   test do
-    resource("testdata").stage do
+    resource "homebrew-testdata" do
+      url "https://raw.githubusercontent.com/mimno/Mallet/master/sample-data/stackexchange/tsv/testing.tsv"
+      sha256 "06b4a0b3f27afa532ded841e8304449764a604fb202ba60eb762eaa79e9e02f3"
+    end
+
+    resource("homebrew-testdata").stage do
       system bin/"mallet", "import-file", "--input", "testing.tsv", "--keep-sequence"
       assert_equal "seconds",
         shell_output("#{bin}/mallet train-topics --input text.vectors " \
