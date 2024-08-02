@@ -1,5 +1,3 @@
-require "language/node"
-
 class VercelCli < Formula
   desc "Command-line interface for Vercel"
   homepage "https://vercel.com/home"
@@ -8,13 +6,14 @@ class VercelCli < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a768f00758f1120cb79fc6741f589da3c064a54fcb3352ad12c686bd022b4699"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a768f00758f1120cb79fc6741f589da3c064a54fcb3352ad12c686bd022b4699"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a768f00758f1120cb79fc6741f589da3c064a54fcb3352ad12c686bd022b4699"
-    sha256 cellar: :any_skip_relocation, sonoma:         "44196b37a0b08432a49ca09c322556576c27207b6511abd47d65696038ea077c"
-    sha256 cellar: :any_skip_relocation, ventura:        "44196b37a0b08432a49ca09c322556576c27207b6511abd47d65696038ea077c"
-    sha256 cellar: :any_skip_relocation, monterey:       "44196b37a0b08432a49ca09c322556576c27207b6511abd47d65696038ea077c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "43e5d46519052533fe50b38e133f63e1393c5ee33d5512b4cabe4db36e871ab2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2426462a8f53824a133f952b8068e075b3052847d1804fa86d46314f342bdeaf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2426462a8f53824a133f952b8068e075b3052847d1804fa86d46314f342bdeaf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2426462a8f53824a133f952b8068e075b3052847d1804fa86d46314f342bdeaf"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0343f517d797dfe316db6972af20f38b3208c17e47f66494a3b5a2615b911a1a"
+    sha256 cellar: :any_skip_relocation, ventura:        "0343f517d797dfe316db6972af20f38b3208c17e47f66494a3b5a2615b911a1a"
+    sha256 cellar: :any_skip_relocation, monterey:       "0343f517d797dfe316db6972af20f38b3208c17e47f66494a3b5a2615b911a1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "697908a7a866b83719e63238e1323bb01734ecc249431ce76864825f9196a8eb"
   end
 
   depends_on "node"
@@ -22,7 +21,7 @@ class VercelCli < Formula
   def install
     inreplace "dist/index.js", "${await getUpdateCommand()}",
                                "brew upgrade vercel-cli"
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
     # Remove incompatible deasync modules
