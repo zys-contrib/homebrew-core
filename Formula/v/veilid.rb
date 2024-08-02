@@ -1,8 +1,8 @@
 class Veilid < Formula
   desc "Peer-to-peer network for easily sharing various kinds of data"
   homepage "https://veilid.com/"
-  url "https://gitlab.com/veilid/veilid/-/archive/v0.3.3/veilid-v0.3.3.tar.gz"
-  sha256 "27b1a995a5e85ef2c641f864bcd5dd576900df669bf718e5328cf6b3ca33d510"
+  url "https://gitlab.com/veilid/veilid/-/archive/v0.3.4/veilid-v0.3.4.tar.bz2"
+  sha256 "b581ef7ac4098ea20e1e934444f8ba7aaa340257b15349556324994621a8f146"
   license "MPL-2.0"
   head "https://gitlab.com/veilid/veilid.git", branch: "main"
 
@@ -16,9 +16,12 @@ class Veilid < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2817271ce8b32f2dff552909a7efd4703848e46df61b1989cb642c04d736173"
   end
 
+  depends_on "cmake" => :build
   depends_on "rust" => :build
 
   def install
+    ENV["SDKROOT"] = MacOS.sdk_path if OS.mac?
+    ENV["RUSTFLAGS"] = "--cfg tokio_unstable"
     system "cargo", "install", *std_cargo_args(path: "veilid-cli")
     system "cargo", "install", *std_cargo_args(path: "veilid-server")
   end
