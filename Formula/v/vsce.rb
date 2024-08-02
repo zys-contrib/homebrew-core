@@ -1,5 +1,3 @@
-require "language/node"
-
 class Vsce < Formula
   desc "Tool for packaging, publishing and managing VS Code extensions"
   homepage "https://code.visualstudio.com/api/working-with-extensions/publishing-extension#vsce"
@@ -26,13 +24,14 @@ class Vsce < Formula
   end
 
   depends_on "node"
+
   on_linux do
     depends_on "pkg-config" => :build
     depends_on "libsecret"
   end
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir[libexec/"bin/*"]
   end
 
