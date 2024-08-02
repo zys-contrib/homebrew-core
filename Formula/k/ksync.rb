@@ -27,6 +27,9 @@ class Ksync < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b5ae17908d10f2c602df06a8a4c03fb92403b11019b9471a3f2d0def2c94376"
   end
 
+  # no release since 2021-03-23, https://github.com/ksync/ksync/issues/616
+  deprecate! date: "2024-08-02", because: :unmaintained
+
   depends_on "go" => :build
 
   # Support go 1.17, remove after next release
