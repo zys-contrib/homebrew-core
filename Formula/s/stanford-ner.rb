@@ -23,6 +23,6 @@ class StanfordNer < Formula
   end
 
   test do
-    system "#{bin}/ner.sh", "#{libexec}/sample.txt"
+    system bin/"ner.sh", libexec/"sample.txt"
   end
 end
