@@ -43,6 +43,8 @@ class Erlang < Formula
   end
 
   def install
+    odie "html resource needs to be updated" if version != resource("html").version
+
     # Unset these so that building wx, kernel, compiler and
     # other modules doesn't fail with an unintelligible error.
     %w[LIBS FLAGS AFLAGS ZFLAGS].each { |k| ENV.delete("ERL_#{k}") }
@@ -89,8 +91,6 @@ class Erlang < Formula
   end
 
   test do
-    assert_equal version, resource("html").version, "`html` resource needs updating!"
-
     system bin/"erl", "-noshell", "-eval", "crypto:start().", "-s", "init", "stop"
 
     (testpath/"factorial").write <<~EOS
