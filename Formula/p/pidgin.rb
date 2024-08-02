@@ -130,9 +130,9 @@ class Pidgin < Formula
 
   test do
     system "#{bin}/finch", "--version"
-    system "#{bin}/pidgin", "--version"
+    system bin/"pidgin", "--version"
 
-    pid = fork { exec "#{bin}/pidgin", "--config=#{testpath}" }
+    pid = fork { exec bin/"pidgin", "--config=#{testpath}" }
     sleep 5
     Process.kill "SIGTERM", pid
   end
