@@ -1,5 +1,3 @@
-require "language/node"
-
 class VercelCli < Formula
   desc "Command-line interface for Vercel"
   homepage "https://vercel.com/home"
@@ -22,7 +20,7 @@ class VercelCli < Formula
   def install
     inreplace "dist/index.js", "${await getUpdateCommand()}",
                                "brew upgrade vercel-cli"
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
     # Remove incompatible deasync modules
