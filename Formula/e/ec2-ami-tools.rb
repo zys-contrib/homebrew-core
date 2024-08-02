@@ -10,7 +10,7 @@ class Ec2AmiTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "2410a9e4734c4f4358ed678b90d51f610e0c60ab6dd47797c3b9514be8a95bc3"
+    sha256 cellar: :any_skip_relocation, all: "760890f1ed79a9c2456cf6ab781414b976ad9ad71946b0adc6f8cd7a7dd126a3"
   end
 
   depends_on "openjdk"
