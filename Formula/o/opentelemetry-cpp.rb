@@ -24,7 +24,14 @@ class OpentelemetryCpp < Formula
   depends_on "nlohmann-json"
   depends_on "prometheus-cpp"
   depends_on "protobuf"
+
   uses_from_macos "curl"
+
+  on_macos do
+    depends_on "c-ares"
+    depends_on "openssl@3"
+    depends_on "re2"
+  end
 
   def install
     ENV.append "LDFLAGS", "-Wl,-undefined,dynamic_lookup" if OS.mac?
