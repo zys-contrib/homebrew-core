@@ -25,6 +25,6 @@ class Jsonlint < Formula
 
   test do
     (testpath/"test.json").write('{"name": "test"}')
-    system "#{bin}/jsonlint", "test.json"
+    system bin/"jsonlint", "test.json"
   end
 end

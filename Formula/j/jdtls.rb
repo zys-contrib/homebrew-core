@@ -52,7 +52,7 @@ class Jdtls < Formula
       }
     JSON
 
-    Open3.popen3("#{bin}/jdtls", "-configuration", "#{testpath}/config", "-data",
+    Open3.popen3(bin/"jdtls", "-configuration", "#{testpath}/config", "-data",
         "#{testpath}/data") do |stdin, stdout, _e, w|
       stdin.write "Content-Length: #{json.size}\r\n\r\n#{json}"
       sleep 3
