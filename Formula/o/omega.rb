@@ -1,8 +1,8 @@
 class Omega < Formula
   desc "Packaged search engine for websites, built on top of Xapian"
   homepage "https://xapian.org/"
-  url "https://oligarchy.co.uk/xapian/1.4.25/xapian-omega-1.4.25.tar.xz"
-  sha256 "2fc0b505e606d5e1dcde1f22362b6f0237d9e847fc9b6af538f99bc9abd1fccb"
+  url "https://oligarchy.co.uk/xapian/1.4.26/xapian-omega-1.4.26.tar.xz"
+  sha256 "a5b2386e1b04df84d1149a9e9c5bcfc5e4726a69a69da641b86c68d79967dae4"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -25,8 +25,11 @@ class Omega < Formula
   depends_on "pcre2"
   depends_on "xapian"
 
+  uses_from_macos "zlib"
+
   def install
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "./configure", "--disable-silent-rules",
+                          *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
   end
 
