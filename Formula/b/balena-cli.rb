@@ -1,10 +1,8 @@
-require "language/node"
-
 class BalenaCli < Formula
   desc "Command-line tool for interacting with the balenaCloud and balena API"
   homepage "https://www.balena.io/docs/reference/cli/"
-  url "https://registry.npmjs.org/balena-cli/-/balena-cli-18.2.33.tgz"
-  sha256 "9bbec6f27fe46c9028a929e3a9cba679ada54fa527288d3e36f1f1e1c5bf6740"
+  url "https://registry.npmjs.org/balena-cli/-/balena-cli-18.2.34.tgz"
+  sha256 "6530a28686048e831246e16dc9b63c2a9e008c8763eefc66beaf48446c81f2b1"
   license "Apache-2.0"
 
   livecheck do
@@ -34,8 +32,8 @@ class BalenaCli < Formula
   def install
     ENV.deparallelize
 
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    system "npm", "install", *std_npm_args
+    bin.install_symlink libexec.glob("bin/*")
 
     # Remove incompatible pre-built binaries
     os = OS.kernel_name.downcase
@@ -52,8 +50,6 @@ class BalenaCli < Formula
   end
 
   test do
-    ENV.prepend_path "PATH", Formula["node@20"].bin
-
     assert_match "Logging in to balena-cloud.com",
       shell_output("#{bin}/balena login --credentials --email johndoe@gmail.com --password secret 2>/dev/null", 1)
   end
