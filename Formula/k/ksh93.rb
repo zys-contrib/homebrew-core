@@ -1,8 +1,8 @@
 class Ksh93 < Formula
   desc "KornShell, ksh93"
   homepage "https://github.com/ksh93/ksh"
-  url "https://github.com/ksh93/ksh/archive/refs/tags/v1.0.9.tar.gz"
-  sha256 "c58d618b551c594580541a0759e32ea6ddadd7b7a84f9f3ebea2ffb9a5d9d580"
+  url "https://github.com/ksh93/ksh/archive/refs/tags/v1.0.10.tar.gz"
+  sha256 "9f4c7a9531cec6941d6a9fd7fb70a4aeda24ea32800f578fd4099083f98b4e8a"
   license "EPL-2.0"
   head "https://github.com/ksh93/ksh.git", branch: "dev"
 
