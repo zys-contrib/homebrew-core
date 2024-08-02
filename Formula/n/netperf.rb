@@ -63,6 +63,6 @@ class Netperf < Formula
   end
 
   test do
-    system "#{bin}/netperf -h | cat"
+    assert_match "Usage: netperf", shell_output("#{bin}/netperf -h 2>&1", 1)
   end
 end
