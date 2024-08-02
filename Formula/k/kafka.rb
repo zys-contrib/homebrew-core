@@ -113,7 +113,7 @@ class Kafka < Formula
              ">> #{testpath}/kafka/demo.out 2>/dev/null"
     ensure
       system bin/"kafka-server-stop"
-      system "#{bin}/zookeeper-server-stop"
+      system bin/"zookeeper-server-stop"
       sleep 10
     end
 

@@ -40,6 +40,6 @@ class Lbzip2 < Formula
   test do
     touch "fish"
     system bin/"lbzip2", "fish"
-    system "#{bin}/lbunzip2", "fish.bz2"
+    system bin/"lbunzip2", "fish.bz2"
   end
 end
