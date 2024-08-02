@@ -1,8 +1,8 @@
 class Gedit < Formula
   desc "GNOME text editor"
   homepage "https://gedit-technology.github.io/apps/gedit/"
-  url "https://download.gnome.org/sources/gedit/46/gedit-46.2.tar.xz"
-  sha256 "c0866412bad147ebace2d282ffcbb5a0e9a304b20fd55640bee21c81e6d501ef"
+  url "https://download.gnome.org/sources/gedit/47/gedit-47.0.tar.xz"
+  sha256 "fa4a597e34c76d4ac91431b5ae6e191c96c6b0af1702e0899ab35199edfa1bfa"
   license "GPL-2.0-or-later"
 
   # gedit doesn't seem to follow the typical GNOME version scheme, so we
@@ -25,32 +25,31 @@ class Gedit < Formula
 
   depends_on "desktop-file-utils" => :build # for update-desktop-database
   depends_on "docbook-xsl" => :build
+  depends_on "gettext" => :build
   depends_on "gtk-doc" => :build
   depends_on "itstool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
-  depends_on "vala" => :build
 
   depends_on "adwaita-icon-theme"
-  depends_on "at-spi2-core"
   depends_on "cairo"
   depends_on "gdk-pixbuf"
-  depends_on "gettext"
   depends_on "glib"
   depends_on "gobject-introspection"
   depends_on "gsettings-desktop-schemas"
   depends_on "gspell"
   depends_on "gtk+3"
   depends_on "libgedit-amtk"
+  depends_on "libgedit-gfls"
   depends_on "libgedit-gtksourceview"
+  depends_on "libgedit-tepl"
   depends_on "libpeas@1"
-  depends_on "libsoup"
   depends_on "libxml2"
   depends_on "pango"
-  depends_on "tepl"
 
   on_macos do
+    depends_on "gettext"
     depends_on "gtk-mac-integration"
   end
 
@@ -84,6 +83,7 @@ class Gedit < Formula
         return 0;
       }
     EOS
+
     flags = shell_output("pkg-config --cflags --libs gedit").chomp.split
     flags << "-Wl,-rpath,#{lib}/gedit" if OS.linux?
     system ENV.cc, "test.c", "-o", "test", *flags
