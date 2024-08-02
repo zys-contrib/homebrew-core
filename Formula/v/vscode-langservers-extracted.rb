@@ -1,5 +1,3 @@
-require "language/node"
-
 class VscodeLangserversExtracted < Formula
   desc "Language servers for HTML, CSS, JavaScript, and JSON extracted from vscode"
   homepage "https://github.com/hrsh7th/vscode-langservers-extracted"
@@ -20,7 +18,7 @@ class VscodeLangserversExtracted < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
