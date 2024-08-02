@@ -111,7 +111,7 @@ class Odin < Formula
         fmt.println("Hellope!");
       }
     EOS
-    system "#{bin}/odin", "build", "hellope.odin", "-file"
+    system bin/"odin", "build", "hellope.odin", "-file"
     assert_equal "Hellope!\n", shell_output("./hellope")
 
     (testpath/"miniaudio.odin").write <<~EOS
@@ -126,7 +126,7 @@ class Odin < Formula
         fmt.println(ver)
       }
     EOS
-    system "#{bin}/odin", "run", "miniaudio.odin", "-file"
+    system bin/"odin", "run", "miniaudio.odin", "-file"
 
     if OS.mac?
       (testpath/"raylib.odin").write <<~EOS
@@ -143,8 +143,8 @@ class Odin < Formula
           assert(42 <= num && num <= 1337)
         }
       EOS
-      system "#{bin}/odin", "run", "raylib.odin", "-file"
-      system "#{bin}/odin", "run", "raylib.odin", "-file",
+      system bin/"odin", "run", "raylib.odin", "-file"
+      system bin/"odin", "run", "raylib.odin", "-file",
         "-define:RAYLIB_SHARED=true", "-define:RAYGUI_SHARED=true"
 
       (testpath/"glfw.odin").write <<~EOS
@@ -157,7 +157,7 @@ class Odin < Formula
           fmt.println(glfw.GetVersion())
         }
       EOS
-      system "#{bin}/odin", "run", "glfw.odin", "-file"
+      system bin/"odin", "run", "glfw.odin", "-file"
     end
   end
 end

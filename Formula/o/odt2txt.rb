@@ -37,7 +37,7 @@ class Odt2txt < Formula
   test do
     resources.each do |r|
       r.fetch
-      system "#{bin}/odt2txt", r.cached_download
+      system bin/"odt2txt", r.cached_download
     end
   end
 end
