@@ -33,7 +33,7 @@ class Oil < Formula
   end
 
   test do
-    system "#{bin}/osh", "-c", "shopt -q parse_backticks"
+    system bin/"osh", "-c", "shopt -q parse_backticks"
     assert_equal testpath.to_s, shell_output("#{bin}/osh -c 'echo `pwd -P`'").strip
 
     system bin/"oil", "-c", "shopt -u parse_equals"

@@ -48,6 +48,6 @@ class PamYubico < Formula
 
   test do
     # Not much more to test without an actual yubikey device.
-    system "#{bin}/ykpamcfg", "-V"
+    system bin/"ykpamcfg", "-V"
   end
 end

@@ -129,7 +129,7 @@ class Pidgin < Formula
   end
 
   test do
-    system "#{bin}/finch", "--version"
+    system bin/"finch", "--version"
     system bin/"pidgin", "--version"
 
     pid = fork { exec bin/"pidgin", "--config=#{testpath}" }
