@@ -46,6 +46,7 @@ class AntAT19 < Formula
         </target>
       </project>
     EOS
+
     (testpath/"src/main/java/org/homebrew/AntTest.java").write <<~EOS
       package org.homebrew;
       public class AntTest {
@@ -54,6 +55,7 @@ class AntAT19 < Formula
         }
       }
     EOS
-    system "#{bin}/ant", "compile"
+
+    system bin/"ant", "compile"
   end
 end
