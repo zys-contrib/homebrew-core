@@ -3,8 +3,8 @@ require "language/node"
 class AwsAmplify < Formula
   desc "Build full-stack web and mobile apps in hours. Easy to start, easy to scale"
   homepage "https://aws.amazon.com/amplify"
-  url "https://registry.npmjs.org/@aws-amplify/cli-internal/-/cli-internal-12.12.4.tgz"
-  sha256 "15cffbaa789c69981262fec17e24ce2a0df56219d01ea56bd2ed48270f27fbcf"
+  url "https://registry.npmjs.org/@aws-amplify/cli-internal/-/cli-internal-12.12.5.tgz"
+  sha256 "b19d161067d1f8aeb1abaff5115bdf3d51e4b994b6defdfc6015490ee6fbf9b9"
   license "Apache-2.0"
 
   bottle do
