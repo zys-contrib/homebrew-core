@@ -5,11 +5,6 @@ class Hdf5AT110 < Formula
   sha256 "0afc77da5c46217709475bbefbca91c0cb6f1ea628ccd8c36196cf6c5a4de304"
   license "BSD-3-Clause"
 
-  livecheck do
-    url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/"
-    regex(%r{href=["']?hdf5[._-]v?(\d+(?:\.\d+)+)/?["' >]}i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "b85adcde660662f9ed6f4c9740e1c97a8ec2a1b4be7ff3185142801ce7083a5c"
     sha256 cellar: :any,                 arm64_ventura:  "7c8e8deff03df6d11099246b2ab71ed2decdcdbbc395e4803b0a12fb5d0ec672"
