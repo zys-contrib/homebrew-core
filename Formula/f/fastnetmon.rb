@@ -10,6 +10,7 @@ class Fastnetmon < Formula
     sha256 cellar: :any,                 arm64_sonoma:   "779080428f45d396f2dddfde202e9a301d84099b99a85be3b16fa549294c7e20"
     sha256 cellar: :any,                 arm64_ventura:  "31ee89bb0c80a418d5736ef51e7ebaa2f71636657590ad1d91ef2629ce84274a"
     sha256 cellar: :any,                 arm64_monterey: "f0ec266e63048e75071ec4235ae000f64093e3d993b57a63b2c374e0003c0eae"
+    sha256 cellar: :any,                 sonoma:         "e7a2cbd2a608301161e2e3f17f9cb7aeeacfeb4f82f08fb24142ee48d138cc7b"
     sha256 cellar: :any,                 ventura:        "463b17b3e9975b1a92eb84e7446f6076d546e1840094bab0d6e04b2b6c5fcb5b"
     sha256 cellar: :any,                 monterey:       "82dd18bcd3062f1ce12a4279f50fce4ae386eae17029fc7b1a1489f381da978d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f501d94ea65283122626cad1988305c832d8a04eefa8e07625b1b1f29b82899"
