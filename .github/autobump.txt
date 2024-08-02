@@ -142,6 +142,7 @@ aws-iam-authenticator
 aws-nuke
 aws-rotate-key
 aws-sam-cli
+aws-sdk-cpp
 aws-sso-cli
 aws-sso-util
 awscli
