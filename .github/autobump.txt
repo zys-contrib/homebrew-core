@@ -802,6 +802,7 @@ fetchmail
 ffmpeg
 ffmpeg@4
 ffmpeg@5
+ffmpeg@6
 ffms2
 ffsend
 ffuf
