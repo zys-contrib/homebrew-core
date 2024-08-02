@@ -26,6 +26,6 @@ class NicovideoDl < Formula
   end
 
   test do
-    system "#{bin}/nicovideo-dl", "-v"
+    system bin/"nicovideo-dl", "-v"
   end
 end
