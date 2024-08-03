@@ -1,8 +1,8 @@
 class Libxtst < Formula
   desc "X.Org: Client API for the XTEST & RECORD extensions"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXtst-1.2.4.tar.gz"
-  sha256 "01366506aeb033f6dffca5326af85f670746b0cabbfd092aabefb046cf48c445"
+  url "https://www.x.org/archive/individual/lib/libXtst-1.2.5.tar.gz"
+  sha256 "244ba6e1c5ffa44f1ba251affdfa984d55d99c94bb925a342657e5e7aaf6d39c"
   license "MIT"
 
   bottle do
@@ -20,6 +20,9 @@ class Libxtst < Formula
 
   depends_on "pkg-config" => :build
   depends_on "util-macros" => :build
+
+  depends_on "libx11"
+  depends_on "libxext"
   depends_on "libxi"
   depends_on "xorgproto"
 
