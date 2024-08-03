@@ -10,7 +10,8 @@ class Smartypants < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a1af00dbd1e4d6d42c6251fc9ca0cd36cce3370a9321f183e7f96a5bdebf8c6d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "3de13f7bf233a663c066ff5a8b1a27ba3ceb278ac9c1e750f7f70d1723572dc4"
   end
 
   def install
