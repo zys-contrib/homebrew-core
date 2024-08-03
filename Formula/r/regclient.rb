@@ -1,8 +1,8 @@
 class Regclient < Formula
   desc "Docker and OCI Registry Client in Go and tooling using those libraries"
   homepage "https://github.com/regclient/regclient"
-  url "https://github.com/regclient/regclient/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "66520c4283334732aeffde2d6a06da527695c60ce86af5aaefd3a7f1a6fb4481"
+  url "https://github.com/regclient/regclient/archive/refs/tags/v0.7.1.tar.gz"
+  sha256 "17042a6f8b5d5bf25ce916347a0b314f7dd91a6c06f78761a4e5fe21f5eb9632"
   license "Apache-2.0"
   head "https://github.com/regclient/regclient.git", branch: "main"
 
