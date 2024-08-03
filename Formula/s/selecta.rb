@@ -9,6 +9,8 @@ class Selecta < Formula
     sha256 cellar: :any_skip_relocation, all: "c418f7d144207312dddff58fbffadb5d602d681c2704e73f65d9489ba5ff47a9"
   end
 
+  uses_from_macos "ruby"
+
   def install
     bin.install "selecta"
   end
