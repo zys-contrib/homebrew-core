@@ -1,8 +1,8 @@
 class BigqueryEmulator < Formula
   desc "Emulate a GCP BigQuery server on your local machine"
   homepage "https://github.com/goccy/bigquery-emulator"
-  url "https://github.com/goccy/bigquery-emulator/archive/refs/tags/v0.6.3.tar.gz"
-  sha256 "58caf41996a6636df16a88adc3cb8e605ce31585d1a1f72dd04f0efd904c3154"
+  url "https://github.com/goccy/bigquery-emulator/archive/refs/tags/v0.6.4.tar.gz"
+  sha256 "b33ef3823dd314ffbf4d33d3ffb314375cc6e78e025938243a81d191ed424e19"
   license "MIT"
   head "https://github.com/goccy/bigquery-emulator.git", branch: "main"
 
