@@ -1,5 +1,3 @@
-require "language/node"
-
 class AtomistCli < Formula
   desc "Unified command-line tool for interacting with Atomist services"
   homepage "https://github.com/atomist/cli"
@@ -28,7 +26,7 @@ class AtomistCli < Formula
   end
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
     bash_completion.install libexec/"lib/node_modules/@atomist/cli/assets/bash_completion/atomist"
 
