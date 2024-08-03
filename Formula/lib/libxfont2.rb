@@ -1,8 +1,8 @@
 class Libxfont2 < Formula
   desc "X11 font rasterisation library"
   homepage "https://www.x.org/"
-  url "https://xorg.freedesktop.org/archive/individual/lib/libXfont2-2.0.6.tar.gz"
-  sha256 "a944df7b6837c8fa2067f6a5fc25d89b0acc4011cd0bc085106a03557fb502fc"
+  url "https://xorg.freedesktop.org/archive/individual/lib/libXfont2-2.0.7.tar.gz"
+  sha256 "90b331c2fd2d0420767c4652e007d054c97a3f03a88c55e3b986bd3acfd7e338"
   license "MIT"
 
   bottle do
