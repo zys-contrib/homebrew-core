@@ -1,5 +1,3 @@
-require "language/node"
-
 class NetlifyCli < Formula
   desc "Netlify command-line tool"
   homepage "https://www.netlify.com/docs/cli"
@@ -28,8 +26,8 @@ class NetlifyCli < Formula
   end
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    system "npm", "install", *std_npm_args
+    bin.install_symlink libexec.glob("bin/*")
 
     # Remove incompatible pre-built binaries
     node_modules = libexec/"lib/node_modules/netlify-cli/node_modules"
