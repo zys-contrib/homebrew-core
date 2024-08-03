@@ -23,6 +23,7 @@ class Debugbreak < Formula
       }
     EOS
     system ENV.cc, "-I#{include}", "test.c", "-o", "test"
-    assert_empty shell_output("./test", nil)
+    pid = Process.spawn("./test")
+    assert_equal Signal.list.fetch("TRAP"), Process::Status.wait(pid).termsig
   end
 end
