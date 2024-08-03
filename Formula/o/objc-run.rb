@@ -11,6 +11,9 @@ class ObjcRun < Formula
     sha256 cellar: :any_skip_relocation, all: "951d50ad3ee4ebb9d0717b4df365870b44626195378b9d5c64bcf7b320e8cc14"
   end
 
+  # failed on linux with `-fobjc-arc is not supported on platforms using the legacy runtime`
+  depends_on :macos
+
   def install
     bin.install "objc-run"
     pkgshare.install "examples", "test.bash"
