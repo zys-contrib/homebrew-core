@@ -1794,6 +1794,7 @@ nox
 npm-check-updates
 npth
 nq
+nrpe
 ns-3
 nsd
 nsq

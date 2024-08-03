@@ -1,9 +1,9 @@
 class Nrpe < Formula
   desc "Nagios remote plugin executor"
   homepage "https://www.nagios.org/"
-  url "https://github.com/NagiosEnterprises/nrpe/releases/download/nrpe-4.1.0/nrpe-4.1.0.tar.gz"
-  sha256 "a1f14aa8aaf935b576cc55ab5d77b7cb9c920d7702aff44c9d18c4c841ef8ecc"
-  license "GPL-2.0"
+  url "https://github.com/NagiosEnterprises/nrpe/releases/download/nrpe-4.1.1/nrpe-4.1.1.tar.gz"
+  sha256 "0e716a7d904e0a441be52a0ef82c1138b949bad81c1da93056a81405aabcc0d7"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any, arm64_sonoma:   "fa4fe7e4587d3525a1d33a16e626a18358e5e14d9701b1055928c8f8a53abefd"
