@@ -1,5 +1,3 @@
-require "language/node"
-
 class SqlLanguageServer < Formula
   desc "Language Server for SQL"
   homepage "https://github.com/joe-re/sql-language-server"
@@ -32,8 +30,8 @@ class SqlLanguageServer < Formula
   end
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    system "npm", "install", *std_npm_args
+    bin.install_symlink libexec.glob("bin/*")
 
     # Remove vendored pre-built binary `terminal-notifier`
     node_notifier_vendor_dir = libexec/"lib/node_modules/sql-language-server/node_modules/node-notifier/vendor"
