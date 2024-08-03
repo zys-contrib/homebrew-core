@@ -34,10 +34,11 @@ class MozGitTools < Formula
         name = Real Person
         email = notacat@hotmail.cat
     EOS
-    system "git", "init"
-    (testpath/"myfile").write("my file")
+
+    system "git", "init", "--initial-branch=main"
+    (testpath/"myfile").write("# BrewTest")
     system "git", "add", "myfile"
     system "git", "commit", "-m", "test"
-    assert_match "master", shell_output("#{bin}/git-branchname")
+    assert_match "main", shell_output("#{bin}/git-branchname")
   end
 end
