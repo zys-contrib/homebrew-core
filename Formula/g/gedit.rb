@@ -13,14 +13,13 @@ class Gedit < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "777d2f0921fa04711b03b411ca7c694c49cf2e1d83f2adbaa4c666a2f6b066d6"
-    sha256 arm64_ventura:  "9782b95eeb5018630fdf4eb107c6de00b163e9f764926451fe9f5b61caeae54e"
-    sha256 arm64_monterey: "a901fbafe0f26f5f15c7639590cfea0b8e507c8d9ac4cb45dc9522ee95a416f8"
-    sha256 sonoma:         "3d9eb8f9c8510c0c1ef5123053834f9b69fd7feed60fff48d3b660e4746cf59b"
-    sha256 ventura:        "4110ca2fc7ee3eeff7fac46ad5c4af84e805ca5e559f6a4f393340ed103e3dfa"
-    sha256 monterey:       "95fc3cbec4956c99dd475fd985f63b30fcaf1a0cf0952de91e0b641d45091a97"
-    sha256 x86_64_linux:   "3784d5b0bce3a017dbe55447af1dee3a2b335f4dfbd0a7340a98c2c511eea35a"
+    sha256 arm64_sonoma:   "dd584b18e86c5235a5489d70ff5d9e9b592029ed8695d91e4be0668d0cd57d49"
+    sha256 arm64_ventura:  "bb6e0bb90be7ac45bf541e6682eca988a08178d28a37705c959cb3a0e3667e1b"
+    sha256 arm64_monterey: "de2b6d26a133ad1dbe1e4e9f549210bbaa0af08753f6508d97193032be9d73f0"
+    sha256 sonoma:         "f4f2363f23697b099ee4203b7b04e4fb7fcd272de677c4098a3ecfcae9520477"
+    sha256 ventura:        "225c6cc2e8c21d272519b387a48776a2ff0fffe6a1f1145a4e76aeca88f21143"
+    sha256 monterey:       "4d491cf75ae5637ad53f83930628ce2a4321c698082a33f41c546304da2cc040"
+    sha256 x86_64_linux:   "d44f0ce398f5a58684a6797d457a6056b4f976e8bce80d93b14b4e831a94e79b"
   end
 
   depends_on "desktop-file-utils" => :build # for update-desktop-database
