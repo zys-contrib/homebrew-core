@@ -12,9 +12,10 @@ class ImageoptimCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, sonoma:   "1c539980a1190ae7468247a0ce16a82a557ff57767943c69a2b4048af72c7443"
-    sha256 cellar: :any_skip_relocation, ventura:  "5e752c1b06eef72f76ab85796337ad9d8f214990f6c4074c8f420cab6582a477"
-    sha256 cellar: :any_skip_relocation, monterey: "24737964fe1dd7d2af554e33db1f31a3128e675954e256dc054ca435ebe518c6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, sonoma:   "c2df0a56a557b3ed98d9240aea9c6f2d3edf899b0d0a1c3c8a1e1bd93c6d3595"
+    sha256 cellar: :any_skip_relocation, ventura:  "d2efbaedd1472d061fc4cbd0bb9ca3e93d0070a8f73efaf8131320e91d50a309"
+    sha256 cellar: :any_skip_relocation, monterey: "fb18de0c4c68f50c4239b1ca4374a56a0d6ba981d0e7597d54c4f32de4c0c1ca"
   end
 
   depends_on "node" => :build
