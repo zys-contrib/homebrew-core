@@ -10,6 +10,8 @@ class Zplug < Formula
     sha256 cellar: :any_skip_relocation, all: "88f086071ba188267046f170817aee4ad59fcdd9d9b7ad183b639306c5b8ef29"
   end
 
+  uses_from_macos "zsh"
+
   def install
     bin.install Dir["bin/*"]
     man1.install "doc/man/man1/zplug.1"
