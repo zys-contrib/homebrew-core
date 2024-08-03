@@ -2,17 +2,16 @@ class Sysdig < Formula
   desc "System-level exploration and troubleshooting tool"
   homepage "https://sysdig.com/"
   license "Apache-2.0"
-  revision 3
 
   stable do
-    url "https://github.com/draios/sysdig/archive/refs/tags/0.37.1.tar.gz"
-    sha256 "b01c4d097a5f87b7380612fc5897490627ccbf1a5c5cbe8aa185e7fd459daa9b"
+    url "https://github.com/draios/sysdig/archive/refs/tags/0.38.1.tar.gz"
+    sha256 "68085ea118a4209dbde8f1b75584f9f84610b5856e507ffb0703d8add6331132"
 
     # Update to value of FALCOSECURITY_LIBS_VERSION with
     # VERSION=#{version} && curl -fsSL https://raw.githubusercontent.com/draios/sysdig/$VERSION/cmake/modules/falcosecurity-libs.cmake | grep -o 'set(FALCOSECURITY_LIBS_VERSION "[0-9.]*")' | awk -F'"' '{print $2}'
     resource "falcosecurity-libs" do
-      url "https://github.com/falcosecurity/libs/archive/refs/tags/0.16.0.tar.gz"
-      sha256 "5b13d6160bc09ea9b56d70951b68db0aaad45bd0171690eddc08c8028e1b7928"
+      url "https://github.com/falcosecurity/libs/archive/refs/tags/0.17.2.tar.gz"
+      sha256 "5c4f0c987272b7d5236f6ab2bbe3906ffdaf76b59817b63cf90cc8c387ab5b15"
     end
   end
 
@@ -42,7 +41,6 @@ class Sysdig < Formula
   depends_on "cmake" => :build
   depends_on "nlohmann-json" => :build
   depends_on "valijson" => :build
-  depends_on "c-ares"
   depends_on "jsoncpp"
   depends_on "luajit"
   depends_on "ncurses" # for `newterm` function
@@ -84,7 +82,6 @@ class Sysdig < Formula
     args = %W[
       -DSYSDIG_VERSION=#{version}
       -DUSE_BUNDLED_DEPS=OFF
-      -DUSE_BUNDLED_TINYDIR=ON
       -DCREATE_TEST_TARGETS=OFF
       -DBUILD_LIBSCAP_EXAMPLES=OFF
       -DDIR_ETC=#{etc}
@@ -96,7 +93,7 @@ class Sysdig < Formula
       args << "-DUSE_BUNDLED_#{dep}=OFF"
     end
 
-    args << "-DBUILD_DRIVER=OFF" if OS.linux?
+    args += ["-DBUILD_DRIVER=OFF", "-DBUILD_LIBSCAP_MODERN_BPF=OFF"] if OS.linux?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
