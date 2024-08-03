@@ -1,5 +1,3 @@
-require "language/node"
-
 class AwsAmplify < Formula
   desc "Build full-stack web and mobile apps in hours. Easy to start, easy to scale"
   homepage "https://aws.amazon.com/amplify"
@@ -20,8 +18,8 @@ class AwsAmplify < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    system "npm", "install", *std_npm_args
+    bin.install_symlink libexec.glob("bin/*")
 
     unless Hardware::CPU.intel?
       rm_r "#{libexec}/lib/node_modules/@aws-amplify/cli-internal/node_modules" \
