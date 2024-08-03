@@ -10,6 +10,8 @@ class Rmate < Formula
     sha256 cellar: :any_skip_relocation, all: "f17a839cae2678598895cdbd94ecceb0197ddd0c6e94e17768a5580c3cf9cc98"
   end
 
+  uses_from_macos "ruby"
+
   def install
     bin.install "bin/rmate"
   end
