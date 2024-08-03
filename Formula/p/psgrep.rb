@@ -16,6 +16,7 @@ class Psgrep < Formula
   end
 
   test do
-    assert_match $PROGRAM_NAME, shell_output("#{bin}/psgrep #{Process.pid}")
+    system bin/"psgrep", Process.pid
+    assert_match version.to_s, shell_output("#{bin}/psgrep -v", 2)
   end
 end
