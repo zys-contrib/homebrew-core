@@ -21,13 +21,13 @@ class Sysdig < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:   "2c7f15e08f3222e2b3eeda53be3ea209aa85e373db757d488bed37e9d902d294"
-    sha256                               arm64_ventura:  "abb811379696ae613b6122529ee61d361324713fae27a10d05e1eaeefc6a2069"
-    sha256                               arm64_monterey: "487b4f25198c5aefc69e64c0876d90526d6924811324e30f22293bfab45c95c4"
-    sha256                               sonoma:         "b95dee425a4cd89221aa1f3a39ae2bb9f86b41c83e15851755dc2da8edafa26b"
-    sha256                               ventura:        "06750238d8f291177a9897ae5532aedea0b154aed3e9a02a2f568597f4c0224b"
-    sha256                               monterey:       "c83b58e3f22dae5e449b8f1039156a8eca6495c1395cf52284f0c1b73567f9fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b34766c9fb3b978955863ce8940050dc630a86045066eda1977e828d2f0b4494"
+    sha256                               arm64_sonoma:   "9ecf2c02836e39c9d30788dbbbf520f669a2436ecba2cded2ba070c9f2772cef"
+    sha256                               arm64_ventura:  "c4955ccd83bf4b23facd1f4ab8d560a90db3e6b52c9b4b5f5783fdebf86e86be"
+    sha256                               arm64_monterey: "fc157eb300b3253674e0ce358ca72bf7c3ded4347dfdbb970bf3a8a59bf3dc26"
+    sha256                               sonoma:         "5c8dad5580cf4695eda3e9356b12958e4a4af3165777e7e4726a222e4a77cfa2"
+    sha256                               ventura:        "8359bbeb14abc9c1cffb0da87a2f6b2301700559a43259b01279f0f947a5ee24"
+    sha256                               monterey:       "4d958c9d668db9dead13049b864d31d361caa174e8c3c0f83faddba8441a945e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea8749c91ff879c0f5b1cd3a67038d286788aa53eaaa438c5e9c18fa036d9f21"
   end
 
   head do
