@@ -1,5 +1,3 @@
-require "language/node"
-
 class Insect < Formula
   desc "High precision scientific calculator with support for physical units"
   homepage "https://github.com/sharkdp/insect"
@@ -26,8 +24,8 @@ class Insect < Formula
   end
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir[libexec/"bin/*"]
+    system "npm", "install", *std_npm_args
+    bin.install_symlink libexec.glob("bin/*")
 
     clipboardy_fallbacks_dir = libexec/"lib/node_modules/#{name}/node_modules/clipboardy/fallbacks"
     rm_r(clipboardy_fallbacks_dir) # remove pre-built binaries
