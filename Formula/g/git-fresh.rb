@@ -15,6 +15,7 @@ class GitFresh < Formula
   end
 
   test do
+    system "git", "config", "--global", "init.defaultBranch", "master"
     system bin/"git-fresh", "-T"
   end
 end
