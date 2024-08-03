@@ -1,8 +1,8 @@
 class Awk < Formula
   desc "Text processing scripting language"
   homepage "https://www.cs.princeton.edu/~bwk/btl.mirror/"
-  url "https://github.com/onetrueawk/awk/archive/refs/tags/20240422.tar.gz"
-  sha256 "4793404735db5ea79f790cf865bf4fe875f9c5c23b1b8da186349f54b3a32281"
+  url "https://github.com/onetrueawk/awk/archive/refs/tags/20240728.tar.gz"
+  sha256 "2d479817f95d5997fc4348ecebb1d8a1b25c81cebedb46ca4f59434247e08543"
   # https://fedoraproject.org/wiki/Licensing:MIT?rd=Licensing/MIT#Standard_ML_of_New_Jersey_Variant
   license "MIT"
   head "https://github.com/onetrueawk/awk.git", branch: "master"
