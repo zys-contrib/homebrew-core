@@ -20,7 +20,7 @@ class AwsElasticbeanstalk < Formula
 
   depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python@3.11" # Python 3.12 needs https://github.com/aws/aws-elastic-beanstalk-cli/pull/512
+  depends_on "python@3.12"
 
   uses_from_macos "libffi"
 
@@ -35,8 +35,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "cement" do
-    url "https://files.pythonhosted.org/packages/70/60/608f0b8975f4ee7deaaaa7052210d095e0b96e7cd3becdeede9bd13674a1/cement-2.8.2.tar.gz"
-    sha256 "8765ed052c061d74e4d0189addc33d268de544ca219b259d797741f725e422d2"
+    url "https://files.pythonhosted.org/packages/49/a9/94696dcf1483eac1c25f278d79d67c408a170414daa1f7522b96b8afd01d/cement-2.10.14.tar.gz"
+    sha256 "342e27db54a6616dd1892ed0bb3597a227cee33dc2d85560426df17fca907058"
   end
 
   resource "charset-normalizer" do
@@ -84,6 +84,11 @@ class AwsElasticbeanstalk < Formula
     sha256 "d2cb2de0558762934679b9a104e82eca7af448c9f4974d1f3eeccff651df8a54"
   end
 
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/5e/11/487b18cc768e2ae25a919f230417983c8d5afa1b6ee0abd8b6db0b89fa1d/setuptools-72.1.0.tar.gz"
+    sha256 "8d243eff56d095e5817f796ede6ae32941278f542e0f941867cc05ae52b162ec"
+  end
+
   resource "six" do
     url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
     sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
@@ -105,6 +110,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   def install
+    # Allow newer `cement` with 3.12 support: https://github.com/aws/aws-elastic-beanstalk-cli/pull/512
+    inreplace "requirements.txt", "cement==2.8.2", "cement<3"
     virtualenv_install_with_resources
   end
 
