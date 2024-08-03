@@ -10,16 +10,17 @@ class Willgit < Formula
     sha256 cellar: :any_skip_relocation, all: "471907584cfb2691323566ad760ea0686de7aac0e2f20edc2ad0575146caee83"
   end
 
+  uses_from_macos "ruby"
+
   def install
     prefix.install "bin"
   end
 
   test do
-    system "git", "init"
-    (testpath/"README.md").write "# My Awesome Project"
+    system "git", "init", "--initial-branch=main"
+    (testpath/"README.md").write "# BrewTest"
     system "git", "add", "README.md"
     system "git", "commit", "-m", "init"
-    assert_equal "Local branch: master",
-      shell_output("git wtf").chomp
+    assert_equal "Local branch: main", shell_output("git wtf").chomp
   end
 end
