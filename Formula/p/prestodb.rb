@@ -3,7 +3,7 @@ class Prestodb < Formula
 
   desc "Distributed SQL query engine for big data"
   homepage "https://prestodb.io"
-  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.288/presto-server-0.288.tar.gz"
+  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.288/presto-server-0.288.tar.gz", using: :nounzip
   sha256 "138761fa376567f5a40e3bbd252f98f15ceb677f3d0b454417c9ed49ae6b48a3"
   license "Apache-2.0"
 
@@ -22,8 +22,6 @@ class Prestodb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "d0e4dad455ed75323fab0e830b2319ade02878688a678b2b7bb78650248e5533"
   end
 
-  # https://github.com/prestodb/presto/issues/17146
-  depends_on arch: :x86_64
   depends_on "openjdk@11"
   depends_on "python@3.12"
 
@@ -35,7 +33,9 @@ class Prestodb < Formula
   def install
     odie "presto-cli resource needs to be updated" if version != resource("presto-cli").version
 
-    libexec.install Dir["*"]
+    # Manually extract tarball to avoid multiple copies/moves of over 2GB of files
+    libexec.mkpath
+    system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xzf", "presto-server-#{version}.tar.gz"
 
     (libexec/"etc/node.properties").write <<~EOS
       node.environment=production
@@ -80,11 +80,11 @@ class Prestodb < Formula
     end
 
     # Remove incompatible pre-built binaries
-    libprocname_dirs = libexec.glob("bin/procname/*")
+    libprocname_dirs = (libexec/"bin/procname").children
     # Keep the Linux-x86_64 directory to make bottles identical
     libprocname_dirs.reject! { |dir| dir.basename.to_s == "Linux-x86_64" }
     libprocname_dirs.reject! { |dir| dir.basename.to_s == "#{OS.kernel_name}-#{Hardware::CPU.arch}" }
-    libprocname_dirs.map(&:rmtree)
+    rm_r libprocname_dirs
   end
 
   def post_install
@@ -112,7 +112,7 @@ class Prestodb < Formula
                                        "--data-dir", testpath,
                                        "--config", testpath/"config.properties"
     end
-    sleep 45
+    sleep 60
 
     query = "SELECT state FROM system.runtime.nodes"
     output = shell_output(bin/"presto --debug --server localhost:#{port} --execute '#{query}'")
