@@ -9,6 +9,8 @@ class Historian < Formula
     sha256 cellar: :any_skip_relocation, all: "f1887b168f03631cb1a51fb419940d8f2bee1e9fb658cc1cd130ded4aa0951eb"
   end
 
+  uses_from_macos "sqlite"
+
   def install
     bin.install "hist"
   end
