@@ -3,7 +3,7 @@ class Btparse < Formula
   homepage "https://metacpan.org/pod/distribution/Text-BibTeX/btparse/doc/btparse.pod"
   url "https://cpan.metacpan.org/authors/id/A/AM/AMBS/btparse/btparse-0.35.tar.gz"
   sha256 "631bf1b79dfd4c83377b416a12c349fe88ee37448dc82e41424b2f364a99477b"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "d58ac5298bb8bfc1859e5333d541ea89ce1dba5a629c1360b48857eb307f6350"
@@ -20,13 +20,13 @@ class Btparse < Formula
   end
 
   def install
+    # workaround for Xcode 14.3
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     # Fix flat namespace usage
     inreplace "configure", "${wl}-flat_namespace ${wl}-undefined ${wl}suppress", "${wl}-undefined ${wl}dynamic_lookup"
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
   end
 
