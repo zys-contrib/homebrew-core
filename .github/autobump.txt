@@ -1811,6 +1811,7 @@ nut
 nvc
 nvchecker
 nvimpager
+nvm
 nvtop
 nzbget
 oauth2_proxy
