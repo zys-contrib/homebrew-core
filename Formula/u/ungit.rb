@@ -1,5 +1,3 @@
-require "language/node"
-
 class Ungit < Formula
   desc "Easiest way to use Git. On any platform. Anywhere"
   homepage "https://github.com/FredrikNoren/ungit"
@@ -20,8 +18,8 @@ class Ungit < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    system "npm", "install", *std_npm_args
+    bin.install_symlink libexec.glob("bin/*")
   end
 
   test do
@@ -30,7 +28,7 @@ class Ungit < Formula
     fork do
       exec bin/"ungit", "--no-launchBrowser", "--port=#{port}"
     end
-    sleep 8
+    sleep 15
 
     assert_includes shell_output("curl -s 127.0.0.1:#{port}/"), "<title>ungit</title>"
   end
