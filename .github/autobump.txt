@@ -1846,6 +1846,7 @@ omega
 omniorb
 onednn
 onedrive
+onion-location
 onionprobe
 ooniprobe
 opa
