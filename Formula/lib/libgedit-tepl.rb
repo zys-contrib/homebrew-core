@@ -14,6 +14,16 @@ class LibgeditTepl < Formula
     regex(/^v?(\d+\.\d*[02468](?:\.\d+)*)$/i)
   end
 
+  bottle do
+    sha256 arm64_sonoma:   "b433544a25b334a3fc1d7e788cf8d49e99637390ff7a09ef5693bf366a3a95c2"
+    sha256 arm64_ventura:  "49875c169b846727b8ac55463a86dcbb3b938c12063e9f14b2557901fde3f59e"
+    sha256 arm64_monterey: "afe0dc300dee8af11b6d30b9ce59dc5790b0b9161fcf499138725b9088ee576d"
+    sha256 sonoma:         "968456ec7238409108ecf38183c5829855dcc33324605a4201b1081f1c76d93c"
+    sha256 ventura:        "9fbcbec04391c9acea8794cb736ad4a126644dae87f7a8e9208eb67f71c85806"
+    sha256 monterey:       "78f7e1fdd9fc27ef949c4487704d0d482b146f352c96b36958e4382fd405675e"
+    sha256 x86_64_linux:   "aa06267843aeea879d9aacf3f4415f36650fed599ad25927444d3d16f84b0b8f"
+  end
+
   depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
