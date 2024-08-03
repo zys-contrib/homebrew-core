@@ -1,14 +1,9 @@
 class Mallet < Formula
   desc "MAchine Learning for LanguagE Toolkit"
-  homepage "https://mallet.cs.umass.edu/"
-  url "https://mallet.cs.umass.edu/dist/mallet-2.0.8.tar.gz"
-  sha256 "5b2d6fb9bcf600b1836b09881821a6781dd45a7d3032e61d7500d027a5b34faf"
-  revision 1
-
-  livecheck do
-    url "https://mallet.cs.umass.edu/download.php"
-    regex(/href=.*?mallet[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  homepage "https://mimno.github.io/Mallet/index"
+  url "https://github.com/mimno/Mallet/releases/download/v202108/Mallet-202108-bin.tar.gz"
+  sha256 "d64c77b00e3f1afbc48ed775f772ce7eccaaca77da4b9b581fb21dfe4a7f8a26"
+  license "Apache-2.0"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "66fcc304b6625b390cd2ddb5d3ab99a3049c5b21789d3b54dcc18bf82fa3c009"
@@ -18,6 +13,7 @@ class Mallet < Formula
 
   def install
     rm Dir["bin/*.{bat,dll,exe}"] # Remove all windows files
+
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files(libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix)
