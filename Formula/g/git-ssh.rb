@@ -7,7 +7,8 @@ class GitSsh < Formula
   head "https://github.com/lemarsu/git-ssh.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "007874faaa60f5b915535437baa27a99a5b85df9abb319f7fd6703b8c8db41d8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "1a478cad17df51fbe151f43ac6288cbfd5f61f79dfd049ea1da9e62d5f11a169"
   end
 
   deprecate! date: "2024-08-03", because: :unmaintained
