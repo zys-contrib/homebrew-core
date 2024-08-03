@@ -1,5 +1,3 @@
-require "language/node"
-
 class JoplinCli < Formula
   desc "Note taking and to-do application with synchronization capabilities"
   homepage "https://joplinapp.org/"
@@ -37,8 +35,8 @@ class JoplinCli < Formula
   def install
     # Need node-addon-api v7+: https://github.com/lovell/sharp/issues/3920
     system "npm", "add", "node-addon-api@8.0.0"
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    system "npm", "install", *std_npm_args
+    bin.install_symlink libexec.glob("bin/*")
 
     node_notifier_vendor_dir = libexec/"lib/node_modules/joplin/node_modules/node-notifier/vendor"
     rm_r(node_notifier_vendor_dir) # remove vendored pre-built binaries
