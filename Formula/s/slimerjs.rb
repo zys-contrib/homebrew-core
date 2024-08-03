@@ -10,8 +10,11 @@ class Slimerjs < Formula
     sha256 cellar: :any_skip_relocation, all: "8885664d7813c68ee458bf887d4e52ccf8164a05bd89d8f2a7e82a3a5c6396b7"
   end
 
+  uses_from_macos "zip" => :build
+
   def install
     ENV["TZ"] = "UTC"
+
     cd "src" do
       system "zip", "-o", "-X", "-r", "omni.ja", "chrome/", "components/",
         "modules/", "defaults/", "chrome.manifest", "-x@package_exclude.lst"
