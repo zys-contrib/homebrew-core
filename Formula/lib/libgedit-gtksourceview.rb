@@ -7,13 +7,13 @@ class LibgeditGtksourceview < Formula
   head "https://gitlab.gnome.org/World/gedit/libgedit-gtksourceview.git", branch: "main"
 
   bottle do
-    sha256 arm64_sonoma:   "e72a85aa5b87ec2d2850ec41a7d3158e7c9986658eee1c5537aa4955e753941a"
-    sha256 arm64_ventura:  "6a84792b3059fc936cac45e119797837c714330baa198adf86ecbc09585cc6df"
-    sha256 arm64_monterey: "7ef58b13dcd1eac1ce8c28b2198960bea396d7df32ea7cff874af54cbc2379df"
-    sha256 sonoma:         "9d89906aaab6d10aa7e874892d12e2729ff0f19c489f376ae011e57b00ca1ef6"
-    sha256 ventura:        "cb784238f49a9212ddffb8d301ff4e674355e360bd1c5c999a0c8ac782a79b81"
-    sha256 monterey:       "afef3516cff41ec6eeb76c07794941ec254d3b1b64495676ca1ec7f9f5367e9e"
-    sha256 x86_64_linux:   "704afbcba67f32813fca21c5534469f529e85e8e6567b53e3f54c2180dd374ba"
+    sha256 arm64_sonoma:   "5aff961bf40184a0c661fc7890f4b2be98937d7eb417ee76429a99e1e147ed76"
+    sha256 arm64_ventura:  "ea3c2abf6e495e0bb8ec265fccee3d2131de9fd210c556fa30790c610483742e"
+    sha256 arm64_monterey: "d18303d09984f7b23c1cc53aef7ed7c7171b4d7ed78eb2edf55ae1696725abe3"
+    sha256 sonoma:         "1e214228a6d3f1c415827dae97d0c9318eb1db780e0e598568cddd9759bf5a54"
+    sha256 ventura:        "616d3ed819468270727c83c8d3bd7e7d38290697e24991c366100408d10ff319"
+    sha256 monterey:       "7b81052f99056209550d3a2149280b976f03ff6f0dc4d056e060065f4d231fbf"
+    sha256 x86_64_linux:   "528ce89f65e7be3f6184df2d3e64ec16c9e733ac55a5e3722b55088d386c4d80"
   end
 
   depends_on "gettext" => :build
