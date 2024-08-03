@@ -6,7 +6,8 @@ class Localtunnel < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c430fe4d9468d9eaeeabe3c32ffd51c2c93913c3e01bc6a41b947e1acba0bb19"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "b5425789666cab50aa13978b6bec08b978f7be5d53e13b9e447ed712dc2b3c60"
   end
 
   depends_on "node"
