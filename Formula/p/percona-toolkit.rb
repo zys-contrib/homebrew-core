@@ -31,18 +31,6 @@ class PerconaToolkit < Formula
 
   uses_from_macos "perl"
 
-  on_macos do
-    depends_on "openssl@3"
-
-    on_intel do
-      depends_on "zstd"
-    end
-  end
-
-  on_sonoma :or_newer do
-    depends_on "zlib"
-  end
-
   # Should be installed before DBD::mysql
   resource "Devel::CheckLib" do
     url "https://cpan.metacpan.org/authors/id/M/MA/MATTN/Devel-CheckLib-1.16.tar.gz"
@@ -76,8 +64,12 @@ class PerconaToolkit < Formula
         else
           libexec
         end
+
+        make_args = []
+        make_args << "OTHERLDFLAGS=-Wl,-dead_strip_dylibs" if r.name == "DBD::mysql" && OS.mac?
+
         system "perl", "Makefile.PL", "INSTALL_BASE=#{install_base}", "NO_PERLLOCAL=1", "NO_PACKLIST=1"
-        system "make", "install"
+        system "make", "install", *make_args
       end
     end
 
