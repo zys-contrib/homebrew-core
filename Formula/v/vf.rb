@@ -9,6 +9,8 @@ class Vf < Formula
     sha256 cellar: :any_skip_relocation, all: "af5c51ba431bf48386231cb735f98bf038dbf3145ea96d55924e12564748a93f"
   end
 
+  uses_from_macos "ruby"
+
   def install
     # Since the shell file is sourced instead of run
     # install to prefix instead of bin
