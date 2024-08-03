@@ -9,6 +9,9 @@ class Vassh < Formula
     sha256 cellar: :any_skip_relocation, all: "941d5973bdb5b38f8e8b38331f84a5401c8689d09130b5cd770645e5881ee11d"
   end
 
+  # upstream missing license report, https://github.com/xwp/vassh/issues/17
+  deprecate! date: "2024-08-03", because: "missing license"
+
   def install
     bin.install "vassh.sh", "vasshin", "vassh"
   end
