@@ -6,13 +6,13 @@ class Serpl < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9de2449148c1065fe491d3661f862e25d4226510a0c979643a3e5c90431e2a6a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9e643a027a3939666decbbdf129aba420116b09fe89c637a9826b2a37b999ea5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ab18d7df1542c7bc9eae8e76d85a107407abd75eb8b0632390b273d8b215089c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5860764a15cfdf22ab6d1d03d254601c82eeeb2c12842cf09283f06af31ca2b8"
-    sha256 cellar: :any_skip_relocation, ventura:        "684a5d43aa8e8963b30fdb32ec9e8f7d1c6f557a82a202106e151ec4eb8bb5ef"
-    sha256 cellar: :any_skip_relocation, monterey:       "d045f9ef992ac3166dbbe5fb5eee1d5ac9fd62d8c289ffa8838ec448c73859ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e94ad8f8a160e4afc2537251bd0b77447ea85669aeec8536e33e40684088fc2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b5aee13a897c5aaa63bfc9c508c7b8dddfe6cbd01eaaf25a65b5f0b085b6b2df"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b81f37c90efe52189da9d9372724f80c4d1da38e531caf21b99fd63bf6191aec"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c117322f51dfffb4c572dde0230840705b164a4cd054f6ef083ee73bc00f207a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c7ea2af806cddf5889508721f42c245c732dde861279a397ac54f71d91787b3f"
+    sha256 cellar: :any_skip_relocation, ventura:        "10272c254cdb40831f439534d5e98eaf572735b595b9845121d51f3ec0134eef"
+    sha256 cellar: :any_skip_relocation, monterey:       "da2ec5b9d85afaa959b92983f417b084a6ffcf0150c98a9acf07420e0ce79aad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b3254ac904f83e9ec62f1bd9ae09a01133b0e2089e5cf872480fac35833971f"
   end
 
   depends_on "rust" => :build
