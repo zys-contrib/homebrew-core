@@ -24,6 +24,7 @@ class Sapling < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "python-setuptools" => :build
   depends_on "rust" => :build
   depends_on "yarn" => :build
   # The `cargo` crate requires http2, which `curl-config` from macOS reports to
@@ -33,28 +34,13 @@ class Sapling < Formula
   depends_on "gh"
   depends_on "node"
   depends_on "openssl@3"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
   on_linux do
     depends_on "pkg-config" => :build # for `curl-sys` crate to find `curl`
-  end
-
-  # `setuptools` 66.0.0+ only supports PEP 440 conforming version strings.
-  # Modify the version string to make `setuptools` happy.
-  def modified_version
-    # If installing through `brew install sapling --HEAD`, version will be HEAD-<hash>, which
-    # still doesn't make `setuptools` happy. However, since installing through this method
-    # will get a git repo, we can use the ci/tag-name.sh script for determining the version no.
-    build_version = if version.to_s.start_with?("HEAD")
-      Utils.safe_popen_read("ci/tag-name.sh").chomp + ".dev"
-    else
-      version
-    end
-    segments = build_version.to_s.split(/[-+]/)
-    "#{segments.take(2).join("-")}+#{segments.last}"
   end
 
   conflicts_with "sl", because: "both install `sl` binaries"
@@ -71,14 +57,18 @@ class Sapling < Formula
         'curl = { version = "\\1", features = ["http2", "force-system-lib-on-osx"] }'
     end
 
-    python3 = "python3.11"
-
+    python3 = "python3.12"
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
-    ENV["SAPLING_VERSION"] = modified_version
+    ENV["PYTHON"] = ENV["PYTHON3"] = python3
+    ENV["SAPLING_VERSION"] = if build.stable?
+      version
+    else
+      Utils.safe_popen_read("ci/tag-name.sh").chomp + ".dev"
+    end
 
     # Don't allow the build to break our shim configuration.
     inreplace "eden/scm/distutils_rust/__init__.py", '"HOMEBREW_CCCFG"', '"NONEXISTENT"'
-    system "make", "-C", "eden/scm", "install-oss", "PREFIX=#{prefix}", "PYTHON=#{python3}", "PYTHON3=#{python3}"
+    system "make", "-C", "eden/scm", "install-oss", "PREFIX=#{prefix}"
   end
 
   def check_binary_linkage(binary, library)
@@ -90,7 +80,7 @@ class Sapling < Formula
   end
 
   test do
-    assert_equal "Sapling #{modified_version}", shell_output("#{bin}/sl --version").chomp
+    assert_equal "Sapling #{version}", shell_output("#{bin}/sl --version").chomp
 
     system bin/"sl", "config", "--user", "ui.username", "Sapling <sapling@sapling-scm.com>"
     system bin/"sl", "init", "--git", "foobarbaz"
