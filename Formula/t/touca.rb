@@ -51,6 +51,8 @@ class Touca < Formula
   end
 
   def install
+    # Allow latest `certifi`: https://github.com/trytouca/trytouca/pull/663
+    inreplace "pyproject.toml", 'certifi = "^2022.12.7"', 'certifi = ">=2022.12.7"'
     virtualenv_install_with_resources
   end
 
