@@ -14,13 +14,14 @@ class Sapling < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0decf820322e2c3f04ef4c4c9f0e00face07f5c21d2d1f131450a734a89a4de5"
-    sha256 cellar: :any,                 arm64_ventura:  "57f4adb287b0759ae2cee40e0c3f677a7e0d2fa7c9b77853258899740cbe6068"
-    sha256 cellar: :any,                 arm64_monterey: "552a80249070c4ee360ddc4ec3e68b45b9b65ee30b85a1d76a391e7c47ff2af0"
-    sha256 cellar: :any,                 sonoma:         "0e96c8d0ac7abb5c2ca7fcf37772c117d144d83c2af6f3388e6c3cc6092f26d3"
-    sha256 cellar: :any,                 ventura:        "764c246bdb5b87e9144254fce544832fd8b54093554d2f6937e504bc5deef1b8"
-    sha256 cellar: :any,                 monterey:       "28fcc5bfc9a422a6f1879151228703a8bdb64bae6da5c7d8587aa762be023be5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93f5fc14e617b112268e3302dc57628dc3ba5bc50fa52a038faaba4ed79cd396"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "13c25947c50793d1667376036bbe727ef7553644dc9e30da685fbe49bc41d903"
+    sha256 cellar: :any,                 arm64_ventura:  "906fe8ad3aaa71ea843beabd59e547c30091376e04e24557550f8f378843e823"
+    sha256 cellar: :any,                 arm64_monterey: "b9b45ea52f2afb75b4edef87552c04b9fa7987a8020fabecbc7c0818460bf282"
+    sha256 cellar: :any,                 sonoma:         "8721faac713244b72b274d471d78a209af615459bae0f104bd9045281fb0ec35"
+    sha256 cellar: :any,                 ventura:        "6062dce6be0a5eb76dd044b6d9d3aca7aabc25a31dae8e273bce2d6158888bda"
+    sha256 cellar: :any,                 monterey:       "7bbaa4fee381fcc479a699622275335ccb6f07d8343718f6a8dd25ec956206f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca0de217b8362da225c88e3c937f6c228e0597bc2dc6e1f88ca6520558c2becf"
   end
 
   depends_on "cmake" => :build
