@@ -642,6 +642,7 @@ dotnet
 dotslash
 dotter
 double-conversion
+dovi_tool
 doxygen
 dpkg
 dpp
