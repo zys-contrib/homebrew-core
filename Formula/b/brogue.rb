@@ -1,8 +1,8 @@
 class Brogue < Formula
   desc "Roguelike game"
   homepage "https://sites.google.com/site/broguegame/"
-  url "https://github.com/tmewett/BrogueCE/archive/refs/tags/v1.13.tar.gz"
-  sha256 "4c63e91639902d58565ab3c2852d89a4206cdd60200b585fa9d93d6a5881906c"
+  url "https://github.com/tmewett/BrogueCE/archive/refs/tags/v1.14.tar.gz"
+  sha256 "9e26a3e3612f08d3785846e73e6b8862cf4682f7a95aa9028bb8175b60f33d47"
   license "AGPL-3.0-or-later"
   head "https://github.com/tmewett/BrogueCE.git", branch: "master"
 
@@ -25,6 +25,12 @@ class Brogue < Formula
   patch do
     url "https://github.com/tmewett/BrogueCE/commit/baff9b5081c60ec3c0117913e419fa05126025db.patch?full_index=1"
     sha256 "7b51b43ca542958cd2051d6edbe8de3cbe73a5f1ac3e0d8e3c9bff99554f877e"
+  end
+
+  # patch to fix incompatible function pointer types, upstream pr ref, https://github.com/tmewett/BrogueCE/pull/706
+  patch do
+    url "https://github.com/tmewett/BrogueCE/commit/3955bcbe9b566a1d18f00c9fcecf9a4aa778ce2b.patch?full_index=1"
+    sha256 "8a3b2eb57e420cde266ed760bc004cb13c448b228d2f49b069f3b521bb1d5f5d"
   end
 
   def install
