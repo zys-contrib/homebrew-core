@@ -404,6 +404,7 @@ cliclick
 clifm
 clingo
 clipboard
+cloc
 clojure
 clojure-lsp
 clojurescript
