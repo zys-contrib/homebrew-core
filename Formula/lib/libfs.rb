@@ -1,8 +1,8 @@
 class Libfs < Formula
   desc "X.Org: X Font Service client library"
   homepage "https://www.x.org/"
-  url "https://xorg.freedesktop.org/archive/individual/lib/libFS-1.0.9.tar.gz"
-  sha256 "8bc2762f63178905228a28670539badcfa2c8793f7b6ce3f597b7741b932054a"
+  url "https://xorg.freedesktop.org/archive/individual/lib/libFS-1.0.10.tar.gz"
+  sha256 "38daddf6aaad25d93c6ff762c9629b8f10b19e8c4b70fcf117ec38c440ff9ae2"
   license "MIT"
 
   bottle do
