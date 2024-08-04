@@ -9,13 +9,7 @@ class Pycodestyle < Formula
   head "https://github.com/PyCQA/pycodestyle.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3dcf668f52752b5bf2e97e0fd2d1e42dc2889c1b9e62fe2a36727d8156d221fb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3dcf668f52752b5bf2e97e0fd2d1e42dc2889c1b9e62fe2a36727d8156d221fb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3dcf668f52752b5bf2e97e0fd2d1e42dc2889c1b9e62fe2a36727d8156d221fb"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3dcf668f52752b5bf2e97e0fd2d1e42dc2889c1b9e62fe2a36727d8156d221fb"
-    sha256 cellar: :any_skip_relocation, ventura:        "3dcf668f52752b5bf2e97e0fd2d1e42dc2889c1b9e62fe2a36727d8156d221fb"
-    sha256 cellar: :any_skip_relocation, monterey:       "3dcf668f52752b5bf2e97e0fd2d1e42dc2889c1b9e62fe2a36727d8156d221fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a44ef22a22f8a40ece9db61bf4447a5c68c192f042718cbf07fdcd8ebb202777"
+    sha256 cellar: :any_skip_relocation, all: "5a5e5b7a43191b52e17db358d76594cb53f3992ac7a342f068901326e654f812"
   end
 
   depends_on "python@3.12"
