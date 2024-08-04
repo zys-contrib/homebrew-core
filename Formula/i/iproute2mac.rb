@@ -8,7 +8,7 @@ class Iproute2mac < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1b55d4a07c67d7315c47c6f009653d85bc98843f672a3162f09f9434098ff26b"
+    sha256 cellar: :any_skip_relocation, all: "bfa30ce839b43206920409d5c1efbb3536af7ae4f651fae21b5dded9c6dfabf9"
   end
 
   depends_on :macos
