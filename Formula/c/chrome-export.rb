@@ -9,7 +9,8 @@ class ChromeExport < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f51c4b63ddf95b8e9b317bb52b9ea9be6d1f498fdbe6853f0ec15dabf0f35b26"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "4eb537cddb8040188b19d7e91771f1e85f31760b36b053f57d606e2356110f2a"
   end
 
   uses_from_macos "python"
