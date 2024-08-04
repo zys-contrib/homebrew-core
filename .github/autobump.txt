@@ -424,6 +424,7 @@ clusterawsadm
 clusterctl
 clzip
 cmake-language-server
+cmark
 cmctl
 cmu-pocketsphinx
 cmus
