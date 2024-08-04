@@ -11,13 +11,13 @@ class Cracklib < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "0f231f48c8024fbf45ae1b8a15964bf1800388a38c6c531b63186ff70703252c"
-    sha256 arm64_ventura:  "e7d7c13b6c64b85343bb3a63e8d4f36bc73558b6c71d9a3a9c0a2d7a985690af"
-    sha256 arm64_monterey: "17727e4efe900789f4d4a2cf6a5be19c7a4cc96a2cde1153b95c454b0c8a936e"
-    sha256 sonoma:         "597400935abe1f841d1208c22bfc36e2f2f6e851b5af57c00c4c7c7e8eca4c50"
-    sha256 ventura:        "95547fe0db7ff728800cd10e1ced9534505bfdf11a3e9243f62c50b0b0abbf1f"
-    sha256 monterey:       "a5869de4d658a2da346aa9ebdc1a2a389bda5a1415ae66a850b3dc174b0273de"
-    sha256 x86_64_linux:   "95dfd460b7aa55d174a75a0248814ccca7770314b012368840790220b74ca9d9"
+    sha256 arm64_sonoma:   "0c5f49a46e9db39c735041120c5e89b06b1ec2b0e37ba2090973f2067ebee3ef"
+    sha256 arm64_ventura:  "c03e267a7d0d790f718537b89fa25c6aac1f7f75a3f23addfd07e059305d97b1"
+    sha256 arm64_monterey: "e76849125f0b2ee7631f381249e9b0acae465b5128c0d255a76fc0112a78539b"
+    sha256 sonoma:         "9da52404b23c1520018c0c412aefc7464d7cb0a088be20fc8105dd0df3577eb4"
+    sha256 ventura:        "65bf3c3f8b218c977b4bec89d25b27e21f5ffed8329510ba8227b7b0208375b6"
+    sha256 monterey:       "cd6d93ae08c1d7c2459f8bc95f3274f2d34c862ea5c1eceeb025ca74fce180a7"
+    sha256 x86_64_linux:   "9ecde5232f61599c25890b9056d7abfb6a15e30569eda7fb96eb5e447fe651d7"
   end
 
   head do
