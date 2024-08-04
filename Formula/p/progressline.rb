@@ -6,6 +6,10 @@ class Progressline < Formula
   license "MIT"
   head "https://github.com/kattouf/ProgressLine.git", branch: "main"
 
+  bottle do
+    sha256 x86_64_linux: "e2242b4412917ecaeda120ad2e4d5919f24277e23b0f2f52d9d5fc169fb248ad"
+  end
+
   depends_on xcode: ["15.4", :build]
 
   uses_from_macos "swift"
