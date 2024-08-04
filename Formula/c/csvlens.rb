@@ -1,8 +1,8 @@
 class Csvlens < Formula
   desc "Command-line csv viewer"
   homepage "https://github.com/YS-L/csvlens"
-  url "https://github.com/YS-L/csvlens/archive/refs/tags/v0.9.1.tar.gz"
-  sha256 "c14626dbcd12d9cf73afb7c012bde9be9b659952ca651c6d331624e6b14a42f6"
+  url "https://github.com/YS-L/csvlens/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "14b68af7bba6b17542e5e9f64f9225ad34a6c96995817aaab290c5b9090135c5"
   license "MIT"
   head "https://github.com/YS-L/csvlens.git", branch: "main"
 
@@ -28,7 +28,7 @@ class Csvlens < Formula
     (testpath/"test.csv").write("A,B,C\n100,42,300")
     PTY.spawn(bin/"csvlens", "#{testpath}/test.csv", "--echo-column", "B") do |r, w, _pid|
       r.winsize = [10, 10]
-      sleep 1
+      sleep 5
       # Select the column B by pressing enter. The answer 42 should be printed out.
       w.write "\r"
       assert r.read.end_with?("42\r\n")
