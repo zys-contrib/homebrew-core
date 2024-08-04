@@ -8,7 +8,8 @@ class CodaCli < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "660574bb0a6fb2cbc99ee5a41cbc06df8e927d7726345a56ed6892e94e2bb6a5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "483e4c98217844164a568e721fa48ab165e16c6649b3320c2f7811850c1504cb"
   end
 
   # originally written in py2, and has not been updated since 2012-05-30
