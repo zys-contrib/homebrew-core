@@ -1,8 +1,8 @@
 class Task < Formula
   desc "Feature-rich console based todo list manager"
   homepage "https://taskwarrior.org/"
-  url "https://github.com/GothenburgBitFactory/taskwarrior/releases/download/v3.0.2/task-3.0.2.tar.gz"
-  sha256 "633b76637b0c74e4845ffa28249f01a16ed2c84000ece58d4358e72bf88d5f10"
+  url "https://github.com/GothenburgBitFactory/taskwarrior/releases/download/v3.1.0/task-3.1.0.tar.gz"
+  sha256 "1ae67c74b84067573a53095cf3cb6718245dd7dd808f19f9b3d85da445838b4f"
   license "MIT"
   head "https://github.com/GothenburgBitFactory/taskwarrior.git", branch: "develop"
 
@@ -35,6 +35,10 @@ class Task < Formula
 
   fails_with gcc: "5"
 
+  # CmdImport.h:41:8: error: no template named 'unordered_map' in namespace 'std'
+  # https://github.com/GothenburgBitFactory/taskwarrior/commit/4ff63a796087c9f04f7d6dccd03cda0afdce1f40
+  patch :DATA
+
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
@@ -50,3 +54,15 @@ class Task < Formula
     assert_match "Write a test", shell_output("#{bin}/task list")
   end
 end
+
+__END__
+--- a/src/commands/CmdImport.h
++++ b/src/commands/CmdImport.h
+@@ -31,6 +31,7 @@
+ #include <JSON.h>
+ 
+ #include <string>
++#include <unordered_map>
+ 
+ class CmdImport : public Command {
+  public:
