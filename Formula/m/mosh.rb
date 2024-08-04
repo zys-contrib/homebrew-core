@@ -24,7 +24,6 @@ class Mosh < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "abseil"
   depends_on "protobuf"
 
   uses_from_macos "ncurses"
@@ -41,6 +40,8 @@ class Mosh < Formula
   def install
     # https://github.com/protocolbuffers/protobuf/issues/9947
     ENV.append_to_cflags "-DNDEBUG"
+    # Avoid over-linkage to `abseil`.
+    ENV.append "LDFLAGS", "-Wl,-dead_strip_dylibs" if OS.mac?
 
     # teach mosh to locate mosh-client without referring
     # PATH to support launching outside shell e.g. via launcher
