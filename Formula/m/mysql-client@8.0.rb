@@ -10,13 +10,13 @@ class MysqlClientAT80 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "875df46acc422a4c28201686a441fa50e131f480e4942c92e4b79ab8aa6740b7"
-    sha256 arm64_ventura:  "c9f0638e3c6425a8fbfab8e741a75ce3103fcea9ebd291c57ca6d36e07e9ce74"
-    sha256 arm64_monterey: "a122923981421ebecbfd246b4eab6f9eb06d3f6245b9c40771f31b05711fad72"
-    sha256 sonoma:         "2408588d839a1aac79269bfeabf7ddefd81abfcea7d8f33aac4a5c76da6eec3e"
-    sha256 ventura:        "acc2ae429e53d3081403f889cf893c618146cdf7f2986ddbdd1492bdf923eeb2"
-    sha256 monterey:       "4ed8d9a2f0772d938c91cce4efe5b23fc12397be5c341e255fa438539cb04d59"
-    sha256 x86_64_linux:   "885456ca30a98b84060f6ac82e2fac3a34e53f03f499f79ed4b7f3e607130ec0"
+    sha256 arm64_sonoma:   "94f9d95b1f70fd2c8516b8f15b2fa8fde6cb5b008e148572ec4b44691ec8a483"
+    sha256 arm64_ventura:  "545247f0de8d8ad2154f75f634fe7364a0d3944209f624c7ae4bc887388a2299"
+    sha256 arm64_monterey: "ef03847f97d1045fe1774fffb5958be74714f02345d2fecccda1b81f1be04719"
+    sha256 sonoma:         "1e583d33747d33b85a2b3204610e06a50be72d7eeea0561d531b8a1d9f2b4820"
+    sha256 ventura:        "3018ce2137f0e0bcafbf29131c17e4b49effc150bcd76b35b7fcfd56ec504c81"
+    sha256 monterey:       "adfebc82f75d42e4c925553a606672d25144d2d376f3b95f4186aa2919bf3242"
+    sha256 x86_64_linux:   "e1c7ada416a7fcb506f90bdda22ddcd6268137b21ff8f470a54656eae1ea64a2"
   end
 
   keg_only :versioned_formula
