@@ -1,10 +1,9 @@
 class Isync < Formula
   desc "Synchronize a maildir with an IMAP server"
   homepage "https://isync.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/isync/isync/1.4.4/isync-1.4.4.tar.gz"
-  sha256 "7c3273894f22e98330a330051e9d942fd9ffbc02b91952c2f1896a5c37e700ff"
+  url "https://downloads.sourceforge.net/project/isync/isync/1.5.0/isync-1.5.0.tar.gz"
+  sha256 "a0c81e109387bf279da161453103399e77946afecf5c51f9413c5e773557f78d"
   license "GPL-2.0-or-later"
-  revision 1
 
   bottle do
     rebuild 1

@@ -1207,6 +1207,7 @@ ircd-hybrid
 iredis
 ispc
 istioctl
+isync
 itk
 ittapi
 ivy
