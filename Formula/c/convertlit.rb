@@ -31,6 +31,18 @@ class Convertlit < Formula
   depends_on "libtommath"
 
   def install
+    # Workaround for Xcode 14.3
+    %w[
+      lib/Makefile
+      clit18/Makefile
+    ].each do |file|
+      inreplace file do |s|
+        if DevelopmentTools.clang_build_version >= 1403
+          s.gsub! " -Wall ", " -Wall -Wno-implicit-function-declaration "
+        end
+      end
+    end
+
     inreplace "clit18/Makefile" do |s|
       s.gsub! "-I ../libtommath-0.30", "#{HOMEBREW_PREFIX}/include"
       s.gsub! "../libtommath-0.30/libtommath.a", "#{HOMEBREW_PREFIX}/lib/libtommath.a"
@@ -39,5 +51,14 @@ class Convertlit < Formula
     system "make", "-C", "lib"
     system "make", "-C", "clit18"
     bin.install "clit18/clit"
+  end
+
+  test do
+    (testpath/"test.lit").write("fake .lit file content")
+    (testpath/"exploded").mkpath
+    output = shell_output("#{bin}/clit test.lit #{testpath}/exploded 2>&1", 255)
+    assert_match "LIT FORMAT ERROR: File is too small", output
+
+    assert_match version.to_s, shell_output(bin/"clit", 255)
   end
 end
