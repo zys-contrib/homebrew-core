@@ -3,7 +3,7 @@ class Dcfldd < Formula
   homepage "https://dcfldd.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/dcfldd/dcfldd/1.3.4-1/dcfldd-1.3.4-1.tar.gz"
   sha256 "f5143a184da56fd5ac729d6d8cbcf9f5da8e1cf4604aa9fb97c59553b7e6d5f8"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0a1e4bce6c8af34771e2f96e5c15f22f90388a39a7f44022e9efd51e4b007a94"
@@ -21,9 +21,12 @@ class Dcfldd < Formula
   end
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    # Workaround for Xcode 14.3
+    if DevelopmentTools.clang_build_version >= 1403
+      ENV.append_to_cflags "-Wno-implicit-function-declaration -Wno-implicit-int"
+    end
+
+    system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
   end
 
