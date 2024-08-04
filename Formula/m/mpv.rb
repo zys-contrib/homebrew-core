@@ -27,7 +27,6 @@ class Mpv < Formula
   depends_on "libass"
   depends_on "libbluray"
   depends_on "libplacebo"
-  depends_on "libsamplerate"
   depends_on "little-cms2"
   depends_on "luajit"
   depends_on "mujs"
@@ -46,7 +45,19 @@ class Mpv < Formula
 
   on_linux do
     depends_on "alsa-lib"
+    depends_on "libdrm"
+    depends_on "libva"
+    depends_on "libvdpau"
+    depends_on "libx11"
+    depends_on "libxext"
+    depends_on "libxkbcommon"
+    depends_on "libxpresent"
+    depends_on "libxrandr"
+    depends_on "libxscrnsaver"
+    depends_on "libxv"
+    depends_on "mesa"
     depends_on "pulseaudio"
+    depends_on "wayland"
   end
 
   def install
@@ -59,19 +70,28 @@ class Mpv < Formula
     ENV["NINJA"] = Formula["ninja"].opt_bin/"ninja"
 
     # libarchive is keg-only
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libarchive"].opt_lib/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libarchive"].opt_lib/"pkgconfig" if OS.mac?
 
     args = %W[
+      -Dbuild-date=false
       -Dhtml-build=enabled
       -Djavascript=enabled
       -Dlibmpv=true
       -Dlua=luajit
       -Dlibarchive=enabled
       -Duchardet=enabled
+      -Dvulkan=enabled
       --sysconfdir=#{pkgetc}
       --datadir=#{pkgshare}
       --mandir=#{man}
     ]
+    if OS.linux?
+      args += %w[
+        -Degl=enabled
+        -Dwayland=enabled
+        -Dx11=enabled
+      ]
+    end
 
     system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
