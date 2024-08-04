@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-lint/"
-  url "https://files.pythonhosted.org/packages/07/6a/00c9c8b8594cd543bb0f966260e997b08f02f9969549a1f3220c53514de8/cfn_lint-1.9.3.tar.gz"
-  sha256 "a24288d29807b00770246f01f483d001a3dd991cd2851a685527318aa68ee45a"
+  url "https://files.pythonhosted.org/packages/c5/fd/b7509a1ab02469b94b718aacc814e079f131c1cf478be1ab369dc0ac5298/cfn_lint-1.9.4.tar.gz"
+  sha256 "550219b5f0a54c0d6ed331c22753bda6769eb69cbcc5f3b0bc0319377f366d61"
   license "MIT-0"
 
   livecheck do
@@ -32,8 +32,8 @@ class CfnLint < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/e3/fc/f800d51204003fa8ae392c4e8278f256206e7a919b708eef054f5f4b650d/attrs-23.2.0.tar.gz"
-    sha256 "935dc3b529c262f6cf76e50877d35a4bd3c1de194fd41f47a2b7ae8f19971f30"
+    url "https://files.pythonhosted.org/packages/39/31/ca3e2de55503d8ad75985865629f69a2c376a44428c5df1450b749d30751/attrs-24.1.0.tar.gz"
+    sha256 "adbdec84af72d38be7628e353a09b6a6790d15cd71819f6e9d7b0faa8a125745"
   end
 
   resource "aws-sam-translator" do
