@@ -2,8 +2,8 @@ class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
   url "https://github.com/signalwire/freeswitch.git",
-      tag:      "v1.10.11",
-      revision: "f24064f7c9c2b939226712d3f498c17931386589"
+      tag:      "v1.10.12",
+      revision: "a88d069d6ffb74df797bcaf001f7e63181c07a09"
   license "MPL-1.1"
   head "https://github.com/signalwire/freeswitch.git", branch: "master"
 
@@ -114,8 +114,11 @@ class Freeswitch < Formula
 
   resource "libks" do
     url "https://github.com/signalwire/libks.git",
-        tag:      "v2.0.2",
-        revision: "423c68c92d1871e2c9cb83d974eac7830ddcdcf5"
+        tag:      "v2.0.6",
+        revision: "3bc8dd0524a865becdd98c3806735eb306fe0a73"
+
+    # Fix compile with newer Clang, https://www.redhat.com/en/blog/new-warnings-and-errors-clang-15
+    patch :DATA if DevelopmentTools.clang_build_version >= 1500
   end
 
   resource "signalwire-c" do
@@ -210,3 +213,25 @@ class Freeswitch < Formula
     system bin/"freeswitch", "-version"
   end
 end
+
+__END__
+diff --git a/cmake/ksutil.cmake b/cmake/ksutil.cmake
+index a82c639..df04a70 100644
+--- a/cmake/ksutil.cmake
++++ b/cmake/ksutil.cmake
+@@ -103,6 +103,7 @@ macro(ksutil_setup_platform)
+ 		add_compile_options("$<$<CONFIG:Release>:-Wno-parentheses>")
+ 		add_compile_options("$<$<CONFIG:Release>:-Wno-pointer-sign>")
+ 		add_compile_options("$<$<CONFIG:Release>:-Wno-switch>")
++		add_compile_options("$<$<CONFIG:Release>:-Wno-int-conversion>")
+ 
+ 		add_compile_options("$<$<CONFIG:Debug>:-O0>")
+ 		add_compile_options("$<$<CONFIG:Debug>:-g>")
+@@ -110,6 +111,7 @@ macro(ksutil_setup_platform)
+ 		add_compile_options("$<$<CONFIG:Debug>:-Wno-parentheses>")
+ 		add_compile_options("$<$<CONFIG:Debug>:-Wno-pointer-sign>")
+ 		add_compile_options("$<$<CONFIG:Debug>:-Wno-switch>")
++		add_compile_options("$<$<CONFIG:Debug>:-Wno-int-conversion>")
+ 
+ 		set(CMAKE_POSITION_INDEPENDENT_CODE YES)
+ 		add_definitions("-DKS_PLAT_MAC=1")
