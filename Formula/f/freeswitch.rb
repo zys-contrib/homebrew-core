@@ -13,13 +13,13 @@ class Freeswitch < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "5f5a55112d7509527b58ec43f411b2b49404c75326a5f07bf30df2ff64174eee"
-    sha256 arm64_ventura:  "95c01107a57d819adf1c81676524ec20df183f73a472a98d59a6185de4ecd778"
-    sha256 arm64_monterey: "27969c912231d980949199c808802862eabe8436d333c6e230a4b8e4ae96d06f"
-    sha256 sonoma:         "9246ede909150a14667313303dac648c61d92eebcc1fcd8c99140b70ce7a2d46"
-    sha256 ventura:        "b6db797dd08da428b05dbf46a9e6024a4db4c472458c64542f239bc1f1c539ac"
-    sha256 monterey:       "741226120d276d65dccff276f22e870a86a437656b01e5855e3f7444f4333c51"
-    sha256 x86_64_linux:   "6ee86164192248603b7d411a44fdd6bb9392f9bf30361905a1f81049684f2300"
+    sha256 arm64_sonoma:   "bbcdce3f0a109f97c2b9da437d29bde96c0b741adb3cc4bd97732284a77b16b3"
+    sha256 arm64_ventura:  "9edef7cc70acbf12e4e6c45efa1719ac74d502e2b1e037579e8ff8bf605520ae"
+    sha256 arm64_monterey: "cf3785436fc2aae43c7021a81787a6e65facdbacaf1b1cc3bac632f87239011b"
+    sha256 sonoma:         "4f0b9549fd10a4abcc75f44eedf35087aa575d32ba27b2a53bcd21fd5e6091db"
+    sha256 ventura:        "75144d1828662b7606bb74592e0a801899ceb1dd69eead41b3d548fce382ced2"
+    sha256 monterey:       "40e6068355e6a3c784fe719cf5a2a50d152e9533797ddf2f3872867aad58e9ee"
+    sha256 x86_64_linux:   "1f90051761c07c7017ae113a7ebd980dfeb8d5d549e0208c8e258425b41f3d43"
   end
 
   depends_on "autoconf" => :build
