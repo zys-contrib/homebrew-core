@@ -27,14 +27,14 @@ class BbftpClient < Formula
   uses_from_macos "zlib"
 
   def install
+    # Workaround for Xcode 14.3
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     # Fix ntohll errors; reported 14 Jan 2015.
     ENV.append_to_cflags "-DHAVE_NTOHLL" if OS.mac?
 
     cd "bbftpc" do
-      system "./configure", "--disable-debug",
-                            "--disable-dependency-tracking",
-                            "--without-ssl",
-                            "--prefix=#{prefix}"
+      system "./configure", "--without-ssl", *std_configure_args
       system "make", "install"
     end
   end
