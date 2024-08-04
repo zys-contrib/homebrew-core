@@ -8,6 +8,16 @@ class OnionLocation < Formula
   license "AGPL-3.0-or-later"
   head "https://codeberg.org/Freso/python-onion-location.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "40baaf460fd529c93198d622e3843854980b9b86c7d0b066fc35b82eb01e6285"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fdd7688143306e60461c961c8d1c6255ccd9932291fb0b7ac8f01c373d3053ca"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7e3750c53aadec6941900b442340d990a408386625ed668c996dfd099b9581a5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a451e42f6b920fe7dc22533d2e5a10160ca75aa171b7ae34789bfd1719988607"
+    sha256 cellar: :any_skip_relocation, ventura:        "14f7e65048460f0086c4e4af6afd614f99d65411151b2a4db9822b185e08e9c2"
+    sha256 cellar: :any_skip_relocation, monterey:       "fb6d61d8ecc0b79396d2b55256a29c6a45950a00376279090649e6df7018a185"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "25dc68d8d70f089ebaff1f5c86e6f15787e4f96c9f7fcc9ad1482d09a6b90ac7"
+  end
+
   depends_on "python@3.12"
 
   uses_from_macos "libxml2"
