@@ -4,6 +4,7 @@ class Surelog < Formula
   url "https://github.com/chipsalliance/Surelog/archive/refs/tags/v1.83.tar.gz"
   sha256 "3add228495a6ef0e0e3921cb20c30ae09a32c04c76faab4f1a78e546e1d98d86"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/chipsalliance/Surelog.git", branch: "master"
 
   bottle do
