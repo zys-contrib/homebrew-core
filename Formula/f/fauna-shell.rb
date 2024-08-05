@@ -1,8 +1,8 @@
 class FaunaShell < Formula
   desc "Interactive shell for FaunaDB"
   homepage "https://fauna.com/"
-  url "https://registry.npmjs.org/fauna-shell/-/fauna-shell-2.0.1.tgz"
-  sha256 "59c1e4cd508c96cd8072c22e18577a300b5b1debed1db313074ff52ed7312365"
+  url "https://registry.npmjs.org/fauna-shell/-/fauna-shell-2.0.2.tgz"
+  sha256 "26810b12aaa3b1794f7dc384db4dcc8e6be721ff14d6d97d414f7499b6a11aa0"
   license "MPL-2.0"
 
   bottle do
