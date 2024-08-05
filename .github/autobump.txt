@@ -374,6 +374,7 @@ cherrytree
 chezmoi
 chibi-scheme
 chicken
+chisel-tunnel
 chkbit
 chkrootkit
 choose-rust
