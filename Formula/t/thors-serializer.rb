@@ -2,8 +2,8 @@ class ThorsSerializer < Formula
   desc "Declarative serialization library (JSON/YAML) for C++"
   homepage "https://github.com/Loki-Astari/ThorsSerializer"
   url "https://github.com/Loki-Astari/ThorsSerializer.git",
-      tag:      "3.1.3",
-      revision: "3b4fb77e05872d74eb7a1260e830c2d3c8f2407e"
+      tag:      "3.2.6",
+      revision: "880bbec133a71d20ede5a16f248d787ad56c5439"
   license "MIT"
 
   bottle do
@@ -21,15 +21,20 @@ class ThorsSerializer < Formula
   depends_on "libyaml"
   depends_on "magic_enum"
   depends_on "openssl@3"
+  depends_on "snappy"
 
   fails_with gcc: "5"
 
   def install
     ENV["COV"] = "gcov"
 
+    system "./brew/init"
+
     system "./configure", "--disable-vera",
                           "--prefix=#{prefix}",
-                          "--disable-test-with-integration"
+                          "--disable-test-with-integration",
+                          "--disable-test-with-mongo-query",
+                          "--disable-Mongo-Service"
     system "make"
     system "make", "install"
   end
