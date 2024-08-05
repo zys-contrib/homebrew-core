@@ -1,8 +1,8 @@
 class Kuzu < Formula
   desc "Embeddable graph database management system built for query speed & scalability"
   homepage "https://kuzudb.com/"
-  url "https://github.com/kuzudb/kuzu/archive/refs/tags/v0.4.2.tar.gz"
-  sha256 "47057d6b241b13a989b39d5277c234cdae19291f9cce7a642113bbe7ab916ad6"
+  url "https://github.com/kuzudb/kuzu/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "80ed050ffe2b1dbd474515ffa417106477de4fbbccb1fbbf4505edb49d33c2ea"
   license "MIT"
   head "https://github.com/kuzudb/kuzu.git", branch: "master"
 
@@ -19,7 +19,30 @@ class Kuzu < Formula
   depends_on "cmake" => :build
   depends_on "python@3.12" => :build
 
+  on_macos do
+    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1400
+  end
+
+  fails_with :clang do
+    build 1400
+    cause "Requires C++20"
+  end
+
+  fails_with :gcc do
+    version "9"
+    cause "Requires C++20"
+  end
+
   def install
+    if OS.mac? && DevelopmentTools.clang_build_version <= 1400
+      ENV.llvm_clang
+      # Work around failure mixing newer `llvm` headers with older Xcode's libc++:
+      # Undefined symbols for architecture arm64:
+      #   "std::exception_ptr::__from_native_exception_pointer(void*)", referenced from:
+      #       std::exception_ptr std::make_exception_ptr[abi:ne180100]<antlr4::NoViableAltException>...
+      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib/"c++"
+    end
+
     args = %w[
       -DAUTO_UPDATE_GRAMMAR=0
     ]
@@ -42,20 +65,21 @@ class Kuzu < Formula
     output = shell_output("#{bin}/kuzu #{db_path} < #{cypher_path}")
 
     expected_1 = <<~EOS
-      ----------------------------------
-      | result                         |
-      ----------------------------------
-      | Table Person has been created. |
-      ----------------------------------
+      ┌────────────────────────────────┐
+      │ result                         │
+      │ STRING                         │
+      ├────────────────────────────────┤
+      │ Table Person has been created. │
+      └────────────────────────────────┘
     EOS
     expected_2 = <<~EOS
-      ---------------
-      | NAME  | AGE |
-      ---------------
-      | Alice | 25  |
-      ---------------
-      | Bob   | 30  |
-      ---------------
+      ┌────────┬───────┐
+      │ NAME   │ AGE   │
+      │ STRING │ INT64 │
+      ├────────┼───────┤
+      │ Alice  │ 25    │
+      │ Bob    │ 30    │
+      └────────┴───────┘
     EOS
 
     assert_match expected_1, output
