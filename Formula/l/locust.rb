@@ -3,8 +3,8 @@ class Locust < Formula
 
   desc "Scalable user load testing tool written in Python"
   homepage "https://locust.io/"
-  url "https://files.pythonhosted.org/packages/b8/26/2405820f1325947ca1cea1cb897c773b72ab74bc517bcf6d19d62a3aa538/locust-2.30.0.tar.gz"
-  sha256 "8923aefc9bca15e9496c6bbc1e1e9817cb6cbe4b578099bab3677b2316b110f5"
+  url "https://files.pythonhosted.org/packages/d7/c2/57c0fa519d7dcafb47493364d296daf7f50956cefa3d584155e16a834b52/locust-2.31.0.tar.gz"
+  sha256 "447f39fb4ef3971bdc2dffca9af04fa0e96eec5490b2d36de820c27b5355b9d9"
   license "MIT"
 
   bottle do
@@ -109,8 +109,8 @@ class Locust < Formula
   end
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/c4/9a/0e2ab500fd5a5a41e7d003e4a49faa7a0333db13e54498a3cf749b9eedd0/pyzmq-26.0.3.tar.gz"
-    sha256 "dba7d9f2e047dfa2bca3b01f4f84aa5246725203d6284e3790f2ca15fba6b40a"
+    url "https://files.pythonhosted.org/packages/39/a3/3f8dac25b443ca527eddd9559b390bfb539f6ee6fb0b824427315dfe585d/pyzmq-26.1.0.tar.gz"
+    sha256 "6c5aeea71f018ebd3b9115c7cb13863dd850e98ca6b9258509de1246461a7e7f"
   end
 
   resource "requests" do
