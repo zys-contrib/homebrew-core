@@ -1,8 +1,8 @@
 class Libimagequant < Formula
   desc "Palette quantization library extracted from pnquant2"
   homepage "https://pngquant.org/lib/"
-  url "https://github.com/ImageOptim/libimagequant/archive/refs/tags/4.3.1.tar.gz"
-  sha256 "75020204491f14a8cdf4b857f6c5bab08b6b5f1736345412b296a253bc632bf6"
+  url "https://github.com/ImageOptim/libimagequant/archive/refs/tags/4.3.2.tar.gz"
+  sha256 "a5c00a966bba20a58a30bb0a72c1eed4bcbaea3f4eb803f3ec274a726fade06b"
   license :cannot_represent
 
   bottle do
@@ -20,7 +20,7 @@ class Libimagequant < Formula
 
   def install
     cd "imagequant-sys" do
-      system "cargo", "cinstall", "--prefix", prefix
+      system "cargo", "cinstall", "--prefix", prefix, "--libdir", lib
     end
   end
 
