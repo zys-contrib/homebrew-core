@@ -1,8 +1,8 @@
 class FfmpegAT5 < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-5.1.5.tar.xz"
-  sha256 "b822357b5a2c0542cdf284ef8f303ba007aea435e337af05c300c82f5a9858bc"
+  url "https://ffmpeg.org/releases/ffmpeg-5.1.6.tar.xz"
+  sha256 "f4fa066278f7a47feab316fef905f4db0d5e9b589451949740f83972b30901bd"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
