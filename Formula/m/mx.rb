@@ -11,13 +11,7 @@ class Mx < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b4c3b2640889ab040d688b348ff1f150adc7238fbebaf4d0744b4cd92edb94f9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b4c3b2640889ab040d688b348ff1f150adc7238fbebaf4d0744b4cd92edb94f9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b4c3b2640889ab040d688b348ff1f150adc7238fbebaf4d0744b4cd92edb94f9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b4c3b2640889ab040d688b348ff1f150adc7238fbebaf4d0744b4cd92edb94f9"
-    sha256 cellar: :any_skip_relocation, ventura:        "b4c3b2640889ab040d688b348ff1f150adc7238fbebaf4d0744b4cd92edb94f9"
-    sha256 cellar: :any_skip_relocation, monterey:       "b4c3b2640889ab040d688b348ff1f150adc7238fbebaf4d0744b4cd92edb94f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f63f96f657b4ccfc28193e9d424fe1af21c7dbd3ca60af6606d3252c74272b25"
+    sha256 cellar: :any_skip_relocation, all: "d36f62f82755c4cc00637cea401e66762d600dab8b582ddca7bc295eac2a266d"
   end
 
   depends_on "openjdk" => :test
