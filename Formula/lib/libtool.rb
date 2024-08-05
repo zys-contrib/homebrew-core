@@ -20,15 +20,15 @@ class Libtool < Formula
   depends_on "m4"
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
+    ENV["M4"] = Formula["m4"].opt_bin/"m4"
+
+    args = %w[
+      --disable-silent-rules
       --enable-ltdl-install
     ]
-
     args << "--program-prefix=g" if OS.mac?
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
 
     if OS.mac?
@@ -37,9 +37,7 @@ class Libtool < Formula
         (libexec/"gnuman/man1").install_symlink man1/"g#{prog}.1" => "#{prog}.1"
       end
       (libexec/"gnubin").install_symlink "../gnuman" => "man"
-    end
-
-    if OS.linux?
+    else
       bin.install_symlink "libtool" => "glibtool"
       bin.install_symlink "libtoolize" => "glibtoolize"
 
@@ -72,5 +70,7 @@ class Libtool < Formula
     system bin/"glibtool", "--mode=link", "--tag=CC",
       ENV.cc, "hello.o", "-o", "hello"
     assert_match "Hello, world!", shell_output("./hello")
+
+    system bin/"glibtoolize", "--ltdl"
   end
 end
