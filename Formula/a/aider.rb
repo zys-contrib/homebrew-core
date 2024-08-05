@@ -8,6 +8,16 @@ class Aider < Formula
   license "Apache-2.0"
   head "https://github.com/paul-gauthier/aider.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "52537fcd4d19fd54871c24454322ba228e92584d9a4ac7368ce9fd3c9a73540b"
+    sha256 cellar: :any,                 arm64_ventura:  "97bd36e01cd66c5ecc2fabd50a01c303d725c6dbb85a9f7c2c1facaaf4fb80b8"
+    sha256 cellar: :any,                 arm64_monterey: "72d1054858193364b8883671d370e3073df499a5e10bb2990775271f5c2e8a27"
+    sha256 cellar: :any,                 sonoma:         "d02f72fbe80f8bfa511551077c40c6acdf97a28339f6ec62b214b8d7bd106836"
+    sha256 cellar: :any,                 ventura:        "3dc15037130663fcd390f9d43ba61b152566e6d19470b34a0f9eb5a641e73cf1"
+    sha256 cellar: :any,                 monterey:       "416f16d7202e00feae43920cdf818904e62a318d9d9ddda496e4310deab50e99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e461096a03bdcd998819978f8ede631fca48453e49a321b1584a4edf7cd4d61"
+  end
+
   depends_on "cython" => :build # for tree-sitter-languages
   depends_on "python-setuptools" => :build # for tree-sitter-languages
   depends_on "rust" => :build # for pydantic_core
