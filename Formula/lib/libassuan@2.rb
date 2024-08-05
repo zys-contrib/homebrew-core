@@ -11,6 +11,16 @@ class LibassuanAT2 < Formula
     regex(/href=.*?libassuan[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "0d4fd656fbf3db20892da64bec2eb966842de215a23c2008ecdf9198a68d5211"
+    sha256 cellar: :any,                 arm64_ventura:  "22fd67c9fe966a0dfb7b26546828ef966ce53ece9ef297114932ea657927395f"
+    sha256 cellar: :any,                 arm64_monterey: "bfb5e94cf8e6416253a63a0161fd1ae6f3665d71b4f83bacefea4043ae2f46b4"
+    sha256 cellar: :any,                 sonoma:         "bbe02b3b1091f71a05a2849bc67427e99073dcdede197a16bd18b679306d65c9"
+    sha256 cellar: :any,                 ventura:        "f74779f1dc1d827a4a57186d83e2398c524ff4b82abdefd4e5f7148b7fd46612"
+    sha256 cellar: :any,                 monterey:       "8827e9ad490c7273044aef10a0342cd85c0d72c6407f515b38445d53e4cc2605"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a769126855958b4ffa4793c21b0d5e6f8281459dbd42d9931adfb9768b0350d"
+  end
+
   keg_only :versioned_formula
 
   depends_on "libgpg-error"
