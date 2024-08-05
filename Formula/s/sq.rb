@@ -5,6 +5,16 @@ class Sq < Formula
   sha256 "46e75e2db83a6cbc98b07dbcfb23de03fc41b2b2cbc7de7aaee0425cef4fb9bb"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7c783bcbcb9b86ae7849c10303b66fb66bfb14eddfdfede1c2f37491f46715f4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ac698e5af7d207bf310ec7b07fc4a4e92c4684ec846bd94c08dc2afef616d93b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a3cebfcec2654133d4e5f264729e2926cc9aa8debbb799c790825ee5da4576c0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a3bb863ef4a276354a9fe8c76b54abfdfc9e55cbdea707dcd09a1f3b479b5ef1"
+    sha256 cellar: :any_skip_relocation, ventura:        "8083d7ae858b43854461078d8c8e9a429472ffdaa6e54d4619a5a43767eee8ab"
+    sha256 cellar: :any_skip_relocation, monterey:       "82f610ae37114fde1748bc38ec3a571294c1d0418c3ae07bad5cba120f07401f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ed9354f57bd345ce1360ce97230ef0b9362a4fee991ce34dd02ff94d8b0d9bb"
+  end
+
   depends_on "go" => :build
 
   uses_from_macos "sqlite" => :test
