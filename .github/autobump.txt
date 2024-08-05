@@ -2223,6 +2223,7 @@ rpki-client
 rpl
 rpmspectool
 rqlite
+rrdtool
 rswift
 rsyncy
 rsyslog
