@@ -17,31 +17,20 @@ class PerconaToolkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0b126c876ba02328832e4dfd43194851f6ce490d025d49ce045c83b03c6da9c1"
-    sha256 cellar: :any,                 arm64_ventura:  "4893948c4bcbc4d964bd170b26494de826e208eb4a1e24249799bf2565631214"
-    sha256 cellar: :any,                 arm64_monterey: "ba6e4ae8f0a53b44f22c0390fd09fc4e6659a171bee0a5aacb4ec9355671363e"
-    sha256 cellar: :any,                 sonoma:         "ff052d8e7a4082e8bf67b0c211a9129af89e927cb9dda95f10ce99c33fc549fb"
-    sha256 cellar: :any,                 ventura:        "3cbf7dcdc61ade371d94ed68de21ccd4abd8c971de851772480a290a5933e139"
-    sha256 cellar: :any,                 monterey:       "d8fe4ba15521805272aea0a2b3699becff0562313104fa5fb6a175c1084e0a25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd1953f231e20e8d1673ae98c1a9defab868a59a5bc29a38dc5f12fb1c90a631"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "253a0ada81a5be15993314ed1d761cfdc7c88340c23a78ef2c2491a158d7bc8b"
+    sha256 cellar: :any,                 arm64_ventura:  "14f7a30244e3aadd3e155d2e3d9d61449c268fd13f90002cb67fb933ab6c795d"
+    sha256 cellar: :any,                 arm64_monterey: "dcf0182a7812e2be56d86eba45f3591bdb870205537812a7ae8ef66f11593a7a"
+    sha256 cellar: :any,                 sonoma:         "9c80e8122754a1f5f3e81470cb65bc2bb17e9cd7cd7b6f9fd533234d8ee2471c"
+    sha256 cellar: :any,                 ventura:        "337b5b24fed8ed055b48bbff8669c25ba6cb24cfa5ffd88b03b4e91d6540a326"
+    sha256 cellar: :any,                 monterey:       "3b5cb112c48f8d53f4d7c35b85072a248dbe9d8bea5d4d047aeb3052248f5253"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d300c45095b1a1f61220eed15243b8fa3aa8bb62e93837fd7be546f0dc9d6c12"
   end
 
   depends_on "go" => :build
   depends_on "mysql-client"
 
   uses_from_macos "perl"
-
-  on_macos do
-    depends_on "openssl@3"
-
-    on_intel do
-      depends_on "zstd"
-    end
-  end
-
-  on_sonoma :or_newer do
-    depends_on "zlib"
-  end
 
   # Should be installed before DBD::mysql
   resource "Devel::CheckLib" do
@@ -76,8 +65,12 @@ class PerconaToolkit < Formula
         else
           libexec
         end
+
+        make_args = []
+        make_args << "OTHERLDFLAGS=-Wl,-dead_strip_dylibs" if r.name == "DBD::mysql" && OS.mac?
+
         system "perl", "Makefile.PL", "INSTALL_BASE=#{install_base}", "NO_PERLLOCAL=1", "NO_PACKLIST=1"
-        system "make", "install"
+        system "make", "install", *make_args
       end
     end
 
