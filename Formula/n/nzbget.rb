@@ -1,8 +1,8 @@
 class Nzbget < Formula
   desc "Binary newsgrabber for nzb files"
   homepage "https://nzbget.com"
-  url "https://github.com/nzbgetcom/nzbget/archive/refs/tags/v24.1.tar.gz"
-  sha256 "9b823f5be183573cc51a7e4db5ac0529f5e3b98260676a7ce400784fdf230393"
+  url "https://github.com/nzbgetcom/nzbget/archive/refs/tags/v24.2.tar.gz"
+  sha256 "4fbcfc4faa49be0dc9d0b85cfbae2e38043be1e2f6755e6891d48785baa9438b"
   license "GPL-2.0-or-later"
   head "https://github.com/nzbgetcom/nzbget.git", branch: "develop"
 
@@ -34,10 +34,6 @@ class Nzbget < Formula
     system "strip", "build/nzbget"
 
     system "cmake", "--install", "build"
-
-    # remove default nzbget.conf to prevent linking
-    # must be removed in v25, tracking issue https://github.com/nzbgetcom/nzbget/issues/257
-    rm prefix/"etc/nzbget.conf"
 
     if OS.mac?
       # Set upstream's recommended values for file systems without
