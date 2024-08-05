@@ -6,13 +6,13 @@ class GitWorkspace < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "3687a7078673bec581e010035dff68102c1b9b99483603c186293b76435c9b67"
-    sha256 cellar: :any,                 arm64_ventura:  "e85ea0736d8f5d773c493919ef07c29546d24711bdb97bac501cbdf11afd00aa"
-    sha256 cellar: :any,                 arm64_monterey: "53450fe5c00e6ecfee12d92325b6e2024ef4d03f0cef5a585f8ca2838a9a6e5c"
-    sha256 cellar: :any,                 sonoma:         "1d9e9b3fe351fd75c43b4dd8b39b8cb852b19d13880fb23836554e568e433f94"
-    sha256 cellar: :any,                 ventura:        "e650a4387afe3dccf972b9f0e6d28e7615eb8f7ddcc2d47b1f322aa2ba449b58"
-    sha256 cellar: :any,                 monterey:       "fd39b3eff416154c10b38860e687f5e58260b3ef39dcdd64e64572f545100e10"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a18e7dac33b65e6fc4b430cb2e6f87e2df7ded08f59f7b2612c1828d756e5d2"
+    sha256 cellar: :any,                 arm64_sonoma:   "5e31cf866fa3e787ddd99792c2a035448193fe1d16e527a56f31bf1825056cf8"
+    sha256 cellar: :any,                 arm64_ventura:  "4e09723e04f3e1e933b52d6f6cdea3a92973acb76c668118978449d7561fc437"
+    sha256 cellar: :any,                 arm64_monterey: "d2602a65865a4566cf60a9f2546e366298c733d57593e9127e6fcf6a349e37ab"
+    sha256 cellar: :any,                 sonoma:         "675ee40c362d2dc544cd87caa77ac83261bbede2c2cef9b27fde0420ba1dcf48"
+    sha256 cellar: :any,                 ventura:        "11a0770afb555a3c457281605022ede5db72deb6c96ecfe80b2e20616e746a62"
+    sha256 cellar: :any,                 monterey:       "18c81743d8cf59686d331abc3023d05a05d2996cd5a8bd26fd5cbe7a4fb5d31b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9517346daa08e4593455d81ad4750eeb25901cf4e9cc7b9e4f923f2de7846b5e"
   end
 
   depends_on "pkg-config" => :build
