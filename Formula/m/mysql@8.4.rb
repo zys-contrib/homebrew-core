@@ -10,6 +10,16 @@ class MysqlAT84 < Formula
     regex(/href=.*?mysql[._-](?:boost[._-])?v?(8\.4(?:\.\d+)*)\.t/i)
   end
 
+  bottle do
+    sha256 arm64_sonoma:   "92f4b5257ca29a564ae34d6e8ded77af7b04a79165f8cf3f320fd7389ebe16b0"
+    sha256 arm64_ventura:  "98793aad5e8415a5fd9e401d30fc45ca829d4f07b3e900269293bdc8523b407a"
+    sha256 arm64_monterey: "4fb43fd2e318e5576ea8de06a5085be98ddf5dbfc3197e1286f203dea2394b03"
+    sha256 sonoma:         "0e35cdcad51f5785cdcdaf608e34ac669fb369ca2f5d67bc36c61c0ef9cf1922"
+    sha256 ventura:        "7099bdd7e29881943fea857de490b9d92ff9d4eb22569e042cde1cb906e148a9"
+    sha256 monterey:       "20eb301e7380d75cccb22cd58f6a78a21e38281c28294010ac08783152efa4d6"
+    sha256 x86_64_linux:   "efc13eb9812d9c206b60e4732638395a2166e01c81f4a22e774839e63a3542ae"
+  end
+
   keg_only :versioned_formula
 
   depends_on "bison" => :build
