@@ -1255,6 +1255,7 @@ jscpd
 jsdoc3
 json-fortran
 json2ts
+json2tsv
 jsonnet
 jsonrpc-glib
 jsontoolkit
