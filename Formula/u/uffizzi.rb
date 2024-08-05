@@ -1,8 +1,8 @@
 class Uffizzi < Formula
   desc "Self-serve developer platforms in minutes, not months with k8s virtual clusters"
   homepage "https://uffizzi.com"
-  url "https://github.com/UffizziCloud/uffizzi_cli/archive/refs/tags/v2.4.10.tar.gz"
-  sha256 "2bf1440bf0eff7f9811aff785663ea5bee55f47475d63696bbd82e687b968884"
+  url "https://github.com/UffizziCloud/uffizzi_cli/archive/refs/tags/v2.4.11.tar.gz"
+  sha256 "90c6d9bf225bc759c56188039e5aa9267b91cb78f0496ee6af0a4e2ce3e31430"
   license "Apache-2.0"
 
   livecheck do
@@ -83,8 +83,8 @@ class Uffizzi < Formula
   end
 
   resource "sentry-ruby" do
-    url "https://rubygems.org/gems/sentry-ruby-5.18.0.gem"
-    sha256 "b1286e388b757d14b092584043e915ae007062d9fbcfd159f6d8573a0558e9c0"
+    url "https://rubygems.org/gems/sentry-ruby-5.18.2.gem"
+    sha256 "df25cb1bd0c6b23f3266e4a77e9b8efd76d41e1680b07b17d257a99262c10d99"
   end
 
   resource "securerandom" do
@@ -123,8 +123,8 @@ class Uffizzi < Formula
   end
 
   resource "faker" do
-    url "https://rubygems.org/gems/faker-3.4.1.gem"
-    sha256 "e36eafce46cc71b04e00bd5639053e5c1a129bcaf67c2dca79896ee644a486bd"
+    url "https://rubygems.org/gems/faker-3.4.2.gem"
+    sha256 "516b5a342020e6286b061084d7a60c848c024e9c91f7db6f94bf5bab45ef40f6"
   end
 
   resource "awesome_print" do
@@ -168,8 +168,8 @@ class Uffizzi < Formula
   end
 
   resource "uffizzi-cli" do
-    url "https://rubygems.org/gems/uffizzi-cli-2.4.10.gem"
-    sha256 "e3b9e7b03175c263cbbfb2e0b48319686189a8f73864ffccd2ec212ddba5754f"
+    url "https://rubygems.org/gems/uffizzi-cli-2.4.11.gem"
+    sha256 "85a8bad87be98c1f9dbb13c9f5266236baf07a2f3a658e6e9ffb70fdeb0a0fd1"
   end
 
   def install
