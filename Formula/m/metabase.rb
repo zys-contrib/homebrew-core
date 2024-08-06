@@ -11,13 +11,7 @@ class Metabase < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "42c60f820cc221ea6c54fa3dfbb7eb79ed03f8d22f1e3764785862a6e700c6bc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "42c60f820cc221ea6c54fa3dfbb7eb79ed03f8d22f1e3764785862a6e700c6bc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "42c60f820cc221ea6c54fa3dfbb7eb79ed03f8d22f1e3764785862a6e700c6bc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "42c60f820cc221ea6c54fa3dfbb7eb79ed03f8d22f1e3764785862a6e700c6bc"
-    sha256 cellar: :any_skip_relocation, ventura:        "42c60f820cc221ea6c54fa3dfbb7eb79ed03f8d22f1e3764785862a6e700c6bc"
-    sha256 cellar: :any_skip_relocation, monterey:       "42c60f820cc221ea6c54fa3dfbb7eb79ed03f8d22f1e3764785862a6e700c6bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "369f8013cf95956b25897f1835e25bdd2321771c60dabb902f6d98af52395477"
+    sha256 cellar: :any_skip_relocation, all: "d5fc126c8b5ca835823c3725e42a7a1de5a33b09d06873ae84e4bd4697f054d2"
   end
 
   head do
