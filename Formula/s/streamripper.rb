@@ -3,6 +3,7 @@ class Streamripper < Formula
   homepage "https://streamripper.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/streamripper/streamripper%20%28current%29/1.64.6/streamripper-1.64.6.tar.gz"
   sha256 "c1d75f2e9c7b38fd4695be66eff4533395248132f3cc61f375196403c4d8de42"
+  license "GPL-2.0-or-later"
   revision 2
 
   livecheck do
@@ -25,10 +26,18 @@ class Streamripper < Formula
   depends_on "glib"
   depends_on "mad"
 
+  on_macos do
+    depends_on "gettext"
+  end
+
   def install
     # the Makefile ignores CPPFLAGS from the environment, which
     # breaks the build when HOMEBREW_PREFIX is not /usr/local
     ENV.append_to_cflags ENV.cppflags if ENV.cppflags.present?
+
+    # Work around error: call to undeclared library function 'strcpy'.
+    # Ref: https://sourceforge.net/p/streamripper/code/ci/master/tree/lib/argv.c#l33
+    ENV.append_to_cflags "-DANSI_PROTOTYPES=1" if DevelopmentTools.clang_build_version >= 1403
 
     # remove bundled libmad
     rm_r(buildpath/"libmad-0.15.1b")
