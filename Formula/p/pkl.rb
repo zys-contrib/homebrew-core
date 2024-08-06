@@ -1,8 +1,8 @@
 class Pkl < Formula
   desc "CLI for the Pkl programming language"
   homepage "https://pkl-lang.org"
-  url "https://github.com/apple/pkl/archive/refs/tags/0.26.2.tar.gz"
-  sha256 "f3b57e744eb6b7d2976fe81c04d4f496a76ef69c1a21b7287771c6ec9bf533c6"
+  url "https://github.com/apple/pkl/archive/refs/tags/0.26.3.tar.gz"
+  sha256 "80f77fc551bc6ba9460476676e9440f42e9a69852e15500dfb13b4378291290b"
   license "Apache-2.0"
 
   bottle do
