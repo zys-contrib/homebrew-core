@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v22.5.1/node-v22.5.1.tar.xz"
-  sha256 "924f381a32cf26b6bedbe95feedde348450f4fd321283d3bf3f7965aa45ce831"
+  url "https://nodejs.org/dist/v22.6.0/node-v22.6.0.tar.xz"
+  sha256 "37259d618d5565ca55acc2585045c7e1c5b9965a3d4eb44c0a237fdae84b9d44"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "main"
 
@@ -113,7 +113,7 @@ class Node < Formula
     # This copies back over the vanilla `package.json` to fix this issue.
     cp bootstrap/"package.json", libexec/"lib/node_modules/npm"
     # These symlinks are never used & they've caused issues in the past.
-    rm_r libexec/"share"
+    rm_r libexec/"share" if (libexec/"share").exist?
 
     bash_completion.install bootstrap/"lib/utils/completion.sh" => "npm"
   end
