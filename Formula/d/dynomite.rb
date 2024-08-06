@@ -26,13 +26,27 @@ class Dynomite < Formula
   depends_on "libtool" => :build
   depends_on "openssl@3"
 
+  # Apply fix for -fno-common from gcc-10 branch
+  # Ref: https://github.com/Netflix/dynomite/issues/802
+  patch do
+    on_linux do
+      url "https://github.com/dmolik/dynomite/commit/303d4ecae95aee9540c48ceac9e7c0f2137a4b52.patch?full_index=1"
+      sha256 "a195c75e49958b4ffcef7d84a5b01e48ce7b37936c900e466c1cd2d96b52ac37"
+    end
+  end
+
   def install
-    system "autoreconf", "-fvi"
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules"
+    # Work around build failure on recent Clang
+    # Issue ref: https://github.com/Netflix/dynomite/issues/818
+    if DevelopmentTools.clang_build_version >= 1500
+      ENV.append_to_cflags "-Wno-implicit-function-declaration -Wno-int-conversion"
+    end
+
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", "--disable-silent-rules", "--sysconfdir=#{pkgetc}", *std_configure_args
     system "make"
     system "make", "install"
-    (etc/"dynomite").install Dir["conf/*"]
+    pkgetc.install Dir["conf/*"]
   end
 
   test do
