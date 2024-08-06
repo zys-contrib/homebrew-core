@@ -1,8 +1,8 @@
 class Mysqltuner < Formula
   desc "Increase performance and stability of a MySQL installation"
   homepage "https://raw.github.com/major/MySQLTuner-perl/master/mysqltuner.pl"
-  url "https://github.com/major/MySQLTuner-perl/archive/refs/tags/v2.5.2.tar.gz"
-  sha256 "4923ca0a6184c6b3e77a98dd097f99cbdb3adaf334e45a9e4b5aa620cd83ae68"
+  url "https://github.com/major/MySQLTuner-perl/archive/refs/tags/v2.6.0.tar.gz"
+  sha256 "9ba57ecc616c1791907c1e7befe593fee23315bcff0121adc13dbd62b2553a3c"
   license "GPL-3.0-or-later"
   head "https://github.com/major/MySQLTuner-perl.git", branch: "master"
 
@@ -16,9 +16,6 @@ class Mysqltuner < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "98751a0d2ef92094e6b43cbc168cdb91747981b92f56705a0c0a47bb1e68b9b2"
   end
 
-  # upstream PR ref, https://github.com/major/MySQLTuner-perl/pull/757
-  patch :DATA
-
   def install
     bin.install "mysqltuner.pl" => "mysqltuner"
   end
@@ -30,14 +27,3 @@ class Mysqltuner < Formula
     system bin/"mysqltuner", "--help"
   end
 end
-
-__END__
-diff --git a/mysqltuner.pl b/mysqltuner.pl
-index 3a75531..4fa5193 100755
---- a/mysqltuner.pl
-+++ b/mysqltuner.pl
-@@ -1,3 +1,4 @@
-+#!/usr/bin/env perl
- # mysqltuner.pl - Version 2.5.2
- # High Performance MySQL Tuning Script
- # Copyright (C) 2015-2023 Jean-Marie Renouard - jmrenouard@gmail.com
