@@ -25,7 +25,16 @@ class Tractorgen < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d67a731185350d21bdeea6e2e6a478409b430f371d21f6b595d44e7b7ebc2363"
   end
 
+  # Backport fix for error: call to undeclared function 'atoi'
+  patch do
+    url "https://github.com/kfish/tractorgen/commit/294162055ba4ab3a5a80a5ae1cfbdcbe92584239.patch?full_index=1"
+    sha256 "1848b797ec759c1dfe97fe42cb20f5316b08b7b710fd1dba19b7443879af8dfb"
+  end
+
   def install
+    # Workaround for Xcode 14.3. Alternatively could autoreconf but that requires additional dependencies.
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
