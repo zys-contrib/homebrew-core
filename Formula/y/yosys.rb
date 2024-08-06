@@ -3,8 +3,8 @@ class Yosys < Formula
   homepage "https://yosyshq.net/yosys/"
   # pull from git tag to get submodules
   url "https://github.com/YosysHQ/yosys.git",
-      tag:      "yosys-0.43",
-      revision: "ead4718e567aed2e552dcfe46294b132aa04c158"
+      tag:      "yosys-0.44",
+      revision: "80ba43d26264738c93900129dc0aab7fab36c53f"
   license "ISC"
   head "https://github.com/YosysHQ/yosys.git", branch: "main"
 
