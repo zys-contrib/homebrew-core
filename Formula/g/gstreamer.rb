@@ -2,6 +2,7 @@ class Gstreamer < Formula
   desc "Development framework for multimedia applications"
   homepage "https://gstreamer.freedesktop.org/"
   license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
+  revision 1
 
   stable do
     url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.24.6/gstreamer-1.24.6.tar.bz2"
@@ -65,7 +66,7 @@ class Gstreamer < Formula
   depends_on "faac"
   depends_on "faad2"
   depends_on "fdk-aac"
-  depends_on "ffmpeg@6"
+  depends_on "ffmpeg"
   depends_on "flac"
   depends_on "gdk-pixbuf"
   depends_on "glib"
@@ -251,8 +252,26 @@ class Gstreamer < Formula
   test do
     # TODO: Improve test according to suggestions at
     #   https://github.com/orgs/Homebrew/discussions/3740
-    assert_match(/^Total count: \d+ plugins/, shell_output(bin/"gst-inspect-1.0"))
     system bin/"gst-validate-launcher", "--usage"
+
+    system python3, "-c", <<~EOS
+      import gi
+      gi.require_version('Gst', '1.0')
+      from gi.repository import Gst
+      print (Gst.Fraction(num=3, denom=5))
+    EOS
+
+    # FIXME: The initial plugin load takes a long time without extra permissions on
+    # macOS, which frequently causes the slower Intel macOS runners to time out.
+    # Need to allow a longer timeout or see if CI terminal can be made a developer tool.
+    #
+    # Ref: https://gitlab.freedesktop.org/gstreamer/gstreamer/-/issues/1119
+    skip_plugins = OS.mac? && Hardware::CPU.intel? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+    ENV["GST_PLUGIN_SYSTEM_PATH"] = testpath if skip_plugins
+
+    assert_match(/^Total count: \d+ plugin/, shell_output(bin/"gst-inspect-1.0"))
+    return if skip_plugins
+
     system bin/"ges-launch-1.0", "--ges-version"
     system bin/"gst-inspect-1.0", "libav"
     system bin/"gst-inspect-1.0", "--plugin", "dvbsuboverlay"
@@ -264,13 +283,6 @@ class Gstreamer < Formula
     system bin/"gst-inspect-1.0", "--plugin", "rtspclientsink"
     system bin/"gst-inspect-1.0", "--plugin", "rsfile"
     system bin/"gst-inspect-1.0", "hlsdemux2"
-
-    system python3, "-c", <<~EOS
-      import gi
-      gi.require_version('Gst', '1.0')
-      from gi.repository import Gst
-      print (Gst.Fraction(num=3, denom=5))
-    EOS
   end
 end
 
