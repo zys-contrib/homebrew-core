@@ -567,6 +567,7 @@ debianutils
 define
 dehydrated
 delve
+demumble
 deno
 dep-tree
 dependency-check
