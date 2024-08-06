@@ -1,15 +1,23 @@
 class Grok < Formula
   desc "DRY and RAD for regular expressions and then some"
   homepage "https://github.com/jordansissel/grok"
-  url "https://github.com/jordansissel/grok/archive/refs/tags/v0.9.2.tar.gz"
-  sha256 "40edbdba488ff9145832c7adb04b27630ca2617384fbef2af014d0e5a76ef636"
   license "BSD-2-Clause"
   revision 2
   head "https://github.com/jordansissel/grok.git", branch: "master"
 
+  stable do
+    url "https://github.com/jordansissel/grok/archive/refs/tags/v0.9.2.tar.gz"
+    sha256 "40edbdba488ff9145832c7adb04b27630ca2617384fbef2af014d0e5a76ef636"
+
+    # Backport Makefile fix to support compile on Ubuntu 12.04+
+    patch do
+      url "https://github.com/jordansissel/grok/commit/f440e9b4ce29a8e803f09d39e37a5725724aba95.patch?full_index=1"
+      sha256 "2f92f3b5956224c6d5674940d1d604c1aafa1c3387bda68a266e853c90d0fa86"
+    end
+  end
+
   livecheck do
-    url :stable
-    regex(/^v?(\d+\.\d{,3}(\.\d+)*)$/i)
+    skip "No longer developed or maintained"
   end
 
   bottle do
@@ -33,6 +41,8 @@ class Grok < Formula
   uses_from_macos "gperf" => :build
 
   on_linux do
+    depends_on "libtirpc"
+
     # Fix build with newer gperf.  Upstream issue:
     # https://github.com/jordansissel/grok/issues/29
     # Patch upstreamed here:
@@ -41,13 +51,18 @@ class Grok < Formula
   end
 
   def install
-    # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
-    # Remove after migration to 18.04.
-    inreplace "Makefile", "$(LDFLAGS) $^ -o $@", "$^ -o $@ $(LDFLAGS)" unless OS.mac?
+    # Fix compile with newer Clang
+    ENV.append "EXTRA_CFLAGS", "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
+    if OS.linux?
+      ENV.append "EXTRA_CFLAGS", "-fcommon"
+      ENV.append "EXTRA_CFLAGS", "-I#{Formula["libtirpc"].opt_include}/tirpc"
+      ENV.append "EXTRA_LDFLAGS", "-L#{Formula["libtirpc"].opt_lib} -ltirpc"
+      ENV["GPERF"] = Formula["gperf"].opt_bin/"gperf"
+    end
 
     # Race condition in generating grok_capture_xdr.h
     ENV.deparallelize
-    ENV["GPERF"] = Formula["gperf"].opt_bin/"gperf" unless OS.mac?
     system "make", "grok"
     system "make", "install", "PREFIX=#{prefix}"
   end
