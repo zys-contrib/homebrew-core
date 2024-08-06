@@ -1,8 +1,8 @@
 class Mmark < Formula
   desc "Powerful markdown processor in Go geared towards the IETF"
   homepage "https://mmark.miek.nl/"
-  url "https://github.com/mmarkdown/mmark/archive/refs/tags/v2.2.44.tar.gz"
-  sha256 "c2bab6fcb68fbf2c1fa0763948d0d5a18f00734b29d0f4b1894ff1991739aff7"
+  url "https://github.com/mmarkdown/mmark/archive/refs/tags/v2.2.45.tar.gz"
+  sha256 "fb3e20117f11805de5459c78a56476a4b38877d03be49c1c1227598d80e01dfd"
   license "BSD-2-Clause"
 
   bottle do
