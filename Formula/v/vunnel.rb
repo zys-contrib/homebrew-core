@@ -3,8 +3,8 @@ class Vunnel < Formula
 
   desc "Tool for collecting vulnerability data from various sources"
   homepage "https://github.com/anchore/vunnel"
-  url "https://files.pythonhosted.org/packages/74/08/eac0e522fdfb79fa3eda4cc8933a4508451d7f51983959a441228e0392b7/vunnel-0.26.2.tar.gz"
-  sha256 "b74424e4328d5c8364ee0358b90e9f87e695a3ee7ca9cf8f39240113fa499bbb"
+  url "https://files.pythonhosted.org/packages/ba/f0/96d50b5c15307c3463911028ce14eb0575c8793e1c4d21d8113c90a8f13e/vunnel-0.27.0.tar.gz"
+  sha256 "473e229d199ac90dc8ac777adc48f69c31599d66804c448128198a61defadd2b"
   license "Apache-2.0"
   head "https://github.com/anchore/vunnel.git", branch: "main"
 
@@ -132,8 +132,8 @@ class Vunnel < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/a6/58/e993ca5357553c966b9e73cb3475d9c935fe9488746e13ebdf9b80fae508/pytest-8.2.2.tar.gz"
-    sha256 "de4bb8104e201939ccdc688b27a89a7be2079b22e2bd2b07f806b6ba71117977"
+    url "https://files.pythonhosted.org/packages/b4/8c/9862305bdcd6020bc7b45b1b5e7397a6caf1a33d3025b9a003b39075ffb2/pytest-8.3.2.tar.gz"
+    sha256 "c132345d12ce551242c87269de812483f5bcc87cdbb4722e48487ba194f9fdce"
   end
 
   resource "pytest-snapshot" do
@@ -162,8 +162,8 @@ class Vunnel < Formula
   end
 
   resource "sqlalchemy" do
-    url "https://files.pythonhosted.org/packages/8a/a4/b5991829c34af0505e0f2b1ccf9588d1ba90f2d984ee208c90c985f1265a/SQLAlchemy-1.4.52.tar.gz"
-    sha256 "80e63bbdc5217dad3485059bdf6f65a7d43f33c8bde619df5c220edf03d87296"
+    url "https://files.pythonhosted.org/packages/e8/f1/40d71bba877e1c92d5995de3605d6256be1cc148d2ca0475812f156d7a58/SQLAlchemy-1.4.53.tar.gz"
+    sha256 "5e6ab710c4c064755fd92d1a417bef360228a19bdf0eee32b03aa0f5f8e9fe0d"
   end
 
   resource "tomli" do
@@ -207,8 +207,8 @@ class Vunnel < Formula
   end
 
   resource "zstandard" do
-    url "https://files.pythonhosted.org/packages/5d/91/2162ab4239b3bd6743e8e407bc2442fca0d326e2d77b3f4a88d90ad5a1fa/zstandard-0.22.0.tar.gz"
-    sha256 "8226a33c542bcb54cd6bd0a366067b610b41713b64c9abec1bc4533d69f51e70"
+    url "https://files.pythonhosted.org/packages/ed/f6/2ac0287b442160a89d726b17a9184a4c615bb5237db763791a7fd16d9df1/zstandard-0.23.0.tar.gz"
+    sha256 "b2d8c62d08e7255f68f7a740bae85b3c9b8e5466baa9cbf7f57f1cde0ac6bc09"
   end
 
   def install
