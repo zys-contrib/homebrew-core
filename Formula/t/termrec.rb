@@ -32,11 +32,12 @@ class Termrec < Formula
   uses_from_macos "zlib"
 
   def install
+    # Work around build error: call to undeclared function 'forkpty'
+    # Issue ref: https://github.com/kilobyte/termrec/issues/8
+    ENV.append "CFLAGS", "-include util.h" if DevelopmentTools.clang_build_version >= 1403
+
     system "./autogen.sh"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
