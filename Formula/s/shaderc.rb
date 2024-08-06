@@ -4,25 +4,25 @@ class Shaderc < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/google/shaderc/archive/refs/tags/v2024.0.tar.gz"
-    sha256 "c761044e4e204be8e0b9a2d7494f08671ca35b92c4c791c7049594ca7514197f"
+    url "https://github.com/google/shaderc/archive/refs/tags/v2024.1.tar.gz"
+    sha256 "eb3b5f0c16313d34f208d90c2fa1e588a23283eed63b101edd5422be6165d528"
 
     resource "glslang" do
       # https://github.com/google/shaderc/blob/known-good/known_good.json
       url "https://github.com/KhronosGroup/glslang.git",
-          revision: "d73712b8f6c9047b09e99614e20d456d5ada2390"
+          revision: "142052fa30f9eca191aa9dcf65359fcaed09eeec"
     end
 
     resource "spirv-headers" do
       # https://github.com/google/shaderc/blob/known-good/known_good.json
       url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-          revision: "8b246ff75c6615ba4532fe4fde20f1be090c3764"
+          revision: "5e3ad389ee56fca27c9705d093ae5387ce404df4"
     end
 
     resource "spirv-tools" do
       # https://github.com/google/shaderc/blob/known-good/known_good.json
       url "https://github.com/KhronosGroup/SPIRV-Tools.git",
-          revision: "04896c462d9f3f504c99a4698605b6524af813c1"
+          revision: "dd4b663e13c07fea4fbb3f70c1c91c86731099f7"
     end
   end
 
@@ -54,6 +54,10 @@ class Shaderc < Formula
 
   depends_on "cmake" => :build
   depends_on "python@3.12" => :build
+
+  # patch to fix `target "SPIRV-Tools-opt" that is not in any export set`
+  # upstream bug report, https://github.com/google/shaderc/issues/1413
+  patch :DATA
 
   def install
     resources.each do |res|
@@ -88,3 +92,17 @@ class Shaderc < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/third_party/CMakeLists.txt b/third_party/CMakeLists.txt
+index d44f62a..dffac6a 100644
+--- a/third_party/CMakeLists.txt
++++ b/third_party/CMakeLists.txt
+@@ -87,7 +87,6 @@ if (NOT TARGET glslang)
+       # Glslang tests are off by default. Turn them on if testing Shaderc.
+       set(GLSLANG_TESTS ON)
+     endif()
+-    set(GLSLANG_ENABLE_INSTALL $<NOT:${SKIP_GLSLANG_INSTALL}>)
+     add_subdirectory(${SHADERC_GLSLANG_DIR} glslang)
+   endif()
+   if (NOT TARGET glslang)
