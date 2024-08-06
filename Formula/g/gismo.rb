@@ -1,11 +1,18 @@
 class Gismo < Formula
   desc "C++ library for isogeometric analysis (IGA)"
   homepage "https://gismo.github.io"
-  url "https://github.com/gismo/gismo/archive/refs/tags/v23.12.0.tar.gz"
-  sha256 "6dc78e1d0016a45aee879eec0e42faf010cd222800461d645f877ff0c1f2d1a2"
+  url "https://github.com/gismo/gismo/archive/refs/tags/v24.08.0.tar.gz"
+  sha256 "ac6e7fc9d40aae698f3451a62dbbe45d9c62a40dfd1caf690b4d10eb624bcd6a"
   license "MPL-2.0"
-  revision 1
   head "https://github.com/gismo/gismo.git", branch: "stable"
+
+  # There can be a notable gap between when a version is tagged and a
+  # corresponding release is created, so we check the "latest" release instead
+  # of the Git tags.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "7d0e50c9e6bc867c1f024a9787d5aab5bf1945540981ca0c541d03d6aa7dec3b"
@@ -21,6 +28,8 @@ class Gismo < Formula
   depends_on "openblas"
   depends_on "suite-sparse"
   depends_on "superlu"
+
+  uses_from_macos "zlib"
 
   on_macos do
     depends_on "libomp"
