@@ -11,13 +11,7 @@ class TomcatAT9 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "81411a5152288067fdadb290f55ffc6a0498be7a27372108ea9eb12990d47f90"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "81411a5152288067fdadb290f55ffc6a0498be7a27372108ea9eb12990d47f90"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "81411a5152288067fdadb290f55ffc6a0498be7a27372108ea9eb12990d47f90"
-    sha256 cellar: :any_skip_relocation, sonoma:         "81411a5152288067fdadb290f55ffc6a0498be7a27372108ea9eb12990d47f90"
-    sha256 cellar: :any_skip_relocation, ventura:        "81411a5152288067fdadb290f55ffc6a0498be7a27372108ea9eb12990d47f90"
-    sha256 cellar: :any_skip_relocation, monterey:       "81411a5152288067fdadb290f55ffc6a0498be7a27372108ea9eb12990d47f90"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c749b1162aee583327345c6ddbefa64f0e9328da0ca7f5b383fb2a610ee2325"
+    sha256 cellar: :any_skip_relocation, all: "cc5392e1139455f4b4fdb7fccddf26105dbd36c84d9c640c09f70809472e6165"
   end
 
   keg_only :versioned_formula
