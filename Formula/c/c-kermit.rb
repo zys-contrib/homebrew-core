@@ -28,6 +28,7 @@ class CKermit < Formula
   uses_from_macos "ncurses"
 
   # Apply patch to fix build failure with glibc 2.28+
+  # Apply patch to fix build failure on Sonoma (missing headers)
   # Will be fixed in next release: https://www.kermitproject.org/ckupdates.html
   patch :DATA
 
@@ -61,3 +62,116 @@ diff -ru z/ckucmd.c k/ckucmd.c
      x = (int) ((stdin->_IO_read_end) - (stdin->_IO_read_ptr));
      debug(F101,"cmdconchk _IO_file_flags","",x);
  #else  /* _IO_file_flags */
+diff --git a/ckcdeb.h b/ckcdeb.h
+index 34ff008..a066187 100644
+--- a/ckcdeb.h
++++ b/ckcdeb.h
+@@ -2374,6 +2374,62 @@ _PROTOTYP( void bleep, (short) );
+ #ifndef NETCMD
+ #define NETCMD
+ #endif /* NETCMD */
++
++#ifndef NO_OPENPTY			/* Can use openpty() */
++#ifndef HAVE_OPENPTY
++#ifdef __linux__
++#define HAVE_OPENPTY
++#else
++#ifdef __FreeBSD__
++#define HAVE_OPENPTY
++#else
++#ifdef __OpenBSD__
++#define HAVE_OPENPTY
++#else
++#ifdef __NetBSD__
++#define HAVE_OPENPTY
++#include <util.h>
++#else
++#ifdef MACOSX10
++#define HAVE_OPENPTY
++#endif	/* MACOSX10 */
++#endif	/* __NetBSD__ */
++#endif	/* __OpenBSD__ */
++#endif	/* __FreeBSD__ */
++#endif	/* __linux__ */
++#endif	/* HAVE_OPENPTY */
++#endif	/* NO_OPENPTY */
++/*
++  This needs to be expanded and checked.
++  The makefile assumes the library (at least for all linuxes)
++  is always libutil but I've only verified it for a few.
++  If a build fails because
++*/
++#ifdef HAVE_OPENPTY
++#ifdef __linux__
++#include <pty.h>
++#else
++#ifdef __NetBSD__
++#include <util.h>
++#else
++#ifdef __OpenBSD__
++#include <util.h>
++#else
++#ifdef __FreeBSD__
++#include <libutil.h>
++#else
++#ifdef MACOSX
++#include <util.h>
++#else
++#ifdef QNX
++#include <unix.h>
++#endif  /* QNX */
++#endif  /* MACOSX */
++#endif  /* __FreeBSD__ */
++#endif  /* __OpenBSD__ */
++#endif  /* __NetBSD__ */
++#endif  /* __linux__ */
++#endif  /* HAVE_OPENPTY */
+ #endif /* NETPTY */
+ 
+ #ifndef CK_UTSNAME			/* Can we call uname()? */
+diff --git a/ckcmai.c b/ckcmai.c
+index a5640e5..0257050 100644
+--- a/ckcmai.c
++++ b/ckcmai.c
+@@ -1590,6 +1590,12 @@ cc_clean();                             /* This can't be right? */
+ #endif /* GEMDOS */
+ #endif /* NOCCTRAP */
+ 
++#ifdef TIMEH
++/* This had to be added for NetBSD 6.1 - it might have "effects" elsewhere */
++/* Tue Sep  3 17:03:42 2013 */
++#include <time.h>
++#endif /* TIMEH */
++
+ #ifndef NOXFER
+ /* Info associated with a system ID */
+ 
+diff --git a/ckuusx.c b/ckuusx.c
+index d332bed..d3de9ae 100644
+--- a/ckuusx.c
++++ b/ckuusx.c
+@@ -43,6 +43,10 @@
+ #define NOHTERMCAP
+ #else
+ #ifdef MACOSX
++#ifndef OLDMACOSX           
++#include <term.h>           /* macOS after 10.12 */
++#include <curses.h>
++#endif /* OLDMACOSX */
+ #define NOHTERMCAP
+ #endif /* MACOSX */
+ #endif /* OPENBSD */
+diff --git a/ckwart.c b/ckwart.c
+index 2f3bb75..71b9080 100644
+--- a/ckwart.c
++++ b/ckwart.c
+@@ -493,7 +493,8 @@ warray(fp,nam,cont,siz,typ) FILE *fp; char *nam; int cont[],siz; char *typ; {
+     fprintf(fp,"%2d\n};\n",cont[siz-1]);
+ }
+ 
+-#ifndef STRATUS
++int
++#if 0
+ #ifdef MAINTYPE
+ /*
+   If you get complaints about "main: return type is not blah",
