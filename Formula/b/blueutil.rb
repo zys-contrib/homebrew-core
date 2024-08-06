@@ -26,7 +26,9 @@ class Blueutil < Formula
   end
 
   test do
-    system bin/"blueutil", "--discoverable", "0"
     assert_match version.to_s, shell_output("#{bin}/blueutil --version")
+    # We cannot test any useful command since Sonoma as OS privacy restrictions
+    # will wait until Bluetooth permission is either accepted or rejected.
+    system bin/"blueutil", "--discoverable", "0" if MacOS.version < :sonoma
   end
 end
