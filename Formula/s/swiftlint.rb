@@ -2,8 +2,8 @@ class Swiftlint < Formula
   desc "Tool to enforce Swift style and conventions"
   homepage "https://github.com/realm/SwiftLint"
   url "https://github.com/realm/SwiftLint.git",
-      tag:      "0.55.1",
-      revision: "b515723b16eba33f15c4677ee65f3fef2ce8c255"
+      tag:      "0.56.1",
+      revision: "586dd54db496cbcc03c1aaddb3078bab19de5739"
   license "MIT"
   head "https://github.com/realm/SwiftLint.git", branch: "main"
 
@@ -18,16 +18,11 @@ class Swiftlint < Formula
     sha256                               x86_64_linux:   "0f68576b2b4591e126e923278c4aa25c28aa18b7e5a9f8a3b8d7cf8eeacfe3a2"
   end
 
+  depends_on "swift" => :build
+  depends_on macos: :ventura
+
   depends_on xcode: "8.0"
-
   uses_from_macos "swift"
-
-  on_sonoma :or_newer do
-    depends_on xcode: ["15.3", :build]
-  end
-  on_ventura :or_older do
-    depends_on "swift" => :build
-  end
 
   def install
     system "swift", "build", "--disable-sandbox", "--configuration", "release", "--product", "swiftlint"
