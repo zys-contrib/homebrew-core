@@ -29,7 +29,7 @@ class Janet < Formula
   def install
     # Replace lines in the Makefile that attempt to create the `syspath`
     # directory (which is a directory outside the sandbox).
-    inreplace "Makefile", /^.*?\bmkdir\b.*?\$\(JANET_PATH\).*?$/, "# Line removed by Homebrew formula"
+    inreplace "Makefile", /^.*?\bmkdir\b.*?\$\(JANET_PATH\).*?$/, "#"
 
     ENV["PREFIX"] = prefix
     ENV["JANET_BUILD"] = "\\\"homebrew\\\""
@@ -68,6 +68,6 @@ class Janet < Formula
     assert_equal "12", shell_output("#{janet} -e '(print (+ 5 7))'").strip
     assert_predicate jpm, :exist?, "jpm must exist"
     assert_predicate jpm, :executable?, "jpm must be executable"
-    assert_match Regexp.new(HOMEBREW_PREFIX/"lib/janet".to_s), shell_output("#{jpm} show-paths")
+    assert_match syspath.to_s, shell_output("#{jpm} show-paths")
   end
 end
