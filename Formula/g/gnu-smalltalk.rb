@@ -1,12 +1,21 @@
 class GnuSmalltalk < Formula
   desc "Implementation of the Smalltalk language"
   homepage "https://www.gnu.org/software/smalltalk/"
-  url "https://ftp.gnu.org/gnu/smalltalk/smalltalk-3.2.5.tar.xz"
-  mirror "https://ftpmirror.gnu.org/smalltalk/smalltalk-3.2.5.tar.xz"
-  sha256 "819a15f7ba8a1b55f5f60b9c9a58badd6f6153b3f987b70e7b167e7755d65acc"
   license "GPL-2.0"
   revision 10
-  head "https://github.com/gnu-smalltalk/smalltalk.git", branch: "master"
+
+  stable do
+    url "https://ftp.gnu.org/gnu/smalltalk/smalltalk-3.2.5.tar.xz"
+    mirror "https://ftpmirror.gnu.org/smalltalk/smalltalk-3.2.5.tar.xz"
+    sha256 "819a15f7ba8a1b55f5f60b9c9a58badd6f6153b3f987b70e7b167e7755d65acc"
+
+    # Backport fix to support ARM macOS and fix build with Xcode 15+
+    # Ref: https://github.com/gnu-smalltalk/smalltalk/commit/bf3fd4b501c71efa86d7f91d5127cab621245a8d
+    # Ref: https://github.com/gnu-smalltalk/smalltalk/commit/7456c7a4fe34210ad3d34b6a596dc992045d3830
+    on_macos do
+      patch :DATA
+    end
+  end
 
   bottle do
     rebuild 1
@@ -17,35 +26,49 @@ class GnuSmalltalk < Formula
     sha256 x86_64_linux: "d10915dea08be1b60576263f619653fca70471bfa64a07f1a0d73eac94055362"
   end
 
+  head do
+    url "https://github.com/gnu-smalltalk/smalltalk.git", branch: "master"
+
+    on_system :linux, macos: :ventura_or_newer do
+      depends_on "texinfo" => :build
+    end
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "gawk" => :build
   depends_on "pkg-config" => :build
   depends_on "gdbm"
+  depends_on "gmp"
   depends_on "gnutls"
   depends_on "libsigsegv"
   depends_on "libtool"
   depends_on "readline"
 
   uses_from_macos "zip" => :build
+  uses_from_macos "expat"
   uses_from_macos "libffi", since: :catalina
   uses_from_macos "zlib"
 
   def install
+    # Fix compile with newer Clang
+    if DevelopmentTools.clang_build_version >= 1500
+      ENV.append_to_cflags "-Wno-implicit-function-declaration"
+      ENV.append_to_cflags "-Wno-incompatible-function-pointer-types"
+    end
+
     args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --with-lispdir=#{elisp}
       --disable-gtk
+      --with-lispdir=#{elisp}
       --with-readline=#{Formula["readline"].opt_lib}
       --without-tcl
       --without-tk
       --without-x
     ]
 
-    system "autoreconf", "-ivf"
-    system "./configure", *args
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", *args, *std_configure_args
+    ENV.deparallelize if build.head?
     system "make"
     system "make", "install"
   end
@@ -57,3 +80,36 @@ class GnuSmalltalk < Formula
     assert_match "0123456789", shell_output("#{bin}/gst #{path}")
   end
 end
+
+__END__
+--- a/libgst/sysdep/posix/mem.c
++++ b/libgst/sysdep/posix/mem.c
+@@ -225,7 +225,7 @@ PTR
+ anon_mmap_commit (PTR base, size_t size)
+ {
+   PTR result = mmap (base, size,
+-   		     PROT_READ | PROT_WRITE | PROT_EXEC,
++		     PROT_READ | PROT_WRITE,
+ 		     MAP_ANON | MAP_PRIVATE | MAP_FIXED, -1, 0);
+
+   return UNCOMMON (result == MAP_FAILED) ? NULL : result;
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -110,7 +110,7 @@ bin_PROGRAMS = gst
+ gst_SOURCES = main.c
+ gst_LDADD = libgst/libgst.la lib-src/library.la @ICON@
+ gst_DEPENDENCIES = libgst/libgst.la lib-src/library.la @ICON@
+-gst_LDFLAGS = -export-dynamic $(RELOC_LDFLAGS) $(LIBFFI_EXECUTABLE_LDFLAGS)
++gst_LDFLAGS = -export-dynamic $(RELOC_LDFLAGS)
+ 
+ # The single gst-tool executable is installed with multiple names, hence
+ # we use noinst here.
+@@ -118,7 +118,7 @@ noinst_PROGRAMS = gst-tool
+ gst_tool_SOURCES = gst-tool.c
+ gst_tool_LDADD = libgst/libgst.la lib-src/library.la @ICON@
+ gst_tool_DEPENDENCIES = libgst/libgst.la lib-src/library.la @ICON@
+-gst_tool_LDFLAGS = -export-dynamic $(RELOC_LDFLAGS) $(LIBFFI_EXECUTABLE_LDFLAGS)
++gst_tool_LDFLAGS = -export-dynamic $(RELOC_LDFLAGS)
+ 
+ # Used to call the Unix zip from Wine
+ EXTRA_PROGRAMS = winewrapper
