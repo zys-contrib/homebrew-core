@@ -3,7 +3,12 @@ class Utimer < Formula
   homepage "https://launchpad.net/utimer"
   url "https://launchpad.net/utimer/0.4/0.4/+download/utimer-0.4.tar.gz"
   sha256 "07a9d28e15155a10b7e6b22af05c84c878d95be782b6b0afaadec2f7884aa0f7"
+  license "GPL-3.0-or-later"
   revision 1
+
+  livecheck do
+    skip "No longer developed or maintained"
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "f4b18b839f3d9864738ba4e120852b0d3fae8d67c7d98b4ce370a89a9eb839ec"
@@ -19,19 +24,31 @@ class Utimer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a44f6b1ef51bbbb0a61411585f06bc0d7e9d94083b04c11802f26ba2b2f36d8e"
   end
 
+  depends_on "gettext" => :build
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
-  depends_on "gettext"
   depends_on "glib"
 
   uses_from_macos "perl" => :build
 
-  def install
-    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
+  on_macos do
+    depends_on "gettext"
+  end
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+  on_linux do
+    depends_on "perl-xml-parser" => :build
+  end
+
+  def install
+    if OS.linux?
+      ENV.prepend_path "PERL5LIB", Formula["perl-xml-parser"].libexec/"lib/perl5"
+      # Work around /usr/bin/ld: timer.o:(.bss+0x0): multiple definition of `ut_config'
+      ENV.append_to_cflags "-fcommon"
+    end
+    # Fix compile with newer Clang. Project is no longer maintained so cannot be fixed upstream.
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
