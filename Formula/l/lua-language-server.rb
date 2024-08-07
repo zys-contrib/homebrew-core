@@ -3,8 +3,8 @@ class LuaLanguageServer < Formula
   homepage "https://github.com/LuaLS/lua-language-server"
   # pull from git tag to get submodules
   url "https://github.com/LuaLS/lua-language-server.git",
-      tag:      "3.10.1",
-      revision: "26a7b690c7eeb1a209b1b600886b2ac6691c5d2e"
+      tag:      "3.10.2",
+      revision: "db509e65deab282b89022d27e24767e4a07b8ff6"
   license "MIT"
   head "https://github.com/LuaLS/lua-language-server.git", branch: "master"
 
@@ -49,16 +49,11 @@ class LuaLanguageServer < Formula
   end
 
   test do
-    require "pty"
-    output = /^Content-Length: \d+\s*$/
-
-    stdout, stdin, lua_ls = PTY.spawn bin/"lua-language-server"
+    pid = spawn bin/"lua-language-server", "--logpath=."
     sleep 5
-    stdin.write "\n"
-    sleep 25
-    assert_match output, stdout.readline
+    assert_predicate testpath/"service.log", :exist?
+    refute_predicate testpath/"service.log", :empty?
   ensure
-    Process.kill "TERM", lua_ls
-    Process.wait lua_ls
+    Process.kill "TERM", pid
   end
 end
