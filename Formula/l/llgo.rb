@@ -63,7 +63,7 @@ class Llgo < Formula
 
     goos = shell_output(Formula["go"].opt_bin/"go env GOOS").chomp
     goarch = shell_output(Formula["go"].opt_bin/"go env GOARCH").chomp
-    assert_equal "llgo v#{version} #{goos}/#{goarch}", shell_output("#{bin}/llgo version").chomp unless head?
+    assert_equal "llgo v#{version} #{goos}/#{goarch}", shell_output("#{bin}/llgo version").chomp
 
     (testpath/"hello.go").write <<~EOS
       package main
