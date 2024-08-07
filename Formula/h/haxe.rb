@@ -2,22 +2,17 @@ class Haxe < Formula
   desc "Multi-platform programming language"
   homepage "https://haxe.org/"
   license all_of: ["GPL-2.0-or-later", "MIT"]
-  revision 1
   head "https://github.com/HaxeFoundation/haxe.git", branch: "development"
 
   stable do
     url "https://github.com/HaxeFoundation/haxe.git",
-        tag:      "4.3.5",
-        revision: "bd79571b89d719a45db7860d239da2164147dd15"
+        tag:      "4.3.6",
+        revision: "760c0dd9972abadceba4e72edb1db13b2a4fb315"
 
     # Backport support for mbedtls 3.x
     patch do
       url "https://github.com/HaxeFoundation/haxe/commit/c3258892c3c829ddd9faddcc0167108e62c84390.patch?full_index=1"
       sha256 "d92fa85053ed4303f147e784e528380f6a0f6f08d35b5d93fbdfbf072ca7ed3e"
-    end
-    patch do
-      url "https://github.com/HaxeFoundation/haxe/commit/8149e5e66436b5dac8f8b3f3fa09b2aac3e7f9d8.patch?full_index=1"
-      sha256 "ccd51482d2dd8f41788dbfce1a0b107206f7ba145045d63e0d5634b4633e754a"
     end
   end
 
