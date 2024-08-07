@@ -14,14 +14,11 @@ class Io < Formula
   end
 
   bottle do
-    sha256 sonoma:       "18dfd552cc463cf9be8dab9be3c3c4704f3996ec9a9e66d45cfcde7c531d88a5"
-    sha256 ventura:      "48d3b14d0c9b9fc74b24bbd9b5e4cc5283a00ef49c1c0854a7d768b68f6a4bea"
-    sha256 monterey:     "7e191e8affbfeb613d6cf895ae482a077f54de8f2087ca2f4a8742fc488c73f2"
-    sha256 big_sur:      "fae9b76e33ac8a9f4dd4f3c2335b13b003c2bdc01b81c4a2efbf5d7435c51e15"
-    sha256 catalina:     "c4c862d20a8e4ddb1e6e588414a9e23ae2a17baa490e3beb621614aca7a8ca87"
-    sha256 mojave:       "48c37d6f30d8b01d391e7f4ef777b5087425d89a9df0077414769a59333db420"
-    sha256 high_sierra:  "a061482b97c1ada8eea9d658f13fe0cfbfa223d97762b51611c4cab2de4c0273"
-    sha256 x86_64_linux: "67983adeeab7db99c20e4e524211afe6d3d5bd04b13fca5dcc4cfd841743f146"
+    rebuild 1
+    sha256 sonoma:       "9ceacf2ba834c91d5101adb7061bfd7c1ae702d9fbbbd9d8f78b5e82d049fd7e"
+    sha256 ventura:      "914d9b485bd7ceaec9bc8e43c9ffff86560ced0074ea2ae73312c45fafc0e01e"
+    sha256 monterey:     "2bbd166e8e51dd46f71818b6d2acad483af7cd19c2f8f114e5e713a64740d438"
+    sha256 x86_64_linux: "28f27659192940b8773ab23b0d237befa1ebb90ca6b771f82852422631f6549e"
   end
 
   depends_on "cmake" => :build
