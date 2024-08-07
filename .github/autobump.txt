@@ -194,6 +194,7 @@ bde
 beagle
 beakerlib
 beancount
+beancount-language-server
 bear
 bee
 bench
