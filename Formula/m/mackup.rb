@@ -9,13 +9,13 @@ class Mackup < Formula
   head "https://github.com/lra/mackup.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cc14c837232b9c9dd70ade93c1b4e87a8c3b14894068b2c7ef069cbf85a3a285"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1f85cb462956cb44fbcc163351cc337d4c604c248d3769359c6ba45446b1e4cf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e65aae58b535dec8f5fe474af3f5447140e4d63f780e782d7d1e84e6c293e614"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b08c9e2302a4aca64afbf33b785ca7eae1e8f661c386df4d834f6085ae9b46d8"
-    sha256 cellar: :any_skip_relocation, ventura:        "559b8c878159dd5dc347dd363b2cf0503a6f2c7565e76f7c0da437ca98cbf05a"
-    sha256 cellar: :any_skip_relocation, monterey:       "c3078cd965e01f1985ad53131537efaf56980d3605ed332fd7a674a285dd16b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9086360c6fa35cfe3e9b03ecce6e96ccf8fbb0b0babd8e157cc108a091f9f974"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dac4b2e6a5dbb4b99eeb476ca7a80d7b313dab3f733474ab24c6ad02bee7637e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dac4b2e6a5dbb4b99eeb476ca7a80d7b313dab3f733474ab24c6ad02bee7637e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dac4b2e6a5dbb4b99eeb476ca7a80d7b313dab3f733474ab24c6ad02bee7637e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dac4b2e6a5dbb4b99eeb476ca7a80d7b313dab3f733474ab24c6ad02bee7637e"
+    sha256 cellar: :any_skip_relocation, ventura:        "dac4b2e6a5dbb4b99eeb476ca7a80d7b313dab3f733474ab24c6ad02bee7637e"
+    sha256 cellar: :any_skip_relocation, monterey:       "dac4b2e6a5dbb4b99eeb476ca7a80d7b313dab3f733474ab24c6ad02bee7637e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "edcad6afdb1201c9d64101252384cb1d5b61b5430cf5deabd184510d84f6b6da"
   end
 
   depends_on "python@3.12"
