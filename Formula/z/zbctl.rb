@@ -1,8 +1,8 @@
 class Zbctl < Formula
   desc "Zeebe CLI client"
   homepage "https://docs.camunda.io/docs/apis-clients/cli-client/index/"
-  url "https://github.com/camunda/zeebe/archive/refs/tags/8.5.5.tar.gz"
-  sha256 "50d8ac1dd0447d7cd0b4e73ba9ddcbd176af1e23702d201918bd5826c25a79cb"
+  url "https://github.com/camunda/zeebe/archive/refs/tags/8.5.6.tar.gz"
+  sha256 "c0cf2133c217f52323c4202f5b22640e2425cd5a7b19a5a39a77e8d046d04735"
   license "Apache-2.0"
   head "https://github.com/camunda/zeebe.git", branch: "develop"
 
