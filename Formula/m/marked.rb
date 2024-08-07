@@ -6,14 +6,7 @@ class Marked < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "834e72ecd7ae8c9fa8f9866038bce8776b1d49795454a66a4fe765a124d28a19"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "834e72ecd7ae8c9fa8f9866038bce8776b1d49795454a66a4fe765a124d28a19"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "834e72ecd7ae8c9fa8f9866038bce8776b1d49795454a66a4fe765a124d28a19"
-    sha256 cellar: :any_skip_relocation, sonoma:         "834e72ecd7ae8c9fa8f9866038bce8776b1d49795454a66a4fe765a124d28a19"
-    sha256 cellar: :any_skip_relocation, ventura:        "834e72ecd7ae8c9fa8f9866038bce8776b1d49795454a66a4fe765a124d28a19"
-    sha256 cellar: :any_skip_relocation, monterey:       "834e72ecd7ae8c9fa8f9866038bce8776b1d49795454a66a4fe765a124d28a19"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f09fd22474380d85a676cbe7ee0fc695d7c5de3670378d8ad831edd6a806f5be"
+    sha256 cellar: :any_skip_relocation, all: "e395d4852c379aa7a98c796bbb1bef21423e3cf012e11b498e40c9be4e4d65fe"
   end
 
   depends_on "node"
