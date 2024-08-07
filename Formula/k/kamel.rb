@@ -1,8 +1,8 @@
 class Kamel < Formula
   desc "Apache Camel K CLI"
   homepage "https://camel.apache.org/"
-  url "https://github.com/apache/camel-k/archive/refs/tags/v2.3.3.tar.gz"
-  sha256 "0a2ce0113407bb56b60ed38a0e150b0056eb890fc1daa5fc31695aef96233317"
+  url "https://github.com/apache/camel-k/archive/refs/tags/v2.4.0.tar.gz"
+  sha256 "0535bb2c9c0c48f75bccd8a36c2bc866dd0b7959034ee18e473b08ff210ca9e4"
   license "Apache-2.0"
   head "https://github.com/apache/camel-k.git", branch: "main"
 
@@ -47,9 +47,9 @@ class Kamel < Formula
     assert_match "Error: cannot get command client: invalid configuration", reset_output
 
     rebuild_output = shell_output("echo $(#{bin}/kamel rebuild 2>&1)")
-    assert_match "Config not found", rebuild_output
+    assert_match "Error: cannot get command client: invalid configuration", rebuild_output
 
     reset_output = shell_output("echo $(#{bin}/kamel reset 2>&1)")
-    assert_match "Config not found", reset_output
+    assert_match "Error: cannot get command client: invalid configuration", reset_output
   end
 end
