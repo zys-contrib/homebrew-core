@@ -1,8 +1,8 @@
 class Opentofu < Formula
   desc "Drop-in replacement for Terraform. Infrastructure as Code Tool"
   homepage "https://opentofu.org/"
-  url "https://github.com/opentofu/opentofu/archive/refs/tags/v1.8.0.tar.gz"
-  sha256 "9e3f622741a0df00a10fcd42653260742c966936b252d3171d1ad952de6e40e0"
+  url "https://github.com/opentofu/opentofu/archive/refs/tags/v1.8.1.tar.gz"
+  sha256 "849f20c1f700910842c42fbf76730fabd4df82b0d0879d4bd9a88abe3d275b2a"
   license "MPL-2.0"
   head "https://github.com/opentofu/opentofu.git", branch: "main"
 
