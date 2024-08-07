@@ -3,8 +3,8 @@ class Cahute < Formula
 
   desc "Library and set of utilities to interact with Casio calculators"
   homepage "https://cahuteproject.org/"
-  url "https://ftp.cahuteproject.org/releases/cahute-0.4.tar.gz"
-  sha256 "a178389ac82e2e83cd55d8d80ee1771daae88331a0e799d5573d986428825648"
+  url "https://ftp.cahuteproject.org/releases/cahute-0.5.tar.gz"
+  sha256 "6206d8d9e2557dffa80a435ce96574c1bb2db16bc422afae8084d611963a2ba9"
   license "CECILL-2.1"
   head "https://gitlab.com/cahuteproject/cahute.git", branch: "develop"
 
@@ -51,7 +51,7 @@ class Cahute < Formula
     # xfer9860 is a reimplementation of an older program of the same name, which does not indicate
     # a failure exit code when a calculator isn't present. So here, we expect a successful exit
     # status but an error message printed to the console.
-    assert_match "Could not connect to the calculator.", shell_output("#{bin}/xfer9860 -i 2>&1")
+    assert_match "Could not connect to the calculator.", shell_output("#{bin}/xfer9860 -i 2>&1", 1)
 
     # No calculator is connected, so this will also fail. Any test file will do.
     shell_output("#{bin}/p7os flash #{test_fixtures "test.ico"} 2>&1", 1)
