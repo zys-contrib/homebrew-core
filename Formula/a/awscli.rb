@@ -3,8 +3,8 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/refs/tags/2.17.23.tar.gz"
-  sha256 "2221eac556ffc1ec715ddf8e1adae86afd376d63b8b600f1c069ab706994d1f2"
+  url "https://github.com/aws/aws-cli/archive/refs/tags/2.17.24.tar.gz"
+  sha256 "2f176d429ae48dd924e0c602a6bb6898fab7cfb32666f86abae1af824531cb26"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
@@ -18,7 +18,7 @@ class Awscli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a5932aa8cab887b322893b8deab636ecb897cf0e4b797f11775bb804692a6cf"
   end
 
-  depends_on "cmake" => :build # for awscrt
+  depends_on "cmake" => :build
   depends_on "cryptography"
   depends_on "python@3.11" # Python 3.12 issue: https://github.com/aws/aws-cli/issues/8342
 
@@ -26,8 +26,8 @@ class Awscli < Formula
   uses_from_macos "mandoc"
 
   resource "awscrt" do
-    url "https://files.pythonhosted.org/packages/c9/95/9faca9e404fd3cd72fa8f75d4f33f16032f3598a841e83dc81c687b4b80a/awscrt-0.20.11.tar.gz"
-    sha256 "c3dbfb7f1909457952e645373e72b69f90c50c465ee6a46d9bbdc12acb79803c"
+    url "https://files.pythonhosted.org/packages/7f/74/7789c268de69be3f6179abdba36a5e7c079997a8de73aea13e70a98d4494/awscrt-0.21.2.tar.gz"
+    sha256 "37ace28d0d7a91f90862dd2994872a15962b7b4f1376e0b7b01a821954611507"
   end
 
   resource "colorama" do
