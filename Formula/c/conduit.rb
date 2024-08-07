@@ -1,8 +1,8 @@
 class Conduit < Formula
   desc "Streams data between data stores. Kafka Connect replacement. No JVM required"
   homepage "https://conduit.io/"
-  url "https://github.com/ConduitIO/conduit/archive/refs/tags/v0.10.3.tar.gz"
-  sha256 "34fea807f78c49603a0fe67107621b3df9bd4ee75ef1a0a1ae531ef8256e9e33"
+  url "https://github.com/ConduitIO/conduit/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "e76fc08c5800881cb72ebb6500600c0c7edaa5aa42b1fbc556f398da2234331c"
   license "Apache-2.0"
   head "https://github.com/ConduitIO/conduit.git", branch: "main"
 
@@ -46,7 +46,7 @@ class Conduit < Formula
       # Kill process
       Process.kill("SIGKILL", pid)
     end
-    assert_match "grpc server started", (testpath/"output.txt").read
-    assert_match "http server started", (testpath/"output.txt").read
+    assert_match "grpc API started", (testpath/"output.txt").read
+    assert_match "http API started", (testpath/"output.txt").read
   end
 end
