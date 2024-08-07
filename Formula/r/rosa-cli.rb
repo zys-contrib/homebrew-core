@@ -1,8 +1,8 @@
 class RosaCli < Formula
   desc "RedHat OpenShift Service on AWS (ROSA) command-line interface"
   homepage "https://www.openshift.com/products/amazon-openshift"
-  url "https://github.com/openshift/rosa/archive/refs/tags/v1.2.42.tar.gz"
-  sha256 "2ae790cf48177f97d9d5a8ddc5dc6876f0850881ddddebf3573039428326d05a"
+  url "https://github.com/openshift/rosa/archive/refs/tags/v1.2.43.tar.gz"
+  sha256 "f55f52df54ad82e1edd8584165774752a6cc0e12d6683e377b0e7f417e0922ea"
   license "Apache-2.0"
   head "https://github.com/openshift/rosa.git", branch: "master"
 
