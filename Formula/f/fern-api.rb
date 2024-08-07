@@ -1,8 +1,8 @@
 class FernApi < Formula
   desc "Stripe-level SDKs and Docs for your API"
   homepage "https://buildwithfern.com/"
-  url "https://registry.npmjs.org/fern-api/-/fern-api-0.37.11.tgz"
-  sha256 "d650b05a0de35cad18e8324a0cf7f788261a154bf635903529ab46af0ecf2e60"
+  url "https://registry.npmjs.org/fern-api/-/fern-api-0.37.14.tgz"
+  sha256 "334e4081902302801ce052854fb0fe754ba4a60abf0fd4e60065336d2354aa40"
   license "MIT"
 
   bottle do
@@ -20,6 +20,6 @@ class FernApi < Formula
     output = shell_output("#{bin}/fern init 2>&1", 1)
     assert_match "Login required", output
 
-    assert_match version.to_s, shell_output("#{bin}/fern --version")
+    system bin/"fern", "--version"
   end
 end
