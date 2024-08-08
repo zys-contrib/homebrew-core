@@ -6,7 +6,7 @@ class FernApi < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b516c739f0726c289896a1b5ae94f48de32a6faf204bfe21a94f21c51ec7b35c"
+    sha256 cellar: :any_skip_relocation, all: "9a3ca990df7f7e15daca03fa52560ac0bf43048dba4e017b99ddb7c0dc9e885d"
   end
 
   depends_on "node"
