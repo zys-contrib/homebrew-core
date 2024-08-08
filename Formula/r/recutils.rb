@@ -28,9 +28,13 @@ class Recutils < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--datarootdir=#{elisp}"
+    # Fix compile with newer Clang. Remove in the next release.
+    # Ref: http://git.savannah.gnu.org/cgit/recutils.git/commit/?id=e154822aeec19cb790f8618ee740875c048859e4
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
+    system "./configure", "--datarootdir=#{elisp}",
+                          "--disable-silent-rules",
+                          *std_configure_args
     system "make", "install"
   end
 
