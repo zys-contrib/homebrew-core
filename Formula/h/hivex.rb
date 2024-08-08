@@ -21,21 +21,28 @@ class Hivex < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "gettext"
   depends_on "readline"
 
   uses_from_macos "pod2man" => :build
   uses_from_macos "libxml2"
 
+  on_macos do
+    depends_on "gettext"
+  end
+
   def install
+    # Use `-ld_classic` to work around `-Wl,-M` usage
+    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
+
     args = %w[
       --disable-ocaml
       --disable-perl
       --disable-python
       --disable-ruby
+      --disable-silent-rules
     ]
 
-    system "./configure", *args, *std_configure_args, "--disable-silent-rules"
+    system "./configure", *args, *std_configure_args
     system "make", "install"
     (pkgshare/"test").install "images/large"
   end
