@@ -11,13 +11,7 @@ class Nuget < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "120db5b989a88f244624281c3602c263d738e36a1be307cf188db7ca54c75968"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "120db5b989a88f244624281c3602c263d738e36a1be307cf188db7ca54c75968"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "120db5b989a88f244624281c3602c263d738e36a1be307cf188db7ca54c75968"
-    sha256 cellar: :any_skip_relocation, sonoma:         "120db5b989a88f244624281c3602c263d738e36a1be307cf188db7ca54c75968"
-    sha256 cellar: :any_skip_relocation, ventura:        "120db5b989a88f244624281c3602c263d738e36a1be307cf188db7ca54c75968"
-    sha256 cellar: :any_skip_relocation, monterey:       "120db5b989a88f244624281c3602c263d738e36a1be307cf188db7ca54c75968"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ef9f9f706d2fa844a5576898058ab9c2b23fa8b67f209dad4e7d07204bf9e32"
+    sha256 cellar: :any_skip_relocation, all: "84da341368b18291547c2182fd558ec42222e728c631ba675c0511d6df2d1466"
   end
 
   depends_on "mono"
