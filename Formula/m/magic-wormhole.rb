@@ -9,13 +9,13 @@ class MagicWormhole < Formula
   head "https://github.com/magic-wormhole/magic-wormhole.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "1a1776c8668b34079ec996a11ae65d5bc2040edf31f2faf08b0da879f11822b4"
-    sha256 cellar: :any,                 arm64_ventura:  "02ba23def84e1d8ff1dc32cabd17e4ecfae36c8c676d0799f61d734c3ddf070d"
-    sha256 cellar: :any,                 arm64_monterey: "0e0c545d799c230536b4fc5b6575b6f98eeb004ab2f877ba9f64390e31839b8b"
-    sha256 cellar: :any,                 sonoma:         "9442c6479261d57400fe7e7279284a25817e647d4a1d1e632767bb818f9114ce"
-    sha256 cellar: :any,                 ventura:        "2ab9c37965a6bc466df14a5398b25d909fee72a891f1ea66b90d12d3d7db7c26"
-    sha256 cellar: :any,                 monterey:       "352374fc20b1d4e52dd71bbe673cad29287e83f4baa027a42dfedae1aca46d35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "100cbcac6d7f6d28f0f3ae58c6df8437e2c3fa49618c8fa58f16ada4f6d3188d"
+    sha256 cellar: :any,                 arm64_sonoma:   "f60592ab428bb92b6a445c5edb81fe5376c31c9ce21c56f3f38bdbf9cc7e47df"
+    sha256 cellar: :any,                 arm64_ventura:  "d23dac88d44874b7a9917b8032539ba6472851bab0f4010baa0d706a3955367c"
+    sha256 cellar: :any,                 arm64_monterey: "d3cff3fddb93a9a052e1b7d0261c2b8189335a0b0b30be40061eba6390cc793f"
+    sha256 cellar: :any,                 sonoma:         "d45eb9eccd13ebfb6a67cde061cb81d0e58761c47deb64d776c24ca74f72180d"
+    sha256 cellar: :any,                 ventura:        "4d51faebaa0847676c2dc460ea175fd33ee5490b2050a0acb53ea67d3097d415"
+    sha256 cellar: :any,                 monterey:       "0326d85f1e3ab51d119ff7f78cee821358fb89d23324d8f3441a20a43de4c588"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc5c6bfc10563b56f477f1015116f3091be79513d7aabd1d75c487917de3de14"
   end
 
   depends_on "cryptography"
