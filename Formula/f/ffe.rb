@@ -24,10 +24,8 @@ class Ffe < Formula
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    ENV.append "CFLAGS", "-std=gnu89" if DevelopmentTools.clang_build_version >= 1500
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
