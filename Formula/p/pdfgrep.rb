@@ -24,18 +24,22 @@ class Pdfgrep < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libgcrypt"
-  depends_on "pcre" # PCRE2 issue: https://gitlab.com/pdfgrep/pdfgrep/-/issues/58
+  depends_on "pcre2"
   depends_on "poppler"
+
+  on_macos do
+    depends_on "libgpg-error"
+  end
 
   fails_with gcc: "5"
 
   def install
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+
     ENV.cxx11
     system "./autogen.sh" if build.head?
 
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
-
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+    system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
   end
 
