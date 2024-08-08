@@ -6,9 +6,11 @@ class Libpinyin < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "93f6df194768185e3a31b086804704a41fa7502925fd27ee0223f3d76a127d9e"
     sha256 cellar: :any,                 arm64_ventura:  "62ed5199739dcaae0ead97433ba897628981a6d3460a2718e4b41891c77842bc"
     sha256 cellar: :any,                 arm64_monterey: "9029eba7441fd7bf391a4b7f098d1459a2800b3d38abe6ad7d684b0d754d1376"
     sha256 cellar: :any,                 arm64_big_sur:  "0fb826732bff1c6e1b4925d289a7225f7aa8dbd2130f62592a7f9e7163e77799"
+    sha256 cellar: :any,                 sonoma:         "5cfaa643ad861878a48ffcc399b4a90be2aac3e9be546d176b225840a401cd8f"
     sha256 cellar: :any,                 ventura:        "634410145976dea7c905671ced7fe0f38d6fdad9d1433d7c0e6338c1cea1138e"
     sha256 cellar: :any,                 monterey:       "aede5aed924b8237f69c86fd4a68d31f17d04dcf328548bb4872836803c560cf"
     sha256 cellar: :any,                 big_sur:        "93f521f571f01608a07acfa914a17ee9085d9787659bf46a15d36d96e6e26d2f"
