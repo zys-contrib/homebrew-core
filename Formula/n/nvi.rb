@@ -50,11 +50,16 @@ class Nvi < Formula
     sha256 "742c4578319ddc07b0b86482b4f2b86125026f200749e07c6d2ac67976204728"
   end
 
+  patch :p0 do
+    url "https://raw.githubusercontent.com/macports/macports-ports/a0cae35e9fce0f3d591af204ff72aa0a98606d05/editors/nvi/files/patch-common_key.h.diff"
+    sha256 "3f923f33b98c90a5f96b7e8853d753871abcf93acd75052964ade2d9574502c5"
+  end
+
   # Upstream have been pretty inactive for a while, so we may want to kill this
   # formula at some point unless that changes. We're leaning hard on Debian now.
   patch do
-    url "https://deb.debian.org/debian/pool/main/n/nvi/nvi_1.81.6-19.debian.tar.xz"
-    sha256 "33e6b71119b391a1c024b619565a2b9677ad169583ba1f73596d535ed1d6cd24"
+    url "https://deb.debian.org/debian/pool/main/n/nvi/nvi_1.81.6-17.debian.tar.xz"
+    sha256 "4f81fa274e71093d212ca981dc510e9bf2f1d4716f3c447ec2402607aa394bca"
     apply "patches/03db4.patch",
           "patches/19include_term_h.patch",
           "patches/20glibc_has_grantpt.patch",
