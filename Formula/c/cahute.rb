@@ -47,10 +47,6 @@ class Cahute < Formula
     # Assume that there is no calculator connected while testing
     assert_match "Could not connect to the calculator.", shell_output("#{bin}/p7 idle 2>&1", 1)
     assert_match "Could not connect to the calculator.", shell_output("#{bin}/p7screen 2>&1", 1)
-
-    # xfer9860 is a reimplementation of an older program of the same name, which does not indicate
-    # a failure exit code when a calculator isn't present. So here, we expect a successful exit
-    # status but an error message printed to the console.
     assert_match "Could not connect to the calculator.", shell_output("#{bin}/xfer9860 -i 2>&1", 1)
 
     # No calculator is connected, so this will also fail. Any test file will do.
