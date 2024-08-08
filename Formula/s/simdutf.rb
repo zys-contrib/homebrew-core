@@ -1,8 +1,8 @@
 class Simdutf < Formula
   desc "Unicode conversion routines, fast"
   homepage "https://github.com/simdutf/simdutf"
-  url "https://github.com/simdutf/simdutf/archive/refs/tags/v5.3.2.tar.gz"
-  sha256 "3c146fb80d775b869ae9b132f41981dc3266f616f589b5f45045d6a22fdabdca"
+  url "https://github.com/simdutf/simdutf/archive/refs/tags/v5.3.3.tar.gz"
+  sha256 "5074018bef577e560903ecf331726bd7909d9878ad710492b4c1626dcaebaf8d"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/simdutf/simdutf.git", branch: "master"
 
