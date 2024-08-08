@@ -37,6 +37,14 @@ class SblimSfcc < Formula
   end
 
   def install
+    if DevelopmentTools.clang_build_version >= 1500
+      # Work around "backend/cimxml/grammar.c:305:9: error: call to undeclared function 'guessType'"
+      # Ref: https://sourceforge.net/p/sblim/bugs/2767/
+      ENV.append_to_cflags "-Wno-implicit-function-declaration"
+      # Work around "ld: unknown file type in '.../cimc/libcimcclient.Versions'"
+      ENV.append "LDFLAGS", "-Wl,-ld_classic"
+    end
+
     system "./configure", *std_configure_args
     system "make", "install"
   end
