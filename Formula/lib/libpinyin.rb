@@ -22,8 +22,18 @@ class Libpinyin < Formula
   # upstream issue report, https://github.com/libpinyin/libpinyin/issues/158
   depends_on "llvm" => :build if DevelopmentTools.clang_build_version >= 1400
   depends_on "pkg-config" => :build
-  depends_on "berkeley-db"
   depends_on "glib"
+
+  on_macos do
+    depends_on "berkeley-db"
+    depends_on "gettext"
+  end
+
+  on_linux do
+    # We use the older Berkeley DB as it is already an indirect dependency
+    # (glib -> python@3.y -> berkeley-db@5) and gets linked by default
+    depends_on "berkeley-db@5"
+  end
 
   # The language model file is independently maintained by the project owner.
   # To update this resource block, the URL can be found in data/Makefile.am.
@@ -34,11 +44,15 @@ class Libpinyin < Formula
 
   def install
     # Workaround for Xcode 14 ld.
-    ENV.append_to_cflags "-fuse-ld=lld" if DevelopmentTools.clang_build_version >= 1400
+    if DevelopmentTools.clang_build_version >= 1400
+      ENV.append_to_cflags "-fuse-ld=lld"
+      # Work around superenv causing ld64.lld: error: -Os: number expected, but got 's'
+      # Upstream uses -O2 but brew does not provide an ENV.O2 so manually set this
+      ENV["HOMEBREW_OPTIMIZATION_LEVEL"] = "O2"
+    end
 
     resource("model").stage buildpath/"data"
-    system "./autogen.sh", "--enable-libzhuyin=yes",
-                           "--prefix=#{prefix}"
+    system "./autogen.sh", "--enable-libzhuyin=yes", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
