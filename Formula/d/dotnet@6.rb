@@ -3,8 +3,8 @@ class DotnetAT6 < Formula
   homepage "https://dotnet.microsoft.com/"
   # Source-build tag announced at https://github.com/dotnet/source-build/discussions
   url "https://github.com/dotnet/installer.git",
-      tag:      "v6.0.125",
-      revision: "e898a826c2b7f66602c8962134ef165fb9e6d44b"
+      tag:      "v6.0.133",
+      revision: "48ad8f7176f00900ff49df9fb936bc7c8c79d345"
   license "MIT"
 
   bottle do
@@ -16,6 +16,9 @@ class DotnetAT6 < Formula
   end
 
   keg_only :versioned_formula
+
+  # https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core#lifecycle
+  deprecate! date: "2024-11-12", because: :unsupported
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -59,7 +62,11 @@ class DotnetAT6 < Formula
   patch :DATA
 
   def install
-    ENV.append_path "LD_LIBRARY_PATH", Formula["icu4c"].opt_lib if OS.linux?
+    if OS.linux?
+      ENV.append_path "LD_LIBRARY_PATH", Formula["icu4c"].opt_lib
+      ENV.append_to_cflags "-I#{Formula["krb5"].opt_include}"
+      ENV.append_to_cflags "-I#{Formula["zlib"].opt_include}"
+    end
 
     (buildpath/".dotnet").install resource("dotnet-install.sh")
     (buildpath/"src/SourceBuild/tarball/patches/msbuild").install resource("homebrew-msbuild-patch")
