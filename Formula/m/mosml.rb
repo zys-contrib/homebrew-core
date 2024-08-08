@@ -22,11 +22,18 @@ class Mosml < Formula
 
   depends_on "gmp"
 
+  # Backport missing headers to fix build
+  patch do
+    url "https://github.com/kfl/mosml/commit/52b00ca99dcd77d64dac5a7600fe64a76ed1ac3a.patch?full_index=1"
+    sha256 "e0db36e944b5d60e0e98afd3f3e9463d193ae89b7aa66d2cc7c452c6c6ed8632"
+  end
+
   def install
-    cd "src" do
-      system "make", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "world"
-      system "make", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "install"
-    end
+    # Work around for newer Clang
+    ENV.append "CC", "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
+    system "make", "-C", "src", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "world"
+    system "make", "-C", "src", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "install"
   end
 
   test do
