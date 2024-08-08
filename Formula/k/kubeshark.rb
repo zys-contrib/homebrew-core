@@ -1,8 +1,8 @@
 class Kubeshark < Formula
   desc "API Traffic Analyzer providing real-time visibility into Kubernetes network"
   homepage "https://www.kubeshark.co/"
-  url "https://github.com/kubeshark/kubeshark/archive/refs/tags/v52.3.69.tar.gz"
-  sha256 "8088520ff96687526fcfdc740633ab1c51b0260b31f9de300afbf527ff32db11"
+  url "https://github.com/kubeshark/kubeshark/archive/refs/tags/v52.3.73.tar.gz"
+  sha256 "f1a4bdeb651f41bddf72fea6ad82e45ea46139bc00b4fb16266bdd50a0e78dcb"
   license "Apache-2.0"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
