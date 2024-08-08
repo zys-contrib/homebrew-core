@@ -1,8 +1,8 @@
 class Polyml < Formula
   desc "Standard ML implementation"
   homepage "https://www.polyml.org/"
-  url "https://github.com/polyml/polyml/archive/refs/tags/v5.9.tar.gz"
-  sha256 "5aa452a49f2ac0278668772af4ea0b9bf30c93457e60ff7f264c5aec2023c83e"
+  url "https://github.com/polyml/polyml/archive/refs/tags/v5.9.1.tar.gz"
+  sha256 "52f56a57a4f308f79446d479e744312195b298aa65181893bce2dfc023a3663c"
   license "LGPL-2.1-or-later"
   head "https://github.com/polyml/polyml.git", branch: "master"
 
@@ -23,10 +23,30 @@ class Polyml < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--disable-debug",
-                          "--prefix=#{prefix}"
+    # Use ld_classic to work around 'ld: LINKEDIT overlap of start of LINKEDIT and symbol table'
+    # Issue ref: https://github.com/polyml/polyml/issues/194
+    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
+
+    args = ["--disable-silent-rules"]
+    # Disable native code generation on CI ARM macOS to work around:
+    # Bus error: 10 ./polyimport ./bootstrap/bootstrap64.txt -I . < ./bootstrap/Stage1.sml
+    # Issue ref: https://github.com/polyml/polyml/issues/199
+    args << "--disable-native-codegeneration" if ENV["HOMEBREW_GITHUB_ACTIONS"] && OS.mac? && Hardware::CPU.arm?
+
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
+  end
+
+  def caveats
+    on_macos do
+      on_arm do
+        <<~EOS
+          The `polyml` bottle was built with native code generator disabled due to
+          the build failure seen in https://github.com/polyml/polyml/issues/199.
+        EOS
+      end
+    end
   end
 
   test do
