@@ -17,6 +17,10 @@ class Bitchx < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/7a83dbb5d8e3a3070ff80a28d396868cdd6b23ac/bitchx/linux.patch"
       sha256 "99caa10f32bfe4727a836b8cc99ec81e3c059729e4bb90641be392f4e98255d9"
     end
+
+    # Backport part of upstream commit to add static specifiers needed to fix Sonoma build
+    # Ref: https://sourceforge.net/p/bitchx/git/ci/7e3c39a464635eb22484161513410ecbb666f840/
+    patch :DATA
   end
 
   bottle do
@@ -52,6 +56,13 @@ class Bitchx < Formula
       # A similar fix is already committed upstream:
       # https://sourceforge.net/p/bitchx/git/ci/184af728c73c379d1eee57a387b6012572794fa8/
       inreplace "configure", "SSLeay", "OpenSSL_version_num"
+
+      # Work around for new Clang. HEAD build does not hit issues.
+      if DevelopmentTools.clang_build_version >= 1500
+        ENV.append_to_cflags "-Wno-implicit-function-declaration"
+        ENV.append_to_cflags "-Wno-incompatible-function-pointer-types"
+        ENV.append_to_cflags "-Wno-int-conversion"
+      end
     end
 
     system "./configure", "--prefix=#{prefix}",
@@ -67,3 +78,36 @@ class Bitchx < Formula
     system bin/"BitchX", "-v"
   end
 end
+
+__END__
+diff --git a/source/expr2.c b/source/expr2.c
+index f607707..657a2bc 100644
+--- a/source/expr2.c
++++ b/source/expr2.c
+@@ -1192,7 +1204,7 @@ int	lexerr (expr_info *c, char *format, ...)
+  * case 'operand' is set to 1.  When an operand is lexed, then the next token
+  * is expected to be a binary operator, so 'operand' is set to 0. 
+  */
+-__inline int	check_implied_arg (expr_info *c)
++static __inline int	check_implied_arg (expr_info *c)
+ {
+ 	if (c->operand == 2)
+ 	{
+@@ -1205,7 +1217,7 @@ __inline int	check_implied_arg (expr_info *c)
+ 	return c->operand;
+ }
+ 
+-__inline TOKEN 	operator (expr_info *c, char *x, int y, TOKEN z)
++static __inline TOKEN 	operator (expr_info *c, char *x, int y, TOKEN z)
+ {
+ 	check_implied_arg(c);
+ 	if (c->operand)
+@@ -1216,7 +1228,7 @@ __inline TOKEN 	operator (expr_info *c, char *x, int y, TOKEN z)
+ 	return z;
+ }
+ 
+-__inline TOKEN 	unary (expr_info *c, char *x, int y, TOKEN z)
++static __inline TOKEN 	unary (expr_info *c, char *x, int y, TOKEN z)
+ {
+ 	if (!c->operand)
+ 		return lexerr(c, "An operator (%s) was found where "
