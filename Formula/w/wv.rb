@@ -39,6 +39,11 @@ class Wv < Formula
   end
 
   def install
+    # Work around build errors with newer Clang
+    if DevelopmentTools.clang_build_version >= 1500
+      ENV.append_to_cflags "-Wno-incompatible-function-pointer-types -Wno-int-conversion"
+    end
+
     system "./configure", "--mandir=#{man}", *std_configure_args
     system "make"
     ENV.deparallelize
