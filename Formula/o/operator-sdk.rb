@@ -32,11 +32,9 @@ class OperatorSdk < Formula
   end
 
   test do
-    if build.stable?
-      output = shell_output("#{bin}/operator-sdk version")
-      assert_match "version: \"v#{version}\"", output
-      assert_match stable.specs[:revision], output
-    end
+    output = shell_output("#{bin}/operator-sdk version")
+    assert_match "version: \"v#{version}\"", output
+    assert_match stable.specs[:revision], output
 
     output = shell_output("#{bin}/operator-sdk init --domain=example.com --repo=github.com/example/memcached")
     assert_match "$ operator-sdk create api", output
