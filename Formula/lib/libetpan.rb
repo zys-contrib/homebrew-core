@@ -1,10 +1,29 @@
 class Libetpan < Formula
   desc "Portable mail library handling several protocols"
   homepage "https://www.etpan.org/libetpan.html"
-  url "https://github.com/dinhvh/libetpan/archive/refs/tags/1.9.4.tar.gz"
-  sha256 "82ec8ea11d239c9967dbd1717cac09c8330a558e025b3e4dc6a7594e80d13bb1"
   license "BSD-3-Clause"
   head "https://github.com/dinhvh/libetpan.git", branch: "master"
+
+  stable do
+    url "https://github.com/dinhvh/libetpan/archive/refs/tags/1.9.4.tar.gz"
+    sha256 "82ec8ea11d239c9967dbd1717cac09c8330a558e025b3e4dc6a7594e80d13bb1"
+
+    # Backport fix for CVE-2020-15953
+    patch do
+      url "https://github.com/dinhvh/libetpan/commit/1002a0121a8f5a9aee25357769807f2c519fa50b.patch?full_index=1"
+      sha256 "824408a4d4b59b8e395260908b230232d4f764645b014fbe6e9660ad1137251e"
+    end
+    patch do
+      url "https://github.com/dinhvh/libetpan/commit/298460a2adaabd2f28f417a0f106cb3b68d27df9.patch?full_index=1"
+      sha256 "f5e62879eb90d83d06c4b0caada365a7ea53d4426199a650a7cc303cc0f66751"
+    end
+
+    # Backport fix for CVE-2022-4121
+    patch do
+      url "https://github.com/dinhvh/libetpan/commit/5c9eb6b6ba64c4eb927d7a902317410181aacbba.patch?full_index=1"
+      sha256 "33e23548526588b0620033be67988e458806632efe950a62bd3e5808e2c628d1"
+    end
+  end
 
   bottle do
     sha256 cellar: :any, arm64_sonoma:   "f9e105af0d1146c8ce972497fd1ee11c47d2d7a84ffd1c9330e486871b5657da"
@@ -22,25 +41,41 @@ class Libetpan < Formula
 
   depends_on xcode: :build
 
+  uses_from_macos "cyrus-sasl"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    depends_on "pkg-config" => :build
+    depends_on "openssl@3"
+  end
+
   def install
-    xcodebuild "-arch", Hardware::CPU.arch,
-               "-project", "build-mac/libetpan.xcodeproj",
-               "-scheme", "static libetpan",
-               "-configuration", "Release",
-               "SYMROOT=build/libetpan",
-               "build"
+    if OS.mac?
+      xcodebuild "-arch", Hardware::CPU.arch,
+                 "-project", "build-mac/libetpan.xcodeproj",
+                 "-scheme", "static libetpan",
+                 "-configuration", "Release",
+                 "SYMROOT=build/libetpan",
+                 "build"
 
-    xcodebuild "-arch", Hardware::CPU.arch,
-               "-project", "build-mac/libetpan.xcodeproj",
-               "-scheme", "libetpan",
-               "-configuration", "Release",
-               "SYMROOT=build/libetpan",
-               "build"
+      xcodebuild "-arch", Hardware::CPU.arch,
+                 "-project", "build-mac/libetpan.xcodeproj",
+                 "-scheme", "libetpan",
+                 "-configuration", "Release",
+                 "SYMROOT=build/libetpan",
+                 "build"
 
-    lib.install "build-mac/build/libetpan/Release/libetpan.a"
-    frameworks.install "build-mac/build/libetpan/Release/libetpan.framework"
-    include.install buildpath.glob("build-mac/build/libetpan/Release/include/**")
-    bin.install "libetpan-config"
+      lib.install "build-mac/build/libetpan/Release/libetpan.a"
+      frameworks.install "build-mac/build/libetpan/Release/libetpan.framework"
+      include.install buildpath.glob("build-mac/build/libetpan/Release/include/**")
+      bin.install "libetpan-config"
+    else
+      system "./autogen.sh", "--disable-db", "--disable-silent-rules", *std_configure_args
+      system "make", "install"
+    end
   end
 
   test do
