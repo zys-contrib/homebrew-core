@@ -500,6 +500,7 @@ cql-proxy
 crabz
 crane
 cri-tools
+crispy-doom
 croaring
 croc
 cromwell
