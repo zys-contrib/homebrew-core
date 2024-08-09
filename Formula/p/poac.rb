@@ -1,10 +1,9 @@
 class Poac < Formula
   desc "Package manager and build system for C++"
   homepage "https://github.com/poac-dev/poac"
-  url "https://github.com/poac-dev/poac/archive/refs/tags/0.9.3.tar.gz"
-  sha256 "122aa46923e3e93235305b726617df7df747ed7a26072ccd6b87ffaf84a33aed"
+  url "https://github.com/poac-dev/poac/archive/refs/tags/0.10.0.tar.gz"
+  sha256 "4bdede67b28f9622c071bef8c7eae76062c9ef2ad122deee49d994668e846288"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/poac-dev/poac.git", branch: "main"
 
   bottle do
@@ -18,6 +17,8 @@ class Poac < Formula
   end
 
   depends_on "curl"
+  depends_on "fmt"
+  depends_on "gcc" # C++20
   depends_on "libgit2@1.7"
   depends_on "nlohmann-json"
   depends_on "pkg-config"
@@ -32,7 +33,7 @@ class Poac < Formula
     cause "Requires C++20"
   end
 
-  fails_with gcc: "5" # C++20
+  fails_with gcc: "11" # C++20
 
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1200)
