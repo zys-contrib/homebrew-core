@@ -8,7 +8,14 @@ class Serveit < Formula
   head "https://github.com/garybernhardt/serveit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e17a21fd5705de1b2e96656ad703f51c8f1781601f295ff7028cfc859bd0ca44"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9f9a8523f4f530ab0bd0fad9a27c710efa442b2c964aafa32c4a747819c515b7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9f9a8523f4f530ab0bd0fad9a27c710efa442b2c964aafa32c4a747819c515b7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9f9a8523f4f530ab0bd0fad9a27c710efa442b2c964aafa32c4a747819c515b7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9f9a8523f4f530ab0bd0fad9a27c710efa442b2c964aafa32c4a747819c515b7"
+    sha256 cellar: :any_skip_relocation, ventura:        "9f9a8523f4f530ab0bd0fad9a27c710efa442b2c964aafa32c4a747819c515b7"
+    sha256 cellar: :any_skip_relocation, monterey:       "9f9a8523f4f530ab0bd0fad9a27c710efa442b2c964aafa32c4a747819c515b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e33ce3c0dbb5df24170e177bf1f0246d923e061304e201b54ed3f78051687a2d"
   end
 
   uses_from_macos "ruby"
