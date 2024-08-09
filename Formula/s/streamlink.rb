@@ -3,10 +3,20 @@ class Streamlink < Formula
 
   desc "CLI for extracting streams from various websites to a video player"
   homepage "https://streamlink.github.io/"
-  url "https://files.pythonhosted.org/packages/ec/6d/1f0de989d3c6635e944ff7762341c78b3698aff70e53ea9feecc2b28f6e1/streamlink-6.8.3.tar.gz"
-  sha256 "e3f51a567c08703092f91d0497a3fc2aefe327efcd725d03e66f3dcd11ed9b68"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/streamlink/streamlink.git", branch: "master"
+
+  stable do
+    url "https://files.pythonhosted.org/packages/ec/6d/1f0de989d3c6635e944ff7762341c78b3698aff70e53ea9feecc2b28f6e1/streamlink-6.8.3.tar.gz"
+    sha256 "e3f51a567c08703092f91d0497a3fc2aefe327efcd725d03e66f3dcd11ed9b68"
+
+    # plugins.okru: fix metadata schema, upstream pr ref, https://github.com/streamlink/streamlink/pull/6085
+    patch do
+      url "https://github.com/streamlink/streamlink/commit/153f82d7218803347f197953a04bf642758ade06.patch?full_index=1"
+      sha256 "107b5ea39e91e3e56a6c93308d5291c0ec568397cf4f3097de1ab3567c7835e5"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "0296bc2568c9525a5855ea9d6555ca84e8f64b762284899e31c2cc2c4f04c2ae"
@@ -137,10 +147,15 @@ class Streamlink < Formula
     system bin/"streamlink", "https://vimeo.com/144358359", "360p", "-o", "video.mp4"
     assert_match "video.mp4: ISO Media, MP4 v2", shell_output("file video.mp4")
 
-    url = OS.mac? ? "https://ok.ru/video/3388934659879" : "https://www.youtube.com/watch?v=pOtd1cbOP7k"
-    output = shell_output("#{bin}/streamlink --ffmpeg-no-validation -l debug '#{url}'")
-    assert_match "Available streams:", output
-    refute_match "error", output
-    refute_match "Could not find metadata", output
+    url = OS.mac? ? "https://ok.ru/video/1643385658936" : "https://www.youtube.com/watch?v=pOtd1cbOP7k"
+    if OS.mac?
+      output = shell_output("#{bin}/streamlink --ffmpeg-no-validation -l debug '#{url}'")
+      assert_match "Available streams:", output
+      refute_match "error", output
+      refute_match "Could not find metadata", output
+    else
+      output = shell_output("#{bin}/streamlink --ffmpeg-no-validation -l debug '#{url}'", 1)
+      assert_match "Could not get video info - LOGIN_REQUIRED", output
+    end
   end
 end
