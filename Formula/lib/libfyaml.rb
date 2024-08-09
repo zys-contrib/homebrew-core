@@ -14,6 +14,8 @@ class Libfyaml < Formula
     sha256 cellar: :any, monterey:       "4730aa6a64ffd960a0d82cbcc69734ffddb7abf29ae27450dfed7fc818a17935"
   end
 
+  uses_from_macos "m4" => :build
+
   def install
     system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make"
