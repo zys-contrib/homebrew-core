@@ -240,6 +240,7 @@ botan
 botan@2
 bottom
 bowtie2
+box2d
 bpftop
 breezy
 brev
