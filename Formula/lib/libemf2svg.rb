@@ -17,11 +17,14 @@ class Libemf2svg < Formula
     sha256 cellar: :any, catalina:       "22a0d2002ff89d8583fa86c103d465b23fe7809a527aae4c6dad29b39db020f5"
   end
 
-  depends_on "argp-standalone" => :build
   depends_on "cmake" => :build
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "libpng"
+
+  on_macos do
+    depends_on "argp-standalone" => :build
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
