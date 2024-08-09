@@ -11,8 +11,10 @@ class Biosig < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "94ce1ed94f2e62d54961a2a711af52a9f229b7852f535ee1ce9a2248576cee83"
     sha256 cellar: :any,                 arm64_ventura:  "a88421331309918094ee177f00e8b6537ba8d6125a5507d73183275d770e372d"
     sha256 cellar: :any,                 arm64_monterey: "a94537bf985066694053ddcfe3a8254457ea0a9ed6acc4180da825dddb5a6537"
+    sha256 cellar: :any,                 sonoma:         "832caf6d00dd2a716f4bcbded968ae70552e807e90b68ceba5b590207555d1f1"
     sha256 cellar: :any,                 ventura:        "6a3926692abe3a19947778b679542669ea010075620ddbcb62240ff411e35026"
     sha256 cellar: :any,                 monterey:       "5136c7261264acb7dd2631527165f52074587979d988f09c9d551b94cdc48586"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "971e1c4a42c02b0d7bdcceea087f94f3d66314718f319108dcc019717beb0f78"
