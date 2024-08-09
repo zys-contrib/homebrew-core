@@ -6,19 +6,13 @@ class Argus < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0595c742b712da37d23a83158bfe73f730d11b47769a01334583eb1b1f7d0491"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c77cf2ebf326271560f9ab2bc5e50889133cc8ea1a39c5a719b4016710c3c764"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e1b3fe3a7c3dd11ee63dbca00091b02d68f821087efb4343ce4136137c36295e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b3b0421c50d060c2f6812a9b10ee5121336f80306a96271819737903ec98574c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "79236cadc1973ea8f2294f159e825a0645e3414da0ee7461c10c49811fb86c44"
-    sha256 cellar: :any_skip_relocation, ventura:        "45ecaf9689f988463d3971f73d5da0c0401d2818bbef025cb06f818f15f8a3db"
-    sha256 cellar: :any_skip_relocation, monterey:       "8482631be1b4bd57043075c0dc9d05f54c6188eab3119f91a88c239f59eda4ab"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c33edf660a14aa03704fe3efda1fb1282b70b127fe881a2402cfa0360a9ea86d"
-    sha256 cellar: :any_skip_relocation, catalina:       "8deffdef21a05cf61e3b134532439173966ec8748f1988c4048c3173d6788d2e"
-    sha256 cellar: :any_skip_relocation, mojave:         "83ea7bc0f0103ba900dad6856762aae355f726c0bb9f089cc5434c30dacce1fb"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "faf6ef808e9ff867eed42586ae6c27f84b66933559e9960fb48853b67325fb20"
-    sha256 cellar: :any_skip_relocation, sierra:         "42487c51fa731752e10da402b5fac0f973ee090eaad19f8f4fd52fc5317c9cfb"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "ea46f2010610e46c120e2df100d61e01c21ee58627e105273c0e0a76437150e1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cd66bf50cf9c6dd402c58e531708893cd2aca10266d6d2d70ecb00768775ac27"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5dff8faed6dd67b53ab7bfdba11cc52385e32c675d2610dee21eb0bdecc3d0c6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7626939126bc907b343cc0782fbb87bcb05928e2147f3314c2e4f77d8df21548"
+    sha256 cellar: :any_skip_relocation, sonoma:         "68c8c71f306e9f13d030a81c69a6f0325b57b9b06c3d8ea6ee1037bc75fca757"
+    sha256 cellar: :any_skip_relocation, ventura:        "a358ec3026dbb2b9c0f8dc6800a97c608859993a5bc46d129d9c668fb174c785"
+    sha256 cellar: :any_skip_relocation, monterey:       "fc9b325392bbd2b9838141d04dcb2f145599fa55f4f5dc4d75e83d26baac2261"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b66d1d53a26ee4246fb31053f0ce4cddea6a54b27529cd0cdbf852942ccdd51"
   end
 
   uses_from_macos "bison" => :build
