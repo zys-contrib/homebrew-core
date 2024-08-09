@@ -2260,6 +2260,7 @@ s3ql
 s6
 sad
 saf-cli
+safety
 sagittarius-scheme
 samba
 saml2aws
