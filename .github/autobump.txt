@@ -1869,6 +1869,7 @@ open-mesh
 open-mpi
 open62541
 openbao
+openblas
 opencl-clhpp-headers
 opencl-headers
 opencl-icd-loader
