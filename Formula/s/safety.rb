@@ -9,13 +9,13 @@ class Safety < Formula
   head "https://github.com/pyupio/safety.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f74204d5de09ab636215389dbaf31be663d99eab9ffb1449e6974949e2d7f4f1"
-    sha256 cellar: :any,                 arm64_ventura:  "cecf08846604273f83482d76236d328dd30089fafb399077aaaff8b760c81a94"
-    sha256 cellar: :any,                 arm64_monterey: "ec06c72a7e740a7dc980c50fe5e27ba87e15a58ec436c59b735b196745c9b8b4"
-    sha256 cellar: :any,                 sonoma:         "f4f70fc16c4b560e64f063331d9da17d0758c4dd550ba6d85443569e80dff7cd"
-    sha256 cellar: :any,                 ventura:        "c4ae41e492439182adb5753ac251d64a25ae24f531fc189ccd47a21ff7d8fb15"
-    sha256 cellar: :any,                 monterey:       "670997b7ae55a980f91402dc6ac6bee2c44e84831f470615aaa61fc037ef8f6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c70acc8eddf8938ffdba3e7f5c2c240e89251c29294ee39f5e4c9ee6094af093"
+    sha256 cellar: :any,                 arm64_sonoma:   "1c90549c488040869b29c48d70bbb7e6ba41d6bf51d73bb5564b21572f197108"
+    sha256 cellar: :any,                 arm64_ventura:  "6a57165c65eaa1f185ebb1c64c00de07ecb07c99fc9b6695e66cbb7b4985485b"
+    sha256 cellar: :any,                 arm64_monterey: "7b1f6df9b63c485366a65a47c60030bc2ca47638debda8272aa31641ebb688e2"
+    sha256 cellar: :any,                 sonoma:         "71693ce47a0670de5757c574e3379afc2ebfe46bd2e41fc1a75500f021e3fb17"
+    sha256 cellar: :any,                 ventura:        "fc37e490aab6862f172281ee378c2416034319013022a5f429fa5c838f87bd13"
+    sha256 cellar: :any,                 monterey:       "774bc01911d063b673ed2982304492388e302b0363e3ef7494703984cb03dc74"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "77fc7bab4cd352f8f750974af5e5f18de245b81fb8c6a30fd366018b93556112"
   end
 
   depends_on "rust" => :build
