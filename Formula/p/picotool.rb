@@ -1,15 +1,15 @@
 class Picotool < Formula
-  desc "Tool for interacting with RP2040 devices in BOOTSEL mode or RP2040 binaries"
+  desc "Tool for interacting with RP2040/RP2350 devices and binaries"
   homepage "https://github.com/raspberrypi/picotool"
   license "BSD-3-Clause"
 
   stable do
-    url "https://github.com/raspberrypi/picotool/archive/refs/tags/1.1.2.tar.gz"
-    sha256 "f1746ead7815c13be1152f0645db8ea3b277628eb0110d42a0a186db37d40a91"
+    url "https://github.com/raspberrypi/picotool/archive/refs/tags/2.0.0.tar.gz"
+    sha256 "9392c4a31f16b80b70f861c37a029701d3212e212840daa097c8a3720282ce65"
 
     resource "pico-sdk" do
-      url "https://github.com/raspberrypi/pico-sdk/archive/refs/tags/1.5.1.tar.gz"
-      sha256 "95f5e522be3919e36a47975ffd3b208c38880c14468bd489ac672cfe3cec803c"
+      url "https://github.com/raspberrypi/pico-sdk/archive/refs/tags/2.0.0.tar.gz"
+      sha256 "626db87779fa37f7f9c7cfe3e152f7e828fe19c486730af2e7c80836b6b57e1d"
     end
   end
 
@@ -57,8 +57,10 @@ class Picotool < Formula
         File blink.uf2:
 
         Program Information
-         name:      blink
-         web site:  https://github.com/raspberrypi/pico-examples/tree/HEAD/blink
+         name:          blink
+         web site:      https://github.com/raspberrypi/pico-examples/tree/HEAD/blink
+         binary start:  0x10000000
+         binary end:    0x10003198
       EOS
       assert_equal result, shell_output("#{bin}/picotool info blink.uf2")
     end
