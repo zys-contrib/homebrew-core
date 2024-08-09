@@ -699,6 +699,9 @@
   "ruff-lsp": {
     "exclude_packages": ["ruff"]
   },
+  "safety": {
+    "exclude_packages": ["certifi", "cryptography"]
+  },
   "sail": {
     "exclude_packages": ["certifi", "cryptography"]
   },
