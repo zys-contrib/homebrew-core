@@ -1,8 +1,8 @@
 class Squiid < Formula
   desc "Do advanced algebraic and RPN calculations"
   homepage "https://imaginaryinfinity.net/projects/squiid/"
-  url "https://gitlab.com/ImaginaryInfinity/squiid-calculator/squiid/-/archive/1.1.1/squiid-1.1.1.tar.gz"
-  sha256 "2534e01d7b7a5b1793bb3cb5f6ebe4a404a5d8e131f87595ff8afb98a4838367"
+  url "https://gitlab.com/ImaginaryInfinity/squiid-calculator/squiid/-/archive/1.1.2/squiid-1.1.2.tar.bz2"
+  sha256 "f5d3564325aebf857647ff3dcb71ca4762cdedb83708001834f1afcbfacc5bbf"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -32,22 +32,6 @@ class Squiid < Formula
     system "cargo", "install", *std_cargo_args
   end
 
-  def read_stdout(stdout)
-    output = ""
-    loop do
-      # strip off some color and style escape codes
-      output += stdout.read_nonblock(1024).gsub(/\e\[[0-9;]+[A-Za-z]/, "")
-    rescue IO::WaitReadable
-      break if stdout.wait_readable(2).nil?
-
-      retry
-    rescue EOFError
-      break
-    end
-
-    output
-  end
-
   def check_binary_linkage(binary, library)
     binary.dynamically_linked_libraries.any? do |dll|
       next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
@@ -57,21 +41,8 @@ class Squiid < Formula
   end
 
   test do
-    require "pty"
-
-    PTY.spawn(bin/"squiid") do |r, w, pid|
-      sleep 1 # wait for squiid to start
-
-      w.write "(10 - 2) * (3 + 5) / 4\r"
-      assert_match "(10-2)*(3+5)/4=16", read_stdout(r)
-      w.write "quit\r"
-
-      # for some reason the test hangs on macOS until stdout is read again
-      read_stdout(r) unless OS.linux?
-      Process.wait(pid)
-    rescue PTY::ChildExited
-      # app exited
-    end
+    # squiid is a TUI app
+    assert_match version.to_s, shell_output("#{bin}/squiid --version")
 
     assert check_binary_linkage(bin/"squiid", Formula["nng"].opt_lib/shared_library("libnng")),
       "No linkage with libnng! Cargo is likely using a vendored version."

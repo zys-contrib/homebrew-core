@@ -2430,6 +2430,7 @@ sqlx-cli
 squashfuse
 squealer
 squid
+squiid
 sratoolkit
 src
 srgn
