@@ -1,14 +1,9 @@
 class Argus < Formula
   desc "Audit Record Generation and Utilization System server"
-  homepage "https://qosient.com/argus/"
-  url "https://qosient.com/argus/src/argus-3.0.8.2.tar.gz"
-  sha256 "ca4e3bd5b9d4a8ff7c01cc96d1bffd46dbd6321237ec94c52f8badd51032eeff"
-  license "GPL-3.0"
-
-  livecheck do
-    url "https://qosient.com/argus/src/"
-    regex(/href=.*?argus[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  homepage "https://openargus.org"
+  url "https://github.com/openargus/argus/archive/refs/tags/v5.0.0.tar.gz"
+  sha256 "d2ac1013832ba502570ce4a152c02c898e3725b8682e21af54d8e3a513c3396e"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0595c742b712da37d23a83158bfe73f730d11b47769a01334583eb1b1f7d0491"
@@ -26,13 +21,30 @@ class Argus < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:     "ea46f2010610e46c120e2df100d61e01c21ee58627e105273c0e0a76437150e1"
   end
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+  uses_from_macos "cyrus-sasl"
+  uses_from_macos "libpcap"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "libtirpc"
+  end
+
   def install
-    system "./configure", "--prefix=#{prefix}"
+    if OS.linux?
+      ENV.append_to_cflags "-I#{Formula["libtirpc"].opt_include}/tirpc"
+      ENV.append "LIBS", "-ltirpc"
+    end
+    system "./configure", "--with-sasl", *std_configure_args
     system "make"
     system "make", "install"
   end
 
   test do
-    assert_match "Pages", shell_output(bin/"argus-vmstat")
+    assert_match "Pages", shell_output(bin/"argus-vmstat") if OS.mac?
+    assert_match "Argus Version #{version}", shell_output("#{sbin}/argus -h", 255)
+    system sbin/"argus", "-r", test_fixtures("test.pcap"), "-w", testpath/"test.argus"
+    assert_predicate testpath/"test.argus", :exist?
   end
 end
