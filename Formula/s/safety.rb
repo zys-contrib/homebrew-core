@@ -3,8 +3,8 @@ class Safety < Formula
 
   desc "Checks Python dependencies for known vulnerabilities and suggests remediations"
   homepage "https://safetycli.com/product/safety-cli"
-  url "https://files.pythonhosted.org/packages/af/bb/723f294df65939d61cd35cba6c9c6c95bd2ce7f3822a45ba9e836cf034e3/safety-3.2.4.tar.gz"
-  sha256 "bac0202016d736a2118057964a0e3983fa20ff2563fd103cac3f3ac1ed3fea11"
+  url "https://files.pythonhosted.org/packages/a4/e5/a264982f8e4a68e282f131ad862e0bbceb4ffb9ebb6e0a0fa8201623277b/safety-3.2.5.tar.gz"
+  sha256 "656df7b01eb400ddd003190947224183981216bf24ddf4142b819545b9ae5521"
   license "MIT"
   head "https://github.com/pyupio/safety.git", branch: "main"
 
@@ -86,6 +86,11 @@ class Safety < Formula
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
     sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
+  end
+
+  resource "psutil" do
+    url "https://files.pythonhosted.org/packages/18/c7/8c6872f7372eb6a6b2e4708b88419fb46b857f7a2e1892966b851cc79fc9/psutil-6.0.0.tar.gz"
+    sha256 "8faae4f310b6d969fa26ca0545338b21f73c6b15db7c4a8d934a5482faa818f2"
   end
 
   resource "pydantic" do
