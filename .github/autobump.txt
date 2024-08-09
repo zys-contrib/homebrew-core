@@ -680,6 +680,7 @@ dumpling
 dunamai
 dune
 duo_unix
+duplicity
 duply
 dust
 dvc
