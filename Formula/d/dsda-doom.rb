@@ -1,8 +1,8 @@
 class DsdaDoom < Formula
   desc "Fork of prboom+ with a focus on speedrunning"
   homepage "https://github.com/kraflab/dsda-doom"
-  url "https://github.com/kraflab/dsda-doom/archive/refs/tags/v0.27.5.tar.gz"
-  sha256 "5e01be417033e1abf708bb22509d4d910b158a159a2790c4d5b46690daba67f0"
+  url "https://github.com/kraflab/dsda-doom/archive/refs/tags/v0.28.0.tar.gz"
+  sha256 "c6efc8d68cc0e9fa2facd2b608779383fcf3a8322edbdb8d7433f0c2adf5a483"
   license "GPL-2.0-only"
   head "https://github.com/kraflab/dsda-doom.git", branch: "master"
 
@@ -75,6 +75,8 @@ class DsdaDoom < Formula
   end
 
   test do
+    ENV["XDG_DATA_HOME"] = testpath
+
     expected_output = "dsda-doom v#{version.major_minor_patch}"
     assert_match expected_output, shell_output("#{bin}/dsda-doom -iwad invalid_wad 2>&1", 255)
   end
