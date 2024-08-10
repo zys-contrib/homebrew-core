@@ -6,6 +6,7 @@ class Codelimit < Formula
   url "https://files.pythonhosted.org/packages/7f/0c/6b864f6263d0ce25df2b06960c1109143a32431c74b6205e693eee6ad296/codelimit-0.9.4.tar.gz"
   sha256 "6bf1b76d2e12f0cc5de85e69f33aee006664c4f546391e4c44e55a7df8daef61"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "514ff56996c45d255e005d6875991645bd54358de3a4e27e6af84fd618f4442b"
@@ -27,8 +28,8 @@ class Codelimit < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/f7/e1/bfcafd54dee859b2e6e690c5f8a8a30343d590a8822bb0669afba4c2c9e6/aiohttp-3.10.1.tar.gz"
-    sha256 "8b0d058e4e425d3b45e8ec70d49b402f4d6b21041e674798b1f91ba027c73f28"
+    url "https://files.pythonhosted.org/packages/45/11/36ba898823ab19e49e6bd791d75b9185eadef45a46fc00d3c669824df8a0/aiohttp-3.10.2.tar.gz"
+    sha256 "4d1f694b5d6e459352e5e925a42e05bac66655bfde44d81c59992463d2897014"
   end
 
   resource "aiosignal" do
