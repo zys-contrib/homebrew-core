@@ -4,6 +4,7 @@ class Gxml < Formula
   url "https://gitlab.gnome.org/GNOME/gxml/-/archive/0.20.4/gxml-0.20.4.tar.bz2"
   sha256 "d8d8b16ff701d0c5ff04b337b246880ec4523abfe897a1f77acdf7d73fb14b84"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_sonoma:   "54c6ed5a3a82484145eb346f51f2e76b6477a362f26e2b3cf08c15e45e4ea818"
@@ -18,14 +19,25 @@ class Gxml < Formula
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "vala" => :build
+
   depends_on "glib"
   depends_on "libgee"
   depends_on "libxml2"
 
+  on_macos do
+    depends_on "gettext"
+  end
+
+  # fix version comparison in gxml.pc.in, upstream pr ref, https://gitlab.gnome.org/GNOME/gxml/-/merge_requests/28
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gxml/-/commit/6551103abd5143e51814ec1dce9b36bb9a46e09f.diff"
+    sha256 "b87f585ab782b2ff4f024c45c9a90791c2023e3703756f2eb799591e7978e640"
+  end
+
   def install
-    system "meson", "setup", "build", *std_meson_args, "-Dintrospection=true", "-Ddocs=false"
+    system "meson", "setup", "build", "-Dintrospection=true", "-Ddocs=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
@@ -39,35 +51,9 @@ class Gxml < Formula
         return 0;
       }
     EOS
-    gettext = Formula["gettext"]
-    glib = Formula["glib"]
-    icu4c = Formula["icu4c"]
-    libgee = Formula["libgee"]
-    libxml2 = Formula["libxml2"]
-    flags = %W[
-      -I#{gettext.opt_include}
-      -I#{icu4c.opt_include}
-      -I#{libxml2.opt_include}/libxml2
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/gxml-0.20
-      -I#{libgee.opt_include}/gee-0.8
-      -D_REENTRANT
-      -L#{gettext.opt_lib}
-      -L#{icu4c.opt_lib}
-      -L#{glib.opt_lib}
-      -L#{libgee.opt_lib}
-      -L#{libxml2.opt_lib}
-      -L#{lib}
-      -lgee-0.8
-      -lgio-2.0
-      -lglib-2.0
-      -lgobject-2.0
-      -lgxml-0.20
-      -lxml2
-    ]
-    flags << "-lintl" if OS.mac?
-    system ENV.cc, "test.c", "-o", "test", *flags
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libxml2"].opt_lib/"pkgconfig"
+    pkg_config_flags = shell_output("pkg-config --cflags --libs libxml-2.0 gxml-0.20").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkg_config_flags
     system "./test"
   end
 end
