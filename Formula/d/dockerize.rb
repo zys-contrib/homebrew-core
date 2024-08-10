@@ -1,8 +1,8 @@
 class Dockerize < Formula
   desc "Utility to simplify running applications in docker containers"
   homepage "https://github.com/jwilder/dockerize"
-  url "https://github.com/jwilder/dockerize/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "c39e756cd2d43341dd01645f2a100437dcc7c91cf5bfed5751e71a4804575a7d"
+  url "https://github.com/jwilder/dockerize/archive/refs/tags/v0.8.0.tar.gz"
+  sha256 "e87dadb9537f5e33cd819d2fbe3344b41b91cf83bf8fee2a3c2c5e08fdac43f7"
   license "MIT"
 
   bottle do

@@ -630,6 +630,7 @@ docker-machine
 docker-slim
 docker-squash
 dockerfile-language-server
+dockerize
 dockly
 dockviz
 doctest
