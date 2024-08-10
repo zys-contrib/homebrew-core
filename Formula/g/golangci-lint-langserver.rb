@@ -6,6 +6,16 @@ class GolangciLintLangserver < Formula
   license "MIT"
   head "https://github.com/nametake/golangci-lint-langserver.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c6e5efc3eeeac36b6d2451bd924441468faa338d298dc98fd699a97c26bb4c93"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c6e5efc3eeeac36b6d2451bd924441468faa338d298dc98fd699a97c26bb4c93"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c6e5efc3eeeac36b6d2451bd924441468faa338d298dc98fd699a97c26bb4c93"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7b61361a5134d4a2bf865ec4fc5c994e1c21a0f9755210eb76ca9e880272088c"
+    sha256 cellar: :any_skip_relocation, ventura:        "7b61361a5134d4a2bf865ec4fc5c994e1c21a0f9755210eb76ca9e880272088c"
+    sha256 cellar: :any_skip_relocation, monterey:       "7b61361a5134d4a2bf865ec4fc5c994e1c21a0f9755210eb76ca9e880272088c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd46fb7adca762ba9b36bb3dcb9f361c03657d66f6aebc0d3cb2d660f503693b"
+  end
+
   depends_on "go" => :build
 
   def install
