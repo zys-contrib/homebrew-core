@@ -4,6 +4,7 @@ class LibpeasAT1 < Formula
   url "https://download.gnome.org/sources/libpeas/1.36/libpeas-1.36.0.tar.xz"
   sha256 "297cb9c2cccd8e8617623d1a3e8415b4530b8e5a893e3527bbfd1edd13237b4c"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_sonoma:   "296cfa4be7883c30a452192c5fc0af1114b3a95a85e7bd15f6ee2e6cd3b5b05b"
@@ -14,8 +15,6 @@ class LibpeasAT1 < Formula
     sha256 monterey:       "9009e72591f1845fd6fb3c37a763c172efbc8c933421f7cc7092d5af56370df9"
     sha256 x86_64_linux:   "2a9915d4ede2be0fd7a7816c4cafc285e235fc1188d83966011a2b4e611e7c85"
   end
-
-  keg_only :versioned_formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
