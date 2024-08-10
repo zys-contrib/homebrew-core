@@ -1,13 +1,13 @@
 class I2util < Formula
   desc "Internet2 utility tools"
-  homepage "https://software.internet2.edu/"
-  url "https://software.internet2.edu/sources/I2util/I2util-1.2.tar.gz"
-  sha256 "3b704cdb88e83f7123f3cec0fe3283b0681cc9f80c426c3f761a0eefd1d72c59"
-  revision 1
+  homepage "https://github.com/perfsonar/i2util"
+  url "https://github.com/perfsonar/i2util/archive/refs/tags/v4.4.6.tar.gz"
+  sha256 "abf6a1f23bba3d188d8deade33ca197b85abbf43f4b3a25b9e81c6ce6d65b3d0"
+  license "Apache-2.0"
 
   livecheck do
-    url "https://software.internet2.edu/sources/I2util/"
-    regex(/href=.*?I2util[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
@@ -22,10 +22,12 @@ class I2util < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "07f9267aa3c7fc30361824939ba10a259cdeb1ea62485cc0410955b5b08ec3e7"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    system "./bootstrap.sh"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
