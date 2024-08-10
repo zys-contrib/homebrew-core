@@ -1,8 +1,8 @@
 class EasyRsa < Formula
   desc "CLI utility to build and manage a PKI CA"
   homepage "https://github.com/OpenVPN/easy-rsa"
-  url "https://github.com/OpenVPN/easy-rsa/archive/refs/tags/v3.2.0.tar.gz"
-  sha256 "0d714529486f7bdc312dac5e2082b8715ddf58e41bb17e35e8c20606604c5335"
+  url "https://github.com/OpenVPN/easy-rsa/releases/download/v3.2.0/EasyRSA-3.2.0.tgz"
+  sha256 "db8164165a109bf1f6dbf578c3341349821bb4fde5629398d82918330134b43c"
   license "GPL-2.0-only"
   head "https://github.com/OpenVPN/easy-rsa.git", branch: "master"
 
@@ -19,23 +19,22 @@ class EasyRsa < Formula
   depends_on "openssl@3"
 
   def install
-    inreplace "easyrsa3/easyrsa", "'/etc/easy-rsa'", "'#{pkgetc}'"
-    libexec.install "easyrsa3/easyrsa"
+    inreplace "easyrsa", "'/etc/easy-rsa'", "'#{pkgetc}'"
+    libexec.install "easyrsa"
     (bin/"easyrsa").write_env_script libexec/"easyrsa",
       EASYRSA:         pkgetc,
       EASYRSA_OPENSSL: Formula["openssl@3"].opt_bin/"openssl",
       EASYRSA_PKI:     "${EASYRSA_PKI:-#{etc}/pki}"
 
     pkgetc.install %w[
-      easyrsa3/openssl-easyrsa.cnf
-      easyrsa3/x509-types
-      easyrsa3/vars.example
+      openssl-easyrsa.cnf
+      x509-types
+      vars.example
     ]
 
     doc.install %w[
       ChangeLog
       COPYING.md
-      KNOWN_ISSUES
       README.md
       README.quickstart.md
     ]
