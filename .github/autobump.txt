@@ -1222,6 +1222,7 @@ itk
 ittapi
 ivy
 ivykis
+jabba
 jackett
 jadx
 janet
