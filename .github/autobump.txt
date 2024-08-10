@@ -1943,6 +1943,7 @@ pacapt
 packetbeat
 packmol
 pacparser
+pagmo
 pan
 pandoc
 pandoc-crossref
