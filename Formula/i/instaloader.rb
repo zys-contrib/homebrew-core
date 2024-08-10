@@ -3,18 +3,18 @@ class Instaloader < Formula
 
   desc "Download media from Instagram"
   homepage "https://instaloader.github.io/"
-  url "https://files.pythonhosted.org/packages/24/12/f92036b078fd4b4fa6b577e4570544a0d1e3215f4451dd9c3acd55c35a48/instaloader-4.12.2.tar.gz"
-  sha256 "6ad4a2596d41d1621bace84eac1cc08e7b2fb0c4c2ae20ea0e82f967aa3614bb"
+  url "https://files.pythonhosted.org/packages/4d/05/ee254e68931d88e68a6bd2b5720f9c4005abd4049dd5faa3b1a87bdbf56d/instaloader-4.13.tar.gz"
+  sha256 "49b15c3c41ba9287ddecacb57c5fdd1ee706107117b4b8ddd9ccb56ab75c573c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f11bfd2a662c61841e571b10a335aa97c8a72b368ff5eac4e2335c2dd0eeced0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f11bfd2a662c61841e571b10a335aa97c8a72b368ff5eac4e2335c2dd0eeced0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f11bfd2a662c61841e571b10a335aa97c8a72b368ff5eac4e2335c2dd0eeced0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f11bfd2a662c61841e571b10a335aa97c8a72b368ff5eac4e2335c2dd0eeced0"
-    sha256 cellar: :any_skip_relocation, ventura:        "f11bfd2a662c61841e571b10a335aa97c8a72b368ff5eac4e2335c2dd0eeced0"
-    sha256 cellar: :any_skip_relocation, monterey:       "f11bfd2a662c61841e571b10a335aa97c8a72b368ff5eac4e2335c2dd0eeced0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "60a08cf11b95ba7fcaae0190e697d5fc19c4984c28597f34c67269ff99d70a9c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6182495df81f13c68aeb94a736d96d91b4e9b844ebd573df6516cdcde3b8cb5b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6182495df81f13c68aeb94a736d96d91b4e9b844ebd573df6516cdcde3b8cb5b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6182495df81f13c68aeb94a736d96d91b4e9b844ebd573df6516cdcde3b8cb5b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6182495df81f13c68aeb94a736d96d91b4e9b844ebd573df6516cdcde3b8cb5b"
+    sha256 cellar: :any_skip_relocation, ventura:        "6182495df81f13c68aeb94a736d96d91b4e9b844ebd573df6516cdcde3b8cb5b"
+    sha256 cellar: :any_skip_relocation, monterey:       "6182495df81f13c68aeb94a736d96d91b4e9b844ebd573df6516cdcde3b8cb5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d4acb0c849b751f95ab8f1c8df6a2c2c25ea1eb27f5a88d4a640ef73d2bf32b"
   end
 
   depends_on "certifi"
