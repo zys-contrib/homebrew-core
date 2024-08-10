@@ -6,6 +6,7 @@ class Dstack < Formula
   url "https://files.pythonhosted.org/packages/0e/47/98f74e6356c6d13ab95dbe93236fbe081b502020c0ff9778dc0e913176e6/dstack-0.18.9.tar.gz"
   sha256 "e56432db0e72a90ba9086c529f23e078d0080dd70da9f6e25682ebce0e11db04"
   license "MPL-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "9bd9d18629b4f60586c59e71c01b1df675d3457ffa820788b28c5c95a2d4257b"
@@ -26,13 +27,13 @@ class Dstack < Formula
   depends_on "python@3.12"
 
   resource "aiohappyeyeballs" do
-    url "https://files.pythonhosted.org/packages/3c/c1/52b8ecc87576f8b06fd5132e3ab8550209c958fb450e6d185b15835da82c/aiohappyeyeballs-2.3.4.tar.gz"
-    sha256 "7e1ae8399c320a8adec76f6c919ed5ceae6edd4c3672f4d9eae2b27e37c80ff6"
+    url "https://files.pythonhosted.org/packages/b7/c3/112f2f992aeb321de483754c1c5acab08c8ac3388c9c7e6f3e4f45ec1c42/aiohappyeyeballs-2.3.5.tar.gz"
+    sha256 "6fa48b9f1317254f122a07a131a86b71ca6946ca989ce6326fff54a99a920105"
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/f7/e1/bfcafd54dee859b2e6e690c5f8a8a30343d590a8822bb0669afba4c2c9e6/aiohttp-3.10.1.tar.gz"
-    sha256 "8b0d058e4e425d3b45e8ec70d49b402f4d6b21041e674798b1f91ba027c73f28"
+    url "https://files.pythonhosted.org/packages/45/11/36ba898823ab19e49e6bd791d75b9185eadef45a46fc00d3c669824df8a0/aiohttp-3.10.2.tar.gz"
+    sha256 "4d1f694b5d6e459352e5e925a42e05bac66655bfde44d81c59992463d2897014"
   end
 
   resource "aiorwlock" do
@@ -131,13 +132,13 @@ class Dstack < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/56/d1/80ff549c607b2cba2fbde3fbc0a5799a52b2b4f0dd32a91e24d29dbff696/boto3-1.34.155.tar.gz"
-    sha256 "e8d2e128c74e84199edccdc3a6b4b1c6fb36d6fdb5688eb92931827f02c6fa5b"
+    url "https://files.pythonhosted.org/packages/33/ee/df4ec3cb6f292cfcc665562fbafafb68a6fe525c5a6476ab48a92b5ab669/boto3-1.34.158.tar.gz"
+    sha256 "5b7b2ce0ec1e498933f600d29f3e1c641f8c44dd7e468c26795359d23d81fa39"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/13/11/8a69273db5c68a1ee5a992b7816d3d66acdb3726c9bf7c0b28d2764ccf2e/botocore-1.34.155.tar.gz"
-    sha256 "3aa88abfef23909f68d3e6679a3d4b4bb3c6288a6cfbf9e253aa68dac8edad64"
+    url "https://files.pythonhosted.org/packages/dc/14/77b36078a68e756ffc05c0101a0eb4039430fda00f5aa601a6340f7a9fb6/botocore-1.34.158.tar.gz"
+    sha256 "5934082e25ad726673afbf466092fb1223dafa250e6e756c819430ba6b1b3da5"
   end
 
   resource "cached-classproperty" do
@@ -256,8 +257,8 @@ class Dstack < Formula
   end
 
   resource "google-cloud-storage" do
-    url "https://files.pythonhosted.org/packages/cc/14/579c9cd7b14475ca7ae93a11c565cd4b2053cdf5f37b465829be16a0c22e/google_cloud_storage-2.18.1.tar.gz"
-    sha256 "6707a6f30a05aee36faca81296419ca2907ac750af1c0457f278bc9a6fb219ad"
+    url "https://files.pythonhosted.org/packages/d6/b7/1554cdeb55d9626a4b8720746cba8119af35527b12e1780164f9ba0f659a/google_cloud_storage-2.18.2.tar.gz"
+    sha256 "aaf7acd70cdad9f274d29332673fcab98708d0e1f4dceb5a5356aaef06af4d99"
   end
 
   resource "google-cloud-tpu" do
@@ -271,8 +272,8 @@ class Dstack < Formula
   end
 
   resource "google-resumable-media" do
-    url "https://files.pythonhosted.org/packages/d6/3d/d51e8c691d24e08cbf5b1924a4f950c492d44f7e3ccbacf362f1de04ce2b/google-resumable-media-2.7.1.tar.gz"
-    sha256 "eae451a7b2e2cdbaaa0fd2eb00cc8a1ee5e95e16b55597359cbc3d27d7d90e33"
+    url "https://files.pythonhosted.org/packages/58/5a/0efdc02665dca14e0837b62c8a1a93132c264bd02054a15abb2218afe0ae/google_resumable_media-2.7.2.tar.gz"
+    sha256 "5280aed4629f2b60b847b0d42f9857fd4935c11af266744df33d8074cae92fe0"
   end
 
   resource "googleapis-common-protos" do
