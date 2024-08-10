@@ -10,13 +10,13 @@ class Parsedmarc < Formula
   head "https://github.com/domainaware/parsedmarc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4cb5285823261451055187f7e800d329a36f3453bfc045bf88588ae75e14e26e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "134979853d8793468c94bddd85a009ee6da81e58261aa3f0ae901e87feec59b9"
-    sha256 cellar: :any,                 arm64_monterey: "5e3e69e0bcc2669694e3c760663762ad9b2400e5ce21484cbd5f485051acb16b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4e4ec0a4086409c26f457a0021b17596d321174df7363da7cf7196d7bf018e78"
-    sha256 cellar: :any_skip_relocation, ventura:        "9a8b271058496d1359fe924d540fc217f57d583d52c5410cedddc9111af4fb60"
-    sha256 cellar: :any,                 monterey:       "69256abaf3d9eaf7f9c83480d8f7787e3c0f6fd1ff91482e5e81f3c0689e7aad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c12857dda9a18b057737c8d8d593d1f0b4f1245cbb7b0881c587f4484410fb78"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "27e2c5a64c3ab7066bfecd3e2c3337f4a3394c64c17743a5f65a58a82ff6eb9e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5a9424cc03ee4099dbf64bd5bf579391bee28a04160c914b5f057aa7b83d1ad3"
+    sha256 cellar: :any,                 arm64_monterey: "a0d2d3ea38a1093711aac8f153470eaaa6e65c48a5768addd9d2898c531b406a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5afc7a4f47758172adff03d2862a0b36bf27732f682882acb36ba3fcbe32b293"
+    sha256 cellar: :any_skip_relocation, ventura:        "0b86ef3ad2fa9579c130d69b8576bec4faa59e84e046c9e4adbfad77a83eb105"
+    sha256 cellar: :any,                 monterey:       "922c820e25e6e194b6d0f4a50501560aad796c041dd900df485b66d89826ea56"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5b32087b0f2d726eda4ef2ada4cb57323411ebcc9e43853685420bf9a88de2e"
   end
 
   depends_on "certifi"
