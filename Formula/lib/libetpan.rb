@@ -26,17 +26,14 @@ class Libetpan < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "f9e105af0d1146c8ce972497fd1ee11c47d2d7a84ffd1c9330e486871b5657da"
-    sha256 cellar: :any, arm64_ventura:  "d5a028d25df2cfef1f146a27024b8a1a111d5d939a9678538b02649a35c2da75"
-    sha256 cellar: :any, arm64_monterey: "772546d5dd375facff503b9d1fb5618b9ebc49e6d0d8c04250edc7bcc60cd115"
-    sha256 cellar: :any, arm64_big_sur:  "c72a2eeaf1b3fd67a093375fd567ff97c329d5d503abd720572eefb8d88acac3"
-    sha256 cellar: :any, sonoma:         "00dbaa47353c4144c40382e5c33820ab8ea7a44e4a53835223f937f5269656fc"
-    sha256 cellar: :any, ventura:        "8e10bb7d65a748f856d0bc05ad843f35836cf444bf55aa286ec5c17590a3e73c"
-    sha256 cellar: :any, monterey:       "58fb1bf8eef4740ab4383ec37787e7a5885198e48d3254c1811c2ac70ff1c174"
-    sha256 cellar: :any, big_sur:        "9d2ac6a48a6c14f2894155162d52ad7e8cf219ab21245b429b83378662f4a7f7"
-    sha256 cellar: :any, catalina:       "2effe5528f31ea1edcdd0baf468bb1ebbfb0061cb8bf131f2636b5db6cc20550"
-    sha256 cellar: :any, mojave:         "ba4948b8f0169ee43ba18b0dbea0564bfd5a2c625834f6f5a5c4b9ac1d725334"
-    sha256 cellar: :any, high_sierra:    "6a2f29f42a39d9d3eee7bca1974118fdd8d44a745f61af686aa40c449157b733"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "eb5765b64ee9833f052439c9f5b29752115b84761e569c7d7d07d35b457fe5a5"
+    sha256 cellar: :any,                 arm64_ventura:  "daed620aaf4d24519d79be6cf34fdbf52386fa92c4c7880e8cf05cdccb0a787f"
+    sha256 cellar: :any,                 arm64_monterey: "1d33d9e801085b4c350423a936c7e79d1b6ed20b1bd0cfd08d42ae5e5274f07d"
+    sha256 cellar: :any,                 sonoma:         "a025d5684d2edc67c1b50b04ed4fab5f8ff5534c6a3c5b4093f5cf84837b46a0"
+    sha256 cellar: :any,                 ventura:        "143a977a506121a0b96acdcd4364ab55e278b2d887ab1e28f85d59c81e86e116"
+    sha256 cellar: :any,                 monterey:       "0803fa89cfe96b599bc4c811707872971b94c297e353032d614797f614bc90bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0c3a249c5498bb7b6b9fcd5f735b9ca04e3225b8654a72464f457506c6aa72e"
   end
 
   depends_on xcode: :build
