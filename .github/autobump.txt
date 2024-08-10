@@ -1795,6 +1795,7 @@ nifi-registry
 nim
 ninja
 nixpacks
+nlopt
 nmail
 nmap
 nng
