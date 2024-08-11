@@ -124,6 +124,7 @@ atop
 atuin
 audacious
 auditbeat
+auditwheel
 autobrr
 autodiff
 automake
