@@ -239,6 +239,7 @@ bosh-cli
 botan
 botan@2
 bottom
+bounceback
 bowtie2
 box2d
 bpftop
