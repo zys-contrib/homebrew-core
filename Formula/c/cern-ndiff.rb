@@ -4,7 +4,7 @@ class CernNdiff < Formula
   homepage "https://mad.web.cern.ch/mad/"
   url "https://github.com/MethodicalAcceleratorDesign/MAD-X/archive/refs/tags/5.09.03.tar.gz"
   sha256 "cd57f9451e3541a820814ad9ef72b6e01d09c6f3be56802fa2e95b1742db7797"
-  license :cannot_represent
+  license "GPL-3.0-only"
   head "https://github.com/MethodicalAcceleratorDesign/MAD-X.git", branch: "master"
 
   livecheck do
@@ -30,6 +30,10 @@ class CernNdiff < Formula
     system "cmake", "-S", "tools/numdiff", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+    # Avoid installing MAD-X license as numdiff is under a different license
+    rm "License.txt"
+    prefix.install "tools/numdiff/LICENSE"
   end
 
   test do
