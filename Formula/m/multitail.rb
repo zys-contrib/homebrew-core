@@ -1,10 +1,15 @@
 class Multitail < Formula
   desc "Tail multiple files in one terminal simultaneously"
   homepage "https://vanheusden.com/multitail/"
-  url "https://github.com/folkertvanheusden/multitail/archive/refs/tags/7.1.3.tar.gz"
-  sha256 "f55732781f7319e137a3ff642a347af1aaf3ed5265ed12526bdd0666d708d805"
+  url "https://github.com/folkertvanheusden/multitail/archive/refs/tags/7.1.4.tar.gz"
+  sha256 "96b781a9c22f3518fc25c4f3ce3833ec5069158b2a743a30f7586cd063824704"
   license "MIT"
-  head "https://github.com/folkertvanheusden/multitail.git"
+  head "https://github.com/folkertvanheusden/multitail.git", head: "master"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "85f9d755e256e34e0aa8124e3b72204cdd8626f6a0049f9613bbd0f09f235c6a"
@@ -20,6 +25,9 @@ class Multitail < Formula
   depends_on "ncurses"
 
   def install
+    odie "remove version patch" if build.stable? && version > "7.1.4"
+    inreplace "version", "7.1.3", version.to_s
+
     system "make", "-f", "makefile.macosx", "multitail", "DESTDIR=#{HOMEBREW_PREFIX}"
 
     bin.install "multitail"
