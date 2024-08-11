@@ -36,6 +36,7 @@ class Podman < Formula
     depends_on "fuse-overlayfs"
     depends_on "gpgme"
     depends_on "libseccomp"
+    depends_on "passt"
     depends_on "slirp4netns"
     depends_on "systemd"
   end
