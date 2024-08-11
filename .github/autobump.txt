@@ -2560,6 +2560,7 @@ tfautomv
 tfel
 tfmigrate
 tfproviderlint
+tfschema
 tfsec
 tfupdate
 tgui
