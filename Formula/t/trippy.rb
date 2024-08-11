@@ -1,8 +1,8 @@
 class Trippy < Formula
   desc "Network diagnostic tool, inspired by mtr"
   homepage "https://trippy.cli.rs/"
-  url "https://github.com/fujiapple852/trippy/archive/refs/tags/0.10.0.tar.gz"
-  sha256 "3dd15f6219b9b18da773c7af48e8bf35dec581975742ada5b3d930a1642a73d8"
+  url "https://github.com/fujiapple852/trippy/archive/refs/tags/0.11.0.tar.gz"
+  sha256 "2745d5b02b32bc9de8944ec9c37f27c5dea4c5dedb2b0a9b969e515f2aafdf84"
   license "Apache-2.0"
   head "https://github.com/fujiapple852/trippy.git", branch: "master"
 
@@ -19,7 +19,7 @@ class Trippy < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(path: "crates/trippy")
   end
 
   test do
