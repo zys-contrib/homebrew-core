@@ -11,15 +11,13 @@ class I2util < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "52d210671de538ef15aab122ceba167767ec35486a094adec7d286bb0a0cf515"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "17d5e12958f6a8bbb119feb21e88c381862116578af66f4b6b8e6bb6f7ce256f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b81238983a3407032564f7a7242a8ed42b62ac4193a07d6c62a03e2afdfd6445"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "df33b627a3f7c69eb99d4ebb107a8ffabe49a16341ec845de5de3de7c868806b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3352f75e937c413f0dcfa6475adef55849e2b9ffdfe653d55b0bc452ce1d23b8"
-    sha256 cellar: :any_skip_relocation, ventura:        "2f474b97d35ce2c1eb1814278a4c39f8bc7d9ed32f5e27942646ff5ac486bc7c"
-    sha256 cellar: :any_skip_relocation, monterey:       "d5a60fa5cf61312c0a4b9f9307b94d09cbbe87addad19e9214ac3c2a5bd867f4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9f721b6a003be8ebc978c69619126625075dfdc013eaadc4ffc67192bd62a1a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07f9267aa3c7fc30361824939ba10a259cdeb1ea62485cc0410955b5b08ec3e7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ec98c61a927bf8bb3446bb0a9d2323de05a03a5c3e01c8077325637dd7bbc74c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d82e6ebb5e29c1748b8612962351676e5b8bfba4df4a8c0cf3c7ee5d89dad22a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "63d7c76794cc8f2ce397a52fb72b5739400a9819b24310ca5adf5d8415f84f90"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9c401a90715ad6a418fe2559534bed9a416547869da34cbd17dcd46fb3b8de03"
+    sha256 cellar: :any_skip_relocation, ventura:        "9445b607fa14b773b275ddfe6ea2ec5230c372a47159dcaae9d2bc8f22f42d59"
+    sha256 cellar: :any_skip_relocation, monterey:       "e3210e2dec54034f7adc14c2dbe4e351f36ea711fcabc277a1a28447e942d40f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dbef648d11c57b0c99cdf322d9b6fd7888f69fc59a8ce422f1f7f14597645444"
   end
 
   depends_on "autoconf" => :build
