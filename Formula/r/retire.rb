@@ -7,14 +7,7 @@ class Retire < Formula
   head "https://github.com/RetireJS/retire.js.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d53a179ee5816ab0d330a4eedf30a1e3b5a6e2a71201a288da096cd0a98299b3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d53a179ee5816ab0d330a4eedf30a1e3b5a6e2a71201a288da096cd0a98299b3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d53a179ee5816ab0d330a4eedf30a1e3b5a6e2a71201a288da096cd0a98299b3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d53a179ee5816ab0d330a4eedf30a1e3b5a6e2a71201a288da096cd0a98299b3"
-    sha256 cellar: :any_skip_relocation, ventura:        "d53a179ee5816ab0d330a4eedf30a1e3b5a6e2a71201a288da096cd0a98299b3"
-    sha256 cellar: :any_skip_relocation, monterey:       "d53a179ee5816ab0d330a4eedf30a1e3b5a6e2a71201a288da096cd0a98299b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "61f3b49145326f0c569b1012186891532bc31dd1120ef7a12e0088dd9cfe0fc7"
+    sha256 cellar: :any_skip_relocation, all: "f7a69637c053b6a22e5dc07f9acdc748e70dc23a1f8b255f419d4f400667ad99"
   end
 
   depends_on "node"
