@@ -20,7 +20,11 @@ class EasyRsa < Formula
   depends_on "openssl@3"
 
   def install
-    inreplace "easyrsa", "'/etc/easy-rsa'", "'#{pkgetc}'"
+    inreplace "easyrsa" do |s|
+      s.gsub! "'/etc/easy-rsa'", "'#{pkgetc}'"
+      s.gsub! "'/usr/local/share/easy-rsa'", "'#{opt_pkgshare}'"
+    end
+
     libexec.install "easyrsa"
     (bin/"easyrsa").write_env_script libexec/"easyrsa",
       EASYRSA:         pkgetc,
