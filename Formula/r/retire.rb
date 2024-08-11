@@ -1,8 +1,8 @@
 class Retire < Formula
   desc "Scanner detecting the use of JavaScript libraries with known vulnerabilities"
   homepage "https://retirejs.github.io/retire.js/"
-  url "https://registry.npmjs.org/retire/-/retire-5.1.2.tgz"
-  sha256 "363f3827a82a5e482d2e9bdc4a6b21a9d833e87e991142a778b758643498cfbc"
+  url "https://registry.npmjs.org/retire/-/retire-5.1.3.tgz"
+  sha256 "7e9682706a257f58c67c685883daa918619e6f47faafba80e94780aa99d443a6"
   license "Apache-2.0"
   head "https://github.com/RetireJS/retire.js.git", branch: "master"
 
