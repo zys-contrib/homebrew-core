@@ -19,13 +19,13 @@ class Streamlink < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0296bc2568c9525a5855ea9d6555ca84e8f64b762284899e31c2cc2c4f04c2ae"
-    sha256 cellar: :any,                 arm64_ventura:  "84659906b5f3e093144a7295d7e9fab8e8aae611cb427e7dfd79c56297934c55"
-    sha256 cellar: :any,                 arm64_monterey: "70d7b606567e14b9d9cddbc9d9e78a795d83305270c41b0a3202c7ffb6dd4a70"
-    sha256 cellar: :any,                 sonoma:         "6641ba9a60606db5fd6d8665ba8e4749eee9be8f2db921e12be3402f86f017bc"
-    sha256 cellar: :any,                 ventura:        "ee051b7876f462052290279cb3bd29f46bbc5b82847090e3c29dcf4ddcb2208d"
-    sha256 cellar: :any,                 monterey:       "b7281a40a88ce4c8cad1a9eec17544bfe0371680620184497fc6f6c7c654a158"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "66b62439b2ad76d05e6ba1d3d6163425e39e81eed696e5635926fec8bc607787"
+    sha256 cellar: :any,                 arm64_sonoma:   "88e4a75b7ba5a3cf30fa506edbeeff8d61bb2d3447e52a47f1a414d50e5e11ed"
+    sha256 cellar: :any,                 arm64_ventura:  "ad99de7cabe0eb17423122be11be928d9eb894a6222a3186114daa185e21c666"
+    sha256 cellar: :any,                 arm64_monterey: "7443247c4ae6c28436a0f2360c8a9c1103aa965973e59f0c318fed87f283dccf"
+    sha256 cellar: :any,                 sonoma:         "c893ef26ba48b7b0cf49f04d33309de1b5f0db1667af4e039a7560fd70964e00"
+    sha256 cellar: :any,                 ventura:        "3c16e73286a8bf93a141a1fff8730f8962b8a14da89b1dde4fcd450f3800b224"
+    sha256 cellar: :any,                 monterey:       "bca44e4168beb180975de25046441f780bf268d5ae5afd774d64607e3b5203cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64809e2e0ae014b90b99819e256c46ddf786d82cc7a39d6da36b2ed129a33672"
   end
 
   depends_on "certifi"
