@@ -7,13 +7,13 @@ class Gxml < Formula
   revision 1
 
   bottle do
-    sha256 arm64_sonoma:   "54c6ed5a3a82484145eb346f51f2e76b6477a362f26e2b3cf08c15e45e4ea818"
-    sha256 arm64_ventura:  "c8f3e38d52c9c7628bdf87e483750c871a429ea8e68e018b5c15bb0d4aaa1020"
-    sha256 arm64_monterey: "368c6d6ab14ce46ee5e339801b8290219ff34a63d38a5815b12c47a7f8d77ffe"
-    sha256 sonoma:         "01dd745d114b9f98d1823e9b4fd4fc53bea776c1df994bb5b8e3128ebe78b294"
-    sha256 ventura:        "adf748f00b1956efe7c2bdd6fcdaa415b9987c54b0dbeb547598ed3a21dc684b"
-    sha256 monterey:       "10ad638f4cce9ec42b6d3d1f157a57a4d1abc6b5c8d76acf786f74df76145b00"
-    sha256 x86_64_linux:   "dcea35a54aaa49782fdacee3e59098d9385a80e6ccca1b06a631bbbfe6b0c3da"
+    sha256 arm64_sonoma:   "8f97268cf4c3e02ebb80664ad7130ed9e8a73651c8ee4a4edff6a0c49f109518"
+    sha256 arm64_ventura:  "e6e950ee7e48514e6ba3b1f81037e99799886d05adf2fdf7a31d3939bf9b7196"
+    sha256 arm64_monterey: "6fe172d27e676eb132acbef9b7a82d7e42658b1998babea50783504c2c4fa22c"
+    sha256 sonoma:         "09e480a1b3fc86510efff4ec18fb6f2566d2f29a1c847289329db6625c4f3c25"
+    sha256 ventura:        "bee9013ba03bee81e7224dcf0a4788daa943b53143033534b10f761d6c210630"
+    sha256 monterey:       "19b816073438f3440875bfc354c81d5ac877576df616aa633a63c6951887fcd4"
+    sha256 x86_64_linux:   "2655af742b291d5b01f09956dd4d7f812cf0351b4285a0a2e04bec744bfdc4bc"
   end
 
   depends_on "gobject-introspection" => :build
