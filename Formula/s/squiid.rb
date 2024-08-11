@@ -6,13 +6,13 @@ class Squiid < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a443b05fa1907a2fcb23ec18d1aed61fd859b1bde705041a1007ec8130d2f859"
-    sha256 cellar: :any,                 arm64_ventura:  "ca132ff60afa5d3a66c21c562c7fe919dbdef8b029d19e44a170d149b03b07df"
-    sha256 cellar: :any,                 arm64_monterey: "0e1c890d209bdc4820024458acc920e06fcf774ac15581da13d872b78bb37cda"
-    sha256 cellar: :any,                 sonoma:         "a9f4a0604aa3a7fc6d8c2c43c11dede38493b08f338f6e87a9da9e25f0da4ccb"
-    sha256 cellar: :any,                 ventura:        "b05ad841186178cab1c3389495dfe7178830cb45a2c9a1b7a6a5eb09b69bb5a2"
-    sha256 cellar: :any,                 monterey:       "7c7685b1e78fa9f9b5539dbc0d875d89b82f3339e2ffb9decacd8f534d28446e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f12ed29e01e471cb09f66eb454b02ed1d482789558addcb4aa18f43cdb9f5ea3"
+    sha256 cellar: :any,                 arm64_sonoma:   "e65226dba5c635b6a7654119807167cd784609f3d6ee7fd229e066e3ddecc587"
+    sha256 cellar: :any,                 arm64_ventura:  "192f669c507ed6e30b13a39574260ce3079c38dce77e290690444f4d053b0576"
+    sha256 cellar: :any,                 arm64_monterey: "42573691dd99d9d27d4b8cfa669e942bb7af8fda09dca4cc58249a81a422c7f3"
+    sha256 cellar: :any,                 sonoma:         "4a2ed2531fa98d783e72ca27c71f9ae06567ddd06fd8a14181505a4cd5f70e5d"
+    sha256 cellar: :any,                 ventura:        "c59060acebc774af6e9021d34afb5a3f070a4d1a36c693c3ba20333f2581aeb7"
+    sha256 cellar: :any,                 monterey:       "7a9c167de74de714e4a220922dfb4e147ad7c5c02c56f794d327210feee6ce12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c5e25463cfe0f9c83a8a6fb618829a70ddb496e54c08841a61a1b7f89c5d15e"
   end
 
   depends_on "rust" => :build
