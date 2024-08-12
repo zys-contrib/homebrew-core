@@ -15,13 +15,13 @@ class Livekit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8e62af6c3e41febcc350375ce0c86ba268cf939b54aef8fee532b565b5f01818"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "609a57466621e9f68010944bff9d41f31b73de0e393196bd746ce0d4c320a92d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4bf11a2476ae0b863fedf8388b430597fbc72937e418f57b4b3cc710f13d3dbc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3897121b84f1e682fdf74ba3cbe4f5ff109eaf21f6e3b09c929f51659268328d"
-    sha256 cellar: :any_skip_relocation, ventura:        "3b1d41bc742805ec0560bf37b7dcaf190cb099e3a015371a02f5ee8409b547f4"
-    sha256 cellar: :any_skip_relocation, monterey:       "eef744fa5fee538313b8266c97ed1c4c474fa3f576571b11a9342e93e0c98847"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d5221447160ae51ba260485a1b042521077cd87b5b8bdf2354478500f3feb49c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2cc5c072e54c0254ed2945390a750e0b2c7d0d465af943486262d95764f8a1f8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bfc953fc7261c5354cddecd5937e08a36f7587f99c17554de72bd3a7701bbc03"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9c4f3a86f5ebcecd4dca7c0320fa2ee87be0a20fa881f8b131c5ff8e7209ac91"
+    sha256 cellar: :any_skip_relocation, sonoma:         "79f8cd64c8e20cc0a97085b3d372502820cf58b5de3a9fde6463ac97b962dcac"
+    sha256 cellar: :any_skip_relocation, ventura:        "554087b3871473fbac9d99d7bee58716c2da5392bf667ec517961c4e04314829"
+    sha256 cellar: :any_skip_relocation, monterey:       "334dfb67a819d8ec455b5133087b81b43db133560e576057e7b3b07fcc6199a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e5ffd1ce70d3d1414f12383678b48667b4a3be57a21d1b77bf6eec17cbf44bc9"
   end
 
   depends_on "go" => :build
