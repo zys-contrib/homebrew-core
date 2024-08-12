@@ -1,8 +1,8 @@
 class Capstone < Formula
   desc "Multi-platform, multi-architecture disassembly framework"
   homepage "https://www.capstone-engine.org/"
-  url "https://github.com/capstone-engine/capstone/archive/refs/tags/5.0.1.tar.gz"
-  sha256 "2b9c66915923fdc42e0e32e2a9d7d83d3534a45bb235e163a70047951890c01a"
+  url "https://github.com/capstone-engine/capstone/archive/refs/tags/5.0.2.tar.gz"
+  sha256 "9d0be727cc942075a1696f576b88918eb0daf9db7a02f563f0c4e51a439a611d"
   license "BSD-3-Clause"
   head "https://github.com/capstone-engine/capstone.git", branch: "next"
 
@@ -16,6 +16,10 @@ class Capstone < Formula
     sha256 cellar: :any,                 monterey:       "7469382171ed7d25d2e8206c7dc358cd054ea30f2d4f0bcc3ef0c9e8cedef57b"
     sha256 cellar: :any,                 big_sur:        "35f66655a1798dc2d0e03f770022ae8b5ff8530a421802fbe8e72815c49e6708"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b81dd8d867b60146e089ecf20f30efb80646a18856e7596616585f141661f9c"
+  end
+
+  on_macos do
+    depends_on "gettext"
   end
 
   def install
