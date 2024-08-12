@@ -10,13 +10,14 @@ class OpenaiWhisper < Formula
   head "https://github.com/openai/whisper.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5c0f66f4da079c643d98a8cf8bb7d7df823977b274735bf84fc173b5cd68936f"
-    sha256 cellar: :any,                 arm64_ventura:  "c266e2b5e120c5cc5d1b7526a8187dc5aa8a9ecfc1e92e1de729bb7aa714768b"
-    sha256 cellar: :any,                 arm64_monterey: "dbc69a81f7d17c6b27f760a71e41b6328b81f01b62b6210547c1fed9e81bb7bc"
-    sha256 cellar: :any,                 sonoma:         "14104b8148c43be9be0854aef4afdd3854affa97e565df5930f10ca5baa81b27"
-    sha256 cellar: :any,                 ventura:        "15ee1feba9cd6fa12d172a91bd0fded080b0074540967baedf1dbe4c9662f126"
-    sha256 cellar: :any,                 monterey:       "586562313b49a1d38351a153ee8ac9ef627e9c26eebae2dc129aa877dabdeeba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba221a60f8869b137fdd84b272e3c424a593f3fe91af1b0f01d8274b892aaffd"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "c4823602582021d71a112cee7b9fd70d7bb346231ac8a064413fbc4fa5feeae4"
+    sha256 cellar: :any,                 arm64_ventura:  "dbe1c266af6c9f768aebc92dfb02f0257b823c79835dd20569f8910736c4481d"
+    sha256 cellar: :any,                 arm64_monterey: "03f5d31004276a79c6647f3d3acfb23b1458e0b47a5622a7629c3f14bd5cd093"
+    sha256 cellar: :any,                 sonoma:         "e718c5ecde8a4a034870eb564cd0644c8980ffef1f9373562a7e88402e7c91b0"
+    sha256 cellar: :any,                 ventura:        "e2d29e93aec4325471339f521bcb0948aafcc688ab19206a6cc470378129f287"
+    sha256 cellar: :any,                 monterey:       "05ece5b230afd9939107d8c0a327968f697da8713115c2b524678be1eec28ce3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3a12abfebd488c81f69346f3bd7c6cfb0bc6f51926893f19c7e298b427d3386"
   end
 
   depends_on "rust" => :build # for tiktoken
