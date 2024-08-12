@@ -1,8 +1,8 @@
 class Qmmp < Formula
   desc "Qt-based Multimedia Player"
   homepage "https://qmmp.ylsoftware.com/"
-  url "https://qmmp.ylsoftware.com/files/qmmp/2.1/qmmp-2.1.8.tar.bz2"
-  sha256 "846a6143c7a9ab29b8ec2f5da2248e41ddf2736f17c15d94b0d73b8af85a69ee"
+  url "https://qmmp.ylsoftware.com/files/qmmp/2.1/qmmp-2.1.9.tar.bz2"
+  sha256 "b59f7a378b521d4a6d2b5c9e37a35c3494528bf0db85b24caddf3e1a1c9c3a37"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -73,8 +73,8 @@ class Qmmp < Formula
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   resource "qmmp-plugin-pack" do
-    url "https://qmmp.ylsoftware.com/files/qmmp-plugin-pack/2.1/qmmp-plugin-pack-2.1.1.tar.bz2"
-    sha256 "f68484426579f2a0bc68b6be06e7a019fd1c266fca35b764d5788661ddf9bcc4"
+    url "https://qmmp.ylsoftware.com/files/qmmp-plugin-pack/2.1/qmmp-plugin-pack-2.1.2.tar.bz2"
+    sha256 "fb5b7381a7f11a31e686fb7c76213d42dfa5df1ec61ac2c7afccd8697730c84b"
   end
 
   def install
