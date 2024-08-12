@@ -4,6 +4,15 @@ class IrcdIrc2 < Formula
   url "http://www.irc.org/ftp/irc/server/irc2.11.2p3.tgz"
   version "2.11.2p3"
   sha256 "be94051845f9be7da0e558699c4af7963af7e647745d339351985a697eca2c81"
+  # The `:cannot_represent` is for a Digital Equipment Corporation license.
+  # TODO: See if SPDX will consider this a match for HPND License.
+  license all_of: [
+    "GPL-1.0-or-later",
+    "GPL-2.0-or-later", # ircd/fileio.*, ircd/patricia.c
+    "ISC", # ircd/res_comp.c
+    "BSD-4-Clause-UC", # ircd/{res_comp.c,res_init.c,res_mkquery.c,resolv_def.h}
+    :cannot_represent, # ircd/{res_comp.c,res_init.c,res_mkquery.c,resolv_def.h}
+  ]
 
   livecheck do
     url "http://www.irc.org/ftp/irc/server/"
@@ -46,9 +55,19 @@ class IrcdIrc2 < Formula
     EOS
   end
 
+  uses_from_macos "libxcrypt"
+
   conflicts_with "ircd-hybrid", because: "both install `ircd` binaries"
 
+  # Replace usage of nameser_def.h which has incompatible IBM license.
+  # Ref: https://gitlab.com/fedora/legal/fedora-license-data/-/issues/53
+  patch :DATA
+
   def install
+    # Remove header with incompatible IBM license and add linker flags to use system library instead
+    rm("ircd/nameser_def.h")
+    ENV.append "LIBS", "-lresolv"
+
     system "./configure", "--prefix=#{prefix}",
                           "--localstatedir=#{var}",
                           "--sysconfdir=#{etc}",
@@ -67,7 +86,8 @@ class IrcdIrc2 < Formula
     # The directory is something like `i686-apple-darwin13.0.2'
     system "make", "install", "-C", build_dir
 
-    (etc/"ircd.conf").write default_ircd_conf
+    (buildpath/"ircd.conf").write default_ircd_conf
+    etc.install "ircd.conf"
   end
 
   service do
@@ -81,3 +101,52 @@ class IrcdIrc2 < Formula
     system "#{sbin}/ircd", "-version"
   end
 end
+
+__END__
+diff --git a/ircd/res_comp.c b/ircd/res_comp.c
+index b58d06c..a0ff2b9 100644
+--- a/ircd/res_comp.c
++++ b/ircd/res_comp.c
+@@ -64,6 +64,7 @@ static const volatile char rcsid[] = "$Id: res_comp.c,v 1.10 2004/10/01 20:22:14
+ #include "s_externs.h"
+ #undef RES_COMP_C
+
++#if 0
+ static int	ns_name_ntop (const u_char *, char *, size_t);
+ static int	ns_name_pton (const char *, u_char *, size_t);
+ static int	ns_name_unpack (const u_char *, const u_char *,
+@@ -75,6 +76,7 @@ static int	ns_name_uncompress (const u_char *, const u_char *,
+ static int	ns_name_compress (const char *, u_char *, size_t,
+ 				      const u_char **, const u_char **);
+ static int	ns_name_skip (const u_char **, const u_char *);
++#endif
+
+ /*
+  * Expand compressed domain name 'comp_dn' to full domain name.
+@@ -306,6 +308,7 @@ static int		dn_find (const u_char *, const u_char *,
+
+ /* Public. */
+
++#if 0
+ /*
+  * ns_name_ntop(src, dst, dstsiz)
+  *	Convert an encoded domain name to printable ascii as per RFC1035.
+@@ -749,6 +752,7 @@ static int	ns_name_skip(const u_char **ptrptr, const u_char *eom)
+ 	*ptrptr = cp;
+ 	return (0);
+ }
++#endif
+
+ /* Private. */
+
+diff --git a/ircd/s_defines.h b/ircd/s_defines.h
+index aaaf0d4..acd1378 100644
+--- a/ircd/s_defines.h
++++ b/ircd/s_defines.h
+@@ -37,4 +37,5 @@
+ #include "service_def.h"
+ #include "sys_def.h"
+ #include "resolv_def.h"
+-#include "nameser_def.h"
++#define BIND_8_COMPAT
++#include <arpa/nameser.h>
