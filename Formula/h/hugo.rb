@@ -7,13 +7,13 @@ class Hugo < Formula
   head "https://github.com/gohugoio/hugo.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cbe14139f5f8b3878d69e0cee6339f1635823a0ec84f2832a279e87fce14bca7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "59e43e20f3999829a2487ab693bab49af562ca7c563132f0de24fb928a736e31"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4184c8c7005c784c82c83b7b5ba020ba99557ee51e75cf046b129bbba80a4e10"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1372dd39f3a0840832799dcf5ceb896d6e1ecf53d86da9da2b864066d3c6dc26"
-    sha256 cellar: :any_skip_relocation, ventura:        "99aed9105957483eeb0df937c269e815bc2745a37f86514b958da170cef284b5"
-    sha256 cellar: :any_skip_relocation, monterey:       "ead31c0c6c36096e4cbd2ddb96cf7379d340ecdc888202150fc3cd3b6d266a6a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fad175279ee0074b0f58d058ea3050bd3f5a4c48ca0e62188915c078d82a5095"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d367469781979a67bef2bd2c98e2ecb52b4c5efbfbcabef6c6366844661b7160"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2f37b5fec29efefd510a5d85de61c9400e9d6f1e0cf92d3dbac977d76a4be2ce"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "02f558aa2f4d4c3b9f72cdb206416e1431357693dc34718b5fb679ecca89ee63"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b946272a1d31046cb62b9378d26927a9270d93994d9a2fbbf4a45e7f5cb4e78b"
+    sha256 cellar: :any_skip_relocation, ventura:        "72eb21e517c2a9b79e4d7bb63da1359d768fe5d12060aefa422a36e8146cb02e"
+    sha256 cellar: :any_skip_relocation, monterey:       "1da633d28defdf05499a95977c6ab812105fc0a761cd84bba92d0e01a9ce179e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c5b1e14e1b9fff5ebabc2bc14ab899e65cd0a3aaa284cce33bdde8fa675b66d"
   end
 
   depends_on "go" => :build
