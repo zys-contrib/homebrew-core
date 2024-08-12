@@ -1,8 +1,8 @@
 class Edencommon < Formula
   desc "Shared library for Watchman and Eden projects"
   homepage "https://github.com/facebookexperimental/edencommon"
-  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2024.08.05.00.tar.gz"
-  sha256 "c3c96436de823abb37ec4ffaf9041c0fb322a9f1a82e236788d0ca2b6f1e3f9f"
+  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2024.08.12.00.tar.gz"
+  sha256 "8fc9690845d02ec9c25effd574b732afa7839c15488884fc6fbf9fdd28569c94"
   license "MIT"
   head "https://github.com/facebookexperimental/edencommon.git", branch: "main"
 
@@ -27,13 +27,6 @@ class Edencommon < Formula
   depends_on "gflags"
   depends_on "glog"
   depends_on "openssl@3"
-
-  # Build shared libraries
-  # https://github.com/facebookexperimental/edencommon/pull/20
-  patch do
-    url "https://github.com/facebookexperimental/edencommon/commit/01bca703032ff108665a83274fb56617b46882aa.patch?full_index=1"
-    sha256 "50f704ad44aa6fa8df35d913966c5c28f8fddb8871b35b3420875c804efc386a"
-  end
 
   def install
     # Fix "Process terminated due to timeout" by allowing a longer timeout.
