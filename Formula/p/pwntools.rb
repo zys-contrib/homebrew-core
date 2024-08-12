@@ -3,10 +3,9 @@ class Pwntools < Formula
 
   desc "CTF framework used by Gallopsled in every CTF"
   homepage "https://github.com/Gallopsled/pwntools"
-  url "https://files.pythonhosted.org/packages/09/cb/82243a56a8b92451d97ad1792e67cbe8dbc9f9dec2a869a58839993ccca4/pwntools-4.12.0.tar.gz"
-  sha256 "320285bd9266152fdba3b81de3a31e61a25076645507a38d85f34e1b15998eb1"
+  url "https://files.pythonhosted.org/packages/5e/c0/7f2a0dd8e1641a25a5066b2235e4556796fbd962ff45bfb9ce9aaec6c74e/pwntools-4.13.0.tar.gz"
+  sha256 "1d5ca25383ec10fb64e28d142c1d868f91ea1c53a93d3531d3015d830828d3c3"
   license "MIT"
-  revision 4
   head "https://github.com/Gallopsled/pwntools.git", branch: "dev"
 
   bottle do
@@ -38,8 +37,8 @@ class Pwntools < Formula
   end
 
   resource "capstone" do
-    url "https://files.pythonhosted.org/packages/7a/fe/e6cdc4ad6e0d9603fa662d1ccba6301c0cb762a1c90a42c7146a538c24e9/capstone-5.0.1.tar.gz"
-    sha256 "740afacc29861db591316beefe30df382c4da08dcb0345a0d10f0cac4f8b1ee2"
+    url "https://files.pythonhosted.org/packages/97/35/1ed46590e1b64ce656dfd77ed64873fe4aecbfd7dec29038cf183f04ec5b/capstone-5.0.2.tar.gz"
+    sha256 "2bcebb5746027fbd082b5392c9f56c9f5645bdf11555fff70eedb6ed724f4d5d"
   end
 
   resource "charset-normalizer" do
