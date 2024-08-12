@@ -1534,6 +1534,7 @@ libxvmc
 libzim
 libzzip
 license-eye
+licensed
 licensefinder
 lightgbm
 lighthouse
