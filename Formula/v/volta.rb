@@ -1,10 +1,9 @@
 class Volta < Formula
   desc "JavaScript toolchain manager for reproducible environments"
   homepage "https://volta.sh"
-  url "https://github.com/volta-cli/volta/archive/refs/tags/v1.1.1.tar.gz"
-  sha256 "f2289274538124984bebb09b0968c2821368d8a80d60b9615e4f999f6751366d"
+  url "https://github.com/volta-cli/volta/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "7cb34e39bca682eee35fa0ee908afdbfc833ce77b59c8b2ed9f6d7751d22df31"
   license "BSD-2-Clause"
-  revision 2
   head "https://github.com/volta-cli/volta.git", branch: "main"
 
   livecheck do
@@ -25,6 +24,8 @@ class Volta < Formula
   end
 
   depends_on "rust" => :build
+
+  uses_from_macos "bzip2"
 
   on_linux do
     depends_on "pkg-config" => :build
