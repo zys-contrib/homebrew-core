@@ -1,8 +1,8 @@
 class Chamber < Formula
   desc "CLI for managing secrets through AWS SSM Parameter Store"
   homepage "https://github.com/segmentio/chamber"
-  url "https://github.com/segmentio/chamber/archive/refs/tags/v2.14.1.tar.gz"
-  sha256 "f3bc8391a789c79d40aef28196a857a82dc39fb51bd3851074344cdc2dc819b8"
+  url "https://github.com/segmentio/chamber/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "3d45592fa87cfe4ad4dea14297d4c67087b4cf8f47729301c551ff51ef24f5dd"
   license "MIT"
   head "https://github.com/segmentio/chamber.git", branch: "master"
 
@@ -30,12 +30,10 @@ class Chamber < Formula
   end
 
   test do
-    ENV.delete "AWS_REGION"
+    ENV["AWS_REGION"] = "us-east-1"
     output = shell_output("#{bin}/chamber list service 2>&1", 1)
-    assert_match "MissingRegion", output
+    assert_match "Error: Failed to list store contents: operation error SSM", output
 
-    ENV["AWS_REGION"] = "us-west-2"
-    output = shell_output("#{bin}/chamber list service 2>&1", 1)
-    assert_match "NoCredentialProviders", output
+    assert_match version.to_s, shell_output("#{bin}/chamber version")
   end
 end
