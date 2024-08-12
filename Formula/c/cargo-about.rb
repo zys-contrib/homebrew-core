@@ -1,19 +1,19 @@
 class CargoAbout < Formula
   desc "Cargo plugin to generate list of all licenses for a crate"
   homepage "https://github.com/EmbarkStudios/cargo-about"
-  url "https://github.com/EmbarkStudios/cargo-about/archive/refs/tags/0.6.2.tar.gz"
-  sha256 "e2efd2b75c3079d4fb770a7aeba52e8e5a98f184a91b521ada607bc712537f65"
+  url "https://github.com/EmbarkStudios/cargo-about/archive/refs/tags/0.6.3.tar.gz"
+  sha256 "5d7f7e93e51d7d8f9b95dec755592bedc4a4ea8728a1630bd0884599c1e58302"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/EmbarkStudios/cargo-about.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "55c99a186b5765430bc0182f944ef0dca2df03165fc735779e32a85b6ab0e374"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "af94b6208b6b07923e18368a96910358f5620196aa104821397716119473f22a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6964338022e14329f0176e382190d1b5fa838e93c0f7e6951cbf7309e5772e00"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6de78c45d06a7cb255195ba7aa6ef5528c4dcaacfbbcf8bec04d7e1364ee3343"
-    sha256 cellar: :any_skip_relocation, ventura:        "7bb44dcb2c247302d0afde1cc4337100f2769bf1f92fc35712a2f0c11e8e533c"
-    sha256 cellar: :any_skip_relocation, monterey:       "ef8c35352194b21ee3b9582ed4e4db5e1d1fd8cc8c0559ed1f0c5b49257ac163"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45866102093af40beb7254b2ea3d365199396b81aa93b358eac5497d61335449"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3610cbbb0e595227084abb9fad1b708b06781b35b7375b71e0218d5b7eec7d31"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d05f4795d28210233c8d6da3188411fbe178d2ae67e0e6b948d8c83dd8764b58"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "33a1dc521e2238fd5f711fd1d2d12505af5f0f938fe6b3ceda251eed44e60e6c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "561be92c7f22e3e986dc95fb14180a3ad53dc58933d20669d9c040d965a55055"
+    sha256 cellar: :any_skip_relocation, ventura:        "f1e51d9358d1cb427da9faabfe65b805e819ab4c6a5e0d5d89042a1137f24f08"
+    sha256 cellar: :any_skip_relocation, monterey:       "1c2c04df8a6ecde5c3e7ebdacb1234ebfe4191e818d603f69623ac510024837f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae47754d95d4ec98e8d0161a7a3a7d8c091da16674cac6f33cf0f4f59feab07c"
   end
 
   depends_on "rust" => :build
