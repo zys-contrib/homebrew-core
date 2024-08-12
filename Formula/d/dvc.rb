@@ -3,10 +3,9 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://files.pythonhosted.org/packages/fd/0b/df055004d60d14da6cf92d85973b7cebd93030e5897c8e166b83b4a12b4c/dvc-3.53.1.tar.gz"
-  sha256 "8750b12055f5b505e60fe85010641c8a4d28fa0424c901adf745129fa6b3e5cf"
+  url "https://files.pythonhosted.org/packages/fa/3d/a3fc9ea7b294bbb61772e02f3bbac0182e29ab31f215691f1a13c6967a8c/dvc-3.53.2.tar.gz"
+  sha256 "072949376948338454a7e93df7a039b8a68ab8efbc2b94108008ccdf45c19172"
   license "Apache-2.0"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "d1843bf1ae637b88aaf7e1a7aebdc5f2a63675ebbd26eaa1817e2720e126ea79"
@@ -50,8 +49,8 @@ class Dvc < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/45/11/36ba898823ab19e49e6bd791d75b9185eadef45a46fc00d3c669824df8a0/aiohttp-3.10.2.tar.gz"
-    sha256 "4d1f694b5d6e459352e5e925a42e05bac66655bfde44d81c59992463d2897014"
+    url "https://files.pythonhosted.org/packages/15/9c/ed427fcc46423c965a8e33673d7111b6e3b3aa7d61ca52163a720ff200cb/aiohttp-3.10.3.tar.gz"
+    sha256 "21650e7032cc2d31fc23d353d7123e771354f2a3d5b05a5647fc30fea214e696"
   end
 
   resource "aiohttp-retry" do
