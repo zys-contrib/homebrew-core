@@ -22,7 +22,7 @@ class OpenaiWhisper < Formula
   depends_on "rust" => :build # for tiktoken
   depends_on "certifi"
   depends_on "ffmpeg"
-  depends_on "llvm@14" # Issue for newer LLVM: https://github.com/numba/llvmlite/issues/914
+  depends_on "llvm@15" # Issue for newer LLVM: https://github.com/numba/llvmlite/issues/1048
   depends_on "numpy"
   depends_on "python@3.12"
   depends_on "pytorch"
@@ -47,18 +47,24 @@ class OpenaiWhisper < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/01/33/77f586de725fc990d12dda3d4efca4a41635be0f99a987b9cc3a78364c13/more-itertools-10.3.0.tar.gz"
-    sha256 "e5d93ef411224fbcef366a6e8ddc4c5781bc6359d43412a65dd5964e46111463"
+    url "https://files.pythonhosted.org/packages/92/0d/ad6a82320cb8eba710fd0dceb0f678d5a1b58d67d03ae5be14874baa39e0/more-itertools-10.4.0.tar.gz"
+    sha256 "fe0e63c4ab068eac62410ab05cccca2dc71ec44ba8ef29916a0090df061cf923"
   end
 
   resource "numba" do
     url "https://files.pythonhosted.org/packages/3c/93/2849300a9184775ba274aba6f82f303343669b0592b7bb0849ea713dabb0/numba-0.60.0.tar.gz"
     sha256 "5df6158e5584eece5fc83294b949fd30b9f1125df7708862205217e068aabf16"
+
+    # Fix compat with numpy 2.0.1: https://github.com/numba/numba/pull/9683
+    patch do
+      url "https://github.com/numba/numba/commit/afb3d168efa713c235d1bb4586722ad6e5dbb0c1.patch?full_index=1"
+      sha256 "5045f942be69fe12d0b0f02a4236c01c092f660ee9fa008848b7ebf5cb8fd528"
+    end
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/7a/db/5ddc89851e9cc003929c3b08b9b88b429459bf9acbf307b4556d51d9e49b/regex-2024.5.15.tar.gz"
-    sha256 "d3ee02d9e5f482cc8309134a91eeaacbdd2261ba111b0fef3748eeb4913e6a2c"
+    url "https://files.pythonhosted.org/packages/3f/51/64256d0dc72816a4fe3779449627c69ec8fee5a5625fd60ba048f53b3478/regex-2024.7.24.tar.gz"
+    sha256 "9cfd009eed1a46b27c14039ad5bbc5e71b6367c5b2e6d5f5da0ea91600817506"
   end
 
   resource "requests" do
@@ -72,8 +78,8 @@ class OpenaiWhisper < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/5a/c0/b7599d6e13fe0844b0cda01b9aaef9a0e87dbb10b06e4ee255d3fa1c79a2/tqdm-4.66.4.tar.gz"
-    sha256 "e4d936c9de8727928f3be6079590e97d9abfe8d39a590be678eb5919ffc186bb"
+    url "https://files.pythonhosted.org/packages/58/83/6ba9844a41128c62e810fddddd72473201f3eacde02046066142a2d96cc5/tqdm-4.66.5.tar.gz"
+    sha256 "e1020aef2e5096702d8a025ac7d16b1577279c9d63f8375b63083e9a5f0fcbad"
   end
 
   resource "urllib3" do
@@ -89,9 +95,9 @@ class OpenaiWhisper < Formula
     # This needs to happen _before_ we try to install torchvision.
     site_packages = Language::Python.site_packages(python3)
     pytorch = Formula["pytorch"].opt_libexec
-    (libexec/site_packages/"homebrew-pytorch.pth").write pytorch/site_packages
+    (venv.site_packages/"homebrew-pytorch.pth").write pytorch/site_packages
 
-    ENV["LLVM_CONFIG"] = Formula["llvm@14"].opt_bin/"llvm-config"
+    ENV["LLVM_CONFIG"] = Formula["llvm@15"].opt_bin/"llvm-config"
     venv.pip_install resources.reject { |r| r.name == "numba" }
     venv.pip_install(resource("numba"), build_isolation: false)
     venv.pip_install_and_link buildpath
