@@ -1,8 +1,8 @@
 class OpenscaCli < Formula
   desc "OpenSCA is a supply-chain security tool for security researchers and developers"
   homepage "https://opensca.xmirror.cn"
-  url "https://github.com/XmirrorSecurity/OpenSCA-cli/archive/refs/tags/v3.0.4.tar.gz"
-  sha256 "66bc716763bcb0f55f0ce2ab2a57057232f70bb7784fb4db0e3015a6fd0f915a"
+  url "https://github.com/XmirrorSecurity/OpenSCA-cli/archive/refs/tags/v3.0.5.tar.gz"
+  sha256 "3efd767629e58c9f05682e5e843efadef8544861c1f30e80f334c0daa9bca4e1"
   license "Apache-2.0"
   head "https://github.com/XmirrorSecurity/OpenSCA-cli.git", branch: "master"
 
