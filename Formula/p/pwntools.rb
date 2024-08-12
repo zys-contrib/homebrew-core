@@ -10,13 +10,14 @@ class Pwntools < Formula
   head "https://github.com/Gallopsled/pwntools.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "3ccc88b2f7c47c9e85ab075d98aeb58481ac60c73d6f37c5dd169e62545da1e5"
-    sha256 cellar: :any,                 arm64_ventura:  "01c3fc3381248aa5a7304715b4fba742077c12b911764b376aa21b3badef1fe1"
-    sha256 cellar: :any,                 arm64_monterey: "3a7c78d4105f358ed6a5943743a12f1e070df9944444ffc90b5636c4ad4c0785"
-    sha256 cellar: :any,                 sonoma:         "a8faf01b0a522a148bf4dc195b209b12c831900b585536b60603f96d1d682b11"
-    sha256 cellar: :any,                 ventura:        "10638be996ff34cd8b3b00b24eadec6090afda2887807a555dbc75ca540f83cf"
-    sha256 cellar: :any,                 monterey:       "92731a9b2e5e8d4c0ae847f8e062917fd9ca8d304215ab5ed009f2972d62f88f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c348fb587818f5a6a39285e3969194142f38da394c5e9c01717cb9feb8e7bcf5"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "3fa8095b0d1ce5b71b0c71d3cc3d908173500d501e0f648a8e4adb5f94d1d6e3"
+    sha256 cellar: :any,                 arm64_ventura:  "d1649fb4515175c51484a3d60a0ed6f2416571b978aca4db18e9ff10a2139bbd"
+    sha256 cellar: :any,                 arm64_monterey: "b9d9c1187539c42c31eb687bc9f8288d89decd7915a0e3df5699164716bb56d1"
+    sha256 cellar: :any,                 sonoma:         "f593419f682b76fa9123c01586bfd4e8b8bcf54df67e08cc8543e6e67811d8f3"
+    sha256 cellar: :any,                 ventura:        "d0525c5e591871ae3062ef6b47e7d027bd9bb252289501ae38ef85556975f464"
+    sha256 cellar: :any,                 monterey:       "5c12240c9c3f877c72bd73e39284edfa7a8e5fba1d12f75e2e2d392dd78e5707"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d22d59af9d058438456653098ad9066514d04d737e545d67102bb2b8df425941"
   end
 
   depends_on "rust" => :build # for bcrypt
