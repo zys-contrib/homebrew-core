@@ -1,8 +1,8 @@
 class Doltgres < Formula
   desc "Dolt for Postgres"
   homepage "https://github.com/dolthub/doltgresql"
-  url "https://github.com/dolthub/doltgresql/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "2b3bf7803658b098f80a4fbf260071b5d0e122076964a7ae014cfd1fa9e7444f"
+  url "https://github.com/dolthub/doltgresql/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "2bea894c360d40e5744e9e4c2251d23efb3b51edc36e1f065e11c7a392462bf5"
   license "Apache-2.0"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -58,6 +58,6 @@ class Doltgres < Formula
 
     psql = Formula["libpq"].opt_bin/"psql"
     output = shell_output("#{psql} -h 127.0.0.1 -p #{port} -U doltgres -c 'SELECT DATABASE()' 2>&1")
-    assert_match "database() \n------------\n doltgres\n(1 row)", output
+    assert_match "database \n----------\n doltgres\n(1 row)", output
   end
 end
