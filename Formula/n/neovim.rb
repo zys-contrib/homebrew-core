@@ -7,6 +7,10 @@ class Neovim < Formula
     url "https://github.com/neovim/neovim/archive/refs/tags/v0.10.1.tar.gz"
     sha256 "edce96e79903adfcb3c41e9a8238511946325ea9568fde177a70a614501af689"
 
+    # TDOD: Remove when the following commit lands in a release.
+    # https://github.com/neovim/neovim/commit/1247684ae14e83c5b742be390de8dee00fd4e241
+    depends_on "msgpack"
+
     # Keep resources updated according to:
     # https://github.com/neovim/neovim/blob/v#{version}/cmake.deps/CMakeLists.txt
 
@@ -70,7 +74,6 @@ class Neovim < Formula
   depends_on "lpeg"
   depends_on "luajit"
   depends_on "luv"
-  depends_on "msgpack"
   depends_on "tree-sitter"
   depends_on "unibilium"
 
