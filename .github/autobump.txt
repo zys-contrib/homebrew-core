@@ -1525,6 +1525,7 @@ libxdmcp
 libxext
 libxkbfile
 libxlsxwriter
+libxml++@4
 libxml2
 libxmlb
 libxmlsec1
