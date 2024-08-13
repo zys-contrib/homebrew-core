@@ -3,8 +3,8 @@ class PythonMatplotlib < Formula
 
   desc "Python library for creating static, animated, and interactive visualizations"
   homepage "https://matplotlib.org/"
-  url "https://files.pythonhosted.org/packages/27/c3/b4dbf9ed2a024a5514fa8a2606867a3716c9adfd457d138865145a940a65/matplotlib-3.9.1.post1.tar.gz"
-  sha256 "c91e585c65092c975a44dc9d4239ba8c594ba3c193d7c478b6d178c4ef61f406"
+  url "https://files.pythonhosted.org/packages/9e/d8/3d7f706c69e024d4287c1110d74f7dabac91d9843b99eadc90de9efc8869/matplotlib-3.9.2.tar.gz"
+  sha256 "96ab43906269ca64a6366934106fa01534454a69e471b7bf3d79083981aaab92"
   license "PSF-2.0"
 
   bottle do
