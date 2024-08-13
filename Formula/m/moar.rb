@@ -1,8 +1,8 @@
 class Moar < Formula
   desc "Nice to use pager for humans"
   homepage "https://github.com/walles/moar"
-  url "https://github.com/walles/moar/archive/refs/tags/v1.25.4.tar.gz"
-  sha256 "908395f560d2dc60b1b29c0fc1ed3b0f43ab6cc527ff3ae645f4e8e4c44f6ecf"
+  url "https://github.com/walles/moar/archive/refs/tags/v1.26.0.tar.gz"
+  sha256 "d08bbc7340abb149d9651062ed8c3710bd18c16457fd7597f4cbaedefa2be1b5"
   license "BSD-2-Clause"
 
   bottle do
