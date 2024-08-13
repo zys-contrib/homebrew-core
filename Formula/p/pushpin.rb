@@ -1,8 +1,8 @@
 class Pushpin < Formula
   desc "Reverse proxy for realtime web services"
   homepage "https://pushpin.org/"
-  url "https://github.com/fastly/pushpin/releases/download/v1.39.1/pushpin-1.39.1.tar.bz2"
-  sha256 "a78d8088ed49a0b07b665148e6bced1581c32f490452c8043f54bbe4a55c1e14"
+  url "https://github.com/fastly/pushpin/releases/download/v1.40.1/pushpin-1.40.1.tar.bz2"
+  sha256 "64b6486160ecffdac9d6452463e980433800858cc0877c40736985bf67634044"
   license "Apache-2.0"
   head "https://github.com/fastly/pushpin.git", branch: "main"
 
@@ -16,11 +16,16 @@ class Pushpin < Formula
   depends_on "boost" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "mongrel2"
+
+  depends_on "openssl@3"
   depends_on "python@3.12"
   depends_on "qt"
   depends_on "zeromq"
   depends_on "zurl"
+
+  on_intel do
+    depends_on "mongrel2"
+  end
 
   fails_with gcc: "5"
 
@@ -61,6 +66,7 @@ class Pushpin < Formula
 
     runfile.write <<~EOS
       import threading
+      import time
       from http.server import BaseHTTPRequestHandler, HTTPServer
       from urllib.request import urlopen
       class TestHandler(BaseHTTPRequestHandler):
@@ -86,9 +92,19 @@ class Pushpin < Formula
       server_thread.start()
       c.wait()
       c.release()
-      with urlopen('http://localhost:7999/test') as f:
-        body = f.read()
-        assert(body == b'test response\\n')
+      tries = 0
+      while True:
+        try:
+          with urlopen('http://localhost:7999/test') as f:
+            body = f.read()
+            assert(body == b'test response\\n')
+          break
+        except Exception:
+          # pushpin may not be listening yet. try again soon
+          tries += 1
+          if tries >= 10:
+            raise Exception(f'test client giving up after {tries} tries')
+          time.sleep(1)
     EOS
 
     ENV["LC_ALL"] = "en_US.UTF-8"
@@ -99,7 +115,6 @@ class Pushpin < Formula
     end
 
     begin
-      sleep 3 # make sure pushpin processes have started
       system Formula["python@3.12"].opt_bin/"python3.12", runfile
     ensure
       Process.kill("TERM", pid)
