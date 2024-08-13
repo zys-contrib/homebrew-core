@@ -5,6 +5,16 @@ class Nuspell < Formula
   sha256 "5d4baa1daf833a18dc06ae0af0571d9574cc849d47daff6b9ce11dac0a5ded6a"
   license "LGPL-3.0-or-later"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "9e7281a57b83e677868aad16232d40fd48543ce65174f174bd443150c6361bb1"
+    sha256 cellar: :any,                 arm64_ventura:  "6804f4fa88dbbd76f01aa90450346e0c00be89e3f4d732e2a2466976e84cbe58"
+    sha256 cellar: :any,                 arm64_monterey: "c1596f60835c4dc02f005083b00a175505770fdd3333e868ac578a116cdcf92e"
+    sha256 cellar: :any,                 sonoma:         "1ee2c3df9b096c680c09f3f80c138258e28bb10e122d15871e4e4a35f9702058"
+    sha256 cellar: :any,                 ventura:        "fb64db7d781253262d6939f25c1c82745cabe55862696e025d469b8c151364c8"
+    sha256 cellar: :any,                 monterey:       "b93489b214e38917fa7d11668421bf14f2f0d05cbca45c4a7e0e4f4b90360988"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f682217bc55e204b2d6fb5911caad75c955fb28549195a0be5a7028d736526be"
+  end
+
   depends_on "cmake" => :build
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :test
