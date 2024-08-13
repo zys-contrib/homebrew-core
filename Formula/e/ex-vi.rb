@@ -31,6 +31,9 @@ class ExVi < Formula
   conflicts_with "vim", because: "both install `ex` and `view` binaries"
 
   def install
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+    ENV.deparallelize
     system "make", "install", "INSTALL=/usr/bin/install",
                               "PREFIX=#{prefix}",
                               "PRESERVEDIR=/var/tmp/vi.recover",
