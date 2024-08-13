@@ -3,8 +3,8 @@ class Condure < Formula
 
   desc "HTTP/WebSocket connection manager"
   homepage "https://github.com/fanout/condure"
-  url "https://github.com/fanout/condure/archive/refs/tags/1.10.0.tar.gz"
-  sha256 "abe4d83ae2494a8eabd036f6f455fb4d8ebc71b29d8d50a0b35a7a59f8e0ea60"
+  url "https://github.com/fanout/condure/archive/refs/tags/1.10.1.tar.gz"
+  sha256 "eb2df8e1a80d9fe4f66c41d2e9fbcd1205d8239ccd9b6cd914de5567356b7c70"
   license "Apache-2.0"
 
   bottle do
@@ -45,10 +45,6 @@ class Condure < Formula
   end
 
   def install
-    # https://github.com/fanout/condure/issues/16
-    inreplace "Cargo.toml", 'time = { version = "0.3", features = ["formatting", "local-offset", "macros"] }',
-                            'time = { version = "0.3.36", features = ["formatting", "local-offset", "macros"] }'
-
     system "cargo", "install", *std_cargo_args
   end
 
