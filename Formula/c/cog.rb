@@ -1,8 +1,8 @@
 class Cog < Formula
   desc "Containers for machine learning"
   homepage "https://cog.run/"
-  url "https://github.com/replicate/cog/archive/refs/tags/v0.9.14.tar.gz"
-  sha256 "5982695dd1e6df3467935a446c72409faad7e686eb7314b0e34a2eab514d6ca2"
+  url "https://github.com/replicate/cog/archive/refs/tags/v0.9.16.tar.gz"
+  sha256 "d0efa2c5e5d8ce1989fc8c07d14f29d8294736a628ce60560e1229287215b73b"
   license "Apache-2.0"
   head "https://github.com/replicate/cog.git", branch: "main"
 
@@ -34,7 +34,9 @@ class Cog < Formula
   end
 
   test do
-    assert_match "Failed to ping docker", shell_output("#{bin}/cog build 2>&1", 1)
+    system bin/"cog", "init"
+    assert_match "Configuration for Cog", (testpath/"cog.yaml").read
+
     assert_match "cog version #{version}", shell_output("#{bin}/cog --version")
   end
 end
