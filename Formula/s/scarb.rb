@@ -30,6 +30,7 @@ class Scarb < Formula
       extensions/scarb-cairo-run
       extensions/scarb-cairo-test
       extensions/scarb-snforge-test-collector
+      extensions/scarb-doc
     ].each do |f|
       system "cargo", "install", *std_cargo_args(path: f)
     end
@@ -48,5 +49,6 @@ class Scarb < Formula
     assert_match version.to_s, shell_output("#{bin}/scarb cairo-run --version")
     assert_match version.to_s, shell_output("#{bin}/scarb cairo-test --version")
     assert_match version.to_s, shell_output("#{bin}/scarb snforge-test-collector --version")
+    assert_match version.to_s, shell_output("#{bin}/scarb doc --version")
   end
 end
