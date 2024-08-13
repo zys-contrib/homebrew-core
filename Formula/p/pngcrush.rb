@@ -1,8 +1,11 @@
 class Pngcrush < Formula
   desc "Optimizer for PNG files"
   homepage "https://pmt.sourceforge.io/pngcrush/"
-  url "https://downloads.sourceforge.net/project/pmt/pngcrush/1.8.13/pngcrush-1.8.13.tar.xz"
-  sha256 "8fc18bcbcc65146769241e20f9e21e443b0f4538d581250dce89b1e969a30705"
+  url "https://downloads.sourceforge.net/project/pmt/pngcrush/1.8.13/pngcrush-1.8.13-nolib.tar.xz"
+  sha256 "3b4eac8c5c69fe0894ad63534acedf6375b420f7038f7fc003346dd352618350"
+  # The license is similar to "Zlib" license with clauses phrased like
+  # the "Libpng" license section for libpng version 0.5 through 0.88.
+  license :cannot_represent
 
   livecheck do
     url :stable
@@ -26,11 +29,30 @@ class Pngcrush < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "113b32d47a907b6d52c02bcb079f0d08b066731db671076c54353888288b6142"
   end
 
+  depends_on "libpng"
+
+  uses_from_macos "zlib"
+
+  # Use Debian's patch to fix build with `libpng`.
+  # Issue ref: https://sourceforge.net/p/pmt/bugs/82/
+  patch do
+    url "https://sources.debian.org/data/main/p/pngcrush/1.8.13-1/debian/patches/ignore_PNG_IGNORE_ADLER32.patch"
+    sha256 "d1794d1ffef25a1c974caa219d7e33c0aa94f98c572170ec12285298d0216c29"
+  end
+
   def install
-    system "make", "CC=#{ENV.cc}",
-                   "LD=#{ENV.cc}",
-                   "CFLAGS=#{ENV.cflags}",
-                   "LDFLAGS=#{ENV.ldflags}"
+    zlib = OS.mac? ? "#{MacOS.sdk_path_if_needed}/usr" : Formula["zlib"].opt_prefix
+    args = %W[
+      CC=#{ENV.cc}
+      LD=#{ENV.cc}
+      CFLAGS=#{ENV.cflags}
+      LDFLAGS=#{ENV.ldflags}
+      PNGINC=#{Formula["libpng"].opt_include}
+      PNGLIB=#{Formula["libpng"].opt_lib}
+      ZINC=#{zlib}/include
+      ZLIB=#{zlib}/lib
+    ]
+    system "make", *args
     bin.install "pngcrush"
   end
 
