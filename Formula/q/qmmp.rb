@@ -11,11 +11,11 @@ class Qmmp < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "9f66cd4552a1e0ebf47f042bfa4aee8da347f8496491a5a74b174ac65c7f3637"
-    sha256 arm64_monterey: "9611fcdd44de2fd101761a5609bd5aeb99b16296c7aff5d4848a069293b83182"
-    sha256 ventura:        "84c4b219c07b6aa338e3d1d92c4d3b35e23579df2e3e1fbf049d5c63438290f7"
-    sha256 monterey:       "b560ee9657fe34e1adfb9d83928223a4aeb9378a659c2b775d32641c2de55d71"
-    sha256 x86_64_linux:   "87e0e32e3a5a2f4ad894bb373cc64e1a54ae140c350ce996215353ef2317dd38"
+    sha256 arm64_ventura:  "16c00f13d9ee36d3103e99ef545258d6daa51cdcf92ad5dd4cbe2133830787a7"
+    sha256 arm64_monterey: "cf810052bdf5fb66ded0deea4e5c521913940eb22f2082a712d06277eb8e7c36"
+    sha256 ventura:        "faedacd0fe2af8d0c44f40eb3f65006761cd889a445375a2f578a1571abf6f1c"
+    sha256 monterey:       "3e0735430c45f5b7e903750321b10edbc26df4b99afce4c586e33bcd3e0d1418"
+    sha256 x86_64_linux:   "089b8e427089d593674f03477d97f7e95db8b1b2efe2bcd581f30389d802d89a"
   end
 
   depends_on "cmake"      => :build
