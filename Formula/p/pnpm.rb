@@ -11,20 +11,19 @@ class Pnpm < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b36c35247f89846353fca4cc96e8b866c8592a99d15151695e5dd9a911e8aa21"
-    sha256 cellar: :any,                 arm64_ventura:  "b36c35247f89846353fca4cc96e8b866c8592a99d15151695e5dd9a911e8aa21"
-    sha256 cellar: :any,                 arm64_monterey: "b36c35247f89846353fca4cc96e8b866c8592a99d15151695e5dd9a911e8aa21"
-    sha256 cellar: :any,                 sonoma:         "f4767e04fdbe079bc2c7a79a004b5bff8b2d6eb09beb8f54a3beb37b22f42f02"
-    sha256 cellar: :any,                 ventura:        "f4767e04fdbe079bc2c7a79a004b5bff8b2d6eb09beb8f54a3beb37b22f42f02"
-    sha256 cellar: :any,                 monterey:       "f4767e04fdbe079bc2c7a79a004b5bff8b2d6eb09beb8f54a3beb37b22f42f02"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9df20acfe25e3fef0a7618f39b138506f0c94098216dee804525fba9becfc8f"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "02d90fa5cd08b7996958873ff8f231336486fdd2ec8adbc5d0e8a5c7bfe1432f"
+    sha256 cellar: :any,                 arm64_ventura:  "02d90fa5cd08b7996958873ff8f231336486fdd2ec8adbc5d0e8a5c7bfe1432f"
+    sha256 cellar: :any,                 arm64_monterey: "02d90fa5cd08b7996958873ff8f231336486fdd2ec8adbc5d0e8a5c7bfe1432f"
+    sha256 cellar: :any,                 sonoma:         "a984fbe43f35a573b0240b7fa92bae6a53862436bc42ad43ddd26da83f4d59ae"
+    sha256 cellar: :any,                 ventura:        "a984fbe43f35a573b0240b7fa92bae6a53862436bc42ad43ddd26da83f4d59ae"
+    sha256 cellar: :any,                 monterey:       "a984fbe43f35a573b0240b7fa92bae6a53862436bc42ad43ddd26da83f4d59ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "25ef72ffbdbf5a1a7f53ce523c6804ef8b40e5f3f22501964cf01d431bb3c440"
   end
 
   depends_on "node" => [:build, :test]
 
   conflicts_with "corepack", because: "both installs `pnpm` and `pnpx` binaries"
-
-  skip_clean "bin"
 
   def install
     system "npm", "install", *std_npm_args
