@@ -1,14 +1,10 @@
 class ChocolateDoom < Formula
   desc "Accurate source port of Doom"
   homepage "https://www.chocolate-doom.org/"
-  url "https://www.chocolate-doom.org/downloads/3.0.1/chocolate-doom-3.0.1.tar.gz"
-  sha256 "d435d6177423491d60be706da9f07d3ab4fabf3e077ec2a3fc216e394fcfc8c7"
-  license "GPL-2.0"
-
-  livecheck do
-    url "https://www.chocolate-doom.org/downloads/"
-    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
-  end
+  url "https://github.com/chocolate-doom/chocolate-doom/archive/refs/tags/chocolate-doom-3.1.0.tar.gz"
+  sha256 "f2c64843dcec312032b180c3b2f34b4cb26c4dcdaa7375a1601a3b1df11ef84d"
+  license "GPL-2.0-only"
+  head "https://github.com/chocolate-doom/chocolate-doom.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "6dac150b1bd767f58c260e3689d4446b257de60038a55cb72caf8e7c7caa7ef8"
@@ -25,14 +21,10 @@ class ChocolateDoom < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9a256c7ef6e9231057c9cf190bcd1fc8160d5d5b5b11e8efc3ebfef59c78d9d"
   end
 
-  head do
-    url "https://github.com/chocolate-doom/chocolate-doom.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "pkg-config" => :build
+  depends_on "fluid-synth"
   depends_on "libpng"
   depends_on "libsamplerate"
   depends_on "sdl2"
@@ -40,11 +32,10 @@ class ChocolateDoom < Formula
   depends_on "sdl2_net"
 
   def install
-    system "./autogen.sh" if build.head?
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--disable-sdltest"
+                          "--disable-silent-rules"
     system "make", "install", "execgamesdir=#{bin}"
     rm_r(share/"applications")
     rm_r(share/"icons")
@@ -62,6 +53,12 @@ class ChocolateDoom < Formula
   end
 
   test do
-    assert_match "Chocolate Doom #{version}", shell_output("#{bin}/chocolate-doom -nogui", 255)
+    testdata = <<~EOS
+      Invalid IWAD file
+    EOS
+    (testpath/"test_invalid.wad").write testdata
+
+    expected_output = "Wad file test_invalid.wad doesn't have IWAD or PWAD id"
+    assert_match expected_output, shell_output("#{bin}/chocolate-doom -nogui -iwad test_invalid.wad 2>&1", 255)
   end
 end
