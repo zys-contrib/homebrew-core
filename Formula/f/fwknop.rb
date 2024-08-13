@@ -1,8 +1,9 @@
 class Fwknop < Formula
   desc "Single Packet Authorization and Port Knocking"
   homepage "https://www.cipherdyne.org/fwknop/"
-  url "https://github.com/mrash/fwknop/archive/refs/tags/2.6.10.tar.gz"
-  sha256 "a7c465ba84261f32c6468c99d5512f1111e1bf4701477f75b024bf60b3e4d235"
+  url "https://www.cipherdyne.org/fwknop/download/fwknop-2.6.11.tar.gz"
+  mirror "https://github.com/mrash/fwknop/releases/download/2.6.11/fwknop-2.6.11.tar.gz"
+  sha256 "bcb4e0e2eb5fcece5083d506da8471f68e33fb6b17d9379c71427a95f9ca1ec8"
   license "GPL-2.0-or-later"
   head "https://github.com/mrash/fwknop.git", branch: "master"
 
@@ -17,11 +18,6 @@ class Fwknop < Formula
     sha256 x86_64_linux:   "6041c174c567035e621ee9508aa89bd6af671cdfaf7bc99d88eccc473f69f9de"
   end
 
-  disable! date: "2023-10-17", because: :unmaintained
-
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "gpgme"
 
   on_system :linux, macos: :ventura_or_newer do
@@ -33,29 +29,19 @@ class Fwknop < Formula
   end
 
   def install
-    # Work around failure from GCC 10+ using default of `-fno-common`
-    # fwknop-config_init.o:(.bss+0x4): multiple definition of `log_level_t'
-    # Issue ref: https://github.com/mrash/fwknop/issues/305
-    ENV.append_to_cflags "-fcommon" if OS.linux?
-
-    # Fix failure with texinfo while building documentation.
-    inreplace "doc/libfko.texi", "@setcontentsaftertitlepage", ""
-
-    system "./autogen.sh"
-    args = *std_configure_args + %W[
+    args = %W[
       --disable-silent-rules
       --sysconfdir=#{etc}
       --with-gpgme
       --with-gpg=#{Formula["gnupg"].opt_bin}/gpg
     ]
     args << "--with-iptables=#{Formula["iptables"].opt_prefix}" unless OS.mac?
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
     system "make", "install"
   end
 
   test do
-    touch testpath/".fwknoprc"
-    chmod 0600, testpath/".fwknoprc"
-    system bin/"fwknop", "--version"
+    assert_match version.to_s, shell_output("#{bin}/fwknop --version")
+    assert_match(/KEY_BASE64:\s*.+/, shell_output("#{bin}/fwknop --key-gen"))
   end
 end
