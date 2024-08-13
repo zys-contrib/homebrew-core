@@ -4,7 +4,7 @@ class Fail2ban < Formula
   url "https://github.com/fail2ban/fail2ban/archive/refs/tags/1.1.0.tar.gz"
   sha256 "474fcc25afdaf929c74329d1e4d24420caabeea1ef2e041a267ce19269570bae"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/fail2ban/fail2ban.git", branch: "master"
 
   livecheck do
@@ -31,9 +31,12 @@ class Fail2ban < Formula
     sha256 "631ca7e59e21d4a9bbe6adf02d0b1ecc0fa33688d145eb5e736d961e0e55e4cd"
   end
 
-  def install
-    python3 = "python3.12"
+  def python3
+    deps.map(&:to_formula)
+        .find { |f| f.name.start_with?("python@") }
+  end
 
+  def install
     Pathname.glob("config/paths-*.conf").reject do |pn|
       pn.fnmatch?("config/paths-common.conf") || pn.fnmatch?("config/paths-osx.conf")
     end.map(&:unlink)
@@ -56,7 +59,9 @@ class Fail2ban < Formula
       s.gsub! "platform_system in ('linux',", "platform_system in ('linux', 'darwin',"
     end
 
-    system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
+    system python3.opt_libexec/"bin/python", "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
+    # Fix symlink broken by python upgrades
+    ln_sf python3.opt_libexec/"bin/python", bin/"fail2ban-python"
     etc.install (prefix/"etc").children
 
     # Install docs
