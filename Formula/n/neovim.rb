@@ -8,6 +8,9 @@ class Neovim < Formula
     sha256 "edce96e79903adfcb3c41e9a8238511946325ea9568fde177a70a614501af689"
 
     # TDOD: Remove when the following commit lands in a release.
+    # https://github.com/neovim/neovim/commit/fa79a8ad6deefeea81c1959d69aa4c8b2d993f99
+    depends_on "libvterm"
+    # TDOD: Remove when the following commit lands in a release.
     # https://github.com/neovim/neovim/commit/1247684ae14e83c5b742be390de8dee00fd4e241
     depends_on "msgpack"
 
@@ -70,7 +73,6 @@ class Neovim < Formula
   depends_on "cmake" => :build
   depends_on "gettext"
   depends_on "libuv"
-  depends_on "libvterm"
   depends_on "lpeg"
   depends_on "luajit"
   depends_on "luv"
