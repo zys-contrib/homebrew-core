@@ -1,8 +1,8 @@
 class LastpassCli < Formula
   desc "LastPass command-line interface tool"
   homepage "https://github.com/lastpass/lastpass-cli"
-  url "https://github.com/lastpass/lastpass-cli/releases/download/v1.5.0/lastpass-cli-1.5.0.tar.gz"
-  sha256 "542dc3d7ff175866c0eddfcc6f2dffdb54acf6854dd1fadaf4d509dcde2d4bf3"
+  url "https://github.com/lastpass/lastpass-cli/releases/download/v1.6.0/lastpass-cli-1.6.0.tar.gz"
+  sha256 "9d52616fc1065eb7122cd9b43a31c4155eed22c3ef9d2806dbb3cb49e9d38859"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
   head "https://github.com/lastpass/lastpass-cli.git", branch: "master"
 
