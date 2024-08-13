@@ -3,10 +3,9 @@ class LinodeCli < Formula
 
   desc "CLI for the Linode API"
   homepage "https://github.com/linode/linode-cli"
-  url "https://files.pythonhosted.org/packages/6d/ca/358b725ddcf59706bb8b83fb794d8f72d598561f423944564c9b827ae198/linode_cli-5.50.0.tar.gz"
-  sha256 "3829ceec17f6b439c2e20ee4612d1616557da65012db919bcd13ba9a90d86319"
+  url "https://files.pythonhosted.org/packages/e9/09/6fb0d3ccafcd3f784a9f8cb0dab43ff284dd761b1a6f7609dfcb2213f713/linode_cli-5.51.0.tar.gz"
+  sha256 "4051fa092b7d8ebb078094e7985341150e2bf135d93648acd4f4e4e2873669f9"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/linode/linode-cli.git", branch: "main"
 
   bottle do
@@ -84,8 +83,8 @@ class LinodeCli < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
-    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
   resource "requests" do
