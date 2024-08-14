@@ -3,8 +3,8 @@ class Aider < Formula
 
   desc "AI pair programming in your terminal"
   homepage "https://aider.chat/"
-  url "https://github.com/paul-gauthier/aider/archive/refs/tags/v0.49.1.tar.gz"
-  sha256 "e75d417ae893da0e6d5ec10240a72a214e47b16bb502ee7d2645bd0a30b0053a"
+  url "https://files.pythonhosted.org/packages/95/00/65d8e8c9bc7f4989ef77ccdb4b01f242ffb54604576de523b40427f07c71/aider_chat-0.50.1.tar.gz"
+  sha256 "f6c107863edd1b3316ae054784cb439cda2ac4a176c7a18e7976a614543d6ae0"
   license "Apache-2.0"
   head "https://github.com/paul-gauthier/aider.git", branch: "main"
 
@@ -35,8 +35,8 @@ class Aider < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/45/11/36ba898823ab19e49e6bd791d75b9185eadef45a46fc00d3c669824df8a0/aiohttp-3.10.2.tar.gz"
-    sha256 "4d1f694b5d6e459352e5e925a42e05bac66655bfde44d81c59992463d2897014"
+    url "https://files.pythonhosted.org/packages/15/9c/ed427fcc46423c965a8e33673d7111b6e3b3aa7d61ca52163a720ff200cb/aiohttp-3.10.3.tar.gz"
+    sha256 "21650e7032cc2d31fc23d353d7123e771354f2a3d5b05a5647fc30fea214e696"
   end
 
   resource "aiosignal" do
@@ -190,8 +190,8 @@ class Aider < Formula
   end
 
   resource "litellm" do
-    url "https://files.pythonhosted.org/packages/1e/67/59e6e23ee629fc0b97bbcb269fe0a520ffe96909923e1bfff40e2f9b8b08/litellm-1.43.4.tar.gz"
-    sha256 "949c51ad494b935d80da1cd18c3567e4ed181f8eb531ef4706e3be72afb0c43c"
+    url "https://files.pythonhosted.org/packages/99/cc/10e292e40506ee62007f69aabd3112243ac7dda7e2b0569a60de735e2796/litellm-1.43.9.tar.gz"
+    sha256 "c397a14c9b851f007f09c99e5a28606f7f122fdb4ae954931220f60e9edc6918"
   end
 
   resource "markdown-it-py" do
@@ -225,8 +225,8 @@ class Aider < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/00/35/560805fd5af879bae9add36ac0f459e09bd7c662f85dc5654f78ff330efb/openai-1.40.2.tar.gz"
-    sha256 "2180e9070bd36084328248b3ce668964e8ddd2e9019e1d426e31dc54cc117bb5"
+    url "https://files.pythonhosted.org/packages/bf/a0/a2d136a93da61f3d0e25dc71fb2a3bd20af0f4b2c3cde9d03a294f06efe9/openai-1.40.6.tar.gz"
+    sha256 "2239232bcb7f4bd4ce8e02544b5769618582411cf399816d96686d1b6c1e5c8d"
   end
 
   resource "packaging" do
@@ -272,6 +272,17 @@ class Aider < Formula
   resource "pygments" do
     url "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz"
     sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
+  end
+
+  resource "pypager" do
+    url "https://files.pythonhosted.org/packages/a2/94/fb3cf81608d8a5aaf5bbac7e8f331e1ccc4501d7351957b72f0a8eb0d9f5/pypager-3.0.1.tar.gz"
+    sha256 "79c1fc8c4f2c9749dd58e5b29bfce48ca864a24898d1a1e0df1e7fe82d86ab44"
+
+    # Fix failure under build isolation: https://github.com/prompt-toolkit/pypager/pull/31
+    patch do
+      url "https://github.com/prompt-toolkit/pypager/commit/13e8c26d978a42154083cc2d846fa7f719a6d1fc.patch?full_index=1"
+      sha256 "ff9a7c85c2fa837d062ef96650ccc01cae8330f3ff0ba90a5487e92f6052aceb"
+    end
   end
 
   resource "pypandoc" do
@@ -330,8 +341,8 @@ class Aider < Formula
   end
 
   resource "sounddevice" do
-    url "https://files.pythonhosted.org/packages/0d/88/5832219fa90595932d5f6d1b5125bfd8a55e95b19ad866e265c9bbb7cde4/sounddevice-0.4.7.tar.gz"
-    sha256 "69b386818d50a2d518607d4b973442e8d524760c7cd6c8b8be03d8c98fc4bce7"
+    url "https://files.pythonhosted.org/packages/87/92/62d87d7b53a4e1041f0d9e049e225fce3c7bc266c0162c023feb245b999d/sounddevice-0.5.0.tar.gz"
+    sha256 "0de95277654b3d403d9c15ded3c6cedf307e9b27cc9ce7bd995a2891d0c955af"
   end
 
   resource "soundfile" do
@@ -391,8 +402,8 @@ class Aider < Formula
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/d3/20/b48f58857d98dcb78f9e30ed2cfe533025e2e9827bbd36ea0a64cc00cbc1/zipp-3.19.2.tar.gz"
-    sha256 "bf1dcf6450f873a13e952a29504887c89e6de7506209e5b1bcc3460135d4de19"
+    url "https://files.pythonhosted.org/packages/0e/af/9f2de5bd32549a1b705af7a7c054af3878816a1267cb389c03cc4f342a51/zipp-3.20.0.tar.gz"
+    sha256 "0145e43d89664cfe1a2e533adc75adafed82fe2da404b4bbb6b026c0157bdb31"
   end
 
   def install
