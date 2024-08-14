@@ -3,8 +3,8 @@ class Kaskade < Formula
 
   desc "TUI for Kafka"
   homepage "https://github.com/sauljabin/kaskade"
-  url "https://files.pythonhosted.org/packages/8f/ed/33677f4c2199fd6dfa7206304de37b971342345a4713a96717629ed05760/kaskade-2.3.4.tar.gz"
-  sha256 "f2df4a3f5f6e82adb1f708a1ad0dac4b080a23b36458b1bc972b637f6d88f611"
+  url "https://files.pythonhosted.org/packages/67/3f/d02b5505f16ec84280da9ced23529a16ea6a1565add37810b9f686adcd6b/kaskade-2.3.5.tar.gz"
+  sha256 "be003a94fb5988db8fd77604b7625ec7a2d686eb94e92c7d40f20fc2b25f3275"
   license "MIT"
 
   bottle do
