@@ -7,13 +7,13 @@ class Basedpyright < Formula
   head "https://github.com/detachhead/basedpyright.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a66c0bd2bfcba23a6bd5282d842d46b59c4c22649f5375d20190c5bc705528e2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a66c0bd2bfcba23a6bd5282d842d46b59c4c22649f5375d20190c5bc705528e2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a66c0bd2bfcba23a6bd5282d842d46b59c4c22649f5375d20190c5bc705528e2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a543f717f6d1b525e61a6bd6e6d2a635be5ca30120c4c83fa23804d65358376b"
-    sha256 cellar: :any_skip_relocation, ventura:        "a543f717f6d1b525e61a6bd6e6d2a635be5ca30120c4c83fa23804d65358376b"
-    sha256 cellar: :any_skip_relocation, monterey:       "a543f717f6d1b525e61a6bd6e6d2a635be5ca30120c4c83fa23804d65358376b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a66c0bd2bfcba23a6bd5282d842d46b59c4c22649f5375d20190c5bc705528e2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ca98db196e51c2f3dc9395a7fef9f759909a93588262a05f7c99842d2b959789"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ca98db196e51c2f3dc9395a7fef9f759909a93588262a05f7c99842d2b959789"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ca98db196e51c2f3dc9395a7fef9f759909a93588262a05f7c99842d2b959789"
+    sha256 cellar: :any_skip_relocation, sonoma:         "459345fb829ded647d8179d6ddcfbb1797e64b8d01bc6b90c27281151a323baa"
+    sha256 cellar: :any_skip_relocation, ventura:        "459345fb829ded647d8179d6ddcfbb1797e64b8d01bc6b90c27281151a323baa"
+    sha256 cellar: :any_skip_relocation, monterey:       "459345fb829ded647d8179d6ddcfbb1797e64b8d01bc6b90c27281151a323baa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca98db196e51c2f3dc9395a7fef9f759909a93588262a05f7c99842d2b959789"
   end
 
   depends_on "node"
