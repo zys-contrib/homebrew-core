@@ -1,8 +1,8 @@
 class MariadbAT111 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://archive.mariadb.org/mariadb-11.1.5/source/mariadb-11.1.5.tar.gz"
-  sha256 "eccdcdf487b4c99844573a2dbe691f905f485450925545119949e58bdacaee68"
+  url "https://archive.mariadb.org/mariadb-11.1.6/source/mariadb-11.1.6.tar.gz"
+  sha256 "57845d2e67664bed7257ea49bb448b9956a7a6a35bef3f4808c08db2ee2e62a0"
   license "GPL-2.0-only"
 
   livecheck do
@@ -36,9 +36,12 @@ class MariadbAT111 < Formula
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "fmt" => :build
+  depends_on "openjdk" => :build
   depends_on "pkg-config" => :build
+
   depends_on "groonga"
   depends_on "lz4"
+  depends_on "lzo"
   depends_on "openssl@3"
   depends_on "pcre2"
   depends_on "xz"
@@ -108,10 +111,6 @@ class MariadbAT111 < Formula
     inreplace "#{etc}/my.cnf", "!includedir /etc/my.cnf.d",
                                "!includedir #{etc}/my.cnf.d"
     touch etc/"my.cnf.d/.homebrew_dont_prune_me"
-
-    # Don't create databases inside of the prefix!
-    # See: https://github.com/Homebrew/homebrew/issues/4975
-    rm_r(prefix/"data")
 
     # Save space
     rm_r(prefix/"mariadb-test")
