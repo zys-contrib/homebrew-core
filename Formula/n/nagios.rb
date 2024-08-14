@@ -1,8 +1,8 @@
 class Nagios < Formula
   desc "Network monitoring and management system"
   homepage "https://www.nagios.org/"
-  url "https://downloads.sourceforge.net/project/nagios/nagios-4.x/nagios-4.5.3/nagios-4.5.3.tar.gz"
-  sha256 "5ad0f9eadcd504d4da41d81c01d1be22e9dc183e851fc74c9083de8359f9a5f4"
+  url "https://downloads.sourceforge.net/project/nagios/nagios-4.x/nagios-4.5.4/nagios-4.5.4.tar.gz"
+  sha256 "eca13c692d1371cd07328ac3431613f7b09886adff9c37833a37377a5e35f2bf"
   license "GPL-2.0-only"
 
   livecheck do
@@ -22,10 +22,13 @@ class Nagios < Formula
 
   depends_on "gd"
   depends_on "libpng"
-  depends_on "nagios-plugins"
   depends_on "openssl@3"
 
   uses_from_macos "unzip"
+
+  on_macos do
+    depends_on "jpeg-turbo"
+  end
 
   def nagios_sbin
     prefix/"cgi-bin"
