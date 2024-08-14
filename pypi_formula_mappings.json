@@ -841,9 +841,6 @@
     "exclude_packages": ["certifi"],
     "extra_packages": ["requests"]
   },
-  "volatility": {
-    "extra_packages": ["capstone", "pycryptodome", "yara-python", "jsonschema"]
-  },
   "vunnel": {
     "exclude_packages": ["certifi"]
   },
