@@ -1,8 +1,8 @@
 class Flowpipe < Formula
   desc "Cloud scripting engine"
   homepage "https://flowpipe.io"
-  url "https://github.com/turbot/flowpipe/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "9e11f3d5d3ba91e5d9bd4fb7b0f25920700f6770949b513537297707c4cb7571"
+  url "https://github.com/turbot/flowpipe/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "fcfe835c5d63a458e59c16d268bc363b22ba48bd3d880a2b141d051021ddd0b2"
   license "AGPL-3.0-only"
 
   bottle do
@@ -15,9 +15,9 @@ class Flowpipe < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "81acb96880888565bda2145cd0e9c44d8b49a876ff69fe76886646dcff1e826a"
   end
 
+  depends_on "corepack" => :build
   depends_on "go" => :build
   depends_on "node" => :build
-  depends_on "yarn" => :build
 
   def install
     cd "ui/form" do
@@ -38,7 +38,8 @@ class Flowpipe < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/flowpipe -v")
 
-    output = shell_output(bin/"flowpipe mod list 2>&1")
+    ret_status = OS.mac? ? 1 : 0
+    output = shell_output(bin/"flowpipe mod list 2>&1", ret_status)
     if OS.mac?
       assert_match "Error: could not create sample workspace", output
     else
