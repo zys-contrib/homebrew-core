@@ -1,8 +1,8 @@
 class Clusterctl < Formula
   desc "Home for the Cluster Management API work, a subproject of sig-cluster-lifecycle"
   homepage "https://cluster-api.sigs.k8s.io"
-  url "https://github.com/kubernetes-sigs/cluster-api/archive/refs/tags/v1.8.0.tar.gz"
-  sha256 "b847b043c6273911fd2b7adc97558c4292c720ebb20798eebe0cb21ae46b05e1"
+  url "https://github.com/kubernetes-sigs/cluster-api/archive/refs/tags/v1.8.1.tar.gz"
+  sha256 "c2fe9d352b8076b752c09d6433743fe18b7f3e2e05ca7741d793c955d6e6d55b"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/cluster-api.git", branch: "main"
 
@@ -43,7 +43,7 @@ class Clusterctl < Formula
 
   test do
     output = shell_output("KUBECONFIG=/homebrew.config  #{bin}/clusterctl init --infrastructure docker 2>&1", 1)
-    assert_match "Error: unable to load in-cluster configuration, KUBERNETES_SERVICE_HOST and " \
-                 "KUBERNETES_SERVICE_PORT must be defined", output
+    assert_match "clusterctl requires either a valid kubeconfig or in cluster config to connect to " \
+                 "the management cluster", output
   end
 end
