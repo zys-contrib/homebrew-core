@@ -1742,6 +1742,7 @@ musikcube
 mutt
 mvnvm
 mvt
+mvtools
 mx
 mycli
 mycorrhiza
