@@ -7,6 +7,16 @@ class Graphviz2drawio < Formula
   sha256 "0bc8c1fec4b8e22e96f6991f44eba95250242aa9c748057d6f5d114bd90f3809"
   license "GPL-3.0-or-later"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "7b427939751ed185abbd830b55e4d8ca5970ef464f562c0b24c0a18d6f33a51c"
+    sha256 cellar: :any,                 arm64_ventura:  "82db0e8378929fe4177f7895fa3f6c3db0319feea96015102857513979c9d8f5"
+    sha256 cellar: :any,                 arm64_monterey: "d70bbdf4ad012ac79e501e3d86ec1de65b65f511ea34e677eed6ec1313d395a7"
+    sha256 cellar: :any,                 sonoma:         "5fdf13822d27b650434bb63fdd6381c903380f98bc29f7c50ae6ce86a584d84a"
+    sha256 cellar: :any,                 ventura:        "9ed03a41a1dfa5e89a51e14b8b156c9bc499a1ea7697660e22ba589322683c64"
+    sha256 cellar: :any,                 monterey:       "196a599faf228008d2bb652f1c1a7ecb5533b0fee8574938858d2dc3cdb1ca24"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0bb6c647854bd92fd180328021e8534da1c0e555a35f555c4da3c018e45519c9"
+  end
+
   depends_on "graphviz"
   depends_on "python@3.12"
 
