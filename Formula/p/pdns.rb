@@ -4,6 +4,7 @@ class Pdns < Formula
   url "https://downloads.powerdns.com/releases/pdns-4.9.1.tar.bz2"
   sha256 "30d9671b8f084774dbcba20f5a53a3134d0822ab2edc3ef968da030e630dd09a"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www.powerdns.com/downloads"
@@ -38,6 +39,13 @@ class Pdns < Formula
   uses_from_macos "curl"
 
   fails_with gcc: "5" # for C++17
+
+  # Fix build with boost 1.86.0. Remove if PR is merged and in a release.
+  # PR ref: https://github.com/PowerDNS/pdns/pull/14562
+  patch do
+    url "https://github.com/PowerDNS/pdns/commit/eed56000b1d68ac083b8e8bea4ff0ea30a1579c4.patch?full_index=1"
+    sha256 "c21a8677c048f3ce023f2e09c5204602031a78c441904567a4da2b7870dc29ad"
+  end
 
   def install
     args = %W[
