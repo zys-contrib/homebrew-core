@@ -2654,6 +2654,7 @@ uftrace
 ugit
 ugrep
 unar
+unbound
 uncover
 ungit
 uni
