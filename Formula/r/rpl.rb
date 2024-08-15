@@ -3,8 +3,8 @@ class Rpl < Formula
 
   desc "Text replacement utility"
   homepage "https://github.com/rrthomas/rpl"
-  url "https://files.pythonhosted.org/packages/9f/1d/3ee12488a69bfc3857636e262247f4b1d28eb149431e27fff5b0af0266d4/rpl-1.15.6.tar.gz"
-  sha256 "e2f52715fc623efca0f60b708901379c76419ea06d055c21337290ce48f3c3f2"
+  url "https://files.pythonhosted.org/packages/40/ad/840b679493c49e0c4368662e2ddd6296f9bac41e8ee992e0d43d144b4f35/rpl-1.15.7.tar.gz"
+  sha256 "5eadc62dad539d2e27a1b3c71c2905504a3dbe02380c6c98dbf8505ad9303510"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -30,8 +30,8 @@ class Rpl < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/b5/39/31626e7e75b187fae7f121af3c538a991e725c744ac893cc2cfd70ce2853/regex-2023.12.25.tar.gz"
-    sha256 "29171aa128da69afdf4bde412d5bedc335f2ca8fcfe4489038577d05f16181e5"
+    url "https://files.pythonhosted.org/packages/3f/51/64256d0dc72816a4fe3779449627c69ec8fee5a5625fd60ba048f53b3478/regex-2024.7.24.tar.gz"
+    sha256 "9cfd009eed1a46b27c14039ad5bbc5e71b6367c5b2e6d5f5da0ea91600817506"
   end
 
   def install
