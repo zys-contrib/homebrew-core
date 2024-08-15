@@ -5,6 +5,7 @@ class Groff < Formula
   mirror "https://ftpmirror.gnu.org/groff/groff-1.23.0.tar.gz"
   sha256 "6b9757f592b7518b4902eb6af7e54570bdccba37a871fddb2d30ae3863511c13"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_sonoma:   "ce07a3e98fa6cfff23826e993d638c12f833b9fb5fc9c2a3593364b0be162031"
@@ -36,7 +37,13 @@ class Groff < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--without-x", "--with-uchardet"
+    # Local config needs to survive upgrades
+    inreplace "Makefile.in" do |s|
+      s.change_make_var! "localfontdir", "@sysconfdir@/groff/site-font"
+      s.change_make_var! "localtmacdir", "@sysconfdir@/groff/site-tmac"
+    end
+    system "./configure", "--sysconfdir=#{etc}", "--without-x",
+           "--with-uchardet", *std_configure_args
     system "make" # Separate steps required
     system "make", "install"
   end
