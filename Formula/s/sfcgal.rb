@@ -4,6 +4,7 @@ class Sfcgal < Formula
   url "https://gitlab.com/sfcgal/SFCGAL/-/archive/v1.5.2/SFCGAL-v1.5.2.tar.gz"
   sha256 "b946b3c20d53f6e2703046085f0fcfea6c1a4081163f7bedd30b1195801efdd2"
   license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "c908273d1811257870249120736e96ebf2d93bea5f1a89aa5d8933b472bb450d"
