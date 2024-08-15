@@ -7,13 +7,13 @@ class Polyml < Formula
   head "https://github.com/polyml/polyml.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "100f3fb2f2b4afd32f89f55b319742e80513df3b7b46e1824f8cfb5ad458f4c7"
-    sha256 arm64_big_sur:  "74ffeccfd43af75e74239336480a4bd9d93ded28e874738b2417bd7c421cdb7d"
-    sha256 ventura:        "009fe3cfe15337431d50b97c752aff0336f141e47cf055551901f749edf9a6fd"
-    sha256 monterey:       "6cf8429f83e6664dd0c38937b7cba90cc7135a19c5fcdb1a87405edb582aeb4c"
-    sha256 big_sur:        "076f53e47fd75365984bcdf860eb21101683f86789651c41266e855a333a0192"
-    sha256 catalina:       "36c5f2c6052f27e89cdaeec09d1e7e38603894e3d3a13aa0bddec6ef287085c3"
-    sha256 x86_64_linux:   "5ad3750111376bc7bb887cd30ecbb8ae368cf1e06176c8b4293e6a976d6f4590"
+    sha256 arm64_sonoma:   "8da7733920403e84fc73e04e2ba73e163630f063daf01d325f777c21ef2faf4c"
+    sha256 arm64_ventura:  "e747d6bb96b8aaa374e27d1bb85cfa599f136ab1cfeecbdfffecc01e9dd0326f"
+    sha256 arm64_monterey: "92714106cbec11b63c34e38e358e9df4702ba7db81142fc8b6ba80d6e8f36c64"
+    sha256 sonoma:         "09a1a0630dadbaca774010a8bf8a017025aeea595f3bf2f1cafbe4a9bdc55431"
+    sha256 ventura:        "08a8aea9356cf8fbc35a863668dd554ba4f7196176969f9a95e8217279747e7b"
+    sha256 monterey:       "9a8ef34cc09cbbd5871f0de8167a63aa80e7ac476f3169e6c2726b28ef5b9db2"
+    sha256 x86_64_linux:   "2c629afd3ff1ad92cdbc78d7b3f638747e4851f8011e1393498aada95c3f452b"
   end
 
   # Fix -flat_namespace being used on Big Sur and later.
