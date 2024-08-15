@@ -11,11 +11,11 @@ class X8664LinuxGnuBinutils < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:  "fa80a2ab5e34288aff6b158346fba3f6cf4f69fa5b1216b88d316d015c35ebf1"
-    sha256 arm64_ventura: "9a6b3c44d4508df299347cbe271ffa51ca4282d207ad9401ef8efa51fc394b55"
-    sha256 sonoma:        "e4537973ade8a0ecbca8f635c21a990644db79476eb5a63e0d8ecbc838e62356"
-    sha256 ventura:       "b9f47ddfa3606e0cebb4d22278595b739dac8e815494197e998d1934de5c18ed"
-    sha256 x86_64_linux:  "0149367619cc17ea2da3f7a58ee7d180b6798579c49e9769fd5921d277a1f7c5"
+    sha256 arm64_sonoma:  "11bc1793777f244aeb4680ec279759e7b3f50692dde03ce5c1cb4eb6f68dbb1c"
+    sha256 arm64_ventura: "af2e366366b38c9655317cea598c4310210ecd0bc30e821151954abd3be214cf"
+    sha256 sonoma:        "5d3c2fe99b679c66a6b915bedb4188d3e42d9f8b245deec41d848683d924e9ea"
+    sha256 ventura:       "f955128a265368c9bfd3000412193768acff4176444f4042c98507a2d1c4d813"
+    sha256 x86_64_linux:  "d02f2956eb619b9dc0958d8cd443178f2787d2f5e802ff4a1b9f7590ebe821b6"
   end
 
   depends_on "pkg-config" => :build
