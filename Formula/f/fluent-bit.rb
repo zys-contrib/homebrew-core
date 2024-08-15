@@ -1,8 +1,8 @@
 class FluentBit < Formula
   desc "Fast and Lightweight Logs and Metrics processor"
   homepage "https://github.com/fluent/fluent-bit"
-  url "https://github.com/fluent/fluent-bit/archive/refs/tags/v3.0.7.tar.gz"
-  sha256 "9c9b94bcdcf1cd0a899b24e1d3e18c6269227512661631814c2ac820683e2ec8"
+  url "https://github.com/fluent/fluent-bit/archive/refs/tags/v3.1.6.tar.gz"
+  sha256 "717312873d647fd2848f1834edefb8c6767b6e0eb7ae5b9cc11117d81196d4b1"
   license "Apache-2.0"
   head "https://github.com/fluent/fluent-bit.git", branch: "master"
 
@@ -27,12 +27,9 @@ class FluentBit < Formula
   depends_on "pkg-config" => :build
 
   depends_on "libyaml"
+  depends_on "luajit"
   depends_on "openssl@3"
   uses_from_macos "zlib"
-
-  # Avoid conflicts with our `luajit` formula.
-  # We don't need to set LDFLAGS because LuaJIT is statically linked.
-  patch :DATA
 
   def install
     # Prevent fluent-bit to install files into global init system
@@ -40,12 +37,11 @@ class FluentBit < Formula
     inreplace "src/CMakeLists.txt", "if(NOT SYSTEMD_UNITDIR AND IS_DIRECTORY /lib/systemd/system)", "if(False)"
     inreplace "src/CMakeLists.txt", "elseif(IS_DIRECTORY /usr/share/upstart)", "elif(False)"
 
-    # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
-    # is not set then it's forced to 10.4, which breaks compile on Mojave.
-    # fluent-bit builds against a vendored Luajit.
-    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s if OS.mac?
+    args = std_cmake_args + %w[
+      -DFLB_PREFER_SYSTEM_LIB_LUAJIT=ON
+    ]
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -55,25 +51,3 @@ class FluentBit < Formula
     assert_match "Fluent Bit v#{version}", output
   end
 end
-
-__END__
---- a/lib/luajit-cmake/LuaJIT.cmake
-+++ b/lib/luajit-cmake/LuaJIT.cmake
-@@ -569,13 +569,13 @@ set(luajit_headers
-   ${LJ_DIR}/luaconf.h
-   ${LJ_DIR}/luajit.h
-   ${LJ_DIR}/lualib.h)
--install(FILES ${luajit_headers} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/luajit)
-+install(FILES ${luajit_headers} DESTINATION ${CMAKE_INSTALL_LIBEXECDIR}/include/luajit)
- install(TARGETS libluajit
--    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
--    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
-+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBEXECDIR}/lib
-+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBEXECDIR}/lib)
-
- # Build the luajit binary
--if (LUAJIT_BUILD_EXE)
-+if (FALSE)
-   add_executable(luajit ${LJ_DIR}/luajit.c)
-   target_link_libraries(luajit libluajit)
-   if(APPLE AND ${CMAKE_C_COMPILER_ID} STREQUAL "zig")
