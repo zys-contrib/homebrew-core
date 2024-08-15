@@ -4,7 +4,7 @@ class Osm2pgsql < Formula
   url "https://github.com/openstreetmap/osm2pgsql/archive/refs/tags/1.11.0.tar.gz"
   sha256 "6b46313813b816f15ce906c04cd4108bbb05362740e0a1a8889055f4e25977d2"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
   head "https://github.com/openstreetmap/osm2pgsql.git", branch: "master"
 
   bottle do
