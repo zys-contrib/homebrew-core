@@ -2,9 +2,11 @@ class OsrmBackend < Formula
   desc "High performance routing engine"
   homepage "https://project-osrm.org/"
   license "BSD-2-Clause"
-  revision 5
+  revision 6
   head "https://github.com/Project-OSRM/osrm-backend.git", branch: "master"
 
+  # TODO: Remove `conflicts_with "mapnik"` in release that has following commit:
+  # https://github.com/Project-OSRM/osrm-backend/commit/c1ed73126dd467171dc7adb4ad07864909bcb90f
   stable do
     url "https://github.com/Project-OSRM/osrm-backend/archive/refs/tags/v5.27.1.tar.gz"
     sha256 "52391580e0f92663dd7b21cbcc7b9064d6704470e2601bf3ec5c5170b471629a"
@@ -46,6 +48,7 @@ class OsrmBackend < Formula
   uses_from_macos "zlib"
 
   conflicts_with "flatbuffers", because: "both install flatbuffers headers"
+  conflicts_with "mapnik", because: "both install Mapbox Variant headers"
 
   def install
     # Work around build failure: duplicate symbol 'boost::phoenix::placeholders::uarg9'
