@@ -6,7 +6,7 @@ class Wownero < Formula
       tag:      "v0.11.1.0",
       revision: "1b8475003c065b0387f21323dad8a03b131ae7d1"
   license "BSD-3-Clause"
-  revision 4
+  revision 5
 
   # The `strategy` code below can be removed if/when this software exceeds
   # version 10.0.0. Until then, it's used to omit a malformed tag that would
@@ -37,7 +37,7 @@ class Wownero < Formula
   depends_on "cmake" => :build
   depends_on "miniupnpc" => :build
   depends_on "pkg-config" => :build
-  depends_on "boost"
+  depends_on "boost@1.85"
   depends_on "hidapi"
   depends_on "libsodium"
   depends_on "libusb"
