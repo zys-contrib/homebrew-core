@@ -1,8 +1,8 @@
 class BoostPython3 < Formula
   desc "C++ library for C++/Python3 interoperability"
   homepage "https://www.boost.org/"
-  url "https://github.com/boostorg/boost/releases/download/boost-1.85.0/boost-1.85.0-b2-nodocs.tar.xz"
-  sha256 "09f0628bded81d20b0145b30925d7d7492fd99583671586525d5d66d4c28266a"
+  url "https://github.com/boostorg/boost/releases/download/boost-1.86.0/boost-1.86.0-b2-nodocs.tar.xz"
+  sha256 "a4d99d032ab74c9c5e76eddcecc4489134282245fffa7e079c5804b92b45f51d"
   license "BSL-1.0"
   head "https://github.com/boostorg/boost.git", branch: "master"
 
@@ -23,6 +23,18 @@ class BoostPython3 < Formula
   depends_on "numpy" => :build
   depends_on "boost"
   depends_on "python@3.12"
+
+  # Backport support for numpy>=2
+  patch do
+    url "https://github.com/boostorg/python/commit/0474de0f6cc9c6e7230aeb7164af2f7e4ccf74bf.patch?full_index=1"
+    sha256 "ac4f3e7bd4609c464a493cfe6a0e416bcd14fdadfc5c9f59a4c7d14e19aea80b"
+    directory "libs/python"
+  end
+  patch do
+    url "https://github.com/boostorg/python/commit/99a5352b5cf790c559a7b976c1ba99520431d9d1.patch?full_index=1"
+    sha256 "6a15028cb172ebbf3480d3f00d7d5f6cf03d2d3f7f8baf20b9f4250b43da16aa"
+    directory "libs/python"
+  end
 
   def python3
     "python3.12"
@@ -82,7 +94,6 @@ class BoostPython3 < Formula
     lib.install buildpath.glob("install-python3/lib/*.*")
     (lib/"cmake").install buildpath.glob("install-python3/lib/cmake/boost_python*")
     (lib/"cmake").install buildpath.glob("install-python3/lib/cmake/boost_numpy*")
-    doc.install (buildpath/"libs/python/doc").children
   end
 
   test do
