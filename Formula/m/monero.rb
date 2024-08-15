@@ -5,7 +5,7 @@ class Monero < Formula
       tag:      "v0.18.3.3",
       revision: "81d4db08eb75ce5392c65ca6571e7b08e41b7c95"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -24,7 +24,7 @@ class Monero < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "boost"
+  depends_on "boost@1.85"
   depends_on "hidapi"
   depends_on "libsodium"
   depends_on "libusb"
