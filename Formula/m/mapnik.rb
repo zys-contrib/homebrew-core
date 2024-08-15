@@ -6,6 +6,7 @@ class Mapnik < Formula
       tag:      "v4.0.0",
       revision: "85801bd4028fa1cbffd9f7de4e2458bfc55e44bd"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/mapnik/mapnik.git", branch: "master"
 
   livecheck do
@@ -42,6 +43,7 @@ class Mapnik < Formula
 
   uses_from_macos "zlib"
 
+  conflicts_with "osrm-backend", because: "both install Mapbox Variant headers"
   conflicts_with "svg2png", because: "both install `svg2png` binaries"
 
   fails_with :gcc do
