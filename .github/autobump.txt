@@ -1614,6 +1614,8 @@ mapcidr
 mapproxy
 mapserver
 mariadb
+mariadb-connector-c
+mariadb-connector-odbc
 mariadb@10.11
 mariadb@10.4
 mariadb@10.5

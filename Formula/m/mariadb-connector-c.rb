@@ -1,9 +1,9 @@
 class MariadbConnectorC < Formula
   desc "MariaDB database connector for C applications"
   homepage "https://mariadb.org/download/?tab=connector&prod=connector-c"
-  url "https://archive.mariadb.org/connector-c-3.3.8/mariadb-connector-c-3.3.8-src.tar.gz"
-  mirror "https://fossies.org/linux/misc/mariadb-connector-c-3.3.8-src.tar.gz/"
-  sha256 "f9f076b4aa9fb22cc94b24f82c80f9ef063805ecd6533a2eb5d5060cf93833e8"
+  url "https://archive.mariadb.org/connector-c-3.3.10/mariadb-connector-c-3.3.10-src.tar.gz"
+  mirror "https://fossies.org/linux/misc/mariadb-connector-c-3.3.10-src.tar.gz/"
+  sha256 "fb156c40147d375ba7ce85d554a67ce4080b2aeb523c6438030f6fe4d680378b"
   license "LGPL-2.1-or-later"
   head "https://github.com/mariadb-corporation/mariadb-connector-c.git", branch: "3.3"
 
@@ -36,7 +36,12 @@ class MariadbConnectorC < Formula
   depends_on "openssl@3"
 
   uses_from_macos "curl"
+  uses_from_macos "krb5"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zstd"
+  end
 
   conflicts_with "mariadb", because: "both install `mariadb_config`"
 
