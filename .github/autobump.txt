@@ -987,6 +987,7 @@ glfw
 glib-networking
 glibmm
 glibmm@2.66
+glider
 glm
 global
 glooctl
