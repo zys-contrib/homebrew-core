@@ -1578,6 +1578,7 @@ lsof
 lttng-ust
 lua
 luacheck
+luajit-openresty
 luarocks
 luau
 lucky-commit
