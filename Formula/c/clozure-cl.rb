@@ -1,8 +1,8 @@
 class ClozureCl < Formula
   desc "Common Lisp implementation with a long history"
   homepage "https://ccl.clozure.com"
-  url "https://github.com/Clozure/ccl/archive/refs/tags/v1.12.2.tar.gz"
-  sha256 "7f424c52041486dde91e32726f919a16fb1d7272d2a6e404673ae63e04f2d185"
+  url "https://github.com/Clozure/ccl/archive/refs/tags/v1.13.tar.gz"
+  sha256 "bca7f8d70d49059f8937b82bc64f47f7d01c07dd18760002ec41b41c444f838c"
   license "Apache-2.0"
   head "https://github.com/Clozure/ccl.git", branch: "master"
 
@@ -30,13 +30,13 @@ class ClozureCl < Formula
 
   resource "bootstrap" do
     on_macos do
-      url "https://github.com/Clozure/ccl/releases/download/v1.12.2/darwinx86.tar.gz"
-      sha256 "428406380e64e42b1a5c202b7da807bfe8a5de507a466ad873f6292e389b1b2b"
+      url "https://github.com/Clozure/ccl/releases/download/v1.13/darwinx86.tar.gz"
+      sha256 "0eceab57e519f82bd6db011c596eb2a28e2a510abcd76e217d49a10e90f4002f"
     end
 
     on_linux do
-      url "https://github.com/Clozure/ccl/releases/download/v1.12.2/linuxx86.tar.gz"
-      sha256 "782bcf2e92c6b8ca5207826bbd05a65557f22b9f1194cc4a7caa38f62de83eac"
+      url "https://github.com/Clozure/ccl/releases/download/v1.13/linuxx86.tar.gz"
+      sha256 "dd7dcb1631305cc7e32aef67caaa89662e05999dd30e72fbfa554a96f9473e13"
     end
   end
 
