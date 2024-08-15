@@ -4,7 +4,7 @@ class Fastnetmon < Formula
   url "https://github.com/pavel-odintsov/fastnetmon/archive/refs/tags/v1.2.6.tar.gz"
   sha256 "b6a7d1e9ba98c1c042d774bff82ea3e8bbf03085e0be43a2676e41d590f668cf"
   license "GPL-2.0-only"
-  revision 15
+  revision 16
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "f405f7b308fe784d174e1f95bdfeff527ec51b42b40595f1d8ed65b617374860"
