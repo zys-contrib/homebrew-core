@@ -6,7 +6,7 @@ class Simgrid < Formula
   url "https://gitlab.inria.fr/simgrid/simgrid/-/archive/v3.35/simgrid-v3.35.tar.bz2"
   sha256 "de4c34ea424d99702419736e51cb5ad425dc01502a39f303128483a70405c473"
   license "LGPL-2.1-only"
-  revision 2
+  revision 3
 
   livecheck do
     url :homepage
