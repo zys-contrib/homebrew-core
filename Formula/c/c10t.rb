@@ -4,7 +4,7 @@ class C10t < Formula
   url "https://github.com/udoprog/c10t/archive/refs/tags/1.7.tar.gz"
   sha256 "0e5779d517105bfdd14944c849a395e1a8670bedba5bdab281a0165c3eb077dc"
   license "BSD-3-Clause"
-  revision 8
+  revision 9
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "355ca9fb9bb10bdbf2462da32181daa401abe8803d7bd2e403ea3f8eaec6f30a"
