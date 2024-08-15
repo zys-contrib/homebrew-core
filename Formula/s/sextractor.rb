@@ -23,6 +23,12 @@ class Sextractor < Formula
   depends_on "fftw"
   depends_on "openblas"
 
+  # Switch finite to std::isfinite for ICC and GCC, remove in next release
+  patch do
+    url "https://github.com/astromatic/sextractor/commit/ced65570cb5b7073361dbf2c3c60631c3f54d0f9.patch?full_index=1"
+    sha256 "a037f0ece38d7ad57ff831615f22f1d0017a699a78c9c7525c78b4b20cb621be"
+  end
+
   def install
     openblas = Formula["openblas"]
     system "./autogen.sh"
