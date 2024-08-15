@@ -12,11 +12,10 @@ class ClozureCl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, sonoma:       "49bbd4b8343312ec9c624c25a93e6a372b0c58027a6ada5d1bb0ab050736c5a9"
-    sha256 cellar: :any_skip_relocation, ventura:      "662e440dda7b6d62329b02bdbbe683bd48dd608c70e6a3841e18ded69a4cea0f"
-    sha256 cellar: :any_skip_relocation, monterey:     "9bad448a48e4a5c8774d1bff451009c66bf3a8aba6871eb931827b5fc2ffe25b"
-    sha256 cellar: :any_skip_relocation, big_sur:      "1cd8f8a8e010db33aa548a9430b43d4ae95b4f1b56999862e648988269751cde"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d407dd6707dfcdf729e567c7a8099ad3d8b9e355ee9c9960a49b2bdab2ceab36"
+    sha256 cellar: :any_skip_relocation, sonoma:       "dbf1d6fa306b45dd024bcb4affa6ecdae29269e2de18b6d97c9ed0a7bba5eeea"
+    sha256 cellar: :any_skip_relocation, ventura:      "77beee69a1b3748ed9f627c31b5ee91bd6914ee614e6b49fc027e1ab76f3ce86"
+    sha256 cellar: :any_skip_relocation, monterey:     "df21345c80cded7b9d732d1158a904bd0fe8118bd91da58fe99d3614c02f1e1b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "9d0f7c8987f103a1002a96a696df47d99765c6604ab91630121a0e1209c6afbb"
   end
 
   # https://github.com/Clozure/ccl/issues/11
