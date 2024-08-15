@@ -11,13 +11,13 @@ class Pybind11 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "06e876728026edfec00758088d0f1ff8e909a6dd5304103a8dfac4ca4da373dc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "06e876728026edfec00758088d0f1ff8e909a6dd5304103a8dfac4ca4da373dc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "06e876728026edfec00758088d0f1ff8e909a6dd5304103a8dfac4ca4da373dc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "27db22e3823abba4f9f6719d3beadeac7d28ee72874d4d3b04eec7258c72bf73"
-    sha256 cellar: :any_skip_relocation, ventura:        "27db22e3823abba4f9f6719d3beadeac7d28ee72874d4d3b04eec7258c72bf73"
-    sha256 cellar: :any_skip_relocation, monterey:       "27db22e3823abba4f9f6719d3beadeac7d28ee72874d4d3b04eec7258c72bf73"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06e876728026edfec00758088d0f1ff8e909a6dd5304103a8dfac4ca4da373dc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "00cf5fc68cf6835b12bec7f73386733d162cdd29e153e8c9e6f55ea09c9d40fa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "00cf5fc68cf6835b12bec7f73386733d162cdd29e153e8c9e6f55ea09c9d40fa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "00cf5fc68cf6835b12bec7f73386733d162cdd29e153e8c9e6f55ea09c9d40fa"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3b9b2477f6fd550f8b904b92a218ec9f278c6a775e4b12aba9f76ec1732e021f"
+    sha256 cellar: :any_skip_relocation, ventura:        "3b9b2477f6fd550f8b904b92a218ec9f278c6a775e4b12aba9f76ec1732e021f"
+    sha256 cellar: :any_skip_relocation, monterey:       "3b9b2477f6fd550f8b904b92a218ec9f278c6a775e4b12aba9f76ec1732e021f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00cf5fc68cf6835b12bec7f73386733d162cdd29e153e8c9e6f55ea09c9d40fa"
   end
 
   depends_on "cmake" => :build
