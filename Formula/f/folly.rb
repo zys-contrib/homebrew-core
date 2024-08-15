@@ -4,6 +4,7 @@ class Folly < Formula
   url "https://github.com/facebook/folly/archive/refs/tags/v2024.08.12.00.tar.gz"
   sha256 "f6229c8b564aab912ebb8b9d7329c22865d20b37800408efa4e0166f630fe733"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/facebook/folly.git", branch: "main"
 
   bottle do
