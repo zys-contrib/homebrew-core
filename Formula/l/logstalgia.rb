@@ -4,7 +4,7 @@ class Logstalgia < Formula
   url "https://github.com/acaudwell/Logstalgia/releases/download/logstalgia-1.1.4/logstalgia-1.1.4.tar.gz"
   sha256 "c049eff405e924035222edb26bcc6c7b5f00a08926abdb7b467e2449242790a9"
   license "GPL-3.0-or-later"
-  revision 4
+  revision 5
 
   bottle do
     sha256 arm64_sonoma:   "6a5cae78d15328d6c651b2f01a5624626f2196ebae1f24001bd024f0f4a63971"
