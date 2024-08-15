@@ -1,8 +1,8 @@
 class Glider < Formula
   desc "Forward proxy with multiple protocols support"
   homepage "https://github.com/nadoo/glider"
-  url "https://github.com/nadoo/glider/archive/refs/tags/v0.16.3.tar.gz"
-  sha256 "709b17ed90b41ec6da063b4598f32350f5e849d93a9ca77ca19b1978c500cb97"
+  url "https://github.com/nadoo/glider/archive/refs/tags/v0.16.4.tar.gz"
+  sha256 "91aa9ad6d56b164b30abedc88a0d371b3af6ff96cfe92f18525fa8e110aaee1d"
   license "GPL-3.0-or-later"
   head "https://github.com/nadoo/glider.git", branch: "master"
 
