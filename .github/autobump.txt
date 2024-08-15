@@ -2336,6 +2336,7 @@ shadowenv
 shadowsocks-rust
 shairport-sync
 shallow-backup
+shapelib
 sheldon
 shell2http
 shellcheck

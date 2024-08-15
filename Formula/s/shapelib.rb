@@ -1,8 +1,8 @@
 class Shapelib < Formula
   desc "Library for reading and writing ArcView Shapefiles"
   homepage "http://shapelib.maptools.org/"
-  url "https://download.osgeo.org/shapelib/shapelib-1.6.0.tar.gz"
-  sha256 "19528b24377241705637320c367943031ad5088665d1fb0e1eaa52a71264a6c4"
+  url "https://download.osgeo.org/shapelib/shapelib-1.6.1.tar.gz"
+  sha256 "5da90a60e25440f108f4e8e95732bfa83ede13c8e0c2bcf80ae41006cc8ebc20"
   license any_of: ["LGPL-2.0-or-later", "MIT"]
 
   livecheck do
@@ -25,7 +25,7 @@ class Shapelib < Formula
   def install
     # shapelib's CMake scripts interpret `CMAKE_INSTALL_LIBDIR=lib` as relative
     # to the current directory, i.e. `CMAKE_INSTALL_LIBDIR:PATH=$(pwd)/lib`
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args(install_libdir: lib)
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args(install_libdir: lib)
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
