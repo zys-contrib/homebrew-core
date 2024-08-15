@@ -2,7 +2,7 @@ class Ledger < Formula
   desc "Command-line, double-entry accounting tool"
   homepage "https://ledger-cli.org/"
   license "BSD-3-Clause"
-  revision 5
+  revision 6
   head "https://github.com/ledger/ledger.git", branch: "master"
 
   stable do
@@ -18,6 +18,12 @@ class Ledger < Formula
     patch do
       url "https://github.com/ledger/ledger/commit/14b90d8d952b40e0a474223e7f74a1e6505d5450.patch?full_index=1"
       sha256 "d250557e385163e3ad3002117ebe985af040d915aab49ae1ea342db82398aeda"
+    end
+
+    # Backport fix to build with `boost` 1.85.0
+    patch do
+      url "https://github.com/ledger/ledger/commit/46207852174feb5c76c7ab894bc13b4f388bf501.patch?full_index=1"
+      sha256 "8aaf8daf4748f359946c64488c96345f4a4bdf928f6ec7a1003610174428599f"
     end
   end
 
@@ -38,7 +44,7 @@ class Ledger < Formula
 
   depends_on "cmake" => :build
   depends_on "texinfo" => :build # for makeinfo
-  depends_on "boost"
+  depends_on "boost@1.85"
   depends_on "gmp"
   depends_on "gpgme"
   depends_on "mpfr"
@@ -46,13 +52,6 @@ class Ledger < Formula
 
   uses_from_macos "mandoc" => :build
   uses_from_macos "libedit"
-
-  # Fix build with `boost` 1.85.0 using open PR.
-  # PR ref: https://github.com/ledger/ledger/pull/2337
-  patch do
-    url "https://github.com/ledger/ledger/commit/1da89f6ffb44a44257b9774c4ceb71e7b495d677.patch?full_index=1"
-    sha256 "8aaf8daf4748f359946c64488c96345f4a4bdf928f6ec7a1003610174428599f"
-  end
 
   def install
     ENV.cxx11
@@ -62,7 +61,7 @@ class Ledger < Formula
       --jobs=#{ENV.make_jobs}
       --output=build
       --prefix=#{prefix}
-      --boost=#{Formula["boost"].opt_prefix}
+      --boost=#{Formula["boost@1.85"].opt_prefix}
       --
       -DBUILD_DOCS=1
       -DBUILD_WEB_DOCS=1
