@@ -3,8 +3,7 @@ class PgpoolIi < Formula
   homepage "https://www.pgpool.net/mediawiki/index.php/Main_Page"
   url "https://www.pgpool.net/mediawiki/images/pgpool-II-4.5.2.tar.gz"
   sha256 "480ac23f01cd7d6c856b29386bf17a848712fb4b4057d4c8abd5c8bf819bdf06"
-  # NTP license that excludes distributing "with fee"
-  license :cannot_represent
+  license all_of: ["HPND", "ISC"] # ISC is only for src/utils/strlcpy.c
 
   livecheck do
     url "https://www.pgpool.net/mediawiki/index.php/Downloads"
