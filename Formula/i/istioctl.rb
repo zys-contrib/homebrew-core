@@ -1,8 +1,8 @@
 class Istioctl < Formula
   desc "Istio configuration command-line utility"
   homepage "https://istio.io/"
-  url "https://github.com/istio/istio/archive/refs/tags/1.22.3.tar.gz"
-  sha256 "d0755c3204c9cd8e91b1d1d6fedc2b9489ec0ca6b8f2f23c5c44e39a59336566"
+  url "https://github.com/istio/istio/archive/refs/tags/1.23.0.tar.gz"
+  sha256 "e29fd51c035d489b0e8b74d34f0a33014f1e16ac98077d866d09fe307457213b"
   license "Apache-2.0"
   head "https://github.com/istio/istio.git", branch: "master"
 
@@ -40,6 +40,6 @@ class Istioctl < Formula
   end
 
   test do
-    assert_equal version.to_s, shell_output("#{bin}/istioctl version --remote=false").strip
+    assert_equal "client version: #{version}", shell_output("#{bin}/istioctl version --remote=false").strip
   end
 end
