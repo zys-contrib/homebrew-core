@@ -1,8 +1,8 @@
 class FernApi < Formula
   desc "Stripe-level SDKs and Docs for your API"
   homepage "https://buildwithfern.com/"
-  url "https://registry.npmjs.org/fern-api/-/fern-api-0.39.2.tgz"
-  sha256 "7b09c8d2478d2d70f65025b159335bead81fd62800a41a26fefb2fd47e31de6c"
+  url "https://registry.npmjs.org/fern-api/-/fern-api-0.39.4.tgz"
+  sha256 "aac76b85770658fdd6dd7090801e907358a936a8364aff66553bd4e434bec351"
   license "MIT"
 
   bottle do
