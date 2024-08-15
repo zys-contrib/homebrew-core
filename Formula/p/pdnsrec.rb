@@ -4,6 +4,7 @@ class Pdnsrec < Formula
   url "https://downloads.powerdns.com/releases/pdns-recursor-5.1.1.tar.bz2"
   sha256 "5b7ab793ace822294a3f38092fe72ee64748ff0cbb8a5283dc77f40780605ae9"
   license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
+  revision 1
 
   livecheck do
     url "https://downloads.powerdns.com/releases/"
@@ -41,6 +42,13 @@ class Pdnsrec < Formula
   end
 
   fails_with gcc: "5"
+
+  # Fix build with boost 1.86.0. Remove if PR is merged and in a release.
+  # PR ref: https://github.com/PowerDNS/pdns/pull/14562
+  patch :p2 do
+    url "https://github.com/PowerDNS/pdns/commit/eed56000b1d68ac083b8e8bea4ff0ea30a1579c4.patch?full_index=1"
+    sha256 "c21a8677c048f3ce023f2e09c5204602031a78c441904567a4da2b7870dc29ad"
+  end
 
   def install
     ENV.cxx11
