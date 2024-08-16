@@ -599,6 +599,7 @@ dialog
 diamond
 dicebear
 diesel
+diffoci
 diffoscope
 difftastic
 digdag
