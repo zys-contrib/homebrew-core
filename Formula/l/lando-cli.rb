@@ -21,7 +21,7 @@ class LandoCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9cc780f7afd14ba0bce986968eeecd8faad1d61c24f41603bcf998099b7095fe"
   end
 
-  depends_on "node@18"
+  depends_on "node"
 
   def install
     system "npm", "install", *std_npm_args
