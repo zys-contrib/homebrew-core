@@ -1,8 +1,8 @@
 class Packetry < Formula
   desc "Fast, intuitive USB 2.0 protocol analysis application for use with Cynthion"
   homepage "https://github.com/greatscottgadgets/packetry"
-  url "https://github.com/greatscottgadgets/packetry/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "9930e39638df4210710859e7e91b63a5d0197c4d7f52f81457f19bbb08fe446b"
+  url "https://github.com/greatscottgadgets/packetry/archive/refs/tags/v0.2.1.tar.gz"
+  sha256 "5dfeb9c711fc10a4225002ee835ae1b8ba8dc6bc6e5fc2d5558412b66f0c716b"
   license "BSD-3-Clause"
 
   bottle do
