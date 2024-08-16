@@ -35,6 +35,7 @@ class Fastfetch < Formula
   on_linux do
     depends_on "dbus" => :build
     depends_on "ddcutil" => :build
+    depends_on "elfutils" => :build
     depends_on "libdrm" => :build
     depends_on "libx11" => :build
     depends_on "libxcb" => :build
@@ -42,7 +43,6 @@ class Fastfetch < Formula
     depends_on "linux-headers@5.15" => :build
     depends_on "mesa" => :build
     depends_on "opencl-icd-loader" => :build
-    depends_on "pciutils" => :build
     depends_on "pulseaudio" => :build
     depends_on "rpm" => :build
     depends_on "wayland" => :build
