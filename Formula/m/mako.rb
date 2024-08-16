@@ -6,13 +6,13 @@ class Mako < Formula
   license "MIT"
 
   bottle do
-    sha256                               arm64_sonoma:   "6e01c5ee3ce20c3a07d1aff5ac7b3458e95a4977d1f90c012c0457ac5daa6962"
-    sha256                               arm64_ventura:  "b071ff9e04849bf2fe120986f1bd82cbaee9166ded398bd0ae87c4ab036452f1"
-    sha256                               arm64_monterey: "817152a1544625049560d57cd58f084aceb92f95634ebf0fbdcc3aec406190fd"
-    sha256                               sonoma:         "471b9247a1c46ac3c890a860044b10d0e2122b14e123308b816d9c1aec471d3b"
-    sha256                               ventura:        "5a3a54d088464afb6cee9dfedaadd78c17cf76ade553280838fa3ceaaf560009"
-    sha256                               monterey:       "f003036f2f2a859aea0a0b16277b90e7809f6d062576b23cae2e7213052eb8b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5854728976f2c200f670a421b35b40705abea85ef495b85692c44c5a44c96a6b"
+    sha256                               arm64_sonoma:   "751180a0dc502227f6c8f407c2bcb3e8c85abd48e9cd677827197b0213d48c3e"
+    sha256                               arm64_ventura:  "de8586cbedb904a41b2d95e4e3e5077e96537bca4169ae1ab0a9c810a61c020c"
+    sha256                               arm64_monterey: "739503679fb3debaeb3be9b106fcc00061867d467dd9661972f4aa73c24fe1d5"
+    sha256                               sonoma:         "b46603239178a9b01b11bfb3cb80f4294cbf6c0e1186e55be98a746e0b36ca19"
+    sha256                               ventura:        "afd525e323cc0cefebdccabd6644f9b9eeb910051c7f57067b555778fd1c0736"
+    sha256                               monterey:       "26cf20e6b55d61b158877409e915d87f69a86a96ec015de22822bdbc104fe8d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6015cceb0a28ad53d669e43e492acaf74834f714c9d1931c47d35b9c7a10ff63"
   end
 
   depends_on "node"
