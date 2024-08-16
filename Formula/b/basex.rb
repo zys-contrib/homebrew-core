@@ -12,13 +12,7 @@ class Basex < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "acd3742c6638ef39af472d1fca7c90fa9c9cb4eadde2fd53c865ee8f334f7704"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "acd3742c6638ef39af472d1fca7c90fa9c9cb4eadde2fd53c865ee8f334f7704"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "acd3742c6638ef39af472d1fca7c90fa9c9cb4eadde2fd53c865ee8f334f7704"
-    sha256 cellar: :any_skip_relocation, sonoma:         "acd3742c6638ef39af472d1fca7c90fa9c9cb4eadde2fd53c865ee8f334f7704"
-    sha256 cellar: :any_skip_relocation, ventura:        "acd3742c6638ef39af472d1fca7c90fa9c9cb4eadde2fd53c865ee8f334f7704"
-    sha256 cellar: :any_skip_relocation, monterey:       "acd3742c6638ef39af472d1fca7c90fa9c9cb4eadde2fd53c865ee8f334f7704"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f4cb5dfea1cf00f66a2b84c65223f846c60eef054dd6a332470d893374276dc"
+    sha256 cellar: :any_skip_relocation, all: "ec6c0470c980c4ae0a5f99bbde7cb3dab3348f4ab51ccbb997136fe016e52de9"
   end
 
   depends_on "openjdk"
