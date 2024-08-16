@@ -12,8 +12,7 @@ class Etl < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "bb6edd499e2137dd8d238351cbf327885a99da4470c5d66c81ba670ac8b660e9"
+    sha256 cellar: :any_skip_relocation, all: "0c052b60f8a2e21a109351218fa2d1402f6bf28c66e1695f3aba77a26dc959b2"
   end
 
   depends_on "pkg-config" => :build
