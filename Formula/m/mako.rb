@@ -1,8 +1,8 @@
 class Mako < Formula
   desc "Production-grade web bundler based on Rust"
   homepage "https://makojs.dev"
-  url "https://registry.npmjs.org/@umijs/mako/-/mako-0.8.0.tgz"
-  sha256 "d425408272a92f34a8c41c6ca41afad2ec37739244723e89a1d1c5f2caa8591f"
+  url "https://registry.npmjs.org/@umijs/mako/-/mako-0.8.1.tgz"
+  sha256 "7cdb86488fc373e5c80a65b69b736c3e9118b1a1ce81d800206f8f49a3e335d4"
   license "MIT"
 
   bottle do
