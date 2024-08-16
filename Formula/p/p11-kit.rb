@@ -36,11 +36,6 @@ class P11Kit < Formula
     # https://bugs.freedesktop.org/show_bug.cgi?id=91602#c1
     ENV["FAKED_MODE"] = "1"
 
-    if build.head?
-      ENV["NOCONFIGURE"] = "1"
-      system "./autogen.sh"
-    end
-
     args = %W[
       -Dsystem_config=#{etc}
       -Dmodule_config=#{etc}/pkcs11/modules
@@ -48,14 +43,18 @@ class P11Kit < Formula
       -Dsystemd=disabled
     ]
 
-    system "meson", "setup", "build", *args, *std_meson_args
-    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "setup", "_build", *args, *std_meson_args
+    system "meson", "compile", "-C", "_build", "--verbose"
     # This formula is used with crypto libraries, so let's run the test suite.
-    system "meson", "test", "-C", "build"
-    system "meson", "install", "-C", "build"
+    system "meson", "test", "-C", "_build"
+    system "meson", "install", "-C", "_build"
+
+    # HACK: Work around p11-kit: couldn't load module: .../lib/pkcs11/p11-kit-trust.so
+    # Issue ref: https://github.com/p11-glue/p11-kit/issues/612
+    (lib/"pkcs11").install_symlink "p11-kit-trust.dylib" => "p11-kit-trust.so" if OS.mac?
   end
 
   test do
-    system bin/"p11-kit", "list-modules"
+    assert_match "library-manufacturer: PKCS#11 Kit", shell_output("#{bin}/p11-kit list-modules --verbose")
   end
 end
