@@ -1,8 +1,8 @@
 class Diffoci < Formula
   desc "Diff for Docker and OCI container images"
   homepage "https://github.com/reproducible-containers/diffoci"
-  url "https://github.com/reproducible-containers/diffoci/archive/refs/tags/v0.1.4.tar.gz"
-  sha256 "6baa31a25703bb70bc0de6640ac82f93abcba835df96a146a7456adf378b61cc"
+  url "https://github.com/reproducible-containers/diffoci/archive/refs/tags/v0.1.5.tar.gz"
+  sha256 "c71e9dac5854a61240f82fd31e67eb993bd4340e91b6dbf47d1eba52720a1eca"
   license "Apache-2.0"
   head "https://github.com/reproducible-containers/diffoci.git", branch: "master"
 
