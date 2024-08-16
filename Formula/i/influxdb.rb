@@ -4,8 +4,8 @@ class Influxdb < Formula
   # When bumping to 3.x, update license stanza to `license any_of: ["Apache-2.0", "MIT"]`
   # Ref: https://github.com/influxdata/influxdb/blob/main/Cargo.toml#L124
   url "https://github.com/influxdata/influxdb.git",
-      tag:      "v2.7.9",
-      revision: "91c1a5d3d8f99507098d579ad4fced2fb67ab3d8"
+      tag:      "v2.7.10",
+      revision: "f302d9730c3c66577bea7bc7199cfae773bf308e"
   license "MIT"
   head "https://github.com/influxdata/influxdb.git", branch: "main-2.x"
 
