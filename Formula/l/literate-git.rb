@@ -8,13 +8,13 @@ class LiterateGit < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "1722d6de47dcc48b4b8a8ccb761322e77db27ba1beb8f296c20fdcbe7dba2f9c"
-    sha256 cellar: :any,                 arm64_ventura:  "8e8a91a76d187d0296c05f5e5adabe92420dc3716d2b9fcb4f9137cec806b68a"
-    sha256 cellar: :any,                 arm64_monterey: "64c7dfbc25daf870feb1985800a848c0eb159602c16da39a3659863d2b67dcfa"
-    sha256 cellar: :any,                 sonoma:         "6f4892b45f55314d8df0ff6315f7cb9ca646dfe312a0b010e1b571f1c2201dd3"
-    sha256 cellar: :any,                 ventura:        "ba4895c0f38a653533b55987831c316447806ac3a384870ee607879d3f4fd57c"
-    sha256 cellar: :any,                 monterey:       "38e490a8c38bd6c7dec3a10cb6dd597642b70ef415a7d98c540c1fcc3fecc91e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b12c28303e4b8278ebd3be782886a94b57afca2873df274a8a4402c4acb56bd8"
+    sha256 cellar: :any,                 arm64_sonoma:   "b0a3f5a47383da7bec77d1b5b767fc1a345926b490b347ea650c082e87aa4797"
+    sha256 cellar: :any,                 arm64_ventura:  "49ae359bfc9d5d3742e637bc5189bf67e2fa43741b553fa89dc6b35973f5cc52"
+    sha256 cellar: :any,                 arm64_monterey: "8fdbe2da2f31c81d2c47db219d3f0d92f7e4f1896c3d8a25c6219b05b52aae1d"
+    sha256 cellar: :any,                 sonoma:         "3c16c62933a94a0528218288753fdd1c170637a09ff2bc7fedd9c92f41d2559c"
+    sha256 cellar: :any,                 ventura:        "b937c36af05b123ca4eea2fbf567aab095831e9ae1f28e2ec8d7319637f249d2"
+    sha256 cellar: :any,                 monterey:       "9dc8482f8220023295f0da1171a0678fc8e1b193d5a3a4ca208c33ba3b587ba4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "15d36127509cce2264db73fc650ab5d434221008e735e7fbf098b7e9b511b1bd"
   end
 
   depends_on "libgit2"
