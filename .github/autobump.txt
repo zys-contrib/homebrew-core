@@ -398,6 +398,7 @@ cjson
 clair
 clamav
 clang-format
+clang-uml
 claws-mail
 clazy
 clblast
