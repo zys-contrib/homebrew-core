@@ -3,8 +3,8 @@ class RuffLsp < Formula
 
   desc "Language Server Protocol implementation for Ruff"
   homepage "https://github.com/astral-sh/ruff-lsp"
-  url "https://files.pythonhosted.org/packages/aa/ff/68b1dd0bf5bce5d4bfbad6fcfddc7fc46ea070e0d191aa9a2972acb51f8a/ruff_lsp-0.0.54.tar.gz"
-  sha256 "33e1d4dd20ca481fc6a811afcfdd451798c22fc39f2104df23c2855e322a0582"
+  url "https://files.pythonhosted.org/packages/a3/a2/8e165ce9edb98771f86b85a147f2e5ab268e8a578aa71c753572ad035b0b/ruff_lsp-0.0.55.tar.gz"
+  sha256 "33fcfc77bbdc47f7a116a64f5fb9140e70d76d54f55a0d9a740a21b797906a45"
   license "MIT"
 
   bottle do
@@ -21,8 +21,8 @@ class RuffLsp < Formula
   depends_on "ruff"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/e3/fc/f800d51204003fa8ae392c4e8278f256206e7a919b708eef054f5f4b650d/attrs-23.2.0.tar.gz"
-    sha256 "935dc3b529c262f6cf76e50877d35a4bd3c1de194fd41f47a2b7ae8f19971f30"
+    url "https://files.pythonhosted.org/packages/fc/0f/aafca9af9315aee06a89ffde799a10a582fe8de76c563ee80bbcdc08b3fb/attrs-24.2.0.tar.gz"
+    sha256 "5cfb1b9148b5b086569baec03f20d7b6bf3bcacc9a42bebf87ffaaca362f6346"
   end
 
   resource "cattrs" do
