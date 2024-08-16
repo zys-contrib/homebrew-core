@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package and dependency manager supporting the latest PEP standards"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/04/7d/ed5bcd5f9abaafea72d4b04aff7dcaf50e9836341f04ab9e784ebb82b91c/pdm-2.18.0.tar.gz"
-  sha256 "f963f8f1558c0ff94dad82b9e31212d55d0c59d215207e0f5e0406d41b2a97dc"
+  url "https://files.pythonhosted.org/packages/a7/4f/6636a4aca3293294d26a240b618ea9813d1214ed77d093f92ed56ca8ebf2/pdm-2.18.1.tar.gz"
+  sha256 "acef692477a7190731ee7c1f626e97516eeb7473e4eeeeede4fef2bf0fb743ee"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -102,8 +102,8 @@ class Pdm < Formula
   end
 
   resource "pbs-installer" do
-    url "https://files.pythonhosted.org/packages/60/a5/53ccbc8a23fb3d7a4b73b88027abfe16e523734c29ac164d8af668130665/pbs_installer-2024.8.9.tar.gz"
-    sha256 "4e8d91bc9aca262c04bbf8e1a749bd6e10e2edd3190d0f37da6ce72c719127ba"
+    url "https://files.pythonhosted.org/packages/a9/4e/aa03c3d932815eb13df230ce621086a345a2f5e9d1ed6703661f48aa4882/pbs_installer-2024.8.14.tar.gz"
+    sha256 "40144b21f04e90c73f1b79601e139d56d540356630fe473842ea439a59dffaee"
   end
 
   resource "platformdirs" do
@@ -152,8 +152,8 @@ class Pdm < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/3e/4a/5b5a13efd33514374e872a084de9968a384c87fbfeb8959ca90551c0e2f9/tomlkit-0.13.1.tar.gz"
-    sha256 "1be06879860054a26faba7acf2af62b45c94aa43b00a5f87fc445c5f930ad754"
+    url "https://files.pythonhosted.org/packages/b1/09/a439bec5888f00a54b8b9f05fa94d7f901d6735ef4e55dcec9bc37b5d8fa/tomlkit-0.13.2.tar.gz"
+    sha256 "fff5fe59a87295b278abd31bec92c15d9bc4a06885ab12bcea52c71119392e79"
   end
 
   resource "truststore" do
@@ -167,8 +167,8 @@ class Pdm < Formula
   end
 
   resource "unearth" do
-    url "https://files.pythonhosted.org/packages/40/52/f20d419513a91ebbec226b3f7567bf5a662402c63cbd892a5fb1f5352a86/unearth-0.16.1.tar.gz"
-    sha256 "988a43418fa0b78aeb628a15f6a3b02152c1787f63fe6d254c7f4e2ccf8db0a7"
+    url "https://files.pythonhosted.org/packages/c3/0b/5f14a623276a2ee321f74b65ddf6505663d59ed3f07546d66a859d77825c/unearth-0.17.0.tar.gz"
+    sha256 "771ca270fec8bea262774a0b1ce2752739056e65234434028eceaf466cbba0b6"
   end
 
   resource "virtualenv" do
