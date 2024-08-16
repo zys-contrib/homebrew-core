@@ -13,12 +13,13 @@ class Synfig < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "9a207a4d04477200a97b293a121ee23bef93b79fa7d35753d2434cd2ba3f8755"
-    sha256 arm64_ventura:  "b7783b968173a20f5cb238d5d6b96aec8bab90c028b06e4d0e83175260aad337"
-    sha256 arm64_monterey: "d12edc24c209c6c1b69b4c33bea61f69928e8b754ed9bfe8e135d33ab598f475"
-    sha256 sonoma:         "bb0a61eb27adc040065977fd59f493b4d6f17f8ca36424a5093f957b1819c953"
-    sha256 ventura:        "5cab6f62912a985f4f5d3032e5dea7835c9b369b02b8d5d2a0283c3168d7dd98"
-    sha256 monterey:       "dcda0015cf9409f91c8796c04daf6dc012ac29672a36b4c5e9afa5073d68d431"
+    sha256 arm64_sonoma:   "1f56eb46a5bf1422a2c3345fb49e4a812ef751dba399404935ea00da9aeb38c1"
+    sha256 arm64_ventura:  "26e27b1c7dc24f2bb74a8bcbbcc77e9ab29dff4b38f239f0cf9ae43eaacdb07b"
+    sha256 arm64_monterey: "4376deb8c41e5451988b56058f11e8ea5445fffc6edc2a5316c4be26e8f977ab"
+    sha256 sonoma:         "9c5c64089bd7aa8c221a8a12f3de8efaf2676f4a99bfd42db85c2f5e617073fe"
+    sha256 ventura:        "4e60da11ecfbe746754edb822a48e180b8edac7a2f152f4558aa13d051eb6e6c"
+    sha256 monterey:       "9e9740207cabd7c388632446d21b24779b77fb421a6713843cb1f8705ab74f14"
+    sha256 x86_64_linux:   "b303fb306eb771db2efb5dbf9e1608f7fd7f7904947f9ea64698e9977c1732ac"
   end
 
   depends_on "autoconf" => :build
