@@ -2805,6 +2805,7 @@ xcbeautify
 xcdiff
 xclogparser
 xcodegen
+xctesthtmlreport
 xdg-ninja
 xdpyinfo
 xeol
