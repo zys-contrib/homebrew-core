@@ -676,6 +676,7 @@ dsq
 dssim
 dstack
 dstask
+dtc
 dtm
 dua-cli
 dub
