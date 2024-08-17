@@ -1596,6 +1596,7 @@ lwtools
 lxc
 lychee
 lynis
+lz4
 lzip
 macchina
 mackup
