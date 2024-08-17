@@ -6,13 +6,13 @@ class Gofumpt < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8ab381b52eee934d5a02f3595113849d18b9e486952d01fc36822dba681ff293"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8ab381b52eee934d5a02f3595113849d18b9e486952d01fc36822dba681ff293"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8ab381b52eee934d5a02f3595113849d18b9e486952d01fc36822dba681ff293"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3bbf4cd6b9b4d2172b60499a7aae7da01fe63c2f3c9ecc26e69eea57eac5db8b"
-    sha256 cellar: :any_skip_relocation, ventura:        "3bbf4cd6b9b4d2172b60499a7aae7da01fe63c2f3c9ecc26e69eea57eac5db8b"
-    sha256 cellar: :any_skip_relocation, monterey:       "3bbf4cd6b9b4d2172b60499a7aae7da01fe63c2f3c9ecc26e69eea57eac5db8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f462e72be27e9a0d1d87d60482b52728fe459882566040c47e44b3d498b5054a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "802a9c765f76388742f10deb24d0a8ead35ad976993a5709dabb90cf4d373588"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "802a9c765f76388742f10deb24d0a8ead35ad976993a5709dabb90cf4d373588"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "802a9c765f76388742f10deb24d0a8ead35ad976993a5709dabb90cf4d373588"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dcdd825b173315f71b186d428d7b4fcdd831ca4d6132af041f26adc63a75b97a"
+    sha256 cellar: :any_skip_relocation, ventura:        "dcdd825b173315f71b186d428d7b4fcdd831ca4d6132af041f26adc63a75b97a"
+    sha256 cellar: :any_skip_relocation, monterey:       "dcdd825b173315f71b186d428d7b4fcdd831ca4d6132af041f26adc63a75b97a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "db3d516cdc64e75aed5d8e651cca5e75ff5bc06400fafec9fd11b64379433f8e"
   end
 
   depends_on "go"
