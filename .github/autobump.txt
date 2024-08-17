@@ -2147,6 +2147,7 @@ python-argcomplete
 python-build
 python-launcher
 python-lxml
+python-markdown
 python-matplotlib
 python-setuptools
 python-yq
