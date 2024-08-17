@@ -2822,6 +2822,7 @@ xkeyboardconfig
 xlsxio
 xmake
 xmlrpc-c
+xmount
 xmrig
 xonsh
 xorg-server
