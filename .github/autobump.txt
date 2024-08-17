@@ -2291,6 +2291,7 @@ samtools
 sbcl
 sbom-tool
 sbt
+sc-im
 scala
 scala@2.12
 scala@2.13
