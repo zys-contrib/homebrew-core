@@ -1,16 +1,16 @@
 class Ucommon < Formula
   desc "GNU C++ runtime library for threads, sockets, and parsing"
   homepage "https://www.gnu.org/software/commoncpp/"
-  url "https://ftp.gnu.org/gnu/commonc++/ucommon-7.0.0.tar.gz"
-  sha256 "6ac9f76c2af010f97e916e4bae1cece341dc64ca28e3881ff4ddc3bc334060d7"
+  url "https://ftp.debian.org/debian/pool/main/u/ucommon/ucommon_7.0.1.orig.tar.gz"
+  sha256 "99fd0e2c69f24e4ca93d01a14bc3fc4e40d69576f235f80f7a8ab37c16951f3e"
   license all_of: [
     "LGPL-3.0-or-later",
     "GPL-2.0-or-later" => { with: "mif-exception" },
   ]
 
   livecheck do
-    url :stable
-    regex(/href=.*?ucommon[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://ftp.debian.org/debian/pool/main/u/ucommon/"
+    regex(/href=.*?ucommon[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
   end
 
   bottle do
@@ -30,33 +30,37 @@ class Ucommon < Formula
     sha256 x86_64_linux:   "f3624d1bf63f84175560167e9887d9fa88533aad863e697894683214091acb5b"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "gnutls"
 
-  # Fix build, reported by email to bug-commoncpp@gnu.org on 2017-10-05
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/77f0d9d2/ucommon/cachelinesize.patch"
-    sha256 "46aef9108e2012362b6adcb3bea2928146a3a8fe5e699450ffaf931b6db596ff"
-  end
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+  on_macos do
+    depends_on "gettext"
   end
 
   def install
-    # Make sure flat namespace flags are not used in pkgconfig files. This must be handled separately
-    # from the flat namespace patch already used above.
-    inreplace "configure", "-undefined suppress -flat_namespace", "-undefined dynamic_lookup"
-
-    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking",
-                          "--disable-silent-rules", "--enable-socks",
-                          "--with-sslstack=gnutls", "--with-pkg-config"
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", "--disable-silent-rules", "--with-sslstack=gnutls", "--with-pkg-config", *std_configure_args
     system "make", "install"
   end
 
   test do
     system bin/"ucommon-config", "--libs"
+
+    (testpath/"test.cpp").write <<~EOS
+      #include <commoncpp/string.h>
+      #include <iostream>
+
+      int main() {
+        ucommon::String test_string("Hello, Ucommon!");
+        std::cout << test_string << std::endl;
+        return 0;
+      }
+    EOS
+
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", "-I#{include}", "-L#{lib}", "-lucommon"
+    system "./test"
   end
 end
