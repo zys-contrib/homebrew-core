@@ -6,7 +6,7 @@ class Xmount < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 x86_64_linux: "c61ddafea43cbd071198031f80f4893a2fc90266a9daf1999e78a1b6211d748a"
+    sha256 x86_64_linux: "d0e030e2bf6cf8fb69bbf9204a0f44b17e8b41f4baea8bfc2624aa2e44b0cbaa"
   end
 
   depends_on "cmake" => :build
