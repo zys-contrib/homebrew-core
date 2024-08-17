@@ -7,13 +7,7 @@ class Dzr < Formula
   head "https://github.com/yne/dzr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "03ff93eb31b32dc10416abaa32061fd6f3ab879ccfb1d6fa0d427097f9dab00d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "03ff93eb31b32dc10416abaa32061fd6f3ab879ccfb1d6fa0d427097f9dab00d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "03ff93eb31b32dc10416abaa32061fd6f3ab879ccfb1d6fa0d427097f9dab00d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "03ff93eb31b32dc10416abaa32061fd6f3ab879ccfb1d6fa0d427097f9dab00d"
-    sha256 cellar: :any_skip_relocation, ventura:        "03ff93eb31b32dc10416abaa32061fd6f3ab879ccfb1d6fa0d427097f9dab00d"
-    sha256 cellar: :any_skip_relocation, monterey:       "03ff93eb31b32dc10416abaa32061fd6f3ab879ccfb1d6fa0d427097f9dab00d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d8df73803bbcfb522dca235a74f7baebd3174874d52ceeb3a4f1ad9a076b204"
+    sha256 cellar: :any_skip_relocation, all: "135205058a22d1265e5846eddb02c73d47ac2f673ae57011e9d4baec953dca14"
   end
 
   depends_on "dialog"
