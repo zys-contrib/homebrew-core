@@ -7,13 +7,13 @@ class Shfmt < Formula
   head "https://github.com/mvdan/sh.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "78a5017f23e2d4b9fd9312ce1e4e06c09cfb838d47e78cfb02ddb4190acb6b34"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "78a5017f23e2d4b9fd9312ce1e4e06c09cfb838d47e78cfb02ddb4190acb6b34"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "78a5017f23e2d4b9fd9312ce1e4e06c09cfb838d47e78cfb02ddb4190acb6b34"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0d7952151f13e850fa40b03d6ba3f39daa8ec9401735aa91d6cd8e950f880d62"
-    sha256 cellar: :any_skip_relocation, ventura:        "0d7952151f13e850fa40b03d6ba3f39daa8ec9401735aa91d6cd8e950f880d62"
-    sha256 cellar: :any_skip_relocation, monterey:       "0d7952151f13e850fa40b03d6ba3f39daa8ec9401735aa91d6cd8e950f880d62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "772a5dfe3e281fc51f6200313fb62b454314bf4978a8fe70ba2026a4fe5af5c4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d15598743aa7c7688b49b4a0df839805f605faaa692def2f36554c26e5136eeb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d15598743aa7c7688b49b4a0df839805f605faaa692def2f36554c26e5136eeb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d15598743aa7c7688b49b4a0df839805f605faaa692def2f36554c26e5136eeb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "70107f7fdf986b706bc63652fd16355f426c7789088bfd5beb0fe83fc5069fe7"
+    sha256 cellar: :any_skip_relocation, ventura:        "70107f7fdf986b706bc63652fd16355f426c7789088bfd5beb0fe83fc5069fe7"
+    sha256 cellar: :any_skip_relocation, monterey:       "70107f7fdf986b706bc63652fd16355f426c7789088bfd5beb0fe83fc5069fe7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f9f1e653f63d0d4c9042b9dca3063074326998b19b5b216478b682bd437ee17"
   end
 
   depends_on "go" => :build
