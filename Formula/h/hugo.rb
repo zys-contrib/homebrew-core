@@ -6,6 +6,11 @@ class Hugo < Formula
   license "Apache-2.0"
   head "https://github.com/gohugoio/hugo.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fbbae64b3664e553f3157b952a9dc6dc510ff65eb385255ed1c92fd299a05cc5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c5a62f39a64bdb9a1b726dc16dd2aac722b791fced68c2dcd7a36f9bcfc407e5"
