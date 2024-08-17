@@ -1,9 +1,9 @@
 class Genders < Formula
   desc "Static cluster configuration database for cluster management"
   homepage "https://github.com/chaos/genders"
-  url "https://github.com/chaos/genders/archive/refs/tags/genders-1-28-1.tar.gz"
-  version "1.28.1"
-  sha256 "3ca8b4771b2bf39383a3c383d36d308fa113de5c481e16fdef9cabd643359d09"
+  url "https://github.com/chaos/genders/archive/refs/tags/genders-1-29-1.tar.gz"
+  version "1.29.1"
+  sha256 "42c37c53a831e007b4fd5a5596060417186724e18cbd5c9dbb3a7185144200c2"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -31,15 +31,21 @@ class Genders < Formula
   uses_from_macos "perl" => :build
   uses_from_macos "python" => :build
 
+  # upstream issue to drop distutils usage, https://github.com/chaos/genders/issues/65
+  on_linux do
+    depends_on "python-setuptools" => :build
+  end
+
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 
   def install
     ENV["PYTHON"] = which("python3")
-    system "./configure", "--prefix=#{prefix}", "--with-java-extensions=no"
+
+    system "./configure", "--with-java-extensions=no", *std_configure_args
     system "make", "install"
 
     # Move man page out of top level mandir on Linux
