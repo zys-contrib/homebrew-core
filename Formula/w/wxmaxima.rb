@@ -1,8 +1,8 @@
 class Wxmaxima < Formula
   desc "Cross platform GUI for Maxima"
   homepage "https://wxmaxima-developers.github.io/wxmaxima/"
-  url "https://github.com/wxMaxima-developers/wxmaxima/archive/refs/tags/Version-24.05.0.tar.gz"
-  sha256 "21dc8715b71372dc35743486307254a5a0285f35a6acbc68b894d432c4f14c98"
+  url "https://github.com/wxMaxima-developers/wxmaxima/archive/refs/tags/Version-24.08.0.tar.gz"
+  sha256 "a0957c1852ca2d93e34f8f0329673f40af065e7648739d088da28bd33627b758"
   license "GPL-2.0-or-later"
   head "https://github.com/wxMaxima-developers/wxmaxima.git", branch: "main"
 
@@ -23,6 +23,7 @@ class Wxmaxima < Formula
   depends_on "cmake" => :build
   depends_on "gettext" => :build
   depends_on "ninja" => :build
+
   depends_on "maxima"
   depends_on "wxwidgets"
 
@@ -38,6 +39,12 @@ class Wxmaxima < Formula
         return tree;
                ^~~~
     EOS
+  end
+
+  # fix version output, upstream patch ref, https://github.com/wxMaxima-developers/wxmaxima/pull/1937
+  patch do
+    url "https://github.com/wxMaxima-developers/wxmaxima/commit/077ec646a11bfb5aa83a478e636a715a38a9b68b.patch?full_index=1"
+    sha256 "15fb4db52cb7e1237ee5d0934653db06809d172e2bf54709435ec24d1f7ab7a9"
   end
 
   def install
