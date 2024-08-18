@@ -4,6 +4,7 @@ class Gismo < Formula
   url "https://github.com/gismo/gismo/archive/refs/tags/v23.12.0.tar.gz"
   sha256 "6dc78e1d0016a45aee879eec0e42faf010cd222800461d645f877ff0c1f2d1a2"
   license "MPL-2.0"
+  revision 1
   head "https://github.com/gismo/gismo.git", branch: "stable"
 
   bottle do
