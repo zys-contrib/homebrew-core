@@ -4,6 +4,7 @@ class Tdb < Formula
   url "https://www.samba.org/ftp/tdb/tdb-1.4.12.tar.gz"
   sha256 "6ce4b27498812d09237ece65a0d6dfac0941610e709848ecb822aa241084cd7a"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www.samba.org/ftp/tdb/"
@@ -22,10 +23,11 @@ class Tdb < Formula
 
   uses_from_macos "python" => :build
 
-  conflicts_with "samba", because: "both install `tdbrestore`, `tdbtool` binaries"
-
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--bundled-libraries=NONE",
+                          "--disable-python",
+                          "--disable-rpath",
+                          "--prefix=#{prefix}"
     system "make", "install"
   end
 
