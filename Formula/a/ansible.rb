@@ -3,19 +3,19 @@ class Ansible < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://files.pythonhosted.org/packages/89/c6/c61a1aa2cbddf8a426eca157d4ab19d346247d86bc45cc6ac40efc41a2c2/ansible-10.2.0.tar.gz"
-  sha256 "8aa0629ba8eced6465e2ceb49029e93d337c4a6fc5a3e6e98825c258dd6a7057"
+  url "https://files.pythonhosted.org/packages/94/e2/b34a077f05f97982dfddf6ec17ab5e2e476412b3ff542e30d21d22cf2e2d/ansible-10.3.0.tar.gz"
+  sha256 "6144fb4bc785f917f86b1b0b6eadc9b894e9751ff9e9a7875afcfa2f74581ffd"
   license "GPL-3.0-or-later"
   head "https://github.com/ansible/ansible.git", branch: "devel"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "79ccba64b41d663712f1efd687822c5d8e1efeeaeb726946221e6406654bdff9"
-    sha256 cellar: :any,                 arm64_ventura:  "2d3ab256258d5ba2ae129d7ded26594657c29dec2e2d72ef4e0896e25743ce57"
-    sha256 cellar: :any,                 arm64_monterey: "38322fe43b0f9ea6fd0892850f3db4ea33ff0075f52a7de6a5460b7ad91750dd"
-    sha256 cellar: :any,                 sonoma:         "20244660e7ff4c3ac819aceab4f415affefc43ac044bad10072cba8bdd8a4793"
-    sha256 cellar: :any,                 ventura:        "09b0c506ba8fd0e3abbbee72483c753a16f933c55bb04a50ae38e177f791f149"
-    sha256 cellar: :any,                 monterey:       "31cb9293929e7fa8a60f2f1df31b47a30acd1f8b6b063626e7551a9a8639e554"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a23cd483770076cdba7cf7e2805a2159af6b75db220e388f2b385d69e35d421"
+    sha256 cellar: :any,                 arm64_sonoma:   "ef3eb2a117abae4270ff8459d042ea9322a9390ab1060d49bc5568571f1ae206"
+    sha256 cellar: :any,                 arm64_ventura:  "998d7723cbf71ee0bd8560b8bd98f2e40a7ce7ab7563b913614f066ba38df0d2"
+    sha256 cellar: :any,                 arm64_monterey: "b420a760118682dd6fb76c0e252674f8040fc26cce192d4bf0a2051922dee8e5"
+    sha256 cellar: :any,                 sonoma:         "742545a6f836a5fff7f0405daa2bac6bbed7d7a056c2a12520b361ab225d4a2c"
+    sha256 cellar: :any,                 ventura:        "7bcef34ee9d33e1244940014685ccdf819daaf999873d946af300230377619b6"
+    sha256 cellar: :any,                 monterey:       "19d30d5c81039760bb2959b46d4cdb9ba08b360ab07963c28af259f3de09ecbd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "729ee14fedd4bef688a08d1ba9b9080aa9c9d6f70640a97303f50717da6e4ef8"
   end
 
   # `pkg-config` and `rust` are for bcrypt
@@ -80,8 +80,8 @@ class Ansible < Formula
   end
 
   resource "cachetools" do
-    url "https://files.pythonhosted.org/packages/a7/3f/ea907ec6d15f68ea7f381546ba58adcb298417a59f01a2962cb5e486489f/cachetools-5.4.0.tar.gz"
-    sha256 "b8adc2e7c07f105ced7bc56dbb6dfbe7c4a00acce20e2227b3f355be89bc6827"
+    url "https://files.pythonhosted.org/packages/c3/38/a0f315319737ecf45b4319a8cd1f3a908e29d9277b46942263292115eee7/cachetools-5.5.0.tar.gz"
+    sha256 "2cc24fb4cbe39633fb7badd9db9ca6295d766d9c2995f245725a46715d050f2a"
   end
 
   resource "charset-normalizer" do
