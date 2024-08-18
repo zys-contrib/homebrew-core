@@ -2498,6 +2498,7 @@ subversion
 suite-sparse
 sundials
 superfile
+superlu
 suricata
 svgbob
 svgo
