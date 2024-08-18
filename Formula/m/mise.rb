@@ -1,8 +1,8 @@
 class Mise < Formula
   desc "Polyglot runtime manager (asdf rust clone)"
   homepage "https://mise.jdx.dev/"
-  url "https://github.com/jdx/mise/archive/refs/tags/v2024.8.8.tar.gz"
-  sha256 "41dea6aeb96b9d6f24eb8cd5f256743980022857c5ecd3be7a8c4dd627365da4"
+  url "https://github.com/jdx/mise/archive/refs/tags/v2024.8.9.tar.gz"
+  sha256 "6566437dac9630d89d5401c0c2b87ee54b7cf7fc9f83d89f01a8ed292b8bc3fb"
   license "MIT"
   head "https://github.com/jdx/mise.git", branch: "main"
 
@@ -23,8 +23,15 @@ class Mise < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
+
   depends_on "libgit2"
   depends_on "openssl@3"
+
+  uses_from_macos "bzip2"
+
+  on_linux do
+    depends_on "xz" # for liblzma
+  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
