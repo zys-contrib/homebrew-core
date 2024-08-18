@@ -31,10 +31,13 @@ class Samba < Formula
   # without disabling spotlight support. So we just enable the feature for all systems.
   depends_on "icu4c"
   depends_on "krb5"
+  depends_on "ldb"
   depends_on "libtasn1"
   depends_on "popt"
   depends_on "readline"
   depends_on "talloc"
+  depends_on "tdb"
+  depends_on "tevent"
 
   uses_from_macos "flex" => :build
   uses_from_macos "perl" => :build
@@ -53,7 +56,6 @@ class Samba < Formula
 
   conflicts_with "jena", because: "both install `tdbbackup` binaries"
   conflicts_with "puzzles", because: "both install `net` binaries"
-  conflicts_with "tdb", because: "both install `tdbrestore`, `tdbtool` binaries"
 
   resource "Parse::Yapp" do
     url "https://cpan.metacpan.org/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.21.tar.gz"
@@ -73,7 +75,7 @@ class Samba < Formula
     end
     ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/private" if OS.linux?
     system "./configure",
-           "--bundled-libraries=NONE,ldb,tdb,tevent",
+           "--bundled-libraries=NONE",
            "--disable-cephfs",
            "--disable-cups",
            "--disable-iprint",
