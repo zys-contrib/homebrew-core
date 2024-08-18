@@ -7,6 +7,16 @@ class Ufbt < Formula
   sha256 "4f1a858858598ed2e25bbab69e2ea604bc00758c3b1e8ecf897a29866157363b"
   license "GPL-3.0-or-later"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0533089af1ac1be333419c2f9bf6c77bfe10e81c2e5f30dfe746f2a5dfa22847"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0533089af1ac1be333419c2f9bf6c77bfe10e81c2e5f30dfe746f2a5dfa22847"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0533089af1ac1be333419c2f9bf6c77bfe10e81c2e5f30dfe746f2a5dfa22847"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0533089af1ac1be333419c2f9bf6c77bfe10e81c2e5f30dfe746f2a5dfa22847"
+    sha256 cellar: :any_skip_relocation, ventura:        "0533089af1ac1be333419c2f9bf6c77bfe10e81c2e5f30dfe746f2a5dfa22847"
+    sha256 cellar: :any_skip_relocation, monterey:       "0533089af1ac1be333419c2f9bf6c77bfe10e81c2e5f30dfe746f2a5dfa22847"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "982510a1abb81764c74b376fc5ee8a3f208773d882a295792bd35f3fe17c95a2"
+  end
+
   depends_on "python@3.12"
 
   resource "mslex" do
