@@ -19,10 +19,10 @@ class NicotinePlus < Formula
   end
 
   depends_on "adwaita-icon-theme"
-  depends_on "gtk+3"
+  depends_on "gtk4"
+  depends_on "libadwaita"
   depends_on "py3cairo"
   depends_on "pygobject3"
-  depends_on "python-gdbm@3.12"
   depends_on "python@3.12"
 
   on_linux do
