@@ -1,8 +1,8 @@
 class TrzszSsh < Formula
   desc "Simple ssh client with trzsz ( trz / tsz ) support"
   homepage "https://trzsz.github.io/ssh"
-  url "https://github.com/trzsz/trzsz-ssh/archive/refs/tags/v0.1.21.tar.gz"
-  sha256 "598d749e50af298700bfaa416690383bb16b9fc3d15ec66951857323726e2124"
+  url "https://github.com/trzsz/trzsz-ssh/archive/refs/tags/v0.1.22.tar.gz"
+  sha256 "ccf5a113d68156b409d89fead784256b4fd6a6bbae6a2d70df1e4403d383a962"
   license "MIT"
 
   bottle do
@@ -24,11 +24,11 @@ class TrzszSsh < Formula
   end
 
   test do
-    assert_match "trzsz ssh #{version}", shell_output("#{bin}/tssh -V")
-    assert_match "trzsz ssh #{version}", shell_output("#{bin}/tssh --version")
+    assert_match "trzsz ssh #{version}", shell_output("#{bin}/tssh -V 2>&1")
+    assert_match "trzsz ssh #{version}", shell_output("#{bin}/tssh --version 2>&1")
 
-    assert_match "invalid option", shell_output("#{bin}/tssh -o abc", 255)
-    assert_match "invalid bind specification", shell_output("#{bin}/tssh -D xyz", 255)
-    assert_match "invalid forward specification", shell_output("#{bin}/tssh -L 123", 255)
+    assert_match "invalid option", shell_output("#{bin}/tssh -o abc 2>&1", 255)
+    assert_match "invalid bind specification", shell_output("#{bin}/tssh -D xyz 2>&1", 255)
+    assert_match "invalid forward specification", shell_output("#{bin}/tssh -L 123 2>&1", 255)
   end
 end
