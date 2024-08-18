@@ -2601,6 +2601,7 @@ tio
 tippecanoe
 tkey-ssh-agent
 tlsx
+tmpmail
 tmux-mem-cpu-load
 tmux-xpanes
 tmuxp
