@@ -26,6 +26,7 @@ class Xxhash < Formula
   end
 
   def install
+    ENV.O3
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
     prefix.install "cli/COPYING"
