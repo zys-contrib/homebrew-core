@@ -23,7 +23,7 @@ class Klee < Formula
   depends_on "cmake" => :build
 
   depends_on "gperftools"
-  depends_on "llvm@14" # LLVM 16 PR: https://github.com/klee/klee/pull/1664
+  depends_on "llvm@16"
   depends_on "python@3.12"
   depends_on "sqlite"
   depends_on "stp"
@@ -37,16 +37,12 @@ class Klee < Formula
     depends_on "minisat"
   end
 
-  on_linux do
-    depends_on "python-setuptools" => :build # Remove with LLVM 15+
-  end
-
   fails_with gcc: "5"
 
   # klee needs a version of libc++ compiled with wllvm
   resource "libcxx" do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.6/llvm-project-14.0.6.src.tar.xz"
-    sha256 "8b3cfd7bc695bd6cea0f37f53f0981f34f87496e79e2529874fd03a2f9dd3a8a"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.6/llvm-project-16.0.6.src.tar.xz"
+    sha256 "ce5e71081d17ce9e86d7cbcfa28c4b04b9300f8fb7e78422b1feb6bc52c3028e"
   end
 
   resource "tabulate" do
@@ -66,8 +62,10 @@ class Klee < Formula
     # Use build configuration at
     # https://github.com/klee/klee/blob/v#{version}/scripts/build/p-libcxx.inc
     libcxx_args = std_cmake_args(install_prefix: libcxx_install_dir) + %W[
-      -DCMAKE_INSTALL_RPATH=#{rpath}
-      -DLLVM_ENABLE_PROJECTS=libcxx;libcxxabi
+      -DRUNTIMES_CMAKE_ARGS=-DCMAKE_INSTALL_RPATH=#{rpath}
+      -DLLVM_ENABLE_RUNTIMES=libcxx;libcxxabi
+      -DLLVM_ENABLE_PROJECTS=
+      -DLLVM_ENABLE_PROJECTS_USED:BOOL=ON
       -DLLVM_ENABLE_THREADS:BOOL=OFF
       -DLLVM_ENABLE_EH:BOOL=OFF
       -DLLVM_ENABLE_RTTI:BOOL=OFF
@@ -84,8 +82,8 @@ class Klee < Formula
       LLVM_COMPILER_PATH: llvm.opt_bin,
     ) do
       system "cmake", "-S", libcxx_src_dir/"llvm", "-B", "libcxx_build", *libcxx_args
-      system "cmake", "--build", "libcxx_build", "--target", "cxx"
-      system "cmake", "--build", "libcxx_build/projects", "--target", "install"
+      system "cmake", "--build", "libcxx_build", "--target", "runtimes"
+      system "cmake", "--install", "libcxx_build/runtimes"
     end
 
     libcxx_libs = libcxx_install_dir.glob("lib/{#{shared_library("*")},*.a}").reject(&:symlink?)
@@ -157,7 +155,7 @@ class Klee < Formula
                     "-c", "-g", "-O0", "-Xclang", "-disable-O0-optnone",
                     testpath/"get_sign.c"
 
-    total_instructions = 33
+    total_instructions = 32
     expected_output = <<~EOS
       KLEE: done: total instructions = #{total_instructions}
       KLEE: done: completed paths = 3
