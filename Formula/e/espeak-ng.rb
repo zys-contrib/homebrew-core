@@ -3,7 +3,8 @@ class EspeakNg < Formula
   homepage "https://github.com/espeak-ng/espeak-ng"
   url "https://github.com/espeak-ng/espeak-ng/archive/refs/tags/1.51.tar.gz"
   sha256 "f0e028f695a8241c4fa90df7a8c8c5d68dcadbdbc91e758a97e594bbb0a3bdbf"
-  license all_of: ["GPL-3.0-or-later", "BSD-2-Clause"]
+  # NOTE: We omit BSD-2-Clause as getopt.c is only used on Windows
+  license "GPL-3.0-or-later"
   head "https://github.com/espeak-ng/espeak-ng.git", branch: "master"
 
   bottle do
@@ -19,6 +20,7 @@ class EspeakNg < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pcaudiolib"
 
   conflicts_with "espeak", because: "both install `espeak` binaries"
 
@@ -28,11 +30,18 @@ class EspeakNg < Formula
     touch "ChangeLog"
 
     system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", *std_configure_args
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
   test do
+    # Real audio output fails on macOS CI runner, maybe due to permissions
+    audio_output = if OS.mac? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+      "AUDIO_OUTPUT_RETRIEVAL"
+    else
+      "AUDIO_OUTPUT_PLAYBACK"
+    end
+
     (testpath/"test.cpp").write <<~EOS
       #include <espeak/speak_lib.h>
       #include <iostream>
@@ -42,7 +51,7 @@ class EspeakNg < Formula
         std::cout << "Initializing espeak-ng..." << std::endl;
 
         espeak_POSITION_TYPE position_type = POS_CHARACTER;
-        espeak_AUDIO_OUTPUT output = AUDIO_OUTPUT_PLAYBACK;
+        espeak_AUDIO_OUTPUT output = #{audio_output};
         int options = 0;
         void* user_data = nullptr;
         unsigned int* unique_identifier = nullptr;
