@@ -25,6 +25,8 @@ class Lz4 < Formula
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
+    # Prevent dependents from hardcoding Cellar paths.
+    inreplace lib/"pkgconfig/liblz4.pc", prefix, opt_prefix
   end
 
   test do
