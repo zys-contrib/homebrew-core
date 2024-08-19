@@ -11,13 +11,7 @@ class ScmManager < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6f6cbf22743a06d4915cf4a44515d1eb3c2c215b7b497cc04568a64b537194fd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6f6cbf22743a06d4915cf4a44515d1eb3c2c215b7b497cc04568a64b537194fd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6f6cbf22743a06d4915cf4a44515d1eb3c2c215b7b497cc04568a64b537194fd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6f6cbf22743a06d4915cf4a44515d1eb3c2c215b7b497cc04568a64b537194fd"
-    sha256 cellar: :any_skip_relocation, ventura:        "6f6cbf22743a06d4915cf4a44515d1eb3c2c215b7b497cc04568a64b537194fd"
-    sha256 cellar: :any_skip_relocation, monterey:       "6f6cbf22743a06d4915cf4a44515d1eb3c2c215b7b497cc04568a64b537194fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d175118e0f442074bd8e03240835982987b238fba8d02b944e38e141431e65bc"
+    sha256 cellar: :any_skip_relocation, all: "3a1b8ab1d6c3cb7e3db6e44112707eeb572ddf70de3a0e4196b3722cf84b5132"
   end
 
   depends_on "jsvc"
