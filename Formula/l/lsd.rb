@@ -1,8 +1,8 @@
 class Lsd < Formula
   desc "Clone of ls with colorful output, file type icons, and more"
   homepage "https://github.com/lsd-rs/lsd"
-  url "https://github.com/lsd-rs/lsd/archive/refs/tags/v1.1.2.tar.gz"
-  sha256 "cd80dae9a8f6c4c2061f79084468ea6e04c372e932e3712a165119417960e14e"
+  url "https://github.com/lsd-rs/lsd/archive/refs/tags/v1.1.3.tar.gz"
+  sha256 "24b0c44006efe719e53a5127f21b2cdb06db58ffd833f5cfbca4bcf665d188f8"
   license "Apache-2.0"
   head "https://github.com/lsd-rs/lsd.git", branch: "master"
 
