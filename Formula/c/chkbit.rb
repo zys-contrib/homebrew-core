@@ -1,12 +1,10 @@
 class Chkbit < Formula
-  include Language::Python::Virtualenv
-
   desc "Check your files for data corruption"
-  homepage "https://github.com/laktak/chkbit-py"
-  url "https://files.pythonhosted.org/packages/ce/c3/83700e8a9c188638403e5eb897c59e8940af0fac3a37678c22b996c8c9f8/chkbit-4.2.1.tar.gz"
-  sha256 "6dbcb17c43667fcd63189e0c4682c83bcf0a6d0663e043fe08e4cda565cb1c3e"
+  homepage "https://github.com/laktak/chkbit"
+  url "https://github.com/laktak/chkbit/archive/refs/tags/v5.0.1.tar.gz"
+  sha256 "539363bcb5971fbe55104aae5e85a882699705068bf62b0c149fd695e27d9588"
   license "MIT"
-  head "https://github.com/laktak/chkbit-py.git", branch: "master"
+  head "https://github.com/laktak/chkbit.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "eca43da47371875365f790d768a4c659af462c1aa0b12fb5ad462dd45a20e38a"
@@ -18,22 +16,15 @@ class Chkbit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c5eb0a6a4d5101e55ce44c31bb6369b34c937723e844befd18c6271459d4f00"
   end
 
-  depends_on "rust" => :build
-  depends_on "python@3.12"
-
-  uses_from_macos "zlib"
-
-  resource "blake3" do
-    url "https://files.pythonhosted.org/packages/b0/8d/43eafa8a785547c33b611068ffd6d914f5c5f96637d5b453abc556f095a0/blake3-0.4.1.tar.gz"
-    sha256 "0625c8679203d5a1d30f859696a3fd75b2f50587984690adab839ef112f4c043"
-  end
+  depends_on "go" => :build
 
   def install
-    virtualenv_install_with_resources
+    ldflags = "-s -w -X main.appVersion=#{version}"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/chkbit"
   end
 
   test do
-    assert_equal version.to_s, shell_output("#{bin}/chkbit --version").chomp
+    assert_match version.to_s, shell_output("#{bin}/chkbit --version").chomp
 
     (testpath/"one.txt").write <<~EOS
       testing
