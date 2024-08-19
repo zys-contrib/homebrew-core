@@ -1,8 +1,8 @@
 class Pivit < Formula
   desc "Sign and verify data using hardware (Yubikey) backed x509 certificates (PIV)"
   homepage "https://github.com/cashapp/pivit"
-  url "https://github.com/cashapp/pivit/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "c53c6ab0e6b8842ce763e73483766bece1bb107559cdd853f7fff97415309738"
+  url "https://github.com/cashapp/pivit/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "1c4500d79d0e3940ed6014fbe49fce187076e3a5c4a6f48d35c1e32a0fa8a196"
   license "MIT"
 
   bottle do
