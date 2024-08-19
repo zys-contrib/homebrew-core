@@ -19,6 +19,7 @@ class Flann < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "hdf5"
+  depends_on "lz4"
 
   def install
     system "cmake", "-S", ".", "-B", "build",
