@@ -23,23 +23,23 @@ class Osi < Formula
   depends_on "pkg-config" => :build
   depends_on "coinutils"
 
+  on_macos do
+    depends_on "openblas"
+  end
+
   def install
     # Work around - same as clp formula
     # Error 1: "mkdir: #{include}/osi/coin: File exists."
     mkdir include/"osi/coin"
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--includedir=#{include}/osi"
-    system "make"
+    system "./configure", "--disable-silent-rules", "--includedir=#{include}/osi", *std_configure_args
     system "make", "install"
   end
 
   test do
     (testpath/"test.cpp").write <<~EOS
       #include <OsiSolverInterface.hpp>
+
       int main() {
         OsiSolverInterface *si;
       }
