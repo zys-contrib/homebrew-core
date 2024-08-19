@@ -11,6 +11,7 @@ on:
     inputs:
       pull_request:
         description: Pull request number
+        type: number
         required: true
       large_runner:
         description: "Run the upload job on a large runner? (default: false)"

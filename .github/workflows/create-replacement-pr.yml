@@ -10,6 +10,7 @@ on:
     inputs:
       pull_request:
         description: Pull request number
+        type: number
         required: true
       autosquash:
         description: "Squash pull request commits according to Homebrew style? (default: true)"
