@@ -1,8 +1,8 @@
 class OsctrlCli < Formula
   desc "Fast and efficient osquery management"
   homepage "https://osctrl.net"
-  url "https://github.com/jmpsec/osctrl/archive/refs/tags/v0.3.7.tar.gz"
-  sha256 "39649f2db1b523293df2874dbfcb65840d3091c8341cc415d50ef53797cf994f"
+  url "https://github.com/jmpsec/osctrl/archive/refs/tags/v0.3.8.tar.gz"
+  sha256 "03c2c3c79357b646628458fea9344f24c6ba75bc28301eb535022f73c752b103"
   license "MIT"
 
   bottle do
@@ -25,6 +25,6 @@ class OsctrlCli < Formula
     assert_match version.to_s, shell_output("#{bin}/osctrl-cli --version")
 
     output = shell_output("#{bin}/osctrl-cli check-db 2>&1", 1)
-    assert_match "failed to initialize database", output
+    assert_match "Failed to execute - Failed to create backend", output
   end
 end
