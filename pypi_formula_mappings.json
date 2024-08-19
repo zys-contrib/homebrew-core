@@ -788,6 +788,10 @@
   "sysaidmin": {
     "exclude_packages": ["certifi"]
   },
+  "systemd": {
+    "package_name": "",
+    "extra_packages": ["jinja2", "lxml"]
+  },
   "tartufo": {
     "exclude_packages": ["pygit2"]
   },
