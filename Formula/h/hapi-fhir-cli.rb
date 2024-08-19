@@ -16,13 +16,7 @@ class HapiFhirCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e9cce37f4d6f332b1d3fc2d275ce9bc3346ef7b35032df6648ff11dc9ce4994a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e9cce37f4d6f332b1d3fc2d275ce9bc3346ef7b35032df6648ff11dc9ce4994a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e9cce37f4d6f332b1d3fc2d275ce9bc3346ef7b35032df6648ff11dc9ce4994a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e9cce37f4d6f332b1d3fc2d275ce9bc3346ef7b35032df6648ff11dc9ce4994a"
-    sha256 cellar: :any_skip_relocation, ventura:        "e9cce37f4d6f332b1d3fc2d275ce9bc3346ef7b35032df6648ff11dc9ce4994a"
-    sha256 cellar: :any_skip_relocation, monterey:       "e9cce37f4d6f332b1d3fc2d275ce9bc3346ef7b35032df6648ff11dc9ce4994a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b67824bf820f01e0e5d76e95761c24599ae2ca57003564c490505c58141807c"
+    sha256 cellar: :any_skip_relocation, all: "da3e6d3d340326c6997663b1f31bacb5ee0a4827687223714bafdc9a78b200ef"
   end
 
   depends_on "openjdk"
