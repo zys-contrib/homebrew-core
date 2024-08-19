@@ -7,13 +7,13 @@ class Chainsaw < Formula
   head "https://github.com/WithSecureLabs/chainsaw.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "973023b5d20e006aac52862a3376153305a62b2b45719d52a6520adeebaea5c8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5e08d8747b556d120682a3bbd0848fbc2e4a60389e6d3527f5aaa10e88727b00"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "297f9b9da2a2cdfdd9165150189efc65c3e8ea91eea6359550a356d0b062cf32"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5599eb6ca5d69d4ecef899fa62555b60653d7a2434f39c3a3009e736cdc582b3"
-    sha256 cellar: :any_skip_relocation, ventura:        "60e38ace488c571d1318f7bf7e47e7b5c254ce2985d6c4ebbdbdfe8e8cd24529"
-    sha256 cellar: :any_skip_relocation, monterey:       "a05b1d076291199064c5147b2d1706b04ae838f3df19801b42b2c45af52bae36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b3c3239ae156fc3ee1ad6b4041d61f65462eafa61f6d2c53d7b74384a5d656c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "db2ec7ca6ff2c91d9d7922268d8373797e397e5e61f850116ec131f575b6c88a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "51b2df3955ff3df19ed6f1e4e3d55448caf722507a3fba8816390c0e88f7f926"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5865a8f49ec34be604dc148a42d35d83ff6f5388e415bf7855f13be3ed6b2647"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6fe3f1c8765f2e9a443c3f2841a97602a20617449187771aaed112a8ab127ca9"
+    sha256 cellar: :any_skip_relocation, ventura:        "53d49f3e6b84677743de55a7ba1d8dcd587d9097a5ecf927ee42e20af8ebfd45"
+    sha256 cellar: :any_skip_relocation, monterey:       "464a1d75c5e1378ada67fa3d654c916ffc7252ab9f43d0a65e8abc496adeca02"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "71a5f675e9a2aff86ed645769f28ce4d91ad91155e718ef5192b707e9934fced"
   end
 
   depends_on "rust" => :build
