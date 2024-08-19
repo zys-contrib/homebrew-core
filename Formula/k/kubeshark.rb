@@ -14,13 +14,13 @@ class Kubeshark < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c169de838c63021729dfd1e68588bed2c6cb401813b8e9d49577c1ff7682127a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7e1ee7fba6dd5d3714303eea233b1ba85d522d8b17ba46252f07f05f9b2a5b5e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8b513a1d3bfd6796c6995bcceab62a514d491fdfe8880e0b8778a1e8e7d3d334"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2b875bedff1cca53c9b8e26798af2bf2fce08dc2d6e98c04a9fe89efa2f355c0"
-    sha256 cellar: :any_skip_relocation, ventura:        "030310a95cd3a47728c8fee47cfed20262c900224ecfe2d3270c238095acf04f"
-    sha256 cellar: :any_skip_relocation, monterey:       "59148b4a22f6dae7d993377e9d0e6d31684904767f84de7021a2a1f949d1c925"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "14113fc3c29b4b6f3372ebba7ef1f7b6d4071edcbd33270e48f372b0e3e80d7f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f3a59b0dfdbd030a72ed130e04019efa07d338d74d56b0344a48a0f2e0eb49f3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e654eee26f8ff11af7b4b62502595cda313acf9f4af89abf5c5978d493b4d243"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2ac332bc89ba15cbe987209933f8deed8f558766e957ecdfdc2e5212f7bd60b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dee2ef76db7c205b818314a7892eddaa57fccc919716fcae83ebd7175ddf6cde"
+    sha256 cellar: :any_skip_relocation, ventura:        "7f6d74169ab5f2025355ec6f6f4cf35e965c37ed6ede889c6e3e1bcbf114251c"
+    sha256 cellar: :any_skip_relocation, monterey:       "0ce47ff420592bc6c6268030da8c47a66a3b48e2f39be78227f9952cd6fed128"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9de073e18685f8ef6534b7efa069b86a0dbc6e5ec875b1bce71f1e49cb43ffdb"
   end
 
   depends_on "go" => :build
