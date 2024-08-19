@@ -7,13 +7,13 @@ class Chkbit < Formula
   head "https://github.com/laktak/chkbit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "eca43da47371875365f790d768a4c659af462c1aa0b12fb5ad462dd45a20e38a"
-    sha256 cellar: :any,                 arm64_ventura:  "6266986c2a346550d5112318e3d3d174a531943e87640923f7a86286ad310dc8"
-    sha256 cellar: :any,                 arm64_monterey: "ea5749e4aa1f96805a69a0f0b0ceef26c49ba5894fce7aff8af1665997b85720"
-    sha256 cellar: :any,                 sonoma:         "9fbcdc42034ae0d906ca14794a07f0c2e37278046c5fdcfcc349043340a6e550"
-    sha256 cellar: :any,                 ventura:        "81ce5dc4ffcc1812df1101ab0c697c7eb60548ae9d4e42844267edabd2af25cc"
-    sha256 cellar: :any,                 monterey:       "73327c0a66310ba120b57391fc5e93601dea45fcd601712d0c3f2ca1f9f77e80"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c5eb0a6a4d5101e55ce44c31bb6369b34c937723e844befd18c6271459d4f00"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c4b2a26fd885c5b0cbd1cdfffaf687a1aaf5c5938ea277e57fdd679933e9e7a9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c4b2a26fd885c5b0cbd1cdfffaf687a1aaf5c5938ea277e57fdd679933e9e7a9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c4b2a26fd885c5b0cbd1cdfffaf687a1aaf5c5938ea277e57fdd679933e9e7a9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "53f2b2781143378af5ba372b2592d3c33efcacfadb41d338405bc53375a4e94b"
+    sha256 cellar: :any_skip_relocation, ventura:        "53f2b2781143378af5ba372b2592d3c33efcacfadb41d338405bc53375a4e94b"
+    sha256 cellar: :any_skip_relocation, monterey:       "53f2b2781143378af5ba372b2592d3c33efcacfadb41d338405bc53375a4e94b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8974126bed326d09096b83b39ba516d9b9dcc725a2925df75884a70c7818fe5"
   end
 
   depends_on "go" => :build
