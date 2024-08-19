@@ -8,13 +8,13 @@ class Pter < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b19f0ebdb88dcf028e7b6a474ea7eecf7238fdaa0dcd3023dfca494c0f510c06"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b19f0ebdb88dcf028e7b6a474ea7eecf7238fdaa0dcd3023dfca494c0f510c06"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b19f0ebdb88dcf028e7b6a474ea7eecf7238fdaa0dcd3023dfca494c0f510c06"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b19f0ebdb88dcf028e7b6a474ea7eecf7238fdaa0dcd3023dfca494c0f510c06"
-    sha256 cellar: :any_skip_relocation, ventura:        "b19f0ebdb88dcf028e7b6a474ea7eecf7238fdaa0dcd3023dfca494c0f510c06"
-    sha256 cellar: :any_skip_relocation, monterey:       "b19f0ebdb88dcf028e7b6a474ea7eecf7238fdaa0dcd3023dfca494c0f510c06"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9dde6fe5093b52f39fcd5362081c8895f0ac5443d2f29eb65b299f430708ffb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e0f3d2c26aa693fe5eee88a0f0c43247dfaef3d860bbfee7f9a26c79ae01f409"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e0f3d2c26aa693fe5eee88a0f0c43247dfaef3d860bbfee7f9a26c79ae01f409"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e0f3d2c26aa693fe5eee88a0f0c43247dfaef3d860bbfee7f9a26c79ae01f409"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e0f3d2c26aa693fe5eee88a0f0c43247dfaef3d860bbfee7f9a26c79ae01f409"
+    sha256 cellar: :any_skip_relocation, ventura:        "e0f3d2c26aa693fe5eee88a0f0c43247dfaef3d860bbfee7f9a26c79ae01f409"
+    sha256 cellar: :any_skip_relocation, monterey:       "e0f3d2c26aa693fe5eee88a0f0c43247dfaef3d860bbfee7f9a26c79ae01f409"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "967b667b7cf11bb4c28cdcfad3f76da212b9dca117771ce8131a0598d108a093"
   end
 
   depends_on "python@3.12"
