@@ -4,7 +4,10 @@ class Tracebox < Formula
   url "https://github.com/tracebox/tracebox.git",
       tag:      "v0.4.4",
       revision: "4fc12b2e330e52d340ecd64b3a33dbc34c160390"
-  license "GPL-2.0-only"
+  license all_of: [
+    "GPL-2.0-only",
+    "BSD-3-Clause", # noinst/libcrafter
+  ]
   revision 3
   head "https://github.com/tracebox/tracebox.git", branch: "master"
 
@@ -27,19 +30,25 @@ class Tracebox < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "json-c"
-  depends_on "libpcap"
   depends_on "lua"
 
+  uses_from_macos "libpcap"
+
   def install
-    ENV.append_to_cflags "-I#{Formula["libpcap"].opt_include}"
-    ENV.append "LIBS", "-L#{Formula["libpcap"].opt_lib} -lpcap -lm"
+    unless OS.mac?
+      ENV.cxx11 # work around error: reference to 'byte' is ambiguous
+      ENV.append_to_cflags "-I#{Formula["libpcap"].opt_include}"
+      ENV.append "LDFLAGS", "-L#{Formula["libpcap"].opt_lib}"
+    end
+    # Work around limited `libpcap` and `lua` search paths in configure.ac
+    ENV.append "LIBS", "-lpcap -lm"
     ENV["LUA_INCLUDE"] = "-I#{Formula["lua"].opt_include}/lua"
     ENV["LUA_LIB"] = "-L#{Formula["lua"].opt_lib} -llua"
-    ENV.libcxx
+
     system "autoreconf", "--install"
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
-                          "--with-libpcap=yes"
+    system "./configure", "--disable-silent-rules",
+                          "--with-libpcap=yes",
+                          *std_configure_args
     system "make"
     system "make", "install"
   end
