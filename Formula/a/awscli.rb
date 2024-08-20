@@ -3,19 +3,19 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/refs/tags/2.17.32.tar.gz"
-  sha256 "e4c44edc50bc84c497a528eb86046c4927343b780c0b3d44cac0fe7c25c69be5"
+  url "https://github.com/aws/aws-cli/archive/refs/tags/2.17.33.tar.gz"
+  sha256 "a782921a35aead55664adf45bb59c6b0161e7b4639af3805f9d1c56bbb3f921d"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "64a0444762b2d8079fa85758b1214ad1c33f802243d27d53bf84c41e4e42468e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "87654e44aa08b29a3a12a43a5455cc324c80756b431ec28bcd5fcedce082041e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c81594ab48553deb2d5faf7b92abfa351222434951ffb86fc33e8f6598a78225"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6827abc5fc7f148b844fae0e154fd9571c6492799b48ac1fb0151e5267539675"
-    sha256 cellar: :any_skip_relocation, ventura:        "456ea9e185bd4c31a6a6d6c79cb118547f8966161d1b5950754d62eb7ba68e9f"
-    sha256 cellar: :any_skip_relocation, monterey:       "1bd37e317ab8f7f16cbc191aee37f3814bae6fd9442b4a7340fc63e17fe4b507"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea522168ae24c9df3997ebae2562a373345a34418163884ff31172c152e9fd55"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e4e373f7e8c212ff90845fb30c64f67f6d9b0def6817423546c3b8080c4d5325"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b4b249862252fb9883efb2ed61ed858d6646d1fafdb795dfe61d0f9863406922"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5be235ef3e3775a6c8af914ca70676fc37817e298a14c5ab8141fa19c55c7694"
+    sha256 cellar: :any_skip_relocation, sonoma:         "242d31b8565de86931231d653479b9387012fb5c54118e8bab9cad05611fd049"
+    sha256 cellar: :any_skip_relocation, ventura:        "057c1284ed9f8f70be2f8a09154668912934b967251280adae8b4e0520883d67"
+    sha256 cellar: :any_skip_relocation, monterey:       "7dfa339113f1e475b417d1266c03cf7185b0f4396915add525ae56aed979b727"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89cd7992947a4f218fdb2eeefd7fa53e38faad6fa6ab32e722312a3454ec26b1"
   end
 
   depends_on "cmake" => :build
@@ -76,8 +76,8 @@ class Awscli < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/ce/ef/013ded5b0d259f3fa636bf35de186f0061c09fbe124020ce6b8db68c83af/setuptools-72.2.0.tar.gz"
-    sha256 "80aacbf633704e9c8bfa1d99fa5dd4dc59573efcf9e4042c13d3bcef91ac2ef9"
+    url "https://files.pythonhosted.org/packages/98/0b/56dabcf2b37d9152090bcd5d42e28ad312c9ba54fb1446b22dcc809dd84a/setuptools-73.0.0.tar.gz"
+    sha256 "3c08705fadfc8c7c445cf4d98078f0fafb9225775b2b4e8447e40348f82597c0"
   end
 
   resource "six" do
