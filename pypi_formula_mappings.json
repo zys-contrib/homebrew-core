@@ -491,7 +491,7 @@
   },
   "mesa": {
     "package_name": "",
-    "extra_packages": ["mako", "markupsafe", "packaging", "pygments", "ply"]
+    "extra_packages": ["mako", "packaging", "ply"]
   },
   "meta-package-manager": {
     "exclude_packages": ["certifi"]
