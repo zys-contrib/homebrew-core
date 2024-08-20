@@ -1,8 +1,8 @@
 class Rdb < Formula
   desc "Redis RDB parser"
   homepage "https://github.com/HDT3213/rdb/"
-  url "https://github.com/HDT3213/rdb/archive/refs/tags/v1.0.16.tar.gz"
-  sha256 "1609ba3852a9b1302e133b7353bed79f3c319ed0a7d6b42fedd489b3bc7cfe51"
+  url "https://github.com/HDT3213/rdb/archive/refs/tags/v1.0.17.tar.gz"
+  sha256 "f810af73c6285c42e9dcfafc5c84329bbbb92e0db6c0e622d0d84222bac94bd1"
   license "Apache-2.0"
 
   bottle do
@@ -15,8 +15,7 @@ class Rdb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2938e89db70bf767cb86aba85fd503831a5ceeb5b4564dc9c03045fd7143abea"
   end
 
-  # use "go" again after https://github.com/HDT3213/rdb/issues/37 is fixed and released
-  depends_on "go@1.22" => :build
+  depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
