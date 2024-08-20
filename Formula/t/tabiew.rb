@@ -1,8 +1,8 @@
 class Tabiew < Formula
   desc "TUI to view and query delimited files (CSV/TSV/etc.)"
   homepage "https://github.com/shshemi/tabiew"
-  url "https://github.com/shshemi/tabiew/archive/refs/tags/v0.6.1.tar.gz"
-  sha256 "2f7e13e27f0e8cf7c9b135d1c7480a65b6ad86c3f984205854051c6dbbeba97c"
+  url "https://github.com/shshemi/tabiew/archive/refs/tags/v0.6.2.tar.gz"
+  sha256 "fa4fc1008ddc04b4c82f739d2e91575265367013fca7ee65fd5fcd9ca42fc3de"
   license "MIT"
 
   bottle do
