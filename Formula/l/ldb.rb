@@ -10,6 +10,16 @@ class Ldb < Formula
     regex(/href=.*?ldb[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 arm64_sonoma:   "efbfa53d3984f5c1b9bcdc4210f5932f324b9a569cd91d1ffa43b9862f41b28d"
+    sha256 arm64_ventura:  "f8058e25e3d54f1d6d73c7f89bec08d76c08f4394743cb939a1628d7dd0b7fdd"
+    sha256 arm64_monterey: "20528d2bc32e76953b834f66f1ef0c351ba45ecf1b3e0d86ba6d0640d7ad142e"
+    sha256 sonoma:         "709111956c5b6d5747eb68735e291c3ebd79b8bf4cb4759a9e1df4a2777f5b06"
+    sha256 ventura:        "aecdbd299198a616acbff3eacfc7ac07b49642bf4a415834418498ac65c76cc1"
+    sha256 monterey:       "c17f63379fc41b715cafea0139877798f78694d992b7ad049ebf65768037a8f4"
+    sha256 x86_64_linux:   "051ee3eb49899d308b429254c6585057e49e2d4e0ab1cf2ffbe7e77cecf513be"
+  end
+
   depends_on "cmocka" => :build
   depends_on "pkg-config" => :build
   depends_on "lmdb"
