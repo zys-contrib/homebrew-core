@@ -1070,6 +1070,7 @@ grafana
 grails
 grap
 graph-tool
+graphicsmagick
 graphqurl
 graphqxl
 graphviz
