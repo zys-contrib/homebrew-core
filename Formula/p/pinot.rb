@@ -1,8 +1,8 @@
 class Pinot < Formula
   desc "Realtime distributed OLAP datastore"
   homepage "https://pinot.apache.org/"
-  url "https://downloads.apache.org/pinot/apache-pinot-1.1.0/apache-pinot-1.1.0-bin.tar.gz"
-  sha256 "976e4378aa6a9c24a3496fbb024e65f4ef7b36c75bc2edb19295ea4d225c125d"
+  url "https://downloads.apache.org/pinot/apache-pinot-1.2.0/apache-pinot-1.2.0-bin.tar.gz"
+  sha256 "349120b114e5bda700b5f6527c5a22b016f0fc486ab28560999693b4fab8c822"
   license "Apache-2.0"
   head "https://github.com/apache/pinot.git", branch: "master"
 
