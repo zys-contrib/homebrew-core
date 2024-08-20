@@ -1,8 +1,8 @@
 class Zrok < Formula
   desc "Geo-scale, next-generation sharing platform built on top of OpenZiti"
   homepage "https://zrok.io"
-  url "https://github.com/openziti/zrok/archive/refs/tags/v0.4.38.tar.gz"
-  sha256 "d1aaa8b879200400cfa70ecfd2aceed698d51f55fc6dd1625de9254cfb2a92c7"
+  url "https://github.com/openziti/zrok/archive/refs/tags/v0.4.39.tar.gz"
+  sha256 "767b3f405d8abfe02197d85aa8e8af822e00afb12deff5342b223843b838e23a"
   license "Apache-2.0"
   head "https://github.com/openziti/zrok.git", branch: "main"
 
