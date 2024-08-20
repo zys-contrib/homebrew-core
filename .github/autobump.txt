@@ -1283,6 +1283,7 @@ juju
 julia
 jupyterlab
 just
+jython
 k2tf
 k3d
 k3sup
