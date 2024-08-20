@@ -21,6 +21,7 @@ class Lbdb < Formula
   end
 
   depends_on "abook"
+  depends_on "khard"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--libdir=#{lib}/lbdb"
@@ -29,5 +30,7 @@ class Lbdb < Formula
 
   test do
     assert_match version.major_minor.to_s, shell_output("#{bin}/lbdbq -v")
+    assert_predicate lib/"lbdb/m_abook", :exist?, "m_abook module is missing!"
+    assert_predicate lib/"lbdb/m_khard", :exist?, "m_khard module is missing!"
   end
 end
