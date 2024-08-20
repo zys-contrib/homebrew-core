@@ -1,8 +1,8 @@
 class CiliumCli < Formula
   desc "CLI to install, manage & troubleshoot Kubernetes clusters running Cilium"
   homepage "https://cilium.io"
-  url "https://github.com/cilium/cilium-cli/archive/refs/tags/v0.16.15.tar.gz"
-  sha256 "2c3da085574d038c5d456425140177d290c36ccb4dcdb2941357b867876aa48a"
+  url "https://github.com/cilium/cilium-cli/archive/refs/tags/v0.16.16.tar.gz"
+  sha256 "2fd62feaffe684f88f5083cf9dbf91df65c0ff4e701c96b05e0b480415588102"
   license "Apache-2.0"
 
   # Upstream uses GitHub releases to indicate that a version is released
@@ -26,14 +26,14 @@ class CiliumCli < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/cilium/cilium-cli/defaults.CLIVersion=v#{version}"
+    ldflags = "-s -w -X github.com/cilium/cilium/cilium-cli/defaults.CLIVersion=v#{version}"
     system "go", "build", *std_go_args(ldflags:, output: bin/"cilium"), "./cmd/cilium"
 
     generate_completions_from_executable(bin/"cilium", "completion", base_name: "cilium")
   end
 
   test do
-    assert_match("cilium-cli: v#{version}", shell_output("#{bin}/cilium version 2>&1"))
+    assert_match("cilium-cli: v#{version}", shell_output("#{bin}/cilium version"))
     assert_match("Kubernetes cluster unreachable", shell_output("#{bin}/cilium install 2>&1", 1))
     assert_match("Error: Unable to enable Hubble", shell_output("#{bin}/cilium hubble enable 2>&1", 1))
   end
