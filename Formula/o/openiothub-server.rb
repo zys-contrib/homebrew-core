@@ -8,13 +8,13 @@ class OpeniothubServer < Formula
   head "https://github.com/OpenIoTHub/server-go.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "57ad4e7d2fd1a690fa83f2b3db0bf18463042dcd2a1061f76d2f4d28ad605098"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "57ad4e7d2fd1a690fa83f2b3db0bf18463042dcd2a1061f76d2f4d28ad605098"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "57ad4e7d2fd1a690fa83f2b3db0bf18463042dcd2a1061f76d2f4d28ad605098"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c1518b3e90d5a888d76c2c0c874c678b11017745dbbffe8739ac9c98792703e3"
-    sha256 cellar: :any_skip_relocation, ventura:        "c1518b3e90d5a888d76c2c0c874c678b11017745dbbffe8739ac9c98792703e3"
-    sha256 cellar: :any_skip_relocation, monterey:       "c1518b3e90d5a888d76c2c0c874c678b11017745dbbffe8739ac9c98792703e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "26450c3d9085eb3ea1033db7a8eb68eec7b1183193ed75731a3ff187808c8f33"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "61a2b72157bb1f0c1da43ad41fcd89e924c702d7e9f0a98e205ccb24910e1eaf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "61a2b72157bb1f0c1da43ad41fcd89e924c702d7e9f0a98e205ccb24910e1eaf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "61a2b72157bb1f0c1da43ad41fcd89e924c702d7e9f0a98e205ccb24910e1eaf"
+    sha256 cellar: :any_skip_relocation, sonoma:         "05445f8aa0378be5c7f1eac736c950695871870aec1f03bfa561bb49ae848e6d"
+    sha256 cellar: :any_skip_relocation, ventura:        "05445f8aa0378be5c7f1eac736c950695871870aec1f03bfa561bb49ae848e6d"
+    sha256 cellar: :any_skip_relocation, monterey:       "05445f8aa0378be5c7f1eac736c950695871870aec1f03bfa561bb49ae848e6d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "403b8cb974d99705529baa85d73c73a04a705d8556a8b5241015c27f8ab6de65"
   end
 
   depends_on "go" => :build
