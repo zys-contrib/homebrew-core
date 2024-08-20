@@ -1,8 +1,8 @@
 class Uv < Formula
   desc "Extremely fast Python package installer and resolver, written in Rust"
   homepage "https://github.com/astral-sh/uv"
-  url "https://github.com/astral-sh/uv/archive/refs/tags/0.2.37.tar.gz"
-  sha256 "158ad67b27c9aca0deac28ded88e9047ff338564f23a104de4dfcef21cd3a074"
+  url "https://github.com/astral-sh/uv/archive/refs/tags/0.3.0.tar.gz"
+  sha256 "d585904958c0fb12bdb65a975e27912f6fccbea0030ea9a196c74bee6b1227d2"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/astral-sh/uv.git", branch: "main"
 
