@@ -10,6 +10,16 @@ class Tevent < Formula
     regex(/href=.*?tevent[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "7d039f07bfffebd67e55ac0cb343ddb5947aa24d630b4c4d0ac1731d37d7b503"
+    sha256 cellar: :any,                 arm64_ventura:  "4c7c644207c00731d6cd097afa536cd181a4f5f036326ec78c999d8f8c4c71fb"
+    sha256 cellar: :any,                 arm64_monterey: "7fd475a600b2e91c816b8f5b79240912efdcffe568f655828cbf470e9b4bb09c"
+    sha256 cellar: :any,                 sonoma:         "5f64884156927c8cce98b780410f714d7bbfa1fec900102da97ecd40b9cc5a17"
+    sha256 cellar: :any,                 ventura:        "6d528308309d15c55d95de0bd05cf6bb33196c6ad4773de19714154ec7245edf"
+    sha256 cellar: :any,                 monterey:       "ebf65db04c8a2d0ecdcd6bd5e391d01d3797932e14bfad4b09ac98faa5a57258"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e67629f6fedc330607a6af2a35ef61fe462a012425de9bfce501688a2cb02d3a"
+  end
+
   depends_on "cmocka" => :build
   depends_on "pkg-config" => :build
   depends_on "talloc"
