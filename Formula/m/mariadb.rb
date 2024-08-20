@@ -1,8 +1,9 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://archive.mariadb.org/mariadb-11.4.2/source/mariadb-11.4.2.tar.gz"
-  sha256 "8c600e38adb899316c1cb11c68b87979668f4fb9d858000e347e6d8b7abe51b0"
+  # TODO: Build with `-DWITH_LIBFMT=system` when fmt >= 11
+  url "https://archive.mariadb.org/mariadb-11.5.2/source/mariadb-11.5.2.tar.gz"
+  sha256 "e25fac00aeb34610faf62182836a14e3310c0ca5d882e9109f63bd8dfdc3542d"
   license "GPL-2.0-only"
 
   livecheck do
@@ -32,6 +33,7 @@ class Mariadb < Formula
   depends_on "pkg-config" => :build
   depends_on "groonga"
   depends_on "lz4"
+  depends_on "lzo"
   depends_on "openssl@3"
   depends_on "pcre2"
   depends_on "xz"
@@ -45,9 +47,12 @@ class Mariadb < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "openjdk" => :build
+  end
+
   on_linux do
     depends_on "linux-pam"
-    depends_on "readline" # uses libedit on macOS
   end
 
   conflicts_with "mysql", "percona-server",
@@ -59,8 +64,6 @@ class Mariadb < Formula
   fails_with gcc: "5"
 
   def install
-    ENV.cxx11
-
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
     # be overridden by calling --basedir= when calling.
@@ -71,6 +74,8 @@ class Mariadb < Formula
 
     # Use brew groonga
     rm_r "storage/mroonga/vendor/groonga"
+    rm_r "extra/wolfssl"
+    rm_r "zlib"
 
     # -DINSTALL_* are relative to prefix
     args = %W[
@@ -80,7 +85,9 @@ class Mariadb < Formula
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INFODIR=share/info
       -DINSTALL_MYSQLSHAREDIR=share/mysql
+      -DWITH_PCRE=system
       -DWITH_SSL=system
+      -DWITH_ZLIB=system
       -DWITH_UNIT_TESTS=OFF
       -DDEFAULT_CHARSET=utf8mb4
       -DDEFAULT_COLLATION=utf8mb4_general_ci
@@ -94,9 +101,6 @@ class Mariadb < Formula
       args << "-DCONNECT_WITH_JDBC=OFF"
     end
 
-    # Disable RocksDB on Apple Silicon (currently not supported)
-    args << "-DPLUGIN_ROCKSDB=NO" if Hardware::CPU.arm?
-
     system "cmake", "-S", ".", "-B", "_build", *std_cmake_args, *args
     system "cmake", "--build", "_build"
     system "cmake", "--install", "_build"
@@ -106,10 +110,6 @@ class Mariadb < Formula
     inreplace "#{etc}/my.cnf", "!includedir /etc/my.cnf.d",
                                "!includedir #{etc}/my.cnf.d"
     touch etc/"my.cnf.d/.homebrew_dont_prune_me"
-
-    # Don't create databases inside of the prefix!
-    # See: https://github.com/Homebrew/homebrew/issues/4975
-    rm_r(prefix/"data")
 
     # Save space
     rm_r(prefix/"mariadb-test")
