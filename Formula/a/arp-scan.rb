@@ -3,7 +3,11 @@ class ArpScan < Formula
   homepage "https://github.com/royhills/arp-scan"
   url "https://github.com/royhills/arp-scan/archive/refs/tags/1.10.0.tar.gz"
   sha256 "204b13487158b8e46bf6dd207757a52621148fdd1d2467ebd104de17493bab25"
-  license "GPL-3.0"
+  license all_of: [
+    "GPL-3.0-or-later",
+    "BSD-3-Clause", # mt19937ar.c
+    "ISC", # strlcpy.c (Linux)
+  ]
   head "https://github.com/royhills/arp-scan.git", branch: "master"
 
   bottle do
@@ -20,12 +24,12 @@ class ArpScan < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "libpcap"
+
+  uses_from_macos "libpcap"
 
   def install
-    system "autoreconf", "-fiv"
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
