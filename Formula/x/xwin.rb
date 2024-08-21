@@ -6,13 +6,13 @@ class Xwin < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "36df859b5ac5efe1e0be09ffb901da349c3521f107365a994d0357f37e32e15c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0077e70ddc8a5d9b670b2aeaebadd29c2b0ff9eacb03f2dd6392bffb640184ed"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bbba55e6607511a1513409728a6c82f2d41a913a4f492fe6d8413d1014798cf8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "47598c62b6e9177181def9c5502ee4a8530dd51bee16b1070981ddf3a2d667c9"
-    sha256 cellar: :any_skip_relocation, ventura:        "c54606e90085a983bb1ba3c13c5a4a132c82fbcbbef7a81125134d6118a10d1f"
-    sha256 cellar: :any_skip_relocation, monterey:       "ca0c3b725c0d9fb3233b2ba81aa36b1ac760f47488cf17e89b69414f75254b68"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5fd8bcc1bd866a4f756ccacc3098743045220259f6127ff68a4f1471d582981a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "024ef02449c4a8def7975e5a888029ad67057092f46bc3a834c986dc267d7d3d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "88a0344d220aa9b7efdf4eac804dc4f4d045a862658e73e5d4206006821acb8d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b991244b55050f4b79a5e42245863ebdc624f8b42138ddd6741713a8f40d8e76"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8eb6be6eddc5bdaa98e9bedd06e15fe9dd98189ff5ee9f969093160eb91d0b3b"
+    sha256 cellar: :any_skip_relocation, ventura:        "3b9c9cc7645f66e685ad98c7f9a450b45bfc36eddbcea151f25c857f132c28b9"
+    sha256 cellar: :any_skip_relocation, monterey:       "ecee39a502597e5ce214487c8031c1b2679a835390b3385fbe0fafe7592d2ea2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "244e179fcfcca8f1df7ca7d9490764602279f6dc45a678b5dfb2845ef5cb95ff"
   end
 
   depends_on "rust" => :build
