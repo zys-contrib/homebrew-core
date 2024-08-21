@@ -327,6 +327,7 @@ cassowary
 castxml
 catch2
 cava
+cbc
 cbindgen
 ccache
 ccls
