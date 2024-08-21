@@ -1,10 +1,9 @@
 class Scipy < Formula
   desc "Software for mathematics, science, and engineering"
   homepage "https://www.scipy.org"
-  url "https://files.pythonhosted.org/packages/4e/e5/0230da034a2e1b1feb32621d7cd57c59484091d6dccc9e6b855b0d309fc9/scipy-1.14.0.tar.gz"
-  sha256 "b5923f48cb840380f9854339176ef21763118a7300a88203ccd0bdd26e58527b"
+  url "https://files.pythonhosted.org/packages/62/11/4d44a1f274e002784e4dbdb81e0ea96d2de2d1045b2132d5af62cc31fd28/scipy-1.14.1.tar.gz"
+  sha256 "5a275584e726026a5699459aa72f828a610821006228e841b94275c4a7c08417"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/scipy/scipy.git", branch: "main"
 
   bottle do
