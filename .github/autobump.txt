@@ -2663,6 +2663,7 @@ txr
 tygo
 typescript
 typescript-language-server
+typewritten
 typical
 typos-cli
 typst
