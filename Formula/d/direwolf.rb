@@ -11,12 +11,13 @@ class Direwolf < Formula
   head "https://github.com/wb2osz/direwolf.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "f15cf78ea350bac7d0daf8663e54242eed663f577400de7630f8225c4e08e340"
-    sha256 arm64_ventura:  "494d3a0854c7d919fa8446915bec34806b387c138fd23210c05ab3677c701faf"
-    sha256 arm64_monterey: "1c437d0c62b29032faf6eb115caef44b62bc7ef7525d5a137c09eec5015a0f49"
-    sha256 sonoma:         "5ad4a23ede0053b7c587b99514c48982378ad7f5e4ae4871e8b8eea6dccb6249"
-    sha256 ventura:        "e3064f51ee693453adc1e25a4dc7e7f1617f51d070dc209c847a7459968de0dc"
-    sha256 monterey:       "16947ff3e289c953ddb75acb44215ab7f74a5128a20464cfb7f6332b4438f25d"
+    sha256                               arm64_sonoma:   "f15cf78ea350bac7d0daf8663e54242eed663f577400de7630f8225c4e08e340"
+    sha256                               arm64_ventura:  "494d3a0854c7d919fa8446915bec34806b387c138fd23210c05ab3677c701faf"
+    sha256                               arm64_monterey: "1c437d0c62b29032faf6eb115caef44b62bc7ef7525d5a137c09eec5015a0f49"
+    sha256                               sonoma:         "5ad4a23ede0053b7c587b99514c48982378ad7f5e4ae4871e8b8eea6dccb6249"
+    sha256                               ventura:        "e3064f51ee693453adc1e25a4dc7e7f1617f51d070dc209c847a7459968de0dc"
+    sha256                               monterey:       "16947ff3e289c953ddb75acb44215ab7f74a5128a20464cfb7f6332b4438f25d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b20722ff017ed04a511f79061ad26959cdb92e5c7dc1080dbc22cc05c07e374"
   end
 
   depends_on "cmake" => :build
