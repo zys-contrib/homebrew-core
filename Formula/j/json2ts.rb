@@ -1,8 +1,8 @@
 class Json2ts < Formula
   desc "Compile JSONSchema to TypeScript type declarations"
   homepage "https://github.com/bcherny/json-schema-to-typescript"
-  url "https://registry.npmjs.org/json-schema-to-typescript/-/json-schema-to-typescript-15.0.0.tgz"
-  sha256 "2788e695dcad9b99cee12d77cc9624ee807f30a9ee173131608b3195471313c1"
+  url "https://registry.npmjs.org/json-schema-to-typescript/-/json-schema-to-typescript-15.0.1.tgz"
+  sha256 "79a2c3e859ade86dc41f44c1b24be27a8ee83f06a20380122c14e3b2040fe0fc"
   license "MIT"
 
   bottle do
