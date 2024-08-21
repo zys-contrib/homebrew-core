@@ -2554,6 +2554,8 @@ tektoncd-cli
 teku
 telegraf
 teller
+telnet
+telnetd
 template-glib
 temporal
 tendermint
