@@ -1,8 +1,8 @@
 class I2util < Formula
   desc "Internet2 utility tools"
   homepage "https://github.com/perfsonar/i2util"
-  url "https://github.com/perfsonar/i2util/archive/refs/tags/v4.4.6.tar.gz"
-  sha256 "abf6a1f23bba3d188d8deade33ca197b85abbf43f4b3a25b9e81c6ce6d65b3d0"
+  url "https://github.com/perfsonar/i2util/archive/refs/tags/v5.1.2.tar.gz"
+  sha256 "27f86aa2b5f2d08c0ea99412c05764cd1a4953fe4d37e30d550d7d53c3b93c3d"
   license "Apache-2.0"
 
   livecheck do
@@ -24,15 +24,18 @@ class I2util < Formula
   depends_on "automake" => :build
 
   def install
-    system "./bootstrap.sh"
-    system "./configure", "--disable-silent-rules", *std_configure_args
-    system "make", "install"
+    cd "I2util/I2util" do
+      system "./bootstrap"
+      system "./configure", "--disable-silent-rules", *std_configure_args
+      system "make", "install"
+    end
   end
 
   test do
     (testpath/"test.c").write <<~EOS
       #include <I2util/util.h>
       #include <string.h>
+
       int main() {
         uint8_t buf[2];
         if (!I2HexDecode("beef", buf, sizeof(buf))) return 1;

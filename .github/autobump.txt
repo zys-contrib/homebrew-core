@@ -1181,6 +1181,7 @@ hyx
 hz
 i2p
 i2pd
+i2util
 iamb
 iamy
 ibazel
