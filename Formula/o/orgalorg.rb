@@ -2,8 +2,8 @@ class Orgalorg < Formula
   desc "Parallel SSH commands executioner and file synchronization tool"
   homepage "https://github.com/reconquest/orgalorg"
   url "https://github.com/reconquest/orgalorg.git",
-      tag:      "1.2.0",
-      revision: "5024122fb3efaad577fa509e2d17aab1f12217de"
+      tag:      "1.3.1",
+      revision: "17aad3570a15099fc52949ac4359b350f045ca84"
   license "MIT"
   head "https://github.com/reconquest/orgalorg.git", branch: "master"
 
