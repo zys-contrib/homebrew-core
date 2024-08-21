@@ -1,8 +1,8 @@
 class Rye < Formula
   desc "Experimental Package Management Solution for Python"
   homepage "https://rye-up.com/"
-  url "https://github.com/astral-sh/rye/archive/refs/tags/0.38.0.tar.gz"
-  sha256 "16cc21660dccc9a66ed5086eb96cd1d571e1af8145982cf6e56fe918e3ca062c"
+  url "https://github.com/astral-sh/rye/archive/refs/tags/0.39.0.tar.gz"
+  sha256 "359afd0c0badf0524cecbf66761ad499f8deb26f287c5391c8996a8914dfed7a"
   license "MIT"
 
   bottle do
