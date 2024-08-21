@@ -8,13 +8,13 @@ class Dvc < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d5837f75e75bcdb089d5a8377f533e511a9f152698397920777f4ccb3909e160"
-    sha256 cellar: :any,                 arm64_ventura:  "151f34e699aca1cab5421d268d8cfffc2dd364203f96e8cfe0231384b8db986f"
-    sha256 cellar: :any,                 arm64_monterey: "d1c84ad1822db314fc13caf5ef966846d4c51519cdb4abf34118c8e1708039ad"
-    sha256 cellar: :any,                 sonoma:         "ffde03fa0e83a934ad35d90cf3b9e716157251e64acab139ad83b22ff45a4e8f"
-    sha256 cellar: :any,                 ventura:        "eb6c1c772d48e9e2b96082e5fc990e54273c2017050b4c5d9483c64dee6524dd"
-    sha256 cellar: :any,                 monterey:       "f4da0062e255e894ea78432391957379486728f699a07f901ee81d225426ac80"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ebc6ac490111a36e0de3cbe6023113d1183edde5b20eebd4569824aa567dcaa2"
+    sha256 cellar: :any,                 arm64_sonoma:   "8aacfdce3b0298cd20acb13698a34d1afc14711982cf3c1f763b316cd9c52abb"
+    sha256 cellar: :any,                 arm64_ventura:  "c71085b87787450792e3040567ccb1fc24f22a3991e23d0c149c95c2364b3375"
+    sha256 cellar: :any,                 arm64_monterey: "f08d0bd9c92fb405e77137f8a49359811b025e855fe881be0645a6d334debe50"
+    sha256 cellar: :any,                 sonoma:         "8791e4731f568c24c75d094806156873353cfae41550f767c6b261eecf1cc4d5"
+    sha256 cellar: :any,                 ventura:        "17421a9fb9d2f790a4b42cd43e61d59b71f818b2e1357ea64c15df82b48e0b2a"
+    sha256 cellar: :any,                 monterey:       "0b4064c04dc6a75cf2f04b3ad3befe0c0e69be1d9fd0fa6b09c79813b9c5236c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17fd17f65f1b0eb49876d8bf48d6c2f954e000da9d1ff758d6ca9e2318d31798"
   end
 
   depends_on "cmake" => :build # for pyarrow
