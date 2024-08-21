@@ -4,7 +4,11 @@ class Hashcat < Formula
   url "https://hashcat.net/files/hashcat-6.2.6.tar.gz"
   mirror "https://github.com/hashcat/hashcat/archive/refs/tags/v6.2.6.tar.gz"
   sha256 "b25e1077bcf34908cc8f18c1a69a2ec98b047b2cbcf0f51144dcf3ba1e0b7b2a"
-  license "MIT"
+  license all_of: [
+    "MIT",
+    "LZMA-SDK-9.22", # deps/LZMA-SDK/
+    :public_domain,  # include/sort_r.h
+  ]
   revision 1
   version_scheme 1
   head "https://github.com/hashcat/hashcat.git", branch: "master"
@@ -24,12 +28,15 @@ class Hashcat < Formula
     sha256 x86_64_linux:   "3b7abe7959ac081d6cfd3892bf64860f4dbc9657d6711e48cc0fec4445f771cb"
   end
 
-  depends_on "gnu-sed" => :build
   depends_on macos: :high_sierra # Metal implementation requirement
   depends_on "minizip"
   depends_on "xxhash"
 
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "gnu-sed" => :build
+  end
 
   on_linux do
     depends_on "opencl-headers" => :build
@@ -37,9 +44,19 @@ class Hashcat < Formula
     depends_on "pocl"
   end
 
+  # Fix 'failed to create metal library' on macos
+  # extract from hashcat version 66b22fa, remove this patch when version released after 66b22fa
+  # hashcat 66b22fa link: https://github.com/hashcat/hashcat/commit/66b22fa64472b4d809743c35fb05fc3c993a5cd2#diff-1eece723a1d42fd48f0fc4f829ebbb4a67bd13cb3499f49196f801ee9143ee83R15
+  patch :DATA
+
   def install
+    # Remove all bundled dependencies other than LZMA-SDK (https://www.7-zip.org/sdk.html)
+    (buildpath/"deps").each_child { |dep| rm_r(dep) if dep.basename.to_s != "LZMA-SDK" }
+    (buildpath/"docs/license_libs").each_child { |dep| rm(dep) unless dep.basename.to_s.start_with?("LZMA") }
+
     args = %W[
       CC=#{ENV.cc}
+      COMPTIME=#{ENV["SOURCE_DATE_EPOCH"]}
       PREFIX=#{prefix}
       USE_SYSTEM_XXHASH=1
       USE_SYSTEM_OPENCL=1
@@ -55,6 +72,41 @@ class Hashcat < Formula
   test do
     ENV["XDG_DATA_HOME"] = testpath
     mkdir testpath/"hashcat"
-    assert_match "Hash-Mode 0 (MD5)", shell_output("#{bin}/hashcat_bin --benchmark -m 0 -D 1,2 -w 2")
+
+    # OpenCL is not supported on virtualized arm64 macOS
+    no_opencl = OS.mac? && Hardware::CPU.arm? && Hardware::CPU.virtualized?
+    # MTLCreateSystemDefaultDevice() isn't supported on GitHub runners.
+    # Ref: https://github.com/actions/runner-images/issues/1779
+    no_metal = !OS.mac? || ENV["HOMEBREW_GITHUB_ACTIONS"].present?
+
+    args = %w[
+      --benchmark
+      --hash-type=0
+      --workload-profile=2
+    ]
+    args << (no_opencl ? "--backend-ignore-opencl" : "--opencl-device-types=1,2")
+
+    if no_opencl && no_metal
+      assert_match "No devices found/left", shell_output("#{bin}/hashcat_bin #{args.join(" ")} 2>&1", 255)
+    else
+      assert_match "Hash-Mode 0 (MD5)", shell_output("#{bin}/hashcat_bin #{args.join(" ")}")
+    end
+
+    assert_equal "v#{version}", shell_output("#{bin}/hashcat_bin --version").chomp
   end
 end
+
+__END__
+diff --git a/OpenCL/inc_vendor.h b/OpenCL/inc_vendor.h
+index c39fce952..0916a30b3 100644
+--- a/OpenCL/inc_vendor.h
++++ b/OpenCL/inc_vendor.h
+@@ -12,7 +12,7 @@
+ #define IS_CUDA
+ #elif defined __HIPCC__
+ #define IS_HIP
+-#elif defined __METAL_MACOS__
++#elif defined __METAL__
+ #define IS_METAL
+ #else
+ #define IS_OPENCL
