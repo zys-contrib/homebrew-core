@@ -173,6 +173,7 @@ baresip
 bartib
 bartycrouch
 base16384
+basedpyright
 bash_unit
 bash-completion@2
 bash-language-server

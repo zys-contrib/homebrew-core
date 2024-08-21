@@ -1,8 +1,8 @@
 class Basedpyright < Formula
   desc "Pyright fork with various improvements and built-in pylance features"
   homepage "https://github.com/DetachHead/basedpyright"
-  url "https://registry.npmjs.org/basedpyright/-/basedpyright-1.16.0.tgz"
-  sha256 "563b2f94edaac311e46326c311801d5c4dee78893e60efa02dd0487058630e9a"
+  url "https://registry.npmjs.org/basedpyright/-/basedpyright-1.17.0.tgz"
+  sha256 "fab05665048eff8a51746ef9ec0caab423d08ba0eac1afbc17564c46ee53a219"
   license "MIT"
   head "https://github.com/detachhead/basedpyright.git", branch: "main"
 
