@@ -10,13 +10,14 @@ class Offlineimap < Formula
   head "https://github.com/OfflineIMAP/offlineimap3.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f136f5d050a794523c02791df9921b6f57653306b4b154519905c8a29831684e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8263d12d8e7d8b3d7ceb5982b40d5d85b5300f8e723c7d4af1e6003064d88cce"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b86b7904d65065e608685146a450a01da80e339b32162fee515abd850b2962c4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "349cb41f95baba65fb2837e1a22bd29ef2415f35032a2acf214cdc072af1a9df"
-    sha256 cellar: :any_skip_relocation, ventura:        "8639106154dd02a354a02169bc623ba5292307376d99f8a0d0764bd747cc2042"
-    sha256 cellar: :any_skip_relocation, monterey:       "6ecb3551e3d54a0dd15b7087fa25c15c659c594a3a9a801f52ded167ae476ba4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "94f31c8946970ca26f71d501cc98ef588d3cf93ef2b31e7d23ddcc5be94dfa1b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6a4fb717f5c09554cff4835520465f3b87e5df6f5b2f7ba583a7690d661f9bc1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ddee410fbb99b15f49fb1bef49ebe5b905ef36f6e58189962ee8ff3a93cb5b1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "de998456c60464b63904087546e5fed6194ac4dad9a3c2e6aaf32407a6daefc6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bf354b0b7e7611f540f2ae50a70cac4a150a087086a40522cd3ecb3d834ac657"
+    sha256 cellar: :any_skip_relocation, ventura:        "2f8bc2f83bd2592c3c40b73be77d823eb8832ce7f42746e61c488294474a7c27"
+    sha256 cellar: :any_skip_relocation, monterey:       "5edb2356ccc7b985e9c93dbdb55de133bcc33721f7d9727986b95caa3f981b9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "63baffe4fab72400e067ad56d8b0457ebfe54df5b6cf4a0f090c6c66d66243ca"
   end
 
   depends_on "certifi"
@@ -42,6 +43,12 @@ class Offlineimap < Formula
   resource "imaplib2" do
     url "https://files.pythonhosted.org/packages/e4/1a/4ccb857f4832d2836a8c996f18fa7bcad19bfdf1a375dfa12e29dbe0e44a/imaplib2-3.6.tar.gz"
     sha256 "96cb485b31868a242cb98d5c5dc67b39b22a6359f30316de536060488e581e5b"
+
+    # Fix warnings with Python 3.12+.
+    patch do
+      url "https://github.com/jazzband/imaplib2/commit/da0097f6b421c4b826416ea09b4802c163391330.patch?full_index=1"
+      sha256 "ff60f720cfc61bfee9eec0af4d79d307e3a8703e575a19c18d05ef3477cf3a64"
+    end
   end
 
   resource "portalocker" do
@@ -81,6 +88,10 @@ class Offlineimap < Formula
     sha256 "a38595f54fa70d3cdb44aec2f858c256265421171a8ec331a34cbe6041072954"
   end
 
+  # Fix warnings with Python 3.12+.
+  # Adapted from: https://github.com/OfflineIMAP/offlineimap3/commit/489ff3bdb1fbd9b483b094f24936e7161f30a754
+  patch :DATA
+
   def install
     virtualenv_install_with_resources
 
@@ -111,3 +122,103 @@ class Offlineimap < Formula
     system bin/"offlineimap", "--version"
   end
 end
+
+__END__
+diff --git a/offlineimap/folder/Base.py b/offlineimap/folder/Base.py
+index f871d6f..e798fb7 100644
+--- a/offlineimap/folder/Base.py
++++ b/offlineimap/folder/Base.py
+@@ -24,7 +24,6 @@ from sys import exc_info
+ 
+ from email import policy
+ from email.parser import BytesParser
+-from email.generator import BytesGenerator
+ from email.utils import parsedate_tz, mktime_tz
+ 
+ from offlineimap import threadutil
+@@ -249,7 +248,7 @@ class BaseFolder:
+             basename = self.name.replace('/', '.')
+         # Replace with literal 'dot' if final path name is '.' as '.' is
+         # an invalid file name.
+-        basename = re.sub('(^|\/)\.$', '\\1dot', basename)
++        basename = re.sub(r'(^|\/)\.$', '\\1dot', basename)
+         return basename
+ 
+     def check_uidvalidity(self):
+@@ -866,7 +865,7 @@ class BaseFolder:
+         """
+         msg_header = re.split(b'[\r]?\n[\r]?\n', raw_msg_bytes)[0]
+         try:
+-            msg_id = re.search(b"\nmessage-id:[\s]+(<[A-Za-z0-9!#$%&'*+-/=?^_`{}|~.@ ]+>)", 
++            msg_id = re.search(br"\nmessage-id:[\s]+(<[A-Za-z0-9!#$%&'*+-/=?^_`{}|~.@ ]+>)", 
+                 msg_header, re.IGNORECASE).group(1)
+         except AttributeError:
+             # No match - Likely not following RFC rules.  Try and find anything
+diff --git a/offlineimap/folder/Gmail.py b/offlineimap/folder/Gmail.py
+index 544931a..c71720a 100644
+--- a/offlineimap/folder/Gmail.py
++++ b/offlineimap/folder/Gmail.py
+@@ -75,7 +75,7 @@ class GmailFolder(IMAPFolder):
+ 
+         # Embed the labels into the message headers
+         if self.synclabels:
+-            m = re.search('X-GM-LABELS\s*[(](.*)[)]', data[0])
++            m = re.search(r'X-GM-LABELS\s*[(](.*)[)]', data[0])
+             if m:
+                 labels = set([imaputil.dequote(lb) for lb in imaputil.imapsplit(m.group(1))])
+             else:
+diff --git a/offlineimap/folder/IMAP.py b/offlineimap/folder/IMAP.py
+index c9318c2..a2883a0 100644
+--- a/offlineimap/folder/IMAP.py
++++ b/offlineimap/folder/IMAP.py
+@@ -509,14 +509,14 @@ class IMAPFolder(BaseFolder):
+                 item = [x.decode('utf-8') for x in item]
+ 
+                 # Walk just tuples.
+-                if re.search("(?:^|\\r|\\n)%s:\s*%s(?:\\r|\\n)" %
++                if re.search(r"(?:^|\\r|\\n)%s:\s*%s(?:\\r|\\n)" %
+                              (headername, headervalue),
+                              item[1], flags=re.IGNORECASE):
+                     found = item[0]
+             elif found is not None:
+                 if isinstance(item, bytes):
+                     item = item.decode('utf-8')
+-                    uid = re.search("UID\s+(\d+)", item, flags=re.IGNORECASE)
++                    uid = re.search(r"UID\s+(\d+)", item, flags=re.IGNORECASE)
+                     if uid:
+                         return int(uid.group(1))
+                     else:
+@@ -526,7 +526,7 @@ class IMAPFolder(BaseFolder):
+                         # ')'
+                         # and item[0] stored in "found" is like:
+                         # '1694 (UID 1694 RFC822.HEADER {1294}'
+-                        uid = re.search("\d+\s+\(UID\s+(\d+)", found,
++                        uid = re.search(r"\d+\s+\(UID\s+(\d+)", found,
+                                         flags=re.IGNORECASE)
+                         if uid:
+                             return int(uid.group(1))
+diff --git a/offlineimap/folder/Maildir.py b/offlineimap/folder/Maildir.py
+index f319b66..198927f 100644
+--- a/offlineimap/folder/Maildir.py
++++ b/offlineimap/folder/Maildir.py
+@@ -28,9 +28,9 @@ from .Base import BaseFolder
+ from email.errors import NoBoundaryInMultipartDefect
+ 
+ # Find the UID in a message filename
+-re_uidmatch = re.compile(',U=(\d+)')
++re_uidmatch = re.compile(r',U=(\d+)')
+ # Find a numeric timestamp in a string (filename prefix)
+-re_timestampmatch = re.compile('(\d+)')
++re_timestampmatch = re.compile(r'(\d+)')
+ 
+ timehash = {}
+ timelock = Lock()
+@@ -61,7 +61,7 @@ class MaildirFolder(BaseFolder):
+             "Account " + self.accountname, "maildir-windows-compatible", False)
+         self.infosep = '!' if self.wincompatible else ':'
+         """infosep is the separator between maildir name and flag appendix"""
+-        self.re_flagmatch = re.compile('%s2,(\w*)' % self.infosep)
++        self.re_flagmatch = re.compile(r'%s2,(\w*)' % self.infosep)
+         # self.ui is set in BaseFolder.init()
+         # Everything up to the first comma or colon (or ! if Windows):
+         self.re_prefixmatch = re.compile('([^' + self.infosep + ',]*)')
