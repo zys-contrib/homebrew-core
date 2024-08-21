@@ -3,7 +3,11 @@ class Direwolf < Formula
   homepage "https://github.com/wb2osz/direwolf"
   url "https://github.com/wb2osz/direwolf/archive/refs/tags/1.7.tar.gz"
   sha256 "6301f6a43e5db9ef754765875592a58933f6b78585e9272afc850acf7c5914be"
-  license "GPL-2.0-only"
+  license all_of: [
+    "GPL-2.0-or-later",
+    "ISC", # external/misc/{strlcpy.c,strlcat.c} (Linux)
+    :cannot_represent, # external/geotranz, see https://github.com/externpro/geotranz/blob/v2.4.2/readme.txt
+  ]
   head "https://github.com/wb2osz/direwolf.git", branch: "master"
 
   bottle do
@@ -18,17 +22,20 @@ class Direwolf < Formula
   depends_on "cmake" => :build
   depends_on "gpsd"
   depends_on "hamlib"
-  # Further investigation and work on this
-  # formulae is needed to support linux builds. The upstream project
-  # provides their own mechanism for linux distribution. Brew is most
-  # valuable on macOS, where there is no other suitable package manager,
-  # so for now, restrict this formulae to macOS.
-  depends_on :macos
-  depends_on "portaudio"
+
+  on_macos do
+    depends_on "portaudio"
+  end
+
+  on_linux do
+    depends_on "alsa-lib"
+    depends_on "systemd"
+  end
 
   def install
     inreplace "src/decode_aprs.c", "/opt/local/share", share
     inreplace "src/symbols.c", "/opt/local/share", share
+    inreplace "conf/CMakeLists.txt", " /etc/udev/rules.d", " #{lib}/udev/rules.d"
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
