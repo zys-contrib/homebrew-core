@@ -42,7 +42,7 @@ class Argocd < Formula
     system "make", "cli-local"
     bin.install "dist/argocd"
 
-    generate_completions_from_executable(bin/"argocd", "completion", shells: [:bash, :zsh])
+    generate_completions_from_executable(bin/"argocd", "completion")
   end
 
   test do
