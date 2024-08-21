@@ -2035,6 +2035,7 @@ pipdeptree
 pipenv
 pipgrip
 pipx
+pivit
 pixi
 pkgconf
 pkl
