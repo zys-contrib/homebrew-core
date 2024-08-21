@@ -6,7 +6,7 @@ class Offlineimap < Formula
   url "https://github.com/OfflineIMAP/offlineimap3/archive/refs/tags/v8.0.0.tar.gz"
   sha256 "5d40c163ca2fbf89658116e29f8fa75050d0c34c29619019eee1a84c90fcab32"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/OfflineIMAP/offlineimap3.git", branch: "master"
 
   bottle do
@@ -57,6 +57,12 @@ class Offlineimap < Formula
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/76/d9/bbbafc76b18da706451fa91bc2ebe21c0daf8868ef3c30b869ac7cb7f01d/urllib3-1.25.11.tar.gz"
     sha256 "8d7eaa5a82a1cac232164990f04874c594c9453ec55eef02eab885aa02fc17a2"
+  end
+
+  # Fix compatibility with Python 3.11+.
+  patch do
+    url "https://github.com/OfflineIMAP/offlineimap3/commit/7cd32cf834b34a3d4675b29bebcd32dc1e5ef128.patch?full_index=1"
+    sha256 "ffddf6f43398ee13a761c78bece1b4262f9a46cc678966da6af2705ee0fbf1ba"
   end
 
   # Support python 3.12
