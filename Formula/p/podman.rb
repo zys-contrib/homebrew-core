@@ -2,8 +2,8 @@ class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
   url "https://github.com/containers/podman.git",
-      tag:      "v5.2.1",
-      revision: "d0582c9e1e6c80cc08c3f042b91993c853ddcbc6"
+      tag:      "v5.2.2",
+      revision: "fcee48106a12dd531702d729d17f40f6e152027f"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
   head "https://github.com/containers/podman.git", branch: "main"
 
@@ -64,8 +64,8 @@ class Podman < Formula
 
   resource "netavark" do
     on_linux do
-      url "https://github.com/containers/netavark/archive/refs/tags/v1.12.1.tar.gz"
-      sha256 "71e44922204da923b9f03b1306b9b0ba82673a201f3d96afc544f4ccdd4824d3"
+      url "https://github.com/containers/netavark/archive/refs/tags/v1.12.2.tar.gz"
+      sha256 "d1e5a7e65b825724fd084b0162084d9b61db8cda1dad26de8a07be1bd6891dbc"
     end
   end
 
