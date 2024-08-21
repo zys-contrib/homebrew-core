@@ -2,22 +2,21 @@ class Gstreamer < Formula
   desc "Development framework for multimedia applications"
   homepage "https://gstreamer.freedesktop.org/"
   license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
-  revision 1
 
   stable do
-    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.24.6/gstreamer-1.24.6.tar.bz2"
-    sha256 "ffdd2210add93600e4858e993b301d869e9232c63df5db8fef7fe46d694db15f"
+    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.24.7/gstreamer-1.24.7.tar.bz2"
+    sha256 "72b4454664dac0a0816dcddf673206296ad3b974afcbdb9a8cecddcc14312aa6"
 
     # When updating this resource, use the tag that matches the GStreamer version.
     resource "rs" do
-      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.24.6/gst-plugins-rs-gstreamer-1.24.6.tar.bz2"
-      sha256 "8515c42db34cc502e7a0d8ccdd5acf308d6f1f5ad757db0f01fd3f3b75490191"
+      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.24.7/gst-plugins-rs-gstreamer-1.24.7.tar.bz2"
+      sha256 "0d499a6854920c31034587bbbabbddbf8b3949387ceb615749a80998da9d440f"
 
       # Backport support for newer `dav1d`
       # upstream commit ref, https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/commit/7e1ab086de00125bc0d596f9ec5d74c9b82b2cc0
       patch do
-        url "https://raw.githubusercontent.com/Homebrew/formula-patches/4c27cd2be8cf074845c7a839af5d16acc646e368/gstreamer/gst-plugins-rs-dav1d.patch"
-        sha256 "a52e0ceb83c57ce6b2080d9b814e24c7382ffb607241add77f5a5f58b2c3582b"
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/6fff2c4c62f1fb32b5ade46ec9246fc239935d7a/gstreamer/gst-plugins-rs-dav1d.patch"
+        sha256 "d17677a523af021b226969937550f19151b8042f6962eae9fa39ee0e0fc0fe3a"
       end
     end
 
