@@ -1,8 +1,8 @@
 class NodeAT20 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v20.16.0/node-v20.16.0.tar.xz"
-  sha256 "cd6c8fc3ff2606aadbc7155db6f7e77247d2d0065ac18e2f7f049095584b8b46"
+  url "https://nodejs.org/dist/v20.17.0/node-v20.17.0.tar.xz"
+  sha256 "9abf03ac23362c60387ebb633a516303637145cb3c177be3348b16880fd8b28c"
   license "MIT"
 
   livecheck do
