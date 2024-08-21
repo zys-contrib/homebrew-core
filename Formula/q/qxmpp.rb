@@ -1,8 +1,8 @@
 class Qxmpp < Formula
   desc "Cross-platform C++ XMPP client and server library"
   homepage "https://github.com/qxmpp-project/qxmpp/"
-  url "https://github.com/qxmpp-project/qxmpp/archive/refs/tags/v1.7.1.tar.gz"
-  sha256 "2691e2b28dfc45c4cda17ce04cf998b8c15f01bbf72f335e01b98a2f98063ef0"
+  url "https://github.com/qxmpp-project/qxmpp/archive/refs/tags/v1.8.1.tar.gz"
+  sha256 "f307dde71dbaf9e17dc0472fafe68cabe2572b22ae759b6af24f8e1183b8db71"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -19,9 +19,23 @@ class Qxmpp < Formula
   depends_on xcode: :build
   depends_on "qt"
 
-  fails_with gcc: "5"
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1400
+  end
+
+  fails_with :clang do
+    build 1400
+    cause "Requires C++20"
+  end
+
+  fails_with :gcc do
+    version "9"
+    cause "Requires C++20"
+  end
 
   def install
+    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1400
+
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
