@@ -1,8 +1,8 @@
 class Tracy < Formula
   desc "Real-time, nanosecond resolution frame profiler"
   homepage "https://github.com/wolfpld/tracy"
-  url "https://github.com/wolfpld/tracy/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "b591ef2820c5575ccbf17e2e7a1dc1f6b9a2708f65bfd00f4ebefad2a1ccf830"
+  url "https://github.com/wolfpld/tracy/archive/refs/tags/v0.11.1.tar.gz"
+  sha256 "2c11ca816f2b756be2730f86b0092920419f3dabc7a7173829ffd897d91888a1"
   license "BSD-3-Clause"
 
   bottle do
@@ -20,37 +20,40 @@ class Tracy < Formula
   depends_on "capstone"
   depends_on "freetype"
   depends_on "glfw"
-  depends_on "tbb"
 
   on_linux do
     depends_on "dbus"
     depends_on "libxkbcommon"
     depends_on "mesa"
+    depends_on "tbb"
     depends_on "wayland"
   end
 
   fails_with gcc: "5" # C++17
 
   def install
-    %w[capture csvexport import-chrome update profiler].each do |f|
-      system "cmake", "-S", f, "-B", "#{f}/build", *std_cmake_args
-      system "cmake", "--build", "#{f}/build"
-      if f == "profiler"
-        bin.install "#{f}/build/tracy-#{f}" => "tracy"
-      else
-        bin.install "#{f}/build/tracy-#{f}" => "tracy-#{f}"
-      end
+    args = %w[CAPSTONE GLFW FREETYPE].map { |arg| "-DDOWNLOAD_#{arg}=OFF" }
+
+    buildpath.each_child do |child|
+      next unless child.directory?
+      next unless (child/"CMakeLists.txt").exist?
+      next if %w[python test].include?(child.basename.to_s)
+
+      system "cmake", "-S", child, "-B", child/"build", *args, *std_cmake_args
+      system "cmake", "--build", child/"build"
+      bin.install child.glob("build/tracy-*").select(&:executable?)
     end
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+    bin.install_symlink "tracy-profiler" => "tracy"
   end
 
   test do
-    port = free_port
     assert_match "Tracy Profiler #{version}", shell_output("#{bin}/tracy --help")
 
+    port = free_port
     pid = fork do
       exec bin/"tracy", "-p", port.to_s
     end
