@@ -1,8 +1,8 @@
 class Httpyac < Formula
   desc "Quickly and easily send REST, SOAP, GraphQL and gRPC requests"
   homepage "https://httpyac.github.io/"
-  url "https://registry.npmjs.org/httpyac/-/httpyac-6.15.0.tgz"
-  sha256 "5462d5b293e8dc52bcd58d4df1819f19c48201b8b2dec475cf08f642d34980db"
+  url "https://registry.npmjs.org/httpyac/-/httpyac-6.15.1.tgz"
+  sha256 "11b27e1932565254774d202f761ff48d65cad9647f9a97054d71fc612e91a499"
   license "MIT"
 
   bottle do
@@ -64,7 +64,7 @@ class Httpyac < Formula
     assert_match "HTTP/1.1 200  - OK", output
     # for graphql call
     assert_match "\"name\": \"Europe\"", output
-    assert_match "2 requests processed (2 succeeded))", output
+    assert_match "2 requests processed (2 succeeded)", output
 
     assert_match version.to_s, shell_output("#{bin}/httpyac --version")
   end
