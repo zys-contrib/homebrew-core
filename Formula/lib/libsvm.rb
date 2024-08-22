@@ -1,8 +1,8 @@
 class Libsvm < Formula
   desc "Library for support vector machines"
   homepage "https://www.csie.ntu.edu.tw/~cjlin/libsvm/"
-  url "https://www.csie.ntu.edu.tw/~cjlin/libsvm/libsvm-3.33.tar.gz"
-  sha256 "d5da12ccc3d0eed8453fbdf6fac7d9f0052f3e8a5f07a2174e4ef0a9d83dcdf8"
+  url "https://www.csie.ntu.edu.tw/~cjlin/libsvm/libsvm-3.34.tar.gz"
+  sha256 "2ae0097e623a1dda3a190734f4aead2d9d14914b55bee12a991943894f166a25"
   license "BSD-3-Clause"
   head "https://github.com/cjlin1/libsvm.git", branch: "master"
 
@@ -26,9 +26,9 @@ class Libsvm < Formula
     system "make", "CFLAGS=#{ENV.cflags}"
     system "make", "lib"
     bin.install "svm-scale", "svm-train", "svm-predict"
-    lib.install "libsvm.so.3" => shared_library("libsvm", 3)
+    lib.install "libsvm.so.4" => shared_library("libsvm", 4)
     lib.install_symlink shared_library("libsvm", 3) => shared_library("libsvm")
-    MachO::Tools.change_dylib_id("#{lib}/libsvm.3.dylib", "#{lib}/libsvm.3.dylib") if OS.mac?
+    MachO::Tools.change_dylib_id("#{lib}/libsvm.4.dylib", "#{lib}/libsvm.4.dylib") if OS.mac?
     include.install "svm.h"
   end
 
