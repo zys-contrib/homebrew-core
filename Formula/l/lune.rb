@@ -1,8 +1,8 @@
 class Lune < Formula
   desc "Standalone Luau script runtime"
   homepage "https://lune-org.github.io/docs"
-  url "https://github.com/lune-org/lune/archive/refs/tags/v0.8.7.tar.gz"
-  sha256 "d3086455523f51ede379b3c81bfc1b932e077ef2a6a99c53cbaf0f137e4a3fdc"
+  url "https://github.com/lune-org/lune/archive/refs/tags/v0.8.8.tar.gz"
+  sha256 "6cb6e9e1efc0b27c2470fc21032df68489d7d3af2fbc67dc7f02a94c9fe5ce76"
   license "MPL-2.0"
 
   bottle do
