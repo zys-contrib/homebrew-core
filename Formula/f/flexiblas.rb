@@ -80,8 +80,8 @@ class Flexiblas < Formula
 
   def caveats
     <<~EOS
-      FlexiBLAS has been built with support for the following BLAS backends:
-      #{blas_backends.first} (default), #{blas_backends[1..].join(", ")}
+      FlexiBLAS includes the following backends: #{blas_backends.join(", ")}
+      #{blas_backends.first} has been set as the default in #{etc}/flexiblasrc
     EOS
   end
 
