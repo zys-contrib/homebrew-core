@@ -1,8 +1,8 @@
 class Ingress2gateway < Formula
   desc "Convert Kubernetes Ingress resources to Kubernetes Gateway API resources"
   homepage "https://github.com/kubernetes-sigs/ingress2gateway"
-  url "https://github.com/kubernetes-sigs/ingress2gateway/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "c77182394f38e39bb1c14a2e057d6d679e00ac0cec7ab314b6cb7ae9827c9315"
+  url "https://github.com/kubernetes-sigs/ingress2gateway/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "87813319e61b317f9c15e6df9db972a314518570c0b5fef5097c58fdba841a9d"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/ingress2gateway.git", branch: "main"
 
@@ -109,7 +109,7 @@ class Ingress2gateway < Formula
     result = shell_output("#{bin}/ingress2gateway\
                           print\
                           --providers ingress-nginx\
-                          --input_file #{testpath}/test.yml\
+                          --input-file #{testpath}/test.yml\
                           -A")
 
     assert_equal expected.chomp, result.chomp
