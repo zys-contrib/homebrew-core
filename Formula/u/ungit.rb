@@ -1,8 +1,8 @@
 class Ungit < Formula
   desc "Easiest way to use Git. On any platform. Anywhere"
   homepage "https://github.com/FredrikNoren/ungit"
-  url "https://registry.npmjs.org/ungit/-/ungit-1.5.26.tgz"
-  sha256 "3a5640949faecab900c2fa82b662d42aa66596c2e24352814684407d0cf518b4"
+  url "https://registry.npmjs.org/ungit/-/ungit-1.5.27.tgz"
+  sha256 "daea92ea66ac52f8359c9964f68779dea7ba1583621bf87473e719395992364c"
   license "MIT"
 
   bottle do
