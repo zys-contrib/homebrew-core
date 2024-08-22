@@ -1,8 +1,8 @@
 class Tsduck < Formula
   desc "MPEG Transport Stream Toolkit"
   homepage "https://tsduck.io/"
-  url "https://github.com/tsduck/tsduck/archive/refs/tags/v3.37-3670.tar.gz"
-  sha256 "dbb7c654330108c509f2d8a97fe0346e3a1f55ad959e13dcee4a40dd04507886"
+  url "https://github.com/tsduck/tsduck/archive/refs/tags/v3.38-3822.tar.gz"
+  sha256 "18bb779584384197dbb72af406cdcd42fe06efbf4a6ca8fd3138eb518b7ad369"
   license "BSD-2-Clause"
   head "https://github.com/tsduck/tsduck.git", branch: "master"
 
@@ -16,10 +16,12 @@ class Tsduck < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d79b6b81e69a6b9ff7059eeecc0a54bddc467dfa9168b413cdd9bd66a81600d"
   end
 
+  depends_on "asciidoctor" => :build
   depends_on "dos2unix" => :build
   depends_on "gnu-sed" => :build
   depends_on "grep" => :build
   depends_on "openjdk" => :build
+  depends_on "qpdf" => :build
   depends_on "librist"
   depends_on "libvatek"
   depends_on "openssl@3"
