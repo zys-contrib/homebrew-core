@@ -10,6 +10,16 @@ class Flexiblas < Formula
   ]
   head "https://gitlab.mpi-magdeburg.mpg.de/software/flexiblas-release.git", branch: "master"
 
+  bottle do
+    sha256 arm64_sonoma:   "144a287222ffe00ffc4c12190a63b3da143f4f1392de28a00caf3386ead4d3d8"
+    sha256 arm64_ventura:  "082787d3a84f8c9cc680c8c06d4ec26f7b3c09f0af57b00e3babac0d63bac2c1"
+    sha256 arm64_monterey: "0d582036b81e7b61e9b8df071569ff2c3eb856b1f94f32159d6835411ee8e150"
+    sha256 sonoma:         "548e8910615427d94a6d3585ae53a6759a00af6ef70811b3b5c3713cd23a57bd"
+    sha256 ventura:        "4723c25e4e8f206f0bfe2c0d373ba24ec0827f0f0bb026e999994e003fd2a5de"
+    sha256 monterey:       "166ec9738f3faa20546e6cc0a7ea69ce657026450d80acd3df5d3c4df060cd2a"
+    sha256 x86_64_linux:   "e8286f52769a07dbcaf7dc0d3845e46b63d5c2c31ce516828e612eef952dcd81"
+  end
+
   depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
   depends_on "openblas"
