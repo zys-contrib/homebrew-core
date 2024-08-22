@@ -9,13 +9,13 @@ class Pipx < Formula
   head "https://github.com/pypa/pipx.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "23895e6550d9e89ce2e5ed7dbd97f763d4c2410e7b672e80c04e21af21b77955"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "23895e6550d9e89ce2e5ed7dbd97f763d4c2410e7b672e80c04e21af21b77955"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "23895e6550d9e89ce2e5ed7dbd97f763d4c2410e7b672e80c04e21af21b77955"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3dc0343427d5963e409cbb171e6a18c89e5935f815fe8b76a03eb15c8fac12fe"
-    sha256 cellar: :any_skip_relocation, ventura:        "3dc0343427d5963e409cbb171e6a18c89e5935f815fe8b76a03eb15c8fac12fe"
-    sha256 cellar: :any_skip_relocation, monterey:       "3dc0343427d5963e409cbb171e6a18c89e5935f815fe8b76a03eb15c8fac12fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78d7fea7887d5c2a209d0b5ff89b147002177198aa7b24addf685c6871323a3c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d9759bd871ef5ca94f0616a55a8a352a4d8dbfd577e51a3365f4e2f749c795f0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d9759bd871ef5ca94f0616a55a8a352a4d8dbfd577e51a3365f4e2f749c795f0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d9759bd871ef5ca94f0616a55a8a352a4d8dbfd577e51a3365f4e2f749c795f0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e8d9087c4ff28e4ea12549d42568387b2d90f76721ae9ef3d408f96865842cd8"
+    sha256 cellar: :any_skip_relocation, ventura:        "e8d9087c4ff28e4ea12549d42568387b2d90f76721ae9ef3d408f96865842cd8"
+    sha256 cellar: :any_skip_relocation, monterey:       "e8d9087c4ff28e4ea12549d42568387b2d90f76721ae9ef3d408f96865842cd8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "668ec6339ace6754cd01c3fb950c7f16ea66febd059f84c5f2d10b23bd312703"
   end
 
   depends_on "python@3.12"
