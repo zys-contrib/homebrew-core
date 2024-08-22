@@ -2477,6 +2477,7 @@ statix
 stdman
 steamguard-cli
 steampipe
+stellar-cli
 stellar-core
 stencil
 step
