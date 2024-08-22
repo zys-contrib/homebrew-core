@@ -1,8 +1,8 @@
 class Viddy < Formula
   desc "Modern watch command"
   homepage "https://github.com/sachaos/viddy"
-  url "https://github.com/sachaos/viddy/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "b64cca44ef6367397498faae92296fc005156e6e5a7518b6f64ac2bc912044d0"
+  url "https://github.com/sachaos/viddy/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "3e162534aab440042de32a83b9c9c1d01df343c9523816524e43ac9b033836ce"
   license "MIT"
   head "https://github.com/sachaos/viddy.git", branch: "master"
 
@@ -16,23 +16,25 @@ class Viddy < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c40816ab0aa685145f5a8994fbf18115212c233dd17d7efe1ba433b8e425d57e"
   end
 
-  depends_on "go" => :build
+  depends_on "rust" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=v#{version}")
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
     # Errno::EIO: Input/output error @ io_fread - /dev/pts/0
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    ENV["TERM"] = "xterm"
-    require "pty"
-    r, _, pid = PTY.spawn "#{bin}/viddy echo hello"
-    sleep 1
-    Process.kill "SIGINT", pid
-    assert_includes r.read, "Every"
+    begin
+      pid = fork do
+        system bin/"viddy", "--interval", "1", "date"
+      end
+      sleep 2
+    ensure
+      Process.kill("TERM", pid)
+    end
 
-    assert_equal 0, $CHILD_STATUS.exitstatus
+    assert_match "viddy #{version}", shell_output("#{bin}/viddy --version")
   end
 end
