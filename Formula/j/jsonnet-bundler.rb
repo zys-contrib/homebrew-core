@@ -2,8 +2,8 @@ class JsonnetBundler < Formula
   desc "Package manager for Jsonnet"
   homepage "https://github.com/jsonnet-bundler/jsonnet-bundler"
   url "https://github.com/jsonnet-bundler/jsonnet-bundler.git",
-      tag:      "v0.5.1",
-      revision: "451a33c1c1f6950bc3a7d25353e35bed1b983370"
+      tag:      "v0.6.0",
+      revision: "ddded59c7066658f3d5abc7fcfc6be2220c92cad"
   license "Apache-2.0"
 
   bottle do
