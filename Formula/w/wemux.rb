@@ -28,9 +28,11 @@ class Wemux < Formula
     inreplace "wemux", "/usr/local/etc", etc
     bin.install "wemux"
     man1.install "man/wemux.1"
-
-    inreplace "wemux.conf.example", "change_this", ENV["USER"]
     etc.install "wemux.conf.example" => "wemux.conf"
+  end
+
+  def post_install
+    inreplace etc/"wemux.conf", "change_this", ENV["USER"], false
   end
 
   def caveats
