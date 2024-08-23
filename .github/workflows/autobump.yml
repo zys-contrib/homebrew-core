@@ -24,6 +24,8 @@ jobs:
     runs-on: ubuntu-22.04
     container:
       image: ghcr.io/homebrew/ubuntu22.04:master
+    env:
+      GNUPGHOME: /tmp/gnupghome
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -42,6 +44,11 @@ jobs:
         id: autobump
         run: echo "autobump_list=$(xargs < "$(brew --repo homebrew/core)"/.github/autobump.txt)" >> "$GITHUB_OUTPUT"
 
+      - name: Set up commit signing
+        uses: Homebrew/actions/setup-commit-signing@master
+        with:
+          signing_key: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY }}
+
       - name: Bump formulae
         uses: Homebrew/actions/bump-packages@master
         continue-on-error: true
@@ -50,3 +57,4 @@ jobs:
           formulae: ${{ github.event.inputs.formulae || steps.autobump.outputs.autobump_list }}
         env:
           HOMEBREW_TEST_BOT_AUTOBUMP: 1
+          HOMEBREW_GPG_PASSPHRASE: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY_PASSPHRASE }}
