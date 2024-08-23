@@ -3,8 +3,8 @@ class Kin < Formula
 
   desc "Sane PBXProj files"
   homepage "https://github.com/Serchinastico/Kin"
-  url "https://files.pythonhosted.org/packages/ab/a6/fe193e6193675c978b493ebe8e6a606b52203e37463179ca573ebcaa18dd/kin-2.1.9.tar.gz"
-  sha256 "35da507e45b733a6f391676b47995b26ca40afcb38fcb5c3f5e0d90101027dee"
+  url "https://files.pythonhosted.org/packages/4f/36/dcb0e16c5634d58d0ef2f771fe1e608264698394f4a184afc289d9a85bb8/kin-2.1.10.tar.gz"
+  sha256 "a3cbb3b376c3d28b16b0c07ee835607690745b7a3ba7592f2534b384dd9a9eab"
   license "Apache-2.0"
   head "https://github.com/Serchinastico/Kin.git", branch: "main"
 
