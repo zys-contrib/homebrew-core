@@ -1,8 +1,8 @@
 class Dissent < Formula
   desc "GTK4 Discord client in Go"
   homepage "https://github.com/diamondburned/dissent"
-  url "https://github.com/diamondburned/dissent/archive/refs/tags/v0.0.27.tar.gz"
-  sha256 "c2680b6722be898a7293ef67b99da611b15e104eadc0f2e412a92b7ad3db12c3"
+  url "https://github.com/diamondburned/dissent/archive/refs/tags/v0.0.28.tar.gz"
+  sha256 "fc7189078057db3458bef08aa6d7872018c5c20bf0b21157ca950b8c8a4f93f1"
   license "GPL-3.0-or-later"
   head "https://github.com/diamondburned/dissent.git", branch: "main"
 
@@ -17,6 +17,7 @@ class Dissent < Formula
   end
 
   depends_on "go" => :build
+  depends_on "pkg-config" => :build
 
   depends_on "cairo"
   depends_on "gdk-pixbuf"
@@ -24,8 +25,10 @@ class Dissent < Formula
   depends_on "gobject-introspection"
   depends_on "graphene"
   depends_on "gtk4"
+  depends_on "gtksourceview5"
   depends_on "libadwaita"
   depends_on "libcanberra"
+  depends_on "libspelling"
   depends_on "pango"
 
   on_macos do
@@ -38,6 +41,9 @@ class Dissent < Formula
   end
 
   test do
+    # Fails in Linux CI with "Failed to open display"
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     # dissent is a GUI application
     system bin/"dissent", "--help"
   end
