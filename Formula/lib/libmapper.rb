@@ -6,13 +6,13 @@ class Libmapper < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "165e054bcb7de8bc4d8af67224989dffda03d003272d2c104ddc63e17e021578"
-    sha256 cellar: :any,                 arm64_ventura:  "b647984a373f82f5865afc97bd66b3777b7a4fc8d34cd0ea6e72572e0d704c8b"
-    sha256 cellar: :any,                 arm64_monterey: "105b5ca0a00fc05e17d31fd8044f590df7f9b6aabbb1e80f45f723a9335332bf"
-    sha256 cellar: :any,                 sonoma:         "4752c67cf956000d786522353cbf0d51856fb9302c25bcb512f0f425df5a7f1f"
-    sha256 cellar: :any,                 ventura:        "acef52dc47ceefa462fe013b77071d9b49394b8613bb65538c860b505c5fa236"
-    sha256 cellar: :any,                 monterey:       "41f0e09496c5a318c4dbaf8a5c5c9cc4a432a3e32104b00cb744b652d1267804"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d17822a27b6232e4dde431d47aed20dcb445eb69d7fecdedf7733755e9d7c8c9"
+    sha256 cellar: :any,                 arm64_sonoma:   "6ec8236e499f58d361324ed30ee024e15c681aef952caff9cb52cf61798e0001"
+    sha256 cellar: :any,                 arm64_ventura:  "9a54fbbd61ff1dcdc7221a38581820694c2e12ac1a151cd98f95a050f46b315a"
+    sha256 cellar: :any,                 arm64_monterey: "c00d5a24a8a98961f1cad0657cd68bd426dd84a2a31dcde70b9d5c73837bc51b"
+    sha256 cellar: :any,                 sonoma:         "f2d4b7818352d243ca2bfed29bc00b1f7844cb70cda75ffdccd2cf007e263c2f"
+    sha256 cellar: :any,                 ventura:        "b44516bd993e77c6772be3645b05252956d4cf4f126e135d2c5a0082ae00a432"
+    sha256 cellar: :any,                 monterey:       "117aad92a8af1f06e070fc3d3e6c28423419215fd4ffb8fe019cc9ad91b1cbcb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7fd56f3d210b17135462fc4b97d9927d7b8805ccd007bc840444a911c38ac85e"
   end
 
   depends_on "autoconf" => :build
