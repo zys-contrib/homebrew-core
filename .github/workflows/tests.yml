@@ -56,7 +56,7 @@ jobs:
           key: style-cache-${{ matrix.stable && 'stable-' || 'master-' }}${{ github.sha }}
           restore-keys: style-cache-${{ matrix.stable && 'stable-' || 'master-' }}
 
-      - run: brew test-bot --only-tap-syntax
+      - run: brew test-bot --only-tap-syntax ${{ matrix.stable && '--stable' || '' }}
 
   formulae_detect:
     if: github.repository_owner == 'Homebrew' && github.event_name != 'push'
