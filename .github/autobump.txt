@@ -1281,6 +1281,7 @@ json-fortran
 json2ts
 json2tsv
 jsonnet
+jsonnet-bundler
 jsonrpc-glib
 jsontoolkit
 jsvc
