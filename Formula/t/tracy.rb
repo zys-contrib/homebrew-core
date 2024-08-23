@@ -6,13 +6,13 @@ class Tracy < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "dd1a741539f0c65f5871567157edc2aa4269703fb37079919c5043d1039c261a"
-    sha256 cellar: :any,                 arm64_ventura:  "37ee1281141ecfb2a47315d41cfcf365e9faffc6166e1ac02f400a87bf0ad52c"
-    sha256 cellar: :any,                 arm64_monterey: "da06ed8c0f859a1270ac08c4aef7f99691fa17cddbe03a8e1364cf4f3f7a2241"
-    sha256 cellar: :any,                 sonoma:         "10d6d0b13a1387b809bd0298ac5103cfe901335167b87fc6740f3d7515c5288a"
-    sha256 cellar: :any,                 ventura:        "70ff96b45cad523508fbff0f5e70c8577d6e4ad335399005e262effd89350ed5"
-    sha256 cellar: :any,                 monterey:       "e8973f9aa0f62a989cfd4ea08893dd01aa463015b5d61e18d703263a085821f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8ee49d32d243d29e7fe206afd278a496e38a6456329b1d7ab42cb35ed552e12"
+    sha256 cellar: :any,                 arm64_sonoma:   "d6f150dd66767e47837006f661a3c36ed7cd7ad21dfe76a7c1ba8aff1820a924"
+    sha256 cellar: :any,                 arm64_ventura:  "2b2b2517cdf72b57face88cc1dbf6083bfd2a2b2271e857825bc7d012fd2bf43"
+    sha256 cellar: :any,                 arm64_monterey: "27320ae60ea734c462bbfcd54fbee3444eed1de85b80315c1814850d043b229e"
+    sha256 cellar: :any,                 sonoma:         "4f862af547f74f1859b5e717cd7368a6394b170db1f68ead37b23ddd5a1e1cfb"
+    sha256 cellar: :any,                 ventura:        "b32e96ee1c8c76f0064509f450da12f54b2860c007a3651288e6fd2bb0d7cc0c"
+    sha256 cellar: :any,                 monterey:       "1db13a28c85ccdd2ea30ca6f33b8a534b60610f513c3ae69ddc3d33e2ae8ab5a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aeef3daf639e9ed8491a9b7e0b11652809dd6d165410d9070fcf5f40f8883a85"
   end
 
   depends_on "cmake" => :build
