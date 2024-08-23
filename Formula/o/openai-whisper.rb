@@ -6,7 +6,7 @@ class OpenaiWhisper < Formula
   url "https://files.pythonhosted.org/packages/d2/6e/50ace2bf704e5ffc786d20d96403ab0d57c5d6ab8729de7fed8c436687df/openai-whisper-20231117.tar.gz"
   sha256 "7af424181436f1800cc0b7d75cf40ede34e9ddf1ba4983a910832fcf4aade4a4"
   license "MIT"
-  revision 5
+  revision 6
   head "https://github.com/openai/whisper.git", branch: "main"
 
   bottle do
@@ -43,8 +43,9 @@ class OpenaiWhisper < Formula
   end
 
   resource "llvmlite" do
-    url "https://files.pythonhosted.org/packages/9f/3d/f513755f285db51ab363a53e898b85562e950f79a2e6767a364530c2f645/llvmlite-0.43.0.tar.gz"
-    sha256 "ae2b5b5c3ef67354824fb75517c8db5fbe93bc02cd9671f3c62271626bc041d5"
+    # Fetch from Git hash for compatibility with the new version of `numba` below.
+    url "https://github.com/numba/llvmlite/archive/ca123c3ae2a6f7db865661ae509862277ec5d692.tar.gz"
+    sha256 "a778c3b02f96a57a8c4c2e22cb7b2b0712cf487ac5167d459150e1b1fc42b028"
   end
 
   resource "more-itertools" do
@@ -53,14 +54,9 @@ class OpenaiWhisper < Formula
   end
 
   resource "numba" do
-    url "https://files.pythonhosted.org/packages/3c/93/2849300a9184775ba274aba6f82f303343669b0592b7bb0849ea713dabb0/numba-0.60.0.tar.gz"
-    sha256 "5df6158e5584eece5fc83294b949fd30b9f1125df7708862205217e068aabf16"
-
-    # Fix compat with numpy 2.0.1: https://github.com/numba/numba/pull/9683
-    patch do
-      url "https://github.com/numba/numba/commit/afb3d168efa713c235d1bb4586722ad6e5dbb0c1.patch?full_index=1"
-      sha256 "5045f942be69fe12d0b0f02a4236c01c092f660ee9fa008848b7ebf5cb8fd528"
-    end
+    # Fetch from Git hash for numpy 2.1 compatibility
+    url "https://github.com/numba/numba/archive/a344e8f55440c91d40c5221e93a38ce0c149b803.tar.gz"
+    sha256 "6295d40e7f2f29dfe06a0403e6e7540f7d286df238085d61637740017acb11ee"
   end
 
   resource "regex" do
