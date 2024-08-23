@@ -2017,6 +2017,7 @@ pgpool-ii
 pgroonga
 pgrouting
 pgweb
+phive
 phoronix-test-suite
 php
 php-code-sniffer
