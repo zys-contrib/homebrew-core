@@ -29,8 +29,7 @@ class Cgvg < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
   end
 
