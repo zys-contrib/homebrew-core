@@ -8,13 +8,8 @@ class Mallet < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5a374eb5e6bb33e4e9a47e6bc45bce905ed670a9927071319b1240d929580e8c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5a374eb5e6bb33e4e9a47e6bc45bce905ed670a9927071319b1240d929580e8c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5a374eb5e6bb33e4e9a47e6bc45bce905ed670a9927071319b1240d929580e8c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5a374eb5e6bb33e4e9a47e6bc45bce905ed670a9927071319b1240d929580e8c"
-    sha256 cellar: :any_skip_relocation, ventura:        "5a374eb5e6bb33e4e9a47e6bc45bce905ed670a9927071319b1240d929580e8c"
-    sha256 cellar: :any_skip_relocation, monterey:       "5a374eb5e6bb33e4e9a47e6bc45bce905ed670a9927071319b1240d929580e8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3a09e4c970c1d942842a56526109163996b6001854c51607ebf289869986d7e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "2a79370bb96c6b93c4e5ccea01dfd09deeea7bcd7410c34ebfbd0584e24939e3"
   end
 
   depends_on "openjdk"
