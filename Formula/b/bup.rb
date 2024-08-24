@@ -1,8 +1,8 @@
 class Bup < Formula
   desc "Backup tool"
   homepage "https://bup.github.io/"
-  url "https://github.com/bup/bup/archive/refs/tags/0.33.3.tar.gz"
-  sha256 "0aa6e98352c939180e82bbb0a647afd8d1b3d5eda6771b65e694099f6b956ac5"
+  url "https://github.com/bup/bup/archive/refs/tags/0.33.4.tar.gz"
+  sha256 "f51284f2cb24aa653288f05aad32d6ec6ebb9546143ed7c588d40ba82f24b79a"
   license all_of: ["BSD-2-Clause", "LGPL-2.0-only"]
   head "https://github.com/bup/bup.git", branch: "master"
 
@@ -18,7 +18,9 @@ class Bup < Formula
 
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :build
+
   depends_on "python@3.12"
+  depends_on "readline"
 
   def python3
     which("python3.12")
@@ -26,6 +28,7 @@ class Bup < Formula
 
   def install
     ENV["BUP_PYTHON_CONFIG"] = "#{python3}-config"
+
     system "make", "PREFIX=#{prefix}", "install"
   end
 
