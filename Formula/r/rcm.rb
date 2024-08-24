@@ -25,10 +25,8 @@ class Rcm < Formula
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    ENV["CONFIG_SHELL"] = "/bin/bash"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
