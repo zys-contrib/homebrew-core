@@ -29,6 +29,7 @@ class DarkMode < Formula
                  "-derivedDataPath", tmpdir,
                  "-scheme", "dark-mode",
                  "-configuration", "Release",
+                 "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
                  "OBJROOT=.build",
                  "SYMROOT=.build"
     end
