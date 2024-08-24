@@ -793,6 +793,7 @@ fakeroot
 falco
 falcoctl
 fantom
+fast_float
 fastapi
 fastfec
 fastfetch
