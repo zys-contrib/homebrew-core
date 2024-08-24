@@ -1,8 +1,8 @@
 class Smug < Formula
   desc "Automate your tmux workflow"
   homepage "https://github.com/ivaaaan/smug"
-  url "https://github.com/ivaaaan/smug/archive/refs/tags/v0.3.3.tar.gz"
-  sha256 "9d864d71edc31e47ddc18e32f70b579c5e6863e7a767d9ae3167d75467553474"
+  url "https://github.com/ivaaaan/smug/archive/refs/tags/v0.3.4.tar.gz"
+  sha256 "c398b2d7094cb961a8c8f42338b669462d4f2413363ef704d10fc004fceabb02"
   license "MIT"
 
   bottle do
