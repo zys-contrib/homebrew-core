@@ -1,8 +1,10 @@
 class Mallet < Formula
   desc "MAchine Learning for LanguagE Toolkit"
   homepage "https://mimno.github.io/Mallet/index"
-  url "https://github.com/mimno/Mallet/releases/download/v202108/Mallet-202108-bin.tar.gz"
-  sha256 "d64c77b00e3f1afbc48ed775f772ce7eccaaca77da4b9b581fb21dfe4a7f8a26"
+  # We use the zip as the 202108 tarball was generated with macOS metadata so
+  # it is unpacked incorrectly on Linux and prevents `all` bottle creation
+  url "https://github.com/mimno/Mallet/releases/download/v202108/Mallet-202108-bin.zip"
+  sha256 "874e682add31d638fb6b97c0ad485ff8fbc45e08c47305843139604b7dc15f62"
   license "Apache-2.0"
 
   bottle do
