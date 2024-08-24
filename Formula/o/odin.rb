@@ -56,31 +56,46 @@ class Odin < Formula
       system "make", "unix"
     end
 
-    if OS.mac?
-      raylib_installpath = Hardware::CPU.arm? ? "vendor/raylib/macos-arm64" : "vendor/raylib/macos"
+    raylib_installpath = if OS.linux?
+      "vendor/raylib/linux"
+    elsif Hardware::CPU.intel?
+      "vendor/raylib/macos"
+    else
+      "vendor/raylib/macos-arm64"
+    end
 
-      ln_s Formula["glfw"].lib/"libglfw3.a", buildpath/"vendor/glfw/lib/darwin/libglfw3.a"
+    ln_s Formula["glfw"].lib/"libglfw3.a", buildpath/"vendor/glfw/lib/darwin/libglfw3.a"
 
-      ln_s Formula["raylib"].lib/"libraylib.a", buildpath/raylib_installpath/"libraylib.a"
-      # This is actually raylib 5.0, but upstream had not incremented this number yet when it released.
-      ln_s Formula["raylib"].lib/"libraylib.4.5.0.dylib", buildpath/raylib_installpath/"libraylib.500.dylib"
+    ln_s Formula["raylib"].lib/"libraylib.a", buildpath/raylib_installpath/"libraylib.a"
+    # This is actually raylib 5.0, but upstream had not incremented this number yet when it released.
+    ln_s Formula["raylib"].lib/shared_library("libraylib", "4.5.0"),
+      buildpath/raylib_installpath/shared_library("libraylib", "500")
 
-      resource("raygui").stage do
-        cp "src/raygui.h", "src/raygui.c"
+    resource("raygui").stage do
+      cp "src/raygui.h", "src/raygui.c"
 
-        # build static library
-        system ENV.cc, "-c", "-o", "raygui.o", "src/raygui.c",
-          "-fpic", "-DRAYGUI_IMPLEMENTATION", "-I#{Formula["raylib"].include}"
-        system "ar", "-rcs", "libraygui.a", "raygui.o"
-        cp "libraygui.a", buildpath/raylib_installpath
+      # build static library
+      system ENV.cc, "-c", "-o", "raygui.o", "src/raygui.c",
+        "-fpic", "-DRAYGUI_IMPLEMENTATION", "-I#{Formula["raylib"].include}"
+      system "ar", "-rcs", "libraygui.a", "raygui.o"
+      cp "libraygui.a", buildpath/raylib_installpath
 
-        # build shared library
-        system ENV.cc, "-o", "libraygui.dylib", "src/raygui.c",
-          "-shared", "-fpic", "-DRAYGUI_IMPLEMENTATION", "-framework", "OpenGL",
-          "-lm", "-lpthread", "-ldl",
-          "-I#{Formula["raylib"].include}", "-L#{Formula["raylib"].lib}", "-lraylib"
-        cp "libraygui.dylib", buildpath/raylib_installpath
-      end
+      # build shared library
+      args = [
+        "-o", shared_library("libraygui"),
+        "src/raygui.c",
+        "-shared",
+        "-fpic",
+        "-DRAYGUI_IMPLEMENTATION",
+        "-lm", "-lpthread", "-ldl",
+        "-I#{Formula["raylib"].include}",
+        "-L#{Formula["raylib"].lib}",
+        "-lraylib"
+      ]
+
+      args += ["-framework", "OpenGL"] if OS.mac?
+      system ENV.cc, *args
+      cp shared_library("libraygui"), buildpath/raylib_installpath
     end
 
     # By default the build runs an example program, we don't want to run it during install.
@@ -128,36 +143,37 @@ class Odin < Formula
     EOS
     system bin/"odin", "run", "miniaudio.odin", "-file"
 
+    (testpath/"raylib.odin").write <<~EOS
+      package main
+
+      import rl "vendor:raylib"
+
+      main :: proc() {
+        // raygui.
+        assert(!rl.GuiIsLocked())
+
+        // raylib.
+        num := rl.GetRandomValue(42, 1337)
+        assert(42 <= num && num <= 1337)
+      }
+    EOS
+    system bin/"odin", "run", "raylib.odin", "-file"
+
     if OS.mac?
-      (testpath/"raylib.odin").write <<~EOS
-        package main
-
-        import rl "vendor:raylib"
-
-        main :: proc() {
-          // raygui.
-          assert(!rl.GuiIsLocked())
-
-          // raylib.
-          num := rl.GetRandomValue(42, 1337)
-          assert(42 <= num && num <= 1337)
-        }
-      EOS
-      system bin/"odin", "run", "raylib.odin", "-file"
       system bin/"odin", "run", "raylib.odin", "-file",
         "-define:RAYLIB_SHARED=true", "-define:RAYGUI_SHARED=true"
-
-      (testpath/"glfw.odin").write <<~EOS
-        package main
-
-        import "core:fmt"
-        import "vendor:glfw"
-
-        main :: proc() {
-          fmt.println(glfw.GetVersion())
-        }
-      EOS
-      system bin/"odin", "run", "glfw.odin", "-file"
     end
+
+    (testpath/"glfw.odin").write <<~EOS
+      package main
+
+      import "core:fmt"
+      import "vendor:glfw"
+
+      main :: proc() {
+        fmt.println(glfw.GetVersion())
+      }
+    EOS
+    system bin/"odin", "run", "glfw.odin", "-file"
   end
 end
