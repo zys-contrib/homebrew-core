@@ -1,14 +1,9 @@
 class Boolector < Formula
   desc "SMT solver for fixed-size bit-vectors"
   homepage "https://boolector.github.io/"
-  url "https://github.com/Boolector/boolector/archive/refs/tags/3.2.3.tar.gz"
-  sha256 "9862134d33cb3ed0aeb6be3c9b154a4d0a90fd076f46ef97cf872813109cc5d9"
+  url "https://github.com/Boolector/boolector/archive/refs/tags/3.2.4.tar.gz"
+  sha256 "249c6dbf4e52ea6e8df1ddf7965d47f5c30f2c14905dce9b8f411756b05878bf"
   license "MIT"
-
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ea5c2d69f9b71ddae1ed7ea577a2db1a9bcb9f8375c1cacafc11375010496580"
@@ -22,6 +17,8 @@ class Boolector < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7ae79fa41592f4aad9aa8f227d3ed1105927d8f6f421c6c0fb591438944fa39"
   end
 
+  deprecate! date: "2024-08-24", because: :repo_archived
+
   depends_on "cmake" => :build
 
   # Use commit hash from `contrib/setup-lingeling.sh`
@@ -32,8 +29,8 @@ class Boolector < Formula
 
   # Use commit has from `contrib/setup-btor2tools.sh`
   resource "btor2tools" do
-    url "https://github.com/boolector/btor2tools/archive/1df768d75adfb13a8f922f5ffdd1d58e80cb1cc2.tar.gz"
-    sha256 "cee19843635a15ad599424a5ad098669938afed85f6d3341e5d661cf7cd5b261"
+    url "https://github.com/boolector/btor2tools/archive/037f1fa88fb439dca6f648ad48a3463256d69d8b.tar.gz"
+    sha256 "d6a5836b9e26719c3b7fe1711d93d86ca4720dc9d4bac11d1fc006fa0a140965"
   end
 
   def install
@@ -47,9 +44,12 @@ class Boolector < Formula
     end
 
     resource("btor2tools").stage do
-      system "./configure.sh", "-fPIC"
-      system "make"
-      (deps_dir/"lib").install "build/libbtor2parser.a"
+      system "./configure.sh", 'CFLAGS="-fPIC"', "--static"
+      cd "build" do
+        system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF" if OS.mac?
+        system "make"
+      end
+      (deps_dir/"lib").install "build/lib/libbtor2parser.a"
       (deps_dir/"include/btor2parser").install "src/btor2parser/btor2parser.h"
     end
 
