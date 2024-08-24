@@ -1,8 +1,8 @@
 class Avrdude < Formula
   desc "Atmel AVR MCU programmer"
   homepage "https://www.nongnu.org/avrdude/"
-  url "https://github.com/avrdudes/avrdude/archive/refs/tags/v7.3.tar.gz"
-  sha256 "1c61ae67aacf8b8ccae5741f987ba4b0c48d6e320405520352a8eca8c6e2c457"
+  url "https://github.com/avrdudes/avrdude/archive/refs/tags/v8.0.tar.gz"
+  sha256 "a689d70a826e2aa91538342c46c77be1987ba5feb9f7dab2606b8dae5d2a52d5"
   license "GPL-2.0-or-later"
   head "https://github.com/avrdudes/avrdude.git", branch: "main"
 
@@ -52,6 +52,6 @@ class Avrdude < Formula
   test do
     output = shell_output("#{bin}/avrdude -c jtag2 -p x16a4 2>&1", 1).strip
     refute_match "avrdude was compiled without usb support", output
-    assert_match "avrdude done.  Thank you.", output
+    assert_match "Avrdude done.  Thank you.", output
   end
 end
