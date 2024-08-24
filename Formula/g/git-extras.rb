@@ -26,7 +26,7 @@ class GitExtras < Formula
   conflicts_with "ugit", because: "both install `git-undo` binaries"
 
   def install
-    system "make", "PREFIX=#{prefix}", "INSTALL_VIA=brew", "install"
+    system "make", "PREFIX=#{prefix}", "COMPL_DIR=#{bash_completion}", "INSTALL_VIA=brew", "install"
     pkgshare.install "etc/git-extras-completion.zsh"
   end
 
