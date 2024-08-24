@@ -1,8 +1,8 @@
 class GitCliff < Formula
   desc "Highly customizable changelog generator"
   homepage "https://github.com/orhun/git-cliff"
-  url "https://github.com/orhun/git-cliff/archive/refs/tags/v2.4.0.tar.gz"
-  sha256 "d5791600e440d0842e42f3b0dbc8d503f4902920675054a23f046fbb1c252636"
+  url "https://github.com/orhun/git-cliff/archive/refs/tags/v2.5.0.tar.gz"
+  sha256 "87b424657f5843fc08b544e5beb1f97c6b86ef6e90465b570ed41a343e90f135"
   license all_of: ["Apache-2.0", "MIT"]
 
   bottle do
