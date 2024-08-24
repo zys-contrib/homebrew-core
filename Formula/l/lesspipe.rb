@@ -11,13 +11,8 @@ class Lesspipe < Formula
   ]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "91c2d6f7b2356753e6cbb6a72c4058ac55d468220eff5543a2cfe19d48cbf3d6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "91c2d6f7b2356753e6cbb6a72c4058ac55d468220eff5543a2cfe19d48cbf3d6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "91c2d6f7b2356753e6cbb6a72c4058ac55d468220eff5543a2cfe19d48cbf3d6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "91c2d6f7b2356753e6cbb6a72c4058ac55d468220eff5543a2cfe19d48cbf3d6"
-    sha256 cellar: :any_skip_relocation, ventura:        "91c2d6f7b2356753e6cbb6a72c4058ac55d468220eff5543a2cfe19d48cbf3d6"
-    sha256 cellar: :any_skip_relocation, monterey:       "91c2d6f7b2356753e6cbb6a72c4058ac55d468220eff5543a2cfe19d48cbf3d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "841c9956e8a455c825a19c36539a371b9be6dbd7164fd375fb71ac680d88b33e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "51b462f428e3845d2615cb9456f0f62fce329f655a92f20df86f7a9692ca2355"
   end
 
   uses_from_macos "perl"
