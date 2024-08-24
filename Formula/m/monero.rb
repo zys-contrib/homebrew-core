@@ -2,10 +2,9 @@ class Monero < Formula
   desc "Official Monero wallet and CPU miner"
   homepage "https://www.getmonero.org/"
   url "https://github.com/monero-project/monero.git",
-      tag:      "v0.18.3.3",
-      revision: "81d4db08eb75ce5392c65ca6571e7b08e41b7c95"
+      tag:      "v0.18.3.4",
+      revision: "b089f9ee69924882c5d14dd1a6991deb05d9d1cd"
   license "BSD-3-Clause"
-  revision 2
 
   livecheck do
     url :stable
@@ -37,17 +36,6 @@ class Monero < Formula
   conflicts_with "wownero", because: "both install a wallet2_api.h header"
 
   def install
-    # Work around build error with Boost 1.85.0
-    # Issue ref: https://github.com/monero-project/monero/issues/9304
-    ENV.append "CXXFLAGS", "-include boost/numeric/conversion/bounds.hpp"
-    copy_option_files = %w[
-      src/common/boost_serialization_helper.h
-      src/p2p/net_peerlist.cpp
-      src/wallet/wallet2.cpp
-    ]
-    inreplace copy_option_files, "boost::filesystem::copy_option::overwrite_if_exists",
-                                 "boost::filesystem::copy_options::overwrite_existing"
-
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
