@@ -35,13 +35,13 @@ class Geckodriver < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1885b9935410051ef03a37966cd99709ac7136ade7ddc9603d985e8dd928d9b4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "134409c16526edfc09a1dad7ab231f3c2bee371bbcf54ba105d4bc76acab0d00"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "73f5a089e7419f0eed816a4a083239ba5ee8ebb8be63ccec96d400db0f29f55f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7f3204723ca99bc6a88af19d5ccad0c26aa3f1743cedc09762b54cad4481ee51"
-    sha256 cellar: :any_skip_relocation, ventura:        "dfa295ea1696bdaaf598759440224dc336f9bba371efda80b0d8791b339816d2"
-    sha256 cellar: :any_skip_relocation, monterey:       "ff3d2092d930ebae80cde07b8ad67cd7bed2dab24baff4f353461e24d4fa7a67"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01a0c5687b091d35676a7d803e9330db700578314fbf422ba95e059eb521bea0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1a94affedc1448a651aef77cf7272f6bc24a9d21a841ae7d065fd9fd5dc83e21"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c90b62ac37e6c8f5469360b4e42d1407d2e241f230c832d0e591d69bf17a24f6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef272c6100a72b0f504d8cf68fbe9ca58af52761021bfe3a1255510f5432629e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4ab69fa6ad11ec81637762fb58e96e628f11cd7af876283c9f95a02890925cae"
+    sha256 cellar: :any_skip_relocation, ventura:        "2cecfa7421a96e88f3ac782901c2ab0b60b97489f2b04e4ad4ebfc8a5a2aa50c"
+    sha256 cellar: :any_skip_relocation, monterey:       "46d96a42a9868df7c40f3e6542e08493014acc8ba54a86bd56e96df9b583463a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e4b78cd2af9526750d327338ec7804eb8ed7c3cec46182d4327a161168f46f3"
   end
 
   depends_on "rust" => :build
