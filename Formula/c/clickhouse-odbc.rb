@@ -1,9 +1,9 @@
 class ClickhouseOdbc < Formula
   desc "Official ODBC driver implementation for accessing ClickHouse as a data source"
   homepage "https://github.com/ClickHouse/clickhouse-odbc"
-  url "https://github.com/ClickHouse/clickhouse-odbc.git",
-      tag:      "v1.2.1.20220905",
-      revision: "fab6efc57d671155c3a386f49884666b2a02c7b7"
+  # Git modules are all for bundled libraries so can use tarball without them
+  url "https://github.com/ClickHouse/clickhouse-odbc/archive/refs/tags/v1.2.1.20220905.tar.gz"
+  sha256 "ca8666cbc7af9e5d4670cd05c9515152c34543e4f45e2bc8fa94bee90d724f1b"
   license "Apache-2.0"
   revision 4
   head "https://github.com/ClickHouse/clickhouse-odbc.git", branch: "master"
@@ -21,11 +21,8 @@ class ClickhouseOdbc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d6e08e8ba3cdeff98402a304e88bc44c416081b13aa0147d9ab9c82e6404982"
   end
 
-  # https://github.com/facebook/folly/issues/1867
-  deprecate! date:    "2023-06-15",
-             because: "vendors an old version of folly that is incompatible with new versions of libc++"
-
   depends_on "cmake" => :build
+  depends_on "folly" => :build
   depends_on "pkg-config" => :build
   depends_on "icu4c"
   depends_on "openssl@3"
@@ -33,6 +30,7 @@ class ClickhouseOdbc < Formula
 
   on_macos do
     depends_on "libiodbc"
+    depends_on "pcre2"
   end
 
   on_linux do
@@ -44,8 +42,8 @@ class ClickhouseOdbc < Formula
   end
 
   def install
-    # Remove bundled libraries excluding required bundled `folly` headers
-    %w[googletest nanodbc poco ssl].each { |l| rm_r(buildpath/"contrib"/l) }
+    # Remove bundled libraries
+    %w[folly googletest nanodbc poco ssl].each { |l| rm_r(buildpath/"contrib"/l) }
 
     args = %W[
       -DCH_ODBC_PREFER_BUNDLED_THIRD_PARTIES=OFF
