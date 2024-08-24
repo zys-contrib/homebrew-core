@@ -3,7 +3,7 @@ class Cvsutils < Formula
   homepage "https://www.red-bean.com/cvsutils/"
   url "https://www.red-bean.com/cvsutils/releases/cvsutils-0.2.6.tar.gz"
   sha256 "174bb632c4ed812a57225a73ecab5293fcbab0368c454d113bf3c039722695bb"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://www.red-bean.com/cvsutils/releases/"
@@ -27,10 +27,11 @@ class Cvsutils < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "adc4162b5c2691b48d6a65ad467eb32c3139787c1de0d42439063b1f3cd6f57f"
   end
 
+  uses_from_macos "perl"
+
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    ENV["CONFIG_SHELL"] = "/bin/bash" # for all bottle
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
