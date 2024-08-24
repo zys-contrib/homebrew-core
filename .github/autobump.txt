@@ -2420,6 +2420,7 @@ snort
 snowflake
 snyk-cli
 soapyremote
+socat
 socket_vmnet
 solana
 solhint
