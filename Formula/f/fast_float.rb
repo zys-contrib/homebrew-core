@@ -6,6 +6,10 @@ class FastFloat < Formula
   license "Apache-2.0"
   head "https://github.com/fastfloat/fast_float.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "11e47dcfe78bd0703495c9f86b1feb600d24e6ddb26e0573c099c9a9bb22cb9f"
+  end
+
   depends_on "cmake" => :build
 
   def install
