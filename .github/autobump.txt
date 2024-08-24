@@ -1067,6 +1067,7 @@ gpg-tui
 gprof2dot
 gpsim
 gptscript
+gql
 gradle
 gradle-completion
 gradle-profiler
