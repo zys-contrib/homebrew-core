@@ -3,7 +3,7 @@ class Cf4ocl < Formula
   homepage "https://nunofachada.github.io/cf4ocl/"
   url "https://github.com/nunofachada/cf4ocl/archive/refs/tags/v2.1.0.tar.gz"
   sha256 "662c2cc4e035da3e0663be54efaab1c7fedc637955a563a85c332ac195d72cfa"
-  license "LGPL-3.0"
+  license all_of: ["LGPL-3.0-or-later", "GPL-3.0-or-later"]
   revision 2
 
   bottle do
@@ -22,6 +22,10 @@ class Cf4ocl < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
 
+  on_macos do
+    depends_on "gettext"
+  end
+
   on_linux do
     depends_on "opencl-headers" => :build
     depends_on "opencl-icd-loader"
@@ -33,14 +37,16 @@ class Cf4ocl < Formula
   patch :DATA
 
   def install
-    args = *std_cmake_args
-    args << "-DBUILD_TESTS=OFF"
-    system "cmake", ".", *args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_TESTS=OFF", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
-    system bin/"ccl_devinfo"
+    # OpenCL is not supported on virtualized arm64 macOS so will return error code
+    result = (OS.mac? && Hardware::CPU.arm? && Hardware::CPU.virtualized?) ? 15 : 0
+
+    assert_match "Platform #0:", shell_output("#{bin}/ccl_devinfo 2>&1", result)
   end
 end
 
