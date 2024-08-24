@@ -16,8 +16,34 @@ class Bedops < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a70293dadd6ad59de7bdb253081cb4b954b0b50008cd9f996ec81e30e043b83a"
   end
 
+  depends_on "jansson"
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
+  # Apply Debian patch to allow using system/brew libraries
+  patch do
+    url "https://sources.debian.org/data/main/b/bedops/2.4.41%2Bdfsg-1/debian/patches/use_debian_libs"
+    sha256 "e9ec0c4603a6978af2eb2fc998091de855e397a456da240169140ad4dcbeae64"
+  end
+
   def install
-    system "make"
+    rm_r "third-party"
+
+    # Avoid running `support` target which builds third-party libraries.
+    # On Linux, this is already handled by the Debian patch.
+    inreplace "system.mk/Makefile.darwin", /^default: support$/, "default: mkdirs"
+
+    args = %W[
+      BUILD_ARCH=#{Hardware::CPU.arch}
+      JPARALLEL=#{ENV.make_jobs}
+      LOCALBZIP2LIB=-lbz2
+      LOCALJANSSONLIB=-ljansson
+      LOCALZLIBLIB=-lz
+    ]
+    args << "MIN_OSX_VERSION=#{MacOS.version}" if OS.mac?
+
+    system "make", *args
     system "make", "install", "BINDIR=#{bin}"
   end
 
