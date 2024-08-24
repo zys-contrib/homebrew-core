@@ -11,6 +11,16 @@ class KubernetesCliAT130 < Formula
     regex(/^v?(1\.30(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8284c1bf2bb500bffed302c5382c24cb462637aa3b8516f53b457bd1be8b1706"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3b8489e9877528d93651ecd12a46b986b3376a085beb2ed2505be4ca6c630bef"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2f76710fa4e8aefea76f3e59f917fbbf71a7488c19f0e70aa9bda9469ba157a5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5e863b0d2352f410af89486c8b15d5849c3397adf2bc63421837c9bd054528cc"
+    sha256 cellar: :any_skip_relocation, ventura:        "fe1db3b0aa4559ed138d7a576f41a60238de7d5254d71e37c22e9a36c165e87e"
+    sha256 cellar: :any_skip_relocation, monterey:       "14a373dab7fbb8c808f8ff584697357fde3bc6991c1fe6f6d02f211bb740b830"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d5f23a188fdf883f37510c5b5fafe55d6e431d3d803f8ae2f1933a28f1f5f78"
+  end
+
   keg_only :versioned_formula
 
   # https://kubernetes.io/releases/patch-releases/#1-30
