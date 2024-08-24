@@ -1721,6 +1721,7 @@ mods
 modsecurity
 mold
 molecule
+monero
 mongo-c-driver
 mongo-cxx-driver
 mongocli
