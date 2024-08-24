@@ -2,8 +2,8 @@ class OpeniothubServer < Formula
   desc "Server for OpenIoTHub"
   homepage "https://github.com/OpenIoTHub/server-go"
   url "https://github.com/OpenIoTHub/server-go.git",
-      tag:      "v1.2.7",
-      revision: "b4429c6879ad1851b32c6ecad4700c746406c72a"
+      tag:      "v1.2.9",
+      revision: "eece2087a80b3cef0f3f12d531d9848b312daf82"
   license "MIT"
   head "https://github.com/OpenIoTHub/server-go.git", branch: "master"
 
