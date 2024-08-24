@@ -2404,6 +2404,7 @@ slurm
 smake
 smartdns
 smimesign
+smug
 sn0int
 snakefmt
 snakemake
