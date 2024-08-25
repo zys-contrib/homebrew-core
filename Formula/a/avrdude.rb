@@ -7,13 +7,13 @@ class Avrdude < Formula
   head "https://github.com/avrdudes/avrdude.git", branch: "main"
 
   bottle do
-    sha256 arm64_sonoma:   "7e4fbdde7efdd2122c7668c7ad8997c58c6f84577cd9622677eb2c09e0db486e"
-    sha256 arm64_ventura:  "bc150a18a9b486d40092753d452d0a0fe173119bd98802ad8172db2415037b10"
-    sha256 arm64_monterey: "ac3825a0b78e9fed3a9dfe7953e12acb618d0a3d7e673619ec6bd4663841d553"
-    sha256 sonoma:         "9e6846073cf666e0a608664c59b107fe06f070556e6518c4abc686cd58088029"
-    sha256 ventura:        "10c38132dbad1e5e8e23c6ed78141c6ae6944c525ecd998be82ae1ecac3b47eb"
-    sha256 monterey:       "37df39cbb3b4add3d85cd25ed881f61915fbb86692f37068b00ccae08f2ad95e"
-    sha256 x86_64_linux:   "772d0a3a6827ee7b7784c36c69075c444163874ec2aa6848f036efac2a582825"
+    sha256 arm64_sonoma:   "486585890c5ab7dc3c57e3be076e65d4a050c34cc3becbbe74cf257e3f8b0ad0"
+    sha256 arm64_ventura:  "b2076d454725e67bda7bda9c14273372bc75b58cc8d8ca05402d7e05127a9997"
+    sha256 arm64_monterey: "2f5a803452cacd443bdbfb32acf4c9e25f43222518db5bf2cad81712dde50da2"
+    sha256 sonoma:         "b3da9285a6b2c4d0a490362f3536e95e7364bc8ba95112b2eab123c69c3bc393"
+    sha256 ventura:        "97d2a1fb9eab66186bb32320c0a4be603e22dc79271cc92f8c858ce818651120"
+    sha256 monterey:       "d7f62c95f739d8fbeb35d45db9f3b49732e68df5d5bb99ddb19a156ed1e6971f"
+    sha256 x86_64_linux:   "6a89480ec589d1823abcb3496619bca89e257b914815b32f00b225e45beea62a"
   end
 
   depends_on "cmake" => :build
