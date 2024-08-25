@@ -6,6 +6,10 @@ class Crow < Formula
   license "BSD-3-Clause"
   head "https://github.com/CrowCpp/Crow.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "591303e4c68a602b25e69d055ddd5c8ebc2e273ce056c992d7b8bdad1520d068"
+  end
+
   depends_on "cmake" => :build
   depends_on "asio"
 
