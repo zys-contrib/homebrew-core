@@ -8,13 +8,13 @@ class Fastapi < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5a9189b8f4a6c05d884dcd3abcd58d854d1dd0cd656e71684835d81910a1696a"
-    sha256 cellar: :any,                 arm64_ventura:  "e3c34bf9cf78c6ff472b16e86a2f085d3938aa4bf1b80ce869fa4be7a7532ca8"
-    sha256 cellar: :any,                 arm64_monterey: "905f52fb71a55a1fa5c7311b5a8586d0bfca1ee4f083f8ce846329d56f887d81"
-    sha256 cellar: :any,                 sonoma:         "32085d7dc37f2721b53a665e17b843b05bd63fb078a5b3e0eb1967890c43f071"
-    sha256 cellar: :any,                 ventura:        "2e335ca89bf6f5c060e84d8c09e43a64fe115999b29e0f758b1da892066a1782"
-    sha256 cellar: :any,                 monterey:       "d5a890421c743f3f42199448841240996de7a6c609a368a3881db72229f1df56"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b6abce65dad0063cfb61c262de7c46ed075e6d7275dc138bba5250c8d8ed854"
+    sha256 cellar: :any,                 arm64_sonoma:   "15aa174f3a2b8f64eecd4841a676ceaa439ca73e5ba04bd5389e4509e8a3a9c6"
+    sha256 cellar: :any,                 arm64_ventura:  "ea4c973dd7809b8c7e2d905b936a988dd53b4b929573f491804bdbf090e0e8f1"
+    sha256 cellar: :any,                 arm64_monterey: "b7ae60816590d874ed5792ca8d3c573fba9fc9e78d35f9b60190cfb94b5ff7f1"
+    sha256 cellar: :any,                 sonoma:         "562352bc4e5ffd353bcb51af244508099f6951ba155d7cdba6f4dc0936570d2e"
+    sha256 cellar: :any,                 ventura:        "82c216349dae2d244946e358d8746bcb23d727d440833b95d2e2bc63394a91c9"
+    sha256 cellar: :any,                 monterey:       "235be09d2a565716a9c75cbb6ef78a9921dba9d2bc2829f168fc13367bc8cb86"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f5091713ca49c1999708be26a3531714e06dc32453330719dbc29ea07fc952a"
   end
 
   depends_on "rust" => :build # for pydantic
