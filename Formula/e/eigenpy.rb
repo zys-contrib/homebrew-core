@@ -1,10 +1,9 @@
 class Eigenpy < Formula
   desc "Python bindings of Eigen library with Numpy support"
   homepage "https://github.com/stack-of-tasks/eigenpy"
-  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v3.8.0/eigenpy-3.8.0.tar.gz"
-  sha256 "81b8d6a44fe57c14cb4b99defd0621d862cf416fab70e1f77575446739c91e38"
+  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v3.8.2/eigenpy-3.8.2.tar.gz"
+  sha256 "a451b2eca0a634d373f4d1457c161d7d30616121f7635f2f38e8ef45e12c1300"
   license "BSD-2-Clause"
-  revision 1
   head "https://github.com/stack-of-tasks/eigenpy.git", branch: "master"
 
   bottle do
@@ -27,6 +26,16 @@ class Eigenpy < Formula
   depends_on "numpy"
   depends_on "python@3.12"
   depends_on "scipy"
+
+  # Support numpy 2, upstream patch PR, https://github.com/stack-of-tasks/eigenpy/pull/496
+  patch do
+    url "https://github.com/stack-of-tasks/eigenpy/commit/98ec8fe8b2bcdde5b1fe2a85660cd7b7761e9e36.patch?full_index=1"
+    sha256 "fb32fd117fcd7d3bbbc751cb850fa2a8a3121a695f70269bce935352592d9067"
+  end
+  patch do
+    url "https://github.com/stack-of-tasks/eigenpy/commit/b36cded3d855557bd69f63b215b9c45ecb8b0255.patch?full_index=1"
+    sha256 "ab5f5cfe66d23a1128de4340f49de28487b1ae7082bc48e71b68521fda540e5d"
+  end
 
   def python3
     "python3.12"
