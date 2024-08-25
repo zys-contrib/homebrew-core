@@ -4,6 +4,7 @@ class Libxaw < Formula
   url "https://www.x.org/archive/individual/lib/libXaw-1.0.16.tar.xz"
   sha256 "731d572b54c708f81e197a6afa8016918e2e06dfd3025e066ca642a5b8c39c8f"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 arm64_sonoma:   "9bb4e4ecf08fb26def1ea47044c0212419322da6e75be9c4941c3269a7980136"
@@ -22,12 +23,20 @@ class Libxaw < Formula
   depends_on "libxpm"
   depends_on "libxt"
 
+  # Backport fix for improved linking on macOS
+  patch do
+    on_macos do
+      url "https://gitlab.freedesktop.org/xorg/lib/libxaw/-/commit/cce2abf00fa2c9a695f1d0e5c931c70c1ba579cf.diff"
+      sha256 "64bfebc3fcb788582abbf2589514e64b3fa62457089c77e644177f1c0a80c10f"
+    end
+  end
+
   def install
     args = %W[
       --sysconfdir=#{etc}
       --localstatedir=#{var}
       --disable-silent-rules
-      --enable-specs=no
+      --disable-specs
     ]
 
     system "./configure", *args, *std_configure_args
