@@ -24,12 +24,8 @@ class Roundup < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--bindir=#{bin}",
-                          "--mandir=#{man}",
-                          "--sysconfdir=#{etc}",
-                          "--datarootdir=#{share}"
-    system "make"
+    system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}"
+    system "make", "SHELL=/bin/bash"
     system "make", "install"
   end
 
