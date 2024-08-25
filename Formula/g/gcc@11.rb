@@ -1,9 +1,9 @@
 class GccAT11 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-11.4.0/gcc-11.4.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-11.4.0/gcc-11.4.0.tar.xz"
-  sha256 "3f2db222b007e8a4a23cd5ba56726ef08e8b1f1eb2055ee72c1402cea73a8dd9"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-11.5.0/gcc-11.5.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-11.5.0/gcc-11.5.0.tar.xz"
+  sha256 "a6e21868ead545cf87f0c01f84276e4b5281d672098591c1c896241f09363478"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   livecheck do
@@ -44,8 +44,8 @@ class GccAT11 < Formula
   # Branch from the Darwin maintainer of GCC, with a few generic fixes and
   # Apple Silicon support, located at https://github.com/iains/gcc-11-branch
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c233b1a8d81b9c9f5827510d8d285080ee11de2e/gcc/gcc-11.4.0.diff"
-    sha256 "440f6e965966c86a7925506e63eb06f7f54c00b1d146db8d0c567bdb8820072f"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/5c9419923ddb3e5302ddd277bc524f4d4b0f8722/gcc/gcc-11.5.0.diff"
+    sha256 "213b332bd09452e0cf081f874f32d028911fa871875f85b200b55c5b588ce193"
   end
 
   def install
