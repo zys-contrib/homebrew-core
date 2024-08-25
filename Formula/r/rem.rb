@@ -26,7 +26,9 @@ class Rem < Formula
   conflicts_with "remind", because: "both install `rem` binaries"
 
   def install
-    xcodebuild "-arch", Hardware::CPU.arch, "SYMROOT=build"
+    xcodebuild "-arch", Hardware::CPU.arch,
+               "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
+               "SYMROOT=build"
     bin.install "build/Release/rem"
   end
 
