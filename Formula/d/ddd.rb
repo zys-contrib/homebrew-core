@@ -13,11 +13,13 @@ class Ddd < Formula
   ]
 
   bottle do
-    sha256 sonoma:       "aebf4974ee7aa21c65355662a1cacac7ffa0f376dc2b8b42b7bb9a9b9855f934"
-    sha256 ventura:      "e83d30cbbf7149a044e20f8a874f590d942dc5a377b4ea8cac7f92b9b2c11473"
-    sha256 monterey:     "4473c8af5c52c43e08ed9c4f0982ae086d6a4224830575b8b0dde893a16b47bf"
-    sha256 big_sur:      "6f2d07fb46a5580cef95fe26a9babee60eb4378930e68f389f07e5897fd1a473"
-    sha256 x86_64_linux: "deba8dc6677abab583705dbdbbf259c7c77bf5bd9491a3ae006a372f3696dda2"
+    sha256 arm64_sonoma:   "73e84236c870313e5a43e936998545961609c5f43104e6b57cd693a03dc52a5d"
+    sha256 arm64_ventura:  "d287abe1d656058174b03b2e1215e7eee7d996fad1e041fd8d14e573b3e0716f"
+    sha256 arm64_monterey: "e2f58c650c498dd2ab90369baee0dad09b169e503e8616894f6814ba543310a8"
+    sha256 sonoma:         "19e15c98f1732a8c5032734ecdab5f4aec373ef3991bc65c7ce4e5f81b526861"
+    sha256 ventura:        "47ff49d7888461a987aee0ae62749dc96d6c44c6825f09a61d637f13cd736198"
+    sha256 monterey:       "33047c998d6856a9425df4fa92fd9f3fdfe7717921def4bb814ae82ceb928927"
+    sha256 x86_64_linux:   "52266be4e6e825db9c2941e2ab44002d1d3707b379e0339d3ddf12af18f81ad6"
   end
 
   depends_on "fontconfig"
