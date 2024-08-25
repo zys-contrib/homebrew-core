@@ -1,9 +1,9 @@
 class Nauty < Formula
   desc "Automorphism groups of graphs and digraphs"
   homepage "https://pallini.di.uniroma1.it/"
-  url "https://pallini.di.uniroma1.it/nauty2_8_8.tar.gz"
-  mirror "https://users.cecs.anu.edu.au/~bdm/nauty/nauty2_8_8.tar.gz"
-  sha256 "159d2156810a6bb240410cd61eb641add85088d9f15c888cdaa37b8681f929ce"
+  url "https://pallini.di.uniroma1.it/nauty2_8_9.tar.gz"
+  mirror "https://users.cecs.anu.edu.au/~bdm/nauty/nauty2_8_9.tar.gz"
+  sha256 "c97ab42bf48796a86a598bce3e9269047ca2b32c14fc23e07208a244fe52c4ee"
   license "Apache-2.0"
   version_scheme 1
 
@@ -26,9 +26,11 @@ class Nauty < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e77a00e472ec4c75ee2343fe220d96e4739e4266a505ad030e454e6f5c08c81a"
   end
 
-  # patch to correct the location of nauty*.pc files
-  # upstream informed and responded that it will be worked on
-  patch :DATA
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+  end
 
   def install
     system "./configure", "--enable-tls", "--includedir=#{include}/nauty", *std_configure_args
@@ -66,18 +68,3 @@ class Nauty < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/makefile.in b/makefile.in
-index 422ff69..572448f 100644
---- a/makefile.in
-+++ b/makefile.in
-@@ -17,7 +17,7 @@ exec_prefix=@exec_prefix@
- bindir=@bindir@
- libdir=@libdir@
- includedir=@includedir@
--pkgconfigexecdir=${prefix}/libdata/pkgconfig
-+pkgconfigexecdir=${libdir}/pkgconfig
-
- INSTALL=@INSTALL@
- INSTALL_DATA=@INSTALL_DATA@
