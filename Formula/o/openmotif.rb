@@ -4,7 +4,7 @@ class Openmotif < Formula
   url "https://downloads.sourceforge.net/project/motif/Motif%202.3.8%20Source%20Code/motif-2.3.8.tar.gz"
   sha256 "859b723666eeac7df018209d66045c9853b50b4218cecadb794e2359619ebce7"
   license "LGPL-2.1-or-later"
-  revision 2
+  revision 3
 
   bottle do
     sha256 arm64_sonoma:   "55a73021c505f7ff8a2e8964ed56a98367acf21913ee52d9fb26a3bc32ae713e"
@@ -42,6 +42,14 @@ class Openmotif < Formula
     sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 
+  # Fix 2-level namespace using MacPorts patch
+  patch :p0 do
+    on_macos do
+      url "https://raw.githubusercontent.com/macports/macports-ports/8c436a9c53a7b786da8d42cda16eead0fb8733d4/x11/openmotif/files/patch-lib-xm-vendor.diff"
+      sha256 "697ac026386dec59b82883fb4a9ba77164dd999fa3fb0569dbc8fbdca57fe200"
+    end
+  end
+
   def install
     if OS.linux?
       # This patch is needed for Ubuntu 16.04 LTS, which uses
@@ -54,8 +62,9 @@ class Openmotif < Formula
 
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
 
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "install"
 
