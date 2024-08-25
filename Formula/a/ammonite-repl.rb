@@ -3,7 +3,7 @@ class AmmoniteRepl < Formula
   homepage "https://ammonite.io/"
   url "https://github.com/com-lihaoyi/Ammonite/releases/download/3.0.0-M2/3.3-3.0.0-M2"
   version "3.0.0-M2"
-  sha256 "184ad1490dd4b91fc84843cd629369985f67ba7c00393d5fdb36f3f6416e7046"
+  sha256 "57b4e3812123861e2acf339c9999f6c23fe2fc4dbfd2c87dc5c52c31bdc37d73"
   license "MIT"
 
   livecheck do
