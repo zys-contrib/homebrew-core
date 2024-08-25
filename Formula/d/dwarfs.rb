@@ -5,6 +5,16 @@ class Dwarfs < Formula
   sha256 "db785e0e0f257fa4363d90153db34127add4552791a72998b30ded787840d039"
   license "GPL-3.0-or-later"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "ac66bc8a18bdfc897548731723b3549aac3fc8222b359b1f9ba4c115f8d0b051"
+    sha256 cellar: :any,                 arm64_ventura:  "e69e7e11bb94bf5481437b4f8f9d9694e7f2588d93a56e712ffca0f7e14e2ec9"
+    sha256 cellar: :any,                 arm64_monterey: "8f08a754b8d9ca3635365df9d2e1bad7214dcd69e5ad1b037248eed9cf4087cd"
+    sha256 cellar: :any,                 sonoma:         "3aedf5e7628c2e4fa2627d7c55fa1e75a673e53c0b58f4982b37985475826f8c"
+    sha256 cellar: :any,                 ventura:        "6779a4d28b9c8216e2eb5941132ae047aa692e033ae80172dc25304202a74e00"
+    sha256 cellar: :any,                 monterey:       "0f0be64c35b93413eab13651ed20aa31963de6a7811fdb3a97e4e8a33856b252"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc0f67e5abb674e076a346043f944445ffe62924c36f60cef5d8d1aa0147bf6c"
+  end
+
   depends_on "cmake" => :build
   depends_on "googletest" => :build
   depends_on "pkg-config" => :build
