@@ -1,10 +1,16 @@
 class Ddd < Formula
   desc "Graphical front-end for command-line debuggers"
   homepage "https://www.gnu.org/software/ddd/"
-  url "https://ftp.gnu.org/gnu/ddd/ddd-3.4.0.tar.gz"
-  mirror "https://ftpmirror.gnu.org/ddd/ddd-3.4.0.tar.gz"
-  sha256 "5d4cbc8a0bb0458543866d679308c53a3ef066e402fe5a1918e19698a3d3580f"
-  license all_of: ["GPL-3.0-only", "GFDL-1.1-or-later"]
+  url "https://ftp.gnu.org/gnu/ddd/ddd-3.4.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/ddd/ddd-3.4.1.tar.gz"
+  sha256 "b87517a6c3f9611566347e283a2cf931fa369919b553536a2235e63402f4ee89"
+  license all_of: [
+    "GPL-3.0-or-later",
+    "GFDL-1.1-no-invariants-or-later", # ddd/ddd-themes.info
+    "GFDL-1.3-no-invariants-or-later", # ddd/ddd.info
+    "HPND-sell-variant", # ddd/motif/LabelH.C
+    "MIT-open-group", # ddd/athena_ddd/PannerM.C
+  ]
 
   bottle do
     sha256 sonoma:       "aebf4974ee7aa21c65355662a1cacac7ffa0f376dc2b8b42b7bb9a9b9855f934"
@@ -14,29 +20,44 @@ class Ddd < Formula
     sha256 x86_64_linux: "deba8dc6677abab583705dbdbbf259c7c77bf5bd9491a3ae006a372f3696dda2"
   end
 
-  depends_on "gdb" => :test
-  depends_on arch: :x86_64 # gdb is not supported on macOS ARM
-  depends_on "libice"
-  depends_on "libsm"
+  depends_on "fontconfig"
   depends_on "libx11"
-  depends_on "libxau"
   depends_on "libxaw"
-  depends_on "libxext"
-  depends_on "libxp"
+  depends_on "libxft"
+  depends_on "libxmu"
   depends_on "libxpm"
   depends_on "libxt"
   depends_on "openmotif"
 
-  def install
-    # ioctl is not found without this flag
-    # Upstream issue ref: https://savannah.gnu.org/bugs/index.php?64188
-    ENV.append_to_cflags "-DHAVE_SYS_IOCTL_H" if OS.mac?
+  uses_from_macos "ncurses"
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+  on_macos do
+    depends_on "gnu-sed" => :build
+    depends_on "libice"
+    depends_on "libsm"
+    depends_on "libxext"
+    depends_on "libxp"
+
+    on_intel do
+      depends_on "gdb" => :test
+    end
+  end
+
+  on_linux do
+    depends_on "gdb" => :test
+  end
+
+  def install
+    # Use GNU sed due to ./unumlaut.sed: RE error: illegal byte sequence
+    ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if OS.mac?
+
+    # Help configure find freetype headers
+    ENV.append_to_cflags "-I#{Formula["freetype"].opt_include}/freetype2"
+
+    system "./configure", "--disable-silent-rules",
                           "--enable-builtin-app-defaults",
                           "--enable-builtin-manual",
-                          "--prefix=#{prefix}"
+                          *std_configure_args
 
     # From MacPorts: make will build the executable "ddd" and the X resource
     # file "Ddd" in the same directory, as HFS+ is case-insensitive by default
@@ -52,6 +73,14 @@ class Ddd < Formula
     output = shell_output("#{bin}/ddd --version")
     output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
     assert_match version.to_s, output
-    assert_match testpath.to_s, pipe_output("#{bin}/ddd --gdb --nw true 2>&1", "pwd\nquit")
+
+    if OS.mac? && Hardware::CPU.arm?
+      # gdb is not supported on macOS ARM. Other debuggers like --perl need window
+      # and using --nw causes them to just pass through to normal execution.
+      # Since it is tricky to test window/XQuartz on CI, just check no crash.
+      assert_equal "Test", shell_output("#{bin}/ddd --perl --nw -e \"print 'Test'\"")
+    else
+      assert_match testpath.to_s, pipe_output("#{bin}/ddd --gdb --nw true 2>&1", "pwd\nquit")
+    end
   end
 end
