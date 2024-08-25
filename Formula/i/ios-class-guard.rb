@@ -40,7 +40,8 @@ class IosClassGuard < Formula
     xcodebuild "-workspace", "ios-class-guard.xcworkspace",
                "-scheme", "ios-class-guard",
                "-configuration", "Release",
-               "SYMROOT=build", "PREFIX=#{prefix}", "ONLY_ACTIVE_ARCH=YES"
+               "SYMROOT=build", "PREFIX=#{prefix}", "ONLY_ACTIVE_ARCH=YES",
+               "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     bin.install "build/Release/ios-class-guard"
   end
 
