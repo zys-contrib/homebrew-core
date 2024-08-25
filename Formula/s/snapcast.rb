@@ -1,8 +1,8 @@
 class Snapcast < Formula
   desc "Synchronous multiroom audio player"
   homepage "https://github.com/badaix/snapcast"
-  url "https://github.com/badaix/snapcast/archive/refs/tags/v0.28.0.tar.gz"
-  sha256 "7911037dd4b06fe98166db1d49a7cd83ccf131210d5aaad47507bfa0cfc31407"
+  url "https://github.com/badaix/snapcast/archive/refs/tags/v0.29.0.tar.gz"
+  sha256 "ecfb2c96a4920adc4121b1180b37bb86566c359914c14831c0abea4e65d23f92"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -19,6 +19,7 @@ class Snapcast < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "flac"
+  depends_on "libogg"
   depends_on "libsoxr"
   depends_on "libvorbis"
   depends_on "opus"
