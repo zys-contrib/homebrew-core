@@ -4,6 +4,7 @@ class Libxt < Formula
   url "https://www.x.org/archive/individual/lib/libXt-1.3.0.tar.xz"
   sha256 "52820b3cdb827d08dc90bdfd1b0022a3ad8919b57a39808b12591973b331bf91"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "d73d8d80bcd571049e6989933294d52eedc693a3c8fa8de5f60d127fec7bfc13"
@@ -22,18 +23,26 @@ class Libxt < Formula
   depends_on "libsm"
   depends_on "libx11"
 
+  # Apply MacPorts patch to improve linking with widget libraries on macOS.
+  # Remove on the next release as patch was upstreamed, but commit doesn't apply cleanly.
+  # Ref: https://gitlab.freedesktop.org/xorg/lib/libxt/-/commit/cbbe13a9e0fd5908288e617b56f41ca1a66d9a0e
+  patch :p0 do
+    on_macos do
+      url "https://raw.githubusercontent.com/macports/macports-ports/37520eaf725382f025ea4ce636e4c30fc96bc48d/x11/xorg-libXt/files/patch-src-vendor.diff"
+      sha256 "93e806b5ba3fce793591d6521634553a28fd207e687366aac3ab055fbe316c55"
+    end
+  end
+
   def install
     args = %W[
-      --prefix=#{prefix}
       --sysconfdir=#{etc}
       --localstatedir=#{var}
       --with-appdefaultdir=#{etc}/X11/app-defaults
-      --disable-dependency-tracking
       --disable-silent-rules
-      --enable-specs=no
+      --disable-specs
     ]
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
   end
