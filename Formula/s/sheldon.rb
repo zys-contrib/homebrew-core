@@ -1,10 +1,9 @@
 class Sheldon < Formula
   desc "Fast, configurable, shell plugin manager"
   homepage "https://sheldon.cli.rs"
-  url "https://github.com/rossmacarthur/sheldon/archive/refs/tags/0.7.4.tar.gz"
-  sha256 "5d8ecd432a99852d416580174be7ab8f29fe9231d9804f0cc26ba2b158f49cdf"
+  url "https://github.com/rossmacarthur/sheldon/archive/refs/tags/0.8.0.tar.gz"
+  sha256 "71c6c27b30d1555e11d253756a4fce515600221ec6de6c06f9afb3db8122e5b5"
   license any_of: ["Apache-2.0", "MIT"]
-  revision 1
   head "https://github.com/rossmacarthur/sheldon.git", branch: "trunk"
 
   bottle do
@@ -20,7 +19,7 @@ class Sheldon < Formula
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "curl"
-  depends_on "libgit2@1.7"
+  depends_on "libgit2"
   depends_on "openssl@3"
 
   def install
@@ -30,10 +29,9 @@ class Sheldon < Formula
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
     # Replace vendored `libgit2` with our formula
-    inreplace "Cargo.toml", /features = \["vendored-libgit2"\]/, "features = []"
     ENV["LIBGIT2_NO_VENDOR"] = "1"
 
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", "--no-default-features", *std_cargo_args
 
     bash_completion.install "completions/sheldon.bash" => "sheldon"
     zsh_completion.install "completions/sheldon.zsh" => "_sheldon"
@@ -53,7 +51,7 @@ class Sheldon < Formula
     assert_predicate testpath/"plugins.lock", :exist?
 
     [
-      Formula["libgit2@1.7"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
       Formula["curl"].opt_lib/shared_library("libcurl"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
