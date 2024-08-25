@@ -1,8 +1,8 @@
 class Tgui < Formula
   desc "GUI library for use with sfml"
   homepage "https://tgui.eu"
-  url "https://github.com/texus/TGUI/archive/refs/tags/v1.4.1.tar.gz"
-  sha256 "36389f3992681447b7ef7326954c3169f3fce901704eb8a4588c03d543380ddd"
+  url "https://github.com/texus/TGUI/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "b95595d10f84077183a86fa52efa6abbf45a96050f8019cb0966813e84431b01"
   license "Zlib"
 
   bottle do
