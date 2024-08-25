@@ -9,13 +9,13 @@ class Cling < Formula
   ]
 
   bottle do
-    sha256               arm64_monterey: "ae9ec74f889a58e57f00394e3b46dd1793d975ce7dc5907c71e2e15853610a62"
-    sha256 cellar: :any, arm64_big_sur:  "82134eeea0ba90008355120b137908d828011e302b62ec97de10b152777d9651"
-    sha256               monterey:       "90f4150c5bcc027fe76db2f53948eb31e757124da337639303eee2ac768c8999"
-    sha256 cellar: :any, big_sur:        "e894d9476bc9ed0edb1ca8d3ca1d9fa6cefc8fc50befc93f1d1c25d1f1bee721"
-    sha256 cellar: :any, catalina:       "fd178b38640189a9b096d9c98fe3b1dedc934a504ddc0d3dc1c6bbfea144f09f"
-    sha256 cellar: :any, mojave:         "5135fc901ba316ca0e02f5598af21cd42a264994111252964f239b2576c7829b"
-    sha256               x86_64_linux:   "315073c45b0684a970493476b9c8476ddf90eb7d69bd5326efdf97b79ec55e25"
+    sha256 arm64_sonoma:   "5ea8c62c558034d2b35e8a07bcf60f77cad73dd55c470ef7060e53dc3bdfe758"
+    sha256 arm64_ventura:  "1e4a68506aa987b22e1dc4bf79dc6029ab256d67d1eb2156b1096301c8374ff8"
+    sha256 arm64_monterey: "d184739cbaa69fab0e41777d5f127c86b7872838f93e104b64a8e99455d4b698"
+    sha256 sonoma:         "7bcc51735312ae4301d05661c7f8ee4863212a546b4e04ce341c788bda7fa5cb"
+    sha256 ventura:        "5d31305b7d107af4feee3aae605f7d349d94e3f3776d801af575fad704c0de47"
+    sha256 monterey:       "0d27db6c6221b1ded0c2e1db375bfd2d10f402cd2de0702f4c0916761f7fdcea"
+    sha256 x86_64_linux:   "c93cc9a4cc0696cda21c4b4906e315967f82f9f2af091889d242da886a809862"
   end
 
   depends_on "cmake" => :build
