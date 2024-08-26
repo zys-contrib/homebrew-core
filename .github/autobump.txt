@@ -647,7 +647,6 @@ doctl
 docutils
 docuum
 doggo
-dolphie
 dolt
 doltgres
 dooit
