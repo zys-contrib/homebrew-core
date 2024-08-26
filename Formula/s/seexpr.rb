@@ -28,6 +28,7 @@ class Seexpr < Formula
   depends_on "doxygen" => :build
   depends_on "libpng"
 
+  uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
   on_linux do
@@ -51,6 +52,7 @@ class Seexpr < Formula
 
   test do
     actual_output = shell_output("#{bin}/asciiGraph2 'x^3-8*x'").lines.map(&:rstrip).join("\n")
+    roundoff = "#" if Hardware::CPU.arm? && OS.mac? && MacOS.version >= :ventura
     expected_output = <<~EOS
                                     |        #
                               ##    |        #
@@ -79,7 +81,7 @@ class Seexpr < Formula
                           #         | #   #
                           #         | ##  #
                           #         |  #  #
-                                    |  ###
+                                    |  ####{roundoff}
                           #         |   ##
                           #         |
     EOS
