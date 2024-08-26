@@ -1,10 +1,9 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/refs/tags/v2024.08.19.00.tar.gz"
-  sha256 "efb4f800edea731771bdf27f4ecba5762cde81b7a2948568f19a4ed0a8c95db6"
+  url "https://github.com/facebook/folly/archive/refs/tags/v2024.08.26.00.tar.gz"
+  sha256 "7f08016988ca146c77ced2fafd2ae6b39159ab7f99e7eb0c3e8eeed8dc09c03d"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/facebook/folly.git", branch: "main"
 
   bottle do
@@ -18,6 +17,7 @@ class Folly < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "fast_float" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "double-conversion"
