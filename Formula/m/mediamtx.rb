@@ -1,8 +1,8 @@
 class Mediamtx < Formula
   desc "Zero-dependency real-time media server and media proxy"
   homepage "https://github.com/bluenviron/mediamtx"
-  url "https://github.com/bluenviron/mediamtx/archive/refs/tags/v1.8.5.tar.gz"
-  sha256 "29fa6037e82755594defc72ea9f02d5ec7df09a30a52c36a24871c75b571739a"
+  url "https://github.com/bluenviron/mediamtx/archive/refs/tags/v1.9.0.tar.gz"
+  sha256 "d7f71098cd9e102444ed711bf036ff9c188430c2fa8df6f8a4197df1a63509ff"
   license "MIT"
 
   bottle do
