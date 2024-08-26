@@ -6,13 +6,13 @@ class Csprecon < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a0a0ccd3e31c6ede553a581586f2c7ccf4b9dd84fd93542ce07a3ce30eab4475"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0a0ccd3e31c6ede553a581586f2c7ccf4b9dd84fd93542ce07a3ce30eab4475"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a0a0ccd3e31c6ede553a581586f2c7ccf4b9dd84fd93542ce07a3ce30eab4475"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6d1f3f5a0ac002b0a0a98d4e7b6a2cb77068857ca35f7a6306df9974046d1091"
-    sha256 cellar: :any_skip_relocation, ventura:        "6d1f3f5a0ac002b0a0a98d4e7b6a2cb77068857ca35f7a6306df9974046d1091"
-    sha256 cellar: :any_skip_relocation, monterey:       "6d1f3f5a0ac002b0a0a98d4e7b6a2cb77068857ca35f7a6306df9974046d1091"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb1b45164e77476c003553bb6af51eb0b5a6c3af1b4a943f18d4c5a01968b5bc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e9c2a2612d20887802a3d6dd383ff11787d1ffaa379716155ab90e0886b4a7b8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e9c2a2612d20887802a3d6dd383ff11787d1ffaa379716155ab90e0886b4a7b8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e9c2a2612d20887802a3d6dd383ff11787d1ffaa379716155ab90e0886b4a7b8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "30f09a86cf552d6db79107b5e9f4931bb34a902f6a928f3d452b273aa4d30193"
+    sha256 cellar: :any_skip_relocation, ventura:        "30f09a86cf552d6db79107b5e9f4931bb34a902f6a928f3d452b273aa4d30193"
+    sha256 cellar: :any_skip_relocation, monterey:       "30f09a86cf552d6db79107b5e9f4931bb34a902f6a928f3d452b273aa4d30193"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "409e92272f12e57d57ff537407f5746ed8d42e5b7b5b72135b91e6b42eec8d0e"
   end
 
   depends_on "go" => :build
