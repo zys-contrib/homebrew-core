@@ -3,8 +3,8 @@ class Dolphie < Formula
 
   desc "Feature-rich top tool for monitoring MySQL"
   homepage "https://github.com/charles-001/dolphie"
-  url "https://files.pythonhosted.org/packages/41/68/1d05fa80bf48ee4ea8ffc548545668e8c8b06f6bd62783a786364dfbfaa8/dolphie-6.0.2.tar.gz"
-  sha256 "629aed1737b3d243a481a8e89c1d8ff8f63a6010b6134c26f12bff9b7d477dfe"
+  url "https://files.pythonhosted.org/packages/7c/ae/724873b2d46539f1ad320510c4ee66e2be5dcad4a5cc4ff3470e23d69f5d/dolphie-6.0.4.tar.gz"
+  sha256 "7e5bacb91a6b593f8a056eef5fddf1b50c733ede7aa058d694ed40262685981d"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -33,8 +33,8 @@ class Dolphie < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
-    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
+    url "https://files.pythonhosted.org/packages/e8/ac/e349c5e6d4543326c6883ee9491e3921e0d07b55fdf3cce184b40d63e72a/idna-3.8.tar.gz"
+    sha256 "d838c2c0ed6fced7693d5e8ab8e734d5f8fda53a039c0164afb0b82e771e3603"
   end
 
   resource "linkify-it-py" do
@@ -98,8 +98,8 @@ class Dolphie < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/b3/01/c954e134dc440ab5f96952fe52b4fdc64225530320a910473c1fe270d9aa/rich-13.7.1.tar.gz"
-    sha256 "9be308cb1fe2f1f57d67ce99e95af38a1e2bc71ad9813b0e247cf7ffbcc3a432"
+    url "https://files.pythonhosted.org/packages/cf/60/5959113cae0ce512cf246a6871c623117330105a0d5f59b4e26138f2c9cc/rich-13.8.0.tar.gz"
+    sha256 "a5ac1f1cd448ade0d59cc3356f7db7a7ccda2c8cbae9c7a90c28ff463d3e91f4"
   end
 
   resource "setuptools" do
@@ -113,8 +113,8 @@ class Dolphie < Formula
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/44/d0/95d414ca4cdb2b2b9e4d15db1962eddc310992bd385432560189185efa83/textual-0.75.0.tar.gz"
-    sha256 "1bcff456bdc00c45ae0c0c61571f113b569f67e9b68b5ece5144e4089fd780a5"
+    url "https://files.pythonhosted.org/packages/f7/1f/90af350202a1f5d24f32184551ae7c41a7719255aaae4fe3d122be429bdf/textual-0.77.0.tar.gz"
+    sha256 "866c1e18e87b2817ce08e09259224b771caaf8824988c4c717094c6bf106b20f"
   end
 
   resource "textual-autocomplete" do
