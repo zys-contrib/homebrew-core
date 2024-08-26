@@ -24,10 +24,11 @@ class Gel < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "197ac248e075981a73fea2bbfdf4d11d10282b7d22ff521424b82fe1ca23a845"
   end
 
+  depends_on "ronn" => :build
+
+  uses_from_macos "ruby"
+
   def install
-    ENV["PATH"] = "bin:#{Dir.home}/.local/gel/bin:#{ENV["PATH"]}"
-    inreplace "Gemfile.lock", "rdiscount (2.2.0.1)", "rdiscount (2.2.0.2)"
-    system "gel", "install"
     system "rake", "man"
     bin.install "exe/gel"
     prefix.install "lib"
