@@ -6,13 +6,13 @@ class Rdb < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "17c450256049779ca908268b922cabe95884b05cbbb1a2817ffc16b4149b2f1f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "17c450256049779ca908268b922cabe95884b05cbbb1a2817ffc16b4149b2f1f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "17c450256049779ca908268b922cabe95884b05cbbb1a2817ffc16b4149b2f1f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ffe4b2a0ce294209c6613ed67758ed6ef661495a7fd741b587023c6fd02ad6bc"
-    sha256 cellar: :any_skip_relocation, ventura:        "ffe4b2a0ce294209c6613ed67758ed6ef661495a7fd741b587023c6fd02ad6bc"
-    sha256 cellar: :any_skip_relocation, monterey:       "ffe4b2a0ce294209c6613ed67758ed6ef661495a7fd741b587023c6fd02ad6bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07b1313ef0ecc9dd3a16a990fa155a4edcfa38e59f5992a12381eb9723939099"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "88c0e4faa32ed73f89369445ce46f2d25b83a4e5a3356ca91d061af9a9d4d382"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "88c0e4faa32ed73f89369445ce46f2d25b83a4e5a3356ca91d061af9a9d4d382"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "88c0e4faa32ed73f89369445ce46f2d25b83a4e5a3356ca91d061af9a9d4d382"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b696a5e5d687b9578ca5520779c971ad824eaf56fd070ac9f8800a67fe560893"
+    sha256 cellar: :any_skip_relocation, ventura:        "b696a5e5d687b9578ca5520779c971ad824eaf56fd070ac9f8800a67fe560893"
+    sha256 cellar: :any_skip_relocation, monterey:       "b696a5e5d687b9578ca5520779c971ad824eaf56fd070ac9f8800a67fe560893"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "247da86f4c3b6a03604995d7d07e1fba8561f6908fc8e0d7d68ab3bd55d6db08"
   end
 
   depends_on "go" => :build
