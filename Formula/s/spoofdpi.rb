@@ -6,6 +6,16 @@ class Spoofdpi < Formula
   license "Apache-2.0"
   head "https://github.com/xvzc/SpoofDPI.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a57628628f08f100c9b6aff7895f1e351a22fc57230738db95e963738d38b855"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a57628628f08f100c9b6aff7895f1e351a22fc57230738db95e963738d38b855"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a57628628f08f100c9b6aff7895f1e351a22fc57230738db95e963738d38b855"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5263d4bf787acbb093faa0bfd0338bd0c7dd42104443d48c5302bc8533fb0434"
+    sha256 cellar: :any_skip_relocation, ventura:        "5263d4bf787acbb093faa0bfd0338bd0c7dd42104443d48c5302bc8533fb0434"
+    sha256 cellar: :any_skip_relocation, monterey:       "5263d4bf787acbb093faa0bfd0338bd0c7dd42104443d48c5302bc8533fb0434"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9a2bc123e67db561c66aa05de1e7572d653041d311cdb845b17cc53a530300c"
+  end
+
   depends_on "go" => :build
   uses_from_macos "curl" => :test
 
