@@ -1,8 +1,8 @@
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Dec2023-SP4/MonetDB-11.49.11.tar.xz"
-  sha256 "f7f8aa8cf641f79f92a269dfe4bc4dadb11a0c3bba49697e5d48f5c9e13a2157"
+  url "https://www.monetdb.org/downloads/sources/Aug2024/MonetDB-11.51.3.tar.xz"
+  sha256 "2f4499349e7917e12ec5d2d33d477bb50b4a302485cfcce1ca20129c7e791264"
   license "MPL-2.0"
   head "https://dev.monetdb.org/hg/MonetDB", using: :hg
 
@@ -54,7 +54,6 @@ class Monetdb < Formula
                       "-DWITH_OPENSSL=ON",
                       "-DWITH_PCRE=ON",
                       "-DWITH_PROJ=OFF",
-                      "-DWITH_SNAPPY=OFF",
                       "-DWITH_XML2=ON",
                       "-DWITH_ZLIB=ON"
       # remove reference to shims directory from compilation/linking info
