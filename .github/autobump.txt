@@ -1829,6 +1829,7 @@ nlopt
 nmail
 nmap
 nng
+nnn
 node
 node_exporter
 node-build
