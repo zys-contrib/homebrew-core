@@ -2398,6 +2398,7 @@ ski
 skopeo
 skylighting
 slackcat
+slackdump
 sleef
 sleuthkit
 slides
