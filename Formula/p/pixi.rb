@@ -1,8 +1,8 @@
 class Pixi < Formula
   desc "Package management made easy"
   homepage "https://pixi.sh"
-  url "https://github.com/prefix-dev/pixi/archive/refs/tags/v0.28.0.tar.gz"
-  sha256 "ce55ee2596ed4fbfe4234c0410a4f3a66740d42f5864899428037945f096cea9"
+  url "https://github.com/prefix-dev/pixi/archive/refs/tags/v0.28.1.tar.gz"
+  sha256 "373aaa1130be73d3196e7de3fa1f99c438b3052a3990b83a87e4bfcfd9b8b45f"
   license "BSD-3-Clause"
   head "https://github.com/prefix-dev/pixi.git", branch: "main"
 
