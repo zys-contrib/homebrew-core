@@ -38,9 +38,11 @@ class Clucene < Formula
   end
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
+    # Work around build failure on ARM macOS
+    inreplace "src/shared/CMakeLists.txt", ";fstat64;", ";" if OS.mac? && Hardware::CPU.arm?
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 end
