@@ -3,8 +3,8 @@ class Chatblade < Formula
 
   desc "CLI Swiss Army Knife for ChatGPT"
   homepage "https://github.com/npiv/chatblade"
-  url "https://files.pythonhosted.org/packages/64/1a/e83b916bf98e4c4df1e160952e212c7325dbd5f96b2a67f0a34486279603/chatblade-0.6.2.tar.gz"
-  sha256 "3786335ce943d542e1887aea03a08b3b0052b504846f3f32aad3ade6609158b4"
+  url "https://files.pythonhosted.org/packages/9b/01/1ae8788b95c6e9f709a24d68ff3aa1f575cae8a02c793cea92a26b5f10b2/chatblade-0.6.3.tar.gz"
+  sha256 "e332f222b0648a5676722051914e3588ae90f310d37452583986a535e10c0298"
   license "GPL-3.0-only"
 
   bottle do
@@ -58,8 +58,8 @@ class Chatblade < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
-    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
+    url "https://files.pythonhosted.org/packages/e8/ac/e349c5e6d4543326c6883ee9491e3921e0d07b55fdf3cce184b40d63e72a/idna-3.8.tar.gz"
+    sha256 "d838c2c0ed6fced7693d5e8ab8e734d5f8fda53a039c0164afb0b82e771e3603"
   end
 
   resource "markdown-it-py" do
