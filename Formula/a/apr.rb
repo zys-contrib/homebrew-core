@@ -2,9 +2,9 @@ class Apr < Formula
   desc "Apache Portable Runtime library"
   homepage "https://apr.apache.org/"
   # TODO: Remove `libexec` symlinks in `install` when we no longer have a Big Sur bottle.
-  url "https://www.apache.org/dyn/closer.lua?path=apr/apr-1.7.4.tar.bz2"
-  mirror "https://archive.apache.org/dist/apr/apr-1.7.4.tar.bz2"
-  sha256 "fc648de983f3a2a6c9e78dea1f180639bd2fad6c06d556d4367a701fe5c35577"
+  url "https://www.apache.org/dyn/closer.lua?path=apr/apr-1.7.5.tar.bz2"
+  mirror "https://archive.apache.org/dist/apr/apr-1.7.5.tar.bz2"
+  sha256 "cd0f5d52b9ab1704c72160c5ee3ed5d3d4ca2df4a7f8ab564e3cb352b67232f2"
   license "Apache-2.0"
 
   bottle do
