@@ -3,10 +3,9 @@ class Mapnik < Formula
   homepage "https://mapnik.org/"
   # needs submodules
   url "https://github.com/mapnik/mapnik.git",
-      tag:      "v4.0.0",
-      revision: "85801bd4028fa1cbffd9f7de4e2458bfc55e44bd"
+      tag:      "v4.0.2",
+      revision: "5f327ff3c88d8acca7c5db15b598258eea363aa7"
   license "LGPL-2.1-or-later"
-  revision 1
   head "https://github.com/mapnik/mapnik.git", branch: "master"
 
   livecheck do
@@ -45,11 +44,6 @@ class Mapnik < Formula
 
   conflicts_with "osrm-backend", because: "both install Mapbox Variant headers"
   conflicts_with "svg2png", because: "both install `svg2png` binaries"
-
-  fails_with :gcc do
-    version "14"
-    cause "Fails to build with GCC 14 (https://github.com/mapnik/mapnik/pull/4456)"
-  end
 
   def install
     cmake_args = std_cmake_args
