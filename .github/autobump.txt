@@ -1513,6 +1513,7 @@ libslirp
 libsndfile
 libsolv
 libsoundio
+libsoup
 libspelling
 libsql
 libstrophe
