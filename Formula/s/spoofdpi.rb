@@ -1,8 +1,8 @@
 class Spoofdpi < Formula
   desc "Simple and fast anti-censorship tool written in Go"
   homepage "https://github.com/xvzc/SpoofDPI"
-  url "https://github.com/xvzc/SpoofDPI/archive/refs/tags/0.10.11.tar.gz"
-  sha256 "4d907445a0c481c9b408907cb42757e90ab42c63cfcc146c96ec6eadea97ecba"
+  url "https://github.com/xvzc/SpoofDPI/archive/refs/tags/0.10.12.tar.gz"
+  sha256 "1ef78cc8afaf59216619cfd17b01dcfc554524fe2ee5a8365f239ba3eef63b70"
   license "Apache-2.0"
   head "https://github.com/xvzc/SpoofDPI.git", branch: "main"
 
@@ -20,7 +20,7 @@ class Spoofdpi < Formula
   uses_from_macos "curl" => :test
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/spoof-dpi"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/spoofdpi"
   end
 
   service do
