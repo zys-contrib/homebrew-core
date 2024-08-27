@@ -6,6 +6,10 @@ class Cmrc < Formula
   license "MIT"
   head "https://github.com/vector-of-bool/cmrc.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "83995bde44389b6ca36674aee504fa109bfc893102e95bfbf03d7c20a09347b8"
+  end
+
   depends_on "cmake" => [:build, :test]
 
   def install
