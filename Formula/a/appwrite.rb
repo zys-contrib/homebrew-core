@@ -1,8 +1,8 @@
 class Appwrite < Formula
   desc "Command-line tool for Appwrite"
   homepage "https://appwrite.io"
-  url "https://registry.npmjs.org/appwrite-cli/-/appwrite-cli-5.0.5.tgz"
-  sha256 "70ed197ae9f4cd56a5b3040589b6fb76ba8ba75ec2678066af1acdc70fd1369e"
+  url "https://registry.npmjs.org/appwrite-cli/-/appwrite-cli-6.0.0.tgz"
+  sha256 "2e30ad57d2b93b0debdde67aae2996f29e77c82164ff8d335ec1ecfa7c5391e8"
   license "BSD-3-Clause"
 
   bottle do
@@ -24,7 +24,7 @@ class Appwrite < Formula
 
   test do
     output = shell_output("#{bin}/appwrite client --endpoint http://localhost/v1 2>&1", 1)
-    assert_match "Error Invalid endpoint", output
+    assert_match "Error: Invalid endpoint", output
 
     assert_match version.to_s, shell_output("#{bin}/appwrite --version")
   end
