@@ -1,9 +1,8 @@
 class ZshSyntaxHighlighting < Formula
   desc "Fish shell like syntax highlighting for zsh"
   homepage "https://github.com/zsh-users/zsh-syntax-highlighting"
-  url "https://github.com/zsh-users/zsh-syntax-highlighting.git",
-      tag:      "0.8.0",
-      revision: "db085e4661f6aafd24e5acb5b2e17e4dd5dddf3e"
+  url "https://github.com/zsh-users/zsh-syntax-highlighting/archive/refs/tags/0.8.0.tar.gz"
+  sha256 "5981c19ebaab027e356fe1ee5284f7a021b89d4405cc53dc84b476c3aee9cc32"
   license "BSD-3-Clause"
   head "https://github.com/zsh-users/zsh-syntax-highlighting.git", branch: "master"
 
@@ -20,6 +19,9 @@ class ZshSyntaxHighlighting < Formula
   uses_from_macos "zsh" => [:build, :test]
 
   def install
+    # Make the bottles uniform (modifying a comment with /usr/local path)
+    inreplace "highlighters/main/main-highlighter.zsh", "/usr/local/bin", "#{HOMEBREW_PREFIX}/bin"
+
     system "make", "install", "PREFIX=#{prefix}"
   end
 
