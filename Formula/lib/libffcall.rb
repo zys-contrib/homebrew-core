@@ -7,16 +7,14 @@ class Libffcall < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "cb0b3113b4075bd871c9dbc7c1c0af213e77b700aaedc4cf5532b1944015defc"
-    sha256 cellar: :any,                 arm64_monterey: "58dd56d1ab429bde2b8078bb3737682b57a37a7d67b70e8c27bcc023f988e2fd"
-    sha256 cellar: :any,                 arm64_big_sur:  "d7ace5f73fe02c38febe33718fbb293e765f7d1909763b39dc280d410e2a1488"
-    sha256 cellar: :any,                 sonoma:         "3b70f3916012c4240807ddb397c4138d174367c587b6814b7f1970a282f2569e"
-    sha256 cellar: :any,                 ventura:        "ee2b7df162625a59cd9ac90a61a91a238138cf244a385c1c94dc50d90319d546"
-    sha256 cellar: :any,                 monterey:       "947d7c231e88bbf9a4037e15c75abb158334b895efb9ea15e698e340e0d95f6b"
-    sha256 cellar: :any,                 big_sur:        "61cb42231c842a5559808582e374420e058fe76cc60b47f08b383c2751536caa"
-    sha256 cellar: :any,                 catalina:       "1412d8bb030690981a6322f18a3ef686aaa3f7b1ab3e390be2767e83cb5160a5"
-    sha256 cellar: :any,                 mojave:         "093534e26c77187ebd27234802635357c458cfe6956edc618d6292e707bc5fdc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b9ade24ffa94a150150dd446d25f7fdee0497c98d334cbf9d4b3cc0ed649990"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "81b1425ddfbafc4b45ea81966453bb799882b8416e5afb12782188b8fbe187ec"
+    sha256 cellar: :any,                 arm64_ventura:  "a8c90eb0454270ad27198e6e90c0731f6afef51095ec621b80a7a043754822e0"
+    sha256 cellar: :any,                 arm64_monterey: "91b71a704643bddb2ccd847f70bca71b2f4f42f15dfbe090163efb30e834e9aa"
+    sha256 cellar: :any,                 sonoma:         "dd054182feae02cb566f5e587b1a8d325207d08ee4aea65d0fc1dc6b63c5fb3e"
+    sha256 cellar: :any,                 ventura:        "5f46b88ad65430756cb72c1d4998af731850e1c5b1a8ddd7867f08f7c574af34"
+    sha256 cellar: :any,                 monterey:       "40160028f3394161521a252e488bd7aaa5d2f08f226c794d3252d0d5e1622d32"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f068599b3b97c24dba0ebe1338f972e5de443b155dd2a174dcd516d7b8a39430"
   end
 
   # Backport fix needed to build on Sonoma ARM
