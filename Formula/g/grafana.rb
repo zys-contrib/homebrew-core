@@ -1,8 +1,9 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/refs/tags/v11.1.4.tar.gz"
-  sha256 "6573e70deeeb1de8b90c855c0368cc56118d0350706c67313c54372238b56ea0"
+  # TODO: switch to use go1.23 when 11.3.0 is released
+  url "https://github.com/grafana/grafana/archive/refs/tags/v11.2.0.tar.gz"
+  sha256 "f1727b5e99183879e30d3ca8393e328f39f6bd8b5a11690e7b6e60081f99bbd9"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/grafana.git", branch: "main"
 
@@ -21,10 +22,9 @@ class Grafana < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a79b2bef6c8dd7362524b6a6a699053b7d4a9b49c9f26aae3a564c2ddaaf85aa"
   end
 
-  # use "go" again when https://github.com/grafana/grafana/issues/89796 is resolved and released
+  depends_on "corepack" => :build
   depends_on "go@1.22" => :build
   depends_on "node" => :build
-  depends_on "yarn" => :build
 
   uses_from_macos "python" => :build, since: :catalina
   uses_from_macos "zlib"
@@ -33,6 +33,9 @@ class Grafana < Formula
     depends_on "fontconfig"
     depends_on "freetype"
   end
+
+  # update yarn.lock
+  patch :DATA
 
   def install
     ENV["NODE_OPTIONS"] = "--max-old-space-size=8000"
@@ -118,3 +121,36 @@ class Grafana < Formula
     listening
   end
 end
+
+__END__
+diff --git a/yarn.lock b/yarn.lock
+index 5f122101..b96cd364 100644
+--- a/yarn.lock
++++ b/yarn.lock
+@@ -3233,7 +3233,7 @@ __metadata:
+   languageName: unknown
+   linkType: soft
+ 
+-"@grafana/e2e-selectors@npm:11.2.0, @grafana/e2e-selectors@workspace:*, @grafana/e2e-selectors@workspace:packages/grafana-e2e-selectors":
++"@grafana/e2e-selectors@npm:11.2.0, @grafana/e2e-selectors@npm:^11.0.0, @grafana/e2e-selectors@workspace:*, @grafana/e2e-selectors@workspace:packages/grafana-e2e-selectors":
+   version: 0.0.0-use.local
+   resolution: "@grafana/e2e-selectors@workspace:packages/grafana-e2e-selectors"
+   dependencies:
+@@ -3251,17 +3251,6 @@ __metadata:
+   languageName: unknown
+   linkType: soft
+ 
+-"@grafana/e2e-selectors@npm:^11.0.0":
+-  version: 11.1.0
+-  resolution: "@grafana/e2e-selectors@npm:11.1.0"
+-  dependencies:
+-    "@grafana/tsconfig": "npm:^1.3.0-rc1"
+-    tslib: "npm:2.6.3"
+-    typescript: "npm:5.4.5"
+-  checksum: 10/010a32e8b562d0da83b008646b9928a96a79957096eed713aa67b227d8ad6055d22cc0ec26f87fd9839cfb28344d0012f49c3c823defc6e91f4ab05ed7d8c465
+-  languageName: node
+-  linkType: hard
+-
+ "@grafana/eslint-config@npm:7.0.0":
+   version: 7.0.0
+   resolution: "@grafana/eslint-config@npm:7.0.0"
