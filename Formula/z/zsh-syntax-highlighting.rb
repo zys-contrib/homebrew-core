@@ -7,13 +7,8 @@ class ZshSyntaxHighlighting < Formula
   head "https://github.com/zsh-users/zsh-syntax-highlighting.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "603dabae4003cd3d95ab7f872a7fd9944e67cf0d963ffe42a07c8f3c191211ea"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "603dabae4003cd3d95ab7f872a7fd9944e67cf0d963ffe42a07c8f3c191211ea"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "603dabae4003cd3d95ab7f872a7fd9944e67cf0d963ffe42a07c8f3c191211ea"
-    sha256 cellar: :any_skip_relocation, sonoma:         "78a5770992ca645e5271e2a2b9aef6d99502ff99bace3a7470020b8dc34fcb4d"
-    sha256 cellar: :any_skip_relocation, ventura:        "78a5770992ca645e5271e2a2b9aef6d99502ff99bace3a7470020b8dc34fcb4d"
-    sha256 cellar: :any_skip_relocation, monterey:       "78a5770992ca645e5271e2a2b9aef6d99502ff99bace3a7470020b8dc34fcb4d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "603dabae4003cd3d95ab7f872a7fd9944e67cf0d963ffe42a07c8f3c191211ea"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "3cfaa693dab68d9a576ad1ad0a018e12b250a057963263733f6fcc9b4c4ce8a6"
   end
 
   uses_from_macos "zsh" => [:build, :test]
