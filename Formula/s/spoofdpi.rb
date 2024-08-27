@@ -1,8 +1,8 @@
 class Spoofdpi < Formula
   desc "Simple and fast anti-censorship tool written in Go"
   homepage "https://github.com/xvzc/SpoofDPI"
-  url "https://github.com/xvzc/SpoofDPI/archive/refs/tags/0.10.12.tar.gz"
-  sha256 "1ef78cc8afaf59216619cfd17b01dcfc554524fe2ee5a8365f239ba3eef63b70"
+  url "https://github.com/xvzc/SpoofDPI/archive/refs/tags/v0.10.12.tar.gz"
+  sha256 "c3b4d903a8a210f539727bfb7afa075d4e132a2cd8402481fa55f7a0606217a2"
   license "Apache-2.0"
   head "https://github.com/xvzc/SpoofDPI.git", branch: "main"
 
@@ -36,7 +36,7 @@ class Spoofdpi < Formula
     pid = fork do
       system bin/"spoofdpi", "-system-proxy=false", "-port", port
     end
-    sleep 1
+    sleep 3
 
     begin
       # "nothing" is an invalid option, but curl will process it
