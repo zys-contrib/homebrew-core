@@ -4,6 +4,7 @@ class Dwarfs < Formula
   url "https://github.com/mhx/dwarfs/releases/download/v0.10.1/dwarfs-0.10.1.tar.xz"
   sha256 "db785e0e0f257fa4363d90153db34127add4552791a72998b30ded787840d039"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "ac66bc8a18bdfc897548731723b3549aac3fc8222b359b1f9ba4c115f8d0b051"
@@ -70,6 +71,7 @@ class Dwarfs < Formula
       -DTRY_ENABLE_FLAC=ON
       -DENABLE_RICEPP=ON
       -DENABLE_STACKTRACE=OFF
+      -DDISABLE_CCACHE=ON
       -DDISABLE_MOLD=ON
       -DPREFER_SYSTEM_GTEST=ON
     ]
