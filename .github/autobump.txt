@@ -2285,6 +2285,7 @@ ruff-lsp
 rune
 rure
 rush
+rush-parallel
 rust
 rust-analyzer
 rust-parallel
