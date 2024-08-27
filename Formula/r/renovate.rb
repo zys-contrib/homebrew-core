@@ -26,7 +26,7 @@ class Renovate < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5dd9bea0ac46cb05c9f68d93ef7ede2c7f4c878d0157f53c10836bd40112a8f7"
   end
 
-  depends_on "node"
+  depends_on "node@20"
 
   uses_from_macos "git", since: :monterey
 
@@ -36,6 +36,6 @@ class Renovate < Formula
   end
 
   test do
-    assert_match "FATAL: You must configure a GitHub token", shell_output("#{bin}/renovate 2>&1", 1)
+    system bin/"renovate", "--platform=local", "--enabled=false"
   end
 end
