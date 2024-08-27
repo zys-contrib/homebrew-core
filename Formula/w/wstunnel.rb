@@ -1,8 +1,8 @@
 class Wstunnel < Formula
   desc "Tunnel all your traffic over Websocket or HTTP2"
   homepage "https://github.com/erebe/wstunnel"
-  url "https://github.com/erebe/wstunnel/archive/refs/tags/v10.0.1.tar.gz"
-  sha256 "22bf740c8411c0eb9d023c381de131b77ec193dace152bcf6016c2e829dbfe4d"
+  url "https://github.com/erebe/wstunnel/archive/refs/tags/v10.1.0.tar.gz"
+  sha256 "44da14d6fa7bd5d168b0563f5a6447f0a18956da9ff1692a1409def068fda87b"
   license "BSD-3-Clause"
   head "https://github.com/erebe/wstunnel.git", branch: "main"
 
