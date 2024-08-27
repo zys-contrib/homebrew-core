@@ -4,6 +4,7 @@ class Poac < Formula
   url "https://github.com/poac-dev/poac/archive/refs/tags/0.10.0.tar.gz"
   sha256 "4bdede67b28f9622c071bef8c7eae76062c9ef2ad122deee49d994668e846288"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/poac-dev/poac.git", branch: "main"
 
   bottle do
@@ -36,6 +37,8 @@ class Poac < Formula
   fails_with gcc: "11" # C++20
 
   def install
+    # Allow usage of fmt 11
+    inreplace "Makefile", "fmt < 11.0.0", "fmt < 12.0.0"
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1200)
     system "make", "RELEASE=1", "PREFIX=#{prefix}", "install"
   end
