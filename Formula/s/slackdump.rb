@@ -1,19 +1,19 @@
 class Slackdump < Formula
   desc "Export Slack data without admin privileges"
   homepage "https://github.com/rusq/slackdump"
-  url "https://github.com/rusq/slackdump/archive/refs/tags/v2.5.10.tar.gz"
-  sha256 "813c282b3fe64f9c75ae911af85a8524ccb241b0e73a45d23a4f222622531d43"
+  url "https://github.com/rusq/slackdump/archive/refs/tags/v2.5.11.tar.gz"
+  sha256 "93b121c5d38ec676e2827b441073a6b0e1d78799a6c97bb7d2c1bd4fbb7de9ea"
   license "GPL-3.0-only"
   head "https://github.com/rusq/slackdump.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "60f59c95b43afa78b11b248e5a966c1e396e371250966418454ad90956963645"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "60f59c95b43afa78b11b248e5a966c1e396e371250966418454ad90956963645"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "60f59c95b43afa78b11b248e5a966c1e396e371250966418454ad90956963645"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cc7bb533148c2ada79d1935bc7b1ce85113a73254e69dcb88c5463dd006c0130"
-    sha256 cellar: :any_skip_relocation, ventura:        "cc7bb533148c2ada79d1935bc7b1ce85113a73254e69dcb88c5463dd006c0130"
-    sha256 cellar: :any_skip_relocation, monterey:       "cc7bb533148c2ada79d1935bc7b1ce85113a73254e69dcb88c5463dd006c0130"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f72a051d2309351af0cc9f9c86a8907b586d48f1c8cb532efe78887f3965e1d7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2bd36967b1466a2757f73d4342a23e32cdfe54809b2143c6fb029b6040e98568"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2bd36967b1466a2757f73d4342a23e32cdfe54809b2143c6fb029b6040e98568"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2bd36967b1466a2757f73d4342a23e32cdfe54809b2143c6fb029b6040e98568"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8d9329a83d3dbb4b694861493f7353ea806e37188115b7af41e28dd48e7a82ff"
+    sha256 cellar: :any_skip_relocation, ventura:        "8d9329a83d3dbb4b694861493f7353ea806e37188115b7af41e28dd48e7a82ff"
+    sha256 cellar: :any_skip_relocation, monterey:       "8d9329a83d3dbb4b694861493f7353ea806e37188115b7af41e28dd48e7a82ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f54eb0fe6217a27daa86f69e2942c0a3534cabd67432885d221197478229e0a"
   end
 
   depends_on "go" => :build
