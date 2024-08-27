@@ -2,9 +2,10 @@ class Mapproxy < Formula
   include Language::Python::Virtualenv
 
   desc "Accelerating web map proxy"
-  homepage "https://mapproxy.org/"
-  url "https://files.pythonhosted.org/packages/3b/fd/c479dcd60e2afc4683b72efde5ec97f073ac2cc01f62d3b1f1f2b357d394/MapProxy-3.0.0.tar.gz"
-  sha256 "72c9fa6b71eea6cf33d5857b24d5b543c5eb95aadd4c9201964afb4a22d8cad0"
+  # `mapproxy.org` is 404, upstream bug report, https://github.com/mapproxy/mapproxy/issues/983
+  homepage "https://github.com/mapproxy/mapproxy"
+  url "https://files.pythonhosted.org/packages/bd/23/7051a8b1226e026df32669c059e3a63a9fd9dbe93ffd2af190f3e6d80825/MapProxy-3.0.1.tar.gz"
+  sha256 "d92a347b954359d7b7ddb364b1d87375a88ea785e41dcc942de0627d5e4eb4a3"
   license "Apache-2.0"
 
   bottle do
