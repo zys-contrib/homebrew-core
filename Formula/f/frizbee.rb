@@ -7,13 +7,13 @@ class Frizbee < Formula
   head "https://github.com/stacklok/frizbee.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8b0cabac5584c54df9c17f507530b3751227ff6097413ef8f3d262245885d9fc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8b0cabac5584c54df9c17f507530b3751227ff6097413ef8f3d262245885d9fc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8b0cabac5584c54df9c17f507530b3751227ff6097413ef8f3d262245885d9fc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "858071e4912804ca0fb9d7859f8f3b5ffa8db650f887ab7418873630eb532ca1"
-    sha256 cellar: :any_skip_relocation, ventura:        "858071e4912804ca0fb9d7859f8f3b5ffa8db650f887ab7418873630eb532ca1"
-    sha256 cellar: :any_skip_relocation, monterey:       "858071e4912804ca0fb9d7859f8f3b5ffa8db650f887ab7418873630eb532ca1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0717ad17f4a14e955345d1c875e987f6c8cbca7b1b0c8963bfbf437cfa2c61d8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "138a05f755b59f97f49d46ea9bc304188d7f6dfb44303778ef2a0966819aa825"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "138a05f755b59f97f49d46ea9bc304188d7f6dfb44303778ef2a0966819aa825"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "138a05f755b59f97f49d46ea9bc304188d7f6dfb44303778ef2a0966819aa825"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a58254f2fcafb7fd54818b9b0d4fc16605a3229b40475bc51cd1f708f334a2a8"
+    sha256 cellar: :any_skip_relocation, ventura:        "a58254f2fcafb7fd54818b9b0d4fc16605a3229b40475bc51cd1f708f334a2a8"
+    sha256 cellar: :any_skip_relocation, monterey:       "a58254f2fcafb7fd54818b9b0d4fc16605a3229b40475bc51cd1f708f334a2a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1c441ea87564702c9760362b3ec805a4fb47df361c45e93307ba40202eddaf43"
   end
 
   depends_on "go" => :build
