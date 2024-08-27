@@ -21,6 +21,10 @@ class Zx < Formula
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    # Make the bottles uniform
+    inreplace_file = libexec/"lib/node_modules/zx/node_modules/@types/node/process.d.ts"
+    inreplace inreplace_file, "/usr/local/bin", "#{HOMEBREW_PREFIX}/bin"
   end
 
   test do
