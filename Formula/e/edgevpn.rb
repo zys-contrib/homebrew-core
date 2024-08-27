@@ -1,18 +1,18 @@
 class Edgevpn < Formula
   desc "Immutable, decentralized, statically built p2p VPN"
   homepage "https://mudler.github.io/edgevpn"
-  url "https://github.com/mudler/edgevpn/archive/refs/tags/v0.28.2.tar.gz"
-  sha256 "13fe5870b0e2cbbb47c8ee876ef8383bebe92460cfc001fc6b076833bb58b210"
+  url "https://github.com/mudler/edgevpn/archive/refs/tags/v0.28.3.tar.gz"
+  sha256 "266e436fab3ecd322c0753a7592b6be862ce1e44d31c4282edac5ddccb8057be"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a1b76199138397340487684440b1353b82641ad5a813b9f223cc60a31958938a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a1b76199138397340487684440b1353b82641ad5a813b9f223cc60a31958938a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a1b76199138397340487684440b1353b82641ad5a813b9f223cc60a31958938a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ba275e3d1b42b8c885430bd90091820a6964c795f59d1f46b7ccbfd8665e7d6e"
-    sha256 cellar: :any_skip_relocation, ventura:        "ba275e3d1b42b8c885430bd90091820a6964c795f59d1f46b7ccbfd8665e7d6e"
-    sha256 cellar: :any_skip_relocation, monterey:       "ba275e3d1b42b8c885430bd90091820a6964c795f59d1f46b7ccbfd8665e7d6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d7a495e8d7d0352e7361f2651be854ca5b1aa396d6a4123a71644aebc4e44e6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "68cdccdf9dbcf1b161a7931699caeb7825237a7012ae4288ed0222361a397042"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "68cdccdf9dbcf1b161a7931699caeb7825237a7012ae4288ed0222361a397042"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "68cdccdf9dbcf1b161a7931699caeb7825237a7012ae4288ed0222361a397042"
+    sha256 cellar: :any_skip_relocation, sonoma:         "38c7d12310b09c737b49da4228ed97b7cfc27882e2e7abdd7842fd0aa622b29b"
+    sha256 cellar: :any_skip_relocation, ventura:        "38c7d12310b09c737b49da4228ed97b7cfc27882e2e7abdd7842fd0aa622b29b"
+    sha256 cellar: :any_skip_relocation, monterey:       "38c7d12310b09c737b49da4228ed97b7cfc27882e2e7abdd7842fd0aa622b29b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8712e4c349b3ae6182dd5d19dd057cc87e62633a2fdd57fe9afd929ce1519261"
   end
 
   depends_on "go" => :build
