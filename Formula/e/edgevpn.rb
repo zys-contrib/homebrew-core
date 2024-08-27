@@ -1,8 +1,8 @@
 class Edgevpn < Formula
   desc "Immutable, decentralized, statically built p2p VPN"
   homepage "https://mudler.github.io/edgevpn"
-  url "https://github.com/mudler/edgevpn/archive/refs/tags/v0.28.1.tar.gz"
-  sha256 "4505ff7ea7ed3fad7ccf7bdac29a7d3e1950f46ee1ebaefacb17832a4432a4a5"
+  url "https://github.com/mudler/edgevpn/archive/refs/tags/v0.28.2.tar.gz"
+  sha256 "13fe5870b0e2cbbb47c8ee876ef8383bebe92460cfc001fc6b076833bb58b210"
   license "Apache-2.0"
 
   bottle do
