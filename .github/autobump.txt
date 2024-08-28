@@ -2781,6 +2781,7 @@ vte3
 vtk
 vttest
 vue-cli
+vulkan-extensionlayer
 vulkan-volk
 vultr
 vunnel
