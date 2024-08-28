@@ -1,8 +1,8 @@
 class Basedpyright < Formula
   desc "Pyright fork with various improvements and built-in pylance features"
   homepage "https://github.com/DetachHead/basedpyright"
-  url "https://registry.npmjs.org/basedpyright/-/basedpyright-1.17.0.tgz"
-  sha256 "fab05665048eff8a51746ef9ec0caab423d08ba0eac1afbc17564c46ee53a219"
+  url "https://registry.npmjs.org/basedpyright/-/basedpyright-1.17.1.tgz"
+  sha256 "82a27e8cc3fbe608cbfb2aa1ff08428bf686a1a08db2eddc2ecb29f8177fe368"
   license "MIT"
   head "https://github.com/detachhead/basedpyright.git", branch: "main"
 
@@ -30,6 +30,6 @@ class Basedpyright < Formula
           return a + b
     EOS
     output = pipe_output("#{bin}/basedpyright broken.py 2>&1")
-    assert_match 'error: Expression of type "int" is incompatible with return type "str"', output
+    assert_match "error: Type \"int\" is not assignable to return type \"str\"", output
   end
 end
