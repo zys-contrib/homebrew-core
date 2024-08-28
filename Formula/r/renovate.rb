@@ -17,16 +17,17 @@ class Renovate < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f5e11369a3e2431208475f6eb4a8e824388bab6c22b33daf81dd85faadc96de9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "07423d58ed30bd888053a2c4047245e3086ee3fbe0a814db4fb6a263bc61571d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "758fb34f7eb7e8a7a8862b87339eacffa27d2d6caf0752ad5eda2c2b9ea8db04"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fd95d27a35c60e08591d65771bef12cd23d2dfa441a79503c5ec706b87796d24"
-    sha256 cellar: :any_skip_relocation, ventura:        "1f7fccdb8a0a1595da5654779ae56d0d23c9f1dc18f835e8602784ba4a3216af"
-    sha256 cellar: :any_skip_relocation, monterey:       "f646fc8334696a3f9aaeb8dcb94019495847faf33f0c010a5e9384939d726bc1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5dd9bea0ac46cb05c9f68d93ef7ede2c7f4c878d0157f53c10836bd40112a8f7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e52428aea0503e9915336dec73f34ed0bf87bd068602a8918013f2ea8aeb4208"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1229eda043d093da92d12f5cb0ac03857ee3aa43bfd9a8d421c5d9d2fbf8a267"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e8c24692b635ff746becfc8cbb813eccee6bb95b28d6d5aac9fc54b4561e8a66"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ca466a4b034c6d6cab56027084c1f88c2c95d23e4de95c5ae36b1643ef48af92"
+    sha256 cellar: :any_skip_relocation, ventura:        "dc7ca1293b8c13dada4822986cba937bc85fad59e0a00147c91c85aef8b80167"
+    sha256 cellar: :any_skip_relocation, monterey:       "fd8f60ce140a82ca6e569f0d17bb3a29aa54fb84723a14135b5f2fd9a0bb699b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef38a1f948c806f835b9e17333bb0070906a9c1abceb74b8cb9e48b017912057"
   end
 
-  depends_on "node"
+  depends_on "node@20"
 
   uses_from_macos "git", since: :monterey
 
@@ -36,6 +37,6 @@ class Renovate < Formula
   end
 
   test do
-    assert_match "FATAL: You must configure a GitHub token", shell_output("#{bin}/renovate 2>&1", 1)
+    system bin/"renovate", "--platform=local", "--enabled=false"
   end
 end
