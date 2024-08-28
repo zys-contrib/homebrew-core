@@ -1,8 +1,8 @@
 class TailwindcssLanguageServer < Formula
   desc "LSP for TailwindCSS"
   homepage "https://github.com/tailwindlabs/tailwindcss-intellisense/tree/HEAD/packages/tailwindcss-language-server"
-  url "https://registry.npmjs.org/@tailwindcss/language-server/-/language-server-0.0.23.tgz"
-  sha256 "ee81c05260e29343215d333b0a32f60c6bae2b4a4025e0f4466550a786f523ca"
+  url "https://registry.npmjs.org/@tailwindcss/language-server/-/language-server-0.0.24.tgz"
+  sha256 "377aa579f880c010a9db66a08f8f8a5891576b29716ca05abd738e8eda991c22"
   license "MIT"
 
   bottle do
