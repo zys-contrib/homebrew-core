@@ -15,9 +15,11 @@ class Juman < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "0fe537854a305d8678893c6e15fea60516513470425844c61c33cd378892ca86"
     sha256 arm64_ventura:  "1b844be8a1ab2d3d1a10245fb3c887c9175a7836c86275ea67b3dfdd8e3abc7e"
     sha256 arm64_monterey: "cf0f825ad7796245c453f7993f4b7f5d069c4e4eb190ee5fcc46f86ad74f61b5"
     sha256 arm64_big_sur:  "9b0c1166c946ef258a558961fa82660502d705bbbecf6b8735a805b093802432"
+    sha256 sonoma:         "d2a2aa1611d8028a63e9d2cd8d3eea9c9cf9b66e2e5ee05e4ff5e91b4a34ffa0"
     sha256 ventura:        "fea60e1ecb3168344e4d5576680b79b76036e6bf19d24553c5cde0c914ec8b1d"
     sha256 monterey:       "b8076e4c5626f942eff9a9e95ef8f06a9a2e013c344b626b2dc7c30756eb64aa"
     sha256 big_sur:        "69ca5acb9395c257b591bd6eedde58c0707929af25b767d470dcb5fef786c054"
