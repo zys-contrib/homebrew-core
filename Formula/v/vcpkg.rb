@@ -32,6 +32,7 @@ class Vcpkg < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "cmrc" => :build
   depends_on "fmt"
   depends_on "ninja" # This will install its own copy at runtime if one isn't found.
 
@@ -39,17 +40,16 @@ class Vcpkg < Formula
 
   def install
     # Improve error message when user fails to set `VCPKG_ROOT`.
-    inreplace "locales/messages.json" do |s|
-      s.gsub! "If you are trying to use a copy of vcpkg that you've built, y", "Y"
-      s.gsub! " to point to a cloned copy of https://github.com/Microsoft/vcpkg", ""
-    end
+    inreplace "include/vcpkg/base/message-data.inc.h",
+              "If you are trying to use a copy of vcpkg that you've built, y",
+              "Y"
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DVCPKG_DEVELOPMENT_WARNINGS=OFF",
                     "-DVCPKG_BASE_VERSION=#{version.to_s.tr(".", "-")}",
                     "-DVCPKG_VERSION=#{version}",
                     "-DVCPKG_DEPENDENCY_EXTERNAL_FMT=ON",
-                    "-DHOMEBREW_ALLOW_FETCHCONTENT=ON", # FIXME: Remove this
+                    "-DVCPKG_DEPENDENCY_CMAKERC=ON",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -65,8 +65,10 @@ class Vcpkg < Formula
   end
 
   test do
+    output = shell_output("#{bin}/vcpkg search sqlite 2>&1", 1)
     # DO NOT CHANGE. If the test breaks then the `inreplace` needs fixing.
-    message = "error: Could not detect vcpkg-root."
-    assert_match message, shell_output("#{bin}/vcpkg search sqlite 2>&1", 1)
+    # No, really, stop trying to change this.
+    assert_match "You must define", output
+    refute_match "copy of vcpkg that you've built", output
   end
 end
