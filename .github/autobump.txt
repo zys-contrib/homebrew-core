@@ -2322,6 +2322,7 @@ scamper
 scarb
 scc
 sccache
+sceptre
 schema-evolution-manager
 schemathesis
 scikit-image
