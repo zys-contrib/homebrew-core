@@ -3,8 +3,8 @@ class Iproute2mac < Formula
 
   desc "CLI wrapper for basic network utilities on macOS - ip command"
   homepage "https://github.com/brona/iproute2mac"
-  url "https://github.com/brona/iproute2mac/releases/download/v1.5.3/iproute2mac-1.5.3.tar.gz"
-  sha256 "a5d790863b2ad92ff2e918908a82563898ee8165278ffa0b5e453437bd5ef9fb"
+  url "https://github.com/brona/iproute2mac/releases/download/v1.5.4/iproute2mac-1.5.4.tar.gz"
+  sha256 "9548ed9ead114a3a7095890c51e0e5b1d8ea1dd955692400e19fb97f1b6ad015"
   license "MIT"
 
   bottle do
