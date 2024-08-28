@@ -2919,6 +2919,7 @@ znapzend
 znc
 zola
 zookeeper
+zoro
 zoxide
 zpaqfranz
 zsh-vi-mode
