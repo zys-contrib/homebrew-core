@@ -34,7 +34,7 @@ class GoAT122 < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
+    inreplace "go.env", /^GOTOOLCHAIN=.*$/, "GOTOOLCHAIN=local"
 
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
@@ -54,7 +54,17 @@ class GoAT122 < Formula
     rm_r(libexec/"src/runtime/pprof/testdata")
   end
 
+  def caveats
+    <<~EOS
+      Homebrew's Go toolchain is configured with
+        GOTOOLCHAIN=local
+      per Homebrew policy on tools that update themselves.
+    EOS
+  end
+
   test do
+    assert_equal "local", shell_output("#{bin}/go env GOTOOLCHAIN").strip
+
     (testpath/"hello.go").write <<~EOS
       package main
 
