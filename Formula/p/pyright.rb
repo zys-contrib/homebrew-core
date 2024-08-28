@@ -1,8 +1,8 @@
 class Pyright < Formula
   desc "Static type checker for Python"
   homepage "https://github.com/microsoft/pyright"
-  url "https://registry.npmjs.org/pyright/-/pyright-1.1.377.tgz"
-  sha256 "b11dc22e92560b38ebad99a892544d9ce81e2ce995db430b3683e86db57d7710"
+  url "https://registry.npmjs.org/pyright/-/pyright-1.1.378.tgz"
+  sha256 "7bf2300f8a4211c9566bee9bc7ac36f356060f8456bebaafe9a5bdb2f669a7ad"
   license "MIT"
   head "https://github.com/microsoft/pyright.git", branch: "main"
 
@@ -29,6 +29,6 @@ class Pyright < Formula
           return a + b
     EOS
     output = pipe_output("#{bin}/pyright broken.py 2>&1")
-    assert_match "error: Expression of type \"int\" is incompatible with return type \"str\"", output
+    assert_match "error: Type \"int\" is not assignable to return type \"str\"", output
   end
 end
