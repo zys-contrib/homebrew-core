@@ -38,6 +38,7 @@ class Harbour < Formula
   uses_from_macos "bzip2"
   uses_from_macos "curl"
   uses_from_macos "expat"
+  uses_from_macos "ncurses"
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
@@ -72,6 +73,8 @@ class Harbour < Formula
     if OS.mac?
       ENV["HB_COMPILER"] = ENV.cc
       ENV["HB_USER_DFLAGS"] = "-L#{MacOS.sdk_path}/usr/lib"
+      ENV.append "HB_USER_DFLAGS", "-ld_classic" if DevelopmentTools.clang_build_version >= 1500
+      ENV.append "HB_USER_DFLAGS", "-macosx_version_min #{MacOS.version}.0" if Hardware::CPU.arm?
       ENV["HB_WITH_BZIP2"] = MacOS.sdk_path/"usr/include"
       ENV["HB_WITH_CURL"] = MacOS.sdk_path/"usr/include"
       ENV["HB_WITH_CURSES"] = MacOS.sdk_path/"usr/include"
