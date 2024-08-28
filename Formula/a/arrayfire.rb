@@ -7,13 +7,12 @@ class Arrayfire < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "299f14fef2c6fde1e37418dc89b69fdab58cdd64f94e1f4e6224a86e390c41b2"
-    sha256 cellar: :any,                 arm64_ventura:  "14f1b6f1fe2c8c442c1f2ad3f75a1f9b7a252a123171c9ca63192f0f18636453"
-    sha256 cellar: :any,                 arm64_monterey: "290feb9f740d79b69960f7a436b28f926acd44b57813621707a63f7931e65885"
-    sha256 cellar: :any,                 sonoma:         "013b97c42f5856df55fd820fd0b60618f6d499805ec0c521ff831393e68d2809"
-    sha256 cellar: :any,                 ventura:        "b179ae4ac1dc38da16c080993d5d970e7909a6cfdae15f93343982b78b6c8be6"
-    sha256 cellar: :any,                 monterey:       "c2b3fbc6c5e70354dd25a8c242d1f2c163ca596d72f62a6b338d0807d63badbc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4635b6a5294fdd22f1de00d06eaf228ff4c9d0f400b428a9f025573dc7adb95c"
+    sha256 cellar: :any, arm64_sonoma:   "aef59074ff5628ef41c629de9af481140971fb67d0dd952cf2624ad6add73f70"
+    sha256 cellar: :any, arm64_ventura:  "e206b29e0790322ed14a06082e80a4ab2b804c79e3a98db0a134e71aa5f74ebe"
+    sha256 cellar: :any, arm64_monterey: "2e1b6dcef1a94a00aface53d21cb5ded7977d9f9f9db74606250f47f82ec6f59"
+    sha256 cellar: :any, sonoma:         "0347b552c78ae2da175819625d20bdc8de8cba7b6eb800f713a43b1690dbe3bd"
+    sha256 cellar: :any, ventura:        "f0e961ea63dc30a6b72b23afcbd9181d94d43c7a24c0f75d9add33cb9420ffdd"
+    sha256 cellar: :any, monterey:       "e0cdfa9839ea984d846c2fd7c9df45c337ae7159d07a590256896b1934d9670e"
   end
 
   depends_on "boost@1.85" => :build
