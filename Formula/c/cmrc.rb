@@ -14,21 +14,23 @@ class Cmrc < Formula
 
   def install
     (share/"cmake").install "CMakeRC.cmake"
-  end
-
-  def caveats
-    <<~EOS
-      To use CMakeRC, add
-        #{opt_share}/cmake
-      to your `CMAKE_MODULE_PATH`.
-    EOS
+    (share/"CMakeRC/cmake").install_symlink share/"cmake/CMakeRC.cmake" => "CMakeRCConfig.cmake"
   end
 
   test do
-    (testpath/"CMakeLists.txt").write <<~CMAKE
+    cmakelists = testpath/"CMakeLists.txt"
+    cmakelists.write <<~CMAKE
       cmake_minimum_required(VERSION 3.30)
       include(CMakeRC)
     CMAKE
-    system "cmake", ".", "-DCMAKE_MODULE_PATH=#{share}/cmake", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build1", "-DCMAKE_MODULE_PATH=#{share}/cmake", *std_cmake_args
+
+    cmakelists.unlink
+    cmakelists.write <<~CMAKE
+      cmake_minimum_required(VERSION 3.30)
+      find_package(CMakeRC CONFIG REQUIRED)
+    CMAKE
+
+    system "cmake", "-S", ".", "-B", "build2", *std_cmake_args
   end
 end
