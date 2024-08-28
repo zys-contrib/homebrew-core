@@ -2728,6 +2728,7 @@ vala
 valabind
 vale
 valgrind
+valijson
 valkey
 vapor
 vapoursynth
