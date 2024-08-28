@@ -7,13 +7,14 @@ class Spoofdpi < Formula
   head "https://github.com/xvzc/SpoofDPI.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a5b171e4852205d9091fa34f7d526da8ee1810f78d5be4b49ce2ffad7484a2ea"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a5b171e4852205d9091fa34f7d526da8ee1810f78d5be4b49ce2ffad7484a2ea"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a5b171e4852205d9091fa34f7d526da8ee1810f78d5be4b49ce2ffad7484a2ea"
-    sha256 cellar: :any_skip_relocation, sonoma:         "38d8942292cd007b6b61b04006b308a4070162e33b566e9bdeacadd67abda435"
-    sha256 cellar: :any_skip_relocation, ventura:        "38d8942292cd007b6b61b04006b308a4070162e33b566e9bdeacadd67abda435"
-    sha256 cellar: :any_skip_relocation, monterey:       "38d8942292cd007b6b61b04006b308a4070162e33b566e9bdeacadd67abda435"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d69e49e0fdac02583937278a3be200683f5b6e4588db98e1766dc3a2bf07a4c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0b78611ee0585f1fc10af5030d7ca961b33ce93e177b086a55e851d8b1d7a58a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b78611ee0585f1fc10af5030d7ca961b33ce93e177b086a55e851d8b1d7a58a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0b78611ee0585f1fc10af5030d7ca961b33ce93e177b086a55e851d8b1d7a58a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "81edc2ceaf186955d567cbd6226ad03a8998ac427ce53898d048f7e36a30e2fc"
+    sha256 cellar: :any_skip_relocation, ventura:        "81edc2ceaf186955d567cbd6226ad03a8998ac427ce53898d048f7e36a30e2fc"
+    sha256 cellar: :any_skip_relocation, monterey:       "81edc2ceaf186955d567cbd6226ad03a8998ac427ce53898d048f7e36a30e2fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f0052976ee942e128af65f6bfeb99120e7b58a8c61bb133bf57e48698f9b2f10"
   end
 
   depends_on "go" => :build
