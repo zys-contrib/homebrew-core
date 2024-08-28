@@ -1,8 +1,8 @@
 class Pypy310 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy3.10-v7.3.16-src.tar.bz2"
-  sha256 "4a3a3177d0a1f51d59982bb981d1d485403bda3419d5437b9e077f55f59424ff"
+  url "https://downloads.python.org/pypy/pypy3.10-v7.3.17-src.tar.bz2"
+  sha256 "6ad74bc578e9c6d3a8a1c51503313058e3c58c35df86f7485453c4be6ab24bf7"
   license "MIT"
   head "https://github.com/pypy/pypy.git", branch: "main"
 
@@ -47,12 +47,6 @@ class Pypy310 < Formula
   resource "pip" do
     url "https://files.pythonhosted.org/packages/b7/06/6b1ad0ae8f97d7a0d6f6ad640db10780578999e647a9593512ceb6f06469/pip-23.3.2.tar.gz"
     sha256 "7fd9972f96db22c8077a1ee2691b172c8089b17a5652a44494a9ecb0d78f9149"
-  end
-
-  # Fix mismatch in test definition of ncurses
-  patch do
-    url "https://github.com/pypy/pypy/commit/13e2004d86a3431d27a2ac98c7d591473ca9ef9c.patch?full_index=1"
-    sha256 "b84c2593f10cb4698f21ff8cb5b7318f718f92f2c35eef271ccb2d504d9436d6"
   end
 
   # Build fixes:
