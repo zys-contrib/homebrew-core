@@ -1,8 +1,8 @@
 class SnykCli < Formula
   desc "Scans and monitors projects for security vulnerabilities"
   homepage "https://snyk.io"
-  url "https://registry.npmjs.org/snyk/-/snyk-1.1292.4.tgz"
-  sha256 "0d80f838e47573bf0e5b7b5f2038e5f9ee5ac98fe391359ea0bc4ed95ecfd95d"
+  url "https://registry.npmjs.org/snyk/-/snyk-1.1293.0.tgz"
+  sha256 "fed2655a580122946517f10b880d8db74d9795da815dc5e03a3819e6777840dc"
   license "Apache-2.0"
 
   bottle do
@@ -26,6 +26,6 @@ class SnykCli < Formula
     assert_match version.to_s, shell_output("#{bin}/snyk version")
 
     output = shell_output("#{bin}/snyk auth homebrew", 2)
-    assert_match "Authentication failed. Please check the API token on https://snyk.io", output
+    assert_match "authentication failed (timeout)", output
   end
 end
