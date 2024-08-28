@@ -4,7 +4,7 @@ class ParquetCli < Formula
   url "https://github.com/apache/parquet-java/archive/refs/tags/apache-parquet-1.14.1.tar.gz"
   sha256 "e187ec57c60e1057f4c91a38fd9fb10a636b56b0dac5b2d25649e85901a61434"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/apache/parquet-mr.git", branch: "master"
 
   bottle do
@@ -13,7 +13,10 @@ class ParquetCli < Formula
   end
 
   depends_on "maven" => :build
-  depends_on "openjdk"
+  # Try switching back to `openjdk` when the issue below is resolved and
+  # Hadoop dependency is updated to include the fix/workaround.
+  # https://issues.apache.org/jira/browse/HADOOP-19212
+  depends_on "openjdk@21"
 
   def install
     cd "parquet-cli" do
@@ -24,7 +27,7 @@ class ParquetCli < Formula
       (bin/"parquet").write <<~EOS
         #!/bin/sh
         set -e
-        exec "#{Formula["openjdk"].opt_bin}/java" -cp "#{libexec}/*" org.apache.parquet.cli.Main "$@"
+        exec "#{Formula["openjdk@21"].opt_bin}/java" -cp "#{libexec}/*" org.apache.parquet.cli.Main "$@"
       EOS
     end
 
