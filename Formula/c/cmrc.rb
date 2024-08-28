@@ -7,7 +7,8 @@ class Cmrc < Formula
   head "https://github.com/vector-of-bool/cmrc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "83995bde44389b6ca36674aee504fa109bfc893102e95bfbf03d7c20a09347b8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "33e1b8facfc9147d12e16f1ea45cb08c26f6e4d9ee5100b298f76a0f01a475ae"
   end
 
   depends_on "cmake" => [:build, :test]
