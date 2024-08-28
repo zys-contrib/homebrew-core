@@ -106,6 +106,9 @@ class OpensslAT11 < Formula
     system "make"
     system "make", "install", "MANDIR=#{man}", "MANSUFFIX=ssl"
     system "make", "test"
+
+    # Prevent `brew` from pruning the `certs` and `private` directories.
+    touch %w[certs private].map { |subdir| openssldir/subdir/".keepme" }
   end
 
   def openssldir
