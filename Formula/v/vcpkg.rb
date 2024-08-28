@@ -22,13 +22,14 @@ class Vcpkg < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "05d39f76c60b855c77c248264968aed2dd94ebfcd554ef3302c983da45dfa484"
-    sha256 cellar: :any,                 arm64_ventura:  "17e02b956aafdf843425b42c044ebf80f337b35370c4f7491ea3726aecb2c459"
-    sha256 cellar: :any,                 arm64_monterey: "c18d4e9e5382bbbacdb6d7545a020681f6bf754f5b17eed0c3e166b0350a7578"
-    sha256 cellar: :any,                 sonoma:         "4b5aa04f210c602ad8115d43040a7cd0ee1999c24193ed415b75b9a485885def"
-    sha256 cellar: :any,                 ventura:        "6e2c26518b8a265edf71b156a779e7212f8fbbc7947fd772452e5f87fd89b181"
-    sha256 cellar: :any,                 monterey:       "e6d9148c1eb7958217105e70ec1136c7e11e788b33ec871ef085413b38332879"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b00f3192624d9f4fb500715b6c241ae8be79d793f96adbe2c30da9e3937ebfe5"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "10592e7ee14a04f6efe9c56247f0bdc8596b68dc6c2e7683d6e8b650db0135ae"
+    sha256 cellar: :any,                 arm64_ventura:  "85d40acd871a3b97af5149cef7e823058de2dbd5ad35f56c0f38e2fb14b9b7a0"
+    sha256 cellar: :any,                 arm64_monterey: "424d45a8ff27d3c358601762b0a5b0cbf179b8549d3ae08a72522453a0e381c3"
+    sha256 cellar: :any,                 sonoma:         "54b860b600668ffbcaa7c6b6d07b65a90838416130bc97666c109356fd945315"
+    sha256 cellar: :any,                 ventura:        "77541573ffdd20b86077203e84ec021bc27f694129ee0035f769bdf6705babeb"
+    sha256 cellar: :any,                 monterey:       "0e1c7c1f620dd81a4b92ff63d95cfd47303e08c97d44138716b925d7749c26c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "21114027d1a6c1b626f819d895be844c351a576c2ba0cc30ae8efea482fd1395"
   end
 
   depends_on "cmake" => :build
