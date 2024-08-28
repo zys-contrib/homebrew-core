@@ -1,10 +1,9 @@
 class ParquetCli < Formula
   desc "Apache Parquet command-line tools and utilities"
   homepage "https://parquet.apache.org/"
-  url "https://github.com/apache/parquet-java/archive/refs/tags/apache-parquet-1.14.1.tar.gz"
-  sha256 "e187ec57c60e1057f4c91a38fd9fb10a636b56b0dac5b2d25649e85901a61434"
+  url "https://github.com/apache/parquet-java/archive/refs/tags/apache-parquet-1.14.2.tar.gz"
+  sha256 "7c5c1dfdca534f86d290bfc0c38a0b7d275f320494090d410d6808a0e76d3b93"
   license "Apache-2.0"
-  revision 2
   head "https://github.com/apache/parquet-mr.git", branch: "master"
 
   bottle do
