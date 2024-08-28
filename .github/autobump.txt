@@ -412,6 +412,7 @@ clib
 clickhouse-cpp
 cliclick
 clifm
+cling
 clingo
 clipboard
 cloc

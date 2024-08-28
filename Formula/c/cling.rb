@@ -1,8 +1,8 @@
 class Cling < Formula
   desc "C++ interpreter"
   homepage "https://root.cern/cling/"
-  url "https://github.com/root-project/cling/archive/refs/tags/v1.0.tar.gz"
-  sha256 "93252c72bae2a660d9e2c718af18b767a09928078a854b2fcd77f28cc9fa71ae"
+  url "https://github.com/root-project/cling/archive/refs/tags/v1.1.tar.gz"
+  sha256 "e8b33b5e99c6267a85be71fc6eb8e5622ce8aee864c60587cb71f43c27e97032"
   license all_of: [
     { any_of: ["LGPL-2.1-only", "NCSA"] },
     { "Apache-2.0" => { with: "LLVM-exception" } }, # llvm
@@ -34,9 +34,11 @@ class Cling < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  # https://github.com/root-project/cling?tab=readme-ov-file#building-from-source
+  # grab the latest tag from cling-latest branch
   resource "llvm" do
-    url "https://github.com/root-project/llvm-project/archive/refs/tags/cling-llvm13-20240614-01.tar.gz"
-    sha256 "c8afe609e9319009adf4e0fcb5021b663250ffbac1212c15058effb9ae6739d8"
+    url "https://github.com/root-project/llvm-project/archive/refs/tags/cling-llvm16-20240621-02.tar.gz"
+    sha256 "51bcf665422be228fbc730cac8bd6bd78258fab80de97c90f629411f14021243"
   end
 
   def install
