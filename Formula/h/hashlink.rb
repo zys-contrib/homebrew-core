@@ -46,17 +46,35 @@ class Hashlink < Formula
   end
 
   def install
+    # NOTE: This installs lib/*.hdll files which would be audited by `--new`.
+    # These appear to be renamed shared libraries specifically used by HashLink.
+    args = ["PREFIX=#{prefix}"]
+
     if OS.mac?
       # make file doesn't set rpath on mac yet
-      system "make", "PREFIX=#{libexec}", "EXTRA_LFLAGS=-Wl,-rpath,#{libexec}/lib"
+      args << "EXTRA_LFLAGS=-Wl,-rpath,#{rpath}"
     else
       # On Linux, also set RPATH in LIBFLAGS, so that the linker will also add the RPATH to .hdll files.
       inreplace "Makefile", "LIBFLAGS =", "LIBFLAGS = -Wl,-rpath,${INSTALL_LIB_DIR}"
-      system "make", "PREFIX=#{libexec}"
     end
 
-    system "make", "install", "PREFIX=#{libexec}"
-    bin.install_symlink Dir[libexec/"bin/*"]
+    system "make", *args
+    system "make", "install", *args
+    return if Hardware::CPU.intel?
+
+    # JIT only supports x86 and x86-64 processors
+    rm(bin/"hl")
+  end
+
+  def caveats
+    on_arm do
+      <<~EOS
+        The HashLink/JIT virtual machine (hl) is not installed as only
+        HashLink/C native compilation is supported on ARM processors.
+
+        See https://github.com/HaxeFoundation/hashlink/issues/557
+      EOS
+    end
   end
 
   test do
@@ -67,8 +85,6 @@ class Hashlink < Formula
           static function main() Sys.println("Hello world!");
       }
     EOS
-    system "#{haxebin}/haxe", "-hl", "HelloWorld.hl", "-main", "HelloWorld"
-    assert_equal "Hello world!\n", shell_output("#{bin}/hl HelloWorld.hl")
 
     (testpath/"TestHttps.hx").write <<~EOS
       class TestHttps {
@@ -83,8 +99,14 @@ class Hashlink < Formula
         }
       }
     EOS
+
+    system "#{haxebin}/haxe", "-hl", "HelloWorld.hl", "-main", "HelloWorld"
     system "#{haxebin}/haxe", "-hl", "TestHttps.hl", "-main", "TestHttps"
-    assert_equal "200\n", shell_output("#{bin}/hl TestHttps.hl")
+
+    if Hardware::CPU.intel?
+      assert_equal "Hello world!\n", shell_output("#{bin}/hl HelloWorld.hl")
+      assert_equal "200\n", shell_output("#{bin}/hl TestHttps.hl")
+    end
 
     (testpath/"build").mkdir
     system "#{haxebin}/haxelib", "newrepo"
@@ -93,10 +115,10 @@ class Hashlink < Formula
     system "#{haxebin}/haxe", "-hl", "HelloWorld/main.c", "-main", "HelloWorld"
 
     flags = %W[
-      -I#{libexec}/include
-      -L#{libexec}/lib
+      -I#{include}
+      -L#{lib}
     ]
-    flags << "-Wl,-rpath,#{libexec}/lib" unless OS.mac?
+    flags << "-Wl,-rpath,#{lib}" unless OS.mac?
 
     system ENV.cc, "HelloWorld/main.c", "-O3", "-std=c11", "-IHelloWorld",
                    *flags, "-lhl", "-o", "build/HelloWorld"
@@ -104,7 +126,7 @@ class Hashlink < Formula
 
     system "#{haxebin}/haxe", "-hl", "TestHttps/main.c", "-main", "TestHttps"
     system ENV.cc, "TestHttps/main.c", "-O3", "-std=c11", "-ITestHttps",
-                   *flags, "-lhl", "-o", "build/TestHttps", libexec/"lib/ssl.hdll"
+                   *flags, "-lhl", "-o", "build/TestHttps", lib/"ssl.hdll"
     assert_equal "200\n", `./build/TestHttps`
   end
 end
