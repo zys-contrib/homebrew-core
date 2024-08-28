@@ -1,8 +1,8 @@
 class Trurl < Formula
   desc "Command-line tool for URL parsing and manipulation"
   homepage "https://curl.se/trurl/"
-  url "https://github.com/curl/trurl/archive/refs/tags/trurl-0.14.tar.gz"
-  sha256 "5080ce71984fc620c1d12010c70c22e8020aeeba7009afcdfce7a9ea40caa4d2"
+  url "https://github.com/curl/trurl/releases/download/trurl-0.15/trurl-0.15.tar.gz"
+  sha256 "e58d9a698c009b2b1381f5636b5334ce7704ad2cd5ae8d30da97d483518a7f25"
   license "curl"
   head "https://github.com/curl/trurl.git", branch: "master"
 
@@ -24,8 +24,8 @@ class Trurl < Formula
   end
 
   test do
-    output = shell_output(bin/"trurl https://example.com/hello.html " \
-                              "--default-port --get '{scheme} {port} {path}'").chomp
+    output = shell_output("#{bin}/trurl https://example.com/hello.html " \
+                          "--default-port --get '{scheme} {port} {path}'").chomp
     assert_equal "https 443 /hello.html", output
   end
 end
