@@ -3,10 +3,19 @@ class Libgusb < Formula
 
   desc "GObject wrappers for libusb1"
   homepage "https://github.com/hughsie/libgusb"
-  url "https://github.com/hughsie/libgusb/archive/refs/tags/0.4.9.tar.gz"
-  sha256 "aa1242a308183d4ca6c2e8c9e3f2e345370b94308ef2d4b6e9c10d5ff6d7763e"
   license "LGPL-2.1-or-later"
   head "https://github.com/hughsie/libgusb.git", branch: "main"
+
+  stable do
+    url "https://github.com/hughsie/libgusb/archive/refs/tags/0.4.9.tar.gz"
+    sha256 "aa1242a308183d4ca6c2e8c9e3f2e345370b94308ef2d4b6e9c10d5ff6d7763e"
+
+    # add shebang patch for `contrib/generate-version-script.py`, upstream pr ref, https://github.com/hughsie/libgusb/pull/119
+    patch do
+      url "https://github.com/hughsie/libgusb/commit/371e851d4229d576e7c3e25a39a0f74449ad2ae3.patch?full_index=1"
+      sha256 "cced0c66c9a91bb94b3cc02fe6740ecaf14cd2a8866f1d3e7a8af1378d25ffc8"
+    end
+  end
 
   bottle do
     sha256 arm64_sonoma:   "401ce02889b48889e8ffa427554d467bcc2c4f260d0fe721f1a4865db4d298e0"
@@ -21,13 +30,14 @@ class Libgusb < Formula
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "python-setuptools" => :build
-  depends_on "python@3.12" => :build
   depends_on "vala" => :build
+
   depends_on "glib"
   depends_on "json-glib"
   depends_on "libusb"
+  depends_on "python@3.12"
   depends_on "usb.ids"
 
   def install
@@ -43,6 +53,7 @@ class Libgusb < Formula
 
   test do
     system bin/"gusbcmd", "-h"
+
     (testpath/"test.c").write <<~EOS
       #include <gusb.h>
 
@@ -52,32 +63,9 @@ class Libgusb < Formula
         return 0;
       }
     EOS
-    gettext = Formula["gettext"]
-    glib = Formula["glib"]
-    json_glib = Formula["json-glib"]
-    libusb = Formula["libusb"]
-    flags = %W[
-      -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
-      -I#{json_glib.opt_include}/json-glib-1.0
-      -I#{libusb.opt_include}/libusb-1.0
-      -I#{include}/gusb-1
-      -D_REENTRANT
-      -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
-      -L#{json_glib.opt_lib}
-      -L#{libusb.opt_lib}
-      -L#{lib}
-      -lgio-2.0
-      -lglib-2.0
-      -ljson-glib-1.0
-      -lgobject-2.0
-      -lusb-1.0
-      -lgusb
-    ]
-    flags << "-lintl" if OS.mac?
-    system ENV.cc, "test.c", "-o", "test", *flags
+
+    pkg_config_flags = shell_output("pkg-config --cflags --libs gusb").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkg_config_flags
     system "./test"
   end
 end
