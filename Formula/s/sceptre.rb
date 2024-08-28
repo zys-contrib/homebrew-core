@@ -3,18 +3,18 @@ class Sceptre < Formula
 
   desc "Build better AWS infrastructure"
   homepage "https://docs.sceptre-project.org/"
-  url "https://files.pythonhosted.org/packages/5c/97/d0e5e4a3247b6debaf234331108a0417f44925c8bfc68122a325919b4436/sceptre-4.5.0.tar.gz"
-  sha256 "d5820fa30c7918873866e58d4ae5ec35f75e30f91f1b36b7a27ab89813969161"
+  url "https://files.pythonhosted.org/packages/cd/72/2ac4189462ed565b272fd9f6e985101e2aeb15e3d46e1553e267ccd0bccc/sceptre-4.5.1.tar.gz"
+  sha256 "8d05b9eef66f79cbd106fa6077f8e17f8d0d67a6d23abdd2b58b244370e39934"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "36a81aad99c4a7b1bf49e26b47869a8089d1a8116a417211e8b7ea42553a5e03"
-    sha256 cellar: :any,                 arm64_ventura:  "140a3deda8826c36a7c329dbb1c1c1ba93b545a9638642ef56fa8db0e21b2a4c"
-    sha256 cellar: :any,                 arm64_monterey: "208e88601f79a847c9c09e14d1c3f462d5e5bfc33471236f2470ec339c098081"
-    sha256 cellar: :any,                 sonoma:         "84a73b2b99ade02103d51ef349713a5b139391d77b30bb59019431205617babd"
-    sha256 cellar: :any,                 ventura:        "22cd1373d74bdd9f487dce304dc6e57794d3397803a628dd14eb82237e6f3e9a"
-    sha256 cellar: :any,                 monterey:       "c78aef97cd9a0e23cf59847ebd055804ad8d669528332d9f1dfd7b3e1cee1336"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8c3afa0dc23393aa6021f65db69595845c06f3872cbbbe3129e8335a9409f4e"
+    sha256 cellar: :any,                 arm64_sonoma:   "61084fb2dcf4fd90d18c70f86e51ff2e0d31d381a391d7bfbf9bcfaf3194e4bf"
+    sha256 cellar: :any,                 arm64_ventura:  "38e1e122365a6b01a7b5c9e18391a5fb3059a70b4e96857e3ef754ba4e52e7df"
+    sha256 cellar: :any,                 arm64_monterey: "a212e542708884f5d1d5303788d5461e03912b7f9a3a0d23bf4758209520c7c6"
+    sha256 cellar: :any,                 sonoma:         "bde12c500db0b60375e6fc15cd77ec3041885a22edaf0729537e63d7a7337281"
+    sha256 cellar: :any,                 ventura:        "5b13d307f7b918773f5c7fea02643dd3ab8023ec1df97f9670b24d8ccae1fc08"
+    sha256 cellar: :any,                 monterey:       "1aea8b5b1f98a89197c1d9a6061fc01eb832419fea22831f7494bf6cddf06725"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "665c45d79d1818887260df49d8b4bf0bb3c43e150fba91dbddb3be9949f0be50"
   end
 
   depends_on "certifi"
