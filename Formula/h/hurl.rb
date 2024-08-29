@@ -1,19 +1,10 @@
 class Hurl < Formula
   desc "Run and Test HTTP Requests with plain text and curl"
   homepage "https://hurl.dev"
+  url "https://github.com/Orange-OpenSource/hurl/archive/refs/tags/5.0.0.tar.gz"
+  sha256 "6d19d1b0ec7de44f33206b0dfd6c1c76ae61741fe9fcddd979359e061ed6f0e5"
   license "Apache-2.0"
   head "https://github.com/Orange-OpenSource/hurl.git", branch: "master"
-
-  stable do
-    url "https://github.com/Orange-OpenSource/hurl/archive/refs/tags/4.3.0.tar.gz"
-    sha256 "499f2430ee6b73b0414ab8aa3c9298be8276e7b404b13c76e4c02a86eb1db9cd"
-
-    # rust 1.79.0 build patch, upstream pr ref, https://github.com/Orange-OpenSource/hurl/pull/2923
-    patch do
-      url "https://github.com/Orange-OpenSource/hurl/commit/d51c275fc63d1ee5bbdc6fc70279ec8dae86a9c1.patch?full_index=1"
-      sha256 "02d9ae4f8282c4b73f3f5741deaaafa53d6f289120870b0b95bd7ecc1e0166a3"
-    end
-  end
 
   # Upstream uses GitHub releases to indicate that a version is released
   # (there's also sometimes a notable gap between when a version is tagged and
