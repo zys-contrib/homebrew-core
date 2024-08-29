@@ -26,6 +26,7 @@ class Mise < Formula
 
   depends_on "libgit2"
   depends_on "openssl@3"
+  depends_on "usage"
 
   uses_from_macos "bzip2"
 
