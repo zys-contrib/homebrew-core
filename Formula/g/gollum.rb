@@ -24,6 +24,16 @@ class Gollum < Formula
   depends_on "go" => :build
 
   def install
+    # Work around https://github.com/trivago/gollum/issues/265
+    mod = "github.com/CrowdStrike/go-metrics-prometheus"
+    (buildpath/"vendor/#{mod}/go.mod").write <<~EOS
+      module #{mod}
+    EOS
+    (buildpath/"go.work").write <<~EOS
+      use .
+      replace #{mod} => ./vendor/#{mod}
+    EOS
+
     system "go", "build", "-mod=readonly", *std_go_args(ldflags: "-s -w -X gollum/core.versionString=#{version}")
   end
 
