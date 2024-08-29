@@ -20,11 +20,14 @@ class Hashlink < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 sonoma:       "634e38f8a64155e16ddb999eab19427709d6fe291196bedf29031a1b968323d9"
-    sha256 cellar: :any,                 ventura:      "77e7de64a612b4361d83d1aa7a1330922b79af11e6d601effc93a80c09f41a2a"
-    sha256 cellar: :any,                 monterey:     "d1c623f5da8cdd74858a29225dd640ea49e004bc3fbf1e079ad79ad9dec87100"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "2b9d5a710e10e612ba4ac82c74bec61354d9606912735e7f6a706298a68fcf75"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "49c5e4244cc628ab69ce7dad3d7908dff8d61035d9f6c2f8298574ef35341a4e"
+    sha256 cellar: :any,                 arm64_ventura:  "fd29a416c322068567b89dce7ea79f2d8977bbf87fadb3546fd2bcd253b36ba4"
+    sha256 cellar: :any,                 arm64_monterey: "17054886a8d100e481b845a4a977a0aa5e5a354a4145f5911aeb837e14fae5b4"
+    sha256 cellar: :any,                 sonoma:         "f30c155da0e4809aaaf95f42f70e975a669ab1cca3acbcb2da9adc0c7144cbf5"
+    sha256 cellar: :any,                 ventura:        "b5d824577be90d958356a8b91ad3caee21db129bd0595cfa2d9d792fe583bba8"
+    sha256 cellar: :any,                 monterey:       "9053a0d1ff26dc49ded63dac843e01ab4f5e3df43cadb99631e1596289d5ccfc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "286beb90726c27f47fc2f27280ac1b682ccfde139bf669d628958a9b6df85746"
   end
 
   depends_on "haxe" => :test
