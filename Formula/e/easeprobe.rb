@@ -1,8 +1,8 @@
 class Easeprobe < Formula
   desc "Simple, standalone, and lightWeight tool that can do health/status checking"
   homepage "https://github.com/megaease/easeprobe"
-  url "https://github.com/megaease/easeprobe/archive/refs/tags/v2.1.2.tar.gz"
-  sha256 "e5372b2a29aa46d527b38aec39ea4cc9fc3f4b35712f9d5dff532924bfbc0db7"
+  url "https://github.com/megaease/easeprobe/archive/refs/tags/v2.2.1.tar.gz"
+  sha256 "d5ec2f1929549eefa1ca721aa26e0af8b8b1842eb810056fb06c4ba115951f3c"
   license "Apache-2.0"
   head "https://github.com/megaease/easeprobe.git", branch: "main"
 
@@ -17,13 +17,6 @@ class Easeprobe < Formula
   end
 
   depends_on "go" => :build
-
-  # build patch to support go1.21 build
-  # upstream pr ref, https://github.com/megaease/easeprobe/pull/471
-  patch do
-    url "https://github.com/megaease/easeprobe/commit/54a3a9aca42510ad2032f624ba9dff7e17b47e54.patch?full_index=1"
-    sha256 "aeac6dfe643556d763b2d206c958385482c62fef3d1556d704bc93a52ea8ddbf"
-  end
 
   def install
     ldflags = %W[
