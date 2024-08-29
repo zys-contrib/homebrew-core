@@ -56,14 +56,15 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const macOSRegex = /^\d+(?:\.\d+)?(?:-arm64)?$/;
-            const linuxRegex = /^(ubuntu-|linux-self-hosted-)/;
+            const macOSRegex = /^(\d+(?:\.\d+)?)(?:-(arm64|x86_64))?$/;
+            const linuxRegex = /^(?:ubuntu-|linux-self-hosted-)/;
             return context.payload.inputs.runner.split(",")
                                                 .map(s => s.trim())
                                                 .filter(Boolean)
                                                 .map(s => {
-              if (macOSRegex.test(s) && s != "11-arm64") // Ephemeral runners
-                return {runner: `${s}-${context.runId}`, cleanup: false};
+              const macOSMatch = macOSRegex.exec(s);
+              if (macOSMatch && s != "11-arm64") // Ephemeral runners
+                return {runner: `${macOSMatch[1]}-${macOSMatch[2] ?? "x86_64"}-${context.runId}`, cleanup: false};
               else if (linuxRegex.test(s))
                 return {
                   runner:    s,
