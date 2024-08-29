@@ -2867,6 +2867,7 @@ xonsh
 xorg-server
 xorgproto
 xplr
+xq
 xray
 xrootd
 xsimd
