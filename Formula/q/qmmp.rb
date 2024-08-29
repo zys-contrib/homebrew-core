@@ -64,6 +64,15 @@ class Qmmp < Formula
     depends_on "musepack"
   end
 
+  on_sonoma :or_newer do
+    # Support Sonoma (BSD iconv) as qmmp has an incompatible typedef:
+    # /tmp/qmmp-20240828-19582-sf4k85/qmmp-2.1.9/src/qmmp/qmmptextcodec.h:28:15:
+    # error: typedef redefinition with different types ('void *' vs 'struct __tag_iconv_t *')
+    #
+    # Issue ref: https://sourceforge.net/p/qmmp-dev/tickets/1167/
+    patch :DATA
+  end
+
   on_linux do
     depends_on "alsa-lib"
     depends_on "libx11"
@@ -109,3 +118,23 @@ class Qmmp < Formula
     system bin/"qmmp", "--version"
   end
 end
+
+__END__
+diff --git a/src/qmmp/qmmptextcodec.h b/src/qmmp/qmmptextcodec.h
+index 5242c33..7399c54 100644
+--- a/src/qmmp/qmmptextcodec.h
++++ b/src/qmmp/qmmptextcodec.h
+@@ -21,12 +21,11 @@
+ #ifndef QMMPTEXTCODEC_H
+ #define QMMPTEXTCODEC_H
+
++#include <iconv.h>
+ #include <QByteArray>
+ #include <QStringList>
+ #include "qmmp_export.h"
+
+-typedef void *iconv_t;
+-
+ class QMMP_EXPORT QmmpTextCodec
+ {
+ public:
