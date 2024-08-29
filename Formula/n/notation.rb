@@ -1,8 +1,8 @@
 class Notation < Formula
   desc "CLI tool to sign and verify OCI artifacts and container images"
   homepage "https://notaryproject.dev/"
-  url "https://github.com/notaryproject/notation/archive/refs/tags/v1.1.1.tar.gz"
-  sha256 "3db46bc335e8b6de2946a10cf907023806ba4ad02be6e176a9db65442d336033"
+  url "https://github.com/notaryproject/notation/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "e792c8991e2fa03bbe65623f4232345c369cd91107014c36ec67f5666b8e0041"
   license "Apache-2.0"
   head "https://github.com/notaryproject/notation.git", branch: "main"
 
