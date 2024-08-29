@@ -302,6 +302,7 @@ cargo-audit
 cargo-auditable
 cargo-binstall
 cargo-bloat
+cargo-bundle
 cargo-c
 cargo-crev
 cargo-deny

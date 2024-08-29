@@ -1,8 +1,8 @@
 class CargoBundle < Formula
   desc "Wrap rust executables in OS-specific app bundles"
   homepage "https://github.com/burtonageo/cargo-bundle"
-  url "https://github.com/burtonageo/cargo-bundle/archive/refs/tags/v0.6.0.tar.gz"
-  sha256 "1ab5d3175e1828fe3b8b9bed9048f0279394fef90cd89ea5ff351c7cba2afa10"
+  url "https://github.com/burtonageo/cargo-bundle/archive/refs/tags/v0.6.1.tar.gz"
+  sha256 "18270c983636582c7723b2b6447c76330d8372feb53140eec693f6c2db5e7e81"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/burtonageo/cargo-bundle.git", branch: "master"
 
