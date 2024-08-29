@@ -1,10 +1,10 @@
 class Kubefirst < Formula
   desc "GitOps Infrastructure & Application Delivery Platform for kubernetes"
   homepage "https://kubefirst.io/"
-  url "https://github.com/kubefirst/kubefirst/archive/refs/tags/v2.4.17.tar.gz"
-  sha256 "3ce15c7ddad90cf221603fee3de8d6db8d33e4511a6826019d624bfbad5e2326"
+  url "https://github.com/konstructio/kubefirst/archive/refs/tags/v2.5.0.tar.gz"
+  sha256 "cabebc66fc22fad2785dcc091c55e7e196780ff199e32e8ddc1cf1b0f39b1298"
   license "MIT"
-  head "https://github.com/kubefirst/kubefirst.git", branch: "main"
+  head "https://github.com/konstructio/kubefirst.git", branch: "main"
 
   # Upstream appears to use GitHub releases to indicate that a version is
   # released, so it's necessary to check release versions instead of tags.
@@ -26,7 +26,7 @@ class Kubefirst < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/kubefirst/kubefirst-api/configs.K1Version=v#{version}"
+    ldflags = "-s -w -X github.com/konstructio/kubefirst-api/configs.K1Version=v#{version}"
     system "go", "build", *std_go_args(ldflags:)
   end
 
