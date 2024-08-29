@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/4c/1f/291bd860478ca878908d5c7d932ff71eec799b3ee5efdc0c14b6159608e3/snakemake-8.18.2.tar.gz"
-  sha256 "7dc8cdc3c836444c2bc3d67a4a7f4d703557c1bf96a90da18f312f4df9daefc4"
+  url "https://files.pythonhosted.org/packages/f6/6a/6bed45f9c2612fb8144974b68f4af0918aad53394433aa7fd19d7459131a/snakemake-8.19.0.tar.gz"
+  sha256 "b99e034846a71d125b709f73f2a878bb7b3ba4af8b573b1bd7cafa738a020f44"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -95,8 +95,8 @@ class Snakemake < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
-    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
+    url "https://files.pythonhosted.org/packages/e8/ac/e349c5e6d4543326c6883ee9491e3921e0d07b55fdf3cce184b40d63e72a/idna-3.8.tar.gz"
+    sha256 "d838c2c0ed6fced7693d5e8ab8e734d5f8fda53a039c0164afb0b82e771e3603"
   end
 
   resource "immutables" do
