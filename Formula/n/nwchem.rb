@@ -13,14 +13,13 @@ class Nwchem < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256                               arm64_sonoma:   "3abde846447d77e53b52cc25c22a526f6aeaa05ba6ea50aea0071076b2c0c9e2"
-    sha256                               arm64_ventura:  "13b783dbbe729ec08f3c86d70cbc313c6e3fd48b92427ed11a6723b952620be0"
-    sha256                               arm64_monterey: "1f24264743a058117b4f66b4bf4c4ce3ed4cca904c12d21f0a6596a508bec7ee"
-    sha256 cellar: :any,                 sonoma:         "5f08344628651f052a4eeb75629efd8563c3c80e1cc7b064284ff35200b4ab4b"
-    sha256 cellar: :any,                 ventura:        "a5642c7083957b97c70b2d224e77c6688c4a5924c65879ace1ed04fd83976ceb"
-    sha256 cellar: :any,                 monterey:       "59ebcfc7e40cff5ce8add809d4e3f20bfcd3f9be8e3d4041c5e7944d499aae5a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b928b2fffea97b3246c994e1fb21d72bed9240eef621231decfcf8c7711dee88"
+    sha256                               arm64_sonoma:   "a75b40c513a6e79f6a32aea09ce30c407df91547a3a515824775ed0597298b4c"
+    sha256                               arm64_ventura:  "d38f1ecff266e151d4b78adcf8f945aea1fa29b81201082199de0d827bb701b8"
+    sha256                               arm64_monterey: "2e5ac17baa07d607585f98883941fcd3ba9126677b006a43d93389a687644ac0"
+    sha256 cellar: :any,                 sonoma:         "1dbfcaa23350cc418b90316f2106a6814a64a1bd86cbec6595b8340a2c337109"
+    sha256 cellar: :any,                 ventura:        "8c3742ebeb7f2febbf03f276a87e44734df280057d2541fa24923870398c1568"
+    sha256 cellar: :any,                 monterey:       "e3313f92d71ef60e66f60a33f181d59b55a023ed74e2fc49ee710af4ac682b61"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "beb1a8edd7d819e1ba9a02b08242bcda2179a19dacf729c4dfdb0a249567e699"
   end
 
   depends_on "gcc" # for gfortran
