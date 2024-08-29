@@ -1,8 +1,8 @@
 class Remind < Formula
   desc "Sophisticated calendar and alarm"
   homepage "https://dianne.skoll.ca/projects/remind/"
-  url "https://dianne.skoll.ca/projects/remind/download/remind-05.00.03.tar.gz"
-  sha256 "f64b9173f625164f4352d9bb24bb79116b4168f63a2cc243e14e43447e30ea62"
+  url "https://dianne.skoll.ca/projects/remind/download/remind-05.00.04.tar.gz"
+  sha256 "55ba91083f2d632f26148c21b70e4318b3c80aaf0d2f653d37850b1cabf03b7c"
   license "GPL-2.0-only"
   head "https://git.skoll.ca/Skollsoft-Public/Remind.git", branch: "master"
 
