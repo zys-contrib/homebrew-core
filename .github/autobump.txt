@@ -838,6 +838,7 @@ findomain
 findutils
 fio
 firebase-cli
+firefly
 firefoxpwa
 fisher
 flac
