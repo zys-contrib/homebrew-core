@@ -12,10 +12,7 @@ class Embulk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, ventura:      "25352302442b5fa9c22bc2bb9ff04cadc69527ee42d9974a717b6bc46df0b58f"
-    sha256 cellar: :any_skip_relocation, monterey:     "25352302442b5fa9c22bc2bb9ff04cadc69527ee42d9974a717b6bc46df0b58f"
-    sha256 cellar: :any_skip_relocation, big_sur:      "25352302442b5fa9c22bc2bb9ff04cadc69527ee42d9974a717b6bc46df0b58f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "f18e539ca70420cd3cc6fb7f7b24cc1d761ecb9cf7af7121d576a0727a17586f"
+    sha256 cellar: :any_skip_relocation, all: "64f6f68e909288834b86045fcec216d4cbeca9ca6a6576d354dbe5086cdf1f32"
   end
 
   # From https://www.embulk.org,
