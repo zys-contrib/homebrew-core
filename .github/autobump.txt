@@ -2,7 +2,6 @@ a2ps
 abcmidi
 abi3audit
 abseil
-access
 ack
 act
 action-validator
@@ -50,13 +49,11 @@ ansible
 ansible-creator
 ansible-lint
 ant
-ant@1.9
 antidote
 antlr
 antlr4-cpp-runtime
 anycable-go
 aom
-apache-archiva
 apache-drill
 apache-flink
 apache-flink-cdc
@@ -65,7 +62,6 @@ apache-opennlp
 apache-spark
 apachetop
 apibuilder-cli
-apidoc
 apkleaks
 apko
 apktool
@@ -76,7 +72,6 @@ appwrite
 apr
 apt
 aravis
-arb
 arcade-learning-environment
 archi-steam-farm
 arduino-cli
@@ -234,7 +229,6 @@ bmake
 bnd
 bob
 bomber
-boolector
 bore-cli
 borgbackup
 borgmatic
@@ -517,7 +511,6 @@ cromwell
 crow
 crowdin
 crun
-crunchy-cli
 cryptography
 cryptol
 cryptominisat
@@ -671,7 +664,6 @@ driftctl
 drill
 drogon
 drone-cli
-dronedb
 dropbear
 druid
 dscanner
@@ -736,7 +728,6 @@ elfutils
 elfx86exts
 elixir
 elixir-ls
-elm-format
 elvis
 elvish
 emacs
@@ -762,7 +753,6 @@ erdtree
 erg
 erlang
 erlang_ls
-erlang@24
 erlang@25
 erofs-utils
 esbuild
@@ -897,7 +887,6 @@ fribidi
 frizbee
 frpc
 frps
-frugal
 fselect
 fsql
 ftnchek
@@ -1642,11 +1631,8 @@ mariadb
 mariadb-connector-c
 mariadb-connector-odbc
 mariadb@10.11
-mariadb@10.4
 mariadb@10.5
 mariadb@10.6
-mariadb@11.0
-mariadb@11.1
 mariadb@11.2
 markdownlint-cli
 markdownlint-cli2
@@ -1796,7 +1782,6 @@ neatvi
 nebula
 needle
 neo4j
-neofetch
 neomutt
 neon
 neonctl
@@ -2171,13 +2156,11 @@ pyside@2
 python-argcomplete
 python-build
 python-launcher
-python-lxml
 python-markdown
 python-matplotlib
 python-setuptools
 python-yq
 pythran
-pyyaml
 qbe
 qbs
 qca
@@ -2238,7 +2221,6 @@ rekor-cli
 release-it
 remarshal
 remind
-reminiscence
 renovate
 repo
 reposurgeon
@@ -2465,7 +2447,6 @@ spoofdpi
 spot
 spotbugs
 spotify_player
-spotify-tui
 sql-migrate
 sqlancer
 sqlc
