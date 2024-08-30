@@ -1472,6 +1472,7 @@ libksba
 liblc3
 liblinear
 liblouis
+liblqr
 libmaa
 libmapper
 libmatio
