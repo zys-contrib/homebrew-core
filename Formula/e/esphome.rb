@@ -3,18 +3,18 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/b9/27/36fae72bac314116c7dfa098a64ad6a6529aed887c05e711211ae6128e33/esphome-2024.7.3.tar.gz"
-  sha256 "fb1b9675e552c83f24984794f134c327283ea3801496ab5e36fcc9d2e1063595"
+  url "https://files.pythonhosted.org/packages/b2/c4/88d415f62709e19c6ec33211b04e38c5420e0d8bef11b943c0132698a1b7/esphome-2024.8.1.tar.gz"
+  sha256 "b5cbc253879019e14c13ebb5a25e5e392d6899a37211d3b4b02be29843b8f437"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "09991b3f42e8690935bb1fd689fd7ec1d77335aac43ebd5950090e8b91a3e810"
-    sha256 cellar: :any,                 arm64_ventura:  "768f3829ee1f302020d15de1c10fbba2d52d4b50a33c8dc7602bd57e5037d3e5"
-    sha256 cellar: :any,                 arm64_monterey: "99fd793cde9cb76db66c6f9da4ef7863687e54cec061c05e1f1142b4a000515d"
-    sha256 cellar: :any,                 sonoma:         "fce19547e527c1ed50845c3ba8d5f0839ef896a4c54acb1f3d8345241eb279b6"
-    sha256 cellar: :any,                 ventura:        "694c17d0dff9719a985f7824db557fd6b2db600c0459cb70a38e7a7e104aa0d8"
-    sha256 cellar: :any,                 monterey:       "d867c32aebdb027634fa71263c4aee23487b6ebef0681a93d15146a0b9620570"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "944f91c91226da8e9ce3d00076d2ce17321ddf79ebf5f2dbc08a5f8874393720"
+    sha256 cellar: :any,                 arm64_sonoma:   "9f65abdcbad0be70cd833dc830253cdcc311ff819542e12846fc90eb7a87b885"
+    sha256 cellar: :any,                 arm64_ventura:  "f536e79114c198b8fb89c489511d3f2be2233ae15e8d43cd767ad16ad2d6f042"
+    sha256 cellar: :any,                 arm64_monterey: "ec52021a80c6915564d5789ed54ae99875f5abdc30c0b7e77cbce5a0b6e70ee5"
+    sha256 cellar: :any,                 sonoma:         "8adde10c68bcb0a9fc8449e0ef799bf27a2e2ac2677a1dc0cebd7f0a367fb10f"
+    sha256 cellar: :any,                 ventura:        "4d3a41531048a64379577d4880da21f20b8831e1808001e87da85d44cd1cfec2"
+    sha256 cellar: :any,                 monterey:       "60bdfe30db026a2b4d1b62ac1155b1b22c531e5e732ea2d4187ddce396a4eeef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e21fed5dc0677834dcd3d71f616b31ee2b6e7704c58913e2d638772381e2dd47"
   end
 
   depends_on "certifi"
@@ -25,13 +25,13 @@ class Esphome < Formula
   uses_from_macos "libffi"
 
   resource "aioesphomeapi" do
-    url "https://files.pythonhosted.org/packages/8e/0a/7c9e2f285a5d3f6e68c377cfd7ce85ad3f73ce5c133fd48b7a417e555443/aioesphomeapi-24.3.0.tar.gz"
-    sha256 "70a341c0a707aa7125a4b679f50b045a10a3c22a1cf90c9e6c81fbeafd082277"
+    url "https://files.pythonhosted.org/packages/89/4d/e5b6826e7256abc0783876a382797fd26b632b860eecc61698abb46a52ca/aioesphomeapi-24.6.2.tar.gz"
+    sha256 "dfde91df6b115cddac95d82ca968847a7f726b2a0d0ecef6cee8c065bdbb701c"
   end
 
   resource "aiohappyeyeballs" do
-    url "https://files.pythonhosted.org/packages/3c/c1/52b8ecc87576f8b06fd5132e3ab8550209c958fb450e6d185b15835da82c/aiohappyeyeballs-2.3.4.tar.gz"
-    sha256 "7e1ae8399c320a8adec76f6c919ed5ceae6edd4c3672f4d9eae2b27e37c80ff6"
+    url "https://files.pythonhosted.org/packages/2d/f7/22bba300a16fd1cad99da1a23793fe43963ee326d012fdf852d0b4035955/aiohappyeyeballs-2.4.0.tar.gz"
+    sha256 "55a1714f084e63d49639800f95716da97a1f173d46a16dfcfda0016abb93b6b2"
   end
 
   resource "ajsonrpc" do
@@ -70,8 +70,8 @@ class Esphome < Formula
   end
 
   resource "chacha20poly1305-reuseable" do
-    url "https://files.pythonhosted.org/packages/c8/f5/de042f4f0a3580541d173db5bb98988f525e3557651d40f04b132350ca38/chacha20poly1305_reuseable-0.12.2.tar.gz"
-    sha256 "378801cc9902d881511a0d1f817f9571a63bf41bf072b0f02d2daab3ae5cf30b"
+    url "https://files.pythonhosted.org/packages/c1/ff/6ca12ab8f4d804cfe423e67d7e5de168130b106a0cb749a1043943c23b6b/chacha20poly1305_reuseable-0.13.2.tar.gz"
+    sha256 "dd8be876e25dfc51909eb35602b77a76e0d01a364584756ab3fa848e2407e4ec"
   end
 
   resource "charset-normalizer" do
