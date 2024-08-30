@@ -2717,6 +2717,7 @@ uriparser
 urlscan
 usb.ids
 usbredir
+userspace-rcu
 util-linux
 util-macros
 uutils-coreutils
