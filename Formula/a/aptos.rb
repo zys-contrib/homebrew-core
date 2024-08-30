@@ -1,8 +1,8 @@
 class Aptos < Formula
   desc "Layer 1 blockchain built to support fair access to decentralized assets for all"
   homepage "https://aptosfoundation.org/"
-  url "https://github.com/aptos-labs/aptos-core/archive/refs/tags/aptos-cli-v4.0.0.tar.gz"
-  sha256 "f92824beecfbe17a4255452c58922418edad314fcc89ac00abfa956fa0508c55"
+  url "https://github.com/aptos-labs/aptos-core/archive/refs/tags/aptos-cli-v4.1.0.tar.gz"
+  sha256 "6eb2dc178d48aa2277c64895055fb8716be79271a7c6d5c4a62417c73cb706a9"
   license "Apache-2.0"
   head "https://github.com/aptos-labs/aptos-core.git", branch: "main"
 
@@ -35,8 +35,8 @@ class Aptos < Formula
 
   # rust 1.80.0 build patch, upstream pr ref, https://github.com/aptos-labs/aptos-core/pull/14272
   patch do
-    url "https://github.com/aptos-labs/aptos-core/commit/15ec18e4a2533fc9f3e8d23f5629939a07490c23.patch?full_index=1"
-    sha256 "92384b60959e5c9400542e3215445dc3ae634693e41de9ae8b1907ad7557c5b7"
+    url "https://github.com/aptos-labs/aptos-core/commit/4811d7d84d44ff3dd05695c447625d81cec2a95f.patch?full_index=1"
+    sha256 "175845f1cf17f80b89a3ca757c5132051a6b1ade02d9e2980569aeda4e4e7c30"
   end
 
   def install
