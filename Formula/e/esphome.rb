@@ -3,8 +3,8 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/b9/27/36fae72bac314116c7dfa098a64ad6a6529aed887c05e711211ae6128e33/esphome-2024.7.3.tar.gz"
-  sha256 "fb1b9675e552c83f24984794f134c327283ea3801496ab5e36fcc9d2e1063595"
+  url "https://files.pythonhosted.org/packages/b2/c4/88d415f62709e19c6ec33211b04e38c5420e0d8bef11b943c0132698a1b7/esphome-2024.8.1.tar.gz"
+  sha256 "b5cbc253879019e14c13ebb5a25e5e392d6899a37211d3b4b02be29843b8f437"
   license "MIT"
 
   bottle do
@@ -25,13 +25,13 @@ class Esphome < Formula
   uses_from_macos "libffi"
 
   resource "aioesphomeapi" do
-    url "https://files.pythonhosted.org/packages/8e/0a/7c9e2f285a5d3f6e68c377cfd7ce85ad3f73ce5c133fd48b7a417e555443/aioesphomeapi-24.3.0.tar.gz"
-    sha256 "70a341c0a707aa7125a4b679f50b045a10a3c22a1cf90c9e6c81fbeafd082277"
+    url "https://files.pythonhosted.org/packages/89/4d/e5b6826e7256abc0783876a382797fd26b632b860eecc61698abb46a52ca/aioesphomeapi-24.6.2.tar.gz"
+    sha256 "dfde91df6b115cddac95d82ca968847a7f726b2a0d0ecef6cee8c065bdbb701c"
   end
 
   resource "aiohappyeyeballs" do
-    url "https://files.pythonhosted.org/packages/3c/c1/52b8ecc87576f8b06fd5132e3ab8550209c958fb450e6d185b15835da82c/aiohappyeyeballs-2.3.4.tar.gz"
-    sha256 "7e1ae8399c320a8adec76f6c919ed5ceae6edd4c3672f4d9eae2b27e37c80ff6"
+    url "https://files.pythonhosted.org/packages/2d/f7/22bba300a16fd1cad99da1a23793fe43963ee326d012fdf852d0b4035955/aiohappyeyeballs-2.4.0.tar.gz"
+    sha256 "55a1714f084e63d49639800f95716da97a1f173d46a16dfcfda0016abb93b6b2"
   end
 
   resource "ajsonrpc" do
@@ -70,8 +70,8 @@ class Esphome < Formula
   end
 
   resource "chacha20poly1305-reuseable" do
-    url "https://files.pythonhosted.org/packages/c8/f5/de042f4f0a3580541d173db5bb98988f525e3557651d40f04b132350ca38/chacha20poly1305_reuseable-0.12.2.tar.gz"
-    sha256 "378801cc9902d881511a0d1f817f9571a63bf41bf072b0f02d2daab3ae5cf30b"
+    url "https://files.pythonhosted.org/packages/c1/ff/6ca12ab8f4d804cfe423e67d7e5de168130b106a0cb749a1043943c23b6b/chacha20poly1305_reuseable-0.13.2.tar.gz"
+    sha256 "dd8be876e25dfc51909eb35602b77a76e0d01a364584756ab3fa848e2407e4ec"
   end
 
   resource "charset-normalizer" do
