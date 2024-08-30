@@ -2322,6 +2322,7 @@ scorecard
 scotch
 scrapy
 scrcpy
+screen
 scriptisto
 scs
 scummvm
