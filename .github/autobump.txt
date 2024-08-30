@@ -1523,6 +1523,7 @@ libsoundio
 libsoup
 libspelling
 libsql
+libssh
 libstrophe
 libsvm
 libtensorflow
