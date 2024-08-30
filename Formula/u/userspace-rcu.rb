@@ -11,15 +11,13 @@ class UserspaceRcu < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "7f97292c6b2ec6c304e4b1cd99e6c132602a38dc1e6e3e3f041790c40f873889"
-    sha256 cellar: :any,                 arm64_ventura:  "416b50750d8377a585a4888f505e555bfdbe289ae4178991494d538ff2f1be5f"
-    sha256 cellar: :any,                 arm64_monterey: "bdab779474bf1feb9209b8c3e722598a91c08b202d8ab2ce3e1331fc02e6e31f"
-    sha256 cellar: :any,                 arm64_big_sur:  "af68e283caa6bd03ecddf38dcb02ce6f4e544395b0f080d0591887a791d1e569"
-    sha256 cellar: :any,                 sonoma:         "941d8683de2bdee08e0e95f9e1ccc59ea6e2e019fb8528ec2255eb6e612377e3"
-    sha256 cellar: :any,                 ventura:        "e604608f8a7f56421731aa3b91fbf33588156dfb3cef1e15c62d3e38f3e862c9"
-    sha256 cellar: :any,                 monterey:       "c5ace1a972369e7a61c51d1e5f6a9aeb7a0cb5a7f9d28ade2ce1918d8c7e50c8"
-    sha256 cellar: :any,                 big_sur:        "8771fdf50786cff24c9d40659100580e1aba5b0503c0204a07733dd46f5707a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e23f5d09163f5263dacfa83825ab64bc2a1fdd6fbd629d084a2d5722bb032257"
+    sha256 cellar: :any,                 arm64_sonoma:   "2ed8fcd800628a4ddbc7cf232c63a30418f54ddbab8850a9ea5545d0ba381ced"
+    sha256 cellar: :any,                 arm64_ventura:  "8206685594f05c7e98e72dbc992c2071f53ef365d88702b8e5fdc0a117ada212"
+    sha256 cellar: :any,                 arm64_monterey: "f1ed0e9b4723760d12af588e6b8f1b8a3cd999c6c00711f930a08dd08df67365"
+    sha256 cellar: :any,                 sonoma:         "b858e19e7ac159dfa8e359b7b9266e7e857f05a0970de371134bf5a2c865de70"
+    sha256 cellar: :any,                 ventura:        "6e63de2ba3d3f2834fec3b7cbf3f3d33da14b8688b7336b71af0a5bb1a580971"
+    sha256 cellar: :any,                 monterey:       "44770bb923e56f01f834089fcf7b7f27a6da1ccbb0a3efb93630e884008ab25e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6cd1530224968195efa1996713ce9e76241ab247a686ae4d3efba8f04a1108d6"
   end
 
   def install
