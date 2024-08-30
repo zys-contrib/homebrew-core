@@ -52,8 +52,13 @@ class Duti < Formula
   end
 
   def install
+    # Patch out the hard limit on macOS version. Don't set `-arch` which is dropped by superenv
+    inreplace "aclocal.m4", "AC_MSG_ERROR([${host_os} is not a supported system])", 'macosx_arches=""'
+
     system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}",
+                          "--with-macosx-deployment-target=#{MacOS.version}",
+                          "--with-macosx-sdk=#{MacOS.sdk_path}"
     system "make", "install"
   end
 
