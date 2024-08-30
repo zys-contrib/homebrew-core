@@ -1,8 +1,8 @@
 class JsonGlib < Formula
   desc "Library for JSON, based on GLib"
   homepage "https://wiki.gnome.org/Projects/JsonGlib"
-  url "https://download.gnome.org/sources/json-glib/1.8/json-glib-1.8.0.tar.xz"
-  sha256 "97ef5eb92ca811039ad50a65f06633f1aae64792789307be7170795d8b319454"
+  url "https://download.gnome.org/sources/json-glib/1.10/json-glib-1.10.0.tar.xz"
+  sha256 "1bca8d66d96106ecc147df3133b95a5bb784f1fa6f15d06dd7c1a8fb4a10af7b"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -17,7 +17,7 @@ class JsonGlib < Formula
     sha256 x86_64_linux:   "4cc13206b988e32ae264a4cc41e97fe7e0fa7d123f4903109e50583634d2140b"
   end
 
-  depends_on "docbook-xsl" => :build
+  depends_on "docutils" => :build # for rst2man
   depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
@@ -25,8 +25,6 @@ class JsonGlib < Formula
   depends_on "pkg-config" => :build
 
   depends_on "glib"
-
-  uses_from_macos "libxslt" => :build # for xsltproc
 
   on_macos do
     depends_on "gettext"

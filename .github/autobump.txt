@@ -1300,6 +1300,7 @@ jruby
 jscpd
 jsdoc3
 json-fortran
+json-glib
 json2ts
 json2tsv
 jsonnet
