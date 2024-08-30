@@ -142,7 +142,7 @@ jobs:
       id-token: write # for actions/attest-build-provenance
     runs-on: ubuntu-latest
     needs: bottle
-    if: inputs.upload
+    if: inputs.upload && !startsWith(inputs.runner, 15)
     container:
       image: ghcr.io/homebrew/ubuntu22.04:master
     defaults:
@@ -156,6 +156,15 @@ jobs:
       BOTTLE_BRANCH: ${{github.actor}}/dispatch/${{inputs.formula}}/${{github.run_id}}
       BOTTLES_DIR: ${{ github.workspace }}/bottles
     steps:
+      - name: Check that we're not uploading Sequioa bottles
+        run: |
+          if [[ "${DISPATCH_BUILD_BOTTLE_RUNNER}" == "15"* ]]
+          then
+            echo "::error ::Refusing to upload bottles for macOS 15!"
+            echo "::error ::Please don't upload macOS 15 bottles yet, @${DISPATCH_BUILD_BOTTLE_SENDER}."
+            exit 1
+          fi
+
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
