@@ -7,14 +7,13 @@ class Dpp < Formula
   license "BSL-1.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7969f210787e31cf942b1f00f2146e876631d93aff67dc03feb17611640d252d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "af3e31ce2aad958fdf07894e5004dbca6b4b0a12ecc54afab388d53021a58816"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c9b3fe563032fb43cb4c924feb9c81b718047a80f1ea8aecb057203786098e66"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6f340275745bf2313d40b8a68273f885bfcc7c6ca90e313ce26ada3a9db8629d"
-    sha256 cellar: :any_skip_relocation, ventura:        "f309a79d35c6143155f8f4bc19a82d1851520121a80ba8e5c3a83baa9a9e09c8"
-    sha256 cellar: :any_skip_relocation, monterey:       "bc1e96e9d138f332a1a24d3ba39cdfa444b7a9d834e3df558a401492f8765b20"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a73c14e28ff376415c7550e127afcdf1b0ed55503c45f3dfcc0a44ee3b068bb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2476590c375c79bc2b694bf10a2edd7721d3603f7738b8d6c935d487ac9655f9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a55479222fdfcb5350b7a06f509ce37a7af58d6b2f0c36807a3250b0a3169618"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "56f17de3bca828d4d844a811f40ed824827876530e8c4f3bef427c1f1c934678"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a342da9f8b506999916e8ab83b6a0b7ca1574852e5daa106d4eb5308b1f4e588"
+    sha256 cellar: :any_skip_relocation, ventura:        "cff6526644d8ebdf667ad74b1ef8c420bf76014f0dd57b05bf9706f45efba495"
+    sha256 cellar: :any_skip_relocation, monterey:       "0dea447606ae46a62481252ea7cd16c2a6545be69918abea6949c787b55c39b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac1f792f0814d1b5b07b10b751308dd7efc34f7105f93fc27946d3a649857db4"
   end
 
   depends_on "dtools" => :build
