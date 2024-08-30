@@ -21,17 +21,14 @@ class Grok < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "b69e6b4812e82ce6007eda960673dc824e554fc8fea8c2a49968101b622dc11d"
-    sha256 cellar: :any,                 arm64_monterey: "2556c5995021bc02cf5a41c99bd30e127dedb7350972333c0bf77b695ed94114"
-    sha256 cellar: :any,                 arm64_big_sur:  "172f626c4eb3d62d2f7b7dcd2c94a4890cc69a835ae3f33ddcb7b74762e4c52e"
-    sha256 cellar: :any,                 ventura:        "27073a9a9c34b78a3c7549d5709c371859b6612ed4a7dbd3a6eaf9de0707112a"
-    sha256 cellar: :any,                 monterey:       "111ecef9c1d93f0e737f47a7053ae84f5b434ae2bf808a49c7fbb9f9e4bb65e1"
-    sha256 cellar: :any,                 big_sur:        "02386bec2f8e4ac68e44c67c33a2a296457a8f055fbf0f177a78137b63a030ce"
-    sha256 cellar: :any,                 catalina:       "8e3f44420143e731799d52290c9823a42a1833c4bc51906af59d4cd7c284f391"
-    sha256 cellar: :any,                 mojave:         "b78cf21dd67826d14d99188e631ff1c431913744d91089c4cefd9b3c9e9d9a46"
-    sha256 cellar: :any,                 high_sierra:    "41889afb55bfcf1d8b41eda76ef2272d29225f4cc4a5690bd409198417d7cf98"
-    sha256 cellar: :any,                 sierra:         "32dc46849684918dad9ca9005ca43b092de84b16a0837049146948379301b1fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2501596389a8ac61df64de2e691157b1e5383a19719f3ddbc42c661929abf1d3"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "275855bc35b651480b009f1b186c12a7c031f0aa037d53180266fb319b0b49c5"
+    sha256 cellar: :any,                 arm64_ventura:  "37014a946e46e858efa3c43779aeb7f318196ef35cbe453b0d031bfe618f74fc"
+    sha256 cellar: :any,                 arm64_monterey: "a30ae8a010c4ac7de6163b2a6b685c9b5ad3149c12d24ab2b765e45d209cadfc"
+    sha256 cellar: :any,                 sonoma:         "ecf20a15227d672dbe7cb9756c95e24294715b80361bcda919c47f60edccc524"
+    sha256 cellar: :any,                 ventura:        "bc44900cc8642a13759e53187cbdb03495dbb951ece0ab2932127b3f7a08a02d"
+    sha256 cellar: :any,                 monterey:       "0e804b8990bd781e846ae402050cbe3119b45f224b43639db710c178eb6d24d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b35c01acc0d3b0640c42c3b003e03bbedccc91bdd0d69294dbbe4ae71e29841"
   end
 
   depends_on "libevent"
