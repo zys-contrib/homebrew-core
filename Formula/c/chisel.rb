@@ -25,22 +25,22 @@ class Chisel < Formula
   def install
     libexec.install Dir["*.py", "commands"]
 
-    # Fix: clang: error: the clang compiler does not support '-march=nehalem'
-    inreplace "Chisel/Makefile", "xcodebuild", "xcodebuild -arch #{Hardware::CPU.arch}"
-    # Fix: error: The Legacy Build System will be removed in a future release
-    inreplace "Chisel/Chisel.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings",
-              "<string>Original</string>",
-              "<string>Original</string><key>DisableBuildSystemDeprecationDiagnostic</key><true/>"
-
     # == LD_DYLIB_INSTALL_NAME Explanation ==
-    # This make invocation calls xcodebuild, which in turn performs ad hoc code
-    # signing. Note that ad hoc code signing does not need signing identities.
     # Brew will update binaries to ensure their internal paths are usable, but
     # modifying a code signed binary will invalidate the signature. To prevent
     # broken signing, this build specifies the target install name up front,
     # in which case brew doesn't perform its modifications.
-    system "make", "-C", "Chisel", "install", "PREFIX=#{lib}",
-      "LD_DYLIB_INSTALL_NAME=#{opt_prefix}/lib/Chisel.framework/Chisel"
+    ld_dylib_install_name = opt_prefix/"lib/Chisel.framework/Chisel"
+
+    xcodebuild "-arch", Hardware::CPU.arch,
+               "-project", "Chisel/Chisel.xcodeproj",
+               "-scheme", "Chisel",
+               "-configuration", "Release",
+               "-sdk", "iphonesimulator",
+               "LD_DYLIB_INSTALL_NAME=#{ld_dylib_install_name}",
+               "DSTROOT=#{prefix}",
+               "INSTALL_PATH=/lib",
+               "install"
   end
 
   def caveats
