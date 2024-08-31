@@ -30,6 +30,7 @@ class Julia < Formula
   depends_on "ca-certificates"
   depends_on "curl"
   depends_on "gmp"
+  depends_on "libblastrampoline"
   depends_on "libgit2"
   depends_on "libnghttp2"
   depends_on "libssh2"
@@ -74,6 +75,7 @@ class Julia < Formula
       USE_SYSTEM_CURL=1
       USE_SYSTEM_GMP=1
       USE_SYSTEM_LAPACK=1
+      USE_SYSTEM_LIBBLASTRAMPOLINE=1
       USE_SYSTEM_LIBGIT2=1
       USE_SYSTEM_LIBSSH2=1
       USE_SYSTEM_LIBSUITESPARSE=0
