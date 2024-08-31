@@ -4,6 +4,7 @@ class Pypy39 < Formula
   url "https://downloads.python.org/pypy/pypy3.9-v7.3.16-src.tar.bz2"
   sha256 "5b75af3f8e76041e79c1ef5ce22ce63f8bd131733e9302081897d8f650e81843"
   license "MIT"
+  revision 1
   head "https://github.com/pypy/pypy.git", branch: "py3.9"
 
   livecheck do
@@ -36,14 +37,15 @@ class Pypy39 < Formula
   uses_from_macos "unzip"
   uses_from_macos "zlib"
 
+  # setup.py got removed in pip 24.1b1 and above
   resource "pip" do
     url "https://files.pythonhosted.org/packages/94/59/6638090c25e9bc4ce0c42817b5a234e183872a1129735a9330c472cc2056/pip-24.0.tar.gz"
     sha256 "ea9bd1a847e8c5774a5777bb398c19e80bcd4e2aa16a4b301b718fe6f593aba2"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/d6/4f/b10f707e14ef7de524fe1f8988a294fb262a29c9b5b12275c7e188864aed/setuptools-69.5.1.tar.gz"
-    sha256 "6c1fccdac05a97e598fb0ae3bbed5904ccb317337a51139dcd51453611bbb987"
+    url "https://files.pythonhosted.org/packages/6a/21/8fd457d5a979109603e0e460c73177c3a9b6b7abcd136d0146156da95895/setuptools-74.0.0.tar.gz"
+    sha256 "a85e96b8be2b906f3e3e789adec6a9323abf79758ecfa3065bd740d81158b11e"
   end
 
   # Build fixes:
