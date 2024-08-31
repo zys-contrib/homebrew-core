@@ -16,17 +16,17 @@ class Fizz < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3fc65bef2eb7b0664cd191a30c010923efc6442a5e8da670684f93444422fad0"
   end
 
-  depends_on "cmake" => :build
+  depends_on "cmake" => [:build, :test]
+  depends_on "libevent" => :build
   depends_on "double-conversion"
   depends_on "fmt"
   depends_on "folly"
   depends_on "gflags"
   depends_on "glog"
-  depends_on "libevent"
   depends_on "libsodium"
-  depends_on "lz4"
   depends_on "openssl@3"
   depends_on "zstd"
+
   uses_from_macos "zlib"
 
   fails_with gcc: "5"
@@ -43,6 +43,17 @@ class Fizz < Formula
     system "cmake", "-S", "fizz", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+    # `libsodium` does not install a CMake package configuration file. There
+    # is a find module (at least in 1.0.20 tarball), but upstream has deleted
+    # it in HEAD. Also, find modules are usually not shipped by upstream[^1].
+    #
+    # Since fizz-config.cmake requires FindSodium.cmake[^2], we save a copy in
+    # libexec that can be used internally for testing `fizz` and dependents.
+    #
+    # [^1]: https://cmake.org/cmake/help/latest/manual/cmake-packages.7.html#find-module-packages
+    # [^2]: https://github.com/facebookincubator/fizz/issues/141
+    (libexec/"cmake").install "build/fbcode_builder/CMake/FindSodium.cmake"
   end
 
   test do
@@ -55,16 +66,23 @@ class Fizz < Formula
         std::cout << toString(context.getSupportedVersions()[0]) << std::endl;
       }
     EOS
-    system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test",
-                    "-I#{include}",
-                    "-I#{Formula["openssl@3"].opt_include}",
-                    "-L#{lib}", "-lfizz",
-                    "-L#{Formula["folly"].opt_lib}", "-lfolly",
-                    "-L#{Formula["gflags"].opt_lib}", "-lgflags",
-                    "-L#{Formula["glog"].opt_lib}", "-lglog",
-                    "-L#{Formula["libevent"].opt_lib}", "-levent",
-                    "-L#{Formula["libsodium"].opt_lib}", "-lsodium",
-                    "-L#{Formula["openssl@3"].opt_lib}", "-lcrypto", "-lssl"
+
+    (testpath/"CMakeLists.txt").write <<~EOS
+      cmake_minimum_required(VERSION 3.5)
+      project(test LANGUAGES CXX)
+      set(CMAKE_CXX_STANDARD 17)
+
+      list(APPEND CMAKE_MODULE_PATH "#{libexec}/cmake")
+      find_package(gflags REQUIRED)
+      find_package(fizz CONFIG REQUIRED)
+
+      add_executable(test test.cpp)
+      target_link_libraries(test fizz::fizz)
+    EOS
+
+    ENV.delete "CPATH"
+    system "cmake", ".", *std_cmake_args
+    system "cmake", "--build", "."
     assert_match "TLS", shell_output("./test")
   end
 end
