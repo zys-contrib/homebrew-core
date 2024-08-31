@@ -21,20 +21,18 @@ class Libcdr < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "eeef15aa50abe575cfa2619864dac8112f58e7eaf577a6d27766dfb15157bac4"
   end
 
-  depends_on "cppunit" => :build
+  depends_on "boost" => :build
   depends_on "pkg-config" => :build
-  depends_on "boost"
   depends_on "icu4c"
   depends_on "librevenge"
   depends_on "little-cms2"
 
   def install
-    ENV.cxx11
-    # Needed for Boost 1.59.0 compatibility.
-    ENV["LDFLAGS"] = "-lboost_system-mt"
-    system "./configure", "--disable-werror",
+    system "./configure", "--disable-silent-rules",
+                          "--disable-tests",
+                          "--disable-werror",
                           "--without-docs",
-                          "--prefix=#{prefix}"
+                          *std_configure_args
     system "make", "install"
   end
 
