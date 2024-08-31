@@ -885,6 +885,7 @@ freexl
 frei0r
 fribidi
 frizbee
+frozen
 frpc
 frps
 fselect
