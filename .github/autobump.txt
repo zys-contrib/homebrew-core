@@ -1151,6 +1151,7 @@ highs
 himalaya
 hive
 hivemind
+hivex
 hledger
 hof
 homebank
