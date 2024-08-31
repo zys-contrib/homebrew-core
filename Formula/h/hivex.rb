@@ -1,8 +1,8 @@
 class Hivex < Formula
   desc "Library and tools for extracting the contents of Windows Registry hive files"
   homepage "https://libguestfs.org"
-  url "https://download.libguestfs.org/hivex/hivex-1.3.23.tar.gz"
-  sha256 "40cf5484f15c94672259fb3b99a90bef6f390e63f37a52a1c06808a2016a6bbd"
+  url "https://download.libguestfs.org/hivex/hivex-1.3.24.tar.gz"
+  sha256 "a52fa45cecc9a78adb2d28605d68261e4f1fd4514a778a5473013d2ccc8a193c"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-only"]
 
   livecheck do
