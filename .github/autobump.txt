@@ -24,6 +24,7 @@ age-plugin-yubikey
 agg
 aichat
 aide
+aider
 ain
 aiven-client
 alda
