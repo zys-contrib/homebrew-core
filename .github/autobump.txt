@@ -1356,6 +1356,7 @@ kubefirst
 kubehound
 kubekey
 kubelogin
+kubent
 kubergrunt
 kubernetes-cli
 kubernetes-cli@1.29
