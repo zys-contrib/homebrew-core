@@ -17,8 +17,9 @@ class Fbthrift < Formula
   end
 
   depends_on "bison" => :build # Needs Bison 3.1+
-  depends_on "cmake" => :build
+  depends_on "cmake" => [:build, :test]
   depends_on "boost"
+  depends_on "double-conversion"
   depends_on "fizz"
   depends_on "fmt"
   depends_on "folly"
@@ -53,7 +54,7 @@ class Fbthrift < Formula
     # to include them, make sure `bin/thrift1` links with the dynamic libraries
     # instead of the static ones (e.g. `libcompiler_base`, `libcompiler_lib`, etc.)
     shared_args = ["-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}"]
-    shared_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup" if OS.mac?
+    shared_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup -Wl,-dead_strip_dylibs" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build/shared", *shared_args, *std_cmake_args
     system "cmake", "--build", "build/shared"
@@ -75,5 +76,24 @@ class Fbthrift < Formula
     system bin/"thrift1", "--gen", "mstch_cpp2", "example.thrift"
     assert_predicate testpath/"gen-cpp2", :exist?
     assert_predicate testpath/"gen-cpp2", :directory?
+
+    # TODO: consider adding an actual test
+    (testpath/"test.cpp").write "int main() { return 0; }\n"
+
+    # Test CMake package to make sure required dependencies without linkage are kept,
+    # Link to `FBThrift::transport` as it uses path to `zstd` shared library
+    (testpath/"CMakeLists.txt").write <<~EOS
+      cmake_minimum_required(VERSION 3.5)
+      project(test LANGUAGES CXX)
+
+      list(APPEND CMAKE_MODULE_PATH "#{Formula["fizz"].opt_libexec}/cmake")
+      find_package(gflags REQUIRED)
+      find_package(FBThrift CONFIG REQUIRED)
+
+      add_executable(test test.cpp)
+      target_link_libraries(test FBThrift::transport)
+    EOS
+    system "cmake", ".", *std_cmake_args
+    system "cmake", "--build", "."
   end
 end
