@@ -37,7 +37,6 @@ class Poac < Formula
   depends_on "toml11" => :build
   depends_on "curl"
   depends_on "fmt"
-  depends_on "gcc" # C++20, FIXME: This should be Linux-only.
   depends_on "libgit2"
   depends_on "nlohmann-json"
   depends_on "pkg-config"
@@ -45,6 +44,10 @@ class Poac < Formula
 
   on_macos do
     depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1200
+  end
+
+  on_linux do
+    depends_on "gcc" # C++20
   end
 
   fails_with :clang do
