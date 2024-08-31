@@ -1444,6 +1444,7 @@ libffi
 libfido2
 libfontenc
 libfs
+libgedit-amtk
 libgedit-gtksourceview
 libgeotiff
 libgetdata
