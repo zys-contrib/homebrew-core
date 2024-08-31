@@ -27,7 +27,7 @@ class Pktanon < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "54a53776fa3c529c82d9f1ae3725b9a5a82fe6ff9c35cae2133859f7245f161e"
   end
 
-  depends_on "boost"
+  depends_on "boost" => :build
   depends_on "xerces-c"
 
   fails_with gcc: "5"
@@ -35,12 +35,9 @@ class Pktanon < Formula
   def install
     # fix compile failure caused by undefined function 'sleep'.
     inreplace "src/Timer.cpp", %Q(#include "Timer.h"\r\n),
-      %Q(#include "Timer.h"\r\n#include "unistd.h"\r\n)
+                               %Q(#include "Timer.h"\r\n#include "unistd.h"\r\n)
 
-    # include the boost system library to resolve compilation errors
-    ENV["LIBS"] = "-lboost_system-mt"
-
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
