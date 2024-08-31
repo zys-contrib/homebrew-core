@@ -903,6 +903,7 @@ fwupd
 fx
 fzf
 g-ls
+gabo
 gallery-dl
 gammaray
 gat

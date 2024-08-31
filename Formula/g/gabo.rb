@@ -1,8 +1,8 @@
 class Gabo < Formula
   desc "Generates GitHub Actions boilerplate"
   homepage "https://github.com/ashishb/gabo"
-  url "https://github.com/ashishb/gabo/archive/refs/tags/v1.1.2.tar.gz"
-  sha256 "2aba8f85f9d241217a56847c372f7d7a001218073f76f8e791bc161edd525611"
+  url "https://github.com/ashishb/gabo/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "f8498c1721308e785917c3e3532dd9027e9dcf72b5bd8145e47fced3fc9e5048"
   license "Apache-2.0"
 
   bottle do
@@ -24,8 +24,8 @@ class Gabo < Formula
   end
 
   test do
-    system bin/"gabo", "--help"
-    system bin/"gabo", "--version"
+    assert_match version.to_s, shell_output("#{bin}/gabo --version")
+
     gabo_test = testpath/"gabo-test"
     gabo_test.mkpath
     (gabo_test/".git").mkpath # Emulate git
