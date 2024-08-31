@@ -13,13 +13,13 @@ class Homebank < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "47b1930e189414ca9093acd78a9841adb85eb4a4e9256aed9fcf33fe94193f03"
-    sha256 arm64_ventura:  "acfdd36eea88731e1a89f4f8f9d49c648d53464108abf7454811a7aa19e18a79"
-    sha256 arm64_monterey: "35b070e0cbbd91fa64604f23544ebc0de53408b9ead1a4f625d5519db6fca571"
-    sha256 sonoma:         "c720ac9b41db8b5708faf8ea26d6e86716c96ff02baca0151480cb5ffa4676c6"
-    sha256 ventura:        "e7a91dc6b7aed9f5d8ee73c88c3e6e400d2f2f4f25819c1f240be9ef1a3487bc"
-    sha256 monterey:       "81e07a712af61832aba5ad3c50a25fa56fbadf3aa995e5806da04224c89a2aaa"
-    sha256 x86_64_linux:   "35552c6edb31ec7f2f966cd152ca32cd8f32dac5ea6737dc8c01267542bcaba2"
+    sha256 arm64_sonoma:   "bf7498628165c1721cdc2e524062c4d101f3b29af873aec3df7f5c124beec229"
+    sha256 arm64_ventura:  "b10d6e67cc5f61a0eb5591114a64cdf8cd105865690847a2c36a78ae06f53ec4"
+    sha256 arm64_monterey: "c4661ed8dfad89b53ee714abd739567d857e8b1ff98eacd7161f9a59f5ff8b22"
+    sha256 sonoma:         "10a1878b94e54aad83aec739e683ec0b7f0376110c3450af8926895a84fb72e8"
+    sha256 ventura:        "402809621caeff90fad381ee692d45275ee962dcb5783c7ca7275b5c60b43b87"
+    sha256 monterey:       "96b6e50db17ecab79ef1bc68fdca328dd2fb1b67f0670ecc725f2b7b2546e762"
+    sha256 x86_64_linux:   "c2cf7fdf60fa262efb083abc5c6ad43fe44ded311b1b549abd20e3cffa5af961"
   end
 
   depends_on "intltool" => :build
