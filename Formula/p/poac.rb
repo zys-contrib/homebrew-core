@@ -34,11 +34,11 @@ class Poac < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5d1245d8bfe9ec99d89f6ff4eb9fd878a3ed54f427093dcbc7b17662b9fa8df"
   end
 
+  depends_on "nlohmann-json" => :build
   depends_on "toml11" => :build
   depends_on "curl"
   depends_on "fmt"
   depends_on "libgit2"
-  depends_on "nlohmann-json"
   depends_on "pkg-config"
   depends_on "tbb"
 
