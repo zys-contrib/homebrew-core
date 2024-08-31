@@ -1,12 +1,12 @@
 class Lammps < Formula
   desc "Molecular Dynamics Simulator"
-  homepage "https://lammps.sandia.gov/"
-  url "https://github.com/lammps/lammps/archive/refs/tags/stable_2Aug2023_update4.tar.gz"
+  homepage "https://docs.lammps.org/"
+  url "https://github.com/lammps/lammps/archive/refs/tags/stable_29Aug2024.tar.gz"
   # lammps releases are named after their release date. We transform it to
   # YYYY-MM-DD (year-month-day) so that we get a sane version numbering.
   # We only track stable releases as announced on the LAMMPS homepage.
-  version "20230802-update4"
-  sha256 "6eed007cc24cda80b5dd43372b2ad4268b3982bb612669742c8c336b79137b5b"
+  version "20240829"
+  sha256 "6112e0cc352c3140a4874c7f74db3c0c8e30134024164509ecf3772b305fde2e"
   license "GPL-2.0-only"
 
   # The `strategy` block below is used to massage upstream tags into the
@@ -38,12 +38,16 @@ class Lammps < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+
   depends_on "fftw"
   depends_on "gcc" # for gfortran
+  depends_on "gsl"
   depends_on "jpeg-turbo"
   depends_on "kim-api"
   depends_on "libpng"
   depends_on "open-mpi"
+
+  uses_from_macos "curl"
 
   on_macos do
     depends_on "libomp"
