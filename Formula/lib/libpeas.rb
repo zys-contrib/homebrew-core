@@ -1,9 +1,11 @@
 class Libpeas < Formula
   desc "GObject plugin library"
   homepage "https://wiki.gnome.org/Projects/Libpeas"
+  # TODO: Move to latest `spidermonkey` with gjs 1.82.x
   url "https://download.gnome.org/sources/libpeas/2.0/libpeas-2.0.3.tar.xz"
   sha256 "39e3b507c29d2d01df1345e9b3380fd7a9d0aeb5b2e657d38e6c2bea5023e5f0"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_sonoma:  "42e6ded6c04525304a112370557d5c15e6f5a5326881c4e259e0031f015ce1b8"
@@ -23,7 +25,7 @@ class Libpeas < Formula
   depends_on "gtk+3"
   depends_on "pygobject3"
   depends_on "python@3.12"
-  depends_on "spidermonkey"
+  depends_on "spidermonkey@115"
 
   on_macos do
     depends_on "gettext"
