@@ -1430,6 +1430,7 @@ libclc
 libcoap
 libcouchbase
 libcpuid
+libcyaml
 libdap
 libdeflate
 libdivide
