@@ -440,7 +440,7 @@
   },
   "keepkey-agent": {
     "exclude_packages": ["cryptography"],
-    "extra_packages": ["protobuf==3.20.3", "setuptools"]
+    "extra_packages": ["protobuf==3.20.3"]
   },
   "keyring": {
     "package_name": "keyring[completion]",
