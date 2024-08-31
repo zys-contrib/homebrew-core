@@ -58,11 +58,6 @@ class Dwarfs < Formula
     cause "Not all required C++20 features are supported"
   end
 
-  fails_with :gcc do
-    version "11"
-    cause "Not all required C++20 features are supported"
-  end
-
   def install
     args = %W[
       -DBUILD_SHARED_LIBS=ON
