@@ -21,9 +21,8 @@ class Libvisio < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad23bfb3366f55886db7ca0b460b25c41fc30efd35af8c3d724e7723234eb573"
   end
 
-  depends_on "cppunit" => :build
+  depends_on "boost" => :build
   depends_on "pkg-config" => :build
-  depends_on "boost"
   depends_on "icu4c"
   depends_on "librevenge"
 
@@ -31,12 +30,11 @@ class Libvisio < Formula
   uses_from_macos "libxml2"
 
   def install
-    # Needed for Boost 1.59.0 compatibility.
-    ENV["LDFLAGS"] = "-lboost_system-mt"
-    system "./configure", "--without-docs",
-                          "-disable-dependency-tracking",
-                          "--enable-static=no",
-                          "--prefix=#{prefix}"
+    system "./configure", "--disable-silent-rules",
+                          "--disable-static",
+                          "--disable-tests",
+                          "--without-docs",
+                          *std_configure_args
     system "make", "install"
   end
 
