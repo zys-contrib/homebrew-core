@@ -1,8 +1,8 @@
 class Cppcheck < Formula
   desc "Static analysis of C and C++ code"
   homepage "https://sourceforge.net/projects/cppcheck/"
-  url "https://github.com/danmar/cppcheck/archive/refs/tags/2.14.2.tar.gz"
-  sha256 "9c3acea5f489336bd83a8ea33917a9a04a80c56d874bf270287e7de27acf2d00"
+  url "https://github.com/danmar/cppcheck/archive/refs/tags/2.15.0.tar.gz"
+  sha256 "98bcc40ac8062635b492fb096d7815376a176ae26749d6c708083f4637f7c0bb"
   license "GPL-3.0-or-later"
   head "https://github.com/danmar/cppcheck.git", branch: "main"
 
@@ -36,18 +36,17 @@ class Cppcheck < Formula
   end
 
   def install
-    args = std_cmake_args + %W[
+    args = %W[
       -DHAVE_RULES=ON
       -DUSE_BUNDLED_TINYXML2=OFF
       -DENABLE_OSS_FUZZ=OFF
       -DPYTHON_EXECUTABLE=#{python3}
+      -DFILESDIR=#{pkgshare}
     ]
-    system "cmake", "-S", ".", "-B", "build", *args
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-
-    # Move the python addons to the cppcheck pkgshare folder
-    (pkgshare/"addons").install Dir.glob("addons/*.py")
   end
 
   test do
@@ -84,9 +83,9 @@ class Cppcheck < Formula
     test_cpp_file_check.write <<~EOS
       int main()
       {
-      char a[10];
-      a[10] = 0;
-      return 0;
+        char a[10];
+        a[10] = 0;
+        return 0;
       }
     EOS
     output = shell_output("#{bin}/cppcheck #{test_cpp_file_check} 2>&1")
