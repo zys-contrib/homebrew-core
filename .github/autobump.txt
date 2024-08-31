@@ -2560,6 +2560,7 @@ task
 tbb
 tbls
 tcl-tk
+tcpdump
 tcpreplay
 tcsh
 tctl
