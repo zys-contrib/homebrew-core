@@ -1,8 +1,8 @@
 class Libpcap < Formula
   desc "Portable library for network traffic capture"
   homepage "https://www.tcpdump.org/"
-  url "https://www.tcpdump.org/release/libpcap-1.10.4.tar.gz"
-  sha256 "ed19a0383fad72e3ad435fd239d7cd80d64916b87269550159d20e47160ebe5f"
+  url "https://www.tcpdump.org/release/libpcap-1.10.5.tar.gz"
+  sha256 "37ced90a19a302a7f32e458224a00c365c117905c2cd35ac544b6880a81488f0"
   license "BSD-3-Clause"
   head "https://github.com/the-tcpdump-group/libpcap.git", branch: "master"
 
@@ -29,9 +29,9 @@ class Libpcap < Formula
   uses_from_macos "flex" => :build
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--enable-ipv6",
-                          "--disable-universal"
+    # Exclude unrecognized options
+    std_args = std_configure_args.reject { |s| s["--disable-debug"] || s["--disable-dependency-tracking"] }
+    system "./configure", "--enable-ipv6", "--disable-universal", *std_args
     system "make", "install"
   end
 

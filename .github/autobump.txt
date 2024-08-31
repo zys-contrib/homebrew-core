@@ -1485,6 +1485,7 @@ libopenmpt
 liboqs
 liborigin
 libpano
+libpcap
 libpeas
 libphonenumber
 libpipeline
