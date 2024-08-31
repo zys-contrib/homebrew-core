@@ -1970,6 +1970,7 @@ oxipng
 p11-kit
 pacapt
 packetbeat
+packetq
 packmol
 pacparser
 pagmo
