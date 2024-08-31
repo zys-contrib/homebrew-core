@@ -910,6 +910,7 @@ gateway-go
 gator
 gatsby-cli
 gau
+gcalcli
 gcem
 gcovr
 gcsfuse
