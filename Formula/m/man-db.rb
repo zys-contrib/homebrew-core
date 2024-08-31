@@ -1,9 +1,9 @@
 class ManDb < Formula
   desc "Unix documentation system"
   homepage "https://www.nongnu.org/man-db/"
-  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.12.1.tar.xz", using: :homebrew_curl
-  mirror "https://download-mirror.savannah.gnu.org/releases/man-db/man-db-2.12.1.tar.xz"
-  sha256 "ddee249daeb78cf92bab794ccd069cc8b575992265ea20e239e887156e880265"
+  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.13.0.tar.xz", using: :homebrew_curl
+  mirror "https://download-mirror.savannah.gnu.org/releases/man-db/man-db-2.13.0.tar.xz"
+  sha256 "82f0739f4f61aab5eb937d234de3b014e777b5538a28cbd31433c45ae09aefb9"
   license "GPL-2.0-or-later"
 
   livecheck do
