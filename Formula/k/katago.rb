@@ -21,9 +21,14 @@ class Katago < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "boost"
   depends_on "libzip"
   depends_on macos: :mojave
+
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "eigen" => :build
+  end
 
   resource "20b-network" do
     url "https://github.com/lightvector/KataGo/releases/download/v1.4.5/g170e-b20c256x2-s5303129600-d1228401921.bin.gz", using: :nounzip
@@ -41,17 +46,18 @@ class Katago < Formula
   end
 
   def install
-    cd "cpp" do
-      args = %w[-DBUILD_MCTS=1 -DNO_GIT_REVISION=1]
-      if OS.mac?
-        args << "-DUSE_BACKEND=OPENCL"
-        args << "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}"
-      end
-      system "cmake", ".", *args, *std_cmake_args
-      system "make"
-      bin.install "katago"
-      pkgshare.install "configs"
+    args = ["-DNO_GIT_REVISION=1"]
+    args += if OS.mac?
+      ["-DUSE_BACKEND=OPENCL", "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}"]
+    else
+      ["-DUSE_BACKEND=EIGEN"]
     end
+
+    system "cmake", "-S", "cpp", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    bin.install "build/katago"
+
+    pkgshare.install "cpp/configs"
     pkgshare.install resource("20b-network")
     pkgshare.install resource("30b-network")
     pkgshare.install resource("40b-network")
