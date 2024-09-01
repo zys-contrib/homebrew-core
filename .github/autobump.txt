@@ -169,9 +169,9 @@ bartib
 bartycrouch
 base16384
 basedpyright
-bash_unit
 bash-completion@2
 bash-language-server
+bash_unit
 bashunit
 basti
 bat
@@ -752,8 +752,8 @@ eprover
 erdtree
 erg
 erlang
-erlang_ls
 erlang@25
+erlang_ls
 erofs-utils
 esbuild
 eslint
@@ -1098,8 +1098,8 @@ gsl
 gsmartcontrol
 gsoap
 gstreamer
-gtk-gnutella
 gtk+3
+gtk-gnutella
 gtk4
 gtkmm4
 gtksourceview5
@@ -1625,9 +1625,9 @@ mackup
 mactop
 mafft
 mage
-magic_enum
 magic-wormhole
 magic-wormhole.rs
+magic_enum
 mailcatcher
 mailpit
 mailsy
@@ -1835,11 +1835,11 @@ nmap
 nng
 nnn
 node
-node_exporter
 node-build
 node-sass
 node@18
 node@20
+node_exporter
 nodeenv
 nomino
 noseyparker
