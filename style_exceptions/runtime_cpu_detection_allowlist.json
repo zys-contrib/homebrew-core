@@ -2,6 +2,7 @@
   "abseil",
   "aom",
   "blis",
+  "botan",
   "fftw",
   "highway",
   "libvpx",
