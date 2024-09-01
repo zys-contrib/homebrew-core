@@ -23,11 +23,11 @@ class Mysql < Formula
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "abseil"
   depends_on "icu4c"
-  depends_on "libfido2"
   depends_on "lz4"
   depends_on "openssl@3"
-  depends_on "protobuf@21" # percona-xtrabackup dependency conflict
+  depends_on "protobuf"
   depends_on "zlib" # Zlib 1.2.13+
   depends_on "zstd"
 
@@ -44,8 +44,7 @@ class Mysql < Formula
     depends_on "libtirpc"
   end
 
-  conflicts_with "mariadb", "percona-server",
-    because: "mysql, mariadb, and percona install the same binaries"
+  conflicts_with "mariadb", "percona-server", because: "both install the same binaries"
 
   fails_with :clang do
     build 1400
@@ -62,14 +61,23 @@ class Mysql < Formula
   end
 
   def install
-    if OS.linux?
-      # Fix libmysqlgcs.a(gcs_logging.cc.o): relocation R_X86_64_32
-      # against `_ZN17Gcs_debug_options12m_debug_noneB5cxx11E' can not be used when making
-      # a shared object; recompile with -fPIC
-      ENV.append_to_cflags "-fPIC"
+    # Remove bundled libraries other than explicitly allowed below.
+    # `boost` and `rapidjson` must use bundled copy due to patches.
+    # `lz4` is still needed due to xxhash.c used by mysqlgcs
+    keep = %w[boost duktape libbacktrace libcno lz4 rapidjson unordered_dense]
+    (buildpath/"extra").each_child { |dir| rm_r(dir) unless keep.include?(dir.basename.to_s) }
 
+    if OS.linux?
       # Disable ABI checking
       inreplace "cmake/abi_check.cmake", "RUN_ABI_CHECK 1", "RUN_ABI_CHECK 0"
+
+      # Work around build issue with Protobuf 22+ on Linux
+      # Ref: https://bugs.mysql.com/bug.php?id=113045
+      # Ref: https://bugs.mysql.com/bug.php?id=115163
+      inreplace "cmake/protobuf.cmake" do |s|
+        s.gsub! 'IF(APPLE AND WITH_PROTOBUF STREQUAL "system"', 'IF(WITH_PROTOBUF STREQUAL "system"'
+        s.gsub! ' INCLUDE REGEX "${HOMEBREW_HOME}.*")', ' INCLUDE REGEX "libabsl.*")'
+      end
     elsif DevelopmentTools.clang_build_version <= 1400
       ENV.llvm_clang
       # Work around failure mixing newer `llvm` headers with older Xcode's libc++:
@@ -80,6 +88,8 @@ class Mysql < Formula
     end
 
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
+    # -DWITH_FIDO=system isn't set as feature isn't enabled and bundled copy was removed.
+    # Formula paths are set to avoid HOMEBREW_HOME logic in CMake scripts
     args = %W[
       -DCOMPILATION_COMMENT=Homebrew
       -DINSTALL_DOCDIR=share/doc/#{name}
@@ -90,11 +100,12 @@ class Mysql < Formula
       -DINSTALL_PLUGINDIR=lib/plugin
       -DMYSQL_DATADIR=#{datadir}
       -DSYSCONFDIR=#{etc}
+      -DBISON_EXECUTABLE=#{Formula["bison"].opt_bin}/bison
+      -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
+      -DWITH_ICU=#{Formula["icu4c"].opt_prefix}
       -DWITH_SYSTEM_LIBS=ON
       -DWITH_BOOST=boost
       -DWITH_EDITLINE=system
-      -DWITH_FIDO=system
-      -DWITH_ICU=system
       -DWITH_LIBEVENT=system
       -DWITH_LZ4=system
       -DWITH_PROTOBUF=system
@@ -110,14 +121,14 @@ class Mysql < Formula
     system "cmake", "--install", "build"
 
     (prefix/"mysql-test").cd do
-      system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"
+      system "./mysql-test-run.pl", "status", "--vardir=#{buildpath}/mysql-test-vardir"
     end
 
     # Remove the tests directory
     rm_r(prefix/"mysql-test")
 
     # Fix up the control script and link into bin.
-    inreplace "#{prefix}/support-files/mysql.server",
+    inreplace prefix/"support-files/mysql.server",
               /^(PATH=".*)(")/,
               "\\1:#{HOMEBREW_PREFIX}/bin\\2"
     bin.install_symlink prefix/"support-files/mysql.server"
@@ -143,7 +154,7 @@ class Mysql < Formula
     unless (datadir/"mysql/general_log.CSM").exist?
       ENV["TMPDIR"] = nil
       system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
-        "--basedir=#{prefix}", "--datadir=#{datadir}", "--tmpdir=/tmp"
+                           "--basedir=#{prefix}", "--datadir=#{datadir}", "--tmpdir=/tmp"
     end
   end
 
@@ -183,16 +194,19 @@ class Mysql < Formula
   test do
     (testpath/"mysql").mkpath
     (testpath/"tmp").mkpath
-    system bin/"mysqld", "--no-defaults", "--initialize-insecure", "--user=#{ENV["USER"]}",
-      "--basedir=#{prefix}", "--datadir=#{testpath}/mysql", "--tmpdir=#{testpath}/tmp"
+
+    args = %W[--no-defaults --user=#{ENV["USER"]} --datadir=#{testpath}/mysql --tmpdir=#{testpath}/tmp]
+    system bin/"mysqld", *args, "--initialize-insecure", "--basedir=#{prefix}"
     port = free_port
-    fork do
-      system bin/"mysqld", "--no-defaults", "--user=#{ENV["USER"]}",
-        "--datadir=#{testpath}/mysql", "--port=#{port}", "--tmpdir=#{testpath}/tmp"
+    pid = spawn(bin/"mysqld", *args, "--port=#{port}")
+    begin
+      sleep 5
+
+      output = shell_output("#{bin}/mysql --port=#{port} --user=root --password= --execute='show databases;'")
+      assert_match "information_schema", output
+      system bin/"mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
+    ensure
+      Process.kill "TERM", pid
     end
-    sleep 5
-    assert_match "information_schema",
-      shell_output("#{bin}/mysql --port=#{port} --user=root --password= --execute='show databases;'")
-    system bin/"mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
   end
 end
