@@ -337,6 +337,7 @@ cekit
 censys
 cern-ndiff
 certbot
+certifi
 certigo
 cf
 cf2tf
