@@ -7,13 +7,13 @@ class Navidrome < Formula
   head "https://github.com/navidrome/navidrome.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a29670f39833b3ad8764a6e03ddc8640dd637d9cab1dde86340fada9e63fd343"
-    sha256 cellar: :any,                 arm64_ventura:  "b9bd039e77a3c4a7ae3c2ef0f52c1469fd760ccf81d68a449a24217eafb76483"
-    sha256 cellar: :any,                 arm64_monterey: "f4d91d6addfa0fd5fd3c884dc5879a8b2b4d8436faa07b8a7a5a2b4fa659348a"
-    sha256 cellar: :any,                 sonoma:         "892aa537cac66baf54a9daa2a775ba7656b931490923037e0d0e1da6c5d06b75"
-    sha256 cellar: :any,                 ventura:        "32314864d9e865c791bf82a6050131a111be97b61c06e3ddfb3b40d084c6562e"
-    sha256 cellar: :any,                 monterey:       "72bc0a370b3f1e958ac20ee96ab1c4bd68edcb97bffdefd802792248484916e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32b2652863670e9e26bdc99196b02e2ce17a43396cde97ba68ef6c69c8148864"
+    sha256 cellar: :any,                 arm64_sonoma:   "37ee945b3c210d57760b8132e470dfb5b7f963c7f551b7f22a3c4ae0385270b7"
+    sha256 cellar: :any,                 arm64_ventura:  "a60a48c4203b74f86db04c2de1c982ba4a7fd75e44b55528818f42a3ec947a45"
+    sha256 cellar: :any,                 arm64_monterey: "916cf2ac13a877e57539dcc9757f098fb00ad6e755246786ddad87bfc8de3778"
+    sha256 cellar: :any,                 sonoma:         "1e4298c375cd4ca19bb17fb488dfbaa3462c694477c46815ed92196fe4317318"
+    sha256 cellar: :any,                 ventura:        "052d6a8e2f04eedb8a3b58e627aa9e86491facccfe4c4f0cf491b249a598bbc9"
+    sha256 cellar: :any,                 monterey:       "e0648dbf7635f108481fac630e28f02db6ba7d8b86693e1ca42402ed5549c475"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a2820f2554b02306483c389a70ba96eca444b192bad8ac9d295adc1cb9909eaa"
   end
 
   depends_on "go" => :build
