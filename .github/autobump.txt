@@ -925,6 +925,7 @@ geeqie
 gegl
 genact
 geni
+gensio
 geogram
 geoip2fast
 geoipupdate
