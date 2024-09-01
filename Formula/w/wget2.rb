@@ -21,51 +21,46 @@ class Wget2 < Formula
   end
 
   depends_on "doxygen" => :build
-  # The pattern used in 'docs/wget2_md2man.sh.in' doesn't work with system sed
-  depends_on "gnu-sed" => :build
   depends_on "graphviz" => :build
-  depends_on "lzip" => :build
+  depends_on "lzlib" => :build # static lib
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :build
   depends_on "texinfo" => :build # Build fails with macOS-provided `texinfo`
 
   depends_on "brotli"
-  depends_on "gettext"
   depends_on "gnutls"
   depends_on "gpgme"
-  depends_on "libassuan"
-  depends_on "libgpg-error"
   depends_on "libidn2"
-  depends_on "libmicrohttpd"
   depends_on "libnghttp2"
   depends_on "libpsl"
-  depends_on "libtasn1"
-  depends_on "lzlib"
-  depends_on "nettle"
-  depends_on "p11-kit"
   depends_on "pcre2"
   depends_on "xz"
   depends_on "zstd"
 
   uses_from_macos "bzip2"
-  uses_from_macos "icu4c"
   uses_from_macos "zlib"
 
-  def install
-    gnused = Formula["gnu-sed"]
-    lzlib = Formula["lzlib"]
-    gettext = Formula["gettext"]
+  on_macos do
+    depends_on "gnu-sed" => :build
+    depends_on "gettext"
+  end
 
+  def install
     # The pattern used in 'docs/wget2_md2man.sh.in' doesn't work with system sed
-    ENV.prepend_path "PATH", gnused.libexec/"gnubin"
+    ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if OS.mac?
+
+    lzlib = Formula["lzlib"]
     ENV.append "LZIP_CFLAGS", "-I#{lzlib.include}"
     ENV.append "LZIP_LIBS", "-L#{lzlib.lib} -llz"
 
-    system "./configure", *std_configure_args,
-           "--with-bzip2",
-           "--with-lzma",
-           "--with-libintl-prefix=#{gettext.prefix}"
+    args = %w[
+      --disable-silent-rules
+      --with-bzip2
+      --with-lzma
+    ]
+    args << "--with-libintl-prefix=#{Formula["gettext"].prefix}" if OS.mac?
 
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 
