@@ -2296,7 +2296,7 @@ rust-parallel
 rustcat
 rustfmt
 rustscan
-rustup-init
+rustup
 rye
 ryelang
 s-nail
