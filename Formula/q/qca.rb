@@ -4,6 +4,7 @@ class Qca < Formula
   url "https://download.kde.org/stable/qca/2.3.9/qca-2.3.9.tar.xz"
   sha256 "c555d5298cdd7b6bafe2b1f96106f30cfa543a23d459d50c8a91eac33c476e4e"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://invent.kde.org/libraries/qca.git", branch: "master"
 
   livecheck do
@@ -35,7 +36,7 @@ class Qca < Formula
   uses_from_macos "cyrus-sasl"
 
   on_macos do
-    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1400
+    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1400
     depends_on "nspr"
   end
 
@@ -47,7 +48,10 @@ class Qca < Formula
   fails_with gcc: "5"
 
   def install
-    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1400
+    if OS.mac? && DevelopmentTools.clang_build_version <= 1400
+      ENV.llvm_clang
+      ENV.append "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/c++ -L#{Formula["llvm"].opt_lib} -lunwind"
+    end
 
     ENV["QC_CERTSTORE_PATH"] = Formula["ca-certificates"].pkgetc/"cert.pem"
 
