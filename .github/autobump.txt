@@ -947,6 +947,7 @@ ghz-web
 gickup
 gifski
 ginac
+gismo
 git-absorb
 git-annex
 git-codereview
