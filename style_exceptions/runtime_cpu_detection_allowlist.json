@@ -5,6 +5,7 @@
   "fftw",
   "highway",
   "libvpx",
+  "nsd",
   "openblas",
   "opencv",
   "open-mpi",
