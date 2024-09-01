@@ -3,8 +3,8 @@ class Schemathesis < Formula
 
   desc "Testing tool for web applications with specs"
   homepage "https://schemathesis.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/e9/dc/de51ce1e7ee155cf2fd1ed0c29b3a8be86dc22b2ba3115e85d2acd7da5d8/schemathesis-3.35.1.tar.gz"
-  sha256 "8f06a1810d68caca08858979ae91fd052a0df6a682dbfe81e742afbbc4cf6fd4"
+  url "https://files.pythonhosted.org/packages/6f/c5/0f52b561eb0f29b43dccb710e541f88b2532366274e99c260db5465175e7/schemathesis-3.35.2.tar.gz"
+  sha256 "c92c5ba46664b6248a91573daa00ddb1484e1a2156cbd427a21c15640ab13312"
   license "MIT"
 
   bottle do
@@ -85,8 +85,8 @@ class Schemathesis < Formula
   end
 
   resource "httpx" do
-    url "https://files.pythonhosted.org/packages/5c/2d/3da5bdf4408b8b2800061c339f240c1802f2e82d55e50bd39c5a881f47f0/httpx-0.27.0.tar.gz"
-    sha256 "a0cb88a46f32dc874e04ee956e4c2764aba2aa228f650b06788ba6bda2962ab5"
+    url "https://files.pythonhosted.org/packages/78/82/08f8c936781f67d9e6b9eeb8a0c8b4e406136ea4c3d1f89a5db71d42e0e6/httpx-0.27.2.tar.gz"
+    sha256 "f7c2be1d2f3c3c3160d441802406b206c2b76f5947b11115e6df10c6c65e66c2"
   end
 
   resource "hypothesis" do
@@ -225,8 +225,8 @@ class Schemathesis < Formula
   end
 
   resource "starlette" do
-    url "https://files.pythonhosted.org/packages/43/e2/d49a94ecb665b3a1c34b40c78165a737abc384fcabc843ccb14a3bd3dc37/starlette-0.38.2.tar.gz"
-    sha256 "c7c0441065252160993a1a37cf2a73bb64d271b17303e0b0c1eb7191cfb12d75"
+    url "https://files.pythonhosted.org/packages/7f/27/ea66b32f01d9f07bbb8cc545ae670fe1d4dce91c951132d0d968ed49d60a/starlette-0.38.3.tar.gz"
+    sha256 "f674450f0f46a790be1f3a128f386080600b58fa358f8e320d93dbef6d7f676c"
   end
 
   resource "starlette-testclient" do
@@ -270,8 +270,8 @@ class Schemathesis < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/e0/ad/bedcdccbcbf91363fd425a948994f3340924145c2bc8ccb296f4a1e52c28/yarl-1.9.4.tar.gz"
-    sha256 "566db86717cf8080b99b58b083b773a908ae40f06681e87e589a976faf8246bf"
+    url "https://files.pythonhosted.org/packages/80/1c/708f8d34fb7788c8f4fa78fa5ae0967e8a456504bdb850c6d3390edc8b8b/yarl-1.9.6.tar.gz"
+    sha256 "0bdc6a7b59efa0c34c90ef3da864f0c53e81a4640fbc461bfde9f1b0c64c3c81"
   end
 
   def install
