@@ -1701,6 +1701,7 @@ micronaut
 micropython
 microsocks
 mighttpd2
+mihomo
 mill
 miller
 millet
