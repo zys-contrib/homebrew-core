@@ -626,6 +626,7 @@ dnsmasq
 dnsperf
 dnstwist
 dnsx
+doc8
 docfx
 docker-buildx
 docker-compose
