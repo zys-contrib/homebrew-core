@@ -659,6 +659,7 @@ doxygen
 dpkg
 dpp
 dprint
+dra
 draco
 drafter
 driftctl
