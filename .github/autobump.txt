@@ -2915,6 +2915,7 @@ yubico-piv-tool
 yyjson
 z3
 zabbix
+zabbix-cli
 zbctl
 zchunk
 zeek
