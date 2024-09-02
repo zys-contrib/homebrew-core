@@ -74,12 +74,16 @@ class Ghostscript < Formula
     libs.each { |l| rm_r(buildpath/l) }
 
     configure = build.head? ? "./autogen.sh" : "./configure"
-    system configure, *std_configure_args,
-                      "--disable-compile-inits",
-                      "--disable-cups",
-                      "--disable-gtk",
-                      "--with-system-libtiff",
-                      "--without-x"
+
+    args = %w[--disable-compile-inits
+              --disable-cups
+              --disable-gtk
+              --with-system-libtiff
+              --without-x]
+    # Work around neon detection bug: https://bugs.ghostscript.com/show_bug.cgi?id=707993
+    odie "`--disable-neon` workaround should be removed!" if build.stable? && version > "10.03.1"
+    args << "--disable-neon" if DevelopmentTools.clang_build_version >= 1600
+    system configure, *std_configure_args, *args
 
     # Install binaries and libraries
     system "make", "install"
