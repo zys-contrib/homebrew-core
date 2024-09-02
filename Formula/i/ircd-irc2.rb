@@ -20,18 +20,14 @@ class IrcdIrc2 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "531d4931922a5d7d0421a6d6de693ea17c43edf571839c3415e856c20f6b01e3"
-    sha256 arm64_ventura:  "8ca253a45db11738e82beb74dac8f6bc70fa455f738ec1252de0102826247697"
-    sha256 arm64_monterey: "9278b13e2b860697e5868ca1624103f2dc4d81b6bc0e6e58801c1bdb52bac550"
-    sha256 arm64_big_sur:  "ed3eac7c4635484c94d12579948947bff1eb6a671846fcd9273dd5ed226759fa"
-    sha256 sonoma:         "d8aa632b8c5493007c5911e292bb411c6b91c8d6526b1a0ceb5a75ec448cbc38"
-    sha256 ventura:        "dc5322bc271aae9ea0b3c84981f73ddfde9602a453335fa3ed3f164b048373c1"
-    sha256 monterey:       "d4c8fb409f40a0b28fd5058260e3ceef2520c654eda0398271e04a6fe9918c66"
-    sha256 big_sur:        "855bb8b0254ee0f410d6bdf3ad8479900f39f0ad120145485d9bdbe146f7a399"
-    sha256 catalina:       "35ae4defa513772b1e1b5b0400976d49cb213818a2272a9760a3da3a7e8c0765"
-    sha256 mojave:         "e0522b8f4eb95b0d60527e136e69474b4e9fe6f2b77a12919d5a6dd76bb2a4fa"
-    sha256 x86_64_linux:   "f8bad7fefb7315efe840f1f601b28ea1f9a83167fe40c8b9c5496330307363f6"
+    rebuild 2
+    sha256 arm64_sonoma:   "c45a5b7682ca7ac5d07f883a2aa981c835ef3ecf2b25602099eb8c27331e4398"
+    sha256 arm64_ventura:  "692fa84b509e25774b65bd12c281990093c6f6563447d2a62ca6e1f13f04ea69"
+    sha256 arm64_monterey: "bd6adad56faafcb7ac533e5bb8668e689b8017a6b0ad336715d02b00b824b882"
+    sha256 sonoma:         "f5fcb1c6dea38be635adcc3bb4a6b32d8034d4c02ee5ea1034a66e6b64059cbd"
+    sha256 ventura:        "fcde6372721ec2700d587fd077cb410df0afdc5100d8181576a5f905728e7ed9"
+    sha256 monterey:       "90c0639ec3e7ab17eaa97b90af15b30b14896d23f7f3c492b88a3190555781ff"
+    sha256 x86_64_linux:   "524aef733a367cce6eb115c4453ec851ffe7ac7d731c3d5ce91195be201bddb1"
   end
 
   def default_ircd_conf
