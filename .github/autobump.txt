@@ -385,6 +385,7 @@ chroma
 chromaprint
 chrome-cli
 chronograf
+chrony
 chsrc
 chuck
 cidr
