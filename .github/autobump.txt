@@ -1577,6 +1577,7 @@ licensed
 licensefinder
 lightgbm
 lighthouse
+lightning
 lighttpd
 lima
 link-grammar
