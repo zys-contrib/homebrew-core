@@ -9,14 +9,13 @@ class Doc8 < Formula
   head "https://github.com/PyCQA/doc8.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "19afe5fe6d519aa6f95b9bfcdc03217d80e1eef12845f1cf4a6df6666dd13be0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "34c2af1d4bcaceda69f99623f6477f10338e6c7bfae75e4747a761d4e27d9c01"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f243afe79d6c21dc8bdec9cb3dec2fe28844b7f9dd7540f2d361b98e4603f3af"
-    sha256 cellar: :any_skip_relocation, sonoma:         "97589fd0e5a9ff1e28462a7f57dbb74cadbc8f50fa665972c7dac7e6a70ea2fa"
-    sha256 cellar: :any_skip_relocation, ventura:        "fa252efb596300267b70559c70d5f9ee051303ddb8d1f96e36d6491b6ffeeb97"
-    sha256 cellar: :any_skip_relocation, monterey:       "b87a1b15782d7290d386fae72081a3b2f1629cb276aa5292710940c31b794ef8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0be4c5cee6cd61e606a920a4803c9dbe4ca30c65b340679408d5f579a4219f29"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "11b134247abd0f676ba46e3be31218d423ab545af59c6ae186fe612b86c46985"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "11b134247abd0f676ba46e3be31218d423ab545af59c6ae186fe612b86c46985"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "11b134247abd0f676ba46e3be31218d423ab545af59c6ae186fe612b86c46985"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3a70c7423c1428253ddfbd08cd6403051c51d73f484071c7e2972b5e42b9f084"
+    sha256 cellar: :any_skip_relocation, ventura:        "3a70c7423c1428253ddfbd08cd6403051c51d73f484071c7e2972b5e42b9f084"
+    sha256 cellar: :any_skip_relocation, monterey:       "3a70c7423c1428253ddfbd08cd6403051c51d73f484071c7e2972b5e42b9f084"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11b134247abd0f676ba46e3be31218d423ab545af59c6ae186fe612b86c46985"
   end
 
   depends_on "python@3.12"
