@@ -1452,6 +1452,7 @@ libedit
 libepoxy
 libewf
 libfabric
+libffcall
 libffi
 libfido2
 libfontenc
