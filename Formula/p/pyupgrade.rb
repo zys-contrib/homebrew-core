@@ -8,6 +8,10 @@ class Pyupgrade < Formula
   license "MIT"
   head "https://github.com/asottile/pyupgrade.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "d064264b637f3c73b8e7a8b5de52d011bd19347e5b65a6e9bb402a6ba8f31f41"
+  end
+
   depends_on "python@3.12"
 
   resource "tokenize-rt" do
