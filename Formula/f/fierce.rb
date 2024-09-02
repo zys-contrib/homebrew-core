@@ -8,6 +8,10 @@ class Fierce < Formula
   license "GPL-3.0-only"
   head "https://github.com/mschwager/fierce.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "12097723135b5e22125953d815b034f514c254d4be1672f286d034b3601d09e5"
+  end
+
   depends_on "python@3.12"
 
   resource "dnspython" do
