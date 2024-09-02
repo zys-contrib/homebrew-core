@@ -1,8 +1,8 @@
 class ApifyCli < Formula
   desc "Apify command-line interface"
   homepage "https://docs.apify.com/cli"
-  url "https://registry.npmjs.org/apify-cli/-/apify-cli-0.20.5.tgz"
-  sha256 "c0f74e971acea2badd92a2e44e308392e46962656125dd69e50304f6f542cec9"
+  url "https://registry.npmjs.org/apify-cli/-/apify-cli-0.20.6.tgz"
+  sha256 "81df5c90a3ee1c6108a37dbdca059fc73f21c03d4dc59285aefdc3b1afda75e1"
   license "Apache-2.0"
 
   bottle do
