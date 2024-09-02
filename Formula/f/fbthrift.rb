@@ -1,8 +1,8 @@
 class Fbthrift < Formula
   desc "Facebook's branch of Apache Thrift, including a new C++ server"
   homepage "https://github.com/facebook/fbthrift"
-  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2024.08.26.00.tar.gz"
-  sha256 "e763819b98d8e8b40ca49cdc0efdce49ea745cbd8828ca5df98d6bf217dee9d4"
+  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2024.09.02.00.tar.gz"
+  sha256 "050576c0544b88b8ffaa03a00085d46c069775251d17b88be81e2a334eb31b69"
   license "Apache-2.0"
   head "https://github.com/facebook/fbthrift.git", branch: "main"
 
@@ -54,7 +54,7 @@ class Fbthrift < Formula
     # The static libraries are a bit annoying to build. If modifying this formula
     # to include them, make sure `bin/thrift1` links with the dynamic libraries
     # instead of the static ones (e.g. `libcompiler_base`, `libcompiler_lib`, etc.)
-    shared_args = ["-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}"]
+    shared_args = ["-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}", "-DCMAKE_POSITION_INDEPENDENT_CODE=ON"]
     shared_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup -Wl,-dead_strip_dylibs" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build/shared", *shared_args, *std_cmake_args
