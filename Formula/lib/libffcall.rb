@@ -7,14 +7,13 @@ class Libffcall < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "81b1425ddfbafc4b45ea81966453bb799882b8416e5afb12782188b8fbe187ec"
-    sha256 cellar: :any,                 arm64_ventura:  "a8c90eb0454270ad27198e6e90c0731f6afef51095ec621b80a7a043754822e0"
-    sha256 cellar: :any,                 arm64_monterey: "91b71a704643bddb2ccd847f70bca71b2f4f42f15dfbe090163efb30e834e9aa"
-    sha256 cellar: :any,                 sonoma:         "dd054182feae02cb566f5e587b1a8d325207d08ee4aea65d0fc1dc6b63c5fb3e"
-    sha256 cellar: :any,                 ventura:        "5f46b88ad65430756cb72c1d4998af731850e1c5b1a8ddd7867f08f7c574af34"
-    sha256 cellar: :any,                 monterey:       "40160028f3394161521a252e488bd7aaa5d2f08f226c794d3252d0d5e1622d32"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f068599b3b97c24dba0ebe1338f972e5de443b155dd2a174dcd516d7b8a39430"
+    sha256 cellar: :any,                 arm64_sonoma:   "ec1b54aeab6d34a9ab35e7e376ed02847f08a29de71a3d4768fa96954327127c"
+    sha256 cellar: :any,                 arm64_ventura:  "958171b0bcdc0974726cfff41c6de58c7e4f90017b4fb9d881b968e8d1612fdf"
+    sha256 cellar: :any,                 arm64_monterey: "89ae257133dd08f737b51cafdbb62ee4aa5d6896d21f78e95673985a6639d265"
+    sha256 cellar: :any,                 sonoma:         "39a00f8aa8c633d254f3dd8de7cd584e825a71d135b9ca3455dad8b1efe4169f"
+    sha256 cellar: :any,                 ventura:        "ad7787776409d59f5b45119a6b799af71c09a7ab6f50970e4b563cb1b6d5e150"
+    sha256 cellar: :any,                 monterey:       "d625f99cb896c08b3aeccfda72807c229e079f923f83be78a96d9d0433d47a03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d42265685ccd225935b647212b027cabcf753fdd4c7f2596d9e30f3be1e8d40"
   end
 
   def install
