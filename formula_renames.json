@@ -89,6 +89,7 @@
   "ksh": "ksh93",
   "kubernetes-helm": "helm",
   "latexila": "gnome-latex",
+  "ldb": "samba",
   "letsencrypt": "certbot",
   "libbitcoin": "libbitcoin-system",
   "libcppa": "caf",
