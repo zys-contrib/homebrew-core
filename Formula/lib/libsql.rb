@@ -1,8 +1,8 @@
 class Libsql < Formula
   desc "Fork of SQLite that is both Open Source, and Open Contributions"
   homepage "https://turso.tech/libsql"
-  url "https://github.com/tursodatabase/libsql/releases/download/libsql-server-v0.24.18/source.tar.gz"
-  sha256 "f35775ffb30d39a4ed91ee4d813973cae00d3b960c100989aa4ff78204beff1e"
+  url "https://github.com/tursodatabase/libsql/releases/download/libsql-server-v0.24.23/source.tar.gz"
+  sha256 "32da248b64c149fb742a3977002f45f8e5532d759af4e2802b70158a2bd024bc"
   license "MIT"
   head "https://github.com/tursodatabase/libsql.git", branch: "main"
 
@@ -24,11 +24,12 @@ class Libsql < Formula
   depends_on "rust" => :build
 
   def install
+    ENV["RUSTFLAGS"] = "--cfg tokio_unstable"
     system "cargo", "install", *std_cargo_args(path: "libsql-server")
   end
 
   test do
-    pid = fork { exec "#{bin}/sqld" }
+    pid = spawn(bin/"sqld")
     sleep 2
     assert_predicate testpath/"data.sqld", :exist?
 
