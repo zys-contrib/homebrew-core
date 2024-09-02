@@ -823,6 +823,7 @@ ffsend
 ffuf
 fgbio
 fheroes2
+fierce
 fig2dev
 file-roller
 filebeat
