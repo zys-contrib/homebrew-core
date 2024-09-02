@@ -2181,6 +2181,7 @@ python-matplotlib
 python-setuptools
 python-yq
 pythran
+pyupgrade
 qbe
 qbs
 qca
