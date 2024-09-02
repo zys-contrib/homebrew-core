@@ -1,8 +1,8 @@
 class Progressline < Formula
   desc "Track commands progress in a compact one-line format"
   homepage "https://github.com/kattouf/ProgressLine"
-  url "https://github.com/kattouf/ProgressLine/archive/refs/tags/0.2.1.tar.gz"
-  sha256 "5ad7ff2b766f59b25f0e197e25b728e1272dc38fd3bd377480e8212f6e03abad"
+  url "https://github.com/kattouf/ProgressLine/archive/refs/tags/0.2.2.tar.gz"
+  sha256 "6c3ee9bdb633b2b616f3fe0c3f4535a1c307d8c031deae0d90bfdbb447061fed"
   license "MIT"
   head "https://github.com/kattouf/ProgressLine.git", branch: "main"
 
