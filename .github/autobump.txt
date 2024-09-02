@@ -1240,6 +1240,7 @@ ipv6calc
 ipython
 ircd-hybrid
 iredis
+isl
 ispc
 istioctl
 isync
