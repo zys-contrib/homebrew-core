@@ -1085,6 +1085,7 @@ greenmask
 grex
 grin
 grin-wallet
+grizzly
 groestlcoin
 grokj2k
 grokmirror
