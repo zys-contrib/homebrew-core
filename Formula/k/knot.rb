@@ -1,8 +1,8 @@
 class Knot < Formula
   desc "High-performance authoritative-only DNS server"
   homepage "https://www.knot-dns.cz/"
-  url "https://secure.nic.cz/files/knot-dns/knot-3.3.5.tar.xz"
-  sha256 "0e0bf04319581280660e8e62ab04be64a7d632331e40fc9c87e76861305db3ad"
+  url "https://secure.nic.cz/files/knot-dns/knot-3.4.0.tar.xz"
+  sha256 "2730b11398944faa5151c51b0655cf26631090343c303597814f2a57df424736"
   license all_of: ["GPL-3.0-or-later", "0BSD", "BSD-3-Clause", "LGPL-2.0-or-later", "MIT"]
 
   livecheck do
@@ -41,16 +41,18 @@ class Knot < Formula
   uses_from_macos "libedit"
 
   def install
-    system "autoreconf", "-fvi" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
+    # https://gitlab.nic.cz/knot/knot-dns/-/blob/master/src/knot/modules/rrl/kru-avx2.c
+    ENV.runtime_cpu_detection if Hardware::CPU.intel?
+
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
+    system "./configure", "--disable-silent-rules",
                           "--with-configdir=#{etc}",
                           "--with-storage=#{var}/knot",
                           "--with-rundir=#{var}/run/knot",
-                          "--prefix=#{prefix}",
                           "--with-module-dnstap",
                           "--enable-dnstap",
-                          "--enable-quic"
+                          "--enable-quic",
+                          *std_configure_args
 
     inreplace "samples/Makefile", "install-data-local:", "disable-install-data-local:"
 
