@@ -3,19 +3,19 @@ class Parsedmarc < Formula
 
   desc "DMARC report analyzer and visualizer"
   homepage "https://domainaware.github.io/parsedmarc/"
-  url "https://files.pythonhosted.org/packages/54/36/187df26ad159964a650b416487c0e23114d25e0777590224e8840c69ca24/parsedmarc-8.14.0.tar.gz"
-  sha256 "a7d7d2bee9caf0ff9e7bfd039aad91af1ce50c9f6536e2f88218de03dfd77ae0"
+  url "https://files.pythonhosted.org/packages/ba/78/ff486b6af674b3eead567a8346782194c7e1179246241a20f9124b7f1c2d/parsedmarc-8.14.1.tar.gz"
+  sha256 "13b07e3069573fd02f8038355c9b1e76a1894c8874bbbcaf4967d18523eb543b"
   license "Apache-2.0"
   head "https://github.com/domainaware/parsedmarc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a0c15aad7608c84bbe8ca8e55ade0a237206fe209750df6e3ef66206dd036a25"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6edade18ff446146cf3133626a1ee9f6c6bd335007f1e7d306ffba93734a43f7"
-    sha256 cellar: :any,                 arm64_monterey: "2c5769e4fecef6dcbe9f3d83516c88fe9b5c87a1e6d93ffa46a7644ef7f37aaf"
-    sha256 cellar: :any_skip_relocation, sonoma:         "107f694c8c880da212b38d60298f242554484f881994eb4223973e27acafc6cc"
-    sha256 cellar: :any_skip_relocation, ventura:        "bc91b3fd09927d73031d94e77dcae04d27bd3670a6ce0ed3e91f21319379fda9"
-    sha256 cellar: :any,                 monterey:       "1fbe5830e01ad965209d416ab4ef2228f24780a3c976e5d040b5863d6e77a77f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5671ebc6dcbc778b3a712dd7cb8566002146381f121ec987c61a08f199f2c386"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c5711c7178ce8346eb505c0590afba053826154d3fd07d38c76b8045eb6a34b5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "60cd0bd33b4461acff2da197fc6fae488151a6dc95964c9dd261edc05c8575e0"
+    sha256 cellar: :any,                 arm64_monterey: "50049dedd61f5a8aa7ba96010831085f0b19cf8035f1a35e3653d21957cc6277"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7a3cc98837603f4f0fd10720dcd4f7ed0e9a6396d56f1e180f5db9ef9c5a98ea"
+    sha256 cellar: :any_skip_relocation, ventura:        "005ae7a530ce9becdd2b6c4fde6de881cc0c82178d60dd4344a0315f0cfb99aa"
+    sha256 cellar: :any,                 monterey:       "f8abb7b17a20647a79ecb4012ad681f15414a116b612a2228edfa7b96bc3e419"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cdc46dd3b4b5d0811405415d5a5a4dfe8f133f0156f0fc144a0cecbc7f730821"
   end
 
   depends_on "certifi"
@@ -321,8 +321,8 @@ class Parsedmarc < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/ac/11/0a953274017ca5c33a9831bc5e052e825d174a3551bd18924777794c8162/setuptools-74.1.0.tar.gz"
-    sha256 "bea195a800f510ba3a2bc65645c88b7e016fe36709fefc58a880c4ae8a0138d7"
+    url "https://files.pythonhosted.org/packages/27/cb/e754933c1ca726b0d99980612dc9da2886e76c83968c246cfb50f491a96b/setuptools-74.1.1.tar.gz"
+    sha256 "2353af060c06388be1cecbf5953dcdb1f38362f87a2356c480b6b4d5fcfc8847"
   end
 
   resource "simplejson" do
