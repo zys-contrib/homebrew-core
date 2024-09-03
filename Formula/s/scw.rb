@@ -1,8 +1,8 @@
 class Scw < Formula
   desc "Command-line Interface for Scaleway"
   homepage "https://github.com/scaleway/scaleway-cli"
-  url "https://github.com/scaleway/scaleway-cli/archive/refs/tags/v2.32.1.tar.gz"
-  sha256 "4b2bfe7b39dcb259f27d5e4eaae4ffc55f31fb9cf6ff1869c7783c5d75c66eb6"
+  url "https://github.com/scaleway/scaleway-cli/archive/refs/tags/v2.33.0.tar.gz"
+  sha256 "cacf2f6bd749d14aae0ac2168197c3fd763b0e94d630fd07007c50bdce96a068"
   license "Apache-2.0"
 
   bottle do
