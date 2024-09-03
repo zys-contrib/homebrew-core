@@ -3,8 +3,8 @@ class Parsedmarc < Formula
 
   desc "DMARC report analyzer and visualizer"
   homepage "https://domainaware.github.io/parsedmarc/"
-  url "https://files.pythonhosted.org/packages/54/36/187df26ad159964a650b416487c0e23114d25e0777590224e8840c69ca24/parsedmarc-8.14.0.tar.gz"
-  sha256 "a7d7d2bee9caf0ff9e7bfd039aad91af1ce50c9f6536e2f88218de03dfd77ae0"
+  url "https://files.pythonhosted.org/packages/ba/78/ff486b6af674b3eead567a8346782194c7e1179246241a20f9124b7f1c2d/parsedmarc-8.14.1.tar.gz"
+  sha256 "13b07e3069573fd02f8038355c9b1e76a1894c8874bbbcaf4967d18523eb543b"
   license "Apache-2.0"
   head "https://github.com/domainaware/parsedmarc.git", branch: "master"
 
@@ -321,8 +321,8 @@ class Parsedmarc < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/ac/11/0a953274017ca5c33a9831bc5e052e825d174a3551bd18924777794c8162/setuptools-74.1.0.tar.gz"
-    sha256 "bea195a800f510ba3a2bc65645c88b7e016fe36709fefc58a880c4ae8a0138d7"
+    url "https://files.pythonhosted.org/packages/27/cb/e754933c1ca726b0d99980612dc9da2886e76c83968c246cfb50f491a96b/setuptools-74.1.1.tar.gz"
+    sha256 "2353af060c06388be1cecbf5953dcdb1f38362f87a2356c480b6b4d5fcfc8847"
   end
 
   resource "simplejson" do
