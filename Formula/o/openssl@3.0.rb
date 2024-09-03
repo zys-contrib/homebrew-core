@@ -11,14 +11,13 @@ class OpensslAT30 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "4b9d08a98550729ea96497e779d9439a665da53b1e4f7254a289057c8385d052"
-    sha256 arm64_ventura:  "1ef02be64e1b21bd37602fda904fd62f4eb19a317e905e4e48c19512b00c6826"
-    sha256 arm64_monterey: "06b6b04f2341cbfc62da8629b5a4d2387d32874d9f56b57cc94542c42c4b57c0"
-    sha256 sonoma:         "18753268f80af56418e41cdadbf92d90c812bd568a215d29d8ecca5f755bdb69"
-    sha256 ventura:        "07ade2749aa1aaf20456e56fe4122adb520a1bd11218f68f77037486b9159d95"
-    sha256 monterey:       "85aa26b13c64c1ba59666bedabd0a76b91eafc6877f49c7ace3e495dd0f53252"
-    sha256 x86_64_linux:   "8b749cbdf46421dca06c85c7ed018d2013c81d6c8f517dd54db8c3f9e1f6b972"
+    sha256 arm64_sonoma:   "5f48e4f3391e514597cf9959a95daaafc1295ce4df9a26964d3ce0cb705a041f"
+    sha256 arm64_ventura:  "90d988c61932197830a7962e9dfe3997a139689489763ffa55ec54a607b69d0e"
+    sha256 arm64_monterey: "4491fd5d9e0bd3f27cd45d6b3026f2f1e9f648b1dff73cd41514bdeb55d8bae4"
+    sha256 sonoma:         "49d60e1d467c46db85643ff1ec0fc0d7883698b878f0456467c4e36758ae6197"
+    sha256 ventura:        "2330210545b943f2989ef8b30f712eeca2b2ba6762b6ac6de19f82d6f9c2d41f"
+    sha256 monterey:       "e6815ce49c0657d581fac3ffdabbac99c47ea9903d43f5e812621091b8bd9921"
+    sha256 x86_64_linux:   "88feaacad8c06a6308c1b1bf4d322e812d069b9e7a9808982debf89c5a226e39"
   end
 
   keg_only :versioned_formula
