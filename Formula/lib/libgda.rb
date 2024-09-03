@@ -6,7 +6,7 @@ class Libgda < Formula
   # The executable tools are GPL-2.0-or-later, but these are considered experimental
   # and not installed by default. The license should be updated when tools are installed.
   license "LGPL-2.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
     sha256 arm64_sonoma:   "aed3116bda74be0c4710ef3ea32751eb6651c9446e5d06c61aaf852c08e7add0"
@@ -30,6 +30,7 @@ class Libgda < Formula
   depends_on "glib"
   depends_on "iso-codes"
   depends_on "json-glib"
+  depends_on "mysql-client"
   depends_on "sqlite"
 
   uses_from_macos "libxml2"
