@@ -5,6 +5,7 @@ class Lightning < Formula
   mirror "https://ftpmirror.gnu.org/lightning/lightning-2.2.3.tar.gz"
   sha256 "c045c7a33a00affbfeb11066fa502c03992e474a62ba95977aad06dbc14c6829"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "03e7b47e11af958f1a769127fa8e35ad59f5afff480b8d44ddfe7c8fe31e304b"
@@ -18,10 +19,14 @@ class Lightning < Formula
 
   depends_on "binutils" => :build
 
+  # upstream patch for fixing `Correct wrong ifdef causing missing mprotect call if NDEBUG is not defined`
+  patch do
+    url "https://git.savannah.gnu.org/cgit/lightning.git/patch/?id=bfd695a94668861a9447b29d2666f8b9c5dcd5bf"
+    sha256 "a049de1c08a3d2d364e7f10e9c412c69a68cbf30877705406cf1ee7c4448f3c5"
+  end
+
   def install
-    system "./configure", "--enable-assertions",
-                          "--disable-silent-rules",
-                          *std_configure_args.reject { |s| s["--disable-debug"] }
+    system "./configure", "--disable-silent-rules", *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
   end
 
