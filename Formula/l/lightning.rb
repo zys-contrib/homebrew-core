@@ -7,14 +7,13 @@ class Lightning < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "6ca49f5cfa9fee14775858599b92931e40247ec418ab2a905e70081d283a0193"
-    sha256 cellar: :any,                 arm64_ventura:  "b4871a4e6037699bc9b26f377453818a78f1d5a1167d4bc1451ec855fd6e70d2"
-    sha256 cellar: :any,                 arm64_monterey: "b88f2e86b5a1658f6055b88038d20dee12312075a8c5e564110c257cabcc8496"
-    sha256 cellar: :any,                 sonoma:         "0fb798ce3c9f7fd27c6f085d8d7780b7c66860685bae784443589eb5524ce52a"
-    sha256 cellar: :any,                 ventura:        "e856a9e8628e8ac35417af45ccbfd948f9fd7e0cac62c3bb3c615de5f70bb4b5"
-    sha256 cellar: :any,                 monterey:       "6aa258f975222cd835c88a934fc1c7dca3f67343d65a36443b128559524a1149"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "55ccd9e5c6224b62caf0678331de3ecf28bcf327014f4d0aed43ee05cd88264f"
+    sha256 cellar: :any,                 arm64_sonoma:   "03e7b47e11af958f1a769127fa8e35ad59f5afff480b8d44ddfe7c8fe31e304b"
+    sha256 cellar: :any,                 arm64_ventura:  "d45442dd593390a87aa9140d97e3216c80392faa0b88df8a30f5c529769af256"
+    sha256 cellar: :any,                 arm64_monterey: "73efb22bdbb69fc14b207e6aba847c52fefd24b9728b1c94161694a1e0f71c9c"
+    sha256 cellar: :any,                 sonoma:         "048b01bc31083e2dba41297f22823890ae784df85de6318cc5e6aafd68b04204"
+    sha256 cellar: :any,                 ventura:        "9236fbc0c2fb3de9ac732b6c8e43fa349e18b4f6469e23778e1f5838be252091"
+    sha256 cellar: :any,                 monterey:       "b09858738b810b2ee638b8e2025dc52af93a1be7a6aec673c4dfbe13d6677c94"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93c3f2e1f8ff6e8d199007ed205b51042066b1d4c67be1b39a41e6fa4b2e02fd"
   end
 
   depends_on "binutils" => :build
