@@ -5,15 +5,15 @@ class Ruby < Formula
   head "https://github.com/ruby/ruby.git", branch: "master"
 
   stable do
-    url "https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.4.tar.gz"
-    sha256 "fe6a30f97d54e029768f2ddf4923699c416cdbc3a6e96db3e2d5716c7db96a34"
+    url "https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.5.tar.gz"
+    sha256 "3781a3504222c2f26cb4b9eb9c1a12dbf4944d366ce24a9ff8cf99ecbce75196"
 
     # Should be updated only when Ruby is updated (if an update is available).
     # The exception is Rubygem security fixes, which mandate updating this
     # formula & the versioned equivalents and bumping the revisions.
     resource "rubygems" do
-      url "https://rubygems.org/rubygems/rubygems-3.5.14.tgz"
-      sha256 "07a62267f5f282b6d549bccc61dc0295169574cb2fec36b60dc4518fafaf9419"
+      url "https://rubygems.org/rubygems/rubygems-3.5.18.tgz"
+      sha256 "a99163d03286850559134448e4c666fa32513407b63f1c277e5142b75180db56"
 
       livecheck do
         url "https://rubygems.org/pages/download"
@@ -147,6 +147,9 @@ class Ruby < Formula
       (libexec/"gembin").install buildpath/"vendor_gem/bin/bundle" => "bundle"
       (libexec/"gembin").install_symlink "bundle" => "bundler"
     end
+
+    # remove all lockfiles in bin folder
+    rm Dir[bin/"*.lock"]
   end
 
   def post_install
