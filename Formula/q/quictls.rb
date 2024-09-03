@@ -1,9 +1,9 @@
 class Quictls < Formula
   desc "TLS/SSL and crypto library with QUIC APIs"
   homepage "https://github.com/quictls/openssl"
-  url "https://github.com/quictls/openssl/archive/refs/tags/openssl-3.1.6-quic1.tar.gz"
-  version "3.1.6-quic1"
-  sha256 "9e04f7fa98549a1c2d96b2d2299f4c32e6519958ca902d9ca9dd181337965d2e"
+  url "https://github.com/quictls/openssl/archive/refs/tags/openssl-3.1.7-quic1.tar.gz"
+  version "3.1.7-quic1"
+  sha256 "e7e514ea033c290f09c7250dd43a845bc1e08066b793274f3ad3fe04c76a5206"
   license "Apache-2.0"
 
   livecheck do
