@@ -1,8 +1,8 @@
 class C3c < Formula
   desc "Compiler for the C3 language"
   homepage "https://github.com/c3lang/c3c"
-  url "https://github.com/c3lang/c3c/archive/refs/tags/v0.6.1.tar.gz"
-  sha256 "472c5026b7bf9c709208d31f3a9ae3eba920dc5a78293356a6194fca463f42f1"
+  url "https://github.com/c3lang/c3c/archive/refs/tags/v0.6.2.tar.gz"
+  sha256 "e39f98d5a78f9d3aa8da4ce07062b4ca93d25b88107961cbd3af2b3f6bcf8e78"
   license "LGPL-3.0-only"
   head "https://github.com/c3lang/c3c.git", branch: "master"
 
@@ -25,8 +25,7 @@ class C3c < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm"
-  depends_on "z3"
+  depends_on "llvm" => :build
   depends_on "zstd"
 
   uses_from_macos "curl"
@@ -35,10 +34,36 @@ class C3c < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "llvm"
+  end
+
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Link dynamically to our libLLVM. We can't do the same for liblld*,
+    # since we only ship static libraries.
+    inreplace "CMakeLists.txt" do |s|
+      s.gsub!("libLLVM.so", "libLLVM.dylib") if OS.mac?
+      s.gsub!(/(liblld[A-Za-z]+)\.so/, "\\1.a")
+    end
+
+    ENV.append "LDFLAGS", "-lzstd -lz" if OS.mac?
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DC3_LINK_DYNAMIC=#{OS.mac? ? "ON" : "OFF"}", # FIXME: dynamic linking fails the Linux build.
+                    "-DC3_USE_MIMALLOC=OFF",
+                    "-DC3_USE_TB=OFF",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+    return unless OS.mac?
+
+    # The build copies LLVM runtime libraries into its `bin` directory.
+    # Let's replace those copies with a symlink instead.
+    libexec.install bin.children
+    bin.install_symlink libexec.children.select { |child| child.file? && child.executable? }
+    rm_r libexec/"c3c_rt"
+    llvm = Formula["llvm"]
+    libexec.install_symlink llvm.opt_lib/"clang"/llvm.version.major/"lib/darwin" => "c3c_rt"
   end
 
   test do
