@@ -1533,6 +1533,7 @@ libsolv
 libsoundio
 libsoup
 libspelling
+libspiro
 libsql
 libssh
 libstrophe
