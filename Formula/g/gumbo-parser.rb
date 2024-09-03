@@ -1,8 +1,8 @@
 class GumboParser < Formula
   desc "C99 library for parsing HTML5"
-  homepage "https://github.com/google/gumbo-parser"
-  url "https://github.com/google/gumbo-parser/archive/refs/tags/v0.10.1.tar.gz"
-  sha256 "28463053d44a5dfbc4b77bcf49c8cee119338ffa636cc17fc3378421d714efad"
+  homepage "https://codeberg.org/gumbo-parser/gumbo-parser"
+  url "https://codeberg.org/gumbo-parser/gumbo-parser/archive/0.12.1.tar.gz"
+  sha256 "c0bb5354e46539680724d638dbea07296b797229a7e965b13305c930ddc10d82"
   license "Apache-2.0"
 
   bottle do
@@ -22,18 +22,13 @@ class GumboParser < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ae8a4b287fcbedb1cd48eeb3c26a257b2829401e23c0026dafb04461dcf07ae"
   end
 
-  deprecate! date: "2024-05-19", because: :repo_archived
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
   def install
     system "./autogen.sh"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
