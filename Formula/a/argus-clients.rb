@@ -6,13 +6,13 @@ class ArgusClients < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b0587f8a46452c38ec031e8702f2187cbf691da6967f2d9201d26cd20a231b65"
-    sha256 cellar: :any,                 arm64_ventura:  "6851559033bb84f190d0e81c9449f69b5ba38c1e0683f4f3811595934334054d"
-    sha256 cellar: :any,                 arm64_monterey: "ef5843ccd0c438284b0c21fa0d70ccac9ab8d06f8ee1eba59752027476bf55e9"
-    sha256 cellar: :any,                 sonoma:         "ae69489900b4e3f9292a1e1f2f33ac21070b0e7c3f3abf161eae9f0693d4acbd"
-    sha256 cellar: :any,                 ventura:        "34584bff62553297be082fc641dc4547ce5078d0d062271a19a5e596fe389883"
-    sha256 cellar: :any,                 monterey:       "cd5dd677729938a48bec1da1d3a12ca26269a107a5bdac2b76d47968d453d58a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9810d90c908373e299c23598590268144b3cc35c15ecf5e73fb8dcc300af4411"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a760cca90fd565fd14745b087550293aefa4d2dfabf33be01df96c2b373631af"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a92a4ea3c8550c3428ece86db0a5fc5e9b1cfeff7ada32d0f7cd65c5ec2c5c33"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "84db26da116fab9c66e38bb8732cdc68a9ffc7da8ef2d6014e3919703a522a4d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e8971b72a53c213e0e42c494c6541414596aa11c86abd0032d0cd375775d093c"
+    sha256 cellar: :any_skip_relocation, ventura:        "e9e2edf0a1a0b4e8f6eb0a68b8a4bb3bc9eb091d79fe45b8de822eb5a13bbe18"
+    sha256 cellar: :any_skip_relocation, monterey:       "6fc266f5374526ff225dd0fca2645ffe1f445665c3877b6f3a1879db503a00d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ab05f0d7461e89b9f7ac1b18c6abb4d191a9c045eaf151d1126eb35f91157c6"
   end
 
   depends_on "perl"
