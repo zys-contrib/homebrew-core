@@ -8,13 +8,7 @@ class DockerSquash < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bac9919bd5ef4acc169738a10bfa00027d79336aa8a3970c611eafb1a74c723c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bac9919bd5ef4acc169738a10bfa00027d79336aa8a3970c611eafb1a74c723c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bac9919bd5ef4acc169738a10bfa00027d79336aa8a3970c611eafb1a74c723c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "235626dc380c2d5fcf7861a150b866a09452a5ed53cdd732702dfb8ef8a6d575"
-    sha256 cellar: :any_skip_relocation, ventura:        "235626dc380c2d5fcf7861a150b866a09452a5ed53cdd732702dfb8ef8a6d575"
-    sha256 cellar: :any_skip_relocation, monterey:       "bac9919bd5ef4acc169738a10bfa00027d79336aa8a3970c611eafb1a74c723c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ceb79c6a655557fc2bba24148104eb5534420d116e36dfea3f285802792bc67"
+    sha256 cellar: :any_skip_relocation, all: "60d1ec514b8249196e519b362249c9c9cfcae2dddfc3889a6ce213df47b5efd9"
   end
 
   depends_on "certifi"
