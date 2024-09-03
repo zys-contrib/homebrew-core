@@ -7,13 +7,13 @@ class Enzyme < Formula
   head "https://github.com/EnzymeAD/Enzyme.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "4bb3acf6954dca99d96a4d3e185118fe3522f5e9152daa781f7a153c82d2c556"
-    sha256 cellar: :any,                 arm64_ventura:  "ed4880a0db416109d629ccd837f79dc642fe1cbeb300b97a9261f3e02a1c323c"
-    sha256 cellar: :any,                 arm64_monterey: "a83e1b8049f91d6c894989d062af61e4dbc33215561c1fc8e127b7d308a7419b"
-    sha256 cellar: :any,                 sonoma:         "e336053c8fc65064dad76e5769515d5eee1f174e50eb39986c851d8cd13e57b1"
-    sha256 cellar: :any,                 ventura:        "2e63c92d78e408e60fc14778b7d82986620467f61944182e15a58f277e47c8d9"
-    sha256 cellar: :any,                 monterey:       "496230c634044f934897c20036bf8911e9584cf56389e579b986f63f17d2dbfe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "249368e3da19de47c679acc41746346e4e4caf6c0887b10c9aaef815e1e747b2"
+    sha256 cellar: :any,                 arm64_sonoma:   "4acc1ec132d5344b1a2fd5846d67616529dc1420b8957e52f387c87c4af3f31a"
+    sha256 cellar: :any,                 arm64_ventura:  "02737a76fa224cff38dffcf9e4bdab1e13da22dcba1994b3f99306cf497c697e"
+    sha256 cellar: :any,                 arm64_monterey: "bcd9b320147a574d0dbc6fb341fc4bd19bac77c2c0fa2f1aad67ec50ef22635e"
+    sha256 cellar: :any,                 sonoma:         "ab667829fa40dc9929f625276fb8bb5e819270c6a4d2663d38a605c57b75d72c"
+    sha256 cellar: :any,                 ventura:        "ea83001c8a2af51e6ea0fd87d45ddce2618816ebeb33674b35231bbac33c5169"
+    sha256 cellar: :any,                 monterey:       "707b613ebb8dbd346bde0bc983d43d4b4bb56047b431a198e7d2a2f0a0c63e84"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa8bd873fdc0ecc513a29147e3db73d5406627cd2587000eaf6b34d6867f6997"
   end
 
   depends_on "cmake" => :build
