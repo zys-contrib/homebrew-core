@@ -1,8 +1,8 @@
 class Jj < Formula
   desc "Git-compatible distributed version control system"
   homepage "https://github.com/martinvonz/jj"
-  url "https://github.com/martinvonz/jj/archive/refs/tags/v0.20.0.tar.gz"
-  sha256 "b2c898ea224fe45df81c241bf1f0bc8e74c0988b8f549e894b15a38f2f4d6665"
+  url "https://github.com/martinvonz/jj/archive/refs/tags/v0.21.0.tar.gz"
+  sha256 "c38d98d7db42f08b799f5c51f33cd8454867bc4862a15aa0897b72f2d32eea0a"
   license "Apache-2.0"
   head "https://github.com/martinvonz/jj.git", branch: "main"
 
@@ -18,7 +18,7 @@ class Jj < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "libgit2@1.7"
+  depends_on "libgit2"
   depends_on "openssl@3"
   uses_from_macos "zlib"
 
@@ -44,7 +44,7 @@ class Jj < Formula
     assert_predicate testpath/".jj", :exist?
 
     [
-      Formula["libgit2@1.7"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
     ].each do |library|
