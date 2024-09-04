@@ -6,7 +6,7 @@ class Vineyard < Formula
   url "https://github.com/v6d-io/v6d/releases/download/v0.23.2/v6d-0.23.2.tar.gz"
   sha256 "2a2788ed77b9459477b3e90767a910e77e2035a34f33c29c25b9876568683fd4"
   license "Apache-2.0"
-  revision 4
+  revision 5
 
   bottle do
     sha256                               arm64_sequoia: "ebd164c30de30f51cefc78f6165adaab64c948cc450e070222a54db3537867ce"
@@ -79,6 +79,11 @@ class Vineyard < Formula
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+    # Replace `open-mpi` Cellar path that breaks on `open-mpi` version/revision bumps.
+    # CMake FindMPI uses REALPATH so there isn't a clean way to handle during generation.
+    openmpi = Formula["open-mpi"]
+    inreplace lib/"cmake/vineyard/vineyard-targets.cmake", openmpi.prefix.realpath, openmpi.opt_prefix
   end
 
   test do
