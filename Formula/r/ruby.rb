@@ -28,13 +28,13 @@ class Ruby < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "d7f3368bed92b3cf315aa1e6e3d4828508b8cde834da97c7de286356b23b5612"
-    sha256 arm64_ventura:  "7386f4f6b74b9e75c76985bd8fddba74c74230e180b23c2d5cd744d8bb1be4e3"
-    sha256 arm64_monterey: "1ca652dd76a06d4111038770c33d033cfcceb405a515a8bbaec60d00db56a0ba"
-    sha256 sonoma:         "7eed0e55b0e8bc34828fcd31b3d06d13322bfefd88a2f4bc3b00d8ad1f85e4dc"
-    sha256 ventura:        "13ccd17720074f7007167d12eab6759fce0a8e7f1c0476fd032ae0f307999556"
-    sha256 monterey:       "2cb7e1deede563054cbd401aa98951018ebde2a59d61e3d226904d5a7e0e1199"
-    sha256 x86_64_linux:   "6cafaf06f366962038aa196b99e6ad4135eb10bb65df700058818f53dfa22184"
+    sha256 arm64_sonoma:   "85786236ec92ca2e0cd40a7223345d3c7bf61f45e69da7b3433e0ef1019690e7"
+    sha256 arm64_ventura:  "4bb00f47a4a6395c739d0624eb89957d1b9f708e332486822a72f450e077e80f"
+    sha256 arm64_monterey: "91712cbb11cf8f2719579f983fd04d3414f6f59fc013b63d9b68f4867d64e7f1"
+    sha256 sonoma:         "8ef5d62b67a3e0f98a9e18c9991322b33bed02d3ab738a820d426974394707c6"
+    sha256 ventura:        "0f458a5c869f216f7f72122112363060667ac9c57df20a15bc74f1a78073d7a3"
+    sha256 monterey:       "90800e40f73c5322054cad77de5cd4a5977f70cd34b610f0e3c4e96e1dde2af3"
+    sha256 x86_64_linux:   "04add281c620f5ed78c8641d43f064280dfddcce67f7fde435a16e793f30b637"
   end
 
   keg_only :provided_by_macos
