@@ -11,13 +11,13 @@ class Cimg < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7fb31fcec578133ea9c91c0f9849a5fa5c6f7549c5d463078015ef9b1e2df310"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7fb31fcec578133ea9c91c0f9849a5fa5c6f7549c5d463078015ef9b1e2df310"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7fb31fcec578133ea9c91c0f9849a5fa5c6f7549c5d463078015ef9b1e2df310"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3086d14557b85ca0f0096b4c2f59764cbe11beea6f6ed53209c1f530372abfe0"
-    sha256 cellar: :any_skip_relocation, ventura:        "3086d14557b85ca0f0096b4c2f59764cbe11beea6f6ed53209c1f530372abfe0"
-    sha256 cellar: :any_skip_relocation, monterey:       "3086d14557b85ca0f0096b4c2f59764cbe11beea6f6ed53209c1f530372abfe0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7fb31fcec578133ea9c91c0f9849a5fa5c6f7549c5d463078015ef9b1e2df310"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "194a508f1b48c29b295b147a46381afadc2d3814c706b650ecc37eb35e25fa91"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "194a508f1b48c29b295b147a46381afadc2d3814c706b650ecc37eb35e25fa91"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "194a508f1b48c29b295b147a46381afadc2d3814c706b650ecc37eb35e25fa91"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d1d3db141503443987c8bfb1384975e579811a13d8240b4184ac5c344959cdbd"
+    sha256 cellar: :any_skip_relocation, ventura:        "d1d3db141503443987c8bfb1384975e579811a13d8240b4184ac5c344959cdbd"
+    sha256 cellar: :any_skip_relocation, monterey:       "d1d3db141503443987c8bfb1384975e579811a13d8240b4184ac5c344959cdbd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "194a508f1b48c29b295b147a46381afadc2d3814c706b650ecc37eb35e25fa91"
   end
 
   fails_with gcc: "5" # C++ 17 is required
