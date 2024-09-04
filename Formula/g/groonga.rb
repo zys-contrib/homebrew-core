@@ -1,8 +1,8 @@
 class Groonga < Formula
   desc "Fulltext search engine and column store"
   homepage "https://groonga.org/"
-  url "https://github.com/groonga/groonga/releases/download/v14.0.6/groonga-14.0.6.tar.gz"
-  sha256 "d5c693400c9cbe91b63e0b5bc489f9f07af1bd68f12a089ccd1482ef69d6cc6c"
+  url "https://github.com/groonga/groonga/releases/download/v14.0.7/groonga-14.0.7.tar.gz"
+  sha256 "97428e49adb3542cbc0545279b66c53fcd825176be5f231feba8951096ce4095"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -34,6 +34,7 @@ class Groonga < Formula
   depends_on "openssl@3"
 
   uses_from_macos "libxcrypt"
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "glib"
