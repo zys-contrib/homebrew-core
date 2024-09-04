@@ -43,6 +43,8 @@ class Rust < Formula
   uses_from_macos "curl"
   uses_from_macos "zlib"
 
+  link_overwrite "etc/bash_completion.d/cargo"
+
   # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0
   resource "cargobootstrap" do
     on_macos do
@@ -135,6 +137,7 @@ class Rust < Formula
     system "make"
     system "make", "install"
 
+    bash_completion.install etc/"bash_completion.d/cargo"
     (lib/"rustlib/src/rust").install "library"
     rm([
       bin.glob("*.old"),
