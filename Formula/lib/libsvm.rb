@@ -26,13 +26,20 @@ class Libsvm < Formula
     system "make", "CFLAGS=#{ENV.cflags}"
     system "make", "lib"
     bin.install "svm-scale", "svm-train", "svm-predict"
-    lib.install "libsvm.so.4" => shared_library("libsvm", 4)
-    lib.install_symlink shared_library("libsvm", 3) => shared_library("libsvm")
-    MachO::Tools.change_dylib_id("#{lib}/libsvm.4.dylib", "#{lib}/libsvm.4.dylib") if OS.mac?
     include.install "svm.h"
+
+    libsvm_files = buildpath.glob("libsvm.so.*")
+    odie "Expected exactly one `libsvm`!" if libsvm_files.count != 1
+
+    libsvm = libsvm_files.first
+    libsvm_soversion = libsvm.to_s[/(?<=\.)\d+(?:\.\d+)*$/]
+    lib.install libsvm => shared_library("libsvm", libsvm_soversion)
+    lib.install_symlink shared_library("libsvm", libsvm_soversion) => shared_library("libsvm")
   end
 
   test do
+    assert_path_exists lib/shared_library("libsvm")
+
     (testpath/"train_classification.txt").write <<~EOS
       +1 201:1.2 3148:1.8 3983:1 4882:1
       -1 874:0.3 3652:1.1 3963:1 6179:1
