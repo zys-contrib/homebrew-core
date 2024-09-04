@@ -1,14 +1,14 @@
 class WasmTools < Formula
   desc "Low level tooling for WebAssembly in Rust"
   homepage "https://github.com/bytecodealliance/wasm-tools"
-  url "https://github.com/bytecodealliance/wasm-tools/archive/refs/tags/wasm-tools-1.0.60.tar.gz"
-  sha256 "397fdfbcc3d1352291250d89d5caad8c8d50a6b1d22d14ed7b74a247ce08ff31"
+  url "https://github.com/bytecodealliance/wasm-tools/archive/refs/tags/v1.216.0.tar.gz"
+  sha256 "320ea681b55c8259ef6bcc842ee46f49d3242351affb76f80271458b4b7802db"
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/bytecodealliance/wasm-tools.git", branch: "main"
 
   livecheck do
     url :stable
-    regex(/^wasm-tools[._-]v?(\d+(?:\.\d+)+)$/i)
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
@@ -32,7 +32,7 @@ class WasmTools < Formula
     (testpath/"sum.wasm").write(wasm)
     system bin/"wasm-tools", "validate", testpath/"sum.wasm"
 
-    expected = <<~EOS.strip
+    expected = <<~EOS
       (module
         (type (;0;) (func (param i32 i32) (result i32)))
         (func (;0;) (type 0) (param i32 i32) (result i32)
