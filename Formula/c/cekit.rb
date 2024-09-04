@@ -3,8 +3,8 @@ class Cekit < Formula
 
   desc "Container Evolution Kit"
   homepage "https://cekit.io"
-  url "https://files.pythonhosted.org/packages/98/cf/091d054e0bee657f4ed0e26a2f3384007c66a9eb57b009375ed1c0848f06/cekit-4.12.0.tar.gz"
-  sha256 "797d28ac17a991643d851774a2564d02c788ca9b304517c375142374be8e17f8"
+  url "https://files.pythonhosted.org/packages/45/68/5adda4ed0c9f5443110ac7b3c41f5492f09d34d939c39fccba6b0a5a00e9/cekit-4.13.0.tar.gz"
+  sha256 "be38d96435c645504698afbc55b73c5737f7b79b574d3e796e19301012e91318"
   license "MIT"
 
   bottle do
@@ -46,8 +46,8 @@ class Cekit < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
-    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
+    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
+    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
   end
 
   resource "pykwalify" do
@@ -61,8 +61,8 @@ class Cekit < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
-    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
   resource "ruamel-yaml" do
