@@ -455,6 +455,7 @@ codelimit
 coder
 codespell
 cog
+coin3d
 coinutils
 colima
 colmap
