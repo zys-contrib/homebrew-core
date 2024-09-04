@@ -1750,6 +1750,7 @@ molecule
 monero
 mongo-c-driver
 mongo-cxx-driver
+mongo-orchestration
 mongocli
 mongodb-atlas-cli
 mongoose
