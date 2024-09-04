@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/f6/6a/6bed45f9c2612fb8144974b68f4af0918aad53394433aa7fd19d7459131a/snakemake-8.19.0.tar.gz"
-  sha256 "b99e034846a71d125b709f73f2a878bb7b3ba4af8b573b1bd7cafa738a020f44"
+  url "https://files.pythonhosted.org/packages/0d/b3/73b4b63e4bffa348af082963fa8840494a9cbf32ff923f6d8360613a1d59/snakemake-8.19.1.tar.gz"
+  sha256 "59aa3a993df0693c57cc8cf3d8873a2f3fa3e13e49288959ef9da65f0b633632"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -212,17 +212,6 @@ class Snakemake < Formula
   resource "snakemake-interface-storage-plugins" do
     url "https://files.pythonhosted.org/packages/c7/7d/f5d9662f97121cc42415197bacccb7a1cc893524da1138c2fc19ef835881/snakemake_interface_storage_plugins-3.3.0.tar.gz"
     sha256 "203d8f794dfb37d568ad01a6c375fa8beac36df8e488c0f9b9f75984769c362a"
-  end
-
-  resource "stopit" do
-    url "https://files.pythonhosted.org/packages/35/58/e8bb0b0fb05baf07bbac1450c447d753da65f9701f551dca79823ce15d50/stopit-1.1.2.tar.gz"
-    sha256 "f7f39c583fd92027bd9d06127b259aee7a5b7945c1f1fa56263811e1e766996d"
-
-    # Drop setuptools dep: https://github.com/glenfant/stopit/pull/30
-    patch do
-      url "https://github.com/glenfant/stopit/commit/9a559afdba924c444cc02fd258548029aacedd3c.patch?full_index=1"
-      sha256 "a6a7d140bbb0dbcc1dd31e2d0ce317f6bac04c2368bc15dd1f139cd7e538f5a8"
-    end
   end
 
   resource "tabulate" do
