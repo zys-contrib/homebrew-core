@@ -14,13 +14,13 @@ class LlamaCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d14df94b94098bb25136f59b96c00c2c7c6c599613b7fb8aa99266dbfd583cdd"
-    sha256 cellar: :any,                 arm64_ventura:  "8a647befdae6a6ad36dc51ec658b5b13507b6fbf2b205afec3a7a1d136c1572e"
-    sha256 cellar: :any,                 arm64_monterey: "561b5e955bc6dac7242e7c750b09f2d451209a8a6efc68b78ec5094066fd82ae"
-    sha256 cellar: :any,                 sonoma:         "cd93ba6eec2c78bb443d1f02c061f62d7e9bfe882325b884dd0f542ff869d8ea"
-    sha256 cellar: :any,                 ventura:        "3cbff27eb26ed2d8db7957ca085cb16ecfe3ab61b10f965cbe308a39d9fe4021"
-    sha256 cellar: :any,                 monterey:       "fa34126c69fce4f1252f5b01049224e5ac3ed1e6e323dc604d3b4179b0c27fa9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d884e96e97e0a31a66f0cc8813407fbc7411ba6ef8c11c45605e48f57172af02"
+    sha256 cellar: :any,                 arm64_sonoma:   "d9f6fea58a3f41eb8fffac2006af0e7ee14899986b41a88acfe0121d2a5f6a14"
+    sha256 cellar: :any,                 arm64_ventura:  "8c1131e202d41c47870db498edbfa419d9fc50a9ae37bebe9d5b6417b510fc94"
+    sha256 cellar: :any,                 arm64_monterey: "8dd408be981fb47e9e31a86a7780221b4513f83fdcd43efd9ca3bc7b69c628a5"
+    sha256 cellar: :any,                 sonoma:         "2a806ff6ad1a9d933c05d295606dc7ce6cb3d89b96272f99e8d2bc30a8e392af"
+    sha256 cellar: :any,                 ventura:        "15209eef894eb1e0f8b9408c5c8e08e1add4415c1b81949689784e0ec70c1a63"
+    sha256 cellar: :any,                 monterey:       "f857baea32322f9aa08dfba7ea3e14eece41caa3ab3971d8d769f30351cc5592"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a396530829fae1bdd79db819c02d3768520e77d54a682386d217df9096b929ed"
   end
 
   depends_on "cmake" => :build
