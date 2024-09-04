@@ -4,6 +4,7 @@ class Trivy < Formula
   url "https://github.com/aquasecurity/trivy/archive/refs/tags/v0.55.0.tar.gz"
   sha256 "4954760a679f1888ffe66428a0684e4ba911657bf339df65cc5e5e11869b5421"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/aquasecurity/trivy.git", branch: "main"
 
   bottle do
@@ -24,6 +25,7 @@ class Trivy < Formula
       -X github.com/aquasecurity/trivy/pkg/version/app.ver=#{version}
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/trivy"
+    (pkgshare/"templates").install Dir["contrib/*.tpl"]
   end
 
   test do
