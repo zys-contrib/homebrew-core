@@ -343,6 +343,7 @@ certigo
 cf
 cf2tf
 cfengine
+cffi
 cfitsio
 cfn-lint
 cfonts
