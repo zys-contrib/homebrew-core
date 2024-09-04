@@ -1,8 +1,8 @@
 class Libspiro < Formula
   desc "Library to simplify the drawing of curves"
   homepage "https://github.com/fontforge/libspiro"
-  url "https://github.com/fontforge/libspiro/releases/download/20240902/libspiro-dist-20240902.tar.gz"
-  sha256 "c573228542b3bf78a51c5ce7b0a609e8a2763938a088376230c452c4f9714848"
+  url "https://github.com/fontforge/libspiro/releases/download/20240903/libspiro-dist-20240903.tar.gz"
+  sha256 "1412a21b943c6e1db834ee2d74145aad20b3f62b12152d475613b8241d9cde10"
   license "GPL-3.0-or-later"
   version_scheme 1
 
