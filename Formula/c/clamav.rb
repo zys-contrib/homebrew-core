@@ -1,9 +1,9 @@
 class Clamav < Formula
   desc "Anti-virus software"
   homepage "https://www.clamav.net/"
-  url "https://github.com/Cisco-Talos/clamav/releases/download/clamav-1.4.0/clamav-1.4.0.tar.gz"
-  mirror "https://www.clamav.net/downloads/production/clamav-1.4.0.tar.gz"
-  sha256 "d67ab299e5ca05dad3da299a5ea73d60209372a5becd7f13b9a33c290338a4e6"
+  url "https://github.com/Cisco-Talos/clamav/releases/download/clamav-1.4.1/clamav-1.4.1.tar.gz"
+  mirror "https://www.clamav.net/downloads/production/clamav-1.4.1.tar.gz"
+  sha256 "a318e780ac39a6b3d6c46971382f96edde97ce48b8e361eb80e63415ed416ad8"
   license "GPL-2.0-or-later"
   head "https://github.com/Cisco-Talos/clamav.git", branch: "main"
 
