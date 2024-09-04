@@ -860,6 +860,7 @@ flyscrape
 flyway
 fmt
 fn
+fnlfmt
 fnm
 fnt
 folderify
