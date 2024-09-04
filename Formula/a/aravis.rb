@@ -1,8 +1,8 @@
 class Aravis < Formula
   desc "Vision library for genicam based cameras"
   homepage "https://github.com/AravisProject/aravis"
-  url "https://github.com/AravisProject/aravis/releases/download/0.8.31/aravis-0.8.31.tar.xz"
-  sha256 "9c4ebe6273ed3abe466cb6ed8fa5c132bdd7e9a9298ca43fa0212c4311a084da"
+  url "https://github.com/AravisProject/aravis/releases/download/0.8.33/aravis-0.8.33.tar.xz"
+  sha256 "3c4409a12ea70bba4de25e5b08c777112de854bc801896594f2cb6f8c2bd6fbc"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -15,11 +15,13 @@ class Aravis < Formula
     sha256 x86_64_linux:   "d81bad462d46b7940211234830014a1c7b37f38cb09fe2792bd4e6a718282385"
   end
 
+  depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "gtk-doc" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+
   depends_on "adwaita-icon-theme"
   depends_on "glib"
   depends_on "gstreamer"
