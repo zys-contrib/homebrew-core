@@ -59,6 +59,10 @@ class LlamaCpp < Formula
   end
 
   test do
+    system libexec/"test-sampling"
+    # The test below is flaky on slower hardware.
+    return if OS.mac? && Hardware::CPU.intel? && MacOS.version <= :monterey
+
     system bin/"llama-cli", "--hf-repo", "ggml-org/tiny-llamas",
                             "-m", "stories260K.gguf",
                             "-n", "400", "-p", "I", "-ngl", "0"
