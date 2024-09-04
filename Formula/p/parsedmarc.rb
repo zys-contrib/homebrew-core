@@ -3,8 +3,8 @@ class Parsedmarc < Formula
 
   desc "DMARC report analyzer and visualizer"
   homepage "https://domainaware.github.io/parsedmarc/"
-  url "https://files.pythonhosted.org/packages/ba/78/ff486b6af674b3eead567a8346782194c7e1179246241a20f9124b7f1c2d/parsedmarc-8.14.1.tar.gz"
-  sha256 "13b07e3069573fd02f8038355c9b1e76a1894c8874bbbcaf4967d18523eb543b"
+  url "https://files.pythonhosted.org/packages/29/95/24f5d01195312127ee1c31799987d041c74fdce49f512122b216d465ed61/parsedmarc-8.15.0.tar.gz"
+  sha256 "676285f23bff0ff4afc1059dd4f19296c01fa3099839de42bef702e2456e2e8b"
   license "Apache-2.0"
   head "https://github.com/domainaware/parsedmarc.git", branch: "master"
 
@@ -61,13 +61,13 @@ class Parsedmarc < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/be/01/3e6dce0f2364f1814f735a01c52c3c55d87c079daefeb6569ab7829c2520/boto3-1.35.10.tar.gz"
-    sha256 "189ab1e2b4cd86df56f82438d89b4040eb140c92683f1bda7cb2e62624f20ea5"
+    url "https://files.pythonhosted.org/packages/02/c3/ce78127d99b9f64ac3b77c8a9a626150b32bac96c150a2005bf589cf0a50/boto3-1.35.12.tar.gz"
+    sha256 "b32faab174f6f9b75fada27bcf054ab3e8846bd410ed9817d0b511109326b6b1"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/71/76/fd28cb2b1ab3b19b0f2602455c1757a0517fededd51356737120e6a29ce8/botocore-1.35.10.tar.gz"
-    sha256 "6c8a1377b6636a0d80218115e1cd41bcceba0a2f050b79c206f4cf8d002c54d7"
+    url "https://files.pythonhosted.org/packages/ff/3a/05ad5df2f4e058ddb75cfc9c5ebb8bcc3d1baf3f06bf6e02e0ab746a218f/botocore-1.35.12.tar.gz"
+    sha256 "a8f8230032d090225a93763675a73c208d121bb63ed99f41ee6ad3d51b74b80d"
   end
 
   resource "cachetools" do
@@ -366,8 +366,8 @@ class Parsedmarc < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/ce/50/dcf6d0ea0da893b23f73ea5b21fa1f96fd45e9cb4404cc6b665368b4ab19/yarl-1.9.7.tar.gz"
-    sha256 "f28e602edeeec01fc96daf7728e8052bc2e12a672e2a138561a1ebaf30fd9df7"
+    url "https://files.pythonhosted.org/packages/65/66/83c99ba8c134f1e0e40df559614f4f9272360e1e9c549003e8c5ff3e4fc7/yarl-1.9.9.tar.gz"
+    sha256 "d58a26cbc785a0fb6ad2e733422631c7f45c364a40dbd0cabb9f0dfcdbb4940b"
   end
 
   def install
