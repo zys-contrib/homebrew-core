@@ -2909,6 +2909,7 @@ yara-x
 yash
 yaws
 yaz
+yazi
 ydiff
 ykman
 yle-dl
