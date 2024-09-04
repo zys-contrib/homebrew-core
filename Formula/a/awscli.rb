@@ -3,8 +3,8 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/refs/tags/2.17.43.tar.gz"
-  sha256 "01ac9b38949a2223fe67bc58cce988c03088ff12fa0b89e43e1cd3a2ab67118c"
+  url "https://github.com/aws/aws-cli/archive/refs/tags/2.17.44.tar.gz"
+  sha256 "a315bacc2340d868ecae4c29c2695e639255fb425e109ad311596a7c028a46d1"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
@@ -76,8 +76,8 @@ class Awscli < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/6a/21/8fd457d5a979109603e0e460c73177c3a9b6b7abcd136d0146156da95895/setuptools-74.0.0.tar.gz"
-    sha256 "a85e96b8be2b906f3e3e789adec6a9323abf79758ecfa3065bd740d81158b11e"
+    url "https://files.pythonhosted.org/packages/27/cb/e754933c1ca726b0d99980612dc9da2886e76c83968c246cfb50f491a96b/setuptools-74.1.1.tar.gz"
+    sha256 "2353af060c06388be1cecbf5953dcdb1f38362f87a2356c480b6b4d5fcfc8847"
   end
 
   resource "six" do
