@@ -2022,6 +2022,7 @@ patat
 patchelf
 payara
 pc6001vx
+pcapplusplus
 pciutils
 pcl
 pcre2

@@ -1,8 +1,8 @@
 class Pcapplusplus < Formula
   desc "C++ network sniffing, packet parsing and crafting framework"
   homepage "https://pcapplusplus.github.io"
-  url "https://github.com/seladb/PcapPlusPlus/archive/refs/tags/v23.09.tar.gz"
-  sha256 "608292f7d2a2e1b7af26adf89347597a6131547eea4e513194bc4f584a40fe74"
+  url "https://github.com/seladb/PcapPlusPlus/archive/refs/tags/v24.09.tar.gz"
+  sha256 "def261fd9c64455d5f793e1e859108f706d5a6917e7aeb31dc8828543e00bc63"
   license "Unlicense"
 
   bottle do
@@ -28,6 +28,8 @@ class Pcapplusplus < Formula
     (testpath/"CMakeLists.txt").write <<~EOS
       cmake_minimum_required(VERSION 3.12)
       project(TestPcapPlusPlus)
+      set(CMAKE_CXX_STANDARD 11)
+
       find_package(PcapPlusPlus CONFIG REQUIRED)
 
       add_executable(test test.cpp)
