@@ -1,8 +1,8 @@
 class Xroar < Formula
   desc "Dragon and Tandy 8-bit computer emulator"
   homepage "https://www.6809.org.uk/xroar/"
-  url "https://www.6809.org.uk/xroar/dl/xroar-1.5.5.tar.gz"
-  sha256 "a39b319aa5d46f455e8973cf7f3b6da67f24231dc1c91fdcb3c09e7a689d3c8b"
+  url "https://www.6809.org.uk/xroar/dl/xroar-1.6.tar.gz"
+  sha256 "c1b981b1c0b53ff4ea04a62d8ff5a02e391f365abd7b709a90c99a4d162abba2"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -32,6 +32,8 @@ class Xroar < Formula
 
   on_linux do
     depends_on "alsa-lib"
+    depends_on "mesa"
+    depends_on "pulseaudio"
   end
 
   def install
