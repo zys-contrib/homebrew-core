@@ -3,18 +3,18 @@ class Schemathesis < Formula
 
   desc "Testing tool for web applications with specs"
   homepage "https://schemathesis.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/6f/c5/0f52b561eb0f29b43dccb710e541f88b2532366274e99c260db5465175e7/schemathesis-3.35.2.tar.gz"
-  sha256 "c92c5ba46664b6248a91573daa00ddb1484e1a2156cbd427a21c15640ab13312"
+  url "https://files.pythonhosted.org/packages/81/6e/2694711de5391beafa15a97d3e1da02fd29033514dd634b0432f31d93df5/schemathesis-3.35.3.tar.gz"
+  sha256 "b0326e12c3054655dd365feeb585ad56007eaa7aa7c9602354444adc1f650f85"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "23a3cff27d935298e26b31a6f9c3f744f700ba7dd18f08d464cac45538690420"
-    sha256 cellar: :any,                 arm64_ventura:  "7704c6505f0eb06a46245f72cf5ca6799c9dfbdb910892583efdc93c71581453"
-    sha256 cellar: :any,                 arm64_monterey: "5acb18ebbf7da104b8b2f65220f40b9fd1420147aa122ed27e39895f1eec5a64"
-    sha256 cellar: :any,                 sonoma:         "5d9ba7d616281e2980ea5c3636711445663c315afa1695d0058c6b8b68ef876e"
-    sha256 cellar: :any,                 ventura:        "786bdcc852f5a827a929611534fb0e35972c247a2d8436ce80b7fe85bc227577"
-    sha256 cellar: :any,                 monterey:       "768fe6b956913a7fa5aec068c2f4cc7c24796bc3ee78061b6a2c8a889e559706"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "269c357bb93438d583fe97aaa7d37a99446ca55383e321b2517192a19c3e49f1"
+    sha256 cellar: :any,                 arm64_sonoma:   "565c4d46eb6181a7a9d5bff3505ec7bbe7eb4ab0d7d041a99b61dcc50c93ac7c"
+    sha256 cellar: :any,                 arm64_ventura:  "9c7cccd6d927953672c05634f4f6570e6a38481db1bcf68dbd3a535b6ec24427"
+    sha256 cellar: :any,                 arm64_monterey: "ef4da13747d923810c9cdebc946863045f06741db08e5fb5fd8ef046948b14eb"
+    sha256 cellar: :any,                 sonoma:         "3b18830aabe456d246a42880349bed8cc25cd4d8a51cc0b540ea6d3565950b96"
+    sha256 cellar: :any,                 ventura:        "e0dbd6f980f2a11b0744c023260162ffc53cef00c59e513f7d51581229cb9ef5"
+    sha256 cellar: :any,                 monterey:       "309a034785464f4159be393717157d371bf2d2ab27ad36c3b8fe51ca18f482d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "66e7472fc57d5b092a754a0673195419ee43218417199e70e07bfddbd028a482"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -65,8 +65,8 @@ class Schemathesis < Formula
   end
 
   resource "graphql-core" do
-    url "https://files.pythonhosted.org/packages/ee/a6/94df9045ca1bac404c7b394094cd06713f63f49c7a4d54d99b773ae81737/graphql-core-3.2.3.tar.gz"
-    sha256 "06d2aad0ac723e35b1cb47885d3e5c45e956a53bc1b209a9fc5369007fe46676"
+    url "https://files.pythonhosted.org/packages/66/9e/aa527fb09a9d7399d5d7d2aa2da490e4580707652d3b4fc156996ae88a5b/graphql-core-3.2.4.tar.gz"
+    sha256 "acbe2e800980d0e39b4685dd058c2f4042660b89ebca38af83020fd872ff1264"
   end
 
   resource "h11" do
@@ -225,8 +225,8 @@ class Schemathesis < Formula
   end
 
   resource "starlette" do
-    url "https://files.pythonhosted.org/packages/7f/27/ea66b32f01d9f07bbb8cc545ae670fe1d4dce91c951132d0d968ed49d60a/starlette-0.38.3.tar.gz"
-    sha256 "f674450f0f46a790be1f3a128f386080600b58fa358f8e320d93dbef6d7f676c"
+    url "https://files.pythonhosted.org/packages/b4/9c/d85721508122ae927aa7064e10a3f47f8dabcd4fd162222afcecd0d8d7b7/starlette-0.38.4.tar.gz"
+    sha256 "53a7439060304a208fea17ed407e998f46da5e5d9b1addfea3040094512a6379"
   end
 
   resource "starlette-testclient" do
@@ -270,8 +270,8 @@ class Schemathesis < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/80/1c/708f8d34fb7788c8f4fa78fa5ae0967e8a456504bdb850c6d3390edc8b8b/yarl-1.9.6.tar.gz"
-    sha256 "0bdc6a7b59efa0c34c90ef3da864f0c53e81a4640fbc461bfde9f1b0c64c3c81"
+    url "https://files.pythonhosted.org/packages/1e/87/6d71456eabebf614e0cac4387c27116a0bff9decf00a70c362fe7db9394e/yarl-1.9.11.tar.gz"
+    sha256 "c7548a90cb72b67652e2cd6ae80e2683ee08fde663104528ac7df12d8ef271d2"
   end
 
   def install
