@@ -6,7 +6,7 @@ class Enex2notion < Formula
   url "https://files.pythonhosted.org/packages/de/5c/c0ce22d810226345411b03177f9b43c35b82c3a671d5d73f56fc43b0858e/enex2notion-0.3.1.tar.gz"
   sha256 "f11d8a7b6c135b4d08c63e1256279d56b3798cdd48ad3b6e39c0770dc3bd82e6"
   license "MIT"
-  revision 8
+  revision 9
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "680d1144e6b20fe7bfda6d62f1ddf4f4cb2010b688ffb470d4cddda61f7aae98"
@@ -148,12 +148,6 @@ class Enex2notion < Formula
   resource "webencodings" do
     url "https://files.pythonhosted.org/packages/0b/02/ae6ceac1baeda530866a85075641cec12989bd8d31af6d5ab4a3e8c92f47/webencodings-0.5.1.tar.gz"
     sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
-  end
-
-  # build patch to support pymupdf 1.23.15, https://github.com/vzhd1701/enex2notion/pull/108
-  patch do
-    url "https://github.com/vzhd1701/enex2notion/commit/2d05d856c73030b340f0a6326ba3725bece23c2b.patch?full_index=1"
-    sha256 "e5c2d013fcc083370cbc1d458ecffa6a6d9ad44cb3781e8629aa57bda4b25ff5"
   end
 
   def install
