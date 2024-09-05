@@ -2186,7 +2186,6 @@ pymupdf
 pyoxidizer
 pypy
 pypy3.10
-pypy3.9
 pyqt
 pyqt-builder
 pyright
