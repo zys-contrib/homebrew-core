@@ -7,13 +7,13 @@ class Melange < Formula
   head "https://github.com/chainguard-dev/melange.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "50d2ddeba5fe6d6c0def1d14d7d1ab96d1f42d12528f79da26de0cd0a6b997d8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "50d2ddeba5fe6d6c0def1d14d7d1ab96d1f42d12528f79da26de0cd0a6b997d8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "50d2ddeba5fe6d6c0def1d14d7d1ab96d1f42d12528f79da26de0cd0a6b997d8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "621644739ac53916dd0f01085763da608e063f9cd8ed071c564ffd66c423d74d"
-    sha256 cellar: :any_skip_relocation, ventura:        "621644739ac53916dd0f01085763da608e063f9cd8ed071c564ffd66c423d74d"
-    sha256 cellar: :any_skip_relocation, monterey:       "621644739ac53916dd0f01085763da608e063f9cd8ed071c564ffd66c423d74d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7bbd7d5a63a6a2260d5cc5a42db37ee285408fac44d4c63acdd17e3304e0d320"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "960746572da6b8b9448e85632cbc14074a9a3079efd6db3cacf61691de4dc2e0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "960746572da6b8b9448e85632cbc14074a9a3079efd6db3cacf61691de4dc2e0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "960746572da6b8b9448e85632cbc14074a9a3079efd6db3cacf61691de4dc2e0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4dbe02e060c5288b5efcfd2927cae540be76a787c4293b07780ac369c9bca150"
+    sha256 cellar: :any_skip_relocation, ventura:        "4dbe02e060c5288b5efcfd2927cae540be76a787c4293b07780ac369c9bca150"
+    sha256 cellar: :any_skip_relocation, monterey:       "4dbe02e060c5288b5efcfd2927cae540be76a787c4293b07780ac369c9bca150"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8463d0e254ff899ee98819812cd855044f9ded31f44717d36a0488f7ff26aae2"
   end
 
   depends_on "go" => :build
