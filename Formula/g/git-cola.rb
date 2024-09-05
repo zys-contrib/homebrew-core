@@ -3,8 +3,8 @@ class GitCola < Formula
 
   desc "Highly caffeinated git GUI"
   homepage "https://git-cola.github.io/"
-  url "https://files.pythonhosted.org/packages/0c/59/2d33809b18eafef595a1bd4bdd376ab8584a0d06bcbf94c3b9840610d22d/git-cola-4.8.1.tar.gz"
-  sha256 "54cf110b7a4ae9d2a2c86b011dee0ec881ec13968d2ff8b0d564e2d0f96c8f98"
+  url "https://files.pythonhosted.org/packages/f0/9b/81c8279f27c52aabfcf92206c9b5124b36f55d14558d9126e97fb1c7a6da/git-cola-4.8.2.tar.gz"
+  sha256 "4c5aa770035e7e6a321f4e3aa8a12b3ae75f6c4b4a5d978d86e70e30b3b6b84d"
   license "GPL-2.0-or-later"
   head "https://github.com/git-cola/git-cola.git", branch: "main"
 
