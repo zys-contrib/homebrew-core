@@ -4,7 +4,7 @@ class Garble < Formula
   url "https://github.com/burrowers/garble/archive/refs/tags/v0.12.1.tar.gz"
   sha256 "98ade316176d434f298bdb36e4c421e3c4c33668cfd2922d358f7f0403566500"
   license "BSD-3-Clause"
-  revision 6
+  revision 7
   head "https://github.com/burrowers/garble.git", branch: "master"
 
   bottle do
@@ -17,7 +17,9 @@ class Garble < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "99293abbb6731948f9fd9d8166e03dc26f964b343b34ba5701b2a4ff01818ce0"
   end
 
-  depends_on "go" => [:build, :test]
+  # panic: package "internal/coverage/cfile" still missing after go list call
+  # upstream bug report, https://github.com/operator-framework/operator-sdk/issues/4793
+  depends_on "go@1.22" => [:build, :test]
   depends_on "git"
 
   def install
@@ -26,6 +28,8 @@ class Garble < Formula
   end
 
   test do
+    ENV.prepend_path "PATH", Formula["go@1.22"].bin
+
     (testpath/"hello.go").write <<~EOS
       package main
 
