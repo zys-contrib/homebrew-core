@@ -3,18 +3,18 @@ class Fastapi < Formula
 
   desc "CLI for FastAPI framework"
   homepage "https://fastapi.tiangolo.com/"
-  url "https://files.pythonhosted.org/packages/b7/f5/b6576e7f364f6c8fdd60a0d7f8ae7e00a6a2654ddc5a2e85a0f13d2ceedd/fastapi-0.112.3.tar.gz"
-  sha256 "9b6b41ea59ba948a07142f09d6241bda975fdb86847413136f6e2a1675d3bf25"
+  url "https://files.pythonhosted.org/packages/92/36/2eafe7d5ef26c1ae8e396cfcde3c9e9c50385f5c486dccdfba420d210c3d/fastapi-0.112.4.tar.gz"
+  sha256 "b1f72e1f72afe7902ccd639ba320abb5d57a309804f45c10ab0ce3693cadeb33"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "bf6ed8e1cc8bbb73f50a1901755fa6f26b461e7af156425b04965fabdee5bdfa"
-    sha256 cellar: :any,                 arm64_ventura:  "8b062d2aca5ccce34277e21859ee6ca298669c14ad2f9610a258bb6a6da7fbf8"
-    sha256 cellar: :any,                 arm64_monterey: "a5e7a58396f597a6b051f0c9a21fb8ef0bf4b77c8926c3dcc3f0cbb9e913d50e"
-    sha256 cellar: :any,                 sonoma:         "4b1ad4e7b5d35fc4accd8cacb270bf8125e4b0b70b4a3abb530b1a27e622f5b7"
-    sha256 cellar: :any,                 ventura:        "73557344c3db435af93a3ca6ea5f1aff3b2afc1ad1451e77a3491afe99823f0b"
-    sha256 cellar: :any,                 monterey:       "ec38ddfecdd47799bdf247b3000efc0d56c125d34b5c14307dbd0eb4d398805b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d491f81801d1c3340a5b5398256d7466d0bb428b3e34c222c8e5959f599ebd2d"
+    sha256 cellar: :any,                 arm64_sonoma:   "49b4a5a986290ead593f34c02c51103058915cdaf50af504c0cd378b3ebf4d2a"
+    sha256 cellar: :any,                 arm64_ventura:  "811252b115b433edd77c8e9fa58205a67c2c89d32391b117c9f6c04e8322a76d"
+    sha256 cellar: :any,                 arm64_monterey: "2eeab3206bb65fcfd75f6851b5b5c67b19b043f3e5a0c7af7debf426e0048e6d"
+    sha256 cellar: :any,                 sonoma:         "cc53a2dae0cbca3a8da7fef3c40db33cf2269471df74950f1b5e51048a04fbcf"
+    sha256 cellar: :any,                 ventura:        "ab4d5b464d0380ea0f4891606f558d4fe1b0f28c909b2e0eb07fed029d1eae68"
+    sha256 cellar: :any,                 monterey:       "a56c3a661aa22aae0f84a5fb56f3e4c516b6f7b26f4a3a6a161faa9107e5f8f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03e48d1fb20adddd50077f5994a2b5611088f1f997c665c6b4546728d2bcb08c"
   end
 
   depends_on "rust" => :build # for pydantic
