@@ -2411,6 +2411,7 @@ signmykey
 sigstore
 sile
 silicon
+silk
 simde
 simdjson
 simdutf
