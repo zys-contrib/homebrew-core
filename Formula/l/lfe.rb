@@ -4,6 +4,7 @@ class Lfe < Formula
   url "https://github.com/lfe/lfe/archive/refs/tags/v2.1.5.tar.gz"
   sha256 "41ea68afc8bbab55c63928505ce41d91bf30751d7fc511de6d8307efdede4a4f"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/lfe/lfe.git", branch: "develop"
 
   bottle do
@@ -16,7 +17,7 @@ class Lfe < Formula
   end
 
   depends_on "emacs" => :build
-  depends_on "erlang"
+  depends_on "erlang@26"
 
   def install
     system "make"
@@ -28,6 +29,9 @@ class Lfe < Formula
     pkgshare.install "dev", "examples", "test"
     doc.install Pathname.glob("doc/*.txt")
     elisp.install Pathname.glob("emacs/*.elc")
+
+    # TODO: Remove me when we depend on unversioned `erlang`.
+    bin.env_script_all_files libexec, PATH: "#{Formula["erlang@26"].opt_bin}:$PATH"
   end
 
   test do
