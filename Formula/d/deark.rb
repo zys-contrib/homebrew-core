@@ -1,8 +1,8 @@
 class Deark < Formula
   desc "File conversion utility for older formats"
   homepage "https://entropymine.com/deark/"
-  url "https://entropymine.com/deark/releases/deark-1.6.7.tar.gz"
-  sha256 "fd230ce0bf929f3fdd1bf7c9ba88d0ce6bafd5cfda819cceb96c110a14165dd6"
+  url "https://entropymine.com/deark/releases/deark-1.6.8.tar.gz"
+  sha256 "ad4846a0eb4a8247e9893f42a8ab2b89750a0fea060d60626684746bf511f6a4"
   license "MIT"
 
   livecheck do
