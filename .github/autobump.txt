@@ -25,6 +25,7 @@ agg
 ahoy
 aichat
 aide
+aider
 ain
 aiven-client
 akamai
