@@ -38,6 +38,7 @@ class Micromamba < Formula
   depends_on "tl-expected" => :build
 
   depends_on "fmt"
+  depends_on "libarchive"
   depends_on "libsolv"
   depends_on "lz4"
   depends_on "openssl@3"
@@ -50,15 +51,7 @@ class Micromamba < Formula
   uses_from_macos "bzip2"
   uses_from_macos "curl", since: :ventura # uses curl_url_strerror, available since curl 7.80.0
   uses_from_macos "krb5"
-  uses_from_macos "libarchive", since: :monterey
   uses_from_macos "zlib"
-
-  resource "libarchive-headers" do
-    on_monterey :or_newer do
-      url "https://github.com/apple-oss-distributions/libarchive/archive/refs/tags/libarchive-121.40.3.tar.gz"
-      sha256 "bb972360581fe5326ef5d313ec51579b1c1a4c8a6f20a5068851032a0fa74f33"
-    end
-  end
 
   def install
     args = %W[
@@ -68,16 +61,6 @@ class Micromamba < Formula
       -DMICROMAMBA_LINKAGE=DYNAMIC
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
-
-    if OS.mac? && MacOS.version >= :monterey
-      resource("libarchive-headers").stage do
-        cd "libarchive/libarchive" do
-          (buildpath/"homebrew/include").install "archive.h", "archive_entry.h"
-        end
-      end
-      args << "-DLibArchive_INCLUDE_DIR=#{buildpath}/homebrew/include"
-      ENV.append_to_cflags "-I#{buildpath}/homebrew/include"
-    end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
