@@ -28,15 +28,18 @@ class Xmlto < Formula
 
   depends_on "docbook"
   depends_on "docbook-xsl"
-  # Doesn't strictly depend on GNU getopt, but macOS system getopt(1)
-  # does not support longopts in the optstring, so use GNU getopt.
-  depends_on "gnu-getopt"
 
   uses_from_macos "libxslt"
 
+  on_macos do
+    # Doesn't strictly depend on GNU getopt, but macOS system getopt(1)
+    # does not support longopts in the optstring, so use GNU getopt.
+    depends_on "gnu-getopt"
+  end
+
   def install
     # GNU getopt is keg-only, so point configure to it
-    ENV["GETOPT"] = Formula["gnu-getopt"].opt_bin/"getopt"
+    ENV["GETOPT"] = Formula["gnu-getopt"].opt_bin/"getopt" if OS.mac?
     # Prevent reference to Homebrew shim
     ENV["SED"] = "/usr/bin/sed"
     # Find our docbook catalog
@@ -45,7 +48,7 @@ class Xmlto < Formula
     ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1500
 
     ENV.deparallelize
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
