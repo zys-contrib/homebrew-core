@@ -1811,6 +1811,7 @@ nats-server
 nats-streaming-server
 navi
 navidrome
+nbdime
 ncdc
 ncnn
 nco
