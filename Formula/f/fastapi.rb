@@ -3,18 +3,18 @@ class Fastapi < Formula
 
   desc "CLI for FastAPI framework"
   homepage "https://fastapi.tiangolo.com/"
-  url "https://files.pythonhosted.org/packages/9c/11/4874d165e7ef97aa803a567a4be8f9c8b0bd7cced6d536d44033ef7d4bfa/fastapi-0.112.2.tar.gz"
-  sha256 "3d4729c038414d5193840706907a41839d839523da6ed0c2811f1168cac1798c"
+  url "https://files.pythonhosted.org/packages/b7/f5/b6576e7f364f6c8fdd60a0d7f8ae7e00a6a2654ddc5a2e85a0f13d2ceedd/fastapi-0.112.3.tar.gz"
+  sha256 "9b6b41ea59ba948a07142f09d6241bda975fdb86847413136f6e2a1675d3bf25"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "15aa174f3a2b8f64eecd4841a676ceaa439ca73e5ba04bd5389e4509e8a3a9c6"
-    sha256 cellar: :any,                 arm64_ventura:  "ea4c973dd7809b8c7e2d905b936a988dd53b4b929573f491804bdbf090e0e8f1"
-    sha256 cellar: :any,                 arm64_monterey: "b7ae60816590d874ed5792ca8d3c573fba9fc9e78d35f9b60190cfb94b5ff7f1"
-    sha256 cellar: :any,                 sonoma:         "562352bc4e5ffd353bcb51af244508099f6951ba155d7cdba6f4dc0936570d2e"
-    sha256 cellar: :any,                 ventura:        "82c216349dae2d244946e358d8746bcb23d727d440833b95d2e2bc63394a91c9"
-    sha256 cellar: :any,                 monterey:       "235be09d2a565716a9c75cbb6ef78a9921dba9d2bc2829f168fc13367bc8cb86"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f5091713ca49c1999708be26a3531714e06dc32453330719dbc29ea07fc952a"
+    sha256 cellar: :any,                 arm64_sonoma:   "bf6ed8e1cc8bbb73f50a1901755fa6f26b461e7af156425b04965fabdee5bdfa"
+    sha256 cellar: :any,                 arm64_ventura:  "8b062d2aca5ccce34277e21859ee6ca298669c14ad2f9610a258bb6a6da7fbf8"
+    sha256 cellar: :any,                 arm64_monterey: "a5e7a58396f597a6b051f0c9a21fb8ef0bf4b77c8926c3dcc3f0cbb9e913d50e"
+    sha256 cellar: :any,                 sonoma:         "4b1ad4e7b5d35fc4accd8cacb270bf8125e4b0b70b4a3abb530b1a27e622f5b7"
+    sha256 cellar: :any,                 ventura:        "73557344c3db435af93a3ca6ea5f1aff3b2afc1ad1451e77a3491afe99823f0b"
+    sha256 cellar: :any,                 monterey:       "ec38ddfecdd47799bdf247b3000efc0d56c125d34b5c14307dbd0eb4d398805b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d491f81801d1c3340a5b5398256d7466d0bb428b3e34c222c8e5959f599ebd2d"
   end
 
   depends_on "rust" => :build # for pydantic
@@ -72,8 +72,8 @@ class Fastapi < Formula
   end
 
   resource "httpx" do
-    url "https://files.pythonhosted.org/packages/5c/2d/3da5bdf4408b8b2800061c339f240c1802f2e82d55e50bd39c5a881f47f0/httpx-0.27.0.tar.gz"
-    sha256 "a0cb88a46f32dc874e04ee956e4c2764aba2aa228f650b06788ba6bda2962ab5"
+    url "https://files.pythonhosted.org/packages/78/82/08f8c936781f67d9e6b9eeb8a0c8b4e406136ea4c3d1f89a5db71d42e0e6/httpx-0.27.2.tar.gz"
+    sha256 "f7c2be1d2f3c3c3160d441802406b206c2b76f5947b11115e6df10c6c65e66c2"
   end
 
   resource "idna" do
@@ -132,8 +132,8 @@ class Fastapi < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/b3/01/c954e134dc440ab5f96952fe52b4fdc64225530320a910473c1fe270d9aa/rich-13.7.1.tar.gz"
-    sha256 "9be308cb1fe2f1f57d67ce99e95af38a1e2bc71ad9813b0e247cf7ffbcc3a432"
+    url "https://files.pythonhosted.org/packages/cf/60/5959113cae0ce512cf246a6871c623117330105a0d5f59b4e26138f2c9cc/rich-13.8.0.tar.gz"
+    sha256 "a5ac1f1cd448ade0d59cc3356f7db7a7ccda2c8cbae9c7a90c28ff463d3e91f4"
   end
 
   resource "shellingham" do
@@ -147,8 +147,8 @@ class Fastapi < Formula
   end
 
   resource "starlette" do
-    url "https://files.pythonhosted.org/packages/43/e2/d49a94ecb665b3a1c34b40c78165a737abc384fcabc843ccb14a3bd3dc37/starlette-0.38.2.tar.gz"
-    sha256 "c7c0441065252160993a1a37cf2a73bb64d271b17303e0b0c1eb7191cfb12d75"
+    url "https://files.pythonhosted.org/packages/b4/9c/d85721508122ae927aa7064e10a3f47f8dabcd4fd162222afcecd0d8d7b7/starlette-0.38.4.tar.gz"
+    sha256 "53a7439060304a208fea17ed407e998f46da5e5d9b1addfea3040094512a6379"
   end
 
   resource "typer" do
@@ -172,13 +172,13 @@ class Fastapi < Formula
   end
 
   resource "watchfiles" do
-    url "https://files.pythonhosted.org/packages/9e/1a/b06613ef620d7f5ca712a3d4928ec1c07182159a64277fcdf7738edb0b32/watchfiles-0.23.0.tar.gz"
-    sha256 "9338ade39ff24f8086bb005d16c29f8e9f19e55b18dcb04dfa26fcbc09da497b"
+    url "https://files.pythonhosted.org/packages/c8/27/2ba23c8cc85796e2d41976439b08d52f691655fdb9401362099502d1f0cf/watchfiles-0.24.0.tar.gz"
+    sha256 "afb72325b74fa7a428c009c1b8be4b4d7c2afedafb2982827ef2156646df2fe1"
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/0f/b0/e53bdd53d86447d211694f3cf66f163d077c5d68e6bcaa726bf64e88ae3a/websockets-13.0.tar.gz"
-    sha256 "b7bf950234a482b7461afdb2ec99eee3548ec4d53f418c7990bb79c620476602"
+    url "https://files.pythonhosted.org/packages/8f/1c/78687e0267b09412409ac134f10fd14d14ac6475da892a8b09a02d0f6ae2/websockets-13.0.1.tar.gz"
+    sha256 "4d6ece65099411cfd9a48d13701d7438d9c34f479046b34c50ff60bb8834e43e"
   end
 
   def install
