@@ -18,7 +18,7 @@ class Uwsgi < Formula
 
   depends_on "pkg-config" => :build
   depends_on "openssl@3"
-  depends_on "pcre" # PCRE2 issue: https://github.com/unbit/uwsgi/issues/2486
+  depends_on "pcre2"
   depends_on "python@3.12"
   depends_on "sqlite"
   depends_on "yajl"
