@@ -25,18 +25,30 @@ class AptDater < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "gettext" => :build
   depends_on "pkg-config" => :build
-  depends_on "gettext"
   depends_on "glib"
   depends_on "popt"
 
   uses_from_macos "libxml2"
+  uses_from_macos "ncurses"
+
+  on_macos do
+    depends_on "coreutils" => :build # for `date -d`
+    depends_on "gettext"
+  end
+
+  # Fix incorrect args to g_strlcpy
+  # Part of open PR: https://github.com/DE-IBH/apt-dater/pull/182
+  patch do
+    url "https://github.com/DE-IBH/apt-dater/commit/70a6e4a007d2bbd891442794080ab4fe713a6f94.patch?full_index=1"
+    sha256 "de100e8ddd576957e7e2ac6cb5ac43e55235c4031efd7ee6fd0e0e81b7b0b2f4"
+  end
 
   def install
-    system "autoreconf", "-ivf"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    ENV.prepend_path "PATH", Formula["coreutils"].libexec/"gnubin" if OS.mac?
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
     # Global config overrides local config, so delete global config to prioritize the
     # config in $HOME/.config/apt-dater
