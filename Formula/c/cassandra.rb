@@ -4,9 +4,9 @@ class Cassandra < Formula
 
   desc "Eventually consistent, distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=cassandra/4.1.6/apache-cassandra-4.1.6-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/cassandra/4.1.6/apache-cassandra-4.1.6-bin.tar.gz"
-  sha256 "2f51ce787812cce2ffb3db83a9a23248537fb52123884b0855551a0555ae8d03"
+  url "https://www.apache.org/dyn/closer.lua?path=cassandra/5.0.0/apache-cassandra-5.0.0-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/cassandra/5.0.0/apache-cassandra-5.0.0-bin.tar.gz"
+  sha256 "bda1e57004cc964ec403f9b8c941cda9d4bb1225f786f2b1cd7dde3c71033465"
   license "Apache-2.0"
 
   bottle do
@@ -20,8 +20,8 @@ class Cassandra < Formula
   end
 
   depends_on "libev"
-  depends_on "openjdk@11"
-  depends_on "python@3.12"
+  depends_on "openjdk@17"
+  depends_on "python@3.11" # required 3.6-3.11
 
   conflicts_with "emqx", because: "both install `nodetool` binaries"
 
@@ -45,11 +45,16 @@ class Cassandra < Formula
     sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
+  resource "wcwidth" do
+    url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz"
+    sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
+  end
+
   def install
     (var/"lib/cassandra").mkpath
     (var/"log/cassandra").mkpath
 
-    python3 = "python3.12"
+    python3 = "python3.11"
     venv = virtualenv_create(libexec/"vendor", python3)
     venv.pip_install resources
 
@@ -75,7 +80,7 @@ class Cassandra < Formula
               "cassandra_storagedir=\"#{var}/lib/cassandra\""
 
       s.gsub! "#JAVA_HOME=/usr/local/jdk6",
-              "JAVA_HOME=#{Language::Java.overridable_java_home_env("11")[:JAVA_HOME]}"
+              "JAVA_HOME=#{Language::Java.overridable_java_home_env("17")[:JAVA_HOME]}"
     end
 
     rm Dir["bin/*.bat", "bin/*.ps1"]
