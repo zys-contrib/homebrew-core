@@ -1982,6 +1982,7 @@ opus
 or-tools
 oras
 orbiton
+orbuculum
 orc
 orc-tools
 ord
