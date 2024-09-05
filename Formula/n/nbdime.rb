@@ -8,13 +8,13 @@ class Nbdime < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e1ba060338ac841d42a255d5d69d09af91e121df39d78db1f43173ba589f4268"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e1ba060338ac841d42a255d5d69d09af91e121df39d78db1f43173ba589f4268"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e1ba060338ac841d42a255d5d69d09af91e121df39d78db1f43173ba589f4268"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e1ba060338ac841d42a255d5d69d09af91e121df39d78db1f43173ba589f4268"
-    sha256 cellar: :any_skip_relocation, ventura:        "e1ba060338ac841d42a255d5d69d09af91e121df39d78db1f43173ba589f4268"
-    sha256 cellar: :any_skip_relocation, monterey:       "e1ba060338ac841d42a255d5d69d09af91e121df39d78db1f43173ba589f4268"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d90439548bf8ed5df200c79a8939959aec58cb103c70e4701707a42905f19ee"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e50a4de40896b059482ae1a425e2a079e9582a4ac9524c9b471bd0168b708971"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e50a4de40896b059482ae1a425e2a079e9582a4ac9524c9b471bd0168b708971"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e50a4de40896b059482ae1a425e2a079e9582a4ac9524c9b471bd0168b708971"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e50a4de40896b059482ae1a425e2a079e9582a4ac9524c9b471bd0168b708971"
+    sha256 cellar: :any_skip_relocation, ventura:        "e50a4de40896b059482ae1a425e2a079e9582a4ac9524c9b471bd0168b708971"
+    sha256 cellar: :any_skip_relocation, monterey:       "e50a4de40896b059482ae1a425e2a079e9582a4ac9524c9b471bd0168b708971"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e70c710b757fc4cc96409ba82fe03c9b23f1be2c9ed2efa515874c4d138a55e"
   end
 
   depends_on "certifi"
