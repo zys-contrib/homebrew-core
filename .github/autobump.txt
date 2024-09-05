@@ -1245,6 +1245,7 @@ ipmiutil
 ipopt
 iproute2
 ipsw
+iputils
 ipv6calc
 ipython
 ircd-hybrid
