@@ -27,11 +27,14 @@ class Vcs < Formula
 
   depends_on "ffmpeg"
   depends_on "ghostscript"
-  depends_on "gnu-getopt"
   depends_on "imagemagick"
 
+  on_macos do
+    depends_on "gnu-getopt"
+  end
+
   def install
-    inreplace "vcs", "declare GETOPT=getopt", "declare GETOPT=#{Formula["gnu-getopt"].opt_bin}/getopt"
+    inreplace "vcs", "declare GETOPT=getopt", "declare GETOPT=#{Formula["gnu-getopt"].opt_bin}/getopt" if OS.mac?
 
     system "make", "install", "prefix=#{prefix}"
   end
