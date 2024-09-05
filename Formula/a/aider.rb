@@ -3,19 +3,19 @@ class Aider < Formula
 
   desc "AI pair programming in your terminal"
   homepage "https://aider.chat/"
-  url "https://files.pythonhosted.org/packages/1d/fc/4bda15189863ac9dafb43386966159530a78a21af7ad5d583907fa149d22/aider_chat-0.54.8.tar.gz"
-  sha256 "a794e0a30a4566d0d51ebe9c5f7e20005ee473c999a12e2a24a82e224f5e6bde"
+  url "https://files.pythonhosted.org/packages/7f/91/2ff612a0b6a4b51b70eb43a1cb77d54988627ed0c36d19037ebb6ed5c5ec/aider_chat-0.55.0.tar.gz"
+  sha256 "926aee4a58db65be3aef90871ef8154aa7279e404cf6f87ab74d3f3cc7380703"
   license "Apache-2.0"
   head "https://github.com/paul-gauthier/aider.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b88490283e631d164cd76d90e074ef128b4a290ddb0ba5ab7fd453f77c8b56be"
-    sha256 cellar: :any,                 arm64_ventura:  "6fbbd35a38e74e26e89b16ad1c63bc888ee5b905bdb2f9e09c94126c4ddcac53"
-    sha256 cellar: :any,                 arm64_monterey: "6aa99e22804f408a6b9a18d372de2d9b64069d1df7946c36717756c4604918ea"
-    sha256 cellar: :any,                 sonoma:         "77ad29bda1fd0a2e1b7448adbc8df8b878a3d85166066a28a93737e41b31865c"
-    sha256 cellar: :any,                 ventura:        "ece59fad7cda3358665c1a1e8965ff0fedcf77e76975748fbe0a13c07346427b"
-    sha256 cellar: :any,                 monterey:       "be2b56148c3bbb846e8d356cdae9df872e9693451bd2824c4ba377068282b985"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f3fd559de6f3c4a12acae3636132b32b150b4ea354e15d552925e7116219f0e"
+    sha256 cellar: :any,                 arm64_sonoma:   "a164ecc7e7888923279e55fa4df76326ac3efdf819d9ba763d67f5ea7c438b9f"
+    sha256 cellar: :any,                 arm64_ventura:  "2c14a81e247661ad0889397ae4f4b502025942cbcb03ed530c40222170e76646"
+    sha256 cellar: :any,                 arm64_monterey: "f233c18f9584b79cc9df56f34707bc01f1ee13ca4fde79349bec9c319effc621"
+    sha256 cellar: :any,                 sonoma:         "fdf058cf7c3903fb10dc1279dc20f44006ddc93990bd26a44c2a79cbee5ebade"
+    sha256 cellar: :any,                 ventura:        "f80d83dc27fe7c31bb22de7397700be6549b91e676f0b9998b12683469265e88"
+    sha256 cellar: :any,                 monterey:       "b8dff1efe934ae74dbedbdf22acb751a094ebaed1e40c88f81545251891fbcca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b15ad67b5aea6e9ab9a2e20ad5f9987efe6d27bf4d05e95ae671afc2c13e82f0"
   end
 
   depends_on "cython" => :build # for tree-sitter-languages
