@@ -1462,6 +1462,7 @@ libfabric
 libffcall
 libffi
 libfido2
+libfixbuf
 libfontenc
 libfs
 libgedit-amtk

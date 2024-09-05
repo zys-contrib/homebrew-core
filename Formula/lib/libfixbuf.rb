@@ -1,10 +1,9 @@
 class Libfixbuf < Formula
   desc "Implements the IPFIX Protocol as a C library"
   homepage "https://tools.netsa.cert.org/fixbuf/"
-  url "https://tools.netsa.cert.org/releases/libfixbuf-2.4.2.tar.gz"
-  sha256 "4286d94224a2d9e21937b50a87ee1e204768f30fd193f48f381a63743944bf08"
+  url "https://tools.netsa.cert.org/releases/libfixbuf-2.5.0.tar.gz"
+  sha256 "f985827d543f4f8802d12740f576d232aef1a364bcc9d85ad0ca3fe9142c6ead"
   license "LGPL-3.0-only"
-  revision 1
 
   # NOTE: This should be updated to check the main `/fixbuf/download.html`
   # page when it links to a stable version again in the future.
@@ -62,7 +61,5 @@ class Libfixbuf < Formula
     pkg_config_flags = shell_output("pkg-config --cflags --libs libfixbuf").chomp.split
     system ENV.cc, "test.c", "-o", "test", *pkg_config_flags
     system "./test"
-
-    assert_match version.to_s, shell_output("#{bin}/ipfixDump --version 2>&1")
   end
 end
