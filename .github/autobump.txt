@@ -2901,6 +2901,7 @@ xwin
 xxhash
 xz
 yaegi
+yaf
 yamale
 yaml-language-server
 yamlfmt
