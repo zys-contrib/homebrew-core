@@ -1566,6 +1566,7 @@ libxaw3d
 libxcursor
 libxdmcp
 libxext
+libxi
 libxkbfile
 libxlsxwriter
 libxml++@4
