@@ -33,6 +33,7 @@ class Bind < Formula
 
   depends_on "pkg-config" => :build
 
+  depends_on "jemalloc"
   depends_on "json-c"
   depends_on "libidn2"
   depends_on "libnghttp2"
