@@ -1,8 +1,8 @@
 class MupdfTools < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
-  url "https://mupdf.com/downloads/archive/mupdf-1.23.11-source.tar.gz"
-  sha256 "478f2a167feae2a291c8b8bc5205f2ce2f09f09b574a6eb0525bfad95a3cfe66"
+  url "https://mupdf.com/downloads/archive/mupdf-1.24.9-source.tar.gz"
+  sha256 "0b446aa0eecc114e9969dccd70c9789358fccb6589a81d470dc941a0874da98a"
   license "AGPL-3.0-or-later"
   head "https://git.ghostscript.com/mupdf.git", branch: "master"
 
@@ -20,8 +20,7 @@ class MupdfTools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b48482c03e3b6bd4639762e1d677ed25fa50090ddd6d5985e8b1476b0bf9ba20"
   end
 
-  conflicts_with "mupdf",
-    because: "mupdf and mupdf-tools install the same binaries"
+  conflicts_with "mupdf", because: "mupdf and mupdf-tools install the same binaries"
 
   def install
     system "make", "install",
