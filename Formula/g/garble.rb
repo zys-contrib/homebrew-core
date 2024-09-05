@@ -1,10 +1,9 @@
 class Garble < Formula
   desc "Obfuscate Go builds"
   homepage "https://github.com/burrowers/garble"
-  url "https://github.com/burrowers/garble/archive/refs/tags/v0.12.1.tar.gz"
-  sha256 "98ade316176d434f298bdb36e4c421e3c4c33668cfd2922d358f7f0403566500"
+  url "https://github.com/burrowers/garble/archive/refs/tags/v0.13.0.tar.gz"
+  sha256 "22a1696ce880b34ca5ff949b6b5a42d4e370502e0b40b59eaa679eae13e45363"
   license "BSD-3-Clause"
-  revision 7
   head "https://github.com/burrowers/garble.git", branch: "master"
 
   bottle do
@@ -17,9 +16,7 @@ class Garble < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "eebd8616f888622f1400084458b3aea38c25e3bed11288d2a4a09a5bee65a131"
   end
 
-  # panic: package "internal/coverage/cfile" still missing after go list call
-  # upstream bug report, https://github.com/operator-framework/operator-sdk/issues/4793
-  depends_on "go@1.22" => [:build, :test]
+  depends_on "go" => [:build, :test]
   depends_on "git"
 
   def install
@@ -28,8 +25,6 @@ class Garble < Formula
   end
 
   test do
-    ENV.prepend_path "PATH", Formula["go@1.22"].bin
-
     (testpath/"hello.go").write <<~EOS
       package main
 

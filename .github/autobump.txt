@@ -919,6 +919,7 @@ g-ls
 gabo
 gallery-dl
 gammaray
+garble
 gat
 gateway-go
 gator
