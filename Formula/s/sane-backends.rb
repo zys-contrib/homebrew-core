@@ -44,6 +44,13 @@ class SaneBackends < Formula
     depends_on "systemd"
   end
 
+  # Fix compilation failure with clang 16, remove in next version
+  # https://gitlab.com/sane-project/backends/-/issues/774
+  patch do
+    url "https://gitlab.com/sane-project/backends/-/commit/e45ba84b665e3ac339e27e594d8651ee1577d638.diff"
+    sha256 "4cdb099c77cf94aad013f8b8c4e064c5d009629a84da5b67947ce2c7b0829c3d"
+  end
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", *std_configure_args,
