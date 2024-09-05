@@ -26,6 +26,7 @@ aichat
 aide
 ain
 aiven-client
+akamai
 alda
 algol68g
 aliddns
