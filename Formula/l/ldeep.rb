@@ -3,8 +3,8 @@ class Ldeep < Formula
 
   desc "LDAP enumeration utility"
   homepage "https://github.com/franc-pentest/ldeep"
-  url "https://files.pythonhosted.org/packages/92/29/be36b5460cc1f4c38e4d20730a747e91106fd58e64464fca23f729135523/ldeep-1.0.58.tar.gz"
-  sha256 "c17312ff41e7b23859699f725e809b24a2af596685c7fab53f3ee957a39282fa"
+  url "https://files.pythonhosted.org/packages/e2/fe/02f2a188efa0ef74a2700b21e8bca452e89a885d845abcfd5ec0c6b3087e/ldeep-1.0.61.tar.gz"
+  sha256 "87187cf5a446c85cdd12c24de2ab213e3873138a0e92fc3e04bac37066a8756a"
   license "MIT"
   head "https://github.com/franc-pentest/ldeep.git", branch: "master"
 
@@ -48,9 +48,9 @@ class Ldeep < Formula
     sha256 "aa3c8d0b1526f52559552bb2c9d2d6be013d76a8e5db00b39a1db5727e93b0b0"
   end
 
-  resource "ldap3" do
-    url "https://files.pythonhosted.org/packages/43/ac/96bd5464e3edbc61595d0d69989f5d9969ae411866427b2500a8e5b812c0/ldap3-2.9.1.tar.gz"
-    sha256 "f3e7fc4718e3f09dda568b57100095e0ce58633bcabbed8667ce3f8fbaa4229f"
+  resource "ldap3-bleeding-edge" do
+    url "https://files.pythonhosted.org/packages/b6/72/1f50f58d90ebc3900159db6b313f600b08460300543dab20f4087aa81eee/ldap3_bleeding_edge-2.10.1.1337.tar.gz"
+    sha256 "8f887372ac0e38da25e98a98f4b773f58a618cf99a705a15caa5273075b56999"
   end
 
   resource "oscrypto" do
@@ -84,8 +84,8 @@ class Ldeep < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/5a/c0/b7599d6e13fe0844b0cda01b9aaef9a0e87dbb10b06e4ee255d3fa1c79a2/tqdm-4.66.4.tar.gz"
-    sha256 "e4d936c9de8727928f3be6079590e97d9abfe8d39a590be678eb5919ffc186bb"
+    url "https://files.pythonhosted.org/packages/58/83/6ba9844a41128c62e810fddddd72473201f3eacde02046066142a2d96cc5/tqdm-4.66.5.tar.gz"
+    sha256 "e1020aef2e5096702d8a025ac7d16b1577279c9d63f8375b63083e9a5f0fcbad"
   end
 
   def install
