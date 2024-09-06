@@ -4,6 +4,7 @@ class ProtocGenGrpcWeb < Formula
   url "https://github.com/grpc/grpc-web/archive/refs/tags/1.5.0.tar.gz"
   sha256 "d3043633f1c284288e98e44c802860ca7203c7376b89572b5f5a9e376c2392d5"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -22,24 +23,28 @@ class ProtocGenGrpcWeb < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "node" => :test
   depends_on "typescript" => :test
-  depends_on "protobuf@21"
+  depends_on "abseil"
+  depends_on "protobuf"
   depends_on "protoc-gen-js"
 
-  def install
-    bin.mkpath
-    system "make", "install-plugin", "PREFIX=#{prefix}"
+  # Backport of https://github.com/grpc/grpc-web/commit/2c39859be8e5bcf55eef129e5a5330149ce460ab
+  patch :DATA
 
-    # Remove these two lines when this formula depends on unversioned `protobuf`.
-    libexec.install bin/"protoc-gen-grpc-web"
-    (bin/"protoc-gen-grpc-web").write_env_script libexec/"protoc-gen-grpc-web",
-                                                 PATH: "#{Formula["protobuf@21"].opt_bin}:${PATH}"
+  def install
+    # Workarounds to build with latest `protobuf` which needs Abseil link flags and C++17
+    ENV.append "LDFLAGS", Utils.safe_popen_read("pkg-config", "--libs", "protobuf").chomp
+    inreplace "javascript/net/grpc/web/generator/Makefile", "-std=c++11", "-std=c++17"
+
+    args = ["PREFIX=#{prefix}", "STATIC=no"]
+    args << "MIN_MACOS_VERSION=#{MacOS.version}" if OS.mac?
+
+    system "make", "install-plugin", *args
   end
 
   test do
-    ENV.prepend_path "PATH", Formula["protobuf@21"].opt_bin
-
     # First use the plugin to generate the files.
     testdata = <<~EOS
       syntax = "proto3";
@@ -74,3 +79,57 @@ class ProtocGenGrpcWeb < Formula
     system "tsc", "--lib", "es6", "test.ts"
   end
 end
+
+__END__
+diff --git a/javascript/net/grpc/web/generator/grpc_generator.cc b/javascript/net/grpc/web/generator/grpc_generator.cc
+index 158a335bb..1eb97b35d 100644
+--- a/javascript/net/grpc/web/generator/grpc_generator.cc
++++ b/javascript/net/grpc/web/generator/grpc_generator.cc
+@@ -841,13 +841,11 @@ void PrintProtoDtsMessage(Printer* printer, const Descriptor* desc,
+                      "set$js_field_name$(value?: $js_field_type$): "
+                      "$class_name$;\n");
+     }
+-    if (field->has_optional_keyword() ||
+-        (field->type() == FieldDescriptor::TYPE_MESSAGE &&
+-            !field->is_repeated() && !field->is_map())) {
++    if (field->has_presence()) {
+       printer->Print(vars, "has$js_field_name$(): boolean;\n");
+     }
+-    if (field->type() == FieldDescriptor::TYPE_MESSAGE || field->has_optional_keyword() ||
+-        field->is_repeated() || field->is_map()) {
++    if (field->type() == FieldDescriptor::TYPE_MESSAGE ||
++        field->has_presence() || field->is_repeated() || field->is_map()) {
+       printer->Print(vars, "clear$js_field_name$(): $class_name$;\n");
+     }
+     if (field->is_repeated() && !field->is_map()) {
+@@ -867,14 +865,12 @@ void PrintProtoDtsMessage(Printer* printer, const Descriptor* desc,
+     printer->Print("\n");
+   }
+
+-  for (int i = 0; i < desc->oneof_decl_count(); i++) {
+-    const OneofDescriptor* oneof = desc->oneof_decl(i);
+-    if (!oneof->is_synthetic()) {
+-      vars["js_oneof_name"] = ToUpperCamel(ParseLowerUnderscore(oneof->name()));
+-      printer->Print(
+-          vars, "get$js_oneof_name$Case(): $class_name$.$js_oneof_name$Case;\n");
+-      printer->Print("\n");
+-    }
++  for (int i = 0; i < desc->real_oneof_decl_count(); i++) {
++    const OneofDescriptor *oneof = desc->real_oneof_decl(i);
++    vars["js_oneof_name"] = ToUpperCamel(ParseLowerUnderscore(oneof->name()));
++    printer->Print(
++        vars, "get$js_oneof_name$Case(): $class_name$.$js_oneof_name$Case;\n");
++    printer->Print("\n");
+   }
+
+   printer->Print(
+@@ -904,8 +900,7 @@ void PrintProtoDtsMessage(Printer* printer, const Descriptor* desc,
+     }
+     vars["js_field_name"] = js_field_name;
+     vars["js_field_type"] = AsObjectFieldType(field, file);
+-    if ((field->type() != FieldDescriptor::TYPE_MESSAGE && !field->has_optional_keyword()) ||
+-        field->is_repeated()) {
++    if (!field->has_presence()) {
+       printer->Print(vars, "$js_field_name$: $js_field_type$,\n");
+     } else {
+       printer->Print(vars, "$js_field_name$?: $js_field_type$,\n");
