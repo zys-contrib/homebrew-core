@@ -1,8 +1,8 @@
 class Vhs < Formula
   desc "Your CLI home video recorder"
   homepage "https://github.com/charmbracelet/vhs"
-  url "https://github.com/charmbracelet/vhs/archive/refs/tags/v0.7.2.tar.gz"
-  sha256 "9be4b88a638336f6bba913f391b0300549280246e08d26cbd5053b63c60ee40c"
+  url "https://github.com/charmbracelet/vhs/archive/refs/tags/v0.8.0.tar.gz"
+  sha256 "ff89dba4d40109ffc87d4201f46ec1e9b8dcc02242e32ffc94a5379241b56ef8"
   license "MIT"
   head "https://github.com/charmbracelet/vhs.git", branch: "main"
 
