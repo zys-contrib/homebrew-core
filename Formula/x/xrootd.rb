@@ -1,16 +1,11 @@
 class Xrootd < Formula
   desc "High performance, scalable, fault-tolerant access to data"
   homepage "https://xrootd.slac.stanford.edu/"
-  url "https://github.com/xrootd/xrootd/releases/download/v5.7.0/xrootd-5.7.0.tar.gz"
-  mirror "https://xrootd.slac.stanford.edu/download/v5.7.0/xrootd-5.7.0.tar.gz"
-  sha256 "214599bba98bc69875b82ac74f2d4b9ac8a554a1024119d8a9802b3d8b9986f8"
+  url "https://github.com/xrootd/xrootd/releases/download/v5.7.1/xrootd-5.7.1.tar.gz"
+  mirror "https://xrootd.slac.stanford.edu/download/v5.7.1/xrootd-5.7.1.tar.gz"
+  sha256 "c28c9dc0a2f5d0134e803981be8b1e8b1c9a6ec13b49f5fa3040889b439f4041"
   license "LGPL-3.0-or-later"
   head "https://github.com/xrootd/xrootd.git", branch: "master"
-
-  livecheck do
-    url "https://xrootd.slac.stanford.edu/dload.html"
-    regex(/href=.*?xrootd[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "a1651db16a4cd1e1da3c2b06461994617feb5bae7594140af42c8f61d5e39dd0"
@@ -66,7 +61,8 @@ class Xrootd < Formula
   end
 
   test do
-    system bin/"xrootd", "-H"
+    assert_match version.to_s, shell_output("#{bin}/xrootd -v 2>&1")
+
     system "python3.12", "-c", <<~EOS
       import XRootD
       from XRootD import client
