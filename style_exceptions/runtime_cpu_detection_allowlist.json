@@ -5,6 +5,7 @@
   "botan",
   "fftw",
   "highway",
+  "knot",
   "libvpx",
   "nsd",
   "openblas",
