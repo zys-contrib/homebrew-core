@@ -12,14 +12,13 @@ class ProtocGenGrpcWeb < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "b89aa0ba6730eaad8968e03c7cdabdc8de90f56f841bebb0ba8d72d1753065ee"
-    sha256 cellar: :any,                 arm64_ventura:  "b473d8ad0f6cafd1332fae6a53f19d4b1e9d1bd18e474610d954e63bdec13a66"
-    sha256 cellar: :any,                 arm64_monterey: "17d9fb48ecfd5d783335352b4c4542f33b2030a0ddc28a8c97cf25129453c112"
-    sha256 cellar: :any,                 sonoma:         "c889676f319943872be69fb44187852f9d2e16ddde51587ab5bf73e93b158ca3"
-    sha256 cellar: :any,                 ventura:        "e891721d95f76ea73be1cbcae6707ea6bf8b404668f5760d34c5db0ae074fe29"
-    sha256 cellar: :any,                 monterey:       "3f34b457d37d16e122b65bc2941432470cb45b0598f5ea8226fad6e1cd1ce3d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "066c224c130c3a628c49551eac976a0bd4eea89314bc9195b31b13d3892f1160"
+    sha256 cellar: :any,                 arm64_sonoma:   "f75cc8466c6773885059bd615d775c917a64388d3208e18e99fc745857efb271"
+    sha256 cellar: :any,                 arm64_ventura:  "8b7d340837605b8088c123067a58d0548dec600ce53d63ff1cd65c3f7d050b61"
+    sha256 cellar: :any,                 arm64_monterey: "6d95c1d15884fdeb7fff0765a9cc927f4ee29533671f4ad64c284600ae59604b"
+    sha256 cellar: :any,                 sonoma:         "03a722484f5c9851b7943e8ee73489150a3d5c7a2647aab541ef5a13b271db59"
+    sha256 cellar: :any,                 ventura:        "7171ba31b7089bca1a6b81ebb536eddc8a951bae4363f1d220f0237278630d58"
+    sha256 cellar: :any,                 monterey:       "6faa85430a15cb6ea6619a1d90bc0a8965a619d1041f86e58c3930395b36c200"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "badb7f248c73143316ed40614abf5717d3ca676f152fb6461da630a0fb72368d"
   end
 
   depends_on "cmake" => :build
