@@ -1,8 +1,8 @@
 class Glasskube < Formula
   desc "Missing Package Manager for Kubernetes"
   homepage "https://glasskube.dev/"
-  url "https://github.com/glasskube/glasskube/archive/refs/tags/v0.19.1.tar.gz"
-  sha256 "327d3f875389d590b9e74ae5e1125967b79b36fde859370c89873b680124162b"
+  url "https://github.com/glasskube/glasskube/archive/refs/tags/v0.19.2.tar.gz"
+  sha256 "54e9be12d218264cc226ec0f722788be1e80a5e149bf48ba5e27cf96a522110a"
   license "Apache-2.0"
   head "https://github.com/glasskube/glasskube.git", branch: "main"
 
