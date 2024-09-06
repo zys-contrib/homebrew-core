@@ -38,9 +38,10 @@ class Vim < Formula
   depends_on "libsodium"
   depends_on "lua"
   depends_on "ncurses"
-  depends_on "perl"
   depends_on "python@3.12"
   depends_on "ruby"
+
+  uses_from_macos "perl"
 
   on_linux do
     depends_on "acl"
