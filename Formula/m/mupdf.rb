@@ -12,13 +12,13 @@ class Mupdf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a8290f9bee8d3d592ca6dae07a152651a5d386e979940992dc034ae1a7836f6f"
-    sha256 cellar: :any,                 arm64_ventura:  "84d7627be727109d54978a31ec04c0f3d4685dae93207c5d40d14ddef004bddd"
-    sha256 cellar: :any,                 arm64_monterey: "853102de018e979b14923af099301111f75d435078d7d027e07c0013a7a9cbc8"
-    sha256 cellar: :any,                 sonoma:         "b4cd684c7649c848ce80aa7657d7236a695a89282a44ec95ae7de20385ddb652"
-    sha256 cellar: :any,                 ventura:        "f8846a1c77aa6bdfd7925edaf46a57ff6920e0f429fa2d9f2b6b6c96b326c868"
-    sha256 cellar: :any,                 monterey:       "8ed2477a192b75e939077b753118852ccec6a8de8dd052794aea299891cfabf8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aafc7ee71749329c186c19c1d2aaa8cca880aa81e56f788a150de6070e8e0cb1"
+    sha256 cellar: :any,                 arm64_sonoma:   "32cd3dac426f00ab587bed33dd60bf861179babb06fa806410433e552eed2132"
+    sha256 cellar: :any,                 arm64_ventura:  "46bf0dda1818ca6a5d94eb489c3498a9aa6e5bd8f9188a223c336a820e20f7c7"
+    sha256 cellar: :any,                 arm64_monterey: "6fbe9a412b689da2d09a3e113c48e4d8b242fe232649dc22922f88f2fef36d11"
+    sha256 cellar: :any,                 sonoma:         "9fcf9b17272159016a482d90eceaf739f5716482dfa7527344e264b7d9ead82c"
+    sha256 cellar: :any,                 ventura:        "26744f3074268252ef4147e1d72e80f47db544516ebb219af2c6dabb7d9c325a"
+    sha256 cellar: :any,                 monterey:       "5703f9d46c902dd5e538ba62cb24ff86cff69cf408c03ce4517b088014f9dc62"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "510087c1505b18d5f417bb5765ca4762d2a2df3a074a708b4749736ae215ae2f"
   end
 
   depends_on "llvm" => :build
