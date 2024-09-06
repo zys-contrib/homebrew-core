@@ -2,6 +2,7 @@ class Libspatialite < Formula
   desc "Adds spatial SQL capabilities to SQLite"
   homepage "https://www.gaia-gis.it/fossil/libspatialite/index"
   license any_of: ["MPL-1.1", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 1
 
   stable do
     url "https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-5.1.0.tar.gz"
@@ -48,9 +49,10 @@ class Libspatialite < Formula
   depends_on "minizip"
   depends_on "proj"
   depends_on "sqlite"
+  uses_from_macos "zlib"
 
   def install
-    system "autoreconf", "-fi" if build.head?
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
 
     # New SQLite3 extension won't load via SELECT load_extension("mod_spatialite");
     # unless named mod_spatialite.dylib (should actually be mod_spatialite.bundle)
