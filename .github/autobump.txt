@@ -197,6 +197,7 @@ beakerlib
 beancount
 beancount-language-server
 bear
+bed
 bee
 bench
 benthos
