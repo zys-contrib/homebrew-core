@@ -7,13 +7,13 @@ class Glasskube < Formula
   head "https://github.com/glasskube/glasskube.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "96caf4cea855513bf94cf7033b6870c663f88798f183d898c80af4dc4d694ee5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "96caf4cea855513bf94cf7033b6870c663f88798f183d898c80af4dc4d694ee5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "96caf4cea855513bf94cf7033b6870c663f88798f183d898c80af4dc4d694ee5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "926cbccae77773bc28d2dec8acee9a28e8e13cbcb4394c7609787bf989679c9d"
-    sha256 cellar: :any_skip_relocation, ventura:        "926cbccae77773bc28d2dec8acee9a28e8e13cbcb4394c7609787bf989679c9d"
-    sha256 cellar: :any_skip_relocation, monterey:       "926cbccae77773bc28d2dec8acee9a28e8e13cbcb4394c7609787bf989679c9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c22b7fec0ea8a56707eed8b9d94c4957642c6b5aba68de3db99b31f34b8e3d65"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "80bbf9d529964b063f0ec3e477a66966b7d6310e4f277833f2d11eaf606b9da9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "80bbf9d529964b063f0ec3e477a66966b7d6310e4f277833f2d11eaf606b9da9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "80bbf9d529964b063f0ec3e477a66966b7d6310e4f277833f2d11eaf606b9da9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c7e73deb32906e7e55b13067767bc89ce6c970ea4f3059ce78faa9acaf002a8a"
+    sha256 cellar: :any_skip_relocation, ventura:        "c7e73deb32906e7e55b13067767bc89ce6c970ea4f3059ce78faa9acaf002a8a"
+    sha256 cellar: :any_skip_relocation, monterey:       "c7e73deb32906e7e55b13067767bc89ce6c970ea4f3059ce78faa9acaf002a8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "94a3b87c1a02b333022fe950fdbbd68311bef891cd0ef4408e6c2784e821429e"
   end
 
   depends_on "go" => :build
