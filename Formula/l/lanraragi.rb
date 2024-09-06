@@ -24,6 +24,7 @@ class Lanraragi < Formula
   depends_on "giflib"
   depends_on "imagemagick"
   depends_on "jpeg-turbo"
+  depends_on "libarchive"
   depends_on "libpng"
   depends_on "node"
   depends_on "openssl@3"
@@ -31,18 +32,10 @@ class Lanraragi < Formula
   depends_on "redis"
   depends_on "zstd"
 
-  uses_from_macos "libarchive"
   uses_from_macos "libffi"
 
   on_macos do
     depends_on "lz4"
-  end
-
-  resource "libarchive-headers" do
-    on_macos do
-      url "https://github.com/apple-oss-distributions/libarchive/archive/refs/tags/libarchive-131.tar.gz"
-      sha256 "8d0e4d71d2b039a968d2c7b4230806912785da98ce5d3a10c60024016ac343bb"
-    end
   end
 
   resource "Image::Magick" do
@@ -53,14 +46,7 @@ class Lanraragi < Formula
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV.prepend_path "PERL5LIB", libexec/"lib"
-
-    # On Linux, use the headers provided by the libarchive formula rather than the ones provided by Apple.
-    ENV["CFLAGS"] = if OS.mac?
-      "-I#{libexec}/include"
-    else
-      "-I#{Formula["libarchive"].opt_include}"
-    end
-
+    ENV.append_to_cflags "-I#{Formula["libarchive"].opt_include}"
     ENV["OPENSSL_PREFIX"] = Formula["openssl@3"].opt_prefix
 
     imagemagick = Formula["imagemagick"]
@@ -75,14 +61,6 @@ class Lanraragi < Formula
       system "make", "install"
     end
 
-    if OS.mac?
-      resource("libarchive-headers").stage do
-        cd "libarchive/libarchive" do
-          (libexec/"include").install "archive.h", "archive_entry.h"
-        end
-      end
-    end
-
     system "cpanm", "Config::AutoConf", "--notest", "-l", libexec
     system "npm", "install", *std_npm_args(prefix: false)
     system "perl", "./tools/install.pl", "install-full"
@@ -94,13 +72,6 @@ class Lanraragi < Formula
       bin.install "lanraragi"
       libexec.install "redis.conf"
     end
-  end
-
-  def caveats
-    <<~EOS
-      Automatic thumbnail generation will not work properly on macOS < 10.15 due to the bundled Libarchive being too old.
-      Opening archives for reading will generate thumbnails normally.
-    EOS
   end
 
   test do
