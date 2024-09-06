@@ -1,8 +1,8 @@
 class Geos < Formula
   desc "Geometry Engine"
   homepage "https://libgeos.org/"
-  url "https://download.osgeo.org/geos/geos-3.12.2.tar.bz2"
-  sha256 "34c7770bf0090ee88488af98767d08e779f124fa33437e0aabec8abd4609fec6"
+  url "https://download.osgeo.org/geos/geos-3.13.0.tar.bz2"
+  sha256 "47ec83ff334d672b9e4426695f15da6e6368244214971fabf386ff8ef6df39e4"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -23,10 +23,11 @@ class Geos < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-    system "cmake", "-S", ".", "-B", "static", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
+
+    system "cmake", "-S", ".", "-B", "static", "-DBUILD_SHARED_LIBS=OFF", *std_cmake_args
     system "cmake", "--build", "static"
     lib.install Dir["static/lib/*.a"]
   end
@@ -57,6 +58,7 @@ class Geos < Formula
           return 0;
       }
     EOS
+
     cflags = shell_output("#{bin}/geos-config --cflags").split
     libs = shell_output("#{bin}/geos-config --clibs").split
     system ENV.cc, *cflags, "test.c", *libs
