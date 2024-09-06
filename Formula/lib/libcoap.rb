@@ -1,9 +1,8 @@
 class Libcoap < Formula
   desc "Lightweight application-protocol for resource-constrained devices"
   homepage "https://github.com/obgm/libcoap"
-  url "https://github.com/obgm/libcoap/archive/refs/tags/v4.3.4a.tar.gz"
-  version "4.3.4a"
-  sha256 "45f1aabbb5f710e841c91d65fc3f37c906d42e8fc44dd04979e767d3960a77cf"
+  url "https://github.com/obgm/libcoap/archive/refs/tags/v4.3.5.tar.gz"
+  sha256 "a417ed26ec6c95c041b42353b5b6fad1602e2bf42a6e26c09863450e227b7b5f"
   license "BSD-2-Clause"
 
   bottle do
@@ -25,9 +24,7 @@ class Libcoap < Formula
 
   def install
     system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-examples",
-                          "--disable-manpages"
+    system "./configure", "--disable-examples", "--disable-manpages", *std_configure_args
     system "make"
     system "make", "install"
   end
