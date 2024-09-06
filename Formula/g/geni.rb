@@ -6,13 +6,13 @@ class Geni < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1a9f032b71ef5da5dd3238f87f9ce65dedb76297f9f3497e814b6de390040054"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bcc8e6092ab730359ff9b0d5dc843773b3d10a5be14a97b0d859399aa73a46e0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d1fa58b25a021db0ef9be2481e197fb19647f8514069a128b97e2287fb8c6fcb"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d0f7ec200bce867ab1f840a8bf256ce9cd857d5012b77dfd1bd3c4a77265d89d"
-    sha256 cellar: :any_skip_relocation, ventura:        "7ea2350dd2b26f0d1439ddcd8de00f802512e86a55ab8035405657619deba865"
-    sha256 cellar: :any_skip_relocation, monterey:       "e8f3f659cf17ef00b25a1af917aa2a14c688d53a5e2afbd35bb6faacf9be46d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "428b5a0d93043a1607715c5828a724c98439f073077181e9c275ae2a278064fc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9bb7d7f49d6a8110a22299460e21f36e15b0e3b2376127178719b07b1164ca3e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dd27c7620e31a6d5f83a4107b36dd90cd3c09f7e9610a712014cc584f2c3b6f4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "91bbdf44ca159e6410b5926c3e8603bd3b2d66f0dd81a6323bff405ccc992af2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5215d8b5590fe2ae251be8f9e9ebd13211000d694d9d65850b120c97bad8d36c"
+    sha256 cellar: :any_skip_relocation, ventura:        "7a7e5f4b83b51b7c54f47f235374b88f2b2217935db9af3daace5d7e94584ea4"
+    sha256 cellar: :any_skip_relocation, monterey:       "36ab7cf0430727b0d742b6cefb38d1723d878b3170f117355725d6269e514348"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "142be6c20edda64a673a053744ba858b2edd92f229b529857bc6c143734ce0ab"
   end
 
   depends_on "rust" => :build
