@@ -1,8 +1,8 @@
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "https://rocksdb.org/"
-  url "https://github.com/facebook/rocksdb/archive/refs/tags/v9.5.2.tar.gz"
-  sha256 "b20780586d3df4a3c5bcbde341a2c1946b03d18237960bda5bc5e9538f42af40"
+  url "https://github.com/facebook/rocksdb/archive/refs/tags/v9.6.1.tar.gz"
+  sha256 "98cf497c1d6d0a927142d2002a0b6b4816a0998c74fda9ae7b1bdaf6b784e895"
   license any_of: ["GPL-2.0-only", "Apache-2.0"]
   head "https://github.com/facebook/rocksdb.git", branch: "main"
 
