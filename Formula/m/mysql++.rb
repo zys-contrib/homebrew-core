@@ -21,17 +21,16 @@ class Mysqlxx < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "76988d129aaec0463f1aff16280ac948243f33f366e2a6466c894819173b7387"
   end
 
-  depends_on "mysql-client@8.0" # Does not build with > 8.3: https://tangentsoft.com/mysqlpp/tktview/703152e2da
+  depends_on "mysql-client"
 
   fails_with gcc: "5"
 
   def install
-    mysql = Formula["mysql-client@8.0"]
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-field-limit=40",
+    mysql = Formula["mysql-client"]
+    system "./configure", "--with-field-limit=40",
                           "--with-mysql-lib=#{mysql.opt_lib}",
-                          "--with-mysql-include=#{mysql.opt_include}/mysql"
+                          "--with-mysql-include=#{mysql.opt_include}/mysql",
+                          *std_configure_args
 
     # Delete "version" file incorrectly included as C++20 <version> header
     # Issue ref: https://tangentsoft.com/mysqlpp/tktview/4ea874fe67e39eb13ed4b41df0c591d26ef0a26c
@@ -52,7 +51,7 @@ class Mysqlxx < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-I#{Formula["mysql-client@8.0"].opt_include}/mysql",
+    system ENV.cxx, "test.cpp", "-I#{Formula["mysql-client"].opt_include}/mysql",
                     "-L#{lib}", "-lmysqlpp", "-o", "test"
     system "./test", "-u", "foo", "-p", "bar"
   end
