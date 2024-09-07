@@ -1,10 +1,14 @@
 class Manticoresearch < Formula
   desc "Open source text search engine"
   homepage "https://manticoresearch.com"
-  url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/6.2.12.tar.gz"
-  sha256 "272d9e3cc162b1fe08e98057c9cf6c2f90df0c3819037e0dafa200e5ff71cef9"
-  license "GPL-2.0-only" # License changes in the next release and must be removed from formula_license_mismatches
-  revision 1
+  url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/6.3.6.tar.gz"
+  sha256 "d0409bde33f4fe89358ad7dbbad775e1499d4e61fed16d4fa84f9b29b89482d2"
+  license all_of: [
+    "GPL-3.0-or-later",
+    "GPL-2.0-only", # wsrep
+    { "GPL-2.0-only" => { with: "x11vnc-openssl-exception" } }, # galera
+    { any_of: ["Unlicense", "MIT"] }, # uni-algo (our formula is too new)
+  ]
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git", branch: "master"
 
@@ -26,36 +30,54 @@ class Manticoresearch < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
+  depends_on "nlohmann-json" => :build
+  depends_on "snowball" => :build # for libstemmer.a
+
+  # NOTE: `libpq`, `mysql-client`, `unixodbc` and `zstd` are dynamically loaded rather than linked
+  depends_on "cctz"
   depends_on "icu4c"
   depends_on "libpq"
-  depends_on "mysql-client@8.0"
+  depends_on "mysql-client"
   depends_on "openssl@3"
+  depends_on "re2"
   depends_on "unixodbc"
+  depends_on "xxhash"
+  depends_on "zlib" # due to `mysql-client`
   depends_on "zstd"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
 
   fails_with gcc: "5"
 
   def install
-    # ENV["DIAGNOSTIC"] = "1"
+    # Work around error when building with GCC
+    # Issue ref: https://github.com/manticoresoftware/manticoresearch/issues/2393
+    ENV.append_to_cflags "-fpermissive" if OS.linux?
+
     ENV["ICU_ROOT"] = Formula["icu4c"].opt_prefix.to_s
-    ENV["OPENSSL_ROOT_DIR"] = Formula["openssl"].opt_prefix.to_s
-    ENV["MYSQL_ROOT_DIR"] = Formula["mysql-client@8.0"].opt_prefix.to_s
+    ENV["OPENSSL_ROOT_DIR"] = Formula["openssl@3"].opt_prefix.to_s
+    ENV["MYSQL_ROOT_DIR"] = Formula["mysql-client"].opt_prefix.to_s
     ENV["PostgreSQL_ROOT"] = Formula["libpq"].opt_prefix.to_s
 
     args = %W[
       -DDISTR_BUILD=homebrew
+      -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
+      -DCMAKE_INSTALL_SYSCONFDIR=#{etc}
+      -DCMAKE_REQUIRE_FIND_PACKAGE_ICU=ON
+      -DCMAKE_REQUIRE_FIND_PACKAGE_cctz=ON
+      -DCMAKE_REQUIRE_FIND_PACKAGE_nlohmann_json=ON
+      -DCMAKE_REQUIRE_FIND_PACKAGE_re2=ON
+      -DCMAKE_REQUIRE_FIND_PACKAGE_stemmer=ON
+      -DCMAKE_REQUIRE_FIND_PACKAGE_xxHash=ON
+      -DRE2_LIBRARY=#{Formula["re2"].opt_lib/shared_library("libre2")}
       -DWITH_ICU_FORCE_STATIC=OFF
-      -D_LOCALSTATEDIR=#{var}
-      -D_RUNSTATEDIR=#{var}/run
-      -D_SYSCONFDIR=#{etc}
+      -DWITH_RE2_FORCE_STATIC=OFF
+      -DWITH_STEMMER_FORCE_STATIC=OFF
     ]
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -82,9 +104,7 @@ class Manticoresearch < Formula
         binlog_path=#
       }
     EOS
-    pid = fork do
-      exec bin/"searchd"
-    end
+    pid = spawn(bin/"searchd")
   ensure
     Process.kill(9, pid)
     Process.wait(pid)
