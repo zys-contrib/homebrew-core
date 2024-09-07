@@ -18,7 +18,7 @@ class Diesel < Formula
 
   depends_on "rust" => [:build, :test]
   depends_on "libpq"
-  depends_on "mysql-client@8.4"
+  depends_on "mysql-client"
 
   uses_from_macos "sqlite"
 
