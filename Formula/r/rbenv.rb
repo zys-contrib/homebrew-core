@@ -21,9 +21,8 @@ class Rbenv < Formula
   uses_from_macos "ruby" => :test
 
   def install
-    inreplace "libexec/rbenv" do |s|
-      s.gsub! ":/usr/local/etc/rbenv.d", ":#{HOMEBREW_PREFIX}/etc/rbenv.d\\0" if HOMEBREW_PREFIX.to_s != "/usr/local"
-    end
+    # Build an `:all` bottle.
+    inreplace "libexec/rbenv", "/usr/local", HOMEBREW_PREFIX
 
     if build.head?
       # Record exact git revision for `rbenv --version` output
