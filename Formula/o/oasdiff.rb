@@ -6,6 +6,16 @@ class Oasdiff < Formula
   license "Apache-2.0"
   head "https://github.com/Tufin/oasdiff.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c62a4efbc1a388e4541f7f19c8cd8554b2bdc8c1271867f702e04cd5ce65bfd4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c62a4efbc1a388e4541f7f19c8cd8554b2bdc8c1271867f702e04cd5ce65bfd4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c62a4efbc1a388e4541f7f19c8cd8554b2bdc8c1271867f702e04cd5ce65bfd4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "057ad1ec180f53d52b3617883b4a9345a34053d139f8f8b931f7313ef3d16f03"
+    sha256 cellar: :any_skip_relocation, ventura:        "057ad1ec180f53d52b3617883b4a9345a34053d139f8f8b931f7313ef3d16f03"
+    sha256 cellar: :any_skip_relocation, monterey:       "057ad1ec180f53d52b3617883b4a9345a34053d139f8f8b931f7313ef3d16f03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c1ecbd0efc0d1e64d3458a9d52c63eee04ec7fa2f8f4be9189595e678238aa9"
+  end
+
   depends_on "go" => :build
 
   def install
