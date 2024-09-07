@@ -1,8 +1,8 @@
 class Gtk4 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk/4.14/gtk-4.14.5.tar.xz"
-  sha256 "5547f2b9f006b133993e070b87c17804e051efda3913feaca1108fa2be41e24d"
+  url "https://download.gnome.org/sources/gtk/4.16/gtk-4.16.0.tar.xz"
+  sha256 "8ef538778c82c09870a6cc325195049caec5593c1ca37df915a7b6b10f5524ea"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -65,11 +65,10 @@ class Gtk4 < Formula
 
   def install
     args = %w[
-      -Dgtk_doc=false
-      -Dman-pages=true
-      -Dintrospection=enabled
       -Dbuild-examples=false
       -Dbuild-tests=false
+      -Dintrospection=enabled
+      -Dman-pages=true
       -Dmedia-gstreamer=disabled
       -Dvulkan=disabled
     ]
