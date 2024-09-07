@@ -5,6 +5,10 @@ class ImmichCli < Formula
   sha256 "9109dc5b23f816b0f11c5f687c525a52805bf93db2c078b16a5840cdcf9366a0"
   license "AGPL-3.0-only"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "c94d8ed06acc4c3c34bb1834745a7dc6ec148e5ad5612424c53011792356f1a1"
+  end
+
   depends_on "node"
 
   def install
