@@ -1,6 +1,6 @@
 class Xxhash < Formula
   desc "Extremely fast non-cryptographic hash algorithm"
-  homepage "https://github.com/Cyan4973/xxHash"
+  homepage "https://xxhash.com"
   url "https://github.com/Cyan4973/xxHash/archive/refs/tags/v0.8.2.tar.gz"
   sha256 "baee0c6afd4f03165de7a4e67988d16f0f2b257b51d0e3cb91909302a26a79c4"
   license all_of: [
@@ -24,15 +24,60 @@ class Xxhash < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "135bab6743d603d51b837eb025ff4711243e2f5c6086aff63de4d536c2894305"
   end
 
+  depends_on "cmake" => [:build, :test]
+
   def install
     ENV.O3
-    system "make"
-    system "make", "install", "PREFIX=#{prefix}"
+
+    args = ["PREFIX=#{prefix}"]
+    if Hardware::CPU.intel?
+      args << "DISPATCH=1"
+      ENV.runtime_cpu_detection
+    end
+
+    system "make", "install", *args
     prefix.install "cli/COPYING"
+
+    # We use CMake for package configuration files which are needed by `manticoresearch`.
+    # The Makefile is used for everything else as it is the only officially supported way.
+    ENV["DESTDIR"] = buildpath
+    system "cmake", "-S", "cmake_unofficial", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build" # needed to run `--install` which rewrites build path in .cmake file
+    system "cmake", "--install", "build"
+    lib.install File.join(buildpath, lib, "cmake")
   end
 
   test do
     (testpath/"leaflet.txt").write "No computer should be without one!"
     assert_match(/^67bc7cc242ebc50a/, shell_output("#{bin}/xxhsum leaflet.txt"))
+
+    # Simplified snippet of https://github.com/Cyan4973/xxHash/blob/dev/cli/xsum_sanity_check.c
+    (testpath/"test.c").write <<~EOS
+      #include <assert.h>
+      #include <stdint.h>
+      #include <xxhash.h>
+
+      int main() {
+        size_t len = 0;
+        uint64_t seed = 2654435761U;
+        uint64_t Nresult = 0xAC75FDA2929B17EFULL;
+
+        XXH64_state_t *state = XXH64_createState();
+        assert(state != NULL);
+        assert(XXH64(NULL, len, seed) == Nresult);
+        XXH64_freeState(state);
+        return 0;
+      }
+    EOS
+    (testpath/"CMakeLists.txt").write <<~EOS
+      cmake_minimum_required(VERSION 3.5)
+      project(test LANGUAGES C)
+      find_package(xxHash CONFIG REQUIRED)
+      add_executable(test test.c)
+      target_link_libraries(test PRIVATE xxHash::xxhash)
+    EOS
+    system "cmake", "."
+    system "cmake", "--build", "."
+    system "./test"
   end
 end
