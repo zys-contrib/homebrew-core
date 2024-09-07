@@ -21,18 +21,27 @@ class Solidity < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "fmt" => :build
+  depends_on "nlohmann-json" => :build
+  depends_on "range-v3" => :build
   depends_on xcode: ["11.0", :build]
   depends_on "boost"
+  depends_on "z3"
 
   conflicts_with "solc-select", because: "both install `solc` binaries"
 
   fails_with gcc: "5"
 
+  # build patch to use system fmt, nlohmann-json, and range-v3, upstream PR ref, https://github.com/ethereum/solidity/pull/15414
+  patch do
+    url "https://github.com/ethereum/solidity/commit/aa47181eef8fa63a6b4f52bff2c05517c66297a2.patch?full_index=1"
+    sha256 "b73e52a235087b184b8813a15a52c4b953046caa5200bf0aa60773ec4bb28300"
+  end
+
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", "-DSTRICT_Z3_VERSION=OFF", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -45,6 +54,7 @@ class Solidity < Formula
         }
       }
     EOS
+
     output = shell_output("#{bin}/solc --bin hello.sol")
     assert_match "hello.sol:HelloWorld", output
     assert_match "Binary:", output
