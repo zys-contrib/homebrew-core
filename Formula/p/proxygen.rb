@@ -7,13 +7,13 @@ class Proxygen < Formula
   head "https://github.com/facebook/proxygen.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d1785192a727c0b6de824cc640edbe3c1b079a69caa270663daa6da2b8e488d6"
-    sha256 cellar: :any,                 arm64_ventura:  "81dcfdb7c7ac0e4217ef6d73bb852c70aaa7e132543adf2b2b5aff1957e7ce11"
-    sha256 cellar: :any,                 arm64_monterey: "7a462987951aacbf6a575a54bccec97900ab5cb4453ba7f16975c6859408e544"
-    sha256 cellar: :any,                 sonoma:         "d4f50463e0090c486567454fa545ab665fc2ce856ea5f4132837139f4d35fa64"
-    sha256 cellar: :any,                 ventura:        "e4dc899b3288a9cad73e3e7ab0f0a1f88b09437dded40af3434613ec83a23ba2"
-    sha256 cellar: :any,                 monterey:       "ed414d0b36e6d7dc3ecfe991890a84b37eeaa3beee7ca852cdbcb298418b826c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9cb28f41585e016fe1b53a9239252ec932fb2e426a301b341e0a3dcc9c48c5fa"
+    sha256 cellar: :any,                 arm64_sonoma:   "e5ddba2ea718901b7d718db48671c748edb473c5e1fc43b66b419ea87edd334d"
+    sha256 cellar: :any,                 arm64_ventura:  "0b5f11da4aff7479412da9991368c5add6957085a4c01a1a6506a2caf38ee5ab"
+    sha256 cellar: :any,                 arm64_monterey: "0de943aa281e70597f578c1ce49762adcf7d734bb1b9cf8f17302c7970734f72"
+    sha256 cellar: :any,                 sonoma:         "48d1e9307008d1743880029f8b9ad8936f934a1626e6c26e012d814a93b4d1b8"
+    sha256 cellar: :any,                 ventura:        "36ccbb5d806cf8d8c4ab5c79f3823a8d1be9a904be17bdeafef4022050d63a25"
+    sha256 cellar: :any,                 monterey:       "a1ad076606257bda1148be2020b8681c6192e9abe117ec397dc392b36c835686"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6999d36e0217910b11c02f67f24cc7df68d36d5d85c193ad036b5295eeab40d"
   end
 
   depends_on "cmake" => :build
