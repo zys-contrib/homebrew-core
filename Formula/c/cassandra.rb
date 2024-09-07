@@ -10,13 +10,13 @@ class Cassandra < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "2ace5138682d1969c48ad11c39749a239aa2cefb1a6fcbfedfa112ff05cbedd7"
-    sha256 cellar: :any,                 arm64_ventura:  "a3b34cd9c7374fef974caeace7ffd91fc6cdd56e7f1efd6cfd6f95d84b1001ba"
-    sha256 cellar: :any,                 arm64_monterey: "6746ed2cff35a8ccb4a5a302d6d42f82d6930811264ef865f6f6212168cee12d"
-    sha256 cellar: :any,                 sonoma:         "83ad7e4db3584bfa7602cc68d74aa47c8831f3bdb5a47b968f6e89560e812805"
-    sha256 cellar: :any,                 ventura:        "97b9c8919e0a267a618d7925ce887288b21d471a0f0f2337aca1429ccabd3650"
-    sha256 cellar: :any,                 monterey:       "a5f592f9469270b5e6eaa5352081ebbe96cebbf43a1dd2115bbfdde03a3d1ed2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "243e8ffd3cc36824a52d27606e2ca1e06e3c2246d808aab84961a14415d667b8"
+    sha256 cellar: :any,                 arm64_sonoma:   "21ba85b3186391c7984b5b95018052caa2d926a55fe4c9174907ae6a0f9ac1d6"
+    sha256 cellar: :any,                 arm64_ventura:  "ff4a59ef647739a0f665b5e2a974db690a33f191c2417c6fe1337e5bc02d0c6a"
+    sha256 cellar: :any,                 arm64_monterey: "7d7fa878ec9f2aacabb6d89bee35c208c94fb47b8afad1b7c0bfd4f9ebb7d5e4"
+    sha256 cellar: :any,                 sonoma:         "5f46ae1cabf54898b8797bc2558fd324cd29cd3cdcbfe6832d3222999504ef54"
+    sha256 cellar: :any,                 ventura:        "db7182aeb0b95494f861eeada6f5654251a97f5628740d01c90b5d953d913092"
+    sha256 cellar: :any,                 monterey:       "1e0719c9ffca2a946e825368130ff8bb007a91890dd56de442249d95e75dbf83"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "83de4b5258ecc0050d7f1207be5a43c3d9144b4884823d47c8d7103e50671aa8"
   end
 
   depends_on "libev"
