@@ -1,8 +1,8 @@
 class PythonAT312 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.12.5/Python-3.12.5.tgz"
-  sha256 "38dc4e2c261d49c661196066edbfb70fdb16be4a79cc8220c224dfeb5636d405"
+  url "https://www.python.org/ftp/python/3.12.6/Python-3.12.6.tgz"
+  sha256 "85a4c1be906d20e5c5a69f2466b00da769c221d6a684acfd3a514dbf5bf10a66"
   license "Python-2.0"
 
   livecheck do
@@ -42,6 +42,7 @@ class PythonAT312 < Formula
   on_linux do
     depends_on "berkeley-db@5"
     depends_on "libnsl"
+    depends_on "libtirpc"
   end
 
   link_overwrite "bin/2to3"
@@ -72,8 +73,8 @@ class PythonAT312 < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/5e/11/487b18cc768e2ae25a919f230417983c8d5afa1b6ee0abd8b6db0b89fa1d/setuptools-72.1.0.tar.gz"
-    sha256 "8d243eff56d095e5817f796ede6ae32941278f542e0f941867cc05ae52b162ec"
+    url "https://files.pythonhosted.org/packages/3e/2c/f0a538a2f91ce633a78daaeb34cbfb93a54bd2132a6de1f6cec028eee6ef/setuptools-74.1.2.tar.gz"
+    sha256 "95b40ed940a1c67eb70fc099094bd6e99c6ee7c23aa2306f4d2697ba7916f9c6"
   end
 
   resource "wheel" do
