@@ -32,14 +32,13 @@ class SynergyCore < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_sonoma:   "8e21d500ed1567182b5b123a76f6e576a39b09c773ede9612cd11626e57a13fd"
-    sha256                               arm64_ventura:  "4b21f477ede4756031bcebf1acb32542d0602c12afd1b2087774ea4cf6ad0bcd"
-    sha256                               arm64_monterey: "101739d8739aa9b5de4d17f7ce4fc1f4922928c155b740fc3391e9b57838418e"
-    sha256                               sonoma:         "b8481a8fc33f66b7819ea6aa2fd00683db248742b4e271f55352371e1d1c9de3"
-    sha256                               ventura:        "e4ccf938d38c07196b39c59f71feb422c1a950ce1dea9b5577aac062580a87f1"
-    sha256                               monterey:       "7e18aa9801410561452da1503ee9e0a7b987086ff4f2603bb4bce7bf9c4fc4f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b80be1af6d257aea32a7c8533fd7e7254832f6c05a2e706633e39a81e096a6b"
+    sha256                               arm64_sonoma:   "b51e183a0c07609d4b5f81e194251ce29c93fc220b8989d50e7a7ee58ac49021"
+    sha256                               arm64_ventura:  "2a7b87a5e398dd460a081cb8899bd611175c9b8ed473bc908ed8bc116ca10964"
+    sha256                               arm64_monterey: "23696daf5fc973a4b5869f68639ac971d4a2fb52da6e8b5a8636983550966ef9"
+    sha256                               sonoma:         "fe27a0f9abaf634c569222904e193b2c22eb06ec0cc607c0862663e0e60904bd"
+    sha256                               ventura:        "45f5169584dd7de08374dd0acae169f01afdebe6131f83c25d750415053b87be"
+    sha256                               monterey:       "0651ae4f922212f79badd7ce975259a6209abee9d59a0b8b7f61bbc8685936f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ad6a8e07bbe44eb008c620449cfeaac3e2fdfbc97b48965171ce6c114a7e10c"
   end
 
   depends_on "cmake" => :build
