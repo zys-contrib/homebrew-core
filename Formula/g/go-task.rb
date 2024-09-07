@@ -1,8 +1,8 @@
 class GoTask < Formula
   desc "Task is a task runner/build tool that aims to be simpler and easier to use"
   homepage "https://taskfile.dev/"
-  url "https://github.com/go-task/task/archive/refs/tags/v3.38.0.tar.gz"
-  sha256 "09d597ed0618fd57dae944b61efa474f522f8d05d7ebeb0bc282cb5292b1d085"
+  url "https://github.com/go-task/task/archive/refs/tags/v3.39.0.tar.gz"
+  sha256 "f46948b0febe05e316fb71c504856cacc225fd386fee22dc96f025e91fa747f9"
   license "MIT"
   head "https://github.com/go-task/task.git", branch: "main"
 
@@ -19,12 +19,6 @@ class GoTask < Formula
   depends_on "go" => :build
 
   conflicts_with "task", because: "both install `task` binaries"
-
-  # Fix ldflags for --version
-  patch do
-    url "https://github.com/go-task/task/commit/9ee4f21d62382714ac829df6f9bbf1637406eb5b.patch?full_index=1"
-    sha256 "166c8150416568b34f900c87f0d40eba715d04cc41b780aa6393ee2532b422a2"
-  end
 
   def install
     ldflags = %W[
