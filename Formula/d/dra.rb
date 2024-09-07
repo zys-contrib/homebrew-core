@@ -1,8 +1,8 @@
 class Dra < Formula
   desc "Tool to download release assets from GitHub"
   homepage "https://github.com/devmatteini/dra"
-  url "https://github.com/devmatteini/dra/archive/refs/tags/0.6.1.tar.gz"
-  sha256 "cf6d96c8c76472a51c5bf651732715682ba8f11ce9d61dca67c1baa6bb421bc0"
+  url "https://github.com/devmatteini/dra/archive/refs/tags/0.6.2.tar.gz"
+  sha256 "e94be0967864593b44870cb39c2473fccc91d42d37fa500006646385ce2e4194"
   license "MIT"
   head "https://github.com/devmatteini/dra.git", branch: "main"
 
