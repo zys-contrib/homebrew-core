@@ -23,10 +23,15 @@ class Sysbench < Formula
   depends_on "pkg-config" => :build
   depends_on "libpq"
   depends_on "luajit"
-  depends_on "mysql-client@8.0" # Does not build with > 8.3 https://github.com/akopytov/sysbench/issues/522
+  depends_on "mysql-client"
   depends_on "openssl@3"
 
   uses_from_macos "vim" # needed for xxd
+
+  on_macos do
+    depends_on "zlib"
+    depends_on "zstd"
+  end
 
   def install
     system "./autogen.sh"
