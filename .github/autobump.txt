@@ -1472,6 +1472,7 @@ libffi
 libfido2
 libfixbuf
 libfontenc
+libfreenect
 libfs
 libgedit-amtk
 libgedit-gfls
