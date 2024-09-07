@@ -1221,6 +1221,7 @@ imapsync
 imath
 imessage-exporter
 imgproxy
+immich-cli
 immortal
 immudb
 imposm3
