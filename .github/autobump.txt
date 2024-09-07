@@ -2034,6 +2034,7 @@ parsedmarc
 partio
 pass-git-helper
 passenger
+pastel
 patat
 patchelf
 payara
