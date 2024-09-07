@@ -7,17 +7,13 @@ class Pastel < Formula
   head "https://github.com/sharkdp/pastel.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "afa5aa6251200dc5beb9fe18c2c792a3d6db3d034d966ffcf6e93739726fb0a3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6c1b18789ed1303a84264ce7f255e29ad1e7dfaa823606bd268266544c02f843"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6b4511db651e18bb5b23ca8343a0f7026ce70dc7417b9d64826b52b0ad6828eb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3b17baa2192e94615665aea818fe9b4ee202770e1ba66ea7b8a9e5889e278f38"
-    sha256 cellar: :any_skip_relocation, sonoma:         "89af4ebffd595f33dcbcf8a4227b04123982dbd79cdbeacf731df79ba0fb037a"
-    sha256 cellar: :any_skip_relocation, ventura:        "c48281221eb773d7118183bf0fdbf23f078337b97eee1b11626d4353ac9afecd"
-    sha256 cellar: :any_skip_relocation, monterey:       "3be2c4518d6cb3cda28aced6aa248ff97502ebbf856bae991d9016c950cecd21"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a1966d65a627a20680c20cc54fee52280c695a0314cc53c655b6e9aefb5180d4"
-    sha256 cellar: :any_skip_relocation, catalina:       "13bf6e89bd6206f3e8b76eaeee9c957ae42a10647aaacb56ca2e14d693349c39"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7826523f2dd332162d3226f9d3b749e67c354be885726caf9d695d62f67e8a1b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "846b6b902b61fdb6a487a55bca5db48281d15b2879a03c4a7c4d1734eb69785e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fbf1bcaec1cd65ba7c7572372f8572f26f9fc0a34453c200fbf9268fd72b1a61"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8e77251303794e9030f01de3199335e116321aaf1160e50d0a66d5efeefb7b5e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "de5aa587edab2ba6677ce2b455c73ab4d29d93ec111b46e2afd7e948c6d94ec7"
+    sha256 cellar: :any_skip_relocation, ventura:        "5fc7e310c200267bb1a9e1f47d14747c18a666e8137bc115a509d017e90fbdb8"
+    sha256 cellar: :any_skip_relocation, monterey:       "111cb3e22a17758946cbb68cd3bdeb0a91320d680cf50eeb7b142d6030ce8c1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "08561a70b60b1733f82b3ef31fe6ccf0f2934ae301f3a992b70a6d84e72076e6"
   end
 
   depends_on "rust" => :build
