@@ -2,8 +2,8 @@ class OpensearchDashboards < Formula
   desc "Open source visualization dashboards for OpenSearch"
   homepage "https://opensearch.org/docs/dashboards/index/"
   url "https://github.com/opensearch-project/OpenSearch-Dashboards.git",
-      tag:      "2.15.0",
-      revision: "aa37a6921f56a6ef6355b5ed8a6bd7b6017aae6a"
+      tag:      "2.16.0",
+      revision: "4b8826e7ffa6562825ca8aad676a8d89983c2d70"
   license "Apache-2.0"
 
   bottle do
@@ -17,7 +17,8 @@ class OpensearchDashboards < Formula
   end
 
   # Match deprecation date of `node@18`.
-  deprecate! date: "2023-10-18", because: "uses deprecated `node@18`"
+  # disable! date: "2025-04-30", because: "uses deprecated `node@18`"
+  deprecate! date: "2024-10-29", because: "uses deprecated `node@18`"
 
   depends_on "yarn" => :build
   depends_on "opensearch" => :test
