@@ -1902,6 +1902,7 @@ nvimpager
 nvm
 nvtop
 nzbget
+oasdiff
 oauth2_proxy
 oauth2c
 objfw
