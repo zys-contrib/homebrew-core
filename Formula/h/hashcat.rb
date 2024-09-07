@@ -19,13 +19,14 @@ class Hashcat < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "c9bda2074060ddc2bb25040b8732aa1924e7073b1713167f5ff519bca4e9e59c"
-    sha256 arm64_big_sur:  "a38dc13dc95eaffce8765a0a2f28a011b9955ece2554f0979dd98ebfbca65420"
-    sha256 sonoma:         "ffd84580339be21088f4e6f088066cda23de53dcd827cb66577703bda2c9138c"
-    sha256 ventura:        "93dd43fc9111b38b3328069b3cf743c105d30a384be9eb346e910a43dbbcaef6"
-    sha256 monterey:       "ffd4e78e2eee1000b7e96f1c41924fc57ee51f19cc3dc7aeab1d86c8244cca0a"
-    sha256 big_sur:        "72c07b363ef009aaf1ca83b6d0bfd3ff7757baee1dd018e5467043ffe15d9638"
-    sha256 x86_64_linux:   "3b7abe7959ac081d6cfd3892bf64860f4dbc9657d6711e48cc0fec4445f771cb"
+    rebuild 1
+    sha256 arm64_sonoma:   "8b1640f18f1fcf6049869f3e461979401f811b1f46d1131676b0732a8b799c7b"
+    sha256 arm64_ventura:  "9b4475b3b7384c8186f3e42e1cef42df899148ecb496f1fdea5c1184773cee6d"
+    sha256 arm64_monterey: "d05a3da7fe49d7010b867b3fcfd5b71210a4013d1069a6eca4bb1085dec342ab"
+    sha256 sonoma:         "2c7627ab1623911e96f599e9c3cd2e7a29fd53ad3df2b280fb9a39433db8ce72"
+    sha256 ventura:        "ebba1034f159a47591071da81c48fa08dfd79416599d4540da0b01ea974d1aa3"
+    sha256 monterey:       "1f2d0c9bfb3c3b723a27448e9b26377287b4da0aed331c7f1df80e18a29b9089"
+    sha256 x86_64_linux:   "efd1c1f00684129f650a86d10c78873d44535502724731b5eca1976e8624d249"
   end
 
   depends_on macos: :high_sierra # Metal implementation requirement
