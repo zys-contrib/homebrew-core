@@ -8,6 +8,16 @@ class BumpMyVersion < Formula
   license "MIT"
   head "https://github.com/callowayproject/bump-my-version.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "eb9b60bcbfaae7d915fbffb7ca4e137a06a348c85ee3bf1c7a77871ca7f0f542"
+    sha256 cellar: :any,                 arm64_ventura:  "bc10e444f39e05ea5d1357af7a7a806d0b1281d8a2e2522b5694d161d5d14bf7"
+    sha256 cellar: :any,                 arm64_monterey: "ce49ee9909ba6b67358d1196743e7fab52e80f3314871491d21f7679275b5665"
+    sha256 cellar: :any,                 sonoma:         "65c70f9be349e59008a69ab1fa848a044558049d572818c289bb1dd9795b0169"
+    sha256 cellar: :any,                 ventura:        "462821fad6fc0302611bf86f0b496a4cc98be37c360da4ca463349b334ef8a6b"
+    sha256 cellar: :any,                 monterey:       "b021974631e6dd0875520e5b49a416117207d0156fb2831e091fe5a61a03e490"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6194e69948f22bc790b0ac42bcac0df19622d97c1439242c5b3531c35643d0e"
+  end
+
   depends_on "rust" => :build # for pydantic_core
   depends_on "python@3.12"
 
