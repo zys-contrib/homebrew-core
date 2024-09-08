@@ -100,7 +100,7 @@ class Deno < Formula
     # env args for building a release build with our python3, ninja and gn
     ENV["PYTHON"] = python3
     ENV["GN"] = buildpath/"gn/out/gn"
-    ENV["NINJA"] = Formula["ninja"].opt_bin/"ninja"
+    ENV["NINJA"] = which("ninja")
     # build rusty_v8 from source
     ENV["V8_FROM_SOURCE"] = "1"
     # Build with llvm and link against system libc++ (no runtime dep)
