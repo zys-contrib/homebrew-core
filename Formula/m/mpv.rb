@@ -20,6 +20,7 @@ class Mpv < Formula
 
   depends_on "docutils" => :build
   depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on xcode: :build
   depends_on "ffmpeg"
@@ -68,7 +69,7 @@ class Mpv < Formula
     ENV["LC_ALL"] = "C"
 
     # force meson find ninja from homebrew
-    ENV["NINJA"] = Formula["ninja"].opt_bin/"ninja"
+    ENV["NINJA"] = which("ninja")
 
     # libarchive is keg-only
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libarchive"].opt_lib/"pkgconfig" if OS.mac?
