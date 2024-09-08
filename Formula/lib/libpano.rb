@@ -2,13 +2,13 @@ class Libpano < Formula
   desc "Build panoramic images from a set of overlapping images"
   homepage "https://panotools.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/panotools/libpano13/libpano13-2.9.22/libpano13-2.9.22.tar.gz"
-  version "13-2.9.22"
   sha256 "affc6830cdbe71c28d2731dcbf8dea2acda6d9ffd4609c6dbf3ba0c68440a8e3"
   license "GPL-2.0-or-later"
+  version_scheme 1
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/libpano(\d+-\d+(?:\.\d+)+)\.t}i)
+    regex(%r{url=.*?/libpano13[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
   bottle do
@@ -33,9 +33,19 @@ class Libpano < Formula
   patch :DATA
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+  end
+
+  test do
+    panoinfo = shell_output(bin/"panoinfo").encode("UTF-8", invalid: :replace)
+    assert_match(/Panotools version:\s*#{Regexp.escape(version)}\s*$/, panoinfo)
+
+    stable.stage { testpath.install Dir["tests/simpleStitch/{simple.txt,*.jpg,reference/tiff_m_uncropped0000.tif}"] }
+    system bin/"PTmender", "-o", "test", "simple.txt"
+    assert_match "051221_6054_750.jpg", shell_output("#{bin}/PTinfo test0000.tif")
+    assert_match "different values 0.000", shell_output("#{bin}/PTtiffdump test0000.tif tiff_m_uncropped0000.tif")
   end
 end
 
