@@ -2,8 +2,8 @@ class Sipp < Formula
   desc "Traffic generator for the SIP protocol"
   homepage "https://sipp.sourceforge.net/"
   url "https://github.com/SIPp/sipp.git",
-      tag:      "v3.7.2",
-      revision: "e3b7748d7be7f32dcaeeed5ccd241a342635ac23"
+      tag:      "v3.7.3",
+      revision: "11b51748b274d24ac156ac40216600aca0f352a7"
   license "GPL-2.0-or-later"
 
   bottle do
