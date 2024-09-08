@@ -2435,6 +2435,7 @@ sing-box
 singular
 singularity
 sip
+sipp
 siril
 sispmctl
 sjk
