@@ -20,13 +20,14 @@ class PerconaXtrabackup < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "b5c06024f4c828b0f32b02ffae20618aaf49f68f29ea6e76447e78e8ea4dad95"
-    sha256 arm64_ventura:  "2ed8789709352a980495715cbea9250df93ea6dce312d5467f6291725630941c"
-    sha256 arm64_monterey: "e4d5dcf4b5a416efaaf07d84dbecb7947ce4bc7a300cbb1bf8312db6c97d512f"
-    sha256 sonoma:         "a571ccf5981b0ca05d3ddf313ac273191b52f0a88ce757c7b1d9f2e29ab08be1"
-    sha256 ventura:        "94ac98979fb87f800d8dd9e473d3a27825b20263895a5a8b78ee78239bd10696"
-    sha256 monterey:       "463d67d569e0ee402ef0192f6c6c51d485c955e50c73398c1c224bce7e710812"
-    sha256 x86_64_linux:   "9b680005cf3231ce6a6760aa4e580af5fe90be024702f9eb939815a0bc25b017"
+    rebuild 1
+    sha256 arm64_sonoma:   "ee53b681fb6173c419102e0455038787e62729d0052515d683859a6b88c0e57f"
+    sha256 arm64_ventura:  "811abed7d91bda90e2d99ef4e2c9aa727cb0c073f4f696db9a65ef29b9f5ec9d"
+    sha256 arm64_monterey: "927d91fab38ae58c7e4a17d2e4ff526ce7af3dc3e6074c616776e67381774da0"
+    sha256 sonoma:         "e205d184e9bc97e380bddc6ed71f82366e3d0043debd84463c1d9570335a6591"
+    sha256 ventura:        "8f18337eb7e792c95f60f54ccb01dad2a6857de8142f49f4cc8ff883907aa1ba"
+    sha256 monterey:       "77925fc7cd6315929a1d778f3facf6fceeee127f1e64415e3c5fa9ee64b9d64a"
+    sha256 x86_64_linux:   "85cdc431053cd7ab7c2ba8b560ce51ddfa1e170fa808ccea07bf8479561fe010"
   end
 
   depends_on "bison" => :build # needs bison >= 3.0.4
