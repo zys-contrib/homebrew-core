@@ -31,17 +31,17 @@ class PerconaXtrabackup < Formula
 
   depends_on "bison" => :build # needs bison >= 3.0.4
   depends_on "cmake" => :build
+  depends_on "libevent" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
+  depends_on "abseil"
   depends_on "icu4c"
   depends_on "libev"
-  depends_on "libevent"
-  depends_on "libfido2"
   depends_on "libgcrypt"
   depends_on "lz4"
   depends_on "mysql-client"
   depends_on "openssl@3"
-  depends_on "protobuf@21"
+  depends_on "protobuf"
   depends_on "zlib"
   depends_on "zstd"
 
@@ -95,9 +95,28 @@ class PerconaXtrabackup < Formula
   patch :DATA
 
   def install
-    # Disable ABI checking
-    inreplace "cmake/abi_check.cmake", "RUN_ABI_CHECK 1", "RUN_ABI_CHECK 0" if OS.linux?
+    # Remove bundled libraries other than explicitly allowed below.
+    # `boost` and `rapidjson` must use bundled copy due to patches.
+    # `lz4` is still needed due to xxhash.c used by mysqlgcs
+    keep = %w[duktape libkmip lz4 rapidjson robin-hood-hashing]
+    (buildpath/"extra").each_child { |dir| rm_r(dir) unless keep.include?(dir.basename.to_s) }
+    (buildpath/"boost").install resource("boost")
 
+    if OS.linux?
+      # Disable ABI checking
+      inreplace "cmake/abi_check.cmake", "RUN_ABI_CHECK 1", "RUN_ABI_CHECK 0"
+
+      # Work around build issue with Protobuf 22+ on Linux
+      # Ref: https://bugs.mysql.com/bug.php?id=113045
+      # Ref: https://bugs.mysql.com/bug.php?id=115163
+      inreplace "cmake/protobuf.cmake" do |s|
+        s.gsub! 'IF(APPLE AND WITH_PROTOBUF STREQUAL "system"', 'IF(WITH_PROTOBUF STREQUAL "system"'
+        s.gsub! ' INCLUDE REGEX "${HOMEBREW_HOME}.*")', ' INCLUDE REGEX "libabsl.*")'
+      end
+    end
+
+    # -DWITH_FIDO=system isn't set as feature isn't enabled and bundled copy was removed.
+    # Formula paths are set to avoid HOMEBREW_HOME logic in CMake scripts
     cmake_args = %W[
       -DBUILD_CONFIG=xtrabackup_release
       -DCOMPILATION_COMMENT=Homebrew
@@ -105,24 +124,22 @@ class PerconaXtrabackup < Formula
       -DINSTALL_MANDIR=share/man
       -DWITH_MAN_PAGES=ON
       -DINSTALL_MYSQLTESTDIR=
+      -DBISON_EXECUTABLE=#{Formula["bison"].opt_bin}/bison
+      -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
+      -DWITH_ICU=#{Formula["icu4c"].opt_prefix}
       -DWITH_SYSTEM_LIBS=ON
+      -DWITH_BOOST=#{buildpath}/boost
       -DWITH_EDITLINE=system
-      -DWITH_FIDO=system
-      -DWITH_ICU=system
       -DWITH_LIBEVENT=system
       -DWITH_LZ4=system
       -DWITH_PROTOBUF=system
       -DWITH_SSL=system
-      -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
       -DWITH_ZLIB=system
       -DWITH_ZSTD=system
     ]
     # Work around build script incorrectly looking for procps on macOS.
     # Issue ref: https://jira.percona.com/browse/PXB-3210
     cmake_args << "-DPROCPS_INCLUDE_DIR=/dev/null" if OS.mac?
-
-    (buildpath/"boost").install resource("boost")
-    cmake_args << "-DWITH_BOOST=#{buildpath}/boost"
 
     # Remove conflicting manpages
     rm (Dir["man/*"] - ["man/CMakeLists.txt"])
