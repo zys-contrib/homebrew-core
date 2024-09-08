@@ -2647,6 +2647,7 @@ tesseract
 testkube
 testssl
 tetra
+texinfo
 texlab
 texmath
 tfautomv

@@ -1,9 +1,9 @@
 class Texinfo < Formula
   desc "Official documentation format of the GNU project"
   homepage "https://www.gnu.org/software/texinfo/"
-  url "https://ftp.gnu.org/gnu/texinfo/texinfo-7.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/texinfo/texinfo-7.1.tar.xz"
-  sha256 "deeec9f19f159e046fdf8ad22231981806dac332cc372f1c763504ad82b30953"
+  url "https://ftp.gnu.org/gnu/texinfo/texinfo-7.1.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/texinfo/texinfo-7.1.1.tar.xz"
+  sha256 "31ae37e46283529432b61bee1ce01ed0090d599e606fc6a29dca1f77c76a6c82"
   license "GPL-3.0-or-later"
 
   bottle do
