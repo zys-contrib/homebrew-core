@@ -1,8 +1,8 @@
 class Libtrng < Formula
   desc "Tina's Random Number Generator Library"
   homepage "https://www.numbercrunch.de/trng/"
-  url "https://github.com/rabauke/trng4/archive/refs/tags/v4.26.tar.gz"
-  sha256 "b6646d911862edb5a35e1a633b2ebbe8b5e66a4147d1c075f35d18f49467a864"
+  url "https://github.com/rabauke/trng4/archive/refs/tags/v4.27.tar.gz"
+  sha256 "5d04cc66b7163c869c061c1155e47fe6d54d9a7f1c1fcc0fddecb9269b66a3de"
   license "BSD-3-Clause"
   head "https://github.com/rabauke/trng4.git", branch: "master"
 
