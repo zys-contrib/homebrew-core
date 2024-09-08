@@ -1,8 +1,8 @@
 class Basti < Formula
   desc "Securely connect to RDS, Elasticache, and other AWS resources in VPCs"
   homepage "https://github.com/basti-app/basti"
-  url "https://registry.npmjs.org/basti/-/basti-1.6.2.tgz"
-  sha256 "8d813c1f4e3b8195655d40e670aa8a2eb7dce2cd21d996564c56a3296163f1d7"
+  url "https://registry.npmjs.org/basti/-/basti-1.6.3.tgz"
+  sha256 "78fd1d21c031405c38bedd24b3de6d132020fab9f14e22e31f4d21848dcf3378"
   license "MIT"
 
   bottle do
