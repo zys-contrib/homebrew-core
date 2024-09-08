@@ -1,14 +1,13 @@
 class ArgpStandalone < Formula
   desc "Standalone version of arguments parsing functions from GLIBC"
-  homepage "https://www.lysator.liu.se/~nisse/misc/"
-  url "https://www.lysator.liu.se/~nisse/misc/argp-standalone-1.3.tar.gz"
-  sha256 "dec79694da1319acd2238ce95df57f3680fea2482096e483323fddf3d818d8be"
-  license "LGPL-2.1-or-later"
-
-  livecheck do
-    url :homepage
-    regex(/href=.*?argp-standalone[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  homepage "https://github.com/argp-standalone/argp-standalone"
+  url "https://github.com/argp-standalone/argp-standalone/archive/refs/tags/1.5.0.tar.gz"
+  sha256 "c29eae929dfebd575c38174f2c8c315766092cec99a8f987569d0cad3c6d64f6"
+  license all_of: [
+    "LGPL-2.1-or-later",
+    "LGPL-2.0-or-later", # argp.h, argp-parse.c
+    :public_domain,      # mempcpy.c, strchrnul.c
+  ]
 
   bottle do
     rebuild 1
@@ -27,19 +26,14 @@ class ArgpStandalone < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:     "798e6ddb78957f9ad33662287b5971aaf3a43f3646e84691d56b3b85ca06d47f"
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on :macos # argp is provided by glibc on Linux
 
-  # This patch fixes compilation with Clang.
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/b5f0ad3/argp-standalone/patch-argp-fmtstream.h"
-    sha256 "5656273f622fdb7ca7cf1f98c0c9529bed461d23718bc2a6a85986e4f8ed1cb8"
-  end
-
   def install
-    system "./configure", "--prefix=#{prefix}"
-    system "make", "install"
-    lib.install "libargp.a"
-    include.install "argp.h"
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
