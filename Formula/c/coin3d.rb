@@ -29,12 +29,12 @@ class Coin3d < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "109634fdffabd73998545546b0608fb74e325744326e8d5e6e5a7911c0c47c47"
-    sha256 cellar: :any, arm64_ventura:  "99d3003891e5b8b7264d74feb424acfaeab6b721d82c0e90a908b79536ff9f13"
-    sha256 cellar: :any, arm64_monterey: "ce73bef75ed4334d2a880bebb4f96c729eeac891bd73ef6ca042fef7ed7c9509"
-    sha256 cellar: :any, sonoma:         "9940156cce6b8569b81dfb790b958e2b9d9c370daa15888bdca668b0deb230d9"
-    sha256 cellar: :any, ventura:        "2b85535a188812a6211ec7f4aa80962b6786a9ed7a9010a3384d5b4e1b09fed4"
-    sha256 cellar: :any, monterey:       "e63ea57db53d46dcbf42ad69021b3c1a4363621ccae6a6995481cc0a70f88f68"
+    sha256 cellar: :any, arm64_sonoma:   "07ba0c39b01b9fcd22fb91035e9611bec4963639866f3087dfab514a179c085c"
+    sha256 cellar: :any, arm64_ventura:  "ba7c7fed04fff40f0abb513edaa5f94991082831790cda8568534ecec152f6e3"
+    sha256 cellar: :any, arm64_monterey: "36609cc09227ad57193fcac9f3f985cd6dc63ed88db22064558dfff8ad787305"
+    sha256 cellar: :any, sonoma:         "aed55516747e173e91ba4f54613c545b0bd2eb56e166cfa8713dec27189b2939"
+    sha256 cellar: :any, ventura:        "c2b9e8a6316316b8be599e29339d52a34e2c0cbcfc4e6a49f763f7f5c0b8182b"
+    sha256 cellar: :any, monterey:       "112eb4cf91392b07c62c1dc69212f7845d5ef8f685c2d2cbd9419527779ed203"
   end
 
   head do
