@@ -2914,6 +2914,7 @@ xorgproto
 xplr
 xq
 xray
+xroar
 xrootd
 xsimd
 xterm
