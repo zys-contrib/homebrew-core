@@ -9,13 +9,7 @@ class Hy < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bab260cac5449586ba47b527990cd1e4f3dc1f74461b18a4231ba7103c62547c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0621a28e341f9af1e3809a4276ecbab61cbd2c722b913b069fa3deadcdbb1881"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "41b1022eb4b374e9fbd341ffd0e976b7c232776203cfc1ceea7b2938879fb6c8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0f4f12dfa2db324f4df20abb6cb1d301a45f1a22d2511b4ead5abf6d32214534"
-    sha256 cellar: :any_skip_relocation, ventura:        "3f61cd38bc97e453c4fbec448c776ac1d5d29246afe73efc7e10d16e726a6200"
-    sha256 cellar: :any_skip_relocation, monterey:       "164b718ad1443e523b08675f086b5a8a04e32e982a788a4fd1a555e0e767c9ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb45f61f54b6e4804a6483766f59f66aed26e755fc75ff21de7bebf239ac7ab5"
+    sha256 cellar: :any_skip_relocation, all: "f2c93fbd996b0bd4d2c4eaf52ec56a8559d657478bd6b79934d3e344b109477c"
   end
 
   depends_on "python@3.12"
