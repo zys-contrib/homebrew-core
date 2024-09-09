@@ -2309,7 +2309,6 @@ root
 rosa-cli
 rospo
 rover
-rpcgen
 rpg-cli
 rpki-client
 rpl
