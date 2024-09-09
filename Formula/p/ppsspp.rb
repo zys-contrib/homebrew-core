@@ -15,13 +15,13 @@ class Ppsspp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "062a4f921535fbb44e2f38f57a96ecced1f42cd1c0b3c7309721a4d5e19e8039"
-    sha256 cellar: :any, arm64_ventura:  "5ca4de449d528d90795e4d17d3c8a27b0369165664948235f181c4231e77fd03"
-    sha256 cellar: :any, arm64_monterey: "a86c440e92b345d74d740001a984d5954a0bc64dc2b1decf32af219768baf89b"
-    sha256 cellar: :any, sonoma:         "eae8f22c02be3698babe7b0098b99ae6bee58222e8e881b8a2cceb7244fc1f3d"
-    sha256 cellar: :any, ventura:        "24fe084b1ce2616993f264f6d857769e709d723ff8acd60eb35855250554649c"
-    sha256 cellar: :any, monterey:       "f87bd3c881a1b0fd622af3b8c8baeaced548ddf987a5b3b5ca151145e29ee42f"
-    sha256               x86_64_linux:   "5d0962963a44830280bced31d5edb87bd9451bb98cdfc6ddab25e4942f7520ac"
+    sha256 cellar: :any, arm64_sonoma:   "23079d8f9e9d7d8063cda464a1b0d1e3e014974a45aee5161f5a9c20a8d2668f"
+    sha256 cellar: :any, arm64_ventura:  "555823fbb0fdd842f314289d18871eca2fb8e5a52fce41dbe316f187d97c6dc8"
+    sha256 cellar: :any, arm64_monterey: "bce88b0d36d699a1ed9cc0f4946347d0691c9b4a7b626d031dbcbd773e9499ea"
+    sha256 cellar: :any, sonoma:         "9f6cf025608ae5cb18d4636a519f57b44c48b5434d66256f1eda0a0b3735e780"
+    sha256 cellar: :any, ventura:        "1d3f323c173a2411f8e0f28c52c9a6c125d99620a6ca111461b56d2bbd1f65cf"
+    sha256 cellar: :any, monterey:       "2df94877aef5e8bfbff65b7e63897f32ff2768a67f3e5e9830c8a08a9fd84b62"
+    sha256               x86_64_linux:   "2c26b9c740523b7afa63730ac3d605b2475ea3487e9ab38525eaffc1c4c5a251"
   end
 
   depends_on "cmake" => :build
