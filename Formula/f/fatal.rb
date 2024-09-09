@@ -6,6 +6,10 @@ class Fatal < Formula
   license "BSD-3-Clause"
   head "https://github.com/facebook/fatal.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "ebfe927d1670f53ea9ac927577e3f2fec4635fe535201b2d5d6ee7fb707b0118"
+  end
+
   def install
     rm "fatal/.clang-tidy"
     include.install "fatal"
