@@ -36,6 +36,11 @@ class Libsvm < Formula
     libsvm_soversion = libsvm.to_s[/(?<=\.)\d+(?:\.\d+)*$/]
     lib.install libsvm => shared_library("libsvm", libsvm_soversion)
     lib.install_symlink shared_library("libsvm", libsvm_soversion) => shared_library("libsvm")
+    return unless OS.mac?
+
+    libsvm = shared_library("libsvm", libsvm_soversion)
+    MachO::Tools.change_dylib_id lib/libsvm, (opt_lib/libsvm).to_s
+    MachO.codesign!(lib/libsvm)
   end
 
   test do
@@ -57,5 +62,8 @@ class Libsvm < Formula
 
     system bin/"svm-train", "-s", "0", "train_classification.txt"
     system bin/"svm-train", "-s", "3", "train_regression.txt"
+    return unless OS.mac?
+
+    assert (lib/shared_library("libsvm")).dylib_id.end_with?("dylib")
   end
 end
