@@ -21,7 +21,9 @@ class Omniorb < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "openssl@3"
   depends_on "python@3.12"
+  uses_from_macos "zlib"
 
   resource "bindings" do
     url "https://downloads.sourceforge.net/project/omniorb/omniORBpy/omniORBpy-4.3.2/omniORBpy-4.3.2.tar.bz2"
@@ -36,7 +38,9 @@ class Omniorb < Formula
     inreplace "configure",
               /am_cv_python_version=`.*`/,
               "am_cv_python_version='#{xy}'"
-    system "./configure", "--prefix=#{prefix}"
+    args = ["--with-openssl"]
+    args << "--enable-cfnetwork" if OS.mac?
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
 
@@ -44,7 +48,7 @@ class Omniorb < Formula
       inreplace "configure",
                 /am_cv_python_version=`.*`/,
                 "am_cv_python_version='#{xy}'"
-      system "./configure", "--prefix=#{prefix}"
+      system "./configure", *std_configure_args
       ENV.deparallelize # omnipy.cc:392:44: error: use of undeclared identifier 'OMNIORBPY_DIST_DATE'
       system "make", "install"
     end
