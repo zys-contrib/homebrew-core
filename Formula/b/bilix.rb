@@ -6,7 +6,7 @@ class Bilix < Formula
   url "https://files.pythonhosted.org/packages/1a/f5/83c35a59e43453033deeecdc19893cedf9558fa601068890f68544e6235f/bilix-0.18.8.tar.gz"
   sha256 "582b4ff828cf7b7edb4bbcabe4a6384f1d2c94f3304afcba126297cc5a02c3fe"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -181,6 +181,12 @@ class Bilix < Formula
   resource "typing-extensions" do
     url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
     sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
+  end
+
+  # Fix JSON decode errors due to HTML changes: https://github.com/HFrost0/bilix/pull/231
+  patch do
+    url "https://github.com/HFrost0/bilix/commit/f47a3d27c7cf50bb053147affb4994e9a262ef69.patch?full_index=1"
+    sha256 "241ec1499d84f2e34844993fcb504145c2366eb727f0beb1c2557989cb687bd2"
   end
 
   def install
