@@ -14,13 +14,13 @@ class Miniupnpc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "dff09e9f7b0238cf21478d85f12a31c1785b4c8b34a894c7d9450f799989db61"
-    sha256 cellar: :any,                 arm64_ventura:  "12a157bafe9206633cb4837f8c0d2f7d4ac3d5a59c712738af32bc1a3f6126f0"
-    sha256 cellar: :any,                 arm64_monterey: "73fcc10ccdc15d29dee4f64e1c1619eb1c9cb3ae11ea0cf9866a7901fe0a9a35"
-    sha256 cellar: :any,                 sonoma:         "63c3ca5eab3479b56f18381f2332df2e99ca3bf7708cfdbf7ac26a4a8742c838"
-    sha256 cellar: :any,                 ventura:        "1f8cbe269314d11cc7a0d83d4618d983edf26bfaf869810fc4f9289f22aa7004"
-    sha256 cellar: :any,                 monterey:       "949a4c9a39f8b2bec9e1904574f3a390aceba622382777982fe323cae51fda1d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e06be7f4fcd21887a019cd6f58a99f44a77e951198be8d902e1f32cbe6b9540a"
+    sha256 cellar: :any,                 arm64_sonoma:   "c47187eabc3f3e849b3262808f11b4ffbf468550cd33cae212d164a6c3440e84"
+    sha256 cellar: :any,                 arm64_ventura:  "cf2e402ed211b5d334a8755eebb219f109731018cc51640488f712fc398ba12b"
+    sha256 cellar: :any,                 arm64_monterey: "c009ce82977e631c4f2a5fed0bb314c0b80c03b2fc6ddbdd4df4d376e44a1951"
+    sha256 cellar: :any,                 sonoma:         "b74f633bf9205c93d9ed1d6bfaa8df9fce6f57895d58780896864b1ba57ec905"
+    sha256 cellar: :any,                 ventura:        "34b1c1b24de7bbb5a8ec496f8977374b076895096bbb3b3329725a8aa5a2e3fa"
+    sha256 cellar: :any,                 monterey:       "ab79c3db607af5952496421cdf300b654d622969f75d15bcbd0d29294d8a9ffe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a9a806d9a54469f4cf6ed3d2d130614437564392ab0ee3c7af96c00e6c6565c"
   end
 
   def install
