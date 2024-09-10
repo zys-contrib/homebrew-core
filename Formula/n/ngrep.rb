@@ -26,6 +26,9 @@ class Ngrep < Formula
   uses_from_macos "libpcap"
 
   def install
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     sdk = if OS.mac? && MacOS.sdk_path_if_needed
       MacOS.sdk_path
     else

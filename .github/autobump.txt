@@ -192,6 +192,7 @@ bbtools
 bcftools
 bcoin
 bde
+bdw-gc
 beagle
 beakerlib
 beancount
@@ -496,6 +497,7 @@ cortex
 cosign
 cotila
 cotp
+couchbase-shell
 countdown
 counterfeiter
 coursier
@@ -785,6 +787,7 @@ exim
 exiv2
 exodriver
 exploitdb
+exult
 eza
 f2
 f3d
@@ -1842,7 +1845,6 @@ nerdfix
 nest
 nestopia-ue
 netaddr
-netdata
 nethogs
 netlify-cli
 nettle
@@ -2344,6 +2346,7 @@ s2n
 s3-backer
 s3fs
 s3ql
+s3scanner
 s6
 sad
 saf-cli
@@ -2431,6 +2434,7 @@ silk
 simde
 simdjson
 simdutf
+simgrid
 simple-scan
 sing-box
 singular
@@ -2706,6 +2710,7 @@ traefik
 traefik@2
 trafficserver
 trafilatura
+transcrypt
 translate-toolkit
 transmission-cli
 trash-cli
