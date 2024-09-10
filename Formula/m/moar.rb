@@ -6,13 +6,13 @@ class Moar < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "58bea1a01bd8d1fbbf9d7a8f0f7abe88bd88c8dee9cada7037d66353871ff8ad"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "58bea1a01bd8d1fbbf9d7a8f0f7abe88bd88c8dee9cada7037d66353871ff8ad"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "58bea1a01bd8d1fbbf9d7a8f0f7abe88bd88c8dee9cada7037d66353871ff8ad"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c7bc0c1241d9ae166b8ae9f15ee557b049cacf6fc67c8efc1a4ffe379777cec8"
-    sha256 cellar: :any_skip_relocation, ventura:        "c7bc0c1241d9ae166b8ae9f15ee557b049cacf6fc67c8efc1a4ffe379777cec8"
-    sha256 cellar: :any_skip_relocation, monterey:       "c7bc0c1241d9ae166b8ae9f15ee557b049cacf6fc67c8efc1a4ffe379777cec8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e403dbe969177e9dfe971cad95dbb1c6e7cd327d479948fdd0dff2b2f33e43ef"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4ebd5a64c9f3b157f3e37d94aeac862b8fc8b03f0565c446822d9eef6fa9533d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ebd5a64c9f3b157f3e37d94aeac862b8fc8b03f0565c446822d9eef6fa9533d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4ebd5a64c9f3b157f3e37d94aeac862b8fc8b03f0565c446822d9eef6fa9533d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e5e71e9a02adfa4374fa8aa510ea25c54fe84f4b5e72e6c8145576f259aedc7e"
+    sha256 cellar: :any_skip_relocation, ventura:        "e5e71e9a02adfa4374fa8aa510ea25c54fe84f4b5e72e6c8145576f259aedc7e"
+    sha256 cellar: :any_skip_relocation, monterey:       "e5e71e9a02adfa4374fa8aa510ea25c54fe84f4b5e72e6c8145576f259aedc7e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4eb55e6a373d0b9a11c5be25cfe69483804930db5458d1e7805439e25dabdda"
   end
 
   depends_on "go" => :build
