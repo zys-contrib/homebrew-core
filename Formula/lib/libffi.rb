@@ -41,10 +41,9 @@ class Libffi < Formula
       #include <ffi.h>
 
       /* Acts like puts with the file given at time of enclosure. */
-      void puts_binding(ffi_cif *cif, unsigned int *ret, void* args[],
-                        FILE *stream)
+      void puts_binding(ffi_cif *cif, void *ret, void** args, void *stream)
       {
-        *ret = fputs(*(char **)args[0], stream);
+        *(unsigned int *)ret = fputs(*(char **)args[0], (FILE *)stream);
       }
 
       int main()

@@ -12,6 +12,7 @@ class Hugo < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "04c82fb74796f5241aa4b67a7ffbf36ecd2b83f74c96fd5ece729917770034fc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eaf87041fec3ba897f98da2742a98dbb083f255f2794eed197aa199decb646c3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3aff3f51283af23c06933144f9d23620b43f79a13103ebc9123bd2c2a536f1ff"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "69542b4b2f4d4b37ecb2db0dee42884a2d88eab53bacb66e1c73445c71e17d1e"
