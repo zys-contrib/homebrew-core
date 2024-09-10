@@ -7,6 +7,7 @@ class RustAnalyzer < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4ac3b1ec53defea46bc2e741986e0cb7f36ec6e3d6ed97adb01d49a04a68e9ab"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "594852a19371f68756148e1a9e821e28acdf283ec218452098fd2e56b43bce04"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "45fa24de442ab05170eb6f137b367b798309ec658c3af4a2b4d4c88b3e040dea"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0eb8a61c19333b08149a4c32fc731b42258d20de51ff1528abf4191969e6cd05"
