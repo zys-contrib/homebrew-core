@@ -11,6 +11,7 @@ class LibatomicOps < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "92c6d84e42df04a0f4cc691404de0b1015612f5290b0fbee6ef0e32d3f984ef8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0656f3850ed197d3bc92adabea46679ff74785393166e0c0c507ce794687e792"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "186e0da537cb1acb541a2e30fbf504cbee435e2a545b916f2cdfe2cbe215446f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2438dc4e1e5f181153c8d3dc4322479b005cb62332dca92d305ef1b1d03c6294"
