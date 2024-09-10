@@ -12,13 +12,13 @@ class KosliCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "13cd09e27be4583ae20d9d78274d037717569224ce68577f628cbb266d2b33b1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "13cd09e27be4583ae20d9d78274d037717569224ce68577f628cbb266d2b33b1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "13cd09e27be4583ae20d9d78274d037717569224ce68577f628cbb266d2b33b1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "45a605501ea4812bb2ab62e0969c353f8992b0da6675d2e58dd3190c56f69411"
-    sha256 cellar: :any_skip_relocation, ventura:        "45a605501ea4812bb2ab62e0969c353f8992b0da6675d2e58dd3190c56f69411"
-    sha256 cellar: :any_skip_relocation, monterey:       "45a605501ea4812bb2ab62e0969c353f8992b0da6675d2e58dd3190c56f69411"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6543187740d4b617bf24767cd5a88922e6bac2319b5071b2325e762c4db3677e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "28dc88b9d65bd8217a502315a0c0c392a2d14f8d731627bc8ee1c26cdd8351d5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "28dc88b9d65bd8217a502315a0c0c392a2d14f8d731627bc8ee1c26cdd8351d5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "28dc88b9d65bd8217a502315a0c0c392a2d14f8d731627bc8ee1c26cdd8351d5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7c2cf8e21e497fdfd2feb5b6dbeee7001af54365cb5d82aa443534e830f7e17e"
+    sha256 cellar: :any_skip_relocation, ventura:        "7c2cf8e21e497fdfd2feb5b6dbeee7001af54365cb5d82aa443534e830f7e17e"
+    sha256 cellar: :any_skip_relocation, monterey:       "7c2cf8e21e497fdfd2feb5b6dbeee7001af54365cb5d82aa443534e830f7e17e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "70cac079fe6b46b6df7e965fb0ffa180f56a5dae162538e201e4e498a2d5b1db"
   end
 
   depends_on "go" => :build
