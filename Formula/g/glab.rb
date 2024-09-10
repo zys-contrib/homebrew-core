@@ -7,6 +7,7 @@ class Glab < Formula
   head "https://gitlab.com/gitlab-org/cli.git", branch: "trunk"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ae82c26c2b9216564d7d8d41bfe6af6d913949e45b0dc4c467cb4ed588f1113a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ae82c26c2b9216564d7d8d41bfe6af6d913949e45b0dc4c467cb4ed588f1113a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae82c26c2b9216564d7d8d41bfe6af6d913949e45b0dc4c467cb4ed588f1113a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ae82c26c2b9216564d7d8d41bfe6af6d913949e45b0dc4c467cb4ed588f1113a"
