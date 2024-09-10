@@ -1,8 +1,8 @@
 class Qsv < Formula
   desc "Ultra-fast CSV data-wrangling toolkit"
   homepage "https://github.com/jqnatividad/qsv"
-  url "https://github.com/jqnatividad/qsv/archive/refs/tags/0.133.1.tar.gz"
-  sha256 "f2f59c07ea8d84d527641b6f6c2e1eeff114d04860d2904a2b85361ea62db204"
+  url "https://github.com/jqnatividad/qsv/archive/refs/tags/0.134.0.tar.gz"
+  sha256 "276b34e830564daf3a7643855628ceda4379291c7818076a8f8648ebc9e345f4"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/jqnatividad/qsv.git", branch: "master"
 
@@ -32,9 +32,9 @@ class Qsv < Formula
   test do
     (testpath/"test.csv").write("first header,second header")
     assert_equal <<~EOS, shell_output("#{bin}/qsv stats test.csv")
-      field,type,is_ascii,sum,min,max,range,sort_order,min_length,max_length,mean,sem,stddev,variance,cv,nullcount,max_precision,sparsity
-      first header,NULL,,,,,,,,,,,,,,0,,
-      second header,NULL,,,,,,,,,,,,,,0,,
+      field,type,is_ascii,sum,min,max,range,sort_order,min_length,max_length,sum_length,avg_length,mean,sem,stddev,variance,cv,nullcount,max_precision,sparsity
+      first header,NULL,,,,,,,,,,,,,,,,0,,
+      second header,NULL,,,,,,,,,,,,,,,,0,,
     EOS
   end
 end
