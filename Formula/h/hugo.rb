@@ -12,14 +12,13 @@ class Hugo < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "04c82fb74796f5241aa4b67a7ffbf36ecd2b83f74c96fd5ece729917770034fc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eaf87041fec3ba897f98da2742a98dbb083f255f2794eed197aa199decb646c3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3aff3f51283af23c06933144f9d23620b43f79a13103ebc9123bd2c2a536f1ff"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "69542b4b2f4d4b37ecb2db0dee42884a2d88eab53bacb66e1c73445c71e17d1e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "35de5fa2411463aa9471cfc67debfe7642ce58203344486313979192eb3e7495"
-    sha256 cellar: :any_skip_relocation, ventura:        "b665c0d7f44fbe7bb8bc68ce2849710450f94b118cc06f6851291904d468fa44"
-    sha256 cellar: :any_skip_relocation, monterey:       "91fef4be9f3285d4c58af6551d1d81fa690c14eada6aef176217d12663560796"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "42792e95ea346aa163f0eed98c6858c8cc4541fde991ea8c396d3cd13ab4ebfe"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7dbfc9cbe97e97f47758a2467cec803f04bf27a71612b4a1b5c890672fbd6c81"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "63ce4d20cfd04b279020f3de7b663b38ba247a8a1f7a9f2f3c730b5716be7575"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fa2c705f370d73d1ec84d4558eb93aad5b22e28ccaace7049628ad66382d67fd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "114dc785d5d2e94d599fb8e0bdb5832766b76d9c7bb5757495a6326439f0d382"
+    sha256 cellar: :any_skip_relocation, ventura:        "2c82bd4f155475a603dc45513779e98592feecb86efb65bc49c25b2a0fbf9102"
+    sha256 cellar: :any_skip_relocation, monterey:       "f55de9e56ffba80db7902bda6ce38e990caec7c3dfc88fb4a6eea39cb0f9b1e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fca93a0ffcfe431c29fc5015a23df3fe93d04925d95f4b9c29d224e9094544e0"
   end
 
   depends_on "go" => :build
