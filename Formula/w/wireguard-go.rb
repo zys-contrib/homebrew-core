@@ -23,7 +23,7 @@ class WireguardGo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cea569e3ebb40ce3e341edacbb5b1c451c05534c2bdacc0d73aa2f0da73b2725"
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.22" => :build
 
   def install
     system "make", "PREFIX=#{prefix}", "install"
