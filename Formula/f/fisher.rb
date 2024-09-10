@@ -6,8 +6,7 @@ class Fisher < Formula
   license "MIT"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "92aaf66b6b254cbadbe37daaa48f46bac68b2cbfca3a510fbbcbafa21f0027cf"
+    sha256 cellar: :any_skip_relocation, all: "14891cea79eaaec8482f370961e6950b16ceed386c7f26567cb5c1f37f42434c"
   end
 
   depends_on "fish"
