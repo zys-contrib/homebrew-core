@@ -43,6 +43,9 @@ class LuajitOpenresty < Formula
     # is not set then it's forced to 10.4, which breaks compile on Mojave.
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s if OS.mac?
 
+    # Fix for clang >= 16, see https://github.com/LuaJIT/LuaJIT/issues/1266
+    ENV.append "LDFLAGS", "-Wl,-no_deduplicate" if DevelopmentTools.clang_build_version >= 1600
+
     args = %W[
       PREFIX=#{prefix}
       XCFLAGS=-DLUAJIT_ENABLE_GC64
