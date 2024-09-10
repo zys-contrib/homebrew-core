@@ -7,7 +7,7 @@ class Quill < Formula
   head "https://github.com/odygrd/quill.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "52d35c24c4fe8e7edc48a2913c12944147065f997a5894f61468e7cf360bd407"
+    sha256 cellar: :any_skip_relocation, all: "3dd8f3de8bcefeb3d4c0e7702e7821e607bdd47a608664f83157d32c29676a7c"
   end
 
   depends_on "cmake" => :build
