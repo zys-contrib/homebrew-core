@@ -7,6 +7,7 @@ class Uv < Formula
   head "https://github.com/astral-sh/uv.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3ffc7b8309149f553ba55d800dbae9703e37cfad02a24f2d4b5d106e2514dbc1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "714f75fb62a25cfb60dda4c1465364caa81fb3938e5fbe337c0a81c68a9aa125"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "89abcfff5c055c6dd30b002c46ee8f385b6bd3fdfe4f55133eb7a3a0be276ab4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7f1345fee847e5b4677622defcc454e4c47f967ac81871d232d16c8773792d67"
