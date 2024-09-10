@@ -1,9 +1,9 @@
 class Spigot < Formula
   desc "Command-line streaming exact real calculator"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/spigot/"
-  url "https://www.chiark.greenend.org.uk/~sgtatham/spigot/spigot-20240202.10bd0ca.tar.gz"
-  version "20240202"
-  sha256 "5bccbeaa48968e79e97af032a13fa5643d34f5142014f710d0c198e5088affe7"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/spigot/spigot-20240909.f158e08.tar.gz"
+  version "20240909"
+  sha256 "f2b7b8b9b0e0b138dcfd6ac4eb46fa79706b1842522894c45ddfd731d27bf673"
   license "MIT"
 
   livecheck do
