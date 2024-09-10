@@ -158,7 +158,7 @@ jobs:
     steps:
       - name: Check that we're not uploading Sequioa x86_64 bottles
         run: |
-          if [[ "${DISPATCH_BUILD_BOTTLE_RUNNER}" == "15"* && "${RUNNER_ARCH}" == "X64" ]]
+          if [[ "${DISPATCH_BUILD_BOTTLE_RUNNER}" =~ (^|,)15(-x86_64)?($|,) ]]
           then
             echo "::error ::Refusing to upload bottles for macOS 15 x86_64!"
             echo "::error ::Please don't upload macOS 15 x86_64 bottles yet, @${DISPATCH_BUILD_BOTTLE_SENDER}."
