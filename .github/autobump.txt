@@ -2431,6 +2431,7 @@ silk
 simde
 simdjson
 simdutf
+simgrid
 simple-scan
 sing-box
 singular
