@@ -11,13 +11,13 @@ class Chafa < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a4d628175d8e1370d2c029725ca5dfed28ae8557202a05921a09ff4a8d36695c"
-    sha256 cellar: :any,                 arm64_ventura:  "e9559f683e16db079084e8f2e07b8b7935f669eac0a83cf3133c368ed33cdf53"
-    sha256 cellar: :any,                 arm64_monterey: "efd04351d4046b6ffbd52893186127f8f373fe4b781fb0c127161bfe9169f22c"
-    sha256 cellar: :any,                 sonoma:         "684159ed9101150b5612f7e2bc901cee76581b7882fb8531e93fd791b608256b"
-    sha256 cellar: :any,                 ventura:        "a3275323cdbbe2c74381636c1441d153cd06bc8cb4a197ee68c80312a38d19af"
-    sha256 cellar: :any,                 monterey:       "592ffcf3776f9454f4f035da2b35624e64b553ff3eac4baa276e222851fd5c7f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9013544016acf877bb9d6c346ba0ea9c79ce8107e54788dfd6e098342cad2ca"
+    sha256 cellar: :any,                 arm64_sonoma:   "fcc526a43c32c12ad8a4df21f6b0323366a4db9d6e5049ea7839a8d8503d7495"
+    sha256 cellar: :any,                 arm64_ventura:  "9f79a9d69949a515ac6b1b830352f1872c7189f2993d5583d80265ef91015b5c"
+    sha256 cellar: :any,                 arm64_monterey: "2ee2a6926f235739d640a73242b5a72b42ad1658ba6d47b96620be18410e0664"
+    sha256 cellar: :any,                 sonoma:         "d99204ccf5286cce6d88b0d65b66e3e722681fc765896d319c46d2f42818d09f"
+    sha256 cellar: :any,                 ventura:        "106fa3941f6150a3e70dbf927e91c6b858b56dd209cc2088320a7e8963dbe32b"
+    sha256 cellar: :any,                 monterey:       "2f98014f0b6baaa0bcbaac2764a9b2ac1b77955e75903d0b16e44d4657fcabce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3981762ae579cc734ba2b4a42f294dff7ab27bfd6ebe9d3e87298339ec841f1e"
   end
 
   depends_on "pkg-config" => :build
