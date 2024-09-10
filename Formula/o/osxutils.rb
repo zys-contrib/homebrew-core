@@ -25,6 +25,10 @@ class Osxutils < Formula
   depends_on :macos
 
   def install
+    # workaround for newer clang
+    # upstream bug report, https://github.com/specious/osxutils/issues/11
+    ENV.append_to_cflags "-Wno-int-conversion" if DevelopmentTools.clang_build_version >= 1403
+
     system "make"
     system "make", "PREFIX=#{prefix}", "install"
   end
