@@ -16,6 +16,7 @@ class Ollama < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6a3dedc3c19984e66b560d9de9bd7630de2e2da24e31a6965d53b2d580b85fe5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2edd222bf46d24a4f6485bdea268291464e63a619b713543dcc4ee353eab4b23"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "caad0a763c2eca4de7b5a0855e7da2834b6926bdf6fbdd263eaa449eb1d30a0a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "efb7971b3844cd2900afb1595dcd22ec8885390a7e3b9c5dd0de3fd5555074b0"
