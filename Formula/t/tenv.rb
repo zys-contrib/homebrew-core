@@ -7,6 +7,7 @@ class Tenv < Formula
   head "https://github.com/tofuutils/tenv.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0f678decccc5afae48527157c660dee9cd1814f2cb1b97977d1f5acb4816da86"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0f678decccc5afae48527157c660dee9cd1814f2cb1b97977d1f5acb4816da86"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0f678decccc5afae48527157c660dee9cd1814f2cb1b97977d1f5acb4816da86"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0f678decccc5afae48527157c660dee9cd1814f2cb1b97977d1f5acb4816da86"
