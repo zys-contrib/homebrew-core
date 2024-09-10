@@ -1845,7 +1845,6 @@ nerdfix
 nest
 nestopia-ue
 netaddr
-netdata
 nethogs
 netlify-cli
 nettle
