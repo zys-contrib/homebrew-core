@@ -6,6 +6,7 @@ class Glibmm < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "c51a02b0a35290b41affb9625ac4a707b0889cdfd2e82cf1375879012c1d9025"
     sha256 cellar: :any, arm64_sonoma:   "31b6a6d43227bdcbf922bd03dd765ff39817541ecd1324138cacf617fbb73d36"
     sha256 cellar: :any, arm64_ventura:  "2a7e0a5d72958812e3feb2062b4aa7529850734ec4899bebfb2e78f9d185ee32"
     sha256 cellar: :any, arm64_monterey: "f6b90279a5bf2898894ff0846b5d63329387e31ad42a5ff0d82392b630de87da"
