@@ -89,6 +89,12 @@ class Conan < Formula
     sha256 "3e3d753a8618b86d7de333b4223005f68720bcd6a7d2bcb9fbd2229ec7c1e429"
   end
 
+  # sequoia build patch, upstream pr ref, https://github.com/conan-io/conan/pull/16970
+  patch do
+    url "https://github.com/conan-io/conan/commit/d4e10628223f3c4b8bf5b9458f7af00c93364759.patch?full_index=1"
+    sha256 "57e672651d220aa19b4a237b9ae5ffe49b01a65bcc6a13f526d2a71241ebd07f"
+  end
+
   def install
     virtualenv_install_with_resources
   end
