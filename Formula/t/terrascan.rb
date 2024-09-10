@@ -7,6 +7,7 @@ class Terrascan < Formula
   head "https://github.com/tenable/terrascan.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d4760ec16af072192a370828a0a41d58c0cf8c678a3aa6caa4098c014fdb87b9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6e4cdfea8447537bcc337b8145f708cbfc2ce78e55c455bcb401a1c7caef7ad8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3018b5a87ff23c948ceb15181d05ab1885d01b11ea552b0b5905bc971ee53cc1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "792f6b3d478efd08285628a5ef13001ec2ab0f0a9ad92a7f220618cf17960561"
