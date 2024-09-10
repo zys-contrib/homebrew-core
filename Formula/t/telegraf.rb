@@ -12,6 +12,7 @@ class Telegraf < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "60362124613bbadc4938b4ae9cf377dfb12b646d5ab6852f3a43b095e6c07d91"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e452a77bc9421253aa84be10efe9475ff152973693b072e6eeb9db13dd72fc30"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3664143738269b4d1ed3d58af70b08faa2cbebe8a1ddb3c0bd3844068b19042e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d40de1456e4c51f04cd8918f267ed0e53e0abe455686c0cdf1bed187cc73cbb1"
