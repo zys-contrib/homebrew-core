@@ -34,16 +34,14 @@ class Mtr < Formula
               "m4_esyscmd([build-aux/git-version-gen .tarball-version])",
               version.to_s
 
-    # We need to add this because nameserver8_compat.h has been removed in Snow Leopard
-    ENV["LIBS"] = "-lresolv"
     args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
+      --disable-silent-rules
       --without-glib
       --without-gtk
+      --with-bashcompletiondir=#{bash_completion}
     ]
     system "./bootstrap.sh"
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 
@@ -57,9 +55,14 @@ class Mtr < Formula
   test do
     # We patch generation of the version, so let's check that we did that properly.
     assert_match "mtr #{version}", shell_output("#{sbin}/mtr --version")
-    # mtr will not run without root privileges
-    assert_match "Failure to open", shell_output("#{sbin}/mtr google.com 2>&1", 1)
-    # Check that the `--json` flag is recognised.
-    assert_match "Failure to open", shell_output("#{sbin}/mtr --json google.com 2>&1", 1)
+    if OS.mac?
+      # mtr will not run without root privileges
+      assert_match "Failure to open", shell_output("#{sbin}/mtr google.com 2>&1", 1)
+      assert_match "Failure to open", shell_output("#{sbin}/mtr --json google.com 2>&1", 1)
+    else
+      # mtr runs but won't produce useful output without extra privileges
+      assert_match "2.|-- ???", shell_output("#{sbin}/mtr google.com 2>&1")
+      assert_match '"dst": "google.com"', shell_output("#{sbin}/mtr --json google.com 2>&1")
+    end
   end
 end
