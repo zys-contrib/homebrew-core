@@ -7,14 +7,13 @@ class Glab < Formula
   head "https://gitlab.com/gitlab-org/cli.git", branch: "trunk"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b6f0aa4616386efb58b15b04c0f8ca68bf58742d06aa744efece2890926a376f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3167d7a150d158d676faaa96c4430b4edf4383aec1ff5b3b9feb5718675246f8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3167d7a150d158d676faaa96c4430b4edf4383aec1ff5b3b9feb5718675246f8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3167d7a150d158d676faaa96c4430b4edf4383aec1ff5b3b9feb5718675246f8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e2dd26dca401a271ebdac43ddac5f93a90a72095e95bbb81d2bd189e882c2d08"
-    sha256 cellar: :any_skip_relocation, ventura:        "e2dd26dca401a271ebdac43ddac5f93a90a72095e95bbb81d2bd189e882c2d08"
-    sha256 cellar: :any_skip_relocation, monterey:       "e2dd26dca401a271ebdac43ddac5f93a90a72095e95bbb81d2bd189e882c2d08"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3810f262076c920c9671e9d706a987882a1375103fe8c893c7d628e45a8b549"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ae82c26c2b9216564d7d8d41bfe6af6d913949e45b0dc4c467cb4ed588f1113a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae82c26c2b9216564d7d8d41bfe6af6d913949e45b0dc4c467cb4ed588f1113a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ae82c26c2b9216564d7d8d41bfe6af6d913949e45b0dc4c467cb4ed588f1113a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a8a036c8eb1f0853f5ef7b4c660b24e9c879f8d0d2bc0367e62126920122f3a6"
+    sha256 cellar: :any_skip_relocation, ventura:        "a8a036c8eb1f0853f5ef7b4c660b24e9c879f8d0d2bc0367e62126920122f3a6"
+    sha256 cellar: :any_skip_relocation, monterey:       "a8a036c8eb1f0853f5ef7b4c660b24e9c879f8d0d2bc0367e62126920122f3a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0f1c21674a71a5437a24c952887bf744d8b484b0f469456d732832e72d5b23e8"
   end
 
   depends_on "go" => :build
