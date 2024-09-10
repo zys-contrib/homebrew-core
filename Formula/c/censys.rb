@@ -3,8 +3,8 @@ class Censys < Formula
 
   desc "Command-line interface for the Censys APIs (censys.io)"
   homepage "https://github.com/censys/censys-python"
-  url "https://files.pythonhosted.org/packages/40/b1/49c9e64b8339f8ae1f8d29b3001dc710593a4f391cbf21442fd1ae5da4a3/censys-2.2.13.tar.gz"
-  sha256 "26aba12813a96c2f696056148d8a220fa329c014e367ef3171c0aad078408205"
+  url "https://files.pythonhosted.org/packages/c3/68/4ec109b934009dba49ef88f5a1bb5bfa5c5cb25cc3cb0685da44009876fc/censys-2.2.14.tar.gz"
+  sha256 "09df1cf86a72efb159c03de8dc35163f22dbe95f029f85042b3e63b38171255f"
   license "Apache-2.0"
 
   bottle do
@@ -21,8 +21,8 @@ class Censys < Formula
   depends_on "python@3.12"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/db/ca/45176b8362eb06b68f946c2bf1184b92fc98d739a3f8c790999a257db91f/argcomplete-3.4.0.tar.gz"
-    sha256 "c2abcdfe1be8ace47ba777d4fce319eb13bf8ad9dace8d085dcad6eded88057f"
+    url "https://files.pythonhosted.org/packages/75/33/a3d23a2e9ac78f9eaf1fce7490fee430d43ca7d42c65adabbb36a2b28ff6/argcomplete-3.5.0.tar.gz"
+    sha256 "4349400469dccfb7950bb60334a680c58d88699bff6159df61251878dc6bf74b"
   end
 
   resource "backoff" do
@@ -36,8 +36,8 @@ class Censys < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
-    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
+    url "https://files.pythonhosted.org/packages/e8/ac/e349c5e6d4543326c6883ee9491e3921e0d07b55fdf3cce184b40d63e72a/idna-3.8.tar.gz"
+    sha256 "d838c2c0ed6fced7693d5e8ab8e734d5f8fda53a039c0164afb0b82e771e3603"
   end
 
   resource "markdown-it-py" do
@@ -61,8 +61,8 @@ class Censys < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/b3/01/c954e134dc440ab5f96952fe52b4fdc64225530320a910473c1fe270d9aa/rich-13.7.1.tar.gz"
-    sha256 "9be308cb1fe2f1f57d67ce99e95af38a1e2bc71ad9813b0e247cf7ffbcc3a432"
+    url "https://files.pythonhosted.org/packages/92/76/40f084cb7db51c9d1fa29a7120717892aeda9a7711f6225692c957a93535/rich-13.8.1.tar.gz"
+    sha256 "8260cda28e3db6bf04d2d1ef4dbc03ba80a824c88b0e7668a0f23126a424844a"
   end
 
   resource "urllib3" do
