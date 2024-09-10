@@ -192,6 +192,7 @@ bbtools
 bcftools
 bcoin
 bde
+bdw-gc
 beagle
 beakerlib
 beancount
