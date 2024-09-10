@@ -11,6 +11,7 @@ class TektoncdCli < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e4945ec75d7b705c258ce550f458f37e176e058911752f941873f65c243f536c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "220581183442fcc590a05c3111b5901639185d7c985b9bbe156c3e0bf4924fa6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e2a5533c70f89b5e7d4d9b53829e420f7020da240200d0da90c36abf5a2c5d7f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6d201441aeb7babf74dc73c98369b67dc82c1f7c2179783b398e34c6ab660906"
