@@ -51,10 +51,9 @@ class Zsh < Formula
   end
 
   def install
-    # Fix compile with newer Clang
-    # https://www.zsh.org/mla/workers/2020/index.html
-    # https://github.com/Homebrew/homebrew-core/issues/64921
-    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
+    # Fix compile with newer Clang. Remove in the next release
+    # Ref: https://sourceforge.net/p/zsh/code/ci/ab4d62eb975a4c4c51dd35822665050e2ddc6918/
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
 
     system "Util/preconfig" if build.head?
 
