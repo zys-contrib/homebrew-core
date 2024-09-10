@@ -9,6 +9,7 @@ class Sqlmap < Formula
   head "https://github.com/sqlmapproject/sqlmap.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4ff43f4471f18c62e28b93dfc9d9da66cefa3fad83251c3819c5c3a736cdf6f4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4ff43f4471f18c62e28b93dfc9d9da66cefa3fad83251c3819c5c3a736cdf6f4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ff43f4471f18c62e28b93dfc9d9da66cefa3fad83251c3819c5c3a736cdf6f4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4ff43f4471f18c62e28b93dfc9d9da66cefa3fad83251c3819c5c3a736cdf6f4"
