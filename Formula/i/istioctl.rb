@@ -12,6 +12,7 @@ class Istioctl < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0ce004768c3c13144fce13118ac2a76a0210f9bbc75f92a48ce4e976d193f865"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "597550de23075b6c6d5bd761463901fb2a0082cbad036aa6d4bda1b9438a4bb3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f1482b0bbedef2b5ab3b2b7e7dc489de56933ff0d02da57ecd2b4ee019c13b6c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f2b20320f2c5de3aa1573fab236a79aaa451314b92e7d67659fe361f24401db1"
