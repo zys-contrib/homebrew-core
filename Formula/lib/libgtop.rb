@@ -29,9 +29,11 @@ class Libgtop < Formula
   depends_on "libxau"
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--without-x"
+    # workaround for newer clang
+    # upstream bug report, https://gitlab.gnome.org/GNOME/libgtop/-/issues/73
+    ENV.append_to_cflags "-Wno-int-conversion" if DevelopmentTools.clang_build_version >= 1403
+
+    system "./configure", "--without-x", *std_configure_args
     system "make", "install"
   end
 
