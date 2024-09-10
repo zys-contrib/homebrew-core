@@ -1,8 +1,8 @@
 class Vexctl < Formula
   desc "Tool to create, transform and attest VEX metadata"
   homepage "https://openssf.org/projects/openvex/"
-  url "https://github.com/openvex/vexctl/archive/refs/tags/v0.2.6.tar.gz"
-  sha256 "dc979bb97e370f750946240a84461627b57764299a73332e94350e02f99ef9aa"
+  url "https://github.com/openvex/vexctl/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "5a5904448ef1bf11bd8a165d737acc88afd9799618f6583c15cee5d99dd58e17"
   license "Apache-2.0"
 
   bottle do
