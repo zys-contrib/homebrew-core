@@ -1,8 +1,8 @@
 class Exult < Formula
   desc "Recreation of Ultima 7"
   homepage "https://exult.sourceforge.io/"
-  url "https://github.com/exult/exult/archive/refs/tags/v1.8.tar.gz"
-  sha256 "dae6b7b08925d3db1dda3aca612bdc08d934ca04de817a008f305320e667faf9"
+  url "https://github.com/exult/exult/archive/refs/tags/v1.10.tar.gz"
+  sha256 "ec8f5bcc8d3a5a6ea454e67de484cf905e8c0c443257653416729a0fae8b0ec5"
   license "GPL-2.0-or-later"
   head "https://github.com/exult/exult.git", branch: "master"
 
@@ -25,6 +25,7 @@ class Exult < Formula
   end
 
   depends_on "autoconf" => :build
+  depends_on "autoconf-archive" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
@@ -36,7 +37,7 @@ class Exult < Formula
   uses_from_macos "zlib"
 
   def install
-    system "./autogen.sh"
+    system "autoreconf", "--force", "--install", "--verbose"
 
     system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "EXULT_DATADIR=#{pkgshare}/data"
