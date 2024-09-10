@@ -786,6 +786,7 @@ exim
 exiv2
 exodriver
 exploitdb
+exult
 eza
 f2
 f3d
