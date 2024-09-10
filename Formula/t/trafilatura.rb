@@ -3,8 +3,8 @@ class Trafilatura < Formula
 
   desc "Discovery, extraction and processing for Web text"
   homepage "https://trafilatura.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/89/20/1028e6d81f956312aa76673092ec012a692cec2c63e87b0d6573a6d0e383/trafilatura-1.12.1.tar.gz"
-  sha256 "89891db646dd84d98fb34a2faed7ba84c22e5490007b587d0599036d35164760"
+  url "https://files.pythonhosted.org/packages/d0/cd/77e4403b61d5da59063bb65ee894cf951c6f1137658499947adc040102f5/trafilatura-1.12.2.tar.gz"
+  sha256 "4c9cb1434f7e13ef0b16cb44ee1d44e84523ec7268940b9559c374e7effc9a96"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -34,8 +34,8 @@ class Trafilatura < Formula
   end
 
   resource "courlan" do
-    url "https://files.pythonhosted.org/packages/0f/47/4c32478892e8d87438eb205996ec3798b8bcb174b947cfb6cd3df45f5a5b/courlan-1.3.0.tar.gz"
-    sha256 "3868f388122f2b09d154802043fe92dfd62c3ea7a700eaae8abc05198cf8bc25"
+    url "https://files.pythonhosted.org/packages/9f/d4/50ac3848147e1c74d8f207064093dc2a62b8f51e0f615f7ba5cf5fd732f7/courlan-1.3.1.tar.gz"
+    sha256 "10858ab686470a3b1d8748d7b88199607c94e74eba3c8ade759ba4a9576d366e"
   end
 
   resource "dateparser" do
@@ -44,8 +44,8 @@ class Trafilatura < Formula
   end
 
   resource "htmldate" do
-    url "https://files.pythonhosted.org/packages/cd/71/ac70cf10ea9b58414a0d8d32593f916ab83e0d9d28c95e91879d26cffd0d/htmldate-1.8.1.tar.gz"
-    sha256 "caf1686cf75c61dd1f061ede5d7a46e759b15d5f9987cd8e13c8c4237511263d"
+    url "https://files.pythonhosted.org/packages/e2/22/7df1ee5f04210469776fbf992ee826a5da8ec9f0fd6819d01ac3f78d83d4/htmldate-1.9.0.tar.gz"
+    sha256 "90bc3c66cbb49be21888f54b9a20c0b6739497399a87789e64247fc4e04c292f"
   end
 
   resource "justext" do
@@ -59,8 +59,8 @@ class Trafilatura < Formula
   end
 
   resource "lxml-html-clean" do
-    url "https://files.pythonhosted.org/packages/c2/64/1f45e912e26b8f4c31ba7b7abf65b55a867f88582ff39d600ba07660ac82/lxml_html_clean-0.2.0.tar.gz"
-    sha256 "47c323f39d95d4cbf4956da62929c89a79313074467efaa4821013c97bf95628"
+    url "https://files.pythonhosted.org/packages/ef/b7/407da72fcd7b92fc4f41f3b8e94a733b2deae061d6d4ccf26d2c86dc1d42/lxml_html_clean-0.2.2.tar.gz"
+    sha256 "cc34178e34673025c49c3d7f4bd48754e9e4b23875df2308f43c21733d8437fb"
   end
 
   resource "python-dateutil" do
