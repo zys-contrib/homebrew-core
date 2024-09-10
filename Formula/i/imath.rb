@@ -6,6 +6,7 @@ class Imath < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "946c5c0541452ef3285cc49eb495c476b083203d3c0edab493045cb2e665fd31"
     sha256 cellar: :any,                 arm64_sonoma:   "787f2525c5b53bb1153e265774555f2a39c350bf927ce32fdb675987db179776"
     sha256 cellar: :any,                 arm64_ventura:  "b8fb4298477012d3e5b2572264a10220370e2849214df677519f92c93a522e42"
     sha256 cellar: :any,                 arm64_monterey: "c20229d09bc63f5f7c83ba3cfa9b591993d5b08aa5a82ee1e715cffd169d42c1"
