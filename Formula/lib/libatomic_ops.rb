@@ -13,6 +13,7 @@ class LibatomicOps < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "27c948cb8ca7db52ae09a76402fd1180ca110ece2ba7a20c88b16902967980f4"
     sha256 cellar: :any,                 arm64_sonoma:   "b1b86350238369d9aeec01fe06db92fa0bda5aadabdc6867e4d7f34eca09b72f"
     sha256 cellar: :any,                 arm64_ventura:  "df3aefc169055fa94ec868131c894b8fcae8dc7ea33e64a700e3746576e93ebb"
     sha256 cellar: :any,                 arm64_monterey: "81dde253b3f27f98a1b64110ec13ba9181e8ab34bc0060fc878e98e6090777ba"
