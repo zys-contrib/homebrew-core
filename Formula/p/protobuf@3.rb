@@ -19,6 +19,8 @@ class ProtobufAT3 < Formula
 
   keg_only :versioned_formula
 
+  disable! date: "2025-07-01", because: :versioned_formula
+
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
 
