@@ -12,6 +12,7 @@ class Mockery < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2b65c252f7ef21612e716b0645c8564c578dacdf6d83ffee9880ff4b3013dab7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2b65c252f7ef21612e716b0645c8564c578dacdf6d83ffee9880ff4b3013dab7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2b65c252f7ef21612e716b0645c8564c578dacdf6d83ffee9880ff4b3013dab7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2b65c252f7ef21612e716b0645c8564c578dacdf6d83ffee9880ff4b3013dab7"
