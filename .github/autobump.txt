@@ -2344,6 +2344,7 @@ s2n
 s3-backer
 s3fs
 s3ql
+s3scanner
 s6
 sad
 saf-cli
