@@ -4,8 +4,8 @@ class ServiceWeaver < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/ServiceWeaver/weaver/archive/refs/tags/v0.24.4.tar.gz"
-    sha256 "00e1f434b0521a25fe205d2eb78490f6e8a13f15fdc989d4d8e26f2f50e21ff1"
+    url "https://github.com/ServiceWeaver/weaver/archive/refs/tags/v0.24.5.tar.gz"
+    sha256 "6066b8b9255d4f75dbd91a32a5eeadae48cb959f3c94d20dec226488cdf53579"
 
     resource "weaver-gke" do
       url "https://github.com/ServiceWeaver/weaver-gke/archive/refs/tags/v0.24.3.tar.gz"
