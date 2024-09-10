@@ -2706,6 +2706,7 @@ traefik
 traefik@2
 trafficserver
 trafilatura
+transcrypt
 translate-toolkit
 transmission-cli
 trash-cli
