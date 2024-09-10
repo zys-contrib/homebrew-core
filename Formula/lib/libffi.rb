@@ -11,6 +11,7 @@ class Libffi < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "3c98bcb95fbcf46bdc04e0bdc87c5253a8f965edc8da1f1fe1213a9e438abc7e"
     sha256 cellar: :any,                 arm64_sonoma:   "e81237234a3e21d5222c1c8baf4017bc2f2ad7e444fbf58ad6b635fc0ace5078"
     sha256 cellar: :any,                 arm64_ventura:  "7a6a1d1dffe41d4e9bf117440190be51c432a2a192945ed8e2e10c4bb1f95ad0"
     sha256 cellar: :any,                 arm64_monterey: "eacdfea3b29d48dc8c3fb7578a9a59dbeb9048eca6493b8cd95605c86652e6de"
