@@ -6,6 +6,7 @@ class Cdk8s < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e6e4aa7e27e13096b448d18f1faa4f91fa080833ce2d791a719a846efeec1191"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5ddd50053072c4aa03bbd4964f423241cd243fd02afb4b412ebb9b9baf4856e2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5ddd50053072c4aa03bbd4964f423241cd243fd02afb4b412ebb9b9baf4856e2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5ddd50053072c4aa03bbd4964f423241cd243fd02afb4b412ebb9b9baf4856e2"
