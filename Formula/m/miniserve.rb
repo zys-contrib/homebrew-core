@@ -7,6 +7,7 @@ class Miniserve < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "be43e375c504a35fcf180b59a851724831be29d7060d9f3b843109181d64f9fd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4d273865ba9a53f5b907704c9a16c4931adfc700a1ef791ca304855a8d6a7ec7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b40b9a228e90b806c89f7d20e5d956a69e471c353d934b32538a32388e8449b0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ca5058a0f23e1e5a433d7a4ed71a08b5f681c50186551b02529494591721a303"
