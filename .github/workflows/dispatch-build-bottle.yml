@@ -38,6 +38,7 @@ env:
   DISPATCH_BUILD_BOTTLE_TIMEOUT: ${{ inputs.timeout }}
   DISPATCH_BUILD_BOTTLE_ISSUE: ${{ inputs.issue }}
   DISPATCH_BUILD_BOTTLE_UPLOAD: ${{ inputs.upload }}
+  GH_DEBUG: api
 
 # Intentionally the same as dispatch-rebottle
 concurrency: bottle-${{ github.event.inputs.formula }}
