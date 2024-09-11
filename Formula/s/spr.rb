@@ -23,6 +23,12 @@ class Spr < Formula
     depends_on "pkg-config" => :build
   end
 
+  # rust 1.80 build patch, upstream pr ref, https://github.com/spacedentist/spr/pull/202
+  patch do
+    url "https://github.com/spacedentist/spr/commit/ed450a3ec9c2b79e585ff162f0f3bd2fb2be4b00.patch?full_index=1"
+    sha256 "e1b7dab848c828a704ceeff2e46511e17a16198f26b184f75afd8bf0f695d22e"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args(path: "spr")
   end
