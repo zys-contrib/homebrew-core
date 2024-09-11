@@ -8,6 +8,7 @@ class Sleef < Formula
   head "https://github.com/shibatch/sleef.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "1b0ea11328c3aedfdb2a7fb51fef6e6293fe718afdf37060f6ee459daede4fcb"
     sha256 cellar: :any,                 arm64_sonoma:   "58dac621386569ca8890a32919d856130bbcb7ece80e488c830c75c850dc91db"
     sha256 cellar: :any,                 arm64_ventura:  "a8bb4e3f93058e42b93cb262aa8ad3f2cd89b2c51f8eb356c65751353546f989"
     sha256 cellar: :any,                 arm64_monterey: "f4894c52025eb79156b03c2f3bdc6bc1472552bf38e7265fd0cd7fc7efc7e64b"
