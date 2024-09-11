@@ -17,6 +17,13 @@ class CloudformationGuard < Formula
 
   depends_on "rust" => :build
 
+  # build patch for `unused return value of `must_use` that must be used`
+  # upstream pr ref, https://github.com/aws-cloudformation/cloudformation-guard/pull/528
+  patch do
+    url "https://github.com/aws-cloudformation/cloudformation-guard/commit/4fa3ffe30ea164ee9d508de71024ca4fd0366dad.patch?full_index=1"
+    sha256 "bb3cd7128801e3d41f410a39dd63d336570bb3060f61fa80e7d70067f1744f1f"
+  end
+
   def install
     cd "guard" do
       system "cargo", "install", *std_cargo_args
