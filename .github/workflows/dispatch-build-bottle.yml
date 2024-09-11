@@ -50,10 +50,17 @@ jobs:
     runs-on: ubuntu-22.04
     container:
       image: ghcr.io/homebrew/ubuntu22.04:master
-      options: --user=root
     outputs:
       runners: ${{steps.runner-matrix.outputs.result}}
     steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+        with:
+          core: true
+          cask: false
+          test-bot: false
+
       - name: Prepare runner matrix
         id: runner-matrix
         uses: actions/github-script@v7
@@ -81,14 +88,6 @@ jobs:
               else
                 return {runner: s, cleanup: true};
             });
-
-      - name: Set up Homebrew
-        id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@master
-        with:
-          core: true
-          cask: false
-          test-bot: false
 
       - name: Check for existing bottle
         shell: brew ruby {0}
