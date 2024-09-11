@@ -1,8 +1,8 @@
 class Luit < Formula
   desc "Filter run between arbitrary application and UTF-8 terminal emulator"
   homepage "https://invisible-island.net/luit/"
-  url "https://invisible-mirror.net/archives/luit/luit-20240102.tgz"
-  sha256 "a07aea28cdcec50ef225d8c96d3944c3ef6401a913b0d78a84ddc85191ebc082"
+  url "https://invisible-mirror.net/archives/luit/luit-20240910.tgz"
+  sha256 "a15d7fcbfc25ae1453d61aec23ff6ba04145d6e7b7b3b0071eb5cfda3a3a49d5"
   license "MIT"
 
   livecheck do
