@@ -30,8 +30,8 @@ class Daemontools < Formula
 
   # Fix build failure due to missing headers for POSIX-related functions.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/36d482722d0959abc80a8b0b944c9bc266e6fe5f/daemontools/posix-headers.patch"
-    sha256 "4c8f57406e5d077dbcaf7c92ba0febf59a5ac00b96309220f7723d135ea82c42"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e52085ff249263bdf9a21229e0d806ea4e2b9e95/daemontools/posix-headers.patch"
+    sha256 "288afdf9b7ba4f05a791f714ddea22b0a18020f54face020e45311135f0c92c1"
   end
 
   def install
