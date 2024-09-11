@@ -17,6 +17,12 @@ class Miniserve < Formula
 
   depends_on "rust" => :build
 
+  # rust 1.80 build patch, upstream commit ref, https://github.com/svenstaro/miniserve/commit/2fbfcbfe17b5c12630ccb03b6ccd31cb4b8316cc
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e022b2c42fbda33637b8a5c62847e8d6dd51942b/miniserve/rust-1.80.patch"
+    sha256 "b7a4557f18e72eb106da5a47e74e4ff718330cd60cf4b6458ad09eba7f9ba9f1"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
 
