@@ -3,10 +3,9 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://ansible-lint.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/c2/44/8751d04184a2c4f3e60be27ef7a14f04257096303dcb8122167672d3cd6a/ansible_lint-24.7.0.tar.gz"
-  sha256 "ca2edc7e4e80cf19df4b28cbf4c118f761ce6cdd6a5ef9c8561e454ed7af5a24"
+  url "https://files.pythonhosted.org/packages/51/51/5e9ff2797c3f2ac66e9230abc240da052328694a88f423d8c78420cbb864/ansible_lint-24.9.0.tar.gz"
+  sha256 "b8c9c94c6c3bc68b43bcf7b067e286f8201e341772c7d3dbdb0364ecab2b3944"
   license all_of: ["MIT", "GPL-3.0-or-later"]
-  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "e17ed92b120ebe2a55257eeca3f3f701199235c3f9d7915ed143d942fad3e0df"
@@ -62,8 +61,8 @@ class AnsibleLint < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/c0/bd/fa8ce65b0a7d4b6d143ec23b0f5fd3f7ab80121078c465bc02baeaab22dc/importlib_metadata-8.4.0.tar.gz"
-    sha256 "9a547d3bc3608b025f93d403fdd1aae741c24fbb8314df4b155675742ce303c5"
+    url "https://files.pythonhosted.org/packages/cd/12/33e59336dca5be0c398a7482335911a33aa0e20776128f038019f1a95f1b/importlib_metadata-8.5.0.tar.gz"
+    sha256 "71522656f0abace1d072b9e5481a48f07c138e00f079c38c8f883823f9c26bd7"
   end
 
   resource "jinja2" do
