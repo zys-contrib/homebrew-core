@@ -1,8 +1,8 @@
 class Uni < Formula
   desc "Unicode database query tool for the command-line"
   homepage "https://github.com/arp242/uni"
-  url "https://github.com/arp242/uni/archive/refs/tags/v2.7.0.tar.gz"
-  sha256 "192f904eda8cd9f3dce002bc04a5c622ea113c269d4b1a19f4c89094b05f9cd9"
+  url "https://github.com/arp242/uni/archive/refs/tags/v2.8.0.tar.gz"
+  sha256 "627a8aebe8d72bad5a462b8efc8b96dc96794b926b094de3f1e5b9965e44a678"
   license "MIT"
 
   bottle do
