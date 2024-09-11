@@ -21,6 +21,10 @@ class Blink < Formula
   uses_from_macos "zlib"
 
   def install
+    # newer linker cause issue as `pointer not aligned at _kWhence+0x4`
+    # upstream bug report, https://github.com/jart/blink/issues/166
+    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
+
     system "./configure", "--prefix=#{prefix}", "--enable-vfs"
     # Call `make` as `gmake` to use Homebrew `make`.
     system "gmake" # must be separate steps.
