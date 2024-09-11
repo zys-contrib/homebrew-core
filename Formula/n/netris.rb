@@ -81,7 +81,15 @@ class Netris < Formula
   end
 
   def install
-    system "sh", "Configure"
+    configure_args = []
+    # Workaround for newer Clang
+    if DevelopmentTools.clang_build_version >= 1403
+      configure_args = [
+        "--cextra",
+        "-Wno-implicit-function-declaration -Wno-implicit-int",
+      ]
+    end
+    system "sh", "Configure", *configure_args
     system "make"
     bin.install "netris"
   end
