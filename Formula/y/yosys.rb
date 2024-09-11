@@ -10,6 +10,7 @@ class Yosys < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "87c3a361b6f149bb5f2854fd4860ace367ca54d4422d460ce94a4f6c479a11ad"
     sha256 arm64_sonoma:   "c665c6c1759f5e925630889d8dec9f871da399e8e78126a4d33e66e79c584c81"
     sha256 arm64_ventura:  "56931ee530d10c88453368c5f0e69a8e6014f6c4d172fa27af9ce58c107bc14a"
     sha256 arm64_monterey: "86dc824de0c8b09a7ecb970151bf4d592f8e06a61e3f70c54d3230b586d7b1c9"
