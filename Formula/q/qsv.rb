@@ -7,6 +7,7 @@ class Qsv < Formula
   head "https://github.com/jqnatividad/qsv.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2e6bf2115a56ebd6479f4153adc41ee87ea6f819d0e296a446b7ae503e226fc8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5420a6f66509fcb9d4ec32b19d819afadf0d56e813255bc35592af2a49046975"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3829930d8fcfd5f1f23a5b96e21e61bea7672476c0af093cff52df1119348a01"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "53ec1c72dcef55b58810bac1d51e259525d014c9fcdd6525692a373d5adb3d4b"
