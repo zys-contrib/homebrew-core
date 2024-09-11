@@ -38,7 +38,6 @@ env:
   DISPATCH_BUILD_BOTTLE_TIMEOUT: ${{ inputs.timeout }}
   DISPATCH_BUILD_BOTTLE_ISSUE: ${{ inputs.issue }}
   DISPATCH_BUILD_BOTTLE_UPLOAD: ${{ inputs.upload }}
-  GH_DEBUG: api
 
 # Intentionally the same as dispatch-rebottle
 concurrency: bottle-${{ github.event.inputs.formula }}
@@ -249,6 +248,7 @@ jobs:
         run: git checkout -b "$BOTTLE_BRANCH" origin/master
 
       - name: Upload bottles to GitHub Packages
+        id: upload
         env:
           HOMEBREW_GITHUB_PACKAGES_USER: brewtestbot
           HOMEBREW_GITHUB_PACKAGES_TOKEN: ${{secrets.HOMEBREW_CORE_GITHUB_PACKAGES_TOKEN}}
@@ -257,6 +257,7 @@ jobs:
         working-directory: ${{ env.BOTTLES_DIR }}
         run: |
           brew pr-upload --verbose --keep-old --committer="$BREWTESTBOT_NAME_EMAIL" --root-url="https://ghcr.io/v2/homebrew/core"
+          echo "title=$(git log -1 --format='%s' "$BOTTLE_BRANCH")" >> "$GITHUB_OUTPUT"
 
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
@@ -271,42 +272,27 @@ jobs:
 
       - name: Open PR with bottle commit
         id: create-pr
-        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
-        env:
-          GH_TOKEN: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
-        run: |
-          gh pr create \
-            --base "$GITHUB_REF" \
-            --body "Created by [\`brew dispatch-build-bottle\`]($RUN_URL)" \
-            --title "$(git log -1 --format='%s' "$BOTTLE_BRANCH")" \
-            --head "$BOTTLE_BRANCH" \
-            --reviewer '${{github.actor}}'
-
-          pull_number="$(gh pr list --head "$BOTTLE_BRANCH" --limit 1 --json number --jq '.[].number')"
-          echo "pull_number=$pull_number" >> "$GITHUB_OUTPUT"
-          echo "head_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-
-      # There is a GitHub bug where labels are not properly recognised by workflows
-      # when added by `gh pr create`. We use the CI-published-bottle-commits label in
-      # the `formulae_detect` step in `tests.yml`, so let's add the label separately
-      # to avoid the bug.
-      - name: Label PR
-        env:
-          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          PR: ${{steps.create-pr.outputs.pull_number}}
-        run: gh pr edit --add-label CI-published-bottle-commits "$PR"
+        uses: Homebrew/actions/create-pull-request@master
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+          base: ${{github.ref}}
+          head: ${{env.BOTTLE_BRANCH}}
+          title: ${{steps.upload.outputs.title}}
+          body: Created by [`brew dispatch-build-bottle`](${{env.RUN_URL}})
+          labels: CI-published-bottle-commits
+          reviewers: ${{github.actor}}
 
       - name: Enable automerge
         run: gh pr merge --auto --merge --delete-branch --match-head-commit "$SHA" "$PR"
         env:
           GH_TOKEN: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
-          PR: ${{steps.create-pr.outputs.pull_number}}
+          PR: ${{steps.create-pr.outputs.number}}
           SHA: ${{steps.create-pr.outputs.head_sha}}
 
       - name: Approve PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR: ${{ steps.create-pr.outputs.pull_number }}
+          PR: ${{ steps.create-pr.outputs.number }}
         run: gh pr review --approve "$PR"
 
   comment:
