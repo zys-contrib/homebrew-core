@@ -6,13 +6,14 @@ class Silicon < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "88fa342ff94f00149044ecd6f5fb126e104f13058b784e17cfe344eb6ca50b6b"
-    sha256 cellar: :any,                 arm64_ventura:  "766d31b996f3b41dd4a8b1dd34e7ff6a7fe68d6f05dd27f7e7205f7176b892c5"
-    sha256 cellar: :any,                 arm64_monterey: "ca9541fb80cb28ef973767d8dd0f1db2979f40653ca253b67491f3ea9f984259"
-    sha256 cellar: :any,                 sonoma:         "218d94bdbf0f5c1e6ceff4bad2a5945094b1a7baadef0177c1ad3f9cde18fc1b"
-    sha256 cellar: :any,                 ventura:        "051ac7f4d0d21dda5cb5a9372b0d9dedacf3c8b37fe7ae35b1860101c8ec7aa3"
-    sha256 cellar: :any,                 monterey:       "310caff3239a9e6b7bd16db58bf203224d51ea7f0b12fdf5acfe3f0522e72b12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2fa0cec538c14c858cd237c54b4660861fd9f0d60807134fde42fe971f6b8ee6"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "8b022877b17b6066bc489492515fe08152bacca5328f2432820fd044050fe416"
+    sha256 cellar: :any,                 arm64_ventura:  "5efeb8cbcdd20ef78104a7e7193f5da0426c661fa173a5efe7682e72e856b014"
+    sha256 cellar: :any,                 arm64_monterey: "71bcf12d642e3902b8be7f0ea4b553e6e088756dbb40d381f744b10b845bc0da"
+    sha256 cellar: :any,                 sonoma:         "20ee4179a8d037ad0ce0feae5643e20b2bf6f67718253a3f0022fb5fb701e8e0"
+    sha256 cellar: :any,                 ventura:        "bf3cfafcd40201eae34dd09491b39a35de15006ec165f7ed82a126dc175f96c9"
+    sha256 cellar: :any,                 monterey:       "8b51904d6783f059bd75861408e70131e4f8798ce2bd8158d706676a0170e27b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a94bbc93480f99ed069fec1e7f86dee27922e2b0c1d00ba8f6a6c79f42da3f5"
   end
 
   depends_on "rust" => :build
