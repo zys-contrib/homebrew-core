@@ -27,6 +27,10 @@ class Siege < Formula
   uses_from_macos "zlib"
 
   def install
+    # workaround for newer clang
+    # notified upstream on the site on 2024-09-10
+    ENV.append_to_cflags "-Wno-int-conversion" if DevelopmentTools.clang_build_version >= 1403
+
     # To avoid unnecessary warning due to hardcoded path, create the folder first
     (prefix/"etc").mkdir
 
