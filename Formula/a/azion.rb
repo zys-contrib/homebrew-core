@@ -6,6 +6,7 @@ class Azion < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "044f218fbbe611749095dd06c5a1c86e5879a7010aebfaeaa78d738ac3096652"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "044f218fbbe611749095dd06c5a1c86e5879a7010aebfaeaa78d738ac3096652"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "044f218fbbe611749095dd06c5a1c86e5879a7010aebfaeaa78d738ac3096652"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "044f218fbbe611749095dd06c5a1c86e5879a7010aebfaeaa78d738ac3096652"
