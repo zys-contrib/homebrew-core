@@ -1,10 +1,18 @@
 class Amp < Formula
   desc "Text editor for your terminal"
   homepage "https://amp.rs"
-  url "https://github.com/jmacdonald/amp/archive/refs/tags/0.7.0.tar.gz"
-  sha256 "d77946c042df6c27941f6994877e0e62c71807f245b16b41cf00dbf8b3553731"
   license "GPL-3.0-or-later"
   head "https://github.com/jmacdonald/amp.git", branch: "main"
+
+  stable do
+    url "https://github.com/jmacdonald/amp/archive/refs/tags/0.7.0.tar.gz"
+    sha256 "d77946c042df6c27941f6994877e0e62c71807f245b16b41cf00dbf8b3553731"
+
+    patch do
+      url "https://github.com/jmacdonald/amp/commit/4ce866de7a2e1613951002ff61563a80e19a5c0c.patch?full_index=1"
+      sha256 "0837555e28ca95b366932af02cdbad41a26d1c7f57545f04616258fadc6e96ec"
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0602d51ca846b298ce8a461dcb6f77fded1230508a374351dec16c2ca81adb0e"
