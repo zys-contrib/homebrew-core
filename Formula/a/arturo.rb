@@ -25,6 +25,10 @@ class Arturo < Formula
     sha256 "d070d2f28ae2400df7fe4a49eceb9f45cd539906b107481856a0af7a8fa82dc9"
   end
 
+  # Workaround for newer Clang
+  # upstream pr ref, https://github.com/arturo-lang/arturo/pull/1635
+  patch :DATA
+
   def install
     (buildpath/"nim").install resource("nim")
     cd "nim" do
@@ -54,3 +58,18 @@ class Arturo < Formula
     assert_equal "hello", shell_output("#{bin}/arturo #{testpath}/hello.art").chomp
   end
 end
+
+__END__
+diff --git a/build.nims b/build.nims
+index 9c3f812..c4ed4c0 100755
+--- a/build.nims
++++ b/build.nims
+@@ -104,7 +104,7 @@ var
+                           "--skipUserCfg:on --colors:off -d:danger " &
+                           "--panics:off --mm:orc -d:useMalloc --checks:off " &
+                           "-d:ssl --cincludes:extras --opt:speed --nimcache:.cache --passL:'-pthread' " & 
+-                          "--path:src "
++                          "--path:src --passC:\"-Wno-error=incompatible-pointer-types\""
+     CONFIG              ="@full"
+ 
+     ARGS: seq[string]   = @[] 
