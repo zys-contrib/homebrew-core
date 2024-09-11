@@ -1,10 +1,19 @@
 class ElanInit < Formula
   desc "Lean Theorem Prover installer and version manager"
   homepage "https://github.com/leanprover/elan"
-  url "https://github.com/leanprover/elan/archive/refs/tags/v3.1.1.tar.gz"
-  sha256 "b3e3c7dc6cc23dd319725fccf58c898bf4920ff3440c97cb8f3a35fc0d5bbf5c"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/leanprover/elan.git", branch: "master"
+
+  stable do
+    url "https://github.com/leanprover/elan/archive/refs/tags/v3.1.1.tar.gz"
+    sha256 "b3e3c7dc6cc23dd319725fccf58c898bf4920ff3440c97cb8f3a35fc0d5bbf5c"
+
+    # rust 1.80 build patch, upstream pr ref, https://github.com/leanprover/elan/pull/134
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/815affb24bff77daad4e99e31afed8de42a31312/elan-init/rust-1.80.patch"
+      sha256 "244420efc73ba1fb4908023047fbb1650f783c30e73aa1facb82645d80c7136f"
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "be718756f24a38dfc2fdeabb6c1a8faa762f54e26bd7ba6c46a73ca6e7242a83"
