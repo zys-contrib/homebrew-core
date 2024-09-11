@@ -36,6 +36,9 @@ class BerkeleyDb < Formula
   end
 
   def install
+    # Work around undefined NULL causing incorrect detection of thread local storage class
+    ENV.append "CFLAGS", "-include stddef.h" if DevelopmentTools.clang_build_version >= 1500
+
     # BerkeleyDB dislikes parallel builds
     ENV.deparallelize
 
