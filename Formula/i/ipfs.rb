@@ -16,6 +16,7 @@ class Ipfs < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4400a28ccefea4d9bc9c92f63c75e810ca5233c9b910a4963a9e53f31776b3af"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2c8d45cd077882344b77aa2858fb5743a2c2c18c4d697fb2d1823ae8fcf28fe3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "322f4e39316f5e5eaab0134ce20b3be6f72ff744a0eb0cecec3075bc2a46ae24"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ee0cb84873aece0c63c0581e550770ab9931c2be47b08b55b2f521a30e1130fe"
