@@ -12,6 +12,7 @@ class Ipsw < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e4e6d2c8ce5c7190d3a26479ff94926552ad5fefca4c533d9768c185f9f3a9d2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e1ec08e6beba8927d6e502ae2d371405e1e4949229d93f50ddd94026c863fce2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "543af7b2197413da8348cdd759ba0e7820cf36c9a38e0290ca39b0ea0e24f765"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3f383976b1d559b0c7150ec072697ee324a9a2df7202def1dd1426aad8dbbd56"
