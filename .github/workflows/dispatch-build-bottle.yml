@@ -48,6 +48,8 @@ permissions:
 jobs:
   prepare:
     runs-on: ubuntu-22.04
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:master
     outputs:
       runners: ${{steps.runner-matrix.outputs.result}}
     steps:
