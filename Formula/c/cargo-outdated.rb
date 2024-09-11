@@ -30,6 +30,12 @@ class CargoOutdated < Formula
 
   uses_from_macos "zlib"
 
+  # rust 1.80 build patch, upstream pr ref, https://github.com/kbknapp/cargo-outdated/pull/397
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c17b2163d305f02e8b63639bfa50fc98a74cf72b/cargo-outdated/rust-1.80.patch"
+    sha256 "6e014843621fa897952ea0ff35c44693156109db60e344190157a7805ace60c5"
+  end
+
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
     ENV["OPENSSL_NO_VENDOR"] = "1"
