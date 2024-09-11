@@ -8,7 +8,7 @@ class Litecli < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "7786337db462ce8b8f70ba2999a36dcf7553594941047db101fa1ebdb8b6cf65"
+    sha256 cellar: :any_skip_relocation, all: "77ce3029b4545b65fde5d5e012d69e79dc3880bf41236172e62b01c97c9a1f41"
   end
 
   depends_on "python@3.12"
