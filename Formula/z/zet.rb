@@ -12,6 +12,7 @@ class Zet < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "53c70e56c15f910f0da22bb3bc5203c5574ba2847bd79a940e6c0bec1ed98302"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5ad3c94f7c59db72d11e2443f81f65c81fe07985040da61df8266fbf0f02b187"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d5c53469bc92408c6554f1d2fe342752c54b038ce953a5b36b641973c1337284"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f9e32e3a4567f0e85ca9cdb39089afd19fc27eb14e12c36bc4a398494cfe292d"
