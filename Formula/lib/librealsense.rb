@@ -38,6 +38,7 @@ class Librealsense < Formula
     args = %W[
       -DENABLE_CCACHE=OFF
       -DBUILD_WITH_OPENMP=OFF
+      -DCMAKE_CXX_STANDARD=17
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
     if Hardware::CPU.arm?
