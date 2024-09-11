@@ -12,6 +12,7 @@ class Wxwidgets < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "477825cb9a317d0f99e16ba96a5288fd5495af9308ef2b67587833ea4c3434d6"
     sha256 cellar: :any,                 arm64_sonoma:   "3e24e13b0986b99ad7db4b72f7235403cf2eac9a6f8d6a8aff5242880f79153a"
     sha256 cellar: :any,                 arm64_ventura:  "3b409e2c9e174f7165a143a8891c0c4988901a1dffaea254c30744a47ed3606b"
     sha256 cellar: :any,                 arm64_monterey: "9d6ec48436c89048893710d3974f52279a1077c4379795c14afb1bb160b64fd0"
