@@ -6,6 +6,7 @@ class Promptfoo < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5655ecb81661b2690211a3605d2d08f55847a6fcfffd5af3d737365c33af8b1e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d2bc57093a4066f8352108fe0c4f7e77229a1bf0552b4e59ddd1ca28054de5de"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8828507db2c463ad55b44b55b60ec8da14e060c5ee9ae130a31788ef9abdfb09"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cb23f895000aacc131a33ef6d8d7c1d154e86bf0e9e6a90773754b5d3e117190"
