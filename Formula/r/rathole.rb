@@ -7,6 +7,7 @@ class Rathole < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d668cd71d085b210e33c711837fc58c97fcfebf3417f0c3c7d722df711d45ae9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bcb8141198492a1cafa8833e4b5b1f872a292b0b4a583de7f71aeeb6f3376b86"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e9dff11d616e36a7e3fb42bf83f8a0ba908382562fd5ab26abd4ab08a99f6c0b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bff2c4cd4cbfd16cd46672656d6388613c4b2481d29c3774e7468a218378488e"
