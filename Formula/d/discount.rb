@@ -27,6 +27,9 @@ class Discount < Formula
   conflicts_with "multimarkdown", because: "both install `markdown` binaries"
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+
     # Shared libraries are currently not built because they require
     # root access to build without patching.
     # Issue reported upstream here: https://github.com/Orc/discount/issues/266.
