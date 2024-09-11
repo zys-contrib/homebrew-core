@@ -30,6 +30,9 @@ class Ndiff < Formula
   conflicts_with "cern-ndiff", "nmap", because: "both install `ndiff` binaries"
 
   def install
+    # workaround for newer clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     ENV.deparallelize
     # Install manually as the `install` make target is crufty
     system "./configure", "--prefix=.", "--mandir=."
