@@ -9,6 +9,7 @@ class AnsibleLint < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "e17ed92b120ebe2a55257eeca3f3f701199235c3f9d7915ed143d942fad3e0df"
     sha256 cellar: :any,                 arm64_sonoma:   "715d3a25454e3c2082c4db1a8c36620fa1cbda40ec8e57f69ba606c4b9412288"
     sha256 cellar: :any,                 arm64_ventura:  "8fc022e7c7663ea9de4fac5c7118aedc18dc621ac23e061daec116cb9ec8ed62"
     sha256 cellar: :any,                 arm64_monterey: "bf5a4d0fd401f8f40ef71ab89c817a0f0048e1e6c5ee1c908d44698790624381"
