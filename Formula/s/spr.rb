@@ -8,6 +8,7 @@ class Spr < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0eac58b3ff05872197f7abac423d42d87e439ccaab7f6579edec222f2de2710b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b69a549a251230cd5561cb9df78d7dec8393f923ffbe1379e42312f79ba7afac"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c5991317f779e5cc3ac6287f08414a51566d08ad837d87fc0fee579c7bf2eed0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2cf35baf53290180b7f1b0a7b453e060eefd982008c8750d1cde5f5e4a07fb04"
