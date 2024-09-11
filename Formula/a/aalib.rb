@@ -36,14 +36,15 @@ class Aalib < Formula
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}",
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
+    system "./configure", "--mandir=#{man}",
                           "--infodir=#{info}",
                           "--enable-shared=yes",
                           "--enable-static=yes",
-                          "--without-x"
+                          "--without-x",
+                          *std_configure_args
     system "make", "install"
   end
 
