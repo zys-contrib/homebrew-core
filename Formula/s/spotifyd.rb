@@ -1,10 +1,19 @@
 class Spotifyd < Formula
   desc "Spotify daemon"
   homepage "https://github.com/Spotifyd/spotifyd"
-  url "https://github.com/Spotifyd/spotifyd/archive/refs/tags/v0.3.5.tar.gz"
-  sha256 "59103f7097aa4e2ed960f1cc307ac8f4bdb2f0067aad664af32344aa8a972df7"
   license "GPL-3.0-only"
   head "https://github.com/Spotifyd/spotifyd.git", branch: "master"
+
+  stable do
+    url "https://github.com/Spotifyd/spotifyd/archive/refs/tags/v0.3.5.tar.gz"
+    sha256 "59103f7097aa4e2ed960f1cc307ac8f4bdb2f0067aad664af32344aa8a972df7"
+
+    # rust 1.80 build patch, upstream pr ref, https://github.com/Spotifyd/spotifyd/pull/1297
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/7cb21d6370a1eae320f06a4f9150111db0bbf952/spotifyd/rust-1.80.patch"
+      sha256 "0bfc8c4805cc99c249d1411aff29a0d9107c3ce69f1fabbdc3ab41701ca4f2f6"
+    end
+  end
 
   livecheck do
     url :stable
