@@ -43,6 +43,12 @@ class Opencascade < Formula
     depends_on "mesa" # For OpenGL
   end
 
+  # Backport fix for incorrect type
+  patch do
+    url "https://github.com/Open-Cascade-SAS/OCCT/commit/7236e83dcc1e7284e66dc61e612154617ef715d6.patch?full_index=1"
+    sha256 "ed8848b3891df4894de56ae8f8c51f6a4b78477c0063d957321c1cace4613c29"
+  end
+
   def install
     tcltk = Formula["tcl-tk"]
     libtcl = tcltk.opt_lib/shared_library("libtcl#{tcltk.version.major_minor}")
