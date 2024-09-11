@@ -19,6 +19,7 @@ class CargoAudit < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "21bed15ab32597f77138b5580939d8968581d364fd7a666e022a9d10c1298b91"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6d4a4150d6dc6ca387b330faec6c7d02e702623292f4e98f521ed7e55ddaa17e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d593cba38ba2151f0de63eef859b6e721858d4f166d939780b069c6fcef05915"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a22b351570d486285a6deaa4b4e6406a7986a4b391463d3511a677574d592d87"
