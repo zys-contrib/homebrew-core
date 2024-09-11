@@ -2,8 +2,8 @@ class Pulumi < Formula
   desc "Cloud native development platform"
   homepage "https://pulumi.io/"
   url "https://github.com/pulumi/pulumi.git",
-      tag:      "v3.131.0",
-      revision: "62293f05f79905c029238a3cecdcd3eb8b2fb9c0"
+      tag:      "v3.132.0",
+      revision: "81847fedf30a1dfe7e7dabaabf15d6ca04a53bae"
   license "Apache-2.0"
   head "https://github.com/pulumi/pulumi.git", branch: "master"
 
