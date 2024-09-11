@@ -6,6 +6,7 @@ class Tailwindcss < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a4aa877f4c990f4a63f2bbbc7c1b7efe4ac657a1cc805bc1bba955d5e4e38588"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a4aa877f4c990f4a63f2bbbc7c1b7efe4ac657a1cc805bc1bba955d5e4e38588"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0322911a550c92f3a1223a369066262a87170a47504aaca7f906b3f7da2ab7b6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0322911a550c92f3a1223a369066262a87170a47504aaca7f906b3f7da2ab7b6"
