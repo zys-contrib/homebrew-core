@@ -79,6 +79,51 @@ jobs:
                 return {runner: s, cleanup: true};
             });
 
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+        with:
+          core: true
+          cask: false
+          test-bot: false
+
+      - name: Check for existing bottle
+        shell: brew ruby {0}
+        env:
+          HOMEBREW_RUNNER_MATRIX: ${{ steps.runner-matrix.outputs.result }}
+          HOMEBREW_DISPATCHED_FORMULA: ${{ inputs.formula }}
+        run: |
+          matrix = JSON.parse(ENV.fetch("HOMEBREW_RUNNER_MATRIX"))
+          formula_name = ENV.fetch("HOMEBREW_DISPATCHED_FORMULA")
+          formula = Formulary.factory(formula_name)
+          exit_code = 0
+
+          matrix.each do |entry|
+            runner = entry.fetch("runner")
+
+            bottle_tag = if runner.start_with?("ubuntu") || runner.start_with?("linux")
+              Utils::Bottles.tag(:x86_64_linux)
+            elsif runner.match?(/^\d+-/)
+              os_version, arch, _ = *runner.split("-")
+              system = MacOSVersion.new(os_version).to_sym
+              arch = arch.to_sym
+
+              Utils::Bottles::Tag.new(system:, arch:)
+            end
+            next if bottle_tag.blank?
+
+            bottled_on_current_runner = formula.bottle_specification.tag?(bottle_tag, no_older_versions: true)
+            next unless bottled_on_current_runner
+
+            exit_code = 1
+            puts GitHub::Actions::Annotation.new(
+              :error,
+              "#{formula_name} already has a bottle for #{bottle_tag}!",
+            )
+          end
+
+          exit exit_code
+
   bottle:
     needs: prepare
     strategy:
@@ -113,24 +158,6 @@ jobs:
         with:
           bottles-directory: ${{ env.BOTTLES_DIR }}
           cleanup: ${{ matrix.cleanup }}
-
-      - name: Check for existing bottle
-        shell: brew ruby {0}
-        env:
-          HOMEBREW_DISPATCHED_FORMULA: ${{ inputs.formula }}
-        run: |
-          formula_name = ENV.fetch("HOMEBREW_DISPATCHED_FORMULA")
-          formula = Formulary.factory(formula_name)
-          current_bottle_tag = Utils::Bottles.tag
-          bottled_on_current_os = formula.bottle_specification.tag?(current_bottle_tag, no_older_versions: true)
-
-          return unless bottled_on_current_os
-
-          puts GitHub::Actions::Annotation.new(
-            :error,
-            "#{formula_name} already has a bottle for #{current_bottle_tag}!",
-          )
-          exit 1
 
       - working-directory: ${{ env.BOTTLES_DIR }}
         run: |
