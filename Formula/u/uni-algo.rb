@@ -35,7 +35,7 @@ class UniAlgo < Formula
     (testpath/"utf8_norm.cpp").write <<~EOS
       #include <uni_algo/norm.h>
       int main() {
-        return (una::norm::to_nfc_utf8("W\u0302") == "Ŵ") ? 0 : 1;
+        return (una::norm::to_nfc_utf8("W\\u0302") == "Ŵ") ? 0 : 1;
       }
     EOS
 
