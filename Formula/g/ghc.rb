@@ -103,14 +103,15 @@ class Ghc < Formula
   end
 
   def install
-    # ENV.cc returns a specific version of gcc on Ubuntu, e.g. gcc-11
-    # on Ubuntu 22.04. Using this value for ENV["CC"] effectively causes
-    # the bottle (binary package) to only run on systems where a gcc-11 binary
-    # is available. This breaks on many systems including Arch Linux, Fedora
-    # and Ubuntu 24.04, as they provide gcc but not gcc-11 specifically.
+    # ENV.cc and ENV.cxx return specific compiler versions on Ubuntu, e.g.
+    # gcc-11 and g++-11 on Ubuntu 22.04. Using such values effectively causes
+    # the bottle (binary package) to only run on systems where gcc-11 and g++-11
+    # binaries are available. This breaks on many systems including Arch Linux,
+    # Fedora and Ubuntu 24.04, as they provide g** but not g**-11 specifically.
     #
-    # The workaround here is to hardcode the ENV["CC"] value to "cc".
+    # The workaround here is to hard-code both CC and CXX on Linux.
     ENV["CC"] = ENV["ac_cv_path_CC"] = OS.linux? ? "cc" : ENV.cc
+    ENV["CXX"] = ENV["ac_cv_path_CXX"] = OS.linux? ? "c++" : ENV.cxx
     ENV["LD"] = ENV["MergeObjsCmd"] = "ld"
     ENV["PYTHON"] = which("python3.12")
 
