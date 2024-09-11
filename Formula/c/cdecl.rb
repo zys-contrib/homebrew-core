@@ -34,6 +34,9 @@ class Cdecl < Formula
   end
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+
     # Fix namespace clash with Lion's getline
     inreplace "cdecl.c", "getline", "cdecl_getline"
 
