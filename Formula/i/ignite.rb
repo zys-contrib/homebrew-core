@@ -6,6 +6,7 @@ class Ignite < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4e1583c8d2c42b70919807aae2607fe1b64788cea4593a76e5e2c5a956f3f1ff"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "78ec5a8d98dc64983f49cb4a6ab6d706f63b43a75221b675695607cf25417fc8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7c65e7987770b6c777cee88de82fc0b94585805fcdd5fa1700626f4f5b985c76"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3008b52664039e0bc760714ceaf1901eb27ff59e8bade7ff5b8198e239a6aa7e"
