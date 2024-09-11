@@ -15,6 +15,7 @@ class CargoBinstall < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e97612b6916bdc7145810cbce8229d74799f2049393f59712bada662a5afe208"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "49cc6aafc7866d195816a296f3e322272fd3ecefbf3559d8925cee3f5e71f948"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f3b7dd34f312ee3d605055eef365bec9e6d0b02d06f8d29b809e3f90f74afe23"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7d9a4b940098a116886c137c114786aa1e96b6ae1bad5765202a20612b9328b7"
