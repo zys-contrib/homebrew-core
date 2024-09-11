@@ -7,6 +7,7 @@ class OsvScanner < Formula
   head "https://github.com/google/osv-scanner.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "47b6f1ec47f9418d2f4530b83a13409dc52ea2a9092d7c5d9a639b56f2941d7a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "47b6f1ec47f9418d2f4530b83a13409dc52ea2a9092d7c5d9a639b56f2941d7a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "47b6f1ec47f9418d2f4530b83a13409dc52ea2a9092d7c5d9a639b56f2941d7a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "47b6f1ec47f9418d2f4530b83a13409dc52ea2a9092d7c5d9a639b56f2941d7a"
