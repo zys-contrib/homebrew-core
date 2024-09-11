@@ -21,6 +21,12 @@ class Zzz < Formula
 
   depends_on :macos
 
+  # build patch for main function signature, upstream pr ref, https://github.com/Orc/Zzz/pull/6
+  patch do
+    url "https://github.com/Orc/Zzz/commit/efb6f6314722de65e709df6dc5f94284cf12abaf.patch?full_index=1"
+    sha256 "6e92a6d87c7ddeff5308318b80f4287434cf793a4cf2b1761193b5aff2ea5867"
+  end
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
