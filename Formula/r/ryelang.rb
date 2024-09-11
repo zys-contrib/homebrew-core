@@ -7,6 +7,7 @@ class Ryelang < Formula
   head "https://github.com/refaktor/rye.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4383a4110a96444282cf9f075fec1b7df200712bfb92742f4feb36f9f226a6bc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b3a645ce39bbea36b375f2b513e693902b602db9122b0abed56f76afd1913e29"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f33f1bd18a0f6dda79ca34338c41ee4512b81a05e9cf7750490627b499af4c37"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cb6ae42e7952351ff38fb46cf19f5b8685c0e55cb1ec265ad3ff521d76300013"
