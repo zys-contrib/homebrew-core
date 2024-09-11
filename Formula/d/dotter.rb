@@ -17,6 +17,12 @@ class Dotter < Formula
 
   depends_on "rust" => :build
 
+  # patch time crate to fix build with rust 1.80 and above, remove in next release
+  patch do
+    url "https://github.com/SuperCuber/dotter/commit/d5199df24e6db039c460fa37fe3279f89c3bfc63.patch?full_index=1"
+    sha256 "757e0368cb7668efedb2bab21dec67850ead3f4951a5717c9bffef8a5da75bea"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
     generate_completions_from_executable(bin/"dotter", "gen-completions", "-s")
