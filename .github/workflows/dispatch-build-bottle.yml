@@ -75,7 +75,7 @@ jobs:
                                                 .map(s => {
               const macOSMatch = macOSRegex.exec(s);
               if (macOSMatch && s != "11-arm64") // Ephemeral runners
-                return {runner: `${macOSMatch[1]}-${macOSMatch[2] ?? "x86_64"}-${context.runId}`, cleanup: false};
+                return {runner: `${macOSMatch[1]}-${macOSMatch[2] ?? "x86_64"}-${context.runId}-dispatch`, cleanup: false};
               else if (linuxRegex.test(s))
                 return {
                   runner:    s,
