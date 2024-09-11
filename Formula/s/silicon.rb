@@ -7,6 +7,7 @@ class Silicon < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "3cad4ec20ab16b1a2d1040416723bae123955facbe599350fb9bb81f716aecb7"
     sha256 cellar: :any,                 arm64_sonoma:   "8b022877b17b6066bc489492515fe08152bacca5328f2432820fd044050fe416"
     sha256 cellar: :any,                 arm64_ventura:  "5efeb8cbcdd20ef78104a7e7193f5da0426c661fa173a5efe7682e72e856b014"
     sha256 cellar: :any,                 arm64_monterey: "71bcf12d642e3902b8be7f0ea4b553e6e088756dbb40d381f744b10b845bc0da"
