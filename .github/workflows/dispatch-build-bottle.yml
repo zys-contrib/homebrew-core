@@ -89,6 +89,10 @@ jobs:
                 return {runner: s, cleanup: true};
             });
 
+      - name: Ensure homebrew/core is up-to-date
+        if: endsWith(github.ref, 'master')
+        run: brew update
+
       - name: Check for existing bottle
         shell: brew ruby {0}
         env:
