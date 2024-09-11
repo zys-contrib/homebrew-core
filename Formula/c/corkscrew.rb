@@ -30,6 +30,9 @@ class Corkscrew < Formula
   depends_on "libtool" => :build
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     cp Dir["#{Formula["libtool"].opt_share}/libtool/*/config.{guess,sub}"], buildpath
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
