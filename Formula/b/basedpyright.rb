@@ -7,6 +7,7 @@ class Basedpyright < Formula
   head "https://github.com/detachhead/basedpyright.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3c599dc65fd3b1538d1970985bb6abaa03a039b7afe7d0a5700e479108aab65d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3c599dc65fd3b1538d1970985bb6abaa03a039b7afe7d0a5700e479108aab65d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3c599dc65fd3b1538d1970985bb6abaa03a039b7afe7d0a5700e479108aab65d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3c599dc65fd3b1538d1970985bb6abaa03a039b7afe7d0a5700e479108aab65d"
