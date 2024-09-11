@@ -23,6 +23,12 @@ class Orogene < Formula
     depends_on "openssl@3"
   end
 
+  # rust 1.80 build patch, upstream pr ref, https://github.com/orogene/orogene/pull/315
+  patch do
+    url "https://github.com/orogene/orogene/commit/2f774bb5b1067fb0f5f827140aff328190af0452.patch?full_index=1"
+    sha256 "c91711588a6fddee3055a356723a8a044cd82d287c59a7cf83802129d2ffa89b"
+  end
+
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
