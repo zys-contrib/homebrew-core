@@ -28,8 +28,7 @@ class LibvoAacenc < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
@@ -41,7 +40,7 @@ class LibvoAacenc < Formula
       {
         VO_MEM_INFO info; info.Size = 1;
         VO_S32 uid = 0;
-        VO_PTR pMem = cmnMemAlloc(uid, &info);
+        VO_PTR pMem = (VO_PTR)cmnMemAlloc(uid, &info);
         cmnMemFree(uid, pMem);
         return 0;
       }
