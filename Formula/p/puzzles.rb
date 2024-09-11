@@ -18,6 +18,7 @@ class Puzzles < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "91038c478dc16d2b60c5efb6453835d458ecd6c843d316047e4dc02f23b34e55"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "32fa88905bd4dc320ba05e54aaf7a9e9eb74ea77e8632b6a7bdec2390beac57c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "21eb7093efbbebd8d893aa2aaa5c3f50d649d89f0fad95412072a5eb5a47668e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b440b0adecb5e7373d94a533d099b75ec827cee1288085d6c46f371d93e90560"
