@@ -4,6 +4,7 @@ class Sleef < Formula
   url "https://github.com/shibatch/sleef/archive/refs/tags/3.6.1.tar.gz"
   sha256 "441dcf98c0f22e5d5e553d007f3b93e89eb58e4c66e340da8af5e7f67d1dc24c"
   license "BSL-1.0"
+  revision 1
   head "https://github.com/shibatch/sleef.git", branch: "master"
 
   bottle do
@@ -22,6 +23,7 @@ class Sleef < Formula
   def install
     system "cmake", "-S", ".", "-B", "build",
                     "-DSLEEF_BUILD_INLINE_HEADERS=TRUE",
+                    "-DSLEEF_BUILD_SHARED_LIBS=ON",
                     "-DSLEEF_BUILD_TESTS=OFF",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
                     *std_cmake_args
