@@ -7,6 +7,7 @@ class GitDelta < Formula
   head "https://github.com/dandavison/delta.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "58a8c1922dbca174e1ce4177154460eb9b8cc3ce85cbfd5c660e55c832af6ae7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "419f5a44407ea3cc9d236282deff3b8c6ba6f60c7689f894cba2c1faefb2fc8a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1518063982216ae94f97d54bd35655eabed9b620d4dee5919590fedac74d644e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "90dce0b48166745f63dd6834a4b6d8a22097e9d3873ae140481c529a31df9acd"
