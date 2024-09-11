@@ -1,10 +1,16 @@
 class CargoAudit < Formula
   desc "Audit Cargo.lock files for crates with security vulnerabilities"
   homepage "https://rustsec.org/"
-  url "https://github.com/RustSec/rustsec/archive/refs/tags/cargo-audit/v0.20.0.tar.gz"
-  sha256 "695e8d0526bbc672d227a7f8b4592a5fd6641a9e819767146a8a4e3a32e57e5c"
   license any_of: ["Apache-2.0", "MIT"]
-  head "https://github.com/RustSec/rustsec.git", branch: "main"
+  head "https://github.com/rustsec/rustsec.git", branch: "main"
+
+  stable do
+    url "https://github.com/rustsec/rustsec/archive/refs/tags/cargo-audit/v0.20.0.tar.gz"
+    sha256 "695e8d0526bbc672d227a7f8b4592a5fd6641a9e819767146a8a4e3a32e57e5c"
+
+    # time crate build patch, upstream PR ref, https://github.com/rustsec/rustsec/pull/1170
+    patch :DATA
+  end
 
   livecheck do
     url :stable
@@ -45,3 +51,33 @@ class CargoAudit < Formula
     assert_match "error: 1 vulnerability found!", shell_output("#{bin}/cargo-audit audit 2>&1", 1)
   end
 end
+
+__END__
+diff --git a/Cargo.lock b/Cargo.lock
+index 3460499..0efa894 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -2911,9 +2911,9 @@ dependencies = [
+ 
+ [[package]]
+ name = "time"
+-version = "0.3.32"
++version = "0.3.36"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "fe80ced77cbfb4cb91a94bf72b378b4b6791a0d9b7f09d0be747d1bdff4e68bd"
++checksum = "5dfd88e563464686c916c7e46e623e520ddc6d79fa6641390f2e3fa86e83e885"
+ dependencies = [
+  "deranged",
+  "itoa",
+@@ -2934,9 +2934,9 @@ checksum = "ef927ca75afb808a4d64dd374f00a2adf8d0fcff8e7b184af886c3c87ec4a3f3"
+ 
+ [[package]]
+ name = "time-macros"
+-version = "0.2.17"
++version = "0.2.18"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "7ba3a3ef41e6672a2f0f001392bb5dcd3ff0a9992d618ca761a11c3121547774"
++checksum = "3f252a68540fde3a3877aeea552b832b40ab9a69e318efd078774a01ddee1ccf"
+ dependencies = [
+  "num-conv",
+  "time-core",
