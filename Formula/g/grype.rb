@@ -7,6 +7,7 @@ class Grype < Formula
   head "https://github.com/anchore/grype.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b79136f6048d0039c11a12b350a0f57e06c32f0c3b13d78626538b20de3c3c93"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "41356d0a33ff27f751322fe0836fce84d077417c32ac2bfab2f2e3b2f43d64ec"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b811f2a111f2b3bd87daa2f7426c94921a8f6f7b8ab7559d35a60894b3ac7aca"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1b467b298be74de422be3c5c7151744ffa963844f09792e67b942853db062aab"
