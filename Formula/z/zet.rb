@@ -24,6 +24,12 @@ class Zet < Formula
 
   depends_on "rust" => :build
 
+  # rust 1.80 build patch, upstream new release request, https://github.com/yarrow/zet/issues/11
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/cbe90824d66a4c3a967ba6bda7806f8159534114/zet/rust-1.80.patch"
+    sha256 "494881322c1e9f47b62b7e786d22e2d5ab1cc649021c7224f790e96f2b12c619"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end
