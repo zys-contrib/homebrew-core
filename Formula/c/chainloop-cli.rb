@@ -7,6 +7,7 @@ class ChainloopCli < Formula
   head "https://github.com/chainloop-dev/chainloop.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b9689b0cc00d7f32328513a53f2047be1ab4e4b4c4c6d96648cf2597b4dd792f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b9689b0cc00d7f32328513a53f2047be1ab4e4b4c4c6d96648cf2597b4dd792f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b9689b0cc00d7f32328513a53f2047be1ab4e4b4c4c6d96648cf2597b4dd792f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b9689b0cc00d7f32328513a53f2047be1ab4e4b4c4c6d96648cf2597b4dd792f"
