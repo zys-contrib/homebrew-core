@@ -36,6 +36,10 @@ class Rubyfmt < Formula
   uses_from_macos "ruby"
 
   def install
+    # Work around build failure with recent Rust
+    # Issue ref: https://github.com/fables-tales/rubyfmt/issues/467
+    ENV["RUSTFLAGS"] = "--allow dead_code"
+
     system "cargo", "install", *std_cargo_args
     bin.install "target/release/rubyfmt-main" => "rubyfmt"
   end
