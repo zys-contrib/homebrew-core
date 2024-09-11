@@ -1,8 +1,8 @@
 class Librealsense < Formula
   desc "Intel RealSense D400 series and SR300 capture"
   homepage "https://github.com/IntelRealSense/librealsense"
-  url "https://github.com/IntelRealSense/librealsense/archive/refs/tags/v2.55.1.tar.gz"
-  sha256 "54546d834ff5d8b35d9955319ad2e428f6d9ae4c61b932d1bd716ed81ad135f7"
+  url "https://github.com/IntelRealSense/librealsense/archive/refs/tags/v2.56.1.tar.gz"
+  sha256 "cba681c9ff231898ee768bb39d5e5a7bd564289230ca178ae2866ee40f2a3ae9"
   license "Apache-2.0"
   head "https://github.com/IntelRealSense/librealsense.git", branch: "master"
 
@@ -12,14 +12,13 @@ class Librealsense < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "536ba8013937196624647d0ba9644259522d8b3f37f3064fbfe0d5dcdaac8005"
-    sha256 cellar: :any,                 arm64_ventura:  "643b698a1cdb56090216f33ce4e3d3f4e6ff4bc8b96caf3f46a9f91c49190f19"
-    sha256 cellar: :any,                 arm64_monterey: "2e37c17545c842bdb9700fdd462348adf81fafb6ccb398d5a1753d0adae3d7a5"
-    sha256 cellar: :any,                 sonoma:         "93c595644a491d8e1cb3f4fd13319fcbeb92f83f60ff811907a15416958a437e"
-    sha256 cellar: :any,                 ventura:        "0d266810de67660e2ceea74de1b095a30e45a3d24b340c74dbc731ab1ebe15c3"
-    sha256 cellar: :any,                 monterey:       "b34fdb72b7d52132ef87929d646e29433f34f5ed091edf20e008c6579e4675db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac83b06d249292aa468c151b5857ee774dc01ad206c6686cd93c6ebc0b0977dc"
+    sha256 cellar: :any,                 arm64_sonoma:   "1037b1277c63a562898fc7a2fefcfbd8ad8fdd5200d98b5eb478a4da348c4a95"
+    sha256 cellar: :any,                 arm64_ventura:  "624e3f6dc4eb6a706b5eacb7bf70a5ab47c0407f3a23cfdef943f5efbbf49967"
+    sha256 cellar: :any,                 arm64_monterey: "2d7233a375e03ac5278aa23031a058d4e4fc4f7d234598856f5c4409dbe0df81"
+    sha256 cellar: :any,                 sonoma:         "f180f06532a5c0e3f010b9a41b7e18bd52c53cec7a94107d017a7d00dc6ecb81"
+    sha256 cellar: :any,                 ventura:        "1a084f60534bbfa07d8304b3b60a9573ed9b916f72b89da46f7985200bc2e45a"
+    sha256 cellar: :any,                 monterey:       "b250539bd6cef09b45d4b7d899bc03efb33c6f3da9db813cd9a91ee747884b69"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8bfed498e3435c7586cacb5e0378c09cf7e3671a30131e95b9e016d41aef93de"
   end
 
   depends_on "cmake" => :build
