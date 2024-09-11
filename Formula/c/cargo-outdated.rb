@@ -14,6 +14,7 @@ class CargoOutdated < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "86b57b5f303ed5b7244fa35577ab22e976c93d156c98cab15fce93fa8ac3bed3"
     sha256 cellar: :any,                 arm64_sonoma:   "bd1d9196b5442029200c34d51c23175f61c899ac4e9cc95ebbe7ff4f3641d177"
     sha256 cellar: :any,                 arm64_ventura:  "d75a6a4ab730f471c3cebea7e2993f09454e14d9faf2162175a02bdbb1424339"
     sha256 cellar: :any,                 arm64_monterey: "9cc2cc42be17e9f3c89c8389f4df8191e2d4eb60f9036ca79ab2e70c67bb1e51"
