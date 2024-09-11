@@ -21,6 +21,12 @@ class Rathole < Formula
     depends_on "openssl@3"
   end
 
+  # rust 1.80 build patch, upstream bug report, https://github.com/rapiz1/rathole/issues/380
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/bd353c6adb3601f32de0fa87f3acd34a98da6ec1/rathole/rust-1.80.patch"
+    sha256 "deca6178df16517f752c309f6290678cbddb24cd3839057f746d0817405965f9"
+  end
+
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
