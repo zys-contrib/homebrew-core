@@ -20,8 +20,29 @@ class Iblinter < Formula
 
   depends_on xcode: ["10.2", :build]
 
+  # Fetch a copy of SourceKitten in order to fix build with newer Swift.
+  # Issue ref: https://github.com/IBDecodable/IBLinter/issues/189
+  resource "SourceKitten" do
+    on_sequoia :or_newer do
+      # https://github.com/IBDecodable/IBLinter/blob/0.5.0/Package.resolved#L41-L47
+      url "https://github.com/jpsim/SourceKitten.git",
+          tag:      "0.29.0",
+          revision: "77a4dbbb477a8110eb8765e3c44c70fb4929098f"
+
+      # Backport of import from HEAD
+      patch :DATA
+    end
+  end
+
   def install
-    system "make", "install", "PREFIX=#{prefix}"
+    args = ["--disable-sandbox", "--configuration", "release"]
+    if OS.mac? && MacOS.version >= :sequoia
+      (buildpath/"SourceKitten").install resource("SourceKitten")
+      system "swift", "package", *args, "edit", "SourceKitten", "--path", buildpath/"SourceKitten"
+    end
+
+    system "swift", "build", *args
+    bin.install ".build/release/iblinter"
   end
 
   test do
@@ -49,3 +70,24 @@ class Iblinter < Formula
                  shell_output("#{bin}/iblinter lint --config #{testpath}/.iblinter.yml --path #{testpath}", 2).chomp
   end
 end
+
+__END__
+diff --git a/Source/SourceKittenFramework/SwiftDocs.swift b/Source/SourceKittenFramework/SwiftDocs.swift
+index 1d2473c..70de287 100644
+--- a/Source/SourceKittenFramework/SwiftDocs.swift
++++ b/Source/SourceKittenFramework/SwiftDocs.swift
+@@ -10,6 +10,14 @@
+ import SourceKit
+ #endif
+
++#if os(Linux)
++import Glibc
++#elseif os(Windows)
++import CRT
++#else
++import Darwin
++#endif
++
+ /// Represents docs for a Swift file.
+ public struct SwiftDocs {
+     /// Documented File.
