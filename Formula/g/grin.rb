@@ -20,6 +20,12 @@ class Grin < Formula
   uses_from_macos "llvm" => :build # for libclang
   uses_from_macos "ncurses"
 
+  # rust 1.80 build patch, upstream pr ref, https://github.com/mimblewimble/grin/pull/3795
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/1a9fc06a277d1315568d708f7379d7c96915f505/grin/rust-1.80.patch"
+    sha256 "5269766f6db0a8827c04790d871074c317a2b9f22b842c3f69c0bc5f7a3bcf9e"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end
