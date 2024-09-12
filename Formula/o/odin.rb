@@ -35,16 +35,7 @@ class Odin < Formula
     llvm = deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+(\.\d+)*)?$/) }
 
     # Delete pre-compiled binaries which brew does not allow.
-    system "find", "vendor",
-                   "(",
-                     "-name", "*.lib",   "-o",
-                     "-name", "*.dll",   "-o",
-                     "-name", "*.a",     "-o",
-                     "-name", "*.dylib", "-o",
-                     "-name", "*.so.*",  "-o",
-                     "-name", "*.so",
-                   ")",
-                   "-delete"
+    buildpath.glob("vendor/**/*.{lib,dll,a,dylib,so,so.*}").map(&:unlink)
 
     cd buildpath/"vendor/miniaudio/src" do
       system "make"
