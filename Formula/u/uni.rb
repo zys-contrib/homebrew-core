@@ -6,6 +6,7 @@ class Uni < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "37e3831bc8e3e33e11bd120dba3ac8cca6d5514dcb99b001c9f5737c7bc0f1d6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "37e3831bc8e3e33e11bd120dba3ac8cca6d5514dcb99b001c9f5737c7bc0f1d6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "37e3831bc8e3e33e11bd120dba3ac8cca6d5514dcb99b001c9f5737c7bc0f1d6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "37e3831bc8e3e33e11bd120dba3ac8cca6d5514dcb99b001c9f5737c7bc0f1d6"
