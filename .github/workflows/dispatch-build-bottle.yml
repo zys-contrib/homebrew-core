@@ -289,17 +289,33 @@ jobs:
           reviewers: ${{github.actor}}
 
       - name: Enable automerge
-        run: gh pr merge --auto --merge --delete-branch --match-head-commit "$SHA" "$PR"
         env:
           GH_TOKEN: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
-          PR: ${{steps.create-pr.outputs.number}}
+          NODE_ID: ${{steps.create-pr.outputs.node_id}}
           SHA: ${{steps.create-pr.outputs.head_sha}}
+          MUTATION: |-
+            mutation ($input: EnablePullRequestAutoMergeInput!) {
+              enablePullRequestAutoMerge(input: $input) {
+                clientMutationId
+              }
+            }
+        run: |
+          gh api graphql \
+            --field "input[pullRequestId]=$NODE_ID" \
+            --field "input[expectedHeadOid]=$SHA" \
+            --raw-field query="$MUTATION"
 
       - name: Approve PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR: ${{ steps.create-pr.outputs.number }}
-        run: gh pr review --approve "$PR"
+          PR: ${{steps.create-pr.outputs.number}}
+        run: |
+          gh api \
+            --method POST \
+            --header "Accept: application/vnd.github+json" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            "/repos/$GITHUB_REPOSITORY/pulls/$PR/reviews" \
+            --field "event=APPROVE"
 
       - name: Wait until PR is merged
         env:
