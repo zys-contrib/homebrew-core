@@ -10,6 +10,7 @@ class Odin < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "bc23108507d97367ea953c6324baad9055543bb37d25a5dbefa01f9eed499a30"
     sha256 cellar: :any,                 arm64_sonoma:   "ab56c361293b37e438e208570b0b0672bd7880fb8f34ba16dcde72e59a538263"
     sha256 cellar: :any,                 arm64_ventura:  "0315ddfb713a361af3e9f718e0e2589af867b1fa6f5938a59bd38062f1b0001c"
     sha256 cellar: :any,                 arm64_monterey: "3fbf54dc55468e995f7197377f4c25bd1dddbbc965976183a6685518c7e3ee38"
