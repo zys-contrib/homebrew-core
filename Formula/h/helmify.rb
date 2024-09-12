@@ -7,6 +7,7 @@ class Helmify < Formula
   head "https://github.com/arttor/helmify.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "80e631b902fff10b11e0bb3fe6223cd2dbfb694a3428a3b019daf1db95e210c1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "80e631b902fff10b11e0bb3fe6223cd2dbfb694a3428a3b019daf1db95e210c1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "80e631b902fff10b11e0bb3fe6223cd2dbfb694a3428a3b019daf1db95e210c1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "80e631b902fff10b11e0bb3fe6223cd2dbfb694a3428a3b019daf1db95e210c1"
