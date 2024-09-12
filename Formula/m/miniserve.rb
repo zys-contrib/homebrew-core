@@ -1,8 +1,8 @@
 class Miniserve < Formula
   desc "High performance static file server"
   homepage "https://github.com/svenstaro/miniserve"
-  url "https://github.com/svenstaro/miniserve/archive/refs/tags/v0.27.1.tar.gz"
-  sha256 "b65580574ca624072b1a94d59ebf201ab664eacacb46a5043ef7b81ebb538f80"
+  url "https://github.com/svenstaro/miniserve/archive/refs/tags/v0.28.0.tar.gz"
+  sha256 "c4c5e12796bdae2892eff3832b66c4c04364738b62cf1429259428b03363d1f1"
   license "MIT"
 
   bottle do
@@ -18,12 +18,6 @@ class Miniserve < Formula
   end
 
   depends_on "rust" => :build
-
-  # rust 1.80 build patch, upstream commit ref, https://github.com/svenstaro/miniserve/commit/2fbfcbfe17b5c12630ccb03b6ccd31cb4b8316cc
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e022b2c42fbda33637b8a5c62847e8d6dd51942b/miniserve/rust-1.80.patch"
-    sha256 "b7a4557f18e72eb106da5a47e74e4ff718330cd60cf4b6458ad09eba7f9ba9f1"
-  end
 
   def install
     system "cargo", "install", *std_cargo_args
