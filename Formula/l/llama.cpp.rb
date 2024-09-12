@@ -14,6 +14,7 @@ class LlamaCpp < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "8c74b17beddf87e672ea86bd2868f1c4e03f696fbcc43c04444a5f9e206ce572"
     sha256 cellar: :any,                 arm64_sonoma:   "ca0a70ba2b5e51754a681439d79a8c4ecba27d8d4d515a6703d34349ff8b8491"
     sha256 cellar: :any,                 arm64_ventura:  "c9770d83dc4bc39108a006e862342189d23ec5d73a0edd69c743e4a25be17d1a"
     sha256 cellar: :any,                 arm64_monterey: "53ead49535797b500f5fb5de476996164fd7d4a5c473833d046b8791146ac821"
