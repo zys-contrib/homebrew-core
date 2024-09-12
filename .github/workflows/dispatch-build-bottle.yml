@@ -321,7 +321,7 @@ jobs:
       - name: Wait until PR is merged
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR: ${{ steps.create-pr.outputs.pull_number }}
+          PR: ${{ steps.create-pr.outputs.number }}
         run: |
           # Hold the `concurrency` lock for up to another 10 minutes while the PR has not yet been merged.
           sleep 300
