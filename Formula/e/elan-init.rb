@@ -17,6 +17,7 @@ class ElanInit < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9414f2c97133007a99261abfea1cb188f953939c0b62b85700b56e8042679461"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7aef59f7e264ecf7a2c856e2666e6aafd3ea7eace3eaf43437531490773e0102"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b82859cd41243cd8d4acfc1d28862c32261c4a9f588da90422641dd8992f8bea"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dda8aedbfe1d28aa4d97b3269cf17088d0efa0843661e548c70c6b7615813db8"
