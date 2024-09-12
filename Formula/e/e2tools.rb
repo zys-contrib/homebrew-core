@@ -25,12 +25,13 @@ class E2tools < Formula
   depends_on "pkg-config" => :build
   depends_on "e2fsprogs"
 
+  # disable automake treating warnings as error,
+  # upstream patch PR, https://github.com/e2tools/e2tools/pull/33
+  patch :DATA
+
   def install
-    system "autoreconf", "-fiv"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
@@ -39,3 +40,17 @@ class E2tools < Formula
     assert_match "lost+found", shell_output("#{bin}/e2ls test.raw")
   end
 end
+
+__END__
+diff --git a/configure.ac b/configure.ac
+index 53ad54a..89e9c52 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -11,7 +11,6 @@ AC_CONFIG_SRCDIR([e2tools.c])
+ AC_CONFIG_MACRO_DIR([m4])
+ AM_INIT_AUTOMAKE([
+ -Wall
+--Werror
+ 1.9.6
+ foreign
+ ])
