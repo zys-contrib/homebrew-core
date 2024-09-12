@@ -29,8 +29,8 @@ class Asciiquarium < Formula
   depends_on "perl"
 
   resource "Curses" do
-    url "https://cpan.metacpan.org/authors/id/G/GI/GIRAFFED/Curses-1.37.tar.gz"
-    sha256 "74707ae3ad19b35bbefda2b1d6bd31f57b40cdac8ab872171c8714c88954db20"
+    url "https://cpan.metacpan.org/authors/id/G/GI/GIRAFFED/Curses-1.45.tar.gz"
+    sha256 "84221e0013a2d64a0bae6a32bb44b1ae5734d2cb0465fb89af3e3abd6e05aeb2"
   end
 
   resource "Term::Animation" do
@@ -44,7 +44,6 @@ class Asciiquarium < Formula
     resources.each do |r|
       r.stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-        system "make"
         system "make", "install"
       end
     end
@@ -75,7 +74,7 @@ class Asciiquarium < Formula
     require "pty"
     ENV["TERM"] = "xterm"
     PTY.spawn(bin/"asciiquarium") do |stdout, stdin, _pid|
-      sleep 1
+      sleep 5
       stdin.write "q"
       output = begin
         stdout.gets
