@@ -56,7 +56,8 @@ jobs:
         if: always() && fromJson(steps.files.outputs.workflow_modified)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr edit --add-label workflows '${{ github.event.number }}'
+          PR: ${{ github.event.number }}
+        run: gh pr edit --add-label workflows "$PR" --repo "$GITHUB_REPOSITORY"
 
   limit-pull-requests:
     if: >

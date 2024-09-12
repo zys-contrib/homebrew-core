@@ -200,15 +200,17 @@ jobs:
         working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
         env:
           GH_TOKEN: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+          REVIEWER: ${{ github.actor }}
         run: |
           gh pr create \
             --base "$GITHUB_REF" \
             --body "Created by [\`dispatch-rebottle.yml\`]($RUN_URL)" \
             --title "$(git log -1 --format='%s' "$BOTTLE_BRANCH")" \
             --head "$BOTTLE_BRANCH" \
-            --reviewer '${{github.actor}}'
+            --reviewer "$REVIEWER" \
+            --repo "$GITHUB_REPOSITORY"
 
-          pull_number="$(gh pr list --head "$BOTTLE_BRANCH" --limit 1 --json number --jq '.[].number')"
+          pull_number="$(gh pr list --head "$BOTTLE_BRANCH" --limit 1 --json number --jq '.[].number' --repo "$GITHUB_REPOSITORY")"
           echo "pull_number=$pull_number" >> "$GITHUB_OUTPUT"
           echo "head_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
@@ -220,10 +222,10 @@ jobs:
         env:
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
           PR: ${{steps.create-pr.outputs.pull_number}}
-        run: gh pr edit --add-label CI-published-bottle-commits "$PR"
+        run: gh pr edit --add-label CI-published-bottle-commits "$PR" --repo "$GITHUB_REPOSITORY"
 
       - name: Enable automerge
-        run: gh pr merge --auto --merge --delete-branch --match-head-commit "$SHA" "$PR"
+        run: gh pr merge --auto --merge --delete-branch --match-head-commit "$SHA" "$PR" --repo "$GITHUB_REPOSITORY"
         env:
           GH_TOKEN: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
           PR: ${{steps.create-pr.outputs.pull_number}}
@@ -233,7 +235,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR: ${{ steps.create-pr.outputs.pull_number }}
-        run: gh pr review --approve "$PR"
+        run: gh pr review --approve "$PR" --repo "$GITHUB_REPOSITORY"
 
   comment:
     permissions:
