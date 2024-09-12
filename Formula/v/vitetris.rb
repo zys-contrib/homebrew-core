@@ -22,6 +22,9 @@ class Vitetris < Formula
   end
 
   def install
+    # workaround for newer clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     # remove a 'strip' option not supported on OS X and root options for
     # 'install'
     inreplace "Makefile", "-strip --strip-all $(PROGNAME)", "-strip $(PROGNAME)"
