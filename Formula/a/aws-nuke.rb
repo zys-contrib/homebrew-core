@@ -1,11 +1,11 @@
 class AwsNuke < Formula
   desc "Nuke a whole AWS account and delete all its resources"
-  homepage "https://github.com/rebuy-de/aws-nuke"
-  url "https://github.com/rebuy-de/aws-nuke.git",
+  homepage "https://github.com/ekristen/aws-nuke"
+  url "https://github.com/ekristen/aws-nuke.git",
       tag:      "v2.25.0",
-      revision: "2bd22d5e5c0cf6a4011b3c08a5b1c25e2e6c75bd"
+      revision: "e71283be2a03cd23c3c84f39ac72f1200c813349"
   license "MIT"
-  head "https://github.com/rebuy-de/aws-nuke.git", branch: "main"
+  head "https://github.com/ekristen/aws-nuke.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "66770e8744b0d22aca716ad0bfa5e9064e50624b995e98f8af04ec6a6756c4b3"
@@ -23,7 +23,7 @@ class AwsNuke < Formula
   depends_on "go" => :build
 
   def install
-    build_xdst="github.com/rebuy-de/aws-nuke/v#{version.major}/cmd"
+    build_xdst="github.com/ekristen/aws-nuke/v#{version.major}/cmd"
     ldflags = %W[
       -s -w
       -X #{build_xdst}.BuildVersion=#{version}
