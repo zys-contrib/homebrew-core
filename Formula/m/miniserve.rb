@@ -6,6 +6,7 @@ class Miniserve < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c5a16ad48eadc894131a875091d1b19107721c2bb36464765e42012020d9a48a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b6cc10cf16ca85666a77e70f4bd57bfb157c32f0b4d5a605847bd6c687868a66"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0e994ff3f1800725951a60884f93fccd05badb165f1245c8419c270392d671b8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4cb916ec796c97f84352cc13f63128780b62481bc8ec66a2f0c31037e69e5a94"
