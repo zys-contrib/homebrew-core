@@ -1,19 +1,18 @@
 class Autobrr < Formula
   desc "Modern, easy to use download automation for torrents and usenet"
   homepage "https://autobrr.com/"
-  url "https://github.com/autobrr/autobrr/archive/refs/tags/v1.45.0.tar.gz"
-  sha256 "6ce3d421b0d691ba2556ebf80f957964d83f43b9f0eecf75aec91b6e0cc9e1e5"
+  url "https://github.com/autobrr/autobrr/archive/refs/tags/v1.46.0.tar.gz"
+  sha256 "55ad1178f4de9ba72ecdf29fac711008c23a905477a4f20b25f2dcdd37561b8c"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c23dec6ecb92727406ab35938a3ebecb299b92096c4202e6c8655e72ff60df58"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3bd6350c1605055f29e9792695ce19d33c1e836dacca9ce2e5cf7b5783261276"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3bd6350c1605055f29e9792695ce19d33c1e836dacca9ce2e5cf7b5783261276"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3bd6350c1605055f29e9792695ce19d33c1e836dacca9ce2e5cf7b5783261276"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5449e06eadcc1106a520262dade64f8a93a77b58bc5030013be1ae243959540b"
-    sha256 cellar: :any_skip_relocation, ventura:        "5449e06eadcc1106a520262dade64f8a93a77b58bc5030013be1ae243959540b"
-    sha256 cellar: :any_skip_relocation, monterey:       "5449e06eadcc1106a520262dade64f8a93a77b58bc5030013be1ae243959540b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0599a567aebb922964614edcd001e46025d136fecfe4be86bfa52609b67dcff8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ab841b13c93ff419450a8c7f9a81298d4209dd5ca5134fbce9d55ad697fa0ca1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ab841b13c93ff419450a8c7f9a81298d4209dd5ca5134fbce9d55ad697fa0ca1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ab841b13c93ff419450a8c7f9a81298d4209dd5ca5134fbce9d55ad697fa0ca1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "06796d3b09732c24902ab7133a5a15763dcfa8b0ced14cc515633cddd0ea9cff"
+    sha256 cellar: :any_skip_relocation, ventura:        "06796d3b09732c24902ab7133a5a15763dcfa8b0ced14cc515633cddd0ea9cff"
+    sha256 cellar: :any_skip_relocation, monterey:       "06796d3b09732c24902ab7133a5a15763dcfa8b0ced14cc515633cddd0ea9cff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed5d6abf28469e1cbf332da8487e0acd284fd92da21374d3973d8d232c302519"
   end
 
   depends_on "go" => :build
