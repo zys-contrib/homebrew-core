@@ -2788,6 +2788,7 @@ vault-cli
 vc
 vcluster
 vcsh
+vdirsyncer
 veclibfort
 vedic
 vegeta
