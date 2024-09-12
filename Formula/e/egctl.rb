@@ -7,6 +7,7 @@ class Egctl < Formula
   head "https://github.com/envoyproxy/gateway.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "050dfe989fffcfb8b43ca3cddd6f7fde1bd651ede7388d7c061c277d76ff767d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c50a94cb32f1fb1f81938b89b19e665e0021b9d8d74ddd5ecdab6ba3a67cd46b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd55bb30ee1f5f029d0405fb990432e4f5e587047bd2f933d862dcb466090494"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5226ad23430837d50710d7132a334459bd6a9689b1a9b5f9530307340fce1253"
