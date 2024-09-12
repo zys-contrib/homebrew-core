@@ -1,8 +1,8 @@
 class UutilsDiffutils < Formula
   desc "Cross-platform Rust rewrite of the GNU diffutils"
   homepage "https://github.com/uutils/diffutils"
-  url "https://github.com/uutils/diffutils/archive/refs/tags/v0.4.1.tar.gz"
-  sha256 "3b1f37626558c15a37111846ce9de6cb88fb2e3290d7068a151cec1d9d7075c3"
+  url "https://github.com/uutils/diffutils/archive/refs/tags/v0.4.2.tar.gz"
+  sha256 "3be767b5417fb5358d6a979603628c9a926367c700c45335e888b605d9d16ef4"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/uutils/diffutils.git", branch: "main"
 
