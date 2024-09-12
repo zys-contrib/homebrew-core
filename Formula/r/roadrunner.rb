@@ -7,6 +7,7 @@ class Roadrunner < Formula
   head "https://github.com/roadrunner-server/roadrunner.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "08924e7b00d8923422d8b4d48fb84d3435bafebf09c67f906523d1c0dbcb196e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dcee57443a23ccf96d48f2d5892b0ff193859387a3ad79bd6080a80507c29f1d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "54e890c7644a4ac4d021af843a3d4ec74b3add903f7091e865c6052c9c7406de"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b101b5b8a875fe2150d8fef5bfd8d22823b287aa735c3a8cee75d8e9fe45c746"
