@@ -28,17 +28,21 @@ class OpenSp < Formula
   depends_on "xmlto" => :build
   depends_on "gettext"
 
+  # Apply Gentoo patch to fix build error: ISO C++11 does not allow access declarations
+  patch do
+    url "https://gitweb.gentoo.org/repo/gentoo.git/plain/app-text/opensp/files/opensp-1.5.2-c11-using.patch?id=688d9675782dfc162d4e6cff04c668f7516118d0"
+    sha256 "3ebd2526e0f41a12b9107a09ece834043678d499252c28941eeb2a5676b1ce5e"
+  end
+
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     # The included ./configure file is too old to work with Xcode 12
     system "autoreconf", "--verbose", "--install", "--force"
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}",
+    system "./configure", "--mandir=#{man}",
                           "--enable-http",
-                          "--enable-default-catalog=#{etc}/sgml/catalog"
-
+                          "--enable-default-catalog=#{etc}/sgml/catalog",
+                          *std_configure_args
     system "make", "pkgdatadir=#{share}/sgml/opensp", "install"
   end
 
