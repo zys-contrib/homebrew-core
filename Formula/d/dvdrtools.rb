@@ -11,6 +11,7 @@ class Dvdrtools < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "57b79ee1791a3cbd816e11cbb178cf961f4fc0b5b71324233ea6c68a6c420db1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0b059fb5d92689dbdd1330d2a600a5255de0ce01f24e6e911e548a92494897ee"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d41b802f7e601c727aab83ab6fa63b70303c717fa4709059c4b653b599b5f248"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "587872ae7f087b62cf2b227faeb303bffdc9365794bf60daf8f071c2039869f1"
