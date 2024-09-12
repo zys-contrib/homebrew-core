@@ -36,7 +36,7 @@ class UcspiTcp < Formula
 
   def install
     # Fix compile with newer Clang
-    inreplace "conf-cc", "gcc -O2", "gcc -O2 -Wno-implicit-function-declaration"
+    inreplace "conf-cc", "gcc -O2", "gcc -O2 -Wno-implicit-function-declaration -Wno-implicit-int"
 
     # Work around build error from root requirement: "Oops. Your getgroups() returned 0,
     # and setgroups() failed; this means that I can't reliably do my shsgr test. Please
