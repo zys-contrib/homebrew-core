@@ -7,8 +7,13 @@ class Upx < Formula
   head "https://github.com/upx/upx.git", branch: "devel"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, monterey: "db18963055dd657d579824a7daaf69f79e1639a10fd1accb399e84ddcd5d649c"
-    sha256 cellar: :any_skip_relocation, big_sur:  "8e6aa21f689985270ff1cc3857ef9848f63f3c79a96604884ee846ce76e6401b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "228b152ff34d6dbd0b7e8aef959013f47b7401cb210fca682c991198cbe2e6c2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0ae84e5f420df6e56821d79bcaf34297b279f73a1b7bbf05c0f6c854358f5b0c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "440dfc0b6936d53746398813a75c4f25d2dbe225692905e18f16d31484a263e5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0c9a802a2baa5dd6dbc36af16408984436a03fcac927ca62961e4c0e524a2258"
+    sha256 cellar: :any_skip_relocation, ventura:        "aff62cfdbe4bd2c8ddfa370517d6b2a985ff9854dfc7e2ca930cb3b23ca3f9a8"
+    sha256 cellar: :any_skip_relocation, monterey:       "269bbeecc1ba01485fe0f3a591e1f156e2eef1b35bf72b06d9f7969d9213815f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "68bbcadfda1328f3a1cd71707feb194434f0a79b8c4542f43cdab27fe2a2c1cc"
   end
 
   depends_on "cmake" => :build
