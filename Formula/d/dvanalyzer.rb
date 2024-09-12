@@ -53,6 +53,10 @@ class Dvanalyzer < Formula
   end
 
   test do
-    pipe_output("#{bin}/dvanalyzer --Header", test_fixtures("test.mp3"))
+    test_mp3 = test_fixtures("test.mp3")
+    output = shell_output("#{bin}/dvanalyzer --Header #{test_mp3}")
+    assert_match test_mp3.to_s, output
+
+    assert_match version.to_s, shell_output("#{bin}/dvanalyzer --Version")
   end
 end
