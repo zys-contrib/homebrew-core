@@ -315,7 +315,8 @@
   },
   "fonttools": "fonttools[woff]",
   "forbidden": {
-    "exclude_packages": ["certifi"]
+    "exclude_packages": ["certifi"],
+    "extra_packages": ["tqdm"]
   },
   "fwupd": {
     "package_name": "",
