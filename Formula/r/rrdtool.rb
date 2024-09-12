@@ -32,14 +32,13 @@ class Rrdtool < Formula
 
   head do
     url "https://github.com/oetiker/rrdtool-1.x.git", branch: "master"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python-setuptools" => :build
-
   depends_on "cairo"
   depends_on "glib"
   depends_on "libpng"
@@ -57,23 +56,19 @@ class Rrdtool < Formula
   end
 
   def install
-    # fatal error: 'ruby/config.h' file not found
-    ENV.delete("SDKROOT")
-
     args = %w[
+      --disable-silent-rules
+      --disable-lua
+      --disable-perl
+      --disable-python
+      --disable-ruby
       --disable-tcl
-      --with-tcllib=/usr/lib
-      --disable-perl-site-install
-      --disable-ruby-site-install
     ]
-    args << "--disable-perl" if OS.linux?
-
-    inreplace "configure", /^sleep 1$/, "#sleep 1"
 
     system "./bootstrap" if build.head?
-    system "./configure", *args, *std_configure_args.reject { |s| s["--disable-debug"] }
-
-    system "make", "CC=#{ENV.cc}", "CXX=#{ENV.cxx}", "install"
+    inreplace "configure", /^sleep 1$/, "#sleep 1"
+    system "./configure", *args, *std_configure_args
+    system "make", "install"
   end
 
   test do
