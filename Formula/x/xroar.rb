@@ -6,6 +6,7 @@ class Xroar < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "8c606b1bbed48fa8c1bc0840ac2e1152eb1aafea9d59daf8ac5d03e05aea01be"
     sha256 cellar: :any,                 arm64_sonoma:   "4e5a4c5b2671af95c92174d2622e7ce47aacffa3a13af19c13a0cf1044ed2cde"
     sha256 cellar: :any,                 arm64_ventura:  "f1cd591c5476fe261ad30a92e2a5598825ce7bd172dea3c1483266b3ab3ed682"
     sha256 cellar: :any,                 arm64_monterey: "68441cd6dafaee71289c7c4712e7b03665f8ba3b783d0e4c4f83d2d8af2c0247"
