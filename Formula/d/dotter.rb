@@ -7,6 +7,7 @@ class Dotter < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "78a376183fe66d24c0a0e003d5db06feadc79f25b92b04873ac4c35373f3627c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d86971116fbbb6265f3f4e6b069e027f2baf4d0fc2511e3ce22163001d169a81"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "782718cbaa1584005e7d81f2be3db680ca20993ca41f9ab794180a460a85e5b5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3460c0adc3d539180a80363587fc9bf228f7da4a93863be9987bd2142bec92ee"
