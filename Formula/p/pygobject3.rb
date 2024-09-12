@@ -6,6 +6,7 @@ class Pygobject3 < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "795deab77b4e616f164998005f68fed69bbd7a4a737aed2da8962fca78f1998a"
     sha256 cellar: :any, arm64_sonoma:   "a05bdf08604e6ff3b46acf5c3fe0b6f4cfa078cf39546cd6707d47dcd5d45444"
     sha256 cellar: :any, arm64_ventura:  "c836989426c7f07dc41aa74bbe40190f82a3afa3fdda86b9425e6e8c540b90cf"
     sha256 cellar: :any, arm64_monterey: "6f31ebad4163c3d6dd8521a530213ab42af7ce1540c8b100be6bc2e1e1537eba"
