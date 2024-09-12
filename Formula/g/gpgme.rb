@@ -32,6 +32,12 @@ class Gpgme < Formula
     "python3.12"
   end
 
+  # Backport fix for newer setuptools
+  patch do
+    url "https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gpgme.git;a=patch;h=ecd0c86d62351d267bdc9566286c532a394c711b"
+    sha256 "69202c576f5f9980bc88bf9e963fd6199093c89ab8dc3be02ab6c460d65fe1b4"
+  end
+
   def install
     ENV["PYTHON"] = python3
     # HACK: Stop build from ignoring our PYTHON input. As python versions are
@@ -48,9 +54,9 @@ class Gpgme < Formula
               /^\s*\$\$PYTHON setup\.py\s*\\/,
               "$$PYTHON -m pip install --use-pep517 #{std_pip_args.join(" ")} . && : \\"
 
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
-                          "--enable-static"
+    system "./configure", "--disable-silent-rules",
+                          "--enable-static",
+                          *std_configure_args
     system "make"
     system "make", "install"
 
