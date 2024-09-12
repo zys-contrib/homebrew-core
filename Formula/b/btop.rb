@@ -17,23 +17,18 @@ class Btop < Formula
 
   on_macos do
     depends_on "coreutils" => :build
-    depends_on "gcc" if DevelopmentTools.clang_build_version <= 1403
-
-    on_arm do
-      depends_on "gcc"
-      depends_on macos: :ventura
-      fails_with :clang
-    end
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1499
   end
 
   on_ventura do
-    depends_on "gcc"
-    fails_with :clang
+    # Ventura seems to be missing the `source_location` header.
+    depends_on "llvm" => :build
   end
 
   # -ftree-loop-vectorize -flto=12 -s
+  # Needs Clang 16 / Xcode 15+
   fails_with :clang do
-    build 1403
+    build 1499
     cause "Requires C++20 support"
   end
 
@@ -43,6 +38,7 @@ class Btop < Formula
   end
 
   def install
+    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1499 || MacOS.version == :ventura)
     system "make", "CXX=#{ENV.cxx}", "STRIP=true"
     system "make", "PREFIX=#{prefix}", "install"
   end
@@ -70,6 +66,8 @@ class Btop < Formula
     end
 
     log = (config/"btop.log").read
+    # SMC is not available in VMs.
+    log = log.lines.grep_v(/ERROR:.* SMC /).join if Hardware::CPU.virtualized?
     assert_match "===> btop++ v.#{version}", log
     refute_match(/ERROR:/, log)
   ensure
