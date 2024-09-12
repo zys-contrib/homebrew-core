@@ -6,6 +6,7 @@ class Libjuice < Formula
   license "MPL-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "b08257650332d43260be1259b0d58059c5e44e87c1b979b2c6b2814803b5530a"
     sha256 cellar: :any,                 arm64_sonoma:   "c4baf951246303a05489af779141a392bc73bb7367a797ea55d25b8985407d4c"
     sha256 cellar: :any,                 arm64_ventura:  "60827692b3af2454638fc7e260e70d98af9daccb22025aa27a42472555455aa9"
     sha256 cellar: :any,                 arm64_monterey: "80ae3adc26da632e7c91392a7f19f087c7830e27c5926a50b3cf12c61cdde46b"

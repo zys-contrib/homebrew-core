@@ -28,6 +28,13 @@ class Aescrypt < Formula
   end
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `ROUNDS'; aescrypt.o:(.bss+0x180): first defined here
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
     system "./configure"
     system "make"
     bin.install "aescrypt", "aesget"
