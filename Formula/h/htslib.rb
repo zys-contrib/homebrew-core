@@ -1,10 +1,9 @@
 class Htslib < Formula
   desc "C library for high-throughput sequencing data formats"
   homepage "https://www.htslib.org/"
-  url "https://github.com/samtools/htslib/releases/download/1.20/htslib-1.20.tar.bz2"
-  sha256 "e52d95b14da68e0cfd7d27faf56fef2f88c2eaf32a2be51c72e146e3aa928544"
+  url "https://github.com/samtools/htslib/releases/download/1.21/htslib-1.21.tar.bz2"
+  sha256 "84b510e735f4963641f26fd88c8abdee81ff4cb62168310ae716636aac0f1823"
   license "MIT"
-  revision 1
 
   livecheck do
     url :stable
