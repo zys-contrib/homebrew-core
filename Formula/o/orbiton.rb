@@ -7,14 +7,13 @@ class Orbiton < Formula
   head "https://github.com/xyproto/orbiton.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1c180f0e797fd4ef2dfef7386ed3141cdfaa6a4a39346cef774d3a24faf1eadc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4ae3661705ff00ced573820daad425e230be7bd233d2f1ebba7f77e72cfbebb8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ae3661705ff00ced573820daad425e230be7bd233d2f1ebba7f77e72cfbebb8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4ae3661705ff00ced573820daad425e230be7bd233d2f1ebba7f77e72cfbebb8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4b1b58492f2c5bbd4269f4a87b493802a67d93c5c26549f73ee21453308c36f1"
-    sha256 cellar: :any_skip_relocation, ventura:        "4b1b58492f2c5bbd4269f4a87b493802a67d93c5c26549f73ee21453308c36f1"
-    sha256 cellar: :any_skip_relocation, monterey:       "4b1b58492f2c5bbd4269f4a87b493802a67d93c5c26549f73ee21453308c36f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f984551a5d1562803675401e72b1afffb6ea36464fa2a8544490e11362508b6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3e5682bf86e752aec5457a2303536e6abe9d1df001761cd34fc1f3619d2d3a78"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3e5682bf86e752aec5457a2303536e6abe9d1df001761cd34fc1f3619d2d3a78"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3e5682bf86e752aec5457a2303536e6abe9d1df001761cd34fc1f3619d2d3a78"
+    sha256 cellar: :any_skip_relocation, sonoma:         "02d926296a717bd71287f62b7ed702aef96f93784d7c4a9300576c00bdc4e1b0"
+    sha256 cellar: :any_skip_relocation, ventura:        "02d926296a717bd71287f62b7ed702aef96f93784d7c4a9300576c00bdc4e1b0"
+    sha256 cellar: :any_skip_relocation, monterey:       "02d926296a717bd71287f62b7ed702aef96f93784d7c4a9300576c00bdc4e1b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ead304496d1390901b4b20c3d2b0edcff67fff86b2e9dfde0ac4fe61891be4d4"
   end
 
   depends_on "go" => :build
