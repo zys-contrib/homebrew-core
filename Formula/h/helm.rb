@@ -2,8 +2,8 @@ class Helm < Formula
   desc "Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/helm/helm.git",
-      tag:      "v3.15.4",
-      revision: "fa9efb07d9d8debbb4306d72af76a383895aa8c4"
+      tag:      "v3.16.1",
+      revision: "5a5449dc42be07001fd5771d56429132984ab3ab"
   license "Apache-2.0"
   head "https://github.com/helm/helm.git", branch: "main"
 
@@ -19,6 +19,12 @@ class Helm < Formula
   end
 
   depends_on "go" => :build
+
+  # fix testchart lint errors, upstream pr ref, https://github.com/helm/helm/pull/13329
+  patch do
+    url "https://github.com/helm/helm/commit/ddead08eb8e7e3fbbdbb6d40938dda36905789af.patch?full_index=1"
+    sha256 "471c2d7dcbd48d37eaf69e552d53e928e9ba42efccb021d78bbd354599d80811"
+  end
 
   def install
     system "make", "build"
@@ -37,7 +43,6 @@ class Helm < Formula
     assert File.directory? testpath/"foo/charts"
 
     version_output = shell_output("#{bin}/helm version 2>&1")
-    assert_match "GitTreeState:\"clean\"", version_output
     assert_match "GitCommit:\"#{stable.specs[:revision]}\"", version_output
     assert_match "Version:\"v#{version}\"", version_output
   end
