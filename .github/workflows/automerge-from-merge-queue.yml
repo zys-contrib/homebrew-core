@@ -85,7 +85,7 @@ jobs:
           if [[ -z "$number" ]]
           then
             commit_sha="$(jq --raw-output '.oid' <<<"$head_commit_data")"
-            number="$(gh pr list --search "$commit_sha" --state open --limit 1 --json number --jq '.[].number')"
+            number="$(gh pr list --search "$commit_sha" --state open --limit 1 --json number --jq '.[].number' --repo "$GITHUB_REPOSITORY")"
           fi
 
           if [[ -z "$number" ]]

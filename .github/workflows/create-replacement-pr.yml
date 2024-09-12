@@ -126,7 +126,7 @@ jobs:
         working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
         env:
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        run: gh pr checkout "$PR"
+        run: gh pr checkout "$PR" --repo "$GITHUB_REPOSITORY"
 
       - name: Checkout replacement PR branch
         working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
@@ -226,16 +226,17 @@ jobs:
           Closes #$PR
           MESSAGE
 
-          original_title="$(gh pr view "$PR" --json title --jq '.title')"
+          original_title="$(gh pr view "$PR" --json title --jq '.title' --repo "$GITHUB_REPOSITORY")"
           gh pr create \
             --base "$GITHUB_REF" \
             --title "$original_title (replacement for #$PR)" \
             --body-file body.txt \
             --head "$REPLACEMENT_BRANCH" \
             --reviewer "$REVIEWERS" \
-            --label "$LABELS"
+            --label "$LABELS" \
+            --repo "$GITHUB_REPOSITORY"
 
-          pull_number="$(gh pr list --head "$REPLACEMENT_BRANCH" --limit 1 --json number --jq '.[].number')"
+          pull_number="$(gh pr list --head "$REPLACEMENT_BRANCH" --limit 1 --json number --jq '.[].number' --repo "$GITHUB_REPOSITORY")"
           echo "pull_number=$pull_number" >> "$GITHUB_OUTPUT"
 
       - name: Approve replacement PR if applicable
@@ -246,7 +247,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPLACEMENT_PR: ${{ steps.create-pr.outputs.pull_number }}
-        run: gh pr review --approve "$REPLACEMENT_PR"
+        run: gh pr review --approve "$REPLACEMENT_PR" --repo "$GITHUB_REPOSITORY"
 
       - name: Enable automerge for replacement PR if applicable
         if: inputs.upload
@@ -259,17 +260,18 @@ jobs:
             --auto \
             --merge \
             --delete-branch \
-            --match-head-commit "$(git rev-parse HEAD)"
+            --match-head-commit "$(git rev-parse HEAD)" \
+            --repo "$GITHUB_REPOSITORY"
 
       - name: Label replaced PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr edit --add-label automerge-skip --add-label superseded "$PR"
+        run: gh pr edit --add-label automerge-skip --add-label superseded "$PR" --repo "$GITHUB_REPOSITORY"
 
       - name: Mark replaced PR as draft
         env: # We need a PAT here. https://github.com/github/docs/issues/8925#issuecomment-970255180
           GH_TOKEN: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN  }}
-        run: gh pr ready --undo "$PR"
+        run: gh pr ready --undo "$PR" --repo "$GITHUB_REPOSITORY"
 
       - name: Post comment on success
         uses: Homebrew/actions/post-comment@master

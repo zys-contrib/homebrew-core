@@ -59,6 +59,8 @@ jobs:
       HOMEBREW_GITHUB_API_TOKEN: "${{ github.token }}"
       GH_TOKEN: "${{ github.token }}"
       REPORTING_ISSUE: 139929
+      RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      FORMULA: ${{ matrix.formula }}
     strategy:
       fail-fast: false
       matrix:
@@ -76,35 +78,35 @@ jobs:
       - name: Check formula source is not archived.
         id: archived
         if: matrix.os != 'macos-latest'
-        run: brew audit --online --skip-style --only github_repository_archived,gitlab_repository_archived ${{ matrix.formula }}
+        run: brew audit --online --skip-style --only github_repository_archived,gitlab_repository_archived "$FORMULA"
 
       - name: Report online issues
         if: ${{ failure() && steps.archived.conclusion == 'failure' }}
         run: |
           gh issue comment "$REPORTING_ISSUE" \
-                           --repo homebrew/homebrew-core \
-                           --body "${{ matrix.formula }} should be archived. Check ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                           --body "$FORMULA should be archived. Check $RUN_URL" \
+                           --repo "$GITHUB_REPOSITORY"
 
       - name: Check formula for unavailable homepage.
         id: homepage
         if: matrix.os != 'macos-latest'
-        run: brew audit --online --skip-style --only homepage ${{ matrix.formula }}
+        run: brew audit --online --skip-style --only homepage "$FORMULA"
 
       - name: Report homepage issues
         if: ${{ failure() && steps.homepage.conclusion == 'failure' }}
         run:  |
           gh issue comment "$REPORTING_ISSUE" \
-                           --repo homebrew/homebrew-core \
-                           --body "${{ matrix.formula }} has homepage issues. Check ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                           --body "$FORMULA has homepage issues. Check $RUN_URL" \
+                           --repo "$GITHUB_REPOSITORY"
 
       - name: Check formula for missing sources.
         id: fetch
         if: matrix.os != 'macos-latest'
-        run: brew fetch -s ${{ matrix.formula }}
+        run: brew fetch -s "$FORMULA"
 
       - name: Report fetch issues
         if: ${{ failure() && steps.fetch.conclusion == 'failure' }}
         run:  |
           gh issue comment "$REPORTING_ISSUE" \
-                           --repo homebrew/homebrew-core \
-                           --body "${{ matrix.formula }} source has problems. Check ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                           --body "$FORMULA source has problems. Check $RUN_URL" \
+                           --repo "$GITHUB_REPOSITORY"
