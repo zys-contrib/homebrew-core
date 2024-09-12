@@ -1,8 +1,8 @@
 class Dotter < Formula
   desc "Dotfile manager and templater written in rust"
   homepage "https://github.com/SuperCuber/dotter"
-  url "https://github.com/SuperCuber/dotter/archive/refs/tags/v0.13.2.tar.gz"
-  sha256 "a62f2d55e48e5e9a84417960e8bdf0f2a9c3ce730dfd759e0f927055feb12e35"
+  url "https://github.com/SuperCuber/dotter/archive/refs/tags/v0.13.3.tar.gz"
+  sha256 "4ca78450414f405c892c26b1663cac6e56a86e1d04529a7b1a69b23881c38414"
   license "Unlicense"
 
   bottle do
@@ -18,12 +18,6 @@ class Dotter < Formula
   end
 
   depends_on "rust" => :build
-
-  # patch time crate to fix build with rust 1.80 and above, remove in next release
-  patch do
-    url "https://github.com/SuperCuber/dotter/commit/d5199df24e6db039c460fa37fe3279f89c3bfc63.patch?full_index=1"
-    sha256 "757e0368cb7668efedb2bab21dec67850ead3f4951a5717c9bffef8a5da75bea"
-  end
 
   def install
     system "cargo", "install", *std_cargo_args
