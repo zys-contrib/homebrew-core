@@ -27,6 +27,7 @@ class Ghc < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "c66497c1502eca61fadd32c472008252b16e98ced0356cc976b6d608bb1f84a6"
     sha256 cellar: :any,                 arm64_sonoma:   "b19571cdba5c506d91746371da935f9119ba0b430152ab13171500310aeccfd1"
     sha256 cellar: :any,                 arm64_ventura:  "a4ef8db08ae1add452fe6a3a4fa78741f44e0af47b0bacb736233d257d93dac3"
     sha256 cellar: :any,                 arm64_monterey: "ff5d7b284fd740b563f58194ec6b04bcccded9ac9129f49c1879a21f9a88e1e6"
