@@ -264,7 +264,7 @@ jobs:
         run: |
           brew pr-upload --verbose --keep-old --committer="$BREWTESTBOT_NAME_EMAIL" --root-url="https://ghcr.io/v2/homebrew/core"
           echo "title=$(git -C "$HOMEBREW_CORE_PATH" log -1 --format='%s' "$BOTTLE_BRANCH")" >> "$GITHUB_OUTPUT"
-          echo "head_sha=$(git -C "$HOMEBREW_CORE_PATH" rev-parse HEAD)"
+          echo "head_sha=$(git -C "$HOMEBREW_CORE_PATH" rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
