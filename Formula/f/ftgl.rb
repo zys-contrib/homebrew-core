@@ -27,12 +27,16 @@ class Ftgl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a53d8292298b4c6974e04fd8ab744860aec65b58149a704d9e2dad61aba0c4f6"
   end
 
+  depends_on "pkg-config" => :test
   depends_on "freetype"
 
   on_linux do
     depends_on "mesa"
     depends_on "mesa-glu"
   end
+
+  # build patch to fix type mismatch
+  patch :DATA
 
   def install
     # If doxygen is installed, the docs may still fail to build.
@@ -53,4 +57,41 @@ class Ftgl < Formula
 
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <FTGL/ftgl.h>
+      #include <stdio.h>
+
+      int main() {
+        FTGLfont *font = ftglCreatePixmapFont(NULL);
+
+        ftglSetFontFaceSize(font, 72, 72);
+
+        ftglDestroyFont(font);
+        printf("Font object created and destroyed successfully.\\n");
+
+        return 0;
+      }
+    EOS
+
+    pkg_config_flags = shell_output("pkg-config --cflags --libs ftgl").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkg_config_flags
+    system "./test"
+  end
 end
+
+__END__
+diff --git a/src/FTVectoriser.cpp b/src/FTVectoriser.cpp
+index ea5c571..e0c4e2d 100644
+--- a/src/FTVectoriser.cpp
++++ b/src/FTVectoriser.cpp
+@@ -166,7 +166,7 @@ void FTVectoriser::ProcessContours()
+     for(int i = 0; i < ftContourCount; ++i)
+     {
+         FT_Vector* pointList = &outline.points[startIndex];
+-        char* tagList = &outline.tags[startIndex];
++        char* tagList = reinterpret_cast<char*>(&outline.tags[startIndex]);
+
+         endIndex = outline.contours[i];
+         contourLength =  (endIndex - startIndex) + 1;
