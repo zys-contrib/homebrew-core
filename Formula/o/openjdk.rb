@@ -91,7 +91,10 @@ class Openjdk < Formula
   end
 
   def install
-    ENV.llvm_clang if DevelopmentTools.clang_build_version == 1600
+    if DevelopmentTools.clang_build_version == 1600
+      ENV.llvm_clang
+      ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
+    end
 
     boot_jdk = buildpath/"boot-jdk"
     resource("boot-jdk").stage boot_jdk
