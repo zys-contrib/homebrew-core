@@ -300,6 +300,36 @@ jobs:
           PR: ${{ steps.create-pr.outputs.number }}
         run: gh pr review --approve "$PR"
 
+      - name: Wait until PR is merged
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ steps.create-pr.outputs.pull_number }}
+        run: |
+          # Hold the `concurrency` lock for up to another 10 minutes while the PR has not yet been merged.
+          sleep 300
+
+          attempt=0
+          max_attempts=5
+          sleep_time=10
+
+          while (( attempt < max_attempts ))
+          do
+            if jq --exit-status .merged_at
+            then
+              break
+            fi < <( # We could use `gh pr view`, but that uses 2 API calls.
+              gh api \
+                --header "Accept: application/vnd.github+json" \
+                --header "X-GitHub-Api-Version: 2022-11-28" \
+                "/repos/{owner}/{repo}/pulls/$PR"
+            )
+
+            sleep "$sleep_time"
+
+            sleep_time=$(( sleep_time * 2 ))
+            attempt=$(( attempt + 1 ))
+          done
+
   comment:
     permissions:
       issues: write # for Homebrew/actions/post-comment
