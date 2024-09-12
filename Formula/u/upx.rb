@@ -23,9 +23,6 @@ class Upx < Formula
   end
 
   test do
-    cp bin/"upx", "."
-    chmod 0755, "./upx"
-
     system bin/"upx", "-1", "-o", "./hello", test_fixtures("elf/hello")
     assert_path_exists testpath/"hello"
     system bin/"upx", "-d", "./hello"
