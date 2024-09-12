@@ -21,7 +21,19 @@ class Libblastrampoline < Formula
 
   depends_on "openblas" => :test
 
+  on_macos do
+    # Work around build failure seen with Xcode 16 and LLVM 17-18.
+    # Issue ref: https://github.com/JuliaLinearAlgebra/libblastrampoline/issues/139
+    #
+    # TODO: Try switching to `llvm` when LLVM 19 is available as error may be related to
+    # https://github.com/llvm/llvm-project/commit/21276fd7beb640d5fb1a10c228c9f48f620a8eac
+    depends_on "llvm@16" => :build if DevelopmentTools.clang_build_version == 1600
+  end
+
   def install
+    # Compiler selection is not supported for versioned LLVM
+    ENV["HOMEBREW_CC"] = Formula["llvm@16"].opt_bin/"clang" if DevelopmentTools.clang_build_version == 1600
+
     system "make", "-C", "src", "install", "prefix=#{prefix}"
     (pkgshare/"test").install "test/dgemm_test/dgemm_test.c"
   end
