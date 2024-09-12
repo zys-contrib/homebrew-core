@@ -17,6 +17,7 @@ class Renovate < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5dc5917c6c108e99cb4713e2e8eae241b8298f67a752fc3251bfe5fd775a6ec9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2b6bee9f09e2195e5f9494f028454f0a42c503fc9752477d7d74170bd846f417"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c5e6c24f6e539270d992ff091c8783a5e63553bc93dbd30df4a8936200994bb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "085f92b4cb20332f6523652c93cf762f03fad5d87bd874ba50511fc0093a090d"
