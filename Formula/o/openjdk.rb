@@ -37,6 +37,20 @@ class Openjdk < Formula
   uses_from_macos "zip"
   uses_from_macos "zlib"
 
+  on_macos do
+    if DevelopmentTools.clang_build_version == 1600
+      depends_on "llvm" => :build
+
+      fails_with :clang do
+        cause <<~EOS
+          Exception in thread "main" java.lang.ClassFormatError: StackMapTable format error: bad verification type
+            at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+            at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:52)
+        EOS
+      end
+    end
+  end
+
   on_linux do
     depends_on "alsa-lib"
     depends_on "fontconfig"
@@ -77,6 +91,8 @@ class Openjdk < Formula
   end
 
   def install
+    ENV.llvm_clang if DevelopmentTools.clang_build_version == 1600
+
     boot_jdk = buildpath/"boot-jdk"
     resource("boot-jdk").stage boot_jdk
     boot_jdk /= "Contents/Home" if OS.mac?
