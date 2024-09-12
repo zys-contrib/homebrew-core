@@ -8,6 +8,7 @@ class HuggingfaceCli < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "1f06a150184b17792762d4c4104f2aeab52348fed0c6fd08a8a89a4ee28e1613"
     sha256 cellar: :any,                 arm64_sonoma:   "7bc0258dafb24af21a949ba5ec30e97a072f1234a58ba150618019a8b8e8a0eb"
     sha256 cellar: :any,                 arm64_ventura:  "064dc829c1d54a539ec8a3ea79dc9c39dd3572a1db1f9cd89ced568b343882af"
     sha256 cellar: :any,                 arm64_monterey: "e6a199063ee861a4058d9f13a7f6e03eafccb0ede0f3794655ea7c93e20d51b0"
