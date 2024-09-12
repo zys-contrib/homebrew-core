@@ -7,6 +7,7 @@ class Doctl < Formula
   head "https://github.com/digitalocean/doctl.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2391332a7d73c9f90fc32df67f305f863ffceb71b4dba922a68ef182961ecf30"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2391332a7d73c9f90fc32df67f305f863ffceb71b4dba922a68ef182961ecf30"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2391332a7d73c9f90fc32df67f305f863ffceb71b4dba922a68ef182961ecf30"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2391332a7d73c9f90fc32df67f305f863ffceb71b4dba922a68ef182961ecf30"
