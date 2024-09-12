@@ -37,7 +37,6 @@ class Curl < Formula
 
   depends_on "pkg-config" => :build
   depends_on "brotli"
-  depends_on "libidn2"
   depends_on "libnghttp2"
   depends_on "libssh2"
   depends_on "openssl@3"
@@ -47,6 +46,10 @@ class Curl < Formula
   uses_from_macos "krb5"
   uses_from_macos "openldap"
   uses_from_macos "zlib"
+
+  on_system :linux, macos: :monterey_or_older do
+    depends_on "libidn2"
+  end
 
   # Prevents segfault in julia test - https://github.com/curl/curl/pull/14862
   patch do
@@ -71,7 +74,6 @@ class Curl < Formula
       --with-ca-fallback
       --with-secure-transport
       --with-default-ssl-backend=openssl
-      --with-libidn2
       --with-librtmp
       --with-libssh2
       --without-libpsl
@@ -83,6 +85,18 @@ class Curl < Formula
       "--with-gssapi"
     else
       "--with-gssapi=#{Formula["krb5"].opt_prefix}"
+    end
+
+    args += if OS.mac? && MacOS.version >= :ventura
+      %w[
+        --with-apple-idn
+        --without-libidn2
+      ]
+    else
+      %w[
+        --without-apple-idn
+        --with-libidn2
+      ]
     end
 
     system "./configure", *args, *std_configure_args
@@ -97,6 +111,16 @@ class Curl < Formula
     filename = (testpath/"test.tar.gz")
     system bin/"curl", "-L", stable.url, "-o", filename
     filename.verify_checksum stable.checksum
+
+    # Check dependencies linked correctly
+    curl_features = shell_output("#{bin}/curl-config --features").split("\n")
+    %w[brotli GSS-API HTTP2 IDN libz SSL zstd].each do |feature|
+      assert_includes curl_features, feature
+    end
+    curl_protocols = shell_output("#{bin}/curl-config --protocols").split("\n")
+    %w[LDAPS RTMP SCP SFTP].each do |protocol|
+      assert_includes curl_protocols, protocol
+    end
 
     system libexec/"mk-ca-bundle.pl", "test.pem"
     assert_predicate testpath/"test.pem", :exist?
