@@ -1,8 +1,8 @@
 class RobloxTs < Formula
   desc "TypeScript-to-Luau Compiler for Roblox"
   homepage "https://roblox-ts.com/"
-  url "https://registry.npmjs.org/roblox-ts/-/roblox-ts-2.3.0.tgz"
-  sha256 "3ae2ba96ec389eacf1d29cef2e825fae91b45aef1c395dfa1d023b7aa73f0f3f"
+  url "https://registry.npmjs.org/roblox-ts/-/roblox-ts-3.0.0.tgz"
+  sha256 "94e7ee8db40d0fab605601312838ca8d6d72242e78a8f01e02467f53c4232757"
   license "MIT"
 
   bottle do
