@@ -6,6 +6,7 @@ class GitTown < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0a74580b62c5c3c3e636b0623a2f07a3cb1cd11e2b492796735c68681e0a4284"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0a74580b62c5c3c3e636b0623a2f07a3cb1cd11e2b492796735c68681e0a4284"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0a74580b62c5c3c3e636b0623a2f07a3cb1cd11e2b492796735c68681e0a4284"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0a74580b62c5c3c3e636b0623a2f07a3cb1cd11e2b492796735c68681e0a4284"
