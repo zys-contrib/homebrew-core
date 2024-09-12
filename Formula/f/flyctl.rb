@@ -18,6 +18,7 @@ class Flyctl < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "67c52e806287fa545d4f19fddaa44f5c761759513b7611a1ecc1049d36c9f59c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "67c52e806287fa545d4f19fddaa44f5c761759513b7611a1ecc1049d36c9f59c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "67c52e806287fa545d4f19fddaa44f5c761759513b7611a1ecc1049d36c9f59c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "67c52e806287fa545d4f19fddaa44f5c761759513b7611a1ecc1049d36c9f59c"
