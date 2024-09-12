@@ -1,8 +1,8 @@
 class Macchina < Formula
   desc "System information fetcher, with an emphasis on performance and minimalism"
   homepage "https://github.com/Macchina-CLI/macchina"
-  url "https://github.com/Macchina-CLI/macchina/archive/refs/tags/v6.1.8.tar.gz"
-  sha256 "e827f640b55fe47a6127dd0c276e76b597e3cb83916be37351cdd6a81d75311e"
+  url "https://github.com/Macchina-CLI/macchina/archive/refs/tags/v6.2.0.tar.gz"
+  sha256 "16ab0690f9a998c7403e26439626ce9f70cd114898a40ecccd28c47ce25d3f78"
   license "MIT"
 
   bottle do
@@ -24,6 +24,6 @@ class Macchina < Formula
   end
 
   test do
-    assert_match "Let's check your system for errors...", shell_output("#{bin}/macchina --doctor")
+    assert_match "We've collected a total of 20 readouts", shell_output("#{bin}/macchina --doctor")
   end
 end
