@@ -74,4 +74,4 @@ jobs:
             -X DELETE \
             --header 'Accept: application/vnd.github+json' \
             --header 'X-GitHub-Api-Version: 2022-11-28' \
-            "repos/{owner}/{repo}/git/refs/heads/$BRANCH"
+            "repos/$GITHUB_REPOSITORY/git/refs/heads/$BRANCH"
