@@ -7,14 +7,13 @@ class Terramate < Formula
   head "https://github.com/terramate-io/terramate.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d15e5c820e4ede975d1a90fc3329618d78a6d2f4eb8c10ad69efd58b436d1d00"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d15e5c820e4ede975d1a90fc3329618d78a6d2f4eb8c10ad69efd58b436d1d00"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d15e5c820e4ede975d1a90fc3329618d78a6d2f4eb8c10ad69efd58b436d1d00"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d15e5c820e4ede975d1a90fc3329618d78a6d2f4eb8c10ad69efd58b436d1d00"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7714fa27670e54ca677051e0a1dab2431c73d35a955afd208f3938bf3387bff2"
-    sha256 cellar: :any_skip_relocation, ventura:        "7714fa27670e54ca677051e0a1dab2431c73d35a955afd208f3938bf3387bff2"
-    sha256 cellar: :any_skip_relocation, monterey:       "7714fa27670e54ca677051e0a1dab2431c73d35a955afd208f3938bf3387bff2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6cd2f3d4421509e765e8298b49084521079886425048df15509e21d43b83e660"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2076702061bfa2e66299ee60aa2e80f3ce70d8832103fbf000c0a07cad56a515"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2076702061bfa2e66299ee60aa2e80f3ce70d8832103fbf000c0a07cad56a515"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2076702061bfa2e66299ee60aa2e80f3ce70d8832103fbf000c0a07cad56a515"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2a985b72052c690a0ea0b2ccc5f06aba2c5ea44df291ebf15ccfd9c1fdaa29fe"
+    sha256 cellar: :any_skip_relocation, ventura:        "2a985b72052c690a0ea0b2ccc5f06aba2c5ea44df291ebf15ccfd9c1fdaa29fe"
+    sha256 cellar: :any_skip_relocation, monterey:       "2a985b72052c690a0ea0b2ccc5f06aba2c5ea44df291ebf15ccfd9c1fdaa29fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ddca239a103a3c329226d8c87940f75739ee20b12c8d2efa37b73578ac9cb9de"
   end
 
   depends_on "go" => :build
