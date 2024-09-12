@@ -28,6 +28,11 @@ class Dwarf < Formula
   uses_from_macos "bison" => :build
 
   def install
+    # Workaround for newer Clang
+    if DevelopmentTools.clang_build_version >= 1500
+      inreplace "src/Makefile", "-Wall", "-Wall -Wno-incompatible-function-pointer-types"
+    end
+
     # Work around failure from GCC 10+ using default of `-fno-common`
     # /usr/bin/ld: repl.o:(.bss+0x20): multiple definition of `fc_ptr'
     args = ENV.compiler.to_s.start_with?("gcc") ? ["CC=#{ENV.cc} -fcommon"] : []
