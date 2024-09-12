@@ -37,6 +37,19 @@ class OpenjdkAT21 < Formula
   uses_from_macos "zip"
   uses_from_macos "zlib"
 
+  on_macos do
+    if DevelopmentTools.clang_build_version == 1600
+      depends_on "llvm" => :build
+
+      fails_with :clang do
+        cause <<~EOS
+          Error: Unable to initialize main class build.tools.jigsaw.AddPackagesAttribute
+          Caused by: java.lang.ClassFormatError: StackMapTable format error: access beyond the end of attribute
+        EOS
+      end
+    end
+  end
+
   on_linux do
     depends_on "alsa-lib"
     depends_on "fontconfig"
@@ -77,6 +90,8 @@ class OpenjdkAT21 < Formula
   end
 
   def install
+    ENV.llvm_clang if DevelopmentTools.clang_build_version == 1600
+
     boot_jdk = buildpath/"boot-jdk"
     resource("boot-jdk").stage boot_jdk
     boot_jdk /= "Contents/Home" if OS.mac?
