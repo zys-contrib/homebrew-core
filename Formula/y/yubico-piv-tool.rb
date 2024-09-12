@@ -1,8 +1,8 @@
 class YubicoPivTool < Formula
   desc "Command-line tool for the YubiKey PIV application"
   homepage "https://developers.yubico.com/yubico-piv-tool/"
-  url "https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-2.6.0.tar.gz"
-  sha256 "80f4b7b7f5a85c86502f3286e2b4bef345a6709f4554088c745994f7027302c1"
+  url "https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-2.6.1.tar.gz"
+  sha256 "d4efd2d7c5baca49ffc070dea5fb64c17239095e0e54b10766a8a156b0c09285"
   license "BSD-2-Clause"
 
   livecheck do
