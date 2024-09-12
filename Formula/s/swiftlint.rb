@@ -15,10 +15,10 @@ class Swiftlint < Formula
     sha256                               x86_64_linux:  "dec908e0f1cd2b332bcf678edc36e10f7030cfc9414e733629e763283b0ada40"
   end
 
-  depends_on "swift" => :build
   depends_on macos: :ventura
-
   depends_on xcode: "8.0"
+
+  uses_from_macos "swift" => :build, since: :sonoma # swift 5.10+
   uses_from_macos "swift"
 
   def install
