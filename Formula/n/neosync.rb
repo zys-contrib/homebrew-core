@@ -7,6 +7,7 @@ class Neosync < Formula
   head "https://github.com/nucleuscloud/neosync.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "307320efaab4d6efd50c5bb1ae0a4f688e19c3b570ea74f61998f5e6337acee1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eeebfd2a140f0ef5fee77e8f15c7f14d673a8598fe798d1734b35a7d93aaf0f1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef9f510a35d73fb9a31834e370ebb1d7563cab89e8c8eadd2fc3e590634a6cc1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "25675258f4ddcf1d953b2f1418442c317127be436dd3629b42e9ac07c0a945bf"
