@@ -30,10 +30,7 @@ class Hdt < Formula
 
   def install
     system "./autogen.sh"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
@@ -57,7 +54,7 @@ class Hdt < Formula
     EOS
 
     system bin/"rdf2hdt", test_file, "test.hdt"
-    assert_predicate testtest_file/"test.hdt", :exist?
+    assert_predicate testpath/"test.hdt", :exist?
     system bin/"hdtInfo", "test.hdt"
   end
 end
