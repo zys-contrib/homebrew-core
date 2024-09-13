@@ -34,6 +34,9 @@ class Libtecla < Formula
   uses_from_macos "ncurses"
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+
     ENV.deparallelize
 
     %w[config.guess config.sub].each do |fn|
