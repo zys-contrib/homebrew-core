@@ -7,6 +7,7 @@ class Cminpack < Formula
   head "https://github.com/devernay/cminpack.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "16c2727fa181c4fb77807583f226867f37a3ccc3b1fa883fd1757ca75fc7961d"
     sha256 cellar: :any,                 arm64_sonoma:   "e0ac7bfa2fdedb96e6e90751dec4aed32528318c397aa8f90c7dcb51286e59a2"
     sha256 cellar: :any,                 arm64_ventura:  "00662bc1aa8ee430d61ed7ff52f2c77fa2ef1239b099f137f8727ba5f157e2a8"
     sha256 cellar: :any,                 arm64_monterey: "bde08e6279067da3d7a1140e031fe9ce6ae5f23e450d04799972cd605d991577"
