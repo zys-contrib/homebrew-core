@@ -50,6 +50,7 @@ animdl
 ansible
 ansible-creator
 ansible-lint
+ansifilter
 ant
 antidote
 antlr
@@ -191,11 +192,13 @@ bbtools
 bcftools
 bcoin
 bde
+bdw-gc
 beagle
 beakerlib
 beancount
 beancount-language-server
 bear
+bed
 bee
 bench
 benthos
@@ -260,6 +263,7 @@ buildozer
 buildpulse-test-reporter
 buku
 bulk_extractor
+bump-my-version
 bundletool
 bup
 bupstash
@@ -493,6 +497,7 @@ cortex
 cosign
 cotila
 cotp
+couchbase-shell
 countdown
 counterfeiter
 coursier
@@ -782,6 +787,7 @@ exim
 exiv2
 exodriver
 exploitdb
+exult
 eza
 f2
 f3d
@@ -960,6 +966,7 @@ ghz
 ghz-web
 gickup
 gifski
+gimme
 ginac
 gismo
 git-absorb
@@ -1218,6 +1225,7 @@ imapsync
 imath
 imessage-exporter
 imgproxy
+immich-cli
 immortal
 immudb
 imposm3
@@ -1300,6 +1308,7 @@ jruby
 jscpd
 jsdoc3
 json-fortran
+json-glib
 json2ts
 json2tsv
 jsonnet
@@ -1467,6 +1476,7 @@ libffi
 libfido2
 libfixbuf
 libfontenc
+libfreenect
 libfs
 libgedit-amtk
 libgedit-gfls
@@ -1835,7 +1845,6 @@ nerdfix
 nest
 nestopia-ue
 netaddr
-netdata
 nethogs
 netlify-cli
 nettle
@@ -1898,6 +1907,7 @@ nvimpager
 nvm
 nvtop
 nzbget
+oasdiff
 oauth2_proxy
 oauth2c
 objfw
@@ -2007,6 +2017,7 @@ overmind
 overtls
 ox
 oxipng
+oxker
 p11-kit
 pacapt
 packetbeat
@@ -2029,6 +2040,7 @@ parsedmarc
 partio
 pass-git-helper
 passenger
+pastel
 patat
 patchelf
 payara
@@ -2299,7 +2311,6 @@ root
 rosa-cli
 rospo
 rover
-rpcgen
 rpg-cli
 rpki-client
 rpl
@@ -2335,6 +2346,7 @@ s2n
 s3-backer
 s3fs
 s3ql
+s3scanner
 s6
 sad
 saf-cli
@@ -2422,11 +2434,13 @@ silk
 simde
 simdjson
 simdutf
+simgrid
 simple-scan
 sing-box
 singular
 singularity
 sip
+sipp
 siril
 sispmctl
 sjk
@@ -2639,6 +2653,7 @@ tesseract
 testkube
 testssl
 tetra
+texinfo
 texlab
 texmath
 tfautomv
@@ -2695,6 +2710,7 @@ traefik
 traefik@2
 trafficserver
 trafilatura
+transcrypt
 translate-toolkit
 transmission-cli
 trash-cli
@@ -2772,6 +2788,7 @@ vault-cli
 vc
 vcluster
 vcsh
+vdirsyncer
 veclibfort
 vedic
 vegeta
@@ -2902,6 +2919,7 @@ xorgproto
 xplr
 xq
 xray
+xroar
 xrootd
 xsimd
 xterm

@@ -12,6 +12,7 @@ class Libraw < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "6a483e9f8de456dafb7e1aad0b804ed5a5bc88f15fe3915c36723af5f72167a6"
     sha256 cellar: :any,                 arm64_sonoma:   "5063da59ac2ac5cf2b4d25980ae221d368595521c1b86899235459edb1b5984d"
     sha256 cellar: :any,                 arm64_ventura:  "41c00d2aeda3ff3685e668e4663a02e4a7323a39889ff03f4189a3c4f8d4e3bf"
     sha256 cellar: :any,                 arm64_monterey: "fb2ffa13a08011a3ff0ae37b6eeb545cdefee863c95379cd2bf3d2be5c9f6241"
@@ -56,6 +57,7 @@ class Libraw < Formula
   test do
     resource "homebrew-librawtestfile" do
       url "https://www.rawsamples.ch/raws/nikon/d1/RAW_NIKON_D1.NEF"
+      mirror "https://web.archive.org/web/20200703103724/https://www.rawsamples.ch/raws/nikon/d1/RAW_NIKON_D1.NEF"
       sha256 "7886d8b0e1257897faa7404b98fe1086ee2d95606531b6285aed83a0939b768f"
     end
 

@@ -1,8 +1,8 @@
 class Rio < Formula
   desc "Hardware-accelerated GPU terminal emulator powered by WebGPU"
   homepage "https://raphamorim.io/rio/"
-  url "https://github.com/raphamorim/rio/archive/refs/tags/v0.1.11.tar.gz"
-  sha256 "13195ed732c74320c2fadffb1beadbc1ade44043a0544b00dec54c0c613426c3"
+  url "https://github.com/raphamorim/rio/archive/refs/tags/v0.1.13.tar.gz"
+  sha256 "7baa5e76430e6ca62643691875eb20e66fe793cc260cc409fd63aa3e6d014299"
   license "MIT"
   head "https://github.com/raphamorim/rio.git", branch: "main"
 
@@ -12,12 +12,13 @@ class Rio < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d74b1003b5c52e129dd76a1353e18140559bb3bb1eed293934062f111a7f4986"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0e6a53d163375b1e4921dfda336566cdf0e7a3aec35ec41412d68b3d703c4aa3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d14e9d477220809e5314400b7563ad81e304df9ea67f92001e8798ecd3a8e54f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9229516472acd0f8df9f6ded6f9453a34b46839c4d4a15f54ca8e81b897ead2f"
-    sha256 cellar: :any_skip_relocation, ventura:        "fc069e34ee879d3492eb26565092ae863592fc62a0775cb2d5e7229a1cfd58dc"
-    sha256 cellar: :any_skip_relocation, monterey:       "b1fc26b1bab9872100a6a2340d706dfc2690078efc7d1a1e47d86e34015e59a6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8820c10f88ef50ac04cd67aa9e1da3b17eb2edc7a779d064a42bcb0ac098c023"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cd14770c30af9bb7ffd11f0eda756203acebdaf14ab045bf77770b494000fdd1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7c7fb463990386de27fc6fe3dfd3d3387068e9dd58762e68f0d1546c1f1a1591"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "45894280b6a3328d7216d10fa655bf3829dc6aeaa925fa784aaba9d551f45de1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "08d16841d8f91027c398d5d2a12af62a1be266fd88d5d57caf8b58834fdb9e81"
+    sha256 cellar: :any_skip_relocation, ventura:        "a3a2b9385a03c9256f834ef078129b9dabe9c51b6dd5a6e93d5156b58702760f"
+    sha256 cellar: :any_skip_relocation, monterey:       "3e99d82a4010905779c51f955ab1182511453dfbe1b7e85e4d0e4f76a8798933"
   end
 
   depends_on "rust" => :build

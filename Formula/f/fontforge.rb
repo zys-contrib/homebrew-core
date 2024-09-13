@@ -8,6 +8,7 @@ class Fontforge < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_sequoia:  "a5675fc33c08cbc88b41a07f99cf4caee9b43b49f7c17cd7f032af64c94df349"
     sha256 arm64_sonoma:   "c469b0719fd1508209c51f63b9b6ec7cbcec1e1a5ccef291b7f3cce07fc29eb1"
     sha256 arm64_ventura:  "74a6767564dce1cff1d76a09205f8e3ad898e102de8f6cdfbc175c1574c9adc0"
     sha256 arm64_monterey: "3c7e39a9784914c5a11bd9950913494d2da29d85ea3a46b7c0fd2c11d438302a"
@@ -18,6 +19,7 @@ class Fontforge < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "gettext" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "python-setuptools" => :build
@@ -25,7 +27,6 @@ class Fontforge < Formula
   depends_on "cairo"
   depends_on "fontconfig"
   depends_on "freetype"
-  depends_on "gettext"
   depends_on "giflib"
   depends_on "glib"
   depends_on "jpeg-turbo"
@@ -44,6 +45,7 @@ class Fontforge < Formula
 
   on_macos do
     depends_on "brotli"
+    depends_on "gettext"
   end
 
   # build patch for po translation files

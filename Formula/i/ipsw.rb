@@ -1,8 +1,8 @@
 class Ipsw < Formula
   desc "Research tool for iOS & macOS devices"
   homepage "https://blacktop.github.io/ipsw"
-  url "https://github.com/blacktop/ipsw/archive/refs/tags/v3.1.540.tar.gz"
-  sha256 "11b8a7fc516f1f20362cd398d408afb7d416d9ef319091a0a0d6808dad08597d"
+  url "https://github.com/blacktop/ipsw/archive/refs/tags/v3.1.544.tar.gz"
+  sha256 "edd4207bed48bab3527737fd8d2f45acf4c7e37724d289310dc6547ef42051a3"
   license "MIT"
   head "https://github.com/blacktop/ipsw.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Ipsw < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2ec4e350bc28139fc48897b669526668406d0fb04854037dea098b96df76d736"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "108b646af69f24c53ca1c5cbcd2918ea5b797b992ec09c0f625c3c0304435fab"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cf6626cda388ce93a194b0135bebd22397a656e8f9addc99e3ae70a89be8a9bd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "862bff2fd960ddec1cf9dec2a781029886647ce45a7390ad48d8c5511d161d9f"
-    sha256 cellar: :any_skip_relocation, ventura:        "7945d9231c20442f25788162538fbce69ed18adc6e8bb8fdacd167d22ce0bcbd"
-    sha256 cellar: :any_skip_relocation, monterey:       "fdc775294d1689a3d20401a8b62a544301896c5e53fbf41be23196826291ff84"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d31a68a5fbb5956160a3546a6e72f23816fc493c5b5a058a35cd5b6943dcc18"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0d473af8b828080832d3a3e81ed9dff80ccbc314da1bd71e094e6a281f9a9884"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8072951c3b5a41a36bf850780554f69db78e0fc010158a9d6f31e16567615dd6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "61ccb677e2650f2789b728d551c4e234d14eb09b5b1415a9d255033765bed534"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8d06efb3a7ef8bb0d1f56f8493812847de2c79915113c55d7ce5d5fb32bbe663"
+    sha256 cellar: :any_skip_relocation, ventura:        "43a5a06c28720156abba948492c56a30d1a94d62aec350cbf914b12eb22791f4"
+    sha256 cellar: :any_skip_relocation, monterey:       "73981569685bb9724f36472226164e36f77edb40d6ae62d97b8ec32e2ad02272"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "47bdce173cdb1bac09d0980c763eab929e0dd207d4e86061d3df0b2174d90ea4"
   end
 
   depends_on "go" => :build

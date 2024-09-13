@@ -1,18 +1,19 @@
 class Asyncapi < Formula
   desc "All in one CLI for all AsyncAPI tools"
   homepage "https://github.com/asyncapi/cli"
-  url "https://registry.npmjs.org/@asyncapi/cli/-/cli-2.3.2.tgz"
-  sha256 "7045e0c08eda29eb2c5347f58900992a7e70b1df6c6c3c1519ea200422db4590"
+  url "https://registry.npmjs.org/@asyncapi/cli/-/cli-2.3.12.tgz"
+  sha256 "ea34216f33bcdeff6a91a82a6d3ebc71f4ce4f40c68a652c5e9719c59371d724"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5bef59f9631958584181f32f56a70c9814c272c1bd0bb8d898cb2f9b38f2ccd1"
-    sha256 cellar: :any,                 arm64_ventura:  "5bef59f9631958584181f32f56a70c9814c272c1bd0bb8d898cb2f9b38f2ccd1"
-    sha256 cellar: :any,                 arm64_monterey: "5bef59f9631958584181f32f56a70c9814c272c1bd0bb8d898cb2f9b38f2ccd1"
-    sha256 cellar: :any,                 sonoma:         "b1af0f54708115e7c8efe1f13cef9b3fd8a3021aa1ee3469049469825425f495"
-    sha256 cellar: :any,                 ventura:        "b1af0f54708115e7c8efe1f13cef9b3fd8a3021aa1ee3469049469825425f495"
-    sha256 cellar: :any,                 monterey:       "b1af0f54708115e7c8efe1f13cef9b3fd8a3021aa1ee3469049469825425f495"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eea3bfd9f314b08ba50fdb45d0bd0a02efc57084cbaf70f4326504244f8afe0b"
+    sha256 cellar: :any,                 arm64_sequoia:  "90b61d53842762c79119d85fc6aa7d7466fcb04bc9f97253b6e4608f922a98ae"
+    sha256 cellar: :any,                 arm64_sonoma:   "cd7d37909b53300a64a54179a720782e6b94fbaf1089c1b161fea5667bdff518"
+    sha256 cellar: :any,                 arm64_ventura:  "cd7d37909b53300a64a54179a720782e6b94fbaf1089c1b161fea5667bdff518"
+    sha256 cellar: :any,                 arm64_monterey: "cd7d37909b53300a64a54179a720782e6b94fbaf1089c1b161fea5667bdff518"
+    sha256 cellar: :any,                 sonoma:         "8d80549a981ae924d52f4daa6ad8cb49fac23863d2f8461eee4c7986fd5718a8"
+    sha256 cellar: :any,                 ventura:        "8d80549a981ae924d52f4daa6ad8cb49fac23863d2f8461eee4c7986fd5718a8"
+    sha256 cellar: :any,                 monterey:       "8d80549a981ae924d52f4daa6ad8cb49fac23863d2f8461eee4c7986fd5718a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "985d7e1056095de79f3bd8cd0d0f1df86ded53807be2e168000922c5690bd0f2"
   end
 
   depends_on "node"

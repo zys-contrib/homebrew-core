@@ -1,11 +1,12 @@
 class Xnvme < Formula
   desc "Cross-platform libraries and tools for efficient I/O and low-level control"
   homepage "https://xnvme.io/"
-  url "https://github.com/OpenMPDK/xNVMe/releases/download/v0.7.4/xnvme-src-0.7.4.tar.gz"
+  url "https://github.com/xnvme/xnvme/releases/download/v0.7.4/xnvme-fat-0.7.4.tar.gz"
   sha256 "6dd17ec256a3801d28f1e068aa1f61e82cf9a42eb30fcc81322ef04f637855f9"
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "e69ea284de240b3a3f743569616b8846c7d106bd2ad8339d06aa0583108bd83f"
     sha256 cellar: :any,                 arm64_sonoma:   "068b1893f5a637342821b2673d967a86f2a6a8c6bff50e7b3133e8cf6956569a"
     sha256 cellar: :any,                 arm64_ventura:  "76d887bddc8a20e8547a45c7eb151ac86d78cad34f6866c5d25af249f76c77d0"
     sha256 cellar: :any,                 arm64_monterey: "a8460f621deaeba81a4267ac2ac54063c6361fdcd1bdc9852f7793742f5b89c7"

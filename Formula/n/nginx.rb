@@ -6,7 +6,7 @@ class Nginx < Formula
   url "https://nginx.org/download/nginx-1.27.1.tar.gz"
   sha256 "bd7ba68a6ce1ea3768b771c7e2ab4955a59fb1b1ae8d554fedb6c2304104bdfc"
   license "BSD-2-Clause"
-  head "https://hg.nginx.org/nginx/", using: :hg
+  head "https://github.com/nginx/nginx", branch: "master"
 
   livecheck do
     url :homepage
@@ -14,6 +14,7 @@ class Nginx < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "ac1f1147a6cbaba5b0cb6ed68db7aa619f242bfaa1772407416d10a0dbda4a08"
     sha256 arm64_sonoma:   "32f9a1923a5f149c9054c4a8451af76b783321d793fd804650e5e283ec8b87bd"
     sha256 arm64_ventura:  "5b684ce3453d11e51d13ae235d5ab3ab797a422e39917db7d080ec12b6b9bc8b"
     sha256 arm64_monterey: "40cce86ed46a8664c12f9e28438c4fabc054322c5f3327a4f3c47cea5f603b00"
