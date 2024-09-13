@@ -8,6 +8,7 @@ class Llm < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "056feb854c3805d6f2e4534baeac7cec8708f7ccb7aa3d281d7da3f271ca73dd"
     sha256 cellar: :any,                 arm64_sonoma:   "59a0bda57eb656564297bc732e8bab6c8e97683077bef16f7bfb08a9e617ee19"
     sha256 cellar: :any,                 arm64_ventura:  "54dbe77f311ecaadcdbd7dfae625a1a6e01d88397ccd4fa67291de1838c14daa"
     sha256 cellar: :any,                 arm64_monterey: "9c1c26f59ea0516536a4658e352bf59a649ba2b85827a4cd54b150bfe39a80da"
