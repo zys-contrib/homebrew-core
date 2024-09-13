@@ -2120,6 +2120,7 @@ pod2man
 podlet
 podman
 podman-compose
+podofo
 podsync
 poetry
 poke
