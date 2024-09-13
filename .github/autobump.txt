@@ -1325,6 +1325,7 @@ json-fortran
 json-glib
 json2ts
 json2tsv
+jsoncpp
 jsonnet
 jsonnet-bundler
 jsonrpc-glib

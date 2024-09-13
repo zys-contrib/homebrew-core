@@ -1,8 +1,8 @@
 class Jsoncpp < Formula
   desc "Library for interacting with JSON"
   homepage "https://github.com/open-source-parsers/jsoncpp"
-  url "https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.5.tar.gz"
-  sha256 "f409856e5920c18d0c2fb85276e24ee607d2a09b5e7d5f0a371368903c275da2"
+  url "https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.6.tar.gz"
+  sha256 "f93b6dd7ce796b13d02c108bc9f79812245a82e577581c4c9aabe57075c90ea2"
   license "MIT"
   head "https://github.com/open-source-parsers/jsoncpp.git", branch: "master"
 
@@ -30,6 +30,14 @@ class Jsoncpp < Formula
   #      https://github.com/Homebrew/homebrew-core/pull/103386
   depends_on "meson" => :build
   depends_on "ninja" => :build
+  depends_on "cmake" => :test
+
+  # remove check_required_components for meson build
+  # upstream pr ref, https://github.com/open-source-parsers/jsoncpp/pull/1570
+  patch do
+    url "https://github.com/open-source-parsers/jsoncpp/commit/3d47db0edcfa5cb5a6237c43efbe443221a32702.patch?full_index=1"
+    sha256 "1d042632c3272e6946ac9ac1a7cb3b1f0b2a61f901bd20001bed53fc6892d0e0"
+  end
 
   def install
     system "meson", "setup", "build", *std_meson_args
@@ -38,6 +46,17 @@ class Jsoncpp < Formula
   end
 
   test do
+    (testpath/"CMakeLists.txt").write <<~EOS
+      cmake_minimum_required(VERSION 3.10)
+      project(TestJsonCpp)
+
+      set(CMAKE_CXX_STANDARD 11)
+      find_package(jsoncpp REQUIRED)
+
+      add_executable(test test.cpp)
+      target_link_libraries(test jsoncpp_lib)
+    EOS
+
     (testpath/"test.cpp").write <<~EOS
       #include <json/json.h>
       int main() {
@@ -49,10 +68,9 @@ class Jsoncpp < Formula
           return Json::parseFromStream(builder, stream1, &root, &errs) ? 0: 1;
       }
     EOS
-    system ENV.cxx, "-std=c++11", testpath/"test.cpp", "-o", "test",
-                  "-I#{include}/jsoncpp",
-                  "-L#{lib}",
-                  "-ljsoncpp"
-    system "./test"
+
+    system "cmake", "-S", ".", "-B", "build"
+    system "cmake", "--build", "build"
+    system "./build/test"
   end
 end
