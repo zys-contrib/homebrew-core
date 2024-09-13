@@ -39,6 +39,9 @@ class Cgdb < Formula
     depends_on "texinfo" => :build
   end
 
+  # patch for readline check code, upstream pr ref, https://github.com/cgdb/cgdb/pull/359
+  patch :DATA
+
   def install
     system "sh", "autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
@@ -51,3 +54,18 @@ class Cgdb < Formula
     system bin/"cgdb", "--version"
   end
 end
+
+__END__
+diff --git a/configure b/configure
+index c564dc1..e13c67c 100755
+--- a/configure
++++ b/configure
+@@ -6512,7 +6512,7 @@ else
+ #include <stdlib.h>
+ #include <readline/readline.h>
+
+-main()
++int main()
+ {
+ 	FILE *fp;
+ 	fp = fopen("conftest.rlv", "w");
