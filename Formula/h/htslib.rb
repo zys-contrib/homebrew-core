@@ -11,6 +11,7 @@ class Htslib < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "5666590893b28330ba567928e6c9a3f9df35f31bbe1141715f598943ea2792ac"
     sha256 cellar: :any,                 arm64_sonoma:   "13cfebf52afda554d0356c9c15fadaf0361a13b63354f6fd6408070cc2189dc2"
     sha256 cellar: :any,                 arm64_ventura:  "140f35781a6dca49898ee9b16cd8d9566b67147508604da63b1dc614cf4acad9"
     sha256 cellar: :any,                 arm64_monterey: "6631954131f70ee19111f4c9f1c7920995333638a66959714d63bb81effdd07f"
