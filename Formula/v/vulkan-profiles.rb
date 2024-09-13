@@ -4,6 +4,7 @@ class VulkanProfiles < Formula
   url "https://github.com/KhronosGroup/Vulkan-Profiles/archive/refs/tags/v1.3.295.tar.gz"
   sha256 "9f44e8c7814750b0bb6b5558d1b236579edf7a20b65f018d6d22a1c35af5d7e1"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/KhronosGroup/Vulkan-Profiles.git", branch: "main"
 
   livecheck do
