@@ -2588,6 +2588,7 @@ swagger-codegen@2
 swagger2markup-cli
 swi-prolog
 swift-protobuf
+swift-sh
 swiftformat
 swiftplantuml
 swig
