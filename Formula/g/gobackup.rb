@@ -7,6 +7,7 @@ class Gobackup < Formula
   head "https://github.com/gobackup/gobackup.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3ea750ef8215a2b5fde43785f812a3cbbff3ff745488362a3c2bfa5964da8889"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "64f41bb41bc575fedf4844faa299b4f96f6aa0cde962666e66f16075d2181b43"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1d1cdef712b773ef9bc6bad55e444a5a451df21c8ad15e48e331cc5594f79aaf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4287328045e926dcf7a395f3e0a55544e748d716102429514ac741287493d741"
