@@ -30,6 +30,12 @@ class Owamp < Formula
 
   depends_on "i2util"
 
+  # Backport fix for newer Clang
+  patch do
+    url "https://github.com/perfsonar/owamp/commit/e14c6850d2e82919ca35cc591193220e4ebdc2c5.patch?full_index=1"
+    sha256 "bee4e43d43acea5088d03e7822bb5166b27bf8b12b43ada8751bd2cb3cd4a527"
+  end
+
   # Fix to prevent tests hanging under certain circumstances.
   # Provided by Aaron Brown via perfsonar-user mailing list:
   # https://lists.internet2.edu/sympa/arc/perfsonar-user/2014-11/msg00131.html
