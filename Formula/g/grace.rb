@@ -41,11 +41,13 @@ class Grace < Formula
     ENV.O1 # https://github.com/Homebrew/homebrew/issues/27840#issuecomment-38536704
 
     # Fix compile with newer Clang
-    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
+    if DevelopmentTools.clang_build_version >= 1200
+      ENV.append_to_cflags "-Wno-implicit-function-declaration -Wno-implicit-int"
+    end
 
-    system "./configure", *std_configure_args,
-                          "--enable-grace-home=#{prefix}",
-                          "--disable-pdfdrv"
+    system "./configure", "--enable-grace-home=#{prefix}",
+                          "--disable-pdfdrv",
+                          *std_configure_args
     system "make", "install"
     share.install "fonts", "examples"
     man1.install Dir["doc/*.1"]
