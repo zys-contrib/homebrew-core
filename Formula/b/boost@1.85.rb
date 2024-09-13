@@ -122,8 +122,8 @@ class BoostAT185 < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++14", "-o", "test", "-L#{lib}", "-lboost_iostreams",
-                    "-L#{Formula["zstd"].opt_lib}", "-lzstd"
+    system ENV.cxx, "test.cpp", "-std=c++14", "-o", "test", "-I#{include}",
+                    "-L#{lib}", "-lboost_iostreams", "-L#{Formula["zstd"].opt_lib}", "-lzstd"
     system "./test"
   end
 end
