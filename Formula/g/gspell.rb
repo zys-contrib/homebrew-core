@@ -1,10 +1,9 @@
 class Gspell < Formula
   desc "Flexible API to implement spellchecking in GTK+ applications"
   homepage "https://gitlab.gnome.org/GNOME/gspell"
-  url "https://download.gnome.org/sources/gspell/1.12/gspell-1.12.2.tar.xz"
-  sha256 "b4e993bd827e4ceb6a770b1b5e8950fce3be9c8b2b0cbeb22fdf992808dd2139"
+  url "https://download.gnome.org/sources/gspell/1.14/gspell-1.14.0.tar.xz"
+  sha256 "64ea1d8e9edc1c25b45a920e80daf67559d1866ffcd7f8432fecfea6d0fe8897"
   license "LGPL-2.1-or-later"
-  revision 2
 
   bottle do
     sha256 arm64_sequoia:  "7ef648e30d2a300ced7dfa60b6176ea4262bb270c03cd47f27efb7867f5a9cd4"
@@ -18,6 +17,8 @@ class Gspell < Formula
   end
 
   depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on "vala" => :build
 
@@ -32,24 +33,19 @@ class Gspell < Formula
   depends_on "pango"
 
   on_macos do
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gtk-doc" => :build
-    depends_on "libtool" => :build
-
     depends_on "gettext"
-    depends_on "gtk-mac-integration"
-
-    patch :DATA
   end
 
   def install
-    system "autoreconf", "--force", "--install", "--verbose" if OS.mac?
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
-                          "--enable-introspection=yes",
-                          "--enable-vala=yes"
-    system "make", "install"
+    args = %w[
+      -Dgtk_doc=false
+      -Dtests=false
+      -Dinstall_tests=false
+    ]
+
+    system "meson", "setup", "build", *args, *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
@@ -71,30 +67,3 @@ class Gspell < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/gspell/Makefile.am b/gspell/Makefile.am
-index 076a9fd..6c67184 100644
---- a/gspell/Makefile.am
-+++ b/gspell/Makefile.am
-@@ -91,6 +91,7 @@ nodist_libgspell_core_la_SOURCES = \
-	$(BUILT_SOURCES)
-
- libgspell_core_la_LIBADD =	\
-+	$(GTK_MAC_LIBS) \
-	$(CODE_COVERAGE_LIBS)
-
- libgspell_core_la_CFLAGS =	\
-@@ -155,6 +156,12 @@ gspell_private_headers += \
- gspell_private_c_files += \
-	gspell-osx.c
-
-+libgspell_core_la_CFLAGS += \
-+	-xobjective-c
-+
-+libgspell_core_la_LDFLAGS += \
-+	-framework Cocoa
-+
- endif # OS_OSX
-
- if HAVE_INTROSPECTION
