@@ -1,8 +1,8 @@
 class Cyctl < Formula
   desc "Customizable UI for Kubernetes workloads"
   homepage "https://cyclops-ui.com/"
-  url "https://github.com/cyclops-ui/cyclops/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "0173bf858bde69b76dfaa264e3448c54250d541426234e860aee201fe933969b"
+  url "https://github.com/cyclops-ui/cyclops/archive/refs/tags/v0.11.1.tar.gz"
+  sha256 "c546dc6ba3336bc683b3c4952fa4a97ba7a1df88121761cb0dfcc505ae89c031"
   license "Apache-2.0"
   head "https://github.com/cyclops-ui/cyclops.git", branch: "main"
 
