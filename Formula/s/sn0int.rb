@@ -26,6 +26,12 @@ class Sn0int < Formula
     depends_on "libseccomp"
   end
 
+  # patch time crate to fix build with rust 1.80+
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/f4da3dc7bb1a0f9582b43707f1b8822187154a02/sn0int/rust-1.80.patch"
+    sha256 "91128acfec4c2499502580ee43ff3c54cbfec7281ef6a20aa72505b2db6e12e3"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
 
