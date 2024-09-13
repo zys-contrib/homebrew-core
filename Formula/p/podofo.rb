@@ -13,6 +13,7 @@ class Podofo < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "88db3e45f6d02ebce73d210fa6f1e0c763cc14d55e2d6232a0c9f8cf48609397"
     sha256 cellar: :any,                 arm64_sonoma:   "6916059ce58b1016b37a5e00880919eb613d350ee0429b64240d93223b00e167"
     sha256 cellar: :any,                 arm64_ventura:  "723be940f3ab2d03693a4892e78cc9cfb1b90fdc2b1d6c9450dbe0ae8b7da6ec"
     sha256 cellar: :any,                 arm64_monterey: "86fcbad492a3a82a3d9c1fb29f76bd5104dfd056593b6a03caeeee81a9abd888"
