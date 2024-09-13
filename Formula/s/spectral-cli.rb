@@ -6,14 +6,12 @@ class SpectralCli < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f04a79ba5915612e3fddff5396b02f02669b80f657403c5da5a03abaa80c667e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f04a79ba5915612e3fddff5396b02f02669b80f657403c5da5a03abaa80c667e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f04a79ba5915612e3fddff5396b02f02669b80f657403c5da5a03abaa80c667e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f04a79ba5915612e3fddff5396b02f02669b80f657403c5da5a03abaa80c667e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0e93cbe50bd8a073826b62959be9f3cb87a2042f852981483f939d9fdf3b6901"
-    sha256 cellar: :any_skip_relocation, ventura:        "0e93cbe50bd8a073826b62959be9f3cb87a2042f852981483f939d9fdf3b6901"
-    sha256 cellar: :any_skip_relocation, monterey:       "0e93cbe50bd8a073826b62959be9f3cb87a2042f852981483f939d9fdf3b6901"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f04a79ba5915612e3fddff5396b02f02669b80f657403c5da5a03abaa80c667e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "804713977b4fb21da63a3c64d3d2932478d40c1434ccb9a963b381325fa23aa0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "804713977b4fb21da63a3c64d3d2932478d40c1434ccb9a963b381325fa23aa0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "804713977b4fb21da63a3c64d3d2932478d40c1434ccb9a963b381325fa23aa0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "714b7cbf1099e777e3720e25869de2e60e2f3fff57ea8bbb95d3cb4b114f6031"
+    sha256 cellar: :any_skip_relocation, ventura:       "714b7cbf1099e777e3720e25869de2e60e2f3fff57ea8bbb95d3cb4b114f6031"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "804713977b4fb21da63a3c64d3d2932478d40c1434ccb9a963b381325fa23aa0"
   end
 
   depends_on "node"
