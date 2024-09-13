@@ -1,13 +1,14 @@
 class AescryptPacketizer < Formula
   desc "Encrypt and decrypt using 256-bit AES encryption"
   homepage "https://www.aescrypt.com"
-  url "https://www.aescrypt.com/download/v3/linux/aescrypt-3.16.tgz"
+  # v3 source is currently removed. See https://forums.packetizer.com/viewtopic.php?t=1777
+  # url "https://www.aescrypt.com/download/v3/linux/aescrypt-3.16.tgz"
+  url "https://www.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/13/aescrypt-3.16.tgz"
   sha256 "e2e192d0b45eab9748efe59e97b656cc55f1faeb595a2f77ab84d44b0ec084d2"
   license "GPL-2.0-or-later"
 
   livecheck do
-    url "https://www.aescrypt.com/download/"
-    regex(%r{href=.*?/linux/aescrypt[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    skip "v4 is under a commercial license"
   end
 
   bottle do
