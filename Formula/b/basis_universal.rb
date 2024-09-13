@@ -1,8 +1,9 @@
 class BasisUniversal < Formula
   desc "Basis Universal GPU texture codec command-line compression tool"
   homepage "https://github.com/BinomialLLC/basis_universal"
-  url "https://github.com/BinomialLLC/basis_universal/archive/refs/tags/1.16.4.tar.gz"
-  sha256 "e5740fd623a2f8472c9700b9447a8725a6f27d65b0b47c3e3926a60db41b8a64"
+  url "https://github.com/BinomialLLC/basis_universal/archive/refs/tags/v1_50_0_2.tar.gz"
+  version "1.50.0"
+  sha256 "0ef344cc7e3373ca9c15de2bd80512ea4ea17e09ed895febdf9e70f6c789bc27"
   license "Apache-2.0"
 
   bottle do
@@ -23,11 +24,12 @@ class BasisUniversal < Formula
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
-    system "cmake", "--install", "build"
+    bin.install "bin/basisu"
+    bin.install "bin/examples" => "basisu_examples"
   end
 
   test do
     system bin/"basisu", test_fixtures("test.png")
-    assert_predicate testpath/"test.basis", :exist?
+    assert_predicate testpath/"test.ktx2", :exist?
   end
 end
