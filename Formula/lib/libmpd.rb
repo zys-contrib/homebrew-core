@@ -38,9 +38,33 @@ class Libmpd < Formula
   end
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-int-conversion" if DevelopmentTools.clang_build_version >= 1500
+
     ENV.append "CFLAGS", "-DHAVE_STRNDUP" unless OS.mac?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <stdio.h>
+      #include <stdlib.h>
+      #include <libmpd/libmpd.h>
+
+      int main() {
+          MpdObj *mpd;
+          char *hostname = "localhost";
+          int port = 6600;
+
+          mpd = mpd_new(hostname, port, NULL);
+          printf("MPD object created");
+
+          mpd_free(mpd);
+          return 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "-o", "test", "-I#{include}/libmpd-1.0", "-L#{lib}", "-lmpd"
+    system "./test"
   end
 end
