@@ -6,14 +6,12 @@ class Step < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ade55e65f1706fb1aa937dc4e69bb6d33001f35c8abe63e22a3020f03e755e46"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e7b602e364c03fa167e933c20aeaa53c443e1bc783bc398c70d60d34d80f0f82"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5f09666ff8ed5cbdd06b0b66569b941eeef99f9589e5b1f3c92685f0fac5f958"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a1486cd6f205f007d3fc5f86256944855775d5cf73efa6219ee65391b8e6c555"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d72f2d8256e49dc89507ab611c990710980b4d5635da4d625617de9a3a5489f6"
-    sha256 cellar: :any_skip_relocation, ventura:        "7a5dd7358c4bc7b8e25abb788178e987bd4f028eaeef30d261cc2822b5248466"
-    sha256 cellar: :any_skip_relocation, monterey:       "397c77d88c9bb2f77f84537509aa830dfeb0c96bd7994906e3a6e9beb8c69432"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d23b87f65f660338b4e5f0f413172a3ed816df3c9ce8d83e78b0550e2bfa36da"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2fe3d3f989eaece1b3d42f98125fe17ca96901d112b8e80b70a67c940703d3c0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6456457dd3e96a994d6c170f8db96b767a63f400fc008a1fa9043649f69d4a68"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1f9f92929d321c543bfb7a1682fa81acb6c5c52e94c42f0997482d243f899f03"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6becebe7505e262fe5c20b77164f8713b4ebb5184cba50d58ce63142c57c7ae9"
+    sha256 cellar: :any_skip_relocation, ventura:       "3d3caf254b5ef8aaa3d672682c7edff80974a5fea29a86c7a2c2c63c6a8ee1d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "84de6167662215f7809159e1c3440882050344620155aa8c9634ab4ebe63a062"
   end
 
   depends_on "go" => :build
