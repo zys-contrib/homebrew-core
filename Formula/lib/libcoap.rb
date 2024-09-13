@@ -17,33 +17,25 @@ class Libcoap < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "doxygen" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl@3"
 
   def install
     system "./autogen.sh"
-    system "./configure", "--disable-examples", "--disable-manpages", *std_configure_args
+    system "./configure", "--disable-manpages", "--disable-doxygen", *std_configure_args
     system "make"
     system "make", "install"
   end
 
   test do
-    %w[coap-client coap-server].each do |src|
-      system ENV.cc, pkgshare/"examples/#{src}.c",
-        "-I#{Formula["openssl@3"].opt_include}", "-I#{include}",
-        "-L#{Formula["openssl@3"].opt_lib}", "-L#{lib}",
-        "-lcrypto", "-lssl", "-lcoap-3-openssl", "-o", src
-    end
-
     port = free_port
     fork do
-      exec testpath/"coap-server", "-p", port.to_s
+      exec bin/"coap-server", "-p", port.to_s
     end
 
     sleep 1
-    output = shell_output(testpath/"coap-client -B 5 -m get coap://localhost:#{port}")
+    output = shell_output(bin/"coap-client -B 5 -m get coap://localhost:#{port}")
     assert_match "This is a test server made with libcoap", output
   end
 end
