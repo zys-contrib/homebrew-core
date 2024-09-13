@@ -1,8 +1,8 @@
 class Unibilium < Formula
   desc "Very basic terminfo library"
   homepage "https://github.com/neovim/unibilium"
-  url "https://github.com/neovim/unibilium/archive/refs/tags/v2.1.1.tar.gz"
-  sha256 "6f0ee21c8605340cfbb458cbd195b4d074e6d16dd0c0e12f2627ca773f3cabf1"
+  url "https://github.com/neovim/unibilium/archive/refs/tags/v2.1.2.tar.gz"
+  sha256 "370ecb07fbbc20d91d1b350c55f1c806b06bf86797e164081ccc977fc9b3af7a"
   license "LGPL-3.0-or-later"
 
   bottle do
@@ -17,9 +17,14 @@ class Unibilium < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "00566865c6a2a0fde041269e20fc1afe0f239720fa588016843e5409bf0e909d"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
 
   def install
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", *std_configure_args
+
     # Check Homebrew ncurses terminfo if available.
     terminfo_dirs = [Formula["ncurses"].opt_share/"terminfo"]
 
