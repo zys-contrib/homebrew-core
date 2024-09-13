@@ -7,6 +7,7 @@ class Railway < Formula
   head "https://github.com/railwayapp/cli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5bea054ee656e29fdd9769ce3c6d0bb143c8a7da5294e5dd99fafc16d5dc37a6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dcdb2c5f381cbd9f821d0af0ef5c34ad2e4eb065080f13fabf8b887414cc583b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f46e7949a0043bf11bcd7bf093aa9efdaf0eb66394575e49d1b8512af0e4f252"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f8e2cdc9263f9832ccf3deac37f9790c569d723b852abcd7ba3f73fac92ca53b"
