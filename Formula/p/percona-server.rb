@@ -149,10 +149,6 @@ class PerconaServer < Formula
     # Remove the tests directory
     rm_r(prefix/"mysql-test")
 
-    # Don't create databases inside of the prefix!
-    # See: https://github.com/Homebrew/homebrew/issues/4975
-    rm_r(prefix/"data")
-
     # Fix up the control script and link into bin.
     inreplace "#{prefix}/support-files/mysql.server",
               /^(PATH=".*)(")/,
