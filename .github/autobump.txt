@@ -1249,6 +1249,7 @@ iowow
 iperf
 iperf3
 ipfs
+ipget
 ipinfo-cli
 ipmiutil
 ipopt
@@ -1792,6 +1793,7 @@ mrboom
 mruby
 msgpack
 msgpack-cxx
+msktutil
 msmtp
 mtbl
 mtoc
@@ -1982,6 +1984,7 @@ opensearch
 openshift-cli
 openssl@3
 openssl@3.0
+openstackclient
 opentelemetry-cpp
 opentofu
 openttd
@@ -2336,6 +2339,7 @@ rust-analyzer
 rust-parallel
 rustcat
 rustfmt
+rustls-ffi
 rustscan
 rustup
 rye
@@ -2588,6 +2592,7 @@ swagger-codegen@2
 swagger2markup-cli
 swi-prolog
 swift-protobuf
+swift-sh
 swiftformat
 swiftplantuml
 swig
@@ -2761,6 +2766,7 @@ uni2ascii
 unison
 unisonlang
 universal-ctags
+urdfdom
 urdfdom_headers
 uriparser
 urlscan
@@ -2897,6 +2903,7 @@ xa
 xapian
 xauth
 xbyak
+xcb-util-cursor
 xcbeautify
 xcdiff
 xclogparser
