@@ -6,7 +6,7 @@ class GnomeRecipes < Formula
       tag:      "2.0.4",
       revision: "d5e9733c49ea4f99e72c065c05ee1a35ef65e67d"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_sequoia:  "0dc9dc517fa5f5b06f2988ac13ac72a76bdc612f42f5dd53e5b754504164c297"
