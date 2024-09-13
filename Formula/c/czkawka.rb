@@ -36,6 +36,12 @@ class Czkawka < Formula
     depends_on "harfbuzz"
   end
 
+  # patch time crate to fix rust 1.80+ build failure, upstream pr ref, https://github.com/qarmin/czkawka/pull/1342
+  patch do
+    url "https://github.com/qarmin/czkawka/commit/a0be5f5af81fd5dfef985fb20edce995b810a761.patch?full_index=1"
+    sha256 "84ccf86840eda4ecabfcea710a45eac1bb9f0788fa4450ace8a89f49fcc0aa30"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args(path: "czkawka_cli")
     system "cargo", "install", *std_cargo_args(path: "czkawka_gui")
