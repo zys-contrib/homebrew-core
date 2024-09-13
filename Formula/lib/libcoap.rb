@@ -6,13 +6,13 @@ class Libcoap < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "adf74e75f33dddc9743b724da6448cac42e9d9669332117eedf66590fa1dd9d3"
-    sha256 cellar: :any,                 arm64_ventura:  "6d39dc76cecd35963892f1aed2d9e7d66389d6c92a6fcab2c1dcaed985dafecb"
-    sha256 cellar: :any,                 arm64_monterey: "2b4ba6f3f52e7168aa0d15dca716fe6d920f48414e4432f9b3de874334f0d992"
-    sha256 cellar: :any,                 sonoma:         "fb9ecfcb47c75e493c096e3d2d9da010b10dfb335b5dd60a93fe49a6fb2830f5"
-    sha256 cellar: :any,                 ventura:        "054787d4613fec89f6c5d3be9d36c2731197f1075b3f614315c3b14e4fd54c70"
-    sha256 cellar: :any,                 monterey:       "d05b051c441b6d565bca208dd13ec7176efc5022b17c188828895425024c7cda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24b2cf100856f83699fa2e395f82ae26a730c8b5ff159aaea1b50167e1c137e5"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "a98670de3fe4ec6aa76bce6909dcb2e4508d965d16f8d5087e08d11561dc3f8a"
+    sha256 cellar: :any,                 arm64_sonoma:  "3e1ccc1ecda3c10ba83e6c427e83cf30166cc8693821914426ef5b35e024d12f"
+    sha256 cellar: :any,                 arm64_ventura: "3509f77235a4648fb6242af0573ab2d864f5347b78e941b70d3695f4c8c1970c"
+    sha256 cellar: :any,                 sonoma:        "7c1e314e9154f828266e6e6077564e0f87450ee55047f7d1f96d99a8c4b7047b"
+    sha256 cellar: :any,                 ventura:       "cd74e8814cc3d2fe124bc986455a778412efde46f3a4487038c8b634e291882f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ede5117a7134ea1750a9ae100837280ff4b971c00e995196b2f669dde62320d"
   end
 
   depends_on "autoconf" => :build
