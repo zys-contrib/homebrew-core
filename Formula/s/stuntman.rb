@@ -33,6 +33,8 @@ class Stuntman < Formula
   end
 
   def install
+    ENV.cxx11
+
     system "make"
     bin.install "stunserver", "stunclient", "stuntestcode"
   end
