@@ -1793,6 +1793,7 @@ mrboom
 mruby
 msgpack
 msgpack-cxx
+msktutil
 msmtp
 mtbl
 mtoc

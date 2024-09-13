@@ -1,8 +1,8 @@
 class Msktutil < Formula
   desc "Active Directory keytab management"
   homepage "https://github.com/msktutil/msktutil"
-  url "https://github.com/msktutil/msktutil/releases/download/1.2.1/msktutil-1.2.1.tar.bz2"
-  sha256 "f9686237c4e24414802415f4c8627c7343da365c5a3bcdef7a853fa3cd27b45d"
+  url "https://github.com/msktutil/msktutil/releases/download/1.2.2/msktutil-1.2.2.tar.bz2"
+  sha256 "51314bb222c20e963da61724c752e418261a7bfc2408e7b7d619e82a425f6541"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -15,16 +15,16 @@ class Msktutil < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b5dc0137679f966056b649736a3a8e164fd15aad55a283758b6f0a4473f9ecb"
   end
 
+  # macos builtin krb5 has `krb5-config reports unknown vendor Apple MITKerberosShim` error
+  depends_on "krb5"
+
   uses_from_macos "cyrus-sasl"
-  uses_from_macos "krb5"
   uses_from_macos "openldap"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    system "./configure", "--disable-silent-rules",
+                          "--mandir=#{man}",
+                          *std_configure_args
     system "make", "install"
   end
 
