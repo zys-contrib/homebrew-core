@@ -1249,6 +1249,7 @@ iowow
 iperf
 iperf3
 ipfs
+ipget
 ipinfo-cli
 ipmiutil
 ipopt
