@@ -12,6 +12,7 @@ class Libuninameslist < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "cf609c8bc13da0d2e48afb290124f6f40364d99ccd60d9cd90a5736cfd0a7b62"
     sha256 cellar: :any,                 arm64_sonoma:   "30162a392d8c3b38e0b54765ef6d3285b9b136123949df0dff2c6dd1850793b8"
     sha256 cellar: :any,                 arm64_ventura:  "ac5b3cf31a12f29e6f1c98d2dc20b6fb00c133f1ef25236ef1121034bb08c7d5"
     sha256 cellar: :any,                 arm64_monterey: "2ddbb3f6078bc8de3e9247846ae47bf71f9c9c70e76c3646af259247e217fa11"
