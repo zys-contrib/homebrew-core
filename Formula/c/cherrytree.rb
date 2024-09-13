@@ -2,7 +2,7 @@ class Cherrytree < Formula
   desc "Hierarchical note taking application featuring rich text and syntax highlighting"
   homepage "https://www.giuspen.com/cherrytree/"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/giuspen/cherrytree.git", branch: "master"
 
   stable do
