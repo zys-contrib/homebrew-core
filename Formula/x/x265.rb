@@ -1,8 +1,8 @@
 class X265 < Formula
   desc "H.265/HEVC encoder"
   homepage "https://bitbucket.org/multicoreware/x265_git"
-  url "https://bitbucket.org/multicoreware/x265_git/get/3.6.tar.gz"
-  sha256 "206329b9599c78d06969a1b7b7bb939f7c99a459ab283b2e93f76854bd34ca7b"
+  url "https://bitbucket.org/multicoreware/x265_git/get/4.0.tar.gz"
+  sha256 "66b64be4b316362fdadb33ad8273a74236042cc380691bdbec42946b0437a389"
   license "GPL-2.0-only"
   head "https://bitbucket.org/multicoreware/x265_git.git", branch: "master"
 
@@ -69,10 +69,15 @@ class X265 < Formula
   end
 
   test do
-    yuv_path = testpath/"raw.yuv"
+    resource "homebrew-test_video" do
+      url "https://raw.githubusercontent.com/fraunhoferhhi/vvenc/master/test/data/RTn23_80x44p15_f15.yuv"
+      sha256 "ecd2ef466dd2975f4facc889e0ca128a6bea6645df61493a96d8e7763b6f3ae9"
+    end
+
+    resource("homebrew-test_video").stage testpath
+    yuv_path = testpath/"RTn23_80x44p15_f15.yuv"
     x265_path = testpath/"x265.265"
-    yuv_path.binwrite "\xCO\xFF\xEE" * 3200
-    system bin/"x265", "--input-res", "80x80", "--fps", "1", yuv_path, x265_path
+    system bin/"x265", "--input-res", "360x640", "--fps", "60", "--input", yuv_path, "-o", x265_path
     header = "AAAAAUABDAH//w=="
     assert_equal header.unpack("m"), [x265_path.read(10)]
   end
