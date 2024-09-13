@@ -4,6 +4,7 @@ class Libsail < Formula
   url "https://github.com/HappySeaFox/sail/archive/refs/tags/v0.9.5.tar.gz"
   sha256 "28c601c0399be1940710afc150b5836f8b3f5f6a35b98d7ac1467e62bc568e20"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 arm64_sequoia:  "09ff0a6258284ba9609810f99132f9dd98eafcaee8dff95c7fb905c7901ac664"
