@@ -1,8 +1,8 @@
 class Wxpython < Formula
   desc "Python bindings for wxWidgets"
   homepage "https://www.wxpython.org/"
-  url "https://files.pythonhosted.org/packages/aa/64/d749e767a8ce7bdc3d533334e03bb1106fc4e4803d16f931fada9007ee13/wxPython-4.2.1.tar.gz"
-  sha256 "e48de211a6606bf072ec3fa778771d6b746c00b7f4b970eb58728ddf56d13d5c"
+  url "https://files.pythonhosted.org/packages/a4/f5/8c272764770f47fd419cc2eff4c4fa1c0681c71bcc2f3158b3a83d1339ff/wxPython-4.2.2.tar.gz"
+  sha256 "5dbcb0650f67fdc2c5965795a255ffaa3d7b09fb149aa8da2d0d9aa44e38e2ba"
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
 
   bottle do
@@ -30,11 +30,9 @@ class Wxpython < Formula
     depends_on "gtk+3"
   end
 
-  # Backport fix for doxygen 1.9.7+. Remove in the next release.
-  patch do
-    url "https://github.com/wxWidgets/Phoenix/commit/0b21230ee21e5e5d0212871b96a6d2fefd281038.patch?full_index=1"
-    sha256 "befd2a9594a2fa41f926edf412476479f2f311b4088c4738a867c5e7ca6c0f82"
-  end
+  # build patch to build with doxygen 1.11.0+, remove in next release
+  # upstream commit ref, https://github.com/wxWidgets/wxWidgets/commit/2d79dfc7a2a8dd42021ff0ea3dcc8ed05f7c23ef
+  patch :DATA
 
   def python
     "python3.12"
@@ -58,3 +56,31 @@ class Wxpython < Formula
     assert_match version.to_s, output
   end
 end
+
+__END__
+diff --git a/ext/wxWidgets/include/wx/datetime.h b/ext/wxWidgets/include/wx/datetime.h
+index 6eb2f8c..8c3cf43 100644
+--- a/ext/wxWidgets/include/wx/datetime.h
++++ b/ext/wxWidgets/include/wx/datetime.h
+@@ -148,7 +148,7 @@ public:
+         Local,
+
+         // zones from GMT (= Greenwich Mean Time): they're guaranteed to be
+-        // consequent numbers, so writing something like `GMT0 + offset' is
++        // consequent numbers, so writing something like `GMT0 + offset` is
+         // safe if abs(offset) <= 12
+
+         // underscore stands for minus
+diff --git a/ext/wxWidgets/interface/wx/datetime.h b/ext/wxWidgets/interface/wx/datetime.h
+index ae99947..4604b75 100644
+--- a/ext/wxWidgets/interface/wx/datetime.h
++++ b/ext/wxWidgets/interface/wx/datetime.h
+@@ -96,7 +96,7 @@ public:
+
+         ///@{
+         /// zones from GMT (= Greenwich Mean Time): they're guaranteed to be
+-        /// consequent numbers, so writing something like `GMT0 + offset' is
++        /// consequent numbers, so writing something like `GMT0 + offset` is
+         /// safe if abs(offset) <= 12
+
+         // underscore stands for minus
