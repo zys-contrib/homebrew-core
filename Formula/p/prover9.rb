@@ -35,6 +35,9 @@ class Prover9 < Formula
   end
 
   def install
+    # Workaround for newer Clang
+    ENV.append "XFLAGS", "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     ENV.deparallelize
     system "make", "all"
     bin.install "bin/prover9", "bin/mace4"
