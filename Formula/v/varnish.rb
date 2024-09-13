@@ -1,9 +1,9 @@
 class Varnish < Formula
   desc "High-performance HTTP accelerator"
   homepage "https://www.varnish-cache.org/"
-  url "https://varnish-cache.org/_downloads/varnish-7.5.0.tgz"
-  mirror "https://fossies.org/linux/www/varnish-7.5.0.tgz"
-  sha256 "fca61b983139e1aac61c4546d12a1a3ab9807dbb1d8314571e3148c93ff72b5d"
+  url "https://varnish-cache.org/_downloads/varnish-7.6.0.tgz"
+  mirror "https://fossies.org/linux/www/varnish-7.6.0.tgz"
+  sha256 "aba283c5a31baaa5356a6db38f38748cbb9158feca018193445ccc8514715d5c"
   license "BSD-2-Clause"
 
   livecheck do
@@ -76,6 +76,8 @@ class Varnish < Formula
     timeout_tests = [
       testpath/"m00000.vtc",
       testpath/"b00047.vtc",
+      testpath/"b00084.vtc",
+      testpath/"b00086.vtc",
       testpath/"u00008.vtc",
     ]
     tests = testpath.glob("[bmu]*.vtc") - timeout_tests

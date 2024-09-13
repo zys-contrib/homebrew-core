@@ -2800,6 +2800,7 @@ valijson
 valkey
 vapor
 vapoursynth
+varnish
 vault-cli
 vc
 vcluster
