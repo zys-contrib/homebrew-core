@@ -30,6 +30,10 @@ class GnuComplexity < Formula
   end
 
   def install
+    odie "check if autoreconf line can be removed" if version > "1.13"
+    # regenerate since the files were generated using automake 1.16.1
+    system "autoreconf", "--install", "--force", "--verbose"
+
     # Fix errors in opts.h. Borrowed from Debian:
     # https://salsa.debian.org/debian/complexity/-/blob/master/debian/rules
     cd "src" do
