@@ -2896,6 +2896,7 @@ xa
 xapian
 xauth
 xbyak
+xcb-util-cursor
 xcbeautify
 xcdiff
 xclogparser
