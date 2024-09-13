@@ -12,6 +12,7 @@ class Proto < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7a48e485dd09e11a5e95e1427b752e3fae95263cc36a0dd17906d06931435780"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c27f7ce69baa6cf8ef681ecceb1e8f48b7a1ed4af3d676f38b1fd128d47dd331"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "92cdf20a4a808d9fefbe43073d468e0e2d1cd196c228f0743a3d88fbd6647b27"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "209f19d256ac0d7e4e52024ad9dcc64d5f377c96b6f77c145356f0e01134a0e0"
