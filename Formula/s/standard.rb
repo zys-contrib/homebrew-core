@@ -6,6 +6,7 @@ class Standard < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cea2a79e439c36424a58621b3265e88e63516b8b2ad4e42618a63190e7c1b708"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cea2a79e439c36424a58621b3265e88e63516b8b2ad4e42618a63190e7c1b708"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cea2a79e439c36424a58621b3265e88e63516b8b2ad4e42618a63190e7c1b708"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cea2a79e439c36424a58621b3265e88e63516b8b2ad4e42618a63190e7c1b708"
