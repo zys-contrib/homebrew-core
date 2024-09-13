@@ -2335,6 +2335,7 @@ rust-analyzer
 rust-parallel
 rustcat
 rustfmt
+rustls-ffi
 rustscan
 rustup
 rye
