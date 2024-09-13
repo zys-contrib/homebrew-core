@@ -7,16 +7,13 @@ class Bullet < Formula
   head "https://github.com/bulletphysics/bullet3.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "70c2517b16906464fba68e8c3467d6440e483e550f649402339bddf1bcaa87dd"
-    sha256 cellar: :any,                 arm64_ventura:  "6cb9f0e3435ac577cdae63a3593693da7a2e93110e92691f9b43ab35282bfa5a"
-    sha256 cellar: :any,                 arm64_monterey: "84fe44bad0dc14eb49e1cd40c6ef1545c05186aca4a5a7e5e485fdabc3751fe5"
-    sha256 cellar: :any,                 arm64_big_sur:  "c786c28169f4f65cfb8c6183453a468386ec9f58dbfa45420510ebd272be1ecd"
-    sha256 cellar: :any,                 sonoma:         "329d917b1c71b47a29f24fdf341a0deb6ce89a3d84b9c6233bde1b37bc0f61bb"
-    sha256 cellar: :any,                 ventura:        "4bfaa654682214a65629e2d09f36944857fc67162fde4bbb67e7bce7b6ff10b6"
-    sha256 cellar: :any,                 monterey:       "50eed1d7cd3dedb6c64970b2a729e0128cb18f20477c106676e18d7539764fda"
-    sha256 cellar: :any,                 big_sur:        "89803317a3b1ca72df1f1473efd8d99bcb857f47c2c3adccc7b4cb3ffc2fe406"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3670bbfd66cfd61791baf1e268c42baab46191b1b8e11392d18d6f34c8b1875"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia: "662d4ba26dda7fca5cc9395a5d37f2e3292625b30d8b59dfd1379601e88cd9c8"
+    sha256 cellar: :any,                 arm64_sonoma:  "731fc08c5bb5c2f25f38154efe84b7520dc2d1b1e35474e1fff8f30366705870"
+    sha256 cellar: :any,                 arm64_ventura: "436404c3482bc1f3504848777c33607fe6437022fb4bba4e588f6863c2a64f3d"
+    sha256 cellar: :any,                 sonoma:        "9d06bf5b6f1cbc13ea673d69a87d1295b19b326d234c0b2de9a2850f7390f2a2"
+    sha256 cellar: :any,                 ventura:       "0f397505429015eb2c5583f263a337e2d29397726f31967576338fcd2b9420c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c961f4a89d4d40e482459cf17731aa3d22b9bae975b968d9e65ad38097659bde"
   end
 
   depends_on "cmake" => :build
