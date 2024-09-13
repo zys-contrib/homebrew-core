@@ -6,6 +6,7 @@ class CloudflareWrangler2 < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3bd389c084240fcd439ab3b590f983743f5d43e5e1c537a21e41fc2cee0afd24"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3bd389c084240fcd439ab3b590f983743f5d43e5e1c537a21e41fc2cee0afd24"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3bd389c084240fcd439ab3b590f983743f5d43e5e1c537a21e41fc2cee0afd24"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3bd389c084240fcd439ab3b590f983743f5d43e5e1c537a21e41fc2cee0afd24"
