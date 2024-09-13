@@ -4,7 +4,7 @@ class Bamtools < Formula
   url "https://github.com/pezmaster31/bamtools/archive/refs/tags/v2.5.2.tar.gz"
   sha256 "4d8b84bd07b673d0ed41031348f10ca98dd6fa6a4460f9b9668d6f1d4084dfc8"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/pezmaster31/bamtools.git", branch: "master"
 
   bottle do
