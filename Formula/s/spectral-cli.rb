@@ -6,6 +6,7 @@ class SpectralCli < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f04a79ba5915612e3fddff5396b02f02669b80f657403c5da5a03abaa80c667e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f04a79ba5915612e3fddff5396b02f02669b80f657403c5da5a03abaa80c667e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f04a79ba5915612e3fddff5396b02f02669b80f657403c5da5a03abaa80c667e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f04a79ba5915612e3fddff5396b02f02669b80f657403c5da5a03abaa80c667e"
