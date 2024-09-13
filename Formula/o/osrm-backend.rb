@@ -16,6 +16,9 @@ class OsrmBackend < Formula
     #
     # Also add temporary build fix to 'include/util/lua_util.hpp' for Boost 1.85.0.
     # Issue ref: https://github.com/Project-OSRM/osrm-backend/issues/6850
+    #
+    # Also backport sol2.hpp workaround to avoid a Clang bug. Remove in the next release
+    # Ref: https://github.com/Project-OSRM/osrm-backend/commit/523ee762f077908d03b66d0976c877b52adf22fa
     patch :DATA
   end
 
@@ -134,3 +137,40 @@ index 36af5a1f3..cd2d1311c 100644
 
  #include <iostream>
  #include <string>
+
+diff --git a/third_party/sol2-3.3.0/include/sol/sol.hpp b/third_party/sol2-3.3.0/include/sol/sol.hpp
+index 8b0b7d36ea4ef2a36133ce28476ae1620fcd72b5..d7da763f735434bf4a40b204ff735f4e464c1b13 100644
+--- a/third_party/sol2-3.3.0/include/sol/sol.hpp
++++ b/third_party/sol2-3.3.0/include/sol/sol.hpp
+@@ -19416,7 +19416,14 @@ namespace sol { namespace function_detail {
+ 		}
+
+ 		template <bool is_yielding, bool no_trampoline>
+-		static int call(lua_State* L) noexcept(std::is_nothrow_copy_assignable_v<T>) {
++		static int call(lua_State* L)
++// see https://github.com/ThePhD/sol2/issues/1581#issuecomment-2103463524
++#if SOL_IS_ON(SOL_COMPILER_CLANG)
++		// apparent regression in clang 18 - llvm/llvm-project#91362
++#else
++			noexcept(std::is_nothrow_copy_assignable_v<T>)
++#endif
++		{
+ 			int nr;
+ 			if constexpr (no_trampoline) {
+ 				nr = real_call(L);
+@@ -19456,7 +19463,14 @@ namespace sol { namespace function_detail {
+ 		}
+
+ 		template <bool is_yielding, bool no_trampoline>
+-		static int call(lua_State* L) noexcept(std::is_nothrow_copy_assignable_v<T>) {
++		static int call(lua_State* L)
++// see https://github.com/ThePhD/sol2/issues/1581#issuecomment-2103463524
++#if SOL_IS_ON(SOL_COMPILER_CLANG)
++		// apparent regression in clang 18 - llvm/llvm-project#91362
++#else
++			noexcept(std::is_nothrow_copy_assignable_v<T>)
++#endif
++		{
+ 			int nr;
+ 			if constexpr (no_trampoline) {
+ 				nr = real_call(L);
