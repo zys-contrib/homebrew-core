@@ -20,9 +20,13 @@ class Bullet < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "numpy" => [:build, :test]
   depends_on "pkg-config" => :build
+  depends_on "python@3.12" => [:build, :test]
 
-  uses_from_macos "python" => :build
+  def python3
+    "python3.12"
+  end
 
   def install
     # C++11 for nullptr usage in examples. Can remove when fixed upstream.
@@ -34,42 +38,45 @@ class Bullet < Formula
       -DBUILD_UNIT_TESTS=OFF
       -DINSTALL_EXTRA_LIBS=ON
       -DBULLET2_MULTITHREADING=ON
-    ]
+    ] + std_cmake_args(find_framework: "FIRST")
 
-    double_args = std_cmake_args + %W[
-      -DCMAKE_INSTALL_RPATH=#{opt_lib}/bullet/double
-      -DUSE_DOUBLE_PRECISION=ON
-      -DBUILD_SHARED_LIBS=ON
-    ]
+    system "cmake", "-S", ".", "-B", "build_double",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DCMAKE_INSTALL_RPATH=#{loader_path}",
+                    "-DUSE_DOUBLE_PRECISION=ON",
+                    *common_args
+    system "cmake", "--build", "build_double"
+    system "cmake", "--install", "build_double"
+    (lib/"bullet/double").install lib.children
 
-    mkdir "builddbl" do
-      system "cmake", "..", *double_args, *common_args
-      system "make", "install"
+    system "cmake", "-S", ".", "-B", "build_static",
+                    "-DBUILD_SHARED_LIBS=OFF",
+                    *common_args
+    system "cmake", "--build", "build_static"
+    system "cmake", "--install", "build_static"
+
+    python_version = Language::Python.major_minor_version python3
+    python_prefix = if OS.mac?
+      Formula["python@#{python_version}"].opt_frameworks/"Python.framework/Versions/#{python_version}"
+    else
+      Formula["python@#{python_version}"].opt_prefix
     end
-    dbllibs = lib.children
-    (lib/"bullet/double").install dbllibs
+    prefix_site_packages = prefix/Language::Python.site_packages(python3)
 
-    args = std_cmake_args + %W[
-      -DBUILD_PYBULLET_NUMPY=ON
-      -DCMAKE_INSTALL_RPATH=#{opt_lib}
-    ]
-
-    mkdir "build" do
-      system "cmake", "..", *args, *common_args, "-DBUILD_SHARED_LIBS=OFF", "-DBUILD_PYBULLET=OFF"
-      system "make", "install"
-
-      system "make", "clean"
-
-      system "cmake", "..", *args, *common_args, "-DBUILD_SHARED_LIBS=ON", "-DBUILD_PYBULLET=ON"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build_shared",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DCMAKE_INSTALL_RPATH=#{loader_path};#{rpath(source: prefix_site_packages)}",
+                    "-DBUILD_PYBULLET=ON",
+                    "-DBUILD_PYBULLET_NUMPY=ON",
+                    "-DPYTHON_EXECUTABLE=#{which(python3)}",
+                    "-DPYTHON_INCLUDE_DIR=#{python_prefix}/include/python#{python_version}",
+                    "-DPYTHON_LIBRARY=#{python_prefix}/lib",
+                    *common_args
+    system "cmake", "--build", "build_shared"
+    system "cmake", "--install", "build_shared"
 
     # Install single-precision library symlinks into `lib/"bullet/single"` for consistency
-    lib.each_child do |f|
-      next if f == lib/"bullet"
-
-      (lib/"bullet/single").install_symlink f
-    end
+    (lib/"bullet/single").install_symlink (lib.children - [lib/"bullet"])
   end
 
   test do
@@ -98,5 +105,12 @@ class Bullet < Formula
     system ENV.cc, "test.cpp", "-I#{include}/bullet", "-L#{lib}/bullet/double",
                    "-lLinearMath", cxx_lib, "-o", "test"
     system "./test"
+
+    system python3, "-c", <<~EOS
+      import pybullet
+      pybullet.connect(pybullet.DIRECT)
+      pybullet.setGravity(0, 0, -10)
+      pybullet.disconnect()
+    EOS
   end
 end
