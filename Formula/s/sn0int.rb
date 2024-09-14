@@ -1,10 +1,9 @@
 class Sn0int < Formula
   desc "Semi-automatic OSINT framework and package manager"
   homepage "https://github.com/kpcyrd/sn0int"
-  url "https://github.com/kpcyrd/sn0int/archive/refs/tags/v0.26.0.tar.gz"
-  sha256 "4ce71f69410a9c9470edf922c3c09b6a53bfbf41d154aa124859bbce8014cf13"
+  url "https://github.com/kpcyrd/sn0int/archive/refs/tags/v0.26.1.tar.gz"
+  sha256 "cf10bff93098586ba7dd885bf56af489ce0177bd1889a13b004fc38f026e71ea"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "4c653c908a5dcdd3cae0ccae42321a281e01f2530a35e4153997a2fe161d1b8d"
@@ -24,12 +23,6 @@ class Sn0int < Formula
 
   on_linux do
     depends_on "libseccomp"
-  end
-
-  # patch time crate to fix build with rust 1.80+
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/f4da3dc7bb1a0f9582b43707f1b8822187154a02/sn0int/rust-1.80.patch"
-    sha256 "91128acfec4c2499502580ee43ff3c54cbfec7281ef6a20aa72505b2db6e12e3"
   end
 
   def install
