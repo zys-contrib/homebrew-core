@@ -27,6 +27,15 @@ class Sc68 < Formula
     sha256 x86_64_linux:   "1876d7c98fac9c5a36824c13141354e0cbce33508f155741d8430182d7fd6104"
   end
 
+  head do
+    url "https://svn.code.sf.net/p/sc68/code/"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    depends_on "pkg-config" => :build
+  end
+
   uses_from_macos "zlib"
 
   on_linux do
@@ -34,12 +43,18 @@ class Sc68 < Formula
   end
 
   def install
-    inreplace "configure", "-flat_namespace -undefined suppress",
-              "-undefined dynamic_lookup"
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}",
-                          "--infodir=#{info}"
+    if build.head?
+      system "tools/svn-bootstrap.sh"
+    else
+      inreplace "configure", "-flat_namespace -undefined suppress", "-undefined dynamic_lookup"
+      # Workaround for newer Clang
+      odie "Try to remove workaround for Xcode 16 Clang!" if version > "2.2.1"
+      ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+    end
+
+    system "./configure", "--mandir=#{man}",
+                          "--infodir=#{info}",
+                          *std_configure_args
     system "make", "install"
   end
 
