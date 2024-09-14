@@ -40,6 +40,12 @@ class Clipboard < Formula
     cause "Requires C++20 support"
   end
 
+  # dont force CMAKE_OSX_ARCHITECTURES, upstream pr ref, https://github.com/Slackadays/Clipboard/pull/202
+  patch do
+    url "https://github.com/Slackadays/Clipboard/commit/41867bea719befa2f9e3e187997acfc803f919b1.patch?full_index=1"
+    sha256 "97cccf3b937592749ee24f25f1fe35f85a465c2bdc2f6ad2a21c15001d609503"
+  end
+
   def install
     ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1300
 
@@ -48,7 +54,7 @@ class Clipboard < Formula
     #   https://github.com/Slackadays/Clipboard/issues/147
     ENV.O3
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.arch}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
