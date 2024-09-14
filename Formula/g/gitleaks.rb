@@ -5,6 +5,14 @@ class Gitleaks < Formula
   sha256 "68829e1dcb6bf412f04354070187947896af78c1f0fbe7f697eda18417f214ad"
   license "MIT"
 
+  # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
+  # labeled as "pre-release" on GitHub before the version is released, so it's
+  # necessary to use the `GithubLatest` strategy.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "72fcb54a8f2993e43fe068234bd6978e32d1430f9b438e17ec4d5b06fc124b5d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a6c63682bce671400e51943b8df178814c064774d046d595d36fddea5a00c671"

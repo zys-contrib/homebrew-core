@@ -22,12 +22,15 @@ class Hfsutils < Formula
   end
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     # hpwd.c:55:7: error: call to undeclared library function 'strcmp' with type 'int (const char *, const char *)';
     # ISO C99 and later do not support implicit function declarations
     # Notified the author via email on 2023-01-05
     inreplace "hpwd.c", "# include <stdio.h>\n", "# include <stdio.h>\n# include <string.h>\n"
 
-    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
+    system "./configure", "--mandir=#{man}", *std_configure_args
     bin.mkpath
     man1.mkpath
     system "make", "install"
