@@ -1,8 +1,8 @@
 class Mdcat < Formula
   desc "Show markdown documents on text terminals"
   homepage "https://github.com/swsnr/mdcat"
-  url "https://github.com/swsnr/mdcat/archive/refs/tags/mdcat-2.1.2.tar.gz"
-  sha256 "332c8e659a668ceeae70b0d268a46f00bf8bab696dbf7f84faa69b3c509da286"
+  url "https://github.com/swsnr/mdcat/archive/refs/tags/mdcat-2.3.1.tar.gz"
+  sha256 "5dbee35f8b582bb3a023133fc564103e49d16f10a62e7a07ddf29a06fa2d48f5"
   license "MPL-2.0"
   head "https://github.com/swsnr/mdcat.git", branch: "main"
 
@@ -16,10 +16,7 @@ class Mdcat < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "68db6d25634ac8a5b2c2bb51a9e7f6c0b72366868b49409eacfcf400ff308274"
   end
 
-  deprecate! date: "2024-04-05", because: :repo_archived
-
   depends_on "asciidoctor" => :build
-  depends_on "cmake" => :build
   depends_on "rust" => :build
 
   on_linux do
@@ -30,11 +27,10 @@ class Mdcat < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    outdir = Dir["target/release/build/mdcat-*/out"].first
-    man1.install "#{outdir}/mdcat.1"
-    bash_completion.install "#{outdir}/completions/mdcat.bash" => "mdcat"
-    fish_completion.install "#{outdir}/completions/mdcat.fish"
-    zsh_completion.install "#{outdir}/completions/_mdcat"
+    # https://github.com/swsnr/mdcat?tab=readme-ov-file#packaging
+    generate_completions_from_executable(bin/"mdcat", "--completions")
+    system "asciidoctor", "-b", "manpage", "-a", "reproducible", "-o", "mdcat.1", "mdcat.1.adoc"
+    man1.install Utils::Gzip.compress("mdcat.1")
   end
 
   test do

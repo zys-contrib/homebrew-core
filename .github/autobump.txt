@@ -1702,6 +1702,7 @@ mcap
 mcfly
 md4c
 mdbook
+mdcat
 mdless
 mdsh
 mdzk
