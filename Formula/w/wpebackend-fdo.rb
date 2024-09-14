@@ -12,7 +12,7 @@ class WpebackendFdo < Formula
   end
 
   bottle do
-    sha256 x86_64_linux: "b7118b8022fa68463f88f09fe48a70e41f342878addd6ef336ccfca2a446b96b"
+    sha256 x86_64_linux: "2bab7093c2eaba0cde2fec85b7b413585d05fef38ddeb9b69ebef34deff304b3"
   end
 
   depends_on "meson" => :build
