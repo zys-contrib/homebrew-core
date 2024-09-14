@@ -11,14 +11,12 @@ class Gtksourceview5 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "143631d8efad4b344e2f40445c0008eadf9060ddb96417177e4bdba4c066719d"
-    sha256 arm64_sonoma:   "8adfea87d584da20e23a23c94ec2af6846d32ba746f51c2bfa606eb665e1ecbd"
-    sha256 arm64_ventura:  "9c5340e8b3fc5ee6ad0fcaa7f532e0233136e88739983f77adc1c1701e3fa747"
-    sha256 arm64_monterey: "7d03cb0bed2f9783fb860c95335bad0f18e04d461973673a671c88800b43a380"
-    sha256 sonoma:         "2635beffc5111372cc0595af6d7054cd5350c52aeb3f73a762fc66fb5b983619"
-    sha256 ventura:        "2d3fd2deb3e7eb79d107dac69686e74edf3808cb39f2c59e6cdb557ac8bdb6e4"
-    sha256 monterey:       "c629b5cd4fce80fd90d77f645b12c688651ac00b02d2c48216f0a42bfc155d81"
-    sha256 x86_64_linux:   "96f6ff7d81b628f00bace8723469e5bb58033e10f8a685dac576a045bc700a02"
+    sha256 arm64_sequoia: "1009e77ffceb4849dad7d920bdf0111010513dfe50d45030598f6ba0349c7413"
+    sha256 arm64_sonoma:  "2eb5dcdcf1810689c7c19ee2d581a66cd1fd6f79a6b86a8ebb3b03e406aa6250"
+    sha256 arm64_ventura: "70fb65b657d878c0cf1418b87e9214c864421fc7da96124ec8c6bfa6ca9581ca"
+    sha256 sonoma:        "d14deeb02a29fdc05a3c973e9de19c81445fe541dc6e5736ef7e8c9dd0b7c61c"
+    sha256 ventura:       "5ad59964c36d4a9f43290fa7a70ce85ab28b466caf551025c77ec670c759c950"
+    sha256 x86_64_linux:  "d9ca6c7f87088f3c50c22259fb07ba1fc5d5271a5797506c27ee9eb972165955"
   end
 
   depends_on "gobject-introspection" => :build
