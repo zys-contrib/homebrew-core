@@ -12,7 +12,7 @@ class M1ddc < Formula
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8d0636faa4400e20f160adba62245a506f7c087c6f047b9c2f03ce1db4f3863f"
   end
 
-  depends_on arch: :arm
+  depends_on arch: :arm64
   depends_on macos: :monterey
   depends_on :macos
 
