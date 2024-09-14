@@ -7,13 +7,12 @@ class Mdcat < Formula
   head "https://github.com/swsnr/mdcat.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c33dd68f2f6d8d3b6cd231066eb517ea198032a947e0e08aca77ca433f5641d9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c8d527e63b5d2637576d2e5d0ec7967ff28fba3326a6a2f1fe8398d5ca3f4a54"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cc824e96ad0b6ecf285eeb8f0d2fc9cc005b19f17cb7e2f97f2eeabeaa3d3df0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "337024e0c95a589a176aaf54b2af76d8918f1138115071d676b5656a27718d6c"
-    sha256 cellar: :any_skip_relocation, ventura:        "d5590516084cb1d62d9a751c8f1707137832f5016f2de5d430e3ece8b6258f69"
-    sha256 cellar: :any_skip_relocation, monterey:       "54e7faca0303e2ef5cba4d84e76e24a6cfcb0c4652852252576d5c4533c17ee9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "68db6d25634ac8a5b2c2bb51a9e7f6c0b72366868b49409eacfcf400ff308274"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "de1043b475066485007cbbff0f2783967ea176400fcf2a99693b3d359a93f68a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "81e6682f3d5969c66a7850df14c08e9d087c319abc03b4e814ec3a162d51c1fd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "81cad2afa7ae25c994ba0271b9bd839a806618ae1462ecbf498f360c991f22ae"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7cb5f851b036e667d519677d55aa5363cb9fabeeea09c25ce6887043fae9b2d4"
+    sha256 cellar: :any_skip_relocation, ventura:       "65893b080f2a0c572d95a7eb13d6ed0236fca78917a8423b0df218a0da19f4b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e343e2e7a0bf3bb4dfd856d2c00769a00155de7c10934927ba2c3041375e5afe"
   end
 
   depends_on "asciidoctor" => :build
