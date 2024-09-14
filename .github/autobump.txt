@@ -2763,6 +2763,7 @@ ungit
 uni
 uni-algo
 uni2ascii
+unibilium
 unison
 unisonlang
 universal-ctags
