@@ -17,13 +17,12 @@ class Ntopng < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "778b00f575e753b94aa544362dde641f028932146c84f19f73076940a301b301"
-    sha256 arm64_ventura:  "3a22cb20eff4ebe2ef15b69d8a384f03103f9d8024290b3d8aae96275d2eccf6"
-    sha256 arm64_monterey: "88fcdf863e873ff238041e7fccf65b6bd32fb357f2f682d868b8d5394cc56428"
-    sha256 sonoma:         "87ceb2c71bcbc2adfe2a5393357d477730ace4435d75bc117c507937346a71fe"
-    sha256 ventura:        "e6820a187c13bf156dfb1146783cfb1bc735cba6fec26c01bbe461459d5a0ef3"
-    sha256 monterey:       "e7c66db0a5c80caff9cf98da11c3e5fdbfb9aa9c3f2f129509e48dae3300672a"
-    sha256 x86_64_linux:   "cf9a961dfd80df66a2ff55cf417cd4e41981cbb9464e9c877fc0bdeb61e5087a"
+    sha256 arm64_sequoia: "bd1dc32c1fdffb0e1d9c23400d74c43ebf252e8d755b0a019ec87046e92e697d"
+    sha256 arm64_sonoma:  "64288684042c3564bfd3e382d15d661172a2f522e407787d82e6af6f33d309f8"
+    sha256 arm64_ventura: "aee5b881035ec900c44dd05416df622b7e9e3d3759dd3b7f9aa715f368492196"
+    sha256 sonoma:        "586aa879223843e30fc9136377aa7cd00f3edb16d015d28b14de084e58588d58"
+    sha256 ventura:       "7d636609619e74f65df6a7345ad2ea5dad6579cb3d66cb5ce96786abeb62818c"
+    sha256 x86_64_linux:  "dcf114d1ce761fb41239ff2c496edcaff98061cdc0ee28b11fc96a0737d024c5"
   end
 
   head do
