@@ -1053,6 +1053,7 @@ gokey
 golang-migrate
 golangci-lint
 golangci-lint-langserver
+gollama
 google-authenticator-libpam
 google-benchmark
 google-java-format
