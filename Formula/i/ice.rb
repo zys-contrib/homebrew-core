@@ -33,6 +33,14 @@ class Ice < Formula
   end
 
   def install
+    # Workaround for Xcode 16 (LLVM 17) Clang bug that causes:
+    # include/Ice/OutgoingAsync.h: error: declaration shadows a local variable [-Werror,-Wshadow-uncaptured-local]
+    # Ref: https://github.com/llvm/llvm-project/issues/81307
+    # Ref: https://github.com/llvm/llvm-project/issues/71976
+    if DevelopmentTools.clang_build_version == 1600
+      inreplace "config/Make.rules.Darwin", "-Wno-shadow-field ", "\\0-Wno-shadow-uncaptured-local "
+    end
+
     args = [
       "prefix=#{prefix}",
       "V=1",
