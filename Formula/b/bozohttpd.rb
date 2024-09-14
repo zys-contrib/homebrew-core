@@ -1,8 +1,8 @@
 class Bozohttpd < Formula
   desc "Small and secure http version 1.1 server"
-  homepage "http://www.eterna.com.au/bozohttpd/"
-  url "http://www.eterna.com.au/bozohttpd/bozohttpd-20220517.tar.bz2"
-  sha256 "9bfd0942a0876e5529b0d962ddbcf50473bcf84cf5e4447043e4a0f4ea65597a"
+  homepage "https://pkgsrc.se/www/bozohttpd"
+  url "https://cdn.netbsd.org/pub/pkgsrc/distfiles/LOCAL_PORTS/bozohttpd-20240126.tar.bz2"
+  sha256 "576267bc5681c52b650294c3f2a85b8c8d8c239e75e71aaba7973771f852b56d"
   license "BSD-2-Clause"
 
   bottle do
@@ -14,8 +14,6 @@ class Bozohttpd < Formula
     sha256 cellar: :any,                 monterey:       "594536c4a63b2010b8f3d7939cbb64b160471b2b6c695c21106dc41309580f31"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cbd5ed984d13939f8c193b697794540e2b52294e246ed5da888f09f4f357b43f"
   end
-
-  deprecate! date: "2024-07-20", because: :repo_removed
 
   depends_on "pkg-config" => :build
   depends_on "lua"
