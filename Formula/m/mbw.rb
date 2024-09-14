@@ -26,6 +26,6 @@ class Mbw < Formula
   end
 
   test do
-    assert_match "AVG\tMethod: MEMCPY\tElapsed", pipe_output("#{bin}/mbw 8", 0)
+    assert_match "AVG\tMethod: MEMCPY\tElapsed", pipe_output("#{bin}/mbw 8", "0")
   end
 end
