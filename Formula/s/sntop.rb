@@ -33,10 +33,12 @@ class Sntop < Formula
   uses_from_macos "ncurses"
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}",
-                          "--sysconfdir=#{etc}"
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
+    system "./configure", "--mandir=#{man}",
+                          "--sysconfdir=#{etc}",
+                          *std_configure_args
     etc.mkpath
     bin.mkpath
     man1.mkpath
