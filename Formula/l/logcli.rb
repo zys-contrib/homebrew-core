@@ -11,6 +11,7 @@ class Logcli < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3038f73859b6ae2375cacbeff768997225b621dbe417c2f4ee7f1115c54a0a3c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7d8e2562c748d475138e699c6ede2536fba6349d6da6ebdf00e110e5ac01c9c4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7135b0f293021cb718ed9779745926e2201b3ac7bbcc9f79d2f6a04f4e899f55"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "342b53e5b75453b9f4344d7d73bfc76aec14a64bb2772738c1318abc273db222"
