@@ -4,7 +4,7 @@ class Cppinsights < Formula
   url "https://github.com/andreasfertig/cppinsights/archive/refs/tags/v_17.0.tar.gz"
   sha256 "2dd6bcfcdba65c0ed2e1f04ef79d57285186871ad8bd481d63269f3115276216"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "a98eb7b557dfbbec2513985ca276c36ac0d3850d278ecdb5d7d17ed6337aa279"
@@ -18,11 +18,14 @@ class Cppinsights < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm"
+  depends_on "llvm@18"
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1500
+  end
 
   fails_with :clang do
-    build 1300
-    cause "Requires C++20"
+    build 1500
+    cause "Requires Clang > 15.0"
   end
 
   # Patch from https://github.com/andreasfertig/cppinsights/pull/622
@@ -30,9 +33,18 @@ class Cppinsights < Formula
   patch :DATA
 
   def install
-    ENV.llvm_clang if ENV.compiler == :clang && DevelopmentTools.clang_build_version <= 1500
+    if OS.mac? && DevelopmentTools.clang_build_version <= 1500
+      ENV.llvm_clang
+      ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
+    end
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    llvm18 = Formula["llvm@18"]
+    ENV.append "LDFLAGS", "-L#{llvm18.lib}"
+
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DINSIGHTS_LLVM_CONFIG=#{llvm18.opt_bin}/llvm-config",
+                    "-DINSIGHTS_USE_SYSTEM_INCLUDES=Off",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -46,6 +58,7 @@ class Cppinsights < Formula
     assert_match "{2, 3, 4, 0, 0}", shell_output("#{bin}/insights ./test.cpp")
   end
 end
+
 __END__
 diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 31341709..8b7430db 100644
