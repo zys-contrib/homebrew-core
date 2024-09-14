@@ -20,7 +20,7 @@ class Logcli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2848d43d3f280d4d337cf2a0f431d2a8969ab0cd0dad1f94819ef2ed36d7cbcf"
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.22" => :build
   depends_on "loki" => :test
 
   def install
