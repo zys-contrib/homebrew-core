@@ -3,8 +3,8 @@ class BumpMyVersion < Formula
 
   desc "Version bump your Python project"
   homepage "https://callowayproject.github.io/bump-my-version/"
-  url "https://files.pythonhosted.org/packages/f3/34/926646fa7d1c91b8ae215766b88370bea06cf95658fc5eba08b6853cd782/bump_my_version-0.26.0.tar.gz"
-  sha256 "9e2c01b7639960379440c4a371b3c8c0aa66cf6979985f1c9ba2e7c2fb4a185f"
+  url "https://files.pythonhosted.org/packages/64/e8/79b34e1be514aea34182a766ab9ae1fdb493ce0e36609517c3dd10adf3f7/bump_my_version-0.26.1.tar.gz"
+  sha256 "af1cada726cf6f9a723d18941c68c325d5196453a180b3a42f8e0b38567d734d"
   license "MIT"
   head "https://github.com/callowayproject/bump-my-version.git", branch: "master"
 
@@ -53,18 +53,18 @@ class BumpMyVersion < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/f6/8f/3b9f7a38caa3fa0bcb3cea7ee9958e89a9a6efc0e6f51fd6096f24cac140/pydantic-2.9.0.tar.gz"
-    sha256 "c7a8a9fdf7d100afa49647eae340e2d23efa382466a8d177efcd1381e9be5598"
+    url "https://files.pythonhosted.org/packages/14/15/3d989541b9c8128b96d532cfd2dd10131ddcc75a807330c00feb3d42a5bd/pydantic-2.9.1.tar.gz"
+    sha256 "1363c7d975c7036df0db2b4a61f2e062fbc0aa5ab5f2772e0ffc7191a4f4bce2"
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/5f/03/54e4961dfaed4804fea0ad73e94d337f4ef88a635e73990d6e150b469594/pydantic_core-2.23.2.tar.gz"
-    sha256 "95d6bf449a1ac81de562d65d180af5d8c19672793c81877a2eda8fde5d08f2fd"
+    url "https://files.pythonhosted.org/packages/5c/cc/07bec3fb337ff80eacd6028745bd858b9642f61ee58cfdbfb64451c1def0/pydantic_core-2.23.3.tar.gz"
+    sha256 "3cb0f65d8b4121c1b015c60104a685feb929a29d7cf204387c7f2688c7974690"
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/58/14/7bfb313ccee79f97dc235721b035174af94ef4472cfe455c259cd2971f2f/pydantic_settings-2.4.0.tar.gz"
-    sha256 "ed81c3a0f46392b4d7c0a565c05884e6e54b3456e6f0fe4d8814981172dc9a88"
+    url "https://files.pythonhosted.org/packages/68/27/0bed9dd26b93328b60a1402febc780e7be72b42847fa8b5c94b7d0aeb6d1/pydantic_settings-2.5.2.tar.gz"
+    sha256 "f90b139682bee4d2065273d5185d71d37ea46cfe57e1b5ae184fc6a0b2484ca0"
   end
 
   resource "pygments" do
@@ -83,8 +83,8 @@ class BumpMyVersion < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/cf/60/5959113cae0ce512cf246a6871c623117330105a0d5f59b4e26138f2c9cc/rich-13.8.0.tar.gz"
-    sha256 "a5ac1f1cd448ade0d59cc3356f7db7a7ccda2c8cbae9c7a90c28ff463d3e91f4"
+    url "https://files.pythonhosted.org/packages/92/76/40f084cb7db51c9d1fa29a7120717892aeda9a7711f6225692c957a93535/rich-13.8.1.tar.gz"
+    sha256 "8260cda28e3db6bf04d2d1ef4dbc03ba80a824c88b0e7668a0f23126a424844a"
   end
 
   resource "rich-click" do
@@ -100,11 +100,6 @@ class BumpMyVersion < Formula
   resource "typing-extensions" do
     url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
     sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
-  end
-
-  resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/74/5b/e025d02cb3b66b7b76093404392d4b44343c69101cc85f4d180dd5784717/tzdata-2024.1.tar.gz"
-    sha256 "2674120f8d891909751c38abcdfd386ac0a5a1127954fbc332af6b5ceae07efd"
   end
 
   resource "wcmatch" do
