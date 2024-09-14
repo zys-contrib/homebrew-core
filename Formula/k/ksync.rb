@@ -26,7 +26,7 @@ class Ksync < Formula
   # no release since 2021-03-23, https://github.com/ksync/ksync/issues/616
   deprecate! date: "2024-08-02", because: :unmaintained
 
-  depends_on "go" => :build
+  depends_on "go@1.22" => :build
 
   # Support go 1.17, remove after next release
   # Patch is equivalent to https://github.com/ksync/ksync/pull/544,
