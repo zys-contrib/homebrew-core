@@ -1,8 +1,8 @@
 class Standard < Formula
   desc "JavaScript Style Guide, with linter & automatic code fixer"
   homepage "https://standardjs.com/"
-  url "https://registry.npmjs.org/standard/-/standard-17.1.1.tgz"
-  sha256 "b763344dd2c24f00d8690d881c826c8f23f67d7afe616d7ad1889fd3b4d144f5"
+  url "https://registry.npmjs.org/standard/-/standard-17.1.2.tgz"
+  sha256 "fb2aaf22460bb3e77e090c727c694a56dd9a9486eec30a0152290a5c6d83757c"
   license "MIT"
 
   bottle do
