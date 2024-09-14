@@ -3,8 +3,9 @@ class ErlangAT24 < Formula
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
   url "https://github.com/erlang/otp/releases/download/OTP-24.3.4.17/otp_src_24.3.4.17.tar.gz"
-  sha256 "2f0661b1f98b01c26e2bde7234ef587f77e5ee0e384f3b1221496782bf9c8b28"
+  sha256 "0bf449184ef4ca71f9af79fc086d941f4532922e01957e84a4fec192c2db5c0c"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "435837edaf050c74b206c802ddaca9acc8b4bc91a47dc6f7387940c87be60be5"
@@ -29,7 +30,7 @@ class ErlangAT24 < Formula
 
   resource "html" do
     url "https://github.com/erlang/otp/releases/download/OTP-24.3.4.17/otp_doc_html_24.3.4.17.tar.gz"
-    sha256 "cb76b9d11d7b6c023ae9ed869d716fc3528699c8a9d40477026a9a65720d8eda"
+    sha256 "f9aec1b812dfdbf2dc259f9e93c037f346259b7baf391705b6c1c4e29a4eaac8"
   end
 
   def install
