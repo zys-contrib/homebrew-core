@@ -30,13 +30,17 @@ class Ollama < Formula
   depends_on "go" => :build
 
   def install
-    # Fix build by setting SDKROOT
+    # Silence tens of thousands of SDK warnings
     ENV["SDKROOT"] = MacOS.sdk_path if OS.mac?
-    # Fix "ollama --version"
-    inreplace "version/version.go", /var Version string = "[\d.]+"/, "var Version string = \"#{version}\""
+
+    ldflags = %W[
+      -s -w
+      -X=github.com/ollama/ollama/version.Version=#{version}
+      -X=github.com/ollama/ollama/server.mode=release
+    ]
 
     system "go", "generate", "./..."
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   service do
