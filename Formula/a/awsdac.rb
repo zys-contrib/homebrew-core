@@ -20,7 +20,7 @@ class Awsdac < Formula
   depends_on :macos # linux build blocked by https://github.com/awslabs/diagram-as-code/issues/12
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/awsdac"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "./cmd/awsdac"
   end
 
   test do
