@@ -1,11 +1,20 @@
 class Lha < Formula
   desc "Utility for creating and opening lzh archives"
   homepage "https://github.com/jca02266/lha/"
-  url "https://github.com/jca02266/lha/archive/refs/tags/release-20211125.tar.gz"
-  version "1.14i-ac20211125"
-  sha256 "8761edac9613cf1c06cbc341259fb2abd804f8f5bb8ba25970779062701e8a46"
   license "MIT"
   head "https://github.com/jca02266/lha.git", branch: "master"
+
+  stable do
+    url "https://github.com/jca02266/lha/archive/refs/tags/release-20211125.tar.gz"
+    version "1.14i-ac20211125"
+    sha256 "8761edac9613cf1c06cbc341259fb2abd804f8f5bb8ba25970779062701e8a46"
+
+    # Backport fix for implicit-int
+    patch do
+      url "https://github.com/jca02266/lha/commit/a5c5d438537125bfe936ea523e7bc981a50364a2.patch?full_index=1"
+      sha256 "73e34ffddbfeee0bcfe62e4d22de99ef5c54c07727c22da35e5bfc0970ad1297"
+    end
+  end
 
   # Tags simply use a date-based `release-YYYYMMDD` format, so we naively
   # prepend `1.14i-ac` to match the formula version format. This will need to be
