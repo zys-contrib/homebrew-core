@@ -37,15 +37,18 @@ class JsonSpirit < Formula
   depends_on "boost"
 
   def install
-    args = std_cmake_args
-    args << "-DBUILD_STATIC_LIBRARIES=ON"
+    args = %w[
+      -DCMAKE_CXX_STANDARD=14
+      -DJSON_SPIRIT_DEMOS=OFF
+      -DJSON_SPIRIT_TESTS=OFF
+    ]
 
-    system "cmake", *args
-    system "make"
+    system "cmake", "-S", ".", "-B", "build_static", "-DBUILD_STATIC_LIBS=ON", *args, *std_cmake_args
+    system "cmake", "--build", "build_static"
+    system "cmake", "--install", "build_static"
 
-    args = std_cmake_args
-    args << "-DBUILD_STATIC_LIBRARIES=OFF"
-    system "cmake", *args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build_shared", "-DBUILD_STATIC_LIBS=OFF", *args, *std_cmake_args
+    system "cmake", "--build", "build_shared"
+    system "cmake", "--install", "build_shared"
   end
 end
