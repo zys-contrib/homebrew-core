@@ -6,6 +6,7 @@ class Id3ed < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f4fd74264459035f47365eaedfcd7eb24a140a9165e1f5d911229349c25d1557"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ee1364fbe79738671595a35b7050d96ce311d8653d317f0f3ac6a23f8e853c18"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2b6b901c8500506fbec5ace1aad481fae193b52264a0c40f1911b94f1f4961d4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ec8b1d5f390522de640fa294bf2d3c45b2f8aba7ed9711cb7698ed0ce998e935"
