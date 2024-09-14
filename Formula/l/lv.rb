@@ -35,6 +35,9 @@ class Lv < Formula
   patch :DATA
 
   def install
+    # Work around for newer Clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     if OS.mac?
       # zcat doesn't handle gzip'd data on OSX.
       # Reported upstream to nrt@ff.iij4u.or.jp
