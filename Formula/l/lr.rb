@@ -23,6 +23,6 @@ class Lr < Formula
   end
 
   test do
-    assert_match(/^\.\n(.*\n)?Library\n/, shell_output("#{bin}/lr -1"))
+    assert_match(/^\.\n(.*\n)?\.bazelrc\n/, shell_output("#{bin}/lr -1"))
   end
 end
