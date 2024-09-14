@@ -1,7 +1,7 @@
 class Id3ed < Formula
   desc "ID3 tag editor for MP3 files"
-  homepage "http://code.fluffytapeworm.com/projects/id3ed"
-  url "http://code.fluffytapeworm.com/projects/id3ed/id3ed-1.10.4.tar.gz"
+  homepage "https://web.archive.org/web/20230604094705/http://code.fluffytapeworm.com/projects/id3ed"
+  url "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/id3ed-1.10.4.tar.gz"
   sha256 "56f26dfde7b6357c5ad22644c2a379f25fce82a200264b5d4ce62f2468d8431b"
   license "GPL-2.0-or-later"
 
