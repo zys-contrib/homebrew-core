@@ -1,7 +1,7 @@
 class Plod < Formula
   desc "Keep an online journal of what you're working on"
-  homepage "https://deer-run.com/users/hal/"
-  url "https://deer-run.com/~hal/plod/plod.shar"
+  homepage "https://web.archive.org/web/20240510181918/https://deer-run.com/users/hal/"
+  url "https://web.archive.org/web/20160821040241/https://deer-run.com/~hal/plod/plod.shar"
   version "1.9"
   sha256 "1b7b8267c41b11c2f5413a8d6850099e0547b7506031b0c733121ed5e8d182f5"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
@@ -19,6 +19,10 @@ class Plod < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "7398f28822ffb0a9b2d84ba2bf98ed4bb49dea0c26ed4d8b6b0c16360173ca4b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8361343544ac10cdf1c2c6b37b4a8a4882d199c2d49ac22fc35b776199527fbf"
   end
+
+  # Upstream site shows error 503. As of deprecation date,
+  # install-on-request: 0 (30 days), 1 (90 days), 12 (365 days)
+  deprecate! date: "2024-09-14", because: :unmaintained
 
   def install
     system "sh", "plod.shar"
