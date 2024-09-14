@@ -27,6 +27,6 @@ class Mp3cat < Formula
   end
 
   test do
-    pipe_output("#{bin}/mp3cat -v --noclean - -", test_fixtures("test.mp3"))
+    pipe_output("#{bin}/mp3cat -v --noclean - -", test_fixtures("test.mp3").to_s)
   end
 end
