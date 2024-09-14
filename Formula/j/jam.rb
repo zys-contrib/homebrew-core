@@ -39,6 +39,9 @@ class Jam < Formula
   end
 
   def install
+    # Workaround for newer Clang
+    ENV.append "CC", "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}", "LOCATE_TARGET=bin"
     bin.install "bin/jam", "bin/mkjambase"
   end
