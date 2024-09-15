@@ -3,8 +3,8 @@ class Forbidden < Formula
 
   desc "Bypass 4xx HTTP response status codes and more"
   homepage "https://github.com/ivan-sincek/forbidden"
-  url "https://files.pythonhosted.org/packages/a3/11/c27ee390aca12b1db6cc9f394a525a8e3609de31818a660dbc87a2ca9897/forbidden-12.3.tar.gz"
-  sha256 "9095063d1c3a43ea3e47b736a548459dc6d21c8bd57e376c800e0c571c8a5258"
+  url "https://files.pythonhosted.org/packages/fc/97/4da12a39d42ca55de66d8a80340377e76b5af7e3d588f168f0218d81eb47/forbidden-12.4.tar.gz"
+  sha256 "0b921ec89bc25b4ac7a1d89919809c258da36be747795857d01de6c5d8046cab"
   license "MIT"
   head "https://github.com/ivan-sincek/forbidden.git", branch: "main"
 
@@ -54,8 +54,8 @@ class Forbidden < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/e8/ac/e349c5e6d4543326c6883ee9491e3921e0d07b55fdf3cce184b40d63e72a/idna-3.8.tar.gz"
-    sha256 "d838c2c0ed6fced7693d5e8ab8e734d5f8fda53a039c0164afb0b82e771e3603"
+    url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
+    sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
   end
 
   resource "pycurl" do
@@ -84,8 +84,8 @@ class Forbidden < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/3e/2c/f0a538a2f91ce633a78daaeb34cbfb93a54bd2132a6de1f6cec028eee6ef/setuptools-74.1.2.tar.gz"
-    sha256 "95b40ed940a1c67eb70fc099094bd6e99c6ee7c23aa2306f4d2697ba7916f9c6"
+    url "https://files.pythonhosted.org/packages/a7/17/133e1cd1e24373e1898ca3c7330f5c385b46c7091f0451e678f37245591b/setuptools-75.0.0.tar.gz"
+    sha256 "25af69c809d9334cd8e653d385277abeb5a102dca255954005a7092d282575ea"
   end
 
   resource "tabulate" do
