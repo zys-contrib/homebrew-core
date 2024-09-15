@@ -20,18 +20,18 @@ class Qd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2849d06e8b854584a38e5ace7959467baa93d2bd1816b13b031f25bb97b2b4dd"
   end
 
+  # Drop `autoconf`, `automake`, `libtool` when the patch is removed.
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "gcc" # for gfortran
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
-
   def install
-    system "./configure", "--disable-dependency-tracking", "--enable-shared",
-                          "--prefix=#{prefix}"
-    system "make"
+    odie "check if autoreconf line can be removed" if version > "2.3.24"
+    # regenerate since the files were generated using automake 1.16.5
+    system "autoreconf", "--install", "--force", "--verbose"
+
+    system "./configure", "--enable-shared", *std_configure_args
     system "make", "install"
   end
 
