@@ -17,6 +17,15 @@ class GopassJsonapi < Formula
   depends_on "go" => :build
   depends_on "gopass"
 
+  # update screenshot to build with macos sequoia
+  # upstram pr ref, https://github.com/gopasspw/gopass-jsonapi/pull/130
+  patch do
+    on_sonoma :or_newer do
+      url "https://github.com/gopasspw/gopass-jsonapi/commit/bcab9c40e9dc63c39bdc45c91a534eb34d95a8dc.patch?full_index=1"
+      sha256 "29254a57c99136d1bfaa059d497e6b3e7e7e6e3cf495e584519c6fe7291f7d49"
+    end
+  end
+
   def install
     ldflags = "-s -w -X main.version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
