@@ -48,6 +48,9 @@ class Fragroute < Formula
   end
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     # pcaputil.h defines a "pcap_open()" helper function, but that name
     # conflicts with an unrelated function in newer versions of libpcap
     inreplace %w[pcaputil.h pcaputil.c tun-loop.c fragtest.c], /pcap_open\b/, "pcap_open_device_named"
