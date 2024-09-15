@@ -15,6 +15,7 @@ class FbClient < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "9e837f04b30cfa6e09e5963cfb5e332cbfe0d7de3fdf065e07dbef0dac2b52df"
     sha256 cellar: :any,                 arm64_sonoma:   "7ca84db50325eb47477dfcaa32aa9ded3d935e2de1d36e95049f9f76936a1f3c"
     sha256 cellar: :any,                 arm64_ventura:  "afe0f6ffe32e0e5bc872fb7c6038fc4087f8130fdbb67b9ace184f0e55eb42a9"
     sha256 cellar: :any,                 arm64_monterey: "866f9e06cb09122309446292c006dc945c6fe38a0be8083de7a0f50bbe642194"
