@@ -1,8 +1,8 @@
 class GitWorkspace < Formula
   desc "Sync personal and work git repositories from multiple providers"
   homepage "https://github.com/orf/git-workspace"
-  url "https://github.com/orf/git-workspace/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "8064f7bae8cfd049b27faaaa4536e61e578d2789970ca4ed8cec82af6dd962b8"
+  url "https://github.com/orf/git-workspace/archive/refs/tags/v1.6.0.tar.gz"
+  sha256 "c99e821710b45d2c2639c1abea45ad9f2d63d3b5b81e19e1fd29604dca05e5e2"
   license "MIT"
 
   bottle do
