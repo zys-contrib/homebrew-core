@@ -1,8 +1,8 @@
 class Wush < Formula
   desc "Transfer files between computers via WireGuard"
   homepage "https://github.com/coder/wush"
-  url "https://github.com/coder/wush/archive/refs/tags/v0.1.2.tar.gz"
-  sha256 "8e1ffd24b51775ac68116b381cf4523a54d4e7742e440b7d279418faa52904eb"
+  url "https://github.com/coder/wush/archive/refs/tags/v0.2.1.tar.gz"
+  sha256 "b3b14464aefd5714d2f596f787beaec9158c469fc988dbc7d344b06dafdd43b6"
   license "CC0-1.0"
 
   bottle do
@@ -26,13 +26,11 @@ class Wush < Formula
     read, write = IO.pipe
 
     pid = fork do
-      exec bin/"wush", "serve", out: write
+      exec bin/"wush", "serve", out: write, err: write
     end
 
     output = read.gets
     assert_includes output, "Picked DERP region"
-    output = read.gets
-    assert_includes output, "Your auth key is:"
   ensure
     Process.kill "TERM", pid
     Process.wait pid
