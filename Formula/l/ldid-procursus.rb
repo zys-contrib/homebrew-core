@@ -20,16 +20,12 @@ class LdidProcursus < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "91872492c2d43db29338cc2c11bd1cb431490b8e6b8052de1fa304d6dae3cdd6"
-    sha256 cellar: :any,                 arm64_sonoma:   "9a0b13b69fa65903e4553bc77e1bbafd986f3f68a7896a3e6c2884a72a0f324e"
-    sha256 cellar: :any,                 arm64_ventura:  "ce834166720b5788636ce9dfeb2b446be1a454515abde1941187d219282def09"
-    sha256 cellar: :any,                 arm64_monterey: "93e84ff2e1e2da2b857b52f275128d97681cfe41e9f59f2f3222f378ef35fa37"
-    sha256 cellar: :any,                 arm64_big_sur:  "4a685ad1062cc656373edfe43548bf7adbf5c3dead465cc86d0739dac006df01"
-    sha256 cellar: :any,                 sonoma:         "2b86acadae22cecfe6e025c30c30ab63656bf0e0914467be60993cbc59a6b293"
-    sha256 cellar: :any,                 ventura:        "f3745355487cf17375f645f31cf34e85bde0bbb4960e75885c6106196a265589"
-    sha256 cellar: :any,                 monterey:       "21262358f8d2a81af29c475ace106bf65a970a85c69f391386b9f9fdfe8106b3"
-    sha256 cellar: :any,                 big_sur:        "ff338dfc081e8ed4930aecbfb55629ed21cc4a34bf9f346ca987e01ea5c48cf7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "652b8cca448c7047a641d795a7149bff84a282bf8727c72ec6a83a05619fd2ac"
+    sha256 cellar: :any,                 arm64_sequoia: "ab86601fb7c96f9099bf3d9b0634bd347de629fa7de675086efafc732c5e07ee"
+    sha256 cellar: :any,                 arm64_sonoma:  "2caaa28ed7a37de86484d25e95c81190b1856472ddaff524b10cb98e69ced503"
+    sha256 cellar: :any,                 arm64_ventura: "bca4374f9d61c9b1185cfce5d40350672f17c6e2239f9a475ab84688a356df72"
+    sha256 cellar: :any,                 sonoma:        "d588f650e0f38f7837ee7d4cda733442b0ef723e5d7664a5cd6d9b8e808d6cb4"
+    sha256 cellar: :any,                 ventura:       "ab39755f672f5634c6555ae6822dae83813a50c1205a37774beb2e35d0552122"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8277afbe297f7153901815514ad120e29b9ca67b891287c4ee133868d43b84f7"
   end
 
   depends_on "pkg-config" => :build
