@@ -21,7 +21,7 @@ class Devdash < Formula
 
   deprecate! date: "2024-01-20", because: :repo_archived
 
-  depends_on "go" => :build
+  depends_on "go@1.22" => :build
 
   def install
     system "go", "build", *std_go_args
