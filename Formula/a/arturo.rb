@@ -7,6 +7,7 @@ class Arturo < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "8a85e164420eed7be9149784ed3186c27e475ac4249396bf7cab23d0cbb9d612"
     sha256 cellar: :any,                 arm64_sonoma:   "a5ec87e6b0b78f8f9c7488ee60fba66fa32b820ad0beb17a2a2ad609cf0db4ef"
     sha256 cellar: :any,                 arm64_ventura:  "18491874794e510a5ceab9f85b056dd5338869c63d6590bd8d2e5e5eb451e081"
     sha256 cellar: :any,                 arm64_monterey: "97ada88c358d6b8fee6731bc2fb5a2b6f869ff0d9798b831801aa16096db0e40"
