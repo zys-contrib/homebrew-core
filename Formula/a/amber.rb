@@ -8,6 +8,7 @@ class Amber < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "316df6cc7883f0019a4d8b7cea12981c76558ee23c91ce802d8a5a27f4e1dae3"
     sha256 arm64_sonoma:   "149fc485a57fe986e601b0072476fc7b52de0feb888dcac0e7c153459290f548"
     sha256 arm64_ventura:  "d9e1818484cce9f61edffedeb494e01f69a07d137880179f84dabef6b48b063f"
     sha256 arm64_monterey: "3b8de888365014ecb18fc427906bf5121c6f5c0b6eceaf8311ede6030b22334d"
