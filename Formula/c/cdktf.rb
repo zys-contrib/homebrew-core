@@ -1,8 +1,8 @@
 class Cdktf < Formula
   desc "Cloud Development Kit for Terraform"
   homepage "https://github.com/hashicorp/terraform-cdk"
-  url "https://registry.npmjs.org/cdktf-cli/-/cdktf-cli-0.20.4.tgz"
-  sha256 "a2e5c935958828154ce736888a4259a5e782130a6cc628baab91050686c2fe42"
+  url "https://registry.npmjs.org/cdktf-cli/-/cdktf-cli-0.20.8.tgz"
+  sha256 "69e4fe68d4c08bef7702f711143129ba8c58f71ef768f380dafc1981987f55e1"
   license "MPL-2.0"
 
   bottle do
@@ -37,7 +37,8 @@ class Cdktf < Formula
   end
 
   test do
-    assert_match "ERROR: Cannot initialize a project in a non-empty directory",
-      shell_output("#{bin}/cdktf init --template='python' 2>&1", 1)
+    touch "unwanted-file"
+    output = shell_output("#{bin}/cdktf init --template='python' 2>&1", 1)
+    assert_match "ERROR: Cannot initialize a project in a non-empty directory", output
   end
 end
