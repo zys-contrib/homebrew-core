@@ -1,8 +1,8 @@
 class Squid < Formula
   desc "Advanced proxy caching server for HTTP, HTTPS, FTP, and Gopher"
   homepage "https://www.squid-cache.org/"
-  url "http://www.squid-cache.org/Versions/v6/squid-6.10.tar.xz"
-  sha256 "0b07b187e723f04770dd25beb89aec12030a158696aa8892d87c8b26853408a7"
+  url "http://www.squid-cache.org/Versions/v6/squid-6.11.tar.xz"
+  sha256 "b6e60c08429314287925331b3da6c03b7d3c35b7e03319f78edb8bad6fc68899"
   license "GPL-2.0-or-later"
 
   livecheck do
