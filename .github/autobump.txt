@@ -2926,6 +2926,7 @@ xmake
 xmlrpc-c
 xmount
 xmrig
+xnvme
 xonsh
 xorg-server
 xorgproto
