@@ -1,8 +1,8 @@
 class Oj < Formula
   desc "JSON parser and visualization tool"
   homepage "https://github.com/ohler55/ojg"
-  url "https://github.com/ohler55/ojg/archive/refs/tags/v1.24.0.tar.gz"
-  sha256 "ef776d0b91f9689f5e4812f6c04662f72a633b744f6a074d6f3951bb7c03cea8"
+  url "https://github.com/ohler55/ojg/archive/refs/tags/v1.24.1.tar.gz"
+  sha256 "60956fcfcd0cf1d2a75c40621f67ff483010d9aa904b4fe49e7ed7a27eab7e74"
   license "MIT"
   head "https://github.com/ohler55/ojg.git", branch: "develop"
 
