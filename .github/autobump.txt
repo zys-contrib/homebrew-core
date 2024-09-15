@@ -1500,6 +1500,7 @@ libint
 libirecovery
 libjuice
 libjwt
+libkeccak
 libksba
 liblc3
 liblinear
