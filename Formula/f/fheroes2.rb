@@ -1,8 +1,8 @@
 class Fheroes2 < Formula
   desc "Recreation of the Heroes of Might and Magic II game engine"
   homepage "https://ihhub.github.io/fheroes2/"
-  url "https://github.com/ihhub/fheroes2/archive/refs/tags/1.1.1.tar.gz"
-  sha256 "3b5df5aa26d11615fcc15d626d77832f730e24fbab7d419539c4236df5a94c5e"
+  url "https://github.com/ihhub/fheroes2/archive/refs/tags/1.1.2.tar.gz"
+  sha256 "2c1ecc167de9b4a5f0eb6b6c88392ba021b4e031844760611067971e71e58b6d"
   license "GPL-2.0-or-later"
   head "https://github.com/ihhub/fheroes2.git", branch: "master"
 
