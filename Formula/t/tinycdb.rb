@@ -4,6 +4,7 @@ class Tinycdb < Formula
   url "https://www.corpit.ru/mjt/tinycdb/tinycdb-0.81.tar.gz"
   sha256 "469de2d445bf54880f652f4b6dc95c7cdf6f5502c35524a45b2122d70d47ebc2"
   license :public_domain
+  revision 1
 
   livecheck do
     url :homepage
@@ -21,9 +22,29 @@ class Tinycdb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d208e49ab4a661837a4490712ad50e7cbca6b240cbf9e91b4d8989d113707cfe"
   end
 
+  def libcdb_soversion
+    # This value is used only on macOS.
+    # If the test block fails only on Linux, then this value likely needs updating.
+    "1"
+  end
+
   def install
     system "make"
     system "make", "install", "prefix=#{prefix}", "mandir=#{man}"
+
+    shared_flags = ["prefix=#{prefix}"]
+    shared_flags += if OS.mac?
+      %W[
+        SHAREDLIB=#{shared_library("$(LIBBASE)", libcdb_soversion)}
+        SOLIB=#{shared_library("$(LIBBASE)")}
+        LDFLAGS_SONAME=-Wl,-install_name,$(prefix)/
+        LDFLAGS_VSCRIPT=
+        LIBMAP=
+      ]
+    end.to_a
+
+    system "make", *shared_flags, "shared"
+    system "make", *shared_flags, "install-sharedlib"
   end
 
   test do
@@ -51,5 +72,15 @@ class Tinycdb < Formula
     EOS
     system ENV.cc, "test.c", "-L#{lib}", "-lcdb", "-o", "test"
     system "./test"
+    return unless OS.linux?
+
+    # Let's test whether our hard-coded `libcdb_soversion` is correct, since we don't override this on Linux.
+    # If this test fails, the the value in the `libcdb_soversion` needs updating.
+    versioned_libcdb_candidates = lib.glob(shared_library("libcdb", "*")).reject { |so| so.to_s.end_with?(".so") }
+    assert_equal versioned_libcdb_candidates.count, 1, "expected only one versioned `libcdb`!"
+
+    versioned_libcdb = versioned_libcdb_candidates.first.basename.to_s
+    soversion = versioned_libcdb[/\.(\d+)$/, 1]
+    assert_equal libcdb_soversion, soversion
   end
 end
