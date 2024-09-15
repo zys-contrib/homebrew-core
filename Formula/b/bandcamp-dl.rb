@@ -10,13 +10,12 @@ class BandcampDl < Formula
   head "https://github.com/iheanyi/bandcamp-dl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1e1c04cf688a2571d5b016021c3b6a5968c93fb1df4023b0b64845f3b0e38d75"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1e1c04cf688a2571d5b016021c3b6a5968c93fb1df4023b0b64845f3b0e38d75"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2acd5eeaf73208b443d4e841d2a9246bbe3ef5dad9e99d99d077694c6b032a5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1e1c04cf688a2571d5b016021c3b6a5968c93fb1df4023b0b64845f3b0e38d75"
-    sha256 cellar: :any_skip_relocation, ventura:        "1e1c04cf688a2571d5b016021c3b6a5968c93fb1df4023b0b64845f3b0e38d75"
-    sha256 cellar: :any_skip_relocation, monterey:       "e2acd5eeaf73208b443d4e841d2a9246bbe3ef5dad9e99d99d077694c6b032a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4998ae3d847f3efeb003970f6c03ef7d024ec8cfbea3d1d5646558cad89b89d0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "56055911efc483d56c9a9fd01367a3361da6455f85b51476f14ccb824ff9edb7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "56055911efc483d56c9a9fd01367a3361da6455f85b51476f14ccb824ff9edb7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "56055911efc483d56c9a9fd01367a3361da6455f85b51476f14ccb824ff9edb7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "56055911efc483d56c9a9fd01367a3361da6455f85b51476f14ccb824ff9edb7"
+    sha256 cellar: :any_skip_relocation, ventura:       "56055911efc483d56c9a9fd01367a3361da6455f85b51476f14ccb824ff9edb7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e39cb8ff7f4d9a65524a60a23f69fbe153d42fc4e58bd183e2a19d7b3e11f597"
   end
 
   depends_on "certifi"
