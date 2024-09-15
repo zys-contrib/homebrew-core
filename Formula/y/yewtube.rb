@@ -8,14 +8,12 @@ class Yewtube < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d5c56ccc8967e7b3b2dd80efeafa26c5875e45057752dddf13f6d954f8858d03"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "872c1323225c91a13fb51f6658506650c17a3c4f6a5dcc0f205b400a8f47a983"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c91a2258c805bf4c33d8eee39519a0c74017e7233c4f5bc0872107336cb5cf41"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e9046036c2e629ff96ff49ae91901339c1317f68657325d311ac83bae254fbd3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "74fccd98cd52d9ca658ffa67163cde09c90f7f716015f75ef31b8adc5085870f"
-    sha256 cellar: :any_skip_relocation, ventura:        "e32970c118f8270b8251ea37136826e4a920f7c4f9b95cf84cfc16cfde18f923"
-    sha256 cellar: :any_skip_relocation, monterey:       "b55b413c9a5a0ff3e211b202e2062e4696e6664bc6c430716bae8c1c97b4e4b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "720dc571b204ba3939140db726ca146e5ba4918c1af4c79989caea87be40458e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bad5e55244f5748877524a5e37baeb86b74b0ba28b56f1e10382ace239a3cdca"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9812c083a90eec94614de37627182824071a77537eb7e87501082ccc2a7f249"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "166d140f6335a6ca3c027554d01983caa238504c414bad90312c026cd1ec8c36"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9153c7798f12b1def2abfc1acf634682edd654f94edf567edd32df60399bd1c4"
+    sha256 cellar: :any_skip_relocation, ventura:       "1c565723218ccb1bf9c12cf2e47b50e455b6a2b102c36d59e519e286595435d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "993bd2eddc10ca7a1050f4e61e0535e8875ce81c35e80ed5b2f045c5c60c0929"
   end
 
   depends_on "certifi"
