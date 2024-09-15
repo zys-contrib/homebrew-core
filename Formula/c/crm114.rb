@@ -6,6 +6,7 @@ class Crm114 < Formula
   license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "bdadfd33ce2fbca99f2c353e6a59651f68de4353cf8ba8ec319986a39531e3d5"
     sha256 cellar: :any,                 arm64_sonoma:   "02293e7f49287e46515f25f788207339c207a9caed0b57c31853b691a9e0358c"
     sha256 cellar: :any,                 arm64_ventura:  "9791c36069114cb7235007258500b450c2d28aec42bc0753fae806bb2ef71dd4"
     sha256 cellar: :any,                 arm64_monterey: "0cdce09555c1d90f1e577367c906921bbd8ea8fb37af61598a8ec80307fe7bf5"
