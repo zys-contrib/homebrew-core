@@ -7,8 +7,7 @@ class Pegtl < Formula
   license "MIT"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "921ed447ab7482f1ecd1890f8953309e6078e2a9ebff25cb44935ada1891c206"
+    sha256 cellar: :any_skip_relocation, all: "4cc6917959a4a5589e44b04a3f60a2c6be767b2d5ef302af832b62804af8a342"
   end
 
   depends_on "cmake" => :build
