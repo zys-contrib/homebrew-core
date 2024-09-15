@@ -1396,6 +1396,7 @@ kubent
 kubergrunt
 kubernetes-cli
 kubernetes-cli@1.29
+kubernetes-cli@1.30
 kubescape
 kubeseal
 kubeshark
