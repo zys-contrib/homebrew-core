@@ -1522,6 +1522,7 @@ libomp
 libopenmpt
 liboqs
 liborigin
+libpanel
 libpano
 libpcap
 libpeas
