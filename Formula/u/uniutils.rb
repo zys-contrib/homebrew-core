@@ -41,7 +41,9 @@ class Uniutils < Formula
     system "autoreconf", "--force", "--install", "--verbose"
 
     # workaround for Xcode 14.3
-    ENV.append "CFLAGS", "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+    if DevelopmentTools.clang_build_version >= 1403
+      ENV.append "CFLAGS", "-Wno-implicit-function-declaration -Wno-implicit-int"
+    end
 
     # fix `_libintl_bindtextdomain` and `_libintl_textdomain` symbols not found
     gettext = Formula["gettext"]
