@@ -1,7 +1,7 @@
 class Crm114 < Formula
   desc "Examine, sort, filter or alter logs or data streams"
-  homepage "https://crm114.sourceforge.net/"
-  url "https://crm114.sourceforge.net/tarballs/crm114-20100106-BlameMichelson.src.tar.gz"
+  homepage "https://sourceforge.net/projects/crm114/"
+  url "http://deb.debian.org/debian/pool/main/c/crm114/crm114_20100106.orig.tar.gz"
   sha256 "fb626472eca43ac2bc03526d49151c5f76b46b92327ab9ee9c9455210b938c2b"
   license "GPL-3.0-only"
 
@@ -30,6 +30,7 @@ class Crm114 < Formula
 
   def install
     ENV.append "CFLAGS", "-std=gnu89"
+    ENV.append "CFLAGS", "-fcommon" if OS.linux?
     inreplace "Makefile", "LDFLAGS += -static -static-libgcc", ""
     bin.mkpath
     system "make", "prefix=#{prefix}", "install"
