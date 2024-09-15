@@ -3,10 +3,9 @@ class AstrometryNet < Formula
 
   desc "Automatic identification of astronomical images"
   homepage "https://github.com/dstndstn/astrometry.net"
-  url "https://github.com/dstndstn/astrometry.net/releases/download/0.95/astrometry.net-0.95.tar.gz"
-  sha256 "b8239e39b44d6877b0427edeffd95efc258520044ff5afdd0fb1a89ff8f1afc0"
+  url "https://github.com/dstndstn/astrometry.net/releases/download/0.96/astrometry.net-0.96.tar.gz"
+  sha256 "fb3f2ec09cbe155d9ff461b9a60336f8493f5cb7804199e1782664e9034c9aac"
   license "BSD-3-Clause"
-  revision 2
 
   livecheck do
     url :stable
@@ -40,16 +39,6 @@ class AstrometryNet < Formula
   resource "fitsio" do
     url "https://files.pythonhosted.org/packages/6a/94/edcf29d321985d565f8365e3349aa2283431d45913b909d69d648645f931/fitsio-1.2.4.tar.gz"
     sha256 "d57fe347c7657dc1f78c7969a55ecb4fddb717ae1c66d9d22046c171203ff678"
-  end
-
-  # Support numpy 2.0
-  patch do
-    url "https://github.com/dstndstn/astrometry.net/commit/5640e60401ac6961449d64ec0256c326b1d26216.patch?full_index=1"
-    sha256 "7486d9dac6bf7261f2cd459af028426dfb29c0b3c23c840889ef9ba083c42be3"
-  end
-  patch do
-    url "https://github.com/dstndstn/astrometry.net/commit/7991b0d20280e8fc6a9b17d5669312eee69e4c43.patch?full_index=1"
-    sha256 "4fa0feec1bd4159749789c5f115dd0e99e6a92e6032b90da273560a9064419d5"
   end
 
   def install

@@ -111,6 +111,7 @@ assimp
 ast-grep
 astgen
 astro
+astrometry-net
 astyle
 asuka
 asymptote
