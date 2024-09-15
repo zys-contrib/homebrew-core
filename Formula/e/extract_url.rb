@@ -7,13 +7,13 @@ class ExtractUrl < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7fbcf24dcd91a69b5f8df429b98a735c2227e7fb6563c7bb487f40fc8f434de6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "04be0c8d96101e5200f1a27a4acc69406d365cd890365583b42d40ec6945d6de"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8ba8599dd1ea5209f84290c6f0f904e04962681c5c84311dfea7b63a7f8aacc8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "701cc9b1995de5d6b84996b5319f5f596864c3ef06fddd2408ac470c16215c0b"
-    sha256 cellar: :any_skip_relocation, ventura:        "a70f7a9fe4bf2cb3c21a88686c306d1c1f38fca1e2a12af4f0aa3debc603110b"
-    sha256 cellar: :any_skip_relocation, monterey:       "7eb00e81607e9e53ebd8e2d07eee49a09070bc76071705ee0ff51cfad5927b98"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c78463b54407c3c65b81c26270e36bb31b3be1788734f97e7e918ad8f0bc0bb"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f169a0f7a1fff066bdf267b67b46595ea0da8fb157af360cb3e01fe6ef3b1d51"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eef6247cb3184212f0cecd7f0c7795a56e53c67a19470314c17e4ae50d8f79cd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ef4852ea2709ac8d635cf366557669d9d0ab30fafd43fc73c542e29b1a7c1209"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1480cb0931ab9a63632b6a9f09c60484f4096f50db9692b3bdc40fafd800c937"
+    sha256 cellar: :any_skip_relocation, ventura:       "3595f0dfb0b4ceacbab89fe4a037d19bbd08b560d0e6c4eaafed88f05401263a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d97df796fd86bf3cda4b8722898be68d047334b34b642f90366b0d979d350695"
   end
 
   uses_from_macos "ncurses"
