@@ -1,13 +1,23 @@
 class LdidProcursus < Formula
   desc "Put real or fake signatures in a Mach-O binary"
   homepage "https://github.com/ProcursusTeam/ldid"
-  url "https://github.com/ProcursusTeam/ldid.git",
-     tag:      "v2.1.5-procursus7",
-     revision: "aaf8f23d7975ecdb8e77e3a8f22253e0a2352cef"
-  version "2.1.5-procursus7"
   license "AGPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/ProcursusTeam/ldid.git", branch: "master"
+
+  stable do
+    version "2.1.5-procursus7"
+    url "https://github.com/ProcursusTeam/ldid.git",
+        tag:      "v2.1.5-procursus7",
+        revision: "aaf8f23d7975ecdb8e77e3a8f22253e0a2352cef"
+
+    patch do
+      # Fix memory issues with various entitlements, remove in next release
+      # See ProcursusTeam/ldid#34 and ProcursusTeam/ldid#14 for more info
+      url "https://github.com/ProcursusTeam/ldid/commit/f38a095aa0cc721c40050cb074116c153608a11b.patch?full_index=1"
+      sha256 "848caded901d4686444aec79cdae550832cfd3633b2090ad92cd3dd8aa6e98cf"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "91872492c2d43db29338cc2c11bd1cb431490b8e6b8052de1fa304d6dae3cdd6"
