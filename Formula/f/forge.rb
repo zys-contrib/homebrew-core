@@ -41,7 +41,7 @@ class Forge < Formula
   end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DFG_BUILD_EXAMPLES=OFF", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
