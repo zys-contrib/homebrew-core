@@ -871,6 +871,9 @@
     "extra_packages": ["graphviz"]
   },
   "xonsh": "xonsh[ptk,pygments,proctitle]",
+  "yewtube": {
+    "exclude_packages": ["certifi"]
+  },
   "ykman": {
     "exclude_packages": ["cryptography"],
     "extra_packages": ["jeepney", "secretstorage"]
