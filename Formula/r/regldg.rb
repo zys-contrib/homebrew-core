@@ -19,6 +19,9 @@ class Regldg < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "10b3273bf707f57edf849eb44f1eb7d86e61082cc899cdffe80aa04c550177fb"
   end
 
+  # Workaround for newer Clang
+  patch :DATA
+
   def install
     # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
     # Remove after migration to 18.04.
@@ -31,3 +34,18 @@ class Regldg < Formula
     system bin/"regldg", "test"
   end
 end
+
+__END__
+diff --git a/Makefile b/Makefile
+index 5e18193..6dee9ae 100755
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # Makefile
+ # Project building instructions.
+
+-COMPILE=cc -O3 -Wall -g -c
++COMPILE=cc -O3 -Wall -Wno-int-conversion -g -c
+ LINK=gcc -O3 -Wall -g -lm
+
+ all: alt.o altlist.o build_structs.o char_set.o data.o debug.o \
