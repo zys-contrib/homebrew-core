@@ -12,6 +12,7 @@ class Clipboard < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1d109f92c497e248f9b525f03703105cc659bb14069302f9693c61df4c779b07"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "00ca5ce7fccc8f29a81b39db0150b57344a7d37da5b40c6f8f267ddbcaf92b66"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "08730cbffe1c790373c6f0573d895035c24fc0a256c2d65c3800e2873e0e7e91"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1e280365f64e4fedd36eac66de93af0073ffb20a897cc8a6474306db999f0067"
