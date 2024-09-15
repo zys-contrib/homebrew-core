@@ -2622,6 +2622,7 @@ tartufo
 task
 tbb
 tbls
+tbox
 tcl-tk
 tcpdump
 tcpreplay
