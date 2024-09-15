@@ -1120,6 +1120,7 @@ gsettings-desktop-schemas
 gsl
 gsmartcontrol
 gsoap
+gspell
 gstreamer
 gtk+3
 gtk-gnutella
