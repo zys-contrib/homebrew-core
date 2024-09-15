@@ -38,6 +38,7 @@ class GitLfs < Formula
     man5.install Dir["man/man5/*.5"]
     man7.install Dir["man/man7/*.7"]
     doc.install Dir["man/html/*.html"]
+    generate_completions_from_executable(bin/"git-lfs", "completion")
   end
 
   def caveats
