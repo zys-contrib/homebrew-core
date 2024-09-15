@@ -12,14 +12,12 @@ class Tinycdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0a223be49f8efe0bdc4716eb6b6efc5972dd7a184ace7a261b585b5860ba3790"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "84a0722cb1e3e74c5771ddf3e58ec4c6181baac4705e9d8c824b5c1a943b7b29"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b56128230eae3a7c00d7673e75878e87b17c29a1a417934f8f70e20d7672adff"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f3c14e7e96bf04a5732dbe8f3004368a95cfcfb5e8f9cc3efad43b8d4eb39982"
-    sha256 cellar: :any_skip_relocation, sonoma:         "244ae0d966d0d1ccd93c3a9c23983865a89cf4da0859a87fc84021ca56ad55b8"
-    sha256 cellar: :any_skip_relocation, ventura:        "d15dfde4eaf2332e3a362020c1a46eebc4aadb429bb08650f094c26d49e39601"
-    sha256 cellar: :any_skip_relocation, monterey:       "90dcf17edde006c16827865c1448fcb9a6c0bf1eee39eca0be8e41253fc0031d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d208e49ab4a661837a4490712ad50e7cbca6b240cbf9e91b4d8989d113707cfe"
+    sha256 cellar: :any,                 arm64_sequoia: "680cfcfc325b233fe7340563af3250740568b8a3689fae20f477e108ed673a8e"
+    sha256 cellar: :any,                 arm64_sonoma:  "345b0faa2f7c6d23974d5c2428eb7961fbf0934a5064e39f1d957469c6ca491c"
+    sha256 cellar: :any,                 arm64_ventura: "29a4f84b5a7f2f4eeb6301260a9dd6dc063428a9550bb646b526c3cca3d96565"
+    sha256 cellar: :any,                 sonoma:        "00517e16683f21a47b6f985fd00927be4fca3c501aa34e445008aad1f9bbf7ea"
+    sha256 cellar: :any,                 ventura:       "c803d0c447413f5d29e43172e75c6a6ac54f6b23b2c85c469e1d0a2930932b95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e936f20c0ba2216f0ead62448ee2793eb96181c32bb381b9f3207e34e3ce46b5"
   end
 
   def libcdb_soversion
