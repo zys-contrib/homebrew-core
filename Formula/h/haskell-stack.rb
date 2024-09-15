@@ -37,6 +37,13 @@ class HaskellStack < Formula
 
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args
+
+    generate_completions_from_executable(bin/"stack", "--bash-completion-script", bin/"stack",
+                                         shells: [:bash], shell_parameter_format: :none)
+    generate_completions_from_executable(bin/"stack", "--fish-completion-script", bin/"stack",
+                                         shells: [:fish], shell_parameter_format: :none)
+    generate_completions_from_executable(bin/"stack", "--zsh-completion-script", bin/"stack",
+                                         shells: [:zsh], shell_parameter_format: :none)
   end
 
   def caveats
