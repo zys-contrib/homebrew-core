@@ -1,8 +1,8 @@
 class Bettercap < Formula
   desc "Swiss army knife for network attacks and monitoring"
   homepage "https://www.bettercap.org/"
-  url "https://github.com/bettercap/bettercap/archive/refs/tags/v2.33.0.tar.gz"
-  sha256 "7e9f145edbe07f25b1d4c5132d9d6ed322ed728249f71acced1352459faf0e97"
+  url "https://github.com/bettercap/bettercap/archive/refs/tags/v2.40.0.tar.gz"
+  sha256 "33fb079d148bdbf640a6a634873dec7799430b0e949ba45007976e50c1323000"
   license "GPL-3.0-only"
   head "https://github.com/bettercap/bettercap.git", branch: "master"
 
@@ -27,7 +27,13 @@ class Bettercap < Formula
     depends_on "libnetfilter-queue"
   end
 
+  resource "ui" do
+    url "https://github.com/bettercap/ui.git",
+        revision: "6e126c470e97542d724927ba975011244127dbb1"
+  end
+
   def install
+    (buildpath/"modules/ui/ui").install resource("ui")
     system "make", "build"
     bin.install "bettercap"
   end
