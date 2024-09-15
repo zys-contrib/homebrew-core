@@ -29,7 +29,7 @@ class ArpSk < Formula
   def install
     # libnet 1.2 compatibility - it is API compatible with 1.1.
     # arp-sk's last update was in 2004.
-    inreplace "configure", "1.1.", "1.2"
+    inreplace "configure", "1.1.", "1.3"
 
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
