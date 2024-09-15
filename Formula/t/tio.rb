@@ -23,6 +23,10 @@ class Tio < Formula
   depends_on "glib"
   depends_on "lua"
 
+  # fix function name conflict with system `send()`
+  # upstream bug report, https://github.com/tio/tio/issues/278
+  patch :DATA
+
   def install
     system "meson", "setup", "build", "-Dbashcompletiondir=#{bash_completion}", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
@@ -41,3 +45,27 @@ class Tio < Formula
     assert_match expected, output
   end
 end
+
+__END__
+diff --git a/src/script.c b/src/script.c
+index 46e6c4e..bfac3d9 100644
+--- a/src/script.c
++++ b/src/script.c
+@@ -181,7 +181,7 @@ static int modem_send(lua_State *L)
+ }
+
+ // lua: send(string)
+-static int send(lua_State *L)
++static int send_lua(lua_State *L)
+ {
+     const char *string = lua_tostring(L, 1);
+     int ret;
+@@ -455,7 +455,7 @@ static const struct luaL_Reg tio_lib[] =
+     { "msleep", msleep},
+     { "line_set", line_set},
+     { "modem_send", modem_send},
+-    { "send", send},
++    { "send", send_lua},
+     { "read", read_string},
+     { "expect", expect},
+     { "exit", exit_},
