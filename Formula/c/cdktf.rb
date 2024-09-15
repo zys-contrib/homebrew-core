@@ -6,13 +6,12 @@ class Cdktf < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256                               arm64_sonoma:   "c6c3fd92fa6fb45295ee9753873e04d226ddd633dcb639eb89d18ebd4a375caf"
-    sha256                               arm64_ventura:  "a8292a25b7d45df4ba791f40872165dee2785efe0d753a1d9888e742fab9250c"
-    sha256                               arm64_monterey: "0e511a319c8ee3169b04f1305945c5307aee19bbad9f2890cc33fa35de9cfd5c"
-    sha256                               sonoma:         "ab6caaa54e6917839f4ae365d69981097f2e2037d2e8169538a4220d9aefb29d"
-    sha256                               ventura:        "a492ddf71a3f462cc5ad66e991c28b0135073b37c144cd679ae4e1f45cc3f87a"
-    sha256                               monterey:       "d303976fa24b5cd3ff52542fd6e94ff11c0515398c2e9b285c9b67f754883848"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3672caff49c3eedaa4014e4da69d7bc198d68344000473d45305716352e4fc00"
+    sha256                               arm64_sequoia: "29f9252c836e8e13e4ea97f2249b13ccb1533fc1d7424b74896bc0a68ea56783"
+    sha256                               arm64_sonoma:  "9a952f8e2eb5a172087916efef210c28df9e99677e0e9315d472cd3c23a80672"
+    sha256                               arm64_ventura: "48c6a39648dcfa2bf9970625adef03a2c13c5b86753b39428a1729421c9d0ac7"
+    sha256                               sonoma:        "ee958ef4377d9cb4a8426cd3ef63f0f10c48af27619ad13784fb9132374bccf1"
+    sha256                               ventura:       "605b00c5de6da561ef2272a535d84dd4879d741880e7db54238a1b7c51f1d10a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ac4a9ad9c8e608bae4efd4c65fe35ce6635c511e2843110ca5adf47a8e7cce8"
   end
 
   deprecate! date: "2024-03-13", because: "uses soon-to-be deprecated terraform"
