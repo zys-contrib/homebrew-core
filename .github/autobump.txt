@@ -2067,6 +2067,7 @@ pdm
 pdns
 pdnsrec
 pedump
+pegtl
 percona-xtrabackup
 perl
 perltidy
