@@ -1447,6 +1447,7 @@ lexbor
 lexicon
 lexido
 lf
+lfe
 lgogdownloader
 libabigail
 libadwaita
