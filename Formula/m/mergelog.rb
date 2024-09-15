@@ -6,6 +6,7 @@ class Mergelog < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b831541094e323e374a379048f0f9beb6fba7267c03b282e1974cc59900dfa75"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4216fbee6feb598e05ec9c55932afb3c291e6764492a95ae0c7ae07cfa3296e3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a536e75a6e41c182c1eb0e0328bc2ab2a6aef63e9617a7206048c5006527d0ac"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c1c9f43d4bc60ec22734380dff9843797661be4e0b1b0ab2d861d25a9886cfd7"
