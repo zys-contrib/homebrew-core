@@ -36,6 +36,12 @@ class Dnsdist < Formula
 
   fails_with gcc: "5"
 
+  # Fix build with boost 1.86.0. Remove in next release
+  patch :p2 do
+    url "https://github.com/PowerDNS/pdns/commit/a1026f0c6db7b077d1180096a84f48a85a606d59.patch?full_index=1"
+    sha256 "8c8e4dd81af366fdd08182b5f242a054188d46c8ab955ae19843ac64c2f2044f"
+  end
+
   def install
     system "./configure", "--disable-silent-rules",
                           "--without-net-snmp",
