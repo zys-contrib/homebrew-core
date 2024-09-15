@@ -19,7 +19,8 @@ class VapoursynthSub < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ebc9c1460d973e9f99019e07866d5422349101796a7a4267c83bc945bffceec"
   end
 
-  depends_on "cmake" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
   depends_on "libass"
@@ -28,12 +29,13 @@ class VapoursynthSub < Formula
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
-    # A meson-based install method has been added but is not present
-    # in this release. Switch to it in the next release to avoid
-    # manually installing the shared library.
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
-    system "cmake", "--build", "build"
-    (lib/"vapoursynth").install "build/#{shared_library("libsubtext")}"
+    # Work around Homebrew's keg directory structure by overriding `vapoursynth`
+    # pkg-config libdir to install instead into `vapoursynth-sub` libdir
+    ENV["PKG_CONFIG_VAPOURSYNTH_LIBDIR"] = lib.to_s
+
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
