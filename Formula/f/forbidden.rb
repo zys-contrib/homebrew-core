@@ -59,6 +59,15 @@ class Forbidden < Formula
   resource "pycurl" do
     url "https://files.pythonhosted.org/packages/c9/5a/e68b8abbc1102113b7839e708ba04ef4c4b8b8a6da392832bb166d09ea72/pycurl-7.45.3.tar.gz"
     sha256 "8c2471af9079ad798e1645ec0b0d3d4223db687379d17dd36a70637449f81d6b"
+
+    # Remove -flat_namespace
+    # PR ref: https://github.com/pycurl/pycurl/pull/855
+    on_sequoia :or_newer do
+      patch do
+        url "https://github.com/pycurl/pycurl/commit/7deb85e24981e23258ea411dcc79ca9b527a297d.patch?full_index=1"
+        sha256 "a49fa9143287398856274f019a04cf07b0c345560e1320526415e9280ce2efbc"
+      end
+    end
   end
 
   resource "pyjwt" do
