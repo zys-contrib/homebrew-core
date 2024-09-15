@@ -22,7 +22,25 @@ class Weaver < Formula
 
   conflicts_with "service-weaver", because: "both install a `weaver` binary"
 
+  # Fetch a copy of SourceKitten in order to fix build with newer Swift.
+  resource "SourceKitten" do
+    on_sequoia :or_newer do
+      # https://github.com/scribd/Weaver/blob/1.1.5/Package.resolved#L99-L100
+      url "https://github.com/jpsim/SourceKitten.git",
+          tag:      "0.29.0",
+          revision: "77a4dbbb477a8110eb8765e3c44c70fb4929098f"
+
+      # Backport of import from HEAD
+      patch :DATA
+    end
+  end
+
   def install
+    if OS.mac? && MacOS.version >= :sequoia
+      (buildpath/"SourceKitten").install resource("SourceKitten")
+      system "swift", "package", "--disable-sandbox", "edit", "SourceKitten", "--path", buildpath/"SourceKitten"
+    end
+
     system "make", "install", "PREFIX=#{prefix}"
   end
 
@@ -33,3 +51,24 @@ class Weaver < Formula
     system bin/"weaver", "version"
   end
 end
+
+__END__
+diff --git a/Source/SourceKittenFramework/SwiftDocs.swift b/Source/SourceKittenFramework/SwiftDocs.swift
+index 1d2473c..70de287 100644
+--- a/Source/SourceKittenFramework/SwiftDocs.swift
++++ b/Source/SourceKittenFramework/SwiftDocs.swift
+@@ -10,6 +10,14 @@
+ import SourceKit
+ #endif
+
++#if os(Linux)
++import Glibc
++#elseif os(Windows)
++import CRT
++#else
++import Darwin
++#endif
++
+ /// Represents docs for a Swift file.
+ public struct SwiftDocs {
+     /// Documented File.
