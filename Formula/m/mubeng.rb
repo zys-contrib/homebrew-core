@@ -7,14 +7,12 @@ class Mubeng < Formula
   head "https://github.com/kitabisa/mubeng.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "eb91567c770f49e1605ff1f3dcad246fb9a27f8ad4de17a7d6659006e09d506b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eb91567c770f49e1605ff1f3dcad246fb9a27f8ad4de17a7d6659006e09d506b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eb91567c770f49e1605ff1f3dcad246fb9a27f8ad4de17a7d6659006e09d506b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "eb91567c770f49e1605ff1f3dcad246fb9a27f8ad4de17a7d6659006e09d506b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c7e6c930b43dee71742369251d93a025d287888a653950cdbd5a86475e036ae8"
-    sha256 cellar: :any_skip_relocation, ventura:        "c7e6c930b43dee71742369251d93a025d287888a653950cdbd5a86475e036ae8"
-    sha256 cellar: :any_skip_relocation, monterey:       "c7e6c930b43dee71742369251d93a025d287888a653950cdbd5a86475e036ae8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "707cb68b52318332f51edf453b454ce3561565efabd861c0eca217ac0605fa30"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ddc4f235a35b9b3140b09ca7e8c7729a48d9a5a37c9325b4b51aa9c7d1c5203"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1ddc4f235a35b9b3140b09ca7e8c7729a48d9a5a37c9325b4b51aa9c7d1c5203"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1ddc4f235a35b9b3140b09ca7e8c7729a48d9a5a37c9325b4b51aa9c7d1c5203"
+    sha256 cellar: :any_skip_relocation, sonoma:        "94a886da9f86fa1435f857dacb8392b0455b449ed6d79c66f9ce86aa3ff7dfce"
+    sha256 cellar: :any_skip_relocation, ventura:       "94a886da9f86fa1435f857dacb8392b0455b449ed6d79c66f9ce86aa3ff7dfce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55672a281ff4002168fd4f7dbf0d3e94cc374507e168b5365c6772df24ffbe3d"
   end
 
   depends_on "go" => :build
