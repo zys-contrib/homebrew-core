@@ -189,7 +189,6 @@ bazel-remote
 bazelisk
 bbot
 bbtools
-bcftools
 bcoin
 bde
 bdw-gc
@@ -1189,7 +1188,6 @@ htmldoc
 htmlq
 htmltest
 htpdate
-htslib
 httm
 httpd
 httpie
@@ -2364,7 +2362,6 @@ safety
 sagittarius-scheme
 samba
 saml2aws
-samtools
 sbcl
 sbom-tool
 sbt
