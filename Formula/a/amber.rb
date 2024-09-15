@@ -27,6 +27,18 @@ class Amber < Formula
 
   uses_from_macos "zlib"
 
+  # Temporary resource to fix build with Crystal 1.13
+  resource "optarg" do
+    url "https://github.com/amberframework/optarg/archive/refs/tags/v0.9.3.tar.gz"
+    sha256 "0d31c0cfdc1c3ec1ca8bfeabea1fc796a1bb02e0a798a8f40f10b035dd4712e9"
+
+    # PR ref: https://github.com/amberframework/optarg/pull/6
+    patch do
+      url "https://github.com/amberframework/optarg/commit/56b34d117458b67178f77523561813d16ccddaf8.patch?full_index=1"
+      sha256 "c5d9c374b0fdafe63136cd02126ac71ce394b1706ced59da5584cdc9559912c8"
+    end
+  end
+
   # patch granite to fix db dependency resolution issue
   # upstream patch https://github.com/amberframework/amber/pull/1339
   patch do
@@ -35,6 +47,13 @@ class Amber < Formula
   end
 
   def install
+    (buildpath/"optarg").install resource("optarg")
+    (buildpath/"shard.override.yml").write <<~EOS
+      dependencies:
+        optarg:
+          path: #{buildpath}/optarg
+    EOS
+
     # Work around an Xcode 15 linker issue which causes linkage against LLVM's
     # libunwind due to it being present in a library search path.
     llvm = Formula["llvm"]
