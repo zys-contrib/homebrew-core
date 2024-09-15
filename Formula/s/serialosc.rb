@@ -20,6 +20,7 @@ class Serialosc < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "0885fb9b13b615a8addfda474c321583a0c05aa5091905348b9d6df2cf327cba"
     sha256 cellar: :any,                 arm64_sonoma:   "c9d79b6270b3a2e19e0154148b34f315f4396e62795d13ea6ed30306ee4e152e"
     sha256 cellar: :any,                 arm64_ventura:  "dfc2861176110ab1853c2cd2f196f2081570b8280b27cd246a29d8d1879f8ce5"
     sha256 cellar: :any,                 arm64_monterey: "972d810857722ce1b6fa7dd49f9a3b62623d81269267913bea17cbe845e35413"
