@@ -27,6 +27,12 @@ class Metashell < Formula
     depends_on "readline"
   end
 
+  # include missing cstddef, upstream PR ref, https://github.com/metashell/metashell/pull/303
+  patch do
+    url "https://github.com/metashell/metashell/commit/0d81415616d33e39ff6d1add91e71f9789ea8657.patch?full_index=1"
+    sha256 "31472db5ae8e67483319dcbe104d5c7a533031f9845af2ddf5147f3caabf3ac2"
+  end
+
   def install
     # Build internal Clang
     system "cmake", "-S", "3rd/templight/llvm",
