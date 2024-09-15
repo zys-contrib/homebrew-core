@@ -23,7 +23,6 @@ class Dnsdist < Formula
 
   depends_on "boost" => :build
   depends_on "pkg-config" => :build
-  depends_on "tinycdb" => :build # TODO: make runtime dependency when `tinycdb` formula has a shared library
   depends_on "abseil"
   depends_on "fstrm"
   depends_on "libnghttp2"
@@ -31,6 +30,7 @@ class Dnsdist < Formula
   depends_on "luajit"
   depends_on "openssl@3"
   depends_on "re2"
+  depends_on "tinycdb"
 
   uses_from_macos "libedit"
 
