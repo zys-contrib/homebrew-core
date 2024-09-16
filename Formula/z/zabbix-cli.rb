@@ -14,14 +14,12 @@ class ZabbixCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "93cd00f299eccd45f4b1e9ebc6da3f1c6cb8d07351ad91e480293fa033d82386"
-    sha256 cellar: :any,                 arm64_sonoma:   "63a9f2bfad76e85527eaa6d4ff506696025e9e6531050c49b02238e414776ac2"
-    sha256 cellar: :any,                 arm64_ventura:  "df1f8af769ed5396df63bb99b64e423fae29a0d79efd94a957f41d9158f21cc6"
-    sha256 cellar: :any,                 arm64_monterey: "61264474d06358eb67d4fe04147a5b28df11564b71b271dab4716b38d75769a5"
-    sha256 cellar: :any,                 sonoma:         "8d7d7f62bc4c572c4875c96f3011a5b5ad1992b2e43754d0be41a67137757ab0"
-    sha256 cellar: :any,                 ventura:        "4792cbd9ab3fc30e37914de9f5a31aed11b0f0964fa9493caec734428aa1c908"
-    sha256 cellar: :any,                 monterey:       "7db2cb8d619d6016195f2b271bb03d91828d0fa2bf945dfff032e4c3dfd0e5c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "620cdc15d20f74f1e8f1bb71ee804b7623511037d7530d5e6c192cf27944ce30"
+    sha256 cellar: :any,                 arm64_sequoia: "a995d6573ca123e8abf4ab2d72512adc804c7c727bf8e2d44216cc0374ebc0c4"
+    sha256 cellar: :any,                 arm64_sonoma:  "504ad90fb2f1015ccf83cf809432370422355b6de0885fbfcc96ba668f3f3c9f"
+    sha256 cellar: :any,                 arm64_ventura: "5b915538af8af7ee7cf416397c865cc1323390b26c8b30b75f9e2f2c9c6c3bb5"
+    sha256 cellar: :any,                 sonoma:        "c3b0f78ebdb3f85c2de59c4487f78a94777f9d7841f9fbcd4fcabf00cbb47d67"
+    sha256 cellar: :any,                 ventura:       "53c60b704ef53b39e61e85a52fbe204622f995cedaec55535178a4fd85aa31ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8077f4470e4af68552b611bffbe87436887b15c9ee19c974dee3e86295dcf5c0"
   end
 
   depends_on "rust" => :build # for pydantic_core
