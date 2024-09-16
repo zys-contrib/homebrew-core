@@ -31,6 +31,8 @@ class Mkhexgrid < Formula
   depends_on "gd"
 
   def install
+    ENV.cxx11
+
     inreplace "Makefile" do |s|
       s.change_make_var! "DESTDIR", prefix
       s.change_make_var! "CC", ENV.cc
