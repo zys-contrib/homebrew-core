@@ -25,6 +25,16 @@ class BoostAT176 < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
+  # Backport fixes for newer Clang
+  patch :p2 do
+    url "https://github.com/boostorg/numeric_conversion/commit/50a1eae942effb0a9b90724323ef8f2a67e7984a.patch?full_index=1"
+    sha256 "d96761257f7efc2edc8414f1a2522fc07a3d7d56bb55a51d14af9abd39e389c8"
+  end
+  patch :p2 do
+    url "https://github.com/boostorg/mpl/commit/b37b709cbdb6b2c285fb808dab985aa005786351.patch?full_index=1"
+    sha256 "b8013ad3e6b63698158319f5efc2fe1558a00c1d2e32193086f741e774acc3e4"
+  end
+
   def install
     # Force boost to compile with the desired compiler
     open("user-config.jam", "a") do |file|
