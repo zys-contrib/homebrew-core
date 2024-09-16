@@ -203,15 +203,6 @@ jobs:
       BOTTLE_BRANCH: ${{github.actor}}/dispatch/${{inputs.formula}}/${{github.run_id}}
       BOTTLES_DIR: ${{ github.workspace }}/bottles
     steps:
-      - name: Check that we're not uploading Sequioa x86_64 bottles
-        run: |
-          if [[ "${DISPATCH_BUILD_BOTTLE_RUNNER}" =~ (^|,)15(-x86_64)?($|,) ]]
-          then
-            echo "::error ::Refusing to upload bottles for macOS 15 x86_64!"
-            echo "::error ::Please don't upload macOS 15 x86_64 bottles yet, @${DISPATCH_BUILD_BOTTLE_SENDER}."
-            exit 1
-          fi
-
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
