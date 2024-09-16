@@ -32,7 +32,16 @@ class Huexpress < Formula
     depends_on "mesa-glu"
   end
 
+  # Workaround for newer Clang
+  # upstream bug report, https://github.com/kallisti5/huexpress/issues/19
+  patch :DATA
+
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `XBuf'; src/osd_sdl_machine.o:../src/osd_sdl_machine.c:13: first defined here
+    # upstream bug report, https://github.com/kallisti5/huexpress/issues/18
+    ENV.append "CC", "-fcommon" if OS.linux?
+
     # Don't statically link to libzip.
     inreplace "src/SConscript", "pkg-config --cflags --libs --static libzip", "pkg-config --cflags --libs libzip"
     system "scons"
@@ -43,3 +52,22 @@ class Huexpress < Formula
     assert_match(/Version #{version}$/, shell_output("#{bin}/huexpress -h", 1))
   end
 end
+
+__END__
+diff --git a/SConstruct b/SConstruct
+index 096a1ef..98216b9 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -40,5 +40,12 @@ env.Append(CPPDEFINES={'VERSION_MAJOR' : '3'})
+ env.Append(CPPDEFINES={'VERSION_MINOR' : '0'})
+ env.Append(CPPDEFINES={'VERSION_UPDATE' : '4'})
+ 
++# Workaround for newer Clang
++clang_version = env['CCVERSION']
++if env['PLATFORM'] == 'darwin' and 'clang' in env['CC']:
++    clang_version_parts = [int(part) for part in clang_version.split('.')]
++    if clang_version_parts >= [15, 0, 0]:
++        env.Append(CFLAGS=['-Wno-incompatible-function-pointer-types', '-Wno-int-conversion'])  # Pass as separate flags
++
+ Export("env")
+ SConscript('src/SConscript')
