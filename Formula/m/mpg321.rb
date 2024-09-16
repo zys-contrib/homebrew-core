@@ -33,10 +33,13 @@ class Mpg321 < Formula
     sha256 "a856292a913d3d94b3389ae7b1020d662e85bd4557d1a9d1c8ebe517978e62a1"
   end
 
-  def install
-    # Fix compile with newer Clang
-    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+  # Apply Gentoo patch for Clang 16
+  patch do
+    url "https://gitweb.gentoo.org/repo/gentoo.git/plain/media-sound/mpg321/files/mpg321-0.3.2-clang16.patch?id=ba6b4630d2b4cc294a3057b1f4770650bcb12c87"
+    sha256 "bafc5868a8293fe465449ab27bececc6039001b1519af872ecf4178afabc1a5c"
+  end
 
+  def install
     # Fix compilation with GCC 11
     ENV.append_to_cflags "-fcommon" if OS.linux?
 
