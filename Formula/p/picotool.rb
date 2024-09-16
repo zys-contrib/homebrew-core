@@ -35,11 +35,6 @@ class Picotool < Formula
   depends_on "pkg-config" => :build
   depends_on "libusb"
 
-  resource "homebrew-pico-blink" do
-    url "https://rptl.io/pico-blink"
-    sha256 "4b2161340110e939b579073cfeac1c6684b35b00995933529dd61620abf26d6f"
-  end
-
   def install
     resource("pico-sdk").stage buildpath/"pico-sdk"
 
@@ -50,17 +45,24 @@ class Picotool < Formula
   end
 
   test do
-    resource("homebrew-pico-blink").stage do
+    # from https://github.com/raspberrypi/pico-examples?tab=readme-ov-file#first-examples
+    resource "homebrew-picow_blink" do
+      url "https://rptl.io/pico-w-blink"
+      sha256 "ba6506638166c309525b4cb9cd2a9e7c48ba4e19ecf5fcfd7a915dc540692099"
+    end
+
+    resource("homebrew-picow_blink").stage do
       result = <<~EOS
-        File blink.uf2:
+        File blink_picow.uf2:
 
         Program Information
-         name:          blink
-         web site:      https://github.com/raspberrypi/pico-examples/tree/HEAD/blink
+         name:          picow_blink
+         web site:      https://github.com/raspberrypi/pico-examples/tree/HEAD/pico_w/blink
+         features:      UART stdin / stdout
          binary start:  0x10000000
-         binary end:    0x10003198
+         binary end:    0x1003feac
       EOS
-      assert_equal result, shell_output("#{bin}/picotool info blink.uf2")
+      assert_equal result, shell_output("#{bin}/picotool info blink_picow.uf2")
     end
   end
 end
