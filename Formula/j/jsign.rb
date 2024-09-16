@@ -17,10 +17,10 @@ class Jsign < Formula
   end
 
   depends_on "maven" => :build
-  depends_on "openjdk@17" # The build fails with more recent JDKs
+  depends_on "openjdk@21" # The build fails with more recent JDKs
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk@17"].opt_prefix
+    ENV["JAVA_HOME"] = Language::Java.java_home("21")
     system "mvn", "--batch-mode", "package",
                   "--projects", "jsign-core,jsign-cli,jsign-ant,jsign",
                   "-DskipTests",
