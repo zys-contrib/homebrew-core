@@ -1,8 +1,8 @@
 class TraefikAT2 < Formula
   desc "Modern reverse proxy"
   homepage "https://traefik.io/"
-  url "https://github.com/traefik/traefik/releases/download/v2.11.8/traefik-v2.11.8.src.tar.gz"
-  sha256 "e95c47584ee9bd041215de0fcf3627215a4ef48a1cca06fdb638132428521fa2"
+  url "https://github.com/traefik/traefik/releases/download/v2.11.9/traefik-v2.11.9.src.tar.gz"
+  sha256 "3b955575cb175f17c30b56af6c43882f543b2eac773ff3245d757b8ed77fae01"
   license "MIT"
 
   livecheck do
