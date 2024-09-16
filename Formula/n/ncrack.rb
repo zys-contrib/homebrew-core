@@ -26,6 +26,7 @@ class Ncrack < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "b060799701296da75f956960bbfe2f67b9a529a041bf66c9edfc76450b6bdbbd"
     sha256 arm64_sonoma:   "3ca676300ebb378ef2dc4b7442b15f47df9664e62176b49a1bd7c1d1d0093f42"
     sha256 arm64_ventura:  "79e9c8100ebba864abd6c8534c1d57d1b9d722461b5e3fca035040b3a274b600"
     sha256 arm64_monterey: "4dd658f60d6e9a13f3027bf46c2046b5844114337d348f96e32b542f381bceb3"
