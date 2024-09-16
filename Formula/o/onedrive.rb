@@ -6,7 +6,7 @@ class Onedrive < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c08ccbf9b2ca0b1bd266f884c0b9d20c4c6342afc6d08c0697f1f2c3e90e50a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "5ef60eba305591ad6d90aab590004ef1ae734a71916cce7ebff83e1ae42ab299"
   end
 
   depends_on "ldc" => :build
