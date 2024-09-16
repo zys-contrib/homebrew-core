@@ -22,6 +22,14 @@ class Mmtabbarview < Formula
   depends_on :macos
 
   def install
+    # Apply workaround for Sequoia based on ViennaRSS fork's fix.
+    # This is done via inreplace as pathname has spaces.
+    # Ref: https://github.com/ViennaRSS/MMTabBarView/commit/149fd82953a8078c4d60ce3fa855a853619eb3f9
+    if MacOS.version >= :sequoia
+      inreplace "MMTabBarView/MMTabBarView/Styles/Mojave Tab Style/MMMojaveTabStyle+Assets.m",
+                "@import Darwin.Availability;", ""
+    end
+
     xcodebuild "-workspace", "default.xcworkspace",
                "-scheme", "MMTabBarView",
                "-configuration", "Release",
