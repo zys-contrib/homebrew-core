@@ -14,6 +14,7 @@ class Picotool < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "16e96d14be7f3d63ad412bfe55a02e26b24d0becf10b8838ca3ddd658bb2f08e"
     sha256 arm64_sonoma:   "d2cdf2d3bef83207f173ee96fcb66976fe14b638fa2b941e6f16f44ab60bfc93"
     sha256 arm64_ventura:  "91dce37d751e159802bbccd9d11be16f8620197f04240c612efa6ba8bb09a393"
     sha256 arm64_monterey: "e4bf549b3d172a4f93e1f965df6d004550ff4322a40118a1caf18774d729c297"
