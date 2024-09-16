@@ -1,8 +1,8 @@
 class Baobab < Formula
   desc "Gnome disk usage analyzer"
   homepage "https://apps.gnome.org/Baobab/"
-  url "https://download.gnome.org/sources/baobab/46/baobab-46.0.tar.xz"
-  sha256 "ce4def5c82d05671a5009f7bebcf85ac98675d9d8160d28ad9181b269a72e37c"
+  url "https://download.gnome.org/sources/baobab/47/baobab-47.0.tar.xz"
+  sha256 "b88f74f9c052d3c2388f7062d228cf5e927545acf7408c56841df80ccd1f9c37"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -27,6 +27,7 @@ class Baobab < Formula
   depends_on "adwaita-icon-theme"
   depends_on "cairo"
   depends_on "glib"
+  depends_on "graphene"
   depends_on "gtk4"
   depends_on "hicolor-icon-theme"
   depends_on "libadwaita"
