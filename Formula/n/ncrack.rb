@@ -16,6 +16,13 @@ class Ncrack < Formula
       url "https://github.com/nmap/ncrack/commit/af4a9f15a26fea76e4b461953aa34ec0865d078a.patch?full_index=1"
       sha256 "273df2e3bc0733b97a258a9bea2145c4ea36e10b5beaeb687b341e8c8a82eb42"
     end
+
+    # Apply Fedora C99 patch
+    # Unmerged PR: https://github.com/nmap/ncrack/pull/127
+    patch do
+      url "https://src.fedoraproject.org/rpms/ncrack/raw/425a54633e220b6bafca37554e5585e2c6b48082/f/ncrack-0.7-fedora-c99.patch"
+      sha256 "7bb5625c29c9c218e79d0957ea3e8d84eb4c0bf4ef2acc81b908fed2cbf0e753"
+    end
   end
 
   bottle do
@@ -33,11 +40,10 @@ class Ncrack < Formula
 
   depends_on "openssl@3"
 
-  def install
-    # Fix compile with newer Clang
-    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
+  uses_from_macos "zlib"
 
-    system "./configure", *std_configure_args, "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
+  def install
+    system "./configure", "--with-openssl=#{Formula["openssl@3"].opt_prefix}", *std_configure_args
     system "make"
     system "make", "install"
   end
