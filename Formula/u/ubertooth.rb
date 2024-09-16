@@ -27,13 +27,13 @@ class Ubertooth < Formula
   depends_on "libusb"
 
   def install
-    mkdir "host/build" do
-      args = std_cmake_args
-      # Tell CMake to install udev rules in HOMEBREW_PREFIX/etc on Linux because it defaults to /etc.
-      args << "-DUDEV_RULES_PATH=#{etc}/udev/rules.d" unless OS.mac?
-      system "cmake", "..", *args
-      system "make", "install"
-    end
+    args = ["-DENABLE_PYTHON=OFF"]
+    # Tell CMake to install udev rules in HOMEBREW_PREFIX/etc on Linux because it defaults to /etc.
+    args << "-DUDEV_RULES_PATH=#{etc}/udev/rules.d" unless OS.mac?
+
+    system "cmake", "-S", "host", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
