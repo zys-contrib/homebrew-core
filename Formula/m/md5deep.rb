@@ -8,6 +8,7 @@ class Md5deep < Formula
   head "https://github.com/jessek/hashdeep.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6d92356eb626035ee2f2e8b412b0a5ca36fa31a8d6d16fe583f9dfcd6ed57a19"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2e4229518a382d9eb9d0b5fe87118a0f4a532c33b535791db257432502ac9e31"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "34dc60be87a6f4d9306468492222ea35455aa08359603f2e1bffa3ae221405de"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1b64f262b089ff96008078a6dc0f84cce93deec0740b3476279931d982bc9636"
