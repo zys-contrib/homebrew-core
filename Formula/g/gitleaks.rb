@@ -1,8 +1,8 @@
 class Gitleaks < Formula
   desc "Audit git repos for secrets"
   homepage "https://github.com/gitleaks/gitleaks"
-  url "https://github.com/gitleaks/gitleaks/archive/refs/tags/v8.19.1.tar.gz"
-  sha256 "163eb1afe949220e309496492e271d9c905954420beb646fbe24289eb1567bc4"
+  url "https://github.com/gitleaks/gitleaks/archive/refs/tags/v8.19.2.tar.gz"
+  sha256 "271c0869d3c4fc89d24de81a12348b1f725d79df67719dfa46abf6df12b5411c"
   license "MIT"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
