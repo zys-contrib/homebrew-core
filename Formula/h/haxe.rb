@@ -5,6 +5,9 @@ class Haxe < Formula
   head "https://github.com/HaxeFoundation/haxe.git", branch: "development"
 
   stable do
+    # TODO: Remove `ctypes==0.21.1` pin when build fails from pointer mismatch (i.e. `luv >= 0.5.13`)
+    # Ref: https://github.com/HaxeFoundation/haxe/commit/e646e6f182c920694968ba7a28ad01ddfee4519a
+    # Ref: https://github.com/HaxeFoundation/haxe/commit/0866067940256afc9227a75f96baee6ec64ee373
     url "https://github.com/HaxeFoundation/haxe.git",
         tag:      "4.3.6",
         revision: "760c0dd9972abadceba4e72edb1db13b2a4fb315"
@@ -76,6 +79,7 @@ class Haxe < Formula
       ENV["OPAMYES"] = "1"
       ENV["ADD_REVISION"] = "1" if build.head?
       system "opam", "init", "--no-setup", "--disable-sandboxing"
+      system "opam", "exec", "--", "opam", "pin", "add", "ctypes", "0.21.1"
       system "opam", "exec", "--", "opam", "pin", "add", "haxe", buildpath, "--no-action"
       system "opam", "exec", "--", "opam", "install", "haxe", "--deps-only", "--working-dir", "--no-depexts"
       system "opam", "exec", "--", "make"
