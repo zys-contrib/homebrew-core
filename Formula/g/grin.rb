@@ -1,8 +1,8 @@
 class Grin < Formula
   desc "Minimal implementation of the Mimblewimble protocol"
   homepage "https://grin.mw/"
-  url "https://github.com/mimblewimble/grin/archive/refs/tags/v5.3.2.tar.gz"
-  sha256 "569b30fc1eb9ea895cb4f766cf32a759923f09cc4a9dc5eedb61f475ae25f091"
+  url "https://github.com/mimblewimble/grin/archive/refs/tags/v5.3.3.tar.gz"
+  sha256 "f10bb5454120b9d8153df1fa8dd8f527f0420f3026b03518e0df8dc8895dc38b"
   license "Apache-2.0"
 
   bottle do
@@ -21,12 +21,6 @@ class Grin < Formula
 
   uses_from_macos "llvm" => :build # for libclang
   uses_from_macos "ncurses"
-
-  # rust 1.80 build patch, upstream pr ref, https://github.com/mimblewimble/grin/pull/3795
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/1a9fc06a277d1315568d708f7379d7c96915f505/grin/rust-1.80.patch"
-    sha256 "5269766f6db0a8827c04790d871074c317a2b9f22b842c3f69c0bc5f7a3bcf9e"
-  end
 
   def install
     system "cargo", "install", *std_cargo_args
