@@ -1,8 +1,8 @@
 class Ferium < Formula
   desc "Fast and multi-source CLI program for managing Minecraft mods and modpacks"
   homepage "https://github.com/gorilla-devs/ferium"
-  url "https://github.com/gorilla-devs/ferium/archive/refs/tags/v4.7.0.tar.gz"
-  sha256 "a7804e44d1949e3fe2c5e875d7d70fc6d2ecd16cbcb65619b9ad4f61ac3b1887"
+  url "https://github.com/gorilla-devs/ferium/archive/refs/tags/v4.7.1.tar.gz"
+  sha256 "a9b9fd966f47d5f8c32e483a21ea476f6883f194e7813f1f81b0001e14b046a5"
   license "MPL-2.0"
   head "https://github.com/gorilla-devs/ferium.git", branch: "main"
 
@@ -18,6 +18,7 @@ class Ferium < Formula
   end
 
   depends_on "rust" => :build
+  uses_from_macos "bzip2"
 
   on_linux do
     depends_on "pkg-config" => :build
