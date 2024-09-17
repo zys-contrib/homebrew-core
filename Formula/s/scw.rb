@@ -6,14 +6,12 @@ class Scw < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b5933f7b3e42ff50acbd5e1878d538968f3f139c37e54e48e1e63eba5061a31c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "831c35c560df566b67594c496f92e949ad0036ba2520821a463415fdcca71dcb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "831c35c560df566b67594c496f92e949ad0036ba2520821a463415fdcca71dcb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "831c35c560df566b67594c496f92e949ad0036ba2520821a463415fdcca71dcb"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1b43561ca899bfcfbef9647003b92ece27f51367533ee9b9885d5a075d4cc4f1"
-    sha256 cellar: :any_skip_relocation, ventura:        "1b43561ca899bfcfbef9647003b92ece27f51367533ee9b9885d5a075d4cc4f1"
-    sha256 cellar: :any_skip_relocation, monterey:       "1b43561ca899bfcfbef9647003b92ece27f51367533ee9b9885d5a075d4cc4f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c170383110a5bf7b98aa03f594bdd847580c1177b653b64cc15cff62abd7bd6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f108b3544ed75adf491c64a22317dcd02c5247d9f4ed683d26c449cee955fb5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f108b3544ed75adf491c64a22317dcd02c5247d9f4ed683d26c449cee955fb5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8f108b3544ed75adf491c64a22317dcd02c5247d9f4ed683d26c449cee955fb5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "17e160e945e5405aabd445538119cf31abd27128ec7018dee7270b3de47875a3"
+    sha256 cellar: :any_skip_relocation, ventura:       "17e160e945e5405aabd445538119cf31abd27128ec7018dee7270b3de47875a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96dcc09cad7c0a81f5500848bd47fcdb9526a697d10c0d3a3fda4b3540842cd9"
   end
 
   depends_on "go" => :build
