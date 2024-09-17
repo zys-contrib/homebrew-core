@@ -1342,6 +1342,7 @@ karmadactl
 kaskade
 katana
 kcat
+kcgi
 kcov
 kcptun
 kea
