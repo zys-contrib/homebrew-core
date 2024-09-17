@@ -1,8 +1,8 @@
 class PhylumCli < Formula
   desc "Command-line interface for the Phylum API"
   homepage "https://www.phylum.io"
-  url "https://github.com/phylum-dev/cli/archive/refs/tags/v6.6.6.tar.gz"
-  sha256 "05868260995706de7221da21c3ed399122957129a58f5427477cac97681f8725"
+  url "https://github.com/phylum-dev/cli/archive/refs/tags/v7.0.0.tar.gz"
+  sha256 "42565684950ac90c6197eaffe406d6e890811204c76122d536678e7dee2be83e"
   license "GPL-3.0-or-later"
   head "https://github.com/phylum-dev/cli.git", branch: "main"
 
@@ -41,7 +41,11 @@ class PhylumCli < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/phylum --version")
 
-    output = shell_output("#{bin}/phylum extension")
-    assert_match "No extensions are currently installed.", output
+    assert_match <<~EOS, shell_output("#{bin}/phylum status")
+      Project: null
+      Group: null
+      Project Root: null
+      Dependency Files: null
+    EOS
   end
 end
