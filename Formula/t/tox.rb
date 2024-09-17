@@ -3,8 +3,8 @@ class Tox < Formula
 
   desc "Generic Python virtualenv management and test command-line tool"
   homepage "https://tox.wiki/en/latest/"
-  url "https://files.pythonhosted.org/packages/e1/cc/272e73f90be0f6df89efaf82e5d804b90b4e39ceb0ef1621486bb0e921e8/tox-4.18.1.tar.gz"
-  sha256 "3c0c96bc3a568a5c7e66387a4cfcf8c875b52e09f4d47c9f7a277ec82f1a0b11"
+  url "https://files.pythonhosted.org/packages/d8/f5/bcb4b151c374d7d8c04b24084374f2f6dace0bc988e6a87e3271227e54ec/tox-4.19.0.tar.gz"
+  sha256 "66177d887f9d7ef8eaa9b58b187f7b865fa4c58650086c01336e82c9831e1867"
   license "MIT"
 
   bottle do
@@ -51,8 +51,8 @@ class Tox < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/ea/b1/0d84052c168ca3a712ca01be2b8f55af8a3d5b644e02276e02c3a0ac2b90/platformdirs-4.3.1.tar.gz"
-    sha256 "63b79589009fa8159973601dd4563143396b35c5f93a58b36f9049ff046949b1"
+    url "https://files.pythonhosted.org/packages/6f/4e/4f36f5b7b98d04588104c29e14805ebdf00c7acb607567856c311107d72c/platformdirs-4.3.4.tar.gz"
+    sha256 "9e8a037c36fe1b1f1b5de4482e60464272cc8dca725e40b568bf2c285f7509cf"
   end
 
   resource "pluggy" do
