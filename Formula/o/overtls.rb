@@ -1,8 +1,8 @@
 class Overtls < Formula
   desc "Simple proxy tunnel for bypassing the GFW"
   homepage "https://github.com/ShadowsocksR-Live/overtls"
-  url "https://github.com/ShadowsocksR-Live/overtls/archive/refs/tags/v0.2.33.tar.gz"
-  sha256 "5f400fb0d056668a7d763ce7d45348696da5b01737c8313a64d77e88d45388d1"
+  url "https://github.com/ShadowsocksR-Live/overtls/archive/refs/tags/v0.2.35.tar.gz"
+  sha256 "01f709364606c86649457868b3ed7bc5970705e21921019a8437bcbd0e5e6733"
   license "MIT"
   head "https://github.com/ShadowsocksR-Live/overtls.git", branch: "master"
 
@@ -26,9 +26,9 @@ class Overtls < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/overtls -V")
+    assert_match version.to_s, shell_output("#{bin}/overtls-bin -V")
 
-    output = shell_output(bin/"overtls -r client -c #{pkgshare}/config.json 2>&1", 1)
+    output = shell_output(bin/"overtls-bin -r client -c #{pkgshare}/config.json 2>&1", 1)
     assert_match "Error: Io(Kind(TimedOut))", output
   end
 end
