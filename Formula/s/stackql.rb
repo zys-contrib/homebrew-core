@@ -1,8 +1,8 @@
 class Stackql < Formula
   desc "SQL interface for arbitrary resources with full CRUD support"
   homepage "https://stackql.io/"
-  url "https://github.com/stackql/stackql/archive/refs/tags/v0.5.740.tar.gz"
-  sha256 "92d042037a2024f35164fab9a4abff9fb29eda6c3a6e9c12790a5c605142f74b"
+  url "https://github.com/stackql/stackql/archive/refs/tags/v0.5.742.tar.gz"
+  sha256 "f9b5534a0a38720bdc01c4d2203734df2f2b39fb433aa06eeaf10eb455163c52"
   license "MIT"
 
   livecheck do
