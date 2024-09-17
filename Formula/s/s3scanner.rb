@@ -1,8 +1,8 @@
 class S3scanner < Formula
   desc "Scan for misconfigured S3 buckets across S3-compatible APIs!"
   homepage "https://github.com/sa7mon/S3Scanner"
-  url "https://github.com/sa7mon/S3Scanner/archive/refs/tags/v3.1.0.tar.gz"
-  sha256 "4b9b4dd0eeb663a88a1e9acf4e689098e635d29a13849f3a425d3b3c12df438d"
+  url "https://github.com/sa7mon/S3Scanner/archive/refs/tags/v3.1.1.tar.gz"
+  sha256 "2d333c31909baa21e024d11db1b03647fff3d210d73fa7fa47f598d3d459a20c"
   license "MIT"
 
   bottle do
