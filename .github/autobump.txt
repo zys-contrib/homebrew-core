@@ -764,6 +764,7 @@ epic5
 epoll-shim
 epr
 eprover
+eralchemy
 erdtree
 erg
 erlang
