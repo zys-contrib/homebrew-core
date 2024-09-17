@@ -713,6 +713,7 @@ dynein
 dysk
 dzr
 e2fsprogs
+e2tools
 earthly
 easeprobe
 easy-rsa

@@ -1,8 +1,8 @@
 class E2tools < Formula
   desc "Utilities to read, write, and manipulate files in ext2/3/4 filesystems"
   homepage "https://e2tools.github.io/"
-  url "https://github.com/e2tools/e2tools/releases/download/v0.1.0/e2tools-0.1.0.tar.gz"
-  sha256 "c1a06b5ae2cbddb6f04d070e889b8bebf87015b8585889999452ce9846122edf"
+  url "https://github.com/e2tools/e2tools/releases/download/v0.1.2/e2tools-0.1.2.tar.gz"
+  sha256 "b19593bbfc85e9c14c0d2bc8525887901c8fe02588c76df60ab843bf0573c4a2"
   license "GPL-2.0-only"
 
   bottle do
@@ -26,10 +26,6 @@ class E2tools < Formula
   depends_on "pkg-config" => :build
   depends_on "e2fsprogs"
 
-  # disable automake treating warnings as error,
-  # upstream patch PR, https://github.com/e2tools/e2tools/pull/33
-  patch :DATA
-
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-silent-rules", *std_configure_args
@@ -41,17 +37,3 @@ class E2tools < Formula
     assert_match "lost+found", shell_output("#{bin}/e2ls test.raw")
   end
 end
-
-__END__
-diff --git a/configure.ac b/configure.ac
-index 53ad54a..89e9c52 100644
---- a/configure.ac
-+++ b/configure.ac
-@@ -11,7 +11,6 @@ AC_CONFIG_SRCDIR([e2tools.c])
- AC_CONFIG_MACRO_DIR([m4])
- AM_INIT_AUTOMAKE([
- -Wall
---Werror
- 1.9.6
- foreign
- ])
