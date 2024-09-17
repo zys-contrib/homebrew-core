@@ -2076,6 +2076,7 @@ pegtl
 percona-xtrabackup
 perl
 perltidy
+peru
 pfetch-rs
 pg_cron
 pg_partman
