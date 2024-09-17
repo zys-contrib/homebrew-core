@@ -1,8 +1,8 @@
 class Nagios < Formula
   desc "Network monitoring and management system"
   homepage "https://www.nagios.org/"
-  url "https://downloads.sourceforge.net/project/nagios/nagios-4.x/nagios-4.5.4/nagios-4.5.4.tar.gz"
-  sha256 "eca13c692d1371cd07328ac3431613f7b09886adff9c37833a37377a5e35f2bf"
+  url "https://downloads.sourceforge.net/project/nagios/nagios-4.x/nagios-4.5.5/nagios-4.5.5.tar.gz"
+  sha256 "a3699ab615ccc85cdd5292403c672a996bcb919ed40580a291b44db4aa04cd7a"
   license "GPL-2.0-only"
 
   livecheck do
