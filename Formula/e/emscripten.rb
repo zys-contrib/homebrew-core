@@ -1,6 +1,8 @@
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://emscripten.org/"
+  # To automate fetching the required resource revisions, you can use this helper script:
+  #   https://gist.github.com/carlocab/2db1d7245fa0cd3e92e01fe37b164021
   url "https://github.com/emscripten-core/emscripten/archive/refs/tags/3.1.67.tar.gz"
   sha256 "ec4af2648cd6ad382db799f4cc20630ea091ed6b45a963f79c96052a7e37fe35"
   license all_of: [
