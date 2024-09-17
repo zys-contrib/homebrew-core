@@ -1,24 +1,10 @@
 class Ffmpegthumbnailer < Formula
   desc "Create thumbnails for your video files"
   homepage "https://github.com/dirkvdb/ffmpegthumbnailer"
+  url "https://github.com/dirkvdb/ffmpegthumbnailer/archive/refs/tags/2.2.3.tar.gz"
+  sha256 "8c9b9057c6cc8bce9d11701af224c8139c940f734c439a595525e073b09d19b8"
   license "GPL-2.0-or-later"
-  revision 10
   head "https://github.com/dirkvdb/ffmpegthumbnailer.git", branch: "master"
-
-  stable do
-    url "https://github.com/dirkvdb/ffmpegthumbnailer/archive/refs/tags/2.2.2.tar.gz"
-    sha256 "8c4c42ab68144a9e2349710d42c0248407a87e7dc0ba4366891905322b331f92"
-
-    # Backport support for FFmpeg 5. Remove in the next release
-    patch do
-      url "https://github.com/dirkvdb/ffmpegthumbnailer/commit/372cd422e57a9a3531eb9a30559d665caecff1ba.patch?full_index=1"
-      sha256 "88aecad1b3ba9d564b365a6fa19bf56d14c43d0185de7aefa2e75901669269b9"
-    end
-    patch do
-      url "https://github.com/dirkvdb/ffmpegthumbnailer/commit/3e63ed4a7f092aa6908a417bb800b25eaf3b1e2d.patch?full_index=1"
-      sha256 "629ac4ff56cda4066798233c906ca907cfab6c4e36e1d0fb25ead4d7acb1eaaf"
-    end
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "a340ed41468ef95ebd63408a215134f30bb4c7882565661d2ac3e4efc7d7f6c5"
