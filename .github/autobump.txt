@@ -2649,6 +2649,7 @@ temporal
 tendermint
 tengo
 tenv
+tere
 terminator
 termshark
 terracognita
