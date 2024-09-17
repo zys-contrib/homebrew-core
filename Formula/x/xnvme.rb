@@ -1,8 +1,8 @@
 class Xnvme < Formula
   desc "Cross-platform libraries and tools for efficient I/O and low-level control"
   homepage "https://xnvme.io/"
-  url "https://github.com/xnvme/xnvme/releases/download/v0.7.4/xnvme-fat-0.7.4.tar.gz"
-  sha256 "6dd17ec256a3801d28f1e068aa1f61e82cf9a42eb30fcc81322ef04f637855f9"
+  url "https://github.com/xnvme/xnvme/releases/download/v0.7.5/xnvme-fat-0.7.5.tar.gz"
+  sha256 "67e1e55966f150c68cbe386112202cb3d1af8831b7202a251986b7e63cf34f3a"
   license "BSD-3-Clause"
 
   livecheck do
@@ -30,7 +30,7 @@ class Xnvme < Formula
     # The examples and tests are also a bit superfluous, so disable those as well
     system "meson", "setup", "build",
            *std_meson_args,
-           "-Dwith-spdk=false",
+           "-Dwith-spdk=disabled",
            "-Dwith-libvfn=disabled",
            "-Dtests=false",
            "-Dexamples=false"
