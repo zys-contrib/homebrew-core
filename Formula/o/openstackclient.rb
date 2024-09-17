@@ -160,6 +160,11 @@ class Openstackclient < Formula
     sha256 "ef085249a8764b6f29d404eda566a261a3003502aa431b39ffd54307ee103e19"
   end
 
+  resource "osc-placement" do
+    url "https://files.pythonhosted.org/packages/81/85/e6e14d13639656da6bf91f27376cf7352ea98b1624701868a097bf41020a/osc-placement-4.5.0.tar.gz"
+    sha256 "831d67419d1efffba6f57cd228a9fdb169275647e4a9537eb275662656b7cd8f"
+  end
+
   resource "oslo-config" do
     url "https://files.pythonhosted.org/packages/42/92/f53acc4f8bb37ba50722b9ba03f53fd507adc434d821552d79d34ca87d2f/oslo.config-9.6.0.tar.gz"
     sha256 "9f05ef70e48d9a61a8d0c9bed389da24f2ef5a89df5b6e8deb7c741d6113667e"
@@ -383,6 +388,7 @@ class Openstackclient < Formula
     system bin/"openstack", "-h"
     openstack_subcommands = [
       "server list",
+      "resource provider list", # osc-placement
       "stack list", # python-heatclient
       "loadbalancer list", # python-octaviaclient
       "rating summary get", # python-cloudkittyclient
