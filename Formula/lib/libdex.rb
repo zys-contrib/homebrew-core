@@ -15,7 +15,7 @@ class Libdex < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3ea4e1a78f97c13eca1e1fa59aecfc668876730a8d01c96af363892cd64c2e4"
   end
 
-  depends_on "gobject-introspection" => [:build, :test]
+  depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
