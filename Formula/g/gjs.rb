@@ -1,12 +1,9 @@
 class Gjs < Formula
   desc "JavaScript Bindings for GNOME"
   homepage "https://gitlab.gnome.org/GNOME/gjs/wikis/Home"
-  # TODO: Move to latest `spidermonkey` on 1.82.x.
-  # Also set deprecation date on `spidermonkey@115`.
-  url "https://download.gnome.org/sources/gjs/1.80/gjs-1.80.2.tar.xz"
-  sha256 "135e39c5ac591096233e557cfe577d64093f5054411d47cb2e214bad7d4199bd"
+  url "https://download.gnome.org/sources/gjs/1.82/gjs-1.82.0.tar.xz"
+  sha256 "14490236868d0bf822f7aa7cf38fcd333e7620760fdcf50e932423611f626623"
   license all_of: ["LGPL-2.0-or-later", "MIT"]
-  revision 1
   head "https://gitlab.gnome.org/GNOME/gjs.git", branch: "master"
 
   bottle do
@@ -28,7 +25,7 @@ class Gjs < Formula
   depends_on "gobject-introspection"
   depends_on "libx11"
   depends_on "readline"
-  depends_on "spidermonkey@115"
+  depends_on "spidermonkey"
 
   uses_from_macos "libffi"
 
