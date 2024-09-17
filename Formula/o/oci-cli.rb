@@ -3,8 +3,8 @@ class OciCli < Formula
 
   desc "Oracle Cloud Infrastructure CLI"
   homepage "https://docs.cloud.oracle.com/iaas/Content/API/Concepts/cliconcepts.htm"
-  url "https://files.pythonhosted.org/packages/d5/93/0e0ffe2682f4625aa05f60882a481aac2908153f0d62a798a14364543b89/oci-cli-3.47.0.tar.gz"
-  sha256 "39309c8cc957b52d81749711ea953aa24857712269e5e5f39c5feeab3d687fa2"
+  url "https://files.pythonhosted.org/packages/79/72/9ee4c092bd19f41af4b5ddda035dffa401a95636f27d2ff95cb6ac8a36bc/oci-cli-3.48.0.tar.gz"
+  sha256 "a1c071419db3294d0fb993d06146d9c19c87e088ab56c04815a6f8f45fed80a7"
   license any_of: ["UPL-1.0", "Apache-2.0"]
   head "https://github.com/oracle/oci-cli.git", branch: "master"
 
@@ -45,8 +45,8 @@ class OciCli < Formula
   end
 
   resource "oci" do
-    url "https://files.pythonhosted.org/packages/f2/41/d11d77a99262b8277a2806a777fec4586089ea19b48c04a70fd1a44352a9/oci-2.133.0.tar.gz"
-    sha256 "800418025bb98f587c65bbf89c6b6d61ef0f2249e0698d73439baf3251640b7f"
+    url "https://files.pythonhosted.org/packages/d3/4f/e5e75afd75cd1dbcfe3cf94028beee245e089e399c627473cc9ad08c029b/oci-2.134.0.tar.gz"
+    sha256 "14cd2aa834b4f645cfc4c6784849192fecc365c7eb66da4fc1b6a140042221c9"
   end
 
   resource "prompt-toolkit" do
@@ -65,8 +65,8 @@ class OciCli < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/90/26/9f1f00a5d021fff16dee3de13d43e5e978f3d58928e129c3a62cf7eb9738/pytz-2024.1.tar.gz"
-    sha256 "2a29735ea9c18baf14b448846bde5a48030ed267578472d8955cd0e7443a9812"
+    url "https://files.pythonhosted.org/packages/3a/31/3c70bf7603cc2dca0f19bdc53b4537a797747a58875b552c8c413d963a3f/pytz-2024.2.tar.gz"
+    sha256 "2aa355083c50a0f93fa581709deac0c9ad65cca8a9e9beac660adcbd493c798a"
   end
 
   resource "pyyaml" do
@@ -85,8 +85,8 @@ class OciCli < Formula
   end
 
   resource "types-python-dateutil" do
-    url "https://files.pythonhosted.org/packages/23/11/aae06ddb6a90cf8ba078be6dbe47f904d2efdf451f9859248b436c945ca4/types-python-dateutil-2.9.0.20240821.tar.gz"
-    sha256 "9649d1dcb6fef1046fb18bebe9ea2aa0028b160918518c34589a46045f6ebd98"
+    url "https://files.pythonhosted.org/packages/3e/d9/9c9ec2d870af7aa9b722ce4fd5890bb55b1d18898df7f1d069cab194bb2a/types-python-dateutil-2.9.0.20240906.tar.gz"
+    sha256 "9706c3b68284c25adffc47319ecc7947e5bb86b3773f843c73906fd598bc176e"
   end
 
   resource "wcwidth" do
