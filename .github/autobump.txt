@@ -1263,6 +1263,7 @@ ipython
 ircd-hybrid
 iredis
 isl
+iso-codes
 ispc
 istioctl
 isync
