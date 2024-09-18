@@ -833,6 +833,7 @@ ffmpeg
 ffmpeg@4
 ffmpeg@5
 ffmpeg@6
+ffmpegthumbnailer
 ffms2
 ffsend
 ffuf
