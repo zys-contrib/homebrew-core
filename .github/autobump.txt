@@ -191,6 +191,7 @@ bazelisk
 bbot
 bbtools
 bcoin
+bcpp
 bde
 bdw-gc
 beagle
