@@ -1,8 +1,8 @@
 class Aichat < Formula
   desc "All-in-one AI-Powered CLI Chat & Copilot"
   homepage "https://github.com/sigoden/aichat"
-  url "https://github.com/sigoden/aichat/archive/refs/tags/v0.21.1.tar.gz"
-  sha256 "4045c89bd94809969cc15d29889f0d4e662d2c68b129b9cda66eebc738c8016a"
+  url "https://github.com/sigoden/aichat/archive/refs/tags/v0.22.0.tar.gz"
+  sha256 "a0f108c7da9c361fd30c1c8ba386cb33b6f9861c90bab663bcd3bdc89c9f29c7"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/sigoden/aichat.git", branch: "main"
 
