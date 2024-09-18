@@ -1,20 +1,10 @@
 class Wasmedge < Formula
   desc "Lightweight, high-performance, and extensible WebAssembly runtime"
   homepage "https://WasmEdge.org/"
+  url "https://github.com/WasmEdge/WasmEdge/releases/download/0.14.1/WasmEdge-0.14.1-src.tar.gz"
+  sha256 "e5a944975fb949ecda73d6fe80a86507deb2d0a221b2274338807b63758350b4"
   license "Apache-2.0"
-  revision 2
   head "https://github.com/WasmEdge/WasmEdge.git", branch: "master"
-
-  stable do
-    url "https://github.com/WasmEdge/WasmEdge/releases/download/0.14.0/WasmEdge-0.14.0-src.tar.gz"
-    sha256 "3fc518c172329d128ab41671b86e3de0544bcaacdec9c9b47bfc4ce8b421dfd5"
-
-    # fmt 11 compat
-    patch do
-      url "https://github.com/WasmEdge/WasmEdge/commit/3fda0d46a8fee41cc77eddd8a49ca3f423cf7d95.patch?full_index=1"
-      sha256 "23f5555ffebed864796922376004ae5c3a95043921e2e6dae5f8fb6ac9789439"
-    end
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "c6da772877caa84c519af7fa9be3b8211b870c586fc581373d5cde8f01510d80"
