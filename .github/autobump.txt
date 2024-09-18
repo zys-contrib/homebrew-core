@@ -934,6 +934,7 @@ gateway-go
 gator
 gatsby-cli
 gau
+gawk
 gcalcli
 gcem
 gcovr
