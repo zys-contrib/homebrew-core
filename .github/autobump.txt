@@ -1545,6 +1545,7 @@ libpq
 libpqxx
 libproxy
 libpulsar
+libraw
 librdkafka
 libre
 librealsense
