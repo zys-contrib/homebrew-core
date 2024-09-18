@@ -24,6 +24,7 @@ class Openjdk < Formula
   depends_on "autoconf" => :build
   depends_on "pkg-config" => :build
   depends_on xcode: :build
+  depends_on "freetype"
   depends_on "giflib"
   depends_on "harfbuzz"
   depends_on "jpeg-turbo"
@@ -53,7 +54,6 @@ class Openjdk < Formula
   on_linux do
     depends_on "alsa-lib"
     depends_on "fontconfig"
-    depends_on "freetype"
     depends_on "libx11"
     depends_on "libxext"
     depends_on "libxi"
@@ -122,6 +122,7 @@ class Openjdk < Formula
       --with-version-build=#{revision}
       --without-version-opt
       --without-version-pre
+      --with-freetype=system
       --with-giflib=system
       --with-harfbuzz=system
       --with-lcms=system
@@ -137,8 +138,13 @@ class Openjdk < Formula
     args += if OS.mac?
       ldflags << "-headerpad_max_install_names"
 
+      # Allow unbundling `freetype` on macOS
+      inreplace "make/autoconf/lib-freetype.m4", '= "xmacosx"', '= ""'
+
       %W[
         --enable-dtrace
+        --with-freetype-include=#{Formula["freetype"].opt_include}
+        --with-freetype-lib=#{Formula["freetype"].opt_lib}
         --with-sysroot=#{MacOS.sdk_path}
       ]
     else
@@ -146,7 +152,6 @@ class Openjdk < Formula
         --with-x=#{HOMEBREW_PREFIX}
         --with-cups=#{HOMEBREW_PREFIX}
         --with-fontconfig=#{HOMEBREW_PREFIX}
-        --with-freetype=system
         --with-stdc++lib=dynamic
       ]
     end
