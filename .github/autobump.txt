@@ -190,6 +190,7 @@ bazel-remote
 bazelisk
 bbot
 bbtools
+bc-gh
 bcoin
 bde
 bdw-gc
