@@ -6,6 +6,10 @@ class Nanobind < Formula
   license "BSD-3-Clause"
   head "https://github.com/wjakob/nanobind.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "67d3bc9718d09845035fdb44fa3ac8e60e80bcc8170900f25a945589eeb02e9d"
+  end
+
   depends_on "cmake" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
   depends_on "robin-map" => [:build, :test]
