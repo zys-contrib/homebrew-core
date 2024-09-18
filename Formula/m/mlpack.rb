@@ -15,14 +15,11 @@ class Mlpack < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "doxygen" => :build
   depends_on "pkg-config" => :build
 
   depends_on "armadillo"
-  depends_on "boost"
   depends_on "cereal"
   depends_on "ensmallen"
-  depends_on "graphviz"
 
   resource "stb_image" do
     url "https://raw.githubusercontent.com/nothings/stb/0bc88af4de5fb022db643c2d8e549a0927749354/stb_image.h"
