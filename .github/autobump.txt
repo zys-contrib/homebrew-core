@@ -2860,6 +2860,7 @@ vue-cli
 vulkan-extensionlayer
 vulkan-volk
 vultr
+vulture
 vunnel
 vvdec
 vvenc
