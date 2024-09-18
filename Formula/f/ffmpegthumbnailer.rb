@@ -7,14 +7,12 @@ class Ffmpegthumbnailer < Formula
   head "https://github.com/dirkvdb/ffmpegthumbnailer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "a340ed41468ef95ebd63408a215134f30bb4c7882565661d2ac3e4efc7d7f6c5"
-    sha256 cellar: :any,                 arm64_sonoma:   "235ab42ecf1f474a0384e45a2e78fd9f30841e5749af68eefe462b6abefde494"
-    sha256 cellar: :any,                 arm64_ventura:  "937e42bc36a29d57502d71354e24b73a5be2da001d99fa1af4343e72c0f1cc69"
-    sha256 cellar: :any,                 arm64_monterey: "e848acd7b52d186e84410b372e9fcc736a793bf821146a075a52d632141e197e"
-    sha256 cellar: :any,                 sonoma:         "a434eb881dd1ad39b2ec6a9e6cc0b5bc717bda9c93b889e1854dd94b91b3adcb"
-    sha256 cellar: :any,                 ventura:        "1c9e947edabc6c624ff242a4a1852096a2199d16595a15df3ecfee9bc6f50893"
-    sha256 cellar: :any,                 monterey:       "d44e1ebe5f523a76d2872cc4dc25333743f2297b0fac57aceeffb28b91fe2c12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "335052fa0c62e6e0406baf107c55b02f5ff726d774fdfe6ad30896d0f3ef95cf"
+    sha256 cellar: :any,                 arm64_sequoia: "a5efa6fb1477d7b41d258ca928b653f1418a84dd85970750105f052a2414afbb"
+    sha256 cellar: :any,                 arm64_sonoma:  "d8b455e75a511dce2545d1fd82b53106d4dae32674147c3d69117159222a07e6"
+    sha256 cellar: :any,                 arm64_ventura: "5c07ad4ce678518a79c0eb0a73931dce18e98a8783f02318e36852ce6eb16026"
+    sha256 cellar: :any,                 sonoma:        "5ed8492099d976f753d53fb621a0750e7cc79f178ee5b51fff24dae04a857647"
+    sha256 cellar: :any,                 ventura:       "6047a8a051cde041bb98bc126501c49cc4a59f3babfd43b669252996284982cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "764e0cd873315b8893a45a0043c5dc7c42f0d1f94ce35a076d5e60c4adc1a687"
   end
 
   depends_on "cmake" => :build
