@@ -1,8 +1,8 @@
 class Needle < Formula
   desc "Compile-time safe Swift dependency injection framework with real code"
   homepage "https://github.com/uber/needle"
-  url "https://github.com/uber/needle/archive/refs/tags/v0.24.0.tar.gz"
-  sha256 "61b7259a369d04d24c0c532ecf3295fdff92e79e4d0f96abaed1552b19208478"
+  url "https://github.com/uber/needle/archive/refs/tags/v0.25.1.tar.gz"
+  sha256 "b9cf878b0ce9589e862ec5aa8ba3222e181ecbe038369989d2ee9d9c80157fbb"
   license "Apache-2.0"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -23,7 +23,7 @@ class Needle < Formula
     sha256 cellar: :any, monterey:       "0a7abfa75a75acf3773fc1bef1ed9e268ddda7da6ceafb2c5f74c6d36a4922c8"
   end
 
-  depends_on xcode: ["14.0", :build]
+  depends_on xcode: ["15.3", :build]
   depends_on :macos
 
   def install
