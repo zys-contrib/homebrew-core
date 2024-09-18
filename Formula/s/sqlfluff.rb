@@ -3,8 +3,8 @@ class Sqlfluff < Formula
 
   desc "SQL linter and auto-formatter for Humans"
   homepage "https://docs.sqlfluff.com/"
-  url "https://files.pythonhosted.org/packages/fa/bc/78715cf0193ef90135661b3cf52e1288eadb331aeb55162eadb48de3c5ff/sqlfluff-3.1.1.tar.gz"
-  sha256 "d910bb62ff3352265b8e0053f68748cb74e1468fb07d8af9bf942ea968635e7d"
+  url "https://files.pythonhosted.org/packages/93/23/eceff1cab7acc786a48663ef8fa7ad1144b99f3d1c03e058f22aaf0a17cc/sqlfluff-3.2.0.tar.gz"
+  sha256 "65d91dac2b27a248fb3d388d3c3f91c0c704bfa77e6b10b72a599a684795fe76"
   license "MIT"
 
   bottle do
@@ -42,8 +42,8 @@ class Sqlfluff < Formula
   end
 
   resource "diff-cover" do
-    url "https://files.pythonhosted.org/packages/53/54/de08694e2335af338416ad968afe8c3115c56d4825dc4402f43dcf27218a/diff_cover-9.1.1.tar.gz"
-    sha256 "b5ed20955b3ebdee94476e429cfd9f1324e1c19a04c4aae32a893b11c3673f1e"
+    url "https://files.pythonhosted.org/packages/44/3a/e49ccba052a4dda264fbad4f467739ecc63498f7223bfc03d4bfac23ea95/diff_cover-9.2.0.tar.gz"
+    sha256 "85a0b353ebbb678f9e87ea303f75b545bd0baca38f563219bb72f2ae862bba36"
   end
 
   resource "iniconfig" do
@@ -82,8 +82,8 @@ class Sqlfluff < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/b4/8c/9862305bdcd6020bc7b45b1b5e7397a6caf1a33d3025b9a003b39075ffb2/pytest-8.3.2.tar.gz"
-    sha256 "c132345d12ce551242c87269de812483f5bcc87cdbb4722e48487ba194f9fdce"
+    url "https://files.pythonhosted.org/packages/8b/6c/62bbd536103af674e227c41a8f3dcd022d591f6eed5facb5a0f31ee33bbc/pytest-8.3.3.tar.gz"
+    sha256 "70b98107bd648308a7952b06e6ca9a50bc660be218d53c257cc1fc94fda10181"
   end
 
   resource "pyyaml" do
@@ -92,8 +92,8 @@ class Sqlfluff < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/3f/51/64256d0dc72816a4fe3779449627c69ec8fee5a5625fd60ba048f53b3478/regex-2024.7.24.tar.gz"
-    sha256 "9cfd009eed1a46b27c14039ad5bbc5e71b6367c5b2e6d5f5da0ea91600817506"
+    url "https://files.pythonhosted.org/packages/f9/38/148df33b4dbca3bd069b963acab5e0fa1a9dbd6820f8c322d0dd6faeff96/regex-2024.9.11.tar.gz"
+    sha256 "6c188c307e8433bcb63dc1915022deb553b4203a70722fc542c363bf120a01fd"
   end
 
   resource "tblib" do
