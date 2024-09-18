@@ -403,6 +403,7 @@ circleci
 circumflex
 citus
 cjson
+clac
 clair
 clamav
 clang-format
