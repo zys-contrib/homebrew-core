@@ -282,6 +282,9 @@
   "enex2notion": {
     "exclude_packages": ["certifi", "pymupdf"]
   },
+  "eralchemy": {
+    "package_name": "eralchemy[pygraphviz]"
+  },
   "esphome": {
     "exclude_packages": ["certifi", "cryptography"]
   },
