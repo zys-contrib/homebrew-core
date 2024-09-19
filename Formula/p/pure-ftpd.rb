@@ -1,10 +1,9 @@
 class PureFtpd < Formula
   desc "Secure and efficient FTP server"
   homepage "https://www.pureftpd.org/"
-  url "https://download.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.51.tar.gz"
-  sha256 "4160f66b76615eea2397eac4ea3f0a146b7928207b79bc4cc2f99ad7b7bd9513"
+  url "https://download.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.52.tar.gz"
+  sha256 "1126f3a95856d08889ff89703cb1aa9ec9924d939d154e96904c920f05dc3c74"
   license all_of: ["BSD-2-Clause", "BSD-3-Clause", "BSD-4-Clause", "ISC"]
-  revision 2
 
   livecheck do
     url "https://download.pureftpd.org/pub/pure-ftpd/releases/"

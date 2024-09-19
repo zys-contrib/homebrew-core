@@ -2205,6 +2205,7 @@ pueue
 pug
 pulsarctl
 pure
+pure-ftpd
 purescript
 purescript-language-server
 pushpin
