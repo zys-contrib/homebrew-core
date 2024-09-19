@@ -3,8 +3,8 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://ansible-lint.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/51/51/5e9ff2797c3f2ac66e9230abc240da052328694a88f423d8c78420cbb864/ansible_lint-24.9.0.tar.gz"
-  sha256 "b8c9c94c6c3bc68b43bcf7b067e286f8201e341772c7d3dbdb0364ecab2b3944"
+  url "https://files.pythonhosted.org/packages/cc/7a/6b4f1d54c8d5157a97a9ebeee77398871b15e2cffa41e3e425af1717244e/ansible_lint-24.9.2.tar.gz"
+  sha256 "7cff6c5af10ef996b7c6010cbd48c91592764ae098f2b05408726899a1066a7f"
   license all_of: ["MIT", "GPL-3.0-or-later"]
 
   bottle do
@@ -26,8 +26,8 @@ class AnsibleLint < Formula
   depends_on "python@3.12"
 
   resource "ansible-compat" do
-    url "https://files.pythonhosted.org/packages/91/0a/2dad0b9e7aa81195ca2d430138226a5507f7903d67dcb073b475b15643fd/ansible_compat-24.9.0.tar.gz"
-    sha256 "c5a42a56dd212625cfcb1d31e51a6e0f52593691bde1fe4a78881e8b1b78a6b8"
+    url "https://files.pythonhosted.org/packages/30/07/f4632fc03a627b008cf6c6cd125640e332810a93a2a264c5f004979f498d/ansible_compat-24.9.1.tar.gz"
+    sha256 "9ff20245e1bd9de9b23a367902524ab0e11fbcfb741831996da5da5b60ab95df"
   end
 
   resource "ansible-core" do
@@ -56,8 +56,8 @@ class AnsibleLint < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/e6/76/3981447fd369539aba35797db99a8e2ff7ed01d9aa63e9344a31658b8d81/filelock-3.16.0.tar.gz"
-    sha256 "81de9eb8453c769b63369f87f11131a7ab04e367f8d97ad39dc230daa07e3bec"
+    url "https://files.pythonhosted.org/packages/9d/db/3ef5bb276dae18d6ec2124224403d1d67bccdbefc17af4cc8f553e341ab1/filelock-3.16.1.tar.gz"
+    sha256 "c249fbfcd5db47e5e2d6d62198e565475ee65e4831e2561c8e313fa7eb961435"
   end
 
   resource "importlib-metadata" do
@@ -111,8 +111,8 @@ class AnsibleLint < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/75/a0/d7cab8409cdc7d39b037c85ac46d92434fb6595432e069251b38e5c8dd0e/platformdirs-4.3.2.tar.gz"
-    sha256 "9e5e27a08aa095dd127b9f2e764d74254f482fef22b0970773bfba79d091ab8c"
+    url "https://files.pythonhosted.org/packages/13/fc/128cc9cb8f03208bdbf93d3aa862e16d376844a14f9a0ce5cf4507372de4/platformdirs-4.3.6.tar.gz"
+    sha256 "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"
   end
 
   resource "pygments" do
@@ -171,8 +171,8 @@ class AnsibleLint < Formula
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/d3/8b/1239a3ef43a0d0ebdca623fb6413bc7702c321400c5fdd574f0b7aa0fbb4/zipp-3.20.1.tar.gz"
-    sha256 "c22b14cc4763c5a5b04134207736c107db42e9d3ef2d9779d465f5f1bcba572b"
+    url "https://files.pythonhosted.org/packages/54/bf/5c0000c44ebc80123ecbdddba1f5dcd94a5ada602a9c225d84b5aaa55e86/zipp-3.20.2.tar.gz"
+    sha256 "bc9eb26f4506fda01b81bcde0ca78103b6e62f991b381fec825435c836edbc29"
   end
 
   def install
