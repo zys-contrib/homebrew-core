@@ -33,6 +33,9 @@ class PythonBuild < Formula
 
   def install
     virtualenv_install_with_resources
+
+    # Ensure uniform bottles by replacing a `/usr/local` reference in a comment.
+    inreplace libexec/"lib/python3.12/site-packages/build/env.py", "/usr/local", HOMEBREW_PREFIX
   end
 
   test do
