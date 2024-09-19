@@ -4,6 +4,7 @@ class Xfig < Formula
   url "https://downloads.sourceforge.net/mcj/xfig-3.2.9.tar.xz"
   sha256 "13ed9d04d1bbc2dec09da7ef49ceec278382d290f6cd926474c2f2d016fec2f7"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
