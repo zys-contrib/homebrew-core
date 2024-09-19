@@ -7,12 +7,12 @@ class GoFeatureFlagRelayProxy < Formula
   head "https://github.com/thomaspoignant/go-feature-flag.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "07cecd11c6d60a2cb776dbe2758257f8bdcf6f9940647144eb32fb6ae0b6f3b6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "07cecd11c6d60a2cb776dbe2758257f8bdcf6f9940647144eb32fb6ae0b6f3b6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "07cecd11c6d60a2cb776dbe2758257f8bdcf6f9940647144eb32fb6ae0b6f3b6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9b5cbd7904d9913c5c4dc506e74cdd26d7b3fc7b25e1deeef4b4ea3696e2b86b"
-    sha256 cellar: :any_skip_relocation, ventura:       "9b5cbd7904d9913c5c4dc506e74cdd26d7b3fc7b25e1deeef4b4ea3696e2b86b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc5ed0e9b359ee0af0e6f4880cf6cde3f20c002761d59b70b9d098d60a18df18"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "82f2dcc6cb308ec3c805f3cffb0342a3492832e8416b5463a83c52623bee64a9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "82f2dcc6cb308ec3c805f3cffb0342a3492832e8416b5463a83c52623bee64a9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "82f2dcc6cb308ec3c805f3cffb0342a3492832e8416b5463a83c52623bee64a9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2703b003c1d86650b34b7c084da12ef9705f5a39ca46b8aff7938cd874c3ae14"
+    sha256 cellar: :any_skip_relocation, ventura:       "2703b003c1d86650b34b7c084da12ef9705f5a39ca46b8aff7938cd874c3ae14"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce7ba2e86c4e4ba128f6cbf335e62e707d21e0e39ba8afb313c5c5828d0fd3e6"
   end
 
   depends_on "go" => :build
