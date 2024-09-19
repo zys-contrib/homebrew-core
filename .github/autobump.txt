@@ -593,6 +593,7 @@ deno
 dep-tree
 dependency-check
 deployer
+der-ascii
 derby
 descope
 detect-secrets
