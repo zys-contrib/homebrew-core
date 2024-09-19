@@ -12,14 +12,12 @@ class Libsql < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8fe6f5092133c17811b086a82f58fcdb22667ca3fb0b01872c42d36b1148b4c1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3e014288fdef773457d3d4e70686f02eb6603368138019c584b5f48479fde3aa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "74243f26b5bd01ac5cbc0c9b5a6c709de17a5fa6e8fc8ed3125d2414e8597982"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "88003b2780d2cb8881ed6f7f8c1cb47a4757a5836c93101296ba6c17c262e5b4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b5b04293e2dfb66dfcce39ed66cea40dbb7cbf8148ced7de72b6ebb81ae0ed75"
-    sha256 cellar: :any_skip_relocation, ventura:        "7e97d9ebbc2cedb8c81876506e8f866524c17edd665361d6d59352cb8e300803"
-    sha256 cellar: :any_skip_relocation, monterey:       "95b087557148c40b33fb33b190b5338edfc4ca386a3b88181f74ad606d67517f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e01d762d3236bd81bc20586b45ad49fa4c500bd822085367df2a92d57537ed6d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6e69982709f29df0e9f2ceff673d56538f4edded6a0819a6512489d2cd43a987"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a11d49f3ada721f3d221e2425084ddbcb4cb016310debe59c7a376da3d596882"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a639bd500102ffca0b06e03164e6f725777e4daae4c43c4667fcbe6f49ffa0f4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cec7e43edf744f658067eb6d7feec02271c9cc7b0f3911eab1b8170692b2a18a"
+    sha256 cellar: :any_skip_relocation, ventura:       "37e0c423dbaad76237f9a190da3b22cfa1274c28c80a2094d44db2e7918eab30"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65e45c987df6169e962babf574c2387b498c7b28b6df1f8d44d9c0871c13022c"
   end
 
   depends_on "rust" => :build
