@@ -29,12 +29,8 @@ class Eigen < Formula
   conflicts_with "freeling", because: "freeling ships its own copy of eigen"
 
   def install
-    mkdir "eigen-build" do
-      args = std_cmake_args
-      args << "-Dpkg_config_libdir=#{lib}" << ".."
-      system "cmake", *args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "eigen-build", "-Dpkg_config_libdir=#{lib}", *std_cmake_args
+    system "cmake", "--install", "eigen-build"
     (share/"cmake/Modules").install "cmake/FindEigen3.cmake"
   end
 
