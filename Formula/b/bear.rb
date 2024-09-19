@@ -2,7 +2,7 @@ class Bear < Formula
   desc "Generate compilation database for clang tooling"
   homepage "https://github.com/rizsotto/Bear"
   license "GPL-3.0-or-later"
-  revision 8
+  revision 9
   head "https://github.com/rizsotto/Bear.git", branch: "master"
 
   stable do
