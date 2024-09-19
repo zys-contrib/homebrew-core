@@ -3,8 +3,8 @@ class Ldeep < Formula
 
   desc "LDAP enumeration utility"
   homepage "https://github.com/franc-pentest/ldeep"
-  url "https://files.pythonhosted.org/packages/b9/6e/9bc0879bb27cb09e13c943b76638c68765596ad3fc1a5c115a771960bf0c/ldeep-1.0.64.tar.gz"
-  sha256 "eae1f693debcfa2c4e61f158f1b84ad17621e3316f9be35b73c0742155786471"
+  url "https://files.pythonhosted.org/packages/a3/c6/b89a631ba78d9444f206fcf77af546eb513089246922975881bb8cbf35ab/ldeep-1.0.65.tar.gz"
+  sha256 "836c931e4940e2b814feb242870d11f01a41f21d120063dd4a37f0e8f94058cc"
   license "MIT"
   head "https://github.com/franc-pentest/ldeep.git", branch: "master"
 
