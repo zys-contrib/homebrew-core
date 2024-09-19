@@ -6,7 +6,7 @@ class AwsCdk < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "086b0fac3499c38d8d3f9e92fc9881b6e9718d504f43a2a1a09523677b88d4f5"
+    sha256 cellar: :any_skip_relocation, all: "380d15f8c0b9dc40974daa97175ac48c776044d3ecb07a957313ce67747798c1"
   end
 
   depends_on "node"
