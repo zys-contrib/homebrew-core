@@ -1,8 +1,8 @@
 class Openjazz < Formula
   desc "Open source Jazz Jackrabit engine"
   homepage "https://www.alister.eu/jazz/oj/"
-  url "https://github.com/AlisterT/openjazz/archive/refs/tags/20231028.tar.gz"
-  sha256 "c45ff414dc846563ad7ae4b6c848f938ab695eb4ae6f958856b3fa409da0b8ac"
+  url "https://github.com/AlisterT/openjazz/archive/refs/tags/20240919.tar.gz"
+  sha256 "c50193b630c375840026d729bb9dda6c7210b1523e62d7ae019ce2e37f806627"
   license "GPL-2.0-only"
   head "https://github.com/AlisterT/openjazz.git", branch: "master"
 
@@ -33,8 +33,6 @@ class Openjazz < Formula
   end
 
   def install
-    # see https://github.com/AlisterT/openjazz/pull/100, can be removed once merged
-    inreplace "ext/psmplug/stdafx.h", "#include <malloc.h>", ""
     system "cmake", "-S", ".", "-B", "build", "-DDATAPATH=#{pkgshare}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -54,5 +52,6 @@ class Openjazz < Formula
 
   test do
     system bin/"OpenJazz", "--version"
+    assert_predicate testpath/"openjazz.log", :exist?
   end
 end
