@@ -12,14 +12,12 @@ class Geph4 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cf94f4739a3c4ca46076916b1e2317513ec0efcd7cc9d6ddc3476c0f279af7b6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4468710fe42a9dc7e5b0d034105d93928fe438c504849d58401bca82dee4ffd7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef0ca3607b8f78c35e03140ef6246166fd736e43382849fc2e913e4840df56e2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4aa738af979c77dbfd61a5e61cf303074ba0f99e4ea6a01898215844018fa0dd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "956c339dee523e1b3f84f62aa88525240cb533876d7178d96576a8084b409f60"
-    sha256 cellar: :any_skip_relocation, ventura:        "5e11e10d21e054069b2f8812938d936cdd273f8475816cfee7a3e63860e1680b"
-    sha256 cellar: :any_skip_relocation, monterey:       "6a7daaaa76e27710425189cc2d5e07ef84f6e71c5ada0b0860f336d123969643"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e785f5e3a86f74e78228be67c41eee4b82104c34ce6d7f9304a133ebda59aec2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bf39ad69bc42bd47763ca5e4bdbe1135913eb12d94c533ea4bcfecb1c9486e42"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd4bc4c9ce708bfc8ea14b713920921954bde397180649f08c9c8053a14d90e4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "34d434422e69a6f14dbc5df3b332abd15cfdda0f257938a287ddd8a3cf170990"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9842876f83c2cd0e03c294520c54ed7c03f5bedbe2c96e2ba2546c3f78c895b8"
+    sha256 cellar: :any_skip_relocation, ventura:       "84f6ac3add4fd3860d6083121b1d180b4c3a5a79ab4a4f8d654506147b65904c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c5c7c9e5100fbce347d8f3acef47a559f6a14c625fdf8093c438d4010eca7ee"
   end
 
   depends_on "rust" => :build
