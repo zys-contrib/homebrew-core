@@ -21,35 +21,25 @@ class Treefrog < Formula
     sha256 x86_64_linux:   "cb7320c8416c2d800ee3c744e9e48e22a957e0af6c03ffe31a2fed205f79dd6e"
   end
 
-  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on xcode: :build
-  depends_on "gflags"
   depends_on "glog"
+  depends_on "lz4"
   depends_on "mongo-c-driver"
   depends_on "qt"
 
   fails_with gcc: "5"
 
   def install
-    # src/corelib.pro hardcodes different paths for mongo-c-driver headers on macOS and Linux.
-    if OS.mac?
-      inreplace "src/corelib.pro", "/usr/local", HOMEBREW_PREFIX
-    else
-      inreplace "src/corelib.pro", "/usr/lib", HOMEBREW_PREFIX/"lib"
-    end
+    rm_r("3rdparty")
+    # Skip unneeded CMake check
+    inreplace "configure", "if ! which cmake ", "if false "
 
-    system "./configure", "--prefix=#{prefix}", "--enable-shared-mongoc", "--enable-shared-glog"
-
-    cd "src" do
-      system "make"
-      system "make", "install"
-    end
-
-    cd "tools" do
-      system "make"
-      system "make", "install"
-    end
+    system "./configure", "--prefix=#{prefix}",
+                          "--enable-shared-glog",
+                          "--enable-shared-lz4",
+                          "--enable-shared-mongoc"
+    system "make", "-C", "src", "install"
+    system "make", "-C", "tools", "install"
   end
 
   test do
