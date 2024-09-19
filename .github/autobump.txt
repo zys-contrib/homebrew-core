@@ -2049,6 +2049,7 @@ pagmo
 pan
 pandoc
 pandoc-crossref
+pandoc-plot
 pandocomatic
 pango
 pangomm
