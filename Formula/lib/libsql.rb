@@ -1,8 +1,8 @@
 class Libsql < Formula
   desc "Fork of SQLite that is both Open Source, and Open Contributions"
   homepage "https://turso.tech/libsql"
-  url "https://github.com/tursodatabase/libsql/releases/download/libsql-server-v0.24.24/source.tar.gz"
-  sha256 "42245ff1036b8a6f73787ee3696b7f3ae8cebc1a8feb4d560f2c14eeaf849b03"
+  url "https://github.com/tursodatabase/libsql/releases/download/libsql-server-v0.24.25/source.tar.gz"
+  sha256 "93ce5ca3faf5b9809fa32b32b318c2d0903b30608e347786232f85a81c08fe66"
   license "MIT"
   head "https://github.com/tursodatabase/libsql.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Libsql < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6e69982709f29df0e9f2ceff673d56538f4edded6a0819a6512489d2cd43a987"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a11d49f3ada721f3d221e2425084ddbcb4cb016310debe59c7a376da3d596882"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a639bd500102ffca0b06e03164e6f725777e4daae4c43c4667fcbe6f49ffa0f4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cec7e43edf744f658067eb6d7feec02271c9cc7b0f3911eab1b8170692b2a18a"
-    sha256 cellar: :any_skip_relocation, ventura:       "37e0c423dbaad76237f9a190da3b22cfa1274c28c80a2094d44db2e7918eab30"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65e45c987df6169e962babf574c2387b498c7b28b6df1f8d44d9c0871c13022c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ca93ad5def9b4745a331f82ccd3344f75bc921c123797b1e8aba787bf489860"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "57dab7be33da3c82cd77629506733a985818df4dcab1157fbadffa936ced6e4d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f8026e5c85098ba4c7b5769c71adabb2983503684e4f1f0710c33d6ac9882db4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "86c43c082c3e227e486a3fac597788a7d5b68e0eac59b55940be23ae273c6834"
+    sha256 cellar: :any_skip_relocation, ventura:       "829b7f5c5de6b4f9943b55a34454bff0196fc8ad201ec5ba0b5499f03a936d18"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee99673a18ffea70885451484a2a91ebc7c20088774200cc0d2a716798415e48"
   end
 
   depends_on "rust" => :build
