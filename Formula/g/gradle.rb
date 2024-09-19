@@ -29,6 +29,10 @@ class Gradle < Formula
     libexec.install %w[bin docs lib src]
     env = Language::Java.overridable_java_home_env
     (bin/"gradle").write_env_script libexec/"bin/gradle", env
+
+    # Ensure we have uniform bottles.
+    inreplace libexec/"src/jvm-services/org/gradle/jvm/toolchain/internal/LinuxInstallationSupplier.java",
+              "/usr/local", HOMEBREW_PREFIX
   end
 
   test do
