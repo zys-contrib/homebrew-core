@@ -1,8 +1,8 @@
 class Buf < Formula
   desc "New way of working with Protocol Buffers"
   homepage "https://github.com/bufbuild/buf"
-  url "https://github.com/bufbuild/buf/archive/refs/tags/v1.41.0.tar.gz"
-  sha256 "b9721906b0bfccffefe1d2c52e2b472dc212e40ff4be49c61d153132c3ce3371"
+  url "https://github.com/bufbuild/buf/archive/refs/tags/v1.42.0.tar.gz"
+  sha256 "825e9004703c6817bd1bd2925004d2e22e55359c6c5e30cc748dc09637b0e59b"
   license "Apache-2.0"
   head "https://github.com/bufbuild/buf.git", branch: "main"
 
