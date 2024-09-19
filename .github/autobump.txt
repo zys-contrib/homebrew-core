@@ -1986,6 +1986,7 @@ openh264
 openimageio
 openiothub-server
 openj9
+openjazz
 openjdk
 openjdk@11
 openjdk@17
