@@ -9,12 +9,13 @@ class Openstackclient < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4e9a1250349446c8a48137788d0e815efd81cf97151560d08fcbed64d2e642bf"
-    sha256 cellar: :any,                 arm64_sonoma:  "0b8bb08b85d81c9728262d7dc2084a6b775d29e532c6aaabc717fc9f9fd2ee9e"
-    sha256 cellar: :any,                 arm64_ventura: "bfa4660161b70462655a70001e1887d94115771e8dab6cd154c4f414a76b8676"
-    sha256 cellar: :any,                 sonoma:        "48145e8d86ea1234bcd800920922bcce13014db76e2ead583692b8526fd65a4f"
-    sha256 cellar: :any,                 ventura:       "3b825e03643e49d6c28f4209dd4bef73f980461d5ec0cff0283b3ba4c63d9083"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "868ad6a5c9ae0990cd35f76f606eff5ac1d1b59ddec47ca4a336be87c8f5d4cc"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "198cf19845d1fd63d9dbb58fe16c62594a1018c07cf992718467b568381f43d8"
+    sha256 cellar: :any,                 arm64_sonoma:  "24e2f0395854693ad225f6e46bbc13c9a7fdcfd49b59e876ef0afd5135e11391"
+    sha256 cellar: :any,                 arm64_ventura: "f071f8479f73ae421be6a587e7964badcee2f86c8abbd93bfdf7135cddd0d577"
+    sha256 cellar: :any,                 sonoma:        "e5c14328c865e9ae123d876502ed0ed31cc4ec0c6bb0a2dbda9879454b12e3f6"
+    sha256 cellar: :any,                 ventura:       "880978469465842ecd28ee292b914345ca48dce88d81d0311e4f64e076de5495"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8735849f7fb6bd0e49de1088b709c60db50d77bbf307afd4a69c1ca2ab76ba2d"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -158,6 +159,11 @@ class Openstackclient < Formula
   resource "osc-lib" do
     url "https://files.pythonhosted.org/packages/56/42/a85b60f90efd29bade74d2e4fee287339b8a5b20377736fd2aac7378492d/osc-lib-3.1.0.tar.gz"
     sha256 "ef085249a8764b6f29d404eda566a261a3003502aa431b39ffd54307ee103e19"
+  end
+
+  resource "osc-placement" do
+    url "https://files.pythonhosted.org/packages/81/85/e6e14d13639656da6bf91f27376cf7352ea98b1624701868a097bf41020a/osc-placement-4.5.0.tar.gz"
+    sha256 "831d67419d1efffba6f57cd228a9fdb169275647e4a9537eb275662656b7cd8f"
   end
 
   resource "oslo-config" do
@@ -383,6 +389,7 @@ class Openstackclient < Formula
     system bin/"openstack", "-h"
     openstack_subcommands = [
       "server list",
+      "resource provider list", # osc-placement
       "stack list", # python-heatclient
       "loadbalancer list", # python-octaviaclient
       "rating summary get", # python-cloudkittyclient
