@@ -36,8 +36,13 @@ class Neo4j < Formula
     # Install jars in libexec to avoid conflicts
     libexec.install Dir["*"]
 
+    bash_completion.install (libexec/"bin/completion").children
+    # Ensure uniform bottles by replacing comments that reference `/usr/local`.
+    inreplace bash_completion.children, "/usr/local", HOMEBREW_PREFIX
+    rm_r libexec/"bin/completion"
+
     # Symlink binaries
-    bin.install Dir["#{libexec}/bin/neo4j{,-shell,-import,-shared.sh,-admin}"]
+    bin.install libexec.glob("bin/neo4j*")
     bin.env_script_all_files(libexec/"bin", env)
 
     # Adjust UDC props
