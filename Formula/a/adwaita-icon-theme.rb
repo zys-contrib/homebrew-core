@@ -6,8 +6,7 @@ class AdwaitaIconTheme < Formula
   license any_of: ["LGPL-3.0-or-later", "CC-BY-SA-3.0"]
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "1250e68255e0bace6793697ce92c5c57b6eb56ef2b3d25ec4512708318f8bff9"
+    sha256 cellar: :any_skip_relocation, all: "02a59c3c9335a81374805e6959a572255f6def77b599ee378ad39a1fe6ff61e7"
   end
 
   depends_on "gtk4" => :build # for gtk4-update-icon-cache
