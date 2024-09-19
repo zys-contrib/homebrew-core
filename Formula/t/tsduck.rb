@@ -33,11 +33,15 @@ class Tsduck < Formula
   uses_from_macos "libedit"
   uses_from_macos "pcsc-lite"
 
+  on_macos do
+    depends_on "make" => :build
+  end
+
   def install
     ENV["LINUXBREW"] = "true" if OS.linux?
-    system "make", "NOGITHUB=1", "NOTEST=1"
+    system "gmake", "NOGITHUB=1", "NOTEST=1"
     ENV.deparallelize
-    system "make", "NOGITHUB=1", "NOTEST=1", "install", "SYSPREFIX=#{prefix}"
+    system "gmake", "NOGITHUB=1", "NOTEST=1", "install", "SYSPREFIX=#{prefix}"
   end
 
   test do
