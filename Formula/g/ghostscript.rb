@@ -15,15 +15,12 @@ class Ghostscript < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia:  "c5f70c8ebed71bf33bfc579776e9d0b161dd2a6cb2b5db19d63c09a366d361d4"
-    sha256 arm64_sonoma:   "b0d9503a7efa718b2c1c2994b442065e79cf3a7807402944e19d278391766077"
-    sha256 arm64_ventura:  "7bd21d992e534be507dd7d457c6a0b1cdf76ef1743976276c1eaa256bca2306c"
-    sha256 arm64_monterey: "ac3c82a2bccbea544614781dc85aa1400d1665d40e37f1df1de0986daa76e1f0"
-    sha256 sonoma:         "42ea47a742a77e6b96346d8989cbe9dbeed019537865aa38e61209fe73e28bc4"
-    sha256 ventura:        "1f4b9b7577337c6702d6891d1ad686cca240c9895135b917d3bc146c580a9d86"
-    sha256 monterey:       "ea25cdd4def41ef333c0503b3101d6baf6a47505cd585de55d1e0cba88426f53"
-    sha256 x86_64_linux:   "b2b04161201e1f17a9ca9511e0579ae97d65a40f4bc7d195865ac7f5d8c972f6"
+    sha256 arm64_sequoia: "1ec5dc13df46f9336bd39399ba4d0564fcba2f63f0c4ca008f2b86e3172f4d04"
+    sha256 arm64_sonoma:  "0193b5a6ca5b47a35263cb547d09b438048ff532315d010cd544bf513d2a64ec"
+    sha256 arm64_ventura: "ddc4cba70de0af25125eba0ba9e5b7ced5e2290622f83bba20f20da246637594"
+    sha256 sonoma:        "0ea2144019a3128a6b1e0b640d491b5d457666be21d0763166ffe94764eab716"
+    sha256 ventura:       "6505dca6f56f4af62d12af839ee75b3ad5ef91c880d87982b81567b1f59835e2"
+    sha256 x86_64_linux:  "51882cc46695af1c7e7732ddedfa8e02e41a4c7797981e5c77bd3dc75bdb6950"
   end
 
   head do
