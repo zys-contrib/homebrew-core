@@ -1839,6 +1839,7 @@ nagios
 nagios-plugins
 nano
 nanoflann
+nanopb
 nasm
 nats-server
 nats-streaming-server

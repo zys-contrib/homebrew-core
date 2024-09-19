@@ -4,10 +4,9 @@ class Nanopb < Formula
 
   desc "C library for encoding and decoding Protocol Buffer messages"
   homepage "https://jpa.kapsi.fi/nanopb/docs/index.html"
-  url "https://jpa.kapsi.fi/nanopb/download/nanopb-0.4.8.tar.gz"
-  sha256 "d685e05fc6e56fd7e4e3cacc71f45bd91d90c0455257603ed98a39d2b0f1dd4b"
+  url "https://jpa.kapsi.fi/nanopb/download/nanopb-0.4.9.tar.gz"
+  sha256 "096a12331959590f5879f1039b2b6e32c887be58069e3bf1589aee949a420f51"
   license "Zlib"
-  revision 2
 
   livecheck do
     url "https://jpa.kapsi.fi/nanopb/download/"
@@ -31,13 +30,13 @@ class Nanopb < Formula
   depends_on "python@3.12"
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/3c/0b/7a997c8939f698d72bdea14d57116e43d3051fffb3b2964c30938c4a08e6/protobuf-5.28.1.tar.gz"
-    sha256 "42597e938f83bb7f3e4b35f03aa45208d49ae8d5bcb4bc10b9fc825e0ab5e423"
+    url "https://files.pythonhosted.org/packages/b1/a4/4579a61de526e19005ceeb93e478b61d77aa38c8a85ad958ff16a9906549/protobuf-5.28.2.tar.gz"
+    sha256 "59379674ff119717404f7454647913787034f03fe7049cbef1d74a97bb4593f0"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/3e/2c/f0a538a2f91ce633a78daaeb34cbfb93a54bd2132a6de1f6cec028eee6ef/setuptools-74.1.2.tar.gz"
-    sha256 "95b40ed940a1c67eb70fc099094bd6e99c6ee7c23aa2306f4d2697ba7916f9c6"
+    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
+    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
   end
 
   def install
