@@ -4,8 +4,8 @@ class Openstackclient < Formula
   desc "Command-line client for OpenStack"
   homepage "https://openstack.org"
   # TODO: remove `setuptools` from pypi_formula_mappings.json after https://review.opendev.org/c/openstack/pbr/+/924216
-  url "https://files.pythonhosted.org/packages/2b/4a/292ae140c1e13d6aa6f8919db57802588b93a5eaf2c3e236c86fbf5b8ec8/python-openstackclient-7.1.1.tar.gz"
-  sha256 "b10e35ffd5ff6db6ee7d0762cb1749372fe9a1063e9ba4bb8bb4b911c9ecf0ba"
+  url "https://files.pythonhosted.org/packages/8a/8c/4573a1abacafd00f76bba1c1c377a5fdbf86dd19ebe6eb71eb8603be93a4/python-openstackclient-7.1.2.tar.gz"
+  sha256 "84b6f1726fcb92a314d9dc93318848075da247b798314842d1b152f336441a5d"
   license "Apache-2.0"
 
   bottle do
@@ -207,8 +207,8 @@ class Openstackclient < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/f5/19/f7bee3a71decedd8d7bc4d3edb7970b8e899f3caef257b0f0d623f2f7b11/platformdirs-4.3.3.tar.gz"
-    sha256 "d4e0b7d8ec176b341fb03cb11ca12d0276faa8c485f9cd218f613840463fc2c0"
+    url "https://files.pythonhosted.org/packages/13/fc/128cc9cb8f03208bdbf93d3aa862e16d376844a14f9a0ce5cf4507372de4/platformdirs-4.3.6.tar.gz"
+    sha256 "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"
   end
 
   resource "ply" do
