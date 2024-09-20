@@ -24,8 +24,22 @@ class PythonSetuptools < Formula
   end
 
   def install
+    inreplace_paths = %w[
+      _distutils/unixccompiler.py
+      _vendor/platformdirs/unix.py
+      tests/test_easy_install.py
+    ]
+
     pythons.each do |python|
       system python, "-m", "pip", "install", *std_pip_args, "."
+
+      # Ensure uniform bottles
+      setuptools_site_packages = prefix/Language::Python.site_packages(python)/"setuptools"
+      inreplace setuptools_site_packages/"_vendor/platformdirs/macos.py", "/opt/homebrew", HOMEBREW_PREFIX
+
+      inreplace_files = inreplace_paths.map { |file| setuptools_site_packages/file }
+      inreplace_files += setuptools_site_packages.glob("_vendor/platformdirs-*dist-info/METADATA")
+      inreplace inreplace_files, "/usr/local", HOMEBREW_PREFIX
     end
   end
 
