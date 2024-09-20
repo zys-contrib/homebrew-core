@@ -32,6 +32,10 @@ class ExtraCmakeModules < Formula
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+    # Ensure uniform bottles.
+    inreplace_files = %w[prefix.sh.cmake prefix.sh.fish.cmake].map { |f| share/"ECM/kde-modules"/f }
+    inreplace inreplace_files, "/usr/local", HOMEBREW_PREFIX
   end
 
   test do
