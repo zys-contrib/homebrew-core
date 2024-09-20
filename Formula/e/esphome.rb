@@ -21,6 +21,7 @@ class Esphome < Formula
   depends_on "cryptography"
   depends_on "libmagic"
   depends_on "libyaml"
+  depends_on "pillow"
   depends_on "python-setuptools"
   depends_on "python@3.12"
 
