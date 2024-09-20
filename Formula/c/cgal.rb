@@ -33,6 +33,21 @@ class Cgal < Formula
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+    # Ensure that the various `Find*` modules look in HOMEBREW_PREFIX.
+    # This also helps guarantee uniform bottles.
+    inreplace_files = %w[
+      CGAL_Common.cmake
+      FindESBTL.cmake
+      FindGLPK.cmake
+      FindIPE.cmake
+      FindLASLIB.cmake
+      FindMKL.cmake
+      FindOSQP.cmake
+      FindOpenMesh.cmake
+      FindSuiteSparse.cmake
+    ]
+    inreplace inreplace_files.map { |file| lib/"cmake/CGAL"/file }, "/usr/local", HOMEBREW_PREFIX
   end
 
   test do
