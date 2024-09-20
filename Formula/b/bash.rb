@@ -112,11 +112,24 @@ class Bash < Formula
     # Homebrew's bash instead of /bin/bash.
     ENV.append_to_cflags "-DSSH_SOURCE_BASHRC"
 
+    bash_loadables_path=[
+      "#{lib}/bash",
+      # Stock Bash paths; keep them for backwards compatibility.
+      "/usr/local/lib/bash",
+      "/usr/lib/bash",
+      "/opt/local/lib/bash",
+      "/usr/pkg/lib/bash",
+      "/opt/pkg/lib/bash",
+      ".",
+    ].join(":")
+    ENV.append_to_cflags "-DDEFAULT_LOADABLE_BUILTINS_PATH='\"#{bash_loadables_path}\"'"
+
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
 
   test do
-    assert_equal "hello", shell_output("#{bin}/bash -c \"echo -n hello\"")
+    assert_equal "hello", shell_output("#{bin}/bash -c 'echo -n hello'")
+    assert_equal "csv is a shell builtin\n", shell_output("#{bin}/bash -c 'enable csv; type csv'")
   end
 end
