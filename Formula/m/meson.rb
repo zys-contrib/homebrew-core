@@ -32,18 +32,26 @@ class Meson < Formula
     # Make the bottles uniform. This also ensures meson checks `HOMEBREW_PREFIX`
     # for fulfilling dependencies rather than just `/usr/local`.
     mesonbuild = prefix/Language::Python.site_packages(python3)/"mesonbuild"
-    inreplace_files = %w[
+    usr_local_files = %w[
       coredata.py
+      options.py
       dependencies/boost.py
       dependencies/cuda.py
       dependencies/qt.py
       scripts/python_info.py
       utils/universal.py
+      compilers/mixins/apple.py
     ].map { |f| mesonbuild/f }
-    inreplace_files << (bash_completion/"meson")
+    usr_local_files << (bash_completion/"meson")
 
     # Passing `build.stable?` ensures a failed `inreplace` won't fail HEAD installs.
-    inreplace inreplace_files, "/usr/local", HOMEBREW_PREFIX, build.stable?
+    inreplace usr_local_files, "/usr/local", HOMEBREW_PREFIX, audit_result: build.stable?
+
+    opt_homebrew_files = %w[dependencies/boost.py compilers/mixins/apple.py].map { |f| mesonbuild/f }
+    inreplace opt_homebrew_files, "/opt/homebrew", HOMEBREW_PREFIX, audit_result: build.stable?
+
+    # Ensure meson uses our `var` directory.
+    inreplace mesonbuild/"options.py", "'/var/local", "'#{var}", audit_result: build.stable?
   end
 
   test do
