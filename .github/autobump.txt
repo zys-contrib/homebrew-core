@@ -807,6 +807,7 @@ fakeroot
 falco
 falcoctl
 fantom
+fanyi
 fast_float
 fastapi
 fastfec
