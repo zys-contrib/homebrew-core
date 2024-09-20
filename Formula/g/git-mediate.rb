@@ -1,8 +1,8 @@
 class GitMediate < Formula
   desc "Utility to help resolve merge conflicts"
   homepage "https://github.com/Peaker/git-mediate"
-  url "https://github.com/Peaker/git-mediate/archive/refs/tags/1.0.9.tar.gz"
-  sha256 "ed9b4f5f1ccc295e69d5a368b1b5436968e2290b8e1792a768c0cfae7f91fefb"
+  url "https://github.com/Peaker/git-mediate/archive/refs/tags/1.1.0.tar.gz"
+  sha256 "f8bacc2d041d1bef9288bebdb20ab2ee6fbd7d37d4e23c84f8dda27ff5b8ba59"
   license "GPL-2.0-only"
 
   bottle do
@@ -16,7 +16,7 @@ class GitMediate < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0086a8e11d14f3f9b29e0d4972c61ab5daa2a7b357fcc54c29dfdf7699c436b6"
   end
 
-  depends_on "ghc" => :build
+  depends_on "ghc@9.6" => :build
   depends_on "haskell-stack" => :build
 
   def install
