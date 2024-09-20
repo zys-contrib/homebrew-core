@@ -78,15 +78,17 @@ class PreCommit < Formula
   # Avoid relative paths
   def post_install
     xy = Language::Python.major_minor_version Formula["python@3.12"].opt_bin/python3
+    python_opt = Formula["python@3.12"].opt_prefix
+    python_cellar = python_opt.realpath
     dirs_to_fix = [libexec/"lib/python#{xy}"]
     dirs_to_fix << (libexec/"bin") if OS.linux?
     dirs_to_fix.each do |folder|
       folder.each_child do |f|
         next unless f.symlink?
 
-        realpath = f.realpath
+        abspath = f.realpath.sub python_cellar, python_opt
         rm f
-        ln_s realpath, f
+        ln_s abspath, f
       end
     end
   end
