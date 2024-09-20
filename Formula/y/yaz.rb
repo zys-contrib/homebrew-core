@@ -1,11 +1,8 @@
 class Yaz < Formula
   desc "Toolkit for Z39.50/SRW/SRU clients/servers"
   homepage "https://www.indexdata.com/resources/software/yaz/"
-  # TODO: Switch back to homepage if upstream confirms reupload or on next release
-  # Ref: https://github.com/indexdata/yaz/issues/120
-  url "http://deb.debian.org/debian/pool/main/y/yaz/yaz_5.34.1.orig.tar.gz"
-  mirror "https://ftp.indexdata.com/pub/yaz/yaz-5.34.1.tar.gz"
-  sha256 "c7fd8e0222b3b0d1115ad8e7a2ee67be7a2807624d61d5b71854bf5e167ab7a9"
+  url "https://ftp.indexdata.com/pub/yaz/yaz-5.34.2.tar.gz"
+  sha256 "ab45cf48036fc6da7493815c033b5db2b1e7a34632caed1a43e9cdef745b9618"
   license "BSD-3-Clause"
 
   # The latest version text is currently omitted from the homepage for this
