@@ -7,7 +7,7 @@ class Kew < Formula
   head "https://github.com/ravachol/kew.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "5ac6c7b6ce783e9a8a8d0525ba3231a92f00faed9568151a5d76a0820ddba1c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "4319ecde7e84b72d873dc0635c08af45ae9eb66f82333c66ecfa010ed36a788b"
   end
 
   depends_on "pkg-config" => :build
