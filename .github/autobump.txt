@@ -1610,6 +1610,7 @@ libxo
 libxslt
 libxvmc
 libzim
+libzip
 libzzip
 license-eye
 licensed
