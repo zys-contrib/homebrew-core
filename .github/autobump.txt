@@ -1387,6 +1387,7 @@ krew
 ksh93
 ksops
 ktfmt
+ktor
 kube-linter
 kube-ps1
 kubeaudit
