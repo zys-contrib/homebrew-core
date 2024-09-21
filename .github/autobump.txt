@@ -1269,6 +1269,7 @@ iputils
 ipv6calc
 ipython
 ircd-hybrid
+ircii
 iredis
 isl
 iso-codes
