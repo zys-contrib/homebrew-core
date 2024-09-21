@@ -20,7 +20,7 @@ class Rebar3 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "02b3b49e11165116df3e0719eb661896e276e2e8956b8eeca4075b4d496c556d"
   end
 
-  depends_on "erlang@26"
+  depends_on "erlang"
 
   def install
     system "./bootstrap"
@@ -29,9 +29,6 @@ class Rebar3 < Formula
     bash_completion.install "apps/rebar/priv/shell-completion/bash/rebar3"
     zsh_completion.install "apps/rebar/priv/shell-completion/zsh/_rebar3"
     fish_completion.install "apps/rebar/priv/shell-completion/fish/rebar3.fish"
-
-    # TODO: Remove me when we depend on unversioned `erlang`.
-    bin.env_script_all_files libexec, PATH: "#{Formula["erlang@26"].opt_bin}:$PATH"
   end
 
   test do
