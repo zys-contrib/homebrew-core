@@ -4,6 +4,7 @@ class Gleam < Formula
   url "https://github.com/gleam-lang/gleam/archive/refs/tags/v1.5.0.tar.gz"
   sha256 "0342babfbd6d8201ae00b6b0ef5e0b181bce5690c703ffae8dd02542e024c4c2"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/gleam-lang/gleam.git", branch: "main"
 
   livecheck do
@@ -20,16 +21,16 @@ class Gleam < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b879ad99b995ae6e78117f0db3231a007f3243bdaf93d151cbe6300609620252"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "erlang"
+  depends_on "erlang@26"
   depends_on "rebar3"
-
-  on_linux do
-    depends_on "pkg-config" => :build
-  end
 
   def install
     system "cargo", "install", *std_cargo_args(path: "compiler-cli")
+
+    # TODO: Remove me when we depend on unversioned `erlang`.
+    bin.env_script_all_files libexec, PATH: "#{Formula["erlang@26"].opt_bin}:$PATH"
   end
 
   test do
