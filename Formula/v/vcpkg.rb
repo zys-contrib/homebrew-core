@@ -1,10 +1,9 @@
 class Vcpkg < Formula
   desc "C++ Library Manager"
   homepage "https://github.com/microsoft/vcpkg"
-  # Newer than what livecheck picks up, but we need it for fmt 11.
-  url "https://github.com/microsoft/vcpkg-tool/archive/refs/tags/2024-08-01.tar.gz"
-  version "2024.08.01"
-  sha256 "cb94fa640676e4577ed39fc763178f4661848b5321207c74b3ea411e45f1a95c"
+  url "https://github.com/microsoft/vcpkg-tool/archive/refs/tags/2024-09-18.tar.gz"
+  version "2024.09.18"
+  sha256 "8e4cf8a6ff5ba392bdbbd0adbe01fbe50dd1515c87a9be22e198a43b36621688"
   license "MIT"
   head "https://github.com/microsoft/vcpkg-tool.git", branch: "main"
 
