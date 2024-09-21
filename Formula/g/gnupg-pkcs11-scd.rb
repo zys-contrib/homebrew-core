@@ -27,19 +27,22 @@ class GnupgPkcs11Scd < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "libassuan@2"
+  depends_on "libassuan"
   depends_on "libgcrypt"
   depends_on "libgpg-error"
   depends_on "openssl@3"
   depends_on "pkcs11-helper"
 
+  # Backport pkg-config usage to support newer `libassuan`
+  patch :DATA
+  patch do
+    url "https://github.com/alonbl/gnupg-pkcs11-scd/commit/de08969ae92d31b585d7055eb0734962f55a7282.patch?full_index=1"
+    sha256 "591833296a6e7401732f2ea104004d1dc57567ea2b661a2a1688bcd8e1f7fed8"
+  end
+
   def install
-    system "autoreconf", "-fiv"
-    system "./configure", "--disable-dependency-tracking",
-                          "--with-libgpg-error-prefix=#{Formula["libgpg-error"].opt_prefix}",
-                          "--with-libassuan-prefix=#{Formula["libassuan@2"].opt_prefix}",
-                          "--with-libgcrypt-prefix=#{Formula["libgcrypt"].opt_prefix}",
-                          "--prefix=#{prefix}"
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "check"
     system "make", "install"
@@ -49,3 +52,34 @@ class GnupgPkcs11Scd < Formula
     system bin/"gnupg-pkcs11-scd", "--help"
   end
 end
+
+__END__
+diff --git a/configure.ac b/configure.ac
+index 816ab5b..5ec9323 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -168,21 +168,21 @@ AC_ARG_WITH(
+
+ AC_ARG_WITH(
+ 	[libgpg-error-prefix],
+-	[AC_HELP_STRING([--with-libgpg-error-prefix=DIR], [define libgpgp-error prefix])],
++	[AS_HELP_STRING([--with-libgpg-error-prefix=DIR], [define libgpgp-error prefix])],
+ 	,
+ 	[with_libgpg_error_prefix="/usr" ]
+ )
+
+ AC_ARG_WITH(
+ 	[libassuan-prefix],
+-	[AC_HELP_STRING([--with-libassuan-prefix=DIR], [define libassuan prefix])],
++	[AS_HELP_STRING([--with-libassuan-prefix=DIR], [define libassuan prefix])],
+ 	,
+ 	[with_libassuan_prefix="/usr" ]
+ )
+
+ AC_ARG_WITH(
+ 	[libgcrypt-prefix],
+-	[AC_HELP_STRING([--with-libgcrypt-prefix=DIR], [define libgcrypt prefix])],
++	[AS_HELP_STRING([--with-libgcrypt-prefix=DIR], [define libgcrypt prefix])],
+ 	,
+ 	[with_libgcrypt_prefix="/usr" ]
+ )
