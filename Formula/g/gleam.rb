@@ -23,14 +23,11 @@ class Gleam < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "erlang@26"
+  depends_on "erlang"
   depends_on "rebar3"
 
   def install
     system "cargo", "install", *std_cargo_args(path: "compiler-cli")
-
-    # TODO: Remove me when we depend on unversioned `erlang`.
-    bin.env_script_all_files libexec, PATH: "#{Formula["erlang@26"].opt_bin}:$PATH"
   end
 
   test do
