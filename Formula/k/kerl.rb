@@ -15,6 +15,7 @@ class Kerl < Formula
 
     bash_completion.install "bash_completion/kerl"
     zsh_completion.install "zsh_completion/_kerl"
+    fish_completion.install "fish_completion/kerl.fish"
   end
 
   test do
