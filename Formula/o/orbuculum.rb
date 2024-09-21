@@ -11,15 +11,11 @@ class Orbuculum < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_sequoia:  "27d1b87814615def4e1e009108a6c331401f96b68e87ee90942c2560ca5b6c19"
-    sha256 cellar: :any, arm64_sonoma:   "460ce4bce5f532fe8534d480b717419b56bba21b7a00a3702322e2fd1f3722cc"
-    sha256 cellar: :any, arm64_ventura:  "58a8a18573c584ab9c2f1cf66acf6008dd0925b4e574fbdd2fc059594033fedd"
-    sha256 cellar: :any, arm64_monterey: "13099ad1fce7ca98c85ef6d35707e7a9963a5c6dc81ed27434acb5db65b78d7a"
-    sha256 cellar: :any, sonoma:         "739074b3d4ca04c290debcecbdeaa4d0675295dbe7703227aed06f72d300cb08"
-    sha256 cellar: :any, ventura:        "162cf2d49bbb1b1019862162cfebc5a6e68b5ceba05c20b58214de8ca714f089"
-    sha256 cellar: :any, monterey:       "075d0e0c2aa5bb76b6dbbef10bfc32061bd54b5fd0f48f9f29d4053f520f6b6c"
-    sha256               x86_64_linux:   "08a9dcd2af4ebccb6db29fd6c8cd83e7546151e35062af3ecaaddd91bd9e8cc4"
+    sha256 cellar: :any, arm64_sequoia: "b2ef0c97ab87adebbc5058690f21ff1a65da6050846e583c32391acc180c9636"
+    sha256 cellar: :any, arm64_sonoma:  "d34869941adc81fe89faf96938bff1d942e3712789b2653de9ce6e1c6bab9842"
+    sha256 cellar: :any, arm64_ventura: "f760943e7594b9e1489341e0960375c0acabb46ca2758d303dc6b6e07cb09e67"
+    sha256 cellar: :any, sonoma:        "30dbcf1b1a0c3b492c3f4058fd1b63177b3223d81c76306334ad87420041a81e"
+    sha256 cellar: :any, ventura:       "ee99b891380579be06c4419f1952676469845ba51b3a3832d99f0f949ccd9097"
   end
 
   depends_on "meson" => :build
