@@ -1,9 +1,18 @@
 class MinimalRacket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
-  url "https://mirror.racket-lang.org/installers/8.13/racket-minimal-8.13-src.tgz"
-  sha256 "f5fa2d026063ef679197e9f83da8a0b3e3d0b3c05ecd4a962c4ce323a4416337"
+  url "https://mirror.racket-lang.org/installers/8.14/racket-minimal-8.14-src.tgz"
+  sha256 "fc1867c88c38410d9a30a5bc143265b1a9525b7a532ea3fbe025c9d79b5de6ca"
   license any_of: ["MIT", "Apache-2.0"]
+
+  # File links on the download page are created using JavaScript, so we parse
+  # the filename from a string in an object. We match the version from the
+  # "Unix Source + built packages" option, as the `racket-minimal` archive is
+  # only found on the release page for a given version (e.g., `/releases/8.0/`).
+  livecheck do
+    url "https://download.racket-lang.org/"
+    regex(/["'][^"']*?racket(?:-minimal)?[._-]v?(\d+(?:\.\d+)+)-src\.t/i)
+  end
 
   bottle do
     sha256 arm64_sonoma:   "55f894b034968f59a68fcc3ebd4169acefbfb5f26c32183b8a2780b9d8e99e95"
@@ -15,9 +24,7 @@ class MinimalRacket < Formula
     sha256 x86_64_linux:   "7f0b0121aa0fdc6c94703ff619449ec8207166e4c9355a2a51145ee1f7ba0d35"
   end
 
-  disable! date: "2024-08-01", because: "uses deprecated `openssl@1.1`"
-
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libffi"
   uses_from_macos "zlib"
@@ -34,6 +41,10 @@ class MinimalRacket < Formula
     # see: https://docs.racket-lang.org/raco/config-file.html
     inreplace "etc/config.rktd", /\)\)\n$/, ") (default-scope . \"installation\"))\n"
 
+    # Prioritise OpenSSL 3 over OpenSSL 1.1.
+    inreplace %w[libssl.rkt libcrypto.rkt].map { |file| buildpath/"collects/openssl"/file },
+              '"1.1"', '"3"'
+
     cd "src" do
       args = %W[
         --disable-debug
@@ -46,8 +57,8 @@ class MinimalRacket < Formula
         --enable-useprefix
       ]
 
-      ENV["LDFLAGS"] = "-rpath #{Formula["openssl@1.1"].opt_lib}"
-      ENV["LDFLAGS"] = "-Wl,-rpath=#{Formula["openssl@1.1"].opt_lib}" if OS.linux?
+      ENV["LDFLAGS"] = "-rpath #{Formula["openssl@3"].opt_lib}"
+      ENV["LDFLAGS"] = "-Wl,-rpath=#{Formula["openssl@3"].opt_lib}" if OS.linux?
 
       system "./configure", *args
       system "make"
@@ -101,10 +112,10 @@ class MinimalRacket < Formula
     # ensure Homebrew openssl is used
     if OS.mac?
       output = shell_output("DYLD_PRINT_LIBRARIES=1 #{bin}/racket -e '(require openssl)' 2>&1")
-      assert_match(%r{.*openssl@1\.1/.*/libssl.*\.dylib}, output)
+      assert_match(%r{.*openssl@3/.*/libssl.*\.dylib}, output)
     else
       output = shell_output("LD_DEBUG=libs #{bin}/racket -e '(require openssl)' 2>&1")
-      assert_match "init: #{Formula["openssl@1.1"].opt_lib}/#{shared_library("libssl")}", output
+      assert_match "init: #{Formula["openssl@3"].opt_lib/shared_library("libssl")}", output
     end
   end
 end
