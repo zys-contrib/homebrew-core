@@ -7,12 +7,13 @@ class ErlangLs < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3b65b641bc307ea2f4ed41a8441e00a5a1dabacf3673033242e9b25623ea9120"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "68696353c214d1061d815ec536dc4e1dd9dd224f95692db1512d59390262ff68"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6d637886c8828c4ac9bf2ea19f7b4a4f3e03f3a851fc6bdcf8947b019d923241"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1d253a02ada4fa5b0d03c392d5f2b6d5ac6bc6057baf19c7c4617629ab1f3324"
-    sha256 cellar: :any_skip_relocation, ventura:       "25b385484d393e06627e363e72ab241a41d9e3cb152a5ef8af43924675a2f124"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ed0802b21b473b74e529328a7498f1415eaf4f83b6c1d29131b3c32ab467148"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c29526bbfe1346a66184bf374fba51e3e083bb311445aa9f1c078e6dabac7151"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ada77a1615752881d5632cefc36b9f06c1bed8ee4f990d9ac8e64a7086ceb644"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "706d5776200376589006984147ec10b73030740cc8ebb46c45e1d826cc113856"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0240ba4ac93d48f3c18cfa706323067f2df880675560ed461db9c2f2bfc9fb2c"
+    sha256 cellar: :any_skip_relocation, ventura:       "bee4af0a940d8466677c241bf50d7f06f0c3c9f878b3feddb8301b1e10971fad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a20377b55bff8fa003408fa66bb344cfd6a48c8d0f054b1a99698e83fd589643"
   end
 
   depends_on "erlang"
