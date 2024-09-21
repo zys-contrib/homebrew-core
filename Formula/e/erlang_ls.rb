@@ -4,6 +4,7 @@ class ErlangLs < Formula
   url "https://github.com/erlang-ls/erlang_ls/archive/refs/tags/0.53.0.tar.gz"
   sha256 "e35383dd316af425a950a65d56e7e8179b0d179c3d6473be05306a9b3c0b0ef5"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3a1daae656b510dfc3ce5866c6659555caeda398414583fef40d31592614575f"
@@ -14,11 +15,14 @@ class ErlangLs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "014c2357044609044d5b8048eb5c1c4712fe521490a41ec75592b39cef08b1b9"
   end
 
-  depends_on "erlang"
+  depends_on "erlang@26"
   depends_on "rebar3"
 
   def install
     system "make", "PREFIX=#{prefix}", "install"
+
+    # TODO: Remove me when we depend on unversioned `erlang`.
+    bin.env_script_all_files libexec, PATH: "#{Formula["erlang@26"].opt_bin}:$PATH"
   end
 
   test do
