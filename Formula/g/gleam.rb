@@ -4,6 +4,7 @@ class Gleam < Formula
   url "https://github.com/gleam-lang/gleam/archive/refs/tags/v1.5.0.tar.gz"
   sha256 "0342babfbd6d8201ae00b6b0ef5e0b181bce5690c703ffae8dd02542e024c4c2"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/gleam-lang/gleam.git", branch: "main"
 
   livecheck do
@@ -12,24 +13,24 @@ class Gleam < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4dfb6fcb2f6ffb26e1a68e54a7ff2765b57b3daaa2ccd5b2479d39bbdb44dc4a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "542c7cf17f6d29eeb76fccefca21dc332193bcd08f678b768f4fae16d9901391"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2ee506792677b596f5994ffb85a00a3b1fcf9ce1a8e8f9d8c09cac475dae05b6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "904f53ba393f3d603b3fd99368cc8cbefd09f31634be18eecd1db55d7988d343"
-    sha256 cellar: :any_skip_relocation, ventura:       "e485670fa98c9a400e58716c465fb52b04d0f6659671a882bee8ffa3f71c11c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b879ad99b995ae6e78117f0db3231a007f3243bdaf93d151cbe6300609620252"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "82bc6cfc1ab63fc3f6030a1cd761c1c70ce418bf9d3a51f288c10586b5d754cd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c93368bc396297078b463042a202ed2b189ecc124b4bc8a36ee4db483e2a5605"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "23413800238a8a5bb894a8f7b4bdffc5f3ec95c9e7aced5b1c85ae1565cc2839"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dac1e7caaf8980f95bcdcf2fdf44e1c91596d1ad0d57ae0b9481868f6b6d96dc"
+    sha256 cellar: :any_skip_relocation, ventura:       "5544b29fd224eb8e306a81f925a206d003b4807d3750b7ed7fa30d80284ac1fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ee98d9ca6b13800f83384f1f06d914fbd07cb38d3dd884d1c40fb73640e7d83"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "erlang"
+  depends_on "erlang@26"
   depends_on "rebar3"
-
-  on_linux do
-    depends_on "pkg-config" => :build
-  end
 
   def install
     system "cargo", "install", *std_cargo_args(path: "compiler-cli")
+
+    # TODO: Remove me when we depend on unversioned `erlang`.
+    bin.env_script_all_files libexec, PATH: "#{Formula["erlang@26"].opt_bin}:$PATH"
   end
 
   test do

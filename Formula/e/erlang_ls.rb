@@ -4,21 +4,25 @@ class ErlangLs < Formula
   url "https://github.com/erlang-ls/erlang_ls/archive/refs/tags/0.53.0.tar.gz"
   sha256 "e35383dd316af425a950a65d56e7e8179b0d179c3d6473be05306a9b3c0b0ef5"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3a1daae656b510dfc3ce5866c6659555caeda398414583fef40d31592614575f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "82d4a67f0748171a2cfffc49fa815679f588ccf09f5753a8444edf75faa3fa43"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "82ff31be3e24ecbe8f33130d8bb8689f1a7232132fda5097f301efed6edcf400"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2b97ce65d54578a71bf48f9e640a10bddc12b4737657cad05f9272e05809cba4"
-    sha256 cellar: :any_skip_relocation, ventura:       "457616735423883340a12c0a6c2a820a459df61de4f2fda81214b29273d504ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "014c2357044609044d5b8048eb5c1c4712fe521490a41ec75592b39cef08b1b9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3b65b641bc307ea2f4ed41a8441e00a5a1dabacf3673033242e9b25623ea9120"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "68696353c214d1061d815ec536dc4e1dd9dd224f95692db1512d59390262ff68"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6d637886c8828c4ac9bf2ea19f7b4a4f3e03f3a851fc6bdcf8947b019d923241"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1d253a02ada4fa5b0d03c392d5f2b6d5ac6bc6057baf19c7c4617629ab1f3324"
+    sha256 cellar: :any_skip_relocation, ventura:       "25b385484d393e06627e363e72ab241a41d9e3cb152a5ef8af43924675a2f124"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ed0802b21b473b74e529328a7498f1415eaf4f83b6c1d29131b3c32ab467148"
   end
 
-  depends_on "erlang"
+  depends_on "erlang@26"
   depends_on "rebar3"
 
   def install
     system "make", "PREFIX=#{prefix}", "install"
+
+    # TODO: Remove me when we depend on unversioned `erlang`.
+    bin.env_script_all_files libexec, PATH: "#{Formula["erlang@26"].opt_bin}:$PATH"
   end
 
   test do
