@@ -18,14 +18,12 @@ class Ircii < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "68189a41b92f4a21cc0777761f3aa07167afddff19cabb1d897d472a25ba26d1"
-    sha256 arm64_sonoma:   "abb7c5038b0d96a37d249ca0dd4f64ecf76f76b85849d6a9981577ce88ea2c8e"
-    sha256 arm64_ventura:  "035ffb6101cca1e95d9331d6887c70e7b15f2aeeade6572fdae30c803aa9bf7e"
-    sha256 arm64_monterey: "694c2884b8beaa9c03933499fda1140f421a9527ee7017f8e5063d8feec7da36"
-    sha256 sonoma:         "31df637946b965d07b2c240f382a3496eb8f8e96fb5ea6e29712648cbe4c44df"
-    sha256 ventura:        "0b26898ec18c93d737d05a5ddc78f9a4c617686472d32484d78ef22cc9ca1d08"
-    sha256 monterey:       "1513fc8051263bde7bbf4aa0bb81ded72c8d89ce70331efde8d648896539df3a"
-    sha256 x86_64_linux:   "e47af1b036ee325428beee16be3859e3ccd5f14f383d510996ae90e21aae241a"
+    sha256 arm64_sequoia: "8e8fe508af0773e346c196d3ded29a2529e736ae175942b407321556e7ee3d85"
+    sha256 arm64_sonoma:  "250efa55d481e553454206dd459b55e825a16f93003e4e96ccb26c9b132c3568"
+    sha256 arm64_ventura: "9bba80a660397068c42e2f12d7940ced34bdb253451435ee8f51b6993230bda5"
+    sha256 sonoma:        "e9db1fd59f8b31c281a121f1821628780a85e990042cfb8c4ac674ee1b50433b"
+    sha256 ventura:       "b3cfde024333fbc46af44fcf09500d7a27369a12eac24f604ba404aca862ca18"
+    sha256 x86_64_linux:  "7680b15d1879970be38ec1c55f3e2c99a0381c0cddddf43fd4c66e567340427a"
   end
 
   depends_on "openssl@3"
