@@ -1,8 +1,8 @@
 class Libdpp < Formula
   desc "C++ Discord API Bot Library"
   homepage "https://github.com/brainboxdotcc/DPP"
-  url "https://github.com/brainboxdotcc/DPP/releases/download/v10.0.30/DPP-10.0.30.tar.gz"
-  sha256 "fb7019770bd5c5f0539523536250da387ee1fa9c92e59c0bcff6c9adaf3d77e8"
+  url "https://github.com/brainboxdotcc/DPP/releases/download/v10.0.31/DPP-10.0.31.tar.gz"
+  sha256 "3e392868c0dc3d0f13a00cfa190a925a20bde62bea58fd87d4acf14de11062bf"
   license "Apache-2.0"
 
   bottle do
@@ -17,7 +17,6 @@ class Libdpp < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on xcode: ["12.0", :build]
   depends_on "libsodium"
   depends_on "openssl@3"
   depends_on "opus"
@@ -43,14 +42,18 @@ class Libdpp < Formula
         try {
           bot.start(dpp::st_wait);
         }
+        catch (const dpp::connection_exception& e) {
+          std::cout << "Connection error: " << e.what() << std::endl;
+          return 1;
+        }
         catch(dpp::invalid_token_exception& e) {
           std::cout << "Invalid token." << std::endl;
-          return 0;
+          return 1;
         }
         return 0;
       }
     EOS
     system ENV.cxx, "-std=c++17", "-L#{lib}", "-I#{include}", "test.cpp", "-o", "test", "-ldpp"
-    assert_equal "Invalid token.", shell_output("./test").strip
+    assert_match "Connection error", shell_output("./test 2>&1", 1)
   end
 end
