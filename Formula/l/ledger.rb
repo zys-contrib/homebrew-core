@@ -25,6 +25,21 @@ class Ledger < Formula
       url "https://github.com/ledger/ledger/commit/46207852174feb5c76c7ab894bc13b4f388bf501.patch?full_index=1"
       sha256 "8aaf8daf4748f359946c64488c96345f4a4bdf928f6ec7a1003610174428599f"
     end
+
+    # Backport fixes to build with `boost` 1.86.0
+    # Ref: https://github.com/ledger/ledger/pull/2381
+    patch do
+      url "https://github.com/ledger/ledger/commit/ad93c185644cfcb14fe4a673e74a0cb5c954a4b4.patch?full_index=1"
+      sha256 "3d2db6b116cd7e8a1051ac7f92853f72c145ff0487f2f4e12e650ee7ec9e67b0"
+    end
+    patch do
+      url "https://github.com/ledger/ledger/commit/4f4cc1688a8e8a7c03f18603cc5a4159d9c89ca3.patch?full_index=1"
+      sha256 "938d62974ee507b851239b6525c98c8cb1c81e24e8ae2939d4675d97a8ec8f67"
+    end
+    patch do
+      url "https://github.com/ledger/ledger/commit/5320c9f719a309ddacdbe77181cabeb351949013.patch?full_index=1"
+      sha256 "9794113b28eabdcfc8b900eafc8dc2c0698409c0b3d856083ed5e38818289ba1"
+    end
   end
 
   livecheck do
@@ -45,7 +60,7 @@ class Ledger < Formula
 
   depends_on "cmake" => :build
   depends_on "texinfo" => :build # for makeinfo
-  depends_on "boost@1.85"
+  depends_on "boost"
   depends_on "gmp"
   depends_on "gpgme"
   depends_on "mpfr"
@@ -66,7 +81,7 @@ class Ledger < Formula
       --jobs=#{ENV.make_jobs}
       --output=build
       --prefix=#{prefix}
-      --boost=#{Formula["boost@1.85"].opt_prefix}
+      --boost=#{Formula["boost"].opt_prefix}
       --
       -DBUILD_DOCS=1
       -DBUILD_WEB_DOCS=1
