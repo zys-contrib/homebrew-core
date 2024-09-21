@@ -3,8 +3,8 @@ class Forbidden < Formula
 
   desc "Bypass 4xx HTTP response status codes and more"
   homepage "https://github.com/ivan-sincek/forbidden"
-  url "https://files.pythonhosted.org/packages/fc/97/4da12a39d42ca55de66d8a80340377e76b5af7e3d588f168f0218d81eb47/forbidden-12.4.tar.gz"
-  sha256 "0b921ec89bc25b4ac7a1d89919809c258da36be747795857d01de6c5d8046cab"
+  url "https://files.pythonhosted.org/packages/fb/2d/15265f7965c1fe2ae251767b23d583f0d0d10b2d76e56af9a2643efdf652/forbidden-12.5.tar.gz"
+  sha256 "5d40cb6b5e553b59d590ff2aac913f6da14f28706fd0e17f9fd36ddf707b7779"
   license "MIT"
   head "https://github.com/ivan-sincek/forbidden.git", branch: "main"
 
@@ -92,8 +92,8 @@ class Forbidden < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/a7/17/133e1cd1e24373e1898ca3c7330f5c385b46c7091f0451e678f37245591b/setuptools-75.0.0.tar.gz"
-    sha256 "25af69c809d9334cd8e653d385277abeb5a102dca255954005a7092d282575ea"
+    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
+    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
   end
 
   resource "tabulate" do
