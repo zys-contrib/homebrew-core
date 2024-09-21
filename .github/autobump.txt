@@ -2060,6 +2060,7 @@ pango
 pangomm
 papilo
 parallel
+parallel-hashmap
 pari
 parliament
 parquet-cli
