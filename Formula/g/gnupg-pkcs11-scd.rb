@@ -13,14 +13,13 @@ class GnupgPkcs11Scd < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "54b0849a86603eb09cf1d1f28e32d10cd63617e07d8dd246f3dabec182f8e6e2"
-    sha256 cellar: :any,                 arm64_sonoma:   "6b5af03aeaefa6524219a48594b4f3dece1d93b92630378ba8aad1242ca7c193"
-    sha256 cellar: :any,                 arm64_ventura:  "f1daa25116f084c286b8b3b1924037cbe1e98825886e483a1dc182bfe41741f0"
-    sha256 cellar: :any,                 arm64_monterey: "a8e536a7832c5c2c49e7450db536f28541ffd4a20de15115235e32620fc8b9c5"
-    sha256 cellar: :any,                 sonoma:         "21483efa80f641f55c1496e5ce9078577667c3fc3ee31ef681a2b72e720f8e45"
-    sha256 cellar: :any,                 ventura:        "fe744f6d2f5e2ab44544048011f36916072eefecb5a30150bc34747aea033e17"
-    sha256 cellar: :any,                 monterey:       "2dfbe4f94da6fffb6365b03f06bc81abf28016adb4b08519a6794b619cadec71"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7610c2def9c9575bac8b8433ad4ec55f66d40ff82f724c805ce37e9a3ad8c9a7"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "306ec3bbfc7f29c826c071461af2585f0759bab3e49c11aaa42181f0950ab8ab"
+    sha256 cellar: :any,                 arm64_sonoma:  "554ec82459c766488cfa01e5a2ac16b9c576badba3848ae5d2f90b89e2dadabb"
+    sha256 cellar: :any,                 arm64_ventura: "e4d76440af9ca88fe628307bcef9a9313ad8ae2d07c40ed3367fa82e8c386b7b"
+    sha256 cellar: :any,                 sonoma:        "271520fe7493472155570298cb379f0f08da53a7de947e448e5c499e3fe680b5"
+    sha256 cellar: :any,                 ventura:       "3e9b548b5a804619036a14524f563fc360846826868f700ac08057d3ddd68784"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c0635d9f5f524a8de9291d9608fe4eee289f973156f2d6e10dd58e4edefe7481"
   end
 
   depends_on "autoconf" => :build
