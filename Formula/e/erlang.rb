@@ -66,11 +66,6 @@ class Erlang < Formula
 
     args = %W[
       --enable-dynamic-ssl-lib
-      --enable-hipe
-      --enable-shared-zlib
-      --enable-smp-support
-      --enable-threads
-      --enable-wx
       --with-odbc=#{Formula["unixodbc"].opt_prefix}
       --with-ssl=#{Formula["openssl@3"].opt_prefix}
       --without-javac
