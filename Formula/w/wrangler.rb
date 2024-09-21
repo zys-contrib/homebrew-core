@@ -2,7 +2,7 @@ class Wrangler < Formula
   desc "Refactoring tool for Erlang with emacs and Eclipse integration"
   homepage "https://refactoringtools.github.io/docs/wrangler/"
   license all_of: ["BSD-3-Clause", "ErlPL-1.1", "GPL-2.0-or-later", "GPL-3.0-or-later"]
-  revision 4
+  revision 5
   head "https://github.com/RefactoringTools/wrangler.git", branch: "master"
 
   stable do
@@ -42,7 +42,9 @@ class Wrangler < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6ae31d2916213e6b6520c5ecbf68234a09182b468d8f68f95b862098b806e1a"
   end
 
-  depends_on "erlang"
+  disable! date: "2025-07-01", because: :unmaintained
+
+  depends_on "erlang@24"
 
   def install
     # Work around failure from GCC 10+ using default of `-fno-common`
