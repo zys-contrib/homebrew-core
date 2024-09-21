@@ -1,8 +1,8 @@
 class Orbuculum < Formula
   desc "Arm Cortex-M SWO/SWV Demux and Postprocess"
   homepage "https://github.com/orbcode/orbuculum"
-  url "https://github.com/orbcode/orbuculum/archive/refs/tags/V2.1.0.tar.gz"
-  sha256 "ccdd86130094001a0ab61e5501a6636e12c82b0b44690795a2911c65c5618c46"
+  url "https://github.com/orbcode/orbuculum/archive/refs/tags/V2.2.0.tar.gz"
+  sha256 "6614fba7044aa62e486b29ff4a81d0408d6e88499249bf2b839ccadfc54eec83"
   license "BSD-3-Clause"
 
   livecheck do
@@ -26,6 +26,7 @@ class Orbuculum < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "capstone"
+  depends_on "libelf"
   depends_on "libusb"
   depends_on "sdl2"
   depends_on "zeromq"
@@ -38,22 +39,18 @@ class Orbuculum < Formula
     system "meson", "install", "-C", "build", "--tags", "devel,runtime"
   end
 
-  # The tools do not report their version correctly when installed from a
-  # GitHub release rather than from Git directly for versions <= 2.1.0.
-  # This has now been rectified, and the versions can be tested for future
-  # releases.
   test do
-    assert_match "orbuculum version undefined", shell_output("#{bin}/orbuculum --version 2>&1", 255)
-    assert_match "orbcat version undefined", shell_output("#{bin}/orbcat --version 2>&1", 255)
-    assert_match "orbdump version undefined", shell_output("#{bin}/orbdump --version 2>&1", 255)
-    assert_match "orbfifo version undefined", shell_output("#{bin}/orbfifo --version 2>&1", 255)
-    assert_match "orblcd version undefined", shell_output("#{bin}/orblcd --version 2>&1", 255)
+    assert_match "orbuculum version #{version}", shell_output("#{bin}/orbuculum --version 2>&1", 255)
+    assert_match "orbcat version #{version}", shell_output("#{bin}/orbcat --version 2>&1", 255)
+    assert_match "orbdump version #{version}", shell_output("#{bin}/orbdump --version 2>&1", 255)
+    assert_match "orbfifo version #{version}", shell_output("#{bin}/orbfifo --version 2>&1", 255)
+    assert_match "orblcd version #{version}", shell_output("#{bin}/orblcd --version 2>&1", 255)
     assert_match "Elf File not specified", shell_output("#{bin}/orbmortem 2>&1")
     assert_match "This utility is in development. Use at your own risk!!\nElf File not specified",
                  shell_output("#{bin}/orbprofile 2>&1", 254).sub("\r", "")
     assert_match "Elf File not specified", shell_output("#{bin}/orbstat 2>&1", 254)
     assert_match "Elf File not specified", shell_output("#{bin}/orbtop 2>&1", 247)
     assert_match "No devices found", shell_output("#{bin}/orbtrace 2>&1")
-    assert_match "orbcat version undefined", shell_output("#{bin}/orbzmq --version 2>&1", 255)
+    assert_match "orbcat version #{version}", shell_output("#{bin}/orbzmq --version 2>&1", 255)
   end
 end
