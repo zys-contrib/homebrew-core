@@ -1,8 +1,8 @@
 class ParallelHashmap < Formula
   desc "Family of header-only, fast, memory-friendly C++ hashmap and btree containers"
   homepage "https://greg7mdp.github.io/parallel-hashmap/"
-  url "https://github.com/greg7mdp/parallel-hashmap/archive/refs/tags/v1.3.12.tar.gz"
-  sha256 "0cc203144321924cfbfcc401f42d8204c0dd24e2760c7a1c091baa16d9777c08"
+  url "https://github.com/greg7mdp/parallel-hashmap/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "766e05d19c27d9c09e6f9a627868daf451f4fbdd1b617f1bb875fb9402bfb78b"
   license "Apache-2.0"
   version_scheme 1
   head "https://github.com/greg7mdp/parallel-hashmap.git", branch: "master"
