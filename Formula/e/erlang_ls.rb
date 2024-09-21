@@ -15,14 +15,11 @@ class ErlangLs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ed0802b21b473b74e529328a7498f1415eaf4f83b6c1d29131b3c32ab467148"
   end
 
-  depends_on "erlang@26"
+  depends_on "erlang"
   depends_on "rebar3"
 
   def install
     system "make", "PREFIX=#{prefix}", "install"
-
-    # TODO: Remove me when we depend on unversioned `erlang`.
-    bin.env_script_all_files libexec, PATH: "#{Formula["erlang@26"].opt_bin}:$PATH"
   end
 
   test do
