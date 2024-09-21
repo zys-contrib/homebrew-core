@@ -15,13 +15,12 @@ class MinimalRacket < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "55f894b034968f59a68fcc3ebd4169acefbfb5f26c32183b8a2780b9d8e99e95"
-    sha256 arm64_ventura:  "805612035a3454f57769224c0ddca2fc8fdc574908a3170cdccee3b1eac9b7bd"
-    sha256 arm64_monterey: "d56d707911ec2ccc6f2732234f4ba17f829ad755ab2808b63112ed7c302814ba"
-    sha256 sonoma:         "f4ae0ef7e7fdd3d506412bb95ba083110c0564a2fc43372491173addbde77d13"
-    sha256 ventura:        "1e9f18f5263f4ef3934093aa74a7005d71e99ba609c9426e0361d2d07e5f21a5"
-    sha256 monterey:       "a392895ec9d5e161db022011473a6be045019b7db076ba20c127dd4b14debee5"
-    sha256 x86_64_linux:   "7f0b0121aa0fdc6c94703ff619449ec8207166e4c9355a2a51145ee1f7ba0d35"
+    sha256 arm64_sequoia: "f9af0b81bc5cecd17d516d9e57aa747f278d7ddd91a691968c0801b531ce79d9"
+    sha256 arm64_sonoma:  "bcbfcd5e2f2166dad1a30e2b7dfb8b35b2dd4e5bbd29fff6162582229395c518"
+    sha256 arm64_ventura: "8697c72d6a75610af0497585c859621a93ee8c30032654ce1db9eb61479eda7a"
+    sha256 sonoma:        "013177783128e5c5da3fc26e5079d255aeac8530f6f160c32e10e08f5a98adae"
+    sha256 ventura:       "1f2a47ce0e1c27a7ce9d84498f5b2830708c8d9b577d41b3c1bc53865235e4e6"
+    sha256 x86_64_linux:  "db0f9c99f911a5b16c8f57f2eb92e76a621c0ad1eaff3cf55d784b006475bf23"
   end
 
   depends_on "openssl@3"
