@@ -12,14 +12,12 @@ class Rebar3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2fa23e681c8f8004bf426321acd2e05999906e798538ad1b37b68cc238633669"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "419937712d474338e34106bd9749cc373f7cde72523d11c352beaf1907f9d076"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2dcfd8009890e3bee785506b992ab88a6f0dc45cb520566f06bab1af44dc655e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "241c35af6b39043c65f7321b82fa36fb63b97cd9a0c817ae137f6816516e1d01"
-    sha256 cellar: :any_skip_relocation, sonoma:         "84f894b593e9bbd52c471884bead7294ae0cb7ddc3b1e739f7b75bf6590d9c72"
-    sha256 cellar: :any_skip_relocation, ventura:        "8e976eb647228e085d7ab954ae1bedf74bc050d02c3bee5193f732b996955004"
-    sha256 cellar: :any_skip_relocation, monterey:       "60ac0ee45f7d74525400bf5607f4e21bc8e081152475d86bf7aae5606935dd1d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1cbcc3cff272dd00d92f36198dff1a98197423a1d544dd7388461498a299f357"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4e09b0c0a5c2f497582b372ce6f562288ad3bc78479ba036e4e11dc9bc26bc07"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a5f760d70e924bba678bdb3628da2457843f93635080d831b195c1ae1157166a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "76a193404cc815b70d6f090b195d45092dde58d6b022c43aeb6c6aa64fd028cf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d65af44f517ec8d3d43e96a9d1adf54ccd8820eb80f6ee855a81bd256196408a"
+    sha256 cellar: :any_skip_relocation, ventura:       "931a271f9f096aaeea8e03a2d43f64ae92668b0eff71ab9717f4594d6ee631fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "02b3b49e11165116df3e0719eb661896e276e2e8956b8eeca4075b4d496c556d"
   end
 
   depends_on "erlang@26"
