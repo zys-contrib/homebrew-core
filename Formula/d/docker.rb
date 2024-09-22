@@ -2,8 +2,8 @@ class Docker < Formula
   desc "Pack, ship and run any application as a lightweight container"
   homepage "https://www.docker.com/"
   url "https://github.com/docker/cli.git",
-      tag:      "v27.3.0",
-      revision: "e85edf8556f9c8afdfcdce50c19f0b943efa1111"
+      tag:      "v27.3.1",
+      revision: "ce1223035ac3ab8922717092e63a184cf67b493d"
   license "Apache-2.0"
   head "https://github.com/docker/cli.git", branch: "master"
 
