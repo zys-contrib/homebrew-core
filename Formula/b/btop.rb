@@ -15,6 +15,8 @@ class Btop < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ca04de8aa0aec9273a889b0914f1466d34ab8ec70616d7a6814aa67166a084a"
   end
 
+  depends_on "lowdown" => :build
+
   on_macos do
     depends_on "coreutils" => :build
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1499
@@ -44,6 +46,10 @@ class Btop < Formula
   end
 
   test do
+    # The build will silently skip the manpage if it can't be built,
+    # so let's double-check that it was.
+    assert_path_exists man1/"btop.1"
+
     require "pty"
     require "io/console"
 
