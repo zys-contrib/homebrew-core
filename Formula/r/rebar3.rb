@@ -21,9 +21,23 @@ class Rebar3 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3049b6e29c6f38ac6ba4bbdfbdfd65e5a08e978b739957601c02aa6791cea5a5"
   end
 
+  depends_on "erlang@25" => [:build, :test]
   depends_on "erlang"
 
   def install
+    erlang_build_dep = deps.find { |dep| dep.build? && dep.name.match?(/^erlang@\d+$/) }&.to_formula
+    odie "Could not find build-time erlang!" if erlang_build_dep.blank?
+
+    # To guarantee compatibility with various erlang versions, build with an older erlang.
+    # We want to use `erlang@#{x-2}` where x is the major version of the `erlang` formula.
+    build_erlang_version = erlang_build_dep.version.major.to_i
+    wanted_erlang_version = Formula["erlang"].version.major.to_i - 2
+    if wanted_erlang_version != build_erlang_version
+      odie "This formula should be built with `erlang@#{wanted_erlang_version}`"
+    end
+
+    # Ensure we're building with versioned `erlang`
+    ENV.remove "PATH", "#{Formula["erlang"].opt_bin}:"
     system "./bootstrap"
     bin.install "rebar3"
 
@@ -33,6 +47,15 @@ class Rebar3 < Formula
   end
 
   test do
-    system bin/"rebar3", "--version"
+    deps.each do |dep|
+      next unless dep.name.match?(/^erlang(@\d+)?$/)
+
+      erlang = dep.to_formula
+      erlang_bin = erlang.opt_bin
+      erlang_version = erlang.version.major
+      with_env(PATH: "#{erlang_bin}:#{ENV["PATH"]}") do
+        assert_match "OTP #{erlang_version}", shell_output("#{bin}/rebar3 --version")
+      end
+    end
   end
 end
