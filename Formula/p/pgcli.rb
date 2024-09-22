@@ -9,14 +9,12 @@ class Pgcli < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "65d9fd23dd37a09c01e444de04ec5c8b68544974e3b73b5021e5bd9b04c84f69"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7fb4f0a70fc463d076b8660f49b3d5d362c727460dc3e372a84e1a9c8f76ea63"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c900de7dcf1861b5fec865d4682739c03343fe247bec41172ac97295055b78b2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0d6896131b3c90a7c76ee863060f64e2d212d66ea6225672c38a1ddfa8b8a351"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ed316997fd008730c6a70543a05bfdbbc29f394c033dce1ed3dd94c557d64b57"
-    sha256 cellar: :any_skip_relocation, ventura:        "9dd860dd4057735034e70b95fe8321222d1d8b6cef06064684527a1802ab023c"
-    sha256 cellar: :any_skip_relocation, monterey:       "b320e72634550d8f0c38545e0e85e4de6c4b7f137e7ce899897b2e318bf38eb0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ff2c8f1a8a5bf995d64a0ba78f56dc60adb294cf0742e7bc991c6b845c5f0d7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "463a77e7571e19ac4a23632e554e8f6b0750ee4535192fad61dc7db291af7c3e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0d8ef964efb0f562e18a25c34e1dd7281ac795e82ed222ad9b39dbbceaa4cbcc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "75cfe78f6e7d9e3d18390b558e75646391bfa5046bb372d9cf57ee946fbdd2f3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9ac39ef72d8042b39ee014d9764c2e37afbfea4ebdbe61a0da80fc9c797ddf34"
+    sha256 cellar: :any_skip_relocation, ventura:       "9c4c379e59ce6ab673d05dc6fe0d2578ba7312e414a0bc3171e46b655b7334d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4efed42bcca9af8baaf6d54f5a300e57ae22dd5f34a797a1e4f1a8d07ca0a274"
   end
 
   depends_on "libpq"
