@@ -9,7 +9,7 @@ class Litecli < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "77ce3029b4545b65fde5d5e012d69e79dc3880bf41236172e62b01c97c9a1f41"
+    sha256 cellar: :any_skip_relocation, all: "ca41e73e2f8b3e9b23f38126bb60a21cb6e9992fe8608cf6cb5d40dc81367720"
   end
 
   depends_on "python@3.12"
