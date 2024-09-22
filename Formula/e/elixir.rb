@@ -18,15 +18,8 @@ class Elixir < Formula
   depends_on "erlang"
 
   def install
-    system "make"
-    bin.install Dir["bin/*"] - Dir["bin/*.{bat,ps1}"]
-
-    Dir.glob("lib/*/ebin") do |path|
-      app = File.basename(File.dirname(path))
-      (lib/app).install path
-    end
-
-    system "make", "install_man", "PREFIX=#{prefix}"
+    # Set `Q=` for verbose `make` output
+    system "make", "Q=", "PREFIX=#{prefix}", "install"
   end
 
   test do
