@@ -24,13 +24,12 @@ class Root < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "de441d02f51b6dad9e4f2c059357e688f0af7e5ad9f48947e83c39f93a706856"
-    sha256 arm64_ventura:  "30990950387c69de2f7a82ea07c01aaf24b018bcea8058f3a02de477df580928"
-    sha256 arm64_monterey: "32339c6f9a969ee1ac6492ec6fb257042969b0878fc78f50c72f60c9caa71a41"
-    sha256 sonoma:         "f484dd8ffcf4e14a5df0b051947d59336f9aa6ce7798658ce96419f3c7669cf3"
-    sha256 ventura:        "ddf6a995c0843df0da0e91d4d03c234a982837335e28d7298e6be7695145489f"
-    sha256 monterey:       "459c9d092dac420ab227b749bebe24335a98c5ce324d73ea585007b87016655b"
-    sha256 x86_64_linux:   "05df68a4414caec551cc238f46612f370ebfb05194ace9fbdbda98d87d4788a5"
+    sha256 arm64_sequoia: "dec675972260cdea22e06127a7b8ad87a3d0ffd3d089ade750bdba1c0b5e9ff6"
+    sha256 arm64_sonoma:  "1fd8ce3d35db60c19de546f404856132f5d5ff1f4446eb2521a3453a38f8866b"
+    sha256 arm64_ventura: "6632edf9dd6d883aa75697bb259f6cdae1d971214a5c576c44ac922036c28bf1"
+    sha256 sonoma:        "47eb44d2e4f95fff2d42d9537ebfbcb4bf957a5d043b177d43d31e29e1d3bfdf"
+    sha256 ventura:       "b8e9c084da51b32136b29237d4e247a898227c1ba09065928f231fb52e93919d"
+    sha256 x86_64_linux:  "294905f59f71f3456edb38bacec805abe3d2a1f9ebfd31d30f3735bedea3cf2a"
   end
 
   depends_on "cmake" => :build
