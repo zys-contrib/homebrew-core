@@ -24,18 +24,19 @@ class Drogon < Formula
   depends_on "c-ares"
   depends_on "jsoncpp"
   depends_on "openssl@3"
-  depends_on "ossp-uuid"
 
+  uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
-  def install
-    cmake_args = std_cmake_args
-    if OS.linux?
-      cmake_args << "-DUUID_LIBRARIES=uuid"
-      cmake_args << "-DUUID_INCLUDE_DIRS=#{Formula["ossp-uuid"].opt_include}/ossp"
-    end
+  on_linux do
+    depends_on "util-linux"
+  end
 
-    system "cmake", "-B", "build", *cmake_args
+  def install
+    args = []
+    args << "-DUUID_DIR=#{Formula["util-linux"].opt_prefix}" if OS.linux?
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -46,17 +47,11 @@ class Drogon < Formula
       port = free_port
       inreplace "main.cc", "5555", port.to_s
 
-      cmake_args = []
-      if OS.linux?
-        cmake_args << "-DUUID_LIBRARIES=uuid"
-        cmake_args << "-DUUID_INCLUDE_DIRS=#{Formula["ossp-uuid"].opt_include}/ossp"
-      end
-
-      system "cmake", "-B", "build", *cmake_args
+      system "cmake", "-S", ".", "-B", "build"
       system "cmake", "--build", "build"
 
       begin
-        pid = fork { exec "build/hello" }
+        pid = spawn("build/hello")
         sleep 1
         result = shell_output("curl -s 127.0.0.1:#{port}")
         assert_match "<hr><center>drogon", result
