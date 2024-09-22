@@ -1,9 +1,8 @@
 class Unicorn < Formula
   desc "Lightweight multi-architecture CPU emulation framework"
   homepage "https://www.unicorn-engine.org/"
-  url "https://github.com/unicorn-engine/unicorn/archive/refs/tags/2.0.1.post1.tar.gz"
-  version "2.0.1.post1"
-  sha256 "6b276c857c69ee5ec3e292c3401c8c972bae292e0e4cb306bb9e5466c0f14737"
+  url "https://github.com/unicorn-engine/unicorn/archive/refs/tags/2.1.0.tar.gz"
+  sha256 "7085001b6f707c8a072d998d1a027e26892d65348e658f07a5d38f206f58dfec"
   license all_of: [
     "GPL-2.0-only",
     "GPL-2.0-or-later", # glib, qemu
