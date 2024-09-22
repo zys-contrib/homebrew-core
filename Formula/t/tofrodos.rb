@@ -1,16 +1,13 @@
 class Tofrodos < Formula
   desc "Converts DOS <-> UNIX text files, alias tofromdos"
   homepage "https://www.thefreecountry.com/tofrodos/"
-  # Upstream url does not work anymore
-  # url "https://tofrodos.sourceforge.io/download/tofrodos-1.7.13.tar.gz"
-  url "https://deb.debian.org/debian/pool/main/t/tofrodos/tofrodos_1.7.13+ds.orig.tar.xz"
-  version "1.7.13"
-  sha256 "c1c33f3f0b9e8152aa5790d233e8f1e8de14510433a6143ec582eba0fb6cbfaa"
+  url "https://www.thefreecountry.com/tofrodos/tofrodos-1.8.3.zip"
+  sha256 "44d76fb024164982aa5e166c1a3c29fa7555c9e0ee8e196cc52595c57a4b55dc"
   license "GPL-2.0-only"
 
   livecheck do
     url :homepage
-    regex(/href=.*?tofrodos[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    regex(/href=.*?tofrodos[._-]v?(\d+(?:\.\d+)+)\.(?:t|zip)/i)
   end
 
   bottle do
@@ -32,11 +29,19 @@ class Tofrodos < Formula
   end
 
   def install
-    cd "src" do
-      system "make"
-      bin.install %w[todos fromdos]
-      man1.install "fromdos.1"
-      man1.install_symlink "fromdos.1" => "todos.1"
-    end
+    mkdir_p [bin, man1]
+
+    system "make", "-C", "src", "all"
+    system "make", "-C", "src", "BINDIR=#{bin}", "MANDIR=#{man1}", "install"
+  end
+
+  test do
+    (testpath/"test.txt").write <<~EOS
+      Example text
+    EOS
+
+    shell_output("#{bin}/todos -b #{testpath}/test.txt")
+    shell_output("#{bin}/fromdos #{testpath}/test.txt")
+    assert_equal (testpath/"test.txt").read, (testpath/"test.txt.bak").read
   end
 end
