@@ -1,8 +1,8 @@
 class Jhipster < Formula
   desc "Generate, develop and deploy Spring Boot + Angular/React applications"
   homepage "https://www.jhipster.tech/"
-  url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-8.7.0.tgz"
-  sha256 "cd4ed3bc7a9879d3a15a95ce1dbd631cbd1463637dac5d70c153aab920c1200a"
+  url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-8.7.1.tgz"
+  sha256 "6b6d4e91590bceb0f49312deb75a74a9a29c0b41fdfec1a0d23451601ba7531c"
   license "Apache-2.0"
 
   bottle do
@@ -23,12 +23,6 @@ class Jhipster < Formula
     system "npm", "install", *std_npm_args
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
-
-    # Remove incompatible pre-built binaries
-    os = OS.kernel_name.downcase
-    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
-    node_modules = libexec/"lib/node_modules/generator-jhipster/node_modules"
-    (node_modules/"nice-napi/prebuilds").each_child { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
   end
 
   test do
