@@ -54,6 +54,10 @@ class Redo < Formula
     ENV["DESTDIR"] = ""
     ENV["PREFIX"] = prefix
     system "./do", "install"
+
+    # Ensure this symlink is the same across all our bottles,
+    # otherwise the Linux bottle points to `/usr/bin/dash`.
+    ln_sf "/bin/dash", lib/"redo/sh"
   end
 
   test do
