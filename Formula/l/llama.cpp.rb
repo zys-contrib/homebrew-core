@@ -14,12 +14,13 @@ class LlamaCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "dd73739d1144d2ab7c67f136dce79cf02b3f4d04472b719097c5ba7657562aa2"
-    sha256 cellar: :any,                 arm64_sonoma:  "b15a3d8e8c8667a014305ba58f48823ba553899e8409cd082bb959c413ffea2a"
-    sha256 cellar: :any,                 arm64_ventura: "85f4835648bb9bc940df30e3f4b2a851fe5e91e977a5307d94934911a509eaf4"
-    sha256 cellar: :any,                 sonoma:        "5da69192e6fc267e1fb9ad446b36b3e19acf783a9a1b70dd3e2ff62bf208b9a5"
-    sha256 cellar: :any,                 ventura:       "07fa64a1d02410a15fdc01587a72079ab918a0152e543d86b724d35909331edd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59ea9ec548da7547523be0c5589467632ef246a8d4865ff26cb03d7ff852afad"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "5df95073bc4629361445678bc886a30c468ecf5742eac9752c37059bb49145bf"
+    sha256 cellar: :any,                 arm64_sonoma:  "3487b225241358a72991eb5895dfe0e93bb0f4333c0f76cc50d87326a044d402"
+    sha256 cellar: :any,                 arm64_ventura: "79eb80cd2b0e765767a4c04c6900cb5a6ce08639763c4c03207730b91dc46ee7"
+    sha256 cellar: :any,                 sonoma:        "b531e0fafc6507f94c0765ea181b7dbaa3a5219ca3b1604894ac085f567d456c"
+    sha256 cellar: :any,                 ventura:       "bd23053356a6880e765f74c9078f7e4ab5847ffd41ddbb53a2dc4d3044fe8c53"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9bede5e732d6117bc7e7b40e515f8f2cb8740d47f91de2267b2ab056f741862f"
   end
 
   depends_on "cmake" => :build
@@ -33,17 +34,18 @@ class LlamaCpp < Formula
   def install
     args = %W[
       -DBUILD_SHARED_LIBS=ON
-      -DLLAMA_LTO=ON
-      -DLLAMA_CCACHE=OFF
-      -DLLAMA_ALL_WARNINGS=OFF
-      -DLLAMA_NATIVE=#{build.bottle? ? "OFF" : "ON"}
-      -DLLAMA_ACCELLERATE=#{OS.mac? ? "ON" : "OFF"}
-      -DLLAMA_BLAS=#{OS.linux? ? "ON" : "OFF"}
-      -DLLAMA_BLAS_VENDOR=OpenBLAS
-      -DLLAMA_METAL=#{OS.mac? ? "ON" : "OFF"}
-      -DLLAMA_METAL_EMBED_LIBRARY=ON
-      -DLLAMA_CURL=ON
       -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DGGML_ACCELLERATE=#{OS.mac? ? "ON" : "OFF"}
+      -DGGML_ALL_WARNINGS=OFF
+      -DGGML_BLAS=ON
+      -DGGML_BLAS_VENDOR=#{OS.mac? ? "Apple" : "OpenBLAS"}
+      -DGGML_CCACHE=OFF
+      -DGGML_LTO=ON
+      -DGGML_METAL=#{OS.mac? ? "ON" : "OFF"}
+      -DGGML_METAL_EMBED_LIBRARY=#{OS.mac? ? "ON" : "OFF"}
+      -DGGML_NATIVE=#{build.bottle? ? "OFF" : "ON"}
+      -DLLAMA_ALL_WARNINGS=OFF
+      -DLLAMA_CURL=ON
     ]
     args << "-DLLAMA_METAL_MACOSX_VERSION_MIN=#{MacOS.version}" if OS.mac?
 
