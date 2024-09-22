@@ -1,10 +1,19 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
-  homepage "https://root.cern.ch/"
-  url "https://root.cern.ch/download/root_v6.32.04.source.tar.gz"
-  sha256 "132f126aae7d30efbccd7dcd991b7ada1890ae57980ef300c16421f9d4d07ea8"
+  homepage "https://root.cern"
   license "LGPL-2.1-or-later"
   head "https://github.com/root-project/root.git", branch: "master"
+
+  stable do
+    url "https://root.cern/download/root_v6.32.06.source.tar.gz"
+    sha256 "3fc032d93fe848dea5adb1b47d8f0a86279523293fee0aa2b3cd52a1ffab7247"
+
+    # Backport fix for RPATH on macOS
+    patch do
+      url "https://github.com/root-project/root/commit/0569d5d7bfb30d96e06c4192658aed4b78e4da64.patch?full_index=1"
+      sha256 "24553b16f66459fe947d192854f5fa6832c9414cc711d7705cb8e8fa67d2d935"
+    end
+  end
 
   livecheck do
     url "https://root.cern/install/all_releases/"
@@ -48,7 +57,6 @@ class Root < Formula
   depends_on "python@3.12"
   depends_on "sqlite"
   depends_on "tbb"
-  depends_on :xcode
   depends_on "xrootd"
   depends_on "xxhash"
   depends_on "xz" # for LZMA
@@ -81,8 +89,10 @@ class Root < Formula
   end
 
   def install
-    ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/root"
-    ENV.remove "HOMEBREW_INCLUDE_PATHS", Formula["util-linux"].opt_include if OS.mac?
+    # Skip modification of CLING_OSX_SYSROOT to the unversioned SDK path
+    # Related: https://github.com/Homebrew/homebrew-core/issues/135714
+    # Related: https://github.com/root-project/cling/issues/457
+    inreplace "interpreter/cling/lib/Interpreter/CMakeLists.txt", '"MacOSX[.0-9]+\.sdk"', '"SKIP"'
 
     inreplace "cmake/modules/SearchInstalledSoftware.cmake" do |s|
       # Enforce secure downloads of vendored dependencies. These are
@@ -92,13 +102,12 @@ class Root < Formula
       s.gsub! "CMAKE_VERSION VERSION_GREATER 3.15", "CMAKE_VERSION VERSION_GREATER 99.99"
     end
 
-    args = std_cmake_args + %W[
+    args = %W[
       -DCLING_CXX_PATH=clang++
       -DCMAKE_CXX_STANDARD=17
       -DCMAKE_INSTALL_ELISPDIR=#{elisp}
       -DPYTHON_EXECUTABLE=#{which(python3)}
       -DXROOTD_ROOT_DIR=#{Formula["xrootd"].opt_prefix}
-      -Dbuiltin_afterimage=ON
       -Dbuiltin_cfitsio=OFF
       -Dbuiltin_clang=ON
       -Dbuiltin_cling=ON
@@ -155,8 +164,14 @@ class Root < Formula
       -GNinja
     ]
 
+    compiledata = if build.head?
+      "cmake/unix/compiledata.sh"
+    else
+      args << "-Dbuiltin_afterimage=ON"
+      "build/unix/compiledata.sh"
+    end
     # Workaround the shim directory being embedded into the output
-    inreplace "build/unix/compiledata.sh", "`type -path $CXX`", ENV.cxx
+    inreplace compiledata, "`type -path $CXX`", ENV.cxx
 
     # Homebrew now sets CMAKE_INSTALL_LIBDIR to /lib, which is incorrect
     # for ROOT with gnuinstall, so we set it back here.
