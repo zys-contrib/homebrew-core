@@ -7,15 +7,12 @@ class Btop < Formula
   head "https://github.com/aristocratos/btop.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "78935622a12bea59cd6f81f7c2b0987da0aa1904d7961c0fc3a0d6876dcdd8e5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9dc1d1071b48ea6178362ad2d1b5dc50b112005171ed42b99ef991dcdda48a2d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aa313baa0ce516db654b7682901e8a18badf94f2a64b35b367e4b4138f8bed24"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5a3745fee0bdddb1f008ebfde8a8a722e12b414e6eb68f9eef3cbbc2dd3cb3e0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "071ec3e43c56f2620306abd0a251e28a498a8b2ebea7d2b69f51e308f4caeed2"
-    sha256 cellar: :any_skip_relocation, ventura:        "c265f1a9168be1a6891df694a63b3dbf2f7e6355da11dae8f42d3e1783f0c9b2"
-    sha256 cellar: :any_skip_relocation, monterey:       "06f5cdcfd5de146eb9b89b8331b2e0cd6fe0ace3e89e8b4b647878b8be5a8a62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "920fbd9f23f3cf29c1dde2c9fa36119d5429649a8012bfef9d34ca4c2a2f1a48"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f76d7eca541e60c73957142e22f2807f92b1545f07c7973e284b4e93e21e4e51"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4bd504ec986b32636796a79aaf5b61b3928a9743708bbcfaaebb563352a705fc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "23d6f6c5b51c5ae88c2d10c67cfc51f182a0ea4c3bdf520308a507d4e475e7b5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "858589c4006102be15e6520a56d5fedd69c3150eaf7ed7a9e8767d0dc382d1e9"
+    sha256 cellar: :any_skip_relocation, ventura:       "9375a4c70a6a96d67d5a217b239084b1c69d4ef6dc2fadd70a2d45243bb0f253"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ca04de8aa0aec9273a889b0914f1466d34ab8ec70616d7a6814aa67166a084a"
   end
 
   on_macos do
