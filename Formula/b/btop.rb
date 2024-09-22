@@ -7,13 +7,16 @@ class Btop < Formula
   head "https://github.com/aristocratos/btop.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f76d7eca541e60c73957142e22f2807f92b1545f07c7973e284b4e93e21e4e51"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4bd504ec986b32636796a79aaf5b61b3928a9743708bbcfaaebb563352a705fc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "23d6f6c5b51c5ae88c2d10c67cfc51f182a0ea4c3bdf520308a507d4e475e7b5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "858589c4006102be15e6520a56d5fedd69c3150eaf7ed7a9e8767d0dc382d1e9"
-    sha256 cellar: :any_skip_relocation, ventura:       "9375a4c70a6a96d67d5a217b239084b1c69d4ef6dc2fadd70a2d45243bb0f253"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ca04de8aa0aec9273a889b0914f1466d34ab8ec70616d7a6814aa67166a084a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dc8485b6b568348d6d5baad6b8683f7d4524c1c5128c2f4525d99c57d458c2bf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aed5321614a38bd8dd92b3a81cb171645baf433cb5710b805956b0e0ea9c1e4e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0cfedfe5bab4746a667e6012323dd1e4457d00880cd9a60778d0a5aac0f2f70f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "60cea9a8675c4fee4b3c69f5c6da46715e34ae5347f0b9a44edd82fd9758139f"
+    sha256 cellar: :any_skip_relocation, ventura:       "caea296cb2d48dee3aefe6038a41a54fb6c1761dca20bd874a1f8dd83ef23663"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3bf71bc7a9e5ceab6fda7308ea326590a21dd7690d966830483f55c8dc9db8c5"
   end
+
+  depends_on "lowdown" => :build
 
   on_macos do
     depends_on "coreutils" => :build
@@ -44,6 +47,10 @@ class Btop < Formula
   end
 
   test do
+    # The build will silently skip the manpage if it can't be built,
+    # so let's double-check that it was.
+    assert_path_exists man1/"btop.1"
+
     require "pty"
     require "io/console"
 
