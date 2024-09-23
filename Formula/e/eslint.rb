@@ -1,8 +1,8 @@
 class Eslint < Formula
   desc "AST-based pattern checker for JavaScript"
   homepage "https://eslint.org"
-  url "https://registry.npmjs.org/eslint/-/eslint-9.11.0.tgz"
-  sha256 "bedf7619b15c8a80e5e0dddd45e809397d1c250f7c6710415b2fcd7a7ff785a5"
+  url "https://registry.npmjs.org/eslint/-/eslint-9.11.1.tgz"
+  sha256 "a3f7a80483408db41debf4775f6b356f65d2810ab98cd6c6a28076141cf8d9bf"
   license "MIT"
 
   bottle do
