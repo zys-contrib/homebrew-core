@@ -7,7 +7,7 @@ class Retire < Formula
   head "https://github.com/RetireJS/retire.js.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "452c052a08345dda137e112a66ddd05221eeafccb45fc29f1022b864c05cd8c6"
+    sha256 cellar: :any_skip_relocation, all: "d0c71da3072b46ab9266ed91758304336b619e5fc6c1865ba4166ec62b532247"
   end
 
   depends_on "node"
