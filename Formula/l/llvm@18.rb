@@ -8,7 +8,7 @@ class LlvmAT18 < Formula
 
   livecheck do
     url :stable
-    regex(/^llvmorg[._-]v?(\d+(?:\.\d+)+)$/i)
+    regex(/^llvmorg[._-]v?(18(?:\.\d+)+)$/i)
   end
 
   bottle do
