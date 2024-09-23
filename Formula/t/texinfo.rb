@@ -35,7 +35,7 @@ class Texinfo < Formula
   def post_install
     info_dir = HOMEBREW_PREFIX/"share/info/dir"
     info_dir.delete if info_dir.exist?
-    info_dir.dirname.glob("*.info") do |f|
+    info_dir.dirname.glob(["*.info", "*.info.gz"]) do |f|
       quiet_system("#{bin}/install-info", "--quiet", f, info_dir)
     end
   end
