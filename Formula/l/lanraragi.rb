@@ -4,7 +4,7 @@ class Lanraragi < Formula
   url "https://github.com/Difegue/LANraragi/archive/refs/tags/v.0.9.21.tar.gz"
   sha256 "ed2d704d058389eb4c97d62080c64fa96fcc230be663ec8958f35764d229c463"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/Difegue/LANraragi.git", branch: "dev"
 
   bottle do
@@ -72,6 +72,14 @@ class Lanraragi < Formula
       bin.install "lanraragi"
       libexec.install "redis.conf"
     end
+
+    return if OS.linux? || Hardware::CPU.intel?
+
+    # FIXME: This installs its own `libarchive`, but we should use our own to begin with.
+    #        As a workaround, install symlinks to our `libarchive` instead of the downloaded ones.
+    libarchive_install_dir = libexec/"lib/perl5/darwin-thread-multi-2level/auto/share/dist/Alien-Libarchive3/dynamic"
+    libarchive_install_dir.children.map(&:unlink)
+    ln_sf Formula["libarchive"].opt_lib.children, libarchive_install_dir
   end
 
   test do
