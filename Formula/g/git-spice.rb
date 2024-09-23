@@ -9,6 +9,15 @@ class GitSpice < Formula
   ]
   head "https://github.com/abhinav/git-spice.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "35dc3ca3f64796368719d9e3a8d5f3300a76c5c3895bf714119be542cc543b33"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "35dc3ca3f64796368719d9e3a8d5f3300a76c5c3895bf714119be542cc543b33"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "35dc3ca3f64796368719d9e3a8d5f3300a76c5c3895bf714119be542cc543b33"
+    sha256 cellar: :any_skip_relocation, sonoma:        "440c9e3825ccd9c786bc50be608d2493702c262e973d6e4287eb087951e0dde0"
+    sha256 cellar: :any_skip_relocation, ventura:       "440c9e3825ccd9c786bc50be608d2493702c262e973d6e4287eb087951e0dde0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f11a3fce1d8a9e8dacce5b64a8338af99e4754aac2447b006b64cdbaf2f4107c"
+  end
+
   depends_on "go" => :build
 
   def install
