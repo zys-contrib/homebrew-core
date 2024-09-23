@@ -3,8 +3,8 @@ class Prowler < Formula
 
   desc "Tool for cloud security assessments, audits, incident response, and more"
   homepage "https://prowler.com/"
-  url "https://files.pythonhosted.org/packages/e7/ab/446326c99c719bf1d85b566d54bd05d29b252f8172ea4d0fb18beee0bb05/prowler-4.3.6.tar.gz"
-  sha256 "cdf8a2bb50aa960a64d147e170011b0a91de9b1a95c200fabb7b699b9817a22c"
+  url "https://files.pythonhosted.org/packages/28/38/241eee42c62a80dcc0557a7c4dd2c3fc2f434bfd815cae20abbcfad46825/prowler-4.3.7.tar.gz"
+  sha256 "c58e571676ff40dfaa154cdc8259009a9e27d14a0d7ff11de398d11a6b4b11ec"
   license "Apache-2.0"
 
   bottle do
@@ -56,8 +56,8 @@ class Prowler < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/a0/44/66874c5256e9fbc30103b31927fd9341c8da6ccafd4721b2b3e81e6ef176/anyio-4.5.0.tar.gz"
-    sha256 "c5a275fe5ca0afd788001f58fca1e69e29ce706d746e317d660e21f70c530ef9"
+    url "https://files.pythonhosted.org/packages/78/49/f3f17ec11c4a91fe79275c426658e509b07547f874b14c1a526d86a83fc8/anyio-4.6.0.tar.gz"
+    sha256 "137b4559cbb034c477165047febb6ff83f390fc3b20bf181c1fc0a728cb8beeb"
   end
 
   resource "attrs" do
@@ -661,8 +661,8 @@ class Prowler < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/74/5b/e025d02cb3b66b7b76093404392d4b44343c69101cc85f4d180dd5784717/tzdata-2024.1.tar.gz"
-    sha256 "2674120f8d891909751c38abcdfd386ac0a5a1127954fbc332af6b5ceae07efd"
+    url "https://files.pythonhosted.org/packages/e1/34/943888654477a574a86a98e9896bae89c7aa15078ec29f490fef2f1e5384/tzdata-2024.2.tar.gz"
+    sha256 "7d85cc416e9382e69095b7bdf4afd9e3880418a2413feec7069d533d6b4e31cc"
   end
 
   resource "tzlocal" do
@@ -701,8 +701,8 @@ class Prowler < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/e4/3d/4924f9ed49698bac5f112bc9b40aa007bbdcd702462c1df3d2e1383fb158/yarl-1.11.1.tar.gz"
-    sha256 "1bb2d9e212fb7449b8fb73bc461b51eaa17cc8430b4a87d87be7b25052d92f53"
+    url "https://files.pythonhosted.org/packages/bf/2c/1965e075d6f9f055457180566ee19913ec7a251960f40efa7c635b5a469e/yarl-1.12.0.tar.gz"
+    sha256 "4c801b9a281a7078e085efbc0e87f0938cea011928c0d48bdcb7c0a58451fb8e"
   end
 
   resource "zipp" do
