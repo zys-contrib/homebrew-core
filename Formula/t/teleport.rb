@@ -1,8 +1,8 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://goteleport.com/"
-  url "https://github.com/gravitational/teleport/archive/refs/tags/v14.3.3.tar.gz"
-  sha256 "c30cefedae3df3cacef78e385a369773820f9ed00432b3c1bd12b0026b01f144"
+  url "https://github.com/gravitational/teleport/archive/refs/tags/v16.4.0.tar.gz"
+  sha256 "fd8d0fe968bd863e3657e0cdfe7d3a5e90b0663b1efe396802f1880d2a6dde79"
   license all_of: ["AGPL-3.0-or-later", "Apache-2.0"]
   head "https://github.com/gravitational/teleport.git", branch: "master"
 
@@ -28,9 +28,12 @@ class Teleport < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "906b35b2c7dcc5bed2b1a9897b2464b113ba6c568340f3a193cfc665f041831a"
   end
 
+  depends_on "corepack" => :build
   depends_on "go@1.22" => :build
   depends_on "pkg-config" => :build
-  depends_on "yarn" => :build
+  depends_on "rust" => :build
+  depends_on "rustup" => :build
+  depends_on "wasm-pack" => :build
   depends_on "libfido2"
   depends_on "node"
   depends_on "openssl@3"
@@ -43,6 +46,10 @@ class Teleport < Formula
   conflicts_with "tctl", because: "both install `tctl` binaries"
 
   def install
+    ENV.prepend_path "PATH", Formula["rustup"].bin
+    system "rustup", "default", "stable"
+    system "rustup", "set", "profile", "minimal"
+
     ENV.deparallelize { system "make", "full", "FIDO2=dynamic" }
     bin.install Dir["build/*"]
   end
