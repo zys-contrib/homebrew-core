@@ -1,8 +1,8 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/3a/7a/4c910bdc9d32640ba89f8d1dc256872c2b5e64830759f7dc346815f5b3b1/uwsgi-2.0.26.tar.gz"
-  sha256 "86e6bfcd4dc20529665f5b7777193cdc48622fb2c59f0a7f1e3dc32b3882e7f9"
+  url "https://files.pythonhosted.org/packages/e1/46/fb08706bc5d922584a5aaed1f73e7a17313310aa34615c74406112ea04a6/uwsgi-2.0.27.tar.gz"
+  sha256 "3ee5bfb7e6e9c93478c22aa8183eef35b95a2d5b14cca16172e67f135565c458"
   license "GPL-2.0-or-later"
   head "https://github.com/unbit/uwsgi.git", branch: "master"
 
