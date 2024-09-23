@@ -1,28 +1,18 @@
 class Wasmedge < Formula
   desc "Lightweight, high-performance, and extensible WebAssembly runtime"
   homepage "https://WasmEdge.org/"
+  url "https://github.com/WasmEdge/WasmEdge/releases/download/0.14.1/WasmEdge-0.14.1-src.tar.gz"
+  sha256 "e5a944975fb949ecda73d6fe80a86507deb2d0a221b2274338807b63758350b4"
   license "Apache-2.0"
-  revision 2
   head "https://github.com/WasmEdge/WasmEdge.git", branch: "master"
 
-  stable do
-    url "https://github.com/WasmEdge/WasmEdge/releases/download/0.14.0/WasmEdge-0.14.0-src.tar.gz"
-    sha256 "3fc518c172329d128ab41671b86e3de0544bcaacdec9c9b47bfc4ce8b421dfd5"
-
-    # fmt 11 compat
-    patch do
-      url "https://github.com/WasmEdge/WasmEdge/commit/3fda0d46a8fee41cc77eddd8a49ca3f423cf7d95.patch?full_index=1"
-      sha256 "23f5555ffebed864796922376004ae5c3a95043921e2e6dae5f8fb6ac9789439"
-    end
-  end
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c6da772877caa84c519af7fa9be3b8211b870c586fc581373d5cde8f01510d80"
-    sha256 cellar: :any,                 arm64_sonoma:  "70bd5c8d863341572a7faaed1f18f50976cbb3685cf554b8a6da6e36f160f23d"
-    sha256 cellar: :any,                 arm64_ventura: "d3c1e895a98f3723b9b152ba1c03e4ede5933b675d344ed29c56ee3adea2a829"
-    sha256 cellar: :any,                 sonoma:        "c7732965f2f8bd4f6ecde1de586f6e5462125cb860857af30cb3360b716da80b"
-    sha256 cellar: :any,                 ventura:       "244493be030ecac9ed0d5121e84db174699edadbc1bda050bef9a450b8478e5a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3aa7e1095343cad4b0608bc8981dd0cc8cfa4b045c352f80c30dfeff7f29ac96"
+    sha256 cellar: :any,                 arm64_sequoia: "a693459d38049adbf9cb43699facc22a13e6a784071fd0167f9d8dbde15d0342"
+    sha256 cellar: :any,                 arm64_sonoma:  "64a272c92a5f2e25cecbd3df9ecc9b7032eb4319e20473de1ff818dedb0b882e"
+    sha256 cellar: :any,                 arm64_ventura: "ec30d58b059463024d7c2837d585aeb6c785e5ec5efbe7cbb66673095085e2c8"
+    sha256 cellar: :any,                 sonoma:        "94bee0da6e4d65de8a4cfe093ffffe65e36e217f062e162e4d5288e7c8c46d54"
+    sha256 cellar: :any,                 ventura:       "e3a3b9b1a8f8892869188b072ac3b39eec17fdbcb37ead5298daecde9062da7f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ae2b2152cf63e8e71604973052596aed2a77d5de08a8959135eae1c8321a703"
   end
 
   depends_on "cmake" => :build
