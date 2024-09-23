@@ -1,6 +1,8 @@
 class Wolfssl < Formula
   desc "Embedded SSL Library written in C"
   homepage "https://www.wolfssl.com"
+  # Git checkout automatically enables extra hardening flags
+  # Ref: https://github.com/wolfSSL/wolfssl/blob/master/m4/ax_harden_compiler_flags.m4#L71
   url "https://github.com/wolfSSL/wolfssl.git",
       tag:      "v5.7.2-stable",
       revision: "00e42151ca061463ba6a95adb2290f678cbca472"
@@ -27,72 +29,31 @@ class Wolfssl < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "util-linux" => :build
 
   def install
     args = %W[
-      --disable-silent-rules
-      --disable-dependency-tracking
       --infodir=#{info}
       --mandir=#{man}
-      --prefix=#{prefix}
       --sysconfdir=#{etc}
       --disable-bump
+      --disable-earlydata
       --disable-examples
       --disable-fortress
       --disable-md5
+      --disable-silent-rules
       --disable-sniffer
       --disable-webserver
-      --enable-aesccm
-      --enable-aesgcm
-      --enable-aesgcm-stream
-      --enable-alpn
-      --enable-blake2
-      --enable-camellia
-      --enable-certgen
-      --enable-certreq
-      --enable-chacha
-      --enable-crl
-      --enable-crl-monitor
-      --enable-curve25519
-      --enable-dtls
-      --enable-dh
-      --enable-ecc
-      --enable-eccencrypt
-      --enable-ed25519
-      --enable-filesystem
-      --enable-hkdf
-      --enable-inline
-      --enable-ipv6
-      --enable-jni
-      --enable-keygen
-      --enable-ocsp
-      --enable-opensslextra
-      --enable-poly1305
-      --enable-psk
-      --enable-quic
-      --enable-ripemd
-      --enable-savesession
-      --enable-savecert
-      --enable-sessioncerts
-      --enable-sha512
-      --enable-sni
-      --enable-supportedcurves
-      --enable-tls13
-      --enable-sp
-      --enable-fastmath
-      --enable-fasthugemath
+      --enable-all
+      --enable-reproducible-build
     ]
 
-    if OS.mac?
-      # Extra flag is stated as a needed for the Mac platform.
-      # https://www.wolfssl.com/docs/wolfssl-manual/ch2/
-      # Also, only applies if fastmath is enabled.
-      ENV.append_to_cflags "-mdynamic-no-pic"
-    end
+    # Extra flag is stated as a needed for the Mac platform.
+    # https://www.wolfssl.com/docs/wolfssl-manual/ch2/
+    # Also, only applies if fastmath is enabled.
+    ENV.append_to_cflags "-mdynamic-no-pic" if OS.mac?
 
     system "./autogen.sh"
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "check"
     system "make", "install"
