@@ -1,8 +1,8 @@
 class Jp2a < Formula
   desc "Convert JPG images to ASCII"
   homepage "https://github.com/Talinx/jp2a"
-  url "https://github.com/Talinx/jp2a/releases/download/v1.2.0/jp2a-1.2.0.tar.bz2"
-  sha256 "bf27b42defa872a2a6b064e89b5e09bd6d822aa63e2d0f42840fabd0ce5d49bb"
+  url "https://github.com/Talinx/jp2a/releases/download/v1.3.0/jp2a-1.3.0.tar.bz2"
+  sha256 "0ed7cab807488744e90190312aeb6470aad5a37e7eccb4998ddbfd351401ebe7"
   license "GPL-2.0-or-later"
   version_scheme 1
 
@@ -17,8 +17,13 @@ class Jp2a < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "626b7dd604f1a12c799d2e3b73241fd874adbb5032ce853519de4fce554c4d83"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "jpeg-turbo"
+  depends_on "libexif"
   depends_on "libpng"
+  depends_on "webp"
+  uses_from_macos "curl"
+  uses_from_macos "ncurses"
 
   def install
     system "./configure", *std_configure_args, "--disable-silent-rules"

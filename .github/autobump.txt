@@ -1311,6 +1311,7 @@ joker
 jolie
 joplin-cli
 jose
+jp2a
 jpeg-turbo
 jpeg-xl
 jql
