@@ -1391,6 +1391,7 @@ ksh93
 ksops
 ktfmt
 ktor
+kty
 kube-linter
 kube-ps1
 kubeaudit
