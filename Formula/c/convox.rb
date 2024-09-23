@@ -1,8 +1,8 @@
 class Convox < Formula
   desc "Command-line interface for the Convox PaaS"
   homepage "https://convox.com/"
-  url "https://github.com/convox/convox/archive/refs/tags/3.18.11.tar.gz"
-  sha256 "86f82d31c7cc11195f59d47938196bf92d6ea4f665e0fe62eb5345486cc8e4c2"
+  url "https://github.com/convox/convox/archive/refs/tags/3.19.0.tar.gz"
+  sha256 "e95e47d6ffaebc9c8cf39765932b6303cdab96df488a1b11f9c1a928b35a89f1"
   license "Apache-2.0"
   version_scheme 1
 
@@ -23,13 +23,14 @@ class Convox < Formula
   end
 
   depends_on "go" => :build
+  depends_on "pkg-config" => :build
+
+  on_linux do
+    depends_on "systemd" # for libudev
+  end
 
   def install
-    ldflags = %W[
-      -s -w
-      -X main.version=#{version}
-    ]
-
+    ldflags = "-s -w -X main.version=#{version}"
     system "go", "build", "-mod=readonly", *std_go_args(ldflags:), "./cmd/convox"
   end
 
