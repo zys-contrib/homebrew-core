@@ -7,14 +7,12 @@ class Llgo < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "9662d4ef9ac28e8fa0fb323e72639f9ff1b8929d2b92a3310968eb21972e5df3"
-    sha256 cellar: :any, arm64_sonoma:   "096384f0999a2144455e1274e974513e00fee6931a7848d00e51ee60b0314bdc"
-    sha256 cellar: :any, arm64_ventura:  "f55927a3fed5185bb7046e5eea964e5384305d786f9e058c2c6e3182f1d164c2"
-    sha256 cellar: :any, arm64_monterey: "8ebe3c5d24fdf1eb1e210573a430543a0fad5a7db053567dce7bede2eaa6b8c5"
-    sha256 cellar: :any, sonoma:         "c6724135cda194af9684186b4c245efd186a3127ea578dd7dcba0d64de5fea5c"
-    sha256 cellar: :any, ventura:        "2a646f5b2f82ccdbeae2f3024000015f1f8c597801eae85454961c774694a0cd"
-    sha256 cellar: :any, monterey:       "3ea493908db3bdfa0c2b851920fe7d6a956244f504a9cc0547bbfa6e310bda0a"
-    sha256               x86_64_linux:   "9eb63752090ea065305ff4ffa581f9e6bdc0fbfe34da5a8b977f6059b5038888"
+    sha256 cellar: :any, arm64_sequoia: "c2843ed4c34662cd4efb4332efc801ebd481623ccc1cff1448be0804ad197038"
+    sha256 cellar: :any, arm64_sonoma:  "02e5fbd91b3ec0560cd653cd113eaff7d7899521fe56efb95bf76da703e88c9f"
+    sha256 cellar: :any, arm64_ventura: "ee9649478a6a5327d9c7c28880b1cf203cdc4e88c09cc59ce9d8f06e275749db"
+    sha256 cellar: :any, sonoma:        "1a21fcc15688f58e760474cb36700411865591f1dc88608a7434866017af43ae"
+    sha256 cellar: :any, ventura:       "50fd0b364c4ff977f5bc1c64d54a048dce67fcc06e12a0fb228cb2f2d6eabce0"
+    sha256               x86_64_linux:  "ec6fb4fdba58e39f7008ffa6311278e155a7e37856c78b88e953afa4f0a61cec"
   end
 
   depends_on "bdw-gc"
