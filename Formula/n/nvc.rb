@@ -6,12 +6,12 @@ class Nvc < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sequoia: "08fa9f03d8810538b606b3034af3a5d75c0b63fdf74012a988853855cd14e97c"
-    sha256 arm64_sonoma:  "ee18f66a3b35904dac2c03b62a8c4bdca3a88a5b4ae8fa4915ebe45a2be7e3e2"
-    sha256 arm64_ventura: "5b016ebed4c3cb1a80a7eb90e8847a3a6c6ca064b181349995193f5fde3a017d"
-    sha256 sonoma:        "1bca86f99266a1399192231a8281a886ec6f808eafc5eb7664711de3cd42549f"
-    sha256 ventura:       "85cfbee02c6aaf4dcd1737f11733eddb7628593697ad2f4bc6026720c5ca2a59"
-    sha256 x86_64_linux:  "84234d0ee6a2d94ace7d97c0ac65cdcf6bb927bd49eed8c9c014d85d327fc556"
+    sha256 arm64_sequoia: "b636fd1502edc9abca3bc3cb095ac5bf10de8f044deb25216d7418a3242dd1a9"
+    sha256 arm64_sonoma:  "bb43739591bbbbd6a1684c7050ae61b0b8ef4daa12029ff4e804c0a22a6003a4"
+    sha256 arm64_ventura: "c5459c83b372c60cbb63d9c653227edea40a47d9cacdf6dd3b1c982ad1fc66f4"
+    sha256 sonoma:        "b1a99aea98de3bb9776ef55ee46e2dbe3f26cda1467a01f6d1affcd4ecf106b9"
+    sha256 ventura:       "c8a438187f853a124604a54328b0bbcbf824ba695165d845e0b88c48aa307b75"
+    sha256 x86_64_linux:  "e832c145ef4f5a566f5bdbbe80e16ff81b6fae05ef00c72e6c2bb531c9a76496"
   end
 
   head do
