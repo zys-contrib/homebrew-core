@@ -113,21 +113,13 @@ class Vineyard < Formula
 
     # Work around an Xcode 15 linker issue which causes linkage against LLVM's
     # libunwind due to it being present in a library search path.
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", llvm.opt_lib
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", llvm.opt_lib if DevelopmentTools.clang_build_version >= 1500
 
     # Remove Homebrew's lib directory from LDFLAGS as it is not available during
     # `shell_output`.
     ENV.remove "LDFLAGS", "-L#{HOMEBREW_PREFIX}/lib"
 
-    if OS.linux?
-      ENV.append "LDFLAGS", "-L#{llvm.opt_lib}/#{Hardware::CPU.arch}-unknown-linux-gnu"
-      ENV.append "LDFLAGS", "-Wl,-rpath,#{llvm.opt_lib}/#{Hardware::CPU.arch}-unknown-linux-gnu"
-    end
-
-    # macos AppleClang doesn't support -fopenmp
     system "cmake", "-S", testpath, "-B", testpath/"build",
-                    "-DCMAKE_C_COMPILER=#{llvm.bin}/clang",
-                    "-DCMAKE_CXX_COMPILER=#{llvm.bin}/clang++",
                     *std_cmake_args
     system "cmake", "--build", testpath/"build"
 
