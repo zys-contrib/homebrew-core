@@ -1,8 +1,8 @@
 class Libarchive < Formula
   desc "Multi-format archive and compression library"
   homepage "https://www.libarchive.org"
-  url "https://www.libarchive.org/downloads/libarchive-3.7.5.tar.xz"
-  sha256 "ca74ff8f99dd40ab8a8274424d10a12a7ec3f4428dd35aee9fdda8bdb861b570"
+  url "https://www.libarchive.org/downloads/libarchive-3.7.6.tar.xz"
+  sha256 "0a2efdcb185da2eb1e7cd8421434cb9a6119f72417a13335cca378d476fd3ba0"
   license "BSD-2-Clause"
 
   livecheck do
@@ -40,13 +40,16 @@ class Libarchive < Formula
 
     system "make", "install"
 
-    # fixes https://github.com/libarchive/libarchive/issues/1819
-    if OS.mac?
-      inreplace lib/"pkgconfig/libarchive.pc", "Libs.private: ", "Libs.private: -liconv "
-      inreplace lib/"pkgconfig/libarchive.pc", "Requires.private: iconv", ""
-    end
+    # Avoid hardcoding Cellar paths in dependents.
+    inreplace lib/"pkgconfig/libarchive.pc", prefix.to_s, opt_prefix.to_s
 
     return unless OS.mac?
+
+    # fixes https://github.com/libarchive/libarchive/issues/1819
+    inreplace lib/"pkgconfig/libarchive.pc" do |s|
+      s.gsub! "Libs.private: ", "Libs.private: -liconv "
+      s.gsub! "Requires.private: iconv", ""
+    end
 
     # Just as apple does it.
     ln_s bin/"bsdtar", bin/"tar"
