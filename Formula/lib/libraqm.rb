@@ -1,8 +1,8 @@
 class Libraqm < Formula
   desc "Library for complex text layout"
   homepage "https://github.com/HOST-Oman/libraqm"
-  url "https://github.com/HOST-Oman/libraqm/archive/refs/tags/v0.10.1.tar.gz"
-  sha256 "ff8f0604dc38671b57fc9ca5c15f3613e063d2f988ff14aa4de60981cb714134"
+  url "https://github.com/HOST-Oman/libraqm/archive/refs/tags/v0.10.2.tar.gz"
+  sha256 "db68fd9f034fc40ece103e511ffdf941d69f5e935c48ded8a31590468e42ba72"
   license "MIT"
 
   bottle do
