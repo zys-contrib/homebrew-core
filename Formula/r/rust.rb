@@ -46,6 +46,8 @@ class Rust < Formula
   uses_from_macos "zlib"
 
   link_overwrite "etc/bash_completion.d/cargo"
+  # These used to belong in `rustfmt`.
+  link_overwrite "bin/cargo-fmt", "bin/git-rustfmt", "bin/rustfmt", "bin/rustfmt-*"
 
   # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0
   resource "cargobootstrap" do
