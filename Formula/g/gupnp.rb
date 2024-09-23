@@ -3,8 +3,8 @@ class Gupnp < Formula
 
   desc "Framework for creating UPnP devices and control points"
   homepage "https://wiki.gnome.org/Projects/GUPnP"
-  url "https://download.gnome.org/sources/gupnp/1.6/gupnp-1.6.6.tar.xz"
-  sha256 "c9dc50e8c78b3792d1b0e6c5c5f52c93e9345d3dae2891e311a993a574f5a04f"
+  url "https://download.gnome.org/sources/gupnp/1.6/gupnp-1.6.7.tar.xz"
+  sha256 "4a61d8a5a8a7270e60ce9cfe9661cc4fa326f045a65718d2eb8ff68afdbef805"
   license "LGPL-2.0-or-later"
 
   bottle do
@@ -30,12 +30,6 @@ class Gupnp < Formula
   depends_on "libsoup"
   depends_on "libxml2"
   depends_on "python@3.12"
-
-  # Backport fix for libxml 2.12. Remove in the next release.
-  patch do
-    url "https://gitlab.gnome.org/GNOME/gupnp/-/commit/00514fb62ebd341803fa44e26a6482a8c25dbd34.diff"
-    sha256 "2b8ead2dc0824bf30dc606421cff3cddc7d8ad785910b1228602bb861601f61c"
-  end
 
   def install
     ENV.prepend_path "XDG_DATA_DIRS", HOMEBREW_PREFIX/"share"
