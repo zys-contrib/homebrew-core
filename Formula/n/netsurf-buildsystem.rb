@@ -19,6 +19,9 @@ class NetsurfBuildsystem < Formula
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
+
+    # Consistently replace /usr/local with HOMEBREW_PREFIX for reproducible bottles
+    inreplace pkgshare/"makefiles/Makefile.tools", "/usr/local", HOMEBREW_PREFIX
   end
 
   test do
