@@ -30,25 +30,29 @@ class Libeatmydata < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "108aec33bd43ad8bb056cbe840019a5ec42f0f16a99c3b40d0ce8c5d891f0249"
   end
 
-  depends_on "autoconf"         => :build
+  depends_on "autoconf" => :build
   depends_on "autoconf-archive" => :build
-  depends_on "automake"         => :build
-  depends_on "libtool"          => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
-  depends_on "coreutils"
+  on_monterey :or_older do
+    depends_on "coreutils"
+  end
 
   on_linux do
     depends_on "strace" => :test
   end
 
   def install
-    # macOS does not support `readlink -f` as used by the `eatmydata` shell wrapper script
-    inreplace "eatmydata.sh.in", "readlink", "#{Formula["coreutils"].opt_bin}/greadlink" if OS.mac?
+    # macOS before 12.3 does not support `readlink -f` as used by the `eatmydata` shell wrapper script
+    if OS.mac? && MacOS.version <= :monterey
+      inreplace "eatmydata.sh.in", "readlink", "#{Formula["coreutils"].opt_bin}/greadlink"
+    end
 
     system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", *std_configure_args,
-                          "--disable-option-checking",
-                          "--disable-silent-rules"
+    system "./configure", "--disable-option-checking",
+                          "--disable-silent-rules",
+                          *std_configure_args
     system "make", "install"
   end
 
