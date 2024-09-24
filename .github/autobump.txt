@@ -2690,6 +2690,7 @@ terramate
 terrascan
 tesseract
 testkube
+testscript
 testssl
 tetra
 texinfo
