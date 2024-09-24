@@ -3,8 +3,8 @@ class BcGh < Formula
   # The homepage is https://git.gavinhoward.com/gavin/bc but the Linux CI runner
   # has issues fetching the Gitea urls so we use the official GitHub mirror instead
   homepage "https://github.com/gavinhoward/bc"
-  url "https://github.com/gavinhoward/bc/releases/download/7.0.2/bc-7.0.2.tar.xz"
-  sha256 "5cdaa73e42deda936bdcdb668eeaa6bc0567cac820914744a6824595fa13da1d"
+  url "https://github.com/gavinhoward/bc/releases/download/7.0.3/bc-7.0.3.tar.xz"
+  sha256 "91eb74caed0ee6655b669711a4f350c25579778694df248e28363318e03c7fc4"
   license "BSD-2-Clause"
   head "https://github.com/gavinhoward/bc.git", branch: "master"
 
