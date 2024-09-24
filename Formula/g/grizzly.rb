@@ -1,8 +1,8 @@
 class Grizzly < Formula
   desc "Command-line tool for managing and automating Grafana dashboards"
   homepage "https://grafana.github.io/grizzly/"
-  url "https://github.com/grafana/grizzly/archive/refs/tags/v0.4.7.tar.gz"
-  sha256 "1c577c444ea7ad58fbb4500fe8c49a9b80f484be686db48feebe4fbe76591ed7"
+  url "https://github.com/grafana/grizzly/archive/refs/tags/v0.4.8.tar.gz"
+  sha256 "4d05939982bbf6423373673b186a1e34d7ec2cdb9a9bce397b26d211b9867d6c"
   license "Apache-2.0"
 
   bottle do
