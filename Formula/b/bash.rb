@@ -98,13 +98,12 @@ class Bash < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "d7d27acac0ee30be07e8ba0fc1f7e10d363fca5f9b5fdc559f9ab8a97cabc588"
-    sha256 arm64_sonoma:  "98e771f838e301fc17c2f5b8884284cc4028d63836f6fd0643f662e59aec429e"
-    sha256 arm64_ventura: "b610a5faa9dbce2bd929bef9589a3a62ded29604c4838b8d88823c1e8706b6bb"
-    sha256 sonoma:        "e9c48cc5e0c6989da2e1e65a00ae0e3ec4e6224fbf07be977afec9ff3f4ea069"
-    sha256 ventura:       "a0ec71db5277088bc9edc3230dfa9913d7912cd64de2ffc2ed845779ae17e388"
-    sha256 x86_64_linux:  "61455ffe073cc7e5295ca1f26f727fea3a854f103a1e28fecb488cd6b1e7b9dd"
+    sha256 arm64_sequoia: "066b7eba204091b70860d2f17d0dd65201900b3e3ca32de87a746ed1baf13332"
+    sha256 arm64_sonoma:  "bdd38f4c77fa9684697ba3b6b1c428f36271fe5e8b8d202ff85c0a4e49e79d2e"
+    sha256 arm64_ventura: "5cb55d97e9fd0f7c927092fb06378d1093d80750265ea0fbb54aebcce75c8bea"
+    sha256 sonoma:        "f054309f0c7f7f403697f7c66032c783ce8bf39e72305db284bcb59d19c1fabf"
+    sha256 ventura:       "95ec9564b680f8273924315288be760c40a90b73f8e1d87965a0a87ab5396a0f"
+    sha256 x86_64_linux:  "4b18fa19b1a009c863e3858d4dc2efe96e586d72f441b4eb31428e624226eb7b"
   end
 
   def install
