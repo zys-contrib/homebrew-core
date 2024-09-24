@@ -22,7 +22,7 @@ class Cpanminus < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7901d4e2cf8cf79ccd841ec638bfd5450c14efc2abd07ef90ee024e954b93f6d"
   end
 
-  uses_from_macos "perl"
+  depends_on "perl" => :build
 
   def install
     cd "App-cpanminus" if build.head?
@@ -31,15 +31,18 @@ class Cpanminus < Formula
                                   "INSTALLSITEMAN1DIR=#{man1}",
                                   "INSTALLSITEMAN3DIR=#{man3}"
     system "make", "install"
-  end
 
-  def post_install
-    cpanm_lines = (bin/"cpanm").read.lines
-    return if cpanm_lines.first.match?(%r{^#!/usr/bin/env perl})
+    inreplace_files = [
+      buildpath/"README",
+      bin/"cpanm",
+      lib/"perl5/App/cpanminus/fatscript.pm",
+      lib/"perl5/App/cpanminus.pm",
+      man3/"App::cpanminus.3",
+    ]
+    inreplace inreplace_files, "/usr/local", HOMEBREW_PREFIX, audit_result: build.stable?
 
-    ohai "Adding `/usr/bin/env perl` shebang to `cpanm`..."
-    cpanm_lines.unshift "#!/usr/bin/env perl\n"
-    (bin/"cpanm").atomic_write cpanm_lines.join
+    # Needed for dependents that might use Homebrew perl or system perl.
+    inreplace bin/"cpanm", %r{^#!#{Regexp.escape(Formula["perl"].opt_bin)}/perl$}, "#!/usr/bin/env perl"
   end
 
   test do
