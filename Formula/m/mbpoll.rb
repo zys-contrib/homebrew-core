@@ -6,6 +6,15 @@ class Mbpoll < Formula
   license "GPL-3.0-only"
   head "https://github.com/epsilonrt/mbpoll.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "f2e1b7cc1e13adec4be27c0786d6d58d8452981695981111b9fb5a27b4209672"
+    sha256 cellar: :any,                 arm64_sonoma:  "38fed0cebc17a0f5b56f57c877ba9aedb7740f88ad49ec8b7ab20b75d46d451a"
+    sha256 cellar: :any,                 arm64_ventura: "11ad727f1304188c6973eeb682de71cf60275cda1cc2055564454dcfa03eb264"
+    sha256 cellar: :any,                 sonoma:        "448753a6babe4e91ec293111c781deca8456740af65c153c09b3a7f334d7ef8f"
+    sha256 cellar: :any,                 ventura:       "18d5251c8aa33916193ca6023807ba57a335f0abc5c2109fc7ff9921a3b69cd6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dffd6e9a6cbca3f5950ea1fd49d0db7ca5cf0d7a117faac986a1c2bbe43cff49"
+  end
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "libmodbus"
