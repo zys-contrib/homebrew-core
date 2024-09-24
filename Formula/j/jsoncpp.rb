@@ -12,17 +12,12 @@ class Jsoncpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "10d3594fc94da872a77178a733c49ef3d34322d67fd75d2e06d10381bd02d4bf"
-    sha256 cellar: :any,                 arm64_sonoma:   "fedc02b1840b83d1e98e7c65cce31fa60858cfc82489f108cfec42989adacfdc"
-    sha256 cellar: :any,                 arm64_ventura:  "013a6b0f7beab209b744ef8119ca2a9a29a0c9c90da09f5012fc94fe5cc51ff1"
-    sha256 cellar: :any,                 arm64_monterey: "ae110e26c1c8bcb9aa833c0393ddf26f88e3a88f1056fb52c7461dd0af5d7f96"
-    sha256 cellar: :any,                 arm64_big_sur:  "a7412f7e1de7b44f22c25ec31fb7a6bd65450d04e2882954f5a282a6e021236b"
-    sha256 cellar: :any,                 sonoma:         "90c36c48a24d418235400ce76493e97379954a26f9e700e3e61d38762ba870a4"
-    sha256 cellar: :any,                 ventura:        "68fe5f2b8a499ef699890d432985cb53e648a12fc1017e4bcb0be3c616f8982b"
-    sha256 cellar: :any,                 monterey:       "be9698795e4f18a424786e6d9920409b4b98fd15fdf9b09e0ffcff5ddc6dffec"
-    sha256 cellar: :any,                 big_sur:        "906ff0a3a449611cdb96c7dd0f4e6335c6a10c8564f73fef3f799de955bdb712"
-    sha256 cellar: :any,                 catalina:       "3869924df0ab1d78ed2bc4448f0496c64e0f14af08834297319eb782fc070c3d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e00ec8c187ad0787b392125e31b23d0c2b0dcbb4e9f66cfd34570ca813146ab9"
+    sha256 cellar: :any,                 arm64_sequoia: "09ac35efeac2249064d84ab26a79ac116aa9b25b91baedaf065ce7a66d9d20ef"
+    sha256 cellar: :any,                 arm64_sonoma:  "a6436e046cdede285aee56208380f24d37ef592671901d7cea131f00998a5000"
+    sha256 cellar: :any,                 arm64_ventura: "15a94fe13490a723ab78a54a39129e7cc39ad3e3d5e9ea67e17d6b3c3a67e021"
+    sha256 cellar: :any,                 sonoma:        "8917f4a14ef0bd4f4d59f8d1a4689c653dd69180fe6ae7c3915bcd904db1d056"
+    sha256 cellar: :any,                 ventura:       "22fff7a8f16806ace94150ddf11d88ccc58a86326404cd018ad3b87852df7bf3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "460d3286f4bdf820e9426b66e3773551420c1a1dd1b3bf62d7f20bf2e7e955c1"
   end
 
   # NOTE: Do not change this to use CMake, because the CMake build is deprecated.
