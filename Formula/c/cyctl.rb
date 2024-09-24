@@ -1,18 +1,18 @@
 class Cyctl < Formula
   desc "Customizable UI for Kubernetes workloads"
   homepage "https://cyclops-ui.com/"
-  url "https://github.com/cyclops-ui/cyclops/archive/refs/tags/v0.12.0.tar.gz"
-  sha256 "98f8ebef38c0f2e9adfe3143b9da01d07bcbba59cbb4fe06827e0132cade94ab"
+  url "https://github.com/cyclops-ui/cyclops/archive/refs/tags/v0.13.0.tar.gz"
+  sha256 "b56485ed9e31f8d2e1eba4016e2038b421b7fc6f5c22e22203883203f44f8b45"
   license "Apache-2.0"
   head "https://github.com/cyclops-ui/cyclops.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ef6e028d6ea1fcce63b3d4ecee97f40f1f57b087ebd24448d141b9ac58f412fa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ef6e028d6ea1fcce63b3d4ecee97f40f1f57b087ebd24448d141b9ac58f412fa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ef6e028d6ea1fcce63b3d4ecee97f40f1f57b087ebd24448d141b9ac58f412fa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4ddc96823c733a62d2cf6748b11c821d701f8f5e77f8e42e3baa9c2e3a039ee4"
-    sha256 cellar: :any_skip_relocation, ventura:       "4ddc96823c733a62d2cf6748b11c821d701f8f5e77f8e42e3baa9c2e3a039ee4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9a4568601f32e49878c7ac9c3191841740f8d9dec8038597302cd085d8f991d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "861547fd7ec90b5da6bb743c3a4912375d6d31b4a2fac5f533acd2c97d80cbca"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "861547fd7ec90b5da6bb743c3a4912375d6d31b4a2fac5f533acd2c97d80cbca"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "861547fd7ec90b5da6bb743c3a4912375d6d31b4a2fac5f533acd2c97d80cbca"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2765f01223edb4f37691935c4c2394114334dbae971b6a6b58f2b5a1bb111048"
+    sha256 cellar: :any_skip_relocation, ventura:       "2765f01223edb4f37691935c4c2394114334dbae971b6a6b58f2b5a1bb111048"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7dd09f8aa72b8a72c85c81b5b7a020b95cf717df01e9faba70c4bc54e4e035fd"
   end
 
   depends_on "go" => :build
