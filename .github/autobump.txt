@@ -1852,6 +1852,7 @@ nats-streaming-server
 navi
 navidrome
 nbdime
+ncc
 ncdc
 ncnn
 nco
