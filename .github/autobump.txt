@@ -1534,7 +1534,6 @@ libmxml
 libnfs
 libnftnl
 libnghttp3
-libnice
 libntlm
 libobjc2
 libomp
