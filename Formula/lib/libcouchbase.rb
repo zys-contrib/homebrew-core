@@ -1,8 +1,8 @@
 class Libcouchbase < Formula
   desc "C library for Couchbase"
   homepage "https://docs.couchbase.com/c-sdk/current/hello-world/start-using-sdk.html"
-  url "https://packages.couchbase.com/clients/c/libcouchbase-3.3.12.tar.gz"
-  sha256 "a5db78dc3e51842a85233f66422b3bffe6bd78a6d6ea223c43ef0240d49962cf"
+  url "https://packages.couchbase.com/clients/c/libcouchbase-3.3.13.tar.gz"
+  sha256 "51de483251a84696ac2793ad9a805d563e214efed2161ea6d26285192c1832a6"
   license "Apache-2.0"
   head "https://github.com/couchbase/libcouchbase.git", branch: "master"
 
