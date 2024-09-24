@@ -22,12 +22,19 @@ class Orbuculum < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "capstone"
-  depends_on "libelf"
   depends_on "libusb"
   depends_on "sdl2"
   depends_on "zeromq"
 
   uses_from_macos "ncurses"
+
+  on_macos do
+    depends_on "libelf"
+  end
+
+  on_linux do
+    depends_on "elfutils"
+  end
 
   def install
     system "meson", "setup", "build", *std_meson_args
