@@ -22,6 +22,9 @@ class Elvis < Formula
     system "rebar3", "escriptize"
 
     bin.install "_build/default/bin/elvis"
+
+    bash_completion.install "priv/bash_completion/elvis"
+    zsh_completion.install "priv/zsh_completion/_elvis"
   end
 
   test do
