@@ -1,8 +1,8 @@
 class Muon < Formula
   desc "Meson-compatible build system"
   homepage "https://muon.build"
-  url "https://git.sr.ht/~lattis/muon/archive/0.2.0.tar.gz"
-  sha256 "d73db1be5388821179a25a15ba76fd59a8bf7c8709347a4ec2cb91755203f36c"
+  url "https://git.sr.ht/~lattis/muon/archive/0.3.0.tar.gz"
+  sha256 "e1c2741e7cbcdcb6152ad4251f032aa9ea3b77e96ce84f760a3265dc7c56ae5c"
   license "GPL-3.0-only"
   head "https://git.sr.ht/~lattis/muon", branch: "master"
 
