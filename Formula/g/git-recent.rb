@@ -11,6 +11,10 @@ class GitRecent < Formula
 
   depends_on macos: :sierra
 
+  on_linux do
+    depends_on "util-linux" # for `column`
+  end
+
   conflicts_with "git-plus", because: "both install `git-recent` binaries"
 
   def install
@@ -18,12 +22,12 @@ class GitRecent < Formula
   end
 
   test do
-    system "git", "init"
+    system "git", "init", "--initial-branch=main"
     system "git", "recent"
     # User will be 'BrewTestBot' on CI, needs to be set here to work locally
     system "git", "config", "user.name", "BrewTestBot"
     system "git", "config", "user.email", "brew@test.bot"
     system "git", "commit", "--allow-empty", "-m", "test_commit"
-    assert_match(/.*master.*seconds? ago.*BrewTestBot.*\n.*test_commit/, shell_output("git recent"))
+    assert_match(/.*main.*seconds? ago.*BrewTestBot.*\n.*test_commit/, shell_output("git recent"))
   end
 end
