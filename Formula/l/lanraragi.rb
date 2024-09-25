@@ -8,12 +8,12 @@ class Lanraragi < Formula
   head "https://github.com/Difegue/LANraragi.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "46e9aa410d112c875d72aa56baf02b97f46d9796c75b417972c3859774314da1"
-    sha256 cellar: :any,                 arm64_sonoma:  "703fb53e9661129e560d1e98e66a225a99f1fc9dc0c1235add8e5396a1830e41"
-    sha256 cellar: :any,                 arm64_ventura: "3b465015d1bf91080ff26eedfe3781aa2d15b1307895491a35b79989e719da1c"
-    sha256 cellar: :any,                 sonoma:        "03ba3bdaf084a6366412bb6b4834316e8bc76cab648241e065b855861eaebe53"
-    sha256 cellar: :any,                 ventura:       "e5aef0d44c01143352cbaf61f74b55e497e7b786f222a2e9fd76db829acaa75e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f77b07b914a4282f3ec55cbf198be970d6ce81777f718b088e2bfd7fffc54792"
+    sha256 cellar: :any,                 arm64_sequoia: "32b94989e04f1bc1643bf9ac3fd53798e660f0e3988d9482782648e29a9a144d"
+    sha256 cellar: :any,                 arm64_sonoma:  "007d0eb316f50682547e931268e501db9c9f70bead21f98901e3f67a7e90c271"
+    sha256 cellar: :any,                 arm64_ventura: "f1b0826609df1a9aa730ee2ba788432855112786b0b897d002c85d9b1a3991e6"
+    sha256 cellar: :any,                 sonoma:        "e3e9780e0a10edd57708c134759e6760ad42868ec0bca0f2e563bf2b1986a55c"
+    sha256 cellar: :any,                 ventura:       "162dd99fdbae029248a39482b69c83afede408fa7d5058557c1cd03b1012fd02"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6dbae601b895428500313e9c4851fafb8e5edd3c94278b2b7d37639a141bb5a6"
   end
 
   depends_on "nettle" => :build
