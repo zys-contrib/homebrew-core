@@ -2666,6 +2666,7 @@ teip
 tektoncd-cli
 teku
 telegraf
+teleport
 teller
 telnet
 telnetd
