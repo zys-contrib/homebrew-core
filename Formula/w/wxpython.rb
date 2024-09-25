@@ -6,14 +6,12 @@ class Wxpython < Formula
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_sonoma:   "120938b86adb0a5317edec17ad9b8e9d490ce7988a9b0677c9fdf1f688e7ed59"
-    sha256 cellar: :any, arm64_ventura:  "16bec214594988fe4ecc3828eda9c031daee2b5bd17a3d01a101bb6e52f7360b"
-    sha256 cellar: :any, arm64_monterey: "89e763016f0d5176f591072d1e13b78c2fa8b86ab5ecf2588a461b435c8f27cb"
-    sha256 cellar: :any, sonoma:         "092cddd2dc534cbda892fba573c7b4062679e099b1b85ba18061608d2bcfec76"
-    sha256 cellar: :any, ventura:        "7a61784a48ab5d9462492528c3c66b79542a9c319226c9e92bffc64612778584"
-    sha256 cellar: :any, monterey:       "370c1dd9ade8b71d481a5ea8bea50babefc8baeba38303fb5232c4d18c783224"
-    sha256               x86_64_linux:   "87d2e67b3a6d57d840c286949e73781feba27ba7007055344687b332349322ad"
+    sha256 cellar: :any, arm64_sequoia: "cd858733c842c47cf8bdadb8e6ef9e7edb8ce6ca9239b2b93bb7850b6f274b52"
+    sha256 cellar: :any, arm64_sonoma:  "c051ef7032b0805c682cc083bb3ba745a6aa0698a267fc9f5b5f094e6178391a"
+    sha256 cellar: :any, arm64_ventura: "ca9adadcaecf521c53885ee9520645275a3ee39721eaab9e9ee5f94069840e98"
+    sha256 cellar: :any, sonoma:        "afcad2109bcd2a6fcf15574ed910bcc223b29f128049f70d5137029f7605b214"
+    sha256 cellar: :any, ventura:       "a1c07cfabbde601d9709e12d8e342463c0b1f08e236cbb68525d5ca14db1aafc"
+    sha256               x86_64_linux:  "f5b4d763fe0f40739cf512fef40190608454d59a3c5c28249dd6942b59a25849"
   end
 
   depends_on "doxygen" => :build
