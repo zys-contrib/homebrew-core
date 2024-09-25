@@ -27,6 +27,7 @@ class Zabbix < Formula
   def install
     args = %W[
       --enable-agent
+      --enable-ipv6
       --with-libpcre2
       --sysconfdir=#{pkgetc}
       --with-openssl=#{Formula["openssl@3"].opt_prefix}
