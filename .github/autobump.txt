@@ -1652,7 +1652,6 @@ livekit-cli
 llama.cpp
 llgo
 llm
-llvm
 lmdb
 lmod
 lnav
