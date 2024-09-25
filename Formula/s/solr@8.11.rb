@@ -12,7 +12,7 @@ class SolrAT811 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "9215d75465b9410dc267924991044a2b4e0e781e654583db2d01a7767d631bfa"
+    sha256 cellar: :any_skip_relocation, all: "65d79494d324de0e00931020fc1e1624c7929566a4d66cee0b33052111f6e523"
   end
 
   keg_only :versioned_formula
