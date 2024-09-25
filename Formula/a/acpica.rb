@@ -1,8 +1,8 @@
 class Acpica < Formula
   desc "OS-independent implementation of the ACPI specification"
-  homepage "https://www.intel.com/content/www/us/en/developer/topic-technology/open/acpica/overview.html"
-  url "https://downloadmirror.intel.com/819451/acpica-unix-20240321.tar.gz"
-  sha256 "54a299487925fd3e0551c95f9d5cee4f4984930273983eff67aa5cd46f8f338b"
+  homepage "https://github.com/acpica/acpica"
+  url "https://downloadmirror.intel.com/831952/acpica-unix2-20240827.tar.gz"
+  sha256 "d540e982f1391c2e5ee57c391d73035b40ba4fb2a98cee626db6ed12db59a737"
   license any_of: ["Intel-ACPI", "GPL-2.0-only", "BSD-3-Clause"]
   head "https://github.com/acpica/acpica.git", branch: "master"
 
@@ -27,6 +27,9 @@ class Acpica < Formula
   uses_from_macos "m4" => :build
 
   def install
+    # fix acpixf.h case issue, upstream bug report, https://github.com/acpica/acpica/issues/971
+    File.rename "source/include/ACPIXF.H", "source/include/acpixf.h"
+
     # ACPI_PACKED_POINTERS_NOT_SUPPORTED:
     # https://github.com/acpica/acpica/issues/781#issuecomment-1718084901
     system "make", "PREFIX=#{prefix}", "OPT_CFLAGS=\"-DACPI_PACKED_POINTERS_NOT_SUPPORTED\""
