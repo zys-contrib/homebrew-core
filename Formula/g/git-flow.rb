@@ -5,10 +5,16 @@ class GitFlow < Formula
   revision 1
 
   stable do
-    # Use the tag instead of the tarball to get submodules
-    url "https://github.com/nvie/gitflow.git",
-        tag:      "0.4.1",
-        revision: "1ffb6b1091f05466d3cd27f2da9c532a38586ed5"
+    # submodule checkout has some issue, `git://` protocol has been deprecated
+    # https://github.blog/security/application-security/improving-git-protocol-security-github/
+    # upstream build issue report, https://github.com/nvie/gitflow/issues/6490
+    url "https://github.com/nvie/gitflow/archive/refs/tags/0.4.1.tar.gz"
+    sha256 "c1271b0ba2c6655e4ad4d79562f6a910c3b884f3d4e16985e227e67f8d95c180"
+
+    resource "shFlags" do
+      url "https://github.com/nvie/shFlags.git",
+          revision: "2fb06af13de884e9680f14a00c82e52a67c867f1"
+    end
 
     resource "completion" do
       url "https://github.com/bobthecow/git-flow-completion/archive/refs/tags/0.4.2.2.tar.gz"
@@ -23,6 +29,10 @@ class GitFlow < Formula
   head do
     url "https://github.com/nvie/gitflow.git", branch: "develop"
 
+    resource "shFlags" do
+      url "https://github.com/nvie/shFlags.git", branch: "master"
+    end
+
     resource "completion" do
       url "https://github.com/bobthecow/git-flow-completion.git", branch: "develop"
     end
@@ -31,6 +41,8 @@ class GitFlow < Formula
   conflicts_with "git-flow-avh", because: "both install `git-flow` binaries and completions"
 
   def install
+    (buildpath/"shFlags").install resource("shFlags")
+
     system "make", "prefix=#{libexec}", "install"
     bin.write_exec_script libexec/"bin/git-flow"
     resource("completion").stage do
