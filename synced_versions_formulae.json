@@ -34,7 +34,7 @@
   ["libnghttp2", "nghttp2"],
   ["libngspice", "ngspice"],
   ["libnice", "libnice-gstreamer"],
-  ["llvm", "lld"],
+  ["llvm", "lld", "flang"],
   ["qalculate-gtk", "qalculate-qt"],
   ["logcli", "loki", "promtail"],
   ["mame", "rom-tools"],
