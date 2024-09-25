@@ -1830,6 +1830,7 @@ mubeng
 muffet
 mujs
 multitail
+muon
 murex
 musikcube
 mutt
