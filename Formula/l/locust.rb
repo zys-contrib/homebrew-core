@@ -3,8 +3,8 @@ class Locust < Formula
 
   desc "Scalable user load testing tool written in Python"
   homepage "https://locust.io/"
-  url "https://files.pythonhosted.org/packages/3e/ca/d09b4ffa73b5fee13dd6531ea255242b725391650e3abed6656117bcd5f2/locust-2.31.6.tar.gz"
-  sha256 "03b6da0491d6a0b905692d9ac128d9deec403f40dc605c481a90dbab5126318c"
+  url "https://files.pythonhosted.org/packages/2e/2d/67502e099fc5d84dc5969429e1909e6f12c326a804a8db543dbc4b1bf58d/locust-2.31.7.tar.gz"
+  sha256 "e31af05ca19d1801ef719fa7a5c55eb3b8573d1808a9efc5bffa91df1ba85c47"
   license "MIT"
 
   bottle do
@@ -73,13 +73,13 @@ class Locust < Formula
   end
 
   resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/65/1b/3d91623c3eff61c11799e7f3d6c01f6bfa9bd2d1f0181116fd0b9b108a40/greenlet-3.1.0.tar.gz"
-    sha256 "b395121e9bbe8d02a750886f108d540abe66075e61e22f7353d9acb0b81be0f0"
+    url "https://files.pythonhosted.org/packages/2f/ff/df5fede753cc10f6a5be0931204ea30c35fa2f2ea7a35b25bdaf4fe40e46/greenlet-3.1.1.tar.gz"
+    sha256 "4ce3ac6cdb6adf7946475d7ef31777c26d94bccc377e070a7986bd2d5c515467"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/00/6f/93e724eafe34e860d15d37a4f72a1511dd37c43a76a8671b22a15029d545/idna-3.9.tar.gz"
-    sha256 "e5c5dafde284f26e9e0f28f6ea2d6400abd5ca099864a67f576f3981c6476124"
+    url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
+    sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
   end
 
   resource "itsdangerous" do
@@ -118,8 +118,8 @@ class Locust < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/3e/2c/f0a538a2f91ce633a78daaeb34cbfb93a54bd2132a6de1f6cec028eee6ef/setuptools-74.1.2.tar.gz"
-    sha256 "95b40ed940a1c67eb70fc099094bd6e99c6ee7c23aa2306f4d2697ba7916f9c6"
+    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
+    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
   end
 
   resource "urllib3" do
