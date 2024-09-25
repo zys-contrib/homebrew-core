@@ -1349,6 +1349,7 @@ kahip
 kakoune
 kalker
 kallisto
+kamal-proxy
 kamel
 kapacitor
 karmadactl
