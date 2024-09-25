@@ -11,8 +11,7 @@ class LibnetfilterConntrack < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "3b663529724c11852abaf98fc2ab0a6d82a2d9895d7f6431aef68ebb0ad92be6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ae07370b1802d6089195cb605b4010635126ca6f6f37d20023c5f19ff9b833e6"
   end
 
   depends_on "pkg-config" => [:build, :test]
