@@ -20,7 +20,7 @@ class Kubeconform < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/kubeconform"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=v#{version}"), "./cmd/kubeconform"
 
     (pkgshare/"examples").install Dir["fixtures/*"]
   end
@@ -33,5 +33,7 @@ class Kubeconform < Formula
 
     assert_match "ReplicationController bob is invalid",
       shell_output("#{bin}/kubeconform #{testpath}/invalid.yaml", 1)
+
+    assert_match version.to_s, shell_output("#{bin}/kubeconform -v")
   end
 end
