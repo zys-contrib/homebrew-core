@@ -2520,6 +2520,7 @@ solana
 solhint
 sollya
 solr
+solr@8.11
 sonar-scanner
 sonarqube
 sonarqube-lts
