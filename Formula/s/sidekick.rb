@@ -6,12 +6,12 @@ class Sidekick < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0966d3dcaf938faa0dc73f2e9d67f9d85a746f81e916c3546865201782284193"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0966d3dcaf938faa0dc73f2e9d67f9d85a746f81e916c3546865201782284193"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0966d3dcaf938faa0dc73f2e9d67f9d85a746f81e916c3546865201782284193"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b4a0d4d6b5d011b8683ca90a030a3bf96ee83eb5e6fd4418bfe650b9a9edc7c5"
-    sha256 cellar: :any_skip_relocation, ventura:       "b4a0d4d6b5d011b8683ca90a030a3bf96ee83eb5e6fd4418bfe650b9a9edc7c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "917920794d53e70a725d20a0bd6ceb772a3e8d8b59da27e354c806b5394dde23"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "12ebaeca180980c3ecc60500d5b95d4d87f6b664d08257ed7b2bdc20a1c001c5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "12ebaeca180980c3ecc60500d5b95d4d87f6b664d08257ed7b2bdc20a1c001c5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "12ebaeca180980c3ecc60500d5b95d4d87f6b664d08257ed7b2bdc20a1c001c5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "921e014e8a8586088042a5b9c9f8023e65c788d9e732475b5b1448394911d010"
+    sha256 cellar: :any_skip_relocation, ventura:       "921e014e8a8586088042a5b9c9f8023e65c788d9e732475b5b1448394911d010"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c0aa9e0d6b5ea8cdceabd3a6f321f14630fc34835ca4cd7be175fbaa0fa6fc71"
   end
 
   depends_on "go" => :build
