@@ -1,8 +1,8 @@
 class Gitleaks < Formula
   desc "Audit git repos for secrets"
   homepage "https://github.com/gitleaks/gitleaks"
-  url "https://github.com/gitleaks/gitleaks/archive/refs/tags/v8.19.2.tar.gz"
-  sha256 "271c0869d3c4fc89d24de81a12348b1f725d79df67719dfa46abf6df12b5411c"
+  url "https://github.com/gitleaks/gitleaks/archive/refs/tags/v8.19.3.tar.gz"
+  sha256 "80b986a3a650fa08b8e864f57b4dffccaa50e6f9623d46a6b7f47c8dbad5da99"
   license "MIT"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -32,7 +32,7 @@ class Gitleaks < Formula
   end
 
   test do
-    (testpath/"README").write "ghp_deadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+    (testpath/"README").write "ghp_deadbeef61dc214e36cbc4cee5eb6418e38d"
     system "git", "init"
     system "git", "add", "README"
     system "git", "commit", "-m", "Initial commit"
