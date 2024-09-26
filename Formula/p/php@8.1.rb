@@ -2,9 +2,9 @@ class PhpAT81 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.1.29.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.1.29.tar.xz"
-  sha256 "288884af60581d4284baba2ace9ca6d646f72facbd3e3c2dd2acc7fe6f903536"
+  url "https://www.php.net/distributions/php-8.1.30.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.1.30.tar.xz"
+  sha256 "f24a6007f0b25a53cb7fbaee69c85017e0345b62089c2425a0afb7e177192ed1"
   license "PHP-3.01"
 
   livecheck do
@@ -69,6 +69,12 @@ class PhpAT81 < Formula
   end
 
   def install
+    # Backport fix for libxml2 >= 2.13
+    # Ref: https://github.com/php/php-src/commit/67259e451d5d58b4842776c5696a66d74e157609
+    inreplace "ext/xml/compat.c",
+              "!= XML_PARSER_ENTITY_VALUE && parser->parser->instate != XML_PARSER_ATTRIBUTE_VALUE)",
+              "== XML_PARSER_CONTENT)"
+
     # buildconf required due to system library linking bug patch
     system "./buildconf", "--force"
 
