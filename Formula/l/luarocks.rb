@@ -35,8 +35,7 @@ class Luarocks < Formula
                           "--sysconfdir=#{etc}",
                           "--rocks-tree=#{HOMEBREW_PREFIX}"
     system "make", "install"
-
-    return if HOMEBREW_PREFIX.to_s == "/usr/local"
+    generate_completions_from_executable(bin/"luarocks", "completion")
 
     # Make bottles uniform to make an `:all` bottle
     luaversion = Formula["lua"].version.major_minor
@@ -49,7 +48,6 @@ class Luarocks < Formula
       loader
     ].map { |file| share/"lua"/luaversion/"luarocks/#{file}.lua" }
     inreplace inreplace_files, "/usr/local", HOMEBREW_PREFIX
-    generate_completions_from_executable(bin/"luarocks", "completion")
   end
 
   test do
