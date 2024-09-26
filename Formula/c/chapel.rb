@@ -7,12 +7,12 @@ class Chapel < Formula
   head "https://github.com/chapel-lang/chapel.git", branch: "main"
 
   bottle do
-    sha256 arm64_sequoia: "2d501f1424bc9f21bfad56bcfc556cf8712e524db4fcbf57ee2cb18b59673be4"
-    sha256 arm64_sonoma:  "c16920ce4c25f8d530ad0fb9612c8d7caaafa53246b2a747dbf5e3115c46dfe8"
-    sha256 arm64_ventura: "cc1f389cfd794bac980e53a42ca8e9c0255c9f73c6986adbd94722a27fe55733"
-    sha256 sonoma:        "8cbef3e52afed90588890167c3be772a33511faaf83ff2bdde68335b657167bf"
-    sha256 ventura:       "5e50cc8ad9a26b24125f4b725038a5a312068f7cd05273cbe01dcc56b5d50c4a"
-    sha256 x86_64_linux:  "67c2451db78969ab1a7031ed8b6758b02da7ca728ae11ca41b8d7ff3321d2ed6"
+    sha256 arm64_sequoia: "bf699c9806375fabf1b6287cd9a5f95d2f207893b6e13715449f039974b23f64"
+    sha256 arm64_sonoma:  "b7d3d45beff719677abe1837743c7c49be92e0f1a9f76b3dcfa976e85b64fc01"
+    sha256 arm64_ventura: "aaa552f946f72c9455ca9ecda1be4f8cdaf1c8e41cb5dadcbae35e86d5e36fc5"
+    sha256 sonoma:        "7e131ad39120b86823f32d442a2c2e6f7f5d8c1d0b3552b2baf519b94f798a9d"
+    sha256 ventura:       "54975ba802a1d47a2be81d43506d04c6de12625f0b2894be5cf300e28433e622"
+    sha256 x86_64_linux:  "b5c76ea840dd2cf224576761c821db3c8fafcf9fd50315ee11f8367024a7f853"
   end
 
   depends_on "cmake"
