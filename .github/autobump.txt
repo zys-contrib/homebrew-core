@@ -2805,6 +2805,7 @@ uni
 uni-algo
 uni2ascii
 unibilium
+unicorn
 unison
 unisonlang
 universal-ctags
