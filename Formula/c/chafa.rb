@@ -26,6 +26,8 @@ class Chafa < Formula
   depends_on "freetype"
   depends_on "glib"
   depends_on "jpeg-turbo"
+  depends_on "jpeg-xl"
+  depends_on "libavif"
   depends_on "librsvg"
   depends_on "libtiff"
   depends_on "webp"
@@ -45,6 +47,6 @@ class Chafa < Formula
     output = shell_output("#{bin}/chafa #{test_fixtures("test.png")}")
     assert_equal 3, output.lines.count
     output = shell_output("#{bin}/chafa --version")
-    assert_match(/Loaders:.* JPEG.* SVG.* TIFF.* WebP/, output)
+    assert_match(/Loaders:.* AVIF.* JPEG.* JXL.* SVG.* TIFF.* WebP/, output)
   end
 end
