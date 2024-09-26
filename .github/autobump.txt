@@ -1599,6 +1599,7 @@ liburing
 libusbmuxd
 libuv
 libva
+libvatek
 libvirt
 libvirt-python
 libwbxml
