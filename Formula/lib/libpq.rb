@@ -1,8 +1,8 @@
 class Libpq < Formula
   desc "Postgres C API library"
   homepage "https://www.postgresql.org/docs/current/libpq.html"
-  url "https://ftp.postgresql.org/pub/source/v16.4/postgresql-16.4.tar.bz2"
-  sha256 "971766d645aa73e93b9ef4e3be44201b4f45b5477095b049125403f9f3386d6f"
+  url "https://ftp.postgresql.org/pub/source/v17.0/postgresql-17.0.tar.bz2"
+  sha256 "7e276131c0fdd6b62588dbad9b3bb24b8c3498d5009328dba59af16e819109de"
   license "PostgreSQL"
 
   livecheck do
@@ -23,6 +23,8 @@ class Libpq < Formula
 
   keg_only "conflicts with postgres formula"
 
+  depends_on "docbook" => :build
+  depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
   depends_on "icu4c"
   # GSSAPI provided by Kerberos.framework crashes when forked.
@@ -30,6 +32,10 @@ class Libpq < Formula
   depends_on "krb5"
   depends_on "openssl@3"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+  uses_from_macos "libxml2" => :build
+  uses_from_macos "libxslt" => :build # for xsltproc
   uses_from_macos "zlib"
 
   on_linux do
@@ -37,6 +43,8 @@ class Libpq < Formula
   end
 
   def install
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
                           "--with-gssapi",
