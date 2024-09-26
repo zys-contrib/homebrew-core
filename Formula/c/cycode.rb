@@ -3,8 +3,8 @@ class Cycode < Formula
 
   desc "Boost security in your dev lifecycle via SAST, SCA, Secrets & IaC scanning"
   homepage "https://github.com/cycodehq/cycode-cli"
-  url "https://files.pythonhosted.org/packages/7c/cb/956d7b17b920a3ab645cac54b3026982259cd19c93b58d04a2f759861d40/cycode-1.10.8.tar.gz"
-  sha256 "d9a9b7d9074e89df0c66ff05a0da439d8352abacaacb67d602d4ee32d92ec28b"
+  url "https://files.pythonhosted.org/packages/29/fb/9725525835a03ce3b791583587228137164c1c6556a4faccb49f4a3f77e9/cycode-1.10.9.tar.gz"
+  sha256 "6b66c2f50d09d9629ba31ee764e4b83a7d92351a26f7644166744b3508ba0620"
   license "MIT"
 
   bottle do
@@ -63,8 +63,8 @@ class Cycode < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/e8/ac/e349c5e6d4543326c6883ee9491e3921e0d07b55fdf3cce184b40d63e72a/idna-3.8.tar.gz"
-    sha256 "d838c2c0ed6fced7693d5e8ab8e734d5f8fda53a039c0164afb0b82e771e3603"
+    url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
+    sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
   end
 
   resource "marshmallow" do
@@ -103,8 +103,8 @@ class Cycode < Formula
   end
 
   resource "sentry-sdk" do
-    url "https://files.pythonhosted.org/packages/bb/41/97f673384dae5ed81cc2a568cc5c28e76deee85f8ba50def862e86150a5a/sentry_sdk-2.13.0.tar.gz"
-    sha256 "8d4a576f7a98eb2fdb40e13106e41f330e5c79d72a68be1316e7852cf4995260"
+    url "https://files.pythonhosted.org/packages/3c/23/6527e56fb17817153c37d702d6b9ed0a2f75ed213fd98a176c1b8894ad20/sentry_sdk-2.14.0.tar.gz"
+    sha256 "1e0e2eaf6dad918c7d1e0edac868a7bf20017b177f242cefe2a6bcd47955961d"
   end
 
   resource "six" do
