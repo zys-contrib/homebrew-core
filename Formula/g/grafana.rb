@@ -2,8 +2,8 @@ class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
   # TODO: switch to use go1.23 when 11.3.0 is released
-  url "https://github.com/grafana/grafana/archive/refs/tags/v11.2.0.tar.gz"
-  sha256 "f1727b5e99183879e30d3ca8393e328f39f6bd8b5a11690e7b6e60081f99bbd9"
+  url "https://github.com/grafana/grafana/archive/refs/tags/v11.2.1.tar.gz"
+  sha256 "7881d5feb8942fb3adf42167534ded3efd876bc2e8b729ee4e693f096ee38924"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/grafana.git", branch: "main"
 
@@ -35,7 +35,7 @@ class Grafana < Formula
     depends_on "freetype"
   end
 
-  # update yarn.lock
+  # update yarn.lock, upstream pr ref, https://github.com/grafana/grafana/pull/92543
   patch :DATA
 
   def install
@@ -124,16 +124,28 @@ class Grafana < Formula
 end
 
 __END__
+diff --git a/package.json b/package.json
+index bbef4b75..18c56900 100644
+--- a/package.json
++++ b/package.json
+@@ -414,6 +414,7 @@
+     "semver@7.3.4": "7.5.4",
+     "debug@npm:^0.7.2": "2.6.9",
+     "debug@npm:^0.7.4": "2.6.9",
++    "@grafana/e2e-selectors": "^11.1.0",
+     "slate-dev-environment@^0.2.2": "patch:slate-dev-environment@npm:0.2.5#.yarn/patches/slate-dev-environment-npm-0.2.5-9aeb7da7b5.patch",
+     "react-split-pane@0.1.92": "patch:react-split-pane@npm:0.1.92#.yarn/patches/react-split-pane-npm-0.1.92-93dbf51dff.patch",
+     "history@4.10.1": "patch:history@npm%3A4.10.1#./.yarn/patches/history-npm-4.10.1-ee217563ae.patch",
 diff --git a/yarn.lock b/yarn.lock
-index 5f122101..b96cd364 100644
+index ddae709e..7c38a43a 100644
 --- a/yarn.lock
 +++ b/yarn.lock
 @@ -3233,7 +3233,7 @@ __metadata:
    languageName: unknown
    linkType: soft
  
--"@grafana/e2e-selectors@npm:11.2.0, @grafana/e2e-selectors@workspace:*, @grafana/e2e-selectors@workspace:packages/grafana-e2e-selectors":
-+"@grafana/e2e-selectors@npm:11.2.0, @grafana/e2e-selectors@npm:^11.0.0, @grafana/e2e-selectors@workspace:*, @grafana/e2e-selectors@workspace:packages/grafana-e2e-selectors":
+-"@grafana/e2e-selectors@npm:11.2.1, @grafana/e2e-selectors@workspace:*, @grafana/e2e-selectors@workspace:packages/grafana-e2e-selectors":
++"@grafana/e2e-selectors@npm:^11.1.0, @grafana/e2e-selectors@workspace:packages/grafana-e2e-selectors":
    version: 0.0.0-use.local
    resolution: "@grafana/e2e-selectors@workspace:packages/grafana-e2e-selectors"
    dependencies:
