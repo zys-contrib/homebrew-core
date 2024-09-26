@@ -1094,6 +1094,7 @@ govc
 govulncheck
 gowsdl
 gpac
+gperftools
 gpg-tui
 gprof2dot
 gpsim
