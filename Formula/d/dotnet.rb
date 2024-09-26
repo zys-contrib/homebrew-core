@@ -8,13 +8,11 @@ class Dotnet < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b1c4d845fd53cf8e41b84989e28646df229b2ce71f6849cfbb41e8fec58bb1a1"
-    sha256 cellar: :any,                 arm64_ventura:  "91db87f569f5a66979951af3fecf40eccfec203e9b5a66995bd21d0161f0efa5"
-    sha256 cellar: :any,                 arm64_monterey: "de1524e6d2bbdb0a5806b852bd4b4d7858d135d9bec9a938ca6243ef5b1ef59e"
-    sha256 cellar: :any,                 sonoma:         "62612a47e65da5e8d8bbf38e09a747e77da589da8850d79eeac06c5d46ed518e"
-    sha256 cellar: :any,                 ventura:        "91582419b6db04b8214688821439a20b3cff72d8e5a9d225f5ca680908a79738"
-    sha256 cellar: :any,                 monterey:       "78c01438e9fbaf80015de638229b0fe221b1d6ad3a0f925d1d060a75e6a12704"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "955c0c5f9e833fa9efb29ae092bce5dd4a84e61aa4f4663ccdaef2affd0664b3"
+    sha256 cellar: :any,                 arm64_sonoma:  "5252be281f673ff78c83c46a7063a85256ff5528d8bf8c03b9074fbb6ec310dc"
+    sha256 cellar: :any,                 arm64_ventura: "365359b46dec4ffbc92479ba4dc3307015dc55046e91127142ff511d6c64955c"
+    sha256 cellar: :any,                 sonoma:        "c018b3f6b3c2db277cbef6ea87b599da84358f20a2d6239f4574b6ad8a30798c"
+    sha256 cellar: :any,                 ventura:       "8d5f216379964c3a8fd301870311e0d6d33f436128bffd104c02d03055433c85"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d58cbbcb3443d41b3825720574f9fcf89ec18b5c01ba18ff94ece5cf8535c2de"
   end
 
   depends_on "cmake" => :build
