@@ -1,8 +1,8 @@
 class Hwloc < Formula
   desc "Portable abstraction of the hierarchical topology of modern architectures"
   homepage "https://www.open-mpi.org/projects/hwloc/"
-  url "https://download.open-mpi.org/release/hwloc/v2.11/hwloc-2.11.1.tar.bz2"
-  sha256 "04cdfbffad225ce15f66184f0f4141327dabf288d10a8b84d13f517acb7870c6"
+  url "https://download.open-mpi.org/release/hwloc/v2.11/hwloc-2.11.2.tar.bz2"
+  sha256 "f7f88fecae067100f1a1a915b658add0f4f71561259482910a69baea22fe8409"
   license "BSD-3-Clause"
 
   livecheck do
