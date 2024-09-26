@@ -291,6 +291,9 @@ class Semgrep < Formula
       ENV["LIBRARY_PATH"] = "#{HOMEBREW_PREFIX}/lib"
       # Set path to libev for our static linking logic
       ENV["SEMGREP_LIBEV_ARCHIVE_PATH"] = "#{HOMEBREW_PREFIX}/lib/libev.a"
+      # Opam's solver times out when it is set to the default of 60.0
+      # See: https://github.com/Homebrew/homebrew-core/pull/191306
+      ENV["OPAMSOLVERTIMEOUT"] = "1200"
 
       system "opam", "init", "--no-setup", "--disable-sandboxing"
       ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.4.14.0" }
