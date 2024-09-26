@@ -23,7 +23,8 @@ class GitFlow < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "cffa267a59238174b54b4058131b3fdf674d4fa79ff724dd7111f6bc7730c40f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "e7442cededade2b577d356fe993deadf34718eed1bc0f5da5746e219ec2a22fe"
   end
 
   head do
