@@ -1,8 +1,8 @@
 class Ipsw < Formula
   desc "Research tool for iOS & macOS devices"
   homepage "https://blacktop.github.io/ipsw"
-  url "https://github.com/blacktop/ipsw/archive/refs/tags/v3.1.544.tar.gz"
-  sha256 "edd4207bed48bab3527737fd8d2f45acf4c7e37724d289310dc6547ef42051a3"
+  url "https://github.com/blacktop/ipsw/archive/refs/tags/v3.1.546.tar.gz"
+  sha256 "75e1942b9e6659a60d0ec938f93bf00d3d2bd92719c0d1b4897f2360e1c652a3"
   license "MIT"
   head "https://github.com/blacktop/ipsw.git", branch: "master"
 
