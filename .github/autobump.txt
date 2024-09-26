@@ -584,6 +584,7 @@ dcm2niix
 ddcutil
 ddns-go
 ddrescue
+deadfinder
 deark
 debianutils
 define
