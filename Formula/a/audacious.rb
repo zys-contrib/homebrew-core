@@ -4,12 +4,12 @@ class Audacious < Formula
   license "BSD-2-Clause"
 
   stable do
-    url "https://distfiles.audacious-media-player.org/audacious-4.4.tar.bz2"
-    sha256 "aadc5d26ea2954236a00153e424094d9e6eb55c5c324c08fd0491b7c2ae2f830"
+    url "https://distfiles.audacious-media-player.org/audacious-4.4.1.tar.bz2"
+    sha256 "260d988d168e558f041bbb56692e24c535a96437878d60dfd01efdf6b1226416"
 
     resource "plugins" do
-      url "https://distfiles.audacious-media-player.org/audacious-plugins-4.4.tar.bz2"
-      sha256 "3caf3a5fe5b6f2808f461f85132fbff4ae22a53ef9f3d26d9e6030f6c6d5baa2"
+      url "https://distfiles.audacious-media-player.org/audacious-plugins-4.4.1.tar.bz2"
+      sha256 "484ed416b1cf1569ce2cc54208e674b9c516118485b94ce577d7bc5426d05976"
     end
   end
 
