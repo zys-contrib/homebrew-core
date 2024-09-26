@@ -1,8 +1,8 @@
 class Ruff < Formula
   desc "Extremely fast Python linter, written in Rust"
   homepage "https://docs.astral.sh/ruff/"
-  url "https://github.com/astral-sh/ruff/archive/refs/tags/0.6.7.tar.gz"
-  sha256 "9539e7f928c42fb77ec6b52f4527f3837d263d250f9659a0d8e1d378f38bbfc8"
+  url "https://github.com/astral-sh/ruff/archive/refs/tags/0.6.8.tar.gz"
+  sha256 "27765b3018646745b064ea5734a4f1ba36dede3df3883dd5d150e8307e5d2149"
   license "MIT"
   head "https://github.com/astral-sh/ruff.git", branch: "main"
 
