@@ -6,12 +6,12 @@ class KamalProxy < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5f59ccfd0e8fdd4a502f22e4db0b3b25550f1188cabea1b0225ed53eccc46a09"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5f59ccfd0e8fdd4a502f22e4db0b3b25550f1188cabea1b0225ed53eccc46a09"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5f59ccfd0e8fdd4a502f22e4db0b3b25550f1188cabea1b0225ed53eccc46a09"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6628b1db22b4a8004eee23e64bbcc2b94ca2f6e5c8b7cde4e8baf5a8e044b723"
-    sha256 cellar: :any_skip_relocation, ventura:       "6628b1db22b4a8004eee23e64bbcc2b94ca2f6e5c8b7cde4e8baf5a8e044b723"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0eb772cb2fc5f7ba4a3c014ed6d39a6c73a2d7dddd3367e9b58d6db4697ec98"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b21a5fc3c123497ee13a47dfb44db0250af1565a2cd46145ef19ddf52309397b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b21a5fc3c123497ee13a47dfb44db0250af1565a2cd46145ef19ddf52309397b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b21a5fc3c123497ee13a47dfb44db0250af1565a2cd46145ef19ddf52309397b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e6c1a96d14036184c027aad019798a90a0f0e70a5e40a5c48d567d12036e99ed"
+    sha256 cellar: :any_skip_relocation, ventura:       "e6c1a96d14036184c027aad019798a90a0f0e70a5e40a5c48d567d12036e99ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "205faef28e9b2136459ff8e5bfc3c3241d79fee2bdfdbb186e5bbe6eb3cb34cb"
   end
 
   depends_on "go" => :build
