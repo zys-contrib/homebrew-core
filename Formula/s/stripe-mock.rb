@@ -6,14 +6,12 @@ class StripeMock < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "049d00cef5c13ddf0141ae5c3678deab3cf7ea8b9d8ef5b4901d5e29cc19eba0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0ded02f29400324256a2be26681447156b7348f3be5f2e07e4adee9f38886852"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3908247f216711ac46ba909af4eb8390d57410c93ed4aa645e6f4c99811c7145"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "825d748efccaaead1c395ff3a86fd078c83d5e4bdb9de53e52abd52311d9e97b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4965c56bf280ecc0cae790c64e8371a2066dab2978961a1a2540adcc4a3be191"
-    sha256 cellar: :any_skip_relocation, ventura:        "4d4b9013981f3bc90038c41475ebbb3b168bc433eb9ec0b1c21a2ccd60d1e6b3"
-    sha256 cellar: :any_skip_relocation, monterey:       "8881df9658ca3b211597e4790792ebfa4a7a332fd24392759ae1d4c8d58e0707"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "abe3654fbbf646b501536c79cd1e9dfbc40a2beb9b2f443bf53f5dcbcadd3a88"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b8a8c5c4034aa499e00fad295890cd3cdd366483489286c9a6f32d34e21897ed"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b8a8c5c4034aa499e00fad295890cd3cdd366483489286c9a6f32d34e21897ed"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b8a8c5c4034aa499e00fad295890cd3cdd366483489286c9a6f32d34e21897ed"
+    sha256 cellar: :any_skip_relocation, sonoma:        "23d70f0364a94695b38f0e637abd2c1012c75e3d31313ca5b113caa6ff722405"
+    sha256 cellar: :any_skip_relocation, ventura:       "23d70f0364a94695b38f0e637abd2c1012c75e3d31313ca5b113caa6ff722405"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1d39e91c3b46d97e3ea04e14f48301c4d7dab95cbf5d4b8489c3902d4265e2f"
   end
 
   depends_on "go" => :build
