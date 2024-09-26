@@ -8,6 +8,7 @@ class Dotnet < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "56e9eb10fb113e33afa6c2f9184e32c0870348923b006fa69552dc1b97f94239"
     sha256 cellar: :any,                 arm64_sonoma:  "5252be281f673ff78c83c46a7063a85256ff5528d8bf8c03b9074fbb6ec310dc"
     sha256 cellar: :any,                 arm64_ventura: "365359b46dec4ffbc92479ba4dc3307015dc55046e91127142ff511d6c64955c"
     sha256 cellar: :any,                 sonoma:        "c018b3f6b3c2db277cbef6ea87b599da84358f20a2d6239f4574b6ad8a30798c"
