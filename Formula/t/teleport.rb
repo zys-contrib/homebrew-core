@@ -1,8 +1,8 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://goteleport.com/"
-  url "https://github.com/gravitational/teleport/archive/refs/tags/v16.4.1.tar.gz"
-  sha256 "6bb9a2c62b42e159b1ade7238babc0f431143aeb5e45f8280ac441c5b320c6dd"
+  url "https://github.com/gravitational/teleport/archive/refs/tags/v16.4.2.tar.gz"
+  sha256 "fad4e2d248417925498b05b9d2c52352f6580af95968c691bd2e2ddc129d73c2"
   license all_of: ["AGPL-3.0-or-later", "Apache-2.0"]
   head "https://github.com/gravitational/teleport.git", branch: "master"
 
@@ -26,11 +26,11 @@ class Teleport < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e1e73fa4867cf955b2e81fcc37971619a6374511cc1cde616a7419fd8d29b0f"
   end
 
-  depends_on "corepack" => :build
   # Use "go" again after https://github.com/gravitational/teleport/commit/e4010172501f0ed18bb260655c83606dfa872fbd
   # is released, likely in a version 17.x.x (or later?):
   depends_on "go@1.22" => :build
   depends_on "pkg-config" => :build
+  depends_on "pnpm" => :build
   depends_on "rust" => :build
   # TODO: try to remove rustup dependancy, see https://github.com/Homebrew/homebrew-core/pull/191633#discussion_r1774378671
   depends_on "rustup" => :build
