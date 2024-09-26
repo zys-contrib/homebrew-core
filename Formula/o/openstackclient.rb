@@ -120,6 +120,11 @@ class Openstackclient < Formula
     sha256 "48a76787b3e70f5ed53f1160d2b81f586e4ca6d1548c5de7085d1682674764cc"
   end
 
+  resource "keystoneauth-websso" do
+    url "https://files.pythonhosted.org/packages/fc/ed/87bc1d0bc54b56c2fd8ce51e32a1078f2e51e7ab02f40c7cac4fd2fd33d2/keystoneauth_websso-0.1.1.tar.gz"
+    sha256 "787d29389c93263774d14c7c6b87241afcad0a85bf26cc73e608c89cf475f6a6"
+  end
+
   resource "keystoneauth1" do
     url "https://files.pythonhosted.org/packages/09/9e/c11b6f5b97f0a5671b61c4908ecae0c6fb879323699c116a8a9040fff6f0/keystoneauth1-5.8.0.tar.gz"
     sha256 "3157c212e121164de64d63e5ef7e1daad2bd3649a68de1e971b76877019ef1c4"
@@ -356,8 +361,8 @@ class Openstackclient < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/74/5b/e025d02cb3b66b7b76093404392d4b44343c69101cc85f4d180dd5784717/tzdata-2024.1.tar.gz"
-    sha256 "2674120f8d891909751c38abcdfd386ac0a5a1127954fbc332af6b5ceae07efd"
+    url "https://files.pythonhosted.org/packages/e1/34/943888654477a574a86a98e9896bae89c7aa15078ec29f490fef2f1e5384/tzdata-2024.2.tar.gz"
+    sha256 "7d85cc416e9382e69095b7bdf4afd9e3880418a2413feec7069d533d6b4e31cc"
   end
 
   resource "urllib3" do
