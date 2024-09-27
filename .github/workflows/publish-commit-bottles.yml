@@ -173,7 +173,7 @@ jobs:
              [[ "$bottles" = "false" ]]
           then
             exit 0
-          elif "$pushable"
+          elif "$pushable" || [[ "$fork_type" = "Organization" ]]
           then
             MESSAGE="$ORG_FORK_MESSAGE"
           else
