@@ -1,8 +1,8 @@
 class ArgyllCms < Formula
   desc "ICC compatible color management system"
   homepage "https://www.argyllcms.com/"
-  url "https://www.argyllcms.com/Argyll_V3.2.0_src.zip"
-  sha256 "4861ab87b41618fb6706843099aad2cc649115634dee1e60738792387b371176"
+  url "https://www.argyllcms.com/Argyll_V3.3.0_src.zip"
+  sha256 "69db1c9ef66f8cacbbbab4ed9910147de6100c3afd17a0a8c12e6525b778e8ce"
   license "AGPL-3.0-only"
 
   livecheck do
@@ -11,15 +11,12 @@ class ArgyllCms < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "ee4c08bc9d76016042e678807530113461988c06c3ef6e47ece36ea5d4776fbe"
-    sha256 cellar: :any,                 arm64_sonoma:   "9416d935216f5054e63c9baa53364c28d96d678c70abaf4d697c41bcc9bed185"
-    sha256 cellar: :any,                 arm64_ventura:  "6954dce83aba27dfa337eca3141fe1506bfcd72ffcc79d63040ba329d236a658"
-    sha256 cellar: :any,                 arm64_monterey: "9862c45da43e3cca13c78e82081c1dcaa5806dac6583c00f8eba95fe6ac298ed"
-    sha256 cellar: :any,                 sonoma:         "4577cd47871d566e045db7872a94946b7a4fab52d38e52e39ce6b353aa6082fd"
-    sha256 cellar: :any,                 ventura:        "2f13881ab15bd8d8b0aba4bf9ef4b9a40217c4b36b847190cc1f47e577f9bce3"
-    sha256 cellar: :any,                 monterey:       "3259f5cd7063614fa2e2434b7be2ccd19971226d2d5bb1a7561c942b8c4625ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "746d1e088f61bdfbca13e17f5351cc81a22ccba3acc3ea8e0f7ebe38c4bd82c2"
+    sha256 cellar: :any,                 arm64_sequoia: "1e0fc7b5d13ac0d1576ff8fcf56df5c2929c0c9f999afbc97157b090a991b2c7"
+    sha256 cellar: :any,                 arm64_sonoma:  "1d775e16e5203476ad723f2098c0e75c894c43b8584e73a125186643195542f4"
+    sha256 cellar: :any,                 arm64_ventura: "b1cfca85950483e0a4f2a2e6c2d4d0cfe037a42c794d52084aecfd92e42c2280"
+    sha256 cellar: :any,                 sonoma:        "eec282169cf44081f8aa1f2d4e8ea47bde5b384cc7faf01d09b9a1ab74144570"
+    sha256 cellar: :any,                 ventura:       "27503533d9f0bfc4ebff54c561b9b2a46412cb0a6b2863268076d8b22f716bea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6413eef53560898129ca657959926a5147f010b0d536d643b01c3e12d70466c6"
   end
 
   depends_on "jpeg-turbo"
