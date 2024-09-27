@@ -11,12 +11,13 @@ class ArgyllCms < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1e0fc7b5d13ac0d1576ff8fcf56df5c2929c0c9f999afbc97157b090a991b2c7"
-    sha256 cellar: :any,                 arm64_sonoma:  "1d775e16e5203476ad723f2098c0e75c894c43b8584e73a125186643195542f4"
-    sha256 cellar: :any,                 arm64_ventura: "b1cfca85950483e0a4f2a2e6c2d4d0cfe037a42c794d52084aecfd92e42c2280"
-    sha256 cellar: :any,                 sonoma:        "eec282169cf44081f8aa1f2d4e8ea47bde5b384cc7faf01d09b9a1ab74144570"
-    sha256 cellar: :any,                 ventura:       "27503533d9f0bfc4ebff54c561b9b2a46412cb0a6b2863268076d8b22f716bea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6413eef53560898129ca657959926a5147f010b0d536d643b01c3e12d70466c6"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "c6eaa8f9f20129203c4ad4f8e536c0f8046a8c1f8376ecc2eb3e5ac4cd230b21"
+    sha256 cellar: :any,                 arm64_sonoma:  "6144869b77d490945df7d2e207baa71dbb7034a3dc914f00a71733f00956e58d"
+    sha256 cellar: :any,                 arm64_ventura: "c2a6ef0092b8b2ace04571ded3efee5e4fd39bdef7aaa2762deb1651de3389c0"
+    sha256 cellar: :any,                 sonoma:        "6836561552f12daecbe3f808ac50e58588d402036c242d0b5b21ac7620773118"
+    sha256 cellar: :any,                 ventura:       "e85f428eeb690ac25daf20b991f3b9c3fbeb3f53cc276fb2b7a031cff835c5ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76bf52c81646502007e8bb73fb1d247c0789d2d2aad4ffff41023f060f000fb1"
   end
 
   depends_on "jpeg-turbo"
