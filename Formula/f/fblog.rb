@@ -7,14 +7,12 @@ class Fblog < Formula
   head "https://github.com/brocode/fblog.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c92fef5ae7b206c467fa1527914bfb75b17c95dbe3636ddc70b1659e9a4cfe7d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e2e6e7cdeed3a4a9bd776c6c2ac9619d9d2d93cbf40594fd7de1de8963eeb738"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "da055a5c2672b153e6acacbde1de4c835027561f07bf3dfa630aa2ed0aa28ce4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d16995dbfd51cd78f202acf339c2a100a739edcf6fe26156923dda5a698ed411"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b67c16fe20fd3b4a7c32b68fc1eef85e1da51db51fcf8a3b15eecd2a109cedae"
-    sha256 cellar: :any_skip_relocation, ventura:        "9d9f29b2de8cba1f601cd4a721574e3b5d6a97a8f137f04961d98bb8d21a221b"
-    sha256 cellar: :any_skip_relocation, monterey:       "c3ec19ff5d4e597c63780646673bdf6251dd49618529094a25a947a32fa5d201"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bbc4ec5c0c091d58ba3464efac904c363c729316134b16e68f0134d869290dcd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "05b5c69fb8060f6725d33704d6ecfed58962c3b8365ba5329db71224268cd6ce"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eb4133b4756733e9631474c90e13c41636fe6154a2be354c6edeef88491d0e7b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f8211c26090d28fe20a4bb6a4ee0ed7fadc25819e17e7196e2be4496b71b27b8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6587237972a12df1b4ef0b3180a718709b9b604f37ed36f8c3d84bff2c02ea16"
+    sha256 cellar: :any_skip_relocation, ventura:       "0acd4344da754b9423a7f8ada4f8e15093500cb4ca3e8270633001e13898774a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6ceeb98d295a3842bfe6727c724b0e51ab1f0c5530f923c7ac1b0e2e117a1c8"
   end
 
   depends_on "rust" => :build
