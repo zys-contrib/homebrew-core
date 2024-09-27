@@ -23,11 +23,16 @@ class Ringojs < Formula
 
   def install
     rm Dir["bin/*.cmd"]
+    rm_r "docker"
+
+    # Ensure bottles are uniform. The `/usr/local` references are all in comments.
+    inreplace %w[modules/fs.js modules/globals.js], "/usr/local", HOMEBREW_PREFIX
+
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/bin/*"]
-    env = { RINGO_HOME: libexec }
-    env.merge! Language::Java.overridable_java_home_env("17")
-    bin.env_script_all_files libexec/"bin", env
+    java_env = { RINGO_HOME: libexec }
+    java_env.merge! Language::Java.overridable_java_home_env("17")
+    bin.env_script_all_files libexec/"bin", java_env
   end
 
   test do
