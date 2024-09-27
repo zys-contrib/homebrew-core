@@ -4,6 +4,7 @@ class Clangql < Formula
   url "https://github.com/AmrDeveloper/ClangQL/archive/refs/tags/0.6.0.tar.gz"
   sha256 "a3ccd60735a57effe8a2aa9ee80ff3fabd1dc0a186365e20b506aa442edc3ac5"
   license "MIT"
+  revision 1
   head "https://github.com/AmrDeveloper/ClangQL.git", branch: "master"
 
   bottle do
