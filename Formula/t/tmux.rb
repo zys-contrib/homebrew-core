@@ -1,19 +1,9 @@
 class Tmux < Formula
   desc "Terminal multiplexer"
   homepage "https://tmux.github.io/"
+  url "https://github.com/tmux/tmux/releases/download/3.5/tmux-3.5.tar.gz"
+  sha256 "2fe01942e7e7d93f524a22f2c883822c06bc258a4d61dba4b407353d7081950f"
   license "ISC"
-  revision 1
-
-  stable do
-    url "https://github.com/tmux/tmux/releases/download/3.4/tmux-3.4.tar.gz"
-    sha256 "551ab8dea0bf505c0ad6b7bb35ef567cdde0ccb84357df142c254f35a23e19aa"
-
-    # Upstream fix for macOS 15 headers, remove in next version
-    patch do
-      url "https://github.com/tmux/tmux/commit/775789fbd5c4f3aa93061480cd64e61daf7fb689.patch?full_index=1"
-      sha256 "c1b61a1244f758480578888d3f89cac470271c376ea0879996b81e10b397cad0"
-    end
-  end
 
   livecheck do
     url :stable
