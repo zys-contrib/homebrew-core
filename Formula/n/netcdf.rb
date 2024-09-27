@@ -48,10 +48,6 @@ class Netcdf < Formula
     # Remove shim paths
     inreplace [bin/"nc-config", lib/"pkgconfig/netcdf.pc", lib/"cmake/netCDF/netCDFConfig.cmake",
                lib/"libnetcdf.settings"], Superenv.shims_path/ENV.cc, ENV.cc
-
-    # Fix bad flags, breaks vtk build
-    # https://github.com/Homebrew/homebrew-core/pull/170959#discussion_r1744656193
-    inreplace lib/"cmake/netCDF/netCDFTargets.cmake", "hdf5_hl-shared;hdf5-shared;", "hdf5_hl;hdf5;"
   end
 
   test do
