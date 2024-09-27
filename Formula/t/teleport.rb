@@ -18,12 +18,12 @@ class Teleport < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9ec17161f4fdc9f11ce3f86608f692a64031e278dfabc95d25359f1486e56161"
-    sha256 cellar: :any,                 arm64_sonoma:  "7b583cc49fd01d11e01b12c9228acf6f750af1f720c5e785c07b56549af9948a"
-    sha256 cellar: :any,                 arm64_ventura: "eddb15f21bc11c5db031ac20eb3346b709f493d5a6a06d7a7974af01ffbc2b58"
-    sha256 cellar: :any,                 sonoma:        "4898343bf3001c9cc3724136cb1b82ae53b51d7e12e529059fd2c4b3e9d8b815"
-    sha256 cellar: :any,                 ventura:       "16867c7fb92dcff4aaad446b86bc9c9f4f32a95c65e74c20646c28298cf2e123"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e1e73fa4867cf955b2e81fcc37971619a6374511cc1cde616a7419fd8d29b0f"
+    sha256 cellar: :any,                 arm64_sequoia: "e28b59dea0536a7a34a259b371221e63f6110af106d0a52d24345181fc4a47e3"
+    sha256 cellar: :any,                 arm64_sonoma:  "a9e155141bf6ae01f2d1957ba71e43f016527b88906c19fa98e884df1033f048"
+    sha256 cellar: :any,                 arm64_ventura: "3d7fb1861b3b1608902a1b73c8404ce75bb2d6d63d60360a7ffcce836bd82cb5"
+    sha256 cellar: :any,                 sonoma:        "cfe5435f3606343bb5532da629111a90532c766a2b9f5688c63bb434d55a0d0a"
+    sha256 cellar: :any,                 ventura:       "a75cdf8c3e27e8f7e5d96fcacc0b15b28e4eb1a6279335dc534f3da30d7f07fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f651428efd417d822372aab204d4f4cbcba64793b45bf584f3d9a4b1f94df578"
   end
 
   # Use "go" again after https://github.com/gravitational/teleport/commit/e4010172501f0ed18bb260655c83606dfa872fbd
