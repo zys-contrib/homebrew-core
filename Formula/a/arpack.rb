@@ -34,7 +34,7 @@ class Arpack < Formula
       F77=mpif77
       --enable-mpi
       --enable-icb
-      --enable-icb-exmm
+      --enable-eigen
     ]
 
     system "./bootstrap"
