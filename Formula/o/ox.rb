@@ -1,8 +1,8 @@
 class Ox < Formula
   desc "Independent Rust text editor that runs in your terminal"
   homepage "https://github.com/curlpipe/ox"
-  url "https://github.com/curlpipe/ox/archive/refs/tags/0.6.1.tar.gz"
-  sha256 "99135a0825f0fd604bd060699856dc0a4b79179807c6345ccf85ad33cdbd7db6"
+  url "https://github.com/curlpipe/ox/archive/refs/tags/0.6.2.tar.gz"
+  sha256 "3b8e1bf4bc6d8cc924e85f074d63274908b5a765f4d5a9740f71c54d1e7de1c2"
   license "GPL-2.0-only"
   head "https://github.com/curlpipe/ox.git", branch: "master"
 
