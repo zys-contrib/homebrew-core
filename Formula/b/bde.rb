@@ -1,8 +1,8 @@
 class Bde < Formula
   desc "Basic Development Environment: foundational C++ libraries used at Bloomberg"
   homepage "https://github.com/bloomberg/bde"
-  url "https://github.com/bloomberg/bde/archive/refs/tags/4.8.0.0.tar.gz"
-  sha256 "5dfad6bf701acba16b4ffb1da58d81dc26743288117b0b50ce4d7214603d909a"
+  url "https://github.com/bloomberg/bde/archive/refs/tags/4.14.0.0.tar.gz"
+  sha256 "b6dbc5438b666b15548192e2faf9bf80305c1a63aec45182bf8838084521fdb1"
   license "Apache-2.0"
 
   livecheck do
@@ -32,17 +32,20 @@ class Bde < Formula
   end
 
   def install
-    odie "bde-tools resource needs to be updated" if version != resource("bde-tools").version
+    # TODO: `bde-tools` did not have a matching tag for 4.14.0.0. Check if it's in sync again in the next release.
+    # odie "bde-tools resource needs to be updated" if version != resource("bde-tools").version
+    odie "Check if bde-tools resource version is in sync again" if version > "4.14.0.0"
 
     (buildpath/"bde-tools").install resource("bde-tools")
 
     # Use brewed pcre2 instead of bundled sources
+    rm_r buildpath/"thirdparty/pcre2"
     inreplace "project.cmake", "${listDir}/thirdparty/pcre2\n", ""
     inreplace "groups/bdl/group/bdl.dep", "pcre2", "libpcre2-posix"
     inreplace "groups/bdl/bdlpcre/bdlpcre_regex.h", "#include <pcre2/pcre2.h>", "#include <pcre2.h>"
 
     toolchain_file = "bde-tools/cmake/toolchains/#{OS.kernel_name.downcase}/default.cmake"
-    args = std_cmake_args + %W[
+    args = %W[
       -DBUILD_BITNESS=64
       -DUFID=opt_exc_mt_64_shr
       -DCMAKE_MODULE_PATH=./bde-tools/cmake
@@ -51,7 +54,7 @@ class Bde < Formula
       -DPYTHON_EXECUTABLE=#{which("python3.12")}
     ]
 
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
