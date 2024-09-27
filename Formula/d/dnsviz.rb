@@ -3,8 +3,8 @@ class Dnsviz < Formula
 
   desc "Tools for analyzing and visualizing DNS and DNSSEC behavior"
   homepage "https://github.com/dnsviz/dnsviz/"
-  url "https://files.pythonhosted.org/packages/cd/6e/8e285523108cc91b32f0584c2b4a7b006348af597cdc84e728206df15b3b/dnsviz-0.10.0.tar.gz"
-  sha256 "8e2c4d0636296acf704f7eca1ca8fea98b022c920c5517b39dfdc982ce685cd3"
+  url "https://files.pythonhosted.org/packages/30/26/57a692b8f913ae22450f5b1dde5c52fe9a262c3e678eb63a4bdc0e464781/dnsviz-0.11.0.tar.gz"
+  sha256 "3e93055950fc7837a40058f06190b0d9d7392332ea1aa0da6f9ff00c3b076d3e"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -22,23 +22,14 @@ class Dnsviz < Formula
   depends_on "pkg-config" => :build
   depends_on "swig" => :build
   depends_on "json-c" => :test
+  depends_on "cryptography"
   depends_on "graphviz"
   depends_on "openssl@3"
   depends_on "python@3.12"
 
-  on_linux do
-    # Fix build error of m2crypto, see https://github.com/crocs-muni/roca/issues/1#issuecomment-336893096
-    depends_on "swig"
-  end
-
   resource "dnspython" do
     url "https://files.pythonhosted.org/packages/37/7d/c871f55054e403fdfd6b8f65fd6d1c4e147ed100d3e9f9ba1fe695403939/dnspython-2.6.1.tar.gz"
     sha256 "e8f0f9c23a7b7cb99ded64e6c3a6f3e701d78f50c55e002b839dea7225cff7cc"
-  end
-
-  resource "m2crypto" do
-    url "https://files.pythonhosted.org/packages/d7/7d/2b414ab83ae8d1e1eb4e8c255f94a8424d41e975f97b25da82f4029f78d2/M2Crypto-0.41.0.tar.gz"
-    sha256 "3a1358c7ee849046d91782a777f1786bf027a1c1d51b5faf8f19435bfc3f1495"
   end
 
   resource "pygraphviz" do
