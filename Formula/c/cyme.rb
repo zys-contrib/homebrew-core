@@ -1,8 +1,8 @@
 class Cyme < Formula
   desc "List system USB buses and devices"
   homepage "https://github.com/tuna-f1sh/cyme"
-  url "https://github.com/tuna-f1sh/cyme/archive/refs/tags/v1.8.3.tar.gz"
-  sha256 "4c69e0bd843b01781bb36ad1384f59430550eb87227283414e654a014c0cdec4"
+  url "https://github.com/tuna-f1sh/cyme/archive/refs/tags/v1.8.4.tar.gz"
+  sha256 "f9136c5794c4d199ee3d7745b82e901de4a15e4626f3bb4c9269e67c6e31885a"
   license "GPL-3.0-or-later"
   head "https://github.com/tuna-f1sh/cyme.git", branch: "main"
 
