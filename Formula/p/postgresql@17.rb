@@ -10,6 +10,15 @@ class PostgresqlAT17 < Formula
     regex(%r{href=["']?v?(17(?:\.\d+)+)/?["' >]}i)
   end
 
+  bottle do
+    sha256 arm64_sequoia: "7345b4a703b655b5ef7bcb37a3dbc90b5406e4d06e7c4b8d30f8bd43f8499974"
+    sha256 arm64_sonoma:  "34876e4d4b26909d79f757d60f7cb34c6e2531c03120f103f5063a6cf62facd3"
+    sha256 arm64_ventura: "f2facfda470d494aea051eb64ba54c60171e5866fa032ef7c3fba3b488a69f13"
+    sha256 sonoma:        "a5258e4c8218b8ba6d91bb368581548042dc618e07a788e19d0fdf6b7297d7fd"
+    sha256 ventura:       "e25fa2f7a5dc496172f262913071f1a85ce03711b1edfd41a8e9f4a38d2c0b2e"
+    sha256 x86_64_linux:  "3a5e1daf6f1cef652cb39b869e0d8490c3bf29fcadc1869fbe7c92a7f37d6810"
+  end
+
   keg_only :versioned_formula
 
   # https://www.postgresql.org/support/versioning/
