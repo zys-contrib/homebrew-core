@@ -11,6 +11,15 @@ class Roxctl < Formula
     strategy :github_latest
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2cf091d17e883d9b0d93518019837645a156f7de419f478e2e24e8122b745952"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe2e8cd8a1d21435df608137df9fcd841cb84cd25c054f99171b533c0a7ffef1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2ef73513f1773c8fa6d6cf8ce0dc130baf245925e54363ebee0dc81ca42c0aae"
+    sha256 cellar: :any_skip_relocation, sonoma:        "86b9dbf290ee583a3d4ffd0cd11124fc36ef12af48b27c64c87c5ed7d29e6653"
+    sha256 cellar: :any_skip_relocation, ventura:       "f15199fc939c390bfa6caef924b8d8d64fc23c404f96d09654200d418015b3e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab3775ffd2f4e506521fb2c52088c0246dfcc4135a47a3dffc3e4d86a59f9522"
+  end
+
   depends_on "go" => :build
 
   def install
