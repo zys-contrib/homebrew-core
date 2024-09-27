@@ -4,7 +4,7 @@ class Alpscore < Formula
   url "https://github.com/ALPSCore/ALPSCore/archive/refs/tags/v2.3.1.tar.gz"
   sha256 "384f25cd543ded1ac99fe8238db97a5d90d24e1bf83ca8085f494acdd12ed86c"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
   head "https://github.com/ALPSCore/ALPSCore.git", branch: "master"
 
   bottle do
@@ -39,6 +39,22 @@ class Alpscore < Formula
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+    # Fix Cellar references
+    files_with_cellar_references = [
+      share/"alps-utilities/alps-utilities.cmake",
+      share/"alps-alea/alps-alea.cmake",
+      share/"alps-gf/alps-gf.cmake",
+      share/"alps-accumulators/alps-accumulators.cmake",
+      share/"alps-mc/alps-mc.cmake",
+      share/"alps-params/alps-params.cmake",
+      share/"alps-hdf5/alps-hdf5.cmake",
+    ]
+
+    inreplace files_with_cellar_references do |s|
+      s.gsub!(Formula["open-mpi"].prefix.realpath, Formula["open-mpi"].opt_prefix)
+      s.gsub!(Formula["hdf5"].prefix.realpath, Formula["hdf5"].opt_prefix, audit_result: false)
+    end
   end
 
   test do
