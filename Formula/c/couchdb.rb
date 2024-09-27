@@ -7,14 +7,12 @@ class Couchdb < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "a36e27000f29a596cd7b04405626a65b4114a6aacb5e8996d854f6d615064d81"
-    sha256 cellar: :any,                 arm64_sonoma:   "d58fc777fa9ff9f6de43919dfa9c024d5ce850b71f2ca085b6168375ffbfdd80"
-    sha256 cellar: :any,                 arm64_ventura:  "82fd98b83ab7a1e703036c448d49b79b0d39e52656905b909e4ba75f043cb452"
-    sha256 cellar: :any,                 arm64_monterey: "efcb725d281accb0b97617543a9a0deade589ad9fa9e44b00a7a718f732f96ee"
-    sha256 cellar: :any,                 sonoma:         "be25994ef1cdc49419c6d00876e60aa1c8ae0b4fa457081d399511b2d8d66d46"
-    sha256 cellar: :any,                 ventura:        "cc8e6a16e23b87de62056a8a2bb1a789c9dbc188afb41f9c2040b1799afca213"
-    sha256 cellar: :any,                 monterey:       "ce55bb241a7956e8fd171eb3300bbb5e30a2e9041bc04fab07ceffaab73c3a03"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b4a5418e235e9d12abab2ddba6059466bb49bdcaed44cc30ef0c68a5f8322496"
+    sha256 cellar: :any,                 arm64_sequoia: "24da382c88e41fc5a3570380393262d1b7745ff7edb979a2bcc963630ea8aea1"
+    sha256 cellar: :any,                 arm64_sonoma:  "737b0d6bb26aba33c7c16081c3145d1890ed25d2405b7da7ae7c0d553b4bab1f"
+    sha256 cellar: :any,                 arm64_ventura: "8f3e65846d0ce95f01862ca798b8c4c1c51ce54b36ed8118673aeadba2f963a5"
+    sha256 cellar: :any,                 sonoma:        "a69fc76df6cae36cf89033c596056f07c5c06d0a41e472bfa4e0b3d1230d9563"
+    sha256 cellar: :any,                 ventura:       "52df41abe499df5fbd63b6a17958cb3a89ce6b07e9b48f2c24df0bff03e869b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f38e256eb59833dd06ce576063686c84b55eb4d9c6dd6e5d5db2c268c10dfa49"
   end
 
   depends_on "autoconf" => :build
