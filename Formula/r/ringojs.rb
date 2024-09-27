@@ -12,6 +12,7 @@ class Ringojs < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1b257e897b4c3c6a0eda925822044fea179a8668bc9fb9ef0d73b65787c03204"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1b257e897b4c3c6a0eda925822044fea179a8668bc9fb9ef0d73b65787c03204"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1b257e897b4c3c6a0eda925822044fea179a8668bc9fb9ef0d73b65787c03204"
     sha256 cellar: :any_skip_relocation, sonoma:        "94a3251d5edc63236b82b66b85c8fb99e86af58409fbbde8e87da8e52d329b5c"
