@@ -4,7 +4,7 @@ class C3c < Formula
   url "https://github.com/c3lang/c3c/archive/refs/tags/v0.6.2.tar.gz"
   sha256 "e39f98d5a78f9d3aa8da4ce07062b4ca93d25b88107961cbd3af2b3f6bcf8e78"
   license "LGPL-3.0-only"
-  revision 1
+  revision 2
   head "https://github.com/c3lang/c3c.git", branch: "master"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -25,7 +25,8 @@ class C3c < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm" => :build
+  depends_on "lld"
+  depends_on "llvm"
   depends_on "zstd"
 
   uses_from_macos "curl"
@@ -34,23 +35,24 @@ class C3c < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  on_macos do
-    depends_on "llvm"
-  end
+  # Linking dynamically with LLVM fails with GCC.
+  fails_with :gcc
 
   def install
-    # Link dynamically to our libLLVM. We can't do the same for liblld*,
-    # since we only ship static libraries.
-    inreplace "CMakeLists.txt" do |s|
-      s.gsub!("libLLVM.so", "libLLVM.dylib") if OS.mac?
-      s.gsub!(/(liblld[A-Za-z]+)\.so/, "\\1.a")
+    # Link dynamically to our libLLVM and liblld*.
+    if OS.mac?
+      inreplace "CMakeLists.txt" do |s|
+        s.gsub!("libLLVM.so", "libLLVM.dylib")
+        s.gsub!(/(liblld[A-Za-z]+)\.so/, "\\1.dylib")
+      end
     end
 
-    ENV.append "LDFLAGS", "-lzstd -lz" if OS.mac?
+    ENV.append "LDFLAGS", "-lzstd -lz"
     system "cmake", "-S", ".", "-B", "build",
-                    "-DC3_LINK_DYNAMIC=#{OS.mac? ? "ON" : "OFF"}", # FIXME: dynamic linking fails the Linux build.
+                    "-DC3_LINK_DYNAMIC=ON",
                     "-DC3_USE_MIMALLOC=OFF",
                     "-DC3_USE_TB=OFF",
+                    "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
