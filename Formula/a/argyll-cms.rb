@@ -65,7 +65,7 @@ class ArgyllCms < Formula
   def install
     resource("jam").stage do
       system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}", "LOCATE_TARGET=bin"
-      libexec.install "bin/jam"
+      (buildpath/"bin").install "bin/jam"
     end
 
     # Remove bundled libraries to prevent fallback
@@ -97,14 +97,12 @@ class ArgyllCms < Formula
 
     ENV["NUMBER_OF_PROCESSORS"] = ENV.make_jobs.to_s
 
-    inreplace "makeall.sh", "jam", libexec/"jam"
-    inreplace "makeinstall.sh", "jam", libexec/"jam"
+    inreplace "makeall.sh", "jam", buildpath/"bin/jam"
+    inreplace "makeinstall.sh", "jam", buildpath/"bin/jam"
     system "sh", "makeall.sh"
     system "./makeinstall.sh"
     rm "bin/License.txt"
     prefix.install "bin", "ref", "doc"
-
-    rm libexec/"jam"
   end
 
   test do
