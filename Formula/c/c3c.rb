@@ -34,21 +34,22 @@ class C3c < Formula
   fails_with :gcc
 
   def install
-    # Link dynamically to our libLLVM and liblld*.
-    if OS.mac?
-      inreplace "CMakeLists.txt" do |s|
-        s.gsub!("libLLVM.so", "libLLVM.dylib")
-        s.gsub!(/(liblld[A-Za-z]+)\.so/, "\\1.dylib")
-      end
-    end
+    args = [
+      "-DC3_LINK_DYNAMIC=ON",
+      "-DC3_USE_MIMALLOC=OFF",
+      "-DC3_USE_TB=OFF",
+      "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
+      "-DLLVM=#{Formula["llvm"].opt_lib/shared_library("libLLVM")}",
+      "-DLLD_COFF=#{Formula["lld"].opt_lib/shared_library("liblldCOFF")}",
+      "-DLLD_COMMON=#{Formula["lld"].opt_lib/shared_library("liblldCommon")}",
+      "-DLLD_ELF=#{Formula["lld"].opt_lib/shared_library("liblldELF")}",
+      "-DLLD_MACHO=#{Formula["lld"].opt_lib/shared_library("liblldMachO")}",
+      "-DLLD_MINGW=#{Formula["lld"].opt_lib/shared_library("liblldMinGW")}",
+      "-DLLD_WASM=#{Formula["lld"].opt_lib/shared_library("liblldWasm")}",
+    ]
 
     ENV.append "LDFLAGS", "-lzstd -lz"
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DC3_LINK_DYNAMIC=ON",
-                    "-DC3_USE_MIMALLOC=OFF",
-                    "-DC3_USE_TB=OFF",
-                    "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
-                    *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
