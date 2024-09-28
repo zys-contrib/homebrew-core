@@ -1,8 +1,8 @@
 class Nmail < Formula
   desc "Terminal-based email client for Linux and macOS"
   homepage "https://github.com/d99kris/nmail"
-  url "https://github.com/d99kris/nmail/archive/refs/tags/v4.67.tar.gz"
-  sha256 "e081a0b1da4be25dc0e09a676c472f84d57639be5bd88b7aac6af60f0ea49f12"
+  url "https://github.com/d99kris/nmail/archive/refs/tags/v5.1.16.tar.gz"
+  sha256 "d0c9063521264acc73f70ef66cbc8830015df60395ca463d35518313ad7e8c61"
   license "MIT"
   head "https://github.com/d99kris/nmail.git", branch: "master"
 
@@ -45,7 +45,7 @@ class Nmail < Formula
   test do
     (testpath/".nmail/main.conf").write "user = test"
     output = shell_output("#{bin}/nmail --confdir #{testpath}/.nmail 2>&1", 1)
-    assert_match "error: user not specified in config file", output
+    assert_match "error: imaphost not specified in config file", output
 
     assert_match version.to_s, shell_output("#{bin}/nmail --version")
   end
