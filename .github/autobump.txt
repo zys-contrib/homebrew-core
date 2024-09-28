@@ -2862,6 +2862,7 @@ vgmstream
 vgrep
 vhs
 victoriametrics
+viddy
 video-compare
 vim
 vineyard
