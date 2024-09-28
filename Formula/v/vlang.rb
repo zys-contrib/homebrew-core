@@ -2,8 +2,8 @@ class Vlang < Formula
   desc "V programming language"
   homepage "https://vlang.io"
   # NOTE: Keep this in sync with V compiler below when updating
-  url "https://github.com/vlang/v/archive/refs/tags/0.4.7.tar.gz"
-  sha256 "fee48c07fb4fa7f21ea92a23d0f8aa566239b1733e314e2cf96608b497d12291"
+  url "https://github.com/vlang/v/archive/refs/tags/0.4.8.tar.gz"
+  sha256 "2684d3326a11087746429bd4ad6366d2b696cffc883e3b76fe740a8deb1dc172"
   license "MIT"
 
   livecheck do
@@ -31,7 +31,7 @@ class Vlang < Formula
     # "[v:master] {short SHA of the vlang release commit} - {vlang version number}".
     # The sources of this V compiler commit need to be used here
     url "https://github.com/vlang/vc.git",
-        revision: "8c681ed423243939500f98e2c7a2550f0bc9b33a"
+        revision: "54beb1f416b404a06b894e6883a0e2368d80bc3e"
 
     on_big_sur :or_older do
       patch do
@@ -80,7 +80,7 @@ end
 
 __END__
 diff --git a/vlib/builtin/builtin_d_gcboehm.c.v b/vlib/builtin/builtin_d_gcboehm.c.v
-index 161a6de..a2ee3a2 100644
+index 444a014..159e5a1 100644
 --- a/vlib/builtin/builtin_d_gcboehm.c.v
 +++ b/vlib/builtin/builtin_d_gcboehm.c.v
 @@ -43,13 +43,13 @@ $if dynamic_boehm ? {
@@ -88,9 +88,9 @@ index 161a6de..a2ee3a2 100644
  	$if macos || linux {
  		#flag -DGC_BUILTIN_ATOMIC=1
 -		#flag -I @VEXEROOT/thirdparty/libgc/include
--		$if (prod && !tinyc && !debug) || !(amd64 || arm64 || i386 || arm32) {
+-		$if (prod && !tinyc && !debug) || !(amd64 || arm64 || i386 || arm32 || rv64) {
 +		#flag -I @PREFIX@/include
-+		$if (!macos && prod && !tinyc && !debug) || !(amd64 || arm64 || i386 || arm32) {
++		$if (!macos && prod && !tinyc && !debug) || !(amd64 || arm64 || i386 || arm32 || rv64) {
  			// TODO: replace the architecture check with a `!$exists("@VEXEROOT/thirdparty/tcc/lib/libgc.a")` comptime call
  			#flag @VEXEROOT/thirdparty/libgc/gc.o
  		} $else {
