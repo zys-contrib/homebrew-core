@@ -250,7 +250,7 @@
     "exclude_packages": ["certifi"]
   },
   "dnsviz": {
-    "extra_packages": ["dnspython", "m2crypto", "pygraphviz"]
+    "extra_packages": ["dnspython", "pygraphviz"]
   },
   "docker-squash": {
     "exclude_packages": ["certifi"]
