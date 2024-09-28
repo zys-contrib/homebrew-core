@@ -2798,6 +2798,7 @@ typstyle
 tz
 tzdiff
 u-boot-tools
+uade
 ucloud
 uffizzi
 uftrace

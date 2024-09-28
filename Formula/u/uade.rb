@@ -4,19 +4,17 @@ class Uade < Formula
   license "GPL-2.0-only"
 
   stable do
-    url "https://zakalwe.fi/uade/uade3/uade-3.03.tar.bz2"
-    sha256 "e0a091cdbd5a11d314f48526212ba34cdb71bbdf5622dfc1f28aa6291c93ede8"
+    url "https://zakalwe.fi/uade/uade3/uade-3.04.tar.bz2"
+    sha256 "8bff0f18ad81f0e1b99f77ee75a2a7f5bbcb5de2f0ad9fa064ae8202831fb8ef"
 
-    # release tag request, https://gitlab.com/hors/libzakalwe/-/issues/1
     resource "libzakalwe" do
-      url "https://gitlab.com/hors/libzakalwe.git",
-        revision: "521bc3ba81d78859fb3cabae88dae6ebe41f9c03"
+      url "https://gitlab.com/hors/libzakalwe/-/archive/v1.0.0/libzakalwe-v1.0.0.tar.bz2"
+      sha256 "cb503c557b04f34069654083963a056deb85a6dea25ba4b69aaaa2bbf7290a98"
     end
 
-    # release tag request, https://gitlab.com/heikkiorsila/bencodetools/-/issues/13
     resource "bencode-tools" do
-      url "https://gitlab.com/heikkiorsila/bencodetools.git",
-        revision: "ffde760bcb83182f6a4994f585773d5af264601d"
+      url "https://gitlab.com/heikkiorsila/bencodetools/-/archive/v1.0.1/bencodetools-v1.0.1.tar.bz2"
+      sha256 "e41ae682525cf335b5f5ec0ba9b954abfe7b448e8ed13e2aa2a44e49fce2ca12"
     end
   end
 
