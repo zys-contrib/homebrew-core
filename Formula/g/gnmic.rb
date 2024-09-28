@@ -1,8 +1,8 @@
 class Gnmic < Formula
   desc "GNMI CLI client and collector"
   homepage "https://gnmic.openconfig.net"
-  url "https://github.com/openconfig/gnmic/archive/refs/tags/v0.38.1.tar.gz"
-  sha256 "73085df18ce861d87abb6471823a464e4f7709a661a6a288155a653f98fee067"
+  url "https://github.com/openconfig/gnmic/archive/refs/tags/v0.38.2.tar.gz"
+  sha256 "04ef89877680880bf04421196f67f085c35e85d97be97c87c1cf7ff14a0dccaf"
   license "Apache-2.0"
 
   bottle do
@@ -34,8 +34,7 @@ class Gnmic < Formula
   test do
     connection_output = shell_output(bin/"gnmic -u gnmi -p dummy --skip-verify --timeout 1s -a 127.0.0.1:0 " \
                                          "capabilities 2>&1", 1)
-    assert_match "target \"127.0.0.1:0\", capabilities request failed: failed to create a gRPC client for " \
-                 "target \"127.0.0.1:0\" : 127.0.0.1:0: context deadline exceeded", connection_output
+    assert_match "target \"127.0.0.1:0\", capabilities request failed", connection_output
 
     assert_match version.to_s, shell_output("#{bin}/gnmic version")
   end
