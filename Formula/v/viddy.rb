@@ -7,14 +7,12 @@ class Viddy < Formula
   head "https://github.com/sachaos/viddy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0677281129d50c3583156ff599cd574f62298217ccf532c7045752e53f8d4056"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5cdb1ad19dee6f53d03e39d2f4f96e3dc81cdf2b2d3dd0537678b043a2a5150f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "566a66addbd733495375d893804eb72f3ed991de1ec9ad06b22da8783dda5f83"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "21f791b56838c791db7764bf60aa03d211a70e2ded0dfff10f11de9d08f612b6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c241695a0735963bf9bffca9f00a302f5de5e6899f499a710d79a5fd548d0dcf"
-    sha256 cellar: :any_skip_relocation, ventura:        "5be54f25bbbbf59c020dfba5ad269934e43e6cad0fb25047091d75f159cb893d"
-    sha256 cellar: :any_skip_relocation, monterey:       "b45cb53f8f06f40f6f1bd82fd4a84ce8d11ba5fdc5f7ccef38902fc2776a4853"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "68d88908a20ffbded81690a4c9aa1979101fde625c7bb27c796916052059a9b3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4145ce20a9f9da725e3f0faeca92cadade196198cbf96843d572d5bd83d91832"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "37bb8b6f8992a88aac0b1110bec2d208f58c61341c71206e947a024c1a5f1980"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "431048e14383439df04c4e5e18a84132815dad2fa797054bff8bd9fe5ef2f86b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7ad1668f9f280a82bdc5d01def46eae09ae43140e4b0b385e0733303870298e6"
+    sha256 cellar: :any_skip_relocation, ventura:       "e0873e16dd2f8b91085cbc1d90efbd547e56946b23b819180f14df2b3634fe59"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4bafd5772eff6c44834d7f64ddb3f822012440963affb3cd8ee2d49996bbadea"
   end
 
   depends_on "rust" => :build
