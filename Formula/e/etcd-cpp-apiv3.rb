@@ -4,7 +4,7 @@ class EtcdCppApiv3 < Formula
   url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/archive/refs/tags/v0.15.4.tar.gz"
   sha256 "4516ecfa420826088c187efd42dad249367ca94ea6cdfc24e3030c3cf47af7b4"
   license "BSD-3-Clause"
-  revision 13
+  revision 14
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "db4364829b5524b0c8185b61c817f218185ad7a62451ac11a01c37d30ed083a2"
@@ -28,6 +28,13 @@ class EtcdCppApiv3 < Formula
   depends_on "re2"
 
   fails_with gcc: "5"
+
+  # Fix for removal of GPR_ASSERT macro in grpc.
+  # https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/pull/281
+  patch do
+    url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/commit/ece56adf4d01658a5f0668a3618c97153665581c.patch?full_index=1"
+    sha256 "f3686647436045a9a53b05f81fae02d5a5a2025d5ce78a66aca0ade85c1a99c6"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build",
