@@ -18,6 +18,10 @@ on:
 permissions:
   contents: read
 
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
 jobs:
   autobump:
     if: github.repository == 'Homebrew/homebrew-core'

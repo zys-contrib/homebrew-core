@@ -7,6 +7,10 @@ env:
   GH_NO_UPDATE_NOTIFIER: 1
   GH_PROMPT_DISABLED: 1
 
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
 concurrency:
   group: "triage-${{ github.event.number }}"
   cancel-in-progress: true

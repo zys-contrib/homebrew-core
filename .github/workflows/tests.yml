@@ -20,6 +20,10 @@ env:
   GH_PROMPT_DISABLED: 1
   SCRIPTS_PATH: .github/workflows/scripts
 
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
 concurrency:
   group: "tests-${{ github.ref }}"
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
@@ -213,7 +217,7 @@ jobs:
     timeout-minutes: ${{ matrix.timeout }}
     defaults:
       run:
-        shell: /bin/bash -e {0}
+        shell: /bin/bash -xeuo pipefail {0}
         working-directory: ${{matrix.workdir || github.workspace}}
     env:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -332,7 +336,7 @@ jobs:
     timeout-minutes: ${{ matrix.timeout }}
     defaults:
       run:
-        shell: /bin/bash -e {0}
+        shell: /bin/bash -xeuo pipefail {0}
         working-directory: ${{matrix.workdir || github.workspace}}
     env:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
