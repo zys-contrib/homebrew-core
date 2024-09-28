@@ -11,14 +11,12 @@ class SonarqubeLts < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6e71062ae6e8d84f24d000f2812ac6767d99454f59b876789caaaebf3f653f77"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6698efb30331bd468547b170aeac89be4a8e85ce87f011ee9e66fa93ed5c07f5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6698efb30331bd468547b170aeac89be4a8e85ce87f011ee9e66fa93ed5c07f5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6698efb30331bd468547b170aeac89be4a8e85ce87f011ee9e66fa93ed5c07f5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6698efb30331bd468547b170aeac89be4a8e85ce87f011ee9e66fa93ed5c07f5"
-    sha256 cellar: :any_skip_relocation, ventura:        "6698efb30331bd468547b170aeac89be4a8e85ce87f011ee9e66fa93ed5c07f5"
-    sha256 cellar: :any_skip_relocation, monterey:       "6698efb30331bd468547b170aeac89be4a8e85ce87f011ee9e66fa93ed5c07f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b012bac5b6579954a206de0ae085b4120194b307f612d82b56228954304b7676"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "df554724c5b9f1dd155b25910662f7fec4b9c3d5c80109b324a83db7ee591885"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "df554724c5b9f1dd155b25910662f7fec4b9c3d5c80109b324a83db7ee591885"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "df554724c5b9f1dd155b25910662f7fec4b9c3d5c80109b324a83db7ee591885"
+    sha256 cellar: :any_skip_relocation, sonoma:        "df554724c5b9f1dd155b25910662f7fec4b9c3d5c80109b324a83db7ee591885"
+    sha256 cellar: :any_skip_relocation, ventura:       "df554724c5b9f1dd155b25910662f7fec4b9c3d5c80109b324a83db7ee591885"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d88fe51f712ae92afc9d01a408d93aa8075fd47ed794dc166b7addc361686f9"
   end
 
   depends_on "openjdk@17"
