@@ -8,14 +8,12 @@ class Dnsviz < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "e74fc8bc1e0eabf08fe6b0fe49a032212ab4fa499de6c1a9dc0bb073fdfea8b3"
-    sha256 cellar: :any,                 arm64_sonoma:   "010d753c953f5784dbdcabb3a0e178b37feebc15a8849ecc60da0e06e6b1a98d"
-    sha256 cellar: :any,                 arm64_ventura:  "11074313d53d5f0e1bb3bb45e5f0d2cfd360890158bb0db237acfb5fdac8b4a6"
-    sha256 cellar: :any,                 arm64_monterey: "4cb91ae29fff849510d2eab470bcfe4370158db481f9ce11101661a692ff1855"
-    sha256 cellar: :any,                 sonoma:         "d16f6e37ee84a64ed3dd280965879b0d103dd67b1330842d61b5bb3502cd526e"
-    sha256 cellar: :any,                 ventura:        "be79adbc4298d749b20aa5d3f223a80bab1ebb58cac17a5ee5bbb89d7449a1ea"
-    sha256 cellar: :any,                 monterey:       "6ed049efc4d975a5eff8cdfb85e2f23274d73e9218e9b4bf4ce4822f04d96c46"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80fb24e908cb98fc30a35d3a4a882daa73eaa9c1b9678a4ec714f3118e42450c"
+    sha256 cellar: :any,                 arm64_sequoia: "679f02dd6f5539efad854bd7a6b95c5614f2b2778bde100c2c2fa45c4a3cee12"
+    sha256 cellar: :any,                 arm64_sonoma:  "3401d8a2860a252aa95ba065553a12f318363c5ae4a3799c53a9346d57f723ec"
+    sha256 cellar: :any,                 arm64_ventura: "433ed13adb32db188bde5e54606270a2e4c50b1c537f679e427742d5d282eac5"
+    sha256 cellar: :any,                 sonoma:        "bffdb76ff1a8b3fb1f23dcf1b4487e51393e5d806a702720ea42b90c2f67eb44"
+    sha256 cellar: :any,                 ventura:       "c2490a66cb55a34bcdd34e6c35c7e651432aacfad5bd4ce4fa53acc7cb2e9315"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b252d87ea09e3d8eb677fcf6d4bc78ee69f1845250522b17dd8f3ec7eff5890f"
   end
 
   depends_on "bind" => [:build, :test]
