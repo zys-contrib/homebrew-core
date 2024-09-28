@@ -1,8 +1,8 @@
 class Envio < Formula
   desc "Modern And Secure CLI Tool For Managing Environment Variables"
   homepage "https://envio-cli.github.io/home"
-  url "https://github.com/envio-cli/envio/archive/refs/tags/v0.5.1.tar.gz"
-  sha256 "d0009a19dc081d3e7e1b36e8e9fdc29f675d8ac80ddd08565777e6b7d7a99bb1"
+  url "https://github.com/envio-cli/envio/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "1a827ecee53299e060a2ce45cbb2215f3ca6c48fc5baf05b2d5a46018fb09bc7"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/envio-cli/envio.git", branch: "main"
 
