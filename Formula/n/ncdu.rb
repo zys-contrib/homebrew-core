@@ -1,8 +1,8 @@
 class Ncdu < Formula
   desc "NCurses Disk Usage"
   homepage "https://dev.yorhel.nl/ncdu"
-  url "https://dev.yorhel.nl/download/ncdu-2.5.tar.gz"
-  sha256 "7f49de25024abab1af1ff22b3b8542c0d158e018fe0e96074fd94b0e1e6d31a5"
+  url "https://dev.yorhel.nl/download/ncdu-2.6.tar.gz"
+  sha256 "3f471ebd38b56e60dab80c27e3af1d826666957f02d9e8419b149daaf7ade505"
   license "MIT"
   head "https://g.blicky.net/ncdu.git", branch: "zig"
 
@@ -26,6 +26,7 @@ class Ncdu < Formula
   depends_on "zig" => :build
   # Without this, `ncdu` is unusable when `TERM=tmux-256color`.
   depends_on "ncurses"
+  depends_on "zstd"
 
   def install
     # Fix illegal instruction errors when using bottles on older CPUs.

@@ -1862,6 +1862,7 @@ navidrome
 nbdime
 ncc
 ncdc
+ncdu
 ncnn
 nco
 ncspot
