@@ -1,8 +1,8 @@
 class Psqlodbc < Formula
   desc "Official PostgreSQL ODBC driver"
   homepage "https://odbc.postgresql.org"
-  url "https://github.com/postgresql-interfaces/psqlodbc/archive/refs/tags/REL-16_00_0005.tar.gz"
-  sha256 "1aa1bd5f9cb26ac1a4729ed2ab48974b29c335bebff6830d66aaac8bcd081ab0"
+  url "https://github.com/postgresql-interfaces/psqlodbc/archive/refs/tags/REL-17_00_0000.tar.gz"
+  sha256 "37567b01ce69e026f128981f775a040656c92d4756bd3fdc1b1db4030c9ffe16"
   license "LGPL-2.0-or-later"
   head "https://github.com/postgresql-interfaces/psqlodbc.git", branch: "main"
 
