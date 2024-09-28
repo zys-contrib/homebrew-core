@@ -25,14 +25,8 @@ class Virtualpg < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "63f218f9e93c2976082142736ae74a098b3e0e1e6aa99ad3f5da9669c4d2f68f"
   end
 
-  depends_on "libspatialite"
-  depends_on "postgis"
-  depends_on "postgresql@14"
+  depends_on "libpq"
   depends_on "sqlite"
-
-  on_linux do
-    depends_on "libpq"
-  end
 
   def install
     # New SQLite3 extension won't load via SELECT load_extension('mod_virtualpg');
@@ -43,10 +37,9 @@ class Virtualpg < Formula
               "shrext_cmds='`test .$module = .yes && echo .so || echo .dylib`'",
               "shrext_cmds='.dylib'"
 
-    system "./configure", "--enable-shared=yes",
-                          "--disable-dependency-tracking",
-                          "--with-pgconfig=#{Formula["postgresql@14"].opt_bin}/pg_config",
-                          "--prefix=#{prefix}"
+    system "./configure", "--disable-silent-rules",
+                          "--with-pgconfig=#{Formula["libpq"].opt_bin}/pg_config",
+                          *std_configure_args
     system "make", "install"
   end
 
