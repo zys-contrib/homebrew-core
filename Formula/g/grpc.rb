@@ -1,21 +1,11 @@
 class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://grpc.io/"
+  url "https://github.com/grpc/grpc.git",
+      tag:      "v1.66.2",
+      revision: "f686ffe7e703fb1440dabea419579e566a8becc3"
   license "Apache-2.0"
-  revision 7
   head "https://github.com/grpc/grpc.git", branch: "master"
-
-  stable do
-    url "https://github.com/grpc/grpc.git",
-        tag:      "v1.62.2",
-        revision: "96f984744fe728e196c11d33b91b022566c0d40f"
-
-    # Backport fix for Protobuf 26
-    patch do
-      url "https://github.com/grpc/grpc/commit/98a96c5068da14ed29d70ca23818b5f408a2e7b4.patch?full_index=1"
-      sha256 "5c4fc4307d0943ce3c9a07921bddaa24ca3d504adf38c9b0f071e23327661ac1"
-    end
-  end
 
   # There can be a notable gap between when a version is tagged and a
   # corresponding release is created, so we check releases instead of the Git
@@ -77,21 +67,32 @@ class Grpc < Formula
       -DgRPC_ZLIB_PROVIDER=package
       -DgRPC_RE2_PROVIDER=package
     ]
+    linker_flags = []
+    linker_flags += %w[-undefined dynamic_lookup] if OS.mac?
+    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,#{linker_flags.join(",")}" if linker_flags.present?
     system "cmake", "-S", ".", "-B", "_build", *args, *std_cmake_args
     system "cmake", "--build", "_build"
     system "cmake", "--install", "_build"
 
     # The following are installed manually, so need to use CMAKE_*_LINKER_FLAGS
+    # TODO: `grpc_cli` is a huge pain to install. Consider removing it.
+    linker_flags += %W[-rpath #{rpath} -rpath #{rpath(target: HOMEBREW_PREFIX/"lib")}]
     args = %W[
-      -DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{rpath}
-      -DCMAKE_SHARED_LINKER_FLAGS=-Wl,-rpath,#{rpath}
+      -DCMAKE_EXE_LINKER_FLAGS=-Wl,#{linker_flags.join(",")}
+      -DCMAKE_SHARED_LINKER_FLAGS=-Wl,#{linker_flags.join(",")}
       -DBUILD_SHARED_LIBS=ON
       -DgRPC_BUILD_TESTS=ON
+      -DgRPC_ABSL_PROVIDER=package
+      -DgRPC_CARES_PROVIDER=package
+      -DgRPC_PROTOBUF_PROVIDER=package
+      -DgRPC_SSL_PROVIDER=package
+      -DgRPC_ZLIB_PROVIDER=package
+      -DgRPC_RE2_PROVIDER=package
     ]
-    system "cmake", "-S", ".", "-B", "_build", *args, *std_cmake_args
-    system "cmake", "--build", "_build", "--target", "grpc_cli"
-    bin.install "_build/grpc_cli"
-    lib.install Dir["_build/#{shared_library("libgrpc++_test_config", "*")}"]
+    system "cmake", "-S", ".", "-B", "_build-grpc_cli", *args, *std_cmake_args
+    system "cmake", "--build", "_build-grpc_cli", "--target", "grpc_cli"
+    bin.install "_build-grpc_cli/grpc_cli"
+    lib.install (buildpath/"_build-grpc_cli").glob(shared_library("libgrpc++_test_config", "*"))
   end
 
   test do
