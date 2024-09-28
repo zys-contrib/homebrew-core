@@ -11,12 +11,13 @@ class Pgroonga < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9dc5ef91e59fca8a90bfe2a6c150b9dafe0b776c46c84c8920ff4e2d15c3d6a4"
-    sha256 cellar: :any,                 arm64_sonoma:  "b5143fa18b46bff71b0f577ed9c711a759a4a64b68b2a35596e09056e28e0b38"
-    sha256 cellar: :any,                 arm64_ventura: "a44cc09219f5f501c6259aa4f49cf23aa3a5bed65fd3c3dcb93463a4534eb903"
-    sha256 cellar: :any,                 sonoma:        "458cc2ccb1ab4e79d6191073ba3072ac20710766ee27351b868d4674b890428f"
-    sha256 cellar: :any,                 ventura:       "b333826882972cdef176cd59a3d26ae6989c102e7ff87c6c2e294f3d4bcbd1d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9946c703416703f1abec4a02304d487b0a64c9a43150f13bb8fba60d350a01a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "5cb2d9f25149f25bcdac03224fc611916ff283cf3cfbb11d548e32a7e5b852ee"
+    sha256 cellar: :any,                 arm64_sonoma:  "46711e110276f4fb5a9246abccbe99e7d4f5aa3c19332955a3ab9ef282e9f697"
+    sha256 cellar: :any,                 arm64_ventura: "13babb327a1e856b0242e20f7745bbf34c66e12d856f9177a0db1547cef62211"
+    sha256 cellar: :any,                 sonoma:        "3887bc78ddcbc5cf27393216e06f8f938dc495973d64ea1a016683f9a4ba3650"
+    sha256 cellar: :any,                 ventura:       "96ec1d2238e9ef73652894e8228450e23298ceffddd5e3052753f04b0f825451"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c5ab20f474e559474eae8cf5180dcb1aa3d7364ec418c19f4081c75c7c78ffa"
   end
 
   depends_on "pkg-config" => :build
