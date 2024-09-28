@@ -12,14 +12,12 @@ class VulkanValidationlayers < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "106404ac800641ff10560d61d7eb65355a6e3d0ace41a6316414a3d753bfd727"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "729c322888811c3e7d75776f535bbed3edbbff478fbe43d7535bf5f1672ca431"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cdc342e19a3eaf0a163c4d9945be4416c31f15595305e7bfecbe2ca6a8253efe"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "02c2067408bdea6b91e2062f129a4149fec1a2182b78961795b23f0fb6a2de0f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d008a9c4e15ab98670dbd4de32dc45413394a16156469e6feefde1d3458d98c2"
-    sha256 cellar: :any_skip_relocation, ventura:        "366bc13a2e5fe0e6746e7c867d8e36e76731390f2ea5d2c6e6f499da18177554"
-    sha256 cellar: :any_skip_relocation, monterey:       "16c9ea66f1efe3dd89ed7134ef04d0192172ddca525935ef9cc4953ccc950ac6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e33105ed47c902524ef1241dbedd045c90356bd0a22a95da0813a92d8ce48201"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6365fe615275b242e5f29ab560221d22288624c8037c9358339b75767a5c8b0f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f37f141063ccbb531c76c06cb3cc3a31ad6098ab0eb2a60882d96900a7b7e21c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0541d58ce480aa2dc031e233fef48934e8822bfe1aa4e4ca18686844f18f2994"
+    sha256 cellar: :any_skip_relocation, sonoma:        "667c1eab67475ee5691afac9ac4f453f661f51036aa5d599dcba1450b76eddcd"
+    sha256 cellar: :any_skip_relocation, ventura:       "341820e6096aa0c4beede8fbe3561baaa146403cd315e76dc8ee5f8e50c74dbd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77a1ebb3ae68a55bcad1dc2b15415b96317617d539974dd5170e4df50d2dd58c"
   end
 
   depends_on "cmake" => :build
