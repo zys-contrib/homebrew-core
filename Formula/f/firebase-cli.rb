@@ -1,18 +1,18 @@
 class FirebaseCli < Formula
   desc "Firebase command-line tools"
   homepage "https://firebase.google.com/docs/cli/"
-  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-13.20.0.tgz"
-  sha256 "60087f481b0a98cdeb22bb788fe3497093c1d1c6eda1032f618231ef53256ccf"
+  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-13.20.1.tgz"
+  sha256 "d74ee75bf4b1eebf4b4231a8f25ed806da32a9aabe3873c85fb8a0027615bb9e"
   license "MIT"
   head "https://github.com/firebase/firebase-tools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ca05a15ecfe7bfa33f221439b0fc37a61b76c229d3ed5d5c9201dd69dd4a9f22"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ca05a15ecfe7bfa33f221439b0fc37a61b76c229d3ed5d5c9201dd69dd4a9f22"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ca05a15ecfe7bfa33f221439b0fc37a61b76c229d3ed5d5c9201dd69dd4a9f22"
-    sha256 cellar: :any_skip_relocation, sonoma:        "39a1527a1cad8f251a1ad5f99db5a066cbbd6127aa9e738902adf45ab571320a"
-    sha256 cellar: :any_skip_relocation, ventura:       "39a1527a1cad8f251a1ad5f99db5a066cbbd6127aa9e738902adf45ab571320a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59545c6a4f9df11ae96b3030af9ea1bcccfcf1b037923e24d65d687f1246513b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "27917f46f8a7261c72862cdef9fa4653c1c42f5e725cf81f8e3ff86d9a475bdf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "27917f46f8a7261c72862cdef9fa4653c1c42f5e725cf81f8e3ff86d9a475bdf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "27917f46f8a7261c72862cdef9fa4653c1c42f5e725cf81f8e3ff86d9a475bdf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f86ca629d715ae49d3d24f43f0f2aaf5f066cad475d92a4d8e107792b01dc478"
+    sha256 cellar: :any_skip_relocation, ventura:       "f86ca629d715ae49d3d24f43f0f2aaf5f066cad475d92a4d8e107792b01dc478"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2eed5fd80372fda3a1982e05cdfacfac0eeff9cc7a62d16d405148c7124053a9"
   end
 
   depends_on "node"
