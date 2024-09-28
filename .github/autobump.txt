@@ -2409,6 +2409,7 @@ sc-im
 scala
 scala@2.12
 scala@2.13
+scala@3.3
 scalingo
 scamper
 scarb
