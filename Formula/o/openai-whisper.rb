@@ -3,10 +3,9 @@ class OpenaiWhisper < Formula
 
   desc "General-purpose speech recognition model"
   homepage "https://github.com/openai/whisper"
-  url "https://files.pythonhosted.org/packages/d2/6e/50ace2bf704e5ffc786d20d96403ab0d57c5d6ab8729de7fed8c436687df/openai-whisper-20231117.tar.gz"
-  sha256 "7af424181436f1800cc0b7d75cf40ede34e9ddf1ba4983a910832fcf4aade4a4"
+  url "https://files.pythonhosted.org/packages/ed/a9/81f65f3443778a1e1088e80089fc970f1f160abec2bfc3d71abfed8cbc34/openai-whisper-20240927.tar.gz"
+  sha256 "5b322442b03704e245e3d6d3a577d7a3845f884e50edbf15990cb26a134dffff"
   license "MIT"
-  revision 6
   head "https://github.com/openai/whisper.git", branch: "main"
 
   bottle do
