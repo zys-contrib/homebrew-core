@@ -3,8 +3,8 @@ class Forbidden < Formula
 
   desc "Bypass 4xx HTTP response status codes and more"
   homepage "https://github.com/ivan-sincek/forbidden"
-  url "https://files.pythonhosted.org/packages/fb/2d/15265f7965c1fe2ae251767b23d583f0d0d10b2d76e56af9a2643efdf652/forbidden-12.5.tar.gz"
-  sha256 "5d40cb6b5e553b59d590ff2aac913f6da14f28706fd0e17f9fd36ddf707b7779"
+  url "https://files.pythonhosted.org/packages/a3/bd/07a1b00ed63815153713a6b7fa814174b798ab0c1fa97d6e6b6d0d50ccab/forbidden-12.6.tar.gz"
+  sha256 "c4bee241622d64b813295f9f58681fb05cc3fd547264ef6bd6495c2fca74f605"
   license "MIT"
   head "https://github.com/ivan-sincek/forbidden.git", branch: "main"
 
@@ -42,11 +42,6 @@ class Forbidden < Formula
     sha256 "08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"
   end
 
-  resource "datetime" do
-    url "https://files.pythonhosted.org/packages/2f/66/e284b9978fede35185e5d18fb3ae855b8f573d8c90a56de5f6d03e8ef99e/DateTime-5.5.tar.gz"
-    sha256 "21ec6331f87a7fcb57bd7c59e8a68bfffe6fcbf5acdbbc7b356d6a9a020191d3"
-  end
-
   resource "grapheme" do
     url "https://files.pythonhosted.org/packages/ce/e7/bbaab0d2a33e07c8278910c1d0d8d4f3781293dfbc70b5c38197159046bf/grapheme-0.6.0.tar.gz"
     sha256 "44c2b9f21bbe77cfb05835fec230bd435954275267fea1858013b102f8603cca"
@@ -76,11 +71,6 @@ class Forbidden < Formula
     sha256 "7e1e5b56cc735432a7369cbfa0efe50fa113ebecdc04ae6922deba8b84582d0c"
   end
 
-  resource "pytz" do
-    url "https://files.pythonhosted.org/packages/3a/31/3c70bf7603cc2dca0f19bdc53b4537a797747a58875b552c8c413d963a3f/pytz-2024.2.tar.gz"
-    sha256 "2aa355083c50a0f93fa581709deac0c9ad65cca8a9e9beac660adcbd493c798a"
-  end
-
   resource "regex" do
     url "https://files.pythonhosted.org/packages/f9/38/148df33b4dbca3bd069b963acab5e0fa1a9dbd6820f8c322d0dd6faeff96/regex-2024.9.11.tar.gz"
     sha256 "6c188c307e8433bcb63dc1915022deb553b4203a70722fc542c363bf120a01fd"
@@ -89,11 +79,6 @@ class Forbidden < Formula
   resource "requests" do
     url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
     sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
-  end
-
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
-    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
   end
 
   resource "tabulate" do
@@ -111,17 +96,12 @@ class Forbidden < Formula
     sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
   end
 
-  resource "zope-interface" do
-    url "https://files.pythonhosted.org/packages/c8/83/7de03efae7fc9a4ec64301d86e29a324f32fe395022e3a5b1a79e376668e/zope.interface-7.0.3.tar.gz"
-    sha256 "cd2690d4b08ec9eaf47a85914fe513062b20da78d10d6d789a792c0b20307fb1"
-  end
-
   def install
-    virtualenv_install_with_resources start_with: "setuptools"
+    virtualenv_install_with_resources
   end
 
   test do
-    output = shell_output(bin/"forbidden -u https://brew.sh -t methods -f GET")
-    assert_match "\"code\": 200", output
+    output = shell_output("#{bin}/forbidden -u https://brew.sh -t methods -f GET")
+    assert_match '"code": 200', output
   end
 end
