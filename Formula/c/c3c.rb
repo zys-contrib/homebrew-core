@@ -16,12 +16,7 @@ class C3c < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6fceff3b368580212fb57c1c31daebf31d53f7555b16d16b8a5822ed9847311b"
-    sha256 cellar: :any,                 arm64_sonoma:  "57a190baa5a539f891b28fa56d7dccb0bd6169b6d9e819c0bb1467913511348d"
-    sha256 cellar: :any,                 arm64_ventura: "f30e7fb7d4e2b89579730d76d23bc815242115d8e805127565602a75597d46aa"
-    sha256 cellar: :any,                 sonoma:        "6b509cd22bdbee60382b5e430e7e2961c7ac18dd4eb228667cd753122fd146f9"
-    sha256 cellar: :any,                 ventura:       "efc433ad4eefc49ad65ccbf8b544cd51efc156ebad455c2f30feaf3493ded940"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35aa7fa878153939fbfb9bbdcb517efced0c22b7488a52d6b0cf00b8072de953"
+    sha256 x86_64_linux: "61598c6983568ba972cf23b480dbf3577e408c771f982b44a4d8bb72c2258aec"
   end
 
   depends_on "cmake" => :build
