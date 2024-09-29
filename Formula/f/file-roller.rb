@@ -22,13 +22,13 @@ class FileRoller < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
+  depends_on "desktop-file-utils"
   depends_on "glib"
   depends_on "gtk4"
   depends_on "hicolor-icon-theme"
   depends_on "json-glib"
   depends_on "libadwaita"
   depends_on "libarchive"
-  depends_on "libmagic"
   depends_on "pango"
 
   on_macos do
@@ -36,15 +36,6 @@ class FileRoller < Formula
   end
 
   def install
-    # Patch out gnome.post_install to avoid failing when unused commands are missing.
-    # TODO: Remove when build no longer fails, which may be possible in following scenarios:
-    # - gnome.post_install avoids failing on missing commands when `DESTDIR` is set
-    # - gnome.post_install works with Homebrew's distribution of `gtk4`
-    # - `file-roller` moves to `gtk4`
-    inreplace "meson.build", /^gnome\.post_install\([^)]*\)$/, ""
-
-    ENV.append "CFLAGS", "-I#{Formula["libmagic"].opt_include}"
-    ENV.append "LIBS", "-L#{Formula["libmagic"].opt_lib}"
     ENV["DESTDIR"] = "/"
 
     system "meson", "setup", "build", "-Dpackagekit=false", "-Duse_native_appchooser=false", *std_meson_args
@@ -55,6 +46,7 @@ class FileRoller < Formula
   def post_install
     system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
     system "#{Formula["gtk4"].opt_bin}/gtk4-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
+    system "#{Formula["desktop-file-utils"].opt_bin}/update-desktop-database", "#{HOMEBREW_PREFIX}/share/applications"
   end
 
   test do
