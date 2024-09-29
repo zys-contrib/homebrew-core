@@ -3,8 +3,8 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/11/11/5dfe1bb81a2ec3861ee9004573a665ced822389ff9ef4307fa3703177002/moto-5.0.15.tar.gz"
-  sha256 "57aa8c2af417cc64a0ddfe63e5bcd1ada90f5079b73cdd1f74c4e9fb30a1a7e6"
+  url "https://files.pythonhosted.org/packages/26/72/f7ec295a6a0b7211b5784efba783c1225c56e998a14d608abf5b2715d7b5/moto-5.0.16.tar.gz"
+  sha256 "f4afb176a964cd7a70da9bc5e053d43109614ce3cab26044bcbb53610435dff4"
   license "Apache-2.0"
 
   bottle do
@@ -53,18 +53,18 @@ class Moto < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/c2/e4/b3438c3493a5b534f86308809029dc72c854b6007c331c03893345799a35/boto3-1.35.24.tar.gz"
-    sha256 "be7807f30f26d6c0057e45cfd09dad5968e664488bf4f9138d0bb7a0f6d8ed40"
+    url "https://files.pythonhosted.org/packages/25/d8/f7bc41e01e83eaad1ec297cfb675c1f98cc59450b1f4a76b93a1e31a2b09/boto3-1.35.29.tar.gz"
+    sha256 "7bbb1ee649e09e956952285782cfdebd7e81fc78384f48dfab3d66c6eaf3f63f"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/44/68/8c6e4e8d7ec73f4daa0a1411dd0b3efcb06ed77c8d02ae95c90b85afdcbc/botocore-1.35.24.tar.gz"
-    sha256 "1e59b0f14f4890c4f70bd6a58a634b9464bed1c4c6171f87c8795d974ade614b"
+    url "https://files.pythonhosted.org/packages/41/23/482871ed269fa0c832f98c840686b4ef18662b3fb800eab48a48817d286c/botocore-1.35.29.tar.gz"
+    sha256 "4ed28ab03675bb008a290c452c5ddd7aaa5d4e3fa1912aadbdf93057ee84362b"
   end
 
   resource "cfn-lint" do
-    url "https://files.pythonhosted.org/packages/7d/ad/bd8d1e361d4851d61e8ff8a8f69c4d3fb5c1e513d1f40dbeea9e16474c17/cfn_lint-1.14.2.tar.gz"
-    sha256 "34343ec06fc9a08d8947fa1cd61d1e8ad3430ee745654099752da6f7d72f880d"
+    url "https://files.pythonhosted.org/packages/ba/13/fef6a6db8ad90f99c8d661c61c27263e1ef35da27932e0a3ac580f6a8694/cfn_lint-1.15.1.tar.gz"
+    sha256 "b7d9296b10ca1fe0840efb1351dbe1648602e0aed60a875f738f0b125fe5a5a1"
   end
 
   resource "charset-normalizer" do
