@@ -28,6 +28,9 @@ class Flang < Formula
     Formula["llvm"]
   end
 
+  # Building with GCC fails at linking with an obscure error.
+  fails_with :gcc
+
   def install
     # NOTE: Setting `BUILD_SHARED_LIBRARIES=ON` causes the just-built flang to throw ICE.
     args = %W[
@@ -44,11 +47,34 @@ class Flang < Formula
     ]
     args << "-DFLANG_VENDOR_UTI=sh.brew.flang" if tap&.official?
 
+    ENV.append_to_cflags "-ffat-lto-objects" if OS.linux? # Unsupported on macOS.
     install_prefix = OS.mac? ? libexec : prefix
     system "cmake", "-S", "flang", "-B", "build", *args, *std_cmake_args(install_prefix:)
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
     return if install_prefix == prefix
+
+    # Convert LTO-generated bitcode in our static archives to MachO.
+    # Not needed on Linux because of `-ffat-lto-objects`
+    # See equivalent code in `llvm.rb`.
+    install_prefix.glob("lib/*.a").each do |static_archive|
+      mktemp do
+        system llvm.opt_bin/"llvm-ar", "x", static_archive
+        rebuilt_files = []
+
+        Pathname.glob("*.o").each do |bc_file|
+          file_type = Utils.safe_popen_read("file", "--brief", bc_file)
+          next unless file_type.match?(/^LLVM (IR )?bitcode/)
+
+          rebuilt_files << bc_file
+          system ENV.cc, "-fno-lto", "-Wno-unused-command-line-argument",
+                         "-x", "ir", bc_file, "-c", "-o", bc_file
+        end
+
+        system llvm.opt_bin/"llvm-ar", "r", static_archive, *rebuilt_files if rebuilt_files.present?
+      end
+    end
 
     libexec.find do |pn|
       next if pn.directory?
@@ -89,5 +115,10 @@ class Flang < Formula
 
     system bin/"flang-new", "-v", "test.f90", cxx_stdlib, "-o", "test"
     assert_equal "Done", shell_output("./test").chomp
+
+    system "ar", "x", lib/"libFortranCommon.a"
+    testpath.glob("*.o").each do |object_file|
+      refute_match(/^LLVM (IR )?bitcode/, shell_output("file --brief #{object_file}"))
+    end
   end
 end
