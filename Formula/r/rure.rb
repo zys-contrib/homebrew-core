@@ -1,8 +1,8 @@
 class Rure < Formula
   desc "C API for RUst's REgex engine"
   homepage "https://github.com/rust-lang/regex/tree/HEAD/regex-capi"
-  url "https://github.com/rust-lang/regex/archive/refs/tags/1.10.6.tar.gz"
-  sha256 "9ca2905c45aa024a979dc97c8140b97af2be143e2dd47fc2d990af5ac2befb31"
+  url "https://github.com/rust-lang/regex/archive/refs/tags/1.11.0.tar.gz"
+  sha256 "1642eeb71536d58128ac798af242efafee1d4689c71d211028227e17ac20aeba"
   license all_of: [
     "Unicode-TOU",
     any_of: ["Apache-2.0", "MIT"],
@@ -22,7 +22,7 @@ class Rure < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "build", "--lib", "--manifest-path", "regex-capi/Cargo.toml", "--release"
+    system "cargo", "build", "--jobs", ENV.make_jobs, "--lib", "--manifest-path", "regex-capi/Cargo.toml", "--release"
     include.install "regex-capi/include/rure.h"
     lib.install "target/release/#{shared_library("librure")}"
     lib.install "target/release/librure.a"
