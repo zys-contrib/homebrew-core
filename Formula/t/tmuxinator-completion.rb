@@ -14,8 +14,6 @@ class TmuxinatorCompletion < Formula
     sha256 cellar: :any_skip_relocation, all: "77e4085a32570af2da928e7de06e32509e4a00184fdfc0c403db5e7af7d78854"
   end
 
-  conflicts_with "tmuxinator", because: "the tmuxinator formula includes completion"
-
   def install
     bash_completion.install "completion/tmuxinator.bash" => "tmuxinator"
     zsh_completion.install "completion/tmuxinator.zsh" => "_tmuxinator"
