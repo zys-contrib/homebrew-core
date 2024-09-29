@@ -24,22 +24,26 @@ class Sdcc < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "boost"
+  depends_on "boost" => :build
   depends_on "gputils"
   depends_on "readline"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "zstd"
+  end
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}"
-    system "make", "all"
+    system "./configure", "--disable-non-free", "--without-ccache", *std_configure_args
     system "make", "install"
-    rm Dir["#{bin}/*.el"]
+    elisp.install bin.glob("*.el")
   end
 
   test do
