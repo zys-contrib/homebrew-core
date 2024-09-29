@@ -1,10 +1,9 @@
 class Rtorrent < Formula
   desc "Ncurses BitTorrent client based on libtorrent-rakshasa"
   homepage "https://github.com/rakshasa/rtorrent"
-  url "https://github.com/rakshasa/rtorrent/releases/download/v0.9.8/rtorrent-0.9.8.tar.gz"
-  sha256 "9edf0304bf142215d3bc85a0771446b6a72d0ad8218efbe184b41e4c9c7542af"
+  url "https://github.com/rakshasa/rtorrent/releases/download/v0.10.0/rtorrent-0.10.0.tar.gz"
+  sha256 "cc65bba7abead24151f10af116eca2342b0c320fdff3cb8d604c0af09215d3aa"
   license "GPL-2.0-or-later"
-  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "d73c40d99e7cfbaa067a7c3b405ac28501376977857a68a66a9468122aa1d850"
@@ -18,21 +17,26 @@ class Rtorrent < Formula
   end
 
   depends_on "autoconf" => :build
+  depends_on "autoconf-archive" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+
   depends_on "libtorrent-rakshasa"
   depends_on "xmlrpc-c"
 
   uses_from_macos "curl"
   uses_from_macos "ncurses"
 
-  def install
-    args = ["--prefix=#{prefix}", "--with-xmlrpc-c",
-            "--disable-debug", "--disable-dependency-tracking"]
+  # patch to use fsync for osx builds, upstream pr ref, https://github.com/rakshasa/rtorrent/pull/1297
+  patch do
+    url "https://github.com/rakshasa/rtorrent/commit/ad491b46ede1593dc28120231b87051530f5b391.patch?full_index=1"
+    sha256 "5242ccb5e85a40860d3928f3264d5579976717d071bdb228960eab8926396a69"
+  end
 
-    system "sh", "autogen.sh"
-    system "./configure", *args
+  def install
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", "--with-xmlrpc-c", *std_configure_args
     system "make"
     system "make", "install"
   end
