@@ -26,6 +26,7 @@ class Halide < Formula
   depends_on "flatbuffers"
   depends_on "jpeg-turbo"
   depends_on "libpng"
+  depends_on "lld"
   depends_on "llvm"
   depends_on "python@3.12"
 
@@ -51,14 +52,18 @@ class Halide < Formula
     builddir = buildpath/"build"
     (builddir/"_deps/wabt-src").install resource("wabt")
 
-    system "cmake", "-S", ".", "-B", builddir,
-                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                    "-DHalide_INSTALL_PYTHONDIR=#{prefix/Language::Python.site_packages(python3)}",
-                    "-DHalide_SHARED_LLVM=ON",
-                    "-DPYBIND11_USE_FETCHCONTENT=OFF",
-                    "-DFLATBUFFERS_USE_FETCHCONTENT=OFF",
-                    "-DFETCHCONTENT_SOURCE_DIR_WABT=#{builddir}/_deps/wabt-src",
-                    *std_cmake_args
+    site_packages = prefix/Language::Python.site_packages(python3)
+    rpaths = [rpath, rpath(source: site_packages/"halide")]
+    args = [
+      "-DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}",
+      "-DHalide_INSTALL_PYTHONDIR=#{site_packages}",
+      "-DHalide_SHARED_LLVM=ON",
+      "-DPYBIND11_USE_FETCHCONTENT=OFF",
+      "-DFLATBUFFERS_USE_FETCHCONTENT=OFF",
+      "-DFETCHCONTENT_SOURCE_DIR_WABT=#{builddir}/_deps/wabt-src",
+    ]
+    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup" if OS.mac?
+    system "cmake", "-S", ".", "-B", builddir, *args, *std_cmake_args
     system "cmake", "--build", builddir
     system "cmake", "--install", builddir
   end
