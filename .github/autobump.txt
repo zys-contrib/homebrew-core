@@ -777,6 +777,7 @@ erdtree
 erg
 erlang
 erlang@25
+erlang@26
 erlang_ls
 erofs-utils
 esbuild
