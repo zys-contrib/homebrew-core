@@ -7,18 +7,18 @@ class Tmuxinator < Formula
   head "https://github.com/tmuxinator/tmuxinator.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "20b3157e1c0d3d678d99d9d331d6a40672e2ac06275b16ce2aa710648f9b6158"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "20b3157e1c0d3d678d99d9d331d6a40672e2ac06275b16ce2aa710648f9b6158"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "20b3157e1c0d3d678d99d9d331d6a40672e2ac06275b16ce2aa710648f9b6158"
-    sha256 cellar: :any_skip_relocation, sonoma:        "511e8442e0a21d32bb349546202e7eb63bc1264443149d63401054191cd92654"
-    sha256 cellar: :any_skip_relocation, ventura:       "511e8442e0a21d32bb349546202e7eb63bc1264443149d63401054191cd92654"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20b3157e1c0d3d678d99d9d331d6a40672e2ac06275b16ce2aa710648f9b6158"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "188a4f8454878969426828dae469d6c013d13988fd646cc311b55272bf2c21ec"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "188a4f8454878969426828dae469d6c013d13988fd646cc311b55272bf2c21ec"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "188a4f8454878969426828dae469d6c013d13988fd646cc311b55272bf2c21ec"
+    sha256 cellar: :any_skip_relocation, sonoma:        "974aa5f23c3f16005bb4b2db37fa729818f62d7f2e3a3960bf862834b130ef1d"
+    sha256 cellar: :any_skip_relocation, ventura:       "974aa5f23c3f16005bb4b2db37fa729818f62d7f2e3a3960bf862834b130ef1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "188a4f8454878969426828dae469d6c013d13988fd646cc311b55272bf2c21ec"
   end
 
   depends_on "ruby"
   depends_on "tmux"
-
-  conflicts_with "tmuxinator-completion", because: "the tmuxinator formula includes completion"
+  depends_on "tmuxinator-completion"
 
   resource "xdg" do
     url "https://rubygems.org/downloads/xdg-2.2.5.gem"
@@ -47,18 +47,11 @@ class Tmuxinator < Formula
     system "gem", "install", "--ignore-dependencies", "tmuxinator-#{version}.gem"
     bin.install libexec/"bin/tmuxinator"
     bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
-
-    bash_completion.install "completion/tmuxinator.bash" => "tmuxinator"
-    zsh_completion.install "completion/tmuxinator.zsh" => "_tmuxinator"
-    fish_completion.install Dir["completion/*.fish"]
   end
 
   test do
     version_output = shell_output("#{bin}/tmuxinator version")
     assert_match "tmuxinator #{version}", version_output
-
-    completion = shell_output("bash -c 'source #{bash_completion}/tmuxinator && complete -p tmuxinator'")
-    assert_match "-F _tmuxinator", completion
 
     commands = shell_output("#{bin}/tmuxinator commands")
     commands_list = %w[
