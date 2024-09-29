@@ -6,8 +6,7 @@ class Cgal < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "70d4bde9024c3e8215eaeba6043275bbd71e7b5635d36710515726808c60db09"
+    sha256 cellar: :any_skip_relocation, all: "cef0370592c5f913bfe5b34cae9189a28cb50c0b7e9b072a16b808e05697aec2"
   end
 
   depends_on "cmake" => [:build, :test]
