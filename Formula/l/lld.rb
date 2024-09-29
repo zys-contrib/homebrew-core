@@ -11,6 +11,15 @@ class Lld < Formula
     formula "llvm"
   end
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "cde589cca0046c891ba2cc8709e2482d44cd07d3e3acc1b624fac8a5984ef239"
+    sha256 cellar: :any,                 arm64_sonoma:  "8c57e37bf0e0a99433ecc47b50cfd3e9249515ea9bc036965432a3c61a25ab69"
+    sha256 cellar: :any,                 arm64_ventura: "4448c6d318653c242d9a3461f91cd6fef39a1e341263291da47e1fc4d37978f4"
+    sha256 cellar: :any,                 sonoma:        "778e174a83d763691eebc7753d09b504bc938e959b01339ec07ddb8d04ae4b33"
+    sha256 cellar: :any,                 ventura:       "df1dbbb710c398e88cbc5ab8c7a9bba1725049447b93ad811f60476b1a9eef3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83150ee79ef606a7d9764c5a15a67c567744a519fce594782595656a8ba87b80"
+  end
+
   depends_on "cmake" => :build
   depends_on "llvm"
   depends_on "zstd"
