@@ -38,6 +38,9 @@ class Itstool < Formula
     bin.env_script_all_files libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"]
     pkgshare.install_symlink libexec/"share/itstool/its"
     man1.install_symlink libexec/"share/man/man1/itstool.1"
+
+    # Check for itstool data files in HOMEBREW_PREFIX. This also ensures uniform bottles.
+    inreplace libexec/"bin/itstool", "/usr/local", HOMEBREW_PREFIX
   end
 
   test do
