@@ -3,8 +3,8 @@ class Grayskull < Formula
 
   desc "Recipe generator for Conda"
   homepage "https://github.com/conda/grayskull"
-  url "https://files.pythonhosted.org/packages/a8/17/fe98abd598296f807c1a2b062c56cfc2bfbfa69f475c7eee69af6a3320f8/grayskull-2.7.2.tar.gz"
-  sha256 "ecd76a2fa13e82524e0d7db82d13df802fc8e10c8240556bb1e7c6454d7b92c2"
+  url "https://files.pythonhosted.org/packages/95/9f/ace91b84daf25219c9b902b492683a245afb9b697210fe6be0653bf1ef14/grayskull-2.7.3.tar.gz"
+  sha256 "9396245439584b92d656fdefb03d6911b5987f91a5ae714772ddcb338768cbb9"
   license "Apache-2.0"
 
   bottle do
