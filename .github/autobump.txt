@@ -2376,6 +2376,7 @@ ruby@3.2
 ruff
 ruff-lsp
 rune
+runit
 rure
 rush
 rush-parallel
