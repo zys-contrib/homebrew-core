@@ -19,12 +19,12 @@ class Grpc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "92ed563148e85a8a5420e5b68725e6a7a932c8f71b522faa3379651c1adcaf0b"
-    sha256 cellar: :any,                 arm64_sonoma:  "bdd81428146c95b70e1efe98e226a0a2e5245492563453b43daf1e8c89a2032d"
-    sha256 cellar: :any,                 arm64_ventura: "1308b7fd12bc6aae128548d2a8f74a20f0fc7502858ac5d948cfbce9ca9660d3"
-    sha256 cellar: :any,                 sonoma:        "a83b30201c69e0ea704d98baa1cef8b279e1ad86c9baa577943ab39ed17fd862"
-    sha256 cellar: :any,                 ventura:       "075bf2bee52a27c4bd9b133407c770692f573dcdfcb9d587dac7e1eccd0f854b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c728f7e34a87657120a330cd8f3d0f34d0039635e7647ea8193b6c47d09b24b"
+    sha256 cellar: :any,                 arm64_sequoia: "c7da5016780bd4b56831565431f631dc3be86ab7173b41c37cef1dbf84b08852"
+    sha256 cellar: :any,                 arm64_sonoma:  "efd45cebf414bc6a1cda64c7e4411488ab4e3dbb0896db124ab6a79850b0785f"
+    sha256 cellar: :any,                 arm64_ventura: "0d41ed6ebaa6fce17567651fde1f6e9c65093180c38df6e7a3ad823a0bcccb58"
+    sha256 cellar: :any,                 sonoma:        "4909e37962107024325fe399545cf0dc48e3f742273d9c850c93fc45a7cae883"
+    sha256 cellar: :any,                 ventura:       "9b540b06de369afa44a1e116407a181cb91c24b52dac53d09ed75604372f8f87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f8a2a47632417910045a14b02798d57ec8fa0f2fd81febec7254ec338ec1ec9"
   end
 
   depends_on "autoconf" => :build
