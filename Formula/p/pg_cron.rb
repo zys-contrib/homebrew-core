@@ -6,14 +6,13 @@ class PgCron < Formula
   license "PostgreSQL"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "1d02a68df87ccb9230b012df1156d13871d0cef491654456c87f67d36a3f3d16"
-    sha256 cellar: :any,                 arm64_sonoma:   "a4000e880882f55b3d67500e5af3136ec503352ec0ff5149820ddf7c2a956ed3"
-    sha256 cellar: :any,                 arm64_ventura:  "a4c5ceb4fd4dc0f48b2467a973c9da39c035310ccd9f9e7b33a292946af1a8c9"
-    sha256 cellar: :any,                 arm64_monterey: "bf81b4a0c65c288a78144458945bfb43f9b4b6ec58f91a95534fa226b85125d4"
-    sha256 cellar: :any,                 sonoma:         "9c26f60cc911b2dbff41be7fa52bab1169d0196f76a02ff5189f06a2424b1ae9"
-    sha256 cellar: :any,                 ventura:        "24ea0207cb01a894dde9759e16cbc251f0c208a116a954a1db3a34aab5c36acf"
-    sha256 cellar: :any,                 monterey:       "ccf9d396b36b9f7273ed532f9cf7b7ff397c16dadac70ba6466dba564240ca80"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6fe3792c2ab79fc559a08b92f858d6ba3cab54073a2861c3a5eb5ea81013df1"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "761f569a42613c25ad934f27d9a33700bee8fae46611cf65afeb44c2e94e7490"
+    sha256 cellar: :any,                 arm64_sonoma:  "37b2a1792f507b0c9056330b9692b020c051990c267796206d9a49e323e434cd"
+    sha256 cellar: :any,                 arm64_ventura: "7cbf1d31f5e7b621db839a14a0769870dbb9f438b3b435bb5346976909f41974"
+    sha256 cellar: :any,                 sonoma:        "0ee4c33e3afc5c2938a29a01f7e1c1796d004799c85e916a02e68caa9f75631d"
+    sha256 cellar: :any,                 ventura:       "b661444235d90028484e30f5c2c5482f2ffb37c411589e2b47cc2d29f5f57361"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "716af477c814e3dc4fda5bbaf25b11a278b0ae93fdda8d5ebd37e1c0c12e5bb8"
   end
 
   depends_on "postgresql@14" => [:build, :test]
