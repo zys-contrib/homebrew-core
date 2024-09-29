@@ -17,8 +17,7 @@ class Tmuxinator < Formula
 
   depends_on "ruby"
   depends_on "tmux"
-
-  conflicts_with "tmuxinator-completion", because: "the tmuxinator formula includes completion"
+  depends_on "tmuxinator-completion"
 
   resource "xdg" do
     url "https://rubygems.org/downloads/xdg-2.2.5.gem"
@@ -47,18 +46,11 @@ class Tmuxinator < Formula
     system "gem", "install", "--ignore-dependencies", "tmuxinator-#{version}.gem"
     bin.install libexec/"bin/tmuxinator"
     bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
-
-    bash_completion.install "completion/tmuxinator.bash" => "tmuxinator"
-    zsh_completion.install "completion/tmuxinator.zsh" => "_tmuxinator"
-    fish_completion.install Dir["completion/*.fish"]
   end
 
   test do
     version_output = shell_output("#{bin}/tmuxinator version")
     assert_match "tmuxinator #{version}", version_output
-
-    completion = shell_output("bash -c 'source #{bash_completion}/tmuxinator && complete -p tmuxinator'")
-    assert_match "-F _tmuxinator", completion
 
     commands = shell_output("#{bin}/tmuxinator commands")
     commands_list = %w[
