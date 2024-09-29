@@ -16,7 +16,13 @@ class C3c < Formula
   end
 
   bottle do
-    sha256 x86_64_linux: "61598c6983568ba972cf23b480dbf3577e408c771f982b44a4d8bb72c2258aec"
+    rebuild 1
+    sha256 cellar: :any, arm64_sequoia: "2a473a1e0a84bff3787ca3508c988c6f0ce5dcd7b2831d8290d0d7ff8b37e7ca"
+    sha256 cellar: :any, arm64_sonoma:  "8db8c9732fa622f177779603a1a818ffc2850fe7c5dab15824f619251365be4f"
+    sha256 cellar: :any, arm64_ventura: "470448177cd58ef8ff02d794b11cc05ba575e1afd07aba99548a5441f6eb748a"
+    sha256 cellar: :any, sonoma:        "28c8306c8784a3c8f538ed81a6824032dbb5f8f4ce72e272357a4c17368d9106"
+    sha256 cellar: :any, ventura:       "8dcc785373d047cdf94a282ff93f0cf452c88410ed75cb8435b29081aa762692"
+    sha256               x86_64_linux:  "d0d77c4e01942f66e00284e0fd4048b5abb46ee3eacffe86fb72d13cb965da2d"
   end
 
   depends_on "cmake" => :build
@@ -34,21 +40,22 @@ class C3c < Formula
   fails_with :gcc
 
   def install
-    # Link dynamically to our libLLVM and liblld*.
-    if OS.mac?
-      inreplace "CMakeLists.txt" do |s|
-        s.gsub!("libLLVM.so", "libLLVM.dylib")
-        s.gsub!(/(liblld[A-Za-z]+)\.so/, "\\1.dylib")
-      end
-    end
+    args = [
+      "-DC3_LINK_DYNAMIC=ON",
+      "-DC3_USE_MIMALLOC=OFF",
+      "-DC3_USE_TB=OFF",
+      "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
+      "-DLLVM=#{Formula["llvm"].opt_lib/shared_library("libLLVM")}",
+      "-DLLD_COFF=#{Formula["lld"].opt_lib/shared_library("liblldCOFF")}",
+      "-DLLD_COMMON=#{Formula["lld"].opt_lib/shared_library("liblldCommon")}",
+      "-DLLD_ELF=#{Formula["lld"].opt_lib/shared_library("liblldELF")}",
+      "-DLLD_MACHO=#{Formula["lld"].opt_lib/shared_library("liblldMachO")}",
+      "-DLLD_MINGW=#{Formula["lld"].opt_lib/shared_library("liblldMinGW")}",
+      "-DLLD_WASM=#{Formula["lld"].opt_lib/shared_library("liblldWasm")}",
+    ]
 
     ENV.append "LDFLAGS", "-lzstd -lz"
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DC3_LINK_DYNAMIC=ON",
-                    "-DC3_USE_MIMALLOC=OFF",
-                    "-DC3_USE_TB=OFF",
-                    "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
-                    *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
