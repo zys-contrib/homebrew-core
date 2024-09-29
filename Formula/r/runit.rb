@@ -11,19 +11,12 @@ class Runit < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d257aab5dc6dc103fb59a1bec74635b42b0230343386e1efaecb93c4d511a877"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5a67a746d8d0a5a5f32054250f70495ec721d896392fdef7c436fb705e5bac89"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9b5382dabe0f132590739a602c4f5e5acf54c7aaff32fa0af6800ae8c330e6f3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8f052bec9af60ed628dec6fd235468b4cbb88d5b02c2570d1e1cddd0596e64be"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "39e047730d34a1981348cee841295648336b6ff705a200ef5f99130dc0cfde3c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0e2818ca2cbfa5cab41729582a1828688a35b1bcb060e6c38a708b4f20814f5e"
-    sha256 cellar: :any_skip_relocation, ventura:        "fa85ac5365da0fd4ee8e5516b2256dedeaaac2708bd746581863de454ae8aec6"
-    sha256 cellar: :any_skip_relocation, monterey:       "80de201022723bb21ff78b50bd6dd1501ea8fb8a4d062e4974ad219d0971d1f4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a619f4f93c0a243b27e229916a5c7fc0371c7f38db7a608e5232d27eca9e9987"
-    sha256 cellar: :any_skip_relocation, catalina:       "d0e17adfaaf02589b498e362596486515b37a0fda917ee8f0e51ac8e2409afd6"
-    sha256 cellar: :any_skip_relocation, mojave:         "ec6f4b2f1b323aba830a5f26daed8615395b0f774de82e074ee699627b1c106a"
-    sha256                               x86_64_linux:   "4f36fd98073523f04cebacef60f30fae7501f351c4a885e3a7a4540e41cafb14"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5c6d9fe18b8ab5e4f85de166d9300367cbdb8c4157ae7ba26d6f891376bb248d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e48a87a97472f98638753b03e3a9fd5aa6b622cbd59c114c1ab3b4b2dca4158f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a02febc253e32ca872f45183b70298c703b86a69d756850170b10454f921efcb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f820d9806a8247bd514c135b926100b205fa13aaded0f77ef73c22156ebd8309"
+    sha256 cellar: :any_skip_relocation, ventura:       "2fb88364202380b041df206331f369cd8b90cb7b38407e83195ab5c5cecb4d6f"
+    sha256                               x86_64_linux:  "84004a0ce4e354a57c901166bfd58276a281c22f56fccae2690b3c7c158f055d"
   end
 
   def install
