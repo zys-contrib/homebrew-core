@@ -1592,6 +1592,7 @@ libtiff
 libtirpc
 libtommath
 libtool
+libtorrent-rakshasa
 libtrace
 libtrng
 libucl

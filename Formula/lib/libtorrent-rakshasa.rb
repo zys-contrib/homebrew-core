@@ -1,10 +1,9 @@
 class LibtorrentRakshasa < Formula
   desc "BitTorrent library with a focus on high performance"
   homepage "https://github.com/rakshasa/libtorrent"
-  url "https://github.com/rakshasa/libtorrent/archive/refs/tags/v0.13.8.tar.gz"
-  sha256 "0f6c2e7ffd3a1723ab47fdac785ec40f85c0a5b5a42c1d002272205b988be722"
+  url "https://github.com/rakshasa/libtorrent/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "0ec8ef7544a551ccbf6fce5c6c535f69cb3ad10e4d5e70e620ecd47fef90a13e"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url :stable
@@ -37,8 +36,8 @@ class LibtorrentRakshasa < Formula
     because: "they both use the same libname"
 
   def install
-    system "sh", "autogen.sh"
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "install"
   end
