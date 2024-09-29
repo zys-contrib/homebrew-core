@@ -31,9 +31,6 @@ class C3c < Formula
   depends_on "zstd"
 
   uses_from_macos "curl"
-  uses_from_macos "libedit"
-  uses_from_macos "libxml2"
-  uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
   # Linking dynamically with LLVM fails with GCC.
