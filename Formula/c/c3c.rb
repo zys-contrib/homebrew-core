@@ -4,7 +4,7 @@ class C3c < Formula
   url "https://github.com/c3lang/c3c/archive/refs/tags/v0.6.2.tar.gz"
   sha256 "e39f98d5a78f9d3aa8da4ce07062b4ca93d25b88107961cbd3af2b3f6bcf8e78"
   license "LGPL-3.0-only"
-  revision 1
+  revision 2
   head "https://github.com/c3lang/c3c.git", branch: "master"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -16,16 +16,12 @@ class C3c < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6fceff3b368580212fb57c1c31daebf31d53f7555b16d16b8a5822ed9847311b"
-    sha256 cellar: :any,                 arm64_sonoma:  "57a190baa5a539f891b28fa56d7dccb0bd6169b6d9e819c0bb1467913511348d"
-    sha256 cellar: :any,                 arm64_ventura: "f30e7fb7d4e2b89579730d76d23bc815242115d8e805127565602a75597d46aa"
-    sha256 cellar: :any,                 sonoma:        "6b509cd22bdbee60382b5e430e7e2961c7ac18dd4eb228667cd753122fd146f9"
-    sha256 cellar: :any,                 ventura:       "efc433ad4eefc49ad65ccbf8b544cd51efc156ebad455c2f30feaf3493ded940"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35aa7fa878153939fbfb9bbdcb517efced0c22b7488a52d6b0cf00b8072de953"
+    sha256 x86_64_linux: "61598c6983568ba972cf23b480dbf3577e408c771f982b44a4d8bb72c2258aec"
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm" => :build
+  depends_on "lld"
+  depends_on "llvm"
   depends_on "zstd"
 
   uses_from_macos "curl"
@@ -34,23 +30,24 @@ class C3c < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  on_macos do
-    depends_on "llvm"
-  end
+  # Linking dynamically with LLVM fails with GCC.
+  fails_with :gcc
 
   def install
-    # Link dynamically to our libLLVM. We can't do the same for liblld*,
-    # since we only ship static libraries.
-    inreplace "CMakeLists.txt" do |s|
-      s.gsub!("libLLVM.so", "libLLVM.dylib") if OS.mac?
-      s.gsub!(/(liblld[A-Za-z]+)\.so/, "\\1.a")
+    # Link dynamically to our libLLVM and liblld*.
+    if OS.mac?
+      inreplace "CMakeLists.txt" do |s|
+        s.gsub!("libLLVM.so", "libLLVM.dylib")
+        s.gsub!(/(liblld[A-Za-z]+)\.so/, "\\1.dylib")
+      end
     end
 
-    ENV.append "LDFLAGS", "-lzstd -lz" if OS.mac?
+    ENV.append "LDFLAGS", "-lzstd -lz"
     system "cmake", "-S", ".", "-B", "build",
-                    "-DC3_LINK_DYNAMIC=#{OS.mac? ? "ON" : "OFF"}", # FIXME: dynamic linking fails the Linux build.
+                    "-DC3_LINK_DYNAMIC=ON",
                     "-DC3_USE_MIMALLOC=OFF",
                     "-DC3_USE_TB=OFF",
+                    "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
