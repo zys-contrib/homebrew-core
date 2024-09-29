@@ -23,19 +23,37 @@ class ClawsMail < Formula
 
   depends_on "pkg-config" => :build
   depends_on "cairo"
+  depends_on "gdk-pixbuf"
   depends_on "glib"
   depends_on "gnutls"
   depends_on "gtk+3"
   depends_on "libetpan"
   depends_on "nettle"
+  depends_on "pango"
+
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "at-spi2-core"
+    depends_on "gettext"
+    depends_on "harfbuzz"
+  end
+
+  on_linux do
+    depends_on "libice"
+    depends_on "libsm"
+  end
 
   def install
-    ENV.append "LDFLAGS", "-Wl,-framework -Wl,Security" if OS.mac?
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
+    if OS.mac?
+      ENV["LIBETPAN_CFLAGS"] = "-I#{Formula["libetpan"].opt_include}"
+      ENV["LIBETPAN_LIBS"] = "-F#{Formula["libetpan"].opt_frameworks} -framework libetpan"
+    end
+    system "./configure", "--disable-silent-rules",
                           "--disable-archive-plugin",
                           "--disable-dillo-plugin",
-                          "--disable-notification-plugin"
+                          "--disable-notification-plugin",
+                          *std_configure_args
     system "make", "install"
   end
 
