@@ -11,6 +11,14 @@ class Flang < Formula
     formula "llvm"
   end
 
+  bottle do
+    sha256 cellar: :any, arm64_sequoia: "f4cc33b60eec6295c5bce880a6bfeeb77b9b42bc3c59914c38f9fefecacf0ae8"
+    sha256 cellar: :any, arm64_sonoma:  "216ed0ba35c0aede3d0b7edb13c20425574a31c4ac8b2f9e1023e8c6fcbc0861"
+    sha256 cellar: :any, arm64_ventura: "447a15f0b773bf097f158181c57ff0568c07b5476929af4d8aa7add8c81cf02d"
+    sha256 cellar: :any, sonoma:        "d95b30baa99589aab50c01d91e26eee3e866c07600052646a4033803e7b32a8b"
+    sha256 cellar: :any, ventura:       "7830c67c89f757c1196d1240205ec22cf00b2bc969bc70514c026bff0d919355"
+  end
+
   depends_on "cmake" => :build
   depends_on "llvm"
   depends_on "zstd"
