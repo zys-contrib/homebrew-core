@@ -3,8 +3,8 @@ class Schemathesis < Formula
 
   desc "Testing tool for web applications with specs"
   homepage "https://schemathesis.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/1a/30/c898a523cfb35967fa9547f329939626f58718fbf232c0e5766870e27b36/schemathesis-3.36.2.tar.gz"
-  sha256 "9a29e59c1f632eaa33d873dc46312a95813b3f1a28033080289b03d3826f8175"
+  url "https://files.pythonhosted.org/packages/06/4b/ab55fbbba29aced8270dff7f734b2f38ee3ab22a91318f0e1290e0bd88d5/schemathesis-3.36.3.tar.gz"
+  sha256 "17ad340de2c09e9d38fe0fd8838c21f5a73cc18503e6ca3fb9e288022847235b"
   license "MIT"
 
   bottle do
@@ -89,8 +89,8 @@ class Schemathesis < Formula
   end
 
   resource "hypothesis" do
-    url "https://files.pythonhosted.org/packages/a3/cf/21929f0c6a73c0607e6230d8a4c0cbdbd11216c3be6579e7a0f8565ae232/hypothesis-6.112.1.tar.gz"
-    sha256 "b070d7a1bb9bd84706c31885c9aeddc138e2b36a9c112a91984f49501c567856"
+    url "https://files.pythonhosted.org/packages/11/a5/4bb02e3153f40bd9a819e35e4c9838cf850ad3e0aa31d30a60cd9b29d143/hypothesis-6.112.2.tar.gz"
+    sha256 "90cd62d9487eaf294bf0dceb47dbaca6432408b2e9417cfa6e3409313dbde95b"
   end
 
   resource "hypothesis-graphql" do
@@ -224,8 +224,8 @@ class Schemathesis < Formula
   end
 
   resource "starlette" do
-    url "https://files.pythonhosted.org/packages/65/d2/89a812386fff01247481fb5a9709b4eac1e16753a9ff2915ec6c23cad108/starlette-0.39.1.tar.gz"
-    sha256 "33c5a94f64d3ab2c799b2715b45f254a3752f229d334f1562a3aaf78c23eab95"
+    url "https://files.pythonhosted.org/packages/02/0a/62fbd5697f6174041f9b4e2e377b6f383f9189b77dbb7d73d24624caca1d/starlette-0.39.2.tar.gz"
+    sha256 "caaa3b87ef8518ef913dac4f073dea44e85f73343ad2bdc17941931835b2a26a"
   end
 
   resource "starlette-testclient" do
@@ -269,8 +269,8 @@ class Schemathesis < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/27/6e/b26e831b6abede32fba3763131eb2c52987f574277daa65e10a5fda6021c/yarl-1.13.0.tar.gz"
-    sha256 "02f117a63d11c8c2ada229029f8bb444a811e62e5041da962de548f26ac2c40f"
+    url "https://files.pythonhosted.org/packages/e0/11/2b8334f4192646677a2e7da435670d043f536088af943ec242f31453e5ba/yarl-1.13.1.tar.gz"
+    sha256 "ec8cfe2295f3e5e44c51f57272afbd69414ae629ec7c6b27f5a410efc78b70a0"
   end
 
   def install
