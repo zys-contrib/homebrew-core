@@ -1,8 +1,8 @@
 class Viddy < Formula
   desc "Modern watch command"
   homepage "https://github.com/sachaos/viddy"
-  url "https://github.com/sachaos/viddy/archive/refs/tags/v1.1.3.tar.gz"
-  sha256 "715846c8cef404c56325766781b4fc015e805f6a20435f08842262dca244fc65"
+  url "https://github.com/sachaos/viddy/archive/refs/tags/v1.1.4.tar.gz"
+  sha256 "fb76b1d0a25a2909a5e105f75534bda05c8d63ad82c1fb4f1bb5f828773b30f0"
   license "MIT"
   head "https://github.com/sachaos/viddy.git", branch: "master"
 
@@ -16,12 +16,6 @@ class Viddy < Formula
   end
 
   depends_on "rust" => :build
-
-  # version patch, upstream pr ref, https://github.com/sachaos/viddy/pull/156
-  patch do
-    url "https://github.com/sachaos/viddy/commit/e20aa1aba227c90b9616144ae13676e2217c4563.patch?full_index=1"
-    sha256 "0784e58b7e1c03b751db54574fec85a203ae3fb8983418b5b703dd36fa08aa1b"
-  end
 
   def install
     system "cargo", "install", *std_cargo_args
