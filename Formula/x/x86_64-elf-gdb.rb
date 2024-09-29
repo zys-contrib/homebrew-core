@@ -1,9 +1,9 @@
 class X8664ElfGdb < Formula
   desc "GNU debugger for x86_64-elf cross development"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-15.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-15.1.tar.xz"
-  sha256 "38254eacd4572134bca9c5a5aa4d4ca564cbbd30c369d881f733fb6b903354f2"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-15.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-15.2.tar.xz"
+  sha256 "83350ccd35b5b5a0cba6b334c41294ea968158c573940904f00b92f76345314d"
   license "GPL-3.0-or-later"
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
