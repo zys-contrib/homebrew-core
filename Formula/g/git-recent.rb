@@ -6,7 +6,8 @@ class GitRecent < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "99a91fd45ae79225c569a3acdf442380c60701ac987a9fb6c965dda22132b2c2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "3a4143920243a863447daa6f2b17b3cda4e0a163e8502c6c36a910eee4ee7450"
   end
 
   depends_on macos: :sierra
