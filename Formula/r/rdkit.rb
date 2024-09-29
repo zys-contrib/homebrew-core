@@ -36,6 +36,7 @@ class Rdkit < Formula
   depends_on "coordgen"
   depends_on "eigen"
   depends_on "freetype"
+  depends_on "inchi"
   depends_on "maeparser"
   depends_on "numpy"
   depends_on "py3cairo"
@@ -66,6 +67,8 @@ class Rdkit < Formula
       -DCMAKE_MODULE_LINKER_FLAGS=#{python_rpaths.map { |path| "-Wl,-rpath,#{path}" }.join(" ")}
       -DCMAKE_REQUIRE_FIND_PACKAGE_coordgen=ON
       -DCMAKE_REQUIRE_FIND_PACKAGE_maeparser=ON
+      -DCMAKE_REQUIRE_FIND_PACKAGE_Inchi=ON
+      -DINCHI_INCLUDE_DIR=#{Formula["inchi"].opt_include}/inchi
       -DRDK_INSTALL_INTREE=OFF
       -DRDK_BUILD_SWIG_WRAPPERS=OFF
       -DRDK_BUILD_AVALON_SUPPORT=ON
@@ -92,6 +95,7 @@ class Rdkit < Formula
       # Re-use installed libraries when building modules for other PostgreSQL versions
       s.sub!(/^find_package\(PostgreSQL/, "find_package(Cairo REQUIRED)\nfind_package(rdkit REQUIRED)\n\\0")
       s.sub! 'set(pgRDKitLibs "${pgRDKitLibs}${pgRDKitLib}', 'set(pgRDKitLibs "${pgRDKitLibs}RDKit::${pgRDKitLib}'
+      s.sub! ";${INCHI_LIBRARIES};", ";"
       # Add RPATH for PostgreSQL cartridge
       s.sub! '"-Wl,-dead_strip_dylibs ', "\\0-Wl,-rpath,#{loader_path}/.. "
     end
