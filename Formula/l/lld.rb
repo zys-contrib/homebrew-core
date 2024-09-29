@@ -26,7 +26,7 @@ class Lld < Formula
   uses_from_macos "zlib"
 
   # These used to be part of LLVM.
-  link_overwrite "bin/lld", "bin/ld64.lld", "bin/ld.lld", "bin/lld-link"
+  link_overwrite "bin/lld", "bin/ld64.lld", "bin/ld.lld", "bin/lld-link", "bin/wasm-ld"
   link_overwrite "include/lld/*", "lib/cmake/lld/*"
 
   def install
