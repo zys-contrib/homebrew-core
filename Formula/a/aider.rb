@@ -3,8 +3,8 @@ class Aider < Formula
 
   desc "AI pair programming in your terminal"
   homepage "https://aider.chat/"
-  url "https://files.pythonhosted.org/packages/24/fc/84a89d554551bb1ec3126cb61956c649673f618592d4e73c0193be0b2cd0/aider_chat-0.57.1.tar.gz"
-  sha256 "56ea3051a14a94d43a66907dfb931c2e7a9f42a0556c93b9bc9440dbe5d26f29"
+  url "https://files.pythonhosted.org/packages/c4/ec/e512ab0d8a51323882b3465aa6f1f42a7449423e1e5887089bc9345ac6f5/aider_chat-0.58.0.tar.gz"
+  sha256 "993716d93acb58dbbbed49e084b252e03d58504c15248fb91c52e4e80664fd95"
   license "Apache-2.0"
   head "https://github.com/paul-gauthier/aider.git", branch: "main"
 
@@ -283,6 +283,11 @@ class Aider < Formula
     sha256 "2584f7cf844ac4d970fba483a717dbe10c1c1c96a969bf65d61ffe94df1b2863"
   end
 
+  resource "pydub" do
+    url "https://files.pythonhosted.org/packages/fe/9a/e6bca0eed82db26562c73b5076539a4a08d3cffd19c3cc5913a3e61145fd/pydub-0.25.1.tar.gz"
+    sha256 "980a33ce9949cab2a569606b65674d748ecbca4f0796887fd6f46173a7b0d30f"
+  end
+
   resource "pyflakes" do
     url "https://files.pythonhosted.org/packages/57/f9/669d8c9c86613c9d568757c7f5824bd3197d7b1c6c27553bc5618a27cce2/pyflakes-3.2.0.tar.gz"
     sha256 "1c61603ff154621fb2a9172037d84dca3500def8c8b630657d1701f026f8af3f"
@@ -429,7 +434,7 @@ class Aider < Formula
   test do
     mkdir "tmptestdir" do
       assert_match version.to_s, shell_output("#{bin}/aider --version")
-      assert_match "OPENAI_API_KEY: ✗ Not set", shell_output("#{bin}/aider --yes --exit --no-check-update")
+      assert_match "OPENAI_API_KEY: Not set", shell_output("#{bin}/aider --yes --exit --no-check-update")
       ENV["OPENAI_API_KEY"] = "invalid"
       output = shell_output("#{bin}/aider --yes --exit --message=test --no-check-update 2>&1")
       assert_match "Incorrect API key", output
