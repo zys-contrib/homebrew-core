@@ -6,11 +6,9 @@ class Ccls < Formula
   #       https://github.com/Homebrew/homebrew-core/pull/106939
   #       https://github.com/MaskRay/ccls/issues/786
   #       https://github.com/MaskRay/ccls/issues/895
-  # TODO: Check if we can use unversioned `llvm` at version bump.
-  url "https://github.com/MaskRay/ccls/archive/refs/tags/0.20240202.tar.gz"
-  sha256 "355ff7f5eb5f24d278dda05cccd9157e89583272d0559d6b382630171f142d86"
+  url "https://github.com/MaskRay/ccls/archive/refs/tags/0.20240505.tar.gz"
+  sha256 "4ea6d90a9f93d5503e59c3bd0e5568ab262ff3dcf1b7539b50a0ede4a0e32fea"
   license "Apache-2.0"
-  revision 2
   head "https://github.com/MaskRay/ccls.git", branch: "master"
 
   bottle do
@@ -24,7 +22,7 @@ class Ccls < Formula
 
   depends_on "cmake" => :build
   depends_on "rapidjson" => :build
-  depends_on "llvm@18"
+  depends_on "llvm"
   depends_on macos: :high_sierra # C++ 17 is required
 
   fails_with gcc: "5"
