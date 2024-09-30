@@ -612,7 +612,7 @@
     "exclude_packages": ["certifi", "cryptography", "numpy"]
   },
   "pwntools": {
-    "exclude_packages": ["certifi", "cryptography"]
+    "exclude_packages": ["capstone", "certifi", "cryptography"]
   },
   "pydocstyle": "pydocstyle[toml]",
   "pygit2": {
