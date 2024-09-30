@@ -47,6 +47,10 @@ class Tmuxinator < Formula
     system "gem", "install", "--ignore-dependencies", "tmuxinator-#{version}.gem"
     bin.install libexec/"bin/tmuxinator"
     bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
+
+    # Make sure tmuxinator checks HOMEBREW_PREFIX for data files. Also ensures uniform bottles.
+    inreplace_files = libexec.glob("gems/xdg-*/lib/xdg/base_dir{,/extended}.rb")
+    inreplace inreplace_files, "/usr/local", HOMEBREW_PREFIX
   end
 
   test do
