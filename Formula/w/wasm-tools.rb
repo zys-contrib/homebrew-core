@@ -1,8 +1,8 @@
 class WasmTools < Formula
   desc "Low level tooling for WebAssembly in Rust"
   homepage "https://github.com/bytecodealliance/wasm-tools"
-  url "https://github.com/bytecodealliance/wasm-tools/archive/refs/tags/v1.217.0.tar.gz"
-  sha256 "69fde3c83e307c18d7bad46e1ceccdd1d8dcf9fd51392a313ea20cc4c69826b7"
+  url "https://github.com/bytecodealliance/wasm-tools/archive/refs/tags/v1.218.0.tar.gz"
+  sha256 "01949eb91f5f99bb7c7bc0ed8c326d8c2a471371a7a5ef0176226350bcbe7dc2"
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/bytecodealliance/wasm-tools.git", branch: "main"
 
@@ -36,12 +36,12 @@ class WasmTools < Formula
     expected = <<~EOS
       (module
         (type (;0;) (func (param i32 i32) (result i32)))
+        (export "sum" (func 0))
         (func (;0;) (type 0) (param i32 i32) (result i32)
           local.get 0
           local.get 1
           i32.add
         )
-        (export "sum" (func 0))
       )
     EOS
     assert_equal expected, shell_output("#{bin}/wasm-tools print #{testpath}/sum.wasm")
