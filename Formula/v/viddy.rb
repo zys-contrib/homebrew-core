@@ -1,8 +1,8 @@
 class Viddy < Formula
   desc "Modern watch command"
   homepage "https://github.com/sachaos/viddy"
-  url "https://github.com/sachaos/viddy/archive/refs/tags/v1.1.4.tar.gz"
-  sha256 "fb76b1d0a25a2909a5e105f75534bda05c8d63ad82c1fb4f1bb5f828773b30f0"
+  url "https://github.com/sachaos/viddy/archive/refs/tags/v1.1.5.tar.gz"
+  sha256 "abc01bc4eae92f6fbf11ea220f1ef8ee88e48f80b090e09d0c5d5e4cf23d9065"
   license "MIT"
   head "https://github.com/sachaos/viddy.git", branch: "master"
 
