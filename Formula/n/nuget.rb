@@ -11,7 +11,7 @@ class Nuget < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6706b2a51e71261d40d69583575bb2954baf3f2518174bc8b1594c11f995bb5d"
+    sha256 cellar: :any_skip_relocation, all: "e1f4e36d6acc5460499cb712dfa3e16853f9c6112bbb4da3adffbee04a7f64fc"
   end
 
   depends_on "mono"
