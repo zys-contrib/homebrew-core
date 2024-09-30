@@ -62,8 +62,9 @@ class Halide < Formula
       "-DPYBIND11_USE_FETCHCONTENT=OFF",
       "-DFLATBUFFERS_USE_FETCHCONTENT=OFF",
       "-DFETCHCONTENT_SOURCE_DIR_WABT=#{builddir}/_deps/wabt-src",
+      "-DCMAKE_SHARED_LINKER_FLAGS=-llldCommon",
     ]
-    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup" if OS.mac?
+    odie "CMAKE_SHARED_LINKER_FLAGS can be removed from `args`" if build.bottle? && version > "18.0.0"
     system "cmake", "-S", ".", "-B", builddir, *args, *std_cmake_args
     system "cmake", "--build", builddir
     system "cmake", "--install", builddir
