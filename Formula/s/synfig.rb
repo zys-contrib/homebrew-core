@@ -6,7 +6,7 @@ class Synfig < Formula
   mirror "https://github.com/synfig/synfig/releases/download/v1.5.2/synfig-1.5.2.tar.gz"
   sha256 "0a7cff341eb0bcd31725996ad70c1461ce5ddb3c3ee9f899abeb4a3e77ab420e"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/synfig/synfig.git", branch: "master"
 
   livecheck do
