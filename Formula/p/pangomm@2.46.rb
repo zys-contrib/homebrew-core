@@ -25,7 +25,9 @@ class PangommAT246 < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on "cairomm@1.14"
+  depends_on "glib"
   depends_on "glibmm@2.66"
+  depends_on "libsigc++@2"
   depends_on "pango"
 
   def install
