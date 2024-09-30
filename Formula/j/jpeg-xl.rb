@@ -4,6 +4,7 @@ class JpegXl < Formula
   url "https://github.com/libjxl/libjxl/archive/refs/tags/v0.11.0.tar.gz"
   sha256 "7ce4ec8bb37a435a73ac18c4c9ff56c2dc6c98892bf3f53a328e3eca42efb9cf"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
