@@ -14,12 +14,12 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "f304b6bf3b67183b9b390ce3e62fcb4eb02c8da31456c540f4c8bbe7d2d6a220"
-    sha256 arm64_sonoma:  "afadd6a7d7698e1bb21bff339c787e8fef3e9678d29b2f4c8e09713527b96b4a"
-    sha256 arm64_ventura: "5cdfdc7387f2a446a7f9d452b88f87f4f68643432aaf6f742f47164b4236b857"
-    sha256 sonoma:        "44e41ccf552d92157f54d337a1b38282c0ea23b5e8fc62cb9792c7a6393453df"
-    sha256 ventura:       "18c1dc237917c54dba4dc22e31bcea3b4f7a97ea5173434f354ea0fb17a88067"
-    sha256 x86_64_linux:  "114b2aecc4519f4fc762b2b4e691b9e3beb8da10c4a58148212b1ab84624c92d"
+    sha256 arm64_sequoia: "de10a2403eba75884ef6471cdc6b32b259f0fd7cec98b5710a29617f5a529b9f"
+    sha256 arm64_sonoma:  "d954df5c7e6e554a3cda5fe88a225e4ac6b79d290b01f9428c5b4faf93c51837"
+    sha256 arm64_ventura: "fd3a4b85b46d42af5f300f4158facbd1e7dbd2471ea90536a8c5ba0c7880660e"
+    sha256 sonoma:        "07a275e99d7d93bccf910f6da7d11899f5ac327dfef00d00046d04ba7de3498f"
+    sha256 ventura:       "aa5f716290e0d68f45ee5225298e864d91cdb90de3a876fd9fbec32b1ef26ef1"
+    sha256 x86_64_linux:  "442af13d09560e76518045a7e104a39ab13f68aa488e20637c6e45a01575a72e"
   end
 
   depends_on "pkg-config" => :build
