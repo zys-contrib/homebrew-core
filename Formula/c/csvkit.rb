@@ -121,7 +121,7 @@ class Csvkit < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    virtualenv_install_with_resources(link_manpages: true)
   end
 
   test do
