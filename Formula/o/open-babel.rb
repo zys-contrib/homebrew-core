@@ -17,15 +17,13 @@ class OpenBabel < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_sequoia:  "2c59d7db4305c267949fba8d6aea3ae90a84bc65a649af40d067dab7f9ce1ea7"
-    sha256 arm64_sonoma:   "f419ccc5548f2ef7476cf80f63a9202026a342955ab6636b52defa8ff4a49613"
-    sha256 arm64_ventura:  "3897a0b1768ca3e0037070cb17890ca83ad9e5ac165832c97b5b3b25c4077164"
-    sha256 arm64_monterey: "145b1a3f4d2d295f35bcec9e8698191caccc1798d478fc76563d7eb5301dd504"
-    sha256 sonoma:         "cbf0992d5a6f648fc362d7c0e6a34ff4f36c4997d6220e8d0c6d2b784e5b4b14"
-    sha256 ventura:        "ec8cb56581eaaf3cc1f39b31697ddf23898a9da5716aa6905aeeaca99a30caa1"
-    sha256 monterey:       "dfee32016d8264bdddbceaf883e7997f12e5064ad7596b0dd898b0fd0e76a52d"
-    sha256 x86_64_linux:   "7e950edb7779a9f98d7acee8aab9215fd3fa9fc64ab57b64fe2a2f37940d72bc"
+    rebuild 3
+    sha256 arm64_sequoia: "238bdc90eeac4fb94c711c2b8ca8314341f4d0e825c33f42bd555ec9309103b8"
+    sha256 arm64_sonoma:  "1de8660be91e1b7d3743c68aa9b16a0d77e02717817aa95d2a96e1e8d5f58381"
+    sha256 arm64_ventura: "dbc696f70eb7d9edce1f77b3a97b4bbb991ea25c4049facf22dff653249035e3"
+    sha256 sonoma:        "4c66243cacbc953bde3dabd83c001f3cba59d9baa1af0fe86971d40e72e6f982"
+    sha256 ventura:       "c425540f55c1f4d0ff7bc8890cea80d7369452646c18f477a959db37b0315225"
+    sha256 x86_64_linux:  "561dc0fb1c18ee4f91fdb0cbf9fcbbd1907a44a77e4610e13e41f3bca727b5a5"
   end
 
   depends_on "cmake" => :build
