@@ -139,7 +139,7 @@
   },
   "cassandra": {
     "package_name": "",
-    "extra_packages": ["cassandra-driver"]
+    "extra_packages": ["cassandra-driver", "wcwidth"]
   },
   "cahute": {
     "package_name": "",
