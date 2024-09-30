@@ -5,6 +5,15 @@ class Inchi < Formula
   sha256 "fe6e1ee25714988f7b86420b7615b4e1d7c01fda9b93d63b634a0c021ac9f917"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "b229ca55644d5c53c2cd5c070f631a4379806e44059bd370e61d4b94b0b0e784"
+    sha256 cellar: :any,                 arm64_sonoma:  "c4488a6860bbcc789c950bfca39a2b613259346d9abfc822bfa863fcdeaf6427"
+    sha256 cellar: :any,                 arm64_ventura: "f8e910c3ca6711c1a0fb70ce5a4392665e85a2b8c39d1911911346d9475302f1"
+    sha256 cellar: :any,                 sonoma:        "6db049c16f2625d44e971bf9626d58bce066cf698e0eaeb29a889b13c8850f9a"
+    sha256 cellar: :any,                 ventura:       "da10c8873201f570b9797d45f80e88afb35de4654c541f21ea4888dac8d99c87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "df02aacc34873e732291793847d59d6ca4ebee54a4956372ec4dc03d9fe88729"
+  end
+
   # These used to be part of open-babel
   link_overwrite "include/inchi/inchi_api.h", "lib/libinchi.dylib", "lib/libinchi.so"
 
