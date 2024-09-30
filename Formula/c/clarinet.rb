@@ -1,8 +1,8 @@
 class Clarinet < Formula
   desc "Command-line tool and runtime for the Clarity smart contract language"
   homepage "https://www.hiro.so/clarinet"
-  url "https://github.com/hirosystems/clarinet/archive/refs/tags/v2.8.0.tar.gz"
-  sha256 "96e40ff639015e23fe7b1d72f746420e232019e59a0c83c0b822c799752e81ba"
+  url "https://github.com/hirosystems/clarinet/archive/refs/tags/v2.9.0.tar.gz"
+  sha256 "477f0c71ad34152cecf284586055aa9273eff049b11d128857b399aa20f50790"
   license "GPL-3.0-only"
   head "https://github.com/hirosystems/clarinet.git", branch: "main"
 
