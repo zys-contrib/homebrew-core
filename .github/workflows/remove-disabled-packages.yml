@@ -13,6 +13,10 @@ on:
 env:
   RUN_URL: ${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}
 
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
 concurrency:
   group: remove-disabled-packages
   cancel-in-progress: true

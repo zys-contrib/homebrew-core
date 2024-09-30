@@ -10,6 +10,10 @@ on:
     # Once every day at 1AM
     - cron: "0 1 * * *"
 
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
 concurrency:
   group: scheduled
   cancel-in-progress: true
