@@ -18,11 +18,14 @@ class Bbot < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "openjdk" => :build
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "certifi"
   depends_on "cryptography"
   depends_on "libyaml"
+  depends_on "openssl@3"
   depends_on "python@3.12"
+  depends_on "zeromq"
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
