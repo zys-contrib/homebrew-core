@@ -1,8 +1,8 @@
 class Opencolorio < Formula
   desc "Color management solution geared towards motion picture production"
   homepage "https://opencolorio.org/"
-  url "https://github.com/AcademySoftwareFoundation/OpenColorIO/archive/refs/tags/v2.3.2.tar.gz"
-  sha256 "6bbf4e7fa4ea2f743a238cb22aff44890425771a2f57f62cece1574e46ceec2f"
+  url "https://github.com/AcademySoftwareFoundation/OpenColorIO/archive/refs/tags/v2.4.0.tar.gz"
+  sha256 "0ff3966b9214da0941b2b1cbdab3975a00a51fc6f3417fa860f98f5358f2c282"
   license "BSD-3-Clause"
   head "https://github.com/AcademySoftwareFoundation/OpenColorIO.git", branch: "master"
 
@@ -29,6 +29,10 @@ class Opencolorio < Formula
 
   uses_from_macos "expat"
   uses_from_macos "zlib"
+
+  on_arm do
+    depends_on "sse2neon" => :build
+  end
 
   def python3
     "python3.12"

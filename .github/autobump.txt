@@ -1995,6 +1995,7 @@ openblas
 opencl-clhpp-headers
 opencl-headers
 opencl-icd-loader
+opencolorio
 opendetex
 opendht
 openexr
