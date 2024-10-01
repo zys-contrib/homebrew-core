@@ -50,25 +50,30 @@ jobs:
         id: matrix
         working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
         run: |
-          # Index all formulae so that we test:
-          #   - formulae 1 to 50 on the first day of the year
-          #   - formulae 51 to 100 on the second day of the year
-          #   - formulae 101 to 150 on the third day of the year
+          # Index all formulae so that we test (n ranges from 0 to TEST_COUNT - 1):
+          #   - formulae 0, 365, 630,..., 0 + 365 * n,... on the first day of the year
+          #   - formulae 1, 366, 631,..., 1 + 365 * n,... on the second day of the year
+          #   - formulae 2, 367, 632,..., 2 + 365 * n,... on the third day of the year
           #   - ...
           # This works fine as long as we have fewer than 365 * TEST_COUNT formulae.
           mapfile -t formulae < <(find Formula -type f -execdir basename -s '.rb' {} + | sort)
           formulae_count="${#formulae[@]}"
 
-          if (( formulae_count > 365 * TEST_COUNT )); then
+          DAYS_PER_YEAR=365
+          if (( formulae_count > DAYS_PER_YEAR * TEST_COUNT )); then
             echo "::error ::Too many formulae (${formulae_count})! Adjust TEST_COUNT to a number greater than ${TEST_COUNT}."
             exit 1
           fi
 
           day="$(date +%j)"
-          start_index="$(( (day - 1) * TEST_COUNT % formulae_count ))"
+          testing_formulae=()
+          for (( i=0; i < TEST_COUNT; i++ )); do
+            index="$(( (day + i * DAYS_PER_YEAR - 1) % formulae_count ))"
+            testing_formulae+=("${formulae[${index}]}")
+          done
 
           json="$(
-            brew info --json=v2 "${formulae[@]:${start_index}:${TEST_COUNT}}" |
+            brew info --json=v2 "${testing_formulae[@]}" |
               jq --compact-output '[.formulae[] | select(.deprecated or .disabled | not) | .name]'
           )"
           echo "json=${json}" >> "$GITHUB_OUTPUT"
