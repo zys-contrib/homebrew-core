@@ -1,8 +1,8 @@
 class Redict < Formula
   desc "Distributed key/value database"
   homepage "https://redict.io/"
-  url "https://codeberg.org/redict/redict/archive/7.3.0.tar.gz"
-  sha256 "733880c043c04d6038c28e77f2e826143142929be9c4a68f82a4f66e7a0caf5c"
+  url "https://codeberg.org/redict/redict/archive/7.3.1.tar.gz"
+  sha256 "6dbe80d28503a9252048ab81856efcfec109cdf3f924e840411c30237cf8f634"
   license "LGPL-3.0-only"
   head "https://codeberg.org/redict/redict.git", branch: "main"
 
