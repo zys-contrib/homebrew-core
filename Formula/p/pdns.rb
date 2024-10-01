@@ -11,14 +11,12 @@ class Pdns < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "5b61fa3f8184ad351bef1f2276b26c886f8d2a814925b37c536d2f735ee1f44f"
-    sha256 arm64_sonoma:   "660e48a419366a19a97f2f05bd5abffdd16fc0e5ae0e1f29cc76923e8d98784a"
-    sha256 arm64_ventura:  "1d36e9e6ffeba02de5e6bad5d320f9ad23f0e7bfc36cab5a1a7c6743a9f5300f"
-    sha256 arm64_monterey: "8dbfe8340a87dc4306b88abeb60bcc2cf1eff2459c48adf5bd456d56df696963"
-    sha256 sonoma:         "10e5ea6461ddddc7f7ecbdcf144566ca7466468d6f8fbd027f45e4625dfaeccf"
-    sha256 ventura:        "20dfdf4113f1804649620d1ae313d62a497cc5ca91b1f353bd69480113da9bdb"
-    sha256 monterey:       "ee59a163a5150373a16dde3346072919c542ac040451ac9d78ad179e41611323"
-    sha256 x86_64_linux:   "391591c9b46eb4e441496ca6923e04529a137ab3734537cede69ac29f26b1c65"
+    sha256 arm64_sequoia: "535cd7e7c65f70335ddf11a9b3987763d8c0ad95f27da2fa2bbefb3f7f609aad"
+    sha256 arm64_sonoma:  "8373819cddbb5ad653d70ad4b0d69f36faa074d6b46a5f70a6922311da8069d3"
+    sha256 arm64_ventura: "77b98a0f0c9638c1f593c30ccf792f11d9efc016001b96b31cbac5ff651135fd"
+    sha256 sonoma:        "a0a4db1bfd7e8ba3ec006bbcf750bb1da15573a4a6a2b54bd9427e4c6e9d05c1"
+    sha256 ventura:       "eec08612848bb1ee690b09ee227ddbe697c47ea9477d9aa938da251a408df04a"
+    sha256 x86_64_linux:  "e00dcb42455de9c473ebef4478be1796594b2da80f7a3cbc77feeb5bb417d12a"
   end
 
   head do
