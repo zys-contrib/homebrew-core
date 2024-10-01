@@ -2,11 +2,10 @@ class Odin < Formula
   desc "Programming language with focus on simplicity, performance and modern systems"
   homepage "https://odin-lang.org/"
   url "https://github.com/odin-lang/Odin.git",
-      tag:      "dev-2024-09",
-      revision: "16c5c69a4079652e930d897823446b7e7a65bd2f"
-  version "2024-09"
+      tag:      "dev-2024-10",
+      revision: "af9ae4897ad9e526d74489ddd12cfae179639ff3"
+  version "2024-10"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/odin-lang/Odin.git", branch: "master"
 
   bottle do
@@ -56,7 +55,13 @@ class Odin < Formula
       "vendor/raylib/macos-arm64"
     end
 
-    ln_s Formula["glfw"].lib/"libglfw3.a", buildpath/"vendor/glfw/lib/darwin/libglfw3.a"
+    glfw_installpath = if OS.linux?
+      "vendor/glfw/lib"
+    else
+      "vendor/glfw/lib/darwin"
+    end
+
+    ln_s Formula["glfw"].lib/"libglfw3.a", buildpath/glfw_installpath/"libglfw3.a"
 
     ln_s Formula["raylib"].lib/"libraylib.a", buildpath/raylib_installpath/"libraylib.a"
     # This is actually raylib 5.0, but upstream had not incremented this number yet when it released.
@@ -166,6 +171,9 @@ class Odin < Formula
         fmt.println(glfw.GetVersion())
       }
     EOS
-    system bin/"odin", "run", "glfw.odin", "-file"
+    ENV.prepend_path "LD_LIBRARY_PATH", Formula["glfw"].lib if OS.linux?
+    system bin/"odin", "run", "glfw.odin", "-file", "-define:GLFW_SHARED=true",
+      "-extra-linker-flags:\"-L#{Formula["glfw"].lib}\""
+    system bin/"odin", "run", "glfw.odin", "-file", "-define:GLFW_SHARED=false"
   end
 end
