@@ -1,8 +1,8 @@
 class Cadence < Formula
   desc "Resource-oriented smart contract programming language"
-  homepage "https://github.com/onflow/cadence"
-  url "https://github.com/onflow/cadence/archive/refs/tags/v0.42.12.tar.gz"
-  sha256 "268cd577dc9ad6d6d0f0295ab37c32cc1c03576351b2c7901954c4eab351b0b5"
+  homepage "https://cadence-lang.org/"
+  url "https://github.com/onflow/cadence/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "e2a67ab00bfbf568937a9f9931dff75895560e4313e660db55dd39790b3f98ec"
   license "Apache-2.0"
   head "https://github.com/onflow/cadence.git", branch: "master"
 
@@ -34,9 +34,24 @@ class Cadence < Formula
   end
 
   test do
+    # from https://cadence-lang.org/docs/tutorial/hello-world
     (testpath/"hello.cdc").write <<~EOS
-      pub fun main(): Int {
-        return 0
+      access(all) contract HelloWorld {
+
+          // Declare a public (access(all)) field of type String.
+          //
+          // All fields must be initialized in the initializer.
+          access(all) let greeting: String
+
+          // The initializer is required if the contract contains any fields.
+          init() {
+              self.greeting = "Hello, World!"
+          }
+
+          // Public function that returns our friendly greeting!
+          access(all) view fun hello(): String {
+              return self.greeting
+          }
       }
     EOS
     system bin/"cadence", "hello.cdc"
