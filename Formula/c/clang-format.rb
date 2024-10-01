@@ -2,27 +2,27 @@ class ClangFormat < Formula
   desc "Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript"
   homepage "https://clang.llvm.org/docs/ClangFormat.html"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
-  license "Apache-2.0"
+  license "Apache-2.0" => { with: "LLVM-exception" }
   version_scheme 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.0/llvm-19.1.0.src.tar.xz"
-    sha256 "a8b141cbfa13f50d84ce545899bd311aaa60d59dfbf7f3a0cf84f25badc1544d"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.1/llvm-19.1.1.src.tar.xz"
+    sha256 "15a7c77f9c39444d9dd6756b75b9a70129dcbd1e340724a6e45b3b488f55bc4b"
 
     resource "clang" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.0/clang-19.1.0.src.tar.xz"
-      sha256 "03c3be44ff8e602213222fb99645c239965623d2bf2a6e4d210249520112377e"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.1/clang-19.1.1.src.tar.xz"
+      sha256 "73881ccf065c35ca67752c2d4b6dd0157140330eef318fb80f1a62681145cf7c"
     end
 
     resource "cmake" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.0/cmake-19.1.0.src.tar.xz"
-      sha256 "dc78b6a9ac8a097ca6ac0f23c06821d65e6ea3bf666026f529994c1d01056ae7"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.1/cmake-19.1.1.src.tar.xz"
+      sha256 "92a016ecfe46ad7c18db6425a018c2c6ee126b9d0e5513d6fad989fee6648ffa"
     end
 
     resource "third-party" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.0/third-party-19.1.0.src.tar.xz"
-      sha256 "f521e6cdb6598d777c6120d086aee3993f182ab38bc59ce4a59c48fae4839b8c"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.1/third-party-19.1.1.src.tar.xz"
+      sha256 "39dec41a0a4d39af6428a58ddbd5c3e5c3ae4f6175e3655480909559cba86cb7"
     end
   end
 
