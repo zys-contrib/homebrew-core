@@ -1,8 +1,8 @@
 class HopenpgpTools < Formula
   desc "Command-line tools for OpenPGP-related operations"
   homepage "https://hackage.haskell.org/package/hopenpgp-tools"
-  url "https://hackage.haskell.org/package/hopenpgp-tools-0.23.8/hopenpgp-tools-0.23.8.tar.gz"
-  sha256 "158be5544d28fcb3989376b6aee700aa6eed8390ffb8d41146b0aeff09433401"
+  url "https://hackage.haskell.org/package/hopenpgp-tools-0.23.10/hopenpgp-tools-0.23.10.tar.gz"
+  sha256 "5a89eab24143ed212b6d91e0df9cc00d9b0ebd3ccf7a0b65b4f29768c4044e29"
   license "AGPL-3.0-or-later"
   head "https://salsa.debian.org/clint/hOpenPGP.git", branch: "master"
 
@@ -19,7 +19,7 @@ class HopenpgpTools < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.4" => :build
+  depends_on "ghc@9.6" => :build
   depends_on "pkg-config" => :build
   depends_on "nettle"
 

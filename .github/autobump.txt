@@ -1196,6 +1196,7 @@ hivex
 hledger
 hof
 homebank
+hopenpgp-tools
 hoverfly
 hpack
 hpp-fcl
