@@ -1,8 +1,8 @@
 class Cnats < Formula
   desc "C client for the NATS messaging system"
   homepage "https://github.com/nats-io/nats.c"
-  url "https://github.com/nats-io/nats.c/archive/refs/tags/v3.8.3.tar.gz"
-  sha256 "fe7e9ce7636446cc3fe0f47f6a235c4783299e00d5e5c4a1f8689d20707871db"
+  url "https://github.com/nats-io/nats.c/archive/refs/tags/v3.9.0.tar.gz"
+  sha256 "82fd3cdc732f091859f5840c968ba489bc5c91b94454040b8011c1d61fd973a8"
   license "Apache-2.0"
 
   bottle do
@@ -19,6 +19,9 @@ class Cnats < Formula
   depends_on "libuv"
   depends_on "openssl@3"
   depends_on "protobuf-c"
+
+  # patch the version suffix for release builds, upstream build patch, https://github.com/nats-io/nats.c/pull/810
+  patch :DATA
 
   def install
     args = %W[
@@ -44,3 +47,31 @@ class Cnats < Formula
     assert_equal version, shell_output("./test").strip
   end
 end
+
+__END__
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 7b87592..4a725bf 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -254,7 +254,7 @@ endif(NATS_BUILD_WITH_TLS)
+ set(NATS_VERSION_MAJOR  3)
+ set(NATS_VERSION_MINOR  9)
+ set(NATS_VERSION_PATCH  0)
+-set(NATS_VERSION_SUFFIX "-beta")
++set(NATS_VERSION_SUFFIX "")
+ 
+ set(NATS_VERSION_REQUIRED_NUMBER 0x030900)
+ 
+diff --git a/src/version.h b/src/version.h
+index e06ea35..7ece7b8 100644
+--- a/src/version.h
++++ b/src/version.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #define NATS_VERSION_MINOR  9
+ #define NATS_VERSION_PATCH  0
+ 
+-#define NATS_VERSION_STRING "3.9.0-beta"
++#define NATS_VERSION_STRING "3.9.0"
+ 			 				  
+ #define NATS_VERSION_NUMBER ((NATS_VERSION_MAJOR << 16) | \
+                              (NATS_VERSION_MINOR <<  8) | \
