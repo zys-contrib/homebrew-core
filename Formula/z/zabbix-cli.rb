@@ -3,8 +3,8 @@ class ZabbixCli < Formula
 
   desc "CLI tool for interacting with Zabbix monitoring system"
   homepage "https://unioslo.github.io/zabbix-cli/"
-  url "https://github.com/unioslo/zabbix-cli/archive/refs/tags/3.1.0.tar.gz"
-  sha256 "334cfda8cecc13c33a75d3ddb3e7238d24e6ddfaf159d77c70dea86aa186ca73"
+  url "https://github.com/unioslo/zabbix-cli/archive/refs/tags/3.1.2.tar.gz"
+  sha256 "290b2ed29909edba10016799c28ca2eaf67296c46e2338e075a09b1ca9a8f073"
   license "GPL-3.0-or-later"
   head "https://github.com/unioslo/zabbix-cli.git", branch: "master"
 
@@ -107,8 +107,8 @@ class ZabbixCli < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/92/76/40f084cb7db51c9d1fa29a7120717892aeda9a7711f6225692c957a93535/rich-13.8.1.tar.gz"
-    sha256 "8260cda28e3db6bf04d2d1ef4dbc03ba80a824c88b0e7668a0f23126a424844a"
+    url "https://files.pythonhosted.org/packages/f8/05/686acde8e7d0b29d2a74000db230ce4a6bc4188f26f56cc8ca46e5ee1c10/rich-13.9.0.tar.gz"
+    sha256 "06ff5147711c0f6cec2cdbb247a6cff251268a66d700c2557699bfe104fc0bf4"
   end
 
   resource "shellingham" do
