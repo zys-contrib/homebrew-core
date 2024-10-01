@@ -1,9 +1,9 @@
 class GoAT122 < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://go.dev/"
-  url "https://go.dev/dl/go1.22.7.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.22.7.src.tar.gz"
-  sha256 "66432d87d85e0cfac3edffe637d5930fc4ddf5793313fe11e4a0f333023c879f"
+  url "https://go.dev/dl/go1.22.8.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.22.8.src.tar.gz"
+  sha256 "df12c23ebf19dea0f4bf46a22cbeda4a3eca6f474f318390ce774974278440b8"
   license "BSD-3-Clause"
 
   livecheck do
