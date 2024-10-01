@@ -5,6 +5,10 @@ class Polkit < Formula
   sha256 "ea5cd6e6e2afa6bad938ee770bf0c2cd9317910f37956faeba2869adcf3747d1"
   license "LGPL-2.0-or-later"
 
+  bottle do
+    sha256 x86_64_linux: "812f69589b874c7617c40900b75cc00724f442f009a6537d2185b30b7e8fa141"
+  end
+
   depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
