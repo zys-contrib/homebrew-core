@@ -32,11 +32,25 @@ class Maturin < Formula
 
     system "cargo", "install", *std_cargo_args
     generate_completions_from_executable(bin/"maturin", "completions")
+
+    python_versions = Formula.names.filter_map do |name|
+      Version.new(name.delete_prefix("python@")) if name.start_with?("python@")
+    end.sort
+
+    newest_python = python_versions.pop
+    newest_python_site_packages = lib/"python#{newest_python}/site-packages"
+    newest_python_site_packages.install "maturin"
+
+    python_versions.each do |pyver|
+      (lib/"python#{pyver}/site-packages").install_symlink newest_python_site_packages/"maturin"
+    end
   end
 
   test do
+    python = "python3.12"
     system "cargo", "init", "--name=brew", "--bin"
     system bin/"maturin", "build", "-o", "dist", "--compatibility", "off"
-    system "python3.12", "-m", "pip", "install", "brew", "--prefix=./dist", "--no-index", "--find-links=./dist"
+    system python, "-m", "pip", "install", "brew", "--prefix=./dist", "--no-index", "--find-links=./dist"
+    system python, "-c", "import maturin"
   end
 end
