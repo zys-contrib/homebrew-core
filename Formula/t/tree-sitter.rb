@@ -12,12 +12,12 @@ class TreeSitter < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "745de860c67a18a6dd1d34544c87cc47c864172efb6c9ee517969b7ef7ed3232"
-    sha256 cellar: :any,                 arm64_sonoma:  "e135623ddd3027c7b6610360398d6a22b17596a6950afa5273b2d659c7ae171a"
-    sha256 cellar: :any,                 arm64_ventura: "0a9720a1dc27a48466bb8b2f587c86d4b4377cfcbea570bc50a2b649566a5ed7"
-    sha256 cellar: :any,                 sonoma:        "2eaf552e501a229b9be772007baf5d5f999d6e60f4fb5351be64ed708a04c07d"
-    sha256 cellar: :any,                 ventura:       "54e7503d43d6cdfb5315af0e80f6a027958a2ff7cca035065cc234f224266b37"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24a7596a010b4144e221c8d04d981c78e4e26ad055109dffa56d6ba710e9ea1b"
+    sha256 cellar: :any,                 arm64_sequoia: "e9da2fa57f0c73ea494355d7a52f7ef7d3f8444aba8b4ae61e12b416a1eb9a0b"
+    sha256 cellar: :any,                 arm64_sonoma:  "0f49dea31a86dfb5980ca4e37fcf2e2d882c9a9764929f158be695428d721628"
+    sha256 cellar: :any,                 arm64_ventura: "acc9782da86f99e4d63e1221fd607697ef7bad0c2496333848255ebec40761c6"
+    sha256 cellar: :any,                 sonoma:        "db9aa777f191470076974ec5263692995de9a9b125612e30e9f61238f5f5e904"
+    sha256 cellar: :any,                 ventura:       "7717d5834c25f228d5769b914aa47ee42e98cb82a1fa0cb510d8bb117b826442"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2ede1fcbca769ac6422debbd49fb41ee0af98bfad66153cb58bcd5a10e398ce"
   end
 
   depends_on "rust" => :build
