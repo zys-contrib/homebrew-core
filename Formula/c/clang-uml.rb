@@ -7,12 +7,12 @@ class ClangUml < Formula
   head "https://github.com/bkryza/clang-uml.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9927bed78f589e47e24c8eacf0fcb3e136982dfe4f3120b2cc18435dce43ac8a"
-    sha256 cellar: :any,                 arm64_sonoma:  "93dca4721249fe73a856e83c43042b92341552a8904995b508a0c68c28cf554c"
-    sha256 cellar: :any,                 arm64_ventura: "98c57248f12fda4f74a6a0ed0bba7312a89f4e96c5946050a9d1bf221611c73a"
-    sha256 cellar: :any,                 sonoma:        "a544e1ed6d5dc78353b4997ee5ec34704ebeae01d8d5fcdca372a9439a61f2ec"
-    sha256 cellar: :any,                 ventura:       "0b8240b547f5a67695d217c0ebba55ba9b19fa2806aa9e817e19ec396c95522c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca0cb3bc5af05f8471c9ef49a18a9e16a0c05de75343ae90f4ea46ac6207a33e"
+    sha256 cellar: :any,                 arm64_sequoia: "14b3ad29b42c1c86e0de3681e7207c5e83ef996d3d8f06303deaad0d8ea5869f"
+    sha256 cellar: :any,                 arm64_sonoma:  "740293a5bd8a3887c0ae601e721754a6b9d49d9a621e081c565ce0b00ce7080e"
+    sha256 cellar: :any,                 arm64_ventura: "fa735fd5af8835a3b170a87fd31c08794d403601e726637b751b1ee266f2d86e"
+    sha256 cellar: :any,                 sonoma:        "5c6751a5cbce1640b7b16c28ce1d8d7b7c44b963461ea9a99adc500ec0610e3d"
+    sha256 cellar: :any,                 ventura:       "91f342d39e27ee11f5f82fb06659d8948f04609962cc99bf7abc8d9fcf525ea3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a249d17300e6cfa62dba4babf4e0367c8d4a2aa12e1c8170b5e74337220adae1"
   end
 
   depends_on "cmake" => [:build, :test]
