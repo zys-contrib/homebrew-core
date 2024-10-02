@@ -3,8 +3,8 @@ class Tmt < Formula
 
   desc "Test Management Tool"
   homepage "https://tmt.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/ef/5e/1d52c67ede7d9c75d8bbdaf8d097a0640b0568ef4c33d6147a41e66261f5/tmt-1.36.1.tar.gz"
-  sha256 "4764f3038981aa7111f054e9c94eabc3544675f64a1b6af57cbc48dc78d10c07"
+  url "https://files.pythonhosted.org/packages/92/f6/988cdcf7a92a08e5edea0bcec6c6c0a8b847f35015f397230f5de731b583/tmt-1.37.0.tar.gz"
+  sha256 "82a4779c416b418ab21979bdb38b4c517fa58adbdb706f97f72e9fe7c6e2aed7"
   license "MIT"
 
   bottle do
@@ -47,8 +47,8 @@ class Tmt < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/e6/76/3981447fd369539aba35797db99a8e2ff7ed01d9aa63e9344a31658b8d81/filelock-3.16.0.tar.gz"
-    sha256 "81de9eb8453c769b63369f87f11131a7ab04e367f8d97ad39dc230daa07e3bec"
+    url "https://files.pythonhosted.org/packages/9d/db/3ef5bb276dae18d6ec2124224403d1d67bccdbefc17af4cc8f553e341ab1/filelock-3.16.1.tar.gz"
+    sha256 "c249fbfcd5db47e5e2d6d62198e565475ee65e4831e2561c8e313fa7eb961435"
   end
 
   resource "flexcache" do
@@ -64,13 +64,13 @@ class Tmt < Formula
   resource "fmf" do
     # No PyPI source, use git repo instead
     # https://github.com/teemtee/fmf/issues/224
-    url "https://github.com/teemtee/fmf/archive/refs/tags/1.3.0.tar.gz"
-    sha256 "85f84f591d9e577742f9d3d6ee6a05f7b03ae6ee8de4c60d2083c015e61f3699"
+    url "https://github.com/teemtee/fmf/archive/refs/tags/1.4.1.tar.gz"
+    sha256 "3a81da682f6d50f686420ff25e89bee339c2405639d15959ffac34df0dc75185"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/e8/ac/e349c5e6d4543326c6883ee9491e3921e0d07b55fdf3cce184b40d63e72a/idna-3.8.tar.gz"
-    sha256 "d838c2c0ed6fced7693d5e8ab8e734d5f8fda53a039c0164afb0b82e771e3603"
+    url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
+    sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
   end
 
   resource "jinja2" do
