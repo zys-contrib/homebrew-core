@@ -1,8 +1,8 @@
 class SwiftProtobuf < Formula
   desc "Plugin and runtime library for using protobuf with Swift"
   homepage "https://github.com/apple/swift-protobuf"
-  url "https://github.com/apple/swift-protobuf/archive/refs/tags/1.28.1.tar.gz"
-  sha256 "9204c512ee90378f22db3255ecc35de927d672a4925d5222497c57b3f30de726"
+  url "https://github.com/apple/swift-protobuf/archive/refs/tags/1.28.2.tar.gz"
+  sha256 "d086deab3ca0b74751fcc1905d268697b0d471e747fb50eced94941f28b35fb8"
   license "Apache-2.0"
   head "https://github.com/apple/swift-protobuf.git", branch: "main"
 
