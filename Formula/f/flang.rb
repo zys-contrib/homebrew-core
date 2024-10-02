@@ -26,6 +26,10 @@ class Flang < Formula
   # Building with GCC fails at linking with an obscure error.
   fails_with :gcc
 
+  def flang_driver
+    "flang-new"
+  end
+
   def install
     llvm = Formula["llvm"]
     # NOTE: Setting `BUILD_SHARED_LIBRARIES=ON` causes the just-built flang to throw ICE.
@@ -44,12 +48,25 @@ class Flang < Formula
     args << "-DFLANG_VENDOR_UTI=sh.brew.flang" if tap&.official?
 
     ENV.append_to_cflags "-ffat-lto-objects" if OS.linux? # Unsupported on macOS.
-    install_prefix = OS.mac? ? libexec : prefix
+    install_prefix = libexec
     system "cmake", "-S", "flang", "-B", "build", *args, *std_cmake_args(install_prefix:)
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    return if install_prefix == prefix
+    libexec.find do |pn|
+      next if pn.directory?
+
+      subdir = pn.relative_path_from(libexec).dirname
+      (prefix/subdir).install_symlink pn
+    end
+
+    # Our LLVM is built with exception-handling, which requires linkage with the C++ standard library.
+    # TODO: Remove this if/when we've rebuilt LLVM with `LLVM_ENABLE_EH=OFF`.
+    cxx_stdlib = OS.mac? ? "-lc++" : "-lstdc++"
+    cxx_stdlib << "\n"
+    (libexec/"bin/flang.cfg").atomic_write cxx_stdlib
+
+    return if OS.linux?
 
     # Convert LTO-generated bitcode in our static archives to MachO.
     # Not needed on Linux because of `-ffat-lto-objects`
@@ -72,17 +89,17 @@ class Flang < Formula
       end
     end
 
-    libexec.find do |pn|
-      next if pn.directory?
-
-      subdir = pn.relative_path_from(libexec).dirname
-      (prefix/subdir).install_symlink pn
-    end
-
     # The `flang-new` driver expects `libLTO.dylib` to be in the same prefix,
     # but it actually lives in LLVM's prefix.
-    liblto = Formula["llvm"].opt_lib/shared_library("libLTO")
-    ln_sf liblto, libexec/"lib"
+    ln_sf Formula["llvm"].opt_lib/shared_library("libLTO"), install_prefix/"lib"
+  end
+
+  def caveats
+    <<~EOS
+      Homebrew LLVM is built with LLVM_ENABLE_EH=ON, so binaries built by `#{flang_driver}`
+      require linkage to the C++ standard library. `#{flang_driver}` is configured to do this
+      automatically.
+    EOS
   end
 
   test do
@@ -104,12 +121,10 @@ class Flang < Formula
       end
     FORTRAN
 
-    cxx_stdlib = OS.mac? ? "-lc++" : "-lstdc++"
-
-    system bin/"flang-new", "-v", "hello.f90", cxx_stdlib, "-o", "hello"
+    system bin/flang_driver, "-v", "hello.f90", "-o", "hello"
     assert_equal "Hello World!", shell_output("./hello").chomp
 
-    system bin/"flang-new", "-v", "test.f90", cxx_stdlib, "-o", "test"
+    system bin/flang_driver, "-v", "test.f90", "-o", "test"
     assert_equal "Done", shell_output("./test").chomp
 
     system "ar", "x", lib/"libFortranCommon.a"
