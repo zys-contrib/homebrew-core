@@ -15,15 +15,32 @@ class Polkit < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on "duktape"
-  depends_on "expat"
   depends_on "glib"
-  depends_on :linux # macOS requires some patches to build due to installing into /usr/lib
-  depends_on "linux-pam"
-  depends_on "systemd"
+  uses_from_macos "expat"
+
+  on_macos do
+    depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "linux-pam"
+    depends_on "systemd"
+  end
 
   def install
-    args = ["-Dsystemdsystemunitdir=#{lib}/systemd/system"]
+    inreplace "meson.build" do |s|
+      s.gsub!("sysusers_dir = '/usr/lib/sysusers.d'", "sysusers_dir = '#{etc}/sysusers.d'")
+      s.gsub!("tmpfiles_dir = '/usr/lib/tmpfiles.d'", "tmpfiles_dir = '#{etc}/tmpfiles.d'")
+    end
 
+    args = [
+      "-Dsystemdsystemunitdir=#{lib}/systemd/system",
+      "-Dpam_prefix=#{etc}/pam.d",
+      "-Dpam_module_dir=#{lib}/pam",
+    ]
+    args << "-Dsession_tracking=ConsoleKit" if OS.mac?
+
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
     system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
