@@ -6,12 +6,12 @@ class Cnats < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "8dbc0dfe3a1c5d1f6e9697d5ae1684e08b47b70bffeddac7055976c2db88e827"
-    sha256 cellar: :any,                 arm64_sonoma:  "5313e1ab40c693392b473e20735012468c11d604c8dce0771e5e4365bb85b50d"
-    sha256 cellar: :any,                 arm64_ventura: "90c1f71965440c9508ad163498039c8b0d9087a13cc6d5b15d55dd1ccd813092"
-    sha256 cellar: :any,                 sonoma:        "eac52c7af9164d06bd205e6a03869ffb45a0a0b6866edc42a0cdc14d2d32f7bb"
-    sha256 cellar: :any,                 ventura:       "16576f9e74940e99cc6a45905243a314995c15b7d7e4ea1ddbcea0a37a8a45d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13fb1eac5d3a45f5d4af454db698d88476985069c65c23e7618501aad22e089b"
+    sha256 cellar: :any,                 arm64_sequoia: "a14732dbe1970ee79a82bf82284fe48a36593d9f4524bd165555575b2e86d737"
+    sha256 cellar: :any,                 arm64_sonoma:  "46bdd45de7cebfbf7fee0efa4f25a8e75ff1259b4eeeab1fd2b83499125614c8"
+    sha256 cellar: :any,                 arm64_ventura: "99eccf1867487b76254b99869d48f04e76ff1487abc73df1a061d3cd0ce27128"
+    sha256 cellar: :any,                 sonoma:        "d9d34eb8f6e01a652fdb5995210d39dfaa179103534e54f6c470e0579d2607f5"
+    sha256 cellar: :any,                 ventura:       "7d21fc311bed3729fe965047ce7d2d6f8a083623bdd42a065d2a475a21417ab6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bdee6d48ec5d0cd2a128a4072947881d4df68516830c33a3445531403fdbc466"
   end
 
   depends_on "cmake" => :build
