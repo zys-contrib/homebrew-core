@@ -2363,6 +2363,7 @@ root
 rosa-cli
 rospo
 rover
+roxctl
 rpg-cli
 rpki-client
 rpl
