@@ -1,23 +1,12 @@
 class Serialosc < Formula
   desc "Opensound control server for monome devices"
   homepage "https://github.com/monome/docs/blob/gh-pages/serialosc/osc.md"
-
+  # pull from git tag to get submodules
+  url "https://github.com/monome/serialosc.git",
+      tag:      "v1.4.5",
+      revision: "79ac58b0737bc8a6617d90ab41fb00b791a5a746"
   license "ISC"
   head "https://github.com/monome/serialosc.git", branch: "main"
-
-  stable do
-    # pull from git tag to get submodules
-    url "https://github.com/monome/serialosc.git",
-        tag:      "v1.4.4",
-        revision: "19ad3a211876c4434346ab2565eeec09cc949856"
-
-    # Uses fmemopen API (High Sierra) but defining a target macOS version of Leopard:
-    # https://github.com/monome/serialosc/pull/71
-    patch do
-      url "https://github.com/monome/serialosc/commit/c36237511f0dfd408e6c3233d6e0d880d5091d91.patch?full_index=1"
-      sha256 "34a5d7185148adfecbe5ff121378fa5d1a50b765dc1704b2ec9fffc6a9defaf1"
-    end
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "0885fb9b13b615a8addfda474c321583a0c05aa5091905348b9d6df2cf327cba"
@@ -40,13 +29,6 @@ class Serialosc < Formula
   on_linux do
     depends_on "avahi"
     depends_on "systemd" # for libudev
-  end
-
-  # Workaround for newer Clang
-  # upstream pr ref, https://github.com/monome/serialosc/pull/76
-  patch do
-    url "https://github.com/monome/serialosc/commit/afd804fe63449e166004ca1d692e9b165ca64771.patch?full_index=1"
-    sha256 "8273bc3fc666886cf9ba604f4304cce474555396cfad7fab83ab2069797e0cef"
   end
 
   def install

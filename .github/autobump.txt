@@ -2453,6 +2453,7 @@ semgrep
 sentencepiece
 seqkit
 ser2net
+serialosc
 serpl
 serverless
 service-weaver
