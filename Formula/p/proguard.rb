@@ -11,8 +11,7 @@ class Proguard < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "ac525f08798f112758472da89d5a386913263d80fc81f6622ab83b9b8ed5e5ce"
+    sha256 cellar: :any_skip_relocation, all: "e086732f3d577c6c3cc3c53270091aa9649a3b6582cde21f11da36fcb618927a"
   end
 
   depends_on "openjdk"
