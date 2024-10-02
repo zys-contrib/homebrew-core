@@ -1,21 +1,10 @@
 class Zbctl < Formula
   desc "Zeebe CLI client"
   homepage "https://docs.camunda.io/docs/apis-clients/cli-client/index/"
-  url "https://github.com/camunda/zeebe/archive/refs/tags/8.5.8.tar.gz"
-  sha256 "8fa156312da11867c9f4c61ddaa4ed333fda00ef31779d8fdaeeb6485fc339d6"
+  url "https://github.com/camunda-community-hub/zeebe-client-go/archive/refs/tags/v8.6.0.tar.gz"
+  sha256 "849c3f951b923dfa2bd34443d47bc06b705cb8faa10d2be5e0d411c238dc1f72"
   license "Apache-2.0"
-  head "https://github.com/camunda/zeebe.git", branch: "develop"
-
-  # Upstream creates stable version tags (e.g., `v1.2.3`) before a release but
-  # the version isn't considered to be released until a corresponding release
-  # is created on GitHub. Upstream may not mark all unstable releases as
-  # "pre-release", so we have to use the `GithubReleases` strategy until the
-  # "latest" release is always a stable version.
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-    strategy :github_releases
-  end
+  head "https://github.com/camunda-community-hub/zeebe-client-go.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b0ce528be524cb905a333722acdcd4c077f539f9af6375900a4c03e2d0cf81db"
@@ -29,13 +18,11 @@ class Zbctl < Formula
   depends_on "go" => :build
 
   def install
-    cd "clients/go/cmd/zbctl" do
-      project = "github.com/camunda/zeebe/clients/go/v8/cmd/zbctl/internal/commands"
-      ldflags = "-s -w -X #{project}.Version=#{version} -X #{project}.Commit=#{tap.user}"
-      system "go", "build", "-tags", "netgo", *std_go_args(ldflags:)
+    project = "github.com/camunda-community-hub/zeebe-client-go/v8/cmd/zbctl/internal/commands"
+    ldflags = "-s -w -X #{project}.Version=#{version} -X #{project}.Commit=#{tap.user}"
+    system "go", "build", "-tags", "netgo", *std_go_args(ldflags:), "./cmd/zbctl"
 
-      generate_completions_from_executable(bin/"zbctl", "completion")
-    end
+    generate_completions_from_executable(bin/"zbctl", "completion")
   end
 
   test do
