@@ -12,12 +12,12 @@ class Testkube < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "33cd3306bee7ecc7b353026fcfef3938f30f26733aea876daff8c7ab9a6d08a6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "33cd3306bee7ecc7b353026fcfef3938f30f26733aea876daff8c7ab9a6d08a6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "33cd3306bee7ecc7b353026fcfef3938f30f26733aea876daff8c7ab9a6d08a6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d85a8b23784d4419a977c1e1c8f4e8fef6b1c500049a0cd90e79b70c7afe75e5"
-    sha256 cellar: :any_skip_relocation, ventura:       "d85a8b23784d4419a977c1e1c8f4e8fef6b1c500049a0cd90e79b70c7afe75e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d3e625a46119c1b6ea282777890c64f177ece186a69b6afe89c1746383f50ed"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ddae2a0314f29c860ad649d3026b26dffb808c34c63c65b2d2d90f2d475335d0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ddae2a0314f29c860ad649d3026b26dffb808c34c63c65b2d2d90f2d475335d0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ddae2a0314f29c860ad649d3026b26dffb808c34c63c65b2d2d90f2d475335d0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8165bab460d8d5910f00044cb149cdeb7320169d901c571d04dbd5ba0574f00e"
+    sha256 cellar: :any_skip_relocation, ventura:       "8165bab460d8d5910f00044cb149cdeb7320169d901c571d04dbd5ba0574f00e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "adb7687875135dc26f1adaf420dd3f38632cbe50c2e0924b18798a0e38201c29"
   end
 
   depends_on "go" => :build
