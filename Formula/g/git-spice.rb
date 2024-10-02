@@ -1,8 +1,8 @@
 class GitSpice < Formula
   desc "Manage stacked Git branches"
   homepage "https://github.com/abhinav/git-spice"
-  url "https://github.com/abhinav/git-spice/archive/refs/tags/v0.6.0.tar.gz"
-  sha256 "34b5161ca642bb70269c45b9726137832eb95737465c6134995de5be2e1ef1d6"
+  url "https://github.com/abhinav/git-spice/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "cfef3ebaaf750d83ae9480663f256c611a9abffd2fd6af95398187313e11fa1e"
   license all_of: [
     "GPL-3.0-or-later",
     "BSD-3-Clause", # internal/komplete/{komplete.go, komplete_test.go}
