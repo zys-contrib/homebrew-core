@@ -2198,6 +2198,7 @@ prettierd
 primecount
 primesieve
 principalmapper
+probe-rs-tools
 procs
 proftpd
 proj
