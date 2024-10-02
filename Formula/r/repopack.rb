@@ -6,7 +6,7 @@ class Repopack < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "986c132072af1f0da173cc15b8c6f6b57286ef8dba1e14e8c1233cf7d07fdaef"
+    sha256 cellar: :any_skip_relocation, all: "f41790f9f5025a31a14546393e74f3a36cb02c2bf427c7f81bc9bb3dc747ffce"
   end
 
   depends_on "node"
