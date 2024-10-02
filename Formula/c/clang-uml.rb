@@ -1,10 +1,9 @@
 class ClangUml < Formula
   desc "Customizable automatic UML diagram generator for C++ based on Clang"
   homepage "https://github.com/bkryza/clang-uml"
-  url "https://github.com/bkryza/clang-uml/archive/refs/tags/0.5.4.tar.gz"
-  sha256 "445ae69e9ef7dcc50d0352dcd79d8c55994a7bebd84684f95405fd81168338c4"
+  url "https://github.com/bkryza/clang-uml/archive/refs/tags/0.5.5.tar.gz"
+  sha256 "95585b59c822f3c135dae04574055384e1f904ac69c75c8570b4eb65eca6fd37"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/bkryza/clang-uml.git", branch: "master"
 
   bottle do
@@ -18,7 +17,7 @@ class ClangUml < Formula
 
   depends_on "cmake" => [:build, :test]
   depends_on "pkg-config" => :build
-  depends_on "llvm@18"
+  depends_on "llvm"
   depends_on "yaml-cpp"
 
   fails_with gcc: "5"
@@ -29,7 +28,7 @@ class ClangUml < Formula
   end
 
   def install
-    ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(target: llvm.opt_lib)}" if OS.linux?
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(target: llvm.opt_lib)}" if OS.linux? && llvm.versioned_formula?
     args = %w[
       -DBUILD_TESTS=OFF
     ]
@@ -38,27 +37,12 @@ class ClangUml < Formula
     # to provide the version using a CMake option
     args << "-DGIT_VERSION=#{version}" if build.stable?
 
-    # Use LLVM-provided libc++
-    args << "-DCMAKE_EXE_LINKER_FLAGS=-L#{llvm.opt_lib}/c++ -L#{llvm.opt_lib} -lunwind" if OS.mac?
-
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
     bash_completion.install "packaging/autocomplete/clang-uml"
     zsh_completion.install "packaging/autocomplete/_clang-uml"
-  end
-
-  def caveats
-    on_macos do
-      <<~EOS
-        If you see errors such as `fatal: 'stddef.h' file not found`, try
-        adding `--query-driver .` to the `clang-uml` command line in order to
-        ensure that proper system headers are available to Clang.
-
-        For more information see: https://clang-uml.github.io/md_docs_2troubleshooting.html
-      EOS
-    end
   end
 
   test do
