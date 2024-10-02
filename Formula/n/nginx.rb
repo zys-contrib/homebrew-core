@@ -3,8 +3,8 @@ class Nginx < Formula
   homepage "https://nginx.org/"
   # Use "mainline" releases only (odd minor version number), not "stable"
   # See https://www.nginx.com/blog/nginx-1-12-1-13-released/ for why
-  url "https://nginx.org/download/nginx-1.27.1.tar.gz"
-  sha256 "bd7ba68a6ce1ea3768b771c7e2ab4955a59fb1b1ae8d554fedb6c2304104bdfc"
+  url "https://nginx.org/download/nginx-1.27.2.tar.gz"
+  sha256 "a91ecfc3a0b3a2c1413afca627bd886d76e0414b81cad0fb7872a9655a1b25fa"
   license "BSD-2-Clause"
   head "https://github.com/nginx/nginx", branch: "master"
 
@@ -29,6 +29,7 @@ class Nginx < Formula
 
   uses_from_macos "xz" => :build
   uses_from_macos "libxcrypt"
+  uses_from_macos "zlib"
 
   def install
     # keep clean copy of source for compiling dynamic modules e.g. passenger
