@@ -2906,6 +2906,7 @@ vttest
 vue-cli
 vulkan-extensionlayer
 vulkan-volk
+vulsio-gost
 vultr
 vulture
 vunnel
