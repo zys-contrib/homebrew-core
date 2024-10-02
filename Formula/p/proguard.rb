@@ -1,8 +1,8 @@
 class Proguard < Formula
   desc "Java class file shrinker, optimizer, and obfuscator"
   homepage "https://www.guardsquare.com/en/products/proguard"
-  url "https://github.com/Guardsquare/proguard/releases/download/v7.5/proguard-7.5.0.tar.gz"
-  sha256 "48b1d6bd104acc12c9218250e88b3422815c86510cdd3c8c572a0386ac289376"
+  url "https://github.com/Guardsquare/proguard/releases/download/v7.6/proguard-7.6.0.tar.gz"
+  sha256 "33c0aafe65f58464f82b9080c5a18312ae0c6e2fc6a133aedf3ae13a37bbf9d9"
   license "GPL-2.0-or-later"
 
   livecheck do
