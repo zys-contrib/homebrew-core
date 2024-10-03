@@ -20,7 +20,7 @@ class SonarScanner < Formula
     ln_s etc/"sonar-scanner.properties", libexec/"conf/sonar-scanner.properties"
     bin.env_script_all_files libexec/"bin/",
                               SONAR_SCANNER_HOME: libexec,
-                              JAVA_HOME:          Formula["openjdk"].opt_prefix
+                              JAVA_HOME:          Language::Java.overridable_java_home_env[:JAVA_HOME]
   end
 
   test do
