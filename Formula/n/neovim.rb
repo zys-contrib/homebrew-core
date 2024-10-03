@@ -4,8 +4,8 @@ class Neovim < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/neovim/neovim/archive/refs/tags/v0.10.1.tar.gz"
-    sha256 "edce96e79903adfcb3c41e9a8238511946325ea9568fde177a70a614501af689"
+    url "https://github.com/neovim/neovim/archive/refs/tags/v0.10.2.tar.gz"
+    sha256 "546cb2da9fffbb7e913261344bbf4cf1622721f6c5a67aa77609e976e78b8e89"
 
     # TODO: Remove when the following commit lands in a release.
     # https://github.com/neovim/neovim/commit/fa79a8ad6deefeea81c1959d69aa4c8b2d993f99
