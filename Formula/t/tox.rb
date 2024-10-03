@@ -8,12 +8,12 @@ class Tox < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "67aedb03f44c125c7129de57b50d24b189d33ee34d573e9d2df8f53d0dc9baa0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "67aedb03f44c125c7129de57b50d24b189d33ee34d573e9d2df8f53d0dc9baa0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "67aedb03f44c125c7129de57b50d24b189d33ee34d573e9d2df8f53d0dc9baa0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0d6cff067da5a3ac78d94f4f73d9d5cbe020a844a13588e42b1c99890e5978e0"
-    sha256 cellar: :any_skip_relocation, ventura:       "0d6cff067da5a3ac78d94f4f73d9d5cbe020a844a13588e42b1c99890e5978e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f8d27c4fe4dd38786cdfa00fb3e528e807f1c3acb7ca70df259144694cd287b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fbfd787c6a7f2d7b98c906d0292a28815b45101a6dd676a7641c009bb08723bd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fbfd787c6a7f2d7b98c906d0292a28815b45101a6dd676a7641c009bb08723bd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "fbfd787c6a7f2d7b98c906d0292a28815b45101a6dd676a7641c009bb08723bd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4865a60f722765e6a0c6d169109ab49f084a64abd5059df67ed26737c88bc778"
+    sha256 cellar: :any_skip_relocation, ventura:       "4865a60f722765e6a0c6d169109ab49f084a64abd5059df67ed26737c88bc778"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8fd0adaa76aa8b31fdbafd753c7a7a9762b689a6f9746ddf9e8fa5c5338597d4"
   end
 
   depends_on "python@3.12"
