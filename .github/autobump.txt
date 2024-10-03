@@ -2049,7 +2049,6 @@ orgalorg
 orientdb
 ormolu
 orocos-kdl
-ortp
 osc
 osctrl-cli
 osi
