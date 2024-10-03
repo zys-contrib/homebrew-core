@@ -1,8 +1,8 @@
 class Firefly < Formula
   desc "Create and manage the Hyperledger FireFly stack for blockchain interaction"
   homepage "https://hyperledger.github.io/firefly/latest/"
-  url "https://github.com/hyperledger/firefly-cli/archive/refs/tags/v1.3.1.tar.gz"
-  sha256 "d2b0420b37c1ce6195e0739b2341502e65fea23c3ddd41cd55159ea237e01f23"
+  url "https://github.com/hyperledger/firefly-cli/archive/refs/tags/v1.3.2.tar.gz"
+  sha256 "843dee9fabc787dedf5768735f353187349bb759583d5fa3c977969f3688e516"
   license "Apache-2.0"
   head "https://github.com/hyperledger/firefly-cli.git", branch: "main"
 
