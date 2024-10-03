@@ -804,6 +804,7 @@ f3d
 faas-cli
 fabric
 fabric-installer
+facad
 fail2ban
 faircamp
 faiss
