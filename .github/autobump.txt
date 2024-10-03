@@ -1819,6 +1819,7 @@ monolith
 moon
 morpheus
 morse
+mosquitto
 moto
 mpc
 mpd
