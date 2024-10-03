@@ -1532,6 +1532,7 @@ liblc3
 liblinear
 liblouis
 liblqr
+liblxi
 libmaa
 libmapper
 libmatio
