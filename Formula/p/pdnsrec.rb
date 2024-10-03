@@ -11,14 +11,12 @@ class Pdnsrec < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "c7b29389c903ddcd1d85d7bc9c4fc6b1468f1f5e7b8eacb9e61053407d339316"
-    sha256 arm64_sonoma:   "34a52ef9b2313c4335c8878e5274e780fdd9722884dddde312d062c16fa83119"
-    sha256 arm64_ventura:  "0979ed70f516bb36747d5e78cceabe236c529eb0bab2c9a87bd667eb929d1215"
-    sha256 arm64_monterey: "dc517d5ad5484054a43c9f152f110c014ee0f81ba0e741321d3cf52805399cf8"
-    sha256 sonoma:         "48fd3d137fc887a88eba5231de21a5465dbc878bf464c7ba3bcc6fecf5f0a508"
-    sha256 ventura:        "fce8f838c4977d754d642556f77795c9960602205a1fc546aa6ea1dcb17f3e3c"
-    sha256 monterey:       "3b681726241d5b3ac544abc4765fef828123f99a04db459518fc33b6f1847d1b"
-    sha256 x86_64_linux:   "d5c09f9fb970fb35d2bed933accdd077f0dc9f3a0d9e4dd30a559888cb540f78"
+    sha256 arm64_sequoia: "a1af5a80bbcf3aa120b90ec0d375939a4b2f869def8ded6b5daec4ee55da434d"
+    sha256 arm64_sonoma:  "2bc68e0fa028d5b34c89df967fe7cbbe7f55d8a91b3a2f9160639c35046f8e40"
+    sha256 arm64_ventura: "5932d71b150cb46183bb20a081003fe44b68f6d5a70e42c20326212a883c9e3c"
+    sha256 sonoma:        "67e8cf1f617ddf19ec598b760e80c37f589438f05f30952a0c691b05eea5ed62"
+    sha256 ventura:       "76dca78bedf780a7bfe16ce53ba5418b2664d1ead1dee13663bc9a5012a17c85"
+    sha256 x86_64_linux:  "e5c9f7c571a9c47ab19c5b819d79fbcf7da8c8da57594ebf8d3e4d4f9e504f7a"
   end
 
   depends_on "pkg-config" => :build
