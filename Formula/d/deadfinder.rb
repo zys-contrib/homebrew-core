@@ -1,8 +1,8 @@
 class Deadfinder < Formula
   desc "Finds broken links"
   homepage "https://rubygems.org/gems/deadfinder"
-  url "https://github.com/hahwul/deadfinder/archive/refs/tags/1.3.6.tar.gz"
-  sha256 "c632186a0295165f2a78bd0c337398cb8a6b38b4769f53e729d023fe0782fd24"
+  url "https://github.com/hahwul/deadfinder/archive/refs/tags/1.4.0.tar.gz"
+  sha256 "15934889544d008cf9b87ce69123f7bed4ba6587bbc3aef82a60d625d2675cec"
   license "MIT"
   head "https://github.com/hahwul/deadfinder.git", branch: "main"
 
