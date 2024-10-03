@@ -1538,6 +1538,7 @@ libmatio
 libmaxminddb
 libmicrohttpd
 libmobi
+libmonome
 libmxml
 libnetfilter_conntrack
 libnfs
