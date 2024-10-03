@@ -1402,6 +1402,7 @@ ktor
 kty
 kube-linter
 kube-ps1
+kube-score
 kubeaudit
 kubebuilder
 kubecfg
