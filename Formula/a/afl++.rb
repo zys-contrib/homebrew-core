@@ -4,6 +4,7 @@ class Aflxx < Formula
   url "https://github.com/AFLplusplus/AFLplusplus/archive/refs/tags/v4.21c.tar.gz"
   sha256 "11f7c77d37cff6e7f65ac7cc55bab7901e0c6208e845a38764394d04ed567b30"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 arm64_sequoia: "9890de4f599763850e2cdb9d9037fa34cc7c04d08c1f916234b72a0c7d2eb7f3"
@@ -17,6 +18,10 @@ class Aflxx < Formula
   depends_on "coreutils" => :build
   depends_on "llvm"
   depends_on "python@3.12"
+
+  # The Makefile will insist on compiling with LLVM clang even without this.
+  fails_with :clang
+  fails_with :gcc
 
   def install
     ENV.prepend_path "PATH", Formula["coreutils"].libexec/"gnubin"
@@ -34,8 +39,20 @@ class Aflxx < Formula
       end
     end
 
-    system "make", "source-only", "PREFIX=#{prefix}"
-    system "make", "install", "PREFIX=#{prefix}"
+    llvm = Formula["llvm"]
+    make_args = %W[
+      PREFIX=#{prefix}
+      CC=clang
+      CXX=clang++
+      LLVM_BINDIR=#{llvm.opt_bin}
+      LLVM_LIBDIR=#{llvm.opt_lib}
+    ]
+
+    system "make", "source-only", *make_args
+    system "make", "install", *make_args
+    return unless llvm.keg_only?
+
+    bin.env_script_all_files libexec, PATH: "#{llvm.opt_bin}:${PATH}"
   end
 
   test do
