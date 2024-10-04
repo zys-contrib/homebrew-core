@@ -10,14 +10,12 @@ class CfnFormat < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "01852e0de71f29d665ef1029a183939c8e29ed667874985528aaa65d62dfbcb2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7cdf7fd5ee9b949f78ac6936194bd9babb805717aa6b97108ab3f1544f530441"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7cdf7fd5ee9b949f78ac6936194bd9babb805717aa6b97108ab3f1544f530441"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7cdf7fd5ee9b949f78ac6936194bd9babb805717aa6b97108ab3f1544f530441"
-    sha256 cellar: :any_skip_relocation, sonoma:         "56599cef2080f3c568903230a7a9b61a916369b55ef9eddf39e45db61997ceed"
-    sha256 cellar: :any_skip_relocation, ventura:        "56599cef2080f3c568903230a7a9b61a916369b55ef9eddf39e45db61997ceed"
-    sha256 cellar: :any_skip_relocation, monterey:       "56599cef2080f3c568903230a7a9b61a916369b55ef9eddf39e45db61997ceed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2a0c45d5d392e32a8c6d100f789be5485cbd0de1704f7a701adb54a98b6fc05"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d46635d17ac329a93503c94812ab58092093274c8f623027ce2d916ada6aaf1d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d46635d17ac329a93503c94812ab58092093274c8f623027ce2d916ada6aaf1d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d46635d17ac329a93503c94812ab58092093274c8f623027ce2d916ada6aaf1d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "760181025f2456f25086bad0d36dbf4c536adba0c96239454a61fa178abe61cc"
+    sha256 cellar: :any_skip_relocation, ventura:       "760181025f2456f25086bad0d36dbf4c536adba0c96239454a61fa178abe61cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f3f0b7bb6ce95fe44938d548ea8cfca9cf09e725e4247272006a7e5b11e94a7"
   end
 
   depends_on "go" => :build
