@@ -219,6 +219,7 @@ bind
 bindfs
 bindgen
 bingrep
+binsider
 biodiff
 biome
 biosig
@@ -2374,6 +2375,7 @@ rpl
 rpmspectool
 rqlite
 rrdtool
+rsgain
 rswift
 rsyncy
 rsyslog
