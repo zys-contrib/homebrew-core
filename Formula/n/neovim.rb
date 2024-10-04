@@ -2,6 +2,7 @@ class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
   license "Apache-2.0"
+  revision 1
 
   stable do
     url "https://github.com/neovim/neovim/archive/refs/tags/v0.10.2.tar.gz"
@@ -85,24 +86,40 @@ class Neovim < Formula
   end
 
   def install
+    if build.head?
+      cmake_deps = (buildpath/"cmake.deps/deps.txt").read.lines
+      cmake_deps.each do |line|
+        next unless line.match?(/TREESITTER_[^_]+_URL/)
+
+        parser, parser_url = line.split
+        parser_name = parser.delete_suffix("_URL")
+        parser_sha256 = cmake_deps.find { |l| l.include?("#{parser_name}_SHA256") }.split.last
+        parser_name = parser_name.downcase.tr("_", "-")
+
+        resource parser_name do
+          url parser_url
+          sha256 parser_sha256
+        end
+      end
+    end
+
     resources.each do |r|
       r.stage(buildpath/"deps-build/build/src"/r.name)
     end
 
-    if build.stable?
-      cd "deps-build/build/src" do
-        Dir["tree-sitter-*"].each do |ts_dir|
-          cd ts_dir do
-            if ts_dir == "tree-sitter-markdown"
-              cp buildpath/"cmake.deps/cmake/MarkdownParserCMakeLists.txt", "CMakeLists.txt"
-            else
-              cp buildpath/"cmake.deps/cmake/TreesitterParserCMakeLists.txt", "CMakeLists.txt"
-            end
-            parser_name = ts_dir[/^tree-sitter-(\w+)$/, 1]
-            system "cmake", "-S", ".", "-B", "build", "-DPARSERLANG=#{parser_name}", *std_cmake_args
-            system "cmake", "--build", "build"
-            system "cmake", "--install", "build"
+    cd "deps-build/build/src" do
+      Dir["tree*sitter-*"].each do |ts_dir|
+        cd ts_dir do
+          if ts_dir.end_with?("-markdown")
+            cp buildpath/"cmake.deps/cmake/MarkdownParserCMakeLists.txt", "CMakeLists.txt"
+          else
+            cp buildpath/"cmake.deps/cmake/TreesitterParserCMakeLists.txt", "CMakeLists.txt"
           end
+          parser_name = ts_dir[/^tree-?sitter-(\w+)$/, 1]
+
+          system "cmake", "-S", ".", "-B", "build", "-DPARSERLANG=#{parser_name}", *std_cmake_args
+          system "cmake", "--build", "build"
+          system "cmake", "--install", "build"
         end
       end
     end
@@ -119,23 +136,14 @@ class Neovim < Formula
     # Replace `-dirty` suffix in `--version` output with `-Homebrew`.
     inreplace "cmake/GenerateVersion.cmake", "--dirty", "--dirty=-Homebrew"
 
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DLUV_LIBRARY=#{Formula["luv"].opt_lib/shared_library("libluv")}",
-                    "-DLIBUV_LIBRARY=#{Formula["libuv"].opt_lib/shared_library("libuv")}",
-                    "-DLPEG_LIBRARY=#{Formula["lpeg"].opt_lib/shared_library("liblpeg")}",
-                    *std_cmake_args
-
+    args = [
+      "-DLUV_LIBRARY=#{Formula["luv"].opt_lib/shared_library("libluv")}",
+      "-DLIBUV_LIBRARY=#{Formula["libuv"].opt_lib/shared_library("libuv")}",
+      "-DLPEG_LIBRARY=#{Formula["lpeg"].opt_lib/shared_library("liblpeg")}",
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-  end
-
-  def caveats
-    return if latest_head_version.blank?
-
-    <<~EOS
-      HEAD installs of Neovim do not include any tree-sitter parsers.
-      You can use the `nvim-treesitter` plugin to install them.
-    EOS
   end
 
   test do
