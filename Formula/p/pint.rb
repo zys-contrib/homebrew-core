@@ -1,8 +1,8 @@
 class Pint < Formula
   desc "Prometheus rule linter/validator"
   homepage "https://cloudflare.github.io/pint/"
-  url "https://github.com/cloudflare/pint/archive/refs/tags/v0.66.0.tar.gz"
-  sha256 "8471f17d6a719035327eb2876a073f4782e8a8428d94bceaf3f267f713bfc741"
+  url "https://github.com/cloudflare/pint/archive/refs/tags/v0.66.1.tar.gz"
+  sha256 "95caa9d9b7364ca7dd762071c3fe05353b74db1ba141c60f986fb19ab644b7b9"
   license "Apache-2.0"
 
   bottle do
