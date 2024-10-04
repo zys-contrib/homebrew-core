@@ -7,6 +7,7 @@ class Semgrep < Formula
       tag:      "v1.90.0",
       revision: "8d38a7fcd5329824a8071757954ca64704e885ff"
   license "LGPL-2.1-only"
+  revision 1
   head "https://github.com/semgrep/semgrep.git", branch: "develop"
 
   livecheck do
@@ -275,6 +276,27 @@ class Semgrep < Formula
     # Work around ruamel.yaml.clib not building on Xcode 15.3, remove after a new release
     # has resolved: https://sourceforge.net/p/ruamel-yaml-clib/tickets/32/
     ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+
+    # build fails with uuidm 0.9.9
+    inreplace "semgrep.opam", /^\s+"uuidm"$/, "\\0 {= \"0.9.8\"}"
+    odie "remove the `inreplace` for semgrep.opam!" if build.bottle? && version > "1.90.0"
+
+    # Ensure dynamic linkage to our libraries
+    inreplace "src/main/flags.sh" do |s|
+      s.gsub!('"$(pkg-config gmp --variable libdir)/libgmp.a"', Formula["gmp"].opt_lib/shared_library("libgmp"))
+      s.gsub!(
+        '"$(pkg-config tree-sitter --variable libdir)/libtree-sitter.a"',
+        Formula["tree-sitter"].opt_lib/shared_library("libtree-sitter"),
+      )
+      s.gsub!(
+        '"$(pkg-config libpcre --variable libdir)/libpcre.a"',
+        Formula["pcre"].opt_lib/shared_library("libpcre"),
+      )
+      s.gsub!(
+        '"$(pkg-config libpcre2-8 --variable libdir)/libpcre2-8.a"',
+        Formula["pcre2"].opt_lib/shared_library("libpcre2-8"),
+      )
+    end
 
     ENV.deparallelize
     Dir.mktmpdir("opamroot") do |opamroot|
