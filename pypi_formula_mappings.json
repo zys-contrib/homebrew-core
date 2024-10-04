@@ -553,10 +553,11 @@
   },
   "openstackclient": {
     "extra_packages": [
-      "osc-placement", "python-barbicanclient", "python-cloudkittyclient",
-      "python-designateclient", "python-glanceclient", "python-heatclient",
-      "python-ironicclient", "python-magnumclient", "python-manilaclient",
-      "python-mistralclient", "python-octaviaclient", "setuptools"
+      "keystoneauth-websso", "osc-placement", "python-barbicanclient",
+      "python-cloudkittyclient", "python-designateclient",
+      "python-glanceclient", "python-heatclient", "python-ironicclient",
+      "python-magnumclient", "python-manilaclient", "python-mistralclient",
+      "python-octaviaclient", "setuptools"
     ],
     "exclude_packages": ["certifi", "cryptography"]
   },
