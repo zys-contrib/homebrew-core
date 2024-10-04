@@ -4,7 +4,7 @@ class Aflxx < Formula
   url "https://github.com/AFLplusplus/AFLplusplus/archive/refs/tags/v4.21c.tar.gz"
   sha256 "11f7c77d37cff6e7f65ac7cc55bab7901e0c6208e845a38764394d04ed567b30"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -18,7 +18,7 @@ class Aflxx < Formula
 
   depends_on "coreutils" => :build
   depends_on "llvm"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   # The Makefile will insist on compiling with LLVM clang even without this.
   fails_with :clang
