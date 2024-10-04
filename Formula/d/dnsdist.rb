@@ -1,10 +1,9 @@
 class Dnsdist < Formula
   desc "Highly DNS-, DoS- and abuse-aware loadbalancer"
   homepage "https://www.dnsdist.org/"
-  url "https://downloads.powerdns.com/releases/dnsdist-1.9.6.tar.bz2"
-  sha256 "f6c48d95525693fea6bd9422f3fdf69a77c75b06f02ed14ff0f42072f72082c9"
+  url "https://downloads.powerdns.com/releases/dnsdist-1.9.7.tar.bz2"
+  sha256 "285111c2b7dff6bc8a2407106a51c365cc5bf5e6287fe459a29b396c74620332"
   license "GPL-2.0-only"
-  revision 1
 
   livecheck do
     url "https://downloads.powerdns.com/releases/"
@@ -35,12 +34,6 @@ class Dnsdist < Formula
   uses_from_macos "libedit"
 
   fails_with gcc: "5"
-
-  # Fix build with boost 1.86.0. Remove in next release
-  patch :p2 do
-    url "https://github.com/PowerDNS/pdns/commit/a1026f0c6db7b077d1180096a84f48a85a606d59.patch?full_index=1"
-    sha256 "8c8e4dd81af366fdd08182b5f242a054188d46c8ab955ae19843ac64c2f2044f"
-  end
 
   def install
     system "./configure", "--disable-silent-rules",
