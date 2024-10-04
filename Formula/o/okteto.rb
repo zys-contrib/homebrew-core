@@ -1,8 +1,8 @@
 class Okteto < Formula
   desc "Build better apps by developing and testing code directly in Kubernetes"
   homepage "https://okteto.com"
-  url "https://github.com/okteto/okteto/archive/refs/tags/2.31.0.tar.gz"
-  sha256 "c6a5769b298d772d64bc48ac06dd9a64b361d8fc5f39e17abdef3b961f72d8bd"
+  url "https://github.com/okteto/okteto/archive/refs/tags/3.0.0.tar.gz"
+  sha256 "f8ce1063b4e5d6168c7d2dca83860d0c29d07c058f93b0f3ab5854805c6d7a42"
   license "Apache-2.0"
   head "https://github.com/okteto/okteto.git", branch: "master"
 
@@ -30,10 +30,6 @@ class Okteto < Formula
   test do
     assert_match "okteto version #{version}", shell_output("#{bin}/okteto version")
 
-    assert_match "Please run 'okteto context' to select one context",
-      shell_output(bin/"okteto init --context test 2>&1", 1)
-
-    assert_match "Your context is not set",
-      shell_output(bin/"okteto context list 2>&1", 1)
+    assert_match "Your context is not set", shell_output("#{bin}/okteto context list 2>&1", 1)
   end
 end
