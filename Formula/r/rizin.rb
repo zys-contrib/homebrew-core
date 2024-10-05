@@ -48,17 +48,16 @@ class Rizin < Formula
       -Duse_sys_pcre2=enabled
       -Duse_sys_xxhash=enabled
       -Duse_sys_zlib=enabled
+      -Duse_sys_tree_sitter=enabled
       -Dextra_prefix=#{HOMEBREW_PREFIX}
       -Denable_tests=false
       -Denable_rz_test=false
       --wrap-mode=nodownload
     ]
 
-    args << if OS.mac?
-      "--force-fallback-for=rzgdb,rzwinkd,rzar,rzqnx,tree-sitter-c,rzspp,rizin-shell-parser,rzheap"
-    else
-      "--force-fallback-for=rzgdb,rzwinkd,rzar,rzqnx,tree-sitter-c,rzspp,rizin-shell-parser,rzheap,ptrace-wrap"
-    end
+    fallback = %w[rzgdb rzwinkd rzar rzqnx tree-sitter-c rzspp rizin-shell-parser rzheap]
+    fallback << "ptrace-wrap" unless OS.mac?
+    args << "--force-fallback-for=#{fallback.join(",")}"
 
     system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
