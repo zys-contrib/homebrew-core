@@ -1,10 +1,21 @@
 class TreeSitter < Formula
   desc "Parser generator tool and incremental parsing library"
   homepage "https://tree-sitter.github.io/"
-  url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.24.1.tar.gz"
-  sha256 "7adb5bb3b3c2c4f4fdc980a9a13df8fbf3526a82b5c37dd9cf2ed29de56a4683"
   license "MIT"
   head "https://github.com/tree-sitter/tree-sitter.git", branch: "master"
+
+  # Remove `stable` block when patch is no longer needed.
+  stable do
+    url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.24.1.tar.gz"
+    sha256 "7adb5bb3b3c2c4f4fdc980a9a13df8fbf3526a82b5c37dd9cf2ed29de56a4683"
+
+    # Fix `.pc` file generation. Remove at next release.
+    # https://github.com/tree-sitter/tree-sitter/pull/3745
+    patch do
+      url "https://github.com/tree-sitter/tree-sitter/commit/079c69313fa14b9263739b494a47efacc1c91cdc.patch?full_index=1"
+      sha256 "d2536bd31912bf81b2593e768159a31fb199fe922dafb22b66d7dfba0624cc25"
+    end
+  end
 
   livecheck do
     url :stable
