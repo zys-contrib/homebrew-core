@@ -4,7 +4,7 @@ class Libpsl < Formula
   url "https://github.com/rockdaboot/libpsl/releases/download/0.21.5/libpsl-0.21.5.tar.gz"
   sha256 "1dcc9ceae8b128f3c0b3f654decd0e1e891afc6ff81098f227ef260449dae208"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "8e48920c6035c309db63dc2839f802780f5ab798d3e9cb4518166416fb0685ba"
@@ -20,10 +20,11 @@ class Libpsl < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "icu4c"
+  depends_on "libidn2"
+  depends_on "libunistring"
 
   def install
-    system "meson", "setup", "build", "-Druntime=libicu", "-Dbuiltin=true", *std_meson_args
+    system "meson", "setup", "build", "-Druntime=libidn2", "-Dbuiltin=true", *std_meson_args
     system "meson", "compile", "-C", "build"
     system "meson", "install", "-C", "build"
   end
