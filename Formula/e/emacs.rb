@@ -5,6 +5,7 @@ class Emacs < Formula
   mirror "https://ftpmirror.gnu.org/emacs/emacs-29.4.tar.xz"
   sha256 "ba897946f94c36600a7e7bb3501d27aa4112d791bfe1445c61ed28550daca235"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_sequoia:  "84ac311b2af10a54d054df729006650bf9473539e9d09095f9ca17ce34a0bca6"
