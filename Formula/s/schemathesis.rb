@@ -3,8 +3,8 @@ class Schemathesis < Formula
 
   desc "Testing tool for web applications with specs"
   homepage "https://schemathesis.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/06/4b/ab55fbbba29aced8270dff7f734b2f38ee3ab22a91318f0e1290e0bd88d5/schemathesis-3.36.3.tar.gz"
-  sha256 "17ad340de2c09e9d38fe0fd8838c21f5a73cc18503e6ca3fb9e288022847235b"
+  url "https://files.pythonhosted.org/packages/a4/4b/f968eef932df30e15914af2bfa7c683285ecf2ae16f60604b722fbbce7f3/schemathesis-3.36.4.tar.gz"
+  sha256 "7cbb2e077d166a35ea6bfc80b736cb089e4369e115e788e25f52f295237a0568"
   license "MIT"
 
   bottle do
@@ -79,8 +79,8 @@ class Schemathesis < Formula
   end
 
   resource "httpcore" do
-    url "https://files.pythonhosted.org/packages/17/b0/5e8b8674f8d203335a62fdfcfa0d11ebe09e23613c3391033cbba35f7926/httpcore-1.0.5.tar.gz"
-    sha256 "34a38e2f9291467ee3b44e89dd52615370e152954ba21721378a87b2960f7a61"
+    url "https://files.pythonhosted.org/packages/b6/44/ed0fa6a17845fb033bd885c03e842f08c1b9406c86a2e60ac1ae1b9206a6/httpcore-1.0.6.tar.gz"
+    sha256 "73f6dbd6eb8c21bbf7ef8efad555481853f5f6acdeaff1edb0694289269ee17f"
   end
 
   resource "httpx" do
@@ -89,8 +89,8 @@ class Schemathesis < Formula
   end
 
   resource "hypothesis" do
-    url "https://files.pythonhosted.org/packages/11/a5/4bb02e3153f40bd9a819e35e4c9838cf850ad3e0aa31d30a60cd9b29d143/hypothesis-6.112.2.tar.gz"
-    sha256 "90cd62d9487eaf294bf0dceb47dbaca6432408b2e9417cfa6e3409313dbde95b"
+    url "https://files.pythonhosted.org/packages/40/24/9cfe2a333f8bfa5ce84e9c557410e6c233bf0a67672f73c8902ad2fbf748/hypothesis-6.112.3.tar.gz"
+    sha256 "b7c0061bbf1b779260db823f27cfa0a0aec19c2653289b8eefdea63f432b1af3"
   end
 
   resource "hypothesis-graphql" do
@@ -234,8 +234,8 @@ class Schemathesis < Formula
   end
 
   resource "tomli" do
-    url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
-    sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
+    url "https://files.pythonhosted.org/packages/35/b9/de2a5c0144d7d75a57ff355c0c24054f965b2dc3036456ae03a51ea6264b/tomli-2.0.2.tar.gz"
+    sha256 "d46d457a85337051c36524bc5349dd91b1877838e2979ac5ced3e710ed8a60ed"
   end
 
   resource "tomli-w" do
@@ -244,8 +244,8 @@ class Schemathesis < Formula
   end
 
   resource "types-python-dateutil" do
-    url "https://files.pythonhosted.org/packages/3e/d9/9c9ec2d870af7aa9b722ce4fd5890bb55b1d18898df7f1d069cab194bb2a/types-python-dateutil-2.9.0.20240906.tar.gz"
-    sha256 "9706c3b68284c25adffc47319ecc7947e5bb86b3773f843c73906fd598bc176e"
+    url "https://files.pythonhosted.org/packages/31/f8/f6ee4c803a7beccffee21bb29a71573b39f7037c224843eff53e5308c16e/types-python-dateutil-2.9.0.20241003.tar.gz"
+    sha256 "58cb85449b2a56d6684e41aeefb4c4280631246a0da1a719bdbe6f3fb0317446"
   end
 
   resource "uri-template" do
