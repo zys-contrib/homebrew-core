@@ -33,6 +33,12 @@ class Hdf5 < Formula
 
   conflicts_with "hdf5-mpi", because: "hdf5-mpi is a variant of hdf5, one can only use one or the other"
 
+  # fix c++ regression, can be removed in next release
+  patch do
+    url "https://github.com/HDFGroup/hdf5/commit/ea76013648aac81cee941a7b7a86f21201d1debf.patch?full_index=1"
+    sha256 "c4413888131ddc372e2c6b19230c477f169e63c286efee3ddd6a7fe264eabacd"
+  end
+
   def install
     ENV["libaec_DIR"] = Formula["libaec"].opt_prefix.to_s
     args = %w[
