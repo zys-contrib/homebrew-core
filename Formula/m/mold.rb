@@ -1,8 +1,8 @@
 class Mold < Formula
   desc "Modern Linker"
   homepage "https://github.com/rui314/mold"
-  url "https://github.com/rui314/mold/archive/refs/tags/v2.33.0.tar.gz"
-  sha256 "37b3aacbd9b6accf581b92ba1a98ca418672ae330b78fe56ae542c2dcb10a155"
+  url "https://github.com/rui314/mold/archive/refs/tags/v2.34.1.tar.gz"
+  sha256 "a8cf638045b4a4b2697d0bcc77fd96eae93d54d57ad3021bf03b0333a727a59d"
   license "MIT"
   head "https://github.com/rui314/mold.git", branch: "main"
 
@@ -46,7 +46,7 @@ class Mold < Formula
 
     # Avoid embedding libdir in the binary.
     # This helps make the bottle relocatable.
-    inreplace "common/config.h.in", "@CMAKE_INSTALL_FULL_LIBDIR@", ""
+    inreplace "lib/config.h.in", "@CMAKE_INSTALL_FULL_LIBDIR@", ""
     # Ensure we're using Homebrew-provided versions of these dependencies.
     %w[blake3 mimalloc tbb zlib zstd].each { |dir| rm_r(buildpath/"third-party"/dir) }
     args = %w[
@@ -97,12 +97,13 @@ class Mold < Formula
     cp_r pkgshare/"test", testpath
 
     # Remove non-native tests.
-    arch = Hardware::CPU.arm? ? "aarch64" : Hardware::CPU.arch.to_s
-    testpath.glob("test/elf/*.sh")
-            .reject { |f| f.basename(".sh").to_s.match?(/^(#{arch}_)?[^_]+$/) }
+    arch = Hardware::CPU.arch.to_s
+    arch = "aarch64" if arch == "arm64"
+    testpath.glob("test/arch-*.sh")
+            .reject { |f| f.basename(".sh").to_s.match?(/^arch-#{arch}-/) }
             .each(&:unlink)
 
-    inreplace testpath.glob("test/elf/*.sh") do |s|
+    inreplace testpath.glob("test/*.sh") do |s|
       s.gsub!(%r{(\./|`pwd`/)?mold-wrapper}, lib/"mold/mold-wrapper", audit_result: false)
       s.gsub!(%r{(\.|`pwd`)/mold}, bin/"mold", audit_result: false)
       s.gsub!(/-B(\.|`pwd`)/, "-B#{libexec}/mold", audit_result: false)
@@ -111,11 +112,11 @@ class Mold < Formula
     # The `inreplace` rules above do not work well on this test. To avoid adding
     # too much complexity to the regex rules, it is manually tested below
     # instead.
-    (testpath/"test/elf/mold-wrapper2.sh").unlink
+    (testpath/"test/mold-wrapper2.sh").unlink
     assert_match "mold-wrapper.so",
       shell_output("#{bin}/mold -run bash -c 'echo $LD_PRELOAD'")
 
     # Run the remaining tests.
-    testpath.glob("test/elf/*.sh").each { |t| system "bash", t }
+    testpath.glob("test/*.sh").each { |t| system "bash", t }
   end
 end
