@@ -20,6 +20,8 @@ class Neovim < Formula
 
     # TODO: Consider shipping these as separate formulae instead. See discussion at
     #       https://github.com/orgs/Homebrew/discussions/3611
+    # NOTE: The `install` method assumes that the parser name follows the final `-`.
+    #       Please name the resources accordingly.
     resource "tree-sitter-c" do
       url "https://github.com/tree-sitter/tree-sitter-c/archive/refs/tags/v0.21.3.tar.gz"
       sha256 "75a3780df6114cd37496761c4a7c9fd900c78bee3a2707f590d78c0ca3a24368"
@@ -79,12 +81,6 @@ class Neovim < Formula
   depends_on "tree-sitter"
   depends_on "unibilium"
 
-  uses_from_macos "unzip" => :build
-
-  on_linux do
-    depends_on "libnsl"
-  end
-
   def install
     if build.head?
       cmake_deps = (buildpath/"cmake.deps/deps.txt").read.lines
@@ -104,24 +100,21 @@ class Neovim < Formula
     end
 
     resources.each do |r|
-      r.stage(buildpath/"deps-build/build/src"/r.name)
-    end
+      source_directory = buildpath/"deps-build/build/src"/r.name
+      build_directory = buildpath/"deps-build/build"/r.name
 
-    cd "deps-build/build/src" do
-      Dir["tree*sitter-*"].each do |ts_dir|
-        cd ts_dir do
-          if ts_dir.end_with?("-markdown")
-            cp buildpath/"cmake.deps/cmake/MarkdownParserCMakeLists.txt", "CMakeLists.txt"
-          else
-            cp buildpath/"cmake.deps/cmake/TreesitterParserCMakeLists.txt", "CMakeLists.txt"
-          end
-          parser_name = ts_dir[/^tree-?sitter-(\w+)$/, 1]
-
-          system "cmake", "-S", ".", "-B", "build", "-DPARSERLANG=#{parser_name}", *std_cmake_args
-          system "cmake", "--build", "build"
-          system "cmake", "--install", "build"
-        end
+      parser_name = r.name.split("-").last
+      cmakelists = case parser_name
+      when "markdown" then "MarkdownParserCMakeLists.txt"
+      else "TreesitterParserCMakeLists.txt"
       end
+
+      r.stage(source_directory)
+      cp buildpath/"cmake.deps/cmake"/cmakelists, source_directory/"CMakeLists.txt"
+
+      system "cmake", "-S", source_directory, "-B", build_directory, "-DPARSERLANG=#{parser_name}", *std_cmake_args
+      system "cmake", "--build", build_directory
+      system "cmake", "--install", build_directory
     end
 
     # Point system locations inside `HOMEBREW_PREFIX`.
@@ -144,6 +137,13 @@ class Neovim < Formula
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+  end
+
+  def caveats
+    <<~EOS
+      `--HEAD` installs also require:
+        brew install --HEAD utf8proc
+    EOS
   end
 
   test do
