@@ -7,7 +7,7 @@ class ParquetCli < Formula
   head "https://github.com/apache/parquet-mr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "dcebe0fe754f7f0f9929f6243dc152492606f5dd2020c2a6f193e4350818681a"
+    sha256 cellar: :any_skip_relocation, all: "4fcdce1b4936433d5914e3e7143f9e429e651d1139fed1610b73bfd5c1e7ba66"
   end
 
   depends_on "maven" => :build
