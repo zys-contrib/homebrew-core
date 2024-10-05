@@ -12,12 +12,13 @@ class Cherrytree < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "1b6bbce8cdbfffe86d79ca0af5a201a26797dedbff5241d853841bbc26a3e1c0"
-    sha256 arm64_sonoma:  "7f1ed76ecc615fe4e9e2d24d2bda0910bf634a0cbdc4d41749a6eeaa9dd9ef39"
-    sha256 arm64_ventura: "273410fd2dfddabb1015c289df59e5d2dba8c70500a05d38bf766cb3888b3341"
-    sha256 sonoma:        "1d326d5045370d09e9854a3ca1e36745f66982300ac550f058fc98909d03f848"
-    sha256 ventura:       "d62411cdf56ff71683fd116054eb410c3020dc6c4cacc599ef4f865f9c36e3f2"
-    sha256 x86_64_linux:  "53b0d300a01091e495c141cc19bc32f9cc05e6c5add8b916eaf82c15f665b4bd"
+    rebuild 1
+    sha256 arm64_sequoia: "64f3af6155b04f791d4bec1387a170d4fd4a152297eba87d53429819fa6e8391"
+    sha256 arm64_sonoma:  "95075e73b231b11df15837588b0946f3dc6c3f1e43587ec99eaf3faf48c8320f"
+    sha256 arm64_ventura: "5023f91619b122b29afa19e98acc5aa4ef07050142986a84d97e3dbf7f62621a"
+    sha256 sonoma:        "f3e131c3c3451283ce32188bff0ed0729d8f67eb51e44589744efe46bb09bc2c"
+    sha256 ventura:       "a6e50efecc1a2db0dc282715e6d9586c63f10469d268b22bd42b1296af989765"
+    sha256 x86_64_linux:  "35e48edc21af1376ead137d04af69bc4d3ffa6736391c79b889bfdc181816a66"
   end
 
   depends_on "cmake" => :build
@@ -35,7 +36,6 @@ class Cherrytree < Formula
   depends_on "gtk+3"
   depends_on "gtkmm3"
   depends_on "gtksourceview4"
-  depends_on "gtksourceviewmm3"
   depends_on "libsigc++@2"
   depends_on "libxml++"
   depends_on "pango"
