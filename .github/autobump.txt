@@ -2967,6 +2967,7 @@ woof-doom
 wpebackend-fdo
 wstunnel
 wtfis
+wthrr
 wumpus
 wxmaxima
 wxpython
