@@ -283,17 +283,18 @@ class Semgrep < Formula
 
     # Ensure dynamic linkage to our libraries
     inreplace "src/main/flags.sh" do |s|
-      s.gsub!('"$(pkg-config gmp --variable libdir)/libgmp.a"', Formula["gmp"].opt_lib/shared_library("libgmp"))
+      s.gsub!("$(brew --prefix libev)/lib/libev.a", Formula["libev"].opt_lib/shared_library("libev"))
+      s.gsub!("$(pkg-config gmp --variable libdir)/libgmp.a", Formula["gmp"].opt_lib/shared_library("libgmp"))
       s.gsub!(
-        '"$(pkg-config tree-sitter --variable libdir)/libtree-sitter.a"',
+        "$(pkg-config tree-sitter --variable libdir)/libtree-sitter.a",
         Formula["tree-sitter"].opt_lib/shared_library("libtree-sitter"),
       )
       s.gsub!(
-        '"$(pkg-config libpcre --variable libdir)/libpcre.a"',
+        "$(pkg-config libpcre --variable libdir)/libpcre.a",
         Formula["pcre"].opt_lib/shared_library("libpcre"),
       )
       s.gsub!(
-        '"$(pkg-config libpcre2-8 --variable libdir)/libpcre2-8.a"',
+        "$(pkg-config libpcre2-8 --variable libdir)/libpcre2-8.a",
         Formula["pcre2"].opt_lib/shared_library("libpcre2-8"),
       )
     end
@@ -311,8 +312,6 @@ class Semgrep < Formula
       ENV["OPAMNODEPEXTS"] = ENV["OPAMYES"] = "1"
       # Set library path so opam + lwt can find libev
       ENV["LIBRARY_PATH"] = "#{HOMEBREW_PREFIX}/lib"
-      # Set path to libev for our static linking logic
-      ENV["SEMGREP_LIBEV_ARCHIVE_PATH"] = "#{HOMEBREW_PREFIX}/lib/libev.a"
       # Opam's solver times out when it is set to the default of 60.0
       # See: https://github.com/Homebrew/homebrew-core/pull/191306
       ENV["OPAMSOLVERTIMEOUT"] = "1200"
