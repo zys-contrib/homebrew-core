@@ -2677,6 +2677,7 @@ taplo
 tarantool
 tartufo
 task
+taskopen
 tbb
 tbls
 tbox
