@@ -13,8 +13,7 @@ class Deheader < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "fa33da4be1663b6022f8fd5ca847d56f779d8d69538ad3035e034af160a15b02"
+    sha256 cellar: :any_skip_relocation, all: "2caa30192b0b43e4892d9742d759b65d3cee8109c87e7169fd371a896cfd424e"
   end
 
   head do
