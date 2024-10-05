@@ -5,6 +5,10 @@ class Tllist < Formula
   sha256 "0e7b7094a02550dd80b7243bcffc3671550b0f1d8ba625e4dff52517827d5d23"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "77de1b3da7cd1dabd452b4275407c913e1b43152a8617515d3bdee49124a094e"
+  end
+
   depends_on "meson" => :build
   depends_on "ninja" => :build
 
