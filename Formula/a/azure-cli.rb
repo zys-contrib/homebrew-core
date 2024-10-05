@@ -26,14 +26,12 @@ class AzureCli < Formula
   # `pkg-config`, `rust`, and `openssl@3` are for cryptography.
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "libsodium"
+  depends_on "libyaml"
   depends_on "openssl@3"
-  depends_on "python@3.11" # Python 3.12 issue: https://github.com/Azure/azure-cli/issues/27673
+  depends_on "python@3.12"
 
   uses_from_macos "libffi"
-
-  on_linux do
-    depends_on "pkg-config" => :build
-  end
 
   resource "Deprecated" do
     url "https://files.pythonhosted.org/packages/92/14/1e41f504a246fc224d2ac264c227975427a85caf37c3979979edb9b1b232/Deprecated-1.2.14.tar.gz"
@@ -606,8 +604,8 @@ class AzureCli < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/d6/0f/96b7309212a926c1448366e9ce69b081ea79d63265bde33f11cc9cfc2c07/psutil-5.9.5.tar.gz"
-    sha256 "5410638e4df39c54d957fc51ce03048acd8e6d60abc0f5107af51e5fb566eb3c"
+    url "https://files.pythonhosted.org/packages/18/c7/8c6872f7372eb6a6b2e4708b88419fb46b857f7a2e1892966b851cc79fc9/psutil-6.0.0.tar.gz"
+    sha256 "8faae4f310b6d969fa26ca0545338b21f73c6b15db7c4a8d934a5482faa818f2"
   end
 
   resource "pycparser" do
@@ -720,7 +718,7 @@ class AzureCli < Formula
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
-    venv = virtualenv_create(libexec, "python3.11", system_site_packages: false, without_pip: false)
+    venv = virtualenv_create(libexec, "python3.12", system_site_packages: false)
     venv.pip_install resources
 
     # Get the CLI components we'll install
@@ -742,7 +740,8 @@ class AzureCli < Formula
       AZ_INSTALLER=HOMEBREW #{libexec}/bin/python -Im azure.cli "$@"
     EOS
 
-    bash_completion.install "az.completion" => "az"
+    generate_completions_from_executable(libexec/"bin/register-python-argcomplete", "az",
+                                         base_name: "az", shell_parameter_format: :arg)
   end
 
   test do
