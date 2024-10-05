@@ -35,7 +35,6 @@ class Cherrytree < Formula
   depends_on "gtk+3"
   depends_on "gtkmm3"
   depends_on "gtksourceview4"
-  depends_on "gtksourceviewmm3"
   depends_on "libsigc++@2"
   depends_on "libxml++"
   depends_on "pango"
