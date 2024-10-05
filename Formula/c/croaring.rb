@@ -1,8 +1,8 @@
 class Croaring < Formula
   desc "Roaring bitmaps in C (and C++)"
   homepage "https://roaringbitmap.org"
-  url "https://github.com/RoaringBitmap/CRoaring/archive/refs/tags/v4.2.0.tar.gz"
-  sha256 "b5f2d184b0872f57dce911cb520925539cfa851deda516d1239e8e06aff96439"
+  url "https://github.com/RoaringBitmap/CRoaring/archive/refs/tags/v4.2.1.tar.gz"
+  sha256 "3514728e9eb8c90dbc00a9e337302eb458c65be2f9501a3e882d051599c4a74c"
   license "Apache-2.0"
   head "https://github.com/RoaringBitmap/CRoaring.git", branch: "master"
 
