@@ -1,8 +1,8 @@
 class Tmux < Formula
   desc "Terminal multiplexer"
   homepage "https://tmux.github.io/"
-  url "https://github.com/tmux/tmux/releases/download/3.5/tmux-3.5.tar.gz"
-  sha256 "2fe01942e7e7d93f524a22f2c883822c06bc258a4d61dba4b407353d7081950f"
+  url "https://github.com/tmux/tmux/releases/download/3.5a/tmux-3.5a.tar.gz"
+  sha256 "16216bd0877170dfcc64157085ba9013610b12b082548c7c9542cc0103198951"
   license "ISC"
 
   livecheck do
@@ -53,16 +53,12 @@ class Tmux < Formula
       --sysconfdir=#{etc}
     ]
 
-    if OS.mac?
-      # tmux finds the `tmux-256color` terminfo provided by our ncurses
-      # and uses that as the default `TERM`, but this causes issues for
-      # tools that link with the very old ncurses provided by macOS.
-      # https://github.com/Homebrew/homebrew-core/issues/102748
-      args << "--with-TERM=screen-256color" if MacOS.version < :sonoma
-      args << "--enable-utf8proc" if MacOS.version >= :high_sierra
-    else
-      args << "--enable-utf8proc"
-    end
+    # tmux finds the `tmux-256color` terminfo provided by our ncurses
+    # and uses that as the default `TERM`, but this causes issues for
+    # tools that link with the very old ncurses provided by macOS.
+    # https://github.com/Homebrew/homebrew-core/issues/102748
+    args << "--with-TERM=screen-256color" if OS.mac? && MacOS.version < :sonoma
+    args << "--enable-utf8proc" if OS.linux? || MacOS.version >= :high_sierra
 
     ENV.append "LDFLAGS", "-lresolv"
     system "./configure", *args, *std_configure_args
