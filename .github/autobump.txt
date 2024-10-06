@@ -1530,6 +1530,7 @@ libgusb
 libgweather
 libhandy
 libheif
+libhubbub
 libical
 libidn2
 libimagequant
