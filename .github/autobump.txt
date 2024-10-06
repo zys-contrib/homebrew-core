@@ -707,6 +707,7 @@ duck
 duckdb
 duckscript
 dufs
+dug
 dumpling
 dunamai
 dune
