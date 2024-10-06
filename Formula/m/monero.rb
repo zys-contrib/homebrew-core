@@ -24,7 +24,7 @@ class Monero < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "boost@1.85"
+  depends_on "boost"
   depends_on "hidapi"
   depends_on "libsodium"
   depends_on "libusb"
@@ -35,6 +35,12 @@ class Monero < Formula
   depends_on "zeromq"
 
   conflicts_with "wownero", because: "both install a wallet2_api.h header"
+
+  # Backport fix needed for boost 1.86.0+. Remove in the next release
+  patch do
+    url "https://github.com/monero-project/monero/commit/83dd5152e6d115426afbb57a94a832ec91b58a46.patch?full_index=1"
+    sha256 "b727fe58ff1211080141a0b14eaf451c98b9493195f0c2d356aee7709f0c5ef6"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
