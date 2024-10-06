@@ -8,15 +8,7 @@ class Pygitup < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6a8eae527cd03ada9cef1d60403f749c5b857737a291e8c974c802b928412b88"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9c35855737998db174e1881211025f98056b88b317248d42a33357e5a1898139"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b0ecfc67c1a56c0bb8b55a838cfcc925423757b6313ea72a805db661dc899dd3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a6160237c7def873073d438a0dc30e54783e00ec6aad65d234c810a43cb6aaf"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cbe485e8436fbbc11e9511f13ceeec125f35ccad63847a6035127fbed0ddbbcc"
-    sha256 cellar: :any_skip_relocation, ventura:        "a4a8bc36201c800b95a4c52eec4cc7ee6347a51370467b432670152b0f71a198"
-    sha256 cellar: :any_skip_relocation, monterey:       "b756cd6c5d2e6719f9b099d320946574deff4a4679b6fbaf0a65a12765c7288d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d7b54ea93c598ebbf629b278b47f9405661dad87bc78f99024298c58ab8ec58"
+    sha256 cellar: :any_skip_relocation, all: "62d154ac7ea50f9baf4d10cfe25064c9dc861e571c9cf6c86166eb8f1e4e64f9"
   end
 
   depends_on "python@3.12"
