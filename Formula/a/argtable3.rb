@@ -7,6 +7,15 @@ class Argtable3 < Formula
   license "BSD-3-Clause"
   head "https://github.com/argtable/argtable3.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "977cc6d2b39d50551e00be1cb664891ba886e3e63779769713815ab5c830d4f7"
+    sha256 cellar: :any,                 arm64_sonoma:  "59140a12791b4cd3733fd383bbd91373d517ed6a22dded4ae9e74b8fd2039844"
+    sha256 cellar: :any,                 arm64_ventura: "baa86eebd002149a8653eb04d365be6b4526551c7ae43cbf9753642093bad9e7"
+    sha256 cellar: :any,                 sonoma:        "ab5266a8ad714236feda7b450da27138538019d765fd7311d613596cd9a82140"
+    sha256 cellar: :any,                 ventura:       "b88c3b8acd8fe222ddadd092036daabe726784c2583e2665da98188af700b669"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1582d82a062451b9b81bd1739f541876e41b2c821b274aba6a51f9d3009ac7a5"
+  end
+
   depends_on "cmake" => :build
 
   def install
