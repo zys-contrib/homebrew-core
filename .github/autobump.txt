@@ -29,6 +29,7 @@ ain
 aiven-client
 akamai
 alda
+alembic
 algol68g
 aliddns
 aliyun-cli
