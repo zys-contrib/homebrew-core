@@ -1,8 +1,8 @@
 class MarpCli < Formula
   desc "Easily convert Marp Markdown files into static HTML/CSS, PDF, PPT and images"
   homepage "https://github.com/marp-team/marp-cli"
-  url "https://registry.npmjs.org/@marp-team/marp-cli/-/marp-cli-3.4.0.tgz"
-  sha256 "9e21cbb1e24507bc9f6d4c9449ff6d9ce374fef42cd1fafc2c15b42dd702bdb3"
+  url "https://registry.npmjs.org/@marp-team/marp-cli/-/marp-cli-4.0.0.tgz"
+  sha256 "702bd87d608ac9a7fb7c1e728a51392f4210b0b0b64e8a3f9e37130bce7ced48"
   license "MIT"
 
   bottle do
@@ -22,6 +22,13 @@ class MarpCli < Formula
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    # Remove incompatible pre-built binaries
+    os = OS.kernel_name.downcase
+    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
+    node_modules = libexec/"lib/node_modules/@marp-team/marp-cli/node_modules"
+    node_modules.glob("{bare-fs,bare-os}/prebuilds/*")
+                .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
   end
 
   test do
