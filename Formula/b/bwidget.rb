@@ -4,6 +4,7 @@ class Bwidget < Formula
   url "https://downloads.sourceforge.net/project/tcllib/BWidget/1.10.1/bwidget-1.10.1.tar.gz"
   sha256 "4aea02f38cf92fa4aa44732d4ed98648df839e6537d6f0417c3fe18e1a34f880"
   license "TCL"
+  revision 1
 
   livecheck do
     url "https://sourceforge.net/projects/tcllib/rss?path=/BWidget"
