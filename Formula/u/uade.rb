@@ -4,8 +4,8 @@ class Uade < Formula
   license "GPL-2.0-only"
 
   stable do
-    url "https://zakalwe.fi/uade/uade3/uade-3.04.tar.bz2"
-    sha256 "8bff0f18ad81f0e1b99f77ee75a2a7f5bbcb5de2f0ad9fa064ae8202831fb8ef"
+    url "https://zakalwe.fi/uade/uade3/uade-3.05.tar.bz2"
+    sha256 "1a2dd9fdf8cf47c4587dcc09df16f1bb49374a9e7f8f53cdb4816d50c87e4f4c"
 
     resource "libzakalwe" do
       url "https://gitlab.com/hors/libzakalwe/-/archive/v1.0.0/libzakalwe-v1.0.0.tar.bz2"
