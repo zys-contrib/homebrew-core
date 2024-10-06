@@ -3,8 +3,8 @@ class Honcho < Formula
 
   desc "Python clone of Foreman, for managing Procfile-based applications"
   homepage "https://github.com/nickstenning/honcho"
-  url "https://files.pythonhosted.org/packages/0e/7c/c0aa47711b5ada100273cbe190b33cc12297065ce559989699fd6c1ec0cb/honcho-1.1.0.tar.gz"
-  sha256 "c5eca0bded4bef6697a23aec0422fd4f6508ea3581979a3485fc4b89357eb2a9"
+  url "https://files.pythonhosted.org/packages/65/c8/d860888358bf5c8a6e7d78d1b508b59b0e255afd5655f243b8f65166dafd/honcho-2.0.0.tar.gz"
+  sha256 "af3815c03c634bf67d50f114253ea9fef72ecff26e4fd06b29234789ac5b8b2e"
   license "MIT"
   head "https://github.com/nickstenning/honcho.git", branch: "main"
 
@@ -22,20 +22,13 @@ class Honcho < Formula
 
   depends_on "python@3.12"
 
-  # Replace pkg_resources with importlib for 3.12
-  # https://github.com/nickstenning/honcho/pull/236
-  patch do
-    url "https://github.com/nickstenning/honcho/commit/ce96b41796ad3072abc90cfab857063a0da4610f.patch?full_index=1"
-    sha256 "a20f222f57d23f33e732cc23ba4cc22000eb38e2f9cd5c71fdbc6321e0eb364f"
-  end
-
   def install
     virtualenv_install_with_resources
   end
 
   test do
-    (testpath/"Procfile").write("talk: echo $MY_VAR")
-    (testpath/".env").write("MY_VAR=hi")
+    (testpath/"Procfile").write "talk: echo $MY_VAR"
+    (testpath/".env").write "MY_VAR=hi"
     assert_match(/talk\.\d+ \| hi/, shell_output("#{bin}/honcho start"))
   end
 end
