@@ -4,7 +4,7 @@ class R < Formula
   url "https://cran.r-project.org/src/base/R-4/R-4.4.2.tar.gz"
   sha256 "1578cd603e8d866b58743e49d8bf99c569e81079b6a60cf33cdf7bdffeb817ec"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://cran.rstudio.com/banner.shtml"
@@ -30,7 +30,7 @@ class R < Formula
   depends_on "openblas"
   depends_on "pcre2"
   depends_on "readline"
-  depends_on "tcl-tk"
+  depends_on "tcl-tk@8"
   depends_on "xz"
 
   uses_from_macos "bzip2"
@@ -77,8 +77,8 @@ class R < Formula
     args = [
       "--prefix=#{prefix}",
       "--enable-memory-profiling",
-      "--with-tcl-config=#{Formula["tcl-tk"].opt_lib}/tclConfig.sh",
-      "--with-tk-config=#{Formula["tcl-tk"].opt_lib}/tkConfig.sh",
+      "--with-tcl-config=#{Formula["tcl-tk@8"].opt_lib}/tclConfig.sh",
+      "--with-tk-config=#{Formula["tcl-tk@8"].opt_lib}/tkConfig.sh",
       "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
       "--enable-R-shlib",
       "--disable-java",
