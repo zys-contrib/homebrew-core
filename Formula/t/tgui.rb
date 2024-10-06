@@ -6,14 +6,12 @@ class Tgui < Formula
   license "Zlib"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "e5ef2ca959866884c8fc0438a07b3802c586993484511b9a33a204a4c43b65d1"
-    sha256 cellar: :any,                 arm64_sonoma:   "c3faac1d98846f88c860ccdb7ad67eaf9a04e5084324d92b0319147e74102501"
-    sha256 cellar: :any,                 arm64_ventura:  "541b10a466a04e1df0245b63c438923282c80fe604f02faf1b4bd3b53549e824"
-    sha256 cellar: :any,                 arm64_monterey: "a711e18947f79d449ac31d05b9bc7dfaa5b8784f4d986e49ac082b80131f878a"
-    sha256 cellar: :any,                 sonoma:         "890f502405a0c8602d640abf089009f25d1c51a24abb6367036d0a79620470c8"
-    sha256 cellar: :any,                 ventura:        "3cb6ec8417100dbabb0fc3644b67cf7ffcb3007983fdefa894f46976eec15e2a"
-    sha256 cellar: :any,                 monterey:       "5db8a4e8c5aa1d25b8f7202049a1bf50315b9bbf73df871ac64e1bac4818cec9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d472361e1f07167f00c4676aa953b33a1bed24a08b2d10521a1d68f5b6745370"
+    sha256 cellar: :any,                 arm64_sequoia: "331c410afae43834b90cd3bb839372a0703a1ba2519828694d93e6e4173719ea"
+    sha256 cellar: :any,                 arm64_sonoma:  "d1f06fe4bc9dd7c1d44dd1e5c77a9a61962913d7bf873d9c727ad1b16936e1ad"
+    sha256 cellar: :any,                 arm64_ventura: "9bc3f9072df6bf1b2c7e72daedeaa82619eb7b4068b9232344362b30a6169e1c"
+    sha256 cellar: :any,                 sonoma:        "4e93e653944bfafd353bc668bdec36e3d58d52e21220a5020a8547c7be970bd1"
+    sha256 cellar: :any,                 ventura:       "5b8921bc9dab21a3ba1ec678d6944abd23bf599c9bf70d6280f744d71a8930e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e82936a0501104e046783f83bfc8664a4896a6e5a3a338fbc0ec9aee0b523cfd"
   end
 
   depends_on "cmake" => :build
