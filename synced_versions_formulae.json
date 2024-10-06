@@ -1,5 +1,12 @@
 [
-  ["aarch64-elf-gcc", "arm-none-eabi-gcc", "i686-elf-gcc", "riscv64-elf-gcc", "x86_64-elf-gcc"],
+  [
+    "aarch64-elf-gcc",
+    "arm-none-eabi-gcc",
+    "i686-elf-gcc",
+    "m68k-elf-gcc",
+    "riscv64-elf-gcc",
+    "x86_64-elf-gcc"
+  ],
   [
     "aarch64-elf-binutils",
     "arm-linux-gnueabihf-binutils",
