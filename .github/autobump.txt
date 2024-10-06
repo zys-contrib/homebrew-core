@@ -233,6 +233,7 @@ bkt
 black
 blast
 blis
+blisp
 blocky
 bluepill
 blueutil
