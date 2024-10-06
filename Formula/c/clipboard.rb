@@ -1,8 +1,8 @@
 class Clipboard < Formula
   desc "Cut, copy, and paste anything, anywhere, all from the terminal"
   homepage "https://getclipboard.app"
-  url "https://github.com/Slackadays/Clipboard/archive/refs/tags/0.9.0.1.tar.gz"
-  sha256 "187eba2a2c72d32d35ff750b947f1c812e33f9af538a6fc1b781e18a5e912d45"
+  url "https://github.com/Slackadays/Clipboard/archive/refs/tags/0.9.1.tar.gz"
+  sha256 "b59f7111c2de0369d80a379503ac056e33c59be34596d72cda600e4115002b60"
   license "GPL-3.0-or-later"
   head "https://github.com/Slackadays/Clipboard.git", branch: "main"
 
@@ -23,13 +23,14 @@ class Clipboard < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "openssl@3"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1300
   end
 
   on_linux do
-    depends_on "pkg-config" => :build
     depends_on "wayland-protocols" => :build
     depends_on "alsa-lib"
     depends_on "libx11"
@@ -39,12 +40,6 @@ class Clipboard < Formula
   fails_with :clang do
     build 1300
     cause "Requires C++20 support"
-  end
-
-  # dont force CMAKE_OSX_ARCHITECTURES, upstream pr ref, https://github.com/Slackadays/Clipboard/pull/202
-  patch do
-    url "https://github.com/Slackadays/Clipboard/commit/41867bea719befa2f9e3e187997acfc803f919b1.patch?full_index=1"
-    sha256 "97cccf3b937592749ee24f25f1fe35f85a465c2bdc2f6ad2a21c15001d609503"
   end
 
   def install
