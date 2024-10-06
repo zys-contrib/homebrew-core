@@ -250,6 +250,7 @@ bottom
 bounceback
 bowtie2
 box2d
+boxes
 bpftop
 breezy
 brev
