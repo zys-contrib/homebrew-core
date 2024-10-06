@@ -184,6 +184,7 @@ bat
 bat-extras
 batik
 bats-core
+batt
 bazarr
 bazel
 bazel-diff
