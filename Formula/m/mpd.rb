@@ -2,7 +2,7 @@ class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://github.com/MusicPlayerDaemon/MPD"
   license "GPL-2.0-or-later"
-  revision 5
+  revision 6
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   stable do
@@ -20,6 +20,10 @@ class Mpd < Formula
       url "https://github.com/MusicPlayerDaemon/MPD/commit/e380ae90ebb6325d1820b6f34e10bf3474710899.patch?full_index=1"
       sha256 "661492a420adc11a3d8ca0c4bf15e771f56e2dcf1fd0042eb6ee4fb3a736bd12"
     end
+
+    # Backport support for ICU 76+
+    # Ref: https://github.com/MusicPlayerDaemon/MPD/pull/2140
+    patch :DATA
   end
 
   bottle do
@@ -45,7 +49,7 @@ class Mpd < Formula
   depends_on "fmt"
   depends_on "game-music-emu"
   depends_on "glib"
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
   depends_on "lame"
   depends_on "libao"
   depends_on "libgcrypt"
@@ -164,3 +168,38 @@ class Mpd < Formula
     end
   end
 end
+
+__END__
+diff --git a/src/lib/icu/meson.build b/src/lib/icu/meson.build
+index 92f9e6b1f..3d52213a9 100644
+--- a/src/lib/icu/meson.build
++++ b/src/lib/icu/meson.build
+@@ -1,5 +1,7 @@
+-icu_dep = dependency('icu-i18n', version: '>= 50', required: get_option('icu'))
+-conf.set('HAVE_ICU', icu_dep.found())
++icu_i18n_dep = dependency('icu-i18n', version: '>= 50', required: get_option('icu'))
++icu_uc_dep = dependency('icu-uc', version: '>= 50', required: get_option('icu'))
++have_icu = icu_i18n_dep.found() and icu_uc_dep.found()
++conf.set('HAVE_ICU', have_icu)
+ 
+ icu_sources = [
+   'CaseFold.cxx',
+@@ -13,7 +15,7 @@ if is_windows
+ endif
+ 
+ iconv_dep = []
+-if icu_dep.found()
++if have_icu
+   icu_sources += [
+     'Util.cxx',
+     'Init.cxx',
+@@ -44,7 +46,8 @@ icu = static_library(
+   icu_sources,
+   include_directories: inc,
+   dependencies: [
+-    icu_dep,
++    icu_i18n_dep,
++    icu_uc_dep,
+     iconv_dep,
+     fmt_dep,
+   ],
