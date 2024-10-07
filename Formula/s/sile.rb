@@ -4,7 +4,7 @@ class Sile < Formula
   url "https://github.com/sile-typesetter/sile/releases/download/v0.15.5/sile-0.15.5.tar.zst"
   sha256 "d20137b02d16302d287670fd285ad28ac3b8d3af916460aa6bc8cbff9321b9f9"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "99457175ef945f3dadf7772a5803d241024dc3d0239c9374c127f31025065b16"
@@ -16,7 +16,7 @@ class Sile < Formula
   end
 
   head do
-    url "https://github.com/sile-typesetter/sile.git"
+    url "https://github.com/sile-typesetter/sile.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -30,7 +30,7 @@ class Sile < Formula
 
   depends_on "fontconfig"
   depends_on "harfbuzz"
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
   depends_on "libpng"
   depends_on "luajit"
   depends_on "luarocks"
@@ -143,6 +143,10 @@ class Sile < Formula
   end
 
   def install
+    # Workaround for ICU 76+.
+    # Issue ref: https://github.com/sile-typesetter/sile/issues/2152
+    inreplace "configure", '"icu-uc icu-io"', '"icu-uc icu-i18n icu-io"' if build.stable?
+
     lua = Formula["luajit"]
     luaversion = "5.1"
     luapath = libexec/"vendor"
