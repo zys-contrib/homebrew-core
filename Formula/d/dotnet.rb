@@ -9,12 +9,12 @@ class Dotnet < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "56e9eb10fb113e33afa6c2f9184e32c0870348923b006fa69552dc1b97f94239"
-    sha256 cellar: :any,                 arm64_sonoma:  "5252be281f673ff78c83c46a7063a85256ff5528d8bf8c03b9074fbb6ec310dc"
-    sha256 cellar: :any,                 arm64_ventura: "365359b46dec4ffbc92479ba4dc3307015dc55046e91127142ff511d6c64955c"
-    sha256 cellar: :any,                 sonoma:        "c018b3f6b3c2db277cbef6ea87b599da84358f20a2d6239f4574b6ad8a30798c"
-    sha256 cellar: :any,                 ventura:       "8d5f216379964c3a8fd301870311e0d6d33f436128bffd104c02d03055433c85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d58cbbcb3443d41b3825720574f9fcf89ec18b5c01ba18ff94ece5cf8535c2de"
+    sha256 cellar: :any,                 arm64_sequoia: "89f252e00a7ac506f5fbfc0efdbab5086159bd2a86ae4ab6a6707af88ea488de"
+    sha256 cellar: :any,                 arm64_sonoma:  "50abbee44b6927be4287f50c404184dfbb5237f55c49e2a8f06fdca141bd1316"
+    sha256 cellar: :any,                 arm64_ventura: "2ccdc26a62d0d87a1277650ad838e3adad997490cef5769c98bf1438e10dea86"
+    sha256 cellar: :any,                 sonoma:        "abe7c53c2604a406c78df963f5c6df453e854ca7c7e658884c12135618ac117a"
+    sha256 cellar: :any,                 ventura:       "d4b62b0c6a11732a7b227ec2fc5827e3cc8a00a0260b5fdd761f7713afc64c8c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "093c5bfbc0e6c9ac34104de80fb7b4b9c3123f796a20e0bdf9fe3b646c27e1b3"
   end
 
   depends_on "cmake" => :build
