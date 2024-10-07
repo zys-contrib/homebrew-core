@@ -4,6 +4,7 @@ class Freerdp < Formula
   url "https://github.com/FreeRDP/FreeRDP/archive/refs/tags/3.8.0.tar.gz"
   sha256 "e313934a77a0bcca3af803455dd9ea1aa2f657c598e3397325aa48e6effd450d"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     rebuild 1
@@ -47,7 +48,7 @@ class Freerdp < Formula
     depends_on "alsa-lib"
     depends_on "ffmpeg"
     depends_on "glib"
-    depends_on "icu4c"
+    depends_on "icu4c@75"
     depends_on "krb5"
     depends_on "libfuse"
     depends_on "systemd"
