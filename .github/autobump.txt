@@ -1388,6 +1388,7 @@ kics
 killport
 kin
 kind
+kiota
 kitchen-sync
 kitex
 klee
