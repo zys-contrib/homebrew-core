@@ -1,15 +1,14 @@
 class Bitcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://bitcoincore.org/"
-  url "https://bitcoincore.org/bin/bitcoin-core-27.1/bitcoin-27.1.tar.gz"
-  sha256 "0c1051fd921b8fae912f5c2dfd86b085ab45baa05cd7be4585b10b4d1818f3da"
+  url "https://bitcoincore.org/bin/bitcoin-core-28.0/bitcoin-28.0.tar.gz"
+  sha256 "700ae2d1e204602eb07f2779a6e6669893bc96c0dca290593f80ff8e102ff37f"
   license all_of: [
     "MIT",
     "BSD-3-Clause", # src/crc32c, src/leveldb
     "BSL-1.0", # src/tinyformat.h
     "Sleepycat", # resource("bdb")
   ]
-  revision 1
   head "https://github.com/bitcoin/bitcoin.git", branch: "master"
 
   livecheck do
@@ -45,7 +44,7 @@ class Bitcoin < Formula
   end
 
   fails_with :gcc do
-    version "9"
+    version "10"
     cause "Requires C++ 20"
   end
 
@@ -73,12 +72,6 @@ class Bitcoin < Formula
   patch do
     url "https://github.com/fanquake/bitcoin/commit/9b03fb7603709395faaf0fac409465660bbd7d81.patch?full_index=1"
     sha256 "1d56308672024260e127fbb77f630b54a0509c145e397ff708956188c96bbfb3"
-  end
-
-  # miniupnpc 2.2.8 compatibility build patch
-  patch do
-    url "https://github.com/bitcoin/bitcoin/commit/6338f92260523eaf7cd9c89300f4f088f9319b0d.patch?full_index=1"
-    sha256 "3544c7a1ea5c5b4e1c196fbd9fc871800b97728eec893d3980a4488e9fd1e2a8"
   end
 
   def install
