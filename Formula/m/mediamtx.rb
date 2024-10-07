@@ -1,8 +1,10 @@
 class Mediamtx < Formula
   desc "Zero-dependency real-time media server and media proxy"
   homepage "https://github.com/bluenviron/mediamtx"
-  url "https://github.com/bluenviron/mediamtx/archive/refs/tags/v1.9.1.tar.gz"
-  sha256 "96df7d7dd5362b6971eadcd07d738810d2a3e993ea49b71a7f41c46b43b0a17e"
+  # need to use the tag to generate the version info
+  url "https://github.com/bluenviron/mediamtx.git",
+      tag:      "v1.9.2",
+      revision: "32d3fc55ccc631ad125462063b7bf387595209fe"
   license "MIT"
 
   bottle do
@@ -18,9 +20,7 @@ class Mediamtx < Formula
 
   def install
     system "go", "generate", "./..."
-
-    ldflags = "-s -w -X github.com/bluenviron/mediamtx/internal/core.version=#{version}"
-    system "go", "build", *std_go_args(ldflags:)
+    system "go", "build", *std_go_args(ldflags: "-s -w")
 
     # Install default config
     (etc/"mediamtx").install "mediamtx.yml"
@@ -39,10 +39,13 @@ class Mediamtx < Formula
   end
 
   test do
-    assert_equal version, shell_output(bin/"mediamtx --version")
+    port = free_port
 
-    mediamtx_api = "127.0.0.1:#{free_port}"
-    mediamtx = fork do
+    # version report has some issue, https://github.com/bluenviron/mediamtx/issues/3846
+    assert_match version.to_s, shell_output("#{bin}/mediamtx --help")
+
+    mediamtx_api = "127.0.0.1:#{port}"
+    pid = fork do
       exec({ "MTX_API" => "yes", "MTX_APIADDRESS" => mediamtx_api }, bin/"mediamtx", etc/"mediamtx/mediamtx.yml")
     end
     sleep 3
@@ -51,7 +54,7 @@ class Mediamtx < Formula
     curl_output = shell_output("curl --silent http://#{mediamtx_api}/v3/config/global/get")
     assert_match "\"apiAddress\":\"#{mediamtx_api}\"", curl_output
   ensure
-    Process.kill("TERM", mediamtx)
-    Process.wait mediamtx
+    Process.kill("TERM", pid)
+    Process.wait pid
   end
 end
