@@ -5,6 +5,15 @@ class Libdom < Formula
   sha256 "d05e45af16547014c2b0a3aecf3670fa13d419f505b3f5fc7ac8a1491fc30f3c"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "5305da928bb33e1c7fe5b85b44e644d17237c0e368fcc0bf159d82dd42626485"
+    sha256 cellar: :any,                 arm64_sonoma:  "496e88188a61218223af1157766d192764aeb9c36ef5bfb2e057fc403e7d2793"
+    sha256 cellar: :any,                 arm64_ventura: "67205b439af8580d452d27c87f291f8345d3deb3c194505527fdd426bd75d0db"
+    sha256 cellar: :any,                 sonoma:        "d71ecaff24c596ef7f918e9f025e95f969d4f4368823106bdb7ab99d7f31ce64"
+    sha256 cellar: :any,                 ventura:       "e55aa034a7edd4f1d7aab94e7e1e4eb21bad5c9816aea969c6ddc561fbc1b60f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65f04a61a7747e494540603b837878cb887eda1c01e2d744caa9a19a30213204"
+  end
+
   depends_on "netsurf-buildsystem" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on "libhubbub"
