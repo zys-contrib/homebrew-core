@@ -8,6 +8,15 @@ class Gptme < Formula
   license "MIT"
   head "https://github.com/ErikBjare/gptme.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "e404936d7ec106159dadc3a55430bca29f62cde4729e6ffc347cf154aeef7684"
+    sha256 cellar: :any,                 arm64_sonoma:  "56283df588559f360e938f4863fa0090711115ac602a4c942145093009f8473a"
+    sha256 cellar: :any,                 arm64_ventura: "59382d61e33863b796460ef1a23534f4955c4261f546ec87e02fb0b58780812a"
+    sha256 cellar: :any,                 sonoma:        "88c8ad8e670a3fe3b7263454fb510dd7260c0f6f96f8e0edadd86f8bfb7a5696"
+    sha256 cellar: :any,                 ventura:       "b4355b31bed0cf61e5f88c2a5a9cd64c3dc6090affe09224b47301cdb5f6b3d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a63e32015b87aeefaddde384a95863946e261694a0e9e883ffda1bbaba0dc48"
+  end
+
   depends_on "rust" => :build
   depends_on "certifi"
   depends_on "libyaml"
