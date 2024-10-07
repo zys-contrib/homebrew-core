@@ -2151,6 +2151,7 @@ pip-audit
 pip-tools
 pipdeptree
 pipenv
+pipet
 pipgrip
 pipx
 pivit
