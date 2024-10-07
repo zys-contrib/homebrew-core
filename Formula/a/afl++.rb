@@ -23,13 +23,15 @@ class Aflxx < Formula
   fails_with :clang
   fails_with :gcc
 
+  # Fix `-flat_namespace` flag usage.
+  # https://github.com/AFLplusplus/AFLplusplus/pull/2217
+  patch do
+    url "https://github.com/AFLplusplus/AFLplusplus/commit/cb5a61d8a1caf235a4852559086895ce841ac292.patch?full_index=1"
+    sha256 "f808b51a8ec184c58b53fe099f321b385b34c143c8c0abc5a427dfbfc09fe1fa"
+  end
+
   def install
     ENV.prepend_path "PATH", Formula["coreutils"].libexec/"gnubin"
-
-    inreplace "GNUmakefile.llvm" do |s|
-      s.gsub! "-Wl,-flat_namespace", ""
-      s.gsub! "-undefined,suppress", "-undefined,dynamic_lookup"
-    end
 
     if OS.mac?
       # Disable the in-build test runs as they require modifying system settings as root.
