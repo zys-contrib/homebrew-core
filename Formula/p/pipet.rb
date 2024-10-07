@@ -6,6 +6,15 @@ class Pipet < Formula
   license "MIT"
   head "https://github.com/bjesus/pipet.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4d469becb32ebbedcc44206826e2158e73ff5396b410c3ef45e75ff34deeb3e0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4d469becb32ebbedcc44206826e2158e73ff5396b410c3ef45e75ff34deeb3e0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4d469becb32ebbedcc44206826e2158e73ff5396b410c3ef45e75ff34deeb3e0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a58e3beebefc4356d5f14cd1f7800ae71c39a4baa73cdfe23b96339a7b9d0426"
+    sha256 cellar: :any_skip_relocation, ventura:       "a58e3beebefc4356d5f14cd1f7800ae71c39a4baa73cdfe23b96339a7b9d0426"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8fa415e76fd5af27cab8de96ee16bc41e7637d8536ae22f7f3a3cba324a4d628"
+  end
+
   depends_on "go" => :build
 
   def install
