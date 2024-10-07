@@ -4,7 +4,7 @@ class Libcdr < Formula
   url "https://dev-www.libreoffice.org/src/libcdr/libcdr-0.1.7.tar.xz"
   sha256 "5666249d613466b9aa1e987ea4109c04365866e9277d80f6cd9663e86b8ecdd4"
   license "MPL-2.0"
-  revision 7
+  revision 8
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -22,12 +22,18 @@ class Libcdr < Formula
 
   depends_on "boost" => :build
   depends_on "pkg-config" => :build
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
   depends_on "librevenge"
   depends_on "little-cms2"
 
+  uses_from_macos "zlib"
+
   def install
-    # icu4c 75+ needs C++17
+    # icu4c 75+ needs C++17 and icu4c 76+ needs icu-uc
+    # TODO: Remove after https://gerrit.libreoffice.org/c/libcdr/+/175709/1
+    icu4c = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
+                .to_formula
+    ENV["ICU_LIBS"] = "-L#{icu4c.opt_lib} -licui18n -licuuc"
     ENV.append "CXXFLAGS", "-std=gnu++17"
 
     system "./configure", "--disable-silent-rules",
