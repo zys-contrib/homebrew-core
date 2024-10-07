@@ -14,12 +14,12 @@ class Libxml2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "28b2523edb939ceb85216103be88e994a156a4f0157a045ce03bb2418239926a"
-    sha256 cellar: :any,                 arm64_sonoma:  "3e95a731b533d2151d0ba3924d38459db34dc1b09142bd5388c38489c690c05b"
-    sha256 cellar: :any,                 arm64_ventura: "f9e6108a1f2564a54155cabf79c5b62d1472a3ccf7e3bd87a11667cebd9e149e"
-    sha256 cellar: :any,                 sonoma:        "f2ee23b587e3d0390cae43a9c396f417ecd66ba599ace888983914f8c3ba91ca"
-    sha256 cellar: :any,                 ventura:       "6a407f5772c16f7e4faecf439e0df8bbffbd6df53a7214981e45b9a8b9a8f029"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07d2aa6c77733470aee3cfddcd2e9159f1ea4184a297cfc2de33d9e5038ca728"
+    sha256 cellar: :any,                 arm64_sequoia: "e55be8b308a20960064eda65e61bf119ed063c016c3af3fc512b78a2a7902105"
+    sha256 cellar: :any,                 arm64_sonoma:  "c7723baf8bb27b7207c095099fb98a4e35262922ad0984e4d43e7f8aa1c2ffa0"
+    sha256 cellar: :any,                 arm64_ventura: "022e585d660f17306b4a6aa38ef5c3eef5bcb91fc1911c47e4c5311fc726508d"
+    sha256 cellar: :any,                 sonoma:        "5db978e999a8f3ab0f72380f37318620dec63c9a52b01d49bed01e9a78de3cc2"
+    sha256 cellar: :any,                 ventura:       "0f8e4bb206959e34c7b96afe45e504bc6c4ee8e076253f04487c0c239a19e8d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "56efca78252ed7c800f31bb97afc41db3fc5eb4f626de440769c1f846d3e7a98"
   end
 
   head do
