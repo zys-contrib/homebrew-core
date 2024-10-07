@@ -1735,6 +1735,7 @@ mariadb@11.2
 markdownlint-cli
 markdownlint-cli2
 marked
+marksman
 marp-cli
 massdriver
 matplotplusplus
