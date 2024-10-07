@@ -4,7 +4,7 @@ class NodeAT16 < Formula
   url "https://nodejs.org/dist/v16.20.2/node-v16.20.2.tar.xz"
   sha256 "576f1a03c455e491a8d132b587eb6b3b84651fc8974bb3638433dd44d22c8f49"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "c8d80f809e2db2a2209901bd02e4b21bee145b364a51ecec72322393d94425a8"
@@ -26,7 +26,7 @@ class NodeAT16 < Formula
   depends_on "python@3.11" => :build
   depends_on "brotli"
   depends_on "c-ares"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "openssl@3"
@@ -46,6 +46,8 @@ class NodeAT16 < Formula
   fails_with gcc: "5"
 
   def install
+    # icu4c 75+ needs C++17. Node 16 uses `-std=gnu++14` so keep GNU extensions
+    ENV.append "CXXFLAGS", "-std=gnu++17"
     # ../deps/v8/src/base/bit-field.h:43:29: error: integer value 7 is outside
     # the valid range of values [0, 3] for this enumeration type
     # [-Wenum-constexpr-conversion]
