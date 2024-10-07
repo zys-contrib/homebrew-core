@@ -12,14 +12,12 @@ class Ncmpcpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "0eb8239ae0b57578d05dc9271fb7fdaa800a709a8b3050d7b3e118b7ca6d916c"
-    sha256 cellar: :any,                 arm64_sonoma:   "697505ba19ceb282b1f3d6a7ee9dca9850e5aacbdd555c06726360b7b3e34807"
-    sha256 cellar: :any,                 arm64_ventura:  "fddd6f8b41e1ec3c6e3b8723fb6bd02232f7999eecb104cadfd1f5342d86253e"
-    sha256 cellar: :any,                 arm64_monterey: "54065a4855826eeac1e1fb87760e72bc7a2b243c41657270a7115bad5714d175"
-    sha256 cellar: :any,                 sonoma:         "fbfb67620edcc0c907762dcd77002530c3b43130856c7a90daa0ab26f3cd0faf"
-    sha256 cellar: :any,                 ventura:        "2be85dace5f5c11ba98510972e23321d6cbd4b8dfdd960f50f95703b0e658910"
-    sha256 cellar: :any,                 monterey:       "493f9684b942ec5112ed4b4f61112265eb58a49acfd0e5761a4c465e179c07ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "255f731bf0430d37240b3ea8b095eb06c39e7240f797f017134217b420300db5"
+    sha256 cellar: :any,                 arm64_sequoia: "87e6097bb1197995aac78dac724f227bdcbcd17b253bcb0d7caa3e6e79e59a5f"
+    sha256 cellar: :any,                 arm64_sonoma:  "67d73c172be28c9f644500ca34a6a809429e84ac9865908ea3f3067f8f9b1cb8"
+    sha256 cellar: :any,                 arm64_ventura: "eb1c978c8fdaa32c2a91812d31f6187e8c513ff44a4a6c327f64174d985f2d2e"
+    sha256 cellar: :any,                 sonoma:        "9017705dc5879ee65956fd43d43bf75bf0afa36df5d01a5dd5194903b5f86a94"
+    sha256 cellar: :any,                 ventura:       "20feeb1d157ac235c2bf18c7a50d43a9284bdbc8b1c0d29e6fe8ee924a52aab6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91d3832e67611b3860d18102d8648982326ebb7e91869d3d237eeeecb5693d7e"
   end
 
   head do
