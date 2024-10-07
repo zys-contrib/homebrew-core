@@ -6,12 +6,12 @@ class Wush < Formula
   license "CC0-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9d1e786b0f4efdddfecee543b6d9247bc9156072b15f4eecc2957f443ba87385"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c4fe37055e145b48122e1b0a337480dca33f5c410ffcd219bfa21c0f2a3795e8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9ceac15c7ca0fad88e43a560a0d3172809331b9a1bb37e8b59394922bc73d12e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d2a2a56d08df53456386260245fb2dbb9036e3f835bc1a35756ca59690490640"
-    sha256 cellar: :any_skip_relocation, ventura:       "11b42f7bf54474e661073ff11d7e084f30ba3ef163d495d88cc99ea12407c30a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d039b71e363e9d52cbc4ae0c60d82e1313907ecd6b47eaa3f75764cd7bb17421"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f4a1ebf5c12249512709b8a6613cc19383aa439411193fed978eb9217dc0d776"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "62bcaa27edcdf2be7ec935aed7fb00f176dfa6080f0a3f6e2738ac04c9d2157e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "dae5012663a80421d7547f081b43707e834061e88fa364f91868294b3935c0be"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f72f4d368c12f9686b741a645cc4bf81b8438e8f2fc065fb156cb1480f5d429d"
+    sha256 cellar: :any_skip_relocation, ventura:       "214009d3ddc68513f38725f64df7ccd3d781b054e750b122408d6c2cfc862c72"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2098fe216d129cfc02d23be885c0dfeeb9e2cba9071cf77a9d799746b215bc3"
   end
 
   depends_on "go" => :build
