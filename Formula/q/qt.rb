@@ -10,7 +10,7 @@ class Qt < Formula
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     "LGPL-3.0-only",
   ]
-  revision 1
+  revision 2
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   stable do
@@ -18,6 +18,13 @@ class Qt < Formula
     mirror "https://qt.mirror.constant.com/archive/qt/6.7/6.7.2/single/qt-everywhere-src-6.7.2.tar.xz"
     mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.7/6.7.2/single/qt-everywhere-src-6.7.2.tar.xz"
     sha256 "0aaea247db870193c260e8453ae692ca12abc1bd841faa1a6e6c99459968ca8a"
+
+    # Backport fix for Xcode 16. Remove in the next release
+    patch do
+      url "https://github.com/qt/qtwebengine-chromium/commit/8c5cf527c520edf9cd96c143af02ac94966fc2af.patch?full_index=1"
+      sha256 "ab14d8559c0470cc28f6ba279015dac9e7411135f5f58c285c6a7cf5995e61b4"
+      directory "qtwebengine/src/3rdparty"
+    end
 
     # Backport support for FFMpeg 7.
     # Ref: https://bugreports.qt.io/browse/QTBUG-125227
@@ -73,7 +80,7 @@ class Qt < Formula
   depends_on "glib"
   depends_on "harfbuzz"
   depends_on "hunspell"
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
   depends_on "jasper"
   depends_on "jpeg-turbo"
   depends_on "libb2"
