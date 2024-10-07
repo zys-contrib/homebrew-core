@@ -4,6 +4,7 @@ class Node < Formula
   url "https://nodejs.org/dist/v23.1.0/node-v23.1.0.tar.xz"
   sha256 "57cbfd3dd51f9300ea2b8e60a8ed215b1eaa71fbde4c3903a7d31a443a4a4423"
   license "MIT"
+  revision 1
   head "https://github.com/nodejs/node.git", branch: "main"
 
   livecheck do
@@ -24,7 +25,7 @@ class Node < Formula
   depends_on "python@3.13" => :build
   depends_on "brotli"
   depends_on "c-ares"
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
   depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "openssl@3"
@@ -50,6 +51,13 @@ class Node < Formula
   resource "npm" do
     url "https://registry.npmjs.org/npm/-/npm-10.9.0.tgz"
     sha256 "c12def16fe3efdc80b1e652d60903d807ac4b78b9e7c3e76f633f4b13a32897c"
+  end
+
+  # Apply fix for ICU 76+ from open PR.
+  # PR ref: https://github.com/nodejs/node/pull/55563
+  patch do
+    url "https://github.com/nodejs/node/commit/54299ac3a3d4e4520b8604dce43c2584092ccde2.patch?full_index=1"
+    sha256 "1d047dd275ca615551a6c40c4f766f2d1c9913a3d7aacc5e94039e0fa55aa537"
   end
 
   def install
