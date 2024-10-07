@@ -5,7 +5,7 @@ class PerconaXtrabackup < Formula
   url "https://downloads.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.35-31/source/tarball/percona-xtrabackup-8.0.35-31.tar.gz"
   sha256 "c6bda1e7f983e5a667bff22d1d67d33404db4e741676d03c9c60bbd4b263cabf"
   license "GPL-2.0-only"
-  revision 3
+  revision 4
 
   livecheck do
     url "https://docs.percona.com/percona-xtrabackup/latest/"
@@ -34,7 +34,7 @@ class PerconaXtrabackup < Formula
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
   depends_on "abseil"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "libev"
   depends_on "libgcrypt"
   depends_on "lz4"
@@ -114,6 +114,7 @@ class PerconaXtrabackup < Formula
       end
     end
 
+    icu4c = deps.map(&:to_formula).find { |f| f.name.match?(/^icu4c@\d+$/) }
     # -DWITH_FIDO=system isn't set as feature isn't enabled and bundled copy was removed.
     # Formula paths are set to avoid HOMEBREW_HOME logic in CMake scripts
     cmake_args = %W[
@@ -125,7 +126,7 @@ class PerconaXtrabackup < Formula
       -DINSTALL_MYSQLTESTDIR=
       -DBISON_EXECUTABLE=#{Formula["bison"].opt_bin}/bison
       -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
-      -DWITH_ICU=#{Formula["icu4c"].opt_prefix}
+      -DWITH_ICU=#{icu4c.opt_prefix}
       -DWITH_SYSTEM_LIBS=ON
       -DWITH_BOOST=#{buildpath}/boost
       -DWITH_EDITLINE=system
