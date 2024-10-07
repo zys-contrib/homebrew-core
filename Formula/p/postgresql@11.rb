@@ -4,7 +4,7 @@ class PostgresqlAT11 < Formula
   url "https://ftp.postgresql.org/pub/source/v11.22/postgresql-11.22.tar.bz2"
   sha256 "2cb7c97d7a0d7278851bbc9c61f467b69c094c72b81740b751108e7892ebe1f0"
   license "PostgreSQL"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_sequoia:  "dc5d797ae3abbb8715c1db2edcdc72291f74f8eb9fabe52a1d7feb1bc140a82e"
@@ -23,7 +23,7 @@ class PostgresqlAT11 < Formula
   deprecate! date: "2023-11-09", because: :unsupported
 
   depends_on "pkg-config" => :build
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "openssl@3"
   depends_on "readline"
 
