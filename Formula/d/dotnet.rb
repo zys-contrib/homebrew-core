@@ -6,6 +6,7 @@ class Dotnet < Formula
       tag:      "v8.0.8",
       revision: "e78e8a64f20e61e1fea4f24afca66ad1dc56285f"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "56e9eb10fb113e33afa6c2f9184e32c0870348923b006fa69552dc1b97f94239"
@@ -19,7 +20,7 @@ class Dotnet < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.12" => :build
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "openssl@3"
 
   uses_from_macos "llvm" => :build
@@ -61,7 +62,8 @@ class Dotnet < Formula
                 "<CrossgenOutput Condition=\" '$(TargetArchitecture)' == 's390x'",
                 "<CrossgenOutput Condition=\" '$(TargetOsName)' == 'osx'"
     else
-      ENV.append_path "LD_LIBRARY_PATH", Formula["icu4c"].opt_lib
+      icu4c_dep = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
+      ENV.append_path "LD_LIBRARY_PATH", icu4c_dep.to_formula.opt_lib
       ENV.append_to_cflags "-I#{Formula["krb5"].opt_include}"
       ENV.append_to_cflags "-I#{Formula["zlib"].opt_include}"
 
