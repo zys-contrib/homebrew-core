@@ -14,12 +14,12 @@ class Yaz < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cdd2614e6bb233a8e1d721ad1579ae1f52704c8c97c240143628e67d11a78d23"
-    sha256 cellar: :any,                 arm64_sonoma:  "f5f775d569c087f4d6b9eddce40f330e27a04d88e1cc08266267683144578511"
-    sha256 cellar: :any,                 arm64_ventura: "fcee21602cff1db846864202217e5eee1b73a419dbf21f7e49f4ce84fcc4d155"
-    sha256 cellar: :any,                 sonoma:        "e4cb4a988e746915b5d812350124c76e831440ae50e2570362c9930d7ae84e0a"
-    sha256 cellar: :any,                 ventura:       "19ebfe9d7bc5f382086866410ced5f1ba8aa821c499cc682651b6025a69a56b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "10d4ba3db077ddbf7cd73204859c8dfabc7e446f77c60e18314efb02e4838956"
+    sha256 cellar: :any,                 arm64_sequoia: "a44b7c5887c5410210f7230a0e93df46cbf48e60b2143758bca4474085471e4b"
+    sha256 cellar: :any,                 arm64_sonoma:  "59f257290e52e8a37120a212aebdd115bd4af7b7626e33eea8723837febb4aba"
+    sha256 cellar: :any,                 arm64_ventura: "ef0e15a7a7b4b15bd4fb0d96adb25e78c13923a72e39b8782532eb491a56e841"
+    sha256 cellar: :any,                 sonoma:        "222ffaea50dbac82503e2c18962b36e48df74b71ee37a2106df5df20d042d3e1"
+    sha256 cellar: :any,                 ventura:       "427fa3664a5f33412422f793a0a3ef9807908df1a19fc43c39346a923e152797"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4889df9aa745f8b29329d00159ace539d451bbb71f4714604756b1496d3780a4"
   end
 
   head do
