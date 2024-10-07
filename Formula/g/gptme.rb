@@ -3,18 +3,18 @@ class Gptme < Formula
 
   desc "AI assistant in your terminal"
   homepage "https://gptme.org/docs/"
-  url "https://files.pythonhosted.org/packages/b3/af/6c5bc85099a5927dd08fb64f2039420030c7aeafab9bb2c08bcc83b3ff6d/gptme-0.19.1.tar.gz"
-  sha256 "5b04c0e0b30667eafcac317be6e3562f9dbb74a6e594204cdafb3704e0c52215"
+  url "https://files.pythonhosted.org/packages/4d/d1/010d2a8c0d799dc2ebf7d7387e2a9b3a2d0ddfedcfb24add346a43713016/gptme-0.19.2.tar.gz"
+  sha256 "7ac8423e08b132760f211a664056fe2d9af90bd2c21222886351b796fff27a23"
   license "MIT"
   head "https://github.com/ErikBjare/gptme.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e404936d7ec106159dadc3a55430bca29f62cde4729e6ffc347cf154aeef7684"
-    sha256 cellar: :any,                 arm64_sonoma:  "56283df588559f360e938f4863fa0090711115ac602a4c942145093009f8473a"
-    sha256 cellar: :any,                 arm64_ventura: "59382d61e33863b796460ef1a23534f4955c4261f546ec87e02fb0b58780812a"
-    sha256 cellar: :any,                 sonoma:        "88c8ad8e670a3fe3b7263454fb510dd7260c0f6f96f8e0edadd86f8bfb7a5696"
-    sha256 cellar: :any,                 ventura:       "b4355b31bed0cf61e5f88c2a5a9cd64c3dc6090affe09224b47301cdb5f6b3d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a63e32015b87aeefaddde384a95863946e261694a0e9e883ffda1bbaba0dc48"
+    sha256 cellar: :any,                 arm64_sequoia: "ced44bc675b4e3fb096e9c77969a40d2105badce4d4faf6138a55c10c6214f31"
+    sha256 cellar: :any,                 arm64_sonoma:  "b13be2a008f4f4b82a55a3889275dd92d2dfdbcdfc71469c13fff9562863bf5d"
+    sha256 cellar: :any,                 arm64_ventura: "cfec376c3c850ea14f43c69bec66c84d0fc340ecbfa2a95a3e9d2c224561c53e"
+    sha256 cellar: :any,                 sonoma:        "3aa99d7434816956db1ca2ec7a618c0907e4b90c6b44b6269c382d842a7a1d6c"
+    sha256 cellar: :any,                 ventura:       "d7a620170bf2d7ad45215cbbac04e139a66472a3296b2c34d21844c941a96458"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a4ec0309fa2bc0101df8496338af5e77957ccf6fa48adb8b27bdde117dbce5c"
   end
 
   depends_on "rust" => :build
@@ -121,8 +121,8 @@ class Gptme < Formula
   end
 
   resource "jiter" do
-    url "https://files.pythonhosted.org/packages/d7/1a/aa64be757afc614484b370a4d9fc1747dc9237b37ce464f7f9d9ca2a3d38/jiter-0.5.0.tar.gz"
-    sha256 "1d916ba875bcab5c5f7d927df998c4cb694d27dceddf3392e58beaf10563368a"
+    url "https://files.pythonhosted.org/packages/3a/87/f3d746e8d87b9f04683266d23ae730435cb646e88064c324407a0c0a98e3/jiter-0.6.0.tar.gz"
+    sha256 "5b3e2b9e8fbd57d176b97e5530a20514cd20d7f98d02e11140b309537897dac0"
   end
 
   resource "lxml" do
@@ -151,8 +151,8 @@ class Gptme < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/28/af/cc59b1447f5a02bb1f25b9b0cd94b607aa2c969a81d9a244d4067f91f6fe/openai-1.51.0.tar.gz"
-    sha256 "8dc4f9d75ccdd5466fc8c99a952186eddceb9fd6ba694044773f3736a847149d"
+    url "https://files.pythonhosted.org/packages/ee/a0/17e5f6c026f03ad469175bc73e84eb589965a9983fb641c528ee908e56b8/openai-1.51.1.tar.gz"
+    sha256 "a4908d68e0a1f4bcb45cbaf273c5fbdc3a4fa6239bb75128b58b94f7d5411563"
   end
 
   resource "packaging" do
