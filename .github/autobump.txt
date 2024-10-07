@@ -562,6 +562,7 @@ cycode
 cyctl
 cyme
 cypher-shell
+cyphernetes
 cyrus-sasl
 cython
 czg
