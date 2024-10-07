@@ -1312,6 +1312,7 @@ jetty
 jetty-runner
 jfrog-cli
 jhipster
+jikken
 jimtcl
 jj
 jlog
