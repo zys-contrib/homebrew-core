@@ -10,7 +10,7 @@ class Spidermonkey < Formula
   # Spidermonkey versions use the same versions as Firefox, so we simply check
   # Firefox ESR release versions.
   livecheck do
-    url "https://www.mozilla.org/en-US/firefox/organizations/notes/"
+    url "https://download.mozilla.org/?product=firefox-esr-latest-ssl"
     strategy :header_match
   end
 
