@@ -226,6 +226,7 @@ biodiff
 biome
 biosig
 bitrise
+bittwist
 bitwarden-cli
 bk
 bkcrack
