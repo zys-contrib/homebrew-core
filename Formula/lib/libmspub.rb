@@ -4,7 +4,7 @@ class Libmspub < Formula
   url "https://dev-www.libreoffice.org/src/libmspub/libmspub-0.1.4.tar.xz"
   sha256 "ef36c1a1aabb2ba3b0bedaaafe717bf4480be2ba8de6f3894be5fd3702b013ba"
   license "MPL-2.0"
-  revision 16
+  revision 17
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -23,9 +23,11 @@ class Libmspub < Formula
   depends_on "boost" => :build
   depends_on "libwpg" => :build
   depends_on "pkg-config" => :build
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
   depends_on "librevenge"
   depends_on "libwpd"
+
+  uses_from_macos "zlib"
 
   # Fix for missing include needed to build with recent GCC. Remove in the next release.
   # Commit ref: https://git.libreoffice.org/libmspub/+/698bed839c9129fa7a90ca1b5a33bf777bc028d1%5E%21
@@ -34,7 +36,11 @@ class Libmspub < Formula
   end
 
   def install
-    # icu4c 75+ needs C++17
+    # icu4c 75+ needs C++17 and icu4c 76+ needs icu-uc
+    # TODO: Fix upstream
+    icu4c = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
+                .to_formula
+    ENV["ICU_LIBS"] = "-L#{icu4c.opt_lib} -licui18n -licuuc"
     ENV.append "CXXFLAGS", "-std=gnu++17"
 
     system "./configure", "--disable-silent-rules",
