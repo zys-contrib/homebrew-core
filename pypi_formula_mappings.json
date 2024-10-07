@@ -366,6 +366,9 @@
   "gptline": {
     "exclude_packages": ["certifi", "pillow"]
   },
+  "gptme": {
+    "exclude_packages": ["certifi"]
+  },
   "graph-tool": {
     "package_name": "",
     "exclude_packages": ["numpy", "pillow"],
