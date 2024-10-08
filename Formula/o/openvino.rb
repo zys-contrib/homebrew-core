@@ -3,8 +3,8 @@ class Openvino < Formula
 
   desc "Open Visual Inference And Optimization toolkit for AI inference"
   homepage "https://docs.openvino.ai"
-  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2024.4.0.tar.gz"
-  sha256 "aeb6297e3e88b4ab7803b27b231a72bd0493b6761ef98f225142146be500f538"
+  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2024.4.1.tar.gz"
+  sha256 "b8045c9d24be1f7247ed5e1055f5a2df745fb00d4820af2686b5c04eca113163"
   license "Apache-2.0"
   head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
 
@@ -50,8 +50,8 @@ class Openvino < Formula
     depends_on "scons" => :build
 
     resource "arm_compute" do
-      url "https://github.com/ARM-software/ComputeLibrary/archive/refs/tags/v24.08.tar.gz"
-      sha256 "b3576ffa2a70e7704bdf7febe7109f4cfb416a0178222b58f5ee0fd455980337"
+      url "https://github.com/ARM-software/ComputeLibrary/archive/refs/tags/v24.09.tar.gz"
+      sha256 "49b8620f21cbbe49e825a131d9eacd548532646289b50e070b83860bd88087fe"
     end
   end
 
