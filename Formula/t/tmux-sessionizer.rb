@@ -5,6 +5,15 @@ class TmuxSessionizer < Formula
   sha256 "0f9369a045ebe181202fcf5f292bbdd836f25b47ca9da1702351a725693631f5"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "a03c3a2bfd283dfb14fe55e4c50fafeea446acf0c228d6979b67a05e2642f0b1"
+    sha256 cellar: :any,                 arm64_sonoma:  "3028161e6f942c0b24c1ceb2b1a8d5843b24907cc27ee207f85fe06c9d3bc8e7"
+    sha256 cellar: :any,                 arm64_ventura: "7a603d0a09c2c6b64ea010427559a18651a8fe1e5149feca7dfc996c389f2ad5"
+    sha256 cellar: :any,                 sonoma:        "903e07fd37d645a9f8d092e9af335b5a0341602d329a4e494f91da9c26f9fe18"
+    sha256 cellar: :any,                 ventura:       "34f6b6758df67acd10f91c6d74885d0cc7045a62637bd573e7cc2346af005f63"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd989d2d8fd9f7cf38648263c92502269c53d2ebdace30ea98017f4da1c2a9d7"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "libgit2@1.7"
