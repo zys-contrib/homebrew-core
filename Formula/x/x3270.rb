@@ -4,6 +4,7 @@ class X3270 < Formula
   url "http://x3270.bgp.nu/download/04.03/suite3270-4.3ga9-src.tgz"
   sha256 "6404d27b29a40d896daab35ff153cab157d85094b38bdeb4ebaaaf2673ce4db1"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://x3270.miraheze.org/wiki/Downloads"
@@ -25,10 +26,13 @@ class X3270 < Formula
   depends_on "readline"
 
   uses_from_macos "ncurses"
-  uses_from_macos "tcl-tk"
+
+  on_linux do
+    depends_on "tcl-tk@8"
+  end
 
   def install
-    ENV.append "CPPFLAGS", "-I#{Formula["tcl-tk"].opt_include}/tcl-tk" unless OS.mac?
+    ENV.append "CPPFLAGS", "-I#{Formula["tcl-tk@8"].opt_include}/tcl-tk" if OS.linux?
 
     args = %w[
       --enable-c3270
@@ -36,7 +40,7 @@ class X3270 < Formula
       --enable-s3270
       --enable-tcl3270
     ]
-    system "./configure", *std_configure_args, *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
     system "make", "install.man"
   end
