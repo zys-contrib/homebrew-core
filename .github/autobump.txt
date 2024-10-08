@@ -831,6 +831,7 @@ fastlane
 fastnetmon
 fastp
 fastqc
+fatal
 faudio
 fauna-shell
 faust
