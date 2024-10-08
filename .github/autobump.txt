@@ -2010,6 +2010,7 @@ open-image-denoise
 open-mesh
 open-mpi
 open62541
+openapi-diff
 openbao
 openblas
 opencl-clhpp-headers
