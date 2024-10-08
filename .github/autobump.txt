@@ -1877,6 +1877,7 @@ naabu
 nagios
 nagios-plugins
 nano
+nanobind
 nanoflann
 nanopb
 nasm
