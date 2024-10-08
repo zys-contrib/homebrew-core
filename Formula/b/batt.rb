@@ -7,9 +7,9 @@ class Batt < Formula
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e46e909a49f8575cd256f9463309fa6dec034b10f91d331c7c190ebe0b65f840"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7d77617cc54fecaf0fe7dd999c7f8e63e6308e285dfcc943bfa626b5dc060de6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0f293f52c6e6cd08d3843e5529396b86a473002d248a87c3c9cb3191604ecf8a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "61bd7790a82f2269b9a0ce1585c57564d03be4e4ac89b8f0d8843c0073a688e6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "198bd7bb9a808f0a9e4cb1a31b7e9c2a72d690ba1d07ebddf78b6d0ce0b6dd03"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6eff598159b263327b8b562ab32f5e5e7157c20f25cbecfa08b48eda794c4c43"
   end
 
   depends_on "go" => :build
