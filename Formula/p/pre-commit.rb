@@ -9,12 +9,12 @@ class PreCommit < Formula
   head "https://github.com/pre-commit/pre-commit.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cc6113bf3efe5ee80dd14073c1e87f172b49fe63f160b93f4ced4d70e70c66da"
-    sha256 cellar: :any,                 arm64_sonoma:  "a3042fd819937ef47cfff56ae39924592a0e734fae1c2ea8659d5ac53aacc651"
-    sha256 cellar: :any,                 arm64_ventura: "7a6cbdd6f4b095b4d22a1399b94ba6ff2759fe3c842cd14f4cc536203d9c38ae"
-    sha256 cellar: :any,                 sonoma:        "07438e41b2c7d291d12c11d47e481c6580b613c86bbef876fa71ce92ce98f9ad"
-    sha256 cellar: :any,                 ventura:       "0c3331033604f2afcb1eedb2d585832d6670bfcb5dccee60566b03cf89fb7a75"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b914a22acba700fc9655a4744e32f0af5ee3d849ae513cd5f67c74f942fe85ce"
+    sha256 cellar: :any,                 arm64_sequoia: "f37138629dff35ae7367ab433d46ee115aefa6212f408063a81063ff55374ae3"
+    sha256 cellar: :any,                 arm64_sonoma:  "6c2f28b42145d27c1a311e136ff53efcdf190f3c8ba9a164b9952427c4e88b7b"
+    sha256 cellar: :any,                 arm64_ventura: "2666fe5dddbe88ad370d910d4bc975513bd6352ea8c5fc0ce1226961d12ac4a4"
+    sha256 cellar: :any,                 sonoma:        "c888cd69314622d1fdbcacc73143bea228b1ec30a9db874d13d0368761bb3992"
+    sha256 cellar: :any,                 ventura:       "41ddd5768986cb8839b57627ef6edfc84e8ef4cb9f115841473dcb3ce187a5a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e06fefd1ea5489a010b3d75ff77665ffb2dd23338140adc165b03e4a15d6250d"
   end
 
   depends_on "libyaml"
