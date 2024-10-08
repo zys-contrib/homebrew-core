@@ -1,14 +1,9 @@
 class Vcprompt < Formula
   desc "Provide version control info in shell prompts"
-  homepage "https://hg.gerg.ca/vcprompt"
-  url "https://hg.gerg.ca/vcprompt/archive/1.2.1.tar.gz"
-  sha256 "fdf26566e2bd73cf734b7228f78c09a0f53d0166662fcd482a076ed01c9dbe36"
+  homepage "https://github.com/powerman/vcprompt"
+  url "https://github.com/powerman/vcprompt/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "3db5ebad2e333d43b464b665c8d43b35156b0f144052f10c340a5c5007a6874d"
   license "GPL-2.0-or-later"
-
-  livecheck do
-    url "https://hg.gerg.ca/vcprompt/tags"
-    regex(%r{href=.*?/v?(\d+(?:\.\d+)+)/?["' >]}i)
-  end
 
   bottle do
     rebuild 2
