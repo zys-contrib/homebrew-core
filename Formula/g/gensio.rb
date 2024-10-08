@@ -4,6 +4,7 @@ class Gensio < Formula
   url "https://github.com/cminyard/gensio/releases/download/v2.8.9/gensio-2.8.9.tar.gz"
   sha256 "00bb5f0aa80d9978195f5efab5db403af22e5e7ed0f75c682da47577248bd333"
   license all_of: ["LGPL-2.1-only", "GPL-2.0-only", "Apache-2.0"]
+  revision 1
 
   bottle do
     sha256 arm64_sequoia:  "2fbbf769092237b2ad692909a156018d332448cd4f9746d4500a7e9fe6246341"
@@ -22,13 +23,13 @@ class Gensio < Formula
 
   depends_on "glib"
   depends_on "openssl@3"
-  depends_on "portaudio"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "tcl-tk"
 
   on_macos do
     depends_on "gettext"
+    depends_on "portaudio"
   end
 
   on_linux do
@@ -36,23 +37,24 @@ class Gensio < Formula
     depends_on "avahi"
     depends_on "linux-pam"
     depends_on "systemd"
-    depends_on "tcl-tk"
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
     args = %W[
       --disable-silent-rules
+      --with-python=#{which(python3)}
       --with-pythoninstall=#{lib}/gensio-python
       --sysconfdir=#{etc}
     ]
-    args << "--with-tclcflags=-I #{HOMEBREW_PREFIX}/include/tcl-tk" if OS.linux?
+    args << "--with-tclcflags=-I#{HOMEBREW_PREFIX}/include/tcl-tk" if OS.linux?
+
     system "./configure", *args, *std_configure_args
     system "make", "install"
-    (prefix/Language::Python.site_packages(python3)).install_symlink Dir["#{lib}/gensio-python/*"]
+    (prefix/Language::Python.site_packages(python3)).install_symlink lib.glob("gensio-python/*")
   end
 
   service do
