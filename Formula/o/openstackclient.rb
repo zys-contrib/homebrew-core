@@ -4,8 +4,8 @@ class Openstackclient < Formula
   desc "Command-line client for OpenStack"
   homepage "https://openstack.org"
   # TODO: remove `setuptools` from pypi_formula_mappings.json after https://review.opendev.org/c/openstack/pbr/+/924216
-  url "https://files.pythonhosted.org/packages/8a/8c/4573a1abacafd00f76bba1c1c377a5fdbf86dd19ebe6eb71eb8603be93a4/python-openstackclient-7.1.2.tar.gz"
-  sha256 "84b6f1726fcb92a314d9dc93318848075da247b798314842d1b152f336441a5d"
+  url "https://files.pythonhosted.org/packages/a4/5b/039a64dee3e0a6bbe83baae2955217617d3142402eae8e9052385416826c/python-openstackclient-7.1.3.tar.gz"
+  sha256 "421b0804259325908762544c19feb09243e367348bbfa3a4d515a4c1184226e7"
   license "Apache-2.0"
 
   bottle do
@@ -117,8 +117,8 @@ class Openstackclient < Formula
   end
 
   resource "jsonschema-specifications" do
-    url "https://files.pythonhosted.org/packages/f8/b9/cc0cc592e7c195fb8a650c1d5990b10175cf13b4c97465c72ec841de9e4b/jsonschema_specifications-2023.12.1.tar.gz"
-    sha256 "48a76787b3e70f5ed53f1160d2b81f586e4ca6d1548c5de7085d1682674764cc"
+    url "https://files.pythonhosted.org/packages/10/db/58f950c996c793472e336ff3655b13fbcf1e3b359dcf52dcf3ed3b52c352/jsonschema_specifications-2024.10.1.tar.gz"
+    sha256 "0f38b83639958ce1152d02a7f062902c41c8fd20d558b0c34344292d417ae272"
   end
 
   resource "keystoneauth-websso" do
