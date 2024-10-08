@@ -4,6 +4,7 @@ class Pidgin < Formula
   url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.14.13/pidgin-2.14.13.tar.bz2"
   sha256 "120049dc8e17e09a2a7d256aff2191ff8491abb840c8c7eb319a161e2df16ba8"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://sourceforge.net/projects/pidgin/files/Pidgin/"
@@ -23,29 +24,38 @@ class Pidgin < Formula
 
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
+  depends_on "at-spi2-core"
   depends_on "cairo"
-  depends_on "gettext"
+  depends_on "gdk-pixbuf"
+  depends_on "glib"
   depends_on "gnutls"
   depends_on "gtk+"
   depends_on "libgcrypt"
   depends_on "libgnt"
   depends_on "libidn"
   depends_on "libotr"
+  depends_on "ncurses" # due to `libgnt`
   depends_on "pango"
 
   uses_from_macos "cyrus-sasl"
-  uses_from_macos "ncurses"
+  uses_from_macos "expat"
+  uses_from_macos "libxml2"
   uses_from_macos "perl"
   uses_from_macos "tcl-tk"
 
-  on_linux do
-    depends_on "libsm"
-    depends_on "libxscrnsaver"
+  on_macos do
+    depends_on "gettext"
+    depends_on "harfbuzz"
+    depends_on "libgpg-error"
+  end
 
-    resource "XML::Parser" do
-      url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.46.tar.gz"
-      sha256 "d331332491c51cccfb4cb94ffc44f9cd73378e618498d4a37df9e043661c515d"
-    end
+  on_linux do
+    depends_on "gettext" => :build
+    depends_on "perl-xml-parser" => :build
+    depends_on "libice"
+    depends_on "libsm"
+    depends_on "libx11"
+    depends_on "libxscrnsaver"
   end
 
   # Finch has an equal port called purple-otr but it is a NIGHTMARE to compile
@@ -57,23 +67,19 @@ class Pidgin < Formula
 
   def install
     unless OS.mac?
-      ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5"
-      ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+      ENV.prepend_path "PERL5LIB", Formula["perl-xml-parser"].libexec/"lib/perl5"
+      # Fix linkage error due to RPATH missing directory with libperl.so
+      perl = DevelopmentTools.locate("perl")
+      perl_archlib = Utils.safe_popen_read(perl.to_s, "-MConfig", "-e", "print $Config{archlib}")
+      ENV.append "LDFLAGS", "-Wl,-rpath,#{perl_archlib}/CORE"
+    end
 
-      perl_resources = %w[XML::Parser]
-      perl_resources.each do |r|
-        resource(r).stage do
-          system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-          system "make"
-          system "make", "install"
-        end
-      end
+    ENV["ac_cv_func_perl_run"] = "yes" if OS.mac? && MacOS.version == :high_sierra
+    if DevelopmentTools.clang_build_version >= 1600
+      ENV.append_to_cflags "-Wno-incompatible-function-pointer-types -Wno-int-conversion"
     end
 
     args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --prefix=#{prefix}
       --disable-avahi
       --disable-dbus
       --disable-doxygen
@@ -83,7 +89,9 @@ class Pidgin < Formula
       --disable-gtkspell
       --disable-meanwhile
       --disable-vv
-      --enable-gnutls=yes
+      --enable-consoleui
+      --enable-gnutls
+      --with-ncurses-headers=#{Formula["ncurses"].opt_include}
     ]
 
     args += if OS.mac?
@@ -96,11 +104,8 @@ class Pidgin < Formula
       %W[
         --with-tclconfig=#{Formula["tcl-tk"].opt_lib}
         --with-tkconfig=#{Formula["tcl-tk"].opt_lib}
-        --with-ncurses-headers=#{Formula["ncurses"].opt_include}
       ]
     end
-
-    ENV["ac_cv_func_perl_run"] = "yes" if OS.mac? && MacOS.version == :high_sierra
 
     # patch pidgin to read plugins and allow them to live in separate formulae which can
     # all install their symlinks into these directories. See:
@@ -110,14 +115,7 @@ class Pidgin < Formula
     inreplace "pidgin/gtkmain.c", "LIBDIR", "\"#{HOMEBREW_PREFIX}/lib/pidgin\""
     inreplace "pidgin/gtkutils.c", "DATADIR", "\"#{HOMEBREW_PREFIX}/share\""
 
-    unless OS.mac?
-      # Fix linkage error due to RPATH missing directory with libperl.so
-      perl = DevelopmentTools.locate("perl")
-      perl_archlib = Utils.safe_popen_read(perl.to_s, "-MConfig", "-e", "print $Config{archlib}")
-      ENV.append "LDFLAGS", "-Wl,-rpath,#{perl_archlib}/CORE"
-    end
-
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
 
     resource("pidgin-otr").stage do
@@ -132,7 +130,7 @@ class Pidgin < Formula
     system bin/"finch", "--version"
     system bin/"pidgin", "--version"
 
-    pid = fork { exec bin/"pidgin", "--config=#{testpath}" }
+    pid = spawn(bin/"pidgin", "--config=#{testpath}")
     sleep 5
     Process.kill "SIGTERM", pid
   end
