@@ -2,8 +2,8 @@ class Batt < Formula
   desc "Control and limit battery charging on Apple Silicon MacBooks"
   homepage "https://github.com/charlie0129/batt"
   url "https://github.com/charlie0129/batt.git",
-    tag:      "v0.3.0",
-    revision: "1b3c26035f0d60e2f0c62b901f2ffed9428fb3e7"
+    tag:      "v0.3.1",
+    revision: "a7fedaf3ea1cceacf8b35c6d64277ee5a9d1963c"
   license "GPL-2.0-only"
 
   bottle do
@@ -17,27 +17,26 @@ class Batt < Formula
   depends_on :macos
 
   def install
-    # batt does not provide separate control for AllowNonRootAccess.
-    # Normally it's changed during service file installation,
-    # but brew service supersedes that, leaving a daemon refusing to
-    # talk to anything non-root. Changing the defaults here.
-    inreplace "conf.go", "AllowNonRootAccess:      false,",
-                         "AllowNonRootAccess:      true,"
-    # Limit config path to Homebrew prefix. The socket remains in /var/run
-    # to deter non-root invocation of daemon
-    inreplace ["conf.go", "README.md"], "/etc/batt.json", etc/"batt.json"
-    # Due to local changes version tag would show v0.2.1-dirty
-    system "make", "VERSION=v#{version}"
-    inreplace "hack/cc.chlc.batt.plist", "/path/to/batt", bin/"batt"
-    system "plutil", "-insert", "ProcessType", "-string", "Background",
-                     "--", "hack/cc.chlc.batt.plist"
+    # Point to the correct path for the binary
+    inreplace "hack/cc.chlc.batt.plist", "/path/to/batt", opt_bin/"batt"
+    # Limit config path to Homebrew prefix.
+    system "plutil", "-insert", "ProgramArguments",
+           "-string", "--config=#{etc}/batt.json", "-append",
+           "--", "hack/cc.chlc.batt.plist"
+    # Allow non-root access to the battery controller.
+    system "plutil", "-insert", "ProgramArguments",
+           "-string", "--always-allow-non-root-access", "-append",
+           "--", "hack/cc.chlc.batt.plist"
+    # Due to local changes version tag would show vx.x.x-dirty, override VERSION.
+    # GOTAGS is set to disable built-in install/uninstall commands when building for Homebrew.
+    system "make", "GOTAGS=brew", "VERSION=v#{version}"
     bin.install "bin/batt"
     prefix.install "hack/cc.chlc.batt.plist"
   end
 
   def caveats
     <<~EOS
-      The service must be running before most of batt's commands will work.
+      The batt service must be running before most of batt's commands will work.
     EOS
   end
 
@@ -49,7 +48,7 @@ class Batt < Formula
   test do
     # NB: assumes first run of batt, with no previous config.
     assert_match "config file #{etc}/batt.json does not exist, using default config",
-      shell_output("#{bin}/batt daemon 2>&1", 1) # Non-root daemon exits with 1
+      shell_output("#{bin}/batt daemon --config=#{etc}/batt.json 2>&1", 1) # Non-root daemon exits with 1
     assert_match "failed to connect to unix socket.",
       shell_output("#{bin}/batt status 2>&1", 1) # Cannot connect to daemon
   end
