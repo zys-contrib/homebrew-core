@@ -7,14 +7,12 @@ class Felinks < Formula
   head "https://github.com/rkd77/elinks.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "ebdbb9519964c5d841d3de3adea1dd0bda1ca6bb1ad8d45ad33a68df6674552f"
-    sha256 cellar: :any,                 arm64_sonoma:   "57f61582dadfbd450b6c904a1c660e880ea35c5cfab75ef7dab2b6d471d60161"
-    sha256 cellar: :any,                 arm64_ventura:  "d30b4c6241c1486776e59e9c9b11c250ae41acbc3295c8d0edcde1722f46948e"
-    sha256 cellar: :any,                 arm64_monterey: "3ac7aee0b13a45548e6c122f5f6b0cdb71f072ce515ea21d295285b7983529a3"
-    sha256 cellar: :any,                 sonoma:         "f4eb30889668acca94dc26e9f1a307bb4c21825d6e62ab72cfb6b7969038cc51"
-    sha256 cellar: :any,                 ventura:        "6d581731eaa6d41d08621adfa248966fb89e1c01b68c9216d8e1eb0ddf68d476"
-    sha256 cellar: :any,                 monterey:       "76063ebe01b0b5bc44895113075afa877f7e7b443d18ac00e6127df62d0f8d4d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec20a05e457d72c74f13e12ce329f14f349488ee543e5e68fe2a1443acde547f"
+    sha256 cellar: :any, arm64_sequoia: "ed51c6ce065bf534ad9afc73c0c0d08bc14997909e08145ce1396cbf1ee67232"
+    sha256 cellar: :any, arm64_sonoma:  "cde1dda6cb15899341af71934add2202f30a06301cb201bf4f78d7b853d1b13e"
+    sha256 cellar: :any, arm64_ventura: "072b62db5ecb6c4590a76cda6baf5fdb55f8a04dddc6c7003f88f8e1925963b9"
+    sha256 cellar: :any, sonoma:        "93b19701a3864f59dd29c742ca6c597eb3e6fccac1e9372c5e12bc6e2d21fa81"
+    sha256 cellar: :any, ventura:       "31e3c6758ff7b0db2f8b175344f7f3b995bcd8e3fa73a2320ad9d17c8730b729"
+    sha256               x86_64_linux:  "305289c38214fa59b864cbd79833beb74ca771fa4f14ec2b0e333b6997334b8a"
   end
 
   depends_on "meson" => :build
