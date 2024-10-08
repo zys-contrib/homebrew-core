@@ -6,6 +6,7 @@ class Yosys < Formula
       tag:      "0.47",
       revision: "647d61dd9212365a3cd44db219660b8f90b95cbd"
   license "ISC"
+  revision 1
   head "https://github.com/YosysHQ/yosys.git", branch: "main"
 
   bottle do
