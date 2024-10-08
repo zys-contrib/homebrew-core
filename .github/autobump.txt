@@ -2080,6 +2080,7 @@ overtls
 ox
 oxipng
 oxker
+oxlint
 p11-kit
 pacapt
 packetbeat
