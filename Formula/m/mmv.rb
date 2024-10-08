@@ -1,17 +1,17 @@
 class Mmv < Formula
   desc "Move, copy, append, and link multiple files"
   homepage "https://github.com/rrthomas/mmv"
-  url "https://github.com/rrthomas/mmv/releases/download/v2.9/mmv-2.9.tar.gz"
-  sha256 "4604be9cfe512cac1e62775be5c793b497222b33400c43b821f59b4ab063d8e1"
+  url "https://github.com/rrthomas/mmv/releases/download/v2.9.1/mmv-2.9.1.tar.gz"
+  sha256 "7d18332e62a3ffb021121bd1bbad1e93183f36318206899bdf909a473275f3d0"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8d5c872b93e2dd226026ddc2696dddefcd977f95b15d8d2408540d20c6e535ed"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "598637443d4ba250a2437dd1413297d103830cab8a3bbf13f378c4d87cacefd3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "462d37188b6db67f3b9486a10de61eaa13066abf17203a64035e2a9ee6a4fa6f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e8d74d5b3d0b773a63ab440db2d329754a7a217dce6cba2f7acb98b1cb7a37ca"
-    sha256 cellar: :any_skip_relocation, ventura:       "6c2d6eecdd78b36a44971b06f7ad56bb1883cd2c88fc32232d7e9497e26aa2c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f05e28c1dda1438f9c0481c4339fc9c300d7c76cd7888e3a6490cbefb6a7d98"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ce45354bb8683b8ddcf8fc998838fe0e79515924bbf0c0227d82ceb84e977a23"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "50029e093c2444b882b307849b70aaa2519cb028722bbc1387a3430855b8380b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "842357238ff76a7d18ea045ec3e45cfb937e39de8a4fa9e1916373c948e13488"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7ed255418e3d7880d2b9f6f8b2b00fde29550f62c7f6a8686b0eba5004b39a35"
+    sha256 cellar: :any_skip_relocation, ventura:       "c5f3011b88c439ffe1590316552650288a69ecc0c8b42529649705851e2f5df7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8aeb6754162fe83dd44ad8fc00eef3a0f21c4e345982e82c00340b952f313485"
   end
 
   depends_on "help2man" => :build # for patch
