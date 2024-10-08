@@ -4,6 +4,7 @@ class Lmod < Formula
   url "https://github.com/TACC/Lmod/archive/refs/tags/8.7.53.tar.gz"
   sha256 "5e7ed1a5acfee76abfd96f2ffa3af69d49052b9e88a04ab18d87d18a538c4834"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a7f89cc87742f2d1196bc0fad3dacc43be40d21136723189cbf23ece89f3a24d"
@@ -20,10 +21,13 @@ class Lmod < Formula
 
   uses_from_macos "bc" => :build
   uses_from_macos "libxcrypt"
-  uses_from_macos "tcl-tk"
 
   on_macos do
     depends_on "gnu-sed" => :build
+  end
+
+  on_linux do
+    depends_on "tcl-tk@8"
   end
 
   resource "luafilesystem" do
@@ -51,9 +55,12 @@ class Lmod < Formula
     end
 
     # We install `tcl-tk` headers in a subdirectory to avoid conflicts with other formulae.
-    ENV.append_to_cflags "-I#{Formula["tcl-tk"].opt_include}/tcl-tk" if OS.linux?
+    ENV.append_to_cflags "-I#{Formula["tcl-tk@8"].opt_include}/tcl-tk" if OS.linux?
     system "./configure", "--with-siteControlPrefix=yes", "--prefix=#{prefix}"
     system "make", "install"
+
+    # Remove man page which conflicts with `modules` formula
+    rm man1/"module.1"
   end
 
   def caveats
