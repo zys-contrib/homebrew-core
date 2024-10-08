@@ -5,6 +5,10 @@ class OpenapiDiff < Formula
   sha256 "920e9e9fc126b78aed6900cac18533a6f08348e26aab8e1fd67a9409703548ca"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "c1451c9c5af1a9be6e803e1eadcd7ac808a3ce3eb9fd0ae3229c8ed39af0b795"
+  end
+
   depends_on "maven" => :build
   depends_on "openjdk"
 
