@@ -8,6 +8,15 @@ class Djlint < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/djlint/djLint.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "32eafd4e474af074b07c586646354fc9f8254279c0881ec4e64b46d8266a1cb6"
+    sha256 cellar: :any,                 arm64_sonoma:  "57fa7be0848f587bd413785e301d4cb926c9556ca210df02c17f167a06e450dd"
+    sha256 cellar: :any,                 arm64_ventura: "2f733f032f688a974d4fec431aaf18e171fdce352094a3355fbaacd9da87a60f"
+    sha256 cellar: :any,                 sonoma:        "0693758610c3fd4e272c047aa024f8e514edb2a6d8b0bcc57eecba59a00ebb01"
+    sha256 cellar: :any,                 ventura:       "3b607982992a6bdf05191541388a8ec95a5f0d97622a1109141521020743a15a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "185a10480b969353fcbefee165c9d6b3729037b6c81b1d74fe16137ec9c00b23"
+  end
+
   depends_on "libyaml"
   depends_on "python@3.12"
 
