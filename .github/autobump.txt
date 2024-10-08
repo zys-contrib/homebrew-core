@@ -303,6 +303,7 @@ calc
 calceph
 calcurse
 calicoctl
+camlp5
 canfigger
 capnp
 capstone
