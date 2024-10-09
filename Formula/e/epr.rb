@@ -13,7 +13,7 @@ class Epr < Formula
     sha256 cellar: :any_skip_relocation, all: "365cb8927fc2d6153f76442b55a3733ac91cbe8aa1fb6d6646b4659a3a2b9f95"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources
