@@ -26,10 +26,7 @@ class EyeD3 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dbe1accdb0701ddd51d8b326400efdc5ac1980cc82e4aa209940785c0a39decb"
   end
 
-  depends_on "python@3.12"
-
-  # Looking for documentation? Please submit a PR to build some!
-  # See https://github.com/Homebrew/homebrew/issues/32770 for previous attempt.
+  depends_on "python@3.13"
 
   resource "coverage" do
     url "https://files.pythonhosted.org/packages/38/df/d5e67851e83948def768d7fb1a0fd373665b20f56ff63ed220c6cd16cb11/coverage-5.5.tar.gz"
@@ -47,8 +44,8 @@ class EyeD3 < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
-    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
+    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
   end
 
   resource "toml" do
