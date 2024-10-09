@@ -4,6 +4,7 @@ class PythonSetuptools < Formula
   url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
   sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
   license "MIT"
+  revision 1
 
   bottle do
     rebuild 1
@@ -11,6 +12,7 @@ class PythonSetuptools < Formula
   end
 
   depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
 
   def pythons
     deps.map(&:to_formula)
