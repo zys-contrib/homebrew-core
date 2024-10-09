@@ -4,6 +4,7 @@ class ProtobufAT21 < Formula
   url "https://github.com/protocolbuffers/protobuf/releases/download/v21.12/protobuf-all-21.12.tar.gz"
   sha256 "2c6a36c7b5a55accae063667ef3c55f2642e67476d96d355ff0acb13dbb47f09"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     rebuild 2
@@ -22,6 +23,7 @@ class ProtobufAT21 < Formula
   depends_on "cmake" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
 
   uses_from_macos "zlib"
 
