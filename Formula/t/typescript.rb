@@ -1,8 +1,8 @@
 class Typescript < Formula
   desc "Language for application scale JavaScript development"
   homepage "https://www.typescriptlang.org/"
-  url "https://registry.npmjs.org/typescript/-/typescript-5.6.2.tgz"
-  sha256 "6e954963e7689a13573927021cf1fe2d7f85d7808eba49f03f84cb5d77cdd6bf"
+  url "https://registry.npmjs.org/typescript/-/typescript-5.6.3.tgz"
+  sha256 "ef67f8d8ad895858024b7339d3e34bf112cae3c5db1f538c3079038b17ae30fa"
   license "Apache-2.0"
   head "https://github.com/Microsoft/TypeScript.git", branch: "main"
 
