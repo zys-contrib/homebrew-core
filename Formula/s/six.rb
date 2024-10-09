@@ -7,8 +7,7 @@ class Six < Formula
   revision 5
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "f19976d182253ff8cdf2d435b3ce6f24f2a544684baee95ab289bee753d39eb1"
+    sha256 cellar: :any_skip_relocation, all: "003522792728cc579ff239d1b4b0373c39bcaad66e7b2960ecd38861f5dbf2df"
   end
 
   depends_on "python@3.11" => [:build, :test]
