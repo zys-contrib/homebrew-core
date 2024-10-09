@@ -4,14 +4,15 @@ class Nanobind < Formula
   url "https://github.com/wjakob/nanobind/archive/refs/tags/v2.1.0.tar.gz"
   sha256 "c37c53c60ada5fe1c956e24bd4b83af669a2309bf952bd251f36a7d2fa3bacf0"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/wjakob/nanobind.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "67d3bc9718d09845035fdb44fa3ac8e60e80bcc8170900f25a945589eeb02e9d"
+    sha256 cellar: :any_skip_relocation, all: "3d009113e5fad538ed8bef2db7c27a68266929a6920ecbea4b1ee2ba41298f7c"
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
   depends_on "robin-map" => [:build, :test]
 
   def install
@@ -33,7 +34,7 @@ class Nanobind < Formula
   end
 
   test do
-    python = "python3.12"
+    python = "python3.13"
 
     (testpath/"my_ext.cpp").write <<~CPP
       #include <nanobind/nanobind.h>
