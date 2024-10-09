@@ -1,8 +1,8 @@
 class Sidekick < Formula
   desc "Deploy applications to your VPS"
   homepage "https://github.com/MightyMoud/sidekick"
-  url "https://github.com/MightyMoud/sidekick/archive/refs/tags/v0.6.2.tar.gz"
-  sha256 "e8db4d45445f9abd15a489f961a163d7229231d757891226465a876806e2edcf"
+  url "https://github.com/MightyMoud/sidekick/archive/refs/tags/v0.6.3.tar.gz"
+  sha256 "15525dcd4cd2dca9bf109b93b6ad771ca51b7a88449d0fabf43dcd8dd3ed0bd1"
   license "GPL-3.0-only"
 
   bottle do
@@ -17,7 +17,8 @@ class Sidekick < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    ldflags = "-s -w -X 'github.com/mightymoud/sidekick/cmd.version=v#{version}'"
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"sidekick", "completion")
   end
