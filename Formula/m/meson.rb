@@ -8,7 +8,7 @@ class Meson < Formula
   head "https://github.com/mesonbuild/meson.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "46e1bb718943bb802ca3947191ef98b3f9c51e39be47a87f825060741f45e44e"
+    sha256 cellar: :any_skip_relocation, all: "a3b43478b98b0d04f647668cb8740c8e75446a9dd15a34587fde96bebbf401c7"
   end
 
   depends_on "ninja"
