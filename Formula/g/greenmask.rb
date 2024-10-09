@@ -1,8 +1,8 @@
 class Greenmask < Formula
   desc "PostgreSQL dump and obfuscation tool"
   homepage "https://greenmask.io"
-  url "https://github.com/GreenmaskIO/greenmask/archive/refs/tags/v0.1.14.tar.gz"
-  sha256 "b5d7323d9dde7e4fcd288c461f6454b6e0e4e2b09eb62619cb967bf14971c990"
+  url "https://github.com/GreenmaskIO/greenmask/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "d16610cd2ee2f6174ccbb6158b49b5857af24680170fe72c912327d1ee87c333"
   license "Apache-2.0"
   head "https://github.com/GreenmaskIO/greenmask.git", branch: "main"
 
@@ -39,8 +39,8 @@ class Greenmask < Formula
 
     (testpath/"config.yml").write <<~EOS
       common:
-      pg_bin_path: "/usr/lib/postgresql/16/bin"
-      tmp_dir: "/tmp"
+        pg_bin_path: "/usr/lib/postgresql/16/bin"
+        tmp_dir: "/tmp"
 
       storage:
         s3:
@@ -73,7 +73,9 @@ class Greenmask < Formula
           jobs: 10
           dbname: "host=playground-db user=postgres password=example dbname=transformed"
     EOS
-    output = shell_output(bin/"greenmask --config config.yml list-transformers")
-    assert_match "Generate random uuid", output
+
+    output = shell_output("#{bin}/greenmask --config config.yml list-transformers")
+    assert_match "Generate UUID", output
+    assert_match "Generates a random word", output
   end
 end
