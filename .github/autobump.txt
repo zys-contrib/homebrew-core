@@ -2774,6 +2774,7 @@ tkey-ssh-agent
 tlsx
 tmpmail
 tmux-mem-cpu-load
+tmux-sessionizer
 tmux-xpanes
 tmuxp
 tmx
