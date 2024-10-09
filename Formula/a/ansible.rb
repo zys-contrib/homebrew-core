@@ -3,19 +3,18 @@ class Ansible < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://files.pythonhosted.org/packages/ad/c0/99e82b56a437f458e14f5bfd00ba1373b77a119643c201b62d3286ef6ef7/ansible-10.4.0.tar.gz"
-  sha256 "5c12048831a6690fc865dfe03dc8ab61c3ba08b5d01b249a16b247ad99a60bc0"
+  url "https://files.pythonhosted.org/packages/d7/23/ae30b280ebad1f19fa012c0410aaf7d50cd741a5786bd60a2ecba42d2cd4/ansible-10.5.0.tar.gz"
+  sha256 "ba2045031a7d60c203b6e5fe1f8eaddd53ae076f7ada910e636494384135face"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/ansible/ansible.git", branch: "devel"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "dcd81107f20940bde533d361994d578fa27d56cebf6116ba8fd9fa78b68334d3"
-    sha256 cellar: :any,                 arm64_sonoma:  "eb2fc34a1a8ef20ac8bf5d4879fe8e428ee6cc3911488b794541df436353071a"
-    sha256 cellar: :any,                 arm64_ventura: "08acd00ed1fefbd9cec0bb9a08928c694b9ff5dae015b6c507f311f83eaef4df"
-    sha256 cellar: :any,                 sonoma:        "a10a05932a47c3af366c4ef658caac653ec347c9a27012a8668df12515271caa"
-    sha256 cellar: :any,                 ventura:       "d495d4aa55233910aa251fb8ec1e91a518628f912c47d4478c5616481c50b934"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd0dfca040c6848753dc6c61e0e017050d2a910bf25e3baf44166f3328203e83"
+    sha256 cellar: :any,                 arm64_sequoia: "6caba102dff952fa97a986f358ce4bb7635febc40ba2864acfb74d8e6952a419"
+    sha256 cellar: :any,                 arm64_sonoma:  "e160be947169f2f98546c6d18752723bf0d6b0a8fb2c0edbf71e813f2cf2d662"
+    sha256 cellar: :any,                 arm64_ventura: "ad23549f94dfb932d9b7b28eae829c0c06eedb3f5fdc5ca865585624e220aea5"
+    sha256 cellar: :any,                 sonoma:        "c39141d8eacc59498366b9e7e0442a88e830ce7ef1f44f5c2cf018ce10a4c077"
+    sha256 cellar: :any,                 ventura:       "8d813ee5b6e3e0796ba72697ee48f93b81a25de6547d229d79b7113d41fea4b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42d18b036b675acf4de5d250d05db1abe6696b1cd6c620d3cc7c84843621f187"
   end
 
   # `pkg-config` and `rust` are for bcrypt
@@ -70,13 +69,13 @@ class Ansible < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/23/6d/a8c326b909ed8da5b147144fa820f87ffe0e3908b1a2e08e30a43960cd3d/boto3-1.35.35.tar.gz"
-    sha256 "73d4f22b57a725f0e8a6e0c4b2d16336c128e39f3189c24f9e513daa7c14936b"
+    url "https://files.pythonhosted.org/packages/33/9f/17536f9a1ab4c6ee454c782f27c9f0160558f70502fc55da62e456c47229/boto3-1.35.36.tar.gz"
+    sha256 "586524b623e4fbbebe28b604c6205eb12f263cc4746bccb011562d07e217a4cb"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/40/e7/ae2e8b3fd55299a6168ec9a88252235e4f15315863815bf3e384c59626aa/botocore-1.35.35.tar.gz"
-    sha256 "899d303046391caa1d05093a673e52d02185b37bc64bd78771ad6752167a25ab"
+    url "https://files.pythonhosted.org/packages/8d/4f/11d2d314f0bdbe7ff975737d125e1a5357115afe28fcc64f13e68b05ba61/botocore-1.35.36.tar.gz"
+    sha256 "354ec1b766f0029b5d6ff0c45d1a0f9e5007b7d2f3ec89bcdd755b208c5bc797"
   end
 
   resource "cachetools" do
@@ -200,8 +199,8 @@ class Ansible < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/5c/84/3f683b24fcffa08c5b7ef3fb8a845661057dd39c321c1ae16fa37a3eb35b/markupsafe-3.0.0.tar.gz"
-    sha256 "03ff62dea2fef3eadf2f1853bc6332bcb0458d9608b11dfb1cd5aeda1c178ea6"
+    url "https://files.pythonhosted.org/packages/b4/d2/38ff920762f2247c3af5cbbbbc40756f575d9692d381d7c520f45deb9b8f/markupsafe-3.0.1.tar.gz"
+    sha256 "3e683ee4f5d0fa2dde4db77ed8dd8a876686e3fc417655c2ece9a90576905344"
   end
 
   resource "msgpack" do
@@ -450,8 +449,8 @@ class Ansible < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/cb/67/94c6730ee4c34505b14d94040e2f31edf144c230b6b49e971b4f25ff8fab/s3transfer-0.10.2.tar.gz"
-    sha256 "0711534e9356d3cc692fdde846b4a1e4b0cb6519971860796e6bc4c7aea00ef6"
+    url "https://files.pythonhosted.org/packages/a0/a8/e0a98fd7bd874914f0608ef7c90ffde17e116aefad765021de0f012690a2/s3transfer-0.10.3.tar.gz"
+    sha256 "4f50ed74ab84d474ce614475e0b8d5047ff080810aac5d01ea25231cfc944b0c"
   end
 
   resource "scp" do
@@ -515,8 +514,8 @@ class Ansible < Formula
   end
 
   resource "xmltodict" do
-    url "https://files.pythonhosted.org/packages/39/0d/40df5be1e684bbaecdb9d1e0e40d5d482465de6b00cbb92b84ee5d243c7f/xmltodict-0.13.0.tar.gz"
-    sha256 "341595a488e3e01a85a9d8911d8912fd922ede5fecc4dce437eb4b6c8d037e56"
+    url "https://files.pythonhosted.org/packages/44/ea/9467a80e5d1722067ad235801883e6eb92f1665c2c629fea7d57fb52775e/xmltodict-0.14.0.tar.gz"
+    sha256 "8b39b25b564fd466be566c9e8a869cc4b5083c2fec7f98665f47bf0853f6cc77"
   end
 
   resource "yamlordereddictloader" do
