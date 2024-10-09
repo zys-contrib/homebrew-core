@@ -19,7 +19,7 @@ class Flake8 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6d5cf696bebd9fa866de7ba2bc38c3d6b7c17bcc964a166c73057b2978fce7d"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "mccabe" do
     url "https://files.pythonhosted.org/packages/e7/ff/0ffefdcac38932a54d2b5eed4e0ba8a408f215002cd178ad1df0f2806ff8/mccabe-0.7.0.tar.gz"
