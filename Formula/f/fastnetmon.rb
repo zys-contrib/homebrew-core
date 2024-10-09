@@ -4,7 +4,7 @@ class Fastnetmon < Formula
   url "https://github.com/pavel-odintsov/fastnetmon/archive/refs/tags/v1.2.7.tar.gz"
   sha256 "c21fcbf970214dd48ee8aa11e6294e16bea86495085315e7b370a84b316d0af9"
   license "GPL-2.0-only"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "e4a12bed1436986dbd2613a0de9c16079edb2078fc6ae1916d79c9bad1545f32"
@@ -34,7 +34,12 @@ class Fastnetmon < Formula
     depends_on "libpcap"
   end
 
-  fails_with gcc: "5"
+  # Fix build failure with gRPC 1.67.
+  # https://github.com/pavel-odintsov/fastnetmon/pull/1023
+  patch do
+    url "https://github.com/pavel-odintsov/fastnetmon/commit/b6cf2e7222c24343b868986e867ddb7adad0bf30.patch?full_index=1"
+    sha256 "3a3f719f7434e52db01a512ed3891cf0e3794d4576323e3c2fd3b31c69fb39be"
+  end
 
   def install
     system "cmake", "-S", "src", "-B", "build",
