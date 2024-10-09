@@ -1,8 +1,8 @@
 class S6 < Formula
   desc "Small & secure supervision software suite"
   homepage "https://skarnet.org/software/s6/"
-  url "https://skarnet.org/software/s6/s6-2.13.0.0.tar.gz"
-  sha256 "7e46f8f55d80bb0e2025a64d5d649af4a4ac21e348020caaadde30ba5e5b4830"
+  url "https://skarnet.org/software/s6/s6-2.13.1.0.tar.gz"
+  sha256 "bf0614cf52957cb0af04c7b02d10ebd6c5e023c9d46335cbf75484eed3e2ce7e"
   license "ISC"
 
   livecheck do
@@ -22,13 +22,13 @@ class S6 < Formula
   end
 
   resource "skalibs" do
-    url "https://skarnet.org/software/skalibs/skalibs-2.14.2.0.tar.gz"
-    sha256 "ddfec5730e5b2f19d0381ecf7f796b39a6e473236bda0ad8d3776a3fe7b07e43"
+    url "https://skarnet.org/software/skalibs/skalibs-2.14.3.0.tar.gz"
+    sha256 "a14aa558c9b09b062fa16acec623b2c8f93d69f5cba4d07f6d0c58913066c427"
   end
 
   resource "execline" do
-    url "https://skarnet.org/software/execline/execline-2.9.6.0.tar.gz"
-    sha256 "ba2a27e97c5eb6bd7ca6a0987a8925e44465a5be996daa0d18f8feca37d7571a"
+    url "https://skarnet.org/software/execline/execline-2.9.6.1.tar.gz"
+    sha256 "76919d62f2de4db1ac4b3a59eeb3e0e09b62bcdd9add13ae3f2dad26f8f0e5ca"
   end
 
   def install
