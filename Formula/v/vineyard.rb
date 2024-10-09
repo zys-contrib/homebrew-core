@@ -27,7 +27,6 @@ class Vineyard < Formula
   depends_on "etcd-cpp-apiv3"
   depends_on "gflags"
   depends_on "glog"
-  depends_on "grpc"
   depends_on "hiredis"
   depends_on "libgrape-lite"
   depends_on "open-mpi"
