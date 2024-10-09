@@ -18,15 +18,15 @@ class Fades < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0a445b37ede5f80fdec463b2c8a4d28eb1bf03452ed816f2ab6e9f8a34dbaf9"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def python3
-    which("python3.12")
+    which("python3.13")
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/65/d8/10a70e86f6c28ae59f101a9de6d77bf70f147180fbf40c3af0f64080adc3/setuptools-70.3.0.tar.gz"
-    sha256 "f171bab1dfbc86b132997f26a119f6056a57950d058587841a0082e8830f9dc5"
+    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
+    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
   end
 
   def install
