@@ -4,7 +4,7 @@ class Crystalline < Formula
   url "https://github.com/elbywan/crystalline/archive/refs/tags/v0.14.1.tar.gz"
   sha256 "caa8cc661abc2ba63194983aae46e87c896d89c228a158521e40c34375d738f7"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_sequoia: "325a6b36db0895dd4d690b735bc2d51b610e2484418551ea4f6d79068036f28f"
@@ -19,7 +19,7 @@ class Crystalline < Formula
   depends_on "crystal"
   depends_on "libevent"
   depends_on "libyaml"
-  depends_on "llvm@18"
+  depends_on "llvm"
   depends_on "pcre2"
 
   def install
