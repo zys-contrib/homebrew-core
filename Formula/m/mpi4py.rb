@@ -4,6 +4,7 @@ class Mpi4py < Formula
   url "https://github.com/mpi4py/mpi4py/releases/download/4.0.0/mpi4py-4.0.0.tar.gz"
   sha256 "820d31ae184d69c17d9b5d55b1d524d56be47d2e6cb318ea4f3e7007feff2ccc"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_sequoia:  "b51ba8421ae0f43cf3954780e7e16c58be0b167e2a2e07d6ef6e6d8bb636bb87"
@@ -17,10 +18,10 @@ class Mpi4py < Formula
   end
 
   depends_on "open-mpi"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
