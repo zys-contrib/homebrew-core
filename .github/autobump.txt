@@ -1970,6 +1970,7 @@ nvm
 nvtop
 nzbget
 oasdiff
+oath-toolkit
 oauth2_proxy
 oauth2c
 objfw
