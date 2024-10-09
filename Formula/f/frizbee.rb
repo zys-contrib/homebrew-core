@@ -1,8 +1,8 @@
 class Frizbee < Formula
   desc "Throw a tag at and it comes back with a checksum"
   homepage "https://github.com/stacklok/frizbee"
-  url "https://github.com/stacklok/frizbee/archive/refs/tags/v0.1.2.tar.gz"
-  sha256 "0061c090b59ee22599b76d46fcf4b79f0d2402987c8d720c6de03fba46d4c4b9"
+  url "https://github.com/stacklok/frizbee/archive/refs/tags/v0.1.3.tar.gz"
+  sha256 "72ca8ec701036c925e587e15e7a05c2f7cbd219f2fa36d7945c064a47606b911"
   license "Apache-2.0"
   head "https://github.com/stacklok/frizbee.git", branch: "main"
 
