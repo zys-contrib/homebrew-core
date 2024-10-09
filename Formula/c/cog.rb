@@ -26,7 +26,7 @@ class Cog < Formula
     # Prevent Makefile from running `pip install build` by manually creating wheel.
     # Otherwise it can end up installing binary wheels.
     system python3, "-m", "pip", "wheel", "--verbose", "--no-deps", "--no-binary=:all:", "."
-    (buildpath/"pkg/dockerfile/embed").install buildpath.glob("cog-*.whl").first => "cog.whl"
+    (buildpath/"pkg/dockerfile/embed").install buildpath.glob("cog-*.whl").first
 
     ldflags = %W[
       -s -w
