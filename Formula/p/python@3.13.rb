@@ -4,6 +4,7 @@ class PythonAT313 < Formula
   url "https://www.python.org/ftp/python/3.13.0/Python-3.13.0.tgz"
   sha256 "12445c7b3db3126c41190bfdc1c8239c39c719404e844babbd015a1bc3fafcd4"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -139,6 +140,7 @@ class PythonAT313 < Formula
       --with-openssl=#{Formula["openssl@3"].opt_prefix}
       --enable-optimizations
       --with-system-expat
+      --with-system-libmpdec
       --with-readline=editline
     ]
 
@@ -162,7 +164,7 @@ class PythonAT313 < Formula
       end
 
       # Enabling LTO on Linux makes libpython3.*.a unusable for anyone whose GCC
-      # install does not match the one in CI _exactly_ (major and minßor version).
+      # install does not match the one in CI _exactly_ (major and minor version).
       # https://github.com/orgs/Homebrew/discussions/3734
       args << "--with-lto"
       args << "--enable-framework=#{frameworks}"
@@ -177,8 +179,7 @@ class PythonAT313 < Formula
     end
 
     # Resolve HOMEBREW_PREFIX in our sysconfig modification.
-    # not needed for embedded patch, but re-enable if a formula patch is made?
-    # inreplace "Lib/sysconfig/__init__.py", "HOMEBREW_PREFIX", HOMEBREW_PREFIX
+    inreplace "Lib/sysconfig/__init__.py", "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
 
     # Allow python modules to use ctypes.find_library to find homebrew's stuff
     # even if homebrew is not a /usr/local/lib. Try this with:
@@ -233,6 +234,11 @@ class PythonAT313 < Formula
 
       # Symlink the pkgconfig files into HOMEBREW_PREFIX so they're accessible.
       (lib/"pkgconfig").install_symlink pc_dir.children
+
+      # Fix for https://github.com/Homebrew/homebrew-core/issues/21212
+      inreplace lib_cellar/"_sysconfigdata__darwin_darwin.py",
+                %r{('LINKFORSHARED': .*?) (Python.framework/Versions/3.\d+/Python)'}m,
+                "\\1 #{opt_prefix}/Frameworks/\\2'"
     else
       # Prevent third-party packages from building against fragile Cellar paths
       inreplace Dir[lib_cellar/"**/_sysconfigdata_*linux_x86_64-*.py",
@@ -507,6 +513,12 @@ class PythonAT313 < Formula
     system python3, "dbm_test.py"
 
     system bin/"pip#{version.major_minor}", "list", "--format=columns"
+
+    # Verify our sysconfig patches
+    sysconfig_path = "import sysconfig; print(sysconfig.get_paths(\"osx_framework_library\")[\"data\"])"
+    assert_equal HOMEBREW_PREFIX.to_s, shell_output("#{python3} -c '#{sysconfig_path}'").strip
+    linkforshared_var = "import sysconfig; print(sysconfig.get_config_var(\"LINKFORSHARED\"))"
+    assert_match opt_prefix.to_s, shell_output("#{python3} -c '#{linkforshared_var}'") if OS.mac?
 
     # Check our externally managed marker
     assert_match "If you wish to install a Python library",
