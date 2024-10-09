@@ -1,8 +1,8 @@
 class Promptfoo < Formula
   desc "Test your LLM app locally"
   homepage "https://promptfoo.dev/"
-  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.92.0.tgz"
-  sha256 "2639644bba316a4710a59cd5381384f21f4e5fbf0de8f2ba541117ce59240e6c"
+  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.92.1.tgz"
+  sha256 "65e70d6ce4f3134a93df3261aaa74d931b355f743b948fd266c3e503a716040e"
   license "MIT"
 
   bottle do
