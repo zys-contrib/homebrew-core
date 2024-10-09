@@ -4,6 +4,7 @@ class Pygit2 < Formula
   url "https://files.pythonhosted.org/packages/53/77/d33e2c619478d0daea4a50f9ffdd588db2ca55817c7e9a6c796fca3b80ef/pygit2-1.15.1.tar.gz"
   sha256 "e1fe8b85053d9713043c81eccc74132f9e5b603f209e80733d7955eafd22eb9d"
   license "GPL-2.0-only" => { with: "GCC-exception-2.0" }
+  revision 1
   head "https://github.com/libgit2/pygit2.git", branch: "master"
 
   bottle do
@@ -19,6 +20,7 @@ class Pygit2 < Formula
 
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
   depends_on "cffi"
   depends_on "libgit2"
 
