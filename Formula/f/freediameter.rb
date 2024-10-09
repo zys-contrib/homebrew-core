@@ -1,23 +1,23 @@
 class Freediameter < Formula
   desc "Open source Diameter (Authentication) protocol implementation"
-  homepage "http://www.freediameter.net"
+  homepage "https://github.com/freeDiameter/freeDiameter"
   license "BSD-3-Clause"
   head "https://github.com/freeDiameter/freeDiameter.git", branch: "master"
 
   stable do
-    url "http://www.freediameter.net/hg/freeDiameter/archive/1.5.0.tar.gz"
-    sha256 "2500f75b70d428ea75dd25eedcdddf8fb6a8ea809b02c82bf5e35fe206cbbcbc"
+    url "https://github.com/freeDiameter/freeDiameter/archive/refs/tags/1.5.0.tar.gz"
+    sha256 "cc4ceafd9d0d4a6a5e3aa02bf557906fe755df9ec14d16c4fcd5dab6930296aa"
 
     # Backport support for `libidn2`. Remove in the next release.
     patch do
-      url "http://www.freediameter.net/hg/freeDiameter/raw-rev/699c3fb0c57b"
-      sha256 "ee708848e4093363954bedd47f61199196c9753c9f1fcbd33e302c47d58f8041"
+      url "https://github.com/freeDiameter/freeDiameter/commit/da679d27c546e11f6e41ad8882699f726e58a9f7.patch?full_index=1"
+      sha256 "123fe68ede4713b8e78efa49bfe9db592291cc3c821bbdc58f930a1f291423b1"
     end
   end
 
   livecheck do
-    url "http://www.freediameter.net/hg/freeDiameter/json-tags"
-    regex(/["']tag["']:\s*?["']v?(\d+(?:\.\d+)+)["']/i)
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
