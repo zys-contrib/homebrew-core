@@ -6,12 +6,12 @@ class Lmod < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "16fdc3213bb65a051ce4a37fbb8fe57ebb069bc5d39122869849e648c6d00fce"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e1bd66b8db9ad96693017e2600ed69c5910f1a1d5f2808b1968ff51b30cbcf6f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "db4bcefc145145f3ccc16d22528b0a6d04ea1fb00f800dc4694718e697f41c35"
-    sha256 cellar: :any_skip_relocation, sonoma:        "93f813440f7055f4f362ffc45e1d6fa4f62e252cf067110fe3ac3e34515bb96d"
-    sha256 cellar: :any_skip_relocation, ventura:       "d126f6c057a63b9f5a8557940357b97aa8a8140db8a83196ed307192a827863d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "931fcb4bd776eb17cdc629c39ca2b7fd100a47973e0ae99afefcd3a420a3f43b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a1c8a3af3e972decbb347067d3a7ef5f267d9907514460df38543ca409068ec0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0edb840ce371306bb6ca79d5fa60fe5ebc404ce3452a84828234063541d8a370"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1b26483124ea82eb8a5bb542fb992cf7054b4653f511d3181e600f3d567c95ba"
+    sha256 cellar: :any_skip_relocation, sonoma:        "424e6756617d625ce2b0b58e656a655cb7528a6e82acde3d3e56921bc33a7719"
+    sha256 cellar: :any_skip_relocation, ventura:       "4b4e05dc2bcd33d9f903293cf01994c7208efbdb498ea54381d0e4b418e07b04"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f15536913239b0a402d05931ea14738fc7a80818d290886aefbac15b1725d3dc"
   end
 
   depends_on "luarocks" => :build
