@@ -1,8 +1,8 @@
 class Gitmoji < Formula
   desc "Interactive command-line tool for using emoji in commit messages"
   homepage "https://gitmoji.dev"
-  url "https://registry.npmjs.org/gitmoji-cli/-/gitmoji-cli-9.4.0.tgz"
-  sha256 "edc4ac35493f321e441ab63aa2cd04f5bd315edeaf0fad952b0344f176bbde95"
+  url "https://registry.npmjs.org/gitmoji-cli/-/gitmoji-cli-9.5.0.tgz"
+  sha256 "b9c89644fac844f521afcdc2b31e57da7ac7e123df92d16c4fdf79190622a5b4"
   license "MIT"
 
   bottle do
