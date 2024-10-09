@@ -12,7 +12,7 @@ class Pybind11 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "cbd014620eaf6e23024c52d3bd424ef22397fb05cd95525a114af9acf0ca3cf2"
+    sha256 cellar: :any_skip_relocation, all: "d1ac19b7042b5f6b94bff8f1766307bfee68335ecb4dc7423040ae89940173bf"
   end
 
   depends_on "cmake" => :build
