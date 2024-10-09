@@ -6,12 +6,12 @@ class ReleaseIt < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f740226773f63def64b56ccf89d6da8a7256f808bffd86d1155e314ba9f8694"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f740226773f63def64b56ccf89d6da8a7256f808bffd86d1155e314ba9f8694"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8f740226773f63def64b56ccf89d6da8a7256f808bffd86d1155e314ba9f8694"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0c07cb8c795b12a5424bf5c26029ba5ae99f6c5da967d33b8bef7ba40067a936"
-    sha256 cellar: :any_skip_relocation, ventura:       "0c07cb8c795b12a5424bf5c26029ba5ae99f6c5da967d33b8bef7ba40067a936"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f740226773f63def64b56ccf89d6da8a7256f808bffd86d1155e314ba9f8694"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0437aad9b0c8f39be80313ded468c01a6045427c16c86e300a3419ff6e82d334"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0437aad9b0c8f39be80313ded468c01a6045427c16c86e300a3419ff6e82d334"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0437aad9b0c8f39be80313ded468c01a6045427c16c86e300a3419ff6e82d334"
+    sha256 cellar: :any_skip_relocation, sonoma:        "04bb20db2bc08245a2e7adb3d3bae5e41ad246f876e99cec02f32ed1f9d8cbf0"
+    sha256 cellar: :any_skip_relocation, ventura:       "04bb20db2bc08245a2e7adb3d3bae5e41ad246f876e99cec02f32ed1f9d8cbf0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0437aad9b0c8f39be80313ded468c01a6045427c16c86e300a3419ff6e82d334"
   end
 
   depends_on "node"
