@@ -9,14 +9,13 @@ class PipTools < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e4e5e1f2df083a08a9ecc5823f72f5e4924c72ab0dc4063224d4993bc7b54533"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0cac576463253780d02b3de7afb7b0ba5548a0da843f98ff2dd3bca1efadc54d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0cac576463253780d02b3de7afb7b0ba5548a0da843f98ff2dd3bca1efadc54d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0cac576463253780d02b3de7afb7b0ba5548a0da843f98ff2dd3bca1efadc54d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fc5695c7c95e4f104b71b0d7c16c117f8cd824266f2811b746e2aad5e2f7b735"
-    sha256 cellar: :any_skip_relocation, ventura:        "fc5695c7c95e4f104b71b0d7c16c117f8cd824266f2811b746e2aad5e2f7b735"
-    sha256 cellar: :any_skip_relocation, monterey:       "fc5695c7c95e4f104b71b0d7c16c117f8cd824266f2811b746e2aad5e2f7b735"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "94c628f96e90b59465bfc0c0653c6bc9e1560e295e239fa7c820838c03ac5bb2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aa9da34f416d318a7c3a9526cfe69b1683cbc52c61a768c7935c29b7da7492ac"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aa9da34f416d318a7c3a9526cfe69b1683cbc52c61a768c7935c29b7da7492ac"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "aa9da34f416d318a7c3a9526cfe69b1683cbc52c61a768c7935c29b7da7492ac"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f52c7c1b06c27e8ca825371dc8ac46aa9ef4586e5196a2c876dc9c7170006cb0"
+    sha256 cellar: :any_skip_relocation, ventura:       "f52c7c1b06c27e8ca825371dc8ac46aa9ef4586e5196a2c876dc9c7170006cb0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f038065823c2098303d0c13de5bedc7de731721ed2588762def4ea1da0c4bd37"
   end
 
   depends_on "python@3.13"
