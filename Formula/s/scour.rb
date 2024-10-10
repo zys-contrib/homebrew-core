@@ -22,7 +22,7 @@ class Scour < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "30bf1e3a14c6bd8187417b13419af1e29297226b875ff409d873bdd356839147"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
