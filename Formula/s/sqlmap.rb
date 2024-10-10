@@ -19,7 +19,7 @@ class Sqlmap < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7eb774f28e6e51f3d4e8d5ff1f17c4914a961ed1bf2add2156b53967716eed80"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "sqlite" => :test
 
