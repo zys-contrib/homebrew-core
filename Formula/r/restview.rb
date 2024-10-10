@@ -8,7 +8,7 @@ class Restview < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "44cf50d67efc998fd820cbf40dfb0e748073fba236af658e717e01109acc1e36"
+    sha256 cellar: :any_skip_relocation, all: "5207c409839c90c9be97716a6349e1f988af6a3ad9a74eabab636ac3f91c4c88"
   end
 
   depends_on "python@3.13"
