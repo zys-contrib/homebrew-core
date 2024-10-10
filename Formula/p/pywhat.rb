@@ -10,8 +10,8 @@ class Pywhat < Formula
   head "https://github.com/bee-san/pyWhat.git", branch: "main"
 
   bottle do
-    rebuild 6
-    sha256 cellar: :any_skip_relocation, all: "f2c7083cf29a632765ecbe084712e3fd034f9b5bf3d529ad936091117e6f7bd3"
+    rebuild 7
+    sha256 cellar: :any_skip_relocation, all: "eecfe7a731f32a7dfb75fb042843e4042df47df756abcabeb8fa9b5216cc3584"
   end
 
   depends_on "python@3.13"
