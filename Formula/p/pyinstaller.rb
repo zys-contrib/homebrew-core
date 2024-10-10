@@ -19,7 +19,7 @@ class Pyinstaller < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c4298d59c77445c098f9737989205853007bef0065797f6eb1a1b2a41a41937"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "zlib"
 
@@ -44,13 +44,13 @@ class Pyinstaller < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/5e/11/487b18cc768e2ae25a919f230417983c8d5afa1b6ee0abd8b6db0b89fa1d/setuptools-72.1.0.tar.gz"
-    sha256 "8d243eff56d095e5817f796ede6ae32941278f542e0f941867cc05ae52b162ec"
+    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
+    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
   end
 
   def install
     cd "bootloader" do
-      system "python3.12", "./waf", "all", "--no-universal2", "STRIP=/usr/bin/strip"
+      system "python3.13", "./waf", "all", "--no-universal2", "STRIP=/usr/bin/strip"
     end
     virtualenv_install_with_resources
   end
