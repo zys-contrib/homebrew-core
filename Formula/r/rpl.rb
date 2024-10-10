@@ -18,7 +18,7 @@ class Rpl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7eb5d986bc69e230e3ba7d3da3f029f624992b96948a82c8b7b976ee441bf9e"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "chainstream" do
     url "https://files.pythonhosted.org/packages/44/fd/ec0c4df1e2b00080826b3e2a9df81c912c8dc7dbab757b55d68af3a51dcf/chainstream-1.0.1.tar.gz"
@@ -31,8 +31,8 @@ class Rpl < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/3f/51/64256d0dc72816a4fe3779449627c69ec8fee5a5625fd60ba048f53b3478/regex-2024.7.24.tar.gz"
-    sha256 "9cfd009eed1a46b27c14039ad5bbc5e71b6367c5b2e6d5f5da0ea91600817506"
+    url "https://files.pythonhosted.org/packages/f9/38/148df33b4dbca3bd069b963acab5e0fa1a9dbd6820f8c322d0dd6faeff96/regex-2024.9.11.tar.gz"
+    sha256 "6c188c307e8433bcb63dc1915022deb553b4203a70722fc542c363bf120a01fd"
   end
 
   def install
