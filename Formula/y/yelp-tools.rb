@@ -26,7 +26,7 @@ class YelpTools < Formula
   depends_on "pkg-config" => :build
   depends_on "itstool"
   depends_on "libxml2"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libxslt"
 
@@ -41,7 +41,7 @@ class YelpTools < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.12")
+    venv = virtualenv_create(libexec, "python3.13")
     venv.pip_install resource("lxml")
     ENV.prepend_path "PATH", venv.root/"bin"
 
