@@ -6,6 +6,7 @@ class Mercurial < Formula
   url "https://www.mercurial-scm.org/release/mercurial-6.8.1.tar.gz"
   sha256 "030e8a7a6d590e4eaeb403ee25675615cd80d236f3ab8a0b56dcc84181158b05"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www.mercurial-scm.org/release/"
@@ -23,10 +24,14 @@ class Mercurial < Formula
     sha256 x86_64_linux:   "d7f3cc98cca1c75f5e74779f5c6dcc404337ecb4f42e462b78922b5d44ad6720"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
+
+  # py3.13 build patch, upstream bug report, https://bz.mercurial-scm.org/show_bug.cgi?id=6926
+  # proposed patch in https://lists.mercurial-scm.org/pipermail/mercurial-devel/2024-October/298120.html
+  patch :DATA
 
   def install
-    python3 = "python3.12"
+    python3 = "python3.13"
     system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
 
     # Install chg (see https://www.mercurial-scm.org/wiki/CHg)
@@ -75,3 +80,17 @@ class Mercurial < Formula
     assert_match "initial commit", shell_output("#{bin}/chg log")
   end
 end
+
+__END__
+diff --git a/hgdemandimport/__init__.py b/hgdemandimport/__init__.py
+index 44a0a2d..a59c293 100644
+--- a/hgdemandimport/__init__.py
++++ b/hgdemandimport/__init__.py
+@@ -62,6 +62,7 @@ IGNORES = {
+     '_weakrefset',
+     'warnings',
+     'threading',
++    'collections.abc',
+ }
+
+ _pypy = '__pypy__' in sys.builtin_module_names
