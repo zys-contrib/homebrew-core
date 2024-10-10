@@ -9,14 +9,13 @@ class AdrViewer < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6dc5296cf3878d3e868c20beeab22c9b194e9b12f2e95dbfcc16a42f6403a004"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5318d78eabe31c1b114ca32615317b488f6d586c2bcef64af8fc420cd7fbe58e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c61f5cedde30afad943d4e11fed05a6bcd8eef1b8e8aa5b2e68e8810ad185fc5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fba7ede4d8f7dbdccd2712460e79fe364e54c4d5c45c58d364094f1958dcd1f6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8ee0cf976f32eb79be1b9c81912327e4c56e0ab1f66254ae7ae87069e8c273cf"
-    sha256 cellar: :any_skip_relocation, ventura:        "ebc4aa912ff8f326f96c4802c75687c4eb7406dabf0ace81d4976eda508c75ae"
-    sha256 cellar: :any_skip_relocation, monterey:       "de080d53d892580f4456233e69f165ca715d681fd89b9fcec88cfc192285bece"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "282d480f5200e1be5e355fbd64c28baca9bf64432f09ce04a8a407eb3bd78072"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "84be5edc730293d76c12cbf42eb8429e902aedf01114c1e69099ae111c335935"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5de9ec935b5bdff959017398a1384107fbf1bc7bfc9d30c2c51f6e269e156694"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "03ff6ef7bdd353affa19fcefc4ddde2fc3badb970e59636b9a894d917a0bd207"
+    sha256 cellar: :any_skip_relocation, sonoma:        "62e5bb46d40598b962ab2f74ebf414f40ab10964d347fd9d6e30a3440f5c141f"
+    sha256 cellar: :any_skip_relocation, ventura:       "7f6b9ed8bd14a15f29734739888534eb5573cea5f3d67336e4fe5e2327944ac4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eef10318762e64ec17d81d1f32ae925adf8c05a83adfd67c92f4678ba9103101"
   end
 
   depends_on "python@3.13"
