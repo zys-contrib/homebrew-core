@@ -18,7 +18,7 @@ class SqliteUtils < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1422cbdfe26b640d56e033e82fd28e4ad8e00b0e692c5cdfe744e4d627f064a7"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
