@@ -18,7 +18,8 @@ class Cppman < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d02fccc87385689cb5b22ff7a6e9810456d3eff92b70758ac66cfaf3c1de6e8"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
+
   on_system :linux, macos: :ventura_or_newer do
     depends_on "groff"
   end
@@ -39,8 +40,8 @@ class Cppman < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/ce/21/952a240de1c196c7e3fbcd4e559681f0419b1280c617db21157a0390717b/soupsieve-2.5.tar.gz"
-    sha256 "5663d5a7b3bfaeee0bc4372e7fc48f9cff4940b3eec54a6451cc5299f1097690"
+    url "https://files.pythonhosted.org/packages/d7/ce/fbaeed4f9fb8b2daa961f90591662df6a86c1abf25c548329a86920aedfb/soupsieve-2.6.tar.gz"
+    sha256 "e2e68417777af359ec65daac1057404a3c8a5455bb8abc36f1a9866ab1a51abb"
   end
 
   resource "webencodings" do
