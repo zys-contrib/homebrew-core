@@ -29,7 +29,9 @@ class Opencbm < Formula
   # not necessary in its own right.
   depends_on "cc65" => :build
   depends_on "pkg-config" => :build
-  depends_on "libusb-compat"
+  depends_on "libusb"
+
+  uses_from_macos "ncurses"
 
   def install
     # This one definitely breaks with parallel build.
@@ -37,7 +39,6 @@ class Opencbm < Formula
 
     args = %W[
       -fLINUX/Makefile
-      LIBUSB_CONFIG=#{Formula["libusb-compat"].bin}/libusb-config
       PREFIX=#{prefix}
       MANDIR=#{man1}
       ETCDIR=#{etc}
