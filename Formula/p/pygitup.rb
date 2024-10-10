@@ -8,7 +8,8 @@ class Pygitup < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "62d154ac7ea50f9baf4d10cfe25064c9dc861e571c9cf6c86166eb8f1e4e64f9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "e32f3c3171ea0e3d8c6f4b3c733f76d89b4c16e00b3e66872d8425506dadb79e"
   end
 
   depends_on "python@3.13"
