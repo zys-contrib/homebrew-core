@@ -9,14 +9,13 @@ class Bashate < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "07f7dadb876c05a283764cece93eb562df72377df4a26d7dfebb947fffdc7585"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cef7fcf0ee622eac38ae68dab65871fefe0b97e31f5c814f8d158627c61ff497"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "81782b93d1a81a96621647b41c65a720c0cf26d995bdce0d5fea85572adc365f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "77db33d9a146b930bee954a0ea2d42eff50fe0ffde1fa7c82d1c199d600750ab"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d6af41973ffa58f39fbdb94f146cde5ac30bb198688264ca9a58d711c3bc2b23"
-    sha256 cellar: :any_skip_relocation, ventura:        "6db4c350ffbccdf07cd35aa8bf82045ada101b44c77cac84666af30e560da92c"
-    sha256 cellar: :any_skip_relocation, monterey:       "a100cd15d96ec8c367311de80f9561d2db4334a261d30ac8623f50a00311ba2e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "26d84e8ccddbbcefd2d6de2b2d45c44613f795e2f94c400730666dfec9fab539"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "007ce884bf1ba757929d119f792b3b414b4ce3d46b842c43e270941cf1fb7b3c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "007ce884bf1ba757929d119f792b3b414b4ce3d46b842c43e270941cf1fb7b3c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "007ce884bf1ba757929d119f792b3b414b4ce3d46b842c43e270941cf1fb7b3c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1903d84db5712fa94b88bd6adafe8efd3686665cb0dc17db3d5ed63a41bdd0f6"
+    sha256 cellar: :any_skip_relocation, ventura:       "1903d84db5712fa94b88bd6adafe8efd3686665cb0dc17db3d5ed63a41bdd0f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "007ce884bf1ba757929d119f792b3b414b4ce3d46b842c43e270941cf1fb7b3c"
   end
 
   depends_on "python@3.13"
