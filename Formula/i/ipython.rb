@@ -17,7 +17,7 @@ class Ipython < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "69647c331f25582f108bd7ac6cf3ccb72d1bcfc5ecb02677e60256b8b4a3dc2b"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "asttokens" do
     url "https://files.pythonhosted.org/packages/45/1d/f03bcb60c4a3212e15f99a56085d93093a497718adf828d050b9d675da81/asttokens-2.4.1.tar.gz"
