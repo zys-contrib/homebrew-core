@@ -31,7 +31,7 @@ class Clingo < Formula
   depends_on "doxygen" => :build
   depends_on "cffi"
   depends_on "lua"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   # This formula replaced the clasp & gringo formulae.
   # https://github.com/Homebrew/homebrew-core/pull/20281
@@ -42,7 +42,7 @@ class Clingo < Formula
   link_overwrite "bin/reify"
 
   def python3
-    which("python3.12")
+    which("python3.13")
   end
 
   def install
