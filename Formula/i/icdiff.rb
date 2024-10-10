@@ -13,10 +13,10 @@ class Icdiff < Formula
     sha256 cellar: :any_skip_relocation, all: "175b18450e5cb403f6b4efd527d638a9f852a6eb1074177e0d610a0c3c369b9f"
   end
 
-  depends_on "python@3.12"
+  uses_from_macos "python"
 
   def install
-    rewrite_shebang detected_python_shebang, "icdiff"
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), "icdiff"
     bin.install "icdiff", "git-icdiff"
   end
 
