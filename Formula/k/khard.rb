@@ -17,7 +17,7 @@ class Khard < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2744fd9ad7e0683787ca0336e8c04ea5cd6aebdb9fcb383f596aecb715f3004"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "atomicwrites" do
     url "https://files.pythonhosted.org/packages/87/c6/53da25344e3e3a9c01095a89f16dbcda021c609ddb42dd6d7c0528236fb2/atomicwrites-1.4.1.tar.gz"
@@ -34,14 +34,14 @@ class Khard < Formula
     sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
   end
 
+  resource "pytz" do
+    url "https://files.pythonhosted.org/packages/3a/31/3c70bf7603cc2dca0f19bdc53b4537a797747a58875b552c8c413d963a3f/pytz-2024.2.tar.gz"
+    sha256 "2aa355083c50a0f93fa581709deac0c9ad65cca8a9e9beac660adcbd493c798a"
+  end
+
   resource "ruamel-yaml" do
     url "https://files.pythonhosted.org/packages/29/81/4dfc17eb6ebb1aac314a3eb863c1325b907863a1b8b1382cdffcb6ac0ed9/ruamel.yaml-0.18.6.tar.gz"
     sha256 "8b27e6a217e786c6fbe5634d8f3f11bc63e0f80f6a5890f28863d9c45aac311b"
-  end
-
-  resource "ruamel-yaml-clib" do
-    url "https://files.pythonhosted.org/packages/46/ab/bab9eb1566cd16f060b54055dd39cf6a34bfa0240c53a7218c43e974295b/ruamel.yaml.clib-0.2.8.tar.gz"
-    sha256 "beb2e0404003de9a4cab9753a8805a8fe9320ee6673136ed7f04255fe60bb512"
   end
 
   resource "six" do
@@ -55,8 +55,8 @@ class Khard < Formula
   end
 
   resource "vobject" do
-    url "https://files.pythonhosted.org/packages/bf/61/cd63d29d987e5dd8c971571e68c32e4fc365b17155556808c6d99e0fd0c7/vobject-0.9.7.tar.gz"
-    sha256 "ab727bf81de88984ada5c11f066f1e1649903d3e3d7ec91f1ce968172afd5256"
+    url "https://files.pythonhosted.org/packages/47/06/c477d9a8b75471243f2b4eeef39cb639a1cf978990c11e9e56359ab01c82/vobject-0.9.8.tar.gz"
+    sha256 "db00a7f4db49397155dd8a6871e8a2a0175a6eba5a654c30e910f82b29514b58"
   end
 
   def install
