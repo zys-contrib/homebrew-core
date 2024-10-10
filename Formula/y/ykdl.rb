@@ -8,15 +8,13 @@ class Ykdl < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cefcd4b7feee1ff7e156197e4a54a4b105eb5eb73039eba5ea56c423eba648da"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ac74e40632118de8e802dae515a8179a20d27c5053a9c58d0ffaf408352ba4e5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "deff9a5bc7f1bd56701715ef0ea1bb360279df66f53cbf6f252678af23f740f0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b98c04c184ca52d926b022f434b66d297b4d4a21acba1ad9a44b931a8b379255"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ccf9026d461d265992da9d43084cfdff410ebb8a0d6e56f2ff8b8957e2ec4d24"
-    sha256 cellar: :any_skip_relocation, ventura:        "439dab5539656306042453e2a2d9827ab853856514a913b5a1cc7e9e5281c116"
-    sha256 cellar: :any_skip_relocation, monterey:       "6088be7d6f4cd9e2bf4d897eb24f85364b350cc0f4cc267bc905f3c63f4af741"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "586d3eb95083a2bfdfbba2a180268220319f11489a2a2fad66a478119a5b0458"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eb541b86eded5d4bcc6262795c769d284a9e3c37f42f70121d43864f4066dc1d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "14fc581b3aa8b20eea38a546892b72a858dc746e66ac805339e80b30eea0ae03"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "97ab80854fd7a7802859506993abdacf466114339a6717a7b0a1010542c3f407"
+    sha256 cellar: :any_skip_relocation, sonoma:        "724042f1d05d799c130ad4715877f1b30919f7c0b3e8571f3b9158ad12e1dac0"
+    sha256 cellar: :any_skip_relocation, ventura:       "2b8f5f155f13edb4eafb86168bf7e4b3d68ad5a5a68538892458e92233f226fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb541b86eded5d4bcc6262795c769d284a9e3c37f42f70121d43864f4066dc1d"
   end
 
   depends_on "python@3.13"
