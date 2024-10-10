@@ -23,7 +23,7 @@ class Choose < Formula
 
   deprecate! date: "2024-05-19", because: :unmaintained
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   conflicts_with "choose-gui", because: "both install a `choose` binary"
   conflicts_with "choose-rust", because: "both install a `choose` binary"
@@ -34,7 +34,7 @@ class Choose < Formula
   end
 
   def install
-    python3 = "python3.12"
+    python3 = "python3.13"
     ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages(python3)
 
     resource("urwid").stage do
