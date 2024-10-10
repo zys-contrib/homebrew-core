@@ -9,7 +9,8 @@ class Woof < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "85edeaa4bfcf9350a5d1822bb96d1381174a359a4f036f11c71c16829177bd87"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "cfc359d1f134edad9eb8e9f5fa9542486b3934dfc2c3f56e694c2557460a47b8"
   end
 
   depends_on "python@3.13"
