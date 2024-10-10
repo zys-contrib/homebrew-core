@@ -8,15 +8,8 @@ class AllRepos < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "eb28bf2194299b1e26438238d93afc1099c7f82a85a5435e9cc22b97f90d8360"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b2fa8c56988879e6fde4225ee508808727b0c0f7e7693478c26fea948ee64650"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "09fc178a99cb173c83ef1de1eac435a6c99ac3bb5c13364212bcdce6b45219f0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6479b239edd3c6fa0d4f1ee7e88fcba6e5f1433ff3a6cc6f20cb87eb73b9eb03"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a9297534b052c7ad5262f439df803efffae923493ed8db714d1d75123fd44960"
-    sha256 cellar: :any_skip_relocation, ventura:        "6c84d2dda2b192bd3f2c2b46ee7696bf03a2aad1b3500e3fdf1f1a3dc55c51e1"
-    sha256 cellar: :any_skip_relocation, monterey:       "ff58b3a8c9be8b05175e3ba556a38dc0a8d8dfd47ace84a86ceb9b3bbf283c1a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eda91965585b8feabd8c909f3a92687e647befd80901d25e8597bb08dbba6820"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "01ac796e20537a0c9eae3a55935cba36e2048b80fe3d93ced82759b3ac4aae34"
   end
 
   depends_on "python@3.13"
