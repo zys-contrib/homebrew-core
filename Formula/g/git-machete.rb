@@ -8,10 +8,11 @@ class GitMachete < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "2f5127956d960a29d095f4c3c16785794cc8a1318451b2f041908d28a71084ed"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "b8d2f29971c708e6561bc8fd23967ba82e559cde42a04cf55e23b533bf39c4ea"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources
