@@ -14,7 +14,7 @@ class Pywhat < Formula
     sha256 cellar: :any_skip_relocation, all: "f2c7083cf29a632765ecbe084712e3fd034f9b5bf3d529ad936091117e6f7bd3"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz"
