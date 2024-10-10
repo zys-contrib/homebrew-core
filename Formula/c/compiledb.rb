@@ -19,7 +19,7 @@ class Compiledb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "65f016f20d145ded077358884691f6138684ad25b7f51195cb0650c75c27afc2"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "bashlex" do
     url "https://files.pythonhosted.org/packages/76/60/aae0bb54f9af5e0128ba90eb83d8d0d506ee8f0475c4fdda3deeda20b1d2/bashlex-0.18.tar.gz"
