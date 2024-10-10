@@ -27,7 +27,7 @@ class Bumpversion < Formula
   # https://github.com/c4urself/bump2version/commit/c3a1995b35335da6fa7932e4bac089992c947bba
   deprecate! date: "2024-09-08", because: :unmaintained
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources
