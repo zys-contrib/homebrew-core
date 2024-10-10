@@ -24,7 +24,7 @@ class Fail2ban < Formula
   end
 
   depends_on "sphinx-doc" => :build
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   # Drop distutils: https://github.com/fail2ban/fail2ban/pull/3728
   patch do
