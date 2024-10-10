@@ -13,10 +13,10 @@ class GitArchiveAll < Formula
     sha256 cellar: :any_skip_relocation, all: "b7048f7dce0b1d955d62f648271e3cf9b2e3ba3f32361468ed2809b6fda9d5b4"
   end
 
-  depends_on "python@3.12"
+  uses_from_macos "python"
 
   def install
-    rewrite_shebang detected_python_shebang, "git_archive_all.py"
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), "git_archive_all.py"
 
     system "make", "prefix=#{prefix}", "install"
   end
