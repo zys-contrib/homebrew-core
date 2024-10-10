@@ -15,6 +15,8 @@ class Wakeonlan < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e36175eff9d610ef9dea871b747a6e1b0414d3578b9ebc7ee9cecf0f9326d46"
   end
 
+  # Build with Homebrew `perl` to build an `:all` bottle.
+  depends_on "perl" => :build
   uses_from_macos "perl"
 
   def install
