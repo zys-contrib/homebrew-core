@@ -20,11 +20,11 @@ class VpnSlice < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0a8c8843ea74c81520ef487e8db23c29dd1f37eca2995f9e5e8aabf412609ac"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/37/7d/c871f55054e403fdfd6b8f65fd6d1c4e147ed100d3e9f9ba1fe695403939/dnspython-2.6.1.tar.gz"
-    sha256 "e8f0f9c23a7b7cb99ded64e6c3a6f3e701d78f50c55e002b839dea7225cff7cc"
+    url "https://files.pythonhosted.org/packages/b5/4a/263763cb2ba3816dd94b08ad3a33d5fdae34ecb856678773cc40a3605829/dnspython-2.7.0.tar.gz"
+    sha256 "ce9c432eda0dc91cf618a5cedf1a4e142651196bbcd2c80e89ed5a907e5cfaf1"
   end
 
   resource "setproctitle" do
