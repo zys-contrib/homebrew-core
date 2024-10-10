@@ -12,7 +12,7 @@ class Ydiff < Formula
     sha256 cellar: :any_skip_relocation, all: "dcfdfc6996dfb6a5d2d9a860b37da0442292717eda604c0bc8b8483e9789822b"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources
