@@ -10,14 +10,13 @@ class Supervisor < Formula
   head "https://github.com/Supervisor/supervisor.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "451fc426f65e766105f5984229fd998477ebce5ff61e3905ed0de3e91e0cb5f3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ec664bd2e3bc60bd9a8514ac2a16da34a0a9efcebb8fe775b21698af40909444"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ec664bd2e3bc60bd9a8514ac2a16da34a0a9efcebb8fe775b21698af40909444"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ec664bd2e3bc60bd9a8514ac2a16da34a0a9efcebb8fe775b21698af40909444"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2eb8e7fba66707eda58ce2a41920c5a0281e64a376a0e1130018ae3ba32f3c9b"
-    sha256 cellar: :any_skip_relocation, ventura:        "2eb8e7fba66707eda58ce2a41920c5a0281e64a376a0e1130018ae3ba32f3c9b"
-    sha256 cellar: :any_skip_relocation, monterey:       "2eb8e7fba66707eda58ce2a41920c5a0281e64a376a0e1130018ae3ba32f3c9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78207f4fe866c1554ce1ffc5d574a74fb8ccc7cf30fd662917bcc6e76023457f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "45cc3b60f2777d22cdac9c5c3d02c6d81ab4ad54e469e404889e685cb3ee6782"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "45cc3b60f2777d22cdac9c5c3d02c6d81ab4ad54e469e404889e685cb3ee6782"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "45cc3b60f2777d22cdac9c5c3d02c6d81ab4ad54e469e404889e685cb3ee6782"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dd5d653ec9ae1a0db2ddca2a58d549ea9c48d4c15be4a11eb71b3aa9e555e872"
+    sha256 cellar: :any_skip_relocation, ventura:       "dd5d653ec9ae1a0db2ddca2a58d549ea9c48d4c15be4a11eb71b3aa9e555e872"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f432821d07fd084494beb62d4f237950f1c9b640dabb6cb85a0d2fd8f6e0598"
   end
 
   depends_on "python@3.13"
