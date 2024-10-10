@@ -8,14 +8,13 @@ class Coconut < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f40d1201b9b52e5ef52b03102febee1add7119a7091bd9313b068ffe4ff62556"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "caf2ac1e1c6f0aed297ef0b9af1c49a8968c0cf4cfd8230e0b7e2cc618ae3090"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e31ea818db43d09baa443fe2af11f981a1b2e625c88b629e1eef957bf05663a7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f97665b22bc5843e14c962ab685060b8eefb776ebfa14cfb01ff573ee5d8cf09"
-    sha256 cellar: :any_skip_relocation, sonoma:         "02c14e4de3171dcb73d5308375a2dd5b23f2edbf435685033235c8ba5e5a8b69"
-    sha256 cellar: :any_skip_relocation, ventura:        "2f950454d298751f88015943d97e7dd4bc504c254aa3d70946c9e8a3e31f94c4"
-    sha256 cellar: :any_skip_relocation, monterey:       "0ed68359bcf643eb9a67817660a59e2fbcf0c0b56ad9b0f072f6484a6ead0f02"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3bb84dd30519e83e8af41fd21ca1e4ec7df8562bee1e45a08575fa85e5b907b7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "25a6f46e119a250f8d10b8dd2df6a214823c1068b28fb5c332867e7b8ab8d2fd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d6b8cf2ffa687f0c101bdc413edf820eb96c6642b31f94fba3142499e0f507e2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "19088d74ca2b35b02d63aec0edd71d0e38c6ec3054879b542f029f65f25a22e2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "edeff6b15686362384e4fa5334bca7d95393e27e47f9ca5a1401d4f6d1e596b8"
+    sha256 cellar: :any_skip_relocation, ventura:       "5ea59853688e12fa9585572ecbfed6d46633eb9ac63aae0b4a22f7cef6babe0c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54bd43552fdf9f556039fdba27670f50e5fd699df7b967ff9648c05b3bd26059"
   end
 
   depends_on "python@3.13"
