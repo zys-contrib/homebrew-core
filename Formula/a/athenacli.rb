@@ -9,7 +9,8 @@ class Athenacli < Formula
   revision 6
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0f19af9dccb489dba6862ad7e42fda6f13a6f00d65c379d953d621d1e79a5b1c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "24bd2caf184bd92d6750107fd8e234adf75aa78bedc755972c488ba76f8daae4"
   end
 
   depends_on "python@3.13"
