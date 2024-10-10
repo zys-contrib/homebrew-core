@@ -20,7 +20,7 @@ class GitPlus < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "925f476b99a1c63af07210194cbc72f5caae685b440b70ea0e5530b6c2befc38"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   conflicts_with "git-recent", because: "both install `git-recent` binaries"
 
