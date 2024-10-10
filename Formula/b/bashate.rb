@@ -19,11 +19,11 @@ class Bashate < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "26d84e8ccddbbcefd2d6de2b2d45c44613f795e2f94c400730666dfec9fab539"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/8d/c2/ee43b3b11bf2b40e56536183fc9f22afbb04e882720332b6276ee2454c24/pbr-6.0.0.tar.gz"
-    sha256 "d1377122a5a00e2f940ee482999518efe16d745d423a670c27773dfbc3c9a7d9"
+    url "https://files.pythonhosted.org/packages/b2/35/80cf8f6a4f34017a7fe28242dc45161a1baa55c41563c354d8147e8358b2/pbr-6.1.0.tar.gz"
+    sha256 "788183e382e3d1d7707db08978239965e8b9e4e5ed42669bf4758186734d5f24"
   end
 
   def install
@@ -35,9 +35,10 @@ class Bashate < Formula
       #!/bin/bash
         echo "Testing Bashate"
     EOS
-    assert_match "E003 Indent not multiple of 4", shell_output(bin/"bashate #{testpath}/test.sh", 1)
-    assert_empty shell_output(bin/"bashate -i E003 #{testpath}/test.sh")
 
-    assert_match version.to_s, shell_output(bin/"bashate --version")
+    assert_match "E003 Indent not multiple of 4", shell_output("#{bin}/bashate #{testpath}/test.sh", 1)
+    assert_empty shell_output("#{bin}/bashate -i E003 #{testpath}/test.sh")
+
+    assert_match version.to_s, shell_output("#{bin}/bashate --version")
   end
 end
