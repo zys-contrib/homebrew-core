@@ -18,7 +18,7 @@ class Codespell < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a80a9c57378d5c347ca1695b3ddf0ecd63d507ee9e1d1ab6fd1d2f1e6957e6a5"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources
