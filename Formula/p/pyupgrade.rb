@@ -12,7 +12,7 @@ class Pyupgrade < Formula
     sha256 cellar: :any_skip_relocation, all: "d064264b637f3c73b8e7a8b5de52d011bd19347e5b65a6e9bb402a6ba8f31f41"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "tokenize-rt" do
     url "https://files.pythonhosted.org/packages/7d/09/6257dabdeab5097d72c5d874f29b33cd667ec411af6667922d84f85b79b5/tokenize_rt-6.0.0.tar.gz"
