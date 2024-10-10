@@ -19,7 +19,7 @@ class LizardAnalyzer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "78f3014767cf74f7bafcf3c5fc290ce70b8c823e226b9cae6f9537a0520d588f"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   conflicts_with "lizard", because: "both install `lizard` binaries"
 
@@ -40,6 +40,7 @@ class LizardAnalyzer < Formula
         }
       }
     EOS
-    assert_match "1 file analyzed.\n", shell_output("#{bin}/lizard -l swift #{testpath}/test.swift")
+
+    assert_match "1 file analyzed.", shell_output("#{bin}/lizard -l swift #{testpath}/test.swift")
   end
 end
