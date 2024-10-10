@@ -18,7 +18,7 @@ class PreCommit < Formula
   end
 
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "cfgv" do
     url "https://files.pythonhosted.org/packages/11/74/539e56497d9bd1d484fd863dd69cbbfa653cd2aa27abfe35653494d85e94/cfgv-3.4.0.tar.gz"
@@ -26,8 +26,8 @@ class PreCommit < Formula
   end
 
   resource "distlib" do
-    url "https://files.pythonhosted.org/packages/c4/91/e2df406fb4efacdf46871c25cde65d3c6ee5e173b7e5a4547a47bae91920/distlib-0.3.8.tar.gz"
-    sha256 "1530ea13e350031b6312d8580ddb6b27a104275a31106523b8f123787f494f64"
+    url "https://files.pythonhosted.org/packages/0d/dd/1bec4c5ddb504ca60fc29472f3d27e8d4da1257a854e1d96742f15c1d02d/distlib-0.3.9.tar.gz"
+    sha256 "a60f20dea646b8a33f3e7772f74dc0b2d0772d2837ee1342a00645c81edf9403"
   end
 
   resource "filelock" do
@@ -61,7 +61,7 @@ class PreCommit < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
@@ -75,8 +75,8 @@ class PreCommit < Formula
 
   # Avoid relative paths
   def post_install
-    xy = Language::Python.major_minor_version Formula["python@3.12"].opt_bin/python3
-    python_opt = Formula["python@3.12"].opt_prefix
+    xy = Language::Python.major_minor_version Formula["python@3.13"].opt_bin/python3
+    python_opt = Formula["python@3.13"].opt_prefix
     python_cellar = python_opt.realpath
     dirs_to_fix = [libexec/"lib/python#{xy}"]
     dirs_to_fix << (libexec/"bin") if OS.linux?
