@@ -18,7 +18,7 @@ class Cfv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2cf9497ff9cb2d03f2a3bd12460e7708fe0545c534de76f9dcc620ae2e3182b2"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources
@@ -26,6 +26,7 @@ class Cfv < Formula
 
   test do
     (testpath/"test/test.txt").write "Homebrew!"
+
     cd "test" do
       system bin/"cfv", "-t", "sha1", "-C", "test.txt"
       assert_predicate Pathname.pwd/"test.sha1", :exist?
