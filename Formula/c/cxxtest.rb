@@ -21,10 +21,10 @@ class Cxxtest < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1613e42bf7a9153b9f8cefb7a00667d7ec4f152fb648333f0f2ab54bad2e4585"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
-    venv = virtualenv_create(libexec, "python3.12")
+    venv = virtualenv_create(libexec, "python3.13")
     venv.pip_install_and_link buildpath/"python"
 
     include.install "cxxtest"
