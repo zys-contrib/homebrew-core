@@ -14,7 +14,7 @@ class Twoping < Formula
     sha256 cellar: :any_skip_relocation, all: "59732d5b985fbf722f56d249334ca384c61709c1b6683287e47a08f065120464"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources
