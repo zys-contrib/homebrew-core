@@ -20,7 +20,7 @@ class GitRevise < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8cc6240886847417ae649ca83c00b2872942e3ccf7f545bdde1cf9d22dc52471"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources
@@ -32,6 +32,7 @@ class GitRevise < Formula
         name = J. Random Tester
         email = test@example.com
     EOS
+
     system "git", "init"
     (testpath/"test").write "foo"
     system "git", "add", "test"
