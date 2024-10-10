@@ -12,7 +12,7 @@ class Autopep8 < Formula
     sha256 cellar: :any_skip_relocation, all: "c2ff29cdf04fe9126d752f6097d6cd0634763d1302c9499b6feac765d89ed1c5"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "pycodestyle" do
     url "https://files.pythonhosted.org/packages/43/aa/210b2c9aedd8c1cbeea31a50e42050ad56187754b34eb214c46709445801/pycodestyle-2.12.1.tar.gz"
