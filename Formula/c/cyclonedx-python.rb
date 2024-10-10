@@ -18,7 +18,7 @@ class CyclonedxPython < Formula
   end
 
   depends_on "rust" => :build # for rpds-py
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
@@ -44,8 +44,8 @@ class CyclonedxPython < Formula
   end
 
   resource "cyclonedx-python-lib" do
-    url "https://files.pythonhosted.org/packages/5b/56/c25ea3b800379cbf89583ce3c7700464be510842845c1652a8f765bc2abb/cyclonedx_python_lib-7.6.1.tar.gz"
-    sha256 "42e510e957c2ce9c71dd33020e43ce53fe6d0c854cfdc3c56e854e9461e846eb"
+    url "https://files.pythonhosted.org/packages/36/8f/a2de02ce7263312b51cb3946593b608ef996949295b69b31a9ed0e71ec92/cyclonedx_python_lib-7.6.2.tar.gz"
+    sha256 "31186c5725ac0cfcca433759a407b1424686cdc867b47cc86e6cf83691310903"
   end
 
   resource "defusedxml" do
@@ -79,8 +79,8 @@ class CyclonedxPython < Formula
   end
 
   resource "jsonschema-specifications" do
-    url "https://files.pythonhosted.org/packages/f8/b9/cc0cc592e7c195fb8a650c1d5990b10175cf13b4c97465c72ec841de9e4b/jsonschema_specifications-2023.12.1.tar.gz"
-    sha256 "48a76787b3e70f5ed53f1160d2b81f586e4ca6d1548c5de7085d1682674764cc"
+    url "https://files.pythonhosted.org/packages/10/db/58f950c996c793472e336ff3655b13fbcf1e3b359dcf52dcf3ed3b52c352/jsonschema_specifications-2024.10.1.tar.gz"
+    sha256 "0f38b83639958ce1152d02a7f062902c41c8fd20d558b0c34344292d417ae272"
   end
 
   resource "license-expression" do
@@ -109,8 +109,8 @@ class CyclonedxPython < Formula
   end
 
   resource "py-serializable" do
-    url "https://files.pythonhosted.org/packages/c6/8b/20e68984aead213310991174e858147e876bb976cf225ebd09b82709d0e4/py_serializable-1.1.1.tar.gz"
-    sha256 "f268db3afc42c8786da6dc64a8a36e33a82cf65cdcff22d1188b0927f6d4cfa9"
+    url "https://files.pythonhosted.org/packages/16/cf/6e482507764034d6c41423a19f33fdd59655052fdb2ca4358faa3b0bcfd1/py_serializable-1.1.2.tar.gz"
+    sha256 "89af30bc319047d4aa0d8708af412f6ce73835e18bacf1a080028bb9e2f42bdb"
   end
 
   resource "pyparsing" do
@@ -154,8 +154,8 @@ class CyclonedxPython < Formula
   end
 
   resource "types-python-dateutil" do
-    url "https://files.pythonhosted.org/packages/3e/d9/9c9ec2d870af7aa9b722ce4fd5890bb55b1d18898df7f1d069cab194bb2a/types-python-dateutil-2.9.0.20240906.tar.gz"
-    sha256 "9706c3b68284c25adffc47319ecc7947e5bb86b3773f843c73906fd598bc176e"
+    url "https://files.pythonhosted.org/packages/31/f8/f6ee4c803a7beccffee21bb29a71573b39f7037c224843eff53e5308c16e/types-python-dateutil-2.9.0.20241003.tar.gz"
+    sha256 "58cb85449b2a56d6684e41aeefb4c4280631246a0da1a719bdbe6f3fb0317446"
   end
 
   resource "uri-template" do
