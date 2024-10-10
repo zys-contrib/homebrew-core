@@ -26,7 +26,7 @@ class Xpdf < Formula
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "libpng"
-  depends_on "qt@5"
+  depends_on "qt"
 
   conflicts_with "pdf2image", "pdftohtml", "poppler",
     because: "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
@@ -34,8 +34,9 @@ class Xpdf < Formula
   fails_with gcc: "5"
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", "-DSYSTEM_XPDFRC=#{etc}/xpdfrc", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
