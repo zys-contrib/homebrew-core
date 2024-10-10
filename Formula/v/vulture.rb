@@ -12,7 +12,7 @@ class Vulture < Formula
     sha256 cellar: :any_skip_relocation, all: "5408ae2a690fedee282cfd61c0ce9ba10c2b863600b3ff75fd0ebeca7572b500"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources
