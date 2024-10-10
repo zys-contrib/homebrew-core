@@ -19,6 +19,18 @@ class Cake < Formula
 
   conflicts_with "coffeescript", because: "both install `cake` binaries"
 
+  # Backport NuGet 6.7.0 -> 6.9.0 update to fix build failure:
+  # error NU1904: Warning As Error: Package 'NuGet.Packaging' 6.7.0 has a known
+  # critical severity vulnerability, https://github.com/advisories/GHSA-68w7-72jg-6qpp
+  patch do
+    url "https://github.com/cake-build/cake/commit/3e1841de021614504ccf9b96816421f943122726.patch?full_index=1"
+    sha256 "bf3feeb71b577273ac8e69dbf38c9b9bdffa9b89e091d3a432192a5dec428941"
+  end
+  patch do
+    url "https://github.com/cake-build/cake/commit/c72f1d2f429c641dbfdbae843defcab31f22e959.patch?full_index=1"
+    sha256 "fd96a28c82b7dd404c7731fe69bcae75a863367dbfada9f0aa8e5af39d3a6491"
+  end
+
   def install
     dotnet = Formula["dotnet"]
     os = OS.mac? ? "osx" : OS.kernel_name.downcase
