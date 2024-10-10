@@ -9,14 +9,13 @@ class Yapf < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8099f5239291c194f73143ffef10ad89749c85bf96e195d6c9ef769e6eb75f49"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "07fd5b4d90ce1fcd6ed7b89aee9bcb446ae3bfe17a2482540e8206a5fbfb7282"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "07fd5b4d90ce1fcd6ed7b89aee9bcb446ae3bfe17a2482540e8206a5fbfb7282"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "07fd5b4d90ce1fcd6ed7b89aee9bcb446ae3bfe17a2482540e8206a5fbfb7282"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2e811a83e62d349bb582cc9fdb0e2517ad107e60462a782c2e111c6c5c9027c9"
-    sha256 cellar: :any_skip_relocation, ventura:        "2e811a83e62d349bb582cc9fdb0e2517ad107e60462a782c2e111c6c5c9027c9"
-    sha256 cellar: :any_skip_relocation, monterey:       "2e811a83e62d349bb582cc9fdb0e2517ad107e60462a782c2e111c6c5c9027c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fdef089e7f7464ad430cbdf4f7616eef0cf436880670acf67ec4a9cbb7f878f3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "311cca4a3125dfedabd1d2ce843fcb82c20cb39985450e5938cf7d2949ac22fa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "311cca4a3125dfedabd1d2ce843fcb82c20cb39985450e5938cf7d2949ac22fa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "311cca4a3125dfedabd1d2ce843fcb82c20cb39985450e5938cf7d2949ac22fa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8a78cb051f1bd38c7a7403f0d290f614282f4fcb75606478f642a405d94bfedf"
+    sha256 cellar: :any_skip_relocation, ventura:       "8a78cb051f1bd38c7a7403f0d290f614282f4fcb75606478f642a405d94bfedf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78324721748810507339a113338a63874c4174d390b195f869e8238ca216282c"
   end
 
   depends_on "python@3.13"
