@@ -17,7 +17,7 @@ class TranslateToolkit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5597233a998092d31af122d9c6dc25e95953047f8b6f10edb946067885b0f659"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
