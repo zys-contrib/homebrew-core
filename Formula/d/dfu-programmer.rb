@@ -25,12 +25,11 @@ class DfuProgrammer < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "libusb-compat"
+  depends_on "libusb"
 
   def install
     system "./bootstrap.sh" if build.head?
-    system "./configure", *std_configure_args,
-                          "--disable-libusb_1_0"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
