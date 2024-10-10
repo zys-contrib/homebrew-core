@@ -19,7 +19,7 @@ class Keepassc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "882f680f1d047d0b327bb499a284bcfac9e5661f5a427e41f74aa3f3a513ec02"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "kppy" do
     url "https://files.pythonhosted.org/packages/c8/d9/6ced04177b4790ccb1ba44e466c5b67f3a1cfe4152fb05ef5f990678f94f/kppy-1.5.2.tar.gz"
@@ -27,8 +27,8 @@ class Keepassc < Formula
   end
 
   resource "pycryptodomex" do
-    url "https://files.pythonhosted.org/packages/3f/13/84f2aea851d75e12e7f32ccc11a00f1defc3d285b4ed710e5d049f31c5a6/pycryptodomex-3.19.1.tar.gz"
-    sha256 "0b7154aff2272962355f8941fd514104a88cb29db2d8f43a29af900d6398eb1c"
+    url "https://files.pythonhosted.org/packages/11/dc/e66551683ade663b5f07d7b3bc46434bf703491dbd22ee12d1f979ca828f/pycryptodomex-3.21.0.tar.gz"
+    sha256 "222d0bd05381dd25c32dd6065c071ebf084212ab79bab4599ba9e6a3e0009e6c"
   end
 
   def install
