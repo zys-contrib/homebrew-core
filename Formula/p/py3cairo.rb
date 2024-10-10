@@ -4,6 +4,7 @@ class Py3cairo < Formula
   url "https://github.com/pygobject/pycairo/releases/download/v1.27.0/pycairo-1.27.0.tar.gz"
   sha256 "5cb21e7a00a2afcafea7f14390235be33497a2cce53a98a19389492a60628430"
   license any_of: ["LGPL-2.1-only", "MPL-1.1"]
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "be4c2db3569519aa7ca3520843c329b7c99d410d01ea1ae1fc2347efe71638df"
@@ -21,6 +22,7 @@ class Py3cairo < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
   depends_on "cairo"
 
   def pythons
