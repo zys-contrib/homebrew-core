@@ -13,7 +13,7 @@ class Mackup < Formula
     sha256 cellar: :any_skip_relocation, all: "2ba1fc013f7b442bbb3d7d33c8bc98e16bba3d533754f494bdab0b71b5ff0e5c"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
