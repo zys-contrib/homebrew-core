@@ -19,11 +19,11 @@ class Aws2Wrap < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a9f4369e5f248a94f80ef4cec4efe6990f2386a31014de607e764f9a564490d"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/90/c7/6dc0a455d111f68ee43f27793971cf03fe29b6ef972042549db29eec39a2/psutil-5.9.8.tar.gz"
-    sha256 "6be126e3225486dff286a8fb9a06246a5253f4c7c53b475ea5f5ac934e64194c"
+    url "https://files.pythonhosted.org/packages/18/c7/8c6872f7372eb6a6b2e4708b88419fb46b857f7a2e1892966b851cc79fc9/psutil-6.0.0.tar.gz"
+    sha256 "8faae4f310b6d969fa26ca0545338b21f73c6b15db7c4a8d934a5482faa818f2"
   end
 
   def install
@@ -34,7 +34,7 @@ class Aws2Wrap < Formula
     mkdir testpath/".aws"
     touch testpath/".aws/config"
     ENV["AWS_CONFIG_FILE"] = testpath/".aws/config"
-    assert_match "Cannot find profile 'default'",
-      shell_output("#{bin}/aws2-wrap 2>&1", 1).strip
+
+    assert_match "Cannot find profile 'default'", shell_output("#{bin}/aws2-wrap 2>&1", 1).strip
   end
 end
