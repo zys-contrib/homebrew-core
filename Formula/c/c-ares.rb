@@ -1,8 +1,8 @@
 class CAres < Formula
   desc "Asynchronous DNS library"
   homepage "https://c-ares.org/"
-  url "https://github.com/c-ares/c-ares/releases/download/v1.33.1/c-ares-1.33.1.tar.gz"
-  sha256 "06869824094745872fa26efd4c48e622b9bd82a89ef0ce693dc682a23604f415"
+  url "https://github.com/c-ares/c-ares/releases/download/v1.34.1/c-ares-1.34.1.tar.gz"
+  sha256 "7e846f1742ab5998aced36d170408557de5292b92ec404fb0f7422f946d60103"
   license "MIT"
   head "https://github.com/c-ares/c-ares.git", branch: "main"
 
