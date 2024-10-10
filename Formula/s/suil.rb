@@ -25,10 +25,14 @@ class Suil < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => :build
-  depends_on "gtk+3"
+  depends_on "libx11"
   depends_on "lv2"
   depends_on "qt@5"
+
+  on_linux do
+    depends_on "glib"
+    depends_on "gtk+3"
+  end
 
   def install
     system "meson", "setup", "build", *std_meson_args
