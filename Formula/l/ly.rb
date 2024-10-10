@@ -18,10 +18,10 @@ class Ly < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "58025ba773b81b7d22e72c002f9ce7ed7691bf6f51d10ed8d60bf065ac330ff8"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
@@ -30,7 +30,7 @@ class Ly < Formula
 
   test do
     (testpath/"test.ly").write "\\relative { c' d e f g a b c }"
-    output = shell_output "#{bin}/ly 'transpose c d' #{testpath}/test.ly"
+    output = shell_output("#{bin}/ly 'transpose c d' #{testpath}/test.ly")
     assert_equal "\\relative { d' e fis g a b cis d }", output
 
     system python3, "-c", "import ly"
