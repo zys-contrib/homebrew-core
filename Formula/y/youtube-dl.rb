@@ -37,10 +37,10 @@ class YoutubeDl < Formula
   # https://github.com/ytdl-org/youtube-dl/issues/31067
   deprecate! date: "2023-11-23", because: "has a failing test since forever and no new release since 2021"
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
-    python3 = which("python3.12")
+    python3 = which("python3.13")
     if build.head?
       system "make", "PREFIX=#{prefix}", "MANDIR=#{man}", "PYTHON=#{python3}", "install"
       fish_completion.install prefix/"etc/fish/completions/youtube-dl.fish"
@@ -68,6 +68,11 @@ class YoutubeDl < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/youtube-dl --version")
+
+    # Tests fail with bot detection
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     # commit history of homebrew-core repo
     system bin/"youtube-dl", "--simulate", "https://www.youtube.com/watch?v=pOtd1cbOP7k"
     # homebrew playlist
