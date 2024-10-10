@@ -8,8 +8,8 @@ class Autopep8 < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "c2ff29cdf04fe9126d752f6097d6cd0634763d1302c9499b6feac765d89ed1c5"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "e9743fa4892acbd3dd30a24f82e52df2db9cc7bd20e5d3e0c43f2c37de60e02f"
   end
 
   depends_on "python@3.13"
