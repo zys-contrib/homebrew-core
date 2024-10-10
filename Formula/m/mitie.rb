@@ -19,7 +19,7 @@ class Mitie < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "89bc3e10846c5aeef3669467f1aea054fb198772418f428c3dcfcdeb3d95d84a"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "models-english" do
     url "https://downloads.sourceforge.net/project/mitie/binaries/MITIE-models-v0.2.tar.bz2"
@@ -36,7 +36,7 @@ class Mitie < Formula
     include.install Dir["mitielib/include/*"]
     lib.install "mitielib/#{shared_library("libmitie")}", "mitielib/libmitie.a"
 
-    (prefix/Language::Python.site_packages("python3.12")).install "mitielib/mitie.py"
+    (prefix/Language::Python.site_packages("python3.13")).install "mitielib/mitie.py"
     pkgshare.install "examples", "sample_text.txt",
                      "sample_text.reference-output",
                      "sample_text.reference-output-relations"
