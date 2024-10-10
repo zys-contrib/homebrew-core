@@ -3,8 +3,8 @@ class Sqlfluff < Formula
 
   desc "SQL linter and auto-formatter for Humans"
   homepage "https://docs.sqlfluff.com/"
-  url "https://files.pythonhosted.org/packages/00/c5/2d46d40deeaf1169a069519ae059932b2d4c8cb318489175b8f7eb43325d/sqlfluff-3.2.2.tar.gz"
-  sha256 "7a119f2e3d054a5ff6ff75dc86b400046366811a0ce461fc525e0a1e6d20c1f3"
+  url "https://files.pythonhosted.org/packages/06/92/38cbdd9f6be7dfd2ee14aa2152f30baaadd67c6eb0c87f03ecee9b54eb5d/sqlfluff-3.2.3.tar.gz"
+  sha256 "13c56ca0175808eaee183d2224ac863ee17113808890603c52d8fffcd1e069fe"
   license "MIT"
 
   bottle do
@@ -55,8 +55,8 @@ class Sqlfluff < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz"
-    sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+    url "https://files.pythonhosted.org/packages/b4/d2/38ff920762f2247c3af5cbbbbc40756f575d9692d381d7c520f45deb9b8f/markupsafe-3.0.1.tar.gz"
+    sha256 "3e683ee4f5d0fa2dde4db77ed8dd8a876686e3fc417655c2ece9a90576905344"
   end
 
   resource "packaging" do
