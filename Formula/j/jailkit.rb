@@ -23,10 +23,10 @@ class Jailkit < Formula
     sha256 x86_64_linux:   "449133e50ae1f47700b40ccfffdc78d7aaf390a393bc57178b39e1458ab0b397"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
-    ENV["PYTHONINTERPRETER"] = which("python3.12")
+    ENV["PYTHONINTERPRETER"] = which("python3.13")
 
     system "./configure", *std_configure_args
     system "make", "install"
