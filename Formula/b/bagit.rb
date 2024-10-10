@@ -27,7 +27,7 @@ class Bagit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1958e3df0bbfe57f3d7a7d0d7903e1bd27eaddcf0172e9520f71ba1961aab4f7"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   # Replace pkg_resources with importlib
   # https://github.com/LibraryOfCongress/bagit-python/pull/170
