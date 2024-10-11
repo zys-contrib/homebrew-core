@@ -20,11 +20,11 @@ class Hyfetch < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "37ade20596e8b5906ae29d77a23c299b0dfc989c3cb0c819a957aa177225c5c1"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/65/d8/10a70e86f6c28ae59f101a9de6d77bf70f147180fbf40c3af0f64080adc3/setuptools-70.3.0.tar.gz"
-    sha256 "f171bab1dfbc86b132997f26a119f6056a57950d058587841a0082e8830f9dc5"
+    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
+    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
   end
 
   resource "typing-extensions" do
