@@ -22,7 +22,7 @@ class ArcadeLearningEnvironment < Formula
   depends_on "python-setuptools" => :build
   depends_on macos: :catalina # requires std::filesystem
   depends_on "numpy"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "sdl2"
 
   uses_from_macos "zlib"
@@ -36,7 +36,7 @@ class ArcadeLearningEnvironment < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
