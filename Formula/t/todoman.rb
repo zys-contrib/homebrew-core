@@ -9,13 +9,12 @@ class Todoman < Formula
   head "https://github.com/pimutils/todoman.git", branch: "main"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "90d8afa66f2d255c3c19ec266fa234246e2087ec4726b3e56ab6e53b29a77ff3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "90d8afa66f2d255c3c19ec266fa234246e2087ec4726b3e56ab6e53b29a77ff3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "90d8afa66f2d255c3c19ec266fa234246e2087ec4726b3e56ab6e53b29a77ff3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0781231ff24e4cff6911d8d020c9264982e430ce7ca19fb2d286ad7e2a1921eb"
-    sha256 cellar: :any_skip_relocation, ventura:       "0781231ff24e4cff6911d8d020c9264982e430ce7ca19fb2d286ad7e2a1921eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "90d8afa66f2d255c3c19ec266fa234246e2087ec4726b3e56ab6e53b29a77ff3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3192caf6ebc642ffa76145ade0db63f852a69123317c012e73d5eed568616de5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3192caf6ebc642ffa76145ade0db63f852a69123317c012e73d5eed568616de5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3192caf6ebc642ffa76145ade0db63f852a69123317c012e73d5eed568616de5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4f54a18bc2134dae96cf4104b9c19f755c9c5e4af2352f5929d720df5655d070"
+    sha256 cellar: :any_skip_relocation, ventura:       "4f54a18bc2134dae96cf4104b9c19f755c9c5e4af2352f5929d720df5655d070"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3192caf6ebc642ffa76145ade0db63f852a69123317c012e73d5eed568616de5"
   end
 
   depends_on "jq" # Needed for ZSH completions.
