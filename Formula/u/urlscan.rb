@@ -8,14 +8,8 @@ class Urlscan < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "30e583abcd2a23dd3e591d24ad3babbc68be07393f26e1f9bd8c68a917153a0c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "10a0cd18040ebe8c431bb7364085760d117f568d4b0b71daec5504c37bc7bfde"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "10a0cd18040ebe8c431bb7364085760d117f568d4b0b71daec5504c37bc7bfde"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "10a0cd18040ebe8c431bb7364085760d117f568d4b0b71daec5504c37bc7bfde"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bcabb1d71f7ee1a077c1eb3c7a6a38710aaf0740a75644549d029b1da1324466"
-    sha256 cellar: :any_skip_relocation, ventura:        "bcabb1d71f7ee1a077c1eb3c7a6a38710aaf0740a75644549d029b1da1324466"
-    sha256 cellar: :any_skip_relocation, monterey:       "10a0cd18040ebe8c431bb7364085760d117f568d4b0b71daec5504c37bc7bfde"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06c892249cdac2dd6e5aadd9295d1c8c9a2ca148265d4e4d7a32358d37531716"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "0c5352e45c49a4d0d2b9a6248751e958b98806970fbc5ca8934a2aca8ae9bf60"
   end
 
   depends_on "python@3.13"
