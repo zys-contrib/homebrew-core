@@ -13,16 +13,11 @@ class GitWhenMerged < Formula
     sha256 cellar: :any_skip_relocation, all: "d05cb6ca5daad7749e441ed66ddde326f6da2c5b14f0cf2978af1a857b2df0b3"
   end
 
-  # TODO: Update this to whichever python has `bin/python3`.
-  depends_on "python@3.12" => :test
   uses_from_macos "python"
 
   def install
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), "src/git_when_merged.py"
     bin.install "src/git_when_merged.py" => "git-when-merged"
-
-    if !OS.mac? || MacOS.version >= :catalina
-      rewrite_shebang detected_python_shebang(use_python_from_path: true), bin/"git-when-merged"
-    end
   end
 
   test do
@@ -43,10 +38,5 @@ class GitWhenMerged < Formula
     system "git", "add", "baz"
     system "git", "commit", "-m", "baz"
     system bin/"git-when-merged", "bar"
-
-    # Test with both Homebrew Python3 and system Python3 to validate our shebang.
-    which_all("python3").each do |python|
-      system python, bin/"git-when-merged", "bar"
-    end
   end
 end
