@@ -29,7 +29,7 @@ class RomTools < Formula
   depends_on "utf8proc"
   depends_on "zstd"
 
-  uses_from_macos "python" => :build
+  uses_from_macos "python" => :build, since: :catalina
   uses_from_macos "expat"
   uses_from_macos "zlib"
 
@@ -37,14 +37,20 @@ class RomTools < Formula
     depends_on "portaudio" => :build
     depends_on "portmidi" => :build
     depends_on "pulseaudio" => :build
-    depends_on "qt@5" => :build
+    depends_on "qt" => :build
     depends_on "sdl2_ttf" => :build
   end
 
-  fails_with gcc: "5" # for C++17
-  fails_with gcc: "6"
+  # Support alternate Qt libexec directories
+  # PR ref: https://github.com/mamedev/mame/pull/12870
+  patch do
+    url "https://github.com/mamedev/mame/commit/f1604dbe7e51f519bb98cf4c52c8b0e41184384b.patch?full_index=1"
+    sha256 "42204cbf23c6a20a8b2dba515ce50e119870b5037fe224da45c53782170fb1df"
+  end
 
   def install
+    ENV["QT_HOME"] = Formula["qt"].opt_prefix if OS.linux?
+
     # Cut sdl2-config's invalid option.
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
 
