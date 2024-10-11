@@ -23,7 +23,8 @@ class OnlykeyAgent < Formula
   depends_on "cryptography"
   depends_on "gnupg"
   depends_on "hidapi"
-  depends_on "libusb"
+  depends_on "libsodium" # for pynacl
+  depends_on "libusb" # for pyusb
   depends_on "python@3.13"
 
   resource "aenum" do
@@ -192,7 +193,8 @@ class OnlykeyAgent < Formula
   end
 
   def install
-    ENV["HIDAPI_SYSTEM_HIDAPI"] = ENV["HIDAPI_WITH_LIBUSB"] = "1"
+    ENV["HIDAPI_SYSTEM_HIDAPI"] = "1"
+    ENV["SODIUM_INSTALL"] = "system"
     venv = virtualenv_install_with_resources without: "python-daemon"
 
     # Workaround breaking change in `setuptools`: https://pagure.io/python-daemon/issue/94
