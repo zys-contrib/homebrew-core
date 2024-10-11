@@ -1,8 +1,8 @@
 class MagicWormholeRs < Formula
   desc "Rust implementation of Magic Wormhole, with new features and enhancements"
   homepage "https://github.com/magic-wormhole/magic-wormhole.rs"
-  url "https://github.com/magic-wormhole/magic-wormhole.rs/archive/refs/tags/0.7.1.tar.gz"
-  sha256 "c6e2acd3cccd982f449d26184d714d4cf813f51b8b75b3e36ecbb78565b3f4e8"
+  url "https://github.com/magic-wormhole/magic-wormhole.rs/archive/refs/tags/0.7.2.tar.gz"
+  sha256 "4a05dbf56688d6226d9094b783ccea7563207484bb81eb04393c09d163ce4791"
   license "EUPL-1.2"
   head "https://github.com/magic-wormhole/magic-wormhole.rs.git", branch: "master"
 
