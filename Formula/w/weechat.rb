@@ -28,7 +28,7 @@ class Weechat < Formula
   depends_on "lua"
   depends_on "ncurses"
   depends_on "perl"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "ruby"
   depends_on "zstd"
 
@@ -41,7 +41,7 @@ class Weechat < Formula
   end
 
   def python3
-    which("python3.12")
+    which("python3.13")
   end
 
   def install
