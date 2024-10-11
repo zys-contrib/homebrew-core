@@ -23,7 +23,7 @@ class ArmNoneEabiGdb < Formula
   depends_on "arm-none-eabi-gcc" => :test
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "xz" # required for lzma support
 
   uses_from_macos "expat"
@@ -43,7 +43,7 @@ class ArmNoneEabiGdb < Formula
       --infodir=#{info}/#{target}
       --mandir=#{man}
       --with-lzma
-      --with-python=#{Formula["python@3.12"].opt_bin}/python3.12
+      --with-python=#{Formula["python@3.13"].opt_bin}/python3.13
       --with-system-zlib
       --disable-binutils
     ]
