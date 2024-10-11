@@ -10,14 +10,13 @@ class Awsume < Formula
   head "https://github.com/trek10inc/awsume.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "8a83ec110f06ab62c754056cda6ce655e5aa252afbcb196dfd1c66ee3ff94646"
-    sha256 cellar: :any,                 arm64_sonoma:   "bf1c09476afcefa10ffd9f487866c01965279b8fed1277620c686ed9906ffda4"
-    sha256 cellar: :any,                 arm64_ventura:  "fa3239200e3c06fbb230c809cb47a2a0c2b2e513d26a176d2b70335abbe19e81"
-    sha256 cellar: :any,                 arm64_monterey: "ebbccc5dffa803dbdbcaec602993f322ad93d5a42f860a04cef83ccc31fef899"
-    sha256 cellar: :any,                 sonoma:         "9ca5bfb726ccc2b3d6632fe394c7c41e6434e6bd6912d0893598e5374a7d6128"
-    sha256 cellar: :any,                 ventura:        "6090ad2749b405b5ab87e0140068fb4df930b531820ca9d03eca21f4f2c94629"
-    sha256 cellar: :any,                 monterey:       "c741fe1a847188fb5e0957c35defbcb40074b9acbc6e658a2b9a4b2be48e13a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "daa3531364ff676d9c0008d84477c6758e672e3427a33634351ae0b6dda838df"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "ab01aea5f6d99ac21764de55e673902787fc14ec96fada280a0c360bec574d4a"
+    sha256 cellar: :any,                 arm64_sonoma:  "b06023bea38dacbd5357be513bd216f43f4d5fe3972f024cd8d51761553032eb"
+    sha256 cellar: :any,                 arm64_ventura: "8d9db8a716aabe192870e491a0d94225231bbb1ab4a5093bd5462f7e60c8c036"
+    sha256 cellar: :any,                 sonoma:        "2bf690210a7c40da2e7106dfcb689afee281bcf26b1e40339d75f749dd227364"
+    sha256 cellar: :any,                 ventura:       "8fc54d5c65ee7e395dd2769036940187e04725c46ae89f010bec64c6537f6595"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2fbc4bce74d218a3e42fa282d7b7e5d1033b47bac6c16f4c97bedf24469cfa0"
   end
 
   depends_on "libyaml"
