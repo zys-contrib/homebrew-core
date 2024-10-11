@@ -11,8 +11,7 @@ class I2cTools < Formula
   end
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ae621a528f9cb414fdbe0d2aa391a267f52a7f5d31fa045d80897833780c2e20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d20107422ff757ff511d2a8099bb04f96cba86e4a0a81081efe7a7c49d02b118"
   end
 
   depends_on "python@3.13" => [:build, :test]
