@@ -2751,6 +2751,7 @@ tetra
 texinfo
 texlab
 texmath
+texttest
 tfautomv
 tfel
 tfmigrate
