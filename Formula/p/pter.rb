@@ -12,7 +12,7 @@ class Pter < Formula
     sha256 cellar: :any_skip_relocation, all: "90bbfdf7e7deda81b3bae38fb2e5b1983eae8ce7f551df4fb19ef4978ed46c5c"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "cursedspace" do
     url "https://files.pythonhosted.org/packages/cd/3b/72657c9e867dd5034814dcea21b1128a70a1b8427e48c7de8b3b9ea3dd93/cursedspace-1.5.2.tar.gz"
