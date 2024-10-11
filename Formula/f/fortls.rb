@@ -13,7 +13,7 @@ class Fortls < Formula
     sha256 cellar: :any_skip_relocation, all: "c066910b7c8381a0be2b56213aced45bf2b6b3ec4e62c3de19a027c602607727"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   conflicts_with "fortran-language-server", because: "both install `fortls` binaries"
 
