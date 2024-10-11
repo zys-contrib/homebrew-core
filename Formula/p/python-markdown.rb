@@ -13,7 +13,7 @@ class PythonMarkdown < Formula
     sha256 cellar: :any_skip_relocation, all: "2b07b7bb754954c44444f71599b7e8a7e8455bfc3c61d625a6b56fba16c2fdeb"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources
