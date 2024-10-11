@@ -1,8 +1,8 @@
 class Facad < Formula
   desc "Modern, colorful directory listing tool for the command-line"
   homepage "https://github.com/yellow-footed-honeyguide/facad"
-  url "https://github.com/yellow-footed-honeyguide/facad/archive/refs/tags/v2.16.0.tar.gz"
-  sha256 "6cf3963807c038b34c87c57535b3a0f0949211af4dd6f5c477ca477b2a33232d"
+  url "https://github.com/yellow-footed-honeyguide/facad/archive/refs/tags/v2.18.0.tar.gz"
+  sha256 "2c4b487fce0046767e37fbbfe77e530b38d4184a5a82710c9fdd74d184b71f0a"
   license "MIT"
 
   bottle do
