@@ -1,4 +1,6 @@
 class PythonArgcomplete < Formula
+  include Language::Python::Virtualenv
+
   desc "Tab completion for Python argparse"
   homepage "https://kislyuk.github.io/argcomplete/"
   url "https://files.pythonhosted.org/packages/5f/39/27605e133e7f4bb0c8e48c9a6b87101515e3446003e0442761f6a02ac35e/argcomplete-3.5.1.tar.gz"
@@ -14,18 +16,10 @@ class PythonArgcomplete < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4aa09c2b9e5fa6919c6145a7f1e05ae4d8199087e2def1a5d19dfc4d3b44b636"
   end
 
-  depends_on "python@3.11" => [:build, :test]
-  depends_on "python@3.12" => [:build, :test]
-
-  def pythons
-    deps.map(&:to_formula).sort_by(&:version).filter { |f| f.name.start_with?("python@") }
-  end
+  depends_on "python@3.13"
 
   def install
-    pythons.each do |python|
-      python_exe = python.opt_libexec/"bin/python"
-      system python_exe, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
-    end
+    virtualenv_install_with_resources
 
     # Bash completions are not compatible with Bash 3 so don't use v1 directory.
     # Ref: https://kislyuk.github.io/argcomplete/#global-completion
@@ -35,11 +29,6 @@ class PythonArgcomplete < Formula
   end
 
   test do
-    pythons.each do |python|
-      python_exe = python.opt_libexec/"bin/python"
-      system python_exe, "-c", "import argcomplete"
-    end
-
     output = shell_output("#{bin}/register-python-argcomplete foo")
     assert_match "_python_argcomplete foo", output
   end
