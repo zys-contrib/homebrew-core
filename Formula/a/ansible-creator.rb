@@ -8,16 +8,17 @@ class AnsibleCreator < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7b8d5acfb6cefeeb91d13411ab463f5d3eebe5ce3104801aca3eb7bb69f434b0"
-    sha256 cellar: :any,                 arm64_sonoma:  "d90cac7771cd89850d1e5cd64374c0d27fb61848afa73da3d7b55f81222ebd54"
-    sha256 cellar: :any,                 arm64_ventura: "49b6e701949d7cdbaec5d830e6918e6356543e249fe958e5f7e7c4556bc1ebff"
-    sha256 cellar: :any,                 sonoma:        "b4d562e6e64481919b49383694ce2baef4d0281855cd4d8468281f0cf1609cb4"
-    sha256 cellar: :any,                 ventura:       "51e262bb390cc1dc406a903e2bd406b3b1edc0cd46d62d388d9298980faf6c8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a2cd0c175bdaa99240445377a727e67bd60085acb08c53eb54eef77c6833a3e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "3964bbb3a2d7d4523ae8543d0c572bfbbf191f80f587fe6641a9dc4c00cbe9bc"
+    sha256 cellar: :any,                 arm64_sonoma:  "d1a494ed63365018c4c15596137099876db0827764609a4de4c5194e1ffa24af"
+    sha256 cellar: :any,                 arm64_ventura: "b4c598b53bb161f50885b4c40307a064146b0518880b1121de79f3c8d89feae4"
+    sha256 cellar: :any,                 sonoma:        "875a7b4af9ac4a515e8d5d6e66fb7fbff68e5a50dfa9157759cbf7a2c3047e61"
+    sha256 cellar: :any,                 ventura:       "f6e8232d16c69bb7789e3c42f4a5de8da3257959dce297267635dde0fc89eeac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d36e6d5f21849c793652874b599098562548b130228ad84dea4944a91fa6e51"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "jinja2" do
     url "https://files.pythonhosted.org/packages/ed/55/39036716d19cab0747a5020fc7e907f362fbf48c984b14e62127f7e68e5d/jinja2-3.1.4.tar.gz"
