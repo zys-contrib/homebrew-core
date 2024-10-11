@@ -13,7 +13,7 @@ class PythonTabulate < Formula
     sha256 cellar: :any_skip_relocation, all: "301ef12bcda093517f342f155422ac944cf38a795940253ba4a9d9397a150c70"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources
