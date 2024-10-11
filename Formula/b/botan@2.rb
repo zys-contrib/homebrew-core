@@ -29,7 +29,7 @@ class BotanAT2 < Formula
   deprecate! date: "2024-12-31", because: :unsupported
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "sqlite"
 
   uses_from_macos "bzip2"
@@ -38,7 +38,7 @@ class BotanAT2 < Formula
   fails_with gcc: "5"
 
   def python3
-    which("python3.12")
+    which("python3.13")
   end
 
   def install
