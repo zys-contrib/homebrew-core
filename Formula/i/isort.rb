@@ -18,7 +18,7 @@ class Isort < Formula
     sha256 cellar: :any_skip_relocation, all: "a491e2da01cf99435dcf1357bf1cae158f6c57377a25ff3c4f0e3cfd60dcd189"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources
