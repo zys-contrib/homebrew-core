@@ -1,8 +1,8 @@
 class Czkawka < Formula
   desc "Duplicate file utility"
   homepage "https://github.com/qarmin/czkawka"
-  url "https://github.com/qarmin/czkawka/archive/refs/tags/7.0.0.tar.gz"
-  sha256 "ce7d072056dedc4f2ca4d3647dc786ba071d4f3c58e79415da18d7dafd62e87b"
+  url "https://github.com/qarmin/czkawka/archive/refs/tags/8.0.0.tar.gz"
+  sha256 "df67ca80b1307e8497afee057e139498ff5d80edc65e6c1f14b467bdf212033d"
   license all_of: ["MIT", "CC-BY-4.0"]
 
   bottle do
@@ -35,12 +35,6 @@ class Czkawka < Formula
     depends_on "gettext"
     depends_on "graphene"
     depends_on "harfbuzz"
-  end
-
-  # patch time crate to fix rust 1.80+ build failure, upstream pr ref, https://github.com/qarmin/czkawka/pull/1342
-  patch do
-    url "https://github.com/qarmin/czkawka/commit/a0be5f5af81fd5dfef985fb20edce995b810a761.patch?full_index=1"
-    sha256 "84ccf86840eda4ecabfcea710a45eac1bb9f0788fa4450ace8a89f49fcc0aa30"
   end
 
   def install
