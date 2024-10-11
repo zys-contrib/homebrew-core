@@ -12,7 +12,7 @@ class Mdformat < Formula
     sha256 cellar: :any_skip_relocation, all: "eff9cd2c34165bfde79d954fb451ba32750eee529bd9d2cf848ef5ac5c6e214d"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "markdown-it-py" do
     url "https://files.pythonhosted.org/packages/38/71/3b932df36c1a044d397a1f92d1cf91ee0a503d91e470cbd670aa66b07ed0/markdown-it-py-3.0.0.tar.gz"
