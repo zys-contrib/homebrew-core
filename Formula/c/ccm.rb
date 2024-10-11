@@ -10,14 +10,13 @@ class Ccm < Formula
   head "https://github.com/riptano/ccm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "39fba6eb56b8466e75887b23181ce6c3b71a9672150a3bb3d12bed1115226f4b"
-    sha256 cellar: :any,                 arm64_sonoma:   "110d0383fa279c58e5f9e39fa29744036500a00fdb35e748f9097c3b018651ae"
-    sha256 cellar: :any,                 arm64_ventura:  "6246dd963507a6c8f4608d9b480f9c7aa5cca92bd05d552276f3fba6dbaa967d"
-    sha256 cellar: :any,                 arm64_monterey: "792c4210dd416f413530b7c00fd4ef65593f711ff3bea8bda2f9c91fe1fa7b2a"
-    sha256 cellar: :any,                 sonoma:         "cb9d360a538366c88c86187ed553879039b41b109b3d0beae89d8d50fc8795da"
-    sha256 cellar: :any,                 ventura:        "61cc3aa4d48862826b32c3ef498b03013a41e01f1326e9f4352d5fea4aa0ab90"
-    sha256 cellar: :any,                 monterey:       "05db78bfe126a54fd81a08dd54ce4bbfd0576b73be3517f42484dbc1ccaab633"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2418b3718902e783e4dd3af477e4174e52f0d696d38824530df773a26ae76d2a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "e036ab0817d4b65085d1c2cb6c2edf0a9e55b6340b9bbe99d6f90abc16e36e1f"
+    sha256 cellar: :any,                 arm64_sonoma:  "33a2184cc7764d6ee186071d78e743b0c152cb0ac37ec5dcfe77ee3eae97ab01"
+    sha256 cellar: :any,                 arm64_ventura: "a8231ecd1b2f906259979cc35186be52000c4b7786dbb55c8c3cd13c52b5402a"
+    sha256 cellar: :any,                 sonoma:        "528a3299799df8daf15b07e0a0670df132ae046f0f52466defe58e968bc54a11"
+    sha256 cellar: :any,                 ventura:       "9912048114592dbd5fd7be13ab693bd12c6dabe896f2b953802c383c3483e7c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7cf8010b7799a42307a71b081fdb9afa505ecc13b7ad8fa4fb826f257eafc364"
   end
 
   depends_on "libyaml"
