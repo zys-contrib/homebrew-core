@@ -23,7 +23,7 @@ class Chapel < Formula
   depends_on "jemalloc"
   depends_on "llvm@18"
   depends_on "pkg-config"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   # LLVM is built with gcc11 and we will fail on linux with gcc version 5.xx
   fails_with gcc: "5"
@@ -32,10 +32,13 @@ class Chapel < Formula
     deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
   end
 
+  # update pyyaml to support py3.13 build, upstream pr ref, https://github.com/chapel-lang/chapel/pull/26079
+  patch :DATA
+
   def install
     # Always detect Python used as dependency rather than needing aliased Python formula
-    python = "python3.12"
-    # It should be noted that this will expand to: 'for cmd in python3.12 python3 python python2; do'
+    python = "python3.13"
+    # It should be noted that this will expand to: 'for cmd in python3.13 python3 python python2; do'
     # in our find-python.sh script.
     inreplace "util/config/find-python.sh", /^(for cmd in )(python3 )/, "\\1#{python} \\2"
     inreplace "third-party/chpl-venv/Makefile", "python3 -c ", "#{python} -c "
@@ -128,3 +131,15 @@ class Chapel < Formula
     system bin/"chplcheck", libexec/"examples/hello.chpl"
   end
 end
+
+__END__
+diff --git a/third-party/chpl-venv/test-requirements.txt b/third-party/chpl-venv/test-requirements.txt
+index a8f97300..2da4f7de 100644
+--- a/third-party/chpl-venv/test-requirements.txt
++++ b/third-party/chpl-venv/test-requirements.txt
+@@ -1,4 +1,4 @@
+-PyYAML==6.0.1
++PyYAML==6.0.2
+ filelock==3.12.2
+ argcomplete==3.1.2
+ setuptools==68.0.0
