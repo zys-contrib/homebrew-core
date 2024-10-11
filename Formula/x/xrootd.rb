@@ -20,7 +20,7 @@ class Xrootd < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
   depends_on "davix"
   depends_on "krb5"
   depends_on "openssl@3"
@@ -35,6 +35,10 @@ class Xrootd < Formula
     depends_on "util-linux" # for libuuid
   end
 
+  def python3
+    "python3.13"
+  end
+
   def install
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
@@ -44,7 +48,7 @@ class Xrootd < Formula
       -DENABLE_KRB5=ON
       -DENABLE_MACAROONS=OFF
       -DENABLE_PYTHON=ON
-      -DPython_EXECUTABLE=#{which("python3.12")}
+      -DPython_EXECUTABLE=#{which(python3)}
       -DENABLE_READLINE=ON
       -DENABLE_SCITOKENS=OFF
       -DENABLE_TESTS=OFF
@@ -64,7 +68,7 @@ class Xrootd < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/xrootd -v 2>&1")
 
-    system "python3.12", "-c", <<~EOS
+    system python3, "-c", <<~EOS
       import XRootD
       from XRootD import client
     EOS
