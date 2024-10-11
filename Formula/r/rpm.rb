@@ -69,8 +69,9 @@ class Rpm < Formula
     inreplace "python/CMakeLists.txt", "${Python3_SITEARCH}", prefix/Language::Python.site_packages(python3)
 
     # WITH_INTERNAL_OPENPGP and WITH_OPENSSL are deprecated
+    rpaths = [rpath, rpath(source: lib/"rpm")]
     args = %W[
-      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}
       -DCMAKE_INSTALL_SYSCONFDIR=#{etc}
       -DCMAKE_INSTALL_SHAREDSTATEDIR=#{var}/lib
       -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
