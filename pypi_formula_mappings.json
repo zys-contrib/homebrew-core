@@ -829,7 +829,9 @@
   },
   "trezor-agent": {
     "exclude_packages": ["certifi", "cryptography", "pillow"],
-    "extra_packages": ["ledger-agent", "keepkey-agent"]
+    "extra_packages": [
+      "dbus-fast", "ledger-agent", "pyobjc-core", "pyobjc-framework-CoreBluetooth", "pyobjc-framework-libdispatch"
+    ]
   },
   "trzsz": {
     "extra_packages": ["trzsz-iterm2"]
