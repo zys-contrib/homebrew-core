@@ -6,7 +6,7 @@ class Whistle < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "405b222bfb0369b7040dbf51d2a8000e4314893a8289772fd2d4c4b4d0d6bece"
+    sha256 cellar: :any_skip_relocation, all: "eb763c9d828fc857a6650904e57287609479c3c66934bee4b291bba3f778e86a"
   end
 
   depends_on "node"
