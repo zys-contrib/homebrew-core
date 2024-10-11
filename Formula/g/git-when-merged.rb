@@ -9,8 +9,8 @@ class GitWhenMerged < Formula
   head "https://github.com/mhagger/git-when-merged.git", branch: "master"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, all: "d05cb6ca5daad7749e441ed66ddde326f6da2c5b14f0cf2978af1a857b2df0b3"
+    rebuild 5
+    sha256 cellar: :any_skip_relocation, all: "8c5accfbda69a2a247dcfbd78b1122f6cd9456b24f4b19830dbb81441c95d6ee"
   end
 
   uses_from_macos "python"
