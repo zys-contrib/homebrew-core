@@ -19,14 +19,14 @@ class Autodiff < Formula
 
   depends_on "cmake" => :build
   depends_on "python-setuptools" => :build
-  depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
   depends_on "eigen"
   depends_on "pybind11"
 
   fails_with gcc: "5"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
