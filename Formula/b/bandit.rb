@@ -9,12 +9,13 @@ class Bandit < Formula
   head "https://github.com/PyCQA/bandit.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "085559f0c6f440c80613c31e69d969f8171076c31f48f961cc148dbea4b88303"
-    sha256 cellar: :any,                 arm64_sonoma:  "20862faae6e82c9a957a4ef215adae2e43d9a412775f1e32e339e2d1de29c082"
-    sha256 cellar: :any,                 arm64_ventura: "5f18e56f67e487f3ef1cc54b945d1d1b778387d39a9e7a7b659bc8585a50fc58"
-    sha256 cellar: :any,                 sonoma:        "0a235c60db092203094021e1d422bea7be65263ac236469f5497df8167585afc"
-    sha256 cellar: :any,                 ventura:       "25fe608aa208bb9ec711bca636037b62498c7acd4125dbb6d653e62236188f40"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7481c96d9953dffd2b1217d236aaeb777ede096762246efbdf8d23a761ae478"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "a773798dbfadc5fec12de44bf1b06d1a01df4eaa4223a0edcabc5fad80fb6ac5"
+    sha256 cellar: :any,                 arm64_sonoma:  "2954286ef2ceec08925a604763a86fe7e8a200a177eb7ca19a488ebc03b64155"
+    sha256 cellar: :any,                 arm64_ventura: "06c6654ab52bee3037373055ae8cc53c10b656099ab5e30b9202545318833d9a"
+    sha256 cellar: :any,                 sonoma:        "1b50299811ae6ff87887a87e48cd771fa4c1a5cfbfc63e2d300adcb5ffde5ed0"
+    sha256 cellar: :any,                 ventura:       "ae30f72cc3f66b78de593710e083c656d1d547406139dd8f6fb404482c8166fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9f26864e92086e87e571e601bd7993ed18f6d92897c48b4116091987233ec28"
   end
 
   depends_on "libyaml"
