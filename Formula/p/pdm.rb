@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package and dependency manager supporting the latest PEP standards"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/f4/9a/b7bbf626d17354f8d64d6a5f930e420d79f4e46cc293edddf7c1ff0672a0/pdm-2.19.1.tar.gz"
-  sha256 "7fe235a9cb27b7ec17b762dc85bc9ae71e0776e4b7a8b6f64203f24bb915aa2c"
+  url "https://files.pythonhosted.org/packages/17/e6/f1477c70257e565a73404371078b3952d8e320fbd2bf23fa05a004780004/pdm-2.19.2.tar.gz"
+  sha256 "efb39264569181d0375536ef81c556648f16b540d429a53715730490a2283567"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -102,8 +102,8 @@ class Pdm < Formula
   end
 
   resource "pbs-installer" do
-    url "https://files.pythonhosted.org/packages/20/44/6c67d7c874633f020acdd3b8d097e2a11643eea45d8cb4916f0f411661cf/pbs_installer-2024.10.8.tar.gz"
-    sha256 "9dbadd399d50f4f1d46df5ee4cfe1da2ba7bb70f16e7d82329df492befa738bc"
+    url "https://files.pythonhosted.org/packages/ef/83/35d8150c84a7b83bffcb130a4afef1424267d8a11b3bf54035030ce9811a/pbs_installer-2024.10.10.tar.gz"
+    sha256 "228bba8e78134c407ee6637da6a5a16479aaa702332bfb1b95d873fc00802305"
   end
 
   resource "platformdirs" do
