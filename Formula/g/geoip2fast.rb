@@ -19,7 +19,7 @@ class Geoip2fast < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd411f0f9b0e302f52a70d55360867f1cc77b5b04485d109f147bc3381de2b4f"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources
