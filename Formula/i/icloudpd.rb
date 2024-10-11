@@ -21,7 +21,7 @@ class Icloudpd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f35f0053a2ebc7829b0f4fc9b3cd6ed3040ed07979a9979f5f15d8e390f6bfe"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   on_macos do
     depends_on "gnu-sed" => :build
@@ -162,6 +162,9 @@ class Icloudpd < Formula
     sha256 "34f2371506b250df4d4f84bfe7b0921e4762525762bbd936614909fe25cd7306"
   end
 
+  # support python 3.13
+  patch :DATA
+
   def install
     ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if OS.mac?
     # https://github.com/icloud-photos-downloader/icloud_photos_downloader/issues/922#issuecomment-2252928501
@@ -177,3 +180,18 @@ class Icloudpd < Formula
     assert_match "Authenticating...", output
   end
 end
+
+__END__
+diff --git a/pyproject.toml b/pyproject.toml
+index 5e60ee9..fb85dac 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -10,7 +10,7 @@ version="1.23.4"
+ name = "icloudpd"
+ description = "icloudpd is a command-line tool to download photos and videos from iCloud."
+ readme = "README_PYPI.md"
+-requires-python = ">=3.8,<3.13"
++requires-python = ">=3.8,<3.14"
+ keywords = ["icloud", "photo"]
+ license = {file="LICENSE.md"}
+ authors=[
