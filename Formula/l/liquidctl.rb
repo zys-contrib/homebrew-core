@@ -6,7 +6,7 @@ class Liquidctl < Formula
   url "https://files.pythonhosted.org/packages/99/d9/15bfe9dc11f2910b7483693b0bab16a382e5ad16cee657ff8133b7cae56d/liquidctl-1.13.0.tar.gz"
   sha256 "ee17241689c0bf3de43cf4d97822e344f5b57513d16dd160e37fa0e389a158c7"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/liquidctl/liquidctl.git", branch: "main"
 
   bottle do
@@ -23,7 +23,7 @@ class Liquidctl < Formula
   depends_on "hidapi"
   depends_on "libusb"
   depends_on "pillow"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   on_linux do
     depends_on "i2c-tools"
