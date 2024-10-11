@@ -3,8 +3,8 @@ class CodecovCli < Formula
 
   desc "Codecov's command-line interface"
   homepage "https://cli.codecov.io/"
-  url "https://files.pythonhosted.org/packages/12/95/de52912654670293bd26d2bf7e52ff96ddccac0dc0af08f226cf97ef85d2/codecov-cli-0.7.5.tar.gz"
-  sha256 "c6992229a4d6212cbe1cd4021628a46c67f592582ed40716598810e08b48bc91"
+  url "https://files.pythonhosted.org/packages/20/d0/ee70dee2101a001a5c49ca524340fba89497dfe2dcf80e2b776dbd2d61de/codecov-cli-0.7.6.tar.gz"
+  sha256 "bb8f61d28afd146f14c55f023fa8fd2d3d90ebc1ad41fe157c12e4d135514e05"
   license "Apache-2.0"
   head "https://github.com/codecov/codecov-cli.git", branch: "main"
 
@@ -19,7 +19,7 @@ class CodecovCli < Formula
 
   depends_on "rust" => :build
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "anyio" do
     url "https://files.pythonhosted.org/packages/78/49/f3f17ec11c4a91fe79275c426658e509b07547f874b14c1a526d86a83fc8/anyio-4.6.0.tar.gz"
@@ -32,8 +32,8 @@ class CodecovCli < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
-    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
+    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
   end
 
   resource "click" do
@@ -102,8 +102,8 @@ class CodecovCli < Formula
   end
 
   resource "test-results-parser" do
-    url "https://files.pythonhosted.org/packages/fa/1f/35f5b23beb148c36285bfe9722adeaef976814670ebf9bd8129356a283c8/test_results_parser-0.1.0.tar.gz"
-    sha256 "0034281a4b406d7f072fc5ac1f5e44660e3c23bc92f2e7284862ee097f9626ee"
+    url "https://files.pythonhosted.org/packages/a6/4d/2df785a23ccec80f427a61e5dcb6ecde5884cdd57b964fafbfe90e40d741/test_results_parser-0.5.1.tar.gz"
+    sha256 "0da5124eee0783d49b27005ddcf94c708026fe8eb7435c8ce44edd5716cec0cf"
   end
 
   resource "tree-sitter" do
