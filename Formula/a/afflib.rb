@@ -27,7 +27,7 @@ class Afflib < Formula
   depends_on "pkg-config" => :build
 
   depends_on "openssl@3"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "readline"
 
   uses_from_macos "curl"
@@ -50,7 +50,7 @@ class Afflib < Formula
   end
 
   def python3
-    which("python3.12")
+    which("python3.13")
   end
 
   def install
