@@ -13,12 +13,13 @@ class C7n < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "84c3245d46829fb9ac6dab0ebcfe912d06086ceebb900dbe56c175b20af73389"
-    sha256 cellar: :any,                 arm64_sonoma:  "b45258878d2b2d89e7e7eedc6b548a957aa3e0530b73e934bf12f395c28386f0"
-    sha256 cellar: :any,                 arm64_ventura: "35c716ff3bd2f862b3ceaf5bedb246b3c1fb76404fd57b0c7982d2cdcdf49aa2"
-    sha256 cellar: :any,                 sonoma:        "1edc26cab6b179993e1bbf547f63d6dfa8117820d433be43628d0df315fa9da4"
-    sha256 cellar: :any,                 ventura:       "ac4430e4b639d9a28d8c1735d107eb426cfc1f6fe8bea058a0539fb086304208"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "70a5393f36f21cb30d1d4d0c45f0ed55e0010f3b3bd80acb7f1c2b17683760b7"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "538d7cf9648c0f9d391b850329b5df065f3ead33928b3529f30fb2cc2ba184c9"
+    sha256 cellar: :any,                 arm64_sonoma:  "64f0cc836d26e4599a0ce0522f282a8ebd8753aaed6c14084d5f50d023bc893b"
+    sha256 cellar: :any,                 arm64_ventura: "b4745840ae1127479188ef85cf39e97d7875275c8ace198c12680e112e3a266e"
+    sha256 cellar: :any,                 sonoma:        "3a5d26d4942d9d8352002aa31b0ac9b332a30e8e22f5a0e11b0259aaad0ee0d9"
+    sha256 cellar: :any,                 ventura:       "2c7290de80415d2c76b265567278b345be6511cce9d1d9586aafef5e0ae539e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6fe84746898951b882350a6ac63b596b0765ffad70e1fb3b45a9dd55058d700"
   end
 
   depends_on "rust" => :build # for rpds-py
