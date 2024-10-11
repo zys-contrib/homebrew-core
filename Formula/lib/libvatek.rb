@@ -1,8 +1,8 @@
 class Libvatek < Formula
   desc "User library to control VATek chips"
   homepage "https://github.com/VisionAdvanceTechnologyInc/vatek_sdk_2"
-  url "https://github.com/VisionAdvanceTechnologyInc/vatek_sdk_2/archive/refs/tags/v3.11.tar.gz"
-  sha256 "8d8cf457488ff8fde751f1cafd84fb4b987d4eb23d0ac61354c06391326e8582"
+  url "https://github.com/VisionAdvanceTechnologyInc/vatek_sdk_2/archive/refs/tags/v3.12.0.tar.gz"
+  sha256 "faca25847372c28cd2413aefa0603939f7cf27b3da63d44b2098d1dfc6ba447a"
   license "BSD-2-Clause"
   head "https://github.com/VisionAdvanceTechnologyInc/vatek_sdk_2.git", branch: "main"
 
@@ -35,7 +35,7 @@ class Libvatek < Formula
       int main()
       {
           hvatek_devices hdevices = NULL;
-          vatek_result devcount = vatek_device_list_enum(DEVICE_BUS_USB, service_transform, &hdevices);
+          vatek_result devcount = vatek_device_list_enum(DEVICE_BUS_USB, service_transform, &hdevices, 0);
           if (is_vatek_success(devcount)) {
               printf("passed\\n");
               return EXIT_SUCCESS;
