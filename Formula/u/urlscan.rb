@@ -18,7 +18,7 @@ class Urlscan < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "06c892249cdac2dd6e5aadd9295d1c8c9a2ca148265d4e4d7a32358d37531716"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "typing-extensions" do
     url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
