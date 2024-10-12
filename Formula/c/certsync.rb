@@ -8,14 +8,13 @@ class Certsync < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c768b2fb2cab12094b836ddf91a7b689b8879238613e64ba52ec71dfcf0932e4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4e449efd7db905192d0a274208f6ddade4bba7a7acae1a1388cadff2c6a566de"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d1ddab0214b4c8a0220d8d2f722adfb5974b80379ef3d4eb1fa15b775556822d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "03d38805f2fa130a042f0c14b851d3ed06bf01a14923e4a81ba8f5905454819d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7cb0244a9ef349d1c5454665d68a6232eecf44ac3d063f4b603bcbce2758f937"
-    sha256 cellar: :any_skip_relocation, ventura:        "00fe133ea21da00732ed1b218eb74f166d06e5c81b8c7d272b78e0b72f3cec04"
-    sha256 cellar: :any_skip_relocation, monterey:       "1c3cc43afe15ca37eceb2541942edb90beaea31f21995d1ba357110c607c1cb9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ce4336c0aec59d223b984eaa1174c1214d192b2c0c4861dea578e8bba76e3fe"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8d38c1280c4ffa266263cf6dea0afd81658364172868df8fb342242f9438547c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c0fa23ebc0fc9d92c3583dce167b6620c4560a2c86730debb0d4a69fae60a1d0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e294b4d99fd96c068963d13c0d66891f408c7e10df4a80a2027423338ce14e7f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a2224c46485fc6adec9af07d0170d04185ad3d9cc26a721b3fab445659041007"
+    sha256 cellar: :any_skip_relocation, ventura:       "9d797e826af6d62ae8218f879def10660e59c7edf7083829badcf730694225c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45804c56f0f9901374f4b4a545706524aa0d0966c003526eba836c4e3f26a169"
   end
 
   depends_on "certifi"
