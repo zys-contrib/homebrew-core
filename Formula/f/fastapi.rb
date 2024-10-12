@@ -19,7 +19,7 @@ class Fastapi < Formula
   depends_on "rust" => :build # for pydantic
   depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libffi"
   uses_from_macos "libxml2", since: :ventura
@@ -68,6 +68,9 @@ class Fastapi < Formula
   resource "httptools" do
     url "https://files.pythonhosted.org/packages/67/1d/d77686502fced061b3ead1c35a2d70f6b281b5f723c4eff7a2277c04e4a2/httptools-0.6.1.tar.gz"
     sha256 "c6e26c30455600b95d94b1b836085138e82f177351454ee841c148f93a9bad5a"
+
+    # relax cython version constraint, upstream pr ref, https://github.com/MagicStack/httptools/pull/101
+    patch :DATA
   end
 
   resource "httpx" do
@@ -166,8 +169,8 @@ class Fastapi < Formula
   end
 
   resource "uvloop" do
-    url "https://files.pythonhosted.org/packages/bc/f1/dc9577455e011ad43d9379e836ee73f40b4f99c02946849a44f7ae64835e/uvloop-0.20.0.tar.gz"
-    sha256 "4603ca714a754fc8d9b197e325db25b2ea045385e8a3ad05d3463de725fdf469"
+    url "https://files.pythonhosted.org/packages/cf/3d/a150e044b5bc69961168b024c531d21b63acd9948b7d681b03e551be01e1/uvloop-0.21.0b1.tar.gz"
+    sha256 "5e12901bd67c5ba374741fc497adc44de14854895c416cd0672b2e5b676ca23c"
   end
 
   resource "watchfiles" do
@@ -210,3 +213,62 @@ class Fastapi < Formula
     Process.wait(pid)
   end
 end
+
+__END__
+diff --git a/httptools/parser/parser.c b/httptools/parser/parser.c
+index 1b64e55..4a59122 100644
+--- a/httptools/parser/parser.c
++++ b/httptools/parser/parser.c
+@@ -9937,7 +9937,7 @@ static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *x) {
+                 unsigned char *bytes = (unsigned char *)&val;
+                 int ret = _PyLong_AsByteArray((PyLongObject *)v,
+                                               bytes, sizeof(val),
+-                                              is_little, !is_unsigned);
++                                              is_little, !is_unsigned, 0);
+                 Py_DECREF(v);
+                 if (likely(!ret))
+                     return val;
+@@ -10133,7 +10133,7 @@ static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *x) {
+                 unsigned char *bytes = (unsigned char *)&val;
+                 int ret = _PyLong_AsByteArray((PyLongObject *)v,
+                                               bytes, sizeof(val),
+-                                              is_little, !is_unsigned);
++                                              is_little, !is_unsigned, 0);
+                 Py_DECREF(v);
+                 if (likely(!ret))
+                     return val;
+diff --git a/httptools/parser/url_parser.c b/httptools/parser/url_parser.c
+index c9e646a..e9a5f01 100644
+--- a/httptools/parser/url_parser.c
++++ b/httptools/parser/url_parser.c
+@@ -5547,7 +5547,7 @@ static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *x) {
+                 unsigned char *bytes = (unsigned char *)&val;
+                 int ret = _PyLong_AsByteArray((PyLongObject *)v,
+                                               bytes, sizeof(val),
+-                                              is_little, !is_unsigned);
++                                              is_little, !is_unsigned, 0);
+                 Py_DECREF(v);
+                 if (likely(!ret))
+                     return val;
+@@ -5743,7 +5743,7 @@ static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *x) {
+                 unsigned char *bytes = (unsigned char *)&val;
+                 int ret = _PyLong_AsByteArray((PyLongObject *)v,
+                                               bytes, sizeof(val),
+-                                              is_little, !is_unsigned);
++                                              is_little, !is_unsigned, 0);
+                 Py_DECREF(v);
+                 if (likely(!ret))
+                     return val;
+diff --git a/setup.py b/setup.py
+index 200e6f6..adca1f8 100644
+--- a/setup.py
++++ b/setup.py
+@@ -15,7 +15,7 @@ CFLAGS = ['-O2']
+
+ ROOT = pathlib.Path(__file__).parent
+
+-CYTHON_DEPENDENCY = 'Cython(>=0.29.24,<0.30.0)'
++CYTHON_DEPENDENCY = 'Cython>=0.29.24'
+
+
+ class httptools_build_ext(build_ext):
