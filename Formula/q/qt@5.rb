@@ -18,14 +18,12 @@ class QtAT5 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "e14777cf7756c940e5a4c9ab10ee3d345fb5b02e3e75cc4c35b09c11a7715517"
-    sha256 cellar: :any,                 arm64_sonoma:   "3a497f2b6e427f72c52e52e979f655cea54e0d6eddffd1fbf3c4a25bb5eae101"
-    sha256 cellar: :any,                 arm64_ventura:  "a5098835cade678eb6d9193d393c3f7d0cbec5aa4f1833184fba56c13161a097"
-    sha256 cellar: :any,                 arm64_monterey: "02fff8012c9cba1d9a6e79bc500289c79fa1d64b345533b6e5ea5855d322875a"
-    sha256 cellar: :any,                 sonoma:         "5ab138b788d6fa1aeb7f5b1b3c041161efaeb6298771312628a4357fce0dc86f"
-    sha256 cellar: :any,                 ventura:        "2057642d6105bcf0d34c08dc1393be18e41ee36feb5aa48746f7a2d8c7920c28"
-    sha256 cellar: :any,                 monterey:       "f185f54474461f6d408f75a85afb25411b9a06409f2a29b97e3d2e069b7891c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "792f32f138188fca968478186b361ca74b95770afd8066ee19275616d65a6e00"
+    sha256 cellar: :any,                 arm64_sequoia: "d1afd63dc1e62e946c88c80e4192be654df4ac2fc11b82a0f71cd64c0f08fbfa"
+    sha256 cellar: :any,                 arm64_sonoma:  "a0cfeeacfefeb3c3158b03fd3b35e04bdc72d627148bb00c4bc8f196b4d2c360"
+    sha256 cellar: :any,                 arm64_ventura: "0acdf9040c7100ed5750d146191f51d055888f05cb25e57b6cd551d5c11017fc"
+    sha256 cellar: :any,                 sonoma:        "57fb8ee5275428ee49452441bac8e0145c7cb2a6e3247a6f782359b56470df31"
+    sha256 cellar: :any,                 ventura:       "37819927d329989f6b6e6b76e71ecce8f1731488a4b95356d98ff34d6a31fcb3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c8ac60dbe7163744f27d127a8d5e47f6074ab21e6412a156d5a6cf5b71bf7c3"
   end
 
   keg_only :versioned_formula
