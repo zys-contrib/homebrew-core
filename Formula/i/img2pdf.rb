@@ -21,7 +21,7 @@ class Img2pdf < Formula
   end
 
   depends_on "pillow"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "qpdf"
 
   uses_from_macos "libxml2", since: :ventura
@@ -33,18 +33,18 @@ class Img2pdf < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/2b/b4/bbccb250adbee490553b6a52712c46c20ea1ba533a643f1424b27ffc6845/lxml-5.1.0.tar.gz"
-    sha256 "3eea6ed6e6c918e468e693c41ef07f3c3acc310b70ddd9cc72d9ef84bc9564ca"
+    url "https://files.pythonhosted.org/packages/e7/6b/20c3a4b24751377aaa6307eb230b66701024012c29dd374999cc92983269/lxml-5.3.0.tar.gz"
+    sha256 "4e109ca30d1edec1ac60cdbe341905dc3b8f55b16855e03a54aaf59e51ec8c6f"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
-    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
+    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/f4/8a/23f62747cf7ea02cad56d82ca881c3aeba8a2beaf85c209017a18ab6865f/pikepdf-8.13.0.tar.gz"
-    sha256 "3bbd79c7cd6630361d83e75132aeaf3a64ceb837f82870bafdc210a31e3d917a"
+    url "https://files.pythonhosted.org/packages/20/73/8d6bc14a66ba0ff107603e6aa0e9cb8fb356e217204f86d9328ab2393c92/pikepdf-9.3.0.tar.gz"
+    sha256 "906d8afc1aa4f2f7409381a58e158207170f3aeba8ad2aec40072a648e8a2914"
   end
 
   resource "wrapt" do
