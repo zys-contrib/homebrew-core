@@ -19,11 +19,11 @@ class Dolphie < Formula
   depends_on "rust" => :build # for orjson
   depends_on "certifi"
   depends_on "cryptography"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
-    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
+    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
   end
 
   resource "cython" do
@@ -102,8 +102,8 @@ class Dolphie < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/92/76/40f084cb7db51c9d1fa29a7120717892aeda9a7711f6225692c957a93535/rich-13.8.1.tar.gz"
-    sha256 "8260cda28e3db6bf04d2d1ef4dbc03ba80a824c88b0e7668a0f23126a424844a"
+    url "https://files.pythonhosted.org/packages/aa/9e/1784d15b057b0075e5136445aaea92d23955aad2c93eaede673718a40d95/rich-13.9.2.tar.gz"
+    sha256 "51a2c62057461aaf7152b4d611168f93a9fc73068f8ded2790f29fe2b5366d0c"
   end
 
   resource "setuptools" do
@@ -112,13 +112,13 @@ class Dolphie < Formula
   end
 
   resource "sqlparse" do
-    url "https://files.pythonhosted.org/packages/73/82/dfa23ec2cbed08a801deab02fe7c904bfb00765256b155941d789a338c68/sqlparse-0.5.1.tar.gz"
-    sha256 "bb6b4df465655ef332548e24f08e205afc81b9ab86cb1c45657a7ff173a3a00e"
+    url "https://files.pythonhosted.org/packages/65/16/10f170ec641ed852611b6c9441b23d10b5702ab5288371feab3d36de2574/sqlparse-0.4.4.tar.gz"
+    sha256 "d446183e84b8349fa3061f0fe7f06ca94ba65b426946ffebe6e3e8295332420c"
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/2c/f0/b530868b21d68fd27a8a68f7511ef8573e0d63b359004c50da7b36b6c7b7/textual-0.81.0.tar.gz"
-    sha256 "b438f7e6bb143fdec379170ccc6709a32d273bd998e70179537109263de7c818"
+    url "https://files.pythonhosted.org/packages/35/30/2f51da751405bc0fbce8c8dfaf8ee7e9c4941ea28c5c868c2aebfc2748ba/textual-0.56.4.tar.gz"
+    sha256 "6f86ae5b4fd750bc48881c941e1a86f7a188c24a862122002e3ac38cd288ef47"
   end
 
   resource "textual-autocomplete" do
@@ -127,8 +127,8 @@ class Dolphie < Formula
   end
 
   resource "tree-sitter" do
-    url "https://files.pythonhosted.org/packages/61/87/8b37aebd12e386533fad099bcc33f9fff73fb2104b7ab79f91da57fee9e2/tree-sitter-0.23.0.tar.gz"
-    sha256 "4c0d186f262a6b186e155a327150064abbf02b5659f7bc580eb965374025f2c2"
+    url "https://files.pythonhosted.org/packages/01/23/e001538062ece748d7ab1fcfbcd9fa766d85f60f0d5ae014a7caf4f07c70/tree-sitter-0.23.1.tar.gz"
+    sha256 "28fe02aff6676b203cbe4213ca7116db0aaac08d6ca4c0b1f1af038991631838"
   end
 
   # sdist issue report, https://github.com/grantjenks/py-tree-sitter-languages/issues/63
