@@ -1,8 +1,8 @@
 class Pipet < Formula
   desc "Swiss-army tool for web scraping, made for hackers"
   homepage "https://github.com/bjesus/pipet"
-  url "https://github.com/bjesus/pipet/archive/refs/tags/0.2.2.tar.gz"
-  sha256 "66e93172ad9e6706044bac6e815053a85312896588de1306102e65aa40db7569"
+  url "https://github.com/bjesus/pipet/archive/refs/tags/0.3.0.tar.gz"
+  sha256 "9fb35bcc4be8b7655a4075c3b2bf7b0368ae7bb97e9e6dbbcf00422c8e18cc6b"
   license "MIT"
   head "https://github.com/bjesus/pipet.git", branch: "main"
 
