@@ -12,14 +12,13 @@ class Gyb < Formula
   head "https://github.com/GAM-team/got-your-back.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a8443c3586cbcae8d1959d6e9d01aec00c0da58635c1cc14e36eaecfade4cdd1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "03b5ae9c2a3847b4603482383e1cfeb47f2e059658fd22d7f89bb2e733e0dc0a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "060c7e428c304a44ade17ca56859b1db626e5ef5d4f0f88c578188408228b752"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c0c00a2ee902b12500c2e6c660cc1a7a931487c7110431be6dfc2172fd63420a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c3af99f148b9a8f44c99fbdc7850c2873dd270c3c1e77f80c643740bfa5ae823"
-    sha256 cellar: :any_skip_relocation, ventura:        "c96f04e786a126451a4f5ec6cbec028abd5718b98e70e352355aee3570963314"
-    sha256 cellar: :any_skip_relocation, monterey:       "7c0de0e76934230a96cfe505e6f287347a5d81ddcf20c467f7c68e0e0c1d448d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2580ef055f64912dbc9ff99b2d856509e96aa22445e2611cc37c84ff696081bf"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "13639e3e4d260b6ccd479c3df182713a84a572760e3ab024547191e2451d8269"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "634e92eab0fe3dcd78f78d4bb41afcdc7e59f9c41b0173a75e775865ad749e78"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d0576cedbd49932143f46d8c45403a1bab82673d2fe7c31f02c52fc803ee3afc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f4cb28399d355bd65cd510920d7dce4f8938520978a7fb7a01241554dbf6f901"
+    sha256 cellar: :any_skip_relocation, ventura:       "a57877c31dd762e0c1e6c0ebc58de904b9ecd22dad9c3ea7231b67e96fed1bc0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8278d5b011c57823852f6df9a866255be2e5b2230a7f33b5820ead35d46573a"
   end
 
   depends_on "certifi"
