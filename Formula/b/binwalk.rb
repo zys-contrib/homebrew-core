@@ -31,15 +31,12 @@ class Binwalk < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sequoia:  "dcfb7709dfa1a49209206833dcce7c158008c611c348c5a2a3e333640c5b4e40"
-    sha256 cellar: :any,                 arm64_sonoma:   "a9c16c0ea6712b324582b678a6bb0f89186229375b2167d35697c434a3fe831e"
-    sha256 cellar: :any,                 arm64_ventura:  "cbc1609002b6673a9609f3af058428e3e71f3d517c66878e2fd02d4bae4732e2"
-    sha256 cellar: :any,                 arm64_monterey: "f76c9432dbfbe81f8f9031c10bde58f2deb41fad4397e45c788a541a936cf7a1"
-    sha256 cellar: :any,                 sonoma:         "541c4dd02cc7f0455e49b54b83df80ff7aea921263d76a2b51afa3c13e3f6f98"
-    sha256 cellar: :any,                 ventura:        "de5c3ab5d6f3fc81a341aadd5e5ad1f9d9e139598f7e3ecda1aa316f26f889d3"
-    sha256 cellar: :any,                 monterey:       "c40d4df1e272b1d50970f969da0e1b889a8b7c70bf60406e12641217a068b481"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e23a0c1cfd5ccb70085fb00191d971b545c79d5dfc3aa2693b9a552665db0d5"
+    sha256 cellar: :any,                 arm64_sequoia: "506a9dc4f71c32dbbc776b51b0c14f89b328fda5bb1ca353378cd2e84433c348"
+    sha256 cellar: :any,                 arm64_sonoma:  "a4bffc734e4b661c4f9112d5a4e461eea14d54d2e5044c51cfdb3ce76958cd32"
+    sha256 cellar: :any,                 arm64_ventura: "7a12626b14bc214cdd517510500213e56c68638ef6aca7eff35f140b0277e570"
+    sha256 cellar: :any,                 sonoma:        "6026add10f56bdecc3f9889e8a62df72bf51532a747cae9c0a7c5efe564bff5d"
+    sha256 cellar: :any,                 ventura:       "8ab2298e03a976787dfaac014c668bd6732b298f80fe231191ebfa2fb4bcd58d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb092294fbef182e109d711d98ac69441ecc3cf9ed8d55a6e9f6a605e9eaad82"
   end
 
   head do
