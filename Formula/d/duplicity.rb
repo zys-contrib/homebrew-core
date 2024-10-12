@@ -25,6 +25,7 @@ class Duplicity < Formula
   depends_on "cryptography"
   depends_on "gnupg"
   depends_on "librsync"
+  depends_on "libsodium" # for pynacl
   depends_on "libyaml"
   depends_on "python@3.12"
 
@@ -556,6 +557,7 @@ class Duplicity < Formula
   end
 
   def install
+    ENV["SODIUM_INSTALL"] = "system"
     virtualenv_install_with_resources(link_manpages: true)
   end
 
