@@ -3,8 +3,8 @@ class Chatblade < Formula
 
   desc "CLI Swiss Army Knife for ChatGPT"
   homepage "https://github.com/npiv/chatblade"
-  url "https://files.pythonhosted.org/packages/7b/69/08b816a91867bc9895e7792cee6a5aa7dd826896340141093b0afdeb2c3d/chatblade-0.6.4.tar.gz"
-  sha256 "77c5dabd906e5acb88531ada0b65da58cead828d899ac3d9c33ca5f518f9c163"
+  url "https://files.pythonhosted.org/packages/ff/02/e7dfd50d98139472851d03d793c39aebe1364a960648312d252137b0ec25/chatblade-0.7.0.tar.gz"
+  sha256 "bfa5f96aa02b869df76e6f0910b0c2528c44de7b2f95ae08de7d192cb30c7892"
   license "GPL-3.0-only"
 
   bottle do
@@ -147,9 +147,6 @@ class Chatblade < Formula
     sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
   end
 
-  # patch to update tiktoken to 0.8.0 to fix py3.13 build, upstream pr ref, https://github.com/npiv/chatblade/pull/98
-  patch :DATA
-
   def install
     virtualenv_install_with_resources
   end
@@ -158,31 +155,3 @@ class Chatblade < Formula
     assert_match "gpt-3.5-turbo", shell_output("#{bin}/chatblade -t count tokens")
   end
 end
-
-__END__
-diff --git a/PKG-INFO b/PKG-INFO
-index f778e6c..00e5dad 100644
---- a/PKG-INFO
-+++ b/PKG-INFO
-@@ -9,7 +9,7 @@ Requires-Python: >=3.8
- Description-Content-Type: text/markdown
- License-File: LICENSE
- Requires-Dist: openai~=1.35.15
--Requires-Dist: tiktoken~=0.7.0
-+Requires-Dist: tiktoken~=0.8.0
- Requires-Dist: rich~=13.7.1
- Requires-Dist: PyYAML~=6.0.1
- Requires-Dist: platformdirs~=4.2.2
-diff --git a/setup.cfg b/setup.cfg
-index c411845..defb410 100644
---- a/setup.cfg
-+++ b/setup.cfg
-@@ -15,7 +15,7 @@ packages = chatblade
- python_requires = >=3.8
- install_requires = 
- 	openai~=1.35.15
--	tiktoken~=0.7.0
-+	tiktoken~=0.8.0
- 	rich~=13.7.1
- 	PyYAML~=6.0.1
- 	platformdirs~=4.2.2
