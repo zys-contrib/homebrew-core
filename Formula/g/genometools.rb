@@ -22,7 +22,7 @@ class Genometools < Formula
   depends_on "cairo"
   depends_on "glib"
   depends_on "pango"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   on_macos do
     depends_on "gettext"
@@ -32,7 +32,7 @@ class Genometools < Formula
   conflicts_with "libslax", because: "both install `bin/gt`"
 
   def python3
-    which("python3.12")
+    which("python3.13")
   end
 
   def install
