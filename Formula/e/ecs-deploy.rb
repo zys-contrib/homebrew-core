@@ -8,8 +8,8 @@ class EcsDeploy < Formula
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "0356659d777a416b9584d8f7160083fd9c7a58bdba82e8b9af8682c9b38b5f05"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "ae4fcc6123a4cd0df1b259bbab8622295aaff590e0f2e4f67a3719294398eea8"
   end
 
   depends_on "certifi"
