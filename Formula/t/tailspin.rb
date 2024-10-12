@@ -1,8 +1,8 @@
 class Tailspin < Formula
   desc "Log file highlighter"
   homepage "https://github.com/bensadeh/tailspin"
-  url "https://github.com/bensadeh/tailspin/archive/refs/tags/3.0.2.tar.gz"
-  sha256 "6a54127187fc894ca5c58d0f65108769c9c2ac022185f29b87818aaa4150ed0b"
+  url "https://github.com/bensadeh/tailspin/archive/refs/tags/4.0.0.tar.gz"
+  sha256 "f13ab53eb3bd59733d3fe53a6f03dd42be3801eef7456155f520139036ffb865"
   license "MIT"
   head "https://github.com/bensadeh/tailspin.git", branch: "main"
 
@@ -22,7 +22,7 @@ class Tailspin < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    generate_completions_from_executable(bin/"tspin", "--z-generate-shell-completions")
+    generate_completions_from_executable(bin/"tspin", "--hidden-generate-shell-completions")
     man1.install "man/tspin.1"
   end
 
