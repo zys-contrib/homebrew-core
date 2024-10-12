@@ -33,7 +33,7 @@ class CrosstoolNg < Formula
   depends_on "lzip"
   depends_on "m4"
   depends_on "ncurses"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "xz"
 
   uses_from_macos "flex" => :build
@@ -59,7 +59,7 @@ class CrosstoolNg < Formula
 
     ENV["BISON"] = Formula["bison"].opt_bin/"bison"
     ENV["M4"] = Formula["m4"].opt_bin/"m4"
-    ENV["PYTHON"] = Formula["python@3.12"].opt_bin/"python3.12"
+    ENV["PYTHON"] = Formula["python@3.13"].opt_bin/"python3.13"
 
     if OS.mac?
       ENV["MAKE"] = Formula["make"].opt_bin/"gmake"
