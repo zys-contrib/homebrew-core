@@ -9,8 +9,7 @@ class Pyupgrade < Formula
   head "https://github.com/asottile/pyupgrade.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "efec23c73abb53500496a90a7aa43c1dbb11a63829d3b3c6443bcadf36fc18c5"
+    sha256 cellar: :any_skip_relocation, all: "eb6eb332a5066d4563d2e694722da292f69fbecee34673e4ebdf4fb1ba4edb2f"
   end
 
   depends_on "python@3.13"
