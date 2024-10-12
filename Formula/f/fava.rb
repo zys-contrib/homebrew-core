@@ -19,7 +19,7 @@ class Fava < Formula
 
   depends_on "rust" => :build # for watchfiles
   depends_on "certifi"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
@@ -50,8 +50,8 @@ class Fava < Formula
   end
 
   resource "bottle" do
-    url "https://files.pythonhosted.org/packages/87/7e/eae463f832f64b3a1cb640384d155079e7dd2905116ab925e9bb04f66e75/bottle-0.13.1.tar.gz"
-    sha256 "a48852dc7a051353d3e4de3dd5590cd25de370bcfd94a72237561e314ceb0c88"
+    url "https://files.pythonhosted.org/packages/1b/fb/97839b95c2a2ea1ca91877a846988f90f4ca16ee42c0bb79e079171c0c06/bottle-0.13.2.tar.gz"
+    sha256 "e53803b9d298c7d343d00ba7d27b0059415f04b9f6f40b8d58b5bf914ba9d348"
   end
 
   resource "cachetools" do
