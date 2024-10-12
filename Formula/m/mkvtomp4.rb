@@ -23,7 +23,7 @@ class Mkvtomp4 < Formula
   depends_on "ffmpeg"
   depends_on "gpac"
   depends_on "mkvtoolnix"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources
