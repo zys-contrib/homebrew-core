@@ -8,12 +8,13 @@ class Localstack < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "03ac1e3728cb7956b17c5b9999e999d3d2d36fb38f8e25617100f6c2d6a2fc33"
-    sha256 cellar: :any,                 arm64_sonoma:  "6615dc0b5d10c770dc5655356d1ac3f4c53adf99fa965feea573e860c9ef737b"
-    sha256 cellar: :any,                 arm64_ventura: "18d82f9b18f2fe3b1ef4b3074689b590259699f727b2156ab7515700e22b5f3a"
-    sha256 cellar: :any,                 sonoma:        "cb4e7c283ac882da477896a160aa78ebe4d67eccf1bf0c8e7af44d2ab13d7b33"
-    sha256 cellar: :any,                 ventura:       "3f5ff23e224c2251002c9fb3279494e7db6b2a9f4892cd153338b657311602e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9bc317dc804d5b369db42b5313d185e3b1f8d2d1006f5951a0a7a7e45e4afc3"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "bc517a26a4a5fb8e09acc27effa02167af89e441f8dfec85b8c61bc6d4cf318b"
+    sha256 cellar: :any,                 arm64_sonoma:  "1f031b82eb322194a74303d822fa4c20ada057a0090b55ef970aa10f521d837a"
+    sha256 cellar: :any,                 arm64_ventura: "c024c5ab79b2e232ea6b57cbde639a8807aa0a3e2edd7f3e79aa029cfd9ac9d9"
+    sha256 cellar: :any,                 sonoma:        "5eb541a4c3ac373fa54500e97a864120c1e29a9db3d3f6eb38b04264dce54e68"
+    sha256 cellar: :any,                 ventura:       "9013ae1e5293743fed294f04aa147b452c0a762514c38e71085a02171a077fca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d06655740dd41db721a16b64646f180074d50b66ec100dc77b2d7973418b5d0"
   end
 
   depends_on "docker" => :test
