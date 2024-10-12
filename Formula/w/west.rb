@@ -10,14 +10,13 @@ class West < Formula
   head "https://github.com/zephyrproject-rtos/west.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "0ee9cb30a99d6400d595767032d2bab05268cd74e10e0b0a20177f9a3249fe1a"
-    sha256 cellar: :any,                 arm64_sonoma:   "2e4ff86ef37011283a87f21226a8da341348607d0771d91c46e1450837dc9a7c"
-    sha256 cellar: :any,                 arm64_ventura:  "6f29b5b06c9469e0fd98d303478ab9dff32d1e3692ad8c3b174f3c89c0fb6431"
-    sha256 cellar: :any,                 arm64_monterey: "3832e5f1e7fcf9415603ad62a3bf811baca14a68cb41563c519f3abfeea2d568"
-    sha256 cellar: :any,                 sonoma:         "10d1bf47c45d85e0d7081a4173b0bb04ebfe969da320de32f5972654d6b3a962"
-    sha256 cellar: :any,                 ventura:        "256901cc06869eab475a73b85b396a72142e67a62b7896c30640da7422979c80"
-    sha256 cellar: :any,                 monterey:       "e6657b24e2ee81805fe75db501c914c06d799368923db2bd6093ba1c8641755a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b72a89fa9810937008b3a9d5ec116920b5842c2619eaa4a52716ddf7ff7e4c1d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "6b3f240b88b78f77e73f5ee429a09890c5283f87720cdd7563cb9c5da2d3ee70"
+    sha256 cellar: :any,                 arm64_sonoma:  "c0059be82370c1d0efc8762854851d0b388b3bf6e44164bc61a6577ef79960c9"
+    sha256 cellar: :any,                 arm64_ventura: "cf0c7ce677590372444646a13e88bdd258eab9a1d99c05a45440c398ba2f3624"
+    sha256 cellar: :any,                 sonoma:        "019fc09588d7919d805d6dd13f5566d733870ebc735f8bcb272ae399079f244f"
+    sha256 cellar: :any,                 ventura:       "b4eb473b704152719f6bfb8b28f4a56cea988a9085a5e10d99ba2d40d6a6f1af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1fdd796e9673f53ec4b7cbc6d4d290926cf625c0562022c5b7b3a94f5b955f66"
   end
 
   depends_on "libyaml"
