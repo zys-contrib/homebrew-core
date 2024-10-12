@@ -22,7 +22,7 @@ class Certbot < Formula
   depends_on "certifi"
   depends_on "cryptography"
   depends_on "dialog"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libffi"
 
@@ -42,8 +42,8 @@ class Certbot < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
-    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
+    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
   end
 
   resource "configargparse" do
@@ -119,7 +119,7 @@ class Certbot < Formula
   def install
     if build.head?
       head_packages = %w[acme certbot certbot-apache certbot-nginx]
-      venv = virtualenv_create(libexec, "python3.12")
+      venv = virtualenv_create(libexec, "python3.13")
       venv.pip_install resources.reject { |r| head_packages.include? r.name }
       venv.pip_install_and_link head_packages.map { |pkg| buildpath/pkg }
       pkgshare.install buildpath/"certbot/examples"
