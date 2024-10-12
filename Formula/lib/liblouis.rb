@@ -26,17 +26,17 @@ class Liblouis < Formula
 
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "m4"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "check"
     system "make", "install"
