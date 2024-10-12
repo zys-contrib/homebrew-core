@@ -8,15 +8,13 @@ class Jrnl < Formula
   license "GPL-3.0-only"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a08a2a85b1e393e8c748565866e8e75e1a869ab42e24eeeaf37fa50aae7419a6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "85898cf630345e671ee5f961b9546bf65f6865671fec86262f2b895d6e02c596"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "13f50cda801c259d520ba8b672f524e1597b9a310b402d2414453ae0f77a0f86"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "25361f40c55aebb843e5179d2685601f5c7dc0472c7951ad46e6cfc2d25a5a70"
-    sha256 cellar: :any_skip_relocation, sonoma:         "01412bd6fc7eafdc070698511a392043a1cea98bc7d4f117b96397577cbea431"
-    sha256 cellar: :any_skip_relocation, ventura:        "d381fcac93c185be1a926a1141a90f5a6f4520bf7e2df6fcfe2c0920e6785e91"
-    sha256 cellar: :any_skip_relocation, monterey:       "c582677de9d0dd65992a9150de7ee366c34305a46d812e3cfa2ee923e4394b88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc36a6efe3bb34278cdcaea83dafb134a9180249776d76f695a98a5907888f3e"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "04af8ab0d3cd2c6ce7baf44831c9e32060b271275460a8a4e7a98df329df771c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "04af8ab0d3cd2c6ce7baf44831c9e32060b271275460a8a4e7a98df329df771c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "04af8ab0d3cd2c6ce7baf44831c9e32060b271275460a8a4e7a98df329df771c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cea703bd05a9a6c4e972cb76509b22a979b86394b90d4e2ee01d0c65e8536e80"
+    sha256 cellar: :any_skip_relocation, ventura:       "cea703bd05a9a6c4e972cb76509b22a979b86394b90d4e2ee01d0c65e8536e80"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ea78a59eccddcce6c488a24576cc29e82777dde5ae49d7ad0a6b40c6b10baa3"
   end
 
   depends_on "cryptography"
