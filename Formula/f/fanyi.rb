@@ -1,8 +1,8 @@
 class Fanyi < Formula
   desc "Chinese and English translate tool in your command-line"
   homepage "https://github.com/afc163/fanyi"
-  url "https://registry.npmjs.org/fanyi/-/fanyi-9.0.5.tgz"
-  sha256 "f81345910d2a98eabfd1d92793e085e81e70f315e0b474f47019f0a774cf5df5"
+  url "https://registry.npmjs.org/fanyi/-/fanyi-9.0.7.tgz"
+  sha256 "1350cd20a2b461ea1ed8acd955f8ef7097c6436c1bdffac0efe622dc70ad4586"
   license "MIT"
 
   bottle do
@@ -22,7 +22,7 @@ class Fanyi < Formula
   end
 
   test do
-    assert_match "参数错误，请申请key", shell_output("#{bin}/fanyi love 2>/dev/null")
+    assert_match "爱", shell_output("#{bin}/fanyi love 2>/dev/null")
     assert_match version.to_s, shell_output("#{bin}/fanyi --version")
   end
 end
