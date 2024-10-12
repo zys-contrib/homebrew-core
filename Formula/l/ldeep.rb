@@ -87,6 +87,9 @@ class Ldeep < Formula
     sha256 "e1020aef2e5096702d8a025ac7d16b1577279c9d63f8375b63083e9a5f0fcbad"
   end
 
+  # support py3.13 build
+  patch :DATA
+
   def install
     virtualenv_install_with_resources
   end
@@ -96,3 +99,18 @@ class Ldeep < Formula
     assert_match "[!] Unable to open connection with ldap://127.0.0.1:389", output
   end
 end
+
+__END__
+diff --git a/pyproject.toml b/pyproject.toml
+index c432644..9a5854d 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -19,7 +19,7 @@ dependencies = [
+     "termcolor >= 2.3.0, < 3",
+     "tqdm >= 4.26.0, < 5",
+ ]
+-requires-python = ">=3.8.1,<3.13"
++requires-python = ">=3.8.1,<3.14"
+ readme = "README.rst"
+ keywords = [
+     "pentesting security windows active-directory networks",
