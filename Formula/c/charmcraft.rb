@@ -8,13 +8,13 @@ class Charmcraft < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "052b51e0d536072a2995c86556afb176ca633a2aaba271a41b5bc75979149616"
-    sha256 cellar: :any,                 arm64_sonoma:  "bff95c642159c5018e61a6288be47e0b8c6c5bd0d84147dd5e0f33dc73443eb5"
-    sha256 cellar: :any,                 arm64_ventura: "9c372c2cdffe26cdf8ff5e7670282bc70be132d1c3142d191b7ee3598f066d77"
-    sha256 cellar: :any,                 sonoma:        "7b4b6da2e907b50cf041ce5ab37258597efc4ef06480bd194ed65e6e91195724"
-    sha256 cellar: :any,                 ventura:       "1a8a7b8582e5302404f7374c1e3dc0531b9db3ae7eb8912ebe4adc55be058024"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03c11d6155ccc62b9d2ef7eab3490e087ce176e3d4ef1022019e2446f24b299a"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia: "3c66acad7a17f0aa1e372f5e19df43560390277f28ea1680041fe1199d35a48e"
+    sha256 cellar: :any,                 arm64_sonoma:  "3f04dd53422e30465f01ddb82d1fbd1601b72fcc6570d6ea09a8e30c97d94625"
+    sha256 cellar: :any,                 arm64_ventura: "6a80374ba250fb1a30774a001932bed3fec34e7f35faaf6a174f7fb6a73ee16c"
+    sha256 cellar: :any,                 sonoma:        "043c59ffd5fb192479a0daa2fa56d4c554c071e7acc91206fad6049e5fbdd87d"
+    sha256 cellar: :any,                 ventura:       "152cfce948bdcdf8157c61951b2aaae313f1dcce19d05e45dff71ee35af9728b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a60c8668e9c12c4154950f84fc73bdd1a16b4b254775ef81a071d539115a4d3"
   end
 
   depends_on "rust" => :build
@@ -334,6 +334,7 @@ class Charmcraft < Formula
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
+    ENV["SODIUM_INSTALL"] = "system"
     ENV["SETUPTOOLS_SCM_PRETEND_VERSION_FOR_CHARMCRAFT"] = version
     virtualenv_install_with_resources
   end
