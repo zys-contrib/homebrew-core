@@ -9,14 +9,13 @@ class Cloudiscovery < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "39af9c9226b1c243584050b82916e01469fca154da540e8aa849f15cb6eb8d68"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "81d891341180b4dcb85a30cd7c0210a17263516b1ff712b7b4f8576b7e5b652d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7dfc0d0262812d711e53042fe71eee446d090d76160ce7a8fcc8f15bbc2a281f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "25ed7fbaf11794c40edb655c16a888ad36fb7120b22ffd4873e5f1f07e1b69b3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5acbddb988c65c1a7cd71960454a45a60018cdf78fe2a0e91f36e81abba4fa13"
-    sha256 cellar: :any_skip_relocation, ventura:        "fa87d3fc3b0f671b20324099d8c7b64272ffc5461d408d6264073eeda3130c2c"
-    sha256 cellar: :any_skip_relocation, monterey:       "52b4b49e323afbe22ad2bbabacd39a27591479decef14ce2d58c1638e131905f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c41b9b382bbc614120e6525094dc5b0958806e31f51d3c46e6aa2317dd8f791"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "166757c19b4069447bbb1a41e60be7e734d61f845cb0f951fe7410a099a87e57"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "064a3e7e97a886909f4fb368dcebef7707e3f8ecce081af90e096c01792fd6d1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9bf4aff37f693f03a1c5487cb10091b711d2da575107da81db51d5cafdce814b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "078273ecd102d192d38ded37f8f768467b592302c8b58b7b0d9e5097ee41e158"
+    sha256 cellar: :any_skip_relocation, ventura:       "3e3e859e0ad0cfcf0ce7fa5a0063304194345ecb6c47c03c560b35fddb02c41c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d88b7b392ea5615d256ec973cd48d482570d6a8b6d3fc2f703a72443c042fa3"
   end
 
   deprecate! date: "2024-10-11", because: :unmaintained
