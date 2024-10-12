@@ -24,7 +24,7 @@ class Lilv < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
   depends_on "libsndfile"
   depends_on "lv2"
   depends_on "serd"
@@ -33,7 +33,7 @@ class Lilv < Formula
   depends_on "zix"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
