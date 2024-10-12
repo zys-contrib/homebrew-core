@@ -22,7 +22,7 @@ class Ktoblzcheck < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "sqlite"
 
   uses_from_macos "curl"
@@ -33,12 +33,12 @@ class Ktoblzcheck < Formula
   end
 
   resource "openpyxl" do
-    url "https://files.pythonhosted.org/packages/42/e8/af028681d493814ca9c2ff8106fc62a4a32e4e0ae14602c2a98fc7b741c8/openpyxl-3.1.2.tar.gz"
-    sha256 "a6f5977418eff3b2d5500d54d9db50c8277a368436f4e4f8ddb1be3422870184"
+    url "https://files.pythonhosted.org/packages/3d/f9/88d94a75de065ea32619465d2f77b29a0469500e99012523b91cc4141cd1/openpyxl-3.1.5.tar.gz"
+    sha256 "cf0e3cf56142039133628b5acffe8ef0c12bc902d2aadd3e0fe5878dc08d1050"
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
