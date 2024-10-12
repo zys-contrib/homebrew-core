@@ -22,8 +22,9 @@ class SshMitm < Formula
 
   depends_on "rust" => :build # for bcrypt
   depends_on "cryptography"
+  depends_on "libsodium" # for pynacl
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "appimage" do
     url "https://files.pythonhosted.org/packages/58/30/625bf3d9cbb7b8736ea053b725bf72e55415cbe5ce4bf4c8971537fb5720/appimage-1.0.0.tar.gz"
@@ -31,8 +32,8 @@ class SshMitm < Formula
   end
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/75/33/a3d23a2e9ac78f9eaf1fce7490fee430d43ca7d42c65adabbb36a2b28ff6/argcomplete-3.5.0.tar.gz"
-    sha256 "4349400469dccfb7950bb60334a680c58d88699bff6159df61251878dc6bf74b"
+    url "https://files.pythonhosted.org/packages/5f/39/27605e133e7f4bb0c8e48c9a6b87101515e3446003e0442761f6a02ac35e/argcomplete-3.5.1.tar.gz"
+    sha256 "eb1ee355aa2557bd3d0145de7b06b2a45b0ce461e1e7813f5d066039ab4177b4"
   end
 
   resource "bcrypt" do
@@ -86,8 +87,8 @@ class SshMitm < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/90/26/9f1f00a5d021fff16dee3de13d43e5e978f3d58928e129c3a62cf7eb9738/pytz-2024.1.tar.gz"
-    sha256 "2a29735ea9c18baf14b448846bde5a48030ed267578472d8955cd0e7443a9812"
+    url "https://files.pythonhosted.org/packages/3a/31/3c70bf7603cc2dca0f19bdc53b4537a797747a58875b552c8c413d963a3f/pytz-2024.2.tar.gz"
+    sha256 "2aa355083c50a0f93fa581709deac0c9ad65cca8a9e9beac660adcbd493c798a"
   end
 
   resource "pyyaml" do
@@ -96,8 +97,8 @@ class SshMitm < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/b3/01/c954e134dc440ab5f96952fe52b4fdc64225530320a910473c1fe270d9aa/rich-13.7.1.tar.gz"
-    sha256 "9be308cb1fe2f1f57d67ce99e95af38a1e2bc71ad9813b0e247cf7ffbcc3a432"
+    url "https://files.pythonhosted.org/packages/aa/9e/1784d15b057b0075e5136445aaea92d23955aad2c93eaede673718a40d95/rich-13.9.2.tar.gz"
+    sha256 "51a2c62057461aaf7152b4d611168f93a9fc73068f8ded2790f29fe2b5366d0c"
   end
 
   resource "six" do
@@ -116,6 +117,7 @@ class SshMitm < Formula
   end
 
   def install
+    ENV["SODIUM_INSTALL"] = "system"
     virtualenv_install_with_resources
   end
 
