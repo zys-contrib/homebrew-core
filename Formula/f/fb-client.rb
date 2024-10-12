@@ -27,7 +27,7 @@ class FbClient < Formula
 
   depends_on "curl"
   depends_on "openssl@3"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   conflicts_with "spotbugs", because: "both install a `fb` binary"
 
@@ -51,7 +51,7 @@ class FbClient < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.12")
+    venv = virtualenv_create(libexec, "python3.13")
     venv.pip_install resources
 
     rw_info = python_shebang_rewrite_info(libexec/"bin/python")
