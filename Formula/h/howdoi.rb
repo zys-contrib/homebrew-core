@@ -9,15 +9,13 @@ class Howdoi < Formula
   revision 9
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e66a2520c467689f8cf04edce8715f6eff86583348e15e0ad009d0a68d2d4712"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2aba154864418a4c8c1c38c8a868f3e68148376fac6ed49292c975019cb0f12b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4aac1db10e831ea0980d1da458b721b7b96c6950710f1c16e6e2abcc1d29c5ec"
-    sha256 cellar: :any,                 arm64_monterey: "8da6c648eb6447c81c8bf5c6321b7744091eca31e6c7af3687ce1a42b02a50fa"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a6599bf83d1c11b5bf40126e1af5386f5b396ba8419e87bfbf1fc570780631d5"
-    sha256 cellar: :any_skip_relocation, ventura:        "d636094f9780dbdd6ff5ed66a4242aac0a4fa8d82b2a949e01a0bd13ec426a64"
-    sha256 cellar: :any,                 monterey:       "fad155e8b9ef5523d6fac103af068079861be1f97cf176139db097acff2ee031"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a4cac62a69c3f6531ba3e1cf534e6353a3b2b26f52d91cd1394d7f3cdb061bf"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia: "2674270159eb079ad93bb4c4abe680f4dd089976fe59109dd2156c9111fa600b"
+    sha256 cellar: :any,                 arm64_sonoma:  "4ff362e290742baad6e9d0484ea70aee147e397388d7a550d322ff215c361d25"
+    sha256 cellar: :any,                 arm64_ventura: "5c6417c2f0e5618fe13bcb79b032f2aad5ac5e564f5db7abc705487ab7bc7d77"
+    sha256 cellar: :any,                 sonoma:        "f48a8bd968b56195def07c3318ae53f095d446eb21dd187ea1d51d1c967558de"
+    sha256 cellar: :any,                 ventura:       "234f5431c62f46e47c90e8832be245d5e146a746d6a687bb83911fd0761bb065"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a77719b07db84dd967caa408e74ce85db345adeb14520c7ba83e8711140d89ff"
   end
 
   depends_on "certifi"
