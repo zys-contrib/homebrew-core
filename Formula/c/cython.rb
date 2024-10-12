@@ -22,10 +22,10 @@ class Cython < Formula
   EOS
 
   depends_on "python-setuptools" => [:build, :test]
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
