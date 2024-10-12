@@ -26,7 +26,7 @@ class Cahute < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => [:build, :test]
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "libusb"
   depends_on "sdl2"
 
@@ -35,8 +35,12 @@ class Cahute < Formula
     sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
   end
 
+  def python3
+    "python3.13"
+  end
+
   def install
-    venv = virtualenv_create(buildpath/"venv", "python3.12")
+    venv = virtualenv_create(buildpath/"venv", python3)
     venv.pip_install resources
 
     system "cmake", "-S", ".", "-B", "build", "-DPython3_EXECUTABLE=#{venv.root}/bin/python", *std_cmake_args
