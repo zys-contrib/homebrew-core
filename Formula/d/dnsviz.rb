@@ -23,7 +23,7 @@ class Dnsviz < Formula
   depends_on "cryptography"
   depends_on "graphviz"
   depends_on "openssl@3"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "dnspython" do
     url "https://files.pythonhosted.org/packages/37/7d/c871f55054e403fdfd6b8f65fd6d1c4e147ed100d3e9f9ba1fe695403939/dnspython-2.6.1.tar.gz"
@@ -31,8 +31,8 @@ class Dnsviz < Formula
   end
 
   resource "pygraphviz" do
-    url "https://files.pythonhosted.org/packages/8c/41/7b9a22df38bb7884012b34f2986d765691dbe41bf5e7af881dfd09f8145f/pygraphviz-1.13.tar.gz"
-    sha256 "6ad8aa2f26768830a5a1cfc8a14f022d13df170a8f6fdfd68fd1aa1267000964"
+    url "https://files.pythonhosted.org/packages/66/ca/823d5c74a73d6b8b08e1f5aea12468ef334f0732c65cbb18df2a7f285c87/pygraphviz-1.14.tar.gz"
+    sha256 "c10df02377f4e39b00ae17c862f4ee7e5767317f1c6b2dfd04cea6acc7fc2bea"
   end
 
   def install
