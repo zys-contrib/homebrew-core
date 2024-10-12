@@ -12,7 +12,7 @@ class MmCommon < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     system "meson", "setup", "build", *std_meson_args
