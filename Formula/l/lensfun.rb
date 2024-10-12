@@ -37,10 +37,14 @@ class Lensfun < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "libpng"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   on_macos do
     depends_on "gettext"
+  end
+
+  def python3
+    "python3.13"
   end
 
   def install
@@ -55,7 +59,7 @@ class Lensfun < Formula
     system "cmake", "--install", "build"
     rewrite_shebang detected_python_shebang, *bin.children
 
-    system "python3.12", "-m", "pip", "install", *std_pip_args(build_isolation: true), "./build/apps"
+    system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "./build/apps"
   end
 
   test do
