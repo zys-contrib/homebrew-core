@@ -23,11 +23,13 @@ class Fdroidserver < Formula
   end
 
   depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
   depends_on "pybind11" => :build
   depends_on "rust" => :build
   depends_on "certifi"
   depends_on "cryptography"
   depends_on "freetype"
+  depends_on "libsodium" # for pynacl
   depends_on "libyaml"
   depends_on "numpy"
   depends_on "pillow"
@@ -353,34 +355,39 @@ class Fdroidserver < Formula
     # has resolved: https://sourceforge.net/p/ruamel-yaml-clib/tickets/32/
     ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
 
-    # `matplotlib` needs extra inputs to use system libraries.
-    # Ref: https://github.com/matplotlib/matplotlib/blob/v3.8.3/doc/users/installing/dependencies.rst#use-system-libraries
-    # TODO: Update build to use `--config-settings=setup-args=...` when `matplotlib` switches to `meson-python`.
-    ENV["MPLSETUPCFG"] = buildpath/"mplsetup.cfg"
-    (buildpath/"mplsetup.cfg").write <<~EOS
-      [libs]
-      system_freetype = true
-      system_qhull = true
-    EOS
+    ENV["SODIUM_INSTALL"] = "system"
+    venv = virtualenv_install_with_resources without: "matplotlib"
 
-    virtualenv_install_with_resources
+    # `matplotlib` needs extra inputs to use system libraries.
+    # Ref: https://github.com/matplotlib/matplotlib/blob/v3.9.2/doc/install/dependencies.rst#use-system-libraries
+    resource("matplotlib").stage do
+      python = venv.root/"bin/python"
+      system python, "-m", "pip", "install", "--config-settings=setup-args=-Dsystem-freetype=true",
+                                             "--config-settings=setup-args=-Dsystem-qhull=true",
+                                             *std_pip_args(prefix: false, build_isolation: true), "."
+    end
 
     bash_completion.install "completion/bash-completion" => "fdroid"
     doc.install "examples"
   end
 
   def caveats
-    <<~EOS
+    s = <<~EOS
       For complete functionality, fdroidserver requires that the
       Android SDK's "build-tools" and "platform-tools" are installed,
       and those require a Java JDK.  Also, it is best if the base path
-      of the Android SDK is set in the standard environment variable
-      ANDROID_HOME.  To do this all from the command line, run:
-
-        brew install --cask android-commandlinetools temurin
-        export ANDROID_HOME=#{share}/android-commandlinetools
-        $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platform-tools" "build-tools;34.0.0"
+      of the Android SDK is set in the environment variable ANDROID_HOME.
     EOS
+    on_macos do
+      s += <<~EOS
+        To do this all from the command line, run:
+
+          brew install --cask android-commandlinetools temurin
+          export ANDROID_HOME=#{share}/android-commandlinetools
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platform-tools" "build-tools;34.0.0"
+      EOS
+    end
+    s
   end
 
   test do
