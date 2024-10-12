@@ -23,7 +23,7 @@ class LinkGrammar < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "swig" => :build
 
   uses_from_macos "flex" => :build
@@ -42,7 +42,7 @@ class LinkGrammar < Formula
 
     # Work around error due to install using detected path inside Python formula.
     # install: .../site-packages/linkgrammar.pth: Operation not permitted
-    site_packages = prefix/Language::Python.site_packages("python3.12")
+    site_packages = prefix/Language::Python.site_packages("python3.13")
     system "make", "install", "pythondir=#{site_packages}",
                               "pyexecdir=#{site_packages}"
   end
