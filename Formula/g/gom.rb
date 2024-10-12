@@ -22,15 +22,14 @@ class Gom < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "gdk-pixbuf"
   depends_on "gettext"
   depends_on "glib"
-
-  uses_from_macos "sqlite"
+  depends_on "sqlite" # indirect dependency via glib
 
   def install
-    site_packages = prefix/Language::Python.site_packages("python3.12")
+    site_packages = prefix/Language::Python.site_packages("python3.13")
 
     system "meson", "setup", "build", "-Dpygobject-override-dir=#{site_packages}", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
