@@ -29,7 +29,7 @@ class Halide < Formula
   depends_on "libpng"
   depends_on "lld"
   depends_on "llvm"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   fails_with :gcc do
     version "6"
@@ -46,7 +46,7 @@ class Halide < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
