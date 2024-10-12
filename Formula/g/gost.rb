@@ -7,15 +7,12 @@ class Gost < Formula
   head "https://github.com/ginuerzh/gost.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a43b59645171e6045806d8f492cd8c9fb6566785478cbb43c036308b08a50514"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a27e7e6720095678916b47236b60ba280773f57d3168450c73a81b8857c8815c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a27e7e6720095678916b47236b60ba280773f57d3168450c73a81b8857c8815c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a27e7e6720095678916b47236b60ba280773f57d3168450c73a81b8857c8815c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d7a3db5ee313e576ab5b8ec6b3353153e0161c33396ed8355a49a094908fd5e1"
-    sha256 cellar: :any_skip_relocation, ventura:        "d7a3db5ee313e576ab5b8ec6b3353153e0161c33396ed8355a49a094908fd5e1"
-    sha256 cellar: :any_skip_relocation, monterey:       "d7a3db5ee313e576ab5b8ec6b3353153e0161c33396ed8355a49a094908fd5e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ccbbcfddd4e05137303c86f5d25bbbf8ecccd093a72c6af80cd79b800bdf5d4b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "57e454b905ac17f21519f34ed868db709413efb45f53fe37edeb9bd0e9da0259"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "86b48c89f4ea3d4edaaa3cec855981de9ac0fc36cc82f50b166bf6bf688c8997"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "189a833087438d49b52688387ab96ff43aa9728337fc24c236e007691dae1eb4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e9f65b51d764ccac83750b55a03bb3895cd0c2e32a2e57697fa3323a12499c67"
+    sha256 cellar: :any_skip_relocation, ventura:       "4c956460f08c30254b98a089e1ee60a62ca5721f2525638ed16af81c46e28a8e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de78cc69979d46baeb0727157ea88dc6b6f3c263258e2d99c32040c5a9abd28c"
   end
 
   depends_on "go@1.22" => :build
