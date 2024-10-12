@@ -27,9 +27,10 @@ class AnsibleAT9 < Formula
   depends_on "rust" => :build
   depends_on "certifi"
   depends_on "cryptography"
+  depends_on "libsodium" # for pynacl
   depends_on "libssh"
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.12" # must be 3.10-3.12
 
   uses_from_macos "krb5"
   uses_from_macos "libxml2", since: :ventura
@@ -533,15 +534,10 @@ class AnsibleAT9 < Formula
     sha256 "627ad26769b6831130239182afcb195f64fbf494626bc9eb4b2ac8170de5b775"
   end
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    venv = virtualenv_create(libexec, python3)
-    venv.pip_install resources.reject { |r| r.name == "ansible-core" }
+    ENV["SODIUM_INSTALL"] = "system"
+    venv = virtualenv_install_with_resources without: "ansible-core"
     venv.pip_install_and_link resource("ansible-core")
-    venv.pip_install_and_link buildpath
   end
 
   test do
@@ -554,6 +550,7 @@ class AnsibleAT9 < Formula
         - name: ping
           ping:
     EOS
+    python3 = "python#{Language::Python.major_minor_version libexec/"bin/python"}"
     (testpath/"hosts.ini").write [
       "localhost ansible_connection=local",
       " ansible_python_interpreter=#{which(python3)}",
