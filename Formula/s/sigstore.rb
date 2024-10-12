@@ -8,12 +8,12 @@ class Sigstore < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cbbbcb1ef5f01446ffa6270f3f139c5c448fa5512728402e26cde6010b962fc4"
-    sha256 cellar: :any,                 arm64_sonoma:  "5974d3fcaaa7492473663cdf81541dac981ce6d72ea60d9648489633b2917399"
-    sha256 cellar: :any,                 arm64_ventura: "63c51fee0cc03668389a86e1ab764b16eeed192fae8edbbc6c8892aa3f63bde9"
-    sha256 cellar: :any,                 sonoma:        "abc91178ac640e30db53387ed9495a36d45e7d75fd7d24587defa28655161be6"
-    sha256 cellar: :any,                 ventura:       "34b7afb5d5f910479442cf9400b65d83c251678aadb4617e6e28d36d24f8d041"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fdc6b05274b619e012d39cf4eec3bc2c0575ad968233d7aa3844543b942e37dc"
+    sha256 cellar: :any,                 arm64_sequoia: "946e96433da49ae7a0d972ad3d9975a904e2edb83e6a3950957ee9aaa35ed657"
+    sha256 cellar: :any,                 arm64_sonoma:  "7d1a2b7d2b511d0710e13873b13b3e7bb38dbe07d634ae46bef84e89894450a5"
+    sha256 cellar: :any,                 arm64_ventura: "68778993a94b5d46ce4c57f8eace7f4b72c4cad22934d9510340f3e5918f38f9"
+    sha256 cellar: :any,                 sonoma:        "1e3fea38d65593ed938646b49887705336731068f3c9eac9cd2f3fdb691d52c4"
+    sha256 cellar: :any,                 ventura:       "97fa056ae9eb228d01d5a333bb283d26e57528db219033f3c719069f5eea6c0b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab37ca35914357d779013e203a6006503ef68bb6c77a75ae3388535f54691682"
   end
 
   depends_on "rust" => :build
