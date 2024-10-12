@@ -8,12 +8,13 @@ class Eralchemy < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d452d498ff2c9ad70a113315111586eb97087ad72efabc9f11d1d1a02387ceca"
-    sha256 cellar: :any,                 arm64_sonoma:  "e055bcdd47c8969f7cfcfa2a91f98790e67be7ec5988a6c30d2c5594ac6b2f79"
-    sha256 cellar: :any,                 arm64_ventura: "f72636b38733fa8a0e7fa45321e3b7d0b5632932be0d5c4874e8285ade43bcf4"
-    sha256 cellar: :any,                 sonoma:        "8141288b90a807f7fa65b45264525b3d3431bdbb977b61e22e8eb00cd43aaa46"
-    sha256 cellar: :any,                 ventura:       "27eeaec09061fe0ac139c6abd239a8c876b35a8d3cb542d9efc9e18c17f636f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33e02d317b404340e438a30ad0845114e11976856db134e76ff4ac7fcf6a99b0"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "92ec126756fb9a9a3b483d2a5c7ea2487e07c16ca357f5d386f1c206a761c2b3"
+    sha256 cellar: :any,                 arm64_sonoma:  "6fbb9351b85cbb0f7a3b3416201820a4f39dffb0f7d07e9585c185c48fd16673"
+    sha256 cellar: :any,                 arm64_ventura: "30f822ebe671d6ca630435f0a5a91bf561edaa26fa650c69047991ba19b56257"
+    sha256 cellar: :any,                 sonoma:        "ef8c1526f85a9c1ffbf2b4ad0fc02e8979fb149873761feba5dd3b0232e9bc8b"
+    sha256 cellar: :any,                 ventura:       "1991afedef5dc1bfcb529e2c6c38c47734f83a5b6585bb5424eb7a3f994fa879"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed03f3df61c850f93cbb16b1f06c25cd586c92164594e49803bc69565cc2e432"
   end
 
   depends_on "pkg-config" => :build
