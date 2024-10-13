@@ -17,7 +17,7 @@ class YouGet < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "919d3f808e317229b5e32a4eecb1ec539388287d56fd177fe36900c74a9b3dab"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "rtmpdump"
 
   resource "dukpy" do
@@ -28,6 +28,12 @@ class YouGet < Formula
   resource "mutf8" do
     url "https://files.pythonhosted.org/packages/ca/31/3c57313757b3a47dcf32d2a9bad55d913b797efc8814db31bed8a7142396/mutf8-1.0.6.tar.gz"
     sha256 "1bbbefb67c2e5a57104750bb04b0912200b57b2fa9841be245279e83859cb346"
+  end
+
+  # Fix for compatibility with YouTube html change
+  patch do
+    url "https://github.com/soimort/you-get/commit/1c9c0f3ed1b8466239fa8656523658ccce8bb489.patch?full_index=1"
+    sha256 "3f00c40cde45e2e05a0a2704781e6618667fe71227dd6c42edd6ff8eb5a81e3a"
   end
 
   def install
