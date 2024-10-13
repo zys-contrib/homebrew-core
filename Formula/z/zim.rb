@@ -9,14 +9,12 @@ class Zim < Formula
   head "https://github.com/zim-desktop-wiki/zim-desktop-wiki.git", branch: "master"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "201282b70e7324e1a7c21306827b3591dfb99f91f1ae941b9b1f1c3f7fa04e43"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "201282b70e7324e1a7c21306827b3591dfb99f91f1ae941b9b1f1c3f7fa04e43"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "201282b70e7324e1a7c21306827b3591dfb99f91f1ae941b9b1f1c3f7fa04e43"
-    sha256 cellar: :any_skip_relocation, sonoma:         "201282b70e7324e1a7c21306827b3591dfb99f91f1ae941b9b1f1c3f7fa04e43"
-    sha256 cellar: :any_skip_relocation, ventura:        "201282b70e7324e1a7c21306827b3591dfb99f91f1ae941b9b1f1c3f7fa04e43"
-    sha256 cellar: :any_skip_relocation, monterey:       "201282b70e7324e1a7c21306827b3591dfb99f91f1ae941b9b1f1c3f7fa04e43"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "40b97490f127ba70d47cf4d8f841259fa4b432ef74e7d83038a46adbb2624d81"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b7de8af4f17bfe1037320ec5f244d48ebcc19f27ca170113ad00e9d2c485f761"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b7de8af4f17bfe1037320ec5f244d48ebcc19f27ca170113ad00e9d2c485f761"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b7de8af4f17bfe1037320ec5f244d48ebcc19f27ca170113ad00e9d2c485f761"
+    sha256 cellar: :any_skip_relocation, ventura:       "b7de8af4f17bfe1037320ec5f244d48ebcc19f27ca170113ad00e9d2c485f761"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e2bf98837d14211336ff07437d707f5e6418f18f9cd0209661a765c7e548ed9"
   end
 
   depends_on "pkg-config" => :build
