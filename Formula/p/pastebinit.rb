@@ -7,8 +7,8 @@ class Pastebinit < Formula
   revision 4
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, all: "c8160273c63f656d4ad09717218f9151ce663d252170a7349bd96e39c6be1921"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, all: "01413047be89a3e516a5a8e4668488ae73c1b30e90d98ed6e4c47d43e4672a46"
   end
 
   depends_on "docbook2x" => :build
