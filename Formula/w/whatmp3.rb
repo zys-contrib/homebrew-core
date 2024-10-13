@@ -17,12 +17,13 @@ class Whatmp3 < Formula
   depends_on "flac"
   depends_on "lame"
   depends_on "mktorrent"
-  depends_on "python@3.12"
+
+  uses_from_macos "python"
 
   def install
     system "make", "PREFIX=#{prefix}", "install"
 
-    rewrite_shebang detected_python_shebang, bin/"whatmp3"
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), bin/"whatmp3"
   end
 
   test do
