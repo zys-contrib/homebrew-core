@@ -10,14 +10,8 @@ class Gitup < Formula
   head "https://github.com/earwig/git-repo-updater.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "77af0a14f0a0c1d9cff9c2de073e94fc06328742585ae0297350e214c6935ec1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7a88770e34cb5a852d95297a92f3966c5b3ec3d6237ea6e498c60b1411e3429d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "27bf16a99715cd1d167af20e6715e7c821aa9fa8bde4b8a35604cfa1f4771c7a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "096beddc28f77bbe5aa4f25b5b33e1bf3443df0125cf654fba8e2613ab1c8775"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8e6c819571c505332d017775a3c675485aa456664b081fe4c0fa1c9a6d57e164"
-    sha256 cellar: :any_skip_relocation, ventura:        "dc5c97525039a322eb288b64af9aeb771542cff851a372340f27a42643d7e1d1"
-    sha256 cellar: :any_skip_relocation, monterey:       "54ca910089da86e063058e96dbf40157bae2b827229e1c563606e4877c0be0c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "beb3f1f764b37c832db8ae81b7fef9396416bcea933d603bf3a2dbaad78cab2c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "e1d094ec14134e880e5058a182f7788d0f46c06c7976226e16ac48709d5a3061"
   end
 
   depends_on "python@3.13"
