@@ -4,6 +4,7 @@ class Byobu < Formula
   url "https://github.com/dustinkirkland/byobu/archive/refs/tags/6.12.tar.gz"
   sha256 "abb000331858609dfda9214115705506249f69237625633c80487abe2093dd45"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url :stable
