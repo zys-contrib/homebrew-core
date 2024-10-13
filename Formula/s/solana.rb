@@ -36,16 +36,17 @@ class Solana < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "890c16d789fd565c7b869cc0cab9ad7b18b12f279f99a2c8fdb14a2ded4e6499"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "protobuf" => :build
   depends_on "rust" => :build
 
   depends_on "openssl@3"
 
   uses_from_macos "llvm" => :build # for libclang
+  uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "pkg-config" => :build
     depends_on "systemd"
   end
 
