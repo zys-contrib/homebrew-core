@@ -9,8 +9,7 @@ class HgFastExport < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "6a644292119def3bf821f4426f610d0c489caa77dc269a0d2160c642c3c22347"
+    sha256 cellar: :any_skip_relocation, all: "3317445f1426df1a1ab11123b3e7bc65e024def9e20f3a6ae6c2f584f6528ec7"
   end
 
   depends_on "mercurial"
