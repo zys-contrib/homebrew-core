@@ -19,7 +19,7 @@ class Rsyncy < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "28e6798a85fda4efc7059b6085c3b52eff43963f1a34c500a854922a9162a8b7"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "rsync"
 
   uses_from_macos "zlib"
