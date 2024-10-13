@@ -8,12 +8,13 @@ class Sail < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5670384079408ece28272167db16e7f026bda89f8c27fba44af4ef3bc285c9bc"
-    sha256 cellar: :any,                 arm64_sonoma:  "cf2d4e87a3514e5a7b74826f6f09335340aa1c1bb2f4dbcead5d104c87fc86e9"
-    sha256 cellar: :any,                 arm64_ventura: "4ece6d4768ad98496261d0896436595cb6601fc4a2eeb87766cda1dad1c5a304"
-    sha256 cellar: :any,                 sonoma:        "8fd3657e5f6aa3bb22fe6853f405a9e2222bf6bc9da2bf6a7545d44ef85c7d64"
-    sha256 cellar: :any,                 ventura:       "7aa7f409f8367353cbe26e15511ea7d9018cec710638da1f3af87980ef3f41d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22eb432172b6a95c7f61362828bc70643a8962fe16e88f999c2913fdb901220a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "c5230d1ee95b761262cf4e61f0d0d986ba104b723b946bee99434298e0f45d1b"
+    sha256 cellar: :any,                 arm64_sonoma:  "60d1aaebe283bf61354372824082c570505b1445f293f49165010be6bf6d9555"
+    sha256 cellar: :any,                 arm64_ventura: "fae5bfa89044192fc9e2125ed0eff5b342f051c13161226593f9274a1b8fa4ff"
+    sha256 cellar: :any,                 sonoma:        "c1c2bb13b7b5a91134fd13438c51fad2ea9614b0b0f3507ea20bb604f9fa07db"
+    sha256 cellar: :any,                 ventura:       "dfb6bdfbde42ca87dcf65f0f243564002e1aa933102ceb0965ca0884e3ebb1e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c01e5309c1ef1a0968403f685b36e07f1e2df0c7f482f8e6bdccece60a879b1"
   end
 
   depends_on "rust" => :build
