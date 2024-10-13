@@ -24,7 +24,7 @@ class Omniorb < Formula
 
   depends_on "pkg-config" => :build
   depends_on "openssl@3"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   uses_from_macos "zlib"
 
   resource "bindings" do
@@ -35,7 +35,7 @@ class Omniorb < Formula
   def install
     odie "bindings resource needs to be updated" if version != resource("bindings").version
 
-    ENV["PYTHON"] = python3 = which("python3.12")
+    ENV["PYTHON"] = python3 = which("python3.13")
     xy = Language::Python.major_minor_version python3
     inreplace "configure",
               /am_cv_python_version=`.*`/,
