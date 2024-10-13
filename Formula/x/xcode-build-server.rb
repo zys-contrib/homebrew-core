@@ -9,7 +9,8 @@ class XcodeBuildServer < Formula
   head "https://github.com/SolaWing/xcode-build-server.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6f5db53f5f0fc9ea907e34bcc79f678ed6bfd368e3d5a6e73d48d4b0c992d388"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "fccb7dc23c0cffc541fceaf0583e7d305e35551a340315cd067a7cb0723a07d3"
   end
 
   depends_on "gzip"
