@@ -9,14 +9,8 @@ class Goolabs < Formula
   revision 11
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ffa9c0529f955c90cdf6bd85bf6ec063c32d4fef4a2831aed8066befc8b3d5fa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "63fb20d53164787ee38defd2ace657c8de60fdcf64592dbc1151c8365e1c86e3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "63fb20d53164787ee38defd2ace657c8de60fdcf64592dbc1151c8365e1c86e3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "63fb20d53164787ee38defd2ace657c8de60fdcf64592dbc1151c8365e1c86e3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5048dab7b92e55cf2e2040dc5e7d20ad77ef63b963735dc3884fbb38a264a1d9"
-    sha256 cellar: :any_skip_relocation, ventura:        "5048dab7b92e55cf2e2040dc5e7d20ad77ef63b963735dc3884fbb38a264a1d9"
-    sha256 cellar: :any_skip_relocation, monterey:       "63fb20d53164787ee38defd2ace657c8de60fdcf64592dbc1151c8365e1c86e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1449b7843cc3d02ccbd29d0f0ff32fecb05958db36ab19a7bf7142bb59276f9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "be2dffb05d0feda8501460c8d7e496478da42dedda3bf560964661e1e5b8e7dd"
   end
 
   depends_on "certifi"
