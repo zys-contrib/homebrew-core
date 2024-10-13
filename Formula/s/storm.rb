@@ -12,12 +12,13 @@ class Storm < Formula
   end
 
   depends_on "openjdk"
-  depends_on "python@3.12"
+
+  uses_from_macos "python"
 
   def install
     libexec.install Dir["*"]
     (bin/"storm").write_env_script libexec/"bin/storm", Language::Java.overridable_java_home_env
-    rewrite_shebang detected_python_shebang, libexec/"bin/storm.py"
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), libexec/"bin/storm.py"
   end
 
   test do
