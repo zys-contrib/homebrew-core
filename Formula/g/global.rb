@@ -33,7 +33,7 @@ class Global < Formula
 
   depends_on "libtool"
   depends_on "ncurses"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "sqlite"
   depends_on "universal-ctags"
 
@@ -44,10 +44,13 @@ class Global < Formula
     sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
   end
 
+  def python3
+    "python3.13"
+  end
+
   def install
     system "sh", "reconf.sh" if build.head?
 
-    python3 = "python3.12"
     venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
 
