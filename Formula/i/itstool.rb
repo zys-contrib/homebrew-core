@@ -19,10 +19,13 @@ class Itstool < Formula
   end
 
   depends_on "libxml2"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
+
+  def python3
+    "python3.13"
+  end
 
   def install
-    python3 = "python3.12"
     ENV.append_path "PYTHONPATH", Formula["libxml2"].opt_prefix/Language::Python.site_packages(python3)
 
     configure = build.head? ? "./autogen.sh" : "./configure"
