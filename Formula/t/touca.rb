@@ -8,8 +8,8 @@ class Touca < Formula
   revision 3
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "faec0e27e56389b412bd930fbe5f326d6301a6affef185e7345979f1b1ecc65e"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "28347dcea2a95cf714fad75fb909df2202c64a2ba9f9b83af3f99a7659e0bf17"
   end
 
   depends_on "certifi"
