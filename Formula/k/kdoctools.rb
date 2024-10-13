@@ -1,8 +1,8 @@
 class Kdoctools < Formula
   desc "Create documentation from DocBook"
   homepage "https://api.kde.org/frameworks/kdoctools/html/index.html"
-  url "https://download.kde.org/stable/frameworks/6.6/kdoctools-6.6.0.tar.xz"
-  sha256 "149e0b442290f8bc9d2a0c99c8e27a5735a3a83870a82de007e487529f0aad44"
+  url "https://download.kde.org/stable/frameworks/6.7/kdoctools-6.7.0.tar.xz"
+  sha256 "9fe539dffed01836940fa4f06f953ac4ed0cd4fb5f0232fe5b66c22364c1692f"
   license all_of: [
     "BSD-3-Clause",
     "GPL-2.0-or-later",
