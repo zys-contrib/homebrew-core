@@ -25,7 +25,7 @@ class Spades < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "bzip2"
   uses_from_macos "ncurses"
