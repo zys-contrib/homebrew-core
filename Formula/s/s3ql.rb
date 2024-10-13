@@ -15,7 +15,8 @@ class S3ql < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "2f080a531d2538b608b45cadca3074e892cd27672e554a766bb952e8a1d5a15d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ba6b7b212edf9dfc28292ebd0e0c0a02cd37f0c3e3216dee660153232bb8ef9c"
   end
 
   depends_on "cython" => :build
