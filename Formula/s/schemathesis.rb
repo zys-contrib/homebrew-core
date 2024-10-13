@@ -19,7 +19,7 @@ class Schemathesis < Formula
   depends_on "rust" => :build # for rpds-py
   depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   conflicts_with "st", because: "both install `st` binaries"
 
@@ -89,8 +89,8 @@ class Schemathesis < Formula
   end
 
   resource "hypothesis" do
-    url "https://files.pythonhosted.org/packages/28/32/6513cd7256f38c19a6c8a1d5ce9792bcd35c7f11651989994731f0e97672/hypothesis-6.113.0.tar.gz"
-    sha256 "5556ac66fdf72a4ccd5d237810f7cf6bdcd00534a4485015ef881af26e20f7c7"
+    url "https://files.pythonhosted.org/packages/4c/a2/c5b13ffc887e6175c55bce438e233679aab6d3dcabbcfa8de94f75ba42b8/hypothesis-6.115.0.tar.gz"
+    sha256 "0603fdfa80b0866997ea8a618ca62c468fa03b902b2d3559a4b485dba0630e51"
   end
 
   resource "hypothesis-graphql" do
@@ -274,8 +274,8 @@ class Schemathesis < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/46/fe/2ca2e5ef45952f3e8adb95659821a4e9169d8bbafab97eb662602ee12834/yarl-1.14.0.tar.gz"
-    sha256 "88c7d9d58aab0724b979ab5617330acb1c7030b79379c8138c1c8c94e121d1b3"
+    url "https://files.pythonhosted.org/packages/ed/21/75ded903445bf9201f10c7c361b0776a67c7284ad5ef38af62fd38cc32c3/yarl-1.15.1.tar.gz"
+    sha256 "02e1c9e36528de270c22c06aac6a5a1de8cc870fafefb5e90e5b35cb8985d0b2"
   end
 
   def install
