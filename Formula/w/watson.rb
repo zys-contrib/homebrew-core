@@ -10,14 +10,13 @@ class Watson < Formula
   head "https://github.com/jazzband/Watson.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8ce14c7a50718b706dc470803c3d33b8378a87c66c70ad55a7ad9d0b4390fe07"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8132742b51343a89f574695c3dd4f25c7c533e525dcc0153fcd6df10594b357b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "98a940aa8f1b2ff43d203177b9f93905ece2cc49cbfb64853d04b127c43a47a1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9ccb4a95916173c66636d51a5acda80d12b623f6a204a76046b16ca304624028"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ee77afa12c0d9576348f820c8d6b487b299f5e8499789eb8c144e61e17f4ff14"
-    sha256 cellar: :any_skip_relocation, ventura:        "e9872c548285f494708a85ef23a7610d529249db6b80d555cb9d841476d0afdc"
-    sha256 cellar: :any_skip_relocation, monterey:       "12704c5d6c59d9bd53fc869294393a93c6f5ccebbd5706055f6e07d60bf8e97b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "58fb98fb3d8a3b97de3b722c6ed683c75ece45b32a17311f247f27bf960f68f3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "479ecc469da915b26139b32fed053e032430f9c0116f47caeb7091984f091f4b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c036a73c69622ce25a9d2146211fba738857e43d619f959adff7912e686016d1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f7e35a6890a1a5578f1f4359e60f76c66af23c753a63270a7e1cd932114d7176"
+    sha256 cellar: :any_skip_relocation, sonoma:        "887e4dbd5b24eb0f0f405a6bd0cdc032443cfe1a2ed4dea860283f1050e9165c"
+    sha256 cellar: :any_skip_relocation, ventura:       "a4c97c4889759dcda9394c15f596b92a5678f9967f70ec3910dc75ccd1e8e5e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5eb01d458e69203120a5050be8056035f7a2b9473c5b2a57725d084e75f77d4"
   end
 
   depends_on "certifi"
