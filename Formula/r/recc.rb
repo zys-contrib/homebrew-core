@@ -6,6 +6,15 @@ class Recc < Formula
   license "Apache-2.0"
   head "https://gitlab.com/BuildGrid/buildbox/buildbox.git", branch: "master"
 
+  bottle do
+    sha256 arm64_sequoia: "183dfd1da635da84e7b5ad05f7d2039c328ed9fafc4859840936e69bcd2c3578"
+    sha256 arm64_sonoma:  "54134c21c95d54b97716380ac73aaa496850ed149fc9731634d21654deeae7dd"
+    sha256 arm64_ventura: "fbbdd33b2fed59f07eb7c73bd033fa0a9788985ee26122579d0006c6a627e3d5"
+    sha256 sonoma:        "89a15307fe615f1a871774776c12f37cd4c61a860fe4431ecd858bcbc939126d"
+    sha256 ventura:       "c855341953276bba6a882e7755c62bda47ade2d364f322ee18efeb85eac1f166"
+    sha256 x86_64_linux:  "145386d6b43da859dc86b85b830cfac10291e74428c2297915ff1f2068d8c656"
+  end
+
   depends_on "cmake" => :build
   depends_on "gettext" => :build # for envsubst
   depends_on "tomlplusplus" => :build
