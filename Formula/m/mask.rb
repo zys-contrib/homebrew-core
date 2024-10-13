@@ -1,8 +1,8 @@
 class Mask < Formula
   desc "CLI task runner defined by a simple markdown file"
   homepage "https://github.com/jakedeichert/mask/"
-  url "https://github.com/jacobdeichert/mask/archive/refs/tags/mask/0.11.4.tar.gz"
-  sha256 "65ac7b5798bc717a2a0c3fb933afab45fc901eeb3ff299e03695bf3204d4f37a"
+  url "https://github.com/jacobdeichert/mask/archive/refs/tags/mask/0.11.6.tar.gz"
+  sha256 "e76ae20a120c3ab44f1b14e73ff3f1b39d900bc66f8d2dab7fed4706bacd92fd"
   license "MIT"
 
   bottle do
