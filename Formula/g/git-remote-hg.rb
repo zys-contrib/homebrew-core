@@ -10,8 +10,7 @@ class GitRemoteHg < Formula
   head "https://github.com/felipec/git-remote-hg.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "62aaad29bee197840f65142bd9d7206a9c432dece29bf17197a4055fc4976295"
+    sha256 cellar: :any_skip_relocation, all: "6592f095be3024d5ecca8b285d7fad64f9852c232e1c670d53961a0ee6d1c193"
   end
 
   depends_on "asciidoctor" => :build
