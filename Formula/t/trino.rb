@@ -18,7 +18,8 @@ class Trino < Formula
 
   depends_on "gnu-tar" => :build
   depends_on "openjdk"
-  depends_on "python@3.12"
+
+  uses_from_macos "python"
 
   resource "trino-src" do
     url "https://github.com/trinodb/trino/archive/refs/tags/461.tar.gz", using: :nounzip
@@ -52,7 +53,7 @@ class Trino < Formula
       inreplace libexec/"etc/jvm.config", %r{^-agentpath:/usr/lib/trino/bin/libjvmkill.so$\n}, ""
     end
 
-    rewrite_shebang detected_python_shebang, libexec/"bin/launcher.py"
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), libexec/"bin/launcher.py"
     (bin/"trino-server").write_env_script libexec/"bin/launcher", Language::Java.overridable_java_home_env
 
     resource("trino-cli").stage do
