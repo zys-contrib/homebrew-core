@@ -27,7 +27,7 @@ class Snapcraft < Formula
   depends_on "libsodium"
   depends_on "libyaml"
   depends_on "lxc"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "snap"
   depends_on "xdelta"
 
