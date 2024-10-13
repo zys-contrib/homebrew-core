@@ -11,14 +11,13 @@ class Ktoblzcheck < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "69a9f3ddb1dc70844da2adca7076e8fbb8102bdc17ae465016d43f87951d6964"
-    sha256 arm64_sonoma:   "084776ea34dcc4ae3e571bd5383ef29e7e62b4851353fd0e86d4ae8ae301bf2b"
-    sha256 arm64_ventura:  "9af95c7e3d1c66ca99021731dbccb96c5c5450f6e9b34eb2591a961dd113e4b8"
-    sha256 arm64_monterey: "8cf9571be81238bcb9f03425b18f4674f0651f6718163ed1be21c4dac77d106a"
-    sha256 sonoma:         "07eddef8c57584634aad419540f66b3357fe59d5f37cf131c5d2ac39e8367ae3"
-    sha256 ventura:        "fec0eeac965d49ed688e5892f7a1cef56b60a9356c90ecf271897b6e2ea81492"
-    sha256 monterey:       "4e6add3a4d5280adcba9a36535ce9ecfe575d3b02a48df2fddb8716a03d1d4f7"
-    sha256 x86_64_linux:   "5459b890356bfc72a4a413ebacbd08eba0562af0bb2583cb5587a9b4a07f4d2d"
+    rebuild 1
+    sha256 arm64_sequoia: "5b4500f5a3ebbd8c92500f18c84d5be4e91eb7522e2c46874b7272ae7f9aa7ab"
+    sha256 arm64_sonoma:  "bf7974d2901add8dc0aaef564956b8a493efb58a8993456b48fcb4f374dbb201"
+    sha256 arm64_ventura: "8abf58282c84ee2934cb1e3606814ee447dafb475e4206afdeddb05f0d410bcf"
+    sha256 sonoma:        "dd3466c3a53c28c91005e0f610bfe634f7209577810cbc2d077ac3ba9aa39751"
+    sha256 ventura:       "a99501a6e0001ab7e134a3687565454286231e435dc88b96eb2012e61e78debc"
+    sha256 x86_64_linux:  "5b60fa4082c972f35e50f36319ee833f278ceb1e39b04ab008d796b2ddaee501"
   end
 
   depends_on "cmake" => :build
