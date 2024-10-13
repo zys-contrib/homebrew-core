@@ -23,7 +23,7 @@ class Opencolorio < Formula
   depends_on "minizip-ng"
   depends_on "openexr"
   depends_on "pystring"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "yaml-cpp"
 
   uses_from_macos "expat"
@@ -34,7 +34,7 @@ class Opencolorio < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
