@@ -15,7 +15,7 @@ class Pius < Formula
   end
 
   depends_on "gnupg"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     # Replace hardcoded gpg path (WONTFIX)
@@ -25,11 +25,11 @@ class Pius < Formula
   end
 
   def caveats
-    <<~EOS
+    <<~TEXT
       The path to gpg is hardcoded in pius as `/usr/bin/env gpg`.
       You can specify a different path by editing ~/.pius:
         gpg-path=/path/to/gpg
-    EOS
+    TEXT
   end
 
   test do
