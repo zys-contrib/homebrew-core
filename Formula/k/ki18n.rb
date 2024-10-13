@@ -1,8 +1,8 @@
 class Ki18n < Formula
   desc "KDE Gettext-based UI text internationalization"
   homepage "https://api.kde.org/frameworks/ki18n/html/index.html"
-  url "https://download.kde.org/stable/frameworks/6.6/ki18n-6.6.0.tar.xz"
-  sha256 "582b4c58bb69803412322d3db656fd4f5fde154eac1ac89b2c6bc905c5b61e6e"
+  url "https://download.kde.org/stable/frameworks/6.7/ki18n-6.7.0.tar.xz"
+  sha256 "555b5bc19546c3a791c69724e238c5d1710a9575cf8740012f8fc546f354122b"
   license all_of: [
     "BSD-3-Clause",
     "LGPL-2.0-or-later",
@@ -59,6 +59,7 @@ class Ki18n < Formula
       include(FeatureSummary)
       find_package(ECM #{version} NO_MODULE)
       set_package_properties(ECM PROPERTIES TYPE REQUIRED)
+      set(CMAKE_AUTOMOC ON)
       set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} "#{pkgshare}/cmake")
       set(CMAKE_CXX_STANDARD 17)
       set(QT_MAJOR_VERSION #{qt_major})
