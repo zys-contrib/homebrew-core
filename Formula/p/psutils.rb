@@ -8,8 +8,8 @@ class Psutils < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "8721074e2c724d5069bd6c8be15e93a05e1954e52de0ca09829ee638479858b5"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "115ed1edf086f53e50e83e94c491fd872d2921adadf12abb6a526aa2dc2cd134"
   end
 
   depends_on "libpaper"
