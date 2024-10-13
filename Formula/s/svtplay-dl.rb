@@ -8,14 +8,13 @@ class SvtplayDl < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "6beae79c3c3cfb37551e1108e899cef74b6b29b13f294e1c834736ef3301384f"
-    sha256 cellar: :any,                 arm64_sonoma:   "13b5b955556305e4a194c067d9cef78a3fca2b9d814b014f765fe53e90d513b4"
-    sha256 cellar: :any,                 arm64_ventura:  "db0a356f9eefeaf546201d71432766a440796bd00e8f19fe7013aa71ae6ff2a6"
-    sha256 cellar: :any,                 arm64_monterey: "d2a60b903622d13a37e5057725cd420a37d2cfba7ec809f4003aeec646baa3d4"
-    sha256 cellar: :any,                 sonoma:         "d6b425d3b6a62d4fd68fb881edd5f20f8eb5da4b7a3cf3132548f824e7daf1ff"
-    sha256 cellar: :any,                 ventura:        "ef9a7b964f7878957d95d4b11a7b266fa7a5e155cd3096fcabcc8da1ba542c2c"
-    sha256 cellar: :any,                 monterey:       "09fc160ec000325997e1a3cd6c944890a947422e9b03f520dd796c58c6ad9cfa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "722a7ee1850147ab01fe06162f81e6cee76a618236a468fb3c178c78fcae9a9f"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "489d57319e300eadaed247932af5765bf9b0cf3364210e24a29b0173918f736a"
+    sha256 cellar: :any,                 arm64_sonoma:  "9cd34f6e9952ef414893004e02054c10b4bb2c342d182a90332dcb8e9403588f"
+    sha256 cellar: :any,                 arm64_ventura: "26e9b09d96cc0e23aa0ead96cc19e45454451ef44d4353eb11eee73013fb9505"
+    sha256 cellar: :any,                 sonoma:        "c8b17ce3ffd4e6956de5865d04538115cecd958c55903e62d62696cbebe92d89"
+    sha256 cellar: :any,                 ventura:       "e56636ffd1044a61991802ecc46e8f28f3816ff18e9f4ea188eda0de169feee8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42f34a3d285c86329fbe15e75efe5b53f9ddd9df0d5f6d717be3b07de75dc4db"
   end
 
   depends_on "certifi"
