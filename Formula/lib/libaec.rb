@@ -17,7 +17,7 @@ class Libaec < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "32d3097aa577be93f7d534d6460fc190fc7234a77f34c561ef44d59a6e57d539"
   end
 
-  depends_on "cmake" => :build
+  depends_on "cmake" => [:build, :test]
 
   # These may have been linked by `szip` before keg_only change
   link_overwrite "include/szlib.h"
@@ -34,9 +34,21 @@ class Libaec < Formula
     system "cmake", "--build", "build"
     system "ctest", "--test-dir", "build", "--verbose"
     system "cmake", "--install", "build"
+
+    # Symlink CMake files to a common linked location. Similar to Linux distros
+    # like Arch Linux[^1] and Alpine[^2], but we add an extra subdirectory so that
+    # CMake can automatically find them using the default search procedure[^3].
+    #
+    # [^1]: https://gitlab.archlinux.org/archlinux/packaging/packages/libaec/-/blob/main/PKGBUILD?ref_type=heads#L25
+    # [^2]: https://gitlab.alpinelinux.org/alpine/aports/-/blob/master/community/libaec/APKBUILD#L43
+    # [^3]: https://cmake.org/cmake/help/latest/command/find_package.html#config-mode-search-procedure
+    (lib/"cmake").install_symlink prefix/"cmake" => "libaec"
   end
 
   test do
+    # Check directory structure of CMake file in case new release changed layout
+    assert_predicate lib/"cmake/libaec/libaec-config.cmake", :exist?
+
     (testpath/"test.cpp").write <<~EOS
       #include <cassert>
       #include <cstddef>
@@ -64,7 +76,19 @@ class Libaec < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.cpp", "-I#{include}", "-L#{lib}", "-laec", "-o", "test"
+
+    # Test CMake config package can be automatically found
+    (testpath/"CMakeLists.txt").write <<~EOS
+      cmake_minimum_required(VERSION 3.5)
+      project(test LANGUAGES CXX)
+
+      find_package(libaec CONFIG REQUIRED)
+
+      add_executable(test test.cpp)
+      target_link_libraries(test libaec::aec)
+    EOS
+    system "cmake", ".", *std_cmake_args
+    system "cmake", "--build", "."
     system "./test"
   end
 end
