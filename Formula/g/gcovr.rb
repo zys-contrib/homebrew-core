@@ -3,8 +3,8 @@ class Gcovr < Formula
 
   desc "Reports from gcov test coverage program"
   homepage "https://gcovr.com/"
-  url "https://files.pythonhosted.org/packages/a0/39/4cef4a5bc70dbf625b3c0dfc4fe675d24bca570e72b3b2a371761471baa5/gcovr-8.1.tar.gz"
-  sha256 "6a07a15bdfdc200af1960932792012e4e26c239c8a9f585b60d1b46d072ca439"
+  url "https://files.pythonhosted.org/packages/32/21/7f9967a2d5a37d8f77e793ba4c173d0e1e59195028c997a9947b73b652f4/gcovr-8.2.tar.gz"
+  sha256 "9a1dddd4585d13ec77555db5d6b6a31ee81587ea6fc604ff9fcd232cb0782df5"
   license "BSD-3-Clause"
   head "https://github.com/gcovr/gcovr.git", branch: "master"
 
