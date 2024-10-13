@@ -23,14 +23,14 @@ class Libbtbb < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     system "cmake", "-S", ".", "-B", "build", "-DENABLE_PYTHON=OFF", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    system "python3.12", "-m", "pip", "install", *std_pip_args(build_isolation: true), "./python/pcaptools"
+    system "python3.13", "-m", "pip", "install", *std_pip_args(build_isolation: true), "./python/pcaptools"
     bin.install "python/pcaptools/btaptap"
     rewrite_shebang detected_python_shebang, bin/"btaptap"
   end
