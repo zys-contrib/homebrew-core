@@ -27,7 +27,7 @@ class Retdec < Formula
   depends_on "pkg-config" => :build
   depends_on macos: :catalina
   depends_on "openssl@3"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "zlib"
 
