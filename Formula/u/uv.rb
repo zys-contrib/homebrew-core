@@ -19,13 +19,8 @@ class Uv < Formula
   depends_on "rust" => :build
 
   uses_from_macos "python" => :test
+  uses_from_macos "bzip2"
   uses_from_macos "xz"
-
-  on_linux do
-    # On macOS, bzip2-sys will use the bundled lib as it cannot find the system or brew lib.
-    # We only ship bzip2.pc on Linux which bzip2-sys needs to find library.
-    depends_on "bzip2"
-  end
 
   def install
     ENV["UV_COMMIT_HASH"] = ENV["UV_COMMIT_SHORT_HASH"] = tap.user
