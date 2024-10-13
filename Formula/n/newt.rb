@@ -4,7 +4,7 @@ class Newt < Formula
   url "https://releases.pagure.org/newt/newt-0.52.24.tar.gz"
   sha256 "5ded7e221f85f642521c49b1826c8de19845aa372baf5d630a51774b544fbdbb"
   license "LGPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://releases.pagure.org/newt/"
@@ -23,7 +23,7 @@ class Newt < Formula
   end
 
   depends_on "popt"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "s-lang"
 
   on_macos do
@@ -31,7 +31,7 @@ class Newt < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
