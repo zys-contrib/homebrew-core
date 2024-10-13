@@ -17,7 +17,7 @@ class Peru < Formula
   end
 
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
@@ -32,7 +32,7 @@ class Peru < Formula
   def install
     # Fix plugins (executed like an executable) looking for Python outside the virtualenv
     Dir["peru/resources/plugins/**/*.py"].each do |f|
-      inreplace f, "#! /usr/bin/env python3", "#!#{libexec}/bin/python3.12"
+      inreplace f, "#! /usr/bin/env python3", "#!#{libexec}/bin/python3.13"
     end
 
     virtualenv_install_with_resources
@@ -45,6 +45,7 @@ class Peru < Formula
       git module peru:
         url: https://github.com/buildinspace/peru.git
     EOS
+
     system bin/"peru", "sync"
     assert_predicate testpath/".peru", :exist?
     assert_predicate testpath/"peru", :exist?
