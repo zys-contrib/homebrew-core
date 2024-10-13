@@ -10,14 +10,13 @@ class PassImport < Formula
   head "https://github.com/roddhjav/pass-import.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "2b6dae01201450402849f5ca239e39aa601be234f936a3faf776bbb5e9f995ac"
-    sha256 cellar: :any,                 arm64_sonoma:   "0d69b84ce9e662596c3e5dd4b2835c4d77d9d26d40a6cbe8323b8be0f110bce4"
-    sha256 cellar: :any,                 arm64_ventura:  "45ceaf511092c243e8f589975704dd48c750f2e40e803f427805d9d8c1b7485b"
-    sha256 cellar: :any,                 arm64_monterey: "b76b1a55b0e873930845fa0669f2626cf2a31dc42ec4f8e09e8bb7cf0b8f5d5e"
-    sha256 cellar: :any,                 sonoma:         "8571e378fec7cd4bb6a0a6f0239a3e1bf8a9b962a5eb345b3b24d7486a2231c2"
-    sha256 cellar: :any,                 ventura:        "1f55d62391d55b3b20c620df0c74de09d757f7c111e187b9ef4b0f6c1eff5789"
-    sha256 cellar: :any,                 monterey:       "17012c55f43c32ede37e6fd6bf0aa5ba698b7399bdbfff040613e86f596e9426"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1fee5a088814e42cd56808b08055a18a16cef380541af6d66e956bb5e3ce7524"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "e2263e0d94a2fd744c5748f9cd6a3966fc11ae33deca1ffb34e5997b47c2dafc"
+    sha256 cellar: :any,                 arm64_sonoma:  "bf43aba56684c5ae1ff7be2b57090632c4a0a14dc7ae95223dbc89fe3e87b6e5"
+    sha256 cellar: :any,                 arm64_ventura: "590406753c0fe6cb030055867702051112366e5f7d199f9341f860222b544513"
+    sha256 cellar: :any,                 sonoma:        "175a6f288828c380052249095a738b05c5e81741ab3061ba975494433827aee1"
+    sha256 cellar: :any,                 ventura:       "475bc32225a5f5b3edc4339b83e0a69b68a4156ea3e3bf7f2c994249a40fd817"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "27a3f4f49b185cb3996cf80ee3026d58dec59e21da067caddf3832189d31c39f"
   end
 
   depends_on "certifi"
