@@ -18,7 +18,7 @@ class Uwsgi < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl@3"
   depends_on "pcre2"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "sqlite"
   depends_on "yajl"
 
@@ -30,6 +30,10 @@ class Uwsgi < Formula
 
   on_linux do
     depends_on "linux-pam"
+  end
+
+  def python3
+    "python3.13"
   end
 
   def install
@@ -48,7 +52,6 @@ class Uwsgi < Formula
       embedded_plugins = null
     EOS
 
-    python3 = "python3.12"
     system python3, "uwsgiconfig.py", "--verbose", "--build", "brew"
 
     plugins = %w[airbrake alarm_curl asyncio cache
