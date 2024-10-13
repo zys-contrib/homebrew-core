@@ -27,7 +27,7 @@ class Rpm < Formula
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "gawk" => :build
-  depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
 
   depends_on "gettext"
   depends_on "libarchive"
@@ -53,7 +53,7 @@ class Rpm < Formula
   conflicts_with "rpm2cpio", because: "both install `rpm2cpio` binaries"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
