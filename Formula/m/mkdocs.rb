@@ -8,14 +8,13 @@ class Mkdocs < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "7494aacadd5dda1ec9bca5e1c942b4210a603ef9e7e57840f39883a0a0fecd8e"
-    sha256 cellar: :any,                 arm64_sonoma:   "896eff3bd2aedfb686ea638938a04af7067a4d56b60ac0dae3fdf64c1b6407a7"
-    sha256 cellar: :any,                 arm64_ventura:  "386c421dce2b95f338f1ac34e524d4b60c8cedd13c630c63642d66c9b9fdb1c3"
-    sha256 cellar: :any,                 arm64_monterey: "a3c41f1ebf1fe10629823c2aa8417f6f468bd7eede7c6fc3354c41c0fc06f6e0"
-    sha256 cellar: :any,                 sonoma:         "c1d46443e9d2fc9230b020dc3f8745eb09913b936adb6f95a2c35a9f11ae00d0"
-    sha256 cellar: :any,                 ventura:        "886bea244a7f1bad87baaa494c86eeafb24eff08d8dc39e41f4c1178db5027dc"
-    sha256 cellar: :any,                 monterey:       "f52986fb2d4f7a5fff8fb4b865b557c5be71c2d0690d5b6783a0b5d93d6edf0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "26c9652de2bfed6f667cbc041220547c9832e26d0302dc528c29b4f29b9bfcea"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "4946882a9b69438f8256f97d7a74c864e7bb79fca716fcfc0bc8dec6b4655b68"
+    sha256 cellar: :any,                 arm64_sonoma:  "779a7f94849b94bd3e150e482702bf3e7b47de5af703e6229e87b196aed1ed50"
+    sha256 cellar: :any,                 arm64_ventura: "dc00873cb8370d8a3174135257db6cb22025b09f6df419714cf24bbe73899469"
+    sha256 cellar: :any,                 sonoma:        "6eb29da87e5066bbef5151903a1f1a80d1679b375165c5ed7a43e6966e8330f6"
+    sha256 cellar: :any,                 ventura:       "ab9c9ad539066c57330aa5327309a7db7564982678a9f3019f1d215ef0196093"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6111687b9b1dd751406c2b4cd90a7e0192d75768858e12ff4d443ef800799c38"
   end
 
   depends_on "libyaml"
