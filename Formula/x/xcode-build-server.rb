@@ -14,12 +14,13 @@ class XcodeBuildServer < Formula
 
   depends_on "gzip"
   depends_on :macos
-  depends_on "python@3.12"
+
+  uses_from_macos "python"
 
   def install
     libexec.install Dir["*"]
 
-    rewrite_shebang detected_python_shebang, libexec/"xcode-build-server"
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), libexec/"xcode-build-server"
     bin.install_symlink libexec/"xcode-build-server"
   end
 
