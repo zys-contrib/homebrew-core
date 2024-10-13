@@ -21,7 +21,7 @@ class Ykman < Formula
 
   depends_on "swig" => :build
   depends_on "cryptography"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "pcsc-lite"
 
@@ -43,13 +43,13 @@ class Ykman < Formula
   end
 
   resource "jaraco-context" do
-    url "https://files.pythonhosted.org/packages/c9/60/e83781b07f9a66d1d102a0459e5028f3a7816fdd0894cba90bee2bbbda14/jaraco.context-5.3.0.tar.gz"
-    sha256 "c2f67165ce1f9be20f32f650f25d8edfc1646a8aeee48ae06fb35f90763576d2"
+    url "https://files.pythonhosted.org/packages/df/ad/f3777b81bf0b6e7bc7514a1656d3e637b2e8e15fab2ce3235730b3e7a4e6/jaraco_context-6.0.1.tar.gz"
+    sha256 "9bae4ea555cf0b14938dc0aee7c9f32ed303aa20a3b73e7dc80111628792d1b3"
   end
 
   resource "jaraco-functools" do
-    url "https://files.pythonhosted.org/packages/bc/66/746091bed45b3683d1026cb13b8b7719e11ccc9857b18d29177a18838dc9/jaraco_functools-4.0.1.tar.gz"
-    sha256 "d33fa765374c0611b52f8b3a795f8900869aa88c84769d4d1746cd68fb28c3e8"
+    url "https://files.pythonhosted.org/packages/ab/23/9894b3df5d0a6eb44611c36aec777823fc2e07740dabbd0b810e19594013/jaraco_functools-4.1.0.tar.gz"
+    sha256 "70f7e0e2ae076498e212562325e805204fc092d7b4c17e0e86c959e249701a9d"
   end
 
   resource "jeepney" do
@@ -58,18 +58,18 @@ class Ykman < Formula
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/3e/e9/54f232e659f635a000d94cfbca40b9d5d617707593c3d552ec14d3ba27f1/keyring-25.2.1.tar.gz"
-    sha256 "daaffd42dbda25ddafb1ad5fec4024e5bbcfe424597ca1ca452b299861e49f1b"
+    url "https://files.pythonhosted.org/packages/a5/1c/2bdbcfd5d59dc6274ffb175bc29aa07ecbfab196830e0cfbde7bd861a2ea/keyring-25.4.1.tar.gz"
+    sha256 "b07ebc55f3e8ed86ac81dd31ef14e81ace9dd9c3d4b5d77a6e9a2016d0d71a1b"
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/01/33/77f586de725fc990d12dda3d4efca4a41635be0f99a987b9cc3a78364c13/more-itertools-10.3.0.tar.gz"
-    sha256 "e5d93ef411224fbcef366a6e8ddc4c5781bc6359d43412a65dd5964e46111463"
+    url "https://files.pythonhosted.org/packages/51/78/65922308c4248e0eb08ebcbe67c95d48615cc6f27854b6f2e57143e9178f/more-itertools-10.5.0.tar.gz"
+    sha256 "5482bfef7849c25dc3c6dd53a6173ae4795da2a41a80faea6700d9f5846c5da6"
   end
 
   resource "pyscard" do
-    url "https://files.pythonhosted.org/packages/7a/d9/8dd344c82d19c240349695a8de71e9d9cd9c55d62ae3952a103147e4687c/pyscard-2.0.10.tar.gz"
-    sha256 "4b9b865df03b29522e80ebae17790a8b3a096a9d885cda19363b44b1a6bf5c1c"
+    url "https://files.pythonhosted.org/packages/58/90/e0c09842070fe0e4e6eaf9164d3995fdfe74b5f2678e6d27b81db696ec1d/pyscard-2.1.1.tar.gz"
+    sha256 "f9b0dc3fad83ac72a9335af4d04b608edc9d01e2b90e0c38ed0ef1fd014c4414"
   end
 
   resource "secretstorage" do
