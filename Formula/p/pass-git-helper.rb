@@ -17,7 +17,7 @@ class PassGitHelper < Formula
 
   depends_on "gnupg" => :test
   depends_on "pass"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "pyxdg" do
     url "https://files.pythonhosted.org/packages/b0/25/7998cd2dec731acbd438fbf91bc619603fc5188de0a9a17699a781840452/pyxdg-0.28.tar.gz"
