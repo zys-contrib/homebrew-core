@@ -25,7 +25,7 @@ class Zim < Formula
   depends_on "gtk+3"
   depends_on "gtksourceview4"
   depends_on "pygobject3"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "pyxdg" do
     url "https://files.pythonhosted.org/packages/b0/25/7998cd2dec731acbd438fbf91bc619603fc5188de0a9a17699a781840452/pyxdg-0.28.tar.gz"
@@ -37,8 +37,11 @@ class Zim < Formula
     sha256 "6c1fccdac05a97e598fb0ae3bbed5904ccb317337a51139dcd51453611bbb987"
   end
 
+  def python3
+    "python3.13"
+  end
+
   def install
-    python3 = "python3.12"
     build_venv = virtualenv_create(buildpath/"venv", python3)
     build_venv.pip_install resource("setuptools")
     ENV.prepend_create_path "PYTHONPATH", build_venv.site_packages
