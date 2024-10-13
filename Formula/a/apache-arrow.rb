@@ -18,12 +18,12 @@ class ApacheArrow < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2fc6008982d88365d2a0ca4465f00130b40dd2fd79f0df172c5ae93f759e42e2"
-    sha256 cellar: :any,                 arm64_sonoma:  "1d2fcbae3434a44040708720517351b884b96975ec9a91e123f904de0a5579fa"
-    sha256 cellar: :any,                 arm64_ventura: "b35302f7cb3518093962e5f62dc96c07c57b245e8dc17e441de519a15c82f4ac"
-    sha256 cellar: :any,                 sonoma:        "ea36e30752a599b4a7eb00ac6289c26b6c7af7511b9291385edf9436cfa81522"
-    sha256 cellar: :any,                 ventura:       "7826c2dbec52f2437f02bae7fc4e7400947fd9d0ae9ed0d821523af91d5d5c9c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e785e61f8af34a802197e17c8a75cf5199cf88c8919d9b02e5edca22f57e3dea"
+    sha256 cellar: :any,                 arm64_sequoia: "f411c20ea4914620fd382f3a20758201f814da354e278f32d85f58487bb8b87e"
+    sha256 cellar: :any,                 arm64_sonoma:  "edf15aeb53a7086430f00b887733e15c9c36944054c635ff1f7db35af3a4051b"
+    sha256 cellar: :any,                 arm64_ventura: "aa1b6d8b51c21d5f85e20e08ddc0969b7c1f50a0ec7db108ff122ad94bd89361"
+    sha256 cellar: :any,                 sonoma:        "91ecb17642422cf3457e27b124ede15788e83bcbbda0634fd85fad7fdf5fe71e"
+    sha256 cellar: :any,                 ventura:       "65c738d4286249ede5a7d0bc69d31186f4e9f12d03aa66770f80b1d915687843"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60103c33895e2ff5dc98233b4e203894983e199252afb7482f6c162059d02c44"
   end
 
   depends_on "boost" => :build
