@@ -28,24 +28,24 @@ class Iconsur < Formula
   # this causes issues if a user has Homebrew Python installed (EXTERNALLY-MANAGED).
   # We instead prepare a virtualenv with all missing packages.
   on_monterey :or_newer do
-    depends_on "python@3.12"
+    depends_on "python@3.13"
   end
 
   resource "pyobjc-core" do
-    url "https://files.pythonhosted.org/packages/50/d5/0b93cb9dc94ab4b78b2b7aa54c80f037e4de69897fff81a5ededa91d2704/pyobjc-core-10.1.tar.gz"
-    sha256 "1844f1c8e282839e6fdcb9a9722396c1c12fb1e9331eb68828a26f28a3b2b2b1"
+    url "https://files.pythonhosted.org/packages/b7/40/a38d78627bd882d86c447db5a195ff307001ae02c1892962c656f2fd6b83/pyobjc_core-10.3.1.tar.gz"
+    sha256 "b204a80ccc070f9ab3f8af423a3a25a6fd787e228508d00c4c30f8ac538ba720"
   end
 
   resource "pyobjc-framework-cocoa" do
-    url "https://files.pythonhosted.org/packages/5d/1d/964a0da846d49511489bd99ed705f9d85c5081fc832d0dba384c4c0d2fb2/pyobjc-framework-Cocoa-10.1.tar.gz"
-    sha256 "8faaf1292a112e488b777d0c19862d993f3f384f3927dc6eca0d8d2221906a14"
+    url "https://files.pythonhosted.org/packages/a7/6c/b62e31e6e00f24e70b62f680e35a0d663ba14ff7601ae591b5d20e251161/pyobjc_framework_cocoa-10.3.1.tar.gz"
+    sha256 "1cf20714daaa986b488fb62d69713049f635c9d41a60c8da97d835710445281a"
   end
 
   def install
     system "npm", "install", *std_npm_args
 
     if MacOS.version >= :monterey
-      venv = virtualenv_create(libexec/"venv", "python3.12")
+      venv = virtualenv_create(libexec/"venv", "python3.13")
       venv.pip_install resources
       bin.install Dir["#{libexec}/bin/*"]
       bin.env_script_all_files libexec/"bin", PATH: "#{venv.root}/bin:${PATH}"
