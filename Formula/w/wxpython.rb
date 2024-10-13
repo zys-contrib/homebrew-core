@@ -19,7 +19,7 @@ class Wxpython < Formula
   depends_on "sip" => :build
   depends_on "numpy"
   depends_on "pillow"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "six"
   depends_on "wxwidgets"
 
@@ -33,7 +33,7 @@ class Wxpython < Formula
   patch :DATA
 
   def python
-    "python3.12"
+    "python3.13"
   end
 
   def install
