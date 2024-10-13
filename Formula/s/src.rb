@@ -1,8 +1,8 @@
 class Src < Formula
   desc "Simple revision control: RCS reloaded with a modern UI"
   homepage "http://www.catb.org/~esr/src/"
-  url "http://www.catb.org/~esr/src/src-1.40.tar.gz"
-  sha256 "8fbeb819945f36712818a528a255179ed888850fce1f339cbe8b7a6c2a9cf5e7"
+  url "http://www.catb.org/~esr/src/src-1.41.tar.gz"
+  sha256 "5dc9302b161582149dbc191a0eeee43142b96386a542c870d56ac9fddb995d25"
   license "BSD-2-Clause"
 
   livecheck do
