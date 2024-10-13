@@ -12,7 +12,8 @@ class GoogleJavaFormat < Formula
   end
 
   depends_on "openjdk"
-  depends_on "python@3.12"
+
+  uses_from_macos "python"
 
   resource "google-java-format-diff" do
     url "https://raw.githubusercontent.com/google/google-java-format/v1.24.0/scripts/google-java-format-diff.py"
@@ -27,8 +28,8 @@ class GoogleJavaFormat < Formula
     libexec.install "google-java-format-#{version}-all-deps.jar" => "google-java-format.jar"
     bin.write_jar_script libexec/"google-java-format.jar", "google-java-format"
     resource("google-java-format-diff").stage do
+      rewrite_shebang detected_python_shebang(use_python_from_path: true), "google-java-format-diff.py"
       bin.install "google-java-format-diff.py" => "google-java-format-diff"
-      rewrite_shebang detected_python_shebang, bin/"google-java-format-diff"
     end
   end
 
