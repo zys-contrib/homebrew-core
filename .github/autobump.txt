@@ -1599,6 +1599,7 @@ libsail
 libsais
 libscfg
 libsecret
+libserialport
 libshumate
 libslirp
 libsndfile
