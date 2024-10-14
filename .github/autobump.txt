@@ -990,6 +990,7 @@ ghex
 ghorg
 ghostunnel
 ghq
+ghr
 ghz
 ghz-web
 gickup
