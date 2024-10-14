@@ -25,12 +25,12 @@ class Znc < Formula
   depends_on "boost"
   depends_on "icu4c@75"
   depends_on "openssl@3"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "zlib"
 
   def install
-    python3 = "python3.12"
+    python3 = "python3.13"
     xy = Language::Python.major_minor_version python3
 
     # Fixes: CMake Error: Problem with archive_write_header(): Can't create 'swigpyrun.h'
