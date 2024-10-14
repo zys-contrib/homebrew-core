@@ -3067,6 +3067,7 @@ yq
 yt-dlp
 yubico-piv-tool
 yyjson
+z.lua
 z3
 zabbix
 zabbix-cli
