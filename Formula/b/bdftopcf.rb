@@ -6,16 +6,12 @@ class Bdftopcf < Formula
   license "MIT-open-group"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "139f30526b3c42e502bd80de766f015a154f1b543935f0b5c8205485b90bc03a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c50937d505d08e9f61fff7856403b39704a350a08fc8ecd60a75f44bf25e2068"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b26742fa879001426b039393e683b586cae8ef449215e736816b7c036ee80f2b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8ef52728cea826773128a733b91368ca316f638c0f5762cc46e7564bc4464b09"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "61fc99226d4aeaa186d4f715e960c4c8610332c3d77492b03be4cdfaa555afdf"
-    sha256 cellar: :any_skip_relocation, sonoma:         "723d079c723344aaa0321a11d5e206a281b297b3f4856faafc50885e9ad328ca"
-    sha256 cellar: :any_skip_relocation, ventura:        "1349d3903b391dab646542ae8b42b58f4219377d434a8286521765b108d8ab96"
-    sha256 cellar: :any_skip_relocation, monterey:       "1dd18fa43ed7c155cd4915befed4370976cc8f09c9c61982eb161037fda82a86"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c3b2cad1bd14de2a14ea5fb8b0a340a7d9bc0397a603ea347cd9e891a2045d08"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "edc465111a6a38d1baf15911312fea996076ec454dde0c62b41728aa032f121b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ece11c5aa3b020507c597dcedfefe2b513903cdf4577147115a4cd77d39b0277"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd210923efefbe66ac49de78a8151dec06b63b76453afb1458105cf10130b6f5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a157c335ea904af1890eadf062b01e28ade46d1eaf27ed16a573d9db36267e00"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ee45ef9fa4bfcafde669505ffb448fb380af04ea4ece11c6e59b7b4a8148e3d7"
+    sha256 cellar: :any_skip_relocation, ventura:       "cb5d73a38109e5b4519d9db189f7d251dd1a93e6e71421fcf1a1c320dd9ba808"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d558ac21dd07f613ee4ebea998439f027b861a788fde3095a7d59193ea33562c"
   end
 
   depends_on "pkg-config" => :build
