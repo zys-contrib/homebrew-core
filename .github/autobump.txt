@@ -2321,6 +2321,7 @@ qpdf
 qpid-proton
 qrcp
 qrtool
+qshell
 qsoas
 qsv
 qthreads
