@@ -19,7 +19,7 @@ class Sip < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "809c6158e572522f9e427ed3100b8a5c9a5a0389a803d11f9d5b0592ee6e0a90"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
@@ -27,12 +27,15 @@ class Sip < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/65/d8/10a70e86f6c28ae59f101a9de6d77bf70f147180fbf40c3af0f64080adc3/setuptools-70.3.0.tar.gz"
-    sha256 "f171bab1dfbc86b132997f26a119f6056a57950d058587841a0082e8830f9dc5"
+    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
+    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
+  end
+
+  def python3
+    "python3.13"
   end
 
   def install
-    python3 = "python3.12"
     venv = virtualenv_install_with_resources
 
     # Modify the path sip-install writes in scripts as we install into a
