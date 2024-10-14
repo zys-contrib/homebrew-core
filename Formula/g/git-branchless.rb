@@ -1,10 +1,9 @@
 class GitBranchless < Formula
   desc "High-velocity, monorepo-scale workflow for Git"
   homepage "https://github.com/arxanas/git-branchless"
-  url "https://github.com/arxanas/git-branchless/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "fa64dc92ec522520a6407ff61241fc1819a3093337b4e3d0f80248ae76938d43"
+  url "https://github.com/arxanas/git-branchless/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "1eb8dbb85839c5b0d333e8c3f9011c3f725e0244bb92f4db918fce9d69851ff7"
   license any_of: ["Apache-2.0", "MIT"]
-  revision 1
   head "https://github.com/arxanas/git-branchless.git", branch: "master"
 
   # Upstream appears to use GitHub releases to indicate that a version is
@@ -28,7 +27,7 @@ class GitBranchless < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "libgit2@1.7"
+  depends_on "libgit2"
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
@@ -52,7 +51,7 @@ class GitBranchless < Formula
     linkage_with_libgit2 = (bin/"git-branchless").dynamically_linked_libraries.any? do |dll|
       next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
 
-      File.realpath(dll) == (Formula["libgit2@1.7"].opt_lib/shared_library("libgit2")).realpath.to_s
+      File.realpath(dll) == (Formula["libgit2"].opt_lib/shared_library("libgit2")).realpath.to_s
     end
 
     assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."
