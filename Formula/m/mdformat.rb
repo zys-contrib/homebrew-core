@@ -3,8 +3,8 @@ class Mdformat < Formula
 
   desc "CommonMark compliant Markdown formatter"
   homepage "https://mdformat.readthedocs.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/df/86/6374cc48a89862cfc8e350a65d6af47792e83e7684f13e1222afce110a41/mdformat-0.7.17.tar.gz"
-  sha256 "a9dbb1838d43bb1e6f03bd5dca9412c552544a9bc42d6abb5dc32adfe8ae7c0d"
+  url "https://files.pythonhosted.org/packages/ff/83/41bf36a54941a01fab6c3ee41bdb6eda9a6251bf2daeab541effb219c92b/mdformat-0.7.18.tar.gz"
+  sha256 "42cba8bc5a6bb12d50bdf7c1e470c1f837a8ab8ce81571d4e53b9e62051f6e4f"
   license "MIT"
 
   bottle do
