@@ -5,7 +5,7 @@ class Xsd < Formula
   version "4.0.0"
   sha256 "eca52a9c8f52cdbe2ae4e364e4a909503493a0d51ea388fc6c9734565a859817"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.codesynthesis.com/products/xsd/download.xhtml"
