@@ -1357,6 +1357,7 @@ juju
 julia
 jupyterlab
 just
+jxl-oxide
 jython
 k2tf
 k3d
