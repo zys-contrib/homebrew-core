@@ -1211,6 +1211,7 @@ hof
 homebank
 hopenpgp-tools
 hoverfly
+howard-hinnant-date
 hpack
 hpp-fcl
 htmldoc
