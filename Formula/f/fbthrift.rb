@@ -1,8 +1,8 @@
 class Fbthrift < Formula
   desc "Facebook's branch of Apache Thrift, including a new C++ server"
   homepage "https://github.com/facebook/fbthrift"
-  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2024.10.07.00.tar.gz"
-  sha256 "78c1406e5ecf8fcdcc6092fb8db2c4f963f7d3eecaebc9ca9db5d68e9b439986"
+  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2024.10.14.00.tar.gz"
+  sha256 "5e0f6dcaad8a930a4177a3c376d6140fcc0caf335edeaab91e291c2ec1ac5426"
   license "Apache-2.0"
   head "https://github.com/facebook/fbthrift.git", branch: "main"
 
@@ -28,6 +28,7 @@ class Fbthrift < Formula
   depends_on "mvfst"
   depends_on "openssl@3"
   depends_on "wangle"
+  depends_on "xxhash"
   depends_on "zstd"
 
   uses_from_macos "flex" => :build
