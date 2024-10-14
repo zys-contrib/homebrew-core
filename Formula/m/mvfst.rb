@@ -1,8 +1,8 @@
 class Mvfst < Formula
   desc "QUIC transport protocol implementation"
   homepage "https://github.com/facebook/mvfst"
-  url "https://github.com/facebook/mvfst/archive/refs/tags/v2024.10.07.00.tar.gz"
-  sha256 "5609061c376e37378c1a05ec80ed07924d7e2732a8f02ba7b5b2272735f58374"
+  url "https://github.com/facebook/mvfst/archive/refs/tags/v2024.10.14.00.tar.gz"
+  sha256 "85739b2af448b62056d9695915356763b31c2c8263f05ca72b90b7dab526e3d5"
   license "MIT"
   head "https://github.com/facebook/mvfst.git", branch: "main"
 
@@ -25,12 +25,6 @@ class Mvfst < Formula
   depends_on "glog"
   depends_on "libsodium"
   depends_on "openssl@3"
-
-  # Fix missing symbols. CMake version of:
-  # https://github.com/facebook/mvfst/commit/0b2743fdae9b746659815afdf00611fe7999282e
-  # https://github.com/facebook/mvfst/commit/654c5b90d2e9431e71f0dd3d5be990200306acc4
-  # Upstreamed at: https://github.com/facebook/mvfst/pull/354
-  patch :DATA
 
   def install
     shared_args = ["-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}"]
@@ -91,29 +85,3 @@ class Mvfst < Formula
     Process.kill "TERM", server_pid
   end
 end
-
-__END__
-diff --git a/quic/api/CMakeLists.txt b/quic/api/CMakeLists.txt
-index 5522347c5..a0a34761e 100644
---- a/quic/api/CMakeLists.txt
-+++ b/quic/api/CMakeLists.txt
-@@ -47,6 +47,7 @@ add_library(
-   QuicPacketScheduler.cpp
-   QuicStreamAsyncTransport.cpp
-   QuicTransportBase.cpp
-+  QuicTransportBaseLite.cpp
-   QuicTransportFunctions.cpp
- )
- 
-diff --git a/quic/state/CMakeLists.txt b/quic/state/CMakeLists.txt
-index 0916546fe..14297bb30 100644
---- a/quic/state/CMakeLists.txt
-+++ b/quic/state/CMakeLists.txt
-@@ -55,6 +55,7 @@ add_library(
-   mvfst_state_ack_handler
-   AckEvent.cpp
-   AckHandlers.cpp
-+  AckedPacketIterator.cpp
- )
- 
- set_property(TARGET mvfst_state_ack_handler PROPERTY VERSION ${PACKAGE_VERSION})
