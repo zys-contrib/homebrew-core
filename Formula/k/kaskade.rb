@@ -3,8 +3,8 @@ class Kaskade < Formula
 
   desc "TUI for Kafka"
   homepage "https://github.com/sauljabin/kaskade"
-  url "https://files.pythonhosted.org/packages/82/41/52505808e039f11fe60a61286c2e7728c0f25a7efea2b37e3bf1a8f9a2a5/kaskade-2.3.6.tar.gz"
-  sha256 "3f65859dc2f303a8c61787e113db12afe8e458d0e9fb607426c892e3be153032"
+  url "https://files.pythonhosted.org/packages/14/7b/fa38da904d8e4b83ad5d957907629f382c3cae929318cb829c18bbdd964f/kaskade-2.3.7.tar.gz"
+  sha256 "15ba36c466cdaef95065fe2f7ac60ff699891429ad2ea0769656998efce6de04"
   license "MIT"
 
   bottle do
@@ -151,9 +151,6 @@ class Kaskade < Formula
     sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
   end
 
-  # patch to support py3.13, upstream pr ref, https://github.com/sauljabin/kaskade/pull/48
-  patch :DATA
-
   def install
     virtualenv_install_with_resources
   end
@@ -168,36 +165,3 @@ class Kaskade < Formula
     Process.wait(pid)
   end
 end
-
-__END__
-diff --git a/PKG-INFO b/PKG-INFO
-index 3cfafaa..51f2c2e 100644
---- a/PKG-INFO
-+++ b/PKG-INFO
-@@ -7,7 +7,7 @@ License: MIT
- Keywords: kafka,kaskade
- Author: Saúl Piña
- Author-email: sauljabin@gmail.com
--Requires-Python: >=3.10,<3.13
-+Requires-Python: >=3.10,<3.14
- Classifier: Environment :: Console
- Classifier: License :: OSI Approved :: MIT License
- Classifier: Operating System :: MacOS
-@@ -217,4 +217,3 @@ kaskade consumer -b my-kafka:9092 -x auto.offset.reset=earliest \
- ## Development
-
- For development instructions see [DEVELOPMENT.md](https://github.com/sauljabin/kaskade/blob/main/DEVELOPMENT.md).
--
-diff --git a/pyproject.toml b/pyproject.toml
-index 44bf5dd..07262e7 100644
---- a/pyproject.toml
-+++ b/pyproject.toml
-@@ -22,7 +22,7 @@ packages = [
- ]
-
- [tool.poetry.dependencies]
--python = ">=3.10 <3.13"
-+python = ">=3.10 <3.14"
- cloup = "^3.0"
- textual =  "^0.83"
- confluent-kafka = {extras = ["avro", "json", "protobuf"], version = "^2.6"}
