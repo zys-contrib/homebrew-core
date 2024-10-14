@@ -6,8 +6,7 @@ class Xtrans < Formula
   license "MIT"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, all: "2d33b76ea54a22e668851b4d3abc1ad2e964fbe2f01b9e566cca9bbe96a61065"
+    sha256 cellar: :any_skip_relocation, all: "f761a048e405426c2bb755d4c4be3dddeb7c249835be1aaae42de12e7cdc9071"
   end
 
   depends_on "pkg-config" => :build
