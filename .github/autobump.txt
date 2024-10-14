@@ -2373,6 +2373,7 @@ resvg
 retire
 revive
 rgbds
+rhash
 rhit
 riemann
 riemann-client
