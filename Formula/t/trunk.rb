@@ -1,8 +1,8 @@
 class Trunk < Formula
   desc "Build, bundle & ship your Rust WASM application to the web"
   homepage "https://trunkrs.dev/"
-  url "https://github.com/trunk-rs/trunk/archive/refs/tags/v0.20.3.tar.gz"
-  sha256 "388d42cef7b8e78081c3371f31e11db6aba69b65c5c89ccf2f0d537922e4ddce"
+  url "https://github.com/trunk-rs/trunk/archive/refs/tags/v0.21.0.tar.gz"
+  sha256 "648ff0f89fe461d4977f389e38c5780cd79762ff5caf81e610c37461ea4801d9"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/trunk-rs/trunk.git", branch: "main"
 
@@ -19,18 +19,30 @@ class Trunk < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "openssl@3"
 
   uses_from_macos "bzip2"
 
-  on_linux do
-    depends_on "openssl@3"
-  end
-
   def install
+    # Ensure that the `openssl` crate picks up the intended library.
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
     system "cargo", "install", *std_cargo_args
   end
 
   test do
-    assert_match "ConfigOpts {\n", shell_output("#{bin}/trunk config show")
+    ENV["TRUNK_CONFIG"] = testpath/"Trunk.toml"
+    (testpath/"Trunk.toml").write <<~EOS
+      trunk-version = ">=0.19.0"
+
+      [build]
+      target = "index.html"
+      dist = "dist"
+    EOS
+
+    assert_match "Configuration {\n", shell_output("#{bin}/trunk config show")
+
+    assert_match version.to_s, shell_output("#{bin}/trunk --version")
   end
 end
