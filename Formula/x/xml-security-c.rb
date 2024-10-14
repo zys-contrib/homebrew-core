@@ -5,7 +5,7 @@ class XmlSecurityC < Formula
   mirror "https://archive.apache.org/dist/santuario/c-library/xml-security-c-2.0.4.tar.bz2"
   sha256 "c83ed1b7c0189cce27a49caa81986938e76807bf35597e6056259af30726beca"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "191f8cd399323f5a0be7664ab9f058ef7a4b252129ed5d7bf4603f88ade0fa94"
