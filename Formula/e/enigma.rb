@@ -4,6 +4,7 @@ class Enigma < Formula
   url "https://github.com/Enigma-Game/Enigma/releases/download/1.30/Enigma-1.30-src.tar.gz"
   sha256 "ae64b91fbc2b10970071d0d78ed5b4ede9ee3868de2e6e9569546fc58437f8af"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
