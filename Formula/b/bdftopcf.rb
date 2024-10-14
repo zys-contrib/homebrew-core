@@ -1,8 +1,8 @@
 class Bdftopcf < Formula
   desc "Convert X font from Bitmap Distribution Format to Portable Compiled Format"
   homepage "https://gitlab.freedesktop.org/xorg/util/bdftopcf"
-  url "https://www.x.org/releases/individual/util/bdftopcf-1.1.1.tar.xz"
-  sha256 "11c953d53c0f3ed349d0198dfb0a40000b5121df7eef09f2615a262892fed908"
+  url "https://www.x.org/releases/individual/util/bdftopcf-1.1.2.tar.xz"
+  sha256 "bc60be5904330faaa3ddd2aed7874bee2f29e4387c245d6787552f067eb0523a"
   license "MIT-open-group"
 
   bottle do

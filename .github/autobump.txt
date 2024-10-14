@@ -197,6 +197,7 @@ bc-gh
 bcoin
 bcpp
 bde
+bdftopcf
 bdw-gc
 beagle
 beakerlib
