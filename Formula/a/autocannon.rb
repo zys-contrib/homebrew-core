@@ -1,8 +1,8 @@
 class Autocannon < Formula
   desc "Fast HTTP/1.1 benchmarking tool written in Node.js"
   homepage "https://github.com/mcollina/autocannon"
-  url "https://registry.npmjs.org/autocannon/-/autocannon-7.15.0.tgz"
-  sha256 "ee0a600a1cc7f04003ea5fc1b1b3b6ce00eace6fee5218908e9f383715ae79bb"
+  url "https://registry.npmjs.org/autocannon/-/autocannon-8.0.0.tgz"
+  sha256 "470ac762b261d8eca3d8069be8776b25fc111e4caa962bc144a85e9631fd07fa"
   license "MIT"
 
   bottle do
