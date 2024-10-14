@@ -4,7 +4,7 @@ class Dbxml < Formula
   url "https://download.oracle.com/berkeley-db/dbxml-6.1.4.tar.gz"
   sha256 "a8fc8f5e0c3b6e42741fa4dfc3b878c982ff8f5e5f14843f6a7e20d22e64251a"
   license "AGPL-3.0-only"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "a0b06db6436bb4614fbbfc7d5b6b18c6e8db97aa51b138b2117c1772c7ef71c3"
