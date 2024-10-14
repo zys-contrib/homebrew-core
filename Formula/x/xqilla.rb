@@ -4,6 +4,7 @@ class Xqilla < Formula
   url "https://downloads.sourceforge.net/project/xqilla/XQilla-2.3.4.tar.gz"
   sha256 "292631791631fe2e7eb9727377335063a48f12611d641d0296697e0c075902eb"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
