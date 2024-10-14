@@ -2967,6 +2967,7 @@ wavpack
 wayland
 wayland-protocols
 wazero
+wcslib
 wcurl
 weasyprint
 web-ext
