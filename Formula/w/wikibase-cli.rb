@@ -6,12 +6,12 @@ class WikibaseCli < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b5bf7e82c50dfc1811b24f27745e7176cede497b76417e6b791f29ded672a95"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7b5bf7e82c50dfc1811b24f27745e7176cede497b76417e6b791f29ded672a95"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7b5bf7e82c50dfc1811b24f27745e7176cede497b76417e6b791f29ded672a95"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4f2407affb3594b812a51b642b54da829f70311f45da052ad93470ded69079ab"
-    sha256 cellar: :any_skip_relocation, ventura:       "4f2407affb3594b812a51b642b54da829f70311f45da052ad93470ded69079ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b5bf7e82c50dfc1811b24f27745e7176cede497b76417e6b791f29ded672a95"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "225b195421259af7c9c695cac4a7c4339b09acfae183f7d6a8e6339ec85b4ebf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "225b195421259af7c9c695cac4a7c4339b09acfae183f7d6a8e6339ec85b4ebf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "225b195421259af7c9c695cac4a7c4339b09acfae183f7d6a8e6339ec85b4ebf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8712666f7e32801dd54cd048a6a131da04ff9f6420294a321011217ef7e3a43c"
+    sha256 cellar: :any_skip_relocation, ventura:       "8712666f7e32801dd54cd048a6a131da04ff9f6420294a321011217ef7e3a43c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "225b195421259af7c9c695cac4a7c4339b09acfae183f7d6a8e6339ec85b4ebf"
   end
 
   depends_on "node"
