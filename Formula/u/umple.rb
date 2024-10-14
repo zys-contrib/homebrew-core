@@ -13,8 +13,7 @@ class Umple < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "73215534a29d049a8b64e101afe675fc1862196658972d90ec2dfc80d86c4db2"
+    sha256 cellar: :any_skip_relocation, all: "8f29200d94979325078d9073338ed60413e7cde1392125b72d43e1e2105e8d3a"
   end
 
   depends_on "openjdk"
