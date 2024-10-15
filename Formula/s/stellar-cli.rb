@@ -7,12 +7,12 @@ class StellarCli < Formula
   head "https://github.com/stellar/stellar-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a1cb38a6c9e5a6052c773c4c4520defdba860676d7fdc833e9e24f400265ca49"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd48c97e3a519d65d0b5b8e09a30876df3bbf4de8e23596658b70190c0be109a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e5b0a8d7d86b8f6138c1daedd9b7dd0dbf6f57b10696f28992ec7feb1718cbb1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "826d3d7c862b62865eeeb859d5f29aec7303e0e47f0a6cdde3febdf4c1dd459d"
-    sha256 cellar: :any_skip_relocation, ventura:       "8d35c0f5a319f7b39e5d6151679089cfaec795d0315b4fac44c14dee2a86f04b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0381d80cd30b9192fc312270e3b2ced7cf135e1ac4ad4985e35fed5493d20f75"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "00afb8e432b02c40a5fc9eda8e57e2f7ccfcafda50732914247308b1a2352f06"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ddc127ae0fe1a621375fbcd4f2f5f9f27d48544bdc19fe805ab9feca0ea5491a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "048894c60188076ec774c5e6807317322d4108b3372bb74db77b3dde0dc04619"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f2ad54c6c2edbece073f9ee8e192f725d8397ba59ca7d0d7781ae63f20ba6bf1"
+    sha256 cellar: :any_skip_relocation, ventura:       "52d16b202ad79fe8904427ca7f00b712c40f52f6f4b0ed98a6dea580873c417e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15491afefbac64e5e9794a18a52210f43f432a1f4ff4b05e2af07a224779fffc"
   end
 
   depends_on "pkg-config" => :build
