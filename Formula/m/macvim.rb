@@ -23,11 +23,12 @@ class Macvim < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "5821209c314b1901c55f5d0899a10bd68929f4b5ff9f28a34bb01fc1b6619c25"
-    sha256 cellar: :any, arm64_sonoma:  "e7b2ee7c445f16c9865c79e4773eacef83bd811712cdf351dcbbc0115e96a108"
-    sha256 cellar: :any, arm64_ventura: "324bcc655e385bd60a16e55b22741c50099e4f8c6523ff48e437f5740ae49918"
-    sha256 cellar: :any, sonoma:        "f3bb80a2665bad75a82ae738ecfc06117c1c99d7c55a4601805c21dda2ff314d"
-    sha256 cellar: :any, ventura:       "3c8f838819b8da6dc55bbe419d4b6117c693aeee76b27e806bddfa6dae1d8298"
+    rebuild 1
+    sha256 cellar: :any, arm64_sequoia: "80e6eed701a2a90d774c3466a1a658eae0602f6514cc179cf5f4094a4a59536f"
+    sha256 cellar: :any, arm64_sonoma:  "0f73e511af34cbe4477d83c907e9b42caf8032b8b2723fc5879d68f00e861dea"
+    sha256 cellar: :any, arm64_ventura: "e9210bbe26673e2cefc2445636b5b1f4a42e1f19369a4aa64071f7a721680b77"
+    sha256 cellar: :any, sonoma:        "eee7dada958ef31d41d97838efce0689d8aac95adb7a782f16ca3147348fbe49"
+    sha256 cellar: :any, ventura:       "663fb344c7d5e0e73373204a8ba3ebf61e348c8b638791340e985a86e62f8961"
   end
 
   depends_on "gettext" => :build
