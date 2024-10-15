@@ -5,6 +5,11 @@ class Squiid < Formula
   sha256 "3944faeff6787e52bb045a0353c72a29acff919abfa41b275add7189355c01c9"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "315fbbb4a9553ca75652610cb44c2b9f39e87e6a803f9d4d24a64f618f32a682"
     sha256 cellar: :any,                 arm64_sonoma:  "8176fc788c278875b94cb0d8b85cb6523c4912d63ef781c84bebeb370de57087"
