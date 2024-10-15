@@ -10,14 +10,13 @@ class Onionprobe < Formula
   head "https://gitlab.torproject.org/tpo/onion-services/onionprobe.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "b5e363cb777fbfc7c9ff562a7ec80a06014827dae3ff21872f2d02b37b522712"
-    sha256 cellar: :any,                 arm64_sonoma:   "cdfb9df372d603f79f0199b34dd52ea56b50c3eeac82fcaf6425195a34e6f84f"
-    sha256 cellar: :any,                 arm64_ventura:  "fdd9303588a11d041e0a0202671e3bca24b7187f9fbbcb481c03f858cbd1757e"
-    sha256 cellar: :any,                 arm64_monterey: "f22fc97215648f8c1f40b226da21455a8e8b966d3f7ce71c07b25c90b6c49a66"
-    sha256 cellar: :any,                 sonoma:         "ac2bcab751cdc96cdfc977052fecd30f1af16c9cf743631cb672f4c5876a675b"
-    sha256 cellar: :any,                 ventura:        "9f2092d7199e249b619af17c3d6e999daaa56ffc17c4cdc918ce9335c7630e20"
-    sha256 cellar: :any,                 monterey:       "6d4e949031d9edc6587c68e63dda4093ed16d78e7c015b1a8500f94e987c3cb4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb0a88926a5dc48d6ebbf856441556d1b36787ffa442d09c87a1d3491b4a0e58"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "3e82006a15ea00cd837933aaa31251ff103abfd778f8ebbbef9bce49ff4bde72"
+    sha256 cellar: :any,                 arm64_sonoma:  "cd6b2b66dfbc2a38791fa61a0f546844ad53e13d70e926424852ba60e3b98c12"
+    sha256 cellar: :any,                 arm64_ventura: "3a17b6ab40162a561db3a94e2ed8ee52368bf0f30e5e63fa90d17cabbfb8fc26"
+    sha256 cellar: :any,                 sonoma:        "5371c35e61dfae1384a4d370fd812e6dd9fd6a222b9ce31523a2c2281efbc338"
+    sha256 cellar: :any,                 ventura:       "cf1c2a0eb660c5af658a9193251bc33ae386538914cd45d96314a0978f0c0669"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77527d81a1f281d219577cc01bcc4f31a87f67466cf743ad2decdfb9f74e1019"
   end
 
   depends_on "certifi"
