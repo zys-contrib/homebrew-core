@@ -9,8 +9,7 @@ class SshAudit < Formula
   head "https://github.com/jtesta/ssh-audit.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "a4f3117d4b6497b359028e5b3365a9552d0255d79feb30328ceeb0e54dda340d"
+    sha256 cellar: :any_skip_relocation, all: "a2e7fb5fb4eb20ac00402d3920f4a37a624da249adf432d38ecc9f9158274872"
   end
 
   depends_on "python@3.13"
