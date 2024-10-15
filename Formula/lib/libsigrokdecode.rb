@@ -30,13 +30,18 @@ class Libsigrokdecode < Formula
   depends_on "graphviz" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => [:build, :test]
+
   depends_on "glib"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     # While this doesn't appear much better than hardcoding `3.10`, this allows
     # `brew audit` to catch mismatches between this line and the dependencies.
-    python = "python3.12"
+    python = "python3.13"
     py_version = Language::Python.major_minor_version(python)
 
     inreplace "configure.ac" do |s|
