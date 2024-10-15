@@ -6,12 +6,12 @@ class Cyphernetes < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "027d7de889844224b6098738af42839bb6e63e0e0e7bd2c60177d3c4890b7774"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "027d7de889844224b6098738af42839bb6e63e0e0e7bd2c60177d3c4890b7774"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "027d7de889844224b6098738af42839bb6e63e0e0e7bd2c60177d3c4890b7774"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4d100fa000f34051281d4dcef1a38e082765e6d4c8ea33bf3ff68dc612a462a8"
-    sha256 cellar: :any_skip_relocation, ventura:       "4d100fa000f34051281d4dcef1a38e082765e6d4c8ea33bf3ff68dc612a462a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93e2269f4c346d9235e84c0028bc7ee8407c2d7aa5b750c30c9b844604798636"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cd1f56a19bf559202e80aec5d007b88c50edbb381e639ef94a41562a61484fdc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cd1f56a19bf559202e80aec5d007b88c50edbb381e639ef94a41562a61484fdc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cd1f56a19bf559202e80aec5d007b88c50edbb381e639ef94a41562a61484fdc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6618b575be9a0114269a344f705f7ad17f414a35d8d99c5d67498bf37bca8c8e"
+    sha256 cellar: :any_skip_relocation, ventura:       "6618b575be9a0114269a344f705f7ad17f414a35d8d99c5d67498bf37bca8c8e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b05277c846c456b00ddc1a03361bb6e8cde5c5baaae405ad27a483106048646b"
   end
 
   depends_on "go" => :build
