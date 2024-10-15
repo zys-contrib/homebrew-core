@@ -20,7 +20,7 @@ class Gptme < Formula
   depends_on "rust" => :build
   depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
@@ -151,8 +151,8 @@ class Gptme < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/83/fc/77552f9ddd40ac32fe44c591c5a0918a050aea6ce62a3f22fc7d8fe0359a/openai-1.53.0.tar.gz"
-    sha256 "be2c4e77721b166cce8130e544178b7d579f751b4b074ffbaade3854b6f85ec5"
+    url "https://files.pythonhosted.org/packages/6d/15/2bf6bb16e49c5a56beae6586aa83785578a875c544349f84a2ccac38e221/openai-1.54.0.tar.gz"
+    sha256 "df2a84384314165b706722a7ac8988dc33eba20dd7fc3b939d138110e608b1ce"
   end
 
   resource "packaging" do
@@ -231,8 +231,8 @@ class Gptme < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/d9/e9/cf9ef5245d835065e6673781dbd4b8911d352fb770d56cf0879cf11b7ee1/rich-13.9.3.tar.gz"
-    sha256 "bc1e01b899537598cf02579d2b9f4a415104d3fc439313a7a2c165d76557a08e"
+    url "https://files.pythonhosted.org/packages/ab/3a/0316b28d0761c6734d6bc14e770d85506c986c85ffb239e688eeaab2c2bc/rich-13.9.4.tar.gz"
+    sha256 "439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"
   end
 
   resource "six" do
@@ -261,8 +261,8 @@ class Gptme < Formula
   end
 
   resource "tokenizers" do
-    url "https://files.pythonhosted.org/packages/d7/fb/373b66ba58cbf5eda371480e4e051d8892ea1433a73f1f92c48657a699a6/tokenizers-0.20.1.tar.gz"
-    sha256 "84edcc7cdeeee45ceedb65d518fffb77aec69311c9c8e30f77ad84da3025f002"
+    url "https://files.pythonhosted.org/packages/9a/6e/4368d065ab4ab9157a28412df7106f1b2cb7448895059d9f5b6f965689f6/tokenizers-0.20.2.tar.gz"
+    sha256 "05c95c59b200c2fcf9b2da2d17df9236fb7a6df4136cfb251dfaa8803c0127fd"
   end
 
   resource "tomlkit" do
