@@ -24,6 +24,8 @@ class Trivy < Formula
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/trivy"
     (pkgshare/"templates").install Dir["contrib/*.tpl"]
+
+    generate_completions_from_executable(bin/"trivy", "completion")
   end
 
   test do
