@@ -2,7 +2,7 @@ class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://github.com/MusicPlayerDaemon/MPD"
   license "GPL-2.0-or-later"
-  revision 4
+  revision 5
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   stable do
@@ -43,12 +43,14 @@ class Mpd < Formula
   depends_on "flac"
   depends_on "fluid-synth"
   depends_on "fmt"
+  depends_on "game-music-emu"
   depends_on "glib"
   depends_on "icu4c@75"
   depends_on "lame"
   depends_on "libao"
   depends_on "libgcrypt"
   depends_on "libid3tag"
+  depends_on "libmikmod"
   depends_on "libmpdclient"
   depends_on "libnfs"
   depends_on "libogg"
@@ -102,6 +104,8 @@ class Mpd < Formula
       -Dupnp=pupnp
       -Dvorbisenc=enabled
       -Dwavpack=enabled
+      -Dgme=enabled
+      -Dmikmod=enabled
       -Dsystemd_system_unit_dir=#{lib}/systemd/system
       -Dsystemd_user_unit_dir=#{lib}/systemd/user
     ]
