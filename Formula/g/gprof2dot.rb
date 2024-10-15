@@ -20,7 +20,7 @@ class Gprof2dot < Formula
   end
 
   depends_on "graphviz"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   on_linux do
     depends_on "libx11"
