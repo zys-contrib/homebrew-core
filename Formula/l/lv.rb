@@ -1,11 +1,11 @@
 class Lv < Formula
   desc "Powerful multi-lingual file viewer/grep"
-  homepage "https://web.archive.org/web/20160310122517/www.ff.iij4u.or.jp/~nrt/lv/"
-  url "https://web.archive.org/web/20150915000000/www.ff.iij4u.or.jp/~nrt/freeware/lv451.tar.gz"
-  version "4.51"
-  sha256 "e1cd2e27109fbdbc6d435f2c3a99c8a6ef2898941f5d2f7bacf0c1ad70158bcf"
+  # The upstream homepage was "https://web.archive.org/web/20160310122517/www.ff.iij4u.or.jp/~nrt/lv/"
+  homepage "https://salsa.debian.org/debian/lv"
+  url "https://salsa.debian.org/debian/lv/-/archive/debian/4.51-9/lv-debian-4.51-9.tar.gz"
+  sha256 "ab48437d92eb7ae09e22e8d6f8fbfd321e7869069da2d948433fb49da67e0c34"
   license "GPL-2.0-or-later"
-  revision 1
+  head "https://salsa.debian.org/debian/lv.git", branch: "master"
 
   bottle do
     sha256                               arm64_sequoia:  "ac1682fd11e3bc9f5bb6ceefdcd060057aa066ebd58e95195c9bcfd4cffb1826"
@@ -23,8 +23,6 @@ class Lv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "16aa28d4dfb99fbffc482973e91282d1b7a4986f3cdc2638805228962143d949"
   end
 
-  deprecate! date: "2024-07-02", because: :repo_removed
-
   uses_from_macos "ncurses"
 
   on_linux do
@@ -32,16 +30,18 @@ class Lv < Formula
   end
 
   # See https://github.com/Homebrew/homebrew-core/pull/53085.
-  # Further issues regarding missing headers reported upstream to nrt@ff.iij4u.or.jp
+  # Being proposed to Debian: https://salsa.debian.org/debian/lv/-/merge_requests/3
   patch :DATA
 
   def install
-    # Work around for newer Clang
-    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+    File.read("debian/patches/series").each_line do |line|
+      line.chomp!
+      system "patch", "-p1", "-i", "debian/patches/"+line
+    end
 
     if OS.mac?
       # zcat doesn't handle gzip'd data on OSX.
-      # Reported upstream to nrt@ff.iij4u.or.jp
+      # Being proposed to Debian: https://salsa.debian.org/debian/lv/-/merge_requests/4
       inreplace "src/stream.c", 'gz_filter = "zcat"', 'gz_filter = "gzcat"'
     end
 
@@ -75,24 +75,3 @@ __END__
      SIDX = index;
  
      if( 'm' != ch ){
---- a/src/guess.c
-+++ b/src/guess.c
-@@ -21,7 +21,7 @@
-  */
-
- #include <stdio.h>
--
-+#include <string.h>
- #include <import.h>
- #include <decode.h>
- #include <big5.h>
---- a/src/guesslocale.c
-+++ b/src/guesslocale.c
-@@ -24,6 +24,7 @@
-
- #include <stdlib.h>
- #include <string.h>
-+#include <ctype.h>
- #include <locale.h>
- #if defined(HAVE_LANGINFO_CODESET)
- #include <langinfo.h>
