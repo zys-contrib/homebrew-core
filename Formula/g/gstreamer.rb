@@ -111,7 +111,7 @@ class Gstreamer < Formula
   depends_on "orc"
   depends_on "pango"
   depends_on "pygobject3"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "rtmpdump"
   depends_on "speex"
   depends_on "srt"
@@ -149,13 +149,13 @@ class Gstreamer < Formula
   end
 
   def python3
-    which("python3.12")
+    which("python3.13")
   end
 
   # These paths used to live in various `gst-*` formulae.
   link_overwrite "bin/gst-*", "lib/ligst*", "lib/libges*", "lib/girepository-1.0/Gst*-1.0.typelib"
   link_overwrite "lib/girepository-1.0/GES-1.0.typelib", "lib/gst-validate-launcher/*", "lib/gstreamer-1.0/*"
-  link_overwrite "lib/pkgconfig/gst*.pc", "lib/python3.12/site-packages/gi/overrides/*", "include/gstreamer-1.0/*"
+  link_overwrite "lib/pkgconfig/gst*.pc", "lib/python3.13/site-packages/gi/overrides/*", "include/gstreamer-1.0/*"
   link_overwrite "share/gir-1.0/Gst*.gir", "share/gir-1.0/GES-1.0.gir", "share/gstreamer-1.0/*"
   link_overwrite "share/locale/*/LC_MESSAGES/gst-*.mo", "share/man/man1/g*"
 
