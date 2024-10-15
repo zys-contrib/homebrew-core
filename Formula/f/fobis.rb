@@ -9,15 +9,13 @@ class Fobis < Formula
   revision 2
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f207c61f2ce77fc893cdd2977e12643ddadea1a4d60df31d019dfda5599096be"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "147212cd6a9f780dbada04421a8fbf84e68b48a010b67a40db34b8f5ade5e771"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "26c58909011ac4d947e902e1128ed5bcbf2c8847d90b00cb7d9ed43ecd0a33bb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "deb8ce8e0404339cb83dcc86b9e7a877e57a1d7ecf8813841ddfe076f095c2ce"
-    sha256 cellar: :any_skip_relocation, sonoma:         "117442d15b852a02ffd674c2a0644a110dea8a39308f8a64b9427fc029385a76"
-    sha256 cellar: :any_skip_relocation, ventura:        "5689771979471f64086c656e092dce45e26311836a9a6932723d208b70f80c20"
-    sha256 cellar: :any_skip_relocation, monterey:       "47191b5e509953a6b701c57810b7f93bc855ed515c047d8d27a0e556a7dd0c67"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "48182e9f5852fac9b862d87d2c10efeb1bbd0d384ffdfbaf7626918a6ea3746a"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "53df92c1b0b300b7bf005bad0a66a53de1285fe28be922e36d70876e9c123463"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "53df92c1b0b300b7bf005bad0a66a53de1285fe28be922e36d70876e9c123463"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "53df92c1b0b300b7bf005bad0a66a53de1285fe28be922e36d70876e9c123463"
+    sha256 cellar: :any_skip_relocation, sonoma:        "53df92c1b0b300b7bf005bad0a66a53de1285fe28be922e36d70876e9c123463"
+    sha256 cellar: :any_skip_relocation, ventura:       "53df92c1b0b300b7bf005bad0a66a53de1285fe28be922e36d70876e9c123463"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6ce8ec984624bd49fe0d7dbb0992e79342f2b1de44e9ebd306c43eb2afd0bfb"
   end
 
   depends_on "gcc" # for gfortran
