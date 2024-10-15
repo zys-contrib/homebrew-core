@@ -36,7 +36,7 @@ class Profanity < Formula
   depends_on "libgcrypt"
   depends_on "libotr"
   depends_on "libstrophe"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "readline"
   depends_on "sqlite"
 
@@ -50,7 +50,7 @@ class Profanity < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.12"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.13"].opt_libexec/"bin"
 
     system "./bootstrap.sh" if build.head?
 
