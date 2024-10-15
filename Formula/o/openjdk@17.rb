@@ -1,8 +1,8 @@
 class OpenjdkAT17 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk17u/archive/refs/tags/jdk-17.0.12-ga.tar.gz"
-  sha256 "74654bdd094c466217d3c65d71622f5ad9039d86d0c1b5eaa0bf6b2ae6e0822d"
+  url "https://github.com/openjdk/jdk17u/archive/refs/tags/jdk-17.0.13-ga.tar.gz"
+  sha256 "84e84382a412525c9e4c606164ef5a300db7ebc6ebab004e27c88520065c2add"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
 
   livecheck do
