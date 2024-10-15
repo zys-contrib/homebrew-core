@@ -24,7 +24,7 @@ class GobjectIntrospection < Formula
   depends_on "glib"
   depends_on "pkg-config"
   # Ships a `_giscanner.cpython-312-darwin.so`, so needs a specific version.
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "flex" => :build
   uses_from_macos "libffi", since: :catalina
@@ -58,7 +58,7 @@ class GobjectIntrospection < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.12")
+    venv = virtualenv_create(libexec, "python3.13")
     venv.pip_install resources
     ENV.prepend_path "PATH", venv.root/"bin"
 
