@@ -7,12 +7,12 @@ class Pillow < Formula
   head "https://github.com/python-pillow/Pillow.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "0117a48ed458639fbeb31a7972bafd3c0a9b06104011ccd4a7b0f5812b08b626"
-    sha256 cellar: :any, arm64_sonoma:  "ff97f4d05a95efb8b0fee5ecd488d3ec4d1a08a42fb83419cb4c187bb8ac36e4"
-    sha256 cellar: :any, arm64_ventura: "9c499f2ee136fdd5ebfb9a5882ec68c4a6e6eaf36a23f65cbd7f155b77cabf4c"
-    sha256 cellar: :any, sonoma:        "6187bc4583f25d0217dcfb6f9f6fc79d934d8cb1a3fe3e40205b4e902abeac6b"
-    sha256 cellar: :any, ventura:       "c7bca225a92ee3b57d2816f1323fd3d080294c8fe20c9ae6cb63fbb42dd32ac2"
-    sha256               x86_64_linux:  "72460570398320cf0bf3b17fd673258121bd61b60baf8b49d75dfdde99ee4269"
+    sha256 cellar: :any, arm64_sequoia: "e1022c34f56ee10daf647e70fd3305c2653718bf78c0cd89dffe23d29873c24a"
+    sha256 cellar: :any, arm64_sonoma:  "148cc0c608021690b06360208e525f2606abfd50dafd0d14322bfbfc44da6a38"
+    sha256 cellar: :any, arm64_ventura: "3718c3be4bd1d28965815082d32f59d89ca3c0c6a001797c13ebe43bbab539ee"
+    sha256 cellar: :any, sonoma:        "83f710a136956297d32039e22be79d12612cc6b254910d1834f3554390971f79"
+    sha256 cellar: :any, ventura:       "527c15b9d868eae0cfa0b60d4affb0b76441c9194f34d60eb58619cbad644665"
+    sha256               x86_64_linux:  "e7a618cba484da3cb05fcaec9d300cde908124f17d3d82c1a69dbe54b782fca0"
   end
 
   depends_on "pkg-config" => :build
