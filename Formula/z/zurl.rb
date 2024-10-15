@@ -13,14 +13,12 @@ class Zurl < Formula
   ]
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "29419455dd218e5cca794fef679128a0e193c14b859d8d517cef731a03d518f6"
-    sha256 cellar: :any,                 arm64_ventura:  "70ab20c9abacad98555e412aa8b942d478965428f41f1f28a4a90b41012e3753"
-    sha256 cellar: :any,                 arm64_monterey: "5a7f5071e096c8dead6a23493df5fe36a6e7e1b7dd6417c6b41029dd48f5517c"
-    sha256 cellar: :any,                 sonoma:         "d6974d31c07fce5247d6681c9737d60c00a8288155d1f15494f6581437f346ca"
-    sha256 cellar: :any,                 ventura:        "a0df5794c3daba640e7081980d9bfac9c0c14cd3304320ab94a6441a6c6d4fb3"
-    sha256 cellar: :any,                 monterey:       "99a6f58fcd6e527e33917dffa2f9eabf009db7a1fc0685c31d8d59181a79dbe5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e1fcebfc7d0dc691d59d329e077d4246d425ea597ada56e0cb603e40232dc34"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:  "caac867d6cd84464d1432597b7f87521ad5d971e12aded4455068d0e227c7d6b"
+    sha256 cellar: :any,                 arm64_ventura: "db24a1c2b45dacb21bc6d983c7cc243e3a4c66e405e92ea1e1b755c920adf647"
+    sha256 cellar: :any,                 sonoma:        "3c269fb6fafc531fb6738e3e5b8f21085526b3278068bddd1f606342f5d14bb2"
+    sha256 cellar: :any,                 ventura:       "e97837c8f2141e8ff0dfe985fca0b6924a894b9a0fcc023a4808491eb67b3503"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e03115779822a91ea2c4547dae103f6538beeab596a56251aad671519c1becd8"
   end
 
   depends_on "pkg-config" => :build
