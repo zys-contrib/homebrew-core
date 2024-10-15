@@ -9,13 +9,8 @@ class GorillaCli < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6d416ebe00b2ab118491bf6447fc71ef43c0921d2d69b646d5a312e929cc5bb2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6d416ebe00b2ab118491bf6447fc71ef43c0921d2d69b646d5a312e929cc5bb2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6d416ebe00b2ab118491bf6447fc71ef43c0921d2d69b646d5a312e929cc5bb2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "79f99c8ac65244d108103af279b02b2601e3a12531ea221e6e51873b105c2429"
-    sha256 cellar: :any_skip_relocation, ventura:        "79f99c8ac65244d108103af279b02b2601e3a12531ea221e6e51873b105c2429"
-    sha256 cellar: :any_skip_relocation, monterey:       "6d416ebe00b2ab118491bf6447fc71ef43c0921d2d69b646d5a312e929cc5bb2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c3909a9070a0bc65842f887b937bb8f8613b5c40e4e4de86e8cd1ef4e82a41c2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "57ca6180e312d9d22460b8647d9bced414cd9a24fd234cdf33beb614bf9e3bf1"
   end
 
   depends_on "certifi"
