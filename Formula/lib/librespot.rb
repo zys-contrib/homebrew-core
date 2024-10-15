@@ -1,18 +1,10 @@
 class Librespot < Formula
   desc "Open Source Spotify client library"
   homepage "https://github.com/librespot-org/librespot"
+  url "https://github.com/librespot-org/librespot/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "1af039ba08a2ad0d7b9758e8133229085845d1386018b90b455f011df27ee8df"
   license "MIT"
   head "https://github.com/librespot-org/librespot.git", branch: "dev"
-
-  stable do
-    url "https://github.com/librespot-org/librespot/archive/refs/tags/v0.4.2.tar.gz"
-    sha256 "cc8cb81bdbaa5abf366170dec5e6b8c0ecf570a7cb68f04483e9f7eed338ca61"
-
-    # Use `llvm@15` to work around build failure with LLVM Clang 16 (Apple Clang 15)
-    # described in https://github.com/rust-lang/rust-bindgen/issues/2312.
-    # TODO: Remove in the next release
-    depends_on "llvm@15" => :build if DevelopmentTools.clang_build_version >= 1500
-  end
 
   bottle do
     rebuild 1
@@ -37,9 +29,6 @@ class Librespot < Formula
   end
 
   def install
-    odie "Check if `llvm@15` dependency can be removed!" if build.stable? && version > "0.4.2"
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm@15"].opt_lib
-
     ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path.to_s if OS.mac?
     system "cargo", "install", "--no-default-features", "--features", "rodio-backend,with-dns-sd", *std_cargo_args
   end
