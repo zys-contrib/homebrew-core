@@ -1,8 +1,8 @@
 class Ncspot < Formula
   desc "Cross-platform ncurses Spotify client written in Rust"
   homepage "https://github.com/hrkfdn/ncspot"
-  url "https://github.com/hrkfdn/ncspot/archive/refs/tags/v1.1.2.tar.gz"
-  sha256 "010b12172b85e6ae0eaf60ae0ab923580bcca0b132927b39c2a2fc878cb5e6a7"
+  url "https://github.com/hrkfdn/ncspot/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "0df821a5ea70a143d3529abadd39bcdd9643720a602c99a9c0f8f31f52b4a0fb"
   license "BSD-2-Clause"
 
   bottle do
@@ -49,7 +49,7 @@ class Ncspot < Formula
       sleep 1
       Process.kill("INT", wait_thr.pid)
 
-      assert_match "Please login to Spotify", stdout.read
+      assert_match "To login you need to perform OAuth2 authorization", stdout.read
     end
   end
 end
