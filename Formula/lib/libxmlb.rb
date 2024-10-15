@@ -9,12 +9,13 @@ class Libxmlb < Formula
   head "https://github.com/hughsie/libxmlb.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "fdc2e6dab7e1213110a6d1d6ae5d3c9ecb2ba9bf1137ccb5b0c312501e8c76ef"
-    sha256 cellar: :any, arm64_sonoma:  "67355c408d16245ec4f4f1b4a8246e61b0eabebf0059d50725ad2c8be8c94b8b"
-    sha256 cellar: :any, arm64_ventura: "3211a18bbe0051fd51e240e9ca6a208b408ee2e474fab4f3de0629238339b2e8"
-    sha256 cellar: :any, sonoma:        "ae955601c5f1320d8950e9bd20028fff0b5c98ecc9280fe88b80073c9cf0e405"
-    sha256 cellar: :any, ventura:       "9cd43c3fc4380adbcc16ac2274423527460ebb66a773a7e983dc272a06634421"
-    sha256               x86_64_linux:  "aa0c9bde3e9c395f4d8e949030843cd62767eaabbf7a218281028053b63daf3e"
+    rebuild 1
+    sha256 cellar: :any, arm64_sequoia: "7602ee280a7157ea41ff0ee62d720523b320ddf104dc788ca466587639b39953"
+    sha256 cellar: :any, arm64_sonoma:  "6e72c476724d651c02926c05e26219ed4e4cfdceb28ad0def3ccba646928e1de"
+    sha256 cellar: :any, arm64_ventura: "a97159b6525f962e97b4584aa7bab1adeaaea2f917738ddc279da7ff804a566d"
+    sha256 cellar: :any, sonoma:        "239946259891a14150b7e690717f39f2fddd77e546cfd80edbda4c2a58250f43"
+    sha256 cellar: :any, ventura:       "b6363ecabc2c73f0916a5510d7f65ac8bd4f35200e67dfb15412d221ed500cc6"
+    sha256               x86_64_linux:  "f9928bd831f1c92e46d44e527f295065325c48ca07a096b2655c53275527d70c"
   end
 
   depends_on "gi-docgen" => :build
@@ -22,7 +23,7 @@ class Libxmlb < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "vala" => :build
   depends_on "glib"
   depends_on "xz"
