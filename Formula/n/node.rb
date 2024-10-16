@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v22.10.0/node-v22.10.0.tar.xz"
-  sha256 "3180710d3130ad9df01466abf010e408d41b374be54301d1480d10eca73558e0"
+  url "https://nodejs.org/dist/v23.1.0/node-v23.1.0.tar.xz"
+  sha256 "57cbfd3dd51f9300ea2b8e60a8ed215b1eaa71fbde4c3903a7d31a443a4a4423"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "main"
 
@@ -66,7 +66,6 @@ class Node < Formula
     args = %W[
       --prefix=#{prefix}
       --without-npm
-      --without-corepack
       --with-intl=system-icu
       --shared-libuv
       --shared-nghttp2
@@ -169,7 +168,7 @@ class Node < Formula
     assert_predicate HOMEBREW_PREFIX/"bin/npm", :executable?, "npm must be executable"
     npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
     system HOMEBREW_PREFIX/"bin/npm", *npm_args, "install", "npm@latest"
-    system HOMEBREW_PREFIX/"bin/npm", *npm_args, "install", "ref-napi"
+    system HOMEBREW_PREFIX/"bin/npm", *npm_args, "install", "nan"
     assert_predicate HOMEBREW_PREFIX/"bin/npx", :exist?, "npx must exist"
     assert_predicate HOMEBREW_PREFIX/"bin/npx", :executable?, "npx must be executable"
     assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx --yes cowsay hello")
