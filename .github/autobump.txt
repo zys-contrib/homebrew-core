@@ -2790,6 +2790,7 @@ tinymist
 tinyproxy
 tio
 tippecanoe
+titlecase
 tkey-ssh-agent
 tlsx
 tmpmail
