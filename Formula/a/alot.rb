@@ -3,10 +3,13 @@ class Alot < Formula
 
   desc "Text mode MUA using notmuch mail"
   homepage "https://github.com/pazz/alot"
+  # TODO: check if we can remove `standard-mailcap` from pypi_formula_mappings.json
+  # https://github.com/pazz/alot/issues/1632
   url "https://github.com/pazz/alot.git",
       tag:      "0.11",
       revision: "a8a108e2344656a13bca21211ccc0df2414cbef6"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/pazz/alot.git", branch: "master"
 
   bottle do
@@ -23,7 +26,7 @@ class Alot < Formula
   depends_on "gpgme"
   depends_on "libmagic"
   depends_on "notmuch"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/fc/0f/aafca9af9315aee06a89ffde799a10a582fe8de76c563ee80bbcdc08b3fb/attrs-24.2.0.tar.gz"
@@ -78,6 +81,11 @@ class Alot < Formula
   resource "six" do
     url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
     sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+  end
+
+  resource "standard-mailcap" do
+    url "https://files.pythonhosted.org/packages/53/e8/672bd621c146b89667a2bfaa58a1384db13cdd62bb7722ddb8d672bf7a75/standard_mailcap-3.13.0.tar.gz"
+    sha256 "19ed7955dbeaccb35e8bb05b2b5443ce55c1f932a8cbe7a5c13d42f9db4f499a"
   end
 
   resource "twisted" do

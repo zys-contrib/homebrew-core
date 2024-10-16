@@ -6,7 +6,8 @@
     "exclude_packages": ["certifi"]
   },
   "alot": {
-    "exclude_packages": ["notmuch2"]
+    "exclude_packages": ["notmuch2"],
+    "extra_packages": ["standard-mailcap"]
   },
   "animdl": {
     "exclude_packages": ["certifi"]
