@@ -3,18 +3,17 @@ class Dstack < Formula
 
   desc "ML workflow orchestration system designed for reproducibility and collaboration"
   homepage "https://dstack.ai/"
-  url "https://files.pythonhosted.org/packages/b8/74/f1f706bf9dc054bada6d59243f0ac9a4eac03dcacb08f1ccb0654d38300e/dstack-0.18.17.tar.gz"
-  sha256 "a239ceb78284e489b51862fa7624b0f92696fbf622176edec8517e8b07b53afd"
+  url "https://files.pythonhosted.org/packages/7e/04/48d1f99ff04e868c83e8656bb0919fe8f139130bc866acbe9555e47d3f81/dstack-0.18.18.tar.gz"
+  sha256 "164407af8b3d06cd31b73a2ba91704a930e3fe6db19f9bca71545636c647bc2a"
   license "MPL-2.0"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1891525d214961d274641856028a76ca7c218a0d76e8bb34ddf6564798ba86ca"
-    sha256 cellar: :any,                 arm64_sonoma:  "1f29dceb09edea0b1654c2632c07cf2e02c3b7aec10b8a8f99025f8722b833e0"
-    sha256 cellar: :any,                 arm64_ventura: "3baa7dab46ce9d2ca2dd50aad169263fa3932ce5df576d995314fa3b889f51f1"
-    sha256 cellar: :any,                 sonoma:        "be0e1d266508b31d0cd9fa21434598f634eb2ffe20ba4341780b3cd1fc6a1ef3"
-    sha256 cellar: :any,                 ventura:       "a05b38399d938116b04da1799b775aec09a564fccd3b8365c6565880c1766360"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78e0684054fcb0bd02114dd90a4bb5a64fe2eb1f86500fbb582344562f571b33"
+    sha256 cellar: :any,                 arm64_sequoia: "49508b211282522c948c2c2ff04d73a7a4675004606ae2368dc39ec0dad8b789"
+    sha256 cellar: :any,                 arm64_sonoma:  "45272dd47805c599691a0aebebd8be5c8ca3f3562e0cfdb80636406806062a9e"
+    sha256 cellar: :any,                 arm64_ventura: "b9a87c5e03fdad1b0977e4e5dc7500467cdfa1a3380c16f5538c6c05f5111c15"
+    sha256 cellar: :any,                 sonoma:        "faf4ebe4e2a317957e5362cce5e3fdc4f3a4ae884f39fd77505f2628d13521a6"
+    sha256 cellar: :any,                 ventura:       "5145c4292746ff58c1954bde680e1e1231033f7f0f2f8572412555be111a7e20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78b739150cdd34b27bb08d9b1c4c233e0c6d410978e0ceed30b453a7a0da82e2"
   end
 
   # `pkg-config` and `rust` are for bcrypt.
