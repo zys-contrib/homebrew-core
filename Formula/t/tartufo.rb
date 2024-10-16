@@ -20,7 +20,7 @@ class Tartufo < Formula
   end
 
   depends_on "pygit2"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libffi"
 
@@ -55,6 +55,8 @@ class Tartufo < Formula
   end
 
   def install
+    # Allow python 3.13: https://github.com/godaddy/tartufo/pull/539
+    inreplace "pyproject.toml", 'python = ">=3.8, <3.13"', 'python = ">=3.8"'
     virtualenv_install_with_resources
   end
 
