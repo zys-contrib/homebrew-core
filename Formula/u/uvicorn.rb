@@ -3,8 +3,8 @@ class Uvicorn < Formula
 
   desc "ASGI web server"
   homepage "https://www.uvicorn.org/"
-  url "https://files.pythonhosted.org/packages/76/87/a886eda9ed495a3a4506d5a125cd07c54524280718c4969bde88f075fe98/uvicorn-0.31.1.tar.gz"
-  sha256 "f5167919867b161b7bcaf32646c6a94cdbd4c3aa2eb5c17d36bb9aa5cfd8c493"
+  url "https://files.pythonhosted.org/packages/e0/fc/1d785078eefd6945f3e5bab5c076e4230698046231eb0f3747bc5c8fa992/uvicorn-0.32.0.tar.gz"
+  sha256 "f78b36b143c16f54ccdb8190d0a26b5f1901fe5a3c777e1ab29f26391af8551e"
   license "BSD-3-Clause"
   head "https://github.com/encode/uvicorn.git", branch: "master"
 
@@ -23,8 +23,8 @@ class Uvicorn < Formula
   depends_on "python@3.13"
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/78/49/f3f17ec11c4a91fe79275c426658e509b07547f874b14c1a526d86a83fc8/anyio-4.6.0.tar.gz"
-    sha256 "137b4559cbb034c477165047febb6ff83f390fc3b20bf181c1fc0a728cb8beeb"
+    url "https://files.pythonhosted.org/packages/9f/09/45b9b7a6d4e45c6bcb5bf61d19e3ab87df68e0601fa8c5293de3542546cc/anyio-4.6.2.post1.tar.gz"
+    sha256 "4c8bc31ccdb51c7f7bd251f51c609e038d63e34219b44aa86e47576389880b4c"
   end
 
   resource "click" do
@@ -38,11 +38,8 @@ class Uvicorn < Formula
   end
 
   resource "httptools" do
-    url "https://files.pythonhosted.org/packages/67/1d/d77686502fced061b3ead1c35a2d70f6b281b5f723c4eff7a2277c04e4a2/httptools-0.6.1.tar.gz"
-    sha256 "c6e26c30455600b95d94b1b836085138e82f177351454ee841c148f93a9bad5a"
-
-    # relax cython version constraint, upstream pr ref, https://github.com/MagicStack/httptools/pull/101
-    patch :DATA
+    url "https://files.pythonhosted.org/packages/9c/4f/8c7e42e8897f905e84505897f8f9cb4178235888aab571417897362a6764/httptools-0.6.2.tar.gz"
+    sha256 "ae694efefcb61317c79b2fa1caebc122060992408e389bb00889567e463a47f1"
   end
 
   resource "idna" do
@@ -115,62 +112,3 @@ class Uvicorn < Formula
     Process.wait pid
   end
 end
-
-__END__
-diff --git a/httptools/parser/parser.c b/httptools/parser/parser.c
-index 1b64e55..4a59122 100644
---- a/httptools/parser/parser.c
-+++ b/httptools/parser/parser.c
-@@ -9937,7 +9937,7 @@ static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *x) {
-                 unsigned char *bytes = (unsigned char *)&val;
-                 int ret = _PyLong_AsByteArray((PyLongObject *)v,
-                                               bytes, sizeof(val),
--                                              is_little, !is_unsigned);
-+                                              is_little, !is_unsigned, 0);
-                 Py_DECREF(v);
-                 if (likely(!ret))
-                     return val;
-@@ -10133,7 +10133,7 @@ static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *x) {
-                 unsigned char *bytes = (unsigned char *)&val;
-                 int ret = _PyLong_AsByteArray((PyLongObject *)v,
-                                               bytes, sizeof(val),
--                                              is_little, !is_unsigned);
-+                                              is_little, !is_unsigned, 0);
-                 Py_DECREF(v);
-                 if (likely(!ret))
-                     return val;
-diff --git a/httptools/parser/url_parser.c b/httptools/parser/url_parser.c
-index c9e646a..e9a5f01 100644
---- a/httptools/parser/url_parser.c
-+++ b/httptools/parser/url_parser.c
-@@ -5547,7 +5547,7 @@ static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *x) {
-                 unsigned char *bytes = (unsigned char *)&val;
-                 int ret = _PyLong_AsByteArray((PyLongObject *)v,
-                                               bytes, sizeof(val),
--                                              is_little, !is_unsigned);
-+                                              is_little, !is_unsigned, 0);
-                 Py_DECREF(v);
-                 if (likely(!ret))
-                     return val;
-@@ -5743,7 +5743,7 @@ static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *x) {
-                 unsigned char *bytes = (unsigned char *)&val;
-                 int ret = _PyLong_AsByteArray((PyLongObject *)v,
-                                               bytes, sizeof(val),
--                                              is_little, !is_unsigned);
-+                                              is_little, !is_unsigned, 0);
-                 Py_DECREF(v);
-                 if (likely(!ret))
-                     return val;
-diff --git a/setup.py b/setup.py
-index 200e6f6..adca1f8 100644
---- a/setup.py
-+++ b/setup.py
-@@ -15,7 +15,7 @@ CFLAGS = ['-O2']
-
- ROOT = pathlib.Path(__file__).parent
-
--CYTHON_DEPENDENCY = 'Cython(>=0.29.24,<0.30.0)'
-+CYTHON_DEPENDENCY = 'Cython>=0.29.24'
-
-
- class httptools_build_ext(build_ext):
