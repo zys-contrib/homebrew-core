@@ -24,7 +24,7 @@ class Klee < Formula
 
   depends_on "gperftools"
   depends_on "llvm@16"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "sqlite"
   depends_on "stp"
   depends_on "wllvm"
@@ -122,7 +122,7 @@ class Klee < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    venv = virtualenv_create(libexec/"venv", "python3.12")
+    venv = virtualenv_create(libexec/"venv", "python3.13")
     venv.pip_install resource("tabulate")
     rewrite_shebang python_shebang_rewrite_info(venv.root/"bin/python"), *bin.children
   end
