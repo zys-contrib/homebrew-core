@@ -6,6 +6,15 @@ class Termscp < Formula
   license "MIT"
   head "https://github.com/veeso/termscp.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "53d33f7bf81f2bf50884bd90699fc80607507e487326c46d2ef441a21113449f"
+    sha256 cellar: :any,                 arm64_sonoma:  "fdef827f27c4614f4e997701267e9885c5898b5f6faf3c8815c4ddad0b95ef4f"
+    sha256 cellar: :any,                 arm64_ventura: "6686447fa6bf9e09bb79dacb838ab4772f90b3c178f7b5d86182ac6add80d61f"
+    sha256 cellar: :any,                 sonoma:        "61f2ce84bce6e048e7a07856671fbea8821592023070949a5647e366aacc619d"
+    sha256 cellar: :any,                 ventura:       "9a09d6cc66fa58721d1ff66efe7c3462ede28b3a18f84bdcf2fabc573ae54e5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5a911c8cf51239d17d83beab5033237f90614f9524dad961107a5d513ffbbdc"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "openssl@3"
