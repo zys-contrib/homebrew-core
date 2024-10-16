@@ -3,6 +3,7 @@ abcmidi
 abi3audit
 abseil
 ack
+acl2
 act
 action-validator
 actionlint
