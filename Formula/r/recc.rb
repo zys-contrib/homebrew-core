@@ -1,8 +1,8 @@
 class Recc < Formula
   desc "Remote Execution Caching Compiler"
   homepage "https://buildgrid.gitlab.io/recc"
-  url "https://gitlab.com/BuildGrid/buildbox/buildbox/-/archive/1.2.24/buildbox-1.2.24.tar.gz"
-  sha256 "098de85fa2dc25c3aff4c91d9b7482dfc5842125344e51571991b0eddecbb1c2"
+  url "https://gitlab.com/BuildGrid/buildbox/buildbox/-/archive/1.2.25/buildbox-1.2.25.tar.gz"
+  sha256 "c501f4666e8edd91f899cdc0470aaf28c711556c953e21d4dd7fbac900901006"
   license "Apache-2.0"
   head "https://gitlab.com/BuildGrid/buildbox/buildbox.git", branch: "master"
 
@@ -61,31 +61,36 @@ class Recc < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    ENV["RECC_BIN"] = bin/"recc"
-    system "command envsubst < scripts/wrapper-templates/recc-c++.in > recc-c++"
-    system "command envsubst < scripts/wrapper-templates/recc-cc.in > recc-cc"
+    system "make", "-f", "scripts/wrapper-templates/Makefile", "RECC_BIN=#{bin}/recc", "recc-c++"
+    system "make", "-f", "scripts/wrapper-templates/Makefile", "RECC_BIN=#{bin}/recc", "recc-cc"
+    system "make", "-f", "scripts/wrapper-templates/Makefile", "RECC_BIN=#{bin}/recc", "recc-clang"
+    system "make", "-f", "scripts/wrapper-templates/Makefile", "RECC_BIN=#{bin}/recc", "recc-clang++"
+    system "make", "-f", "scripts/wrapper-templates/Makefile", "RECC_BIN=#{bin}/recc", "recc-g++"
+    system "make", "-f", "scripts/wrapper-templates/Makefile", "RECC_BIN=#{bin}/recc", "recc-gcc"
     bin.install "recc-c++"
     bin.install "recc-cc"
 
-    ENV["RECC_CONFIG_PREFIX"] = "$(brew --prefix)/etc"
-    ENV["RECC_CONFIG_DIRECTORY"] = "\"${RECC_CONFIG_DIRECTORY}\""
-    ENV["RECC_SERVER"] = "unix://#{var}/recc/casd/casd.sock"
-    ENV["RECC_INSTANCE"] = "recc-server"
-    ENV["RECC_REMOTE_PLATFORM_ISA"] = Hardware::CPU.arch.to_s
-    ENV["RECC_REMOTE_PLATFORM_OS"] = OS.kernel_name.downcase
-    ENV["RECC_REMOTE_PLATFORM_OS_VERSION"] = OS.kernel_version.to_s
-    system "command envsubst < scripts/wrapper-templates/recc.conf.in > recc.conf"
+    recc_conf_args = %W[
+      RECC_CONFIG_PREFIX=#{etc}
+      RECC_SERVER=unix://#{var}/recc/casd/casd.sock
+      RECC_INSTANCE=recc-server
+      RECC_REMOTE_PLATFORM_ISA=#{Hardware::CPU.arch}
+      RECC_REMOTE_PLATFORM_OS=#{OS.kernel_name.downcase}
+      RECC_REMOTE_PLATFORM_OS_VERSION=#{OS.kernel_version}
+    ]
+    system "make", "-f", "scripts/wrapper-templates/Makefile", *recc_conf_args, "recc.conf"
     etc.install "recc.conf"
 
     bin.install "scripts/wrapper-templates/casd-helper" => "recc-server"
   end
 
   service do
-    run [opt_bin/"recc-server", "--local-server-instance", "recc-server", "#{var}/recc/casd}"]
+    run [opt_bin/"recc-server", "--local-server-instance", "recc-server", "#{var}/recc/casd"]
     keep_alive true
     working_dir var/"recc"
     log_path var/"log/recc-server.log"
     error_log_path var/"log/recc-server-error.log"
+    environment_variables PATH: std_service_path_env
   end
 
   def caveats
