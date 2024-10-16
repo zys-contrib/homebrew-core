@@ -18,13 +18,13 @@ class Uftrace < Formula
   depends_on :linux
   depends_on "luajit"
   depends_on "ncurses"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     # TODO: Obsolete with git master, to be removed when updating to next release
     inreplace "misc/version.sh", "deps/have_libpython2.7", "deps/have_libpython*"
 
-    python3 = "python3.12"
+    python3 = "python3.13"
     pyver = Language::Python.major_minor_version python3
     # Help pkg-config find python as we only provide `python3-embed` for aliased python formula
     inreplace Dir["check-deps/Makefile{,.check}"], "pkg-config python3", "pkg-config python-#{pyver}"
