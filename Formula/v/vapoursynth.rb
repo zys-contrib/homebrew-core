@@ -26,7 +26,7 @@ class Vapoursynth < Formula
   depends_on "libtool" => :build
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "zimg"
 
   # std::to_chars requires at least MACOSX_DEPLOYMENT_TARGET=13.3
@@ -75,7 +75,7 @@ class Vapoursynth < Formula
   end
 
   test do
-    system Formula["python@3.12"].opt_bin/"python3.12", "-c", "import vapoursynth"
+    system Formula["python@3.13"].opt_bin/"python3.13", "-c", "import vapoursynth"
     system bin/"vspipe", "--version"
   end
 end
