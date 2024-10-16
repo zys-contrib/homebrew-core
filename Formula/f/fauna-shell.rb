@@ -1,9 +1,10 @@
 class FaunaShell < Formula
   desc "Interactive shell for FaunaDB"
   homepage "https://fauna.com/"
-  url "https://registry.npmjs.org/fauna-shell/-/fauna-shell-2.0.2.tgz"
-  sha256 "26810b12aaa3b1794f7dc384db4dcc8e6be721ff14d6d97d414f7499b6a11aa0"
+  url "https://registry.npmjs.org/fauna-shell/-/fauna-shell-3.0.0.tgz"
+  sha256 "a11ec233a3017be819e575620cc37894776e9d2e3c82c63999bd0c9a147554a1"
   license "MPL-2.0"
+  head "https://github.com/fauna/fauna-shell.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "12354f7a09c443078fbb589b9a5d18082bb65ce9d8c5fc91f333597dddddd32e"
@@ -20,7 +21,7 @@ class FaunaShell < Formula
 
   def install
     system "npm", "install", *std_npm_args
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install_symlink libexec.glob("bin/*")
   end
 
   test do
@@ -32,7 +33,7 @@ class FaunaShell < Formula
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"].present?
 
     output = shell_output("#{bin}/fauna endpoint add https://db.fauna.com:443 " \
-                          "--non-interactive --url http://localhost:8443 " \
+                          "--no-input --url http://localhost:8443 " \
                           "--secret your_fauna_secret --set-default")
     assert_match "Saved endpoint https://db.fauna.com:443", output
 
