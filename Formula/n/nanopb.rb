@@ -24,7 +24,7 @@ class Nanopb < Formula
 
   depends_on "cmake" => :build
   depends_on "protobuf"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "protobuf" do
     url "https://files.pythonhosted.org/packages/b1/a4/4579a61de526e19005ceeb93e478b61d77aa38c8a85ad958ff16a9906549/protobuf-5.28.2.tar.gz"
@@ -38,7 +38,7 @@ class Nanopb < Formula
 
   def install
     ENV.append_to_cflags "-DPB_ENABLE_MALLOC=1"
-    venv = virtualenv_create(libexec, "python3.12")
+    venv = virtualenv_create(libexec, "python3.13")
     venv.pip_install resources
 
     system "cmake", "-S", ".", "-B", "build",
