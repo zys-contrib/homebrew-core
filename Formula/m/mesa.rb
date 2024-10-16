@@ -3,8 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-24.2.4.tar.xz"
-  sha256 "5ea42a8bb6d58aec9754c9f553b1e413f67c09403741f8e2786c3f9e63d3461a"
+  url "https://mesa.freedesktop.org/archive/mesa-24.2.5.tar.xz"
+  sha256 "733d0bea242ed6a5bb5c806fe836792ce7f092d45a2f115b7b7e15897c9dd96f"
   license all_of: [
     "MIT",
     "Apache-2.0", # include/{EGL,GLES*,vk_video,vulkan}, src/egl/generate/egl.xml, src/mapi/glapi/registry/gl.xml
@@ -36,7 +36,7 @@ class Mesa < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "xorgproto" => :build
 
   depends_on "expat"
@@ -98,7 +98,7 @@ class Mesa < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
