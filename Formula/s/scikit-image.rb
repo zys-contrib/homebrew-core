@@ -25,7 +25,7 @@ class ScikitImage < Formula
   depends_on "pkg-config" => :build
   depends_on "numpy"
   depends_on "pillow"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "scipy"
 
   on_linux do
@@ -33,8 +33,8 @@ class ScikitImage < Formula
   end
 
   resource "imageio" do
-    url "https://files.pythonhosted.org/packages/2c/f9/aa9f3a4eae46f4727902516dc7b365356c1e4e883156532b74d135a69887/imageio-2.34.1.tar.gz"
-    sha256 "f13eb76e4922f936ac4a7fec77ce8a783e63b93543d4ea3e40793a6cabd9ac7d"
+    url "https://files.pythonhosted.org/packages/4f/34/a714fd354f5f7fe650477072d4da21446849b20c02045dcf7ac827495121/imageio-2.36.0.tar.gz"
+    sha256 "1c8f294db862c256e9562354d65aa54725b8dafed7f10f02bb3ec20ec1678850"
   end
 
   resource "lazy-loader" do
@@ -43,8 +43,8 @@ class ScikitImage < Formula
   end
 
   resource "networkx" do
-    url "https://files.pythonhosted.org/packages/04/e6/b164f94c869d6b2c605b5128b7b0cfe912795a87fc90e78533920001f3ec/networkx-3.3.tar.gz"
-    sha256 "0c127d8b2f4865f59ae9cb8aafcd60b5c70f3241ebd66f7defad7c4ab90126c9"
+    url "https://files.pythonhosted.org/packages/36/2b/20ad9eecdda3f1b0dc63fb8f82d2ea99163dbca08bfa392594fc2ed81869/networkx-3.4.1.tar.gz"
+    sha256 "f9df45e85b78f5bd010993e897b4f1fdb242c11e015b101bd951e5c0e29982d8"
   end
 
   resource "packaging" do
@@ -53,18 +53,16 @@ class ScikitImage < Formula
   end
 
   resource "tifffile" do
-    url "https://files.pythonhosted.org/packages/8d/e5/c58f2dc22f6372516d1154ce1874c74cecf7c52892ad5f09bf3764b6b1b2/tifffile-2024.6.18.tar.gz"
-    sha256 "57e0d2a034bcb6287ea3155d8716508dfac86443a257f6502b57ee7f8a33b3b6"
+    url "https://files.pythonhosted.org/packages/f2/14/6fe362c483166b3a44521ac5c92c98f096bd7fb05512e8730d0e23e152c9/tifffile-2024.9.20.tar.gz"
+    sha256 "3fbf3be2f995a7051a8ae05a4be70c96fc0789f22ed6f1c4104c973cf68a640b"
   end
 
   def install
     virtualenv_install_with_resources
   end
 
-  # cleanup leftover .pyc files from previous installs which can cause problems
-  # see https://github.com/Homebrew/homebrew-python/issues/185#issuecomment-67534979
   def post_install
-    rm(Dir["#{HOMEBREW_PREFIX}/lib/python*.*/site-packages/skimage/**/*.pyc"])
+    HOMEBREW_PREFIX.glob("lib/python*.*/site-packages/skimage/**/*.pyc").map(&:unlink)
   end
 
   test do
