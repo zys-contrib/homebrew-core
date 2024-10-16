@@ -3,8 +3,8 @@ class BumpMyVersion < Formula
 
   desc "Version bump your Python project"
   homepage "https://callowayproject.github.io/bump-my-version/"
-  url "https://files.pythonhosted.org/packages/00/70/81d4f2c9f29e9289951aabf8db8f2fe6372eaa745a340d9f53f1ef91cf2c/bump_my_version-0.27.0.tar.gz"
-  sha256 "483c517af91559644d45036648e5d99f4f8c85f8d01394097d3d3e42c9e6acad"
+  url "https://files.pythonhosted.org/packages/d4/25/9b361ff2d42733578ee2b5564cf8b7dc389a187b6b6184c2c19d090e3084/bump_my_version-0.28.0.tar.gz"
+  sha256 "ff3cb51bb15509ae8ebb8e8efa3eaa7c02209677f45457c8b007ef2f5bef7179"
   license "MIT"
   head "https://github.com/callowayproject/bump-my-version.git", branch: "master"
 
