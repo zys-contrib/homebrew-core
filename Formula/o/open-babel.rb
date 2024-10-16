@@ -34,13 +34,13 @@ class OpenBabel < Formula
   depends_on "cairo"
   depends_on "eigen"
   depends_on "inchi"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   conflicts_with "surelog", because: "both install `roundtrip` binaries"
