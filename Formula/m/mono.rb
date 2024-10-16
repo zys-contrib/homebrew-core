@@ -28,7 +28,7 @@ class Mono < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "unzip" => :build
   uses_from_macos "krb5"
