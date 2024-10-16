@@ -128,6 +128,7 @@ atuin
 audacious
 auditbeat
 auditwheel
+austin
 autobrr
 autodiff
 automake
