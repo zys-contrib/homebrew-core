@@ -36,7 +36,7 @@ class Fontforge < Formula
   depends_on "libtool"
   depends_on "libuninameslist"
   depends_on "pango"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "readline"
   depends_on "woff2"
 
@@ -89,7 +89,7 @@ class Fontforge < Formula
       sha256 "6a22acf6be4ab9e5c5a3373dc878030b4b8dc4652323395388abe43679ceba81"
     end
 
-    python = Formula["python@3.12"].opt_bin/"python3.12"
+    python = Formula["python@3.13"].opt_bin/"python3.13"
     system bin/"fontforge", "-version"
     system bin/"fontforge", "-lang=py", "-c", "import fontforge; fontforge.font()"
     system python, "-c", "import fontforge; fontforge.font()"
