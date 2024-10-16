@@ -1,10 +1,9 @@
 class Opensaml < Formula
   desc "Library for Security Assertion Markup Language"
   homepage "https://wiki.shibboleth.net/confluence/display/OpenSAML/Home"
-  url "https://shibboleth.net/downloads/c++-opensaml/3.2.1/opensaml-3.2.1.tar.bz2"
-  sha256 "b402a89a130adcb76869054b256429c1845339fe5c5226ee888686b6a026a337"
+  url "https://shibboleth.net/downloads/c++-opensaml/3.3.0/opensaml-3.3.0.tar.bz2"
+  sha256 "99ee5091a20783c85aca9c6827a2ea4eb8da8b47c4985f99366a989815d89ce8"
   license "Apache-2.0"
-  revision 3
 
   livecheck do
     url "https://shibboleth.net/downloads/c++-opensaml/latest/"
@@ -26,12 +25,6 @@ class Opensaml < Formula
   depends_on "xerces-c"
   depends_on "xml-security-c"
   depends_on "xml-tooling-c"
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
 
   def install
     ENV.cxx11
