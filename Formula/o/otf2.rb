@@ -29,7 +29,7 @@ class Otf2 < Formula
   depends_on "sphinx-doc" => :build
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
@@ -49,7 +49,7 @@ class Otf2 < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
