@@ -5,6 +5,15 @@ class LibspellingAT02 < Formula
   sha256 "5393a9b93fda445598348a47c42d1ad13586c0bcf35dfd257afd613fd31812c1"
   license "LGPL-2.1-or-later"
 
+  bottle do
+    sha256 cellar: :any, arm64_sequoia: "c1936dea7e24ec7f2df1f1fbfb3723ad01b76777ea758c907eb343ec8b6cd9c7"
+    sha256 cellar: :any, arm64_sonoma:  "eba6e2cde91f01fcd798d1fb5616e7b3ed5339c47757042df5e0ac9b79f0e4ed"
+    sha256 cellar: :any, arm64_ventura: "ec0050d13a32dd4fbb40b947fb6e2ad57b85684fab90a678b36d525844b1220d"
+    sha256 cellar: :any, sonoma:        "c57a664e8e205f97e7eaab2e256291809e7c84b7bd25a519f4161da3a8725fbc"
+    sha256 cellar: :any, ventura:       "ad27fc3dae6f6886eeb12453ba7f3a07e2877ca5ccec7cb57f69e4bafdbeedaa"
+    sha256               x86_64_linux:  "81033ad6a55589c5afd8102fc146ac68bf648be05b9773f4fd438184e3d18b22"
+  end
+
   keg_only :versioned_formula
 
   depends_on "gobject-introspection" => :build
