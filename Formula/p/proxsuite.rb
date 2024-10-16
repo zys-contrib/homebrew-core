@@ -22,19 +22,16 @@ class Proxsuite < Formula
   depends_on "pkg-config" => :build
   depends_on "eigen"
   depends_on "numpy"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "scipy"
   depends_on "simde"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
     system "git", "submodule", "update", "--init", "--recursive" if build.head?
-
-    ENV.prepend_path "PYTHONPATH", Formula["eigenpy"].opt_prefix/Language::Python.site_packages
-
     system "cmake", "-S", ".", "-B", "build",
                     "-DPYTHON_EXECUTABLE=#{which(python3)}",
                     "-DBUILD_UNIT_TESTS=OFF",
