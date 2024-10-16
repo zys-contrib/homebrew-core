@@ -283,6 +283,7 @@ busted
 butane
 bwa
 bwfmetaedit
+bwidget
 byacc
 byobu
 byteman
