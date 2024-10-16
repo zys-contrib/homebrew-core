@@ -1,8 +1,8 @@
 class Leptonica < Formula
   desc "Image processing and image analysis library"
   homepage "http://www.leptonica.org/"
-  url "https://github.com/DanBloomberg/leptonica/releases/download/1.84.1/leptonica-1.84.1.tar.gz"
-  sha256 "2b3e1254b1cca381e77c819b59ca99774ff43530209b9aeb511e1d46588a64f6"
+  url "https://github.com/DanBloomberg/leptonica/releases/download/1.85.0/leptonica-1.85.0.tar.gz"
+  sha256 "3745ae3bf271a6801a2292eead83ac926e3a9bc1bf622e9cd4dd0f3786e17205"
   license "BSD-2-Clause"
 
   bottle do
@@ -24,10 +24,10 @@ class Leptonica < Formula
   depends_on "openjpeg"
   depends_on "webp"
 
+  uses_from_macos "zlib"
+
   def install
-    system "./configure", *std_configure_args,
-                          "--with-libwebp",
-                          "--with-libopenjpeg"
+    system "./configure", "--with-libwebp", "--with-libopenjpeg", *std_configure_args
     system "make", "install"
   end
 
