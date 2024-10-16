@@ -2,8 +2,8 @@ class Ipfs < Formula
   desc "Peer-to-peer hypermedia protocol"
   homepage "https://ipfs.tech/"
   url "https://github.com/ipfs/kubo.git",
-      tag:      "v0.30.0",
-      revision: "846c5ccf679eeda58e626969bee8e80685be4812"
+      tag:      "v0.31.0",
+      revision: "5a32936f781ac1971899655856a2804cdf329032"
   license all_of: [
     "MIT",
     any_of: ["MIT", "Apache-2.0"],
@@ -12,7 +12,7 @@ class Ipfs < Formula
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_latest
   end
 
   bottle do
