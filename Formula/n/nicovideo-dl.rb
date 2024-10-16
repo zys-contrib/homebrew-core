@@ -15,8 +15,8 @@ class NicovideoDl < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, all: "d20fe029f025c4cadd5c3ed25d58cd88886e32fd6d6fe16f51bfc0e2233bb80a"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, all: "3ed938a610ab72d8bd9d90764672eb2ed5d9930e0803929c05b3e34d4c1a815d"
   end
 
   uses_from_macos "python"
