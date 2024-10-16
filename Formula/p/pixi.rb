@@ -1,8 +1,8 @@
 class Pixi < Formula
   desc "Package management made easy"
   homepage "https://pixi.sh"
-  url "https://github.com/prefix-dev/pixi/archive/refs/tags/v0.32.1.tar.gz"
-  sha256 "b4a109c219775b7a011f0960d88120b2593923181888c50fe1b76f927dd7201c"
+  url "https://github.com/prefix-dev/pixi/archive/refs/tags/v0.32.2.tar.gz"
+  sha256 "c336b166b9f675732f0ff2c0e1dddfacc13feb2d52b30c380240690d84edde0c"
   license "BSD-3-Clause"
   head "https://github.com/prefix-dev/pixi.git", branch: "main"
 
@@ -34,6 +34,10 @@ class Pixi < Formula
   end
 
   def install
+    ENV["PIXI_SELF_UPDATE_DISABLED_MESSAGE"] = <<~EOS
+      `self-update` has been disabled for this build.
+      Run `brew upgrade pixi` instead.
+    EOS
     system "cargo", "install", *std_cargo_args
 
     generate_completions_from_executable(bin/"pixi", "completion", "-s")
