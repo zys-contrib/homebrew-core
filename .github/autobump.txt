@@ -1074,6 +1074,7 @@ go@1.22
 goaccess
 goawk
 gobject-introspection
+gocloc
 goctl
 godap
 goffice
