@@ -16,14 +16,13 @@ class Bat < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "8d57d3134c0940ff5b9b8ae47fb339e51bb7f7c307c538e8bbbc6e1751f9d858"
-    sha256 cellar: :any,                 arm64_sonoma:   "7f10b2232b03e82cd9d27560e9ed7e62e685370a187c1d9ae692b9c088f7b078"
-    sha256 cellar: :any,                 arm64_ventura:  "36c6ccd54c032411a7e552a010e6859936bec66ad7937ee210de8ef2a7b09ffc"
-    sha256 cellar: :any,                 arm64_monterey: "bc2056fc9ac24bd33d1f8739330f25c759afad5255532547a30ecc4ebb792004"
-    sha256 cellar: :any,                 sonoma:         "f6d1933c659a4073863cdad02273a9a6261770cf2bcdb8694ebd65433c49f634"
-    sha256 cellar: :any,                 ventura:        "1beafb2f78e79ea2a905db10306c5944cb02a58b6b0e334d766482f853c9c692"
-    sha256 cellar: :any,                 monterey:       "14e1b6003fd419f35f525667d4997c42fc044f85709563c3f02833ecbb98e3dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36182f578db0917f46fce701b68b7122bba8323524b384f3238ca325a789b97d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "551f2475fea64abf18cc89dd3d7b5b81025f1eea76ec9822931698746252c7b6"
+    sha256 cellar: :any,                 arm64_sonoma:  "6cc195324f99c03418d089b273b581856ad80876845898c3e932d843ce9b36d7"
+    sha256 cellar: :any,                 arm64_ventura: "cdf2086708888cbf4196097e7970faefa5d307d1af1596318cad3e40125952a1"
+    sha256 cellar: :any,                 sonoma:        "ef586d39057da2d71132ff3828a787602865895305a314356fcd91d2ad062736"
+    sha256 cellar: :any,                 ventura:       "34437a8949ccf6c038623ed61c5a1741a60ac34a8fd09f55eac283485e780458"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9b46511808dedc8e88fe9a7194adee9d873e84c32a22a5fdc2b66f13cf35b56"
   end
 
   depends_on "pkg-config" => :build
