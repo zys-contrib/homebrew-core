@@ -1621,6 +1621,7 @@ libspelling
 libspiro
 libsql
 libssh
+libssh2
 libstrophe
 libsvm
 libtensorflow
