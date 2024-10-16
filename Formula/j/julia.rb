@@ -1,21 +1,12 @@
 class Julia < Formula
   desc "Fast, Dynamic Programming Language"
   homepage "https://julialang.org/"
+  # Use the `-full` tarball to avoid having to download during the build.
+  # TODO: Check if we can unbundle `curl`: https://github.com/JuliaLang/Downloads.jl/issues/260
+  url "https://github.com/JuliaLang/julia/releases/download/v1.11.1/julia-1.11.1-full.tar.gz"
+  sha256 "a49b804de6e86a03fe26c73f58851eaee1ff243d7204f2b5ae4dbc5c1dc2758d"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
   head "https://github.com/JuliaLang/julia.git", branch: "master"
-
-  stable do
-    # Use the `-full` tarball to avoid having to download during the build.
-    # TODO: Check if we can unbundle `curl`: https://github.com/JuliaLang/Downloads.jl/issues/260
-    url "https://github.com/JuliaLang/julia/releases/download/v1.11.0/julia-1.11.0-full.tar.gz"
-    sha256 "8d77780cd04484e21f9c3805be6b1bd56a69bcbe6caedf2485e899205d85c874"
-
-    # Backport fix for linkage on Linux
-    patch do
-      url "https://github.com/JuliaLang/julia/commit/77c5875b3cbe85e7fb0bb5a7e796809c901ede95.patch?full_index=1"
-      sha256 "8b49b2a2cc5572e5ec5ab207bc0d1f69bb687422deeb0a4371a2e1e09935ee3f"
-    end
-  end
 
   livecheck do
     url :stable
