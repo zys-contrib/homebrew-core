@@ -4,6 +4,7 @@ class Scipy < Formula
   url "https://files.pythonhosted.org/packages/62/11/4d44a1f274e002784e4dbdb81e0ea96d2de2d1045b2132d5af62cc31fd28/scipy-1.14.1.tar.gz"
   sha256 "5a275584e726026a5699459aa72f828a610821006228e841b94275c4a7c08417"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/scipy/scipy.git", branch: "main"
 
   bottle do
@@ -20,10 +21,11 @@ class Scipy < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
   depends_on "gcc" # for gfortran
   depends_on "numpy"
   depends_on "openblas"
-  depends_on "python@3.12"
   depends_on "xsimd"
 
   on_linux do
@@ -34,18 +36,20 @@ class Scipy < Formula
 
   fails_with gcc: "5"
 
-  def python3
-    "python3.12"
+  def pythons
+    deps.map(&:to_formula)
+        .select { |f| f.name.start_with?("python@") }
+        .map { |f| f.opt_libexec/"bin/python" }
   end
 
   def install
-    system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
+    pythons.each do |python3|
+      system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
+    end
   end
 
-  # cleanup leftover .pyc files from previous installs which can cause problems
-  # see https://github.com/Homebrew/homebrew-python/issues/185#issuecomment-67534979
   def post_install
-    rm(Dir["#{HOMEBREW_PREFIX}/lib/python*.*/site-packages/scipy/**/*.pyc"])
+    HOMEBREW_PREFIX.glob("lib/python*.*/site-packages/scipy/**/*.pyc").map(&:unlink)
   end
 
   test do
@@ -53,6 +57,8 @@ class Scipy < Formula
       from scipy import special
       print(special.exp10(3))
     EOS
-    assert_equal "1000.0", shell_output("#{python3} test.py").chomp
+    pythons.each do |python3|
+      assert_equal "1000.0", shell_output("#{python3} test.py").chomp
+    end
   end
 end
