@@ -3,8 +3,8 @@ class NicotinePlus < Formula
 
   desc "Graphical client for the Soulseek peer-to-peer network"
   homepage "https://nicotine-plus.org"
-  url "https://files.pythonhosted.org/packages/0e/73/ba597ab69a24106e0ba44eef0346116f37842b8273d357a46ad2d05cc729/nicotine_plus-3.3.5.tar.gz"
-  sha256 "e0c9d650606a9f9eab8e5c2b7fd560ddb5cfe475ea4c22f19b833d7ebf86ba43"
+  url "https://files.pythonhosted.org/packages/5a/d3/a489967ab67165a6893f23e03c5134cf1b9cd35fd826c0a7c9ea3c743cb9/nicotine_plus-3.3.6.tar.gz"
+  sha256 "6a0b39c5ff4fb4768689516a3a2cfe3aafdc568b5237f19553c51b1de712ee66"
   license "GPL-3.0-or-later"
   head "https://github.com/nicotine-plus/nicotine-plus.git", branch: "master"
 
@@ -22,7 +22,7 @@ class NicotinePlus < Formula
   depends_on "libadwaita"
   depends_on "py3cairo"
   depends_on "pygobject3"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   on_linux do
     depends_on "gettext" => :build # for `msgfmt`
