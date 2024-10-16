@@ -1,8 +1,8 @@
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.1/llvm-project-19.1.1.src.tar.xz"
-  sha256 "d40e933e2a208ee142898f85d886423a217e991abbcd42dd8211f507c93e1266"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.2/llvm-project-19.1.2.src.tar.xz"
+  sha256 "3666f01fc52d8a0b0da83e107d74f208f001717824be0b80007f529453aa1e19"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/llvm/llvm-project.git", branch: "main"
@@ -30,7 +30,7 @@ class Llvm < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "swig" => :build
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "xz"
   depends_on "z3"
   depends_on "zstd"
@@ -50,7 +50,7 @@ class Llvm < Formula
   fails_with gcc: "5"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
@@ -447,8 +447,11 @@ class Llvm < Formula
 
   def caveats
     s = <<~EOS
-      `lld` is now provided in a separate formula:
+      LLD is now provided in a separate formula:
         brew install lld
+
+      We plan to build LLVM 20 with `LLVM_ENABLE_EH=OFF`. Please see:
+        https://github.com/orgs/Homebrew/discussions/5654
     EOS
 
     on_macos do
