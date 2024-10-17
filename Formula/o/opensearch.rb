@@ -1,8 +1,8 @@
 class Opensearch < Formula
   desc "Open source distributed and RESTful search engine"
   homepage "https://github.com/opensearch-project/OpenSearch"
-  url "https://github.com/opensearch-project/OpenSearch/archive/refs/tags/2.17.0.tar.gz"
-  sha256 "6af45ea416cf72e08680726ef59f0379fcbfa889845fd2626c86d9ae8ebbd9c4"
+  url "https://github.com/opensearch-project/OpenSearch/archive/refs/tags/2.17.1.tar.gz"
+  sha256 "d0b358b2aa30dae87babe67a9e352d7a2ab0e18ef3e9b7e025a6b9cb7fa752a7"
   license "Apache-2.0"
 
   bottle do
@@ -16,6 +16,12 @@ class Opensearch < Formula
 
   depends_on "gradle" => :build
   depends_on "openjdk"
+
+  # Support JDK-23 (build time and runtime) --- may be removed in the next release v2.17.2
+  patch do
+    url "https://github.com/opensearch-project/OpenSearch/commit/1e7f6df79c7845ba04ecc4a05979db27965342c7.patch?full_index=1"
+    sha256 "03076625edb55ad0f6f36f8721cb41709fbd732fcb6294f20f1481a6bcc64534"
+  end
 
   def install
     platform = OS.kernel_name.downcase
