@@ -1,8 +1,8 @@
 class Embulk < Formula
   desc "Data transfer between various databases, file formats and services"
   homepage "https://www.embulk.org/"
-  url "https://github.com/embulk/embulk/releases/download/v0.11.4/embulk-0.11.4.jar"
-  sha256 "5e8131a6ff199ad16129504cc6ff164ccdfde0a32e9cf38bdfd5eeb2417e404e"
+  url "https://github.com/embulk/embulk/releases/download/v0.11.5/embulk-0.11.5.jar"
+  sha256 "e2f298db60c2fe1cc17c377edf7215c7005b5d106d151b1a4278a508e4a32e47"
   license "Apache-2.0"
   version_scheme 1
 
