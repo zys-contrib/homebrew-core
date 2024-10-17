@@ -14,12 +14,12 @@ class Mosquitto < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "27d84e42df62a0987a6a4e09e9c3ad889d34431aff518e8a4e2ba04f4deddd70"
-    sha256 cellar: :any,                 arm64_sonoma:  "cc28e95d9eb3e6001f7a10ae55d78194c80ab9da0a845659ed297e63165387a3"
-    sha256 cellar: :any,                 arm64_ventura: "c0c317cf03d4bc3ea06595498c4133a6e04754b139f9dc9a2df253f9e184aa7a"
-    sha256 cellar: :any,                 sonoma:        "f185dcb4542baba50bb99074e22ac703830034a5606b77fcf6b8bffac874742c"
-    sha256 cellar: :any,                 ventura:       "66a4fce1db1301186613ee23fc40d5564d87c6673443214315cb193aef2a2ba4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a0ead2e42e910ff18f0595a0a8d402fd1eef81556f8487f936ef8f21ac917af"
+    sha256 cellar: :any,                 arm64_sequoia: "77d22c193e73697f37d01baa7789335c3d388c151c1f038b0e8aafbd88c67d00"
+    sha256 cellar: :any,                 arm64_sonoma:  "fc81a1301d899e772d87f00ce348dc53400b1cb0580c1cdbe359344a057ab2ad"
+    sha256 cellar: :any,                 arm64_ventura: "3c13508206d8e4b688f60492469a0612903a5b44aeff34e3887c160296fb93cd"
+    sha256 cellar: :any,                 sonoma:        "ef7cf0bd6b3360b6f78b13377119bf15388b755741e797938cead00d85bd7710"
+    sha256 cellar: :any,                 ventura:       "0031f59b55e73707ea552805e074d870d98fb9b733ed743e426fca109e6e3d8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "144a1795ae116095ad069cb19b17c83e5c1e6941c2c6f1bbcc755325264dff18"
   end
 
   depends_on "cmake" => :build
