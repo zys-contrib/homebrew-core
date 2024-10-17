@@ -12,7 +12,7 @@ class Embulk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "64f6f68e909288834b86045fcec216d4cbeca9ca6a6576d354dbe5086cdf1f32"
+    sha256 cellar: :any_skip_relocation, all: "e63d641729a25c7885685cbbbf1152435987f88e63779a37743675030cf567af"
   end
 
   # From https://www.embulk.org,
