@@ -3,8 +3,8 @@ class Erlang < Formula
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
   # Don't forget to update the documentation resource along with the url!
-  url "https://github.com/erlang/otp/releases/download/OTP-27.1.1/otp_src_27.1.1.tar.gz"
-  sha256 "ff7319bbead79b8cde070ce9cdaeb8c18309c26868eb72051b02c77f58b9eb27"
+  url "https://github.com/erlang/otp/releases/download/OTP-27.1.2/otp_src_27.1.2.tar.gz"
+  sha256 "1772e9fa07b2b020ed5911d6ce78b251dfb6ed8509ed7de9d372e96b87251d14"
   license "Apache-2.0"
 
   livecheck do
@@ -41,9 +41,9 @@ class Erlang < Formula
   end
 
   resource "html" do
-    url "https://github.com/erlang/otp/releases/download/OTP-27.1.1/otp_doc_html_27.1.1.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_html_27.1.1.tar.gz"
-    sha256 "f773296d1226052c245a41cee8492f264b95958ef4f4b153139b79337cc78d0e"
+    url "https://github.com/erlang/otp/releases/download/OTP-27.1.2/otp_doc_html_27.1.2.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_html_27.1.2.tar.gz"
+    sha256 "a46eea48eab01404eddd649f044bd30f5e4fb432df94be26345410590d1c3f53"
   end
 
   # https://github.com/erlang/otp/blob/#{version}/make/ex_doc_link
