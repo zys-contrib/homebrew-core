@@ -1,8 +1,8 @@
 class Mosquitto < Formula
   desc "Message broker implementing the MQTT protocol"
   homepage "https://mosquitto.org/"
-  url "https://mosquitto.org/files/source/mosquitto-2.0.19.tar.gz"
-  sha256 "33af3637f119a61c509c01d2f8f6cc3d8be76f49e850132f2860af142abf82a9"
+  url "https://mosquitto.org/files/source/mosquitto-2.0.20.tar.gz"
+  sha256 "ebd07d89d2a446a7f74100ad51272e4a8bf300b61634a7812e19f068f2759de8"
   # # dual-licensed under EPL-1.0 and EDL-1.0 (Eclipse Distribution License v1.0),
   # EDL-1.0 is pretty the same as BSD-3-Clause,
   # see discussions in https://github.com/spdx/license-list-XML/issues/1149
@@ -29,11 +29,6 @@ class Mosquitto < Formula
   depends_on "openssl@3"
 
   uses_from_macos "libxslt" => :build
-
-  # remove unsupported `--version-script` linker flag
-  on_macos do
-    patch :DATA
-  end
 
   on_linux do
     depends_on "util-linux"
@@ -74,17 +69,3 @@ class Mosquitto < Formula
     assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end
-
-__END__
-diff --git a/lib/CMakeLists.txt b/lib/CMakeLists.txt
-index de53e8b..479b45d 100644
---- a/lib/CMakeLists.txt
-+++ b/lib/CMakeLists.txt
-@@ -106,7 +106,6 @@ set_target_properties(libmosquitto PROPERTIES
- 	VERSION ${VERSION}
- 	SOVERSION 1
- 	LINK_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/linker.version
--	LINK_FLAGS "-Wl,--version-script=${CMAKE_CURRENT_SOURCE_DIR}/linker.version"
- )
- 
- install(TARGETS libmosquitto
