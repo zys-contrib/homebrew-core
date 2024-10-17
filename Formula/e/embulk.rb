@@ -7,8 +7,8 @@ class Embulk < Formula
   version_scheme 1
 
   livecheck do
-    url :homepage
-    regex(%r{(?<!un)Stable.+?href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}im)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
