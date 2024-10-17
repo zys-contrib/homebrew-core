@@ -6,7 +6,7 @@ class Libtirpc < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "91acf8d2991b6c027d780f8662e81f154c6101d651fb80bf16db5e6d8ba0696f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "698863d4347f952d77d796520cbe9857146c83983789691c08d848c63f045fa4"
   end
 
   depends_on "krb5"
