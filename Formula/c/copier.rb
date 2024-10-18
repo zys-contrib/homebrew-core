@@ -3,8 +3,8 @@ class Copier < Formula
 
   desc "Utility for rendering projects templates"
   homepage "https://copier.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/9f/39/4cd083ca92635a92432cdb441108205751fed98feb5d0cfc53073d97372a/copier-9.4.0.tar.gz"
-  sha256 "83b6b777b1e2e7cf13479ebfabe7ce4c02861c97bed9f533d5dce0b4822ab1d5"
+  url "https://files.pythonhosted.org/packages/c4/84/b99005e18cb07986a9fa1c1314c9bb461851dc115ab24d3d9ac668daad7f/copier-9.4.1.tar.gz"
+  sha256 "cc81d8204cb17fbc8c4a14996a8ce764166c34c77236de38cfbeb960c887b68f"
   license "MIT"
 
   bottle do
@@ -51,8 +51,8 @@ class Copier < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/b4/d2/38ff920762f2247c3af5cbbbbc40756f575d9692d381d7c520f45deb9b8f/markupsafe-3.0.1.tar.gz"
-    sha256 "3e683ee4f5d0fa2dde4db77ed8dd8a876686e3fc417655c2ece9a90576905344"
+    url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
+    sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
   end
 
   resource "packaging" do
