@@ -7,7 +7,8 @@ class ZLua < Formula
   head "https://github.com/skywind3000/z.lua.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "67bf2583b44ddeb4d1de66b8dff77eb6b5a6bab07236fcb27d0ca9e1e83bca94"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "bdc00251d242da7b480b8cd81e8f029cb105cb63cb9afc358ea1586c6ecd1195"
   end
 
   depends_on "lua"
