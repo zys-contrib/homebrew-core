@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/19/d4/aa4bb3e03310724b1d10b5b162e708de8b52d68ec0fb1c2b352d007d11a5/snakemake-8.23.1.tar.gz"
-  sha256 "f2a7efce698b42b59987c41f9d27aacb6fd6975fcfe5d35b2c3d3aa11db43064"
+  url "https://files.pythonhosted.org/packages/ac/c1/babf5581609dc42a51c4c000fa57ceaa4bdf889fded1aaf491bc80beade5/snakemake-8.23.2.tar.gz"
+  sha256 "bfda3c75114879f649b03d68d558d7e8edb4e0a17dae24e48434f1556ab7a993"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -149,8 +149,8 @@ class Snakemake < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/18/c7/8c6872f7372eb6a6b2e4708b88419fb46b857f7a2e1892966b851cc79fc9/psutil-6.0.0.tar.gz"
-    sha256 "8faae4f310b6d969fa26ca0545338b21f73c6b15db7c4a8d934a5482faa818f2"
+    url "https://files.pythonhosted.org/packages/26/10/2a30b13c61e7cf937f4adf90710776b7918ed0a9c434e2c38224732af310/psutil-6.1.0.tar.gz"
+    sha256 "353815f59a7f64cdaca1c0307ee13558a0512f6db064e92fe833784f08539c7a"
   end
 
   resource "pulp" do
