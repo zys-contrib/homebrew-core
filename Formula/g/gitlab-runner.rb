@@ -13,12 +13,12 @@ class GitlabRunner < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "33ea1d1d525a1d201a0aded777e8d53c0ec74590acb278503ccf0a8e83dd4bf3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "33ea1d1d525a1d201a0aded777e8d53c0ec74590acb278503ccf0a8e83dd4bf3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "33ea1d1d525a1d201a0aded777e8d53c0ec74590acb278503ccf0a8e83dd4bf3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c3f7bf9208fc7fc4f09ecc3e5af9ce9f7fb9b3c53d83ed1284b418ae28bee882"
-    sha256 cellar: :any_skip_relocation, ventura:       "c3f7bf9208fc7fc4f09ecc3e5af9ce9f7fb9b3c53d83ed1284b418ae28bee882"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a21b4d96ef3e4d16d1bc50630623d675655e6036869ce85f8df2ea44460e6179"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "871b5bd321e246c32ff1b5dfed70b844254fb01d9f17cc4cd309bde624c9ad06"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "871b5bd321e246c32ff1b5dfed70b844254fb01d9f17cc4cd309bde624c9ad06"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "871b5bd321e246c32ff1b5dfed70b844254fb01d9f17cc4cd309bde624c9ad06"
+    sha256 cellar: :any_skip_relocation, sonoma:        "319c16ef3fd014afd83a8ead66ce0408be173fbd57d00f58d70f81a4d6d3125f"
+    sha256 cellar: :any_skip_relocation, ventura:       "319c16ef3fd014afd83a8ead66ce0408be173fbd57d00f58d70f81a4d6d3125f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4216697c0aaaa52d6de8bc68c83ef2288b29436e16da3a662aedbcae5419200b"
   end
 
   depends_on "go" => :build
