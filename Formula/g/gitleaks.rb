@@ -14,12 +14,12 @@ class Gitleaks < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "70e0f527b53383771238bc72eadc357daa00f9e8a874099313098607a340cff6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "70e0f527b53383771238bc72eadc357daa00f9e8a874099313098607a340cff6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "70e0f527b53383771238bc72eadc357daa00f9e8a874099313098607a340cff6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e6efb87109fe71574b73ef5c5176381598eb4addd1f3642520370559d161d79d"
-    sha256 cellar: :any_skip_relocation, ventura:       "e6efb87109fe71574b73ef5c5176381598eb4addd1f3642520370559d161d79d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ef641a680f42d5d784bdd16d564de99d827f178c694fcbd0239d98b865107ce"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "84c57326c303f08083fd9d4ae4198dcff612e3e20861df3ccd3726b7928fe3f0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "84c57326c303f08083fd9d4ae4198dcff612e3e20861df3ccd3726b7928fe3f0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "84c57326c303f08083fd9d4ae4198dcff612e3e20861df3ccd3726b7928fe3f0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "90fc88833043bb7aedd7625eb8258a4d90f6addbba6b6a0911ca003af03136e2"
+    sha256 cellar: :any_skip_relocation, ventura:       "90fc88833043bb7aedd7625eb8258a4d90f6addbba6b6a0911ca003af03136e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b478b5240ef47fa39b08aa074f53281b3f1dfaf686f2830e82233bb8794bc8f4"
   end
 
   depends_on "go" => :build
