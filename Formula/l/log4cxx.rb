@@ -1,9 +1,9 @@
 class Log4cxx < Formula
   desc "Library of C++ classes for flexible logging"
   homepage "https://logging.apache.org/log4cxx/index.html"
-  url "https://www.apache.org/dyn/closer.lua?path=logging/log4cxx/1.2.0/apache-log4cxx-1.2.0.tar.gz"
-  mirror "https://archive.apache.org/dist/logging/log4cxx/1.2.0/apache-log4cxx-1.2.0.tar.gz"
-  sha256 "09f4748aa5675ef5c0770bedbf5e00488668933c5a935a43ac5b85be2436c48a"
+  url "https://www.apache.org/dyn/closer.lua?path=logging/log4cxx/1.3.0/apache-log4cxx-1.3.0.tar.gz"
+  mirror "https://archive.apache.org/dist/logging/log4cxx/1.3.0/apache-log4cxx-1.3.0.tar.gz"
+  sha256 "801520fe8b664df2216c5194524a03efb234326f24347e778c27e4f59f913c42"
   license "Apache-2.0"
 
   bottle do
@@ -18,6 +18,7 @@ class Log4cxx < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "apr"
   depends_on "apr-util"
 
   fails_with gcc: "5" # needs C++17 or Boost
