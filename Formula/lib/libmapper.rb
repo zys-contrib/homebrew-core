@@ -1,8 +1,8 @@
 class Libmapper < Formula
   desc "Distributed system for media control mapping"
   homepage "http://www.libmapper.org"
-  url "https://github.com/libmapper/libmapper/releases/download/2.4.12/libmapper-2.4.12.tar.gz"
-  sha256 "84eaa87c609416f152747b112d7823b293af70589449e795981d6c2f3ab36cad"
+  url "https://github.com/libmapper/libmapper/releases/download/2.4.13/libmapper-2.4.13.tar.gz"
+  sha256 "63ac6dd0ab5d17a9ec16f700665a6593a13667dd9fbc0f06df7f2f26d427defa"
   license "LGPL-2.1-or-later"
 
   bottle do
