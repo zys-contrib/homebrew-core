@@ -5,6 +5,15 @@ class Sf < Formula
   sha256 "6d7388565f83c15edd2ad05d1f42737de64680b8ea18a7f569435e93e00d6620"
   license "BSD-3-Clause"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "14ff2a892709ac82d7a4014554625c5932709a99b4f648895b4d5e6191d38afa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "14ff2a892709ac82d7a4014554625c5932709a99b4f648895b4d5e6191d38afa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "14ff2a892709ac82d7a4014554625c5932709a99b4f648895b4d5e6191d38afa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "76274fdf218d9258908732ae44fea274f9a7d41328575eb82bb766e14823a77a"
+    sha256 cellar: :any_skip_relocation, ventura:       "76274fdf218d9258908732ae44fea274f9a7d41328575eb82bb766e14823a77a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14ff2a892709ac82d7a4014554625c5932709a99b4f648895b4d5e6191d38afa"
+  end
+
   depends_on "node@20"
 
   def install
