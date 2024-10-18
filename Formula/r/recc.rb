@@ -1,8 +1,8 @@
 class Recc < Formula
   desc "Remote Execution Caching Compiler"
   homepage "https://buildgrid.gitlab.io/recc"
-  url "https://gitlab.com/BuildGrid/buildbox/buildbox/-/archive/1.2.25/buildbox-1.2.25.tar.gz"
-  sha256 "c501f4666e8edd91f899cdc0470aaf28c711556c953e21d4dd7fbac900901006"
+  url "https://gitlab.com/BuildGrid/buildbox/buildbox/-/archive/1.2.27/buildbox-1.2.27.tar.gz"
+  sha256 "3be433cab6876305e2464a4ef93259ffa79e6bf28ee6c5f5c415c0f3371b7c3d"
   license "Apache-2.0"
   head "https://gitlab.com/BuildGrid/buildbox/buildbox.git", branch: "master"
 
@@ -61,25 +61,19 @@ class Recc < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    system "make", "-f", "scripts/wrapper-templates/Makefile", "RECC_BIN=#{bin}/recc", "recc-c++"
-    system "make", "-f", "scripts/wrapper-templates/Makefile", "RECC_BIN=#{bin}/recc", "recc-cc"
-    system "make", "-f", "scripts/wrapper-templates/Makefile", "RECC_BIN=#{bin}/recc", "recc-clang"
-    system "make", "-f", "scripts/wrapper-templates/Makefile", "RECC_BIN=#{bin}/recc", "recc-clang++"
-    system "make", "-f", "scripts/wrapper-templates/Makefile", "RECC_BIN=#{bin}/recc", "recc-g++"
-    system "make", "-f", "scripts/wrapper-templates/Makefile", "RECC_BIN=#{bin}/recc", "recc-gcc"
-    bin.install "recc-c++"
-    bin.install "recc-cc"
-
-    recc_conf_args = %W[
+    makefile_args = %W[
+      RECC=#{opt_bin}/recc
       RECC_CONFIG_PREFIX=#{etc}
       RECC_SERVER=unix://#{var}/recc/casd/casd.sock
       RECC_INSTANCE=recc-server
       RECC_REMOTE_PLATFORM_ISA=#{Hardware::CPU.arch}
-      RECC_REMOTE_PLATFORM_OS=#{OS.kernel_name.downcase}
-      RECC_REMOTE_PLATFORM_OS_VERSION=#{OS.kernel_version}
+      RECC_REMOTE_PLATFORM_OSFamily=#{OS.kernel_name.downcase}
+      RECC_REMOTE_PLATFORM_OSRelease=#{OS.kernel_version}
     ]
-    system "make", "-f", "scripts/wrapper-templates/Makefile", *recc_conf_args, "recc.conf"
+    system "make", "-f", "scripts/wrapper-templates/Makefile", *makefile_args
     etc.install "recc.conf"
+    bin.install "recc-cc"
+    bin.install "recc-c++"
 
     bin.install "scripts/wrapper-templates/casd-helper" => "recc-server"
   end
