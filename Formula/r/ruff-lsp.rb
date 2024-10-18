@@ -8,8 +8,7 @@ class RuffLsp < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "b8322356abd470ee27ddd18114380716de176723e69fd6ef3a2740d4a819c356"
+    sha256 cellar: :any_skip_relocation, all: "b3f636d714bec4633fc10c36ffc6adfd56919a5c1211cc069e6eb0f52d3ea679"
   end
 
   depends_on "python@3.13"
