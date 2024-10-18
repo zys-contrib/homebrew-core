@@ -13,6 +13,8 @@ class ZLua < Formula
   depends_on "lua"
 
   def install
+    # Avoid using Cellar paths at runtime. This breaks when z.lua is upgraded.
+    inreplace "z.lua.plugin.zsh", /^(ZLUA_SCRIPT=").*"$/, "\\1#{opt_pkgshare}/z.lua\""
     pkgshare.install "z.lua", "z.lua.plugin.zsh", "init.fish"
     doc.install "README.md", "LICENSE"
   end
