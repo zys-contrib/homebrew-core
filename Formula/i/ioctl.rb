@@ -1,8 +1,8 @@
 class Ioctl < Formula
   desc "Command-line interface for interacting with the IoTeX blockchain"
   homepage "https://docs.iotex.io/"
-  url "https://github.com/iotexproject/iotex-core/archive/refs/tags/v2.0.4.tar.gz"
-  sha256 "0c54f558fd6883fb5e3bfe501a49d6076308e5b36f4bde93dc7a38b7cf09dd6f"
+  url "https://github.com/iotexproject/iotex-core/archive/refs/tags/v2.0.5.tar.gz"
+  sha256 "4bae3a7cab765e7f40e1ca45cfb15b45b7f424fc212bcd3c6c6c76aa5097b2b6"
   license "Apache-2.0"
 
   livecheck do
