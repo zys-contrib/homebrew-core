@@ -3,8 +3,8 @@ class Grokj2k < Formula
   homepage "https://github.com/GrokImageCompression/grok"
   # pull from git tag to get submodules
   url "https://github.com/GrokImageCompression/grok.git",
-      tag:      "v13.0.0",
-      revision: "6db0feb924b0a115f01987edf0ea2fcd735684d5"
+      tag:      "v13.0.1",
+      revision: "4b1049297bfb93a0f2afbe598f4dab92545ee1ad"
   license "AGPL-3.0-or-later"
   head "https://github.com/GrokImageCompression/grok.git", branch: "master"
 
@@ -98,8 +98,8 @@ class Grokj2k < Formula
 
   test do
     resource "homebrew-test_image" do
-      url "https://github.com/GrokImageCompression/grok-test-data/raw/43ce4cb/input/nonregression/basn6a08.tif"
-      sha256 "d0b9715d79b10b088333350855f9721e3557b38465b1354b0fa67f230f5679f3"
+      url "https://github.com/GrokImageCompression/grok-test-data/raw/43ce4cb/input/nonregression/pngsuite/basn0g01.png"
+      sha256 "c23c1848002082e128f533dc3c24a49fc57329293cc1468cc9dc36339b1abcac"
     end
 
     (testpath/"test.c").write <<~EOS
@@ -121,20 +121,24 @@ class Grokj2k < Formula
 
     # Test Exif metadata retrieval
     testpath.install resource("homebrew-test_image")
-    system bin/"grk_compress", "--in-file", "basn6a08.tif",
+    system bin/"grk_compress", "--in-file", "basn0g01.png",
                                 "--out-file", "test.jp2", "--out-fmt", "jp2",
                                 "--transfer-exif-tags"
     output = shell_output("#{Formula["exiftool"].bin}/exiftool test.jp2")
 
-    [
-      "Exif Byte Order                 : Big-endian (Motorola, MM)",
-      "Orientation                     : Horizontal (normal)",
-      "X Resolution                    : 72",
-      "Y Resolution                    : 72",
-      "Resolution Unit                 : inches",
-      "Y Cb Cr Positioning             : Centered",
-    ].each do |data|
-      assert_match data, output
+    expected_fields = [
+      "File Type                       : JP2",
+      "MIME Type                       : image/jp2",
+      "Major Brand                     : JPEG 2000 Image (.JP2)",
+      "Compatible Brands               : jp2",
+      "Image Height                    : 32",
+      "Image Width                     : 32",
+      "Bits Per Component              : 1 Bits, Unsigned",
+      "Compression                     : JPEG 2000",
+    ]
+
+    expected_fields.each do |field|
+      assert_match field, output
     end
   end
 end
