@@ -7,8 +7,7 @@ class CppGsl < Formula
   head "https://github.com/Microsoft/GSL.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "513bd4389b114b3c4cf033a15212296a8b51d2702d865ad12d60bdad5fa4c81a"
+    sha256 cellar: :any_skip_relocation, all: "6370fc32875a61aef5e85f2eac5ea7c459f5dc5cbe665a27a20784bc9502daf8"
   end
 
   depends_on "cmake" => :build
