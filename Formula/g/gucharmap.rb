@@ -1,8 +1,8 @@
 class Gucharmap < Formula
   desc "GNOME Character Map, based on the Unicode Character Database"
   homepage "https://wiki.gnome.org/Apps/Gucharmap"
-  url "https://gitlab.gnome.org/GNOME/gucharmap/-/archive/16.0.1/gucharmap-16.0.1.tar.bz2"
-  sha256 "d687d3a3d4990ea7aff4066e17768ec9fefe7b3129b98090c750b8d7074b4764"
+  url "https://gitlab.gnome.org/GNOME/gucharmap/-/archive/16.0.2/gucharmap-16.0.2.tar.bz2"
+  sha256 "f320ad67318dbf0ec26691849c0fe8f5ef4d72e6e78873fb083ad12c94bcda00"
   license "GPL-3.0-or-later"
 
   bottle do
