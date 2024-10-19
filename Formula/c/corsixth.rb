@@ -1,10 +1,9 @@
 class Corsixth < Formula
   desc "Open source clone of Theme Hospital"
   homepage "https://github.com/CorsixTH/CorsixTH"
-  url "https://github.com/CorsixTH/CorsixTH/archive/refs/tags/v0.67.tar.gz"
-  sha256 "4e88cf1916bf4d7c304b551ddb91fb9194f110bad4663038ca73d31b939d69e3"
+  url "https://github.com/CorsixTH/CorsixTH/archive/refs/tags/v0.68.0.tar.gz"
+  sha256 "54034b8434f5c583178405d2c84477f903fe2b15933b611f42230668e35d632e"
   license "MIT"
-  revision 1
   head "https://github.com/CorsixTH/CorsixTH.git", branch: "master"
 
   # Upstream uses GitHub releases to indicate that a version is released
@@ -34,6 +33,8 @@ class Corsixth < Formula
   depends_on "lua"
   depends_on "sdl2"
   depends_on "sdl2_mixer"
+
+  uses_from_macos "curl"
 
   on_linux do
     depends_on "mesa"
