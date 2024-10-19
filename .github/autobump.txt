@@ -2949,6 +2949,7 @@ vitess
 vivid
 vlang
 vnstat
+vnu
 volk
 volta
 votca
