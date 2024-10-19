@@ -7,12 +7,12 @@ class Typstyle < Formula
   head "https://github.com/Enter-tainer/typstyle.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e95bc9fdffaa7329ac240994078905c261bf9091e1fd53752ab24a44ee93212b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "58e226d4939590acdc8c7cb4aada26d4f7533d91679051eb0668cebe61519e68"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "71b89e1d8c8e05e497bf47cdf2129d9dfa1ad6ffd7ef9cc043de20be7dd9ecb7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "91fb1029d66007ffe74ab43a4e8ae06464f12f3a11a726354159b37beae16553"
-    sha256 cellar: :any_skip_relocation, ventura:       "83c1ac2206424e29b5c37763e728bcc19f72203d77d1fab8641769fcebe9559f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3cd6243350f7aa87a7e7b5b616d648b9d561951e6efc8048204ddb6b55fa400a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6937e737bfd60d57292f34fefde09bc9f9ac2f3cd5e9ec5d9b7998d34d7ccaf6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4e354ea1aad3868355ac43664ec3d3eb93f3e2c236d994d9aa77a38fc3fcdb9b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "926c49fbfc4ce378c50bfa9e87f938b5ec7f08b83b44131162e7b703573d30b1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b8aeb3518d2c94e1c86a9364aa48ed19e48a819d16cfd9cdcdb6fdfcdddf62d7"
+    sha256 cellar: :any_skip_relocation, ventura:       "9255047e763545e92446f27c44659f98f0e4819b6beed721923eb18df50ab9b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3aea55765094d634c80be7521759e61220fd11e11a6bc2545a27e039296af021"
   end
 
   depends_on "rust" => :build
