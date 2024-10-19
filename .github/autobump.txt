@@ -2,6 +2,7 @@ a2ps
 abcmidi
 abi3audit
 abseil
+abyss
 ack
 acl2
 act
