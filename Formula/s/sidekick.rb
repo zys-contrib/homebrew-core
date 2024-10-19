@@ -1,8 +1,8 @@
 class Sidekick < Formula
   desc "Deploy applications to your VPS"
   homepage "https://github.com/MightyMoud/sidekick"
-  url "https://github.com/MightyMoud/sidekick/archive/refs/tags/v0.6.4.tar.gz"
-  sha256 "e82ce6217dd6650f2b63b9cc369ac4385b80d5ba7206a4301e623509ecbd46a2"
+  url "https://github.com/MightyMoud/sidekick/archive/refs/tags/v0.6.5.tar.gz"
+  sha256 "1a82b9e7ba32632101baf83e5e132463058d36094076ea59856a90d22c22ad3d"
   license "GPL-3.0-only"
 
   bottle do
