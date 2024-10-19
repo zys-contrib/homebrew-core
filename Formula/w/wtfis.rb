@@ -3,10 +3,9 @@ class Wtfis < Formula
 
   desc "Passive hostname, domain, and IP lookup tool"
   homepage "https://github.com/pirxthepilot/wtfis"
-  url "https://files.pythonhosted.org/packages/c8/8e/d8005d43adcfd263723de2ee643eb2a6a48e645a9338202c7eda800a0df5/wtfis-0.10.0.tar.gz"
-  sha256 "1a364350e51d3daca0fba2135207f5eb5234cebd43ac40bda82f7e7b6817bf36"
+  url "https://files.pythonhosted.org/packages/ff/a8/a8cd5b79094cb68c9e76291829773a3146646bc8b532b936702c5c013259/wtfis-0.10.1.tar.gz"
+  sha256 "c3c0d3ef1fef20222bc3cb96f2b69a00e9714e468277fd87cf20c051de253331"
   license "MIT"
-  revision 1
   head "https://github.com/pirxthepilot/wtfis.git", branch: "main"
 
   bottle do
