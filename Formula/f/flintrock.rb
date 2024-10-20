@@ -19,6 +19,7 @@ class Flintrock < Formula
 
   depends_on "rust" => :build # for bcrypt
   depends_on "cryptography"
+  depends_on "libsodium" # for pynacl
   depends_on "libyaml"
   depends_on "python@3.13"
 
