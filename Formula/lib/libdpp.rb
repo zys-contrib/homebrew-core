@@ -1,8 +1,8 @@
 class Libdpp < Formula
   desc "C++ Discord API Bot Library"
   homepage "https://github.com/brainboxdotcc/DPP"
-  url "https://github.com/brainboxdotcc/DPP/releases/download/v10.0.32/DPP-10.0.32.tar.gz"
-  sha256 "b366c0eb05539208e8d6c81f59de87b2aa6158250968d1bd6360676d576851e7"
+  url "https://github.com/brainboxdotcc/DPP/releases/download/v10.0.33/DPP-10.0.33.tar.gz"
+  sha256 "75ee7b32c9d46bde6d02b46b3a907302865a4ee4a965ef8a575b7417bb0a46fe"
   license "Apache-2.0"
 
   bottle do
@@ -15,7 +15,6 @@ class Libdpp < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "libsodium"
   depends_on "openssl@3"
   depends_on "opus"
   depends_on "pkg-config"
