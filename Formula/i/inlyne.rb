@@ -2,7 +2,7 @@ class Inlyne < Formula
   desc "GPU powered yet browserless tool to help you quickly view markdown files"
   homepage "https://github.com/Inlyne-Project/inlyne"
   url "https://github.com/Inlyne-Project/inlyne/archive/refs/tags/v0.4.3.tar.gz"
-  sha256 "5ef5b54f572d93e96fc9bb0621c698098d4c6747d1ccdda4bd95af4f0b988b80"
+  sha256 "60f111e67d8e0b2bbb014900d4bc84ce6d2823c8daaba2d7eda0d403b01d7d1b"
   license "MIT"
   head "https://github.com/Inlyne-Project/inlyne.git", branch: "main"
 
@@ -18,15 +18,25 @@ class Inlyne < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on :macos # currently linux build failed to start, upstream report, https://github.com/Inlyne-Project/inlyne/issues/263
 
   uses_from_macos "expect" => :test
+
+  on_linux do
+    depends_on "libxkbcommon"
+    depends_on "wayland"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/inlyne --version")
+
+    # Fails in Linux CI with
+    # "Failed to initialize any backend! Wayland status: XdgRuntimeDirNotSet X11 status: XOpenDisplayFailed"
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     test_markdown = testpath/"test.md"
     test_markdown.write <<~EOS
       _lorem_ **ipsum** dolor **sit** _amet_
@@ -45,7 +55,5 @@ class Inlyne < Formula
     EOS
 
     system "expect", "-f", "test.exp"
-
-    assert_match version.to_s, shell_output("#{bin}/inlyne --version")
   end
 end
