@@ -1,8 +1,8 @@
 class Pan < Formula
   desc "Usenet newsreader that's good at both text and binaries"
   homepage "https://gitlab.gnome.org/GNOME/pan"
-  url "https://gitlab.gnome.org/GNOME/pan/-/archive/v0.160/pan-v0.160.tar.bz2"
-  sha256 "6506955fc3c94a7e395f82763f45a63dcb564028419ea32249090997c08962a9"
+  url "https://gitlab.gnome.org/GNOME/pan/-/archive/v0.161/pan-v0.161.tar.bz2"
+  sha256 "4c2c34b9e4a13275b73fae4f5dbdb3f857cf6b58c4813a373dd9d67ce37779d9"
   license "GPL-2.0-only"
 
   bottle do
@@ -17,15 +17,17 @@ class Pan < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "gettext" => :build
   depends_on "pkg-config" => :build
+
   depends_on "adwaita-icon-theme"
   depends_on "cairo"
   depends_on "enchant"
   depends_on "gdk-pixbuf"
-  depends_on "gettext"
   depends_on "glib"
   depends_on "gmime"
   depends_on "gnutls"
+  depends_on "gspell"
   depends_on "gtk+3"
   depends_on "gtkspell3"
   depends_on "harfbuzz"
@@ -35,6 +37,7 @@ class Pan < Formula
 
   on_macos do
     depends_on "at-spi2-core"
+    depends_on "gettext"
   end
 
   def install
