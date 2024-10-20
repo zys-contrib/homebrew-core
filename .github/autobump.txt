@@ -511,6 +511,7 @@ corepack
 coreutils
 corral
 corrosion
+corsixth
 cortex
 cosign
 cotila
