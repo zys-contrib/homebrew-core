@@ -1,8 +1,8 @@
 class Bed < Formula
   desc "Binary editor written in Go"
   homepage "https://github.com/itchyny/bed"
-  url "https://github.com/itchyny/bed/archive/refs/tags/v0.2.6.tar.gz"
-  sha256 "253284d71fb328d521f4e3db5b94cfa977c196030ca867d6764f99c44370ceb3"
+  url "https://github.com/itchyny/bed/archive/refs/tags/v0.2.7.tar.gz"
+  sha256 "dea9265b5a78e91851059c1c726ac40490825f107f8db6ae7db67965b92599c3"
   license "MIT"
   head "https://github.com/itchyny/bed.git", branch: "main"
 
