@@ -1,8 +1,8 @@
 class Tabiew < Formula
-  desc "TUI to view and query delimited files (CSV/TSV/etc.)"
+  desc "TUI to view and query tabular files (CSV,TSV, Parquet, etc.)"
   homepage "https://github.com/shshemi/tabiew"
-  url "https://github.com/shshemi/tabiew/archive/refs/tags/v0.6.3.tar.gz"
-  sha256 "ec8907e5858a4610b26c38f663760810700c88430b5327b067e0ce8922ae7ffb"
+  url "https://github.com/shshemi/tabiew/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "cd425757c0785fd15a95602bcf15f2c77a178a209e672444299123904cdc6617"
   license "MIT"
 
   bottle do
@@ -37,9 +37,11 @@ class Tabiew < Formula
     input.puts "stty rows 80 cols 130"
     input.puts bin/"tw test.csv"
     input.puts ":F tide < 40"
+    input.puts ":goto 1"
     sleep 1
     input.puts ":q"
-
+    sleep 1
+    input.close
     sleep 2
     File.open(testpath/"output.txt") do |f|
       contents = f.read
