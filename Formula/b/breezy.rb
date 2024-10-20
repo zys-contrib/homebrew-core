@@ -3,10 +3,9 @@ class Breezy < Formula
 
   desc "Version control system implemented in Python with multi-format support"
   homepage "https://github.com/breezy-team/breezy"
-  url "https://files.pythonhosted.org/packages/bb/3f/f1b74d0e32c5455e53655bf095724d37e31b2f184b2dddb899cedbbb6c56/breezy-3.3.8.tar.gz"
-  sha256 "14d59bbdf86b66c17327eb79a5883b4c70cc7794ed34f3e8a0adfce64edc58bf"
+  url "https://files.pythonhosted.org/packages/c4/32/1e95fdf00568790cf6316eb729a99c7754bbcb1773384c46da959eddfef8/breezy-3.3.9.tar.gz"
+  sha256 "c2588bf217c8a4056987ecf6599f0ad9fb8484285953b2e61905141f43c3d5d8"
   license "GPL-2.0-or-later"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "98afce55a0554e98bc9eef32dc0da693b00f3b05384504e4bd9f82b55261b875"
@@ -20,7 +19,7 @@ class Breezy < Formula
   depends_on "gettext" => :build
   depends_on "rust" => :build
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "configobj" do
     url "https://files.pythonhosted.org/packages/f5/c4/c7f9e41bc2e5f8eeae4a08a01c91b2aea3dfab40a3e14b25e87e7db8d501/configobj-5.0.9.tar.gz"
@@ -28,8 +27,8 @@ class Breezy < Formula
   end
 
   resource "dulwich" do
-    url "https://files.pythonhosted.org/packages/cf/ac/cf6420b90832c4ffbc88b92962dd0167c58632c2b8d508d5baf4ecb0c61d/dulwich-0.22.1.tar.gz"
-    sha256 "e36d85967cfbf25da1c7bc3d6921adc5baa976969d926aaf1582bd5fd7e94758"
+    url "https://files.pythonhosted.org/packages/da/47/c8bf38f8874829730775fbe5510b54087ff8529dbb9612bd144b76376ea7/dulwich-0.22.3.tar.gz"
+    sha256 "7968c7b8a877b614c46b5ee7c1b28411772123004d7cf6357e763ad2cbeb8254"
   end
 
   resource "fastbencode" do
@@ -50,11 +49,6 @@ class Breezy < Formula
   resource "pyyaml" do
     url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
     sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
-  end
-
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
-    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
   end
 
   resource "tzlocal" do
@@ -80,26 +74,25 @@ class Breezy < Formula
   end
 
   test do
-    brz = "#{bin}/brz"
     whoami = "Homebrew <homebrew@example.com>"
-    system brz, "whoami", whoami
+    system bin/"brz", "whoami", whoami
     assert_match whoami, shell_output("#{bin}/brz whoami")
 
     # Test bazaar compatibility
-    system brz, "init-repo", "sample"
-    system brz, "init", "sample/trunk"
+    system bin/"brz", "init-repo", "sample"
+    system bin/"brz", "init", "sample/trunk"
     touch testpath/"sample/trunk/test.txt"
     cd "sample/trunk" do
-      system brz, "add", "test.txt"
-      system brz, "commit", "-m", "test"
+      system bin/"brz", "add", "test.txt"
+      system bin/"brz", "commit", "-m", "test"
     end
 
     # Test git compatibility
-    system brz, "init", "--git", "sample2"
+    system bin/"brz", "init", "--git", "sample2"
     touch testpath/"sample2/test.txt"
     cd "sample2" do
-      system brz, "add", "test.txt"
-      system brz, "commit", "-m", "test"
+      system bin/"brz", "add", "test.txt"
+      system bin/"brz", "commit", "-m", "test"
     end
   end
 end
