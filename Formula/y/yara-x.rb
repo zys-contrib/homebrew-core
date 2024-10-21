@@ -1,8 +1,8 @@
 class YaraX < Formula
   desc "Tool to do pattern matching for malware research"
   homepage "https://virustotal.github.io/yara-x/"
-  url "https://github.com/VirusTotal/yara-x/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "ed5bf7eb29b02c7dbc5b697a171b79891d298a0b219d18430dda7687d80d8cdc"
+  url "https://github.com/VirusTotal/yara-x/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "acbdb4e3602a186b9c6c8d4ca1c6949e97c4935025d64ee4e86d27ed532852fd"
   license "BSD-3-Clause"
   head "https://github.com/VirusTotal/yara-x.git", branch: "main"
 
@@ -42,8 +42,6 @@ class YaraX < Formula
     program.binwrite [0x00, 0xc0, 0xa9, 0x30, 0x4c, 0xd2, 0xff].pack("C*")
 
     assert_equal <<~EOS.strip, shell_output("#{bin}/yr scan #{rules} #{program}").strip
-       Error parsing config, using defaults: No such file or directory (os error 2)
-       in .yara-x.toml TOML file
       chrout #{program}
     EOS
 
