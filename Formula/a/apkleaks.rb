@@ -8,14 +8,12 @@ class Apkleaks < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "15d3a77dc564f393dd748b701ebd187b0b71a4d0a38707bcb426938012d977d6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "517dfc6f423e2eb7a1c0deba2598bcb907132efe04ca2d71775ffa6ddef65a23"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a4cb660dc81eabb317ab1c16e595c05436d0237b7202d08f1dc1f8360902dd34"
-    sha256 cellar: :any,                 arm64_monterey: "b1ecd3774113cf9c92c3a03e1394572b83f297ddf0b4070c9d2d7df6a32986e6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9dbf55df4f43d7f6bdeeead47275103103118abb755c5f3e30a7685e1e841253"
-    sha256 cellar: :any_skip_relocation, ventura:        "aab0991cebc6c97ac6bd6200a6bc7deafdf56a6f59bdc899acccc624fe664009"
-    sha256 cellar: :any,                 monterey:       "ed06ed10e8816eb47099d18a520c238856402f2a9a08672fdc3f645b7f53d5c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee5126a2a63fa15c5aca1a5b10912359fd1d49b736ef3e0510fd89510097b345"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "78bc0ac2003c663b918b7e66ff43c3b0859bab29798b04c455ca4d8567f0f839"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f0cdb9b33a993b7522962766782cb18eae1e3e429bf39e39a60aed63de01d83c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "213bf23d68874434ab0c4c7ebc55a0eb93f7f46c4a8a33abfa6d3d24c55a3a88"
+    sha256 cellar: :any_skip_relocation, sonoma:        "73d3e2b34b92882ac21f178f62dcc72acb23fd96aa95f62fb851930404111cbc"
+    sha256 cellar: :any_skip_relocation, ventura:       "d336edab793642ee6f909b7a47bcc2b060ddc18e7b3acda50ff27f7496f944f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c736d8059b1441e0bdf907ac464270726aa1498210ebe74f1068d919ce774fc"
   end
 
   depends_on "jadx"
