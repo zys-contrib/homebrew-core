@@ -2064,6 +2064,7 @@ openldap
 openlibm
 openrct2
 openrtsp
+opensaml
 opensc
 opensearch
 openshift-cli
