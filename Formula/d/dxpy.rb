@@ -3,18 +3,17 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/fc/22/74984b062b32a812e86db7c9c6ae1057452557b1a5964ef8f3cc4cb80beb/dxpy-0.383.1.tar.gz"
-  sha256 "377af4014a5f27efd6fe9478d0fa9c30ced245947fbd2e2e5713c8a37db598b0"
+  url "https://files.pythonhosted.org/packages/c9/b8/4b61ec5171f3a0cd807d01457bfc9dcc234e1cfb5a7db2de1267a84c7a19/dxpy-0.384.0.tar.gz"
+  sha256 "17e29e9f58843c2639d53ea02b0dfd5c9940ad4ff20ab9e4df895a664f07e392"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fd0cd7dc64d8cff09e897d60700b7e2990c3002683c75583a052971d71b4d2a4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2f369842313fc03b48cb44720fb0d62e77ce334e48ddacc0db56ef7e70a8eb74"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "46f1719d0d3998ffd2ab7f9cdd14ed6e7b0c9d396b6a3d5cd2beae50adcfcd8c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "293a39b402b5f10f37e09ab64482e494543666a6c9e0a59cdd527605bb5255b3"
-    sha256 cellar: :any_skip_relocation, ventura:       "e6bed08cf32b80097409ad5f99b285b35c641ab7e731a47c5a3a35a9ff26a96d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5c74fc545ef45590fa0c1395e6f5bd474f0649cdc67a3fb5c69b96d1e10c0b0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9e8e1f5e984e8cd3e0239295e6afb62d19f2defee2c00b6155fbec624607ff51"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4215e70b70fc2ede34c2962e7f74f2c3e695bab38320cab665d64aa9da725611"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f314188bff517342419165b78b877ce643c18c3448ff6a4ae6c31fbedeb5bbda"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6b5650eac0b403d040351c28836c42e0c20e2b7329b6469004b6674a52323ca4"
+    sha256 cellar: :any_skip_relocation, ventura:       "66a7688de3b70b194ccfe10eefb823be246a4caf9a691063385e8094cc5209fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8600ae9e4424a7e4fc142dbea452dd1249f646fefc38fb9c86e9bca1a821532a"
   end
 
   depends_on "certifi"
