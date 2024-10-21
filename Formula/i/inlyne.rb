@@ -7,13 +7,13 @@ class Inlyne < Formula
   head "https://github.com/Inlyne-Project/inlyne.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7056568b68182c6c19157e720aebba6b36b087d2ec4d2b877dc35137889f1717"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "795b49b70f6791d35eacf4f8cc5d7ce33fbf6e29de86cc09c331b9919b3f7c6d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4a1bd6b797573bcb83ce72dfe79e6310404910b593c63be8d7bbf90268bc685c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4ff421f43c095b86b55de237be33d739ca2509420dad914daff591147ac3d849"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cfa5319173f6ee8ec5d80acd001f8ae1b764db1b3b6096d4a7cde527070b2696"
-    sha256 cellar: :any_skip_relocation, ventura:        "97cbbe8e9fea277396d4ad34e9ef1faa527ec89b284bf87495f9cb8208c0565b"
-    sha256 cellar: :any_skip_relocation, monterey:       "0c148c1c99fa14a56d0e4c8ebddd0e21000dca044577aa21633923aae552b36a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3f10df680898a5e7eeee773c88f0776b9aadd67ab4528f1f7b85e6245989d4cf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "058ba9fb4ef89574c9cbfc209e2aceee23a410035be89151a62cd0aa533083d4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2bf23f146cd3bb60b43c825a343c59ed9be6923e94148fa5f740d5942677f41c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6925e3bc0b8b2acca938a7f51f878023b31608cdeddea578370bfb55b033baf4"
+    sha256 cellar: :any_skip_relocation, ventura:       "f686de15fe9dd4840053323e489b69dba92215d6b67f494b7dbbfe4ac26658e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "330b0c5da919d5226afdbbaf7d3b4ced74443cce34970e00fb4d029dda7e9968"
   end
 
   depends_on "pkg-config" => :build
