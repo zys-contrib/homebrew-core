@@ -6,7 +6,7 @@ class AzureCli < Formula
   url "https://github.com/Azure/azure-cli/archive/refs/tags/azure-cli-2.65.0.tar.gz"
   sha256 "e9d4503b82eca5c78ef0acbe83ad229e35821caef200d7b290f06c66e5749bcf"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/Azure/azure-cli.git", branch: "dev"
 
   livecheck do
@@ -30,7 +30,7 @@ class AzureCli < Formula
   depends_on "libsodium"
   depends_on "libyaml"
   depends_on "openssl@3"
-  depends_on "python@3.12"
+  depends_on "python@3.11"
 
   uses_from_macos "libffi"
 
@@ -594,11 +594,6 @@ class AzureCli < Formula
     sha256 "aac08f26a31dc4dffd92821527d1682d99d52f9ef6851968114a8728f3c274d3"
   end
 
-  resource "pip" do
-    url "https://files.pythonhosted.org/packages/4d/87/fb90046e096a03aeab235e139436b3fe804cdd447ed2093b0d70eba3f7f8/pip-24.2.tar.gz"
-    sha256 "5b5e490b5e9cb275c879595064adce9ebd31b854e3e803740b72f9ccf34a45b8"
-  end
-
   resource "pkginfo" do
     url "https://files.pythonhosted.org/packages/54/6a/42056522e1d79fa9768712782f37365ef786d905e4efeed6db44cad1803b/pkginfo-1.8.2.tar.gz"
     sha256 "542e0d0b6750e2e21c20179803e40ab50598d8066d51097a0e382cba9eb02bff"
@@ -724,7 +719,7 @@ class AzureCli < Formula
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
-    venv = virtualenv_create(libexec, "python3.12", system_site_packages: false)
+    venv = virtualenv_create(libexec, "python3.11", system_site_packages: false, without_pip: false)
     venv.pip_install resources
 
     # Get the CLI components we'll install
