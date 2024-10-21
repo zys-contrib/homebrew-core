@@ -1,10 +1,19 @@
 class Termscp < Formula
   desc "Feature rich terminal file transfer and explorer"
   homepage "https://termscp.veeso.dev/"
-  url "https://github.com/veeso/termscp/archive/refs/tags/v0.16.0.tar.gz"
-  sha256 "58f3b4770c5d1c5d7998af88b6df8c6a53dee4409f2cf6ea676caccec79cdb7f"
   license "MIT"
   head "https://github.com/veeso/termscp.git", branch: "main"
+
+  stable do
+    url "https://github.com/veeso/termscp/archive/refs/tags/v0.16.0.tar.gz"
+    sha256 "58f3b4770c5d1c5d7998af88b6df8c6a53dee4409f2cf6ea676caccec79cdb7f"
+
+    # rust 1.82.0 build patch
+    patch do
+      url "https://github.com/veeso/termscp/commit/69f821baef21fac5ef4db237467a302b8ead22ea.patch?full_index=1"
+      sha256 "108dc7dec63d628e3eb5981de848040b048e7e2ddb476be825fc4e700fc3685c"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "53d33f7bf81f2bf50884bd90699fc80607507e487326c46d2ef441a21113449f"
