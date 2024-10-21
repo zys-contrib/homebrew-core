@@ -11,12 +11,12 @@ class Opensaml < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "aec01267b070c38a196b958beb011023329df39275a53057ced729988f79bef9"
-    sha256 cellar: :any,                 arm64_sonoma:  "ba2f7799db26f1d8c8bac996a6a04bf4101754420cb4f1ee204a6fcf27b78a67"
-    sha256 cellar: :any,                 arm64_ventura: "10959a9e892a8a25fd9a096b7c26a408d65aa3dbb4962ed7eebf4b913a241f6e"
-    sha256 cellar: :any,                 sonoma:        "2d2ee794c304246ae82e2026aeaf0a3edcdf9c5a441972c23de37ae66b9fdcf2"
-    sha256 cellar: :any,                 ventura:       "ef04ca7e4a39762fe7e1b4d95fd396b2a2905a4be3f0c60ba7fcd9073b677d61"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09b92a1f9fad4621c89964b7896bfef571a526da048b8076779dccbb204b60f0"
+    sha256 cellar: :any,                 arm64_sequoia: "ef3bcbf1661bd845ddaaf679bc4ac1c97be7322e540dcac03eea07c6e4f0870e"
+    sha256 cellar: :any,                 arm64_sonoma:  "e271048b419d93cdce4c3b93c1e0e275fb089e9751d29145670f8b4bd757c1cf"
+    sha256 cellar: :any,                 arm64_ventura: "0124f112da5200068af7735cf823f0b49c2c7cf4f71de7a1424f63096a5a0f4e"
+    sha256 cellar: :any,                 sonoma:        "c9dd4f9976072123348f5523c303b195fd1e2d846312b341db00bc2585c14c03"
+    sha256 cellar: :any,                 ventura:       "1642d4e0c2ee412a24f2003c883bdf62e03d142dd7882474f6025d85a91a21d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "252f721596bf59190b2acb8b37ac0aa8b77aa47c8c9fa7de236bdd35a5217a13"
   end
 
   depends_on "pkg-config" => :build
