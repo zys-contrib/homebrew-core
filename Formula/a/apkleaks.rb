@@ -3,19 +3,17 @@ class Apkleaks < Formula
 
   desc "Scanning APK file for URIs, endpoints & secrets"
   homepage "https://github.com/dwisiswant0/apkleaks"
-  url "https://files.pythonhosted.org/packages/40/88/8aa234dd5f7e632605dcce90d076982d4d1124d7278991ee54ec9e543cef/apkleaks-2.6.2.tar.gz"
-  sha256 "f6f767dd758d2fd1395186709e736402ab6f913a6172e29220d6581035aa76fc"
+  url "https://files.pythonhosted.org/packages/1e/e6/203661abe151dbc59096de65d6f0cf392d1aad3acba32f4e9f3f389acad0/apkleaks-2.6.3.tar.gz"
+  sha256 "e247b59acf4448f3c2e45449bc7564bc5b7a216ebfb166236baf602d625b1df5"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "15d3a77dc564f393dd748b701ebd187b0b71a4d0a38707bcb426938012d977d6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "517dfc6f423e2eb7a1c0deba2598bcb907132efe04ca2d71775ffa6ddef65a23"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a4cb660dc81eabb317ab1c16e595c05436d0237b7202d08f1dc1f8360902dd34"
-    sha256 cellar: :any,                 arm64_monterey: "b1ecd3774113cf9c92c3a03e1394572b83f297ddf0b4070c9d2d7df6a32986e6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9dbf55df4f43d7f6bdeeead47275103103118abb755c5f3e30a7685e1e841253"
-    sha256 cellar: :any_skip_relocation, ventura:        "aab0991cebc6c97ac6bd6200a6bc7deafdf56a6f59bdc899acccc624fe664009"
-    sha256 cellar: :any,                 monterey:       "ed06ed10e8816eb47099d18a520c238856402f2a9a08672fdc3f645b7f53d5c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee5126a2a63fa15c5aca1a5b10912359fd1d49b736ef3e0510fd89510097b345"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "78bc0ac2003c663b918b7e66ff43c3b0859bab29798b04c455ca4d8567f0f839"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f0cdb9b33a993b7522962766782cb18eae1e3e429bf39e39a60aed63de01d83c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "213bf23d68874434ab0c4c7ebc55a0eb93f7f46c4a8a33abfa6d3d24c55a3a88"
+    sha256 cellar: :any_skip_relocation, sonoma:        "73d3e2b34b92882ac21f178f62dcc72acb23fd96aa95f62fb851930404111cbc"
+    sha256 cellar: :any_skip_relocation, ventura:       "d336edab793642ee6f909b7a47bcc2b060ddc18e7b3acda50ff27f7496f944f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c736d8059b1441e0bdf907ac464270726aa1498210ebe74f1068d919ce774fc"
   end
 
   depends_on "jadx"
@@ -35,8 +33,8 @@ class Apkleaks < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/63/f7/ffbb6d2eb67b80a45b8a0834baa5557a14a5ffce0979439e7cd7f0c4055b/lxml-5.2.2.tar.gz"
-    sha256 "bb2dc4898180bea79863d5487e5f9c7c34297414bad54bcd0f0852aee9cfdb87"
+    url "https://files.pythonhosted.org/packages/e7/6b/20c3a4b24751377aaa6307eb230b66701024012c29dd374999cc92983269/lxml-5.3.0.tar.gz"
+    sha256 "4e109ca30d1edec1ac60cdbe341905dc3b8f55b16855e03a54aaf59e51ec8c6f"
   end
 
   resource "pyaxmlparser" do
