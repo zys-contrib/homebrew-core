@@ -1,8 +1,8 @@
 class Packetry < Formula
   desc "Fast, intuitive USB 2.0 protocol analysis application for use with Cynthion"
   homepage "https://github.com/greatscottgadgets/packetry"
-  url "https://github.com/greatscottgadgets/packetry/archive/refs/tags/v0.2.2.tar.gz"
-  sha256 "8bcbdd8c417cf4694c41e1e6376b95ddea6de9b809e797175dbc993884e5e051"
+  url "https://github.com/greatscottgadgets/packetry/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "dfb25d42288a20f1377624736da3199214ca89d1f85029b9fd8ac7b4060c3de0"
   license "BSD-3-Clause"
 
   bottle do
@@ -39,6 +39,6 @@ class Packetry < Formula
 
     # Expected result is panic because Cynthion is not connected via USB.
     output = shell_output("#{bin}/packetry --test-cynthion 2>&1", 1)
-    assert_match "Test failed: No usable analyzer found", output
+    assert_match "Test failed: No Cynthion devices found", output
   end
 end
