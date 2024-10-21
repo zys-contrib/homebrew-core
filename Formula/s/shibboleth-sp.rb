@@ -11,12 +11,12 @@ class ShibbolethSp < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "a9586efb0a7b274074ed45bd22b33737a881571e95d3324bf64ed8d17cca7072"
-    sha256 arm64_sonoma:  "36723380e18cab9652db4801a9dabb60fa26c5092e2aabd0b35853e70b99fb9b"
-    sha256 arm64_ventura: "e8544b105025133d3c6e9d9ea2119ed0d41fd8caf79eb97771cf0de80c341623"
-    sha256 sonoma:        "1618cd8310354dde562fea2d079d96eb8ab2b1309588ac365435df416f37f4b7"
-    sha256 ventura:       "86bf86c47d12d6db98fe3d8925f6a2eaf7d6cd417b1aa052d781e6cf0d6fee8f"
-    sha256 x86_64_linux:  "75409a8d3ecf93e527e7243f9c1b3e523e9e1d7246835c2806bb77afce5b46e9"
+    sha256 arm64_sequoia: "55bf022aa2b6a6fc966d45553c8ce1288ce76858abf2cabe4761277560076f77"
+    sha256 arm64_sonoma:  "df0cd59ffc255be27c05d8fafe3aa245cb572c5aba8e26941f9e7a6d9598efc2"
+    sha256 arm64_ventura: "90bbcecdd669cd1e0961c68697c268955b359d4a336408b1cc9d451060612846"
+    sha256 sonoma:        "eb9c81c8f10b1890b4d860ef07f709032b033d2b4b8e49def01655528c61dc3a"
+    sha256 ventura:       "0e13da6dfef3388f923e184d05ba1dfc9e491f96c8b058e842ee61cb422870c4"
+    sha256 x86_64_linux:  "0dd53cb012bdb80804df6c2ae04476966cc9f337b4e5b2df5ee5cdef9017191c"
   end
 
   depends_on "pkg-config" => :build
