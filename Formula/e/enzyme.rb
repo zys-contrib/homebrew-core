@@ -31,7 +31,7 @@ class Enzyme < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <stdio.h>
       extern double __enzyme_autodiff(void*, double);
       double square(double x) {
@@ -44,7 +44,7 @@ class Enzyme < Formula
         double i = 21.0;
         printf("square(%.0f)=%.0f, dsquare(%.0f)=%.0f\\n", i, square(i), i, dsquare(i));
       }
-    EOS
+    C
 
     ENV["CC"] = llvm.opt_bin/"clang"
 
