@@ -22,6 +22,15 @@ class WasiLibc < Formula
     end
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "41e50492f948e7884a698f6d3d5f70463f3c93a69b30aeee5cbd122af245dd8b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "41e50492f948e7884a698f6d3d5f70463f3c93a69b30aeee5cbd122af245dd8b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "41e50492f948e7884a698f6d3d5f70463f3c93a69b30aeee5cbd122af245dd8b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "41e50492f948e7884a698f6d3d5f70463f3c93a69b30aeee5cbd122af245dd8b"
+    sha256 cellar: :any_skip_relocation, ventura:       "41e50492f948e7884a698f6d3d5f70463f3c93a69b30aeee5cbd122af245dd8b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1558c51c7c69c2a4dc568a0f16ec3a132e8264b33942b8b23d617c5cd943f00"
+  end
+
   depends_on "llvm" => [:build, :test]
   depends_on "lld" => :test
   depends_on "wasmtime" => :test
