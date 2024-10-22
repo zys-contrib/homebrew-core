@@ -517,6 +517,7 @@ cosign
 cotila
 cotp
 couchbase-shell
+couchdb
 countdown
 counterfeiter
 coursier
