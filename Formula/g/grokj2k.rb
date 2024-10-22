@@ -6,6 +6,7 @@ class Grokj2k < Formula
       tag:      "v13.0.1",
       revision: "4b1049297bfb93a0f2afbe598f4dab92545ee1ad"
   license "AGPL-3.0-or-later"
+  revision 1
   head "https://github.com/GrokImageCompression/grok.git", branch: "master"
 
   livecheck do
