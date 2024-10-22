@@ -141,7 +141,7 @@ class Glib < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <string.h>
       #include <glib.h>
 
@@ -155,7 +155,7 @@ class Glib < Formula
 
           return (strcmp(str, result_2) == 0) ? 0 : 1;
       }
-    EOS
+    C
     system ENV.cc, "-o", "test", "test.c", "-I#{include}/glib-2.0",
                    "-I#{lib}/glib-2.0/include", "-L#{lib}", "-lglib-2.0"
     system "./test"
