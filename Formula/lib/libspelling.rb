@@ -1,18 +1,17 @@
 class Libspelling < Formula
   desc "Spellcheck library for GTK 4"
   homepage "https://gitlab.gnome.org/GNOME/libspelling"
-  url "https://gitlab.gnome.org/GNOME/libspelling/-/archive/0.2.1/libspelling-0.2.1.tar.bz2"
-  sha256 "5393a9b93fda445598348a47c42d1ad13586c0bcf35dfd257afd613fd31812c1"
+  url "https://gitlab.gnome.org/GNOME/libspelling/-/archive/0.4.4/libspelling-0.4.4.tar.bz2"
+  sha256 "9b2adc84b7cb964588ee55f70a8c61fea942f894a89f41af9a186c7b17abbc5a"
   license "LGPL-2.1-or-later"
-  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "acdd32585f66bf2dcef0ef13c0166294ae3e8742eba12f88b4f8fcf78a9644e6"
-    sha256 cellar: :any, arm64_sonoma:  "ca7f5c29c5ffca0ef01ca9d2488eb1749e21ce456593096b4b60431a66b1cbd2"
-    sha256 cellar: :any, arm64_ventura: "c8487296937ad4d072c1728c97163c82247ee89f8caac40174518730b16826e4"
-    sha256 cellar: :any, sonoma:        "36dc778f440851ade2fe2b56c494e7058f3804117b04edf0ba7fb5f29a05d034"
-    sha256 cellar: :any, ventura:       "2f1018445dabc70101abef5a49e13b5e32c886f6d246f7788f651dad221cc4ab"
-    sha256               x86_64_linux:  "4b771175ee3b8db56799e624bcdb8e077b14487bd97a98a6fb40ba2b644e178a"
+    sha256 arm64_sequoia: "825adf50b71f9eb08eca5e8dc39ab73f8eb9488ec47814320e099a82e484d1ab"
+    sha256 arm64_sonoma:  "0fd8a8a7298e347b829c7c2d39c48d1015cc28db6998f7866fe95edc49352e5d"
+    sha256 arm64_ventura: "3d7d1e3535959f6dfc3b7d152420d32dfdb027c9dcd3f0a35d08a84abf773aa5"
+    sha256 sonoma:        "1b6e9f3a70e713b807d10f7d151d7de82bbe34c513d61245b9ff0a46e9619f57"
+    sha256 ventura:       "0576797ecbec53cb15df3379154ccfbf4b58e9bc53f778db3a851d22d126ac9e"
+    sha256 x86_64_linux:  "607fe428c36b2facc670ef2bd01644a8b2e5db832a9bb6efb2c958e811f821e0"
   end
 
   depends_on "gobject-introspection" => :build
@@ -36,8 +35,12 @@ class Libspelling < Formula
     depends_on "harfbuzz"
   end
 
+  on_linux do
+    depends_on "sysprof"
+  end
+
   def install
-    system "meson", "setup", "build", "-Ddocs=false", *std_meson_args
+    system "meson", "setup", "build", "-Ddocs=false", "-Dsysprof=#{OS.linux?}", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end

@@ -3,10 +3,9 @@ class Grokj2k < Formula
   homepage "https://github.com/GrokImageCompression/grok"
   # pull from git tag to get submodules
   url "https://github.com/GrokImageCompression/grok.git",
-      tag:      "v13.0.0",
-      revision: "6db0feb924b0a115f01987edf0ea2fcd735684d5"
+      tag:      "v13.0.1",
+      revision: "4b1049297bfb93a0f2afbe598f4dab92545ee1ad"
   license "AGPL-3.0-or-later"
-  revision 1
   head "https://github.com/GrokImageCompression/grok.git", branch: "master"
 
   livecheck do
@@ -15,12 +14,12 @@ class Grokj2k < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2c1575de5e1f39e4888a93594708c158bbc2c789c55cdedc59557a27abf72b70"
-    sha256 cellar: :any,                 arm64_sonoma:  "b52c7ff5b28f9cd49d262e5b91394f0635361489e4c4b787afff1e25eccc7318"
-    sha256 cellar: :any,                 arm64_ventura: "c8ed5e2e3472ac26d456cf5206a6236da2a5954e6c2d7412dc156f7efcb7d4b5"
-    sha256 cellar: :any,                 sonoma:        "2036f4b1223631929bbe53386167c907725c13a29568494cc1fff1006f7f9e5a"
-    sha256 cellar: :any,                 ventura:       "df10d8ad5cc5b56b4d1c7f1e33dc602e263e9f562f6751678d3c1c50b6248a03"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2e655a2cc495e41c3f663a364285b24745d76d29d3893053009a99c10dce813"
+    sha256 cellar: :any,                 arm64_sequoia: "910f7814e8a277f91e2025d3ce63ef893a0c510258b66b1f959e6c92adef49e8"
+    sha256 cellar: :any,                 arm64_sonoma:  "79d6aa802e6bbd05f9419aa0e4e4b1a3983726512950807622ce6bcee03b44ac"
+    sha256 cellar: :any,                 arm64_ventura: "6d8a3a6279986948e768e01ab5ea2664c57e4ddab9223dc020edbff1b2395b34"
+    sha256 cellar: :any,                 sonoma:        "7e673d821b739675a709a6f20920b7bf290f3c5c5993b7c5416218c6decb6f90"
+    sha256 cellar: :any,                 ventura:       "1652e8c9704c3cf12ba9ab4433f0db3654ca3430d21b8eee0bf22ee1f5600c31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4856d40704907d83ffad6b465f99613fbde60592abdb215dfc65f851ecd5808"
   end
 
   depends_on "cmake" => :build
@@ -97,11 +96,11 @@ class Grokj2k < Formula
 
   test do
     resource "homebrew-test_image" do
-      url "https://github.com/GrokImageCompression/grok-test-data/raw/43ce4cb/input/nonregression/basn6a08.tif"
-      sha256 "d0b9715d79b10b088333350855f9721e3557b38465b1354b0fa67f230f5679f3"
+      url "https://github.com/GrokImageCompression/grok-test-data/raw/43ce4cb/input/nonregression/pngsuite/basn0g01.png"
+      sha256 "c23c1848002082e128f533dc3c24a49fc57329293cc1468cc9dc36339b1abcac"
     end
 
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <grok/grok.h>
 
       int main () {
@@ -114,26 +113,30 @@ class Grokj2k < Formula
         grk_object_unref(&image->obj);
         return 0;
       }
-    EOS
+    C
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lgrokj2k", "-o", "test"
     system "./test"
 
     # Test Exif metadata retrieval
     testpath.install resource("homebrew-test_image")
-    system bin/"grk_compress", "--in-file", "basn6a08.tif",
+    system bin/"grk_compress", "--in-file", "basn0g01.png",
                                 "--out-file", "test.jp2", "--out-fmt", "jp2",
                                 "--transfer-exif-tags"
     output = shell_output("#{Formula["exiftool"].bin}/exiftool test.jp2")
 
-    [
-      "Exif Byte Order                 : Big-endian (Motorola, MM)",
-      "Orientation                     : Horizontal (normal)",
-      "X Resolution                    : 72",
-      "Y Resolution                    : 72",
-      "Resolution Unit                 : inches",
-      "Y Cb Cr Positioning             : Centered",
-    ].each do |data|
-      assert_match data, output
+    expected_fields = [
+      "File Type                       : JP2",
+      "MIME Type                       : image/jp2",
+      "Major Brand                     : JPEG 2000 Image (.JP2)",
+      "Compatible Brands               : jp2",
+      "Image Height                    : 32",
+      "Image Width                     : 32",
+      "Bits Per Component              : 1 Bits, Unsigned",
+      "Compression                     : JPEG 2000",
+    ]
+
+    expected_fields.each do |field|
+      assert_match field, output
     end
   end
 end

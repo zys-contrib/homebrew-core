@@ -2,7 +2,9 @@ a2ps
 abcmidi
 abi3audit
 abseil
+abyss
 ack
+acl2
 act
 action-validator
 actionlint
@@ -118,6 +120,7 @@ astyle
 asuka
 asymptote
 asyncapi
+asyncplusplus
 at-spi2-core
 atlantis
 atlas
@@ -127,6 +130,7 @@ atuin
 audacious
 auditbeat
 auditwheel
+austin
 autobrr
 autodiff
 automake
@@ -197,6 +201,7 @@ bc-gh
 bcoin
 bcpp
 bde
+bdftopcf
 bdw-gc
 beagle
 beakerlib
@@ -280,6 +285,7 @@ busted
 butane
 bwa
 bwfmetaedit
+bwidget
 byacc
 byobu
 byteman
@@ -380,6 +386,7 @@ chainsaw
 chamber
 changie
 chaoskube
+charm-tools
 charmcraft
 chars
 chart-testing
@@ -469,7 +476,6 @@ code-cli
 code-minimap
 code-server
 codec2
-codecov-cli
 codelimit
 coder
 codespell
@@ -505,6 +511,7 @@ corepack
 coreutils
 corral
 corrosion
+corsixth
 cortex
 cosign
 cotila
@@ -516,6 +523,7 @@ coursier
 cp2k
 cpi
 cpm
+cpp-gsl
 cpp-httplib
 cppad
 cppcheck
@@ -603,6 +611,7 @@ delve
 demumble
 deno
 dep-tree
+dependabot
 dependency-check
 deployer
 der-ascii
@@ -987,6 +996,7 @@ ghex
 ghorg
 ghostunnel
 ghq
+ghr
 ghz
 ghz-web
 gickup
@@ -1069,6 +1079,7 @@ go@1.22
 goaccess
 goawk
 gobject-introspection
+gocloc
 goctl
 godap
 goffice
@@ -1211,6 +1222,7 @@ hof
 homebank
 hopenpgp-tools
 hoverfly
+howard-hinnant-date
 hpack
 hpp-fcl
 htmldoc
@@ -1357,6 +1369,7 @@ juju
 julia
 jupyterlab
 just
+jxl-oxide
 jython
 k2tf
 k3d
@@ -1495,6 +1508,7 @@ libarchive
 libass
 libassuan
 libavif
+libblastrampoline
 libbpf
 libbsd
 libcap
@@ -1508,6 +1522,7 @@ libcss
 libcyaml
 libdap
 libdeflate
+libdex
 libdivide
 libdnet
 libdom
@@ -1543,6 +1558,7 @@ libimagequant
 libimobiledevice-glue
 libint
 libirecovery
+libjcat
 libjuice
 libjwt
 libkeccak
@@ -1597,6 +1613,7 @@ libsail
 libsais
 libscfg
 libsecret
+libserialport
 libshumate
 libslirp
 libsndfile
@@ -1607,6 +1624,7 @@ libspelling
 libspiro
 libsql
 libssh
+libssh2
 libstrophe
 libsvm
 libtensorflow
@@ -2046,6 +2064,7 @@ openldap
 openlibm
 openrct2
 openrtsp
+opensaml
 opensc
 opensearch
 openshift-cli
@@ -2312,6 +2331,7 @@ qpdf
 qpid-proton
 qrcp
 qrtool
+qshell
 qsoas
 qsv
 qthreads
@@ -2351,6 +2371,7 @@ rebar3
 recode
 recoverpy
 redict
+redress
 redwax-tool
 regclient
 regina-rexx
@@ -2370,6 +2391,7 @@ resvg
 retire
 revive
 rgbds
+rhash
 rhit
 riemann
 riemann-client
@@ -2391,6 +2413,7 @@ ronn-ng
 root
 rosa-cli
 rospo
+roswell
 rover
 roxctl
 rpg-cli
@@ -2775,6 +2798,7 @@ tinymist
 tinyproxy
 tio
 tippecanoe
+titlecase
 tkey-ssh-agent
 tlsx
 tmpmail
@@ -2927,6 +2951,7 @@ vitess
 vivid
 vlang
 vnstat
+vnu
 volk
 volta
 votca
@@ -2965,6 +2990,7 @@ wavpack
 wayland
 wayland-protocols
 wazero
+wcslib
 wcurl
 weasyprint
 web-ext
@@ -3037,6 +3063,7 @@ xroar
 xrootd
 xsimd
 xterm
+xtrans
 xwin
 xxhash
 xz
@@ -3067,6 +3094,7 @@ yq
 yt-dlp
 yubico-piv-tool
 yyjson
+z.lua
 z3
 zabbix
 zabbix-cli

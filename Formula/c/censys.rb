@@ -3,18 +3,17 @@ class Censys < Formula
 
   desc "Command-line interface for the Censys APIs (censys.io)"
   homepage "https://github.com/censys/censys-python"
-  url "https://files.pythonhosted.org/packages/c3/68/4ec109b934009dba49ef88f5a1bb5bfa5c5cb25cc3cb0685da44009876fc/censys-2.2.14.tar.gz"
-  sha256 "09df1cf86a72efb159c03de8dc35163f22dbe95f029f85042b3e63b38171255f"
+  url "https://files.pythonhosted.org/packages/08/69/76c19cff1cac71420eb731300f39bbba90308a23a8bca9bd6a6d5bafdeff/censys-2.2.16.tar.gz"
+  sha256 "c70680ee84630fba20c3d14f1ed0d9c2a5a2d54009d0821fbaa9fed8119c4ee3"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e89619389a869e26e4dc26bfed90149d575f7a61bd8892e194e9d7b28b0995b9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e89619389a869e26e4dc26bfed90149d575f7a61bd8892e194e9d7b28b0995b9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e89619389a869e26e4dc26bfed90149d575f7a61bd8892e194e9d7b28b0995b9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0c5b9e95ed744f50ab070dc20de14f156c4f79c3d9a79d6daa492627e977b876"
-    sha256 cellar: :any_skip_relocation, ventura:       "0c5b9e95ed744f50ab070dc20de14f156c4f79c3d9a79d6daa492627e977b876"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fad9e83a5d09e902c4d31e40c4d68a90ce2eaff6aa32b579750c0e2fd56dfd6a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9e36acd548ff4c4465979d691e4e9bff62a11582845ced13170ff45273cdcaca"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9e36acd548ff4c4465979d691e4e9bff62a11582845ced13170ff45273cdcaca"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9e36acd548ff4c4465979d691e4e9bff62a11582845ced13170ff45273cdcaca"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7dce2ad308b70be66c2fa28299eca723f80c1027fd97e5d6bcf0714ee2e96fd1"
+    sha256 cellar: :any_skip_relocation, ventura:       "7dce2ad308b70be66c2fa28299eca723f80c1027fd97e5d6bcf0714ee2e96fd1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f8faad7a5bcd8a478ab3e3ca3761f92d2ecf1cddcaddac03e093358597b879a"
   end
 
   depends_on "certifi"

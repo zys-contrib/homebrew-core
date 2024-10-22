@@ -3,18 +3,17 @@ class HuggingfaceCli < Formula
 
   desc "Client library for huggingface.co hub"
   homepage "https://huggingface.co/docs/huggingface_hub/index"
-  url "https://files.pythonhosted.org/packages/df/fd/5f81bae67096c5ab50d29a0230b8374f0245916cca192f8ee2fada51f4f6/huggingface_hub-0.25.2.tar.gz"
-  sha256 "a1014ea111a5f40ccd23f7f7ba8ac46e20fa3b658ced1f86a00c75c06ec6423c"
+  url "https://files.pythonhosted.org/packages/44/99/c8fdef6fe09a1719e5e5de24b012de5824889168c96143f5531cab5af42b/huggingface_hub-0.26.1.tar.gz"
+  sha256 "414c0d9b769eecc86c70f9d939d0f48bb28e8461dd1130021542eff0212db890"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "2fff144739339636b5031c70e403dd88afb07b395a6354b81347d8d67a0f86be"
-    sha256 cellar: :any,                 arm64_sonoma:  "3ff1ee5e16d2b9a83c6f17755a8575e44bb6bf7600ccc60e54c39eccd0e65da3"
-    sha256 cellar: :any,                 arm64_ventura: "bb333142efe55c7b940b68b0eafeda2282605a530b2f905f925e8c3148ce1939"
-    sha256 cellar: :any,                 sonoma:        "44b04a9f4bd1bc78445339ccefb02f320cb69000748435f8e3ee1360841839d4"
-    sha256 cellar: :any,                 ventura:       "66a2120e63de88de619c6aa0ad32bf2479963a6e17d9095dd4dd121be8a0fb40"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "02a4636fc82a0af9caaa639705b2ad6b33a6188ea29855389405737b76f14f13"
+    sha256 cellar: :any,                 arm64_sequoia: "1c797a1559ab79fca70018c8f8a41f1bff1650948cb73d7746d2d35c5155dc42"
+    sha256 cellar: :any,                 arm64_sonoma:  "118c76c252e559b7e35d8cefbfeb47dc0359bde534221e0d1d161939309fbf86"
+    sha256 cellar: :any,                 arm64_ventura: "9752be8d4ed7dc93b5c6f89b8777c579857b105167366e04ad72081b05a28c3c"
+    sha256 cellar: :any,                 sonoma:        "b701bd8ac49eed85336b9c55fa9dda86052d0aa9774c755e74d1027e01cb6f3b"
+    sha256 cellar: :any,                 ventura:       "292dd0c0611cea4655778bfbe02a48e86103d4b1ba92df359da27c2661691cae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dace0fc7c6c6004872e2e317ea63a1289ddd517f3ce2e320b9334519b73b64a1"
   end
 
   depends_on "certifi"
@@ -33,8 +32,8 @@ class HuggingfaceCli < Formula
   end
 
   resource "fsspec" do
-    url "https://files.pythonhosted.org/packages/62/7c/12b0943011daaaa9c35c2a2e22e5eb929ac90002f08f1259d69aedad84de/fsspec-2024.9.0.tar.gz"
-    sha256 "4b0afb90c2f21832df142f292649035d80b421f60a9e1c027802e5a0da2b04e8"
+    url "https://files.pythonhosted.org/packages/a0/52/f16a068ebadae42526484c31f4398e62962504e5724a8ba5dc3409483df2/fsspec-2024.10.0.tar.gz"
+    sha256 "eda2d8a4116d4f2429db8550f2457da57279247dd930bb12f821b58391359493"
   end
 
   resource "idna" do

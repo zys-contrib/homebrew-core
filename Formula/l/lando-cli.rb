@@ -1,8 +1,8 @@
 class LandoCli < Formula
   desc "Cli part of Lando"
   homepage "https://docs.lando.dev/cli"
-  url "https://github.com/lando/cli/archive/refs/tags/v3.22.1.tar.gz"
-  sha256 "41cd4e03a783c2fb5f06c5f8f80f00abce0e52094cc57a2b76cdf380c2bfbd0f"
+  url "https://github.com/lando/cli/archive/refs/tags/v3.22.3.tar.gz"
+  sha256 "c8c621b8ee1b2e65aa8089d3eab3eacfefd4ae44a0e2cb4a856097b3604d6368"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class LandoCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "258f5ca707b7370ab6f0d4bf05eacac97d35c6e5528b4dd72f152cf17585000b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "258f5ca707b7370ab6f0d4bf05eacac97d35c6e5528b4dd72f152cf17585000b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "258f5ca707b7370ab6f0d4bf05eacac97d35c6e5528b4dd72f152cf17585000b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "26b24bb34fb5b44a611dc1a34dfd9b41c267c7f6001485ac2aeac09df4c5afc5"
-    sha256 cellar: :any_skip_relocation, ventura:       "26b24bb34fb5b44a611dc1a34dfd9b41c267c7f6001485ac2aeac09df4c5afc5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "258f5ca707b7370ab6f0d4bf05eacac97d35c6e5528b4dd72f152cf17585000b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f616f24b05a33f71c9965a07846a99b60eb514db44965f9f48e10c27dc3431f0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f616f24b05a33f71c9965a07846a99b60eb514db44965f9f48e10c27dc3431f0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f616f24b05a33f71c9965a07846a99b60eb514db44965f9f48e10c27dc3431f0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "978e927afcc786146097a7fc80eb171d14062b8a78a308ca39d40e3d97e6411c"
+    sha256 cellar: :any_skip_relocation, ventura:       "978e927afcc786146097a7fc80eb171d14062b8a78a308ca39d40e3d97e6411c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f616f24b05a33f71c9965a07846a99b60eb514db44965f9f48e10c27dc3431f0"
   end
 
   depends_on "node"

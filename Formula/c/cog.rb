@@ -1,19 +1,18 @@
 class Cog < Formula
   desc "Containers for machine learning"
   homepage "https://cog.run/"
-  url "https://github.com/replicate/cog/archive/refs/tags/v0.9.26.tar.gz"
-  sha256 "46ae16f928c8591622c8c61c44bce029a9a5202b5d65609ce505686d935f4e08"
+  url "https://github.com/replicate/cog/archive/refs/tags/v0.11.3.tar.gz"
+  sha256 "59f7e0e738adfa27247809ec56088e3f007b2e0b1fd0dfe226b6b6aa1dfa3d35"
   license "Apache-2.0"
   head "https://github.com/replicate/cog.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a1390df0181cb0ef8b0242b1dcfaac6d4664f048cbab4ed152958da80fddac13"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a1390df0181cb0ef8b0242b1dcfaac6d4664f048cbab4ed152958da80fddac13"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a1390df0181cb0ef8b0242b1dcfaac6d4664f048cbab4ed152958da80fddac13"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c9efc2498a44d8a592ee387cd61dba64a61921bbee0c35f80515007376509cf1"
-    sha256 cellar: :any_skip_relocation, ventura:       "c9efc2498a44d8a592ee387cd61dba64a61921bbee0c35f80515007376509cf1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd585b656aba69ff06f0747eecd4cbe9967627ffc20de4d0838cd0c53d008ea5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4453ef205245f25d2a0e91ef42fee1ef3fea7d113845517eceae1a3363a56a79"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4453ef205245f25d2a0e91ef42fee1ef3fea7d113845517eceae1a3363a56a79"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4453ef205245f25d2a0e91ef42fee1ef3fea7d113845517eceae1a3363a56a79"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5bb208d7c78804bd1bf469c8760009ea74820bba8d10a444ce67cdfdaa9355c9"
+    sha256 cellar: :any_skip_relocation, ventura:       "5bb208d7c78804bd1bf469c8760009ea74820bba8d10a444ce67cdfdaa9355c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "70e304fa631f105486f07dee748bc3d5e9b5a3a731d99048af9f7ef8fa1bbbbb"
   end
 
   depends_on "go" => :build
