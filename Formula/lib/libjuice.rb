@@ -6,12 +6,12 @@ class Libjuice < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3373d4a0d1d6f2452c57ee163e46a5a2884174378b785ea8844afd0701717153"
-    sha256 cellar: :any,                 arm64_sonoma:  "9212fbddf58ebb0144a7fa8d54ac7d260ef0e4687e5550b5302bdc62399f160a"
-    sha256 cellar: :any,                 arm64_ventura: "943b7988a31a41c8d6a0562418d442907f6fa0f76ccd5c6bfbb319563d0950e8"
-    sha256 cellar: :any,                 sonoma:        "0fc3a52044f38d11db83877c7a7848e4642f26a25a98226e3af544d1f2abae11"
-    sha256 cellar: :any,                 ventura:       "3d6783952b0e9d04a2d307be85431ee1f6b5a8a2b843dc2153af3f49649943b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f591746a264c97f07c7c05ee7468fd4a8190ac43354d4c47a4758b7d35e9bc9"
+    sha256 cellar: :any,                 arm64_sequoia: "045ae8fb28a204633c9cd217fc5b655b5b89cd00620a48d00dadba5a121b60b4"
+    sha256 cellar: :any,                 arm64_sonoma:  "a88948ba24da4030b9852ac750443f2f7e1780c6cae94a079291e5bb58ac4954"
+    sha256 cellar: :any,                 arm64_ventura: "7e74e37319e0a480f14c62ef2e2d9d4f1937bb1c764acba79990584e05cbaf32"
+    sha256 cellar: :any,                 sonoma:        "214358735ae1a917db3ad24de2e12d2c6202d8437bed51f53f789ad1835022d4"
+    sha256 cellar: :any,                 ventura:       "776283cf6ecf9984029ecc86515708c1d81f04fec34f4933f38855823263b412"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28e1b09fe9ac801520cf1340428ac7743681ed64865ec166ef21a579b14a1cd3"
   end
 
   depends_on "cmake" => :build
