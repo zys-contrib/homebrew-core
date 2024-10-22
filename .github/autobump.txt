@@ -517,6 +517,7 @@ cosign
 cotila
 cotp
 couchbase-shell
+couchdb
 countdown
 counterfeiter
 coursier
@@ -1265,6 +1266,7 @@ imap-backup
 imapsync
 imath
 imessage-exporter
+imgdiet
 imgproxy
 immich-cli
 immortal
@@ -2065,6 +2067,7 @@ openldap
 openlibm
 openrct2
 openrtsp
+opensaml
 opensc
 opensearch
 openshift-cli
@@ -2948,6 +2951,7 @@ virustotal-cli
 vis
 vite
 vitess
+viu
 vivid
 vlang
 vnstat

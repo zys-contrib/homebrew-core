@@ -1,8 +1,8 @@
 class Sui < Formula
   desc "Next-generation smart contract platform powered by the Move programming language"
   homepage "https://sui.io"
-  url "https://github.com/MystenLabs/sui/archive/refs/tags/testnet-v1.35.1.tar.gz"
-  sha256 "37b5d90d9e17f5b146162d8ad2646eb6d561b6db268f28fc3c00677164cc9d5e"
+  url "https://github.com/MystenLabs/sui/archive/refs/tags/testnet-v1.36.1.tar.gz"
+  sha256 "0124acf93bdce79d57a6a192b732c5d2b6f6b694de7a17a305714b3015f76228"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Sui < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "89705e6da9223e2c40d61e83f6bb78525017a1a289a45fd7e3b305eeb91f98a6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d6bc47fab6fab6fcddac45c4244d4cd9595daed96cf2a20b172c184205f6704"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4b76d1400f7ec555a1fb83bc1c5ea35ef172fe5efdf0610bd13f6aa40d44664a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b9aed78bbe08ce516dfa019850da83d8944d326b8416f9121dd25a31f3bc6c91"
-    sha256 cellar: :any_skip_relocation, ventura:       "4fc65c66590d0a20f2353b10f88edd9b0d9f76f7f1ac4fa2eabbc5810e543127"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e6a5ee8f3f755be87120e772fd55c67cfa710efe1e7b7d2f3c1fbb233722762"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5007008e86a693db02dc421a3ea3e8585bffe16ffa59aa9a49c69cfb45360a8d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f6fee0f3e32a139ea8ef7f2ee5b9c5bf046fe158ef394ffa50f2e37d144c88c6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "adb425efe3cfa0a3d321a5c30a2bc5f60b198023b4fcb5102a2b95c4f54889fa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a166e8a8709d50c058960f74af331c06a9a4be0e741553cf436e57c38d517de8"
+    sha256 cellar: :any_skip_relocation, ventura:       "3017d402f457ba3d2b3ed3e4d07f54c22e305f82ecd452a38df07372e9d3b760"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f38bb6df82c2331398a9758c3bc69572ef45fed3fbadaa8cd86e3d0420deab06"
   end
 
   depends_on "cmake" => :build
