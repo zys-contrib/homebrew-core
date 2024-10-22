@@ -1265,6 +1265,7 @@ imap-backup
 imapsync
 imath
 imessage-exporter
+imgdiet
 imgproxy
 immich-cli
 immortal
