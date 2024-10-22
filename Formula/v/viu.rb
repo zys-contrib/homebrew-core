@@ -1,8 +1,8 @@
 class Viu < Formula
   desc "Simple terminal image viewer written in Rust"
   homepage "https://github.com/atanunq/viu"
-  url "https://github.com/atanunq/viu/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "9682be1561f7a128436bd2e45d1f8f7146ca1dd7f528a69bd3c171e4e855474b"
+  url "https://github.com/atanunq/viu/archive/refs/tags/v1.5.1.tar.gz"
+  sha256 "bd1bc61367420dcbb1ab46df53a46fd7d35379960c9ab39bbccb7ace5afaeb62"
   license "MIT"
   head "https://github.com/atanunq/viu.git", branch: "master"
 

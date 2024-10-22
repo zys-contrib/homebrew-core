@@ -2948,6 +2948,7 @@ virustotal-cli
 vis
 vite
 vitess
+viu
 vivid
 vlang
 vnstat
