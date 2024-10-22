@@ -3,8 +3,8 @@ class Schemathesis < Formula
 
   desc "Testing tool for web applications with specs"
   homepage "https://schemathesis.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/19/35/81a5be7da5afcd7f142f8930ad37ff5f3b03a97db7912288975c2d8eacd4/schemathesis-3.38.0.tar.gz"
-  sha256 "16beb6db3bc123f2388de6545ede1795677a354fcac1cd14b01baa7fa745d3e0"
+  url "https://files.pythonhosted.org/packages/7a/ee/a9c15cdb55b8b915418ee4db164780511dbe2b2050b26444f0a2b756c2c3/schemathesis-3.38.1.tar.gz"
+  sha256 "8059acf078e8dde8b8450d157c21fc1de34a809ac96e892d4bf4e221a5e41c25"
   license "MIT"
 
   bottle do
@@ -274,8 +274,8 @@ class Schemathesis < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/3e/83/529d9cb66a6b3ba120c4a52bec8299f495f9446b749cb1110c89ffb46704/yarl-1.15.5.tar.gz"
-    sha256 "8249147ee81c1cf4d1dc6f26ba28a1b9d92751529f83c308ad02164bb93abd0d"
+    url "https://files.pythonhosted.org/packages/23/52/e9766cc6c2eab7dd1e9749c52c9879317500b46fb97d4105223f86679f93/yarl-1.16.0.tar.gz"
+    sha256 "b6f687ced5510a9a2474bbae96a4352e5ace5fa34dc44a217b0537fec1db00b4"
   end
 
   def install
