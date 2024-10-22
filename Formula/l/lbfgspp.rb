@@ -6,6 +6,10 @@ class Lbfgspp < Formula
   license "MIT"
   head "https://github.com/yixuan/LBFGSpp.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "a3fa9b668aa4ce459443ed3a31812abc4d072a8674ed7bf852ab0a8f1d01df45"
+  end
+
   depends_on "cmake" => :build
   depends_on "eigen"
 
