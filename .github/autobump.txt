@@ -2778,6 +2778,7 @@ texinfo
 texlab
 texmath
 texttest
+tf-profile
 tfautomv
 tfel
 tfmigrate

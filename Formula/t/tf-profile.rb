@@ -1,8 +1,8 @@
 class TfProfile < Formula
   desc "CLI tool to profile Terraform runs"
   homepage "https://github.com/datarootsio/tf-profile"
-  url "https://github.com/datarootsio/tf-profile/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "9f505b980149c8ffe29089f772391a9230bf6527f18ad56eb158305d752e1ee8"
+  url "https://github.com/datarootsio/tf-profile/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "cfc5b9c68188f3cac1318b24d0b53ba4cae8af325ae5332865e1f0c92905b20b"
   license "MIT"
   head "https://github.com/datarootsio/tf-profile.git", branch: "main"
 
