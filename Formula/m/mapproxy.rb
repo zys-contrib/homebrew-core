@@ -4,8 +4,8 @@ class Mapproxy < Formula
   desc "Accelerating web map proxy"
   # `mapproxy.org` is 404, upstream bug report, https://github.com/mapproxy/mapproxy/issues/983
   homepage "https://github.com/mapproxy/mapproxy"
-  url "https://files.pythonhosted.org/packages/bd/23/7051a8b1226e026df32669c059e3a63a9fd9dbe93ffd2af190f3e6d80825/MapProxy-3.0.1.tar.gz"
-  sha256 "d92a347b954359d7b7ddb364b1d87375a88ea785e41dcc942de0627d5e4eb4a3"
+  url "https://files.pythonhosted.org/packages/20/37/72c3bd2a68d753c595cc15d781b6300d882bfa959ab6b73f20e6e194c2b4/MapProxy-3.1.0.tar.gz"
+  sha256 "a473f5554723d89b04186a41ee15f8463d135bc41ade53f885228d7e5774f1c8"
   license "Apache-2.0"
 
   bottle do
