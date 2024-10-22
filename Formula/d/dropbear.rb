@@ -1,8 +1,8 @@
 class Dropbear < Formula
   desc "Small SSH server/client for POSIX-based system"
   homepage "https://matt.ucc.asn.au/dropbear/dropbear.html"
-  url "https://matt.ucc.asn.au/dropbear/releases/dropbear-2024.85.tar.bz2"
-  sha256 "86b036c433a69d89ce51ebae335d65c47738ccf90d13e5eb0fea832e556da502"
+  url "https://matt.ucc.asn.au/dropbear/releases/dropbear-2024.86.tar.bz2"
+  sha256 "e78936dffc395f2e0db099321d6be659190966b99712b55c530dd0a1822e0a5e"
   license "MIT"
 
   livecheck do
