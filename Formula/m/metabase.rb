@@ -11,7 +11,7 @@ class Metabase < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "798178f1de5a5896fd04a08bc6eb561395fbdb6e272144d1ec17e7bacd914ef9"
+    sha256 cellar: :any_skip_relocation, all: "e7c91edc6177c1a127751ad5d4bae90e67c773d3ab20b58b2ea0060ca512b2ec"
   end
 
   head do
