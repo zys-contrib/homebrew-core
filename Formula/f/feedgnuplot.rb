@@ -4,6 +4,7 @@ class Feedgnuplot < Formula
   url "https://github.com/dkogan/feedgnuplot/archive/refs/tags/v1.62.tar.gz"
   sha256 "7a3854c3620f7cc6bf5bf13546f5e8cbead2bb1afedd455b9ecabf367a6e78df"
   license any_of: ["GPL-1.0-or-later", "Artistic-1.0"]
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7c786d208bf90d15994a7a5b859011f609f24566f95a391282d5d0165a2e9a3c"
