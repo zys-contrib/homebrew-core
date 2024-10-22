@@ -3,8 +3,8 @@ class Pyupgrade < Formula
 
   desc "Upgrade syntax for newer versions of Python"
   homepage "https://github.com/asottile/pyupgrade"
-  url "https://files.pythonhosted.org/packages/8c/71/e826797688b49435e10c41934b919c1b0b7ed1f538001a9b716331afc5a0/pyupgrade-3.18.0.tar.gz"
-  sha256 "894cf4c64c17c020f86adaab55a82449a7add29b1ea4a1b9e659ed48c922d3ae"
+  url "https://files.pythonhosted.org/packages/3c/71/4a0ea6653fe4f73d6e7e9353176a383bd7790b3762995dfec5f89d8b5e5d/pyupgrade-3.19.0.tar.gz"
+  sha256 "7ed4b7d972ed2788c43994f4a24f949d5bf044342992f3b48e1bed0092ddaa01"
   license "MIT"
   head "https://github.com/asottile/pyupgrade.git", branch: "main"
 
@@ -15,8 +15,8 @@ class Pyupgrade < Formula
   depends_on "python@3.13"
 
   resource "tokenize-rt" do
-    url "https://files.pythonhosted.org/packages/7d/09/6257dabdeab5097d72c5d874f29b33cd667ec411af6667922d84f85b79b5/tokenize_rt-6.0.0.tar.gz"
-    sha256 "b9711bdfc51210211137499b5e355d3de5ec88a85d2025c520cbb921b5194367"
+    url "https://files.pythonhosted.org/packages/6b/0a/5854d8ced8c1e00193d1353d13db82d7f813f99bd5dcb776ce3e2a4c0d19/tokenize_rt-6.1.0.tar.gz"
+    sha256 "e8ee836616c0877ab7c7b54776d2fefcc3bde714449a206762425ae114b53c86"
   end
 
   def install
