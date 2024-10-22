@@ -4,6 +4,7 @@ class Kpcli < Formula
   url "https://downloads.sourceforge.net/project/kpcli/kpcli-4.1.2.pl"
   sha256 "86fc820bc7945cd9b577583efe4127565951268902860256ceea100795ddf23f"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
+  revision 1
 
   livecheck do
     url :stable
