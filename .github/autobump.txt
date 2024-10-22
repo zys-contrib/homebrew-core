@@ -1971,6 +1971,7 @@ nq
 nrpe
 ns-3
 nsd
+nspr
 nsq
 nsync
 ntfy
