@@ -3,8 +3,8 @@ class Pipenv < Formula
 
   desc "Python dependency management tool"
   homepage "https://github.com/pypa/pipenv"
-  url "https://files.pythonhosted.org/packages/8d/6c/b349dc5b438c442a1c7a28d83e7008b8fd25e5e6d4fd8ac257b270a9ed60/pipenv-2024.1.0.tar.gz"
-  sha256 "422b09dc40798994a9641961983a1a4d1e831de8b91b2ad4d3d2ecb0ec42887c"
+  url "https://files.pythonhosted.org/packages/7a/f8/3ee7fc0120832780392f5cefa17c617764cf1416df812f3e696a02d8b122/pipenv-2024.2.0.tar.gz"
+  sha256 "7aafe2cf582b563c8ead5c7c6ecac1dcec490ab080efdcaf96b0e074c5cb7fa2"
   license "MIT"
 
   bottle do
@@ -45,13 +45,13 @@ class Pipenv < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
-    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
+    url "https://files.pythonhosted.org/packages/07/37/b31be7e4b9f13b59cde9dcaeff112d401d49e0dc5b37ed4a9fc8fb12f409/setuptools-75.2.0.tar.gz"
+    sha256 "753bb6ebf1f465a1912e19ed1d41f403a79173a9acf66a42e7e6aec45c3c16ec"
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/3f/40/abc5a766da6b0b2457f819feab8e9203cbeae29327bd241359f866a3da9d/virtualenv-20.26.6.tar.gz"
-    sha256 "280aede09a2a5c317e409a00102e7077c6432c5a38f0ef938e643805a7ad2c48"
+    url "https://files.pythonhosted.org/packages/10/7f/192dd6ab6d91ebea7adf6c030eaf549b1ec0badda9f67a77b633602f66ac/virtualenv-20.27.0.tar.gz"
+    sha256 "2ca56a68ed615b8fe4326d11a0dca5dfbe8fd68510fb6c6349163bed3c15f2b2"
   end
 
   def install
