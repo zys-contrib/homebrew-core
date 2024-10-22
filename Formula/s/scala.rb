@@ -1,8 +1,8 @@
 class Scala < Formula
   desc "JVM-based programming language"
   homepage "https://www.scala-lang.org/"
-  url "https://github.com/scala/scala3/releases/download/3.5.1/scala3-3.5.1.tar.gz"
-  sha256 "a517e80971559e7121df3c81f476d464adeaad0f781aade25d7d9f5864bf97da"
+  url "https://github.com/scala/scala3/releases/download/3.5.2/scala3-3.5.2.tar.gz"
+  sha256 "899de4f9aca56989ce337d8390fbf94967bc70c9e8420e79f375d1c2ad00ff99"
   license "Apache-2.0"
 
   livecheck do
