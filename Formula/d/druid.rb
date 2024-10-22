@@ -1,9 +1,9 @@
 class Druid < Formula
   desc "High-performance, column-oriented, distributed data store"
   homepage "https://druid.apache.org/"
-  url "https://dlcdn.apache.org/druid/30.0.0/apache-druid-30.0.0-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/druid/30.0.0/apache-druid-30.0.0-bin.tar.gz"
-  sha256 "991628ad590dcccf782cfe771bbf1e5b6d0de54b2f30fecbbf8ac0cac98fc17c"
+  url "https://dlcdn.apache.org/druid/31.0.0/apache-druid-31.0.0-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/druid/31.0.0/apache-druid-31.0.0-bin.tar.gz"
+  sha256 "c69a40a0a352fea07c59533004fc711db3b2e6e0c6977231ac2595d53f984241"
   license "Apache-2.0"
 
   livecheck do
