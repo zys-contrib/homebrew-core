@@ -1,8 +1,8 @@
 class Hblock < Formula
   desc "Adblocker that creates a hosts file from multiple sources"
   homepage "https://hblock.molinero.dev/"
-  url "https://github.com/hectorm/hblock/archive/refs/tags/v3.4.5.tar.gz"
-  sha256 "625913da6d402af5b2704a19dce97a0ea02299c30897e70b9ebcee7734c20adc"
+  url "https://github.com/hectorm/hblock/archive/refs/tags/v3.5.0.tar.gz"
+  sha256 "99de5c6231f2495efaecf53db957272d216c652c2fb795c8d30a2f2e490e8098"
   license "MIT"
 
   bottle do
