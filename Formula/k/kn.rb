@@ -2,8 +2,8 @@ class Kn < Formula
   desc "Command-line interface for managing Knative Serving and Eventing resources"
   homepage "https://github.com/knative/client"
   url "https://github.com/knative/client.git",
-      tag:      "knative-v1.15.0",
-      revision: "59dd72a2407e6ce6d12e9df7a5bf4e87941a550e"
+      tag:      "knative-v1.16.0",
+      revision: "b3b6b8603082732a6ca69b70ebf5d9d4ed48d804"
   license "Apache-2.0"
   head "https://github.com/knative/client.git", branch: "main"
 
@@ -24,12 +24,12 @@ class Kn < Formula
     ENV["CGO_ENABLED"] = "0"
 
     ldflags = %W[
-      -X knative.dev/client/pkg/kn/commands/version.Version=v#{version}
-      -X knative.dev/client/pkg/kn/commands/version.GitRevision=#{Utils.git_head(length: 8)}
-      -X knative.dev/client/pkg/kn/commands/version.BuildDate=#{time.iso8601}
+      -X knative.dev/client/pkg/commands/version.Version=v#{version}
+      -X knative.dev/client/pkg/commands/version.GitRevision=#{Utils.git_head(length: 8)}
+      -X knative.dev/client/pkg/commands/version.BuildDate=#{time.iso8601}
     ]
 
-    system "go", "build", "-mod=vendor", *std_go_args(ldflags:), "./cmd/..."
+    system "go", "build", *std_go_args(ldflags:), "./cmd/..."
 
     generate_completions_from_executable(bin/"kn", "completion", shells: [:bash, :zsh])
   end
