@@ -1640,6 +1640,7 @@ libtrng
 libucl
 libunibreak
 libuninameslist
+libunistring
 libunwind
 libupnp
 liburing
