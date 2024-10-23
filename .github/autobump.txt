@@ -75,6 +75,7 @@ apktool
 appium
 apprise
 appstream
+apptainer
 appwrite
 apr
 apt
@@ -2550,7 +2551,6 @@ simgrid
 simple-scan
 sing-box
 singular
-singularity
 sip
 sipp
 siril
