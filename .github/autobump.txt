@@ -1577,6 +1577,7 @@ libmatio
 libmaxminddb
 libmicrohttpd
 libmobi
+libmodbus
 libmonome
 libmxml
 libnetfilter_conntrack
