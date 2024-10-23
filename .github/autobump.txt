@@ -1965,6 +1965,7 @@ node@20
 node_exporter
 nodeenv
 nomino
+nopoll
 noseyparker
 notation
 notcurses
