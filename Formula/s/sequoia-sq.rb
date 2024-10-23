@@ -6,6 +6,15 @@ class SequoiaSq < Formula
   license "GPL-2.0-or-later"
   head "https://gitlab.com/sequoia-pgp/sequoia-sq.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "755883385b8e76d746a2b650ea666c452a48155827b7b2ec4954ee04cac25ae5"
+    sha256 cellar: :any,                 arm64_sonoma:  "befeb6ebd04855f7ea0f39e9174a37764cc8b04c44a41a8f8a1c93e41da2c347"
+    sha256 cellar: :any,                 arm64_ventura: "a5f1dc477dd1d5efedf1a359551459ca8df2512a728eb0c0a7b541f3131209c4"
+    sha256 cellar: :any,                 sonoma:        "0bb7808ed663609eb3b0da94ed3913584b5d328727c22fcde1675f90607f06ba"
+    sha256 cellar: :any,                 ventura:       "5424e7caa7d7251310915c59f44495389759e537134cccd537faa3aeba41ff04"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "796d6f2f76734d83ce360fc3c985cacbf0ca2e860154d6f912bfc495c9b80048"
+  end
+
   depends_on "capnp" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
