@@ -1,8 +1,8 @@
 class Cake < Formula
   desc "Cross platform build automation system with a C# DSL"
   homepage "https://cakebuild.net/"
-  url "https://github.com/cake-build/cake/archive/refs/tags/v4.0.0.tar.gz"
-  sha256 "ea45d7a69f7bc373bd4d38ed708632a4ff7365d36cb9a85c40a107e6a7ae2c1b"
+  url "https://github.com/cake-build/cake/archive/refs/tags/v4.1.0.tar.gz"
+  sha256 "2f666eb901a9e0ec0155fe724876008cae94c542939c5ae989bbd8dcad93949b"
   license "MIT"
 
   bottle do
@@ -19,16 +19,10 @@ class Cake < Formula
 
   conflicts_with "coffeescript", because: "both install `cake` binaries"
 
-  # Backport NuGet 6.7.0 -> 6.9.0 update to fix build failure:
-  # error NU1904: Warning As Error: Package 'NuGet.Packaging' 6.7.0 has a known
-  # critical severity vulnerability, https://github.com/advisories/GHSA-68w7-72jg-6qpp
+  # dotnet sdk version requirement patch, upstream pr ref, https://github.com/cake-build/cake/pull/4377
   patch do
-    url "https://github.com/cake-build/cake/commit/3e1841de021614504ccf9b96816421f943122726.patch?full_index=1"
-    sha256 "bf3feeb71b577273ac8e69dbf38c9b9bdffa9b89e091d3a432192a5dec428941"
-  end
-  patch do
-    url "https://github.com/cake-build/cake/commit/c72f1d2f429c641dbfdbae843defcab31f22e959.patch?full_index=1"
-    sha256 "fd96a28c82b7dd404c7731fe69bcae75a863367dbfada9f0aa8e5af39d3a6491"
+    url "https://github.com/cake-build/cake/commit/92193becffb09dce10fda010a0de03f941919739.patch?full_index=1"
+    sha256 "257220fb97858bd80c561be5d342c33eb21709cc76efefe9f8a0a3703e1cc329"
   end
 
   def install
