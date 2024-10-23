@@ -5,6 +5,10 @@ class Apptainer < Formula
   sha256 "c6ccfdd7c967e5c36dde8711f369c4ac669a16632b79fa0dcaf7e772b7a47397"
   license "BSD-3-Clause"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "9f19af1d189f432345055e8c68ab8b07408d6925ff399faaa95c3d226ed98712"
+  end
+
   # No relocation, the localstatedir to find configs etc is compiled into the program
   pour_bottle? only_if: :default_prefix
 
