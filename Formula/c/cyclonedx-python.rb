@@ -3,8 +3,8 @@ class CyclonedxPython < Formula
 
   desc "Creates CycloneDX Software Bill of Materials (SBOM) from Python projects"
   homepage "https://cyclonedx.org/"
-  url "https://files.pythonhosted.org/packages/2e/91/1e6ad6561055b7accf6944fdd12401d97eb6d079c06a47fa74ce45ad629f/cyclonedx_bom-5.0.0.tar.gz"
-  sha256 "d902404601e06be052fd7e85d914645da3d7e2122bfcff853cdc1d470603a601"
+  url "https://files.pythonhosted.org/packages/a2/e3/64d2fafc571c8d221c9558dbd5d9d46939e360b35a3851b3d39819ca5a64/cyclonedx_bom-5.1.0.tar.gz"
+  sha256 "8ae325b9b3099c65cc3df1e5a6614274f21c8d1510ef83ebe66b98653a6328c8"
   license "Apache-2.0"
   head "https://github.com/CycloneDX/cyclonedx-python.git", branch: "main"
 
@@ -44,8 +44,8 @@ class CyclonedxPython < Formula
   end
 
   resource "cyclonedx-python-lib" do
-    url "https://files.pythonhosted.org/packages/6f/83/a476df58e0825c4934472ac130985efe45cb51caac93521133e952e4ba2f/cyclonedx_python_lib-8.0.0.tar.gz"
-    sha256 "61d11ed58d0515fd854dc1713073e63de41bc67e5eb83db001240166869bfb5a"
+    url "https://files.pythonhosted.org/packages/24/cc/ba8bff1cfcca04247a84614f6386179151a750732e685b0113ce546e6bb4/cyclonedx_python_lib-8.2.0.tar.gz"
+    sha256 "55dbf79d07ddfc4d7b2e64304eef99a8d0e51ad9418add5f659a899aa5ca8ad2"
   end
 
   resource "defusedxml" do
@@ -94,8 +94,8 @@ class CyclonedxPython < Formula
   end
 
   resource "packageurl-python" do
-    url "https://files.pythonhosted.org/packages/56/c5/c0f3ac14fd44f9b344069397fbe79aad1fd2c69220d145447c6c29cb541d/packageurl_python-0.15.6.tar.gz"
-    sha256 "cbc89afd15d5f4d05db4f1b61297e5b97a43f61f28799f6d282aff467ed2ee96"
+    url "https://files.pythonhosted.org/packages/68/7d/0bd319dc94c7956b4d864e87d3dc03739f125ce174671e3128edd566a63e/packageurl_python-0.16.0.tar.gz"
+    sha256 "69e3bf8a3932fe9c2400f56aaeb9f86911ecee2f9398dbe1b58ec34340be365d"
   end
 
   resource "packaging" do
