@@ -1651,6 +1651,7 @@ libva
 libvatek
 libvirt
 libvirt-python
+libvisio
 libwbxml
 libwpe
 libx11
