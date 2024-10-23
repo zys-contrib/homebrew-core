@@ -12,12 +12,12 @@ class Aptos < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5f36c3ce127be71f99d3a5ac46203bc20eb693edfa2cea297419ba3fe895a7ad"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8ae86900262963e766c103ad115675f365ebc18cd71370b6ab6a1fe0cf25a4b5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ccfaa92846675cddd5eec19016ac6c20b2c05b6bf41406ae3003ef51d0320784"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d09bf7f00c281a9805ffc554a9464bdc4aca635db2958cad5abdeb99aa2214d4"
-    sha256 cellar: :any_skip_relocation, ventura:       "79b271d8f971210b56887ee2d17c1cb39ffc372a90496402336d858dc3f7858f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "879d87c1054a486db3ea7f3d40dcf589e42cee0d00c5408f080e43f12a32b894"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7c2c15211d174cf950dd7c9071064a28174902602610936ed60534a75cb71fa5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fbf3f16a8c84aa051a6388fef1c81c911f8f856e15ce40b7258a06ce6b2e8019"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "06ab595b5dffa2a9d6dacbc6d74968002bd4664927de573aa0073257dd8ca438"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bdec168ab14c7e68ae06a1dd90854a187d8c4e3a58e23c159c1b8508025cb043"
+    sha256 cellar: :any_skip_relocation, ventura:       "1b1efc1c28e50325c2c6bcc43e90b482e7ddc0872b06cd0f8ff4945e6b1d4274"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04b2d3a9a8b047d487ae4618ebeda6f8d3efc72eb949f84238e973f787b6e174"
   end
 
   depends_on "cmake" => :build
