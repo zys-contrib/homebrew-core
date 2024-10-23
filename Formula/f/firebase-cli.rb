@@ -1,8 +1,8 @@
 class FirebaseCli < Formula
   desc "Firebase command-line tools"
   homepage "https://firebase.google.com/docs/cli/"
-  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-13.22.1.tgz"
-  sha256 "e0ec0dc4ff4db026ad3e21f7f0163f188612675399633a0bfa6540334872bb8a"
+  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-13.23.0.tgz"
+  sha256 "9aca257a16e3a548b049c550da3ecaa64cde2de2c56cfe7316a8079376bf8e1c"
   license "MIT"
   head "https://github.com/firebase/firebase-tools.git", branch: "master"
 
@@ -17,18 +17,14 @@ class FirebaseCli < Formula
 
   depends_on "node"
 
-  uses_from_macos "expect" => :test
-
   def install
     system "npm", "install", *std_npm_args
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install_symlink libexec.glob("bin/*")
   end
 
   test do
-    (testpath/"test.exp").write <<~EOS
-      spawn #{bin}/firebase login:ci --no-localhost
-      expect "Paste"
-    EOS
-    assert_match "authorization code", shell_output("expect -f test.exp")
+    assert_match "Failed to authenticate", shell_output("#{bin}/firebase init", 1)
+    output = pipe_output("#{bin}/firebase login:ci --interactive --no-localhost", "dummy-code")
+    assert_match "Unable to authenticate", output
   end
 end
