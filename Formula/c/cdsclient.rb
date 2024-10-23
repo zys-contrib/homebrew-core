@@ -1,8 +1,8 @@
 class Cdsclient < Formula
   desc "Tools for querying CDS databases for astronomical data"
   homepage "https://cdsarc.u-strasbg.fr/doc/cdsclient.html"
-  url "https://cdsarc.u-strasbg.fr/ftp/pub/sw/cdsclient-3.84.tar.gz"
-  sha256 "09eb633011461b9261b923e1d0db69d3591d376b447f316eb1994aaea8919700"
+  url "https://cdsarc.u-strasbg.fr/ftp/pub/sw/cdsclient-4.07.tar.gz"
+  sha256 "4a0a02cb1dc48bc9a0873ebb3ef9b031f9288baf13a3573f885a8504f9c317c5"
   license "GPL-3.0-only"
 
   # This directory listing page also links to `python-cdsclient` tarballs, so
@@ -34,10 +34,10 @@ class Cdsclient < Formula
   end
 
   test do
-    data = <<~EOS
-      12 34 12.5 -34 23 12
-      13 24 57.1 +61 12 34
+    assert_match <<~EOS, shell_output("#{bin}/catcat VIII/59/ReadMe")
+      VIII/59             the FIRST Survey, version 1999Jul   (White+ 1999)
     EOS
-    assert_match "#...upload ==>", pipe_output("#{bin}/findgsc - -r 5", data, 0)
+
+    assert_match "Usage: lscat CDS-catalogue(s)", shell_output("#{bin}/lscat 2>&1", 1)
   end
 end
