@@ -30,7 +30,7 @@ class Libpinyin < Formula
   depends_on "libtool" => :build
   # macOS `ld64` does not like the `.la` files created during the build.
   # upstream issue report, https://github.com/libpinyin/libpinyin/issues/158
-  depends_on "llvm" => :build if DevelopmentTools.clang_build_version >= 1400
+  depends_on "lld" => :build if DevelopmentTools.clang_build_version >= 1400
   depends_on "pkg-config" => :build
   depends_on "glib"
 
@@ -57,8 +57,7 @@ class Libpinyin < Formula
     if DevelopmentTools.clang_build_version >= 1400
       ENV.append_to_cflags "-fuse-ld=lld"
       # Work around superenv causing ld64.lld: error: -Os: number expected, but got 's'
-      # Upstream uses -O2 but brew does not provide an ENV.O2 so manually set this
-      ENV["HOMEBREW_OPTIMIZATION_LEVEL"] = "O2"
+      ENV.O3
     end
 
     resource("model").stage buildpath/"data"
