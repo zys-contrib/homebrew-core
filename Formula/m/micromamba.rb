@@ -1,8 +1,8 @@
 class Micromamba < Formula
   desc "Fast Cross-Platform Package Manager"
   homepage "https://github.com/mamba-org/mamba"
-  url "https://github.com/mamba-org/mamba/archive/refs/tags/micromamba-1.5.10.tar.gz"
-  sha256 "38ee4658f66c5e4bf2c33cd3c9c0ebd01fe2e3a6da6ac619cc4702a9072dcc3c"
+  url "https://github.com/mamba-org/mamba/archive/refs/tags/micromamba-2.0.3.tar.gz"
+  sha256 "564e9ffc91015e8b1699f2de1baa59449ab037f27e4c19355680a0f145fd2b9d"
   license "BSD-3-Clause"
   head "https://github.com/mamba-org/mamba.git", branch: "main"
 
@@ -25,6 +25,7 @@ class Micromamba < Formula
   depends_on "cli11" => :build
   depends_on "cmake" => :build
   depends_on "nlohmann-json" => :build
+  depends_on "pkgconf" => :build
   depends_on "spdlog" => :build
   depends_on "tl-expected" => :build
 
@@ -34,6 +35,7 @@ class Micromamba < Formula
   depends_on "lz4"
   depends_on "openssl@3"
   depends_on "reproc"
+  depends_on "simdjson"
   depends_on "xz"
   depends_on "yaml-cpp"
   depends_on "zstd"
@@ -44,33 +46,44 @@ class Micromamba < Formula
   uses_from_macos "krb5"
   uses_from_macos "zlib"
 
+  # Fixes PR'd to upstream in https://github.com/mamba-org/mamba/pull/3613
+  patch do
+    url "https://github.com/henryiii/mamba/commit/d789f35b38852da2e4e3f6073b32e1119b8d471d.patch?full_index=1"
+    sha256 "c183d63f800d8c6d04d9be95366d1ce2af199e13b61b6d5bd0e314f90f3c9d3b"
+  end
+
   def install
     args = %W[
       -DBUILD_LIBMAMBA=ON
       -DBUILD_SHARED=ON
-      -DBUILD_MICROMAMBA=ON
-      -DMICROMAMBA_LINKAGE=DYNAMIC
+      -DBUILD_STATIC=OFF
+      -DBUILD_MAMBA=ON
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+    # Upstream chooses names based on static or dynamic linking,
+    # but as of 2.0 they provide identical interfaces.
+    bin.install_symlink "mamba" => "micromamba"
   end
 
   def caveats
     <<~EOS
       Please run the following to setup your shell:
-        #{opt_bin}/micromamba shell init -s <your-shell> -p ~/micromamba
+        #{opt_bin}/mamba shell init -s <your-shell> -p ~/mamba
       and restart your terminal.
     EOS
   end
 
   test do
+    ENV["MAMBA_ROOT_PREFIX"] = testpath.to_s
+    assert_match version.to_s, shell_output("#{bin}/mamba --version").strip
     assert_match version.to_s, shell_output("#{bin}/micromamba --version").strip
 
     python_version = "3.9.13"
-    system bin/"micromamba", "create", "-n", "test", "python=#{python_version}", "-y", "-c", "conda-forge"
-    assert_match "Python #{python_version}", shell_output("#{bin}/micromamba run -n test python --version").strip
+    system bin/"mamba", "create", "-n", "test", "python=#{python_version}", "-y", "-c", "conda-forge"
+    assert_match "Python #{python_version}", shell_output("#{bin}/mamba run -n test python --version").strip
   end
 end
