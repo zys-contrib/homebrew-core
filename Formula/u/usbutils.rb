@@ -2,8 +2,8 @@ class Usbutils < Formula
   desc "List detailed info about USB devices"
   # Homepage for multiple Linux USB tools, 'usbutils' is one of them.
   homepage "http://www.linux-usb.org/"
-  url "https://mirrors.edge.kernel.org/pub/linux/utils/usb/usbutils/usbutils-017.tar.gz"
-  sha256 "f704c4cb78a060db88b43aac6ebfd3d93c2c5cf1d6dd0e42936faaf00814ab00"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/usb/usbutils/usbutils-018.tar.gz"
+  sha256 "0048d2d8518fb0cc7c0516e16e52af023e52b55ddb3b2068a77041b5ef285768"
   license all_of: [
     "GPL-2.0-only",
     "GPL-2.0-or-later",
@@ -26,9 +26,8 @@ class Usbutils < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "17f5961f3ebd783d33e4851654070498c44c65c2bf235754ce8dcd704063dcaa"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "libusb"
 
@@ -39,14 +38,14 @@ class Usbutils < Formula
   conflicts_with "lsusb", "lsusb-laniksj", because: "both provide an `lsusb` binary"
 
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/12f3d34/usbutils/portable.patch"
-    sha256 "0f504a173191a1e1e2f56b41584fcc0468eab7b7dfefd225910b91b5ea65cfbe"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/24a6945778381a62ecdcc1d78bcc16b9f86778c1/usbutils/portable.patch"
+    sha256 "ec09531017e1fa45dbc37233b286a736a24d7f98668e38a92e3697559f739c7f"
   end
 
   def install
-    system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", "--disable-silent-rules", *std_configure_args
-    system "make", "install"
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   def caveats
