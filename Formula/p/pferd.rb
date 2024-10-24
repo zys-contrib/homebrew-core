@@ -3,10 +3,9 @@ class Pferd < Formula
 
   desc "Programm zum Flotten Einfachen Runterladen von Dateien"
   homepage "https://github.com/Garmelon/PFERD"
-  url "https://files.pythonhosted.org/packages/ed/53/0ee89a40c7a3156ac35262b7f9e897f367e1fb753fcd5bfae6d8660b1a0b/pferd-3.5.2.tar.gz"
-  sha256 "4ab6ec9b55ba63e174353819ccb33abb0a9f1c2fea6177ded268eb1ad4bee23f"
+  url "https://files.pythonhosted.org/packages/fe/df/6bfddef4d6b1cb7645f536368a32f9fff68a23c4c283d234b21ef2e056fb/pferd-3.6.0.tar.gz"
+  sha256 "4fce35cb61a75e99b0ba8aed3ffef98c84b4059f4c424f966c37fb6b73f83dd1"
   license "MIT"
-  revision 1
 
   bottle do
     rebuild 1
@@ -47,8 +46,8 @@ class Pferd < Formula
   end
 
   resource "frozenlist" do
-    url "https://files.pythonhosted.org/packages/cf/3d/2102257e7acad73efc4a0c306ad3953f68c504c16982bbdfee3ad75d8085/frozenlist-1.4.1.tar.gz"
-    sha256 "c037a86e8513059a2613aaba4d817bb90b9d9b6b69aace3ce9c877e8c8ed402b"
+    url "https://files.pythonhosted.org/packages/8f/ed/0f4cec13a93c02c47ec32d81d11c0c1efbadf4a471e3f3ce7cad366cbbd3/frozenlist-1.5.0.tar.gz"
+    sha256 "81d5af29e61b9c8348e876d442253723928dce6433e0e76cd925cd83f1b4b817"
   end
 
   resource "idna" do
@@ -107,8 +106,8 @@ class Pferd < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/aa/9e/1784d15b057b0075e5136445aaea92d23955aad2c93eaede673718a40d95/rich-13.9.2.tar.gz"
-    sha256 "51a2c62057461aaf7152b4d611168f93a9fc73068f8ded2790f29fe2b5366d0c"
+    url "https://files.pythonhosted.org/packages/d9/e9/cf9ef5245d835065e6673781dbd4b8911d352fb770d56cf0879cf11b7ee1/rich-13.9.3.tar.gz"
+    sha256 "bc1e01b899537598cf02579d2b9f4a415104d3fc439313a7a2c165d76557a08e"
   end
 
   resource "soupsieve" do
@@ -117,8 +116,8 @@ class Pferd < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/ed/21/75ded903445bf9201f10c7c361b0776a67c7284ad5ef38af62fd38cc32c3/yarl-1.15.1.tar.gz"
-    sha256 "02e1c9e36528de270c22c06aac6a5a1de8cc870fafefb5e90e5b35cb8985d0b2"
+    url "https://files.pythonhosted.org/packages/23/52/e9766cc6c2eab7dd1e9749c52c9879317500b46fb97d4105223f86679f93/yarl-1.16.0.tar.gz"
+    sha256 "b6f687ced5510a9a2474bbae96a4352e5ace5fa34dc44a217b0537fec1db00b4"
   end
 
   def install
