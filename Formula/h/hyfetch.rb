@@ -3,10 +3,9 @@ class Hyfetch < Formula
 
   desc "Fast, highly customisable system info script with LGBTQ+ pride flags"
   homepage "https://github.com/hykilpikonna/hyfetch"
-  url "https://files.pythonhosted.org/packages/bb/af/0c4590b16c84073bd49b09ada0756fd9bd75b072e3ba9aec73101f0cc9f4/HyFetch-1.4.11.tar.gz"
-  sha256 "9fa2c9c049ebaf0ad6d4e8e076ce90e64a4b9276946a1d2ffb6912bb1a4aa327"
+  url "https://files.pythonhosted.org/packages/1f/7d/7acc8fd22a1a4861f6a3833fbba8d1ffc6d118d143a4cbaab7f998867b4e/HyFetch-1.99.0.tar.gz"
+  sha256 "ddeb422fd797c710f0ad37d584fac466df89e39feddeef765492b2c0b529616e"
   license "MIT"
-  revision 1
   head "https://github.com/hykilpikonna/hyfetch.git", branch: "master"
 
   bottle do
@@ -20,16 +19,6 @@ class Hyfetch < Formula
   end
 
   depends_on "python@3.13"
-
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
-    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
-  end
-
-  resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
-    sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
-  end
 
   def install
     virtualenv_install_with_resources
