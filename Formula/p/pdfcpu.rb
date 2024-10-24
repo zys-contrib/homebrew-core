@@ -1,8 +1,8 @@
 class Pdfcpu < Formula
   desc "PDF processor written in Go"
   homepage "https://pdfcpu.io"
-  url "https://github.com/pdfcpu/pdfcpu/archive/refs/tags/v0.8.1.tar.gz"
-  sha256 "965624c0d714d8ae2c3db06874ae37973d37bb7815ea4eeec7c761ffc6143a1a"
+  url "https://github.com/pdfcpu/pdfcpu/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "5d18e52c70ebd75e1cc6c88faf18679a009560e781d9a29d171ae2639c1759ff"
   license "Apache-2.0"
 
   bottle do
@@ -28,6 +28,8 @@ class Pdfcpu < Formula
     assert_match <<~EOS, info_output
       installing user font:
       Roboto-Regular
+      validating URIs..
+
       #{test_fixtures("test.pdf")}:
                     Source: #{test_fixtures("test.pdf")}
                PDF version: 1.6
