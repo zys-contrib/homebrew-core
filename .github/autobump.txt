@@ -1455,6 +1455,7 @@ kubescape
 kubeseal
 kubeshark
 kubespy
+kubetail
 kubevela
 kubevious
 kubevpn
