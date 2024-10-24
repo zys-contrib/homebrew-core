@@ -3,8 +3,8 @@ class Localai < Formula
 
   desc "OpenAI alternative"
   homepage "https://localai.io"
-  url "https://github.com/mudler/LocalAI/archive/refs/tags/v2.21.1.tar.gz"
-  sha256 "11526b3e582c464f6796fd8db959d4ee64f401b2f8eee461562aa193e951e448"
+  url "https://github.com/mudler/LocalAI/archive/refs/tags/v2.22.1.tar.gz"
+  sha256 "154c32325bd1edf5fc08fdcd85c337ab6615393e2834c896fb27dbeb13e52322"
   license "MIT"
 
   bottle do
@@ -30,12 +30,16 @@ class Localai < Formula
   depends_on "wget"
 
   resource "grpcio-tools" do
-    url "https://files.pythonhosted.org/packages/9f/30/cd31c3a04814eb880d5e78cea768240c92fb5adaa158814c2b166356a0c6/grpcio_tools-1.64.0.tar.gz"
-    sha256 "fa4c47897a0ddb78204456d002923294724e1b7fc87f0745528727383c2260ad"
+    url "https://files.pythonhosted.org/packages/e7/f8/62e15867651b72f6f95313e21d81f5f1c210b69a4cc664aecf52ec4c8a53/grpcio_tools-1.67.0.tar.gz"
+    sha256 "181b3d4e61b83142c182ec366f3079b0023509743986e54c9465ca38cac255f8"
+  end
+
+  def python3
+    which("python3.12")
   end
 
   def install
-    ENV["PYTHON"] = python3 = which("python3.12")
+    ENV["PYTHON"] = python3
 
     venv = virtualenv_create(libexec, python3)
     venv.pip_install(resources, build_isolation: false)

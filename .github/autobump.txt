@@ -1704,6 +1704,7 @@ lmdb
 lmod
 lnav
 lndir
+localai
 localstack
 locust
 log4cxx
