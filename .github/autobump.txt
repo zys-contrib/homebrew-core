@@ -307,6 +307,7 @@ cadical
 caf
 cahute
 caire
+cake
 calc
 calceph
 calcurse
