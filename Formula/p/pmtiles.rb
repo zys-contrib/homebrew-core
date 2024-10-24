@@ -1,8 +1,8 @@
 class Pmtiles < Formula
   desc "Single-file executable tool for creating, reading and uploading PMTiles archives"
   homepage "https://protomaps.com/docs/pmtiles"
-  url "https://github.com/protomaps/go-pmtiles/archive/refs/tags/v1.22.0.tar.gz"
-  sha256 "bcb0b45afe51493e14aa5b5952d9298b9c4aa16a22f79ecd461357a60babc78c"
+  url "https://github.com/protomaps/go-pmtiles/archive/refs/tags/v1.22.1.tar.gz"
+  sha256 "f94ef5867c45958724227254a2c6d0b4e561a1de102a97c82000f07e0fd4483d"
   license "BSD-3-Clause"
 
   livecheck do
