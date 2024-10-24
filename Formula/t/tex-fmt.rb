@@ -1,8 +1,8 @@
 class TexFmt < Formula
   desc "Extremely fast LaTeX formatter written in Rust"
   homepage "https://github.com/WGUNDERWOOD/tex-fmt"
-  url "https://github.com/WGUNDERWOOD/tex-fmt/archive/refs/tags/v0.4.5.tar.gz"
-  sha256 "d3c173742645e3228d0cca9f18c7cc39c5dc8d3d0eb9c5cd3925f5cc80d12044"
+  url "https://github.com/WGUNDERWOOD/tex-fmt/archive/refs/tags/v0.4.6.tar.gz"
+  sha256 "2b7c7f6759007fa0671b9e324b089f5fd70fe6ffdb63388152681217db44b2ae"
   license "MIT"
   head "https://github.com/WGUNDERWOOD/tex-fmt.git", branch: "main"
 
