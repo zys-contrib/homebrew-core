@@ -1,8 +1,8 @@
 class Ko < Formula
   desc "Build and deploy Go applications on Kubernetes"
   homepage "https://ko.build"
-  url "https://github.com/ko-build/ko/archive/refs/tags/v0.16.0.tar.gz"
-  sha256 "85b909fa600309e71d990a522321a32b4eeb0e67111ddb6eb8b34057f064500a"
+  url "https://github.com/ko-build/ko/archive/refs/tags/v0.17.0.tar.gz"
+  sha256 "cba9a0920fc48aae09e87ac2c317195cf82be9852072a8158060a7ac644d5672"
   license "Apache-2.0"
 
   bottle do
