@@ -3,8 +3,8 @@ class LinodeCli < Formula
 
   desc "CLI for the Linode API"
   homepage "https://github.com/linode/linode-cli"
-  url "https://files.pythonhosted.org/packages/ed/04/38d67250633424663fe89423e35b6fd037cfb4c153c6e883ff6e38364385/linode_cli-5.53.0.tar.gz"
-  sha256 "4b0a6e937b26fbb995e3578252a097c2d2f4edbb254d68a9071f51fab7a26a64"
+  url "https://files.pythonhosted.org/packages/97/be/070c32c1d2223a037fbb57d3d4be109b8449c29605d5279fda8b96747506/linode_cli-5.53.1.tar.gz"
+  sha256 "f317f9e0e3f60e049b02acccaf8b7561e3ba09fdf9a1913eb4205faea3130374"
   license "BSD-3-Clause"
   head "https://github.com/linode/linode-cli.git", branch: "main"
 
