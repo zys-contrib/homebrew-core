@@ -4,6 +4,7 @@ class Sourcery < Formula
   url "https://github.com/krzysztofzablocki/Sourcery/archive/refs/tags/2.2.5.tar.gz"
   sha256 "6f4d4d2859e57039f9d49f737a696d0f22aecaffd553a7d5039fa2007103994f"
   license "MIT"
+  revision 1
   version_scheme 1
   head "https://github.com/krzysztofzablocki/Sourcery.git", branch: "master"
 
@@ -19,10 +20,15 @@ class Sourcery < Formula
   depends_on xcode: "14.3"
 
   uses_from_macos "ruby" => :build
+  uses_from_macos "ncurses"
   uses_from_macos "sqlite"
   uses_from_macos "swift"
 
   def install
+    # Build script is unfortunately not customisable.
+    # We want static stdlib on Linux as the stdlib is not ABI stable there.
+    inreplace "Rakefile", "--disable-sandbox", "--static-swift-stdlib" if OS.linux?
+
     system "rake", "build"
     bin.install "cli/bin/sourcery"
     lib.install Dir["cli/lib/*.dylib"]
