@@ -4,6 +4,7 @@ class Mockolo < Formula
   url "https://github.com/uber/mockolo/archive/refs/tags/2.1.1.tar.gz"
   sha256 "6707a0a7b73822f9c6cf986a73a9adc452b3052e38b87169432c0893948861da"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5900b760035156f21faaddbc8a8ffed59f70444d12307e3f98e725801fdfdeef"
@@ -18,10 +19,15 @@ class Mockolo < Formula
 
   depends_on xcode: ["14.0", :build]
 
-  uses_from_macos "swift"
+  uses_from_macos "swift" => :build
 
   def install
-    system "swift", "build", "-c", "release", "--disable-sandbox", "--product", "mockolo"
+    args = if OS.mac?
+      ["--disable-sandbox"]
+    else
+      ["--static-swift-stdlib"]
+    end
+    system "swift", "build", *args, "-c", "release", "--product", "mockolo"
     bin.install ".build/release/mockolo"
   end
 
