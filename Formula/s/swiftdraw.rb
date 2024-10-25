@@ -4,6 +4,7 @@ class Swiftdraw < Formula
   url "https://github.com/swhitty/SwiftDraw/archive/refs/tags/0.18.0.tar.gz"
   sha256 "f29bfb19f1c89f1aa5b7eb15debd392d73f5617689c4acfba90b836eef5fa490"
   license "Zlib"
+  revision 1
   head "https://github.com/swhitty/SwiftDraw.git", branch: "main"
 
   bottle do
@@ -15,11 +16,18 @@ class Swiftdraw < Formula
     sha256                               x86_64_linux:  "ceea5e28f0b5b603b4961f4c72ba97b462a582d0c8ae7f4b0d032712f8ec28fa"
   end
 
-  depends_on xcode: ["12.5", :build]
-  uses_from_macos "swift"
+  depends_on xcode: ["14.0", :build]
+
+  uses_from_macos "swift" => :build
+  uses_from_macos "libxml2"
 
   def install
-    system "swift", "build", "--disable-sandbox", "--configuration", "release"
+    args = if OS.mac?
+      ["--disable-sandbox"]
+    else
+      ["--static-swift-stdlib"]
+    end
+    system "swift", "build", *args, "--configuration", "release"
     bin.install ".build/release/swiftdraw"
   end
 
