@@ -4,6 +4,7 @@ class Progressline < Formula
   url "https://github.com/kattouf/ProgressLine/archive/refs/tags/0.2.2.tar.gz"
   sha256 "6c3ee9bdb633b2b616f3fe0c3f4535a1c307d8c031deae0d90bfdbb447061fed"
   license "MIT"
+  revision 1
   head "https://github.com/kattouf/ProgressLine.git", branch: "main"
 
   bottle do
@@ -16,10 +17,15 @@ class Progressline < Formula
   # requires Swift 5.10
   depends_on xcode: ["15.3", :build]
 
-  uses_from_macos "swift"
+  uses_from_macos "swift" => :build
 
   def install
-    system "swift", "build", "--disable-sandbox", "--configuration", "release"
+    args = if OS.mac?
+      ["--disable-sandbox"]
+    else
+      ["--static-swift-stdlib"]
+    end
+    system "swift", "build", *args, "--configuration", "release"
     bin.install ".build/release/progressline"
   end
 
