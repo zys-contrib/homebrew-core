@@ -1,8 +1,8 @@
 class Tenv < Formula
   desc "OpenTofu / Terraform / Terragrunt / Atmos version manager"
   homepage "https://tofuutils.github.io/tenv/"
-  url "https://github.com/tofuutils/tenv/archive/refs/tags/v3.2.5.tar.gz"
-  sha256 "7cd572ecdfa3903fc4f2848872be832144dd3412306c78d8dfeb7a322508bfcc"
+  url "https://github.com/tofuutils/tenv/archive/refs/tags/v3.2.7.tar.gz"
+  sha256 "141e8cffdcc27476620da4ac9164ac8d5474d4cb644dc2131e53bd5e8effde51"
   license "Apache-2.0"
   head "https://github.com/tofuutils/tenv.git", branch: "main"
 
@@ -23,12 +23,6 @@ class Tenv < Formula
   conflicts_with "atmos", because: "both install atmos binary"
   conflicts_with "tfenv", because: "tfenv symlinks terraform binaries"
   conflicts_with "tgenv", because: "tgenv symlinks terragrunt binaries"
-
-  # bump bubbletea to 1.1.2 to build with ansi 0.4.0, upstream pr ref, https://github.com/tofuutils/tenv/pull/268
-  patch do
-    url "https://github.com/tofuutils/tenv/commit/a5431705ce34bfbe3a12f6b069106025c6fd8cbd.patch?full_index=1"
-    sha256 "f727a5ac69a438c76709491f2591f75fec1ceb1f9bde66654746e7d7b413eafa"
-  end
 
   def install
     ENV["CGO_ENABLED"] = "0"
