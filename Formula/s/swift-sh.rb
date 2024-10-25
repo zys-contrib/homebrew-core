@@ -4,6 +4,7 @@ class SwiftSh < Formula
   url "https://github.com/mxcl/swift-sh/archive/refs/tags/2.5.0.tar.gz"
   sha256 "07f3c2d1215b82eb56ebfeb676b5e3860c23a828c14fd482c7c1935817f3220f"
   license "Unlicense"
+  revision 1
   head "https://github.com/mxcl/swift-sh.git", branch: "master"
 
   bottle do
@@ -17,10 +18,15 @@ class SwiftSh < Formula
 
   depends_on xcode: ["11.0", :build]
 
-  uses_from_macos "swift"
+  uses_from_macos "swift" => :build
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release"
+    args = if OS.mac?
+      ["--disable-sandbox"]
+    else
+      ["--static-swift-stdlib"]
+    end
+    system "swift", "build", *args, "-c", "release"
     bin.install ".build/release/swift-sh"
     bin.install ".build/release/swift-sh-edit" if OS.mac?
   end
