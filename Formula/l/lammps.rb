@@ -1,12 +1,12 @@
 class Lammps < Formula
   desc "Molecular Dynamics Simulator"
   homepage "https://docs.lammps.org/"
-  url "https://github.com/lammps/lammps/archive/refs/tags/stable_29Aug2024.tar.gz"
+  url "https://github.com/lammps/lammps/archive/refs/tags/stable_29Aug2024_update1.tar.gz"
   # lammps releases are named after their release date. We transform it to
   # YYYY-MM-DD (year-month-day) so that we get a sane version numbering.
   # We only track stable releases as announced on the LAMMPS homepage.
-  version "20240829"
-  sha256 "6112e0cc352c3140a4874c7f74db3c0c8e30134024164509ecf3772b305fde2e"
+  version "20240829-update1"
+  sha256 "3aea41869aa2fb8120fc4814cab645686f969e2eb7c66aa5587e500597d482dc"
   license "GPL-2.0-only"
 
   # The `strategy` block below is used to massage upstream tags into the
@@ -55,21 +55,24 @@ class Lammps < Formula
 
   def install
     %w[serial mpi].each do |variant|
-      system "cmake", "-S", "cmake", "-B", "build_#{variant}",
-                      "-C", "cmake/presets/all_on.cmake",
-                      "-C", "cmake/presets/nolib.cmake",
-                      "-DPKG_INTEL=no",
-                      "-DPKG_KIM=yes",
-                      "-DLAMMPS_MACHINE=#{variant}",
-                      "-DBUILD_MPI=#{(variant == "mpi") ? "yes" : "no"}",
-                      "-DBUILD_OMP=#{(variant == "serial") ? "no" : "yes"}",
-                      "-DBUILD_SHARED_LIBS=yes",
-                      "-DFFT=FFTW3",
-                      "-DWITH_GZIP=yes",
-                      "-DWITH_JPEG=yes",
-                      "-DWITH_PNG=yes",
-                      "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                      *std_cmake_args
+      args = [
+        "-S", "cmake", "-B", "build_#{variant}",
+        "-C", "cmake/presets/all_on.cmake",
+        "-C", "cmake/presets/nolib.cmake",
+        "-DPKG_INTEL=no",
+        "-DPKG_KIM=yes",
+        "-DLAMMPS_MACHINE=#{variant}",
+        "-DBUILD_MPI=#{(variant == "mpi") ? "yes" : "no"}",
+        "-DBUILD_OMP=#{(variant == "serial") ? "no" : "yes"}",
+        "-DBUILD_SHARED_LIBS=yes",
+        "-DFFT=FFTW3",
+        "-DWITH_GZIP=yes",
+        "-DWITH_JPEG=yes",
+        "-DWITH_PNG=yes",
+        "-DCMAKE_INSTALL_RPATH=#{rpath}"
+      ]
+      args << "-DOpenMP_CXX_FLAGS=-I#{Formula["libomp"].opt_include}" if OS.mac?
+      system "cmake", *args, *std_cmake_args
       system "cmake", "--build", "build_#{variant}"
       system "cmake", "--install", "build_#{variant}"
     end
