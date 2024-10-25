@@ -1,8 +1,8 @@
 class OpenclClhppHeaders < Formula
   desc "C++ language header files for the OpenCL API"
   homepage "https://www.khronos.org/registry/OpenCL/"
-  url "https://github.com/KhronosGroup/OpenCL-CLHPP/archive/refs/tags/v2024.05.08.tar.gz"
-  sha256 "22921fd23ca72a21ac5592861d64e7ea53cd8a705fccd73905911f8489519a0b"
+  url "https://github.com/KhronosGroup/OpenCL-CLHPP/archive/refs/tags/v2024.10.24.tar.gz"
+  sha256 "51aebe848514b3bc74101036e111f8ee98703649eec7035944831dc6e05cec14"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/OpenCL-CLHPP.git", branch: "main"
 
