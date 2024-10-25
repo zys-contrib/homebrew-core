@@ -1,8 +1,8 @@
 class Apko < Formula
   desc "Build OCI images from APK packages directly without Dockerfile"
   homepage "https://github.com/chainguard-dev/apko"
-  url "https://github.com/chainguard-dev/apko/archive/refs/tags/v0.19.3.tar.gz"
-  sha256 "4c7afbbc1877bbf18efc8c999c383600584edfd6f93a88dd714c81fafc49103f"
+  url "https://github.com/chainguard-dev/apko/archive/refs/tags/v0.19.4.tar.gz"
+  sha256 "74c0bff58c81a364d27fc36b0c401523da775b0942685662f84b4bf18a72c210"
   license "Apache-2.0"
   head "https://github.com/chainguard-dev/apko.git", branch: "main"
 
@@ -53,11 +53,9 @@ class Apko < Formula
       environment:
         PATH: /usr/sbin:/sbin:/usr/bin:/bin
 
-      # no keys found for arch loongarch64 and releases [edge],
-      # so constraint the archs to x86_64 and aarch64
+      # only key found for arch riscv64 [edge],
       archs:
-        - x86_64
-        - aarch64
+        - riscv64
     EOS
     system bin/"apko", "build", testpath/"test.yml", "apko-alpine:test", "apko-alpine.tar"
     assert_predicate testpath/"apko-alpine.tar", :exist?
