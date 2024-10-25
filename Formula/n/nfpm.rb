@@ -1,8 +1,8 @@
 class Nfpm < Formula
   desc "Simple deb and rpm packager"
   homepage "https://nfpm.goreleaser.com/"
-  url "https://github.com/goreleaser/nfpm/archive/refs/tags/v2.40.0.tar.gz"
-  sha256 "c177f596c7bc75e10537422bacc376f77e840f986af092fa0fbc3b93611f862c"
+  url "https://github.com/goreleaser/nfpm/archive/refs/tags/v2.41.0.tar.gz"
+  sha256 "c08841bdc89373123280f6a2a48775981b70301241bfce4743d2a676394a16cd"
   license "MIT"
   head "https://github.com/goreleaser/nfpm.git", branch: "master"
 
@@ -26,11 +26,10 @@ class Nfpm < Formula
   end
 
   test do
-    assert_match version.to_s,
-      shell_output("#{bin}/nfpm --version 2>&1")
+    assert_match version.to_s, shell_output("#{bin}/nfpm --version 2>&1")
 
     system bin/"nfpm", "init"
-    assert_match "nfpm example configuration file", File.read(testpath/"nfpm.yaml")
+    assert_match "This is an example nfpm configuration file", File.read(testpath/"nfpm.yaml")
 
     # remove the generated default one
     # and use stubbed one for another test
