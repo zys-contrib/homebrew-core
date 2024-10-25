@@ -4,10 +4,11 @@ class OpenclClhppHeaders < Formula
   url "https://github.com/KhronosGroup/OpenCL-CLHPP/archive/refs/tags/v2024.10.24.tar.gz"
   sha256 "51aebe848514b3bc74101036e111f8ee98703649eec7035944831dc6e05cec14"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/KhronosGroup/OpenCL-CLHPP.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "75f74372ac4ca60e1502f08b7ca827ae7e499b5b5d3e5d1a6b28f2c092abb5a7"
+    sha256 cellar: :any_skip_relocation, all: "e1503e98660c926e8ab6463346a74979c9f8c94b687688a136665b4b05a35830"
   end
 
   keg_only :shadowed_by_macos, "macOS provides OpenCL.framework"
