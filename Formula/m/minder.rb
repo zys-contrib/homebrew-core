@@ -7,12 +7,12 @@ class Minder < Formula
   head "https://github.com/mindersec/minder.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a32c8e11422435fff5f6b657de96033c32a457795cf6837232003aef545346c4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a32c8e11422435fff5f6b657de96033c32a457795cf6837232003aef545346c4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a32c8e11422435fff5f6b657de96033c32a457795cf6837232003aef545346c4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "74861a6658c99a5bfbd5357a7a5bc36f04922e0c7556f178fc525239c5a51555"
-    sha256 cellar: :any_skip_relocation, ventura:       "6f6054014b1943a735f46320d3024ff40c5b77f7f0a8b2c5f814c153c6ccee85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "89e29cbf9e0d4620f05c573eeddc95114720da66e04e170a7029672d300d76ee"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "02c69bb29ab2c8f4a906ab8b29eeb50f2b8cf120dfc289f459b6289112e6e0f0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "02c69bb29ab2c8f4a906ab8b29eeb50f2b8cf120dfc289f459b6289112e6e0f0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "02c69bb29ab2c8f4a906ab8b29eeb50f2b8cf120dfc289f459b6289112e6e0f0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6ae480f9b10fb6c11fda5ab6520215eebf2294004f33057cc12128d6c0802cb1"
+    sha256 cellar: :any_skip_relocation, ventura:       "89c5cbce0544b03f5310f4abb3134cf03ecd4ab0e096e1b7d9d941d4351c5fa9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8d9ab2adab3082a419cb804eb66b2e606bfe9023dbd2ff3115c2e7f782b53e2"
   end
 
   depends_on "go" => :build
