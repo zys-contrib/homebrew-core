@@ -1,8 +1,8 @@
 class ContentfulCli < Formula
   desc "Contentful command-line tools"
   homepage "https://github.com/contentful/contentful-cli"
-  url "https://registry.npmjs.org/contentful-cli/-/contentful-cli-3.4.1.tgz"
-  sha256 "5e2ebd7ea761e95ded3ddb47dba93b0a1cf9f89588b8b01045565476c3bec95e"
+  url "https://registry.npmjs.org/contentful-cli/-/contentful-cli-3.4.2.tgz"
+  sha256 "2df000c8ddc660f81086a0afc990d7ecaaf8a5460ac386b324923425c9eac2c1"
   license "MIT"
   head "https://github.com/contentful/contentful-cli.git", branch: "master"
 
