@@ -4,6 +4,7 @@ class SwiftProtobuf < Formula
   url "https://github.com/apple/swift-protobuf/archive/refs/tags/1.28.2.tar.gz"
   sha256 "d086deab3ca0b74751fcc1905d268697b0d471e747fb50eced94941f28b35fb8"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apple/swift-protobuf.git", branch: "main"
 
   bottle do
@@ -18,10 +19,15 @@ class SwiftProtobuf < Formula
   depends_on xcode: ["14.3", :build]
   depends_on "protobuf"
 
-  uses_from_macos "swift"
+  uses_from_macos "swift" => :build
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release"
+    args = if OS.mac?
+      ["--disable-sandbox"]
+    else
+      ["--static-swift-stdlib"]
+    end
+    system "swift", "build", *args, "-c", "release"
     bin.install ".build/release/protoc-gen-swift"
     doc.install "Documentation/PLUGIN.md"
   end
