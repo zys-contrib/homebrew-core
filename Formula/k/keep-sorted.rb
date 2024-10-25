@@ -1,8 +1,8 @@
 class KeepSorted < Formula
   desc "Language-agnostic formatter that sorts selected lines"
   homepage "https://github.com/google/keep-sorted"
-  url "https://github.com/google/keep-sorted/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "8eee061af908fd971911118975e4a2870afff385b3aea9948cc9b221849a9436"
+  url "https://github.com/google/keep-sorted/archive/refs/tags/v0.5.1.tar.gz"
+  sha256 "91b2058d4b483573d749eec708da14fd81551eb680b80784d92a14fb89d8d69e"
   license "Apache-2.0"
 
   bottle do
