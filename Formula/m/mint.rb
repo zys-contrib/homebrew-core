@@ -4,6 +4,7 @@ class Mint < Formula
   url "https://github.com/yonaskolb/Mint/archive/refs/tags/0.17.5.tar.gz"
   sha256 "f55350f7778c4ccd38311ed36f39287ff74bb63eb230f6d448e35e7f934c489c"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a754e28b7b9e4e13c31af783857de64d2550b8866c2c9eb3ac9216154ab0f25a"
@@ -20,10 +21,15 @@ class Mint < Formula
 
   depends_on xcode: ["12.0", :build]
 
-  uses_from_macos "swift"
+  uses_from_macos "swift" => :build
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release"
+    args = if OS.mac?
+      ["--disable-sandbox"]
+    else
+      ["--static-swift-stdlib"]
+    end
+    system "swift", "build", *args, "-c", "release"
     bin.install ".build/release/#{name}"
   end
 
