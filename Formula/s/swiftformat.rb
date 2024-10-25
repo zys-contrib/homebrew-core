@@ -4,6 +4,7 @@ class Swiftformat < Formula
   url "https://github.com/nicklockwood/SwiftFormat/archive/refs/tags/0.54.6.tar.gz"
   sha256 "6149936f669e672705fd0be87759548b57ed28da32c13d054a285dd08fc56ce3"
   license "MIT"
+  revision 1
   head "https://github.com/nicklockwood/SwiftFormat.git", branch: "master"
 
   bottle do
@@ -17,10 +18,15 @@ class Swiftformat < Formula
 
   depends_on xcode: ["10.1", :build]
 
-  uses_from_macos "swift"
+  uses_from_macos "swift" => :build
 
   def install
-    system "swift", "build", "--disable-sandbox", "--configuration", "release"
+    args = if OS.mac?
+      ["--disable-sandbox"]
+    else
+      ["--static-swift-stdlib"]
+    end
+    system "swift", "build", *args, "--configuration", "release"
     bin.install ".build/release/swiftformat"
   end
 
