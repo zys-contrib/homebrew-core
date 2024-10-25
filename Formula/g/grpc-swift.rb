@@ -4,6 +4,7 @@ class GrpcSwift < Formula
   url "https://github.com/grpc/grpc-swift/archive/refs/tags/1.24.1.tar.gz"
   sha256 "812151aeb48e23ded71bdb9b4dc5a46428d97e85743881a79d6b4a9ae4578fd3"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/grpc/grpc-swift.git", branch: "main"
 
   livecheck do
@@ -20,14 +21,19 @@ class GrpcSwift < Formula
     sha256                               x86_64_linux:  "c861807c9e2678d0cd9a1efde6fafb33dd9699470eb77731a57d1efed9c8b924"
   end
 
-  depends_on xcode: ["14.3", :build]
+  depends_on xcode: ["15.0", :build]
   depends_on "protobuf"
   depends_on "swift-protobuf"
 
-  uses_from_macos "swift"
+  uses_from_macos "swift" => :build
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release", "--product", "protoc-gen-grpc-swift"
+    args = if OS.mac?
+      ["--disable-sandbox"]
+    else
+      ["--static-swift-stdlib"]
+    end
+    system "swift", "build", *args, "-c", "release", "--product", "protoc-gen-grpc-swift"
     bin.install ".build/release/protoc-gen-grpc-swift"
   end
 
