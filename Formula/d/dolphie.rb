@@ -8,12 +8,12 @@ class Dolphie < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "dc9de016ba2751ee3abd8fc276bcc6bc06cbe6fd99f7d1902c6599e039bdf4c1"
-    sha256 cellar: :any,                 arm64_sonoma:  "4205f41e7bb8b117f06651988d405622386fe447bb30505abb14fc76eff90004"
-    sha256 cellar: :any,                 arm64_ventura: "731db0d58538e45abe62c8928a79776dba81f8923c85f5722f6ab7d2e326b12b"
-    sha256 cellar: :any,                 sonoma:        "01194d178c4ce83af9a9b538183fb654858ae657b3087fceb94021d50d6cf336"
-    sha256 cellar: :any,                 ventura:       "674b53c346b61bf43a258a466c097d3a67a7f8b6943282ec5b5feca59fc56819"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d24c1e07acf46bb60f3b2e27746f095f3fdeb2a3fe2888f46282ba275a2e62fb"
+    sha256 cellar: :any,                 arm64_sequoia: "229edde937cee279603e9e1af8c60c12e654998dd52ed2d66770bd63567a20b9"
+    sha256 cellar: :any,                 arm64_sonoma:  "96265ed35695bdbb0cdf7a0b194c3b7f9476661d6fb03ef2bac82b503b6513aa"
+    sha256 cellar: :any,                 arm64_ventura: "b368eaf344d719dc37bf471497a24a64063403741d8b8eecd24ba2d79c244b32"
+    sha256 cellar: :any,                 sonoma:        "275739852714586cbcc839dfc454ce1109a87eec5a11f439e3b7c1d972dd854e"
+    sha256 cellar: :any,                 ventura:       "3033ed16cddcf5e9a2f806b7be8cba060269ba078a6baaf0b79d2f18ea8f6266"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f153e444a6fab0c3ae579d80bd7650dfb78bd9924238c838d630c6c1d4015230"
   end
 
   depends_on "rust" => :build # for orjson
