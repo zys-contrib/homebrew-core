@@ -16,7 +16,7 @@ class Zorba < Formula
 
   # https://github.com/28msec/zorba/issues/232
   # no longer build due to `'boost/filesystem/convenience.hpp' file not found`
-  deprecate! date: "2024-05-01", because: :unmaintained
+  disable! date: "2025-05-01", because: :unmaintained
 
   depends_on "cmake" => :build
   depends_on "openjdk" => :build
