@@ -76,6 +76,7 @@ class DsdaDoom < Formula
   end
 
   test do
+    ENV["HOME"] = testpath
     ENV["XDG_DATA_HOME"] = testpath
 
     expected_output = "dsda-doom v#{version.major_minor_patch}"
