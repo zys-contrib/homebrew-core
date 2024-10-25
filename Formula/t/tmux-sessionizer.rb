@@ -30,6 +30,8 @@ class TmuxSessionizer < Formula
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
 
     system "cargo", "install", *std_cargo_args
+
+    generate_completions_from_executable(bin/"tms", "--generate", base_name: "tms")
   end
 
   def check_binary_linkage(binary, library)
