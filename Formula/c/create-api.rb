@@ -4,6 +4,7 @@ class CreateApi < Formula
   url "https://github.com/CreateAPI/CreateAPI/archive/refs/tags/0.2.0.tar.gz"
   sha256 "9f61943314797fe4f09b40be72e1f72b0a616c66cb1b66cd042f97a596ffd869"
   license "MIT"
+  revision 1
   head "https://github.com/CreateAPI/CreateAPI.git", branch: "main"
 
   bottle do
@@ -24,7 +25,12 @@ class CreateApi < Formula
   uses_from_macos "swift"
 
   def install
-    system "swift", "build", "--disable-sandbox", "--configuration", "release"
+    args = if OS.mac?
+      ["--disable-sandbox"]
+    else
+      ["--static-swift-stdlib"]
+    end
+    system "swift", "build", *args, "--configuration", "release"
     bin.install ".build/release/create-api"
     pkgshare.install "Tests/Support/Specs/cookpad.json" => "test-spec.json"
   end
