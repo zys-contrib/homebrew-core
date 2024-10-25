@@ -5,6 +5,7 @@ class SwiftFormat < Formula
       tag:      "600.0.0",
       revision: "65f9da9aad84adb7e2028eb32ca95164aa590e3b"
   license "Apache-2.0"
+  revision 1
   version_scheme 1
   head "https://github.com/swiftlang/swift-format.git", branch: "main"
 
@@ -28,10 +29,22 @@ class SwiftFormat < Formula
 
   depends_on xcode: ["14.0", :build]
 
-  uses_from_macos "swift"
+  uses_from_macos "swift" => :build
+
+  # Fix hang on Linux.
+  # Remove with the next release.
+  patch do
+    url "https://github.com/swiftlang/swift-format/commit/5a1348bd9d08227b2af8a94e95bf2ebb1ca1817e.patch?full_index=1"
+    sha256 "0b012627c97d077cbbbc5c9427bab8f6a5c03b150116b2370eaa43bb0b4d9454"
+  end
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release"
+    args = if OS.mac?
+      ["--disable-sandbox"]
+    else
+      ["--static-swift-stdlib"]
+    end
+    system "swift", "build", *args, "-c", "release", "--product", "swift-format"
     bin.install ".build/release/swift-format"
     doc.install "Documentation/Configuration.md"
   end
