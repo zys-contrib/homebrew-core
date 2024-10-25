@@ -4,6 +4,7 @@ class Xcbeautify < Formula
   url "https://github.com/cpisciotta/xcbeautify/archive/refs/tags/2.14.1.tar.gz"
   sha256 "ecd8843e7beafceafd4c4dd333532dcb835cd7a85de6df2b1bf2015143838cda"
   license "MIT"
+  revision 1
   head "https://github.com/cpisciotta/xcbeautify.git", branch: "main"
 
   bottle do
@@ -18,10 +19,16 @@ class Xcbeautify < Formula
   # needs Swift tools version 5.9.0
   depends_on xcode: ["15.0", :build]
 
-  uses_from_macos "swift"
+  uses_from_macos "swift" => :build
+  uses_from_macos "libxml2"
 
   def install
-    system "swift", "build", "--disable-sandbox", "--configuration", "release"
+    args = if OS.mac?
+      ["--disable-sandbox"]
+    else
+      ["--static-swift-stdlib"]
+    end
+    system "swift", "build", *args, "--configuration", "release"
     bin.install ".build/release/xcbeautify"
   end
 
