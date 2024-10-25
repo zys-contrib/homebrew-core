@@ -4,7 +4,7 @@ class Publish < Formula
   url "https://github.com/JohnSundell/Publish/archive/refs/tags/0.9.0.tar.gz"
   sha256 "e098a48e8763d3aef9abd1a673b8b28b4b35f8dbad15218125e18461104874ca"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/JohnSundell/Publish.git", branch: "master"
 
   bottle do
@@ -19,14 +19,19 @@ class Publish < Formula
   end
 
   # https://github.com/JohnSundell/Publish#system-requirements
-  depends_on xcode: ["12.5", :build]
+  depends_on xcode: ["13.0", :build]
   # missing `libswift_Concurrency.dylib` on big_sur`
   depends_on macos: :monterey
 
-  uses_from_macos "swift"
+  uses_from_macos "swift" => :build
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release"
+    args = if OS.mac?
+      ["--disable-sandbox"]
+    else
+      ["--static-swift-stdlib"]
+    end
+    system "swift", "build", *args, "-c", "release"
     bin.install ".build/release/publish-cli" => "publish"
   end
 
