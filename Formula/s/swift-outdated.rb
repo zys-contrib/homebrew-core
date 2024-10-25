@@ -4,6 +4,7 @@ class SwiftOutdated < Formula
   url "https://github.com/kiliankoe/swift-outdated/archive/refs/tags/0.9.0.tar.gz"
   sha256 "b6ee31edc45711c6425d047fe1b4f177da2498201dab5d94dbe86d8bd483419c"
   license "MIT"
+  revision 1
   head "https://github.com/kiliankoe/swift-outdated.git", branch: "main"
 
   bottle do
@@ -17,13 +18,17 @@ class SwiftOutdated < Formula
     sha256                               x86_64_linux:   "4723925318b3bbb4b9d000c519c3e5956fc3bd5073e6315e2be4cbf306b089ae"
   end
 
-  depends_on xcode: ["13", :build]
-  depends_on macos: :monterey
+  depends_on xcode: ["13.3", :build]
 
-  uses_from_macos "swift"
+  uses_from_macos "swift" => :build
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release"
+    args = if OS.mac?
+      ["--disable-sandbox"]
+    else
+      ["--static-swift-stdlib"]
+    end
+    system "swift", "build", *args, "-c", "release"
     bin.install ".build/release/swift-outdated"
   end
 
