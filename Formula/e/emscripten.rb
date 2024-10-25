@@ -3,8 +3,8 @@ class Emscripten < Formula
   homepage "https://emscripten.org/"
   # To automate fetching the required resource revisions, you can use this helper script:
   #   https://gist.github.com/carlocab/2db1d7245fa0cd3e92e01fe37b164021
-  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/3.1.69.tar.gz"
-  sha256 "3ceb2acbf3551146753c1abef8feb24347403bf13713820ea9dddbd946f9e4ac"
+  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/3.1.70.tar.gz"
+  sha256 "b7c687105e55b7398c8b4cc059427b52fe81a4b159ac7829a689870ae67780bd"
   license all_of: [
     "Apache-2.0", # binaryen
     "Apache-2.0" => { with: "LLVM-exception" }, # llvm
@@ -65,7 +65,7 @@ class Emscripten < Formula
   # Then use the listed binaryen_revision for the revision below.
   resource "binaryen" do
     url "https://github.com/WebAssembly/binaryen.git",
-        revision: "d8c1b0c0ceb4cc4eb59f3f3ab4840636c78e2a44"
+        revision: "dcc70bbfb16c2f8fce29dad94d80d1b78123655f"
   end
 
   # emscripten does not support using the stable version of LLVM.
@@ -73,8 +73,8 @@ class Emscripten < Formula
   # See binaryen resource above for instructions on how to update this.
   # Then use the listed llvm_project_revision for the tarball below.
   resource "llvm" do
-    url "https://github.com/llvm/llvm-project/archive/5cc64bf60bc04b9315de3c679eb753de4d554a8a.tar.gz"
-    sha256 "29468bf46f23fa893ec1332bb70ae24f44897b9865fd4354a9f51ad1c8ff0174"
+    url "https://github.com/llvm/llvm-project/archive/5d07162bba0648f5a5733039a7795eb7e9913863.tar.gz"
+    sha256 "0261815ddff45bfcdb9996623a5a18f1270b5583b58d312f07cbeca6405a621d"
   end
 
   def install
