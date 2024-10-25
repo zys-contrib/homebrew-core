@@ -1,8 +1,8 @@
 class OpenclIcdLoader < Formula
   desc "OpenCL Installable Client Driver (ICD) Loader"
   homepage "https://www.khronos.org/registry/OpenCL/"
-  url "https://github.com/KhronosGroup/OpenCL-ICD-Loader/archive/refs/tags/v2024.05.08.tar.gz"
-  sha256 "eb2c9fde125ffc58f418d62ad83131ba686cccedcb390cc7e6bb81cc5ef2bd4f"
+  url "https://github.com/KhronosGroup/OpenCL-ICD-Loader/archive/refs/tags/v2024.10.24.tar.gz"
+  sha256 "95f2f0cda375b13d2760290df044ebea9c6ff954a7d7faa0867422442c9174dc"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/OpenCL-ICD-Loader.git", branch: "main"
 
