@@ -15,12 +15,12 @@ class Apko < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "66929382d06b7c4b2b31b169887772f65aadfc5492b911735bfe61465257877f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "66929382d06b7c4b2b31b169887772f65aadfc5492b911735bfe61465257877f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "66929382d06b7c4b2b31b169887772f65aadfc5492b911735bfe61465257877f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0204b14b03355bb65c193e217aa26b5673d208bcd721957fe56f942c0086759a"
-    sha256 cellar: :any_skip_relocation, ventura:       "0204b14b03355bb65c193e217aa26b5673d208bcd721957fe56f942c0086759a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "713f08cd8eb3b2a5fbf55c8132081e77afe0c9b6855f6b665344a25e80e29253"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f800880a373f2b7cea7582837433e8f1d3edc7bf2b0d4a37fb4eba53caf1620e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f800880a373f2b7cea7582837433e8f1d3edc7bf2b0d4a37fb4eba53caf1620e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f800880a373f2b7cea7582837433e8f1d3edc7bf2b0d4a37fb4eba53caf1620e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2d5474d717f6322a972214b1862439892a8d8d5472f026b9d0ac3a50bb92dc1a"
+    sha256 cellar: :any_skip_relocation, ventura:       "2d5474d717f6322a972214b1862439892a8d8d5472f026b9d0ac3a50bb92dc1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5de2e2972ed13f7d355d76d55453f62bd289c7e50b377402d8efaff6eb285639"
   end
 
   depends_on "go" => :build
