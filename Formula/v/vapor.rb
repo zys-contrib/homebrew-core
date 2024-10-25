@@ -4,6 +4,7 @@ class Vapor < Formula
   url "https://github.com/vapor/toolbox/archive/refs/tags/18.7.5.tar.gz"
   sha256 "0322fee24872b713e1e495070e6b7b1fca468bed19f48bcf7a1397ffdf701e9a"
   license "MIT"
+  revision 1
   head "https://github.com/vapor/toolbox.git", branch: "main"
 
   bottle do
@@ -20,13 +21,16 @@ class Vapor < Formula
   # vapor requires Swift 5.6.0
   depends_on xcode: "13.3"
 
-  uses_from_macos "swift", since: :big_sur
+  uses_from_macos "swift"
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc",
-      "-cross-module-optimization", "--enable-test-discovery"
-    mv ".build/release/vapor", "vapor"
-    bin.install "vapor"
+    args = if OS.mac?
+      ["--disable-sandbox"]
+    else
+      ["--static-swift-stdlib"]
+    end
+    system "swift", "build", *args, "-c", "release", "-Xswiftc", "-cross-module-optimization"
+    bin.install ".build/release/vapor"
   end
 
   test do
