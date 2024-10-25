@@ -6,12 +6,12 @@ class ApifyCli < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "42ee2c893cc25fd90ab5d82d3efff743c307852fea387e1544e11e6570226ae6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "42ee2c893cc25fd90ab5d82d3efff743c307852fea387e1544e11e6570226ae6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "42ee2c893cc25fd90ab5d82d3efff743c307852fea387e1544e11e6570226ae6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "656fe898117a0f1330f7ef868f082ed93249f976c194f09caf63ecd84bdf9f8f"
-    sha256 cellar: :any_skip_relocation, ventura:       "656fe898117a0f1330f7ef868f082ed93249f976c194f09caf63ecd84bdf9f8f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1be3f81a0721332957f51ec3073844ab121c85d82788a23476c2993842d44351"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6938df875becc3fc1cfa2158ff848901ad1e91963aeb8494350fba002a6a3a0e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6938df875becc3fc1cfa2158ff848901ad1e91963aeb8494350fba002a6a3a0e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6938df875becc3fc1cfa2158ff848901ad1e91963aeb8494350fba002a6a3a0e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bbfc492ab2d5afb89cfb16c5ee75d78787f6868957177a6e3eb930304cb0eeef"
+    sha256 cellar: :any_skip_relocation, ventura:       "bbfc492ab2d5afb89cfb16c5ee75d78787f6868957177a6e3eb930304cb0eeef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d4d9ecb6cb18cb0694f392a9706927508642ed3971c5ccb58c20d9182a55689"
   end
 
   depends_on "node"
