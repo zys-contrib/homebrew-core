@@ -4,6 +4,7 @@ class OpenclClhppHeaders < Formula
   url "https://github.com/KhronosGroup/OpenCL-CLHPP/archive/refs/tags/v2024.10.24.tar.gz"
   sha256 "51aebe848514b3bc74101036e111f8ee98703649eec7035944831dc6e05cec14"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/KhronosGroup/OpenCL-CLHPP.git", branch: "main"
 
   bottle do
