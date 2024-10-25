@@ -8,12 +8,12 @@ class SwiftSh < Formula
   head "https://github.com/mxcl/swift-sh.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "12aa7fb55fb0e16853c74f8cd5df5821e7776c094014886b1a90c02d420b9285"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7500eb089b869ffa76b33da5bda4ce0302de35a4ac8a59e6c18adb0625f411fa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5c7aa965e55200dd565dbd5e2cc043d0bdd8c9d4233d38a9db6b8df30e0eaeb4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ad27a459cf97037ba309bc4355eda4f0f6131e8cb1555a7e5c5e9ee843a430a0"
-    sha256 cellar: :any_skip_relocation, ventura:       "289932a3550e9c62c92a92a41a46bd5cfda97e565f4309508b8e12a8152e63f8"
-    sha256                               x86_64_linux:  "7901f52534d4f539a8dab87a864007058f9b2d9cf048b418e6d74870f7027d3a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "548765a57eec4a8a0ad39eb4dc096edd45c1c97a781658c52fd86e28b8c936d9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "96521fbeb28a32d2663b9219b95aab9c0c05853f47dd5afc6871f3626de31df1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9c68d0216ef02718872c9f7947441000d6cdda72cec6dc137ca45eb8ab580430"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bcdbf8f07f26f137a6e67ff2a8e0b28b3a682d7ef72715d098ade8653a28ffff"
+    sha256 cellar: :any_skip_relocation, ventura:       "5d1400ffcbae6faa9bb66ce62915972758d4028b19686e2e927abd42b0d1b227"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71745bc8b439b6b0f689f0f00a2973060c1962e7591f8bc65ccd82b61de8fd76"
   end
 
   depends_on xcode: ["11.0", :build]
