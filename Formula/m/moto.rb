@@ -6,6 +6,7 @@ class Moto < Formula
   url "https://files.pythonhosted.org/packages/b4/c0/6637d2d8e113d909ac794944e041928ba7d43c3b540a896501776a6024e2/moto-5.0.18.tar.gz"
   sha256 "8a7ad2f53a2e6cc9db2ff65c0e0d4b5d7e78bc00b825c9e1ff6cc394371e76e9"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "47d5eb297e293b6b5160cae142501602558435ffaf3df6df9b576e4e022d2666"
@@ -53,18 +54,18 @@ class Moto < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/6c/67/696b35f6cc39b37e94931e9376a501d07bf3a6bffdfd65074ca6c2620568/boto3-1.35.44.tar.gz"
-    sha256 "7f8e8a252458d584d8cf7877c372c4f74ec103356eedf43d2dd9e479f47f3639"
+    url "https://files.pythonhosted.org/packages/73/c6/a18789b17138bc4f3001bfee42c07f85b9432475f5e8188c5699d481a376/boto3-1.35.49.tar.gz"
+    sha256 "ddecb27f5699ca9f97711c52b6c0652c2e63bf6c2bfbc13b819b4f523b4d30ff"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/b0/f6/64f55cd5ffafb78a530edec7972b60b86527595a7b298aea5930069a36fd/botocore-1.35.44.tar.gz"
-    sha256 "1fcd97b966ad8a88de4106fe1bd3bbd6d8dadabe99bbd4a6aadcf11cb6c66b39"
+    url "https://files.pythonhosted.org/packages/16/c3/20c4d7df35b7a93a4999c881beaf38dbf91fd7c82c28d876c3cdd0959fe3/botocore-1.35.49.tar.gz"
+    sha256 "07d0c1325fdbfa49a4a054413dbdeab0a6030449b2aa66099241af2dac48afd8"
   end
 
   resource "cfn-lint" do
-    url "https://files.pythonhosted.org/packages/d2/3c/addcac7a96bd729943f684bcc6f7b47e810b7c5365aec0bcd160d41502f8/cfn_lint-1.17.2.tar.gz"
-    sha256 "2ac2e41fbacc30b77cf4ac0f07d31593217afd7a52a10f83f0c124da74f58586"
+    url "https://files.pythonhosted.org/packages/80/82/142f1f3333e02cad6f545d7f5ad3eae6303fe98b80e4f23830f1aa4ce1c7/cfn_lint-1.18.1.tar.gz"
+    sha256 "09139c4260897ada66034b57c9d9979cc2ec25856660d8f114f373dc4f70a34a"
   end
 
   resource "charset-normalizer" do
@@ -178,8 +179,8 @@ class Moto < Formula
   end
 
   resource "networkx" do
-    url "https://files.pythonhosted.org/packages/36/2b/20ad9eecdda3f1b0dc63fb8f82d2ea99163dbca08bfa392594fc2ed81869/networkx-3.4.1.tar.gz"
-    sha256 "f9df45e85b78f5bd010993e897b4f1fdb242c11e015b101bd951e5c0e29982d8"
+    url "https://files.pythonhosted.org/packages/fd/1d/06475e1cd5264c0b870ea2cc6fdb3e37177c1e565c43f56ff17a10e3937f/networkx-3.4.2.tar.gz"
+    sha256 "307c3669428c5362aab27c8a1260aa8f47c4e91d3891f48be0141738d8d053e1"
   end
 
   resource "openapi-schema-validator" do
@@ -293,8 +294,8 @@ class Moto < Formula
   end
 
   resource "werkzeug" do
-    url "https://files.pythonhosted.org/packages/0f/e2/6dbcaab07560909ff8f654d3a2e5a60552d937c909455211b1b36d7101dc/werkzeug-3.0.4.tar.gz"
-    sha256 "34f2371506b250df4d4f84bfe7b0921e4762525762bbd936614909fe25cd7306"
+    url "https://files.pythonhosted.org/packages/d4/f9/0ba83eaa0df9b9e9d1efeb2ea351d0677c37d41ee5d0f91e98423c7281c9/werkzeug-3.0.6.tar.gz"
+    sha256 "a8dd59d4de28ca70471a34cba79bed5f7ef2e036a76b3ab0835474246eb41f8d"
   end
 
   resource "wrapt" do
