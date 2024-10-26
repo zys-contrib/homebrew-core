@@ -70,13 +70,13 @@ class Xxhash < Formula
         return 0;
       }
     C
-    (testpath/"CMakeLists.txt").write <<~EOS
+    (testpath/"CMakeLists.txt").write <<~CMAKE
       cmake_minimum_required(VERSION 3.5)
       project(test LANGUAGES C)
       find_package(xxHash CONFIG REQUIRED)
       add_executable(test test.c)
       target_link_libraries(test PRIVATE xxHash::xxhash)
-    EOS
+    CMAKE
     system "cmake", "."
     system "cmake", "--build", "."
     system "./test"
