@@ -6,6 +6,7 @@ class Schemathesis < Formula
   url "https://files.pythonhosted.org/packages/32/df/9c5d497d886092eda5d868cf1301f2952062dc13ddb9aae60cb4bb56e94e/schemathesis-3.38.2.tar.gz"
   sha256 "c10a562db573f6284a573b04d40829f38241d4979e96d6f589f6839382f9c3e8"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "b575b9f0ef9205eb8aae3ba6451ed03dec78bfea36a22008fffb2510e18ab0b2"
@@ -89,8 +90,8 @@ class Schemathesis < Formula
   end
 
   resource "hypothesis" do
-    url "https://files.pythonhosted.org/packages/a3/f1/bfabc2a077d90809831549df1450cf8f4c06c7a1017c48ae39469b7737fe/hypothesis-6.115.3.tar.gz"
-    sha256 "d4efc8c7371bd4ec906d2777f1f18fee5539e47b3d7c7cdc93d1026ad35d9b33"
+    url "https://files.pythonhosted.org/packages/db/6e/a35037db3b8ab6e6bcf799a2bbf8457340fb2b072036076a8819e6aaa834/hypothesis-6.115.5.tar.gz"
+    sha256 "4768c5fb426b305462ed31032d6e216a31daaefb1dc3134fdf2795b7961d7cb3"
   end
 
   resource "hypothesis-graphql" do
@@ -269,8 +270,8 @@ class Schemathesis < Formula
   end
 
   resource "werkzeug" do
-    url "https://files.pythonhosted.org/packages/0f/e2/6dbcaab07560909ff8f654d3a2e5a60552d937c909455211b1b36d7101dc/werkzeug-3.0.4.tar.gz"
-    sha256 "34f2371506b250df4d4f84bfe7b0921e4762525762bbd936614909fe25cd7306"
+    url "https://files.pythonhosted.org/packages/d4/f9/0ba83eaa0df9b9e9d1efeb2ea351d0677c37d41ee5d0f91e98423c7281c9/werkzeug-3.0.6.tar.gz"
+    sha256 "a8dd59d4de28ca70471a34cba79bed5f7ef2e036a76b3ab0835474246eb41f8d"
   end
 
   resource "yarl" do
