@@ -53,7 +53,7 @@ class Xxhash < Formula
     assert_match(/^67bc7cc242ebc50a/, shell_output("#{bin}/xxhsum leaflet.txt"))
 
     # Simplified snippet of https://github.com/Cyan4973/xxHash/blob/dev/cli/xsum_sanity_check.c
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <assert.h>
       #include <stdint.h>
       #include <xxhash.h>
@@ -69,7 +69,7 @@ class Xxhash < Formula
         XXH64_freeState(state);
         return 0;
       }
-    EOS
+    C
     (testpath/"CMakeLists.txt").write <<~EOS
       cmake_minimum_required(VERSION 3.5)
       project(test LANGUAGES C)
