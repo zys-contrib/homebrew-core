@@ -2476,7 +2476,6 @@ s3scanner
 s6
 sad
 saf-cli
-safety
 sagittarius-scheme
 samba
 saml2aws
