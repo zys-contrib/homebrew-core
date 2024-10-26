@@ -219,8 +219,6 @@ class Emscripten < Formula
     # Avoid errors on Linux when other formulae like `sdl12-compat` are installed
     ENV.delete "CPATH"
 
-    ENV["NODE_OPTIONS"] = "--no-experimental-fetch"
-
     (testpath/"test.c").write <<~C
       #include <stdio.h>
       int main()
