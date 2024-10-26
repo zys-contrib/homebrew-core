@@ -1,8 +1,8 @@
 class Micropython < Formula
   desc "Python implementation for microcontrollers and constrained systems"
   homepage "https://www.micropython.org/"
-  url "https://github.com/micropython/micropython/releases/download/v1.23.0/micropython-1.23.0.tar.xz"
-  sha256 "0ab283c2fc98d466c1ff26692bee46abaeeab55d488a36fc3cb6372cb8fb390d"
+  url "https://github.com/micropython/micropython/releases/download/v1.24.0/micropython-1.24.0.tar.xz"
+  sha256 "cde2a6795280945100089c053ba85f842d85f3038229d743da35a3673bc1786b"
   license "MIT"
 
   bottle do
