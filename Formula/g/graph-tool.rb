@@ -4,8 +4,8 @@ class GraphTool < Formula
   desc "Efficient network analysis for Python 3"
   homepage "https://graph-tool.skewed.de/"
   # TODO: Update build for matplotlib>=3.9.0 to use `--config-settings=setup-args=...` for system dependencies
-  url "https://downloads.skewed.de/graph-tool/graph-tool-2.78.tar.bz2"
-  sha256 "806f5358a4492123a8c11217235fd1393230ad5c21c45b4c39ec6d5ea37a2a25"
+  url "https://downloads.skewed.de/graph-tool/graph-tool-2.79.tar.bz2"
+  sha256 "52a254942e75ed3070dea70e692ae101877bbef1009e43ec62fe1806a8de0154"
   license "LGPL-3.0-or-later"
 
   livecheck do
