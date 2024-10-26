@@ -622,6 +622,7 @@ deployer
 der-ascii
 derby
 descope
+desktop-file-utils
 detect-secrets
 detekt
 detox
