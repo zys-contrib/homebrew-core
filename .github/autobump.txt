@@ -2368,6 +2368,7 @@ rabbitmq
 radamsa
 radare2
 railway
+rakudo-star
 rancher-cli
 rapidfuzz-cpp
 ratchet
