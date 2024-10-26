@@ -10,6 +10,15 @@ class PythonFreethreading < Formula
     regex(%r{href=.*?v?(\d(?:\.\d+)*)/?["' >]}i)
   end
 
+  bottle do
+    sha256 arm64_sequoia: "0f9eacb0bec71b324566294066d636a6751cad6ec1ea493c2190561335b40cdd"
+    sha256 arm64_sonoma:  "cb8a80b3a41c4009d517824be20caa6eb9e271094dfff34c61c5a486d3d03c91"
+    sha256 arm64_ventura: "d484dfb4fa51152a1aa9fc5984737e2626b6d29855be58bfc553d75a3e29e001"
+    sha256 sonoma:        "af65642e4704fda3fde02840c5ec241277d027fd86792ac77731797a439fba76"
+    sha256 ventura:       "1900e44a812afbf9fdd70d5f3f27b4653e6348d4d7df729caef07eecf17841d9"
+    sha256 x86_64_linux:  "1ae107bce7c691a26d1718752790269ff290dd07f2626b99c2556305de72c57b"
+  end
+
   # setuptools remembers the build flags python is built with and uses them to
   # build packages later. Xcode-only systems need different flags.
   pour_bottle? only_if: :clt_installed
