@@ -7,14 +7,12 @@ class Dra < Formula
   head "https://github.com/devmatteini/dra.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c29d0ea05cea25976c9bfb21536c2e165823040cdf421d3ecfa11d0ec80c4050"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c071f623204c5bd928c6e9be5c7ba5f497772933cd8095a90a6999e8b784bcff"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "361db60fa54b675027ae897e7241a53de8ea6bbe1004208bbb200566145fe517"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "46dbd4edef1ccc93cbc06d6a445e56537cf6d2f0e8ac43f94cecb628631ef2b1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8aa641bfce352397e34ac22f79e8d240b43754afde95f289e71da89313d8feed"
-    sha256 cellar: :any_skip_relocation, ventura:        "1ee75dddf7f642b682673587bfdce1901a26875bbacdf25eeb2e5096ab160128"
-    sha256 cellar: :any_skip_relocation, monterey:       "9e96ece41d1cab6ae94a5578c415c926ca9e3cbe90d7f517237de3ae5b790735"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "362096d572cb379f45481efd03f7f387ceb4f7216315ded8605e47b6452a8290"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0773f8510791e01e05dd822a1a8c6edb2928992662854ddae145b89008f62b1a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "db2c7320373c63aadbbecf68dcfd524e1ab5369b01ea487d00d9faad1fac23f1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "511c7b382d671033f54a090c2ab0c10ab64751488ce8993530efba2265851415"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e3053d112229db31194f13ffc0d1b4a24e8f9f4cc69cdeacbf45b37ca00be0e3"
+    sha256 cellar: :any_skip_relocation, ventura:       "d0ec6433c0b674e935c6b989e0c88afcff94d8a418791b29097ae41e7a0a8157"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a5c547ada3eefaccc276b8add97a358617fa9aad2a4df00a58b7bebe7dd4a2a"
   end
 
   depends_on "rust" => :build
