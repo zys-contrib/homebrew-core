@@ -1,8 +1,8 @@
 class Gollama < Formula
   desc "Go manage your Ollama models"
   homepage "https://smcleod.net"
-  url "https://github.com/sammcj/gollama/archive/refs/tags/v1.27.13.tar.gz"
-  sha256 "937d9a0e9b0e6c21059d1f344e795d64559be46c8a14d4fcf2c76d498ce69fed"
+  url "https://github.com/sammcj/gollama/archive/refs/tags/v1.27.14.tar.gz"
+  sha256 "a899b57dab7ae5a382807402a917dbc23a36cf69a7a4b7e2f552d9ccab6cc409"
   license "MIT"
   head "https://github.com/sammcj/gollama.git", branch: "main"
 
