@@ -397,7 +397,6 @@ chatblade
 cheat
 check-jsonschema
 checkbashisms
-checkdmarc
 checkmake
 checkov
 checkstyle
