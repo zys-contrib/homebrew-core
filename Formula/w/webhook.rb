@@ -1,8 +1,8 @@
 class Webhook < Formula
   desc "Lightweight, configurable incoming webhook server"
   homepage "https://github.com/adnanh/webhook"
-  url "https://github.com/adnanh/webhook/archive/refs/tags/2.8.1.tar.gz"
-  sha256 "a1e3eb2231e5631ebb374b76a79c3bac9cbdc7010974395e2d5e4e2e62ffd187"
+  url "https://github.com/adnanh/webhook/archive/refs/tags/2.8.2.tar.gz"
+  sha256 "c233a810effc24b5ed5653f4fa82152f288ec937d5744a339f7066a6cbccc565"
   license "MIT"
   head "https://github.com/adnanh/webhook.git", branch: "master"
 
