@@ -48,11 +48,11 @@ class Cppinsights < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<~EOS
+    (testpath/"test.cpp").write <<~CPP
       int main() {
         int arr[5]{2,3,4};
       }
-    EOS
+    CPP
     assert_match "{2, 3, 4, 0, 0}", shell_output("#{bin}/insights ./test.cpp")
   end
 end
@@ -66,17 +66,17 @@ index 31341709..8b7430db 100644
 -cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 -# 3.8* is required because of C++17 support
 +cmake_minimum_required(VERSION 3.20 FATAL_ERROR)
- 
+
  # For better control enable MSVC_RUNTIME_LIBRARY target property
  # see https://cmake.org/cmake/help/latest/policy/CMP0091.html
 @@ -33,7 +32,7 @@ option(INSIGHTS_STATIC              "Use static linking"         Off)
- 
+
  set(INSIGHTS_LLVM_CONFIG "llvm-config" CACHE STRING "LLVM config executable to use")
- 
+
 -set(INSIGHTS_MIN_LLVM_MAJOR_VERSION 17)
 +set(INSIGHTS_MIN_LLVM_MAJOR_VERSION 18)
  set(INSIGHTS_MIN_LLVM_VERSION ${INSIGHTS_MIN_LLVM_MAJOR_VERSION}.0)
- 
+
  if(NOT DEFINED LLVM_VERSION_MAJOR)  # used when build inside the clang tool/extra folder
 @@ -372,6 +371,17 @@ if (BUILD_INSIGHTS_OUTSIDE_LLVM)
      # additional libs required when building insights outside llvm
