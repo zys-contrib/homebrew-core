@@ -47,7 +47,7 @@ class Brpc < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<~EOS
+    (testpath/"test.cpp").write <<~CPP
       #include <iostream>
 
       #include <brpc/channel.h>
@@ -73,7 +73,7 @@ class Brpc < Formula
         std::cout << cntl.http_response().status_code();
         return 0;
       }
-    EOS
+    CPP
     protobuf = Formula["protobuf@21"]
     gperftools = Formula["gperftools"]
     flags = %W[
