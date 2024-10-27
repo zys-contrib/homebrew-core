@@ -3,7 +3,7 @@ class Openbao < Formula
   homepage "https://openbao.org/"
   url "https://github.com/openbao/openbao.git",
       tag:      "v2.0.2",
-      revision: "d7abf404f9f928a64b53fa2ff9192e00a9449b0a"
+      revision: "96853bb4de27ab8ffd1b0c2898c691460d43edeb"
   license "MPL-2.0"
   head "https://github.com/openbao/openbao.git", branch: "main"
 
