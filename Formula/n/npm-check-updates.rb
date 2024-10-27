@@ -1,17 +1,17 @@
 class NpmCheckUpdates < Formula
   desc "Find newer versions of dependencies than what your package.json allows"
   homepage "https://github.com/raineorshine/npm-check-updates"
-  url "https://registry.npmjs.org/npm-check-updates/-/npm-check-updates-17.1.6.tgz"
-  sha256 "39a29553f93091a8b9b33f52616f4e041c84eb476dad0f3db7c029ef5a01129a"
+  url "https://registry.npmjs.org/npm-check-updates/-/npm-check-updates-17.1.7.tgz"
+  sha256 "b49be388f73c7bd4b61e990dfdf1ff5831e48f3b22f5072f6bc2f05491b623fc"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ccf86b495f8eb08021eeb17a3b3e07a71eac6d81e84a3e49881f29b58de01cce"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ccf86b495f8eb08021eeb17a3b3e07a71eac6d81e84a3e49881f29b58de01cce"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ccf86b495f8eb08021eeb17a3b3e07a71eac6d81e84a3e49881f29b58de01cce"
-    sha256 cellar: :any_skip_relocation, sonoma:        "71b3563b2b1e2fa517c73558166c87f206d19eec28f0ec268e9925bc6b6de976"
-    sha256 cellar: :any_skip_relocation, ventura:       "71b3563b2b1e2fa517c73558166c87f206d19eec28f0ec268e9925bc6b6de976"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ccf86b495f8eb08021eeb17a3b3e07a71eac6d81e84a3e49881f29b58de01cce"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2be0549daa561ed107121bdc1d87a8930bef22058b8278772ca63287d27acd57"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2be0549daa561ed107121bdc1d87a8930bef22058b8278772ca63287d27acd57"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2be0549daa561ed107121bdc1d87a8930bef22058b8278772ca63287d27acd57"
+    sha256 cellar: :any_skip_relocation, sonoma:        "02d9569b433f9ebce27522af2f3c3d9ed030991c6369c2cb4185a8741b72968c"
+    sha256 cellar: :any_skip_relocation, ventura:       "02d9569b433f9ebce27522af2f3c3d9ed030991c6369c2cb4185a8741b72968c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2be0549daa561ed107121bdc1d87a8930bef22058b8278772ca63287d27acd57"
   end
 
   depends_on "node"
