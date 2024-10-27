@@ -1,8 +1,8 @@
 class CargoUdeps < Formula
   desc "Find unused dependencies in Cargo.toml"
   homepage "https://github.com/est31/cargo-udeps"
-  url "https://github.com/est31/cargo-udeps/archive/refs/tags/v0.1.50.tar.gz"
-  sha256 "e06e0f735e4d966693be51abe3421ce3fd05459002e03ba85f474f1f5be24823"
+  url "https://github.com/est31/cargo-udeps/archive/refs/tags/v0.1.52.tar.gz"
+  sha256 "d74e262ed4d53f584447bdc8ffc02d37bbef4484b2b4413186d7f8b255bfe5ed"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
@@ -18,7 +18,7 @@ class CargoUdeps < Formula
 
   depends_on "rust" => :build
   depends_on "rustup" => :test
-  depends_on "libgit2@1.7"
+  depends_on "libgit2"
   depends_on "libssh2"
   depends_on "openssl@3"
 
@@ -69,7 +69,7 @@ class CargoUdeps < Formula
     end
 
     [
-      Formula["libgit2@1.7"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
       Formula["libssh2"].opt_lib/shared_library("libssh2"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
