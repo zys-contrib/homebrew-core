@@ -1,19 +1,10 @@
 class DosboxStaging < Formula
   desc "Modernized DOSBox soft-fork"
   homepage "https://dosbox-staging.github.io/"
+  url "https://github.com/dosbox-staging/dosbox-staging/archive/refs/tags/v0.82.0.tar.gz"
+  sha256 "a3f63f86bf203ba28512e189ce6736cdb0273647e77a62ce47ed3d01b3b4a88d"
   license "GPL-2.0-or-later"
   head "https://github.com/dosbox-staging/dosbox-staging.git", branch: "main"
-
-  stable do
-    url "https://github.com/dosbox-staging/dosbox-staging/archive/refs/tags/v0.81.2.tar.gz"
-    sha256 "6676a3b6957c144a80ca8c3ffec2a0bec0320274382f23af9c57dd1c20b2eb1b"
-
-    # Backport fix to bypass SDL wraps on macOS
-    patch do
-      url "https://github.com/dosbox-staging/dosbox-staging/commit/9f0fc1dc762010e5f7471d01c504d817a066cae3.patch?full_index=1"
-      sha256 "20b009216d877138802c698fc9aa89ea1c2becc3c13c06bdcf388ffe7a63bef2"
-    end
-  end
 
   # New releases of dosbox-staging are indicated by a GitHub release (and
   # an announcement on the homepage), not just a new version tag.
