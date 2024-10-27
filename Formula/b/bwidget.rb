@@ -11,7 +11,7 @@ class Bwidget < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ec27bb5573254a90ecabdce5169d750cd49865a0ffeebef139333feef2d97391"
+    sha256 cellar: :any_skip_relocation, all: "2f6bfa229af46c7d9bb973139f09eb4c815eac04e209a3d6d20d8ef3fa82c7a4"
   end
 
   depends_on "tcl-tk"
