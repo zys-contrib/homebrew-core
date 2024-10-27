@@ -6,6 +6,11 @@ class Orbiton < Formula
   license "BSD-3-Clause"
   head "https://github.com/xyproto/orbiton.git", branch: "main"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "cb99e2a1fa789512315dcddb218992063846d17c0c6a7f1be573e251005e887d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cb99e2a1fa789512315dcddb218992063846d17c0c6a7f1be573e251005e887d"
