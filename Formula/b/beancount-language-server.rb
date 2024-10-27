@@ -7,14 +7,12 @@ class BeancountLanguageServer < Formula
   head "https://github.com/polarmutex/beancount-language-server.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9281b323db65a69a4702eb1acbe127d2ec1bda30c96136ce9fcf87fe44077810"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "baf8e9583f7d1861133d62ff19a74204419fb8136ad005f7575cc0946b2131b6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a579559df9351434cb4c99aa46b614e7c9104c101b0867e1030a61ae81c8cd99"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "75a1f40c9e1761b7f0826d7dd77e63c9536b76ecca613976fc3446b7f141d7d1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "626978642fb69d2b9725f02d7004d987b3cc5337817385c0e05d89aa2734c1de"
-    sha256 cellar: :any_skip_relocation, ventura:        "092673817643d6bf8d30b07c52276e936ce0b88388ff3bd96d9ef943573ac47f"
-    sha256 cellar: :any_skip_relocation, monterey:       "d6ce9b42955dbccb9e83294246c6de9d7d9843e1541856e78d48ec9b16713285"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17a5a275ca270b7c652d5127c0e5709a3203f9ca954d49b0c02c82c2e86dbbe3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c30035cc02c46d9f3999e846d3c016016355394a117306e82f4f80aea3715a34"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "16bc477a15d7bb325769cfce450d6b8186bff33b229add22cec64cd632b0fd55"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "14747d6b559a6e6e47750e88aca99cf9ffdea98120a9795c09dff827e2b534ab"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a58edc5d901c13058f230f1025925cc701086288a7c8e8a8f0fa6d95658bb786"
+    sha256 cellar: :any_skip_relocation, ventura:       "b37ffe472aed413a8d8521d1afab3abc17e1d1673b33858f3ab7a7c55735a413"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2c0df24d9789b88930d8a99f916354894ac5d6a2c062d2923e866c0199419de"
   end
 
   depends_on "rust" => :build
