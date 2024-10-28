@@ -1,8 +1,8 @@
 class Sf < Formula
   desc "Command-line toolkit for Salesforce development"
   homepage "https://developer.salesforce.com/tools/salesforcecli"
-  url "https://registry.npmjs.org/@salesforce/cli/-/cli-2.63.8.tgz"
-  sha256 "b80c2697c0176e90ff22fae0fe6e7eb951115607461c6a044d0f81babc964bf2"
+  url "https://registry.npmjs.org/@salesforce/cli/-/cli-2.63.9.tgz"
+  sha256 "55db33b96e9441209f7236f5d71a62a8b78b66a845a0dda1e8efba6b77ff627e"
   license "BSD-3-Clause"
 
   livecheck do
