@@ -3,10 +3,9 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://www.mercurial-scm.org/release/mercurial-6.8.1.tar.gz"
-  sha256 "030e8a7a6d590e4eaeb403ee25675615cd80d236f3ab8a0b56dcc84181158b05"
+  url "https://www.mercurial-scm.org/release/mercurial-6.8.2.tar.gz"
+  sha256 "aac618106768ad1ed976c3fe7c8659fec99e6f0b5337ea6ea554fae8490c4f4e"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url "https://www.mercurial-scm.org/release/"
@@ -23,10 +22,6 @@ class Mercurial < Formula
   end
 
   depends_on "python@3.13"
-
-  # py3.13 build patch, upstream bug report, https://bz.mercurial-scm.org/show_bug.cgi?id=6926
-  # proposed patch in https://lists.mercurial-scm.org/pipermail/mercurial-devel/2024-October/298120.html
-  patch :DATA
 
   def install
     python3 = "python3.13"
@@ -78,17 +73,3 @@ class Mercurial < Formula
     assert_match "initial commit", shell_output("#{bin}/chg log")
   end
 end
-
-__END__
-diff --git a/hgdemandimport/__init__.py b/hgdemandimport/__init__.py
-index 44a0a2d..a59c293 100644
---- a/hgdemandimport/__init__.py
-+++ b/hgdemandimport/__init__.py
-@@ -62,6 +62,7 @@ IGNORES = {
-     '_weakrefset',
-     'warnings',
-     'threading',
-+    'collections.abc',
- }
-
- _pypy = '__pypy__' in sys.builtin_module_names
