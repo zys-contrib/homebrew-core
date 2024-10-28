@@ -1,10 +1,9 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/src/tarantool-3.2.0.tar.gz"
-  sha256 "16a6d54a67f5f954cf784175dfcdb2b549c04ed1414e76256743e1fd4a560289"
+  url "https://download.tarantool.org/tarantool/src/tarantool-3.2.1.tar.gz"
+  sha256 "604566ceacb4db9ea6b4f2e29dbed587a9e5721abb49b764906e1a8b19153ea9"
   license "BSD-2-Clause"
-  revision 2
   version_scheme 1
   head "https://github.com/tarantool/tarantool.git", branch: "master"
 
@@ -59,6 +58,7 @@ class Tarantool < Formula
       -DENABLE_BUNDLED_LIBUNWIND=OFF
       -DENABLE_BUNDLED_LIBYAML=OFF
       -DENABLE_BUNDLED_ZSTD=OFF
+      -DLUAJIT_NO_UNWIND=ON
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
