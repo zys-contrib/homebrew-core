@@ -3,8 +3,8 @@ class Fastapi < Formula
 
   desc "CLI for FastAPI framework"
   homepage "https://fastapi.tiangolo.com/"
-  url "https://files.pythonhosted.org/packages/a9/ce/b64ce344d7b13c0768dc5b131a69d52f57202eb85839408a7637ca0dd7e2/fastapi-0.115.3.tar.gz"
-  sha256 "c091c6a35599c036d676fa24bd4a6e19fa30058d93d950216cdc672881f6f7db"
+  url "https://files.pythonhosted.org/packages/a9/db/5781f19bd30745885e0737ff3fdd4e63e7bc691710f9da691128bb0dc73b/fastapi-0.115.4.tar.gz"
+  sha256 "db653475586b091cb8b2fec2ac54a680ac6a158e07406e1abae31679e8826349"
   license "MIT"
 
   bottle do
@@ -121,8 +121,8 @@ class Fastapi < Formula
   end
 
   resource "python-multipart" do
-    url "https://files.pythonhosted.org/packages/16/6e/7ecfe1366b9270f7f475c76fcfa28812493a6a1abd489b2433851a444f4f/python_multipart-0.0.12.tar.gz"
-    sha256 "045e1f98d719c1ce085ed7f7e1ef9d8ccc8c02ba02b5566d5f7521410ced58cb"
+    url "https://files.pythonhosted.org/packages/b9/59/cbb0dc4eb07c2676d964d7ef986314abd0b90ef2b683864a04c13590487d/python_multipart-0.0.16.tar.gz"
+    sha256 "8dee37b88dab9b59922ca173c35acb627cc12ec74019f5cd4578369c6df36554"
   end
 
   resource "pyyaml" do
@@ -146,8 +146,8 @@ class Fastapi < Formula
   end
 
   resource "starlette" do
-    url "https://files.pythonhosted.org/packages/78/53/c3a36690a923706e7ac841f649c64f5108889ab1ec44218dac45771f252a/starlette-0.41.0.tar.gz"
-    sha256 "39cbd8768b107d68bfe1ff1672b38a2c38b49777de46d2a592841d58e3bf7c2a"
+    url "https://files.pythonhosted.org/packages/3e/da/1fb4bdb72ae12b834becd7e1e7e47001d32f91ec0ce8d7bc1b618d9f0bd9/starlette-0.41.2.tar.gz"
+    sha256 "9834fd799d1a87fd346deb76158668cfa0b0d56f85caefe8268e2d97c3468b62"
   end
 
   resource "typer" do
