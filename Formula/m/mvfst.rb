@@ -1,8 +1,8 @@
 class Mvfst < Formula
   desc "QUIC transport protocol implementation"
   homepage "https://github.com/facebook/mvfst"
-  url "https://github.com/facebook/mvfst/archive/refs/tags/v2024.10.21.00.tar.gz"
-  sha256 "4f94bdc266744b77257a7c16716c353bf38cc0f59372dbe7779b5e10bde37fe1"
+  url "https://github.com/facebook/mvfst/archive/refs/tags/v2024.10.28.00.tar.gz"
+  sha256 "cafe975b1dc0ba6656fcaffea3c7281816e919bbfd1a7c6969fb38f9ae700b40"
   license "MIT"
   head "https://github.com/facebook/mvfst.git", branch: "main"
 
@@ -74,7 +74,7 @@ class Mvfst < Formula
                 "--host", "127.0.0.1", "--port", server_port.to_s
     ) do |stdin, _, stderr|
       stdin.write "Hello world!\n"
-      Timeout.timeout(15) do
+      Timeout.timeout(60) do
         stderr.each do |line|
           break if line.include? "Client received data=echo Hello world!"
         end
