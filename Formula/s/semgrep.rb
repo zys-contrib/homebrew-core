@@ -7,6 +7,7 @@ class Semgrep < Formula
       tag:      "v1.93.0",
       revision: "09228d4cd954a0f686beac5788dbd48dc0decc26"
   license "LGPL-2.1-only"
+  revision 1
   head "https://github.com/semgrep/semgrep.git", branch: "develop"
 
   livecheck do
@@ -335,7 +336,9 @@ class Semgrep < Formula
 
     venv.pip_install_and_link buildpath/"cli"
 
-    generate_completions_from_executable(bin/"semgrep", shells: [:fish, :zsh], shell_parameter_format: :click)
+    generate_completions_from_executable(bin/"semgrep", "--legacy",
+                                         shells:                 [:fish, :zsh],
+                                         shell_parameter_format: :click)
   end
 
   test do
