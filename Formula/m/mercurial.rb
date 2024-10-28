@@ -13,12 +13,12 @@ class Mercurial < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "35a6ac7880d243ea479ce3050fd37393b4ff560c82dbb080f544a741c161b3d3"
-    sha256 arm64_sonoma:  "13f62f94b954d1a028a289d9eef7e96dcddd1160014be79ffb9038e6542b451f"
-    sha256 arm64_ventura: "f7d23fcee4b74c4d4919e1bb2c09d0706858fe32789a7923384fad9039e534ef"
-    sha256 sonoma:        "a14b4e2f09bd8f4cddfa447314c396d802ed11f5d17763847960cbd55e60d114"
-    sha256 ventura:       "763ee4b914fb66d6e207ec5be8ff82138babe77e60b2560cb820ab59c448e007"
-    sha256 x86_64_linux:  "16fb921a2d7747be5ef79365143ccc1e04c2c955af228df39ed993161683dbed"
+    sha256 arm64_sequoia: "e7ab83b1fa5f9b85f8d7ab985e00e8aec959c61d19395e4e2663761a37589dca"
+    sha256 arm64_sonoma:  "c4decc0e943ab7a497d1906a985556d64e276a2b9116614e78c9dc4edd939efc"
+    sha256 arm64_ventura: "51d0aa6639c255906e37797b5a28466ee3709dc840e7e1fd06786cbdb9de7a0c"
+    sha256 sonoma:        "aaddb3929f17c083b4df9e6c1195791a49ee09ec7cd518abf675967d5bd61323"
+    sha256 ventura:       "6791ce7dcbc978b44d592c20ee722103ca8e9a9a6c8e81f4e308fd52fefc55d3"
+    sha256 x86_64_linux:  "06437df4e61c669885759009f801947886f92775b4600a70d66d7d41cb26455b"
   end
 
   depends_on "python@3.13"
