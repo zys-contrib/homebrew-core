@@ -23,14 +23,12 @@ class Libgccjit < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "fff0020242ea84f9eb7c320035410213d831968cdffd746c0fb02460d13b8625"
-    sha256 arm64_sonoma:   "1f863f51416d857e367f12accc84a6163742d77eec8f3c5644c6c79c334f4fd6"
-    sha256 arm64_ventura:  "7605dcefda1dc4cdfa7b14303551dcade61408d4592e0eeb4b85aaa3d93dfc62"
-    sha256 arm64_monterey: "d21962af68ea264a5b6a90265e6d1c7247377d5d41f5d021488380c15e804ed7"
-    sha256 sonoma:         "e96b8c6f27911ddf6b66e20998eb678592b58906451a02e38e6a0256d7974603"
-    sha256 ventura:        "bffe3af90300b16b02a98d00bfd95417141429abbcb53887ee1a1a177ffe3a35"
-    sha256 monterey:       "baed769c2a3c93ace46dc2c01a585249f2f4ac4c941361b40c750c78b5bc25aa"
-    sha256 x86_64_linux:   "809473f17318e15fe6ecf18d6ad50a80e2f03487bf4045e765833584ae6d4cec"
+    sha256 arm64_sequoia: "52905f08739ef5b43a3c51c6a9be7befa915d1d5c9a74f1e6fcafa1048926f1f"
+    sha256 arm64_sonoma:  "19083279161321c45f2c05cf3800de97a2976056344ee62a936c9e2d80a7146b"
+    sha256 arm64_ventura: "9a41de72cb4140ba963a24b0e7916c7d8291f7c6c2c095a9a9522371e44a9a27"
+    sha256 sonoma:        "afdf195ab432568a33f36ba8b6180a6f1c23106825219635ebd406c5f9989ec5"
+    sha256 ventura:       "4c4c9a49250919da00c7f0488da19905ad1cf2ab426a0fb1171e1177302577e9"
+    sha256 x86_64_linux:  "76a465bf2a563f690cf457fd5f8fbcbf7be6109053f029356195f7336fd58d0c"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
