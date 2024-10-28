@@ -10,6 +10,15 @@ class NodeAT22 < Formula
     regex(%r{href=["']?v?(22(?:\.\d+)+)/?["' >]}i)
   end
 
+  bottle do
+    sha256 arm64_sequoia: "528222d35a5ae846cd673c0b91a77e6fa3050d2de0c94091cd1b6c4a39656855"
+    sha256 arm64_sonoma:  "53825ab98fe302132d5dafe83eb0c10d8d46ebdc8c8a1fb388cf8457d8aa3015"
+    sha256 arm64_ventura: "68baa5fc58da403c1814e3bec8672d51e355de633f0021b23250c6d06f52f42b"
+    sha256 sonoma:        "f6bb645a21a91bbe99c9218e4122afa78e2714332be2adc84092cf422eb195cd"
+    sha256 ventura:       "80345d2d38bc6feb5c6134abe390cb527525854859a2b2386c715d026cac7509"
+    sha256 x86_64_linux:  "022797bdca863afb7a3ae77ea096fca338e2f75b613355f75e649618388b21bf"
+  end
+
   keg_only :versioned_formula
 
   # https://github.com/nodejs/release#release-schedule
