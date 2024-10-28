@@ -1,10 +1,9 @@
 class Inko < Formula
   desc "Safe and concurrent object-oriented programming language"
   homepage "https://inko-lang.org/"
-  url "https://releases.inko-lang.org/0.16.0.tar.gz"
-  sha256 "7850dc9b0f6e544977a6eb3854022131f30e49e43b99f47cc5aefb77e0b97c32"
+  url "https://releases.inko-lang.org/0.17.0.tar.gz"
+  sha256 "d97e1b898fd3de946dab5559c587cab0bcf7f3df40a43266d5b9e0a14f03202a"
   license "MPL-2.0"
-  revision 1
   head "https://github.com/inko-lang/inko.git", branch: "main"
 
   bottle do
@@ -38,11 +37,11 @@ class Inko < Formula
 
   test do
     (testpath/"hello.inko").write <<~EOS
-      import std.stdio (STDOUT)
+      import std.stdio (Stdout)
 
       class async Main {
         fn async main {
-          STDOUT.new.print('Hello, world!')
+          Stdout.new.print('Hello, world!')
         }
       }
     EOS
