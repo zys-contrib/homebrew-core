@@ -1796,6 +1796,7 @@ mediaconch
 mediamtx
 mednafen
 medusa
+megatools
 meilisearch
 melange
 melody
