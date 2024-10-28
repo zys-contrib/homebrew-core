@@ -509,7 +509,6 @@ copilot
 coq
 core-lightning
 coredns
-corepack
 coreutils
 corral
 corrosion

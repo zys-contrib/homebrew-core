@@ -21,6 +21,7 @@
   "cdiff": "ydiff",
   "cloog018": "cloog",
   "commonmark": "cmark",
+  "corepack": "node",
   "cppformat": "fmt",
   "crystal-lang": "crystal",
   "curl-openssl": "curl",
