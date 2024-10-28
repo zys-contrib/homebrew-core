@@ -57,13 +57,26 @@ class WasiLibc < Formula
       "WASM_NM=#{Formula["llvm"].opt_bin}/llvm-nm",
       "INSTALL_DIR=#{share}/wasi-sysroot",
     ]
+
+    # See targets at:
+    # https://github.com/WebAssembly/wasi-sdk/blob/5e04cd81eb749edb5642537d150ab1ab7aedabe9/CMakeLists.txt#L14-L15
+    targets = %w[
+      wasm32-wasi
+      wasm32-wasip1
+      wasm32-wasip2
+      wasm32-wasip1-threads
+      wasm32-wasi-threads
+    ]
+
+    # See target flags at:
+    # https://github.com/WebAssembly/wasi-sdk/blob/5e04cd81eb749edb5642537d150ab1ab7aedabe9/cmake/wasi-sdk-sysroot.cmake#L117-L135
     target_flags = Hash.new { |h, k| h[k] = [] }
-    target_flags["wasm32-wasip1-threads"] << "THREAD_MODEL=posix"
+    targets.each { |target| target_flags[target] << "THREAD_MODEL=posix" if target.end_with?("-threads") }
     target_flags["wasm32-wasip2"] << "WASI_SNAPSHOT=p2"
-    targets = %w[wasm32-wasi wasm32-wasip1 wasm32-wasip1-threads wasm32-wasip2]
 
     targets.each do |target|
       system "make", *make_args, "TARGET_TRIPLE=#{target}", "install", *target_flags[target]
+      system "make", "clean"
     end
   end
 
