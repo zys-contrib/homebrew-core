@@ -5,6 +5,10 @@ class Fcft < Formula
   sha256 "f48c793f354b8be95477e475dde7c98ac9d2628c52ecb42029dc6d20b52d787c"
   license "MIT"
 
+  bottle do
+    sha256 x86_64_linux: "b4baa19b9ec39432ee2885a1befe23eb981c8754a87af792aadef35184fca734"
+  end
+
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
