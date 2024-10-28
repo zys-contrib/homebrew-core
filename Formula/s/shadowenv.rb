@@ -1,8 +1,8 @@
 class Shadowenv < Formula
   desc "Reversible directory-local environment variable manipulations"
   homepage "https://shopify.github.io/shadowenv/"
-  url "https://github.com/Shopify/shadowenv/archive/refs/tags/2.1.2.tar.gz"
-  sha256 "545995663f754d742749fbfb0d949be0f03fc9992a4518f0f06b45593940faf5"
+  url "https://github.com/Shopify/shadowenv/archive/refs/tags/3.0.2.tar.gz"
+  sha256 "263889408e47008803e4e91a309050df82963349d81e8777a3d1a1a924d29c6c"
   license "MIT"
 
   bottle do
@@ -31,10 +31,10 @@ class Shadowenv < Formula
       EXAMPLE3:b
       EXAMPLE_PATH:a:b:d
       ---
-      EXAMPLE:a
-      EXAMPLE2:
-      EXAMPLE3:a
-      EXAMPLE_PATH:c:d
+      EXAMPLE:
+      EXAMPLE2:b
+      EXAMPLE3:b
+      EXAMPLE_PATH:a:b:d
     EOM
     environment = "export EXAMPLE2=b EXAMPLE3=b EXAMPLE_PATH=a:b:d;"
     hash = "1256a7c3de15e864"
