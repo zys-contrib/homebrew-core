@@ -1,8 +1,8 @@
 class Gau < Formula
   desc "Open Threat Exchange, Wayback Machine, and Common Crawl URL fetcher"
   homepage "https://github.com/lc/gau"
-  url "https://github.com/lc/gau/archive/refs/tags/v2.2.3.tar.gz"
-  sha256 "02bb84bd73a385b4630a6c783f819f8339defc915df3a7d34cb872801d567c17"
+  url "https://github.com/lc/gau/archive/refs/tags/v2.2.4.tar.gz"
+  sha256 "537abafca9065a7ed5d93aa7722d85da0815abf6b08c2d1494483171558ce3f7"
   license "MIT"
   head "https://github.com/lc/gau.git", branch: "master"
 
@@ -24,7 +24,9 @@ class Gau < Formula
   end
 
   test do
-    output = shell_output("#{bin}/gau --providers wayback brew.sh")
+    output = shell_output("#{bin}/gau --providers urlscan brew.sh")
     assert_match %r{https?://brew\.sh(/|:)?.*}, output
+
+    assert_match version.to_s, shell_output("#{bin}/gau --version")
   end
 end
