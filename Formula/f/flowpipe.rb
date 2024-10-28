@@ -22,14 +22,17 @@ class Flowpipe < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "716ed32b0fd61be265b62e347a21c1a219a3200434ae94400f22617a4fbfe044"
   end
 
-  depends_on "corepack" => :build
   depends_on "go" => :build
   depends_on "node" => :build
 
   def install
+    ENV["COREPACK_ENABLE_DOWNLOAD_PROMPT"] = "0"
+
+    system "corepack", "enable", "--install-directory", buildpath
+
     cd "ui/form" do
-      system "yarn", "install"
-      system "yarn", "build"
+      system buildpath/"yarn", "install"
+      system buildpath/"yarn", "build"
     end
 
     ldflags = %W[
