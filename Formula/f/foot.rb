@@ -5,6 +5,10 @@ class Foot < Formula
   sha256 "59d22187f7ceaaaa570a5299b102e8f4692826e98785f89ad9d8911802ccc000"
   license "MIT"
 
+  bottle do
+    sha256 x86_64_linux: "a925f3b11f6081e54333c0cca3bfcc2c62492734975bbfcc480f09d4356b16c6"
+  end
+
   depends_on "cmake" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
