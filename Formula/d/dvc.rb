@@ -6,6 +6,7 @@ class Dvc < Formula
   url "https://files.pythonhosted.org/packages/b6/fc/b40dba598a014ad1e20615ff67021920e2a8e635ae48f48d2e5850b3cd46/dvc-3.56.0.tar.gz"
   sha256 "4591152c5cd95fe2a6bd3b508293e98b96b7367538942c39be4e5fdeec3ec43e"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "f2435353c03c892cb98c4b51eaf355fe1d98a5ca498ec23be2c4a89918dc6f0d"
@@ -593,8 +594,8 @@ class Dvc < Formula
   end
 
   resource "pyarrow" do
-    url "https://files.pythonhosted.org/packages/27/4e/ea6d43f324169f8aec0e57569443a38bab4b398d09769ca64f7b4d467de3/pyarrow-17.0.0.tar.gz"
-    sha256 "4beca9521ed2c0921c1023e68d097d0299b62c362639ea315572a58f3f50fd28"
+    url "https://files.pythonhosted.org/packages/ec/41/6bfd027410ba2cc35da4682394fdc4285dc345b1d99f7bd55e96255d0c7d/pyarrow-18.0.0.tar.gz"
+    sha256 "a6aa027b1a9d2970cf328ccd6dbe4a996bc13c39fd427f502782f5bdb9ca20f5"
   end
 
   resource "pyasn1" do
