@@ -1,21 +1,11 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
+  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-18.0.0/apache-arrow-18.0.0.tar.gz"
+  mirror "https://archive.apache.org/dist/arrow/arrow-18.0.0/apache-arrow-18.0.0.tar.gz"
+  sha256 "abcf1934cd0cdddd33664e9f2d9a251d6c55239d1122ad0ed223b13a583c82a9"
   license "Apache-2.0"
-  revision 10
   head "https://github.com/apache/arrow.git", branch: "main"
-
-  stable do
-    url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-17.0.0/apache-arrow-17.0.0.tar.gz"
-    mirror "https://archive.apache.org/dist/arrow/arrow-17.0.0/apache-arrow-17.0.0.tar.gz"
-    sha256 "9d280d8042e7cf526f8c28d170d93bfab65e50f94569f6a790982a878d8d898d"
-
-    # Backport support for LLVM 19
-    patch do
-      url "https://github.com/apache/arrow/commit/3505457946192ef2ee0beac3356d9c0ed0d22b0f.patch?full_index=1"
-      sha256 "60793569736ebc72ecddcd06443cf281342d7fa81b5d4727152247f2cb7ad58a"
-    end
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "f0091360aca8939984ba5b15f08bc0b5cd71be67f8eca5ed23629cb36320c209"
