@@ -75,6 +75,10 @@ class Emqx < Formula
     end
   end
 
+  service do
+    run [opt_bin/"emqx", "foreground"]
+  end
+
   test do
     exec "ln", "-s", testpath, "data"
     exec bin/"emqx", "start"
