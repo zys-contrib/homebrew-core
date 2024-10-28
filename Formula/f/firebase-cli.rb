@@ -7,12 +7,12 @@ class FirebaseCli < Formula
   head "https://github.com/firebase/firebase-tools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "27871d2f7bc6ff5d7b2ae0ee76ca99d81c10f8170fab92e939e0e4aebd37a96d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "27871d2f7bc6ff5d7b2ae0ee76ca99d81c10f8170fab92e939e0e4aebd37a96d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "27871d2f7bc6ff5d7b2ae0ee76ca99d81c10f8170fab92e939e0e4aebd37a96d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "427cb68226c763e2f8de38dd1adf29f340d4b4fff1452b8376a4b61d79b47026"
-    sha256 cellar: :any_skip_relocation, ventura:       "427cb68226c763e2f8de38dd1adf29f340d4b4fff1452b8376a4b61d79b47026"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf320d687a4414d2cd85f2fb33f9717758403706f75cd3f55d0e07a234b05cc8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6894d286e0ac46a66181d15e6c11609680027fb220d5b4d2ab444f0538cfce55"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6894d286e0ac46a66181d15e6c11609680027fb220d5b4d2ab444f0538cfce55"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6894d286e0ac46a66181d15e6c11609680027fb220d5b4d2ab444f0538cfce55"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b48f12c1e74f149a59d1707976b3bb1af0269f85cc482eec79a334828b4798f5"
+    sha256 cellar: :any_skip_relocation, ventura:       "b48f12c1e74f149a59d1707976b3bb1af0269f85cc482eec79a334828b4798f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4fce39dd9a72d6105f8d0244cd44bc1de223bcf9d8d7273d86726e5f4035bb8b"
   end
 
   depends_on "node"
