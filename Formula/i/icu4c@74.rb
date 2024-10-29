@@ -6,14 +6,6 @@ class Icu4cAT74 < Formula
   sha256 "68db082212a96d6f53e35d60f47d38b962e9f9d207a74cfac78029ae8ff5e08c"
   license "ICU"
 
-  livecheck do
-    url :stable
-    regex(/^release[._-]v?(74(?:[.-]\d+)+)$/i)
-    strategy :git do |tags, regex|
-      tags.filter_map { |tag| tag[regex, 1]&.tr("-", ".") }
-    end
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "d9b0dc95a406d340373bf75d6d013cc53e8815d0c0b550e584b4006a7aba12f0"
     sha256 cellar: :any,                 arm64_sonoma:  "2216fec75032a12c4a442448ca23fed421eb94374e2e9994e6db0c51eae60ed2"
@@ -24,6 +16,8 @@ class Icu4cAT74 < Formula
   end
 
   keg_only :versioned_formula
+
+  disable! date: "2025-05-01", because: :versioned_formula
 
   def install
     args = %w[
