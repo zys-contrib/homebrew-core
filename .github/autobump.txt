@@ -3038,6 +3038,7 @@ wireshark
 witness
 wolfmqtt
 wolfssl
+woob
 woodpecker-cli
 woof-doom
 wpebackend-fdo
