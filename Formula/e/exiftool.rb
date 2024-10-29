@@ -3,9 +3,9 @@ class Exiftool < Formula
   homepage "https://exiftool.org"
   # Ensure release is tagged production before submitting.
   # https://exiftool.org/history.html
-  url "https://cpan.metacpan.org/authors/id/E/EX/EXIFTOOL/Image-ExifTool-12.76.tar.gz"
-  mirror "https://exiftool.org/Image-ExifTool-12.76.tar.gz"
-  sha256 "5d3430ec57aa031f7ca43170f7ed6338a66bda99ab95b9e071f1ee27555f515f"
+  url "https://cpan.metacpan.org/authors/id/E/EX/EXIFTOOL/Image-ExifTool-13.00.tar.gz"
+  mirror "https://exiftool.org/Image-ExifTool-13.00.tar.gz"
+  sha256 "4895788f34f834765f86be4a5ad5a32433f572d757160ecd7b612eaf5ed37e84"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
 
   livecheck do
@@ -27,10 +27,6 @@ class Exiftool < Formula
   uses_from_macos "perl"
 
   def install
-    # Enable large file support
-    # https://exiftool.org/forum/index.php?topic=3916.msg18182#msg18182
-    inreplace "lib/Image/ExifTool.pm", "'LargeFileSupport', undef", "'LargeFileSupport', 1"
-
     # replace the hard-coded path to the lib directory
     inreplace "exiftool", "unshift @INC, $incDir;", "unshift @INC, \"#{libexec}/lib\";"
 
