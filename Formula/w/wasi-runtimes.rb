@@ -10,6 +10,15 @@ class WasiRuntimes < Formula
     formula "llvm"
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3c15d547e848cda42bffcb56e8d797f81482495ff45207c808e214274617a8e8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0effbd63bd850eef30b7d75d73b8b863b91a9dc74d532e6ca762ad11d49b9ec4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b9918fe74820758f11a0a6412e957764c155886d6c999fba9a9e822f2d7b75d2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c1840dfe57ce81fdeb13e63f89aa90569e572935db233f6a34597dae63fd1e12"
+    sha256 cellar: :any_skip_relocation, ventura:       "a077d43170858dc3121b56320315028cb625447e888b2d6265c98b6c24b4d164"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13c5e9e2ee72e70baeee0882d2b35a5b75137e4628ca839462d8df932585184e"
+  end
+
   depends_on "cmake" => :build
   depends_on "lld" => [:build, :test]
   depends_on "wasi-libc" => [:build, :test]
