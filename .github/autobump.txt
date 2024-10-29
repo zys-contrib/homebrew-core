@@ -3025,6 +3025,7 @@ webtorrent-cli
 weechat
 wego
 werf
+west
 wgcf
 whistle
 whois
