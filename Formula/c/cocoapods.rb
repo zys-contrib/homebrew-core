@@ -6,14 +6,12 @@ class Cocoapods < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "616da75efe9421f6fdc9e3b6381f84626e8763073aff72094f30add258631dc1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "441ca48d1042282ed261390fab8dfce1a56335340a98ae579b080b3f8c4e941a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "441ca48d1042282ed261390fab8dfce1a56335340a98ae579b080b3f8c4e941a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "441ca48d1042282ed261390fab8dfce1a56335340a98ae579b080b3f8c4e941a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8961b95489c08fc5b163b09455e6172f5fdee7dcfacdad1c2bf569c28a476d8e"
-    sha256 cellar: :any_skip_relocation, ventura:        "8961b95489c08fc5b163b09455e6172f5fdee7dcfacdad1c2bf569c28a476d8e"
-    sha256 cellar: :any_skip_relocation, monterey:       "8961b95489c08fc5b163b09455e6172f5fdee7dcfacdad1c2bf569c28a476d8e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf569151db36690ef517de97d64643d8a3425d88a214709fdc422d0494e5a5ad"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2b8dc6cb6b8b68ea84618c9389ad592faf0b556742ef9649b71d7e0a464e4c8d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2b8dc6cb6b8b68ea84618c9389ad592faf0b556742ef9649b71d7e0a464e4c8d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2b8dc6cb6b8b68ea84618c9389ad592faf0b556742ef9649b71d7e0a464e4c8d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "57890afffc03d4ac6e1d55d51ed2bd966605ad6eb9c224a1b2cd093acecb5cc8"
+    sha256 cellar: :any_skip_relocation, ventura:       "57890afffc03d4ac6e1d55d51ed2bd966605ad6eb9c224a1b2cd093acecb5cc8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6742ae98c38b8688cd43c8971a8ebcc5362c6214691e41508ebcd5522d815653"
   end
 
   depends_on "pkg-config" => :build
