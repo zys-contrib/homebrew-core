@@ -1,8 +1,8 @@
 class Vitess < Formula
   desc "Database clustering system for horizontal scaling of MySQL"
   homepage "https://vitess.io"
-  url "https://github.com/vitessio/vitess/archive/refs/tags/v20.0.2.tar.gz"
-  sha256 "64a56c3c7eb9466ae87ccc6eea9a56732c45564ac16efb05e3c4e4885ffea94d"
+  url "https://github.com/vitessio/vitess/archive/refs/tags/v21.0.0.tar.gz"
+  sha256 "a7c5c0391b2461fd78e3fee3362ca2473153d8e0b9c5bddf2c1cc066c2e29d3b"
   license "Apache-2.0"
 
   bottle do
@@ -16,8 +16,7 @@ class Vitess < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a4d1b8105de7f48ab3df1f117ba42655208052dad83e2fcd6abac5e05d08eda"
   end
 
-  # use "go" again after https://github.com/vitessio/vitess/issues/16015 is fixed and released
-  depends_on "go@1.22" => :build
+  depends_on "go" => :build
   depends_on "etcd"
 
   def install
