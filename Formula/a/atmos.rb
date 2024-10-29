@@ -4,6 +4,7 @@ class Atmos < Formula
   url "https://github.com/cloudposse/atmos/archive/refs/tags/v1.96.0.tar.gz"
   sha256 "c2a76bacb8b48563d9daa5606f92075d9dc3d105c60994b9576a332b5c81d760"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e7395e206ea0f544d204593d6c28815cef640de57cf132e6b6060a40d20a26ef"
@@ -19,7 +20,7 @@ class Atmos < Formula
   conflicts_with "tenv", because: "tenv symlinks atmos binaries"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X 'github.com/cloudposse/atmos/cmd.Version=#{version}'")
+    system "go", "build", *std_go_args(ldflags: "-s -w -X 'github.com/cloudposse/atmos/pkg/version.Version=#{version}'")
 
     generate_completions_from_executable(bin/"atmos", "completion")
   end
@@ -105,5 +106,7 @@ class Atmos < Formula
     actual_json = JSON.parse(File.read(testpath/"components/terraform/top-level-component1/backend.tf.json"))
     expected_json = JSON.parse(File.read(testpath/"backend.tf.json"))
     assert_equal expected_json["terraform"].to_set, actual_json["terraform"].to_set
+
+    assert_match "Atmos #{version}", shell_output("#{bin}/atmos version")
   end
 end
