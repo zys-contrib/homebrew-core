@@ -5,6 +5,10 @@ class ActionDocs < Formula
   sha256 "109170e521e4096b571932a6c0af640db48d1d82c3023488c70f0c909787792e"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "abd1926961e5319b5400d918b66417b6e187855983f47f2182d2de1fe7d699af"
+  end
+
   depends_on "node"
 
   def install
