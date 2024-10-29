@@ -53,13 +53,16 @@ class Fontforge < Formula
     sha256 "e784c4c0fcf28e5e6c5b099d7540f53436d1be2969898ebacd25654d315c0072"
   end
 
-  # Replace distutils for python 3.12+: https://github.com/fontforge/fontforge/pull/5423
-  patch :DATA
+  def python3
+    "python3.13"
+  end
 
   def install
-    args = %w[
+    args = %W[
       -DENABLE_GUI=OFF
       -DENABLE_FONTFORGE_EXTRAS=ON
+      -DPython3_EXECUTABLE=#{which(python3)}
+      -DPYHOOK_INSTALL_DIR=#{Language::Python.site_packages(python3)}
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
@@ -69,7 +72,7 @@ class Fontforge < Formula
 
   def caveats
     on_macos do
-      <<~EOS
+      <<~TEXT
         This formula only installs the command line utilities.
 
         FontForge.app can be downloaded directly from the website:
@@ -77,7 +80,7 @@ class Fontforge < Formula
 
         Alternatively, install with Homebrew Cask:
           brew install --cask fontforge
-      EOS
+      TEXT
     end
   end
 
@@ -87,10 +90,9 @@ class Fontforge < Formula
       sha256 "6a22acf6be4ab9e5c5a3373dc878030b4b8dc4652323395388abe43679ceba81"
     end
 
-    python = Formula["python@3.13"].opt_bin/"python3.13"
     system bin/"fontforge", "-version"
     system bin/"fontforge", "-lang=py", "-c", "import fontforge; fontforge.font()"
-    system python, "-c", "import fontforge; fontforge.font()"
+    system python3, "-c", "import fontforge; fontforge.font()"
 
     resource("homebrew-testdata").stage do
       ffscript = "fontforge.open('Ambrosia.sfd').generate('#{testpath}/Ambrosia.woff2')"
@@ -102,22 +104,3 @@ class Fontforge < Formula
     assert_match "Web Open Font Format (Version 2)", fileres
   end
 end
-
-__END__
-diff --git a/pyhook/CMakeLists.txt b/pyhook/CMakeLists.txt
-index dd48054..53708f1 100644
---- a/pyhook/CMakeLists.txt
-+++ b/pyhook/CMakeLists.txt
-@@ -20,8 +20,11 @@ target_link_libraries(psMat_pyhook PRIVATE Python3::Module)
- # FindPython3 provides Python3_SITEARCH, but this is an absolute path
- # So do it ourselves, getting the prefix-relative path instead
- if(NOT DEFINED PYHOOK_INSTALL_DIR)
-+  if(APPLE)
-+    set(_PYHOOK_SYSCONFIG_PREFIX " 'posix_prefix',")
-+  endif()
-   execute_process(
--    COMMAND "${Python3_EXECUTABLE}" -c "import distutils.sysconfig as sc; print(sc.get_python_lib(prefix='', plat_specific=True,standard_lib=False))"
-+    COMMAND "${Python3_EXECUTABLE}" -c "import sysconfig as sc; print(sc.get_path('platlib',${_PYHOOK_SYSCONFIG_PREFIX} vars={'platbase': '.'}))"
-     RESULT_VARIABLE _pyhook_install_dir_result
-     OUTPUT_VARIABLE PYHOOK_INSTALL_DIR
-     OUTPUT_STRIP_TRAILING_WHITESPACE)
