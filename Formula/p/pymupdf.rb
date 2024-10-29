@@ -1,8 +1,8 @@
 class Pymupdf < Formula
   desc "Python bindings for the PDF toolkit and renderer MuPDF"
   homepage "https://pymupdf.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/cf/cc/073855527996078f4f42d6022f00fdb050127715aaa585b32eaf470ae698/PyMuPDF-1.24.12.tar.gz"
-  sha256 "ba6d212d7a286b6fab9024c669aa314edfcbdd5b45fa6f5ea5d463a9e7576e52"
+  url "https://files.pythonhosted.org/packages/22/39/84efca63af4e5a014c1d4c21686469f99c3d1c160a3a0b902ac676f6ffd9/PyMuPDF-1.24.13.tar.gz"
+  sha256 "6ec3ab3c6d5cba60bfcf58daaa2d1a5b700b0366ce52be666445007351461fa4"
   license "AGPL-3.0-only"
 
   bottle do
