@@ -1,10 +1,9 @@
 class Cocoapods < Formula
   desc "Dependency manager for Cocoa projects"
   homepage "https://cocoapods.org/"
-  url "https://github.com/CocoaPods/CocoaPods/archive/refs/tags/1.15.2.tar.gz"
-  sha256 "324a13efb2c3461f489c275462528e9e721f83108d09d768d2049710d82d933c"
+  url "https://github.com/CocoaPods/CocoaPods/archive/refs/tags/1.16.0.tar.gz"
+  sha256 "cdbfec254ccfffc0722b48c88c665105eb56901efacdd92dca6ca5004ab74d60"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "616da75efe9421f6fdc9e3b6381f84626e8763073aff72094f30add258631dc1"
