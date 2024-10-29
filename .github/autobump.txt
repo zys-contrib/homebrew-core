@@ -1176,6 +1176,7 @@ gulp-cli
 gum
 gupnp
 gupnp-tools
+gwt
 gwyddion
 gxml
 gyb
