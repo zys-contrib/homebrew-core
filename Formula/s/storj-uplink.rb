@@ -18,12 +18,12 @@ class StorjUplink < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0df067a933c1e1ceb27b7e66bbb971ea1075e530194cc0040a13219dca1eb119"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0df067a933c1e1ceb27b7e66bbb971ea1075e530194cc0040a13219dca1eb119"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0df067a933c1e1ceb27b7e66bbb971ea1075e530194cc0040a13219dca1eb119"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1b9c361cdd0abbb1fc734f0a058fb684f9a613c9e63d1fb9b412b99162efae31"
-    sha256 cellar: :any_skip_relocation, ventura:       "1b9c361cdd0abbb1fc734f0a058fb684f9a613c9e63d1fb9b412b99162efae31"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f76f897cb8085a365009194490ff0ee61da842c5532012b7a5e988a1905b813f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "be6ef724757ca83c5d96bf7ee5fcec44aba93179bb24532885a7f7633d02c17b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "be6ef724757ca83c5d96bf7ee5fcec44aba93179bb24532885a7f7633d02c17b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "be6ef724757ca83c5d96bf7ee5fcec44aba93179bb24532885a7f7633d02c17b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e77e3d2e6c2a0a9723d50a038697e15e01dcc7ff76eb4912fd28807e1a756f8a"
+    sha256 cellar: :any_skip_relocation, ventura:       "e77e3d2e6c2a0a9723d50a038697e15e01dcc7ff76eb4912fd28807e1a756f8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f1e1baa7160cfb51857cec9f73fa885b540d574e0820fd7f13f62e43c7f9186"
   end
 
   depends_on "go" => :build
