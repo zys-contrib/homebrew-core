@@ -7,6 +7,7 @@ class Samba < Formula
   url "https://download.samba.org/pub/samba/stable/samba-4.21.1.tar.gz"
   sha256 "bd02f55da538358c929505b21fdd8aeba53027eab14c849432a53ed0bae1c7c2"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www.samba.org/samba/download/"
@@ -28,7 +29,7 @@ class Samba < Formula
   depends_on "gnutls"
   # icu4c can get linked if detected by pkg-config and there isn't a way to force disable
   # without disabling spotlight support. So we just enable the feature for all systems.
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
   depends_on "krb5"
   depends_on "libtasn1"
   depends_on "lmdb"
