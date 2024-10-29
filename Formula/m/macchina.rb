@@ -1,8 +1,8 @@
 class Macchina < Formula
   desc "System information fetcher, with an emphasis on performance and minimalism"
   homepage "https://github.com/Macchina-CLI/macchina"
-  url "https://github.com/Macchina-CLI/macchina/archive/refs/tags/v6.2.1.tar.gz"
-  sha256 "87a38bde067fadd96615899d6a8b9efdb238a4bd3859008be47b3e4c2a02c607"
+  url "https://github.com/Macchina-CLI/macchina/archive/refs/tags/v6.3.0.tar.gz"
+  sha256 "8483a427b70f0bfd89ff0fd5e05f9a622d9d8d84cce9cf8b390af7ee918a73f5"
   license "MIT"
 
   bottle do
@@ -16,11 +16,27 @@ class Macchina < Formula
 
   depends_on "rust" => :build
 
+  # In order to update the dependent resources, check the link below
+  # https://github.com/Macchina-CLI/macchina/tree/main/vendor
+  # and find commit ids for the submodules, download tarball and update checksum.
+  resource "ansi-to-tui" do
+    url "https://github.com/Macchina-CLI/ansi-to-tui/archive/950d68067ed8c7f74469eb2fd996e04e1b931481.tar.gz"
+    sha256 "e5f7b361dbc8400355ae637c4b66bcc28964e31bf634d6aa38684c510b38460e"
+  end
+
+  resource "color-to-tui" do
+    url "https://github.com/Macchina-CLI/color-to-tui/archive/9a1b684d92cc64994889e100575e38316a68670b.tar.gz"
+    sha256 "c30ec8f9314afd401c86c7b920864a6974557e72ad21059d3420db2dcffd02cb"
+  end
+
   def install
+    (buildpath/"vendor/ansi-to-tui").install resource("ansi-to-tui")
+    (buildpath/"vendor/color-to-tui").install resource("color-to-tui")
+
     system "cargo", "install", *std_cargo_args
   end
 
   test do
-    assert_match "We've collected a total of 20 readouts", shell_output("#{bin}/macchina --doctor")
+    assert_match "We've collected a total of 19 readouts", shell_output("#{bin}/macchina --doctor")
   end
 end
