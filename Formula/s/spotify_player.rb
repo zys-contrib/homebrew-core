@@ -1,8 +1,8 @@
 class SpotifyPlayer < Formula
   desc "Command driven spotify player"
   homepage "https://github.com/aome510/spotify-player"
-  url "https://github.com/aome510/spotify-player/archive/refs/tags/v0.19.1.tar.gz"
-  sha256 "bd516ed91cee0a96444797c2b99f3775efea84c252f79f7bc7de4cdb33dbd52c"
+  url "https://github.com/aome510/spotify-player/archive/refs/tags/v0.20.0.tar.gz"
+  sha256 "a0708da71e30c0d213bb9f840fad4e3667ce4348d4a9dcdd6370d00b9ac2bda3"
   license "MIT"
 
   bottle do
@@ -17,7 +17,6 @@ class SpotifyPlayer < Formula
   end
 
   depends_on "rust" => :build
-  uses_from_macos "expect" => :test
 
   on_linux do
     depends_on "pkg-config" => :build
@@ -36,25 +35,9 @@ class SpotifyPlayer < Formula
   end
 
   test do
-    (testpath/"command.exp").write <<~EOS
-      spawn #{bin}/spotify_player -C #{testpath}/cache -c #{testpath}/config
-      expect {
-        "Username:" { send "username\n" }
-        default { exit 1 }
-      }
-      expect {
-        "Password for username:" { send "password\n" }
-        default { exit 1 }
-      }
-      expect {
-        "Failed to authenticate" { exit 0 }
-        default { exit 1 }
-      }
-      exit 1
-    EOS
-
-    system "expect", "-f", "command.exp"
-
+    cmd = "#{bin}/spotify_player -C #{testpath}/cache -c #{testpath}/config 2>&1"
+    _, stdout, = Open3.popen2(cmd)
+    assert_match "No cached credentials found", stdout.gets("\n")
     assert_match version.to_s, shell_output("#{bin}/spotify_player --version")
   end
 end
