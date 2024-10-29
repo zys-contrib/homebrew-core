@@ -12,15 +12,12 @@ class CargoAudit < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "21bed15ab32597f77138b5580939d8968581d364fd7a666e022a9d10c1298b91"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6d4a4150d6dc6ca387b330faec6c7d02e702623292f4e98f521ed7e55ddaa17e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d593cba38ba2151f0de63eef859b6e721858d4f166d939780b069c6fcef05915"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a22b351570d486285a6deaa4b4e6406a7986a4b391463d3511a677574d592d87"
-    sha256 cellar: :any_skip_relocation, sonoma:         "45570977fbae17013a277d8f6c526846a1939ba462bf2585304e71e85501f0de"
-    sha256 cellar: :any_skip_relocation, ventura:        "8c26a8ca40fb0aa94d6ae3d2a5e686583452fb723e458d4337b138a9e66cf07c"
-    sha256 cellar: :any_skip_relocation, monterey:       "428cfe95aede6ef9ad0d9679146ccd8760f007acf9406a87847cff9c14f9cba2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "627da7addad326cf941213dc1705126a3befbcbddcd0a641153849f44a1143b0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d8b35b5ed9aaaa17e8b67f037a02823477b81f0510880469dfb19e8dfdac53b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a71c3d0f60e9a03f06736ef8da99cd3972bb843c4ee0a0eec5d5c9616ed309c9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b6147d9a1d314491ec1944b9c14a812a781ba0f0f98e8efe536eb162b54dc0a0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b4869aa826a6e54647453f3ff38902de373f533a2c9a9bb8e020109c0364b9f5"
+    sha256 cellar: :any_skip_relocation, ventura:       "f7ebf6b00cfce35080e30e96ee1f42d81e2ce50dc56909c1109dcfa3684fe751"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99578791cd07f067b67f092cd7e6362dffbff0ed7e542ce5bc055d25cf2bc8bf"
   end
 
   depends_on "rust" => :build
