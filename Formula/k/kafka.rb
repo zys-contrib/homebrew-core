@@ -1,9 +1,9 @@
 class Kafka < Formula
   desc "Open-source distributed event streaming platform"
   homepage "https://kafka.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=kafka/3.8.0/kafka_2.13-3.8.0.tgz"
-  mirror "https://archive.apache.org/dist/kafka/3.8.0/kafka_2.13-3.8.0.tgz"
-  sha256 "e0297cc6fdb09ef9d9905751b25d2b629c17528f8629b60561eeff87ce29099c"
+  url "https://www.apache.org/dyn/closer.lua?path=kafka/3.8.1/kafka_2.13-3.8.1.tgz"
+  mirror "https://archive.apache.org/dist/kafka/3.8.1/kafka_2.13-3.8.1.tgz"
+  sha256 "22174286d60caa62b25506c486944bc6e04d8cb2d2f15083d2feb48239778b62"
   license "Apache-2.0"
 
   livecheck do
