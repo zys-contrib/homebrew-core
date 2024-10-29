@@ -1,17 +1,17 @@
 class Macchina < Formula
   desc "System information fetcher, with an emphasis on performance and minimalism"
   homepage "https://github.com/Macchina-CLI/macchina"
-  url "https://github.com/Macchina-CLI/macchina/archive/refs/tags/v6.3.0.tar.gz"
-  sha256 "8483a427b70f0bfd89ff0fd5e05f9a622d9d8d84cce9cf8b390af7ee918a73f5"
+  url "https://github.com/Macchina-CLI/macchina/archive/refs/tags/v6.3.1.tar.gz"
+  sha256 "385bccc02f67c9ed6b9a483dbebdec901eb4beb82b15bb7969ee36028c19e475"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8518dfc18c21b5fdc170e90c706da7c4950bebb963ccdc443beacf203555f0be"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "77c46ca096fe6424436a8aa434eb8c6f94d6ff1dec8fe97b43d7eb87b0124b2a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cc40c3e570767d3180e29f6a574ef4f8929ee1ec440d6f1b3c5d591bf4035333"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5a810be83019b6be80790bfb3d8ae2dbf51632e6a178e2d98f2ea15499ebbb1e"
-    sha256 cellar: :any_skip_relocation, ventura:       "3fadb3b2847877402d54d5bcc48c826ba5cb142516f760f37a9f7e61c7ea15e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5fdd9f4a20ff3cdeb7f8edff6c5679dd8b34f03d38ea360277cdeced9c9ddad7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6ecc57084ae105e0d8068e693cb2b8d8ad97fdf67333fc0b56cb247492bb89dd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "401d23f452588558b961d447ba3b55c299ca65748b5e91640868ee48437fd2d8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "668fd39b49bb00d25713ecbd78fa7d72b48cb6b4eaa7c90aecfb1598d586a7ae"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a77aaa3528f6318829f13cd4105bc61efcf56dab104500d9312c0ea57dd36197"
+    sha256 cellar: :any_skip_relocation, ventura:       "4835dc98c9415fdabbf407a14529b2d84cf4b2be4b1412cdbcc47d7e089a50b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4470df67ea312015e1c176847f29fba03c193af0441683a2cec0005313d3594"
   end
 
   depends_on "rust" => :build
