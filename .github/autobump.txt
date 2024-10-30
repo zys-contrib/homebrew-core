@@ -3134,6 +3134,7 @@ zfind
 zig
 zigmod
 zipkin
+zizmor
 zk
 zlib
 zlib-ng
