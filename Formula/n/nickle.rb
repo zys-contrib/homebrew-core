@@ -12,12 +12,12 @@ class Nickle < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "17e29b7711e21eba1556eef58a7e18ede7084f6be1ddffd7a619247a318cb371"
-    sha256 arm64_sonoma:  "4c4eabad9cbf806b46ddf0b30f2c1d7c9d32c2577a6daee75d7bfb1aa23b7f2f"
-    sha256 arm64_ventura: "f84658a2e531ba8589ea8ecb6d423117e8b0d937242da37840f1322b7ca4f199"
-    sha256 sonoma:        "551f5f7257ffd11b811f44950c56a98a508b446c97a8728d0cd9c10e31d1ad47"
-    sha256 ventura:       "dadc319cf1e1785dd97d46c9fe5fe4e5f965a917c054ba12cd69b256ca97eac5"
-    sha256 x86_64_linux:  "9f9b9f1120cdb8c39e1a28c34b821a4a0961aaa0754a338cf32248f1cd4cc62c"
+    sha256 arm64_sequoia: "1ecab252876ad0c5fa8399bdb9baf6e5ee1242597d6ce156f834f664ea50bf5a"
+    sha256 arm64_sonoma:  "e877110a847c362af018f6f78271062523814535f7d81da823e3c6f33500c049"
+    sha256 arm64_ventura: "77f4b9071d00e5a97a6a471b35c2b3f4e51299835f6f60652fdae1baf4b449d7"
+    sha256 sonoma:        "cf55f4b5af9201ebade7b169f509f3e49cfdc3eabd5532aab02cde037b132b75"
+    sha256 ventura:       "567db783093aeb8f3cd16687dd726dd8933ba4dd40cf92ce609bfc5b4ae93052"
+    sha256 x86_64_linux:  "dd8949890c0eda690b192806c76b955fe6a484e2ccc97a2a088fbb1f5da4365f"
   end
 
   depends_on "autoconf" => :build
