@@ -7,14 +7,12 @@ class X265 < Formula
   head "https://bitbucket.org/multicoreware/x265_git.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "9d5cc2819d36a019616fe084fc842a57bd169de59c1df477e5dabe376e702f78"
-    sha256 cellar: :any,                 arm64_sonoma:   "ab1b8982179412855def72a0bff980132f6540c6f068070b1c6b90734ddc9357"
-    sha256 cellar: :any,                 arm64_ventura:  "e8edbb9ad48bd30b4ccb2f7c00910bb70350d494821e91afe964fe2cd4ffa14c"
-    sha256 cellar: :any,                 arm64_monterey: "fd6642c6d2cc8d79d681ab0fc0653b809d121f9c86480841b3e747cd2a4d89d2"
-    sha256 cellar: :any,                 sonoma:         "58e2a262d8b390c5a1c61cbfb0b13e8444f9b7f238df45de743345f1cb74c950"
-    sha256 cellar: :any,                 ventura:        "f490eb7249f069ed6eca04205ac8807d8cbd27aa33399a0e5b00789abcb59d2c"
-    sha256 cellar: :any,                 monterey:       "8824a782a3c8a6f7b319751292ff3a9074e02ba6e54b4e80fec01fdb6aff254c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d876f2d12e9eaff8c98a01af67852e864e75fc9f6a1f818164c7b1d8d6688dc"
+    sha256 cellar: :any,                 arm64_sequoia: "d42a6c874641eac96bb6a0c622ac42a2b691659a02c0fa357212eab370dc7c35"
+    sha256 cellar: :any,                 arm64_sonoma:  "91a955b8db45ff2818d1eda64e394a132726a9a768d373752c3e02357607dfd5"
+    sha256 cellar: :any,                 arm64_ventura: "6b04b6c694c9ff62f54db532f5557601f9ec038e1940a31601728abf49c1a750"
+    sha256 cellar: :any,                 sonoma:        "c23fa40a11314b02ab4ad95c079b01445197ebe7cf3a7134469d97ed37fc083f"
+    sha256 cellar: :any,                 ventura:       "17f959afb92f42732454bcdc8108eb22583feac30c9d6d0b3b3876a67eebed71"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6048f799a3388953510fc94c6072a3e91098fca293db4a4cec923742f7308fce"
   end
 
   depends_on "cmake" => :build
