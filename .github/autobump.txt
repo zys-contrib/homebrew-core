@@ -2035,6 +2035,7 @@ oksh
 okta-aws-cli
 okta-awscli
 okteto
+ol
 ollama
 omega
 omniorb
