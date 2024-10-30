@@ -33,12 +33,12 @@ class ClangFormat < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a82f16350cfeed607e80cc9d877d78c0cb6d465e0a66a47a6e39c159668c789a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4b12390472ef6e79e34ba8f38e9d42fabf89fcc8cffc17859ad596b24515bbb3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8977195e29109568ba0967f54a7f80e496805aa1f3f9ed690457c98eec2c1068"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3b6ed940cbf758275731110797922ee915037742ba1bfeac4c5c0501d300b648"
-    sha256 cellar: :any_skip_relocation, ventura:       "2a4da6a96d32df130b204f9a07cc504311ea3772f2aba7178180e19894abcea2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01276175af2b9b465e19581432350f2e47293e9d2ff7b61488d414330bb30129"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9df6e7a73647777ea7d721611ff214cb6dfb0035270f7c075706c10126127fe7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "51c70ed59125cdc84a9e69c71519e0389302fa79ec69237daad87d56f880fef7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "221b6502def9c8349e7b55503a925b7afad79e75edeaad2039d449156e31fe00"
+    sha256 cellar: :any_skip_relocation, sonoma:        "387d602bb80b80d5e46d091bb620080d5734022b0512b42be0a0368416e40ff5"
+    sha256 cellar: :any_skip_relocation, ventura:       "8609c73a51e4a27538fec7cf473da6a8808a273291c04df0f15959c134104048"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1f7cdba80030cd264f64d22fc3d5e0865c7167a0b2462a64bfe82d155e821c2"
   end
 
   depends_on "cmake" => :build
