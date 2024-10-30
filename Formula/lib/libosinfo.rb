@@ -1,8 +1,8 @@
 class Libosinfo < Formula
   desc "Operating System information database"
   homepage "https://libosinfo.org/"
-  url "https://releases.pagure.org/libosinfo/libosinfo-1.11.0.tar.xz"
-  sha256 "1bf96eec9e1460f3d1a713163cca1ff0d480a3490b50899292f14548b3a96b60"
+  url "https://releases.pagure.org/libosinfo/libosinfo-1.12.0.tar.xz"
+  sha256 "ad8557ece26793da43d26de565e3d68ce2ee6bfb8d0113b7cc7dfe07f6bfc6b6"
   license "LGPL-2.0-or-later"
 
   livecheck do
