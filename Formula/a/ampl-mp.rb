@@ -41,31 +41,36 @@ class AmplMp < Formula
     sha256 "1a4ef4cd1f4e8b959c20518f8f00994ef577e74e05824b2d1b241b1c3c1f84eb"
   end
 
+  # Install missing header files, remove in > 3.1.0
+  # https://github.com/ampl/mp/issues/110
+  patch do
+    url "https://github.com/ampl/mp/commit/8183be3e486d38d281e0c5a02a1ea4239695035e.patch?full_index=1"
+    sha256 "6b37201f1d0d6dba591e7e1b81fb16d2694d118605c92c422dcdaaedb463c367"
+  end
+
+  # Backport fmt header update. Remove in the next release
+  # https://github.com/ampl/mp/issues/108
+  patch do
+    url "https://github.com/ampl/mp/commit/1f39801af085656e4bf72250356a3a70d5d98e73.patch?full_index=1"
+    sha256 "b0e0185f24caba54cb38b65a638ebda6eb4db3e8c74d71ca79f072b8337e8e2c"
+  end
+
   def install
-    system "cmake", ".", *std_cmake_args, "-DBUILD_SHARED_LIBS=True"
-    system "make", "all"
-    if OS.mac?
-      MachO::Tools.change_install_name("bin/libasl.dylib", "@rpath/libmp.3.dylib",
-                                       "#{opt_lib}/libmp.dylib")
-    end
-    system "make", "install"
-
-    # Shared modules are installed in bin
-    mkdir_p libexec/"bin"
-    mv Dir[bin/"*.dll"], libexec/"bin"
-
-    # Install missing header files, remove in > 3.1.0
-    # https://github.com/ampl/mp/issues/110
-    %w[errchk.h jac2dim.h obj_adj.h].each { |h| cp "src/asl/solvers/#{h}", include/"asl" }
-
-    resource("miniampl").stage do
-      (pkgshare/"example").install "src/miniampl.c", Dir["examples/wb.*"]
-    end
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DAMPL_LIBRARY_DIR=#{libexec}/bin",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(source: libexec/"bin")}",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
-    system ENV.cc, pkgshare/"example/miniampl.c", "-std=c99", "-I#{include}/asl", "-L#{lib}", "-lasl", "-lmp"
-    cp Dir[pkgshare/"example/wb.*"], testpath
+    resource("miniampl").stage do
+      testpath.install "src/miniampl.c", Dir["examples/wb.*"]
+    end
+
+    system ENV.cc, "miniampl.c", "-std=c99", "-I#{include}/asl", "-L#{lib}", "-lasl", "-lmp"
     output = shell_output("./a.out wb showname=1 showgrad=1")
     assert_match "Objective name: objective", output
   end
