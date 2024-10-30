@@ -1,8 +1,8 @@
 class Grizzly < Formula
   desc "Command-line tool for managing and automating Grafana dashboards"
   homepage "https://grafana.github.io/grizzly/"
-  url "https://github.com/grafana/grizzly/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "d2a90e702d77bb0ac9e5a995d24650ad3510cc01f1a96b9a5cef51f35942dd2d"
+  url "https://github.com/grafana/grizzly/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "aa75c2fd7d52607e9d52a3531c496fc3ec84c6844a1aecaede7f04eeb2408737"
   license "Apache-2.0"
 
   bottle do
@@ -17,7 +17,7 @@ class Grizzly < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.Version=#{version}"
+    ldflags = "-s -w -X github.com/grafana/grizzly/pkg/config.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:, output: bin/"grr"), "./cmd/grr"
   end
 
