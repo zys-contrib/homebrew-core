@@ -6,7 +6,7 @@ class Apptainer < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "9f19af1d189f432345055e8c68ab8b07408d6925ff399faaa95c3d226ed98712"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "41666d7fa1dfb3d85292f4f864a90d834bf8ff823fe6234d7b4d94f1d14a5197"
   end
 
   # No relocation, the localstatedir to find configs etc is compiled into the program
