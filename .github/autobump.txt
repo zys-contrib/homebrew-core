@@ -817,6 +817,7 @@ eva
 evince
 evtx
 exercism
+exiftool
 exim
 exiv2
 exodriver
