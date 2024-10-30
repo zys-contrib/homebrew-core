@@ -2111,6 +2111,7 @@ osc
 osctrl-cli
 osi
 osinfo-db
+osinfo-db-tools
 osm2pgsql
 ospray
 osslsigncode
