@@ -38,17 +38,22 @@ jobs:
           cask: false
           test-bot: false
 
-      - name: Set up actionlint
+      - name: Install tools
+        run: brew install actionlint shellcheck zizmor
+
+      - name: Set up GITHUB_WORKSPACE
         env:
           HOMEBREW_TAP_REPOSITORY: ${{ steps.setup-homebrew.outputs.repository-path }}
         run: |
-          brew install actionlint shellcheck
-
           # Annotations work only relative to GITHUB_WORKSPACE
           (shopt -s dotglob; rm -rf "${GITHUB_WORKSPACE:?}"/*; mv "${HOMEBREW_TAP_REPOSITORY:?}"/* "$GITHUB_WORKSPACE")
           rmdir "$HOMEBREW_TAP_REPOSITORY"
           ln -vs "$GITHUB_WORKSPACE" "$HOMEBREW_TAP_REPOSITORY"
 
+      - run: zizmor --format sarif . >results.sarif
+
+      - name: Set up actionlint
+        run: |
           # Setting `shell: /bin/bash` prevents shellcheck from running on
           # those steps, so let's change them to `shell: bash` for linting.
           sed -i 's|shell: /bin/bash -x|shell: bash -x|' .github/workflows/*.y*ml
@@ -57,28 +62,6 @@ jobs:
           echo "::add-matcher::$HOME/actionlint-matcher.json"
 
       - run: actionlint
-
-  zizmor:
-    if: github.repository_owner == 'Homebrew'
-    runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/homebrew/ubuntu22.04:master
-    steps:
-      - name: Set up Homebrew
-        id: setup-homebrew
-        uses: Homebrew/actions/setup-homebrew@master
-        with:
-          core: true
-          cask: false
-          test-bot: false
-
-      - name: Install zizmor
-        run:  brew install zizmor
-
-      - name: Run zizmor
-        run: zizmor --format sarif "${HOMEBREW_TAP_REPOSITORY}" | tee results.sarif
-        env:
-          HOMEBREW_TAP_REPOSITORY: ${{ steps.setup-homebrew.outputs.repository-path }}
 
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3
