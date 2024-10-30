@@ -1,8 +1,8 @@
 class Step < Formula
   desc "Crypto and x509 Swiss-Army-Knife"
   homepage "https://smallstep.com"
-  url "https://github.com/smallstep/cli/releases/download/v0.27.5/step_0.27.5.tar.gz"
-  sha256 "b2e5e3c4bf2ed0b99a65bea649b66032ced94388cc08af569ee53ff299a14e18"
+  url "https://github.com/smallstep/cli/releases/download/v0.28.0/step_0.28.0.tar.gz"
+  sha256 "de06779efb5eca1bf3f3da52c69bf3cf23460b5ee0bf9f8ac3986c61588cc9b5"
   license "Apache-2.0"
 
   bottle do
@@ -18,8 +18,8 @@ class Step < Formula
 
   # certificates is not always in sync with step, see discussions in https://github.com/smallstep/certificates/issues/1925
   resource "certificates" do
-    url "https://github.com/smallstep/certificates/releases/download/v0.27.4/step-ca_0.27.4.tar.gz"
-    sha256 "6ac5ba0c183c87c6039c052de1d79082ac5df474d90ce026121607302f06ce6d"
+    url "https://github.com/smallstep/certificates/releases/download/v0.28.0/step-ca_0.28.0.tar.gz"
+    sha256 "41e0833f8ad63055928a5e01764612a5d19c2339502602aefdfdd4169191bdd1"
   end
 
   def install
