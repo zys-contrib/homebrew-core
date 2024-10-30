@@ -1091,6 +1091,7 @@ goffice
 gofumpt
 gojq
 gokey
+goku
 golang-migrate
 golangci-lint
 golangci-lint-langserver
