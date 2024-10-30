@@ -8,13 +8,12 @@ class Woob < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "0b4a6b27903d6e1d552574713f5cf4fcb233d5ee02c5f4084d4665974cdd1f95"
-    sha256 cellar: :any,                 arm64_sonoma:  "b0391f1a69d510a3c49d538ca6eb22469c86c630b1f39ca208c8a831e0490561"
-    sha256 cellar: :any,                 arm64_ventura: "b497f60f68a44dd8e255a6aed43ef35ed5f9b22f35170857efc15a74197a0d68"
-    sha256 cellar: :any,                 sonoma:        "fb07afbcccae9dacf1a7f5dff9a85d999c777bf0fd61e3a59e1a28e27550a58c"
-    sha256 cellar: :any,                 ventura:       "b460c89047db4b50932b085217a0f809b29933a18d3a1f1eed0172b554aef441"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42575e8cf1e94f2e7c164b25fdc9aae504331f4204970fd3620ab7f9431230e6"
+    sha256 cellar: :any,                 arm64_sequoia: "544f50fd03f5c1f7c551bdced33e363da67253e7f16e4f258b2e33c8b7bb38d3"
+    sha256 cellar: :any,                 arm64_sonoma:  "63f1ff18a0ae23684f16d99bec2c631a09288534396b4871e87ee4256600e54b"
+    sha256 cellar: :any,                 arm64_ventura: "5fa75ab650ca499865656bcd684aa113672df2b59bc41c79571f4902bc790583"
+    sha256 cellar: :any,                 sonoma:        "1e2193ee7da151398d2eade58cf409a2f94732abdcd35f648d57ff9e62e880e8"
+    sha256 cellar: :any,                 ventura:       "e049ae78a0a5a1af6800cf1ee86e8c26d81d7eb8dca7e72f178e68e140aea155"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e999afa8f7ee9c7963c8ac5887494976877351bd587db3b9b6e15b3abd0f07e"
   end
 
   depends_on "certifi"
