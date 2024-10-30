@@ -3,11 +3,22 @@ class Mlx < Formula
 
   desc "Array framework for Apple silicon"
   homepage "https://github.com/ml-explore/mlx"
-  url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.19.1.tar.gz"
-  sha256 "b6b76d5ddbe4ff7c667425fec2a67dc0abd258b734e708b1b45fd73910a2dc83"
   # Main license is MIT while `metal-cpp` resource is Apache-2.0
   license all_of: ["MIT", "Apache-2.0"]
   head "https://github.com/ml-explore/mlx.git", branch: "main"
+
+  # TODO: Remove `stable` block when patch is no longer needed.
+  stable do
+    url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.19.1.tar.gz"
+    sha256 "b6b76d5ddbe4ff7c667425fec2a67dc0abd258b734e708b1b45fd73910a2dc83"
+
+    # Fix running tests in VMs.
+    # https://github.com/ml-explore/mlx/pull/1537
+    patch do
+      url "https://github.com/ml-explore/mlx/commit/1a992e31e835d05638a6f3cd53d4b136996a63c9.patch?full_index=1"
+      sha256 "fd3a19a756e581840046e4b49365622025e2589bd33914602350a18c7ed0e2c2"
+    end
+  end
 
   bottle do
     sha256 cellar: :any, arm64_sequoia: "fae107bca31ed887a7453c0845d0c66f1cf45b18b09e0f7698e74f602880defb"
@@ -52,13 +63,6 @@ class Mlx < Formula
 
   def python3
     "python3.13"
-  end
-
-  # Fix running tests in VMs.
-  # https://github.com/ml-explore/mlx/pull/1537
-  patch do
-    url "https://github.com/ml-explore/mlx/commit/3f425113e8e1e8a142e3655e6eef26ed95e68594.patch?full_index=1"
-    sha256 "8ac529f592fc3ff5af49882ef8c3129969dbfd7037b388952ae42f1fc0b2d8e7"
   end
 
   def install
