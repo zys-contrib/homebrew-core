@@ -2453,6 +2453,7 @@ rsgain
 rswift
 rsyncy
 rsyslog
+rtl_433
 rtorrent
 rubberband
 ruby
