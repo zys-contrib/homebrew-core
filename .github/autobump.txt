@@ -656,6 +656,7 @@ dive
 django-completion
 djhtml
 djl-serving
+djlint
 dlib
 dmenu
 dnscontrol
