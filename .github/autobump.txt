@@ -1961,6 +1961,7 @@ nftables
 nginx
 ngt
 nickel
+nickle
 nifi
 nifi-registry
 nim
