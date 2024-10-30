@@ -1,8 +1,8 @@
 class Argc < Formula
   desc "Easily create and use cli based on bash script"
   homepage "https://github.com/sigoden/argc"
-  url "https://github.com/sigoden/argc/archive/refs/tags/v1.20.1.tar.gz"
-  sha256 "d46c0ce07c4ae7c2a01556842e09884ccf70adbfae5354f831cfe7a70cf7a2c4"
+  url "https://github.com/sigoden/argc/archive/refs/tags/v1.21.0.tar.gz"
+  sha256 "fdefde9388a19cc23c21f8261f339203c2fc2a7c9941709550c497a1cb0935d7"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
