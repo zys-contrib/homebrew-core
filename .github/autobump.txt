@@ -1600,6 +1600,7 @@ libomp
 libopenmpt
 liboqs
 liborigin
+libosinfo
 libpanel
 libpano
 libpcap
