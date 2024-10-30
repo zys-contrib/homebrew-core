@@ -3,8 +3,8 @@ class Djlint < Formula
 
   desc "Lint & Format HTML Templates"
   homepage "https://djlint.com"
-  url "https://files.pythonhosted.org/packages/a4/ee/ac8ee551ec04d5a214e62d008f40bf309574f103416482e03fb61fbad61c/djlint-1.35.2.tar.gz"
-  sha256 "318de9d4b9b0061a111f8f5164ecbacd8215f449dd4bd5a76d2a691c815ee103"
+  url "https://files.pythonhosted.org/packages/a7/e6/4b633476fa2ebbd09ade007f052617227fb0c250e7f708d6e56e9f6c4b85/djlint-1.35.3.tar.gz"
+  sha256 "780ea3e25662fca89033fa96ecf656099954d6f81dce039eac90f4bba3cbe850"
   license "GPL-3.0-or-later"
   head "https://github.com/djlint/djLint.git", branch: "master"
 
@@ -82,8 +82,8 @@ class Djlint < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/58/83/6ba9844a41128c62e810fddddd72473201f3eacde02046066142a2d96cc5/tqdm-4.66.5.tar.gz"
-    sha256 "e1020aef2e5096702d8a025ac7d16b1577279c9d63f8375b63083e9a5f0fcbad"
+    url "https://files.pythonhosted.org/packages/e9/34/bef135b27fe1864993a5284ad001157ee9b5538e859ac90f5b0e8cc8c9ec/tqdm-4.66.6.tar.gz"
+    sha256 "4bdd694238bef1485ce839d67967ab50af8f9272aab687c0d7702a01da0be090"
   end
 
   def install
