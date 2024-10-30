@@ -48,6 +48,11 @@ class Ipopt < Formula
     sha256 "cc8c217991240db7eb14189eee0dff88f20a89bac11958b48625fa512fe8d104"
   end
 
+  resource "miniampl" do
+    url "https://github.com/dpo/miniampl/archive/refs/tags/v1.0.tar.gz"
+    sha256 "b836dbf1208426f4bd93d6d79d632c6f5619054279ac33453825e036a915c675"
+  end
+
   def install
     ENV.delete("MPICC")
     ENV.delete("MPICXX")
@@ -93,9 +98,12 @@ class Ipopt < Formula
 
   test do
     testpath.install resource("test")
-    pkg_config_flags = `pkg-config --cflags --libs ipopt`.chomp.split
+    pkg_config_flags = shell_output("pkg-config --cflags --libs ipopt").chomp.split
     system ENV.cxx, "examples/hs071_cpp/hs071_main.cpp", "examples/hs071_cpp/hs071_nlp.cpp", *pkg_config_flags
     system "./a.out"
-    system bin/"ipopt", "#{Formula["ampl-mp"].opt_pkgshare}/example/wb"
+
+    resource("miniampl").stage do
+      system bin/"ipopt", "examples/wb"
+    end
   end
 end
