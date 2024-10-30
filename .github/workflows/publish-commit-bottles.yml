@@ -147,6 +147,20 @@ jobs:
             fi
           done < <(jq --raw-output '.labels[].name' <<< "$pr_data")
 
+          if [[ "$bottles" = "true" ]]
+          then
+            if jq --exit-status 'any(.[].filename; startswith("Formula/")) | not'
+            then
+              echo '::notice ::PR does not modify formulae; no bottles to publish.'
+              bottles=false
+            fi < <(
+              gh api \
+                --header 'Accept: application/vnd.github+json' \
+                --header 'X-GitHub-Api-Version: 2022-11-28' \
+                "repos/$GH_REPO/pulls/$PR/files"
+            )
+          fi
+
           requires_merge=true
           if [[ "$merged" = "true" || "$automerge_enabled" = "true" ]]
           then
