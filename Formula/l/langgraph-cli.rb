@@ -7,6 +7,10 @@ class LanggraphCli < Formula
   sha256 "210eea115772df982408366b0aad06d226e6ea3752e8784c3ce99f388b2d07c9"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "0f1a7595670629ddfb8841df53da419f788c2423f81d72119a2e366f52a8fa7c"
+  end
+
   depends_on "python@3.13"
 
   resource "click" do
