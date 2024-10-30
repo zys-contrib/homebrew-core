@@ -1,8 +1,8 @@
 class DuoUnix < Formula
   desc "Two-factor authentication for SSH"
   homepage "https://www.duosecurity.com/docs/duounix"
-  url "https://github.com/duosecurity/duo_unix/archive/refs/tags/duo_unix-2.0.3.tar.gz"
-  sha256 "40ddbaf65ed40295c8d0fe12bd3d03adac1a4e3e35e921adfc3bfe6222bb23c7"
+  url "https://github.com/duosecurity/duo_unix/archive/refs/tags/duo_unix-2.0.4.tar.gz"
+  sha256 "e77512725dedb23b3e8094ca3153fc3ffe51d3c32cd9dd56779480a93625de90"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -26,6 +26,7 @@ class DuoUnix < Formula
   end
 
   def install
+    File.write("build-date", time.to_i)
     system "./bootstrap"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
