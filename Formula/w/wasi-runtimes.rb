@@ -22,6 +22,7 @@ class WasiRuntimes < Formula
   depends_on "cmake" => :build
   depends_on "lld" => [:build, :test]
   depends_on "wasi-libc" => [:build, :test]
+  depends_on "wasm-component-ld" => [:build, :test]
   depends_on "wasmtime" => :test
   depends_on "llvm"
 
@@ -94,10 +95,6 @@ class WasiRuntimes < Formula
       ln_s pn, target
     end
 
-    # FIXME: the build mistakenly concludes our toolchain doesn't support `-fno-exceptions`
-    #        because we have no `wasm-component-ld`. Remove the line below when
-    #        `wasm-component-ld` is merged.
-    ENV.append_to_cflags "-fno-exceptions"
     target_configuration = Hash.new { |h, k| h[k] = {} }
 
     targets.each do |target|
@@ -207,9 +204,6 @@ class WasiRuntimes < Formula
 
     clang = Formula["llvm"].opt_bin/"clang"
     targets.each do |target|
-      # FIXME: Needs a working `wasm-component-ld`.
-      next if target.include?("wasip2")
-
       system clang, "--target=#{target}", "-v", "test.c", "-o", "test-#{target}"
       assert_equal "the answer is 42", shell_output("wasmtime #{testpath}/test-#{target}")
 
