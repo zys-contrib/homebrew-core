@@ -37,7 +37,12 @@ class Plplot < Formula
   end
 
   def install
-    args = std_cmake_args + %w[
+    # These example files end up with references to the Homebrew build
+    # shims unless we tweak them:
+    inreplace "examples/c/Makefile.examples.in", "@CC@", ENV.cc
+    inreplace "examples/c++/Makefile.examples.in", "@CXX@", ENV.cxx
+
+    args = %w[
       -DPL_HAVE_QHULL=OFF
       -DENABLE_ada=OFF
       -DENABLE_d=OFF
@@ -55,32 +60,9 @@ class Plplot < Formula
       -DPLD_xwin=OFF
     ]
 
-    # std_cmake_args tries to set CMAKE_INSTALL_LIBDIR to a prefix-relative
-    # directory, but plplot's cmake scripts don't like that
-    args.map! { |x| x.start_with?("-DCMAKE_INSTALL_LIBDIR=") ? "-DCMAKE_INSTALL_LIBDIR=#{lib}" : x }
-
-    # Also make sure it already exists:
-    lib.mkdir
-
-    mkdir "plplot-build" do
-      system "cmake", "..", *args
-      system "make"
-      # These example files end up with references to the Homebrew build
-      # shims unless we tweak them:
-      inreplace "examples/c/Makefile.examples", %r{^CC = .*/}, "CC = "
-      inreplace "examples/c++/Makefile.examples", %r{^CXX = .*/}, "CXX = "
-      system "make", "install"
-    end
-
-    # fix rpaths
-    cd (lib.to_s) do
-      Dir["*.dylib"].select { |f| File.ftype(f) == "file" }.each do |f|
-        MachO::Tools.dylibs(f).select { |d| d.start_with?("@rpath") }.each do |d|
-          d_new = d.sub("@rpath", opt_lib.to_s)
-          MachO::Tools.change_install_name(f, d, d_new)
-        end
-      end
-    end
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args(install_libdir: lib)
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
