@@ -3,8 +3,8 @@ class Bbot < Formula
 
   desc "OSINT automation tool"
   homepage "https://github.com/blacklanternsecurity/bbot"
-  url "https://files.pythonhosted.org/packages/cf/90/bc1e93d6bb2963f56c86cc7ac1a42953256575bc26a0d034661af6b3b3bb/bbot-2.1.0.tar.gz"
-  sha256 "fd51e0cf0631c619df8893c6a4c44d474c4957bb89067ad32fcde22003688fd4"
+  url "https://files.pythonhosted.org/packages/e7/b0/2aa36074e28982e2b8c083210d6dbd48bce11cdfd1980ded2bd0efbb6c94/bbot-2.1.1.tar.gz"
+  sha256 "a8f68a58b3a0a32a8fbf5a0e1f32bebe1b0c9cde0a8f4c5a2bc4e7d6011ac838"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -163,8 +163,8 @@ class Bbot < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/90/c7/6dc0a455d111f68ee43f27793971cf03fe29b6ef972042549db29eec39a2/psutil-5.9.8.tar.gz"
-    sha256 "6be126e3225486dff286a8fb9a06246a5253f4c7c53b475ea5f5ac934e64194c"
+    url "https://files.pythonhosted.org/packages/26/10/2a30b13c61e7cf937f4adf90710776b7918ed0a9c434e2c38224732af310/psutil-6.1.0.tar.gz"
+    sha256 "353815f59a7f64cdaca1c0307ee13558a0512f6db064e92fe833784f08539c7a"
   end
 
   resource "ptyprocess" do
@@ -238,8 +238,8 @@ class Bbot < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/07/37/b31be7e4b9f13b59cde9dcaeff112d401d49e0dc5b37ed4a9fc8fb12f409/setuptools-75.2.0.tar.gz"
-    sha256 "753bb6ebf1f465a1912e19ed1d41f403a79173a9acf66a42e7e6aec45c3c16ec"
+    url "https://files.pythonhosted.org/packages/ed/22/a438e0caa4576f8c383fa4d35f1cc01655a46c75be358960d815bfbb12bd/setuptools-75.3.0.tar.gz"
+    sha256 "fba5dd4d766e97be1b1681d98712680ae8f2f26d7881245f2ce9e40714f1a686"
   end
 
   resource "sniffio" do
