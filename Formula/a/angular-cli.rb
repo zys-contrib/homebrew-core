@@ -1,8 +1,8 @@
 class AngularCli < Formula
   desc "CLI tool for Angular"
   homepage "https://angular.dev/cli"
-  url "https://registry.npmjs.org/@angular/cli/-/cli-18.2.10.tgz"
-  sha256 "d48b8c6a2bbf731d7b97eb9539ef8defe993e141ec7c3ba15b8d404aac936820"
+  url "https://registry.npmjs.org/@angular/cli/-/cli-18.2.11.tgz"
+  sha256 "87527b80f1c797eb5823b4fcf72256c058623201ac904351b2824f1daca1a72c"
   license "MIT"
 
   bottle do
