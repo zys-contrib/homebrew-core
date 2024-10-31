@@ -10,12 +10,11 @@ class Mlx < Formula
   head "https://github.com/ml-explore/mlx.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_sequoia: "8d95b1fec7643617c266d3c4ccf1700654241a68c6d1d07a3d977c6c721ac18c"
-    sha256 cellar: :any, arm64_sonoma:  "058d61257c495ad8ce9f86e2f0753b0df84494fc2fcf242a5a5c58a7c7e54b06"
-    sha256 cellar: :any, arm64_ventura: "6f01ec4b713c37b2afff3d4f76125ad98b6f7001240488460ce331af03fa50d2"
-    sha256 cellar: :any, sonoma:        "3f5ccf6675d82014f6ed1f27845eb04f3bfeb7a0beaa203e982a277d6b649f69"
-    sha256 cellar: :any, ventura:       "69f8f83d3ab154e999363aab5a106322580f2e39d80d1bb3a29958ae394c803d"
+    sha256 cellar: :any, arm64_sequoia: "9c58e96218dcfe702b8ab1f38842142aed03bba6b09f2f2f2bb114283b349a0b"
+    sha256 cellar: :any, arm64_sonoma:  "91116c08c56480d3b6c9a9a9f7403a5a3c9612570530365b10d7e85476c1acf9"
+    sha256 cellar: :any, arm64_ventura: "a4c1ef12420d052758211e9409b26376d23b5205dde25cfec4d1cea895dceaa3"
+    sha256 cellar: :any, sonoma:        "dd7aa13a5d0c2fefac387fd2db4c2eddf00e3432662b946a0ab5e68af43f046a"
+    sha256 cellar: :any, ventura:       "e0231ce4b8361eee5d08564aaf1ddf67e14c27ed27b50217e0a2f4278933b31b"
   end
 
   depends_on "cmake" => :build
