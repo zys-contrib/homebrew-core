@@ -900,6 +900,7 @@ flatbuffers
 flawz
 fleet-cli
 flint
+flit
 flix
 flowpipe
 fluent-bit
