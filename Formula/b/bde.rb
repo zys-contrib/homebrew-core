@@ -1,8 +1,8 @@
 class Bde < Formula
   desc "Basic Development Environment: foundational C++ libraries used at Bloomberg"
   homepage "https://github.com/bloomberg/bde"
-  url "https://github.com/bloomberg/bde/archive/refs/tags/4.14.0.0.tar.gz"
-  sha256 "b6dbc5438b666b15548192e2faf9bf80305c1a63aec45182bf8838084521fdb1"
+  url "https://github.com/bloomberg/bde/archive/refs/tags/4.16.1.0.tar.gz"
+  sha256 "32bb1912b6c37b11ca86c87a7295adeca928ef816014926da089088e5a843d6d"
   license "Apache-2.0"
 
   livecheck do
@@ -26,15 +26,11 @@ class Bde < Formula
   depends_on "pcre2"
 
   resource "bde-tools" do
-    url "https://github.com/bloomberg/bde-tools/archive/refs/tags/4.8.0.0.tar.gz"
-    sha256 "49fdfb3a3e2c4803ba8a9bfa680cb50943c41ef1e6b1725087b877557b82bd35"
+    url "https://github.com/bloomberg/bde-tools/archive/refs/tags/4.13.0.0.tar.gz"
+    sha256 "d70ab85eb1a4325f3d569a6b7ea0f0a44a6143fd91905ab5fbaa5e1fed111a68"
   end
 
   def install
-    # TODO: `bde-tools` did not have a matching tag for 4.14.0.0. Check if it's in sync again in the next release.
-    # odie "bde-tools resource needs to be updated" if version != resource("bde-tools").version
-    odie "Check if bde-tools resource version is in sync again" if version > "4.14.0.0"
-
     (buildpath/"bde-tools").install resource("bde-tools")
 
     # Use brewed pcre2 instead of bundled sources
