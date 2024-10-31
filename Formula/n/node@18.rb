@@ -4,7 +4,7 @@ class NodeAT18 < Formula
   url "https://nodejs.org/dist/v18.20.4/node-v18.20.4.tar.xz"
   sha256 "a76c7ea1b96aeb6963a158806260c8094b6244d64a696529d020547b9a95ca2a"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://nodejs.org/dist/"
@@ -31,7 +31,7 @@ class NodeAT18 < Formula
   depends_on "python@3.13" => :build
   depends_on "brotli"
   depends_on "c-ares"
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
   depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "openssl@3"
@@ -51,6 +51,12 @@ class NodeAT18 < Formula
   end
 
   fails_with gcc: "5"
+
+  # Backport support for ICU 76+
+  patch do
+    url "https://github.com/nodejs/node/commit/81517faceac86497b3c8717837f491aa29a5e0f9.patch?full_index=1"
+    sha256 "79a5489617665c5c88651a7dc364b8967bebdea5bdf361b85572d041a4768662"
+  end
 
   # py3.13 build patch
   patch :DATA
