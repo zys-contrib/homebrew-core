@@ -14,11 +14,12 @@ class Tarantool < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "5f117fd009f89af0abf902bf998672b39245686d690fffb3dc6b05b02660a8f8"
-    sha256 cellar: :any,                 arm64_ventura: "680685e7c6f484fe77b29fafcea65f9e8a5bf4c2871a66acccf3b329f4dda354"
-    sha256 cellar: :any,                 sonoma:        "2461f907aa5caf3d445e70a1dc67184102d0aa337f5851264cf8de41ac25e3ec"
-    sha256 cellar: :any,                 ventura:       "ab6593510eeafe2e45c94ecb3dfc564d5d65ded360f28577b9e473221c753135"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d35fc9a3a07fbda58c72b8cda1f3211a3c4825478729c85dac7db80156f76f41"
+    sha256 cellar: :any,                 arm64_sequoia: "bff37ca289d3df826b015ea6ebe52768f4008d048ab0f65a4270c0824b556a95"
+    sha256 cellar: :any,                 arm64_sonoma:  "c1ee7443668cf4daa12d94c7bfbbd862d496d3db39b85de6e0c60dfaa13e7541"
+    sha256 cellar: :any,                 arm64_ventura: "825a3045ee59043164ec703ab617a8ad10f56fd7e07b311c89e049330d8ee985"
+    sha256 cellar: :any,                 sonoma:        "fc0549f96990073d51f54e713c8f22166afcd2dec10292c285ddb4ce6333d452"
+    sha256 cellar: :any,                 ventura:       "827542a4434d9851158db60471ce0ce2c9d24a8aac2bf5f1fa3629c08fa6905c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c42bbd3188fb78a41fc23f9f65cc63e9a59f42ec3bad4e02e6f8891b8ac7f32a"
   end
 
   depends_on "cmake" => :build
