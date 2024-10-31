@@ -486,6 +486,7 @@ coin3d
 coinutils
 colima
 colmap
+commandbox
 commitizen
 commitlint
 composer
