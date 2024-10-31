@@ -5,6 +5,7 @@ class SpidermonkeyAT115 < Formula
   version "115.17.0"
   sha256 "80f184a102a743ee75401e86dd86af0be5f1e5ebf07c81119d9ca77422d716c3"
   license "MPL-2.0"
+  revision 1
 
   # Spidermonkey versions use the same versions as Firefox, so we simply check
   # Firefox ESR release versions.
@@ -27,7 +28,7 @@ class SpidermonkeyAT115 < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => :build # https://bugzilla.mozilla.org/show_bug.cgi?id=1857515
   depends_on "rust" => :build
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
   depends_on "nspr"
   depends_on "readline"
 
@@ -55,6 +56,10 @@ class SpidermonkeyAT115 < Formula
   end
 
   def install
+    # Workaround for ICU 76+
+    # Issue ref: https://bugzilla.mozilla.org/show_bug.cgi?id=1927380
+    inreplace "js/moz.configure", '"icu-i18n >= 73.1"', '"icu-i18n >= 73.1 icu-uc"'
+
     if OS.mac?
       inreplace "build/moz.configure/toolchain.configure" do |s|
         # Help the build script detect ld64 as it expects logs from LD_PRINT_OPTIONS=1 with -Wl,-version
