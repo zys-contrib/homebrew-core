@@ -3,22 +3,11 @@ class Mlx < Formula
 
   desc "Array framework for Apple silicon"
   homepage "https://github.com/ml-explore/mlx"
+  url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.19.2.tar.gz"
+  sha256 "0a53f9542c40a27efc9902e2d59223e3c6b0b6c581fff51b513a754f6c95a601"
   # Main license is MIT while `metal-cpp` resource is Apache-2.0
   license all_of: ["MIT", "Apache-2.0"]
   head "https://github.com/ml-explore/mlx.git", branch: "main"
-
-  # TODO: Remove `stable` block when patch is no longer needed.
-  stable do
-    url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.19.1.tar.gz"
-    sha256 "b6b76d5ddbe4ff7c667425fec2a67dc0abd258b734e708b1b45fd73910a2dc83"
-
-    # Fix running tests in VMs.
-    # https://github.com/ml-explore/mlx/pull/1537
-    patch do
-      url "https://github.com/ml-explore/mlx/commit/1a992e31e835d05638a6f3cd53d4b136996a63c9.patch?full_index=1"
-      sha256 "fd3a19a756e581840046e4b49365622025e2589bd33914602350a18c7ed0e2c2"
-    end
-  end
 
   bottle do
     rebuild 1
