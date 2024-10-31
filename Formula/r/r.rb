@@ -4,6 +4,7 @@ class R < Formula
   url "https://cran.r-project.org/src/base/R-4/R-4.4.2.tar.gz"
   sha256 "1578cd603e8d866b58743e49d8bf99c569e81079b6a60cf33cdf7bdffeb817ec"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://cran.rstudio.com/banner.shtml"
@@ -11,12 +12,12 @@ class R < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "29cd20b726c8a97f02411884103ea719e63b40743c0356c795e3445acb313cea"
-    sha256 arm64_sonoma:  "5dace2bc18ff43af733e26555dd56e469c9742053ac0203049a4ba3f3c215243"
-    sha256 arm64_ventura: "4bc3b79ec3fd9470b0b73d1e01ea6f5195d2b3d1fc1838b9e96c09c22595a747"
-    sha256 sonoma:        "152412cb363538261d7c30cabb6de3714786edb32733ead23a4c432db21acb70"
-    sha256 ventura:       "d67e09f1a11d1daf7bdf4eca41a4ea523b2da2d10abc3f3f41ae90b73d3fbc46"
-    sha256 x86_64_linux:  "f8d4a2f01ce2267a4c57473815720aaebd68b45a60e565832a04b5d430b89113"
+    sha256 arm64_sequoia: "bbcafded8e225c815608b0201fbe4197689b0cfb2fe16f69bd575d7917bb2f85"
+    sha256 arm64_sonoma:  "8dd4da0184d471ed617eb5cfd4d09df9e2617c8fa3dd1af7be80e2d91444a4f3"
+    sha256 arm64_ventura: "3ef590558c6dffa340458ddef8214e8d68843718592d0b3bda6968a5a9349373"
+    sha256 sonoma:        "27afd41e4391a0f3c34144ceb69890a820e1f1bd58e410741200b61ae7655484"
+    sha256 ventura:       "72c62120748105ef5301e8ee728043fd1ab7602256eeff95045d67a4a4f9020d"
+    sha256 x86_64_linux:  "796fd551b8d417ca9c4ec02688178d8a89f82e415a10a130a630ffd7c02f8e6f"
   end
 
   depends_on "pkg-config" => :build
@@ -34,7 +35,6 @@ class R < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "curl"
-  uses_from_macos "icu4c"
   uses_from_macos "libffi", since: :catalina
   uses_from_macos "zlib"
 
@@ -52,6 +52,7 @@ class R < Formula
   on_linux do
     depends_on "glib"
     depends_on "harfbuzz"
+    depends_on "icu4c@76"
     depends_on "libice"
     depends_on "libsm"
     depends_on "libtirpc"
@@ -117,11 +118,9 @@ class R < Formula
       system "make", "install"
     end
 
-    cd "src/nmath/standalone" do
-      system "make"
-      ENV.deparallelize do
-        system "make", "install"
-      end
+    system "make", "-C", "src/nmath/standalone"
+    ENV.deparallelize do
+      system "make", "-C", "src/nmath/standalone", "install"
     end
 
     r_home = lib/"R"
@@ -137,10 +136,9 @@ class R < Formula
     lib.install_symlink Dir[r_home/"lib/*"]
 
     # avoid triggering mandatory rebuilds of r when gcc is upgraded
-    check_replace = OS.mac?
     inreplace lib/"R/etc/Makeconf", Formula["gcc"].prefix.realpath,
                                     Formula["gcc"].opt_prefix,
-                                    check_replace
+                                    audit_result: OS.mac?
   end
 
   def post_install
