@@ -12,19 +12,13 @@ class AmplMp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "a54c96171166e097c5ca01df439f990b477c55ed19d197a1f112f1373e0d6465"
-    sha256 cellar: :any,                 arm64_sonoma:   "d73bc6d66f6b77daf6ba643fade064b9bf281196d136a5d36832a4dc74ad95d1"
-    sha256 cellar: :any,                 arm64_ventura:  "0a6ec6b35631a0156e62ed56554b734b7d621ce0933784cf154d09c9d6419a30"
-    sha256 cellar: :any,                 arm64_monterey: "27fdafce7e558441048fe2107a783304a5ebb275fdb1c435f0f30a6135d3bbf5"
-    sha256 cellar: :any,                 arm64_big_sur:  "5a666c8f40e7d66e6c065e21abada4c2fbfc5917fed422beb6c14b357e0e41b2"
-    sha256 cellar: :any,                 sonoma:         "72186beab07bf364fce83862f7e0e131b14b27db29d934a50c311d7c13d9821e"
-    sha256 cellar: :any,                 ventura:        "7f1af712490a2a051c72196a15a17061184b1f0c0c2f29852455fb68c5895a6c"
-    sha256 cellar: :any,                 monterey:       "c2323285b97b8a697e564fc444fd3dd4424cb3d6a1ea6e8e336735eee5e3ac5f"
-    sha256 cellar: :any,                 big_sur:        "512e10d2061408b42b14b9834bdb4f4ad85f859c578ebab99efda98d3f6f4957"
-    sha256 cellar: :any,                 catalina:       "c111c501330b3ff8e3bde1a7e679f162bea1038df07de96810ea5cbe34775740"
-    sha256 cellar: :any,                 mojave:         "bf329d7a40c3a21cb745d9d86bc0cf4add18397aedd6b36eb8e27feab822f1e3"
-    sha256 cellar: :any,                 high_sierra:    "835aea5e86e3780681cb38ebe0f0dcd522ed21f80ed4711ad10e66b6c0814d03"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4efb0ad66f2cd0930a0f5f50edf249ac4c8f436f34b5b8cf95b90199d1d5d3e9"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "d02c9a51954b17ab0a6caa31093daa7be212239b957d2224b773aaaa19b89c59"
+    sha256 cellar: :any,                 arm64_sonoma:  "02f9efaecf470dffc6bff5b71530d0245b342f0e3805f73a5741b15a175e348a"
+    sha256 cellar: :any,                 arm64_ventura: "cf8589ed55bdfa5612fe9f4efc698eed1000e332446900798b1d4ebcd9f4e77e"
+    sha256 cellar: :any,                 sonoma:        "fdf52601bd4c9990a80d1a14600d7c8649f2597bf4af38c966f9f806835eff44"
+    sha256 cellar: :any,                 ventura:       "48756d110b0bac36eec0f33e181ad12f68632cb3087ccebb8451ef1d31798294"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14117080e712ec6bcfd79084440b9264783a4567b9f31368bf8fa7109d718f58"
   end
 
   depends_on "cmake" => :build
