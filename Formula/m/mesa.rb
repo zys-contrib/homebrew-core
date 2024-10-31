@@ -23,12 +23,12 @@ class Mesa < Formula
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   bottle do
-    sha256 arm64_sequoia: "27f93d2f56586058bbb444602921c15bed3d4c27c5c936b3a0a21ebfbd833587"
-    sha256 arm64_sonoma:  "77a34866295872ce2ce0a66778a158e44f5e8da716086042b3e43dd0daa8a54c"
-    sha256 arm64_ventura: "1b8056e4caccf47ec823cbfb7cf09c7df0ef269bcc09e68ae4ecbce7441b3367"
-    sha256 sonoma:        "e1e7542fea5fcafc5b5bd9518cfa5ccecae2553fe2544d602324e6dac2afe1b7"
-    sha256 ventura:       "a5e0f9c5ee5da190b4b50d659d5146d2fb9d879b323b7f68b2c2dc9e8269a3a2"
-    sha256 x86_64_linux:  "1bd785c722c5c5108668e32b52d9d73b2490ac1edcd3e2637a4b45ba8e7792d7"
+    sha256 arm64_sequoia: "f1708458428ecc0f73b87d79dde84c81df35d9374191d25c30064e660a6c705a"
+    sha256 arm64_sonoma:  "78c6a7c5dfc251efbf218a3e946736f0610dee83045219ce720ed33930fb2b4f"
+    sha256 arm64_ventura: "d746888600473abc46619a9d06f0bb89aa6fcf821802386aad1f447fc2d95959"
+    sha256 sonoma:        "7a24e3c85b09d0eda512940991424860548f22eae20bcb4cd5a0e63d7fd3f36d"
+    sha256 ventura:       "81c7c9fa471b25600fc6e48d8d49a586e76ad9ac10e9b8d4b1cf8f31209756d6"
+    sha256 x86_64_linux:  "65d97bb0b716ff6ee542c7802af2f40935091d37d01acc3b561fc8d8c2e82b73"
   end
 
   depends_on "bison" => :build # can't use from macOS, needs '> 2.3'
