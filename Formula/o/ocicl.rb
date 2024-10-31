@@ -4,6 +4,7 @@ class Ocicl < Formula
   url "https://github.com/ocicl/ocicl/archive/refs/tags/v2.5.13.tar.gz"
   sha256 "ba28c9dc813fcd9f519a736daacc3362e6e4780a33f6fceba9b25fb0fdef35a5"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 arm64_sequoia: "cf6e754c0940d82cbff8f01f33f604f9f48bb1b4f80781a363666c11b25bce73"
