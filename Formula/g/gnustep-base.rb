@@ -4,7 +4,7 @@ class GnustepBase < Formula
   url "https://github.com/gnustep/libs-base/releases/download/base-1_30_0/gnustep-base-1.30.0.tar.gz"
   sha256 "00b5bc4179045b581f9f9dc3751b800c07a5d204682e3e0eddd8b5e5dee51faa"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -32,11 +32,14 @@ class GnustepBase < Formula
   depends_on "gnutls"
 
   uses_from_macos "llvm" => :build
-  uses_from_macos "icu4c", since: :monterey
   uses_from_macos "libffi"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "zlib"
+
+  on_system :linux, macos: :big_sur_or_older do
+    depends_on "icu4c@76"
+  end
 
   on_linux do
     depends_on "libobjc2"
@@ -58,7 +61,7 @@ class GnustepBase < Formula
       Formula["gnustep-make"].share/"GNUstep/Makefiles"
     end
 
-    if OS.mac? && (sdk = MacOS.sdk_path_if_needed)
+    if OS.mac? && MacOS.version > :big_sur && (sdk = MacOS.sdk_path_if_needed)
       ENV["ICU_CFLAGS"] = "-I#{sdk}/usr/include"
       ENV["ICU_LIBS"] = "-L#{sdk}/usr/lib -licucore"
 
@@ -69,7 +72,7 @@ class GnustepBase < Formula
     # Don't let gnustep-base try to install its makefiles in cellar of gnustep-make.
     inreplace "Makefile.postamble", "$(DESTDIR)$(GNUSTEP_MAKEFILES)", share/"GNUstep/Makefiles"
 
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install", "GNUSTEP_HEADERS=#{include}",
                               "GNUSTEP_LIBRARY=#{share}",
                               "GNUSTEP_LOCAL_DOC_MAN=#{man}",
