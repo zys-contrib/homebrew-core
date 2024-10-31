@@ -4,7 +4,7 @@ class PostgresqlAT12 < Formula
   url "https://ftp.postgresql.org/pub/source/v12.20/postgresql-12.20.tar.bz2"
   sha256 "2d543af3009fec7fd5af35f7a70c95085d3eef6b508e517aa9493e99b15e9ea9"
   license "PostgreSQL"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -26,7 +26,7 @@ class PostgresqlAT12 < Formula
   deprecate! date: "2024-11-14", because: :unsupported
 
   depends_on "pkg-config" => :build
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
 
   # GSSAPI provided by Kerberos.framework crashes when forked.
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
