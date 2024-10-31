@@ -27,13 +27,12 @@ class Lammps < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5b581262cd98e2c79b89882fdafb83ac0bde0bd37be5285bc5c6d2426b33a7b3"
-    sha256 cellar: :any,                 arm64_ventura:  "b7accba094e2ca417c737492f5223c6cafbd864c3466a2e23985160ff37d5466"
-    sha256 cellar: :any,                 arm64_monterey: "b8e3d38d52cedab8ed377b4424e83bd36b6a9f6e1f148c4f128748286e5b2ca8"
-    sha256 cellar: :any,                 sonoma:         "51e16b825b69c5bb59b75b3b88a2ee7fc02f82b296dd0b6e335c0313c8ecdc70"
-    sha256 cellar: :any,                 ventura:        "dc6cddae1cbd649dfcc6e01a852e30d866729dfd6fb88cd8e20ab1d34589a9ce"
-    sha256 cellar: :any,                 monterey:       "1951d9aabdc07cf991bf0613b1895ca46a705957a0b666ecdee38b4e82bd309f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bebcbb2129c3580d79f51e68843300dbb90c332312ab11f1aa23aa82a102f9af"
+    sha256 cellar: :any,                 arm64_sequoia: "5648e80b5ead42c21c3ceae7c1a5017980ecde4fdaa30626a7649f5e76096ccb"
+    sha256 cellar: :any,                 arm64_sonoma:  "5f7a3497fcc46ce6c7fb3f6f19f2c46e56f9077a6a8c06ac9d324883079cbea4"
+    sha256 cellar: :any,                 arm64_ventura: "c3a87090d0391ca8d5ca85ac6718940df364b0bf3559789e9ca63173f243811c"
+    sha256 cellar: :any,                 sonoma:        "e1270a540fd2b607ae04d7a5f60fa590a1dbd2e320d69b6b25adca87257bd256"
+    sha256 cellar: :any,                 ventura:       "e6fbf42af750a5be28c2d3e2de55f37935dabbcc9c6c1a09529ef40cdfaa60fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "441b6ae8f42e2809ca13388dabee6969007a295a91ed32b8388f4cd517e9050c"
   end
 
   depends_on "cmake" => :build
