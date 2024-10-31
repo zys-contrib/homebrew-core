@@ -4,7 +4,7 @@ class MysqlAT84 < Formula
   url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.3.tar.gz"
   sha256 "7ac9564c478022f73005ff89bbb40f67b381fc06d5518416bdffec75e625b818"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
-  revision 1
+  revision 2
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/8.4.html?tpl=files&os=src&version=8.4"
@@ -26,7 +26,7 @@ class MysqlAT84 < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "abseil"
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
   depends_on "lz4"
   depends_on "openssl@3"
   depends_on "protobuf"
@@ -92,7 +92,8 @@ class MysqlAT84 < Formula
       ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib/"c++"
     end
 
-    icu4c = deps.map(&:to_formula).find { |f| f.name.match?(/^icu4c@\d+$/) }
+    icu4c = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
+                .to_formula
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     # -DWITH_FIDO=system isn't set as feature isn't enabled and bundled copy was removed.
     # Formula paths are set to avoid HOMEBREW_HOME logic in CMake scripts
