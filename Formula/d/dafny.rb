@@ -6,9 +6,9 @@ class Dafny < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma: "64688cc708b1ac3bb80885d6dde63f5637adf26afcef0a63df1c0aad94ff9b4e"
-    sha256 cellar: :any_skip_relocation, sonoma:       "d9be42d9d26b9c95351b3537a0e6f2322a8f28127fe42ee569e2388b03ec217d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "978706911bd498d135fd0c3c2909697c345f4819be29a3eb0ce8213f95b1af6d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma: "1d0c2d698efa882dc35316a259c2d1bca1f3814f2b143f01e1088e3a4b10c77b"
+    sha256 cellar: :any_skip_relocation, sonoma:       "b780a11bcc50e5c26ee52e3ea912be50caf1d0404afe9fb0f6bd3d55b3b48fe9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "f5797f4585a7641abb8e04c9ff93410bb9efed682344b772edd313ff6622a2dd"
   end
 
   # Align deprecation with dotnet@6. Can be undeprecated if dependency is updated.
