@@ -2,7 +2,7 @@ class Chakra < Formula
   desc "Core part of the JavaScript engine that powers Microsoft Edge"
   homepage "https://github.com/chakra-core/ChakraCore"
   license "MIT"
-  revision 8
+  revision 9
   head "https://github.com/chakra-core/ChakraCore.git", branch: "master"
 
   stable do
@@ -43,7 +43,7 @@ class Chakra < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
 
   uses_from_macos "llvm" => :build
   uses_from_macos "python" => :build
@@ -55,6 +55,8 @@ class Chakra < Formula
   def install
     # Use ld_classic to work around 'ld: Assertion failed: (0 && "lto symbol should not be in layout")'
     ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
+    # Workaround to build with ICU 76+
+    ENV.append_to_cflags "-DU_SHOW_CPLUSPLUS_HEADER_API=0"
 
     icu4c_dep = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
     args = %W[
@@ -64,17 +66,18 @@ class Chakra < Formula
     ]
     # LTO requires ld.gold, but Chakra has no way to specify to use that over regular ld.
     args << "--lto-thin" if OS.mac? && !Hardware::CPU.arm?
-    # JIT is not supported on ARM
-    args << "--no-jit" if Hardware::CPU.arm?
+    # JIT is not supported on ARM and build fails since Xcode 16
+    args << "--no-jit" if Hardware::CPU.arm? || DevelopmentTools.clang_build_version >= 1600
 
-    # Build dynamically for the shared library
     system "./build.sh", *args
-    # Then statically to get a usable binary
-    system "./build.sh", "--static", *args
 
-    bin.install "out/Release/ch" => "chakra"
+    libexec.install "out/Release/ch" => "chakra"
     include.install Dir["out/Release/include/*"]
     lib.install "out/Release/#{shared_library("libChakraCore")}"
+
+    # Non-statically built chakra expects libChakraCore to be in the same directory
+    bin.install_symlink libexec/"chakra"
+    libexec.install_symlink lib.children
   end
 
   test do
