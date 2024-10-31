@@ -4,7 +4,7 @@ class Libzim < Formula
   url "https://github.com/openzim/libzim/archive/refs/tags/9.2.3.tar.gz"
   sha256 "7c6e7fcaf5bc82447edb12c6c573779af6d77b3b79227da57586e81c4e13f1bf"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any, arm64_sequoia: "d339d5a5890ded1fb8757e081dd2e4d528e3e67e40076b10a0dd15cc82d56723"
@@ -19,12 +19,19 @@ class Libzim < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
 
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
   depends_on "xapian"
   depends_on "xz"
   depends_on "zstd"
 
   uses_from_macos "python" => :build
+
+  # Apply commit from open PR to fix build with ICU 76+
+  # PR ref: https://github.com/openzim/libzim/pull/936
+  patch do
+    url "https://github.com/openzim/libzim/commit/48c8c3fa7ad7a54f6df9a5be2676d189bbaf0022.patch?full_index=1"
+    sha256 "f88890feab66aec7861b4eaab58202d6417c7c4d3692fe56f0e4b5fba06c64a3"
+  end
 
   def install
     system "meson", "setup", "build", *std_meson_args
