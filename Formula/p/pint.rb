@@ -1,17 +1,17 @@
 class Pint < Formula
   desc "Prometheus rule linter/validator"
   homepage "https://cloudflare.github.io/pint/"
-  url "https://github.com/cloudflare/pint/archive/refs/tags/v0.67.1.tar.gz"
-  sha256 "13dfd2f05540a82ba5cdd344d9df237a318c055a9e25f29c25da316731a4cd54"
+  url "https://github.com/cloudflare/pint/archive/refs/tags/v0.67.2.tar.gz"
+  sha256 "3a78b0d0b6d9656f26485125dede9110295d1dedd34302408e63766c91062ae3"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b300ad8f4d733b6ae871aee3ac104870ee69f2ae93370b93576b771f7e7a50dc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b300ad8f4d733b6ae871aee3ac104870ee69f2ae93370b93576b771f7e7a50dc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b300ad8f4d733b6ae871aee3ac104870ee69f2ae93370b93576b771f7e7a50dc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e045f1842878199b7aa60baf079b05ef6af1af31dad35d284a597727483c97ec"
-    sha256 cellar: :any_skip_relocation, ventura:       "e045f1842878199b7aa60baf079b05ef6af1af31dad35d284a597727483c97ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e63c9d79079b3be8f0c673fd4a88a4c1f3c56bab364aa3a0c15459146ec0a19f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "68ee71b09b1326f6f60316581cc7472c96d0f647c07e1181de27c7b283c7e51d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "68ee71b09b1326f6f60316581cc7472c96d0f647c07e1181de27c7b283c7e51d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "68ee71b09b1326f6f60316581cc7472c96d0f647c07e1181de27c7b283c7e51d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fb3741d05739e8c44e04e374e8f270f39df4a2e759da1ba491dcc84fb36fcee7"
+    sha256 cellar: :any_skip_relocation, ventura:       "fb3741d05739e8c44e04e374e8f270f39df4a2e759da1ba491dcc84fb36fcee7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e803f731b0292dfca57bfc22a2cfaa76da1cd758bafc335eccd0046211d517d2"
   end
 
   depends_on "go" => :build
