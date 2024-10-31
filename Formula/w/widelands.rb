@@ -13,12 +13,12 @@ class Widelands < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "ef5011b7b2949d380e2793bd2805d64ae6df4ff121cbbc0a527832e517ee04f2"
-    sha256 arm64_sonoma:  "433046161980ec43882054adfe81d69b7a66be689816608d6436b027192af261"
-    sha256 arm64_ventura: "0c55b3ec21a434d72e4752b5da90111de2c9bf0118ea049221e30d538a84f224"
-    sha256 sonoma:        "ff50e8ef45cae5c807fc27267fbcb133b010cfa8c7acf1bb493fed0efa91cebe"
-    sha256 ventura:       "c629a2736fc3437abb528a9de87794edc8afb3fc22a4e0071322385ac2a601ad"
-    sha256 x86_64_linux:  "7664648dc80ec5a0d70fa674628244f8a652b1e326f1f1ee03b7187570f43169"
+    sha256 arm64_sequoia: "ea622071da61757e744d812326cbc8b31a7a822f81090acc233ce28ba7c45684"
+    sha256 arm64_sonoma:  "2240e9f7aa02fa0d52cb15ccab35d09526b43b221d77870d96d11c2a8abdfd98"
+    sha256 arm64_ventura: "7098fe65d2ea70361f15f302bd7b2afe0307d6cc75fea5fc2eedd151eea61ce6"
+    sha256 sonoma:        "1fb275dfe64f2dedd8e92c5ae13383dab1b6b9ba9196f39a4a66833889332f60"
+    sha256 ventura:       "a3c929405dc321113ec2e9e459aa3c19b0ccc25ca61234c48c05888fca6caf78"
+    sha256 x86_64_linux:  "5188b857c4b567851bfc82ffc660662f66c925cd75a06b1442a1bdee02dfddfc"
   end
 
   depends_on "asio" => :build
