@@ -4,7 +4,7 @@ class NodeAT16 < Formula
   url "https://nodejs.org/dist/v16.20.2/node-v16.20.2.tar.xz"
   sha256 "576f1a03c455e491a8d132b587eb6b3b84651fc8974bb3638433dd44d22c8f49"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "1ddecac75c7cc914a727d10838f2856536f81c35b53dc2bb91ee9340523f6009"
@@ -24,7 +24,7 @@ class NodeAT16 < Formula
   depends_on "python@3.11" => :build
   depends_on "brotli"
   depends_on "c-ares"
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
   depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "openssl@3"
@@ -42,6 +42,12 @@ class NodeAT16 < Formula
   end
 
   fails_with gcc: "5"
+
+  # Backport support for ICU 76+
+  patch do
+    url "https://github.com/nodejs/node/commit/81517faceac86497b3c8717837f491aa29a5e0f9.patch?full_index=1"
+    sha256 "79a5489617665c5c88651a7dc364b8967bebdea5bdf361b85572d041a4768662"
+  end
 
   def install
     # icu4c 75+ needs C++17. Node 16 uses `-std=gnu++14` so keep GNU extensions
