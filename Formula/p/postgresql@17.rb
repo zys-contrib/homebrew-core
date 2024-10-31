@@ -4,7 +4,7 @@ class PostgresqlAT17 < Formula
   url "https://ftp.postgresql.org/pub/source/v17.0/postgresql-17.0.tar.bz2"
   sha256 "7e276131c0fdd6b62588dbad9b3bb24b8c3498d5009328dba59af16e819109de"
   license "PostgreSQL"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -29,7 +29,7 @@ class PostgresqlAT17 < Formula
   depends_on "docbook-xsl" => :build
   depends_on "gettext" => :build
   depends_on "pkg-config" => :build
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
   # GSSAPI provided by Kerberos.framework crashes when forked.
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
   depends_on "krb5"
