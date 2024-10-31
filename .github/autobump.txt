@@ -2157,6 +2157,7 @@ parsedmarc
 partio
 pass-git-helper
 passenger
+passt
 pastel
 patat
 patchelf
