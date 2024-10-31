@@ -12,12 +12,12 @@ class Libmspub < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b33108e9f470c326457ce72597150776142fe65cef4e836ab316e1aa53efe419"
-    sha256 cellar: :any,                 arm64_sonoma:  "bd81708ab36ccd98ab4d0ae5b9c05358161168e1736270abf53ebfa3d4dd3bc5"
-    sha256 cellar: :any,                 arm64_ventura: "4f8fbeaa5611e8a8fdbd043689f5919e559364b2306dc030f937d40ef6d17110"
-    sha256 cellar: :any,                 sonoma:        "7b3a6c9a3272ca1ae667c95d708f1b9d2a61de80ee77d8767184e0be4ef05ddf"
-    sha256 cellar: :any,                 ventura:       "cebfac88c71d5c974b27d87383c8ea1226827688245697dcf794f481bd3a34bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6392ab88071ddb41424b8ddb0698e9c45a0a89ae91bcb801938e00c46b155613"
+    sha256 cellar: :any,                 arm64_sequoia: "46498702c9fbd8ee646cd137afa86d3d4a1cffcab85b95a379234ab36bf02190"
+    sha256 cellar: :any,                 arm64_sonoma:  "9934e56fcb78fc1403f3223df2ed62226ce5fe9615037b76930f22e1a58d9106"
+    sha256 cellar: :any,                 arm64_ventura: "009cdc0dfadb6a728fa11315d3104655206839dc0a2dd256c45725d1c12ea69f"
+    sha256 cellar: :any,                 sonoma:        "36b77a094590874fe4cc27f3d781471c72a8d94704cf2162b24fd9caa4bd7aee"
+    sha256 cellar: :any,                 ventura:       "b8198c7e9d9ea481b6e07be4714322729f71029fae8ca3dc17ff7ede5c1f94e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e79e91b8bc1bee60c4f6a920edc0490a24f06ec6f31e6ba81fb9d192b647c8ac"
   end
 
   depends_on "boost" => :build
