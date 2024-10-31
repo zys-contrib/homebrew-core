@@ -15,12 +15,12 @@ class Mapnik < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "fa50fbcf7bccfda8776f66b624a66b0d8efa750afa93881403879c857bd26638"
-    sha256 cellar: :any,                 arm64_sonoma:  "471145019614d7468a9eb6a823381af41b07a46619e3d06d9059cb539bcfe83c"
-    sha256 cellar: :any,                 arm64_ventura: "b665c7179dca160990c2b21ba5fbac88ced96c9718591b8bf271c28d903053a2"
-    sha256 cellar: :any,                 sonoma:        "82f415996ea6d244779903c718a1196338f3b9efe72ea14a0d64ca119484bba0"
-    sha256 cellar: :any,                 ventura:       "ce2d965f33b79c612bbce543d3320e8f96e4d96b9ea5a4a5d1bf68ae1f84bc57"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "258fb4ed55478f0fbf50e74ef23ba9d2da75af065eb294849c613aadcffe7672"
+    sha256 cellar: :any,                 arm64_sequoia: "5583a6c0c16d12a2a7dbe3ca979f954dfec1500ff6bf23e9af70271b961584b4"
+    sha256 cellar: :any,                 arm64_sonoma:  "38a345b5ba53e9e6b3b20ec8646ac0f43a2564c4268d9ad59baeebc01fbc7476"
+    sha256 cellar: :any,                 arm64_ventura: "94c70788a5b604e1b54cbb302580b32237f4d8856b4e4e31d4043b40e80c3b09"
+    sha256 cellar: :any,                 sonoma:        "1c712e51ba20141f9f8effd91434626e4c909ab700d14c4fcdda21553713ca19"
+    sha256 cellar: :any,                 ventura:       "3c0d132307ae32bdf3d89003a8196d6262bb2e07c3ecef64204f9048e4d38cc3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a08d06d4187900ce9f98eb3c1178b3d26ee6294539e0010f4c78a50b24d4f467"
   end
 
   depends_on "cmake" => :build
