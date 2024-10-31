@@ -7,12 +7,12 @@ class Urweb < Formula
   revision 11
 
   bottle do
-    sha256 arm64_sequoia: "24eca5e9cec9eafae7028751ecbdf91739b752eb85121a8de934953bc691d75d"
-    sha256 arm64_sonoma:  "02abc659bb1be47a5978dd6da7770519df43cccf25575062f95552e0e05445cb"
-    sha256 arm64_ventura: "1a5ee50796de357b701adfc1699352b5d426f773c4edf84fc4feb204e996346d"
-    sha256 sonoma:        "561b4ef3d3fec1dff10eeba2e2aae512dd97ab85f1d5b19e72c1575d4d00d3a7"
-    sha256 ventura:       "1bec9fd07a8098449b20645572d57074dad4127dc0ec9feb767ba2074f8ab8d1"
-    sha256 x86_64_linux:  "48fa11c86368d662fc2723cf12ee290416d70794e600ef0c2dc7add60b0211ac"
+    sha256 arm64_sequoia: "e1fc49213a5c984c84898202dd078b55bf3cf6baf72a9f7ede2e28b6ffd2fb81"
+    sha256 arm64_sonoma:  "ee1d643f45eb35714ec50820311651b322651f892526a4bc7a0f362e3eecb720"
+    sha256 arm64_ventura: "2054bc84d32c0a2dce1b55c13e765dfef2543f47bb8558c632da848bc4669fb5"
+    sha256 sonoma:        "4d5a47544891ae36a6726b43fabfa525db32450f6e40fa2bbb258ca7c3d1cd39"
+    sha256 ventura:       "80869fade6a1b20b7003666b42a1951330b1ea7d5ee073c150e96f0bc5780c86"
+    sha256 x86_64_linux:  "7556e09718c5a0e4ad6fd6b3e30ba6ad6db1632b572659d7f6bcfa5184bfe117"
   end
 
   depends_on "autoconf" => :build
