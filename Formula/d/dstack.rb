@@ -3,8 +3,8 @@ class Dstack < Formula
 
   desc "ML workflow orchestration system designed for reproducibility and collaboration"
   homepage "https://dstack.ai/"
-  url "https://files.pythonhosted.org/packages/46/d1/73f93b1d0b9e2273629ebeb717bd2397dd72e57952fd972869e4b58ed053/dstack-0.18.21.tar.gz"
-  sha256 "1392053caa72f2d83d096a62f1946a20aae0f4ca6c8d7456840f9cbd5b1882ee"
+  url "https://files.pythonhosted.org/packages/63/0e/08ecd3f0e6089e8062a1b2b086a9581daf4de0edb97d3e819fdb9b2dd242/dstack-0.18.22.tar.gz"
+  sha256 "d2402de493cfc27d36b572a03b8a6e862488d0d33c3794d3be5f9c09d01f06a2"
   license "MPL-2.0"
 
   bottle do
@@ -131,13 +131,13 @@ class Dstack < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/8c/10/5f09e30e81effe9d65aadf0237b906f2292f641dd98a3ff901da88a9edc1/boto3-1.35.51.tar.gz"
-    sha256 "a57c6c7012ecb40c43e565a6f7a891f39efa990ff933eab63cd456f7501c2731"
+    url "https://files.pythonhosted.org/packages/bc/79/288f478a66e746e025e297fd8fa8e953241ac16e7ce93741274fc699714f/boto3-1.35.52.tar.gz"
+    sha256 "68299da8ab2bb37cc843d61b9f4c1c9367438406cfd65a8f593afc7b3bfe226d"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/3a/ab/93b0b3f0bc716bd060fe73e21ce81bdfa3d8424d647893a7844eee6a2161/botocore-1.35.51.tar.gz"
-    sha256 "a9b3d1da76b3e896ad74605c01d88f596324a3337393d4bfbfa0d6c35822ca9c"
+    url "https://files.pythonhosted.org/packages/62/d4/cd01ee85cc2c4cff999599bad0de68d8fa04593ab720917c450e8631e29a/botocore-1.35.52.tar.gz"
+    sha256 "1fe7485ea13d638b089103addd818c12984ff1e4d208de15f180b1e25ad944c5"
   end
 
   resource "cached-classproperty" do
@@ -211,8 +211,8 @@ class Dstack < Formula
   end
 
   resource "google-api-python-client" do
-    url "https://files.pythonhosted.org/packages/ff/36/a587319840f32c8a28b6700805ad18a70690f985538ea49e87e210118884/google_api_python_client-2.149.0.tar.gz"
-    sha256 "b9d68c6b14ec72580d66001bd33c5816b78e2134b93ccc5cf8f624516b561750"
+    url "https://files.pythonhosted.org/packages/7c/87/5a753c932a962f1ac72403608b6840500187fd9d856127a360b7a30c59ec/google_api_python_client-2.151.0.tar.gz"
+    sha256 "a9d26d630810ed4631aea21d1de3e42072f98240aaf184a8a1a874a371115034"
   end
 
   resource "google-auth" do
@@ -491,8 +491,8 @@ class Dstack < Formula
   end
 
   resource "python-multipart" do
-    url "https://files.pythonhosted.org/packages/b9/59/cbb0dc4eb07c2676d964d7ef986314abd0b90ef2b683864a04c13590487d/python_multipart-0.0.16.tar.gz"
-    sha256 "8dee37b88dab9b59922ca173c35acb627cc12ec74019f5cd4578369c6df36554"
+    url "https://files.pythonhosted.org/packages/40/22/edea41c2d4a22e666c0c7db7acdcbf7bc8c1c1f7d3b3ca246ec982fec612/python_multipart-0.0.17.tar.gz"
+    sha256 "41330d831cae6e2f22902704ead2826ea038d0419530eadff3ea80175aec5538"
   end
 
   resource "pytz" do
@@ -531,8 +531,8 @@ class Dstack < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/55/64/b693f262791b818880d17268f3f8181ef799b0d187f6f731b1772e05a29a/rpds_py-0.20.0.tar.gz"
-    sha256 "d72a210824facfdaf8768cf2d7ca25a042c30320b3020de2fa04640920d4e121"
+    url "https://files.pythonhosted.org/packages/25/cb/8e919951f55d109d658f81c9b49d0cc3b48637c50792c5d2e77032b8c5da/rpds_py-0.20.1.tar.gz"
+    sha256 "e1791c4aabd117653530dccd24108fa03cc6baf21f58b950d0a73c3b3b29a350"
   end
 
   resource "rsa" do
@@ -636,8 +636,8 @@ class Dstack < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/55/8f/d2d546f8b674335fa7ef83cc5c1892294f3f516c570893e65a7ea8ed49c9/yarl-1.17.0.tar.gz"
-    sha256 "d3f13583f378930377e02002b4085a3d025b00402d5a80911726d43a67911cd9"
+    url "https://files.pythonhosted.org/packages/54/9c/9c0a9bfa683fc1be7fdcd9687635151544d992cccd48892dc5e0a5885a29/yarl-1.17.1.tar.gz"
+    sha256 "067a63fcfda82da6b198fa73079b1ca40b7c9b7994995b6ee38acda728b64d47"
   end
 
   resource "zipp" do
