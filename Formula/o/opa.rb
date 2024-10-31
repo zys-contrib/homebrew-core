@@ -1,8 +1,8 @@
 class Opa < Formula
   desc "Open source, general-purpose policy engine"
   homepage "https://www.openpolicyagent.org"
-  url "https://github.com/open-policy-agent/opa/archive/refs/tags/v0.69.0.tar.gz"
-  sha256 "1048675edb03e3d6c72a95d9fe3334eb17b63296d0bf8c1b220bd70602877b3a"
+  url "https://github.com/open-policy-agent/opa/archive/refs/tags/v0.70.0.tar.gz"
+  sha256 "c28ce33bbf1ccc4f70625f467bfcb70d91fa4431d82c96e6be39642659007e31"
   license "Apache-2.0"
   head "https://github.com/open-policy-agent/opa.git", branch: "main"
 
