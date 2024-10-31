@@ -6,7 +6,7 @@ class Dotnet < Formula
       tag:      "v8.0.8",
       revision: "e78e8a64f20e61e1fea4f24afca66ad1dc56285f"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "89f252e00a7ac506f5fbfc0efdbab5086159bd2a86ae4ab6a6707af88ea488de"
@@ -20,12 +20,16 @@ class Dotnet < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.13" => :build
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
   depends_on "openssl@3"
 
   uses_from_macos "llvm" => :build
   uses_from_macos "krb5"
   uses_from_macos "zlib"
+
+  on_sonoma do
+    depends_on xcode: :build if DevelopmentTools.clang_build_version == 1600
+  end
 
   on_linux do
     depends_on "libunwind"
@@ -35,6 +39,12 @@ class Dotnet < Formula
   # Upstream only directly supports and tests llvm/clang builds.
   # GCC builds have limited support via community.
   fails_with :gcc
+
+  # Backport fix for error loading BuildXL service index
+  patch do
+    url "https://github.com/dotnet/dotnet/commit/18b5c7e1b125468f483a697ba8809c0a2412a762.patch?full_index=1"
+    sha256 "76ede810166cf718fe430a8b155da07ca245ec9174b73b3471baf413bbd42460"
+  end
 
   # Backport fix to build with Xcode 16
   patch do
