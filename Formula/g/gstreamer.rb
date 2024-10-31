@@ -2,29 +2,15 @@ class Gstreamer < Formula
   desc "Development framework for multimedia applications"
   homepage "https://gstreamer.freedesktop.org/"
   license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
-  revision 2
 
   stable do
-    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.24.8/gstreamer-1.24.8.tar.bz2"
-    sha256 "41fd1325acebb69cec23a46c6c2fe68b4bcf9b25c392b94ffadb3b222bb2422b"
-
-    # Fix build failure with new gobject-introspection
-    # https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/7554
-    patch do
-      url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/commit/f1aedd65f4c276578b767b4555ba7cdf68fe024b.diff"
-      sha256 "830de511c0c6c53fc96b16acc03d433c0942ab5686afca5d3386dd77cc7d7c13"
-    end
-
-    # Backport fix for build of gst-plugins-rs when using uninstalled pkgconfig files
-    patch do
-      url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/commit/6ce72488face35277643d3781d3da7c4f95d5e1e.diff"
-      sha256 "e8526ba4da7a92904a0e55608bacb3ca823f60c398a922877b5945f65c5ddbfb"
-    end
+    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.24.9/gstreamer-1.24.9.tar.bz2"
+    sha256 "3b284fa1c3b5cf0b1ad6eab64d506c2e1d62e37578ef8c0eb6dce3668ae76b77"
 
     # When updating this resource, use the tag that matches the GStreamer version.
     resource "rs" do
-      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.24.8/gst-plugins-rs-gstreamer-1.24.8.tar.bz2"
-      sha256 "a355edefea2d2de555fad9702079fe219e6c071198fe811a4692b5b48cb7b139"
+      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.24.9/gst-plugins-rs-gstreamer-1.24.9.tar.bz2"
+      sha256 "417881ccd886e0962261f9181faa341f1073ee262775e04f2e8aedaa9ab97fb1"
 
       # Backport support for newer `dav1d`
       # upstream commit ref, https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/commit/7e1ab086de00125bc0d596f9ec5d74c9b82b2cc0
