@@ -11,12 +11,12 @@ class R < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "50d67d0462dc443afb81fe07a7354825e73a62192adf1a35f37742fafc4b4446"
-    sha256 arm64_sonoma:  "53a1032ae31eef2374f1ad115b6ed0cce3f7ebfbbba6106f5a32a8190f4bc041"
-    sha256 arm64_ventura: "8720cedee9fbb721e3dac00343d5adc2b90019f8377f24c278892d7b722f9b26"
-    sha256 sonoma:        "daed6a9f27e6c7f880e650864aeab63396b133b5f72f8728ead3918307c4b5c0"
-    sha256 ventura:       "f0cac12a91a2da9d213ad9a61695fd44fddcbf2b4c3c50e1a071129014c46c5c"
-    sha256 x86_64_linux:  "d9e7d4e6de074f15026e411b6e56b5836cb499082b266865513120c2a0eaa7f1"
+    sha256 arm64_sequoia: "29cd20b726c8a97f02411884103ea719e63b40743c0356c795e3445acb313cea"
+    sha256 arm64_sonoma:  "5dace2bc18ff43af733e26555dd56e469c9742053ac0203049a4ba3f3c215243"
+    sha256 arm64_ventura: "4bc3b79ec3fd9470b0b73d1e01ea6f5195d2b3d1fc1838b9e96c09c22595a747"
+    sha256 sonoma:        "152412cb363538261d7c30cabb6de3714786edb32733ead23a4c432db21acb70"
+    sha256 ventura:       "d67e09f1a11d1daf7bdf4eca41a4ea523b2da2d10abc3f3f41ae90b73d3fbc46"
+    sha256 x86_64_linux:  "f8d4a2f01ce2267a4c57473815720aaebd68b45a60e565832a04b5d430b89113"
   end
 
   depends_on "pkg-config" => :build
