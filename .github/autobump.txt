@@ -2537,6 +2537,7 @@ selenium-server
 semgrep
 sentencepiece
 seqkit
+sequoia-sq
 ser2net
 serialosc
 serpl
