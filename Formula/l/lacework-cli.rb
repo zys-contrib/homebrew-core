@@ -2,8 +2,8 @@ class LaceworkCli < Formula
   desc "CLI for managing Lacework"
   homepage "https://docs.lacework.com/cli"
   url "https://github.com/lacework/go-sdk.git",
-      tag:      "v2.1.0",
-      revision: "505540c7dc79e8ff01219bdac8eb6073f0a70259"
+      tag:      "v2.1.1",
+      revision: "22ae1ee80d118193c12040bc9c3e6d205e427c5e"
   license "Apache-2.0"
   head "https://github.com/lacework/go-sdk.git", branch: "main"
 
@@ -29,10 +29,10 @@ class LaceworkCli < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/lacework/go-sdk/cli/cmd.Version=#{version}
-      -X github.com/lacework/go-sdk/cli/cmd.GitSHA=#{Utils.git_head}
-      -X github.com/lacework/go-sdk/cli/cmd.HoneyDataset=lacework-cli-prod
-      -X github.com/lacework/go-sdk/cli/cmd.BuildTime=#{time.iso8601}
+      -X github.com/lacework/go-sdk/v2/cli/cmd.Version=#{version}
+      -X github.com/lacework/go-sdk/v2/cli/cmd.GitSHA=#{Utils.git_head}
+      -X github.com/lacework/go-sdk/v2/cli/cmd.HoneyDataset=lacework-cli-prod
+      -X github.com/lacework/go-sdk/v2/cli/cmd.BuildTime=#{time.iso8601}
     ]
     system "go", "build", *std_go_args(output: bin/"lacework", ldflags:), "./cli"
 
