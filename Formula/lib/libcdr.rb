@@ -12,12 +12,12 @@ class Libcdr < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "22b81a0cc297bc61961801314d1c8c2c4ea90851ef69c506adb4b63f83ca9f90"
-    sha256 cellar: :any,                 arm64_sonoma:  "db2451f83efc9b3cf1e08518890cdd059fa844d54e767a3ec6b1f793870ffdad"
-    sha256 cellar: :any,                 arm64_ventura: "f4edcb56add80d1f5efed45d1e4c22ea9b1c2f355dad220eec15972bb915be03"
-    sha256 cellar: :any,                 sonoma:        "0a6289b75868cef5545240da3c9843c42981a9762e937c8be64fdf1b312d7ffa"
-    sha256 cellar: :any,                 ventura:       "610325d1a71956e0c49d6797fa6c8c97589f2b5e0577576030c1e322ef45eb24"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03adb0de9bdd5f562bb2cee2df5e7ec3006acec4edfa376c32b6177e52034c09"
+    sha256 cellar: :any,                 arm64_sequoia: "bbc2a54bb8f6d6a4e466865b14d7b70a6fbc858d388548cf9b953f201de3c990"
+    sha256 cellar: :any,                 arm64_sonoma:  "cc66b1548f086a48f271bf053c229ee390cd2bd1156903d29ff0021f0df9b5a5"
+    sha256 cellar: :any,                 arm64_ventura: "4490629bd88271316e181a59054bdbca640a68fc742ad2e072b7c00d529787ad"
+    sha256 cellar: :any,                 sonoma:        "1229fd37c6e1c8e952b63e78bd58778a92f64da3fda9f7f6ac0f07c6b8b61150"
+    sha256 cellar: :any,                 ventura:       "d36c29ef45a56def001e4401ef3a2efce00352621ff1dd2f23260d6d6dadff5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "11f1b27844634dbdba55e73959c47a4cf20189936b203790f5f98ac48e7174c7"
   end
 
   depends_on "boost" => :build
