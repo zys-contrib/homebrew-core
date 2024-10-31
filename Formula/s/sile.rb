@@ -7,12 +7,12 @@ class Sile < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "99457175ef945f3dadf7772a5803d241024dc3d0239c9374c127f31025065b16"
-    sha256 cellar: :any,                 arm64_sonoma:  "0336ffc9958c96ad39c4cadcfcdda8d7e87eaca22089f99c00632287670a4348"
-    sha256 cellar: :any,                 arm64_ventura: "077665bc074168d89805933aefdf8e651943b7e78d08c213c461431f67fa1789"
-    sha256 cellar: :any,                 sonoma:        "bde850dcc3bcebaddaeb56826ec4053387dee316bdb97e0b928aadb1a2cf1710"
-    sha256 cellar: :any,                 ventura:       "7e4cdb78860f0e020f3bbf3b4153ca22a79d8274675f5749fd26799ce2140e12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3bd7be9973e8d3840c1e73546b9409cad93dc7ba52497e0bc2f957f06cb856d8"
+    sha256 cellar: :any,                 arm64_sequoia: "702f167def540e5073692fb507ca92697cae0e8e97b81b89168323e0f152dcc0"
+    sha256 cellar: :any,                 arm64_sonoma:  "ecf8c93698ea9b91f750ea19aa2451d44f386fcc65631218cba177e5bef21161"
+    sha256 cellar: :any,                 arm64_ventura: "67de009e44089ead45fec336a6056a022c2c54edc107c94bfa3d8df3b9225c6b"
+    sha256 cellar: :any,                 sonoma:        "7d13d7033dae2854c1990fa82eaee4e618a310d0ba557f49b0b5a9996f3be2f9"
+    sha256 cellar: :any,                 ventura:       "41937295233b330a9ec868dd48edee575fdccfc6d0eec2dfe6e5b7924b747878"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd4ecb72cece35d29db9b4b4485d29b62f7a4decfe32b97d8de0157aa2f89cba"
   end
 
   head do
