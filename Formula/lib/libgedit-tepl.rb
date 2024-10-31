@@ -16,12 +16,12 @@ class LibgeditTepl < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "d0ba4da39b07185f98be03d9d664ce1db2aa99698dd545fe7d41cca8c509ab9a"
-    sha256 arm64_sonoma:  "69dfe861bd519068043df4d769a91884181eac275b22fc603a8e8703e47f3605"
-    sha256 arm64_ventura: "e0cd8a12348aeb9222a3d9cc98b6a78b77ca623cc03b5f2846a514db9181e31b"
-    sha256 sonoma:        "ea9146aeb23f78c5550b8a41a1eaaa9dfcaa6a54f0f5cc476f2711b478f1fa61"
-    sha256 ventura:       "f653793e0d6ba2dcb539557a476b7c79922f0b44b8a8c187f2aa784f7579ffe3"
-    sha256 x86_64_linux:  "1ea4508523ffb2c00b8b9fe1fd91f6fa61d7373266880fb680533a15052c6067"
+    sha256 arm64_sequoia: "4f5e58d214ebaf7a8e48f5688532da1c3165808f120db8b37ed6615bb84a2c86"
+    sha256 arm64_sonoma:  "c2128dc28a61fc7f4199a37308015fd6cd809ef6098b589c709ce81d9760e22c"
+    sha256 arm64_ventura: "c0d45ab2b18d1dc253e01fb168a7121b97d8bcd1e16aa513c797313ab4c621c3"
+    sha256 sonoma:        "cba802dbc0bb7e182c2d2f4346ef485088cc745c00a786d2020194f10b833958"
+    sha256 ventura:       "0ab303812624e1565d97a29f6e6ef350d370efdff1027cafac1ad1c08f68bdcf"
+    sha256 x86_64_linux:  "d4af145b90a3a9082188c83ac10dd0bd62f846140ba60a36bb9a98ff8b1057b8"
   end
 
   depends_on "gettext" => :build
