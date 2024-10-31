@@ -1,8 +1,8 @@
 class Azion < Formula
   desc "CLI for the Azion service"
   homepage "https://github.com/aziontech/azion"
-  url "https://github.com/aziontech/azion/archive/refs/tags/2.1.2.tar.gz"
-  sha256 "b10a102faea70a1e66694051be784e5c44bc7d2a52b063b909945c53b403011f"
+  url "https://github.com/aziontech/azion/archive/refs/tags/2.2.0.tar.gz"
+  sha256 "274683b245e6efa26835ea2f91710abed09bcd9c55715b9e9bc0f0dc4eba202c"
   license "MIT"
 
   bottle do
