@@ -5,6 +5,7 @@ class Icu4cAT75 < Formula
   version "75.1"
   sha256 "cb968df3e4d2e87e8b11c49a5d01c787bd13b9545280fc6642f826527618caef"
   license "ICU"
+  revision 1
 
   livecheck do
     url :stable
@@ -24,7 +25,7 @@ class Icu4cAT75 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7ca9ed261455d9f114079bb46b3175c57265a5e254f9d33404c10a70e5523b5"
   end
 
-  keg_only :shadowed_by_macos, "macOS provides libicucore.dylib (but nothing else)"
+  keg_only :versioned_formula
 
   def install
     odie "Major version bumps need a new formula!" if version.major.to_s != name[/@(\d+)$/, 1]
