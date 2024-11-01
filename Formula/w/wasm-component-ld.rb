@@ -6,6 +6,15 @@ class WasmComponentLd < Formula
   license "Apache-2.0"
   head "https://github.com/bytecodealliance/wasm-component-ld.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "79de06bddaa5af8534ef3e3210be559c7413e17d8f504f2ffdefeb24189f1239"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f1f36e28abceafb366512a3a0235c8aa80ba3e6a3e403dc2bd78cde3b266c769"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8d0fca96ba4e4dacef300f1d632ebcd0fc3066daae8853d517ded1bd55766dae"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2bb06da23d7c598b67d980a7c0405e83762666473b4e54c1d8bc6eef749d2ac4"
+    sha256 cellar: :any_skip_relocation, ventura:       "581b65d32016bc17e626999536900c6f5ecec015f694b75ec8eacdf34c72083f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "38fecd207497a23c63d145c56ff12aa25e6a692905d34087ca211185e5dc36ad"
+  end
+
   depends_on "rust" => :build
   depends_on "lld" => :test
   depends_on "llvm" => :test
