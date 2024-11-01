@@ -854,6 +854,7 @@ fauna-shell
 faust
 favirecon
 fblog
+fcft
 fclones
 fd
 fdk-aac-encoder
