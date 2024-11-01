@@ -1991,6 +1991,7 @@ nopoll
 noseyparker
 notation
 notcurses
+notify
 nox
 npm-check-updates
 npth
