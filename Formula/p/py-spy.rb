@@ -7,15 +7,11 @@ class PySpy < Formula
   head "https://github.com/benfred/py-spy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4e312bcb385abab9511b9e96b4575180ee43734ba88293102b7a26f5a1a102f5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6640d4124619c0e3d007cb0284f2fb33d393c279baee741432d586c28e48f612"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4c9528218834611e0d11368cd892d576887fa0c614cda521203b9c665b000785"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0cbeb6a465786ff60f02816f708b1184612fbb27a3142cdf9731cc70f6b5ec59"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c9fa48e910c4b7df321fa6096f1af1f24bd8894b54a643af861c917be940a928"
-    sha256 cellar: :any_skip_relocation, ventura:        "633076498c9549f079573bf14bd52590fa001929e36136047f99369e2cf86f84"
-    sha256 cellar: :any_skip_relocation, monterey:       "e4e51038926d8e3e375f02c0e1511c7eb8274a40dfb4509f8d0d36e5a4ee1ff0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "411fd9ea3515958e15d197598cfe7e39cc9087cb86c2fd13db6e5af8dbb78864"
-    sha256 cellar: :any_skip_relocation, catalina:       "9e03831868de123c9a3b9b42c6d954cedfe1241bf8c4dc5c234adca1a9ffa871"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fbcd2bcf46a3f65af4dbde6a6a92eb8d59a301922b23b680225d16daffb8c0be"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d3bb71312de168ff73871311d675eaeeb3b1b6e18f16b9e293fdd2e0cf8c9790"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "435af0f030c2ea05c0b55327f5947b3605159116f2f78e770c690a16a39da565"
+    sha256 cellar: :any_skip_relocation, sonoma:        "54396a0c050b5504064dca4b99be3a6fdaaaeca5c774877b4df8f442374bc62c"
+    sha256 cellar: :any_skip_relocation, ventura:       "b9c65a548a147573ebe2659f64b0474e449ca41e6f803b9ad876bf0712316869"
   end
 
   depends_on "rust" => :build
