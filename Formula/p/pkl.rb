@@ -15,6 +15,7 @@ class Pkl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8f9968d2957c0ff98e97b171388f8decb94b9deeebbe982639c151d539c4e84"
   end
 
+  depends_on "gradle" => :build
   # Can change this to 21 in later releases.
   depends_on "openjdk@17" => :build
 
@@ -28,7 +29,7 @@ class Pkl < Formula
     arch = Hardware::CPU.arm? ? "aarch64" : "amd64"
     job_name = "#{OS.mac? ? "mac" : "linux"}Executable#{arch.capitalize}"
 
-    system "./gradlew", "-DreleaseBuild=true", job_name
+    system "gradle", "--no-daemon", "-DreleaseBuild=true", job_name
     bin.install "pkl-cli/build/executable/pkl-#{OS.mac? ? "macos" : "linux"}-#{arch}" => "pkl"
   end
 
