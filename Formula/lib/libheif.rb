@@ -1,10 +1,9 @@
 class Libheif < Formula
   desc "ISO/IEC 23008-12:2017 HEIF file format decoder and encoder"
   homepage "https://www.libde265.org/"
-  url "https://github.com/strukturag/libheif/releases/download/v1.18.2/libheif-1.18.2.tar.gz"
-  sha256 "c4002a622bec9f519f29d84bfdc6024e33fd67953a5fb4dc2c2f11f67d5e45bf"
+  url "https://github.com/strukturag/libheif/releases/download/v1.19.1/libheif-1.19.1.tar.gz"
+  sha256 "994913eb2a29c00c146d6f3d61e07d9ff0d8e9eccb0624d87e4be8b108c74e4b"
   license "LGPL-3.0-only"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "ed325fb88684986ddb0e1ea928234cbcdf338532d617dd1772c942e6fb6fc523"
@@ -40,6 +39,10 @@ class Libheif < Formula
     system "cmake", "--install", "build"
     pkgshare.install "examples/example.heic"
     pkgshare.install "examples/example.avif"
+
+    # In order to avoid duplicated symbol error when build static library
+    inreplace "examples/heif_info.cc", "fourcc_to_string", "example_fourcc_to_string"
+
     system "cmake", "-S", ".", "-B", "static", *args, *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
     system "cmake", "--build", "static"
     lib.install "static/libheif/libheif.a"
