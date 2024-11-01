@@ -29,6 +29,8 @@ class PythonFreethreading < Formula
   depends_on "sqlite"
   depends_on "xz"
 
+  # not actually used, we just want this installed to ensure there are no conflicts.
+  uses_from_macos "python" => :test
   uses_from_macos "bzip2"
   uses_from_macos "expat"
   uses_from_macos "libedit"
@@ -279,8 +281,10 @@ class PythonFreethreading < Formula
     mv bin/"idle#{version.major_minor}", bin/"idle#{version.major_minor}t"
     mv bin/"pydoc#{version.major_minor}", bin/"pydoc#{version.major_minor}t"
 
-    # Remove python3.13 named executables
-    (bin.children - bin.glob("*#{version.major_minor}t*")).map(&:unlink)
+    # Remove files that conflict with the main python3 formula
+    [bin, lib, lib/"pkgconfig", include].each do |directory|
+      (directory.glob("*python*") - directory.glob("*#{version.major_minor}t*")).map(&:unlink)
+    end
     rm_r share
   end
 
