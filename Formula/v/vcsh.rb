@@ -18,20 +18,24 @@ class Vcsh < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
 
   def install
+    system "autoreconf", "--force", "--install", "--verbose"
     # Set GIT, SED, and GREP to prevent
     # hardcoding shim references and absolute paths.
     # We set this even where we have no shims because
     # the hardcoded absolute path might not be portable.
-    system "./configure", "--with-zsh-completion-dir=#{zsh_completion}",
-                          "--with-bash-completion-dir=#{bash_completion}",
+    system "./configure", "--without-zsh-completion-dir",
+                          "--without-bash-completion-dir",
                           "GIT=git", "SED=sed", "GREP=grep",
                           *std_configure_args
     system "make", "install"
 
     # Make the shebang uniform across macOS and Linux
     inreplace bin/"vcsh", %r{^#!/bin/(ba)?sh$}, "#!/usr/bin/env bash"
+    bash_completion.install "completions/vcsh.bash" => "vcsh"
+    zsh_completion.install "completions/vcsh.zsh" => "_vcsh"
   end
 
   test do
