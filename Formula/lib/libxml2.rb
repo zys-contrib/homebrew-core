@@ -4,7 +4,7 @@ class Libxml2 < Formula
   url "https://download.gnome.org/sources/libxml2/2.13/libxml2-2.13.4.tar.xz"
   sha256 "65d042e1c8010243e617efb02afda20b85c2160acdbfbcb5b26b80cec6515650"
   license "MIT"
-  revision 3
+  revision 4
 
   # We use a common regex because libxml2 doesn't use GNOME's "even-numbered
   # minor is stable" version scheme.
@@ -56,15 +56,19 @@ class Libxml2 < Formula
     ENV.append "CFLAGS", "-std=gnu11" if OS.linux?
 
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
-    system "./configure", *std_configure_args,
+    system "./configure", "--disable-silent-rules",
                           "--sysconfdir=#{etc}",
-                          "--disable-silent-rules",
                           "--with-history",
                           "--with-http",
                           "--with-icu",
+                          "--without-lzma",
                           "--without-python",
-                          "--without-lzma"
+                          *std_configure_args
     system "make", "install"
+
+    icu4c = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
+                .to_formula
+    inreplace [bin/"xml2-config", lib/"pkgconfig/libxml-2.0.pc"], icu4c.prefix.realpath, icu4c.opt_prefix
 
     cd "python" do
       sdk_include = if OS.mac?
