@@ -6,8 +6,7 @@ class PythonFreethreading < Formula
   license "Python-2.0"
 
   livecheck do
-    url "https://www.python.org/ftp/python/"
-    regex(%r{href=.*?v?(\d(?:\.\d+)*)/?["' >]}i)
+    formula "python"
   end
 
   bottle do
