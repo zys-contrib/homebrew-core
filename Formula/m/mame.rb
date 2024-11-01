@@ -1,9 +1,9 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/refs/tags/mame0270.tar.gz"
-  version "0.270"
-  sha256 "0364b670478883902c2bc618908192b0590235b47fbe073fcac2d13b82541437"
+  url "https://github.com/mamedev/mame/archive/refs/tags/mame0271.tar.gz"
+  version "0.271"
+  sha256 "79960f4c57715b2d08c3eba12933d04dd91ad1d95b0c1059306a75bf07fd6027"
   license "GPL-2.0-or-later"
   head "https://github.com/mamedev/mame.git", branch: "master"
 
@@ -57,13 +57,6 @@ class Mame < Formula
     depends_on "pulseaudio"
     depends_on "qt"
     depends_on "sdl2_ttf"
-  end
-
-  # Support alternate Qt libexec directories
-  # PR ref: https://github.com/mamedev/mame/pull/12870
-  patch do
-    url "https://github.com/mamedev/mame/commit/f1604dbe7e51f519bb98cf4c52c8b0e41184384b.patch?full_index=1"
-    sha256 "42204cbf23c6a20a8b2dba515ce50e119870b5037fe224da45c53782170fb1df"
   end
 
   def install
