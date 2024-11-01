@@ -22,12 +22,20 @@ class Dtrx < Formula
 
   # Include a few common decompression handlers in addition to the python dep
   depends_on "p7zip"
-  depends_on "python@3.11"
+  depends_on "python@3.13"
   depends_on "xz"
 
   uses_from_macos "zip" => :test
   uses_from_macos "bzip2"
   uses_from_macos "unzip"
+
+  # Apply commit from open PR to fix `--flat` on Python 3.12+
+  # Issue ref: https://github.com/dtrx-py/dtrx/issues/58
+  # PR ref: https://github.com/dtrx-py/dtrx/pull/59
+  patch do
+    url "https://github.com/dtrx-py/dtrx/commit/4f2868c87e7d2eef97c9dbcbea4d1738e947463d.patch?full_index=1"
+    sha256 "f81b0ed271ddfa22ee0e1d26f9ac3c5ea3e979497918594e8fc266b24b561a51"
+  end
 
   def install
     virtualenv_install_with_resources
