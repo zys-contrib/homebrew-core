@@ -1,18 +1,10 @@
 class PySpy < Formula
   desc "Sampling profiler for Python programs"
   homepage "https://github.com/benfred/py-spy"
+  url "https://github.com/benfred/py-spy/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "13a5c4b949947425670eedac05b6dd27edbc736b75f1587899efca1a7ef79ac3"
   license "MIT"
   head "https://github.com/benfred/py-spy.git", branch: "master"
-
-  stable do
-    url "https://github.com/benfred/py-spy/archive/refs/tags/v0.3.14.tar.gz"
-    sha256 "c01da8b74be0daba79781cfc125ffcd3df3a0d090157fe0081c71da2f6057905"
-
-    # Use `llvm@15` to work around build failure with LLVM Clang 16 (Apple Clang 15)
-    # described in https://github.com/rust-lang/rust-bindgen/issues/2312.
-    # TODO: Remove in the next release
-    depends_on "llvm@15" => :build if DevelopmentTools.clang_build_version >= 1500
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4e312bcb385abab9511b9e96b4575180ee43734ba88293102b7a26f5a1a102f5"
@@ -34,11 +26,7 @@ class PySpy < Formula
   end
 
   def install
-    odie "Check if `llvm@15` dependency can be removed!" if build.stable? && version > "0.3.14"
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm@15"].opt_lib
-
     system "cargo", "install", *std_cargo_args
-
     generate_completions_from_executable(bin/"py-spy", "completions")
   end
 
