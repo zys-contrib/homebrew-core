@@ -920,6 +920,7 @@ fontconfig
 fontforge
 fonts-encodings
 fonttools
+foot
 fop
 forbidden
 forcecli
