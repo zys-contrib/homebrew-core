@@ -1,8 +1,8 @@
 class Noir < Formula
   desc "Attack surface detector that identifies endpoints by static analysis"
   homepage "https://github.com/owasp-noir/noir"
-  url "https://github.com/owasp-noir/noir/archive/refs/tags/v0.18.0.tar.gz"
-  sha256 "b2b8d19fe8e31e215247b68058d6e6dd135abaeaa340451271b99532aace6c73"
+  url "https://github.com/owasp-noir/noir/archive/refs/tags/v0.18.1.tar.gz"
+  sha256 "cbe5b90996b3878c6127424e086387858cdcd2037170dbe060bae834811de755"
   license "MIT"
 
   bottle do
@@ -27,6 +27,9 @@ class Noir < Formula
     system "shards", "install"
     system "shards", "build", "--release", "--no-debug"
     bin.install "bin/noir"
+
+    generate_completions_from_executable(bin/"noir", shell_parameter_format: "--generate-completion=",
+                                                     shells:                 [:bash, :zsh, :fish])
   end
 
   test do
