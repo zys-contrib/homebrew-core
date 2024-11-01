@@ -6,7 +6,7 @@ class Libabigail < Formula
   license "Apache-2.0" => { with: "LLVM-exception" }
 
   bottle do
-    sha256 x86_64_linux: "290aa7b00f998aee8c38adee01016462fd4f13151915ec15078bc0b4eaf94e3b"
+    sha256 x86_64_linux: "39bfad0c9e5cbb11821b3ee99ae6e599d84a20343eb8ae49294c88d2514da12a"
   end
 
   head do
