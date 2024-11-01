@@ -3,8 +3,8 @@ class Gptme < Formula
 
   desc "AI assistant in your terminal"
   homepage "https://gptme.org/docs/"
-  url "https://files.pythonhosted.org/packages/3f/99/e8832c5be1ae9a1341a09511ec7af3496f2d0749bb97c4473c376a936558/gptme-0.21.0.tar.gz"
-  sha256 "791786af7cdc520224ee968c178cc1e1b3fab06673678ae8462c0a2a294ab4ca"
+  url "https://files.pythonhosted.org/packages/7f/59/d4297b56180caf0f2845cee135df58bf6167d1839323e2e50bb02f829134/gptme-0.22.0.tar.gz"
+  sha256 "8757e37f20aa9e1f08e9c87c226055eef1fc10f7bb5e03ff99bec4439bb7c147"
   license "MIT"
   head "https://github.com/ErikBjare/gptme.git", branch: "master"
 
@@ -101,8 +101,8 @@ class Gptme < Formula
   end
 
   resource "huggingface-hub" do
-    url "https://files.pythonhosted.org/packages/44/99/c8fdef6fe09a1719e5e5de24b012de5824889168c96143f5531cab5af42b/huggingface_hub-0.26.1.tar.gz"
-    sha256 "414c0d9b769eecc86c70f9d939d0f48bb28e8461dd1130021542eff0212db890"
+    url "https://files.pythonhosted.org/packages/d5/a8/882ae5d1cfa7c9c5be32feee4cee56d9873078913953423e47a756da110d/huggingface_hub-0.26.2.tar.gz"
+    sha256 "b100d853465d965733964d123939ba287da60a547087783ddff8a323f340332b"
   end
 
   resource "idna" do
@@ -121,8 +121,8 @@ class Gptme < Formula
   end
 
   resource "jiter" do
-    url "https://files.pythonhosted.org/packages/26/ef/64458dfad180debd70d9dd1ca4f607e52bb6de748e5284d748556a0d5173/jiter-0.6.1.tar.gz"
-    sha256 "e19cd21221fc139fb032e4112986656cb2739e9fe6d84c13956ab30ccc7d4449"
+    url "https://files.pythonhosted.org/packages/ac/3d/4ca1c6b8d1d15ea747da474891f9879c0f0777e2e44e87c0be81657ed016/jiter-0.7.0.tar.gz"
+    sha256 "c061d9738535497b5509f8970584f20de1e900806b239a39a9994fc191dad630"
   end
 
   resource "lxml" do
@@ -151,8 +151,8 @@ class Gptme < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/a5/78/1c4658043cdbb7faf7f388cbb3902d5f8b9a307e10f2021b1a8a4b0b8b15/openai-1.52.2.tar.gz"
-    sha256 "87b7d0f69d85f5641678d414b7ee3082363647a5c66a462ed7f3ccb59582da0d"
+    url "https://files.pythonhosted.org/packages/83/fc/77552f9ddd40ac32fe44c591c5a0918a050aea6ce62a3f22fc7d8fe0359a/openai-1.53.0.tar.gz"
+    sha256 "be2c4e77721b166cce8130e544178b7d579f751b4b074ffbaade3854b6f85ec5"
   end
 
   resource "packaging" do
@@ -271,8 +271,8 @@ class Gptme < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/58/83/6ba9844a41128c62e810fddddd72473201f3eacde02046066142a2d96cc5/tqdm-4.66.5.tar.gz"
-    sha256 "e1020aef2e5096702d8a025ac7d16b1577279c9d63f8375b63083e9a5f0fcbad"
+    url "https://files.pythonhosted.org/packages/e9/34/bef135b27fe1864993a5284ad001157ee9b5538e859ac90f5b0e8cc8c9ec/tqdm-4.66.6.tar.gz"
+    sha256 "4bdd694238bef1485ce839d67967ab50af8f9272aab687c0d7702a01da0be090"
   end
 
   resource "traitlets" do
