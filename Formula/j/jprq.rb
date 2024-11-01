@@ -1,8 +1,8 @@
 class Jprq < Formula
   desc "Join Public Router, Quickly"
   homepage "https://jprq.io/"
-  url "https://github.com/azimjohn/jprq/archive/refs/tags/2.3.tar.gz"
-  sha256 "b134d981e37dae05cd3d1a5451fdf63d7ef1b8b23ec4cc99bdbcd4951bfdbf13"
+  url "https://github.com/azimjohn/jprq/archive/refs/tags/2.4.tar.gz"
+  sha256 "a3fc5a804851129c79a02deb3e5b7f5b84c0f351d688ca0088b571407399ff30"
   license "BSD-3-Clause"
   head "https://github.com/azimjohn/jprq.git", branch: "master"
 

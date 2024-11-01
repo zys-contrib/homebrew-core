@@ -1358,6 +1358,7 @@ jose
 jp2a
 jpeg-turbo
 jpeg-xl
+jprq
 jql
 jr
 jreleaser
