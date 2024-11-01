@@ -1,8 +1,8 @@
 class Gtk4 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk/4.16/gtk-4.16.3.tar.xz"
-  sha256 "2ec53e07d18c9f003b39e4a6a838054d9259e048b6c4c05d80c0d05aa721d944"
+  url "https://download.gnome.org/sources/gtk/4.16/gtk-4.16.4.tar.xz"
+  sha256 "36b96c158babd29085181b857577a81f5a0a6a3b182811b171cd688a709b0b41"
   license "LGPL-2.1-or-later"
 
   livecheck do
