@@ -37,9 +37,9 @@ class Chakra < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 sonoma:       "0312de0964e13f78d77a70f2ce9fb07a551698c2845572797c5bcfee70445a22"
-    sha256 cellar: :any,                 ventura:      "eee806adf9099aa00c3680bdb59e3e2cd995e85020d97654a84c668375d463bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "de0544b3bb920d7764b0a51ea1e591512f06791bc1ae18ddea9be6f6b33bf740"
+    sha256 cellar: :any,                 sonoma:       "7b16aa6c8b2677f2dba55987d78f4cc867d357aeba2b6b3d97e76e42c6c69c4b"
+    sha256 cellar: :any,                 ventura:      "dc7589f199baf02f63525cd1b5adb4e971d87b9c2369eb3e031dd4234acefac6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "cb090973883ca8832598f8d020bb6c3454567a7a1dd8537325a636be45fb0300"
   end
 
   depends_on "cmake" => :build
