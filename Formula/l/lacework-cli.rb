@@ -2,8 +2,8 @@ class LaceworkCli < Formula
   desc "CLI for managing Lacework"
   homepage "https://docs.lacework.com/cli"
   url "https://github.com/lacework/go-sdk.git",
-      tag:      "v2.1.1",
-      revision: "22ae1ee80d118193c12040bc9c3e6d205e427c5e"
+      tag:      "v2.1.2",
+      revision: "15c6b21b6f22ac366e469f13ce690d5f2ccd628d"
   license "Apache-2.0"
   head "https://github.com/lacework/go-sdk.git", branch: "main"
 
