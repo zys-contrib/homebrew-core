@@ -1,8 +1,8 @@
 class Foot < Formula
   desc "Fast, lightweight and minimalistic Wayland terminal emulator"
   homepage "https://codeberg.org/dnkl/foot"
-  url "https://codeberg.org/dnkl/foot/archive/1.18.1.tar.gz"
-  sha256 "59d22187f7ceaaaa570a5299b102e8f4692826e98785f89ad9d8911802ccc000"
+  url "https://codeberg.org/dnkl/foot/archive/1.19.0.tar.gz"
+  sha256 "148b0b545ca37e15b877ff9f6a768a4ce6feb0ed256f8a5f853cb2e16e3323c1"
   license "MIT"
 
   bottle do
