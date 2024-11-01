@@ -2536,6 +2536,7 @@ sdl2
 seal
 seam
 seaweedfs
+sec
 secp256k1
 securefs
 selene
