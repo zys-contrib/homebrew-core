@@ -47,6 +47,7 @@ class Vte3 < Formula
 
     # Use fast_float implementation for from_chars
     # upstream bug report, https://gitlab.gnome.org/GNOME/vte/-/issues/2823
+    # TODO: Investigate using the `fast_float` formula instead of the one bundled here.
     patch do
       url "https://gitlab.gnome.org/kraj/vte/-/commit/c90b078ecf4382458a9af44d765d710eb46b0453.diff"
       sha256 "fd8fd85339df1aa5ffb2617d6e67d26e26abb9caeb06ef7766b13341231c2c79"
