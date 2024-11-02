@@ -11,12 +11,12 @@ class Icloudpd < Formula
   head "https://github.com/icloud-photos-downloader/icloud_photos_downloader.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "97ced6377beb6a41bcb800a0a2434e2f12c89c918f9a1c2a8ed3d0c1b632cc7b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "305178747d6429e18a7cb3e78f34dbb8b492a37de0749da37303dcd74dc9788e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9d797fa3e29699982c14186734d144ca6a2d96fa0048b82d08decaaebd8d068b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7046235e8a0be640269ca91265abf42a8d11cff7571678101232c89d2d7206b7"
-    sha256 cellar: :any_skip_relocation, ventura:       "74000c6f764df01c9d0e04f74460b06881094b76aa4af3dd00f59e46ac667fdf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c1809be4f02c772a768affe0bd9862f437afaa3abd34bc0d8fdc6aa3903842d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "051fdc9d5d031ec870e9a63b7e7b77a44fb05747a672fbf11010972dacec652d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4de92253fb890ef558c1f14cd87c3f66ac8f528aaab362fb393dc5df99b56c36"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "da1a4820192dcedaf61f335923d6930643fb0acc5125a7e29ea8ead5b8340b0d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3d2f356ac98fcd94315cdee0ea6244da9ed3d9dcdd1cfc2c6163f014558ebfde"
+    sha256 cellar: :any_skip_relocation, ventura:       "ba54f0f6c140b64c9ef4aef4bd2be247367d60b17999c5cc15cf2b38b3546c93"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab3ba7e757c267a8057c93f158b7d342bbe9dd18d32eecf4996f99491ef87d4f"
   end
 
   depends_on "python@3.13"
