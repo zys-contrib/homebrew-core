@@ -16,15 +16,20 @@ class Staq < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "gmp"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-D", "INSTALL_SOURCES=ON", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DINSTALL_SOURCES=ON",
+                    "-DFETCHCONTENT_SOURCE_DIR_GOOGLETEST=/dev/null", # skip unused FetchContent
+                    "-DPython3_EXECUTABLE=/dev/null", # skip macOS /usr/bin/python3
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
 
   test do
-    (testpath/"input.qasm").write <<~EOS
+    (testpath/"input.qasm").write <<~QASM
       OPENQASM 2.0;
       include "qelib1.inc";
 
@@ -33,14 +38,14 @@ class Staq < Formula
       h q[0];
       h q[0];
       measure q->c;
-    EOS
-    assert_equal <<~EOS, shell_output("#{bin}/staq -O3 ./input.qasm").chomp
+    QASM
+    assert_equal <<~QASM, shell_output("#{bin}/staq -O3 ./input.qasm").chomp
       OPENQASM 2.0;
       include "qelib1.inc";
 
       qreg q[1];
       creg c[1];
       measure q[0] -> c[0];
-    EOS
+    QASM
   end
 end
