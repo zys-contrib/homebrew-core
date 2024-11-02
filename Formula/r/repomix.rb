@@ -5,6 +5,10 @@ class Repomix < Formula
   sha256 "9fd247249747d94215925ad7a58fc29df56ba3adb018e0c5213ba5e38819dde1"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "4e98557fe499a1152cf9a9993c3043cd5c90812b8a7741a25d8927bb4cd7b206"
+  end
+
   depends_on "node"
 
   def install
