@@ -19,19 +19,13 @@ class Embulk < Formula
   # > Embulk v0.11 officially supports only Java 8, but expected to work somehow with Java 11, 17, and 21.
   #
   # Since `openjdk@8` does not support ARM macOS, we need to use newer version.
-  # We keep `openjdk@8` otherwise as upstream claims some plugins may not be compatible.
-  # See: https://github.com/embulk/embulk/issues/1595#issuecomment-1595677127
-  on_arm do
-    depends_on "openjdk@21"
-  end
-  on_intel do
-    depends_on "openjdk@8"
-  end
+  # The same OpenJDK version must be used on all platforms due to a brew bug relocating `:all` bottles.
+  # See: https://github.com/Homebrew/brew/issues/18695
+  depends_on "openjdk@21"
 
   def install
-    java_version = Hardware::CPU.intel? ? "1.8" : "21"
     libexec.install "embulk-#{version}.jar"
-    bin.write_jar_script libexec/"embulk-#{version}.jar", "embulk", java_version:
+    bin.write_jar_script libexec/"embulk-#{version}.jar", "embulk", java_version: "21"
   end
 
   test do
