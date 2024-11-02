@@ -282,6 +282,7 @@ class PythonFreethreading < Formula
     mv bin/"pydoc#{version.major_minor}", bin/"pydoc#{version.major_minor}t"
 
     # Remove files that conflict with the main python3 formula
+    bin.glob("{idle,pydoc}3").map(&:unlink)
     [bin, lib, lib/"pkgconfig", include].each do |directory|
       (directory.glob("*python*") - directory.glob("*#{version.major_minor}t*")).map(&:unlink)
     end
@@ -335,9 +336,14 @@ class PythonFreethreading < Formula
     mv (site_packages/"bin").children, bin
     rmdir site_packages/"bin"
 
-    rm_r(bin/"pip")
+    rm [bin/"pip", bin/"pip3"]
     mv bin/"wheel", bin/"wheel#{version.major_minor}t"
     mv bin/"pip#{version.major_minor}", bin/"pip#{version.major_minor}t"
+
+    # post_install happens after link
+    (HOMEBREW_PREFIX/"bin").install_symlink (%w[pip wheel].map do |executable|
+      bin/"#{executable}#{version.major_minor}t"
+    end)
 
     # Mark Homebrew python as externally managed: https://peps.python.org/pep-0668/#marking-an-interpreter-as-using-an-external-package-manager
     # Placed after ensurepip since it invokes pip in isolated mode, meaning
