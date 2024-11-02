@@ -1,9 +1,10 @@
 class Intercept < Formula
   desc "Static Application Security Testing (SAST) tool"
   homepage "https://intercept.cc"
-  url "https://github.com/xfhg/intercept/archive/refs/tags/v1.6.1.tar.gz"
-  sha256 "76bfd38b940702a3937712a8b66623c7b36f7e681e4f73f7c9778b9083621b99"
-  license "AGPL-3.0-only"
+  url "https://github.com/xfhg/intercept/archive/refs/tags/v1.0.12.tar.gz"
+  sha256 "2732a3e895a9685ba6f112e7e372627aebfa340a94bf4716462b382075593308"
+  license "EUPL-1.2"
+  version_scheme 1
   head "https://github.com/xfhg/intercept.git", branch: "master"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -31,16 +32,15 @@ class Intercept < Formula
 
     generate_completions_from_executable(bin/"intercept", "completion")
 
-    pkgshare.install "examples"
+    pkgshare.install "playground"
   end
 
   test do
-    cp_r "#{pkgshare}/examples", testpath
-
-    output = shell_output("#{bin}/intercept config -r")
-    assert_match "Config clear", output
-
-    output = shell_output("#{bin}/intercept config -a examples/policy/minimal.yaml")
-    assert_match "New Config created", output
+    cp_r "#{pkgshare}/playground", testpath
+    cd "playground" do
+      output = shell_output("#{bin}/intercept audit --policy policies/test_scan.yaml " \
+                            "--target targets -vvv audit 2>&1")
+      assert_match "Total Policies: 2", output
+    end
   end
 end
