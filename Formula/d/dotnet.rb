@@ -1,11 +1,19 @@
 class Dotnet < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
-  # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-  url "https://github.com/dotnet/dotnet.git",
-      tag:      "v8.0.10",
-      revision: "8922fe64a1903ed4e35e24568efb056b3e0fad43"
   license "MIT"
+  head "https://github.com/dotnet/dotnet.git", branch: "main"
+
+  stable do
+    # Source-build tag announced at https://github.com/dotnet/source-build/discussions
+    url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.0.tar.gz"
+    sha256 "ade10f909a684c2a056b8b0ec3a30e1570ce2b83c46c5f621a4464d02729af9f"
+
+    resource "release.json" do
+      url "https://github.com/dotnet/dotnet/releases/download/v9.0.0/release.json"
+      sha256 "2a08862e4cd0095c743deccd8e34f3188261772cc775a7c6cdbfc9237727edda"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "197cb068d41882513946c97853080a27b7c314ffd8f42296b663d2a6a19277c4"
@@ -17,17 +25,18 @@ class Dotnet < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
-  depends_on "python@3.13" => :build
+  depends_on "pkgconf" => :build
+  depends_on "rapidjson" => :build
+  depends_on "brotli"
   depends_on "icu4c@76"
   depends_on "openssl@3"
 
-  uses_from_macos "llvm" => :build
+  uses_from_macos "python" => :build, since: :catalina
   uses_from_macos "krb5"
   uses_from_macos "zlib"
 
-  on_sonoma do
-    depends_on xcode: :build if DevelopmentTools.clang_build_version == 1600
+  on_macos do
+    depends_on "grep" => :build # grep: invalid option -- P
   end
 
   on_linux do
@@ -35,91 +44,65 @@ class Dotnet < Formula
     depends_on "lttng-ust"
   end
 
-  # Upstream only directly supports and tests llvm/clang builds.
-  # GCC builds have limited support via community.
-  fails_with :gcc
-
-  # Backport fix for error loading BuildXL service index
-  patch do
-    url "https://github.com/dotnet/dotnet/commit/18b5c7e1b125468f483a697ba8809c0a2412a762.patch?full_index=1"
-    sha256 "76ede810166cf718fe430a8b155da07ca245ec9174b73b3471baf413bbd42460"
-  end
-
-  # Backport fix to build with Xcode 16
-  patch do
-    url "https://github.com/dotnet/runtime/commit/562efd6824762dd0c1826cc99e006ad34a7e9e85.patch?full_index=1"
-    sha256 "435002246227064be19db8065b945e94565b59362e75a72ee6d6322a25baa832"
-    directory "src/runtime"
-  end
-
-  # Backport fix to build with Clang 19
-  # Ref: https://github.com/dotnet/runtime/commit/043ae8c50dbe1c7377cf5ad436c5ac1c226aef79
-  patch :DATA
-
   def install
     if OS.mac?
-      # Deparallelize to reduce chances of missing PDBs
-      ENV.deparallelize
-      # Avoid failing on missing PDBs as unable to build bottle on all runners in current state
-      # Issue ref: https://github.com/dotnet/source-build/issues/4150
-      inreplace "build.proj", /\bFailOnMissingPDBs="true"/, 'FailOnMissingPDBs="false"'
+      # Need GNU grep (Perl regexp support) to use release manifest rather than git repo
+      ENV.prepend_path "PATH", Formula["grep"].libexec/"gnubin"
 
-      # Disable crossgen2 optimization in ASP.NET Core to work around build failure trying to find tool.
-      # Microsoft.AspNetCore.App.Runtime.csproj(445,5): error : Could not find crossgen2 tools/crossgen2
-      # TODO: Try to remove in future .NET 8 release or when macOS is officially supported in .NET 9
-      inreplace "src/aspnetcore/src/Framework/App.Runtime/src/Microsoft.AspNetCore.App.Runtime.csproj",
-                "<CrossgenOutput Condition=\" '$(TargetArchitecture)' == 's390x'",
-                "<CrossgenOutput Condition=\" '$(TargetOsName)' == 'osx'"
+      # Avoid mixing CLT and Xcode.app when building CoreCLR component which can
+      # cause undefined symbols, e.g. __swift_FORCE_LOAD_$_swift_Builtin_float
+      ENV["SDKROOT"] = MacOS.sdk_path
     else
       icu4c_dep = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
       ENV.append_path "LD_LIBRARY_PATH", icu4c_dep.to_formula.opt_lib
-      ENV.append_to_cflags "-I#{Formula["krb5"].opt_include}"
-      ENV.append_to_cflags "-I#{Formula["zlib"].opt_include}"
-
-      # Use our libunwind rather than the bundled one.
-      inreplace "src/runtime/eng/SourceBuild.props",
-                "--outputrid $(TargetRid)",
-                "\\0 --cmakeargs -DCLR_CMAKE_USE_SYSTEM_LIBUNWIND=ON"
 
       # Work around build script getting stuck when running shutdown command on Linux
       # TODO: Try removing in the next release
       # Ref: https://github.com/dotnet/source-build/discussions/3105#discussioncomment-4373142
       inreplace "build.sh", '"$CLI_ROOT/dotnet" build-server shutdown', ""
       inreplace "repo-projects/Directory.Build.targets",
-                '<Exec Command="$(DotnetToolCommand) build-server shutdown" />',
-                ""
+                '"$(DotnetTool) build-server shutdown --vbcscompiler"',
+                '"true"'
     end
 
-    system "./prep.sh"
+    args = ["--clean-while-building", "--source-build", "--with-system-libs", "brotli+libunwind+rapidjson+zlib"]
+    if build.stable?
+      args += ["--release-manifest", "release.json"]
+      odie "Update release.json resource!" if resource("release.json").version != version
+      buildpath.install resource("release.json")
+    end
+
+    system "./prep-source-build.sh"
     # We unset "CI" environment variable to work around aspire build failure
     # error MSB4057: The target "GitInfo" does not exist in the project.
     # Ref: https://github.com/Homebrew/homebrew-core/pull/154584#issuecomment-1815575483
     with_env(CI: nil) do
-      system "./build.sh", "--clean-while-building", "--online"
+      system "./build.sh", *args
     end
 
     libexec.mkpath
-    tarball = Dir["artifacts/*/Release/dotnet-sdk-*.tar.gz"].first
-    system "tar", "-xzf", tarball, "--directory", libexec
-    doc.install Dir[libexec/"*.txt"]
+    tarball = buildpath.glob("artifacts/*/Release/dotnet-sdk-*.tar.gz").first
+    system "tar", "--extract", "--file", tarball, "--directory", libexec
+    doc.install libexec.glob("*.txt")
     (bin/"dotnet").write_env_script libexec/"dotnet", DOTNET_ROOT: libexec
 
     bash_completion.install "src/sdk/scripts/register-completions.bash" => "dotnet"
     zsh_completion.install "src/sdk/scripts/register-completions.zsh" => "_dotnet"
-    man1.install Dir["src/sdk/documentation/manpages/sdk/*.1"]
-    man7.install Dir["src/sdk/documentation/manpages/sdk/*.7"]
+    man1.install Utils::Gzip.compress(*buildpath.glob("src/sdk/documentation/manpages/sdk/*.1"))
+    man7.install Utils::Gzip.compress(*buildpath.glob("src/sdk/documentation/manpages/sdk/*.7"))
   end
 
   def caveats
-    <<~EOS
+    <<~TEXT
       For other software to find dotnet you may need to set:
         export DOTNET_ROOT="#{opt_libexec}"
-    EOS
+    TEXT
   end
 
   test do
     target_framework = "net#{version.major_minor}"
-    (testpath/"test.cs").write <<~EOS
+
+    (testpath/"test.cs").write <<~CSHARP
       using System;
 
       namespace Homebrew
@@ -133,8 +116,9 @@ class Dotnet < Formula
           }
         }
       }
-    EOS
-    (testpath/"test.csproj").write <<~EOS
+    CSHARP
+
+    (testpath/"test.csproj").write <<~XML
       <Project Sdk="Microsoft.NET.Sdk">
         <PropertyGroup>
           <OutputType>Exe</OutputType>
@@ -150,47 +134,23 @@ class Dotnet < Formula
           <Compile Include="test.cs" />
         </ItemGroup>
       </Project>
-    EOS
+    XML
+
     system bin/"dotnet", "build", "--framework", target_framework, "--output", testpath, testpath/"test.csproj"
-    assert_equal "#{testpath}/test.dll,a,b,c\n",
-                 shell_output("#{bin}/dotnet run --framework #{target_framework} #{testpath}/test.dll a b c")
+    output = shell_output("#{bin}/dotnet run --framework #{target_framework} #{testpath}/test.dll a b c")
+    # We switched to `assert_match` due to progress status ANSI codes in output.
+    # TODO: Switch back to `assert_equal` once fixed in release.
+    # Issue ref: https://github.com/dotnet/sdk/issues/44610
+    assert_match "#{testpath}/test.dll,a,b,c\n", output
+
+    # Test to avoid uploading broken Intel Sonoma bottle which has stack overflow on restore.
+    # See https://github.com/Homebrew/homebrew-core/issues/197546
+    resource "docfx" do
+      url "https://github.com/dotnet/docfx/archive/refs/tags/v2.77.0.tar.gz"
+      sha256 "03c13ca2cdb4a476365ef8f5b7f408a6cf6e35f0193c959d7765c03dd4884bfb"
+    end
+    resource("docfx").stage do
+      system bin/"dotnet", "restore", "src/docfx", "--disable-build-servers", "--no-cache"
+    end
   end
 end
-
-__END__
-diff --git a/src/runtime/src/coreclr/vm/comreflectioncache.hpp b/src/runtime/src/coreclr/vm/comreflectioncache.hpp
-index 08d173e61648c6ebb98a4d7323b30d40ec351d94..12db55251d80d24e3765a8fbe6e3b2d24a12f767 100644
---- a/src/runtime/src/coreclr/vm/comreflectioncache.hpp
-+++ b/src/runtime/src/coreclr/vm/comreflectioncache.hpp
-@@ -26,6 +26,7 @@ template <class Element, class CacheType, int CacheSize> class ReflectionCache
-
-     void Init();
-
-+#ifndef DACCESS_COMPILE
-     BOOL GetFromCache(Element *pElement, CacheType& rv)
-     {
-         CONTRACTL
-@@ -102,6 +103,7 @@ template <class Element, class CacheType, int CacheSize> class ReflectionCache
-         AdjustStamp(TRUE);
-         this->LeaveWrite();
-     }
-+#endif // !DACCESS_COMPILE
-
- private:
-     // Lock must have been taken before calling this.
-@@ -141,6 +143,7 @@ template <class Element, class CacheType, int CacheSize> class ReflectionCache
-         return CacheSize;
-     }
-
-+#ifndef DACCESS_COMPILE
-     void AdjustStamp(BOOL hasWriterLock)
-     {
-         CONTRACTL
-@@ -170,6 +173,7 @@ template <class Element, class CacheType, int CacheSize> class ReflectionCache
-         if (!hasWriterLock)
-             this->LeaveWrite();
-     }
-+#endif // !DACCESS_COMPILE
-
-     void UpdateHashTable(SIZE_T hash, int slot)
-     {
