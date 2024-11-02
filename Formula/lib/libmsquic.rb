@@ -6,6 +6,15 @@ class Libmsquic < Formula
       revision: "66ddc271efc0096411144a6732b6afe3bd2855dd"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "ae84e481cf520b7f5e796cdb23d798b77c4a75c1514c1efeecb9ba75402c8b43"
+    sha256 cellar: :any,                 arm64_sonoma:  "990b3c4a37baeb3968a5f15b08fb8b0765a0fd50e12f549128d39b94a55ba217"
+    sha256 cellar: :any,                 arm64_ventura: "e29cb2058af5c07ce360c207ef73d815a74ae1a732ff021d4bd02972a68b60e4"
+    sha256 cellar: :any,                 sonoma:        "3410cc3a1462e5f8b8838d88eb5a8eaaebd766e4080606eca76af0cebf779952"
+    sha256 cellar: :any,                 ventura:       "2bb02eafb9f8a22cdd4a3c2e585d044900992228ba7831d8688d9f9f11113e29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4ea9ad1b92b59ee9cff735cdf8168c16c43ffe2f961b310babafaef444dc64a"
+  end
+
   depends_on "cmake" => :build
   depends_on "openssl@3"
 
