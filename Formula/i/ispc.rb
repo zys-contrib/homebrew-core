@@ -14,11 +14,11 @@ class Ispc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d650f99ada33e330e23eaac7f517fabef65976ed7ee5b92cfca56e5208f7a2fb"
-    sha256 cellar: :any,                 arm64_sonoma:  "c7a0754f38ea0957194c08777b6f3e4735e99ab10de1485f4f668ef32ae6e2fc"
-    sha256 cellar: :any,                 arm64_ventura: "d490a9505d3fdcff68e78b98208818716f6a5d38982f7a65fd634094c4bd2bda"
-    sha256 cellar: :any,                 sonoma:        "80a689f14d9c006eb0301b64cccd6a5e7d23c84bce4637ae0c6d29fc66abec2d"
-    sha256 cellar: :any,                 ventura:       "a23c36580e65097630847b2c9ee3ca2815a5eddda847f3def225fbf4738f832b"
+    sha256 cellar: :any, arm64_sequoia: "b0f72091d48f949e719772d717989af9cd169f6f89a890702b0104a02752395c"
+    sha256 cellar: :any, arm64_sonoma:  "c7a09a3f7c4204420de15636a254ddac95d3e43fbddcab1aa6b6c85b250245c5"
+    sha256 cellar: :any, arm64_ventura: "164b88b15ba40aaa2fa6bf1a48175a0702d07f0f2dd0959f505633d5fd638478"
+    sha256 cellar: :any, sonoma:        "7945def3908530673b9e6e3b20484734613ed5716180c0d080f8142eff99c329"
+    sha256 cellar: :any, ventura:       "2d802a069f6014fbce7666f9ed2bf5fa978c38d4fcd3445fd3ba2b4b4b7de308"
   end
 
   depends_on "bison" => :build
