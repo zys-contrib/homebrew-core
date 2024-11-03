@@ -7,14 +7,12 @@ class Libvpx < Formula
   head "https://chromium.googlesource.com/webm/libvpx.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "6458bca2101091386e7653910ed3465e35f0d3a83d5595704baec3e8f5b42137"
-    sha256 cellar: :any,                 arm64_sonoma:   "484698903af5db7c9b7d6b4e5791f702ae99a9167a0119773b30d1c9b34ffdba"
-    sha256 cellar: :any,                 arm64_ventura:  "6a40c8dea8edfd2ebf1aec9894b91239691651bd92f6d2e61f3ffa0b9e79fe6e"
-    sha256 cellar: :any,                 arm64_monterey: "74b80630744e3c8f51c8b40089a2b07529d1a319f03b67cf387e914e52b80d83"
-    sha256 cellar: :any,                 sonoma:         "20b5db6c221c97a82f9808bee54a4467f36c761d3c9effa5ee706c81b83da97c"
-    sha256 cellar: :any,                 ventura:        "4225649fc700b5974f0fe3b01a6642e93a7669f9d2525b2344b4535d02cd2970"
-    sha256 cellar: :any,                 monterey:       "3ad4e913a0955ebcbb0c5760d9dfbd3add260bd5932e61b9e9f996014e3a2a56"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a251c029dbfab1d5545b5b07c80f317b3860cca7ed32a18b91f4e6076348ab1"
+    sha256 cellar: :any,                 arm64_sequoia: "5b72c6376740d6c702c7bb1bca4292b9cb09b6aca7b16bcf01d5d2cccbaf7b7a"
+    sha256 cellar: :any,                 arm64_sonoma:  "1a57c51283a0015aeab14dd14210f47beeb270321a85f5c5d3bddfc34c15b000"
+    sha256 cellar: :any,                 arm64_ventura: "68b0b266de2faa807df3dcd3c85e0028c8c12c93d22874c0c2676575101a3362"
+    sha256 cellar: :any,                 sonoma:        "823e82b27cf734c2a64525934a6909e3c07e09e0cb75a398afc2fbc66be0af78"
+    sha256 cellar: :any,                 ventura:       "bfe84c4076b989468d359f0ebf2f46ad601da3383e6d50719accc374346b6853"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a56173a7f792054fab125d92e8d5441329041b09bb26d1ee6e69efd3bac77df"
   end
 
   on_intel do
