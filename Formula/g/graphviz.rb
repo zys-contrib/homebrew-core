@@ -5,8 +5,8 @@ class Graphviz < Formula
   version_scheme 1
 
   stable do
-    url "https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/12.1.2/graphviz-12.1.2.tar.xz"
-    sha256 "cf9e6de9d5949dffbc4dd46f833085ff8e7e55482ffb84641819bbf0d18c5f02"
+    url "https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/12.2.0/graphviz-12.2.0.tar.xz"
+    sha256 "66d4acc201536a378a28d5254deeec8cf3e98cc66d7e4cb1cbfa5fc620f86474"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
