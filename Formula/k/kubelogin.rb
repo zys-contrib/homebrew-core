@@ -1,8 +1,8 @@
 class Kubelogin < Formula
   desc "OpenID Connect authentication plugin for kubectl"
   homepage "https://github.com/int128/kubelogin"
-  url "https://github.com/int128/kubelogin/archive/refs/tags/v1.30.1.tar.gz"
-  sha256 "3a9f71a1b0192c5fee6656bbe5190579756ce1d5fcde0446c28d985039182068"
+  url "https://github.com/int128/kubelogin/archive/refs/tags/v1.31.0.tar.gz"
+  sha256 "75dd8f9669804a42c65fb52f54b0deb176c4f4d126af0259279fe41cd4d15d6e"
   license "Apache-2.0"
   head "https://github.com/int128/kubelogin.git", branch: "master"
 
