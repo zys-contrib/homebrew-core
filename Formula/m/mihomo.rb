@@ -1,8 +1,8 @@
 class Mihomo < Formula
   desc "Another rule-based tunnel in Go, formerly known as ClashMeta"
   homepage "https://wiki.metacubex.one"
-  url "https://github.com/MetaCubeX/mihomo/archive/refs/tags/v1.18.9.tar.gz"
-  sha256 "8f64a5585b7bbbd65b83552a6cdc7a443fd47b2594f5a3ff72f02c8382d5e8da"
+  url "https://github.com/MetaCubeX/mihomo/archive/refs/tags/v1.18.10.tar.gz"
+  sha256 "98e5c79fd5bec5478ffb3972d28a0474034a9abbd7dde2859c0c891ab5b71b2d"
   license "GPL-3.0-or-later"
 
   bottle do
