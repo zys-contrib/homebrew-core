@@ -1,8 +1,8 @@
 class Cortex < Formula
   desc "Long term storage for Prometheus"
   homepage "https://cortexmetrics.io/"
-  url "https://github.com/cortexproject/cortex/archive/refs/tags/v1.17.0.tar.gz"
-  sha256 "2bfd9eeaa96a1c3c7a5100d99f0095157e55f3ac2a145c0d2cd1d23c994441c1"
+  url "https://github.com/cortexproject/cortex/archive/refs/tags/v1.18.1.tar.gz"
+  sha256 "667a0d78c9c3c319ccee503951237883f1402dda33cf27f2e64af2faaa54412e"
   license "Apache-2.0"
 
   livecheck do
@@ -26,10 +26,8 @@ class Cortex < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/cortex"
-    cd "docs/configuration" do
-      inreplace "single-process-config-blocks.yaml", "/tmp", var
-      etc.install "single-process-config-blocks.yaml" => "cortex.yaml"
-    end
+    inreplace "docs/configuration/single-process-config-blocks.yaml", "/tmp", var
+    etc.install "docs/configuration/single-process-config-blocks.yaml" => "cortex.yaml"
   end
 
   service do
@@ -48,7 +46,7 @@ class Cortex < Formula
 
     # A minimal working config modified from
     # https://github.com/cortexproject/cortex/blob/master/docs/configuration/single-process-config-blocks.yaml
-    (testpath/"cortex.yaml").write <<~EOS
+    (testpath/"cortex.yaml").write <<~YAML
       server:
         http_listen_port: #{port}
       ingester:
@@ -61,7 +59,7 @@ class Cortex < Formula
         backend: filesystem
         filesystem:
           dir: #{testpath}/data/tsdb
-    EOS
+    YAML
 
     Open3.popen3(
       bin/"cortex", "-config.file=cortex.yaml",
@@ -79,7 +77,6 @@ class Cortex < Formula
       end
     ensure
       Process.kill "TERM", wait_thr.pid
-      Process.wait wait_thr.pid
     end
   end
 end
