@@ -1,8 +1,8 @@
 class Flawz < Formula
   desc "Terminal UI for browsing security vulnerabilities (CVEs)"
   homepage "https://github.com/orhun/flawz"
-  url "https://github.com/orhun/flawz/archive/refs/tags/v0.2.2.tar.gz"
-  sha256 "743b5b687b702ed24245111b988680b546fef479855309d87057ce6ac8ff465b"
+  url "https://github.com/orhun/flawz/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "c5d30dfa1c07f5e5337f88c8a44c4c22307f5ade7ba117ef6370c39eb3e588b0"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/orhun/flawz.git", branch: "main"
 
