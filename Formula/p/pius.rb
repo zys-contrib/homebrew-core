@@ -10,8 +10,8 @@ class Pius < Formula
   head "https://github.com/jaymzh/pius.git", branch: "master"
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any_skip_relocation, all: "955e8c9cf03a30cd3492596ed0e227eab2fa75c77120ccf763afbb437b940f8f"
+    rebuild 6
+    sha256 cellar: :any_skip_relocation, all: "3f3e1fff9df0dffb6684ab3c51f31f7d45fa3ae4be39e97f6695d5f4164494a2"
   end
 
   depends_on "gnupg"
