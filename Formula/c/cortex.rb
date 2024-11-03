@@ -11,13 +11,12 @@ class Cortex < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f76299f611075a423b8416bbf22658ca5e4f0d9ace2ba28178ca81df74a0289d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "964f222e4d06e6bb817a26213a306d3b600f41ed799df0165d896f079a3ad3b6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "95b30410c619d049f731d2c9eba115b3e3c9465768da37eb5689a4bb12cbb761"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9869553ffbc4b7a996b37c52ab6139c7488e4fe9bffea3a3f48cd0b862217252"
-    sha256 cellar: :any_skip_relocation, ventura:        "3aab8ac7fd807da1568fde979361ea605a138bd4ee0ee588506f2762993aa212"
-    sha256 cellar: :any_skip_relocation, monterey:       "e2e5d3b16a11e0eb04bbcccb0f942504147deb017f2dec1ca9758a1af5dece19"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "99864ad36ccb938578f8ebfcf0023008f7c436d5865e9b99ca69c18383b79334"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fb49d58ab8929c00c1358ba9ac9f51e4534fdffd4a7bb19e48e8db3252b827f2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fb49d58ab8929c00c1358ba9ac9f51e4534fdffd4a7bb19e48e8db3252b827f2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "fb49d58ab8929c00c1358ba9ac9f51e4534fdffd4a7bb19e48e8db3252b827f2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6800a1e6a4f9cca0921493e0df9f1c2090b7a7e1892824acfebe255dce203883"
+    sha256 cellar: :any_skip_relocation, ventura:       "6800a1e6a4f9cca0921493e0df9f1c2090b7a7e1892824acfebe255dce203883"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3efe5ab3e11b093a16037a06b05038d1eaab6e7b845b266e1657c83a806c4826"
   end
 
   depends_on "go" => :build
