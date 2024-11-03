@@ -1,8 +1,8 @@
 class Moon < Formula
   desc "Task runner and repo management tool for the web ecosystem, written in Rust"
   homepage "https://moonrepo.dev/moon"
-  url "https://github.com/moonrepo/moon/archive/refs/tags/v1.29.3.tar.gz"
-  sha256 "1dbeff46df1f72b873c1f75837d0c778076bf295e6e20144542740695f95d2b2"
+  url "https://github.com/moonrepo/moon/archive/refs/tags/v1.29.4.tar.gz"
+  sha256 "4d34851b666805ee368edbe9aa679605122f63bd1bc7bab5d4de52463b8aa6c7"
   license "MIT"
   head "https://github.com/moonrepo/moon.git", branch: "master"
 
@@ -22,6 +22,8 @@ class Moon < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
+
+  uses_from_macos "bzip2"
 
   on_linux do
     depends_on "openssl@3"
