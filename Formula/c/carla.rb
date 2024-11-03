@@ -4,18 +4,15 @@ class Carla < Formula
   license "GPL-2.0-or-later"
 
   stable do
-    url "https://github.com/falkTX/Carla/archive/refs/tags/v2.5.8.tar.gz"
-    sha256 "4ec96d06342ff28da4b80d4a76bc08fcaa5703726f96e5174afcdc4f7fc6195d"
+    url "https://github.com/falkTX/Carla/archive/refs/tags/v2.5.9.tar.gz"
+    sha256 "226fb5d646b7541b82035080190e7440df1f92372fb798b4ad49289570e5ad81"
 
-    # TODO: use `pyqt` and `qt` from HEAD unconditionally when new release includes Qt6 support
+    # TODO: Remove in 2.6.0
+    depends_on maximum_macos: [:sonoma, :build]
+
+    # TODO: Use `pyqt` and `qt` from HEAD in 2.6.0
     depends_on "pyqt@5"
     depends_on "qt@5"
-
-    # liblo API build patch, remove in next release
-    patch do
-      url "https://github.com/falkTX/Carla/commit/9370483b0a278eab6462c33b16e53377f7fffc6c.patch?full_index=1"
-      sha256 "eb9d9c45eaa95cb7756a0b0c38f7f2bd456a3ee3a0096a60d2fdd6af44bd1a49"
-    end
   end
 
   livecheck do
