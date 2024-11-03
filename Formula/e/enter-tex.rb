@@ -6,6 +6,15 @@ class EnterTex < Formula
   license "GPL-3.0-or-later"
   head "https://gitlab.gnome.org/swilmet/enter-tex.git", branch: "main"
 
+  bottle do
+    sha256 arm64_sequoia: "7ac379dcfee03b15b58b59ca75120b281a4f2fb8f4e3960bc69882344e749c79"
+    sha256 arm64_sonoma:  "fd0d1d740954163948e9793884f38c7251eab917bea0454785fe9bef1eead1c5"
+    sha256 arm64_ventura: "6146c2de5b3c49b9ff014d12015ffb50a047e76c511af0f7cbf7646be7b4f7c6"
+    sha256 sonoma:        "ab45e328b4dc56a6f0e107afabc6471885230195791083d60dc8e39e552d3e23"
+    sha256 ventura:       "405e0c0beb03513ca2d9191b8f5c65d9a445444667d85fc2ed451dd18207155d"
+    sha256 x86_64_linux:  "efa430c72fb6748d2183ad8c1508eeeb045f2e44ef91b8914e81e8b2297f53a5"
+  end
+
   depends_on "desktop-file-utils" => :build # for update-desktop-database
   depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
