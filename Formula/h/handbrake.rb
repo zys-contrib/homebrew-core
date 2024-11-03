@@ -4,6 +4,7 @@ class Handbrake < Formula
   url "https://github.com/HandBrake/HandBrake/releases/download/1.7.3/HandBrake-1.7.3-source.tar.bz2"
   sha256 "228681e9f361a69f1e813a112e9029d90fcf89e54172e7ff1863ce1995eae79a"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/HandBrake/HandBrake.git", branch: "master"
 
   bottle do
