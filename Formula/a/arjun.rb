@@ -8,8 +8,7 @@ class Arjun < Formula
   license "AGPL-3.0-only"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "8e07304d1647f03c1786b511ff65d3c19d313deb5b314a3219e1b93f9be8a30b"
+    sha256 cellar: :any_skip_relocation, all: "3c27e0658509ce22d7f7b8cd626c203f2b024f2228bdf476891d9bf987101630"
   end
 
   depends_on "certifi"
