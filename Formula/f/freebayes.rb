@@ -50,13 +50,12 @@ class Freebayes < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "86e8ecdd554dd65c305d5c3a4a77199712a9135b0b3fb2c592ace85e725c4d11"
-    sha256 cellar: :any, arm64_ventura:  "9f39d67a92d9e832723820b80cb4fa43ba7e2337887ef689fa43340424c77007"
-    sha256 cellar: :any, arm64_monterey: "1d03d1fcb588e8e5f96d32c6ad511e46a61712d1a4521623f53ad8b9ded2727b"
-    sha256 cellar: :any, sonoma:         "8faa87eff6dcab27a9799df3fb4abbfe7e137db29c6edac31fa91ff65b8d0a37"
-    sha256 cellar: :any, ventura:        "dd99fa0c8d6c01e68341e49ff4c13e686661d7d2f33806b00be261f9284ade29"
-    sha256 cellar: :any, monterey:       "4379827c288c32cc19ab7aa290b2f724254e3538d2f30288c5f1c3110aee705c"
-    sha256               x86_64_linux:   "d2b3b2c133c9f59c8a29a77e5a60b933a63ae83c664b62ddd0802844623a9bc6"
+    sha256 cellar: :any, arm64_sequoia: "42919ea368e7fb300680e17b7eb783e61eaa251c8b1492d2eba3e9db068bf3e8"
+    sha256 cellar: :any, arm64_sonoma:  "c367f0574466d1c538750aeed89d68b2066280be424fbfdd8f33f92ae6f3e538"
+    sha256 cellar: :any, arm64_ventura: "58b47ea65fc8b8fd2bcedad4b67e9edb1f41781679ddbd2f2d7d214a1e3eaabc"
+    sha256 cellar: :any, sonoma:        "d6c0009f7ed19acbfe3d93a83fe4a1ec6d1c21867f67ad037bfda62c56394122"
+    sha256 cellar: :any, ventura:       "b2631095db533474d1e6ce81dc00412cbf2c378bcd9cec40959b029aa8e9a8f4"
+    sha256               x86_64_linux:  "056ef004633b4ad83902199054e990313f0e2654455ebe17f822b28d5a7add9a"
   end
 
   depends_on "meson" => :build
