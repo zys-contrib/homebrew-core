@@ -894,6 +894,7 @@
     "exclude_packages": ["certifi"]
   },
   "yt-dlp": {
+    "package_name": "yt-dlp[default]",
     "exclude_packages": ["certifi"]
   },
   "zabbix-cli": {
