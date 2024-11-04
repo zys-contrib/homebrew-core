@@ -2388,6 +2388,7 @@ r
 rabbitmq
 radamsa
 radare2
+rage
 railway
 rakudo-star
 rancher-cli
