@@ -8,9 +8,10 @@ class DotnetAT6 < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma: "3eb824051504d2753ab5cca847f0b943bc4dc05fb403558d18fe18c5532c3845"
-    sha256 cellar: :any,                 sonoma:       "2f19620dfb82a8bcbcec0a68175426c64ff43e3fa231cf9d05ef21e8616572b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ffe54b54568dd28475dde52acdcd69cba25cd2b4a94ec568908e164477024045"
+    sha256 cellar: :any,                 arm64_sequoia: "d4504f7537d39b828fd1090b071d7500b32c1159dec10ce28ab7defa25fe34ba"
+    sha256 cellar: :any,                 arm64_sonoma:  "6112bc7fb910dc62bb68aa2f9bdd93ce9c47d396c8949b46432b9011440e6722"
+    sha256 cellar: :any,                 sonoma:        "2e850d8505cdb3c220370b3cb94b724f446af5009a4429971745ae5e41788e34"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c656cdbcf9e10e6961b82a4ac9f6f7a96aca9e0705eed54b54676584bfc4d983"
   end
 
   keg_only :versioned_formula
