@@ -2936,6 +2936,7 @@ usb.ids
 usbredir
 usbutils
 userspace-rcu
+utf8cpp
 util-linux
 util-macros
 uutils-coreutils
