@@ -1,8 +1,8 @@
 class Kwctl < Formula
   desc "CLI tool for the Kubewarden policy engine for Kubernetes"
   homepage "https://www.kubewarden.io/"
-  url "https://github.com/kubewarden/kwctl/archive/refs/tags/v1.17.0.tar.gz"
-  sha256 "d26b7706704901c8dde9121c1c00a9174e5a5bd081055e304210387bfb85c616"
+  url "https://github.com/kubewarden/kwctl/archive/refs/tags/v1.18.0.tar.gz"
+  sha256 "315fd4f31cd02c196c4c85a00854fbfce292ab1a3ffdf323a5ea168620c100ff"
   license "Apache-2.0"
   head "https://github.com/kubewarden/kwctl.git", branch: "main"
 
