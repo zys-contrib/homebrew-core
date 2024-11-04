@@ -1,8 +1,8 @@
 class Wangle < Formula
   desc "Modular, composable client/server abstractions framework"
   homepage "https://github.com/facebook/wangle"
-  url "https://github.com/facebook/wangle/archive/refs/tags/v2024.10.28.00.tar.gz"
-  sha256 "5e85324a00f5472b0fa0e627beff460ec9a81381f59d3e2c0bf284d843cc69eb"
+  url "https://github.com/facebook/wangle/archive/refs/tags/v2024.11.04.00.tar.gz"
+  sha256 "4da5e6fb8b15bfe377c45c0064829229770c12f78c5c7b01764b394e7ba24454"
   license "Apache-2.0"
   head "https://github.com/facebook/wangle.git", branch: "main"
 
@@ -77,13 +77,13 @@ class Wangle < Formula
 
     port = free_port
     fork { exec testpath/"EchoServer", "-port", port.to_s }
-    sleep 10
+    sleep 30
 
     require "pty"
     output = ""
     PTY.spawn(testpath/"EchoClient", "-port", port.to_s) do |r, w, pid|
       w.write "Hello from Homebrew!\nAnother test line.\n"
-      sleep 20
+      sleep 60
       Process.kill "TERM", pid
       begin
         r.each_line { |line| output += line }
