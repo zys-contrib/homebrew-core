@@ -1,8 +1,8 @@
 class Ssldump < Formula
   desc "SSLv3/TLS network protocol analyzer"
   homepage "https://adulau.github.io/ssldump/"
-  url "https://github.com/adulau/ssldump/archive/refs/tags/v1.8.tar.gz"
-  sha256 "fa1bb14034385487cc639fb32c12a5da0f8fbfee4603f4e101221848e46e72b3"
+  url "https://github.com/adulau/ssldump/archive/refs/tags/v1.9.tar.gz"
+  sha256 "c81ce58d79b6e6edb8d89822a85471ef51cfa7d63ad812df6f470b5d14ff6e48"
   license "BSD-4-Clause"
 
   bottle do
@@ -22,14 +22,7 @@ class Ssldump < Formula
   depends_on "libpcap"
   depends_on "openssl@3"
 
-  # Temporarily apply patch to not ignore our preferred destination directories
-  # Remove for >=1.9
-  patch :DATA
-
   def install
-    # Fix compile with newer Clang
-    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
-
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -39,27 +32,3 @@ class Ssldump < Formula
     system bin/"ssldump", "-v"
   end
 end
-
-__END__
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -8,6 +7,9 @@ project(
-     LANGUAGES C
- )
- 
-+include(CheckSymbolExists)
-+include(GNUInstallDirs)
-+
- configure_file(base/pcap-snoop.c.in base/pcap-snoop.c)
- 
- set(SOURCES
-@@ -110,8 +112,5 @@ target_link_libraries(ssldump
-         ${JSONC_LIBRARIES}
- )
- 
--set(CMAKE_INSTALL_PREFIX "/usr/local")
--install(TARGETS ssldump DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
--
--set(CMAKE_INSTALL_MANDIR "/usr/local/share/man")
-+install(TARGETS ssldump DESTINATION ${CMAKE_INSTALL_BINDIR})
- install(FILES ssldump.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1)
