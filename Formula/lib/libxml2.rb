@@ -33,7 +33,7 @@ class Libxml2 < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "python@3.11" => [:build, :test]
+  depends_on "python-setuptools" => :build
   depends_on "python@3.12" => [:build, :test]
   depends_on "python@3.13" => [:build, :test]
   depends_on "pkg-config" => :test
@@ -61,6 +61,7 @@ class Libxml2 < Formula
                           "--with-history",
                           "--with-http",
                           "--with-icu",
+                          "--with-legacy", # https://gitlab.gnome.org/GNOME/libxml2/-/issues/751#note_2157870
                           "--without-lzma",
                           "--without-python",
                           *std_configure_args
@@ -70,29 +71,26 @@ class Libxml2 < Formula
                 .to_formula
     inreplace [bin/"xml2-config", lib/"pkgconfig/libxml-2.0.pc"], icu4c.prefix.realpath, icu4c.opt_prefix
 
-    cd "python" do
-      sdk_include = if OS.mac?
-        sdk = MacOS.sdk_path_if_needed
-        sdk/"usr/include" if sdk
-      else
-        HOMEBREW_PREFIX/"include"
-      end
+    sdk_include = if OS.mac?
+      sdk = MacOS.sdk_path_if_needed
+      sdk/"usr/include" if sdk
+    else
+      HOMEBREW_PREFIX/"include"
+    end
 
-      includes = [include, sdk_include].compact.map do |inc|
-        "'#{inc}',"
-      end.join(" ")
+    includes = [include, sdk_include].compact.map do |inc|
+      "'#{inc}',"
+    end.join(" ")
 
-      # We need to insert our include dir first
-      inreplace "setup.py", "includes_dir = [",
-                            "includes_dir = [#{includes}"
+    # We need to insert our include dir first
+    inreplace "python/setup.py", "includes_dir = [",
+                                 "includes_dir = [#{includes}"
 
-      # Needed for Python 3.12+.
-      # https://github.com/Homebrew/homebrew-core/pull/154551#issuecomment-1820102786
-      with_env(PYTHONPATH: buildpath/"python") do
-        pythons.each do |python|
-          build_isolation = Language::Python.major_minor_version(python) >= "3.12"
-          system python, "-m", "pip", "install", *std_pip_args(build_isolation:), "."
-        end
+    # Needed for Python 3.12+.
+    # https://github.com/Homebrew/homebrew-core/pull/154551#issuecomment-1820102786
+    with_env(PYTHONPATH: buildpath/"python") do
+      pythons.each do |python|
+        system python, "-m", "pip", "install", *std_pip_args, "./python"
       end
     end
   end
