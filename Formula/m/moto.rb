@@ -3,8 +3,8 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/76/ce/19f364c867423e4f5aceabec23c21ee5d3633f9f518d687a39336e324235/moto-5.0.19.tar.gz"
-  sha256 "e6c6e1558f65c01fe1b3b5cc7ee35b474167fe3600326990f54601d75a7ea639"
+  url "https://files.pythonhosted.org/packages/7b/27/3dc1036bfa2544ba806647ff9bd3900043c2c6f91988a5ae22840b338ef6/moto-5.0.20.tar.gz"
+  sha256 "24b1319cc66f81f40817a57ac80602a5f1862669bdd621f0d96ab989a6578255"
   license "Apache-2.0"
 
   bottle do
@@ -293,8 +293,8 @@ class Moto < Formula
   end
 
   resource "werkzeug" do
-    url "https://files.pythonhosted.org/packages/32/af/d4502dc713b4ccea7175d764718d5183caf8d0867a4f0190d5d4a45cea49/werkzeug-3.1.1.tar.gz"
-    sha256 "8cd39dfbdfc1e051965f156163e2974e52c210f130810e9ad36858f0fd3edad4"
+    url "https://files.pythonhosted.org/packages/9f/e7/58868f1a95bd6f2ffa0a26af212675fb74be2a4c4bfa3541077b0ca14ad3/werkzeug-3.1.2.tar.gz"
+    sha256 "f471a4cd167233077e9d2a8190c3471c5bc520c636a9e3c1e9300c33bced03bc"
   end
 
   resource "wrapt" do
