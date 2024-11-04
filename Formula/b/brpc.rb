@@ -1,10 +1,19 @@
 class Brpc < Formula
   desc "Better RPC framework"
   homepage "https://brpc.apache.org/"
-  url "https://dlcdn.apache.org/brpc/1.11.0/apache-brpc-1.11.0-src.tar.gz"
-  sha256 "7076b564bf3d4e1f9ed248ba7051ae42e9c63340febccea5005efc89d068f339"
   license "Apache-2.0"
   head "https://github.com/apache/brpc.git", branch: "master"
+
+  stable do
+    url "https://dlcdn.apache.org/brpc/1.11.0/apache-brpc-1.11.0-src.tar.gz"
+    sha256 "7076b564bf3d4e1f9ed248ba7051ae42e9c63340febccea5005efc89d068f339"
+
+    # Backport support for newer protobuf
+    patch do
+      url "https://github.com/apache/brpc/commit/282776acaf2c894791d2b5d4c294a28cfa2d4138.patch?full_index=1"
+      sha256 "ce55b0d5df5b8aaf1c54cd7d80f32c01e8fd35c97f12b864ea6618b38d2db547"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "82032bd16d682bc0a4ac13e4ed8e049b8eb6aba3eaff0bbcd8093f73351055f8"
@@ -16,11 +25,12 @@ class Brpc < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "abseil"
   depends_on "gflags"
   depends_on "gperftools"
   depends_on "leveldb"
   depends_on "openssl@3"
-  depends_on "protobuf@21"
+  depends_on "protobuf"
 
   def install
     inreplace "CMakeLists.txt", "/usr/local/opt/openssl",
@@ -72,7 +82,7 @@ class Brpc < Formula
         return 0;
       }
     CPP
-    protobuf = Formula["protobuf@21"]
+    protobuf = Formula["protobuf"]
     gperftools = Formula["gperftools"]
     flags = %W[
       -I#{include}
@@ -84,7 +94,7 @@ class Brpc < Formula
       -lprotobuf
       -ltcmalloc
     ]
-    system ENV.cxx, "-std=c++11", testpath/"test.cpp", "-o", "test", *flags
+    system ENV.cxx, "-std=c++17", testpath/"test.cpp", "-o", "test", *flags
     assert_equal "200", shell_output("./test")
   end
 end
