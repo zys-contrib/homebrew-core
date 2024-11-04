@@ -1,8 +1,8 @@
 class Seam < Formula
   desc "This utility lets you control Seam resources"
   homepage "https://github.com/seamapi/seam-cli"
-  url "https://registry.npmjs.org/seam-cli/-/seam-cli-0.0.58.tgz"
-  sha256 "4c9c7989f02506e241d0921921859b7b0774b6fed9ed3fe90983f9f877248e76"
+  url "https://registry.npmjs.org/seam-cli/-/seam-cli-0.0.60.tgz"
+  sha256 "e25f9c24234222813d3cbaa152180b61949ef0800f617daba469d297fee5eee8"
   license "MIT"
 
   bottle do
