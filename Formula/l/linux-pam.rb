@@ -14,7 +14,6 @@ class LinuxPam < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "libnsl"
-  depends_on "libprelude"
   depends_on "libtirpc"
   depends_on "libxcrypt"
   depends_on :linux
