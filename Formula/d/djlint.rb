@@ -3,8 +3,8 @@ class Djlint < Formula
 
   desc "Lint & Format HTML Templates"
   homepage "https://djlint.com"
-  url "https://files.pythonhosted.org/packages/87/4b/78205d41de135f8c36515f8b015a2e923492926576fe7ca76abb3aee8027/djlint-1.35.4.tar.gz"
-  sha256 "d4a1342d83e65171059925b87ab351a1d5201289a764f9e092ef7a99e312554e"
+  url "https://files.pythonhosted.org/packages/b1/60/45f31c057ed7957aa28fadca9e9575c89273c785de774b6a8cae3d1cc4b5/djlint-1.36.0.tar.gz"
+  sha256 "c6a16905d69d02bfd745084a3ebf065707efbaf0a31762b34441802beb206b51"
   license "GPL-3.0-or-later"
   head "https://github.com/djlint/djLint.git", branch: "master"
 
@@ -40,16 +40,6 @@ class Djlint < Formula
     sha256 "24857fa1793917dd9ccf0c7810a07e05404ce9b823521c7dce22a4fb5d125f80"
   end
 
-  resource "html-tag-names" do
-    url "https://files.pythonhosted.org/packages/41/7c/8c0dc3c5650036127fb4629d31cadf6cbdd57e21a77f9793fa8b2c8a3241/html-tag-names-0.1.2.tar.gz"
-    sha256 "04924aca48770f36b5a41c27e4d917062507be05118acb0ba869c97389084297"
-  end
-
-  resource "html-void-elements" do
-    url "https://files.pythonhosted.org/packages/80/5c/5f17d77256bf78ca98647517fadee50575e75d812daa01352c31d89d5bf2/html-void-elements-0.1.0.tar.gz"
-    sha256 "931b88f84cd606fee0b582c28fcd00e41d7149421fb673e1e1abd2f0c4f231f0"
-  end
-
   resource "jsbeautifier" do
     url "https://files.pythonhosted.org/packages/69/3e/dd37e1a7223247e3ef94714abf572415b89c4e121c4af48e9e4c392e2ca0/jsbeautifier-1.15.1.tar.gz"
     sha256 "ebd733b560704c602d744eafc839db60a1ee9326e30a2a80c4adb8718adc1b24"
@@ -83,11 +73,6 @@ class Djlint < Formula
   resource "tqdm" do
     url "https://files.pythonhosted.org/packages/e9/34/bef135b27fe1864993a5284ad001157ee9b5538e859ac90f5b0e8cc8c9ec/tqdm-4.66.6.tar.gz"
     sha256 "4bdd694238bef1485ce839d67967ab50af8f9272aab687c0d7702a01da0be090"
-  end
-
-  resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
-    sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
   end
 
   def install
