@@ -4,7 +4,7 @@ class Mysqlxx < Formula
   url "https://tangentsoft.com/mysqlpp/releases/mysql++-3.3.0.tar.gz"
   sha256 "449cbc46556cc2cc9f9d6736904169a8df6415f6960528ee658998f96ca0e7cf"
   license "LGPL-2.1-or-later"
-  revision 3
+  revision 4
 
   livecheck do
     url "https://tangentsoft.com/mysqlpp/releases/"
@@ -23,15 +23,12 @@ class Mysqlxx < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "243beca649ebb4da087364acf8a7a10005d2e595e7513828e7397a45ffdc8ec5"
   end
 
-  depends_on "mysql-client"
-
-  fails_with gcc: "5"
+  depends_on "mariadb-connector-c"
 
   def install
-    mysql = Formula["mysql-client"]
+    mariadb = Formula["mariadb-connector-c"]
     system "./configure", "--with-field-limit=40",
-                          "--with-mysql-lib=#{mysql.opt_lib}",
-                          "--with-mysql-include=#{mysql.opt_include}/mysql",
+                          "--with-mysql=#{mariadb.opt_prefix}",
                           *std_configure_args
 
     # Delete "version" file incorrectly included as C++20 <version> header
@@ -53,7 +50,7 @@ class Mysqlxx < Formula
         return 0;
       }
     CPP
-    system ENV.cxx, "test.cpp", "-I#{Formula["mysql-client"].opt_include}/mysql",
+    system ENV.cxx, "test.cpp", "-I#{Formula["mariadb-connector-c"].opt_include}/mariadb",
                     "-L#{lib}", "-lmysqlpp", "-o", "test"
     system "./test", "-u", "foo", "-p", "bar"
   end
