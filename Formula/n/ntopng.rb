@@ -2,6 +2,7 @@ class Ntopng < Formula
   desc "Next generation version of the original ntop"
   homepage "https://www.ntop.org/products/traffic-analysis/ntop/"
   license "GPL-3.0-only"
+  revision 1
 
   stable do
     url "https://github.com/ntop/ntopng/archive/refs/tags/6.2.tar.gz"
@@ -42,17 +43,17 @@ class Ntopng < Formula
   depends_on "json-c"
   depends_on "libmaxminddb"
   depends_on "libsodium"
-  depends_on "mysql-client"
+  depends_on "mariadb-connector-c"
   depends_on "openssl@3"
   depends_on "redis"
   depends_on "rrdtool"
   depends_on "sqlite"
   depends_on "zeromq"
-  depends_on "zlib"
 
   uses_from_macos "curl"
   uses_from_macos "expat"
   uses_from_macos "libpcap"
+  uses_from_macos "zlib"
 
   on_macos do
     depends_on "zstd"
