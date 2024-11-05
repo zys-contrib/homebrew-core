@@ -2393,6 +2393,7 @@ rage
 railway
 rakudo-star
 rancher-cli
+ranger
 rapidfuzz-cpp
 ratchet
 rattler-build
