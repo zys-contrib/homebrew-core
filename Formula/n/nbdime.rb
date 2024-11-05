@@ -8,14 +8,8 @@ class Nbdime < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3f364b59cb493998682aad19b1fa6442a4a72742cd54513bd7d6f18cb71a96df"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e50a4de40896b059482ae1a425e2a079e9582a4ac9524c9b471bd0168b708971"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e50a4de40896b059482ae1a425e2a079e9582a4ac9524c9b471bd0168b708971"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e50a4de40896b059482ae1a425e2a079e9582a4ac9524c9b471bd0168b708971"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e50a4de40896b059482ae1a425e2a079e9582a4ac9524c9b471bd0168b708971"
-    sha256 cellar: :any_skip_relocation, ventura:        "e50a4de40896b059482ae1a425e2a079e9582a4ac9524c9b471bd0168b708971"
-    sha256 cellar: :any_skip_relocation, monterey:       "e50a4de40896b059482ae1a425e2a079e9582a4ac9524c9b471bd0168b708971"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e70c710b757fc4cc96409ba82fe03c9b23f1be2c9ed2efa515874c4d138a55e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "3781ad21688bc5c8fd2c350d156676a6286aad94326fcc6bbf23d2909781ee0d"
   end
 
   depends_on "certifi"
