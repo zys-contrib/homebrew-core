@@ -615,7 +615,6 @@
   "pwntools": {
     "exclude_packages": ["capstone", "certifi", "cryptography"]
   },
-  "pydocstyle": "pydocstyle[toml]",
   "pygit2": {
     "exclude_packages": ["cffi", "pycparser"]
   },
