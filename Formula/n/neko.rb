@@ -5,7 +5,7 @@ class Neko < Formula
   version "2.4.0"
   sha256 "232d030ce27ce648f3b3dd11e39dca0a609347336b439a4a59e9a5c0a465ce15"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/HaxeFoundation/neko.git", branch: "master"
 
   bottle do
@@ -22,22 +22,23 @@ class Neko < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
+  depends_on "mariadb-connector-c"
   depends_on "mbedtls"
-  depends_on "mysql-client"
   depends_on "pcre2"
-  depends_on "zlib" # due to `mysql-client`
 
+  uses_from_macos "apr"
   uses_from_macos "sqlite"
+  uses_from_macos "zlib"
 
   on_linux do
-    depends_on "apr"
     depends_on "apr-util"
     depends_on "gtk+3" # On mac, neko uses carbon. On Linux it uses gtk3
     depends_on "httpd"
   end
 
   def install
-    args = %w[
+    args = %W[
+      -DMARIADB_CONNECTOR_LIBRARIES=#{Formula["mariadb-connector-c"].opt_lib/"mariadb"/shared_library("libmariadb")}
       -DRELOCATABLE=OFF
       -DRUN_LDCONFIG=OFF
     ]
@@ -49,7 +50,7 @@ class Neko < Formula
     end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
-    system "cmake", "--build", "build"
+    ENV.deparallelize { system "cmake", "--build", "build" }
     system "cmake", "--install", "build"
   end
 
