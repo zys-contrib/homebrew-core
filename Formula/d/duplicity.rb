@@ -9,13 +9,13 @@ class Duplicity < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "0a28eacd34f5236eb3df168d97555be8f3b41ee928371eb42c527627f639a9e3"
-    sha256 cellar: :any,                 arm64_sonoma:  "2097d114f8428e406ab6448cb0d496131eab032c2073ae4264a8198a95324436"
-    sha256 cellar: :any,                 arm64_ventura: "0ca204d89e6efaee8df9478fd4e0eb3b331eba05de9366df09438e55cc69b38d"
-    sha256 cellar: :any,                 sonoma:        "23c5d1f045ca24d8514201668edb5c50050ea75f2def23598eebb0876b3111e7"
-    sha256 cellar: :any,                 ventura:       "5eb8a1c7a8aefb61c4c77fcd83d5b8b7906b4c24f016734aa8701d49bbaa1295"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0927aa39af3bf1cd29a5338afe9a48bfd8f14a85c2781a84bc78bbdf47329cf"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia: "3bad7861cb65206f1c50796c91d4b1d1c8a845424fcb577eee532836692bef3e"
+    sha256 cellar: :any,                 arm64_sonoma:  "8da673d1cf703c0b0e29e5318ff62f3bdc9da53a188c9fc75a157e7316516691"
+    sha256 cellar: :any,                 arm64_ventura: "0b86861fda5b273fd78a1f8a9676bc8abb65de833a74fe20bbe7995b8a6d0378"
+    sha256 cellar: :any,                 sonoma:        "7851faf8d7d65e6a78f001e02f7514d1a240ee43ac72fdb72999643c44dbcfec"
+    sha256 cellar: :any,                 ventura:       "fd668cdbc0a6336ad83473c0e8c0ce1bd13d7ad0bae387ff47eb1631e6435bc2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8280d88bddfaa3a2a09056ab04ec663ce9d681ecf1fd086e48b113397cd435e"
   end
 
   depends_on "gettext" => :build # for msgfmt
