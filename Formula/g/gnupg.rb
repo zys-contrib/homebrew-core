@@ -11,14 +11,12 @@ class Gnupg < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "e83617dfd24a26f898c858886429a9cc22cdff98b65212821af9d6140113c99f"
-    sha256 arm64_sonoma:   "bcb60ed535c0e2e5ac97bc49977246d94455d5b6a74ed9366377249f78e782fb"
-    sha256 arm64_ventura:  "fc5d5508f278f822b57e1e05fc4a1cee1116fb3f6521fbc523669e6862d104fe"
-    sha256 arm64_monterey: "ada53b5a636355f354ff11584e2f488bf167ef7ba1d3e20ce742ee286b47cc6c"
-    sha256 sonoma:         "45ad3a0750e638402ecd6135219ba4592b847d2c5e5a27c3e05657d3433bf5ec"
-    sha256 ventura:        "acb0a737a9f5c10a50348b3aaa0f247ea578c7b84d86ccdaafb22c818d7b7426"
-    sha256 monterey:       "23a18b638018bb3ee5339dbb00d16b4ef58047a351903ebeef72335e9565e4b8"
-    sha256 x86_64_linux:   "9a7d57f7e335fd7b506848fa15ee1be52d8940b8c5dfc0c6a3c8d9f406fbeb93"
+    sha256 arm64_sequoia: "504f8f29547995be5fef21f91769f05e1b2e317c424d3d481d3e1c69561f93b6"
+    sha256 arm64_sonoma:  "5a23f8f2c150986e2e727a25bc42c12c5f89455bc27a213dcfa98289df377bf2"
+    sha256 arm64_ventura: "31f920052dda3ede08d6a75b56c7b38cdb41a0964ab18305ebfc70ac55bbcc37"
+    sha256 sonoma:        "e71ab7138942ea33cac896389aa8e82a4583d0ac5c1691d816e3671bd9327e7b"
+    sha256 ventura:       "e6106c117ccdceeadbad2f16a6ddb551e93b08be6c60e9fc5af615ec23c26e3d"
+    sha256 x86_64_linux:  "861b48d7bc2aa8e2a81f6c300d425ff2453ffb5bc948bc58cf1bdf1d93bd13ec"
   end
 
   depends_on "pkg-config" => :build
