@@ -50,6 +50,9 @@ class Cppman < Formula
 
   def install
     virtualenv_install_with_resources
+    # NOTE: Excluding bash completion which uses GNU xargs so has issues on macOS
+    fish_completion.install_symlink libexec/"share/fish/vendor_completions.d/cppman.fish"
+    zsh_completion.install_symlink libexec/"share/zsh/vendor-completions/_cppman"
   end
 
   test do
