@@ -1,8 +1,8 @@
 class Bwfmetaedit < Formula
   desc "Tool for embedding, validating, and exporting BWF file metadata"
   homepage "https://mediaarea.net/BWFMetaEdit"
-  url "https://mediaarea.net/download/binary/bwfmetaedit/24.05/BWFMetaEdit_CLI_24.05_GNU_FromSource.tar.bz2"
-  sha256 "49b5859e5d86c226e2b0bef5d3f9ef0067112ab676fa8a819be1b2fff89cffac"
+  url "https://mediaarea.net/download/binary/bwfmetaedit/24.10/BWFMetaEdit_CLI_24.10_GNU_FromSource.tar.bz2"
+  sha256 "fa32a60a4bc2be654c35a55b42a57fe861bf7f1e52e83f4504a20b329a751416"
   license "0BSD"
 
   livecheck do
@@ -32,7 +32,7 @@ class Bwfmetaedit < Formula
     test_wav = test_fixtures("test.wav")
     ret_status = OS.mac? ? 1 : 0
     output = shell_output("#{bin}/bwfmetaedit --out-tech #{test_wav} 2>&1", ret_status)
-    assert_match "FileName,FileSize,Format,CodecID,Channels,SampleRate,BitRate", output
+    assert_match "FileName,FileSize,DateCreated,DateModified,Format,CodecID,Channels,SampleRate,BitRate", output
     assert_match "#{test_wav}: Is read only", output if OS.mac?
   end
 end
