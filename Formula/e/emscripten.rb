@@ -3,8 +3,8 @@ class Emscripten < Formula
   homepage "https://emscripten.org/"
   # To automate fetching the required resource revisions, you can use this helper script:
   #   https://gist.github.com/carlocab/2db1d7245fa0cd3e92e01fe37b164021
-  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/3.1.70.tar.gz"
-  sha256 "b7c687105e55b7398c8b4cc059427b52fe81a4b159ac7829a689870ae67780bd"
+  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/3.1.71.tar.gz"
+  sha256 "cc85c009aa7358cf9e8111efee1b2048260227aacbbe7af4cf489b6cb1348f9f"
   license all_of: [
     "Apache-2.0", # binaryen
     "Apache-2.0" => { with: "LLVM-exception" }, # llvm
@@ -65,7 +65,7 @@ class Emscripten < Formula
   # Then use the listed binaryen_revision for the revision below.
   resource "binaryen" do
     url "https://github.com/WebAssembly/binaryen.git",
-        revision: "dcc70bbfb16c2f8fce29dad94d80d1b78123655f"
+        revision: "9f496abc5cf1ddbca8c8a4f4e740c412588708ef"
   end
 
   # emscripten does not support using the stable version of LLVM.
@@ -73,8 +73,8 @@ class Emscripten < Formula
   # See binaryen resource above for instructions on how to update this.
   # Then use the listed llvm_project_revision for the tarball below.
   resource "llvm" do
-    url "https://github.com/llvm/llvm-project/archive/5d07162bba0648f5a5733039a7795eb7e9913863.tar.gz"
-    sha256 "0261815ddff45bfcdb9996623a5a18f1270b5583b58d312f07cbeca6405a621d"
+    url "https://github.com/llvm/llvm-project/archive/d6344c1cd0d099f8d99ee320f33fc9254dbe8288.tar.gz"
+    sha256 "1689094d7a6353d51c603b3025ee9e4a0035d45bf303fec7f9d562dfcb061ddd"
   end
 
   def install
@@ -215,6 +215,8 @@ class Emscripten < Formula
   end
 
   test do
+    ENV["EM_CACHE"] = testpath
+
     # We're targeting WASM, so we don't want to use the macOS SDK here.
     ENV.remove_macosxsdk if OS.mac?
     # Avoid errors on Linux when other formulae like `sdl12-compat` are installed
