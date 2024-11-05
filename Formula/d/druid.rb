@@ -29,6 +29,7 @@ class Druid < Formula
   end
 
   def install
+    rm_r "quickstart/tutorial"
     libexec.install Dir["*"]
 
     %w[
