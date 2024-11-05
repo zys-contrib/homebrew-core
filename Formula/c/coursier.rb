@@ -1,8 +1,8 @@
 class Coursier < Formula
   desc "Pure Scala Artifact Fetching"
   homepage "https://get-coursier.io/"
-  url "https://github.com/coursier/coursier/releases/download/v2.1.14/coursier.jar"
-  sha256 "436d5498cd16b04061da847d29cc565c5833aeaca99f566f74a0870e4d12f16f"
+  url "https://github.com/coursier/coursier/releases/download/v2.1.15/coursier.jar"
+  sha256 "cdee5ff8522b675ddff0646c63cc661034519ac6ec37efdfbef54176b2d655d5"
   license "Apache-2.0"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
