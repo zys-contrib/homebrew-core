@@ -9,13 +9,8 @@ class Gprof2dot < Formula
   head "https://github.com/jrfonseca/gprof2dot.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "31bfacb896a0c0fc72908c76e848e5263102b66a41c7182d972e02d31a6e6e3e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "31bfacb896a0c0fc72908c76e848e5263102b66a41c7182d972e02d31a6e6e3e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "31bfacb896a0c0fc72908c76e848e5263102b66a41c7182d972e02d31a6e6e3e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "31bfacb896a0c0fc72908c76e848e5263102b66a41c7182d972e02d31a6e6e3e"
-    sha256 cellar: :any_skip_relocation, ventura:       "31bfacb896a0c0fc72908c76e848e5263102b66a41c7182d972e02d31a6e6e3e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39591774b33ca82f1efa5764aa2254e0e83729b79b8f2e90d1296b5f77376bdf"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "d184e68d282b694cdae5bebaed6a501705f2576974de0991823a506296db1c67"
   end
 
   depends_on "graphviz"
