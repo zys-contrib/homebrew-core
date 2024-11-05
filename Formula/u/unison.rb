@@ -1,8 +1,8 @@
 class Unison < Formula
   desc "File synchronization tool"
   homepage "https://www.cis.upenn.edu/~bcpierce/unison/"
-  url "https://github.com/bcpierce00/unison/archive/refs/tags/v2.53.6.tar.gz"
-  sha256 "6cfaf0b3da5650933f8ff78668be3ebb316ca7b024cfb7905ccbd58e0fabe6fc"
+  url "https://github.com/bcpierce00/unison/archive/refs/tags/v2.53.7.tar.gz"
+  sha256 "a259537cef465c4806d6c1638c382620db2dd395ae42a0dd2efa3ba92712bed5"
   license "GPL-3.0-or-later"
   head "https://github.com/bcpierce00/unison.git", branch: "master"
 
