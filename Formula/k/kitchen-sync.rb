@@ -4,8 +4,8 @@ class KitchenSync < Formula
   url "https://github.com/willbryant/kitchen_sync/archive/refs/tags/v2.20.tar.gz"
   sha256 "e79e5dfad48b8345b1d80444a0e992b2f9b9c53f29f6f607647e567292a7d0f2"
   license "MIT"
-  revision 2
-  head "https://github.com/willbryant/kitchen_sync.git", branch: "master"
+  revision 3
+  head "https://github.com/willbryant/kitchen_sync.git", branch: "main"
 
   livecheck do
     url :stable
@@ -25,25 +25,23 @@ class KitchenSync < Formula
 
   depends_on "cmake" => :build
   depends_on "libpq"
-  depends_on "mysql-client"
-
-  fails_with gcc: "5"
+  depends_on "mariadb-connector-c"
 
   def install
-    system "cmake", ".",
-                    "-DMySQL_INCLUDE_DIR=#{Formula["mysql-client"].opt_include}/mysql",
-                    "-DMySQL_LIBRARY_DIR=#{Formula["mysql-client"].opt_lib}",
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DMySQL_INCLUDE_DIR=#{Formula["mariadb-connector-c"].opt_include}/mariadb",
+                    "-DMySQL_LIBRARY_DIR=#{Formula["mariadb-connector-c"].opt_lib}",
                     "-DPostgreSQL_INCLUDE_DIR=#{Formula["libpq"].opt_include}",
                     "-DPostgreSQL_LIBRARY_DIR=#{Formula["libpq"].opt_lib}",
                     *std_cmake_args
-
-    system "make", "install"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
     output = shell_output("#{bin}/ks --from mysql://b/ --to mysql://d/ 2>&1", 1)
 
-    assert_match "Unknown MySQL server host", output
+    assert_match "Unknown server host", output
     assert_match "Kitchen Syncing failed.", output
   end
 end
