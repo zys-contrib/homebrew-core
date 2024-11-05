@@ -4,7 +4,7 @@ class Hydra < Formula
   url "https://github.com/vanhauser-thc/thc-hydra/archive/refs/tags/v9.5.tar.gz"
   sha256 "9dd193b011fdb3c52a17b0da61a38a4148ffcad731557696819d4721d1bee76b"
   license "AGPL-3.0-only"
-  revision 4
+  revision 5
   head "https://github.com/vanhauser-thc/thc-hydra.git", branch: "master"
 
   bottle do
@@ -20,9 +20,10 @@ class Hydra < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libssh"
-  depends_on "mysql-client"
+  depends_on "mariadb-connector-c"
   depends_on "openssl@3"
   depends_on "pcre2"
+
   uses_from_macos "ncurses"
 
   conflicts_with "ory-hydra", because: "both install `hydra` binaries"
@@ -37,8 +38,8 @@ class Hydra < Formula
       s.gsub!(/^CRYPTO_PATH=""$/, "CRYPTO_PATH=#{Formula["openssl@3"].opt_lib}")
       s.gsub!(/^SSH_PATH=""$/, "SSH_PATH=#{Formula["libssh"].opt_lib}")
       s.gsub!(/^SSH_IPATH=""$/, "SSH_IPATH=#{Formula["libssh"].opt_include}")
-      s.gsub!(/^MYSQL_PATH=""$/, "MYSQL_PATH=#{Formula["mysql-client"].opt_lib}")
-      s.gsub!(/^MYSQL_IPATH=""$/, "MYSQL_IPATH=#{Formula["mysql-client"].opt_include}/mysql")
+      s.gsub!(/^MYSQL_PATH=""$/, "MYSQL_PATH=#{Formula["mariadb-connector-c"].opt_lib}")
+      s.gsub!(/^MYSQL_IPATH=""$/, "MYSQL_IPATH=#{Formula["mariadb-connector-c"].opt_include}/mariadb")
       s.gsub!(/^PCRE_PATH=""$/, "PCRE_PATH=#{Formula["pcre2"].opt_lib}")
       s.gsub!(/^PCRE_IPATH=""$/, "PCRE_IPATH=#{Formula["pcre2"].opt_include}")
       if OS.mac?
