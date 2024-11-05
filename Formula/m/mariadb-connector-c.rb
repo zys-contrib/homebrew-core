@@ -1,11 +1,13 @@
 class MariadbConnectorC < Formula
   desc "MariaDB database connector for C applications"
   homepage "https://mariadb.org/download/?tab=connector&prod=connector-c"
+  # TODO: Remove backward compatibility library symlinks on breaking version bump
   url "https://archive.mariadb.org/connector-c-3.4.1/mariadb-connector-c-3.4.1-src.tar.gz"
   mirror "https://fossies.org/linux/misc/mariadb-connector-c-3.4.1-src.tar.gz/"
   sha256 "0a7f2522a44a7369c1dda89676e43485037596a7b1534898448175178aedeb4d"
   license "LGPL-2.1-or-later"
-  head "https://github.com/mariadb-corporation/mariadb-connector-c.git", branch: "3.3"
+  revision 1
+  head "https://github.com/mariadb-corporation/mariadb-connector-c.git", branch: "3.4"
 
   # The REST API may omit the newest major/minor versions unless the
   # `olderReleases` parameter is set to `true`.
@@ -33,29 +35,47 @@ class MariadbConnectorC < Formula
     sha256 x86_64_linux:   "13cdebe984f4f9e6344d552fda0bd4fb304099becaf1e7918140220d87de8b45"
   end
 
+  keg_only "it conflicts with mariadb"
+
   depends_on "cmake" => :build
   depends_on "openssl@3"
+  depends_on "zstd"
 
   uses_from_macos "curl"
   uses_from_macos "krb5"
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "zstd"
-  end
-
+  # TODO: Remove in syntax-only PR
   conflicts_with "mariadb", because: "both install `mariadb_config`"
 
   def install
-    args = std_cmake_args
-    args << "-DWITH_OPENSSL=On"
-    args << "-DWITH_EXTERNAL_ZLIB=On"
-    args << "-DOPENSSL_INCLUDE_DIR=#{Formula["openssl@3"].opt_include}"
-    args << "-DINSTALL_MANDIR=#{share}"
-    args << "-DCOMPILATION_COMMENT=Homebrew"
+    rm_r "external"
 
-    system "cmake", ".", *args
-    system "make", "install"
+    args = %W[
+      -DINSTALL_LIBDIR=#{lib}
+      -DINSTALL_MANDIR=#{man}
+      -DWITH_EXTERNAL_ZLIB=ON
+      -DWITH_MYSQLCOMPAT=ON
+      -DWITH_UNIT_TESTS=OFF
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
+    # Add mysql_config symlink for compatibility which simplifies building
+    # some dependents. This is done in the full `mariadb` installation[^1]
+    # but not in the standalone `mariadb-connector-c`.
+    #
+    # [^1]: https://github.com/MariaDB/server/blob/main/cmake/symlinks.cmake
+    bin.install_symlink "mariadb_config" => "mysql_config"
+
+    # Temporary symlinks for backwards compatibility.
+    # TODO: Remove in future version update.
+    lib.glob(shared_library("*")) { |f| (lib/"mariadb").install_symlink f }
+
+    # TODO: Automatically compress manpages in brew
+    Utils::Gzip.compress(*man3.glob("*.3"))
   end
 
   test do
