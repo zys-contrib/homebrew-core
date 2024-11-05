@@ -1,8 +1,8 @@
 class Minder < Formula
   desc "CLI for interacting with Stacklok's Minder platform"
   homepage "https://mindersec.github.io/"
-  url "https://github.com/mindersec/minder/archive/refs/tags/v0.0.71.tar.gz"
-  sha256 "48c08926bae456f9f2997df4abf985d48cec63f4c9ae5f3c80ef5b3e3444ee14"
+  url "https://github.com/mindersec/minder/archive/refs/tags/v0.0.72.tar.gz"
+  sha256 "b67a14c26c7577db9c00a04a1cb6a9311b63f8a5d4d88b40fff3149a437dcdad"
   license "Apache-2.0"
   head "https://github.com/mindersec/minder.git", branch: "main"
 
@@ -30,7 +30,7 @@ class Minder < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/minder version")
 
-    output = shell_output("#{bin}/minder artifact list -p github 2>&1", 16)
+    output = shell_output("#{bin}/minder artifact list -p github 2>&1", 3)
     assert_match "No config file present, using default values", output
   end
 end
