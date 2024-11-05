@@ -62,24 +62,18 @@ class Nbdime < Formula
     sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
-  def python3
-    "python3.12"
-  end
-
   def install
     # We already have jupyterlab, but don't use --no-build-isolation since
     # hatchling adds additional build deps
-    inreplace "pyproject.toml",
-      'requires = ["hatchling>=1.5.0", "jupyterlab>=4.0.0,<5"]',
-      'requires = ["hatchling>=1.5.0"]'
+    inreplace "pyproject.toml", 'requires = ["hatchling>=1.5.0", "jupyterlab>=4.0.0,<5"]',
+                                'requires = ["hatchling>=1.5.0"]'
 
-    virtualenv_install_with_resources
+    venv = virtualenv_install_with_resources
 
-    site_packages = Language::Python.site_packages(python3)
-    paths = %w[jupyterlab].map do |p|
-      "import site; site.addsitedir('#{Formula[p].opt_libexec/site_packages}')"
-    end
-    (libexec/site_packages/"homebrew-deps.pth").write paths.join("\n")
+    # Provide an exception to avoid dealing with `jupyterlab` dependency tree
+    site_packages = Language::Python.site_packages(venv.root/"bin/python3")
+    pth_contents = "import site; site.addsitedir('#{Formula["jupyterlab"].opt_libexec/site_packages}')\n"
+    (venv.site_packages/"homebrew-jupyterlab.pth").write pth_contents
   end
 
   test do
