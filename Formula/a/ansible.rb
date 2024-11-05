@@ -4,10 +4,9 @@ class Ansible < Formula
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
   # TODO: migrate to `python@3.13` with ansible 11 (ansible-core 2.18)
-  url "https://files.pythonhosted.org/packages/d7/23/ae30b280ebad1f19fa012c0410aaf7d50cd741a5786bd60a2ecba42d2cd4/ansible-10.5.0.tar.gz"
-  sha256 "ba2045031a7d60c203b6e5fe1f8eaddd53ae076f7ada910e636494384135face"
+  url "https://files.pythonhosted.org/packages/50/40/35a204978b1ee8b78766169565f1bce7381d9c2802358e082554c5521502/ansible-10.6.0.tar.gz"
+  sha256 "a8bde9c3ee8ee7c4a085e125777ba39bf837c6e74a0733e1f786389b125e6db2"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/ansible/ansible.git", branch: "devel"
 
   bottle do
