@@ -2685,6 +2685,7 @@ srt
 srtp
 ssh-audit
 sshs
+ssldump
 sslh
 sslscan
 ssocr
