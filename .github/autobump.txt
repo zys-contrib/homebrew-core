@@ -1483,6 +1483,7 @@ kyma-cli
 kyverno
 lacework-cli
 lando-cli
+langgraph-cli
 languagetool
 lanraragi
 lastpass-cli
