@@ -2,6 +2,7 @@ class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/root-project/root.git", branch: "master"
 
   stable do
@@ -46,25 +47,25 @@ class Root < Formula
   depends_on "graphviz"
   depends_on "gsl"
   depends_on "lz4"
-  depends_on "mysql-client"
+  depends_on "mariadb-connector-c"
   depends_on "nlohmann-json"
   depends_on "numpy" # for tmva
   depends_on "openblas"
   depends_on "openssl@3"
   depends_on "pcre"
   depends_on "pcre2"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "sqlite"
   depends_on "tbb"
   depends_on "xrootd"
   depends_on "xxhash"
   depends_on "xz" # for LZMA
-  depends_on "zlib"
   depends_on "zstd"
 
   uses_from_macos "libxcrypt"
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "giflib"
@@ -81,10 +82,8 @@ class Root < Formula
 
   skip_clean "bin"
 
-  fails_with gcc: "5"
-
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
@@ -186,7 +185,7 @@ class Root < Formula
   end
 
   def caveats
-    <<~EOS
+    <<~TEXT
       As of ROOT 6.22, you should not need the thisroot scripts; but if you
       depend on the custom variables set by them, you can still run them:
 
@@ -198,7 +197,7 @@ class Root < Formula
         source #{HOMEBREW_PREFIX}/bin/thisroot.csh
       For fish users:
         . #{HOMEBREW_PREFIX}/bin/thisroot.fish
-    EOS
+    TEXT
   end
 
   test do
