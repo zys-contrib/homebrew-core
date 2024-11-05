@@ -4,7 +4,7 @@ class Sysbench < Formula
   url "https://github.com/akopytov/sysbench/archive/refs/tags/1.0.20.tar.gz"
   sha256 "e8ee79b1f399b2d167e6a90de52ccc90e52408f7ade1b9b7135727efe181347f"
   license "GPL-2.0-or-later"
-  revision 6
+  revision 7
   head "https://github.com/akopytov/sysbench.git", branch: "master"
 
   bottle do
@@ -25,19 +25,13 @@ class Sysbench < Formula
   depends_on "pkg-config" => :build
   depends_on "libpq"
   depends_on "luajit"
-  depends_on "mysql-client"
-  depends_on "openssl@3"
+  depends_on "mariadb-connector-c"
 
   uses_from_macos "vim" # needed for xxd
 
-  on_macos do
-    depends_on "zlib"
-    depends_on "zstd"
-  end
-
   def install
     system "./autogen.sh"
-    system "./configure", *std_configure_args, "--with-mysql", "--with-pgsql", "--with-system-luajit"
+    system "./configure", "--with-mysql", "--with-pgsql", "--with-system-luajit", *std_configure_args
     system "make", "install"
   end
 
