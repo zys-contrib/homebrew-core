@@ -4,6 +4,7 @@ class Inspircd < Formula
   url "https://github.com/inspircd/inspircd/archive/refs/tags/v4.4.0.tar.gz"
   sha256 "9f24615b1663ca6ed611f39c3f74da291656fc88df18991ab67f1becbab40aaa"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url :stable
@@ -23,15 +24,9 @@ class Inspircd < Formula
   depends_on "argon2"
   depends_on "gnutls"
   depends_on "libpq"
-  depends_on "mysql-client"
+  depends_on "mariadb-connector-c"
 
   uses_from_macos "openldap"
-
-  on_macos do
-    depends_on "openssl@3"
-    depends_on "zlib"
-    depends_on "zstd"
-  end
 
   skip_clean "data"
   skip_clean "logs"
