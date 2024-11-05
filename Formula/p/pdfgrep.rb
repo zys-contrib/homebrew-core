@@ -4,6 +4,7 @@ class Pdfgrep < Formula
   url "https://pdfgrep.org/download/pdfgrep-2.2.0.tar.gz"
   sha256 "0661e531e4c0ef097959aa1c9773796585db39c72c84a02ff87d2c3637c620cb"
   license "GPL-2.0-only"
+  revision 1
 
   bottle do
     rebuild 1
