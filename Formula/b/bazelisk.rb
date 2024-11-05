@@ -7,12 +7,12 @@ class Bazelisk < Formula
   head "https://github.com/bazelbuild/bazelisk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4eb1cbcac7e006930eea94c2b3bf1d22ad60040dd88334cafa2f727adcd9747f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4eb1cbcac7e006930eea94c2b3bf1d22ad60040dd88334cafa2f727adcd9747f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4eb1cbcac7e006930eea94c2b3bf1d22ad60040dd88334cafa2f727adcd9747f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4a8da2c1b38a21cd432a029c90bbbe185913b4fb2096176ab46a7a46846e6970"
-    sha256 cellar: :any_skip_relocation, ventura:       "4a8da2c1b38a21cd432a029c90bbbe185913b4fb2096176ab46a7a46846e6970"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f19ac31ae0e5fe09b6b6f4f4164ceb02f3c7962ee1f50b2d8617e564556caf79"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b82619536ef86dd93e6ae714d8f9b51c4c915d48b72b52e98acf616cc7ec30e9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b82619536ef86dd93e6ae714d8f9b51c4c915d48b72b52e98acf616cc7ec30e9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b82619536ef86dd93e6ae714d8f9b51c4c915d48b72b52e98acf616cc7ec30e9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "caafad29de5806e10bf5877d7749287546683d3d3186f8627dde4393333ddfc1"
+    sha256 cellar: :any_skip_relocation, ventura:       "caafad29de5806e10bf5877d7749287546683d3d3186f8627dde4393333ddfc1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a04db6db3c673008db022207f3bd446befef65ed328de10ce83e857189fac288"
   end
 
   depends_on "go" => :build
