@@ -1,8 +1,8 @@
 class Pkl < Formula
   desc "CLI for the Pkl programming language"
   homepage "https://pkl-lang.org"
-  url "https://github.com/apple/pkl/archive/refs/tags/0.26.3.tar.gz"
-  sha256 "80f77fc551bc6ba9460476676e9440f42e9a69852e15500dfb13b4378291290b"
+  url "https://github.com/apple/pkl/archive/refs/tags/0.27.0.tar.gz"
+  sha256 "d8ea363bf14567ba76e8a3b43ee47d8280d66734a3c52e854578c03b797b348d"
   license "Apache-2.0"
 
   bottle do
@@ -24,8 +24,6 @@ class Pkl < Formula
 
   def install
     ENV["JAVA_HOME"] = Formula["openjdk@17"].opt_prefix
-    # Need to set this so that native-image passes through env vars when calling out to the C toolchain.
-    ENV["NATIVE_IMAGE_DEPRECATED_BUILDER_SANITATION"] = "true"
 
     arch = Hardware::CPU.arm? ? "aarch64" : "amd64"
     job_name = "#{OS.mac? ? "mac" : "linux"}Executable#{arch.capitalize}"
