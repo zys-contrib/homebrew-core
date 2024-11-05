@@ -5,15 +5,15 @@ class Ruby < Formula
   head "https://github.com/ruby/ruby.git", branch: "master"
 
   stable do
-    url "https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.5.tar.gz"
-    sha256 "3781a3504222c2f26cb4b9eb9c1a12dbf4944d366ce24a9ff8cf99ecbce75196"
+    url "https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.6.tar.gz"
+    sha256 "8dc48fffaf270f86f1019053f28e51e4da4cce32a36760a0603a9aee67d7fd8d"
 
     # Should be updated only when Ruby is updated (if an update is available).
     # The exception is Rubygem security fixes, which mandate updating this
     # formula & the versioned equivalents and bumping the revisions.
     resource "rubygems" do
-      url "https://rubygems.org/rubygems/rubygems-3.5.18.tgz"
-      sha256 "a99163d03286850559134448e4c666fa32513407b63f1c277e5142b75180db56"
+      url "https://rubygems.org/rubygems/rubygems-3.5.23.tgz"
+      sha256 "3d277bf0b12ff46834d89b283fc451d130dbe6428d00d7ace4664c449c3ef28c"
 
       livecheck do
         url "https://rubygems.org/pages/download"
