@@ -1,8 +1,8 @@
 class Scheme48 < Formula
   desc "Scheme byte-code interpreter"
   homepage "https://www.s48.org/"
-  url "https://s48.org/1.9.2/scheme48-1.9.2.tgz"
-  sha256 "9c4921a90e95daee067cd2e9cc0ffe09e118f4da01c0c0198e577c4f47759df4"
+  url "https://s48.org/1.9.3/scheme48-1.9.3.tgz"
+  sha256 "6ef5a9f3fca14110b0f831b45801d11f9bdfb6799d976aa12e4f8809daf3904c"
   license "BSD-3-Clause"
 
   livecheck do
@@ -31,6 +31,9 @@ class Scheme48 < Formula
 
   conflicts_with "gambit-scheme", because: "both install `scheme-r5rs` binaries"
 
+  # remove doc installation step
+  patch :DATA
+
   def install
     # Workaround for newer Clang
     ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
@@ -55,3 +58,17 @@ class Scheme48 < Formula
     assert_equal expected, shell_output("#{bin}/scheme48 -a batch < hello.scm")
   end
 end
+
+__END__
+diff --git a/Makefile.in b/Makefile.in
+index 5fce20d..1647047 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -468,7 +468,7 @@ doc/manual.ps: $(MANUAL_SRC)
+ doc/html/manual.html: doc/manual.pdf
+ 	cd $(srcdir)/doc/src && tex2page manual && tex2page manual && tex2page manual
+
+-doc: doc/manual.pdf doc/manual.ps doc/html/manual.html
++doc: # doc/manual.pdf doc/manual.ps doc/html/manual.html
+
+ install: install-no-doc install-doc
