@@ -57,7 +57,7 @@ class Csound < Formula
   depends_on "openssl@3"
   depends_on "portaudio"
   depends_on "portmidi"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "stk"
   depends_on "wiiuse"
 
@@ -97,7 +97,7 @@ class Csound < Formula
   end
 
   def python3
-    which("python3.12")
+    which("python3.13")
   end
 
   def install
