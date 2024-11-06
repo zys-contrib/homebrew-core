@@ -1,8 +1,8 @@
 class Pixman < Formula
   desc "Low-level library for pixel manipulation"
   homepage "https://cairographics.org/"
-  url "https://cairographics.org/releases/pixman-0.42.2.tar.gz"
-  sha256 "ea1480efada2fd948bc75366f7c349e1c96d3297d09a3fe62626e38e234a625e"
+  url "https://cairographics.org/releases/pixman-0.44.0.tar.gz"
+  sha256 "89a4c1e1e45e0b23dffe708202cb2eaffde0fe3727d7692b2e1739fec78a7dac"
   license "MIT"
 
   livecheck do
@@ -24,20 +24,14 @@ class Pixman < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9cf9d788868c9609f6e3ea3798d93076c7b2b1b8ac7f63527f7e0bed89dc1957"
   end
 
-  depends_on "pkg-config" => :build
-
-  # Fix NEON intrinsic support build issue
-  # upstream PR ref, https://gitlab.freedesktop.org/pixman/pixman/-/merge_requests/71
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/46c7779/pixman/pixman-0.42.2.patch"
-    sha256 "391b56552ead4b3c6e75c0a482a6ab6a634ca250c00fb67b11899d16575f0686"
-  end
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "pkg-config" => :test
 
   def install
-    args = ["--disable-gtk", "--disable-silent-rules"]
-
-    system "./configure", *std_configure_args, *args
-    system "make", "install"
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
@@ -52,12 +46,9 @@ class Pixman < Formula
         return 0;
       }
     C
-    flags = %W[
-      -I#{include}/pixman-1
-      -L#{lib}
-      -lpixman-1
-    ]
-    system ENV.cc, "test.c", "-o", "test", *flags
+
+    pkg_config_flags = shell_output("pkg-config --cflags --libs pixman-1").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkg_config_flags
     system "./test"
   end
 end
