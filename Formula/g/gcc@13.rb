@@ -47,6 +47,14 @@ class GccAT13 < Formula
     sha256 "c5e9236430ef6edbdda7de9ac70bf79e21628077a48322cec7f3f064ccfc243d"
   end
 
+  # Apply additional commits to support Xcode 16 until the next release
+  patch do
+    on_macos do
+      url "https://github.com/iains/gcc-13-branch/compare/fa196a8618c62428a372fb251f9fa292d4f275c2..4fdcc027fcc235805c7cc4bede6948b9a00afe1e.patch"
+      sha256 "c41b217f1e6dc447e208ade4c76e86d5a95a1bd9790abc28bc9c2a4f09b7eb4e"
+    end
+  end
+
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
@@ -102,6 +110,7 @@ class GccAT13 < Formula
       # Change the default directory name for 64-bit libraries to `lib`
       # https://stackoverflow.com/a/54038769
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
+      inreplace "gcc/config/aarch64/t-aarch64-linux", "lp64=../lib64", "lp64="
 
       make_args = %W[
         BOOT_CFLAGS=-I#{Formula["zlib"].opt_include}
