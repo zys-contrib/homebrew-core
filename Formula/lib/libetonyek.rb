@@ -1,8 +1,8 @@
 class Libetonyek < Formula
   desc "Interpret and import Apple Keynote presentations"
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libetonyek"
-  url "https://dev-www.libreoffice.org/src/libetonyek/libetonyek-0.1.10.tar.xz"
-  sha256 "b430435a6e8487888b761dc848b7981626eb814884963ffe25eb26a139301e9a"
+  url "https://dev-www.libreoffice.org/src/libetonyek/libetonyek-0.1.11.tar.xz"
+  sha256 "4bbce5aecbfc939e24a2c654efed561930c4605c270476df455fb3118b3ce3ce"
   license "MPL-2.0"
 
   livecheck do
@@ -29,6 +29,7 @@ class Libetonyek < Formula
   depends_on "librevenge"
 
   uses_from_macos "libxml2"
+  uses_from_macos "zlib"
 
   resource "liblangtag" do
     url "https://bitbucket.org/tagoh/liblangtag/downloads/liblangtag-0.6.7.tar.bz2"
@@ -49,9 +50,6 @@ class Libetonyek < Formula
 
     # Override -std=gnu++11 as mdds>=2.1.1 needs C++17 std::bool_constant
     ENV.append "CXXFLAGS", "-std=gnu++17"
-    # Work around upstream boost issue, see https://github.com/boostorg/phoenix/issues/115
-    # TODO: Try to remove after boost>=1.84
-    ENV.append "CXXFLAGS", "-DBOOST_PHOENIX_STL_TUPLE_H_"
 
     ENV["LANGTAG_CFLAGS"] = "-I#{libexec}/include"
     ENV["LANGTAG_LIBS"] = "-L#{libexec}/lib -llangtag -lxml2"
