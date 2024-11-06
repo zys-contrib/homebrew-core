@@ -916,6 +916,7 @@ fn
 fnlfmt
 fnm
 fnt
+fobis
 folderify
 fontconfig
 fontforge
