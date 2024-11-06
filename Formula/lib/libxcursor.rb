@@ -1,8 +1,8 @@
 class Libxcursor < Formula
   desc "X.Org: X Window System Cursor management library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXcursor-1.2.2.tar.xz"
-  sha256 "53d071bd2cc56e517a30998d5e685c8a74556ddada43c6985d14da9a023a88ee"
+  url "https://www.x.org/archive/individual/lib/libXcursor-1.2.3.tar.xz"
+  sha256 "fde9402dd4cfe79da71e2d96bb980afc5e6ff4f8a7d74c159e1966afb2b2c2c0"
   license "MIT"
 
   bottle do
