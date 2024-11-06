@@ -855,6 +855,7 @@ faust
 favirecon
 fblog
 fcft
+fcgi
 fclones
 fd
 fdk-aac-encoder
