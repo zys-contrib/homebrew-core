@@ -37,6 +37,8 @@ class Comby < Formula
     ENV["OPAMYES"] = "1"
 
     system "opam", "init", "--no-setup", "--disable-sandboxing"
+    # Workaround for https://github.com/comby-tools/comby/issues/381
+    system "opam", "exec", "--", "opam", "pin", "add", "tar-unix", "2.6.0"
     system "opam", "exec", "--", "opam", "install", ".", "--deps-only", "-y", "--no-depexts"
 
     ENV.prepend_path "LIBRARY_PATH", opamroot/"default/lib/hack_parallel" # for -lhp
@@ -46,27 +48,25 @@ class Comby < Formula
   end
 
   test do
-    expect = <<~EXPECT
-      --- /dev/null
-      +++ /dev/null
+    expect = <<~DIFF
+      --- test.c
+      +++ test.c
       @@ -1,3 +1,3 @@
        int main(void) {
       -  printf("hello world!");
       +  printf("comby, hello!");
        }
-    EXPECT
+    DIFF
 
-    input = <<~INPUT
-      EOF
+    (testpath/"test.c").write <<~C
       int main(void) {
         printf("hello world!");
       }
-      EOF
-    INPUT
+    C
 
     match = 'printf(":[1] :[2]!")'
     rewrite = 'printf("comby, :[1]!")'
 
-    assert_equal expect, shell_output("#{bin}/comby '#{match}' '#{rewrite}' .c -stdin -diff << #{input}")
+    assert_equal expect, shell_output("#{bin}/comby '#{match}' '#{rewrite}' test.c -diff")
   end
 end
