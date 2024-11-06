@@ -4,7 +4,7 @@ class SimpleTiles < Formula
   url "https://github.com/propublica/simple-tiles/archive/refs/tags/v0.6.2.tar.gz"
   sha256 "343ae52a0b20ee091b14bc145b7c78fed13b7272acd827626283b70f178dfa34"
   license "MIT"
-  revision 4
+  revision 5
   head "https://github.com/propublica/simple-tiles.git", branch: "master"
 
   bottle do
@@ -32,12 +32,16 @@ class SimpleTiles < Formula
     depends_on "harfbuzz"
   end
 
-  # Update waf for python 3.12
-  # Use resource instead of patch since applying corrupts waf
-  # https://github.com/propublica/simple-tiles/pull/23
+  # Update waf for py3.13
   resource "waf" do
-    url "https://raw.githubusercontent.com/propublica/simple-tiles/e402d6463f6afefd96a2e2d5ce630d909ba96af1/waf"
-    sha256 "dcec3e179f9c33a66544f1b3d7d91f20f6373530510fa6a858cddb6bfdcde14b"
+    url "https://raw.githubusercontent.com/propublica/simple-tiles/d4bae6b932ef84cd115cc327651b4fad49557409/waf"
+    sha256 "dd9dd1895f939d288823a7e23d7914c4f9fb018828da64842953e2a857a08713"
+  end
+
+  # update tools/clang_compilation_database.py for py3.13
+  patch do
+    url "https://github.com/propublica/simple-tiles/commit/a6e8b5738bb7b935d0579a5b514c49720e9eeeff.patch?full_index=1"
+    sha256 "b0d9226069b8c5cedd95d3150b46d123a14259a60f79d2827a5a99b9ce6e8944"
   end
 
   def install
