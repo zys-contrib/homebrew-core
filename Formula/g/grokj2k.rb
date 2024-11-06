@@ -14,12 +14,12 @@ class Grokj2k < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "58dfe423810794c2595923d5d9e7abb452dcad85b40b9f4c98749f136a5a771d"
-    sha256 cellar: :any,                 arm64_sonoma:  "f21704c74f8dc06776204ad4c0a58542e98f1547b8d516ba20828d2ac3c57410"
-    sha256 cellar: :any,                 arm64_ventura: "de74ecf571e653a544424ea6d448e84e3ecd461100824e3d33d382dba4fafa8e"
-    sha256 cellar: :any,                 sonoma:        "975512767859e6ea6b65ee19596cd09375d10ec224dc0f3d7daebde8ab03d243"
-    sha256 cellar: :any,                 ventura:       "543cf0939cfe32eb7f35e5c5c26ba0bf85646c261580bba9fb9ce9a6b75ed172"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c1c38b58a780f45247ca444fc92540cd0d3a66d95b3af14a789e23d8151f48a"
+    sha256 cellar: :any,                 arm64_sequoia: "2f57d841a1b025b17301d5d3593a1e90700bf0bb3d67c6ba4e77dc1303a70963"
+    sha256 cellar: :any,                 arm64_sonoma:  "827e43cae8e8fdda84cb8f5c9cdcd716f5af8d9ee7aa31e9ccb3a9d95a3e8fcd"
+    sha256 cellar: :any,                 arm64_ventura: "cb977b952fca7f773b02dc1f673d42929ff35ebae08361875fd488ee54aedec7"
+    sha256 cellar: :any,                 sonoma:        "2cb05e80dffaeff66267a50cac98633d26f4a5a64d72f87029276d514e9677c8"
+    sha256 cellar: :any,                 ventura:       "ebb08300439206f232f4542f9163ff50a9176bb213d67b76712706c5990e0291"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e904aa9acda6e1d696f1e84ea93bfa0ef77df069d8fe654159a4bdc563b49ec"
   end
 
   depends_on "cmake" => :build
