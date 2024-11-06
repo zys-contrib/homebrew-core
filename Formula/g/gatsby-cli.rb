@@ -1,8 +1,8 @@
 class GatsbyCli < Formula
   desc "Gatsby command-line interface"
-  homepage "https://www.gatsbyjs.org/docs/gatsby-cli/"
-  url "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-5.13.3.tgz"
-  sha256 "22419fe3354ce4a4e373aaa54160294b8d5cc5ab95ad6b632b07a047c6287378"
+  homepage "https://www.gatsbyjs.com/docs/reference/gatsby-cli/"
+  url "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-5.14.0.tgz"
+  sha256 "7e2769d985ed6e008fb2c75a57b55c543c44237bc10b289632ddf504d39c35db"
   license "MIT"
 
   bottle do
