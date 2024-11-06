@@ -4,6 +4,7 @@ class Mapserver < Formula
   url "https://download.osgeo.org/mapserver/mapserver-8.2.2.tar.gz"
   sha256 "47d8ee4bd12ddd2f04b24aa84c6e58f8e6990bcd5c150ba42e22f30ad30568e4"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://mapserver.org/download.html"
