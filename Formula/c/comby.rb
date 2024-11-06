@@ -7,6 +7,7 @@ class Comby < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "02e4b812a3a7196017189b30aba83d058f72fbe37107c554c517538eeb153fee"
     sha256 cellar: :any, arm64_sonoma:   "6547d31a4235741700836ce54b0fdf64bbc0ca2ac42e31ce003c1d86bef079f0"
     sha256 cellar: :any, arm64_ventura:  "0c2cc4ae48e83842879b731399da84e9eb6891bf2c62a10087250db18c257a38"
     sha256 cellar: :any, arm64_monterey: "c5e30b40a5bfca4e550da1ff541deeb4a467eef42298de85c72110e373b68c11"
