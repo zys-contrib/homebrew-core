@@ -6,7 +6,7 @@ class ImmichCli < Formula
   license "AGPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4eed0f0866a8f525304e3504a85cf37d8c75121f3c95ce3315b7bd44d22e2e46"
+    sha256 cellar: :any_skip_relocation, all: "cdc51c8e17c63c7ad507a3916a0b78cfaadd924a87fd781baef63433201d93fe"
   end
 
   depends_on "node"
