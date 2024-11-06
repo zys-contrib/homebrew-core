@@ -1841,6 +1841,7 @@ minetest
 minica
 minigraph
 minikube
+minimal-racket
 minipro
 miniserve
 miniupnpc
