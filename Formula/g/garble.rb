@@ -25,7 +25,7 @@ class Garble < Formula
   end
 
   test do
-    (testpath/"hello.go").write <<~EOS
+    (testpath/"hello.go").write <<~GO
       package main
 
       import "fmt"
@@ -33,7 +33,7 @@ class Garble < Formula
       func main() {
           fmt.Println("Hello World")
       }
-    EOS
+    GO
     system bin/"garble", "-literals", "-tiny", "build", testpath/"hello.go"
     assert_equal "Hello World\n", shell_output("#{testpath}/hello")
 
