@@ -1,8 +1,8 @@
 class Pinocchio < Formula
   desc "Efficient and fast C++ library implementing Rigid Body Dynamics algorithms"
   homepage "https://stack-of-tasks.github.io/pinocchio"
-  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v3.2.0/pinocchio-3.2.0.tar.gz"
-  sha256 "b6a7e6f6f6e3f175dd7010aa998a018f88d712477caa6c41f6ae038310c2fd7d"
+  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v3.3.0/pinocchio-3.3.0.tar.gz"
+  sha256 "a86ea06a7b4447d00cc46ed541a105f686957400eebb51b25aa41a93c08d855c"
   license "BSD-2-Clause"
   head "https://github.com/stack-of-tasks/pinocchio.git", branch: "master"
 
