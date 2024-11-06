@@ -6,12 +6,12 @@ class Aicommit < Formula
   license "CC0-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ba5e2c2761096b1bf8398735271267df4741f9a5c475317548728c1157c9b639"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ba5e2c2761096b1bf8398735271267df4741f9a5c475317548728c1157c9b639"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ba5e2c2761096b1bf8398735271267df4741f9a5c475317548728c1157c9b639"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d76be98e52b540cb4c50ca7faa8cd3935de27443cc5a75d8c6e78f35333bd226"
-    sha256 cellar: :any_skip_relocation, ventura:       "d76be98e52b540cb4c50ca7faa8cd3935de27443cc5a75d8c6e78f35333bd226"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "571232f6e124681c01a471825cf01491b3621c6dff995f37296fa6fbce3f6d9b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7a7c316f47dae0539e95407a1d404c7ccbb37f771f6a9049e3abc6dc6421484c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7a7c316f47dae0539e95407a1d404c7ccbb37f771f6a9049e3abc6dc6421484c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7a7c316f47dae0539e95407a1d404c7ccbb37f771f6a9049e3abc6dc6421484c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "03e62c692d3d64bc97dd6a388a8e3b810c1c8d8830a76495e0c8a80a689655a4"
+    sha256 cellar: :any_skip_relocation, ventura:       "03e62c692d3d64bc97dd6a388a8e3b810c1c8d8830a76495e0c8a80a689655a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "848a5368d7881eb41335e58e54eb995252a4339ef65802360df8abcd05928b6b"
   end
 
   depends_on "go"
