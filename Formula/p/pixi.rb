@@ -1,8 +1,8 @@
 class Pixi < Formula
   desc "Package management made easy"
   homepage "https://pixi.sh"
-  url "https://github.com/prefix-dev/pixi/archive/refs/tags/v0.34.0.tar.gz"
-  sha256 "2e38380143ab8df1d42609cec3a37704ab5594cc4a247c56937ea9ff063d2688"
+  url "https://github.com/prefix-dev/pixi/archive/refs/tags/v0.35.0.tar.gz"
+  sha256 "2639c190e88e8ec14a8d51ef666074be246cf89da748e14ce1c6af3d8ddb2f0e"
   license "BSD-3-Clause"
   head "https://github.com/prefix-dev/pixi.git", branch: "main"
 
@@ -31,6 +31,7 @@ class Pixi < Formula
 
   on_linux do
     depends_on "openssl@3"
+    depends_on "xz" # for liblzma
   end
 
   def install
