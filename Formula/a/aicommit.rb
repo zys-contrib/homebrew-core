@@ -1,8 +1,8 @@
 class Aicommit < Formula
   desc "AI-powered commit message generator"
   homepage "https://github.com/coder/aicommit"
-  url "https://github.com/coder/aicommit/archive/refs/tags/v0.6.4.tar.gz"
-  sha256 "393afe45eb2aa438a9d3b211aa19d6e46948c6e6d970ce0c694d5b3897075c99"
+  url "https://github.com/coder/aicommit/archive/refs/tags/v0.6.5.tar.gz"
+  sha256 "b89c00eabd881344a0e1ee3fe2d5bbf5005cfd19881f5d3a4b23bc8dd0a98a0b"
   license "CC0-1.0"
 
   bottle do
