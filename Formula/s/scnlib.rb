@@ -37,7 +37,7 @@ class Scnlib < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<~EOS
+    (testpath/"test.cpp").write <<~CPP
       #include <scn/scan.h>
       #include <cstdlib>
       #include <string>
@@ -48,7 +48,7 @@ class Scnlib < Formula
         auto [result] = scn::scan<int>(std::to_string(expected), "{}")->values();
         return result == expected ? EXIT_SUCCESS : EXIT_FAILURE;
       }
-    EOS
+    CPP
 
     system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test", "-I#{include}", "-L#{lib}", "-lscn"
     system "./test"
