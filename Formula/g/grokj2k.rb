@@ -58,18 +58,15 @@ class Grokj2k < Formula
     # Fix: ExifTool Perl module not found
     ENV.prepend_path "PERL5LIB", Formula["exiftool"].opt_libexec/"lib"
 
-    # Ensure we use Homebrew little-cms2
+    # Ensure we use Homebrew libraries
     %w[liblcms2 libpng libtiff libz].each { |l| rm_r(buildpath/"thirdparty"/l) }
-    inreplace "thirdparty/CMakeLists.txt" do |s|
-      s.gsub! "add_subdirectory(liblcms2)", ""
-      s.gsub! %r{(set\(LCMS_INCLUDE_DIRNAME) \$\{GROK_SOURCE_DIR\}/thirdparty/liblcms2/include},
-              "\\1 #{Formula["little-cms2"].opt_include}"
-    end
 
     perl = DevelopmentTools.locate("perl")
     perl_archlib = Utils.safe_popen_read(perl.to_s, "-MConfig", "-e", "print $Config{archlib}")
     args = %W[
       -DGRK_BUILD_DOC=ON
+      -DGRK_BUILD_JPEG=OFF
+      -DGRK_BUILD_LCMS2=OFF
       -DGRK_BUILD_LIBPNG=OFF
       -DGRK_BUILD_LIBTIFF=OFF
       -DPERL_EXECUTABLE=#{perl}
@@ -86,7 +83,7 @@ class Grokj2k < Formula
       ENV.append "LDFLAGS", "-Wl,-rpath,#{perl_archlib}/CORE"
     end
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     include.install_symlink "grok-#{version.major_minor}" => "grok"
