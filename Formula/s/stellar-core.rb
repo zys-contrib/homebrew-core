@@ -2,8 +2,8 @@ class StellarCore < Formula
   desc "Backbone of the Stellar (XLM) network"
   homepage "https://www.stellar.org/"
   url "https://github.com/stellar/stellar-core.git",
-      tag:      "v21.3.1",
-      revision: "4ede19620438bcd136276cdc8d4ed1f2c3b64624"
+      tag:      "v22.0.0",
+      revision: "721fd0a654d5e82d38c748a91053e530a475193d"
   license "Apache-2.0"
   head "https://github.com/stellar/stellar-core.git", branch: "master"
 
@@ -55,6 +55,9 @@ class StellarCore < Formula
   end
 
   def install
+    # remove toolchain selection
+    inreplace "src/Makefile.am", "cargo +$(RUST_TOOLCHAIN_CHANNEL)", "cargo"
+
     system "./autogen.sh"
     system "./configure", "--disable-silent-rules",
                           "--enable-postgres",
