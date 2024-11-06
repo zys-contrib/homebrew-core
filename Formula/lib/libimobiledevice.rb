@@ -22,6 +22,7 @@ class Libimobiledevice < Formula
   head do
     url "https://github.com/libimobiledevice/libimobiledevice.git", branch: "master"
     depends_on "libimobiledevice-glue"
+    depends_on "libtatsu"
   end
 
   depends_on "autoconf" => :build
