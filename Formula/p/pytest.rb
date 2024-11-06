@@ -7,6 +7,10 @@ class Pytest < Formula
   sha256 "70b98107bd648308a7952b06e6ca9a50bc660be218d53c257cc1fc94fda10181"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "9092a869dd22676320ecf53825884f579dafb0671b0e86411424f3190a314ebc"
+  end
+
   depends_on "python@3.13"
 
   resource "iniconfig" do
