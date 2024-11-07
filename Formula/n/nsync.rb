@@ -4,6 +4,7 @@ class Nsync < Formula
   url "https://github.com/google/nsync/archive/refs/tags/1.29.2.tar.gz"
   sha256 "1d63e967973733d2c97e841e3c05fac4d3fa299f01d14c86f2695594c7a4a2ec"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a3b52d87b9edb7d58f553ca104f219b34267f2a38f7b955b7f4e4583717ff8e7"
@@ -18,8 +19,11 @@ class Nsync < Formula
 
   depends_on "cmake" => :build
 
+  # PR ref: https://github.com/google/nsync/pull/24
+  patch :DATA
+
   def install
-    system "cmake", "-S", ".", "-B", "_build", "-DNSYNC_ENABLE_TESTS=OFF", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "_build", "-DBUILD_SHARED_LIBS=ON", "-DNSYNC_ENABLE_TESTS=OFF", *std_cmake_args
     system "cmake", "--build", "_build"
     system "cmake", "--install", "_build"
   end
@@ -42,3 +46,17 @@ class Nsync < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index fcc3f41..9dbe677 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -125,7 +125,6 @@ elseif ("${CMAKE_SYSTEM_NAME}X" STREQUAL "DarwinX")
+ 		${NSYNC_OS_CPP_SRC}
+ 		"platform/c++11/src/nsync_semaphore_mutex.cc"
+ 		"platform/posix/src/clock_gettime.c"
+-		"platform/posix/src/nsync_semaphore_mutex.c"
+ 	)
+ elseif ("${CMAKE_SYSTEM_NAME}X" STREQUAL "LinuxX")
+ 	set (NSYNC_POSIX ON)
