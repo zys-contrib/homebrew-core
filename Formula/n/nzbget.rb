@@ -26,6 +26,12 @@ class Nzbget < Formula
   uses_from_macos "zlib"
 
   def install
+    # Workaround to fix build on Xcode 16. This was just ignored on older Xcode so no functional impact
+    # Issue ref: https://github.com/nzbgetcom/nzbget/issues/421
+    if DevelopmentTools.clang_build_version >= 1600
+      inreplace "lib/sources.cmake", 'set(NEON_CXXFLAGS "-mfpu=neon")', ""
+    end
+
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
 
