@@ -4,7 +4,7 @@ class Ipmitool < Formula
   url "https://codeberg.org/IPMITool/ipmitool/archive/IPMITOOL_1_8_19.tar.gz"
   sha256 "ce13c710fea3c728ba03a2a65f2dd45b7b13382b6f57e25594739f2e4f20d010"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -36,8 +36,15 @@ class Ipmitool < Formula
     depends_on "readline"
   end
 
-  # fix enterprise-number URL due to IANA URL scheme change
-  # remove in next release
+  # Patch to fix lan print
+  # https://github.com/ipmitool/ipmitool/issues/388
+  patch do
+    url "https://github.com/ipmitool/ipmitool/commit/a61349b443c16821e4884cde5ad8c031d619631a.patch?full_index=1"
+    sha256 "e026b8a5a5128714a0f36d05b4b26428dca3522dc889ebc21dc8888a2d3f1505"
+  end
+
+  # Patch to fix enterprise-number URL due to IANA URL scheme change
+  # https://github.com/ipmitool/ipmitool/issues/377
   patch do
     url "https://codeberg.org/IPMITool/ipmitool/commit/1edb0e27e44196d1ebe449aba0b9be22d376bcb6.patch?full_index=1"
     sha256 "044363a930cf6a9753d8be2a036a0ee8c4243ce107eebc639dcb93e1e412e0ed"
