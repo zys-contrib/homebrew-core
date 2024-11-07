@@ -2436,6 +2436,7 @@ restview
 resvg
 retire
 revive
+rex
 rgbds
 rhash
 rhit
