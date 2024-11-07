@@ -7,12 +7,12 @@ class F2 < Formula
   head "https://github.com/ayoisaiah/f2.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cb1609ef3e52b072d3294aef38d927424e6c534789661ebfce4162f012121e89"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cb1609ef3e52b072d3294aef38d927424e6c534789661ebfce4162f012121e89"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cb1609ef3e52b072d3294aef38d927424e6c534789661ebfce4162f012121e89"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f72c41655b4bdb9df3e1ee74ca7404b0b11e82a9d1557bf7492cf3f800088083"
-    sha256 cellar: :any_skip_relocation, ventura:       "f72c41655b4bdb9df3e1ee74ca7404b0b11e82a9d1557bf7492cf3f800088083"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e82a4234da20b24657ce3e44861d715029f62c7e04423739bfb5f88ff8d48ec6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0853ce2da036fbc32572f8f7dd3431776ba12e634e10e193b3663207b8b5cbdd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0853ce2da036fbc32572f8f7dd3431776ba12e634e10e193b3663207b8b5cbdd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0853ce2da036fbc32572f8f7dd3431776ba12e634e10e193b3663207b8b5cbdd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b8291620aa08cd378c056224a6acb2735f96c3e1ce0712bfd696b0ff0335b29f"
+    sha256 cellar: :any_skip_relocation, ventura:       "b8291620aa08cd378c056224a6acb2735f96c3e1ce0712bfd696b0ff0335b29f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8cd393b6f4e925a9e15ada03637aa261ad154eb8e90a155b73105c858d96e0ba"
   end
 
   depends_on "go" => :build
