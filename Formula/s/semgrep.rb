@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/semgrep/semgrep.git",
-      tag:      "v1.95.0",
-      revision: "4472baa7bb9b3e8422f8e5d7be23287758a4732b"
+      tag:      "v1.96.0",
+      revision: "e743e2d243c83e6ba20e8f2096569f7383c00239"
   license "LGPL-2.1-only"
   head "https://github.com/semgrep/semgrep.git", branch: "develop"
 
@@ -97,8 +97,8 @@ class Semgrep < Formula
   end
 
   resource "face" do
-    url "https://files.pythonhosted.org/packages/d7/bc/4d0f6c1e095eb977782edd94245f84b69c6f8df152480c78ab310e895098/face-22.0.0.tar.gz"
-    sha256 "d5d692f90bc8f5987b636e47e36384b9bbda499aaf0a77aa0b0bbe834c76923d"
+    url "https://files.pythonhosted.org/packages/ac/79/2484075a8549cd64beae697a8f664dee69a5ccf3a7439ee40c8f93c1978a/face-24.0.0.tar.gz"
+    sha256 "611e29a01ac5970f0077f9c577e746d48c082588b411b33a0dd55c4d872949f6"
   end
 
   resource "glom" do
@@ -222,8 +222,8 @@ class Semgrep < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/25/cb/8e919951f55d109d658f81c9b49d0cc3b48637c50792c5d2e77032b8c5da/rpds_py-0.20.1.tar.gz"
-    sha256 "e1791c4aabd117653530dccd24108fa03cc6baf21f58b950d0a73c3b3b29a350"
+    url "https://files.pythonhosted.org/packages/23/80/afdf96daf9b27d61483ef05b38f282121db0e38f5fd4e89f40f5c86c2a4f/rpds_py-0.21.0.tar.gz"
+    sha256 "ed6378c9d66d0de903763e7706383d60c33829581f0adff47b6535f1802fa6db"
   end
 
   resource "ruamel-yaml" do
