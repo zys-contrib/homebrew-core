@@ -6,12 +6,12 @@ class Rex < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "49854aab380ff396dd1c568f7d1b7c07a20c45605d2bc4291547b78bcd7cbfa3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "49854aab380ff396dd1c568f7d1b7c07a20c45605d2bc4291547b78bcd7cbfa3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "28f9d5c2dccc713ef2932b7729b3f3db7d0fb531296baeafcb172f8edbd01cdb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6aa08eababab26f1f6289fa0b9b2972ace6dc5ee1490a7051359b012ae17a1c7"
-    sha256 cellar: :any_skip_relocation, ventura:       "9519ba8a26e671d3f9641dc9c6a9a8f4c2a92bfd706dacdbdd26cd65f5db4109"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe7bfc1cc381d522463acac9e58df8a317390982c2281087b5a7448daeafa478"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9f5b4c63e054063f8d02ba85b8c5235b8ce1c5ef684c697be583a80c02ae3960"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f5b4c63e054063f8d02ba85b8c5235b8ce1c5ef684c697be583a80c02ae3960"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "36a9b428132fe463f8ac235bb91cf1a61c38229e71435a380c8b8bab67a48089"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fba5b6163d27441c8a03afe2c29311b435833810aa8433639181bf9266e110dd"
+    sha256 cellar: :any_skip_relocation, ventura:       "76b8ff9c88d6c0cdc7969756e62cec006e5f64101213c33c2cfcb6e0b0e0a689"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bba4b386cf1f7aca7cc2cadba6d1e6d6a1ed715fe06cbd0897b7e67d93984d59"
   end
 
   uses_from_macos "expat"
