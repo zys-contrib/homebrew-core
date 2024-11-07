@@ -3,12 +3,24 @@ class Curl < Formula
   homepage "https://curl.se"
   # Don't forget to update both instances of the version in the GitHub mirror URL.
   # `url` goes below this comment when the `stable` block is removed.
-  url "https://curl.se/download/curl-8.11.0.tar.bz2"
-  mirror "https://github.com/curl/curl/releases/download/curl-8_11_0/curl-8.11.0.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/curl-8.11.0.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/legacy/curl-8.11.0.tar.bz2"
-  sha256 "c95d5a1368803729345a632ce42cceeefd5f09c3b4d9582f858f6779f4b8b254"
   license "curl"
+  revision 1
+
+  stable do
+    url "https://curl.se/download/curl-8.11.0.tar.bz2"
+    mirror "https://github.com/curl/curl/releases/download/curl-8_11_0/curl-8.11.0.tar.bz2"
+    mirror "http://fresh-center.net/linux/www/curl-8.11.0.tar.bz2"
+    mirror "http://fresh-center.net/linux/www/legacy/curl-8.11.0.tar.bz2"
+    sha256 "c95d5a1368803729345a632ce42cceeefd5f09c3b4d9582f858f6779f4b8b254"
+
+    # Fix netrc parsing that affects git.
+    # Remove with `stable` block on next release.
+    # https://github.com/curl/curl/issues/15496
+    patch do
+      url "https://github.com/curl/curl/commit/d8010d956f09069d1d6b474abdee5864569e6920.patch?full_index=1"
+      sha256 "98dfd5a21f7de0084163fc1e1f7c0cdd56185dd78a2599c95585a777d06191cd"
+    end
+  end
 
   livecheck do
     url "https://curl.se/download/"
