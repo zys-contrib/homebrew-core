@@ -25,22 +25,22 @@ class GoFeatureFlagRelayProxy < Formula
   test do
     port = free_port
 
-    (testpath/"flags.yml").write <<~EOS
+    (testpath/"flags.yml").write <<~YAML
       test-flag:
         variations:
           true-var: true
           false-var: false
         defaultRule:
           variation: true-var
-    EOS
+    YAML
 
-    (testpath/"test.yml").write <<~EOS
+    (testpath/"test.yml").write <<~YAML
       listen: #{port}
       pollingInterval: 1000
       retriever:
         kind: file
         path: #{testpath}/flags.yml
-    EOS
+    YAML
 
     begin
       pid = fork do
