@@ -6,6 +6,15 @@ class MkdocsMaterial < Formula
   sha256 "c15129c3f46e60da0651206ce7934c2972b45933d1828583f36ca1fdced7a1a2"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "3be6f33ed9b354579c1f65cf08d9f84c2743f606c8288314b22558553fd70911"
+    sha256 cellar: :any,                 arm64_sonoma:  "98e65593b22fb106c761957e812ff0070d24fa23e6a4186ee615dea35a212b83"
+    sha256 cellar: :any,                 arm64_ventura: "3f18cfc94e115d310764bd4113bd2667d59dd8a00424e28286a10ce20a6a3259"
+    sha256 cellar: :any,                 sonoma:        "bd4eeb53d6c8a417d2f10ea7ad28ccc88e8ba573ae91ef801e4c0c5caae98ba7"
+    sha256 cellar: :any,                 ventura:       "2cd091cea092041124553616077a7c753b54cdb74c25b58dcdd07a51d07915ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd2a0528d808a77645f6127c4850d81f27ee99d092a880e22868502d9fae2933"
+  end
+
   depends_on "libyaml"
   depends_on "python@3.13"
 
