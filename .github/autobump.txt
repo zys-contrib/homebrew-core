@@ -2362,6 +2362,7 @@ python-build
 python-launcher
 python-markdown
 python-matplotlib
+python-packaging
 python-setuptools
 python-yq
 pythran
