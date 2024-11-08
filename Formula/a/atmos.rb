@@ -6,12 +6,12 @@ class Atmos < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "619e48c16ba3144addd8afc96e976e9e26ae797266127730ae601246a44d0226"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "619e48c16ba3144addd8afc96e976e9e26ae797266127730ae601246a44d0226"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "619e48c16ba3144addd8afc96e976e9e26ae797266127730ae601246a44d0226"
-    sha256 cellar: :any_skip_relocation, sonoma:        "34b83ea465f7fc0a979b1660193eaec90b49f4b34ff51a5827abff9f52fdae88"
-    sha256 cellar: :any_skip_relocation, ventura:       "34b83ea465f7fc0a979b1660193eaec90b49f4b34ff51a5827abff9f52fdae88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a177415376e04799382692e3000f60b286ec92fd0c6f85c5bf92d6cefe3e410e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f44d8e3f0e8168cdcb3ec2c24da2a594b900b68cd81c9112582db3a3b41c14f0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f44d8e3f0e8168cdcb3ec2c24da2a594b900b68cd81c9112582db3a3b41c14f0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f44d8e3f0e8168cdcb3ec2c24da2a594b900b68cd81c9112582db3a3b41c14f0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "48d6e7596fc5c52a7d0053e5d8db8095ffb517e8842514341167b23b119c6de1"
+    sha256 cellar: :any_skip_relocation, ventura:       "48d6e7596fc5c52a7d0053e5d8db8095ffb517e8842514341167b23b119c6de1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7b94067deed78d81cbb70ab9e9307adedba74c82ffbb0ea096a769dc4e6da2d"
   end
 
   depends_on "go" => :build
