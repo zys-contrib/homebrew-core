@@ -261,6 +261,7 @@ bowtie2
 box2d
 boxes
 bpftop
+braid
 breezy
 brev
 brew-php-switcher
