@@ -33,7 +33,7 @@ class Doltgres < Formula
   test do
     port = free_port
 
-    (testpath/"config.yaml").write <<~EOS
+    (testpath/"config.yaml").write <<~YAML
       behavior:
         read_only: false
         disable_client_multi_statements: false
@@ -48,7 +48,7 @@ class Doltgres < Formula
         port: #{port}
         read_timeout_millis: 28800000
         write_timeout_millis: 28800000
-    EOS
+    YAML
 
     fork do
       exec bin/"doltgres", "--config", testpath/"config.yaml"
