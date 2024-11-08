@@ -23,13 +23,13 @@ class Vale < Formula
 
   test do
     mkdir_p "styles/demo"
-    (testpath/"styles/demo/HeadingStartsWithCapital.yml").write <<~EOS
+    (testpath/"styles/demo/HeadingStartsWithCapital.yml").write <<~YAML
       extends: capitalization
       message: "'%s' should be in title case"
       level: warning
       scope: heading.h1
       match: $title
-    EOS
+    YAML
 
     (testpath/"vale.ini").write <<~EOS
       StylesPath = styles
