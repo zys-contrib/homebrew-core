@@ -1,14 +1,9 @@
 class Lftp < Formula
   desc "Sophisticated file transfer program"
   homepage "https://lftp.yar.ru/"
-  url "https://lftp.yar.ru/ftp/lftp-4.9.2.tar.xz"
-  sha256 "c517c4f4f9c39bd415d7313088a2b1e313b2d386867fe40b7692b83a20f0670d"
+  url "https://github.com/lavv17/lftp/releases/download/v4.9.3/lftp-4.9.3.tar.gz"
+  sha256 "68116cc184ab660a78a4cef323491e89909e5643b59c7b5f0a14f7c2b20e0a29"
   license "GPL-3.0-or-later"
-  revision 1
-
-  livecheck do
-    url "https://github.com/lavv17/lftp.git"
-  end
 
   bottle do
     rebuild 1
