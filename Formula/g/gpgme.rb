@@ -11,14 +11,12 @@ class Gpgme < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "3be0ed36949874bc0c6b0b5936750b498cc6d74ff5949bef213c1bbc252ecc7c"
-    sha256 cellar: :any,                 arm64_sonoma:   "5990f0751f5bce504beaaa9379e0bb082cea842010a6f94f11cfe0c99baba01b"
-    sha256 cellar: :any,                 arm64_ventura:  "4cf824bf4138deda8878af6ad5ea2e6af519a8d7793c0a168f724799d5f97e42"
-    sha256 cellar: :any,                 arm64_monterey: "5b94224d8226e2e49d3ea30bf5bd3d76672a5fd1fb59cdfbf160c35e6d2a4fa3"
-    sha256 cellar: :any,                 sonoma:         "acb0a393ab4537dd314676d8dbbbf846fc14726cba00c32b027e18f11a603db3"
-    sha256 cellar: :any,                 ventura:        "3ffd9fce9f2862c9a35562462356530c4bc46d23e1b23e58e36aede36348fb74"
-    sha256 cellar: :any,                 monterey:       "05b1e5854b7a8eef9edb2a45208bfbdacd28bb243fabc60f350cabcd0b26080d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "691a6fb7cf753251e8feafa30229cbba63a976820b2d33522ef413774788e6c0"
+    sha256 cellar: :any,                 arm64_sequoia: "78c81de80215bee3d83cb1fc44eb2879b43c95db1bd5485f94fe27bb6a92b660"
+    sha256 cellar: :any,                 arm64_sonoma:  "b8ded7959409a8be4698b2a197244078ebd01f07e7e97420fc2b127cdd63fa73"
+    sha256 cellar: :any,                 arm64_ventura: "9959f29142bc193839ed1c812c3394be30cab3989059759e83f60c2fdaba5dea"
+    sha256 cellar: :any,                 sonoma:        "45980c9bc5d6c15c5766b247db1cf43dab13aeb1f8c4110fc9db288dd01fa113"
+    sha256 cellar: :any,                 ventura:       "b0901cdec310a522dfc6d2e588c9c3f621d1d6a35c7d884bf2874bbfdccf27fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1254e2feb2e8aa071dc0f998c81799ee1d8b85c0d08028c78372f8bf3b8f988"
   end
 
   depends_on "python-setuptools" => :build
