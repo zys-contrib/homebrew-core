@@ -3,8 +3,8 @@ class Dolphie < Formula
 
   desc "Feature-rich top tool for monitoring MySQL"
   homepage "https://github.com/charles-001/dolphie"
-  url "https://files.pythonhosted.org/packages/a6/ef/972214867bc59d0633564e0a5af749701167ea250fe45debe1b108b6bcf4/dolphie-6.3.1.tar.gz"
-  sha256 "b4dee8a0ea3cd3b2f2d6860841d6cf52a40640bb7aca860bca6f159c5a405717"
+  url "https://files.pythonhosted.org/packages/bc/11/ffa1f546913838d18fbff2aed3302df7d57b4a43b10dd9753f90f5f3d817/dolphie-6.4.1.tar.gz"
+  sha256 "7ab3d1762da3afa3961d18efe17b7c08fdb2c1abf029f5b3ca6e25ad63a62469"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -86,6 +86,11 @@ class Dolphie < Formula
     sha256 "52d1e932e67c177bf357a3f0fe6ce14d1a96f7f7d5679d7b455b929df517068e"
   end
 
+  resource "psutil" do
+    url "https://files.pythonhosted.org/packages/26/10/2a30b13c61e7cf937f4adf90710776b7918ed0a9c434e2c38224732af310/psutil-6.1.0.tar.gz"
+    sha256 "353815f59a7f64cdaca1c0307ee13558a0512f6db064e92fe833784f08539c7a"
+  end
+
   resource "pygments" do
     url "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz"
     sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
@@ -102,8 +107,8 @@ class Dolphie < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/d9/e9/cf9ef5245d835065e6673781dbd4b8911d352fb770d56cf0879cf11b7ee1/rich-13.9.3.tar.gz"
-    sha256 "bc1e01b899537598cf02579d2b9f4a415104d3fc439313a7a2c165d76557a08e"
+    url "https://files.pythonhosted.org/packages/ab/3a/0316b28d0761c6734d6bc14e770d85506c986c85ffb239e688eeaab2c2bc/rich-13.9.4.tar.gz"
+    sha256 "439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"
   end
 
   resource "setuptools" do
