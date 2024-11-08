@@ -1519,6 +1519,7 @@ lexicon
 lexido
 lf
 lfe
+lftp
 lgogdownloader
 libabigail
 libadwaita
