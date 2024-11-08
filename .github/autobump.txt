@@ -1137,6 +1137,7 @@ gowsdl
 gpac
 gperftools
 gpg-tui
+gpgme
 gprof2dot
 gpsim
 gptme
