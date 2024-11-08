@@ -190,7 +190,7 @@ class AnsibleLint < Formula
     assert_match "[core #{ansible_lint_core_version}]", shell_output("#{ansible} --version")
 
     ENV["ANSIBLE_REMOTE_TEMP"] = testpath/"tmp"
-    (testpath/"playbook.yml").write <<~EOS
+    (testpath/"playbook.yml").write <<~YAML
       ---
       - name: Homebrew test
         hosts: all
@@ -198,7 +198,7 @@ class AnsibleLint < Formula
         tasks:
           - name: Ping
             ansible.builtin.ping:
-    EOS
+    YAML
     system bin/"ansible-lint", testpath/"playbook.yml"
   end
 end
