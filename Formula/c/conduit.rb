@@ -1,8 +1,8 @@
 class Conduit < Formula
   desc "Streams data between data stores. Kafka Connect replacement. No JVM required"
   homepage "https://conduit.io/"
-  url "https://github.com/ConduitIO/conduit/archive/refs/tags/v0.12.1.tar.gz"
-  sha256 "3393c7121a2ff195efce1146a84daec21540e79ff72686ab7094197311133347"
+  url "https://github.com/ConduitIO/conduit/archive/refs/tags/v0.12.2.tar.gz"
+  sha256 "2c77817eb81ff2b49fd620fbf3285ab226b53ff1c71ac042ec241855cd5c91f7"
   license "Apache-2.0"
   head "https://github.com/ConduitIO/conduit.git", branch: "main"
 
@@ -30,8 +30,7 @@ class Conduit < Formula
   end
 
   test do
-    # Assert conduit version
-    assert_match(version.to_s, shell_output("#{bin}/conduit -version"))
+    assert_match version.to_s, shell_output("#{bin}/conduit --version")
 
     File.open("output.txt", "w") do |file|
       # redirect stdout to the file
