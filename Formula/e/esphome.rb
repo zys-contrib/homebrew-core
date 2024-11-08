@@ -3,8 +3,8 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/11/f1/3549b05aa9b1874e06c61d39b225efd5d675d1c75221b1bbfe8b5a7e4ff5/esphome-2024.10.2.tar.gz"
-  sha256 "b56c1cc7f444c075f8267ea62192a44a68dc2ceba7c385d4264189c6272a15e3"
+  url "https://files.pythonhosted.org/packages/8c/14/5c0df964abd46acc0d7df4bffe84c139283985030f4a26f18dba4e791720/esphome-2024.10.3.tar.gz"
+  sha256 "bd35003604967918347f015cf718c00dcf02ca17d372af048242278784279f1c"
   license "MIT"
 
   bottle do
@@ -137,8 +137,8 @@ class Esphome < Formula
   end
 
   resource "marshmallow" do
-    url "https://files.pythonhosted.org/packages/b7/41/05580fed5798ba8032341e7e330b866adc88dfca3bc3ec86c04e4ffdc427/marshmallow-3.23.0.tar.gz"
-    sha256 "98d8827a9f10c03d44ead298d2e99c6aea8197df18ccfad360dae7f89a50da2e"
+    url "https://files.pythonhosted.org/packages/6d/30/14d8609f65c8aeddddd3181c06d2c9582da6278f063b27c910bbf9903441/marshmallow-3.23.1.tar.gz"
+    sha256 "3a8dfda6edd8dcdbf216c0ede1d1e78d230a6dc9c5a088f58c4083b974a0d468"
   end
 
   resource "noiseprotocol" do
@@ -147,8 +147,8 @@ class Esphome < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
-    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
+    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
+    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
   end
 
   resource "paho-mqtt" do
