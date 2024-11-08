@@ -3,8 +3,8 @@ class Osc < Formula
 
   desc "Command-line interface to work with an Open Build Service"
   homepage "https://openbuildservice.org"
-  url "https://github.com/openSUSE/osc/archive/refs/tags/1.10.0.tar.gz"
-  sha256 "aa0bdace3390d594d0332b4e747e2b7fba31343b3385f8d973ddae4ca9c39c5a"
+  url "https://github.com/openSUSE/osc/archive/refs/tags/1.10.1.tar.gz"
+  sha256 "20ee481f7ed9b3355cbdee5f590819b491e9c08992f3f7da0d96ca4495bc68db"
   license "GPL-2.0-or-later"
   head "https://github.com/openSUSE/osc.git", branch: "master"
 
@@ -29,8 +29,8 @@ class Osc < Formula
   uses_from_macos "libffi"
 
   resource "rpm" do
-    url "https://files.pythonhosted.org/packages/44/1b/ef44b5e2fae8e398bfc58f38c25a6f0a10ea147e3e4970b7e66154017d1d/rpm-0.2.0.tar.gz"
-    sha256 "b92285f65c9ddf77678cb3e51aa67827426408fac34cdd8d537d8c14e3eaffbf"
+    url "https://files.pythonhosted.org/packages/d3/36/3dae1ccf058414ee9cc1d39722216db0e0430002ce5008c0b0244f1886fd/rpm-0.3.1.tar.gz"
+    sha256 "d75c5dcb581f1e9c4f89cb6667e938e944c6e7c17dd96829e1553c39f3a4c961"
   end
 
   resource "urllib3" do
