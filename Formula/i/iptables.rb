@@ -11,8 +11,7 @@ class Iptables < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 x86_64_linux: "7930259b2d467d1a20ef16973e68585075ba8734dc15bba09a203c1bfe6075ae"
+    sha256 x86_64_linux: "4de49c1ece1a24f6f72d8290a3d1b4f875a94b9a277640f65faf3258e578a6da"
   end
 
   depends_on "linux-headers@5.15" => :build
