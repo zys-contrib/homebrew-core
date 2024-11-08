@@ -7,14 +7,12 @@ class Braid < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "52f9ffcc5027360a52d67f1789201966ec0276777d997410ff21a3819d6aa7e5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "37b6af924165c983beabe2fe2cf9bcb3fdf682e3b5bfca305934557268dbe6d3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "37b6af924165c983beabe2fe2cf9bcb3fdf682e3b5bfca305934557268dbe6d3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "37b6af924165c983beabe2fe2cf9bcb3fdf682e3b5bfca305934557268dbe6d3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "37b6af924165c983beabe2fe2cf9bcb3fdf682e3b5bfca305934557268dbe6d3"
-    sha256 cellar: :any_skip_relocation, ventura:        "37b6af924165c983beabe2fe2cf9bcb3fdf682e3b5bfca305934557268dbe6d3"
-    sha256 cellar: :any_skip_relocation, monterey:       "37b6af924165c983beabe2fe2cf9bcb3fdf682e3b5bfca305934557268dbe6d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "323907f20250f9604aef138be96269c39ebf6ee86306ff1b7279cda7a9be430e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "427bf44f9ef42d29c47a5b08282128fe31db4f71926f699be37932a63f81a38f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "427bf44f9ef42d29c47a5b08282128fe31db4f71926f699be37932a63f81a38f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "427bf44f9ef42d29c47a5b08282128fe31db4f71926f699be37932a63f81a38f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "427bf44f9ef42d29c47a5b08282128fe31db4f71926f699be37932a63f81a38f"
+    sha256 cellar: :any_skip_relocation, ventura:       "427bf44f9ef42d29c47a5b08282128fe31db4f71926f699be37932a63f81a38f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68d136306f67ebeedabfcc9e3a5d15c0d28cc6af3276cb4570e3d5a5fc4fc36c"
   end
 
   uses_from_macos "ruby"
