@@ -1,10 +1,9 @@
 class Gpgme < Formula
   desc "Library access to GnuPG"
   homepage "https://www.gnupg.org/related_software/gpgme/"
-  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.23.2.tar.bz2"
-  sha256 "9499e8b1f33cccb6815527a1bc16049d35a6198a6c5fae0185f2bd561bce5224"
+  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.24.0.tar.bz2"
+  sha256 "61e3a6ad89323fecfaff176bc1728fb8c3312f2faa83424d9d5077ba20f5f7da"
   license "LGPL-2.1-or-later"
-  revision 2
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gpgme/"
@@ -31,12 +30,6 @@ class Gpgme < Formula
 
   def python3
     "python3.12"
-  end
-
-  # Backport fix for newer setuptools
-  patch do
-    url "https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gpgme.git;a=patch;h=ecd0c86d62351d267bdc9566286c532a394c711b"
-    sha256 "69202c576f5f9980bc88bf9e963fd6199093c89ab8dc3be02ab6c460d65fe1b4"
   end
 
   def install
