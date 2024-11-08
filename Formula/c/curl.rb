@@ -13,12 +13,18 @@ class Curl < Formula
     mirror "http://fresh-center.net/linux/www/legacy/curl-8.11.0.tar.bz2"
     sha256 "c95d5a1368803729345a632ce42cceeefd5f09c3b4d9582f858f6779f4b8b254"
 
+    # Remove the following patches with `stable` block on next release.
     # Fix netrc parsing that affects git.
-    # Remove with `stable` block on next release.
     # https://github.com/curl/curl/issues/15496
     patch do
-      url "https://github.com/curl/curl/commit/d8010d956f09069d1d6b474abdee5864569e6920.patch?full_index=1"
-      sha256 "98dfd5a21f7de0084163fc1e1f7c0cdd56185dd78a2599c95585a777d06191cd"
+      url "https://github.com/curl/curl/commit/f5c616930b5cf148b1b2632da4f5963ff48bdf88.patch?full_index=1"
+      sha256 "fa1991cab62d62ef97a86aae215330e9df3d54d60dcf8338fdd98e758b87cc62"
+    end
+    # Fix support for larger netrc file or longer lines/tokens in it
+    # https://github.com/curl/curl/issues/15513
+    patch do
+      url "https://github.com/curl/curl/commit/0cdde0fdfbeb8c35420f6d03fa4b77ed73497694.patch?full_index=1"
+      sha256 "e1d10cb2327b4aa6b90eb153dce8b06fb4c683936edb9353fb2c9a4341cababd"
     end
   end
 
