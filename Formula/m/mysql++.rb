@@ -12,15 +12,12 @@ class Mysqlxx < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "5b06b157f278d4298095325e3a05118a1293fff3f542494ec594cb847fe88261"
-    sha256 cellar: :any,                 arm64_sonoma:   "feb7078de4fa2eabd483aa1e96a40f76a3194e964996f7e933ee9064074ead84"
-    sha256 cellar: :any,                 arm64_ventura:  "7733ee0ff347f47c24396f16366af6b46ac8ef02542b9cb8d85136d9a8c17c6b"
-    sha256 cellar: :any,                 arm64_monterey: "c0c11ebc7004bae617aeafa1bc621761e829401e8763c0e89d9e3045e3d83eb2"
-    sha256 cellar: :any,                 sonoma:         "635f18063d29b4a49b363c7637584a5c4a1ee624fa06a5bd7c1a02187ae8b799"
-    sha256 cellar: :any,                 ventura:        "1f498501658bd1f0ddeac3543ed35bd4a5eac3a26b436337b0d751abc390cf12"
-    sha256 cellar: :any,                 monterey:       "65dbdf422828f065d912f678f31606de6a808e43373aac6c1e5aca0ca491b4a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "243beca649ebb4da087364acf8a7a10005d2e595e7513828e7397a45ffdc8ec5"
+    sha256 cellar: :any,                 arm64_sequoia: "5c39095c830382c0de716906058fdfc99dc8ba77c57b2682ffab177767790c21"
+    sha256 cellar: :any,                 arm64_sonoma:  "20c4acc648555402a0e94e9d4f771ae4952e1a207ff86af5b088694b5bc0195d"
+    sha256 cellar: :any,                 arm64_ventura: "40a3f055ec5b42ab64ed3996133d2250b4d01e35aadf3d4c156ed5c011708aaa"
+    sha256 cellar: :any,                 sonoma:        "57348bc88e3ed7dfccd4c0b51a7c5416473a0e81d23eb6f9c863d21da02fa236"
+    sha256 cellar: :any,                 ventura:       "5c9da073209c874fa0fd85f0d98783444e1af93e527871d7dc47366f22f9ab28"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "05a8a2b24a6e5b63f6ed9b997686059ea081726bce22555a0665c4b19826effa"
   end
 
   depends_on "mariadb-connector-c"
