@@ -6,6 +6,7 @@ class Twty < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "06376606f273478b5bbcb8f781549cf79bf9b4cf596cc3a274104c1dca2704ea"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "455017b709a05e29e56106d6fafd24f4e9c09fba6d18bcc2b8a5173faf1d21c7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f646e71ba538e0406565dde123ecea7cc153510e53abd19373d1bd3ec159173e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c6bab324fcbfdfd720834fae87499bd2725318394393f63f277c0212d5a56ce4"
