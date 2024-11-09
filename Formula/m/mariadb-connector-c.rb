@@ -43,9 +43,6 @@ class MariadbConnectorC < Formula
   uses_from_macos "krb5"
   uses_from_macos "zlib"
 
-  # TODO: Remove in syntax-only PR
-  conflicts_with "mariadb", because: "both install `mariadb_config`"
-
   def install
     rm_r "external"
 
