@@ -1,8 +1,8 @@
 class Srgn < Formula
   desc "Code surgeon for precise text and code transplantation"
   homepage "https://github.com/alexpovel/srgn"
-  url "https://github.com/alexpovel/srgn/archive/refs/tags/srgn-v0.13.3.tar.gz"
-  sha256 "cdddd6d0ec47a80ea28fc7eb411e1723e355e08ffad0369436d9f192d96382d0"
+  url "https://github.com/alexpovel/srgn/archive/refs/tags/srgn-v0.13.4.tar.gz"
+  sha256 "778766769b9c7845b6f24cb25c940f675c8634b3ba58bf1c552c717a12fe0ead"
   license "MIT"
   head "https://github.com/alexpovel/srgn.git", branch: "main"
 
