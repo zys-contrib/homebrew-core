@@ -11,14 +11,12 @@ class PopplerQt5 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "8b5a420c83516ddfe6148a1b63b3016e1c6684a3ca7dc3599e8a639b8f2f7d09"
-    sha256 arm64_sonoma:   "68c70a13741b87792902219a6ba666354f4fdbbc7838a07f271ac77140d82fd1"
-    sha256 arm64_ventura:  "637369aae5fead971b1538a7a32d24f46fb9a44c63fb6125e97f2446e2e6f2f2"
-    sha256 arm64_monterey: "fcb94b326dd715acc439f3a152e14e50765d9a6867224f75f55c3ac2fdaf5c12"
-    sha256 sonoma:         "8787f6c0ba49344cdd34326076456192dbfc0dbd1e7644d6577a5b4cb13dd188"
-    sha256 ventura:        "ba9b7e9780e37c0c77fa370b981206c47a2d440055d065a16a0928b233fa93ec"
-    sha256 monterey:       "97e1ada0094dd0805b385f6698286f346740ae88b99cf526e6505e62c80bdb59"
-    sha256 x86_64_linux:   "1b22d0fd6dacf9bff211a3d31b265dc543be80ff8f7bd3860fed52ebaba508e9"
+    sha256 arm64_sequoia: "63ce9c2019a382ce59e93c709a6dfc3795495187a025fdd3f0a881cbb870a6fe"
+    sha256 arm64_sonoma:  "5e63d610385c0b51f303d9a7c9ea8874a01126cac0eb5197dc6f8a5060c6186d"
+    sha256 arm64_ventura: "a0d1bea33ec613c93cf2ae349677a0f6ad11028acafa0f5eba48463a14edad94"
+    sha256 sonoma:        "f11d3e4680c6efe4da53f5d7690977995d5f6c39d0e3ed5fcbf43c6a8e5a694e"
+    sha256 ventura:       "0b48db981efc43241966ee56ad56bca3a4db3f15f97e7f8154a8d33efa612f96"
+    sha256 x86_64_linux:  "e03b339d3c70d7667abf88c5983bb3c3b01f6e1402735ccf0eb19008998dcbb8"
   end
 
   keg_only "it conflicts with poppler"
