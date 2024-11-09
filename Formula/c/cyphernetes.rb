@@ -1,8 +1,8 @@
 class Cyphernetes < Formula
   desc "Kubernetes Query Language"
   homepage "https://cyphernet.es"
-  url "https://github.com/AvitalTamir/cyphernetes/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "cad9220829ad61429478cc08b2632063588ea763af3cd4806fa2ef94b7e3c354"
+  url "https://github.com/AvitalTamir/cyphernetes/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "493dfc7de008c697160d96ae9004ac46a74928c180a4a0b53a900d30f4ae4d87"
   license "Apache-2.0"
 
   bottle do
