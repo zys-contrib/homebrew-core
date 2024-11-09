@@ -12,6 +12,7 @@ class GccAT13 < Formula
   end
 
   bottle do
+    sha256                               arm64_sequoia:  "cc01c9f4c79053bc25807069b3b9e8da3acc1b9828a623668c9917a143776ebc"
     sha256                               arm64_sonoma:   "ff56bc82f41d769ff59131299f9d576df8b4a1162ef44acc3a1c45ffbbaa6f9c"
     sha256                               arm64_ventura:  "2711d2616329446feb71d48fefd12e100b232f664dabee59873a961b8665239e"
     sha256                               arm64_monterey: "80a178083c446e401c59c4fd6ebe4c28fde89b4f93f6446e5144ec25d9b8b6dc"
