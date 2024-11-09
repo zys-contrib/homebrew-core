@@ -23,9 +23,7 @@ class Amass < Formula
   end
 
   test do
-    output = shell_output("#{bin}/amass intel -whois -d owasp.org 2>&1")
-    assert_match "blockster.com", output
-
+    assert_match "github.com", shell_output("#{bin}/amass intel -asn 36459 -include Google")
     assert_match version.to_s, shell_output("#{bin}/amass --version 2>&1")
   end
 end
