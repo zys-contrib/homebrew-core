@@ -8,15 +8,12 @@ class Sysbench < Formula
   head "https://github.com/akopytov/sysbench.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "7d0ec825d215ef6254a94b211fac3f8e0dd8c9216161f94fb60b452736efbe9e"
-    sha256 cellar: :any,                 arm64_sonoma:   "4e92ceff385e3387f6f15d7c77394c2be82ff22adafd9d00f080548bca4adfe7"
-    sha256 cellar: :any,                 arm64_ventura:  "e3ee9a9bd7ff39e36970756e135e4bef97c78cd9530be51f1d2597f6a0f504bb"
-    sha256 cellar: :any,                 arm64_monterey: "78ea88f48d0c55422c01c0b58c890f1dcbfa5841446c549a32186ea37fada432"
-    sha256 cellar: :any,                 sonoma:         "c68d555ecd70155bd61acae1f1300572b5caf0106b730c3d4e2b2219fa20db13"
-    sha256 cellar: :any,                 ventura:        "b32eb719d9495d239f5be45126d2c2477a9db451e19fc69933cf9460ef8f7a06"
-    sha256 cellar: :any,                 monterey:       "e3add99698c5fe878ea1d89dc51ff49802b466e6d96875faabf7fbb77ccf2733"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7875147b492684aa098117c40d2a6f2cc8997945ef94d27cb83a7f1a20e8ec2"
+    sha256 cellar: :any,                 arm64_sequoia: "58353cd8988e133b4dfa59be80204cf6968ab6a733f9da7b3a53f561b74c4a20"
+    sha256 cellar: :any,                 arm64_sonoma:  "88b6daa8909f7deca820c79d70651675e73bab3bf25e431ba72967ae78a932bb"
+    sha256 cellar: :any,                 arm64_ventura: "ae000c8446a05ac27b143521afa5c0cb27d6f2fd85985a6b829f2d4c5983c8ef"
+    sha256 cellar: :any,                 sonoma:        "6dc4d175800e0e93778a1d90ef77640a6678f6724f0aa3760aed0fb101c80ba3"
+    sha256 cellar: :any,                 ventura:       "276837830f7c80059028dc02664bed943a465041127d6c9c09faaa3a00c1f837"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b1d4498974cb5820ef3e1d532ae7ba041a7d201583c363d98674771caeacc7f"
   end
 
   depends_on "autoconf" => :build
