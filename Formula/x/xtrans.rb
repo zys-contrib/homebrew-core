@@ -1,8 +1,8 @@
 class Xtrans < Formula
   desc "X.Org: X Network Transport layer shared code"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/xtrans-1.5.1.tar.xz"
-  sha256 "dea80fbd8c3c941495b4b1d2785cb652815d016849a0d2ef90d1140de916993e"
+  url "https://www.x.org/archive/individual/lib/xtrans-1.5.2.tar.xz"
+  sha256 "5c5cbfe34764a9131d048f03c31c19e57fb4c682d67713eab6a65541b4dff86c"
   license "MIT"
 
   bottle do
