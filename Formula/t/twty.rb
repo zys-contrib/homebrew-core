@@ -20,7 +20,7 @@ class Twty < Formula
 
   # see discussions in https://github.com/mattn/twty/issues/28
   # and https://github.com/orakaro/rainbowstream/issues/342
-  deprecate! date: "2024-08-18", because: "uses the old, unsupported Twitter API"
+  disable! date: "2025-01-01", because: "uses the old, unsupported Twitter API"
 
   depends_on "go" => :build
 
@@ -37,12 +37,12 @@ class Twty < Formula
 
     # twty requires PIN code from stdin and putting nothing to stdin to make authentication failed
     require "pty"
-    PTY.spawn(bin/"twty") do |r, w, _pid|
+    PTY.spawn(bin/"twty") do |r, _w, pid|
       output = r.gets
       assert_match "cannot request temporary credentials: OAuth server status 401", output
       assert_match "{\"errors\":[{\"code\":32,\"message\":\"Could not authenticate you.\"}]}", output
-      w.puts
-      sleep 1 # Wait for twty exiting
+    ensure
+      Process.kill "TERM", pid
     end
   end
 end
