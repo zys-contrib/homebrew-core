@@ -550,6 +550,7 @@ crossplane
 crow
 crowdin
 crun
+cryfs
 cryptography
 cryptol
 cryptominisat
