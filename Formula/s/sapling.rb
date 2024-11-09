@@ -24,6 +24,7 @@ class Sapling < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "72ecad5e177d577c7ebd927239070e146840c59200c4b3a8a52671def95ce02e"
     sha256 cellar: :any,                 arm64_sonoma:   "13c25947c50793d1667376036bbe727ef7553644dc9e30da685fbe49bc41d903"
     sha256 cellar: :any,                 arm64_ventura:  "906fe8ad3aaa71ea843beabd59e547c30091376e04e24557550f8f378843e823"
     sha256 cellar: :any,                 arm64_monterey: "b9b45ea52f2afb75b4edef87552c04b9fa7987a8020fabecbc7c0818460bf282"
