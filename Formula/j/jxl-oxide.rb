@@ -1,8 +1,8 @@
 class JxlOxide < Formula
   desc "JPEG XL decoder"
   homepage "https://github.com/tirr-c/jxl-oxide"
-  url "https://github.com/tirr-c/jxl-oxide/archive/refs/tags/0.10.0.tar.gz"
-  sha256 "b5e0efdcad45c4f1b5982dc9f6e27aa890cb5c9d71636710854bc551ed75ba81"
+  url "https://github.com/tirr-c/jxl-oxide/archive/refs/tags/0.10.1.tar.gz"
+  sha256 "20945315b9e5b30b7685d8329a4049c66967461afdc0ff8ea7cc2c5a15156f29"
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
