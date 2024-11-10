@@ -3,8 +3,8 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/8d/e4/098ca9ab91fd59a7198007b463abb7c60680f83a47703babc13ee74b62dd/borgmatic-1.9.0.tar.gz"
-  sha256 "6a099c743cf29787909d65c26ab6214318f5e7edc343958c839cc5ec520556fc"
+  url "https://files.pythonhosted.org/packages/8d/36/0d6779b9876168bfe813aca6973004f73dfc494db11f9661ea90819d25bc/borgmatic-1.9.1.tar.gz"
+  sha256 "d2f0bae2c2050040e5e07a825e605f195cbe9974862b290238c48f72fc04e79a"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -51,8 +51,8 @@ class Borgmatic < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
-    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
+    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
+    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
   end
 
   resource "referencing" do
@@ -66,8 +66,8 @@ class Borgmatic < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/25/cb/8e919951f55d109d658f81c9b49d0cc3b48637c50792c5d2e77032b8c5da/rpds_py-0.20.1.tar.gz"
-    sha256 "e1791c4aabd117653530dccd24108fa03cc6baf21f58b950d0a73c3b3b29a350"
+    url "https://files.pythonhosted.org/packages/23/80/afdf96daf9b27d61483ef05b38f282121db0e38f5fd4e89f40f5c86c2a4f/rpds_py-0.21.0.tar.gz"
+    sha256 "ed6378c9d66d0de903763e7706383d60c33829581f0adff47b6535f1802fa6db"
   end
 
   resource "ruamel-yaml" do
@@ -83,12 +83,6 @@ class Borgmatic < Formula
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
     sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
-  end
-
-  # upstream patch ref, https://projects.torsion.org/borgmatic-collective/borgmatic/commit/be08e889f00beda6858070becf96ae552334d473
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/fa4f1fe3e40198e8425fe80c79891f9cf947765d/borgmatic/1.9.0.patch"
-    sha256 "6bbb02832d46f6438bd8b1b75206d88da88d7d450e35cb6e3b1d61bcf19b9027"
   end
 
   def python3
