@@ -3,10 +3,9 @@ class Snakeviz < Formula
 
   desc "Web-based viewer for Python profiler output"
   homepage "https://jiffyclub.github.io/snakeviz/"
-  url "https://files.pythonhosted.org/packages/64/9b/3983c41e913676d55e4b3de869aa0561e053ad3505f1fd35181670244b70/snakeviz-2.2.0.tar.gz"
-  sha256 "7bfd00be7ae147eb4a170a471578e1cd3f41f803238958b6b8efcf2c698a6aa9"
+  url "https://files.pythonhosted.org/packages/04/06/82f56563b16d33c2586ac2615a3034a83a4ff1969b84c8d79339e5d07d73/snakeviz-2.2.2.tar.gz"
+  sha256 "08028c6f8e34a032ff14757a38424770abb8662fb2818985aeea0d9bc13a7d83"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
     rebuild 1
