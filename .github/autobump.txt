@@ -1500,6 +1500,7 @@ latex2html
 latexdiff
 latexindent
 latexml
+latino
 lazydocker
 lbdb
 lc0
