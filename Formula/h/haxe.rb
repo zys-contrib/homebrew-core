@@ -26,14 +26,13 @@ class Haxe < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "f46b8c3720cefeda7d771f46a73873a68e1db5e76d45102c3107644222416053"
-    sha256 cellar: :any,                 arm64_sonoma:   "d0b13478d395cf9ea455a25b7b07f6536b4bac3b041ad48790e85fb105b45fbb"
-    sha256 cellar: :any,                 arm64_ventura:  "4a33e2aa4d5749040521f96cba3d3d3aa713e97db701063e3566d129e8251f75"
-    sha256 cellar: :any,                 arm64_monterey: "026ce9fe643c092f45b85d6fb99842261583f5d1e4ecb83f43bc7ebb94d0341f"
-    sha256 cellar: :any,                 sonoma:         "9376bf9c2c01df7a8ee36e1e474e909ef8e9e784d3eccd21760760868be65510"
-    sha256 cellar: :any,                 ventura:        "c331d84365e3caf89e27f9b833c0b832a4b703c56b74d1e8c8895e810a9adca2"
-    sha256 cellar: :any,                 monterey:       "8edf54dd46a8a8a786abb80d233d7ec0cad854e0a8484a32bde012030e929aec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37602a38987f6d010d03170855f54f85fc5ce193809234f6c5a7de9fb7486f8e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "e8b9ac34567f3367a0d6e420c3a64782113cb4b279bdfe405c42e74086c45b8d"
+    sha256 cellar: :any,                 arm64_sonoma:  "7b578bd443368559647f8f4b83b4f8836f57a5d753fb039dadfbcdbe7de79093"
+    sha256 cellar: :any,                 arm64_ventura: "20d95b7e36e2332cb253d226ddd5d321376235aa505e2a0a5ae20bdf023b4a6f"
+    sha256 cellar: :any,                 sonoma:        "bc78b84d45023ee30a3dc005043d89171b3bd3489a917670bff5d91aeb48c6bd"
+    sha256 cellar: :any,                 ventura:       "23effcc0f7131aa4c4367a357b1f6f905bfaf214ee08ba83d15e57b211680a6b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b93448c64ffe1c9250e868fde52012b3cef2543b4954e7e24697a221c57b645"
   end
 
   depends_on "cmake" => :build
