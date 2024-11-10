@@ -30,6 +30,7 @@ class Onnxruntime < Formula
   depends_on "safeint" => :build
   depends_on "abseil"
   depends_on "nsync"
+  depends_on "onnx"
   depends_on "protobuf@21" # https://github.com/microsoft/onnxruntime/issues/21308
   depends_on "re2"
 
@@ -48,15 +49,11 @@ class Onnxruntime < Formula
     sha256 "c8f43b307fa7d911d88fec05448161eb1949c3fc0cb62f3a7a2c61928cdf2e9b"
   end
 
-  # TODO: Consider making separate formula
-  resource "onnx" do
-    url "https://github.com/onnx/onnx/archive/refs/tags/v1.17.0.tar.gz"
-    sha256 "8d5e983c36037003615e5a02d36b18fc286541bf52de1a78f6cf9f32005a820e"
+  # Backport fix for build on Linux
+  patch do
+    url "https://github.com/microsoft/onnxruntime/commit/4d614e15bd9e6949bc3066754791da403e00d66c.patch?full_index=1"
+    sha256 "76f9920e591bc52ea80f661fa0b5b15479960004f1be103467b219e55c73a8cc"
   end
-
-  # Fix build on Linux
-  # TODO: Upstream if it works
-  patch :DATA
 
   def install
     python3 = which("python3.13")
@@ -110,17 +107,3 @@ class Onnxruntime < Formula
     assert_equal version, shell_output("./test").strip
   end
 end
-
-__END__
-diff --git a/onnxruntime/core/optimizer/transpose_optimization/onnx_transpose_optimization.cc b/onnxruntime/core/optimizer/transpose_optimization/onnx_transpose_optimization.cc
-index 470838d36e..81a842eb87 100644
---- a/onnxruntime/core/optimizer/transpose_optimization/onnx_transpose_optimization.cc
-+++ b/onnxruntime/core/optimizer/transpose_optimization/onnx_transpose_optimization.cc
-@@ -5,6 +5,7 @@
- 
- #include <algorithm>
- #include <cassert>
-+#include <cstring>
- #include <iostream>
- #include <memory>
- #include <unordered_map>
