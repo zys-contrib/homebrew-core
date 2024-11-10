@@ -2,16 +2,10 @@ class Minetest < Formula
   desc "Free, open source voxel game engine and game"
   homepage "https://www.minetest.net/"
   license "LGPL-2.1-or-later"
-  revision 1
 
   stable do
-    url "https://github.com/minetest/minetest/archive/refs/tags/5.9.1.tar.gz"
-    sha256 "aa9a6ae57445b779f57dcba5a83b0704fabd24c5eca37c6c8611e885bdf09d7c"
-
-    resource "irrlichtmt" do
-      url "https://github.com/minetest/irrlicht/archive/refs/tags/1.9.0mt15.tar.gz"
-      sha256 "12d24380a19be51cab29f54ae48fe08b327789da9c4d082ff815df60393d643f"
-    end
+    url "https://github.com/minetest/minetest/archive/refs/tags/5.10.0.tar.gz"
+    sha256 "2a3161c04e7389608006f01280eda30507f8bacfa1d6b64c2af1b820a62d2677"
 
     resource "minetest_game" do
       url "https://github.com/minetest/minetest_game/archive/refs/tags/5.8.0.tar.gz"
@@ -35,10 +29,6 @@ class Minetest < Formula
 
   head do
     url "https://github.com/minetest/minetest.git", branch: "master"
-
-    resource "irrlichtmt" do
-      url "https://github.com/minetest/irrlicht.git", branch: "master"
-    end
 
     resource "minetest_game" do
       url "https://github.com/minetest/minetest_game.git", branch: "master"
@@ -79,7 +69,6 @@ class Minetest < Formula
     %w[lua gmp jsoncpp].each { |lib| rm_r(buildpath/"lib"/lib) }
 
     (buildpath/"games/minetest_game").install resource("minetest_game")
-    (buildpath/"lib/irrlichtmt").install resource("irrlichtmt")
 
     args = %W[
       -DBUILD_CLIENT=1
@@ -96,11 +85,12 @@ class Minetest < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    bin.write_exec_script prefix/"minetest.app/Contents/MacOS/minetest" if OS.mac?
+    bin.write_exec_script prefix/"luanti.app/Contents/MacOS/luanti" if OS.mac?
   end
 
   test do
-    output = shell_output("#{bin}/minetest --version")
+    # engine got changed from minetest to luanti with 5.10.0 release
+    output = shell_output("#{bin}/luanti --version")
     assert_match "USE_CURL=1", output
     assert_match "USE_GETTEXT=1", output
     assert_match "USE_SOUND=1", output
