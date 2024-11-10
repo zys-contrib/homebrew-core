@@ -27,7 +27,7 @@ class Lmod < Formula
   end
 
   on_linux do
-    depends_on "tcl-tk@8"
+    depends_on "tcl-tk@8" # TCL 9 issue: https://github.com/TACC/Lmod/issues/728
   end
 
   resource "luafilesystem" do
