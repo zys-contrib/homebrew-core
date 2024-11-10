@@ -7,8 +7,7 @@ class Brag < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "1dc1883ed39f5e1c2335a0639cfb3f67b5b7245a7a4e579996eeaa75579d688e"
+    sha256 cellar: :any_skip_relocation, all: "112ddb2485aa0730c63d109081ccf086ca5c83c0de724cb1914722f63e4ea8ad"
   end
 
   depends_on "uudeview"
