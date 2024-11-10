@@ -7,14 +7,12 @@ class Gensio < Formula
   revision 1
 
   bottle do
-    sha256 arm64_sequoia:  "2fbbf769092237b2ad692909a156018d332448cd4f9746d4500a7e9fe6246341"
-    sha256 arm64_sonoma:   "815af93c530cceb6397e6bb7c562f075d2365778f8b5737eafacba3701c90fc8"
-    sha256 arm64_ventura:  "6fefc05cde05c6b163c5b5172d7c37521bf3e3c709fbd4d9ed5a20e7b804470e"
-    sha256 arm64_monterey: "b7ced27a12b0b7b82943387d985ba0f306038a3a720d7befd0b42afe4dc290aa"
-    sha256 sonoma:         "adf86af724ab78586bded8df4c1042acac126d7568c248f5ad17f890b2c0d9bc"
-    sha256 ventura:        "9474bf1436704a1745dce9b1d8f6aea8b294fd17553e23fa3c5f19d413223595"
-    sha256 monterey:       "411f1e3c17029edbf1634508a1a53c0df79cbcf007d394eeb59ff0dcbf04902a"
-    sha256 x86_64_linux:   "557f6c57c37b8b39caed264af6b9c3194573e279891dd99d7d4149cedb1a3e1d"
+    sha256 arm64_sequoia: "ce409a565b24e29123c36ed03589dc36163ca20d5b63fa912aa8d99f0897a1b6"
+    sha256 arm64_sonoma:  "8e023182c89ca34354319946f3076eb32c30cc041bfcaddf49e087a4c5c3ee63"
+    sha256 arm64_ventura: "0afc017ded2668e8ae03981705e144d708d9c6d28b2ca73cc4cfd496f3ff8af7"
+    sha256 sonoma:        "42b6952d37c4ea9085d608a7710de716020764bf89afe8eaaae783b8f725a674"
+    sha256 ventura:       "63af45c369946d79d822a85c8664a1e174b1d6ec59706f390d6b494509391cf2"
+    sha256 x86_64_linux:  "5a0f8ef0973ab5ac0b7dc803da81f00b1068db38bf1a5675dfff8df482148b72"
   end
 
   depends_on "go" => :build
