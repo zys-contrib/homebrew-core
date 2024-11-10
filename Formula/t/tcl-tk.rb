@@ -12,12 +12,12 @@ class TclTk < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "5c86b0e5af8d90d098b67726a67dcc2c6a526c8aac2cea25e8fce43e6f57839f"
-    sha256 arm64_sonoma:  "2a456668a99adffe53485ceb07961201aac42e582434530ac9e32870a3ac3190"
-    sha256 arm64_ventura: "c27c4de6f2e0059d9f8faa87d3f0dbffc5e86d93f4aa472fc2a032596f7e732e"
-    sha256 sonoma:        "f72b0c08a6e75d91441f827dde205c772cf0777b9ed9be1a5217e662c40051d5"
-    sha256 ventura:       "b7981ed65c43e615854eb40afda733fffa641d2f9d65d26f27cc6bfa90387de5"
-    sha256 x86_64_linux:  "f3d4fa58e986a465068f64d36c0a98dd37c3ed74da79b796b9fc90b467ce5bce"
+    sha256 arm64_sequoia: "2c27d5e6c848fce8b9fc2e55bb327156b723aced146d168b20e6a50ea9e12d81"
+    sha256 arm64_sonoma:  "a2b0702eb43cd4fcbee39855e449071a2ce54c159c9f4bb99ba0e8dcdd626c71"
+    sha256 arm64_ventura: "579217dd31a6faedfb47ae50ae5ef419b913caeed21548f2cd9205b52d165da1"
+    sha256 sonoma:        "de199bfd7e6dae1b3899c0e621a834616e44e5f7ce696392ad33233bca6b3f98"
+    sha256 ventura:       "897a500d271cde81fb57a2f57c44d39b35a7ce67587bccc328c93bb2dbf0ea40"
+    sha256 x86_64_linux:  "8c642a395db96898a9b178784a8f9b2bbd0d720c64c93587f5048222f898d9c2"
   end
 
   depends_on "openssl@3"
