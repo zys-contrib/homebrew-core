@@ -2539,6 +2539,7 @@ sccache
 sceptre
 schema-evolution-manager
 schemathesis
+scheme48
 scikit-image
 scilla
 scip
