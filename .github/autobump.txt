@@ -573,6 +573,7 @@ cups
 curl
 cvs-fast-export
 cweb
+cxgo
 cxxopts
 cyclonedx-gomod
 cyclonedx-python
