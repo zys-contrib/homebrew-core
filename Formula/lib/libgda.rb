@@ -6,7 +6,7 @@ class Libgda < Formula
   # The executable tools are GPL-2.0-or-later, but these are considered experimental
   # and not installed by default. The license should be updated when tools are installed.
   license "LGPL-2.0-or-later"
-  revision 3
+  revision 4
 
   bottle do
     sha256 arm64_sequoia:  "78502d2ce3ec6ccb551bc071fdec675b27164f12972ead78da96f6c8a86fc08e"
@@ -29,7 +29,7 @@ class Libgda < Formula
   depends_on "glib"
   depends_on "iso-codes"
   depends_on "json-glib"
-  depends_on "mysql-client"
+  depends_on "mariadb-connector-c"
   depends_on "sqlite"
 
   uses_from_macos "libxml2"
@@ -54,6 +54,12 @@ class Libgda < Formula
   patch do
     url "https://gitlab.gnome.org/GNOME/libgda/-/commit/98f014c783583e3ad87ee546e8dccf34d50f1e37.diff"
     sha256 "2f2d257085b40ef4fccf2db68fe51407ba0f59d39672fc95fd91be3e46e91ffa"
+  end
+
+  # Apply Fedora patch to use `mariadb-connector-c`
+  patch do
+    url "https://src.fedoraproject.org/rpms/libgda/raw/e33ef2c0af32d1aab4a1255b83882552e36002a4/f/mariadb.patch"
+    sha256 "5e2dca080ab2d5d09bba5d41ff4bc7dd63dea5f9f493d6b3e28d592ef48f52fc"
   end
 
   def install
