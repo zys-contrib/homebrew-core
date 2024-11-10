@@ -12,14 +12,12 @@ class X3270 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "71e53c693ce7cd9f487526df27c6c9c7464420bd32239f1a1b72b9ae7f3c8839"
-    sha256 arm64_sonoma:   "a73dbd7599c2dfa7535c0f53868622863f71423f0ee61eb4fc9358098d0d8cb2"
-    sha256 arm64_ventura:  "aa9b6a05284b8f991f128016b8fad45bd48546ffebe24149fce1e76d28d7821a"
-    sha256 arm64_monterey: "c51104f8fa4adfd6c4e8a0ab976e728a1345072e870044b13b825127cba4c10b"
-    sha256 sonoma:         "fb399eb24bcf2d7cbb7e1d7476c08ba4385a612b4fcda19e0d5f90a0b649270b"
-    sha256 ventura:        "7dcc9f728a4dcc5cca53d2aa6c5dafc1b744c274b784b3378e6287d49f18230b"
-    sha256 monterey:       "0362f8daef1203d3a0e4e34393da6c3156afb317a95040ef1a0aebc7a4ea36ef"
-    sha256 x86_64_linux:   "0dc43a7f7f26c1118769ef4c4f4c4f09fabeeaacd7d77b9a1fd7ef7a03ad63a2"
+    sha256 arm64_sequoia: "0725784134da0c9564ae116b52664de68d9c75e9cf5768b418433ed8cf70c0da"
+    sha256 arm64_sonoma:  "137040aa21e9886c430ba38359497c1dca16b586d78647dbe4f31ba84c100dea"
+    sha256 arm64_ventura: "955a63b7239ed7a6a9682c91021ff2b655a45894740fd1b77fb32ac3ca207ee5"
+    sha256 sonoma:        "d32203222eaf6eb19139bcbd717bee3d4490da036878ebfa733ac6f29ed6cd9d"
+    sha256 ventura:       "d11a8334691d3d3b974e697c82bcd7afc3e880ef34d1b8edababea80e86c0f07"
+    sha256 x86_64_linux:  "920b8aa544fd833e7558f755776e1ded14bf9e28c9aa278412e263c267254815"
   end
 
   depends_on "openssl@3"
