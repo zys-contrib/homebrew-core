@@ -3,8 +3,8 @@ class Ldeep < Formula
 
   desc "LDAP enumeration utility"
   homepage "https://github.com/franc-pentest/ldeep"
-  url "https://files.pythonhosted.org/packages/7f/9f/121148071d5e825f00120ec589d2e8c21868eb78465850cbfb095118c6e7/ldeep-1.0.72.tar.gz"
-  sha256 "4591f267f82c2cebf2150f49f04fe72d062c6bd83f67d6984ea360f3a32a5183"
+  url "https://files.pythonhosted.org/packages/df/97/85c01dbc9475fed7934ddb6000bb1d5e3d7a3f99eb9a382c186c0cc66b6a/ldeep-1.0.73.tar.gz"
+  sha256 "ca235ce4051ae341a071c98b039f17ec74faa325fba712eecea2147a1366128d"
   license "MIT"
   head "https://github.com/franc-pentest/ldeep.git", branch: "master"
 
@@ -83,8 +83,8 @@ class Ldeep < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/58/83/6ba9844a41128c62e810fddddd72473201f3eacde02046066142a2d96cc5/tqdm-4.66.5.tar.gz"
-    sha256 "e1020aef2e5096702d8a025ac7d16b1577279c9d63f8375b63083e9a5f0fcbad"
+    url "https://files.pythonhosted.org/packages/e8/4f/0153c21dc5779a49a0598c445b1978126b1344bab9ee71e53e44877e14e0/tqdm-4.67.0.tar.gz"
+    sha256 "fe5a6f95e6fe0b9755e9469b77b9c3cf850048224ecaa8293d7d2d31f97d869a"
   end
 
   # support py3.13 build
