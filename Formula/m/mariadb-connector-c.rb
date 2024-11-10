@@ -46,9 +46,10 @@ class MariadbConnectorC < Formula
   def install
     rm_r "external"
 
-    args = %W[
-      -DINSTALL_LIBDIR=#{lib}
-      -DINSTALL_MANDIR=#{man}
+    # -DINSTALL_* are relative to prefix
+    args = %w[
+      -DINSTALL_LIBDIR=lib
+      -DINSTALL_MANDIR=share/man
       -DWITH_EXTERNAL_ZLIB=ON
       -DWITH_MYSQLCOMPAT=ON
       -DWITH_UNIT_TESTS=OFF
@@ -67,7 +68,7 @@ class MariadbConnectorC < Formula
 
     # Temporary symlinks for backwards compatibility.
     # TODO: Remove in future version update.
-    lib.glob(shared_library("*")) { |f| (lib/"mariadb").install_symlink f }
+    (lib/"mariadb").install_symlink lib.glob(shared_library("*"))
 
     # TODO: Automatically compress manpages in brew
     Utils::Gzip.compress(*man3.glob("*.3"))
