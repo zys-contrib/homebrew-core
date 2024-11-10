@@ -36,7 +36,7 @@ class Opencascade < Formula
   depends_on "freeimage"
   depends_on "freetype"
   depends_on "tbb"
-  depends_on "tcl-tk@8"
+  depends_on "tcl-tk@8" # TCL 9 issue: https://tracker.dev.opencascade.org/view.php?id=33725
 
   on_linux do
     depends_on "libx11"
