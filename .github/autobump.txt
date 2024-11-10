@@ -1329,6 +1329,7 @@ istioctl
 isync
 itk
 ittapi
+ivtools
 ivy
 ivykis
 jabba

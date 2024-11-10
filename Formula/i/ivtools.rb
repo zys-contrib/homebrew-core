@@ -1,10 +1,9 @@
 class Ivtools < Formula
   desc "X11 vector graphic servers"
   homepage "https://github.com/vectaport/ivtools"
-  url "https://github.com/vectaport/ivtools/archive/refs/tags/ivtools-2.1.tar.gz"
-  sha256 "6a5a55883399cbfef317d8bbf553e57e54945188666b344d9efa98ba3edb57ad"
+  url "https://github.com/vectaport/ivtools/archive/refs/tags/ivtools-2.1.1.tar.gz"
+  sha256 "4fa680b9d0fd2af610e9012258e150249d9a8abbc3b1f65eb17d01c959142cfc"
   license "MIT"
-  revision 6
 
   bottle do
     sha256 cellar: :any, arm64_sequoia:  "8c0c13fec5d7dbb494964ba3e1468c26e75d16d2fd455d067670c7509c757cdb"
@@ -20,12 +19,6 @@ class Ivtools < Formula
   depends_on "ace"
   depends_on "libx11"
   depends_on "libxext"
-
-  # c++17 build patch, upstream PR ref, https://github.com/vectaport/ivtools/pull/22
-  patch do
-    url "https://github.com/vectaport/ivtools/commit/7ce87b9159e720cf1990b6fef10ba7a8b664bcda.patch?full_index=1"
-    sha256 "0c1e722b574df66e3c6d4114b066db99691764a04f92c77af2b7adaabde3782c"
-  end
 
   def install
     cp "Makefile.orig", "Makefile"
