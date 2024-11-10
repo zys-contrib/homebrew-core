@@ -2,8 +2,8 @@ class MariadbAT114 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
   # TODO: Build with `-DWITH_LIBFMT=system` when fmt >= 11
-  url "https://archive.mariadb.org/mariadb-11.4.3/source/mariadb-11.4.3.tar.gz"
-  sha256 "6f0017b9901bb1897de0eed21caef9ffa9d66ef559345a0d8a6f011308413ece"
+  url "https://archive.mariadb.org/mariadb-11.4.4/source/mariadb-11.4.4.tar.gz"
+  sha256 "96fbd2e6e93fb7e8b373eea75d85b6fea57c0e111a02090cbbefed52599dc77b"
   license "GPL-2.0-only"
 
   livecheck do
