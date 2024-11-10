@@ -1,8 +1,8 @@
 class Zizmor < Formula
   desc "Find security issues in GitHub Actions setups"
   homepage "https://github.com/woodruffw/zizmor"
-  url "https://github.com/woodruffw/zizmor/archive/refs/tags/v0.2.1.tar.gz"
-  sha256 "25e1c2ca756ec08be0cc7a819d649dc971078774a0d5bd089ab4987a53cb4caa"
+  url "https://github.com/woodruffw/zizmor/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "fc34e9abb9dc23aa1f2093c1ba2fa66b3de7f63872af9212eb4e7e9f04b56fd5"
   license "MIT"
 
   bottle do
@@ -36,7 +36,7 @@ class Zizmor < Formula
               uses: actions/checkout@v4
     YAML
 
-    output = shell_output("#{bin}/zizmor --format plain #{testpath}/action.yaml")
+    output = shell_output("#{bin}/zizmor --format plain #{testpath}/action.yaml", 13)
     assert_match "does not set persist-credentials: false", output
   end
 end
