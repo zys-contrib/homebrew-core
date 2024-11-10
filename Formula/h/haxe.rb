@@ -5,6 +5,7 @@ class Haxe < Formula
   head "https://github.com/HaxeFoundation/haxe.git", branch: "development"
 
   stable do
+    # TODO: Remove `extlib==1.7.9` pin when upstream fixes https://github.com/HaxeFoundation/haxe/issues/11787
     # TODO: Remove `ctypes==0.21.1` pin when build fails from pointer mismatch (i.e. `luv >= 0.5.13`)
     # Ref: https://github.com/HaxeFoundation/haxe/commit/e646e6f182c920694968ba7a28ad01ddfee4519a
     # Ref: https://github.com/HaxeFoundation/haxe/commit/0866067940256afc9227a75f96baee6ec64ee373
@@ -42,12 +43,12 @@ class Haxe < Formula
   depends_on "mbedtls"
   depends_on "neko"
   depends_on "pcre2"
-  depends_on "zlib" # due to `mysql-client`
 
   uses_from_macos "m4" => :build
   uses_from_macos "perl" => :build
   uses_from_macos "rsync" => :build
   uses_from_macos "unzip" => :build
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "node" => :test
@@ -81,6 +82,7 @@ class Haxe < Formula
       ENV["ADD_REVISION"] = "1" if build.head?
       system "opam", "init", "--no-setup", "--disable-sandboxing"
       system "opam", "exec", "--", "opam", "pin", "add", "ctypes", "0.21.1"
+      system "opam", "exec", "--", "opam", "pin", "add", "extlib", "1.7.9"
       system "opam", "exec", "--", "opam", "pin", "add", "haxe", buildpath, "--no-action"
       system "opam", "exec", "--", "opam", "install", "haxe", "--deps-only", "--working-dir", "--no-depexts"
       system "opam", "exec", "--", "make"
