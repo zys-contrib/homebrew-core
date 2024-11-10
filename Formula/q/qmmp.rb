@@ -1,10 +1,9 @@
 class Qmmp < Formula
   desc "Qt-based Multimedia Player"
   homepage "https://qmmp.ylsoftware.com/"
-  url "https://qmmp.ylsoftware.com/files/qmmp/2.1/qmmp-2.1.9.tar.bz2"
-  sha256 "b59f7a378b521d4a6d2b5c9e37a35c3494528bf0db85b24caddf3e1a1c9c3a37"
+  url "https://qmmp.ylsoftware.com/files/qmmp/2.2/qmmp-2.2.2.tar.bz2"
+  sha256 "53055984b220ec1f825b885db3ebdb54a7a71ac67935438ee4ff9c082f600c4f"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url "https://qmmp.ylsoftware.com/downloads.php"
@@ -66,15 +65,6 @@ class Qmmp < Formula
     depends_on "musepack"
   end
 
-  on_sonoma :or_newer do
-    # Support Sonoma (BSD iconv) as qmmp has an incompatible typedef:
-    # /tmp/qmmp-20240828-19582-sf4k85/qmmp-2.1.9/src/qmmp/qmmptextcodec.h:28:15:
-    # error: typedef redefinition with different types ('void *' vs 'struct __tag_iconv_t *')
-    #
-    # Issue ref: https://sourceforge.net/p/qmmp-dev/tickets/1167/
-    patch :DATA
-  end
-
   on_linux do
     depends_on "alsa-lib"
     depends_on "libx11"
@@ -84,8 +74,8 @@ class Qmmp < Formula
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   resource "qmmp-plugin-pack" do
-    url "https://qmmp.ylsoftware.com/files/qmmp-plugin-pack/2.1/qmmp-plugin-pack-2.1.2.tar.bz2"
-    sha256 "fb5b7381a7f11a31e686fb7c76213d42dfa5df1ec61ac2c7afccd8697730c84b"
+    url "https://qmmp.ylsoftware.com/files/qmmp-plugin-pack/2.2/qmmp-plugin-pack-2.2.1.tar.bz2"
+    sha256 "bfb19dfc657a3b2d882bb1cf4069551488352ae920d8efac391d218c00770682"
   end
 
   def install
@@ -101,6 +91,10 @@ class Qmmp < Formula
       cmake_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup"
       cmake_args << "-DCMAKE_MODULE_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup"
     end
+
+    # Fix to recognize x11
+    # Issue ref: https://sourceforge.net/p/qmmp-dev/tickets/1177/
+    inreplace "src/plugins/Ui/skinned/CMakeLists.txt", "PkgConfig::X11", "${X11_LDFLAGS}"
 
     system "cmake", "-S", ".", *cmake_args
     system "cmake", "--build", "."
@@ -120,23 +114,3 @@ class Qmmp < Formula
     system bin/"qmmp", "--version"
   end
 end
-
-__END__
-diff --git a/src/qmmp/qmmptextcodec.h b/src/qmmp/qmmptextcodec.h
-index 5242c33..7399c54 100644
---- a/src/qmmp/qmmptextcodec.h
-+++ b/src/qmmp/qmmptextcodec.h
-@@ -21,12 +21,11 @@
- #ifndef QMMPTEXTCODEC_H
- #define QMMPTEXTCODEC_H
-
-+#include <iconv.h>
- #include <QByteArray>
- #include <QStringList>
- #include "qmmp_export.h"
-
--typedef void *iconv_t;
--
- class QMMP_EXPORT QmmpTextCodec
- {
- public:
