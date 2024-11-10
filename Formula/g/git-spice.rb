@@ -3,10 +3,7 @@ class GitSpice < Formula
   homepage "https://github.com/abhinav/git-spice"
   url "https://github.com/abhinav/git-spice/archive/refs/tags/v0.8.0.tar.gz"
   sha256 "314c97aa32679eaf3b1a59442021279b837eb6e06156268fd5395c347bb61ed2"
-  license all_of: [
-    "GPL-3.0-or-later",
-    "BSD-3-Clause", # internal/komplete/{komplete.go, komplete_test.go}
-  ]
+  license "GPL-3.0-or-later"
   head "https://github.com/abhinav/git-spice.git", branch: "main"
 
   bottle do
