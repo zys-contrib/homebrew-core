@@ -27,6 +27,7 @@ class Gegl < Formula
   depends_on "pkg-config" => :build
 
   depends_on "babl"
+  depends_on "cairo"
   depends_on "glib"
   depends_on "jpeg-turbo"
   depends_on "json-glib"
@@ -39,7 +40,6 @@ class Gegl < Formula
   end
 
   on_linux do
-    depends_on "cairo"
     depends_on "poppler"
   end
 
@@ -56,7 +56,6 @@ class Gegl < Formula
 
     args = %w[
       -Ddocs=false
-      -Dcairo=disabled
       -Djasper=disabled
       -Dumfpack=disabled
       -Dlibspiro=disabled
