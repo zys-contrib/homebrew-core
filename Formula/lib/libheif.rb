@@ -26,6 +26,13 @@ class Libheif < Formula
   depends_on "webp"
   depends_on "x265"
 
+  # Fix to api error for 'cannot assign to non-static data member'
+  # apply upstream patch and should check for removal on next release
+  patch do
+    url "https://github.com/strukturag/libheif/commit/3dd7019ff579c038cba96353390cd41edfda927e.patch?full_index=1"
+    sha256 "9397a8b1b92f311eb1f9bf5c1bae4f5244a406556fd0ce91b3caed7a91daa0d0"
+  end
+
   def install
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
@@ -39,9 +46,6 @@ class Libheif < Formula
     system "cmake", "--install", "build"
     pkgshare.install "examples/example.heic"
     pkgshare.install "examples/example.avif"
-
-    # In order to avoid duplicated symbol error when build static library
-    inreplace "examples/heif_info.cc", "fourcc_to_string", "example_fourcc_to_string"
 
     system "cmake", "-S", ".", "-B", "static", *args, *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
     system "cmake", "--build", "static"
