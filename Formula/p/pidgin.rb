@@ -13,13 +13,11 @@ class Pidgin < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "735ac9a85896636ac0121e6d33a877b6c9c4ea23686014376a50cbd43885b846"
-    sha256 arm64_ventura:  "35dcff54f09b5b91f5f8041424ef35b0cadbf1c24b346790273a87399ae588bb"
-    sha256 arm64_monterey: "370b87c26ae7266fb00216f0f770fdb59c397cf3143472cda027d5fa648182f9"
-    sha256 sonoma:         "9c7e35ec31ab8aad750dcf4ddccba0a3412abb9a8ad7a0b1863b383e2340ac83"
-    sha256 ventura:        "33eb3656e25813dd78f1e02e1817334c4b35b651987e8efb407bedad84097708"
-    sha256 monterey:       "f5de8a96f6f21ab3c29718c03601f5083e192bba706d600fe427f0e1d4da52a9"
-    sha256 x86_64_linux:   "d63a66dbc9278a3c5b32c21e249ceb140dde3098382bc88b18e7411c0224fd12"
+    sha256 arm64_sonoma:  "4daf91819dc1a364ada4442d63358657b5cfe68a0e1228fd32d835caf0de1fbd"
+    sha256 arm64_ventura: "30eccf131427daec7b0138ba20c556087e5dbe52d5f9511d9966a0c7050581ab"
+    sha256 sonoma:        "aeb00e3b89912e895925c3164e673c337aca159acf97352cded6b78992e68443"
+    sha256 ventura:       "2534635abc7029ca83767ff1ad5e49cff3e297a4c07c905c5429b32d1864eb60"
+    sha256 x86_64_linux:  "71e0c8873098b5a1bca073c324da03a5848f3fd8d96100afa854f7c4c608d363"
   end
 
   depends_on "intltool" => :build
