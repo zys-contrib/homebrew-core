@@ -10,6 +10,15 @@ class TclTkAT8 < Formula
     regex(%r{url=.*?/(?:tcl|tk).?v?(8(?:\.\d+)+)[._-]src\.t}i)
   end
 
+  bottle do
+    sha256 arm64_sequoia: "b0014023f7ec4972cf80f05b10a73a53b55636edf9feae4be8e2a90591dda956"
+    sha256 arm64_sonoma:  "64d42662917f5c9a20db0b6f38ad45c577228d6e86cfb780426df985ff547b11"
+    sha256 arm64_ventura: "4eb35b49cee9db142bb0bc3a2bed1fb97b8a415d8b490a4c74fd2cab4275c47f"
+    sha256 sonoma:        "40a34778d277bc8630b796d7ebf16e26d9dcc59d1bd390ed732b61498719279c"
+    sha256 ventura:       "befba542838d1bf3a5d9a8439f2b76586e92c9e034f0043aebd062a7bb3c6ccf"
+    sha256 x86_64_linux:  "1ef83a31cf19fa26dc54ad9d79c581fa1d03aee953b791c35a92a5079c10e665"
+  end
+
   keg_only :versioned_formula
 
   depends_on "openssl@3"
