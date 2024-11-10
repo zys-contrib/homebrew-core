@@ -5,6 +5,15 @@ class Onnx < Formula
   sha256 "8d5e983c36037003615e5a02d36b18fc286541bf52de1a78f6cf9f32005a820e"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "d2144e03e0a2c5414c3be8990425d71d5734d53edadcb74a6c587e5167bd123e"
+    sha256 cellar: :any,                 arm64_sonoma:  "de643758f6f3dadc80300b4a842aaeed3837092d26422921eb32cbba2d591ecd"
+    sha256 cellar: :any,                 arm64_ventura: "681bff0d190bb8df52d7e84f54d2fa2a1ce819976c1f7403d3f983a46245e20e"
+    sha256 cellar: :any,                 sonoma:        "f34da28859b67f6450d39ac2efdc2952203d8887756a07a0e126ff166002735a"
+    sha256 cellar: :any,                 ventura:       "cd411a76e28823c7d5e4e32db067a58414c9da18fe33fa0591d0a9c895316ba5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bdb60989003bffd5716dc752d9a62fba40dd21a5a4a77089d750c06fbeb7e06f"
+  end
+
   depends_on "cmake" => [:build, :test]
   depends_on "protobuf@21"
 
