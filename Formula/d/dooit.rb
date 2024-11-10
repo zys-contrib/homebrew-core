@@ -3,18 +3,18 @@ class Dooit < Formula
 
   desc "TUI todo manager"
   homepage "https://github.com/kraanzu/dooit"
-  url "https://files.pythonhosted.org/packages/2d/11/2938361b14a149b75dd952f8731be6c5a62ba98095d404ba01cbcfd12f13/dooit-3.0.1.tar.gz"
-  sha256 "2a87340dd240e69b8b5f2ceed41c86206113ee3f9f32933d40887d2b1afd67e7"
+  url "https://files.pythonhosted.org/packages/cf/82/42d152ec9b9f438ac3a3568e3b5a086255333122bb4096f0d2760cad941c/dooit-3.0.2.tar.gz"
+  sha256 "3023005f4a815b00c3532a3869a805bc326fbaa8bdd66ee347f3e5099c7aff5c"
   license "MIT"
   head "https://github.com/kraanzu/dooit.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "8d690d250282381b59fbc6ca0a1c62dfd847ad8c47ce736a3900eef4b37fc348"
-    sha256 cellar: :any,                 arm64_sonoma:  "5c48aac1bae03c65c17f0cd1a8eb7995a636ac8ba96d7faa8c2b4fea2c263b53"
-    sha256 cellar: :any,                 arm64_ventura: "cd044e4200b964bb1d6ce56677c06f9b83ae001b1f71ae4869f3680a502fe219"
-    sha256 cellar: :any,                 sonoma:        "e406567f6ed01c23a180d10c6341ac6ec827a93be35556a2494df5371fe8e9c1"
-    sha256 cellar: :any,                 ventura:       "9cbe492c727dc6b2364506133a2eefd7b32918e0bbbef388a22c4ed2bdd60ca5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a58624d641d80bba2cc3be05e8c781564bef511c94fa0276611b779e4a1bb2f"
+    sha256 cellar: :any,                 arm64_sequoia: "329a11c5d319fe8d5e94439e17da173d4ccd8ce50b074eb2f2d03c43148e1d2b"
+    sha256 cellar: :any,                 arm64_sonoma:  "7d4e53f6504a4da390f460029704ec0715fa8c66c78ce0f40c5c9b4b23477f0d"
+    sha256 cellar: :any,                 arm64_ventura: "464a1cde80308408ea0c07d8966f43ba39bffa5c184eda76ecf7f91c1f2407eb"
+    sha256 cellar: :any,                 sonoma:        "5070620ef911b8eea9abaaaf54dbccb063c25640262f557894f0b7e49f23249e"
+    sha256 cellar: :any,                 ventura:       "2f70c9f8965256c7290750799b143f636df96a9b249b554969feb72d8bcc8684"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa0cb822e6a9085bcaeeae929915a5d8da0c5c74a290747af56b682f553e9b74"
   end
 
   depends_on "cmake" => :build
