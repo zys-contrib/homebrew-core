@@ -1851,6 +1851,7 @@ minder
 minetest
 minica
 minigraph
+minijinja-cli
 minikube
 minimal-racket
 minipro
