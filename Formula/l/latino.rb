@@ -2,8 +2,8 @@ class Latino < Formula
   desc "Open source programming language for Latinos and Hispanic speakers"
   homepage "https://www.lenguajelatino.org/"
   url "https://github.com/lenguaje-latino/latino.git",
-      tag:      "v1.4.1",
-      revision: "3ec6ab29902acb0b353cfe9a7b5d0317785fbd88"
+      tag:      "v1.4.4",
+      revision: "4d8ed2e690dd1efcc47a9f8f790b8a9aeba4b808"
   license "MIT"
   head "https://github.com/lenguaje-latino/latino.git", branch: "master"
 
@@ -28,9 +28,9 @@ class Latino < Formula
   end
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
