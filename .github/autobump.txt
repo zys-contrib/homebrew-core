@@ -2636,6 +2636,7 @@ smug
 sn0int
 snakefmt
 snakemake
+snakeviz
 snap
 snapcast
 snapcraft
