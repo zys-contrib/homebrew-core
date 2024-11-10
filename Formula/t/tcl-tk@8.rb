@@ -63,10 +63,14 @@ class TclTkAT8 < Formula
   def install
     odie "tk resource needs to be updated" if version != resource("tk").version
 
+    # Remove bundled zlib
+    rm_r("compat/zlib")
+
     args = %W[
       --prefix=#{prefix}
       --includedir=#{include}/tcl-tk
       --mandir=#{man}
+      --enable-man-suffix
       --enable-threads
       --enable-64bit
     ]
@@ -130,9 +134,6 @@ class TclTkAT8 < Formula
       system "make", "install"
     end
 
-    # Rename all section 3 man pages in the Debian/Ubuntu style, to avoid conflicts
-    man3.glob("*.3") { |file| file.rename("#{file}tcl") }
-
     # Use the sqlite-analyzer formula instead
     # https://github.com/Homebrew/homebrew-core/pull/82698
     rm bin/"sqlite3_analyzer"
@@ -151,7 +152,7 @@ class TclTkAT8 < Formula
     # Fails with: no display name and no $DISPLAY environment variable
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    test_itk = <<~EOS
+    test_itk = <<~TCL
       # Check that Itcl and Itk load, and that we can define, instantiate,
       # and query the properties of a widget.
 
@@ -181,7 +182,7 @@ class TclTkAT8 < Formula
           }
       }
       exit
-    EOS
+    TCL
     assert_equal "OK\n", pipe_output("#{bin}/wish", test_itk), "Itk test failed"
   end
 end
