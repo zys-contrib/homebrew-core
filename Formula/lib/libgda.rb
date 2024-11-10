@@ -9,14 +9,12 @@ class Libgda < Formula
   revision 4
 
   bottle do
-    sha256 arm64_sequoia:  "78502d2ce3ec6ccb551bc071fdec675b27164f12972ead78da96f6c8a86fc08e"
-    sha256 arm64_sonoma:   "8f97eac2e7a6acd540858999d32bf2979e26ed90ce76bd15257d03d4f3dba762"
-    sha256 arm64_ventura:  "319769f163cc1bba6572a3df62bbb5b715e3f657268074a0bfe5f2ed6a209855"
-    sha256 arm64_monterey: "8bfa3cf3f54e34b76e1827e56e38c5c2f2c1d37ce817c12bf29f0104da791083"
-    sha256 sonoma:         "7a7ecb8cddda0d5c2e2bbb870a1ad80f90222c667018bd6ee64b5401247460f2"
-    sha256 ventura:        "b170024fb7eda7aa23309f95b2b3276d13862a6882f38ced5a8144a845cd6975"
-    sha256 monterey:       "7829d1f1439773d1ddf772506d420e0318172dc071f1c1d301ebf80a96bcfc22"
-    sha256 x86_64_linux:   "ef42593fdca5895f69d7c58b2af31e109979f05a72178ae435fc37cc5a1f8c0b"
+    sha256 arm64_sequoia: "2be57dbae0d6ba2cb489b405aeed1d4b00f6dc4ce1182dce49aec0fd1093a813"
+    sha256 arm64_sonoma:  "9cf877eaebc81fecfc1970b452f851b801f326d8154291d88fdbbad78cceecfd"
+    sha256 arm64_ventura: "4c863bea61f7fe27324a05e1ecaeb3f5baf67a87ad8fc0cdb9dbec71102a44db"
+    sha256 sonoma:        "6385eb68f99390c392e26c8798c20fac9f07c3a22ca4f7bb6550b2cac507c6fc"
+    sha256 ventura:       "1753780cc82f8f481ebaed1f645416d8aea7586a020876cebe631485977799a4"
+    sha256 x86_64_linux:  "2c0269be185ff06ae59bbd4eabf89b43b465a20c9282095ace9d4dd8ddb54762"
   end
 
   depends_on "gettext" => :build
