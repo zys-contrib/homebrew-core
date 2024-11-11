@@ -1,10 +1,9 @@
 class IncludeWhatYouUse < Formula
   desc "Tool to analyze #includes in C and C++ source files"
   homepage "https://include-what-you-use.org/"
-  url "https://include-what-you-use.org/downloads/include-what-you-use-0.22.src.tar.gz"
-  sha256 "859074b461ea4b8325a73418c207ca33b5e6566b08e6b587eb9164416569a6dd"
+  url "https://include-what-you-use.org/downloads/include-what-you-use-0.23.src.tar.gz"
+  sha256 "0004d5a9169717acf2f481248a5bfc15c7d55ddc2b9cdc7f461b06e93d49c73f"
   license "NCSA"
-  revision 1
   head "https://github.com/include-what-you-use/include-what-you-use.git", branch: "master"
 
   # This omits the 3.3, 3.4, and 3.5 versions, which come from the older
@@ -26,7 +25,7 @@ class IncludeWhatYouUse < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm@18"
+  depends_on "llvm"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -94,6 +93,7 @@ class IncludeWhatYouUse < Formula
     assert_match expected_output,
       shell_output("#{bin}/include-what-you-use main.c 2>&1")
 
+    mapping_file = "#{llvm.opt_include}/c++/v1/libcxx.imp"
     (testpath/"main.cc").write <<~CPP
       #include <iostream>
       int main() {
@@ -105,6 +105,6 @@ class IncludeWhatYouUse < Formula
       (main.cc has correct #includes/fwd-decls)
     EOS
     assert_match expected_output,
-      shell_output("#{bin}/include-what-you-use main.cc 2>&1")
+      shell_output("#{bin}/include-what-you-use main.cc -Xiwyu --mapping_file=#{mapping_file} 2>&1")
   end
 end
