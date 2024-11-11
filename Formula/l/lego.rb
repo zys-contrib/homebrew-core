@@ -5,6 +5,11 @@ class Lego < Formula
   sha256 "c6741f3ae0f17370b1b400ed170fd070575c55ba6bc2aa71d90738f3f0a719d9"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ce84010d590a56e5451f2ff92fbdcf7a7cad6c883f11cfb16d8d6dfa2f19ce94"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ce84010d590a56e5451f2ff92fbdcf7a7cad6c883f11cfb16d8d6dfa2f19ce94"
