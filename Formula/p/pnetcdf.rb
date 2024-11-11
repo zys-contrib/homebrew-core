@@ -1,8 +1,8 @@
 class Pnetcdf < Formula
   desc "Parallel netCDF library for scientific data using the OpenMPI library"
   homepage "https://parallel-netcdf.github.io/index.html"
-  url "https://parallel-netcdf.github.io/Release/pnetcdf-1.13.0.tar.gz"
-  sha256 "aba0f1c77a51990ba359d0f6388569ff77e530ee574e40592a1e206ed9b2c491"
+  url "https://parallel-netcdf.github.io/Release/pnetcdf-1.14.0.tar.gz"
+  sha256 "e5a7e87dcf7d526b97e8ffdce05df0d2845965787a7d21242fafa9656950e402"
   license "NetCDF"
 
   livecheck do
