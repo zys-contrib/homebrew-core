@@ -4,7 +4,7 @@ class PythonTkAT313 < Formula
   url "https://www.python.org/ftp/python/3.13.0/Python-3.13.0.tgz"
   sha256 "12445c7b3db3126c41190bfdc1c8239c39c719404e844babbd015a1bc3fafcd4"
   license "Python-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     formula "python@3.13"
@@ -44,7 +44,7 @@ class PythonTkAT313 < Formula
               version="#{version}",
               ext_modules = [
                 Extension("_tkinter", ["_tkinter.c", "tkappinit.c"],
-                          define_macros=[("WITH_APPINIT", 1)],
+                          define_macros=[("WITH_APPINIT", 1), ("TCL_WITH_EXTERNAL_TOMMATH", 1)],
                           include_dirs=["#{python_include}/internal", "#{Formula["tcl-tk"].opt_include/"tcl-tk"}"],
                           libraries=["tcl#{tcltk_version}", "tcl#{tcltk_version.major}tk#{tcltk_version}"],
                           library_dirs=["#{Formula["tcl-tk"].opt_lib}"])
