@@ -6,10 +6,6 @@ class Gecode < Formula
   license "MIT"
   revision 1
 
-  livecheck do
-    url "https://github.com/Gecode/gecode"
-  end
-
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_sequoia:  "884ec5f071d961e87c4d6200ea3f81e7452066cca47c226f649ca4b9cf12f5f0"
@@ -24,18 +20,28 @@ class Gecode < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "65740a01de43a11491d8f6eefb60bf20670fa9e1d15ad8d79209324bb424a3fb"
   end
 
-  depends_on "qt@5"
+  depends_on "qt"
 
-  fails_with gcc: "5"
+  # Backport support for Qt6 from release/6.3.0 branch
+  patch do
+    url "https://github.com/Gecode/gecode/commit/c0ca0e5f4406099be22f87236ea8547c2f31ded3.patch?full_index=1"
+    sha256 "233b266a943c0619b027b4cb19912e2a8c9d1f8e4323a3627765cb32b47c59fe"
+  end
 
   def install
+    # Backport parts of upstream commit[^1] and add workarounds to allow configure to build with Qt6
+    #
+    # [^1]: https://github.com/Gecode/gecode/commit/19b9ec3b938f52f5ef5feef15c6be417b5b27e36
+    inreplace "configure", "if test ${ac_gecode_qt_major} -eq 5;", "if test ${ac_gecode_qt_major} -ge 5;"
+    ENV["MOC"] = Formula["qt"].opt_pkgshare/"libexec/moc"
+    ENV.append "CXXFLAGS", "-std=c++17"
+
     args = %W[
       --prefix=#{prefix}
       --disable-examples
       --disable-mpfr
       --enable-qt
     ]
-    ENV.cxx11
     system "./configure", *args
     system "make", "install"
   end
@@ -76,9 +82,10 @@ class Gecode < Formula
     CPP
 
     args = %W[
-      -std=c++11
+      -std=c++17
       -fPIC
-      -I#{Formula["qt@5"].opt_include}
+      -DQT_NO_VERSION_TAGGING
+      -I#{Formula["qt"].opt_include}
       -I#{include}
       -lgecodedriver
       -lgecodesearch
@@ -91,13 +98,12 @@ class Gecode < Formula
     ]
     if OS.linux?
       args += %W[
-        -lQt5Core
-        -lQt5Gui
-        -lQt5Widgets
-        -lQt5PrintSupport
-        -L#{Formula["qt@5"].opt_lib}
+        -L#{Formula["qt"].opt_lib}
+        -lQt6Core
+        -lQt6Gui
+        -lQt6Widgets
+        -lQt6PrintSupport
       ]
-      ENV.append_path "LD_LIBRARY_PATH", Formula["qt@5"].opt_lib
     end
 
     system ENV.cxx, "test.cpp", *args
