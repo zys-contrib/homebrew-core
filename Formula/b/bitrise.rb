@@ -11,12 +11,12 @@ class Bitrise < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4d8952c2de3839807f18195ee1ccdb924c789e49bd690a91faf24f58161e7c63"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4d8952c2de3839807f18195ee1ccdb924c789e49bd690a91faf24f58161e7c63"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4d8952c2de3839807f18195ee1ccdb924c789e49bd690a91faf24f58161e7c63"
-    sha256 cellar: :any_skip_relocation, sonoma:        "72ae9a0aeb871819dc8c4b0b5a48cfc0960cec98daf2584470c07df90414abbf"
-    sha256 cellar: :any_skip_relocation, ventura:       "72ae9a0aeb871819dc8c4b0b5a48cfc0960cec98daf2584470c07df90414abbf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4fa92be9ec12186916dab606a6709c5772c8842105238294f7e7eaefd1ac12aa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6c174de57802525de1789b0b84e7f44c2286bf2f935c79289cc2a82a0b509e0a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6c174de57802525de1789b0b84e7f44c2286bf2f935c79289cc2a82a0b509e0a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6c174de57802525de1789b0b84e7f44c2286bf2f935c79289cc2a82a0b509e0a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "562d803b1597d9b1f0a76be4d1d1682fed98f64ac4f086fbfb1a53b5822e1d5c"
+    sha256 cellar: :any_skip_relocation, ventura:       "562d803b1597d9b1f0a76be4d1d1682fed98f64ac4f086fbfb1a53b5822e1d5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c636157fbb0e48409ff1b483e5ed18328556ed941f4a06081451a1f6106803c6"
   end
 
   depends_on "go" => :build
