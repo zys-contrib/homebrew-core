@@ -2689,6 +2689,7 @@ spotbugs
 spotify_player
 sql-migrate
 sqlancer
+sqlboiler
 sqlc
 sqlcipher
 sqlcmd
