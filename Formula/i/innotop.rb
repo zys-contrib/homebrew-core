@@ -8,12 +8,13 @@ class Innotop < Formula
   head "https://github.com/innotop/innotop.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a17005507753da73e8a13a96b378233d51dd27cc395eecbbf71fd7206bc40acf"
-    sha256 cellar: :any,                 arm64_sonoma:  "49218a88a5c4b0bc005ca1dd974b408551dacad3514bf86c99635f96da787393"
-    sha256 cellar: :any,                 arm64_ventura: "cf8f414fe93aa6ab94e1b8f56abec847fce802bd9774d64eae50a1fc4dc6e1e3"
-    sha256 cellar: :any,                 sonoma:        "df181fa1cebc759da9f19b1c67977842b505195301a3a37b82f745f8b7217753"
-    sha256 cellar: :any,                 ventura:       "4ab714cc8fea0aa2936abe48a665f2e66ce0516e8dfff847be69b105402db2aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5983d9ca80837dcc86692cb8a9a17963543cd71ad3cb599887cbc47a600840e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "2cf3437f299eb15b2f9d8ece6b1c1b1374e4cc8eda2fe88c47a0e11369613a9d"
+    sha256 cellar: :any,                 arm64_sonoma:  "390ca18492dc10b16ce2ec36c8a60d65379fa9016788e53031adac8473af4a27"
+    sha256 cellar: :any,                 arm64_ventura: "8aa57cd530906c93f6bf1b53cdfccbca76a6eae059fb999e5126e704fbbd2e79"
+    sha256 cellar: :any,                 sonoma:        "0e4b35966c92c4e9fe82c91240aab1b285bbb63b48916326797becb2ce4b4e2b"
+    sha256 cellar: :any,                 ventura:       "1644adc048383f4e30f415cdf1fdaf048153d9586ddcd919467b768b7b4b4e52"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4297dcd2edc58800032abfba5b2a89c1983a9ce79b8ca00679343c7b3c34afc4"
   end
 
   depends_on "mysql-client"
