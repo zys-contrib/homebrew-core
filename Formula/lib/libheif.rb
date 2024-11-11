@@ -1,8 +1,8 @@
 class Libheif < Formula
   desc "ISO/IEC 23008-12:2017 HEIF file format decoder and encoder"
   homepage "https://www.libde265.org/"
-  url "https://github.com/strukturag/libheif/releases/download/v1.19.2/libheif-1.19.2.tar.gz"
-  sha256 "f73eb786e75ef1f815ed3d37aca9eadd41dc1d26dfde11f8a4f92f911622d19e"
+  url "https://github.com/strukturag/libheif/releases/download/v1.19.3/libheif-1.19.3.tar.gz"
+  sha256 "1e6d3bb5216888a78fbbf5fd958cd3cf3b941aceb002d2a8d635f85cc59a8599"
   license "LGPL-3.0-only"
 
   bottle do
@@ -27,13 +27,6 @@ class Libheif < Formula
   depends_on "webp"
   depends_on "x265"
 
-  # Fix to api error for 'cannot assign to non-static data member'
-  # apply upstream patch and should check for removal on next release
-  patch do
-    url "https://github.com/strukturag/libheif/commit/3dd7019ff579c038cba96353390cd41edfda927e.patch?full_index=1"
-    sha256 "9397a8b1b92f311eb1f9bf5c1bae4f5244a406556fd0ce91b3caed7a91daa0d0"
-  end
-
   def install
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
@@ -42,6 +35,7 @@ class Libheif < Formula
       -DWITH_RAV1E=OFF
       -DWITH_SvtEnc=OFF
     ]
+
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
