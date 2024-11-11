@@ -300,6 +300,7 @@ jobs:
                 imath|\
                 jasper|\
                 jpeg-turbo|\
+                libcap|\
                 libgcrypt|\
                 libgpg-error|\
                 libidn2|\
