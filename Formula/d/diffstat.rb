@@ -1,8 +1,8 @@
 class Diffstat < Formula
   desc "Produce graph of changes introduced by a diff file"
   homepage "https://invisible-island.net/diffstat/"
-  url "https://invisible-mirror.net/archives/diffstat/diffstat-1.66.tgz"
-  sha256 "f54531bbe32e8e0fa461f018b41e3af516b632080172f361f05e50367ecbb69e"
+  url "https://invisible-mirror.net/archives/diffstat/diffstat-1.67.tgz"
+  sha256 "760ed0c99c6d643238d41b80e60278cf1683ffb94a283954ac7ef168c852766a"
   license "MIT-CMU"
 
   livecheck do
@@ -39,7 +39,7 @@ class Diffstat < Formula
       -  version '1.58'
       -  sha256 'fad5135199c3b9aea132c5d45874248f4ce0ff35f61abb8d03c3b90258713793'
       +  url 'https://deb.debian.org/debian/pool/main/d/diffstat/diffstat_1.61.orig.tar.gz'
-      +  sha256 'f54531bbe32e8e0fa461f018b41e3af516b632080172f361f05e50367ecbb69e'
+      +  sha256 '760ed0c99c6d643238d41b80e60278cf1683ffb94a283954ac7ef168c852766a'
     EOS
     output = shell_output("#{bin}/diffstat diff.diff")
     assert_match "2 insertions(+), 3 deletions(-)", output

@@ -647,6 +647,7 @@ dicebear
 diesel
 diffoci
 diffoscope
+diffstat
 difftastic
 digdag
 dillo
