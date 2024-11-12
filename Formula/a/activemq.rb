@@ -7,14 +7,12 @@ class Activemq < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "54a60751a62e32f072d36a0cff43fb0f8ab537671c85b02105816143710894e4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fd0dfc580d6eb5d4ce59737872fa38e3f5249308364104cf26c5eff8e65a80f2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a29869c57b4bd7467181a1e1ad99e8a2716fa3e523f66dfb6ca1bf21afbc47be"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "583263dcbe34a451a96b1d0f4d049ea0a92e5b6b02227663f7a147e71f6ec3fa"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ecfd2e949264406479e5002d43715258316155ee59d63cb05bf71f3f7de498bc"
-    sha256 cellar: :any_skip_relocation, ventura:        "ddf65ea177a13d2b13d043a9e21bba44cb8a03d8cb3d58c340f6209ffc25a523"
-    sha256 cellar: :any_skip_relocation, monterey:       "ed437a8fb40d66072e52dc1965e44907324a20265ce3843efd0819a7f4ac3a9c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd1bcab1a02b097d92e4a35aad0f2a7426193db590e473d1405254690eb3d071"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a33223433cbc182b8e0f69681c5c8783a286caf14ba14d54a6c6af359b6194f9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "024cbdd4a38849bdbf26d4cf9bd741a0f8d2899c55d6dba32552f8ddfa6c9ba8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f97b821b25920a572a38fbd553788fa1ebdbfa99b450d8111af2e0c1092f2b8c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "518159896f2fd33539f07fbddf795353c080c8623a6ebe9d655dd5b26e7618b9"
+    sha256 cellar: :any_skip_relocation, ventura:       "8e3b7f4f41ffe894e41dd5f7fdc74c98725ec56356388b69d6a79b860a01fcaf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f55d581b78a0ea1baa0329eba94da3c83261009489d220e7621fb027c1f89c5"
   end
 
   depends_on "java-service-wrapper"
