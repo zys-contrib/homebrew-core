@@ -32,9 +32,6 @@ class Llvm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "479d06278bca8d5a7b8863f003ca127641ffef9c734976eee34fe8c0cc01d763"
   end
 
-  # Clang cannot find system headers if Xcode CLT is not installed
-  pour_bottle? only_if: :clt_installed
-
   keg_only :provided_by_macos
 
   # https://llvm.org/docs/GettingStarted.html#requirement
@@ -449,16 +446,9 @@ class Llvm < Formula
       xctoolchain.parent.install_symlink xctoolchain.basename.to_s => "LLVM#{soversion}.xctoolchain"
 
       # Write config files for each macOS major version so that this works across OS upgrades.
-      # TODO: replace this with a call to `MacOSVersion.kernel_major_version` once this is in a release tag:
-      #   https://github.com/Homebrew/brew/pull/18674
-      {
-        11 => 20,
-        12 => 21,
-        13 => 22,
-        14 => 23,
-        15 => 24,
-      }.each do |macos_version, kernel_version|
-        write_config_files(macos_version, kernel_version, Hardware::CPU.arch)
+      MacOSVersion::SYMBOLS.each_value do |v|
+        macos_version = MacOSVersion.new(v)
+        write_config_files(macos_version, MacOSVersion.kernel_major_version(macos_version), Hardware::CPU.arch)
       end
 
       # Also write an unversioned config file as fallback
@@ -503,20 +493,37 @@ class Llvm < Formula
 
     arches = Set.new([:arm64, :x86_64])
     arches << arch
+    sysroot = if macos_version >= "10.14" || (macos_version.blank? && kernel_version.blank?)
+      "#{MacOS::CLT::PKG_PATH}/SDKs/MacOSX#{macos_version}.sdk"
+    else
+      "/"
+    end
 
-    arches.each do |target_arch|
-      target_triple = "#{target_arch}-apple-darwin#{kernel_version}"
-      (clang_config_file_dir/"#{target_triple}.cfg").atomic_write <<~CONFIG
-        --sysroot=#{MacOS::CLT::PKG_PATH}/SDKs/MacOSX#{macos_version}.sdk
-      CONFIG
+    {
+      darwin: kernel_version,
+      macosx: macos_version,
+    }.each do |system, version|
+      arches.each do |target_arch|
+        config_file = "#{target_arch}-apple-#{system}#{version}.cfg"
+        (clang_config_file_dir/config_file).atomic_write <<~CONFIG
+          --sysroot=#{sysroot}
+        CONFIG
+      end
     end
   end
 
   def post_install
     return unless OS.mac?
-    return if (clang_config_file_dir/"#{Hardware::CPU.arch}-apple-darwin#{OS.kernel_version.major}.cfg").exist?
 
-    write_config_files(MacOS.version.major, OS.kernel_version.major, Hardware::CPU.arch)
+    config_files = {
+      darwin: OS.kernel_version.major,
+      macosx: MacOS.version,
+    }.map do |system, version|
+      clang_config_file_dir/"#{Hardware::CPU.arch}-apple-#{system}#{version}.cfg"
+    end
+    return if config_files.all?(&:exist?)
+
+    write_config_files(MacOS.version, OS.kernel_version.major, Hardware::CPU.arch)
   end
 
   def caveats
@@ -533,6 +540,10 @@ class Llvm < Formula
 
     on_macos do
       s += <<~EOS
+
+        Using `clang`, `clang++`, etc., requires a CLT installation at `/Library/Developer/CommandLineTools`.
+        If you don't want to install the CLT, you can write appropriate configuration files pointing to your
+        SDK at ~/.config/clang.
 
         To use the bundled libunwind please use the following LDFLAGS:
           LDFLAGS="-L#{opt_lib}/unwind -lunwind"
@@ -618,6 +629,16 @@ class Llvm < Formula
         assert_equal "Hello World!", shell_output("./testCLT++").chomp
         system bin/"clang", "-v", "test.c", "-o", "testCLT"
         assert_equal "Hello World!", shell_output("./testCLT").chomp
+
+        target = "#{Hardware::CPU.arch}-apple-macosx#{MacOS.full_version}"
+        system bin/"clang-cpp", "-v", "--target=#{target}", "test.c"
+        system bin/"clang-cpp", "-v", "--target=#{target}", "test.cpp"
+
+        system bin/"clang", "-v", "--target=#{target}", "test.c", "-o", "test-macosx"
+        assert_equal "Hello World!", shell_output("./test-macosx").chomp
+
+        system bin/"clang++", "-v", "--target=#{target}", "-std=c++11", "test.cpp", "-o", "test++-macosx"
+        assert_equal "Hello World!", shell_output("./test++-macosx").chomp
       end
 
       # Testing Xcode
