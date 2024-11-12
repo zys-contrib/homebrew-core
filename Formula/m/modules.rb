@@ -2,10 +2,9 @@ class Modules < Formula
   desc "Dynamic modification of a user's environment via modulefiles"
   homepage "https://modules.sourceforge.net/"
   # TODO: Try switching to `tcl-tk` on the next release
-  url "https://downloads.sourceforge.net/project/modules/Modules/modules-5.4.0/modules-5.4.0.tar.bz2"
-  sha256 "c494f70cb533b5f24ad69803aa053bb4a509bec4632d6a066e7ac041db461a72"
+  url "https://downloads.sourceforge.net/project/modules/Modules/modules-5.5.0/modules-5.5.0.tar.bz2"
+  sha256 "cb6355b0c81566a4d3ecd06fb4ae6afc9665a087b1e9039c5b5ffbc46fa282e2"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url :stable

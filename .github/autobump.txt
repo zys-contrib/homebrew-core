@@ -1879,6 +1879,7 @@ mockserver
 moco
 mods
 modsecurity
+modules
 mold
 molecule
 monero
