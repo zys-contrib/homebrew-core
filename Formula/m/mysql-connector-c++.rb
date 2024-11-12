@@ -23,15 +23,13 @@ class MysqlConnectorCxx < Formula
   depends_on "rapidjson" => :build
   depends_on "lz4"
   depends_on "openssl@3"
-  depends_on "protobuf@21"
   depends_on "zlib"
   depends_on "zstd"
 
   def install
-    args = []
-    %w[lz4 protobuf rapidjson zlib zstd].each do |libname|
-      args << "-DWITH_#{libname.upcase}=system"
-      rm_r buildpath/"cdk/extra"/libname
+    args = %w[lz4 rapidjson zlib zstd].map do |libname|
+      rm_r(buildpath/"cdk/extra"/libname)
+      "-DWITH_#{libname.upcase}=system"
     end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
