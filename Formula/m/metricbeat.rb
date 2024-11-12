@@ -8,12 +8,12 @@ class Metricbeat < Formula
   head "https://github.com/elastic/beats.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "544d460fd7a771474c8fc4220a9c076ab2704ce635f9213d6f7cc569b9de33bd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "acc46213dd85e0484c1c1a5ab29a833b58bad51f4434112ec803e98c6210cedb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6fdaed69a4770b1c4d2a8e0f851a06a786ede328b6298bf0ad9d5abc5164c915"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8a7b5765706bc95e7a6bf22eefea7f6acffd02b9e015de63c232ace009f7675a"
-    sha256 cellar: :any_skip_relocation, ventura:       "82cb22bc5f18cab768c508c18144c8179061cd684315ba94f41ce76f55cfe782"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b402d860fffe700634ba66edb32f2bc3b09f615deb98adb17f11b1bb93dc6848"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "759d9e9804aabea91e04991acfd537fea2cadd77bfa09b951a601a8821930eed"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "220835b4ac2190f332f3fb6049edceaa2d6409612212481263eed867dbc3ff9e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "44ccac82f6d569bf53f6c6747a48a683372474fda68bcfbe49d478d8afb7ca9e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "35556701112661bb29cab4466ecbc6989c802c3ade7e7a811e8e772bd3c8120f"
+    sha256 cellar: :any_skip_relocation, ventura:       "de6c483cb5f5f287792d63ce8b2394eeb6d45aa1d588b461a1464b07656b4b0b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "06d9057a40ce6f844d0c2065919cc168947f7d12316d2cd63c26167d319e2555"
   end
 
   depends_on "go" => :build
