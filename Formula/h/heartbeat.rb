@@ -2,18 +2,18 @@ class Heartbeat < Formula
   desc "Lightweight Shipper for Uptime Monitoring"
   homepage "https://www.elastic.co/beats/heartbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v8.15.3",
-      revision: "bbed3ae55602e83f57c62de85b57a3593aa49efa"
+      tag:      "v8.15.4",
+      revision: "bb01339f5a453be79bda545a40c863353134e88a"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d6113519f910332309fb639e2b7b03bc99b1b9b6a3f3a76040d879249449c568"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ad1a4dad8aad9407f5cfc54b03d72c7d65abc3652047d141e81f2c23545c7c8b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "eb9e0bc1f034c0c7f1a4914747892bba65d20edf7059ef4be28fe41f1a004687"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bddf58fac8536bed40493d19fe6b783fc1a8b94a7f07d781d9f2100f2ba506cb"
-    sha256 cellar: :any_skip_relocation, ventura:       "343dc7dd42afc4577e924a5cfeafe76b9f67cf8fd034da3a4f819c75a30f30d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad795c28f00b925ecd571b2da11050d1a6ae9418efa39f27457c96ce1ba5620a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1c8a28ede8e630387c298e898070b30bc08593bed04cf8ab88f68ef8b3ec7df2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "538be27c3e536997a5e699ccf22470f4e69926b5bca8b1380dca130432947a86"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "acf902975c8c4733501fcde14f8e00446743cd911d3e6875fe3eaf01f028a307"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4896d1547f463ca0e169079ee340671a184ab328f5ae90f4c3ef92bf6de9d83b"
+    sha256 cellar: :any_skip_relocation, ventura:       "01ce0572ada709ef84ade3105d3f7f3e321bdebaddf10cba653d5e0b2d712be9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f3b106973d1b58290249f713b6d39e89f4348b0ce76a85807dae0dc47ed21a5"
   end
 
   depends_on "go" => :build
