@@ -6,7 +6,7 @@ class PhpCodeSniffer < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "95aaaf9e2d76b23190907aec3d52e3a6832e2ac898ee1a76534da5228f866b14"
+    sha256 cellar: :any_skip_relocation, all: "dfba9b1ba91ba10623af8e43f660ff8ae4f675122da0a6b4943a15586e75ee73"
   end
 
   depends_on "php"
