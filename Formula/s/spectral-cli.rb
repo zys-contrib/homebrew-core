@@ -1,8 +1,8 @@
 class SpectralCli < Formula
   desc "JSON/YAML linter and support OpenAPI v3.1/v3.0/v2.0, and AsyncAPI v2.x"
   homepage "https://stoplight.io/open-source/spectral"
-  url "https://registry.npmjs.org/@stoplight/spectral-cli/-/spectral-cli-6.13.1.tgz"
-  sha256 "c9d8cec26445fece14db54835ddb1447e2adb23ca76c3aef6e7dc7c5a7f114a3"
+  url "https://registry.npmjs.org/@stoplight/spectral-cli/-/spectral-cli-6.14.0.tgz"
+  sha256 "e3815c2cdf4c2b99c44fde08e345c485b087eeb4617745d34812a55f81b71459"
   license "MIT"
 
   bottle do
@@ -41,7 +41,7 @@ class SpectralCli < Formula
 
     testpath.install resource("homebrew-streetlights-mqtt.yml")
     output = shell_output("#{bin}/spectral lint -r #{test_config} #{testpath}/streetlights-mqtt.yml")
-    assert_match "6 problems (0 errors, 6 warnings, 0 infos, 0 hints)", output
+    assert_match "7 problems (0 errors, 6 warnings, 1 info, 0 hints)", output
 
     assert_match version.to_s, shell_output("#{bin}/spectral --version")
   end
