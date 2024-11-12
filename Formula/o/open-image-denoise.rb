@@ -1,8 +1,8 @@
 class OpenImageDenoise < Formula
   desc "High-performance denoising library for ray tracing"
   homepage "https://openimagedenoise.github.io"
-  url "https://github.com/OpenImageDenoise/oidn/releases/download/v2.3.0/oidn-2.3.0.src.tar.gz"
-  sha256 "cce3010962ec84e0ba1acd8c9055a3d8de402fedb1b463517cfeb920a276e427"
+  url "https://github.com/OpenImageDenoise/oidn/releases/download/v2.3.1/oidn-2.3.1.src.tar.gz"
+  sha256 "225879b4225bfe015273f0372bf6e7a69d01030043c8aefa017196b41ecf8148"
   license "Apache-2.0"
 
   bottle do
@@ -24,12 +24,6 @@ class OpenImageDenoise < Formula
   depends_on "tbb"
 
   uses_from_macos "python" => :build
-
-  # fix compile error when using old libc++ (e.g. from macOS 12 SDK)
-  patch do
-    url "https://github.com/RenderKit/oidn/commit/e5e52d335c58365b6cbd91f9a8a6f9ee9a085bf5.patch?full_index=1"
-    sha256 "e5e42bb52b9790bbce3c8f82413986d5a23d389e1488965b738810b0d9fb0d2a"
-  end
 
   def install
     # Fix arm64 build targeting iOS
