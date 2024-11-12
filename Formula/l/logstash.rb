@@ -13,12 +13,12 @@ class Logstash < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3325494972f7cd47d74a59a1e8e5fd13d348caa83d5b7673843d4b4dbb2d4d51"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "607a4b797bd4d78a92943c42f8a5c24a3ff90f9c09b599f3954fa4d0f065e656"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "15ec056da3046f708f7851e5580b35ec3c62e9d715b4f1b2bb2be5edbcef2736"
-    sha256 cellar: :any,                 sonoma:        "de50b8e5b840179a9f772087a926875f0f2df9d73742a8b6a7274d9f9255e6a1"
-    sha256 cellar: :any,                 ventura:       "e2f68a5443f47dd9234cfa6430104c7c01bad262c66f54715c62b9d35a4b13da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe91efda589ec7d163113f9f7107552977cda3be7f80dfac853bcecbf152587c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c60d7d539a20df453108f2f78f19a228c6a3ff5861fa4ee6240c0b3c511e586f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe9dec17aec96a1cd8654cadc31b9f4e77b9029b621ef8f0c116c5fd5b170662"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e352b3e3816005552307060da6c2ef92e6a52a0d660123297aff3204b2a7adb1"
+    sha256 cellar: :any,                 sonoma:        "47f72e4624b66fd2565a019c8115204830e5d36e24b52c461898a685d685f618"
+    sha256 cellar: :any,                 ventura:       "49a0500c094b549bb32565f007b7a691d9145d8c1d5c04a94a87ce0bdc8b7a9f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff5a25ea86ef95dc63d764bf805de00aec3319ffd81c8299a1e13d6de6f061f7"
   end
 
   depends_on "openjdk@17"
