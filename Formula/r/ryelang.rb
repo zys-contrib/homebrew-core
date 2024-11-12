@@ -6,6 +6,11 @@ class Ryelang < Formula
   license "Apache-2.0"
   head "https://github.com/refaktor/rye.git", branch: "main"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c1b1141d3842e28f41dfcb7db3e1be364526970f939265c6fabd427af40deab2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f7250821b862b9de318e0184ec379ddb6cf7c568446e349f9a8c2da18716dfa1"
