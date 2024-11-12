@@ -1,7 +1,6 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  # TODO: Check if we can use unversioned `protobuf` at version bump
   url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.36-28/source/tarball/percona-server-8.0.36-28.tar.gz"
   sha256 "8a4b44bd9cf79a38e6275e8f5f9d4e8d2c308854b71fd5bf5d1728fff43a6844"
   license "BSD-3-Clause"
@@ -31,13 +30,14 @@ class PerconaServer < Formula
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "abseil"
   depends_on "icu4c@76"
   depends_on "libevent"
   depends_on "libfido2"
   depends_on "lz4"
   depends_on "openldap" # Needs `ldap_set_urllist_proc`, not provided by LDAP.framework
   depends_on "openssl@3"
-  depends_on "protobuf@21"
+  depends_on "protobuf"
   depends_on "zlib" # Zlib 1.2.13+
   depends_on "zstd"
 
@@ -70,6 +70,17 @@ class PerconaServer < Formula
   resource "boost" do
     url "https://boostorg.jfrog.io/artifactory/main/release/1.77.0/source/boost_1_77_0.tar.bz2"
     sha256 "fc9f85fc030e233142908241af7a846e60630aa7388de9a5fafb1f3a26840854"
+  end
+
+  # Backport support for newer Protobuf. Remove with 8.0.39 / 8.4.2
+  patch do
+    url "https://github.com/percona/percona-server/commit/089c011f8e2a865e4bd97715653b4bc0973c43a1.patch?full_index=1"
+    sha256 "aac166f579e636923abeb86cc89934efaf0185df35355aab2d08192d9bf9efd8"
+  end
+  # Backport support for Protobuf 22+ on Linux. Remove with 8.0.40 / 8.4.3
+  patch do
+    url "https://github.com/mysql/mysql-server/commit/269abc0409b22bb87ec88bd4d53dfb7a1403eace.patch?full_index=1"
+    sha256 "ffcee32804e7e1237907432adb3590fcbf30c625eea836df6760c05a312a84e1"
   end
 
   # Patch out check for Homebrew `boost`.
