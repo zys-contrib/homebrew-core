@@ -8,12 +8,12 @@ class Auditbeat < Formula
   head "https://github.com/elastic/beats.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e7e9a8ab7bf441606cd8a0b0e8da45b23762a3f97c9cda81e682431c04f96226"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1ace1e190955089369716cfb8da03fd6f750d3b1e5a033c4506b29c7ed3f2fa1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4e472fb8b7705196e47978cc04846a5943108a43ba61c90d45a7c4f6ee0437a5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ea87ce1ce6e179f00017737e30144df45cb9f67b6e850a9d1f3f1875acc56a55"
-    sha256 cellar: :any_skip_relocation, ventura:       "6942b134387149400c091501aca6f14e1cfac11865687e43e66e8af8c57dbf4b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da675a3b1cd0fee6bff60e0e7da4f30ddc85bda6e417b184aa4d9af7388ce816"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bdbdfb6fb333df7747eae0a5e6838918617e6670fa369922f61e6d720ab15eeb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b0c1108e011b202b3cf8a212d3e99c47642b6fa0a27b80c1e92c009bcfd90460"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "46824ee757eb5f36843496e6acbc2027f43260fd299e7d6b30c551b1bc4d3afc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c28742d527511f20bb76b432b78ab1cdb0426568083bd3f830a4fc42efc3ae28"
+    sha256 cellar: :any_skip_relocation, ventura:       "9ebba9420d1722dca4d0af670b9e3530b04e6773179d00c2d4d31535eba3a3b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5ffe3ae248dac5176868a517fc1e961878e55758dfb90debae41d5f5a41e1aa"
   end
 
   depends_on "go" => :build
