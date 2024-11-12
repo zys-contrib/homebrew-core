@@ -1,8 +1,8 @@
 class Gitversion < Formula
   desc "Easy semantic versioning for projects using Git"
   homepage "https://gitversion.net"
-  url "https://github.com/GitTools/GitVersion/archive/refs/tags/6.0.4.tar.gz"
-  sha256 "766dc4f7b79a9caa344f2a32ecaabd559346a6a7d74ce1340735ab7a8a2582d0"
+  url "https://github.com/GitTools/GitVersion/archive/refs/tags/6.0.5.tar.gz"
+  sha256 "621b46427db8947fa9a2ff04d0fcc4d00d0dd0ce05e248eb8d7bbc18e4ba29a7"
   license "MIT"
 
   bottle do
@@ -14,10 +14,10 @@ class Gitversion < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b0c376d77a35462b2a2f8071b9b766f64e41b3788339fc0dbf64224c3b45f4d3"
   end
 
-  depends_on "dotnet"
+  depends_on "dotnet@8"
 
   def install
-    dotnet = Formula["dotnet"]
+    dotnet = Formula["dotnet@8"]
     os = OS.mac? ? "osx" : OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
 
