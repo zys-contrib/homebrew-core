@@ -4,7 +4,7 @@ class Libgit2Glib < Formula
   url "https://gitlab.gnome.org/GNOME/libgit2-glib/-/archive/v1.2.0/libgit2-glib-v1.2.0.tar.bz2"
   sha256 "421ac5c99e02c5b6235842e60eb7f9fa8dc580d2500fb1eb521ced8a22de9f29"
   license "LGPL-2.1-only"
-  revision 1
+  revision 2
   head "https://gitlab.gnome.org/GNOME/libgit2-glib.git", branch: "master"
 
   bottle do
@@ -24,17 +24,22 @@ class Libgit2Glib < Formula
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "glib"
-  depends_on "libgit2@1.7"
+  depends_on "libgit2"
 
   on_macos do
     depends_on "gettext"
   end
 
+  # Support libgit2 1.8+.
+  # https://gitlab.gnome.org/GNOME/libgit2-glib/-/merge_requests/40
+  patch do
+    url "https://gitlab.gnome.org/GNOME/libgit2-glib/-/commit/a76fdf96c3af9ce9d21a3985c4be8a1aa6eea661.diff"
+    sha256 "24d32bfc972959c054794917f4043226fc267fafaaf8d8fc7d4128cfa9b5b231"
+  end
+
   def install
     ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath}"
-    system "meson", "setup", "build", *std_meson_args,
-                                      "-Dpython=false",
-                                      "-Dvapi=true"
+    system "meson", "setup", "build", "-Dpython=false", "-Dvapi=true", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
     libexec.install (buildpath/"build/examples").children
