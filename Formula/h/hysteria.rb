@@ -1,8 +1,8 @@
 class Hysteria < Formula
   desc "Feature-packed proxy & relay tool optimized for lossy, unstable connections"
   homepage "https://hysteria.network/"
-  url "https://github.com/apernet/hysteria/archive/refs/tags/app/v2.5.2.tar.gz"
-  sha256 "56acc2c3a795b9f9074d6ed3cf725d3fc491ebd45a10203d6afef927d7fe3c78"
+  url "https://github.com/apernet/hysteria/archive/refs/tags/app/v2.6.0.tar.gz"
+  sha256 "c9d878ea81c78e71fcb07d47e3366cb4ae2ef5bce62f0ad81e58923db4995366"
   license "MIT"
   head "https://github.com/apernet/hysteria.git", branch: "master"
 
