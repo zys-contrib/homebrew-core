@@ -6,7 +6,7 @@ class Jadx < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "78db5c2318306279313ded903663c847c20630057f12096eb62bdf5e1b49299a"
+    sha256 cellar: :any_skip_relocation, all: "735427c63f8e20f067a5a50d4273cea56b5fd528bb0ad656d91a76762e774997"
   end
 
   head do
