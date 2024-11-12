@@ -8,14 +8,12 @@ class Libgit2Glib < Formula
   head "https://gitlab.gnome.org/GNOME/libgit2-glib.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "9f946eede73c439ba10b05863c75c95edf7b04798b1e02c9d633ecf4781da32a"
-    sha256 cellar: :any, arm64_sonoma:   "b95571e3e781efaa5f25a35570b70e7bd6cdcb1ddc259fbde15ea4ada4f4fdff"
-    sha256 cellar: :any, arm64_ventura:  "7daba9e7e88b07c51dda615784f2e2e1fa11afbb9056dae95ec499bd0d56f737"
-    sha256 cellar: :any, arm64_monterey: "362cfd852233d5a5947668911d2ac1520efed4775867c846679ef46ac91cb2c4"
-    sha256 cellar: :any, sonoma:         "0549acee239da6d75b165ab7ebb864e70d339e96f970aa226654f7291e96bd8b"
-    sha256 cellar: :any, ventura:        "844b931e1e3a82557e8fb8578b59e3a9e3c68420f942453a6499b650565ea6e8"
-    sha256 cellar: :any, monterey:       "4a10eec01bea9e0fe0689b0a68911a13b12bae857b20206968123600b8a65adc"
-    sha256               x86_64_linux:   "2b0f2753501ccd392198453629c4b290085e906728722af8f4e7522b114d7e32"
+    sha256 cellar: :any, arm64_sequoia: "228ecba137404c9986086b1e844e03828d8609e731ab63fc7d8d1d2cb933d182"
+    sha256 cellar: :any, arm64_sonoma:  "31426f6acef6e6bc0d07f9b9f355d5dc7e8a0e5289e9f84a5e4bc9b09da8e18f"
+    sha256 cellar: :any, arm64_ventura: "1602ed0567bf6203c09ca34b3889e9f0a03e668e0bf33b41fc381385ddc3cb2e"
+    sha256 cellar: :any, sonoma:        "dcd4eb64f5de25860988f29718ce3448ecccca65b6f1b7567538243e84d23cdd"
+    sha256 cellar: :any, ventura:       "c61c5352def3fb6b04f71112f2c0ff27da10735763833279a6b5d59641d1eca4"
+    sha256               x86_64_linux:  "598a0961eed94c0ee532053b65bff724393737c80f34af4fb77a744d03ee4ff2"
   end
 
   depends_on "gobject-introspection" => :build
