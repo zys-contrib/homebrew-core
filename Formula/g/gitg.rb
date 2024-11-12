@@ -4,7 +4,7 @@ class Gitg < Formula
   url "https://download.gnome.org/sources/gitg/44/gitg-44.tar.xz"
   sha256 "342a31684dab9671cd341bd3e3ce665adcee0460c2a081ddc493cdbc03132530"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
 
   livecheck do
     url :stable
@@ -39,8 +39,8 @@ class Gitg < Formula
   depends_on "json-glib"
   depends_on "libdazzle"
   depends_on "libgee"
+  depends_on "libgit2"
   depends_on "libgit2-glib"
-  depends_on "libgit2@1.7"
   depends_on "libhandy"
   depends_on "libpeas@1"
   depends_on "libsecret"
