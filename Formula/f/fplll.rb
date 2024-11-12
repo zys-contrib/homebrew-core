@@ -1,8 +1,8 @@
 class Fplll < Formula
   desc "Lattice algorithms using floating-point arithmetic"
   homepage "https://github.com/fplll/fplll"
-  url "https://github.com/fplll/fplll/releases/download/5.4.5/fplll-5.4.5.tar.gz"
-  sha256 "76d3778f0326597ed7505bab19493a9bf6b73a5c5ca614e8fb82f42105c57d00"
+  url "https://github.com/fplll/fplll/releases/download/5.5.0/fplll-5.5.0.tar.gz"
+  sha256 "f0af6bdd0ebd5871e87ff3ef7737cb5360b1e38181a4e5a8c1236f3476fec3b2"
   license "LGPL-2.1-or-later"
 
   bottle do
