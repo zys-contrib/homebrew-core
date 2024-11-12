@@ -5,6 +5,7 @@ class Onnxruntime < Formula
       tag:      "v1.20.1",
       revision: "5c1b7ccbff7e5141c1da7a9d963d660e5741c319"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -31,7 +32,7 @@ class Onnxruntime < Formula
   depends_on "abseil"
   depends_on "nsync"
   depends_on "onnx"
-  depends_on "protobuf@21" # https://github.com/microsoft/onnxruntime/issues/21308
+  depends_on "protobuf"
   depends_on "re2"
 
   # Need newer than stable `eigen` after https://github.com/microsoft/onnxruntime/pull/21492
@@ -55,6 +56,12 @@ class Onnxruntime < Formula
     sha256 "76f9920e591bc52ea80f661fa0b5b15479960004f1be103467b219e55c73a8cc"
   end
 
+  # Backport support for Protobuf 26+
+  patch do
+    url "https://github.com/microsoft/onnxruntime/commit/704523c2d8a142f723a5cc242c62f5b20afa4944.patch?full_index=1"
+    sha256 "68a0300b02f1763a875c7f890c4611a95233b7ff1f7158f4328d5f906f21c84d"
+  end
+
   def install
     python3 = which("python3.13")
 
@@ -75,7 +82,7 @@ class Onnxruntime < Formula
       -DFETCHCONTENT_SOURCE_DIR_PYTORCH_CLOG=#{buildpath}/build/_deps/pytorch_cpuinfo-src
       -DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=ALWAYS
       -DPYTHON_EXECUTABLE=#{python3}
-      -DONNX_CUSTOM_PROTOC_EXECUTABLE=#{Formula["protobuf@21"].opt_bin}/protoc
+      -DONNX_CUSTOM_PROTOC_EXECUTABLE=#{Formula["protobuf"].opt_bin}/protoc
       -Donnxruntime_BUILD_SHARED_LIB=ON
       -Donnxruntime_BUILD_UNIT_TESTS=OFF
       -Donnxruntime_GENERATE_TEST_REPORTS=OFF
