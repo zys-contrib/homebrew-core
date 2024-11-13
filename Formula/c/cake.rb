@@ -1,8 +1,8 @@
 class Cake < Formula
   desc "Cross platform build automation system with a C# DSL"
   homepage "https://cakebuild.net/"
-  url "https://github.com/cake-build/cake/archive/refs/tags/v4.2.0.tar.gz"
-  sha256 "467158d7f6455f4dfc97a9ccfd7688c84531427c7089ad83f69b09190892d4a7"
+  url "https://github.com/cake-build/cake/archive/refs/tags/v5.0.0.tar.gz"
+  sha256 "0c77a4a8626b1f6aa886e542026f33e2645bda7177e66c6ca1f60a6cf80b9bf0"
   license "MIT"
 
   bottle do
@@ -18,29 +18,20 @@ class Cake < Formula
 
   conflicts_with "coffeescript", because: "both install `cake` binaries"
 
-  # dotnet sdk version requirement patch, upstream pr ref, https://github.com/cake-build/cake/pull/4377
-  patch do
-    url "https://github.com/cake-build/cake/commit/92193becffb09dce10fda010a0de03f941919739.patch?full_index=1"
-    sha256 "257220fb97858bd80c561be5d342c33eb21709cc76efefe9f8a0a3703e1cc329"
-  end
-
   def install
     dotnet = Formula["dotnet"]
-    os = OS.mac? ? "osx" : OS.kernel_name.downcase
-    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
-
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
       --output #{libexec}
-      --runtime #{os}-#{arch}
       --no-self-contained
-      /p:Version=#{version}
+      --use-current-runtime
+      -p:AppHostRelativeDotNet=#{dotnet.opt_libexec.relative_path_from(libexec)}
+      -p:Version=#{version}
     ]
 
     system "dotnet", "publish", "src/Cake", *args
-    env = { DOTNET_ROOT: "${DOTNET_ROOT:-#{dotnet.opt_libexec}}" }
-    (bin/"cake").write_env_script libexec/"Cake", env
+    bin.install_symlink libexec/"Cake" => "cake"
   end
 
   test do
