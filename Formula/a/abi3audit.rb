@@ -3,8 +3,8 @@ class Abi3audit < Formula
 
   desc "Scans Python packages for abi3 violations and inconsistencies"
   homepage "https://github.com/trailofbits/abi3audit"
-  url "https://files.pythonhosted.org/packages/10/f6/97c340b63486bf3228a0059035ff406f08b8d1e31b915eb6dae07da1cec9/abi3audit-0.0.18.tar.gz"
-  sha256 "69a7a8e1858fd19287581912fba3bac6951804df2a94e4ebea541788274d00f7"
+  url "https://files.pythonhosted.org/packages/2f/87/09f7603de10036e98d36de8f5068b42239a60a114872d3fec25934044748/abi3audit-0.0.19.tar.gz"
+  sha256 "6f9e5282c0e165ac927b6ca0473413a5204b0d9149c30cf9227f68604a73374b"
   license "MIT"
 
   bottle do
@@ -70,8 +70,8 @@ class Abi3audit < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
-    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
+    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
+    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
   end
 
   resource "pefile" do
