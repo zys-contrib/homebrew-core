@@ -1,8 +1,8 @@
 class LandoCli < Formula
   desc "Cli part of Lando"
   homepage "https://docs.lando.dev/cli"
-  url "https://github.com/lando/core/archive/refs/tags/v3.23.6.tar.gz"
-  sha256 "d3c239d8a6379bcd982b807e0f7910ca78eb8644917897ba395cbc307b39af2e"
+  url "https://github.com/lando/core/archive/refs/tags/v3.23.7.tar.gz"
+  sha256 "baa02fe1733c6d76a6ba42c058dba9b308e1246378994b7441d18b5833815d8c"
   license "GPL-3.0-or-later"
   head "https://github.com/lando/core.git", branch: "main"
 
