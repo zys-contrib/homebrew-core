@@ -3,8 +3,8 @@ class Safety < Formula
 
   desc "Checks Python dependencies for known vulnerabilities and suggests remediations"
   homepage "https://safetycli.com/product/safety-cli"
-  url "https://files.pythonhosted.org/packages/24/c1/9321b7d219c172a72830ec7577cdd875d4b3db2145add68ed46cb9cf57d4/safety-3.2.10.tar.gz"
-  sha256 "8ed71c43869f96613797c3ef9f0e27927db6c05d1ff81d5439bb64c13cc45242"
+  url "https://files.pythonhosted.org/packages/bf/f6/0569f2928e03b7058c95f4ae05d3098c9c0ba0d42de2adfe91fd6de25c2e/safety-3.2.11.tar.gz"
+  sha256 "70a3b7cc75ba41907bf1705bcbbeab232688657c21088e108712ecb601fe0f20"
   license "MIT"
   head "https://github.com/pyupio/safety.git", branch: "main"
 
@@ -43,8 +43,8 @@ class Safety < Formula
   end
 
   resource "dparse" do
-    url "https://files.pythonhosted.org/packages/f8/af/c744554dafa0209b8121e7a4aee24d202dc54ccebc9f2f9bf47e2eadd0eb/dparse-0.6.4b0.tar.gz"
-    sha256 "f8d49b41a527f3d16a269f854e6665245b325e50e41d2c213810cb984553e5c8"
+    url "https://files.pythonhosted.org/packages/29/ee/96c65e17222b973f0d3d0aa9bad6a59104ca1b0eb5b659c25c2900fccd85/dparse-0.6.4.tar.gz"
+    sha256 "90b29c39e3edc36c6284c82c4132648eaf28a01863eb3c231c2512196132201a"
   end
 
   resource "filelock" do
@@ -73,8 +73,8 @@ class Safety < Formula
   end
 
   resource "marshmallow" do
-    url "https://files.pythonhosted.org/packages/b7/41/05580fed5798ba8032341e7e330b866adc88dfca3bc3ec86c04e4ffdc427/marshmallow-3.23.0.tar.gz"
-    sha256 "98d8827a9f10c03d44ead298d2e99c6aea8197df18ccfad360dae7f89a50da2e"
+    url "https://files.pythonhosted.org/packages/6d/30/14d8609f65c8aeddddd3181c06d2c9582da6278f063b27c910bbf9903441/marshmallow-3.23.1.tar.gz"
+    sha256 "3a8dfda6edd8dcdbf216c0ede1d1e78d230a6dc9c5a088f58c4083b974a0d468"
   end
 
   resource "mdurl" do
@@ -83,8 +83,8 @@ class Safety < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
-    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
+    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
+    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
   end
 
   resource "psutil" do
@@ -113,8 +113,8 @@ class Safety < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/d9/e9/cf9ef5245d835065e6673781dbd4b8911d352fb770d56cf0879cf11b7ee1/rich-13.9.3.tar.gz"
-    sha256 "bc1e01b899537598cf02579d2b9f4a415104d3fc439313a7a2c165d76557a08e"
+    url "https://files.pythonhosted.org/packages/ab/3a/0316b28d0761c6734d6bc14e770d85506c986c85ffb239e688eeaab2c2bc/rich-13.9.4.tar.gz"
+    sha256 "439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"
   end
 
   resource "ruamel-yaml" do
@@ -123,13 +123,13 @@ class Safety < Formula
   end
 
   resource "safety-schemas" do
-    url "https://files.pythonhosted.org/packages/1a/32/74f9ae388e986cc330819340676f943b4f3edfbbedd588e753a6e8685347/safety_schemas-0.0.8.tar.gz"
-    sha256 "f4c63b7012facc2f59b9abcbe48acfd5bd5068e58e62d39753db4667499320fa"
+    url "https://files.pythonhosted.org/packages/07/48/89f164c0fcb41d8cb4a67580461f94d6e3cb0fff7b198fb0c3bbb7bdfd4a/safety_schemas-0.0.9.tar.gz"
+    sha256 "23044f88aa21213980b00e6002cf56229e1efc2b6cbdde3e90fc781ca6bbc217"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/07/37/b31be7e4b9f13b59cde9dcaeff112d401d49e0dc5b37ed4a9fc8fb12f409/setuptools-75.2.0.tar.gz"
-    sha256 "753bb6ebf1f465a1912e19ed1d41f403a79173a9acf66a42e7e6aec45c3c16ec"
+    url "https://files.pythonhosted.org/packages/e2/73/c1ccf3e057ef6331cc6861412905dc218203bde46dfe8262c1631aa7fb11/setuptools-75.4.0.tar.gz"
+    sha256 "1dc484f5cf56fd3fe7216d7b8df820802e7246cfb534a1db2aa64f14fcb9cdcb"
   end
 
   resource "shellingham" do
@@ -138,8 +138,8 @@ class Safety < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/c5/58/a79003b91ac2c6890fc5d90145c662fd5771c6f11447f116b63300436bc9/typer-0.12.5.tar.gz"
-    sha256 "f592f089bedcc8ec1b974125d64851029c3b1af145f04aca64d69410f0c9b722"
+    url "https://files.pythonhosted.org/packages/e7/87/9eb07fdfa14e22ec7658b5b1147836d22df3848a22c85a4e18ed272303a5/typer-0.13.0.tar.gz"
+    sha256 "f1c7198347939361eec90139ffa0fd8b3df3a2259d5852a0f7400e476d95985c"
   end
 
   resource "typing-extensions" do
