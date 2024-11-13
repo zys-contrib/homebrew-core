@@ -2826,6 +2826,7 @@ tengo
 tenv
 tere
 terminator
+termscp
 termshark
 terracognita
 terraform-inventory
