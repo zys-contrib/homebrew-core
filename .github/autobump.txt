@@ -2782,6 +2782,7 @@ syncthing
 sysaidmin
 sysdig
 syslog-ng
+sysprof
 sysstat
 systemc
 systemd
