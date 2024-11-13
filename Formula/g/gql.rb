@@ -1,8 +1,8 @@
 class Gql < Formula
   desc "Git Query language is a SQL like language to perform queries on .git files"
   homepage "https://github.com/AmrDeveloper/GQL"
-  url "https://github.com/AmrDeveloper/GQL/archive/refs/tags/0.30.0.tar.gz"
-  sha256 "2398ae1660a0c018b023913a3b7d826e592b61a09cec519731293e1546b4a155"
+  url "https://github.com/AmrDeveloper/GQL/archive/refs/tags/0.31.0.tar.gz"
+  sha256 "1c058b9f98b8b62ae160efcf20cd16dfc19a25356ef102fb4967508106719850"
   license "MIT"
   head "https://github.com/AmrDeveloper/GQL.git", branch: "master"
 
