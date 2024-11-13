@@ -1,8 +1,8 @@
 class Libblastrampoline < Formula
   desc "Using PLT trampolines to provide a BLAS and LAPACK demuxing library"
   homepage "https://github.com/JuliaLinearAlgebra/libblastrampoline"
-  url "https://github.com/JuliaLinearAlgebra/libblastrampoline/archive/refs/tags/v5.11.2.tar.gz"
-  sha256 "eeee692ca6f28977f3aa089592b8d25bac223158f5be7a9a5f241ec837d3af51"
+  url "https://github.com/JuliaLinearAlgebra/libblastrampoline/archive/refs/tags/v5.12.0.tar.gz"
+  sha256 "12f9d186bc844a21dfa2a6ea1f38a039227554330c43230d72f721c330cf6018"
   license all_of: [
     "MIT",
     "BSD-2-Clause-Views", # include/common/f77blas.h
