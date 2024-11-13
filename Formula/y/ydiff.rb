@@ -3,8 +3,8 @@ class Ydiff < Formula
 
   desc "View colored diff with side by side and auto pager support"
   homepage "https://github.com/ymattw/ydiff"
-  url "https://files.pythonhosted.org/packages/22/e1/df78c47d98070228bc1589df6aa2b2c7ae1d4b35f9312dbb2d7a122a0f19/ydiff-1.3.tar.gz"
-  sha256 "8a2e84588ef31d3e525700fa964b1f9aab61f0c9c46281e05341a56e01dcd7b8"
+  url "https://files.pythonhosted.org/packages/cc/c0/82cb70f5e1042ec7989288e82ba43dde6809d65a31b5da81912b8c3456a1/ydiff-1.4.1.tar.gz"
+  sha256 "28c99b4c109e5a9870c42f24b7a357419f2c1919335d9e8be1324eb7ae82c6f9"
   license "BSD-3-Clause"
 
   bottle do
