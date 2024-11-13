@@ -15,14 +15,27 @@ class Muon < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "df1c8f87d4401ac11a86c00d8e17f8088c12a6654bbc31fea1ac15fd76e50d0f"
   end
 
+  depends_on "meson" => :build
+  depends_on "libarchive"
   depends_on "ninja"
-  depends_on "pkg-config"
+  depends_on "pkgconf"
+
+  uses_from_macos "curl"
 
   def install
-    system "./bootstrap.sh", "build"
-    system "./build/muon", "setup", "-Dprefix=#{prefix}", "build"
-    system "ninja", "-C", "build"
-    system "./build/muon", "-C", "build", "install"
+    args = %w[
+      -Ddocs=disabled
+      -Dlibarchive=enabled
+      -Dlibcurl=enabled
+      -Dlibpkgconf=enabled
+      -Dsamurai=disabled
+      -Dtracy=disabled
+      --force-fallback-for=tinyjson
+    ]
+
+    system "meson", "setup", "build", *args, *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
