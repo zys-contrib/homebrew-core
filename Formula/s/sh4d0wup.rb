@@ -1,8 +1,8 @@
 class Sh4d0wup < Formula
   desc "Signing-key abuse and update exploitation framework"
   homepage "https://github.com/kpcyrd/sh4d0wup"
-  url "https://github.com/kpcyrd/sh4d0wup/archive/refs/tags/v0.9.3.tar.gz"
-  sha256 "7a1258a5dfc48c54cea1092adddb6bcfb1fcf19c7272c0a6a9e1d2d7daee6e12"
+  url "https://github.com/kpcyrd/sh4d0wup/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "63662f386302ceb06470cab62a36924a1a2efcb51602913f8cf6e2a5a2a34acc"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -29,12 +29,6 @@ class Sh4d0wup < Formula
   depends_on "zstd"
 
   uses_from_macos "bzip2"
-
-  # rust 1.80 build patch, upstream pr ref, https://github.com/kpcyrd/sh4d0wup/pull/32
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/31f5e08b1c7df4025d7042dafe756e5326151158/sh4d0wup/rust-1.80.patch"
-    sha256 "24f3fc3919ead47c6e38c68a55d8fed0370cfddd92738519de4bd41e4da71e93"
-  end
 
   def install
     # Work around an Xcode 15 linker issue which causes linkage against LLVM's
