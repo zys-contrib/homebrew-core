@@ -8,8 +8,7 @@ class DockerSquash < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "aa137f79643caa2bb12d760e087c268bcbed6e6b28bd273f621ce30733716e71"
+    sha256 cellar: :any_skip_relocation, all: "d4fe0620d9ab7a6c5f55e575438c1913ea44c968ab83ca2ff427215002b33cec"
   end
 
   depends_on "certifi"
