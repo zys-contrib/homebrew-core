@@ -2,8 +2,8 @@ class CadenceWorkflow < Formula
   desc "Distributed, scalable, durable, and highly available orchestration engine"
   homepage "https://cadenceworkflow.io/"
   url "https://github.com/uber/cadence.git",
-      tag:      "v1.2.13",
-      revision: "f6e4360c99e083e4b64c7b3b3e781c8205074e79"
+      tag:      "v1.2.14",
+      revision: "51ca977369869835e3e67954aa15f08162963b0e"
   license "MIT"
   head "https://github.com/uber/cadence.git", branch: "master"
 
@@ -53,7 +53,7 @@ class CadenceWorkflow < Formula
     output = shell_output("#{bin}/cadence-server start 2>&1", 1)
     assert_match "Loading config; env=development,zone=,configDir", output
 
-    output = shell_output("#{bin}/cadence --domain samples-domain domain desc ", 1)
+    output = shell_output("#{bin}/cadence --domain samples-domain domain desc 2>&1", 1)
     assert_match "Error: Operation DescribeDomain failed", output
   end
 end
