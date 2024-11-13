@@ -3,8 +3,8 @@ class LuaLanguageServer < Formula
   homepage "https://github.com/LuaLS/lua-language-server"
   # pull from git tag to get submodules
   url "https://github.com/LuaLS/lua-language-server.git",
-      tag:      "3.12.0",
-      revision: "389496827f20bb6d75a2fb2826099f13e9c18730"
+      tag:      "3.13.0",
+      revision: "43ad9693819244ebe2e0560bda4bd494b067a1c7"
   license "MIT"
   head "https://github.com/LuaLS/lua-language-server.git", branch: "master"
 
