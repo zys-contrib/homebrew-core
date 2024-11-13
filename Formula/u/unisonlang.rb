@@ -5,12 +5,12 @@ class Unisonlang < Formula
 
   stable do
     url "https://github.com/unisonweb/unison.git",
-        tag:      "release/0.5.27",
-        revision: "bb3b5f1c9e9d11287906e8dea4ab186068b160ba"
+        tag:      "release/0.5.28",
+        revision: "0dc566a064ff26dfb3047b6a4f7198c9af0cc31f"
 
     resource "local-ui" do
-      url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/0.5.27.tar.gz"
-      sha256 "eaefe430187f936f7af1a2052b7f4d4d3aaa81b11d3c2697e116b3de69373781"
+      url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/0.5.28.tar.gz"
+      sha256 "d3f02cb9803ba81265e21098652242f0715da3cd81cad4c9d8a1977983f33e15"
     end
   end
 
@@ -82,7 +82,7 @@ class Unisonlang < Formula
       --local-bin-path=#{buildpath}
     ]
 
-    system "stack", "-j#{jobs}", "build", "--flag", "unison-parser-typechecker:optimized", *stack_args
+    system "stack", "-j#{jobs}", "build", *stack_args
 
     prefix.install "unison" => "ucm"
     bin.install_symlink prefix/"ucm"
