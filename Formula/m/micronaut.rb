@@ -1,8 +1,8 @@
 class Micronaut < Formula
   desc "Modern JVM-based framework for building modular microservices"
   homepage "https://micronaut.io/"
-  url "https://github.com/micronaut-projects/micronaut-starter/archive/refs/tags/v4.6.3.tar.gz"
-  sha256 "8a7bf4e435bf2f6637155e9707c0e6e781802788f4a905e31ff2300ef0bb0334"
+  url "https://github.com/micronaut-projects/micronaut-starter/archive/refs/tags/v4.7.0.tar.gz"
+  sha256 "ea6fb188f0f2c495e586413a3c80abfccc9aa9f391bb0b98a64367c43e5c6549"
   license "Apache-2.0"
 
   livecheck do
@@ -20,18 +20,17 @@ class Micronaut < Formula
   end
 
   depends_on "gradle" => :build
-  # jdk21 support issue, https://github.com/micronaut-projects/micronaut-core/issues/10046
-  depends_on "openjdk@17"
+  depends_on "openjdk@21"
 
   def install
-    ENV["JAVA_HOME"] = Language::Java.java_home("17")
+    ENV["JAVA_HOME"] = Language::Java.java_home("21")
     system "gradle", "micronaut-cli:assemble", "--exclude-task", "test", "--no-daemon"
 
     libexec.install "starter-cli/build/exploded/lib"
     (libexec/"bin").install "starter-cli/build/exploded/bin/mn"
 
     bash_completion.install "starter-cli/build/exploded/bin/mn_completion" => "mn"
-    (bin/"mn").write_env_script libexec/"bin/mn", Language::Java.overridable_java_home_env("17")
+    (bin/"mn").write_env_script libexec/"bin/mn", Language::Java.overridable_java_home_env("21")
   end
 
   test do
