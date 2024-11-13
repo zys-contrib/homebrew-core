@@ -1190,6 +1190,7 @@ gucharmap
 guile
 gulp-cli
 gum
+gumbo-parser
 gupnp
 gupnp-tools
 gwt
