@@ -941,6 +941,7 @@ fossil
 fourmolu
 fourstore
 fping
+fplll
 fq
 fred
 freeciv
