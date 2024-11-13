@@ -2582,6 +2582,7 @@ serverless
 service-weaver
 sf
 sfcgal
+sfml
 sh4d0wup
 shaderc
 shadowenv
