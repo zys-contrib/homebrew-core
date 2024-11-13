@@ -1,17 +1,17 @@
 class SpectralCli < Formula
   desc "JSON/YAML linter and support OpenAPI v3.1/v3.0/v2.0, and AsyncAPI v2.x"
   homepage "https://stoplight.io/open-source/spectral"
-  url "https://registry.npmjs.org/@stoplight/spectral-cli/-/spectral-cli-6.14.0.tgz"
-  sha256 "e3815c2cdf4c2b99c44fde08e345c485b087eeb4617745d34812a55f81b71459"
+  url "https://registry.npmjs.org/@stoplight/spectral-cli/-/spectral-cli-6.14.1.tgz"
+  sha256 "ff13237b1a7b7bca139503552f76a688cbb4719d481451a5655c61cc54e2d0fe"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "802425aef80bbd1a9352c23bb7ecdec3c2ef66255c3eb487bb668227049a45ec"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "802425aef80bbd1a9352c23bb7ecdec3c2ef66255c3eb487bb668227049a45ec"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "802425aef80bbd1a9352c23bb7ecdec3c2ef66255c3eb487bb668227049a45ec"
-    sha256 cellar: :any_skip_relocation, sonoma:        "386c4b6c054a8b439f2fcf4253f26b26449d1ddd7d5a69904d4758b564f5178f"
-    sha256 cellar: :any_skip_relocation, ventura:       "386c4b6c054a8b439f2fcf4253f26b26449d1ddd7d5a69904d4758b564f5178f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "802425aef80bbd1a9352c23bb7ecdec3c2ef66255c3eb487bb668227049a45ec"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "145c2990d2ace5a0aad476d1a7e3a55dfb9c9eb8754a1cfcb836e55b653f0200"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "145c2990d2ace5a0aad476d1a7e3a55dfb9c9eb8754a1cfcb836e55b653f0200"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "145c2990d2ace5a0aad476d1a7e3a55dfb9c9eb8754a1cfcb836e55b653f0200"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e98c002497c8161548d86690a8916ff1c2fee78674b9cd1859d295ff864e5c12"
+    sha256 cellar: :any_skip_relocation, ventura:       "e98c002497c8161548d86690a8916ff1c2fee78674b9cd1859d295ff864e5c12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "145c2990d2ace5a0aad476d1a7e3a55dfb9c9eb8754a1cfcb836e55b653f0200"
   end
 
   depends_on "node"
