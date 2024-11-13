@@ -6,6 +6,15 @@ class Kuzco < Formula
   license "Apache-2.0"
   head "https://github.com/RoseSecurity/Kuzco.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "637f33422371e8fcc9818fa2fd5da70e10ee7d815a03653b5bae79cbd213f31d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "637f33422371e8fcc9818fa2fd5da70e10ee7d815a03653b5bae79cbd213f31d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "637f33422371e8fcc9818fa2fd5da70e10ee7d815a03653b5bae79cbd213f31d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9226f4956a1a4de5f8dcc1032f3db14e70668556ee017a96c1f19532dc8b6968"
+    sha256 cellar: :any_skip_relocation, ventura:       "9226f4956a1a4de5f8dcc1032f3db14e70668556ee017a96c1f19532dc8b6968"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "566e16cb696c36c21af391f39763283d8e42befe05edaa1691948c80244d9109"
+  end
+
   depends_on "go" => :build
   depends_on "opentofu" => :test
 
