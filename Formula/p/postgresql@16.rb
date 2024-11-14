@@ -1,10 +1,9 @@
 class PostgresqlAT16 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v16.4/postgresql-16.4.tar.bz2"
-  sha256 "971766d645aa73e93b9ef4e3be44201b4f45b5477095b049125403f9f3386d6f"
+  url "https://ftp.postgresql.org/pub/source/v16.5/postgresql-16.5.tar.bz2"
+  sha256 "a6cbbb7037f98cb8afa7d3970b7c48040cf02b115e39253a0c037a8bb8e778f0"
   license "PostgreSQL"
-  revision 3
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -26,7 +25,7 @@ class PostgresqlAT16 < Formula
   deprecate! date: "2028-11-09", because: :unsupported
 
   depends_on "gettext" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "icu4c@76"
 
   # GSSAPI provided by Kerberos.framework crashes when forked.
@@ -59,12 +58,13 @@ class PostgresqlAT16 < Formula
     ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@3"].opt_include} -I#{Formula["readline"].opt_include}"
 
     # Fix 'libintl.h' file not found for extensions
+    # Update config to fix `error: could not find function 'gss_store_cred_into' required for GSSAPI`
     if OS.mac?
-      ENV.prepend "LDFLAGS", "-L#{Formula["gettext"].opt_lib}"
-      ENV.prepend "CPPFLAGS", "-I#{Formula["gettext"].opt_include}"
+      ENV.prepend "LDFLAGS", "-L#{Formula["gettext"].opt_lib} -L#{Formula["krb5"].opt_lib}"
+      ENV.prepend "CPPFLAGS", "-I#{Formula["gettext"].opt_include} -I#{Formula["krb5"].opt_include}"
     end
 
-    args = std_configure_args + %W[
+    args = %W[
       --datadir=#{opt_pkgshare}
       --libdir=#{opt_lib}
       --includedir=#{opt_include}
@@ -91,7 +91,7 @@ class PostgresqlAT16 < Formula
     # which does not work on CLT-only installs.
     args << "PG_SYSROOT=#{MacOS.sdk_path}" if OS.mac? && MacOS.sdk_root_needed?
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
 
     # Work around busted path magic in Makefile.global.in. This can't be specified
     # in ./configure, but needs to be set here otherwise install prefixes containing
@@ -150,7 +150,7 @@ class PostgresqlAT16 < Formula
   test do
     system bin/"initdb", testpath/"test" unless ENV["HOMEBREW_GITHUB_ACTIONS"]
     assert_equal opt_pkgshare.to_s, shell_output("#{bin}/pg_config --sharedir").chomp
-    assert_equal opt_lib.to_s, shell_output("#{bin}/pg_config --libdir").chomp
+    assert_equal lib.to_s, shell_output("#{bin}/pg_config --libdir").chomp
     assert_equal (opt_lib/"postgresql").to_s, shell_output("#{bin}/pg_config --pkglibdir").chomp
     assert_equal (opt_include/"postgresql").to_s, shell_output("#{bin}/pg_config --pkgincludedir").chomp
     assert_equal (opt_include/"postgresql/server").to_s, shell_output("#{bin}/pg_config --includedir-server").chomp
