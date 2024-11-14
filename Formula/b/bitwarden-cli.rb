@@ -1,8 +1,8 @@
 class BitwardenCli < Formula
   desc "Secure and free password manager for all of your devices"
   homepage "https://bitwarden.com/"
-  url "https://github.com/bitwarden/clients/archive/refs/tags/cli-v2024.10.0.tar.gz"
-  sha256 "1396b949f482f398bca4f59a4a7e0c2d9549f9b461bf6af5a9db04dd9b6bcb64"
+  url "https://github.com/bitwarden/clients/archive/refs/tags/cli-v2024.11.0.tar.gz"
+  sha256 "a55f2add020c51ebf2376c0a5f8fcdec2fd9c0164c61bc9162a778f1edd5f27c"
   license "GPL-3.0-only"
 
   livecheck do
@@ -19,7 +19,8 @@ class BitwardenCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8f2196b98caa890d5db72683c335d684fb4981cd7a6ba450cb172cd42f57a77"
   end
 
-  depends_on "node"
+  # fail to build with node v23 due to https://github.com/nodejs/node/issues/55826
+  depends_on "node@22"
 
   def install
     system "npm", "ci", "--ignore-scripts"
