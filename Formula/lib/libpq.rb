@@ -1,10 +1,9 @@
 class Libpq < Formula
   desc "Postgres C API library"
   homepage "https://www.postgresql.org/docs/current/libpq.html"
-  url "https://ftp.postgresql.org/pub/source/v17.0/postgresql-17.0.tar.bz2"
-  sha256 "7e276131c0fdd6b62588dbad9b3bb24b8c3498d5009328dba59af16e819109de"
+  url "https://ftp.postgresql.org/pub/source/v17.1/postgresql-17.1.tar.bz2"
+  sha256 "7849db74ef6a8555d0723f87e81539301422fa9c8e9f21cce61fdc14e9199dcd"
   license "PostgreSQL"
-  revision 2
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
