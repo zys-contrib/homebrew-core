@@ -20,14 +20,14 @@ class CargoC < Formula
   end
 
   depends_on "rust" => :build
-  # The `cargo` crate requires http2, which `curl-config` from macOS reports to
-  # be missing despite its presence.
-  # Try switching to `uses_from_macos` when that's resolved.
-  depends_on "curl"
   depends_on "libgit2"
   depends_on "libssh2"
   depends_on "openssl@3"
 
+  # curl-config on ventura builds do not report http2 feature,
+  # this is a workaround to allow to build against system curl
+  # see discussions in https://github.com/Homebrew/homebrew-core/pull/197727
+  uses_from_macos "curl", since: :sonoma
   uses_from_macos "zlib"
 
   on_linux do
@@ -58,7 +58,6 @@ class CargoC < Formula
     assert_match cargo_error, shell_output("#{bin}/cargo-cbuild cbuild 2>&1", 1)
 
     [
-      Formula["curl"].opt_lib/shared_library("libcurl"),
       Formula["libgit2"].opt_lib/shared_library("libgit2"),
       Formula["libssh2"].opt_lib/shared_library("libssh2"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
