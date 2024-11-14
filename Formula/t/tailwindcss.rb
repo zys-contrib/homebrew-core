@@ -1,8 +1,8 @@
 class Tailwindcss < Formula
   desc "Utility-first CSS framework"
   homepage "https://tailwindcss.com"
-  url "https://github.com/tailwindlabs/tailwindcss/archive/refs/tags/v3.4.14.tar.gz"
-  sha256 "557402050815f41713dc9fe5a1ae6b46cc0fd7b475a2b2ff48d3f1627a7d1279"
+  url "https://github.com/tailwindlabs/tailwindcss/archive/refs/tags/v3.4.15.tar.gz"
+  sha256 "a0e4b464917214f75353dd5bf4d3a5f5b7e60e3fda9f293c44a21b9f80013c8e"
   license "MIT"
 
   bottle do
