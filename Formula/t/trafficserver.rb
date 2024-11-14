@@ -1,9 +1,9 @@
 class Trafficserver < Formula
   desc "HTTP/1.1 and HTTP/2 compliant caching proxy server"
   homepage "https://trafficserver.apache.org/"
-  url "https://downloads.apache.org/trafficserver/trafficserver-9.2.5.tar.bz2"
-  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-9.2.5.tar.bz2"
-  sha256 "c502b2c26756b104ce3114639abbe3fd8fb2c7cbd481f633f9bc1d7b1513a8ab"
+  url "https://downloads.apache.org/trafficserver/trafficserver-10.0.2.tar.bz2"
+  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-10.0.2.tar.bz2"
+  sha256 "21b42ec8bcae0ec22f55688d83e7ca13821b73261ebb25f9d1fdded5e804c657"
   license "Apache-2.0"
 
   bottle do
@@ -17,69 +17,40 @@ class Trafficserver < Formula
     sha256 x86_64_linux:   "f5d0bd9a32ec12c38a583411b4a14d59c896db2aa599ad762baf86fac805c6c5"
   end
 
-  head do
-    url "https://github.com/apache/trafficserver.git", branch: "master"
+  depends_on "cmake" => :build
+  depends_on "ninja" => :build
+  depends_on "pkgconf" => :build
 
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool"  => :build
-  end
-
-  depends_on "pkg-config" => :build
+  depends_on "brotli"
   depends_on "hwloc"
-  depends_on macos: :mojave # `error: call to unavailable member function 'value': introduced in macOS 10.14`
+  depends_on "imagemagick"
+  depends_on "libmaxminddb"
+  depends_on "luajit"
+  depends_on "nuraft"
   depends_on "openssl@3"
   depends_on "pcre" # PCRE2 issue: https://github.com/apache/trafficserver/issues/8780
+  depends_on "xz"
   depends_on "yaml-cpp"
 
+  uses_from_macos "flex" => :build
+  uses_from_macos "curl"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  on_macos do
-    # Need to regenerate configure to fix macOS 11+ build error due to undefined symbols
-    # See https://github.com/apache/trafficserver/pull/8556#issuecomment-995319215
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool"  => :build
+  on_linux do
+    depends_on "libcap"
+    depends_on "libunwind"
   end
 
   fails_with gcc: "5" # needs C++17
 
-  fails_with :clang do
-    build 800
-    cause "needs C++17"
-  end
-
   def install
-    # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
-    # is not set then it's forced to 10.4, which breaks compile on Mojave.
-    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s if OS.mac?
-
-    args = %W[
-      --prefix=#{prefix}
-      --mandir=#{man}
-      --localstatedir=#{var}
-      --sysconfdir=#{pkgetc}
-      --with-openssl=#{Formula["openssl@3"].opt_prefix}
-      --with-yaml-cpp=#{Formula["yaml-cpp"].opt_prefix}
-      --with-group=admin
-      --disable-tests
-      --disable-silent-rules
-      --enable-experimental-plugins
-    ]
-
-    system "autoreconf", "-fvi" if build.head? || OS.mac?
-    system "./configure", *args
-
-    # Fix wrong username in the generated startup script for bottles.
-    inreplace "rc/trafficserver.in", "@pkgsysuser@", "$USER"
-
-    inreplace "lib/perl/Makefile",
-      "Makefile.PL INSTALLDIRS=$(INSTALLDIRS)",
-      "Makefile.PL INSTALLDIRS=$(INSTALLDIRS) INSTALLSITEMAN3DIR=#{man3}"
-
-    system "make" if build.head?
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_EXPERIMENTAL_PLUGINS=ON",
+                    "-DEXTERNAL_YAML_CPP=ON",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   def post_install
@@ -99,7 +70,7 @@ class Trafficserver < Formula
       assert_match "Apache Traffic Server is not running", output
     else
       output = shell_output("#{bin}/trafficserver status 2>&1", 3)
-      assert_match "traffic_manager is not running", output
+      assert_match "traffic_server is not running", output
     end
   end
 end
