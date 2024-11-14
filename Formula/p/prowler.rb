@@ -3,8 +3,8 @@ class Prowler < Formula
 
   desc "Tool for cloud security assessments, audits, incident response, and more"
   homepage "https://prowler.com/"
-  url "https://files.pythonhosted.org/packages/8c/62/0b238b139abef6021ad704befa1b71311f853d830d9405dca1e4a9f6916d/prowler-4.5.2.tar.gz"
-  sha256 "4f2e69765100523bf0e1fa7fcd9d3f6b5621e5b3feb2cc8a3713de807bdb7bd4"
+  url "https://files.pythonhosted.org/packages/ef/ef/289bcb8057568833bbefd415ba7d16823897df2b1772de4a7f9484ce148d/prowler-4.5.3.tar.gz"
+  sha256 "0c37d0c6421db72c03147fc709d28876c7b0346793802f76a0dd593265fd6642"
   license "Apache-2.0"
 
   bottle do
@@ -41,8 +41,8 @@ class Prowler < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/17/7e/16e57e6cf20eb62481a2f9ce8674328407187950ccc602ad07c685279141/aiohttp-3.10.10.tar.gz"
-    sha256 "0631dd7c9f0822cc61c88586ca76d5b5ada26538097d0f1df510b082bad3411a"
+    url "https://files.pythonhosted.org/packages/ce/9c/5218e280e655e8a081690844a822389fe497a14bb17aa6c01254700b363a/aiohttp-3.11.1.tar.gz"
+    sha256 "1e59dc724138b264de2e7862b3953ab5db518df280b4fd60af6a1f54b229ebb7"
   end
 
   resource "aiosignal" do
@@ -621,8 +621,8 @@ class Prowler < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/e2/73/c1ccf3e057ef6331cc6861412905dc218203bde46dfe8262c1631aa7fb11/setuptools-75.4.0.tar.gz"
-    sha256 "1dc484f5cf56fd3fe7216d7b8df820802e7246cfb534a1db2aa64f14fcb9cdcb"
+    url "https://files.pythonhosted.org/packages/c8/db/722a42ffdc226e950c4757b3da7b56ff5c090bb265dccd707f7b8a3c6fee/setuptools-75.5.0.tar.gz"
+    sha256 "5c4ccb41111392671f02bb5f8436dfc5a9a7185e80500531b133f5775c4163ef"
   end
 
   resource "shodan" do
