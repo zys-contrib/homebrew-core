@@ -11,12 +11,12 @@ class PostgresqlAT15 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "c7ad0d4d989ebcd32d2ab52119d5685fb2fe8e3db1ab26e2f9db6ed8fc335cfa"
-    sha256 arm64_sonoma:  "4e3be9fcc6dde338e95adb41ac9579c077b129063820e9c2d04e49e77cc9e74d"
-    sha256 arm64_ventura: "477b7725f2bbf9871b46b90fdcc9574cd70300dc03fece1f5204295f84d8af8a"
-    sha256 sonoma:        "3da1fcbf956ca09bd668b81847b4c54b46415d0b1797ac50b266ea9e8d932c3c"
-    sha256 ventura:       "b42c51b25c72bdcd74439edd84190564c919505b12b380dd44cbfc376a66df33"
-    sha256 x86_64_linux:  "78601001296e44ff856fd8d636737b5b3a349183a0ef3cae4293244b63a7fd3e"
+    sha256 arm64_sequoia: "7896c30a39fa3f469a54bb8ca07654e2547610adbdd312607bc98e86eac08f47"
+    sha256 arm64_sonoma:  "c7cca68881ac26b57208eaed1f7751a48592ecad32f43d7fa40e2cda004d4042"
+    sha256 arm64_ventura: "512d78c7403abe4c551e32324629751ff438c85aed00e610e67fe0faee57762f"
+    sha256 sonoma:        "15884c088bea0c1dca85d8a2a9e9947b7c154f7134a07d371f5ed129111b184e"
+    sha256 ventura:       "66c9eb8f541321e30b81d236f47036e419f1c654a5b60dc001c7edf82347b565"
+    sha256 x86_64_linux:  "63a216028fc01edda4bddde01fc3839ca50082ba9b415e2f19e1a68af58bbcd1"
   end
 
   keg_only :versioned_formula
