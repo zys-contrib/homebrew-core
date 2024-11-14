@@ -218,6 +218,7 @@ bettercap
 bfs
 bgpq4
 biber
+bibtex-tidy
 bibtexconv
 bigloo
 bigquery-emulator
