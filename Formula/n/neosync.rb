@@ -1,8 +1,8 @@
 class Neosync < Formula
   desc "CLI for interfacing with Neosync"
   homepage "https://www.neosync.dev/"
-  url "https://github.com/nucleuscloud/neosync/archive/refs/tags/v0.4.86.tar.gz"
-  sha256 "d7419ca066327b288027e8daefb1e10f8f58b558103ebb49040c03aaee79d149"
+  url "https://github.com/nucleuscloud/neosync/archive/refs/tags/v0.4.87.tar.gz"
+  sha256 "eb59d9342792ceb6895653f9712da43f4ec3ab98eb2eeb6d2a6ffa3a83573673"
   license "MIT"
   head "https://github.com/nucleuscloud/neosync.git", branch: "main"
 
@@ -31,7 +31,7 @@ class Neosync < Formula
 
   test do
     output = shell_output("#{bin}/neosync connections list 2>&1", 1)
-    assert_match "ERRO Unable to retrieve account id", output
+    assert_match "connection refused", output
 
     assert_match version.to_s, shell_output("#{bin}/neosync --version")
   end
