@@ -10,14 +10,13 @@ class Qt < Formula
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     "LGPL-3.0-only",
   ]
-  revision 2
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   stable do
-    url "https://download.qt.io/official_releases/qt/6.7/6.7.2/single/qt-everywhere-src-6.7.2.tar.xz"
-    mirror "https://qt.mirror.constant.com/archive/qt/6.7/6.7.2/single/qt-everywhere-src-6.7.2.tar.xz"
-    mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.7/6.7.2/single/qt-everywhere-src-6.7.2.tar.xz"
-    sha256 "0aaea247db870193c260e8453ae692ca12abc1bd841faa1a6e6c99459968ca8a"
+    url "https://download.qt.io/official_releases/qt/6.7/6.7.3/single/qt-everywhere-src-6.7.3.tar.xz"
+    mirror "https://qt.mirror.constant.com/archive/qt/6.7/6.7.3/single/qt-everywhere-src-6.7.3.tar.xz"
+    mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.7/6.7.3/single/qt-everywhere-src-6.7.3.tar.xz"
+    sha256 "a3f1d257cbb14c6536585ffccf7c203ce7017418e1a0c2ed7c316c20c729c801"
 
     # Backport fix for Xcode 16. Remove in the next release
     patch do
@@ -67,7 +66,7 @@ class Qt < Formula
   depends_on "ninja" => :build
   depends_on "node" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "vulkan-headers" => [:build, :test]
   depends_on "vulkan-loader" => [:build, :test]
   depends_on xcode: :build
@@ -162,7 +161,7 @@ class Qt < Formula
   end
 
   def install
-    python3 = "python3.12"
+    python3 = "python3.13"
 
     # Allow -march options to be passed through, as Qt builds
     # arch-specific code with runtime detection of capabilities:
