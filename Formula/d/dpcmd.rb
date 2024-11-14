@@ -1,8 +1,8 @@
 class Dpcmd < Formula
   desc "Linux software for DediProg SF100/SF600"
   homepage "https://github.com/DediProgSW/SF100Linux"
-  url "https://github.com/DediProgSW/SF100Linux/archive/refs/tags/V1.14.20.x.tar.gz"
-  sha256 "d3e710c2a4361b7a82e1fee6189e88a6a6ea149738c9cb95409f0a683e90366e"
+  url "https://github.com/DediProgSW/SF100Linux/archive/refs/tags/V1.14.21,x.tar.gz"
+  sha256 "2bab3df0b971e66f574db33daa1687d1a064eed6b3e99d97c265bfce35470ddf"
   license "GPL-2.0-only"
 
   livecheck do
@@ -27,6 +27,7 @@ class Dpcmd < Formula
   def install
     system "make"
     bin.install "dpcmd"
+    (share/"DediProg").install "ChipInfoDb.dedicfg"
   end
 
   test do
