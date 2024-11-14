@@ -2,8 +2,8 @@ class Argo < Formula
   desc "Get stuff done with container-native workflows for Kubernetes"
   homepage "https://argoproj.io"
   url "https://github.com/argoproj/argo-workflows.git",
-      tag:      "v3.5.12",
-      revision: "8fe8de2e16ec39a5477df17586a3d212ec63a4bd"
+      tag:      "v3.6.0",
+      revision: "b26ed4aa4dee395844531efa4a76a022183bec22"
   license "Apache-2.0"
 
   bottle do
@@ -22,7 +22,7 @@ class Argo < Formula
   def install
     # this needs to be remove to prevent multiple 'operation not permitted' errors
     inreplace "Makefile", "CGO_ENABLED=0", ""
-    system "make", "dist/argo"
+    system "make", "dist/argo", "-j1"
     bin.install "dist/argo"
 
     generate_completions_from_executable(bin/"argo", "completion", shells: [:bash, :zsh])
