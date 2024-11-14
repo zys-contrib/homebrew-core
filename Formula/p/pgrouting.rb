@@ -1,8 +1,8 @@
 class Pgrouting < Formula
   desc "Provides geospatial routing for PostGIS/PostgreSQL database"
   homepage "https://pgrouting.org/"
-  url "https://github.com/pgRouting/pgrouting/releases/download/v3.6.3/pgrouting-3.6.3.tar.gz"
-  sha256 "d14b424534be8f69cfd1fdc8cb41a23e531c04954ee8d974514615b74b8219fe"
+  url "https://github.com/pgRouting/pgrouting/releases/download/v3.7.0/pgrouting-3.7.0.tar.gz"
+  sha256 "6042bac75f17c6a9cb83d3e50cb8209ccef5ce5560d7f34e4a9a85ff66240848"
   license "GPL-2.0-or-later"
   head "https://github.com/pgRouting/pgrouting.git", branch: "main"
 
