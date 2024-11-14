@@ -46,7 +46,10 @@ class Sapling < Formula
   depends_on "python@3.12"
 
   uses_from_macos "bzip2"
-  uses_from_macos "curl"
+  # curl-config on ventura builds do not report http2 feature,
+  # this is a workaround to allow to build against system curl
+  # see discussions in https://github.com/Homebrew/homebrew-core/pull/197727
+  uses_from_macos "curl", since: :sonoma
   uses_from_macos "zlib"
 
   conflicts_with "sl", because: "both install `sl` binaries"
@@ -96,17 +99,6 @@ class Sapling < Formula
       odie "Inreplace did not modify any branch usage in Cargo.toml manifests!" if no_modification
     end
 
-    if OS.mac?
-      # Avoid vendored libcurl.
-      inreplace %w[
-        eden/scm/lib/http-client/Cargo.toml
-        eden/scm/lib/doctor/network/Cargo.toml
-        eden/scm/lib/revisionstore/Cargo.toml
-      ],
-        /^curl = { version = "(.+)", features = \["http2"\] }$/,
-        'curl = { version = "\\1", features = ["http2", "force-system-lib-on-osx"] }'
-    end
-
     python3 = "python3.12"
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
@@ -148,12 +140,7 @@ class Sapling < Formula
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
     ]
-    if OS.mac?
-      assert (bin/"sl").dynamically_linked_libraries.any? { |dll| dll.start_with?("/usr/lib/libcurl.") },
-             "No linkage with system curl! Cargo is likely using a vendored version."
-    else
-      dylibs << (Formula["curl"].opt_lib/shared_library("libcurl"))
-    end
+    dylibs << (Formula["curl"].opt_lib/shared_library("libcurl")) if OS.linux?
 
     dylibs.each do |library|
       assert check_binary_linkage(bin/"sl", library),
