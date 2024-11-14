@@ -18,14 +18,12 @@ class MariadbConnectorOdbc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "e451b4ce3119559b5436860e1649ffa9eb80851381f0ad0da95d1e0180852e30"
-    sha256 cellar: :any,                 arm64_sonoma:   "e5d37bb151f2ad25df7aef0a05c3b8fbb5dc97dee43f606d79355566da438e4f"
-    sha256 cellar: :any,                 arm64_ventura:  "35ef2093432b4f6ddfe26b0c8be57623d93eea20ebe4341cd6ec8bbe90f50202"
-    sha256 cellar: :any,                 arm64_monterey: "3489843ff83be733e03746537a9096356cbbb7c99746fb5c9ff387c2b95444d2"
-    sha256 cellar: :any,                 sonoma:         "3e081e1b8b61bea4ddf51636db0e09e030bddb7d6b2a0dae98bffa10515ca71e"
-    sha256 cellar: :any,                 ventura:        "3ee0199b3e161b08ed49bf7918fe326dbaff985387f0a5bb2bf6bc5f7ad189f1"
-    sha256 cellar: :any,                 monterey:       "af73a0411bb3b404fb41e8aaea4dae80fd3aa17e9bd55489eb8d85fd5fa784a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb5542044d83eb4431cc3ce77f8034e1dd4984e7beb061bad0ee778d368b62d5"
+    sha256 cellar: :any,                 arm64_sequoia: "68d779eda8256080dc4bc7413144d7e76ad1e56ade42aaf3ee69bc2b2e721269"
+    sha256 cellar: :any,                 arm64_sonoma:  "2b6ca27ca543bf9c3b640e3b79d4c52525e27c0a56faecb0405311c1a6dc5405"
+    sha256 cellar: :any,                 arm64_ventura: "b15a8af2b708d497840b89b6df4cba3a62d686a854ce68629eab14a12ad808e5"
+    sha256 cellar: :any,                 sonoma:        "d14a130ef6d1228073a442770200607a1246ea8554680fe27dc93bc7c7087940"
+    sha256 cellar: :any,                 ventura:       "6116655b653ceb3979eaea39840d3f2fbb8e67f2e5162e1fda189bc698a81ee6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d17cbca36bc9f82b0e31201ffa3c1cfb304f6058c94fb59de7085fec07809245"
   end
 
   depends_on "cmake" => :build
