@@ -209,6 +209,7 @@ beakerlib
 beancount
 beancount-language-server
 bear
+beautysh
 bed
 bee
 bench

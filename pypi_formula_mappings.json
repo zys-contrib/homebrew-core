@@ -103,6 +103,9 @@
   "beancount": {
     "exclude_packages": ["certifi"]
   },
+  "beautysh": {
+    "extra_packages": ["setuptools"]
+  },
   "bilix": {
     "exclude_packages": ["certifi"]
   },
