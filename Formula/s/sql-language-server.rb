@@ -1,8 +1,8 @@
 class SqlLanguageServer < Formula
   desc "Language Server for SQL"
   homepage "https://github.com/joe-re/sql-language-server"
-  url "https://registry.npmjs.org/sql-language-server/-/sql-language-server-1.7.0.tgz"
-  sha256 "c66e8d94863c52c34cab0865be3bac61f152e8029ba32d95778d984c8e0a49b1"
+  url "https://registry.npmjs.org/sql-language-server/-/sql-language-server-1.7.1.tgz"
+  sha256 "c92fe8ae8756f86bc893ec3dff6d85653de242eb671af0430807064db79d9cd6"
   license "MIT"
 
   bottle do
