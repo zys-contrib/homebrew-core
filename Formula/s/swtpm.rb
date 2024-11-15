@@ -1,8 +1,8 @@
 class Swtpm < Formula
   desc "Software TPM Emulator based on libtpms"
   homepage "https://github.com/stefanberger/swtpm"
-  url "https://github.com/stefanberger/swtpm/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "9679ca171e8aaa3c4e4053e8bc1d10c8dabf0220bd4b16aba78743511c25f731"
+  url "https://github.com/stefanberger/swtpm/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "9f10ae0d3123ab05c3808f8c8d39f633cf1a0cf142d6ac9b87b8364a682ac842"
   license "BSD-3-Clause"
 
   bottle do
@@ -52,7 +52,7 @@ class Swtpm < Formula
     pid = fork do
       system bin/"swtpm", "socket", "--ctrl", "type=tcp,port=#{port}"
     end
-    sleep 2
+    sleep 10
     system bin/"swtpm_ioctl", "--tcp", "127.0.0.1:#{port}", "-s"
   ensure
     Process.wait pid
