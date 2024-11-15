@@ -1,15 +1,14 @@
 class Mactop < Formula
   desc "Apple Silicon Monitor Top written in Golang"
   homepage "https://github.com/context-labs/mactop"
-  url "https://github.com/context-labs/mactop/archive/refs/tags/v0.1.9.tar.gz"
-  sha256 "dc5ec6cbe74ddae95bfdc8bf8da1b447b1924c10e90cfc3acb82ec8738ba557c"
+  url "https://github.com/context-labs/mactop/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "a2eb799fc216ef7560897b2b03634143c52cd919482333a340350a0c56fbcc65"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "32397b3f6e0d5efca5ba5c1bc92b877a8771c8751f2f3a9e95c5f515c668dcc0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "708bec6a72c64f63b7f4afff189ec074b742614b4bf4573e8de9d82bbf2abb06"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8f2cf7e9113364464d7c74ddcf1c90e87d0189ad841830c50f4fede2e7e690c7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "54d5347f41c463d40a8ddac94deb165130b32cfdea8b2ab1c50973db8bd1c43c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f3539acc9c56b4d8b4e065eec76bda27a2fe0d7350f580da3a86c6480df00307"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6a1c8476826517ef5c84753c47f154bb9dc8baa37c5f98d9c22e36d9168b64b4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "de67519131c8454a42d12d3d612995958e6020b45e7e859d6b0f1e14de8abdb9"
   end
 
   depends_on "go" => :build
