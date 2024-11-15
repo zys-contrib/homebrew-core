@@ -1,8 +1,8 @@
 class TexFmt < Formula
   desc "Extremely fast LaTeX formatter written in Rust"
   homepage "https://github.com/WGUNDERWOOD/tex-fmt"
-  url "https://github.com/WGUNDERWOOD/tex-fmt/archive/refs/tags/v0.4.6.tar.gz"
-  sha256 "2b7c7f6759007fa0671b9e324b089f5fd70fe6ffdb63388152681217db44b2ae"
+  url "https://github.com/WGUNDERWOOD/tex-fmt/archive/refs/tags/v0.4.7.tar.gz"
+  sha256 "3259a5ee9211753787e894c10313541108149285e7eba27f8281886bb14b5c79"
   license "MIT"
   head "https://github.com/WGUNDERWOOD/tex-fmt.git", branch: "main"
 
@@ -34,7 +34,7 @@ class TexFmt < Formula
       \\end{document}
     TEX
 
-    assert_equal <<~TEX, shell_output("#{bin}/tex-fmt --print #{testpath}/test.tex").chomp
+    assert_equal <<~TEX, shell_output("#{bin}/tex-fmt --print #{testpath}/test.tex")
       \\documentclass{article}
       \\title{tex-fmt Homebrew Test}
       \\begin{document}
