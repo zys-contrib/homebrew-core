@@ -3094,6 +3094,7 @@ west
 wgcf
 whistle
 whois
+widelands
 wikibase-cli
 wildfly-as
 wildmidi
