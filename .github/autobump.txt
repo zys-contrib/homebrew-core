@@ -406,6 +406,7 @@ checkov
 checkstyle
 cherrytree
 chezmoi
+chezscheme
 chibi-scheme
 chicken
 chisel-tunnel
