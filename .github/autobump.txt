@@ -2352,6 +2352,7 @@ postgresql@13
 postgresql@14
 postgresql@15
 postgresql@16
+postgresql@17
 postgrest
 poutine
 powerline-go
