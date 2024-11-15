@@ -1,10 +1,9 @@
 class Dict < Formula
   desc "Dictionary Server Protocol (RFC2229) client"
   homepage "https://dict.org/bin/Dict"
-  url "https://downloads.sourceforge.net/project/dict/dictd/dictd-1.13.1/dictd-1.13.1.tar.gz"
-  sha256 "e4f1a67d16894d8494569d7dc9442c15cc38c011f2b9631c7f1cc62276652a1b"
+  url "https://downloads.sourceforge.net/project/dict/dictd/dictd-1.13.2/dictd-1.13.2.tar.gz"
+  sha256 "4cc3ee4170820ab1eb1253b037083ddd2ac3e80d4697b22797ebc6c43a02f9ac"
   license "GPL-2.0-or-later"
-  revision 1
 
   bottle do
     sha256 arm64_sequoia:  "4175e6d386524d1f9ad1b71cef3b595b2f735cb239ced16ffb7ff56ac43372e5"
@@ -28,6 +27,7 @@ class Dict < Formula
     # Workaround for Xcode 14.3
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
+    ENV["ac_cv_search_yywrap"] = "yes"
     ENV["LIBTOOL"] = "glibtool"
     system "./configure", *std_configure_args,
                           "--sysconfdir=#{etc}",
