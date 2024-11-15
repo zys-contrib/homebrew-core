@@ -1,8 +1,8 @@
 class Libtpms < Formula
   desc "Library for software emulation of a Trusted Platform Module"
   homepage "https://github.com/stefanberger/libtpms"
-  url "https://github.com/stefanberger/libtpms/archive/refs/tags/v0.9.6.tar.gz"
-  sha256 "2807466f1563ebe45fdd12dd26e501e8a0c4fbb99c7c428fbb508789efd221c0"
+  url "https://github.com/stefanberger/libtpms/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "6da9a527b3afa7b1470acd4cd17157b8646c31a2c7ff3ba2dfc50c81ba413426"
   license "BSD-2-Clause"
 
   bottle do
