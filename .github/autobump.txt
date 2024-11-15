@@ -2606,6 +2606,7 @@ shtools
 shub
 shuffledns
 shush
+siege
 sigi
 sigma-cli
 signal-cli
