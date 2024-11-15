@@ -1,8 +1,8 @@
 class Ghex < Formula
   desc "GNOME hex editor"
   homepage "https://wiki.gnome.org/Apps/Ghex"
-  url "https://download.gnome.org/sources/ghex/46/ghex-46.0.tar.xz"
-  sha256 "a1c46f3020cb358b8323025db3a539c97d994a4c46f701f48edc6357f7fbcbd1"
+  url "https://download.gnome.org/sources/ghex/46/ghex-46.1.tar.xz"
+  sha256 "8a13975474eee27719b29ad763f1b24760a1aede6d7da4b623703070bc26e9fd"
   license "GPL-2.0-or-later"
 
   bottle do
