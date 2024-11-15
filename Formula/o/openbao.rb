@@ -2,8 +2,8 @@ class Openbao < Formula
   desc "Provides a software solution to manage, store, and distribute sensitive data"
   homepage "https://openbao.org/"
   url "https://github.com/openbao/openbao.git",
-      tag:      "v2.0.2",
-      revision: "96853bb4de27ab8ffd1b0c2898c691460d43edeb"
+      tag:      "v2.0.3",
+      revision: "a2522eb71d1854f83c7e2e02fdbfc01ae74c3a78"
   license "MPL-2.0"
   head "https://github.com/openbao/openbao.git", branch: "main"
 
@@ -23,7 +23,7 @@ class Openbao < Formula
   end
 
   depends_on "go" => :build
-  depends_on "node" => :build
+  depends_on "node@22" => :build # failed to build with node 23, https://github.com/openbao/openbao/issues/731
   depends_on "yarn" => :build
 
   uses_from_macos "curl" => :test
@@ -31,7 +31,7 @@ class Openbao < Formula
   conflicts_with "bao", because: "both install `bao` binaries"
 
   def install
-    ENV.prepend_path "PATH", Formula["node"].opt_libexec/"bin" # for npm
+    ENV.prepend_path "PATH", Formula["node@22"].opt_libexec/"bin" # for npm
     system "make", "bootstrap", "static-dist", "dev-ui"
     bin.install "bin/bao"
   end
