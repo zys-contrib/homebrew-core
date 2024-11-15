@@ -1,8 +1,8 @@
 class Sftpgo < Formula
   desc "Fully featured SFTP server with optional HTTP/S, FTP/S and WebDAV support"
   homepage "https://github.com/drakkan/sftpgo"
-  url "https://github.com/drakkan/sftpgo/releases/download/v2.6.2/sftpgo_v2.6.2_src_with_deps.tar.xz"
-  sha256 "c90260b7b2901438bbd476eee9fd389af5af24113088a50284b2d170631b52ee"
+  url "https://github.com/drakkan/sftpgo/releases/download/v2.6.3/sftpgo_v2.6.3_src_with_deps.tar.xz"
+  sha256 "e7b68add57fcea56573dd6210c5f4ab53f112cc4394794230e967b617638e3e9"
   license "AGPL-3.0-only"
 
   bottle do
@@ -26,7 +26,7 @@ class Sftpgo < Formula
       -X github.com/drakkan/sftpgo/v2/internal/version.commit=#{git_sha}
       -X github.com/drakkan/sftpgo/v2/internal/version.date=#{time.iso8601}
     ].join(" ")
-    system "go", "build", *std_go_args(ldflags:), "-tags", "nopgxregisterdefaulttypes"
+    system "go", "build", *std_go_args(ldflags:), "-tags", "nopgxregisterdefaulttypes,disable_grpc_modules"
     system bin/"sftpgo", "gen", "man", "-d", man1
 
     generate_completions_from_executable(bin/"sftpgo", "gen", "completion")
