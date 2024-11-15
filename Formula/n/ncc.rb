@@ -6,7 +6,7 @@ class Ncc < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f1cf16395842b95925773b2bbf6db4b6c7f00cf4bddd67eec63c03ea57e0b9f5"
+    sha256 cellar: :any_skip_relocation, all: "d7ae75f4531238b8bf4a1b0e6359d09c834da531093d63e8b022885435f3b09d"
   end
 
   depends_on "node"
