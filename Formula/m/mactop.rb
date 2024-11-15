@@ -1,8 +1,8 @@
 class Mactop < Formula
   desc "Apple Silicon Monitor Top written in Golang"
   homepage "https://github.com/context-labs/mactop"
-  url "https://github.com/context-labs/mactop/archive/refs/tags/v0.1.9.tar.gz"
-  sha256 "dc5ec6cbe74ddae95bfdc8bf8da1b447b1924c10e90cfc3acb82ec8738ba557c"
+  url "https://github.com/context-labs/mactop/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "a2eb799fc216ef7560897b2b03634143c52cd919482333a340350a0c56fbcc65"
   license "MIT"
 
   bottle do
