@@ -1,8 +1,8 @@
 class Ncc < Formula
   desc "Compile a Node.js project into a single file"
   homepage "https://github.com/vercel/ncc"
-  url "https://registry.npmjs.org/@vercel/ncc/-/ncc-0.38.2.tgz"
-  sha256 "6d07c32da3e6d2e01ef03598a3f2aa6b58636473a2f43e51cdde1629610b53e1"
+  url "https://registry.npmjs.org/@vercel/ncc/-/ncc-0.38.3.tgz"
+  sha256 "c9f9d715af74152fd248220a43a2a09868fdab68f7438dd558bbb69aa487bb86"
   license "MIT"
 
   bottle do
