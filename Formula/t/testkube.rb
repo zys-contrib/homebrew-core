@@ -1,8 +1,8 @@
 class Testkube < Formula
   desc "Kubernetes-native framework for test definition and execution"
   homepage "https://testkube.io"
-  url "https://github.com/kubeshop/testkube/archive/refs/tags/v2.1.62.tar.gz"
-  sha256 "413fdce2338612b6c18c5819f1d16a4c2732f117f93a2bccd6721335c540c6a9"
+  url "https://github.com/kubeshop/testkube/archive/refs/tags/v2.1.63.tar.gz"
+  sha256 "c8110103efba83ef91461fbc4d5be69686ccf9b71279dfc9fd1035b1215f6483"
   license "MIT"
   head "https://github.com/kubeshop/testkube.git", branch: "main"
 
