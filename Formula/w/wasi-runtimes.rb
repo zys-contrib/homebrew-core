@@ -21,9 +21,9 @@ class WasiRuntimes < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "lld" => [:build, :test]
   depends_on "wasi-libc" => [:build, :test]
-  depends_on "wasm-component-ld" => [:build, :test]
+  depends_on "lld" => :test
+  depends_on "wasm-component-ld" => :test
   depends_on "wasmtime" => :test
   depends_on "llvm"
 
@@ -55,6 +55,7 @@ class WasiRuntimes < Formula
       -DCMAKE_C_COMPILER_WORKS=ON
       -DCMAKE_CXX_COMPILER_WORKS=ON
       -DCMAKE_SYSROOT=#{wasi_libc.opt_share}/wasi-sysroot
+      -DCMAKE_TRY_COMPILE_TARGET_TYPE=STATIC_LIBRARY
       -DCMAKE_FIND_FRAMEWORK=NEVER
       -DCMAKE_VERBOSE_MAKEFILE=ON
       -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=#{HOMEBREW_LIBRARY_PATH}/cmake/trap_fetchcontent_provider.cmake
