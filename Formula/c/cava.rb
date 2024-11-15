@@ -1,8 +1,8 @@
 class Cava < Formula
   desc "Console-based Audio Visualizer for ALSA"
   homepage "https://github.com/karlstav/cava"
-  url "https://github.com/karlstav/cava/archive/refs/tags/0.10.2.tar.gz"
-  sha256 "853ee78729ed3501d0cdf9c1947967ad3bfe6526d66a029b4ddf9adaa6334d4f"
+  url "https://github.com/karlstav/cava/archive/refs/tags/0.10.3.tar.gz"
+  sha256 "bf822ac18ae0ca2cf926c2875f3221591960c25f2bcab89ea19729be4b9c3663"
   license "MIT"
   head "https://github.com/karlstav/cava.git", branch: "master"
 
@@ -68,7 +68,7 @@ class Cava < Formula
 
     pid = spawn(bin/"cava", "-p", cava_config, [:out, :err] => cava_stdout.to_s)
 
-    sleep 2
+    sleep 5
 
     assert_match "0;0;\n", cava_stdout.read
   ensure
