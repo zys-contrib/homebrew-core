@@ -3096,6 +3096,7 @@ wikibase-cli
 wildfly-as
 wildmidi
 wimlib
+wiredtiger
 wireguard-go
 wiremock-standalone
 wireshark
