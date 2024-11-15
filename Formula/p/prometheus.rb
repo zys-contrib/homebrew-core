@@ -1,8 +1,8 @@
 class Prometheus < Formula
   desc "Service monitoring system and time series database"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/prometheus/archive/refs/tags/v2.55.1.tar.gz"
-  sha256 "f48251f5c89eea6d3b43814499d558bacc4829265419ee69be49c5af98f79573"
+  url "https://github.com/prometheus/prometheus/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "7279a012eb12fc91a6887dd6cf09c3e4b68985b8726a78567493bb84902e8bc8"
   license "Apache-2.0"
 
   # There can be a notable gap between when a version is tagged and a
@@ -24,20 +24,19 @@ class Prometheus < Formula
 
   depends_on "gnu-tar" => :build
   depends_on "go" => :build
-  depends_on "node" => :build
+  depends_on "node@22" => :build # pin to use node22, due to node23 issue, see https://github.com/nodejs/node/issues/55826
   depends_on "yarn" => :build
 
   def install
     ENV.deparallelize
     ENV.prepend_path "PATH", Formula["gnu-tar"].opt_libexec/"gnubin"
-    ENV.prepend_path "PATH", Formula["node"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["node@22"].opt_libexec/"bin"
     mkdir_p buildpath/"src/github.com/prometheus"
     ln_sf buildpath, buildpath/"src/github.com/prometheus/prometheus"
 
     system "make", "assets"
     system "make", "build"
     bin.install %w[promtool prometheus]
-    libexec.install %w[consoles console_libraries]
 
     (bin/"prometheus_brew_services").write <<~EOS
       #!/bin/bash
