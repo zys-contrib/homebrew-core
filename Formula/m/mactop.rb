@@ -6,9 +6,9 @@ class Mactop < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f3539acc9c56b4d8b4e065eec76bda27a2fe0d7350f580da3a86c6480df00307"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6a1c8476826517ef5c84753c47f154bb9dc8baa37c5f98d9c22e36d9168b64b4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "de67519131c8454a42d12d3d612995958e6020b45e7e859d6b0f1e14de8abdb9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a42a15c620d6fd05294aba91197fda2f5ccd1ddc0bb37612770ebe013e48ae99"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe58f8f6aaf33dd031eb54f33083046b65f96d4802ccefba28d13c7a53d42942"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8e7b73f0fdcf478bd8e72e62eb604a8bbef82ac1a303dd11982eb764137067b1"
   end
 
   depends_on "go" => :build
