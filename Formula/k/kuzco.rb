@@ -7,12 +7,12 @@ class Kuzco < Formula
   head "https://github.com/RoseSecurity/Kuzco.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "637f33422371e8fcc9818fa2fd5da70e10ee7d815a03653b5bae79cbd213f31d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "637f33422371e8fcc9818fa2fd5da70e10ee7d815a03653b5bae79cbd213f31d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "637f33422371e8fcc9818fa2fd5da70e10ee7d815a03653b5bae79cbd213f31d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9226f4956a1a4de5f8dcc1032f3db14e70668556ee017a96c1f19532dc8b6968"
-    sha256 cellar: :any_skip_relocation, ventura:       "9226f4956a1a4de5f8dcc1032f3db14e70668556ee017a96c1f19532dc8b6968"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "566e16cb696c36c21af391f39763283d8e42befe05edaa1691948c80244d9109"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4df357c2c9fd7ffa3b8e9fb965ad18737d85b0ecb511395829cb4d6b2f9cd461"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4df357c2c9fd7ffa3b8e9fb965ad18737d85b0ecb511395829cb4d6b2f9cd461"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4df357c2c9fd7ffa3b8e9fb965ad18737d85b0ecb511395829cb4d6b2f9cd461"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f4ae7b7d4615ea985cc61ae161472e9a32a08009f726fa3dbfd9d36c09c8e9f0"
+    sha256 cellar: :any_skip_relocation, ventura:       "f4ae7b7d4615ea985cc61ae161472e9a32a08009f726fa3dbfd9d36c09c8e9f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf5d6462191ad449248bef603c5ecfb1bb11932b882be7d7f31c402c52ff5ca4"
   end
 
   depends_on "go" => :build
