@@ -3212,6 +3212,7 @@ zookeeper
 zoro
 zoxide
 zpaqfranz
+zsh-autosuggestions
 zsh-vi-mode
 zsh-you-should-use
 zshdb
