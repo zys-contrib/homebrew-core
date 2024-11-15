@@ -1,8 +1,8 @@
 class Argus < Formula
   desc "Audit Record Generation and Utilization System server"
   homepage "https://openargus.org"
-  url "https://github.com/openargus/argus/archive/refs/tags/v5.0.0.tar.gz"
-  sha256 "d2ac1013832ba502570ce4a152c02c898e3725b8682e21af54d8e3a513c3396e"
+  url "https://github.com/openargus/argus/archive/refs/tags/v5.0.2.tar.gz"
+  sha256 "1718454ac717fe5f500d00ff608097e3c5483f4e138aa789e67e306feb52bafb"
   license "GPL-3.0-or-later"
 
   bottle do
