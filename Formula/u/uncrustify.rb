@@ -1,8 +1,8 @@
 class Uncrustify < Formula
   desc "Source code beautifier"
   homepage "https://uncrustify.sourceforge.net/"
-  url "https://github.com/uncrustify/uncrustify/archive/refs/tags/uncrustify-0.79.0.tar.gz"
-  sha256 "e7afaeabf636b7f0ce4e3e9747b95f7bd939613a8db49579755dddf44fedca5f"
+  url "https://github.com/uncrustify/uncrustify/archive/refs/tags/uncrustify-0.80.0.tar.gz"
+  sha256 "8df1a4fb9aeb6c59d21fd328bb8fd34be7a11aef24310636df5cadca0900c729"
   license "GPL-2.0-or-later"
   head "https://github.com/uncrustify/uncrustify.git", branch: "master"
 
@@ -37,8 +37,7 @@ class Uncrustify < Formula
     expected = <<~C
       #include <stdio.h>
       int main(void) {
-      \treturn 0;
-      }
+      \treturn 0;}
     C
 
     system bin/"uncrustify", "-c", doc/"htdocs/default.cfg", "t.c"
