@@ -6,8 +6,7 @@ class Prettierd < Formula
   license "ISC"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "09e3ec3d5b7a6e73ccd4dd9478f2c34be67b24dfb0ceb6384bd1831e325a209d"
+    sha256 cellar: :any_skip_relocation, all: "c6bff9b787b92531aa1acbd522ddbd8215c377717ef1f69466922bd846f3cc0b"
   end
 
   depends_on "node"
