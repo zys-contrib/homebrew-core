@@ -7,12 +7,12 @@ class Porter < Formula
   head "https://github.com/getporter/porter.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c3d907ecf54616e5d64d085c53ed5cdc47ac4b641146f26899225826c57c4d1b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c3d907ecf54616e5d64d085c53ed5cdc47ac4b641146f26899225826c57c4d1b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c3d907ecf54616e5d64d085c53ed5cdc47ac4b641146f26899225826c57c4d1b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "74f2adce1a3778289c719e4fa60c9da60286a0b27ebff36cd93eef7903112290"
-    sha256 cellar: :any_skip_relocation, ventura:       "74f2adce1a3778289c719e4fa60c9da60286a0b27ebff36cd93eef7903112290"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5baff9f321e3fd8f7c243ce26c98173c8876f1f47af8f8f6af6279ee1a169d9b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "11cf0d1bbe48519d60db8ea4ac1ae1828484b2648a02669351b39aebd28d6b7d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "11cf0d1bbe48519d60db8ea4ac1ae1828484b2648a02669351b39aebd28d6b7d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "11cf0d1bbe48519d60db8ea4ac1ae1828484b2648a02669351b39aebd28d6b7d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6f7f79ba1e2fdb1ec4ffa0578b640d96ca6a97fe987c12da6baeeabae2b5c6bf"
+    sha256 cellar: :any_skip_relocation, ventura:       "6f7f79ba1e2fdb1ec4ffa0578b640d96ca6a97fe987c12da6baeeabae2b5c6bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19fdcacb29459c665c770de54c49cd113149d5c98045d21cb857dccdebbab56b"
   end
 
   depends_on "go" => :build
