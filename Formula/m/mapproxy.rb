@@ -9,12 +9,12 @@ class Mapproxy < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f2a5388e5b7dd9c1bd08d0ce6ed9a9520ad085b2c9c39c23ad467413ad4fb440"
-    sha256 cellar: :any,                 arm64_sonoma:  "1ca2578919d1c9373c675403450fa5480af2d7f76b6a57f4a8574b4af454c17e"
-    sha256 cellar: :any,                 arm64_ventura: "7fd3bbbf8eda2c887a0d783783dbd82f0134cefb7af5d4b46bf9aa4ea9ba225b"
-    sha256 cellar: :any,                 sonoma:        "bad40127f6dae06e1c819e19555a870ccf209d5e675bd8cc0df294992a0f741a"
-    sha256 cellar: :any,                 ventura:       "bf67be50e86b2cfe15016aeb493c8dd41edbcf9320e9d9899f3aadcccc749503"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93e509f3f757a65da2787796550a66f43d1944a3507300ba927fb6dd9750a2f7"
+    sha256 cellar: :any,                 arm64_sequoia: "493c875579ee0db01173258262674f9609d6b5a0f363880a19fee5092003718a"
+    sha256 cellar: :any,                 arm64_sonoma:  "077d3cdf113954bfd3debea1b39e55e02e595b4de057db9181a1b33253c3e5e0"
+    sha256 cellar: :any,                 arm64_ventura: "79c6ec8cb81e10a77e706fea96520715e16b93b7d3e39a985ba1dbcad768bc61"
+    sha256 cellar: :any,                 sonoma:        "d877ee94e9f6618b01eb7926ebf57b837421987178d6f7fcd36068bdb0a3a65d"
+    sha256 cellar: :any,                 ventura:       "05e9cc9746f7bb50b696f6cbae70b34068871c329ac8bdbede50e21440eacce2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a44bfb01b15861482ea2550da6aef3ca84a4f573e018fa0a20b67e1c159aff22"
   end
 
   depends_on "rust" => :build # for rpds-py
