@@ -1,8 +1,8 @@
 class Onedrive < Formula
   desc "Folder synchronization with OneDrive"
   homepage "https://github.com/abraunegg/onedrive"
-  url "https://github.com/abraunegg/onedrive/archive/refs/tags/v2.5.2.tar.gz"
-  sha256 "2abad70160853a25b6784025ef7e7636fcb077b5623c8fe521df9e3aa8089a89"
+  url "https://github.com/abraunegg/onedrive/archive/refs/tags/v2.5.3.tar.gz"
+  sha256 "1b385c4f3d34d703e2ed095575244ea03df4bb41fcc7d0d8fbd6366534f2ca6a"
   license "GPL-3.0-only"
 
   bottle do
