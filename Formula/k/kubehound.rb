@@ -5,6 +5,11 @@ class Kubehound < Formula
   sha256 "f00f864873475f5b13413575dcf8a3de92c4de65dfdbd0b7d4bc34ad91f58c4f"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ad229fbd337169f6bcd2fdd46d87f1c36fa6b5a462fed79dc409e8f1508bab81"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ba7cfa08409ef456cb2d1b051baee6312ff3117c690711614b190fa639678589"
