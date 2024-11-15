@@ -6,12 +6,12 @@ class TailwindcssLanguageServer < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "161f901f79ec9bcc961dc63243634c333a32f783cbe996eb846306eb0fe200bc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "161f901f79ec9bcc961dc63243634c333a32f783cbe996eb846306eb0fe200bc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "161f901f79ec9bcc961dc63243634c333a32f783cbe996eb846306eb0fe200bc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "604e1efabdbe9b9d5abcc5f6a5566f939a684d66af41bb7361ba4e7069eef1c0"
-    sha256 cellar: :any_skip_relocation, ventura:       "604e1efabdbe9b9d5abcc5f6a5566f939a684d66af41bb7361ba4e7069eef1c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db26b38216814c794d140567f267766664add80c1112a3c9c0e3ce06f2500481"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d949c179367bba3099db932a32049dfef834e77b8484c10f6b620ecadd2ca1b6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d949c179367bba3099db932a32049dfef834e77b8484c10f6b620ecadd2ca1b6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d949c179367bba3099db932a32049dfef834e77b8484c10f6b620ecadd2ca1b6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "613776479bd1a49ca55769553852a133e69fec0d1d977bd62f0e396cac5754ea"
+    sha256 cellar: :any_skip_relocation, ventura:       "613776479bd1a49ca55769553852a133e69fec0d1d977bd62f0e396cac5754ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9e3fe9f2283f71129fb5d715eaead6677ecf6ab9ded712eb69f3ceecbe300d9"
   end
 
   depends_on "node"
