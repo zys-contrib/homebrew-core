@@ -1,8 +1,8 @@
 class Rarian < Formula
   desc "Documentation metadata library"
   homepage "https://rarian.freedesktop.org/"
-  url "https://gitlab.freedesktop.org/rarian/rarian/-/releases/0.8.5/downloads/assets/rarian-0.8.5.tar.bz2"
-  sha256 "8ead8a0e70cbf080176effa6f288de55747f649c9bae9809aa967a81c7e987ed"
+  url "https://gitlab.freedesktop.org/rarian/rarian/-/releases/0.8.6/downloads/assets/rarian-0.8.6.tar.bz2"
+  sha256 "9d4f7873009d2e31b8b1ec762606b12bee5526e1fe75de48e9495382bfef2bea"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -24,8 +24,8 @@ class Rarian < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
-  depends_on "tinyxml"
+  depends_on "pkgconf" => :build
+  depends_on "tinyxml2"
 
   conflicts_with "scrollkeeper",
     because: "rarian and scrollkeeper install the same binaries"
