@@ -6,14 +6,12 @@ class Pdftoipe < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "83ed62435778f3458488df273547f0b62affc8e0639f277f7b696ab65af7db42"
-    sha256 cellar: :any,                 arm64_sonoma:   "3ffc098642fb07f56fdf7123d1ed96e89c08e2a90138fe14b75fbaa5fb1a0baa"
-    sha256 cellar: :any,                 arm64_ventura:  "abaf4114b8f8e31cf552dedf510267915baea3cfac66eee9881c9ed357a0f1a5"
-    sha256 cellar: :any,                 arm64_monterey: "3d2e9878726033261d5d28a7cfe217f9eab8bc25ca87c62396043a4dd565a5f9"
-    sha256 cellar: :any,                 sonoma:         "da1ac14a407e12800983b7964d1e9c8568704cf1cda25c2537b1d33f730fc831"
-    sha256 cellar: :any,                 ventura:        "fcec35e3b168b6bd8c83a8dda6d9b1464d5bdb1e326b649463567f9b05b03937"
-    sha256 cellar: :any,                 monterey:       "cea74fc81e5544544e9e8534c97a3b7987f16b9ed7859e9a7c8fa7318649bc47"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a3da5c3168fefc7e7899400b3a618b91072777ed35feed3b76a727a3d99964c"
+    sha256 cellar: :any,                 arm64_sequoia: "676487a4936713e7959e84fc88044043702b83264a252b993e81a9dd86d6d319"
+    sha256 cellar: :any,                 arm64_sonoma:  "360ff0144680ed13f66f522aaf25ad20a614e94100646f613ac85cc7be579a1e"
+    sha256 cellar: :any,                 arm64_ventura: "c95975c6051e420465edb2678ac971ae8d6f4a14d3c7e8dd99de384149ca5da2"
+    sha256 cellar: :any,                 sonoma:        "c1d0b1dd05122e9d7efffa64af044688da047af048200a52f5ef4c7c3e3e0835"
+    sha256 cellar: :any,                 ventura:       "c1807495f1e45996dc8296fe8d4783f7b0f5642cba6ff7317d9f7a4fd43be564"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65c63824a5a34755e35f7355010e82ddc080e1e42e8c8f869e1582821d0c041d"
   end
 
   depends_on "pkgconf" => :build
