@@ -2079,6 +2079,7 @@ ollama
 omega
 omniorb
 onednn
+onedpl
 onedrive
 onion-location
 onionprobe
