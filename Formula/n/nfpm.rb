@@ -7,12 +7,12 @@ class Nfpm < Formula
   head "https://github.com/goreleaser/nfpm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3981673dcb67d44ea45bd37d0b76a6dc32b32c595822b7b416d596ce3ac3482a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3981673dcb67d44ea45bd37d0b76a6dc32b32c595822b7b416d596ce3ac3482a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3981673dcb67d44ea45bd37d0b76a6dc32b32c595822b7b416d596ce3ac3482a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "39508812fdafec13c0ecb75038327679995aa929cc41d4dd9907613abde6803c"
-    sha256 cellar: :any_skip_relocation, ventura:       "39508812fdafec13c0ecb75038327679995aa929cc41d4dd9907613abde6803c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c56bcda788fad11ef7e22633c0222854fe41247d0ead4e039a19b39ef71cbe0f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0ee255e4c65ed26ce783b072b25a660ccdaf7358205af743f8749eb0f97a5800"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0ee255e4c65ed26ce783b072b25a660ccdaf7358205af743f8749eb0f97a5800"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0ee255e4c65ed26ce783b072b25a660ccdaf7358205af743f8749eb0f97a5800"
+    sha256 cellar: :any_skip_relocation, sonoma:        "43d9165edff93ade8e91fe577de70477a0d8bf8868aa17453f0d5d6705912e4e"
+    sha256 cellar: :any_skip_relocation, ventura:       "43d9165edff93ade8e91fe577de70477a0d8bf8868aa17453f0d5d6705912e4e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07ee58dc663f1e3d9972a5f4c0964d8d1c51eacb389cc14ab96d7c378c6b063a"
   end
 
   depends_on "go" => :build
