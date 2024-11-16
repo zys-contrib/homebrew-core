@@ -6,14 +6,12 @@ class Dict < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_sequoia:  "4175e6d386524d1f9ad1b71cef3b595b2f735cb239ced16ffb7ff56ac43372e5"
-    sha256 arm64_sonoma:   "72952615034fd444a7b5d98c38c0f86ad93b6658b03656a3565e677acc8d7a06"
-    sha256 arm64_ventura:  "4c103b9ceaf30219f6172ec2f23ea4da33c91b6aeddfc8f5fb06306b1fa526a0"
-    sha256 arm64_monterey: "5905bf4d882c4377c3158a91411b2909e8c5bfe9cf6f738f1b349deb499c3a7d"
-    sha256 sonoma:         "fdc1aa1d8f3e9570cccdf86ff54d7c81e276204ddf4dea9cba4551f096b014c2"
-    sha256 ventura:        "243021700916adc3db25a32a6309b73952d16dba189d4835533b3557780dcb32"
-    sha256 monterey:       "474cb13091b6544d4a0141c7cc01c2f9e127a7b98d3b737de49627a304773aa1"
-    sha256 x86_64_linux:   "d2cc0059c1e1471f2bd5ad1f871f2ea6a57f486bbcb0f9761a65b3f5dc412caf"
+    sha256 arm64_sequoia: "9d1700a2f65af4c81450991adb6774bcb3ab2402dd415570e0fac4930656e7d0"
+    sha256 arm64_sonoma:  "c51f1b3870033601c58b2e9da5b22a266be61bc6949eff04e002442a38047aca"
+    sha256 arm64_ventura: "1f6afea25d3c716196b6b133ebbab87f3cb2ee5d8d41c72629e89e74c6394ffc"
+    sha256 sonoma:        "cebb05ffbe29fb85618138b7d388ba34554290ae81be83e5511eb767ecc0ea8f"
+    sha256 ventura:       "ec59898ae0e21bc460eef7f56c95bcb6a151df6e9ee16d510e26365440bb5552"
+    sha256 x86_64_linux:  "04d9534b5e3359bbb4497b7093e6575f629c78be6f0efc095df43037a392b29c"
   end
 
   depends_on "libtool" => :build
