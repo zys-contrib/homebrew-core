@@ -353,6 +353,7 @@ castxml
 catch2
 cava
 cbc
+cbfmt
 cbindgen
 ccache
 ccls
