@@ -4,6 +4,7 @@ class SbomTool < Formula
   url "https://github.com/microsoft/sbom-tool/archive/refs/tags/v3.0.1.tar.gz"
   sha256 "90085ab1f134f83d43767e46d6952be42a62dbb0f5368e293437620a96458867"
   license "MIT"
+  revision 1
   head "https://github.com/microsoft/sbom-tool.git", branch: "main"
 
   # There can be a notable gap between when a version is tagged and a
@@ -23,16 +24,14 @@ class SbomTool < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7350a825d6b0e31ff02f6145487765ed899d95d1243f9d91d914b63b3102c59"
   end
 
-  depends_on "dotnet"
+  depends_on "dotnet@8"
 
   uses_from_macos "zlib"
 
   def install
-    bin.mkdir
-
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "true"
 
-    dotnet = Formula["dotnet"]
+    dotnet = Formula["dotnet@8"]
     os = OS.mac? ? "osx" : OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
 
