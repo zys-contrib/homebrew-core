@@ -5,6 +5,7 @@ class ThorsMongo < Formula
       tag:      "6.0.06",
       revision: "9ff64c7f7d52415a9f09d764078a9d2b29b06f16"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "bb9b17d9451ec02a0c9f9c5df245db42582385062964c1f29a4d6552242ffaf2"
