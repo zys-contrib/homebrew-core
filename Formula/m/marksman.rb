@@ -15,23 +15,27 @@ class Marksman < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c076fc10cfc0eed8b3cb367ca3736b9483c3af515733ac8125309eead36c15bf"
   end
 
-  depends_on "dotnet" => :build
+  depends_on "dotnet@8"
 
   uses_from_macos "zlib"
 
   def install
-    bin.mkdir
-
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "true"
 
-    # by default it uses `git describe` to acquire a version suffix, for details
-    # see the GitHub pull request [1], the resulting version would for example
-    # be `1.0.0-<version>`
-    #
-    # [1]: https://github.com/artempyanykh/marksman/pull/125
-    ENV.deparallelize do
-      system "make", "VERSIONSTRING=#{version}", "DEST=#{bin}", "publishTo"
-    end
+    dotnet = Formula["dotnet@8"]
+    args = %W[
+      --configuration Release
+      --framework net#{dotnet.version.major_minor}
+      --no-self-contained
+      --output #{libexec}
+      --use-current-runtime
+      -p:PublishSingleFile=true
+      -p:DebugType=embedded
+    ]
+    args << "-p:VersionString=#{version}" if build.stable?
+
+    system "dotnet", "publish", "Marksman/Marksman.fsproj", *args
+    (bin/"marksman").write_env_script libexec/"marksman", DOTNET_ROOT: dotnet.opt_libexec
   end
 
   test do
