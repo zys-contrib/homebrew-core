@@ -4,6 +4,7 @@ class Dug < Formula
   url "https://github.com/unfrl/dug/archive/refs/tags/0.0.94.tar.gz"
   sha256 "f97952be49d93ed66f1cc7e40bf7004928e6573077839a18f5be371c80e2c16b"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -24,25 +25,23 @@ class Dug < Formula
 
   def install
     ENV["DOTNET_SYSTEM_GLOBALIZATION_INVARIANT"] = "1"
-    dotnet = Formula["dotnet"]
-    os = OS.mac? ? "osx" : OS.kernel_name.downcase
-    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
 
+    dotnet = Formula["dotnet"]
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
-      --output #{libexec}
-      --runtime #{os}-#{arch}
       --no-self-contained
+      --output #{bin}
+      --use-current-runtime
+      -p:AppHostRelativeDotNet=#{dotnet.opt_libexec.relative_path_from(bin)}
       -p:TargetFrameworks=net#{dotnet.version.major_minor}
       -p:Version=#{version}
       -p:PublishSingleFile=true
       -p:IncludeNativeLibrariesForSelfExtract=true
+      -p:DebugType=None
     ]
 
     system "dotnet", "publish", "cli/dug.csproj", *args
-    env = { DOTNET_ROOT: "${DOTNET_ROOT:-#{dotnet.opt_libexec}}" }
-    (bin/"dug").write_env_script libexec/"dug", env
   end
 
   test do
