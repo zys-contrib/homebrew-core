@@ -891,6 +891,7 @@ fierce
 fig2dev
 file-roller
 filebeat
+fileql
 findent
 findomain
 findutils
