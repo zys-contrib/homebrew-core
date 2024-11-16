@@ -12,12 +12,12 @@ class Dug < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5fc22af9ae66c539b84fd9202cc15442c5cb9ccc2da736c25073c01cd7cb7d1c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b218fc33ff689d05ad7637d3a90516eff22c12721dce9c45a6bc0b9d7d8005b8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a2b486b453398832444fe293c2114ae52415e32450a307efd4f8d794e612978b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bafbcd64d21759be827798be5e716d58f4c5b25272884d6efc517d0c56a88885"
-    sha256 cellar: :any_skip_relocation, ventura:       "c5fca1866650201da0bf750a980bb99c02635b45c10d12f07de0dd004ea65b5d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "373a0464e15b4ceb0af958ceaf67c701946f521bec7654477f0036b585aff48c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b2056f58b7a98102e267466ac4b78cb0c20f6d718edadec02e99711e73c63f1d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2a0694076a8ca9f24aa8105df5400385905f0346365c0d9ff663180126657aff"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e7caf9fe29373fefb13ca554c3e58d0ac96cc4fb5f4a210d2ff28162a0a2d96d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6fcc35f470be76307cf14e8ced656a65749c49f65e63df5e267494596199eeb4"
+    sha256 cellar: :any_skip_relocation, ventura:       "4fd87cddb2e79d2fa8f92f0534b386767e8670c481091ada9574e5944813bfcc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ce1254977a436fccb15cd219228dbb012ec7722d91e883b4a47bbd277e19803"
   end
 
   depends_on "dotnet"
