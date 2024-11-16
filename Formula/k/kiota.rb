@@ -18,24 +18,20 @@ class Kiota < Formula
 
   def install
     dotnet = Formula["dotnet@8"]
-    os = OS.mac? ? "osx" : OS.kernel_name.downcase
-    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
 
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
       --output #{libexec}
-      --runtime #{os}-#{arch}
       --no-self-contained
+      --use-current-runtime
       -p:TargetFramework=net#{dotnet.version.major_minor}
       -p:PublishSingleFile=true
-      -p:Version=#{version}
     ]
+    args << "-p:Version=#{version}" if build.stable?
 
     system "dotnet", "publish", "src/kiota/kiota.csproj", *args
-
-    (bin/"kiota").write_env_script libexec/"kiota",
-      DOTNET_ROOT: "${DOTNET_ROOT:-#{dotnet.opt_libexec}}"
+    (bin/"kiota").write_env_script libexec/"kiota", DOTNET_ROOT: dotnet.opt_libexec
   end
 
   test do
