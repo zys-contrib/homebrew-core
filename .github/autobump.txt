@@ -2092,6 +2092,7 @@ open-image-denoise
 open-mesh
 open-mpi
 open62541
+openal-soft
 openapi-diff
 openbao
 openblas
