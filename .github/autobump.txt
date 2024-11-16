@@ -648,6 +648,7 @@ di
 dialog
 diamond
 dicebear
+dict
 diesel
 diffoci
 diffoscope
