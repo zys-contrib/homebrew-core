@@ -1,8 +1,8 @@
 class Tsduck < Formula
   desc "MPEG Transport Stream Toolkit"
   homepage "https://tsduck.io/"
-  url "https://github.com/tsduck/tsduck/archive/refs/tags/v3.38-3822.tar.gz"
-  sha256 "18bb779584384197dbb72af406cdcd42fe06efbf4a6ca8fd3138eb518b7ad369"
+  url "https://github.com/tsduck/tsduck/archive/refs/tags/v3.39-3956.tar.gz"
+  sha256 "1a391504967bd7a6ffb1cabd98bc6ee904a742081c0a17ead4d6639d58c82979"
   license "BSD-2-Clause"
   head "https://github.com/tsduck/tsduck.git", branch: "master"
 
@@ -34,6 +34,12 @@ class Tsduck < Formula
 
   on_macos do
     depends_on "make" => :build
+  end
+
+  # fix syntax issue in make-config.sh, upstream pr ref, https://github.com/tsduck/tsduck/pull/1550
+  patch do
+    url "https://github.com/tsduck/tsduck/commit/393b8fe60329ad55efaa122840f19c8cd0cda75f.patch?full_index=1"
+    sha256 "90e95a49b39f01c61b3420a5edf6c76df1b24e4a8f8cdf3cafd1aed0e95a3f2e"
   end
 
   def install
