@@ -1,10 +1,9 @@
 class Pdftoipe < Formula
   desc "Reads arbitrary PDF files and generates an XML file readable by Ipe"
   homepage "https://github.com/otfried/ipe-tools"
-  url "https://github.com/otfried/ipe-tools/archive/refs/tags/v7.2.24.1.tar.gz"
-  sha256 "561b18fc2a7ae45c37c5d0390443b37f4585549f09cd7765d856456be24e5dbc"
+  url "https://github.com/otfried/ipe-tools/archive/refs/tags/v7.2.29.1.tar.gz"
+  sha256 "604ef6e83ad8648fa09c41a788549db28193bb3638033d69cac2b0b3f33bd69b"
   license "GPL-2.0-or-later"
-  revision 20
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "83ed62435778f3458488df273547f0b62affc8e0639f277f7b696ab65af7db42"
@@ -17,26 +16,10 @@ class Pdftoipe < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a3da5c3168fefc7e7899400b3a618b91072777ed35feed3b76a727a3d99964c"
   end
 
-  # Patches to build with newer poppler are ignored upstream
-  # Ref: https://github.com/otfried/ipe-tools/pull/55
-  disable! date: "2024-11-07", because: "does not build with latest poppler"
-
   depends_on "pkgconf" => :build
   depends_on "poppler"
 
   fails_with gcc: "5"
-
-  # https://github.com/otfried/ipe-tools/pull/48
-  patch do
-    url "https://github.com/otfried/ipe-tools/commit/14335180432152ad094300d0afd00d8e390469b2.patch?full_index=1"
-    sha256 "544d891bfab2c297f659895761cb296d6ed2b4aa76a888e9ca2c215d497a48e5"
-  end
-
-  # https://github.com/otfried/ipe-tools/pull/55
-  patch do
-    url "https://github.com/otfried/ipe-tools/commit/65586fcd9cc39e482ae5a9abdb6f4932d9bb88c4.patch?full_index=1"
-    sha256 "61f507fcaa843c00e5aa06bc1c8ab1cbc2798214c5f794d2c9bd376f78b49a11"
-  end
 
   def install
     cd "pdftoipe" do
