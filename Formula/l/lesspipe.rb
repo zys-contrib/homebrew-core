@@ -16,6 +16,10 @@ class Lesspipe < Formula
 
   uses_from_macos "perl"
 
+  on_macos do
+    depends_on "bash"
+  end
+
   def install
     system "./configure", "--all-completions", "--prefix=#{prefix}"
     man1.mkpath
