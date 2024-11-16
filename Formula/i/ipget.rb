@@ -1,8 +1,8 @@
 class Ipget < Formula
   desc "Retrieve files over IPFS and save them locally"
   homepage "https://github.com/ipfs/ipget/"
-  url "https://github.com/ipfs/ipget/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "b0ee2198cbaa0b68626eac9a77f8e63efa033fcdc90af79cf7d4500e88daad14"
+  url "https://github.com/ipfs/ipget/archive/refs/tags/v0.11.1.tar.gz"
+  sha256 "3dd56e9243ab59383d206c2b374980cc987c016a391976dd9dcf5bff33a96f35"
   license "MIT"
   head "https://github.com/ipfs/ipget.git", branch: "master"
 
