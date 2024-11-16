@@ -446,6 +446,7 @@ clifm
 cling
 clingo
 clipboard
+cljfmt
 cloc
 clojure
 clojurescript
