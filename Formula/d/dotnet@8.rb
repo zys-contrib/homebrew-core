@@ -11,6 +11,14 @@ class DotnetAT8 < Formula
     regex(/^v?(8(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "92f8ec953388502d9d76fec33366fbd6693b5256a29bf54b0e5680db9dbfbef9"
+    sha256 cellar: :any,                 arm64_sonoma:  "0508065a204cb17ea203222d3b81fafd0b782e9eeca37f34c3fee7fad5fbb701"
+    sha256 cellar: :any,                 arm64_ventura: "ad714d85bb529c518fb1dc1d4f4cb906509039960ad5226be9620cb310f8f66c"
+    sha256 cellar: :any,                 ventura:       "f82094589ae3d400912a21ea9c70764c680fcda0e2b9ca779001686c98b371f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2fa6691f08d7c23a8090f163d2074424eb3c1365170706248956ebe0c7460922"
+  end
+
   keg_only :versioned_formula
 
   # https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core#lifecycle
