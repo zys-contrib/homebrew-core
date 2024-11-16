@@ -1,8 +1,8 @@
 class Dict < Formula
   desc "Dictionary Server Protocol (RFC2229) client"
   homepage "https://dict.org/bin/Dict"
-  url "https://downloads.sourceforge.net/project/dict/dictd/dictd-1.13.2/dictd-1.13.2.tar.gz"
-  sha256 "4cc3ee4170820ab1eb1253b037083ddd2ac3e80d4697b22797ebc6c43a02f9ac"
+  url "https://downloads.sourceforge.net/project/dict/dictd/dictd-1.13.3/dictd-1.13.3.tar.gz"
+  sha256 "192129dfb38fa723f48a9586c79c5198fc4904fec1757176917314dd073f1171"
   license "GPL-2.0-or-later"
 
   bottle do
