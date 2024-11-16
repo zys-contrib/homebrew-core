@@ -31,15 +31,12 @@ class SbomTool < Formula
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "true"
 
     dotnet = Formula["dotnet@8"]
-    os = OS.mac? ? "osx" : OS.kernel_name.downcase
-    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
-
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
-      --output #{libexec}
-      --runtime #{os}-#{arch}
       --no-self-contained
+      --output #{libexec}
+      --use-current-runtime
       -p:OFFICIAL_BUILD=true
       -p:MinVerVersionOverride=#{version}
       -p:PublishSingleFile=true
@@ -50,8 +47,7 @@ class SbomTool < Formula
     ]
 
     system "dotnet", "publish", "src/Microsoft.Sbom.Tool/Microsoft.Sbom.Tool.csproj", *args
-    (bin/"sbom-tool").write_env_script libexec/"Microsoft.Sbom.Tool",
-                                       DOTNET_ROOT: "${DOTNET_ROOT:-#{dotnet.opt_libexec}}"
+    (bin/"sbom-tool").write_env_script libexec/"Microsoft.Sbom.Tool", DOTNET_ROOT: dotnet.opt_libexec
   end
 
   test do
