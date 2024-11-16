@@ -1,8 +1,8 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://goteleport.com/"
-  url "https://github.com/gravitational/teleport/archive/refs/tags/v16.4.7.tar.gz"
-  sha256 "34dc8ab9065563efef29ef2e9de65f2c15f063fb69f712db15bb7fc46fd4edfa"
+  url "https://github.com/gravitational/teleport/archive/refs/tags/v17.0.1.tar.gz"
+  sha256 "d2022e497edf5f42f110d4c8d2d8e9dbbcd87d45810fe7cb58e8dcc666f0b0fb"
   license all_of: ["AGPL-3.0-or-later", "Apache-2.0"]
   head "https://github.com/gravitational/teleport.git", branch: "master"
 
@@ -26,9 +26,7 @@ class Teleport < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2dd4236aa926aae711c27fde357be865f4298492eda09d3ff8e446e9e0453b71"
   end
 
-  # Use "go" again after https://github.com/gravitational/teleport/commit/e4010172501f0ed18bb260655c83606dfa872fbd
-  # is released, likely in a version 17.x.x (or later?):
-  depends_on "go@1.22" => :build
+  depends_on "go" => :build
   depends_on "pkg-config" => :build
   depends_on "pnpm" => :build
   depends_on "rust" => :build
@@ -78,8 +76,8 @@ class Teleport < Formula
     sleep 10
     system "curl", "--insecure", "https://localhost:3080"
 
-    status = shell_output("#{bin}/tctl --config=#{testpath}/config.yml status")
-    assert_match(/Cluster\s*testhost/, status)
-    assert_match(/Version\s*#{version}/, status)
+    status = shell_output("#{bin}/tctl status --config=#{testpath}/config.yml")
+    assert_match(/Cluster:\s*testhost/, status)
+    assert_match(/Version:\s*#{version}/, status)
   end
 end
