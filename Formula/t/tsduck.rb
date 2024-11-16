@@ -32,13 +32,8 @@ class Tsduck < Formula
   uses_from_macos "pcsc-lite"
 
   on_macos do
+    depends_on "bash" => :build
     depends_on "make" => :build
-  end
-
-  # fix syntax issue in make-config.sh, upstream pr ref, https://github.com/tsduck/tsduck/pull/1550
-  patch do
-    url "https://github.com/tsduck/tsduck/commit/393b8fe60329ad55efaa122840f19c8cd0cda75f.patch?full_index=1"
-    sha256 "90e95a49b39f01c61b3420a5edf6c76df1b24e4a8f8cdf3cafd1aed0e95a3f2e"
   end
 
   def install
