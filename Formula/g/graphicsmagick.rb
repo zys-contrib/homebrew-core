@@ -42,8 +42,6 @@ class Graphicsmagick < Formula
 
   def install
     args = %W[
-      --prefix=#{prefix}
-      --disable-dependency-tracking
       --disable-openmp
       --disable-static
       --enable-shared
@@ -56,11 +54,13 @@ class Graphicsmagick < Formula
       --without-wmf
       --with-jxl
     ]
-
     # versioned stuff in main tree is pointless for us
     inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
+
+    # Avoid rebuilding dependents that hard-code the prefix.
+    inreplace (lib/"pkgconfig").glob("*.pc"), prefix, opt_prefix
   end
 
   test do
