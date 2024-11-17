@@ -4,7 +4,7 @@ class Arrayfire < Formula
   url "https://github.com/arrayfire/arrayfire/releases/download/v3.9.0/arrayfire-full-3.9.0.tar.bz2"
   sha256 "8356c52bf3b5243e28297f4b56822191355216f002f3e301d83c9310a4b22348"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any, arm64_sequoia:  "62c059c02e2c6680c7c3fd3a9006243389ec2a2f272596f2c1c77f7826a6e0dd"
@@ -99,14 +99,14 @@ index ac149d9..edffdfa 100644
 +    auto format(const arrayfire::common::Node& node, FormatContext& ctx) const
          -> decltype(ctx.out()) {
          // ctx.out() is an output iterator to write to.
- 
+
 diff --git a/src/backend/common/ArrayFireTypesIO.hpp b/src/backend/common/ArrayFireTypesIO.hpp
 index e7a2e08..5da74a9 100644
 --- a/src/backend/common/ArrayFireTypesIO.hpp
 +++ b/src/backend/common/ArrayFireTypesIO.hpp
 @@ -21,7 +21,7 @@ struct fmt::formatter<af_seq> {
      }
- 
+
      template<typename FormatContext>
 -    auto format(const af_seq& p, FormatContext& ctx) -> decltype(ctx.out()) {
 +    auto format(const af_seq& p, FormatContext& ctx) const -> decltype(ctx.out()) {
@@ -115,7 +115,7 @@ index e7a2e08..5da74a9 100644
              p.step == af_span.step) {
 @@ -73,18 +73,16 @@ struct fmt::formatter<arrayfire::common::Version> {
      }
- 
+
      template<typename FormatContext>
 -    auto format(const arrayfire::common::Version& ver, FormatContext& ctx)
 +    auto format(const arrayfire::common::Version& ver, FormatContext& ctx) const
@@ -147,7 +147,7 @@ index 54e74a2..07fa589 100644
 +#include <fmt/ranges.h>
  #include <spdlog/fmt/bundled/format.h>
  #include <iostream>
- 
+
 diff --git a/src/backend/opencl/compile_module.cpp b/src/backend/opencl/compile_module.cpp
 index 89d382c..2c979fd 100644
 --- a/src/backend/opencl/compile_module.cpp
@@ -155,7 +155,7 @@ index 89d382c..2c979fd 100644
 @@ -22,6 +22,8 @@
  #include <platform.hpp>
  #include <traits.hpp>
- 
+
 +#include <fmt/ranges.h>
 +
  #include <algorithm>
