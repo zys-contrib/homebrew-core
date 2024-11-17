@@ -3,8 +3,8 @@ class Dolphie < Formula
 
   desc "Feature-rich top tool for monitoring MySQL"
   homepage "https://github.com/charles-001/dolphie"
-  url "https://files.pythonhosted.org/packages/bc/11/ffa1f546913838d18fbff2aed3302df7d57b4a43b10dd9753f90f5f3d817/dolphie-6.4.1.tar.gz"
-  sha256 "7ab3d1762da3afa3961d18efe17b7c08fdb2c1abf029f5b3ca6e25ad63a62469"
+  url "https://files.pythonhosted.org/packages/6f/8e/7ca0150875faa9db1ad5f3b06751d4809635dff230b0b4acf4e7cfd59d05/dolphie-6.5.3.tar.gz"
+  sha256 "e9f11e77b151a7f4ed08610028b3925ed259d3c4a00d6b74440728923ae32f59"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -72,8 +72,8 @@ class Dolphie < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
-    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
+    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
+    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
   end
 
   resource "platformdirs" do
@@ -112,8 +112,8 @@ class Dolphie < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/07/37/b31be7e4b9f13b59cde9dcaeff112d401d49e0dc5b37ed4a9fc8fb12f409/setuptools-75.2.0.tar.gz"
-    sha256 "753bb6ebf1f465a1912e19ed1d41f403a79173a9acf66a42e7e6aec45c3c16ec"
+    url "https://files.pythonhosted.org/packages/c8/db/722a42ffdc226e950c4757b3da7b56ff5c090bb265dccd707f7b8a3c6fee/setuptools-75.5.0.tar.gz"
+    sha256 "5c4ccb41111392671f02bb5f8436dfc5a9a7185e80500531b133f5775c4163ef"
   end
 
   resource "sqlparse" do
