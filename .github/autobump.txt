@@ -915,6 +915,7 @@ flint
 flit
 flix
 flowpipe
+fltk
 fluent-bit
 fluid-synth
 flume
