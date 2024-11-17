@@ -38,6 +38,9 @@ class Webp < Formula
     system "cmake", "-S", ".", "-B", "static", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF", *args
     system "cmake", "--build", "static"
     lib.install buildpath.glob("static/*.a")
+
+    # Avoid rebuilding dependents that hard-code the prefix.
+    inreplace (lib/"pkgconfig").glob("*.pc"), prefix, opt_prefix
   end
 
   test do
