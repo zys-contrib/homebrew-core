@@ -3056,7 +3056,6 @@ vsh
 vtclock
 vte3
 vtk
-vttest
 vue-cli
 vulkan-extensionlayer
 vulkan-volk
