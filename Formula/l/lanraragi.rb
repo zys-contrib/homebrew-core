@@ -7,12 +7,13 @@ class Lanraragi < Formula
   head "https://github.com/Difegue/LANraragi.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e6ad4eba79b3e0aae64d01aaeb64fcdfd5bf6b32f899665fb3c78b61e7568a9d"
-    sha256 cellar: :any,                 arm64_sonoma:  "a6fc59bb74de453bfca634f0eb8005aa8d6734bfa0f9e07bb54ce12d122ec570"
-    sha256 cellar: :any,                 arm64_ventura: "01c666e8b8eb423b602d9aca72ac34367627f1a1b5efacbcb4c96723cbd1ccb8"
-    sha256 cellar: :any,                 sonoma:        "b3f00435e72d7ceee48e0191999f50c2e644d003c25490688426bb118600e585"
-    sha256 cellar: :any,                 ventura:       "f316475978784dbb9829ed69d81a45f0eb1273bbce78a77c18bea25043215b99"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c0c201a1a56fc38f517d2e4388dc81571f2f25283ce7a97e6a2677c079085df8"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "2a7275439b294f72023ac1504a45fb965d53755baf6fd9a9e991e1593a810285"
+    sha256 cellar: :any,                 arm64_sonoma:  "b85651e4ab341d8af56a2841123455d929bea02b9bf2894d7ec95436ad7d1811"
+    sha256 cellar: :any,                 arm64_ventura: "2e0d1db33e27f99d320e15b07569941e8493de031cac8ae8d7ddb99e1f55c3b2"
+    sha256 cellar: :any,                 sonoma:        "67b587ef379adbd02c1a06fc00853e511462d60bf1d44c5994f79d975343e1b6"
+    sha256 cellar: :any,                 ventura:       "ea30b9840d34c455744871551cd6c55152e1a9785d28dced8048c75f1c4f1896"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8df596c32e9240b2457921e8ae84d6d566e202735b0dcf58fe6efd05a169440"
   end
 
   depends_on "pkgconf" => :build
