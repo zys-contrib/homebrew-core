@@ -1,8 +1,8 @@
 class Cdxgen < Formula
   desc "Creates CycloneDX Software Bill-of-Materials (SBOM) for projects"
   homepage "https://github.com/CycloneDX/cdxgen"
-  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-11.0.0.tgz"
-  sha256 "c931ced0a0e673fe09895773ced4c196d58db4eb053a94a7e38879f25e611302"
+  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-11.0.1.tgz"
+  sha256 "6fa50097023b7279e6b3a9f07669f70f2d4956dfc6f6255f41761b4abc0bdf70"
   license "Apache-2.0"
 
   bottle do
@@ -30,6 +30,10 @@ class Cdxgen < Formula
 
       rm f
     end
+
+    # Remove pre-built osquery plugins for macOS arm builds
+    osquery_plugins = node_modules/"@cyclonedx/cdxgen-plugins-bin-darwin-arm64/plugins/osquery"
+    rm_r(osquery_plugins) if OS.mac? && Hardware::CPU.arm?
   end
 
   test do
