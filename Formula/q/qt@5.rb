@@ -30,7 +30,7 @@ class QtAT5 < Formula
 
   depends_on "node" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => :build # Python 3.12 fails with ModuleNotFoundError: No module named 'pipes'
+  depends_on "python@3.12" => :build # Python 3.13 fails with ModuleNotFoundError: No module named 'pipes'
   depends_on xcode: :build
   depends_on "freetype"
   depends_on "glib"
