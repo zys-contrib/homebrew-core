@@ -282,6 +282,7 @@ jobs:
 
             - label: long dependent tests
               path: "Formula/.+/(\
+                aom|\
                 at-spi2-core|\
                 boost|\
                 brotli|\
