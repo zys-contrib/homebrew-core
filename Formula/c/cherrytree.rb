@@ -4,6 +4,7 @@ class Cherrytree < Formula
   url "https://www.giuspen.com/software/cherrytree_1.2.0.tar.xz"
   sha256 "b9d9c9a0d7853e846657ceccdf74730f79190e19af296eeb955e5f4b54425ec2"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/giuspen/cherrytree.git", branch: "master"
 
   livecheck do
