@@ -4,7 +4,7 @@ class Gmsh < Formula
   url "https://gmsh.info/src/gmsh-4.13.1-source.tgz"
   sha256 "77972145f431726026d50596a6a44fb3c1c95c21255218d66955806b86edbe8d"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://gitlab.onelab.info/gmsh/gmsh.git", branch: "master"
 
   livecheck do
