@@ -52,6 +52,9 @@ class Jasper < Formula
       system "make"
       lib.install "src/libjasper/libjasper.a"
     end
+
+    # Avoid rebuilding dependents that hard-code the prefix.
+    inreplace lib/"pkgconfig/jasper.pc", prefix, opt_prefix
   end
 
   test do
