@@ -4,6 +4,7 @@ class Dillo < Formula
   url "https://github.com/dillo-browser/dillo/releases/download/v3.1.1/dillo-3.1.1.tar.bz2"
   sha256 "5b85adc2315cff1f6cc29c4fa7e285a964cc3adb7b4cd652349c178292a4fb9e"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_sequoia:  "f6d6810081fbf6d7fc7eee4364ea8ed8783390401f1725bb4d7735256f5d32e8"
@@ -23,7 +24,9 @@ class Dillo < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "fltk"
+  # TODO: Switch to unversioned `fltk` when possible.
+  # https://github.com/dillo-browser/dillo/issues/246
+  depends_on "fltk@1.3"
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "openssl@3"
@@ -46,7 +49,7 @@ class Dillo < Formula
 
   test do
     test_file = testpath/"test.html"
-    (testpath/"test.html").write <<~EOS
+    (testpath/"test.html").write <<~HTML
       <!DOCTYPE html>
       <html>
         <head>
@@ -56,7 +59,7 @@ class Dillo < Formula
             <h1>test</h1>
         </body>
       </html>
-    EOS
+    HTML
 
     # create bunch of dillo resource files
     (testpath/".dillo").mkpath
@@ -67,7 +70,7 @@ class Dillo < Formula
 
     begin
       PTY.spawn(bin/"dillo", test_file) do |_r, _w, pid|
-        sleep 2
+        sleep 15
         Process.kill("TERM", pid)
       end
     rescue Errno::EIO
