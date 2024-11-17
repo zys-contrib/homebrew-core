@@ -4,6 +4,7 @@ class TigerVnc < Formula
   url "https://github.com/TigerVNC/tigervnc/archive/refs/tags/v1.14.1.tar.gz"
   sha256 "579d0d04eb5b806d240e99a3c756b38936859e6f7db2f4af0d5656cc9a989d7c"
   license "GPL-2.0-or-later"
+  revision 1
 
   # Tags with a 90+ patch are unstable (e.g., the 1.9.90 tag is used for the
   # 1.10.0 beta release) and this regex should only match the stable versions.
@@ -22,7 +23,7 @@ class TigerVnc < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "fltk"
+  depends_on "fltk@1.3"
   depends_on "gettext"
   depends_on "gmp"
   depends_on "gnutls"
@@ -49,13 +50,13 @@ class TigerVnc < Formula
 
   def install
     turbo = Formula["jpeg-turbo"]
-    args = std_cmake_args + %W[
+    args = %W[
       -DJPEG_INCLUDE_DIR=#{turbo.include}
       -DJPEG_LIBRARY=#{turbo.lib}/#{shared_library("libjpeg")}
-      .
     ]
-    system "cmake", *args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
