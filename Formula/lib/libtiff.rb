@@ -38,6 +38,9 @@ class Libtiff < Formula
     ]
     system "./configure", *args
     system "make", "install"
+
+    # Avoid rebuilding dependents that hard-code the prefix.
+    inreplace lib/"pkgconfig/libtiff-4.pc", prefix, opt_prefix
   end
 
   test do
