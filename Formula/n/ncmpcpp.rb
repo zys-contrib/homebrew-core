@@ -1,15 +1,11 @@
 class Ncmpcpp < Formula
   desc "Ncurses-based client for the Music Player Daemon"
   homepage "https://rybczak.net/ncmpcpp/"
-  url "https://rybczak.net/ncmpcpp/stable/ncmpcpp-0.9.2.tar.bz2"
-  sha256 "faabf6157c8cb1b24a059af276e162fa9f9a3b9cd3810c43b9128860c9383a1b"
+  # note, homepage did not get updated to the latest release tag in github
+  url "https://github.com/ncmpcpp/ncmpcpp/archive/refs/tags/0.10.1.tar.gz"
+  sha256 "ddc89da86595d272282ae8726cc7913867b9517eec6e765e66e6da860b58e2f9"
   license "GPL-2.0-or-later"
-  revision 19
-
-  livecheck do
-    url "https://rybczak.net/ncmpcpp/installation/"
-    regex(/href=.*?ncmpcpp[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  head "https://github.com/ncmpcpp/ncmpcpp.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "3e9fd5119dc58fef9d8d0fa4f5e26ad68d777df16c19fb47674b7e7f0e910b00"
@@ -20,14 +16,9 @@ class Ncmpcpp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "35f0ea3a8ebe207c8581f45a7cf18a407b7ab07e28e5dadc608d619c5ed8c505"
   end
 
-  head do
-    url "https://github.com/ncmpcpp/ncmpcpp.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "fftw"
@@ -40,11 +31,9 @@ class Ncmpcpp < Formula
   uses_from_macos "curl"
 
   def install
-    # Work around to build with icu4c 75 in stable release. Fixed in HEAD.
-    # Ref: https://github.com/ncmpcpp/ncmpcpp/commit/ba484cff1e4ac3225b6eb87dc94272daca88e613
-    inreplace "configure", /\$std_cpp14\b/, "-std=c++17" if build.stable?
-
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
+    ENV.prepend "LDFLAGS", "-L#{Formula["readline"].opt_lib}"
+    ENV.prepend "CPPFLAGS", "-I#{Formula["readline"].opt_include}"
 
     ENV.append "BOOST_LIB_SUFFIX", "-mt"
     ENV.append "CXXFLAGS", "-D_XOPEN_SOURCE_EXTENDED"
@@ -53,15 +42,12 @@ class Ncmpcpp < Formula
       --disable-silent-rules
       --enable-clock
       --enable-outputs
-      --enable-unicode
       --enable-visualizer
-      --with-curl
       --with-taglib
     ]
 
-    system "./autogen.sh" if build.head?
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *args, *std_configure_args
-    system "make"
     system "make", "install"
   end
 
