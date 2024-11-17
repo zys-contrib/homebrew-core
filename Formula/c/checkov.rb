@@ -3,8 +3,8 @@ class Checkov < Formula
 
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
-  url "https://files.pythonhosted.org/packages/17/68/01d370ace57d1be85a80aeaf83f3d0da589e9060dd0d5f02b75080470aa1/checkov-3.2.290.tar.gz"
-  sha256 "01a80fbe70faafefd0ec5d26c5dad6f0118bc9b271e2c55aeb2530e06986caf2"
+  url "https://files.pythonhosted.org/packages/3f/cf/5ff27d76c96a174aa0f2c463164e0f0d3ce68925a882eee84fed2f796071/checkov-3.2.300.tar.gz"
+  sha256 "42f779c99ef08175a478ddbfb6061a37797ffce5c83cce0e83a0548aa1335ff9"
   license "Apache-2.0"
 
   livecheck do
@@ -45,8 +45,8 @@ class Checkov < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/17/7e/16e57e6cf20eb62481a2f9ce8674328407187950ccc602ad07c685279141/aiohttp-3.10.10.tar.gz"
-    sha256 "0631dd7c9f0822cc61c88586ca76d5b5ada26538097d0f1df510b082bad3411a"
+    url "https://files.pythonhosted.org/packages/55/68/97e4fab2add44bbd4b0107379d6900e80556c9a5d8ff548385690807b3f6/aiohttp-3.11.2.tar.gz"
+    sha256 "68d1f46f9387db3785508f5225d3acbc5825ca13d9c29f2b5cce203d5863eb79"
   end
 
   resource "aiomultiprocess" do
@@ -110,8 +110,8 @@ class Checkov < Formula
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/cd/d8/49a69f2aa71efcd9a278370171185160be3ac35f5e09ed303c08612c6336/botocore-1.35.58.tar.gz"
-    sha256 "8303309c7b59ddf04b11d79813530809d6b10b411ac9f93916d2032c283d6881"
+    url "https://files.pythonhosted.org/packages/6e/db/11eb0bfd552d28872654663c0b8d9c3fc0e57ba88261b0b1877c990e1740/botocore-1.35.63.tar.gz"
+    sha256 "2b8196bab0a997d206c3d490b52e779ef47dffb68c57c685443f77293aca1589"
   end
 
   resource "cached-property" do
