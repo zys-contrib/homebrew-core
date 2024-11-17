@@ -20,7 +20,7 @@ class Pushpin < Formula
   depends_on "rust" => :build
 
   depends_on "openssl@3"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "qt"
   depends_on "zeromq"
   depends_on "zurl"
@@ -108,12 +108,11 @@ class Pushpin < Formula
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["LANG"] = "en_US.UTF-8"
 
-    pid = fork do
-      exec bin/"pushpin", "--config=#{conffile}"
-    end
+    pid = spawn bin/"pushpin", "--config=#{conffile}"
+    sleep 5
 
     begin
-      system Formula["python@3.12"].opt_bin/"python3.12", runfile
+      system Formula["python@3.13"].opt_bin/"python3.13", runfile
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)
