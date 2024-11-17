@@ -1,8 +1,8 @@
 class Fltk < Formula
   desc "Cross-platform C++ GUI toolkit"
   homepage "https://www.fltk.org/"
-  url "https://www.fltk.org/pub/fltk/1.3.10/fltk-1.3.10-source.tar.gz"
-  sha256 "c1c96d4f2ca7844f4b7945b4670aff2846f150cd5f3e23e3e4c70a61807108c7"
+  url "https://www.fltk.org/pub/fltk/1.4.0/fltk-1.4.0-source.tar.gz"
+  sha256 "59a977d58975071b04b0d2e9c176bdca805404161ab712605019a5f8ff3c3c53"
   license "LGPL-2.0-only" => { with: "FLTK-exception" }
 
   livecheck do
@@ -28,7 +28,7 @@ class Fltk < Formula
   depends_on "libpng"
 
   on_linux do
-    depends_on "pkg-config" => :build
+    depends_on "pkgconf" => :build
     depends_on "fontconfig"
     depends_on "libx11"
     depends_on "libxext"
