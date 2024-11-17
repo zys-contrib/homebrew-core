@@ -6,12 +6,11 @@ class Cake < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "94a6f6297c1432c5e049759e27aa4d33cb62c38013feb4af1faee7ee204eea8f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e5843f082902a7684078be97fe4c3a2ceebb628329bc7f31205094c1c6a08d74"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "388467b61b9804d9c6a1134e7a584e4cfb176fe5af16e754216e5706458d5a78"
-    sha256 cellar: :any_skip_relocation, sonoma:        "374a0d5c728f47ee1c3d5f832364caa3cfa70f4f0cdcae205cb046e17f6cb2c4"
-    sha256 cellar: :any_skip_relocation, ventura:       "3cda4eb8413d6a4513d0bc085abfd89ed502c79efd71d903dff76e3930ed058c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4279a9392db8d794023860f45309380d7767b2f70cdf27398e5d0617ff160486"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "78c022a53d5c794a02cb245365a20e68101ff498636aa9d9b0d5791df21e6946"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "39611171d03f29228d6c0f1402647d20a7ada16eff8a8c9fcd25c57d8ce5b7b1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "37df34c69614dea7ac08ea390a065de5765df3117ab8b7bf4d76135d9ec3ab3e"
+    sha256 cellar: :any_skip_relocation, ventura:       "9d076394489c1d9004fb0749b3723dde1fd951a1cb4f7f81672e83c82680fd02"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9790da9b120af327c140e99edb3d8bd88fe07016045863938915193f376494b2"
   end
 
   depends_on "dotnet"
