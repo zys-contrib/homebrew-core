@@ -1,8 +1,8 @@
 class OcamlFindlib < Formula
   desc "OCaml library manager"
   homepage "http://projects.camlcity.org/projects/findlib.html"
-  url "http://download.camlcity.org/download/findlib-1.9.7.tar.gz"
-  sha256 "ccd822008f1b87abd56a12ff7f4af195a0cda2e3bc0113921779a205c9791e29"
+  url "http://download.camlcity.org/download/findlib-1.9.8.tar.gz"
+  sha256 "662c910f774e9fee3a19c4e057f380581ab2fc4ee52da4761304ac9c31b8869d"
   license "MIT"
 
   livecheck do
@@ -22,10 +22,6 @@ class OcamlFindlib < Formula
   depends_on "ocaml"
 
   uses_from_macos "m4" => :build
-
-  # Fix to not null parameter `dynlink_subdir`
-  # https://github.com/ocaml/ocamlfind/issues/88
-  patch :DATA
 
   def install
     # Specify HOMEBREW_PREFIX here so those are the values baked into the compile,
@@ -56,21 +52,3 @@ class OcamlFindlib < Formula
     assert_equal "#{HOMEBREW_PREFIX}/lib/ocaml/findlib", output.chomp
   end
 end
-
-__END__
-diff --git a/configure b/configure
-index a1ca170..07570c0 100755
---- a/configure
-+++ b/configure
-@@ -502,6 +502,11 @@ check_library () {
-         # Library is present - exit code is 0 because the library is found
-         # (e.g. detection for Unix) but we don't actually add it to the
-         # generated_META list.
-+        package_dir="${ocaml_sitelib}/$1"
-+        package_subdir="$1"
-+        package_key="$(echo "$1" | tr - _)"
-+        eval "${package_key}_dir=\"${package_dir}\""
-+        eval "${package_key}_subdir=\"${package_subdir}\""
-         return 0
-     fi
- 
