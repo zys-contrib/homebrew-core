@@ -8,12 +8,12 @@ class Ncmpcpp < Formula
   head "https://github.com/ncmpcpp/ncmpcpp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3e9fd5119dc58fef9d8d0fa4f5e26ad68d777df16c19fb47674b7e7f0e910b00"
-    sha256 cellar: :any,                 arm64_sonoma:  "6fd604cd6d2094ab0b6a8b904a6d5b9c2b409c52c24ca7ab090bcc3abfbad2e8"
-    sha256 cellar: :any,                 arm64_ventura: "05e9b88fb40c43f54fa994c3d953c4a85010f2ffe1fc3be63713af7c39934700"
-    sha256 cellar: :any,                 sonoma:        "495e51045de2902f8ac3d13845e4c210576328aae67c8dedecb81b09bd83377a"
-    sha256 cellar: :any,                 ventura:       "ab52d5fd05a6587ea18eb84ff0860df33cb66c30405fc70f683c28182bc6f78b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35f0ea3a8ebe207c8581f45a7cf18a407b7ab07e28e5dadc608d619c5ed8c505"
+    sha256 cellar: :any,                 arm64_sequoia: "33c0ecce7a49585a844ed78e18f7a0d489eb6e07f0b20686e8df4e7ae3a28343"
+    sha256 cellar: :any,                 arm64_sonoma:  "ed5a1603e63554209315bd505e6af8785ba2d1e2e555089b44355829493d81c5"
+    sha256 cellar: :any,                 arm64_ventura: "2432a2868bf904bf0aab5ab13a94396298bb0f316a295ce983808a4effb06eb2"
+    sha256 cellar: :any,                 sonoma:        "a2ce4e5cc19fca1daab19dbbcc44d4293ce40baa4ca35d3779b9fdfd64893629"
+    sha256 cellar: :any,                 ventura:       "bdff69cc2753dec867228e68478eb72f69173b3c5abff5ac40bf8919f2b1092b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "880fef15768b5ffce305529168d746b6ee0f37d29036ef9c948daf2e6cc74516"
   end
 
   depends_on "autoconf" => :build
