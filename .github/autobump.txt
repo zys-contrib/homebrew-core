@@ -1710,6 +1710,7 @@ libxmlsec1
 libxmu
 libxo
 libxslt
+libxt
 libxvmc
 libzim
 libzip

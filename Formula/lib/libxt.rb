@@ -1,10 +1,9 @@
 class Libxt < Formula
   desc "X.Org: X Toolkit Intrinsics library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXt-1.3.0.tar.xz"
-  sha256 "52820b3cdb827d08dc90bdfd1b0022a3ad8919b57a39808b12591973b331bf91"
+  url "https://www.x.org/archive/individual/lib/libXt-1.3.1.tar.xz"
+  sha256 "e0a774b33324f4d4c05b199ea45050f87206586d81655f8bef4dba434d931288"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "9de6f181593f1f0be6a7cec1a999f747dbb0f7f5bab504a9c37aa58efa1b07ab"
@@ -21,16 +20,6 @@ class Libxt < Formula
   depends_on "libice"
   depends_on "libsm"
   depends_on "libx11"
-
-  # Apply MacPorts patch to improve linking with widget libraries on macOS.
-  # Remove on the next release as patch was upstreamed, but commit doesn't apply cleanly.
-  # Ref: https://gitlab.freedesktop.org/xorg/lib/libxt/-/commit/cbbe13a9e0fd5908288e617b56f41ca1a66d9a0e
-  patch :p0 do
-    on_macos do
-      url "https://raw.githubusercontent.com/macports/macports-ports/37520eaf725382f025ea4ce636e4c30fc96bc48d/x11/xorg-libXt/files/patch-src-vendor.diff"
-      sha256 "93e806b5ba3fce793591d6521634553a28fd207e687366aac3ab055fbe316c55"
-    end
-  end
 
   def install
     args = %W[
