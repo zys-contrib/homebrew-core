@@ -2,7 +2,7 @@ class Coccinelle < Formula
   desc "Program matching and transformation engine for C code"
   homepage "https://coccinelle.gitlabpages.inria.fr/website/"
   url "https://github.com/coccinelle/coccinelle.git",
-      tag:      "1.3",
+      tag:      "1.3.0",
       revision: "e1906ad639c5eeeba2521639998eafadf989b0ac"
   license "GPL-2.0-only"
   head "https://github.com/coccinelle/coccinelle.git", branch: "master"
