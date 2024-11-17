@@ -1,8 +1,8 @@
 class PayloadDumperGo < Formula
   desc "Android OTA payload dumper written in Go"
   homepage "https://github.com/ssut/payload-dumper-go"
-  url "https://github.com/ssut/payload-dumper-go/archive/refs/tags/1.2.2.tar.gz"
-  sha256 "7f80f6c29ad8b835d71f361ba073988a27a33043acec37eea9d9430c1fb04b57"
+  url "https://github.com/ssut/payload-dumper-go/archive/refs/tags/1.3.0.tar.gz"
+  sha256 "42635d70b3e95164108dc35973bc0a8a866717786570e576efcbd84b3729ddda"
   license "Apache-2.0"
 
   bottle do
@@ -23,7 +23,7 @@ class PayloadDumperGo < Formula
   depends_on "xz"
 
   def install
-    system "go", "build", *std_go_args
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
