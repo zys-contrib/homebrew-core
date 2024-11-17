@@ -13,7 +13,7 @@ class Cryfs < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "python@3.13" => :build
   depends_on "boost"
   depends_on "curl"
@@ -23,13 +23,12 @@ class Cryfs < Formula
   depends_on "range-v3"
   depends_on "spdlog"
 
-  fails_with gcc: "5"
-
   def install
-    system "cmake", "-B", "build", "-S", ".", *std_cmake_args,
+    system "cmake", "-B", "build", "-S", ".",
                     "-DBUILD_TESTING=off",
                     "-DCRYFS_UPDATE_CHECKS=OFF",
-                    "-DDEPENDENCY_CONFIG=cmake-utils/DependenciesFromLocalSystem.cmake"
+                    "-DDEPENDENCY_CONFIG=cmake-utils/DependenciesFromLocalSystem.cmake",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
