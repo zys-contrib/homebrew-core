@@ -1963,6 +1963,7 @@ nbdime
 ncc
 ncdc
 ncdu
+ncmpcpp
 ncnn
 nco
 ncspot
