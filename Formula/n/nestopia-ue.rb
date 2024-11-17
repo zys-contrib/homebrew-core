@@ -4,6 +4,7 @@ class NestopiaUe < Formula
   url "https://github.com/0ldsk00l/nestopia/archive/refs/tags/1.52.1.tar.gz"
   sha256 "c9c0bce673eb3b625b538b462e49c00ed1ee1ded1e0bad09be780076880968b5"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/0ldsk00l/nestopia.git", branch: "master"
 
   bottle do
@@ -20,7 +21,7 @@ class NestopiaUe < Formula
   depends_on "autoconf" => :build
   depends_on "autoconf-archive" => :build
   depends_on "automake" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
 
   depends_on "fltk"
   depends_on "libarchive"
