@@ -19,11 +19,11 @@ class BitwardenCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a084b9b6adb392d2c735bf2a1138f50d6bff5cb2e1353a2aae8619b0e853255c"
   end
 
-  # fail to build with node v23 due to https://github.com/nodejs/node/issues/55826
-  depends_on "node@22"
+  depends_on "node"
 
   def install
     system "npm", "ci", "--ignore-scripts"
+
     cd buildpath/"apps/cli" do
       # The `oss` build of Bitwarden is a GPL backed build
       system "npm", "run", "build:oss:prod", "--ignore-scripts"
