@@ -4,6 +4,7 @@ class Arpack < Formula
   url "https://github.com/opencollab/arpack-ng/archive/refs/tags/3.9.1.tar.gz"
   sha256 "f6641deb07fa69165b7815de9008af3ea47eb39b2bb97521fbf74c97aba6e844"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/opencollab/arpack-ng.git", branch: "master"
 
   bottle do
@@ -19,7 +20,7 @@ class Arpack < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
 
   depends_on "eigen"
   depends_on "gcc" # for gfortran
@@ -28,8 +29,6 @@ class Arpack < Formula
 
   def install
     args = %W[
-      --disable-dependency-tracking
-      --prefix=#{libexec}
       --with-blas=-L#{Formula["openblas"].opt_lib}\ -lopenblas
       F77=mpif77
       --enable-mpi
@@ -38,14 +37,10 @@ class Arpack < Formula
     ]
 
     system "./bootstrap"
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
-
-    lib.install_symlink Dir["#{libexec}/lib/*"].select { |f| File.file?(f) }
-    (lib/"pkgconfig").install_symlink Dir["#{libexec}/lib/pkgconfig/*"]
-    pkgshare.install "TESTS/testA.mtx", "TESTS/dnsimp.f",
-                     "TESTS/mmio.f", "TESTS/debug.h"
+    pkgshare.install "TESTS/testA.mtx", "TESTS/dnsimp.f", "TESTS/mmio.f", "TESTS/debug.h"
   end
 
   test do
