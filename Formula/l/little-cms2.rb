@@ -34,6 +34,9 @@ class LittleCms2 < Formula
   def install
     system "./configure", *std_configure_args
     system "make", "install"
+
+    # Avoid rebuilding dependents that hard-code the prefix.
+    inreplace lib/"pkgconfig/lcms2.pc", prefix, opt_prefix
   end
 
   test do
