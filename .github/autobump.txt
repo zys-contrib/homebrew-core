@@ -1651,6 +1651,7 @@ libre
 librealsense
 librespot
 libressl
+librist
 librsvg
 librtlsdr
 libsail
