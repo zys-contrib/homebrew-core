@@ -44,6 +44,9 @@ class Libheif < Formula
     system "cmake", "-S", ".", "-B", "static", *args, *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
     system "cmake", "--build", "static"
     lib.install "static/libheif/libheif.a"
+
+    # Avoid rebuilding dependents that hard-code the prefix.
+    inreplace lib/"pkgconfig/libheif.pc", prefix, opt_prefix
   end
 
   def post_install
