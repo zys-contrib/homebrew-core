@@ -28,8 +28,6 @@ class Solidity < Formula
 
   conflicts_with "solc-select", because: "both install `solc` binaries"
 
-  fails_with gcc: "5"
-
   # build patch to use system fmt, nlohmann-json, and range-v3, upstream PR ref, https://github.com/ethereum/solidity/pull/15414
   patch do
     url "https://github.com/ethereum/solidity/commit/aa47181eef8fa63a6b4f52bff2c05517c66297a2.patch?full_index=1"
@@ -37,7 +35,13 @@ class Solidity < Formula
   end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DSTRICT_Z3_VERSION=OFF", *std_cmake_args
+    rm_r("deps")
+
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBoost_USE_STATIC_LIBS=OFF",
+                    "-DSTRICT_Z3_VERSION=OFF",
+                    "-DTESTS=OFF",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
