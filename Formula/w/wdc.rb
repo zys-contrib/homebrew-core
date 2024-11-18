@@ -20,21 +20,22 @@ class Wdc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "979e255fa0e9ef8558dfb3b09e2ae5463d4b00eb0418e8bda1376cc00ab32f11"
   end
 
+  depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "openssl@3" => :build
-  depends_on "boost"
+  depends_on "openssl@3"
   depends_on "pugixml"
 
   uses_from_macos "curl"
 
   def install
-    pugixml = Formula["pugixml"]
-    ENV.prepend "CXXFLAGS", "-I#{pugixml.opt_include.children.first}"
     inreplace "CMakeLists.txt", "CURL CONFIG REQUIRED", "CURL REQUIRED"
-    system "cmake", ".", "-DPUGIXML_INCLUDE_DIR=#{pugixml.opt_include}",
-                         "-DPUGIXML_LIBRARY=#{pugixml.opt_lib}",
-                         "-DHUNTER_ENABLED=OFF", *std_cmake_args
-    system "make", "install"
+
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DHUNTER_ENABLED=OFF",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
