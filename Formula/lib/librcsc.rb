@@ -18,8 +18,8 @@ class Librcsc < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "boost" => :build
   depends_on "libtool" => :build
-  depends_on "boost"
 
   uses_from_macos "zlib"
 
@@ -28,6 +28,9 @@ class Librcsc < Formula
   patch :DATA
 
   def install
+    # Strip linkage to `boost`
+    ENV.append "LDFLAGS", "-Wl,-dead_strip_dylibs" if OS.mac?
+
     system "./bootstrap"
     system "./configure", "--disable-silent-rules",
                           "--with-boost=#{Formula["boost"].opt_prefix}",
