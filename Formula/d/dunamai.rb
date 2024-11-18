@@ -8,8 +8,7 @@ class Dunamai < Formula
   license "MIT"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "9be0bc5695860ddeb94edf7a55d3cdc814d997751c65e702aaeb1a9a81105b01"
+    sha256 cellar: :any_skip_relocation, all: "84afaf9bd4ca944d43b5b34cecf3da8ef839553d54faaf30693ba0d5fcac77a7"
   end
 
   depends_on "python@3.13"
