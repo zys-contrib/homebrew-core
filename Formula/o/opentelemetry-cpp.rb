@@ -18,7 +18,6 @@ class OpentelemetryCpp < Formula
 
   depends_on "cmake" => :build
   depends_on "abseil"
-  depends_on "boost"
   depends_on "grpc"
   depends_on "nlohmann-json"
   depends_on "prometheus-cpp"
@@ -35,13 +34,11 @@ class OpentelemetryCpp < Formula
   def install
     ENV.append "LDFLAGS", "-Wl,-undefined,dynamic_lookup" if OS.mac?
     system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_SHARED_LIBS=ON",
                     "-DCMAKE_CXX_STANDARD=17", # Keep in sync with C++ standard in abseil.rb
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                    "-DBUILD_TESTING=OFF",
                     "-DWITH_ELASTICSEARCH=ON",
                     "-DWITH_EXAMPLES=OFF",
-                    "-DWITH_JAEGER=OFF", # deprecated, needs older `thrift`
-                    "-DWITH_METRICS_PREVIEW=ON",
                     "-DWITH_OTLP_GRPC=ON",
                     "-DWITH_OTLP_HTTP=ON",
                     "-DWITH_ABSEIL=ON",
