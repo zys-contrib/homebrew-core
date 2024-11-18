@@ -3,8 +3,8 @@ class Dooit < Formula
 
   desc "TUI todo manager"
   homepage "https://github.com/kraanzu/dooit"
-  url "https://files.pythonhosted.org/packages/b7/89/d48e51d4953535fe8e441fbf96c691a98e6d482d63812d275bfa59d00090/dooit-3.0.3.tar.gz"
-  sha256 "1eea4cf65ba5825a189b0228966a2982694d9eda18dad5008781e820942d745d"
+  url "https://files.pythonhosted.org/packages/c6/c6/71f799c0c0a1d25ee27ef8e400e4ae1eee7fc8a9c4117d6d315d32151610/dooit-3.0.4.tar.gz"
+  sha256 "0462f68909d74bec9977aeb9567f0da137d843e6b72a567772f66218a39a1ced"
   license "MIT"
   head "https://github.com/kraanzu/dooit.git", branch: "main"
 
@@ -87,8 +87,8 @@ class Dooit < Formula
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/71/69/8b2c90ef5863b67f2adb067772b259412130a10c7080e1fede39c6245f73/textual-0.85.2.tar.gz"
-    sha256 "2a416995c49d5381a81d0a6fd23925cb0e3f14b4f239ed05f35fa3c981bb1df2"
+    url "https://files.pythonhosted.org/packages/56/c6/435723343db6a65ed92950d1e20ded920c4c22e6e785ea0e369abd4ac1c7/textual-0.86.1.tar.gz"
+    sha256 "a6e68de5383415f222f26b4049c2a92ed204071fdfebe3d729f8dd373ca5f519"
   end
 
   resource "typing-extensions" do
