@@ -8,7 +8,7 @@ class Ydiff < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3a18c9c49c4a25b326deca039b8a23a1d27926cbca568a56bfc6840a685f5f73"
+    sha256 cellar: :any_skip_relocation, all: "967d56d8d5bcd64220c4c88665f5a58509e8c606ac95f761edaad3895eeda09f"
   end
 
   depends_on "python@3.13"
