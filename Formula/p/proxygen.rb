@@ -4,6 +4,7 @@ class Proxygen < Formula
   url "https://github.com/facebook/proxygen/releases/download/v2024.12.02.00/proxygen-v2024.12.02.00.tar.gz"
   sha256 "536c5baaf372a590e848d1bf60b46195bec421e2f940034530e1c170d43c4947"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/facebook/proxygen.git", branch: "main"
 
   bottle do
@@ -52,6 +53,7 @@ class Proxygen < Formula
     port = free_port
     pid = spawn(bin/"proxygen_echo", "--http_port", port.to_s)
     sleep 30
+    sleep 30 if OS.mac? && Hardware::CPU.intel?
     system "curl", "-v", "http://localhost:#{port}"
   ensure
     Process.kill "TERM", pid
