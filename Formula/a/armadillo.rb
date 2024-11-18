@@ -4,6 +4,7 @@ class Armadillo < Formula
   url "https://downloads.sourceforge.net/project/arma/armadillo-14.2.0.tar.xz"
   sha256 "1b5f7e39b05e4651bedb57344d60b9b1f9aa17354f06c0e34eac94496badd884"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -22,16 +23,12 @@ class Armadillo < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "arpack"
-  depends_on "hdf5"
-  depends_on "libaec"
   depends_on "openblas"
-  depends_on "superlu"
 
   def install
-    ENV.prepend "CXXFLAGS", "-DH5_USE_110_API -DH5Ovisit_vers=1"
-
-    system "cmake", ".", "-DDETECT_HDF5=ON", "-DALLOW_OPENBLAS_MACOS=ON", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", "-DALLOW_OPENBLAS_MACOS=ON", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
