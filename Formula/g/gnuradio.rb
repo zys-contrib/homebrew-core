@@ -6,7 +6,7 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.11.0.tar.gz"
   sha256 "9ca658e6c4af9cfe144770757b34ab0edd23f6dcfaa6c5c46a7546233e5ecd29"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/gnuradio/gnuradio.git", branch: "main"
 
   livecheck do
@@ -30,7 +30,7 @@ class Gnuradio < Formula
   depends_on "pybind11" => :build
   depends_on "rust" => :build # for rpds-py
   depends_on "adwaita-icon-theme"
-  depends_on "boost"
+  depends_on "boost@1.85" # Boost 1.87+ PR ref: https://github.com/gnuradio/gnuradio/pull/7554
   depends_on "cppzmq"
   depends_on "fftw"
   depends_on "fmt"
@@ -245,9 +245,11 @@ class Gnuradio < Formula
         top.run();
       }
     CPP
-    system ENV.cxx, testpath/"test.c++", "-std=c++17", "-L#{lib}",
+
+    boost = Formula["boost@1.85"]
+    system ENV.cxx, testpath/"test.c++", "-std=c++17", "-I#{boost.opt_include}", "-L#{lib}",
            "-lgnuradio-blocks", "-lgnuradio-runtime", "-lgnuradio-pmt",
-           "-L#{Formula["boost"].opt_lib}", "-lboost_system",
+           "-L#{boost.opt_lib}", "-lboost_system",
            "-L#{Formula["log4cpp"].opt_lib}", "-llog4cpp",
            "-L#{Formula["fmt"].opt_lib}", "-lfmt",
            "-o", testpath/"test"
