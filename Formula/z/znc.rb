@@ -21,8 +21,10 @@ class Znc < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "gettext" => :build
   depends_on "pkgconf" => :build
   depends_on "boost"
+  depends_on "cctz"
   depends_on "icu4c@76"
   depends_on "openssl@3"
   depends_on "python@3.13"
@@ -30,6 +32,8 @@ class Znc < Formula
   uses_from_macos "zlib"
 
   def install
+    rm_r(["third_party/cctz", "third_party/googletest"])
+
     python3 = "python3.13"
     xy = Language::Python.major_minor_version python3
 
