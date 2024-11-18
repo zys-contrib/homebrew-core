@@ -15,12 +15,14 @@ class Osm2pgsql < Formula
     sha256 x86_64_linux:  "a4a8f8ba54aa13e536e0a994b66bdd4b4d3ba0a780846236432a613118926f24"
   end
 
+  depends_on "boost" => :build
+  depends_on "cli11" => :build
   depends_on "cmake" => :build
+  depends_on "fmt" => :build
+  depends_on "libosmium" => :build
   depends_on "lua" => :build
   depends_on "nlohmann-json" => :build
 
-  depends_on "boost"
-  depends_on "geos"
   depends_on "libpq"
   depends_on "luajit"
   depends_on "proj"
@@ -36,9 +38,16 @@ class Osm2pgsql < Formula
     inreplace "cmake/FindLua.cmake", /set\(LUA_VERSIONS5( \d\.\d)+\)/,
                                      "set(LUA_VERSIONS5 #{lua_version})"
 
-    args = %w[
+    # Remove bundled libraries
+    rm_r("contrib")
+
+    args = %W[
+      -DEXTERNAL_CLI11=ON
+      -DEXTERNAL_FMT=ON
+      -DEXTERNAL_LIBOSMIUM=ON
+      -DEXTERNAL_PROTOZERO=ON
+      -DPROTOZERO_INCLUDE_DIR=#{Formula["libosmium"].opt_libexec}/include
       -DWITH_LUAJIT=ON
-      -DUSE_PROJ_LIB=6
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
