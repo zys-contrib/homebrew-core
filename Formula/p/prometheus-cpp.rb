@@ -1,10 +1,10 @@
 class PrometheusCpp < Formula
   desc "Prometheus Client Library for Modern C++"
   homepage "https://github.com/jupp0r/prometheus-cpp"
-  url "https://github.com/jupp0r/prometheus-cpp.git",
-      tag:      "v1.3.0",
-      revision: "e5fada43131d251e9c4786b04263ce98b6767ba5"
+  url "https://github.com/jupp0r/prometheus-cpp/releases/download/v1.3.0/prometheus-cpp-with-submodules.tar.gz"
+  sha256 "62bc2cc9772db2314dbaae506ae2a75c8ee897dab053d8729e86a637b018fdb6"
   license "MIT"
+  revision 1
   head "https://github.com/jupp0r/prometheus-cpp.git", branch: "master"
 
   bottle do
@@ -17,12 +17,18 @@ class PrometheusCpp < Formula
   end
 
   depends_on "cmake" => :build
+
   uses_from_macos "curl"
   uses_from_macos "zlib"
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DENABLE_TESTING=OFF",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
