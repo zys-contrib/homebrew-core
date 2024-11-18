@@ -1,8 +1,8 @@
 class Gleam < Formula
   desc "Statically typed language for the Erlang VM"
   homepage "https://gleam.run"
-  url "https://github.com/gleam-lang/gleam/archive/refs/tags/v1.5.1.tar.gz"
-  sha256 "9955f255567b7e975505ab3633841bc0650afabd4bb31f3a337bce91e2fc29de"
+  url "https://github.com/gleam-lang/gleam/archive/refs/tags/v1.6.0.tar.gz"
+  sha256 "e4362bca4e82cfdbbb5a09f2bfa9a67fe6d766f893c6bed8852694aca9c30bc9"
   license "Apache-2.0"
   head "https://github.com/gleam-lang/gleam.git", branch: "main"
 
