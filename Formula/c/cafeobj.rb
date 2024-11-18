@@ -1,8 +1,8 @@
 class Cafeobj < Formula
   desc "New generation algebraic specification and programming language"
   homepage "https://cafeobj.org/"
-  url "https://github.com/CafeOBJ/cafeobj/archive/refs/tags/v1.6.1.tar.gz"
-  sha256 "12780724a2b63ee45b12b79fd574ea1dc2870b59a4964ae51d9acc47dbbcff3d"
+  url "https://github.com/CafeOBJ/cafeobj/archive/refs/tags/v1.6.2.tar.gz"
+  sha256 "b5ea4267b7b4ff3d85a970b6330f706b81ef872968230608005c9b3d168b0065"
   license all_of: [
     "BSD-2-Clause",
     :public_domain, # comlib/let-over-lambda.lisp
