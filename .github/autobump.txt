@@ -1844,6 +1844,7 @@ memcached
 memray
 menhir
 mercurial
+mergiraf
 meson
 meta-package-manager
 metabase
