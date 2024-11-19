@@ -55,6 +55,7 @@ ansible
 ansible-creator
 ansible-lint
 ansible@10
+ansible@9
 ansifilter
 ant
 antidote
