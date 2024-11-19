@@ -11,10 +11,12 @@ class Mupen64plus < Formula
   end
 
   bottle do
-    sha256 sonoma:       "c230208074feda97c361199781940d50f7918419802ec903eec833d3ff2c0af0"
-    sha256 ventura:      "2c6365b16dbb1c3e70acd5068dfeab479f0742d8c9ae8df40df40af5524b119d"
-    sha256 monterey:     "81ce3aecfc6b2f110322459cbdde89176590fe8e445d75ca7136dfec520c7f4d"
-    sha256 x86_64_linux: "e4140dea7a57faf9c5f5adcd2a5b8803f7e19ba989c7f375c73d84a2d3459010"
+    sha256 arm64_sequoia: "fa76319a48aa3bc5d5997f8c5108156a8501c110bc7e02a3a69d86065cd28264"
+    sha256 arm64_sonoma:  "5005db0835711d42c5d6c457795e4b6374e974568f380fb381d440266dbdd5b1"
+    sha256 arm64_ventura: "5a9308e8d1a6356bbef3f5f6009fb06c1d190d59fd3e85565c4f9e1123cf3ff1"
+    sha256 sonoma:        "26e73f4712a1bf42221a86efe322010a2f9b521f58c9b24611881522967b790f"
+    sha256 ventura:       "788e3150ef2a190f730edd401a47c46b548f978994fdcd5497f2ed7ec1db433c"
+    sha256 x86_64_linux:  "6b1e569e22ff2c8f5ef5b343f93a684b6a866e12df7b5e1dd615b79c4e361b75"
   end
 
   depends_on "pkgconf" => :build
