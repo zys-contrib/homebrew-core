@@ -4,6 +4,7 @@ class PetscComplex < Formula
   url "https://web.cels.anl.gov/projects/petsc/download/release-snapshots/petsc-3.22.1.tar.gz"
   sha256 "7117d3ae6827f681ed9737939d4e86896b4751e27cca941bb07e5703f19a0a7b"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     formula "petsc"
