@@ -3,10 +3,9 @@ class Cf2tf < Formula
 
   desc "Cloudformation templates to Terraform HCL converter"
   homepage "https://github.com/DontShaveTheYak/cf2tf"
-  url "https://files.pythonhosted.org/packages/52/00/94c12acc1ed644df1c3ee658068929c33863fccfdd2f8ab9236d58eb4496/cf2tf-0.8.0.tar.gz"
-  sha256 "f36bbf5abacdf70baeb12529a7ae4ba1c5f748112c240bef4a5ed0e0e654f44c"
+  url "https://files.pythonhosted.org/packages/e4/9d/79064ec7a79fcde16fc17c3261059f60b6da6ebc5ee5c9a7eb19c3f55c8b/cf2tf-0.9.0.tar.gz"
+  sha256 "e0227b6ab2bcb9d5c4e517e4a6c013b758ed51f41e0fdd5c2570a2f586b47256"
   license "GPL-3.0-only"
-  revision 2
   head "https://github.com/DontShaveTheYak/cf2tf.git", branch: "master"
 
   bottle do
@@ -65,8 +64,8 @@ class Cf2tf < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
-    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
+    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
+    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
   end
 
   resource "pluggy" do
@@ -85,8 +84,8 @@ class Cf2tf < Formula
   end
 
   resource "rapidfuzz" do
-    url "https://files.pythonhosted.org/packages/81/43/ce16df67029b8e4f528fd1b3fbe5e9fcfc6fcc16823c66349260dd93750e/rapidfuzz-3.10.0.tar.gz"
-    sha256 "6b62af27e65bb39276a66533655a2fa3c60a487b03935721c45b7809527979be"
+    url "https://files.pythonhosted.org/packages/e1/39/e3bcb901c2746734cd70151253bf9e61c688d3c415227b08e6fbf7eb5d7f/rapidfuzz-3.10.1.tar.gz"
+    sha256 "5a15546d847a915b3f42dc79ef9b0c78b998b4e2c53b252e7166284066585979"
   end
 
   resource "requests" do
