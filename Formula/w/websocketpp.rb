@@ -11,7 +11,7 @@ class Websocketpp < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "boost"
+  depends_on "asio"
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
@@ -22,6 +22,7 @@ class Websocketpp < Formula
   test do
     (testpath/"test.cpp").write <<~CPP
       #include <stdio.h>
+      #define ASIO_STANDALONE
       #include <websocketpp/config/asio_no_tls_client.hpp>
       #include <websocketpp/client.hpp>
       typedef websocketpp::client<websocketpp::config::asio_client> client;
@@ -37,8 +38,7 @@ class Websocketpp < Formula
         }
       }
     CPP
-    system ENV.cxx, "test.cpp", "-std=c++11", "-L#{Formula["boost"].opt_lib}",
-                    "-lboost_random", "-pthread", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-pthread", "-o", "test"
     system "./test"
   end
 end
