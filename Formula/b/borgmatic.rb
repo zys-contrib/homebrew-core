@@ -3,8 +3,8 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/8d/36/0d6779b9876168bfe813aca6973004f73dfc494db11f9661ea90819d25bc/borgmatic-1.9.1.tar.gz"
-  sha256 "d2f0bae2c2050040e5e07a825e605f195cbe9974862b290238c48f72fc04e79a"
+  url "https://files.pythonhosted.org/packages/ed/d2/e5155958099999c968917461b542d302b391c935f92b6a673ac0fe41837a/borgmatic-1.9.2.tar.gz"
+  sha256 "bddfc0a75312a4b40108b7acfbcd42f28c82eba314760c6616ac56ace4e96cc2"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -187,21 +187,30 @@ class Borgmatic < Formula
     log_content = File.read(log_path)
 
     # Assert that the proper borg commands were executed
-    assert_equal <<~EOS, log_content
+    expected_log = <<~EOS
       --version --debug --show-rc
       info --json #{repo_path}
       init --encryption repokey --debug #{repo_path}
       --version
-      create #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /etc /home #{testpath}/./borgmatic #{config_path}
+      create #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /etc /home #{testpath}/borgmatic-.{8}/./borgmatic #{config_path}
       prune --keep-daily 7 --glob-archives {hostname}-* #{repo_path}
       compact #{repo_path}
       info --json #{repo_path}
       check --glob-archives {hostname}-* #{repo_path}
       --version
-      create --json #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /etc /home #{testpath}/./borgmatic #{config_path}
+      create --json #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /etc /home #{testpath}/borgmatic-.{8}/./borgmatic #{config_path}
       prune --keep-daily 7 --glob-archives {hostname}-* #{repo_path}
       compact #{repo_path}
       info --json #{repo_path}
     EOS
+    expected = expected_log.split("\n").map(&:strip)
+
+    log_content.lines.map.with_index do |line, i|
+      if line.start_with?("create")
+        assert_match(/#{expected[i].chomp}/, line.chomp)
+      else
+        assert_equal expected[i].chomp, line.chomp
+      end
+    end
   end
 end
