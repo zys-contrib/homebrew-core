@@ -469,6 +469,7 @@ clusterawsadm
 clusterctl
 clzip
 cmake-language-server
+cmake-lint
 cmark
 cmctl
 cminpack
