@@ -2442,6 +2442,7 @@ rattler-build
 rav1e
 raven
 raxml-ng
+raylib
 rbtools
 rbw
 rclone
