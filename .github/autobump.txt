@@ -1373,6 +1373,7 @@ jlog
 jmeter
 jnethack
 jnv
+joern
 johnnydep
 joker
 jolie
