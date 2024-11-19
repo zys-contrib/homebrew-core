@@ -1,8 +1,8 @@
 class Nzbget < Formula
   desc "Binary newsgrabber for nzb files"
   homepage "https://nzbget.com"
-  url "https://github.com/nzbgetcom/nzbget/archive/refs/tags/v24.3.tar.gz"
-  sha256 "b20ff0da1367825fbf00337a48196e81514195748d3d96f620f28ab2cc0b7cc0"
+  url "https://github.com/nzbgetcom/nzbget/archive/refs/tags/v24.4.tar.gz"
+  sha256 "ea3ebe13f5d48f040f1614b62bff9b51da134f4f689ec918997f5896cf51f337"
   license "GPL-2.0-or-later"
   head "https://github.com/nzbgetcom/nzbget.git", branch: "develop"
 
@@ -26,6 +26,14 @@ class Nzbget < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  resource "par2cmdline-turbo" do
+    url "https://github.com/nzbgetcom/par2cmdline-turbo/archive/refs/tags/v1.1.1-nzbget.tar.gz"
+    sha256 "b471a76e6ac7384da87af9314826bc6d89ce879afb9485136b949cc5ce019ddf"
+  end
+
+  # Use the par2cmdline-turbo resource instead of fetching it
+  patch :DATA
+
   def install
     # Workaround to fix build on Xcode 16. This was just ignored on older Xcode so no functional impact
     # Issue ref: https://github.com/nzbgetcom/nzbget/issues/421
@@ -33,7 +41,9 @@ class Nzbget < Formula
       inreplace "lib/sources.cmake", 'set(NEON_CXXFLAGS "-mfpu=neon")', ""
     end
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    resource("par2cmdline-turbo").stage buildpath/"par2cmdline-turbo"
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCURSES_INCLUDE_PATH=/usr/include"
     system "cmake", "--build", "build"
 
     # nzbget CMake build does not strip binary
@@ -72,3 +82,30 @@ class Nzbget < Formula
     system bin/"nzbget", "-Q", "-c", etc/"nzbget.conf"
   end
 end
+
+__END__
+
+diff --git a/cmake/par2-turbo.cmake b/cmake/par2-turbo.cmake
+index 8b92c12..cddb1b4 100644
+--- a/cmake/par2-turbo.cmake
++++ b/cmake/par2-turbo.cmake
+@@ -1,17 +1,8 @@
+-set(FETCHCONTENT_QUIET FALSE)
+-FetchContent_Declare(
+-	par2-turbo
+-	GIT_REPOSITORY  https://github.com/nzbgetcom/par2cmdline-turbo.git
+-	GIT_TAG         v1.1.1-nzbget
+-	TLS_VERIFY	    TRUE
+-	GIT_SHALLOW     TRUE
+-	GIT_PROGRESS	TRUE
+-)
+-
+ add_compile_definitions(HAVE_CONFIG_H PARPAR_ENABLE_HASHER_MD5CRC)
+ set(BUILD_TOOL OFF CACHE BOOL "")
+ set(BUILD_LIB ON CACHE BOOL "")
+-FetchContent_MakeAvailable(par2-turbo)
++
++add_subdirectory(${CMAKE_SOURCE_DIR}/par2cmdline-turbo)
+ 
+ set(LIBS ${LIBS} par2-turbo gf16 hasher)
+ set(INCLUDES ${INCLUDES} ${par2_SOURCE_DIR}/include)
