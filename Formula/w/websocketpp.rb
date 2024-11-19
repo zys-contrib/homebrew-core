@@ -6,8 +6,8 @@ class Websocketpp < Formula
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "7afb22371c62bb2498f794e5fe7b6e6948348b8181bba1397875ea3ef9e32256"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "782e6a1f87776d26f0aa59cecb2413a4e1b69291cfe5feadb07614138280ef11"
   end
 
   depends_on "cmake" => :build
