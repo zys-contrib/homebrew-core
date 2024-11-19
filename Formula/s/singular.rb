@@ -1,9 +1,9 @@
 class Singular < Formula
   desc "Computer algebra system for polynomial computations"
   homepage "https://www.singular.uni-kl.de/"
-  url "https://www.singular.uni-kl.de/ftp/pub/Math/Singular/SOURCES/4-4-0/singular-4.4.0p6.tar.gz"
-  version "4.4.0p6"
-  sha256 "23a7674d1cf734b436c26c145dc22cb51f71a14d61e6ca17084293ccd0148902"
+  url "https://www.singular.uni-kl.de/ftp/pub/Math/Singular/SOURCES/4-4-0/singular-4.4.0p7.tar.gz"
+  version "4.4.0p7"
+  sha256 "6cc1c64490e9c916488cca4bea67701bdf505d71ad8d98d0391af67e03294518"
   license "GPL-2.0-or-later"
 
   livecheck do
