@@ -6,6 +6,7 @@ class Odin < Formula
       revision: "e6475fec4d2a3e34099b24a7a3bf890c7a3ef8d9"
   version "2024-11"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/odin-lang/Odin.git", branch: "master"
 
   bottle do
@@ -64,8 +65,8 @@ class Odin < Formula
     ln_s Formula["glfw"].lib/"libglfw3.a", buildpath/glfw_installpath/"libglfw3.a"
 
     ln_s Formula["raylib"].lib/"libraylib.a", buildpath/raylib_installpath/"libraylib.a"
-    # This is actually raylib 5.0, but upstream had not incremented this number yet when it released.
-    ln_s Formula["raylib"].lib/shared_library("libraylib", "4.5.0"),
+    # In order to match the version 500 used in odin
+    ln_s Formula["raylib"].lib/shared_library("libraylib", "5.5.0"),
       buildpath/raylib_installpath/shared_library("libraylib", "500")
 
     resource("raygui").stage do
