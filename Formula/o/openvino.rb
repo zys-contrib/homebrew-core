@@ -3,8 +3,8 @@ class Openvino < Formula
 
   desc "Open Visual Inference And Optimization toolkit for AI inference"
   homepage "https://docs.openvino.ai"
-  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2024.4.1.tar.gz"
-  sha256 "b8045c9d24be1f7247ed5e1055f5a2df745fb00d4820af2686b5c04eca113163"
+  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2024.5.0.tar.gz"
+  sha256 "3d5b89760e1c946aca7b219dff4bf4cf5eb511932863c90cafc47d3c01c85744"
   license "Apache-2.0"
   head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
 
@@ -41,8 +41,8 @@ class Openvino < Formula
     depends_on "opencl-icd-loader"
 
     resource "onednn_gpu" do
-      url "https://github.com/oneapi-src/oneDNN/archive/refs/tags/v3.6-pc.tar.gz"
-      sha256 "d0eeff1425e318887c429a709d58010a580c8173eba8fbee74bca41b7f621f59"
+      url "https://github.com/oneapi-src/oneDNN/archive/1722066ad4c0f15495f2d0fcbe9deb2bfd188c36.tar.gz"
+      sha256 "8955f19800066d8a705df2eb8b462085d6142b4f771ff88ae196e59a0d4ab1bb"
     end
   end
 
@@ -65,13 +65,13 @@ class Openvino < Formula
   end
 
   resource "onednn_cpu" do
-    url "https://github.com/openvinotoolkit/oneDNN/archive/c8ae8d96e963bd04214858319fa334968e5e73c9.tar.gz"
-    sha256 "b9c2a53061b4528231ff5fbcee85900d698c329c7977b1f39c5d3d65f29c2caa"
+    url "https://github.com/openvinotoolkit/oneDNN/archive/c60a9946aa2386890e5c9f5587974facb7624227.tar.gz"
+    sha256 "37cea8af9772053fd6d178817f64d59e3aa7de9fd8f1aa21873075bb0664240f"
   end
 
   resource "onnx" do
-    url "https://github.com/onnx/onnx/archive/refs/tags/v1.16.0.tar.gz"
-    sha256 "0ce153e26ce2c00afca01c331a447d86fbf21b166b640551fe04258b4acfc6a4"
+    url "https://github.com/onnx/onnx/archive/refs/tags/v1.17.0.tar.gz"
+    sha256 "8d5e983c36037003615e5a02d36b18fc286541bf52de1a78f6cf9f32005a820e"
   end
 
   resource "openvino-telemetry" do
@@ -86,6 +86,13 @@ class Openvino < Formula
 
   def python3
     "python3.12"
+  end
+
+  # Fix to evade redefinition errors in ocl_ext.hpp (https://github.com/openvinotoolkit/openvino/pull/27698)
+  # Remove patch when available in release.
+  patch do
+    url "https://github.com/openvinotoolkit/openvino/commit/9736b1811d5916b37473483b237314d0370e2ce8.patch?full_index=1"
+    sha256 "ff2dc599930b42f922d0ddc1158e22cdab3590a6e05159efcc307638015c8798"
   end
 
   def install
@@ -117,6 +124,7 @@ class Openvino < Formula
       -DENABLE_CPPLINT=OFF
       -DENABLE_CLANG_FORMAT=OFF
       -DENABLE_NCC_STYLE=OFF
+      -DENABLE_OV_JAX_FRONTEND=OFF
       -DENABLE_JS=OFF
       -DENABLE_TEMPLATE=OFF
       -DENABLE_INTEL_NPU=OFF
