@@ -1,8 +1,8 @@
 class Scarb < Formula
   desc "Cairo package manager"
   homepage "https://docs.swmansion.com/scarb/"
-  url "https://github.com/software-mansion/scarb/archive/refs/tags/v2.8.4.tar.gz"
-  sha256 "2ad8c76f4226f508dc129fe1e4e6120a27b64b141bffe2c4c24d1f4dde2d0a69"
+  url "https://github.com/software-mansion/scarb/archive/refs/tags/v2.8.5.tar.gz"
+  sha256 "18a07a0a09946f276ab399cddff1d6a6bccb342da903204dd88e804df6f478a0"
   license "MIT"
   head "https://github.com/software-mansion/scarb.git", branch: "main"
 
@@ -21,6 +21,7 @@ class Scarb < Formula
   end
 
   depends_on "rust" => :build
+  uses_from_macos "zlib"
 
   def install
     %w[
