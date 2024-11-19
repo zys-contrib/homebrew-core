@@ -1,8 +1,8 @@
 class Kcptun < Formula
   desc "Stable & Secure Tunnel based on KCP with N:M multiplexing and FEC"
   homepage "https://github.com/xtaci/kcptun"
-  url "https://github.com/xtaci/kcptun/archive/refs/tags/v20241031.tar.gz"
-  sha256 "f3430de60f219bdd8d4d57468e827559791ae63ce0b84f50840b24b45647a8f7"
+  url "https://github.com/xtaci/kcptun/archive/refs/tags/v20241119.tar.gz"
+  sha256 "a591b539e6a0d2a3b652fa5825fc81b4c3b087412d8692403b0b831fd11014b2"
   license "MIT"
   head "https://github.com/xtaci/kcptun.git", branch: "master"
 
@@ -44,7 +44,7 @@ class Kcptun < Formula
   test do
     server = fork { exec bin/"kcptun_server", "-t", "1.1.1.1:80" }
     client = fork { exec bin/"kcptun_client", "-r", "127.0.0.1:29900", "-l", ":12948" }
-    sleep 1
+    sleep 5
     begin
       assert_match "cloudflare", shell_output("curl -vI http://127.0.0.1:12948/")
     ensure
