@@ -1,8 +1,8 @@
 class Libsais < Formula
   desc "Fast linear time suffix array, lcp array and bwt construction"
   homepage "https://github.com/IlyaGrebnov/libsais"
-  url "https://github.com/IlyaGrebnov/libsais/archive/refs/tags/v2.8.5.tar.gz"
-  sha256 "c268e4ac17a2b024dba9e9ec204e694646c092fa89de767176eb7084d27780c4"
+  url "https://github.com/IlyaGrebnov/libsais/archive/refs/tags/v2.8.6.tar.gz"
+  sha256 "35a7956bc018534293573c9867a59301e03b793596430ebb0c3531a6db088148"
   license "Apache-2.0"
   head "https://github.com/IlyaGrebnov/libsais.git", branch: "master"
 
