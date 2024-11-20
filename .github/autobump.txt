@@ -822,6 +822,7 @@ erlang_ls
 erofs-utils
 esbuild
 eslint
+eslint_d
 espeak-ng
 espflash
 esphome
