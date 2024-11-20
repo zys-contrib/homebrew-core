@@ -16,12 +16,12 @@ class Youtubeuploader < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "030c2ca4236eeee1475861c5f777fa083ead3871e90f5a72c2ef56ddf70acb61"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "030c2ca4236eeee1475861c5f777fa083ead3871e90f5a72c2ef56ddf70acb61"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "030c2ca4236eeee1475861c5f777fa083ead3871e90f5a72c2ef56ddf70acb61"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8100f9c2526af5bc4e4a424364a0188c67fab700c27399913b0bb5098fcd4f65"
-    sha256 cellar: :any_skip_relocation, ventura:       "8100f9c2526af5bc4e4a424364a0188c67fab700c27399913b0bb5098fcd4f65"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b24acc0c03b98aa0faeb6aa7b4bfa29596cf10d10b7651a771d707fad75df45"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5a3eaf329e33673f4fe225827bb5ca48d4068204032aadfba402fecd92dac41e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5a3eaf329e33673f4fe225827bb5ca48d4068204032aadfba402fecd92dac41e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5a3eaf329e33673f4fe225827bb5ca48d4068204032aadfba402fecd92dac41e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2def42024252812e8f17c4251a2f92686682e10234825a214909ef4f5fb200d8"
+    sha256 cellar: :any_skip_relocation, ventura:       "2def42024252812e8f17c4251a2f92686682e10234825a214909ef4f5fb200d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ada9633eac9b099ec8d45e1d21536390380e97cde22ba815468c80cf663a8cef"
   end
 
   depends_on "go" => :build
