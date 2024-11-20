@@ -7,6 +7,10 @@ class CmakeLint < Formula
   sha256 "98a1e485318b41eeaf4dee3469ca3039d4745985353ecea208d6dd2c1204c71d"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "53b0db3fb46846816cfea2d2fcf2e24bb981b4dd383d160b273461456c9bbd25"
+  end
+
   depends_on "python@3.13"
 
   def install
