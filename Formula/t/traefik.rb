@@ -7,12 +7,12 @@ class Traefik < Formula
   head "https://github.com/traefik/traefik.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cbb7529c1012490fc8fc982c77ac7d6f392517c4842b93cd7c8adebd52807864"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cbb7529c1012490fc8fc982c77ac7d6f392517c4842b93cd7c8adebd52807864"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cbb7529c1012490fc8fc982c77ac7d6f392517c4842b93cd7c8adebd52807864"
-    sha256 cellar: :any_skip_relocation, sonoma:        "10e70e55569765e180baed465766344a11dc5c6c324bad26ca2f8fb22d686522"
-    sha256 cellar: :any_skip_relocation, ventura:       "10e70e55569765e180baed465766344a11dc5c6c324bad26ca2f8fb22d686522"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5784741a1b51a5b8264a3a20db8c9b1812f26e03d3f2712f1ad6f131c6b1d5e1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7ed127ae0db1f797817c773f28ed13da02fd3ada41fb0560ab6a15b16424cabb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7ed127ae0db1f797817c773f28ed13da02fd3ada41fb0560ab6a15b16424cabb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7ed127ae0db1f797817c773f28ed13da02fd3ada41fb0560ab6a15b16424cabb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "64c5b28911f22e629732e2b2e90b249e6d3c78464003eb47bec4d7b2d9e2da1e"
+    sha256 cellar: :any_skip_relocation, ventura:       "64c5b28911f22e629732e2b2e90b249e6d3c78464003eb47bec4d7b2d9e2da1e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "946bbd287afdf5757130c72d5420d048cf519daf24b7d53fbb0481f78709b11f"
   end
 
   depends_on "go" => :build
