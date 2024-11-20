@@ -1,8 +1,8 @@
 class Noseyparker < Formula
   desc "Finds secrets and sensitive information in textual data and Git history"
   homepage "https://github.com/praetorian-inc/noseyparker"
-  url "https://github.com/praetorian-inc/noseyparker/archive/refs/tags/v0.20.0.tar.gz"
-  sha256 "517655be7377a9636dbf15ede998f4229a47ada1e3844e086e50c6fd137b5574"
+  url "https://github.com/praetorian-inc/noseyparker/archive/refs/tags/v0.21.0.tar.gz"
+  sha256 "51d2be098d41a7dc4165b35151a448d27e32300559ebd7e524f34a76202c0a9d"
   license "Apache-2.0"
   head "https://github.com/praetorian-inc/noseyparker.git", branch: "main"
 
