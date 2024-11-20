@@ -1,8 +1,8 @@
 class MongoCxxDriver < Formula
   desc "C++ driver for MongoDB"
   homepage "https://github.com/mongodb/mongo-cxx-driver"
-  url "https://github.com/mongodb/mongo-cxx-driver/releases/download/r3.10.2/mongo-cxx-driver-r3.10.2.tar.gz"
-  sha256 "52b99b2866019b5ea25d15c5a39e2a88c70fe1259c40f1091deff8bfae0194be"
+  url "https://github.com/mongodb/mongo-cxx-driver/releases/download/r4.0.0/mongo-cxx-driver-r4.0.0.tar.gz"
+  sha256 "d8a254bde203d0fe2df14243ef2c3bab7f12381dc9206d0c1b450f6ae02da7cf"
   license "Apache-2.0"
   head "https://github.com/mongodb/mongo-cxx-driver.git", branch: "master"
 
@@ -47,12 +47,12 @@ class MongoCxxDriver < Formula
 
   test do
     pkg_config_flags = shell_output("pkg-config --cflags --libs libbsoncxx").chomp.split
-    system ENV.cc, "-std=c++11", pkgshare/"examples/bsoncxx/builder_basic.cpp",
+    system ENV.cc, "-std=c++11", pkgshare/"examples/bsoncxx/builder_basic.cpp", "-I#{pkgshare}",
       *pkg_config_flags, "-lstdc++", "-o", "test"
     system "./test"
 
     pkg_config_flags = shell_output("pkg-config --cflags --libs libbsoncxx libmongocxx").chomp.split
-    system ENV.cc, "-std=c++11", pkgshare/"examples/mongocxx/connect.cpp",
+    system ENV.cc, "-std=c++11", pkgshare/"examples/mongocxx/connect.cpp", "-I#{pkgshare}",
       *pkg_config_flags, "-lstdc++", "-o", "test"
     assert_match "No suitable servers",
       shell_output("./test mongodb://0.0.0.0 2>&1", 1)
