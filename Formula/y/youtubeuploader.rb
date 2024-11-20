@@ -1,8 +1,8 @@
 class Youtubeuploader < Formula
   desc "Scripted uploads to Youtube"
   homepage "https://github.com/porjo/youtubeuploader"
-  url "https://github.com/porjo/youtubeuploader/archive/refs/tags/24.02.tar.gz"
-  sha256 "cd62bb1043bae7eae7fa462beb7d7f1ad8e1038b54bd9159d70ec24ff8a055ec"
+  url "https://github.com/porjo/youtubeuploader/archive/refs/tags/24.03.tar.gz"
+  sha256 "aca9c3fc9d7325911b0c5a88dc9e3880d0796ec563ad9ac00f6cf59be6b5b87a"
   license "Apache-2.0"
   head "https://github.com/porjo/youtubeuploader.git", branch: "master"
 
@@ -25,6 +25,12 @@ class Youtubeuploader < Formula
   end
 
   depends_on "go" => :build
+
+  # Fix -version flag. Remove on next release.
+  patch do
+    url "https://github.com/porjo/youtubeuploader/commit/56ec5890518760c873b0dd496f3a8b46af81cb65.patch?full_index=1"
+    sha256 "b17bed81b9a6e7d74d665d7cf515e517f24ae27c4438a98d9b2c109c075b5942"
+  end
 
   def install
     ldflags = "-s -X main.appVersion=#{version}"
