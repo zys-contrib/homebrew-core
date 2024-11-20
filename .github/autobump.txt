@@ -54,6 +54,7 @@ animdl
 ansible
 ansible-creator
 ansible-lint
+ansible@10
 ansifilter
 ant
 antidote
