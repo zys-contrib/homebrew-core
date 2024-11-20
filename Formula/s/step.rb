@@ -1,8 +1,8 @@
 class Step < Formula
   desc "Crypto and x509 Swiss-Army-Knife"
   homepage "https://smallstep.com"
-  url "https://github.com/smallstep/cli/releases/download/v0.28.0/step_0.28.0.tar.gz"
-  sha256 "de06779efb5eca1bf3f3da52c69bf3cf23460b5ee0bf9f8ac3986c61588cc9b5"
+  url "https://github.com/smallstep/cli/releases/download/v0.28.2/step_0.28.2.tar.gz"
+  sha256 "f879ac21a9c7f8e943bbe8447aee42943877bd85b413eb3275a63e10ded08407"
   license "Apache-2.0"
 
   bottle do
@@ -18,8 +18,8 @@ class Step < Formula
 
   # certificates is not always in sync with step, see discussions in https://github.com/smallstep/certificates/issues/1925
   resource "certificates" do
-    url "https://github.com/smallstep/certificates/releases/download/v0.28.0/step-ca_0.28.0.tar.gz"
-    sha256 "41e0833f8ad63055928a5e01764612a5d19c2339502602aefdfdd4169191bdd1"
+    url "https://github.com/smallstep/certificates/releases/download/v0.28.1/step-ca_0.28.1.tar.gz"
+    sha256 "932f4eac08071f1290da62834b0d665839c7b31b87f168d747fead42a6984d30"
   end
 
   def install
@@ -93,7 +93,7 @@ class Step < Formula
           "#{steppath}/config/ca.json"
       end
 
-      sleep 2
+      sleep 6
       shell_output("#{bin}/step ca health > health_response.txt")
       assert_match(/^ok$/, File.read(testpath/"health_response.txt"))
 
