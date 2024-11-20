@@ -6,6 +6,15 @@ class Gci < Formula
   license "BSD-3-Clause"
   head "https://github.com/daixiang0/gci.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2e359d43f6e9493681f2b5b71d130dd402ad4caa4e367ca155ecc2b293b60403"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2e359d43f6e9493681f2b5b71d130dd402ad4caa4e367ca155ecc2b293b60403"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2e359d43f6e9493681f2b5b71d130dd402ad4caa4e367ca155ecc2b293b60403"
+    sha256 cellar: :any_skip_relocation, sonoma:        "99e6d31ed6740799d948cd3710a7ed07f805bc66e82b3563a626242c9f3a4db0"
+    sha256 cellar: :any_skip_relocation, ventura:       "99e6d31ed6740799d948cd3710a7ed07f805bc66e82b3563a626242c9f3a4db0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "152bf0214bf70dbc6fff4b812f93ca75a83923937b4ea605084933c93cebfd1f"
+  end
+
   depends_on "go" => :build
 
   def install
