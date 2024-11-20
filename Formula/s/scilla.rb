@@ -1,8 +1,8 @@
 class Scilla < Formula
   desc "DNS, subdomain, port, directory enumeration tool"
   homepage "https://github.com/edoardottt/scilla"
-  url "https://github.com/edoardottt/scilla/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "3a8c3d0b1e061b517b887bd3718810ea09998fbd474a50c769fe244767c67a32"
+  url "https://github.com/edoardottt/scilla/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "244a15a966a9be849ac7f514d0b69137220d920a92a37126fbcf320e642e7e4f"
   license "GPL-3.0-or-later"
   head "https://github.com/edoardottt/scilla.git", branch: "main"
 
@@ -25,6 +25,12 @@ class Scilla < Formula
 
   test do
     output = shell_output("#{bin}/scilla dns -target brew.sh")
-    assert_match "[+]FOUND brew.sh IN CNAME: brew.sh.", output
+    assert_match <<~EOS, output
+      =====================================================
+      target: brew.sh
+      ================ SCANNING DNS =======================
+    EOS
+
+    assert_match version.to_s, shell_output("#{bin}/scilla --help 2>&1", 1)
   end
 end
