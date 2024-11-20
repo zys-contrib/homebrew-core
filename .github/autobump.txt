@@ -1220,6 +1220,7 @@ haskell-stack
 hasura-cli
 hatari
 hatch
+havn
 haxe
 hbase
 hblock
