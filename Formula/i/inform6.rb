@@ -1,9 +1,9 @@
 class Inform6 < Formula
   desc "Design system for interactive fiction"
   homepage "https://inform-fiction.org/inform6.html"
-  url "https://ifarchive.org/if-archive/infocom/compilers/inform6/source/inform-6.42-r4.tar.gz"
-  version "6.42-r4"
-  sha256 "47f1b37b13691c29809a25f3099c04bf5d7b29ae29d91f8fede40f5bd0b53575"
+  url "https://ifarchive.org/if-archive/infocom/compilers/inform6/source/inform-6.42-r6.tar.gz"
+  version "6.42-r6"
+  sha256 "495b0886f95654ad145a0c8bf3962eb9e13dd8243d44081a501aee20ecc6a30c"
   license "Artistic-2.0"
   head "https://gitlab.com/DavidGriffith/inform6unix.git", branch: "master"
 
