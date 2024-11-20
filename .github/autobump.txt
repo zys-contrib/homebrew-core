@@ -3147,6 +3147,7 @@ xcbeautify
 xcdiff
 xclogparser
 xcodegen
+xcresultparser
 xctesthtmlreport
 xdg-ninja
 xdpyinfo
