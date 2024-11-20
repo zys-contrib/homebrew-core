@@ -997,6 +997,7 @@ gau
 gawk
 gcalcli
 gcem
+gci
 gcovr
 gcsfuse
 gdal
