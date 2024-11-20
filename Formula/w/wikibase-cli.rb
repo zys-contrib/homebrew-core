@@ -1,8 +1,8 @@
 class WikibaseCli < Formula
   desc "Command-line interface to Wikibase"
   homepage "https://github.com/maxlath/wikibase-cli"
-  url "https://registry.npmjs.org/wikibase-cli/-/wikibase-cli-18.2.2.tgz"
-  sha256 "7745aa0e89506fe13502ee094dba848ccdf935df16e20a693a97162382e3fbeb"
+  url "https://registry.npmjs.org/wikibase-cli/-/wikibase-cli-18.3.0.tgz"
+  sha256 "40a3d289e43d28caacc72bfa54f671037292b6a5c103bab33e9355d1fa6e38c1"
   license "MIT"
 
   bottle do
@@ -22,6 +22,13 @@ class WikibaseCli < Formula
   end
 
   test do
+    config_file = testpath/".wikibase-cli.json"
+    config_file.write "{\"instance\":\"https://www.wikidata.org\"}"
+
+    ENV["WB_CONFIG"] = config_file
+
     assert_equal "human", shell_output("#{bin}/wd label Q5 --lang en").strip
+
+    assert_match version.to_s, shell_output("#{bin}/wd --version")
   end
 end
