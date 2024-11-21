@@ -11,12 +11,12 @@ class Xsd < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "8119ae88416a48f44f45d39b54d6c14b8849bae8fed840a0e88456c7c2bff144"
-    sha256 cellar: :any,                 arm64_sonoma:  "a36a30cf1bdff08460969ddcc24fae52a5cc743d57253c564d4d89a828f4db64"
-    sha256 cellar: :any,                 arm64_ventura: "4f2eb34d577abf123990d70c6ee5ff4b8d77e53778260f4b93325f68941d3e33"
-    sha256 cellar: :any,                 sonoma:        "a0154c4c947ed3117bc4c45530a90a4ff2ac6c9d748472371b955119dfac9363"
-    sha256 cellar: :any,                 ventura:       "5f941b47bc3bbd36bd6282e3d580f123056768597b66397e308e7aac5b991b09"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1617579f8c28bfe87fcb4a1630a34700bcf0266bb4a179969e49fcc62fde4eed"
+    sha256 cellar: :any,                 arm64_sequoia: "9bab1b8a054ae9b32e68d6c0ab9ee59435715bcedbdc1206de8b54a5c8210ce5"
+    sha256 cellar: :any,                 arm64_sonoma:  "b095172797b397ec3afe2c05033aa138ef2449d982aa8e77b9b26b484cd7fbc9"
+    sha256 cellar: :any,                 arm64_ventura: "515effcddd5163ba8ac3fc30f2daf51d5c9380209b376cd4fbbffc54eb823b9e"
+    sha256 cellar: :any,                 sonoma:        "dcd70b1bada26e56ead16eaceeced482d7e8c4b84a8894d34073d46ad0c2f57e"
+    sha256 cellar: :any,                 ventura:       "d6d34d7402ae33a991c7817a34d6f8bdec2f55bc68ec922b5e112d639f308dd0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2ce6cba3e04b1e0239789b2c57ab98fbf8b465dc8477fb43c184da992002322"
   end
 
   depends_on "build2" => :build
