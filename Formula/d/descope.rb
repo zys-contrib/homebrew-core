@@ -6,12 +6,12 @@ class Descope < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eac2e0ce92cd7e88d109303ff5c32574f28793b833e155db0635b8b95016c50e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eac2e0ce92cd7e88d109303ff5c32574f28793b833e155db0635b8b95016c50e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "eac2e0ce92cd7e88d109303ff5c32574f28793b833e155db0635b8b95016c50e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c747a95475f846efab3275f76322edc327b0a78833d220d3bf6f62a33e46cace"
-    sha256 cellar: :any_skip_relocation, ventura:       "c747a95475f846efab3275f76322edc327b0a78833d220d3bf6f62a33e46cace"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7bc85b68ab36c414d058a231779d95319cc0d8ed4891bac475e9b2a8f81fbede"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0bb4ae8bb4c29c8f185d060ac3750ee3116da5df67cd11a4a9667570ee325349"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0bb4ae8bb4c29c8f185d060ac3750ee3116da5df67cd11a4a9667570ee325349"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0bb4ae8bb4c29c8f185d060ac3750ee3116da5df67cd11a4a9667570ee325349"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8ac7654197187d0184db64d24514ea7656c4c325e9544f9eae77ba89722a05db"
+    sha256 cellar: :any_skip_relocation, ventura:       "8ac7654197187d0184db64d24514ea7656c4c325e9544f9eae77ba89722a05db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f61d3bb6de69dac1d3ee6ece1e8251ae41c56cc85688ea2a8bdb9325f7f44e61"
   end
 
   depends_on "go" => :build
