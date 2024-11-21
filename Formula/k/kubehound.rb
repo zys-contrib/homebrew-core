@@ -1,8 +1,8 @@
 class Kubehound < Formula
   desc "Tool for building Kubernetes attack paths"
   homepage "https://kubehound.io"
-  url "https://github.com/DataDog/KubeHound/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "d77cdd05de70f4efa32db16f824ffeb04e9ddd6cb9be62e8be95579af3528213"
+  url "https://github.com/DataDog/KubeHound/archive/refs/tags/v1.6.1.tar.gz"
+  sha256 "bdeb1c24f1f71b881ad722923e618178add1840ee66d9ca11ec3b78deca77911"
   license "Apache-2.0"
 
   livecheck do
