@@ -2458,6 +2458,7 @@ rclone
 rcs
 rdb
 re-flex
+re2c
 readpe
 rebar3
 recc
