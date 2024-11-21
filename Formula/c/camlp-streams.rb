@@ -4,7 +4,7 @@ class CamlpStreams < Formula
   url "https://github.com/ocaml/camlp-streams/archive/refs/tags/v5.0.1.tar.gz"
   sha256 "ad71f62406e9bb4e7fb5d4593ede2af6c68f8b0d96f25574446e142c3eb0d9a4"
   license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "30108806277b639f8b7b9463eb73638b15ad0b885890afbb8c5353ab68eb4272"
