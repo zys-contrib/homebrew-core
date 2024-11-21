@@ -11,12 +11,12 @@ class Grails < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c2d0eb3ee0abb5295b1b4087b6df68672900ccf56730b8007a910901cb37a5c6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c2d0eb3ee0abb5295b1b4087b6df68672900ccf56730b8007a910901cb37a5c6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c2d0eb3ee0abb5295b1b4087b6df68672900ccf56730b8007a910901cb37a5c6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7a8096f4ba68c2d3068cea5b91772540075a827e8c3c2b05c05933d65fa5845e"
-    sha256 cellar: :any_skip_relocation, ventura:       "7a8096f4ba68c2d3068cea5b91772540075a827e8c3c2b05c05933d65fa5845e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2d0eb3ee0abb5295b1b4087b6df68672900ccf56730b8007a910901cb37a5c6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2c004e5b850051a6ef9fecaef9564a40846da0fc8be387ff596eabe712aee9c7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2c004e5b850051a6ef9fecaef9564a40846da0fc8be387ff596eabe712aee9c7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2c004e5b850051a6ef9fecaef9564a40846da0fc8be387ff596eabe712aee9c7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d35ca3d0d15195a8e1428b73007b37a63942db05b6b73a825b8799d9f765bc59"
+    sha256 cellar: :any_skip_relocation, ventura:       "d35ca3d0d15195a8e1428b73007b37a63942db05b6b73a825b8799d9f765bc59"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c004e5b850051a6ef9fecaef9564a40846da0fc8be387ff596eabe712aee9c7"
   end
 
   depends_on "openjdk@17"
