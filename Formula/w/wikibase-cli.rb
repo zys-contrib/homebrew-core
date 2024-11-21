@@ -6,12 +6,12 @@ class WikibaseCli < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "225b195421259af7c9c695cac4a7c4339b09acfae183f7d6a8e6339ec85b4ebf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "225b195421259af7c9c695cac4a7c4339b09acfae183f7d6a8e6339ec85b4ebf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "225b195421259af7c9c695cac4a7c4339b09acfae183f7d6a8e6339ec85b4ebf"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8712666f7e32801dd54cd048a6a131da04ff9f6420294a321011217ef7e3a43c"
-    sha256 cellar: :any_skip_relocation, ventura:       "8712666f7e32801dd54cd048a6a131da04ff9f6420294a321011217ef7e3a43c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "225b195421259af7c9c695cac4a7c4339b09acfae183f7d6a8e6339ec85b4ebf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9b1b147779b35017530569c1a7a9512e76c404fd6ef3b5a4fbdaddcf95910f63"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b1b147779b35017530569c1a7a9512e76c404fd6ef3b5a4fbdaddcf95910f63"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9b1b147779b35017530569c1a7a9512e76c404fd6ef3b5a4fbdaddcf95910f63"
+    sha256 cellar: :any_skip_relocation, sonoma:        "30669093f23d7e3da4628175fdaf08001e1f69edd3ba08a4d5baed5dddc3833c"
+    sha256 cellar: :any_skip_relocation, ventura:       "30669093f23d7e3da4628175fdaf08001e1f69edd3ba08a4d5baed5dddc3833c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b1b147779b35017530569c1a7a9512e76c404fd6ef3b5a4fbdaddcf95910f63"
   end
 
   depends_on "node"
