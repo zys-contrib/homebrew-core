@@ -13,13 +13,12 @@ class GitLfs < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6ae42cee04c1e4c25cfe7c2cfbde067060b1b96ac1ec80da9d63c5a4b4e0c909"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6ae42cee04c1e4c25cfe7c2cfbde067060b1b96ac1ec80da9d63c5a4b4e0c909"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6ae42cee04c1e4c25cfe7c2cfbde067060b1b96ac1ec80da9d63c5a4b4e0c909"
-    sha256 cellar: :any_skip_relocation, sonoma:        "63e2c1dbdc3df326ddea622cd7d134935a9545ab14f5bc871b23739b82792c67"
-    sha256 cellar: :any_skip_relocation, ventura:       "63e2c1dbdc3df326ddea622cd7d134935a9545ab14f5bc871b23739b82792c67"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f8525605ee1028c3a5e2dd762270b3a89da7e3b1355ee701bc791a5272ad843"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "89ebf5b724d04b05d8bfbb30f3f7def31b858f907dbea09f8fb45be8971aa3a4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "89ebf5b724d04b05d8bfbb30f3f7def31b858f907dbea09f8fb45be8971aa3a4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "89ebf5b724d04b05d8bfbb30f3f7def31b858f907dbea09f8fb45be8971aa3a4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e9843027dbca6884d5e4f6894534dbc4c52d59ae33580c4fff4fb29c0b8f7a7f"
+    sha256 cellar: :any_skip_relocation, ventura:       "e9843027dbca6884d5e4f6894534dbc4c52d59ae33580c4fff4fb29c0b8f7a7f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c40bb62ad209374aec8b93c4ec19724fc4b99c15bd2e7429a473ecfdf3105dd1"
   end
 
   depends_on "asciidoctor" => :build
