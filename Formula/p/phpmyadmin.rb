@@ -34,7 +34,7 @@ class Phpmyadmin < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3db06f5c804f3bdc48368d1d1b6460d093163fed7cd881fcdae06d14ee3c53d6"
   end
 
-  depends_on "php" => :test
+  depends_on "php@8.3" => :test
 
   def install
     pkgshare.install Dir["*"]
@@ -65,8 +65,9 @@ class Phpmyadmin < Formula
   end
 
   test do
+    php = Formula["php@8.3"].opt_bin/"php"
     cd pkgshare do
-      assert_match "German", shell_output("php #{pkgshare}/index.php")
+      assert_match "German", shell_output("#{php} #{pkgshare}/index.php")
     end
   end
 end
