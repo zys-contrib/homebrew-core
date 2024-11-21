@@ -1,8 +1,8 @@
 class Bandicoot < Formula
   desc "C++ library for GPU accelerated linear algebra"
   homepage "https://coot.sourceforge.io/"
-  url "https://gitlab.com/bandicoot-lib/bandicoot-code/-/archive/1.16.0/bandicoot-code-1.16.0.tar.bz2"
-  sha256 "d3049c8caed7ea527565bf96030d190282d0d9cf5f2a33b5a2dd393a60f01e8f"
+  url "https://gitlab.com/bandicoot-lib/bandicoot-code/-/archive/1.16.1/bandicoot-code-1.16.1.tar.bz2"
+  sha256 "b9c6532b8c7e37dd7986ccd346a849db57cca4024ce41c3591f778139531b1d0"
   license "Apache-2.0"
 
   bottle do
