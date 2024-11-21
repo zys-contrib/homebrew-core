@@ -38,9 +38,11 @@ class FltkAT13 < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--enable-threads",
-                          "--enable-shared"
+    args = %w[
+      --enable-threads
+      --enable-shared
+    ]
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 
