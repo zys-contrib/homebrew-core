@@ -1,8 +1,8 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.com/"
-  url "https://github.com/denoland/deno/releases/download/v2.1.0/deno_src.tar.gz"
-  sha256 "2318042f2385c96e83cf365626d3fd19fcb1a6af488527c0820370490f94a9af"
+  url "https://github.com/denoland/deno/releases/download/v2.1.1/deno_src.tar.gz"
+  sha256 "a2c7a33f46fcfd80447a0ab5fc164be746a9218ef4c6e2ae1c641b8ecbcab2a4"
   license "MIT"
   head "https://github.com/denoland/deno.git", branch: "main"
 
@@ -16,7 +16,8 @@ class Deno < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm@18" => :build
+  depends_on "lld" => :build
+  depends_on "llvm" => :build
   depends_on "ninja" => :build
   depends_on "protobuf" => :build
   depends_on "rust" => :build
@@ -40,22 +41,22 @@ class Deno < Formula
   # TODO: Remove this and `v8` resource when https://github.com/denoland/rusty_v8/issues/1065 is resolved
   # VERSION=#{version} && curl -s https://raw.githubusercontent.com/denoland/deno/v$VERSION/Cargo.lock | grep -C 1 'name = "v8"'
   resource "rusty_v8" do
-    url "https://static.crates.io/crates/v8/v8-0.106.0.crate"
-    sha256 "a381badc47c6f15acb5fe0b5b40234162349ed9d4e4fd7c83a7f5547c0fc69c5"
+    url "https://static.crates.io/crates/v8/v8-130.0.1.crate"
+    sha256 "c23b5c2caff00209b03a716609b275acae94b02dd3b63c4648e7232a84a8402f"
   end
 
   # Find the v8 version from the last commit message at:
   # https://github.com/denoland/rusty_v8/commits/v#{rusty_v8_version}/v8
   # Then, use the corresponding tag found in https://github.com/denoland/v8/tags
   resource "v8" do
-    url "https://github.com/denoland/v8/archive/refs/tags/12.9.202.13-denoland-245ce17ed8483e6bc3de.tar.gz"
-    sha256 "63cd3d4a42cac18a7475165f8c623cfdae8782d0fedea9aa030f983e987c8309"
+    url "https://github.com/denoland/v8/archive/refs/tags/13.0.245.12-denoland-6a811c9772d847135876.tar.gz"
+    sha256 "d2de7fc75381d8d7c0cd8b2d59bb23d91f8719f5d5ad6b19b8288acd2aae8733"
   end
 
   # VERSION=#{version} && curl -s https://raw.githubusercontent.com/denoland/deno/v$VERSION/Cargo.lock | grep -C 1 'name = "deno_core"'
   resource "deno_core" do
-    url "https://github.com/denoland/deno_core/archive/refs/tags/0.318.0.tar.gz"
-    sha256 "c33b5c9ce2e5fccf8f6b3c9015bddef2949dcd2fc492e4d8ce6b3fadf93ec85f"
+    url "https://github.com/denoland/deno_core/archive/refs/tags/0.321.0.tar.gz"
+    sha256 "8b238d4e09c61d545e16298912bc035ff65e9308de83a1a1d1cbd48eadbb8639"
   end
 
   # The latest commit from `denoland/icu`, go to https://github.com/denoland/rusty_v8/tree/v#{rusty_v8_version}/third_party
@@ -68,11 +69,11 @@ class Deno < Formula
   # V8_TAG=#{v8_resource_tag} && curl -s https://raw.githubusercontent.com/denoland/v8/$V8_TAG/DEPS | grep gn_version
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "54f5b539df8c4e460b18c62a11132d77b5601136"
+        revision: "20806f79c6b4ba295274e3a589d85db41a02fdaa"
   end
 
   def llvm
-    Formula["llvm@18"]
+    Formula["llvm"]
   end
 
   def install
