@@ -1,8 +1,8 @@
 class Loki < Formula
   desc "Horizontally-scalable, highly-available log aggregation system"
   homepage "https://grafana.com/loki"
-  url "https://github.com/grafana/loki/archive/refs/tags/v3.2.1.tar.gz"
-  sha256 "4d39632d6cb60a3252ca294558aa7eff2c9bb4b66b62920f4691389d293b6d7b"
+  url "https://github.com/grafana/loki/archive/refs/tags/v3.3.0.tar.gz"
+  sha256 "b36148586da9f8b58dc0a44fb3e74f0d03043db2fcf47194bc9d145bf5708b3e"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/loki.git", branch: "main"
 
@@ -21,6 +21,13 @@ class Loki < Formula
   end
 
   depends_on "go" => :build
+
+  # Fix to yaml: unmarshal errors
+  # Issue ref: https://github.com/grafana/loki/issues/15039, upstream pr ref, https://github.com/grafana/loki/pull/15059
+  patch do
+    url "https://github.com/grafana/loki/commit/5c8542036609f157fee45da7efafbba72308e829.patch?full_index=1"
+    sha256 "733203854fa0dd828b74e291a72945a511a20b68954964ad56c815f118fc68d6"
+  end
 
   def install
     cd "cmd/loki" do
@@ -48,7 +55,7 @@ class Loki < Formula
     end
 
     fork { exec bin/"loki", "-config.file=loki-local-config.yaml" }
-    sleep 3
+    sleep 6
 
     output = shell_output("curl -s localhost:#{port}/metrics")
     assert_match "log_messages_total", output
