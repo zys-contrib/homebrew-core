@@ -1,10 +1,9 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v23.2.0/node-v23.2.0.tar.xz"
-  sha256 "3cf7a8a36682775693691f1de901bb5973ad3c0ae2aa87b1add9de515e7b2fc7"
+  url "https://nodejs.org/dist/v23.3.0/node-v23.3.0.tar.xz"
+  sha256 "42a6b5611aeec6723f4b6f98f1c205fc1fa32399df41dbed6a27083afd48c5c1"
   license "MIT"
-  revision 1
   head "https://github.com/nodejs/node.git", branch: "main"
 
   livecheck do
@@ -51,17 +50,6 @@ class Node < Formula
   resource "npm" do
     url "https://registry.npmjs.org/npm/-/npm-10.9.0.tgz"
     sha256 "c12def16fe3efdc80b1e652d60903d807ac4b78b9e7c3e76f633f4b13a32897c"
-  end
-
-  # patch to fix `Unexpected end of JSON input` for webpack build, see https://github.com/nodejs/node/issues/55826
-  # upstream revert PR, https://github.com/nodejs/node/pull/55828
-  patch do
-    url "https://github.com/nodejs/node/commit/5f43e6d409c34d0ab3c3bbd879669f638e64d6a9.patch?full_index=1"
-    sha256 "a484ac9247389a80214be836ac8ca915f18a02a1f2acbab463abc991da4e41d2"
-  end
-  patch do
-    url "https://github.com/nodejs/node/commit/df0b75f39f2b79932d4145b8350f683caf6331f2.patch?full_index=1"
-    sha256 "64dbf49afbe15ef92c145a735941ff817b5664d9368891f17194ba4d21ee9069"
   end
 
   def install
