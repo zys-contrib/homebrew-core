@@ -1038,6 +1038,7 @@ ginac
 gismo
 git-absorb
 git-annex
+git-cliff
 git-codereview
 git-cola
 git-credential-oauth
