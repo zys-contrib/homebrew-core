@@ -26,6 +26,7 @@ class Fltk < Formula
 
   depends_on "jpeg-turbo"
   depends_on "libpng"
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "pkgconf" => :build
@@ -42,25 +43,24 @@ class Fltk < Formula
 
   def install
     if build.head?
-      args = std_cmake_args
-
-      # Don't build docs / require doxygen
-      args << "-DOPTION_BUILD_HTML_DOCUMENTATION=OFF"
-      args << "-DOPTION_BUILD_PDF_DOCUMENTATION=OFF"
-
-      # Don't build tests
-      args << "-DFLTK_BUILD_TEST=OFF"
-
-      # Build both shared & static libs
-      args << "-DOPTION_BUILD_SHARED_LIBS=ON"
-
-      system "cmake", ".", *args
-      system "cmake", "--build", "."
-      system "cmake", "--install", "."
+      args = [
+        # Don't build docs / require doxygen
+        "-DOPTION_BUILD_HTML_DOCUMENTATION=OFF",
+        "-DOPTION_BUILD_PDF_DOCUMENTATION=OFF",
+        # Don't build tests
+        "-DFLTK_BUILD_TEST=OFF",
+        # Build both shared & static libs
+        "-DOPTION_BUILD_SHARED_LIBS=ON",
+      ]
+      system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+      system "cmake", "--build", "build"
+      system "cmake", "--install", "build"
     else
-      system "./configure", "--prefix=#{prefix}",
-                            "--enable-threads",
-                            "--enable-shared"
+      args = %w[
+        --enable-threads
+        --enable-shared
+      ]
+      system "./configure", *args, *std_configure_args
       system "make", "install"
     end
   end
