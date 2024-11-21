@@ -1,11 +1,10 @@
 class ApachePulsar < Formula
   desc "Cloud-native distributed messaging and streaming platform"
   homepage "https://pulsar.apache.org/"
-  url "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=pulsar/pulsar-3.1.2/apache-pulsar-3.1.2-src.tar.gz"
-  mirror "https://archive.apache.org/dist/pulsar/pulsar-3.1.2/apache-pulsar-3.1.2-src.tar.gz"
-  sha256 "82270fa4c224af7979d6d4689d7a77742eb3a32a32630e052dc93739a35624e2"
+  url "https://www.apache.org/dyn/closer.lua?path=pulsar/pulsar-4.0.0/apache-pulsar-4.0.0-src.tar.gz"
+  mirror "https://archive.apache.org/dist/pulsar/pulsar-4.0.0/apache-pulsar-4.0.0-src.tar.gz"
+  sha256 "5c3bd7c14167b388e1efc05e8a45c693a2ca056e56d5a069fee7bfd0c6168dac"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/apache/pulsar.git", branch: "master"
 
   bottle do
@@ -15,43 +14,32 @@ class ApachePulsar < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "3d0a75a7e0c5167a2407a0a20b090eb6859e44374a95ec4c41a468e6627b2a70"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "cppunit" => :build
-  depends_on "libtool" => :build
   depends_on "maven" => :build
-  depends_on "pkg-config" => :build
-  depends_on "protobuf" => :build
-  depends_on arch: :x86_64 # https://github.com/apache/pulsar/issues/16639
-  depends_on "openjdk@17"
+  depends_on arch: :x86_64 # https://github.com/grpc/grpc-java/issues/7690
+  depends_on "openjdk@21"
 
   def install
-    with_env("TMPDIR" => buildpath, **Language::Java.java_home_env("17")) do
-      system "mvn", "-X", "clean", "package", "-DskipTests", "-Pcore-modules"
+    java_home_env = Language::Java.java_home_env("21")
+    with_env(TMPDIR: buildpath, **java_home_env) do
+      system "mvn", "clean", "package", "-DskipTests", "-Pcore-modules"
     end
 
-    built_version = if build.head?
-      # This script does not need any particular version of py3 nor any libs, so both
-      # brew-installed python and system python will work.
-      Utils.safe_popen_read("python3", "src/get-project-version.py").strip
+    tarball = if build.head?
+      Dir["distribution/server/target/apache-pulsar-*-bin.tar.gz"].first
     else
-      version
+      "distribution/server/target/apache-pulsar-#{version}-bin.tar.gz"
     end
 
-    binpfx = "apache-pulsar-#{built_version}"
-    system "tar", "-xf", "distribution/server/target/#{binpfx}-bin.tar.gz"
-    libexec.install "#{binpfx}/bin", "#{binpfx}/lib", "#{binpfx}/instances", "#{binpfx}/conf", "#{binpfx}/trino"
-    libexec.glob("bin/*.cmd").map(&:unlink)
-    rm_r(libexec/"trino/bin/procname/Linux-aarch64")
-    rm_r(libexec/"trino/bin/procname/Linux-ppc64le")
-    pkgshare.install "#{binpfx}/examples"
+    libexec.mkpath
+    system "tar", "--extract", "--file", tarball, "--directory", libexec, "--strip-components=1"
+    pkgshare.install libexec/"examples"
     (etc/"pulsar").install_symlink libexec/"conf"
 
+    rm libexec.glob("bin/*.cmd")
     libexec.glob("bin/*") do |path|
-      if !path.fnmatch?("*common.sh") && !path.directory?
-        bin_name = path.basename
-        (bin/bin_name).write_env_script libexec/"bin"/bin_name, Language::Java.java_home_env("17")
-      end
+      next if !path.file? || path.fnmatch?("*common.sh")
+
+      (bin/path.basename).write_env_script path, java_home_env
     end
   end
 
@@ -70,12 +58,10 @@ class ApachePulsar < Formula
     ENV["PULSAR_LOG_DIR"] = testpath
     ENV["PULSAR_STANDALONE_USE_ZOOKEEPER"] = "1"
 
-    fork do
-      exec bin/"pulsar", "standalone", "--zookeeper-dir", "#{testpath}/zk", " --bookkeeper-dir", "#{testpath}/bk"
-    end
+    spawn bin/"pulsar", "standalone", "--zookeeper-dir", "#{testpath}/zk", "--bookkeeper-dir", "#{testpath}/bk"
     # The daemon takes some time to start; pulsar-client will retry until it gets a connection, but emit confusing
     # errors until that happens, so sleep to reduce log spam.
-    sleep 30
+    sleep 45
 
     output = shell_output("#{bin}/pulsar-client produce my-topic --messages 'hello-pulsar'")
     assert_match "1 messages successfully produced", output
