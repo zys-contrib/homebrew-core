@@ -11,7 +11,7 @@ class TmuxinatorCompletion < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "bdbde07cdfa7d917cc0a16b4c5ef09d827d403e782a95f66b6e3369821906581"
+    sha256 cellar: :any_skip_relocation, all: "93630f3783e22aae47a9b1e1710d0088f4d78a5845c1008ad8cabd5d8d63ed83"
   end
 
   def install
