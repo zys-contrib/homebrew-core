@@ -1,8 +1,8 @@
 class Logdy < Formula
   desc "Web based real-time log viewer"
   homepage "https://logdy.dev"
-  url "https://github.com/logdyhq/logdy-core/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "7aec95af51d4d954ad01fcdd7e925269fa4cdbadab5484761c56fc54dc122c38"
+  url "https://github.com/logdyhq/logdy-core/archive/refs/tags/v0.13.1.tar.gz"
+  sha256 "aaa5b05b13c52d58ea840c4e54b86315df516b8f0131145379040311ea8117f0"
   license "Apache-2.0"
 
   bottle do
@@ -26,7 +26,7 @@ class Logdy < Formula
 
   test do
     port = free_port
-    r, _, pid = PTY.spawn("#{bin}/logdy --port=#{port}")
+    r, _, pid = PTY.spawn("#{bin}/logdy stdin --port=#{port}")
     assert_match "Listen to stdin (from pipe)", r.readline
   ensure
     Process.kill("TERM", pid)
