@@ -1,8 +1,8 @@
 class RabbitmqC < Formula
   desc "C AMQP client library for RabbitMQ"
   homepage "https://github.com/alanxz/rabbitmq-c"
-  url "https://github.com/alanxz/rabbitmq-c/archive/refs/tags/v0.14.0.tar.gz"
-  sha256 "839b28eae20075ac58f45925fe991d16a3138cbde015db0ee11df1acb1c493df"
+  url "https://github.com/alanxz/rabbitmq-c/archive/refs/tags/v0.15.0.tar.gz"
+  sha256 "7b652df52c0de4d19ca36c798ed81378cba7a03a0f0c5d498881ae2d79b241c2"
   license "MIT"
   head "https://github.com/alanxz/rabbitmq-c.git", branch: "master"
 
