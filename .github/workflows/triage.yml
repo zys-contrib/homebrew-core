@@ -310,6 +310,7 @@ jobs:
                 libnghttp2|\
                 libomp|\
                 libpng|\
+                libtool|\
                 libunistring|\
                 mpfr|\
                 mpg123|\
