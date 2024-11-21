@@ -168,6 +168,7 @@ awsdac
 awslogs
 axel
 azcopy
+azure-core-cpp
 b2-tools
 babel
 babl
