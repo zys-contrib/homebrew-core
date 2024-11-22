@@ -3,8 +3,8 @@ class Urlscan < Formula
 
   desc "View/select the URLs in an email message or file"
   homepage "https://github.com/firecat53/urlscan"
-  url "https://files.pythonhosted.org/packages/5e/11/0610ca7763c958555688edac109cba92bd5b71bc42af7b8eeacafff0c96e/urlscan-1.0.4.tar.gz"
-  sha256 "622bfa957615633f8c0b931b8e131b6cfcc5b843ccca75f89927468870ee0e8e"
+  url "https://files.pythonhosted.org/packages/f0/9d/dbb1b7b3bb226a8a796b870cf9325cae53edc36acdf619cf4c5eefe94880/urlscan-1.0.6.tar.gz"
+  sha256 "3bbf8900de23913c29aed27702eaba92a871b2fe95920e72c56a19fff7cb4581"
   license "GPL-2.0-or-later"
 
   bottle do
