@@ -25,7 +25,7 @@ class HppFcl < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "assimp"
   depends_on "boost"
   depends_on "boost-python3"
@@ -50,11 +50,11 @@ class HppFcl < Formula
   end
 
   test do
-    system python3, "-c", <<~EOS
+    system python3, "-c", <<~PYTHON
       import hppfcl
       radius = 0.5
       sphere = hppfcl.Sphere(0.5)
       assert sphere.radius == radius
-    EOS
+    PYTHON
   end
 end
