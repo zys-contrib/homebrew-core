@@ -16,7 +16,7 @@ class Kew < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5380562d71ac6e5d0dcd41958c51075f28a1414d33ac16cc36aced7880e32c94"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "chafa"
   depends_on "faad2"
   depends_on "fftw"
