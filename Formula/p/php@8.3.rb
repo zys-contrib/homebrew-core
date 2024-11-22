@@ -1,32 +1,31 @@
-class Php < Formula
+class PhpAT83 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.4.1.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.4.1.tar.xz"
-  sha256 "94c8a4fd419d45748951fa6d73bd55f6bdf0adaefb8814880a67baa66027311f"
+  url "https://www.php.net/distributions/php-8.3.14.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.3.14.tar.xz"
+  sha256 "58b4cb9019bf70c0cbcdb814c7df79b9065059d14cf7dbf48d971f8e56ae9be7"
   license "PHP-3.01"
 
   livecheck do
     url "https://www.php.net/downloads"
-    regex(/href=.*?php[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    regex(/href=.*?php[._-]v?(#{Regexp.escape(version.major_minor)}(?:\.\d+)*)\.t/i)
   end
 
   bottle do
-    sha256 arm64_sequoia: "3800e45d5cd63c32c2f7218d16f58582b7fa6cdef5b95ca455e31b3205fcac3f"
-    sha256 arm64_sonoma:  "d0d48b74cee979feaf61163f997171d4be88aee7bd05d34f7b79086fc9bfee07"
-    sha256 arm64_ventura: "8457b0bbe50e7a56a498594f09f66aa645403a870632a9a376d8041446d2558a"
-    sha256 sonoma:        "9c19cac2676029b1166c92ef06da10ff8fe8812a7a85f847e28a030f1050c77d"
-    sha256 ventura:       "67374319228f35a65d26cdd7220f78ec82135ef6c832597ac3d4e14b96b2b8b5"
-    sha256 x86_64_linux:  "5b4f182ecbf9f3fa0a455b3f7a22374b5af59ddb231927a0207b6a31c85b094d"
+    sha256 arm64_sequoia: "0b225f4e8af36781b9c01ee1e5298cd57a10f01cdaea6c6b2706d1b9149d4385"
+    sha256 arm64_sonoma:  "b14e458a8082ccf3dc0260c391cbdd6f2383462dbb7f81a96e0e8a88bd92b36e"
+    sha256 arm64_ventura: "9c95509323222030ce67a68216110d1e3fcad3ad11679cf85b6164722b6f224a"
+    sha256 sonoma:        "921a7465a7d3155692853df27ecf897856ed164e3f85e8380e166cee05f5a05f"
+    sha256 ventura:       "61b7290f486048b1fe8b6e5ec5a93184acf7780b7b92c5c1a7e943a7df6e77ad"
+    sha256 x86_64_linux:  "e7deca61153282f93cd14e539dd468548fd24fe8240833211dd8d1caf9f130d2"
   end
 
-  head do
-    url "https://github.com/php/php-src.git", branch: "master"
+  keg_only :versioned_formula
 
-    depends_on "bison" => :build # bison >= 3.0.0 required to generate parsers
-    depends_on "re2c" => :build # required to generate PHP lexers
-  end
+  # Security Support Until 31 Dec 2027
+  # https://www.php.net/supported-versions.php
+  deprecate! date: "2027-12-31", because: :unsupported
 
   depends_on "httpd" => [:build, :test]
   depends_on "pkgconf" => :build
@@ -72,12 +71,16 @@ class Php < Formula
     system "./buildconf", "--force"
 
     inreplace "configure" do |s|
-      s.gsub! "$APXS_HTTPD -V 2>/dev/null | grep 'threaded:.*yes' >/dev/null 2>&1",
-              "false"
-      s.gsub! "APXS_LIBEXECDIR='$(INSTALL_ROOT)'$($APXS -q LIBEXECDIR)",
+      s.gsub! "APACHE_THREADED_MPM=`$APXS_HTTPD -V 2>/dev/null | grep 'threaded:.*yes'`",
+              "APACHE_THREADED_MPM="
+      s.gsub! "APXS_LIBEXECDIR='$(INSTALL_ROOT)'`$APXS -q LIBEXECDIR`",
               "APXS_LIBEXECDIR='$(INSTALL_ROOT)#{lib}/httpd/modules'"
-      s.gsub! "-z $($APXS -q SYSCONFDIR)",
+      s.gsub! "-z `$APXS -q SYSCONFDIR`",
               "-z ''"
+
+      # apxs will interpolate the @ in the versioned prefix: https://bz.apache.org/bugzilla/show_bug.cgi?id=61944
+      s.gsub! "LIBEXECDIR='$APXS_LIBEXECDIR'",
+              "LIBEXECDIR='" + "#{lib}/httpd/modules".gsub("@", "\\@") + "'"
     end
 
     # Update error message in apache sapi to better explain the requirements
@@ -429,10 +432,10 @@ end
 
 __END__
 diff --git a/build/php.m4 b/build/php.m4
-index e45b22b7..4624b390 100644
+index 3624a33a8e..d17a635c2c 100644
 --- a/build/php.m4
 +++ b/build/php.m4
-@@ -429,7 +429,7 @@ dnl
+@@ -425,7 +425,7 @@ dnl
  dnl Adds a path to linkpath/runpath (LDFLAGS).
  dnl
  AC_DEFUN([PHP_ADD_LIBPATH],[
@@ -441,15 +444,15 @@ index e45b22b7..4624b390 100644
      PHP_EXPAND_PATH($1, ai_p)
      ifelse([$2],,[
        _PHP_ADD_LIBPATH_GLOBAL([$ai_p])
-@@ -476,7 +476,7 @@ dnl paths are prepended to the beginning of INCLUDES.
+@@ -470,7 +470,7 @@ dnl
+ dnl Add an include path. If before is 1, add in the beginning of INCLUDES.
  dnl
- AC_DEFUN([PHP_ADD_INCLUDE], [
- for include_path in m4_normalize(m4_expand([$1])); do
--  AS_IF([test "$include_path" != "/usr/include"], [
-+  AS_IF([test "$include_path" != "$PHP_OS_SDKPATH/usr/include"], [
-     PHP_EXPAND_PATH([$include_path], [ai_p])
-     PHP_RUN_ONCE([INCLUDEPATH], [$ai_p], [m4_ifnblank([$2],
-       [INCLUDES="-I$ai_p $INCLUDES"],
+ AC_DEFUN([PHP_ADD_INCLUDE],[
+-  if test "$1" != "/usr/include"; then
++  if test "$1" != "$PHP_OS_SDKPATH/usr/include"; then
+     PHP_EXPAND_PATH($1, ai_p)
+     PHP_RUN_ONCE(INCLUDEPATH, $ai_p, [
+       if test "$2"; then
 diff --git a/configure.ac b/configure.ac
 index 36c6e5e3e2..71b1a16607 100644
 --- a/configure.ac
