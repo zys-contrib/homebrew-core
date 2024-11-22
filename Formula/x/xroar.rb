@@ -1,8 +1,8 @@
 class Xroar < Formula
   desc "Dragon and Tandy 8-bit computer emulator"
   homepage "https://www.6809.org.uk/xroar/"
-  url "https://www.6809.org.uk/xroar/dl/xroar-1.6.6.tar.gz"
-  sha256 "2f5f95f655beb41fecb65019f0a24a9c026527edf6d83bd1df55decdf1466494"
+  url "https://www.6809.org.uk/xroar/dl/xroar-1.7.1.tar.gz"
+  sha256 "39a9182ac5a07993b42d70c218b29b13f0466711e2a31c223621db00e3b813c2"
   license "GPL-3.0-or-later"
 
   bottle do
