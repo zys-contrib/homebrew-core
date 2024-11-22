@@ -15,7 +15,6 @@ class Libbsd < Formula
   end
 
   depends_on "libmd"
-  depends_on :linux
 
   def install
     system "./configure",
@@ -26,6 +25,7 @@ class Libbsd < Formula
   end
 
   test do
-    assert_match "strtonum", shell_output("nm #{lib/"libbsd.so.#{version}"}")
+    libbsd = lib/shared_library("libbsd", version.major.to_s)
+    assert_match "strtonum", shell_output("nm #{libbsd}")
   end
 end
