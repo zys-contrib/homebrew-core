@@ -8,12 +8,13 @@ class Dstack < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b45d2482d2a76909ce8c4ed360be413522155bc589f6c08f345f9e154be82cb6"
-    sha256 cellar: :any,                 arm64_sonoma:  "b7c31c9d1faf0b31ff1815a1e09f663179b87cbacd3fd90854562e0392a948a3"
-    sha256 cellar: :any,                 arm64_ventura: "0161c82ed87a71d78767d5b25a1a7cd3f7bc32f68dcf2838cd2987bb579b7fa1"
-    sha256 cellar: :any,                 sonoma:        "c8f007168f0f641d56615fc7328be7544c576364dfa664c88ee74bf039ee0dc8"
-    sha256 cellar: :any,                 ventura:       "dc9a139388bd5a0e68492ad8b2ff1cd2fcd5bce21a219b56fdb6cd6e01dbceae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f0df824535a2ffa0b75a417f40d775545ee17644ebe28db7271a3fde70145c3"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "077167116f7c4685d81a4a59e8512a33ebc58788f34ca9da63e74e8ce9a04e47"
+    sha256 cellar: :any,                 arm64_sonoma:  "6d7eaf0a4490006189d7b5e31730a10599aa9018cc6c42e2d9792e20066d8073"
+    sha256 cellar: :any,                 arm64_ventura: "dbb7e6e15fd08ef939d30a973fd06371486a45428304c25e6803a02e2f353bb7"
+    sha256 cellar: :any,                 sonoma:        "1f1fc6aea465c85ca7fecdd530e511607d08e1d3b9e405a299ce233522f6c2bb"
+    sha256 cellar: :any,                 ventura:       "6c5afa1b55224f88f0414844a040b2d57dddba636fb122086a059c3bba91794a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55680e87bcf33ac35dace877a2e6da08a13abc0e58dc9cbffa2ca00d0422d119"
   end
 
   # `pkgconf` and `rust` are for bcrypt.
@@ -23,7 +24,7 @@ class Dstack < Formula
   depends_on "cryptography"
   depends_on "libsodium" # for pynacl
   depends_on "libyaml"
-  depends_on "python@3.12" # Python 3.13 needs new asyncpg: https://github.com/MagicStack/asyncpg/issues/1181
+  depends_on "python@3.13"
 
   resource "aiohappyeyeballs" do
     url "https://files.pythonhosted.org/packages/bc/69/2f6d5a019bd02e920a3417689a89887b39ad1e350b562f9955693d900c40/aiohappyeyeballs-2.4.3.tar.gz"
@@ -651,7 +652,6 @@ class Dstack < Formula
   end
 
   def install
-    ENV["SODIUM_INSTALL"] = "system"
     virtualenv_install_with_resources
   end
 
