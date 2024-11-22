@@ -11,7 +11,7 @@ class Questdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "20971276238d965b16d8fcae1a24588e09c1d99b0d785c74ec202b29e925d3a3"
+    sha256 cellar: :any_skip_relocation, all: "b1c6bcb26fb3403ab66a61dd5e10338c5de981d8994e0f63e8f3c15cdc3d18cc"
   end
 
   depends_on "openjdk"
