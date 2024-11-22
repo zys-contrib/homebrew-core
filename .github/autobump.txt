@@ -2656,6 +2656,7 @@ sipp
 siril
 sispmctl
 sjk
+sk
 skaffold
 skate
 skeema
