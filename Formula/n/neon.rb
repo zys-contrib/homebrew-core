@@ -22,7 +22,7 @@ class Neon < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "50173d7d57cdaf7b97212155ce200dda9d9a3ce22935d83cb2212404b9e6a29d"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "xmlto" => :build
   depends_on "openssl@3"
 
@@ -35,13 +35,12 @@ class Neon < Formula
 
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
-    system "./configure", "--disable-debug",
-                          "--prefix=#{prefix}",
-                          "--enable-shared",
+    system "./configure", "--enable-shared",
                           "--disable-static",
                           "--disable-nls",
                           "--with-ssl=openssl",
-                          "--with-libs=#{Formula["openssl@3"].opt_prefix}"
+                          "--with-libs=#{Formula["openssl@3"].opt_prefix}",
+                          *std_configure_args
     system "make", "install"
   end
 
