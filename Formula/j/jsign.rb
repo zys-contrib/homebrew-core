@@ -23,6 +23,7 @@ class Jsign < Formula
     ENV["JAVA_HOME"] = Language::Java.java_home("21")
     system "mvn", "--batch-mode", "package",
                   "--projects", "jsign-core,jsign-cli,jsign-ant,jsign",
+                  "--also-make",
                   "-DskipTests",
                   "-Djdeb.skip",
                   "-Dmaven.javadoc.skip"
