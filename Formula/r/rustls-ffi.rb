@@ -1,8 +1,8 @@
 class RustlsFfi < Formula
   desc "FFI bindings for the rustls TLS library"
   homepage "https://github.com/rustls/rustls-ffi"
-  url "https://github.com/rustls/rustls-ffi/archive/refs/tags/v0.14.0.tar.gz"
-  sha256 "cfdee5c1fe65de6293ecb3bd69bedce227fe502adfa4ce152617e25f1543c565"
+  url "https://github.com/rustls/rustls-ffi/archive/refs/tags/v0.14.1.tar.gz"
+  sha256 "bd369104ae660660017ce2775af510e004f55a0146de3e8a8caf06d7de1025ee"
   license any_of: ["Apache-2.0", "MIT", "ISC"]
   head "https://github.com/rustls/rustls-ffi.git", branch: "main"
 
