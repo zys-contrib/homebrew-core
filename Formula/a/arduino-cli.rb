@@ -1,8 +1,8 @@
 class ArduinoCli < Formula
   desc "Arduino command-line interface"
   homepage "https://github.com/arduino/arduino-cli"
-  url "https://github.com/arduino/arduino-cli/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "35681850bed6af2379d1cd40cfda6064ee24e4933eeb1cfc1df47d5b0f8ed70f"
+  url "https://github.com/arduino/arduino-cli/archive/refs/tags/v1.1.1.tar.gz"
+  sha256 "df09593aee5f9e03b4aa4321fca90def01336f11681d87d57e5c73e4574a92cc"
   license "GPL-3.0-only"
   head "https://github.com/arduino/arduino-cli.git", branch: "master"
 
