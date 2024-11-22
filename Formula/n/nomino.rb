@@ -1,8 +1,8 @@
 class Nomino < Formula
   desc "Batch rename utility"
   homepage "https://github.com/yaa110/nomino"
-  url "https://github.com/yaa110/nomino/archive/refs/tags/1.3.5.tar.gz"
-  sha256 "35df10b30608c6ce733fe57625247621f8b2c51d99dc68421114b54880424ed2"
+  url "https://github.com/yaa110/nomino/archive/refs/tags/1.3.6.tar.gz"
+  sha256 "12e14d951b3fa99d17b9a0de97b7f9d9003f67ef83eb6b993623da066bc54dd4"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/yaa110/nomino.git", branch: "master"
 
