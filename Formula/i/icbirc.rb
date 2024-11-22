@@ -1,8 +1,8 @@
 class Icbirc < Formula
   desc "Proxy IRC client and ICB server"
   homepage "https://www.benzedrine.ch/icbirc.html"
-  url "https://www.benzedrine.ch/icbirc-2.1.tar.gz"
-  sha256 "6839344d93c004da97ec6bb5d805a1db7e0a79efc3870445788043627162bbb1"
+  url "https://www.benzedrine.ch/icbirc-2.2.tar.gz"
+  sha256 "de045b4fc826abc348d4f83ac674a135faeee7235a4941d5daf35e85a83c2b3e"
   license "BSD-2-Clause"
 
   livecheck do
