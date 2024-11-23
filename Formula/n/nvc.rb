@@ -22,7 +22,7 @@ class Nvc < Formula
   end
 
   depends_on "check" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "llvm"
   depends_on "zstd"
 
@@ -33,8 +33,6 @@ class Nvc < Formula
   on_linux do
     depends_on "elfutils"
   end
-
-  fails_with gcc: "5" # LLVM is built with GCC
 
   def install
     system "./autogen.sh" if build.head?
