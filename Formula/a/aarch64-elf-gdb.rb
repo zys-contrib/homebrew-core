@@ -24,7 +24,7 @@ class Aarch64ElfGdb < Formula
   depends_on "aarch64-elf-gcc" => :test
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "readline"
   depends_on "xz" # required for lzma support
   depends_on "zstd"
@@ -49,7 +49,7 @@ class Aarch64ElfGdb < Formula
       --with-curses
       --with-expat
       --with-lzma
-      --with-python=#{which("python3.12")}
+      --with-python=#{which("python3.13")}
       --with-system-readline
       --with-system-zlib
       --with-zstd
