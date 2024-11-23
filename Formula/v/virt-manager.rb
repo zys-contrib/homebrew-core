@@ -55,6 +55,10 @@ class VirtManager < Formula
   end
 
   def install
+    # Fix to use shlex instead of pipes, should be removed in next release
+    # Commit ref: https://github.com/virt-manager/virt-manager/commit/bb1afaba29019605a240a57d6b3ca8eb36341d9b
+    inreplace "virtManager/object/domain.py", "pipes", "shlex"
+
     python3 = "python3.13"
     venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
@@ -65,7 +69,7 @@ class VirtManager < Formula
     ENV["PIP_CONFIG_SETTINGS"] = "--global-option=--no-update-icon-cache --no-compile-schemas"
     venv.pip_install_and_link buildpath
 
-    prefix.install libexec/"share"
+    share.install Dir[libexec/"share/*"]
   end
 
   def post_install
@@ -76,9 +80,7 @@ class VirtManager < Formula
   end
 
   test do
-    libvirt_pid = fork do
-      exec Formula["libvirt"].opt_sbin/"libvirtd", "-f", Formula["libvirt"].etc/"libvirt/libvirtd.conf"
-    end
+    libvirt_pid = spawn Formula["libvirt"].opt_sbin/"libvirtd", "-f", Formula["libvirt"].etc/"libvirt/libvirtd.conf"
 
     output = testpath/"virt-manager.log"
     virt_manager_pid = fork do
@@ -86,7 +88,7 @@ class VirtManager < Formula
       $stderr.reopen(output)
       exec bin/"virt-manager", "-c", "test:///default", "--debug"
     end
-    sleep 10
+    sleep 20
 
     assert_match "conn=test:///default changed to state=Active", output.read
   ensure
