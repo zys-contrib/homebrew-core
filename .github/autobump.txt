@@ -3250,6 +3250,7 @@ zoro
 zoxide
 zpaqfranz
 zsh-autosuggestions
+zsh-lovers
 zsh-vi-mode
 zsh-you-should-use
 zshdb
