@@ -26,7 +26,7 @@ class Votca < Formula
   depends_on "libint"
   depends_on "libxc"
   depends_on "numpy"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "expat"
 
