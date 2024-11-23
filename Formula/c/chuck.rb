@@ -1,9 +1,9 @@
 class Chuck < Formula
   desc "Concurrent, on-the-fly audio programming language"
   homepage "https://chuck.cs.princeton.edu/"
-  url "https://chuck.cs.princeton.edu/release/files/chuck-1.5.4.1.tgz"
-  mirror "https://chuck.stanford.edu/release/files/chuck-1.5.4.1.tgz"
-  sha256 "096957729006c85a0c7f15ffe38f1c8eb85b06a194a3445986996555aabf28a5"
+  url "https://chuck.cs.princeton.edu/release/files/chuck-1.5.4.2.tgz"
+  mirror "https://chuck.stanford.edu/release/files/chuck-1.5.4.2.tgz"
+  sha256 "cc04cffb5b7fc93ca63154324a2787478d47a0992e0590e4c623ac4808294a10"
   license "GPL-2.0-or-later"
   head "https://github.com/ccrma/chuck.git", branch: "main"
 
@@ -26,6 +26,7 @@ class Chuck < Formula
 
   on_linux do
     depends_on "alsa-lib"
+    depends_on "libsndfile"
     depends_on "pulseaudio"
   end
 
