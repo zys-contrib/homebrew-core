@@ -1,9 +1,9 @@
 class Cataclysm < Formula
   desc "Fork/variant of Cataclysm Roguelike"
   homepage "https://github.com/CleverRaven/Cataclysm-DDA"
-  url "https://github.com/CleverRaven/Cataclysm-DDA/archive/refs/tags/0.G.tar.gz"
-  version "0.G"
-  sha256 "e559d0d495b314ed39890920b222b4ae5067db183b5d39d4263700bfd66f36fb"
+  url "https://github.com/CleverRaven/Cataclysm-DDA/archive/refs/tags/0.H-RELEASE.tar.gz"
+  version "0.H"
+  sha256 "9fbd80d13321321d6ed1f5a736ab874e06d335429f2a51a39eefd2fa51feae68"
   license "CC-BY-SA-3.0"
 
   livecheck do
@@ -32,6 +32,7 @@ class Cataclysm < Formula
     end
   end
 
+  depends_on "gettext" => :build # for msgfmt
   depends_on "pkgconf" => :build
   depends_on "libogg"
   depends_on "libvorbis"
@@ -85,7 +86,7 @@ class Cataclysm < Formula
     # run cataclysm for 30 seconds
     pid = spawn bin/"cataclysm"
     begin
-      sleep 30
+      sleep 50
       assert_predicate user_config_dir/"config",
                        :exist?, "User config directory should exist"
     ensure
