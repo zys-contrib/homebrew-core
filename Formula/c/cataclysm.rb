@@ -8,7 +8,7 @@ class Cataclysm < Formula
 
   livecheck do
     url :stable
-    regex(/([^"' >]+)/i)
+    regex(/^v?(\d+(?:\.(?:\d+|\w))+(?:[_-]\d+)?)/i)
     strategy :github_latest
   end
 
