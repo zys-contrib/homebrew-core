@@ -1727,7 +1727,6 @@ libxslt
 libxt
 libxvmc
 libzim
-libzip
 libzzip
 license-eye
 licensed
