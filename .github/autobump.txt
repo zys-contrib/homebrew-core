@@ -1493,6 +1493,7 @@ kubehound
 kubekey
 kubelogin
 kubent
+kubeone
 kubergrunt
 kubernetes-cli
 kubernetes-cli@1.29
