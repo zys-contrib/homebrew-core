@@ -14,6 +14,7 @@ class Pyside < Formula
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
   ]
+  revision 1
 
   livecheck do
     url "https://download.qt.io/official_releases/QtForPython/pyside6/"
@@ -31,8 +32,9 @@ class Pyside < Formula
   depends_on "ninja" => :build
   depends_on "python-setuptools" => :build
   depends_on xcode: :build
+  depends_on "pkgconf" => :test
   depends_on "llvm"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "qt"
 
   uses_from_macos "libxml2"
@@ -42,14 +44,12 @@ class Pyside < Formula
     depends_on "mesa"
   end
 
-  fails_with gcc: "5"
-
   # Fix .../sources/pyside6/qtexampleicons/module.c:4:10: fatal error: 'Python.h' file not found
   # Upstream issue: https://bugreports.qt.io/browse/PYSIDE-2491
   patch :DATA
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
@@ -82,9 +82,9 @@ class Pyside < Formula
                      "-DPYTHON_EXECUTABLE=#{which(python3)}",
                      "-DBUILD_TESTS=OFF",
                      "-DNO_QT_TOOLS=yes",
-                     "-DFORCE_LIMITED_API=yes",
+                     # Limited API (maybe combined with keg relocation) breaks the Linux bottle
+                     "-DFORCE_LIMITED_API=#{OS.mac? ? "yes" : "no"}",
                      *std_cmake_args
-
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -127,10 +127,8 @@ class Pyside < Formula
         return 0;
       }
     CPP
-    system ENV.cxx, "-std=c++17", "test.cpp",
-                    "-I#{include}/shiboken6",
-                    "-L#{lib}", "-lshiboken6.abi3",
-                    *pyincludes, *pylib, "-o", "test"
+    shiboken_flags = shell_output("pkgconf --cflags --libs shiboken6").chomp.split
+    system ENV.cxx, "-std=c++17", "test.cpp", *shiboken_flags, *pyincludes, *pylib, "-o", "test"
     system "./test"
   end
 end
