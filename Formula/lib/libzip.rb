@@ -11,12 +11,12 @@ class Libzip < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "8edff4d317c07b10668d8966db23bf568b55cfcf1b52a772fd5bde020d3c4753"
-    sha256 cellar: :any,                 arm64_sonoma:  "3dce66ccd6891fa5af53a195d2dced3a3ef1c4738f3f57e288c4fd5d1cf02d73"
-    sha256 cellar: :any,                 arm64_ventura: "56225b61b948c8f44ab4818bde528c3c4c84f90c02362d13f215a726961112a9"
-    sha256 cellar: :any,                 sonoma:        "9a8d6612ce96978694b6e309473a230cc1e338fedca339f9366010670880c50b"
-    sha256 cellar: :any,                 ventura:       "d1887f3ee534207c478ea5bad5ff822bcbdfa247c1c5b59957e8ff0e41d0d2ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03bf2c4dd2b97ab8a4e111bedf1f58074b0f859874cbbbb1c9b158c3e3f6d1ca"
+    sha256 cellar: :any,                 arm64_sequoia: "2494bafc73a82fa1b2529edfa5fcfe182b8106224667cdf04ae5421d98c4d467"
+    sha256 cellar: :any,                 arm64_sonoma:  "ab4af5a2277a7fc98299be889a18b8a234025ab728415128029e50de2e3a68c9"
+    sha256 cellar: :any,                 arm64_ventura: "66813828486a24c74a23ccf43775c31933cc45cf6b1dbf52ac5c3348bd20adb6"
+    sha256 cellar: :any,                 sonoma:        "fdc878d65b2da686d8eb3177313766edeb70c2ddd0d25cf3f18d5d479dcdf30c"
+    sha256 cellar: :any,                 ventura:       "7e6909a3b89b416f531f3e1f4bc5f0d78f346c057fade881e81cf700c8bb6fdf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "98a73f6968abe482c71683d07d069e098b4f7b4163f187eaa85fb8f956877dbd"
   end
 
   depends_on "cmake" => :build
