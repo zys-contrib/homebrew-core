@@ -9,13 +9,12 @@ class Nvchecker < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "fe0db13d1224d35fc9cc7179cdad99e77f96d31ce777ebb5d83c5fce836c2873"
-    sha256 cellar: :any,                 arm64_sonoma:  "0e07c5535aac4fb997747f3b0475cb9b690e79306d190c6120bb2450863abe38"
-    sha256 cellar: :any,                 arm64_ventura: "b987f3a4e9e0f13c3ab8f0992af81a91a5451a720f8810c5f9d3daecc0d9e63e"
-    sha256 cellar: :any,                 sonoma:        "00452573b0f565bf9c082c4ee374830da8a53bf9a144f4bef238d4151f10dcee"
-    sha256 cellar: :any,                 ventura:       "81b83f83053cc80abd52e0f1d13b80942f444e01f61baa50806c38b557526328"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20cdb4c36148d20d550cdecb17f052f5684c4ec7afce1f946fd182b560974c16"
+    sha256 cellar: :any,                 arm64_sequoia: "8ebf0ff1522e165f0ad02a3587f167b1693989c250466a1f8e5bd2f44fd4fa41"
+    sha256 cellar: :any,                 arm64_sonoma:  "f28f5e85b361d4dc087c63bbcee868d7813b8a965dbf055c3591388c31395ef9"
+    sha256 cellar: :any,                 arm64_ventura: "b21d37a8ab12c299c66e533ab6db67d618f0d6aaee4eea13963befdf3797c76e"
+    sha256 cellar: :any,                 sonoma:        "a2141a9d4c0c780150198a4805f3b57f19af6b9fd194ea7920f866ac562369ac"
+    sha256 cellar: :any,                 ventura:       "5ba8acc0639bd4c7a2987956ade345021c9f43727d7250f606419fb64c362c97"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de8942f1972ca5570cc933da5c40096943902ca956f2ad8ee198d2f564487271"
   end
 
   depends_on "jq" => :test
