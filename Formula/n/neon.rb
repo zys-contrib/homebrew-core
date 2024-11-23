@@ -1,9 +1,9 @@
 class Neon < Formula
   desc "HTTP and WebDAV client library with a C interface"
   homepage "https://notroj.github.io/neon/"
-  url "https://notroj.github.io/neon/neon-0.33.0.tar.gz"
-  mirror "https://fossies.org/linux/www/neon-0.33.0.tar.gz"
-  sha256 "659a5cc9cea05e6e7864094f1e13a77abbbdbab452f04d751a8c16a9447cf4b8"
+  url "https://notroj.github.io/neon/neon-0.34.0.tar.gz"
+  mirror "https://fossies.org/linux/www/neon-0.34.0.tar.gz"
+  sha256 "2e3ee8535039966c80764f539d5c9bfee1651a17e2f36e5ca462632181253977"
   license "LGPL-2.0-or-later"
 
   livecheck do
@@ -74,13 +74,16 @@ class Neon < Formula
       server = TCPServer.new port
       session = server.accept
       msg = session.gets
-      session.puts "HTTP/1.1 200\r\nContent-Type: text/html\r\n\r\n"
-      session.puts "Hello world! Message: #{msg}"
+      response_body = "Hello world! Message: #{msg.strip}"
+      content_length = response_body.bytesize
+
+      session.puts "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\nContent-Length: #{content_length}\r\n\r\n"
+      session.puts response_body
       session.close
       server.close
     end
 
     sleep 1
-    assert_match "Hello world! Message: GET /foo/bar/baz HTTP/1.1\r\n", shell_output("./test")
+    assert_match "Hello world! Message: GET /foo/bar/baz HTTP/1.1", shell_output("./test")
   end
 end
