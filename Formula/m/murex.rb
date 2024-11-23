@@ -12,12 +12,12 @@ class Murex < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ed02887901e870db9f95c79268922b5ac1bc9903cfd92624d64ea12092b47321"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ed02887901e870db9f95c79268922b5ac1bc9903cfd92624d64ea12092b47321"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ed02887901e870db9f95c79268922b5ac1bc9903cfd92624d64ea12092b47321"
-    sha256 cellar: :any_skip_relocation, sonoma:        "53f709e6aa6c221de8fb48aa73a36e86a19fe438d9a46002cfd885e3183cde1c"
-    sha256 cellar: :any_skip_relocation, ventura:       "53f709e6aa6c221de8fb48aa73a36e86a19fe438d9a46002cfd885e3183cde1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "53a5069937142d85262064688c679db11eddf92e9073b68dbded9c16b4fd2fe3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "80d3c0ba2ba94d6e144c4e75aa82971b84d19923ea2e5bb9cd27e2bf8e80a906"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "80d3c0ba2ba94d6e144c4e75aa82971b84d19923ea2e5bb9cd27e2bf8e80a906"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "80d3c0ba2ba94d6e144c4e75aa82971b84d19923ea2e5bb9cd27e2bf8e80a906"
+    sha256 cellar: :any_skip_relocation, sonoma:        "119a92544888f18a44b2591cd4f88171939ca6c80b2126720b23759dfc8dfb09"
+    sha256 cellar: :any_skip_relocation, ventura:       "119a92544888f18a44b2591cd4f88171939ca6c80b2126720b23759dfc8dfb09"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32c1f750fe1349eff4242817784496b6d108982e731b63d9986a018df2837300"
   end
 
   depends_on "go" => :build
