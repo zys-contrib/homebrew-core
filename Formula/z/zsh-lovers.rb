@@ -11,8 +11,7 @@ class ZshLovers < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "f6a9e4e5dd0ae7c630dd266ef00521bb30b5e2d0e60bf36c7f46914cd0654d8a"
+    sha256 cellar: :any_skip_relocation, all: "78b619a87a59fb167481f7dbca50c19e8f09048faa3a09359d54345b4f503652"
   end
 
   uses_from_macos "xz" => :build
