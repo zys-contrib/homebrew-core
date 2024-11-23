@@ -1807,6 +1807,7 @@ makepkg
 mako
 man-db
 manifest-tool
+manticoresearch
 mantra
 mapcidr
 mapproxy
