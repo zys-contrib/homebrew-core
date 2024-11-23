@@ -2,6 +2,7 @@ class Coin3d < Formula
   desc "Open Inventor 2.1 API implementation (Coin) with Python bindings (Pivy)"
   homepage "https://coin3d.github.io/"
   license all_of: ["BSD-3-Clause", "ISC"]
+  revision 1
 
   stable do
     url "https://github.com/coin3d/coin/releases/download/v4.0.3/coin-4.0.3-src.tar.gz"
@@ -54,7 +55,7 @@ class Coin3d < Formula
   depends_on "swig" => :build
   depends_on "boost"
   depends_on "pyside"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "qt"
 
   on_linux do
@@ -63,7 +64,7 @@ class Coin3d < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
@@ -119,10 +120,10 @@ class Coin3d < Formula
     # Set QT_QPA_PLATFORM to minimal to avoid error:
     # "This application failed to start because no Qt platform plugin could be initialized."
     ENV["QT_QPA_PLATFORM"] = "minimal" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-    system python3, "-c", <<~EOS
+    system python3, "-c", <<~PYTHON
       import shiboken6
       from pivy.sogui import SoGui
       assert SoGui.init("test") is not None
-    EOS
+    PYTHON
   end
 end
