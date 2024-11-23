@@ -22,10 +22,11 @@ class Pyside < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:  "c68e9ffe44861c52ec2190a21ca5d50e6122bb8d91087c950ba23132d44a6c42"
-    sha256 cellar: :any, arm64_ventura: "ef11438a72f6dc75f50951241eeb5ef95a6011078b73bb0c3389f28fe35c8bb1"
-    sha256 cellar: :any, sonoma:        "08290c31434dc6f115eb7f53f92540a347b693b5d125aa2f8935358bff04adb0"
-    sha256 cellar: :any, ventura:       "ed319e06e865311c2a788b94528034cb1e59023fef6e621a84638f28915c095c"
+    sha256 cellar: :any,                 arm64_sonoma:  "dc93c539db28959cf90f3007bafa5aee52051e79a594e78625dc076712512471"
+    sha256 cellar: :any,                 arm64_ventura: "f5e321f36f4f35a16e504ca5c856464cfba8680cddf98714e1aca3a01bc6e64c"
+    sha256 cellar: :any,                 sonoma:        "2264961ab93c38f68e224ab9b6ccc1ee2f9b48cecbac234861ca0933e0ac7a86"
+    sha256 cellar: :any,                 ventura:       "d142edf80b5c8a07e40d56e260f3ba08ed879deedd8ebeaea0bb1580a5b26093"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "242f0b1bf3dd12c40c30b8b58b55a770a3e32e3ef4824e6fafdd99e0cd5bc538"
   end
 
   depends_on "cmake" => :build
