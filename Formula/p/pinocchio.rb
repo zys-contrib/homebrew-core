@@ -13,12 +13,12 @@ class Pinocchio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3088be717f0b5ceb10f793515af84a55d1711b51cf7e73b5d7e6c3d95a30c9b1"
-    sha256 cellar: :any,                 arm64_sonoma:  "1a14087e72c5ebe61e76027de8e4b13a839d08fc35e834f931290f4a07276423"
-    sha256 cellar: :any,                 arm64_ventura: "a2fbd3bbebd1391a73f1d5e412d55e8fd8fb88c10ef601ed299d8da9a00d2e0b"
-    sha256 cellar: :any,                 sonoma:        "9ce50ce56129f81cdf400a57e8bcb2ee4f47f2aca0fb1019b47f43793d0ca055"
-    sha256 cellar: :any,                 ventura:       "f851f77332ec60ce5bba414612d13ef97ff4b2a22a92b356c2ed9c5c2d462a9c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "398598872be05caddc9bd4a74af3ad57c701d8cfe633db4f3a4e1679142fc1b6"
+    sha256 cellar: :any,                 arm64_sequoia: "a78d5102e37727446e188ae3f2b885116c51e0dd54ca94709d16c43dd1e38684"
+    sha256 cellar: :any,                 arm64_sonoma:  "c8edb4e650e857f57390308388eaedc2b1d17d58cb3dad208e8b30d3593b5f26"
+    sha256 cellar: :any,                 arm64_ventura: "cbd7ce61c6721055bddd60f53b8932d3f0309614a1b6635a225fd409074ea0d4"
+    sha256 cellar: :any,                 sonoma:        "ff5487b53675a5a88cdb0858b0c8df3a6baa17ccdb6ccdea4e3a5a947d6a08cc"
+    sha256 cellar: :any,                 ventura:       "0e48086ae4525d6e3fd7745f704fe8514e0e72b05828e54f6ad71995d4c3cd8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c162710f44ea4bcdcfb735121c192337454a14a3e55e0a84a8f030a135b6ea34"
   end
 
   depends_on "cmake" => :build
