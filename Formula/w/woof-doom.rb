@@ -1,8 +1,8 @@
 class WoofDoom < Formula
   desc "Woof! is a continuation of the Boom/MBF bloodline of Doom source ports"
   homepage "https://github.com/fabiangreffrath/woof"
-  url "https://github.com/fabiangreffrath/woof/archive/refs/tags/woof_14.5.0.tar.gz"
-  sha256 "1ad9e27ffeb70a60344e98f08bf17650856ffb51aa32cffd94468dacd9f1d42a"
+  url "https://github.com/fabiangreffrath/woof/archive/refs/tags/woof_15.0.0.tar.gz"
+  sha256 "7e9bbdb54033afcb5c4347ee81e1cdef4fad94519f29c12af4bb554b5dad0b75"
   license "GPL-2.0-only"
   head "https://github.com/fabiangreffrath/woof.git", branch: "master"
 
@@ -19,6 +19,7 @@ class WoofDoom < Formula
 
   depends_on "cmake" => :build
   depends_on "fluid-synth"
+  depends_on "libebur128"
   depends_on "libsndfile"
   depends_on "libxmp"
   depends_on "openal-soft"
@@ -43,7 +44,9 @@ class WoofDoom < Formula
     EOS
     (testpath/"test_invalid.wad").write testdata
 
-    expected_output = "Wad file test_invalid.wad doesn't have IWAD or PWAD id"
+    expected_output = "Error: Failed to load test_invalid.wad"
     assert_match expected_output, shell_output("#{bin}/woof -nogui -iwad test_invalid.wad 2>&1", 255)
+
+    assert_match version.to_s, shell_output("#{bin}/woof -version")
   end
 end
