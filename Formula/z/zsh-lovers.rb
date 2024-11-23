@@ -1,8 +1,8 @@
 class ZshLovers < Formula
   desc "Tips, tricks, and examples for zsh"
   homepage "https://grml.org/zsh/#zshlovers"
-  url "https://deb.grml.org/pool/main/z/zsh-lovers/zsh-lovers_0.10.1_all.deb"
-  sha256 "b2cebc38bded607b77fa2738fe6ed7a770550b06e4ce7cbe6243701d0400c09c"
+  url "https://deb.grml.org/pool/main/z/zsh-lovers/zsh-lovers_0.11.0_all.deb"
+  sha256 "893e5785df2c1a2109b364473937ea77d63ddf2ba088b4cd87c8e74c1d26d192"
   license "GPL-2.0-only"
 
   livecheck do
