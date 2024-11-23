@@ -479,6 +479,7 @@ cmu-pocketsphinx
 cmus
 cnats
 cntb
+coal
 cobalt
 coccinelle
 cocoapods
@@ -1263,7 +1264,6 @@ hopenpgp-tools
 hoverfly
 howard-hinnant-date
 hpack
-hpp-fcl
 htmldoc
 htmlq
 htmltest
