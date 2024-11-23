@@ -1,8 +1,8 @@
 class F2 < Formula
   desc "Command-line batch renaming tool"
   homepage "https://github.com/ayoisaiah/f2"
-  url "https://github.com/ayoisaiah/f2/archive/refs/tags/v2.0.2.tar.gz"
-  sha256 "c5f95ae41f3c7966e39aa8ba4e9fc6a45cea1a451788c20e8df9be7981c7614b"
+  url "https://github.com/ayoisaiah/f2/archive/refs/tags/v2.0.3.tar.gz"
+  sha256 "164e1282ae1f2ea6a8af93c785d7bb214b09919ad8537b8fbab5b5bc8ee1a396"
   license "MIT"
   head "https://github.com/ayoisaiah/f2.git", branch: "master"
 
