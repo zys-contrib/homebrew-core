@@ -724,6 +724,7 @@ dpp
 dprint
 dra
 draco
+draft
 drafter
 dragonbox
 driftctl
