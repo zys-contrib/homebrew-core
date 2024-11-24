@@ -1,8 +1,8 @@
 class Kubetail < Formula
   desc "Logging tool for Kubernetes with a real-time web dashboard"
   homepage "https://www.kubetail.com/"
-  url "https://github.com/kubetail-org/kubetail/archive/refs/tags/cli/v0.0.7.tar.gz"
-  sha256 "7b5a19702f514ecf2789b949105d93837ec876f2e78927b9d518cfe6f1859ec1"
+  url "https://github.com/kubetail-org/kubetail/archive/refs/tags/cli/v0.0.8.tar.gz"
+  sha256 "d1a5274688379f7e5b5775e44c1465f9c46d07957f096a32a62bd299f7921c63"
   license "Apache-2.0"
 
   livecheck do
@@ -25,7 +25,7 @@ class Kubetail < Formula
   depends_on "pnpm" => :build
 
   def install
-    system "make", "build"
+    system "make", "build", "VERSION=#{version}"
     bin.install "bin/kubetail"
     generate_completions_from_executable(bin/"kubetail", "completion")
   end
@@ -33,5 +33,7 @@ class Kubetail < Formula
   test do
     command_output = shell_output("#{bin}/kubetail serve --test")
     assert_match "ok", command_output
+
+    assert_match version.to_s, shell_output("#{bin}/kubetail --version")
   end
 end
