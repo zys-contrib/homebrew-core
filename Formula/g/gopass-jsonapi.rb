@@ -1,8 +1,8 @@
 class GopassJsonapi < Formula
   desc "Gopass Browser Bindings"
   homepage "https://github.com/gopasspw/gopass-jsonapi"
-  url "https://github.com/gopasspw/gopass-jsonapi/archive/refs/tags/v1.15.14.tar.gz"
-  sha256 "2ff6a1b03d5b7befe81d6465990ea5b13b9ad052d6c9cf1638b795767307d9ea"
+  url "https://github.com/gopasspw/gopass-jsonapi/archive/refs/tags/v1.15.15.tar.gz"
+  sha256 "edd71e029d8f23e23f8b3a2fa5cf805910ca023d3607ea7bc0a59355b21b40b8"
   license "MIT"
 
   bottle do
@@ -17,15 +17,7 @@ class GopassJsonapi < Formula
 
   depends_on "go" => :build
   depends_on "gopass"
-
-  # update screenshot to build with macos sequoia
-  # upstram pr ref, https://github.com/gopasspw/gopass-jsonapi/pull/130
-  patch do
-    on_sonoma :or_newer do
-      url "https://github.com/gopasspw/gopass-jsonapi/commit/bcab9c40e9dc63c39bdc45c91a534eb34d95a8dc.patch?full_index=1"
-      sha256 "29254a57c99136d1bfaa059d497e6b3e7e7e6e3cf495e584519c6fe7291f7d49"
-    end
-  end
+  depends_on macos: :sonoma # for SCScreenshotManager
 
   def install
     ldflags = "-s -w -X main.version=#{version}"
