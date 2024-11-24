@@ -1698,6 +1698,7 @@ libtorrent-rakshasa
 libtrace
 libtrng
 libucl
+libultrahdr
 libunibreak
 libuninameslist
 libunistring
