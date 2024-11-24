@@ -6,6 +6,15 @@ class Kubeone < Formula
   license "Apache-2.0"
   head "https://github.com/kubermatic/kubeone.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5bf47ae6c90784a9ec05d00889a2a5cd4239605c0b354370e017259358e500f1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6ae8c30e1d7fc8476110911783fbd553bb0bc18ef276fcd7ac360be3c87859ad"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d3252718f8c30f82539568717059abbb5509295d36856cfe88e0d26048520878"
+    sha256 cellar: :any_skip_relocation, sonoma:        "59d426a43d57cd8d1e77a88ca27845e574c0429a111295f7adc7233771b053b6"
+    sha256 cellar: :any_skip_relocation, ventura:       "df4aeb4046121b37aad39e31424b07d31ec4981e28a5512eece1f673b55d811c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "424a20cb16843151ecd2c5afec8a5d16cb095d479fc42017dcc09cdd358e7d1b"
+  end
+
   depends_on "go" => :build
 
   def install
