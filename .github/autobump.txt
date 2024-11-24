@@ -2450,6 +2450,7 @@ radamsa
 radare2
 rage
 railway
+rainfrog
 rakudo-star
 rancher-cli
 ranger
