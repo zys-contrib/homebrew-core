@@ -418,6 +418,7 @@ chicken
 chisel-tunnel
 chkbit
 chkrootkit
+choose-gui
 choose-rust
 chroma
 chromaprint
