@@ -3130,6 +3130,7 @@ wego
 werf
 west
 wgcf
+wget2
 whistle
 whois
 widelands
