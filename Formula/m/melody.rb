@@ -1,8 +1,8 @@
 class Melody < Formula
   desc "Language that compiles to regular expressions"
   homepage "https://yoav-lavi.github.io/melody/book"
-  url "https://github.com/yoav-lavi/melody/archive/refs/tags/0.19.0.tar.gz"
-  sha256 "d7605160d3589578c84a919c09addd8f4bd1f06441795192041b491462c9f655"
+  url "https://github.com/yoav-lavi/melody/archive/refs/tags/v0.20.0.tar.gz"
+  sha256 "b0dd1b0ecc1af97f09f98a9a741e0dddbf92380c9980140140ff1b4262b9a44a"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
