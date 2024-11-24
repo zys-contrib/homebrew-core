@@ -11,15 +11,12 @@ class Wget2 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia:  "6bc61f262e20d15cd1f079e71cd55e2a642fef0b66efbb77334773faef36aabe"
-    sha256 arm64_sonoma:   "99ca029e3321591fa99a9af0e8b64f562dea3da226b823d35c5af55293b7a991"
-    sha256 arm64_ventura:  "067870948de34bc06ebd36a69046d99fae639622d214272da2e3daac92f2f993"
-    sha256 arm64_monterey: "923e704bf22d606bc90046a3b61e1ec65eee7e0ae557eb08ac3d6671849cf3e4"
-    sha256 sonoma:         "41d146a9305abbf4a5e418e4a45f9a2aa6697a2490f528247cc359c8a0c9f9be"
-    sha256 ventura:        "3f42f84bde572aa62f1c866d436f7a00760a3d7fae407a61c102b8087bd42696"
-    sha256 monterey:       "28caefa64e171177a81c69c77d9252a312cc511028bde86702387f4d4d65a666"
-    sha256 x86_64_linux:   "20df0cbf4bba791786a2e8c0be9ed8a448545e4cf68702a967fd76756c85b251"
+    sha256 arm64_sequoia: "477e456159a939aa933ea526619577425aa08eefa1c4dd13b90b83f2701c905e"
+    sha256 arm64_sonoma:  "5288526cde424fc1e81ae4add33585d7a70539a0e7dd0f3da0a0b38fd4cee47d"
+    sha256 arm64_ventura: "bc2c0f6366d82d759f2171f14fac1101e545e138f0008f30166b381d410c98ad"
+    sha256 sonoma:        "e1cac6e4fe46311120be862c3aebe2ee0d452f5da01df5bc6cebeec8fb540af0"
+    sha256 ventura:       "6f1f601644a2a7a7acdb1f4d0d7de04e26430f58c80ac9752506b200e3600fba"
+    sha256 x86_64_linux:  "6a577c25a6df35a432534aef3a9f59e040792b1ce92055a952b1ba9e43aca1c7"
   end
 
   depends_on "doxygen" => :build
