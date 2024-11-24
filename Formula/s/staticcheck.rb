@@ -4,7 +4,7 @@ class Staticcheck < Formula
   url "https://github.com/dominikh/go-tools/archive/refs/tags/2024.1.1.tar.gz"
   sha256 "fa0e5305e91ef126ac7de52c99a04728255fc694d45b0a9a3f1ca026a44828bf"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/dominikh/go-tools.git", branch: "master"
 
   bottle do
@@ -25,6 +25,7 @@ class Staticcheck < Formula
   end
 
   test do
+    system "go", "mod", "init", "brewtest"
     (testpath/"test.go").write <<~GO
       package main
 
@@ -36,7 +37,8 @@ class Staticcheck < Formula
         fmt.Println(x)
       }
     GO
-    json_output = JSON.parse(shell_output("#{bin}/staticcheck -f json test.go", 1))
-    assert_equal json_output["code"], "S1021"
+    json_output = JSON.parse(shell_output("#{bin}/staticcheck -f json .", 1))
+    refute_match "but Staticcheck was built with", json_output["message"]
+    assert_equal "S1021", json_output["code"]
   end
 end
