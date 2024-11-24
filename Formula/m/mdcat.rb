@@ -1,8 +1,8 @@
 class Mdcat < Formula
   desc "Show markdown documents on text terminals"
   homepage "https://github.com/swsnr/mdcat"
-  url "https://github.com/swsnr/mdcat/archive/refs/tags/mdcat-2.6.2.tar.gz"
-  sha256 "9b7dea0bb527a651ddc17aee08a14176e0a23eb0564c786362e8d6bf43a18c1c"
+  url "https://github.com/swsnr/mdcat/archive/refs/tags/mdcat-2.7.0.tar.gz"
+  sha256 "e372a82291a139f95d77c12325a2f595f47f6d6b4c2de70e50ab2117e975734f"
   license "MPL-2.0"
   head "https://github.com/swsnr/mdcat.git", branch: "main"
 
@@ -17,6 +17,8 @@ class Mdcat < Formula
 
   depends_on "asciidoctor" => :build
   depends_on "rust" => :build
+
+  uses_from_macos "curl"
 
   on_linux do
     depends_on "pkg-config" => :build
