@@ -2476,6 +2476,7 @@ recc
 recode
 recoverpy
 redict
+redka
 redress
 redwax-tool
 regclient
