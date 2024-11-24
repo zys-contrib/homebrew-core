@@ -959,6 +959,7 @@ fortls
 fossil
 fourmolu
 fourstore
+fox
 fping
 fplll
 fq

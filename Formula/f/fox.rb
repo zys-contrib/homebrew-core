@@ -1,8 +1,8 @@
 class Fox < Formula
   desc "Toolkit for developing Graphical User Interfaces easily"
   homepage "http://fox-toolkit.org/"
-  url "http://fox-toolkit.org/ftp/fox-1.6.58.tar.gz"
-  sha256 "5a734b84d76d2f8e334e26ff85dd3950d3fedf53057a4d4b19fd4a712c8d5b81"
+  url "http://fox-toolkit.org/ftp/fox-1.6.59.tar.gz"
+  sha256 "48f33d2dd5371c2d48f6518297f0ef5bbf3fcd37719e99f815dc6fc6e0f928ae"
   license "LGPL-2.1-or-later"
 
   # We restrict matching to versions with an even-numbered minor version
