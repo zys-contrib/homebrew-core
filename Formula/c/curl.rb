@@ -115,6 +115,13 @@ class Curl < Formula
     system "make", "install"
     system "make", "install", "-C", "scripts"
     libexec.install "scripts/mk-ca-bundle.pl"
+    return if build.head? || !OS.mac?
+
+    # Workaround to fix Requires.private for system libraries that don't have pkg-config files.
+    # We manually inreplace as upstream fix requires re-generating configure.
+    # TODO: Remove in the next release (inreplace will fail)
+    # Ref: https://github.com/curl/curl/commit/e244d50064a56723c2ba4f0df8c847d6b70de0cb
+    inreplace lib/"pkgconfig/libcurl.pc", /^(Requires\.private: )ldap,(.*),mit-krb5-gssapi,/, "\\1\\2,"
   end
 
   test do
