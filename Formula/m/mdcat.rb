@@ -1,22 +1,24 @@
 class Mdcat < Formula
   desc "Show markdown documents on text terminals"
   homepage "https://github.com/swsnr/mdcat"
-  url "https://github.com/swsnr/mdcat/archive/refs/tags/mdcat-2.6.2.tar.gz"
-  sha256 "9b7dea0bb527a651ddc17aee08a14176e0a23eb0564c786362e8d6bf43a18c1c"
+  url "https://github.com/swsnr/mdcat/archive/refs/tags/mdcat-2.7.0.tar.gz"
+  sha256 "e372a82291a139f95d77c12325a2f595f47f6d6b4c2de70e50ab2117e975734f"
   license "MPL-2.0"
   head "https://github.com/swsnr/mdcat.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8a93a3d4bd92d4182b229f5923de3e23f75b0da674410a1f70b16038a414fb4b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0486c54ca5265d8d6c56e3e674668ab37e0f57cdbac9013bd0e3c455097abc2b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b630f2c61910032a243d23be4695d554f8e337ef15297bc56485843aedea85c4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9f25d94399fe6ee142bc6153fddd97b03148704554ac6b450dcb228e05a22ba2"
-    sha256 cellar: :any_skip_relocation, ventura:       "876b0529d2aa80d01d7a140a6fb85802c4a51c97ed6320bf8bad3d68d63dce08"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3eea8ef2fe59b93fb583bd54776e546801167ffbaad9457522e07e18f58337ff"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ca38875152be98d69833fbb90851625cad41ea408d2988d1b692e0514eea7d6d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "919a746231ece9f3525138673946ad329656f3eb58970ee356f614aaa91eaeb9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "53f91d8e89afb3542a7a496027fd41a37935a0cd99d5d0a6fc36081d86187856"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fe51c3e6cfc2b64039d1b9ce584b9b9655c293c76f5fae35737a3d94e1da9f01"
+    sha256 cellar: :any_skip_relocation, ventura:       "9ffb94fac81a11124aa4668fbbc4a35891706a915f18b9c3e29f5262b8f2c549"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36ad557b7e0f95bf84b13d2fd11fb8592ffac94a5fd9207d92436e3e7b23ac6a"
   end
 
   depends_on "asciidoctor" => :build
   depends_on "rust" => :build
+
+  uses_from_macos "curl"
 
   on_linux do
     depends_on "pkg-config" => :build
