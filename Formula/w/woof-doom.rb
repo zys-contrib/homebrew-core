@@ -7,14 +7,12 @@ class WoofDoom < Formula
   head "https://github.com/fabiangreffrath/woof.git", branch: "master"
 
   bottle do
-    sha256 arm64_sequoia:  "06be4613a778d07539868cb95f9eaa64987ca5da3f133049d26499cf3f820f33"
-    sha256 arm64_sonoma:   "b36d61351eb20860130ebef15f2d351aa57c1b53a7144941ceb55c0e15954795"
-    sha256 arm64_ventura:  "6512b577a17cc18d6b33892d6bcfdd4b1b39b8c97602ad6dbe0a0af00075c683"
-    sha256 arm64_monterey: "e3926cf17f95f3c9e522c5780664fc7140503d58ba4b30957cb3c73d26cd5c33"
-    sha256 sonoma:         "db9287960e269240a49e68e2c3b90ae29ff0dcd49ad6d059f5a2662c77a7fdc5"
-    sha256 ventura:        "e2d4953664a4d0a550cb4f05df6a0694abe359722d4173d158f67b426afc2a3b"
-    sha256 monterey:       "0c25e98829bb5c3c28a9fed56288f127578b245250b1b1780e97a65219236b5a"
-    sha256 x86_64_linux:   "b9d8f3a75f9802616af365eb50055efa92c5278b63a436938e9d3c9b0f9bca11"
+    sha256 cellar: :any,                 arm64_sequoia: "b0475fece5906321e68aee337d9cf206106b5ea0c019e3bec5bed85e30e0376d"
+    sha256 cellar: :any,                 arm64_sonoma:  "581fc726a1cf219cc0e410f7ed886a5dfde5081cbb6821217a6eba73324895e2"
+    sha256 cellar: :any,                 arm64_ventura: "e642bb23de591a31bc8e26b1a93fa5db09bde10781318eb22894a2a8297cd51e"
+    sha256 cellar: :any,                 sonoma:        "8ad9f7d6b94541d52c0c4fd2405d22e0f4ef0d199afcf1a70fb528a5dca1d445"
+    sha256 cellar: :any,                 ventura:       "fb2f21edfab0a38f51041b24725760d62989bc574ad4764fca1c3a0e55f4fbd9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d019a46534edd35758cd78e8699d7a1d832538860c2247e9870f47692584d3eb"
   end
 
   depends_on "cmake" => :build
