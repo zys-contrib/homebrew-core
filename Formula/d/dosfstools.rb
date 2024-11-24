@@ -24,7 +24,7 @@ class Dosfstools < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "gettext" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
 
   # remove in next release
   # https://github.com/dosfstools/dosfstools/pull/158
@@ -34,7 +34,7 @@ class Dosfstools < Formula
   end
 
   def install
-    system "autoreconf", "-fiv"
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--prefix=#{prefix}",
                           "--without-udev",
                           "--enable-compat-symlinks"
@@ -43,8 +43,8 @@ class Dosfstools < Formula
 
   test do
     system "dd", "if=/dev/zero", "of=test.bin", "bs=512", "count=1024"
-    system "#{sbin}/mkfs.fat", "test.bin", "-n", "HOMEBREW", "-v"
-    system "#{sbin}/fatlabel", "test.bin"
-    system "#{sbin}/fsck.fat", "-v", "test.bin"
+    system sbin/"mkfs.fat", "test.bin", "-n", "HOMEBREW", "-v"
+    system sbin/"fatlabel", "test.bin"
+    system sbin/"fsck.fat", "-v", "test.bin"
   end
 end
