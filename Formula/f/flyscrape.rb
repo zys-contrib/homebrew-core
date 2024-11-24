@@ -1,8 +1,8 @@
 class Flyscrape < Formula
   desc "Standalone and scriptable web scraper"
   homepage "https://flyscrape.com/"
-  url "https://github.com/philippta/flyscrape/archive/refs/tags/v0.8.1.tar.gz"
-  sha256 "af8c162e1c34bef994e5f54a2a9d985fb794bbddd9735ce0a0884d944251dd39"
+  url "https://github.com/philippta/flyscrape/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "cbc8c977c55f9617ce29f2178c00c22bda4bd9d1987f37c688580c2848653e17"
   license "MPL-2.0"
   head "https://github.com/philippta/flyscrape.git", branch: "master"
 
@@ -33,7 +33,7 @@ class Flyscrape < Formula
     return_status = OS.mac? ? 1 : 0
     output = shell_output("#{bin}/flyscrape run #{test_config} 2>&1", return_status)
     expected = if OS.mac?
-      "unable to open database file"
+      "failed to create database file"
     else
       "\"url\": \"https://news.ycombinator.com/\""
     end
