@@ -1,8 +1,8 @@
 class Scrcpy < Formula
   desc "Display and control your Android device"
   homepage "https://github.com/Genymobile/scrcpy"
-  url "https://github.com/Genymobile/scrcpy/archive/refs/tags/v2.7.tar.gz"
-  sha256 "3ceea215f6eccb59535f68a16db6db2b05a8a1c91bdcb4a6e222d3093a9daf8c"
+  url "https://github.com/Genymobile/scrcpy/archive/refs/tags/v3.0.tar.gz"
+  sha256 "6ad2306dcdf17a8c927691d1004ec632a694069187ded73d30113a5db780fc43"
   license "Apache-2.0"
 
   livecheck do
@@ -27,8 +27,8 @@ class Scrcpy < Formula
   depends_on "sdl2"
 
   resource "prebuilt-server" do
-    url "https://github.com/Genymobile/scrcpy/releases/download/v2.7/scrcpy-server-v2.7", using: :nounzip
-    sha256 "a23c5659f36c260f105c022d27bcb3eafffa26070e7baa9eda66d01377a1adba"
+    url "https://github.com/Genymobile/scrcpy/releases/download/v3.0/scrcpy-server-v3.0", using: :nounzip
+    sha256 "800044c62a94d5fc16f5ab9c86d45b1050eae3eb436514d1b0d2fe2646b894ea"
   end
 
   def install
@@ -83,7 +83,7 @@ class Scrcpy < Formula
 
     # It's expected to fail after adb reverse step because fakeadb exits
     # with code 42
-    out = shell_output("#{bin}/scrcpy --no-display --record=file.mp4 -p 1337 2>&1", 1)
+    out = shell_output("#{bin}/scrcpy --no-window --record=file.mp4 -p 1337 2>&1", 1)
     assert_match(/ 42/, out)
 
     log_content = File.read(testpath/"fakeadb.log")
