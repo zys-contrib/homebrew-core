@@ -1,8 +1,8 @@
 class Sq < Formula
   desc "Data wrangler with jq-like query language"
   homepage "https://sq.io"
-  url "https://github.com/neilotoole/sq/archive/refs/tags/v0.48.3.tar.gz"
-  sha256 "46e75e2db83a6cbc98b07dbcfb23de03fc41b2b2cbc7de7aaee0425cef4fb9bb"
+  url "https://github.com/neilotoole/sq/archive/refs/tags/v0.48.4.tar.gz"
+  sha256 "4692a71da5302f0f392721e9d9f28676d5120aefe90e81dcab54bc3214882977"
   license "MIT"
 
   bottle do
