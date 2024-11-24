@@ -14,7 +14,7 @@ class Faircamp < Formula
   end
 
   depends_on "opus" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "ffmpeg"
   depends_on "gettext"
@@ -32,7 +32,7 @@ class Faircamp < Formula
     # libvips is a runtime dependency, the brew install location is
     # not discovered by default by Cargo. Upstream issue:
     #   https://codeberg.org/simonrepp/faircamp/issues/45
-    ENV["RUSTFLAGS"] = `pkg-config --libs vips`.chomp
+    ENV["RUSTFLAGS"] = Utils.safe_popen_read("pkgconf", "--libs", "vips").chomp
     system "cargo", "install", *std_cargo_args, "--features", "libvips"
   end
 
@@ -43,7 +43,7 @@ class Faircamp < Formula
 
     # Check site generation
     catalog_dir = testpath/"Catalog"
-    album_dir = catalog_dir/"Artist"/"Album"
+    album_dir = catalog_dir/"Artist/Album"
     mkdir_p album_dir
     cp test_fixtures("test.wav"), album_dir/"Track01.wav"
     cp test_fixtures("test.wav"), album_dir/"Track02.wav"
