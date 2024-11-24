@@ -3,10 +3,9 @@ class Cryfs < Formula
 
   desc "Encrypts your files so you can safely store them in Dropbox, iCloud, etc."
   homepage "https://www.cryfs.org"
-  url "https://github.com/cryfs/cryfs/releases/download/1.0.0/cryfs-1.0.0.tar.gz"
-  sha256 "eb2fec8e2ca13abe7d3b1e33967b3996bfb2ea1da2d890e7b93946c418260ad1"
+  url "https://github.com/cryfs/cryfs/releases/download/1.0.1/cryfs-1.0.1.tar.gz"
+  sha256 "5383cd77c4ef606bb44568e9130c35a996f1075ee1bdfb68471ab8bc8229e711"
   license "LGPL-3.0-or-later"
-  revision 1
   head "https://github.com/cryfs/cryfs.git", branch: "develop"
 
   bottle do
