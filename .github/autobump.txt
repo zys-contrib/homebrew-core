@@ -2735,6 +2735,7 @@ spoofdpi
 spot
 spotbugs
 spotify_player
+sq
 sql-migrate
 sqlancer
 sqlboiler
