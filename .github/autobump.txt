@@ -365,6 +365,7 @@ cargo-bundle
 cargo-c
 cargo-chef
 cargo-crev
+cargo-cyclonedx
 cargo-deny
 cargo-depgraph
 cargo-dist
