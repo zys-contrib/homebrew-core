@@ -2480,6 +2480,7 @@ recoverpy
 redict
 redress
 redwax-tool
+regal
 regclient
 regina-rexx
 regipy
