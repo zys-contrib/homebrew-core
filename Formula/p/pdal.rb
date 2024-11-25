@@ -7,14 +7,9 @@ class Pdal < Formula
   revision 1
   head "https://github.com/PDAL/PDAL.git", branch: "master"
 
-  # The upstream GitHub repository sometimes creates tags that only include a
-  # major/minor version (`1.2`) and then uses major/minor/patch (`1.2.0`) for
-  # the release tarball. This inconsistency can be a problem if we need to
-  # substitute the version from livecheck in the `stable` URL, so we check the
-  # first-party download page, which links to the tarballs on GitHub.
   livecheck do
-    url "https://pdal.io/en/latest/download.html"
-    regex(/href=.*?PDAL[._-]v?(\d+(?:\.\d+)+)[._-]src\.t/i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
