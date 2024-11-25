@@ -2627,6 +2627,7 @@ serialosc
 serpl
 serverless
 service-weaver
+sesh
 sf
 sfcgal
 sfml
