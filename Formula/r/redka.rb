@@ -6,6 +6,15 @@ class Redka < Formula
   license "BSD-3-Clause"
   head "https://github.com/nalgeon/redka.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d76c91050ffe415ee014050dac28fedb3983a99ddda83e6a04c4009b7a100313"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2afe1b51f17c267bd70f8ced5c96f3d4f3895852883fa19eaba5145c9df7bc62"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8be640a9fe22bb2c23b00fbd7932235ed62dc3aad5fe1dabb1bcc9c9f0ae4e17"
+    sha256 cellar: :any_skip_relocation, sonoma:        "41ce5588bf143a988a41ef0ee17c6e4d581a8e326372c74accd54bcebe1529b1"
+    sha256 cellar: :any_skip_relocation, ventura:       "bb78c4e52d6177cebaf0f1d1afabaf3da46c85841b6feb0e312a605123035d82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a518059a8ea13f550bc38204414142a839adba3458eb31808b17e1a438a59d0e"
+  end
+
   depends_on "go" => :build
   # use valkey for server startup test as redka-cli can just inspect db dump
   depends_on "valkey" => :test
