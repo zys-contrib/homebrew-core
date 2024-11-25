@@ -1,8 +1,8 @@
 class Micromamba < Formula
   desc "Fast Cross-Platform Package Manager"
   homepage "https://github.com/mamba-org/mamba"
-  url "https://github.com/mamba-org/mamba/archive/refs/tags/micromamba-2.0.3.tar.gz"
-  sha256 "564e9ffc91015e8b1699f2de1baa59449ab037f27e4c19355680a0f145fd2b9d"
+  url "https://github.com/mamba-org/mamba/archive/refs/tags/micromamba-2.0.4.tar.gz"
+  sha256 "29281fe9b8fa99ecaa01d791b00889fb953fdafa154bbdf877a0858044334439"
   license "BSD-3-Clause"
   head "https://github.com/mamba-org/mamba.git", branch: "main"
 
@@ -45,12 +45,6 @@ class Micromamba < Formula
   uses_from_macos "curl", since: :ventura # uses curl_url_strerror, available since curl 7.80.0
   uses_from_macos "krb5"
   uses_from_macos "zlib"
-
-  # Fixes PR'd to upstream in https://github.com/mamba-org/mamba/pull/3613
-  patch do
-    url "https://github.com/henryiii/mamba/commit/d789f35b38852da2e4e3f6073b32e1119b8d471d.patch?full_index=1"
-    sha256 "c183d63f800d8c6d04d9be95366d1ce2af199e13b61b6d5bd0e314f90f3c9d3b"
-  end
 
   def install
     args = %W[
