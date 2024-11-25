@@ -1,9 +1,8 @@
 class AwsNuke < Formula
   desc "Nuke a whole AWS account and delete all its resources"
   homepage "https://github.com/ekristen/aws-nuke"
-  url "https://github.com/ekristen/aws-nuke.git",
-      tag:      "v3.31.0",
-      revision: "1ffd923ca1fefc74f04ae7f780aee47a3b4d7ec7"
+  url "https://github.com/ekristen/aws-nuke/archive/refs/tags/v3.32.0.tar.gz"
+  sha256 "2a78f2cf6210f926c8db48c03b320aa5d587face9e67e47f54dacacb2c08fbe8"
   license "MIT"
   head "https://github.com/ekristen/aws-nuke.git", branch: "main"
 
@@ -19,16 +18,12 @@ class AwsNuke < Formula
   depends_on "go" => :build
 
   def install
-    build_xdst="github.com/ekristen/aws-nuke/v#{version.major}/pkg/common"
     ldflags = %W[
       -s -w
-      -X #{build_xdst}.SUMMARY=#{version}
+      -X github.com/ekristen/aws-nuke/v#{version.major}/pkg/common.SUMMARY=#{version}
     ]
-    with_env(
-      "CGO_ENABLED" => "0",
-    ) do
-      system "go", "build", *std_go_args(ldflags:)
-    end
+    ENV["CGO_ENABLED"] = "0"
+    system "go", "build", *std_go_args(ldflags:)
 
     pkgshare.install "pkg/config"
 
