@@ -14,14 +14,12 @@ class Picotool < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "16e96d14be7f3d63ad412bfe55a02e26b24d0becf10b8838ca3ddd658bb2f08e"
-    sha256 arm64_sonoma:   "d2cdf2d3bef83207f173ee96fcb66976fe14b638fa2b941e6f16f44ab60bfc93"
-    sha256 arm64_ventura:  "91dce37d751e159802bbccd9d11be16f8620197f04240c612efa6ba8bb09a393"
-    sha256 arm64_monterey: "e4bf549b3d172a4f93e1f965df6d004550ff4322a40118a1caf18774d729c297"
-    sha256 sonoma:         "8534519fb9e80d196690f5b4a27880533847dce3d1e3b2103d7c66565bf826f7"
-    sha256 ventura:        "56c36f61d6f798a875a6db5744e8fb4ad9936dc3f57c334ed46224fc9728b3d7"
-    sha256 monterey:       "19af651cbee2f74c3808681cf1afba755e849f39d01750cbe15e0a754486ae5d"
-    sha256 x86_64_linux:   "e92224ae304cef3422d9abb25f79316f895a26cfcfe8a7677c25266fc54e1eaf"
+    sha256 arm64_sequoia: "9f18704812babde0c3ada9b4b7b0639517e168531a9775f5f31eeb8f57d9d83a"
+    sha256 arm64_sonoma:  "bf230f25264224a7a1dd23a130d26fb99fa1420fed1541aaef83fcf3a35957e5"
+    sha256 arm64_ventura: "d3cecbf0608f1bcf0335b36e9ab90770a3f1499b76166e23bee84228c6ffbc62"
+    sha256 sonoma:        "cfe0c43600912bd4dbeab08ed2527bb06344ccefdc65762184995eee828ec15c"
+    sha256 ventura:       "9084cfd0418efff106d863b5a482d9e0e439c0a6385642752bc28c7e43df702a"
+    sha256 x86_64_linux:  "585aa0ccd95425b82848f4cdf9410a96da20c02bf46ec6ec32c88a170539209c"
   end
 
   head do
