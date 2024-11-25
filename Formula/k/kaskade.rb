@@ -8,12 +8,12 @@ class Kaskade < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "69e955d1729575110dc996a9ad21a00f24910dd163303219195815a16fc1dd1b"
-    sha256 cellar: :any,                 arm64_sonoma:  "aa50063a5eea90b36402e75803b706e0832fffb020edf2aa96f96ae876e88e48"
-    sha256 cellar: :any,                 arm64_ventura: "b37bcd00949c927b96cd53eb53e4b917dcc849d6534f40e878f83ca7a8bf52ad"
-    sha256 cellar: :any,                 sonoma:        "8c72fd38ca9787248573cedb92acb38d40f474b7b1a3cc5d3a14ca86f943c2db"
-    sha256 cellar: :any,                 ventura:       "5afc27780982ced40c0d1da97dd591c48cbae1cbd4624229596e3b9efc6c51f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5baa42b3b0351b8f6d0b78f7dfdc4053be18733248e79747a28d4022935269d7"
+    sha256 cellar: :any,                 arm64_sequoia: "4af21e945966de1449cfe71539da94e559b7de1da39b376500fd3f61240e6cb2"
+    sha256 cellar: :any,                 arm64_sonoma:  "23d08912126580368b032741776c4567e8348abfd874e7cae2152f06475a3217"
+    sha256 cellar: :any,                 arm64_ventura: "c3e4532e7927bbc9d8b923ff2f4a44effe5038dd3bbfa010b734a466af9b513a"
+    sha256 cellar: :any,                 sonoma:        "557e32247dd975d5756a8e22632901a648e8fa4add5b5230c64c64f460bee574"
+    sha256 cellar: :any,                 ventura:       "690d33cf860118068757acddcce23ba479da39b58661b21d7bdab7067ac5939a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d46fb1a75958d40bfe2926cfe20eaa30d4b97b0921264e1a9512ce5b2cfc5474"
   end
 
   depends_on "rust" => :build # for rpds-py
