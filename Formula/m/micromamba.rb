@@ -1,8 +1,8 @@
 class Micromamba < Formula
   desc "Fast Cross-Platform Package Manager"
   homepage "https://github.com/mamba-org/mamba"
-  url "https://github.com/mamba-org/mamba/archive/refs/tags/micromamba-2.0.3.tar.gz"
-  sha256 "564e9ffc91015e8b1699f2de1baa59449ab037f27e4c19355680a0f145fd2b9d"
+  url "https://github.com/mamba-org/mamba/archive/refs/tags/micromamba-2.0.4.tar.gz"
+  sha256 "29281fe9b8fa99ecaa01d791b00889fb953fdafa154bbdf877a0858044334439"
   license "BSD-3-Clause"
   head "https://github.com/mamba-org/mamba.git", branch: "main"
 
@@ -14,12 +14,12 @@ class Micromamba < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f882ba1a37f7b870b374e41b6a83cb7977985f3df732dff9a017587b6ad0f717"
-    sha256 cellar: :any,                 arm64_sonoma:  "5b8cb113b587508ae6bed4ff7b394ce178575c3aee0c22bcce3e73fd6897376b"
-    sha256 cellar: :any,                 arm64_ventura: "262d972441c56bb9f78b74f8948600b8f598a7438511e6956996705f7ba3031b"
-    sha256 cellar: :any,                 sonoma:        "08482df5c454613a50abb8a4360a45894d977b46c8bec8155ca65809a8e4cc72"
-    sha256 cellar: :any,                 ventura:       "1e5785d3030ff0b91bd3c44b021c96ef0e681ab0687594e02f940368ff42d2ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "426be92a991cfeb6b5a598129f5cf369620a19c69f6d70c88a01d37324eac147"
+    sha256 cellar: :any,                 arm64_sequoia: "b5e5a63b30d9467ea04ebe0796b645a1e1096b179b9781b4d29740dcd0df9de3"
+    sha256 cellar: :any,                 arm64_sonoma:  "a621633e464bfec93cee5f8a9ddd99fe8724d276b54bac749210522d8a8723c1"
+    sha256 cellar: :any,                 arm64_ventura: "f1d82146dcc0cc466c314d97154c5b6351a9dbfeb82cf06f1fe7049f50b4b1d4"
+    sha256 cellar: :any,                 sonoma:        "584d465c093c56765e48ae2c429477446bd1e5bbc0f2f5a01c0e4a0dcc1a9e7d"
+    sha256 cellar: :any,                 ventura:       "1d55ba702f46821eb99e69c689a9326e36d73f65e8cf364b94d9dbd525368b51"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a40b04c2c699c85bd1fd7dccf266ed50d3d978ad30145e02e0c66255ec858293"
   end
 
   depends_on "cli11" => :build
@@ -45,12 +45,6 @@ class Micromamba < Formula
   uses_from_macos "curl", since: :ventura # uses curl_url_strerror, available since curl 7.80.0
   uses_from_macos "krb5"
   uses_from_macos "zlib"
-
-  # Fixes PR'd to upstream in https://github.com/mamba-org/mamba/pull/3613
-  patch do
-    url "https://github.com/henryiii/mamba/commit/d789f35b38852da2e4e3f6073b32e1119b8d471d.patch?full_index=1"
-    sha256 "c183d63f800d8c6d04d9be95366d1ce2af199e13b61b6d5bd0e314f90f3c9d3b"
-  end
 
   def install
     args = %W[
