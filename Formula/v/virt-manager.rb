@@ -10,7 +10,8 @@ class VirtManager < Formula
   head "https://github.com/virt-manager/virt-manager.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a1584e780e4ade6489534849abe65f7b65878b3109b7653f58688707de596807"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "3490af322b74e2098969db9537ec991f141cb7efd330e3cbd2d794856dac5fe4"
   end
 
   depends_on "docutils" => :build
