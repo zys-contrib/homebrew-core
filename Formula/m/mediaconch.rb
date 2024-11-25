@@ -21,9 +21,11 @@ class Mediaconch < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc3b5ed1de5f34d66934807b79a38a3fb34b9bde991a6b7172db384e1da19a86"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "jansson"
   depends_on "libevent"
+  depends_on "libmediainfo"
+  depends_on "libzen"
   depends_on "sqlite"
 
   uses_from_macos "curl"
@@ -32,35 +34,8 @@ class Mediaconch < Formula
   uses_from_macos "zlib"
 
   def install
-    cd "ZenLib/Project/GNU/Library" do
-      args = ["--disable-debug",
-              "--disable-dependency-tracking",
-              "--enable-shared",
-              "--enable-static",
-              "--prefix=#{prefix}",
-              # mediaconch installs libs/headers at the same paths as mediainfo
-              "--libdir=#{lib}/mediaconch",
-              "--includedir=#{include}/mediaconch"]
-      system "./configure", *args
-      system "make", "install"
-    end
-
-    cd "MediaInfoLib/Project/GNU/Library" do
-      args = ["--disable-debug",
-              "--disable-dependency-tracking",
-              "--enable-static",
-              "--enable-shared",
-              "--with-libcurl",
-              "--prefix=#{prefix}",
-              "--libdir=#{lib}/mediaconch",
-              "--includedir=#{include}/mediaconch"]
-      system "./configure", *args
-      system "make", "install"
-    end
-
     cd "MediaConch/Project/GNU/CLI" do
-      system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                            "--prefix=#{prefix}"
+      system "./configure", *std_configure_args
       system "make", "install"
     end
   end
