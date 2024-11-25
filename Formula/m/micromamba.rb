@@ -14,12 +14,12 @@ class Micromamba < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3bf5ba3e4fa863d6072c78c4229e533efaeda27137e78191c3c5d852470f46b2"
-    sha256 cellar: :any,                 arm64_sonoma:  "01eed43203215173119a8280a7ed2f97417f09c236ac279d95ad94fe57af8fd1"
-    sha256 cellar: :any,                 arm64_ventura: "273313c71f6212077cff10f6ee2ba00fe2d50056d356088935d38204bcf3ab71"
-    sha256 cellar: :any,                 sonoma:        "e0d5863f983f062ea6e108d8258d755ad0fd28d9d5fd764d559b8ec46199aa57"
-    sha256 cellar: :any,                 ventura:       "45a20d1caddf34134b10cd45b6af40a5db46787b44a5a358ba0cf306871a2076"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3af94e30de7979583d176e00f31195eaebeb24fef85f3919923c7de5ead80fc"
+    sha256 cellar: :any,                 arm64_sequoia: "f882ba1a37f7b870b374e41b6a83cb7977985f3df732dff9a017587b6ad0f717"
+    sha256 cellar: :any,                 arm64_sonoma:  "5b8cb113b587508ae6bed4ff7b394ce178575c3aee0c22bcce3e73fd6897376b"
+    sha256 cellar: :any,                 arm64_ventura: "262d972441c56bb9f78b74f8948600b8f598a7438511e6956996705f7ba3031b"
+    sha256 cellar: :any,                 sonoma:        "08482df5c454613a50abb8a4360a45894d977b46c8bec8155ca65809a8e4cc72"
+    sha256 cellar: :any,                 ventura:       "1e5785d3030ff0b91bd3c44b021c96ef0e681ab0687594e02f940368ff42d2ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "426be92a991cfeb6b5a598129f5cf369620a19c69f6d70c88a01d37324eac147"
   end
 
   depends_on "cli11" => :build
