@@ -48,30 +48,28 @@ class Flang < Formula
     args << "-DFLANG_VENDOR_UTI=sh.brew.flang" if tap&.official?
 
     ENV.append_to_cflags "-ffat-lto-objects" if OS.linux? # Unsupported on macOS.
-    install_prefix = libexec
-    system "cmake", "-S", "flang", "-B", "build", *args, *std_cmake_args(install_prefix:)
+    system "cmake", "-S", "flang", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    libexec.find do |pn|
-      next if pn.directory?
-
-      subdir = pn.relative_path_from(libexec).dirname
-      (prefix/subdir).install_symlink pn
-    end
+    libexec.install bin.children
+    bin.install_symlink libexec.children
 
     # Our LLVM is built with exception-handling, which requires linkage with the C++ standard library.
     # TODO: Remove this if/when we've rebuilt LLVM with `LLVM_ENABLE_EH=OFF`.
-    cxx_stdlib = OS.mac? ? "-lc++" : "-lstdc++"
-    cxx_stdlib << "\n"
-    (libexec/"bin/flang.cfg").atomic_write cxx_stdlib
+    flang_cfg_file = if OS.mac?
+      ["-lc++", "-Wl,-lto_library,#{llvm.opt_lib}/libLTO.dylib"]
+    else
+      ["-lstdc++"]
+    end
+    (libexec/"flang.cfg").atomic_write flang_cfg_file.join("\n")
 
     return if OS.linux?
 
     # Convert LTO-generated bitcode in our static archives to MachO.
     # Not needed on Linux because of `-ffat-lto-objects`
     # See equivalent code in `llvm.rb`.
-    install_prefix.glob("lib/*.a").each do |static_archive|
+    lib.glob("*.a").each do |static_archive|
       mktemp do
         system llvm.opt_bin/"llvm-ar", "x", static_archive
         rebuilt_files = []
@@ -88,10 +86,6 @@ class Flang < Formula
         system llvm.opt_bin/"llvm-ar", "r", static_archive, *rebuilt_files if rebuilt_files.present?
       end
     end
-
-    # The `flang-new` driver expects `libLTO.dylib` to be in the same prefix,
-    # but it actually lives in LLVM's prefix.
-    ln_sf Formula["llvm"].opt_lib/shared_library("libLTO"), install_prefix/"lib"
   end
 
   def caveats
@@ -103,6 +97,9 @@ class Flang < Formula
   end
 
   test do
+    ENV.delete "CPATH"
+    ENV.delete "SDKROOT"
+
     (testpath/"hello.f90").write <<~FORTRAN
       PROGRAM hello
         WRITE(*,'(A)') 'Hello World!'
