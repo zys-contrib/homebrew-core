@@ -24,7 +24,6 @@ class Eigen < Formula
   def install
     system "cmake", "-S", ".", "-B", "eigen-build", "-Dpkg_config_libdir=#{lib}", *std_cmake_args
     system "cmake", "--install", "eigen-build"
-    (share/"cmake/Modules").install "cmake/FindEigen3.cmake"
   end
 
   test do
