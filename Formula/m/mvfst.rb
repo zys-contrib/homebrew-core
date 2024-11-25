@@ -1,8 +1,8 @@
 class Mvfst < Formula
   desc "QUIC transport protocol implementation"
   homepage "https://github.com/facebook/mvfst"
-  url "https://github.com/facebook/mvfst/archive/refs/tags/v2024.11.18.00.tar.gz"
-  sha256 "4855fa55044769021877ae60683a9650bd2ad724d84b0a7897a7d802f610a4ee"
+  url "https://github.com/facebook/mvfst/archive/refs/tags/v2024.11.25.00.tar.gz"
+  sha256 "9c0855479a82b0fb6d33f785393881d6828a3492a8bf7fecfec8d655975b2b36"
   license "MIT"
   head "https://github.com/facebook/mvfst.git", branch: "main"
 
