@@ -2,8 +2,8 @@ class Asymptote < Formula
   desc "Powerful descriptive vector graphics language"
   homepage "https://asymptote.sourceforge.io"
   # Keep version in sync with manual below
-  url "https://downloads.sourceforge.net/project/asymptote/2.92/asymptote-2.92.src.tgz"
-  sha256 "9d9b5c6fa7e0fbce3c1e54feb25e2d51d28c4fe7798f24c76cdcae8291a8ea66"
+  url "https://downloads.sourceforge.net/project/asymptote/2.95/asymptote-2.95.src.tgz"
+  sha256 "15604fd02cb6ddbc5b807529d2e6fc617c825a184dd0d7b71390c567aeac78e7"
   license "LGPL-3.0-only"
 
   livecheck do
@@ -39,8 +39,8 @@ class Asymptote < Formula
   end
 
   resource "manual" do
-    url "https://downloads.sourceforge.net/project/asymptote/2.92/asymptote.pdf"
-    sha256 "ba96b049da98207eed38eb3be5c306fbd10ff8b00124e26609d5effe7adbdac6"
+    url "https://downloads.sourceforge.net/project/asymptote/2.95/asymptote.pdf"
+    sha256 "6fa4428a78c6af413ed82173056dd6330a496c5f7e930883b16c5cbfc01394cf"
   end
 
   def install
@@ -54,6 +54,9 @@ class Asymptote < Formula
     system "make", "asy"
     system "make", "asy-keywords.el"
     system "make", "install-asy"
+
+    # https://github.com/vectorgraphics/asymptote/issues/497
+    chmod "+x", pkgshare/"GUI/xasy.py"
 
     doc.install resource("manual")
     (share/"emacs/site-lisp").install_symlink pkgshare
