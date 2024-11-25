@@ -2481,6 +2481,7 @@ redict
 redka
 redress
 redwax-tool
+regal
 regclient
 regina-rexx
 regipy
