@@ -4,12 +4,12 @@ class Picotool < Formula
   license "BSD-3-Clause"
 
   stable do
-    url "https://github.com/raspberrypi/picotool/archive/refs/tags/2.0.0.tar.gz"
-    sha256 "9392c4a31f16b80b70f861c37a029701d3212e212840daa097c8a3720282ce65"
+    url "https://github.com/raspberrypi/picotool/archive/refs/tags/2.1.0.tar.gz"
+    sha256 "9062fea171661c6aa13294e092f0dc92641382d2b6f95315529bfbe9fb1521e4"
 
     resource "pico-sdk" do
-      url "https://github.com/raspberrypi/pico-sdk/archive/refs/tags/2.0.0.tar.gz"
-      sha256 "626db87779fa37f7f9c7cfe3e152f7e828fe19c486730af2e7c80836b6b57e1d"
+      url "https://github.com/raspberrypi/pico-sdk/archive/refs/tags/2.1.0.tar.gz"
+      sha256 "5e3abc511955dd2179809d0c33f05fe6f94544d8d0ca436842e6638bb655d4d2"
     end
   end
 
@@ -37,9 +37,12 @@ class Picotool < Formula
   depends_on "libusb"
 
   def install
+    odie "pico-sdk resource needs to be updated" if build.stable? && version != resource("pico-sdk").version
+
     resource("pico-sdk").stage buildpath/"pico-sdk"
 
     args = %W[-DPICO_SDK_PATH=#{buildpath}/pico-sdk]
+
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -54,7 +57,7 @@ class Picotool < Formula
 
     resource("homebrew-picow_blink").stage do
       result = <<~EOS
-        File blink_picow.uf2:
+        File blink_picow.uf2 family ID 'rp2040':
 
         Program Information
          name:          picow_blink

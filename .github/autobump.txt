@@ -2275,6 +2275,7 @@ phpunit
 phylum-cli
 pianod
 picard-tools
+picotool
 pidgin
 pig
 pillow
