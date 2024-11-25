@@ -20,7 +20,7 @@ class Mise < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f29bc8b3e2cfa5478078f2ce25a027254c77bff560b23c7a2308f7f6d5652517"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   depends_on "libgit2"
