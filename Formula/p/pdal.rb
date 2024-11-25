@@ -27,7 +27,7 @@ class Pdal < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "gdal"
   depends_on "hdf5"
   depends_on "laszip"
@@ -46,18 +46,7 @@ class Pdal < Formula
     depends_on "libunwind"
   end
 
-  fails_with gcc: "5" # gdal is compiled with GCC
-
   def install
-    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
-    # libunwind due to it being present in a library search path.
-    if DevelopmentTools.clang_build_version >= 1500
-      recursive_dependencies
-        .select { |d| d.name.match?(/^llvm(@\d+)?$/) }
-        .map { |llvm_dep| llvm_dep.to_formula.opt_lib }
-        .each { |llvm_lib| ENV.remove "HOMEBREW_LIBRARY_PATHS", llvm_lib }
-    end
-
     args = %w[
       -DWITH_LASZIP=TRUE
       -DBUILD_PLUGIN_GREYHOUND=ON
@@ -74,7 +63,7 @@ class Pdal < Formula
         -DLIBUNWIND_LIBRARY=#{libunwind.opt_lib/shared_library("libunwind")}
       ]
     end
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
