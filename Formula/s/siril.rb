@@ -6,6 +6,11 @@ class Siril < Formula
   license "GPL-3.0-or-later"
   head "https://gitlab.com/free-astro/siril.git", branch: "master"
 
+  livecheck do
+    url "https://siril.org/download/"
+    regex(/href=.*?siril[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_sonoma:   "18d857fa2251085c51fabbe80fd0afcf4b04da7ac700f00063fbd49cd8fdf34b"
     sha256 arm64_ventura:  "827f6ac0b787fcad63b1cbaaaf49e3cc2e75e7ada8259651f9581ca352584f77"
