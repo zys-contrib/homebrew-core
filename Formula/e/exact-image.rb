@@ -27,7 +27,7 @@ class ExactImage < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8938ff048627f994a89bd563e5372f3d15de40865cd2eb7ac4793599c81ecd49"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "libagg"
 
   uses_from_macos "expat"
