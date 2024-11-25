@@ -3,8 +3,8 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/ed/d2/e5155958099999c968917461b542d302b391c935f92b6a673ac0fe41837a/borgmatic-1.9.2.tar.gz"
-  sha256 "bddfc0a75312a4b40108b7acfbcd42f28c82eba314760c6616ac56ace4e96cc2"
+  url "https://files.pythonhosted.org/packages/7e/83/2c6ac5f85543eaf8f2abf55061781cd9cf75a976663b0caf51a1a447a3c3/borgmatic-1.9.3.tar.gz"
+  sha256 "568cba4f9bd5db2cbf83b18ef7738fdce064729ef4ce84038aaab01d1beb2f4b"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -75,25 +75,13 @@ class Borgmatic < Formula
     sha256 "8b27e6a217e786c6fbe5634d8f3f11bc63e0f80f6a5890f28863d9c45aac311b"
   end
 
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
-    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
-  end
-
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
     sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
   end
 
-  def python3
-    "python3.13"
-  end
-
   def install
-    venv = virtualenv_create(libexec, python3)
-    venv.pip_install resource("setuptools")
-    venv.pip_install resources.reject { |r| r.name == "setuptools" }
-    venv.pip_install_and_link buildpath
+    virtualenv_install_with_resources
   end
 
   test do
@@ -193,13 +181,13 @@ class Borgmatic < Formula
       info --json #{repo_path}
       init --encryption repokey --debug #{repo_path}
       --version
-      create #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /etc /home #{testpath}/borgmatic-.{8}/./borgmatic #{config_path}
+      create #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /etc /home #{testpath}/borgmatic-.{8}/./borgmatic/bootstrap #{config_path}
       prune --keep-daily 7 --glob-archives {hostname}-* #{repo_path}
       compact #{repo_path}
       info --json #{repo_path}
       check --glob-archives {hostname}-* #{repo_path}
       --version
-      create --json #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /etc /home #{testpath}/borgmatic-.{8}/./borgmatic #{config_path}
+      create --json #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /etc /home #{testpath}/borgmatic-.{8}/./borgmatic/bootstrap #{config_path}
       prune --keep-daily 7 --glob-archives {hostname}-* #{repo_path}
       compact #{repo_path}
       info --json #{repo_path}
