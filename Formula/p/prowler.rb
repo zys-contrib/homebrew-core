@@ -8,12 +8,12 @@ class Prowler < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "eac8c9990a5c85a0fe5f8949edb8c03382de2029520bdd22a694036426bbe615"
-    sha256 cellar: :any,                 arm64_sonoma:  "f9b09c817498d8c9ed2dcd12c297a9dc697e24dd3f9dabf0dbe3c87e45f4d3bb"
-    sha256 cellar: :any,                 arm64_ventura: "5132456c6a47c89c955f5278a805792585cbf6979d918dcd9e4cc1c2c2cf0e63"
-    sha256 cellar: :any,                 sonoma:        "b31e4009f33fed30a464e1ff24c935b2e340f0de72791e64fa363fc05cec7096"
-    sha256 cellar: :any,                 ventura:       "3f3faa5f5493775a1fc7c39fa480953633d8975443c6732a81572a26edc3ff10"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea36c71973a0fc9039226a3737d00023093a7ce4207ab612cf9b6c01af5190f6"
+    sha256 cellar: :any,                 arm64_sequoia: "9d2b3641f57f6ffbe4ed4115b62ae10018802ecf10a7adef898d832cfd53dc36"
+    sha256 cellar: :any,                 arm64_sonoma:  "9822ebfb04aba9475b40683ed689b6fe811d4a645518f3ca6a8c80c62fd5c99a"
+    sha256 cellar: :any,                 arm64_ventura: "8d0b68f46d5d3f3b445a6c2238d00f2d2df8bab841fec5c5a29fbc59ad8f2dbf"
+    sha256 cellar: :any,                 sonoma:        "9dc17cb737fc11dc6b8f82c1c25329776c7130ecb45c9184534e846172c2f985"
+    sha256 cellar: :any,                 ventura:       "7dc3efc845973d6e770a2aa624984f5461e0b01736e795162e9e98234c61f0e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "817a45f224b98ea148d1b30157bd92d5407ca07d78d67365829ed867051bfc6b"
   end
 
   depends_on "cmake" => :build
