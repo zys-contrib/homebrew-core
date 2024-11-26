@@ -5,6 +5,15 @@ class CargoRunBin < Formula
   sha256 "fd492430a60ca488ad8c356f9c6389426f3fbcd59658e5b721855e171cb62841"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e7c12e5d94ffbe160210e9acfb61d1d01363fdf40650bd738a9529417aeb3e39"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "baace800a845a4478368f4f44438fb55be90b595850584b8ba0333c01774cec8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "18b37befe574ec3716f12943da256fb7b0c066dedacc9f45ec985a7c42bb3678"
+    sha256 cellar: :any_skip_relocation, sonoma:        "52873150520a420f132bc02acf2a488597eb4957107a55da37633a26a7142d59"
+    sha256 cellar: :any_skip_relocation, ventura:       "eae3e5a1faff8be5f6606211dc3fb2f38d6d0930f0dff73559667448d3decd36"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "df0cd8b3c3dac21a4430ac243db6f937aa3765efa7855dce3918cbd4f2421c13"
+  end
+
   depends_on "rust" => :build
   depends_on "rustup" => :test
 
