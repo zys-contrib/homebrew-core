@@ -8,13 +8,12 @@ class Jc < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5bcd8287e3d93d1b538b33368b87c69b11a089aa0188d6e8cd7d0b8680d612df"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5bcd8287e3d93d1b538b33368b87c69b11a089aa0188d6e8cd7d0b8680d612df"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5bcd8287e3d93d1b538b33368b87c69b11a089aa0188d6e8cd7d0b8680d612df"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e4a3db1b3dacc4d23c1c4a3db8894d2203aaa7de2ca69bd579bfe906205b7876"
-    sha256 cellar: :any_skip_relocation, ventura:       "e4a3db1b3dacc4d23c1c4a3db8894d2203aaa7de2ca69bd579bfe906205b7876"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5bcd8287e3d93d1b538b33368b87c69b11a089aa0188d6e8cd7d0b8680d612df"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0de81faab274ebbfa4289870a9ab9497059ec7a76af0e6f95ce5efc0ca3e9b8e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0de81faab274ebbfa4289870a9ab9497059ec7a76af0e6f95ce5efc0ca3e9b8e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0de81faab274ebbfa4289870a9ab9497059ec7a76af0e6f95ce5efc0ca3e9b8e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cab2ae0a9da71eb21e2b0a553ced8f03953a277f74bcb97ce58ca207ab752224"
+    sha256 cellar: :any_skip_relocation, ventura:       "cab2ae0a9da71eb21e2b0a553ced8f03953a277f74bcb97ce58ca207ab752224"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0de81faab274ebbfa4289870a9ab9497059ec7a76af0e6f95ce5efc0ca3e9b8e"
   end
 
   depends_on "libyaml"
