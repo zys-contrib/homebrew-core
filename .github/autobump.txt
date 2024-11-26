@@ -342,6 +342,7 @@ cargo-make
 cargo-nextest
 cargo-outdated
 cargo-release
+cargo-run-bin
 cargo-udeps
 cargo-watch
 cargo-zigbuild
