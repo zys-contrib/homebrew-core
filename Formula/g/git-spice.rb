@@ -1,8 +1,8 @@
 class GitSpice < Formula
   desc "Manage stacked Git branches"
   homepage "https://github.com/abhinav/git-spice"
-  url "https://github.com/abhinav/git-spice/archive/refs/tags/v0.8.1.tar.gz"
-  sha256 "4336863f756709bff6a1a39430512734faf823c38b922a60ea43cb1bca1e9908"
+  url "https://github.com/abhinav/git-spice/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "c798cc30845b43e9df1a530af6ba132e4a95770cd861f5b030925e11a2c8a3fd"
   license "GPL-3.0-or-later"
   head "https://github.com/abhinav/git-spice.git", branch: "main"
 
