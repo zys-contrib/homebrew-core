@@ -5,6 +5,11 @@ class Kraftkit < Formula
   sha256 "919b86d44232ca443dee7b7be547fa6983036ac9dd3c11a0b744c1a6799af550"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "4da02f2e9a16724401ad3aaa71f9e708d8e69319dd682d5f096a93e525ab4eb9"
     sha256 cellar: :any,                 arm64_sonoma:  "6520f5ae2b5e50d04040d6ad9a5e6b2d22c5f269041fdd408406553d038d4aa5"
