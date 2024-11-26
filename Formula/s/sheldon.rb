@@ -17,11 +17,16 @@ class Sheldon < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "484a82b6474cbc25d40ce7a9a3f0fd562438fb6dbd218bc3e0d856167235a4a5"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "curl"
   depends_on "libgit2"
   depends_on "openssl@3"
+
+  # curl-config on ventura builds do not report http2 feature,
+  # this is a workaround to allow to build against system curl
+  # see discussions in https://github.com/Homebrew/homebrew-core/pull/197727
+  uses_from_macos "curl" => :build, since: :sonoma
+  uses_from_macos "curl"
 
   def install
     # Ensure the declared `openssl@3` dependency will be picked up.
@@ -49,14 +54,16 @@ class Sheldon < Formula
   test do
     touch testpath/"plugins.toml"
     system bin/"sheldon", "--config-dir", testpath, "--data-dir", testpath, "lock"
-    assert_predicate testpath/"plugins.lock", :exist?
+    assert_path_exists testpath/"plugins.lock"
 
-    [
+    libraries = [
       Formula["libgit2"].opt_lib/shared_library("libgit2"),
-      Formula["curl"].opt_lib/shared_library("libcurl"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
-    ].each do |library|
+    ]
+    libraries << (Formula["curl"].opt_lib/shared_library("libcurl")) if OS.linux?
+
+    libraries.each do |library|
       assert check_binary_linkage(bin/"sheldon", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
     end
