@@ -3,10 +3,9 @@ class Fdroidserver < Formula
 
   desc "Create and manage Android app repositories for F-Droid"
   homepage "https://f-droid.org"
-  url "https://files.pythonhosted.org/packages/7b/dd/9a37d36aadf87ce469c70713887dd9dfa6881010d5b0c9471bb181a4f4f2/fdroidserver-2.3.1.tar.gz"
-  sha256 "b0473bd62976e51a13d58a2e626627773cdcf3df67e747c7f1572afc6c71c89d"
+  url "https://files.pythonhosted.org/packages/51/1b/ec2cae4ba139f72ec4e178618cd58ec103cce1629cb32e6c654adad9a768/fdroidserver-2.3.2.tar.gz"
+  sha256 "b50212b5f25544eb6e330afe757bdee0043f26b4e3cdff7b0f056fff37a0f36e"
   license "AGPL-3.0-or-later"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "16eb1b8716f716d5d7dd828dd05d4987e22a26a50820a89d018b3e9054ae9b04"
@@ -75,11 +74,6 @@ class Fdroidserver < Formula
   resource "bcrypt" do
     url "https://files.pythonhosted.org/packages/56/8c/dd696962612e4cd83c40a9e6b3db77bfe65a830f4b9af44098708584686c/bcrypt-4.2.1.tar.gz"
     sha256 "6765386e3ab87f569b276988742039baab087b2cdb01e809d74e74503c2faafe"
-  end
-
-  resource "biplist" do
-    url "https://files.pythonhosted.org/packages/3e/56/2db170a498c9c6545cda16e93c2f2ef9302da44802787b45a8a520d01bdb/biplist-1.0.3.tar.gz"
-    sha256 "4c0549764c5fe50b28042ec21aa2e14fe1a2224e239a1dae77d9e7f3932aa4c6"
   end
 
   resource "charset-normalizer" do
@@ -245,11 +239,6 @@ class Fdroidserver < Formula
   resource "puremagic" do
     url "https://files.pythonhosted.org/packages/09/2d/40599f25667733e41bbc3d7e4c7c36d5e7860874aa5fe9c584e90b34954d/puremagic-1.28.tar.gz"
     sha256 "195893fc129657f611b86b959aab337207d6df7f25372209269ed9e303c1a8c0"
-  end
-
-  resource "pycountry" do
-    url "https://files.pythonhosted.org/packages/76/57/c389fa68c50590881a75b7883eeb3dc15e9e73a0fdc001cdd45c13290c92/pycountry-24.6.1.tar.gz"
-    sha256 "b61b3faccea67f87d10c1f2b0fc0be714409e8fcdcc1315613174f6466c10221"
   end
 
   resource "pydot" do
