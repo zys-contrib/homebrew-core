@@ -1,8 +1,8 @@
 class Joern < Formula
   desc "Open-source code analysis platform based on code property graphs"
   homepage "https://joern.io/"
-  url "https://github.com/joernio/joern/archive/refs/tags/v4.0.150.tar.gz"
-  sha256 "47a9bb00933807efcc985ecea33a710702c79189049b14f048d403111f2bf0a4"
+  url "https://github.com/joernio/joern/archive/refs/tags/v4.0.160.tar.gz"
+  sha256 "47a61ab69f637320830b25173fc15e2169f80c7d90421be499e5d7857dc53dd7"
   license "Apache-2.0"
 
   livecheck do
@@ -26,6 +26,8 @@ class Joern < Formula
   depends_on "openjdk"
   depends_on "php"
 
+  uses_from_macos "zlib"
+
   def install
     system "sbt", "stage"
 
@@ -36,9 +38,9 @@ class Joern < Formula
 
     # Remove incompatible pre-built binaries
     os = OS.mac? ? "macos" : OS.kernel_name.downcase
-    astgen_suffix = Hardware::CPU.intel? ? "astgen-#{os}" : "astgen-#{os}-#{Hardware::CPU.arch}"
-    libexec.glob("frontends/{csharp,go}src2cpg/bin/astgen/{dotnet,go}astgen-*").each do |f|
-      f.unlink unless f.basename.to_s.end_with?(astgen_suffix)
+    astgen_suffix = Hardware::CPU.intel? ? [os] : ["#{os}-#{Hardware::CPU.arch}", "#{os}-arm"]
+    libexec.glob("frontends/{csharp,go,js}src2cpg/bin/astgen/{dotnet,go,}astgen-*").each do |f|
+      f.unlink unless f.basename.to_s.end_with?(*astgen_suffix)
     end
 
     libexec.children.select { |f| f.file? && f.executable? }.each do |f|
