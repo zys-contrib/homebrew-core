@@ -1,8 +1,8 @@
 class ClangUml < Formula
   desc "Customizable automatic UML diagram generator for C++ based on Clang"
   homepage "https://github.com/bkryza/clang-uml"
-  url "https://github.com/bkryza/clang-uml/archive/refs/tags/0.5.5.tar.gz"
-  sha256 "95585b59c822f3c135dae04574055384e1f904ac69c75c8570b4eb65eca6fd37"
+  url "https://github.com/bkryza/clang-uml/archive/refs/tags/0.5.6.tar.gz"
+  sha256 "7a92e7b8b4f1d269087f13e05ea7ff2ae3f2ca0a8e3ecd0a4db34444bb8dc4f9"
   license "Apache-2.0"
   head "https://github.com/bkryza/clang-uml.git", branch: "master"
 
@@ -16,11 +16,9 @@ class ClangUml < Formula
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "llvm"
   depends_on "yaml-cpp"
-
-  fails_with gcc: "5"
 
   def llvm
     deps.map(&:to_formula)
@@ -59,7 +57,7 @@ class ClangUml < Formula
       }
       int main(int argc, char** argv) { A::AA a; return 0; }
     CPP
-    (testpath/".clang-uml").write <<~EOS
+    (testpath/".clang-uml").write <<~YAML
       compilation_database_dir: build
       output_directory: diagrams
       diagrams:
@@ -68,7 +66,7 @@ class ClangUml < Formula
           include:
             namespaces:
               - A
-    EOS
+    YAML
     (testpath/"CMakeLists.txt").write <<~CMAKE
       cmake_minimum_required(VERSION 3.15)
 
