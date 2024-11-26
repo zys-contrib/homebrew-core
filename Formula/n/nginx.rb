@@ -3,10 +3,10 @@ class Nginx < Formula
   homepage "https://nginx.org/"
   # Use "mainline" releases only (odd minor version number), not "stable"
   # See https://www.nginx.com/blog/nginx-1-12-1-13-released/ for why
-  url "https://nginx.org/download/nginx-1.27.2.tar.gz"
-  sha256 "a91ecfc3a0b3a2c1413afca627bd886d76e0414b81cad0fb7872a9655a1b25fa"
+  url "https://nginx.org/download/nginx-1.27.3.tar.gz"
+  sha256 "ba23a9568f442036b61cd0e29bd66a47b90634efa91e0b2cf2d719057a9b7903"
   license "BSD-2-Clause"
-  head "https://github.com/nginx/nginx", branch: "master"
+  head "https://github.com/nginx/nginx.git", branch: "master"
 
   livecheck do
     url :homepage
