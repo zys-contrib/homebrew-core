@@ -2596,6 +2596,7 @@ scipy
 scm-manager
 scnlib
 scons
+scooter
 scorecard
 scotch
 scrapy
