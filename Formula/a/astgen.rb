@@ -6,7 +6,7 @@ class Astgen < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "8a3ff787bb98219536e744663035f15f53b7ee2db59ffee934b0a422fc73476a"
+    sha256 cellar: :any_skip_relocation, all: "6ee20160dcccd4f33123a7c5eab06c9fd9f792aa572303ffb765be885f33d5f2"
   end
 
   depends_on "node"
