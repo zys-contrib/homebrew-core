@@ -15,12 +15,12 @@ class Spidermonkey < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "61b7051e96d04b5b6ddacc8ee0800b243b4ea2453bd795c07980958f93f4d174"
-    sha256 cellar: :any, arm64_sonoma:  "88ab4784c34102c8fb93c8915cdcbd1ac7496460ffe84b5a30bea713d29be343"
-    sha256 cellar: :any, arm64_ventura: "ec7e958ab256a5962f4ba60c12b368dc8609d0f156ddf23657bb54612db09287"
-    sha256 cellar: :any, sonoma:        "88c0d75a9e74c2979b9e7afe93d4e615032508fa92c4ebd3b0ca26e2436b9f69"
-    sha256 cellar: :any, ventura:       "be20966c58859beea2f86f730aed999e4adb9222a2ff4350b94952e0adcd8c0e"
-    sha256               x86_64_linux:  "d0664eeb42fb30dceab87318b21513762cc47dda62a91b21e1870421fc08ad81"
+    sha256 cellar: :any, arm64_sequoia: "24135ed8e1cb9f1bbaa134fe3724c2239bdffe7a5e3fdff3005b9a2c79a216ea"
+    sha256 cellar: :any, arm64_sonoma:  "4c427ecdfa38192fd20bf5abc0a53d3140fb9c394ed67586cb4c97f1f1666e3e"
+    sha256 cellar: :any, arm64_ventura: "a2fc5f1006d0e0b98f071a35146d2d576c1d5c11b85bdecdf130244e79a5dd71"
+    sha256 cellar: :any, sonoma:        "72fb0c718d52dbd120d9a214bc1f39ec942410439fa51698caf4a6e520e2f10a"
+    sha256 cellar: :any, ventura:       "300f0844725d8f3bdd4287bb297be1fc050d82a0300d0ab24700f21e7df9c60b"
+    sha256               x86_64_linux:  "f6b37bb6ffad6c28d7d7dcc37b6f2796de1126a8f7ec37c47e0a93248548d2c6"
   end
 
   depends_on "cbindgen" => :build
