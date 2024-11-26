@@ -7,12 +7,12 @@ class AstGrep < Formula
   head "https://github.com/ast-grep/ast-grep.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e703a8263472bf0e229dd8931987358fdd9ca15799db92e8c9dcee14ed172cab"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7414c1e6b2f52a900c4f0addb143285cad7a84ff57c21aaf128fe94e72832211"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "153cd3cca19951b30be0b91ddc15c698c45abc0f4f92e1abe1c6d1d7da7758d3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d0c96886f777c489be72519429942e9d3f097f265deecf3c487571eb40f4cbec"
-    sha256 cellar: :any_skip_relocation, ventura:       "7755fdc7ecf936c0d533b9ef98b2f205e0eda2a083aa21b390c5429d67c901f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e978974c722a35885efb1141911ebaab0b84e8a35fbe44e399da3e3b3e6e2854"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "947cb3d642116433d8fc721c97461af8185951d5254e8133e7f4a38603cb60a5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "31c4ad36b46f762973ddaeea967e435b81df8aae458075227a3d4a244eb7f737"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0bdeaa544d60f08fdb1590e202eaf2f343dad871c3a56503b953431df99b13a6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9e524ae9a10a925ea07c23852e96e928be26053b7e41d34766656190aaabdcde"
+    sha256 cellar: :any_skip_relocation, ventura:       "f907d92fecb6c2fa9a3ac731a20d4bb4d104ca9feceef6a8d7de5b7f241fa0f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6099596495fb06ac25792a4a342bf3295dab11aff9b963755d31d2dfd629fd2"
   end
 
   depends_on "rust" => :build
