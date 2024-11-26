@@ -1,8 +1,8 @@
 class EfmLangserver < Formula
   desc "General purpose Language Server"
   homepage "https://github.com/mattn/efm-langserver"
-  url "https://github.com/mattn/efm-langserver/archive/refs/tags/v0.0.53.tar.gz"
-  sha256 "2e315b6c563a994d8f5b3d2d8e5be629628b1f6dc7e4a82d9ea1a5deb8c81be6"
+  url "https://github.com/mattn/efm-langserver/archive/refs/tags/v0.0.54.tar.gz"
+  sha256 "4149b2922899ce313a89f60851f6678369253ed542dd65bdc8dd22f3cf1629bb"
   license "MIT"
   head "https://github.com/mattn/efm-langserver.git", branch: "master"
 
