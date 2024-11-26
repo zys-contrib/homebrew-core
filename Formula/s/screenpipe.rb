@@ -1,8 +1,8 @@
 class Screenpipe < Formula
   desc "Library to build personalized AI powered by what you've seen, said, or heard"
   homepage "https://github.com/mediar-ai/screenpipe"
-  url "https://github.com/mediar-ai/screenpipe/archive/refs/tags/v0.1.98.tar.gz"
-  sha256 "cb3c8039ecb60d35bacd2b9673db112f907b4a1d3d7c32f49a5e77c0274268ad"
+  url "https://github.com/mediar-ai/screenpipe/archive/refs/tags/v0.2.4.tar.gz"
+  sha256 "92d23a6b13fbf86a931de2a016fbe1aa55aedffd34242d976c4739b9f7245544"
   license "MIT"
 
   bottle do
@@ -15,16 +15,19 @@ class Screenpipe < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "ffmpeg"
 
+  uses_from_macos "llvm" # for libclang
+
   on_linux do
-    depends_on "pkgconf" => :build
     depends_on "alsa-lib"
     depends_on "dbus"
     depends_on "libxcb"
     depends_on "openssl@3"
     depends_on "tesseract"
+    depends_on "xz"
   end
 
   def install
