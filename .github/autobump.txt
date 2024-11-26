@@ -1473,6 +1473,7 @@ kor
 kotlin
 kotlin-language-server
 kpcli
+kraftkit
 krakend
 krb5
 krew
