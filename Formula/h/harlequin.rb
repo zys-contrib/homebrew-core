@@ -7,6 +7,15 @@ class Harlequin < Formula
   sha256 "8319da69b07afd063e1296ebba1569374daa171489b97bd35d2dbdae802e6144"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "a4222d31076b6b37a7893a1f4f33864dbe7d0441913c627f3de2072ca735df0c"
+    sha256 cellar: :any,                 arm64_sonoma:  "431c1d2d62756ffe35844622de0752cd921442607dc4053dbeeb3df4cb48c05d"
+    sha256 cellar: :any,                 arm64_ventura: "63f20125af649403431da9e77828f737496a6f98cc413a74a728eeb6a96873d1"
+    sha256 cellar: :any,                 sonoma:        "76e9ddc0c1986af61180e1aa4a97d9a17cdb29c5aac14fe659fc31f2777a1c21"
+    sha256 cellar: :any,                 ventura:       "32b8d392730383596dfec5bece5e5f14ed88fc58594180b03d6b088bebf4efa5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d353b3e7738c1b0848c8336280dc14c31170330949766ac39a52c021eba7b83f"
+  end
+
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "apache-arrow"
