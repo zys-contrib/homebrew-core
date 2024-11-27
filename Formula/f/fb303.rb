@@ -24,8 +24,6 @@ class Fb303 < Formula
   depends_on "glog"
   depends_on "openssl@3"
 
-  fails_with gcc: "5" # C++17
-
   def install
     shared_args = ["-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}"]
     shared_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
