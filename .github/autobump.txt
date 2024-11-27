@@ -2277,6 +2277,7 @@ pianod
 picard-tools
 picotool
 pidgin
+pie
 pig
 pillow
 pinentry
