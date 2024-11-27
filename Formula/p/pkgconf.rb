@@ -49,9 +49,14 @@ class Pkgconf < Formula
       ["#{HOMEBREW_LIBRARY}/Homebrew/os/linux/pkgconfig"]
     end
 
-    system "./configure", "--disable-silent-rules",
-                          "--with-pkg-config-dir=#{pc_path.uniq.join(File::PATH_SEPARATOR)}",
-                          *std_configure_args
+    args = %W[
+      --disable-silent-rules
+      --with-pkg-config-dir=#{pc_path.uniq.join(File::PATH_SEPARATOR)}
+      --with-system-includedir=#{MacOS.sdk_path_if_needed if OS.mac?}/usr/include
+      --with-system-libdir=/usr/lib
+    ]
+
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
 
@@ -96,5 +101,11 @@ class Pkgconf < Formula
 
     system ENV.cc, "test.c", "-I#{include}/pkgconf", "-L#{lib}", "-lpkgconf"
     system "./a.out"
+
+    # Make sure system-libdir is removed as it can cause problems in superenv
+    if OS.mac?
+      ENV.delete "PKG_CONFIG_LIBDIR"
+      refute_match "-L/usr/lib", shell_output("#{bin}/pkgconf --libs libcurl")
+    end
   end
 end
