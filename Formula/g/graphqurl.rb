@@ -1,8 +1,8 @@
 class Graphqurl < Formula
   desc "Curl for GraphQL with autocomplete, subscriptions and GraphiQL"
   homepage "https://github.com/hasura/graphqurl"
-  url "https://registry.npmjs.org/graphqurl/-/graphqurl-1.0.3.tgz"
-  sha256 "77b38dc7f34b7e4f4d3550896a2c4a78ef31a76f202de03b9efaabfc5060ee82"
+  url "https://registry.npmjs.org/graphqurl/-/graphqurl-2.0.0.tgz"
+  sha256 "589fd91ec8b40554ff2d32a35846bc9e31466ce9824530ccd3176aafe8e8ce75"
   license "Apache-2.0"
 
   bottle do
