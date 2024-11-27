@@ -33,6 +33,7 @@ akamai
 alda
 alembic
 algol68g
+aliae
 aliddns
 aliyun-cli
 aliyunpan
