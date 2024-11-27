@@ -1,8 +1,8 @@
 class Lla < Formula
   desc "High-performance, extensible alternative to ls"
   homepage "https://github.com/triyanox/lla"
-  url "https://github.com/triyanox/lla/archive/refs/tags/v0.2.7.tar.gz"
-  sha256 "a09d352aa519a0c8e73fc812abd844ca1948b16b73071a68dbd44695fa804c12"
+  url "https://github.com/triyanox/lla/archive/refs/tags/v0.2.9.tar.gz"
+  sha256 "e21cba33f4f2da83c4a58d799b5b36cca0bce1946231e611cceacf681584a67a"
   license "MIT"
 
   bottle do
@@ -28,8 +28,8 @@ class Lla < Formula
       system "cargo", "build", "--jobs", ENV.make_jobs.to_s,
                                "--locked", "--lib", "--release",
                                "--manifest-path=#{plugin_path}"
-      lib.install plugin/"target/release"/shared_library("lib#{plugin.basename}")
     end
+    lib.install Dir["target/release/*.{dylib,so}"]
   end
 
   def caveats
@@ -50,7 +50,7 @@ class Lla < Formula
     system bin/"lla"
 
     # test lla plugins
-    inreplace(test_config, /^plugins_dir = ".*"$/, "plugins_dir = \"#{opt_lib}\"")
+    system bin/"lla", "config", "--set", "plugins_dir", opt_lib
 
     system bin/"lla", "--enable-plugin", "git_status", "categorizer"
     system bin/"lla"
