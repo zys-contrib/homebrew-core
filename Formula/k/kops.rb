@@ -1,8 +1,8 @@
 class Kops < Formula
   desc "Production Grade K8s Installation, Upgrades, and Management"
   homepage "https://kops.sigs.k8s.io/"
-  url "https://github.com/kubernetes/kops/archive/refs/tags/v1.30.1.tar.gz"
-  sha256 "b454979d042e5f55704ce544ff79e52c236534a031851818f73a8744d0851b1f"
+  url "https://github.com/kubernetes/kops/archive/refs/tags/v1.30.2.tar.gz"
+  sha256 "7e70dd6cc80d0e463befa7737c4770165c21952f9e325fcd605639cec1d1f8bf"
   license "Apache-2.0"
   head "https://github.com/kubernetes/kops.git", branch: "master"
 
