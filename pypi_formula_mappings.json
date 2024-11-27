@@ -225,6 +225,10 @@
   "cookiecutter": {
     "exclude_packages": ["certifi"]
   },
+  "core-lightning": {
+    "package_name": "",
+    "extra_packages": ["mako", "setuptools"]
+  },
   "credstash": {
     "exclude_packages": ["cryptography"]
   },
