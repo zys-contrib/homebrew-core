@@ -1,8 +1,8 @@
 class PowerlineGo < Formula
   desc "Beautiful and useful low-latency prompt for your shell"
   homepage "https://github.com/justjanne/powerline-go"
-  url "https://github.com/justjanne/powerline-go/archive/refs/tags/v1.24.tar.gz"
-  sha256 "08d958c49269e7025a998a617f3d6a0b6dcd7432437f950f0d0e3335bf7b59b3"
+  url "https://github.com/justjanne/powerline-go/archive/refs/tags/v1.25.tar.gz"
+  sha256 "64cb194bbf08536320d0f4c24ef9524fdf486f579147cacdb0b6dc0afc1134e2"
   license "GPL-3.0-or-later"
 
   bottle do
