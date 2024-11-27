@@ -19,24 +19,18 @@ class Libsamplerate < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build/shared",
-      *std_cmake_args,
-      "-DBUILD_SHARED_LIBS=ON",
-      "-DLIBSAMPLERATE_EXAMPLES=OFF",
-      "-DBUILD_TESTING=OFF"
-    system "cmake", "--build", "build/shared"
-    system "cmake", "--build", "build/shared", "--target", "install"
+    args = ["-DLIBSAMPLERATE_EXAMPLES=OFF"]
 
-    system "cmake", "-S", ".", "-B", "build/static",
-      *std_cmake_args,
-      "-DBUILD_SHARED_LIBS=OFF",
-      "-DLIBSAMPLERATE_EXAMPLES=OFF",
-      "-DBUILD_TESTING=OFF"
-    system "cmake", "--build", "build/static"
-    system "cmake", "--build", "build/static", "--target", "install"
+    system "cmake", "-S", ".", "-B", "build_shared", "-DBUILD_SHARED_LIBS=ON", *args, *std_cmake_args
+    system "cmake", "--build", "build_shared"
+    system "cmake", "--install", "build_shared"
+
+    system "cmake", "-S", ".", "-B", "build_static", "-DBUILD_SHARED_LIBS=OFF", *args, *std_cmake_args
+    system "cmake", "--build", "build_static"
+    lib.install "build_static/src/libsamplerate.a"
   end
 
   test do
