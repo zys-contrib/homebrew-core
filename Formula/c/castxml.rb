@@ -23,8 +23,6 @@ class Castxml < Formula
   depends_on "cmake" => :build
   depends_on "llvm"
 
-  fails_with gcc: "5"
-
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
