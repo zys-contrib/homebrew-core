@@ -16,7 +16,7 @@ class Sysprof < Formula
   head "https://gitlab.gnome.org/GNOME/sysprof.git", branch: "master"
 
   bottle do
-    sha256 x86_64_linux: "5a7ef062122b6f7f37120bf0d4bf00026e4d339ef8284a5a4db40f2536817745"
+    sha256 x86_64_linux: "fa87873eb63a555755113ca2b47a0af3e2d76cdecbcf5067c6113cd3b095e8ba"
   end
 
   depends_on "desktop-file-utils" => :build
