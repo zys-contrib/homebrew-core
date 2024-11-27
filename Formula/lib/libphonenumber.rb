@@ -4,6 +4,7 @@ class Libphonenumber < Formula
   url "https://github.com/google/libphonenumber/archive/refs/tags/v8.13.50.tar.gz"
   sha256 "a46b2b5195b85197212ca9d9c0d8dc37af57d2f38b38b8c15dd56a0ec3a2cdc0"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -19,7 +20,7 @@ class Libphonenumber < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "372a38d5ddb6a5977b2affc2cf8a2c953256bb23562c58bde8f2779c358c49f9"
   end
 
-  depends_on "cmake" => :build
+  depends_on "cmake" => [:build, :test]
   depends_on "openjdk" => :build
   depends_on "abseil"
   depends_on "boost"
@@ -60,9 +61,18 @@ class Libphonenumber < Formula
         }
       }
     CPP
-    system ENV.cxx, "-std=c++17", "test.cpp",
-                                "-I#{Formula["protobuf"].opt_include}",
-                                "-L#{lib}", "-lphonenumber", "-o", "test"
+
+    (testpath/"CMakeLists.txt").write <<~CMAKE
+      cmake_minimum_required(VERSION 3.14)
+      project(test LANGUAGES CXX)
+      find_package(Boost COMPONENTS date_time system thread)
+      find_package(libphonenumber CONFIG REQUIRED)
+      add_executable(test test.cpp)
+      target_link_libraries(test libphonenumber::phonenumber-shared)
+    CMAKE
+
+    system "cmake", ".", *std_cmake_args
+    system "cmake", "--build", "."
     system "./test"
   end
 end
