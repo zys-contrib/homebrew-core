@@ -1,8 +1,8 @@
 class Massdriver < Formula
   desc "Manage applications and infrastructure on Massdriver Cloud"
   homepage "https://www.massdriver.cloud/"
-  url "https://github.com/massdriver-cloud/mass/archive/refs/tags/1.10.5.tar.gz"
-  sha256 "dfcf0634b83eb08d5954767bb3e9531bea0278a6110239c03265c4595af7d497"
+  url "https://github.com/massdriver-cloud/mass/archive/refs/tags/1.10.6.tar.gz"
+  sha256 "ff1cecbaba75ed75fb5f55b14c4d3a8c4ca4301b1592cec0658da4d0c98dc866"
   license "Apache-2.0"
   head "https://github.com/massdriver-cloud/mass.git", branch: "main"
 
