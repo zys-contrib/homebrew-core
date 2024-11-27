@@ -21,12 +21,10 @@ class Pianod < Formula
     sha256 x86_64_linux:   "29141d3fcb442321213fa4fbdf575003a67e012036975c8fbfff1299096abc44"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "glib"
+  depends_on "gnutls"
   depends_on "gstreamer"
-  depends_on "json-c"
-  depends_on "libao"
-  depends_on "libgcrypt"
   depends_on "taglib"
 
   uses_from_macos "curl"
@@ -35,19 +33,13 @@ class Pianod < Formula
 
   on_macos do
     depends_on "gettext"
-    depends_on "gnutls"
-    depends_on "ncurses"
   end
 
   on_linux do
-    depends_on "gnutls"
     depends_on "libbsd"
   end
 
-  fails_with gcc: "5"
-
   def install
-    ENV["OBJCXXFLAGS"] = "-std=c++14"
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
