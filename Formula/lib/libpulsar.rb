@@ -5,7 +5,7 @@ class Libpulsar < Formula
   mirror "https://archive.apache.org/dist/pulsar/pulsar-client-cpp-3.6.0/apache-pulsar-client-cpp-3.6.0.tar.gz"
   sha256 "522ca67bc911fcd4c0c9e4278628c9167b614a887c63fb04b04370156254d3b3"
   license "Apache-2.0"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "29e1d2754eefb335d901ab5878f07113fb473de3e80c440dd30cabd9c3e46c0b"
