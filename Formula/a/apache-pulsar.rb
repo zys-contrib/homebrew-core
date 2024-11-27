@@ -14,10 +14,15 @@ class ApachePulsar < Formula
   end
 
   depends_on "maven" => :build
-  depends_on arch: :x86_64 # https://github.com/grpc/grpc-java/issues/7690
+  depends_on "protoc-gen-grpc-java" => :build
   depends_on "openjdk@21"
 
   def install
+    # Avoid using pre-built `protoc-gen-grpc-java`
+    grpc_java_files = ["pulsar-client/pom.xml", "pulsar-functions/proto/pom.xml"]
+    plugin_artifact = "io.grpc:protoc-gen-grpc-java:${protoc-gen-grpc-java.version}:exe:${os.detected.classifier}"
+    inreplace grpc_java_files, %r{<pluginArtifact>#{Regexp.escape(plugin_artifact)}\s*</pluginArtifact>}, ""
+
     java_home_env = Language::Java.java_home_env("21")
     with_env(TMPDIR: buildpath, **java_home_env) do
       system "mvn", "clean", "package", "-DskipTests", "-Pcore-modules"
@@ -60,7 +65,8 @@ class ApachePulsar < Formula
     spawn bin/"pulsar", "standalone", "--zookeeper-dir", "#{testpath}/zk", "--bookkeeper-dir", "#{testpath}/bk"
     # The daemon takes some time to start; pulsar-client will retry until it gets a connection, but emit confusing
     # errors until that happens, so sleep to reduce log spam.
-    sleep 45
+    sleep 30
+    sleep 30 if OS.mac? && Hardware::CPU.intel?
 
     output = shell_output("#{bin}/pulsar-client produce my-topic --messages 'hello-pulsar'")
     assert_match "1 messages successfully produced", output
