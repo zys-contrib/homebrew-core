@@ -2,6 +2,7 @@ class Brpc < Formula
   desc "Better RPC framework"
   homepage "https://brpc.apache.org/"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apache/brpc.git", branch: "master"
 
   stable do
@@ -32,6 +33,17 @@ class Brpc < Formula
   depends_on "leveldb"
   depends_on "openssl@3"
   depends_on "protobuf"
+
+  on_linux do
+    depends_on "pkgconf" => :test
+  end
+
+  # Apply open PR commit to fix compile with Protobuf 29+.
+  # PR ref: https://github.com/apache/brpc/pull/2830
+  patch do
+    url "https://github.com/apache/brpc/commit/8d1ee6d06ffdf84a33bd083463663ece5fb9e7a9.patch?full_index=1"
+    sha256 "9602c9200bd53b58e359cdf408775c21584ce613404097f6f3832f4df3bcba9c"
+  end
 
   def install
     inreplace "CMakeLists.txt", "/usr/local/opt/openssl",
@@ -83,6 +95,7 @@ class Brpc < Formula
         return 0;
       }
     CPP
+
     protobuf = Formula["protobuf"]
     gperftools = Formula["gperftools"]
     flags = %W[
@@ -95,7 +108,11 @@ class Brpc < Formula
       -lprotobuf
       -ltcmalloc
     ]
-    system ENV.cxx, "-std=c++17", testpath/"test.cpp", "-o", "test", *flags
+    # Work around for undefined reference to symbol
+    # '_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilder7ForVar2Ev'
+    flags += shell_output("pkgconf --libs absl_log_internal_check_op").chomp.split if OS.linux?
+
+    system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test", *flags
     assert_equal "200", shell_output("./test")
   end
 end
