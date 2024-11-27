@@ -7,12 +7,12 @@ class Dissent < Formula
   head "https://github.com/diamondburned/dissent.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f2448419bd81de8a1f256651ab3328c1cd75f3da232fe057b9f56f611abac5ea"
-    sha256 cellar: :any,                 arm64_sonoma:  "ef3779084e55a473b8c56c6415908ac61a9f2d447fa1d1c0da723326eecbcd7b"
-    sha256 cellar: :any,                 arm64_ventura: "a518a0006ad3eefc5f4db860f3ca1d4225efdf8960c4f41a7fddabf6cbb1c2d7"
-    sha256 cellar: :any,                 sonoma:        "d55fd2d47ff74a860f02ac9ccb7bfd82d917cf3a7399273487fe08061c90f690"
-    sha256 cellar: :any,                 ventura:       "d216f4360abd678c659f65d36afff0ed4b3dc515994c0e88e60063506ab5af29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c96d63371bdfe8c13999e181d862d8cc3ac2efb6aaa91e230f757f2cc141dd7f"
+    sha256 cellar: :any,                 arm64_sequoia: "ab4d0479dea0c67a710b925414a9a55b2c3a739c481f975cc19515a6781eee64"
+    sha256 cellar: :any,                 arm64_sonoma:  "24b07f98ed855ec93a1359daea34362b3c36d0ba68843240721e5fdd1f756bbb"
+    sha256 cellar: :any,                 arm64_ventura: "fb20c945259afae12a0733fe88fe95677c1fdbbf2cf138ea36d66b76b341a447"
+    sha256 cellar: :any,                 sonoma:        "4266a0c2b2772822ebe02932638a506f7f3feb0b11f627a7284d757ad0b0d198"
+    sha256 cellar: :any,                 ventura:       "7b64be62c292d8503383de31d2b1a0ba209c1f16cc220d2f02ed8f702099fa9d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8167873b835b53040a38b5d307ffdc2ee67f6b275032417b5f4a9ebfdeb27d5"
   end
 
   depends_on "go" => :build
