@@ -7,14 +7,12 @@ class Nzbget < Formula
   head "https://github.com/nzbgetcom/nzbget.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "6c68cbbdab136141537374b155de26b72e32e2f0cde6139a2480d97a3cbdb5e0"
-    sha256 cellar: :any,                 arm64_sonoma:   "5c8c7d15f27dc7b650f42e049c29111af248e35dfb41916939869c9d63f1f986"
-    sha256 cellar: :any,                 arm64_ventura:  "5d1ca334ae08f0aaf99c474b3d6ca01d7a24ce6e34a25ef84426bd829e2bae0d"
-    sha256 cellar: :any,                 arm64_monterey: "fe3f2f00177bb08ab060af9524068489e3fde33fcd1262d2099eca47234ae8a8"
-    sha256                               sonoma:         "8735a21091a5d22fd9faf0571b02c003825022a4bccb17b25d361314961bb24a"
-    sha256                               ventura:        "648677c0bd4dd2b93e3737c4ebb11fe9e5f6f6dc591da8f3df75a5e4d055f23a"
-    sha256                               monterey:       "cc815d9546026e20294ac1690eba95d1329db0cc74ecc4015cc48484d3371b63"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5658154d9bdc1496d74858305c9c72284efe6639c1252e827519c147d5b0dc3"
+    sha256 cellar: :any,                 arm64_sequoia: "0478991b7ae356aca4c35a7d036fdcb188988b57811fd2bb1a1d678e9dbc33fc"
+    sha256 cellar: :any,                 arm64_sonoma:  "7af9e5cee1dabae64cd660cbe0fb9bde0aaf3607f80ee798d052483a436f5492"
+    sha256 cellar: :any,                 arm64_ventura: "e353ce5f208b56a48f41656ee35784f74dabe71759e1f676f426f7b67d7694d1"
+    sha256                               sonoma:        "d0ffe0849e5e2135a7405402a55b6787cfe546e7dac732024e1cd9b7737fb103"
+    sha256                               ventura:       "df3636cf74641699384be7edf44b9d7126ec3fa9cf44b81812cfdada38bf3e66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea5ef2b5e097844f99a180ccd6c2b9508354c1d8ecf0dcd228de3b71a69173ea"
   end
 
   depends_on "cmake" => :build
