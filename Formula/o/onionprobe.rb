@@ -3,10 +3,9 @@ class Onionprobe < Formula
 
   desc "Test and monitoring tool for Tor Onion Services"
   homepage "https://tpo.pages.torproject.net/onion-services/onionprobe/"
-  url "https://files.pythonhosted.org/packages/aa/a7/881b66594477795314e4a5029f098eb78cf21c843b63bed8d3c7cfcf5fe4/onionprobe-1.2.0.tar.gz"
-  sha256 "65ef77047e2cb24de999dcfeeb759de04f6ec952612a5aa9225dc92488696dc5"
+  url "https://files.pythonhosted.org/packages/fa/45/e3bd87fe265e23f22b7781f8d81f68bf6a9a46c2665e84e748afa1855231/onionprobe-1.2.1.tar.gz"
+  sha256 "7c01ab3696cb0b2ea90270f24470e4caefcdb39d53d5f0f6fa9f8c82b58bc37e"
   license "GPL-3.0-or-later"
-  revision 2
   head "https://gitlab.torproject.org/tpo/onion-services/onionprobe.git", branch: "main"
 
   bottle do
