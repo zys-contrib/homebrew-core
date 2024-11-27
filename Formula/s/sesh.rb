@@ -7,12 +7,12 @@ class Sesh < Formula
   head "https://github.com/joshmedeski/sesh.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a82813dca10e229c3d4bfeeca54e2c8c11916a4f24f37bbba6a532bf1324a2e4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a82813dca10e229c3d4bfeeca54e2c8c11916a4f24f37bbba6a532bf1324a2e4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a82813dca10e229c3d4bfeeca54e2c8c11916a4f24f37bbba6a532bf1324a2e4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "afa6ce77d55abf50d90046fdd299b1941fa0892eb1bb2f14c23f2c4ab05cba51"
-    sha256 cellar: :any_skip_relocation, ventura:       "afa6ce77d55abf50d90046fdd299b1941fa0892eb1bb2f14c23f2c4ab05cba51"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a25b4abfbb3eeacf4fd0104738e41dc7b0208ca254989b9799e507738913b84f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c944f6ce49e1e27619ea86be512e8c47ccaa22f6ca5badf6b4064edd9ac56f6b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c944f6ce49e1e27619ea86be512e8c47ccaa22f6ca5badf6b4064edd9ac56f6b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c944f6ce49e1e27619ea86be512e8c47ccaa22f6ca5badf6b4064edd9ac56f6b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f298fb9a33548818e0dd9060c76a52f3973f3f759de9458a851677444b51b08c"
+    sha256 cellar: :any_skip_relocation, ventura:       "f298fb9a33548818e0dd9060c76a52f3973f3f759de9458a851677444b51b08c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8547866abff65f62744c3840903758232f00cb619ef767ecaf82a2d8f5dccc0b"
   end
 
   depends_on "go" => :build
