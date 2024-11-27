@@ -749,6 +749,7 @@ duckdb
 duckscript
 dufs
 dug
+dum
 dumpling
 dunamai
 dune
