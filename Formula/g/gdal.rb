@@ -63,7 +63,7 @@ class Gdal < Formula
   depends_on "pcre2"
   depends_on "poppler"
   depends_on "proj"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "qhull"
   depends_on "sqlite"
   depends_on "unixodbc"
@@ -88,7 +88,7 @@ class Gdal < Formula
   conflicts_with "cpl", because: "both install cpl_error.h"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
