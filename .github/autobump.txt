@@ -2333,6 +2333,7 @@ postgresql@15
 postgresql@16
 postgrest
 poutine
+powerline-go
 powerman
 powerman-dockerize
 pqiv
