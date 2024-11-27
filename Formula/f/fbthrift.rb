@@ -48,8 +48,6 @@ class Fbthrift < Formula
     EOS
   end
 
-  fails_with gcc: "5" # C++ 17
-
   def install
     # Work around build failure with Xcode 16
     # Issue ref: https://github.com/facebook/fbthrift/issues/618
