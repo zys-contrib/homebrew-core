@@ -5,7 +5,7 @@ class Ola < Formula
   desc "Open Lighting Architecture for lighting control information"
   homepage "https://www.openlighting.org/ola/"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 1
+  revision 2
 
   stable do
     # TODO: Check if we can use unversioned `protobuf` at version bump
@@ -70,8 +70,11 @@ class Ola < Formula
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/74/6e/e69eb906fddcb38f8530a12f4b410699972ab7ced4e21524ece9d546ac27/protobuf-5.28.3.tar.gz"
-    sha256 "64badbc49180a5e401f373f9ce7ab1d18b63f7dd4a9cdc43c92b9f0b481cef7b"
+    url "https://files.pythonhosted.org/packages/6a/bb/8e59a30b83102a37d24f907f417febb58e5f544d4f124dd1edcd12e078bf/protobuf-5.29.0.tar.gz"
+    sha256 "445a0c02483869ed8513a585d80020d012c6dc60075f96fa0563a724987b1001"
+
+    # Backport https://github.com/protocolbuffers/protobuf/commit/5864b5078a0187a1a16d4d2ed6f55972511d0a94
+    patch :DATA
   end
 
   # Apply open PR to support Protobuf 22+ API
@@ -142,3 +145,24 @@ class Ola < Formula
     system python3, "-c", "from ola.ClientWrapper import ClientWrapper"
   end
 end
+
+__END__
+--- a/google/protobuf/service.py
++++ b/google/protobuf/service.py
+@@ -70,12 +70,12 @@ def CallMethod(self, method_descriptor, rpc_controller,
+     Postconditions:
+ 
+     * "done" will be called when the method is complete.  This may be
+-     before CallMethod() returns or it may be at some point in the future.
++      before CallMethod() returns or it may be at some point in the future.
+     * If the RPC failed, the response value passed to "done" will be None.
+-     Further details about the failure can be found by querying the
+-     RpcController.
++      Further details about the failure can be found by querying the
++      RpcController.
+     """
+-   raise NotImplementedError
++    raise NotImplementedError
+ 
+   def GetRequestClass(self, method_descriptor):
+     """Returns the class of the request message for the specified method.
