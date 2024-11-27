@@ -7,12 +7,12 @@ class DockerBuildx < Formula
   head "https://github.com/docker/buildx.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1f62706d196c483f18d84e78e3bcfe48c890ad6d82c1d0194101532e9c9d7672"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1f62706d196c483f18d84e78e3bcfe48c890ad6d82c1d0194101532e9c9d7672"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1f62706d196c483f18d84e78e3bcfe48c890ad6d82c1d0194101532e9c9d7672"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a8756e1e9451029813ce09ad5d036af26cc124a33c3024bf7c7b5b65ed35b339"
-    sha256 cellar: :any_skip_relocation, ventura:       "a8756e1e9451029813ce09ad5d036af26cc124a33c3024bf7c7b5b65ed35b339"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c69b2d3ef1765c6cebe9991a27842fe0c28a8c8459621b13cc80acb5685cbc93"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8fdd5a38e02f29e6f899e8e492e5e21679df20ca82336411b56896f89ca30b2a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8fdd5a38e02f29e6f899e8e492e5e21679df20ca82336411b56896f89ca30b2a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8fdd5a38e02f29e6f899e8e492e5e21679df20ca82336411b56896f89ca30b2a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "532b925a6c16d98a9477dd23ccd0e3d1aa8a9d7ff45c4b46f24f546f8d8958de"
+    sha256 cellar: :any_skip_relocation, ventura:       "532b925a6c16d98a9477dd23ccd0e3d1aa8a9d7ff45c4b46f24f546f8d8958de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "92e62a0c061389ec4511f71cd61dfd852a96db45f4f9f1b65e4c708695bc144b"
   end
 
   depends_on "go" => :build
