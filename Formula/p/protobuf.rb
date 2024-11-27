@@ -1,8 +1,8 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://protobuf.dev/"
-  url "https://github.com/protocolbuffers/protobuf/releases/download/v28.3/protobuf-28.3.tar.gz"
-  sha256 "7c3ebd7aaedd86fa5dc479a0fda803f602caaf78d8aff7ce83b89e1b8ae7442a"
+  url "https://github.com/protocolbuffers/protobuf/releases/download/v29.0/protobuf-29.0.tar.gz"
+  sha256 "10a0d58f39a1a909e95e00e8ba0b5b1dc64d02997f741151953a2b3659f6e78c"
   license "BSD-3-Clause"
 
   livecheck do
@@ -30,11 +30,6 @@ class Protobuf < Formula
     depends_on "googletest" => :build
   end
 
-  patch do
-    url "https://github.com/protocolbuffers/protobuf/commit/e490bff517916495ed3a900aa85791be01f674f5.patch?full_index=1"
-    sha256 "7e89d0c379d89b24cb6fe795cd9d68e72f0b83fcc95dd91af721d670ad466022"
-  end
-
   # Backport to expose java-related symbols
   patch do
     url "https://github.com/protocolbuffers/protobuf/commit/9dc5aaa1e99f16065e25be4b9aab0a19bfb65ea2.patch?full_index=1"
@@ -45,6 +40,7 @@ class Protobuf < Formula
     # Keep `CMAKE_CXX_STANDARD` in sync with the same variable in `abseil.rb`.
     abseil_cxx_standard = 17
     cmake_args = %W[
+      -DCMAKE_CXX_STANDARD=#{abseil_cxx_standard}
       -DBUILD_SHARED_LIBS=ON
       -Dprotobuf_BUILD_LIBPROTOC=ON
       -Dprotobuf_BUILD_SHARED_LIBS=ON
@@ -54,7 +50,6 @@ class Protobuf < Formula
       -Dprotobuf_ABSL_PROVIDER=package
       -Dprotobuf_JSONCPP_PROVIDER=package
     ]
-    cmake_args << "-DCMAKE_CXX_STANDARD=#{abseil_cxx_standard}"
 
     system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
     system "cmake", "--build", "build"
@@ -66,7 +61,7 @@ class Protobuf < Formula
   end
 
   test do
-    testdata = <<~EOS
+    (testpath/"test.proto").write <<~EOS
       syntax = "proto3";
       package test;
       message TestCase {
@@ -76,7 +71,6 @@ class Protobuf < Formula
         repeated TestCase case = 1;
       }
     EOS
-    (testpath/"test.proto").write testdata
     system bin/"protoc", "test.proto", "--cpp_out=."
   end
 end
