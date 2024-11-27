@@ -2540,6 +2540,7 @@ rpmspectool
 rqlite
 rrdtool
 rsgain
+rshijack
 rswift
 rsyncy
 rsyslog
