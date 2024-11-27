@@ -986,6 +986,7 @@ fuc
 fuego-firestore
 func-e
 functionalplus
+funzzy
 fuse-overlayfs
 fuseki
 futhark
