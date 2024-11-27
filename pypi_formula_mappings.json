@@ -353,6 +353,10 @@
   "git-review": {
     "exclude_packages": ["certifi"]
   },
+  "glances": {
+    "package_name": "glances[web]",
+    "exclude_packages": ["certifi"]
+  },
   "glib": {
     "package_name": "",
     "extra_packages": ["packaging"]
