@@ -4,6 +4,7 @@ class PyqtAT5 < Formula
   url "https://files.pythonhosted.org/packages/4d/5d/b8b6e26956ec113ad3f566e02abd12ac3a56b103fcc7e0735e27ee4a1df3/PyQt5-5.15.10.tar.gz"
   sha256 "d46b7804b1b10a4ff91753f8113e5b5580d2b4462f3226288e2d84497334898a"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
     rebuild 3
@@ -18,7 +19,7 @@ class PyqtAT5 < Formula
   end
 
   depends_on "pyqt-builder" => :build
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "qt@5"
 
   fails_with gcc: "5"
@@ -60,7 +61,7 @@ class PyqtAT5 < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
