@@ -1763,6 +1763,7 @@ litmusctl
 little-cms2
 livekit
 livekit-cli
+lla
 llama.cpp
 llgo
 llm
