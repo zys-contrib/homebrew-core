@@ -28,8 +28,6 @@ class Fizz < Formula
 
   uses_from_macos "zlib"
 
-  fails_with gcc: "5"
-
   def install
     args = ["-DBUILD_TESTS=OFF", "-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}"]
     if OS.mac?
