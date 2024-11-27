@@ -5,6 +5,15 @@ class Rshijack < Formula
   sha256 "c13cc07825d72f09887ec0f098aa40d335f73a0bc0b31c4d1e7431271e1cb53e"
   license "GPL-3.0-or-later"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ca2a8d042e51c65e54aab501b5c669008cda7783bed088b3ae59732a8aed823"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d85aa98cf1be3462acd931d1cb235f07adf3bafb9cc2d887c0abbba93a0401fe"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0a30c41da9c8e60505b84d5eb97c0db143d5a5d9c8cf1366bc10911505622fa1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cb638e32c2280602c4a9c2df3b7d44d2a13f18804cb2aebb841425c6b3e50f59"
+    sha256 cellar: :any_skip_relocation, ventura:       "2ed78b00078532542588e9945636f4d386c09caf8e4f9f433604e3eb85eea21e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7ac803fc3ef23e503bb4604c2c1322cdac87945b8337b5d30a19ee4917f3a84"
+  end
+
   depends_on "rust" => :build
 
   def install
