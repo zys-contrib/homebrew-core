@@ -1,24 +1,18 @@
 class Deployer < Formula
   desc "Deployment tool written in PHP with support for popular frameworks"
   homepage "https://deployer.org/"
-  # Bump to php 8.4 on the next release, if possible.
-  url "https://github.com/deployphp/deployer/releases/download/v7.5.6/deployer.phar"
-  sha256 "ee741006edc46a97d522c41b84cdcdcec0da5807afcd0e7d6e737d0970b723aa"
+  url "https://github.com/deployphp/deployer/releases/download/v7.5.7/deployer.phar"
+  sha256 "f8ea30da7ce6cc520924236e8461e8802221cc566c96f6b310bc0af6e8e85e2c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0525fd0dd685a00f848dacc06b9608c7ce0a1aa3d4b1633295d9de1b28a6ebbd"
+    sha256 cellar: :any_skip_relocation, all: "d2395a4ddafeba7594d99b6a9cc6555da0b126d2d49fb0ed928b457d55c9d7d3"
   end
 
-  depends_on "php@8.3"
+  depends_on "php"
 
   def install
-    libexec.install "deployer.phar" => "dep"
-
-    (bin/"dep").write <<~EOS
-      #!#{Formula["php@8.3"].opt_bin}/php
-      <?php require '#{libexec}/dep';
-    EOS
+    bin.install "deployer.phar" => "dep"
   end
 
   test do
