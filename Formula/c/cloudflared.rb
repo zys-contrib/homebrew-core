@@ -4,6 +4,7 @@ class Cloudflared < Formula
   url "https://github.com/cloudflare/cloudflared/archive/refs/tags/2024.11.1.tar.gz"
   sha256 "1bf729c225701f6864b31bb6c251293caa06f9f1a6e671f3326dd20c3c9719ff"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/cloudflare/cloudflared.git", branch: "master"
 
   bottle do
@@ -23,6 +24,13 @@ class Cloudflared < Formula
       "DATE=#{time.iso8601}",
       "PACKAGE_MANAGER=#{tap.user}",
       "PREFIX=#{prefix}"
+  end
+
+  service do
+    run [opt_bin/"cloudflared"]
+    keep_alive successful_exit: false
+    log_path var/"log/cloudflared.log"
+    error_log_path var/"log/cloudflared.log"
   end
 
   test do
