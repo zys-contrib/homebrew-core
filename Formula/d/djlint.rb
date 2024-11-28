@@ -3,8 +3,8 @@ class Djlint < Formula
 
   desc "Lint & Format HTML Templates"
   homepage "https://djlint.com"
-  url "https://files.pythonhosted.org/packages/eb/ff/c3a7ee0c22703c03132737d1021b3c75fe1a8cfc852ce03fe74842c12966/djlint-1.36.1.tar.gz"
-  sha256 "f7260637ed72c270fa6dd4a87628e1a21c49b24a46df52e4e26f44d4934fb97c"
+  url "https://files.pythonhosted.org/packages/de/74/9173e0a91e705976c639eba1a39ce44b2b2ca1694e01c5ed8e397886d554/djlint-1.36.2.tar.gz"
+  sha256 "00d1a79de3c43b50e46a0ce6f279535b88bbf203d3f50ada92f56740fca4f590"
   license "GPL-3.0-or-later"
   head "https://github.com/djlint/djLint.git", branch: "master"
 
@@ -46,8 +46,8 @@ class Djlint < Formula
   end
 
   resource "json5" do
-    url "https://files.pythonhosted.org/packages/91/59/51b032d53212a51f17ebbcc01bd4217faab6d6c09ed0d856a987a5f42bbc/json5-0.9.25.tar.gz"
-    sha256 "548e41b9be043f9426776f05df8635a00fe06104ea51ed24b67f908856e151ae"
+    url "https://files.pythonhosted.org/packages/85/3d/bbe62f3d0c05a689c711cff57b2e3ac3d3e526380adb7c781989f075115c/json5-0.10.0.tar.gz"
+    sha256 "e66941c8f0a02026943c52c2eb34ebeb2a6f819a0be05920a6f5243cd30fd559"
   end
 
   resource "pathspec" do
@@ -71,8 +71,8 @@ class Djlint < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/e8/4f/0153c21dc5779a49a0598c445b1978126b1344bab9ee71e53e44877e14e0/tqdm-4.67.0.tar.gz"
-    sha256 "fe5a6f95e6fe0b9755e9469b77b9c3cf850048224ecaa8293d7d2d31f97d869a"
+    url "https://files.pythonhosted.org/packages/a8/4b/29b4ef32e036bb34e4ab51796dd745cdba7ed47ad142a9f4a1eb8e0c744d/tqdm-4.67.1.tar.gz"
+    sha256 "f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2"
   end
 
   def install
