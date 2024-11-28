@@ -2882,6 +2882,7 @@ tektoncd-cli
 teku
 telegraf
 teleport
+television
 teller
 telnet
 telnetd
