@@ -788,7 +788,7 @@
     "extra_packages": ["pysigma-backend-sqlite"]
   },
   "sigstore": {
-    "exclude_packages": ["certifi", "cryptography"]
+    "exclude_packages": ["certifi"]
   },
   "slither-analyzer": {
     "exclude_packages": ["certifi"]
