@@ -668,6 +668,7 @@ diffstat
 difftastic
 digdag
 dillo
+directx-headers
 direnv
 direvent
 dislocker
