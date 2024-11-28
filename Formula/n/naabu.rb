@@ -1,8 +1,8 @@
 class Naabu < Formula
   desc "Fast port scanner"
   homepage "https://github.com/projectdiscovery/naabu"
-  url "https://github.com/projectdiscovery/naabu/archive/refs/tags/v2.3.2.tar.gz"
-  sha256 "bfe1e5752902d28cf8ff4f3194e1bab97e457813c202d98b0c54ad10bd9b52f3"
+  url "https://github.com/projectdiscovery/naabu/archive/refs/tags/v2.3.3.tar.gz"
+  sha256 "fd0b9b5116dc13fea8e3c9403e1f20b9c2763ed25879ad9bc8f303fb71005ba4"
   license "MIT"
   head "https://github.com/projectdiscovery/naabu.git", branch: "master"
 
@@ -20,12 +20,12 @@ class Naabu < Formula
   uses_from_macos "libpcap"
 
   def install
-    cd "v2" do
-      system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/naabu"
-    end
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/naabu"
   end
 
   test do
     assert_match "brew.sh:443", shell_output("#{bin}/naabu -host brew.sh -p 443")
+
+    assert_match version.to_s, shell_output("#{bin}/naabu --version 2>&1")
   end
 end
