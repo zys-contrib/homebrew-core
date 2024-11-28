@@ -2532,6 +2532,7 @@ robin-map
 roblox-ts
 robot-framework
 rocksdb
+rogcat
 rojo
 rollup
 ronn-ng
