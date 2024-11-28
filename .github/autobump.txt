@@ -1576,6 +1576,7 @@ libbpf
 libbsd
 libcap
 libcap-ng
+libcdr
 libchewing
 libclc
 libcoap
