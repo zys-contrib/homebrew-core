@@ -1899,6 +1899,7 @@ minigraph
 minijinja-cli
 minikube
 minimal-racket
+minio-warp
 minipro
 miniserve
 miniupnpc
