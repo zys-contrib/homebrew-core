@@ -1211,6 +1211,7 @@ gspell
 gstreamer
 gtk+3
 gtk-gnutella
+gtk-mac-integration
 gtk4
 gtkmm4
 gtksourceview5
