@@ -1,8 +1,8 @@
 class SequoiaSq < Formula
   desc "Sequoia-PGP command-line tool"
   homepage "https://sequoia-pgp.org"
-  url "https://gitlab.com/sequoia-pgp/sequoia-sq/-/archive/v0.39.0/sequoia-sq-v0.39.0.tar.gz"
-  sha256 "ee63c606adbfedeb32fbeacb522eac0f6a0a7358710da21fc602b2f8f74f7726"
+  url "https://gitlab.com/sequoia-pgp/sequoia-sq/-/archive/v0.40.0/sequoia-sq-v0.40.0.tar.gz"
+  sha256 "6693d80f49e154a3588a3b64e4be06cede672f50e45be1a5ed3fba54f9a8126c"
   license "GPL-2.0-or-later"
   head "https://gitlab.com/sequoia-pgp/sequoia-sq.git", branch: "main"
 
@@ -42,6 +42,6 @@ class SequoiaSq < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/sq version 2>&1")
     assert_match "R0lGODdhAQABAPAAAAAAAAAAACwAAAAAAQABAAACAkQBADs=",
-      shell_output("cat #{test_fixtures("test.gif")} | #{bin}/sq toolbox armor")
+      shell_output("cat #{test_fixtures("test.gif")} | #{bin}/sq packet armor")
   end
 end
