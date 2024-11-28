@@ -7,6 +7,15 @@ class CoboCli < Formula
   sha256 "db66874dc6755d51c0efe82af01c273f733e005b9cbe7e5dd66c62b39a3cd469"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "c2ae7c31ff657e9a59e521f1935b3c0a5cccdd8e35210c82ea90e0db677b2223"
+    sha256 cellar: :any,                 arm64_sonoma:  "9f9e0c695a8193f990db05baa5d8259fb8dec13916eaa67ccf52fe28c1d8b2ff"
+    sha256 cellar: :any,                 arm64_ventura: "7780fbaf1554d58f017e77ae9446f149f9f69a43a37534fe76a86463be1a1914"
+    sha256 cellar: :any,                 sonoma:        "1dd991514407b8416a8bd03a0723b10c7c2c535288fc79069784b8996023a2f6"
+    sha256 cellar: :any,                 ventura:       "3ffba56d9a102ec3a3ca2500d0c9f110ac406a4e9b4d1252ab9575927262f3e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c5698330c5560ff41e168dc63b4fe56b23f06b9f0463a698134052f5f623e21"
+  end
+
   depends_on "certifi"
   depends_on "libsodium"
   depends_on "libyaml"
