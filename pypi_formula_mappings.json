@@ -207,6 +207,9 @@
   "cloudsplaining": {
     "exclude_packages": ["certifi"]
   },
+  "cobo-cli": {
+    "exclude_packages": ["certifi"]
+  },
   "codelimit": {
     "exclude_packages": ["certifi"]
   },

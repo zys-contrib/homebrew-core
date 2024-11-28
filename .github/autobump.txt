@@ -488,6 +488,7 @@ cnats
 cntb
 coal
 cobalt
+cobo-cli
 coccinelle
 cocoapods
 cocogitto
