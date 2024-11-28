@@ -1,8 +1,8 @@
 class Screenpipe < Formula
   desc "Library to build personalized AI powered by what you've seen, said, or heard"
   homepage "https://github.com/mediar-ai/screenpipe"
-  url "https://github.com/mediar-ai/screenpipe/archive/refs/tags/v0.2.4.tar.gz"
-  sha256 "92d23a6b13fbf86a931de2a016fbe1aa55aedffd34242d976c4739b9f7245544"
+  url "https://github.com/mediar-ai/screenpipe/archive/refs/tags/v0.2.7.tar.gz"
+  sha256 "05db0c5dc260d939e14109e2df1e6ee32b562135d6e3e36ec7619471ca8cb7b2"
   license "MIT"
 
   bottle do
@@ -18,6 +18,7 @@ class Screenpipe < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "ffmpeg"
+  depends_on macos: :sonoma
 
   uses_from_macos "llvm" # for libclang
 
@@ -37,14 +38,14 @@ class Screenpipe < Formula
   end
 
   test do
-    assert_match "Usage", shell_output("#{bin}/screenpipe -h")
+    assert_match version.to_s, shell_output("#{bin}/screenpipe -V")
 
-    log_file = testpath/".screenpipe/screenpipe.#{Time.now.strftime("%Y-%m-%d")}.log"
-    pid = spawn bin/"screenpipe --debug setup"
+    log_file = testpath/".screenpipe/screenpipe.#{time.strftime("%Y-%m-%d")}.log"
+    pid = spawn bin/"screenpipe", "--disable-vision", "--disable-audio", "--disable-telemetry"
     sleep 200
 
     assert_path_exists log_file
-    assert_match "screenpipe setup complete", File.read(log_file)
+    assert_match(/INFO.*screenpipe/, File.read(log_file))
   ensure
     Process.kill("TERM", pid)
     Process.wait(pid)
