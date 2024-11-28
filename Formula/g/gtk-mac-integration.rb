@@ -1,29 +1,9 @@
 class GtkMacIntegration < Formula
   desc "Integrates GTK macOS applications with the Mac desktop"
-  homepage "https://wiki.gnome.org/Projects/GTK+/OSX/Integration"
+  homepage "https://www.gtk.org/docs/installations/macos"
+  url "https://download.gnome.org/sources/gtk-mac-integration/3.0/gtk-mac-integration-3.0.2.tar.xz"
+  sha256 "42f29e002365467eac10f4ba78435d4be785a947424d9890112c8c8d5e21be25"
   license "LGPL-2.1-only"
-  revision 1
-
-  stable do
-    url "https://download.gnome.org/sources/gtk-mac-integration/3.0/gtk-mac-integration-3.0.1.tar.xz"
-    sha256 "f19e35bc4534963127bbe629b9b3ccb9677ef012fc7f8e97fd5e890873ceb22d"
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-    end
-
-    # Avoid crash when non-UTF-8 locale is set:
-    #   https://trac.macports.org/ticket/65474
-    # Fix merged by upstream via:
-    #   https://gitlab.gnome.org/GNOME/gtk-mac-integration/-/merge_requests/6
-    patch do
-      url "https://raw.githubusercontent.com/macports/macports-ports/a7f8a7049bb8e5c37a3a646bc216c5ab9244d9f6/devel/gtk-osx-application/files/patch-locale-gettext.diff"
-      sha256 "af8a00c278110c4ad47b28b05e86d1a41531f764266d87d5cd843c416c7f7849"
-      directory "src"
-    end
-  end
 
   # We use a common regex because gtk-mac-integration doesn't use GNOME's
   # "even-numbered minor is stable" version scheme.
