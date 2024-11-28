@@ -1,8 +1,8 @@
 class FluentBit < Formula
   desc "Fast and Lightweight Logs and Metrics processor"
   homepage "https://github.com/fluent/fluent-bit"
-  url "https://github.com/fluent/fluent-bit/archive/refs/tags/v3.2.1.tar.gz"
-  sha256 "8e706a2bbde85260f7df0638084e56d64a7149aa1bb67c5816bb5bda0bb928ab"
+  url "https://github.com/fluent/fluent-bit/archive/refs/tags/v3.2.2.tar.gz"
+  sha256 "3abcd7eda1a26fe79f1d715491bafcca77d0186cc46d1d8465157790358f827d"
   license "Apache-2.0"
   head "https://github.com/fluent/fluent-bit.git", branch: "master"
 
