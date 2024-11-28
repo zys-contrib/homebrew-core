@@ -2432,6 +2432,7 @@ python-yq
 pythran
 pyupgrade
 qbe
+qbittorrent-cli
 qbs
 qca
 qcachegrind
