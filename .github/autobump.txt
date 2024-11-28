@@ -1181,6 +1181,7 @@ gradle
 gradle-completion
 gradle-profiler
 grafana
+grafana-agent
 grails
 grap
 graph-tool
