@@ -21,7 +21,7 @@ class Asymptote < Formula
   end
 
   depends_on "glm" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "fftw"
   depends_on "ghostscript"
   depends_on "gsl"
