@@ -2308,6 +2308,7 @@ pivit
 pixi
 pixie
 pixman
+pkg-config-wrapper
 pkgconf
 pkl
 plantuml
