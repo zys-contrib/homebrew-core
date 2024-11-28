@@ -1,10 +1,10 @@
 class Mmseqs2 < Formula
   desc "Software suite for very fast sequence search and clustering"
   homepage "https://mmseqs.com/"
-  url "https://github.com/soedinglab/MMseqs2/archive/refs/tags/15-6f452.tar.gz"
-  version "15-6f452"
-  sha256 "7115ac5a7e2a49229466806aaa760d00204bb08c870e3c231b00e525c77531dc"
-  license "GPL-3.0-or-later"
+  url "https://github.com/soedinglab/MMseqs2/archive/refs/tags/16-747c6.tar.gz"
+  version "16-747c6"
+  sha256 "faeb6841feb8e028651c2391de1346c55c2091a96520b625525d27b99d07ef1d"
+  license "MIT"
   head "https://github.com/soedinglab/MMseqs2.git", branch: "master"
 
   bottle do
@@ -35,7 +35,7 @@ class Mmseqs2 < Formula
   # check revision with https://github.com/soedinglab/MMseqs2/wiki/Home/_history
   resource "documentation" do
     url "https://github.com/soedinglab/MMseqs2.wiki.git",
-        revision: "1ea9a93cb31d6c8cc25ef963311bcdddb95ff58d"
+        revision: "0e84198b94460abc6bc353021c16469d9543eefd"
   end
 
   def install

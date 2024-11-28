@@ -1914,6 +1914,7 @@ mlpack
 mlt
 mlx
 mmark
+mmseqs2
 mmv
 mockery
 mockolo
