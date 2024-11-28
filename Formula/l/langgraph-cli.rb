@@ -8,7 +8,7 @@ class LanggraphCli < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "24982d75163c8da75c455f666391efb59f0b9757229b6e966234ed8fa6d943eb"
+    sha256 cellar: :any_skip_relocation, all: "a629faa85d689a9b8bb58108c4e8e1a7d2b4855bb51d9f105378a67259680065"
   end
 
   depends_on "python@3.13"
