@@ -38,6 +38,7 @@ aliddns
 aliyun-cli
 aliyunpan
 all-repos
+allegro
 allure
 alluxio
 alp
