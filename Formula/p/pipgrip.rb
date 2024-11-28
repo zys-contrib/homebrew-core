@@ -9,12 +9,12 @@ class Pipgrip < Formula
   head "https://github.com/ddelange/pipgrip.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "426d23066076ebb711fa9e77801de7fef0b5b01dd5fffd0ea4ca5677f4c21073"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "426d23066076ebb711fa9e77801de7fef0b5b01dd5fffd0ea4ca5677f4c21073"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "426d23066076ebb711fa9e77801de7fef0b5b01dd5fffd0ea4ca5677f4c21073"
-    sha256 cellar: :any_skip_relocation, sonoma:        "dde391216cf4a1970104656ff5121675a4dd3884e4ee9a05357fb17d7d9565c2"
-    sha256 cellar: :any_skip_relocation, ventura:       "dde391216cf4a1970104656ff5121675a4dd3884e4ee9a05357fb17d7d9565c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fdd2b4e3eb1406b98ae66d6cd22ec0e8d1cd18361043160554ec23f36ae478e5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8200545764bb23a787a49b0fc005dde71dcf392ea6768e4b35882928be00c753"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8200545764bb23a787a49b0fc005dde71dcf392ea6768e4b35882928be00c753"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8200545764bb23a787a49b0fc005dde71dcf392ea6768e4b35882928be00c753"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6765b9fc84ef8911ea27ca8b1d4585cda50a6c582ac32bce062e7fe5a813d2ea"
+    sha256 cellar: :any_skip_relocation, ventura:       "6765b9fc84ef8911ea27ca8b1d4585cda50a6c582ac32bce062e7fe5a813d2ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ccdc85fb3e71bcbd61b7c62fe7f213f8cdc11461b440792c881a155ab03e582"
   end
 
   depends_on "python@3.13"
