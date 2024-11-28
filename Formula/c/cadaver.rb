@@ -1,8 +1,8 @@
 class Cadaver < Formula
   desc "Command-line client for DAV"
   homepage "https://notroj.github.io/cadaver/"
-  url "https://notroj.github.io/cadaver/cadaver-0.24.tar.gz"
-  sha256 "46cff2f3ebd32cd32836812ca47bcc75353fc2be757f093da88c0dd8f10fd5f6"
+  url "https://notroj.github.io/cadaver/cadaver-0.26.tar.gz"
+  sha256 "9236e43cdf3505d9ef06185fda43252840105c0c02d9370b6e1077d866357b55"
   license "GPL-2.0-only"
 
   livecheck do
@@ -45,10 +45,6 @@ class Cadaver < Formula
     if build.head?
       ENV["LIBTOOLIZE"] = "glibtoolize"
       system "./autogen.sh"
-    else
-      # Allow building with `neon` 33. Fixed upstream but would require regenerating configure
-      # Ref: https://github.com/notroj/cadaver/commit/2433126db25ffd38dc11ef847614e479141cc229
-      inreplace "configure", "in 27 28 29 30 31 32; do", "in 27 28 29 30 31 32 33; do"
     end
     system "./configure", "--with-ssl=openssl",
                           "--with-libs=#{Formula["openssl@3"].opt_prefix}",
