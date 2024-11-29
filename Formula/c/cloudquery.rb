@@ -1,8 +1,8 @@
 class Cloudquery < Formula
   desc "Data movement tool to sync data from any source to any destination"
   homepage "https://www.cloudquery.io"
-  url "https://github.com/cloudquery/cloudquery/archive/refs/tags/cli-v6.12.1.tar.gz"
-  sha256 "3fc269fda9b26208cd862e5ec532e2a95862d93fb343953b7845724ba9425333"
+  url "https://github.com/cloudquery/cloudquery/archive/refs/tags/cli-v6.12.2.tar.gz"
+  sha256 "166c2f21363150564cfb23b85f4a8f9f339e88510df62eba5fc6a58c31fd6dd9"
   license "MPL-2.0"
   head "https://github.com/cloudquery/cloudquery.git", branch: "main"
 
@@ -23,8 +23,10 @@ class Cloudquery < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/cloudquery/cloudquery/cli/cmd.Version=#{version}"
-    system "go", "build", *std_go_args(ldflags:)
+    cd "cli" do
+      ldflags = "-s -w -X github.com/cloudquery/cloudquery/cli/cmd.Version=#{version}"
+      system "go", "build", *std_go_args(ldflags:)
+    end
   end
 
   test do
