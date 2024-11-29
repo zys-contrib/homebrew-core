@@ -1,6 +1,7 @@
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
-  homepage "https://pango.gnome.org"
+  # `https://pango.gnome.org/` is not accessible, upstream report, https://gitlab.gnome.org/GNOME/pango/-/issues/830
+  homepage "https://gitlab.gnome.org/GNOME/pango"
   url "https://download.gnome.org/sources/pango/1.55/pango-1.55.0.tar.xz"
   sha256 "a2c17a8dc459a7267b8b167bb149d23ff473b6ff9d5972bee047807ee2220ccf"
   license "LGPL-2.0-or-later"
