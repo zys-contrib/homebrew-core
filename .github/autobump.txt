@@ -551,6 +551,7 @@ cpi
 cpm
 cpp-gsl
 cpp-httplib
+cpp-peglib
 cppad
 cppcheck
 cppinsights
