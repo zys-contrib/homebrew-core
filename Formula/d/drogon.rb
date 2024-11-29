@@ -31,7 +31,7 @@ class Drogon < Formula
   end
 
   def install
-    args = []
+    args = ["-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}"]
     args << "-DUUID_DIR=#{Formula["util-linux"].opt_prefix}" if OS.linux?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
