@@ -1,10 +1,9 @@
 class Lutok < Formula
   desc "Lightweight C++ API for Lua"
   homepage "https://github.com/freebsd/lutok"
-  url "https://github.com/freebsd/lutok/releases/download/lutok-0.4/lutok-0.4.tar.gz"
-  sha256 "2cec51efa0c8d65ace8b21eaa08384b77abc5087b46e785f78de1c21fb754cd5"
+  url "https://github.com/freebsd/lutok/releases/download/lutok-0.5/lutok-0.5.tar.gz"
+  sha256 "9cdc3cf08babec6e70a96a907d82f8b34eac866dd7196abc73b95d5e13701f55"
   license "BSD-3-Clause"
-  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "6a4eec6e3e6a84abafd6eca59316e4e4637f16a1618b5031494c86ce3849604e"
@@ -21,21 +20,47 @@ class Lutok < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d8ce236e89a71233f9ff42e9d6ad46c4ac504f3c6684e1af98d6659f07c59f8"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkgconf" => [:build, :test]
+
+  depends_on "atf"
   depends_on "lua"
 
-  # Fix -flat_namespace being used on Big Sur and later.
+  # add configure.ac patch, upstream pr ref, https://github.com/freebsd/lutok/pull/24
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+    url "https://github.com/freebsd/lutok/commit/b2e45d2848f64e1178eb0c6ed44d0b8fc4ea5dea.patch?full_index=1"
+    sha256 "0dbb00bd646343f3b8b61e07222e5ca21ae85028c84772b1eb5b0feba098b4b8"
   end
 
   def install
-    system "./configure", "--disable-silent-rules", *std_configure_args
+    system "glibtoolize", "--force", "--install"
+    system "autoreconf", "--force", "--install", "--verbose"
+
+    system "./configure", "--disable-silent-rules", "--enable-atf", *std_configure_args
     system "make"
     ENV.deparallelize
     system "make", "check"
     system "make", "install"
     system "make", "installcheck"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<~CPP
+      #include <lutok/state.hpp>
+      #include <iostream>
+      int main() {
+          lutok::state lua;
+          lua.open_base();
+          lua.load_string("print('Hello from Lua')");
+          lua.pcall(0, 0, 0);
+          return 0;
+      }
+    CPP
+
+    flags = shell_output("pkgconf --cflags --libs lutok").chomp.split
+    system ENV.cxx, "test.cpp", "-std=c++11", "-o", "test", *flags
+    system "./test"
   end
 end
