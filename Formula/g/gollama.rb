@@ -1,8 +1,8 @@
 class Gollama < Formula
   desc "Go manage your Ollama models"
   homepage "https://smcleod.net"
-  url "https://github.com/sammcj/gollama/archive/refs/tags/v1.27.23.tar.gz"
-  sha256 "46349b473440f486a04e5142eff20d50066d03c43eceaaa409039ade00ab8ac2"
+  url "https://github.com/sammcj/gollama/archive/refs/tags/v1.27.24.tar.gz"
+  sha256 "6b51ed771d95e327e40b47d911e0b168ae6fa0491f62360995766f77306e5d63"
   license "MIT"
   head "https://github.com/sammcj/gollama.git", branch: "main"
 
@@ -19,10 +19,9 @@ class Gollama < Formula
   depends_on "ollama" => :test
 
   def install
-    ldflags = %W[
-      -s -w
-      -X main.Version=#{version}
-    ]
+    system "go", "mod", "tidy"
+
+    ldflags = "-s -w -X main.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
   end
 
