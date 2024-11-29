@@ -473,6 +473,7 @@ cloudformation-guard
 cloudfox
 cloudlist
 cloudprober
+cloudquery
 clozure-cl
 clp
 clusterawsadm
