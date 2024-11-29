@@ -1,8 +1,8 @@
 class Terramaid < Formula
   desc "Utility for generating Mermaid diagrams from Terraform configurations"
   homepage "https://github.com/RoseSecurity/Terramaid"
-  url "https://github.com/RoseSecurity/Terramaid/archive/refs/tags/v1.14.0.tar.gz"
-  sha256 "8bb8c08521489fab058e1be79b01099c042bb95d1340f921bc70e29501352370"
+  url "https://github.com/RoseSecurity/Terramaid/archive/refs/tags/v2.0.2.tar.gz"
+  sha256 "1ddf7f16d12e96b3169f92e78415337d76edee9e9576b03f7b844615cb2daaee"
   license "Apache-2.0"
   head "https://github.com/RoseSecurity/Terramaid.git", branch: "main"
 
@@ -18,7 +18,8 @@ class Terramaid < Formula
   depends_on "go" => [:build, :test]
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    ldflags = "-s -w -X github.com/RoseSecurity/terramaid/cmd.Version=#{version}"
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"terramaid", "completion")
   end
@@ -45,7 +46,7 @@ class Terramaid < Formula
       }
     HCL
 
-    system bin/"terramaid", "-d", testpath.to_s, "-o", testpath/"output.mmd"
+    system bin/"terramaid", "run", "-w", testpath.to_s, "-o", testpath/"output.mmd"
     assert_predicate testpath/"output.mmd", :exist?
 
     assert_match version.to_s, shell_output("#{bin}/terramaid version")
