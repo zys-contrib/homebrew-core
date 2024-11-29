@@ -1,8 +1,8 @@
 class Ensmallen < Formula
   desc "Flexible C++ library for efficient mathematical optimization"
   homepage "https://ensmallen.org"
-  url "https://github.com/mlpack/ensmallen/archive/refs/tags/2.21.1.tar.gz"
-  sha256 "820eee4d8aa32662ff6a7d883a1bcaf4e9bf9ca0a3171d94c5398fe745008750"
+  url "https://github.com/mlpack/ensmallen/archive/refs/tags/2.22.0.tar.gz"
+  sha256 "6794098afc9d41930c288ff111ecd821ca296892f1d4a6e3bab7c4028f0b6e59"
   license "BSD-3-Clause"
   head "https://github.com/mlpack/ensmallen.git", branch: "master"
 
@@ -33,7 +33,7 @@ class Ensmallen < Formula
       }
     CPP
 
-    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}", "-L#{Formula["armadillo"].opt_lib}",
+    system ENV.cxx, "test.cpp", "-std=c++14", "-I#{include}", "-L#{Formula["armadillo"].opt_lib}",
                     "-larmadillo", "-o", "test"
   end
 end
