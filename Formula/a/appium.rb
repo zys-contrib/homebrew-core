@@ -7,12 +7,12 @@ class Appium < Formula
   head "https://github.com/appium/appium.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1f43243e99a64f798df3cbc53f30bb8773a3944ba3130aaa0b8f7b6d016df6cb"
-    sha256 cellar: :any,                 arm64_sonoma:  "1f43243e99a64f798df3cbc53f30bb8773a3944ba3130aaa0b8f7b6d016df6cb"
-    sha256 cellar: :any,                 arm64_ventura: "1f43243e99a64f798df3cbc53f30bb8773a3944ba3130aaa0b8f7b6d016df6cb"
-    sha256                               sonoma:        "860fcf90a5efd9346230b0f10de9712553e5f3c47369948ddcce1e94aab64b29"
-    sha256                               ventura:       "860fcf90a5efd9346230b0f10de9712553e5f3c47369948ddcce1e94aab64b29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4309b925b41eab6f35439ced5d2726fa0dfd281cb5c818f92ff1a62d398bded"
+    sha256 cellar: :any,                 arm64_sequoia: "a2723ba519d9a57f9017c0d678e90cac18a297dc3f6b3259d4dec2d8a3f503dd"
+    sha256 cellar: :any,                 arm64_sonoma:  "a2723ba519d9a57f9017c0d678e90cac18a297dc3f6b3259d4dec2d8a3f503dd"
+    sha256 cellar: :any,                 arm64_ventura: "a2723ba519d9a57f9017c0d678e90cac18a297dc3f6b3259d4dec2d8a3f503dd"
+    sha256                               sonoma:        "5f311fd24fa3533d328a60aef64a64bda4bfb17fccafb8e9b4715ccfcd0e6e51"
+    sha256                               ventura:       "5f311fd24fa3533d328a60aef64a64bda4bfb17fccafb8e9b4715ccfcd0e6e51"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d177690b8523984bbaa70ee5730f7a0ca134e71cb7aa92e8d29d6302ff12a3b"
   end
 
   depends_on "node"
