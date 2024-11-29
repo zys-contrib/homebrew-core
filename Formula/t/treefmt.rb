@@ -1,8 +1,8 @@
 class Treefmt < Formula
   desc "One CLI to format the code tree"
   homepage "https://github.com/numtide/treefmt"
-  url "https://github.com/numtide/treefmt/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "1a4d1727c7e2e792993654a54ca4144a2b0a6ac71c3d0812c5256ff14766aa86"
+  url "https://github.com/numtide/treefmt/archive/refs/tags/v2.1.1.tar.gz"
+  sha256 "4cd20c3cf763bbf4054b9241e6d59de4d59bb4705a758a666d1661685294f2e7"
   license "MIT"
   head "https://github.com/numtide/treefmt.git", branch: "main"
 
@@ -18,7 +18,7 @@ class Treefmt < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/numtide/treefmt/build.Version=#{version}"
+    ldflags = "-s -w -X github.com/numtide/treefmt/v2/build.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
   end
 
