@@ -1,11 +1,10 @@
 class Cowsay < Formula
-  desc "Configurable talking characters in ASCII art"
-  # Historical homepage: https://web.archive.org/web/20120225123719/www.nog.net/~tony/warez/cowsay.shtml
-  homepage "https://github.com/tnalpgge/rank-amateur-cowsay"
-  url "https://github.com/tnalpgge/rank-amateur-cowsay/archive/refs/tags/cowsay-3.04.tar.gz"
-  sha256 "d8b871332cfc1f0b6c16832ecca413ca0ac14d58626491a6733829e3d655878b"
+  desc "Apjanke's fork of the classic cowsay project"
+  homepage "https://cowsay.diamonds"
+  url "https://github.com/cowsay-org/cowsay/archive/refs/tags/v3.8.3.tar.gz"
+  sha256 "3bcb1f644a85792bc2ee8601971f16f8f1e7ca0013d6062cf35b4fd6d8fa29ea"
   license "GPL-3.0-only"
-  revision 1
+  head "https://github.com/cowsay-org/cowsay.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "72e82e39c8e4323d209b71caaa253897347dba46a44881fc34c94d9ee36e93e6"
@@ -23,17 +22,8 @@ class Cowsay < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d35c9dfb46eea22b2b53c9c0deb00d7d95b6fe3fcfeb8d9404fd269d5739790"
   end
 
-  disable! date: "2024-11-22", because: :repo_archived
-
   def install
-    # Remove offensive content
-    %w[cows/sodomized.cow cows/telebears.cow].each do |file|
-      rm file
-      inreplace "Files.base", file, ""
-    end
-
-    system "/bin/sh", "install.sh", prefix
-    mv prefix/"man", share
+    system "make", "install", "prefix=#{prefix}"
   end
 
   test do
