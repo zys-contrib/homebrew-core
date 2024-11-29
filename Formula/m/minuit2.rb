@@ -1,10 +1,19 @@
 class Minuit2 < Formula
   desc "Physics analysis tool for function minimization"
   homepage "https://root.cern.ch/doc/master/Minuit2Page.html"
-  url "https://root.cern.ch/download/root_v6.32.08.source.tar.gz"
-  sha256 "29ad4945a72dff1a009c326a65b6fa5ee2478498823251d3cef86a2cbeb77b27"
   license "LGPL-2.1-or-later"
   head "https://github.com/root-project/root.git", branch: "master"
+
+  stable do
+    url "https://root.cern.ch/download/root_v6.34.00.source.tar.gz"
+    sha256 "f3b00f3db953829c849029c39d7660a956468af247efd946e89072101796ab03"
+
+    # TODO: Remove this patch when updating to the next version after 6.34.00.
+    patch do
+      url "https://github.com/root-project/root/commit/3ee43dd22d84c92de17d4139100af17ac35c0501.patch?full_index=1"
+      sha256 "38328c9734dace642aef4dfc92a90e8584304319dcef36915d233b1c596945c4"
+    end
+  end
 
   livecheck do
     formula "root"
