@@ -1,8 +1,8 @@
 class Oxipng < Formula
   desc "Multithreaded PNG optimizer written in Rust"
   homepage "https://github.com/shssoichiro/oxipng"
-  url "https://github.com/shssoichiro/oxipng/archive/refs/tags/v9.1.2.tar.gz"
-  sha256 "8eae13e5aa6f500b231b4d15b9fefdeb5f6cc566ddab959b9b7a03a00bb3a520"
+  url "https://github.com/shssoichiro/oxipng/archive/refs/tags/v9.1.3.tar.gz"
+  sha256 "5f34bc3a9eba661a686106261720061b1136301ccd67cc653c9c70d71fa33c09"
   license "MIT"
 
   bottle do
@@ -20,8 +20,12 @@ class Oxipng < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+    system "cargo", "run",
+           "--manifest-path", "xtask/Cargo.toml",
+           "--jobs", ENV.make_jobs.to_s,
+           "--locked", "--", "mangen"
 
-    man1.install "target/release/assets/oxipng.1"
+    man1.install "target/xtask/mangen/manpages/oxipng.1"
   end
 
   test do
