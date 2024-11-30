@@ -1,8 +1,8 @@
 class CargoUdeps < Formula
   desc "Find unused dependencies in Cargo.toml"
   homepage "https://github.com/est31/cargo-udeps"
-  url "https://github.com/est31/cargo-udeps/archive/refs/tags/v0.1.52.tar.gz"
-  sha256 "d74e262ed4d53f584447bdc8ffc02d37bbef4484b2b4413186d7f8b255bfe5ed"
+  url "https://github.com/est31/cargo-udeps/archive/refs/tags/v0.1.53.tar.gz"
+  sha256 "fc4581c996dcbd8a9e660f49a55ada68e39c4b07a0eda9bd8efe1006e1dd1c73"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
