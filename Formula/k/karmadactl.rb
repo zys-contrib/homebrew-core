@@ -1,8 +1,8 @@
 class Karmadactl < Formula
   desc "CLI for Karmada control plane"
   homepage "https://karmada.io/"
-  url "https://github.com/karmada-io/karmada/archive/refs/tags/v1.11.3.tar.gz"
-  sha256 "a56b37ebe5cead776808ed2b35958f15e75c2e5e1733e876d17c14304206cac6"
+  url "https://github.com/karmada-io/karmada/archive/refs/tags/v1.12.0.tar.gz"
+  sha256 "6fa45d3124f7537157364f9decaa0cde613f85b86d529ed62f103812082bf1bc"
   license "Apache-2.0"
   head "https://github.com/karmada-io/karmada.git", branch: "master"
 
@@ -27,7 +27,7 @@ class Karmadactl < Formula
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/karmadactl"
 
-    generate_completions_from_executable(bin/"karmadactl", "completion")
+    generate_completions_from_executable(bin/"karmadactl", "completion", shells: [:bash, :zsh])
   end
 
   test do
