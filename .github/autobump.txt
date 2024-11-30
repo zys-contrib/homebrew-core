@@ -335,6 +335,7 @@ cargo-binstall
 cargo-bloat
 cargo-bundle
 cargo-c
+cargo-chef
 cargo-crev
 cargo-deny
 cargo-depgraph
