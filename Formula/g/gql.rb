@@ -1,8 +1,8 @@
 class Gql < Formula
   desc "Git Query language is a SQL like language to perform queries on .git files"
   homepage "https://github.com/AmrDeveloper/GQL"
-  url "https://github.com/AmrDeveloper/GQL/archive/refs/tags/0.31.0.tar.gz"
-  sha256 "1c058b9f98b8b62ae160efcf20cd16dfc19a25356ef102fb4967508106719850"
+  url "https://github.com/AmrDeveloper/GQL/archive/refs/tags/0.32.0.tar.gz"
+  sha256 "472676754f7dddb5b1f04f2ebc065877adec865b51bc52ea25e789c8cbdb6bd3"
   license "MIT"
   head "https://github.com/AmrDeveloper/GQL.git", branch: "master"
 
@@ -27,6 +27,6 @@ class Gql < Formula
   test do
     system "git", "init"
     output = JSON.parse(shell_output("#{bin}/gitql -o json -q 'SELECT 1 + 1 LIMIT 1'"))
-    assert_equal "2", output.first["column_1"]
+    assert_equal "2", output.first["column_0"]
   end
 end
