@@ -5,6 +5,15 @@ class AwsCHttp < Formula
   sha256 "328013ebc2b5725326cac01941041eec1e1010058c60709da2c23aa8fb967370"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "3f3e7a0e5398811ea35d6630e5729328536bc76426d6730a3e5f515edf136076"
+    sha256 cellar: :any,                 arm64_sonoma:  "266947765c842b1e323314ade182216c5b726e21880b3494c2ce3babbe504d32"
+    sha256 cellar: :any,                 arm64_ventura: "e358788f7ac5f734fb6374499517ac2feab136279fc6725ccaf76c5d286c4574"
+    sha256 cellar: :any,                 sonoma:        "842d551976597a6dc7ace9560920422f5f45f602e1a3ce2948b8decb161eb7bc"
+    sha256 cellar: :any,                 ventura:       "a38183be37c398848ce30a6df991716430080abfd8b0d3232be6d47c80a36872"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6962c6a046821235a33de8a1dcf521e44b477a848d05a0e81c49be0480852f5"
+  end
+
   depends_on "cmake" => :build
   depends_on "aws-c-cal"
   depends_on "aws-c-common"
