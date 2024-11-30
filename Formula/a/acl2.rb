@@ -1,6 +1,6 @@
 class Acl2 < Formula
   desc "Logic and programming language in which you can model computer systems"
-  homepage "https://www.cs.utexas.edu/users/moore/acl2/index.html"
+  homepage "https://www.cs.utexas.edu/~moore/acl2/"
   url "https://github.com/acl2/acl2/archive/refs/tags/8.6.tar.gz"
   sha256 "c2d73e66422901b3cc2a6f5a9ab50f5f3b1b4060cf9dc9148d076f3a8b957cf9"
   license "BSD-3-Clause"
