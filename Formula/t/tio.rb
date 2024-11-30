@@ -1,17 +1,10 @@
 class Tio < Formula
   desc "Simple TTY terminal I/O application"
   homepage "https://tio.github.io"
+  url "https://github.com/tio/tio/releases/download/v3.8/tio-3.8.tar.xz"
+  sha256 "a24c69e59b53cf72a147db2566b6ff3b6a018579684caa4b16ce36614b2b68d4"
   license "GPL-2.0-or-later"
   head "https://github.com/tio/tio.git", branch: "master"
-
-  stable do
-    url "https://github.com/tio/tio/releases/download/v3.7/tio-3.7.tar.xz"
-    sha256 "dbaef5dc6849229ce4eb474d4de77a7302cd2b0657731a8df86a44dd359e6afb"
-
-    # fix function name conflict with system `send()`
-    # upstream bug report, https://github.com/tio/tio/issues/278
-    patch :DATA
-  end
 
   bottle do
     sha256 cellar: :any, arm64_sequoia:  "1afc83c0a8e2ec3ba362252dd4f5200a3cef1c1c00708fee1178789146edce85"
@@ -49,27 +42,3 @@ class Tio < Formula
     assert_match expected, output
   end
 end
-
-__END__
-diff --git a/src/script.c b/src/script.c
-index 46e6c4e..bfac3d9 100644
---- a/src/script.c
-+++ b/src/script.c
-@@ -181,7 +181,7 @@ static int modem_send(lua_State *L)
- }
-
- // lua: send(string)
--static int send(lua_State *L)
-+static int send_lua(lua_State *L)
- {
-     const char *string = lua_tostring(L, 1);
-     int ret;
-@@ -455,7 +455,7 @@ static const struct luaL_Reg tio_lib[] =
-     { "msleep", msleep},
-     { "line_set", line_set},
-     { "modem_send", modem_send},
--    { "send", send},
-+    { "send", send_lua},
-     { "read", read_string},
-     { "expect", expect},
-     { "exit", exit_},
