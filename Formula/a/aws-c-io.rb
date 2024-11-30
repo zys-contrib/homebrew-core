@@ -5,6 +5,15 @@ class AwsCIo < Formula
   sha256 "d8cb4d7d3ec4fb27cbce158d6823a1f2f5d868e116f1d6703db2ab8159343c3f"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "469de82757523b94efc41e8ace0a482d750ecd0aceb2df9090a2ea23d4b02484"
+    sha256 cellar: :any,                 arm64_sonoma:  "81df61ba419531bf106653fbd735f88f281493a98b5f3f699567f83caeafd2f8"
+    sha256 cellar: :any,                 arm64_ventura: "ecd9199b467d67b45e631d7530645c652e61d3875f3cfb267e479ae44dd35161"
+    sha256 cellar: :any,                 sonoma:        "7a7f6a942570d98acd89d560aab36b979bde43c96363c3eeef167a21871868f0"
+    sha256 cellar: :any,                 ventura:       "18c41ebc9f73e8a607621b93c219d0f22204d75910aba9cc25ceddbb6e46022d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1cc6f16cf5dcc1015926d002729cf31883de6f89b127eb9a9d23ac7c6d58c358"
+  end
+
   depends_on "cmake" => :build
   depends_on "aws-c-cal"
   depends_on "aws-c-common"
