@@ -115,6 +115,7 @@ asciidoctorj
 asdf
 asio
 ask-cli
+asm6809
 asn
 asnmap
 aspell
