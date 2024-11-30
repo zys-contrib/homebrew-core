@@ -13,7 +13,7 @@ class Securefs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "8be97dee09ede59596fcb34b956bd0ef1daffad3c39dd0884f76ecc969a0f315"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "96aee62163f63c5e97d945bfbf1e8444471e2f23fc68490dfd790584925a330a"
   end
 
   depends_on "cmake" => :build
