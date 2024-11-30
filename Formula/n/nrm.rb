@@ -1,8 +1,8 @@
 class Nrm < Formula
   desc "NPM registry manager, fast switch between different registries"
   homepage "https://github.com/Pana/nrm"
-  url "https://registry.npmjs.org/nrm/-/nrm-1.4.0.tgz"
-  sha256 "b741a633d8d2d5e7ea7f8dd1d9709999926c2c8f5e80a94b8225ccb1a446a4e7"
+  url "https://registry.npmjs.org/nrm/-/nrm-1.5.0.tgz"
+  sha256 "941cf8b814ee6111ecc6b63429519f0f68d30c3e415acdc9f0f961e366bc6e26"
   license "MIT"
 
   bottle do
