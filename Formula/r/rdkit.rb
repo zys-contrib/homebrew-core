@@ -2,8 +2,8 @@ class Rdkit < Formula
   desc "Open-source chemoinformatics library"
   homepage "https://rdkit.org/"
   # NOTE: Make sure to update RPATHs if any "@rpath-referenced libraries" show up in `brew linkage`
-  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2024_09_2.tar.gz"
-  sha256 "0f35a088da9594e362fb7c9c68d96a18af1cff502ddec334ff1d2baf1a4dd6d3"
+  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2024_09_3.tar.gz"
+  sha256 "5d6a44be526e26ae80bb225df4bb0344e52c502b7f874ee824cfb2dc01adafeb"
   license "BSD-3-Clause"
   head "https://github.com/rdkit/rdkit.git", branch: "master"
 
@@ -40,14 +40,6 @@ class Rdkit < Formula
   depends_on "numpy"
   depends_on "py3cairo"
   depends_on "python@3.12"
-
-  # Apply open PR commit to use .dylib for PostgreSQL 16+ modules
-  # TODO: Remove if merged and available in a release
-  # PR ref: https://github.com/rdkit/rdkit/pull/7869
-  patch do
-    url "https://github.com/rdkit/rdkit/commit/3ade0f8cd31be54fc267b9f5e94e8aa755f56f36.patch?full_index=1"
-    sha256 "09696dc4c26832f5c5126d059ae0d71a12ab404438e55e8f9a90880a1fad6c03"
-  end
 
   def python3
     "python3.12"
