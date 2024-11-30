@@ -755,6 +755,7 @@ dua-cli
 dub
 duck
 duckdb
+ducker
 duckscript
 dufs
 dug
