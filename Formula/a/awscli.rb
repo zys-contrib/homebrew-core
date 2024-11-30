@@ -24,6 +24,10 @@ class Awscli < Formula
   uses_from_macos "libffi"
   uses_from_macos "mandoc"
 
+  on_linux do
+    depends_on "openssl@3"
+  end
+
   resource "awscrt" do
     url "https://files.pythonhosted.org/packages/e2/e5/82646e045902c237df1e59c2430ed392377d4dff0755eb30f9ea2c47d15f/awscrt-0.22.0.tar.gz"
     sha256 "4ca2b0b49328f03f5a3dde2d565132df8ad74cba27352612ecd9fe2505e1d770"
@@ -94,16 +98,7 @@ class Awscli < Formula
   end
 
   def install
-    # The `awscrt` package uses its own libcrypto.a on Linux. When building _awscrt.*.so,
-    # Homebrew's default environment causes issues, which may be due to `openssl` flags.
-    # This causes installation to fail while running `scripts/gen-ac-index` with error:
-    # ImportError: _awscrt.cpython-39-x86_64-linux-gnu.so: undefined symbol: EVP_CIPHER_CTX_init
-    # As workaround, add relative path to local libcrypto.a before openssl's so it gets picked.
-    if OS.linux?
-      python_version = Language::Python.major_minor_version(python3)
-      ENV.prepend "CFLAGS", "-I./build/temp.linux-x86_64-#{python_version}/deps/install/include"
-      ENV.prepend "LDFLAGS", "-L./build/temp.linux-x86_64-#{python_version}/deps/install/lib"
-    end
+    ENV["AWS_CRT_BUILD_USE_SYSTEM_LIBCRYPTO"] = "1"
 
     # Work around ruamel.yaml.clib not building on Xcode 15.3, remove after a new release
     # has resolved: https://sourceforge.net/p/ruamel-yaml-clib/tickets/32/
