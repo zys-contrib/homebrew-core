@@ -5,6 +5,15 @@ class AwsCEventStream < Formula
   sha256 "3a53a9d05f9e2fd06036a12854a8b4f05a0c4858bb5b8df8a30edba9de8532b5"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "341c67fa8bc012d3808b06a909f07c51cb8ad0bcf19d30a498f598b7846f3fab"
+    sha256 cellar: :any,                 arm64_sonoma:  "593c848b1436f0f925cb39de34a24b5e41588ed28a87e471c0ff02e591a90d44"
+    sha256 cellar: :any,                 arm64_ventura: "58d9787fc6e7308d1aeae5570a5fc527ee23cdbc6cfb38bc54fff0507afa8808"
+    sha256 cellar: :any,                 sonoma:        "54e1c0118960594197f0485588d45e48d043b34863597199023b4f073be0bbcc"
+    sha256 cellar: :any,                 ventura:       "b353703f2a89a6d5cbf1706c4a672d606ea04b910d3dfbf72da48f42d9741ad3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9cc5974ad9d4ba76a472638f30123e2e8f5aaa77885c6d0545b4e03fe65ad82"
+  end
+
   depends_on "cmake" => :build
   depends_on "aws-c-common"
   depends_on "aws-c-io"
