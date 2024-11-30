@@ -453,6 +453,7 @@ cli11
 cli53
 clib
 clickhouse-cpp
+clickhouse-sql-parser
 cliclick
 clifm
 cling
