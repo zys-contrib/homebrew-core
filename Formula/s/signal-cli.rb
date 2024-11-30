@@ -1,8 +1,8 @@
 class SignalCli < Formula
   desc "CLI and dbus interface for WhisperSystems/libsignal-service-java"
   homepage "https://github.com/AsamK/signal-cli"
-  url "https://github.com/AsamK/signal-cli/archive/refs/tags/v0.13.9.tar.gz"
-  sha256 "a8033b84bdcf1246a3249b0d46b33331c4e52f73f09452870673f9a871d56444"
+  url "https://github.com/AsamK/signal-cli/archive/refs/tags/v0.13.10.tar.gz"
+  sha256 "b1947eb37064e7a196c5b1012cb9fd111126c1f9449bbd43f5f0e3971a2dc173"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -29,12 +29,8 @@ class SignalCli < Formula
   # url=https://github.com/AsamK/signal-cli/releases/download/v$version/signal-cli-$version.tar.gz
   # curl -fsSL $url | tar -tz | grep libsignal-client
   resource "libsignal-client" do
-    url "https://github.com/signalapp/libsignal/archive/refs/tags/v0.58.2.tar.gz"
-    sha256 "694b8822364d2e5ea2cfe03e6be967db3de0922c8952d05e9407c92ed2d5056a"
-
-    # Update boring to signal-v4.9.0b to fix build with newer LLVM/libclang
-    # This should be removed after `libsignal` v0.60.1
-    patch :DATA
+    url "https://github.com/signalapp/libsignal/archive/refs/tags/v0.62.0.tar.gz"
+    sha256 "1f04eac98fcd6b34ab61ce6fc65f6c46eceab0f1b407a65d95207a8a5050594c"
   end
 
   def install
@@ -84,109 +80,3 @@ class SignalCli < Formula
     assert_match "sgnl://linkdevice?uuid=", io.read
   end
 end
-
-__END__
-diff --git a/Cargo.lock b/Cargo.lock
-index 70eb3564..e733555c 100644
---- a/Cargo.lock
-+++ b/Cargo.lock
-@@ -349,16 +349,14 @@ dependencies = [
- 
- [[package]]
- name = "bindgen"
--version = "0.68.1"
-+version = "0.70.1"
- source = "registry+https://github.com/rust-lang/crates.io-index"
--checksum = "726e4313eb6ec35d2730258ad4e15b547ee75d6afaa1361a922e78e59b7d8078"
-+checksum = "f49d8fed880d473ea71efb9bf597651e77201bdd4893efe54c9e5d65ae04ce6f"
- dependencies = [
-  "bitflags",
-  "cexpr",
-  "clang-sys",
-- "lazy_static",
-- "lazycell",
-- "peeking_take_while",
-+ "itertools 0.10.5",
-  "proc-macro2",
-  "quote",
-  "regex",
-@@ -424,7 +422,7 @@ dependencies = [
- [[package]]
- name = "boring"
- version = "4.9.0"
--source = "git+https://github.com/signalapp/boring?tag=signal-v4.9.0#59883d7e23599f6631f9e5087db4b797f2953feb"
-+source = "git+https://github.com/signalapp/boring?tag=signal-v4.9.0b#3d4180b232d332a86ee3b41d1a622b0f1c1c6037"
- dependencies = [
-  "bitflags",
-  "boring-sys",
-@@ -436,8 +434,9 @@ dependencies = [
- [[package]]
- name = "boring-sys"
- version = "4.9.0"
--source = "git+https://github.com/signalapp/boring?tag=signal-v4.9.0#59883d7e23599f6631f9e5087db4b797f2953feb"
-+source = "git+https://github.com/signalapp/boring?tag=signal-v4.9.0b#3d4180b232d332a86ee3b41d1a622b0f1c1c6037"
- dependencies = [
-+ "autocfg",
-  "bindgen",
-  "cmake",
-  "fs_extra",
-@@ -1956,12 +1955,6 @@ version = "1.5.0"
- source = "registry+https://github.com/rust-lang/crates.io-index"
- checksum = "bbd2bcb4c963f2ddae06a2efc7e9f3591312473c50c6685e1f298068316e66fe"
- 
--[[package]]
--name = "lazycell"
--version = "1.3.0"
--source = "registry+https://github.com/rust-lang/crates.io-index"
--checksum = "830d08ce1d1d941e6b30645f1a0eb5643013d835ce3779a5fc208261dbe10f55"
--
- [[package]]
- name = "libc"
- version = "0.2.158"
-@@ -2963,12 +2956,6 @@ version = "1.0.15"
- source = "registry+https://github.com/rust-lang/crates.io-index"
- checksum = "57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a"
- 
--[[package]]
--name = "peeking_take_while"
--version = "0.1.2"
--source = "registry+https://github.com/rust-lang/crates.io-index"
--checksum = "19b17cddbe7ec3f8bc800887bab5e717348c95ea2ca0b1bf0837fb964dc67099"
--
- [[package]]
- name = "pem"
- version = "3.0.4"
-@@ -4432,7 +4419,7 @@ dependencies = [
- [[package]]
- name = "tokio-boring"
- version = "4.9.0"
--source = "git+https://github.com/signalapp/boring?tag=signal-v4.9.0#59883d7e23599f6631f9e5087db4b797f2953feb"
-+source = "git+https://github.com/signalapp/boring?tag=signal-v4.9.0b#3d4180b232d332a86ee3b41d1a622b0f1c1c6037"
- dependencies = [
-  "boring",
-  "boring-sys",
-diff --git a/Cargo.toml b/Cargo.toml
-index ed88b454..0a712b26 100644
---- a/Cargo.toml
-+++ b/Cargo.toml
-@@ -38,9 +38,9 @@ resolver = "2" # so that our dev-dependency features don't leak into products
- # Our forks of some dependencies, accessible as xxx_signal so that usages of them are obvious in source code. Crates
- # that want to use the real things can depend on those directly.
- 
--boring-signal = { git = "https://github.com/signalapp/boring", tag = "signal-v4.9.0", package = "boring", default-features = false }
-+boring-signal = { git = "https://github.com/signalapp/boring", tag = "signal-v4.9.0b", package = "boring", default-features = false }
- curve25519-dalek-signal = { git = 'https://github.com/signalapp/curve25519-dalek', package = "curve25519-dalek", tag = 'signal-curve25519-4.1.3' }
--tokio-boring-signal = { git = "https://github.com/signalapp/boring", package = "tokio-boring", tag = "signal-v4.9.0" }
-+tokio-boring-signal = { git = "https://github.com/signalapp/boring", package = "tokio-boring", tag = "signal-v4.9.0b" }
- 
- aes = "0.8.3"
- aes-gcm-siv = "0.11.1"
-@@ -122,7 +122,7 @@ zerocopy = "0.7.34"
- [patch.crates-io]
- # When building libsignal, just use our forks so we don't end up with two different versions of the libraries.
- 
--boring = { git = 'https://github.com/signalapp/boring', tag = 'signal-v4.9.0' }
-+boring = { git = 'https://github.com/signalapp/boring', tag = 'signal-v4.9.0b' }
- curve25519-dalek = { git = 'https://github.com/signalapp/curve25519-dalek', tag = 'signal-curve25519-4.1.3' }
- 
- [profile.dev.package.argon2]
