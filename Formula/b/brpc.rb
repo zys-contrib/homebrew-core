@@ -17,13 +17,12 @@ class Brpc < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "2af87a85e6d75f15512f01442cc4a738a8c0becb5cdd13f46b92cdfb8f19b517"
-    sha256 cellar: :any,                 arm64_sonoma:  "95a43bd8abe377cecc3932e7654dc3ec56b4dfe08e09558e51e453cafdae1ce1"
-    sha256 cellar: :any,                 arm64_ventura: "3e6f4e3f9d7fc7fa029f68a7aabedf713d2c446a1967865f48e71f90cdcd93f5"
-    sha256 cellar: :any,                 sonoma:        "5a481367fa8a12938533fa4e4ef91c8ab019835ae6780e0c9ddc7a340b1a0373"
-    sha256 cellar: :any,                 ventura:       "037a83e91466e226a862829f57d9c5b8e67bebcf409364053cce17dcc62b6053"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac0410f858e2a042f3e4f045bbaea52b4ed43d7cb38c3fd5e7bc0a2a5bbc2b9f"
+    sha256 cellar: :any,                 arm64_sequoia: "0614bc7c01990f3c017e153e400abaa9f532180f7634556280cf3d2f5d361759"
+    sha256 cellar: :any,                 arm64_sonoma:  "39d8ba07f4e97723f43cbdc7845f9652d93b6cd111d00658cfa22ce368299afc"
+    sha256 cellar: :any,                 arm64_ventura: "1c3f90e730c2e661f0509ae8eb9904f4aaeef961bb4e2addc6a3841047e934ba"
+    sha256 cellar: :any,                 sonoma:        "01eb2c6c851af152869e83ff7998287462e0904faf32d1b5684a7632416d7689"
+    sha256 cellar: :any,                 ventura:       "ae6a60d455ebde6df38d56dc7099df9d8aa91e11756c4ed1151940d2a00092d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2364cda05e6e1a642e4c6e00d66abb85a112b6cf45b28602aa4f7e43a26cb67f"
   end
 
   depends_on "cmake" => :build
