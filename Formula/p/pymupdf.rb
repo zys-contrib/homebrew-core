@@ -4,7 +4,7 @@ class Pymupdf < Formula
   url "https://files.pythonhosted.org/packages/e0/6b/6bd735144a190d26dcc23f98b4aae0e09b259cc4c87bba266a39b7b91f56/PyMuPDF-1.24.14.tar.gz"
   sha256 "0eed9f998525eaf39706dbf2d0cf3162150f0f526e4a36b1748ffa50bde581ae"
   license "AGPL-3.0-only"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "a57c53248b96fe29522e7bd245c244cdae6d81a057ba35b2a93845096165843c"
