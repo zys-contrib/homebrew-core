@@ -5,6 +5,15 @@ class AwsCCommon < Formula
   sha256 "72ebf3cfe105d74af8f43ccd07d33a0ecf881dba1caa2ddeaaf1fa1c5f9794f8"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "9cf3f2b98d223f5cb1d75e08669b8d810eed8a617c38c5ba2ee57cd7ba697c49"
+    sha256 cellar: :any,                 arm64_sonoma:  "e7e67a7622875a1f34235632484989ad3e01528feafb5665fe7a5c9aad992799"
+    sha256 cellar: :any,                 arm64_ventura: "8e36fab6dd5ffae89c61c0640bda90b3fee5d73749fcef3833665cd9bced3742"
+    sha256 cellar: :any,                 sonoma:        "664762aa7ee6a6b3ab2b8e477c64779c9974a142052a7495dcfd91a0821ffdd6"
+    sha256 cellar: :any,                 ventura:       "7843f3a2a20fae123c6038c958e5f0017dfc274797cc7c5d194b58f4dc1c7951"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a55d6121641b116dbbf1fbb259304f524b992f7d319a06ad53f4772a023b239b"
+  end
+
   depends_on "cmake" => :build
 
   def install
