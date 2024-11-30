@@ -1,8 +1,8 @@
 class Gsmartcontrol < Formula
   desc "Graphical user interface for smartctl"
   homepage "https://gsmartcontrol.shaduri.dev/"
-  url "https://downloads.sourceforge.net/project/gsmartcontrol/2.0.0/gsmartcontrol-2.0.0.tar.gz"
-  sha256 "64817d65e26186fa0434cc133ac8ac40c30f21e30dc261dd43d5390d7801d455"
+  url "https://downloads.sourceforge.net/project/gsmartcontrol/2.0.1/v2.0.1%20source%20code.tar.gz"
+  sha256 "9a7e4fefc34aef7358a5196633e89924ff1e94e721b53609a51af68b1902a947"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
 
   bottle do
