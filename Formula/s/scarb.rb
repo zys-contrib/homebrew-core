@@ -1,8 +1,8 @@
 class Scarb < Formula
   desc "Cairo package manager"
   homepage "https://docs.swmansion.com/scarb/"
-  url "https://github.com/software-mansion/scarb/archive/refs/tags/v2.8.5.tar.gz"
-  sha256 "18a07a0a09946f276ab399cddff1d6a6bccb342da903204dd88e804df6f478a0"
+  url "https://github.com/software-mansion/scarb/archive/refs/tags/v2.9.1.tar.gz"
+  sha256 "4288122fbd818173dc83e71482678569927c886886eb85cd46b0f49233476016"
   license "MIT"
   head "https://github.com/software-mansion/scarb.git", branch: "main"
 
@@ -23,13 +23,18 @@ class Scarb < Formula
   depends_on "rust" => :build
   uses_from_macos "zlib"
 
+  # bump bytes to 1.9.0, upstream pr ref, https://github.com/software-mansion/scarb/pull/1792
+  patch do
+    url "https://github.com/software-mansion/scarb/commit/db39977319ac434a1ea34d8185a064dfe0bbaee3.patch?full_index=1"
+    sha256 "2af4dbf24584cea578cc0127a4b9d142c81914b90fe0372627351a47fde9fa0a"
+  end
+
   def install
     %w[
       scarb
       extensions/scarb-cairo-language-server
       extensions/scarb-cairo-run
       extensions/scarb-cairo-test
-      extensions/scarb-snforge-test-collector
       extensions/scarb-doc
     ].each do |f|
       system "cargo", "install", *std_cargo_args(path: f)
@@ -48,7 +53,6 @@ class Scarb < Formula
     assert_match version.to_s, shell_output("#{bin}/scarb --version")
     assert_match version.to_s, shell_output("#{bin}/scarb cairo-run --version")
     assert_match version.to_s, shell_output("#{bin}/scarb cairo-test --version")
-    assert_match version.to_s, shell_output("#{bin}/scarb snforge-test-collector --version")
     assert_match version.to_s, shell_output("#{bin}/scarb doc --version")
   end
 end
