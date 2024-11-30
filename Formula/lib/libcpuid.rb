@@ -1,8 +1,8 @@
 class Libcpuid < Formula
   desc "Small C library for x86 CPU detection and feature extraction"
   homepage "https://github.com/anrieff/libcpuid"
-  url "https://github.com/anrieff/libcpuid/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "cfd9e6bcda5da3f602273e55f983bdd747cb93dde0b9ec06560e074939314210"
+  url "https://github.com/anrieff/libcpuid/archive/refs/tags/v0.7.1.tar.gz"
+  sha256 "c54879ea33b68a2e752c20fb0e3cd04439a9177eab23371f709f15a45df43644"
   license "BSD-2-Clause"
   head "https://github.com/anrieff/libcpuid.git", branch: "master"
 
