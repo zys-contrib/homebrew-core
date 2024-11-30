@@ -324,8 +324,9 @@
     "exclude_packages": ["certifi"]
   },
   "fdroidserver": {
-    "exclude_packages": ["certifi", "cryptography", "numpy", "pillow"],
-    "extra_packages": ["androguard<4"]
+    "package_name": "fdroidserver[optional]",
+    "exclude_packages": ["certifi", "cryptography", "numpy", "pillow", "puremagic"],
+    "extra_packages": ["androguard<4", "python-magic"]
   },
   "flintrock": {
     "exclude_packages": ["cryptography"]
