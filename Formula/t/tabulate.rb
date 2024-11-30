@@ -9,6 +9,10 @@ class Tabulate < Formula
     "BSD-3-Clause", # termcolor.hpp
   ]
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "636ac9d2ecadd40138dc030e967b464b296cba28f5eb180377c7e18d18778f97"
+  end
+
   depends_on "cmake" => :build
 
   def install
