@@ -13,12 +13,11 @@ class ArchiSteamFarm < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "960adeaff2e039c5c59e600bbbd996c1bf6d5b12594a2595989a55b3ccbdf8a0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e1db6b00c6a2fa5c3c7f953b5db7a9d7c1bb213a8ed266e6858e850b9c8690eb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6d8fc4fd032faaff8b6172dd324ed30179d6bf003bf05b63deb2b5dff86e8278"
-    sha256 cellar: :any_skip_relocation, ventura:       "c633fb38c5abf7af72a254306938c60a76a2b9b3aae00274c8dc85f40bdf74d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "035547ccccc53eaad19716b09a33b860d454c6f6326645709848a524f4338d54"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "48ecab78092e78b370e67c80edeee910d13ebca014a774fb381a7d5bba4f77eb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5109c8fbc5e18215ecf5e13b0de69cb8514d0dd33bcd4fc6f26047b071acf4ea"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "60691d552067ddc1e84da245baa7328306e2c76a8dded4996a1511005d9a12b7"
+    sha256 cellar: :any_skip_relocation, ventura:       "95e0d522f974076801368b7a6f1fbdd27683a738528618b9fdc7acdd04111bee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb77fb02438ff9a21a55e8d7f6ee7a0a0a90dc852ee93d56255f2fcfb64cb787"
   end
 
   depends_on "node" => :build
