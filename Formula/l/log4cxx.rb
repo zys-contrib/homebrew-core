@@ -7,12 +7,12 @@ class Log4cxx < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "dc0e35478e8d145eb1d00e622ee641f1b69b5e4922b5e62cd6f40bba5e243fe3"
-    sha256 cellar: :any,                 arm64_sonoma:  "9dc096c5dda72f4bb58ae947b45668d60e9afbc4a4fa897e0e165f9071f46fab"
-    sha256 cellar: :any,                 arm64_ventura: "4692f58f8f661c207dc7e74198b8efe766981c11e1efd620c9401f7bc5806ef3"
-    sha256 cellar: :any,                 sonoma:        "f1839934223cce206804d2342975fd31aa3d8acab39e9e5f6bac3bee36cf3511"
-    sha256 cellar: :any,                 ventura:       "cbf741236036414c70cf27666fd7d88143cb762967762fc31b21f347d0c27e5e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17829bf537d780bb62f4dacb2a1420ce07915eea0add5f4a4d11914c18e2e354"
+    sha256 cellar: :any,                 arm64_sequoia: "741f844e58834a46c4d6719ca5b66c3c60d35fda0c7eeab712e15b144242f219"
+    sha256 cellar: :any,                 arm64_sonoma:  "cace90c799d3bec01573bd0c1a49d11e8a5dffb0b1ef232838e861a2e7c388e2"
+    sha256 cellar: :any,                 arm64_ventura: "7fc87dce1c0a22e50815625e6a3f848375a785e983035400473ae9efb7c0d56e"
+    sha256 cellar: :any,                 sonoma:        "923ec4caedf69f571f0da892dd70fa27c8549c880a8bd6af3032e440f8d97973"
+    sha256 cellar: :any,                 ventura:       "0d0c65175dda2f77ac9c13549363e58dba57f2c76fc1cbdd1a6fb9fd1c1b551c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e715a250c94d44397172a4a654d4b9c7c183f3b34c95af34872d3cf0acecc9b6"
   end
 
   depends_on "cmake" => :build
