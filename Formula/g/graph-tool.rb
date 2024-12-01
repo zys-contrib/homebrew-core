@@ -3,8 +3,8 @@ class GraphTool < Formula
 
   desc "Efficient network analysis for Python 3"
   homepage "https://graph-tool.skewed.de/"
-  url "https://downloads.skewed.de/graph-tool/graph-tool-2.79.tar.bz2"
-  sha256 "52a254942e75ed3070dea70e692ae101877bbef1009e43ec62fe1806a8de0154"
+  url "https://downloads.skewed.de/graph-tool/graph-tool-2.80.tar.bz2"
+  sha256 "c1a70e075dbe728fad25dc3f5a9a9597880a6d6ff68435b91d21f0b44ef8dbe6"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -22,17 +22,17 @@ class GraphTool < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9dd968dfe02c6d0f124652348ec33f4e42f3a7f1f4cd622751b4a4bcda28974b"
   end
 
+  depends_on "google-sparsehash" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
+
   depends_on "boost"
   depends_on "boost-python3"
   depends_on "cairomm@1.14"
   depends_on "cgal"
   depends_on "freetype"
   depends_on "gmp"
-  depends_on "google-sparsehash"
   depends_on "gtk+3"
-  depends_on macos: :mojave # for C++17
   depends_on "numpy"
   depends_on "pillow"
   depends_on "py3cairo"
@@ -46,6 +46,7 @@ class GraphTool < Formula
 
   on_macos do
     depends_on "cairo"
+    depends_on "libomp"
     depends_on "libsigc++@2"
   end
 
@@ -133,6 +134,13 @@ class GraphTool < Formula
 
     # Linux build is not thread-safe.
     ENV.deparallelize unless OS.mac?
+
+    # Enable openmp
+    if OS.mac?
+      ENV.append_to_cflags "-Xpreprocessor -fopenmp"
+      ENV.append "LDFLAGS", "-L#{Formula["libomp"].opt_lib} -lomp"
+      ENV.append "CPPFLAGS", "-I#{Formula["libomp"].opt_include}"
+    end
 
     args = %W[
       PYTHON=#{python}
