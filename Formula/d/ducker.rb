@@ -6,12 +6,12 @@ class Ducker < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "897e5b90a1bf2f423f49f0644975aaf4f1afbe88800af3726339d732d6465953"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "12ee4a3092d9d033ff94720d573eb42ec77ac4c11222694d1c0b10d78a7e6a26"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2a3ec7b2730c01c32aad01d616ce884a5ec822f2c906be14bc280380c52e47f2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3a5d2b448b95d96eb6216b159927faae8be74ce49d56c01ed1232ab3d768412b"
-    sha256 cellar: :any_skip_relocation, ventura:       "0e8a16a3c85205f967fc4ba95c4f496c72805f7814306f16f41bd3b0d090f377"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48a2cea38823c77413da67369d1d2722396952839edbd9c99fe65567e1f82952"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fb5bc1434b9e3cd6c00927858f9a4156f9d21b913dd6a1f4f99448c9f379979b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d663f15d605e131532c6ba8fdb1b439eae56c4a7235d1cf2848e8475eed4e824"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "da56576ed1562cddd392205806454bf1201b148041fc2a928a91f9c4be188516"
+    sha256 cellar: :any_skip_relocation, sonoma:        "915dca5cceae0d1e74ba673440029cdf828c8d05054dd1d6776b0ff9955288cb"
+    sha256 cellar: :any_skip_relocation, ventura:       "97ee6b0253b361729b9a49156ac2e0841835916523c23d09339b8f9596b2e366"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d02e8d98e8663038c4ce66513ce78a95377dc8721c324f6df73f6aea64ae5e9"
   end
 
   depends_on "rust" => :build
