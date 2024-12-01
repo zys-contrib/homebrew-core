@@ -7,6 +7,10 @@ class Imgp < Formula
   sha256 "4cc3dcbe669ff6b97641ce0c6c332e63934d829a0700fd87171d5be5b1b89305"
   license "GPL-3.0-or-later"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "1b0ee7ffcfa799ee0c2157c291db758e12bc1d7ad6a29fa7403fcbe3f7d29394"
+  end
+
   depends_on "pillow"
   depends_on "python@3.13"
 
