@@ -7,12 +7,12 @@ class Bed < Formula
   head "https://github.com/itchyny/bed.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "70be9ac18596e2cf7227ed3af58184f21e82e06a78ae69488b25d744cd4ae80d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "70be9ac18596e2cf7227ed3af58184f21e82e06a78ae69488b25d744cd4ae80d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "70be9ac18596e2cf7227ed3af58184f21e82e06a78ae69488b25d744cd4ae80d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1caa69d4199395f000ddc54c77ac7ddd010fc7550c00416a28e3e226f9d646de"
-    sha256 cellar: :any_skip_relocation, ventura:       "1caa69d4199395f000ddc54c77ac7ddd010fc7550c00416a28e3e226f9d646de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3dde45e54c61af4c574016a87eb755d9f8288664a4ec6824eeac75520a9634cf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "140a9d0772340162a6369e5662a344f6d08366322e4ff1e36fe974f08fc2d666"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "140a9d0772340162a6369e5662a344f6d08366322e4ff1e36fe974f08fc2d666"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "140a9d0772340162a6369e5662a344f6d08366322e4ff1e36fe974f08fc2d666"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f6ca3ed867cf825422e5b5a133799ecab751b017135bdb2593023977e9a44557"
+    sha256 cellar: :any_skip_relocation, ventura:       "f6ca3ed867cf825422e5b5a133799ecab751b017135bdb2593023977e9a44557"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68f7873e2b5d5e5f871862af9004cdcd4b99fc6b51af6d1e8d100afe4418fe21"
   end
 
   depends_on "go" => :build
