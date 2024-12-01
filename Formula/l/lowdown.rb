@@ -6,12 +6,12 @@ class Lowdown < Formula
   license "ISC"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4bd6fdbbe532d6d433c7b15771a3175708f4e9652491cedba222d03e67b5ff5f"
-    sha256 cellar: :any,                 arm64_sonoma:  "9fd15db78f4fb5365369713c732a31d674be049f211dd494b775087702a3a478"
-    sha256 cellar: :any,                 arm64_ventura: "5260cbdf7b10460160cb39beda9f124a2769d54f17d13c449e59db9cd78e129d"
-    sha256 cellar: :any,                 sonoma:        "2f3f2cb3dcb4706b5c91d6039fc732e3923cce0fecc14719d2f80c573a5ded33"
-    sha256 cellar: :any,                 ventura:       "5c324d03e446de5591fe02650d21149c887d388f9e18ef96563076616a6bec37"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c77eaf34c970ddbea7326e672099cd9208b9bb0f1e0b6b72192a595f4e9aedf"
+    sha256 cellar: :any,                 arm64_sequoia: "f7b7acc9789753e9f5fa7ffea6d9e13e54bf4cf4f5bc4950d6f8ee9671b373d7"
+    sha256 cellar: :any,                 arm64_sonoma:  "6d862a6b2a3aef6b4bf8485e4bb54767533c4ecfae37f38eaddd3e0c2c9182d2"
+    sha256 cellar: :any,                 arm64_ventura: "ae83f8265adb128a9643f2dd29963754ec7b2a7bdd0f87b80e0e56fbb73f4ee3"
+    sha256 cellar: :any,                 sonoma:        "f8b70b9dabf8d0480cdb1e071f89a8bfb302394fbe0107e2559c1cc946e311fb"
+    sha256 cellar: :any,                 ventura:       "a4edec1d894b754b902d6512bae4589a34ede83336ba35592c50a883956f5379"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "95cfee9ddd75de30f9ba88280fbdcea20c8cc8dcf4f59b01a4a664667903af8c"
   end
 
   def install
