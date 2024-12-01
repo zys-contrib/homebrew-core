@@ -1,18 +1,18 @@
 class Sk < Formula
   desc "Fuzzy Finder in rust!"
   homepage "https://github.com/lotabout/skim"
-  url "https://github.com/lotabout/skim/archive/refs/tags/v0.15.2.tar.gz"
-  sha256 "ebdb3bbe0ab44cdabdbf02182d31b3d9f21897fde4c27996ceaf3ae698d188d5"
+  url "https://github.com/lotabout/skim/archive/refs/tags/v0.15.4.tar.gz"
+  sha256 "2e6f4638b1fd7a0bb14fb53945b7cbae050597535fda253de912534b1475aa8d"
   license "MIT"
   head "https://github.com/lotabout/skim.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ba7bda3ba0f6f7e3d8d73ef23c6dd6031986c5399a2688fe84fea501f50c592"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "69a4ea7830633c4de779fc7b6d1f4e3b703e8aae6fefc118d1aae3694b59895c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "524dd2b265803d2f9163d84c9ceae65286c216d359daf95b59e8597f567921ea"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8b375d409db16e89e2f0f3cdc29e4964b5bcff2ad8e17036dfb80f67281a011a"
-    sha256 cellar: :any_skip_relocation, ventura:       "f2498187b4cc5e9a60dc1302a8e94ecbbb17ff206886d89088ae490b0a046f92"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d4c95e9cd18250e7ef4453bf46902134c864b83b6d589fb76399447e2aea1a1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "07d328b42233d8152edbbe925574fda4b99208fae936b0939339fc3cd3f47e11"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "392bac4648bd14593527db79d5fbe8ea369cc359a3e008081881f378003d7bb0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "75d5e9bdef31bac6251fd3d718d0273deb8643252332a28e4468c6074bd29195"
+    sha256 cellar: :any_skip_relocation, sonoma:        "58c76b8d9f1b86ec2259e0a7f492865c49adf06684d2cebc7b54e3192e21d6ae"
+    sha256 cellar: :any_skip_relocation, ventura:       "d4c19d3bb6c6a7e53bd253a65f9905eada2ecaaebcb35452f351089887603266"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c81fdbe60d0f5cd0781b8d09379e3053cd769ab20774d5c31e0dc548fe5890b"
   end
 
   depends_on "rust" => :build
