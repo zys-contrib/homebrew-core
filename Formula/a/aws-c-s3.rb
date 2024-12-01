@@ -5,6 +5,15 @@ class AwsCS3 < Formula
   sha256 "4af522456b6e48741aea190ad9a32cc0fcb81b01c5e9ec5d0a782f855329c8b1"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "bd611be6281b046e17bb66616de3357e349bba9e5819ae169061ba2a5033e55b"
+    sha256 cellar: :any,                 arm64_sonoma:  "2e0134dde71f20d714858c887a43b58e2c74bf0a95bb341a482f99ed446f987d"
+    sha256 cellar: :any,                 arm64_ventura: "1381783091100bff33fce8a1aaf2d3aabfd4ba74e53ae9cb1ec7d318ca93aaab"
+    sha256 cellar: :any,                 sonoma:        "df01153ed8a303338f05e5631cfb6bdad2d92a578fdabfa2e49425773e44ea7a"
+    sha256 cellar: :any,                 ventura:       "ec80271a80c82379014d410f0f85936ecd6704936aa6eaa3157bf0bbf5d8b389"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "234691c8d7419f36c5f6b1b1b8913cf5971ead242330e479b35bd4045a5bac2a"
+  end
+
   depends_on "cmake" => :build
   depends_on "aws-c-auth"
   depends_on "aws-c-cal"
