@@ -7,12 +7,13 @@ class Nomino < Formula
   head "https://github.com/yaa110/nomino.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "63d5b037e962f888090f398505a403fdf1a330823b5cab10b47438460179a0f4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8d8b845046c631d50b4a4119dd9a59421338bd1eca5f6c56b344cc8287970e8c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "84440c2ac0220f0e8c971a0e0de6280b47d87791f2b5fb79151de71e4a73b007"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d9570c41100c0b24ddfb08cb703d3015c526cd7b939178d18463b63ecca98992"
-    sha256 cellar: :any_skip_relocation, ventura:       "9ece1146d93c172619b4fb5ba9ec005e1df3cc5dd9635082a9f7c4d33f45ed38"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9bbd2a5ddc584d9090937df634f0aa5cefc6d5bac8b1e8d50988ce8ab82b6912"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c09203e92cd1defafe79abd33e7623d2f8e95173707386eb7b8370166e81d238"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9ec3e1fb19c545a9eab609f52fadefb386011e4413819c53415be83c2508a8d1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "dc5178756a62375ab314dec06156d82cb068ae2a504e2504ad8ef7fdbe50e374"
+    sha256 cellar: :any_skip_relocation, sonoma:        "393baaefe2933f28c7d923958701a0b4019e7e14c7da3441be030562b938c94e"
+    sha256 cellar: :any_skip_relocation, ventura:       "9f0c907213a4c18886b6bf297c4466253a72cc17d3f8845b3fd8597bae9517fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "234f9d8899f41e73c68cd32fb49a42ca0e329bdf055cd5cb6e037f51b043e5ce"
   end
 
   depends_on "rust" => :build
