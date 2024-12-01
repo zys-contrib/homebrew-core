@@ -7,7 +7,7 @@ class Cowsay < Formula
   head "https://github.com/cowsay-org/cowsay.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "549d525741c960a333379336876748b9bd139df0a2dcf6d51331ca48c5fb1242"
+    sha256 cellar: :any_skip_relocation, all: "345e99255a69e9cb188a5a8e6bd8e6f50c334830c8a72877fc6b504c95e5cbd1"
   end
 
   def install
