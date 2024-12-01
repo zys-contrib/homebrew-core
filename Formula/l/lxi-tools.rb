@@ -1,8 +1,8 @@
 class LxiTools < Formula
   desc "Open source tools for managing network attached LXI compatible instruments"
   homepage "https://github.com/lxi-tools/lxi-tools"
-  url "https://github.com/lxi-tools/lxi-tools/archive/refs/tags/v2.7.tar.gz"
-  sha256 "6196980e82be2d143aa7f52e8e4612866b570cfce225d7d61698d2eeb1bf8a00"
+  url "https://github.com/lxi-tools/lxi-tools/archive/refs/tags/v2.8.tar.gz"
+  sha256 "ef9d013189c9449f850d467dd35ac3840929e76a888cdb77e0edbce067da0b2d"
   license "BSD-3-Clause"
 
   bottle do

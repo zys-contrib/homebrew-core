@@ -1812,6 +1812,7 @@ luv
 lux
 lwtools
 lxc
+lxi-tools
 lychee
 lynis
 lz4
