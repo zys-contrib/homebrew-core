@@ -7,12 +7,12 @@ class Proj < Formula
   head "https://github.com/OSGeo/proj.git", branch: "master"
 
   bottle do
-    sha256 arm64_sequoia: "dcc7371d2a62f8035d599c5a8ff7bf410e54bb3b4fdace1b4acc4043149d8a22"
-    sha256 arm64_sonoma:  "2a1b74965d05b95ab482cabf2e7bc0d55cc9e196b215dc782ec4624a599ddbe0"
-    sha256 arm64_ventura: "ab237962dfbb7613195e70f58e7f82a94b2c3d4e1f9b034f8d7686a8fdea88a1"
-    sha256 sonoma:        "ff478dcefaaaa025e43f3718b53a57742f29d6a0e8e7ecd26d18e7f0c56bf06f"
-    sha256 ventura:       "9abf5ab1f71895f10698f6d26f88be8d6618c1d5388a7eadd5e8f59105d516b2"
-    sha256 x86_64_linux:  "aa9ddc1ba112d2022f99f71d2e905dbbad57987c5974af1bf9150bf21fdb7abe"
+    sha256 arm64_sequoia: "c45845ace46c4164cb83ba2830526e995c45b7186810ff6ede827f5aff19754f"
+    sha256 arm64_sonoma:  "3c982d2d1e098fd1af5c933f3b3e858a934a4d4ed4a13ddff2f6bbdc0f19c4ea"
+    sha256 arm64_ventura: "38a0b4d4eb667cf12f3ff7e35caec9eeae3b052b9ebbd808d18136374eac7b03"
+    sha256 sonoma:        "30eb5c830c5d0f7aa4660102dcee7abfe66bcc4accb9d8a3ba4906b10ca635d5"
+    sha256 ventura:       "9230636c4187be1b0e923ca3f356411e1b27cc7e5a716debc22eca232569b69b"
+    sha256 x86_64_linux:  "6fe61c5481a8f5a8b53d97120c62260fbe74db4e8c969ffb10e241a98d0a7779"
   end
 
   depends_on "cmake" => :build
