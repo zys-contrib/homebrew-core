@@ -1,8 +1,8 @@
 class Cowsay < Formula
   desc "Apjanke's fork of the classic cowsay project"
   homepage "https://cowsay.diamonds"
-  url "https://github.com/cowsay-org/cowsay/archive/refs/tags/v3.8.3.tar.gz"
-  sha256 "3bcb1f644a85792bc2ee8601971f16f8f1e7ca0013d6062cf35b4fd6d8fa29ea"
+  url "https://github.com/cowsay-org/cowsay/archive/refs/tags/v3.8.4.tar.gz"
+  sha256 "c15bc10712835d3a9bcda780dc9453362567bf48d1185905dc7ef2334d79aadd"
   license "GPL-3.0-only"
   head "https://github.com/cowsay-org/cowsay.git", branch: "main"
 
