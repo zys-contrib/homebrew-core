@@ -1,8 +1,8 @@
 class Poco < Formula
   desc "C++ class libraries for building network and internet-based applications"
   homepage "https://pocoproject.org/"
-  url "https://pocoproject.org/releases/poco-1.13.3/poco-1.13.3-all.tar.gz"
-  sha256 "4ddb6a8f8c7a2f190eacb27d886f3913fa945cdbd2acd2d66029a0ec7ff06af0"
+  url "https://pocoproject.org/releases/poco-1.14.0/poco-1.14.0-all.tar.gz"
+  sha256 "983bfd9c15ec78b9c79ef7b387766d5e7bdd0cee1e41114ceebce93bca724561"
   license "BSL-1.0"
   head "https://github.com/pocoproject/poco.git", branch: "master"
 
@@ -25,6 +25,7 @@ class Poco < Formula
   depends_on "cmake" => :build
   depends_on "openssl@3"
   depends_on "pcre2"
+  depends_on "utf8proc"
 
   uses_from_macos "expat"
   uses_from_macos "sqlite"
