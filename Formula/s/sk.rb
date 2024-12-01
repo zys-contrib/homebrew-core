@@ -7,12 +7,12 @@ class Sk < Formula
   head "https://github.com/lotabout/skim.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c5d0735860641b4ad91d971537e28c2f29907c5d2957d9a774a65d4c767e57d7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0c7f0dd08de874432c5b883219130c7c6f369a818ba9f0a87bc1e8cd3e4df164"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0e5e4aca8395f4176589fffeec43d33f011d060f28d3a7fee2fb2a2ae0b80413"
-    sha256 cellar: :any_skip_relocation, sonoma:        "790985788f2fc08776abdd7222cc651ba54bcfcd72a9ebe97aeae3680dc8f555"
-    sha256 cellar: :any_skip_relocation, ventura:       "a307c183b1fe533d2b1b8a70b4e1de0ecd34d98edab94687f08f3cac65344beb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ad0bf92140898f5bcf14b02285a7ec1368f51a9ccd6ac11879c281eec6da796"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ba7bda3ba0f6f7e3d8d73ef23c6dd6031986c5399a2688fe84fea501f50c592"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "69a4ea7830633c4de779fc7b6d1f4e3b703e8aae6fefc118d1aae3694b59895c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "524dd2b265803d2f9163d84c9ceae65286c216d359daf95b59e8597f567921ea"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8b375d409db16e89e2f0f3cdc29e4964b5bcff2ad8e17036dfb80f67281a011a"
+    sha256 cellar: :any_skip_relocation, ventura:       "f2498187b4cc5e9a60dc1302a8e94ecbbb17ff206886d89088ae490b0a046f92"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d4c95e9cd18250e7ef4453bf46902134c864b83b6d589fb76399447e2aea1a1"
   end
 
   depends_on "rust" => :build
