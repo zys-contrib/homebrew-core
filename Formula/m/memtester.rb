@@ -1,8 +1,8 @@
 class Memtester < Formula
   desc "Utility for testing the memory subsystem"
   homepage "https://pyropus.ca/software/memtester/"
-  url "https://pyropus.ca/software/memtester/old-versions/memtester-4.6.0.tar.gz", using: :homebrew_curl
-  sha256 "c9fe4eb7e80c8cef5202f9065c4c0682f5616647c0455e916a5700f98e3dbb2e"
+  url "https://pyropus.ca/software/memtester/old-versions/memtester-4.7.0.tar.gz", using: :homebrew_curl
+  sha256 "33271805f8aa30c119fbbf5ec4e7a298e9f4c2bc9d2d9302022a3ed301eb7028"
   license "GPL-2.0-only"
 
   # Despite the name, all the versions are seemingly found on this page. If this
