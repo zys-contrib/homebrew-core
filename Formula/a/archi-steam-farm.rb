@@ -1,20 +1,11 @@
 class ArchiSteamFarm < Formula
   desc "Application for idling Steam cards from multiple accounts simultaneously"
   homepage "https://github.com/JustArchiNET/ArchiSteamFarm"
+  url "https://github.com/JustArchiNET/ArchiSteamFarm.git",
+      tag:      "6.1.0.1",
+      revision: "8aa017050e7bbc5b75f378ff5b5a1bf32479a656"
   license "Apache-2.0"
   head "https://github.com/JustArchiNET/ArchiSteamFarm.git", branch: "main"
-
-  stable do
-    url "https://github.com/JustArchiNET/ArchiSteamFarm.git",
-        tag:      "6.0.8.7",
-        revision: "6dddaa59926c1e48419e5d374deef8aa712ad610"
-
-    # Backport support for .NET 9
-    patch do
-      url "https://github.com/JustArchiNET/ArchiSteamFarm/commit/1b626caa538605281c6a73cf8ab2b056bc771a39.patch?full_index=1"
-      sha256 "03f45f93b018194abd7a00857156de5a4737ed10cf7b816f251fffbbe76975f8"
-    end
-  end
 
   livecheck do
     url :stable
