@@ -9,7 +9,7 @@ class Jupyterlab < Formula
     "BSD-3-Clause",
     "MIT", # semver.py
   ]
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "bb811410b0c5ca82837f084b01bf4eb3408a894ea14dce128d5fb918400564c1"
@@ -27,7 +27,7 @@ class Jupyterlab < Formula
   depends_on "libyaml"
   depends_on "node"
   depends_on "pandoc"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "zeromq"
 
   uses_from_macos "expect" => :test
@@ -516,7 +516,7 @@ class Jupyterlab < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
