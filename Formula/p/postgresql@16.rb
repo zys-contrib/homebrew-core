@@ -66,7 +66,6 @@ class PostgresqlAT16 < Formula
 
     args = %W[
       --datadir=#{opt_pkgshare}
-      --libdir=#{opt_lib}
       --includedir=#{opt_include}
       --sysconfdir=#{etc}
       --docdir=#{doc}
@@ -83,15 +82,15 @@ class PostgresqlAT16 < Formula
       --with-pam
       --with-perl
       --with-uuid=e2fs
-      --with-extra-version=\ (#{tap.user})
     ]
+    args << "--with-extra-version= (#{tap.user})" if tap
     args += %w[--with-bonjour --with-tcl] if OS.mac?
 
     # PostgreSQL by default uses xcodebuild internally to determine this,
     # which does not work on CLT-only installs.
     args << "PG_SYSROOT=#{MacOS.sdk_path}" if OS.mac? && MacOS.sdk_root_needed?
 
-    system "./configure", *args, *std_configure_args
+    system "./configure", *args, *std_configure_args(libdir: opt_lib)
 
     # Work around busted path magic in Makefile.global.in. This can't be specified
     # in ./configure, but needs to be set here otherwise install prefixes containing
@@ -150,7 +149,7 @@ class PostgresqlAT16 < Formula
   test do
     system bin/"initdb", testpath/"test" unless ENV["HOMEBREW_GITHUB_ACTIONS"]
     assert_equal opt_pkgshare.to_s, shell_output("#{bin}/pg_config --sharedir").chomp
-    assert_equal lib.to_s, shell_output("#{bin}/pg_config --libdir").chomp
+    assert_equal opt_lib.to_s, shell_output("#{bin}/pg_config --libdir").chomp
     assert_equal (opt_lib/"postgresql").to_s, shell_output("#{bin}/pg_config --pkglibdir").chomp
     assert_equal (opt_include/"postgresql").to_s, shell_output("#{bin}/pg_config --pkgincludedir").chomp
     assert_equal (opt_include/"postgresql/server").to_s, shell_output("#{bin}/pg_config --includedir-server").chomp
