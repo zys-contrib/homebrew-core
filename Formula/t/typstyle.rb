@@ -1,8 +1,8 @@
 class Typstyle < Formula
   desc "Beautiful and reliable typst code formatter"
   homepage "https://enter-tainer.github.io/typstyle/"
-  url "https://github.com/Enter-tainer/typstyle/archive/refs/tags/v0.12.5.tar.gz"
-  sha256 "1dbc3282ba83c133892a96959d3c3e759b25fe58c9a4ec378d38cc6408ce7f80"
+  url "https://github.com/Enter-tainer/typstyle/archive/refs/tags/v0.12.6.tar.gz"
+  sha256 "b04a77a9f75dda3a9513088ee3cd28f0a093ff6a977f38186427bbb0e03ce66b"
   license "Apache-2.0"
   head "https://github.com/Enter-tainer/typstyle.git", branch: "master"
 
