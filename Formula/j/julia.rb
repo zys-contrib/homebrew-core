@@ -3,8 +3,8 @@ class Julia < Formula
   homepage "https://julialang.org/"
   # Use the `-full` tarball to avoid having to download during the build.
   # TODO: Check if we can unbundle `curl`: https://github.com/JuliaLang/Downloads.jl/issues/260
-  url "https://github.com/JuliaLang/julia/releases/download/v1.11.1/julia-1.11.1-full.tar.gz"
-  sha256 "a49b804de6e86a03fe26c73f58851eaee1ff243d7204f2b5ae4dbc5c1dc2758d"
+  url "https://github.com/JuliaLang/julia/releases/download/v1.11.2/julia-1.11.2-full.tar.gz"
+  sha256 "a7365b969944f27df0d8563716ca9769e07f3f77b9f9fbb48bcd114ddf752ca4"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
   head "https://github.com/JuliaLang/julia.git", branch: "master"
 
