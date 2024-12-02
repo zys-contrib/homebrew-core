@@ -5,6 +5,15 @@ class Libunicode < Formula
   sha256 "0c217f8264000f1b8c36e78969cb9cf91ac97de937cc141ab78e6b1ad7f404ef"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "2e51dbe77f5b2853092a3648b1d22422b011641e893a56aafaf842d93e2ac75a"
+    sha256 cellar: :any,                 arm64_sonoma:  "4543c2694bb3bc240a45792de40e9ecef4229eeed3ff73f25dea245c0aaa7fa8"
+    sha256 cellar: :any,                 arm64_ventura: "dcbad1aeabc61e9e4ef5b0776cc40fcaab878e67931bf0b057847e3e9e69e86c"
+    sha256 cellar: :any,                 sonoma:        "eb839f56e6eb0d2d877a623eeab2ba46fa4a2f8e7c5b6133232caef634f14fb8"
+    sha256 cellar: :any,                 ventura:       "88b268f809736144bc316d83d38ece5c25c96c4b97b563173a8ca925fccddbc8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af4677a7a0f6b40d288cb674a70c3c58fccaa970aff7b2ee0d68e5f387c6ce64"
+  end
+
   depends_on "cmake" => :build
 
   uses_from_macos "python" => :build
