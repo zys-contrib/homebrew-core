@@ -26,8 +26,6 @@ class Libphonenumber < Formula
   depends_on "icu4c@76"
   depends_on "protobuf"
 
-  fails_with gcc: "5" # For abseil and C++17
-
   def install
     ENV.append_to_cflags "-Wno-sign-compare" # Avoid build failure on Linux.
     system "cmake", "-S", "cpp", "-B", "build",
