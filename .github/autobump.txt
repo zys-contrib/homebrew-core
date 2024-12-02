@@ -783,6 +783,7 @@ duplicity
 duply
 dust
 dvc
+dwarfs
 dwarfutils
 dwm
 dxpy
