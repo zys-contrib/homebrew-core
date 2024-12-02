@@ -3,8 +3,8 @@ class Dolphie < Formula
 
   desc "Feature-rich top tool for monitoring MySQL"
   homepage "https://github.com/charles-001/dolphie"
-  url "https://files.pythonhosted.org/packages/42/ea/cdba8c9cc8d452a5d5b461cc6f216cc2d16461ca492f6526a3d17d23d2c5/dolphie-6.6.1.tar.gz"
-  sha256 "2a1c03b334ceb3cf7af4e2ce99a7019b80ef92c9a4ea42a1750260eee3452712"
+  url "https://files.pythonhosted.org/packages/44/86/789c985cea612af7dcb689d9458a04b3118bb2b73e6fad56198d946046dc/dolphie-6.6.2.tar.gz"
+  sha256 "58098fc20aad5c4174359b2aa148fe4b1f0539fbea046a07a12b037405b7f6a2"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -132,8 +132,8 @@ class Dolphie < Formula
   end
 
   resource "tree-sitter" do
-    url "https://files.pythonhosted.org/packages/01/23/e001538062ece748d7ab1fcfbcd9fa766d85f60f0d5ae014a7caf4f07c70/tree-sitter-0.23.1.tar.gz"
-    sha256 "28fe02aff6676b203cbe4213ca7116db0aaac08d6ca4c0b1f1af038991631838"
+    url "https://files.pythonhosted.org/packages/0f/50/fd5fafa42b884f741b28d9e6fd366c3f34e15d2ed3aa9633b34e388379e2/tree-sitter-0.23.2.tar.gz"
+    sha256 "66bae8dd47f1fed7bdef816115146d3a41c39b5c482d7bad36d9ba1def088450"
   end
 
   # sdist issue report, https://github.com/grantjenks/py-tree-sitter-languages/issues/63
