@@ -13,13 +13,12 @@ class ConanAT1 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "4bc9b74eef882752605df6c695f98cc801c4765fa999d101f7e03eb1f27dc391"
-    sha256 cellar: :any,                 arm64_sonoma:  "81cd6c31e38161277d571c8414abef861921822e939f856aa54b037108ca6723"
-    sha256 cellar: :any,                 arm64_ventura: "9cbfc31ea483e5fe65ac4bff6e8fa2d88ccef2bcf264a41d56f81839284e93ba"
-    sha256 cellar: :any,                 sonoma:        "c4287660620dcf60e51261409acfe04929dc30464dea7b3a8661456b4a06deb6"
-    sha256 cellar: :any,                 ventura:       "1edfa7bde7ed9706121fd1eea26f7b7a285fb591474ef50889ec2330384571e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07110262d848b368269788689f39d19a9699b2b8c0f82b480aa7f49ce329c078"
+    sha256 cellar: :any,                 arm64_sequoia: "6f9bd30639b2eb389211f5079d4e58ad7d6bf998f467ee5de2f8d64fb2a5c4d5"
+    sha256 cellar: :any,                 arm64_sonoma:  "5cc316bde2e42cb5f9e7023f1a7b2d145fa9067ae0a54539201f694adfebb1c6"
+    sha256 cellar: :any,                 arm64_ventura: "f2c0b869b8570c7161e37d3fff4e943e6c22ca2fc5edfb7f1c54bc46a4cd6e86"
+    sha256 cellar: :any,                 sonoma:        "bbd9bdda8c64177052554521d5573f911e8ff52959d77048e448eec8173fe702"
+    sha256 cellar: :any,                 ventura:       "6f53e808ad9d0602a1430a7675cefd7f0c98aa20707894f3a5a5549370e07e4b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "942f9d3f8b6fca3eba1938d5769bb9f7617e495c0674542c3e675a2b6d4a24e5"
   end
 
   keg_only :versioned_formula
