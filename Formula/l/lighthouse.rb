@@ -1,8 +1,8 @@
 class Lighthouse < Formula
   desc "Rust Ethereum 2.0 Client"
   homepage "https://lighthouse.sigmaprime.io/"
-  url "https://github.com/sigp/lighthouse/archive/refs/tags/v5.3.0.tar.gz"
-  sha256 "bfd44a327f9f45dc695a0e65ff47dfc8c40aade65fe4fce92159de9763e6a54d"
+  url "https://github.com/sigp/lighthouse/archive/refs/tags/v6.0.0.tar.gz"
+  sha256 "9eafb6654deabe3e10602daa99a34ec9db1ed83396fca7de12ad2deb05915860"
   license "Apache-2.0"
 
   livecheck do
@@ -45,11 +45,18 @@ class Lighthouse < Formula
   test do
     assert_match "Lighthouse", shell_output("#{bin}/lighthouse --version")
 
+    (testpath/"jwt.hex").write <<~EOS
+      d6a1572e2859ba87a707212f0cc9170f744849b08d7456fe86492cbf93807092
+    EOS
+
     http_port = free_port
-    fork do
-      exec bin/"lighthouse", "beacon_node",
-           "--http", "--http-port=#{http_port}", "--port=#{free_port}", "--allow-insecure-genesis-sync"
-    end
+    args = [
+      "--execution-endpoint", "http://localhost:8551",
+      "--execution-jwt", "jwt.hex",
+      "--allow-insecure-genesis-sync", "--http",
+      "--http-port=#{http_port}", "--port=#{free_port}"
+    ]
+    spawn bin/"lighthouse", "beacon_node", *args
     sleep 18
 
     output = shell_output("curl -sS -XGET http://127.0.0.1:#{http_port}/eth/v1/node/syncing")
