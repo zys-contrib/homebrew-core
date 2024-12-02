@@ -3,8 +3,8 @@ class AstrometryNet < Formula
 
   desc "Automatic identification of astronomical images"
   homepage "https://github.com/dstndstn/astrometry.net"
-  url "https://github.com/dstndstn/astrometry.net/releases/download/0.96/astrometry.net-0.96.tar.gz"
-  sha256 "fb3f2ec09cbe155d9ff461b9a60336f8493f5cb7804199e1782664e9034c9aac"
+  url "https://github.com/dstndstn/astrometry.net/releases/download/0.97/astrometry.net-0.97.tar.gz"
+  sha256 "e4eef1b658ba5ad462282b661c0ca3a5c538ba1716e853f7970b7b9fa4a33459"
   license "BSD-3-Clause"
 
   livecheck do
