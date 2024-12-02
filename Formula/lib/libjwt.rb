@@ -1,8 +1,8 @@
 class Libjwt < Formula
   desc "JSON Web Token C library"
   homepage "https://github.com/benmcollins/libjwt"
-  url "https://github.com/benmcollins/libjwt/releases/download/v1.17.2/libjwt-1.17.2.tar.bz2"
-  sha256 "f11c4544f61a31f105720b8329409fea009d6f9ef41c9361f98c2de48152eeae"
+  url "https://github.com/benmcollins/libjwt/releases/download/v1.18.1/libjwt-1.18.1.tar.bz2"
+  sha256 "72039fb837c034b37f12111b037e8abc05724f8289c996e9ab2b1baa3b620644"
   license "MPL-2.0"
 
   livecheck do
@@ -23,11 +23,12 @@ class Libjwt < Formula
 
   head do
     url "https://github.com/benmcollins/libjwt.git", branch: "master"
-    depends_on "autoconf" => :build
+
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
+  depends_on "autoconf" => :build
   depends_on "pkgconf" => :build
   depends_on "jansson"
   depends_on "openssl@3"
