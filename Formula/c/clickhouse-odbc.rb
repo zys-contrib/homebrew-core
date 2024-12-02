@@ -5,7 +5,7 @@ class ClickhouseOdbc < Formula
   url "https://github.com/ClickHouse/clickhouse-odbc/archive/refs/tags/v1.2.1.20220905.tar.gz"
   sha256 "ca8666cbc7af9e5d4670cd05c9515152c34543e4f45e2bc8fa94bee90d724f1b"
   license "Apache-2.0"
-  revision 6
+  revision 7
   head "https://github.com/ClickHouse/clickhouse-odbc.git", branch: "master"
 
   livecheck do
@@ -28,6 +28,7 @@ class ClickhouseOdbc < Formula
   depends_on "icu4c@76"
   depends_on "openssl@3"
   depends_on "poco"
+  depends_on "utf8proc"
 
   on_macos do
     depends_on "libiodbc"
@@ -40,6 +41,12 @@ class ClickhouseOdbc < Formula
 
   fails_with :gcc do
     version "6"
+  end
+
+  # build patch for utf8proc, no needed for newer version, as folly got removed per https://github.com/ClickHouse/clickhouse-odbc/pull/456
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c76519fcbfa664cd37a8901deb76403b1af1bec1/clickhouse-odbc/1.2.1.20220905-Utf8Proc.patch"
+    sha256 "29f3aeaa05609d53b942903868cb52ddcfcb3b35d32e8075d152cd2ca0ff5242"
   end
 
   def install
