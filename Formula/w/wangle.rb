@@ -28,8 +28,6 @@ class Wangle < Formula
   depends_on "zstd"
   uses_from_macos "bzip2"
 
-  fails_with gcc: "5"
-
   def install
     args = ["-DBUILD_TESTS=OFF"]
     # Prevent indirect linkage with boost, libsodium, snappy and xz
