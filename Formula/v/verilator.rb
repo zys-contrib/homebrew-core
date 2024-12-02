@@ -44,11 +44,11 @@ class Verilator < Formula
   end
 
   test do
-    (testpath/"test.v").write <<~EOS
+    (testpath/"test.v").write <<~VERILOG
       module test;
          initial begin $display("Hello World"); $finish; end
       endmodule
-    EOS
+    VERILOG
     (testpath/"test.cpp").write <<~CPP
       #include "Vtest.h"
       #include "verilated.h"
