@@ -39,10 +39,6 @@ class ClickhouseOdbc < Formula
     depends_on "unixodbc"
   end
 
-  fails_with :gcc do
-    version "6"
-  end
-
   # build patch for utf8proc, no needed for newer version, as folly got removed per https://github.com/ClickHouse/clickhouse-odbc/pull/456
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/c76519fcbfa664cd37a8901deb76403b1af1bec1/clickhouse-odbc/1.2.1.20220905-Utf8Proc.patch"
@@ -72,7 +68,7 @@ class ClickhouseOdbc < Formula
   end
 
   test do
-    (testpath/"my.odbcinst.ini").write <<~EOS
+    (testpath/"my.odbcinst.ini").write <<~INI
       [ODBC Drivers]
       ClickHouse ODBC Test Driver A = Installed
       ClickHouse ODBC Test Driver W = Installed
@@ -88,9 +84,9 @@ class ClickhouseOdbc < Formula
       Driver      = #{lib/shared_library("libclickhouseodbcw")}
       Setup       = #{lib/shared_library("libclickhouseodbcw")}
       UsageCount  = 1
-    EOS
+    INI
 
-    (testpath/"my.odbc.ini").write <<~EOS
+    (testpath/"my.odbc.ini").write <<~INI
       [ODBC Data Sources]
       ClickHouse ODBC Test DSN A = ClickHouse ODBC Test Driver A
       ClickHouse ODBC Test DSN W = ClickHouse ODBC Test Driver W
@@ -104,7 +100,7 @@ class ClickhouseOdbc < Formula
       Driver      = ClickHouse ODBC Test Driver W
       Description = DSN for ClickHouse ODBC Test Driver (Unicode)
       Url         = https://default:password@example.com:8443/query?database=default
-    EOS
+    INI
 
     ENV["ODBCSYSINI"] = testpath
     ENV["ODBCINSTINI"] = "my.odbcinst.ini"
