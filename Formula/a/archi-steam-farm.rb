@@ -2,8 +2,8 @@ class ArchiSteamFarm < Formula
   desc "Application for idling Steam cards from multiple accounts simultaneously"
   homepage "https://github.com/JustArchiNET/ArchiSteamFarm"
   url "https://github.com/JustArchiNET/ArchiSteamFarm.git",
-      tag:      "6.1.0.1",
-      revision: "8aa017050e7bbc5b75f378ff5b5a1bf32479a656"
+      tag:      "6.1.0.2",
+      revision: "90ead36184e8c310cef135a49769a2abbc675a56"
   license "Apache-2.0"
   head "https://github.com/JustArchiNET/ArchiSteamFarm.git", branch: "main"
 
