@@ -1108,6 +1108,7 @@ gitql
 gitsign
 gittuf
 gitu
+giza
 gjs
 glances
 glassfish
