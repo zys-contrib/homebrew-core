@@ -3,8 +3,8 @@ class AivenClient < Formula
 
   desc "Official command-line client for Aiven"
   homepage "https://aiven.io/docs/tools/cli"
-  url "https://files.pythonhosted.org/packages/02/e8/687f8d55bce44b8bfa33a48c508f5a575624db4b9832dfa5843e92a7c8ee/aiven_client-4.4.0.tar.gz"
-  sha256 "2cb0542643ad575a7a3135078264783faf845227c89238b0b6346f824b9a08e3"
+  url "https://files.pythonhosted.org/packages/4e/bf/43e4948475a6fec881daac94babaa5d8dcea9c3ef73b54f0dc5a1bec5309/aiven_client-4.5.0.tar.gz"
+  sha256 "842c7e51ba7948cb125498d84256fd8c1db5af49bce4bab9a6200eb1d45f32ec"
   license "Apache-2.0"
   head "https://github.com/aiven/aiven-client.git", branch: "main"
 
