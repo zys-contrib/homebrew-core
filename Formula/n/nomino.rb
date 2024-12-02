@@ -1,19 +1,18 @@
 class Nomino < Formula
   desc "Batch rename utility"
   homepage "https://github.com/yaa110/nomino"
-  url "https://github.com/yaa110/nomino/archive/refs/tags/1.3.6.tar.gz"
-  sha256 "e6458df8bb7576bdec45af8c7d351867f736b90c6ececb0670aa6abcf1a5dee2"
+  url "https://github.com/yaa110/nomino/archive/refs/tags/1.3.7.tar.gz"
+  sha256 "9c19028b9e685976e9196c0c769c3690f0b56ff1f61f4f6a06ab6a32b163a6a0"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/yaa110/nomino.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c09203e92cd1defafe79abd33e7623d2f8e95173707386eb7b8370166e81d238"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9ec3e1fb19c545a9eab609f52fadefb386011e4413819c53415be83c2508a8d1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "dc5178756a62375ab314dec06156d82cb068ae2a504e2504ad8ef7fdbe50e374"
-    sha256 cellar: :any_skip_relocation, sonoma:        "393baaefe2933f28c7d923958701a0b4019e7e14c7da3441be030562b938c94e"
-    sha256 cellar: :any_skip_relocation, ventura:       "9f0c907213a4c18886b6bf297c4466253a72cc17d3f8845b3fd8597bae9517fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "234f9d8899f41e73c68cd32fb49a42ca0e329bdf055cd5cb6e037f51b043e5ce"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1a5ba7ef4602dcd4944b78df2846e8e3a685a62734f501fc4e4af1a9a7cc6270"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "902f9d3471406bbc225d2270112e38da7ddc31b6005ba5e51c0a6a4446a71a75"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0a927ff74a7687f8a0782ca9df0518cebde1d68b55490ce3f0e49f1c089c8fea"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dfe3be11e90efe67671aa0bcbedda930ec6384b469ed36335e6215cce01ce041"
+    sha256 cellar: :any_skip_relocation, ventura:       "8bbeeed3cf80e42a6722d933434462824520819a2f8a8b5043f1cf0214fefd85"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "38c858accd5a19e9436c4c45bb1bbb93abe639d8561c5302dd0f92bace2a4836"
   end
 
   depends_on "rust" => :build
