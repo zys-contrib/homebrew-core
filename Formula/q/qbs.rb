@@ -26,8 +26,6 @@ class Qbs < Formula
   depends_on "cmake" => :build
   depends_on "qt"
 
-  fails_with gcc: "5"
-
   def install
     qt = Formula["qt"].opt_prefix
     system "cmake", ".", "-DQt6_DIR=#{qt}/lib/cmake/Qt6", "-DQBS_ENABLE_RPATH=NO",
