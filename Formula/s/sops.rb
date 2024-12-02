@@ -1,8 +1,8 @@
 class Sops < Formula
   desc "Editor of encrypted files"
   homepage "https://github.com/getsops/sops"
-  url "https://github.com/getsops/sops/archive/refs/tags/v3.9.1.tar.gz"
-  sha256 "d79e8caaef3134d00f759231e8ef587b791996e2e45319ffe83dee1ab01aebda"
+  url "https://github.com/getsops/sops/archive/refs/tags/v3.9.2.tar.gz"
+  sha256 "8d4cbb30afacc88b5b55d1f7c9b22c82e2dde68905dc8e797a52aafe2c96f466"
   license "MPL-2.0"
   head "https://github.com/getsops/sops.git", branch: "master"
 
@@ -18,6 +18,8 @@ class Sops < Formula
   depends_on "go" => :build
 
   def install
+    system "go", "mod", "tidy"
+
     ldflags = "-s -w -X github.com/getsops/sops/v3/version.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/sops"
     pkgshare.install "example.yaml"
