@@ -35,11 +35,11 @@ class Zls < Formula
 
   test do
     test_config = testpath/"zls.json"
-    test_config.write <<~EOS
+    test_config.write <<~JSON
       {
         "enable_semantic_tokens": true
       }
-    EOS
+    JSON
 
     json = <<~JSON
       {

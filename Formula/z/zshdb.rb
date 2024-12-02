@@ -1,6 +1,6 @@
 class Zshdb < Formula
   desc "Debugger for zsh"
-  homepage "https://github.com/rocky/zshdb"
+  homepage "https://github.com/Trepan-Debuggers/zshdb"
   url "https://downloads.sourceforge.net/project/bashdb/zshdb/1.1.4/zshdb-1.1.4.tar.gz"
   sha256 "83749450ffe030c28e7b7d1d8b06aea63232504ff61f31f9becc5a5717e69638"
   license all_of: [
