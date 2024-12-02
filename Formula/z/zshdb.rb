@@ -41,13 +41,10 @@ class Zshdb < Formula
 
   test do
     require "open3"
-    Open3.popen3("#{bin}/zshdb -c 'echo test'") do |stdin, stdout, _|
-      stdin.write "exit\n"
-      assert_match <<~EOS, stdout.read
-        echo test
-        test
-        Debugged program terminated normally.
-      EOS
-    end
+    assert_match <<~EOS, pipe_output("#{bin}/zshdb -c 'echo test'", "exit\n")
+      echo test
+      test
+      Debugged program terminated normally.
+    EOS
   end
 end
