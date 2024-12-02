@@ -30,6 +30,10 @@ class Pkgconf < Formula
     depends_on "libtool" => :build
   end
 
+  # FIXME: The bottle is mistakenly considered relocatable on Linux.
+  # See https://github.com/Homebrew/homebrew-core/pull/85032.
+  pour_bottle? only_if: :default_prefix
+
   def install
     if build.head?
       ENV["LIBTOOLIZE"] = "glibtoolize"
