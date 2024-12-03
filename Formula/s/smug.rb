@@ -21,12 +21,12 @@ class Smug < Formula
   end
 
   test do
-    (testpath/".config/smug/test.yml").write <<~EOF
+    (testpath/".config/smug/test.yml").write <<~YAML
       session: homebrew-test-session
       root: .
       windows:
         - name: test
-    EOF
+    YAML
 
     assert_equal(version, shell_output(bin/"smug").lines.first.split("Version").last.chomp)
 
