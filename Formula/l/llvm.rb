@@ -6,8 +6,8 @@ class Llvm < Formula
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.4/llvm-project-19.1.4.src.tar.xz"
-    sha256 "3aa2d2d2c7553164ad5c6f3b932b31816e422635e18620c9349a7da95b98d811"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.5/llvm-project-19.1.5.src.tar.xz"
+    sha256 "bd8445f554aae33d50d3212a15e993a667c0ad1b694ac1977f3463db3338e542"
 
     # Backport relative `CLANG_CONFIG_FILE_SYSTEM_DIR` patch.
     # Remove in LLVM 20.
@@ -488,7 +488,7 @@ class Llvm < Formula
   def write_config_files(macos_version, kernel_version, arch)
     clang_config_file_dir.mkpath
 
-    arches = Set.new([:arm64, :x86_64])
+    arches = Set.new([:arm64, :x86_64, :aarch64])
     arches << arch
     sysroot = if macos_version >= "10.14" || (macos_version.blank? && kernel_version.blank?)
       "#{MacOS::CLT::PKG_PATH}/SDKs/MacOSX#{macos_version}.sdk"
@@ -503,7 +503,7 @@ class Llvm < Formula
       arches.each do |target_arch|
         config_file = "#{target_arch}-apple-#{system}#{version}.cfg"
         (clang_config_file_dir/config_file).atomic_write <<~CONFIG
-          --sysroot=#{sysroot}
+          -isysroot #{sysroot}
         CONFIG
       end
     end
