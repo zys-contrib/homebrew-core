@@ -9,12 +9,12 @@ class Dstack < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d780aebe65a0cc19ea8d7a477386e3665603513b4dd16efcb5bf0c8a47dc26ca"
-    sha256 cellar: :any,                 arm64_sonoma:  "5fce6c3b62d245686d909e0d8af8724851716ec5446cea8e01bdb59fb1fb0f3d"
-    sha256 cellar: :any,                 arm64_ventura: "46672ba0ebbdc4a5b57e4dc9d1f256cec2ece494bb1a7cfa1f7b53e564e14c9a"
-    sha256 cellar: :any,                 sonoma:        "66fb0d9981d6f7127e0c42336e787ab1eb3076d6ecd494e17851aafefc17ff17"
-    sha256 cellar: :any,                 ventura:       "b3b05ce6e6bcce4b3872501eb426173051b4d90f8d6e5826acf65e7da7d0a5da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfea9ed5521a59debce692a869653303df4b236e7ad46b9ff94ef8b6099dfc4c"
+    sha256 cellar: :any,                 arm64_sequoia: "a17d6f79c1c8e0b7d789cab651625576df03e718e05e390c0030c96aad295d30"
+    sha256 cellar: :any,                 arm64_sonoma:  "7411cff1a13ec7a35e44589fecbbc88b7cfea09f07ae2c80849e627021b9d10d"
+    sha256 cellar: :any,                 arm64_ventura: "d244e31b297f7d1cc9efaf6910746a83271271b1cf079426b8500078ec00834a"
+    sha256 cellar: :any,                 sonoma:        "fcb849090fcea1ee9d20f993ebfbbfb54e834d01cf4b46bfd098969987ad0152"
+    sha256 cellar: :any,                 ventura:       "d1dbb1c9468c82d3a1b58a2db9f00020246709501ed71f663dbff9bc1d081d32"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22a66560d6ca4ea73ee108571b7aa39cd4591cea02e2186e1b4aa9fbf4e0490c"
   end
 
   # `pkgconf` and `rust` are for bcrypt.
