@@ -1,8 +1,8 @@
 class NodeAT22 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v22.11.0/node-v22.11.0.tar.xz"
-  sha256 "bbf0297761d53aefda9d7855c57c7d2c272b83a7b5bad4fea9cb29006d8e1d35"
+  url "https://nodejs.org/dist/v22.12.0/node-v22.12.0.tar.xz"
+  sha256 "fe1bc4be004dc12721ea2cb671b08a21de01c6976960ef8a1248798589679e16"
   license "MIT"
 
   livecheck do
@@ -46,12 +46,6 @@ class NodeAT22 < Formula
     cause <<~EOS
       error: calling a private constructor of class 'v8::internal::(anonymous namespace)::RegExpParserImpl<uint8_t>'
     EOS
-  end
-
-  # Backport support for ICU 76+
-  patch do
-    url "https://github.com/nodejs/node/commit/81517faceac86497b3c8717837f491aa29a5e0f9.patch?full_index=1"
-    sha256 "79a5489617665c5c88651a7dc364b8967bebdea5bdf361b85572d041a4768662"
   end
 
   def install
