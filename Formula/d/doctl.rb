@@ -18,12 +18,12 @@ class Doctl < Formula
   depends_on "go" => :build
 
   def install
-    base_flag = "-X github.com/digitalocean/doctl"
     ldflags = %W[
-      #{base_flag}.Major=#{version.major}
-      #{base_flag}.Minor=#{version.minor}
-      #{base_flag}.Patch=#{version.patch}
-      #{base_flag}.Label=release
+      -s -w
+      -X github.com/digitalocean/doctl.Major=#{version.major}
+      -X github.com/digitalocean/doctl.Minor=#{version.minor}
+      -X github.com/digitalocean/doctl.Patch=#{version.patch}
+      -X github.com/digitalocean/doctl.Label=release
     ]
 
     system "go", "build", *std_go_args(ldflags:), "./cmd/doctl"
