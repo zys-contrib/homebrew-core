@@ -20,12 +20,13 @@ class Gotify < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}
-                                       -X main.BuildDate=#{time.iso8601}
-                                       -X main.Commit=N/A")
+    ldflags = "-s -w -X main.Version=#{version} -X main.BuildDate=#{time.iso8601} -X main.Commit="
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/gotify version")
+
     assert_match "token is not configured, run 'gotify init'",
       shell_output("#{bin}/gotify p test", 1)
   end
