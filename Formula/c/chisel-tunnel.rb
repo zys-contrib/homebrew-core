@@ -20,7 +20,8 @@ class ChiselTunnel < Formula
   conflicts_with "chisel", because: "both install `chisel` binaries"
 
   def install
-    system "go", "build", *std_go_args(output: bin/"chisel", ldflags: "-X github.com/jpillora/chisel/share.BuildVersion=v#{version}")
+    ldflags = "-s -w -X github.com/jpillora/chisel/share.BuildVersion=v#{version}"
+    system "go", "build", *std_go_args(ldflags:, output: bin/"chisel")
   end
 
   test do
