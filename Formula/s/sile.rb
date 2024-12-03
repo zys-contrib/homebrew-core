@@ -4,7 +4,7 @@ class Sile < Formula
   url "https://github.com/sile-typesetter/sile/releases/download/v0.15.5/sile-0.15.5.tar.zst"
   sha256 "d20137b02d16302d287670fd285ad28ac3b8d3af916460aa6bc8cbff9321b9f9"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "702f167def540e5073692fb507ca92697cae0e8e97b81b89168323e0f152dcc0"
@@ -157,8 +157,8 @@ class Sile < Formula
       #{luapath}/share/lua/#{luaversion}/lxp/?.lua
     ]
 
-    ENV["LUA_PATH"] = paths.join(";")
-    ENV["LUA_CPATH"] = "#{luapath}/lib/lua/#{luaversion}/?.so"
+    ENV["LUA_PATH"] = "#{paths.join(";")};;"
+    ENV["LUA_CPATH"] = "#{luapath}/lib/lua/#{luaversion}/?.so;;"
 
     ENV.prepend "CPPFLAGS", "-I#{lua.opt_include}/luajit-2.1"
     ENV.prepend "LDFLAGS", "-L#{lua.opt_lib}"
@@ -193,27 +193,12 @@ class Sile < Formula
       --disable-silent-rules
       --with-system-luarocks
       --with-system-lua-sources
-      --disable-embeded-resources
     ]
-
-    # Upstream bug https://github.com/sile-typesetter/sile/issues/2078 triggers
-    # a useless automake cycle when building from the source tarball. This
-    # argument avoids needing the dependency by just making it a noop. Remove
-    # on the next release.
-    configure_args += %w[AUTOMAKE=:]
 
     system "./bootstrap.sh" if build.head?
     system "./configure", *configure_args, *std_configure_args
     system "make"
     system "make", "install"
-
-    env = {
-      LUA_PATH:  "#{ENV["LUA_PATH"]};;",
-      LUA_CPATH: "#{ENV["LUA_CPATH"]};;",
-    }
-
-    (libexec/"bin").install bin/"sile"
-    (bin/"sile").write_env_script libexec/"bin/sile", env
   end
 
   def caveats
