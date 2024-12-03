@@ -26,7 +26,9 @@ class Grepip < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "./grepip"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./grepip"
+
+    generate_completions_from_executable(bin/"grepip", shell_parameter_format: "--completions-")
   end
 
   test do
