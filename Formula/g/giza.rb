@@ -7,12 +7,12 @@ class Giza < Formula
   head "https://github.com/danieljprice/giza.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cb433ba5a7500b66955e473a9681d2fcdf8cc9d6d93d40a3722110c80c5ab404"
-    sha256 cellar: :any,                 arm64_sonoma:  "ade3a30cb4a4765788f68479617f2484d35fb0caa078193a00f0b99477ec28cc"
-    sha256 cellar: :any,                 arm64_ventura: "3dcc3b0388e99317e3c028699415235f45837ec2d11f64c4fb8484c47fb6bd40"
-    sha256 cellar: :any,                 sonoma:        "f3066b84cefaad4d9c44431ceade7c450650521019e0a4ec6483a57f833749ad"
-    sha256 cellar: :any,                 ventura:       "7c789190c40e7565da9b6aeb9c736751907567185c05d1709764dc17a76dac55"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2bb290e8cf63f664cfda366241aec7c0e8d25e32d046caabb9a48bde28617a5b"
+    sha256 cellar: :any,                 arm64_sequoia: "afe823e036e4028dcb11f000d68d7e84a7c5d6681423eb81eff25175a29d0c77"
+    sha256 cellar: :any,                 arm64_sonoma:  "8d9b1ef22e40319ec7961587b35037bd672a2416a250b990fdc0419a2f514874"
+    sha256 cellar: :any,                 arm64_ventura: "89a9fc54fea042b4d20a23ecb7fb2b6debe5d22aa1fe0bb27c1bb27233183f9d"
+    sha256 cellar: :any,                 sonoma:        "d886629a3080ed36b828b5f1f4462cf0d6b9ff29d524f1a9e8356d37e3dc0151"
+    sha256 cellar: :any,                 ventura:       "6e95e55c707393413697296d5012b02ea84faead3c2e725d6037868494b52fe4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "449a4ea38c5ae28d61449ab6c87f2c4071b9331ddbcd4868572437611781a9db"
   end
 
   depends_on "pkgconf" => :build
