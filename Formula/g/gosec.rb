@@ -18,10 +18,13 @@ class Gosec < Formula
   depends_on "go"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-X main.version=v#{version}"), "./cmd/gosec"
+    ldflags = "-s -w -X main.Version=#{version} -X main.GitTag= -X main.BuildDate=#{time.iso8601}"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/gosec"
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/gosec --version")
+
     (testpath/"test.go").write <<~GO
       package main
 
