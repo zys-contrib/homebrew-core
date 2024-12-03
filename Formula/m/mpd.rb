@@ -1,30 +1,10 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://github.com/MusicPlayerDaemon/MPD"
+  url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.23.16.tar.gz"
+  sha256 "a3ba8a4ef53c681ae5d415a79fbd1409d61cb3d03389a51595af24b330ecbb61"
   license "GPL-2.0-or-later"
-  revision 6
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
-
-  stable do
-    url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.23.15.tar.gz"
-    sha256 "d2865d8f8ea79aa509b1465b99a2b8f3f449fe894521c97feadc2dca85a6ecd2"
-
-    # Compatibility with fmt 11
-    patch do
-      url "https://github.com/MusicPlayerDaemon/MPD/commit/3648475f871c33daa9e598c102a16e5a1a4d4dfc.patch?full_index=1"
-      sha256 "5733f66678b3842c8721c75501f6c25085808efc42881847af11696cc545848e"
-    end
-
-    # Fix missing include
-    patch do
-      url "https://github.com/MusicPlayerDaemon/MPD/commit/e380ae90ebb6325d1820b6f34e10bf3474710899.patch?full_index=1"
-      sha256 "661492a420adc11a3d8ca0c4bf15e771f56e2dcf1fd0042eb6ee4fb3a736bd12"
-    end
-
-    # Backport support for ICU 76+
-    # Ref: https://github.com/MusicPlayerDaemon/MPD/pull/2140
-    patch :DATA
-  end
 
   bottle do
     sha256 cellar: :any, arm64_sequoia: "8331fad50323d97217240e745b7023718b1514389693a69fcb1a2574e9e8c8c9"
@@ -166,38 +146,3 @@ class Mpd < Formula
     end
   end
 end
-
-__END__
-diff --git a/src/lib/icu/meson.build b/src/lib/icu/meson.build
-index 92f9e6b1f..3d52213a9 100644
---- a/src/lib/icu/meson.build
-+++ b/src/lib/icu/meson.build
-@@ -1,5 +1,7 @@
--icu_dep = dependency('icu-i18n', version: '>= 50', required: get_option('icu'))
--conf.set('HAVE_ICU', icu_dep.found())
-+icu_i18n_dep = dependency('icu-i18n', version: '>= 50', required: get_option('icu'))
-+icu_uc_dep = dependency('icu-uc', version: '>= 50', required: get_option('icu'))
-+have_icu = icu_i18n_dep.found() and icu_uc_dep.found()
-+conf.set('HAVE_ICU', have_icu)
- 
- icu_sources = [
-   'CaseFold.cxx',
-@@ -13,7 +15,7 @@ if is_windows
- endif
- 
- iconv_dep = []
--if icu_dep.found()
-+if have_icu
-   icu_sources += [
-     'Util.cxx',
-     'Init.cxx',
-@@ -44,7 +46,8 @@ icu = static_library(
-   icu_sources,
-   include_directories: inc,
-   dependencies: [
--    icu_dep,
-+    icu_i18n_dep,
-+    icu_uc_dep,
-     iconv_dep,
-     fmt_dep,
-   ],
