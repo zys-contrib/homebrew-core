@@ -6,12 +6,12 @@ class Dotnet < Formula
 
   stable do
     # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-    url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.0.tar.gz"
-    sha256 "ade10f909a684c2a056b8b0ec3a30e1570ce2b83c46c5f621a4464d02729af9f"
+    url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.101.tar.gz"
+    sha256 "2e19ec615afe23e318d15bb7cbceabb00b3c8fb8cdca8d3a4a0b98eae66411c7"
 
     resource "release.json" do
-      url "https://github.com/dotnet/dotnet/releases/download/v9.0.0/release.json"
-      sha256 "2a08862e4cd0095c743deccd8e34f3188261772cc775a7c6cdbfc9237727edda"
+      url "https://github.com/dotnet/dotnet/releases/download/v9.0.101/release.json"
+      sha256 "02c7435a19fefd8646c641dcf43072b79c0e868ec80a1a12ced108b2b6639819"
     end
   end
 
@@ -101,7 +101,7 @@ class Dotnet < Formula
   test do
     target_framework = "net#{version.major_minor}"
 
-    (testpath/"test.cs").write <<~CSHARP
+    (testpath/"test.cs").write <<~CS
       using System;
 
       namespace Homebrew
@@ -115,7 +115,7 @@ class Dotnet < Formula
           }
         }
       }
-    CSHARP
+    CS
 
     (testpath/"test.csproj").write <<~XML
       <Project Sdk="Microsoft.NET.Sdk">
@@ -145,8 +145,8 @@ class Dotnet < Formula
     # Test to avoid uploading broken Intel Sonoma bottle which has stack overflow on restore.
     # See https://github.com/Homebrew/homebrew-core/issues/197546
     resource "docfx" do
-      url "https://github.com/dotnet/docfx/archive/refs/tags/v2.77.0.tar.gz"
-      sha256 "03c13ca2cdb4a476365ef8f5b7f408a6cf6e35f0193c959d7765c03dd4884bfb"
+      url "https://github.com/dotnet/docfx/archive/refs/tags/v2.78.2.tar.gz"
+      sha256 "0b0f53532fc887a1b7444d8c45f89d49250b6d26d8a24f8865563c4e916c1621"
     end
     resource("docfx").stage do
       system bin/"dotnet", "restore", "src/docfx", "--disable-build-servers", "--no-cache"
