@@ -1,8 +1,8 @@
 class Libjwt < Formula
   desc "JSON Web Token C library"
   homepage "https://github.com/benmcollins/libjwt"
-  url "https://github.com/benmcollins/libjwt/releases/download/v1.18.2/libjwt-1.18.2.tar.bz2"
-  sha256 "6b10af67157c65b201ba881d040408d2450c0a152b4e7547cc3ec1952cd75b63"
+  url "https://github.com/benmcollins/libjwt/releases/download/v1.18.3/libjwt-1.18.3.tar.bz2"
+  sha256 "7c582667fe3e6751897c8d9c1b4c8c117bbfa9067d8398524adb5dded671213e"
   license "MPL-2.0"
   head "https://github.com/benmcollins/libjwt.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Libjwt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "8be26cae4c691069802bb2239781bff751eda588a2dea7d2237fd8a66824ac0a"
-    sha256 cellar: :any,                 arm64_sonoma:  "f2e0b6657d2340ca76bc6993192db6a73bc954f3b6f8c3ba73324181aebb51b2"
-    sha256 cellar: :any,                 arm64_ventura: "2f272168a2207d81184718b1ded6587f543fd37aa7d3dae94a3969f66d010a53"
-    sha256 cellar: :any,                 sonoma:        "ab0981e7e73c09a5c33fe14bcec0814b150561a62e8c471c6fa93256ef81e96d"
-    sha256 cellar: :any,                 ventura:       "e8d5b3735e1ba301e9246d31cb723eec9204a7911a96200bea216a980954ebf9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9bdc84f671f069561c6c5d7f918b60d0968ae812e50ce1dcdfa1df59f1caa43"
+    sha256 cellar: :any,                 arm64_sequoia: "6700895a78f1c621f84a1576ea50bae94f6598a2baa397d1ee89073cd2163b97"
+    sha256 cellar: :any,                 arm64_sonoma:  "9afe31b8a4ee67fcf2e48199e61993f070dba5ce22a9bca5dbe69eca372a5b18"
+    sha256 cellar: :any,                 arm64_ventura: "e13eabbc661d4a668b920078e86b87e695517ed22b6b7c8a9741cf1e1075c796"
+    sha256 cellar: :any,                 sonoma:        "d24d2c62e66928b6b151ce7954a7ea703cfe9d77d3c5ac66160099652b7b14d9"
+    sha256 cellar: :any,                 ventura:       "69e40b90da45c93bf213616125e4deef6a451a904e5b19442b139ea1c714e378"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c7023517f53333fe537cb82288e2f99fd61421d6df096e8f85d5b1801762ed8"
   end
 
   depends_on "autoconf" => :build
