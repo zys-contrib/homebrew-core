@@ -39,9 +39,6 @@ class Watchman < Formula
     depends_on "libunwind"
   end
 
-  # Workaround for https://github.com/GuillaumeGomez/sysinfo/issues/1392
-  patch :DATA
-
   def install
     # NOTE: Setting `BUILD_SHARED_LIBS=ON` will generate DSOs for Eden libraries.
     #       These libraries are not part of any install targets and have the wrong
@@ -74,16 +71,3 @@ class Watchman < Formula
     assert_equal(version.to_s, shell_output("#{bin}/watchman -v").chomp)
   end
 end
-
-__END__
---- a/watchman/cli/Cargo.toml
-+++ b/watchman/cli/Cargo.toml
-@@ -16,7 +16,7 @@
- serde = { version = "1.0.185", features = ["derive", "rc"] }
- serde_json = { version = "1.0.132", features = ["float_roundtrip", "unbounded_depth"] }
- structopt = "0.3.26"
--sysinfo = "0.30.11"
-+sysinfo = "0.32.1"
- tabular = "0.2.0"
- tokio = { version = "1.41.0", features = ["full", "test-util", "tracing"] }
- watchman_client = { version = "0.9.0", path = "../rust/watchman_client" }
