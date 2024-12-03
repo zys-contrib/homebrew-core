@@ -32,7 +32,7 @@ class Runme < Formula
   test do
     system bin/"runme", "--version"
     markdown = (testpath/"README.md")
-    markdown.write <<~EOS
+    markdown.write <<~MARKDOWN
       # Some Markdown
 
       Has some text.
@@ -40,7 +40,7 @@ class Runme < Formula
       ```sh { name=foobar }
       echo "Hello World"
       ```
-    EOS
+    MARKDOWN
     assert_match "Hello World", shell_output("#{bin}/runme run --git-ignore=false foobar")
     assert_match "foobar", shell_output("#{bin}/runme list --git-ignore=false")
   end
