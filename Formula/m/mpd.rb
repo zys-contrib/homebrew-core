@@ -7,12 +7,12 @@ class Mpd < Formula
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "8331fad50323d97217240e745b7023718b1514389693a69fcb1a2574e9e8c8c9"
-    sha256 cellar: :any, arm64_sonoma:  "f10b98cff481aa4a5f953a490c50c9a36bee49a5343a2a5c10a15bb26994c579"
-    sha256 cellar: :any, arm64_ventura: "ae555fc405b962ba4196d6acf4bb14cffd1b9103153038cea92f4cfaed34936f"
-    sha256 cellar: :any, sonoma:        "6216d61f9f25b1053c62b2eeb9eec0918db32b147fc3de0478cf95191b5c2be2"
-    sha256 cellar: :any, ventura:       "52fc3ccad0b75045b551ffc3e54fab067bbb915393dc7965e3261b48a00450b5"
-    sha256               x86_64_linux:  "3c9bfb4c2d78a0f206733f9ae9da65ffe160987b12aac875f3a68ee79883c813"
+    sha256 cellar: :any, arm64_sequoia: "1006ec44f5c3e1552377a51b5248771289e1771a2b31a70413afe24f2b3afdd5"
+    sha256 cellar: :any, arm64_sonoma:  "52b6640e47e904a95131c300f18c65bf61c2bd267c68d57d692bd9ff8a5f08e4"
+    sha256 cellar: :any, arm64_ventura: "61b804812874fd1cb7bfac014e5d7ffc266d836a8efa294f38ed2cc61dc6768f"
+    sha256 cellar: :any, sonoma:        "dbabcb12a9e9322aa1c86c4c1987e737b73b7c984381b570702ddbc8e85952b1"
+    sha256 cellar: :any, ventura:       "7ee23cae927105128197d77fa7cd800253ca9c13c56def3883452b9182da4343"
+    sha256               x86_64_linux:  "0abc08fe20c596d3747c99905001e0319412848cbdd466b40a8dc6d55fb2ece4"
   end
 
   depends_on "boost" => :build
