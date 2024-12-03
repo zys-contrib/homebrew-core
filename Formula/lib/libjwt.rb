@@ -12,12 +12,12 @@ class Libjwt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b4c3cd3130a3bf99c5354a4ad4bf9ffb1667f42cb600da5c60faf1be2108417a"
-    sha256 cellar: :any,                 arm64_sonoma:  "c4dcbf97fa57dd5671881bb7e5091446800c714c364bf0e00fceab54ea03fb1e"
-    sha256 cellar: :any,                 arm64_ventura: "947c9d8c412eadd1aa927d3296d9fa5f26be6be11c5fe8fcb22bd9c0ed9f29a8"
-    sha256 cellar: :any,                 sonoma:        "fe1d8f6bd8da36026fd3fffa6d13fca45ce9d45edb183326de6153e5f0db5c5b"
-    sha256 cellar: :any,                 ventura:       "7bd485ff432a0c6b105a6f4c70fbf0c5bbd05e8032f6d3cab048a893dacfc634"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f771e0ff2c0061fecda61ab201b73345abe425122eab07cb0b116577703501ee"
+    sha256 cellar: :any,                 arm64_sequoia: "8be26cae4c691069802bb2239781bff751eda588a2dea7d2237fd8a66824ac0a"
+    sha256 cellar: :any,                 arm64_sonoma:  "f2e0b6657d2340ca76bc6993192db6a73bc954f3b6f8c3ba73324181aebb51b2"
+    sha256 cellar: :any,                 arm64_ventura: "2f272168a2207d81184718b1ded6587f543fd37aa7d3dae94a3969f66d010a53"
+    sha256 cellar: :any,                 sonoma:        "ab0981e7e73c09a5c33fe14bcec0814b150561a62e8c471c6fa93256ef81e96d"
+    sha256 cellar: :any,                 ventura:       "e8d5b3735e1ba301e9246d31cb723eec9204a7911a96200bea216a980954ebf9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9bdc84f671f069561c6c5d7f918b60d0968ae812e50ce1dcdfa1df59f1caa43"
   end
 
   depends_on "autoconf" => :build
