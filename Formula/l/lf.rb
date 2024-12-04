@@ -18,9 +18,11 @@ class Lf < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.gVersion=#{version}")
+
     man1.install "lf.1"
-    zsh_completion.install "etc/lf.zsh" => "_lf"
+    bash_completion.install "etc/lf.bash" => "lf"
     fish_completion.install "etc/lf.fish"
+    zsh_completion.install "etc/lf.zsh" => "_lf"
   end
 
   test do
