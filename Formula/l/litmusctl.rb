@@ -20,6 +20,8 @@ class Litmusctl < Formula
   def install
     ldflags = "-s -w -X main.CLIVersion=#{version}"
     system "go", "build", *std_go_args(ldflags:)
+
+    generate_completions_from_executable(bin/"litmusctl", "completion")
   end
 
   test do
