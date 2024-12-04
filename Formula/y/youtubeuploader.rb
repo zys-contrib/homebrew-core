@@ -1,9 +1,10 @@
 class Youtubeuploader < Formula
   desc "Scripted uploads to Youtube"
   homepage "https://github.com/porjo/youtubeuploader"
-  url "https://github.com/porjo/youtubeuploader/archive/refs/tags/24.03.tar.gz"
-  sha256 "aca9c3fc9d7325911b0c5a88dc9e3880d0796ec563ad9ac00f6cf59be6b5b87a"
+  url "https://github.com/porjo/youtubeuploader/archive/refs/tags/v1.24.4.tar.gz"
+  sha256 "2409b0bb2f622eacba38794d24839318496e910ce33ddf2c8a139e17887b1087"
   license "Apache-2.0"
+  version_scheme 1
   head "https://github.com/porjo/youtubeuploader.git", branch: "master"
 
   # Upstream creates stable version tags (e.g., `23.03`) before a release but
@@ -25,12 +26,6 @@ class Youtubeuploader < Formula
   end
 
   depends_on "go" => :build
-
-  # Fix -version flag. Remove on next release.
-  patch do
-    url "https://github.com/porjo/youtubeuploader/commit/56ec5890518760c873b0dd496f3a8b46af81cb65.patch?full_index=1"
-    sha256 "b17bed81b9a6e7d74d665d7cf515e517f24ae27c4438a98d9b2c109c075b5942"
-  end
 
   def install
     ldflags = "-s -X main.appVersion=#{version}"
