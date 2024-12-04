@@ -3,8 +3,8 @@ class Aider < Formula
 
   desc "AI pair programming in your terminal"
   homepage "https://aider.chat/"
-  url "https://files.pythonhosted.org/packages/50/3c/b00fcd618cdc154304306f39d5a5d37e6bbf2bed58a3fbb522aa6f4a355f/aider_chat-0.65.1.tar.gz"
-  sha256 "a186f7feecb3a9659b55ae1e9d29ca3da56c317c6e5fd1f4c427b77b5116099a"
+  url "https://files.pythonhosted.org/packages/a0/6e/a757e9191d88aeda29a8e4a09e8d578f5c3520659228ea46f922e4fbc4b8/aider_chat-0.66.0.tar.gz"
+  sha256 "3ea8b1af592bc2453045948e2732f6425fc0c3c2ec622919fbd5d90230a3ce60"
   license "Apache-2.0"
   head "https://github.com/paul-gauthier/aider.git", branch: "main"
 
@@ -247,8 +247,8 @@ class Aider < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
-    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
+    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
+    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
   end
 
   resource "pathspec" do
