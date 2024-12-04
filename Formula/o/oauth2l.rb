@@ -7,12 +7,12 @@ class Oauth2l < Formula
   head "https://github.com/google/oauth2l.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "64d2f1ef864695931e8d9f44ae0d486259329087425d6648d4127e19f81c87f3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0ff3081034d9a2b5397afb625ea8aac18f21cf36012cf021a850db4f21a16df6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5047b12f94d3400ed956fe77f1a759f2a5ccb03dae039e6a6b21aafd4584d6d1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cfc6e9bd252b336332d7fc3c3706224f509dfebeba3a4b697549e0b763d4fa14"
-    sha256 cellar: :any_skip_relocation, ventura:       "62e8f26e41d0bb70a5d74c61780f175bb47cedf73d4b687d2c2cc56f8de2a18a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d373e4df05379edace9a1b9c8eb17b562b55a098bcd034afbfa458d4ce7f1d6f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0e9ed0e17a3458be986a8f3122c9f1f066c5f7e25ce9b2f8617c80918dbb0d1d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "adb753444a927dfa12ee327d666b53b77fece614f51e5d6e1ab9f6cf58504faf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "502272c9b97bf9e4b6e6f83b9c2873871a0eaeec538eb14cb756f8955445c957"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d36f1dae23535c0c18b98b3ef5528b78b32653d79eefe045e87e30b4291c32d4"
+    sha256 cellar: :any_skip_relocation, ventura:       "90fa598787e32da22cb315d0defd7b8638889328cc216af039ef88528d766d07"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a4d8fbeb4480c583ac54810b82ebfeb664c5166b3e575418c2078bb1105e38e"
   end
 
   depends_on "go" => :build
