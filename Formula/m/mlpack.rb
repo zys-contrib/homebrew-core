@@ -1,8 +1,8 @@
 class Mlpack < Formula
   desc "Scalable C++ machine learning library"
   homepage "https://www.mlpack.org"
-  url "https://mlpack.org/files/mlpack-4.5.0.tar.gz"
-  sha256 "aab70aee10c134ef3fe568843fe4b3bb5e8901af30ea666f57462ad950682317"
+  url "https://mlpack.org/files/mlpack-4.5.1.tar.gz"
+  sha256 "58059b911a78b8bda91eef4cfc6278383b24e71865263c2e0569cf5faa59dda3"
   license all_of: ["BSD-3-Clause", "MPL-2.0", "BSL-1.0", "MIT"]
   head "https://github.com/mlpack/mlpack.git", branch: "master"
 
