@@ -19,17 +19,18 @@ class Kn < Formula
   depends_on "go" => :build
 
   def install
-    ENV["CGO_ENABLED"] = "0"
+    ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
 
     ldflags = %W[
+      -s -w
       -X knative.dev/client/pkg/commands/version.Version=v#{version}
       -X knative.dev/client/pkg/commands/version.GitRevision=#{Utils.git_head(length: 8)}
       -X knative.dev/client/pkg/commands/version.BuildDate=#{time.iso8601}
     ]
 
-    system "go", "build", *std_go_args(ldflags:), "./cmd/..."
+    system "go", "build", *std_go_args(ldflags:), "./cmd/kn"
 
-    generate_completions_from_executable(bin/"kn", "completion", shells: [:bash, :zsh])
+    generate_completions_from_executable(bin/"kn", "completion")
   end
 
   test do
