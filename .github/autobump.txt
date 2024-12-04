@@ -3180,6 +3180,7 @@ wazero
 wcslib
 wcurl
 weasyprint
+weaviate-cli
 web-ext
 webdis
 webhook
