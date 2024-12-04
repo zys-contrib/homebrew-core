@@ -26,6 +26,8 @@ class Inframap < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/cycloidio/inframap/cmd.Version=v#{version}")
+
+    generate_completions_from_executable(bin/"inframap", "completion")
   end
 
   test do
