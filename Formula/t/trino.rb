@@ -12,6 +12,15 @@ class Trino < Formula
     regex(%r{href=["']?v?(\d+(?:\.\d+)*)/?["' >]}i)
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dd7f4a8e4d5d842e8fe8d5186a6e13b69dae54909eb8e91d9c3600f42117c3bf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd7f4a8e4d5d842e8fe8d5186a6e13b69dae54909eb8e91d9c3600f42117c3bf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "dd7f4a8e4d5d842e8fe8d5186a6e13b69dae54909eb8e91d9c3600f42117c3bf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "16efe4e9ff4440ab93ab3d68fdf8cf4fd62811ad27f19205ee79f845b69a2f3f"
+    sha256 cellar: :any_skip_relocation, ventura:       "16efe4e9ff4440ab93ab3d68fdf8cf4fd62811ad27f19205ee79f845b69a2f3f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6bb20ed2491c758cad244ee837ba27de3091bc126286c0e902ab3749adf77b23"
+  end
+
   depends_on "gnu-tar" => :build
   depends_on "openjdk"
 
