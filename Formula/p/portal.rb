@@ -25,10 +25,11 @@ class Portal < Formula
   def install
     ldflags = "-s -X main.version=v#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/portal/"
+
+    generate_completions_from_executable(bin/"portal", "completion")
   end
 
   test do
-    # Simple version check test.
     assert_match version.to_s, shell_output("#{bin}/portal version")
 
     # Start a local relay server on an open port.
