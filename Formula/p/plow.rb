@@ -22,11 +22,16 @@ class Plow < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args
+    system "go", "build", *std_go_args(ldflags: "-s -w")
+
+    generate_completions_from_executable(bin/"plow", shell_parameter_format: "--completion-script-",
+                                                     shells:                 [:bash, :zsh])
   end
 
   test do
     output = "2xx"
     assert_match output.to_s, shell_output("#{bin}/plow -n 1 https://httpbin.org/get")
+
+    assert_match version.to_s, shell_output("#{bin}/plow --version")
   end
 end
