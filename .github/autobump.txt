@@ -3162,6 +3162,7 @@ wakatime-cli
 walk
 wallpaper
 wartremover
+wasm-component-ld
 wasm-micro-runtime
 wasm-pack
 wasm-tools
