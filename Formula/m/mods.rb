@@ -19,13 +19,10 @@ class Mods < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X main.Version=#{version}
-      -X main.CommitSHA=#{tap.user}
-      -X main.CommitDate=#{time.iso8601}
-    ]
+    ldflags = "-s -w -X main.Version=#{version} -X main.CommitSHA=#{tap.user} -X main.CommitDate=#{time.iso8601}"
     system "go", "build", *std_go_args(ldflags:)
+
+    generate_completions_from_executable(bin/"mods", "completion")
   end
 
   test do
