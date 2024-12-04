@@ -31,10 +31,12 @@ class OhMyPosh < Formula
       -X github.com/jandedobbeleer/oh-my-posh/src/build.Version=#{version}
       -X github.com/jandedobbeleer/oh-my-posh/src/build.Date=#{time.iso8601}
     ]
+
     cd "src" do
       system "go", "build", *std_go_args(ldflags:)
     end
 
+    generate_completions_from_executable(bin/"oh-my-posh", "completion")
     prefix.install "themes"
     pkgshare.install_symlink prefix/"themes"
   end
