@@ -8,12 +8,12 @@ class YtDlp < Formula
   license "Unlicense"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a6aa0371f0efacafbb20aaf09860df7fc6e79e449b69d080ba13c9347b4d0726"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "169521b46104ec05d6883afcb66452fa2fb7ef2c8dcd3f333519dc22d07b4583"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9127ce5b6ca53195843cc7a5ae6e12b56d2ad9d986843449e6d673f57e6ba765"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bb30a58e783ec8b9b235c88f1e79390e67afead9da9d8b0c4736467f1759edc0"
-    sha256 cellar: :any_skip_relocation, ventura:       "bc16c85f2436156f69ca2a01e8fd78545ad6730b6a5f44562cd516157f0bef35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d82de7c7fde33a63eced8935fe06b6741b90d54a8c6b0be71c748d0b50c9904a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ca6fc89432f01a09698e69d91dc0cf4a81294bc60b0514bdc0e85d9d31e9f620"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "35f7c91570ca779b16edf968ecc627e86d135c8edb7e6abba276fc9070b58eaf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "91162ff4f016a568873a473eee5f0762a23e4c1a403b7d6d7bed5761b942ba00"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d52ed3289c148ce51a1aa6c8dbccdd376e8492d5e8f96cbc8305ead1ceb7cf32"
+    sha256 cellar: :any_skip_relocation, ventura:       "1d0350c6425c7f6dc36e78edc5b566b44f0928d19d40298763102b1b8f1f55cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "783b6df8d2fc6a8d5a8284e1401991d6c66ffb5f984f18c9ab5da8a0fbdf3a24"
   end
 
   head do
