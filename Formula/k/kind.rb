@@ -19,7 +19,7 @@ class Kind < Formula
   depends_on "docker" => :test
 
   def install
-    system "go", "build", *std_go_args
+    system "go", "build", *std_go_args(ldflags: "-s -w")
 
     generate_completions_from_executable(bin/"kind", "completion")
   end
