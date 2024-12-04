@@ -18,9 +18,8 @@ class Ktor < Formula
   depends_on "go" => :build
 
   def install
-    ENV["CGO_ENABLED"] = "0"
-    ldflags = "-X main.Version=#{version}"
-    system "go", "build", *std_go_args(ldflags:), "github.com/ktorio/ktor-cli/cmd/ktor"
+    ldflags = "-s -w -X main.Version=#{version}"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/ktor"
   end
 
   test do
