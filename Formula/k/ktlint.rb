@@ -6,7 +6,7 @@ class Ktlint < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d16096d04e8befb57027f07d5e4f5ee9996cb25acbcea705d18af1e592d9b018"
+    sha256 cellar: :any_skip_relocation, all: "362b95a52606c0d580ff4937513417ca9996028ede7204b5869ab6078114786b"
   end
 
   depends_on "openjdk"
