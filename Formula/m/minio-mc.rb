@@ -44,8 +44,6 @@ class MinioMc < Formula
       ]
       system "go", "build", *std_go_args(ldflags:, output: bin/"mc")
     end
-
-    generate_completions_from_executable(bin/"mc", "--autocompletion", base_name: "mc")
   end
 
   test do
