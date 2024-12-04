@@ -2124,6 +2124,7 @@ oasdiff
 oath-toolkit
 oauth2_proxy
 oauth2c
+oauth2l
 objfw
 ocaml-findlib
 ocaml-zarith
