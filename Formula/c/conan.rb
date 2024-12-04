@@ -9,12 +9,12 @@ class Conan < Formula
   head "https://github.com/conan-io/conan.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "83876f2fc4fa74c20498cc4ddf87c2536ae5f7d8219862e9225b55ca4d8dbaf1"
-    sha256 cellar: :any,                 arm64_sonoma:  "b8fa714018d21d639cc858d344a90de3bb51c1e2330d20dcfc4922a53cd3e61b"
-    sha256 cellar: :any,                 arm64_ventura: "85660c3bc50150f5606815c6e1f95c24dacac2ab5e68ebad4824ed02bd529a40"
-    sha256 cellar: :any,                 sonoma:        "090d2b362586643cacc77f8525773b1f5532b2e632837fba3c41a97ec9b589b9"
-    sha256 cellar: :any,                 ventura:       "59fb8f096d684211245c0ab771c467a7ec4d7e24674791cdace6afd19a5d9c53"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5bd5d62e03d283d07cdb95eeca10a01cfa3d362200621cb5d2689ec45053c80f"
+    sha256 cellar: :any,                 arm64_sequoia: "02282b89d4292fdc5c94c466f96f97813f1f47f116686a58af420cd38128ce8d"
+    sha256 cellar: :any,                 arm64_sonoma:  "8bd4ca935e716c777183d499c335b7a141eba5d802f9164dd4dda0a5a9b7a178"
+    sha256 cellar: :any,                 arm64_ventura: "49f330103b3794bc421328f7fcb74b1aceb07f56487614574d469f850e341f14"
+    sha256 cellar: :any,                 sonoma:        "a068a3c4f6d4ecea0451fefaae31181764fd62fbb0dd327a47306e16b6733f77"
+    sha256 cellar: :any,                 ventura:       "ac9cbe1c9bacdf02504011f08df00fbf9561c22ecd63c8f4c4d41c53dc17ef78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e9d64cc30169d2a0133f34d2db41abdda71faa07d3634b419c2e0f039047aaa"
   end
 
   depends_on "pkgconf" => :build
