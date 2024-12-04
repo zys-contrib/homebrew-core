@@ -22,10 +22,12 @@ class Scc < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/scc --version")
+
     (testpath/"test.c").write <<~C
       #include <stdio.h>
       int main(void) {
