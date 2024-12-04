@@ -32,7 +32,8 @@ class Massdriver < Formula
       -X github.com/massdriver-cloud/mass/pkg/version.gitSHA=#{tap.user}
     ]
     system "go", "build", *std_go_args(ldflags:, output: bin/"mass")
-    generate_completions_from_executable(bin/"mass", "completion")
+
+    generate_completions_from_executable(bin/"mass", "completion", base_name: "mass")
   end
 
   test do
