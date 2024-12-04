@@ -2338,6 +2338,7 @@ pivit
 pixi
 pixie
 pixman
+pjproject
 pkg-config-wrapper
 pkgconf
 pkl
