@@ -3,8 +3,8 @@ class Sqlmap < Formula
 
   desc "Penetration testing for SQL injection and database servers"
   homepage "https://sqlmap.org"
-  url "https://github.com/sqlmapproject/sqlmap/archive/refs/tags/1.8.11.tar.gz"
-  sha256 "e52ee3a3c1892745176f936fc16a7f761d690739afa4b7b01c64e9144849cbd9"
+  url "https://github.com/sqlmapproject/sqlmap/archive/refs/tags/1.8.12.tar.gz"
+  sha256 "3917a2a73a66dcaff76be5933e132d55e0e32f8a2b1690b9cf53eb413fd433f5"
   license "GPL-2.0-or-later"
   head "https://github.com/sqlmapproject/sqlmap.git", branch: "master"
 
@@ -49,6 +49,6 @@ class Sqlmap < Formula
     select = "select name, age from students order by age asc;"
     args = %W[--batch -d sqlite://school.sqlite --sql-query "#{select}"]
     output = shell_output("#{bin}/sqlmap #{args.join(" ")}")
-    data.each_slice(2) { |n, a| assert_match "#{n}, #{a}", output }
+    data.each_slice(2) { |n, a| assert_match "#{n},#{a}", output }
   end
 end
