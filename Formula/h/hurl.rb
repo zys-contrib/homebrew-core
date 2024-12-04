@@ -1,8 +1,8 @@
 class Hurl < Formula
   desc "Run and Test HTTP Requests with plain text and curl"
   homepage "https://hurl.dev"
-  url "https://github.com/Orange-OpenSource/hurl/archive/refs/tags/5.0.1.tar.gz"
-  sha256 "2b5a42fc95b74c876257a35d13b603e06f1f2c58e0ca44a2c0bb23d023227c29"
+  url "https://github.com/Orange-OpenSource/hurl/archive/refs/tags/6.0.0.tar.gz"
+  sha256 "3f21c9e2a4e86e1a5913e211d890b07e9388871e3d6ed526668487f56b11b925"
   license "Apache-2.0"
   head "https://github.com/Orange-OpenSource/hurl.git", branch: "master"
 
