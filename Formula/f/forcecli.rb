@@ -1,8 +1,8 @@
 class Forcecli < Formula
   desc "Command-line interface to Force.com"
   homepage "https://force-cli.herokuapp.com/"
-  url "https://github.com/ForceCLI/force/archive/refs/tags/v1.0.7.tar.gz"
-  sha256 "f3a37692bd5f1dcf842ed3d917523b13c561ecfbdfa5170f4e98789c6472d762"
+  url "https://github.com/ForceCLI/force/archive/refs/tags/v1.0.8.tar.gz"
+  sha256 "e54aedfdc17bee801b9804b517c2c699bfb764b3849e75681ac600476c9402d8"
   license "MIT"
   head "https://github.com/ForceCLI/force.git", branch: "master"
 
@@ -20,6 +20,8 @@ class Forcecli < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"force")
+
+    generate_completions_from_executable(bin/"force", "completion", base_name: "force")
   end
 
   test do
