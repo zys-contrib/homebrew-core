@@ -17,10 +17,15 @@ class Kor < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    ldflags = "-s -w -X github.com/yonahd/kor/pkg/utils.Version=#{version}"
+    system "go", "build", *std_go_args(ldflags:)
+
+    generate_completions_from_executable(bin/"kor", "completion")
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/kor version")
+
     (testpath/"mock-kubeconfig").write <<~EOS
       apiVersion: v1
       clusters:
