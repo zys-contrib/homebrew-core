@@ -33,6 +33,8 @@ class Kubehound < Formula
       -X github.com/DataDog/KubeHound/pkg/config.BuildArch=#{goarch}
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/kubehound/"
+
+    generate_completions_from_executable(bin/"kubehound", "completion")
   end
 
   test do
