@@ -41,8 +41,10 @@ class MinioMc < Formula
         -X #{proj}/cmd.ReleaseTag=#{minio_release}
         -X #{proj}/cmd.CommitID=#{Utils.git_head}
       ]
-      system "go", "build", *std_go_args(output: bin/"mc", ldflags:)
+      system "go", "build", *std_go_args(ldflags:, output: bin/"mc")
     end
+
+    generate_completions_from_executable(bin/"mc", "--autocompletion", base_name: "mc")
   end
 
   test do
