@@ -5,6 +5,7 @@ class Mavsdk < Formula
       tag:      "v2.13.0",
       revision: "ce9d3a3eda54eca4b592ab730e1e6aed337902cb"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
