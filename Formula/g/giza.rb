@@ -1,8 +1,8 @@
 class Giza < Formula
   desc "Scientific plotting library for C/Fortran built on cairo"
   homepage "https://danieljprice.github.io/giza/"
-  url "https://github.com/danieljprice/giza/archive/refs/tags/v1.4.3.tar.gz"
-  sha256 "6023bd7f9f608fad4cc9e30ad2d00570eee7007411d4750191d6c17bd97f5a02"
+  url "https://github.com/danieljprice/giza/archive/refs/tags/v1.4.4.tar.gz"
+  sha256 "cbd25427b52ffbf87ae7a54aea906f9fab55ed7773857a9b2f724efd79923de1"
   license "LGPL-3.0-only"
   head "https://github.com/danieljprice/giza.git", branch: "master"
 
