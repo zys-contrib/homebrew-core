@@ -20,15 +20,19 @@ class Revive < Formula
 
   def install
     ldflags = %W[
-      -X main.commit=#{Utils.git_head}
-      -X main.date=#{time.iso8601}
-      -X main.builtBy=#{tap.user}
+      -s -w
+      -X github.com/mgechev/revive/cli.commit=#{Utils.git_head}
+      -X github.com/mgechev/revive/cli.date=#{time.iso8601}
+      -X github.com/mgechev/revive/cli.builtBy=#{tap.user}
     ]
-    ldflags << "-X main.version=#{version}" unless build.head?
-    system "go", "build", *std_go_args(ldflags: ldflags.join(" "))
+    ldflags << "-X github.com/mgechev/revive/cli.version=#{version}" unless build.head?
+
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/revive -version")
+
     (testpath/"main.go").write <<~GO
       package main
 
