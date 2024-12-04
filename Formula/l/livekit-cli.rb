@@ -22,6 +22,10 @@ class LivekitCli < Formula
     system "go", "build", *std_go_args(ldflags:, output: bin/"lk"), "./cmd/lk"
 
     bin.install_symlink "lk" => "livekit-cli"
+
+    bash_completion.install "autocomplete/bash_autocomplete" => "lk"
+    fish_completion.install "autocomplete/fish_autocomplete" => "lk.fish"
+    zsh_completion.install "autocomplete/zsh_autocomplete" => "_lk"
   end
 
   test do
