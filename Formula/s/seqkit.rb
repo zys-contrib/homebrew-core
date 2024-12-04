@@ -7,12 +7,13 @@ class Seqkit < Formula
   head "https://github.com/shenwei356/seqkit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8a667b0ba532d938f2a50cde694676a267df3bdc3cd4373065049c040a53df21"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a667b0ba532d938f2a50cde694676a267df3bdc3cd4373065049c040a53df21"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8a667b0ba532d938f2a50cde694676a267df3bdc3cd4373065049c040a53df21"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e8d013ebb699fec9bcf07a497e238989edeff2e463edbd64ab68ee786c9e940d"
-    sha256 cellar: :any_skip_relocation, ventura:       "e8d013ebb699fec9bcf07a497e238989edeff2e463edbd64ab68ee786c9e940d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bfc3a16988726cb99ba2120971dfab1c23d3a1752b2b57e7651fcf6c014ef9b5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "05ecc08902cdde6e995ea09a8da0693c47968f1a76e0e25545fe37b8ddb2fa41"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "05ecc08902cdde6e995ea09a8da0693c47968f1a76e0e25545fe37b8ddb2fa41"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "05ecc08902cdde6e995ea09a8da0693c47968f1a76e0e25545fe37b8ddb2fa41"
+    sha256 cellar: :any_skip_relocation, sonoma:        "458deecd52258761e935f5f18f8fe98592a9bf021bdfff2c3e9f28dc808a7cb9"
+    sha256 cellar: :any_skip_relocation, ventura:       "458deecd52258761e935f5f18f8fe98592a9bf021bdfff2c3e9f28dc808a7cb9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72906e76533517a30f3362b992de3a5b0197ec45d2bc10f2c9fef71c6249641e"
   end
 
   depends_on "go" => :build
