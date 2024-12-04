@@ -24,6 +24,8 @@ class Jump < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
+
+    generate_completions_from_executable(bin/"jump", "shell")
     man1.install "man/jump.1"
     man1.install "man/j.1"
   end
