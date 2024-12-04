@@ -413,7 +413,9 @@
     ]
   },
   "harlequin": {
-    "package_name": "harlequin[mysql]"
+    "package_name": "harlequin[mysql,postgres]",
+    "exclude_packages": ["psycopg-binary", "tree-sitter-languages"],
+    "extra_packages": ["psycopg-c"]
   },
   "hatch": {
     "exclude_packages": ["certifi", "cryptography", "uv"]

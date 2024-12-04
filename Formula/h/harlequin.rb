@@ -22,6 +22,7 @@ class Harlequin < Formula
   depends_on "mysql" => :build # mysql-connector-python
   depends_on "ninja" => :build
   depends_on "apache-arrow"
+  depends_on "libpq" # psycopg
   depends_on "python@3.11"
 
   on_linux do
@@ -51,6 +52,11 @@ class Harlequin < Formula
   resource "harlequin-mysql" do
     url "https://files.pythonhosted.org/packages/80/fd/410c3a6f6c1d0358359c58a3c36b0ac3519a1da8d0e7f0424f1a00f8bfcc/harlequin_mysql-0.3.0.tar.gz"
     sha256 "46ef42c5b658568f5340ee53c241cb1333f3e04914807c1f83741e83517878b3"
+  end
+
+  resource "harlequin-postgres" do
+    url "https://files.pythonhosted.org/packages/71/5f/2015e5d09c34234f4a764df6083405be045f99ea9bf196473d68d3338058/harlequin_postgres-0.4.0.tar.gz"
+    sha256 "d72f12df3e994edf8f660ef9681fdb2a710f740b6a8d9d88ab206d50193c2050"
   end
 
   resource "jinja2" do
@@ -101,6 +107,21 @@ class Harlequin < Formula
   resource "prompt-toolkit" do
     url "https://files.pythonhosted.org/packages/fb/93/180be2342f89f16543ec4eb3f25083b5b84eba5378f68efff05409fb39a9/prompt_toolkit-3.0.36.tar.gz"
     sha256 "3e163f254bef5a03b146397d7c1963bd3e2812f0964bb9a24e6ec761fd28db63"
+  end
+
+  resource "psycopg" do
+    url "https://files.pythonhosted.org/packages/d1/ad/7ce016ae63e231575df0498d2395d15f005f05e32d3a2d439038e1bd0851/psycopg-3.2.3.tar.gz"
+    sha256 "a5764f67c27bec8bfac85764d23c534af2c27b893550377e37ce59c12aac47a2"
+  end
+
+  resource "psycopg-c" do
+    url "https://files.pythonhosted.org/packages/53/ba/74caf4eab78d95a173e65cb81507a589365aeafb1d9c84f374002b51dc53/psycopg_c-3.2.3.tar.gz"
+    sha256 "06ae7db8eaec1a3845960fa7f997f4ccdb1a7a7ab8dc593a680bcc74e1359671"
+  end
+
+  resource "psycopg-pool" do
+    url "https://files.pythonhosted.org/packages/49/71/01d4e589dc5fd1f21368b7d2df183ed0e5bbc160ce291d745142b229797b/psycopg_pool-3.2.4.tar.gz"
+    sha256 "61774b5bbf23e8d22bedc7504707135aaf744679f8ef9b3fe29942920746a6ed"
   end
 
   resource "pyarrow" do
@@ -190,10 +211,13 @@ class Harlequin < Formula
     sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
   end
 
+  patch :p0, :DATA
+
   def install
     venv = virtualenv_install_with_resources without: "mysql-connector-python"
 
     # PyPI sdist is broken (missing at least setup.py)
+    # https://bugs.mysql.com/bug.php?id=113396
     resource("mysql-connector-python").stage do
       venv.pip_install Pathname.pwd/"mysql-connector-python"
     end
