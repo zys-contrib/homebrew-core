@@ -412,6 +412,9 @@
       "google-api-python-client", "google-auth", "google-auth-httplib2", "google-auth-oauthlib", "httplib2"
     ]
   },
+  "harlequin": {
+    "package_name": "harlequin[mysql]"
+  },
   "hatch": {
     "exclude_packages": ["certifi", "cryptography", "uv"]
   },
