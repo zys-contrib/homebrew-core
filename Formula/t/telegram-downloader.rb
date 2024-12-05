@@ -26,7 +26,7 @@ class TelegramDownloader < Formula
     ]
     system "go", "build", *std_go_args(ldflags:, output: bin/"tdl")
 
-    generate_completions_from_executable(bin/"tdl", "completion")
+    generate_completions_from_executable(bin/"tdl", "completion", base_name: "tdl")
   end
 
   test do
