@@ -18,10 +18,13 @@ class Yamlfmt < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/yamlfmt"
+    ldflags = "-s -w -X main.version=#{version} -X main.commit=#{tap.user}"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/yamlfmt"
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/yamlfmt -version")
+
     (testpath/"test.yml").write <<~YAML
       foo: bar
     YAML
