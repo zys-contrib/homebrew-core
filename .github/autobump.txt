@@ -2655,6 +2655,7 @@ scotch
 scrapy
 scrcpy
 screen
+screenfetch
 scriptisto
 scs
 scummvm
