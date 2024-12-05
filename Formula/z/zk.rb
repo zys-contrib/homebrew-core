@@ -22,11 +22,13 @@ class Zk < Formula
   uses_from_macos "sqlite"
 
   def install
-    ldflags = "-X=main.Version=#{version} -X=main.Build=#{tap.user}"
+    ldflags = "-s -w -X main.Version=#{version} -X main.Build=#{tap.user}"
     system "go", "build", *std_go_args(ldflags:), "-tags", "fts5,icu"
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/zk --version")
+
     system bin/"zk", "init", "--no-input"
     system bin/"zk", "index", "--no-input"
     (testpath/"testnote.md").write "note content"
