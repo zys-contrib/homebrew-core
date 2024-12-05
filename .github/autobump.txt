@@ -2722,6 +2722,7 @@ sip
 sipp
 siril
 sispmctl
+six
 sjk
 sk
 skaffold
