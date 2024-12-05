@@ -19,10 +19,22 @@ class Vexctl < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    ldflags = %W[
+      -s -w
+      -X sigs.k8s.io/release-utils/version.gitVersion=#{version}
+      -X sigs.k8s.io/release-utils/version.gitCommit=#{tap.user}
+      -X sigs.k8s.io/release-utils/version.gitTreeState=clean
+      -X sigs.k8s.io/release-utils/version.buildDate=#{time.iso8601}
+    ]
+
+    system "go", "build", *std_go_args(ldflags:)
+
+    generate_completions_from_executable(bin/"vexctl", "completion")
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/vexctl version")
+
     assert_match "Valid Statuses:\n\tnot_affected\n\taffected\n\tfixed\n\tunder_investigation\n",
     shell_output("#{bin}/vexctl list status")
   end
