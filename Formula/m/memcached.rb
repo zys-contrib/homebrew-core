@@ -12,12 +12,12 @@ class Memcached < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "87355661847d0e1cd535df12cbeb58010a48413e5047db293ab4f4c34dd2fb77"
-    sha256 cellar: :any,                 arm64_sonoma:  "b2a8bd8c8314ae53f869395e29e908586488d4bdb9e9bfd34d9bdf55d6da2808"
-    sha256 cellar: :any,                 arm64_ventura: "d1ecc272f88b4f17cff3ab3128a4ba67c682c55fb39d347dd279ba2ed558b90b"
-    sha256 cellar: :any,                 sonoma:        "4ff23581f8d4a634af5af50e389b9b91d7bb4cc063577bafdbc58c672647126d"
-    sha256 cellar: :any,                 ventura:       "81fa30371ee729dc85148cc5b41edac7024dee83c7b84cf7e78a3c678a943f8d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6630d97de5281864e089dc2b22d5740a75aa3b60f5909394a156d709f09cee95"
+    sha256 cellar: :any,                 arm64_sequoia: "6984873dfe4cd4b14f3abfc99ccc9c69047cdf2c0889f593ceefda4c825d492a"
+    sha256 cellar: :any,                 arm64_sonoma:  "127dfa6e5126c76e7dfe6cd3073edc2b6bbbc5b0a09ff97efe1e610223caa4ec"
+    sha256 cellar: :any,                 arm64_ventura: "f2b3f24b5d0bc03c4f28523d9f0068f66bcbe36aaedf5adbc34caaf7fe757fde"
+    sha256 cellar: :any,                 sonoma:        "26f7ab03c6043740dcd3fa65655a790a5104d859bf77b710c0645ce377d8aa94"
+    sha256 cellar: :any,                 ventura:       "d92a3502c222013eb732e1b1cc61b0db054c5d3d25559934fffe5c64a2ff39f7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e85a52d00cc334e79d9a04a504ea064fa4db383697781e4556dd1696185eec24"
   end
 
   depends_on "libevent"
