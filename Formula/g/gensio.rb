@@ -1,10 +1,9 @@
 class Gensio < Formula
   desc "Stream I/O Library"
   homepage "https://github.com/cminyard/gensio"
-  url "https://github.com/cminyard/gensio/releases/download/v2.8.9/gensio-2.8.9.tar.gz"
-  sha256 "00bb5f0aa80d9978195f5efab5db403af22e5e7ed0f75c682da47577248bd333"
+  url "https://github.com/cminyard/gensio/releases/download/v2.8.10/gensio-2.8.10.tar.gz"
+  sha256 "cc6ab8c27298632ced4dcb451d01b1d160a4e3cb2d1fd2f0277652baebe892d5"
   license all_of: ["LGPL-2.1-only", "GPL-2.0-only", "Apache-2.0"]
-  revision 1
 
   bottle do
     sha256 arm64_sequoia: "ce409a565b24e29123c36ed03589dc36163ca20d5b63fa912aa8d99f0897a1b6"
