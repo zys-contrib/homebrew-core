@@ -20,6 +20,8 @@ class Terrascan < Formula
   def install
     ldflags = "-s -w -X google.golang.org/protobuf/reflect/protoregistry.conflictPolicy=ignore"
     system "go", "build", *std_go_args(ldflags:), "./cmd/terrascan"
+
+    generate_completions_from_executable(bin/"terrascan", "completion")
   end
 
   test do
