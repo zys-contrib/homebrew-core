@@ -6,14 +6,12 @@ class Colmap < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "46c7b82e649ec870d6d3cc2c0afa10e6440415a106c7125b5e32c4f0fddd9ce1"
-    sha256 cellar: :any,                 arm64_sonoma:   "e81fa40995450b6f13fb3675bac57aeca83380faa146bed41304de45e3938bda"
-    sha256 cellar: :any,                 arm64_ventura:  "fd260454a7b9caca630278659b1e7398a63d36ee2abfacaabf0bf5c15d032915"
-    sha256 cellar: :any,                 arm64_monterey: "0741dc2a9c7f9228764e05de9bcb407ef3c063ac0a224b2732f40bf4b4631c99"
-    sha256 cellar: :any,                 sonoma:         "7cd8b4df89b8563f087459d460cb93845bc897376a520fe4efe0c4ad2fd9bb43"
-    sha256 cellar: :any,                 ventura:        "76d2391ad2721e30a94002a04a7bb66bebff4ecdf2319e0083fffbc06749cb7d"
-    sha256 cellar: :any,                 monterey:       "6fee96fd5d7bbe0a860fa4ac80c7548af1785a18746eef4636e8ea1a1156c7ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d67735677d48bb53f47c636ba0a34c3440235ca394d68767e88caeb709ed99c"
+    sha256 cellar: :any,                 arm64_sequoia: "9d34ec14f9932bfc52bc469a759ccd21531fba6b1262df8c2f1567e85f749f00"
+    sha256 cellar: :any,                 arm64_sonoma:  "2aab52a0ae8b9fc11056abc7aaeb0486f748e49def64fc076124d952b769a3a4"
+    sha256 cellar: :any,                 arm64_ventura: "3ae0841581685adfaac22717aa78ba1ddae8b65fd34a66cc1419bf9fac3269ed"
+    sha256 cellar: :any,                 sonoma:        "08736f3bc9b234940b0ea18c84420193300aefa4c4865987bd31de32f8a48b70"
+    sha256 cellar: :any,                 ventura:       "85a5f70b854ea3deaa7ed41aab83ee28a4e19e2518006549943763e58cbc7147"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6683e33ff087200853478ccce447ee4dee3324bdc9dad23d2f97c2a745768b3c"
   end
 
   depends_on "cmake" => :build
