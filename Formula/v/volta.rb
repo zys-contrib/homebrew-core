@@ -1,8 +1,8 @@
 class Volta < Formula
   desc "JavaScript toolchain manager for reproducible environments"
   homepage "https://volta.sh"
-  url "https://github.com/volta-cli/volta/archive/refs/tags/v2.0.1.tar.gz"
-  sha256 "4ccffc86b7841cb8bc9a55436529209dbbb9621992e43cbad48ccc7ffadba493"
+  url "https://github.com/volta-cli/volta/archive/refs/tags/v2.0.2.tar.gz"
+  sha256 "0e93d17c36fb79222b10881d6c67d667483f85b19a0498eacfc535ef31894dbe"
   license "BSD-2-Clause"
   head "https://github.com/volta-cli/volta.git", branch: "main"
 
