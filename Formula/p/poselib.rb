@@ -5,6 +5,15 @@ class Poselib < Formula
   sha256 "caa0c1c9b882f6e36b5ced6f781406ed97d4c1f0f61aa31345ebe54633d67c16"
   license "BSD-3-Clause"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "62ba1d9d73288e53a7fa31462a0aeef5eb5d32305d77c5207bf626d0c8d52711"
+    sha256 cellar: :any,                 arm64_sonoma:  "0c58c6ca1d520956f808e52273fdd32ea132021906e629325272272dacb90c7b"
+    sha256 cellar: :any,                 arm64_ventura: "7b6e8c4abb3b2e00c8dfa0aa600599c9d930724e09d1dcf45339c903121fa8f1"
+    sha256 cellar: :any,                 sonoma:        "e520e1731c729e1ee2dc91a3d6e3d5773bc6f5414098b6b0d61aa7984a3d7467"
+    sha256 cellar: :any,                 ventura:       "3e3d39c0763a6efacdc2f9154851ee80174ac64ad3aa0518fa9e35871e42cb53"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "598ee718057f572aebb473a515f4201391808f59563811eaa8809a5dcc7bbacf"
+  end
+
   depends_on "cmake" => :build
   depends_on "eigen"
 
