@@ -6,7 +6,7 @@ class Six < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "003522792728cc579ff239d1b4b0373c39bcaad66e7b2960ecd38861f5dbf2df"
+    sha256 cellar: :any_skip_relocation, all: "c7985c480809b773f5c7b28d3eac082ad3bcc69c04e2ac100810901b0a6e410b"
   end
 
   depends_on "python@3.12" => [:build, :test]
