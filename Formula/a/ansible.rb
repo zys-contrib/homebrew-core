@@ -9,12 +9,12 @@ class Ansible < Formula
   head "https://github.com/ansible/ansible.git", branch: "devel"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b158f6cefc17ba6e5d470dc372ff13d30afb41f32e65c32e9f82dfed1f53dfd9"
-    sha256 cellar: :any,                 arm64_sonoma:  "8be2ceb17dc4e09b5f59e58ac7d9929c955c234062d459a4bd342218b6aa2f12"
-    sha256 cellar: :any,                 arm64_ventura: "b71bb7575e5355819f6b97df787a92570acb3e2a778cd109112790abc18a5ff1"
-    sha256 cellar: :any,                 sonoma:        "ca1b919466f0a6eec0c57c923635219470bbe470709afa2994531a9d35607e00"
-    sha256 cellar: :any,                 ventura:       "66c54ee6f99675263b841c8d494a3f6596ea1af84227cf379ceec295f40b76ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "422017e8722fd77a141b24caa3a474af347fe2fc8c3751c9e5171ea81680af67"
+    sha256 cellar: :any,                 arm64_sequoia: "6e8c14b327926551ce23eb5e8da53934eda4b7a7386002a4c9ea77d2062ddeaf"
+    sha256 cellar: :any,                 arm64_sonoma:  "f72bdfb73c29aa15ca7d14810bf927c6086c62f525d644c45c1fbd2f39b947cf"
+    sha256 cellar: :any,                 arm64_ventura: "1fa5a0dd31e741bbd906312037b37bc117a4f4a2be954b392b2d5e7be7c6f052"
+    sha256 cellar: :any,                 sonoma:        "9cad1f4cb9648b83738b09de1ec3e67d7c44d16fea056259df4f22278ad21dba"
+    sha256 cellar: :any,                 ventura:       "b6bcf47e59b0a1ef04d6c3b877ad23835018bb429ded95b873404be7f890ff18"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d7733cb583d7f3bd0028924ab30c8b774dc822b26a559607a950d7520c71c89"
   end
 
   # `pkgconf` and `rust` are for bcrypt
