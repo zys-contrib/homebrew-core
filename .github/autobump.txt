@@ -2371,6 +2371,7 @@ ponyc
 popeye
 portablegl
 porter
+poselib
 postgis
 postgresql@13
 postgresql@14
