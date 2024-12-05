@@ -19,9 +19,12 @@ class Vultr < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
+
+    generate_completions_from_executable(bin/"vultr", "completion")
   end
 
   test do
-    system bin/"vultr", "version"
+    assert_match version.to_s, shell_output("#{bin}/vultr version")
+    assert_match "Custom", shell_output("#{bin}/vultr os list")
   end
 end
