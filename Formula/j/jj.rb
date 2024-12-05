@@ -26,7 +26,8 @@ class Jj < Formula
 
     system "cargo", "install", *std_cargo_args(path: "cli")
 
-    generate_completions_from_executable(bin/"jj", "util", "completion", shell_parameter_format: :flag)
+    generate_completions_from_executable(bin/"jj", shell_parameter_format: :clap)
+
     (man1/"jj.1").write Utils.safe_popen_read(bin/"jj", "util", "mangen")
   end
 
