@@ -40,12 +40,18 @@ class Stp < Formula
   depends_on "cryptominisat"
   depends_on "gmp"
   depends_on "minisat"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "perl"
 
+  # Use relative import for library_path
+  patch do
+    url "https://github.com/stp/stp/commit/f81d16c4f15863dd742d220d31db646b5d1c824d.patch?full_index=1"
+    sha256 "c0c38f39371cfc9959df522957f45677f423a6b2d861f4ad87097c9201e00ff4"
+  end
+
   def install
-    python = "python3.12"
+    python = "python3.13"
     site_packages = prefix/Language::Python.site_packages(python)
     site_packages.mkpath
     inreplace "lib/Util/GitSHA1.cpp.in", "@CMAKE_CXX_COMPILER@", ENV.cxx
@@ -94,5 +100,19 @@ class Stp < Formula
 
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lstp", "-o", "test"
     assert_equal expected_output.chomp, shell_output("./test").chomp
+
+    (testpath/"test.py").write <<~PYTHON
+      import stp
+      s = stp.Solver()
+      a = s.bitvec('a', 32)
+      b = s.bitvec('b', 32)
+      c = s.bitvec('c', 32)
+      s.add(a == 5)
+      s.add(b == 6)
+      s.add(a + b == c)
+      print(s.check())
+    PYTHON
+
+    assert_equal "True\n", shell_output("python3.13 test.py")
   end
 end
