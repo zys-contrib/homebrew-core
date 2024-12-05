@@ -12,14 +12,12 @@ class NagaCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c188ac74312bf3101d075a5246df61b578278f07762fb6e8493ad2b2624649af"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "42e71c4549c315dc91834ce7d227b9d9f0415be3597df973fa34704270ac6ab8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0001ad2fdf8d515a98cb9e6bbcdcb6fd758adc93a0a38e326b36a0c812e05d1b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "08a1b293aaf4ba443bb0659b02392025643e86f6411cf5dfd9f5271392341e06"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d79d01969fb1f617cd58a776b79a6861d7e9b85e5a0cccbee21b5062c269181e"
-    sha256 cellar: :any_skip_relocation, ventura:        "afee30c8dbbdf7abceb6ecc479b65074747bbc15004a06059b9d421d503adfd3"
-    sha256 cellar: :any_skip_relocation, monterey:       "edbddf341fd6349827649272141b8855daba030c4daf579f0007b9e59fae6b60"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7fb254beea5acaaccb1215137b30271235382aa388c4f2e1a4a73815d1af2039"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eea8149092b5b62a0144f70033752baff0451b81530f4228ac663fcc72bcdc61"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3a70ec46f548a8e98178603e3300c4664734b9673f5472e6fe12a8bdb4c17b3d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "994e6c56d0a98b58a07631d85fac5101931a73aeab9203ccade4400734f1bf4d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c81d4e4eb4149d92ba563394c79f3751548bf7466a9dcec0215155e5fe83f483"
+    sha256 cellar: :any_skip_relocation, ventura:       "b52acb929c4f4b1230d2ab7f50994fe136a67827e47d8a05ff90b1c23301c676"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0654bee87304366895f042c20e6928abebb3ee02a60568eeaa778ad211a6d9e8"
   end
 
   depends_on "rust" => :build
