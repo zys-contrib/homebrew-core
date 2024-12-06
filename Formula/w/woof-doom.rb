@@ -1,8 +1,8 @@
 class WoofDoom < Formula
   desc "Woof! is a continuation of the Boom/MBF bloodline of Doom source ports"
   homepage "https://github.com/fabiangreffrath/woof"
-  url "https://github.com/fabiangreffrath/woof/archive/refs/tags/woof_15.0.0.tar.gz"
-  sha256 "7e9bbdb54033afcb5c4347ee81e1cdef4fad94519f29c12af4bb554b5dad0b75"
+  url "https://github.com/fabiangreffrath/woof/archive/refs/tags/woof_15.0.1.tar.gz"
+  sha256 "0c8b9652ff415915c76935705369bcd3fbce018aef94976a01122d66e55a801f"
   license "GPL-2.0-only"
   head "https://github.com/fabiangreffrath/woof.git", branch: "master"
 
