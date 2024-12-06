@@ -1,8 +1,8 @@
 class Oras < Formula
   desc "OCI Registry As Storage"
   homepage "https://github.com/oras-project/oras"
-  url "https://github.com/oras-project/oras/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "1f3fc661c90cfb48b4b0e6ef4817b86b28c784186ab0da1a778809938899f574"
+  url "https://github.com/oras-project/oras/archive/refs/tags/v1.2.1.tar.gz"
+  sha256 "200e843a5aa0f375b23403cd5442d77243600d92dc62a1acc8dbc2a2e6b72dd5"
   license "Apache-2.0"
 
   bottle do
