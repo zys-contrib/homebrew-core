@@ -3,8 +3,8 @@ class YtDlp < Formula
 
   desc "Feature-rich command-line audio/video downloader"
   homepage "https://github.com/yt-dlp/yt-dlp"
-  url "https://files.pythonhosted.org/packages/5e/8e/8c7d57d9462f9c5afd06c61c70030e0da65cde80d8ba786e85fd95afaf7b/yt_dlp-2024.12.3.tar.gz"
-  sha256 "35abff51c5762033103f2330ba0a8a1f48c4388a413a2d8cdc9b84642fe8edd4"
+  url "https://files.pythonhosted.org/packages/c5/5e/0b632b39b4399a4acbf1c421b0aa656fbbb3d6e4eb78af3d0b09182a8a74/yt_dlp-2024.12.6.tar.gz"
+  sha256 "743dbe081ea871be3f5ff083e2cd95da866dea773fc70ae6b109838cfbf72ac4"
   license "Unlicense"
 
   bottle do
