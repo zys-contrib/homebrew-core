@@ -2,11 +2,10 @@ class Odin < Formula
   desc "Programming language with focus on simplicity, performance and modern systems"
   homepage "https://odin-lang.org/"
   url "https://github.com/odin-lang/Odin.git",
-      tag:      "dev-2024-11",
-      revision: "e6475fec4d2a3e34099b24a7a3bf890c7a3ef8d9"
-  version "2024-11"
+      tag:      "dev-2024-12",
+      revision: "7be00355782f29cfba05c63d6dc80649bbbacd37"
+  version "2024-12"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/odin-lang/Odin.git", branch: "master"
 
   bottle do
@@ -19,7 +18,7 @@ class Odin < Formula
   end
 
   depends_on "glfw"
-  depends_on "llvm@18"
+  depends_on "llvm"
   depends_on "raylib"
 
   resource "raygui" do
@@ -48,6 +47,12 @@ class Odin < Formula
 
     raylib_installpath = if OS.linux?
       "vendor/raylib/linux"
+    else
+      "vendor/raylib/macos"
+    end
+
+    raygui_installpath = if OS.linux?
+      "vendor/raylib/linux"
     elsif Hardware::CPU.intel?
       "vendor/raylib/macos"
     else
@@ -65,7 +70,7 @@ class Odin < Formula
     ln_s Formula["raylib"].lib/"libraylib.a", buildpath/raylib_installpath/"libraylib.a"
     # In order to match the version 500 used in odin
     ln_s Formula["raylib"].lib/shared_library("libraylib", "5.5.0"),
-      buildpath/raylib_installpath/shared_library("libraylib", "500")
+      buildpath/raylib_installpath/shared_library("libraylib", "550")
 
     resource("raygui").stage do
       cp "src/raygui.h", "src/raygui.c"
@@ -74,7 +79,7 @@ class Odin < Formula
       system ENV.cc, "-c", "-o", "raygui.o", "src/raygui.c",
         "-fpic", "-DRAYGUI_IMPLEMENTATION", "-I#{Formula["raylib"].include}"
       system "ar", "-rcs", "libraygui.a", "raygui.o"
-      cp "libraygui.a", buildpath/raylib_installpath
+      cp "libraygui.a", buildpath/raygui_installpath
 
       # build shared library
       args = [
@@ -91,7 +96,7 @@ class Odin < Formula
 
       args += ["-framework", "OpenGL"] if OS.mac?
       system ENV.cc, *args
-      cp shared_library("libraygui"), buildpath/raylib_installpath
+      cp shared_library("libraygui"), buildpath/raygui_installpath
     end
 
     # By default the build runs an example program, we don't want to run it during install.
