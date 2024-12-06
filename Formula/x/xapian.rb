@@ -1,8 +1,8 @@
 class Xapian < Formula
   desc "C++ search engine library"
   homepage "https://xapian.org/"
-  url "https://oligarchy.co.uk/xapian/1.4.26/xapian-core-1.4.26.tar.xz"
-  sha256 "9e6a7903806966d16ce220b49377c9c8fad667c8f0ffcb23a3442946269363a7"
+  url "https://oligarchy.co.uk/xapian/1.4.27/xapian-core-1.4.27.tar.xz"
+  sha256 "bcbc99cfbf16080119c2571fc296794f539bd542ca3926f17c2999600830ab61"
   license "GPL-2.0-or-later"
   version_scheme 1
 
@@ -22,7 +22,7 @@ class Xapian < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c02a51043edab37a11b9abeee6d6bc19496f0546b00c3300bab131983bcdb0d8"
   end
 
-  depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
   depends_on "sphinx-doc" => :build
 
   uses_from_macos "zlib"
@@ -34,12 +34,12 @@ class Xapian < Formula
   skip_clean :la
 
   resource "bindings" do
-    url "https://oligarchy.co.uk/xapian/1.4.26/xapian-bindings-1.4.26.tar.xz"
-    sha256 "550873573ee0401199f835fef51ddf89ca7bc26f7b8d1bdcca59da643fb3ca81"
+    url "https://oligarchy.co.uk/xapian/1.4.27/xapian-bindings-1.4.27.tar.xz"
+    sha256 "ba3b5e10809e579acd11bd165779ce3fd29a8904ea37968ef5b57ad97c3618ba"
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
