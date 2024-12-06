@@ -6,13 +6,12 @@ class Ipmiutil < Formula
   license all_of: ["BSD-2-Clause", "BSD-3-Clause", "GPL-2.0-or-later"]
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cae2294a98966889ce7158ab6506ed7b1f87e6d981bff197e8c8a34c9f6ea9c3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "25a7bf60f294710207ada5b75c6cbbc0e7a5762ff06199151d676816dc9dd384"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "07ad84d82b2d7b16e484b81b8057e10911a82c880b9516dcad3b7e564028b6b4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1a79a69b51f5ea2e478d2b912900e6713eb91d7006b0e9ec73d597efcf4b81fe"
-    sha256 cellar: :any_skip_relocation, ventura:       "9d83f92e6b0c65b464c3cdaae66d13d7995fc875a76069180078758a1819048a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a68d7956c2c4f06a13bd4ba7d67a05e3ca5e771030463db32b49d7426a0fdfc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4f5162d5ec6bab445102d17eb74785cac015ed46e95c1ded3ae1eb1d6e611a77"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "721ef573958fcbd45a94557ce1c37c39e6aa315c9cd0b444b5799eb295b1b002"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "328a48d84b68902882e1ff129ecfaeb8034cd7136e59b94552270c54b5a30970"
+    sha256 cellar: :any_skip_relocation, sonoma:        "369ca869caf600fa1545f69dbf739e8b52a991459e1985ecf7fbdde631d27ae4"
+    sha256 cellar: :any_skip_relocation, ventura:       "e2f10503928d08da8438a3ae4672d79520fe4a4b00a03bac4b061919471f197e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8935945b50b9b31c07486faa025117f1b50c88d179801b9a1dbb0b2d83cc178"
   end
 
   on_macos do
