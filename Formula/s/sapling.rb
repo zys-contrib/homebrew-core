@@ -1,20 +1,11 @@
 class Sapling < Formula
   desc "Source control client"
   homepage "https://sapling-scm.com"
+  url "https://github.com/facebook/sapling/archive/refs/tags/0.2.20241203-120811+a2174689.tar.gz"
+  version "0.2.20241203-120811-a2174689"
+  sha256 "f05c5b08b914d2b2ab4788a55d2fd42f395b50d05fb284f4d120042122d77802"
   license "GPL-2.0-or-later"
   head "https://github.com/facebook/sapling.git", branch: "main"
-
-  stable do
-    url "https://github.com/facebook/sapling/archive/refs/tags/0.2.20240718-145624+f4e9df48.tar.gz"
-    version "0.2.20240718-145624-f4e9df48"
-    sha256 "8081d405cddb9dc4eadd96f4c948b7686b0b61f641c068fc87b9c27518fb619e"
-
-    # Backport fix for Python 3.12
-    patch do
-      url "https://github.com/facebook/sapling/commit/65a7e9097fb9280aef7c50ecdf08b5755288490a.patch?full_index=1"
-      sha256 "ca59aebef870bad9887b927b68c1be76a01bb905f5eb76cf2f0d2499b3b0c306"
-    end
-  end
 
   livecheck do
     url :stable
