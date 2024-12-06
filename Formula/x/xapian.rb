@@ -12,14 +12,12 @@ class Xapian < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "57f0f3bfad9685cd10ad91c8e9a85ce5b9fbc53bfaa5dcedef91649d8541febe"
-    sha256 cellar: :any,                 arm64_sonoma:   "07decf41d64c07c0a0653021ac8678443c3232a04dd2849d46d206ed9548e9f2"
-    sha256 cellar: :any,                 arm64_ventura:  "380744bae8696f969718d55207d6e9de4e2c07caf0244841b0b82744c23934b1"
-    sha256 cellar: :any,                 arm64_monterey: "d97229e5c6b1647f52930c84d5ff8c1fe11f2efc9ea71a4f42a527771680620b"
-    sha256 cellar: :any,                 sonoma:         "a1569363bb93a8c08068d3064c28d6b4a3a5985a5f8136db8bbfee73cb4474a0"
-    sha256 cellar: :any,                 ventura:        "f3ba4f60e6e4ceb61b20a0c9dfbd85b348dc0c45b583b9e2709b2755f49f14b8"
-    sha256 cellar: :any,                 monterey:       "1b73672a7cefb347504609444ab53af5e8e1874d5331c9af69916c3d8137d19b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c02a51043edab37a11b9abeee6d6bc19496f0546b00c3300bab131983bcdb0d8"
+    sha256 cellar: :any,                 arm64_sequoia: "fbb0be7be62378361f90292bc53d05d58811ad23501e8dccd026f2aedb51b9fc"
+    sha256 cellar: :any,                 arm64_sonoma:  "3c657fafac679443c1c69a9409a7dfbc281d3d29fb6f54989c3736bd0a3d227c"
+    sha256 cellar: :any,                 arm64_ventura: "7e2ae9e288f52938deff37d44c64c34071048cb86f7f4bee09c2061f0a5a0b7b"
+    sha256 cellar: :any,                 sonoma:        "c0f1ac0afa541a55adf7bacd15a107c92835cc3e131949f8553ccf767978aa3e"
+    sha256 cellar: :any,                 ventura:       "648ff983c9da6b823efef34fd26df56bc3eda5b3f8331bec01195f96807269ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "429452ca722ec4a435962d38d1309989b1c0df4b76900fcfa1ff106081513a1a"
   end
 
   depends_on "python@3.13" => [:build, :test]
