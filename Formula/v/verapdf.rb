@@ -1,8 +1,8 @@
 class Verapdf < Formula
   desc "Open-source industry-supported PDF/A validation"
   homepage "https://verapdf.org/home/"
-  url "https://github.com/veraPDF/veraPDF-apps/archive/refs/tags/v1.26.3.tar.gz"
-  sha256 "4e7f35861b05cf7f4d4c35a4bbdfebcb6941fcd401d2fc3eeb21f4405da51ada"
+  url "https://github.com/veraPDF/veraPDF-apps/archive/refs/tags/v1.26.4.tar.gz"
+  sha256 "49521570d3f9e4c7a05ffa1dc3e6a4ea6e80106e12f52b3a036d57dae6266232"
   license any_of: ["GPL-3.0-or-later", "MPL-2.0"]
   head "https://github.com/veraPDF/veraPDF-apps.git", branch: "integration"
 
@@ -12,12 +12,12 @@ class Verapdf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e189ffe4de75fc30d5212c5eb259ec6f424f1669f15055d00b0b4174c4596082"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "830d63f54cf73e0b9185e854f60220f5defbbcd2a8241f80f372d5e9b5853613"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c26ec8fb30d42901709616c51acae6ea47183497df7e8746703a06e9b3c4b5c5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "076d770c3ae79d0e04b8726b6ab6cfbf891d20f5646e025db90ca8d1bbeca222"
-    sha256 cellar: :any_skip_relocation, ventura:       "ded3bdfdc8df46342f9a9bc8f2110104ee2bf1eab507fbaf63f0a49648fb9eae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b70603da6f0c31394f265d57e43ebaa8f184f68a39e8611f73335c56cf7c514b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9051a37603c5015a93936fe2a2dc9c4d544384c6f0ed78d46f494a6422fa0f78"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3a5c53172ee15fad9843e14f25e08b591dd4229c80c95bedc84d0e2d3a497549"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "42936a1cc8eb773bcc546a41f8b2a7bde09f295b058488acc1ccca394ea7298b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "46ef89506038222ca5657a20e3f3c65a59080d4e81df24b0e9633107df9180c6"
+    sha256 cellar: :any_skip_relocation, ventura:       "12209fdee769cf0197b5535c76a8b235a4f01da73505d1ab05d92a710c106a9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "813670751be9f037f1c081e118744a8389fc101394a4c9966025cb5c46f54f49"
   end
 
   depends_on "maven" => :build
