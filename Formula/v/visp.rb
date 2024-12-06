@@ -4,7 +4,7 @@ class Visp < Formula
   url "https://visp-doc.inria.fr/download/releases/visp-3.6.0.tar.gz"
   sha256 "eec93f56b89fd7c0d472b019e01c3fe03a09eda47f3903c38dc53a27cbfae532"
   license "GPL-2.0-or-later"
-  revision 7
+  revision 8
 
   livecheck do
     url "https://visp.inria.fr/download/"
@@ -131,7 +131,8 @@ class Visp < Formula
     system "cmake", "--install", "."
 
     # Make sure software built against visp don't reference opencv's cellar path either
-    inreplace lib/"pkgconfig/visp.pc", opencv.prefix.realpath, opencv.opt_prefix
+    inreplace [lib/"pkgconfig/visp.pc", lib/"cmake/visp/VISPConfig.cmake", lib/"cmake/visp/VISPModules.cmake"],
+              opencv.prefix.realpath, opencv.opt_prefix
   end
 
   test do
