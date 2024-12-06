@@ -7,12 +7,12 @@ class Bloaty < Formula
   revision 34
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f8ef7e9087916bd4a7cdb68ba7d95787de0a9244e890e70bc0aad3a32a91b797"
-    sha256 cellar: :any,                 arm64_sonoma:  "475ba8ff46148c2c4312409aaf84a0924b11ce4e6687fd87aa7c6a2d09fa0685"
-    sha256 cellar: :any,                 arm64_ventura: "792a943b4df100473f7a88dda7ff4090f04cfc488bef0cffc1489565f1bd514a"
-    sha256 cellar: :any,                 sonoma:        "bf6d49774d3eed00d1c9de35a81a06620f9285e4d646808c3d64dfe1d3a49972"
-    sha256 cellar: :any,                 ventura:       "ae515060168848b97dbac7426ddeeb9cfd3d798770809baa76bfe41bb3b9974c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e6553b28f758e775409ac83f8670c89186f10855c794b510e520efffeff79a2c"
+    sha256 cellar: :any,                 arm64_sequoia: "983085f6577771a74fb5176697a30d59e122d306fc6dd9121f6ffbfe273cd589"
+    sha256 cellar: :any,                 arm64_sonoma:  "0ec0a69df8c1a2bc639c32a571732c35bcc46abddc5628e892b09251e028d34a"
+    sha256 cellar: :any,                 arm64_ventura: "9601240af77e5ae52c52671b2e836179cd072a8058356b1ca0a5d471ff13a003"
+    sha256 cellar: :any,                 sonoma:        "981b086e66e24e42b0c990a6bd6c8efa1db329675df86ff5ca8de78f59612245"
+    sha256 cellar: :any,                 ventura:       "59f2548d6fb00fac9ac0151713656fcf6ad694d1b245038ace9ba3557447827c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba01cc628d226514c5985435b53c420a8336a5690dbb905c1671b85033b956bd"
   end
 
   depends_on "cmake" => :build
