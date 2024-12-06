@@ -9,12 +9,12 @@ class Odin < Formula
   head "https://github.com/odin-lang/Odin.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "31e940b62db1b555df91381d21b8c435774f6438239e47e124fcec7004cfc63e"
-    sha256 cellar: :any,                 arm64_sonoma:  "189fe3a399760b5a44c5e42ccb57d07fb6d79d1516051cc6e69bb430b0d72f74"
-    sha256 cellar: :any,                 arm64_ventura: "548a349c0147afa70db136b3a5df3210ae48dbaf3473e5ef9a4bef26f1726dab"
-    sha256 cellar: :any,                 sonoma:        "25f2095090821214a1ec0e8c61d6dd8c0d78ce74cfd6d483aa2a70f6ede4c51c"
-    sha256 cellar: :any,                 ventura:       "ccd82ddf333eb27e715e62857646177129cc9a5a3ff0c9847d70ca8499f07272"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "11fc24e935cbf3e3828f9cb55ba45f8cf0a96ee7c1898be962e616474ec580b4"
+    sha256 cellar: :any,                 arm64_sequoia: "a03e89e13f3128a7f4cd180beaf529c9d7a7564e7bd65ef30d9785bee4f6e972"
+    sha256 cellar: :any,                 arm64_sonoma:  "7fb154a50b1c86183de5c71482f1a0660286d0f78c6cdd8903b9cdbfdb210b07"
+    sha256 cellar: :any,                 arm64_ventura: "2afbffc901ac487b37e267bcfa5c2d034b0e765f6adbc0ad0b9a84bc221a408f"
+    sha256 cellar: :any,                 sonoma:        "94184397f5649bba9b4a81981cf4bbcc6248e32daf6401eb9084a46710f94611"
+    sha256 cellar: :any,                 ventura:       "9cc858089b55bca20d5e30bae7f5792acc509d5810f07f0107ab3d1edfb929fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "682b347a974217d32318f4b70d7fe7ef357a61bdcbb5269fc06cd52591f5ff9b"
   end
 
   depends_on "glfw"
