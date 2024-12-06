@@ -1,8 +1,8 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.com/"
-  url "https://github.com/denoland/deno/releases/download/v2.1.2/deno_src.tar.gz"
-  sha256 "f892a4f2fd12964dd4a49f4f7e5639911611b202babb3ef523dcb01a4c76e9fb"
+  url "https://github.com/denoland/deno/releases/download/v2.1.3/deno_src.tar.gz"
+  sha256 "fd37224f98d79eedec75eb0940a7dd398a9603b0847cb6b6fa0d1fc58ec4459c"
   license "MIT"
   head "https://github.com/denoland/deno.git", branch: "main"
 
@@ -27,7 +27,6 @@ class Deno < Formula
   uses_from_macos "python" => :build, since: :catalina
   uses_from_macos "libffi"
   uses_from_macos "xz"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "pkgconf" => :build
@@ -53,8 +52,8 @@ class Deno < Formula
 
   # VERSION=#{version} && curl -s https://raw.githubusercontent.com/denoland/deno/v$VERSION/Cargo.lock | grep -C 1 'name = "deno_core"'
   resource "deno_core" do
-    url "https://github.com/denoland/deno_core/archive/refs/tags/0.323.0.tar.gz"
-    sha256 "b1ca6e4fce14eb4518745fb96b0b7032b3d2b01d891dac5d4c930b1f7b931911"
+    url "https://github.com/denoland/deno_core/archive/refs/tags/0.324.0.tar.gz"
+    sha256 "be30758f15fbd47f250d7cc1aeb87bd5eb5618119150c46f9115892c11526fd8"
   end
 
   # The latest commit from `denoland/icu`, go to https://github.com/denoland/rusty_v8/tree/v#{rusty_v8_version}/third_party
@@ -168,7 +167,6 @@ class Deno < Formula
     unless OS.mac?
       linked_libraries += [
         Formula["libffi"].opt_lib/shared_library("libffi"),
-        Formula["zlib"].opt_lib/shared_library("libz"),
       ]
     end
     linked_libraries.each do |library|
