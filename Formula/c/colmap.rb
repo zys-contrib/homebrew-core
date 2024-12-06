@@ -1,8 +1,8 @@
 class Colmap < Formula
   desc "Structure-from-Motion and Multi-View Stereo"
   homepage "https://colmap.github.io/"
-  url "https://github.com/colmap/colmap/archive/refs/tags/3.11.0.tar.gz"
-  sha256 "8da471b0f5baa3bdd940f1778ffe338738eb47b90b4d03dcd8da6b9810014844"
+  url "https://github.com/colmap/colmap/archive/refs/tags/3.11.1.tar.gz"
+  sha256 "d2c20729ab5b1198e17725b720128f304f4cfae5c0a8c20d75c0e9c5bdee5860"
   license "BSD-3-Clause"
 
   bottle do
@@ -41,12 +41,6 @@ class Colmap < Formula
 
   on_linux do
     depends_on "mesa"
-  end
-
-  # patch to build against system PoseLib, upstream pr ref, https://github.com/colmap/colmap/pull/2971
-  patch do
-    url "https://github.com/colmap/colmap/commit/a2c44a012742b37ce2ddd163942d3b625cf301c0.patch?full_index=1"
-    sha256 "8960a6715ef301108d583646944202d898a043c6fb1f7d09489ebf7fbc9a01f7"
   end
 
   def install
