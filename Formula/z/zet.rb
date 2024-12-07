@@ -1,8 +1,8 @@
 class Zet < Formula
   desc "CLI utility to find the union, intersection, and set difference of files"
   homepage "https://github.com/yarrow/zet"
-  url "https://github.com/yarrow/zet/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "792a1a1de73bf4145ccaa71f8e6bb34b62e690270a432c4de4d8639e1a741b5b"
+  url "https://github.com/yarrow/zet/archive/refs/tags/v2.0.1.tar.gz"
+  sha256 "a6f431927c16b22516e78a9ec7864d99e2676abae3acb46101df1c287e16f267"
   license any_of: ["Apache-2.0", "MIT"]
 
   livecheck do
@@ -23,12 +23,6 @@ class Zet < Formula
   end
 
   depends_on "rust" => :build
-
-  # rust 1.80 build patch, upstream new release request, https://github.com/yarrow/zet/issues/11
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/cbe90824d66a4c3a967ba6bda7806f8159534114/zet/rust-1.80.patch"
-    sha256 "494881322c1e9f47b62b7e786d22e2d5ab1cc649021c7224f790e96f2b12c619"
-  end
 
   def install
     system "cargo", "install", *std_cargo_args
