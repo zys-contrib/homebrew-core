@@ -6,10 +6,9 @@ class CargoOutdated < Formula
   # pulls same source from crates.io. v0.15.0+ is needed to avoid an older unsupported libgit2.
   # We can switch back to GitHub releases when upstream decides to upload.
   # Issue ref: https://github.com/kbknapp/cargo-outdated/issues/388
-  url "https://static.crates.io/crates/cargo-outdated/cargo-outdated-0.15.0.crate"
-  sha256 "0641d14a828fe7dcf73e6df54d31ce19d4def4654d6fa8ec709961e561658a4d"
+  url "https://static.crates.io/crates/cargo-outdated/cargo-outdated-0.16.0.crate"
+  sha256 "965d39dfcc7afd39a0f2b01e282525fc2211f6e8acc85f1ee27f704420930678"
   license "MIT"
-  revision 1
   head "https://github.com/kbknapp/cargo-outdated.git", branch: "master"
 
   bottle do
@@ -27,16 +26,10 @@ class CargoOutdated < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "rustup" => :test
-  depends_on "libgit2@1.7"
+  depends_on "libgit2"
   depends_on "openssl@3"
 
   uses_from_macos "zlib"
-
-  # rust 1.80 build patch, upstream pr ref, https://github.com/kbknapp/cargo-outdated/pull/397
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c17b2163d305f02e8b63639bfa50fc98a74cf72b/cargo-outdated/rust-1.80.patch"
-    sha256 "6e014843621fa897952ea0ff35c44693156109db60e344190157a7805ace60c5"
-  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
@@ -82,7 +75,7 @@ class CargoOutdated < Formula
     end
 
     [
-      Formula["libgit2@1.7"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
     ].each do |library|
