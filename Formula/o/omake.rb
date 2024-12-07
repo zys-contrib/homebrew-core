@@ -1,8 +1,8 @@
 class Omake < Formula
   desc "Build system designed for scalability, portability, and concision"
   homepage "http://projects.camlcity.org/projects/omake.html"
-  url "https://github.com/ocaml-omake/omake/archive/refs/tags/omake-0.10.6.tar.gz"
-  sha256 "f84f4cbb18a075782a7432bbf9abd5ef177eb0603fc1c69afffce8c2c25e30ee"
+  url "https://github.com/ocaml-omake/omake/archive/refs/tags/omake-0.10.7.tar.gz"
+  sha256 "ec098107429a419965feab5cee5dfa2996fc3fdc23842d910c314590941cafb8"
   license "GPL-2.0-only"
   head "https://github.com/ocaml-omake/omake.git", branch: "master"
 

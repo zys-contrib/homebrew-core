@@ -2150,6 +2150,7 @@ okta-awscli
 okteto
 ol
 ollama
+omake
 omega
 omniorb
 onednn
