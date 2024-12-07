@@ -899,6 +899,9 @@
   "weasyprint": {
     "exclude_packages": ["pillow"]
   },
+  "weaviate-cli": {
+    "exclude_packages": ["certifi", "cryptography"]
+  },
   "woob": {
     "exclude_packages": ["certifi", "pillow"]
   },
