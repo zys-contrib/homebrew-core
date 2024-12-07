@@ -1,8 +1,8 @@
 class Sslh < Formula
   desc "Forward connections based on first data packet sent by client"
   homepage "https://www.rutschle.net/tech/sslh.shtml"
-  url "https://www.rutschle.net/tech/sslh/sslh-v2.1.2.tar.gz"
-  sha256 "dce8e1a77f48017b5164486084f000d9f20de2d54d293385aec18d606f9c61d9"
+  url "https://www.rutschle.net/tech/sslh/sslh-v2.1.4.tar.gz"
+  sha256 "c9d76a627839b5f779e21dd49c40762918f47b46197418b3715ec0c52e3c5cb7"
   license all_of: ["GPL-2.0-or-later", "BSD-2-Clause"]
   head "https://github.com/yrutschle/sslh.git", branch: "master"
 
@@ -32,11 +32,10 @@ class Sslh < Formula
     listen_port = free_port
     target_port = free_port
 
-    fork do
-      exec sbin/"sslh", "--http=localhost:#{target_port}", "--listen=localhost:#{listen_port}", "--foreground"
-    end
+    spawn sbin/"sslh", "--http=localhost:#{target_port}", "--listen=localhost:#{listen_port}", "--foreground"
 
     sleep 1
+    sleep 5 if OS.mac? && Hardware::CPU.intel?
     system "nc", "-z", "localhost", listen_port
   end
 end
