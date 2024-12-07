@@ -7,6 +7,15 @@ class WeaviateCli < Formula
   sha256 "7a4a3ced248678a6d006ce849edf1d97b15237605f2735bb5ea7882b954c1fdb"
   license "BSD-3-Clause"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "3c9202fdeab0842370016b7529e45022d3b8e9637c41f5d09b814f3a873462d0"
+    sha256 cellar: :any,                 arm64_sonoma:  "72b9e448fb259cb00f5a087a909a2c731c4f7fa08ad80939963a37f6d0fcf12f"
+    sha256 cellar: :any,                 arm64_ventura: "21c9e63e229aeffadace9fc0a3f3c4a6ce1e94a7bbc4dc77a20763af705db927"
+    sha256 cellar: :any,                 sonoma:        "00592cdc69f9dfec1770eb267cb30eed2e4f7be2ea8afc43b366a6bc8aa047be"
+    sha256 cellar: :any,                 ventura:       "e7cd0b207eda3fe275433f54762ec7c29c07e22bf92871e8596ceccf2ec5a0dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71c8f82451b3e15a5283c1c069ffc72758fbf81898f27d3d8df75b72beae8310"
+  end
+
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
