@@ -3301,6 +3301,7 @@ zellij
 zenith
 zenity
 zeromq
+zet
 zf
 zfind
 zig
