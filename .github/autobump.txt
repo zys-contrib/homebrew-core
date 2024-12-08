@@ -3183,6 +3183,7 @@ wazero
 wcslib
 wcurl
 weasyprint
+weaviate
 weaviate-cli
 web-ext
 webdis
