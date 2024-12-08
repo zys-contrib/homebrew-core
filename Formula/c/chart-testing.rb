@@ -29,11 +29,12 @@ class ChartTesting < Formula
     # Fix default search path for configuration files, needed for ARM
     inreplace "pkg/config/config.go", "/usr/local/etc", etc
     ldflags = %W[
+      -s -w
       -X github.com/helm/chart-testing/v#{version.major}/ct/cmd.Version=#{version}
       -X github.com/helm/chart-testing/v#{version.major}/ct/cmd.GitCommit=#{Utils.git_head}
       -X github.com/helm/chart-testing/v#{version.major}/ct/cmd.BuildDate=#{time.strftime("%F")}
     ]
-    system "go", "build", *std_go_args(output: bin/"ct", ldflags:), "./ct/main.go"
+    system "go", "build", *std_go_args(ldflags:, output: bin/"ct"), "./ct"
     etc.install "etc" => "ct"
   end
 
