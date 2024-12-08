@@ -23,9 +23,11 @@ class Navidrome < Formula
 
   def install
     ldflags = %W[
+      -s -w
       -X github.com/navidrome/navidrome/consts.gitTag=v#{version}
       -X github.com/navidrome/navidrome/consts.gitSha=source_archive
     ]
+
     system "make", "setup"
     system "make", "buildjs"
     system "go", "build", *std_go_args(ldflags:), "-buildvcs=false"
@@ -35,7 +37,7 @@ class Navidrome < Formula
     assert_equal "#{version} (source_archive)", shell_output("#{bin}/navidrome --version").chomp
     port = free_port
     pid = spawn bin/"navidrome", "--port", port.to_s
-    sleep_count = (OS.mac? && Hardware::CPU.intel?) ? 90 : 30
+    sleep_count = (OS.mac? && Hardware::CPU.intel?) ? 105 : 30
     sleep sleep_count
     assert_equal ".", shell_output("curl http://localhost:#{port}/ping")
   ensure
