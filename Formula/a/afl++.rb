@@ -11,12 +11,12 @@ class Aflxx < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "250f5dba6ce572051f67ae75d75eabcd3613dde3f2927b45bb8cfe72e4e5dac4"
-    sha256 arm64_sonoma:  "dc4b1f173c884c94f425778e0d165a4d1fdd59417eb271b70fa626af3174d2ec"
-    sha256 arm64_ventura: "c99ff3ce07a26dd30716e22afe46b2872d645db463291cb2ef720edee6662bdb"
-    sha256 sonoma:        "ac11de1cd176ad455ba1c4d325ecba42a1db02c431921a1094463cbcbf6bedf0"
-    sha256 ventura:       "170d170077ea53a2a78f4c7926762f722ded361f8e7e08a3681f2fea55e64638"
-    sha256 x86_64_linux:  "2f635704b9c3171d441c263f6d528caa79643e875e44ab96d605176ee2f46d03"
+    sha256 arm64_sequoia: "46d322501d9639cf140773e8aa4c46b282689ca4879848fbd38acc4e28e6fde8"
+    sha256 arm64_sonoma:  "400018c237b9178bc43689d1ab9b44e556b4951004d10ba10d988c1c7ab25075"
+    sha256 arm64_ventura: "d6874424713e8fc3e4b22babb5670fba51b7a8934d9d9caf530c0731a9a013ff"
+    sha256 sonoma:        "6de646f64ae790bdf5451fe00000fb935eb8e25f536b5c16d2f66ed8c5b402e7"
+    sha256 ventura:       "8926bc6622d164d5a1c7541649aa244f5cf68bb08046a81253947c47c2efbb9d"
+    sha256 x86_64_linux:  "f247017a775a382986974af0d87f75c95fc830bc9bcbdd08d30802a4b256d5a4"
   end
 
   depends_on "coreutils" => :build
