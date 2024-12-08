@@ -17,7 +17,8 @@ class Rain < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "cmd/rain/main.go"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/rain"
+
     bash_completion.install "docs/bash_completion.sh"
     zsh_completion.install "docs/zsh_completion.sh"
   end
