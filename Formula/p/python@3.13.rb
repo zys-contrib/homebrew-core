@@ -11,13 +11,12 @@ class PythonAT313 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "c314898eba960a72f69472bcf569caf5b9d4cfe898032f501eb964afbcc17180"
-    sha256 arm64_sonoma:  "1f171451ebef942ac66ea0cbe8853e5e3e32e459136e48af87db09a38a36344d"
-    sha256 arm64_ventura: "ed4fc8d947eb3f429ec98603517ac5ad1c2ec77aeb357052a1736ab945ef2c58"
-    sha256 sonoma:        "02c9128efbe4a34d4282dfb3986bea855fcf5816a1b3f685a2b60e219969c048"
-    sha256 ventura:       "ad2f1a43187bd8519f45137a31d99d9bd731c1c1c11c04c6f9115f53e575cc4b"
-    sha256 x86_64_linux:  "18d08d68e1abfb4e24c416f4d3a9c419fce04e1c10b85ef8e57a28a112a2b63e"
+    sha256 arm64_sequoia: "e9acf7c76a88dadc5ab62935f5a76a1ee850125b295d5dff130c8a04f436627b"
+    sha256 arm64_sonoma:  "1924392f730828c2d34e22a2f865db3fdfdaa69713e5a1618ef07be75740cbdb"
+    sha256 arm64_ventura: "f12f9cc766b319e552b4c56d8d43aaafd622b8b06005aa44797841995e3aa7c1"
+    sha256 sonoma:        "2e7875c78944fa027fc592633a4f7fa3ce9d859ed48c6f5206eb0d2ed7bd47ad"
+    sha256 ventura:       "a6d7efe6e58df8e7ea587da7b9b307b8fae43f1f915fb740e012ec19297a2199"
+    sha256 x86_64_linux:  "c61b78aa9a8736cfa07854490753daa5231dbe692c693c58e0b67e5d0b33c0cb"
   end
 
   depends_on "pkgconf" => :build
