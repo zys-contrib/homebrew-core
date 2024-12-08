@@ -9,8 +9,7 @@ class Vulture < Formula
   head "https://github.com/jendrikseipp/vulture.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "1d4b76fb15499a3b119a0733053daa2c5a4d660bc78b63708ae634b57dd1d34b"
+    sha256 cellar: :any_skip_relocation, all: "70586ff6f8ff32b5c31dc40a5381bd2f3bef2364209a99b00587c2667272c301"
   end
 
   depends_on "python@3.13"
