@@ -3046,6 +3046,7 @@ typescript-language-server
 typewritten
 typical
 typos-cli
+typos-lsp
 typst
 typstyle
 tz
