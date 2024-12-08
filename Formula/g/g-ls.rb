@@ -22,8 +22,10 @@ class GLs < Formula
   def install
     system "go", "build", *std_go_args(output: bin/"g", ldflags: "-s -w")
 
-    man1.install buildpath.glob("man/*.1.gz")
+    bash_completion.install "completions/bash/g-completion.bash" => "g"
+    fish_completion.install "completions/fish/g.fish"
     zsh_completion.install "completions/zsh/_g"
+    man1.install buildpath.glob("man/*.1.gz")
   end
 
   test do
