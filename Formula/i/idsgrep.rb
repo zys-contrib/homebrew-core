@@ -10,6 +10,15 @@ class Idsgrep < Formula
     regex(/href=.*idsgrep[._-]v?(\d+(?:\.\d+)+)\.t*/i)
   end
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "9195c89da2a586ec7c5d86d4b7da682d4d358ff39581755414f6040dce4db197"
+    sha256 cellar: :any,                 arm64_sonoma:  "cd0cd350e0b1880c10cdb41eb85aa6a2f72829b08bffb5ef4c507ae9b75359e4"
+    sha256 cellar: :any,                 arm64_ventura: "a674cfac9231215819fb5c3d6dc777f4b4ed316d2b1ef85bf959e5eb199d4414"
+    sha256 cellar: :any,                 sonoma:        "f3e253e90dc6299cce14e78d01062c00aa36894449e1a2d24c93b1080613ae0f"
+    sha256 cellar: :any,                 ventura:       "4a17486e3c1cd52db67298ab9ec094c171a46ae0636bc460a112b80453944645"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5570ed64d7e567b0ca54977415c5b45653b7e5ad1aa04ff9f2d6e30d048a536"
+  end
+
   depends_on "cmake" => :build
   depends_on "pcre"
 
