@@ -1,8 +1,8 @@
 class Yazi < Formula
   desc "Blazing fast terminal file manager written in Rust, based on async I/O"
   homepage "https://github.com/sxyazi/yazi"
-  url "https://github.com/sxyazi/yazi/archive/refs/tags/v0.3.3.tar.gz"
-  sha256 "fe2a458808334fe20eff1ab0145c78d684d8736c9715e4c51bce54038607dc4e"
+  url "https://github.com/sxyazi/yazi/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "65a063705dceecd23cfc3f617bf5e9ec9e31a7e5eef2f9bf4da4ffd4752b5e5c"
   license "MIT"
   head "https://github.com/sxyazi/yazi.git", branch: "main"
 
