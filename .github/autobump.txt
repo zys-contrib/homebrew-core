@@ -18,6 +18,7 @@ adwaita-icon-theme
 aerleon
 aespipe
 afflib
+afl++
 aftman
 agda
 age
