@@ -490,7 +490,10 @@ class Llvm < Formula
 
     arches = Set.new([:arm64, :x86_64, :aarch64])
     arches << arch
-    sysroot = if macos_version >= "10.14" || (macos_version.blank? && kernel_version.blank?)
+
+    sysroot = if macos_version.blank? || (MacOS.version > macos_version && MacOS::CLT.separate_header_package?)
+      "#{MacOS::CLT::PKG_PATH}/SDKs/MacOSX.sdk"
+    elsif macos_version >= "10.14"
       "#{MacOS::CLT::PKG_PATH}/SDKs/MacOSX#{macos_version}.sdk"
     else
       "/"
@@ -627,15 +630,27 @@ class Llvm < Formula
         system bin/"clang", "-v", "test.c", "-o", "testCLT"
         assert_equal "Hello World!", shell_output("./testCLT").chomp
 
-        target = "#{Hardware::CPU.arch}-apple-macosx#{MacOS.full_version}"
-        system bin/"clang-cpp", "-v", "--target=#{target}", "test.c"
-        system bin/"clang-cpp", "-v", "--target=#{target}", "test.cpp"
+        targets = ["#{Hardware::CPU.arch}-apple-macosx#{MacOS.full_version}"]
 
-        system bin/"clang", "-v", "--target=#{target}", "test.c", "-o", "test-macosx"
-        assert_equal "Hello World!", shell_output("./test-macosx").chomp
+        # The test tends to time out on Intel, so let's do these only for ARM macOS.
+        if Hardware::CPU.arm?
+          old_macos_version = HOMEBREW_MACOS_OLDEST_SUPPORTED.to_i - 1
+          targets << "#{Hardware::CPU.arch}-apple-macosx#{old_macos_version}"
 
-        system bin/"clang++", "-v", "--target=#{target}", "-std=c++11", "test.cpp", "-o", "test++-macosx"
-        assert_equal "Hello World!", shell_output("./test++-macosx").chomp
+          old_kernel_version = MacOSVersion.kernel_major_version(MacOSVersion.new(old_macos_version.to_s))
+          targets << "#{Hardware::CPU.arch}-apple-darwin#{old_kernel_version}"
+        end
+
+        targets.each do |target|
+          system bin/"clang-cpp", "-v", "--target=#{target}", "test.c"
+          system bin/"clang-cpp", "-v", "--target=#{target}", "test.cpp"
+
+          system bin/"clang", "-v", "--target=#{target}", "test.c", "-o", "test-macosx"
+          assert_equal "Hello World!", shell_output("./test-macosx").chomp
+
+          system bin/"clang++", "-v", "--target=#{target}", "-std=c++11", "test.cpp", "-o", "test++-macosx"
+          assert_equal "Hello World!", shell_output("./test++-macosx").chomp
+        end
       end
 
       # Testing Xcode
