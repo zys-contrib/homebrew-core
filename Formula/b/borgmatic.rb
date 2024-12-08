@@ -3,8 +3,8 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/7e/83/2c6ac5f85543eaf8f2abf55061781cd9cf75a976663b0caf51a1a447a3c3/borgmatic-1.9.3.tar.gz"
-  sha256 "568cba4f9bd5db2cbf83b18ef7738fdce064729ef4ce84038aaab01d1beb2f4b"
+  url "https://files.pythonhosted.org/packages/e3/23/550c67e70e96c86e2883dba0eeefff1092b0f996671b5328099f76e03cea/borgmatic-1.9.4.tar.gz"
+  sha256 "93914ba62bbda5bbeb07ddc10d604641bd5d346a58c0d1bbbd24271ff2ea5b86"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -66,8 +66,8 @@ class Borgmatic < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/23/80/afdf96daf9b27d61483ef05b38f282121db0e38f5fd4e89f40f5c86c2a4f/rpds_py-0.21.0.tar.gz"
-    sha256 "ed6378c9d66d0de903763e7706383d60c33829581f0adff47b6535f1802fa6db"
+    url "https://files.pythonhosted.org/packages/01/80/cce854d0921ff2f0a9fa831ba3ad3c65cee3a46711addf39a2af52df2cfd/rpds_py-0.22.3.tar.gz"
+    sha256 "e32fee8ab45d3c2db6da19a5323bc3362237c8b653c70194414b892fd06a080d"
   end
 
   resource "ruamel-yaml" do
