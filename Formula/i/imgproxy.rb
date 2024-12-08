@@ -28,7 +28,7 @@ class Imgproxy < Formula
     ENV["CGO_LDFLAGS_ALLOW"] = "-s|-w"
     ENV["CGO_CFLAGS_ALLOW"] = "-Xpreprocessor"
 
-    system "go", "build", *std_go_args
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
