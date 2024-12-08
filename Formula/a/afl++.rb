@@ -1,10 +1,14 @@
 class Aflxx < Formula
   desc "American Fuzzy Lop++"
   homepage "https://aflplus.plus"
-  url "https://github.com/AFLplusplus/AFLplusplus/archive/refs/tags/v4.21c.tar.gz"
-  sha256 "11f7c77d37cff6e7f65ac7cc55bab7901e0c6208e845a38764394d04ed567b30"
+  url "https://github.com/AFLplusplus/AFLplusplus/archive/refs/tags/v4.30c.tar.gz"
+  sha256 "7c08c81f59b6c1f0bc2428fdee9fb880520e72c50be0683072e66bcde662b480"
   license "Apache-2.0"
-  revision 2
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)c$/i)
+  end
 
   bottle do
     sha256 arm64_sequoia: "250f5dba6ce572051f67ae75d75eabcd3613dde3f2927b45bb8cfe72e4e5dac4"
@@ -19,16 +23,11 @@ class Aflxx < Formula
   depends_on "llvm"
   depends_on "python@3.13"
 
+  uses_from_macos "zlib"
+
   # The Makefile will insist on compiling with LLVM clang even without this.
   fails_with :clang
   fails_with :gcc
-
-  # Fix `-flat_namespace` flag usage.
-  # https://github.com/AFLplusplus/AFLplusplus/pull/2217
-  patch do
-    url "https://github.com/AFLplusplus/AFLplusplus/commit/cb5a61d8a1caf235a4852559086895ce841ac292.patch?full_index=1"
-    sha256 "f808b51a8ec184c58b53fe099f321b385b34c143c8c0abc5a427dfbfc09fe1fa"
-  end
 
   def install
     ENV.prepend_path "PATH", Formula["coreutils"].libexec/"gnubin"
