@@ -1,8 +1,8 @@
 class Cli53 < Formula
   desc "Command-line tool for Amazon Route 53"
   homepage "https://github.com/barnybug/cli53"
-  url "https://github.com/barnybug/cli53/archive/refs/tags/0.8.22.tar.gz"
-  sha256 "5acf576662cf8cb01ecbe027dfc3531e19bd03c1cd22425125e2a0a986273a7a"
+  url "https://github.com/barnybug/cli53/archive/refs/tags/0.8.23.tar.gz"
+  sha256 "89fca8cdc0894a5d8392432f5012b9b3634ed2b71d07c9b4ca4ca4b6a63c1f1a"
   license "MIT"
 
   bottle do
