@@ -6,7 +6,7 @@ class Harlequin < Formula
   url "https://files.pythonhosted.org/packages/bb/c1/0fc47822534938e73f070eb485059be414bb6ee274ac05e1d5d695fb4c24/harlequin-1.25.2.tar.gz"
   sha256 "8319da69b07afd063e1296ebba1569374daa171489b97bd35d2dbdae802e6144"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 2
@@ -24,6 +24,7 @@ class Harlequin < Formula
   depends_on "apache-arrow"
   depends_on "libpq" # psycopg
   depends_on "python@3.11"
+  depends_on "unixodbc" # harlequin-odbc
 
   on_linux do
     depends_on "patchelf" => :build # for pyarrow
@@ -52,6 +53,11 @@ class Harlequin < Formula
   resource "harlequin-mysql" do
     url "https://files.pythonhosted.org/packages/80/fd/410c3a6f6c1d0358359c58a3c36b0ac3519a1da8d0e7f0424f1a00f8bfcc/harlequin_mysql-0.3.0.tar.gz"
     sha256 "46ef42c5b658568f5340ee53c241cb1333f3e04914807c1f83741e83517878b3"
+  end
+
+  resource "harlequin-odbc" do
+    url "https://files.pythonhosted.org/packages/d6/40/7757a6aaf4a9925bc3d55c332f6914501d5a7ef239dbbb3592a0bed2c733/harlequin_odbc-0.1.1.tar.gz"
+    sha256 "beb2b57836ccdb21b4fa4b151e2cd6fc1b946f4f914eb233de5debc2c08920cf"
   end
 
   resource "harlequin-postgres" do
@@ -134,6 +140,11 @@ class Harlequin < Formula
     sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
   end
 
+  resource "pyodbc" do
+    url "https://files.pythonhosted.org/packages/a0/36/a1ac7d23a1611e7ccd4d27df096f3794e8d1e7faa040260d9d41b6fc3185/pyodbc-5.2.0.tar.gz"
+    sha256 "de8be39809c8ddeeee26a4b876a6463529cd487a60d1393eb2a93e9bcd44a8f5"
+  end
+
   resource "pyperclip" do
     url "https://files.pythonhosted.org/packages/30/23/2f0a3efc4d6a32f3b63cdff36cd398d9701d26cda58e3ab97ac79fb5e60d/pyperclip-1.9.0.tar.gz"
     sha256 "b7de0142ddc81bfc5c7507eea19da920b92252b548b96186caf94a5e2527d310"
@@ -210,8 +221,6 @@ class Harlequin < Formula
     url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz"
     sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
   end
-
-  patch :p0, :DATA
 
   def install
     venv = virtualenv_install_with_resources without: "mysql-connector-python"
