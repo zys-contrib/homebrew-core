@@ -8,12 +8,8 @@ class Beautysh < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "49c707e71f3f7b721c45714b1ec43ec835742d6f1e5186c49f7b6c8c0600ccc3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "49c707e71f3f7b721c45714b1ec43ec835742d6f1e5186c49f7b6c8c0600ccc3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "49c707e71f3f7b721c45714b1ec43ec835742d6f1e5186c49f7b6c8c0600ccc3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2255d1071a5750e9433f548a212f6fe812a77e4193c665bb51096ef1ff1a6ea5"
-    sha256 cellar: :any_skip_relocation, ventura:       "2255d1071a5750e9433f548a212f6fe812a77e4193c665bb51096ef1ff1a6ea5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88da0dae1615bdf1277745b3364275852e2fff5eabc9c1f0af81127409e6484a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "db3fc03fcc098082ae52debdee0bc7f353b793207d1cff2c05ea98f9d991bc83"
   end
 
   depends_on "python@3.13"
