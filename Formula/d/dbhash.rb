@@ -1,9 +1,9 @@
 class Dbhash < Formula
   desc "Computes the SHA1 hash of schema and content of a SQLite database"
   homepage "https://www.sqlite.org/dbhash.html"
-  url "https://www.sqlite.org/2024/sqlite-src-3470100.zip"
-  version "3.47.1"
-  sha256 "572457f02b03fea226a6cde5aafd55a0a6737786bcb29e3b85bfb21918b52ce7"
+  url "https://www.sqlite.org/2024/sqlite-src-3470200.zip"
+  version "3.47.2"
+  sha256 "e6a471f1238225f34c2c48c5601b54024cc538044368230f59ff0672be1fc623"
   license "blessing"
 
   livecheck do
