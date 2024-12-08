@@ -20,11 +20,12 @@ class Cheat < Formula
   conflicts_with "bash-snippets", because: "both install a `cheat` executable"
 
   def install
-    system "go", "build", "-mod", "vendor", "-o", bin/"cheat", "./cmd/cheat"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/cheat"
 
-    bash_completion.install "scripts/cheat.bash"
+    bash_completion.install "scripts/cheat.bash" => "cheat"
     fish_completion.install "scripts/cheat.fish"
     zsh_completion.install "scripts/cheat.zsh" => "_cheat"
+    man1.install "doc/cheat.1"
   end
 
   test do
