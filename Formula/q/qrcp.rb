@@ -24,12 +24,19 @@ class Qrcp < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args
+    ldflags = %W[
+      -s -w
+      -X github.com/claudiodangelis/qrcp/version.version=#{version}
+      -X github.com/claudiodangelis/qrcp/version.date=#{time.iso8601}
+    ]
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"qrcp", "completion")
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/qrcp version")
+
     (testpath/"test_data.txt").write <<~EOS
       Hello there, big world
     EOS
