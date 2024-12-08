@@ -1,8 +1,8 @@
 class Flashrom < Formula
   desc "Identify, read, write, verify, and erase flash chips"
   homepage "https://flashrom.org/"
-  url "https://download.flashrom.org/releases/flashrom-1.4.0.tar.xz"
-  sha256 "ad7ee1b49239c6fb4f8f55e36706fcd731435db1a4bd2fab3d80f1f72508ccee"
+  url "https://download.flashrom.org/releases/flashrom-v1.5.0.tar.xz"
+  sha256 "3ef431cd0f039c1f7b929e81be145885e79192d16a843827e42977f488d9fec5"
   license "GPL-2.0-or-later"
   head "https://review.coreboot.org/flashrom.git", branch: "master"
 
@@ -22,16 +22,13 @@ class Flashrom < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a81a9eb50bf2cbfd072cbc065c1793e197690fbb08f8a3c6aad12e1692674190"
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkgconf" => :build
+
   depends_on "libftdi"
   depends_on "libusb"
-
-  # no DirectHW framework available
-  on_macos do
-    on_intel do
-      patch :DATA
-    end
-  end
+  depends_on "openssl@3"
 
   resource "DirectHW" do
     url "https://github.com/PureDarwin/DirectHW/archive/refs/tags/DirectHW-1.tar.gz"
@@ -48,29 +45,15 @@ class Flashrom < Formula
       ENV.append "CFLAGS", "-I#{buildpath}"
     end
 
-    system "make", "DESTDIR=#{prefix}", "PREFIX=/", "install"
-    mv sbin, bin
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
-    system bin/"flashrom", "--version"
+    system sbin/"flashrom", "--version"
 
-    output = shell_output("#{bin}/flashrom --erase --programmer dummy 2>&1", 1)
+    output = shell_output("#{sbin}/flashrom --erase --programmer dummy 2>&1", 1)
     assert_match "No EEPROM/flash device found", output
   end
 end
-
-__END__
-diff --git a/Makefile b/Makefile
-index a8df91f..a178074 100644
---- a/Makefile
-+++ b/Makefile
-@@ -834,7 +834,7 @@ PROGRAMMER_OBJS += hwaccess_physmap.o
- endif
-
- ifeq (Darwin yes, $(TARGET_OS) $(filter $(USE_X86_MSR) $(USE_X86_PORT_IO) $(USE_RAW_MEM_ACCESS), yes))
--override LDFLAGS += -framework IOKit -framework DirectHW
-+override LDFLAGS += -framework IOKit
- endif
-
- ifeq (NetBSD yes, $(TARGET_OS) $(filter $(USE_X86_MSR) $(USE_X86_PORT_IO), yes))
