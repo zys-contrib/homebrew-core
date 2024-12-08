@@ -7,12 +7,12 @@ class MkdocsMaterial < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "95f1fea3c4f7177ad9174ebb853bd3bfddc45b4245469b14cb6d02256e84559c"
-    sha256 cellar: :any,                 arm64_sonoma:  "eda65d07a9d44d35a40cb11205c614e79070ab40a40bc8eda860dc1a78fd7631"
-    sha256 cellar: :any,                 arm64_ventura: "c0732194f0711c1bafe4edf9420d86e002fb93fde9802e33f44ae793eef2d431"
-    sha256 cellar: :any,                 sonoma:        "5ab0c3838f7b8301d8fe573b5d8506ededc9097b2ce5bfc59cf8cc0f6ac9fc76"
-    sha256 cellar: :any,                 ventura:       "b1081d58a4337ade1277d3f8e61ca8b2073348fcfe6e3bf04210478076044cce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39b101caacd742ed53b50575fd9ea686c35c45365f3669ca20954a414c92c11f"
+    sha256 cellar: :any,                 arm64_sequoia: "76abcc69f3b957acf94c5a80b9d534eb00b4fccf73b81ed88582db620a95d225"
+    sha256 cellar: :any,                 arm64_sonoma:  "a87bcc454d84f67e5b91d1e9731f16c0918c3b127010927dadd72fadb0ae6252"
+    sha256 cellar: :any,                 arm64_ventura: "4cffe3295186adafe2214e61b97adf94f55749ab94aa14a5d5c11df0597f34ea"
+    sha256 cellar: :any,                 sonoma:        "fcc94e9a0852fd68a10b145c453cf340dfe814b7f42d6e262fb4d38facfe6a3f"
+    sha256 cellar: :any,                 ventura:       "2656207e448e108ae97fc5ed1e15f5086ba9f901c61054522866e9d3ef9563f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30de1933daae7cb3b8af63ab43fb18dc92fb577c47b06d6ecafbd9058b9f84f3"
   end
 
   depends_on "libyaml"
