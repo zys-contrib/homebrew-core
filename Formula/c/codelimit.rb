@@ -3,8 +3,8 @@ class Codelimit < Formula
 
   desc "Your Refactoring Alarm"
   homepage "https://github.com/getcodelimit/codelimit"
-  url "https://files.pythonhosted.org/packages/c4/6f/f7c10d2908df4fb1f4326eca4bdf9421c749e5c61f62c67e4ea68a99e2b0/codelimit-0.11.3.tar.gz"
-  sha256 "bea2528fb8e3f26ae194467186e576a3f63627f7b189836cdbb3c30824809faa"
+  url "https://files.pythonhosted.org/packages/fd/5e/933e6ff6f03ea33c818156842f66323afc886d93f90cd0081aa031eee574/codelimit-0.12.1.tar.gz"
+  sha256 "e444ea032fd61aae9279be8ed7011ecc2426930b2f0c313e343d26f96cea0dc9"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -26,8 +26,8 @@ class Codelimit < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/3f/24/d5c0aed3ed90896f8505786e3a1e348fd9c61284ef21f54ee9cdf8b92e4f/aiohttp-3.11.9.tar.gz"
-    sha256 "a9266644064779840feec0e34f10a89b3ff1d2d6b751fe90017abcad1864fa7c"
+    url "https://files.pythonhosted.org/packages/94/c4/3b5a937b16f6c2a0ada842a9066aad0b7a5708427d4a202a07bf09c67cbb/aiohttp-3.11.10.tar.gz"
+    sha256 "b1fc6b45010a8d0ff9e88f9f2418c6fd408c99c211257334aff41597ebece42e"
   end
 
   resource "aiosignal" do
