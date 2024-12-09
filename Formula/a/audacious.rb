@@ -2,6 +2,7 @@ class Audacious < Formula
   desc "Lightweight and versatile audio player"
   homepage "https://audacious-media-player.org/"
   license "BSD-2-Clause"
+  revision 1
 
   stable do
     url "https://distfiles.audacious-media-player.org/audacious-4.4.2.tar.bz2"
@@ -52,6 +53,7 @@ class Audacious < Formula
   depends_on "libogg"
   depends_on "libopenmpt"
   depends_on "libsamplerate"
+  depends_on "libsidplayfp"
   depends_on "libsndfile"
   depends_on "libsoxr"
   depends_on "libvorbis"
