@@ -1,8 +1,8 @@
 class Gitversion < Formula
   desc "Easy semantic versioning for projects using Git"
   homepage "https://gitversion.net"
-  url "https://github.com/GitTools/GitVersion/archive/refs/tags/6.0.5.tar.gz"
-  sha256 "621b46427db8947fa9a2ff04d0fcc4d00d0dd0ce05e248eb8d7bbc18e4ba29a7"
+  url "https://github.com/GitTools/GitVersion/archive/refs/tags/6.1.0.tar.gz"
+  sha256 "c4791cf3f3820606735e5cbb0bdb6bc1b2db6eedad485bab7d7ebef989228a94"
   license "MIT"
 
   bottle do
@@ -13,13 +13,13 @@ class Gitversion < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc5389bd40a2e8e7ca02acb9704b5ec0d69b51421939baee10b53e48a1f6be7f"
   end
 
-  depends_on "dotnet@8"
+  depends_on "dotnet"
 
   def install
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
     ENV["DOTNET_SYSTEM_GLOBALIZATION_INVARIANT"] = "1"
 
-    dotnet = Formula["dotnet@8"]
+    dotnet = Formula["dotnet"]
 
     args = %W[
       --configuration Release
