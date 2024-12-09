@@ -1,8 +1,8 @@
 class Nrpe < Formula
   desc "Nagios remote plugin executor"
   homepage "https://www.nagios.org/"
-  url "https://github.com/NagiosEnterprises/nrpe/releases/download/nrpe-4.1.1/nrpe-4.1.1.tar.gz"
-  sha256 "0e716a7d904e0a441be52a0ef82c1138b949bad81c1da93056a81405aabcc0d7"
+  url "https://github.com/NagiosEnterprises/nrpe/releases/download/nrpe-4.1.2/nrpe-4.1.2.tar.gz"
+  sha256 "366cd5de9953872ed78e1a5e8fe36c8c86839a5fbf8b894f38211c915a83434a"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -54,10 +54,9 @@ class Nrpe < Formula
   end
 
   test do
-    pid = fork do
-      exec bin/"nrpe", "-n", "-c", "#{etc}/nrpe.cfg", "-d"
-    end
+    pid = spawn bin/"nrpe", "-n", "-c", "#{etc}/nrpe.cfg", "-d"
     sleep 2
+    sleep 10 if Hardware::CPU.intel?
 
     begin
       output = shell_output("netstat -an")
