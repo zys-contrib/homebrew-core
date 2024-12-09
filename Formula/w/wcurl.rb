@@ -1,8 +1,8 @@
 class Wcurl < Formula
   desc "Wrapper around curl to easily download files"
   homepage "https://github.com/curl/wcurl"
-  url "https://github.com/curl/wcurl/archive/refs/tags/2024.07.10.tar.gz"
-  sha256 "962bb72e36e6f6cedbd21c8ca3af50e7dadd587a49d2482ab3226e76cf6dcc97"
+  url "https://github.com/curl/wcurl/archive/refs/tags/v2024.12.08.tar.gz"
+  sha256 "9c0615b2c5d6b21da79ff559e75452197330d18449085a18e05f4b623b144a94"
   license "curl"
   head "https://github.com/curl/wcurl.git", branch: "main"
 
