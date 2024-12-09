@@ -9,8 +9,7 @@ class Rpmspectool < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "2f364a63846a90f0e1f6c21a193ba1a478e7b4ad2fa257d19de780ee18797a81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "998212959687c76fc3f7ce05de22cbf55a7db9e9c94d77fe0c5de4b9075c9360"
   end
 
   depends_on "curl"
