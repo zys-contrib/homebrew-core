@@ -1,8 +1,8 @@
 class Ratfor < Formula
   desc "Rational Fortran"
   homepage "http://www.dgate.org/ratfor/"
-  url "http://www.dgate.org/ratfor/tars/ratfor-1.05.tar.gz"
-  sha256 "826278c5cec11f8956984f146e982137e90b0722af5dde9e8c5bf1fef614853c"
+  url "http://www.dgate.org/ratfor/tars/ratfor-1.06.tar.gz"
+  sha256 "abc70bfbfac0aac828a40cc0cc00d9caeef13bdc83a20b6747af4b1c128c8400"
   license :public_domain
 
   livecheck do
