@@ -54,7 +54,7 @@ class GobjectIntrospection < Formula
   # See: https://github.com/Homebrew/homebrew-core/issues/75020
   #      https://gitlab.gnome.org/GNOME/gobject-introspection/-/merge_requests/273
   patch do
-    url "https://gitlab.gnome.org/tschoonj/gobject-introspection/-/commit/a7be304478b25271166cd92d110f251a8742d16b.diff"
+    url "https://gitlab.gnome.org/GNOME/gobject-introspection/-/commit/a7be304478b25271166cd92d110f251a8742d16b.diff"
     sha256 "740c9fba499b1491689b0b1216f9e693e5cb35c9a8565df4314341122ce12f81"
   end
 
