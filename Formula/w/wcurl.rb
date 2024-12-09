@@ -7,8 +7,7 @@ class Wcurl < Formula
   head "https://github.com/curl/wcurl.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "af8adb8368a8844d3552b6b6efed89c10d4bb6b03220dab7bdc73b658422e04b"
+    sha256 cellar: :any_skip_relocation, all: "01f3be279345c0d59243531442733acc39245a210d3476a76a9dbf29f67bf533"
   end
 
   depends_on "curl"
