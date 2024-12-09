@@ -6,11 +6,11 @@ class Gitversion < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "fae232c086ea1d8c37f1b3984ad05064278e79adc156825985aa6fe8c2523a2d"
-    sha256 cellar: :any,                 arm64_sonoma:  "aa322c23f444e8dff137177a50559760c9d4f062bc5fc1b8610f67f5149b9842"
-    sha256 cellar: :any,                 arm64_ventura: "8b49968692aef48626c8dd70abf01204cd9246577ffc12b6e9e766234fac3464"
-    sha256 cellar: :any,                 ventura:       "bf1f9c7685da72147892bb11d1ac14e4167ffe2edb9abe9a41fa77cb1eeb9665"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc5389bd40a2e8e7ca02acb9704b5ec0d69b51421939baee10b53e48a1f6be7f"
+    sha256 cellar: :any,                 arm64_sequoia: "2a26219dd186253845ca6dd7c4190c30c0184875e9de7f091757adccfb6f5428"
+    sha256 cellar: :any,                 arm64_sonoma:  "8451d1106918b8edbc6ae9d442afe9cca0b406830650c27ff010b677a8c42c28"
+    sha256 cellar: :any,                 arm64_ventura: "2e8fdd8e17785052d544cf1f165d8409da23499238c4e6bf6fcf83f7665d5c19"
+    sha256 cellar: :any,                 ventura:       "9e3ea5738e15a2a985f6251e8e6f9936d7d0aa8825caa4b1ac81eb03551eabd9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0eb1171fd507667b3452053bb02c44c647991f2557f0fcf440441892bd63d298"
   end
 
   depends_on "dotnet"
