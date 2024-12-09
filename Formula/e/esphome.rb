@@ -9,12 +9,12 @@ class Esphome < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e8793d33223a7c6b8d96f56974bbc0521e51d8ec5a3cf0624d15e2b980c37194"
-    sha256 cellar: :any,                 arm64_sonoma:  "2afe038cde324adf1d086d89ca6532e43b890122090bb4bff86b615b1c7ee97b"
-    sha256 cellar: :any,                 arm64_ventura: "c45e4c3fb8739282f5c1c7a461fbce367d13f7282803185875365d64763800e4"
-    sha256 cellar: :any,                 sonoma:        "d1f336da465fc68b69a5627ea4e8701502c8fc0f380dfbbd95b6a90793bff599"
-    sha256 cellar: :any,                 ventura:       "e90e02ac2f5262c1cea4b8ecda8d2656322fea774a015188c170c6f3682bf09f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "082adf90b3b9eeb8c8dc6ced1f5ac7277ad737609734599d32e7648160e8f311"
+    sha256 cellar: :any,                 arm64_sequoia: "208f01d6776aac3a7f6166f6c38775c87416e43527d014f24a62ee4b22f915b6"
+    sha256 cellar: :any,                 arm64_sonoma:  "b32b4cfa71a94785e202f9ba0e1619ce288353fe068262cc3cd1ca521e575784"
+    sha256 cellar: :any,                 arm64_ventura: "a7c17c9505b6c24a1194a27f7a7d79c9536fc7ffa26368d72e73c3496a02c62b"
+    sha256 cellar: :any,                 sonoma:        "5321b430af6a2c153099369b7f34ef02756776bdaae733adfa96cd4fdee66fd8"
+    sha256 cellar: :any,                 ventura:       "549d192e11778ed8533cc7033fa654db57939cb37d4f0bba56a177e30a9b7303"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6adb2c7096eb9b3bcb0069423d085dfd936478002abf3d5996510ef09ff60c1e"
   end
 
   depends_on "pkgconf" => :build
