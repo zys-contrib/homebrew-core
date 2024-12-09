@@ -10,13 +10,12 @@ class Gcalcli < Formula
   head "https://github.com/insanum/gcalcli.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "1a34e31d3e619ea2abca59154ebef1b96e055b9f373ac4dbf7df0587582165eb"
-    sha256 cellar: :any,                 arm64_sonoma:  "38a12b7df40726cdf7c855cfd294c70f9b6592be08db2c5766f63b8e31ec59ad"
-    sha256 cellar: :any,                 arm64_ventura: "52e6c49b7dcc911daf93c861c27ff58eb9a3d4ad1e15569f4868b4c498270669"
-    sha256 cellar: :any,                 sonoma:        "c9e416f3d32377103b503d38e4a8ce102ebd8add3e7655eaca77b69526779b7a"
-    sha256 cellar: :any,                 ventura:       "f4787a05eda5fa3316e3f2be28d08dc1714adb77df9a76cd904383b1ab276752"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30031a989d334bc9e3ab41f57e02f3416cfa8ea0fc92af2727a9f64906d3f757"
+    sha256 cellar: :any,                 arm64_sequoia: "b88ebf316f7c79122279d0e4f5ed4e214cf897bffaa5f70ca2c8b4eaf6dfd108"
+    sha256 cellar: :any,                 arm64_sonoma:  "ba53a6cd5cf39350106a040504297a70dec19cc0f51591ff42ae8ed3f632c631"
+    sha256 cellar: :any,                 arm64_ventura: "bc62b29e2fec7d938f2eeaa2b5ad8de8ab61281a9f701d9e76c22b884c7b4819"
+    sha256 cellar: :any,                 sonoma:        "1b3a9d49b178ca05d2074675e1bd117303f335a4f4a3bb2930968d4c097e6e6b"
+    sha256 cellar: :any,                 ventura:       "f529b962c1c3223c7c4cd6448c421bce583c25be12cc4fa18020abe708f2ee3e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01badc69e858e8e1735f328b356ea6d019833d704c19a4ec1192e9c157c70ed7"
   end
 
   depends_on "cmake" => :build # for google_api_python_client_stubs
