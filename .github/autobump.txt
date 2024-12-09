@@ -739,6 +739,7 @@ dooit
 doppler
 dosbox-staging
 dosbox-x
+dotbot
 dotenv-linter
 dotnet
 dotslash
