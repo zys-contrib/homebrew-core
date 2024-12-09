@@ -1,8 +1,8 @@
 class Grype < Formula
   desc "Vulnerability scanner for container images and filesystems"
   homepage "https://github.com/anchore/grype"
-  url "https://github.com/anchore/grype/archive/refs/tags/v0.85.0.tar.gz"
-  sha256 "b32d158629a16a03b4300e48369e0727cb664b3c3652477da3eafab5f1d32931"
+  url "https://github.com/anchore/grype/archive/refs/tags/v0.86.0.tar.gz"
+  sha256 "44b777eeca3127cfe08007fdeb0a7e7f7b1b268eb224b0993e82eb6ab8fd77f7"
   license "Apache-2.0"
   head "https://github.com/anchore/grype.git", branch: "main"
 
@@ -18,13 +18,7 @@ class Grype < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X main.version=#{version}
-      -X main.gitCommit=brew
-      -X main.buildDate=#{time.iso8601}
-    ]
-
+    ldflags = "-s -w -X main.version=#{version} -X main.gitCommit=#{tap.user} -X main.buildDate=#{time.iso8601}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/grype"
 
     generate_completions_from_executable(bin/"grype", "completion")
@@ -32,7 +26,7 @@ class Grype < Formula
 
   test do
     assert_match "database metadata not found", shell_output("#{bin}/grype db status 2>&1", 1)
-    assert_match "Update available", shell_output("#{bin}/grype db check", 100)
+    assert_match "update to the latest db", shell_output("#{bin}/grype db check", 100)
     assert_match version.to_s, shell_output("#{bin}/grype version 2>&1")
   end
 end
