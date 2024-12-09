@@ -9,13 +9,12 @@ class PythonYq < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "ade8952a20185a727c65adba3cc9100db7c6ed46f4b78653c4f60679959fbb6f"
-    sha256 cellar: :any,                 arm64_sonoma:  "5ec0178c6e5ee1139e49a6275be61c242faef98fd91ce6dc53640e7ee38bbc9f"
-    sha256 cellar: :any,                 arm64_ventura: "5135368b4db7fb4941565644e449afacb335ca008233e09096b27a5ab50d777a"
-    sha256 cellar: :any,                 sonoma:        "cfa479a7ce3064fda290a1261ede523276defe5ee60260a18982722d9a1cf106"
-    sha256 cellar: :any,                 ventura:       "ad2827c9e10e68e5a58e3bf6c34534c380b66dd16122ffec1b68b59b03546fac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a31d246270aa8b514e914937f3ab9d22fd2d4bdd10e7a88e229bd7749ed81a5"
+    sha256 cellar: :any,                 arm64_sequoia: "b43785008ef47b8acce277f0777a78f151c88c0296d932e4260b9d5d1bcc872c"
+    sha256 cellar: :any,                 arm64_sonoma:  "e59ebd20247318f7060d0341a0cbdd5571f4fa926654995dba79accb744a498c"
+    sha256 cellar: :any,                 arm64_ventura: "b666e21d085f1672873688fc581f0255acd5f58266137628a6cb87abe79d30cf"
+    sha256 cellar: :any,                 sonoma:        "57568982ca2b05f3686c8d8f30de2b79963f26e53e22a61b1508aade80531589"
+    sha256 cellar: :any,                 ventura:       "6bc67f3ef27e0fd821fa5fe012fe2eb6f539eab5347798951b58e3ddfbec2c41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a3bcb0ece8d0ec54412051082421c48faed52ff0d4a7f8d119be03695575366"
   end
 
   depends_on "jq"
