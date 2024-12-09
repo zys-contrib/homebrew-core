@@ -1,8 +1,8 @@
 class Libjwt < Formula
   desc "JSON Web Token C library"
   homepage "https://github.com/benmcollins/libjwt"
-  url "https://github.com/benmcollins/libjwt/releases/download/v1.18.3/libjwt-1.18.3.tar.bz2"
-  sha256 "7c582667fe3e6751897c8d9c1b4c8c117bbfa9067d8398524adb5dded671213e"
+  url "https://github.com/benmcollins/libjwt/releases/download/v2.0.0/libjwt-2.0.0.tar.bz2"
+  sha256 "1d4f1b161fb0bd0b84ba4dcb25958365e4c1ed21f8ce9a9c01509f875410d777"
   license "MPL-2.0"
   head "https://github.com/benmcollins/libjwt.git", branch: "master"
 
@@ -24,6 +24,7 @@ class Libjwt < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
+  depends_on "gnutls"
   depends_on "jansson"
   depends_on "openssl@3"
 
