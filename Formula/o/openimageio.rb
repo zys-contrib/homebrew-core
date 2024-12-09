@@ -38,7 +38,7 @@ class Openimageio < Formula
   depends_on "opencolorio"
   depends_on "openexr"
   depends_on "pugixml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "tbb"
   depends_on "webp"
 
@@ -51,7 +51,7 @@ class Openimageio < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
