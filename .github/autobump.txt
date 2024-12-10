@@ -2914,6 +2914,7 @@ talisman
 tanka
 taplo
 tarantool
+tarlz
 tartufo
 task
 taskopen
