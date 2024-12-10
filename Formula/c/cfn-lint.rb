@@ -7,11 +7,6 @@ class CfnLint < Formula
   sha256 "2bc93025bfe1b653c06820db0a20e33d686c68bec5bd3b7cc9178179a5d510f6"
   license "MIT-0"
 
-  livecheck do
-    url :stable
-    regex(/href=.*?cfn_lint[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "f327b8a7d52a3bd5f38b75c4e7359729b6c9282059a003ce2b8850fc8ad19ea9"
     sha256 cellar: :any,                 arm64_sonoma:  "6a5608a8b29e96811464908a9c47dbee442b91e89151d1de32428a9e7f083df4"
