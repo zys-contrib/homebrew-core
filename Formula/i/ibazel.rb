@@ -29,25 +29,26 @@ class Ibazel < Formula
   end
 
   test do
-    # Test building a sample Go program
-    (testpath/"WORKSPACE").write <<~EOS
-      load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+    # Write MODULE.bazel with Bazel module dependencies
+    (testpath/"MODULE.bazel").write <<~BAZEL
+      bazel_dep(name = "rules_go", version = "0.50.1")
+      bazel_dep(name = "gazelle", version = "0.40.0")
 
-      http_archive(
-        name = "io_bazel_rules_go",
-        sha256 = "278b7ff5a826f3dc10f04feaf0b70d48b68748ccd512d7f98bf442077f043fe3",
-        urls = [
-            "https://mirror.bazel.build/github.com/bazelbuild/rules_go/releases/download/v0.41.0/rules_go-v0.41.0.zip",
-            "https://github.com/bazelbuild/rules_go/releases/download/v0.41.0/rules_go-v0.41.0.zip",
-        ],
+      # Register the Go SDK extension properly
+      go_sdk = use_extension("@rules_go//go:extensions.bzl", "go_sdk")
+
+      # Register the Go SDK installed on the host.
+      go_sdk.host()
+    BAZEL
+
+    (testpath/"BUILD.bazel").write <<~BAZEL
+      load("@rules_go//go:def.bzl", "go_binary")
+
+      go_binary(
+          name = "bazel-test",
+          srcs = ["test.go"],
       )
-
-      load("@io_bazel_rules_go//go:deps.bzl", "go_host_sdk", "go_rules_dependencies")
-
-      go_rules_dependencies()
-
-      go_host_sdk(name = "go_sdk")
-    EOS
+    BAZEL
 
     (testpath/"test.go").write <<~GO
       package main
@@ -56,15 +57,6 @@ class Ibazel < Formula
         fmt.Println("Hi!")
       }
     GO
-
-    (testpath/"BUILD").write <<~EOS
-      load("@io_bazel_rules_go//go:def.bzl", "go_binary")
-
-      go_binary(
-        name = "bazel-test",
-        srcs = glob(["*.go"])
-      )
-    EOS
 
     pid = fork { exec("ibazel", "build", "//:bazel-test") }
     out_file = "bazel-bin/bazel-test_/bazel-test"
