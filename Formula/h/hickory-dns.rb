@@ -1,19 +1,10 @@
 class HickoryDns < Formula
   desc "Rust based DNS client, server, and resolver"
   homepage "https://github.com/hickory-dns/hickory-dns"
+  url "https://github.com/hickory-dns/hickory-dns/archive/refs/tags/v0.24.2.tar.gz"
+  sha256 "72c1d4e4dc16787ebc1bf7565eb5804d4631e473d71bf8ace67aa261e7a6bdf1"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/hickory-dns/hickory-dns.git", branch: "main"
-
-  stable do
-    url "https://github.com/hickory-dns/hickory-dns/archive/refs/tags/v0.24.1.tar.gz"
-    sha256 "6659acf5fedb1f3efcfe64242c28898dd18fbd5fbc0cba1ee86185f672ca0b53"
-
-    # rust 1.80 build patch, upstream pr ref, https://github.com/hickory-dns/hickory-dns/pull/2218
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/bdae5218473025d6768eb6ef27bd65149ea2844e/hickory-dns/rust-1.80.patch"
-      sha256 "7b201d057b4adf1bc2e916d13ffa7436b86fb7224cd080165f55dcc6e80d64a5"
-    end
-  end
 
   bottle do
     rebuild 1
