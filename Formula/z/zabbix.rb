@@ -1,8 +1,8 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://cdn.zabbix.com/zabbix/sources/stable/7.0/zabbix-7.0.6.tar.gz"
-  sha256 "0d77ce0e384d6d30aa739e59648046aada31a97fcd7d626bd9afa37e420a2dd0"
+  url "https://cdn.zabbix.com/zabbix/sources/stable/7.2/zabbix-7.2.0.tar.gz"
+  sha256 "65fe4bdb366fe87acc9da119ad11204b0867363d2b76ebfa3b3bc5702dd29fed"
   license "AGPL-3.0-only"
   head "https://github.com/zabbix/zabbix.git", branch: "master"
 
