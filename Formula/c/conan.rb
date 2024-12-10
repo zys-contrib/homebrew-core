@@ -3,8 +3,8 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://files.pythonhosted.org/packages/e3/93/b1ae4bb56daa2adafd97f057f35abac1728c25f4a95c2445acbcb7db13b2/conan-2.10.1.tar.gz"
-  sha256 "dece8e21c49e06cb4846ab9b342f30aa6fbc88bc3d2235f30519bfcb8b3267b6"
+  url "https://files.pythonhosted.org/packages/92/75/28e3db35ea74f857a402e569c8cbb4431e40d7e390d774944bbea698df3d/conan-2.10.2.tar.gz"
+  sha256 "ac40fa3e0cbff7e147dcd54787e3a2d58666116e3596fb32eb1c9fffd2c6f7f8"
   license "MIT"
   head "https://github.com/conan-io/conan.git", branch: "develop"
 
@@ -79,8 +79,8 @@ class Conan < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
+    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
   resource "urllib3" do
