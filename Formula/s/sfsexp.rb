@@ -5,6 +5,15 @@ class Sfsexp < Formula
   sha256 "15e9a18bb0d5c3c5093444a9003471c2d25ab611b4219ef1064f598668723681"
   license "LGPL-2.1-or-later"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "f03b944967fd032f7538cafe2d1207790c47445922ecc8720b176ed8c1f747e9"
+    sha256 cellar: :any,                 arm64_sonoma:  "5fff80561a38b1e7f175a8eb61f556abc10e9c3c9db5c1eff1babd21208a41ee"
+    sha256 cellar: :any,                 arm64_ventura: "77e62444ee703cec04f5954922c54aa32d65a02294c3a154448d8e944c004229"
+    sha256 cellar: :any,                 sonoma:        "4e312aea24c7d1274a99753d578e75cfdf1a35054082e2f2524977cbdf770969"
+    sha256 cellar: :any,                 ventura:       "ab57777f8d6f986c0cd673e9ee487dd7703f12f7b2b31c0747d920c78040c2e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "38e4511f902951c709a20aab4f8c56209c45c86ddf83efe86185242a0f6adadf"
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
