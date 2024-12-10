@@ -1,8 +1,8 @@
 class Regclient < Formula
   desc "Docker and OCI Registry Client in Go and tooling using those libraries"
   homepage "https://github.com/regclient/regclient"
-  url "https://github.com/regclient/regclient/archive/refs/tags/v0.7.2.tar.gz"
-  sha256 "eb8b3253b6fbb95032386cdd05c6fe9ada723c0aa9971c47190e5e967b46e754"
+  url "https://github.com/regclient/regclient/archive/refs/tags/v0.8.0.tar.gz"
+  sha256 "31f38400fc3941120130ac3d1271ae31bc9bc586cd28b3bd2e40f89ab93dcdd3"
   license "Apache-2.0"
   head "https://github.com/regclient/regclient.git", branch: "main"
 
@@ -28,7 +28,7 @@ class Regclient < Formula
 
   test do
     output = shell_output("#{bin}/regctl image manifest docker.io/library/alpine:latest")
-    assert_match "application/vnd.docker.distribution.manifest.list.v2+json", output
+    assert_match "docker.io/library/alpine:latest", output
 
     assert_match version.to_s, shell_output("#{bin}/regbot version")
     assert_match version.to_s, shell_output("#{bin}/regctl version")
