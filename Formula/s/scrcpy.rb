@@ -11,12 +11,12 @@ class Scrcpy < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "0747c792b923256bc148a272c3003487644eba3ee1042172e6cc20822cb6e182"
-    sha256 arm64_sonoma:  "2970efb82a21e1a78c3f8415c48ab4e75e0e42b6930052ad651fe76ee150df4d"
-    sha256 arm64_ventura: "183b4056967dc42e408dc8b3d954da246e914fd6ee56015565cc91410705f494"
-    sha256 sonoma:        "c20998fdff4317a3a5c812d85e8f7549ef1ae827270cb595d578a2317848524b"
-    sha256 ventura:       "36ce72766e1d941b58b25115bc7d7de6f73d2c20ca8f49a94726267f52ea8d45"
-    sha256 x86_64_linux:  "a89979a96e60d390d0c95cc43aac7d35cbb9911d41c3d0298fa9bd1ab1f5fbfb"
+    sha256 arm64_sequoia: "c6f8ef723ce1f374f08240647c1a997e4c25b9150a4e8e88e4aaaefd42f2d99f"
+    sha256 arm64_sonoma:  "a8ad50bd1e07b3d2f15b7da4ff3e2bd6404fc6036e373d5b352b5a2e71e3b91c"
+    sha256 arm64_ventura: "5c0f85e90519f82c24ffeb7b8f57f9adb2b7bb1a8e1c3eb4c445b4b279e7a53b"
+    sha256 sonoma:        "e5d5cf95805ccfc0c2bed6166b70c36965b33f28be5076d5bbfb492d2e7866f5"
+    sha256 ventura:       "53bc8478c52ee3a73d0c96099136b40b3be6e2ce75971516794a1d6de19ea0c5"
+    sha256 x86_64_linux:  "c2bb4b247f8143214c3b80310ee2a65b919f8cac2c58d24ec0fd1e568f92e60f"
   end
 
   depends_on "meson" => :build
