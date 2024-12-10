@@ -3,8 +3,8 @@ class Ldeep < Formula
 
   desc "LDAP enumeration utility"
   homepage "https://github.com/franc-pentest/ldeep"
-  url "https://files.pythonhosted.org/packages/3b/d1/5767d53713542c68ce12f8104adef95fbbd5d612017c5b997142d125d6db/ldeep-1.0.76.tar.gz"
-  sha256 "4d254ea3a38ad0353530f69a483f69f0ba4abf64db595ddef9495cc0a532b1df"
+  url "https://files.pythonhosted.org/packages/80/92/c194d6ba0828ab0a3169b9f4d6914e455aa49784d1a6bf0f577e1057d47c/ldeep-1.0.77.tar.gz"
+  sha256 "8faeff22df72c44bda0c05b9b0cf5cbab848089f51f4522ed23d62e82ee0716d"
   license "MIT"
   head "https://github.com/franc-pentest/ldeep.git", branch: "master"
 
@@ -73,8 +73,8 @@ class Ldeep < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
+    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
   resource "termcolor" do
