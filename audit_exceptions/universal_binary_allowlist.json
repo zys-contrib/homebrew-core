@@ -1,5 +1,4 @@
 [
-  "cdktf",
   "llvm",
   "llvm@11",
   "llvm@12",
