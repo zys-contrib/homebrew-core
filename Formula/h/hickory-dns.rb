@@ -7,15 +7,12 @@ class HickoryDns < Formula
   head "https://github.com/hickory-dns/hickory-dns.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9cf8eee974c0813048ef68970bfbd33cad00de13d5e242b0a9cbaed625a795e1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d6efdf02a50da5b06ca7c17e84cfdbb5dfc3a9aa751ce9ef3ca416577ab03bea"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b5b6c4828dec09e01583940c9816fcd087fb38400235e65a0a3434156e17afa8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5476abbdfa937cf8e2547ec9de0a0b5696742d5466a33ae1e31e731e6a5132ac"
-    sha256 cellar: :any_skip_relocation, sonoma:         "53ccf15cbc699bd3c12ef3f7db08593a603b22b77ff58c9af4f048f1abd97cdb"
-    sha256 cellar: :any_skip_relocation, ventura:        "c10f20649661dbe775b0df4dbcf29a08762e06172b92aa1b2e50a6b58bc6ef21"
-    sha256 cellar: :any_skip_relocation, monterey:       "b153715697da34235176eb60f41b53b3e115472c2c94a9cd3ef49b00b62df6c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bad28144b264cb5633d8c321a64c0d0f047ee67a2a09ba0a00ffceeb43733d81"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c2faf2bbeec0a13e367d865d76ea955d212b9ba7828b0d017e97a091caebc5b5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a0d671f46052f30576fd724fd8db70184d70b0af03bf58f1672ebfc413294d8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "620abe8a9441d5583b0ed4b77cc6b1e285f76a878ce216c91bd10b415d9a9961"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4f394c33309a46e308d0a4261f49010af177d2ad4f1a6540d8d5338ec66bf69b"
+    sha256 cellar: :any_skip_relocation, ventura:       "32d23b4b68fa67665327bb46f76aba23fa4a92c1cef6092d1fd539d081b01931"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ed15fa06da990e9d5b73a876e2ff0119ae86c7a0befc5a5b3cd4d388c0a0508"
   end
 
   depends_on "rust" => :build
