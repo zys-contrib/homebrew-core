@@ -1,8 +1,8 @@
 class Gfold < Formula
   desc "Help keep track of your Git repositories, written in Rust"
   homepage "https://github.com/nickgerace/gfold"
-  url "https://github.com/nickgerace/gfold/archive/refs/tags/4.5.1.tar.gz"
-  sha256 "9569b236b09864aab0dcf2e5c16076fe3f0f69adc7aaf7668a37ea4d7365e2ed"
+  url "https://github.com/nickgerace/gfold/archive/refs/tags/4.6.0.tar.gz"
+  sha256 "f965daa340349b04bd9d29b5013dcb3006d2f5333cdbae1f1e3901a685e7bf7d"
   license "Apache-2.0"
   head "https://github.com/nickgerace/gfold.git", branch: "main"
 
@@ -17,7 +17,7 @@ class Gfold < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "libgit2@1.7"
+  depends_on "libgit2"
 
   uses_from_macos "zlib"
 
@@ -26,7 +26,7 @@ class Gfold < Formula
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
 
-    system "cargo", "install", *std_cargo_args(path: "bin/gfold")
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
@@ -45,7 +45,7 @@ class Gfold < Formula
     linkage_with_libgit2 = (bin/"gfold").dynamically_linked_libraries.any? do |dll|
       next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
 
-      File.realpath(dll) == (Formula["libgit2@1.7"].opt_lib/shared_library("libgit2")).realpath.to_s
+      File.realpath(dll) == (Formula["libgit2"].opt_lib/shared_library("libgit2")).realpath.to_s
     end
 
     assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."
