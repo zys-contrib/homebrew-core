@@ -1214,6 +1214,7 @@ grails
 grap
 graph-tool
 graphicsmagick
+graphql-inspector
 graphqurl
 graphqxl
 graphviz
