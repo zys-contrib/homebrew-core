@@ -1,8 +1,8 @@
 class Libnfs < Formula
   desc "C client library for NFS"
   homepage "https://github.com/sahlberg/libnfs"
-  url "https://github.com/sahlberg/libnfs/archive/refs/tags/libnfs-5.0.3.tar.gz"
-  sha256 "d945cb4f4c8f82ee1f3640893a168810f794a28e1010bb007ec5add345e9df3e"
+  url "https://github.com/sahlberg/libnfs/archive/refs/tags/libnfs-6.0.0.tar.gz"
+  sha256 "6fe64b5a47b2558484c8beb05819c1f1f3e52cc52a7b3a8b805faf398e9a9c24"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -16,20 +16,34 @@ class Libnfs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "da4022b87ad4d500dafafeccbf35e4bebcf2bbbcf23bb47a37c0b35edec09ec5"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
+  depends_on "docbook" => :build
+  depends_on "docbook-xsl" => :build
+
+  # Ref: https://github.com/sahlberg/libnfs/commit/2044497b7faba9404a3a17e81cbfdeb5e8aaaa9c
+  # Remove on next release
+  patch do
+    url "https://github.com/sahlberg/libnfs/commit/2044497b7faba9404a3a17e81cbfdeb5e8aaaa9c.patch?full_index=1"
+    sha256 "b31e61faa640ea1c5b590bc884c57fef2d6c40e9ee94596353648d057026bc1b"
+  end
+
+  # rpath config patch, upstream pr ref, https://github.com/sahlberg/libnfs/pull/502
+  patch do
+    url "https://github.com/sahlberg/libnfs/commit/2db7ebd9e15b4fedd2750af1a3d66b146c1da3b7.patch?full_index=1"
+    sha256 "eed5d8f35742278b74c2592473554a0050da9105432028e82f5b13d32e52d8b8"
+  end
 
   def install
-    system "./bootstrap"
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", "-DENABLE_DOCUMENTATION=ON", "-DENABLE_UTILS=ON", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
+    assert_match "No URL specified", shell_output("#{bin}/nfs-ls 2>&1", 1)
+
     (testpath/"test.c").write <<~C
       #if defined(__linux__)
       # include <sys/time.h>
