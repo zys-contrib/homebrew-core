@@ -18,14 +18,10 @@ class Oauth2l < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "on"
-
-    system "go", "build", "-o", "oauth2l"
-    bin.install "oauth2l"
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
-    assert_match "Invalid Value",
-      shell_output("#{bin}/oauth2l info abcd1234")
+    assert_match "Invalid Value", shell_output("#{bin}/oauth2l info abcd1234")
   end
 end
