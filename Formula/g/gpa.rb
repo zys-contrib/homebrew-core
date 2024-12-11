@@ -1,16 +1,10 @@
 class Gpa < Formula
   desc "Graphical user interface for the GnuPG"
   homepage "https://www.gnupg.org/related_software/gpa/"
+  url "https://gnupg.org/ftp/gcrypt/gpa/gpa-0.11.0.tar.bz2"
+  mirror "https://deb.debian.org/debian/pool/main/g/gpa/gpa_0.11.0.orig.tar.bz2"
+  sha256 "26a8fa5bf70541cb741f0c71b7cfe291b1ea56eab68eeb07aa962cef5cdf33cc"
   license "GPL-3.0-or-later"
-  revision 4
-
-  stable do
-    url "https://gnupg.org/ftp/gcrypt/gpa/gpa-0.10.0.tar.bz2"
-    mirror "https://deb.debian.org/debian/pool/main/g/gpa/gpa_0.10.0.orig.tar.bz2"
-    sha256 "95dbabe75fa5c8dc47e3acf2df7a51cee096051e5a842b4c9b6d61e40a6177b1"
-
-    depends_on "gtk+" # TODO: Switch to `gtk+3` next release
-  end
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gpa/"
@@ -32,7 +26,6 @@ class Gpa < Formula
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
-    depends_on "gtk+3"
   end
 
   depends_on "desktop-file-utils" => :build
@@ -41,6 +34,7 @@ class Gpa < Formula
   depends_on "gdk-pixbuf"
   depends_on "glib"
   depends_on "gpgme"
+  depends_on "gtk+3"
   depends_on "libassuan"
   depends_on "libgpg-error"
 
@@ -56,6 +50,8 @@ class Gpa < Formula
 
   def install
     inreplace "configure", "NEED_LIBASSUAN_API=2", "NEED_LIBASSUAN_API=3"
+
+    ENV.append_to_cflags "-Wno-implicit-function-declaration"
 
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-silent-rules", *std_configure_args
