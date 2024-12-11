@@ -1,8 +1,8 @@
 class Gitea < Formula
   desc "Painless self-hosted all-in-one software development service"
   homepage "https://about.gitea.com/"
-  url "https://dl.gitea.com/gitea/1.22.4/gitea-src-1.22.4.tar.gz"
-  sha256 "9f4fde87854547706409b5796378ae0f3bb734070f8a85ba36a8772ff0389d8d"
+  url "https://dl.gitea.com/gitea/1.22.5/gitea-src-1.22.5.tar.gz"
+  sha256 "a3dd4ee93bb968099b1d723a2a5cb3d802a4be6c0407e92af3a021bf278e1a77"
   license "MIT"
   head "https://github.com/go-gitea/gitea.git", branch: "main"
 
@@ -49,6 +49,7 @@ class Gitea < Formula
       exec bin/"gitea", "web", "--port", port.to_s, "--install-port", port.to_s
     end
     sleep 5
+    sleep 10 if OS.mac? && Hardware::CPU.intel?
 
     output = shell_output("curl -s http://localhost:#{port}/api/settings/api")
     assert_match "Go to default page", output
