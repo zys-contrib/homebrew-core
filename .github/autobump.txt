@@ -3092,6 +3092,7 @@ urdfdom
 urdfdom_headers
 uriparser
 urlscan
+urlwatch
 usb.ids
 usbredir
 usbutils
