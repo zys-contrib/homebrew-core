@@ -28,6 +28,12 @@ class Temporal < Formula
     generate_completions_from_executable bin/"temporal", "completion"
   end
 
+  service do
+    run [opt_bin/"temporal", "server", "start-dev"]
+    keep_alive true
+    working_dir var/"temporal"
+  end
+
   test do
     run_output = shell_output("#{bin}/temporal --version")
     assert_match "temporal version #{version}", run_output
