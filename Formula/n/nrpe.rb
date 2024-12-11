@@ -6,11 +6,11 @@ class Nrpe < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "9757e99a6d68e0cb29764dc471a70e497cac3b9ac912f63b47c127fcf6dda953"
-    sha256 cellar: :any, arm64_sonoma:  "cd3f7b4476cd1d4c24eb407f6f362f987f67f458148c352b9113a0b2f1d64a3f"
-    sha256 cellar: :any, arm64_ventura: "38f2a9a252fc2f9b126492b4e91bfb97511d9df998eb4fc885c2b05c5fe88aad"
-    sha256 cellar: :any, sonoma:        "ec4aeee705ce21e4919645033daf725311d42b4e1c0b6e645338e770bc6a45a7"
-    sha256 cellar: :any, ventura:       "729cd5449d1aa362aace8ced5b52e6c54f09c91acdea8cd63fc6c2f6c31edb1a"
+    sha256 cellar: :any, arm64_sequoia: "4849e7eb841d00b2f10f7dd81c088226e6aebb683f5c29e64d72dc6bfb327f84"
+    sha256 cellar: :any, arm64_sonoma:  "bc97d9570dfb3d1204feda1817e62fcebbf43898c3cbd00ee1592b1296654d8c"
+    sha256 cellar: :any, arm64_ventura: "6c5566eca3996b993eb04867452d5a10b2ecb3a12e325916ff70256a7af8178e"
+    sha256 cellar: :any, sonoma:        "e429d8acb7ba6187fc9118a86d36e891e79169353e3b736dd514604c8d2f5ff9"
+    sha256 cellar: :any, ventura:       "05cd704766c25bd45a0b73ad8869dc747ba70565445a10ff1af9538d0b4cdf10"
   end
 
   depends_on "nagios-plugins"
