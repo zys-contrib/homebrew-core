@@ -1,8 +1,8 @@
 class TclTkAT8 < Formula
   desc "Tool Command Language"
   homepage "https://www.tcl-lang.org"
-  url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.15/tcl8.6.15-src.tar.gz"
-  sha256 "861e159753f2e2fbd6ec1484103715b0be56be3357522b858d3cbb5f893ffef1"
+  url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.16/tcl8.6.16-src.tar.gz"
+  sha256 "91cb8fa61771c63c262efb553059b7c7ad6757afa5857af6265e4b0bdc2a14a5"
   license "TCL"
 
   livecheck do
@@ -48,8 +48,8 @@ class TclTkAT8 < Formula
   end
 
   resource "tk" do
-    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.15/tk8.6.15-src.tar.gz"
-    sha256 "550969f35379f952b3020f3ab7b9dd5bfd11c1ef7c9b7c6a75f5c49aca793fec"
+    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.16/tk8.6.16-src.tar.gz"
+    sha256 "be9f94d3575d4b3099d84bc3c10de8994df2d7aa405208173c709cc404a7e5fe"
   end
 
   # "https://downloads.sourceforge.net/project/incrtcl/%5Bincr%20Tcl_Tk%5D-4-source/itk%204.1.0/itk4.1.0.tar.gz"
