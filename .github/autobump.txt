@@ -837,6 +837,7 @@ embree
 emqx
 emscripten
 enchant
+energy
 enet
 enpass-cli
 ensmallen
