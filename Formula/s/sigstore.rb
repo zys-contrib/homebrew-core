@@ -8,12 +8,12 @@ class Sigstore < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b80b034d193aca170c238c8101d753eb413445c510b29b86f2007fde2c43cb7f"
-    sha256 cellar: :any,                 arm64_sonoma:  "8ae277a3fecbdc7c2c5036ff2d11681d40a7c07c9beddd9f3f36c35b6708d3ee"
-    sha256 cellar: :any,                 arm64_ventura: "e43c959642a338a40ea6aac612b3de7b6e69fd019422cd7510d65f2208dd2004"
-    sha256 cellar: :any,                 sonoma:        "56286d0ea60bc05e98fdb610a1a52d8844cadefdb45c99a4e6751c72231b1e77"
-    sha256 cellar: :any,                 ventura:       "614b5ca402eec665cf07247d16bbd28987c25969bbf44dcdee1bbb125850ab70"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ace4bad97d4a64182f787d60b8daa39bbfe5eef8654ce958cda35e11903f57c"
+    sha256 cellar: :any,                 arm64_sequoia: "3882c5e74dc9f0fd4cc782e0286e93e50e41ad038c5c161115c1210035f0a7b8"
+    sha256 cellar: :any,                 arm64_sonoma:  "57c3cdb8121963c10f41d38d4043206fe9e53992c521bc445a9cd79fcea6498a"
+    sha256 cellar: :any,                 arm64_ventura: "752e829035e708ed341d5f612e1d029ffb01560757cadd7b07ac0b59403781ca"
+    sha256 cellar: :any,                 sonoma:        "bb5f1e9fd5804d229dcb83dd4cc7c51fbac8bf494d8c43fde2388c5e80333212"
+    sha256 cellar: :any,                 ventura:       "ff373eaeb74adc011b2129bbee1882ca1bdc89510d3fbe013a89cc0e327cdfbb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2fd8bac5384a895c3764f107dd4fb4e4d5a2c5bd2b3dfc129a7d03643918ad5"
   end
 
   # sigstore does not build with cryptography 44, upstream pr ref, https://github.com/sigstore/sigstore-python/pull/1229
