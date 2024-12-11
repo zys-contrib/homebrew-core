@@ -6,6 +6,15 @@ class GraphqlInspector < Formula
   license "MIT"
   head "https://github.com/kamilkisiela/graphql-inspector.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cd9a9963b98f89373fa2a37db49e9012f9ca0d1a1485ad554038f5d45e7f9125"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cd9a9963b98f89373fa2a37db49e9012f9ca0d1a1485ad554038f5d45e7f9125"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cd9a9963b98f89373fa2a37db49e9012f9ca0d1a1485ad554038f5d45e7f9125"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5b3ebcff1fd9ff768e66b7b4edb37995ab3c079ad0e9bf08501965a60f36c6ae"
+    sha256 cellar: :any_skip_relocation, ventura:       "5b3ebcff1fd9ff768e66b7b4edb37995ab3c079ad0e9bf08501965a60f36c6ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd9a9963b98f89373fa2a37db49e9012f9ca0d1a1485ad554038f5d45e7f9125"
+  end
+
   depends_on "node"
 
   def install
