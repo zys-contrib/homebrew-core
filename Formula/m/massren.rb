@@ -4,6 +4,7 @@ class Massren < Formula
   url "https://github.com/laurent22/massren/archive/refs/tags/v1.5.7.tar.gz"
   sha256 "7e7dd149bd3364235247268cc684b5a35badd9bee22f39960e075c792d037a8c"
   license "MIT"
+  head "https://github.com/laurent22/massren.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1d9c626a0b4043b935fc894829d76eccb1b5e4005bb74a27c36a2bc6024d6738"
@@ -17,12 +18,7 @@ class Massren < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-    (buildpath/"src/github.com/laurent22/massren").install buildpath.children
-    cd "src/github.com/laurent22/massren" do
-      system "go", "build", "-o", bin/"massren"
-    end
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
