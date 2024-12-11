@@ -6,6 +6,15 @@ class Versitygw < Formula
   license "Apache-2.0"
   head "https://github.com/versity/versitygw.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "353d313b16f0fb040ddf93979b662387aef0c24346d08bd15fbc3416bdfc548e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "353d313b16f0fb040ddf93979b662387aef0c24346d08bd15fbc3416bdfc548e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "353d313b16f0fb040ddf93979b662387aef0c24346d08bd15fbc3416bdfc548e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2aa57085901aeb5ed36f65a9f46d72ded2dba280ebf669350cc305bb92be2b18"
+    sha256 cellar: :any_skip_relocation, ventura:       "2aa57085901aeb5ed36f65a9f46d72ded2dba280ebf669350cc305bb92be2b18"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f34d70568f52eca7a89f7c01b7a2abce00cce5aed542bdfa4354625b4b420232"
+  end
+
   depends_on "go" => :build
 
   def install
