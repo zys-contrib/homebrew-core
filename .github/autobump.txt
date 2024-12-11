@@ -3131,6 +3131,7 @@ verapdf
 vercel-cli
 verilator
 verovio
+versitygw
 vet
 vexctl
 vfox
