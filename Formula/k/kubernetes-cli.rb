@@ -2,8 +2,8 @@ class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/docs/reference/kubectl/"
   url "https://github.com/kubernetes/kubernetes.git",
-      tag:      "v1.31.4",
-      revision: "a78aa47129b8539636eb86a9d00e31b2720fe06b"
+      tag:      "v1.32.0",
+      revision: "70d3cc986aa8221cd1dfb1121852688902d3bf53"
   license "Apache-2.0"
   head "https://github.com/kubernetes/kubernetes.git", branch: "master"
 
