@@ -12,13 +12,12 @@ class Gpa < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "9623cd359c6d3fa33bc0e24f05511b18a9302683aa9517d3ff462055d794780b"
-    sha256 arm64_ventura:  "d7b108de57be92858293117242e4936bd8c89d04d0eb2beda5651054bf3281dc"
-    sha256 arm64_monterey: "1fd644f78fd079f2cba7855e3972307dae86c0f9153589c23cd45c1ec69e5dc3"
-    sha256 sonoma:         "3ff853e6943714626477e904c5b18b033e2177355eb61fad5ef8c701878cadad"
-    sha256 ventura:        "0e82a2924eb523bc86d8008c89a8f05b99a4bc5b9b3c8d26e0758e8187b9da16"
-    sha256 monterey:       "49fa165f0c5dab39320c4f586fd6129dd770956b2296c32b1d3c4b45267bd21d"
-    sha256 x86_64_linux:   "5c8b02af48db9fe00d090e86c47d0977d10cb4427f8da5a83610b941aa59c5f2"
+    sha256 arm64_sequoia: "c0c60b01b9d98ed8aab7c7527587a47d3da59296f9bc1fd4fd42de59ca7ddbb8"
+    sha256 arm64_sonoma:  "df87078cf6cf9f08a8929ee7b17f8c02c59e861dc2b95dde4219ad1bb618ffa5"
+    sha256 arm64_ventura: "aef02be2a1ff1789b39b13a9aeb992f205dad05cc86bb5b49c56bfcb8c574602"
+    sha256 sonoma:        "3aebae31685d4eed01681ce32eb85166e4eabb1aa653b113295d9d22539b2f32"
+    sha256 ventura:       "ba20f9563e8f329507ebae4de2101385737dc2853134c35b555b1a150e17f101"
+    sha256 x86_64_linux:  "07d492d6e76e1bfab56580d855828fc133ea535bb83ef7ffa07cbeb31ad8269c"
   end
 
   head do
