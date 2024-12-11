@@ -32,7 +32,9 @@ class Temporal < Formula
   service do
     run [opt_bin/"temporal", "server", "start-dev"]
     keep_alive true
-    working_dir var/"temporal"
+    error_log_path var/"log/temporal.log"
+    log_path var/"log/temporal.log"
+    working_dir var
   end
 
   test do
