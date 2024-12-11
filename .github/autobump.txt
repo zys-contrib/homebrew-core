@@ -1852,6 +1852,7 @@ mage
 magic-wormhole
 magic-wormhole.rs
 magic_enum
+mago
 mailcatcher
 mailpit
 mailsy
