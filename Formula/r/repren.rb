@@ -7,6 +7,10 @@ class Repren < Formula
   sha256 "6e5eeaa211154abed194eaa09a7ae8a5c760c0dfb103636542221089f4d335e1"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "7e67e2a780fcea707e9f2c3e40dbe897c6ffb64580c065015701e1c891518ea8"
+  end
+
   depends_on "python@3.13"
 
   def install
