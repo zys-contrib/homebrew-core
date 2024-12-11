@@ -1,9 +1,14 @@
 class Meli < Formula
   desc "Terminal e-mail client and e-mail client library"
   homepage "https://meli-email.org/"
-  url "https://git.meli-email.org/meli/meli/archive/v0.8.9.tar.gz"
-  sha256 "4bd34e3aea53d07b99e897ff307c90537c5dcc9dc37b726107f09e7202cdb84f"
+  url "https://git.meli-email.org/meli/meli/archive/v0.8.10.tar.gz"
+  sha256 "09d1a46434a86f5f2d212ade224712f14aa36a6b12a5df7a2660830c8097e775"
   license "GPL-3.0-or-later"
+
+  livecheck do
+    url "https://git.meli-email.org/meli/meli.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c0d8cc5d6f1a3d90a6de6089393946ca6ba3057c41ef3d31c0b07570925b5d8a"
