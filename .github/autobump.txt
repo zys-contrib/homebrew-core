@@ -2948,6 +2948,7 @@ telnetd
 template-glib
 temporal
 tendermint
+tenere
 tengo
 tenv
 tere
