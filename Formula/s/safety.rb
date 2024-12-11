@@ -3,8 +3,8 @@ class Safety < Formula
 
   desc "Checks Python dependencies for known vulnerabilities and suggests remediations"
   homepage "https://safetycli.com/product/safety-cli"
-  url "https://files.pythonhosted.org/packages/77/ef/c8147c752f4058329780027aba1d85a79784f7fb6e780aa03dd00bba059c/safety-3.2.12.tar.gz"
-  sha256 "fab91195f32bfcb64d99b3a796b6865fc020950c67b1f940230201aaf8f46e01"
+  url "https://files.pythonhosted.org/packages/44/68/0144329bb69bea0e746e431c801627b7df7e9e48e82eaf150167eda69b4c/safety-3.2.13.tar.gz"
+  sha256 "9328510c3286d67a788346d60df531b8bd2f35abbed3ac4dfaf8d119e6eec1ae"
   license "MIT"
   head "https://github.com/pyupio/safety.git", branch: "main"
 
