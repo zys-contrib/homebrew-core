@@ -3,18 +3,18 @@ class Safety < Formula
 
   desc "Checks Python dependencies for known vulnerabilities and suggests remediations"
   homepage "https://safetycli.com/product/safety-cli"
-  url "https://files.pythonhosted.org/packages/77/ef/c8147c752f4058329780027aba1d85a79784f7fb6e780aa03dd00bba059c/safety-3.2.12.tar.gz"
-  sha256 "fab91195f32bfcb64d99b3a796b6865fc020950c67b1f940230201aaf8f46e01"
+  url "https://files.pythonhosted.org/packages/44/68/0144329bb69bea0e746e431c801627b7df7e9e48e82eaf150167eda69b4c/safety-3.2.13.tar.gz"
+  sha256 "9328510c3286d67a788346d60df531b8bd2f35abbed3ac4dfaf8d119e6eec1ae"
   license "MIT"
   head "https://github.com/pyupio/safety.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0124b5aef4d247dbadf4a32cde3b8206d48edb1940f9faf420c25c284296075c"
-    sha256 cellar: :any,                 arm64_sonoma:  "c8ac93d67febc93c8ff5b4c355d756553c7ff636fe48576aaa2b9f8e09c791d5"
-    sha256 cellar: :any,                 arm64_ventura: "a9503473e987ade3ba22c4f0bfa32aae4d27278c1c8a557e4cf12ed46654ecf1"
-    sha256 cellar: :any,                 sonoma:        "9b4678fd5b7e817f3a16694384546fdaca3982ef521df8b9856cf0f6af959095"
-    sha256 cellar: :any,                 ventura:       "71f0920ef188316c8a7401b780e8294211009c0de6ae68b04f42b6f902812797"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc45e504bf9b2248cc6c426486ba7389122c3eef30bd1eb5add6a119bd77a2d2"
+    sha256 cellar: :any,                 arm64_sequoia: "a26a5c939c56caadeb92f74c9f077b35faf7122f47b2b6fb0f861ae6d852e43b"
+    sha256 cellar: :any,                 arm64_sonoma:  "5f90cc78ce0a5fd23168e8f884f3bcc8a63bbd6ca009fa2ac11ac1fb0f2d8f94"
+    sha256 cellar: :any,                 arm64_ventura: "a60cedf4330258a12d41d36182c04f460382c427b1a5f36129de279322093c9d"
+    sha256 cellar: :any,                 sonoma:        "3877f45fb57f94fbb4041857ceb8d3e64b8a8780f9a33c89a14784e063d1d7d2"
+    sha256 cellar: :any,                 ventura:       "fd55e37802f9f55ecfbc4e5822fd7aa70d5172e839b842faa9d182ba6cbe8d21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46a44e9ac9e62b64ced3889ec4ff94345e881a72f08d194202c9c1ee6e0b59eb"
   end
 
   depends_on "rust" => :build
