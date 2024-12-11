@@ -1,8 +1,8 @@
 class Sf < Formula
   desc "Command-line toolkit for Salesforce development"
   homepage "https://developer.salesforce.com/tools/salesforcecli"
-  url "https://registry.npmjs.org/@salesforce/cli/-/cli-2.68.6.tgz"
-  sha256 "ef05660ef80c040accb0f4fd5c09624d3d28d3affbdae71262951da6ab1444a4"
+  url "https://registry.npmjs.org/@salesforce/cli/-/cli-2.69.14.tgz"
+  sha256 "48f2698611ab7822312038c67b054e6d5d22d912e7c2cf93d5e8ba5be7738b5d"
   license "BSD-3-Clause"
 
   livecheck do
@@ -21,7 +21,7 @@ class Sf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1612f6197f2d648d552ae853b6e6aac8db96553d621b5848555e67fda9168f34"
   end
 
-  depends_on "node@20"
+  depends_on "node"
 
   def install
     system "npm", "install", *std_npm_args
