@@ -3,30 +3,12 @@ class Curl < Formula
   homepage "https://curl.se"
   # Don't forget to update both instances of the version in the GitHub mirror URL.
   # `url` goes below this comment when the `stable` block is removed.
+  url "https://curl.se/download/curl-8.11.1.tar.bz2"
+  mirror "https://github.com/curl/curl/releases/download/curl-8_11_1/curl-8.11.1.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/curl-8.11.1.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/legacy/curl-8.11.1.tar.bz2"
+  sha256 "e9773ad1dfa21aedbfe8e1ef24c9478fa780b1b3d4f763c98dd04629b5e43485"
   license "curl"
-  revision 1
-
-  stable do
-    url "https://curl.se/download/curl-8.11.0.tar.bz2"
-    mirror "https://github.com/curl/curl/releases/download/curl-8_11_0/curl-8.11.0.tar.bz2"
-    mirror "http://fresh-center.net/linux/www/curl-8.11.0.tar.bz2"
-    mirror "http://fresh-center.net/linux/www/legacy/curl-8.11.0.tar.bz2"
-    sha256 "c95d5a1368803729345a632ce42cceeefd5f09c3b4d9582f858f6779f4b8b254"
-
-    # Remove the following patches with `stable` block on next release.
-    # Fix netrc parsing that affects git.
-    # https://github.com/curl/curl/issues/15496
-    patch do
-      url "https://github.com/curl/curl/commit/f5c616930b5cf148b1b2632da4f5963ff48bdf88.patch?full_index=1"
-      sha256 "fa1991cab62d62ef97a86aae215330e9df3d54d60dcf8338fdd98e758b87cc62"
-    end
-    # Fix support for larger netrc file or longer lines/tokens in it
-    # https://github.com/curl/curl/issues/15513
-    patch do
-      url "https://github.com/curl/curl/commit/0cdde0fdfbeb8c35420f6d03fa4b77ed73497694.patch?full_index=1"
-      sha256 "e1d10cb2327b4aa6b90eb153dce8b06fb4c683936edb9353fb2c9a4341cababd"
-    end
-  end
 
   livecheck do
     url "https://curl.se/download/"
@@ -115,14 +97,6 @@ class Curl < Formula
     system "make", "install"
     system "make", "install", "-C", "scripts"
     libexec.install "scripts/mk-ca-bundle.pl"
-    return if build.head? || !OS.mac?
-
-    # Workaround to fix Requires.private for system libraries that don't have pkg-config files.
-    # We manually inreplace as upstream fix requires re-generating configure.
-    # TODO: Remove in the next release (inreplace will fail)
-    # Ref: https://github.com/curl/curl/commit/e244d50064a56723c2ba4f0df8c847d6b70de0cb
-    requires_private_regex = /^(Requires\.private: (?:.*,)?)ldap,(.*),mit-krb5-gssapi(,|$)/
-    inreplace lib/"pkgconfig/libcurl.pc", requires_private_regex, "\\1\\2\\3", audit_result: build.bottle?
   end
 
   test do
