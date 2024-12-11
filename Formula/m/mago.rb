@@ -1,17 +1,17 @@
 class Mago < Formula
   desc "Toolchain for PHP to help developers write better code"
   homepage "https://github.com/carthage-software/mago"
-  url "https://github.com/carthage-software/mago/archive/refs/tags/0.0.6.tar.gz"
-  sha256 "26580f99d2a0f224fcb696d9433639aaa60d7ec9adc59784eba4170b2f6c73fb"
+  url "https://github.com/carthage-software/mago/archive/refs/tags/0.0.7.tar.gz"
+  sha256 "b98936efc526c05071ae22abf9302daad3689bc41405e1bddaa2ea4df668ef28"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "af5cfa25d07f9265a58e7e4cdbec773e05867c50e3a56afd61ddcdb0ec4ccb90"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8fd2c6d41905da0fdcb5a32d99a240e8941ab2368010049fa2a11f1e7d05eacd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b5197a3b0fe4c811b94a4e0516b6e8616f294e8991d162de81b3a7ccaa54f031"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e603ec47e569eeb1ce97b86ee4cd5502ba878400691f7f4f97fe801e438f543c"
-    sha256 cellar: :any_skip_relocation, ventura:       "60ce046ca8a5189eb320c13c6967f27e1a04548cfe8fe76fcf8d298a133ae461"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a7d669efa9df228666a1e311981e9c165991862a01ae2ce560d432f19e3a766"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "51ebed36f9e7644056896d435d2827597096d3b8f15cd52496a6580119387da7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "38ca5ebf9d3a1593bbf21a432ef76775fadd59c279cd5dc00da341b3a28bf761"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2b685f719c632ec1a351ba8c99ef1c03994e79bf86e579835d2542228c0ec657"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f23ac62478f280d3008b4685fbb06186b9aff77eaa023ecb7d99a64df578ffe6"
+    sha256 cellar: :any_skip_relocation, ventura:       "cc9a36d92f0acd7eac8614dd7985e8c143d374fb54d8884102c72338ab2ea881"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bbcb0b819b00a2745014aa9be1256fefbbf975bbb9779a8eccc43aeca6962395"
   end
 
   depends_on "rust" => :build
