@@ -1847,6 +1847,7 @@ lz4
 lzip
 macchina
 mackup
+macmon
 mactop
 mafft
 mage
