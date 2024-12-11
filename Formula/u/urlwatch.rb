@@ -8,13 +8,12 @@ class Urlwatch < Formula
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "50f9d02eb8bfb20d39b48de82fb62bda3105dba1dbe10b00d075f07bd801696f"
-    sha256 cellar: :any,                 arm64_sonoma:  "59e02166f95365e27437ad1c9be51c2c635971465f83478629182b2fc39211b9"
-    sha256 cellar: :any,                 arm64_ventura: "a339a64ee1eb75ffc8bdce3d2061feda74128d54a9485de1fba4da3d0c7013d4"
-    sha256 cellar: :any,                 sonoma:        "a4d71cc7285a962640a470cc08d3d3ceafb12219c242c31b1ec8164ae22d540b"
-    sha256 cellar: :any,                 ventura:       "6d3afd51317f246acb7ff3f9956f9e67e6c99f9139e69ec506050a82665937a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57f2fdc31b8edaa4ee7c76344202fd8b3969a9747fcf984783c054fa75c821fd"
+    sha256 cellar: :any,                 arm64_sequoia: "de60e6a087b935b6bac97bc69ec1ca1c107fdf05a838f015e0cadc2e048f3f9d"
+    sha256 cellar: :any,                 arm64_sonoma:  "fbe02184a2cde0d42d534169e6a99e61a82245e5b479624e4a3fdf60763c5da5"
+    sha256 cellar: :any,                 arm64_ventura: "e347ee6bec4a7acc257dc0a33e44eb0d6b7157788de95d952d2bc92f86740a9f"
+    sha256 cellar: :any,                 sonoma:        "a65ad820cba9da748602dd03ba112ccf49242972d5361ee90f9ffbb9d9f06ae4"
+    sha256 cellar: :any,                 ventura:       "0fd7db4f82a22ee9a0b4a9a58dfe46c63a09c41d06cce7e0be940b60c682b788"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8d869ce99654e22a28d552abdf8dec3e5ed07ea0327ae787a97e7bf3c5f6471"
   end
 
   depends_on "certifi"
