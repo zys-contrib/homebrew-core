@@ -1196,6 +1196,7 @@ gource
 govc
 govulncheck
 gowsdl
+gpa
 gpac
 gperftools
 gpg-tui
