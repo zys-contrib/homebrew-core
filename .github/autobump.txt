@@ -560,6 +560,7 @@ cortex
 cosign
 cotila
 cotp
+coturn
 couchbase-shell
 couchdb
 countdown
