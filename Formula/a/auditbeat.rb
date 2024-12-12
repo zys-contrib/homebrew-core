@@ -2,8 +2,8 @@ class Auditbeat < Formula
   desc "Lightweight Shipper for Audit Data"
   homepage "https://www.elastic.co/beats/auditbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v8.16.1",
-      revision: "f17e0828f1de9f1a256d3f520324fa6da53daee5"
+      tag:      "v8.17.0",
+      revision: "092f0eae4d0d343cc3a142f671c2a0428df67840"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git", branch: "main"
 
@@ -74,17 +74,19 @@ class Auditbeat < Formula
         path: "#{testpath}/auditbeat"
         filename: auditbeat
     YAML
-    fork do
-      exec bin/"auditbeat", "-path.config", testpath/"config", "-path.data", testpath/"data"
-    end
+
+    pid = spawn bin/"auditbeat", "--path.config", testpath/"config", "--path.data", testpath/"data"
     sleep 5
     touch testpath/"files/touch"
-
-    sleep 30
+    sleep 10
+    sleep 20 if OS.mac? && Hardware::CPU.intel?
 
     assert_predicate testpath/"data/beat.db", :exist?
 
     output = JSON.parse((testpath/"data/meta.json").read)
     assert_includes output, "first_start"
+  ensure
+    Process.kill("TERM", pid)
+    Process.wait(pid)
   end
 end
