@@ -6,6 +6,15 @@ class CratesTui < Formula
   license "MIT"
   head "https://github.com/ratatui/crates-tui.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c4f5b9288ddc35bb6e2de20f0f5e6bb260c08d6b580a60fc03014c215ea38db6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4ee49a9c6e383a46c1a10589aee85cb132c0673fe564df630ab2f29e841dad4c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c2106fdebcd5d3a09b50d7943527b7b2677a8f0df2567a82cd6fcb9f73b8e329"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4bdd74f2e3bc06bf68d2def74e89405b4c01418bf1fbdb861728f102a5518db1"
+    sha256 cellar: :any_skip_relocation, ventura:       "49366877add0406ba87dd5952ac875d4938496991e06fd399abd5fa1c4b77851"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b71bf937c05cd606ba6aa226768789fefaf23706daf0adf3c7bf7e160388bd8b"
+  end
+
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
