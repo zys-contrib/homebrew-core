@@ -1,8 +1,8 @@
 class Minder < Formula
   desc "CLI for interacting with Stacklok's Minder platform"
   homepage "https://mindersec.github.io/"
-  url "https://github.com/mindersec/minder/archive/refs/tags/v0.0.79.tar.gz"
-  sha256 "46b3ff96eb66ada6bc6aa8bf96af4d05864916f4a4bc3c034389f60b0b7c4241"
+  url "https://github.com/mindersec/minder/archive/refs/tags/v0.0.80.tar.gz"
+  sha256 "6ead71ec6d2f88158f09a55f3f63191abcc0a7a42fc37399587909b2a3814f04"
   license "Apache-2.0"
   head "https://github.com/mindersec/minder.git", branch: "main"
 
