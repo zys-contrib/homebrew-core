@@ -8,12 +8,12 @@ class Cycode < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3decf1c989a7c911bdd5cffc18df42c801ad0b4142fd6c3d52cc9b0114c262b3"
-    sha256 cellar: :any,                 arm64_sonoma:  "2b1264f6aee00d06d50379dcc2ebc4f153531269cb20154e8d0ef8a3984e6e7b"
-    sha256 cellar: :any,                 arm64_ventura: "d4bbd413ca3c73d1224f4ac45c7d97963d960b4fac1e362d67c8ddfcfc3d0979"
-    sha256 cellar: :any,                 sonoma:        "b7fda05a97de7a7af785fa17f71fb50365ca6577201d969a7f7a95565007d76d"
-    sha256 cellar: :any,                 ventura:       "1596397fa9e1ca1ca02623d55ba0d0b59595a70f705c184b1a238f178ef4d95e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74db5ccc3ddc319daa4c1adef29e97cf2f171427a3fb86e62b137c345c0b5470"
+    sha256 cellar: :any,                 arm64_sequoia: "eb708ad91786e2b1f90ccc23ed221ffbd7cde3011fc22e9a826b842d3ca71148"
+    sha256 cellar: :any,                 arm64_sonoma:  "1b301764044a769dc25b6c639986cf77e751f86b4b6a5d4e22edd9666cf1ce79"
+    sha256 cellar: :any,                 arm64_ventura: "bb406fb36846a22407be68a0fd7d62324694a39a46e6be67e15f802e3d1b47d0"
+    sha256 cellar: :any,                 sonoma:        "2fcab4798be54d4714932cd1353e013c14f87ad126513bf7d1e7d6ad8387bebb"
+    sha256 cellar: :any,                 ventura:       "46257462680610184221f288e4951199fe41d62411225563f63212ec3201ccf0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc27509a3bdfc160f822454f2af2e01764cb7a14a43557fe22969ba3ebd0f97f"
   end
 
   depends_on "certifi"
