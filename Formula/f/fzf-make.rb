@@ -1,8 +1,8 @@
 class FzfMake < Formula
   desc "Fuzzy finder with preview window for make, pnpm, & yarn"
   homepage "https://github.com/kyu08/fzf-make"
-  url "https://github.com/kyu08/fzf-make/archive/refs/tags/v0.46.0.tar.gz"
-  sha256 "b502777581357add91c8ba37c95f955470c11e2df68675e7bd88c68317e5fd0a"
+  url "https://github.com/kyu08/fzf-make/archive/refs/tags/v0.47.0.tar.gz"
+  sha256 "93199143b5364e4606aeb6859ff81e28d080d53250534cd60d2d5badfa96c8c8"
   license "MIT"
   head "https://github.com/kyu08/fzf-make.git", branch: "main"
 
@@ -36,6 +36,7 @@ class FzfMake < Formula
       output_log = testpath/"output.log"
       pid = spawn bin/"fzf-make", [:out, :err] => output_log.to_s
       sleep 5
+      sleep 5 if OS.mac? && Hardware::CPU.intel?
       assert_match "make brew", output_log.read
     ensure
       Process.kill("TERM", pid)
