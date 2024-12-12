@@ -1,8 +1,8 @@
 class Vet < Formula
   desc "Policy driven vetting of open source dependencies"
   homepage "https://github.com/safedep/vet"
-  url "https://github.com/safedep/vet/archive/refs/tags/v1.8.7.tar.gz"
-  sha256 "763b7fd5b93f2b83ddb7077235c27f7ff122c144ead51b20effbf30253e615be"
+  url "https://github.com/safedep/vet/archive/refs/tags/v1.8.8.tar.gz"
+  sha256 "4baaf05c5baec6648e078f80f7660e54f6b22437e1bd80c87a072efc5cd8de91"
   license "Apache-2.0"
 
   bottle do
