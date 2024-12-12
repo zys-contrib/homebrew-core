@@ -1,28 +1,22 @@
 class FzfMake < Formula
   desc "Fuzzy finder with preview window for make, pnpm, & yarn"
   homepage "https://github.com/kyu08/fzf-make"
-  url "https://github.com/kyu08/fzf-make/archive/refs/tags/v0.45.0.tar.gz"
-  sha256 "275fafd5ed2d9e7f9d08af44f61259b7d57633c6039c3ac8a407e005530ed2c6"
+  url "https://github.com/kyu08/fzf-make/archive/refs/tags/v0.46.0.tar.gz"
+  sha256 "b502777581357add91c8ba37c95f955470c11e2df68675e7bd88c68317e5fd0a"
   license "MIT"
   head "https://github.com/kyu08/fzf-make.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d7d7a3ada84cadd31982e95348ca3464ca27501e70f4bde5ff7f5dfc1abd2cb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "afeb0867ed6668c0a35e07810866991634ec52e14da12a02e1f34dd848a4920d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "23df792826aabe4781a8780a16dde68ceaa85951d41154a664674e29f7c54976"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5a2c38cac3ab587b18b452f27ccb3f866996cdf1ed3bee2ad170a5625a2feff5"
-    sha256 cellar: :any_skip_relocation, ventura:       "2800eb10834e3c36733ab8790e0a0de758bea381a92418a88c6a368ce9bb6255"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa5aea44235903cf756c1a31e6a03a75b78705d1e4cdb770f249fc684ae169c3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e9aade0ce945e0dc14ad54dfa1e5e241c2789a8f7a078cc795d1c1ce8fa778a5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "19109930d33f1631afd05604192b93af40b4cee357bcdc645a3489d4ff9fe630"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4b86d05a7e7e91e93e9512a7fad42a47c8d2ce1767e3475e9923ab7620295141"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fcbedaba3e87c68a234b445140f31599e9ac2d8147ebea3cba89ce05fdacce97"
+    sha256 cellar: :any_skip_relocation, ventura:       "1c185e820c53521cd7464523171cceb247c411d9d459ca961d917171c3f6a33f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a991274a4b14099b981a8e3c036192cb54459bd1747cac47a6005d6bad8283a9"
   end
 
   depends_on "rust" => :build
   depends_on "bat"
-
-  # build patch for missing `yarn` in runtime, upstream pr ref, https://github.com/kyu08/fzf-make/pull/387
-  patch do
-    url "https://github.com/kyu08/fzf-make/commit/ee2b04a324bf3653a450025dcfea76fce9dd97db.patch?full_index=1"
-    sha256 "ea5d7fff1409150f7f28701a444dcbce9e1e5a317665fde5eaacd86ef2e4ac3e"
-  end
 
   def install
     system "cargo", "install", *std_cargo_args
