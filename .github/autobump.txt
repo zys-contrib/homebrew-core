@@ -585,6 +585,7 @@ cpuid
 cql-proxy
 crabz
 crane
+crates-tui
 cri-tools
 crispy-doom
 croaring
