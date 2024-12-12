@@ -1,8 +1,8 @@
 class Mongosh < Formula
   desc "MongoDB Shell to connect, configure, query, and work with your MongoDB database"
   homepage "https://github.com/mongodb-js/mongosh"
-  url "https://registry.npmjs.org/@mongosh/cli-repl/-/cli-repl-2.3.4.tgz"
-  sha256 "3af12ba49f4a3ac239608b013a0cfb05a4f4391e1820261e822c4c6502649c07"
+  url "https://registry.npmjs.org/@mongosh/cli-repl/-/cli-repl-2.3.5.tgz"
+  sha256 "76947dfac25b4cc57216199c41387c31e2319fcd0b3bf0d94aef5e3b49cae975"
   license "Apache-2.0"
 
   bottle do
