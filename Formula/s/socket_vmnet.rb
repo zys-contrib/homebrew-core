@@ -1,8 +1,8 @@
 class SocketVmnet < Formula
   desc "Daemon to provide vmnet.framework support for rootless QEMU"
   homepage "https://github.com/lima-vm/socket_vmnet"
-  url "https://github.com/lima-vm/socket_vmnet/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "f2e2b1fc10c9c72f3a707653f79543b11a37ec91987ae2a6d0327a41271974b5"
+  url "https://github.com/lima-vm/socket_vmnet/archive/refs/tags/v1.2.1.tar.gz"
+  sha256 "c44600fb9d4a44d533cfb5fa530264576952e887b065fd0b04aeb2500c812055"
   license "Apache-2.0"
   head "https://github.com/lima-vm/socket_vmnet.git", branch: "master"
 
@@ -46,6 +46,6 @@ class SocketVmnet < Formula
   end
 
   test do
-    assert_match "bind: Address already in use", shell_output("#{opt_bin}/socket_vmnet /dev/null 2>&1", 139)
+    assert_match "bind: Address already in use", shell_output("#{opt_bin}/socket_vmnet /dev/null 2>&1", 1)
   end
 end
