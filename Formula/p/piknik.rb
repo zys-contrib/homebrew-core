@@ -1,8 +1,8 @@
 class Piknik < Formula
   desc "Copy/paste anything over the network"
   homepage "https://github.com/jedisct1/piknik"
-  url "https://github.com/jedisct1/piknik/archive/refs/tags/0.10.1.tar.gz"
-  sha256 "9172acb424d864ba3563bbdb0cd2307815129027eec1a6ca04aee17da7f936c2"
+  url "https://github.com/jedisct1/piknik/archive/refs/tags/0.10.2.tar.gz"
+  sha256 "937e98cc80569e4e295baa0ad7fa998da593af137eb33e191b12b23d2ca3a666"
   license "BSD-2-Clause"
   head "https://github.com/jedisct1/piknik.git", branch: "master"
 
