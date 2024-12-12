@@ -2345,6 +2345,7 @@ picotool
 pidgin
 pie
 pig
+piknik
 pillow
 pinentry
 pinocchio
