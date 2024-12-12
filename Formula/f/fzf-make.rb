@@ -1,8 +1,8 @@
 class FzfMake < Formula
   desc "Fuzzy finder with preview window for make, pnpm, & yarn"
   homepage "https://github.com/kyu08/fzf-make"
-  url "https://github.com/kyu08/fzf-make/archive/refs/tags/v0.45.0.tar.gz"
-  sha256 "275fafd5ed2d9e7f9d08af44f61259b7d57633c6039c3ac8a407e005530ed2c6"
+  url "https://github.com/kyu08/fzf-make/archive/refs/tags/v0.46.0.tar.gz"
+  sha256 "b502777581357add91c8ba37c95f955470c11e2df68675e7bd88c68317e5fd0a"
   license "MIT"
   head "https://github.com/kyu08/fzf-make.git", branch: "main"
 
@@ -17,12 +17,6 @@ class FzfMake < Formula
 
   depends_on "rust" => :build
   depends_on "bat"
-
-  # build patch for missing `yarn` in runtime, upstream pr ref, https://github.com/kyu08/fzf-make/pull/387
-  patch do
-    url "https://github.com/kyu08/fzf-make/commit/ee2b04a324bf3653a450025dcfea76fce9dd97db.patch?full_index=1"
-    sha256 "ea5d7fff1409150f7f28701a444dcbce9e1e5a317665fde5eaacd86ef2e4ac3e"
-  end
 
   def install
     system "cargo", "install", *std_cargo_args
