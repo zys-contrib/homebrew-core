@@ -14,11 +14,11 @@ class Qcachegrind < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "281286c4846d2905f180025f2590ad930478999ec92eaa402977accafa2256f9"
-    sha256 cellar: :any,                 arm64_ventura: "c6c9f98895e246ce8682f5fbabc92d5b732aba041e2b762fd37b094ecf1cf391"
-    sha256 cellar: :any,                 sonoma:        "bce139c76c148ce209c07d825fd1f5fc5cdfd4c842361fdacb745d148f0587eb"
-    sha256 cellar: :any,                 ventura:       "2da943d17a82a529677066ea30540ac04342ecc27cbdbf99f8f2b6e152f08ad0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "947496619aff9abe26bd1cbb8bf306857c69dc6b18dba7a7a4526abf6086fb5f"
+    sha256 cellar: :any,                 arm64_sonoma:  "f79287eb8dab3287c45a4b2ead0f25e42263df20523db1592879e124d0fb96fa"
+    sha256 cellar: :any,                 arm64_ventura: "6d486f3f64b3004b204c4d2f98ad9b80600c26eb724fcd69e72d3c17db8b1439"
+    sha256 cellar: :any,                 sonoma:        "4738000060085f88555b16c4a8456ce53f11008924ae714b50a606178bffe1a0"
+    sha256 cellar: :any,                 ventura:       "e334016fa6d66070e67092ba5366c977bb3a49ce37f4fe7cf38c448ec4cd2eb3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78f502e10b5ec5b7bab2d1822cc0aa4db19cb017da86f4d2b1c7cd57091697e6"
   end
 
   depends_on "graphviz"
