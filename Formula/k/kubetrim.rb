@@ -5,6 +5,15 @@ class Kubetrim < Formula
   sha256 "fb1c127efa8c927e74627bae9a043e2cf505183d607cbfacf6eea8c8449a3383"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "acbcdd0bef57b7bebf823e4a8188e92008bd28ff5bddad717c6d730e4931a30e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "acbcdd0bef57b7bebf823e4a8188e92008bd28ff5bddad717c6d730e4931a30e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "acbcdd0bef57b7bebf823e4a8188e92008bd28ff5bddad717c6d730e4931a30e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c713518860291419d0aeaad5f01749956988e7ad1f633f99f5fc016048cd8bd5"
+    sha256 cellar: :any_skip_relocation, ventura:       "c713518860291419d0aeaad5f01749956988e7ad1f633f99f5fc016048cd8bd5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6e37b854d49f12f623eaa6ab5f2415d096b9fe0c6e319e7b62212d34e627332"
+  end
+
   depends_on "go" => :build
 
   def install
