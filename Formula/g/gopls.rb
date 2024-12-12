@@ -1,8 +1,8 @@
 class Gopls < Formula
   desc "Language server for the Go language"
   homepage "https://github.com/golang/tools/tree/master/gopls"
-  url "https://github.com/golang/tools/archive/refs/tags/gopls/v0.16.2.tar.gz"
-  sha256 "be68b3159fcb8cde9ebb8b468f67f03531c58be2de33edbac69e5599f2d4a2c1"
+  url "https://github.com/golang/tools/archive/refs/tags/gopls/v0.17.0.tar.gz"
+  sha256 "0d362528c42d4110933515cbabd7c6383048eb279a0b74a6322883acbcc3a381"
   license "BSD-3-Clause"
 
   livecheck do
@@ -26,7 +26,7 @@ class Gopls < Formula
 
   def install
     cd "gopls" do
-      system "go", "build", *std_go_args
+      system "go", "build", *std_go_args(ldflags: "-s -w")
     end
   end
 
@@ -34,7 +34,7 @@ class Gopls < Formula
     output = shell_output("#{bin}/gopls api-json")
     output = JSON.parse(output)
 
-    assert_equal "gopls.add_dependency", output["Commands"][0]["Command"]
     assert_equal "buildFlags", output["Options"]["User"][0]["Name"]
+    assert_equal "Go", output["Lenses"][0]["FileType"]
   end
 end
