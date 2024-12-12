@@ -5,6 +5,15 @@ class BrunoCli < Formula
   sha256 "306960cae30c183fa219527c4898dad71ee6236c8651fa028b4db711d38e5d67"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fe9a96affa1cad1d328755860183241ce6bf60cd758c4207c5c906ad8541beef"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe9a96affa1cad1d328755860183241ce6bf60cd758c4207c5c906ad8541beef"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "fe9a96affa1cad1d328755860183241ce6bf60cd758c4207c5c906ad8541beef"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e9629275dcd9ed700d7959933b79765dd77e71a14793b252341733566b7cf255"
+    sha256 cellar: :any_skip_relocation, ventura:       "e9629275dcd9ed700d7959933b79765dd77e71a14793b252341733566b7cf255"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe9a96affa1cad1d328755860183241ce6bf60cd758c4207c5c906ad8541beef"
+  end
+
   depends_on "node"
 
   def install
