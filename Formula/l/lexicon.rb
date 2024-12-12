@@ -3,8 +3,8 @@ class Lexicon < Formula
 
   desc "Manipulate DNS records on various DNS providers in a standardized way"
   homepage "https://github.com/AnalogJ/lexicon"
-  url "https://files.pythonhosted.org/packages/9e/1e/c9ed9974bd7549b48bf1bb7e2d4c941d14204e9ac3777da0bef3f09290d2/dns_lexicon-3.19.0.tar.gz"
-  sha256 "7b1f55a001655351610c94931c2833742a025e51f05555610649a16649f5d2e0"
+  url "https://files.pythonhosted.org/packages/27/fe/268dffd22bdd288ffa693ae70a9b61e229027df62333792fe6aabad029fa/dns_lexicon-3.20.0.tar.gz"
+  sha256 "2ccc6a62dcc070caf526b3bfaca42a0c8fe102509085cc3215a3805171b2317c"
   license "MIT"
   head "https://github.com/AnalogJ/lexicon.git", branch: "master"
 
@@ -36,13 +36,13 @@ class Lexicon < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/7a/24/31f56d43419dadf71d9d30192ebc1577fdef2e703622e1fe4cf370cce98f/boto3-1.35.76.tar.gz"
-    sha256 "31ddcdb6f15dace2b68f6a0f11bdb58dd3ae79b8a3ccb174ff811ef0bbf938e0"
+    url "https://files.pythonhosted.org/packages/c1/01/cea53440a882f1d9772e128d205482df0005f9425166dccbb5513953e43a/boto3-1.35.79.tar.gz"
+    sha256 "1fa26217cd33ded82e55aed4460cd55f7223fa647916aa0d3c5d6828e6ec7135"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/bb/73/c3f127c48869a3555e59c5cd381de119d96a02912dc789443fdaefa44807/botocore-1.35.76.tar.gz"
-    sha256 "a75a42ae53395796b8300c5fefb2d65a8696dc40dc85e49cf3a769e0c0202b13"
+    url "https://files.pythonhosted.org/packages/15/4f/ff271a347a3aaa24b41f4893a3f92a8ebfbe26cd96a5b3daaa15995a815b/botocore-1.35.79.tar.gz"
+    sha256 "245bfdda1b1508539ddd1819c67a8a2cc81780adf0715d3de418d64c4247f346"
   end
 
   resource "charset-normalizer" do
@@ -106,8 +106,8 @@ class Lexicon < Formula
   end
 
   resource "oci" do
-    url "https://files.pythonhosted.org/packages/d9/4b/4edda6d36db872feae47c428164d647cd21df62b5f82a608a345fde74b18/oci-2.139.0.tar.gz"
-    sha256 "72bb03e13e169b0bc3b19cd4e9d07b00d53acec92baa969d161235a38026f48e"
+    url "https://files.pythonhosted.org/packages/a0/9a/d9c0c60a55b9f3625e5a9390afe4805de6b77c12e678939271e59da70766/oci-2.140.0.tar.gz"
+    sha256 "a71ceb95c919ce100778c33119bf9e6adee552003630ff161a3daa8cda0021f6"
   end
 
   resource "platformdirs" do
@@ -196,8 +196,8 @@ class Lexicon < Formula
   end
 
   resource "tencentcloud-sdk-python" do
-    url "https://files.pythonhosted.org/packages/c6/87/26775966255470f8552dc8e1e4c6b879a50b483526cba8dc7aad4d77ec8a/tencentcloud-sdk-python-3.0.1277.tar.gz"
-    sha256 "e6bc0583a62e3ba352c4b6323cd5aa90f1c6e6b94ee61868a14f7ea827c63aca"
+    url "https://files.pythonhosted.org/packages/85/fd/90ea3cb9e83a848aa5f7d859ff8ea3ace9bc16f5d6fe032d7bc04494ee88/tencentcloud-sdk-python-3.0.1280.tar.gz"
+    sha256 "83fce10f2db08c2dea483ad02ced06280975a0e98671676122105b3201ff3196"
   end
 
   resource "tldextract" do
