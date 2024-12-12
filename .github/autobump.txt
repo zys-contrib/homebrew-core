@@ -296,6 +296,7 @@ brook
 broot
 brotli
 brpc
+bruno-cli
 btrfs-progs
 bubblewrap
 buf
