@@ -1,8 +1,8 @@
 class EspeakNg < Formula
   desc "Speech synthesizer that supports more than hundred languages and accents"
   homepage "https://github.com/espeak-ng/espeak-ng"
-  url "https://github.com/espeak-ng/espeak-ng/archive/refs/tags/1.51.tar.gz"
-  sha256 "f0e028f695a8241c4fa90df7a8c8c5d68dcadbdbc91e758a97e594bbb0a3bdbf"
+  url "https://github.com/espeak-ng/espeak-ng/archive/refs/tags/1.52.0.tar.gz"
+  sha256 "bb4338102ff3b49a81423da8a1a158b420124b055b60fa76cfb4b18677130a23"
   # NOTE: We omit BSD-2-Clause as getopt.c is only used on Windows
   license "GPL-3.0-or-later"
   head "https://github.com/espeak-ng/espeak-ng.git", branch: "master"
