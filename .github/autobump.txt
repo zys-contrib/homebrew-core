@@ -1797,6 +1797,7 @@ lighthouse
 lightning
 lighttpd
 lima
+limbo
 link-grammar
 linkerd
 links
