@@ -1,8 +1,8 @@
 class Monika < Formula
   desc "Synthetic monitoring made easy"
   homepage "https://monika.hyperjump.tech"
-  url "https://registry.npmjs.org/@hyperjumptech/monika/-/monika-1.21.1.tgz"
-  sha256 "f0f87ce40c771b2b7b4c723ddec41200bf180ff788138559dad0cf4fd731d6b6"
+  url "https://registry.npmjs.org/@hyperjumptech/monika/-/monika-1.21.2.tgz"
+  sha256 "a9280ac4c288a79c77c28263042fab1d4cc785ef08f94d0cfd3cb25b7e40dce4"
   license "MIT"
 
   bottle do
@@ -32,6 +32,11 @@ class Monika < Formula
     node_modules = libexec/"lib/node_modules/@hyperjumptech/monika/node_modules"
     node_modules.glob("nice-napi/prebuilds/*")
                 .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
+
+    cpu_profiler = "@sentry/profiling-node/lib/sentry_cpu_profiler"
+    node_modules.glob("#{cpu_profiler}-*")
+                .each { |file| rm(file) unless file.basename.to_s.start_with?("sentry_cpu_profiler-#{os}-#{arch}") }
+    node_modules.glob("#{cpu_profiler}-*-musl-*").map(&:unlink) if OS.linux?
   end
 
   test do
@@ -53,7 +58,8 @@ class Monika < Formula
       $stdout.reopen(monika_stdout)
       exec bin/"monika", "-r", "1", "-c", testpath/"config.yml"
     end
-    sleep 14
+    sleep 15
+    sleep 15 if OS.mac? && Hardware::CPU.intel?
 
     assert_match "Starting Monika. Probes: 1. Notifications: 1", monika_stdout.read
   end
