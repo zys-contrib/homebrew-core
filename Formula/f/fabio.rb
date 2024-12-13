@@ -1,8 +1,8 @@
 class Fabio < Formula
   desc "Zero-conf load balancing HTTP(S) router"
   homepage "https://github.com/fabiolb/fabio"
-  url "https://github.com/fabiolb/fabio/archive/refs/tags/v1.6.3.tar.gz"
-  sha256 "e85b70a700652b051260b8c49ce63d21d2579517601a91d893a7fa9444635ad3"
+  url "https://github.com/fabiolb/fabio/archive/refs/tags/v1.6.4.tar.gz"
+  sha256 "cd80ee0dedb78e865814fd0aae311546a3bbae8ef839e636049a540fbecbf99b"
   license "MIT"
   head "https://github.com/fabiolb/fabio.git", branch: "master"
 
@@ -19,10 +19,8 @@ class Fabio < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee9395e3877ab2abdaa6dddba8405241ca30ce5c0ae56eada5b01e15cdb37382"
   end
 
-  deprecate! date: "2024-02-04", because: "depends on soon to be deprecated consul"
-
   depends_on "go" => :build
-  depends_on "consul"
+  depends_on "etcd" => :test
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
@@ -41,28 +39,32 @@ class Fabio < Formula
     require "socket"
     require "timeout"
 
-    consul_default_port = 8500
     fabio_default_port = 9999
     localhost_ip = "127.0.0.1".freeze
 
-    if port_open?(localhost_ip, fabio_default_port)
-      puts "Fabio already running or Consul not available or starting fabio failed."
-      false
-    else
-      if port_open?(localhost_ip, consul_default_port)
-        puts "Consul already running"
-      else
-        fork do
-          exec "consul agent -dev -bind 127.0.0.1"
-        end
-        sleep 30
-      end
-      fork do
-        exec bin/"fabio"
-      end
-      sleep 10
-      assert_equal true, port_open?(localhost_ip, fabio_default_port)
-      system "consul", "leave"
-    end
+    pid_etcd = spawn "etcd", "--advertise-client-urls", "http://127.0.0.1:2379",
+                             "--listen-client-urls", "http://127.0.0.1:2379"
+    sleep 10
+
+    system "etcdctl", "--endpoints=http://127.0.0.1:2379", "put", "/fabio/config", ""
+
+    (testpath/"fabio.properties").write <<~EOS
+      registry.backend=custom
+      registry.custom.host=127.0.0.1:2379
+      registry.custom.scheme=http
+      registry.custom.path=/fabio/config
+      registry.custom.timeout=5s
+      registry.custom.pollinterval=10s
+    EOS
+
+    pid_fabio = spawn bin/"fabio", "-cfg", testpath/"fabio.properties"
+    sleep 10
+
+    assert_equal true, port_open?(localhost_ip, fabio_default_port)
+  ensure
+    Process.kill("TERM", pid_etcd)
+    Process.kill("TERM", pid_fabio)
+    Process.wait(pid_etcd)
+    Process.wait(pid_fabio)
   end
 end
