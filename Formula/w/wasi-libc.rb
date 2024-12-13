@@ -27,13 +27,12 @@ class WasiLibc < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "baa8c0d028e3691de22e06d6e9958a61898ad0764ffac57441627bb941da6814"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "baa8c0d028e3691de22e06d6e9958a61898ad0764ffac57441627bb941da6814"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "baa8c0d028e3691de22e06d6e9958a61898ad0764ffac57441627bb941da6814"
-    sha256 cellar: :any_skip_relocation, sonoma:        "baa8c0d028e3691de22e06d6e9958a61898ad0764ffac57441627bb941da6814"
-    sha256 cellar: :any_skip_relocation, ventura:       "baa8c0d028e3691de22e06d6e9958a61898ad0764ffac57441627bb941da6814"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32bf0d734a80239892bcaa7c605aea4021e2e45bd2b906231219ab743da488c0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "89f102505760c8d6b154f1574e619e2755e2fd7ff878596ec6c49ea5b62e4da1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "89f102505760c8d6b154f1574e619e2755e2fd7ff878596ec6c49ea5b62e4da1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "89f102505760c8d6b154f1574e619e2755e2fd7ff878596ec6c49ea5b62e4da1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "89f102505760c8d6b154f1574e619e2755e2fd7ff878596ec6c49ea5b62e4da1"
+    sha256 cellar: :any_skip_relocation, ventura:       "89f102505760c8d6b154f1574e619e2755e2fd7ff878596ec6c49ea5b62e4da1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bbe27ea11d50c62ecfba2922e3a4ff27b16f215eeae08738413ef7f9b01d2a95"
   end
 
   depends_on "llvm" => [:build, :test]
