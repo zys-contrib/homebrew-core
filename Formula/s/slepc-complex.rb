@@ -9,6 +9,15 @@ class SlepcComplex < Formula
     formula "slepc"
   end
 
+  bottle do
+    sha256 arm64_sequoia: "ab7353a6dabe7d12b44fe9f606178d93ea79319d12f18196ab8eb7ecdb363e5e"
+    sha256 arm64_sonoma:  "8c83602b8ee3da9d3c6037acc701892a06427dcc65196521240f3a28f0d0e425"
+    sha256 arm64_ventura: "2454ec267bb175ee89e152eb83ad919099f4469e49f80ec98da6deba0da1510c"
+    sha256 sonoma:        "1bf269557030623c97a6524ac992f20ccae2337c41cb0027888d042874d2e82a"
+    sha256 ventura:       "74c1ece8bf8ae685f8f9b0817cea8c3b005e949ef8953999c0485af27dd30578"
+    sha256 x86_64_linux:  "29b2f617d5cae86c0a023d2aaea35d053f73b06e40f6e705aeeedbc99e2aadb7"
+  end
+
   depends_on "open-mpi"
   depends_on "openblas"
   depends_on "petsc-complex"
