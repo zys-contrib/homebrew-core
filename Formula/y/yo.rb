@@ -1,8 +1,8 @@
 class Yo < Formula
   desc "CLI tool for running Yeoman generators"
   homepage "https://yeoman.io"
-  url "https://registry.npmjs.org/yo/-/yo-5.0.0.tgz"
-  sha256 "4395888eda54803a590d20d92b285c4abebd81402908b5becdf9cbc6cbeba65f"
+  url "https://registry.npmjs.org/yo/-/yo-5.1.0.tgz"
+  sha256 "b3b2abe646c47d8e60b93394ed219779dce26347c59d8ba337a62ea4226e1ec5"
   license "BSD-2-Clause"
   head "https://github.com/yeoman/yo.git", branch: "main"
 
