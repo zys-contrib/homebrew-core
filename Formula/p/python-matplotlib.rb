@@ -8,12 +8,12 @@ class PythonMatplotlib < Formula
   license "PSF-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "78339723212add8a888ffc56e6a0ee2c79d18d5877ee257ae65f605ceadc08ff"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e4755830349f704ec69274b415add272c1b9760eddc5ed520564eeacae2592dc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "48784f76ccd746b24eb37a0df52df2458a36245196104215cc22fce47feccf88"
-    sha256 cellar: :any_skip_relocation, sonoma:        "597070b0d48efdfce607068aba7a5c8ea5fcf2d36885b531cd75cfa959e2e9c2"
-    sha256 cellar: :any_skip_relocation, ventura:       "7579b5dc43ce8e7f4380e263c0d0882c62b8d82bec6648c47526938895030b66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "577769c2d31c2b1fb814b4a7c7b0deb47aef3fa7de17ff20818b6bd2d2e581fd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8db36601680fd83e726724a74e3a1f0b5a01de9f0e3c11e9d83d787409f480a8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cef861eb27bb8280dea4bcd756be4620baff377af725c6020a0731f76ccf0e7e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "eb4b23b73a9474944178d9988cf977dcd742a7ec6863ddaba59e0f038baaca0b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f40e3f77c4514d4ff75b6d745459fd550a420fb2c55129bab3ac1c89caf90a7d"
+    sha256 cellar: :any_skip_relocation, ventura:       "feccc202ee1980a3e2a13df44f0155cdd48d327c56c31bb3a750433881adccb7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39683b2d46782c7be7997b261980638accbfdd1e3a55b94d762af87d6675030a"
   end
 
   depends_on "meson" => :build
