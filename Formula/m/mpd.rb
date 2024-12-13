@@ -1,10 +1,20 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://github.com/MusicPlayerDaemon/MPD"
-  url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.23.16.tar.gz"
-  sha256 "a3ba8a4ef53c681ae5d415a79fbd1409d61cb3d03389a51595af24b330ecbb61"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
+
+  stable do
+    url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.23.16.tar.gz"
+    sha256 "a3ba8a4ef53c681ae5d415a79fbd1409d61cb3d03389a51595af24b330ecbb61"
+
+    # support libnfs 6.0.0, upstream commit ref, https://github.com/MusicPlayerDaemon/MPD/commit/31e583e9f8d14b9e67eab2581be8e21cd5712b47
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/557ad661621fa81b5e6ff92ab169ba40eba58786/mpd/0.23.16-libnfs-6.patch"
+      sha256 "e0f2e6783fbb92d9850d31f245044068dc0614721788d16ecfa8aacfc5c27ff3"
+    end
+  end
 
   bottle do
     sha256 cellar: :any, arm64_sequoia: "1006ec44f5c3e1552377a51b5248771289e1771a2b31a70413afe24f2b3afdd5"
@@ -71,6 +81,7 @@ class Mpd < Formula
     ENV.libcxx
 
     args = %W[
+      -Dcpp_std=c++20
       --sysconfdir=#{etc}
       -Dmad=disabled
       -Dmpcdec=disabled
