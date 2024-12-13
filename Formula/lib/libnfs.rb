@@ -6,12 +6,12 @@ class Libnfs < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "fcb8f457b3c931062da17f2b03dc212cac367b2c03bc62b2b74cdffc6c5e6df4"
-    sha256 cellar: :any,                 arm64_sonoma:  "21ce9df74b1ef7002f78d97a6fd03ed5e7d14f16649a415fa3fcebda67ccbf28"
-    sha256 cellar: :any,                 arm64_ventura: "a528cf7f37ed7c7372cf2af7ea4ce62898fc47b711a30d0f0ec9382c0808f828"
-    sha256 cellar: :any,                 sonoma:        "1137695cb76bf3596ce1f1ed1ddbc6027c588555eeb6f017c2c3f052bab1a04b"
-    sha256 cellar: :any,                 ventura:       "7260fb1a04639b3c2c4b1e8967a8b75ec012540d9de6d612079749799f42021c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c526e05b0f69358b24b175a100e4ddfae37f82a747286c6c1d0580731ce259e8"
+    sha256 cellar: :any,                 arm64_sequoia: "a7dde222002bc32bffc79d59ef75f13f904c1704ea9cedb4caed9a427f60e115"
+    sha256 cellar: :any,                 arm64_sonoma:  "3bd08fd8c27af6c0a48fc215feb89ba9879054b16b5f9dc465c5a99bc1f015ef"
+    sha256 cellar: :any,                 arm64_ventura: "8981260780efb3ae005b7a8d873eea61c4d9c4a68939b66185ac3e997e87f36d"
+    sha256 cellar: :any,                 sonoma:        "74330ab7704e64e960f637a725692b50fbd175fe5fab6e0845fd45d19bf6c0bd"
+    sha256 cellar: :any,                 ventura:       "234d992e081fc292e7227e7c49b88ab45c9d18912df1d7831096b8dbce463649"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a71129f89e6532aa5e969acd7603c58c77dd6c133d3a84b5242bea49bfb8d631"
   end
 
   depends_on "cmake" => :build
