@@ -7,6 +7,15 @@ class Posting < Formula
   sha256 "960b95c8bb2ae11db3cc4cb6b7ec20af87cd47218f77b62b80a527c8c590a595"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "a7105315e560cf54ab1eb104315d2881cfc8a8fbe135fd7001b319480abfee84"
+    sha256 cellar: :any,                 arm64_sonoma:  "060466c8c92d827736290c966e962aaf4c0dffb0e1fa9e63548ea2040826f456"
+    sha256 cellar: :any,                 arm64_ventura: "fa108a79e28faaad88eacee9905cdcbf97bd05a3fdcace5f4971fddc01590640"
+    sha256 cellar: :any,                 sonoma:        "b2f700f079e5cccef4d0d0e97d446e86cda94b19b32530f71d79b56868555ba2"
+    sha256 cellar: :any,                 ventura:       "52f574c3e39374e50db3241f49073766c4beef90d4d042f62043f014a4043c59"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db080bb1fbc9f6a3f6fc41235dfb2b37d88ce3fb2c3ad099e428d18bac81ff59"
+  end
+
   depends_on "cmake" => :build
   depends_on "rust" => :build
 
