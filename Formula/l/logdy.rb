@@ -1,8 +1,8 @@
 class Logdy < Formula
   desc "Web based real-time log viewer"
   homepage "https://logdy.dev"
-  url "https://github.com/logdyhq/logdy-core/archive/refs/tags/v0.13.3.tar.gz"
-  sha256 "c89bdf341cecfd6bfcd72ff97fe51faf8f129543861f8c85c4135a3e56c6cb4c"
+  url "https://github.com/logdyhq/logdy-core/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "8ab02af3ad7e98006d86c27d4cc649063b4809d831445aad3028f2bbcc46ba1b"
   license "Apache-2.0"
 
   bottle do
@@ -15,12 +15,6 @@ class Logdy < Formula
   end
 
   depends_on "go" => :build
-
-  # fix build with removing `PersistentPostRun`, upstream pr ref, https://github.com/logdyhq/logdy-core/pull/69
-  patch do
-    url "https://github.com/logdyhq/logdy-core/commit/4d845c0f09054940fc63f2c22cf183f4c99a8539.patch?full_index=1"
-    sha256 "dbc3d2ec8ed4e7635ad4911d7b4fd0cd6929260e2d6dea871bba53765b2737ee"
-  end
 
   def install
     ldflags = "-s -w -X main.Version=#{version}"
