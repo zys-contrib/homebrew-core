@@ -3017,6 +3017,7 @@ titlecase
 tkey-ssh-agent
 tlsx
 tmpmail
+tmt
 tmux-mem-cpu-load
 tmux-sessionizer
 tmux-xpanes

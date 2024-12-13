@@ -838,6 +838,9 @@
   "theharvester": {
     "exclude_packages": ["certifi"]
   },
+  "tmt": {
+    "exclude_packages": ["certifi"]
+  },
   "toot": {
     "package_name": "toot[images,richtext]",
     "exclude_packages": ["certifi", "pillow"]

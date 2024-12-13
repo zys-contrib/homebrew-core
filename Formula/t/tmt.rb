@@ -3,8 +3,8 @@ class Tmt < Formula
 
   desc "Test Management Tool"
   homepage "https://tmt.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/e1/4c/4e82bb59cc070b24d70e57a53813650b595987330d2e4ef7f53cd588a245/tmt-1.39.0.tar.gz"
-  sha256 "6bdf71d0dab7ac290c0c908d37e1221717ac13eef0056617a39f84fdf94f6063"
+  url "https://files.pythonhosted.org/packages/ad/b2/596f3649a70240d79db2dc6524aadc01a97b614177bbbff19bc023d0fd65/tmt-1.40.0.tar.gz"
+  sha256 "376cab8457d18e267dbd89cc4f66a386a75f0ce77ae38cebf28e9e754f64e574"
   license "MIT"
 
   bottle do
@@ -20,6 +20,11 @@ class Tmt < Formula
   depends_on "beakerlib"
   depends_on "certifi"
   depends_on "python@3.13"
+
+  resource "annotated-types" do
+    url "https://files.pythonhosted.org/packages/ee/67/531ea369ba64dcff5ec9c3402f9f51bf748cec26dde048a2f973a4eea7f5/annotated_types-0.7.0.tar.gz"
+    sha256 "aff07c09a53a08bc8cfccb9c85b05f1aa9a2a6f23728d790723543408344ce89"
+  end
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/fc/0f/aafca9af9315aee06a89ffde799a10a582fe8de76c563ee80bbcdc08b3fb/attrs-24.2.0.tar.gz"
@@ -57,10 +62,8 @@ class Tmt < Formula
   end
 
   resource "fmf" do
-    # No PyPI source, use git repo instead
-    # https://github.com/teemtee/fmf/issues/224
-    url "https://github.com/teemtee/fmf/archive/refs/tags/1.4.1.tar.gz"
-    sha256 "3a81da682f6d50f686420ff25e89bee339c2405639d15959ffac34df0dc75185"
+    url "https://files.pythonhosted.org/packages/c8/3e/3b679ad8ee893f8de74599d1de87009fdd8c0bb6db6fe17653ab536fb95c/fmf-1.5.0.tar.gz"
+    sha256 "9b5fa5f5bb1d227f30716448fae79bbda6a53803e599e17b22ca684272c75ddb"
   end
 
   resource "idna" do
@@ -103,6 +106,16 @@ class Tmt < Formula
     sha256 "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"
   end
 
+  resource "pydantic" do
+    url "https://files.pythonhosted.org/packages/45/0f/27908242621b14e649a84e62b133de45f84c255eecb350ab02979844a788/pydantic-2.10.3.tar.gz"
+    sha256 "cb5ac360ce894ceacd69c403187900a02c4b20b693a9dd1d643e1effab9eadf9"
+  end
+
+  resource "pydantic-core" do
+    url "https://files.pythonhosted.org/packages/a6/9f/7de1f19b6aea45aeb441838782d68352e71bfa98ee6fa048d5041991b33e/pydantic_core-2.27.1.tar.gz"
+    sha256 "62a763352879b84aa31058fc931884055fd75089cccbd9d58bb6afd01141b235"
+  end
+
   resource "pygments" do
     url "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz"
     sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
@@ -119,8 +132,8 @@ class Tmt < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/23/80/afdf96daf9b27d61483ef05b38f282121db0e38f5fd4e89f40f5c86c2a4f/rpds_py-0.21.0.tar.gz"
-    sha256 "ed6378c9d66d0de903763e7706383d60c33829581f0adff47b6535f1802fa6db"
+    url "https://files.pythonhosted.org/packages/01/80/cce854d0921ff2f0a9fa831ba3ad3c65cee3a46711addf39a2af52df2cfd/rpds_py-0.22.3.tar.gz"
+    sha256 "e32fee8ab45d3c2db6da19a5323bc3362237c8b653c70194414b892fd06a080d"
   end
 
   resource "ruamel-yaml" do
