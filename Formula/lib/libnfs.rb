@@ -1,8 +1,8 @@
 class Libnfs < Formula
   desc "C client library for NFS"
   homepage "https://github.com/sahlberg/libnfs"
-  url "https://github.com/sahlberg/libnfs/archive/refs/tags/libnfs-6.0.0.tar.gz"
-  sha256 "6fe64b5a47b2558484c8beb05819c1f1f3e52cc52a7b3a8b805faf398e9a9c24"
+  url "https://github.com/sahlberg/libnfs/archive/refs/tags/libnfs-6.0.1.tar.gz"
+  sha256 "16c2f2f67c68e065304e42a9975e9238f773c53c3cd048574e83c6f8a9f445c3"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -17,19 +17,6 @@ class Libnfs < Formula
   depends_on "cmake" => :build
   depends_on "docbook" => :build
   depends_on "docbook-xsl" => :build
-
-  # Ref: https://github.com/sahlberg/libnfs/commit/2044497b7faba9404a3a17e81cbfdeb5e8aaaa9c
-  # Remove on next release
-  patch do
-    url "https://github.com/sahlberg/libnfs/commit/2044497b7faba9404a3a17e81cbfdeb5e8aaaa9c.patch?full_index=1"
-    sha256 "b31e61faa640ea1c5b590bc884c57fef2d6c40e9ee94596353648d057026bc1b"
-  end
-
-  # rpath config patch, upstream pr ref, https://github.com/sahlberg/libnfs/pull/502
-  patch do
-    url "https://github.com/sahlberg/libnfs/commit/2db7ebd9e15b4fedd2750af1a3d66b146c1da3b7.patch?full_index=1"
-    sha256 "eed5d8f35742278b74c2592473554a0050da9105432028e82f5b13d32e52d8b8"
-  end
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
