@@ -2404,6 +2404,7 @@ postgresql@15
 postgresql@16
 postgresql@17
 postgrest
+posting
 poutine
 powerline-go
 powerman
