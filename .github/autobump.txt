@@ -2025,6 +2025,7 @@ mujs
 multi-git-status
 multitail
 muon
+muparser
 murex
 musikcube
 mutt
