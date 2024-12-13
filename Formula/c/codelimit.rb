@@ -3,8 +3,8 @@ class Codelimit < Formula
 
   desc "Your Refactoring Alarm"
   homepage "https://github.com/getcodelimit/codelimit"
-  url "https://files.pythonhosted.org/packages/77/8e/d9bfa3c43b293f6934b43b6dda6e9c56c63924c270d9d687dffe3f35237e/codelimit-0.13.0.tar.gz"
-  sha256 "98133173220f2c14c0a7e8c71387fc913aa532c0c53ab0482a25ad89fade4913"
+  url "https://files.pythonhosted.org/packages/29/98/1b0daa30392bcb6b99ba70e3b4cc7784a5cef89bf47b8c9f9824452a17d0/codelimit-0.14.0.tar.gz"
+  sha256 "b011d51e3aed55477dc9b0f772ee54dfcf9b44c81a53f109f0c9e72e9b184b96"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -90,6 +90,11 @@ class Codelimit < Formula
     sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
   end
 
+  resource "pyperclip" do
+    url "https://files.pythonhosted.org/packages/30/23/2f0a3efc4d6a32f3b63cdff36cd398d9701d26cda58e3ab97ac79fb5e60d/pyperclip-1.9.0.tar.gz"
+    sha256 "b7de0142ddc81bfc5c7507eea19da920b92252b548b96186caf94a5e2527d310"
+  end
+
   resource "pyyaml" do
     url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
     sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
@@ -103,6 +108,11 @@ class Codelimit < Formula
   resource "rich" do
     url "https://files.pythonhosted.org/packages/ab/3a/0316b28d0761c6734d6bc14e770d85506c986c85ffb239e688eeaab2c2bc/rich-13.9.4.tar.gz"
     sha256 "439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"
+  end
+
+  resource "sh" do
+    url "https://files.pythonhosted.org/packages/52/12/b7965006c5adc57ba5459385358bd27c4983cd490884a75be86eb1d3efeb/sh-2.1.0.tar.gz"
+    sha256 "7e27301c574bec8ca5bf6f211851357526455ee97cd27a7c4c6cc5e2375399cb"
   end
 
   resource "typer" do
