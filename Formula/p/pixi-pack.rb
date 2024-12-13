@@ -6,6 +6,15 @@ class PixiPack < Formula
   license "BSD-3-Clause"
   head "https://github.com/quantco/pixi-pack.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c92b366fcc6817e56e3e59ef867cd001aef2d2778399a8ed8fe1b92b3d75c26a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3aac9b6f567d34050e684c236dfffb8e9b073c7bfa764d6ba603997f6cb11d73"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2243e0179886c73fa74939ee0a16982d6595806dfd3a0208696a04a8c871b305"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ea582b6d7cd63c5ae192b6e969858d122fb2d534be58ebe53f7d78ac65396b1e"
+    sha256 cellar: :any_skip_relocation, ventura:       "4581a3e8a26d8230ff5ae74889d3579df25f5591785dd5a54cef11113e747947"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a73baa4e8a18e3d24c190fe3462a3eee06970ec109b1d1cca1931a381e067b1"
+  end
+
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
