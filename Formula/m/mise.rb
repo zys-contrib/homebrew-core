@@ -12,12 +12,12 @@ class Mise < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "197d7fcf99335ebf02bdd72d4de6470cdde13e4e5550de96141ae6e1e1eee178"
-    sha256 cellar: :any,                 arm64_sonoma:  "96c2f807a2228b79db82cc84e6cb758606c04e731ccc49ca29ef8df3dab503bb"
-    sha256 cellar: :any,                 arm64_ventura: "e21ba3cfb6a8fbffd7b284b1c7549cb346c6c0a83a6a3d6837a7c466fdb7f686"
-    sha256 cellar: :any,                 sonoma:        "3f73e6695adca67e08395c3e96a7fef8f0a8c08eb83ad693bf555eba4332c968"
-    sha256 cellar: :any,                 ventura:       "bf746a3363a95d8ce23c0648ff2e73f728aedebda35d7c8b691905b4a99c8b42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a884b882c28954c3509c74591839f901c0b7d44b315e8beac2d016983fd0d84"
+    sha256 cellar: :any,                 arm64_sequoia: "66fb73b612940aacceac02ccc11b70a9357310be1f15f771e16b17a687a3f12b"
+    sha256 cellar: :any,                 arm64_sonoma:  "df1e005f2395e5b6726eb8430e19efdc6fd6cbda8f6da297da551ecebd4ef51c"
+    sha256 cellar: :any,                 arm64_ventura: "a206a3a4688400a887e39bb983d4f0865ccaf2f3f0bb99ac9bc88bd0d5ed474c"
+    sha256 cellar: :any,                 sonoma:        "b66096a268da10e3d087f88d151c0e5dcd8f05e3a7affb49a3980ba7d783599a"
+    sha256 cellar: :any,                 ventura:       "de12b30a131ff1ffd0afc1e937b64b2a43b6b595337a2b7c16067eb55d544223"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "048c2c6fb00645534262143e84d7c82f0d348b31550bc0cdbaba5d2d8dd367d5"
   end
 
   depends_on "pkgconf" => :build
