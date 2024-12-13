@@ -209,7 +209,7 @@ class WasiRuntimes < Formula
       system clang, "--target=#{target}", "-v", "test.c", "-o", "test-#{target}"
       assert_equal "the answer is 42", shell_output("wasmtime #{testpath}/test-#{target}")
 
-      pthread_flags = target.end_with?("-threads") ? ["-D_WASI_EMULATED_PTHREAD"] : []
+      pthread_flags = target.end_with?("-threads") ? ["-pthread"] : []
       system "#{clang}++", "--target=#{target}", "-v", "test.cc", "-o", "test-cxx-#{target}", *pthread_flags
       assert_equal "hello from C++ main with cout!", shell_output("wasmtime #{testpath}/test-cxx-#{target}").chomp
     end
