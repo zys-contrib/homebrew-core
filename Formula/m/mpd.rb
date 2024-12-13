@@ -17,12 +17,12 @@ class Mpd < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "3af030e17bd7433e049c2341b7f3f321e0965c27252655b69b18306d8d992c6d"
-    sha256 cellar: :any, arm64_sonoma:  "cabab5a22d663c2e833fe58fddbdcb03cfbb62a84e4cd107fa5dec021c7a9302"
-    sha256 cellar: :any, arm64_ventura: "369c7be3485037c3acb899eb458379d242eb8a08fe1cd22f16cc6f91d4f8015b"
-    sha256 cellar: :any, sonoma:        "f8fd84ded5edf6e72cb449f7a497af00cc5dd79f8726c5b623a982de9ed37bf8"
-    sha256 cellar: :any, ventura:       "4b5f3543fc9c7ecf05c159e4493698b2e2258c7e4b26f0097508c92484963323"
-    sha256               x86_64_linux:  "4002b2017b63e8f966c7bb9002f89cd8f1009e2fd4fff956bcc5ea39305c274a"
+    sha256 cellar: :any, arm64_sequoia: "78824e8522be8ed0295a10425e51d240dd57ca42b7144575cf927a8c96a5f05d"
+    sha256 cellar: :any, arm64_sonoma:  "cf82215e0eae9339430efb14492ed1d1666bc4894b3a272245276afb99d2fcfc"
+    sha256 cellar: :any, arm64_ventura: "e9c07153717e45bd7ed0a520cfaf682d83de67a02ec3b34b7c99f11dc55d3474"
+    sha256 cellar: :any, sonoma:        "04c50d82ff1c8ab9e8fa0b82cb20c4b22ec126de59ac9fc66440431d70ac5a23"
+    sha256 cellar: :any, ventura:       "48c49888012335ccb8bc37f86d5389aa4e4e96c436da8916f953f432005a7ad0"
+    sha256               x86_64_linux:  "5a78d9d87bb558211f09dced67d583c0673ed39a836ba7e583d9193cc01c35b4"
   end
 
   depends_on "boost" => :build
