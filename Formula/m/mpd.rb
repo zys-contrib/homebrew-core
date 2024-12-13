@@ -1,18 +1,28 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://github.com/MusicPlayerDaemon/MPD"
-  url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.23.16.tar.gz"
-  sha256 "a3ba8a4ef53c681ae5d415a79fbd1409d61cb3d03389a51595af24b330ecbb61"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
+  stable do
+    url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.23.16.tar.gz"
+    sha256 "a3ba8a4ef53c681ae5d415a79fbd1409d61cb3d03389a51595af24b330ecbb61"
+
+    # support libnfs 6.0.0, upstream commit ref, https://github.com/MusicPlayerDaemon/MPD/commit/31e583e9f8d14b9e67eab2581be8e21cd5712b47
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/557ad661621fa81b5e6ff92ab169ba40eba58786/mpd/0.23.16-libnfs-6.patch"
+      sha256 "e0f2e6783fbb92d9850d31f245044068dc0614721788d16ecfa8aacfc5c27ff3"
+    end
+  end
+
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "1006ec44f5c3e1552377a51b5248771289e1771a2b31a70413afe24f2b3afdd5"
-    sha256 cellar: :any, arm64_sonoma:  "52b6640e47e904a95131c300f18c65bf61c2bd267c68d57d692bd9ff8a5f08e4"
-    sha256 cellar: :any, arm64_ventura: "61b804812874fd1cb7bfac014e5d7ffc266d836a8efa294f38ed2cc61dc6768f"
-    sha256 cellar: :any, sonoma:        "dbabcb12a9e9322aa1c86c4c1987e737b73b7c984381b570702ddbc8e85952b1"
-    sha256 cellar: :any, ventura:       "7ee23cae927105128197d77fa7cd800253ca9c13c56def3883452b9182da4343"
-    sha256               x86_64_linux:  "0abc08fe20c596d3747c99905001e0319412848cbdd466b40a8dc6d55fb2ece4"
+    sha256 cellar: :any, arm64_sequoia: "3af030e17bd7433e049c2341b7f3f321e0965c27252655b69b18306d8d992c6d"
+    sha256 cellar: :any, arm64_sonoma:  "cabab5a22d663c2e833fe58fddbdcb03cfbb62a84e4cd107fa5dec021c7a9302"
+    sha256 cellar: :any, arm64_ventura: "369c7be3485037c3acb899eb458379d242eb8a08fe1cd22f16cc6f91d4f8015b"
+    sha256 cellar: :any, sonoma:        "f8fd84ded5edf6e72cb449f7a497af00cc5dd79f8726c5b623a982de9ed37bf8"
+    sha256 cellar: :any, ventura:       "4b5f3543fc9c7ecf05c159e4493698b2e2258c7e4b26f0097508c92484963323"
+    sha256               x86_64_linux:  "4002b2017b63e8f966c7bb9002f89cd8f1009e2fd4fff956bcc5ea39305c274a"
   end
 
   depends_on "boost" => :build
@@ -71,6 +81,7 @@ class Mpd < Formula
     ENV.libcxx
 
     args = %W[
+      -Dcpp_std=c++20
       --sysconfdir=#{etc}
       -Dmad=disabled
       -Dmpcdec=disabled
