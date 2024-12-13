@@ -1,10 +1,24 @@
 class Glslang < Formula
   desc "OpenGL and OpenGL ES reference compiler for shading languages"
   homepage "https://www.khronos.org/opengles/sdk/tools/Reference-Compiler/"
-  url "https://github.com/KhronosGroup/glslang/archive/refs/tags/15.0.0.tar.gz"
-  sha256 "c31c8c2e89af907507c0631273989526ee7d5cdf7df95ececd628fd7b811e064"
   license all_of: ["BSD-3-Clause", "GPL-3.0-or-later", "MIT", "Apache-2.0"]
-  head "https://github.com/KhronosGroup/glslang.git", branch: "main"
+
+  stable do
+    url "https://github.com/KhronosGroup/glslang/archive/refs/tags/15.1.0.tar.gz"
+    sha256 "4bdcd8cdb330313f0d4deed7be527b0ac1c115ff272e492853a6e98add61b4bc"
+
+    resource "SPIRV-Tools" do
+      # in known_good.json
+      url "https://github.com/KhronosGroup/SPIRV-Tools.git",
+          revision: "4d2f0b40bfe290dea6c6904dafdf7fd8328ba346"
+    end
+
+    resource "SPIRV-Headers" do
+      # in known_good.json
+      url "https://github.com/KhronosGroup/SPIRV-Headers.git",
+          revision: "3f17b2af6784bfa2c5aa5dbb8e0e74a607dd8b3b"
+    end
+  end
 
   livecheck do
     url :stable
@@ -20,19 +34,35 @@ class Glslang < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c50ddf958a0f1b6c28484a89519e3b51037b7d4027ec3bba007646cc48f3a9ea"
   end
 
+  head do
+    url "https://github.com/KhronosGroup/glslang.git", branch: "main"
+
+    resource "SPIRV-Tools" do
+      url "https://github.com/KhronosGroup/SPIRV-Tools.git", branch: "main"
+    end
+
+    resource "SPIRV-Headers" do
+      url "https://github.com/KhronosGroup/SPIRV-Headers.git", branch: "main"
+    end
+  end
+
   depends_on "cmake" => :build
-  depends_on "spirv-tools"
   uses_from_macos "python" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DBUILD_EXTERNAL=OFF",
-                    "-DALLOW_EXTERNAL_SPIRV_TOOLS=ON",
-                    "-DBUILD_SHARED_LIBS=ON",
-                    "-DENABLE_CTEST=OFF",
-                    "-DENABLE_OPT=ON",
-                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                    *std_cmake_args
+    (buildpath/"External/spirv-tools").install resource("SPIRV-Tools")
+    (buildpath/"External/spirv-tools/external/spirv-headers").install resource("SPIRV-Headers")
+
+    args = %W[
+      -DBUILD_EXTERNAL=OFF
+      -DALLOW_EXTERNAL_SPIRV_TOOLS=ON
+      -DBUILD_SHARED_LIBS=ON
+      -DENABLE_CTEST=OFF
+      -DENABLE_OPT=ON
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
