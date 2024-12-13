@@ -67,7 +67,6 @@ class Gnuradio < Formula
   #
   # The following are paths where packages are used:
   # * click - gr-utils/modtool/cli/
-  # * click-plugins - gr-utils/modtool/cli/base.py
   # * jsonschema - grc/blocks/json_config.block.yml
   # * lxml - grc/converter/xml.py
   # * mako - grc/
@@ -84,11 +83,6 @@ class Gnuradio < Formula
   resource "click" do
     url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
     sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
-  end
-
-  resource "click-plugins" do
-    url "https://files.pythonhosted.org/packages/5f/1d/45434f64ed749540af821fd7e42b8e4d23ac04b1eda7c26613288d6cd8a8/click-plugins-1.1.1.tar.gz"
-    sha256 "46ab999744a9d831159c3411bb0c79346d94a444df9a3a3742e9ed63645f264b"
   end
 
   resource "jsonschema" do
