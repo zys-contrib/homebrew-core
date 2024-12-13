@@ -10,6 +10,15 @@ class Slepc < Formula
     regex(/href=.*?slepc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 arm64_sequoia: "d65d1f7f316b0262f89880602af589790ebe17a1f5b9031e77db219ba9fcc365"
+    sha256 arm64_sonoma:  "9c4e461e155f83e922980cae2864824891b327f78562c3fe92d79afc3b8b8551"
+    sha256 arm64_ventura: "b1415373f667cf826e394a40cdfcd653c530ba9e0fd883c9bcf1ac2e3b96eeb5"
+    sha256 sonoma:        "64f48ee58323e9b79092bb356ed3dc231b9fe06dc3e91341ea95ec3089ff9083"
+    sha256 ventura:       "f7f143d03d5f90821ff06740345e7f4b939a59fdad3c821759fd29904243d087"
+    sha256 x86_64_linux:  "a5ff1205d46e9b21332791a2695bac0c48386e08e6fbc2b8a1ee27b02421220c"
+  end
+
   depends_on "open-mpi"
   depends_on "openblas"
   depends_on "petsc"
