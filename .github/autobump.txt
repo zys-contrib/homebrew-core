@@ -3206,6 +3206,7 @@ vvdec
 vvenc
 wabt
 waffle
+wails
 wakatime-cli
 walk
 wallpaper
