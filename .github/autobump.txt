@@ -1666,6 +1666,7 @@ libhandy
 libheif
 libhubbub
 libical
+libice
 libidn2
 libimagequant
 libimobiledevice-glue
