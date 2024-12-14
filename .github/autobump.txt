@@ -2290,6 +2290,7 @@ parallel
 parallel-hashmap
 parca
 pari
+parlay
 parliament
 parquet-cli
 parsedmarc
