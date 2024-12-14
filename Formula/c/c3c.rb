@@ -1,8 +1,8 @@
 class C3c < Formula
   desc "Compiler for the C3 language"
   homepage "https://github.com/c3lang/c3c"
-  url "https://github.com/c3lang/c3c/archive/refs/tags/v0.6.4.tar.gz"
-  sha256 "26d67aa10bf54278b5b3fe6fead1ba95d086af89e56f01f3ccd65ca9a8009339"
+  url "https://github.com/c3lang/c3c/archive/refs/tags/v0.6.5.tar.gz"
+  sha256 "e232344bf5fea87bebab3173a89d3414d7c0d1bab695f15e4b8f99d7bfaceb06"
   license "LGPL-3.0-only"
   head "https://github.com/c3lang/c3c.git", branch: "master"
 
