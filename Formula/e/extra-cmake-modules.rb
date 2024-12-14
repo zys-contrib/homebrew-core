@@ -12,7 +12,7 @@ class ExtraCmakeModules < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c269b67cda49c03cdf5f6a1c9e21a52317f49819ff202dc09f52000fd652c46a"
+    sha256 cellar: :any_skip_relocation, all: "4e1f8f99c3e1012ac1abe97ccb4aea114b2a1e2ba3846057a6e8924a8f6d490e"
   end
 
   depends_on "cmake" => [:build, :test]
