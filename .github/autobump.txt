@@ -1772,6 +1772,7 @@ libvisio
 libwbxml
 libwpe
 libx11
+libxau
 libxaw3d
 libxcursor
 libxdmcp
