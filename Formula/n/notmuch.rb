@@ -1,10 +1,12 @@
 class Notmuch < Formula
+  include Language::Python::Shebang
+
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org/"
   url "https://notmuchmail.org/releases/notmuch-0.38.3.tar.xz"
   sha256 "9af46cc80da58b4301ca2baefcc25a40d112d0315507e632c0f3f0f08328d054"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://git.notmuchmail.org/git/notmuch", using: :git, branch: "master"
 
   livecheck do
@@ -31,6 +33,7 @@ class Notmuch < Formula
   depends_on "glib"
   depends_on "gmime"
   depends_on "python@3.13"
+  depends_on "sfsexp"
   depends_on "talloc"
   depends_on "xapian"
 
@@ -57,6 +60,8 @@ class Notmuch < Formula
                             "--without-ruby"
       system "make", "V=1", "install"
     end
+    bin.install "notmuch-git"
+    rewrite_shebang detected_python_shebang, bin/"notmuch-git"
 
     elisp.install Pathname.glob("emacs/*.el")
     bash_completion.install "completion/notmuch-completion.bash"
@@ -86,5 +91,7 @@ class Notmuch < Formula
       assert str(db.path) == '#{testpath}/Mail', 'Wrong db.path!'
       db.close()
     PYTHON
+    system bin/"notmuch-git", "-C", "#{testpath}/git", "init"
+    assert_predicate testpath/"git", :exist?
   end
 end
