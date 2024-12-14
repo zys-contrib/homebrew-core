@@ -2066,6 +2066,7 @@ neatvi
 nebula
 needle
 neo4j
+neocmakelsp
 neomutt
 neon
 neonctl
