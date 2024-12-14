@@ -2286,6 +2286,7 @@ pangomm
 papilo
 parallel
 parallel-hashmap
+parca
 pari
 parliament
 parquet-cli
