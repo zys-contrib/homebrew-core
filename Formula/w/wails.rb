@@ -6,6 +6,15 @@ class Wails < Formula
   license "MIT"
   head "https://github.com/wailsapp/wails.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7c318f209b29ade6c47b70659b7b77ff554d00fc3a72e058aafdf2c70bf2fd69"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7c318f209b29ade6c47b70659b7b77ff554d00fc3a72e058aafdf2c70bf2fd69"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7c318f209b29ade6c47b70659b7b77ff554d00fc3a72e058aafdf2c70bf2fd69"
+    sha256 cellar: :any_skip_relocation, sonoma:        "db2167edf63983527170911be8f10b7d853cffb4eef8f73409f392b5d8fd920f"
+    sha256 cellar: :any_skip_relocation, ventura:       "db2167edf63983527170911be8f10b7d853cffb4eef8f73409f392b5d8fd920f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fcfa9c1d10634eede184b8d1ee188646bad5786c99a74d947ca03df0521ddab1"
+  end
+
   depends_on "go"
 
   def install
