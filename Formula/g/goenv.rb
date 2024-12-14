@@ -13,12 +13,12 @@ class Goenv < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fdb2ffa0628cc8039cac5aed017dbe57a8c59477bca13cf7d30cc5d1db75a0f6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fdb2ffa0628cc8039cac5aed017dbe57a8c59477bca13cf7d30cc5d1db75a0f6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fdb2ffa0628cc8039cac5aed017dbe57a8c59477bca13cf7d30cc5d1db75a0f6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1b9ab1549bbcc98e4dd3581c3685096405a07e294063ecb293c1ed71ce24a8f6"
-    sha256 cellar: :any_skip_relocation, ventura:       "1b9ab1549bbcc98e4dd3581c3685096405a07e294063ecb293c1ed71ce24a8f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fdb2ffa0628cc8039cac5aed017dbe57a8c59477bca13cf7d30cc5d1db75a0f6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3509fdd50f8e01ca7396f76a1beb78e406dff58d68074341137639ed27b4fe70"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3509fdd50f8e01ca7396f76a1beb78e406dff58d68074341137639ed27b4fe70"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3509fdd50f8e01ca7396f76a1beb78e406dff58d68074341137639ed27b4fe70"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7e2c8f3f87f27d4ea65accfcefe0dc7e3bb0256d4bade01ccdb501cae32fdd4d"
+    sha256 cellar: :any_skip_relocation, ventura:       "7e2c8f3f87f27d4ea65accfcefe0dc7e3bb0256d4bade01ccdb501cae32fdd4d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3509fdd50f8e01ca7396f76a1beb78e406dff58d68074341137639ed27b4fe70"
   end
 
   def install
