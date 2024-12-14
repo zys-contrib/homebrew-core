@@ -1703,6 +1703,7 @@ libopenmpt
 liboqs
 liborigin
 libosinfo
+libp11
 libpanel
 libpano
 libpcap
