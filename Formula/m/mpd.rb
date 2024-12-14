@@ -2,7 +2,7 @@ class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://github.com/MusicPlayerDaemon/MPD"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   stable do
