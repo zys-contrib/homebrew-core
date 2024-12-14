@@ -1,10 +1,9 @@
 class Yosys < Formula
   desc "Framework for Verilog RTL synthesis"
   homepage "https://yosyshq.net/yosys/"
-  url "https://github.com/YosysHQ/yosys/releases/download/0.47/yosys.tar.gz"
-  sha256 "76038d3de2768567007e7c31995b17c888c16da1cf571d8a24b4c524d3eddfdf"
+  url "https://github.com/YosysHQ/yosys/releases/download/v0.48/yosys.tar.gz"
+  sha256 "6218549aaadbfa79d43b29dbd01caf4e6ddc37bbeadf148d91c3b79526fd6ba1"
   license "ISC"
-  revision 1
   head "https://github.com/YosysHQ/yosys.git", branch: "main"
 
   bottle do
@@ -25,6 +24,10 @@ class Yosys < Formula
   uses_from_macos "python"
   uses_from_macos "tcl-tk"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "libtommath"
+  end
 
   def install
     ENV.append "LINKFLAGS", "-L#{Formula["readline"].opt_lib}"
