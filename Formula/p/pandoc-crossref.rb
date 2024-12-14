@@ -1,11 +1,10 @@
 class PandocCrossref < Formula
   desc "Pandoc filter for numbering and cross-referencing"
   homepage "https://github.com/lierdakil/pandoc-crossref"
-  url "https://github.com/lierdakil/pandoc-crossref/archive/refs/tags/v0.3.18.0b.tar.gz"
-  version "0.3.18.0b"
-  sha256 "a71043e86104951815886d560dd1173308bd7f7e556ce80530b4de03c1bcd9a5"
+  url "https://github.com/lierdakil/pandoc-crossref/archive/refs/tags/v0.3.18.0c.tar.gz"
+  version "0.3.18.0c"
+  sha256 "b82b3f5d78ca1ea1b406b126704a81d595db341fc6f757bdfbf9832415aec6a3"
   license "GPL-2.0-or-later"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "529b899af27e7778ff5e762fad3fb77b7ee6aacce63cf11cc3849fb38be2f3ce"
@@ -22,12 +21,6 @@ class PandocCrossref < Formula
 
   uses_from_macos "unzip" => :build
   uses_from_macos "zlib"
-
-  # patch to support pandoc 3.6, upstream pr ref, https://github.com/lierdakil/pandoc-crossref/pull/458
-  patch do
-    url "https://github.com/lierdakil/pandoc-crossref/commit/c4d4ec77a8dcb18acb502e9a0bfcdec08c4a8838.patch?full_index=1"
-    sha256 "4150d8d076a79536368ada800d84dfca61a4c1799e7e834c5bb25a165ddaa571"
-  end
 
   def install
     rm("cabal.project.freeze")
