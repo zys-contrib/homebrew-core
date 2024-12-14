@@ -9,13 +9,12 @@ class ScikitImage < Formula
   head "https://github.com/scikit-image/scikit-image.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d64e36caaa70664404ebc32cb82d1b3fc10674b2e7945f6e35e3448a22b5a57a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b2cffd6770ac35f0dbb025cfa434e74a594a631af8fcf5dccb641548721f6729"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cc7df5c3771d32949f69e2c81ea702f20cf31e2cce5e7e85e51e97eeb12a5835"
-    sha256 cellar: :any_skip_relocation, sonoma:        "baed5a5e5a080aa79e65fc9dd46418432dc4dbbd57422b4912ef085a7d38c9b9"
-    sha256 cellar: :any_skip_relocation, ventura:       "f5d998d670408670d758040ce73058572d1e49b7140f3679eb4900541e72eaa1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3416b17ddb6351488ca1e0205e463db98ded2f5500673bea7e685880ee6fd9b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f8b2303edcfb1969d77574f243a4b5f555974ab15368fa79db9697b6e13992e3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6e8c883b913a8780584bd5aede7d29c3bb5de3c55142514a21b72400ff934c0b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5022142503ff01c444be638e0ff96d631a5d8ff29e069f47e451f2cccd287e92"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6d49c28eb656507cb459b501461640699ba1fcf3b04824c288c65782edcfe0ff"
+    sha256 cellar: :any_skip_relocation, ventura:       "4848b545c08b8f87049eceb3edc3d8a2639887ee29446da57d0d57474a3fad5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66c5eb3a8bb62c0363390b80572ff1d53145ab32088c3dc190b352f8b6543ee3"
   end
 
   depends_on "meson" => :build
