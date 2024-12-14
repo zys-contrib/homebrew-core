@@ -1,8 +1,8 @@
 class Iperf3 < Formula
   desc "Update of iperf: measures TCP, UDP, and SCTP bandwidth"
   homepage "https://github.com/esnet/iperf"
-  url "https://downloads.es.net/pub/iperf/iperf-3.17.1.tar.gz"
-  sha256 "84404ca8431b595e86c473d8f23d8bb102810001f15feaf610effd3b318788aa"
+  url "https://downloads.es.net/pub/iperf/iperf-3.18.tar.gz"
+  sha256 "c0618175514331e766522500e20c94bfb293b4424eb27d7207fb427b88d20bab"
   license "BSD-3-Clause"
 
   livecheck do
@@ -33,10 +33,10 @@ class Iperf3 < Formula
 
   def install
     system "./bootstrap.sh" if build.head?
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
+    system "./configure", "--disable-silent-rules",
                           "--disable-profiling",
-                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
+                          *std_configure_args
     system "make", "clean" # there are pre-compiled files in the tarball
     system "make", "install"
   end
@@ -44,6 +44,7 @@ class Iperf3 < Formula
   test do
     server = IO.popen("#{bin}/iperf3 --server")
     sleep 1
+    sleep 2 if OS.mac? && Hardware::CPU.intel?
     assert_match "Bitrate", pipe_output("#{bin}/iperf3 --client 127.0.0.1 --time 1")
   ensure
     Process.kill("SIGINT", server.pid)
