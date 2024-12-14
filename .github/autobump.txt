@@ -2929,6 +2929,7 @@ tailwindcss
 tailwindcss-language-server
 talhelper
 talisman
+talosctl
 tanka
 taplo
 tarantool
