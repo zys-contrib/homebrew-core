@@ -11,14 +11,12 @@ class Iperf3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "b29ee5f4dd16259bdb26e20cf6a0aefd2d428c586381889d744a92c1974364db"
-    sha256 cellar: :any,                 arm64_sonoma:   "e6ddc4a850e6ad07369f041658596e2dab53376658cde9a3571bd51e5c928648"
-    sha256 cellar: :any,                 arm64_ventura:  "b0485135b0e0e5c04d2c4b23f81d0983d59f49ecbad9062867d999aa82aa9e23"
-    sha256 cellar: :any,                 arm64_monterey: "b7f4bbfe3fd4e06159c964d62994850d5f7b26ae102b0f73cceed90081e3da9b"
-    sha256 cellar: :any,                 sonoma:         "d71fc999cb135190fb2f9f8ee330740e95b7f6219403ff27db00e05e6d813c31"
-    sha256 cellar: :any,                 ventura:        "7c72d83acb66109e5df009014c8dcf4a81563abde205b287eeb7fd12e5d0fa9c"
-    sha256 cellar: :any,                 monterey:       "c331b70baac73a243bc9458855fba5155f269135be16de5186bd7c87905a21d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "efb515ecc2c8a9d1eff2a24076f5f9ea3af3e435d60ebce9e95b9f086b5904b7"
+    sha256 cellar: :any,                 arm64_sequoia: "afa3ad80146f97f3881e7b11001b86607a2fd3f91d7b7321d1dd23e407165ff5"
+    sha256 cellar: :any,                 arm64_sonoma:  "18879823e7b5da6f272ccfee521d5e472991446ac9abf02c83f4bca98815c503"
+    sha256 cellar: :any,                 arm64_ventura: "fddee79c5fb5d0507590f1750140936cef0123c5880422e62cf091f28426d219"
+    sha256 cellar: :any,                 sonoma:        "14cac44b69e7d492cc3057c11deca0cde4a0c7685fec6fc8d76f0c36480e92ee"
+    sha256 cellar: :any,                 ventura:       "95973254270c226cba64aeb3394534de4a6c4e3c6ac5d93a221da58128bae2d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e882398a3b0d2b0a2e068f0c92e76b3e4c7698c7e1e592d310b568fece389866"
   end
 
   head do
