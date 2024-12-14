@@ -7,16 +7,12 @@ class Fabio < Formula
   head "https://github.com/fabiolb/fabio.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c60703966ecd1882b0fd0a5c0122864a26c376552b662cfb408093e3bc7a3949"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e4a20558083c013910f2d092982c75243b8a358b1599fc75a1b18de6890d9526"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ab8990ed9eeab8dee4b314bcb6189d50f4dc8eebee77de71bc496d4bf8c78b9b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "93816978aba8f3872e86a77f0ccf1965d92d7377389af58fa12a58c97f23033c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8f6bbd95332e4477f3dab83ab33e4ea0eefe9a5545d24b25388e435a14a6baba"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e034f62a86f59035c2bf31563214cc76234336f4ee9c5d6f049f8659c1d508aa"
-    sha256 cellar: :any_skip_relocation, ventura:        "f05450e71e0044473f85a289d549277edede0d51166a66ff985465f826290d6f"
-    sha256 cellar: :any_skip_relocation, monterey:       "ee9fa30859ec7a0e89cd3725759d6f57d039f6a36529abaca6dea2c5d22a163a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ca2de624dcf98c51943d3968c19bbf6fd5e4211826b29eadff3a9bde4d4ace45"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee9395e3877ab2abdaa6dddba8405241ca30ce5c0ae56eada5b01e15cdb37382"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "94d47cd5d59eaea8d66343a85624aa06822f08a8124630bc791ddc8810b6af8f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "94d47cd5d59eaea8d66343a85624aa06822f08a8124630bc791ddc8810b6af8f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "94d47cd5d59eaea8d66343a85624aa06822f08a8124630bc791ddc8810b6af8f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "17585799952844e22d4fc7e77d93ea71e491130b2aa1a6472cfc4543bb729559"
+    sha256 cellar: :any_skip_relocation, ventura:       "17585799952844e22d4fc7e77d93ea71e491130b2aa1a6472cfc4543bb729559"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5dbb5f43346784800913ce53e5320c0792f4358a4294f5345241cd5977cd6734"
   end
 
   depends_on "go" => :build
