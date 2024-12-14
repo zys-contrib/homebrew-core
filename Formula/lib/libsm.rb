@@ -1,8 +1,8 @@
 class Libsm < Formula
   desc "X.Org: X Session Management Library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libSM-1.2.4.tar.xz"
-  sha256 "fdcbe51e4d1276b1183da77a8a4e74a137ca203e0bcfb20972dd5f3347e97b84"
+  url "https://www.x.org/archive/individual/lib/libSM-1.2.5.tar.xz"
+  sha256 "2af9e12da5ef670dc3a7bce1895c9c0f1bfb0cb9e64e8db40fcc33f883bd20bc"
   license "MIT"
 
   bottle do

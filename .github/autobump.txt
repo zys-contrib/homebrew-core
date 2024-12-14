@@ -1734,6 +1734,7 @@ libsecret
 libserialport
 libshumate
 libslirp
+libsm
 libsndfile
 libsolv
 libsoundio
