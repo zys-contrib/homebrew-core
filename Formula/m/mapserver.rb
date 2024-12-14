@@ -36,12 +36,12 @@ class Mapserver < Formula
   depends_on "libxml2"
   depends_on "proj"
   depends_on "protobuf-c"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "curl"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
