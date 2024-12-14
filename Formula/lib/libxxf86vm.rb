@@ -1,8 +1,8 @@
 class Libxxf86vm < Formula
   desc "X.Org: XFree86-VidMode X extension"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXxf86vm-1.1.5.tar.gz"
-  sha256 "f3f1c29fef8accb0adbd854900c03c6c42f1804f2bc1e4f3ad7b2e1f3b878128"
+  url "https://www.x.org/archive/individual/lib/libXxf86vm-1.1.6.tar.gz"
+  sha256 "d2b4b1ec4eb833efca9981f19ed1078a8a73eed0bb3ca5563b64527ae8021e52"
   license "MIT"
 
   bottle do

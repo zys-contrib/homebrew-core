@@ -1788,6 +1788,7 @@ libxo
 libxslt
 libxt
 libxvmc
+libxxf86vm
 libzim
 libzzip
 license-eye
