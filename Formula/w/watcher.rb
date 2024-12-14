@@ -6,6 +6,15 @@ class Watcher < Formula
   license "MIT"
   head "https://github.com/e-dant/watcher.git", branch: "release"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "2a343d052580b66274a1d488a6c3394e8b922491fffde9f68b5aa6e1d61ac7f5"
+    sha256 cellar: :any,                 arm64_sonoma:  "b7319e77d06d5ff60f44943b65e73e93c9aa626db77e319a6abc8c632cf70274"
+    sha256 cellar: :any,                 arm64_ventura: "f98c2d11e1493926f0ff2e0160a6b1f783194e7c9b22e18e4655fcc0c7678bdd"
+    sha256 cellar: :any,                 sonoma:        "9839d335a3dd53e0843e120b38b4378540be36251328bb2ad6065c1eedf5f7dd"
+    sha256 cellar: :any,                 ventura:       "ba201a96cc841cdac0e227fed63d6ce1b607c43f27c56a24050fa638eb52e1f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0d4587ae7acc2536881ba6e74f70b7c278209d9e8c71ea7471914ff6e04f34c"
+  end
+
   depends_on "cmake" => :build
 
   def install
