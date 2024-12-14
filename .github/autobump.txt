@@ -1787,6 +1787,7 @@ libxmu
 libxo
 libxslt
 libxt
+libxv
 libxvmc
 libzim
 libzzip
