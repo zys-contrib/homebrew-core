@@ -2705,6 +2705,7 @@ securefs
 selene
 selenium-server
 semgrep
+sendme
 sentencepiece
 seqkit
 sequin
