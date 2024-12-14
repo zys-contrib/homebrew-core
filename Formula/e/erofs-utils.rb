@@ -1,8 +1,8 @@
 class ErofsUtils < Formula
   desc "Utilities for Enhanced Read-Only File System"
   homepage "https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git"
-  url "https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git/snapshot/erofs-utils-1.8.2.tar.gz"
-  sha256 "64b6ff7e899f62480283cee63787f37f0f9c4be7a6bc7a23d734aaa873a6cff4"
+  url "https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git/snapshot/erofs-utils-1.8.3.tar.gz"
+  sha256 "3c5cc03603ea08ba9ae5e0420eeaea5ff17ed29e2280685310356cbf25304e85"
   license "GPL-2.0-or-later"
   head "https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git", branch: "master"
 
