@@ -1,8 +1,8 @@
 class Lbdb < Formula
   desc "Little brother's database for the mutt mail reader"
   homepage "https://www.spinnaker.de/lbdb/"
-  url "https://www.spinnaker.de/lbdb/download/lbdb-0.54.tar.gz"
-  sha256 "1579c38655d5cf7e2c6ca8aabc02b6590c8794ef0ae1fbb0c4d99226ffce5be7"
+  url "https://www.spinnaker.de/lbdb/download/lbdb-0.55.tar.gz"
+  sha256 "f642cf835dc13291bbd066f67186d485c8f4d318f3cf5228febba6b1a108392a"
   license "GPL-2.0-or-later"
 
   livecheck do
