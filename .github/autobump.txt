@@ -2193,6 +2193,7 @@ onedpl
 onedrive
 onion-location
 onionprobe
+onnxruntime
 ooniprobe
 opa
 opam
