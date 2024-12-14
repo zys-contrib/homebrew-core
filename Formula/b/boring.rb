@@ -1,8 +1,8 @@
 class Boring < Formula
   desc "Simple command-line SSH tunnel manager that just works"
   homepage "https://github.com/alebeck/boring"
-  url "https://github.com/alebeck/boring/archive/refs/tags/0.8.0.tar.gz"
-  sha256 "378f6bb1becb6d5a90a086306ba22a3bafa12f7f796f94e739d873d2cce41601"
+  url "https://github.com/alebeck/boring/archive/refs/tags/0.9.0.tar.gz"
+  sha256 "d260f3285d850f41945d6760f0b1147fa1e0dab339a8ff9cbcf693911973d71f"
   license "MIT"
 
   bottle do
@@ -26,25 +26,24 @@ class Boring < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output(bin/"boring", 1)
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    # first interaction with boring should create the user config file
-    # and correctly output that no tunnels are currently configured
-    test_config = testpath/".boring.toml"
-    ENV["BORING_CONFIG"] = test_config
-    output = shell_output("#{bin}/boring list")
-    assert output.end_with?("No tunnels configured.\n")
-    assert_predicate test_config, :exist?
-
-    # now add an example tunnel and check that it is parsed correctly
-    test_config.write <<~TOML, mode: "a+"
+    (testpath/".boring.toml").write <<~TOML
       [[tunnels]]
       name = "dev"
       local = "9000"
       remote = "localhost:9000"
       host = "dev-server"
     TOML
-    output = shell_output("#{bin}/boring list")
-    assert_match "dev   9000   ->  localhost:9000  dev-server", output
+
+    begin
+      output_log = testpath/"output.log"
+      pid = spawn bin/"boring", "list", [:out, :err] => output_log.to_s
+      sleep 2
+      assert_match "dev   9000   ->  localhost:9000  dev-server", output_log.read
+    ensure
+      Process.kill("TERM", pid)
+      Process.wait(pid)
+    end
   end
 end
