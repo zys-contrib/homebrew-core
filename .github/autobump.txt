@@ -2862,6 +2862,7 @@ stackql
 stanc3
 stanford-corenlp
 star
+starlark-rust
 staticcheck
 statix
 stdman
