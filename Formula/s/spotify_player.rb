@@ -6,12 +6,12 @@ class SpotifyPlayer < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b3cae5a177e0c4a1f71139a2628869a2acf7e145a4ba7f74d0855267fd372db2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d6e40ddc0f54ea712e2e8a774d66b297ed1f5670b8929efe08f593d005aab6a1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "058ffd0034a25c428e56aa727bfff9fcacc5e59edd937bb08ca25cfab9378c8f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4b1393c9a04b39763cd9c06da04d663e5e139c2d947eaf2f0e5dc4b605ca387f"
-    sha256 cellar: :any_skip_relocation, ventura:       "582cfeddd3063db2fc86a5de49eb6ee1e657a49e13fdebeddc3ffa1ed918635e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "124116e0882f92f361a72e62e5c1c16ce52d0d7fe86b4484b44763a2dc20a39b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4d4c209c2b1b2872394ca7710af9844a076589a82539ec1af10396e7d0dd645c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3b1c0d92ca18821be8c48b28cdc2118ff836171cb22b605f8eb8360dd86e2430"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2f72e6181aa47f86f955a35bf47f54281e9ba4f8e575a408418e84d63a8de9e8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d27c32ee622146d6c4fd6bc1a05fa266db4d507b8b5701beebce517e9288a7d9"
+    sha256 cellar: :any_skip_relocation, ventura:       "b086dc07d207b7cb486fa068e0cdb3531cd31fa19184dd676a755ba9bd384f3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57b865bf6b50b69d77b01d2717ea667f3a7b6f45c8b8d1f2dd84b23e29270705"
   end
 
   depends_on "rust" => :build
