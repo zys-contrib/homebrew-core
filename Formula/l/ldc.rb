@@ -1,10 +1,9 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
-  url "https://github.com/ldc-developers/ldc/releases/download/v1.39.0/ldc-1.39.0-src.tar.gz"
-  sha256 "839bac36f6073318e36f0b163767e03bdbd3f57d99256b97494ac439b59a4562"
+  url "https://github.com/ldc-developers/ldc/releases/download/v1.40.0/ldc-1.40.0-src.tar.gz"
+  sha256 "80a3ddd7b7292818cdf6c130e55f1246a19b5fce96139a49b45ccf4e2be99e5f"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/ldc-developers/ldc.git", branch: "master"
 
   livecheck do
@@ -32,22 +31,22 @@ class Ldc < Formula
   resource "ldc-bootstrap" do
     on_macos do
       on_arm do
-        url "https://github.com/ldc-developers/ldc/releases/download/v1.39.0/ldc2-1.39.0-osx-arm64.tar.xz"
-        sha256 "4f0285d6ab0f335f97a8cae1ebc951eb5e68face0645f2b791b8d5399689ad95"
+        url "https://github.com/ldc-developers/ldc/releases/download/v1.40.0/ldc2-1.40.0-osx-arm64.tar.xz"
+        sha256 "04ebaaddfadf5b62486914eee511a8cb9e6802a7b413e7a8799d5a7fa1ca5cb4"
       end
       on_intel do
-        url "https://github.com/ldc-developers/ldc/releases/download/v1.39.0/ldc2-1.39.0-osx-x86_64.tar.xz"
-        sha256 "751ebe8c744fa3375a08dfb67d80569e985944f3fb7f551affa5d5052117beb6"
+        url "https://github.com/ldc-developers/ldc/releases/download/v1.40.0/ldc2-1.40.0-osx-x86_64.tar.xz"
+        sha256 "90802f92801b700804b8ba48d8c12128d3724c9dbb6a88811d6c9204fce9e036"
       end
     end
     on_linux do
       on_arm do
-        url "https://github.com/ldc-developers/ldc/releases/download/v1.39.0/ldc2-1.39.0-linux-aarch64.tar.xz"
-        sha256 "bafba183432dc8c277d07880d6dd17b4b1b3050808bef0be07875a41cda6dfcf"
+        url "https://github.com/ldc-developers/ldc/releases/download/v1.40.0/ldc2-1.40.0-linux-aarch64.tar.xz"
+        sha256 "28d183a99ab9f0790f5597c5c125f41338390f8bed5ed3164138958c18479c82"
       end
       on_intel do
-        url "https://github.com/ldc-developers/ldc/releases/download/v1.39.0/ldc2-1.39.0-linux-x86_64.tar.xz"
-        sha256 "f50cdacd11c923b96e57edab15cacff6a30c7ebff4b7e495fc684eed0a27ae17"
+        url "https://github.com/ldc-developers/ldc/releases/download/v1.40.0/ldc2-1.40.0-linux-x86_64.tar.xz"
+        sha256 "0da61ed2ea96583aa0ccbeb00f8d78983b23d1e87b84a6f2098eb12059475b27"
       end
     end
   end
