@@ -7,12 +7,12 @@ class Television < Formula
   head "https://github.com/alexpasmantier/television.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "111f8848ec40a0748677a89cb4017596d78d9a2b6250e8b24479cabba628601d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "69444202a4a619759708ad7a8b4cdf4417e58f3d3bda6985592b7022244de3da"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "af7a5f22f9488b9bff815990c5e887880bf1b29b9c18a055b884a4f81650038c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7aa2d1c85d3ae23dfb83a572da4d2c1a177db7cde34a221d984a3a02a0f5b1cf"
-    sha256 cellar: :any_skip_relocation, ventura:       "652d4e3cab25849c3dd09ceb44641065e2a91d3e35a434ecb463a1869a0e175d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ec0de65fa6c18e881e8f9cde85d9e2ae912ffae9146accd8bc6756ed1d11b33"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ef486e1173101d34aa755b08bae05fab86fbdc7d5605623f658b074e9af364d9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "395098a3708d7871ba7db24dc4dfd67bc28d7df610c946793c2e8b53149514a5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c0210f88bf5e6d01fb9cd66acde8e1573805ceedf5cd4070e9c5bf6ae0ae566b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ffeef2811d87218906242ad976477e9c7d44ba237d56689d01275ff89892b2b7"
+    sha256 cellar: :any_skip_relocation, ventura:       "81b7e5aff92530b27d05d622be345a0fdd642ab1daf47c09524df04fe7bbc097"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b92d8a20e4eaa66e22d059c7ee4d8d8ea0310e3cedfce514925dc8e6f5049250"
   end
 
   depends_on "rust" => :build
