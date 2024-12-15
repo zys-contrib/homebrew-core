@@ -5,6 +5,15 @@ class RevealMd < Formula
   sha256 "699d44c19f8437f294464ca457d35ad779e6f605299a38ea293b7aa75363d6f9"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "e45cc89fa82e2c457d6882e2a8c960c23733207a6af5cf19cd5dd9adb22f3f70"
+    sha256 cellar: :any,                 arm64_sonoma:  "e45cc89fa82e2c457d6882e2a8c960c23733207a6af5cf19cd5dd9adb22f3f70"
+    sha256 cellar: :any,                 arm64_ventura: "e45cc89fa82e2c457d6882e2a8c960c23733207a6af5cf19cd5dd9adb22f3f70"
+    sha256 cellar: :any,                 sonoma:        "f986662f9ae9064474e4725339175621ec6cee8b57a45d65e1c05c75cfdd1dae"
+    sha256 cellar: :any,                 ventura:       "f986662f9ae9064474e4725339175621ec6cee8b57a45d65e1c05c75cfdd1dae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "615e2c3e56083005d3c26f52b444f663a75e9222f92c59df41266506b0d65d2d"
+  end
+
   depends_on "node"
 
   def install
