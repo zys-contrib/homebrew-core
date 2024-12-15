@@ -16,6 +16,8 @@ class Rapidyaml < Formula
 
   depends_on "cmake" => :build
 
+  conflicts_with "c4core", because: "both install `c4core` filse `include/c4`"
+
   def install
     system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
     system "cmake", "--build", "build"
