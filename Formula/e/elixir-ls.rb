@@ -6,7 +6,7 @@ class ElixirLs < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4b3899bf97bc9564281b08be7df7c244c7a697a8b9fbcba264515ed56e565e36"
+    sha256 cellar: :any_skip_relocation, all: "1b5a8edffec9b191c7e9cc5251824dbca016e9b506d6418c1a13b5b27542b4d7"
   end
 
   depends_on "elixir"
