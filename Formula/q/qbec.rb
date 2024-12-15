@@ -6,6 +6,15 @@ class Qbec < Formula
   license "Apache-2.0"
   head "https://github.com/splunk/qbec.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "87c759042432ed77117d61eff8a1f8e5cbe25e2672df0e2706896be8e78f483c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "290a9669a65e80fd5c4d7045c7a74b8f2d18eabf0083899f733a7ee3caf4675e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4d943895d5ab80e6a17ea36217a092f79cd107f10c4e12aaf0462d9742e7d54f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "026af3dda4133c5fbc36e7c2ae7665dd4b701fb01f4f4619b64c37e88778ef8b"
+    sha256 cellar: :any_skip_relocation, ventura:       "02f0fcba10301230efdec142e29c9b3c09286e1ebf133d3a00cac08ce27aac62"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78a97847c98ce06a3a868af4e5bb008e16dd24d86a219c2ef6607637bdfbc7a0"
+  end
+
   depends_on "go" => :build
 
   def install
