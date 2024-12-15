@@ -24,6 +24,12 @@ class Simg2img < Formula
 
   uses_from_macos "zlib"
 
+  # Fix execution on apple silicon from a fork
+  patch do
+    url "https://github.com/anestisb/android-simg2img/commit/931df9dd83e7feea11197402c5b4e7ad489f4abf.patch?full_index=1"
+    sha256 "97f7e1256e9bc0fcfb4e1714ac503c7d5a4901a1685fe86307222d0f67ae5898"
+  end
+
   def install
     system "make", "PREFIX=#{prefix}", "install"
   end
