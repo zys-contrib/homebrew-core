@@ -2512,6 +2512,7 @@ python-yq
 pythran
 pyupgrade
 qbe
+qbec
 qbittorrent-cli
 qbs
 qca
