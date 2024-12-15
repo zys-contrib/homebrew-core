@@ -6,12 +6,12 @@ class Boring < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9342d0c3f280ff4d485a0815e639105e80875872d888683a00856611d0edcc14"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9342d0c3f280ff4d485a0815e639105e80875872d888683a00856611d0edcc14"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9342d0c3f280ff4d485a0815e639105e80875872d888683a00856611d0edcc14"
-    sha256 cellar: :any_skip_relocation, sonoma:        "60a54e8c998cf1526380219839a2de9a3678ffa7af58e46d175a5ba0142bc4e3"
-    sha256 cellar: :any_skip_relocation, ventura:       "60a54e8c998cf1526380219839a2de9a3678ffa7af58e46d175a5ba0142bc4e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b6631fa8b593fe58fbfb539aa248d8d47d8e6acab9f9bf93b5360c33ad74cc7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4c6f0effb6d7fede7931b1c717fa44a709733dad132f996d7752cc59a28c9ba7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4c6f0effb6d7fede7931b1c717fa44a709733dad132f996d7752cc59a28c9ba7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4c6f0effb6d7fede7931b1c717fa44a709733dad132f996d7752cc59a28c9ba7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "634dead5c6826267c35e2d0e87dce53c33ca955cb315c78a7046240cb4f84fac"
+    sha256 cellar: :any_skip_relocation, ventura:       "634dead5c6826267c35e2d0e87dce53c33ca955cb315c78a7046240cb4f84fac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e608145ce638a2409bd71dfad99dc435530c76492e3aceac4ecb585d93035d8a"
   end
 
   depends_on "go" => :build
