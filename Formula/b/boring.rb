@@ -1,8 +1,8 @@
 class Boring < Formula
   desc "Simple command-line SSH tunnel manager that just works"
   homepage "https://github.com/alebeck/boring"
-  url "https://github.com/alebeck/boring/archive/refs/tags/0.9.0.tar.gz"
-  sha256 "d260f3285d850f41945d6760f0b1147fa1e0dab339a8ff9cbcf693911973d71f"
+  url "https://github.com/alebeck/boring/archive/refs/tags/0.10.1.tar.gz"
+  sha256 "a1b15a4a0959593d3942eeffcf111e84faf92dcf15b6bc2d88599b3eb050ff8f"
   license "MIT"
 
   bottle do
@@ -19,6 +19,8 @@ class Boring < Formula
   def install
     ldflags = "-s -w -X main.version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/boring"
+
+    generate_completions_from_executable(bin/"boring", "--shell")
   end
 
   def post_install
@@ -27,6 +29,8 @@ class Boring < Formula
 
   test do
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
+    assert_match version.to_s, shell_output("#{bin}/boring version")
 
     (testpath/".boring.toml").write <<~TOML
       [[tunnels]]
