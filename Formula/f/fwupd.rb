@@ -23,7 +23,7 @@ class Fwupd < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "vala" => :build
 
   depends_on "gcab"
@@ -62,7 +62,7 @@ class Fwupd < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
