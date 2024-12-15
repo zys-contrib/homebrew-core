@@ -1,8 +1,8 @@
 class SpotifyPlayer < Formula
   desc "Command driven spotify player"
   homepage "https://github.com/aome510/spotify-player"
-  url "https://github.com/aome510/spotify-player/archive/refs/tags/v0.20.3.tar.gz"
-  sha256 "4c012dd5c7f0b1aded454fc16414ca20a6a1fadca2757e699e2addb845eb2ba6"
+  url "https://github.com/aome510/spotify-player/archive/refs/tags/v0.20.4.tar.gz"
+  sha256 "1d13f47ef4df3415835736f32629d57e331707d781507007ea04217a7dc735d8"
   license "MIT"
 
   bottle do
@@ -28,7 +28,7 @@ class SpotifyPlayer < Formula
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
-    system "cargo", "install", "--features", "image,lyric-finder,notify", *std_cargo_args(path: "spotify_player")
+    system "cargo", "install", "--features", "image,notify", *std_cargo_args(path: "spotify_player")
     bin.install "target/release/spotify_player"
   end
 
