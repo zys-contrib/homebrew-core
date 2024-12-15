@@ -12,12 +12,12 @@ class Librealsense < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a495c68a1fa2147a5284ff9ac09ee9015d508be22f2219d51264b5f02af017a8"
-    sha256 cellar: :any,                 arm64_sonoma:  "050de61de7cf29ea270f129575ca2e3732ea712e3be06ae9fd3ed4a8bf46fdbf"
-    sha256 cellar: :any,                 arm64_ventura: "207444c7ce2f58647aefc431b1359cfb073e02fe89c095cf0434576d5980bff6"
-    sha256 cellar: :any,                 sonoma:        "39fb346d00062933880f3ef63582f6cd24be974b2c0054edc108f122a9f19b55"
-    sha256 cellar: :any,                 ventura:       "e8b1baa16c09544e0d9932d8706c897843e9216f2e0ef7184d374b6a93a12131"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d60dc45ba36a22fb3e4f679839bd519046c773d437a3ccffe396cc179d5e82b3"
+    sha256 cellar: :any,                 arm64_sequoia: "9ab6629652e192760b9d9f92dff28a7f757f0a3520270d3882e68f8db0c67e69"
+    sha256 cellar: :any,                 arm64_sonoma:  "9e1c5408d61e477d72f6ad60504c3db954a65612ed97d5f1e6009bdf6a60c5f4"
+    sha256 cellar: :any,                 arm64_ventura: "5a513c1af7e9709eef2cea30f39021e3158e5635680f956d83b36b66646e127d"
+    sha256 cellar: :any,                 sonoma:        "d940b9e56d353878c839a10ca9a2298e84ee374778a34b97dc59f635875ec2a2"
+    sha256 cellar: :any,                 ventura:       "703d25a4b7c1f12aaec0f0a5669e5f026bcf38fbb37cc4203be67e9a838c65ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b22dcd8cd361829146e951c7b81efe906c500c440367052d90985d8996b4ef1"
   end
 
   depends_on "cmake" => :build
