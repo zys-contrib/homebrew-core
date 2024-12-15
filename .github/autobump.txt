@@ -1791,6 +1791,7 @@ libxmlsec1
 libxmu
 libxo
 libxshmfence
+libxrender
 libxslt
 libxt
 libxv
