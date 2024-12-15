@@ -1,8 +1,8 @@
 class Macmon < Formula
   desc "Sudoless performance monitoring for Apple Silicon processors"
   homepage "https://github.com/vladkens/macmon"
-  url "https://github.com/vladkens/macmon/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "68fe17e534846e94d43539eba9ef55aa7ad0887ae2d805c1029a639e476b53e0"
+  url "https://github.com/vladkens/macmon/archive/refs/tags/v0.4.1.tar.gz"
+  sha256 "19ea622ae09d508b89be7869e45ddc3854a4441e40d0ae28ee16d6a4d621b724"
   license "MIT"
   head "https://github.com/vladkens/macmon.git", branch: "main"
 
@@ -21,7 +21,7 @@ class Macmon < Formula
   end
 
   test do
-    # cannot be functionally tested on CI as it lacks of system profile for processor
     assert_match version.to_s, shell_output("#{bin}/macmon --version")
+    assert_match "Failed to get channels", shell_output("#{bin}/macmon debug 2>&1", 1)
   end
 end
