@@ -185,6 +185,7 @@ awslogs
 axel
 azcopy
 azure-core-cpp
+azurehound
 b2-tools
 babel
 babl
