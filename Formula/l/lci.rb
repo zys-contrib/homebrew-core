@@ -1,8 +1,8 @@
 class Lci < Formula
   desc "Interpreter for the lambda calculus"
   homepage "https://www.chatzi.org/lci/"
-  url "https://github.com/chatziko/lci/releases/download/v1.0/lci-1.0.tar.gz"
-  sha256 "1bcf40d738ce2af7ca5116f02dfb0f4ed21d7e467e3618e071c8199a1285331e"
+  url "https://github.com/chatziko/lci/releases/download/v1.1/lci-v1.1.tar.gz"
+  sha256 "51725e33a7066100757b7da84b2290a651a5f47b985eb3e3647acd871964cd58"
   license "GPL-2.0-or-later"
 
   bottle do
