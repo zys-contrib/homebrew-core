@@ -48,7 +48,7 @@ class PythonYq < Formula
     virtualenv_install_with_resources
     %w[yq xq tomlq].each do |script|
       generate_completions_from_executable(libexec/"bin/register-python-argcomplete", script,
-                                           shell_parameter_format: :arg)
+                                           base_name: script, shell_parameter_format: :arg)
     end
   end
 
