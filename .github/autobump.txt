@@ -1790,8 +1790,8 @@ libxmlb
 libxmlsec1
 libxmu
 libxo
-libxshmfence
 libxrender
+libxshmfence
 libxslt
 libxt
 libxv
@@ -3151,6 +3151,7 @@ vale
 valgrind
 valijson
 valkey
+vals
 vapor
 vapoursynth
 varnish
