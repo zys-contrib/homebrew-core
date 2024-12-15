@@ -14,12 +14,12 @@ class Victorialogs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f993469522f2a7a0fd1abb986d470a602d1f4569be6105eedfbe27f36dd4edd1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b011d5f2c4fd54b2a82d575e4cdae11e96195b4d6c264a03eb13b77c05ffbde"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "39f479e84616b159204fe0fc5badd83cf870559e360d64d85618c30afb41edf9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "107826181de84e8bd0ee9ea2bf5e1863b80ae7fdd32500c80f723bb417835e27"
-    sha256 cellar: :any_skip_relocation, ventura:       "bf4ad08cd17c5cc9d7cd0bea0bd9901d910be6dda84f9be58bac1a533ca731dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03ace0efc347dc3007ab08c4edb6a58b840c9cccda43002de6c582bfd7377d2e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a1e28feed9f7dc51c46a50c02cac743ae362c73cd26c205fc0b3658471b42f2b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "01ccd0e91b4ac50e093b0006404b81efac1e13ab832a8f3b9ce6c0f2e70707c8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "64694671962d83ab7d1f7c3968420a43d3724b07d5c188d44c75757cf7c8ebf8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7ce93978693e4c5db421e504483f3f1214426444e9e8228903e9b5f94a223ee5"
+    sha256 cellar: :any_skip_relocation, ventura:       "3b19dfca70e41de9a161557d3ba49cb27b8b74a8fa55ef6f2307ea4dd609206b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ccca4900527df5a4a8d097a579ad4521473966bd952e40b7637acf19a4bb531"
   end
 
   depends_on "go" => :build
