@@ -23,6 +23,7 @@ class Fzf < Formula
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version} -X main.revision=brew")
     man1.install "man/man1/fzf.1", "man/man1/fzf-tmux.1"
     bin.install "bin/fzf-tmux"
+    bin.install "bin/fzf-preview.sh"
 
     # Please don't install these into standard locations (e.g. `zsh_completion`, etc.)
     # See: https://github.com/Homebrew/homebrew-core/pull/137432
