@@ -8,12 +8,12 @@ class Edencommon < Formula
   head "https://github.com/facebookexperimental/edencommon.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "207ba8310ed2193c2047d78e0b65c28e7f20ff605122e2c40c2afe565010c9b2"
-    sha256 cellar: :any,                 arm64_sonoma:  "be7f4f44f9e6cfb1a4eb5ec250377ffb8b270dcae4a31aaa9f7a4a36dd4aef24"
-    sha256 cellar: :any,                 arm64_ventura: "83bc8ec5c4ca916e18b5908610a99758b2ad6433aaf9f8c67dec91f29e6dddaf"
-    sha256 cellar: :any,                 sonoma:        "e252ba657df0680fdc77ada836dbdf64ffc843bc16d84bbd01a650d270ef7ae8"
-    sha256 cellar: :any,                 ventura:       "182e5b25935953876df43c15b3cb4575cb7d6c4333adf142c322ecef601f3c3d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea8d0693bd0b021d1b11c2964ba98db6dade8fd90e9e247ccd6b69fb183e6fff"
+    sha256 cellar: :any,                 arm64_sequoia: "83eaeaef21caa7562dfed61555ec89b57aa6fbaf08866d8cbece627a1855bf94"
+    sha256 cellar: :any,                 arm64_sonoma:  "6194bc2ab0c56d1383f44dfebfb635d1cce1214a12315b717a10fbfccf90a2e6"
+    sha256 cellar: :any,                 arm64_ventura: "24c45508d9e9b55ccef63a68a2e004f4084392cc27c0c2e240eb2cb296765275"
+    sha256 cellar: :any,                 sonoma:        "cb693e65b565152716e934c64cf018eb042c4a17a42f6bc8383b90e2cce5b928"
+    sha256 cellar: :any,                 ventura:       "e02790a055c067143ca55eff004ca05c40f12e47adde3447f5bed44337d3cf41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "030338f313bdd546c6058c956b459a642c67e5840dac1497b8a1ea440e19a4f7"
   end
 
   depends_on "cmake" => :build
