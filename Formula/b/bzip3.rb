@@ -1,8 +1,8 @@
 class Bzip3 < Formula
   desc "Better and stronger spiritual successor to BZip2"
   homepage "https://github.com/kspalaiologos/bzip3"
-  url "https://github.com/kspalaiologos/bzip3/releases/download/1.4.0/bzip3-1.4.0.tar.gz"
-  sha256 "a7bf2369f1ea0e1f2616686348f3749607abadd957519ee09b6f11da02b1039a"
+  url "https://github.com/kspalaiologos/bzip3/releases/download/1.5.1/bzip3-1.5.1.tar.gz"
+  sha256 "cc7cacda6d15f24d3fe73fd87b895d5fd2c0f8b6dd0630ae4993aa45c4853c3b"
   license "LGPL-3.0-only"
 
   bottle do
@@ -17,7 +17,7 @@ class Bzip3 < Formula
   end
 
   def install
-    system "./configure", *std_configure_args, "--disable-silent-rules", "--disable-arch-native"
+    system "./configure", "--disable-silent-rules", "--disable-arch-native", *std_configure_args
     system "make", "install"
   end
 
