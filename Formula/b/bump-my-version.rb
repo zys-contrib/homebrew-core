@@ -3,8 +3,8 @@ class BumpMyVersion < Formula
 
   desc "Version bump your Python project"
   homepage "https://callowayproject.github.io/bump-my-version/"
-  url "https://files.pythonhosted.org/packages/1d/44/8f4f5dc472a054634bffd86e4941b2624e0b050f15578d40ec15e670d8e5/bump_my_version-0.28.1.tar.gz"
-  sha256 "e608def5191baf505b6cde88bd679a0a95fc4cfeace4247adb60ac0f8a7e57ee"
+  url "https://files.pythonhosted.org/packages/45/22/70378e3ab8634633ee37991eac86f072870be4fd9c59603ba6353c54d668/bump_my_version-0.28.2.tar.gz"
+  sha256 "65f555b3d279962b100c1f88ad105ae6c6274def73868141f9550a100ca7b87f"
   license "MIT"
   head "https://github.com/callowayproject/bump-my-version.git", branch: "master"
 
@@ -51,18 +51,18 @@ class BumpMyVersion < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/a9/b7/d9e3f12af310e1120c21603644a1cd86f59060e040ec5c3a80b8f05fae30/pydantic-2.9.2.tar.gz"
-    sha256 "d155cef71265d1e9807ed1c32b4c8deec042a44a50a4188b25ac67ecd81a9c0f"
+    url "https://files.pythonhosted.org/packages/45/0f/27908242621b14e649a84e62b133de45f84c255eecb350ab02979844a788/pydantic-2.10.3.tar.gz"
+    sha256 "cb5ac360ce894ceacd69c403187900a02c4b20b693a9dd1d643e1effab9eadf9"
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/e2/aa/6b6a9b9f8537b872f552ddd46dd3da230367754b6f707b8e1e963f515ea3/pydantic_core-2.23.4.tar.gz"
-    sha256 "2584f7cf844ac4d970fba483a717dbe10c1c1c96a969bf65d61ffe94df1b2863"
+    url "https://files.pythonhosted.org/packages/a6/9f/7de1f19b6aea45aeb441838782d68352e71bfa98ee6fa048d5041991b33e/pydantic_core-2.27.1.tar.gz"
+    sha256 "62a763352879b84aa31058fc931884055fd75089cccbd9d58bb6afd01141b235"
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/b5/d4/9dfbe238f45ad8b168f5c96ee49a3df0598ce18a0795a983b419949ce65b/pydantic_settings-2.6.1.tar.gz"
-    sha256 "e0f92546d8a9923cb8941689abf85d6601a8c19a23e97a34b2964a2e3f813ca0"
+    url "https://files.pythonhosted.org/packages/86/41/19b62b99e7530cfa1d6ccd16199afd9289a12929bef1a03aa4382b22e683/pydantic_settings-2.7.0.tar.gz"
+    sha256 "ac4bfd4a36831a48dbf8b2d9325425b549a0a6f18cea118436d728eb4f1c4d66"
   end
 
   resource "pygments" do
@@ -86,8 +86,8 @@ class BumpMyVersion < Formula
   end
 
   resource "rich-click" do
-    url "https://files.pythonhosted.org/packages/3a/a9/a1f1af87e83832d794342fbc09c96cc7cd6798b8dfb8adfbe6ccbef8d70c/rich_click-1.8.3.tar.gz"
-    sha256 "6d75bdfa7aa9ed2c467789a0688bc6da23fbe3a143e19aa6ad3f8bac113d2ab3"
+    url "https://files.pythonhosted.org/packages/9a/31/103501e85e885e3e202c087fa612cfe450693210372766552ce1ab5b57b9/rich_click-1.8.5.tar.gz"
+    sha256 "a3eebe81da1c9da3c32f3810017c79bd687ff1b3fa35bfc9d8a3338797f1d1a1"
   end
 
   resource "tomlkit" do
