@@ -8,12 +8,12 @@ class Codelimit < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "02f6ed03ffa467ddcf4c4c4e0116800bf52f8060acc298c3aae4a55159ca73d5"
-    sha256 cellar: :any,                 arm64_sonoma:  "dc5c64210ba5f462b94b6dbe0053748f369210c64cabffe5cdf842c1a3b6723a"
-    sha256 cellar: :any,                 arm64_ventura: "0040ba41fac8dd9315b8e9a23a34f514b5095ce18e1d96ae9f08d9e5bab44212"
-    sha256 cellar: :any,                 sonoma:        "56ac809febbc57430066db4022afc4659c405a5b7c12a06d7db642b6de10fb76"
-    sha256 cellar: :any,                 ventura:       "15dad0a88f765df86e9687dcdd5c247a5caf5300ed07a3e78aa1056280eac956"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d3e5f1fde37f8de4279ddeafce58dce7fbfca6b6894d3897e59e628b5f206a0"
+    sha256 cellar: :any,                 arm64_sequoia: "13b6d3994641336570a7efbc05ea82f4341b5bd169235cf9abf103e576b09a9d"
+    sha256 cellar: :any,                 arm64_sonoma:  "2b06313eb2e59b454e547c8e626b13406af77eff0a806257c6676de6dc93e3ab"
+    sha256 cellar: :any,                 arm64_ventura: "507a98959d7355ff09566e66f287d022a84a949652249013ada56fa572b5be9b"
+    sha256 cellar: :any,                 sonoma:        "bb604eebf519aa10d02edff278461e9fbfea210f7605425b85a06e03b11c6714"
+    sha256 cellar: :any,                 ventura:       "daf1bfe98ea5fea35b9f27725c905c48ee06259544e5a74948b5cfe8d6319205"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8b2433314c5c842c8cc614505763ec79ed7ecd5bfe107d6a66be52ad9064eab"
   end
 
   depends_on "certifi"
