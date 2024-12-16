@@ -1,8 +1,8 @@
 class Typstyle < Formula
   desc "Beautiful and reliable typst code formatter"
   homepage "https://enter-tainer.github.io/typstyle/"
-  url "https://github.com/Enter-tainer/typstyle/archive/refs/tags/v0.12.10.tar.gz"
-  sha256 "35d4b9b3f1bee7c2d4fd1604627978874cba7c7c76078621fb0c605dde512a43"
+  url "https://github.com/Enter-tainer/typstyle/archive/refs/tags/v0.12.12.tar.gz"
+  sha256 "ceac34ab9e51dd770c8e2cb253b9a218a2062e778298d381435c1fde227bbd20"
   license "Apache-2.0"
   head "https://github.com/Enter-tainer/typstyle.git", branch: "master"
 
@@ -18,7 +18,7 @@ class Typstyle < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(path: "crates/typstyle")
   end
 
   test do
