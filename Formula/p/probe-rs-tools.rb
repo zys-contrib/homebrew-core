@@ -1,8 +1,8 @@
 class ProbeRsTools < Formula
   desc "Collection of on chip debugging tools to communicate with microchips"
   homepage "https://probe.rs"
-  url "https://github.com/probe-rs/probe-rs/archive/refs/tags/v0.24.0.tar.gz"
-  sha256 "8a7477a4b04b923ef2f46a91d5491d94e50a57259efef78d4c0800a4a46e4aee"
+  url "https://github.com/probe-rs/probe-rs/archive/refs/tags/v0.25.0.tar.gz"
+  sha256 "693d76eb1ee697d420781e28cfbb4e527c6176eca327a4c92e26daf7e52c153f"
   license "Apache-2.0"
   head "https://github.com/probe-rs/probe-rs.git", branch: "master"
 
@@ -35,8 +35,10 @@ class ProbeRsTools < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/probe-rs --version")
+
     output = shell_output("#{bin}/probe-rs chip list")
     assert_match "nRF52833_xxAA", output # micro:bit v2
-    assert_match "STM32F303VCTx", output # STM32F3DISCOVERY
+    assert_match "STM32F3 Series", output
   end
 end
