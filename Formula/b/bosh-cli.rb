@@ -1,8 +1,8 @@
 class BoshCli < Formula
   desc "Cloud Foundry BOSH CLI v2"
   homepage "https://bosh.io/docs/cli-v2/"
-  url "https://github.com/cloudfoundry/bosh-cli/archive/refs/tags/v7.8.3.tar.gz"
-  sha256 "2c7034048e8f056c9304036dcbdf658fcb81d80bbf32eeebf69a15a1ef6666bb"
+  url "https://github.com/cloudfoundry/bosh-cli/archive/refs/tags/v7.8.4.tar.gz"
+  sha256 "ca19b0409d701629e439c461d4e8d9a8b7c2c89653ac2cfd7fad204f3b500a9d"
   license "Apache-2.0"
   head "https://github.com/cloudfoundry/bosh-cli.git", branch: "main"
 
@@ -25,8 +25,7 @@ class BoshCli < Formula
 
   test do
     system bin/"bosh-cli", "generate-job", "brew-test"
-    assert_equal 0, $CHILD_STATUS.exitstatus
-    assert_predicate testpath/"jobs/brew-test", :exist?
+    assert_path_exists testpath/"jobs/brew-test"
 
     assert_match version.to_s, shell_output("#{bin}/bosh-cli --version")
   end
