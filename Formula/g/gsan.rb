@@ -7,6 +7,10 @@ class Gsan < Formula
   sha256 "2418a6897b0eb1c6eb44c3521ccc5c69a811071f864b8001fd9699a4d2f4c9e3"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "b5f3b8889010acbfe378e95593bfc2757db482894a47bbfb1dd6d76c1cd8be8f"
+  end
+
   depends_on "cryptography"
   depends_on "python@3.13"
 
