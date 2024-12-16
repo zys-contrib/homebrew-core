@@ -14,11 +14,11 @@ class Octave < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:  "6b054b347149fdb9f895d0826a3ddfe19b9073ec69a593495c6eab6604c89b04"
-    sha256 arm64_ventura: "942cffcc4cf845683ecfa339d9a363bb7566c02cf0eed1706c3eac2071817028"
-    sha256 sonoma:        "e78c8cf8381ebec4148d7ef861b88f55d4080454538724096f245c4c80a38444"
-    sha256 ventura:       "9f5e718dd008b07f296158d0e34beeafa43396116bb74d9e6f10e9936b774128"
-    sha256 x86_64_linux:  "bf6732da770cd8e4a8b5ef6ae7e38d7e49d3d005eef2fa691c5ff4a1c68a849f"
+    sha256 arm64_sonoma:  "cbbe2445ed0a7370a45e5f941ab10a5e3b27e51fc1ba251ab9f1c092cdcb75cd"
+    sha256 arm64_ventura: "f18386f288b6e728795c020fb5967ac8007da8465bb51ac420da3fd34f6da578"
+    sha256 sonoma:        "843daa96cfc9a4fcaaf84850e3e631230e3f6562d2e3896c6b96b9c167f3efef"
+    sha256 ventura:       "fa951433d5b072ed76d982139189b93f27aba69c19e58e2e29460e2dfd04ddf8"
+    sha256 x86_64_linux:  "cdcaffa0641206c7d35a3cebcd2a81a6e92b1289146cc81aaf363bb2058c1a47"
   end
 
   head do
