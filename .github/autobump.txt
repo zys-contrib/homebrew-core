@@ -1672,6 +1672,7 @@ libheif
 libhubbub
 libical
 libice
+libiconv
 libidn2
 libimagequant
 libimobiledevice-glue

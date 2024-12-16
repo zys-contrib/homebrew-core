@@ -1,9 +1,9 @@
 class Libiconv < Formula
   desc "Conversion library"
   homepage "https://www.gnu.org/software/libiconv/"
-  url "https://ftp.gnu.org/gnu/libiconv/libiconv-1.17.tar.gz"
-  mirror "https://ftpmirror.gnu.org/libiconv/libiconv-1.17.tar.gz"
-  sha256 "8f74213b56238c85a50a5329f77e06198771e70dd9a739779f4c02f65d971313"
+  url "https://ftp.gnu.org/gnu/libiconv/libiconv-1.18.tar.gz"
+  mirror "https://ftpmirror.gnu.org/libiconv/libiconv-1.18.tar.gz"
+  sha256 "3b08f5f4f9b4eb82f151a7040bfd6fe6c6fb922efe4b1659c66ea933276965e8"
   license all_of: ["GPL-3.0-or-later", "LGPL-2.0-or-later"]
 
   bottle do
@@ -21,6 +21,8 @@ class Libiconv < Formula
 
   keg_only :provided_by_macos
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on :macos # is not needed on Linux, where iconv.h is provided by glibc
 
   patch do
