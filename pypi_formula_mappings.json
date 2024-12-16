@@ -402,6 +402,9 @@
   "grokmirror": {
     "exclude_packages": ["certifi"]
   },
+  "gsan": {
+    "exclude_packages": ["cryptography"]
+  },
   "gyb": {
     "package_name": "",
     "exclude_packages": ["certifi"],
