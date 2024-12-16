@@ -18,6 +18,7 @@ class PetscComplex < Formula
     sha256 x86_64_linux:  "06cf00209ca7d0ddc3ee4966788d2daea02b18d8aaded20d7a4b91d75fe81189"
   end
 
+  depends_on "fftw"
   depends_on "gcc"
   depends_on "hdf5-mpi"
   depends_on "hwloc"
@@ -40,6 +41,11 @@ class PetscComplex < Formula
                           "--CXX=mpicxx",
                           "--F77=mpif77",
                           "--FC=mpif90",
+                          "--with-fftw-dir=#{Formula["fftw"].opt_prefix}",
+                          "--with-hdf5-dir=#{Formula["hdf5-mpi"].opt_prefix}",
+                          "--with-hdf5-fortran-bindings=1",
+                          "--with-metis-dir=#{Formula["metis"].opt_prefix}",
+                          "--with-scalapack-dir=#{Formula["scalapack"].opt_prefix}",
                           "MAKEFLAGS=$MAKEFLAGS"
 
     # Avoid references to Homebrew shims (perform replacement before running `make`, or else the shim
