@@ -1152,6 +1152,7 @@ gnupg@2.2
 gnuplot
 gnutls
 go
+go-blueprint
 go-camo
 go-critic
 go-feature-flag-relay-proxy
