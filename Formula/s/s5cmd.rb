@@ -6,6 +6,15 @@ class S5cmd < Formula
   license "MIT"
   head "https://github.com/peak/s5cmd.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "916e4d04783629cfd49481c1f6aa50ea3cde6f77a3083ff0f297e55c73e5bb79"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "916e4d04783629cfd49481c1f6aa50ea3cde6f77a3083ff0f297e55c73e5bb79"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "916e4d04783629cfd49481c1f6aa50ea3cde6f77a3083ff0f297e55c73e5bb79"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9c2d0641ad6fcef280e6120b699cd5118d123b797ab6c8106921573146d72070"
+    sha256 cellar: :any_skip_relocation, ventura:       "9c2d0641ad6fcef280e6120b699cd5118d123b797ab6c8106921573146d72070"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0fb0bbbf11a900fb389b607b57acbc203a50bff71b0913a66b6308e658913dee"
+  end
+
   depends_on "go" => :build
 
   def install
