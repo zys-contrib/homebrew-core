@@ -2938,6 +2938,7 @@ swig
 swtpm
 syft
 symengine
+synchrony
 syncthing
 sysaidmin
 sysdig
