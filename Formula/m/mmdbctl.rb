@@ -6,6 +6,15 @@ class Mmdbctl < Formula
   license "Apache-2.0"
   head "https://github.com/ipinfo/mmdbctl.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "476754e99976f175f116f631a964372ea4a192de1e76e135d9fd6a6362b740d6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "476754e99976f175f116f631a964372ea4a192de1e76e135d9fd6a6362b740d6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "476754e99976f175f116f631a964372ea4a192de1e76e135d9fd6a6362b740d6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0b3dabcf4ed371bfb6d6b145026c0fd438a0654239b557cb6b12acdc0858ddc9"
+    sha256 cellar: :any_skip_relocation, ventura:       "0b3dabcf4ed371bfb6d6b145026c0fd438a0654239b557cb6b12acdc0858ddc9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d05493505367a7cfa87ec4475694b765b968850153a36fcfbff6488aed1fbdbe"
+  end
+
   depends_on "go" => :build
 
   def install
