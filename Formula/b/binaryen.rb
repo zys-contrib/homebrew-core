@@ -1,8 +1,8 @@
 class Binaryen < Formula
   desc "Compiler infrastructure and toolchain library for WebAssembly"
   homepage "https://webassembly.org/"
-  url "https://github.com/WebAssembly/binaryen/archive/refs/tags/version_120.tar.gz"
-  sha256 "a4edd532d37b33d88e28e8d770f7177a7c0bb4495eabc6f5ecd41ffc5fd4db90"
+  url "https://github.com/WebAssembly/binaryen/archive/refs/tags/version_121.tar.gz"
+  sha256 "93f3b3d62def4aee6d09b11e6de75b955d29bc37878117e4ed30c3057a2ca4b4"
   license "Apache-2.0"
   head "https://github.com/WebAssembly/binaryen.git", branch: "main"
 
@@ -21,10 +21,9 @@ class Binaryen < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on macos: :mojave # needs std::variant
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_TESTS=false"
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_TESTS=false", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
