@@ -1,8 +1,8 @@
 class SequoiaSq < Formula
   desc "Sequoia-PGP command-line tool"
   homepage "https://sequoia-pgp.org"
-  url "https://gitlab.com/sequoia-pgp/sequoia-sq/-/archive/v0.40.0/sequoia-sq-v0.40.0.tar.gz"
-  sha256 "6693d80f49e154a3588a3b64e4be06cede672f50e45be1a5ed3fba54f9a8126c"
+  url "https://gitlab.com/sequoia-pgp/sequoia-sq/-/archive/v1.0.0/sequoia-sq-v1.0.0.tar.gz"
+  sha256 "ffbc8f61daddce8c3369bbfb36361debb38b21b035f4a321772d5dff19491ef6"
   license "LGPL-2.0-or-later"
   head "https://gitlab.com/sequoia-pgp/sequoia-sq.git", branch: "main"
 
