@@ -1,8 +1,8 @@
 class Mikutter < Formula
   desc "Extensible Twitter client"
   homepage "https://mikutter.hachune.net/"
-  url "https://mikutter.hachune.net/bin/mikutter-5.0.7.tar.gz", using: :homebrew_curl
-  sha256 "34dcabb98572c5c3b5707ebdee41019bf277fa3e20f7e061088b5b1d1aaea39a"
+  url "https://mikutter.hachune.net/bin/mikutter-5.0.8.tar.gz", using: :homebrew_curl
+  sha256 "c68f9a7cb7424e69b7f5a6557b884deb120708db5678e51f30f3cbb011c5b51f"
   license "MIT"
   head "git://mikutter.hachune.net/mikutter.git", branch: "develop"
 
@@ -43,6 +43,8 @@ class Mikutter < Formula
     depends_on "gettext"
     depends_on "terminal-notifier"
   end
+
+  # check `plugin/gtk3/Gemfile` for `gtk3` gem version
 
   resource "addressable" do
     url "https://rubygems.org/downloads/addressable-2.8.6.gem"
@@ -135,8 +137,8 @@ class Mikutter < Formula
   end
 
   resource "json" do
-    url "https://rubygems.org/gems/json-2.7.1.gem"
-    sha256 "187ea312fb58420ff0c40f40af1862651d4295c8675267c6a1c353f1a0ac3265"
+    url "https://rubygems.org/gems/json-2.7.2.gem"
+    sha256 "1898b5cbc81cd36c0fd4d0b7ad2682c39fb07c5ff682fc6265f678f550d4982c"
   end
 
   resource "locale" do
