@@ -1984,6 +1984,7 @@ mlpack
 mlt
 mlx
 mmark
+mmdbctl
 mmseqs2
 mmv
 mockery
