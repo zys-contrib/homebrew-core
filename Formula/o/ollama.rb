@@ -2,8 +2,8 @@ class Ollama < Formula
   desc "Create, run, and share large language models (LLMs)"
   homepage "https://ollama.com/"
   url "https://github.com/ollama/ollama.git",
-      tag:      "v0.5.1",
-      revision: "de52b6c2f90ff220ed9469167d51e3f5d7474fa2"
+      tag:      "v0.5.2",
+      revision: "60f75560a2a950e14aabe88c0a7b1223f31277ad"
   license "MIT"
   head "https://github.com/ollama/ollama.git", branch: "main"
 
@@ -28,6 +28,10 @@ class Ollama < Formula
   depends_on "go" => :build
 
   def install
+    # Fix to makefile path, should be checked in next release
+    # https://github.com/ollama/ollama/blob/89d5e2f2fd17e03fd7cd5cb2d8f7f27b82e453d7/llama/llama.go#L3
+    inreplace "llama/llama.go", "//go:generate make -j", "//go:generate make -C ../ -j"
+
     # Silence tens of thousands of SDK warnings
     ENV["SDKROOT"] = MacOS.sdk_path if OS.mac?
 
