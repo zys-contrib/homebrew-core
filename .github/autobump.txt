@@ -2590,6 +2590,7 @@ release-it
 remarshal
 remind
 renovate
+replxx
 repo
 reposurgeon
 repren
