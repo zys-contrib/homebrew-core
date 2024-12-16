@@ -3055,6 +3055,7 @@ tofuenv
 toipe
 tomcat
 tomcat-native
+tomcat@10
 tomcat@9
 tomee-plume
 tomee-plus
