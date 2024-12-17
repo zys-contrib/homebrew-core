@@ -1,8 +1,8 @@
 class Dnsdist < Formula
   desc "Highly DNS-, DoS- and abuse-aware loadbalancer"
   homepage "https://www.dnsdist.org/"
-  url "https://downloads.powerdns.com/releases/dnsdist-1.9.7.tar.bz2"
-  sha256 "285111c2b7dff6bc8a2407106a51c365cc5bf5e6287fe459a29b396c74620332"
+  url "https://downloads.powerdns.com/releases/dnsdist-1.9.8.tar.bz2"
+  sha256 "f664f73a96a8d7343d32696accb70fd8b1ed4328d73cdb0a627a561d6e2fd99e"
   license "GPL-2.0-only"
 
   livecheck do
