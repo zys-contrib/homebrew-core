@@ -6,11 +6,13 @@ class Heroku < Formula
   license "ISC"
 
   bottle do
-    sha256 arm64_sequoia: "c6118421b58f3f14972958fe4fff97d486e633899aede9cd4abfd7a35d7a9a5f"
-    sha256 arm64_sonoma:  "e5e891e569dbb21b3e28b2aefc24700eed95ac97dfb4d49db162467c42ff2308"
-    sha256 arm64_ventura: "c0322f0b6c79f0c72941d7e1a59ab716136298abdd5f003e0cdf17fff6350d4a"
-    sha256 sonoma:        "bc923961ae796a43b7f2adf8885c946f8419a0628c286c137dc39cb62ebac1c0"
-    sha256 ventura:       "0edccb3453122d52dbd33a30bf052d3d5936e7db01dda63de13fea5a5f7abd36"
+    rebuild 1
+    sha256                               arm64_sequoia: "19060376f155c309d050355d9f78823a9be221df1dbf6f11402ca9ada75f399a"
+    sha256                               arm64_sonoma:  "d8371ba76935d5c727e4c2f0b2853215a56357abbf0fb276af93645fb80961df"
+    sha256                               arm64_ventura: "473a9c940a0003fab9bd09d08656b6493299428cb0983276b0373f864ae073c7"
+    sha256                               sonoma:        "8f3e25edc33cfbf915df0434c654e955bb7fced243ecbc4ff99be9f0b6a98f5d"
+    sha256                               ventura:       "39855f46b5621d6bf834f6e5f41bf2d2e05b128ae8c2e73b13bc68dcc6cd0d07"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d691d12686a10fa66d79f7cd480a2eb58bba53fc162a173fafb40bcbdd34b85"
   end
 
   depends_on "node"
