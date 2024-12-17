@@ -28,12 +28,12 @@ class Luajit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "709b103cc75b7cbbaa5131408288ffbefa3002ee95044f7fc5a50afe22a07673"
-    sha256 cellar: :any,                 arm64_sonoma:  "705f7c04047f3770e4a6ac12956585ef864409be3f34ec430dcdc257733923eb"
-    sha256 cellar: :any,                 arm64_ventura: "5e78c714e7a8573e0dfd37e1e197a4bed05680c70b00dc985d8e34884a98d358"
-    sha256 cellar: :any,                 sonoma:        "0917b064d9aa0a9a0ddcc63bf96f45da25253624f6b1f12958aa4e062650b9ac"
-    sha256 cellar: :any,                 ventura:       "e9e4e5ca427fe8707045d71a80d3eaccb2537dd5d19f8249c0f5c2f83e13703d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "468bcf77b9d15106fa04adc7feee94c67577df3b19ddcc1102cf8d8d1e949262"
+    sha256 cellar: :any,                 arm64_sequoia: "03d962dafcf1b727cb8e8ebe3b7e83967717c1505df55a89cf13d7298aa8f9da"
+    sha256 cellar: :any,                 arm64_sonoma:  "6ed5ad658fd4107af5271ac9b6be6f3dc7eb676d3ce275c47fad83b6d0c1c386"
+    sha256 cellar: :any,                 arm64_ventura: "0dcb50b5ed4180533bf0d42b68e7fd346ce9e4fdcb1a6e568a4c4e9dab88d877"
+    sha256 cellar: :any,                 sonoma:        "98e5e0251159863f4e32d5931ca1e6cd63a959aa58b825b49bca7c54656a2067"
+    sha256 cellar: :any,                 ventura:       "1816ef4f41fab4d5fac8464a90fd127106996576b554e555376b40855aa9529e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6836fca40ab80c6c9de9d5600d5391fc25240967fae4151d37fc7115a38fb9c4"
   end
 
   def install
