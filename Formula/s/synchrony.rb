@@ -5,6 +5,10 @@ class Synchrony < Formula
   sha256 "feca0c36e1efe029827f2cb44d206c9e32751f207dae25ca5a93a4e6fe21388d"
   license "GPL-3.0-only"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "cfdc7b740313472e31a522dc164bada69ff861e361bf7df460da30748c2c3fba"
+  end
+
   depends_on "node"
 
   def install
