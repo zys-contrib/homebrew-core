@@ -5,7 +5,7 @@ class Rdkit < Formula
   url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2024_09_3.tar.gz"
   sha256 "5d6a44be526e26ae80bb225df4bb0344e52c502b7f874ee824cfb2dc01adafeb"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/rdkit/rdkit.git", branch: "master"
 
   livecheck do
@@ -40,10 +40,10 @@ class Rdkit < Formula
   depends_on "maeparser"
   depends_on "numpy"
   depends_on "py3cairo"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def postgresqls
