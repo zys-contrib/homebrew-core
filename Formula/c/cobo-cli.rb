@@ -3,8 +3,8 @@ class CoboCli < Formula
 
   desc "Cobo Command-line Tool"
   homepage "https://github.com/CoboGlobal/cobo-cli"
-  url "https://files.pythonhosted.org/packages/83/e7/dc47cd582b8f68546bac444b79a27d48b297b3d7c74cc9edb38e99c22a1a/cobo_cli-0.0.4.tar.gz"
-  sha256 "db66874dc6755d51c0efe82af01c273f733e005b9cbe7e5dd66c62b39a3cd469"
+  url "https://files.pythonhosted.org/packages/3a/07/a80c6fb19a005c81b20b344b6d3f4b3631563d732d6aa91acdc569503e49/cobo_cli-0.0.5.tar.gz"
+  sha256 "ae08b589fbf097c4cdac82e3802be2bf2faa98d7c710102c68c27cf6518dd98c"
   license "MIT"
 
   bottle do
@@ -95,8 +95,8 @@ class CoboCli < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/41/86/a03390cb12cf64e2a8df07c267f3eb8d5035e0f9a04bb20fb79403d2a00e/pydantic-2.10.2.tar.gz"
-    sha256 "2bc2d7f17232e0841cbba4641e65ba1eb6fafb3a08de3a091ff3ce14a197c4fa"
+    url "https://files.pythonhosted.org/packages/45/0f/27908242621b14e649a84e62b133de45f84c255eecb350ab02979844a788/pydantic-2.10.3.tar.gz"
+    sha256 "cb5ac360ce894ceacd69c403187900a02c4b20b693a9dd1d643e1effab9eadf9"
   end
 
   resource "pydantic-core" do
@@ -105,8 +105,8 @@ class CoboCli < Formula
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/b5/d4/9dfbe238f45ad8b168f5c96ee49a3df0598ce18a0795a983b419949ce65b/pydantic_settings-2.6.1.tar.gz"
-    sha256 "e0f92546d8a9923cb8941689abf85d6601a8c19a23e97a34b2964a2e3f813ca0"
+    url "https://files.pythonhosted.org/packages/86/41/19b62b99e7530cfa1d6ccd16199afd9289a12929bef1a03aa4382b22e683/pydantic_settings-2.7.0.tar.gz"
+    sha256 "ac4bfd4a36831a48dbf8b2d9325425b549a0a6f18cea118436d728eb4f1c4d66"
   end
 
   resource "pynacl" do
