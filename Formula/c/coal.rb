@@ -4,7 +4,7 @@ class Coal < Formula
   url "https://github.com/coal-library/coal/releases/download/v3.0.0/coal-3.0.0.tar.gz"
   sha256 "6a9cbd4684e907fd16577e5227fbace06ac15ca861c0846dfe5bc81e565fb1e7"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
   head "https://github.com/coal-library/coal.git", branch: "devel"
 
   livecheck do
@@ -30,10 +30,10 @@ class Coal < Formula
   depends_on "eigen"
   depends_on "eigenpy"
   depends_on "octomap"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
