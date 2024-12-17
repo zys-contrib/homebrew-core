@@ -5,6 +5,7 @@ class Wabt < Formula
       tag:      "1.0.36",
       revision: "3e826ecde1adfba5f88d10d361131405637e65a3"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -28,11 +29,17 @@ class Wabt < Formula
   uses_from_macos "python" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DBUILD_TESTS=OFF",
-                    "-WITH_WASI=ON",
-                    *std_cmake_args,
-                    "-DFETCHCONTENT_FULLY_DISCONNECTED=OFF" # FIXME: Find a way to build without this.
+    ENV.append_to_cflags "-fPIC" if OS.linux?
+
+    args = %w[
+      -DBUILD_TESTS=OFF
+      -DWITH_WASI=ON
+      -DFETCHCONTENT_FULLY_DISCONNECTED=OFF
+    ]
+
+    system "cmake", *args, *std_cmake_args
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
