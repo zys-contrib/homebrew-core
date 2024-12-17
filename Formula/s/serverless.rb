@@ -1,8 +1,8 @@
 class Serverless < Formula
   desc "Build applications with serverless architectures"
   homepage "https://www.serverless.com/"
-  url "https://github.com/serverless/serverless/archive/refs/tags/v3.39.0.tar.gz"
-  sha256 "8f9f90af64b4ddf9df872b6a998ce943d82a479d0f138f804a0e84d4f24b74e3"
+  url "https://github.com/serverless/serverless/archive/refs/tags/v3.40.0.tar.gz"
+  sha256 "c8058ec43e1e5de67a4a1ee95f0bcec24a4b0ffd4e953b4214961ef7ff2b385d"
   license "MIT"
   head "https://github.com/serverless/serverless.git", branch: "v3"
 
