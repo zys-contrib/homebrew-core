@@ -3105,6 +3105,7 @@ tt
 ttdl
 ttyd
 ttyplot
+tuisky
 tup
 twine
 txr
