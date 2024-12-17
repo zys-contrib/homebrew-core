@@ -1,8 +1,8 @@
 class Libclc < Formula
   desc "Implementation of the library requirements of the OpenCL C programming language"
   homepage "https://libclc.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.5/libclc-19.1.5.src.tar.xz"
-  sha256 "95ee4b8694fd7b1405d362b9ed758be3e88a81c9ee80c1e8433183f0ddde070e"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.6/libclc-19.1.6.src.tar.xz"
+  sha256 "9fb7807c245b265cc1158105a52abaf8199a13834e2d2e94d742ce436a1e82d7"
   license "Apache-2.0" => { with: "LLVM-exception" }
 
   livecheck do
