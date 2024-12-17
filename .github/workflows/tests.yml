@@ -232,7 +232,8 @@ jobs:
           bottles-directory: ${{ env.BOTTLES_DIR }}
           cleanup: ${{ matrix.cleanup }}
 
-      - id: brew-test-bot-formulae
+      - name: Test formulae
+        id: brew-test-bot-formulae
         run: |
           # shellcheck disable=SC2086
           brew test-bot $TEST_BOT_FORMULAE_ARGS \
@@ -365,7 +366,8 @@ jobs:
           cleanup: ${{ matrix.cleanup }}
           download-bottles: true
 
-      - run: |
+      - name: Test dependents
+        run: |
           # shellcheck disable=SC2086
           brew test-bot $TEST_BOT_DEPENDENTS_ARGS \
             --testing-formulae="$TESTING_FORMULAE" \
