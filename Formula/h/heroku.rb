@@ -14,7 +14,10 @@ class Heroku < Formula
   end
 
   depends_on "node"
-  depends_on "terminal-notifier"
+
+  on_macos do
+    depends_on "terminal-notifier"
+  end
 
   def install
     system "npm", "install", *std_npm_args
