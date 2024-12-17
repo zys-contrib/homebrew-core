@@ -6,7 +6,7 @@ class GraphTool < Formula
   url "https://downloads.skewed.de/graph-tool/graph-tool-2.80.tar.bz2"
   sha256 "c1a70e075dbe728fad25dc3f5a9a9597880a6d6ff68435b91d21f0b44ef8dbe6"
   license "LGPL-3.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://downloads.skewed.de/graph-tool/"
@@ -37,7 +37,7 @@ class GraphTool < Formula
   depends_on "pillow"
   depends_on "py3cairo"
   depends_on "pygobject3"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "qhull"
   depends_on "scipy"
   depends_on "zstd"
@@ -110,7 +110,7 @@ class GraphTool < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
