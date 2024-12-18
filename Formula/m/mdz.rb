@@ -5,6 +5,15 @@ class Mdz < Formula
   sha256 "16b0e877091c1ef6fc466e52c4281a9407081459264f3c8bb7917699687224fa"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2f42b76a3ce6643e019ab0cbee5fa16ac084bf2e4c060af49334ff0979f310bc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2f42b76a3ce6643e019ab0cbee5fa16ac084bf2e4c060af49334ff0979f310bc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2f42b76a3ce6643e019ab0cbee5fa16ac084bf2e4c060af49334ff0979f310bc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b0573efb28c5d61e70a552afcd7b4fc9f8d9bc55ef8e4c8c5f44c13b3ed85352"
+    sha256 cellar: :any_skip_relocation, ventura:       "b0573efb28c5d61e70a552afcd7b4fc9f8d9bc55ef8e4c8c5f44c13b3ed85352"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ea6fb65223a662e92bedba94a31dcca936cc7e7f408279aae005d0e9a06c3d9"
+  end
+
   depends_on "go" => :build
 
   def install
