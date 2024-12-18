@@ -33,10 +33,15 @@ class Objfw < Formula
   patch :DATA
 
   def install
+    ENV.clang if OS.linux?
+
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
-    inreplace bin/"objfw-config", "llvm_clang", "clang" if OS.linux?
+
+    return unless OS.mac?
+
+    inreplace bin/"objfw-config", 'OBJC="clang"', 'OBJC="/usr/bin/clang"'
   end
 
   test do
