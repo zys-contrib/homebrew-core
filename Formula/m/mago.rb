@@ -1,8 +1,8 @@
 class Mago < Formula
   desc "Toolchain for PHP to help developers write better code"
   homepage "https://github.com/carthage-software/mago"
-  url "https://github.com/carthage-software/mago/archive/refs/tags/0.0.9.tar.gz"
-  sha256 "85d704a4017204a97dcc1adffa5c7bd9f50e3b5d8e0219da37a6428846e44ef1"
+  url "https://github.com/carthage-software/mago/archive/refs/tags/0.0.10.tar.gz"
+  sha256 "da43637f85122a638a88cbbb16c8d11607f799e5f36ecbb653feba4c72c91ac1"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
@@ -24,8 +24,8 @@ class Mago < Formula
     assert_match version.to_s, shell_output("#{bin}/mago --version")
 
     (testpath/"example.php").write("<?php echo 'Hello, Mago!';")
-    output = shell_output("#{bin}/mago lint 2>&1")
-    assert_match " missing `declare(strict_types=1);` statement at the beginning of the file", output
+    output = shell_output("#{bin}/mago lint 2>&1", 1)
+    assert_match " Missing `declare(strict_types=1);` statement at the beginning of the file", output
 
     (testpath/"unformatted.php").write("<?php echo 'Unformatted';?>")
     system bin/"mago", "fmt"
