@@ -54,6 +54,7 @@ class Gnupg < Formula
                              "--enable-all-tests",
                              "--sysconfdir=#{etc}",
                              "--with-pinentry-pgm=#{Formula["pinentry"].opt_bin}/pinentry",
+                             "--with-readline=#{Formula["readline"].opt_prefix}",
                              *std_configure_args
       system "make"
       system "make", "check"
