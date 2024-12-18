@@ -23,13 +23,13 @@ class Gexiv2 < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "pygobject3" => [:build, :test]
-  depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
   depends_on "vala" => :build
   depends_on "exiv2"
   depends_on "glib"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
