@@ -6,12 +6,8 @@ class Glaze < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2f739a21f9a4a9a30229756d9640a6492205abea1954eb9756ea8da00d6e3029"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2f739a21f9a4a9a30229756d9640a6492205abea1954eb9756ea8da00d6e3029"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2f739a21f9a4a9a30229756d9640a6492205abea1954eb9756ea8da00d6e3029"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2f739a21f9a4a9a30229756d9640a6492205abea1954eb9756ea8da00d6e3029"
-    sha256 cellar: :any_skip_relocation, ventura:       "2f739a21f9a4a9a30229756d9640a6492205abea1954eb9756ea8da00d6e3029"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7bc4e57b79a9eb0f358aa94afbc18c0cb4d21d0c417a4dcc4633764be8db19c5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "56bdb808a3c912d74407fb07753e2992ff8d5d451eeec4138a6583183bbb280a"
   end
 
   depends_on "cmake" => [:build, :test]
