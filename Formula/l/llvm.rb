@@ -6,15 +6,23 @@ class Llvm < Formula
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.5/llvm-project-19.1.5.src.tar.xz"
-    sha256 "bd8445f554aae33d50d3212a15e993a667c0ad1b694ac1977f3463db3338e542"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.6/llvm-project-19.1.6.src.tar.xz"
+    sha256 "e3f79317adaa9196d2cfffe1c869d7c100b7540832bc44fe0d3f44a12861fa34"
+
+    # Remove the following patches in LLVM 20.
 
     # Backport relative `CLANG_CONFIG_FILE_SYSTEM_DIR` patch.
-    # Remove in LLVM 20.
     # https://github.com/llvm/llvm-project/pull/110962
     patch do
       url "https://github.com/llvm/llvm-project/commit/1682c99a8877364f1d847395cef501e813804caa.patch?full_index=1"
       sha256 "2d0a185e27ff2bc46531fc2c18c61ffab521ae8ece2db5b5bed498a15f3f3758"
+    end
+
+    # Support simplified triples in version config files.
+    # https://github.com/llvm/llvm-project/pull/111387
+    patch do
+      url "https://github.com/llvm/llvm-project/commit/88dd0d33147a7f46a3c9df4aed28ad4e47ef597c.patch?full_index=1"
+      sha256 "0acaa80042055ad194306abb9843a94da24f53ee2bb819583d624391a6329b90"
     end
   end
 
@@ -53,13 +61,6 @@ class Llvm < Formula
     depends_on "pkgconf" => :build
     depends_on "binutils" # needed for gold
     depends_on "elfutils" # openmp requires <gelf.h>
-  end
-
-  # Support simplified triples in version config files.
-  # https://github.com/llvm/llvm-project/pull/111387
-  patch do
-    url "https://github.com/llvm/llvm-project/commit/88dd0d33147a7f46a3c9df4aed28ad4e47ef597c.patch?full_index=1"
-    sha256 "0acaa80042055ad194306abb9843a94da24f53ee2bb819583d624391a6329b90"
   end
 
   # Fix triple config loading for clang-cl
