@@ -1583,6 +1583,7 @@ langgraph-cli
 languagetool
 lanraragi
 lastpass-cli
+lastz
 laszip
 latex2html
 latexdiff
