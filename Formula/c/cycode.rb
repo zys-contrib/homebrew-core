@@ -3,8 +3,8 @@ class Cycode < Formula
 
   desc "Boost security in your dev lifecycle via SAST, SCA, Secrets & IaC scanning"
   homepage "https://github.com/cycodehq/cycode-cli"
-  url "https://files.pythonhosted.org/packages/f4/d7/0aad589a490065d03432f74d7e720af6dcd5b79924a5b16393b88c66d020/cycode-2.1.1.tar.gz"
-  sha256 "c6742b1cd77760af06b1ad78fd6963e19927a0b0b8b4279f4adade23177fa11c"
+  url "https://files.pythonhosted.org/packages/21/2f/b1518043764be631f722cd3152399dd181c97cb2ba5f95dc26e4d2e7e206/cycode-2.2.0.tar.gz"
+  sha256 "54f3d446bb4c34d976bfcf9ac2910630064206a315edebe270191bf491b05a60"
   license "MIT"
 
   bottle do
@@ -90,11 +90,6 @@ class Cycode < Formula
     sha256 "52fd46ee46f6c8667692682c1fd7134edc65a2d2d084ebec1d295a6087fc0291"
   end
 
-  resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/ca/bc/f35b8446f4531a7cb215605d100cd88b7ac6f44ab3fc94870c120ab3adbf/pathspec-0.12.1.tar.gz"
-    sha256 "a482d51503a1ab33b1c67a6c3813a26953dbdc71c31dacaef9a838c4e29f5712"
-  end
-
   resource "pygments" do
     url "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz"
     sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
@@ -162,7 +157,7 @@ class Cycode < Formula
   end
 
   test do
-    assert_match "Error: ignore by type is missing", shell_output("#{bin}/cycode ignore 2>&1", 1)
+    assert_match "Error: Ignore by type is missing", shell_output("#{bin}/cycode ignore 2>&1", 1)
     assert_match "Error: Cycode client id needed.", shell_output("#{bin}/cycode scan path 2>&1", 1)
     output = shell_output("#{bin}/cycode scan -t test 2>&1", 2)
     assert_match "Error: Invalid value for '--scan-type' / '-t'", output
