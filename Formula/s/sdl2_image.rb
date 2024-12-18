@@ -1,10 +1,10 @@
 class Sdl2Image < Formula
   desc "Library for loading images as SDL surfaces and textures"
   homepage "https://github.com/libsdl-org/SDL_image"
-  url "https://github.com/libsdl-org/SDL_image/releases/download/release-2.8.2/SDL2_image-2.8.2.tar.gz"
-  sha256 "8f486bbfbcf8464dd58c9e5d93394ab0255ce68b51c5a966a918244820a76ddc"
+  url "https://github.com/libsdl-org/SDL_image/releases/download/release-2.8.3/SDL2_image-2.8.3.tar.gz"
+  sha256 "4b000f2c238ce380807ee0cb68a0ef005871691ece8646dbf4f425a582b1bb22"
   license "Zlib"
-  revision 2
+  head "https://github.com/libsdl-org/SDL_image.git", branch: "main"
 
   # This formula uses a file from a GitHub release, so we check the latest
   # release version instead of Git tags.
@@ -23,14 +23,9 @@ class Sdl2Image < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "627c063738ce664e38f5eaec55821203a6388ce4559f4b3427468aaf9bed4a97"
   end
 
-  head do
-    url "https://github.com/libsdl-org/SDL_image.git", branch: "main"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkgconf" => :build
   depends_on "jpeg-turbo"
   depends_on "jpeg-xl"
@@ -43,7 +38,8 @@ class Sdl2Image < Formula
   def install
     inreplace "SDL2_image.pc.in", "@prefix@", HOMEBREW_PREFIX
 
-    system "./autogen.sh" if build.head?
+    # upstream bug report, https://github.com/libsdl-org/SDL_image/issues/490
+    system "./autogen.sh"
     system "./configure", "--disable-imageio",
                           "--disable-avif-shared",
                           "--disable-jpg-shared",
