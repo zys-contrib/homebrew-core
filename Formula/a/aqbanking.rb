@@ -1,10 +1,9 @@
 class Aqbanking < Formula
   desc "Generic online banking interface"
   homepage "https://www.aquamaniac.de/rdm/projects/aqbanking"
-  url "https://www.aquamaniac.de/rdm/attachments/download/499/aqbanking-6.5.4.tar.gz"
-  sha256 "0d16ceae76f0718e466638f4547a8b14927f1d8d98322079cd6481adde30ac99"
+  url "https://www.aquamaniac.de/rdm/attachments/download/531/aqbanking-6.6.0.tar.gz"
+  sha256 "37634487b95bad72b1b21397bce08cb4b15e13cb253886767c98f31712e40bfb"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url "https://www.aquamaniac.de/rdm/projects/aqbanking/files"
