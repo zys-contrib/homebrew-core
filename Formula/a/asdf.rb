@@ -7,7 +7,7 @@ class Asdf < Formula
   head "https://github.com/asdf-vm/asdf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e9b4116ff1cd0efd06d32b784cac45845bf4b277754e0e3f8ac70e8be11f0a8d"
+    sha256 cellar: :any_skip_relocation, all: "1e938bf6752dc1494717a8354a3cd295b7b747202d23573a6a74a10bb0bfe3d4"
   end
 
   depends_on "autoconf"
