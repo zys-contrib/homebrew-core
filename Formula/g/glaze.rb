@@ -21,6 +21,7 @@ class Glaze < Formula
     args = %w[
       -Dglaze_DEVELOPER_MODE=OFF
     ]
+    args << "-Dglaze_ENABLE_AVX2=#{(!build.bottle? && Hardware::CPU.intel?) ? "ON" : "OFF"}"
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
