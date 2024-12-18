@@ -1,8 +1,8 @@
 class Gping < Formula
   desc "Ping, but with a graph"
   homepage "https://github.com/orf/gping"
-  url "https://github.com/orf/gping/archive/refs/tags/gping-v1.18.0.tar.gz"
-  sha256 "a76e09619831c0f2bb95f505a92c1332de89c3c43383b4d832a69afcb0fafd4c"
+  url "https://github.com/orf/gping/archive/refs/tags/gping-v1.19.0.tar.gz"
+  sha256 "a979c9a8c7a1a540bb48a1e90bb7ad294560bddc16ca977bc8475fb14f20155d"
   license "MIT"
   head "https://github.com/orf/gping.git", branch: "master"
 
@@ -35,6 +35,7 @@ class Gping < Formula
 
   def install
     system "cargo", "install", *std_cargo_args(path: "gping")
+    man.install "gping.1"
   end
 
   test do
