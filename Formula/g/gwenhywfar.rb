@@ -1,8 +1,8 @@
 class Gwenhywfar < Formula
   desc "Utility library required by aqbanking and related software"
   homepage "https://www.aquamaniac.de/rdm/projects/gwenhywfar"
-  url "https://www.aquamaniac.de/rdm/attachments/download/501/gwenhywfar-5.10.2.tar.gz"
-  sha256 "60a7da03542865501208f20e18de32b45a75e3f4aa8515ca622b391a2728a9e1"
+  url "https://www.aquamaniac.de/rdm/attachments/download/529/gwenhywfar-5.12.0.tar.gz"
+  sha256 "0ad5f1447703211f1610053a94bce1e82abceda2222a2ecc9cf45b148395d626"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -43,6 +43,9 @@ class Gwenhywfar < Formula
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
     sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
+
+  # Fix endianness handling for macos builds, emailed upstream about this patch
+  patch :DATA
 
   def install
     # Fix compile with newer Clang
@@ -101,3 +104,42 @@ class Gwenhywfar < Formula
     system "make"
   end
 end
+
+__END__
+diff --git a/src/base/endianfns.h b/src/base/endianfns.h
+index 2db9731..1d73968 100644
+--- a/src/base/endianfns.h
++++ b/src/base/endianfns.h
+@@ -28,6 +28,7 @@
+ #include <gwenhywfar/gwenhywfarapi.h>
+
+
++
+ #if GWENHYWFAR_SYS_IS_WINDOWS
+ /* assume little endian for now (is there any big endian Windows system??) */
+ #  define GWEN_ENDIAN_LE16TOH(x) (x)
+@@ -39,8 +40,14 @@
+ #  define GWEN_ENDIAN_LE64TOH(x) (x)
+ #  define GWEN_ENDIAN_HTOLE64(x) (x)
+ #else
+-/* for Linux and others use definitions from endian.h */
+-#  include <endian.h>
++/* Include portable_endian.h for cross-platform support */
++#  if __has_include("portable_endian.h")
++#    include "portable_endian.h"
++#  elif __has_include(<endian.h>)
++#    include <endian.h>
++#  else
++#    error "Neither portable_endian.h nor endian.h found. Cannot determine endianness."
++#  endif
+
+ #  define GWEN_ENDIAN_LE16TOH(x) le16toh(x)
+ #  define GWEN_ENDIAN_HTOLE16(x) htole16(x)
+@@ -52,7 +59,4 @@
+ #  define GWEN_ENDIAN_HTOLE64(x) htole64(x)
+ #endif
+
+-
+-
+-
+ #endif
