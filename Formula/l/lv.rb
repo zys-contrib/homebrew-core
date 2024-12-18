@@ -8,12 +8,12 @@ class Lv < Formula
   head "https://salsa.debian.org/debian/lv.git", branch: "master"
 
   bottle do
-    sha256                               arm64_sequoia: "5b5dd9f26574075bc3d95ee8471eb88bc1bc7158d6f5172876762987b5bf0cda"
-    sha256                               arm64_sonoma:  "3cd056cc510f5adfcac3704dd51714f19d8766be53775f91e6a5fe7911ca2e9f"
-    sha256                               arm64_ventura: "12db89933a9d1da2d4cbcd46eedfe8a012daceee73f3aa2847633250c622a48d"
-    sha256                               sonoma:        "5b09e7911cc65d1973481307932fd0bb6b17d2a05c6826c0ae544cbb3501987e"
-    sha256                               ventura:       "406d582f716e59c5da1ffaf83e36ccbdcf7fb94f29641f2e5bd1faff4ad1bd79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1cca7e45af8674ea0900398f58a2df15116ad78bc37cd16606f8438722dfd599"
+    sha256                               arm64_sequoia: "d8fff4f49ad72ed22fe3b335d3a780a6ecc7e97d14e49d9a0cfdb459ab40fc77"
+    sha256                               arm64_sonoma:  "103c91e238509bcb1862409cb3483b12311309b98dc0bccd3cdb485866ca6d73"
+    sha256                               arm64_ventura: "aa3867a4900aedf77e796f681676e22fc595dcaa8fb6fb9d20cdecd25f688c0c"
+    sha256                               sonoma:        "1d572a28261e7bb59a07d707ce3f28299d297442c09c90735196a08525db2c01"
+    sha256                               ventura:       "f737ea5ead2f1e11e7e2830e5acb65c2e2228775298dc855d30c4072cdafe83c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46f6669252eb821a07cd2648d0356449e22906673c9abbbbd8c604c98a827b27"
   end
 
   uses_from_macos "ncurses"
