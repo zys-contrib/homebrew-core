@@ -5,6 +5,15 @@ class Malcontent < Formula
   sha256 "a0d53b624fb6f786939e10740d7633d88da7443044a21ea706b8eb2ca15e59fc"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "967e0bdaf42f016182509ac0d7acc844ac9847544e6e32ec5803aa5d57db428b"
+    sha256 cellar: :any,                 arm64_sonoma:  "7615829c89fc474ab98f0b9496e9d3bf98375767094553c570edb619949ebc7b"
+    sha256 cellar: :any,                 arm64_ventura: "79604848a0156da95a3459006047f64126412103f49251270002961526f78915"
+    sha256 cellar: :any,                 sonoma:        "455afed9691db04dbdfcb6f3bbb3bed478c80771ab9f307de3cdcb1b8302218b"
+    sha256 cellar: :any,                 ventura:       "a795e7a4302279d5edbb4c0f87dd3778c6c1871ee3fe18dc6d3353c57d5288f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c44d32afb63a2d8d24c13edd167968834e581ea58872499fde071f259f93f8ab"
+  end
+
   depends_on "go" => :build
   depends_on "pkgconf" => :build
   depends_on "yara"
