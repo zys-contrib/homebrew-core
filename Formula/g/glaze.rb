@@ -6,12 +6,12 @@ class Glaze < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "824e409636a66e392e1ea2f0c74407cf7c858c98d9694f98e9d3e2f6e41ac77e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "824e409636a66e392e1ea2f0c74407cf7c858c98d9694f98e9d3e2f6e41ac77e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "824e409636a66e392e1ea2f0c74407cf7c858c98d9694f98e9d3e2f6e41ac77e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "824e409636a66e392e1ea2f0c74407cf7c858c98d9694f98e9d3e2f6e41ac77e"
-    sha256 cellar: :any_skip_relocation, ventura:       "824e409636a66e392e1ea2f0c74407cf7c858c98d9694f98e9d3e2f6e41ac77e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a01a3c7c004318744d3089c916dba9887d83224a661f622a0eafe1c13df2b41"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2f739a21f9a4a9a30229756d9640a6492205abea1954eb9756ea8da00d6e3029"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2f739a21f9a4a9a30229756d9640a6492205abea1954eb9756ea8da00d6e3029"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2f739a21f9a4a9a30229756d9640a6492205abea1954eb9756ea8da00d6e3029"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2f739a21f9a4a9a30229756d9640a6492205abea1954eb9756ea8da00d6e3029"
+    sha256 cellar: :any_skip_relocation, ventura:       "2f739a21f9a4a9a30229756d9640a6492205abea1954eb9756ea8da00d6e3029"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7bc4e57b79a9eb0f358aa94afbc18c0cb4d21d0c417a4dcc4633764be8db19c5"
   end
 
   depends_on "cmake" => [:build, :test]
