@@ -10,6 +10,12 @@ class Libsigrok < Formula
     url "https://sigrok.org/download/source/libsigrok/libsigrok-0.5.2.tar.gz"
     sha256 "4d341f90b6220d3e8cb251dacf726c41165285612248f2c52d15df4590a1ce3c"
 
+    # build patch to replace `PyEval_CallObject` with `PyObject_CallObject`
+    patch do
+      url "https://github.com/sigrokproject/libsigrok/commit/5bc8174531df86991ba8aa6d12942923925d9e72.patch?full_index=1"
+      sha256 "247bfee9777a39d5dc454a999ce425a061cdc48f4956fdb0cc31ec67a8086ce0"
+    end
+
     resource "libserialport" do
       url "https://sigrok.org/download/source/libserialport/libserialport-0.1.1.tar.gz"
       sha256 "4a2af9d9c3ff488e92fb75b4ba38b35bcf9b8a66df04773eba2a7bbf1fa7529d"
@@ -82,7 +88,7 @@ class Libsigrok < Formula
   depends_on "nettle"
   depends_on "numpy"
   depends_on "pygobject3"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   on_macos do
     depends_on "gettext"
@@ -95,7 +101,7 @@ class Libsigrok < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
