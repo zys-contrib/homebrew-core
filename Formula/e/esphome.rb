@@ -3,10 +3,9 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/28/6b/48222ed16df0e64ceef8a53587f727d56726e45b01297f28a18a16789449/esphome-2024.11.3.tar.gz"
-  sha256 "03c09eea601454e4dac69e918e4de6fd1b7f713746c512207ddca9d4cab5b671"
+  url "https://files.pythonhosted.org/packages/2e/8a/f22005d0cc18ac803e29ff3b79b858cc53cdbdbd8dbef3d0b6b3c3ee3402/esphome-2024.12.0.tar.gz"
+  sha256 "b6d012c7307d8925ad5f9a99f05eb460fb7d686a156d68e8f78ea0dc99b76c7d"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "208f01d6776aac3a7f6166f6c38775c87416e43527d014f24a62ee4b22f915b6"
@@ -70,8 +69,8 @@ class Esphome < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/fc/0f/aafca9af9315aee06a89ffde799a10a582fe8de76c563ee80bbcdc08b3fb/attrs-24.2.0.tar.gz"
-    sha256 "5cfb1b9148b5b086569baec03f20d7b6bf3bcacc9a42bebf87ffaaca362f6346"
+    url "https://files.pythonhosted.org/packages/48/c8/6260f8ccc11f0917360fc0da435c5c9c7504e3db174d5a12a1494887b045/attrs-24.3.0.tar.gz"
+    sha256 "8f5c07333d543103541ba7be0e2ce16eeee8130cb0b3f9238ab904ce1e85baff"
   end
 
   resource "bitarray" do
@@ -120,8 +119,8 @@ class Esphome < Formula
   end
 
   resource "esphome-dashboard" do
-    url "https://files.pythonhosted.org/packages/89/aa/4b734dcf66a733f0e6e811151fa326262726cbc2371fafb058a7fb557cda/esphome_dashboard-20241120.0.tar.gz"
-    sha256 "ffaca722250d75bec945c32edb4187dfa44d1dc7931657a09691375ad2c44b89"
+    url "https://files.pythonhosted.org/packages/39/b5/77fdc0c898903de9b0601ea381653d6add51928a02b563e5548c7d5f4b62/esphome_dashboard-20241217.1.tar.gz"
+    sha256 "fc996c6e76dcf41af66cad79f95b8e8c2620920dc49b191a1ff3ac9e4bb2a42a"
   end
 
   resource "esptool" do
@@ -130,8 +129,8 @@ class Esphome < Formula
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/f4/3a/6ab28db8f90c99e6b502436fb642912b590c352d5ba83e0b22b46db209da/fonttools-4.55.2.tar.gz"
-    sha256 "45947e7b3f9673f91df125d375eb57b9a23f2a603f438a1aebf3171bffa7a205"
+    url "https://files.pythonhosted.org/packages/76/61/a300d1574dc381393424047c0396a0e213db212e28361123af9830d71a8d/fonttools-4.55.3.tar.gz"
+    sha256 "3983313c2a04d6cc1fe9251f8fc647754cf49a61dac6cb1e7249ae67afaafc45"
   end
 
   resource "freetype-py" do
