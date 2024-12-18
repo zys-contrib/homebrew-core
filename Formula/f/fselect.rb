@@ -1,8 +1,8 @@
 class Fselect < Formula
   desc "Find files with SQL-like queries"
   homepage "https://github.com/jhspetersson/fselect"
-  url "https://github.com/jhspetersson/fselect/archive/refs/tags/0.8.6.tar.gz"
-  sha256 "4b7a6dc5f6f3da39c3242856a1c78734c7b14bd801dc4d7e32bc6f5a1809bc63"
+  url "https://github.com/jhspetersson/fselect/archive/refs/tags/0.8.7.tar.gz"
+  sha256 "1c8c3edd76f483ce66ea9a2f925abd44fffc6234b35088ed50131ce7e6552c81"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
@@ -17,15 +17,45 @@ class Fselect < Formula
   end
 
   depends_on "cmake" => :build # for libz-ng-sys
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
+  depends_on "libgit2"
+  depends_on "openssl@3"
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   def install
+    ENV["LIBGIT2_NO_VENDOR"] = "1"
+    # Ensure the correct `openssl` will be picked up.
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
     system "cargo", "install", *std_cargo_args
+  end
+
+  def check_binary_linkage(binary, library)
+    binary.dynamically_linked_libraries.any? do |dll|
+      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
+
+      File.realpath(dll) == File.realpath(library)
+    end
   end
 
   test do
     touch testpath/"test.txt"
     cmd = "#{bin}/fselect name from . where name = '*.txt'"
     assert_match "test.txt", shell_output(cmd).chomp
+
+    linked_libraries = [
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
+      Formula["openssl@3"].opt_lib/shared_library("libssl"),
+    ]
+    linked_libraries << (Formula["openssl@3"].opt_lib/shared_library("libcrypto")) if OS.mac?
+    linked_libraries.each do |library|
+      assert check_binary_linkage(bin/"fselect", library),
+             "No linkage with #{library.basename}! Cargo is likely using a vendored version."
+    end
   end
 end
