@@ -6,12 +6,12 @@ class XorgServer < Formula
   license all_of: ["MIT", "APSL-2.0"]
 
   bottle do
-    sha256 arm64_sequoia: "22606529645f5da9177e3e85e66de78f8e152824b17130afbd4edfa86561f72f"
-    sha256 arm64_sonoma:  "53f5c87edac5d6654b979ddf8313c6e7e956f6e845488ecdbfa6756e98b61887"
-    sha256 arm64_ventura: "6d6cabe83cb14c562e2a0308841ec66e8ad17ad7ae8d73af718338da97e8975b"
-    sha256 sonoma:        "bde2755365721cb2da126704895f38eefd9cc661ab0df619ae8e8b56dad2916b"
-    sha256 ventura:       "9c11d0e8f6b02620da296cf7a65450bfef50c23c126aacd16cc209253ec0bc62"
-    sha256 x86_64_linux:  "d3c83ad0be5c286b9eba93b46708cafc6ef3705b21f844a63de0bf56ae7a0a32"
+    sha256 arm64_sequoia: "da384bbf7907580328b19bd260d4297133081fec86df0a36397e4c3f26f28bbe"
+    sha256 arm64_sonoma:  "db3cb3b2450ecae3fe883348607120451778f6f2254892cc161c6ca476dbe359"
+    sha256 arm64_ventura: "47bbc240f25c91a73ab35b4df2fa089955ad18ffc1a5f4e796069fe556cb2ed2"
+    sha256 sonoma:        "96d25305aeff7f1ba96090a396cad3ef95e18742c54c4e75095b863ec3298948"
+    sha256 ventura:       "e2ce400b5f1192569337c85792841966eea31d11676673d23ab67fa739b9f3fa"
+    sha256 x86_64_linux:  "10b25721ee179b39c9dbeeb816be020d8f418ab1ec7c54f384f562c29c2d4575"
   end
 
   depends_on "font-util"   => :build
