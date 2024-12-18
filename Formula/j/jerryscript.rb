@@ -1,8 +1,8 @@
 class Jerryscript < Formula
   desc "Ultra-lightweight JavaScript engine for the Internet of Things"
   homepage "https://jerryscript.net"
-  url "https://github.com/jerryscript-project/jerryscript/archive/refs/tags/v2.4.0.tar.gz"
-  sha256 "5850947c23db6fbce032d15560551408ab155b16a94a7ac4412dc3bb85762d2d"
+  url "https://github.com/jerryscript-project/jerryscript/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "4d586d922ba575d95482693a45169ebe6cb539c4b5a0d256a6651a39e47bf0fc"
   license "Apache-2.0"
   head "https://github.com/jerryscript-project/jerryscript.git", branch: "master"
 
@@ -22,14 +22,22 @@ class Jerryscript < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkgconf" => :test
+
+  # rpath patch, upstream pr ref, https://github.com/jerryscript-project/jerryscript/pull/5204
+  patch do
+    url "https://github.com/jerryscript-project/jerryscript/commit/e8948ac3f34079ac6f3d6f47f8998b82f16b1621.patch?full_index=1"
+    sha256 "ebce75941e1f34118fed14e317500b0ab69f48182ba9cce8635e9f62fe9aa4d1"
+  end
 
   def install
-    args = std_cmake_args + %w[
+    args = %w[
       -DCMAKE_BUILD_TYPE=MinSizeRel
       -DJERRY_CMDLINE=ON
+      -DBUILD_SHARED_LIBS=ON
     ]
 
-    system "cmake", "-S", ".", "-B", ".", *args
+    system "cmake", "-S", ".", "-B", ".", *args, *std_cmake_args
     system "cmake", "--build", "."
     system "cmake", "--install", "."
   end
@@ -51,16 +59,17 @@ class Jerryscript < Formula
         jerry_value_t eval_ret = jerry_eval(script, script_size, JERRY_PARSE_NO_OPTS);
         bool run_ok = !jerry_value_is_error(eval_ret);
         if (run_ok) {
-          printf("1 + 2 = %d\\n", (int) jerry_get_number_value(eval_ret));
+          printf("1 + 2 = %d\\n", (int) jerry_value_as_number(eval_ret));
         }
 
-        jerry_release_value(eval_ret);
+        jerry_value_free(eval_ret);
         jerry_cleanup();
         return (run_ok ? 0 : 1);
       }
     C
-    system ENV.cc, "test.c", "-o", "test", "-I#{include}", "-L#{lib}",
-                   "-ljerry-core", "-ljerry-port-default", "-ljerry-ext", "-lm"
+
+    pkg_config_flags = shell_output("pkgconf --cflags --libs libjerry-core libjerry-port libjerry-ext").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkg_config_flags
     assert_equal "1 + 2 = 3", shell_output("./test").strip, "JerryScript can add number"
   end
 end
