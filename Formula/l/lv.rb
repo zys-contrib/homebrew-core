@@ -2,8 +2,8 @@ class Lv < Formula
   desc "Powerful multi-lingual file viewer/grep"
   # The upstream homepage was "https://web.archive.org/web/20160310122517/www.ff.iij4u.or.jp/~nrt/lv/"
   homepage "https://salsa.debian.org/debian/lv"
-  url "https://salsa.debian.org/debian/lv/-/archive/debian/4.51-9/lv-debian-4.51-9.tar.gz"
-  sha256 "ab48437d92eb7ae09e22e8d6f8fbfd321e7869069da2d948433fb49da67e0c34"
+  url "https://salsa.debian.org/debian/lv/-/archive/debian/4.51-10/lv-debian-4.51-10.tar.gz"
+  sha256 "c935150583df6f2cea596fdd116d82ec634d96e99f2f7e4dc5b7b1a6f638aba1"
   license "GPL-2.0-or-later"
   head "https://salsa.debian.org/debian/lv.git", branch: "master"
 
@@ -22,20 +22,10 @@ class Lv < Formula
     depends_on "gzip"
   end
 
-  # See https://github.com/Homebrew/homebrew-core/pull/53085.
-  # Being proposed to Debian: https://salsa.debian.org/debian/lv/-/merge_requests/3
-  patch :DATA
-
   def install
     File.read("debian/patches/series").each_line do |line|
       line.chomp!
       system "patch", "-p1", "-i", "debian/patches/"+line
-    end
-
-    if OS.mac?
-      # zcat doesn't handle gzip'd data on OSX.
-      # Being proposed to Debian: https://salsa.debian.org/debian/lv/-/merge_requests/4
-      inreplace "src/stream.c", 'gz_filter = "zcat"', 'gz_filter = "gzcat"'
     end
 
     cd "build" do
@@ -53,18 +43,3 @@ class Lv < Formula
     system bin/"lv", "-V"
   end
 end
-
-__END__
---- a/src/escape.c
-+++ b/src/escape.c
-@@ -62,6 +62,10 @@
- 	break;
-     } while( 'm' != ch );
- 
-+    if( 'K' == ch ){
-+        return TRUE;
-+    }
-+
-     SIDX = index;
- 
-     if( 'm' != ch ){
