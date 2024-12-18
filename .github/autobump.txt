@@ -1952,6 +1952,7 @@ metals
 metricbeat
 mfem
 mgba
+mgis
 micro
 micromamba
 micronaut
