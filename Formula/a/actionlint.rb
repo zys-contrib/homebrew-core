@@ -4,6 +4,7 @@ class Actionlint < Formula
   url "https://github.com/rhysd/actionlint/archive/refs/tags/v1.7.4.tar.gz"
   sha256 "3004bcb4615510e671c76a56259755ed616c3200fb73b0be0ca9c3d6ea09c73a"
   license "MIT"
+  head "https://github.com/rhysd/actionlint.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4800fafd738d38fd98e07e3c2ba1e46926f74f0a03f153eb40fdb639da44a910"
@@ -16,6 +17,7 @@ class Actionlint < Formula
 
   depends_on "go" => :build
   depends_on "ronn" => :build
+  depends_on "shellcheck"
 
   def install
     ldflags = "-s -w -X github.com/rhysd/actionlint.version=#{version}"
@@ -25,6 +27,8 @@ class Actionlint < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/actionlint --version 2>&1")
+
     (testpath/"action.yaml").write <<~YAML
       name: Test
       on: push
