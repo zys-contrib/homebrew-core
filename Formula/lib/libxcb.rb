@@ -17,13 +17,13 @@ class Libxcb < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "python@3.12" => :build # match version in `xcb-proto`
+  depends_on "python@3.13" => :build # match version in `xcb-proto`
   depends_on "xcb-proto" => :build
   depends_on "libxau"
   depends_on "libxdmcp"
 
   def install
-    python3 = "python3.12"
+    python3 = "python3.13"
 
     args = %W[
       --sysconfdir=#{etc}
