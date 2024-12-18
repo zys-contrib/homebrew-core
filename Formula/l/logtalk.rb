@@ -1,9 +1,9 @@
 class Logtalk < Formula
   desc "Declarative object-oriented logic programming language"
   homepage "https://logtalk.org/"
-  url "https://github.com/LogtalkDotOrg/logtalk3/archive/refs/tags/lgt3850stable.tar.gz"
-  version "3.85.0"
-  sha256 "a4bde9c8a574363c658e30e72be152bd89a7a227f319ad56d36096abd49df3e5"
+  url "https://github.com/LogtalkDotOrg/logtalk3/archive/refs/tags/lgt3860stable.tar.gz"
+  version "3.86.0"
+  sha256 "e148b618e29e02c5b089947fe17b0d33ed0f7811503f02aae0615034059c2dd3"
   license "Apache-2.0"
 
   livecheck do
@@ -24,5 +24,13 @@ class Logtalk < Formula
 
   def install
     cd("scripts") { system "./install.sh", "-p", prefix }
+  end
+
+  def caveats
+    <<~EOS
+      To complete the Logtalk installation, define the environment variables:
+        LOGTALKHOME=#{HOMEBREW_PREFIX}/share/logtalk
+        LOGTALKUSER=$HOME/logtalk
+    EOS
   end
 end
