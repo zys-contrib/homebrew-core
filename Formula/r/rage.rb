@@ -1,8 +1,8 @@
 class Rage < Formula
   desc "Simple, modern, secure file encryption"
   homepage "https://str4d.xyz/rage"
-  url "https://github.com/str4d/rage/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "f5c37b27428ad2b9ed91f0c691612dd0f91044d17565edf177fb676be4af1d35"
+  url "https://github.com/str4d/rage/archive/refs/tags/v0.11.1.tar.gz"
+  sha256 "b00559285c9fa5779b2908726d7a952cbf7cb629008e4c4c23a5c137c98f3f09"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/str4d/rage.git", branch: "main"
 
