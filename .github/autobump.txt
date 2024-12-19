@@ -1431,6 +1431,7 @@ jena
 jenkins
 jenkins-job-builder
 jenkins-lts
+jerryscript
 jet
 jetty
 jetty-runner
