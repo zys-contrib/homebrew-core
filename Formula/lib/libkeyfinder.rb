@@ -5,6 +5,15 @@ class Libkeyfinder < Formula
   sha256 "a54fc6c5ff435bb4b447f175bc97f9081fb5abf0edd5d125e6f5215c8fff4d11"
   license "GPL-3.0-or-later"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "2dd1ceb165b79e82738bf1fa3fa7e21a71f6ed471fd3c0214a96dda2f82f967d"
+    sha256 cellar: :any,                 arm64_sonoma:  "02d5e2117d55a2768b021f74dd627f52db228bf54394a60025454903fdeb3f39"
+    sha256 cellar: :any,                 arm64_ventura: "400c2779b10b2a10e3d3e06372aec2c37b348ffb352dd214448b07dc488c7cfb"
+    sha256 cellar: :any,                 sonoma:        "0d16cad59170872627fa1b08e4cf237e0758205f9ea62499e89a358d5bc012e3"
+    sha256 cellar: :any,                 ventura:       "35794d840b7cae4b2dda6e5f9b26854a0572cdf99c08ef2d5d331c8c5928d818"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b50fcc57a84c874798b361edbf9e5ddbb899108ab57144ad31b1cff6582a736"
+  end
+
   depends_on "cmake" => :build
   depends_on "fftw"
 
