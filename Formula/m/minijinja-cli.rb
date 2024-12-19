@@ -19,6 +19,8 @@ class MinijinjaCli < Formula
 
   def install
     system "cargo", "install", *std_cargo_args(path: "minijinja-cli")
+
+    generate_completions_from_executable(bin/"minijinja-cli", "--generate-completion")
   end
 
   test do
