@@ -2722,6 +2722,7 @@ scummvm-tools
 scw
 sdb
 sdl2
+sdl2_image
 seal
 seam
 seaweedfs
