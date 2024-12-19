@@ -1,17 +1,17 @@
 class Mdz < Formula
   desc "CLI for the mdz ledger Open Source"
   homepage "https://github.com/LerianStudio/midaz"
-  url "https://github.com/LerianStudio/midaz/archive/refs/tags/v1.35.0.tar.gz"
-  sha256 "bf34611a40954df81f314bde8ae8d5b05c0841539aa028096fabe65f4cb359df"
+  url "https://github.com/LerianStudio/midaz/archive/refs/tags/v1.36.0.tar.gz"
+  sha256 "58b6a895252bb621559ddf483523658788ab67b6443e07a64c0b81dbaafcc205"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fee9d087e89a2b16ddce2722d0fb9daf5c2c2ef8a81d58673de0a1b4b9fdff7c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fee9d087e89a2b16ddce2722d0fb9daf5c2c2ef8a81d58673de0a1b4b9fdff7c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fee9d087e89a2b16ddce2722d0fb9daf5c2c2ef8a81d58673de0a1b4b9fdff7c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c86c95640fb95307fc9a01a851197edf8722095c9eb190791a11488cec5502b3"
-    sha256 cellar: :any_skip_relocation, ventura:       "c86c95640fb95307fc9a01a851197edf8722095c9eb190791a11488cec5502b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65ea4029f70334e02be4fbe3f9c21ecc0641f1fe5b2b991603e8d29e2b2e5402"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "31940940cbbed2f838fa7ec1178fc3a2ba6529882e95307c2714ee257ddf9323"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "31940940cbbed2f838fa7ec1178fc3a2ba6529882e95307c2714ee257ddf9323"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "31940940cbbed2f838fa7ec1178fc3a2ba6529882e95307c2714ee257ddf9323"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d46afab61844fb12f6785a915046967cbb626f80f41730f40dbd01489b4fb561"
+    sha256 cellar: :any_skip_relocation, ventura:       "d46afab61844fb12f6785a915046967cbb626f80f41730f40dbd01489b4fb561"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e49612d203c3cfe8e21b5cc134c8316ded68d9aa5f80d31e7bfffa9b2c3bd00a"
   end
 
   depends_on "go" => :build
