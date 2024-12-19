@@ -1,8 +1,8 @@
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/coder/code-server"
-  url "https://registry.npmjs.org/code-server/-/code-server-4.93.1.tgz"
-  sha256 "c6204fbb323f2950a42c49b88a2fc2d02b45d4cf684e88b220d9fe1fda3f9a0a"
+  url "https://registry.npmjs.org/code-server/-/code-server-4.96.1.tgz"
+  sha256 "024955288ccfd3c4b2e8737a17ee7e4ee9877ed7d493e8dc7b3f556b12dbfb1d"
   license "MIT"
 
   bottle do
@@ -30,17 +30,17 @@ class CodeServer < Formula
     # Fix broken node-addon-api: https://github.com/nodejs/node/issues/52229
     ENV.append "CXXFLAGS", "-DNODE_API_EXPERIMENTAL_NOGC_ENV_OPT_OUT"
 
-    system "npm", "install", *std_npm_args
-    bin.install_symlink libexec.glob("bin/*")
+    system "npm", "install", *std_npm_args(prefix: false), "--unsafe-perm", "--omit", "dev"
+
+    libexec.install Dir["*"]
+    bin.install_symlink libexec/"out/node/entry.js" => "code-server"
 
     # Remove incompatible pre-built binaries
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
-    vscode = libexec/"lib/node_modules/code-server/lib/vscode"
-    vscode.glob("{,extensions/}node_modules/@parcel/watcher/prebuilds/*")
-          .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
-    vscode.glob("{,extensions/}node_modules/@parcel/watcher/prebuilds/linux-x64/*.musl.node")
-          .map(&:unlink)
+    vscode = libexec/"lib/vscode/node_modules/@parcel/watcher/prebuilds"
+    vscode.glob("*").each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
+    vscode.glob("linux-x64/*.musl.node").map(&:unlink)
   end
 
   def caveats
@@ -58,9 +58,23 @@ class CodeServer < Formula
   end
 
   test do
-    # See https://github.com/cdr/code-server/blob/main/ci/build/test-standalone-release.sh
-    system bin/"code-server", "--extensions-dir=.", "--install-extension", "wesbos.theme-cobalt2"
-    output = shell_output("#{bin}/code-server --extensions-dir=. --list-extensions")
-    assert_match "wesbos.theme-cobalt2", output
+    assert_match version.to_s, shell_output("#{bin}/code-server --version")
+
+    port = free_port
+    output = ""
+
+    PTY.spawn "#{bin}/code-server --auth none --port #{port}" do |r, _w, pid|
+      sleep 3
+      Process.kill("TERM", pid)
+      begin
+        r.each_line { |line| output += line }
+      rescue Errno::EIO
+        # GNU/Linux raises EIO when read is done on closed pty
+      end
+    ensure
+      Process.wait(pid)
+    end
+    assert_match "HTTP server listening on", output
+    assert_match "Session server listening on", output
   end
 end
