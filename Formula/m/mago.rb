@@ -1,17 +1,17 @@
 class Mago < Formula
   desc "Toolchain for PHP to help developers write better code"
   homepage "https://github.com/carthage-software/mago"
-  url "https://github.com/carthage-software/mago/archive/refs/tags/0.0.10.tar.gz"
-  sha256 "da43637f85122a638a88cbbb16c8d11607f799e5f36ecbb653feba4c72c91ac1"
+  url "https://github.com/carthage-software/mago/archive/refs/tags/0.0.11.tar.gz"
+  sha256 "ac8d3f98b0d89bd8e8f342ff3c52f679013fb9f432bf0a5af04c7705724e2f2c"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f41629b31254313c62dba2bf356054fdc39e629e1e972093466e46d349b39f23"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1b7bf20b88d89c1cc860797cb78345629b819f88abba846bb9aca3cd04c66a34"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2cd4e96282f95616d866d2858ab95345752c6e76e649882991c304e1163960b4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "35fb9c5637e2bf39d68e1e94e48cc3d56e42aa8bd6c2ed508656c54bc37076b6"
-    sha256 cellar: :any_skip_relocation, ventura:       "343ad35377cda7de367cbfe9815095038aae7492eaa926a4ffbb3091a5900268"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67cc6a26031eb48b07c6ec813b20eff82aa23db19287e7102c67a4e95599336b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "50282a3019449486641e569dad605709f6bd99305a398e0a14498888fa2b8a74"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "95e1f3e39a04b280c4d4952c75fa22c2bf0c134a7feecc44de9290ed5dfbb184"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d8605b83d9c1199f437d4ddca59f1b20e04deaff454858d2fa95523d3cd50746"
+    sha256 cellar: :any_skip_relocation, sonoma:        "04f391a456d5e173635033a0838e68f7e9000440f8c3a42b1d0ab5f5e6eaeff9"
+    sha256 cellar: :any_skip_relocation, ventura:       "8945c937d2954f620c9e57a48e56c570e1a35bd2dcc112e3bdb6ef35516f294e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4caf5c6ca7b25cdd57c2ba9c3a2faeb9ddebf4ef5512e3b584d2218b189752bb"
   end
 
   depends_on "rust" => :build
