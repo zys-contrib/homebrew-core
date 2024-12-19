@@ -19,6 +19,8 @@ class CloudformationGuard < Formula
   def install
     system "cargo", "install", *std_cargo_args(path: "guard")
 
+    generate_completions_from_executable(bin/"cfn-guard", "completions", "--shell", base_name: "cfn-guard")
+
     doc.install "docs"
     doc.install "guard-examples"
   end
