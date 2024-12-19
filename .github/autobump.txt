@@ -239,6 +239,7 @@ beautysh
 bed
 bee
 bench
+bender
 benthos
 berglas
 bettercap
