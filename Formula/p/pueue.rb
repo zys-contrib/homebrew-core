@@ -22,14 +22,7 @@ class Pueue < Formula
   def install
     system "cargo", "install", *std_cargo_args(path: "pueue")
 
-    mkdir "utils/completions" do
-      system bin/"pueue", "completions", "bash", "."
-      bash_completion.install "pueue.bash" => "pueue"
-      system bin/"pueue", "completions", "fish", "."
-      fish_completion.install "pueue.fish" => "pueue.fish"
-      system bin/"pueue", "completions", "zsh", "."
-      zsh_completion.install "_pueue" => "_pueue"
-    end
+    generate_completions_from_executable(bin/"pueue", "completions")
   end
 
   service do
