@@ -1929,6 +1929,7 @@ mdbook
 mdcat
 mdless
 mdsh
+mdz
 mdzk
 mediaconch
 mediamtx
