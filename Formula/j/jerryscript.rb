@@ -7,18 +7,12 @@ class Jerryscript < Formula
   head "https://github.com/jerryscript-project/jerryscript.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "59cb985f4ad6dae1b6829ca5776e03389391294a5d53a79bec12225bd4d90033"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cefb188b4e64c616b24fc6b7bffeac156cdcb2b7f32fe7f5fe1a84b5aa10c4bd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6fd5222f423cb3631821d682075287ffca06419089964788459ebfcfcd51eee8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d9fc5ed6b4d4694e46177bad3a5b3b8b6542e088224e10a4797e7bff39313077"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cf6ac8f80cc4c6b10bd27113e49727d31cd6f8237e55362bd5fc6cb10fdfa9b8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fb468ff25bb25ed92190b7f09ba4d9350a74e5b22cee6044b951b38d4ce31585"
-    sha256 cellar: :any_skip_relocation, ventura:        "1272a0788c46b580ed2736b94a60698c66a1b7b51b966a21c7045cd336f4cce6"
-    sha256 cellar: :any_skip_relocation, monterey:       "fd07174dc19c1dc678c26de054b08b55cb4e0e5b425aed223a2f3c27bafece47"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b7884dc63baf21ca21f882e25f93397f0478dba8e0c4728a7efc7bfb198673ff"
-    sha256 cellar: :any_skip_relocation, catalina:       "e6e1907eb1af3d6aab2f3447a0aa2e6c709ebb040d6198fefa7c12a1e256b8bd"
-    sha256 cellar: :any_skip_relocation, mojave:         "c091f4246186278785265a7c378f2cd37db337d4c9419afc8348bcdd4d74e8ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0756095b89bd3051bf0c8bfb38b6dc8070b9eabe707afe77afe85698a69ad75"
+    sha256 cellar: :any,                 arm64_sequoia: "2c9278894af0e7dd27da2735af8ed66408de529fe2b896c9308ff2ffe10b695e"
+    sha256 cellar: :any,                 arm64_sonoma:  "de8fb8e81f6cc123a414bd905c7f3d0da65f88b35d533a3cda511f88fcbef0dc"
+    sha256 cellar: :any,                 arm64_ventura: "54b1c8bc94bc0c5f125e8f7ebab191540df56987dfc2e1a58c61ac6a5e25d2a9"
+    sha256 cellar: :any,                 sonoma:        "28aa15489cdb4c63a3ca8dcabeb18bbf0937d16d7e627a19a3376936e2f1adbb"
+    sha256 cellar: :any,                 ventura:       "2426c72ce0d91dd244fc0a4eb59a4912d6c753f090707a71367f9dd36f503751"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "700fa052538ab63fbaa0c9f8fda9ec3491777d6a65c4698e7ad488297bbbadcf"
   end
 
   depends_on "cmake" => :build
