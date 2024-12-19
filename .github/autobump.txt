@@ -1478,6 +1478,7 @@ juju
 julia
 jupyterlab
 just
+jwt-cli
 jxl-oxide
 jython
 k2tf
