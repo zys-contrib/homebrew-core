@@ -24,6 +24,8 @@ class Qrtool < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
+    generate_completions_from_executable(bin/"qrtool", "--generate-completion")
+
     outdir = Dir["target/release/build/qrtool-*/out"].first
     man1.install Dir["#{outdir}/*.1"]
   end
