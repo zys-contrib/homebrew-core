@@ -3,8 +3,8 @@ class Dotbot < Formula
 
   desc "Tool that bootstraps your dotfiles"
   homepage "https://github.com/anishathalye/dotbot"
-  url "https://files.pythonhosted.org/packages/f9/67/793d72c813a4781227963f77d353db4830760ed9a40a5752330f2d7c10d9/dotbot-1.20.3.tar.gz"
-  sha256 "6c4ec52e498964082e1048a26f9b1e5fcebe0b384f8b3cefb90525c2d8c70030"
+  url "https://files.pythonhosted.org/packages/0d/01/47fcde65e9c54f7deef31ae884b4cefaaafe4879f5ce79a39f0aba356d32/dotbot-1.20.4.tar.gz"
+  sha256 "1fb2610f42306d5be8aabe37c979836e00f0499e2da1d172c101239777cbab1c"
   license "MIT"
 
   bottle do
