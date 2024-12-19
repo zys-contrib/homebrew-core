@@ -5,6 +5,15 @@ class Gurk < Formula
   sha256 "a8c190e081d9905ea6e71d38d56cb8f19596999a20cb9584a552ce46e6f88bed"
   license "AGPL-3.0-only"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "14bf53140261f7ed7f24204a45488d976f886af6bd499d9db6a0c5033d771324"
+    sha256 cellar: :any,                 arm64_sonoma:  "eb22381b125dd6659cbb3d8c8199f8c9e9afc47579cf2217e66c6a262574da07"
+    sha256 cellar: :any,                 arm64_ventura: "94516c323b741c91a611482bb605d4ae5d077d45df17384288b93385a7222987"
+    sha256 cellar: :any,                 sonoma:        "e4fe3a1dccb3b5a63692eaf9fc5744bf066f0b1d6b6485454b70f9f9ef5a5bf0"
+    sha256 cellar: :any,                 ventura:       "106acb5bc5b7907423e35e972e5092d3ed33895f665af65142c4472540211e60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20984e9ec868ddc8e386370304e60dc5c85c4a8e4c25e02dcf24dabadc700427"
+  end
+
   depends_on "pkgconf" => :build
   depends_on "protobuf" => :build
   depends_on "rust" => :build
