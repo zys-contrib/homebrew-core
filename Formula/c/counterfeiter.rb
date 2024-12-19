@@ -12,12 +12,12 @@ class Counterfeiter < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c46c21bfc0531dd1533ab177c813469b4d63be5e340a190133c4e09155c19043"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c46c21bfc0531dd1533ab177c813469b4d63be5e340a190133c4e09155c19043"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c46c21bfc0531dd1533ab177c813469b4d63be5e340a190133c4e09155c19043"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f00ac9c9e57c101304edb3e46b78dd3b41ee7db4382b685ab7251a833d1783d9"
-    sha256 cellar: :any_skip_relocation, ventura:       "f00ac9c9e57c101304edb3e46b78dd3b41ee7db4382b685ab7251a833d1783d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e592a0d6092640b0b0ef615e8a21535bac852a21203b9de1b4f18e6d35c9db8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f5b1ce50092552ea9b705730a0a111a80e0e3cfa6ab38155f20a4bb2159080d5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f5b1ce50092552ea9b705730a0a111a80e0e3cfa6ab38155f20a4bb2159080d5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f5b1ce50092552ea9b705730a0a111a80e0e3cfa6ab38155f20a4bb2159080d5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1bb3461edc31c61bcdd5cf69d3e4973ea98e6d51e3d82d26c22963e1d0128e16"
+    sha256 cellar: :any_skip_relocation, ventura:       "1bb3461edc31c61bcdd5cf69d3e4973ea98e6d51e3d82d26c22963e1d0128e16"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2459c5b2c06488e4387b4fa51f438e22210fe5c6a4ca8a33a45a015ae0e4ed3"
   end
 
   depends_on "go"
