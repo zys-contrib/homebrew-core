@@ -25,6 +25,8 @@ class SqlxCli < Formula
 
   def install
     system "cargo", "install", *std_cargo_args(path: "sqlx-cli")
+
+    generate_completions_from_executable(bin/"sqlx", "completions", base_name: "sqlx")
   end
 
   test do
