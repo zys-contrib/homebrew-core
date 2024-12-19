@@ -2472,6 +2472,7 @@ prqlc
 prr
 prs
 psalm
+pscale
 pspg
 psutils
 psysh
