@@ -126,7 +126,7 @@ jobs:
 
       - name: Install and use Homebrew svn if needed
         run: |
-          if brew ruby -e 'puts Formula[ARGV.first].deps.any? { |d| d.name == "subversion" && d.implicit? }' "$FORMULA"; then
+          if brew ruby -e 'exit 1 if Formula[ARGV.first].deps.none? { |d| d.name == "subversion" && d.implicit? }' "$FORMULA"; then
             brew install svn
           fi
 
