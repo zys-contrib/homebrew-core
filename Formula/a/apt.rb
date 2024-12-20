@@ -11,7 +11,7 @@ class Apt < Formula
   end
 
   bottle do
-    sha256 x86_64_linux: "d65206c059ed439ebd9cebd584647274be2b687d3b1671efaba6c4a5aa0b422c"
+    sha256 x86_64_linux: "78a9cd8b8113c96eccc4a1ec34d2d8b449307ede892bccf548837f2a131ff472"
   end
 
   keg_only "not linked to prevent conflicts with system apt"
