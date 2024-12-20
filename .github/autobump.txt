@@ -368,6 +368,7 @@ cargo-llvm-lines
 cargo-make
 cargo-nextest
 cargo-outdated
+cargo-public-api
 cargo-release
 cargo-run-bin
 cargo-udeps
