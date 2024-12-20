@@ -7,12 +7,13 @@ class MagicWormholeRs < Formula
   head "https://github.com/magic-wormhole/magic-wormhole.rs.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c291523fc89958dae120378dbffb0a4e76ba8ec8604031b4df19d08a0a63af5d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1b9343957ebd9870b2a721e4b3f0a0f7374b21392785330dc66acb78967cb5ab"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d363764193ad93360c2ad444381936c7b28f110f952874fa3277dc23db03e77d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "84a239b2e52bc020fb593c186bcfe8bda822fd21984c73b54a3608def96de24f"
-    sha256 cellar: :any_skip_relocation, ventura:       "30e96e43a6d388fe42da77457b20ad22831089441cd70dfaa4336c6321363ad3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91faa7de6700a7a6bcc339412786a9467e65027484a3dce8f2b3047bcc64314f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f46eb70c04e3a06978a0bb63cc5aafd2727467931d6ba11a106aae14270a3a1a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "65521995b87468603204f09ea6dea02dd3c60a9c1d906c21caa8e70d41706c20"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7f9823d71411bfd399a6af92c08afcd52dbb164d27cf8a1feaa43fdc3f654359"
+    sha256 cellar: :any_skip_relocation, sonoma:        "983692bbf7dd98cfcc733ee25928504c79a8f2e66d3dd723f9cd4ec5f19927cf"
+    sha256 cellar: :any_skip_relocation, ventura:       "219c8c34004646ae1d079ab541afb7904a7776644e8ebc014bdf28ac94159fb2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f273cd3da5ff6f41cd0178d4a926624b2f397402c807869bd112edfeee0a963e"
   end
 
   depends_on "rust" => :build
