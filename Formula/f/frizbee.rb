@@ -1,28 +1,18 @@
 class Frizbee < Formula
   desc "Throw a tag at and it comes back with a checksum"
   homepage "https://github.com/stacklok/frizbee"
+  url "https://github.com/stacklok/frizbee/archive/refs/tags/v0.1.5.tar.gz"
+  sha256 "f3e7e5b111588347b968179c03de94bfe1b1137696fc3d01987868ac5f08bc97"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/stacklok/frizbee.git", branch: "main"
 
-  stable do
-    url "https://github.com/stacklok/frizbee/archive/refs/tags/v0.1.4.tar.gz"
-    sha256 "73f6d7e9e9b507425b8c58101e6eab933aad27372cc531ffd110e283a6ff2d3e"
-
-    # build patch to resolve commit correctly, remove in next release
-    patch do
-      url "https://github.com/stacklok/frizbee/commit/fbef552fec0c53133cec4a1ee2acc513599aa9d9.patch?full_index=1"
-      sha256 "285c1a41b25ecf7ffd818006a151f97a2b93104ecee9d64bb70cd2635d4f031a"
-    end
-  end
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "93f8f8aec9503ec9c4036b98ae3c7d356cabee8f2ceca7e761e66b8ef8a8f6d3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "93f8f8aec9503ec9c4036b98ae3c7d356cabee8f2ceca7e761e66b8ef8a8f6d3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "93f8f8aec9503ec9c4036b98ae3c7d356cabee8f2ceca7e761e66b8ef8a8f6d3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8b1dbf210e7de8bc465f9c17444e69b2b56d5fb3951380bdf5a6581fdb8c298d"
-    sha256 cellar: :any_skip_relocation, ventura:       "8b1dbf210e7de8bc465f9c17444e69b2b56d5fb3951380bdf5a6581fdb8c298d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c4a6195d5c89e7a65119251e52459c2ef93184e2b6ff60145c1544bcb520456"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "55d493d35fc33fb6a7ab95909fea881860fb489997e8955412f9be3f65c94b72"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "55d493d35fc33fb6a7ab95909fea881860fb489997e8955412f9be3f65c94b72"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "55d493d35fc33fb6a7ab95909fea881860fb489997e8955412f9be3f65c94b72"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ffa37e13bd2999e782103080a746b4bd8658aae65302b65a69c995de01ebe1de"
+    sha256 cellar: :any_skip_relocation, ventura:       "ffa37e13bd2999e782103080a746b4bd8658aae65302b65a69c995de01ebe1de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b18114600f41cd2d5b8f1a3457a8a0a0b6776cfeed30187008935d1670df0a63"
   end
 
   depends_on "go" => :build
