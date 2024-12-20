@@ -1,8 +1,8 @@
 class Sundials < Formula
   desc "Nonlinear and differential/algebraic equations solver"
   homepage "https://computing.llnl.gov/projects/sundials"
-  url "https://github.com/LLNL/sundials/releases/download/v7.2.0/sundials-7.2.0.tar.gz"
-  sha256 "5c6c0a66a7e27c45bfb57b27f7579463855a85fc3976fed1d5c9dd88dc1ae3ab"
+  url "https://github.com/LLNL/sundials/releases/download/v7.2.1/sundials-7.2.1.tar.gz"
+  sha256 "3781e3f7cdf372ca12f7fbe64f561a8b9a507b8a8b2c4d6ce28d8e4df4befbea"
   license "BSD-3-Clause"
 
   livecheck do
@@ -44,8 +44,11 @@ class Sundials < Formula
     system "cmake", "--install", "build"
 
     # Only keep one example for testing purposes
-    (pkgshare/"examples").install Dir[prefix/"examples/nvector/serial/*"] \
-                                  - Dir[prefix/"examples/nvector/serial/{CMake*,Makefile}"]
+    (pkgshare/"examples").install Dir[
+      "test/unit_tests/nvector/test_nvector.c",
+      "test/unit_tests/nvector/test_nvector.h",
+      "test/unit_tests/nvector/serial/test_nvector_serial.c",
+    ]
     rm_r(prefix/"examples")
   end
 
