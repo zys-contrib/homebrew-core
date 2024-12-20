@@ -2,8 +2,8 @@ class Watch < Formula
   desc "Executes a program periodically, showing output fullscreen"
   homepage "https://gitlab.com/procps-ng/procps"
   url "https://gitlab.com/procps-ng/procps.git",
-      tag:      "v4.0.4",
-      revision: "4ddcef2fd843170c8e2d59a83042978f41037a2b"
+      tag:      "v4.0.5",
+      revision: "f46b2f7929cdfe2913ed0a7f585b09d6adbf994e"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
   head "https://gitlab.com/procps-ng/procps.git", branch: "master"
 
@@ -30,17 +30,32 @@ class Watch < Formula
 
   conflicts_with "visionmedia-watch"
 
+  # guard `SIGPOLL` to fix build on macOS, upstream pr ref, https://gitlab.com/procps-ng/procps/-/merge_requests/246
+  patch do
+    url "https://gitlab.com/procps-ng/procps/-/commit/2dc340e47669e0b0df7f71ff082e05ac5fa36615.diff"
+    sha256 "a6ae69b3aff57491835935e973b52c8b309d3943535537ff33a24c78d18d11aa"
+  end
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", "--disable-nls",
-                          "--enable-watch8bit",
-                          *std_configure_args
+
+    args = %w[
+      --disable-nls
+      --enable-watch8bit
+    ]
+    args << "--disable-pidwait" if OS.mac?
+    system "./configure", *args, *std_configure_args
     system "make", "src/watch"
     bin.install "src/watch"
     man1.install "man/watch.1"
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/watch --version")
+
+    # Fails in Linux CI with "getchar(): Inappropriate ioctl for device"
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     system bin/"watch", "--errexit", "--chgexit", "--interval", "1", "date"
   end
 end
