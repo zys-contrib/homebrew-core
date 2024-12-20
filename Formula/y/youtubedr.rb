@@ -1,8 +1,8 @@
 class Youtubedr < Formula
   desc "Download Youtube Video in Golang"
   homepage "https://github.com/kkdai/youtube"
-  url "https://github.com/kkdai/youtube/archive/refs/tags/v2.10.1.tar.gz"
-  sha256 "9d71c4a7e192d81f12944b3c881fa7d61a20d48d083bfad72bd357f9becb04ef"
+  url "https://github.com/kkdai/youtube/archive/refs/tags/v2.10.2.tar.gz"
+  sha256 "7c8f8875fbf47110782e4ebd24dd70e3bb277cf25a7802d89fe4ca00d684e1d1"
   license "MIT"
 
   bottle do
@@ -19,13 +19,7 @@ class Youtubedr < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X main.version=#{version}
-      -X main.date=#{time.iso8601}
-    ].join(" ")
-
-    ENV["CGO_ENABLED"] = "0"
+    ldflags = "-s -w -X main.version=#{version} -X main.date=#{time.iso8601}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/youtubedr"
 
     generate_completions_from_executable(bin/"youtubedr", "completion")
@@ -34,6 +28,9 @@ class Youtubedr < Formula
   test do
     version_output = pipe_output("#{bin}/youtubedr version").split("\n")
     assert_match(/Version:\s+#{version}/, version_output[0])
+
+    # Fails in Linux CI with "can't bypass age restriction: login required"
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     info_output = pipe_output("#{bin}/youtubedr info https://www.youtube.com/watch?v=pOtd1cbOP7k").split("\n")
     assert_match "Title:       History of homebrew-core", info_output[0]
