@@ -1,9 +1,10 @@
 class Gh < Formula
   desc "GitHub command-line tool"
   homepage "https://cli.github.com/"
-  url "https://github.com/cli/cli/archive/refs/tags/2.64.0.tar.gz"
+  url "https://github.com/cli/cli/archive/refs/tags/v2.64.0.tar.gz"
   sha256 "229fd8fc51325ebb5a357af6af116094d6be6a5f1e0f0923b7892ed01b208abb"
   license "MIT"
+  revision 1
   head "https://github.com/cli/cli.git", branch: "trunk"
 
   livecheck do
