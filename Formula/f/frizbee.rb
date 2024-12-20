@@ -1,20 +1,10 @@
 class Frizbee < Formula
   desc "Throw a tag at and it comes back with a checksum"
   homepage "https://github.com/stacklok/frizbee"
+  url "https://github.com/stacklok/frizbee/archive/refs/tags/v0.1.5.tar.gz"
+  sha256 "f3e7e5b111588347b968179c03de94bfe1b1137696fc3d01987868ac5f08bc97"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/stacklok/frizbee.git", branch: "main"
-
-  stable do
-    url "https://github.com/stacklok/frizbee/archive/refs/tags/v0.1.4.tar.gz"
-    sha256 "73f6d7e9e9b507425b8c58101e6eab933aad27372cc531ffd110e283a6ff2d3e"
-
-    # build patch to resolve commit correctly, remove in next release
-    patch do
-      url "https://github.com/stacklok/frizbee/commit/fbef552fec0c53133cec4a1ee2acc513599aa9d9.patch?full_index=1"
-      sha256 "285c1a41b25ecf7ffd818006a151f97a2b93104ecee9d64bb70cd2635d4f031a"
-    end
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "93f8f8aec9503ec9c4036b98ae3c7d356cabee8f2ceca7e761e66b8ef8a8f6d3"
