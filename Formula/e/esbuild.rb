@@ -1,17 +1,17 @@
 class Esbuild < Formula
   desc "Extremely fast JavaScript bundler and minifier"
   homepage "https://esbuild.github.io/"
-  url "https://github.com/evanw/esbuild/archive/refs/tags/v0.24.1.tar.gz"
-  sha256 "224b69bbb854e66cfbc9e8a3cf848e1af946bcfbcb3c89cfa9b99e2be63cb334"
+  url "https://github.com/evanw/esbuild/archive/refs/tags/v0.24.2.tar.gz"
+  sha256 "171e1b0cd4c64222a1953203f6b3dab3c7a3f95b8939a72b4ebbd024302513b4"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b797c7adfed30f66d216f6df5ad1f9262c15f089480631f4b9b2e9869c674ff7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b797c7adfed30f66d216f6df5ad1f9262c15f089480631f4b9b2e9869c674ff7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b797c7adfed30f66d216f6df5ad1f9262c15f089480631f4b9b2e9869c674ff7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0a96020b4917150dcd3bcbe5ce8d8d9310d1325e158c6283b5387be8031e07e1"
-    sha256 cellar: :any_skip_relocation, ventura:       "0a96020b4917150dcd3bcbe5ce8d8d9310d1325e158c6283b5387be8031e07e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4af2f4248b67f21f8b7f82f2b3e6df8f74cd1da6a0409ed472e46629ae78f1d3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "36434777bdb8c71a10b067201d782cd61ff20334f57d108fda784f3f5c56afe4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "36434777bdb8c71a10b067201d782cd61ff20334f57d108fda784f3f5c56afe4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "36434777bdb8c71a10b067201d782cd61ff20334f57d108fda784f3f5c56afe4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eda813d048b7c8e3567cdd83d8c35a6752f4f5c8a0ea2d57d78d7ce44e0ff1c5"
+    sha256 cellar: :any_skip_relocation, ventura:       "eda813d048b7c8e3567cdd83d8c35a6752f4f5c8a0ea2d57d78d7ce44e0ff1c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8b266ad0f0eff10d365e4908096ff12bd2fe99123a1c771815aced51173c400"
   end
 
   depends_on "go" => :build
