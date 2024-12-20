@@ -17,14 +17,12 @@ class Asak < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2795cbaf849109fa15956cad98395a3490e819de09b0e2d790b98b6b91f55069"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3b49a2b7183e38d8afb462a21f0d2b3f8773e0f34cd848b234296e71de286a59"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "48cb2cf400c140c6e8cda9ebb5673d4163145e4faa5f4c93be4887f164e810ac"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3f2a4f570ecee1f7bb25f79c6f85eac005afcb864cd98f14dbb235bc70e7b892"
-    sha256 cellar: :any_skip_relocation, sonoma:         "abf9484dec6102a52ecfa42ff1bd6c3bffe9cdeb790d5a809498eed73cde71cc"
-    sha256 cellar: :any_skip_relocation, ventura:        "7f01ddb93a0fc05e250b3f02714ff48a948846adb09d4ac4523731f1dbbfd751"
-    sha256 cellar: :any_skip_relocation, monterey:       "2c0ef06f470534c2f48ee34d1d711e7647bdc05d684a3e125c0ceb182549ae9c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd7c4ef4628e5e217ffdb2734748773d871890232e3183ba7a09eacfe4f1a453"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ed8ad6aff3db12016ca1f7f2f0242ff2373eebf52707125a67c326d0416a79b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0bd72ff2e29d2a12e2e7a3970c55505329d0cee01d76418baba55b3ea3a6e0de"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5b2a5bfba37fd35fdafc19cc8f7cf44fc1d1d764dadf912ad7b0011154556670"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7f555b3fcbaf3125eef3d2dc3ce942777c3982f526b1d5f96bb7d049c23033c3"
+    sha256 cellar: :any_skip_relocation, ventura:       "1906d3fffa8236bdf4d41c625fb9273cb61bcb6a23987818294e86003a65d45f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b773ec9f9d8c4f69c29b99a2543d9b1be34029e475438b6236916d2fd8f885b3"
   end
 
   depends_on "pkgconf" => :build
