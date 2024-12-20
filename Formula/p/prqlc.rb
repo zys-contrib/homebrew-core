@@ -19,9 +19,13 @@ class Prqlc < Formula
 
   def install
     system "cargo", "install", "prqlc", *std_cargo_args(path: "prqlc/prqlc")
+
+    generate_completions_from_executable(bin/"prqlc", "shell-completion")
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/prqlc --version")
+
     stdin = "from employees | filter has_dog | select salary"
     stdout = pipe_output("#{bin}/prqlc compile", stdin)
     assert_match "SELECT", stdout
