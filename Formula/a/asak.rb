@@ -1,10 +1,20 @@
 class Asak < Formula
   desc "Cross-platform audio recording/playback CLI tool with TUI"
   homepage "https://github.com/chaosprint/asak"
-  url "https://github.com/chaosprint/asak/archive/refs/tags/v0.3.3.tar.gz"
-  sha256 "e5c7da28f29e4e1e45aa57db4c4ab94278d59bd3bdb717ede7d04f04b1f7ed36"
   license "MIT"
+  revision 1
   head "https://github.com/chaosprint/asak.git", branch: "main"
+
+  stable do
+    url "https://github.com/chaosprint/asak/archive/refs/tags/v0.3.3.tar.gz"
+    sha256 "e5c7da28f29e4e1e45aa57db4c4ab94278d59bd3bdb717ede7d04f04b1f7ed36"
+
+    # patch to add man pages and shell completions support, upstream pr ref, https://github.com/chaosprint/asak/pull/18
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/f833fa6c7880376cb5ffe90f4d154368be04517e/asak/0.3.3-clap-update.patch"
+      sha256 "04e7172fd4ca7a643849077fcb6bd4baefadaa54231c06503e1946ec8ebcd811"
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2795cbaf849109fa15956cad98395a3490e819de09b0e2d790b98b6b91f55069"
@@ -27,6 +37,11 @@ class Asak < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    bash_completion.install "target/completions/asak.bash" => "asak"
+    fish_completion.install "target/completions/asak.fish" => "asak"
+    zsh_completion.install "target/completions/_asak" => "_asak"
+    man1.install "target/man/asak.1"
   end
 
   test do
