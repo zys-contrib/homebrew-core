@@ -7,11 +7,11 @@ class Pyqt < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "594fb397445a17b36d912f2cf432ddc211078592c6cb7b1c70fbc39aab3036de"
-    sha256 cellar: :any,                 arm64_ventura: "886205540f0ec40b9f48e78e7574d8004164303da0c6ca77befdd6a0d7e2b03c"
-    sha256 cellar: :any,                 sonoma:        "c4dea7eaef2da2fd9536ec568655c37f40136a76bd43b3513323da363d966515"
-    sha256 cellar: :any,                 ventura:       "affd2a13886660f7292c28cffcfdd5464493cfc981cb9b3686ee73c653011698"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee5627b9d9e5c5715d46f4029b0daabf95d5aeb60acb6a906bb3f89aac68fdf0"
+    sha256 cellar: :any,                 arm64_sonoma:  "115b7fe876382e37b7ec6b780d081a3735d10348563fe3b319c595e71c0c1ede"
+    sha256 cellar: :any,                 arm64_ventura: "ca4e7770dc38d1da7a083545aa5fa7fe93090c1d3ff63602d61bdb81757e711f"
+    sha256 cellar: :any,                 sonoma:        "9dc09304736af3a852083802ed87533d7e4fd8da85219545bfdf96c5551cbc43"
+    sha256 cellar: :any,                 ventura:       "480abb46fd740155ffc7da43f62a5775f12831a4223d1a0b89a3aad445097e52"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34e48e4167527158ea52ed7eaf99c18ba4ffffa03325e7844771e639416e3096"
   end
 
   depends_on "pyqt-builder" => :build
