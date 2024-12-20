@@ -10,11 +10,11 @@ class GitCola < Formula
   head "https://github.com/git-cola/git-cola.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1bce663e8b1b62a70896380b5eafe2fa612585a4b052ded3cb8fa11fc80def02"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1bce663e8b1b62a70896380b5eafe2fa612585a4b052ded3cb8fa11fc80def02"
-    sha256 cellar: :any_skip_relocation, sonoma:        "557220ab5437fc52d71077980a31cdab68351cfbc7f8a0ae1e4b597841f61a82"
-    sha256 cellar: :any_skip_relocation, ventura:       "557220ab5437fc52d71077980a31cdab68351cfbc7f8a0ae1e4b597841f61a82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1bce663e8b1b62a70896380b5eafe2fa612585a4b052ded3cb8fa11fc80def02"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "41fdb0ff9d944644af17df1b3362a6710c813640d8bd455a725cd1e21eab7824"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "41fdb0ff9d944644af17df1b3362a6710c813640d8bd455a725cd1e21eab7824"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9924a781606241fe258463d4dc2d2a73e33f474ca01b91807636668833e96ab4"
+    sha256 cellar: :any_skip_relocation, ventura:       "9924a781606241fe258463d4dc2d2a73e33f474ca01b91807636668833e96ab4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "41fdb0ff9d944644af17df1b3362a6710c813640d8bd455a725cd1e21eab7824"
   end
 
   depends_on "pyqt"
