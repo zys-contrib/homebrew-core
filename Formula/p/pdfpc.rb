@@ -1,19 +1,10 @@
 class Pdfpc < Formula
   desc "Presenter console with multi-monitor support for PDF files"
   homepage "https://pdfpc.github.io/"
+  url "https://github.com/pdfpc/pdfpc/archive/refs/tags/v4.7.0.tar.gz"
+  sha256 "0083a958a2e9288a15c31aabb76b3eadf104672b4e815017f31ffa0d87db02ec"
   license "GPL-3.0-or-later"
   head "https://github.com/pdfpc/pdfpc.git", branch: "master"
-
-  stable do
-    url "https://github.com/pdfpc/pdfpc/archive/refs/tags/v4.6.0.tar.gz"
-    sha256 "3b1a393f36a1b0ddc29a3d5111d8707f25fb2dd2d93b0401ff1c66fa95f50294"
-
-    # Backport fix for Vala 0.56.7+. Remove in the next release.
-    patch do
-      url "https://github.com/pdfpc/pdfpc/commit/18beaecbbcc066e0d4c889b3aa3ecaa7351f7768.patch?full_index=1"
-      sha256 "894a0cca9525a045f4bd28b54963bd0ad8b1752907f1ad4d8b4f7d9fdd4880c3"
-    end
-  end
 
   bottle do
     sha256 arm64_sequoia:  "2a9add17232af69e9969cc6fa4a4c2546f032334ee2a5c82884ea91f1b8bd6d9"
@@ -53,11 +44,6 @@ class Pdfpc < Formula
   end
 
   def install
-    # Upstream currently uses webkit2gtk-4.0 (API for GTK 3 and libsoup 2)
-    # but we only provide webkit2gtk-4.1 (API for GTK 3 and libsoup 3).
-    # Issue ref: https://github.com/pdfpc/pdfpc/issues/671
-    inreplace "src/CMakeLists.txt", "webkit2gtk-4.0", "webkit2gtk-4.1" unless build.head?
-
     system "cmake", "-S", ".", "-B", "build",
                     "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}",
                     "-DMDVIEW=#{OS.linux?}", # Needs webkitgtk
