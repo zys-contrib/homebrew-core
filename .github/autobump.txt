@@ -370,6 +370,7 @@ cargo-nextest
 cargo-outdated
 cargo-release
 cargo-run-bin
+cargo-shuttle
 cargo-udeps
 cargo-watch
 cargo-zigbuild
