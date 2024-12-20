@@ -1,8 +1,8 @@
 class PurescriptLanguageServer < Formula
   desc "Language Server Protocol server for PureScript"
   homepage "https://github.com/nwolverson/purescript-language-server"
-  url "https://registry.npmjs.org/purescript-language-server/-/purescript-language-server-0.18.2.tgz"
-  sha256 "a41076b1806f85daaf9aadcdc0d8e0db716bb929e8d4bbb0993aa889d503210a"
+  url "https://registry.npmjs.org/purescript-language-server/-/purescript-language-server-0.18.3.tgz"
+  sha256 "e290576084f4984cde3a37a87e2ab3484a5964603d260544396db77018b8887a"
   license "MIT"
 
   bottle do
