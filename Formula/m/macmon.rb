@@ -1,8 +1,8 @@
 class Macmon < Formula
   desc "Sudoless performance monitoring for Apple Silicon processors"
   homepage "https://github.com/vladkens/macmon"
-  url "https://github.com/vladkens/macmon/archive/refs/tags/v0.4.2.tar.gz"
-  sha256 "ef1fcd6096ef6f6d4f8066eb6049a4b264f6af1efe257050a51c37eba08c3eee"
+  url "https://github.com/vladkens/macmon/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "52310fcc04cf7b6ff66f2b1232ac1d4f1aeb317430fc4393805dd8bd035922a8"
   license "MIT"
   head "https://github.com/vladkens/macmon.git", branch: "main"
 
