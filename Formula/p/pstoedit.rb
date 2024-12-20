@@ -1,8 +1,8 @@
 class Pstoedit < Formula
   desc "Convert PostScript and PDF files to editable vector graphics"
   homepage "http://www.pstoedit.net/"
-  url "https://downloads.sourceforge.net/project/pstoedit/pstoedit/3.78/pstoedit-3.78.tar.gz"
-  sha256 "8cc28e34bc7f88d913780f8074e813dd5aaa0ac2056a6b36d4bf004a0e90d801"
+  url "https://downloads.sourceforge.net/project/pstoedit/pstoedit/4.02/pstoedit-4.02.tar.gz"
+  sha256 "5588b432d2c6b2ad9828b44915ea5813ff9a3a3312a41fa0de4c38ddac9df72f"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -21,12 +21,16 @@ class Pstoedit < Formula
   end
 
   depends_on "pkgconf" => :build
+  depends_on "gd"
   depends_on "ghostscript"
   depends_on "imagemagick"
   depends_on "plotutils"
 
   def install
-    ENV.cxx11 if OS.mac?
+    # Avoid Linux libc-specific behavior when building on macOS
+    # Notified author about the issue via email
+    inreplace "src/pstoedit.cpp", "#ifndef _MSC_VER\n", "#if !defined(_MSC_VER) && !defined(__APPLE__)\n"
+
     system "./configure", *std_configure_args
     system "make", "install"
   end
