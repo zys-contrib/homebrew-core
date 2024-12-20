@@ -24,10 +24,21 @@ class Ouch < Formula
   uses_from_macos "zlib"
 
   def install
+    # for completion and manpage generation
+    ENV["OUCH_ARTIFACTS_FOLDER"] = buildpath
+
     system "cargo", "install", *std_cargo_args
+
+    bash_completion.install "ouch.bash" => "ouch"
+    fish_completion.install "ouch.fish"
+    zsh_completion.install "_ouch"
+
+    man1.install Dir["*.1"]
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/ouch --version")
+
     (testpath/"file1").write "Hello"
     (testpath/"file2").write "World!"
 
