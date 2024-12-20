@@ -1,8 +1,8 @@
 class Lla < Formula
   desc "High-performance, extensible alternative to ls"
   homepage "https://github.com/triyanox/lla"
-  url "https://github.com/triyanox/lla/archive/refs/tags/v0.3.6.tar.gz"
-  sha256 "adb4e36e7eb94d537fb218a78474dc61d8fe5384f5130bbafffc3fabdd68d1fd"
+  url "https://github.com/triyanox/lla/archive/refs/tags/v0.3.7.tar.gz"
+  sha256 "639d4ffe2d3b4e9f77356d2f97a8b0b660efd4a24784b8471a114f9ba6aee6df"
   license "MIT"
 
   bottle do
