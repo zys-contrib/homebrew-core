@@ -1609,6 +1609,7 @@ leaf-proxy
 leakcanary-shark
 lean-cli
 leapp-cli
+leetcode-cli
 leetup
 legba
 legitify
