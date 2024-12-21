@@ -1,8 +1,8 @@
 class Mubeng < Formula
   desc "Incredibly fast proxy checker & IP rotator with ease"
   homepage "https://github.com/kitabisa/mubeng"
-  url "https://github.com/kitabisa/mubeng/archive/refs/tags/v0.18.0.tar.gz"
-  sha256 "3446bd114a1a6e0526c926fa264e3d738b3fa87bed1ad4f5e0899bb97ee12148"
+  url "https://github.com/kitabisa/mubeng/archive/refs/tags/v0.19.0.tar.gz"
+  sha256 "4406740bb20cb3142da9f922151dec4ebc88077bfff21a85376fcbea816e6c04"
   license "Apache-2.0"
   head "https://github.com/kitabisa/mubeng.git", branch: "master"
 
