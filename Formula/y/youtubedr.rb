@@ -6,14 +6,12 @@ class Youtubedr < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3662c7e71b59b9f4478005258f321f194a5af87299bbe15e04cfbdd45d0e1a6a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bf51ce334055c76a3e088792bdb2afb76b93f80c0a62f999632963c26dc05081"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bf51ce334055c76a3e088792bdb2afb76b93f80c0a62f999632963c26dc05081"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bf51ce334055c76a3e088792bdb2afb76b93f80c0a62f999632963c26dc05081"
-    sha256 cellar: :any_skip_relocation, sonoma:         "71a9b739954a568539ae25e32bfe3433273860f91e39d63d476c9d49d2848ac5"
-    sha256 cellar: :any_skip_relocation, ventura:        "71a9b739954a568539ae25e32bfe3433273860f91e39d63d476c9d49d2848ac5"
-    sha256 cellar: :any_skip_relocation, monterey:       "71a9b739954a568539ae25e32bfe3433273860f91e39d63d476c9d49d2848ac5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "efab440af5b55fa6c5865fc2972b2be741f6e213395591b600bfa3e47475fa85"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0715f7a73fc51198b85a9e07f3f04112608742f2deb8100d776174257a91528b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0715f7a73fc51198b85a9e07f3f04112608742f2deb8100d776174257a91528b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0715f7a73fc51198b85a9e07f3f04112608742f2deb8100d776174257a91528b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ff185b46ae18551197253d6048642a263abb84934c6f3e2ce946f553905d5f0c"
+    sha256 cellar: :any_skip_relocation, ventura:       "ff185b46ae18551197253d6048642a263abb84934c6f3e2ce946f553905d5f0c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8541d6b07a6e62ad4af72d8dfe1b936937ae49597014824e7c3dc7cd10e675d6"
   end
 
   depends_on "go" => :build
