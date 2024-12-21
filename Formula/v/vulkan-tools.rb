@@ -1,8 +1,8 @@
 class VulkanTools < Formula
   desc "Vulkan utilities and tools"
   homepage "https://github.com/KhronosGroup/Vulkan-Tools"
-  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.4.303.tar.gz"
-  sha256 "958b646bbc5ac0a54908342df30da8c183690f579dce7f7130ac93d433d9d3a8"
+  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.4.304.tar.gz"
+  sha256 "fa17870f531affec06dfd5cab8121cb6e54777f779dab59fccafeb136fe43e19"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-Tools.git", branch: "main"
 
@@ -48,8 +48,6 @@ class VulkanTools < Formula
                 "${MOLTENVK_DIR}/MoltenVK/icd/MoltenVK_icd.json",
                 "${MOLTENVK_DIR}/share/vulkan/icd.d/MoltenVK_icd.json"
       inreplace buildpath.glob("*/macOS/*/CMakeLists.txt") do |s|
-        s.gsub! "${MOLTENVK_DIR}/MoltenVK/include",
-                "${MOLTENVK_DIR}/include"
         s.gsub! "${MOLTENVK_DIR}/Package/Release/MoltenVK/dynamic/dylib/macOS/libMoltenVK.dylib",
                 "${MOLTENVK_DIR}/lib/libMoltenVK.dylib"
       end
