@@ -28,6 +28,10 @@ class Inlyne < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    bash_completion.install "completions/inlyne.bash" => "inlyne"
+    fish_completion.install "completions/inlyne.fish"
+    zsh_completion.install "completions/_inlyne"
   end
 
   test do
