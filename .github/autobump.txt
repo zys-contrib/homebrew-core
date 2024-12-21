@@ -2743,6 +2743,7 @@ selenium-server
 semgrep
 sendme
 sentencepiece
+sentry-cli
 seqkit
 sequin
 sequoia-sq
