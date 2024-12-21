@@ -3,8 +3,8 @@ class Cahute < Formula
 
   desc "Library and set of utilities to interact with Casio calculators"
   homepage "https://cahuteproject.org/"
-  url "https://ftp.cahuteproject.org/releases/cahute-0.5.tar.gz"
-  sha256 "6206d8d9e2557dffa80a435ce96574c1bb2db16bc422afae8084d611963a2ba9"
+  url "https://ftp.cahuteproject.org/releases/cahute-0.6.tar.gz"
+  sha256 "2fb0a8f0b14d75fb0d8a6fa07f3feda9b4cfaad11115340285e2c9414565059c"
   license "CECILL-2.1"
   head "https://gitlab.com/cahuteproject/cahute.git", branch: "develop"
 
@@ -65,12 +65,14 @@ class Cahute < Formula
           char const *type_name;
 
           switch (entry->cahute_usb_detection_entry_type) {
-          case CAHUTE_USB_DETECTION_ENTRY_TYPE_SEVEN:
-              type_name = "fx-9860G or compatible";
+          case CAHUTE_USB_DETECTION_ENTRY_TYPE_SERIAL:
+              type_name =
+                  "Serial calculator (fx-9860G, Classpad 300 / 330 (+) or "
+                  "compatible)";
               break;
 
           case CAHUTE_USB_DETECTION_ENTRY_TYPE_SCSI:
-              type_name = "fx-CG or compatible";
+              type_name = "UMS calculator (fx-CG, fx-CP400+, fx-GIII)";
               break;
 
           default:
@@ -89,12 +91,24 @@ class Cahute < Formula
       }
 
       int main(void) {
+          cahute_context *context;
           int err;
 
-          err = cahute_detect_usb(&my_callback, NULL);
+          err = cahute_create_context(&context);
+          if (err) {
+              fprintf(
+                  stderr,
+                  "cahute_create_context() has returned error %s.\\n",
+                  cahute_get_error_name(err)
+              );
+              return 1;
+          }
+
+          err = cahute_detect_usb(context, &my_callback, NULL);
           if (err)
               fprintf(stderr, "Cahute has returned error 0x%04X.\\n", err);
 
+          cahute_destroy_context(context);
           return 0;
       }
     C
