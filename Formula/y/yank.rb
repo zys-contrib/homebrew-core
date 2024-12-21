@@ -19,25 +19,24 @@ class Yank < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac3f578746c21ef166d41389433354a0435093a8648e224ad55c648925f1764c"
   end
 
-  uses_from_macos "expect" => :test
+  on_linux do
+    depends_on "xsel"
+  end
 
   def install
-    system "make", "install", "PREFIX=#{prefix}", "YANKCMD=pbcopy"
+    yankcmd = OS.mac? ? "pbcopy" : "xsel"
+    system "make", "install", "PREFIX=#{prefix}", "YANKCMD=#{yankcmd}"
   end
 
   test do
-    (testpath/"test.exp").write <<~EXPECT
-      spawn sh
-      set timeout 1
-      send "echo key=value | #{bin}/yank -d = | cat"
-      send "\r"
-      send "\016"
-      send "\r"
-      expect {
-            "value" { send "exit\r"; exit 0 }
-            timeout { send "exit\r"; exit 1 }
-      }
-    EXPECT
-    system "expect", "-f", "test.exp"
+    require "pty"
+    PTY.spawn("echo key=value | #{bin}/yank -d = >#{testpath}/result") do |r, w, _pid|
+      r.winsize = [80, 43]
+      w.write "\016"
+      sleep 1
+      w.write "\r"
+      sleep 1
+    end
+    assert_equal "value", (testpath/"result").read
   end
 end
