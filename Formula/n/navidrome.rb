@@ -1,8 +1,8 @@
 class Navidrome < Formula
   desc "Modern Music Server and Streamer compatible with Subsonic/Airsonic"
   homepage "https://www.navidrome.org"
-  url "https://github.com/navidrome/navidrome/archive/refs/tags/v0.53.3.tar.gz"
-  sha256 "e0d5b0280c302938177b2241a5f9868a4b40cd603ddf5acb2ff0f9c40e44c13a"
+  url "https://github.com/navidrome/navidrome/archive/refs/tags/v0.54.1.tar.gz"
+  sha256 "75d2275eab355d7627a0f7c6a0579db14ef52e04f3029b1845ea35f99ab105ae"
   license "GPL-3.0-only"
   head "https://github.com/navidrome/navidrome.git", branch: "master"
 
@@ -31,18 +31,18 @@ class Navidrome < Formula
 
     system "make", "setup"
     system "make", "buildjs"
-    system "go", "build", *std_go_args(ldflags:), "-buildvcs=false"
+    system "go", "build", *std_go_args(ldflags:), "-buildvcs=false", "-tags=netgo"
   end
 
   test do
     assert_equal "#{version} (source_archive)", shell_output("#{bin}/navidrome --version").chomp
     port = free_port
     pid = spawn bin/"navidrome", "--port", port.to_s
-    sleep_count = (OS.mac? && Hardware::CPU.intel?) ? 105 : 30
-    sleep sleep_count
+    sleep 20
+    sleep 60 if OS.mac? && Hardware::CPU.intel?
     assert_equal ".", shell_output("curl http://localhost:#{port}/ping")
   ensure
-    Process.kill "TERM", pid
+    Process.kill "KILL", pid
     Process.wait pid
   end
 end
