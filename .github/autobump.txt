@@ -1587,6 +1587,7 @@ lacework-cli
 lando-cli
 langgraph-cli
 languagetool
+languagetool-rust
 lanraragi
 lastpass-cli
 lastz
