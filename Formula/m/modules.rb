@@ -1,7 +1,6 @@
 class Modules < Formula
   desc "Dynamic modification of a user's environment via modulefiles"
   homepage "https://modules.sourceforge.net/"
-  # TODO: Try switching to `tcl-tk` on the next release
   url "https://downloads.sourceforge.net/project/modules/Modules/modules-5.5.0/modules-5.5.0.tar.bz2"
   sha256 "cb6355b0c81566a4d3ecd06fb4ae6afc9665a087b1e9039c5b5ffbc46fa282e2"
   license "GPL-2.0-or-later"
@@ -20,23 +19,20 @@ class Modules < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f73af6b00b7f3bd73bbd6d0ff30d3944445ec7470d24f594b7d0fbe24edde016"
   end
 
-  depends_on "tcl-tk@8"
+  depends_on "tcl-tk"
 
   uses_from_macos "less"
 
   def install
-    tcltk = Formula["tcl-tk@8"]
+    tcltk = Formula["tcl-tk"]
     args = %W[
       --prefix=#{prefix}
       --datarootdir=#{share}
       --with-tcl=#{tcltk.opt_lib}
+      --with-tclsh=#{tcltk.opt_bin}/tclsh
       --without-x
     ]
-
-    if OS.linux?
-      args << "--with-pager=#{Formula["less"].opt_bin}/less"
-      args << "--with-tclsh=#{tcltk.opt_bin}/tclsh"
-    end
+    args << "--with-pager=#{Formula["less"].opt_bin}/less" if OS.linux?
 
     system "./configure", *args
     system "make", "install"
