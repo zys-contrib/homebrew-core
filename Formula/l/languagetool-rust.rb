@@ -6,6 +6,15 @@ class LanguagetoolRust < Formula
   license "MIT"
   head "https://github.com/jeertmans/languagetool-rust.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "47b10bf2de0130d24efd9ea4a32f8dbdd9eb262d307d4367df02d3685af28849"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e5ed4daa41e0d546f5cf3bcc8bc014b07f5f7e9c0113455ddf7dfb3856ce827b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "54d468c22a3c6f189e256663475a4edecb38def544719de48f95c02a08b49c04"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9d7a475df6ab2ca6ec30fd0e30a924e41bad42b533c26069c3f7cfea92929eff"
+    sha256 cellar: :any_skip_relocation, ventura:       "201755fbdc71478a020286fe7ee5f1d583dd83d8d31665b156a02c49a3ff8fe5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c416e6b8e170a537063f6f9a5f82f382afb6e1997bb20d87a04343822b810e8"
+  end
+
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
