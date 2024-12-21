@@ -1,20 +1,10 @@
 class Asak < Formula
   desc "Cross-platform audio recording/playback CLI tool with TUI"
   homepage "https://github.com/chaosprint/asak"
+  url "https://github.com/chaosprint/asak/archive/refs/tags/v0.3.4.tar.gz"
+  sha256 "171916d7964e2a54ae92b38ffdb67f841e21da89e1b1ffcfb96e385999e066f2"
   license "MIT"
-  revision 1
   head "https://github.com/chaosprint/asak.git", branch: "main"
-
-  stable do
-    url "https://github.com/chaosprint/asak/archive/refs/tags/v0.3.3.tar.gz"
-    sha256 "e5c7da28f29e4e1e45aa57db4c4ab94278d59bd3bdb717ede7d04f04b1f7ed36"
-
-    # patch to add man pages and shell completions support, upstream pr ref, https://github.com/chaosprint/asak/pull/18
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/f833fa6c7880376cb5ffe90f4d154368be04517e/asak/0.3.3-clap-update.patch"
-      sha256 "04e7172fd4ca7a643849077fcb6bd4baefadaa54231c06503e1946ec8ebcd811"
-    end
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ed8ad6aff3db12016ca1f7f2f0242ff2373eebf52707125a67c326d0416a79b"
