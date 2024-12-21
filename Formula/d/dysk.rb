@@ -1,8 +1,8 @@
 class Dysk < Formula
   desc "Linux utility to get information on filesystems, like df but better"
   homepage "https://dystroy.org/dysk/"
-  url "https://github.com/Canop/dysk/archive/refs/tags/v2.9.1.tar.gz"
-  sha256 "46ccf2b5b165fd1553f4151ea5cc8dd2737a496b72577da14c1019fac847d10b"
+  url "https://github.com/Canop/dysk/archive/refs/tags/v2.10.0.tar.gz"
+  sha256 "af6a19493f3ca1d471605cd3e40016aaf89d383c87705f6c32d8232b7e433c14"
   license "MIT"
   head "https://github.com/Canop/dysk.git", branch: "main"
 
