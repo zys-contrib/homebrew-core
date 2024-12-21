@@ -24,8 +24,14 @@ class TreCommand < Formula
   depends_on "rust" => :build
 
   def install
+    ENV["SHELL_COMPLETIONS_DIR"] = buildpath/"completions"
+
     system "cargo", "install", *std_cargo_args
     man1.install "manual/tre.1"
+
+    bash_completion.install "completions/tre.bash" => "tre"
+    fish_completion.install "completions/tre.fish"
+    zsh_completion.install "completions/_tre"
   end
 
   test do
