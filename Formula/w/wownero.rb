@@ -24,14 +24,12 @@ class Wownero < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "c6350d120c92aa80675a64133daa98ce1de82f536130bf52f0cea6b68dbf1c66"
-    sha256 cellar: :any,                 arm64_sonoma:   "17da92001eeaa1c252c3998ec8bf5e36a67a7e024bf7017dc0d7bb2f6f339b9b"
-    sha256 cellar: :any,                 arm64_ventura:  "58f6790548e4d11d3345a630988c91136c0e12bcb0fb5cb818d6dbb7a161bafc"
-    sha256 cellar: :any,                 arm64_monterey: "3082d89d0fe7b93cf50920f1cdcefd3fd24c930b8de2c6107c9a823fde779e55"
-    sha256 cellar: :any,                 sonoma:         "82fb6f7b89fb7e39ac0723ce4555c4439249627966054fd4b95a02d2ebfa4cc3"
-    sha256 cellar: :any,                 ventura:        "08418e9fa1c07124a675e867a77f2fec294b45058f8e33fd308ed3573793d2b7"
-    sha256 cellar: :any,                 monterey:       "d9c2ea323635f520503e9b8c53db1d599d8c5e192420743470da97c0a918d4f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d08b8e26383ff1a7b709f65214b0f59505ca308f3b675bff55838c91de33a375"
+    sha256 cellar: :any,                 arm64_sequoia: "e853a94c2180d3369de8bb4f5d04cf7ffea7736b3d1d53f17c69b7bfc3275982"
+    sha256 cellar: :any,                 arm64_sonoma:  "89cc4a6b275adf3f8e97f36e8cbfa545bf7b892f6e0f26575e47f936cc816fa9"
+    sha256 cellar: :any,                 arm64_ventura: "a7573258aa7a6c1aa62858fabdd590b4546d57e3c1c569ba5355361d7e9d7a47"
+    sha256 cellar: :any,                 sonoma:        "6f1149d4459630ab60f67a3d84a75e73d933b2dd2885ec215e2dbf05a37fbecf"
+    sha256 cellar: :any,                 ventura:       "b31910c666b6bba034ed47c3a6100f6b42ab5e15ab9f5213e4b831ffc2883d1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b579603a0d8d4e8f796ef7efb40e6ff5ceab8272bb585b95914991cc2538f720"
   end
 
   disable! date: "2025-05-11", because: "needs to use unmaintained `boost@1.85` and `protobuf@21`"
