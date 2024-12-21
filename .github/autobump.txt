@@ -2939,6 +2939,7 @@ suite-sparse
 sundials
 superfile
 superlu
+surfer
 suricata
 svgbob
 svgo

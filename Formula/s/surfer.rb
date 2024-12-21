@@ -2,8 +2,8 @@ class Surfer < Formula
   desc "Waveform viewer, supporting VCD, FST, or GHW format"
   homepage "https://surfer-project.org/"
   url "https://gitlab.com/surfer-project/surfer.git",
-      tag:      "v0.2.0",
-      revision: "2d8dfae1e11aa9b843a3ee94ea99194417b36c59"
+      tag:      "v0.3.0",
+      revision: "1a6b34c44ea0e5089bd55d0bce1297aa1a02e6ef"
   license "EUPL-1.2"
   head "https://gitlab.com/surfer-project/surfer.git", branch: "main"
 
@@ -24,7 +24,7 @@ class Surfer < Formula
   end
 
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(path: "surfer")
   end
 
   test do
