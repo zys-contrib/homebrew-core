@@ -18,7 +18,9 @@ class Comtrya < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "./app")
+    system "cargo", "install", *std_cargo_args(path: "app")
+
+    generate_completions_from_executable(bin/"comtrya", "gen-completions")
   end
 
   test do
