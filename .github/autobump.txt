@@ -2393,6 +2393,7 @@ pint
 pip-audit
 pip-tools
 pipdeptree
+pipelight
 pipenv
 pipet
 pipgrip
