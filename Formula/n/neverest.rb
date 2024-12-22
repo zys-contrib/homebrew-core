@@ -6,6 +6,15 @@ class Neverest < Formula
   license "MIT"
   head "https://github.com/pimalaya/neverest.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8724834d76f0b3ae85de2cd78efd915e013ea6e73e6fcc4aace2fe2bca4ee2ac"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9ea446d70657b4a63b0cea2a1f008409435072a5e99610924f6b5b1dc0efff1d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4c4727f47e9b3c380fb966ac11ef3196bd253849273c5a129e1cfe2daec11d81"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e0bfb4590e4ed67783d07008166e55a110f77f466ca4bc213e46d6da64d7f84b"
+    sha256 cellar: :any_skip_relocation, ventura:       "3b7f30508d20583c20c986afaece33d669f9380e79cdde2793c41a9b3fde0e9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42967910c00046d764d281458105af646720163beb854aa14aa8740fbd54ee8f"
+  end
+
   depends_on "rust" => :build
 
   def install
