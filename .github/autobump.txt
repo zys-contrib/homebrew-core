@@ -530,6 +530,7 @@ codec2
 codelimit
 coder
 codespell
+codevis
 cog
 coin3d
 coinutils
