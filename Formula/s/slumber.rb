@@ -6,6 +6,15 @@ class Slumber < Formula
   license "MIT"
   head "https://github.com/LucasPickering/slumber.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9e842474531779e2635e6fd5d76c47208fb34a696a1009f456c6331b81591e47"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e306a33f2d9575638afcf39dd44ee01d41b3c22dceb382585796dab4ed3df935"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b0991ac889d6cb79890263db1cc1761403c9c0130593f14a44e98f2dda6abff4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "260683292c481132c227db2fd7d825af6ba3f223c220573285a3ca0637009cfd"
+    sha256 cellar: :any_skip_relocation, ventura:       "58399c7a2b037905ce98063e5798713c18be58e18c0ca67fbbf46653b016cab9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ed2980477bdfd1df3aeb236a5d8f66b1fc800a009a456a056c8e07966067a73"
+  end
+
   depends_on "rust" => :build
 
   def install
