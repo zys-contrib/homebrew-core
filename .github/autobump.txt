@@ -364,6 +364,7 @@ cargo-chef
 cargo-crev
 cargo-deny
 cargo-depgraph
+cargo-dist
 cargo-generate
 cargo-instruments
 cargo-llvm-cov
