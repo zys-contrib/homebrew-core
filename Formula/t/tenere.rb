@@ -4,6 +4,7 @@ class Tenere < Formula
   url "https://github.com/pythops/tenere/archive/refs/tags/v0.11.2.tar.gz"
   sha256 "865c9b041faf935545dbb9753b33a8ff09bf4bfd8917d25ca93f5dc0c0cac114"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0cfe044f70a14a46fbcc13fd9567b1d376a1081829dc4ab41e7d26772da2c4a7"
@@ -14,10 +15,17 @@ class Tenere < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0eaf02aea5d55524a747a79e3ea5b88a467a491e31acb86a7a9630680cc9b498"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
+  depends_on "libgit2@1.7"
+  depends_on "oniguruma"
+
   uses_from_macos "zlib"
 
   def install
+    ENV["LIBGIT2_NO_VENDOR"] = "1"
+    ENV["RUSTONIG_SYSTEM_LIBONIG"] = "1"
+
     system "cargo", "install", *std_cargo_args
   end
 
