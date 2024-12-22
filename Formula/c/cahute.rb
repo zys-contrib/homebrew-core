@@ -14,13 +14,12 @@ class Cahute < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "4e87caab9efe6bbafa902f326b7f970ecb544b7ceb6dde814ad297052df9180d"
-    sha256 cellar: :any,                 arm64_sonoma:  "76c9b13ca029fc173d1b2a5cade69f65553df52b66939b85890d67af1d3fd281"
-    sha256 cellar: :any,                 arm64_ventura: "f4ddd7874435b2aea256f2c18d873ac6c1245e1111e329dde59829aeec68723b"
-    sha256 cellar: :any,                 sonoma:        "29963eec6d0daaff4836ad997cd9dfb711218bf4a954dda8d6e79d6c90843595"
-    sha256 cellar: :any,                 ventura:       "40d37194e9d0335d990f2ebadf5d735edfe5cfee429b92b1b37d5da3e9884d85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f12f31c6f31c3a10bac5b6de716a73ad70778f0c764e3cbd0cdc2b870d81c1e6"
+    sha256 cellar: :any,                 arm64_sequoia: "a9f182ecca26940644fc57a55482d3cea23db23a9b7bc04d631d79ceaa4009c8"
+    sha256 cellar: :any,                 arm64_sonoma:  "5538bcc49d7187f12c367f25303f72880ef2ec69aca596dc4c6d50cd315fefa2"
+    sha256 cellar: :any,                 arm64_ventura: "7fcf7b11c26bf1cee45ea46082d741952de45c82f3532f2849468495351ee161"
+    sha256 cellar: :any,                 sonoma:        "56ce31df801211ccaf95a98f2d2dd9b8c79870d6aaa5784c039bd4a2b85936a7"
+    sha256 cellar: :any,                 ventura:       "1aa7caddf5a84461d3633f09d878704f395ab7e0467f0817be79cd23ceaa10de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a58adf247829574b1deab7b035c71ec60e404e889241dc8e5910458508e09dec"
   end
 
   depends_on "cmake" => :build
