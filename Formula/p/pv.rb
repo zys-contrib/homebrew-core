@@ -19,11 +19,13 @@ class Pv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f25755c20fce6dfd4be0fe76c047d5c68111fcbcbffd0415206b79085f659e59"
   end
 
+  depends_on "gettext"
+
   def install
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
-    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}", "--disable-nls"
+    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"
   end
 
