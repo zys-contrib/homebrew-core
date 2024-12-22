@@ -7,12 +7,12 @@ class Cocogitto < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d1316b272cc20ceae0cea34737f3a2becc8a06d398b27dfce3b1015fd02ffebf"
-    sha256 cellar: :any,                 arm64_sonoma:  "7ae176d0c770b599d2df65532d080c90e3d621509a6f2dae490aa8148a8f5327"
-    sha256 cellar: :any,                 arm64_ventura: "792758a0e716a6a71775322246891153abb367de77e1591abfa98ec02a0d2190"
-    sha256 cellar: :any,                 sonoma:        "726859cd13aef5b104f7093e2aab721ae1a6cde300d64064678728c3b0fbc15b"
-    sha256 cellar: :any,                 ventura:       "5c85175e6d0a9071a4f3c746f09ae54a1932e70566a9279bdaa61d41bcf593c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "84d0f037ed3ee459c1556a832e359b2970b4df2016c8ce888f5926dbebcd2664"
+    sha256 cellar: :any,                 arm64_sequoia: "815c4318d69c91b36986c47f897fba9e5823d9b239998383bb41ec56f37daf2d"
+    sha256 cellar: :any,                 arm64_sonoma:  "20ee790e3d75ec38bcb3e75bb972691ddf65a137ebd904e6d48d50278e104f78"
+    sha256 cellar: :any,                 arm64_ventura: "afb783b372f3f929fffc61d1961cf5d97253df44b1ff6579f3980f69df3a5e70"
+    sha256 cellar: :any,                 sonoma:        "0f2c1fb174b85d710dd1291285ab159f8e567c59ed63c510d54744f1ea4fbdb6"
+    sha256 cellar: :any,                 ventura:       "66d397eea2b0cd6c707931f01062aec463d68e2ae48e009ed9ccb6134be7f2ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25667769aa036ee9cfffc83ebae377ab6c80d45d0d9cad82b1cece4102a2b64c"
   end
 
   depends_on "pkgconf" => :build
