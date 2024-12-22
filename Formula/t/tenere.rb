@@ -7,12 +7,12 @@ class Tenere < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0cfe044f70a14a46fbcc13fd9567b1d376a1081829dc4ab41e7d26772da2c4a7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fd39545ed71c5c4bc73698cb55f8c686e770100e36c6843f4c73a9659aa6516b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3ccc493d54b1090b493158af6816e5e2ea88d5ee7bb96aa07106f45bd2f31c69"
-    sha256 cellar: :any_skip_relocation, sonoma:        "853a57352491e3bed077f2a9f49b41750eb55737993a91d181dbb7cbe5d617e2"
-    sha256 cellar: :any_skip_relocation, ventura:       "db5cf107adb337ca8ae33f16b77be78413fca5eef6bf9a32fe4bfb74943cea1b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0eaf02aea5d55524a747a79e3ea5b88a467a491e31acb86a7a9630680cc9b498"
+    sha256 cellar: :any,                 arm64_sequoia: "0baa70b7b012c3d3a774dc50b20a121f4e4edbc32d3ce855196c36549ac4ce27"
+    sha256 cellar: :any,                 arm64_sonoma:  "3415de2c7a37c7f05f0d445e189f10d13cf3bc0dbf4c13b7684b9899d8b76365"
+    sha256 cellar: :any,                 arm64_ventura: "7c4d49ece26a9ef64424c86facc1ca2bc89b148740439d61cc2bf82386c8195c"
+    sha256 cellar: :any,                 sonoma:        "dd4b840456d008367562e83e9e368d2ae8d0cfb657c596e4a3994d2dc5d41506"
+    sha256 cellar: :any,                 ventura:       "ea4358924174ee2b2c85fdb2defe04c974883b9a181afc045e328eec6bb8fee8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5d05813cd020da94e484be7e518d6189298b0e395707b64ef893b0ac91529b0"
   end
 
   depends_on "pkgconf" => :build
