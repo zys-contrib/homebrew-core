@@ -4,7 +4,6 @@ class Angband < Formula
   url "https://github.com/angband/angband/releases/download/4.2.5/Angband-4.2.5.tar.gz"
   sha256 "c4cacbdf28f726fcb1a0b30b8763100fb06f88dbb570e955232e41d83e0718a6"
   license "GPL-2.0-only"
-  head "https://github.com/angband/angband.git", branch: "master"
 
   livecheck do
     url :stable
@@ -24,38 +23,61 @@ class Angband < Formula
     sha256 x86_64_linux:   "cdf766e08ed71a08dab5b873333ef14bb4ed7918a55601a35106b4dbb717538f"
   end
 
-  uses_from_macos "expect" => :test
-  uses_from_macos "ncurses"
+  head do
+    url "https://github.com/angband/angband.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
+  on_system :linux, macos: :sonoma_or_newer do
+    depends_on "ncurses" # ncurse5.4-config is broken on recent macOS
+  end
 
   def install
-    ENV["NCURSES_CONFIG"] = "#{MacOS.sdk_path}/usr/bin/ncurses5.4-config" if OS.mac?
     args = %W[
-      --prefix=#{prefix}
       --bindir=#{bin}
-      --libdir=#{libexec}
+      --enable-release
       --enable-curses
       --disable-ncursestest
       --disable-sdltest
       --disable-x11
     ]
-    args << "--with-ncurses-prefix=#{MacOS.sdk_path}/usr" if OS.mac?
-    system "./configure", *args
+    if OS.mac? && MacOS.version < :sonoma
+      ENV["NCURSES_CONFIG"] = "#{MacOS.sdk_path}/usr/bin/ncurses5.4-config"
+      args << "--with-ncurses-prefix=#{MacOS.sdk_path}/usr"
+    end
+    system "./autogen.sh" if build.head?
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
   end
 
   test do
-    script = (testpath/"script.exp")
-    script.write <<~SHELL
-      #!/usr/bin/expect -f
-      set timeout 10
-      spawn angband
-      sleep 2
-      send -- "\x18"
-      sleep 2
-      send -- "\x18"
-      expect eof
-    SHELL
-    system "expect", "-f", "script.exp"
+    require "expect"
+    require "pty"
+
+    timeout = 10
+    args = %W[
+      -duser=#{testpath}
+      -darchive=#{testpath}/archive
+      -dpanic=#{testpath}/panic
+      -dsave=#{testpath}/save
+      -dscores=#{testpath}/scores
+    ]
+
+    PTY.spawn({ "LC_ALL" => "en_US.UTF-8", "TERM" => "xterm" }, bin/"angband", *args) do |r, w, pid|
+      refute_nil r.expect("[Initialization complete]", timeout), "Expected initialization message"
+      w.write "\x18"
+      refute_nil r.expect("Please select your character", timeout), "Expected character selection"
+      w.write "\x18"
+      r.read
+    rescue Errno::EIO
+      # GNU/Linux raises EIO when read is done on closed pty
+    ensure
+      r.close
+      w.close
+      Process.wait(pid)
+    end
   end
 end
