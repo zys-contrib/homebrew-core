@@ -1,4 +1,7 @@
 {
+  "acronym": {
+    "exclude_packages": ["numpy"]
+  },
   "aider": {
     "exclude_packages": ["certifi", "cffi", "numpy", "pillow", "scipy"]
   },
