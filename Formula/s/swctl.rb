@@ -6,6 +6,15 @@ class Swctl < Formula
   license "Apache-2.0"
   head "https://github.com/apache/skywalking-cli.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "728dabd3e1d8365ae37fb21cbc1a08141be78b2f171f0de9b1ebac833457725a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "728dabd3e1d8365ae37fb21cbc1a08141be78b2f171f0de9b1ebac833457725a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "728dabd3e1d8365ae37fb21cbc1a08141be78b2f171f0de9b1ebac833457725a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cfadf539862b32307e496af660a32da07c3d7de286cce07b2f0812b87b5491dd"
+    sha256 cellar: :any_skip_relocation, ventura:       "cfadf539862b32307e496af660a32da07c3d7de286cce07b2f0812b87b5491dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "874046baa0f6440899485e5f4fde537a34154534e9611b6ae5cf0f4aa86162e8"
+  end
+
   depends_on "go" => :build
 
   def install
