@@ -4,6 +4,7 @@ class Prr < Formula
   url "https://github.com/danobi/prr/archive/refs/tags/v0.19.0.tar.gz"
   sha256 "76d101fefe42456d0c18a64e6f57b9d3a84baaecaf1e3a5e94b93657a6773c11"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/danobi/prr.git", branch: "master"
 
   bottle do
@@ -17,18 +18,24 @@ class Prr < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "libgit2@1.7"
+  depends_on "libgit2"
   depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
+  # support libgit2 1.8, upstream pr ref, https://github.com/MitMaro/git-interactive-rebase-tool/pull/948
+  patch do
+    url "https://github.com/danobi/prr/commit/c860f3d29c3607b10885e6526bea4cfd242815b5.patch?full_index=1"
+    sha256 "208bbbdf4358f98c01b567146d0da2d1717caa53e4d2e5ea55ae29f5adaaaae2"
+  end
+
   def install
+    ENV["LIBGIT2_NO_VENDOR"] = "1"
     # Ensure the declared `openssl@3` dependency will be picked up.
     # https://docs.rs/openssl/latest/openssl/#manual
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
-    ENV["LIBGIT2_NO_VENDOR"] = "1"
     system "cargo", "install", *std_cargo_args
   end
 
@@ -44,7 +51,7 @@ class Prr < Formula
     assert_match "Failed to read config", shell_output("#{bin}/prr get Homebrew/homebrew-core/6 2>&1", 1)
 
     [
-      Formula["libgit2@1.7"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
     ].each do |library|
