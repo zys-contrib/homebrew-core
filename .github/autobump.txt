@@ -2366,6 +2366,7 @@ pg_partman
 pgbadger
 pgbouncer
 pgpool-ii
+pgrok
 pgroonga
 pgrouting
 pgweb
