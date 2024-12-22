@@ -2380,6 +2380,7 @@ php@8.3
 phpmyadmin
 phpunit
 phylum-cli
+pianobar
 pianod
 picard-tools
 picotool
