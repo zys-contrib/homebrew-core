@@ -4,7 +4,7 @@ class GitInteractiveRebaseTool < Formula
   url "https://github.com/MitMaro/git-interactive-rebase-tool/archive/refs/tags/2.4.1.tar.gz"
   sha256 "0b1ba68a1ba1548f44209ce1228d17d6d5768d72ffa991909771df8e9d42d70d"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -24,9 +24,15 @@ class GitInteractiveRebaseTool < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "libgit2@1.7"
+  depends_on "libgit2"
 
   uses_from_macos "zlib"
+
+  # support libgit2 1.8, upstream pr ref, https://github.com/MitMaro/git-interactive-rebase-tool/pull/948
+  patch do
+    url "https://github.com/MitMaro/git-interactive-rebase-tool/commit/508291ca003d5cd380a1c34f27efde913b488888.patch?full_index=1"
+    sha256 "1256c6e9fa3a7c3ed196d30a2a35b9c05e06434ed954e8a4e58e1d2ceb1ae7d8"
+  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
@@ -69,7 +75,7 @@ class GitInteractiveRebaseTool < Formula
     assert_equal expected_git_rebase_todo, todo_file.read
 
     [
-      Formula["libgit2@1.7"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
     ].each do |library|
       assert check_binary_linkage(bin/"interactive-rebase-tool", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
