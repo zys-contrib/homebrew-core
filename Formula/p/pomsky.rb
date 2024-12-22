@@ -1,10 +1,10 @@
 class Pomsky < Formula
   desc "Regular expression language"
   homepage "https://pomsky-lang.org/"
-  url "https://github.com/rulex-rs/pomsky/archive/refs/tags/v0.11.tar.gz"
+  url "https://github.com/pomsky-lang/pomsky/archive/refs/tags/v0.11.tar.gz"
   sha256 "602cf73d7f7343b8c59ae82973635f5f62f26e2fe341fa990fca5fe504736384"
   license any_of: ["Apache-2.0", "MIT"]
-  head "https://github.com/rulex-rs/pomsky.git", branch: "main"
+  head "https://github.com/pomsky-lang/pomsky.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3ac800ce5e8c8733f1196cac85cc75cfe82cd1427d0b8349affeb3a03153b321"
@@ -21,6 +21,10 @@ class Pomsky < Formula
 
   def install
     system "cargo", "install", *std_cargo_args(path: "pomsky-bin")
+
+    bash_completion.install "completions/pomsky.bash" => "pomsky"
+    fish_completion.install "completions/pomsky.fish"
+    zsh_completion.install "completions/pomsky.zsh" => "_pomsky"
   end
 
   test do
