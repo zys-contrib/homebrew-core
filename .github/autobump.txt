@@ -2461,6 +2461,7 @@ primecount
 primesieve
 principalmapper
 probe-rs-tools
+procps
 procs
 proftpd
 proj
