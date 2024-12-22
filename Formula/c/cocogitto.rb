@@ -4,6 +4,7 @@ class Cocogitto < Formula
   url "https://github.com/cocogitto/cocogitto/archive/refs/tags/6.2.0.tar.gz"
   sha256 "fd7d69fb5b6d64e292877d87a77864d5081906b6e515e20b93348b7f05bd05c1"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "d1316b272cc20ceae0cea34737f3a2becc8a06d398b27dfce3b1015fd02ffebf"
@@ -16,9 +17,15 @@ class Cocogitto < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "libgit2@1.7"
+  depends_on "libgit2"
 
   conflicts_with "cog", because: "both install `cog` binaries"
+
+  # support libgit2 1.8, upstream pr ref, https://github.com/cocogitto/cocogitto/pull/433
+  patch do
+    url "https://github.com/cocogitto/cocogitto/commit/47689fe4f431d7b1371ff34cb430fbffc19f40c5.patch?full_index=1"
+    sha256 "508a34432f907500d2a92940647501512e789cac53e85497a83b1b99089ae07b"
+  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
@@ -43,7 +50,7 @@ class Cocogitto < Formula
     linkage_with_libgit2 = (bin/"cog").dynamically_linked_libraries.any? do |dll|
       next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
 
-      File.realpath(dll) == (Formula["libgit2@1.7"].opt_lib/shared_library("libgit2")).realpath.to_s
+      File.realpath(dll) == (Formula["libgit2"].opt_lib/shared_library("libgit2")).realpath.to_s
     end
 
     assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."
