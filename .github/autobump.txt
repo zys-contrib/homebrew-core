@@ -5,6 +5,7 @@ abseil
 abyss
 ack
 acl2
+acronym
 act
 action-validator
 actionlint
