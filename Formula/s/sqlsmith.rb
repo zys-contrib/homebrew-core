@@ -4,7 +4,7 @@ class Sqlsmith < Formula
   url "https://github.com/anse1/sqlsmith/releases/download/v1.4/sqlsmith-1.4.tar.gz"
   sha256 "b0821acbe82782f6037315549f475368be3592cefe2c3c540f9cf52aa70d2f55"
   license "GPL-3.0-only"
-  revision 3
+  revision 4
 
   livecheck do
     url :stable
