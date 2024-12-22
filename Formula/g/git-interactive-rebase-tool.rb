@@ -12,14 +12,12 @@ class GitInteractiveRebaseTool < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "9db02f1036165ea5581b513a08f73988438cf04523585b2b6bba5b02568fe123"
-    sha256 cellar: :any,                 arm64_sonoma:   "fb5993c4312324326b25f1e2209b6fcbe88fc98352db69fdb07c0b5c63e42873"
-    sha256 cellar: :any,                 arm64_ventura:  "0bf45047f460751efed83d895546c79188af0933cba013160a8a0fe0cedb7b89"
-    sha256 cellar: :any,                 arm64_monterey: "72a6adb852a9d40a838a9136717148b2aaf1e70f832e5edc599d33f87fd77149"
-    sha256 cellar: :any,                 sonoma:         "fca7280d997fbac58b67ad6b55e627805353ec814fd0a23fa3883a699def7326"
-    sha256 cellar: :any,                 ventura:        "8f8ffe5ca81753b46ff1df663fe9219baa5a9e331d3abd29f91af0f97a077a95"
-    sha256 cellar: :any,                 monterey:       "8512328d56cf54e7f7c712b985b84ee6267df174eb45e514f8da300f312a0905"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7aa1b32fbfe987e86fdd9aa2a914c14a041341b9a7ce781555b68ca325b2e31"
+    sha256 cellar: :any,                 arm64_sequoia: "894400658f898110f441ffd7af03c3a1237e5f6f4167e787e5f672899d84cc0d"
+    sha256 cellar: :any,                 arm64_sonoma:  "70aff4188c99a363f4948e17ec4cf4f83ee848c37d5d6a0d58784e7d0331255c"
+    sha256 cellar: :any,                 arm64_ventura: "95a7ad09ba7ab81e9a441465e47598e263fbe69da00777be1896d9577482d7b8"
+    sha256 cellar: :any,                 sonoma:        "9966b6bdcb2a6be0f522028239bfab8cc2b907c24a71efb9829524e51fce6963"
+    sha256 cellar: :any,                 ventura:       "f8e437e497161e6f299566af6ea83f6f7fbeac5513ed9a9722e53b573f195dc9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5250912b7545ef558806147fc2b229c2615afba6930fdee2bf3de03ab2004395"
   end
 
   depends_on "pkgconf" => :build
