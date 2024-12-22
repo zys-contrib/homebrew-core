@@ -2959,6 +2959,7 @@ svtplay-dl
 swagger-codegen
 swagger-codegen@2
 swagger2markup-cli
+swctl
 swi-prolog
 swift-protobuf
 swift-sh
