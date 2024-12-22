@@ -4,6 +4,7 @@ class GitDelta < Formula
   url "https://github.com/dandavison/delta/archive/refs/tags/0.18.2.tar.gz"
   sha256 "64717c3b3335b44a252b8e99713e080cbf7944308b96252bc175317b10004f02"
   license "MIT"
+  revision 1
   head "https://github.com/dandavison/delta.git", branch: "main"
 
   bottle do
@@ -16,10 +17,23 @@ class GitDelta < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "648cb09c1f3e235689a01517c4953948f22e49be3a36c2038917744ce094bcdf"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
+  depends_on "libgit2"
+  depends_on "oniguruma"
+
   uses_from_macos "zlib"
 
+  # support libgit2 1.8, https://github.com/dandavison/delta/pull/1930
+  patch do
+    url "https://github.com/dandavison/delta/commit/b90f249f7186696bb104cd992d705108373d216a.patch?full_index=1"
+    sha256 "a3b2839fe70c8a2452e016dff663791d42ad650f9169e210a6a8fe1a519e2939"
+  end
+
   def install
+    ENV["LIBGIT2_NO_VENDOR"] = "1"
+    ENV["RUSTONIG_SYSTEM_LIBONIG"] = "1"
+
     system "cargo", "install", *std_cargo_args
 
     generate_completions_from_executable(bin/"delta", "--generate-completion", base_name: "delta")
