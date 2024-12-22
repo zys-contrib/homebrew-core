@@ -1,20 +1,10 @@
 class Scummvm < Formula
   desc "Graphic adventure game interpreter"
   homepage "https://www.scummvm.org/"
+  url "https://downloads.scummvm.org/frs/scummvm/2.9.0/scummvm-2.9.0.tar.xz"
+  sha256 "d5b33532bd70d247f09127719c670b4b935810f53ebb6b7b6eafacaa5da99452"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/scummvm/scummvm.git", branch: "master"
-
-  stable do
-    url "https://downloads.scummvm.org/frs/scummvm/2.8.1/scummvm-2.8.1.tar.xz"
-    sha256 "7e97f4a13d22d570b70c9b357c941999be71deb9186039c87d82bbd9c20727b7"
-
-    # Backport fix for freetype 2.13.3
-    patch do
-      url "https://github.com/scummvm/scummvm/commit/65977961b20ba97b1213b5267da0cb1efb49063b.patch?full_index=1"
-      sha256 "2eefadef10af4729f6912ce281daafe12eabce52d7f8b62fc23de30ee768eb9b"
-    end
-  end
 
   livecheck do
     url "https://www.scummvm.org/downloads/"
@@ -55,11 +45,9 @@ class Scummvm < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--enable-release",
-                          "--with-sdl-prefix=#{Formula["sdl2"].opt_prefix}"
-    system "make"
+    system "./configure", "--enable-release", "--with-sdl-prefix=#{Formula["sdl2"].opt_prefix}", *std_configure_args
     system "make", "install"
+
     rm_r(share/"pixmaps")
     rm_r(share/"icons")
   end
