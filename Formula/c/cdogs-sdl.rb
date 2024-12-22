@@ -2,7 +2,7 @@ class CdogsSdl < Formula
   desc "Classic overhead run-and-gun game"
   homepage "https://cxong.github.io/cdogs-sdl/"
   url "https://github.com/cxong/cdogs-sdl/archive/refs/tags/2.2.0.tar.gz"
-  sha256 "55869ffe12ad3b3bbe917b3f505a68a6d82e3bc4feab0609fd7e917d0c9db6fa"
+  sha256 "2730e331a60aadd584fe026d0167d9395947065da50b485fd32acd4788457f0b"
   license "GPL-2.0-or-later"
   head "https://github.com/cxong/cdogs-sdl.git", branch: "master"
 
@@ -35,11 +35,10 @@ class CdogsSdl < Formula
   end
 
   def install
-    args = std_cmake_args
-    args << "-DCDOGS_DATA_DIR=#{pkgshare}/"
-    system "cmake", ".", *args
-    system "make"
-    bin.install %w[src/cdogs-sdl src/cdogs-sdl-editor]
+    system "cmake", "-S", ".", "-B", "build", "-DCDOGS_DATA_DIR=#{pkgshare}/", *std_cmake_args
+    system "cmake", "--build", "build"
+
+    bin.install %w[build/src/cdogs-sdl build/src/cdogs-sdl-editor]
     pkgshare.install %w[data dogfights graphics missions music sounds]
     doc.install Dir["doc/*"]
   end
@@ -51,8 +50,7 @@ class CdogsSdl < Formula
     time_slept = 0
     time_slept += sleep(5) while !(testpath/".config/cdogs-sdl").exist? && time_slept < max_sleep_time
 
-    assert_predicate testpath/".config/cdogs-sdl",
-                     :exist?, "User config directory should exist"
+    assert_path_exists testpath/".config/cdogs-sdl"
   ensure
     Process.kill("TERM", pid)
   end
