@@ -1,8 +1,8 @@
 class Nextdns < Formula
   desc "CLI for NextDNS's DNS-over-HTTPS (DoH)"
   homepage "https://nextdns.io"
-  url "https://github.com/nextdns/nextdns/archive/refs/tags/v1.44.0.tar.gz"
-  sha256 "1b091d5c2ab968c498084db071daf632c89d9222679d224597dac28fc12a3674"
+  url "https://github.com/nextdns/nextdns/archive/refs/tags/v1.44.1.tar.gz"
+  sha256 "971d3a680901b5e7243e1fd26b0424556650052fc40bb29a4ccd6e3d38a5bbbc"
   license "MIT"
   head "https://github.com/nextdns/nextdns.git", branch: "master"
 
