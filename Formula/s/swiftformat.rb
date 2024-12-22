@@ -1,8 +1,8 @@
 class Swiftformat < Formula
   desc "Formatting tool for reformatting Swift code"
   homepage "https://github.com/nicklockwood/SwiftFormat"
-  url "https://github.com/nicklockwood/SwiftFormat/archive/refs/tags/0.55.3.tar.gz"
-  sha256 "a961c7512688efde21af91fab35b19d1660065ee9e73846a390355a1b9051109"
+  url "https://github.com/nicklockwood/SwiftFormat/archive/refs/tags/0.55.4.tar.gz"
+  sha256 "b72e0f0548ca6e8029a81b4f27cb11b648e84c36f8938b88d75f10a894ae31cd"
   license "MIT"
   head "https://github.com/nicklockwood/SwiftFormat.git", branch: "master"
 
