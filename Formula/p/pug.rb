@@ -7,12 +7,12 @@ class Pug < Formula
   head "https://github.com/leg100/pug.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3f86c6d80ede805265f9dec35b9d602f31f80483400e8b94f12b466866f5bb52"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3f86c6d80ede805265f9dec35b9d602f31f80483400e8b94f12b466866f5bb52"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3f86c6d80ede805265f9dec35b9d602f31f80483400e8b94f12b466866f5bb52"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9234423a1e24611ea85cb216cd2d3555d98b202d2b977d69be9b0b3c53fb78d0"
-    sha256 cellar: :any_skip_relocation, ventura:       "9234423a1e24611ea85cb216cd2d3555d98b202d2b977d69be9b0b3c53fb78d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2aa800d83a097307bf5ab3b3e5aa90f8d2e8a0815b973474a3f14c9402c392c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "35c14c575b0546e893a43b89e5b2b0a3fe700b8341b0cb1725514fbb2868bc4d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "35c14c575b0546e893a43b89e5b2b0a3fe700b8341b0cb1725514fbb2868bc4d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "35c14c575b0546e893a43b89e5b2b0a3fe700b8341b0cb1725514fbb2868bc4d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "957a1abaf2d15ad8d2c688a42b0458b554d4e48870baeb4bc5c9d7425a3e99dc"
+    sha256 cellar: :any_skip_relocation, ventura:       "957a1abaf2d15ad8d2c688a42b0458b554d4e48870baeb4bc5c9d7425a3e99dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7be671c9920414fc1a35724a00355561e558d32130ac463aded4d5b9095138ee"
   end
 
   depends_on "go" => :build
