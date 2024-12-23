@@ -1,8 +1,8 @@
 class Lcm < Formula
   desc "Libraries and tools for message passing and data marshalling"
   homepage "https://lcm-proj.github.io/"
-  url "https://github.com/lcm-proj/lcm/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "590a7d996daa3d33a7f3094e4054c35799a3d7a4780d732be78971323e730eeb"
+  url "https://github.com/lcm-proj/lcm/archive/refs/tags/v1.5.1.tar.gz"
+  sha256 "40ba0b7fb7c9ad06d05e06b4787d743cf11be30eb4f1a03abf4a92641c5b1203"
   license "LGPL-2.1-or-later"
   head "https://github.com/lcm-proj/lcm.git", branch: "master"
 
