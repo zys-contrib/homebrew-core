@@ -2914,6 +2914,7 @@ stanc3
 stanford-corenlp
 star
 starlark-rust
+static-web-server
 staticcheck
 statix
 stdman
