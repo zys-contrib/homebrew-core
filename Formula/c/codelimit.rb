@@ -3,8 +3,8 @@ class Codelimit < Formula
 
   desc "Your Refactoring Alarm"
   homepage "https://github.com/getcodelimit/codelimit"
-  url "https://files.pythonhosted.org/packages/4a/e0/d05fb77f181e13942e374a713a250a46087be4def5e57a83b3f653c0b9a2/codelimit-0.15.1.tar.gz"
-  sha256 "2172bd0374d091b22ed12cdb9ae7de84da83a00bf615323b13b2987d25690879"
+  url "https://files.pythonhosted.org/packages/21/8f/e9b428cb18e68ecc26c9e60e7ebeb1457387aa2e775c16bc9b379837a964/codelimit-0.16.0.tar.gz"
+  sha256 "aabdb90e8b34e0095b29e235ad4e8b27af72013eae871f94631e359dc65cbe97"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -46,8 +46,8 @@ class Codelimit < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
-    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
+    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
+    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
   end
 
   resource "frozenlist" do
@@ -126,8 +126,8 @@ class Codelimit < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
-    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
+    url "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz"
+    sha256 "f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"
   end
 
   resource "yarl" do
