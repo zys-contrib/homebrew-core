@@ -1,8 +1,8 @@
 class Flowpipe < Formula
   desc "Cloud scripting engine"
   homepage "https://flowpipe.io"
-  url "https://github.com/turbot/flowpipe/archive/refs/tags/v1.0.2.tar.gz"
-  sha256 "5e8a54ae8f26de64c7b0ee906bebe36396364ea3d7f2c9098ecf9585ba916f77"
+  url "https://github.com/turbot/flowpipe/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "7eaf7d993b4672be9ae9db69678d4b263e80d7524ac486ebe52048b03af2a6bc"
   license "AGPL-3.0-only"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
