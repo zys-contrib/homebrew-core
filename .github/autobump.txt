@@ -1793,6 +1793,7 @@ libvatek
 libvirt
 libvirt-python
 libvisio
+libvncserver
 libwbxml
 libwpe
 libx11
