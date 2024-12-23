@@ -2,7 +2,7 @@ class Seal < Formula
   desc "Easy-to-use homomorphic encryption library"
   homepage "https://github.com/microsoft/SEAL"
   url "https://github.com/microsoft/SEAL/archive/refs/tags/v4.1.2.tar.gz"
-  sha256 "55601ea4c9ab96eb29a8e37027637774e64a2868d02852474d625ffced0b92cb"
+  sha256 "acc2a1a127a85d1e1ffcca3ffd148f736e665df6d6b072df0e42fff64795a13c"
   license "MIT"
 
   bottle do
@@ -36,19 +36,19 @@ class Seal < Formula
   def install
     if Hardware::CPU.intel?
       resource("hexl").stage do
-        hexl_args = std_cmake_args + %w[
+        hexl_args = %w[
           -DHEXL_BENCHMARK=OFF
           -DHEXL_TESTING=OFF
           -DHEXL_EXPORT=ON
         ]
-        system "cmake", "-S", ".", "-B", "build", *hexl_args
+        system "cmake", "-S", ".", "-B", "build", *hexl_args, *std_cmake_args
         system "cmake", "--build", "build"
         system "cmake", "--install", "build"
       end
       ENV.append "LDFLAGS", "-L#{lib}"
     end
 
-    args = std_cmake_args + %W[
+    args = %W[
       -DBUILD_SHARED_LIBS=ON
       -DSEAL_BUILD_DEPS=OFF
       -DSEAL_USE_ALIGNED_ALLOC=#{(OS.mac? && MacOS.version > :mojave) ? "ON" : "OFF"}
@@ -57,9 +57,10 @@ class Seal < Formula
       -DCMAKE_CXX_FLAGS=-I#{include}
     ]
 
-    system "cmake", ".", *args
-    system "make"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
     pkgshare.install "native/examples"
   end
 
