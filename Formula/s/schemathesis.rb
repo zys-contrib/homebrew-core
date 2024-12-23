@@ -8,12 +8,12 @@ class Schemathesis < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "371a6ac2dc3f696bed6424269792c0a12244cddc031f616fb65029bd939168c0"
-    sha256 cellar: :any,                 arm64_sonoma:  "dad0cfbf276e2154a25ef4de2f110903de6aba86943ac97823401437da4f27ec"
-    sha256 cellar: :any,                 arm64_ventura: "1097ba944ea72f83b8e617d6de79870c1116613ea593476d842421834eb09717"
-    sha256 cellar: :any,                 sonoma:        "9c57624474320079509880179e3d2be3fe254cb9fcc08b76a710fb2d05cdc1e5"
-    sha256 cellar: :any,                 ventura:       "d21920aa207a6a24e7ee8fb345068e9ff040e496072e5a05471724b5fc48d659"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "084bbbbac5fd1702ba7abdada2708b45dd0ea8926603d700237ef620c731b4bc"
+    sha256 cellar: :any,                 arm64_sequoia: "104befda4c2eb31df5c524fafe8b3e20dd4d2bbe444dd5012c6396dee92da47e"
+    sha256 cellar: :any,                 arm64_sonoma:  "451d6f151feaa9d5838a863026c427f82a6b0872aca2e5de28825424ee536a6f"
+    sha256 cellar: :any,                 arm64_ventura: "66c25f45f27dca7148bfee0a00c4887a500ea5467e098eb2d92e3de5d0dfd9db"
+    sha256 cellar: :any,                 sonoma:        "6a94ddd5397dc687a18e563287cec7d8ba7ea0e8138544c5234561871b8eb8d5"
+    sha256 cellar: :any,                 ventura:       "e98f470013c081d32f4bb9e3de061d808c007780189f30e725b061352de193a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ecb917d893afc4fa1e83270ba8feb4c47fb06050fea5ba8efb3fa84e2a12d38"
   end
 
   depends_on "rust" => :build # for rpds-py
