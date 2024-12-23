@@ -2114,6 +2114,7 @@ netaddr
 nethogs
 netlify-cli
 nettle
+neverest
 newman
 newrelic-cli
 newrelic-infra-agent
