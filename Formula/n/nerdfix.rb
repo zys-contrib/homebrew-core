@@ -18,9 +18,13 @@ class Nerdfix < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    generate_completions_from_executable(bin/"nerdfix", "completions")
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/nerdfix --version")
+
     touch "test.txt"
     system bin/"nerdfix", "check", "test.txt"
   end
