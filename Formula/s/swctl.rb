@@ -1,10 +1,19 @@
 class Swctl < Formula
   desc "Apache SkyWalking CLI (Command-line Interface)"
   homepage "https://skywalking.apache.org/"
-  url "https://github.com/apache/skywalking-cli/archive/refs/tags/0.14.0.tar.gz"
-  sha256 "9b1861a659e563d2ba7284ac19f3ae72649f08ac7ff7064aee928a7df2cd2bff"
   license "Apache-2.0"
   head "https://github.com/apache/skywalking-cli.git", branch: "master"
+
+  stable do
+    url "https://github.com/apache/skywalking-cli/archive/refs/tags/0.14.0.tar.gz"
+    sha256 "9b1861a659e563d2ba7284ac19f3ae72649f08ac7ff7064aee928a7df2cd2bff"
+
+    # fish and zsh completion support patch, upstream pr ref, https://github.com/apache/skywalking-cli/pull/207
+    patch do
+      url "https://github.com/apache/skywalking-cli/commit/3f9cf0e74a97f16d8da48ccea49155fd45f2d160.patch?full_index=1"
+      sha256 "dd17f332f86401ef4505ec7beb3f8863f13146718d8bdcf92d2cc2cdc712b0ec"
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "728dabd3e1d8365ae37fb21cbc1a08141be78b2f171f0de9b1ebac833457725a"
@@ -21,8 +30,7 @@ class Swctl < Formula
     ldflags = "-s -w -X main.version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/swctl"
 
-    # upstream pr to support zsh and fish completions, https://github.com/apache/skywalking-cli/pull/207
-    generate_completions_from_executable(bin/"swctl", "completion", shells: [:bash])
+    generate_completions_from_executable(bin/"swctl", "completion")
   end
 
   test do
