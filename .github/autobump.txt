@@ -1659,6 +1659,7 @@ libdpp
 libdrm
 libedit
 libepoxy
+libesedb
 libetonyek
 libewf
 libfabric
