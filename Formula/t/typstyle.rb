@@ -19,6 +19,8 @@ class Typstyle < Formula
 
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/typstyle")
+
+    generate_completions_from_executable(bin/"typstyle", "completions")
   end
 
   test do
