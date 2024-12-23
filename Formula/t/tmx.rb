@@ -2,7 +2,7 @@ class Tmx < Formula
   desc "Portable C library to load tiled maps in your games"
   homepage "https://github.com/baylej/tmx"
   url "https://github.com/baylej/tmx/archive/refs/tags/tmx_1.10.0.tar.gz"
-  sha256 "9ca8ffe6acff8a8e8268b1910a0b9f64263cc73758746e6cfe1f2c9e744f4e1f"
+  sha256 "8ee42d1728c567d6047a58b2624c39c8844aaf675c470f9f284c4ed17e94188f"
   license "BSD-2-Clause"
 
   bottle do
@@ -19,10 +19,12 @@ class Tmx < Formula
   depends_on "cmake" => :build
 
   uses_from_macos "libxml2"
+  uses_from_macos "zlib"
 
   def install
-    system "cmake", ".", "-DBUILD_SHARED_LIBS=on", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
