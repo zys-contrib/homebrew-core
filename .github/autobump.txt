@@ -3256,6 +3256,7 @@ vte3
 vtk
 vue-cli
 vulkan-extensionlayer
+vulkan-validationlayers
 vulkan-volk
 vulsio-gost
 vultr
