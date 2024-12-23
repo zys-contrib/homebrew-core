@@ -1,8 +1,8 @@
 class Meilisearch < Formula
   desc "Ultra relevant, instant and typo-tolerant full-text search API"
   homepage "https://docs.meilisearch.com/"
-  url "https://github.com/meilisearch/meilisearch/archive/refs/tags/v1.11.3.tar.gz"
-  sha256 "f07e4a2eb37c83dc4420661aef6b2efe3a9c2c9c139b55fea43415e893a5fb91"
+  url "https://github.com/meilisearch/meilisearch/archive/refs/tags/v1.12.0.tar.gz"
+  sha256 "ea0afbec8c653fac621dde16b393c4a9e633a7e0f8468e91d869105504208478"
   license "MIT"
 
   # There can be a notable gap between when a version is tagged and a
@@ -25,9 +25,7 @@ class Meilisearch < Formula
   depends_on "rust" => :build
 
   def install
-    cd "meilisearch" do
-      system "cargo", "install", *std_cargo_args
-    end
+    system "cargo", "install", *std_cargo_args(path: "crates/meilisearch")
   end
 
   service do
