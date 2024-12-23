@@ -1,10 +1,19 @@
 class Kubeone < Formula
   desc "Automate cluster operations on all your environments"
   homepage "https://kubeone.io"
-  url "https://github.com/kubermatic/kubeone/archive/refs/tags/v1.9.1.tar.gz"
-  sha256 "bd19d41be2a172b5ad280e29fe7aac6d1f6c8d10c42bc6a4655bc4bb72aab2af"
   license "Apache-2.0"
   head "https://github.com/kubermatic/kubeone.git", branch: "main"
+
+  stable do
+    url "https://github.com/kubermatic/kubeone/archive/refs/tags/v1.9.1.tar.gz"
+    sha256 "bd19d41be2a172b5ad280e29fe7aac6d1f6c8d10c42bc6a4655bc4bb72aab2af"
+
+    # fish completion support patch, upstream pr ref, https://github.com/kubermatic/kubeone/pull/3471
+    patch do
+      url "https://github.com/kubermatic/kubeone/commit/e43259aaec109a313288928ad3c0569a3dfda68a.patch?full_index=1"
+      sha256 "3038576709fc007aece03b382715b1405e3e2b827a094def46f27f699f33e9fd"
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c6845aefd87e9632b65a650e8eb22bb9278f101575d95029aa71180bd36a8688"
@@ -26,8 +35,7 @@ class Kubeone < Formula
 
     system "go", "build", *std_go_args(ldflags:)
 
-    # upstream fish completion support PR, https://github.com/kubermatic/kubeone/pull/3471
-    generate_completions_from_executable(bin/"kubeone", "completion", shells: [:bash, :zsh])
+    generate_completions_from_executable(bin/"kubeone", "completion")
   end
 
   test do
