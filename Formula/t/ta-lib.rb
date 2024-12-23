@@ -1,8 +1,8 @@
 class TaLib < Formula
   desc "Tools for market analysis"
   homepage "https://ta-lib.org/"
-  url "https://downloads.sourceforge.net/project/ta-lib/ta-lib/0.4.0/ta-lib-0.4.0-src.tar.gz"
-  sha256 "9ff41efcb1c011a4b4b6dfc91610b06e39b1d7973ed5d4dee55029a0ac4dc651"
+  url "https://github.com/ta-lib/ta-lib/releases/download/v0.6.1/ta-lib-0.6.1-src.tar.gz"
+  sha256 "887372f41b6de9cb2a957d25ea5f87453d419aa388f208c7bf57f6019d6e3c2d"
   license "BSD-3-Clause"
 
   bottle do
