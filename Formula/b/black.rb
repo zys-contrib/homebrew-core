@@ -91,6 +91,7 @@ class Black < Formula
   end
 
   def install
+    ENV["HATCH_BUILD_HOOK_ENABLE_MYPYC"] = "1"
     virtualenv_install_with_resources
 
     generate_completions_from_executable(bin/"black", shells: [:fish, :zsh], shell_parameter_format: :click)
@@ -106,16 +107,20 @@ class Black < Formula
   end
 
   test do
+    assert_match "compiled: yes", shell_output("#{bin}/black --version")
+
     ENV["LC_ALL"] = "en_US.UTF-8"
     (testpath/"black_test.py").write <<~PYTHON
       print(
       'It works!')
     PYTHON
     system bin/"black", "black_test.py"
-    assert_equal "print(\"It works!\")\n", (testpath/"black_test.py").read
+    assert_equal 'print("It works!")', (testpath/"black_test.py").read.strip
+
     port = free_port
-    fork { exec "#{bin}/blackd --bind-host 127.0.0.1 --bind-port #{port}" }
+    spawn bin/"blackd", "--bind-host=127.0.0.1", "--bind-port=#{port}"
     sleep 10
-    assert_match "print(\"valid\")", shell_output("curl -s -XPOST localhost:#{port} -d \"print('valid')\"").strip
+    output = shell_output("curl -s -XPOST localhost:#{port} -d \"print('valid')\"").strip
+    assert_match 'print("valid")', output
   end
 end
