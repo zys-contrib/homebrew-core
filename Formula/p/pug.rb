@@ -1,8 +1,8 @@
 class Pug < Formula
   desc "Drive terraform at terminal velocity"
   homepage "https://github.com/leg100/pug"
-  url "https://github.com/leg100/pug/archive/refs/tags/v0.5.5.tar.gz"
-  sha256 "e79af618a610b7225a4a787de5e5615cba19f92d0b9a16f16e322c4a176522b8"
+  url "https://github.com/leg100/pug/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "ddafc44e9a844036dd802edd3bc8b229aee0002a4a0b83768a37f04243c3044a"
   license "MPL-2.0"
   head "https://github.com/leg100/pug.git", branch: "master"
 
@@ -23,15 +23,22 @@ class Pug < Formula
   end
 
   test do
-    r, _w, pid = PTY.spawn("#{bin}/pug --debug")
-    # check on TUI elements
-    assert_match "Modules", r.readline
-    # check on debug logs
-    assert_match "loaded 0 modules", (testpath/"messages.log").read
-
     assert_match version.to_s, shell_output("#{bin}/pug --version")
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+
+    # Fails in Linux CI with `open /dev/tty: no such device or address`
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
+    begin
+      output_log = testpath/"output.log"
+      pid = spawn bin/"pug", "--debug", [:out, :err] => output_log.to_s
+
+      sleep 1
+
+      assert_match "loaded 0 modules", output_log.read
+      assert_path_exists testpath/"messages.log"
+    ensure
+      Process.kill("TERM", pid)
+      Process.wait(pid)
+    end
   end
 end
