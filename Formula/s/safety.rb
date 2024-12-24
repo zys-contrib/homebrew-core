@@ -6,6 +6,7 @@ class Safety < Formula
   url "https://files.pythonhosted.org/packages/3a/78/1a3ccb6e48b30892ae5781e8239a6d446a755ef2956c7b14595f18fb4083/safety-3.2.14.tar.gz"
   sha256 "7a45d88b1903c5b7c370eaeb6ca131a52f147e0b8a0b302265f82824ef92adc7"
   license "MIT"
+  revision 1
   head "https://github.com/pyupio/safety.git", branch: "main"
 
   bottle do
@@ -38,8 +39,8 @@ class Safety < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
-    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
+    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
+    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
   end
 
   resource "dparse" do
@@ -58,8 +59,8 @@ class Safety < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/ed/55/39036716d19cab0747a5020fc7e907f362fbf48c984b14e62127f7e68e5d/jinja2-3.1.4.tar.gz"
-    sha256 "4a3aee7acbbe7303aede8e9648d13b8bf88a429282aa6122a993f0ac800cb369"
+    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
+    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
   end
 
   resource "markdown-it-py" do
@@ -148,8 +149,8 @@ class Safety < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
-    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
+    url "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz"
+    sha256 "f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"
   end
 
   def install
