@@ -3066,6 +3066,7 @@ tfsec
 tfupdate
 tgui
 thanos
+the-way
 theharvester
 thrift
 thriftgo
