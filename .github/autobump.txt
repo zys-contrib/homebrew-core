@@ -1604,6 +1604,7 @@ latino
 lazydocker
 lbdb
 lc0
+lcm
 lcov
 ld-find-code-refs
 ldc
