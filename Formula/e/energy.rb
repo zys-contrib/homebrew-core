@@ -1,8 +1,8 @@
 class Energy < Formula
   desc "CLI is used to initialize the Energy development environment tools"
   homepage "https://energye.github.io"
-  url "https://github.com/energye/energy/archive/refs/tags/v2.5.0.tar.gz"
-  sha256 "e1749e2354626d1ca4e22169752175807930d5fc1d48edcea4e890670fbac923"
+  url "https://github.com/energye/energy/archive/refs/tags/v2.5.1.tar.gz"
+  sha256 "c492bbc5ce5fd7e2ef7e5bd2225d0f844da5be51d63cdc4a5b7df73fc24b2e17"
   license "Apache-2.0"
 
   bottle do
@@ -24,11 +24,9 @@ class Energy < Formula
 
   test do
     output = shell_output("#{bin}/energy cli -v")
-    assert_match "Current", output
-    assert_match "Latest", output
-    output = shell_output("#{bin}/energy env")
-    assert_match "Get ENERGY Framework Development Environment", output
-    assert_match "GOROOT", output
-    assert_match "ENERGY_HOME", output
+    assert_match "CLI Current: #{version}", output
+    assert_match "CLI Latest : #{version}", output
+
+    assert_match "https://energye.github.io", shell_output("#{bin}/energy env")
   end
 end
