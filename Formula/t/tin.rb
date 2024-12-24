@@ -11,14 +11,12 @@ class Tin < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia:  "0c24e34c9826132f8b79ab510c972948b6dfe5398deff08b918d86aed357271b"
-    sha256                               arm64_sonoma:   "9b40007fa88eb76e74741528e34dc7418d27a7f0b14138998f6e886f7dd75125"
-    sha256                               arm64_ventura:  "c355639ee07efc5e91c2a83bef8f43d1b1065b71ae275c34141cc52e36a17e9d"
-    sha256                               arm64_monterey: "feb75a463cbc2f5773e421daa639681b62fec4070bddc9471bfc43773dee1339"
-    sha256                               sonoma:         "c48a6ac3dd5f0225cba6caf19d7628e982ea92db0e2b5f500ac84e98f30563d2"
-    sha256                               ventura:        "520261f163f2bc6b7165f86a8527d2148d65e3db7938306ae2842c8db775a2b0"
-    sha256                               monterey:       "c0a4f84da414866ea207c136f06517895e91337c513f8163aa22faa972a9cc0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "adc0899e6ec8ca68f5a7a8957dd26c64541bea25a155f208df11aee482a35b29"
+    sha256                               arm64_sequoia: "3d597df858bc4fffb3f8be38154eaf650d981fbd36a609e1a0eb8b1113a01086"
+    sha256                               arm64_sonoma:  "e729c23660a5a51cb38391405c50fec69f2713c8517e319e4f425894ac1d98c5"
+    sha256                               arm64_ventura: "0bab093b5385450e3f87471243afe4b341443a141b971f5a02f7ad82a161f13b"
+    sha256                               sonoma:        "b426577ee9e85591383eb389a0b2077228699af99fe7f7fdf5cc942f8b486264"
+    sha256                               ventura:       "e9ee890eefb1b3cdde1c3c4420fab41c632163b30ce7429d74a67bf03b092fd6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7da69315726b0f03dd42918f5e545befd3afc660d08f2b6ec70f1a651c421abb"
   end
 
   depends_on "pcre2"
