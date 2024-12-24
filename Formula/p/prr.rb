@@ -29,6 +29,12 @@ class Prr < Formula
     sha256 "208bbbdf4358f98c01b567146d0da2d1717caa53e4d2e5ea55ae29f5adaaaae2"
   end
 
+  # completion and manpage support, upstream pr ref, https://github.com/danobi/prr/pull/68
+  patch do
+    url "https://github.com/danobi/prr/commit/8ba7fdc2fcca86236311c65481af5b27a276a806.patch?full_index=1"
+    sha256 "f74882907e25bc1af3e1556407c84e5477b3d7be3e51a2b40178ae17aaafaa0d"
+  end
+
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
     # Ensure the declared `openssl@3` dependency will be picked up.
@@ -36,7 +42,15 @@ class Prr < Formula
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
+    # Specify GEN_DIR for shell completions and manpage generation
+    ENV["GEN_DIR"] = buildpath
+
     system "cargo", "install", *std_cargo_args
+
+    bash_completion.install "completions/prr.bash" => "prr"
+    fish_completion.install "completions/prr.fish"
+    zsh_completion.install "completions/_prr"
+    man1.install Dir["man/*.1"]
   end
 
   def check_binary_linkage(binary, library)
