@@ -1,8 +1,8 @@
 class Plow < Formula
   desc "High-performance and real-time metrics displaying HTTP benchmarking tool"
   homepage "https://github.com/six-ddc/plow"
-  url "https://github.com/six-ddc/plow/archive/refs/tags/v1.3.1.tar.gz"
-  sha256 "0ae69218fc61d4bc036a62f3cc8a4e5f29fad0edefe9e991f0446f71d9e6d9ba"
+  url "https://github.com/six-ddc/plow/archive/refs/tags/v1.3.2.tar.gz"
+  sha256 "a828641d9cf2876701e09865d259081a3005a29ea69391bda2fb6b1565489edf"
   license "Apache-2.0"
 
   bottle do
@@ -18,7 +18,7 @@ class Plow < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
 
     generate_completions_from_executable(bin/"plow", shell_parameter_format: "--completion-script-",
                                                      shells:                 [:bash, :zsh])
