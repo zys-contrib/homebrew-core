@@ -1104,6 +1104,7 @@ git-delta
 git-extras
 git-filter-repo
 git-grab
+git-ignore
 git-interactive-rebase-tool
 git-lfs
 git-machete
