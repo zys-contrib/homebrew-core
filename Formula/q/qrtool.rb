@@ -10,13 +10,13 @@ class Qrtool < Formula
   head "https://github.com/sorairolake/qrtool.git", branch: "develop"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e47b6269582d8257d04edd95b7ee8590250be7939b776e5d1ad93f0ced6be97b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f63c7b57c58201ce6060d3a22908c16e5421b196b8da499e5e314bb7e54e280f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "128756d73531417dfc062cdd8f7ab0747e389887a2adc3106593d67c5235f498"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7c9f89a5c2fbbdd3281eeec991027bb25a072d8823061307938a2da77c45d12c"
-    sha256 cellar: :any_skip_relocation, ventura:       "e55875fe9512c5bee0e316b1b827f57a6ded26d3318a4ef4fa22a024c821d865"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b629b69b2dbd059b27cfc6c33cf2cdcdc169960f2641d19e74986a257a02d12"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "281e05714eb6dd72bc306872b6b4c8f736bdd8afd927b99215390008d1865bcc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3b3f18982baf261832a00c3079e08f0eb10f647de3970ad86b49ff17a42e848f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "dda14a0071a1b9352bca53678a7986ae30749223b74da6d51100509c69cb5a30"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f1ed5684aedf8af0dd4ff0aa2b91714133c52b34659143e6a25b01463dd85574"
+    sha256 cellar: :any_skip_relocation, ventura:       "cb71c266c1539fea5d6b33c407b5b978045bee354846ec953daec72efcc2df44"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87506857599b87007f4acd189e966c92195d4f36838caa079106f0b05d8bd21f"
   end
 
   depends_on "asciidoctor" => :build
