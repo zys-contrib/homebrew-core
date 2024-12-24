@@ -6,13 +6,12 @@ class Plow < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2b9c5d2de7997a3f2c6808cdddaf777f87e768da1c236cd41c66da552e39096c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2b9c5d2de7997a3f2c6808cdddaf777f87e768da1c236cd41c66da552e39096c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2b9c5d2de7997a3f2c6808cdddaf777f87e768da1c236cd41c66da552e39096c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ee01081eb578e285218f45235155d9087af4155de076de009f71ef59442ea33c"
-    sha256 cellar: :any_skip_relocation, ventura:       "ee01081eb578e285218f45235155d9087af4155de076de009f71ef59442ea33c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab525ddecde654379ca9f0d39daf617c981306016c4b71767146a24d92a0492d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "65d432e948866ff0e5f31cc540f2e8e637d272eff116eb78bc621800e41965cb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "65d432e948866ff0e5f31cc540f2e8e637d272eff116eb78bc621800e41965cb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "65d432e948866ff0e5f31cc540f2e8e637d272eff116eb78bc621800e41965cb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cf1c17517b61305a59fa751432db7398aa9d01f549d7bdcc0204e0d50a65821f"
+    sha256 cellar: :any_skip_relocation, ventura:       "cf1c17517b61305a59fa751432db7398aa9d01f549d7bdcc0204e0d50a65821f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73cd9367711a8a191faafdf5782efa6b282a1f076b841e8218235c2b211c6a98"
   end
 
   depends_on "go" => :build
