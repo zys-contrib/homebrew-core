@@ -6,6 +6,15 @@ class StaticWebServer < Formula
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/static-web-server/static-web-server.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c91a1af6091454007fda0a0909aa9de0289cbd795ef20de52fd6997b6b83ae54"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2cc809c5be0224d3022c46a40f9d61bd1d88f76cf55ac4b4bfedfc888a25bb64"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "fd90fa6188af4c1dbd3453e05d9f4c5038f73abe72a8e6d53b3620586f75d277"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ab3b1eacf3459ab801548c1aed09992ea7e36ea1a3a6ec41a9808c46f75796f6"
+    sha256 cellar: :any_skip_relocation, ventura:       "4be20e0ece975bb370fe6256511aa568968b53d37dd07b15c87d3390de3a6b29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c8b4240da5289d196616282a921648a2fd8b8d1ca2362f8983fc5bc0fc3311e"
+  end
+
   depends_on "rust" => :build
 
   def install
