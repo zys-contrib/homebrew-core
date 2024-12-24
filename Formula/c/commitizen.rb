@@ -6,7 +6,7 @@ class Commitizen < Formula
   url "https://files.pythonhosted.org/packages/7a/c5/66f1b977b48501a33f5fd33253aba14786483b08aba987718d272e99e732/commitizen-4.1.0.tar.gz"
   sha256 "4f2d9400ec411aec1c738d4c63fc7fd5807cd6ddf6be970869e03e68b88ff718"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
   bottle do
@@ -42,8 +42,8 @@ class Commitizen < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/ed/55/39036716d19cab0747a5020fc7e907f362fbf48c984b14e62127f7e68e5d/jinja2-3.1.4.tar.gz"
-    sha256 "4a3aee7acbbe7303aede8e9648d13b8bf88a429282aa6122a993f0ac800cb369"
+    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
+    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
   end
 
   resource "markupsafe" do
