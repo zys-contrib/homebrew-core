@@ -22,6 +22,7 @@ class TexFmt < Formula
     system "cargo", "install", *std_cargo_args
 
     generate_completions_from_executable(bin/"tex-fmt", "--completion")
+    man1.install "man/tex-fmt.1"
   end
 
   test do
