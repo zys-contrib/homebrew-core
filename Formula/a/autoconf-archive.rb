@@ -20,6 +20,14 @@ class AutoconfArchive < Formula
 
   conflicts_with "gnome-common", because: "both install ax_check_enable_debug.m4 and ax_code_coverage.m4"
 
+  # Fix quoting of `m4_fatal`
+  # https://github.com/autoconf-archive/autoconf-archive/pull/312
+  # https://github.com/Homebrew/homebrew-core/issues/202234
+  patch do
+    url "https://github.com/autoconf-archive/autoconf-archive/commit/fadde164479a926d6b56dd693ded2a4c36ed89f0.patch?full_index=1"
+    sha256 "4d9a4ca1fc9dc9e28a765ebbd1fa0e1080b6c8401e048b28bb16b9735ff7bf77"
+  end
+
   def install
     system "./configure", *std_configure_args
     system "make", "install"
