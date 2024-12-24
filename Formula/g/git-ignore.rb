@@ -17,6 +17,8 @@ class GitIgnore < Formula
 
   depends_on "rust" => :build
 
+  conflicts_with "git-extras", because: "both install a `git-ignore` binary"
+
   def install
     system "cargo", "install", *std_cargo_args
 
