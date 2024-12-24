@@ -6,6 +6,15 @@ class TheWay < Formula
   license "MIT"
   head "https://github.com/out-of-cheese-error/the-way.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4494b131233473d0c65fbd5e3a47811f8f49e7759fc61a5274c33705d7091c4b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e9882113a96595af349dce6faaaaaf6bd207460c137dd9e85e4b8991e8c09910"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "68b6cf14740cad218421c8ed87ddf071d04f139e2e746ad8e241a1af23af9cf8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3ace9e79b695db8059908af5b68196e9da01251dfa8802c6ac592bb0fb4e4b0c"
+    sha256 cellar: :any_skip_relocation, ventura:       "b4f03407e705be5dd0d40f7e5ae7388f172d1ee955dd667cc0d840e8e5d8240f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e13db7053f848a032d23750e6facfbf5cb9738bfdb0025786f4308f407455994"
+  end
+
   depends_on "rust" => :build
 
   def install
