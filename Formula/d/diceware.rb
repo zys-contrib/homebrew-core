@@ -3,10 +3,9 @@ class Diceware < Formula
 
   desc "Passphrases to remember"
   homepage "https://github.com/ulif/diceware"
-  url "https://files.pythonhosted.org/packages/2f/7b/2ebe60ee2360170d93f1c3f1e4429353c8445992fc2bc501e98013697c71/diceware-0.10.tar.gz"
-  sha256 "b2b4cc9b59f568d2ef51bfdf9f7e1af941d25fb8f5c25f170191dbbabce96569"
+  url "https://files.pythonhosted.org/packages/75/6d/3223091c70acabecd6b5cd05fd713eef5eb4a59c58f049282ee923795554/diceware-1.0.tar.gz"
+  sha256 "fbbb6297bdf5e2b28eddfc4fe5e4d2a947615e11fa9656d2110f52688692e168"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
     rebuild 1
@@ -19,11 +18,6 @@ class Diceware < Formula
   end
 
   depends_on "python@3.13"
-
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
-    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
-  end
 
   def install
     virtualenv_install_with_resources
