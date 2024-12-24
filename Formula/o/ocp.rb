@@ -1,8 +1,8 @@
 class Ocp < Formula
   desc "UNIX port of the Open Cubic Player"
   homepage "https://stian.cubic.org/project-ocp.php"
-  url "https://stian.cubic.org/ocp/ocp-0.2.109.tar.xz"
-  sha256 "aa043503bd1dfd1433fabe0d5f4bb85bcadc3bae8cc19630a77c89182bce8d90"
+  url "https://stian.cubic.org/ocp/ocp-3.0.0.tar.xz"
+  sha256 "0dadfbfd755eac84aa33e23b24eb158f01f674e16a28e9820ad67e2f90418483"
   license "GPL-2.0-or-later"
   head "https://github.com/mywave82/opencubicplayer.git", branch: "master"
 
@@ -57,6 +57,12 @@ class Ocp < Formula
   end
 
   def install
+    # Fix compile with newer Clang
+    # upstream bug report, https://github.com/mywave82/opencubicplayer/issues/121
+    if DevelopmentTools.clang_build_version >= 1403
+      ENV.append_to_cflags "-Wno-implicit-function-declaration -Wno-int-conversion"
+    end
+
     ENV.deparallelize
 
     # Required for SDL2
