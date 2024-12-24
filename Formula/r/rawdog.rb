@@ -9,12 +9,12 @@ class Rawdog < Formula
   revision 11
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "77230b1f4354b292371d207be523460527d94c550284e13f3081bc0a15f2f49c"
-    sha256 cellar: :any,                 arm64_sonoma:  "f6fcde1f2a275b37d6adbf5ddf69f208b71fea6f455e17abe0b94e31d39c2231"
-    sha256 cellar: :any,                 arm64_ventura: "f95ab25958122585af6624785ff6e30dbbacdcebc0ddec026d411933cbe97326"
-    sha256 cellar: :any,                 sonoma:        "fd59ce6c66783b4ef4fa22ea8e6929c2bd7cd72157f2b185bb590944e267fbf9"
-    sha256 cellar: :any,                 ventura:       "d150849ba04a6608140adcdaef4fa8f12f371b5c1c7ba16198deed1ef9f4dc7e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7e421c30f4f49ad3ca6a17e79f26644d29730f03fe4d0206d425e318e5fa805"
+    sha256 cellar: :any,                 arm64_sequoia: "d2d0e456ffabc9a732cc8a9bd609821fd193ee24fa2a951a63e07b6450336d81"
+    sha256 cellar: :any,                 arm64_sonoma:  "fb3c8bf6f0a2320b963a233fff80a8cda7aa283efe10945c4a30d67960f9b628"
+    sha256 cellar: :any,                 arm64_ventura: "5c0d52563ccea70c24f871943fdd57a5ed5a93b3d3d41846532f06e3d6accf3f"
+    sha256 cellar: :any,                 sonoma:        "c69e50865b6bd80ecc3e2f744f6e02a0d4cf39c5af37e3da18925741306a9ad4"
+    sha256 cellar: :any,                 ventura:       "bf59faba3073f619ec7c48a60de1320a0a18b4a1c41008a7541a07a025af9885"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d378064d34e6abb676c3f0646cb7f24b9bca861b81e6e734e17d516cf0ed1bf7"
   end
 
   depends_on "rust" => :build
