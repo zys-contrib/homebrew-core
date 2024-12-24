@@ -9,12 +9,12 @@ class Copier < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "aaff63b1e1bfa9d171afb2b789ffc23a93de28aca037721f64d273507ab7f641"
-    sha256 cellar: :any,                 arm64_sonoma:  "5e4fae01b0b7309228c2cad5e0ff597b955832549e14dff4316c16d461b19acc"
-    sha256 cellar: :any,                 arm64_ventura: "44e27911069203851db221131e4ba60d513571065f90dcc6755581233f4fa1e9"
-    sha256 cellar: :any,                 sonoma:        "938b34625225725e85459131ce94c4b7063bfed1fb09196468c820e1ebb663ed"
-    sha256 cellar: :any,                 ventura:       "c202806825db8d5aa42f817644bf228839ffc31f03b0d2d57b462b9b6780ace6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "908e6d8c626f4ddf08351b82b3705f0f3e41905427f41bcaa064c0f144ab9d3d"
+    sha256 cellar: :any,                 arm64_sequoia: "d576ff755864b94b0ec364c8d240a6b925702a394b7ca8c64c5e4c2c897715aa"
+    sha256 cellar: :any,                 arm64_sonoma:  "d388edb8acd7ffd44530b286ce5d8d67cf68f0fd0dc02dfbdef6cd25e066276b"
+    sha256 cellar: :any,                 arm64_ventura: "a5f510e023da2fe537d29a31119c6cad7723b6eb89cd3e836d27c213ed591b86"
+    sha256 cellar: :any,                 sonoma:        "e3578064c7e3136924dd8adb91157dbd68652d6d6b8c83f818350f3ff1ad9e8c"
+    sha256 cellar: :any,                 ventura:       "0ea3f6cb8acd31c70a21df54f08836f44cef7aca3d811da6bbee473ea2022452"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "51dc6281f88186087af9f33d343163d4cc84cbb8a49225f66ab359f76932f74d"
   end
 
   depends_on "rust" => :build
