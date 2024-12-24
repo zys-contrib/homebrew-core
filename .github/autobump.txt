@@ -2420,6 +2420,7 @@ pkg-config-wrapper
 pkgconf
 pkl
 plantuml
+planus
 platformio
 plow
 pluto
