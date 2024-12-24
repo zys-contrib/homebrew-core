@@ -2361,6 +2361,7 @@ pdns
 pdnsrec
 pedump
 pegtl
+percona-toolkit
 percona-xtrabackup
 perl
 perltidy
