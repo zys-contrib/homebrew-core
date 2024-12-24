@@ -2329,6 +2329,7 @@ pango
 pangomm
 papilo
 parallel
+parallel-disk-usage
 parallel-hashmap
 parca
 pari
