@@ -2203,6 +2203,7 @@ ocrmypdf
 octave
 octomap
 octosql
+odbc2parquet
 ode
 odo-dev
 odpi
