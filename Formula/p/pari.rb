@@ -1,8 +1,8 @@
 class Pari < Formula
   desc "Computer algebra system designed for fast computations in number theory"
   homepage "https://pari.math.u-bordeaux.fr/"
-  url "https://pari.math.u-bordeaux.fr/pub/pari/unix/pari-2.17.0.tar.gz"
-  sha256 "e723e7cef18d08c6ece2283af9a9b4d56077c22b4fce998faaa588d389b1aea8"
+  url "https://pari.math.u-bordeaux.fr/pub/pari/unix/pari-2.17.1.tar.gz"
+  sha256 "67ba6f3071233725258541e4f174b5efbc64c65ae5115bade9edfc45f1fde5dc"
   license "GPL-2.0-or-later"
 
   livecheck do
