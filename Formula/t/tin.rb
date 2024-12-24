@@ -1,8 +1,8 @@
 class Tin < Formula
   desc "Threaded, NNTP-, and spool-based UseNet newsreader"
   homepage "http://www.tin.org"
-  url "https://sunsite.icm.edu.pl/pub/unix/news/tin/v2.6/tin-2.6.3.tar.xz"
-  sha256 "bf7ae8cfdc6ab6bc5aced4f08cf13687d8d6f9fa4be1690dfda5d123188d2217"
+  url "https://sunsite.icm.edu.pl/pub/unix/news/tin/v2.6/tin-2.6.4.tar.xz"
+  sha256 "c66a1e8db30ddabe7e3313e6870f7877fe20f0da99afb65db3d8c41012fe55f7"
   license "BSD-3-Clause"
 
   livecheck do
@@ -35,7 +35,7 @@ class Tin < Formula
 
   def install
     # Remove bundled libraries
-    %w[intl pcre].each { |l| rm_r(buildpath/l) }
+    rm_r buildpath/"pcre"
 
     system "./configure", *std_configure_args,
                           "--mandir=#{man}",
