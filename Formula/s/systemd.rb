@@ -31,7 +31,7 @@ class Systemd < Formula
   head "https://github.com/systemd/systemd.git", branch: "main"
 
   bottle do
-    sha256 x86_64_linux: "027cb1c63451188fce00728675692eb4cc2bcf79edae7b23697e98f927c90092"
+    sha256 x86_64_linux: "bd9ac3858baa447a60bf6f1eb8c2b9b0dfb4c23d91d0a049cb4a6d00630f8eab"
   end
 
   depends_on "coreutils" => :build
