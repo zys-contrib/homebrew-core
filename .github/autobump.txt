@@ -1344,6 +1344,7 @@ httpyac
 hubble
 huggingface-cli
 hugo
+humanlog
 hut
 hwatch
 hwloc
