@@ -2639,6 +2639,7 @@ rhit
 riemann
 riemann-client
 rio
+rip2
 ripsecrets
 risor
 river
