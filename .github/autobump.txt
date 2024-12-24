@@ -593,6 +593,7 @@ cpufetch
 cpuid
 cql-proxy
 crabz
+cracklib
 crane
 crates-tui
 cri-tools
