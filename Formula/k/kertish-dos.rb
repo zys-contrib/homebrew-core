@@ -7,6 +7,15 @@ class KertishDos < Formula
   license "GPL-3.0-only"
   head "https://github.com/freakmaxi/kertish-dos.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b3abc8c569185063a1ba3d2e6d634c446cad8ee07d4ae36c31221aa875dd6bd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "db21c167e067540fd373e1c963f5ab5b55ed94e642541b457a5806ceb7546db5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "66e15349b37cc6586d55d102d5941565aa0db46e4a5c1cbaa87f5c45b946180d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "58bf87f97fb1e1399d1a09a0de3d9db3ba783c821343ef8de762ba835417b6fe"
+    sha256 cellar: :any_skip_relocation, ventura:       "bfd2942609310c775b5ae27df2a982300f03603edd8745856c3ab0c2d544b3eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bbca4d722bae4b3f940401a080bdf08f664411b93c161dba75f06686c52e2c94"
+  end
+
   depends_on "go" => :build
 
   def install
