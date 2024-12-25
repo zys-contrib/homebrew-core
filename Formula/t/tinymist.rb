@@ -1,8 +1,8 @@
 class Tinymist < Formula
   desc "Language server for Typst"
   homepage "https://github.com/Myriad-Dreamin/tinymist"
-  url "https://github.com/Myriad-Dreamin/tinymist/archive/refs/tags/v0.12.12.tar.gz"
-  sha256 "f9cb474364d2f1e42a51a0c409b03e7f2482787f260d7a2ab6df71dce27b4d47"
+  url "https://github.com/Myriad-Dreamin/tinymist/archive/refs/tags/v0.12.14.tar.gz"
+  sha256 "24bd7b64487158f41ca980066fff3b9b95b2d5367d364c62b23974f6a82cfd32"
   license "Apache-2.0"
   head "https://github.com/Myriad-Dreamin/tinymist.git", branch: "main"
 
