@@ -4,6 +4,7 @@ class Deadfinder < Formula
   url "https://github.com/hahwul/deadfinder/archive/refs/tags/1.5.0.tar.gz"
   sha256 "5575127e8ca9c8531991ad32d04bda3f55f13cc657cf01ac0c6ace9d01c59a8a"
   license "MIT"
+  revision 1
   head "https://github.com/hahwul/deadfinder.git", branch: "main"
 
   bottle do
@@ -30,12 +31,17 @@ class Deadfinder < Formula
   def install
     ENV["GEM_HOME"] = libexec
     ENV["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "1"
+
     system "bundle", "config", "set", "without", "development", "test"
     system "bundle", "install"
     system "gem", "build", "deadfinder.gemspec"
     system "gem", "install", "deadfinder-#{version}.gem"
+
     bin.install libexec/"bin/deadfinder"
     bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
+
+    # Remove mkmf.log files to avoid shims references
+    rm Dir["#{libexec}/extensions/*/*/*/mkmf.log"]
   end
 
   test do
