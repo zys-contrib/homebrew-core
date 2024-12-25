@@ -5,6 +5,10 @@ class Libheinz < Formula
   sha256 "e1e67da3997de1c28e60a9c5c7a45e383526b0fa18aefbb6e7c7d671b487da8a"
   license "0BSD"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "41636e03ca672687cc6b95f8b7f4733cfae8778105cc22f5a9cbcb22a2131fe1"
+  end
+
   depends_on "cmake" => :build
 
   def install
