@@ -8,12 +8,12 @@ class Diceware < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2f17c9121b238f41d6012a411a6090ce1c8aa2ae10a3fef3532edffabae11d32"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2f17c9121b238f41d6012a411a6090ce1c8aa2ae10a3fef3532edffabae11d32"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2f17c9121b238f41d6012a411a6090ce1c8aa2ae10a3fef3532edffabae11d32"
-    sha256 cellar: :any_skip_relocation, sonoma:        "830f9b138785e9311818324ced8b1abfd6a729f2db08d92cfada485ca4932af0"
-    sha256 cellar: :any_skip_relocation, ventura:       "830f9b138785e9311818324ced8b1abfd6a729f2db08d92cfada485ca4932af0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f17c9121b238f41d6012a411a6090ce1c8aa2ae10a3fef3532edffabae11d32"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1d9d1288469164e84e042091daf65cb61637113d7e343dc8fc6c3ac95a75c4a1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1d9d1288469164e84e042091daf65cb61637113d7e343dc8fc6c3ac95a75c4a1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1d9d1288469164e84e042091daf65cb61637113d7e343dc8fc6c3ac95a75c4a1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fddd1640d30f4248092cf4a711f6902f31241e3e0db20a3ac962c8bb34a8fe30"
+    sha256 cellar: :any_skip_relocation, ventura:       "fddd1640d30f4248092cf4a711f6902f31241e3e0db20a3ac962c8bb34a8fe30"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d9d1288469164e84e042091daf65cb61637113d7e343dc8fc6c3ac95a75c4a1"
   end
 
   depends_on "python@3.13"
