@@ -88,6 +88,7 @@ apptainer
 appwrite
 apr
 apt
+aptly
 aravis
 arcade-learning-environment
 archi-steam-farm
