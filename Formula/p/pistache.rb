@@ -6,6 +6,15 @@ class Pistache < Formula
   license "Apache-2.0"
   head "https://github.com/pistacheio/pistache.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any, arm64_sequoia: "df6e5955a69ba59d16fa1085e2a264b6886ac13eaefcfdad36b6cde24fdd357f"
+    sha256 cellar: :any, arm64_sonoma:  "17198b6e042abadfa94de4824bb3e9d9a2696230ed2d54cae8dabf8550467fd7"
+    sha256 cellar: :any, arm64_ventura: "d7a4d961bd52ea6e84601692baf0aa290738c73f31b2522627e766e386fe470f"
+    sha256 cellar: :any, sonoma:        "8eaf723d1a39743fee0bbcd114aba4bb58cc28a1a5dd2b6ee6a398c1e6164e98"
+    sha256 cellar: :any, ventura:       "c15f1071afc06d9f6f60e54921af214d6c8e6787db6e9ca0fc249c9d208b5aef"
+    sha256               x86_64_linux:  "e864df73e63ce4399b8c6324f3b86e36c83128f0034aceea2b6dd3941f8a5385"
+  end
+
   depends_on "cmake" => :build # for howard-hinnant-date
   depends_on "cpp-httplib" => :build
   depends_on "googletest" => :build
