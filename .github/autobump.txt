@@ -2254,6 +2254,7 @@ openfast
 openfga
 openfortivpn
 openfpgaloader
+openfst
 openh264
 openimageio
 openiothub-server
