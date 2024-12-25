@@ -4,6 +4,7 @@ class Haiti < Formula
   url "https://github.com/noraj/haiti/archive/refs/tags/v2.1.0.tar.gz"
   sha256 "ee1fee20c891db567abe753de25e7f1f1d4c7c59d92b6ce28f2e96606f247828"
   license "MIT"
+  revision 1
 
   bottle do
     rebuild 2
@@ -22,6 +23,7 @@ class Haiti < Formula
 
   def install
     ENV["GEM_HOME"] = libexec
+
     system "bundle", "config", "set", "without", "development", "test"
     system "bundle", "install"
     system "gem", "build", "haiti.gemspec"
@@ -31,6 +33,9 @@ class Haiti < Formula
   end
 
   test do
+    ENV["LANG"] = "en_US.UTF-8"
+    ENV["LC_ALL"] = "en_US.UTF-8"
+
     assert_match version.to_s, shell_output("#{bin}/haiti --version")
 
     output = shell_output("#{bin}/haiti 12c87370d1b5472793e67682596b60efe2c6038d63d04134a1a88544509737b4")
