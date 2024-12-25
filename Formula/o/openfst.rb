@@ -1,8 +1,8 @@
 class Openfst < Formula
   desc "Library for weighted finite-state transducers"
   homepage "https://www.openfst.org/twiki/bin/view/FST/WebHome"
-  url "https://openfst.org/twiki/pub/FST/FstDownload/openfst-1.8.3.tar.gz"
-  sha256 "077714159d5cf3e38a80b6c6656d3ccc2c8b8b6c50bb41bb65c5fec10796bf53"
+  url "https://openfst.org/twiki/pub/FST/FstDownload/openfst-1.8.4.tar.gz"
+  sha256 "a8ebbb6f3d92d07e671500587472518cfc87cb79b9a654a5a8abb2d0eb298016"
   license "Apache-2.0"
 
   livecheck do
@@ -22,13 +22,12 @@ class Openfst < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
+    system "./configure", "--disable-silent-rules",
                           "--enable-fsts",
                           "--enable-compress",
                           "--enable-grm",
-                          "--enable-special"
+                          "--enable-special",
+                          *std_configure_args
     system "make"
     system "make", "install"
   end
