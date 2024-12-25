@@ -5,6 +5,15 @@ class Libformfactor < Formula
   sha256 "fc629a3e843e920b250393b0072f6673e26783b0776e8f08523534875950f298"
   license "GPL-3.0-or-later"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "0edd1114acfbb59c600a6806da9b9e7c063e0c0e2da3f2891d342a0520f65704"
+    sha256 cellar: :any,                 arm64_sonoma:  "d39dd6a853be907d4a51bd0df32b2e03b05874953f66d9506e6f72568d91a727"
+    sha256 cellar: :any,                 arm64_ventura: "5e2697c2750eb779fae247e8c036bd1ef4ea24dce6838e0cc8a4105a54b51add"
+    sha256 cellar: :any,                 sonoma:        "f667e9915fd8f41658cd766c48b2474cda8a3b63a167602bb3bcae1c82d5b458"
+    sha256 cellar: :any,                 ventura:       "50b9dcbf09251833119e43094d579b2e4f1afeb298e92acbd7567c5f3cd51b84"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "990e748955e89c33aeced770f50ea1ea985ef4526b19472fcbeae6cac1299a16"
+  end
+
   depends_on "cmake" => :build
   depends_on "libheinz"
 
