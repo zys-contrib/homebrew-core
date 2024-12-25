@@ -4,6 +4,7 @@ class Mikutter < Formula
   url "https://mikutter.hachune.net/bin/mikutter-5.0.8.tar.gz", using: :homebrew_curl
   sha256 "c68f9a7cb7424e69b7f5a6557b884deb120708db5678e51f30f3cbb011c5b51f"
   license "MIT"
+  revision 1
   head "git://mikutter.hachune.net/mikutter.git", branch: "develop"
 
   livecheck do
@@ -80,8 +81,8 @@ class Mikutter < Formula
   end
 
   resource "fiddle" do
-    url "https://rubygems.org/downloads/fiddle-1.1.2.gem"
-    sha256 "59bd18c38e65cdc36863ab68e3ffd78658b8f025d1d080b218de94370420a074"
+    url "https://rubygems.org/downloads/fiddle-1.1.6.gem"
+    sha256 "79e8d909e602d979434cf9fccfa6e729cb16432bb00e39c7596abe6bee1249ab"
   end
 
   resource "forwardable" do
@@ -135,8 +136,8 @@ class Mikutter < Formula
   end
 
   resource "json" do
-    url "https://rubygems.org/gems/json-2.7.2.gem"
-    sha256 "1898b5cbc81cd36c0fd4d0b7ad2682c39fb07c5ff682fc6265f678f550d4982c"
+    url "https://rubygems.org/gems/json-2.9.1.gem"
+    sha256 "d2bdef4644052fad91c1785d48263756fe32fcac08b96a20bb15840e96550d11"
   end
 
   resource "locale" do
@@ -217,8 +218,8 @@ class Mikutter < Formula
   end
 
   resource "singleton" do
-    url "https://rubygems.org/downloads/singleton-0.2.0.gem"
-    sha256 "a6cb7304421684d80093859aed38b26035f6e54a38c3e4fe6456cfb56b240563"
+    url "https://rubygems.org/downloads/singleton-0.3.0.gem"
+    sha256 "83ea1bca5f4aa34d00305ab842a7862ea5a8a11c73d362cb52379d94e9615778"
   end
 
   resource "text" do
