@@ -1,8 +1,8 @@
 class Aptly < Formula
   desc "Swiss army knife for Debian repository management"
   homepage "https://www.aptly.info/"
-  url "https://github.com/aptly-dev/aptly/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "07e18ce606feb8c86a1f79f7f5dd724079ac27196faa61a2cefa5b599bbb5bb1"
+  url "https://github.com/aptly-dev/aptly/archive/refs/tags/v1.6.0.tar.gz"
+  sha256 "4748d722f66859f24096f21c750f5d0961b906f81524ca3542dd1f206698f120"
   license "MIT"
   head "https://github.com/aptly-dev/aptly.git", branch: "master"
 
@@ -24,7 +24,7 @@ class Aptly < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "generate" if build.head?
+    system "go", "generate"
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=#{version}")
 
     bash_completion.install "completion.d/aptly"
@@ -34,7 +34,8 @@ class Aptly < Formula
   end
 
   test do
-    assert_match "aptly version:", shell_output("#{bin}/aptly version")
+    assert_match version.to_s, shell_output("#{bin}/aptly version")
+
     (testpath/".aptly.conf").write("{}")
     result = shell_output("#{bin}/aptly -config='#{testpath}/.aptly.conf' mirror list")
     assert_match "No mirrors found, create one with", result
