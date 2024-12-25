@@ -3,8 +3,8 @@ class Diceware < Formula
 
   desc "Passphrases to remember"
   homepage "https://github.com/ulif/diceware"
-  url "https://files.pythonhosted.org/packages/75/6d/3223091c70acabecd6b5cd05fd713eef5eb4a59c58f049282ee923795554/diceware-1.0.tar.gz"
-  sha256 "fbbb6297bdf5e2b28eddfc4fe5e4d2a947615e11fa9656d2110f52688692e168"
+  url "https://files.pythonhosted.org/packages/8b/ba/db6c087f044f6a753a85c0d8b25848122018ced2130061298c0c08940a54/diceware-1.0.1.tar.gz"
+  sha256 "54b690809f0c56ab3085a18e15a0c3804d4a0d127f38aef0b5cf5f859d0f6639"
   license "GPL-3.0-or-later"
 
   bottle do

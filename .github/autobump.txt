@@ -698,6 +698,7 @@ di
 dialog
 diamond
 dicebear
+diceware
 dict
 diesel
 diffoci
