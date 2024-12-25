@@ -4,6 +4,7 @@ class CucumberRuby < Formula
   url "https://github.com/cucumber/cucumber-ruby/archive/refs/tags/v9.2.0.tar.gz"
   sha256 "fd8eae54016de9055e84fd4251d873bc9a64d0929b02b4355762ce82ab2874b7"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -22,7 +23,7 @@ class CucumberRuby < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "ruby" # Requires >= Ruby 2.7
+  depends_on "ruby@3.3" # ruby 3.4 support bug report, https://github.com/cucumber/cucumber-ruby/issues/1769
 
   uses_from_macos "libffi", since: :catalina
 
