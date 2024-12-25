@@ -5,6 +5,15 @@ class SfmlAT2 < Formula
   sha256 "19d6dbd9c901c74441d9888c13cb1399f614fe8993d59062a72cfbceb00fed04"
   license "Zlib"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "81de83008ed518d05566483013d6bd9fcf2deb990a9c573e196e63d3010cc630"
+    sha256 cellar: :any,                 arm64_sonoma:  "1a4898bf9ea25abe225a1eb962e24881917c2f849ac8132537eec72b12ad919d"
+    sha256 cellar: :any,                 arm64_ventura: "5e5b2f83eec7708a256fab87bc043860b5fc9893acd6e72e016fac2b01f654f7"
+    sha256 cellar: :any,                 sonoma:        "16a4f0fdc73c761f4559ea19eb8dc5d41436db882b2c38309484212f88e0e2b2"
+    sha256 cellar: :any,                 ventura:       "6c889bce31b21d4b1c127923f98042b0a37588cc89ae4353ab0a4f9d7deaadea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14656fa808b17eed41a0dff41bb3d0dd0aacea4d03c8651ebbb8402e9109d507"
+  end
+
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
