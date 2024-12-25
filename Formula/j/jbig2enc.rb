@@ -7,16 +7,12 @@ class Jbig2enc < Formula
   head "https://github.com/agl/jbig2enc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "e56a40c42b91521dc85adbd0e64f139996cf651ccf20566791eb025562b5c989"
-    sha256 cellar: :any,                 arm64_sonoma:   "b7e975bf348576e5e3aa681fc09c15b91f4cf7542b071027fb277e35d2f09e84"
-    sha256 cellar: :any,                 arm64_ventura:  "5894ec7327cf835d5c03aa7dfe077ec1976e07587fe3f7f8a8d188b07d486dda"
-    sha256 cellar: :any,                 arm64_monterey: "a616b755cbdaf4d7133f6a7dde4a1a8cf59295bf627b00a3a6f022e2c0b2010f"
-    sha256 cellar: :any,                 arm64_big_sur:  "c4fd2fd1394266163c8e07b4378c09ddd57c408c3fdf8098b7c0931856c3e742"
-    sha256 cellar: :any,                 sonoma:         "371b2cf59f44ff4d8a964095c5a1ba7f9883847576d2ee18d53ae0621e3e1ee4"
-    sha256 cellar: :any,                 ventura:        "1e3b10797b108104ededfbdada4f6c03d288dbc3f4c2b75173d29796e53edac7"
-    sha256 cellar: :any,                 monterey:       "fbf2dcb1e29ac4aff73463dd153d38357b073b9ab184001d6a9a4baabd44023d"
-    sha256 cellar: :any,                 big_sur:        "9cc450a97ea92e1b86cc68b4b521971de0f3816939b495fa9ca8ac5b8d66c7b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "de11ca25b4e186c650ecf95a3711f6cb8ae605b52054553c3b1814f0aabca269"
+    sha256 cellar: :any,                 arm64_sequoia: "c3277ead02053270075af72039bcd3f2e2d712fddda586284f9b5b00a6ea672f"
+    sha256 cellar: :any,                 arm64_sonoma:  "bde53a1f5b1257541002a926ab14fcfefe91b3408df67eb9dbc2e27584d6b596"
+    sha256 cellar: :any,                 arm64_ventura: "3e12cce5a16f9427104fa24c1b8665d8d0cc58b22b77d2d1b7d74ef4dbba5d46"
+    sha256 cellar: :any,                 sonoma:        "73b88ab1c2f8c17beda9109e62935813bce19ce84970b935ef810715c48d21f6"
+    sha256 cellar: :any,                 ventura:       "988b1d72ea105c139b59ba60e4cd00beac878f647f1594d2657340878acb135b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "11281bffe9b33acf9e62c446ae9af7332b4154a87d9d58f3ba15b9d550198d93"
   end
 
   depends_on "autoconf" => :build
