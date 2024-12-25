@@ -6,6 +6,7 @@ class Thrax < Formula
   url "https://www.openfst.org/twiki/pub/GRM/ThraxDownload/thrax-1.3.9.tar.gz"
   sha256 "1e6ed84a747d337c28f2064348563121a439438f5cc0c4de4b587ddf779f1ae3"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://www.openfst.org/twiki/bin/view/GRM/ThraxDownload"
@@ -32,6 +33,9 @@ class Thrax < Formula
   depends_on "openfst"
   uses_from_macos "python", since: :catalina
 
+  # patch to build with openfst 1.8.4, notified upstream about this patch
+  patch :DATA
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
@@ -49,3 +53,27 @@ class Thrax < Formula
     end
   end
 end
+
+__END__
+diff --git a/src/include/thrax/algo/stringmap.h b/src/include/thrax/algo/stringmap.h
+index f2ea7a7..6ee0a7c 100644
+--- a/src/include/thrax/algo/stringmap.h
++++ b/src/include/thrax/algo/stringmap.h
+@@ -180,7 +180,7 @@ bool StringMapCompile(internal::ColumnStringFile *csf, MutableFst<Arc> *fst,
+     const auto log_line_compilation_error = [&csf, &line]() {
+       LOG(ERROR) << "StringFileCompile: Ill-formed line " << csf->LineNumber()
+                  << " in file " << csf->Filename() << ": `"
+-                 << ::fst::StringJoin(line, "\t") << "`";
++                 << ::fst::StrJoin(line, "\t") << "`";
+     };
+     switch (line.size()) {
+       case 1: {
+@@ -225,7 +225,7 @@ bool StringMapCompile(const std::vector<std::vector<std::string>> &lines,
+   for (const auto &line : lines) {
+     const auto log_line_compilation_error = [&line]() {
+       LOG(ERROR) << "StringMapCompile: Ill-formed line: `"
+-                 << ::fst::StringJoin(line, "\t") << "`";
++                 << ::fst::StrJoin(line, "\t") << "`";
+     };
+     switch (line.size()) {
+       case 1: {
