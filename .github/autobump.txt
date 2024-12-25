@@ -1435,6 +1435,7 @@ jaq
 jasper
 jbang
 jbig2dec
+jbig2enc
 jc
 jd
 jdnssec-tools
