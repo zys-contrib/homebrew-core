@@ -19,7 +19,7 @@ class CucumberCpp < Formula
 
   depends_on "cmake" => :build
   depends_on "nlohmann-json" => :build
-  depends_on "ruby" => :test
+  depends_on "ruby@3.3" => :test # ruby 3.4 support bug report, https://github.com/cucumber/cucumber-ruby/issues/1769
   depends_on "asio"
   depends_on "tclap"
 
@@ -40,7 +40,7 @@ class CucumberCpp < Formula
   end
 
   test do
-    ENV.prepend_path "PATH", Formula["ruby"].opt_bin
+    ENV.prepend_path "PATH", Formula["ruby@3.3"].opt_bin
     ENV["GEM_HOME"] = testpath
     ENV["BUNDLE_PATH"] = testpath
 
