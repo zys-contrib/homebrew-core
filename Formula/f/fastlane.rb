@@ -4,6 +4,7 @@ class Fastlane < Formula
   url "https://github.com/fastlane/fastlane/archive/refs/tags/2.226.0.tar.gz"
   sha256 "dab7c2f3d8cc47e1bc4ed8b4351a0e1b438c70009bb28f3e352ffbb5c001b1f9"
   license "MIT"
+  revision 1
   head "https://github.com/fastlane/fastlane.git", branch: "master"
 
   livecheck do
@@ -33,6 +34,12 @@ class Fastlane < Formula
   def install
     ENV["GEM_HOME"] = libexec
     ENV["GEM_PATH"] = libexec
+    ENV["LANG"] = "en_US.UTF-8"
+    ENV["LC_ALL"] = "en_US.UTF-8"
+
+    # `abbrev`, `mutex_m` gem no longer with ruby 3.4+, upstream patch pr, https://github.com/fastlane/fastlane/pull/29182
+    system "gem", "install", "abbrev", "--no-document"
+    system "gem", "install", "mutex_m", "--no-document"
 
     system "gem", "build", "fastlane.gemspec"
     system "gem", "install", "fastlane-#{version}.gem", "--no-document"
