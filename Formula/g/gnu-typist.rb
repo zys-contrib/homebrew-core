@@ -7,15 +7,12 @@ class GnuTypist < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia:  "d5d21482cbcca6dbe6e311f9200daab62ab86752bb59ad28b83c63eec32d7754"
-    sha256 arm64_sonoma:   "ec0daf0f5a1f0ceae0482b59a88ad8d24489c5d04334f36f052afff193dd47be"
-    sha256 arm64_ventura:  "4ea5b5536d71dcce549c137487e1f253de1c65eb731cc96f96c6f840552538a2"
-    sha256 arm64_monterey: "55bc014edf3a03938527035d043b5f993d9574e0b77a9ecd6d332eb4e8efcd18"
-    sha256 sonoma:         "5994bfad16531f2491e6749b2bc1219f1a20e1f9c46713d3dedef188b66c00d8"
-    sha256 ventura:        "63a4ab5d80a451ac4a64c4f8210d6fef5be03ed16ce91d121d3f6054f9b60dc9"
-    sha256 monterey:       "9176597b6394a63864ef693f4815b74930a63f245a36b66656e9f203bf49d509"
-    sha256 x86_64_linux:   "a992581b5efb631c92abb7b43ac1f126acb16fda1479beff3fd137276a04197f"
+    sha256 arm64_sequoia: "44219201728a17e0edb4b75bc4092271dac244b8f1465b2e672ce1aed25f3dca"
+    sha256 arm64_sonoma:  "23980151c2b8e59ebd60349a5e40cac0ce0bae1797f50014ed116c901a3a43c2"
+    sha256 arm64_ventura: "259a69f9a71052547624f9df553d4b0e4e3d96490b40d55f4cc88f00028dd175"
+    sha256 sonoma:        "69910310fc08971d9e9381e49bb621f4c263084096f37ed979f67aa5b913db11"
+    sha256 ventura:       "f6157fa38bdc20c64fd6127689963537da49f588a0007dc359f4371c498b0c3c"
+    sha256 x86_64_linux:  "35ac3380d721aae2bd956a1d5dc935491c61eebda265d3f051ce74b591522223"
   end
 
   depends_on "gettext"
