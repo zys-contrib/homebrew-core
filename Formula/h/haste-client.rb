@@ -4,7 +4,7 @@ class HasteClient < Formula
   url "https://github.com/toptal/haste-client/archive/refs/tags/v0.3.0.tar.gz"
   sha256 "9f7e943be47408ba0b9765328794e7b87bdb2a785f1e9edb5d541d67b4a75d31"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/toptal/haste-client.git", branch: "master"
 
   bottle do
