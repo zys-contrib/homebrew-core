@@ -33,6 +33,7 @@ class Ccache < Formula
 
   def install
     system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}",
                     "-DENABLE_IPO=TRUE",
                     "-DREDIS_STORAGE_BACKEND=ON",
                     "-DDEPS=LOCAL",
