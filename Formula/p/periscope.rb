@@ -2,8 +2,8 @@ class Periscope < Formula
   desc "Organize and de-duplicate your files without losing data"
   homepage "https://github.com/anishathalye/periscope"
   url "https://github.com/anishathalye/periscope.git",
-      tag:      "v0.3.5",
-      revision: "b4eb74e389a3bb4eb6a4225e9bccd8744203b895"
+      tag:      "v0.3.6",
+      revision: "78730d745e0c5ca6dcbb67d9a20ccf4690be4fba"
   license "GPL-3.0-only"
   head "https://github.com/anishathalye/periscope.git", branch: "master"
 
