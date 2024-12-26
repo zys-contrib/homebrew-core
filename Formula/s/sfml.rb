@@ -46,13 +46,15 @@ class Sfml < Formula
     # headers that were moved there in https://github.com/SFML/SFML/pull/795
     rm_r(Dir["extlibs/*"] - ["extlibs/headers"])
 
-    args = ["-DCMAKE_INSTALL_RPATH=#{lib}",
-            "-DSFML_MISC_INSTALL_PREFIX=#{share}/SFML",
-            "-DSFML_INSTALL_PKGCONFIG_FILES=TRUE",
-            "-DSFML_BUILD_DOC=TRUE",
-            "-DSFML_USE_SYSTEM_DEPS=ON"]
+    args = [
+      "-DBUILD_SHARED_LIBS=ON",
+      "-DCMAKE_INSTALL_RPATH=#{rpath}",
+      "-DSFML_INSTALL_PKGCONFIG_FILES=TRUE",
+      "-DSFML_BUILD_DOC=TRUE",
+      "-DSFML_USE_SYSTEM_DEPS=ON",
+    ]
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--build", "build", "--target=doc"
     system "cmake", "--install", "build"
@@ -67,7 +69,7 @@ class Sfml < Formula
       }
     CPP
     system ENV.cxx, "-I#{include}/SFML/System", "-std=c++17", testpath/"test.cpp",
-           "-L#{lib}", "-o", "test"
+                    "-L#{lib}", "-lsfml-system", "-o", "test"
     system "./test"
   end
 end
