@@ -1,10 +1,14 @@
 class Libical < Formula
   desc "Implementation of iCalendar protocols and data formats"
   homepage "https://libical.github.io/libical/"
-  url "https://github.com/libical/libical/releases/download/v3.0.18/libical-3.0.18.tar.gz"
-  sha256 "72b7dc1a5937533aee5a2baefc990983b66b141dd80d43b51f80aced4aae219c"
+  url "https://github.com/libical/libical/releases/download/v3.0.19/libical-3.0.19.tar.gz"
+  sha256 "6a1e7f0f50a399cbad826bcc286ce10d7151f3df7cc103f641de15160523c73f"
   license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
-  revision 2
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "12ed9bd20e48d2a2e2179ac13ac2a0680e230f977327131c47bc2496b10f9e9a"
@@ -52,6 +56,7 @@ class Libical < Formula
         return 0;
       }
     C
+
     system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-lical-glib",
                    "-I#{Formula["glib"].opt_include}/glib-2.0",
                    "-I#{Formula["glib"].opt_lib}/glib-2.0/include"
