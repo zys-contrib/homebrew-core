@@ -2373,6 +2373,7 @@ pedump
 pegtl
 percona-toolkit
 percona-xtrabackup
+periscope
 perl
 perltidy
 peru
