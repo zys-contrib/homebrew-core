@@ -1809,6 +1809,7 @@ libwpe
 libx11
 libxau
 libxaw3d
+libxc
 libxcursor
 libxcvt
 libxdmcp
