@@ -7,12 +7,12 @@ class Cocoapods < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "68781e12612d0cfa292ad6e983a2711fcba61c31ff4f2cdfd01cfb80be2dfae0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "68781e12612d0cfa292ad6e983a2711fcba61c31ff4f2cdfd01cfb80be2dfae0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "68781e12612d0cfa292ad6e983a2711fcba61c31ff4f2cdfd01cfb80be2dfae0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3d1c33409214e70141aec16e250de82ad06d3c3a6c388c125195c6488bcf3e2f"
-    sha256 cellar: :any_skip_relocation, ventura:       "3d1c33409214e70141aec16e250de82ad06d3c3a6c388c125195c6488bcf3e2f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48a2e96d3ec4bb17a007ae9c78efda0942905dfc353113e331e967cc12f8f680"
+    sha256 cellar: :any,                 arm64_sequoia: "c0bd1f8e2bdb31e76d8919d8c5181c5ffacab9aa03b9be9cd77c4fcfdd2f0527"
+    sha256 cellar: :any,                 arm64_sonoma:  "46d7033d09663c83d43346815b67d4abac9c68b2cff38a7a0eaf55fcf459f56d"
+    sha256 cellar: :any,                 arm64_ventura: "95765343247a0af19d81ab36c3ab8e379e7729f688da64ae723f49c7deba34d7"
+    sha256 cellar: :any,                 sonoma:        "783c64ac3c486bae33e11edf68a56380245d3fe783e1c60e2548a08e05adedef"
+    sha256 cellar: :any,                 ventura:       "b1358f53cd22a76793b935b5b3d4fa384cbe292d85d6a02fccf7232ea038890d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb0ed8f654a355942ff4df4236ad181fa474aad5188cf2de73e6412b9df098b1"
   end
 
   depends_on "pkgconf" => :build
