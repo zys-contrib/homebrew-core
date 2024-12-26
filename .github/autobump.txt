@@ -1950,6 +1950,7 @@ mcap
 mcfly
 md4c
 mdbook
+mdbtools
 mdcat
 mdless
 mdsh
