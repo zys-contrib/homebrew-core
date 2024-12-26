@@ -1,8 +1,8 @@
 class JfrogCli < Formula
   desc "Command-line interface for JFrog products"
   homepage "https://www.jfrog.com/confluence/display/CLI/JFrog+CLI"
-  url "https://github.com/jfrog/jfrog-cli/archive/refs/tags/v2.72.4.tar.gz"
-  sha256 "a2ccdfcc790ec41fbe6dc93117d36569aa30ae566296b37106e27ddc3d23c20d"
+  url "https://github.com/jfrog/jfrog-cli/archive/refs/tags/v2.72.5.tar.gz"
+  sha256 "394227ae2d46c53c0e359c25b5502428521a43af06f4692c9bfa27ee495a8a55"
   license "Apache-2.0"
   head "https://github.com/jfrog/jfrog-cli.git", branch: "v2"
 
@@ -15,12 +15,12 @@ class JfrogCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5113fb53609c1df4faac590fc1ede799d7eb49a6514207fa7b94ea37ee31ac2c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5113fb53609c1df4faac590fc1ede799d7eb49a6514207fa7b94ea37ee31ac2c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5113fb53609c1df4faac590fc1ede799d7eb49a6514207fa7b94ea37ee31ac2c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "590db2b90a5b458fbc959007c950bef84436034a1b95e87856394f40534c7e89"
-    sha256 cellar: :any_skip_relocation, ventura:       "590db2b90a5b458fbc959007c950bef84436034a1b95e87856394f40534c7e89"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3bbf81cea80d57dd5b6eac71c3aa4dbec6517ffe2841df654dbdde47e706dc1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9fa5f0cee9bd4fcaead7308ccfc560fa3a54f811dc0f91c9b301b0c5c18d341d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9fa5f0cee9bd4fcaead7308ccfc560fa3a54f811dc0f91c9b301b0c5c18d341d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9fa5f0cee9bd4fcaead7308ccfc560fa3a54f811dc0f91c9b301b0c5c18d341d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "32249fe651c4d00c507d2e08be993f86731d7827f7b2da4e3018609b979273a7"
+    sha256 cellar: :any_skip_relocation, ventura:       "32249fe651c4d00c507d2e08be993f86731d7827f7b2da4e3018609b979273a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c693c0c4bc29046d6790ea809c57008872f8c2be65652da08d1cabaa76f4e34"
   end
 
   depends_on "go" => :build
