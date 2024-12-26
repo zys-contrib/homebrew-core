@@ -3,8 +3,8 @@ class Grayskull < Formula
 
   desc "Recipe generator for Conda"
   homepage "https://github.com/conda/grayskull"
-  url "https://files.pythonhosted.org/packages/75/19/8cbf5f83ee08f5e1523b266edf0767ed3117f67cd07696621ba8dec903da/grayskull-2.7.4.tar.gz"
-  sha256 "0ae16a64117669b461900b34da48917f40cbd8f868846f9aae1f5d7c0117598d"
+  url "https://files.pythonhosted.org/packages/9a/91/622c31fbb5fb861fe7802025aede5165d1109a661db6f98af85c1598d4b1/grayskull-2.7.5.tar.gz"
+  sha256 "fcd146d2eea7899ae117c568f32668b13054c2344dd02a372f77b806f743d685"
   license "Apache-2.0"
 
   bottle do
@@ -27,8 +27,8 @@ class Grayskull < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
-    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
+    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
+    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
   end
 
   resource "colorama" do
@@ -84,11 +84,6 @@ class Grayskull < Formula
   resource "ruamel-yaml-jinja2" do
     url "https://files.pythonhosted.org/packages/91/e0/ad199ab894f773551fc352541ce3305b9e7c366a4ae8c44ab1bc9ca3abff/ruamel.yaml.jinja2-0.2.7.tar.gz"
     sha256 "8449be29d9a157fa92d1648adc161d718e469f0d38a6b21e0eabb76fd5b3e663"
-  end
-
-  resource "semver" do
-    url "https://files.pythonhosted.org/packages/41/6c/a536cc008f38fd83b3c1b98ce19ead13b746b5588c9a0cb9dd9f6ea434bc/semver-3.0.2.tar.gz"
-    sha256 "6253adb39c70f6e51afed2fa7152bcd414c411286088fb4b9effb133885ab4cc"
   end
 
   resource "setuptools" do
