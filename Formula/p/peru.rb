@@ -3,8 +3,8 @@ class Peru < Formula
 
   desc "Dependency retriever for version control and archives"
   homepage "https://github.com/buildinspace/peru"
-  url "https://files.pythonhosted.org/packages/fe/0e/b78315545923029f18669d083826bc59a12006cd3bc430c8141f896310cc/peru-1.3.2.tar.gz"
-  sha256 "161d9fd85d8d37ef10eed1d8b38da126d7ba9554b585e40ed2964138fc3b2f00"
+  url "https://files.pythonhosted.org/packages/a8/45/cec03aca5ab8a8a1ff8248dcd5c9f17e5a7e9c9e8e9d0b9a135a1c0605e7/peru-1.3.3.tar.gz"
+  sha256 "ac6b0d0e85fbe7d57d4587b4e58551de83fd4af4f8245a0851414898cce3e1b1"
   license "MIT"
 
   bottle do
@@ -19,11 +19,6 @@ class Peru < Formula
 
   depends_on "libyaml"
   depends_on "python@3.13"
-
-  resource "docopt" do
-    url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
-    sha256 "49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491"
-  end
 
   resource "pyyaml" do
     url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
