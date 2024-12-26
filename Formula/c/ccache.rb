@@ -4,7 +4,7 @@ class Ccache < Formula
   url "https://github.com/ccache/ccache/releases/download/v4.10.2/ccache-4.10.2.tar.xz"
   sha256 "c0b85ddfc1a3e77b105ec9ada2d24aad617fa0b447c6a94d55890972810f0f5a"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/ccache/ccache.git", branch: "master"
 
   bottle do
@@ -91,5 +91,8 @@ class Ccache < Formula
     ENV.prepend_path "PATH", opt_libexec
     assert_equal "#{opt_libexec}/gcc", shell_output("which gcc").chomp
     system bin/"ccache", "-s"
+    # Calling `--help` can catch issues with fmt upgrades.
+    # https://github.com/orgs/Homebrew/discussions/5830
+    system bin/"ccache", "--help"
   end
 end
