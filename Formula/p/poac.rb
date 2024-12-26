@@ -2,6 +2,7 @@ class Poac < Formula
   desc "Package manager and build system for C++"
   homepage "https://github.com/poac-dev/poac"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/poac-dev/poac.git", branch: "main"
 
   stable do
