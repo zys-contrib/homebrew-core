@@ -3302,6 +3302,7 @@ wasm-tools
 wasmedge
 wasmer
 wasmtime
+watch
 watchexec
 wavpack
 wayland
