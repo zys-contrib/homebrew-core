@@ -1,8 +1,8 @@
 class LibtorrentRakshasa < Formula
   desc "BitTorrent library with a focus on high performance"
   homepage "https://github.com/rakshasa/libtorrent"
-  url "https://github.com/rakshasa/libtorrent/archive/refs/tags/v0.14.0.tar.gz"
-  sha256 "0ec8ef7544a551ccbf6fce5c6c535f69cb3ad10e4d5e70e620ecd47fef90a13e"
+  url "https://github.com/rakshasa/libtorrent/archive/refs/tags/v0.15.0.tar.gz"
+  sha256 "f55fb872282a2964049dadb89c4d1fb580a1cef981b9a421991efd5282ca90b7"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -28,6 +28,12 @@ class LibtorrentRakshasa < Formula
   uses_from_macos "zlib"
 
   conflicts_with "libtorrent-rasterbar", because: "they both use the same libname"
+
+  # build patch to remove `rak::equal` and `rak::mem_ref` refs, upstream pr ref, https://github.com/rakshasa/libtorrent/pull/285
+  patch do
+    url "https://github.com/rakshasa/libtorrent/commit/59ea9a985083c6c933cb9fe28d6e2d1579f337da.patch?full_index=1"
+    sha256 "3e4d2eee017228193a07f1ba9d9c4ebb0c36d5f78fba62b1c39f57e4cfe7d15f"
+  end
 
   def install
     system "autoreconf", "--force", "--install", "--verbose"
