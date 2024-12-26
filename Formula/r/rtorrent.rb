@@ -1,8 +1,8 @@
 class Rtorrent < Formula
   desc "Ncurses BitTorrent client based on libtorrent-rakshasa"
   homepage "https://github.com/rakshasa/rtorrent"
-  url "https://github.com/rakshasa/rtorrent/releases/download/v0.10.0/rtorrent-0.10.0.tar.gz"
-  sha256 "cc65bba7abead24151f10af116eca2342b0c320fdff3cb8d604c0af09215d3aa"
+  url "https://github.com/rakshasa/rtorrent/releases/download/v0.15.0/rtorrent-0.15.0.tar.gz"
+  sha256 "cd2a590776974943fcd99ba914f15e92f8d957208e82b9538e680861a5c2168f"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -25,12 +25,6 @@ class Rtorrent < Formula
 
   uses_from_macos "curl"
   uses_from_macos "ncurses"
-
-  # patch to use fsync for osx builds, upstream pr ref, https://github.com/rakshasa/rtorrent/pull/1297
-  patch do
-    url "https://github.com/rakshasa/rtorrent/commit/ad491b46ede1593dc28120231b87051530f5b391.patch?full_index=1"
-    sha256 "5242ccb5e85a40860d3928f3264d5579976717d071bdb228960eab8926396a69"
-  end
 
   def install
     system "autoreconf", "--force", "--install", "--verbose"
