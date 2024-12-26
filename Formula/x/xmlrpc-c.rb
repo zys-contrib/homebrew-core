@@ -22,6 +22,9 @@ class XmlrpcC < Formula
   uses_from_macos "curl"
   uses_from_macos "libxml2"
 
+  # add `srcdir` removal build patch, upstream bug report, https://sourceforge.net/p/xmlrpc-c/patches/50/
+  patch :DATA
+
   def install
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
@@ -40,3 +43,17 @@ class XmlrpcC < Formula
     system bin/"xmlrpc-c-config", "--features"
   end
 end
+
+__END__
+diff --git a/common.mk b/common.mk
+index e6e79a0..eff7c79 100644
+--- a/common.mk
++++ b/common.mk
+@@ -368,6 +368,7 @@ $(TARGET_MODS_PP:%=%.osh):%.osh:%.cpp
+ # dependency of 'srcdir'.
+
+ srcdir:
++	rm -f srcdir
+ 	$(LN_S) $(SRCDIR) $@
+ blddir:
+ 	$(LN_S) $(BLDDIR) $@
