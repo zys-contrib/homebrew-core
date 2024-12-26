@@ -1,8 +1,8 @@
 class Libxls < Formula
   desc "Read binary Excel files from C/C++"
   homepage "https://github.com/libxls/libxls"
-  url "https://github.com/libxls/libxls/releases/download/v1.6.2/libxls-1.6.2.tar.gz"
-  sha256 "5dacc34d94bf2115926c80c6fb69e4e7bd2ed6403d51cff49041a94172f5e371"
+  url "https://github.com/libxls/libxls/releases/download/v1.6.3/libxls-1.6.3.tar.gz"
+  sha256 "b2fb836ea0b5253a352fb5ca55742e29f06f94f9421c5b8eeccef2e5d43f622c"
   license "BSD-2-Clause"
 
   bottle do
@@ -19,16 +19,10 @@ class Libxls < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9fa950062d66333e82b1d7dd146251d070a13f2e66367cd7ddee7ecc811b7b1"
   end
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
-
   def install
     # Add program prefix `lib` to prevent conflict with another Unix tool `xls2csv`.
     # Arch and Fedora do the same.
-    system "./configure", *std_configure_args, "--disable-silent-rules", "--program-prefix=lib"
+    system "./configure", "--disable-silent-rules", "--program-prefix=lib", *std_configure_args
     system "make", "install"
     pkgshare.install "test/files/test2.xls"
   end
