@@ -2918,6 +2918,7 @@ src
 srgn
 srt
 srtp
+sse2neon
 ssh-audit
 sshs
 ssldump
