@@ -13,12 +13,12 @@ class Mikutter < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cd859fa77b1c956eae27cb5239b914005708bb83a9fa6bff838a5aaee3c9eeb4"
-    sha256 cellar: :any,                 arm64_sonoma:  "cd5bef014eb7be1201718fc6d23e101929faadf376cc0550b1f818b775907a22"
-    sha256 cellar: :any,                 arm64_ventura: "168aac1652c080ca46bffe711f7f21fc7c492185905edd726aafea05358fbc6f"
-    sha256 cellar: :any,                 sonoma:        "fa7a44d029548c3aa365c41473755ebdbab7305857661c26705e4a7b2b960e1b"
-    sha256 cellar: :any,                 ventura:       "b27f1eac423287da960c26f6acaa714c5f0c7863ca25557868c25f73657a762e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45d7dcf4604999d5f1e97eb2e73fa81fc0945fe6f64a35c923d86612f491cce5"
+    sha256 cellar: :any,                 arm64_sequoia: "419a17aa9ee5a8a5d6cbbc11fa1b38c35237b181876b63750f4e89096c20925c"
+    sha256 cellar: :any,                 arm64_sonoma:  "c43a977714a30074562aca634da3c746b56a46c982a003ed2c91949bbc1dc2d9"
+    sha256 cellar: :any,                 arm64_ventura: "6a199016f5882e5fa980ddc597560e329fb76c8c5648d2ed4dfc59b60c90d8ea"
+    sha256 cellar: :any,                 sonoma:        "ad1d178fd6c86023243d2e45b08247babcc54d7459434c1ae75e72945c6d1bbc"
+    sha256 cellar: :any,                 ventura:       "1492fbcebbaaeccf453928132eb04b38a375998e90037b48ae5dee2dc2d430d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2cbeb23d9b3659e53039748c3f7bfd1596b58412e99a1380041e18f285f4f4a8"
   end
 
   depends_on "at-spi2-core"
