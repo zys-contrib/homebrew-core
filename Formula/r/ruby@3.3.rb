@@ -1,42 +1,25 @@
-class Ruby < Formula
+class RubyAT33 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
+  url "https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.6.tar.gz"
+  sha256 "8dc48fffaf270f86f1019053f28e51e4da4cce32a36760a0603a9aee67d7fd8d"
   license "Ruby"
-  head "https://github.com/ruby/ruby.git", branch: "master"
-
-  stable do
-    url "https://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.1.tar.gz"
-    sha256 "3d385e5d22d368b064c817a13ed8e3cc3f71a7705d7ed1bae78013c33aa7c87f"
-
-    # Should be updated only when Ruby is updated (if an update is available).
-    # The exception is Rubygem security fixes, which mandate updating this
-    # formula & the versioned equivalents and bumping the revisions.
-    resource "rubygems" do
-      url "https://rubygems.org/rubygems/rubygems-3.6.2.tgz"
-      sha256 "d2f4e760eef098608692bbd6eff30df2e221b4723549da70dabcba116dc39680"
-
-      livecheck do
-        url "https://rubygems.org/pages/download"
-        regex(/href=.*?rubygems[._-]v?(\d+(?:\.\d+)+)\.t/i)
-      end
-    end
-  end
 
   livecheck do
-    url "https://www.ruby-lang.org/en/downloads/releases/"
-    regex(/href=.*?ruby[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://www.ruby-lang.org/en/downloads/"
+    regex(/href=.*?ruby[._-]v?(3\.3(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 arm64_sequoia: "138b6437f47834712668a08b7c686a47f64daf6f08458994cca854e481c7906a"
-    sha256 arm64_sonoma:  "989bd02640cc28e4f3c14adc6ce58e26cc07d501dbde42c6e0d06277e696de42"
-    sha256 arm64_ventura: "30ff9cb5a990235992baeba80bd230e419992470e8b512c8cad1134d2e8d2c8f"
-    sha256 sonoma:        "100b8abb629f8e1f18aba5e5d00b5051cf0fcc4a15214d41cecb3c7087f7c660"
-    sha256 ventura:       "3ddbd71146baecb8c2c8bc8481a2c07a23ae4fc11919ad5c853e15fb22019e62"
-    sha256 x86_64_linux:  "c1569b364596688221d086a093f152f0ff76a25c6bef75e5aba6eda3f0404055"
+    sha256 arm64_sequoia: "453e4692db2ae4f3ab85e879db8382421efde75d8796699e8a6c41f8a1fcc296"
+    sha256 arm64_sonoma:  "0c25dbf450faed1e1b07e54cc49f77b309d3cb204bc29e881dea8a44c7d11a49"
+    sha256 arm64_ventura: "177a36192adcd8062fbed6e213ace9b659940f269cc8f34132994bfd38c300e8"
+    sha256 sonoma:        "e63c6928e15d24fe524f69ba689da08c346f3fbc4b71a55aba0555c72c85582c"
+    sha256 ventura:       "a6d4740c2c7d2acaf51c563a1138a4605c6cbadb3c3d724ea20f6b3d5afe1841"
+    sha256 x86_64_linux:  "fe1695b0b5e756addb492b72c3dbe6c95197a9e1c1f9157550fdc28b336092ac"
   end
 
-  keg_only :provided_by_macos
+  keg_only :versioned_formula
 
   depends_on "autoconf" => :build
   depends_on "pkgconf" => :build
@@ -63,6 +46,19 @@ class Ruby < Formula
       end
     else
       "#{version.major.to_i}.#{version.minor.to_i}.0"
+    end
+  end
+
+  # Should be updated only when Ruby is updated (if an update is available).
+  # The exception is Rubygem security fixes, which mandate updating this
+  # formula & the versioned equivalents and bumping the revisions.
+  resource "rubygems" do
+    url "https://rubygems.org/rubygems/rubygems-3.5.23.tgz"
+    sha256 "3d277bf0b12ff46834d89b283fc451d130dbe6428d00d7ace4664c449c3ef28c"
+
+    livecheck do
+      url "https://rubygems.org/pages/download"
+      regex(/href=.*?rubygems[._-]v?(\d+(?:\.\d+)+)\.t/i)
     end
   end
 
