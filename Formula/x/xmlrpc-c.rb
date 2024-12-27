@@ -6,13 +6,12 @@ class XmlrpcC < Formula
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "f1b8216bc2bb7e862ccd66cb4a465fbbc6898d7929c40b3e3f6cf4b97bb374b6"
-    sha256 cellar: :any,                 arm64_sonoma:  "4ebef865a989c7023726abd9b2a25d113820450bc03adc72b7d8f0cade99fdb0"
-    sha256 cellar: :any,                 arm64_ventura: "e25a30dc29f0361012c857be321fbaeab62673c5f9911a66f7c4e62baf368f0d"
-    sha256 cellar: :any,                 sonoma:        "61d6b88623b8c15ac930983262a7a500227787e734b891e8c0e16f66dec2f8ff"
-    sha256 cellar: :any,                 ventura:       "1a66bba41419cdf01db559ea65f8916b9ae8fc1a980d94c38bbdea3e923f2d00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "89873833875863fb9e917dbff0542153d294981ac7a380b102059472b5d327cd"
+    sha256 cellar: :any,                 arm64_sequoia: "efb676599d96e83aeed7ba9922566f44f519c10f5f66273c7ebc315175a98c16"
+    sha256 cellar: :any,                 arm64_sonoma:  "0847e1244a99ae5fd4247292564a328f88930e95604a2f6517ee4a801b48e582"
+    sha256 cellar: :any,                 arm64_ventura: "a8d5697528386ec5cfa99be464e03b579d6ab002735b5fcc248ba52e1fdd0c69"
+    sha256 cellar: :any,                 sonoma:        "a88ab300059fd024ebaa5b1e3c72b217abea7935af952ff39f307e4f1da2853a"
+    sha256 cellar: :any,                 ventura:       "363da2d59bccb2be0263443addf0e8ad998efb73c77c08a18f6e38abb42ca283"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ee21bfb6bff30d28aa9f0401ebbdc38825bc0fadaaaa147eb2977f4441df4b1"
   end
 
   depends_on "pkgconf" => :build
