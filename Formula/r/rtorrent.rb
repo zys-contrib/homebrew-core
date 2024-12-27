@@ -4,6 +4,7 @@ class Rtorrent < Formula
   url "https://github.com/rakshasa/rtorrent/releases/download/v0.15.0/rtorrent-0.15.0.tar.gz"
   sha256 "cd2a590776974943fcd99ba914f15e92f8d957208e82b9538e680861a5c2168f"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "61c79d32b318644e254f908682647e929bdbac6234f462968b8652a772112a27"
