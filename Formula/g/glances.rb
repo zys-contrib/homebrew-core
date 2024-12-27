@@ -3,18 +3,17 @@ class Glances < Formula
 
   desc "Alternative to top/htop"
   homepage "https://nicolargo.github.io/glances/"
-  url "https://files.pythonhosted.org/packages/a7/ba/c8da238e3a24ba13115ae70361598d999d9223001555f1f614dde59da843/glances-4.2.1.tar.gz"
-  sha256 "03061c7ea7bb092d24a58b33b3f8dbe218491d9afe69e20eedc0ebe90d629545"
+  url "https://files.pythonhosted.org/packages/ff/31/567c9ac040428c7051bfe90637a25e3d232cb2af7b52b6a3c43507343c89/glances-4.3.0.tar.gz"
+  sha256 "19d9189a10ee3be57cb1a436c0fbd6afefa4b92396526f1f99347aab69c21948"
   license "LGPL-3.0-or-later"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e0a643c97ca28a0ee5c41320da3a4a2faa8fce0a8852769d1e78ce9e03d61e61"
-    sha256 cellar: :any,                 arm64_sonoma:  "60835f80c44e98f3fc1312bda88963de93f4abd9cc541292b1b2bcb68c32179e"
-    sha256 cellar: :any,                 arm64_ventura: "752eeaf556b4b32ee35417b4d930b6f153be937173b01fcecb9a187e19483902"
-    sha256 cellar: :any,                 sonoma:        "9b9993c196366144aac4d438f5fcf224d61223019f01702581a93f2bb3a31a57"
-    sha256 cellar: :any,                 ventura:       "8a7eb492cf0cac59239bd836d2a9a311d28cbd41b97abb56ac392e838d5435c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b422669f3faa67de8720d0adc7fef63abe59bf605fa74be1b193590c76403f4b"
+    sha256 cellar: :any,                 arm64_sequoia: "6a270f8ed2ba939198f957943f8b24798cdb0c4d0c3b75b45ebce8d63f3c9170"
+    sha256 cellar: :any,                 arm64_sonoma:  "346650d247c3c60d4b7d889a48fea56d56fea28790323ad556dd9a0200160e19"
+    sha256 cellar: :any,                 arm64_ventura: "471933bb0e36ebeb990d26d6842ba8db730503abcf24051bc144fa07f528fd4a"
+    sha256 cellar: :any,                 sonoma:        "be0793feba78bd2e329a42cd32f27bb0e84820005ae51e5a15e51694dbf152c1"
+    sha256 cellar: :any,                 ventura:       "32350fc60922b09b60329d4bc5d6c1d36e4e307f142f635334719ec67139b6b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e66fd7c7226c3dbd9f2bfc34c0c35a94f12c7be42d957e06d9d90a7dbe2ba25f"
   end
 
   depends_on "rust" => :build # for orjson
@@ -32,8 +31,8 @@ class Glances < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
-    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
+    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
+    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
   end
 
   resource "click" do
