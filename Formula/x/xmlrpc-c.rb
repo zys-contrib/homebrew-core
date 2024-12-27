@@ -1,8 +1,8 @@
 class XmlrpcC < Formula
   desc "Lightweight RPC library (based on XML and HTTP)"
   homepage "https://xmlrpc-c.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/xmlrpc-c/Xmlrpc-c%20Super%20Stable/1.59.03/xmlrpc-c-1.59.03.tgz"
-  sha256 "bdb71db42ab0be51591555885d11682b044c1034d4a3296401bf921ec0b233fe"
+  url "https://downloads.sourceforge.net/project/xmlrpc-c/Xmlrpc-c%20Super%20Stable/1.60.04/xmlrpc-c-1.60.04.tgz"
+  sha256 "1e98cc6f524142c2b80731778fe8c74458936118bf95ae33cfa1e9205bfd48a5"
   license "BSD-3-Clause"
 
   bottle do
@@ -20,9 +20,6 @@ class XmlrpcC < Formula
 
   uses_from_macos "curl"
   uses_from_macos "libxml2"
-
-  # add `srcdir` removal build patch, upstream bug report, https://sourceforge.net/p/xmlrpc-c/patches/50/
-  patch :DATA
 
   def install
     # Fix compile with newer Clang
@@ -42,17 +39,3 @@ class XmlrpcC < Formula
     system bin/"xmlrpc-c-config", "--features"
   end
 end
-
-__END__
-diff --git a/common.mk b/common.mk
-index e6e79a0..eff7c79 100644
---- a/common.mk
-+++ b/common.mk
-@@ -368,6 +368,7 @@ $(TARGET_MODS_PP:%=%.osh):%.osh:%.cpp
- # dependency of 'srcdir'.
-
- srcdir:
-+	rm -f srcdir
- 	$(LN_S) $(SRCDIR) $@
- blddir:
- 	$(LN_S) $(BLDDIR) $@
