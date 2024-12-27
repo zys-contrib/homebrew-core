@@ -19,8 +19,9 @@ class Needle < Formula
     sha256 cellar: :any, sonoma:        "60f50b3285a36d440c5af05abf77d61ef2a7b9f8a897099b67a9fc2f8d97d014"
   end
 
-  depends_on xcode: ["15.3", :build]
   depends_on :macos
+
+  uses_from_macos "swift" => :build, since: :sonoma # swift 5.10+
 
   def install
     # Avoid building a universal binary.
