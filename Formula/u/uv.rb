@@ -27,7 +27,7 @@ class Uv < Formula
     ENV["UV_COMMIT_DATE"] = time.strftime("%F")
     system "cargo", "install", "--no-default-features", *std_cargo_args(path: "crates/uv")
     generate_completions_from_executable(bin/"uv", "generate-shell-completion")
-    generate_completions_from_executable(bin/"uvx", "--generate-shell-completion", base_name: "uvx")
+    generate_completions_from_executable(bin/"uvx", "--generate-shell-completion")
   end
 
   test do
