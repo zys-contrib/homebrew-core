@@ -8,12 +8,12 @@ class Moto < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f27bd039f2002b01182a55ecfa9bbcec4fcbed6558b87f2627f55a1e3b16d7fa"
-    sha256 cellar: :any,                 arm64_sonoma:  "012aab3867bfc4d991fd6d5ec9182e934622e1bd17dc22d43ee7a6bd5dfb087d"
-    sha256 cellar: :any,                 arm64_ventura: "37cce598761a9347d226c0eed12c5502b4549f8ba62693a5b8f3a0ff3bb4ad47"
-    sha256 cellar: :any,                 sonoma:        "27be7c741f6cd0b64d8219298605f36ed32e5c1f87b3a041576e0b84408f133c"
-    sha256 cellar: :any,                 ventura:       "72c18feaac44087488094e12796a76f495c8b9ab8e8f8b35b806a980d46b490b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a696abf0fecc9b539b2dd2d2c46532a080dd450dd3f3a3db9fdf4cc09e0d1a21"
+    sha256 cellar: :any,                 arm64_sequoia: "db33797791d006f9dc4d55b82d142bf2c9f202f860b295a900723938ceb33f62"
+    sha256 cellar: :any,                 arm64_sonoma:  "b79c258ee452b917b29f5c2764ed238d45fbab8b5da9bb433acc766629c3b124"
+    sha256 cellar: :any,                 arm64_ventura: "c26cef825e555444cd5b99390053218b45c76003304272ca506286762cd4643a"
+    sha256 cellar: :any,                 sonoma:        "74d6df71628657e73c3dc71b7abe5f633c4a9206ed7bef1087de29c208d8636f"
+    sha256 cellar: :any,                 ventura:       "63ea6745ff8ae9de0c12ca3ee79695e7e0dd6ec09ca25ce96700fd9cae9f2ba6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b76e2c64a85bffcd1b0b5b8864d2a4508028b82ed32f2ce27ba85f8871fe59c"
   end
 
   depends_on "rust" => :build # for pydantic_core
