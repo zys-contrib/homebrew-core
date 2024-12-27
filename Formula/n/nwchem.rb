@@ -14,13 +14,12 @@ class Nwchem < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_sequoia: "05c8b38a95afd17bf6da58ef15fff4ff5fc27c48685a2480be8881c0e0182783"
-    sha256                               arm64_sonoma:  "663c35f267e63038e04b2094873f8ed53df81fe213dc84c8bada3439b4dfbb99"
-    sha256                               arm64_ventura: "306e576ea37a1028103b5f61ebc8637ff73332baf5c00a974f64ac3efc033f6e"
-    sha256 cellar: :any,                 sonoma:        "15d6ab86e2d16e853d286360f0b2d48602bfd9df325933130de242c8499af69b"
-    sha256 cellar: :any,                 ventura:       "ae23d60bcbfff85b9f88099b9c593a2ea7e132815b4cb312b9b76352efc1baa8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ff5e60b6ee6fd75cd46978bd6f322e02bcaf929fad24555d9fabfd435b9d0f5"
+    sha256                               arm64_sequoia: "9e7d38520a012a3b258b13b79d2e21fa1f65c69d6a80e442db8543c301ebf8c4"
+    sha256                               arm64_sonoma:  "cbd863d1ffb5625c8551e5bccae2ac62d2d09af075e9e10956033d4e3ddaa2b9"
+    sha256                               arm64_ventura: "7fce8b94f1233bcf022bfaa7456abf9587baeb3319ffc47b725dd83eb1d83b6c"
+    sha256 cellar: :any,                 sonoma:        "2e2473703a5f2d268135f72189557e4c150059774540e9c89c74b66774a6931f"
+    sha256 cellar: :any,                 ventura:       "dd0b5829832ca473260b2da63478f93cee2e4bdf388898f0fc546e1f2e2a52f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0aa305807bdecc60ae25c0b3798ea4cc9fa9251be63dda2e7c460351106b393"
   end
 
   depends_on "gcc" # for gfortran
