@@ -12,10 +12,9 @@ class MistCli < Formula
     sha256 cellar: :any_skip_relocation, sonoma:        "b83757aa7976c9656343544be8db0bdfd68ed5c5243c7e7332d4a38392860dd2"
   end
 
-  # mist-cli requires Swift 5.10
-  depends_on xcode: ["15.3", :build]
   depends_on :macos
-  uses_from_macos "swift"
+
+  uses_from_macos "swift" => :build, since: :sonoma # swift 5.10+
 
   def install
     system "swift", "build", "--disable-sandbox", "--configuration", "release"
