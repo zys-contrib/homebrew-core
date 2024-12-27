@@ -2,12 +2,12 @@ class Poac < Formula
   desc "Package manager and build system for C++"
   homepage "https://github.com/poac-dev/poac"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/poac-dev/poac.git", branch: "main"
 
   stable do
     url "https://github.com/poac-dev/poac/archive/refs/tags/0.10.1.tar.gz"
-    sha256 "4be4f9d80ee1b4b2dd489bc335d59b50d945ad2bff9458eba66b230247f5c8a6"
+    sha256 "ba6a4b2df33ab9bb4eb5923e550bfe81725658fa6a647be5b0b4508ebfe7acc8"
 
     # Backport build fix for tbb 2022
     patch do
