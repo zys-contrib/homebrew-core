@@ -6,15 +6,12 @@ class Libxc < Formula
   license "MPL-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "4137ad3e56f47ffab7864f99478f77a8d48272e6695e4ea46caeaf8b367d4dbc"
-    sha256 cellar: :any,                 arm64_sonoma:   "d3b7a181e48fbe340461e747e09de5b03463a42640ea7e3d17e70344e68a13fb"
-    sha256 cellar: :any,                 arm64_ventura:  "76e117d24f61975699724c178dc4ca067b3ac7894fe44b2ccbecbac4896531e4"
-    sha256 cellar: :any,                 arm64_monterey: "a17707ff2b6046f4b20246a3f4516d5c8dd025b42f1332b079d61c597e0d2acb"
-    sha256 cellar: :any,                 sonoma:         "4c172504c169ec73171e917fac317d4893d812e60f720fef5a475f5d543bbd8a"
-    sha256 cellar: :any,                 ventura:        "c549634c09e5a9f0688cf56a53923f257f465926fee68ff57486bab631d1b249"
-    sha256 cellar: :any,                 monterey:       "cd6a9789100cbb16589d41114a37b58f70deb902bdbb5cdd4294d057fb75f76b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab8fde994c4cfb4c5bfb6095d4845c11f6a9947800d52b642198575050ae6fa3"
+    sha256 cellar: :any,                 arm64_sequoia: "aa85b3a74a71bfa20b5298f35fef63fe1738a0c85a978ab1fbf94b56c1bf168c"
+    sha256 cellar: :any,                 arm64_sonoma:  "ba31c84f6c649d6b133a62d0c69a0b6c92fdb9d9e6ef959abd527fca75b43652"
+    sha256 cellar: :any,                 arm64_ventura: "8a8f6c2dedb5446e4e0dfb6eef6c38acb7a134a2559e3828c2b7bca7c6cff747"
+    sha256 cellar: :any,                 sonoma:        "6bcdc1b4b2820d7124c5b4c0b39566ff52cac816054945a960ef1c3a43838308"
+    sha256 cellar: :any,                 ventura:       "1f2419e77039100f1a1adc062484e54a0866944235db1695fda292a0ea024894"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bfd3bd380e66af839073487bcdb4934684b437f48b8880334cdc2afed1e4782c"
   end
 
   depends_on "cmake" => [:build, :test]
