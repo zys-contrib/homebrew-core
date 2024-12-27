@@ -9,8 +9,8 @@ class Fypp < Formula
   head "https://github.com/aradi/fypp.git", branch: "main"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, all: "8fa263558875dc38b506ff37c6d8a41125ad4176ef51e5111aaff5e73ce6605e"
+    rebuild 5
+    sha256 cellar: :any_skip_relocation, all: "c8c4c383f5fa91ab12d838277ef39f7b8e11807e3e328379fb52b46c9a5b73f4"
   end
 
   depends_on "python-setuptools" => :build
