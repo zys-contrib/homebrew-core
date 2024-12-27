@@ -33,7 +33,7 @@ class Lima < Formula
     share.install Dir["_output/share/*"]
 
     # Install shell completions
-    generate_completions_from_executable(bin/"limactl", "completion", base_name: "limactl")
+    generate_completions_from_executable(bin/"limactl", "completion")
   end
 
   test do
