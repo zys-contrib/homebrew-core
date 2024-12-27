@@ -12,14 +12,12 @@ class Rgbds < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "ad21b3895b6bfd25f83a1a19e106befae78d42123355f1b325893e832c62e17f"
-    sha256 cellar: :any,                 arm64_sonoma:   "644ff192797102456f26f9513540de9ce86765c1177ae24fe6619a2b07c2ad32"
-    sha256 cellar: :any,                 arm64_ventura:  "5f8011ddf89542afdf952b5d834fc376cf7e6690988a498426bced15ce6a9200"
-    sha256 cellar: :any,                 arm64_monterey: "b263ebc8a8e41690a7e94689d6434bf647d94e362691e591ed6a7d0138990126"
-    sha256 cellar: :any,                 sonoma:         "e91b064c360fa310ba66e30722e088e4cbbb49ca17600945aadae3553d879c01"
-    sha256 cellar: :any,                 ventura:        "a4dd6e7e0b556d48aebb97befd45473a29828eef7fc0a82c63d4fd13cece9986"
-    sha256 cellar: :any,                 monterey:       "2d1008de0fbf9ec18d5d42d08adc1451db21a3f644de7057d07d346922dbe122"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a5f81b9c7ae0f312183e29b08faeb27da936ec5c443db3c404e1fcea782b316"
+    sha256 cellar: :any,                 arm64_sequoia: "f87dfc01d98b7680f8649848bb7ce740f65d40a2fe29d13bf19e797d68017263"
+    sha256 cellar: :any,                 arm64_sonoma:  "4dd20f6948588fbf2014fd1ac758c3e9b58ffe959fc55a436f1a3e5d0c88ea8f"
+    sha256 cellar: :any,                 arm64_ventura: "bbb63d0c35cd30abdf979ada4bbacd9e7af240cd4d95f791d26f0baef17f5c21"
+    sha256 cellar: :any,                 sonoma:        "12e3c9959a097c87290512e26fc609d5e26fe99a89658cb20561f94102953661"
+    sha256 cellar: :any,                 ventura:       "9194b4cacf21ff1ea05970d7e3861f21eb4f6f78b4c2ebdd17eaaf949d6d2ec1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8d11ec5b3e1c034bfda24f02aeafca94dab736b403381b9e41628a9c25be21a"
   end
 
   depends_on "bison" => :build
