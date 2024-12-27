@@ -4,6 +4,7 @@ class Libmps < Formula
   url "https://github.com/Ravenbrook/mps/archive/refs/tags/release-1.118.0.tar.gz"
   sha256 "58c1c8cd82ff8cd77cc7bee612b94cf60cf6a6edd8bd52121910b1a23344e9a9"
   license "BSD-2-Clause"
+  head "https://github.com/Ravenbrook/mps.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2c076fea0e44ca8cf0aacfc914e05a8d4af972c32700d11ce60a4858c6270f96"
