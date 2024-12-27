@@ -13,10 +13,7 @@ class Progressline < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "85bd239897d6f24d55de737a63bf686ad345f39c5f87250272077d699d6299f4"
   end
 
-  # requires Swift 5.10
-  depends_on xcode: ["15.3", :build]
-
-  uses_from_macos "swift" => :build
+  uses_from_macos "swift" => :build, since: :sonoma # swift 5.10+
 
   def install
     args = if OS.mac?
