@@ -496,6 +496,9 @@
   "linode-cli": {
     "exclude_packages": ["certifi"]
   },
+  "literate-git": {
+    "exclude_packages": ["pygit2"]
+  },
   "liquidctl": {
     "exclude_packages": ["pillow"]
   },
