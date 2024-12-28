@@ -1,8 +1,8 @@
 class Asak < Formula
   desc "Cross-platform audio recording/playback CLI tool with TUI"
   homepage "https://github.com/chaosprint/asak"
-  url "https://github.com/chaosprint/asak/archive/refs/tags/v0.3.4.tar.gz"
-  sha256 "171916d7964e2a54ae92b38ffdb67f841e21da89e1b1ffcfb96e385999e066f2"
+  url "https://github.com/chaosprint/asak/archive/refs/tags/v0.3.5.tar.gz"
+  sha256 "dd18f4c777bdba30a87ff4c2d3062ed6a15b8f4ed44f9a19d24fd3896c65aea6"
   license "MIT"
   head "https://github.com/chaosprint/asak.git", branch: "main"
 
@@ -21,6 +21,12 @@ class Asak < Formula
 
   on_linux do
     depends_on "alsa-lib"
+  end
+
+  # release version patch, upstream pr ref, https://github.com/chaosprint/asak/pull/24
+  patch do
+    url "https://github.com/chaosprint/asak/commit/303c9b916cb339e4371a682cb37b7cdc72fa023c.patch?full_index=1"
+    sha256 "e0afa58db64adc57c606aaa0846b7c766a121100e5e574e9a7c4578be439a7c5"
   end
 
   def install
