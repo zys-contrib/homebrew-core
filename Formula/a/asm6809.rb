@@ -40,7 +40,7 @@ class Asm6809 < Formula
     input = testpath/"a.asm"
 
     input.write <<~ASM
-      ; Instructions must be preceeded by whitespace
+      ; Instructions must be preceded by whitespace
         org $c000
         lda $42
         end $c000
