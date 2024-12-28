@@ -6,6 +6,15 @@ class CargoFlamegraph < Formula
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/flamegraph-rs/flamegraph.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "83b62778b73581c7e53152c4e73fd438b68bb8beeee5102811d8ae4d40e89f75"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6ede9bd1f60031ed9e4d923108fd437297e436d4086aca244bf8c9758061ff17"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "64a11d47c7eec1f0763a07f464e6fbf0f69585f4292a17fe76bbdda2170f7eab"
+    sha256 cellar: :any_skip_relocation, sonoma:        "36249021702766ea6d42e784c76167a45286238a3252220128e6cd6c2ddc2bce"
+    sha256 cellar: :any_skip_relocation, ventura:       "3d318a74ddf55a95efd0e7c266269db79bb3ca206d8175422d1f64b17fdc2844"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc5ec07e6bec4c930cffa793537cab6f01569e5a7a44915201505003c7badcd7"
+  end
+
   depends_on "rust" => :build
   depends_on "rustup" => :test
 
