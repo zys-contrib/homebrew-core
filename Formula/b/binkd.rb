@@ -1,10 +1,18 @@
 class Binkd < Formula
   desc "TCP/IP FTN Mailer"
   homepage "https://github.com/pgul/binkd"
-  url "https://happy.kiev.ua/pub/fidosoft/mailer/binkd/binkd-1.0.4.tar.gz"
-  sha256 "917e45c379bbd1a140d1fe43179a591f1b2ec4004b236d6e0c4680be8f1a0dc0"
+  url "https://github.com/pgul/binkd/archive/refs/tags/binkd-1_0_4.tar.gz"
+  sha256 "67cc5c254198005e6d7c5c98b1d161ad146615874df4839daa86735aa5e3fa1d"
   license "GPL-2.0-or-later"
   head "https://github.com/pgul/binkd.git", branch: "master"
+
+  livecheck do
+    url :stable
+    regex(/^(?:binkd[._-])?v?(\d+(?:[._]\d+)+)$/i)
+    strategy :git do |tags|
+      tags.filter_map { |tag| tag[regex, 1]&.tr("_", ".") }
+    end
+  end
 
   bottle do
     rebuild 1
