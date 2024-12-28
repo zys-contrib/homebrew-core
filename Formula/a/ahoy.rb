@@ -1,8 +1,8 @@
 class Ahoy < Formula
   desc "Creates self documenting CLI programs from commands in YAML files"
-  homepage "https://ahoy-cli.readthedocs.io/"
-  url "https://github.com/ahoy-cli/ahoy/archive/refs/tags/v2.2.0.tar.gz"
-  sha256 "9131747774cbb6641b8f7104fd5fb239cbb6fe53656c74d2c29eb95d2db6f9f8"
+  homepage "https://github.com/ahoy-cli/ahoy/"
+  url "https://github.com/ahoy-cli/ahoy/archive/refs/tags/v2.3.0.tar.gz"
+  sha256 "d48b832a475fc9aa5ea42784ac77805afa7bcd477d919a603ec022c240a045df"
   license "MIT"
 
   bottle do
@@ -19,22 +19,11 @@ class Ahoy < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}-homebrew")
-  end
-
-  def caveats
-    <<~EOS
-      ===== UPGRADING FROM 1.x TO 2.x =====
-
-      If you are upgrading from ahoy 1.x, note that you'll
-      need to upgrade your ahoyapi settings in your .ahoy.yml
-      files to 'v2' instead of 'v1'.
-
-      See other changes at:
-
-      https://github.com/ahoy-cli/ahoy
-
-    EOS
+    cd "v2" do
+      system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}-homebrew")
+    end
+    ohai "Please check the README in the repo (https://github.com/ahoy-cli/ahoy) for new features."
+    ohai "An updated documentation website is coming soon."
   end
 
   test do
