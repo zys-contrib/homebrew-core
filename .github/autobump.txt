@@ -712,6 +712,7 @@ dillo
 directx-headers
 direnv
 direvent
+diskus
 dislocker
 displayplacer
 dissent
