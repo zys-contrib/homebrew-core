@@ -82,10 +82,20 @@ class OpenMpi < Formula
 
     # Avoid references to cellar paths.
     inreplace (lib/"pkgconfig").glob("*.pc"), prefix, opt_prefix, audit_result: false
+
+    # Avoid conflict with `putty` by renaming pterm to prte-term which matches
+    # upstream change[^1]. In future release, we may want to split out `prrte`
+    # to a separate formula and pass `--without-legacy-names`[^2].
+    #
+    # [^1]: https://github.com/openpmix/prrte/issues/1836#issuecomment-2564882033
+    # [^2]: https://github.com/openpmix/prrte/blob/master/config/prte_configure_options.m4#L390-L393
+    odie "Update configure for PRRTE or split to separate formula as prte-term exists" if (bin/"prte-term").exist?
+    bin.install bin/"pterm" => "prte-term"
+    man1.install man1/"pterm.1" => "prte-term.1"
   end
 
   test do
-    (testpath/"hello.c").write <<~C
+    (testpath/"hello.c").write <<~'C'
       #include <mpi.h>
       #include <stdio.h>
 
@@ -97,7 +107,7 @@ class OpenMpi < Formula
         MPI_Comm_size(MPI_COMM_WORLD, &size);
         MPI_Comm_rank(MPI_COMM_WORLD, &rank);
         MPI_Get_processor_name(name, &nameLen);
-        printf("[%d/%d] Hello, world! My name is %s.\\n", rank, size, name);
+        printf("[%d/%d] Hello, world! My name is %s.\n", rank, size, name);
         MPI_Finalize();
         return 0;
       }
