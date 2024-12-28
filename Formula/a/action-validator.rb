@@ -12,6 +12,12 @@ class ActionValidator < Formula
       url "https://github.com/SchemaStore/schemastore.git",
           revision: "7bf746bd90d7e88cd11f0a9dc4bc34c91fbbf7b4"
     end
+
+    # shell completion and manpage support, upstream pr ref, https://github.com/mpalmer/action-validator/pull/82
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/ffcaead14f73c08531313dcb7c300918db576c3b/action-validator/0.6.0-completion-manpage.patch"
+      sha256 "91b0f5170e52537f78e4b196e3b3dd580e3e56e6479f14ba59cdfcff556f4680"
+    end
   end
 
   bottle do
@@ -36,9 +42,16 @@ class ActionValidator < Formula
   depends_on "rust" => :build
 
   def install
+    ENV["GEN_DIR"] = buildpath
+
     (buildpath/"src/schemastore").install resource("schemastore")
 
     system "cargo", "install", *std_cargo_args
+
+    bash_completion.install "completions/action-validator.bash"
+    fish_completion.install "completions/action-validator.fish"
+    zsh_completion.install "completions/_action-validator"
+    man1.install "man/action-validator.1"
   end
 
   test do
