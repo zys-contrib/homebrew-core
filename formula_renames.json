@@ -120,6 +120,7 @@
   "pangomm@2.42": "pangomm@2.46",
   "parallelstl": "onedpl",
   "pev": "readpe",
+  "poac": "cabin",
   "polarssl": "mbedtls",
   "postgresql": "postgresql@14",
   "prest": "prestd",
