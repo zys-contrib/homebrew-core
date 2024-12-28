@@ -6,7 +6,7 @@ class LiterateGit < Formula
   url "https://files.pythonhosted.org/packages/7b/cc/1a6c994c90fa34cfa8e90e017c80f838b149fd0262daa24cdb930c091b48/literategit-0.5.0.tar.gz"
   sha256 "88f9e95749d427c98a397a9c38a845d9760cf3451424441bc217c53c1ec835bd"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "f9235220e16c529400db78d67cc49139ae568afd127f8ed72365a331a45a3dd5"
@@ -17,18 +17,13 @@ class LiterateGit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c2b8b137ffbfc8992052e3c5d0ebe578a402c367278601d1958f5577768c12c"
   end
 
-  depends_on "libgit2"
+  depends_on "pygit2"
   depends_on "python@3.13"
 
   uses_from_macos "libffi"
 
   on_linux do
     depends_on "pkgconf" => :build
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/fc/97/c783634659c2920c3fc70419e3af40972dbaf758daa229a7d6ea6135c90d/cffi-1.17.1.tar.gz"
-    sha256 "1c39c6016c32bc48dd54561950ebd6836e1670f2ae46128f67cf49e789c52824"
   end
 
   resource "click" do
@@ -49,16 +44,6 @@ class LiterateGit < Formula
   resource "markupsafe" do
     url "https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz"
     sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
-  end
-
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/1d/b2/31537cf4b1ca988837256c910a668b553fceb8f069bedc4b1c826024b52c/pycparser-2.22.tar.gz"
-    sha256 "491c8be9c040f5390f5bf44a5b07752bd07f56edf992381b05c701439eec10f6"
-  end
-
-  resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/a4/85/c848cdf44214bf541c4a725a0a6e271f8db9f18cfccef702d53f83f1e19a/pygit2-1.16.0.tar.gz"
-    sha256 "7b29a6796baa15fc89d443ac8d51775411d9b1e5b06dc40d458c56c8576b48a2"
   end
 
   resource "pygments" do
