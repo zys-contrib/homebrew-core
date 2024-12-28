@@ -2610,6 +2610,7 @@ ranger
 rapidfuzz-cpp
 ratchet
 ratfor
+ratify
 rattler-build
 rav1e
 raven
