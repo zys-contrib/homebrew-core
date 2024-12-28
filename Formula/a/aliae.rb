@@ -1,8 +1,8 @@
 class Aliae < Formula
   desc "Cross shell and platform alias management"
   homepage "https://aliae.dev"
-  url "https://github.com/jandedobbeleer/aliae/archive/refs/tags/v0.24.1.tar.gz"
-  sha256 "5e204a321f0310562f55e3063cdddd2003b5220d03e8519eb3bc3827498a1abd"
+  url "https://github.com/jandedobbeleer/aliae/archive/refs/tags/v0.25.0.tar.gz"
+  sha256 "008e46fb186c069b6f229308129f7002b0aebc4cda51ef0cc73df912a0f3d796"
   license "MIT"
   head "https://github.com/jandedobbeleer/aliae.git", branch: "main"
 
