@@ -436,6 +436,9 @@
   "huggingface-cli": {
     "exclude_packages": ["certifi"]
   },
+  "icloudpd": {
+    "exclude_packages": ["certifi"]
+  },
   "iconsur": {
     "package_name": "",
     "extra_packages": ["pyobjc-core", "pyobjc-framework-cocoa"]
