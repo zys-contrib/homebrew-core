@@ -1,9 +1,9 @@
 class G2o < Formula
   desc "General framework for graph optimization"
   homepage "https://openslam-org.github.io/g2o.html"
-  url "https://github.com/RainerKuemmerle/g2o/archive/refs/tags/20230806_git.tar.gz"
-  version "20230806"
-  sha256 "e717d3b96cc6d00fcbbaf637aae648c9823599e6aa8fcf4546fc9ad4034dcde5"
+  url "https://github.com/RainerKuemmerle/g2o/archive/refs/tags/20241228_git.tar.gz"
+  version "20241228"
+  sha256 "d691ead69184ebbb8256c9cd9f4121d1a880b169370efc0554dd31a64802a452"
   license "BSD-2-Clause"
 
   livecheck do
@@ -39,7 +39,7 @@ class G2o < Formula
     if Hardware::CPU.intel?
       cmake_args << "-DDO_SSE_AUTODETECT=OFF"
       case Hardware.oldest_cpu
-      when :nehalem
+      when :nehalem, :westmere
         cmake_args += %w[-DDISABLE_SSE4_A=ON]
       when :core2
         cmake_args += %w[-DDISABLE_SSE4_1=ON -DDISABLE_SSE4_2=ON -DDISABLE_SSE4_A=ON]
