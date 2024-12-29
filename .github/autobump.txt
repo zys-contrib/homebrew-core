@@ -2642,6 +2642,7 @@ remind
 renovate
 replxx
 repo
+repomix
 reposurgeon
 repren
 reproc
