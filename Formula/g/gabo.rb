@@ -6,12 +6,12 @@ class Gabo < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "42dafddcb9b6cc42583f454e7dbcb5fcf6f4e692524135c56f8daebfdf0ae461"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "42dafddcb9b6cc42583f454e7dbcb5fcf6f4e692524135c56f8daebfdf0ae461"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "42dafddcb9b6cc42583f454e7dbcb5fcf6f4e692524135c56f8daebfdf0ae461"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6e326953053b63a157c17587571834c7bb0ab4004d0c1887666a8a3ba5566e4d"
-    sha256 cellar: :any_skip_relocation, ventura:       "6e326953053b63a157c17587571834c7bb0ab4004d0c1887666a8a3ba5566e4d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49c097a712532e105c3f58b29f0413bae6831a0b915589f0afd623d5a2da1110"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "927e72f8dfa3a82635e53f2f4de8c83a7d7145250a735faee21e1c884e61dee0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "927e72f8dfa3a82635e53f2f4de8c83a7d7145250a735faee21e1c884e61dee0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "927e72f8dfa3a82635e53f2f4de8c83a7d7145250a735faee21e1c884e61dee0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8d88f0baa044e096d7da59e1772ad906fbfd9e6496a7e44375dc52a4573396e8"
+    sha256 cellar: :any_skip_relocation, ventura:       "8d88f0baa044e096d7da59e1772ad906fbfd9e6496a7e44375dc52a4573396e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c99ae0e97b2b7bbef5ad821f09962361ea0176b7c6b467e178fe965bb3cc8286"
   end
 
   depends_on "go" => :build
