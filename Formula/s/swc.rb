@@ -6,6 +6,15 @@ class Swc < Formula
   license "Apache-2.0"
   head "https://github.com/swc-project/swc.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "729b1f1fc8d0f8d2d8791f1869a6806e9538bed4d9c76a211afd8c2ba182e6e9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ec9cd450157afb07b977b846c2385b87b54a6871ac2afb501887ad8c9f7bd6cc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2ffed934ff4a71d10748eed031b32eca0beb5c6830ac0d0e039914996977f4b1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "07abef9dddde89ef6a146df376c01dddef74602640e580eb381d9c65859ea65f"
+    sha256 cellar: :any_skip_relocation, ventura:       "69a13e2ebd7ee065f23e85127437894a017571706f4bc95814aa5d1204b4f03c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16ccec1f24658fcb28a06def6169028a7601e777c5b43d5f7d3c4217c24813ae"
+  end
+
   depends_on "rust" => :build
 
   def install
