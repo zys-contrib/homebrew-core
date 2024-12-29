@@ -5,6 +5,15 @@ class Repomix < Formula
   sha256 "18cb7b4453a5935d02565d0443978407cb972e442b06315b880d10c85755a612"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "70ce7324dbee72c3b5b90eeb7068dcac4701966615f474f392e09206029cebd2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "70ce7324dbee72c3b5b90eeb7068dcac4701966615f474f392e09206029cebd2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "70ce7324dbee72c3b5b90eeb7068dcac4701966615f474f392e09206029cebd2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "639b6c1ace70ad9ab9f127d87031513dd4119619c39b1db49aab8083e12da585"
+    sha256 cellar: :any_skip_relocation, ventura:       "639b6c1ace70ad9ab9f127d87031513dd4119619c39b1db49aab8083e12da585"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e7431c1fd7649e29aa06df34a714a6a6b8b7dd6457cdb102fcde088ef0e02c2"
+  end
+
   depends_on "node"
 
   on_linux do
