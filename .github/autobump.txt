@@ -1049,6 +1049,7 @@ fx
 fzf
 fzf-make
 g-ls
+g2o
 gabo
 gallery-dl
 gammaray
