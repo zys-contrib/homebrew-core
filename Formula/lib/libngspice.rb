@@ -1,9 +1,10 @@
 class Libngspice < Formula
   desc "Spice circuit simulator as shared library"
   homepage "https://ngspice.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/43/ngspice-43.tar.gz"
-  sha256 "14dd6a6f08531f2051c13ae63790a45708bd43f3e77886a6a84898c297b13699"
+  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/44/ngspice-44.tar.gz"
+  sha256 "8fef0e80b324df1f6ac6c73a9ed9a4120a9a17b62c13e83e1f674a9d9e6a4142"
   license :cannot_represent
+  head "https://git.code.sf.net/p/ngspice/ngspice.git", branch: "master"
 
   livecheck do
     formula "ngspice"
@@ -20,19 +21,16 @@ class Libngspice < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2f0e80dc6c18dade4045ecca05f3e2824d1eb6c220c26b055272ce9bcd2f75d"
   end
 
-  head do
-    url "https://git.code.sf.net/p/ngspice/ngspice.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
   def install
-    system "./autogen.sh" if build.head?
+    # upstream bug report on the `configure` script, https://sourceforge.net/p/ngspice/bugs/731/
+    system "./autogen.sh"
 
     args = %w[
       --with-ngshared
