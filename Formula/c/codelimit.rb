@@ -3,8 +3,8 @@ class Codelimit < Formula
 
   desc "Your Refactoring Alarm"
   homepage "https://github.com/getcodelimit/codelimit"
-  url "https://files.pythonhosted.org/packages/21/8f/e9b428cb18e68ecc26c9e60e7ebeb1457387aa2e775c16bc9b379837a964/codelimit-0.16.0.tar.gz"
-  sha256 "aabdb90e8b34e0095b29e235ad4e8b27af72013eae871f94631e359dc65cbe97"
+  url "https://files.pythonhosted.org/packages/c3/5d/dad628013fb28d539575ea0267cec1c24521c6ea65b87b30111ffb5b7782/codelimit-0.17.0.tar.gz"
+  sha256 "8701a6cce4676dd315b29fb2314249adf20ee78186694c706c4edfd68b7834e9"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -41,8 +41,8 @@ class Codelimit < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
-    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
+    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
+    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
   end
 
   resource "click" do
