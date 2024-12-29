@@ -8,7 +8,7 @@ class Pter < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "356cd38bdb434ebb968d731616914d35991af7ec6a3172c303d875c70abfd18f"
+    sha256 cellar: :any_skip_relocation, all: "64fa8f1f54e9e39c989f99c44df9b4e2cac8bab975e52401ffed33ec800f147d"
   end
 
   depends_on "python@3.13"
