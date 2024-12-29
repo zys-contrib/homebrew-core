@@ -1,9 +1,10 @@
 class Ngspice < Formula
   desc "Spice circuit simulator"
   homepage "https://ngspice.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/43/ngspice-43.tar.gz"
-  sha256 "14dd6a6f08531f2051c13ae63790a45708bd43f3e77886a6a84898c297b13699"
+  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/44/ngspice-44.tar.gz"
+  sha256 "8fef0e80b324df1f6ac6c73a9ed9a4120a9a17b62c13e83e1f674a9d9e6a4142"
   license :cannot_represent
+  head "https://git.code.sf.net/p/ngspice/ngspice.git", branch: "master"
 
   livecheck do
     url :stable
@@ -21,13 +22,9 @@ class Ngspice < Formula
     sha256 x86_64_linux:   "cd2f925a4717f2eff7ad283537ffd58bb02c3fabce3fa77ab8b66a52ea7ff0a1"
   end
 
-  head do
-    url "https://git.code.sf.net/p/ngspice/ngspice.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   depends_on "fftw"
   depends_on "freetype"
@@ -48,7 +45,8 @@ class Ngspice < Formula
   end
 
   def install
-    system "./autogen.sh" if build.head?
+    # upstream bug report on the `configure` script, https://sourceforge.net/p/ngspice/bugs/731/
+    system "./autogen.sh"
 
     # Xft #includes <ft2build.h>, not <freetype2/ft2build.h>, hence freetype2
     # must be put into the search path.
