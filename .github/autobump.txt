@@ -670,6 +670,7 @@ ddrescue
 deadfinder
 deark
 debianutils
+decasify
 define
 dehydrated
 delve
