@@ -1,8 +1,8 @@
 class Television < Formula
   desc "General purpose fuzzy finder TUI"
   homepage "https://github.com/alexpasmantier/television"
-  url "https://github.com/alexpasmantier/television/archive/refs/tags/0.7.1.tar.gz"
-  sha256 "18b1590003c065813d2726cc835ae4a33c5ce0bd9de6255dfad0e6e9bb759169"
+  url "https://github.com/alexpasmantier/television/archive/refs/tags/0.8.0.tar.gz"
+  sha256 "bd110e3ca53bd9eaa20aad66015f1eb51ed6945b2827ca24d7c6bf7ade74a63a"
   license "MIT"
   head "https://github.com/alexpasmantier/television.git", branch: "main"
 
@@ -32,7 +32,7 @@ class Television < Formula
       output_log = testpath/"output.log"
       pid = spawn bin/"tv", [:out, :err] => output_log.to_s
       sleep 2
-      assert_match "Preview", output_log.read
+      assert_match "preview", output_log.read
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)
