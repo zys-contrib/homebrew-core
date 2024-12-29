@@ -1,8 +1,8 @@
 class Allegro < Formula
   desc "C/C++ multimedia library for cross-platform game development"
   homepage "https://liballeg.org/"
-  url "https://github.com/liballeg/allegro5/releases/download/5.2.10.0/allegro-5.2.10.0.tar.gz"
-  sha256 "8780b7965ad63646c7c5cd3381c64627e0c1edc3594e0947a7f3696e1176367e"
+  url "https://github.com/liballeg/allegro5/releases/download/5.2.10.1/allegro-5.2.10.1.tar.gz"
+  sha256 "2ef9f77f0b19459ea2c7645cc4762fc35c74d3d297bfc38d8592307757166f05"
   license "Zlib"
   head "https://github.com/liballeg/allegro5.git", branch: "master"
 
