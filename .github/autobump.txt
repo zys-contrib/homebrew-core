@@ -2810,6 +2810,7 @@ shellharden
 shellz
 sherlock
 shfmt
+showcert
 showkey
 shtools
 shub

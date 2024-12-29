@@ -795,6 +795,9 @@
   "shodan": {
     "exclude_packages": ["certifi"]
   },
+  "showcert": {
+    "exclude_packages": ["certifi", "cryptography"]
+  },
   "shub": {
     "exclude_packages": ["certifi"]
   },
