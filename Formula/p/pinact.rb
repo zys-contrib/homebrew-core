@@ -6,6 +6,15 @@ class Pinact < Formula
   license "MIT"
   head "https://github.com/suzuki-shunsuke/pinact.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "22f4358d5198259d6a0beb599ef61a81741667aa1082c0a391d45fb2f996950d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "22f4358d5198259d6a0beb599ef61a81741667aa1082c0a391d45fb2f996950d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "22f4358d5198259d6a0beb599ef61a81741667aa1082c0a391d45fb2f996950d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "47524b346b09ab7eab2069b440dea15c436857852de717a1343e71c3ea975f37"
+    sha256 cellar: :any_skip_relocation, ventura:       "47524b346b09ab7eab2069b440dea15c436857852de717a1343e71c3ea975f37"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9bcc22f6be636367b7e47472d6ecc0567d757f3f829efe5f4aafb50248e7c92b"
+  end
+
   depends_on "go" => :build
 
   def install
