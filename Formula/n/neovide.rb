@@ -17,9 +17,11 @@ class Neovide < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "27f529fe1b6db0517fd3880d55aa07af4c5cfae107a2ce0a5674adcacd092cda"
   end
 
+  depends_on "ninja" => :build
   depends_on "rust" => :build
   depends_on "neovim"
 
+  uses_from_macos "llvm" => :build
   uses_from_macos "python" => :build, since: :catalina
 
   on_macos do
@@ -27,12 +29,42 @@ class Neovide < Formula
   end
 
   on_linux do
+    depends_on "python@3.12" => :build # https://github.com/rust-skia/rust-skia/issues/1049
+    depends_on "expat"
     depends_on "fontconfig"
     depends_on "freetype"
-    depends_on "libxcb"
+    depends_on "harfbuzz"
+    depends_on "icu4c@76"
+    depends_on "jpeg-turbo"
+    depends_on "libpng"
+    depends_on "libxkbcommon" # dynamically loaded by xkbcommon-dl
+    depends_on "mesa" # dynamically loaded by glutin
+    depends_on "zlib"
+  end
+
+  fails_with :gcc do
+    cause "Skia build uses clang target option"
   end
 
   def install
+    ENV["FORCE_SKIA_BUILD"] = "1" # avoid pre-built `skia`
+
+    # FIXME: On macOS, `skia-bindings` crate only allows building `skia` with bundled libraries
+    if OS.linux?
+      if build.stable?
+        skia_bindings_version = Version.new(File.read("Cargo.lock")[/name = "skia-bindings"\nversion = "(.*)"/, 1])
+        odie "Remove `python@3.12` dependency and PATH modification" if skia_bindings_version >= "0.80.0"
+        ENV.prepend_path "PATH", Formula["python@3.12"].opt_libexec/"bin"
+      end
+
+      ENV["SKIA_USE_SYSTEM_LIBRARIES"] = "1"
+      ENV["CLANG_PATH"] = which(ENV.cc) # force bindgen to use superenv clang to find brew libraries
+
+      # GN doesn't use CFLAGS so pass extra paths using superenv
+      ENV.append_path "HOMEBREW_INCLUDE_PATHS", Formula["freetype"].opt_include/"freetype2"
+      ENV.append_path "HOMEBREW_INCLUDE_PATHS", Formula["harfbuzz"].opt_include/"harfbuzz"
+    end
+
     system "cargo", "install", *std_cargo_args
 
     return unless OS.mac?
