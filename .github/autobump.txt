@@ -1459,6 +1459,7 @@ jfrog-cli
 jhipster
 jikken
 jimtcl
+jing-trang
 jj
 jlog
 jmeter

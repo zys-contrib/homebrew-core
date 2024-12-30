@@ -2,23 +2,17 @@ class JingTrang < Formula
   desc "Schema validation and conversion based on RELAX NG"
   homepage "http://www.thaiopensource.com/relaxng/"
   url "https://github.com/relaxng/jing-trang.git",
-      tag:      "V20220510",
-      revision: "84ec6ad578d6e0a77342baa5427851f98028bfd8"
+      tag:      "V20241230",
+      revision: "cbc7271a41987a05b83af9d1726cddcb445a7167"
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6ba111db4e46a0a73cc94b00c7a4798df91a9374fe5c87664a3c581a210aa3df"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "803f5da50d3fccc25832a42c5ec7a450a4be08b8f75ef5567291b9bc249af93e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5dcb20d5192ca4d965c42beae8adab82fc8b919ee96a11d2d315a06e7aa214d6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ee7b261bf84183f59e0c0b8d37c8fe8802297eaf894a5d132cf58a15b66c57ba"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a22bf4effa32d1b17b54a975e7b8dc7ca08b9991696fee7e9d95d649d6a021ec"
-    sha256 cellar: :any_skip_relocation, sonoma:         "95a0085303525d8fbd7a2909888049139e32f8cdfdd3c6ef9bf12e7817ddfc37"
-    sha256 cellar: :any_skip_relocation, ventura:        "fe895e7b7d28c66cf7853b53658c4d972756a33072d98039f306f70ea537f3d6"
-    sha256 cellar: :any_skip_relocation, monterey:       "6e5d22a93244e1234b68ff9aec22c9f757def6cdfd127f00ecf9c426071f321c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c44cb54e793d544152dd0cb28564d52a731da574aa704e4197f21c04097875a1"
-    sha256 cellar: :any_skip_relocation, catalina:       "7dcf958640d82be13d25eaebd84af8f1db6f151ada7c942609a58a14dedb5c5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4eed5e67a543cf3259aed905ee2a34be05ccc664e5744395609d1d7c2a093d35"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "655ca3e056c02320bec6666cf23d0919919dbc2dfa773d8c5a90b6cbae8d2d4a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f2837d6e749b7472a799cd9e9b297481dc130413e94619b5dd0e925529f28fa4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8f549de984955fcd37dffa2150003e73e3b3d52b48618552a26c751d912b901e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "49209567f775806905b0eb6d363269152fdfb3a1ad6908a47d6f86a39d7c6f75"
+    sha256 cellar: :any_skip_relocation, ventura:       "739b24553e45e2334ddf28a8b47308fed802a837cf1d6415c0c03dd04776ce3d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a54f2baff24efaf490090bc6965604f67b5f9352a3e9d6a28745037b14519be6"
   end
 
   depends_on "ant" => :build
