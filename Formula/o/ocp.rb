@@ -1,8 +1,8 @@
 class Ocp < Formula
   desc "UNIX port of the Open Cubic Player"
   homepage "https://stian.cubic.org/project-ocp.php"
-  url "https://stian.cubic.org/ocp/ocp-3.0.0.tar.xz"
-  sha256 "0dadfbfd755eac84aa33e23b24eb158f01f674e16a28e9820ad67e2f90418483"
+  url "https://stian.cubic.org/ocp/ocp-3.0.1.tar.xz"
+  sha256 "60a03d73883ea9c5dd94253907fc2002aa229e0fc41febb17d7baa341b228db1"
   license "GPL-2.0-or-later"
   head "https://github.com/mywave82/opencubicplayer.git", branch: "master"
 
@@ -55,14 +55,6 @@ class Ocp < Formula
   end
 
   def install
-    # Fix compile with newer Clang
-    # upstream bug report, https://github.com/mywave82/opencubicplayer/issues/121
-    if DevelopmentTools.clang_build_version >= 1403
-      ENV.append_to_cflags "-Wno-implicit-function-declaration -Wno-int-conversion"
-    end
-
-    ENV.deparallelize
-
     # Required for SDL2
     resource("unifont").stage do |r|
       cd "font/precompiled" do
@@ -82,12 +74,16 @@ class Ocp < Formula
       --with-unifontdir-otf=#{share}
     ]
 
+    # We do not use *std_configure_args here since
+    # `--prefix` is the only recognized option we pass
     system "./configure", *args
     system "make"
     system "make", "install"
   end
 
   test do
-    system bin/"ocp", "--help"
+    assert_match version.to_s, shell_output("#{bin}/ocp --help 2>&1")
+
+    assert_path_exists testpath/".config/ocp/ocp.ini"
   end
 end
