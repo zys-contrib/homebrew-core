@@ -7,12 +7,12 @@ class JingTrang < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "655ca3e056c02320bec6666cf23d0919919dbc2dfa773d8c5a90b6cbae8d2d4a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f2837d6e749b7472a799cd9e9b297481dc130413e94619b5dd0e925529f28fa4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8f549de984955fcd37dffa2150003e73e3b3d52b48618552a26c751d912b901e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "49209567f775806905b0eb6d363269152fdfb3a1ad6908a47d6f86a39d7c6f75"
-    sha256 cellar: :any_skip_relocation, ventura:       "739b24553e45e2334ddf28a8b47308fed802a837cf1d6415c0c03dd04776ce3d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a54f2baff24efaf490090bc6965604f67b5f9352a3e9d6a28745037b14519be6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dd185ecd711ae39122b5a5c2b7d1ac25fb655d24db51a20ddbfe3fe081bc0be5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c59e3c55b275f245636396619acf1d1d99e5673aca25f21d546bfc151cb370ea"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "908bcd6e6f9ed7d3a00030052aadef34a4fd796fde206f54b61299c26a320a73"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3f7742f4501958222de06977c2be07e64fdcf2197400aa3043136bf6e370bd1e"
+    sha256 cellar: :any_skip_relocation, ventura:       "384ffca335b8ed354aabcc431f161a8da3f375116d1e20b56de0f080f3182166"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0a3f1c8df1a2607c3640ea20c71d26027067f9ec7c8fe5878d627d222dd26a5"
   end
 
   depends_on "ant" => :build
