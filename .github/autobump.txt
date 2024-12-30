@@ -3448,6 +3448,7 @@ zf
 zfind
 zig
 zigmod
+zim
 zipkin
 zizmor
 zk
