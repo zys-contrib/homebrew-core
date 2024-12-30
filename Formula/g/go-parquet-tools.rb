@@ -1,8 +1,8 @@
 class GoParquetTools < Formula
   desc "Utility to deal with Parquet data"
   homepage "https://github.com/hangxie/parquet-tools"
-  url "https://github.com/hangxie/parquet-tools/archive/refs/tags/v1.25.10.tar.gz"
-  sha256 "4255a765c295603fdc51b3479ff8d0defbb864971b2e1f732d1278231603b18b"
+  url "https://github.com/hangxie/parquet-tools/archive/refs/tags/v1.25.12.tar.gz"
+  sha256 "a34e545858754ac7ba6e03e0ae51d91dacd21597f59a1fc4c80581ac59b37df1"
   license "BSD-3-Clause"
 
   bottle do
@@ -21,7 +21,6 @@ class GoParquetTools < Formula
       -s -w
       -X github.com/hangxie/parquet-tools/cmd.version=v#{version}
       -X github.com/hangxie/parquet-tools/cmd.build=#{time.iso8601}
-      -X github.com/hangxie/parquet-tools/cmd.gitHash=Deprecated
       -X github.com/hangxie/parquet-tools/cmd.source=Homebrew
     ]
     system "go", "build", *std_go_args(ldflags:, output: bin/"parquet-tools")
@@ -29,7 +28,7 @@ class GoParquetTools < Formula
 
   test do
     resource("test-parquet") do
-      url "https://github.com/hangxie/parquet-tools/raw/v1.25.10/testdata/good.parquet"
+      url "https://github.com/hangxie/parquet-tools/raw/950d21759ff3bd398d2432d10243e1bace3502c5/testdata/good.parquet"
       sha256 "daf5090fbc5523cf06df8896cf298dd5e53c058457e34766407cb6bff7522ba5"
     end
 
