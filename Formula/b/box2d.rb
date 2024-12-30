@@ -7,14 +7,12 @@ class Box2d < Formula
   head "https://github.com/erincatto/Box2D.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5fb381cacb973bb83acea61d445f4481e2986077925c462a72f0e42a56204761"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1004520deaab7266d3e2a3376c88c6a5ecbb0a5661fa0f758f9019a3fcaa4afa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "690e7314d93f6ce71411117355a7bbb20e80af3b6ee5e8ec3dc8a0206f8f8185"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "348e4835ab1d24fa9e5235881f7c2c1093aff7ed608830bdf505f89194190e75"
-    sha256 cellar: :any_skip_relocation, sonoma:         "91c0f27f23c15f669953359c166972a465d9dca11045281050ed3e3bbcb12122"
-    sha256 cellar: :any_skip_relocation, ventura:        "f0aebdc3f3d506c0b2018588cc9cefc6ee66b8d002218f617c16e9011d126656"
-    sha256 cellar: :any_skip_relocation, monterey:       "abc781043d1cc1b62bffcba6593071884bc624451beae3552324b59333449b8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7fcc479cc9727d27fc40725c5aed9f937a3a5aa06682a6b9affd4a0e7f9d3e74"
+    sha256 cellar: :any,                 arm64_sequoia: "ac174c6809d89d00a4f87e7aa3d1f837aa1359f79a8c9965bdcbc329903a22dc"
+    sha256 cellar: :any,                 arm64_sonoma:  "38366b01d1aab1b30a020edc70367717e160db9f801150a5e000571bd034cc3a"
+    sha256 cellar: :any,                 arm64_ventura: "9da5361dedc96d60cea7e7f8b7fb1cba3dd9b4151a4cafbf6142ecaa8483cf66"
+    sha256 cellar: :any,                 sonoma:        "856209a34ff38af5618ec21f2b2680f564eeb85ef313bc498c4063c6965ce691"
+    sha256 cellar: :any,                 ventura:       "b88e24b021259061e7c0037d233be09bff0a9c32209abf2684f662fd64f7d3c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d264edcb343f0271dbcc1d5b17f81f29af2650a42555fefe04a8208b4f010693"
   end
 
   depends_on "cmake" => :build
