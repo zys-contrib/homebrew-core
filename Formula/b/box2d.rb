@@ -1,8 +1,8 @@
 class Box2d < Formula
   desc "2D physics engine for games"
   homepage "https://box2d.org"
-  url "https://github.com/erincatto/box2d/archive/refs/tags/v2.4.2.tar.gz"
-  sha256 "85b9b104d256c985e6e244b4227d447897fac429071cc114e5cc819dae848852"
+  url "https://github.com/erincatto/box2d/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "64ad759006cd2377c99367f51fb36942b57f0e9ad690ed41548dd620e6f6c8b1"
   license "MIT"
   head "https://github.com/erincatto/Box2D.git", branch: "main"
 
@@ -18,27 +18,35 @@ class Box2d < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "doctest" => :test
 
   def install
     args = %w[
-      -DBOX2D_BUILD_UNIT_TESTS=OFF
-      -DBOX2D_BUILD_TESTBED=OFF
-      -DBOX2D_BUILD_EXAMPLES=OFF
+      -DBUILD_SHARED_LIBS=ON
+      -DBOX2D_UNIT_TESTS=OFF
+      -DBOX2D_SAMPLES=OFF
+      -DBOX2D_BENCHMARKS=OFF
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    pkgshare.install "unit-test/hello_world.cpp"
+    include.install Dir["include/*"]
   end
 
   test do
-    system ENV.cxx, pkgshare/"hello_world.cpp",
-                    "-I#{Formula["doctest"].opt_include}/doctest",
-                    "-L#{lib}", "-lbox2d",
-                    "-std=c++11", "-o", testpath/"test"
-    assert_match "[doctest] Status: SUCCESS!", shell_output("./test")
+    (testpath/"test.cpp").write <<~CPP
+      #include <iostream>
+      #include <box2d/base.h>
+
+      int main() {
+        b2Version version = b2GetVersion();
+        std::cout << "Box2D version: " << version.major << "." << version.minor << "." << version.revision << std::endl;
+        return 0;
+      }
+    CPP
+
+    system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-lbox2d", "-o", "test"
+    assert_match version.to_s, shell_output("./test")
   end
 end
