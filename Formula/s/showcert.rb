@@ -8,6 +8,15 @@ class Showcert < Formula
   license "MIT"
   head "https://github.com/yaroslaff/showcert.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "646e754e0ea20a5c48b2108f3d823e248515d9689df4723ca97df9e543cff3b5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "646e754e0ea20a5c48b2108f3d823e248515d9689df4723ca97df9e543cff3b5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "646e754e0ea20a5c48b2108f3d823e248515d9689df4723ca97df9e543cff3b5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "784a87ade8d3f7dc454b9b8784ffdb1421cde96cd0e703aebe77d1c86d96652e"
+    sha256 cellar: :any_skip_relocation, ventura:       "784a87ade8d3f7dc454b9b8784ffdb1421cde96cd0e703aebe77d1c86d96652e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "646e754e0ea20a5c48b2108f3d823e248515d9689df4723ca97df9e543cff3b5"
+  end
+
   depends_on "certifi"
   depends_on "cryptography"
   depends_on "python@3.13"
