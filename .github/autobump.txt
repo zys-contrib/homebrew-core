@@ -1878,6 +1878,7 @@ log4cxx
 logdy
 logrotate
 logstash
+lol-html
 lout
 lsd
 lsix
