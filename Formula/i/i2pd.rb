@@ -2,10 +2,9 @@ class I2pd < Formula
   desc "Full-featured C++ implementation of I2P client"
   homepage "https://i2pd.website/"
   # TODO: Switch to latest `boost` dependency on next release
-  url "https://github.com/PurpleI2P/i2pd/archive/refs/tags/2.54.0.tar.gz"
-  sha256 "5c3f703417bb5f3e5dda642d39c5d30593a5dcf69d5a5ecfe82d5e8a7d454aaf"
+  url "https://github.com/PurpleI2P/i2pd/archive/refs/tags/2.55.0.tar.gz"
+  sha256 "f5792a1c0499143c716663e90bfb105aaa7ec47d1c4550b5f90ebfc25da00c6c"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "03f7ef0703446cf80a96042dab3beb16f488642a68a236f159c52749cb7c2a2e"
