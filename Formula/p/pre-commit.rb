@@ -37,8 +37,8 @@ class PreCommit < Formula
   end
 
   resource "identify" do
-    url "https://files.pythonhosted.org/packages/29/bb/25024dbcc93516c492b75919e76f389bac754a3e4248682fba32b250c880/identify-2.6.1.tar.gz"
-    sha256 "91478c5fb7c3aac5ff7bf9b4344f803843dc586832d5f110d672b19aa1984c98"
+    url "https://files.pythonhosted.org/packages/49/a5/7de3053524ee006b91099968d7ecb2e0b420f7ae728094394c33e8a2a2b9/identify-2.6.4.tar.gz"
+    sha256 "285a7d27e397652e8cafe537a6cc97dd470a970f48fb2e9d979aa38eae5513ac"
   end
 
   resource "nodeenv" do
