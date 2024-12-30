@@ -4,6 +4,7 @@ class Traefik < Formula
   url "https://github.com/traefik/traefik/releases/download/v3.2.3/traefik-v3.2.3.src.tar.gz"
   sha256 "957997222314116959ce2ff68b261e2b2bc5292566e799dd21e7512b5782feb7"
   license "MIT"
+  revision 1
   head "https://github.com/traefik/traefik.git", branch: "master"
 
   bottle do
@@ -16,12 +17,18 @@ class Traefik < Formula
   end
 
   depends_on "go" => :build
+  depends_on "node@22" => :build
+  depends_on "yarn" => :build
 
   def install
     ldflags = %W[
       -s -w
       -X github.com/traefik/traefik/v#{version.major}/pkg/version.Version=#{version}
     ]
+    cd "webui" do
+      system "yarn", "install", "--immutable"
+      system "yarn", "build"
+    end
     system "go", "generate"
     system "go", "build", *std_go_args(ldflags:), "./cmd/traefik"
   end
@@ -59,6 +66,10 @@ class Traefik < Formula
       sleep 1
       cmd_ui = "curl -sIm3 -XGET http://127.0.0.1:#{ui_port}/dashboard/"
       assert_match "200 OK", shell_output(cmd_ui)
+
+      # Make sure webui assets for dashboard are present at expected destination
+      cmd_ui = "curl -XGET http://127.0.0.1:#{ui_port}/dashboard/"
+      assert_match "<title>Traefik</title>", shell_output(cmd_ui)
     ensure
       Process.kill(9, pid)
       Process.wait(pid)
