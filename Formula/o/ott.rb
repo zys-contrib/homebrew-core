@@ -1,8 +1,8 @@
 class Ott < Formula
   desc "Tool for writing definitions of programming languages and calculi"
   homepage "https://www.cl.cam.ac.uk/~pes20/ott/"
-  url "https://github.com/ott-lang/ott/archive/refs/tags/0.33.tar.gz"
-  sha256 "d64ec4527f8ace56a407fc67957840d1653980fb0112d7fa8f2b0fc958501f7b"
+  url "https://github.com/ott-lang/ott/archive/refs/tags/0.34.tar.gz"
+  sha256 "c14899fb9f9627f96fcde784829b53c014f4cd2e7633a697ac485ecb9ab8abd6"
   license "BSD-3-Clause"
   head "https://github.com/ott-lang/ott.git", branch: "master"
 
