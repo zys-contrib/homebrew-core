@@ -1,8 +1,8 @@
 class Xxhash < Formula
   desc "Extremely fast non-cryptographic hash algorithm"
   homepage "https://xxhash.com"
-  url "https://github.com/Cyan4973/xxHash/archive/refs/tags/v0.8.2.tar.gz"
-  sha256 "baee0c6afd4f03165de7a4e67988d16f0f2b257b51d0e3cb91909302a26a79c4"
+  url "https://github.com/Cyan4973/xxHash/archive/refs/tags/v0.8.3.tar.gz"
+  sha256 "aae608dfe8213dfd05d909a57718ef82f30722c392344583d3f39050c7f29a80"
   license all_of: [
     "BSD-2-Clause", # library
     "GPL-2.0-or-later", # `xxhsum` command line utility
