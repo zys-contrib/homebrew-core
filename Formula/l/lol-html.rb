@@ -6,6 +6,15 @@ class LolHtml < Formula
   license "BSD-3-Clause"
   head "https://github.com/cloudflare/lol-html.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "0ef081850ef8f28e018b65c4b7dfe9e0ec2c79c7177529d4117cfe05ecf1d429"
+    sha256 cellar: :any,                 arm64_sonoma:  "4d10b3710768cac73e457cae0a22eae41eb18d52440bf405401bd4f5a3531ebf"
+    sha256 cellar: :any,                 arm64_ventura: "5ccd12f21cf76ba28e902f6f5cd18cfb4b072dfa685a61c776a88daac7e541e4"
+    sha256 cellar: :any,                 sonoma:        "80e300bf2b95d7ce03a414eb8f287e6977863d1fe1337022b37a6b4da17a4527"
+    sha256 cellar: :any,                 ventura:       "96abc43b365ea6af2e29a102ec783001a8b926a642c93d1741960e1bfa5cfac9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6cbc32ec855ef188329a705f0ee009275657e4abd0f038b123b24ea6c4bf65cd"
+  end
+
   depends_on "rust" => :build
 
   def install
