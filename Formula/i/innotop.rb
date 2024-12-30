@@ -15,26 +15,9 @@ class Innotop < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "caa30fc17b6d41c74eeb3391afb5110b5675d61bcdf27ab8e66edb318c858c57"
   end
 
-  depends_on "mysql-client"
+  depends_on "perl-dbd-mysql"
 
   uses_from_macos "perl"
-
-  resource "Devel::CheckLib" do
-    url "https://cpan.metacpan.org/authors/id/M/MA/MATTN/Devel-CheckLib-1.16.tar.gz"
-    sha256 "869d38c258e646dcef676609f0dd7ca90f085f56cf6fd7001b019a5d5b831fca"
-  end
-
-  resource "DBI" do
-    on_linux do
-      url "https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/DBI-1.646.tar.gz"
-      sha256 "53ab32ac8c30295a776dde658df22be760936cdca5a3c003a23bda6d829fa184"
-    end
-  end
-
-  resource "DBD::mysql" do
-    url "https://cpan.metacpan.org/authors/id/D/DV/DVEEDEN/DBD-mysql-5.011.tar.gz"
-    sha256 "a3a70873ed965b172bff298f285f5d9bbffdcceba73d229b772b4d8b1b3992a1"
-  end
 
   resource "Term::ReadKey" do
     on_linux do
@@ -44,36 +27,19 @@ class Innotop < Formula
   end
 
   def install
-    ENV.prepend_create_path "PERL5LIB", buildpath/"build_deps/lib/perl5"
+    ENV.prepend_path "PERL5LIB", Formula["perl-dbd-mysql"].opt_libexec/"lib/perl5"
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
     resources.each do |r|
       r.stage do
-        install_base = (r.name == "Devel::CheckLib") ? buildpath/"build_deps" : libexec
-
-        # Skip installing man pages for libexec perl modules to reduce disk usage
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{install_base}", "INSTALLMAN1DIR=none", "INSTALLMAN3DIR=none"
-
-        make_args = []
-        if OS.mac? && r.name == "DBD::mysql"
-          # Reduce overlinking on macOS
-          make_args << "OTHERLDFLAGS=-Wl,-dead_strip_dylibs"
-          # Work around macOS DBI generating broken Makefile
-          inreplace "Makefile" do |s|
-            old_dbi_instarch_dir = s.get_make_var("DBI_INSTARCH_DIR")
-            new_dbi_instarch_dir = "#{MacOS.sdk_path_if_needed}#{old_dbi_instarch_dir}"
-            s.change_make_var! "DBI_INSTARCH_DIR", new_dbi_instarch_dir
-            s.gsub! " #{old_dbi_instarch_dir}/Driver_xst.h", " #{new_dbi_instarch_dir}/Driver_xst.h"
-          end
-        end
-
-        system "make", "install", *make_args
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "INSTALLMAN1DIR=none", "INSTALLMAN3DIR=none"
+        system "make", "install"
       end
     end
 
     system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}", "INSTALLSITEMAN1DIR=#{man1}"
     system "make", "install"
-    bin.env_script_all_files(libexec/"bin", PERL5LIB: libexec/"lib/perl5")
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
   end
 
   test do
