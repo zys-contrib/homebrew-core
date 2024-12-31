@@ -16,10 +16,7 @@ class Cppinsights < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm@18"
-  on_macos do
-    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1500
-  end
+  depends_on "llvm"
 
   fails_with :clang do
     build 1500
@@ -30,17 +27,17 @@ class Cppinsights < Formula
   # Support for LLVM 18, remove in next version
   patch :DATA
 
-  def install
-    if OS.mac? && DevelopmentTools.clang_build_version <= 1500
-      ENV.llvm_clang
-      ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
-    end
+  # Support for LLVM 19, remove in next version
+  patch do
+    url "https://github.com/andreasfertig/cppinsights/commit/a84a979abdd0cd57790d0795c3642198188215e9.patch?full_index=1"
+    sha256 "fcfccbddc4e1c4b0fbb359fcd1c9dca58c4a5f15a175c53c449586b17217e079"
+  end
 
-    llvm18 = Formula["llvm@18"]
-    ENV.append "LDFLAGS", "-L#{llvm18.lib}"
+  def install
+    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1500
 
     system "cmake", "-S", ".", "-B", "build",
-                    "-DINSIGHTS_LLVM_CONFIG=#{llvm18.opt_bin}/llvm-config",
+                    "-DINSIGHTS_LLVM_CONFIG=#{Formula["llvm"].opt_bin}/llvm-config",
                     "-DINSIGHTS_USE_SYSTEM_INCLUDES=Off",
                     *std_cmake_args
     system "cmake", "--build", "build"
