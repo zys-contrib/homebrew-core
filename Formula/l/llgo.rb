@@ -6,12 +6,12 @@ class Llgo < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "287e6e801a0611898eb79d6beb4423d7a1833ae260f80be1c7dc6f09b344bc24"
-    sha256 cellar: :any, arm64_sonoma:  "67e233608b858e2ac1b823694e6a72b8dff4bf53d535647a54fcb05b0e4e66b4"
-    sha256 cellar: :any, arm64_ventura: "74b7cf27f07fba3674e9a2c4ca1418e77033d150dfbcea56afd359697c7c2582"
-    sha256 cellar: :any, sonoma:        "07c6c4d88ec169cc5e177d0ea6fe7268290a3b191c340b10cf2650fc6ed69ef8"
-    sha256 cellar: :any, ventura:       "ee3cde534de042491014ac773ca3fec7f520d430d56836be7f3cce2e70a45b85"
-    sha256               x86_64_linux:  "b229243a980288079c05cc4180e144b9bf89e7368a65f64d2d43ba769f696057"
+    sha256 cellar: :any, arm64_sequoia: "e4f7a4e54a80876defc9ef22d779e0043f897c3dd146efb4494a4dac722018f1"
+    sha256 cellar: :any, arm64_sonoma:  "e302707dcf587e2526f815f75dc9a25f571b09621ccf5245743899b452f2bc07"
+    sha256 cellar: :any, arm64_ventura: "4b4c2d0f8f722bc2c4053bd34bceb98d97e52a8068bda9b07a33366ca684e768"
+    sha256 cellar: :any, sonoma:        "67851d672f74c74b34652788de4175098dc1636b717c97574e5bcc804af5241f"
+    sha256 cellar: :any, ventura:       "66fe74269b0f47db75f1d5c283f8dda84166d7d95be5b225e2be458c40a99d5e"
+    sha256               x86_64_linux:  "f90f9374df031d8dcf2a554da1226937d77e1e71c82ae77b583afaa72f56769a"
   end
 
   depends_on "bdw-gc"
