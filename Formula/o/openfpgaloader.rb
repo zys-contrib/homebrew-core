@@ -1,20 +1,18 @@
 class Openfpgaloader < Formula
   desc "Universal utility for programming FPGA"
   homepage "https://github.com/trabucayre/openFPGALoader"
-  url "https://github.com/trabucayre/openFPGALoader/archive/refs/tags/v0.12.1.tar.gz"
-  sha256 "8fb2d1aa3a0de50222f6286c47220a5bc7b73708b60fb7d58f764deebd43d82d"
+  url "https://github.com/trabucayre/openFPGALoader/archive/refs/tags/v0.13.0.tar.gz"
+  sha256 "f8037b8080eec21afc74284c8b0352a2ba76ea685733ba63d8322d6fe39e7721"
   license "Apache-2.0"
   head "https://github.com/trabucayre/openFPGALoader.git", branch: "master"
 
   bottle do
-    sha256 arm64_sequoia:  "2ebd6041d2ad37716bd9aeeb1d4954c246cd0a49e2b0f282f9c086ab5c06bd88"
-    sha256 arm64_sonoma:   "4ea5de1bb729263aca9cd5a02f905bce83f33cd254066092f7743ddf8eee71f7"
-    sha256 arm64_ventura:  "78f4b3627bd8442931c6eb2aee3710f9e85440797401e111c0026e681e287e71"
-    sha256 arm64_monterey: "c39f654334abcaca0a6f06be85d10e84e1e11f17d87a1604c18c7e166d5b213d"
-    sha256 sonoma:         "e9a77b3de0e081a047a27bcc61a998ea29f8f405865563a8221f0748df31cbb0"
-    sha256 ventura:        "2ff894e1bbcd97e5e503e248fa3531484d0c78acf89516ceeca947877de888db"
-    sha256 monterey:       "fb2c87e13038d1e85d50ebc0981803684d58105253ed6eaf96b92ca13bfb596b"
-    sha256 x86_64_linux:   "6ba7e9b4d370b1ff5165c94f716e3a97542747da12ff7083d3bf76b75e42f24f"
+    sha256 arm64_sequoia: "614633e045dc77fbb66ff74b8f78e4aab0fc0377a14c422e950f3c8b773b0387"
+    sha256 arm64_sonoma:  "5b4852971a5effba612e9a40291973d35c75f89bdc0c9ceaf2d063ae4c62c35d"
+    sha256 arm64_ventura: "be740ac62e83b806eb846c338816a12f1e2478d455563a5780a6f9fc3d969839"
+    sha256 sonoma:        "84f0db4d940f6c3f6f5bb1869af990705403ecf7833b1f34aa2fb84e88ba34c8"
+    sha256 ventura:       "af3ee5c7e8d80e72056595a0d9d3a0e7bd5cd680eda413814b8140ff45adacc3"
+    sha256 x86_64_linux:  "cf465f7b777eaefd161a31f44759c0aff094734a220979f01d5b5d005133b525"
   end
 
   depends_on "cmake" => :build
@@ -26,6 +24,12 @@ class Openfpgaloader < Formula
 
   on_linux do
     depends_on "systemd"
+  end
+
+  # patch version, upstream pr ref, https://github.com/trabucayre/openFPGALoader/pull/502
+  patch do
+    url "https://github.com/trabucayre/openFPGALoader/commit/3024b76113f9e5cfcaeb5f943de45697b73cf974.patch?full_index=1"
+    sha256 "5e1f0150deb46eafe93a12092d164cfe2312cbb11cfc363982b5bb6126ecb284"
   end
 
   def install
