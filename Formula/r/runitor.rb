@@ -11,6 +11,15 @@ class Runitor < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "862b3af6b1b84bd87aad4f08290a459ab3bd59d59a2f9fd4730da8b1e3d63060"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "862b3af6b1b84bd87aad4f08290a459ab3bd59d59a2f9fd4730da8b1e3d63060"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "862b3af6b1b84bd87aad4f08290a459ab3bd59d59a2f9fd4730da8b1e3d63060"
+    sha256 cellar: :any_skip_relocation, sonoma:        "98bfedbbce4c27d2fe8166696b4d077b0f2419f23aa34218252db328d874e84b"
+    sha256 cellar: :any_skip_relocation, ventura:       "98bfedbbce4c27d2fe8166696b4d077b0f2419f23aa34218252db328d874e84b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b21a8bf5896b78e2347f111c7922b092685ee4f18c1d91d189059863cf9fe49"
+  end
+
   depends_on "go" => :build
 
   def install
