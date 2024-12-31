@@ -11,13 +11,12 @@ class Qrcp < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bfdd2401dc5e9679c88013a07534019ed6f6ed38213edee1dbe434b0db63d03d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bfdd2401dc5e9679c88013a07534019ed6f6ed38213edee1dbe434b0db63d03d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bfdd2401dc5e9679c88013a07534019ed6f6ed38213edee1dbe434b0db63d03d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8a055f36dc6a4351b00893876def921bd413bbdc479f139dd9b2961a96968523"
-    sha256 cellar: :any_skip_relocation, ventura:       "8a055f36dc6a4351b00893876def921bd413bbdc479f139dd9b2961a96968523"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "23530e113b63113b5196d2cecc10df9438edaa37db89d68431bf62c7955c6e99"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c60d772f6858493e7cf3b1f32e29fa634dece4a22624df5ae6d2ba93172025b0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c60d772f6858493e7cf3b1f32e29fa634dece4a22624df5ae6d2ba93172025b0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c60d772f6858493e7cf3b1f32e29fa634dece4a22624df5ae6d2ba93172025b0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "23786e9d1e6633643a2ff886208d483a2da9944bf5adcf0b23c7e01107ae5a33"
+    sha256 cellar: :any_skip_relocation, ventura:       "23786e9d1e6633643a2ff886208d483a2da9944bf5adcf0b23c7e01107ae5a33"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f9e828594359fe1fe0ba1ef8ac8390c0969190dbbc622afe2960dbc26f66fbd"
   end
 
   depends_on "go" => :build
