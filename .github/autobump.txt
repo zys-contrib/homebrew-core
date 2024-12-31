@@ -1726,6 +1726,7 @@ libmapper
 libmatio
 libmaxminddb
 libmicrohttpd
+libmikmod
 libmobi
 libmodbus
 libmonome
