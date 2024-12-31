@@ -1999,6 +1999,7 @@ micropython
 microsocks
 mighttpd2
 mihomo
+mikmod
 mill
 miller
 millet
