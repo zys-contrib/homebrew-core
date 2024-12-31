@@ -34,10 +34,12 @@ class InfluxdbAT1 < Formula
     sha256 "52b22c151163dfb051fd44e7d103fc4cde6ae8ff852ffc13adeef19d21c36682"
   end
 
-  # update flux dep, upstream bug report, https://github.com/influxdata/influxdb/issues/25440
+  # update flux dep to fix rust build issue
+  # upstream bug report, https://github.com/influxdata/influxdb/issues/25440
+  # upstream rust 1.83 build patch, https://github.com/influxdata/flux/pull/5516
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/984eb256ccb68fe9ee3b3e0f88f7991b0dd55ccb/influxdb@1/1.11.7.patch"
-    sha256 "4c6ac695f2302ca320db58f3906f346fa48fbd3706964a8be39c5a3da6080256"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a2f5c7e20f69eabde99098e6480d2b29faaf2638/influxdb%401/1.11.8-rust.patch"
+    sha256 "f24a5021b72a3ebd9b7234c35f033fa0f5d5f10377257af09dcfdbd84fcf5ed4"
   end
 
   def install
