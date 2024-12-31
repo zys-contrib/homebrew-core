@@ -23,7 +23,8 @@ class Ldc < Formula
   depends_on "cmake" => :build
   depends_on "libconfig" => :build
   depends_on "pkgconf" => :build
-  depends_on "llvm@18"
+  depends_on "lld"
+  depends_on "llvm"
   depends_on "zstd"
 
   uses_from_macos "libxml2" => :build
