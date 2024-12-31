@@ -7,12 +7,13 @@ class Cppinsights < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "75a73b5aa7725274922c8a7d140313cce6fd95e39374e2e677759568e407840a"
-    sha256 cellar: :any,                 arm64_sonoma:  "1cab5ed788571093faf15dcda82c042b470bac850e2de62f69e99bf2c7e7330e"
-    sha256 cellar: :any,                 arm64_ventura: "23f3600ff5108c1b9be5525c295f6696c1caebbf7705cf91edf30399402ff1d4"
-    sha256 cellar: :any,                 sonoma:        "67c44fa535a4314786580932ee508bd33d62661355f623cac5ff8dd83a158bdd"
-    sha256 cellar: :any,                 ventura:       "07d8c5dcd3af7a9da011a033e0b2d4fbdb19e537f41ab7e2a7a324a8a4f07788"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e1fb6833d6e99d81766f6ff9540194c0c04267bd53ca6e077ed525be84e4487"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "afe0e099c28067cf56276d9165c0c74d5bd60bc1198e35e48cd77a1583e37622"
+    sha256 cellar: :any,                 arm64_sonoma:  "ee190f27380bb741eb5b8227bab92af141d582de278914da3d339936cb47e7a2"
+    sha256 cellar: :any,                 arm64_ventura: "4410e7e48ebab10cabdb2090f2da11bbfe873e77807c7f3c9c85205d476633b4"
+    sha256 cellar: :any,                 sonoma:        "f4790d0acad044e7c039f5d148871c9746c7b79d87a6f66c9594628a04aade18"
+    sha256 cellar: :any,                 ventura:       "af24d6cdefa935d7cca9fbc28ae6133b4a1341a6bc3930d3e91b77c131bdd02e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d84b7f52fa94bf59a784cce74e72456b6e94436775f9895ecc96cade7b3866f2"
   end
 
   depends_on "cmake" => :build
