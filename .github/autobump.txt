@@ -3220,6 +3220,7 @@ usbredir
 usbutils
 userspace-rcu
 utf8cpp
+utf8proc
 util-linux
 util-macros
 uutils-coreutils
