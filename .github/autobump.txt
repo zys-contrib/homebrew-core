@@ -873,6 +873,7 @@ epic5
 epoll-shim
 epr
 eprover
+epubcheck
 eralchemy
 erdtree
 erg
