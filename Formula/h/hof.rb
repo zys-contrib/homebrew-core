@@ -1,8 +1,8 @@
 class Hof < Formula
   desc "Flexible data modeling & code generation system"
   homepage "https://hofstadter.io/"
-  url "https://github.com/hofstadter-io/hof/archive/refs/tags/v0.6.9.tar.gz"
-  sha256 "aa6e084dbf8a74015504fd0e57c127c6322bf824df4a70c17990094786184665"
+  url "https://github.com/hofstadter-io/hof/archive/refs/tags/v0.6.10.tar.gz"
+  sha256 "87703d19a23121a4b617f1359aed9616dceb6c79718245861835b61ccff7e1eb"
   license "Apache-2.0"
   head "https://github.com/hofstadter-io/hof.git", branch: "_dev"
 
