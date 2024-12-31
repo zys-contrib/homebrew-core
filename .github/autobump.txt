@@ -545,6 +545,7 @@ commandbox
 commitizen
 commitlint
 composer
+comtrya
 conan
 conan@1
 concurrencykit
