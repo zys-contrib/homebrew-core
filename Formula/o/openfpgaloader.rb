@@ -1,8 +1,8 @@
 class Openfpgaloader < Formula
   desc "Universal utility for programming FPGA"
   homepage "https://github.com/trabucayre/openFPGALoader"
-  url "https://github.com/trabucayre/openFPGALoader/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "f8037b8080eec21afc74284c8b0352a2ba76ea685733ba63d8322d6fe39e7721"
+  url "https://github.com/trabucayre/openFPGALoader/archive/refs/tags/v0.13.1.tar.gz"
+  sha256 "372f1942dec8a088bc7475f94ccf5a86264cb74e9154d8a162b8d4d26d3971e3"
   license "Apache-2.0"
   head "https://github.com/trabucayre/openFPGALoader.git", branch: "master"
 
@@ -24,12 +24,6 @@ class Openfpgaloader < Formula
 
   on_linux do
     depends_on "systemd"
-  end
-
-  # patch version, upstream pr ref, https://github.com/trabucayre/openFPGALoader/pull/502
-  patch do
-    url "https://github.com/trabucayre/openFPGALoader/commit/3024b76113f9e5cfcaeb5f943de45697b73cf974.patch?full_index=1"
-    sha256 "5e1f0150deb46eafe93a12092d164cfe2312cbb11cfc363982b5bb6126ecb284"
   end
 
   def install
