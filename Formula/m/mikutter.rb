@@ -1,10 +1,9 @@
 class Mikutter < Formula
   desc "Extensible Twitter client"
   homepage "https://mikutter.hachune.net/"
-  url "https://mikutter.hachune.net/bin/mikutter-5.0.8.tar.gz", using: :homebrew_curl
-  sha256 "c68f9a7cb7424e69b7f5a6557b884deb120708db5678e51f30f3cbb011c5b51f"
+  url "https://mikutter.hachune.net/bin/mikutter-5.1.0.tar.gz", using: :homebrew_curl
+  sha256 "86c0b30f38fa6e67ed2c9c5b013497b75ef6895f5c53c58eccc708294693c98d"
   license "MIT"
-  revision 1
   head "git://mikutter.hachune.net/mikutter.git", branch: "develop"
 
   livecheck do
@@ -148,6 +147,11 @@ class Mikutter < Formula
   resource "matrix" do
     url "https://rubygems.org/downloads/matrix-0.4.2.gem"
     sha256 "71083ccbd67a14a43bfa78d3e4dc0f4b503b9cc18e5b4b1d686dc0f9ef7c4cc0"
+  end
+
+  resource "observer" do
+    url "https://rubygems.org/downloads/observer-0.1.2.gem"
+    sha256 "d8a3107131ba661138d748e7be3dbafc0d82e732fffba9fccb3d7829880950ac"
   end
 
   resource "memoist" do
