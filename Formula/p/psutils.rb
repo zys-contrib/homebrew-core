@@ -3,8 +3,8 @@ class Psutils < Formula
 
   desc "Utilities for manipulating PostScript documents"
   homepage "https://github.com/rrthomas/psutils"
-  url "https://files.pythonhosted.org/packages/96/19/711a118a9e14dc03ff0aa0e6611da630fcc90cdd9e7693a3fbd8dacb5884/psutils-3.3.7.tar.gz"
-  sha256 "73a60d2e9e80713bfd5d1be6912e7d05bcb5362957b4b1e871bf7fc7d42dd874"
+  url "https://files.pythonhosted.org/packages/5b/91/6c22b2382e0c14385408503914634f10ecbea6336bad6423510ea16fceaf/psutils-3.3.8.tar.gz"
+  sha256 "00820195862a8411d84bd4df42576691d8bf4cd9c7d97b51921da235df7ffe45"
   license "GPL-3.0-or-later"
 
   bottle do
