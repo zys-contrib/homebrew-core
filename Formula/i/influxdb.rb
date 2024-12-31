@@ -4,8 +4,8 @@ class Influxdb < Formula
   # When bumping to 3.x, update license stanza to `license any_of: ["Apache-2.0", "MIT"]`
   # Ref: https://github.com/influxdata/influxdb/blob/main/Cargo.toml#L124
   url "https://github.com/influxdata/influxdb.git",
-      tag:      "v2.7.10",
-      revision: "f302d9730c3c66577bea7bc7199cfae773bf308e"
+      tag:      "v2.7.11",
+      revision: "fbf5d4ab5e65d3a3661aa52e1d05259d19a6a81b"
   license "MIT"
   head "https://github.com/influxdata/influxdb.git", branch: "main-2.x"
 
@@ -61,6 +61,12 @@ class Influxdb < Formula
     end
   end
 
+  # rust 1.83 build patch, upstream pr ref, https://github.com/influxdata/flux/pull/5516
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a188defd190459f5d1faa8c8f9e253e8f83ca161/influxdb/2.7.11-rust-1.83.patch"
+    sha256 "15fa09ae18389b21b8d93792934abcf85855a666ddd8faeaeca6890452fd5bd4"
+  end
+
   def install
     # Set up the influxdata pkg-config wrapper to enable just-in-time compilation & linking
     # of the Rust components in the server.
@@ -76,8 +82,7 @@ class Influxdb < Formula
 
     # Build the server.
     ldflags = %W[
-      -s
-      -w
+      -s -w
       -X main.version=#{version}
       -X main.commit=#{Utils.git_short_head(length: 10)}
       -X main.date=#{time.iso8601}
