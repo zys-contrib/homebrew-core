@@ -1816,6 +1816,7 @@ libx11
 libxau
 libxaw3d
 libxc
+libxcrypt
 libxcursor
 libxcvt
 libxdmcp
