@@ -1,9 +1,9 @@
 class Mlton < Formula
   desc "Whole-program, optimizing compiler for Standard ML"
   homepage "http://mlton.org"
-  url "https://downloads.sourceforge.net/project/mlton/mlton/20210117/mlton-20210117.src.tgz"
-  version "20210117"
-  sha256 "ec7a5a54deb39c7c0fa746d17767752154e9cb94dbcf3d15b795083b3f0f154b"
+  url "https://downloads.sourceforge.net/project/mlton/mlton/20241230/mlton-20241230.src.tgz"
+  version "20241230"
+  sha256 "cd170218f67b76c3fcb4d487ba8841518babcebb41e4702074668e61156ca6f6"
   license "HPND"
   version_scheme 1
   head "https://github.com/MLton/mlton.git", branch: "master"
@@ -37,22 +37,24 @@ class Mlton < Formula
     on_macos do
       # See https://projects.laas.fr/tina/howto-arm64-darwin.html and
       # https://projects.laas.fr/tina/software.php
+      # macos-15 is arm runner
       on_arm do
-        url "https://projects.laas.fr/tina/software/mlton-20210117-1.arm64-darwin-21.6-gmp-static.tgz"
-        sha256 "5d8cc4046f502ca7d98670d53915e3a1973ec0826e4c4c23e25d483fa657c1e8"
+        url "https://github.com/MLton/mlton/releases/download/on-20241230-release/mlton-20241230-1.arm64-darwin.macos-15_gmp-static.tgz"
+        sha256 "c6114fda99458cffe66cbcf508db65673926d0ac7ab707c3fc39a7efd563f74f"
       end
       # https://github.com/Homebrew/homebrew-core/pull/58438#issuecomment-665375929
-      # new `mlton-20210117-1.amd64-darwin-17.7.gmp-static.tgz` artifact
+      # new `mlton-20241230-1.amd64-darwin.macos-13_gmp-static.tgz` artifact
       # used here for bootstrapping all homebrew versions
+      # macos-13 is intel runner
       on_intel do
-        url "https://downloads.sourceforge.net/project/mlton/mlton/20210117/mlton-20210117-1.amd64-darwin-19.6.gmp-static.tgz"
-        sha256 "5bea9f60136ea6847890c5f4e45d7126a32ef14fd46a2303cab875ca95c8cd76"
+        url "https://github.com/MLton/mlton/releases/download/on-20241230-release/mlton-20241230-1.amd64-darwin.macos-13_gmp-static.tgz"
+        sha256 "7d6d21aa3ad651ccbe3c837c5876f5af811881fbb017d673deaedfd99b713a2d"
       end
     end
 
     on_linux do
-      url "https://downloads.sourceforge.net/project/mlton/mlton/20210117/mlton-20210117-1.amd64-linux-glibc2.23.tgz"
-      sha256 "5ac30fe415dd9bf727327980391df2556fed3f8422e36624db1ce0e9f7fba1e5"
+      url "https://github.com/MLton/mlton/releases/download/on-20241230-release/mlton-20241230-1.amd64-linux.ubuntu-24.04_glibc2.39.tgz"
+      sha256 "95d5e78c77161aeefb2cff562fabd30ba1678338713c50147e5000f9ba481593"
     end
   end
 
