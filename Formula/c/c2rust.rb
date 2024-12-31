@@ -17,7 +17,7 @@ class C2rust < Formula
 
   depends_on "cmake" => [:build, :test]
   depends_on "rust" => :build
-  depends_on "llvm@18"
+  depends_on "llvm"
 
   def install
     system "cargo", "install", *std_cargo_args(path: "c2rust")
@@ -29,6 +29,6 @@ class C2rust < Formula
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_EXPORT_COMPILE_COMMANDS=1"
     system "cmake", "--build", "build"
     system bin/"c2rust", "transpile", "build/compile_commands.json"
-    assert_predicate testpath/"qsort.c", :exist?
+    assert_path_exists testpath/"qsort.c"
   end
 end
