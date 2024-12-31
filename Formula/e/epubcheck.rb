@@ -1,8 +1,8 @@
 class Epubcheck < Formula
   desc "Validate EPUB files, version 2.0 and later"
   homepage "https://github.com/w3c/epubcheck"
-  url "https://github.com/w3c/epubcheck/releases/download/v5.1.0/epubcheck-5.1.0.zip"
-  sha256 "74a59af8602bf59b1d04266a450d9cdcb5986e36d825adc403cde0d95e88c9e8"
+  url "https://github.com/w3c/epubcheck/releases/download/v5.2.0/epubcheck-5.2.0.zip"
+  sha256 "a88fc7ec19df1eb1c27f50ceb5156772ef0b53e1c418f663c8d750bdbdd0f922"
   license "BSD-3-Clause"
 
   bottle do
