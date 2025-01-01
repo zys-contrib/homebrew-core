@@ -3381,6 +3381,7 @@ xa
 xapian
 xauth
 xbyak
+xc
 xcb-util-cursor
 xcbeautify
 xcdiff
