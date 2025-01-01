@@ -27,6 +27,10 @@ class Faust < Formula
   depends_on "libmicrohttpd"
   depends_on "libsndfile"
   depends_on "llvm@18"
+  depends_on "zstd"
+
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   def install
     system "cmake", "-S", "build", "-B", "homebrew_build",
