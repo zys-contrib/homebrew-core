@@ -1,8 +1,8 @@
 class Chkbit < Formula
   desc "Check your files for data corruption"
   homepage "https://github.com/laktak/chkbit"
-  url "https://github.com/laktak/chkbit/archive/refs/tags/v5.4.0.tar.gz"
-  sha256 "13fb0627475e2ab1ba5486c4a0290228930b80e57cd99254efa9d001df31eacb"
+  url "https://github.com/laktak/chkbit/archive/refs/tags/v6.0.0.tar.gz"
+  sha256 "a95d6faad4b292b5dd16789fc2cae1615dc77c6ec3923067d56d228e2bcb8d8b"
   license "MIT"
   head "https://github.com/laktak/chkbit.git", branch: "master"
 
@@ -23,15 +23,8 @@ class Chkbit < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/chkbit --version").chomp
-
-    (testpath/"one.txt").write <<~EOS
-      testing
-      testing
-      testing
-    EOS
-
-    system bin/"chkbit", "-u", testpath
+    assert_match version.to_s, shell_output("#{bin}/chkbit version").chomp
+    system bin/"chkbit", "init", "split", testpath
     assert_predicate testpath/".chkbit", :exist?
   end
 end
