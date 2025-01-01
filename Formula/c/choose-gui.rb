@@ -6,11 +6,11 @@ class ChooseGui < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "20867b598ec25cb0522055a4ad6dd0b2e95e1743700cae1ab38f24f6cee0bc86"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "90ae5e48fb6007dc0fd3faca5a110abdfa75835f2efcffe0a9791aa5180bcc40"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d3c27461b8bc6a4fb31bba781dd9d0353193d74d3dafe7eddb66ada4cde6ebfb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fe52db719853a7cf77bddb44eed56554e25b60187db19715fb5776a5b326cfb6"
-    sha256 cellar: :any_skip_relocation, ventura:       "0fe9217f7fad725214e481c13d15868731ae2059da8872e57ec34dd9f2687918"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6fc3426cef66b0713adacb38e27ee348aad346dc3136c382b73af3c1d9de4a6c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "58252dbc3802b396738153c38323f82efb5c193f9f4c411aa2d8d87606cc83d0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "da0631fa22b646a92b6bde76d3bdda68e91c7c625cb6e16377888ce58d1c3de6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bedc4ca3cac331edc6b895f30d6140ac83a430d65a03f5a6783b07877f98e7e1"
+    sha256 cellar: :any_skip_relocation, ventura:       "0b13228bbef3d92d71e830c26ec836f730a8d1b4f577211ebed04134cbb69f60"
   end
 
   depends_on xcode: :build
