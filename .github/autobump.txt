@@ -2798,6 +2798,7 @@ sequin
 sequoia-sq
 ser2net
 serialosc
+serie
 serpl
 serverless
 service-weaver
