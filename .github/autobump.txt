@@ -3114,6 +3114,7 @@ tile38
 timg
 tin
 tintin
+tiny
 tinymist
 tinyproxy
 tio
