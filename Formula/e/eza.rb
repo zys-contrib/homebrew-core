@@ -4,6 +4,7 @@ class Eza < Formula
   url "https://github.com/eza-community/eza/archive/refs/tags/v0.20.15.tar.gz"
   sha256 "cbb50e61b35b06ccf487ee6cc88d3b624931093546194dd5a2bbd509ed1786d6"
   license "EUPL-1.2"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "aca30e289b5e4767e2b184d604cffee30a35cc188251a8e1cba556d5de1d176d"
@@ -17,7 +18,7 @@ class Eza < Formula
   depends_on "pandoc" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "libgit2"
+  depends_on "libgit2@1.8" # needs https://github.com/rust-lang/git2-rs/issues/1109 to support libgit2 1.9
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
@@ -59,7 +60,7 @@ class Eza < Formula
     linkage_with_libgit2 = (bin/"eza").dynamically_linked_libraries.any? do |dll|
       next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
 
-      File.realpath(dll) == (Formula["libgit2"].opt_lib/shared_library("libgit2")).realpath.to_s
+      File.realpath(dll) == (Formula["libgit2@1.8"].opt_lib/shared_library("libgit2")).realpath.to_s
     end
 
     assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."
