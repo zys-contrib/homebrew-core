@@ -3303,6 +3303,7 @@ vtclock
 vte3
 vtk
 vue-cli
+vue-language-server
 vulkan-extensionlayer
 vulkan-validationlayers
 vulkan-volk
