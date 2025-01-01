@@ -11,12 +11,12 @@ class Squiid < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "315fbbb4a9553ca75652610cb44c2b9f39e87e6a803f9d4d24a64f618f32a682"
-    sha256 cellar: :any,                 arm64_sonoma:  "8176fc788c278875b94cb0d8b85cb6523c4912d63ef781c84bebeb370de57087"
-    sha256 cellar: :any,                 arm64_ventura: "71372763b97920cf07b0ea356fc6decdc89017814ca85b5273b0cab7b18d4469"
-    sha256 cellar: :any,                 sonoma:        "1c29ed2240f777e20a2e0c15a9897e89e3c3b3236ad7829fdf172e8767be4cec"
-    sha256 cellar: :any,                 ventura:       "4922877ef98b6d49f4f3de8dca3f5e5af4583d78c46b499c1ffc96f359e3f230"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "352d0187529dad2da4cfd5aa015592956e142969769772683a3b3ad4b87bd3cd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c97ee3c9aefa92849eb2035247140e9251bcd80fced19aa4d931c7d9d9ebf142"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aba82ad3dbae6891479c525d56d8649523b9c00fffd24ea5214572648f36997a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1420e93bb7dc4623e3380a45f21447d3401cf7e816abed31ac53e2ebc311c26b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "df68d316d895db0785b6f73f3d96c28ef4288e3acaf04d1dffc26a3df7f03fc5"
+    sha256 cellar: :any_skip_relocation, ventura:       "f7a31e140257d45be2bd4b328caaa949d58f2c686a971c36e2d3ce15f16952c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "846b23e093867823f602a56c6c1367481dba85c0c851366e20370b2d1a762e6e"
   end
 
   depends_on "rust" => :build
