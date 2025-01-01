@@ -7,12 +7,12 @@ class Aliae < Formula
   head "https://github.com/jandedobbeleer/aliae.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "609c6473980f8299cc9e0666fc0618db92e9433e8f6c8d4286a61535d3adfb90"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d1f3b546b391c972066562f44938c3a7fb3d7b43d68e04188cd1256c7cbd7820"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7b267c5be15d5185e036653c6a296571e9206652fc1599c3c280d15c6142b592"
-    sha256 cellar: :any_skip_relocation, sonoma:        "66854ef342dac9bea082212ba64ee9fb73636da571a2bd1787bd7a4238dd5202"
-    sha256 cellar: :any_skip_relocation, ventura:       "01e2b5a3060c1a4180631d26dd71b578e3aa2ca952aaae5e41606697b9b1de8d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "857ffec33e5506747e720bb1016fe4d897b7025ae5e19a36f758cae140432026"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eab29877e9053b99c52251dd4e35fe43a9979f9d87c700618e9291b573b3db28"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "97566def171cc266dea835f09fef0183e057e5ee30ba02589962e0767a422a94"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d96204209ca150ee96bab75ce270dabbd14f97ba80e6f6cc3707b15be75d7862"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8cb7d17299164c79b339f0d1902ab300ef5d9eecbaed2dbb427cf92718c4133f"
+    sha256 cellar: :any_skip_relocation, ventura:       "15d6e698589f35f3e99a69f2c800056caf03f4293683686a3b6ef6b1c3287aca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e883ce7e9f53f6a0c2e2f1aff9ccdd7d0731ca81e09788e8f29e537e9313faf"
   end
 
   depends_on "go" => :build
