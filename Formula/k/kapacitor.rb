@@ -36,14 +36,12 @@ class Kapacitor < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1a33c443bf07f988db3116c35ab0753ae92b017d117d82d522bac20ecd94e35f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "18df0fe28a2f236b9e83280d13fb1628da163b43010b1ab2e278d596be334154"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7fc56e944c7205bf82e6f09e0fd6acb2671813abff062cb5358c3e10aa34240b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "077bb8e7923a28559b7fca1bf0e5da9a5bed8cbc2ec066292145e0ea0b61edb3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7320249f7bfd73fc7e9d1bfde2a14aa6e6800981c72b67cfeaf97023b7f8b7dc"
-    sha256 cellar: :any_skip_relocation, ventura:        "fc0aea1281480c4dc679d6edf1b2ac03918db4ad774adcd8160f07f05370abdd"
-    sha256 cellar: :any_skip_relocation, monterey:       "46a38f00666300e465230a0f8330c9d6e44758dd2bc4b9475c8bc8e0770f3cd3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6007b9e8d7e2b33e36510923d1989d83ef86e36e724c118686cdd61ef32d38a1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a8247430a0e749413545540c04d418b0adeed5d37d83319e69751596322a1c9d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d56568c7ae7bca2be7324da1c5bdc4fc7f086ff1054a786f0fed2670225ca710"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b5b98fcf4136a43925d791c4c803dbaabd62e5167dca2863343551b6e4a3ac70"
+    sha256 cellar: :any_skip_relocation, sonoma:        "33549402f35a9bb69c36a731c6b24ecf9ac57cec0ecb790a3f8a301b4ced507e"
+    sha256 cellar: :any_skip_relocation, ventura:       "de2e14999f1f6714d3504c183bd35f8b37fed4a4d886b266cf175040fcd37bc0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e963db4b37cde0cba4449f211213422a9ebba18f121a77e2cacfc90e6eb2fc5"
   end
 
   # Go 1.23 results in panic: failed to parse CA certificate.
