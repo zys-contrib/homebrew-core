@@ -6,12 +6,12 @@ class TyposLsp < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ce64d53bada813b76f302764ecd54008462709c8ec761712562b5adaac6b9c49"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0a6fd16c3bef5b61c22a61708e73a2f2c6e4aed58bce9465d70382f8673d6157"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "04a75b544fcdbe959db2054d04ff0b4a524c24036fa3fbd2fa85222531cfefaa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cd200c4fb826ee05b37699bbca0edb040e7d272f89532ed13d992ba3a1d11f79"
-    sha256 cellar: :any_skip_relocation, ventura:       "76adbb943a02b77dcac920e7c08fb0b925ff282993b72d46220c5dca8921f38c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a565083d499394469349e6a3a08d98600402d12c292cbdb94b66de7c4a16c25"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3b656e90b40609379470d536e8db570d9544ef066f9d1122b197faaf698586f4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ffc97577aa4cecafc88dc692314e74e3747f8f418d7e175216edefce7c6e64e2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5b6cc68033f534ac9137ae963f072450e22e5fe0c15c660b6d0e2de50411b7db"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d9226cce116c578ad80ee0483277d27ed3c92b9e8f2bcdd94a10ffd3d553752d"
+    sha256 cellar: :any_skip_relocation, ventura:       "977bed2ccc5b886302290405c47917501d42a1a8d1a8f536d5ffed8c6e4b96dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35a2961bcb0f228278379e5a900169182fdd8fa887a3fe13ee23138c584531cc"
   end
 
   depends_on "rust" => :build
