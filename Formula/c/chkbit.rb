@@ -7,12 +7,12 @@ class Chkbit < Formula
   head "https://github.com/laktak/chkbit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5f82a3b2a523e105f931fc045d5af9de18115117fdb2b96aaaabc50523fc4fc6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5f82a3b2a523e105f931fc045d5af9de18115117fdb2b96aaaabc50523fc4fc6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5f82a3b2a523e105f931fc045d5af9de18115117fdb2b96aaaabc50523fc4fc6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6cd781742c5fd2b4834c832225e35a13e0bd8d834d974da9c1e4f90c807f2cb6"
-    sha256 cellar: :any_skip_relocation, ventura:       "6cd781742c5fd2b4834c832225e35a13e0bd8d834d974da9c1e4f90c807f2cb6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72c157b96149cfc77d83a067d51ceed5b912e84e7bbf97521b0600eb56b03bde"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "77998a9ca4836886652028173813a941b661808caeb1efcf58c58a658d3694ce"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "77998a9ca4836886652028173813a941b661808caeb1efcf58c58a658d3694ce"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "77998a9ca4836886652028173813a941b661808caeb1efcf58c58a658d3694ce"
+    sha256 cellar: :any_skip_relocation, sonoma:        "088a0163ebee17be07ae738340e0251d5d0398701a5eea27c2c297beb84cfa3d"
+    sha256 cellar: :any_skip_relocation, ventura:       "088a0163ebee17be07ae738340e0251d5d0398701a5eea27c2c297beb84cfa3d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a863fe0bcaf71b12f471cd8db71f01900ac5ed812658da4028f3d371914e51d5"
   end
 
   depends_on "go" => :build
