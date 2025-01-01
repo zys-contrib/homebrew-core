@@ -1300,6 +1300,7 @@ hapi-fhir-cli
 haproxy
 haproxy@2.8
 harfbuzz
+harper
 haskell-language-server
 haskell-stack
 hasura-cli
