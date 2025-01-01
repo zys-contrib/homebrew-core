@@ -4,6 +4,7 @@ class Jj < Formula
   url "https://github.com/martinvonz/jj/archive/refs/tags/v0.25.0.tar.gz"
   sha256 "3a99528539e414a3373f24eb46a0f153d4e52f7035bb06df47bd317a19912ea3"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/martinvonz/jj.git", branch: "main"
 
   bottle do
@@ -17,7 +18,7 @@ class Jj < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "libgit2"
+  depends_on "libgit2@1.8" # needs https://github.com/rust-lang/git2-rs/issues/1109 to support libgit2 1.9
   depends_on "openssl@3"
   uses_from_macos "zlib"
 
@@ -44,7 +45,7 @@ class Jj < Formula
     assert_predicate testpath/".jj", :exist?
 
     [
-      Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2@1.8"].opt_lib/shared_library("libgit2"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
     ].each do |library|
