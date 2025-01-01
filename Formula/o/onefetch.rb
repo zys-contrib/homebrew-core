@@ -7,12 +7,12 @@ class Onefetch < Formula
   head "https://github.com/o2sh/onefetch.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4d793a34302357e762fe4da72c1e3f1326f1168c9c0bb14fa71cc4517fb5db42"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6a9886822e994dcf9b1ac656510fe9fb41331726d51c7283e2908c977f8c0399"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f92f8bf30b65eacbdf5af89e3e2953a09a820f43f8a9ced1847e1661ad7da763"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0a0ca3f1d1b2c41e5adf39410baa8b8522cec0d9439ed07c3b8cb3e305db829c"
-    sha256 cellar: :any_skip_relocation, ventura:       "58ccff51a053773bb7e5d177f5f5bf38b0e3fcbef9433bcdf247d1320ddc39db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8283d799290df549cc6c063df5b0100625fcba7c2176ec451b84cafff8a1a105"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d3993a0b6e343544f34263de289c9c5853d7cef5bb89baa8e34007baf5d29ea"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "68ca98926eb7dd75d60b081b4d8ee23a2d0ac6442ab9bbb4b1b1f493d377cd42"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8197b79c3f38ee59ab1566c8207a18cacaf29b62f0e18e4b3bcc0290042e2271"
+    sha256 cellar: :any_skip_relocation, sonoma:        "75d5a293661170fc68a59e9eec180cd862993a112b890df6baa314ef52c49a88"
+    sha256 cellar: :any_skip_relocation, ventura:       "cb64912fa0eee5b4c21b478b674e7a60f3db7c0c798e64634c4472f74eba92c1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8eaaca384c0c07d80f8e8364fb651dbb2e95e4b7094634e45c2b951f6b0b2c12"
   end
 
   # `cmake` is used to build `zlib`.
