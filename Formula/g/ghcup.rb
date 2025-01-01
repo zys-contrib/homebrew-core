@@ -2,8 +2,8 @@ class Ghcup < Formula
   desc "Installer for the general purpose language Haskell"
   homepage "https://www.haskell.org/ghcup/"
   # There is a tarball at Hackage, but that doesn't include the shell completions.
-  url "https://github.com/haskell/ghcup-hs/archive/refs/tags/v0.1.30.0.tar.gz"
-  sha256 "89d158023f634f079ac6a306bb87d208445384a725d47b432f6858c8876cbef6"
+  url "https://github.com/haskell/ghcup-hs/archive/refs/tags/v0.1.40.0.tar.gz"
+  sha256 "80c4c1152ebc35372b987ffa5b46fedc4e940eaf581e6ab11d93d0892bd16fe4"
   license "LGPL-3.0-only"
   head "https://github.com/haskell/ghcup-hs.git", branch: "master"
 
