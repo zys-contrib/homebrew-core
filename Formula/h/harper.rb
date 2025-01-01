@@ -6,6 +6,15 @@ class Harper < Formula
   license "Apache-2.0"
   head "https://github.com/elijah-potter/harper.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "148b0697862806b203e6c7858835277ab3033ec5c3c34e4d6a75b5d6e5d81676"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "80e3409272625fc56ebe9b099569471e473438790ba84449e36389d5adfe0102"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "801e9de612fd3326e608db9fb008a4662bf5395ad12e8cad0d2058720bae91d1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "af584e7ecae36e366ce27c8b230071205e1238b010b6ec085979a2946e9bdcec"
+    sha256 cellar: :any_skip_relocation, ventura:       "79b36d95793eb31bdc131811aea09e44a7b07e980486b3d13b815377b719edf0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e33e46db626a6ed286187fefd19e48285d972a82cfbdd5e4333ab5d7c6a2428f"
+  end
+
   depends_on "rust" => :build
 
   def install
