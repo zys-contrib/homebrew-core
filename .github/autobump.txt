@@ -1089,6 +1089,7 @@ gexiv2
 gf
 gfold
 ggshield
+gh-ost
 ghcup
 ghex
 ghorg
