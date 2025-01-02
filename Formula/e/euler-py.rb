@@ -10,8 +10,8 @@ class EulerPy < Formula
   head "https://github.com/iKevinY/EulerPy.git", branch: "master"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, all: "0ca0212eae8487870cd46cc5b5252a77aa7d12ff42f11383fab23157d052f3a3"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, all: "f8eb151dc399181c54578565197ae582def2067d466150f7558c2f9746d886cd"
   end
 
   depends_on "python@3.13"
