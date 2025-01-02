@@ -26,11 +26,7 @@ class Faust < Formula
   depends_on "pkgconf" => :build
   depends_on "libmicrohttpd"
   depends_on "libsndfile"
-  depends_on "llvm@18"
-  depends_on "zstd"
-
-  uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+  depends_on "llvm"
 
   def install
     system "cmake", "-S", "build", "-B", "homebrew_build",
@@ -60,6 +56,7 @@ class Faust < Formula
                     "-DHTTPDYNAMIC=ON",
                     "-DINCLUDE_ITP=OFF",
                     "-DITPDYNAMIC=ON",
+                    "-DLINK_LLVM_STATIC=OFF",
                     *std_cmake_args
     system "cmake", "--build", "homebrew_build"
     system "cmake", "--install", "homebrew_build"
