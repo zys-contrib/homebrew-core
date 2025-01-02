@@ -21,7 +21,7 @@ class Cyme < Formula
   def install
     system "cargo", "install", *std_cargo_args
     man1.install "doc/cyme.1"
-    bash_completion.install "doc/cyme.bash"
+    bash_completion.install "doc/cyme.bash" => "cyme"
     zsh_completion.install "doc/_cyme"
     fish_completion.install "doc/cyme.fish"
   end
