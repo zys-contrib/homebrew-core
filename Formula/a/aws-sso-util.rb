@@ -121,6 +121,8 @@ class AwsSsoUtil < Formula
 
   def install
     virtualenv_install_with_resources
+
+    generate_completions_from_executable(bin/"aws-sso-util", shells: [:fish, :zsh], shell_parameter_format: :click)
   end
 
   test do
@@ -131,7 +133,7 @@ class AwsSsoUtil < Formula
 
     assert_empty shell_output "AWS_CONFIG_FILE=#{testpath}/config #{cmd}"
 
-    assert_predicate testpath/"config", :exist?
+    assert_path_exists testpath/"config"
 
     expected = <<~EOS
 
