@@ -71,6 +71,11 @@ class Esptool < Formula
     ENV["PYTHONPYCACHEPREFIX"] = buildpath/"pycache"
 
     virtualenv_install_with_resources
+
+    bin.each_child(false) do |script|
+      generate_completions_from_executable(libexec/"bin/register-python-argcomplete", script.to_s,
+                                           base_name: script.to_s, shell_parameter_format: :arg)
+    end
   end
 
   test do
