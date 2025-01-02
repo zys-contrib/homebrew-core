@@ -7,12 +7,12 @@ class GitSpice < Formula
   head "https://github.com/abhinav/git-spice.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a52f0b4649f858c8ea073b70fc5d7c56be025232b0d7e12cd2b65496367c831b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a52f0b4649f858c8ea073b70fc5d7c56be025232b0d7e12cd2b65496367c831b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a52f0b4649f858c8ea073b70fc5d7c56be025232b0d7e12cd2b65496367c831b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0a352af4894f7bf28dff834dd9c6cfcf6eee07e344accf03e0406ce749f6de71"
-    sha256 cellar: :any_skip_relocation, ventura:       "0a352af4894f7bf28dff834dd9c6cfcf6eee07e344accf03e0406ce749f6de71"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8ca7adea8fa623ab630a2c832b5c4f4d9ece69535a6cfe5a28e51aa8f6a15c5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "44366fc17e25b88bb81c0576ab93063391ee4a72dc9fbe82d74db49b3b6e458c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "44366fc17e25b88bb81c0576ab93063391ee4a72dc9fbe82d74db49b3b6e458c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "44366fc17e25b88bb81c0576ab93063391ee4a72dc9fbe82d74db49b3b6e458c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bf8a1490342799075d209e5c58d08bd7756d4434843e01c3ccc4516391ea9121"
+    sha256 cellar: :any_skip_relocation, ventura:       "bf8a1490342799075d209e5c58d08bd7756d4434843e01c3ccc4516391ea9121"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d519483d46e298f6b7b69eaa880c7a77d0fc3d88234f78c3cb239633938a1389"
   end
 
   depends_on "go" => :build
