@@ -6,12 +6,12 @@ class Eza < Formula
   license "EUPL-1.2"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1a62b00cf5205b3c7758ed842314a8b13809bfa09f96e2ab24bc8afb60010e8c"
-    sha256 cellar: :any,                 arm64_sonoma:  "83de43050f25601d88f7c1caba1eedf36e417b37352665893ce636ff5a956149"
-    sha256 cellar: :any,                 arm64_ventura: "01888556951340d82ca944df2c82c292e3557da7237734be43c7b9005d89af8c"
-    sha256 cellar: :any,                 sonoma:        "e57b70488f14aca38c6ceafb95d1f29b2a00726d462a1e928a68f733f9cbe532"
-    sha256 cellar: :any,                 ventura:       "8d71d390209f70720355e693d690e0c5945d27d6a280acfc53c472f8757e8c0e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e606b0011118105cf4ab2681ad3eb7469da7e5a3417b0a480593963d2cf87a1"
+    sha256 cellar: :any,                 arm64_sequoia: "aca30e289b5e4767e2b184d604cffee30a35cc188251a8e1cba556d5de1d176d"
+    sha256 cellar: :any,                 arm64_sonoma:  "da63d58bcecfac0a59d96293e8115595b911222a6418cdb482cee323eabb8018"
+    sha256 cellar: :any,                 arm64_ventura: "e5817ba8f9b526a8dc3927dd8c1e4aad5a33403380627152913604974e79dfd9"
+    sha256 cellar: :any,                 sonoma:        "51578152b673c356cd6e39e518e70600ec8d99ebd99f27fbced046038757f027"
+    sha256 cellar: :any,                 ventura:       "9bfac7b56dc6317ad4ef2c5f21605f9b7e58bc9fc8c0054f441e4c23a305f56c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a27629f3769e6ece17c5daa4ffc148e45d7532e7a289bb6fcc0f66008ce76389"
   end
 
   depends_on "pandoc" => :build
