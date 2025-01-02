@@ -30,6 +30,9 @@ class Rpmspectool < Formula
 
   def install
     virtualenv_install_with_resources
+
+    generate_completions_from_executable(libexec/"bin/register-python-argcomplete", "rpmspectool",
+                                         shell_parameter_format: :arg)
   end
 
   test do
@@ -71,6 +74,6 @@ class Rpmspectool < Formula
       %_infodir/hello.info*
     EOS
     system bin/"rpmspectool", "get", testpath/"hello.spec"
-    assert_predicate testpath/"hello-2.12.1.tar.gz", :exist?
+    assert_path_exists testpath/"hello-2.12.1.tar.gz"
   end
 end
