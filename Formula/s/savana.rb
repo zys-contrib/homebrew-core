@@ -23,7 +23,7 @@ class Savana < Formula
     libexec.install %w[lib logging.properties]
     bin.env_script_all_files libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix
 
-    bash_completion.install "etc/bash_completion" => "savana-completion.bash"
+    bash_completion.install "etc/bash_completion" => "sav"
   end
 
   test do
