@@ -21,7 +21,7 @@ class Csview < Formula
     system "cargo", "install", *std_cargo_args
 
     zsh_completion.install  "completions/zsh/_csview"
-    bash_completion.install "completions/bash/csview.bash"
+    bash_completion.install "completions/bash/csview.bash" => "csview"
     fish_completion.install "completions/fish/csview.fish"
   end
 
