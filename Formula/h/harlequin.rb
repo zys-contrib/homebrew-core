@@ -229,6 +229,8 @@ class Harlequin < Formula
     resource("mysql-connector-python").stage do
       venv.pip_install Pathname.pwd/"mysql-connector-python"
     end
+
+    generate_completions_from_executable(bin/"harlequin", shells: [:fish, :zsh], shell_parameter_format: :click)
   end
 
   test do
