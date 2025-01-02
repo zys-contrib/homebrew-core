@@ -22,7 +22,7 @@ class Tabiew < Formula
     system "cargo", "install", *std_cargo_args
 
     man1.install "target/manual/tabiew.1" => "tw.1"
-    bash_completion.install "target/completion/tw.bash"
+    bash_completion.install "target/completion/tw.bash" => "tw"
     zsh_completion.install "target/completion/_tw"
     fish_completion.install "target/completion/tw.fish"
   end
@@ -43,9 +43,7 @@ class Tabiew < Formula
     sleep 1
     input.close
     sleep 2
-    File.open(testpath/"output.txt") do |f|
-      contents = f.read
-      assert_match "you think?", contents
-    end
+
+    assert_match "you think?", (testpath/"output.txt").read
   end
 end
