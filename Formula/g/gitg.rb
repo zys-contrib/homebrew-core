@@ -12,12 +12,12 @@ class Gitg < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "4a4166491817b8eadee5a1bd6774f5b23516f54661aa120d5ba9f84cb49466b6"
-    sha256 arm64_sonoma:  "2c01486f3f82a1b9eb7ba8ff00d8ee5207671f8353f79d49d2c62b1da208a3f6"
-    sha256 arm64_ventura: "1790af181f11994bd36b965b0ff044a6b109d98f76dde3ca91fc50a6580cc545"
-    sha256 sonoma:        "b4cd70bb9e6834bf8fa1087da17ffb4c2d689ed0fab8bdb49ac06eb39558e33b"
-    sha256 ventura:       "391b2a3164edbca47ea114e6877114cab7e7d2837830f60570cb4431d28e72f7"
-    sha256 x86_64_linux:  "b78db1a31d523be329532fcb6e861e4420d3d1918239d7a325651d2d98e92c5c"
+    sha256 arm64_sequoia: "e0859a74d86feac32e25101dbc0be9f8a9aaf60a8b060985a6ed14043c3e74b8"
+    sha256 arm64_sonoma:  "d8616b005506afaf6fb31f29d58772b9596754c690e3aa937002eafc99473f7f"
+    sha256 arm64_ventura: "f364e71d2c5167f2f0af2a1c766d7fb566b250ba0f181191471ae05a9400fb96"
+    sha256 sonoma:        "900544774b44906d1f6fa876f88af4969e431ade7bfebb1174113483680803a1"
+    sha256 ventura:       "aabffb6d9572325f9dc86954c60fce64e32ed2f06ff3721c0c06417243ec264e"
+    sha256 x86_64_linux:  "c5bc7631c776e665c4125c3d3594edd9e8412cf0568bd589c0f9d98353ce0460"
   end
 
   depends_on "gettext" => :build # for `msgfmt`
