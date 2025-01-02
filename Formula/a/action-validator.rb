@@ -47,7 +47,7 @@ class ActionValidator < Formula
 
     system "cargo", "install", *std_cargo_args
 
-    bash_completion.install "completions/action-validator.bash"
+    bash_completion.install "completions/action-validator.bash" => "action-validator"
     fish_completion.install "completions/action-validator.fish"
     zsh_completion.install "completions/_action-validator"
     man1.install "man/action-validator.1"
