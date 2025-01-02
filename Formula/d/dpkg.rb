@@ -14,13 +14,12 @@ class Dpkg < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "632c77820685109fab85a7a9005ea0ff31f9b233255ab4576a40dce0dc2d7e3b"
-    sha256 arm64_sonoma:  "c11f60eea8a970e8591cf8eef0d8e54271fd4d6aea50a32a38086de4c4b1c016"
-    sha256 arm64_ventura: "4e017baab049af69ae0b79ea18f06eb535d09ab37670b1742edec4379d8a1061"
-    sha256 sonoma:        "f6b46cbb8a54524252dd02ae1c887a81f872941fb29305c15e05d30076352324"
-    sha256 ventura:       "3e731ec82fe0a567a1737341d6800cd76786ba5c545b146a925f858f7c3db1c1"
-    sha256 x86_64_linux:  "919ea8d9f51c3016d23cd7885ed19b36de0cd9554d4b931b2fa4318969343170"
+    sha256 arm64_sequoia: "39e94ac2ad5c0772c168282cbd5e5954f9e7490fb4cf83f2844d0e2e55f2bc0e"
+    sha256 arm64_sonoma:  "49e5f81d6ba1254e59f03cbc33a53408823edb104f26c6e3ff6912cd1d71aa14"
+    sha256 arm64_ventura: "9bb3ffb3df090f8f6311e4338a14ceecfc9a54c2fb7575ec0b81d101f268a233"
+    sha256 sonoma:        "394c99ec06f6df06a14062ebd6a8aa59f4aa9e9edd3a827d18d65b09fa2e9f17"
+    sha256 ventura:       "9b6fae8c965089d1f80dc8345b7ab8a3a519fbc833f7cda77a32e68066479500"
+    sha256 x86_64_linux:  "16d891fd716b3fa090db115c6d304642d2ceb4907d40f31d17e7541fa9800395"
   end
 
   depends_on "pkgconf" => :build
