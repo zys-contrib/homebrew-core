@@ -52,6 +52,10 @@ class Beancount < Formula
 
   def install
     virtualenv_install_with_resources
+
+    bin.glob("bean-*") do |executable|
+      generate_completions_from_executable(executable, shells: [:fish, :zsh], shell_parameter_format: :click)
+    end
   end
 
   test do
