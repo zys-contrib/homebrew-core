@@ -93,6 +93,10 @@ class Khal < Formula
 
   def install
     virtualenv_install_with_resources
+
+    %w[khal ikhal].each do |cmd|
+      generate_completions_from_executable(bin/cmd, shells: [:fish, :zsh], shell_parameter_format: :click)
+    end
   end
 
   test do
