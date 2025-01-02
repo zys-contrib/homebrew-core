@@ -19,7 +19,7 @@ class CodeMinimap < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    bash_completion.install "completions/bash/code-minimap.bash"
+    bash_completion.install "completions/bash/code-minimap.bash" => "code-minimap"
     fish_completion.install "completions/fish/code-minimap.fish"
     zsh_completion.install  "completions/zsh/_code-minimap"
   end
