@@ -24,7 +24,7 @@ class Pastel < Formula
 
     system "cargo", "install", *std_cargo_args
 
-    bash_completion.install "completions/pastel.bash"
+    bash_completion.install "completions/pastel.bash" => "pastel"
     zsh_completion.install "completions/_pastel"
     fish_completion.install "completions/pastel.fish"
   end
