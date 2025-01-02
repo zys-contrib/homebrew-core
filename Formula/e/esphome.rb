@@ -27,7 +27,6 @@ class Esphome < Formula
   depends_on "libyaml"
   depends_on "little-cms2"
   depends_on "pillow"
-  depends_on "python-setuptools"
   depends_on "python@3.13"
   depends_on "webp"
 
@@ -350,6 +349,9 @@ class Esphome < Formula
 
   def install
     virtualenv_install_with_resources
+
+    generate_completions_from_executable(libexec/"bin/register-python-argcomplete", "esphome",
+                                         shell_parameter_format: :arg)
   end
 
   test do
