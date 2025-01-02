@@ -4,20 +4,21 @@ class Eza < Formula
   url "https://github.com/eza-community/eza/archive/refs/tags/v0.20.15.tar.gz"
   sha256 "cbb50e61b35b06ccf487ee6cc88d3b624931093546194dd5a2bbd509ed1786d6"
   license "EUPL-1.2"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "aca30e289b5e4767e2b184d604cffee30a35cc188251a8e1cba556d5de1d176d"
-    sha256 cellar: :any,                 arm64_sonoma:  "da63d58bcecfac0a59d96293e8115595b911222a6418cdb482cee323eabb8018"
-    sha256 cellar: :any,                 arm64_ventura: "e5817ba8f9b526a8dc3927dd8c1e4aad5a33403380627152913604974e79dfd9"
-    sha256 cellar: :any,                 sonoma:        "51578152b673c356cd6e39e518e70600ec8d99ebd99f27fbced046038757f027"
-    sha256 cellar: :any,                 ventura:       "9bfac7b56dc6317ad4ef2c5f21605f9b7e58bc9fc8c0054f441e4c23a305f56c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a27629f3769e6ece17c5daa4ffc148e45d7532e7a289bb6fcc0f66008ce76389"
+    sha256 cellar: :any,                 arm64_sequoia: "505abe73711da7a64e6a16552872ca759ed535ed3e3a15be323a7a0ee54fbbc6"
+    sha256 cellar: :any,                 arm64_sonoma:  "dcfce238d5aef157cdd6bcc332257edab22799ba3a90b8e7c9167459a8812096"
+    sha256 cellar: :any,                 arm64_ventura: "c68517761a5dfe5892449c67c805fcbfee0db89b552c663debf101939306f223"
+    sha256 cellar: :any,                 sonoma:        "0a1fcfacc59f8cba09914be880ec833a7e32f1578f3b6d6b0d01771c4a35acef"
+    sha256 cellar: :any,                 ventura:       "fd814309742a4cea445b45e379d1cffacb78f243f9f5214a06fe071879c4b2b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "402b89fb0989927b9c7019c34ebab4120ac25f4d272af92cf02a32fa681fad97"
   end
 
   depends_on "pandoc" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "libgit2"
+  depends_on "libgit2@1.8" # needs https://github.com/rust-lang/git2-rs/issues/1109 to support libgit2 1.9
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
@@ -59,7 +60,7 @@ class Eza < Formula
     linkage_with_libgit2 = (bin/"eza").dynamically_linked_libraries.any? do |dll|
       next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
 
-      File.realpath(dll) == (Formula["libgit2"].opt_lib/shared_library("libgit2")).realpath.to_s
+      File.realpath(dll) == (Formula["libgit2@1.8"].opt_lib/shared_library("libgit2")).realpath.to_s
     end
 
     assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."
