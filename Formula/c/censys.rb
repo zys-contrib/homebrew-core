@@ -72,6 +72,9 @@ class Censys < Formula
 
   def install
     virtualenv_install_with_resources
+
+    generate_completions_from_executable(libexec/"bin/register-python-argcomplete", "censys",
+                                         shell_parameter_format: :arg)
   end
 
   test do
