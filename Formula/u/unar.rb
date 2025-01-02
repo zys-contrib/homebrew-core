@@ -72,7 +72,8 @@ class Unar < Formula
 
     cd "Extra" do
       man1.install "lsar.1", "unar.1"
-      bash_completion.install "unar.bash_completion", "lsar.bash_completion"
+      bash_completion.install "unar.bash_completion" => "unar"
+      bash_completion.install "lsar.bash_completion" => "lsar"
     end
   end
 
@@ -81,6 +82,6 @@ class Unar < Formula
     system "gzip", "README.md"
     assert_equal "README.md.gz: Gzip\nREADME.md\n", shell_output("#{bin}/lsar README.md.gz")
     system bin/"unar", "README.md.gz"
-    assert_predicate testpath/"README.md", :exist?
+    assert_path_exists testpath/"README.md"
   end
 end
