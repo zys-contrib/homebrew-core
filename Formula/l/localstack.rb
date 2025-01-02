@@ -190,6 +190,8 @@ class Localstack < Formula
   def install
     virtualenv_install_with_resources
     bin.install_symlink libexec/"bin/localstack"
+
+    generate_completions_from_executable(bin/"localstack", shells: [:fish, :zsh], shell_parameter_format: :click)
   end
 
   test do
