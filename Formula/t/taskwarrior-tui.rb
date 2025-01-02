@@ -28,7 +28,7 @@ class TaskwarriorTui < Formula
   def install
     system "cargo", "install", *std_cargo_args
     man1.install "docs/taskwarrior-tui.1"
-    bash_completion.install "completions/taskwarrior-tui.bash"
+    bash_completion.install "completions/taskwarrior-tui.bash" => "taskwarrior-tui"
     fish_completion.install "completions/taskwarrior-tui.fish"
     zsh_completion.install "completions/_taskwarrior-tui"
   end
