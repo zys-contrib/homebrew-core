@@ -57,6 +57,9 @@ class Nox < Formula
   def install
     virtualenv_install_with_resources
     (bin/"tox-to-nox").unlink
+
+    generate_completions_from_executable(libexec/"bin/register-python-argcomplete", "nox",
+                                         shell_parameter_format: :arg)
   end
 
   test do
