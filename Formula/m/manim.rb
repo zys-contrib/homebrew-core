@@ -199,6 +199,8 @@ class Manim < Formula
       without = resources.filter_map { |r| r.name if r.name.start_with?("pyobjc") }
     end
     virtualenv_install_with_resources(without:)
+
+    generate_completions_from_executable(bin/"manim", shells: [:fish, :zsh], shell_parameter_format: :click)
   end
 
   test do
