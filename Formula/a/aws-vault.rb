@@ -37,7 +37,7 @@ class AwsVault < Formula
     system "make", "install", "INSTALL_DIR=#{bin}", "VERSION=#{version}-#{tap.user}"
 
     zsh_completion.install "contrib/completions/zsh/aws-vault.zsh" => "_aws-vault"
-    bash_completion.install "contrib/completions/bash/aws-vault.bash"
+    bash_completion.install "contrib/completions/bash/aws-vault.bash" => "aws-vault"
     fish_completion.install "contrib/completions/fish/aws-vault.fish"
   end
 
