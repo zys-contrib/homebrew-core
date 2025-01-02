@@ -143,12 +143,14 @@ class Subliminal < Formula
 
   def install
     virtualenv_install_with_resources
+
+    generate_completions_from_executable(bin/"subliminal", shells: [:fish, :zsh], shell_parameter_format: :click)
   end
 
   test do
     (testpath/".config").mkpath
     system bin/"subliminal", "download", "-l", "en",
                "The.Big.Bang.Theory.S05E18.HDTV.x264-LOL.mp4"
-    assert_predicate testpath/"The.Big.Bang.Theory.S05E18.HDTV.x264-LOL.en.srt", :exist?
+    assert_path_exists testpath/"The.Big.Bang.Theory.S05E18.HDTV.x264-LOL.en.srt"
   end
 end
