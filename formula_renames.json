@@ -154,7 +154,6 @@
   "tachyon": "alluxio",
   "tensorflow": "libtensorflow",
   "tepl": "libgedit-tepl",
-  "thrift@0.90": "thrift@0.9",
   "thors-serializer": "thors-mongo",
   "todolist": "ultralist",
   "tomee-jax-rs": "tomee-plus",
