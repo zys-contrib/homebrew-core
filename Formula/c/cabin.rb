@@ -8,12 +8,12 @@ class Cabin < Formula
   head "https://github.com/cabinpkg/cabin.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "718a61b02f0570116f728f6781b324960c1befdcebb323b11e9a5579df070949"
-    sha256 cellar: :any,                 arm64_sonoma:  "428beabf2dbf2d516fc142fed8d159876f10f4561cb830e48f85e1ea6092a788"
-    sha256 cellar: :any,                 arm64_ventura: "93f89a86a5cbf309887eadb863631829e0c5fc899dd11c1c23f64d55323d0e47"
-    sha256 cellar: :any,                 sonoma:        "05bbcea8035588f3d0fecf766109e7e69baee7c573b1e326126d8812f642cc0e"
-    sha256 cellar: :any,                 ventura:       "f28c62b0d3c9ea57cdcd40b84beb17e57d9bb56f10043632f87a71f0e9da8100"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e30409295c48daf0a199dfdaee56914cd22cfc2601923c72be7e16031a1234f3"
+    sha256 cellar: :any,                 arm64_sequoia: "c24a7739166e9d08a4cc7f883d3a90b6e8528dd7db622c970d2f53c994c59506"
+    sha256 cellar: :any,                 arm64_sonoma:  "4438f8cd89a498219256b7844de9b129be12d30cdeab3ebcbef42c181dcc9e24"
+    sha256 cellar: :any,                 arm64_ventura: "b266bbce28bcf942c16038b18c11a440f894b022f7411ea6e545158a2a2bc5ce"
+    sha256 cellar: :any,                 sonoma:        "93ddb33c84187fe72debab940444dd25939637210d43eb392535e38231fcecbb"
+    sha256 cellar: :any,                 ventura:       "553462ad734a97b0e7600d0821170cbe11f929668132cfb1aa0221ab28ad0a00"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07f5c88feb9dd1a7f6eff05fb0d1c87a33bb46413644eb1c6fa4052744c89319"
   end
 
   depends_on "nlohmann-json" => :build
