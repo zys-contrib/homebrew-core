@@ -22,7 +22,7 @@ class Xh < Formula
     bin.install_symlink bin/"xh" => "xhs"
 
     man1.install "doc/xh.1"
-    bash_completion.install "completions/xh.bash"
+    bash_completion.install "completions/xh.bash" => "xh"
     fish_completion.install "completions/xh.fish"
     zsh_completion.install "completions/_xh"
   end
