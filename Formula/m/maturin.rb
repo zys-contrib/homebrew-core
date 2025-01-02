@@ -19,6 +19,7 @@ class Maturin < Formula
   depends_on "rust"
 
   uses_from_macos "bzip2"
+  uses_from_macos "xz"
 
   def install
     # Work around an Xcode 15 linker issue which causes linkage against LLVM's
@@ -42,7 +43,7 @@ class Maturin < Formula
     newest_python_site_packages.install "maturin"
 
     python_versions.each do |pyver|
-      (lib/"python#{pyver}/site-packages").install_symlink newest_python_site_packages/"maturin"
+      (lib/"python#{pyver}/site-packages/maturin").install_symlink (newest_python_site_packages/"maturin").children
     end
   end
 
