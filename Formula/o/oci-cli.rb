@@ -105,6 +105,8 @@ class OciCli < Formula
       inreplace "pyproject.toml", 'build-backend = "poetry.masonry.api"', 'build-backend = "poetry.core.masonry.api"'
       venv.pip_install_and_link Pathname.pwd
     end
+
+    generate_completions_from_executable(bin/"oci", shells: [:fish, :zsh], shell_parameter_format: :click)
   end
 
   test do
@@ -112,6 +114,6 @@ class OciCli < Formula
     assert_match version.to_s, version_out
 
     assert_match "Usage: oci [OPTIONS] COMMAND [ARGS]", shell_output("#{bin}/oci --help")
-    assert_match "", shell_output("#{bin}/oci session validate", 1)
+    assert_match "Could not find config file", shell_output("#{bin}/oci session validate 2>&1", 1)
   end
 end
