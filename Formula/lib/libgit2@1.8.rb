@@ -10,6 +10,15 @@ class Libgit2AT18 < Formula
     regex(/^v?(1\.8(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "5a9fe4aae3865e5c977633107b829e639e6535d8f986c851d60d63bb2e5b0932"
+    sha256 cellar: :any,                 arm64_sonoma:  "d04a13a2da8d14c6f0bee82751d472b13aa0fd8ed688eff218f7a0a18d29bf59"
+    sha256 cellar: :any,                 arm64_ventura: "94ef273252c464c308e859ebfb3b78814516f6a740d40c57394805c4fbcbcb58"
+    sha256 cellar: :any,                 sonoma:        "4848894348322217f276122ab1d3307778f473430abbc51dc22818273b06cf83"
+    sha256 cellar: :any,                 ventura:       "9a389072e0da2cb33c2c82bf7d57c49844c92c82be47d19f7e25f0b6666aa8c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "105c2c951f86f9de73797b314f92b46bddab6b6bb779cee7303d9eebec8a1c18"
+  end
+
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
