@@ -25,7 +25,7 @@ class Cmdshelf < Formula
   def install
     system "cargo", "install", *std_cargo_args
     man.install Dir["docs/man/*"]
-    bash_completion.install "cmdshelf-completion.bash"
+    bash_completion.install "cmdshelf-completion.bash" => "cmdshelf"
   end
 
   test do
