@@ -1,10 +1,9 @@
 class Timg < Formula
   desc "Terminal image and video viewer"
   homepage "https://timg.sh/"
-  url "https://github.com/hzeller/timg/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "9e1b99b4eaed82297ad2ebbde02e3781775e3bba6d3e298d7598be5f4e1c49af"
+  url "https://github.com/hzeller/timg/archive/refs/tags/v1.6.1.tar.gz"
+  sha256 "08147c41ce4cea61b6c494ad746e743b7c4501cfd247bec5134e8ede773bf2af"
   license "GPL-2.0-only"
-  revision 1
   head "https://github.com/hzeller/timg.git", branch: "main"
 
   bottle do
