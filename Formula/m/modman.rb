@@ -12,7 +12,7 @@ class Modman < Formula
 
   def install
     bin.install "modman"
-    bash_completion.install "bash_completion" => "modman.bash"
+    bash_completion.install "bash_completion" => "modman"
   end
 
   test do
