@@ -25,7 +25,7 @@ class Asdf < Formula
   depends_on "unixodbc"
 
   def install
-    bash_completion.install "completions/asdf.bash"
+    bash_completion.install "completions/asdf.bash" => "asdf"
     fish_completion.install "completions/asdf.fish"
     zsh_completion.install "completions/_asdf"
     libexec.install Dir["*"]
