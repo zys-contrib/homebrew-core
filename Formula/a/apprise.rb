@@ -67,12 +67,14 @@ class Apprise < Formula
 
   def install
     virtualenv_install_with_resources
+
+    generate_completions_from_executable(bin/"apprise", shells: [:fish, :zsh], shell_parameter_format: :click)
   end
 
   test do
     # Setup a custom notifier that can be passed in as a plugin
-    file = "#{testpath}/brewtest_notifier.py"
-    apprise_plugin_definition = <<~PYTHON
+    file = testpath/"brewtest_notifier.py"
+    file.write <<~PYTHON
       from apprise.decorators import notify
 
       @notify(on="brewtest")
@@ -80,8 +82,6 @@ class Apprise < Formula
         # A simple test - print to screen
         print("{}: {}".format(title, body))
     PYTHON
-
-    File.write(file, apprise_plugin_definition)
 
     charset = Array("A".."Z") + Array("a".."z") + Array(0..9)
     title = charset.sample(32).join
