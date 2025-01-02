@@ -11,12 +11,12 @@ class TyposCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c0bdf97ca5551e28326f633dcd8e90c1122e9d6278dcb703fd0e83bd10fb7f4a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2899eff22111387931730917b9b63bc0f5fbe2cea9801c19d55119a85523db42"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "efa910dad29d83512f3598300bbabb0c3b5a01e7396ae53fc7e80a22c38949bc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4e86adf5d55a5fee189df058d1fe3ebaa3fea01653f68f311b190323329b900d"
-    sha256 cellar: :any_skip_relocation, ventura:       "d7b16a19517bdb0caeef684a1a0c38d1267103509b6c2a31d64046eb56fa17a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8c00c2714b3a721a8b59b1bac04dd91217c6dc6d7354304500604ac7c48ff3d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a06f7bbc87449d1406edd115468b2b98539b64d0cf57285468a2341a0ebcd0dc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b73e7af28b87a211430e105f16d5c3c36c992b0caddaf060532306480a309e0f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d42eaf1db1718cf3ba96a604088f328869f274aa74407a423a030d67c1a08429"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1b98b1c5a39bf545f52a70ae5300255f46c651b4136cd1d8236a4199af81e49a"
+    sha256 cellar: :any_skip_relocation, ventura:       "0f5cac3ed3bc593350bcb1e4b60bb2a7f86e298def096bdc954155309b0e18e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cca0d6a54eff4e86d139d465df004eb7cf4ce317326170cd964dc69f6df6c61d"
   end
 
   depends_on "rust" => :build
