@@ -8,12 +8,12 @@ class CargoGenerate < Formula
   head "https://github.com/cargo-generate/cargo-generate.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4326e76a07be0e6260943e9687a8c7f533cac0354232fd037d185610116b861b"
-    sha256 cellar: :any,                 arm64_sonoma:  "b723f39711ec75e2c8bad9de8544a36f6f5f4a56d05edf9c4d3cf99b290a072e"
-    sha256 cellar: :any,                 arm64_ventura: "cabf92e8da2ff15436c42334e6383226d08ed64e108492df5314517763ebdd94"
-    sha256 cellar: :any,                 sonoma:        "4fc74035244a7a7f9e0b43701554fd1a746f7d464fa17b77b6a76d3a372eda46"
-    sha256 cellar: :any,                 ventura:       "6792b5b18b74be10b52a49b9ab60983aa7b70101951463254ad296cdb2c485e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd951667b6714ad976a1563617dba8e572c2fda7bf0a7517a045a2dd630d9626"
+    sha256 cellar: :any,                 arm64_sequoia: "cc8c8913389620fe33dac4be8b56cadb0706a12868f3010f59a3ed10205428e7"
+    sha256 cellar: :any,                 arm64_sonoma:  "de2a3a85b67415125afaae67fdee814e6fd72fbca91ec89a018ed7afb010dad5"
+    sha256 cellar: :any,                 arm64_ventura: "453fdc9e96ba47c20735ede9c836825d72f87376dc7b8c97ca4a0b217297cd31"
+    sha256 cellar: :any,                 sonoma:        "6525b1e29c5fd2ba0c5c8e99940d6f4114888658c25312805d7ac61a8551cba1"
+    sha256 cellar: :any,                 ventura:       "1e4563b9ecc0817e6bd3b86614f5dd918f78817a626e45d8441286a033dd640b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad35d30247d8cd9e9209b5c4a6d36f01018d531eb4e3d9b75912012c975d672d"
   end
 
   depends_on "pkgconf" => :build
