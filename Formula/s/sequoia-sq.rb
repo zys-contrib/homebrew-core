@@ -34,14 +34,15 @@ class SequoiaSq < Formula
     system "cargo", "install", *std_cargo_args
     man1.install Dir["man-pages/*.1"]
 
-    bash_completion.install "shell-completions/sq.bash"
+    bash_completion.install "shell-completions/sq.bash" => "sq"
     zsh_completion.install "shell-completions/_sq"
     fish_completion.install "shell-completions/sq.fish"
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/sq version 2>&1")
-    assert_match "R0lGODdhAQABAPAAAAAAAAAAACwAAAAAAQABAAACAkQBADs=",
-      shell_output("cat #{test_fixtures("test.gif")} | #{bin}/sq packet armor")
+
+    output = pipe_output("#{bin}/sq packet armor", test_fixtures("test.gif").read, 0)
+    assert_match "R0lGODdhAQABAPAAAAAAAAAAACwAAAAAAQABAAACAkQBADs=", output
   end
 end
