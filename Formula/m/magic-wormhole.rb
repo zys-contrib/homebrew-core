@@ -144,10 +144,9 @@ class MagicWormhole < Formula
   end
 
   def install
-    ENV["SODIUM_INSTALL"] = "system"
     virtualenv_install_with_resources
     man1.install "docs/wormhole.1"
-    bash_completion.install "wormhole_complete.bash"=> "wormhole.bash"
+    bash_completion.install "wormhole_complete.bash"=> "wormhole"
     fish_completion.install "wormhole_complete.fish" => "wormhole.fish"
     zsh_completion.install "wormhole_complete.zsh" => "_wormhole"
   end
@@ -155,13 +154,10 @@ class MagicWormhole < Formula
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
     n = rand(1e6)
-    pid = fork do
-      exec bin/"wormhole", "send", "--code=#{n}-homebrew-test", "--text=foo"
-    end
-    sleep 1
+    pid = spawn bin/"wormhole", "send", "--code=#{n}-homebrew-test", "--text=foo"
     begin
-      received = shell_output("#{bin}/wormhole receive #{n}-homebrew-test")
-      assert_match received, "foo\n"
+      sleep 1
+      assert_match "foo\n", shell_output("#{bin}/wormhole receive #{n}-homebrew-test")
     ensure
       Process.wait(pid)
     end
