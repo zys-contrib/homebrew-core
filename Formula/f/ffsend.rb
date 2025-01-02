@@ -30,7 +30,7 @@ class Ffsend < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    bash_completion.install "contrib/completions/ffsend.bash"
+    bash_completion.install "contrib/completions/ffsend.bash" => "ffsend"
     fish_completion.install "contrib/completions/ffsend.fish"
     zsh_completion.install "contrib/completions/_ffsend"
   end
