@@ -129,6 +129,8 @@ class HttpPrompt < Formula
 
   def install
     virtualenv_install_with_resources
+
+    generate_completions_from_executable(bin/"http-prompt", shells: [:fish, :zsh], shell_parameter_format: :click)
   end
 
   test do
@@ -145,6 +147,6 @@ class HttpPrompt < Formula
       read.expect(/Goodbye!/)
     end
 
-    assert File.read("test.html").start_with? "<html>"
+    assert_match(/^<html>/, (testpath/"test.html").read)
   end
 end
