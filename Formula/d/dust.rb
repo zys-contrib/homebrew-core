@@ -27,7 +27,7 @@ class Dust < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    bash_completion.install "completions/dust.bash"
+    bash_completion.install "completions/dust.bash" => "dust"
     fish_completion.install "completions/dust.fish"
     zsh_completion.install "completions/_dust"
 
