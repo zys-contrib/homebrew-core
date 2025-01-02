@@ -25,7 +25,7 @@ class Exercism < Formula
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w"), "exercism/main.go"
 
-    bash_completion.install "shell/exercism_completion.bash"
+    bash_completion.install "shell/exercism_completion.bash" => "exercism"
     zsh_completion.install "shell/exercism_completion.zsh" => "_exercism"
     fish_completion.install "shell/exercism.fish"
   end
