@@ -1,10 +1,10 @@
 class Mubeng < Formula
   desc "Incredibly fast proxy checker & IP rotator with ease"
-  homepage "https://github.com/kitabisa/mubeng"
-  url "https://github.com/kitabisa/mubeng/archive/refs/tags/v0.19.0.tar.gz"
-  sha256 "4406740bb20cb3142da9f922151dec4ebc88077bfff21a85376fcbea816e6c04"
+  homepage "https://github.com/mubeng/mubeng"
+  url "https://github.com/mubeng/mubeng/archive/refs/tags/v0.21.0.tar.gz"
+  sha256 "97e439a5bbc71e68b804dfdd5492161f436b32052979cc8dc8b44b71746d046b"
   license "Apache-2.0"
-  head "https://github.com/kitabisa/mubeng.git", branch: "master"
+  head "https://github.com/mubeng/mubeng.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "42911f6ded89ba4b16d0fe35e69873445f56b7c4c94826c2d31acf40c81ede19"
@@ -18,8 +18,8 @@ class Mubeng < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/kitabisa/mubeng/common.Version=#{version}"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/mubeng"
+    ldflags = "-s -w -X github.com/mubeng/mubeng/common.Version=v#{version}"
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
