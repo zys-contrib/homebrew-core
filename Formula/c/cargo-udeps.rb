@@ -7,12 +7,12 @@ class CargoUdeps < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "12be653d70676ad78cc09e4a2a0080ea7bc05dd2e26d97edd7aaa6c4dbe99dd5"
-    sha256 cellar: :any,                 arm64_sonoma:  "98fc902d83ba3b52f7bff706a3adcce1c0ef7be85e97288cb8984e4057416ea7"
-    sha256 cellar: :any,                 arm64_ventura: "99809e0d75a6cbeb830ba4ee7701a6045ba70e65041c9fbec44d74aa9b41efcb"
-    sha256 cellar: :any,                 sonoma:        "4585400b1dd440bb929a16037ed76f714fe2b43546d976b154bcb5366ce68093"
-    sha256 cellar: :any,                 ventura:       "410a2ad5bece4b3b765b0da03726060282611fb25ea3c2500619dd11d7f8e386"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b0f6cc7eb304b42112cf561f471b6600ff57af518c389a82713347f644f25ab"
+    sha256 cellar: :any,                 arm64_sequoia: "e1fb68cf1d9ffdf5e6b818d92e2233bad9cca8a8c4c0d6d650cf9e5215d8e447"
+    sha256 cellar: :any,                 arm64_sonoma:  "cc9ee12b128e941caec64b271ff436cd8de98be54f5a7d327eb56d76b8897d42"
+    sha256 cellar: :any,                 arm64_ventura: "463e45fbfe269b9d7cb78a1ed9e6f9e37d0809d79014c7526636a880f8118032"
+    sha256 cellar: :any,                 sonoma:        "2cb29b8db03ba0781acea4b3d023e8355570171947c6658b6f366bc65e153fdf"
+    sha256 cellar: :any,                 ventura:       "67e6378019d16e0fefcfae97d225ee0673834eb24269884a3793df4976b7bb09"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3734990ed4b83f9d2a85d6b675e3a25d0b3bded7cb3a5f7d29ef3b608768c0e4"
   end
 
   depends_on "pkgconf" => :build
