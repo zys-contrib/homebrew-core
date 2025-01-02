@@ -60,7 +60,7 @@ class Bazel < Formula
       (libexec/"bin").install "output/bazel" => "bazel-real"
       bin.env_script_all_files libexec/"bin", Language::Java.java_home_env("21")
 
-      bash_completion.install "bazel-bin/scripts/bazel-complete.bash"
+      bash_completion.install "bazel-bin/scripts/bazel-complete.bash" => "bazel"
       zsh_completion.install "scripts/zsh_completion/_bazel"
       fish_completion.install "bazel-bin/scripts/bazel.fish"
     end
