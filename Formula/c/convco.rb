@@ -8,12 +8,12 @@ class Convco < Formula
   head "https://github.com/convco/convco.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e18c04a894c906be8f793678c6eeb79b471253036813a154c4531dc791b941b9"
-    sha256 cellar: :any,                 arm64_sonoma:  "6f3676b484578a35386192edf44e82e2ce028befef87ad40b5b6d6b89995425e"
-    sha256 cellar: :any,                 arm64_ventura: "963b46df26ac69066af13e1cbec5672a6d8005363053e474f099101484b98352"
-    sha256 cellar: :any,                 sonoma:        "05bf86ff418758f4c82fb9e1d931f1f58804c21e35807c79dea4c63127056d76"
-    sha256 cellar: :any,                 ventura:       "ecf3ab426b73d4519e34d2cdd50d070ff8074e3ce2b4131a242a784349504a74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e0109d8ad3f830c0307d2350f190ef1afad564ac1af83120cc5fb72e3d41114"
+    sha256 cellar: :any,                 arm64_sequoia: "c5e8f4af7167c711b94120c2a0dd293289b3e4a3ba78945a6fb9c5d1efd2aab2"
+    sha256 cellar: :any,                 arm64_sonoma:  "65b439d389ddf9612d3d3cef18df84d60eb220530eacf121857dd27e8273ef6b"
+    sha256 cellar: :any,                 arm64_ventura: "da85dd370e5714c0c13a3d9c6760d58862c84e3b7a34af4827511b241bebe555"
+    sha256 cellar: :any,                 sonoma:        "c7e429b28b7d7848958beaa73bec1c06ecabfeeddfa3c568f6420d9795e99ed0"
+    sha256 cellar: :any,                 ventura:       "729b6ff47aaab6e8d52f85de48a959ce5f764d9860385e63fc7b0d95236555e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "015cbd770a86d0b53e43de0721a256ed27c8326c10c76bccb2e53438ec872df0"
   end
 
   depends_on "pkgconf" => :build
