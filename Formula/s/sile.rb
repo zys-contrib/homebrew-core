@@ -2,6 +2,7 @@ class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://sile-typesetter.org"
   license "MIT"
+  revision 1
 
   stable do
     url "https://github.com/sile-typesetter/sile/releases/download/v0.15.8/sile-0.15.8.tar.zst"
@@ -142,8 +143,8 @@ class Sile < Formula
   end
 
   resource "luautf8" do
-    url "https://luarocks.org/manifests/xavier-wang/luautf8-0.1.5-2.src.rock"
-    sha256 "68bd8e3c3e20f98fceb9e20d5a7a50168202c22eb45b87eff3247a0608f465ae"
+    url "https://luarocks.org/manifests/xavier-wang/luautf8-0.1.6-1.src.rock"
+    sha256 "37901bc127c4afe9f611bba58af7b12eda6599fc270e1706e2f767807dfacd82"
   end
 
   resource "vstruct" do
@@ -188,14 +189,7 @@ class Sile < Formula
         rock = Pathname.pwd.children(false).first
         unpack_dir = Utils.safe_popen_read("luarocks", "unpack", rock).split("\n")[-2]
         spec = "#{r.name}-#{r.version}.rockspec"
-        cd unpack_dir do
-          # Work around LuaJIT not exporting a setting for INT_MAX any
-          # more and luautf8 expecting it transitively
-          if r.name.eql? "luautf8"
-            inreplace "lutf8lib.c", "#include <stdint.h>", "#include <stdint.h>\n#include <limits.h>"
-          end
-          system "luarocks", "make", *luarocks_args, spec
-        end
+        cd(unpack_dir) { system "luarocks", "make", *luarocks_args, spec }
       end
     end
 
