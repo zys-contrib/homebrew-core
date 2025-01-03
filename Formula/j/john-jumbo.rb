@@ -99,7 +99,7 @@ class JohnJumbo < Formula
     (share/"john").install Dir["run/*"]
     bin.install_symlink share/"john/john"
 
-    bash_completion.install share/"john/john.bash_completion" => "john.bash"
+    bash_completion.install share/"john/john.bash_completion" => "john"
     zsh_completion.install share/"john/john.zsh_completion" => "_john"
   end
 
