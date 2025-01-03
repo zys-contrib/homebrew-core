@@ -28,7 +28,7 @@ class Sugarjar < Formula
     system "gem", "install", "--ignore-dependencies", "sugarjar-#{version}.gem"
     bin.install libexec/"bin/sj"
     bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
-    bash_completion.install "extras/sugarjar_completion.bash"
+    bash_completion.install "extras/sugarjar_completion.bash" => "sj"
   end
 
   test do
