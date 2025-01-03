@@ -27,7 +27,7 @@ class Kubie < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
-    bash_completion.install "./completion/kubie.bash"
+    bash_completion.install "./completion/kubie.bash" => "kubie"
     fish_completion.install "./completion/kubie.fish"
   end
 
