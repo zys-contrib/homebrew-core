@@ -18,7 +18,7 @@ class Homeshick < Formula
     fish_function.install "homeshick.fish"
     bin.install "bin/homeshick"
     zsh_completion.install "completions/_homeshick"
-    bash_completion.install "completions/homeshick-completion.bash"
+    bash_completion.install "completions/homeshick-completion.bash" => "homeshick"
     fish_completion.install "completions/homeshick.fish"
   end
 
