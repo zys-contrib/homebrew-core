@@ -18,8 +18,16 @@ class Rqlite < Formula
   depends_on "go" => :build
 
   def install
+    version_ldflag_prefix = "-X github.com/rqlite/rqlite/v#{version.major}"
+    ldflags = %W[
+      -s -w
+      #{version_ldflag_prefix}/cmd.Commit=unknown
+      #{version_ldflag_prefix}/cmd.Branch=master
+      #{version_ldflag_prefix}/cmd.Buildtime=#{time.iso8601}
+      #{version_ldflag_prefix}/cmd.Version=v#{version}
+    ]
     %w[rqbench rqlite rqlited].each do |cmd|
-      system "go", "build", *std_go_args(ldflags: "-s -w"), "-o", bin/cmd, "./cmd/#{cmd}"
+      system "go", "build", *std_go_args(ldflags:), "-o", bin/cmd, "./cmd/#{cmd}"
     end
   end
 
@@ -42,5 +50,7 @@ class Rqlite < Formula
 
     output = shell_output("#{bin}/rqbench -a localhost:#{port} 'SELECT 1'")
     assert_match "Statements/sec", output
+
+    assert_match "Version v#{version}", shell_output("#{bin}/rqlite -v")
   end
 end
