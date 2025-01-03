@@ -1,8 +1,8 @@
 class Neovide < Formula
   desc "No Nonsense Neovim Client in Rust"
   homepage "https://github.com/neovide/neovide"
-  url "https://github.com/neovide/neovide/archive/refs/tags/0.13.3.tar.gz"
-  sha256 "21c8eaa53cf3290d2b1405c8cb2cde5f39bc14ef597b328e76f1789b0ef3539a"
+  url "https://github.com/neovide/neovide/archive/refs/tags/0.14.0.tar.gz"
+  sha256 "33aade5dcc2962aadcd7c885876a52f096397356c56aab90c71cf12aa368e87d"
   license "MIT"
   head "https://github.com/neovide/neovide.git", branch: "main"
 
@@ -28,7 +28,6 @@ class Neovide < Formula
   end
 
   on_linux do
-    depends_on "python@3.12" => :build # https://github.com/rust-skia/rust-skia/issues/1049
     depends_on "expat"
     depends_on "fontconfig"
     depends_on "freetype"
@@ -50,12 +49,6 @@ class Neovide < Formula
 
     # FIXME: On macOS, `skia-bindings` crate only allows building `skia` with bundled libraries
     if OS.linux?
-      if build.stable?
-        skia_bindings_version = Version.new(File.read("Cargo.lock")[/name = "skia-bindings"\nversion = "(.*)"/, 1])
-        odie "Remove `python@3.12` dependency and PATH modification" if skia_bindings_version >= "0.80.0"
-        ENV.prepend_path "PATH", Formula["python@3.12"].opt_libexec/"bin"
-      end
-
       ENV["SKIA_USE_SYSTEM_LIBRARIES"] = "1"
       ENV["CLANG_PATH"] = which(ENV.cc) # force bindgen to use superenv clang to find brew libraries
 
