@@ -1,8 +1,8 @@
 class Grails < Formula
   desc "Web application framework for the Groovy language"
   homepage "https://grails.org"
-  url "https://github.com/grails/grails-core/releases/download/v6.2.2/grails-6.2.2.zip"
-  sha256 "50f81ac85a78098673a35c87848236f01c7e094abecf9137fb22a35d52d26741"
+  url "https://github.com/grails/grails-core/releases/download/v6.2.3/grails-6.2.3.zip"
+  sha256 "b41e95efad66e2b93b4e26664f746a409ea70d43548e6c011e9695874a710b09"
   license "Apache-2.0"
 
   livecheck do
@@ -22,8 +22,8 @@ class Grails < Formula
   depends_on "openjdk@17"
 
   resource "cli" do
-    url "https://github.com/grails/grails-forge/releases/download/v6.2.2/grails-cli-6.2.2.zip"
-    sha256 "08d52986a9ddba065b723dad0224d143be29b6ea939a94b830d85f84486af699"
+    url "https://github.com/grails/grails-forge/releases/download/v6.2.3/grails-cli-6.2.3.zip"
+    sha256 "ef78a48238629a89d64996367d0424bc872978caf6c23c3cdae92b106e2b1731"
   end
 
   def install
