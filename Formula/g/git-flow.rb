@@ -49,7 +49,7 @@ class GitFlow < Formula
     resource("completion").stage do
       # Fix a comment referencing `/usr/local` that causes deviations between bottles.
       inreplace "git-flow-completion.bash", "/usr/local", HOMEBREW_PREFIX
-      bash_completion.install "git-flow-completion.bash"
+      bash_completion.install "git-flow-completion.bash" => "git-flow"
     end
   end
 
