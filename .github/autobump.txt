@@ -3408,6 +3408,7 @@ xlsxio
 xmake
 xmlrpc-c
 xmount
+xmq
 xmrig
 xnvme
 xonsh
