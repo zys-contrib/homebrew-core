@@ -1,8 +1,8 @@
 class Trippy < Formula
   desc "Network diagnostic tool, inspired by mtr"
   homepage "https://trippy.cli.rs/"
-  url "https://github.com/fujiapple852/trippy/archive/refs/tags/0.12.1.tar.gz"
-  sha256 "ae868123cba03977786f0dd74297f2e15e021d753684bd6e47554003f03a3d5b"
+  url "https://github.com/fujiapple852/trippy/archive/refs/tags/0.12.2.tar.gz"
+  sha256 "6f23549e5f398113ecd0d2f15c829f5ab84fcdf99dde9942c61746e72f990085"
   license "Apache-2.0"
   head "https://github.com/fujiapple852/trippy.git", branch: "master"
 
