@@ -27,7 +27,7 @@ class Nb < Formula
   def install
     bin.install "nb", "bin/bookmark"
 
-    bash_completion.install "etc/nb-completion.bash" => "nb.bash"
+    bash_completion.install "etc/nb-completion.bash" => "nb"
     zsh_completion.install "etc/nb-completion.zsh" => "_nb"
     fish_completion.install "etc/nb-completion.fish" => "nb.fish"
   end
