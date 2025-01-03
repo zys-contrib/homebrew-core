@@ -29,7 +29,7 @@ class Ninja < Formula
     system "python3", "configure.py", "--bootstrap", "--verbose", "--with-python=python3"
 
     bin.install "ninja"
-    bash_completion.install "misc/bash-completion" => "ninja-completion.sh"
+    bash_completion.install "misc/bash-completion" => "ninja"
     zsh_completion.install "misc/zsh-completion" => "_ninja"
     doc.install "doc/manual.asciidoc"
     elisp.install "misc/ninja-mode.el"
