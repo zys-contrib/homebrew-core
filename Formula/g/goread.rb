@@ -1,8 +1,8 @@
 class Goread < Formula
   desc "RSS/Atom feeds in the terminal"
   homepage "https://github.com/TypicalAM/goread"
-  url "https://github.com/TypicalAM/goread/archive/refs/tags/v1.7.2.tar.gz"
-  sha256 "103e5bcb444f92344f883b23a429424a1bfc1dec418af1db7476fc8e90552f03"
+  url "https://github.com/TypicalAM/goread/archive/refs/tags/v1.7.3.tar.gz"
+  sha256 "9b08cae05593034711c599b6b17605194a11bbfae769b4e7e0076a01ec197c37"
   license "GPL-3.0-or-later"
   head "https://github.com/TypicalAM/goread.git", branch: "main"
 
