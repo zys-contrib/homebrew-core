@@ -1,8 +1,8 @@
 class Ginac < Formula
   desc "Not a Computer algebra system"
   homepage "https://www.ginac.de/"
-  url "https://www.ginac.de/ginac-1.8.7.tar.bz2"
-  sha256 "71ff4f2d8a00e6f07ce8fee69b76dcc1ebbb727be6760b587c1fbb5ccf7b61ea"
+  url "https://www.ginac.de/ginac-1.8.8.tar.bz2"
+  sha256 "330f57d0ed79dbd8f9c46ca4b408439b8b30e2ea061e3672d904c5dab94ecad6"
   license "GPL-2.0-or-later"
 
   livecheck do
