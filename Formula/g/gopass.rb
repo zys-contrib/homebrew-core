@@ -24,7 +24,7 @@ class Gopass < Formula
   def install
     system "make", "install", "PREFIX=#{prefix}/"
 
-    bash_completion.install "bash.completion" => "gopass.bash"
+    bash_completion.install "bash.completion" => "gopass"
     fish_completion.install "fish.completion" => "gopass.fish"
     zsh_completion.install "zsh.completion" => "_gopass"
     man1.install "gopass.1"
@@ -49,7 +49,7 @@ class Gopass < Formula
 
       system bin/"gopass", "init", "--path", testpath, "noop", "testing@foo.bar"
       system bin/"gopass", "generate", "Email/other@foo.bar", "15"
-      assert_predicate testpath/"Email/other@foo.bar.gpg", :exist?
+      assert_path_exists testpath/"Email/other@foo.bar.gpg"
     ensure
       system Formula["gnupg"].opt_bin/"gpgconf", "--kill", "gpg-agent"
       system Formula["gnupg"].opt_bin/"gpgconf", "--homedir", "keyrings/live",
