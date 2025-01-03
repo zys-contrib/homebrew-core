@@ -25,7 +25,7 @@ class Lsd < Formula
   def install
     ENV["SHELL_COMPLETIONS_DIR"] = buildpath
     system "cargo", "install", *std_cargo_args
-    bash_completion.install "lsd.bash"
+    bash_completion.install "lsd.bash" => "lsd"
     fish_completion.install "lsd.fish"
     zsh_completion.install "_lsd"
 
