@@ -3,11 +3,20 @@ class Gnuradio < Formula
 
   desc "SDK for signal processing blocks to implement software radios"
   homepage "https://gnuradio.org/"
-  url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.11.0.tar.gz"
-  sha256 "9ca658e6c4af9cfe144770757b34ab0edd23f6dcfaa6c5c46a7546233e5ecd29"
   license "GPL-3.0-or-later"
-  revision 4
+  revision 5
   head "https://github.com/gnuradio/gnuradio.git", branch: "main"
+
+  stable do
+    url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.11.0.tar.gz"
+    sha256 "9ca658e6c4af9cfe144770757b34ab0edd23f6dcfaa6c5c46a7546233e5ecd29"
+
+    # Backport support for Boost 1.87.0
+    patch do
+      url "https://github.com/gnuradio/gnuradio/commit/111a4ff8b868791dae74d8cdf8c1e0684840f51a.patch?full_index=1"
+      sha256 "1a18b00346a149562ea2a1c8117039162896eb9ccab3290ed2a7a568ca9b642e"
+    end
+  end
 
   livecheck do
     url :stable
@@ -29,7 +38,7 @@ class Gnuradio < Formula
   depends_on "pybind11" => :build
   depends_on "rust" => :build # for rpds-py
   depends_on "adwaita-icon-theme"
-  depends_on "boost@1.85" # Boost 1.87+ PR ref: https://github.com/gnuradio/gnuradio/pull/7554
+  depends_on "boost"
   depends_on "cppzmq"
   depends_on "fftw"
   depends_on "fmt"
@@ -245,7 +254,7 @@ class Gnuradio < Formula
       }
     CPP
 
-    boost = Formula["boost@1.85"]
+    boost = Formula["boost"]
     system ENV.cxx, testpath/"test.c++", "-std=c++17", "-I#{boost.opt_include}", "-L#{lib}",
            "-lgnuradio-blocks", "-lgnuradio-runtime", "-lgnuradio-pmt",
            "-L#{boost.opt_lib}", "-lboost_system",
