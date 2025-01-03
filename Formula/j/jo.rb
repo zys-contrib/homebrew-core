@@ -31,9 +31,10 @@ class Jo < Formula
 
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
+    bash_completion.install bash_completion/"jo.bash" => "jo"
   end
 
   test do
-    assert_equal %Q({"success":true,"result":"pass"}\n), pipe_output("#{bin}/jo success=true result=pass")
+    assert_equal %Q({"success":true,"result":"pass"}\n), shell_output("#{bin}/jo success=true result=pass")
   end
 end
