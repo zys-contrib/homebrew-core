@@ -31,7 +31,7 @@ class Leiningen < Formula
     (libexec/"bin").install "bin/lein-pkg" => "lein"
     (libexec/"bin/lein").chmod 0755
     (bin/"lein").write_env_script libexec/"bin/lein", Language::Java.overridable_java_home_env
-    bash_completion.install "bash_completion.bash" => "lein-completion.bash"
+    bash_completion.install "bash_completion.bash" => "lein"
     zsh_completion.install "zsh_completion.zsh" => "_lein"
   end
 
