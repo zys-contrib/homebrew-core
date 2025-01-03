@@ -22,10 +22,12 @@ class Proselint < Formula
 
   def install
     virtualenv_install_with_resources
+
+    generate_completions_from_executable(bin/"proselint", shells: [:fish, :zsh], shell_parameter_format: :click)
   end
 
   test do
-    output = pipe_output("#{bin}/proselint --compact -", "John is very unique.")
+    output = pipe_output("#{bin}/proselint --compact -", "John is very unique.", 1)
     assert_match "Comparison of an uncomparable", output
   end
 end
