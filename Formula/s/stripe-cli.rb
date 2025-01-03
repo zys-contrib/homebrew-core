@@ -16,23 +16,26 @@ class StripeCli < Formula
 
   depends_on "go" => :build
 
+  # fish completion support patch, upstream pr ref, https://github.com/stripe/stripe-cli/pull/1282
+  patch do
+    url "https://github.com/stripe/stripe-cli/commit/ef36be45f56821a33ac175bb4f483f08cca3f458.patch?full_index=1"
+    sha256 "e64d6ab6ed1b93749b8d65a429b0132063fb86520960b7d0c87fa6f7f9221252"
+  end
+
   def install
     # See configuration in `.goreleaser` directory
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
     ldflags = %W[-s -w -X github.com/stripe/stripe-cli/pkg/version.Version=#{version}]
     system "go", "build", *std_go_args(ldflags:, output: bin/"stripe"), "cmd/stripe/main.go"
 
-    # Doesn't work with `generate_completions_from_executable`
-    # Taken from `.goreleaser` directory
-    system bin/"stripe", "completion", "--shell", "bash"
-    system bin/"stripe", "completion", "--shell", "zsh"
-    bash_completion.install "stripe-completion.bash"
-    zsh_completion.install "stripe-completion.zsh" => "_stripe"
+    generate_completions_from_executable(bin/"stripe", "completion", "--write-to-stdout", "--shell")
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/stripe version")
     assert_match "secret or restricted key",
                  shell_output("#{bin}/stripe --api-key=not_real_key get ch_1EGYgUByst5pquEtjb0EkYha", 1)
+    assert_match "-F __start_stripe",
+                 shell_output("bash -c 'source #{bash_completion}/stripe && complete -p stripe'")
   end
 end
