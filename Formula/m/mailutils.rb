@@ -1,9 +1,9 @@
 class Mailutils < Formula
   desc "Swiss Army knife of email handling"
   homepage "https://mailutils.org/"
-  url "https://ftp.gnu.org/gnu/mailutils/mailutils-3.17.tar.gz"
-  mirror "https://ftpmirror.gnu.org/mailutils/mailutils-3.17.tar.gz"
-  sha256 "403d0a8a7d923560ee189783a35cec517e9993dda985e35b7afd9c488bf6f149"
+  url "https://ftp.gnu.org/gnu/mailutils/mailutils-3.18.tar.gz"
+  mirror "https://ftpmirror.gnu.org/mailutils/mailutils-3.18.tar.gz"
+  sha256 "91cc5fc52d6fadb481102ecfeefdd210a75975b0bd01577d9393fcc1ba4798e5"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -27,12 +27,6 @@ class Mailutils < Formula
 
   on_macos do
     depends_on "gettext"
-  end
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 
   def install
