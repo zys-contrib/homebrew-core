@@ -33,13 +33,13 @@ class Lunchy < Formula
     system "gem", "install", "lunchy-#{version}.gem"
     bin.install libexec/"bin/lunchy"
     bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
-    bash_completion.install "extras/lunchy-completion.bash"
+    bash_completion.install "extras/lunchy-completion.bash" => "lunchy"
     zsh_completion.install "extras/lunchy-completion.zsh" => "_lunchy"
   end
 
   test do
     plist = testpath/"Library/LaunchAgents/com.example.echo.plist"
-    plist.write <<~EOS
+    plist.write <<~XML
       <?xml version="1.0" encoding="UTF-8"?>
       <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
       <plist version="1.0">
@@ -56,7 +56,7 @@ class Lunchy < Formula
         <true/>
       </dict>
       </plist>
-    EOS
+    XML
 
     assert_equal "com.example.echo\n", shell_output("#{bin}/lunchy list echo")
 
@@ -66,6 +66,6 @@ class Lunchy < Formula
       uninstalled com.example.echo
     EOS
 
-    refute_predicate plist, :exist?
+    refute_path_exists plist
   end
 end
