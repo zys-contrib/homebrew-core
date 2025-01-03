@@ -64,7 +64,7 @@ class Notmuch < Formula
     rewrite_shebang detected_python_shebang, bin/"notmuch-git"
 
     elisp.install Pathname.glob("emacs/*.el")
-    bash_completion.install "completion/notmuch-completion.bash"
+    bash_completion.install "completion/notmuch-completion.bash" => "notmuch"
 
     (prefix/"vim/plugin").install "vim/notmuch.vim"
     (prefix/"vim/doc").install "vim/notmuch.txt"
@@ -92,6 +92,6 @@ class Notmuch < Formula
       db.close()
     PYTHON
     system bin/"notmuch-git", "-C", "#{testpath}/git", "init"
-    assert_predicate testpath/"git", :exist?
+    assert_path_exists testpath/"git"
   end
 end
