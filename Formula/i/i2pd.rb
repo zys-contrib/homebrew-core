@@ -1,7 +1,6 @@
 class I2pd < Formula
   desc "Full-featured C++ implementation of I2P client"
   homepage "https://i2pd.website/"
-  # TODO: Switch to latest `boost` dependency on next release
   url "https://github.com/PurpleI2P/i2pd/archive/refs/tags/2.55.0.tar.gz"
   sha256 "f5792a1c0499143c716663e90bfb105aaa7ec47d1c4550b5f90ebfc25da00c6c"
   license "BSD-3-Clause"
@@ -15,7 +14,7 @@ class I2pd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a016bfda13fa3b5deba1948edec9ee979b3fc2c90b226826c36600b9e0d20d9e"
   end
 
-  depends_on "boost@1.85"
+  depends_on "boost"
   depends_on "miniupnpc"
   depends_on "openssl@3"
 
@@ -68,7 +67,7 @@ class I2pd < Formula
     pidfile = testpath/"i2pd.pid"
     system bin/"i2pd", "--datadir=#{testpath}", "--pidfile=#{pidfile}", "--daemon"
     sleep 5
-    assert_predicate testpath/"router.keys", :exist?, "Failed to start i2pd"
+    assert_path_exists testpath/"router.keys", "Failed to start i2pd"
     pid = pidfile.read.chomp.to_i
     Process.kill "TERM", pid
   end
