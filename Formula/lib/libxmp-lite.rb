@@ -1,8 +1,8 @@
 class LibxmpLite < Formula
   desc "Lite libxmp"
   homepage "https://xmp.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/xmp/libxmp/4.6.0/libxmp-lite-4.6.0.tar.gz"
-  sha256 "71a93eb0119824bcc56eca95db154d1cdf30304b33d89a4732de6fef8a2c6f38"
+  url "https://downloads.sourceforge.net/project/xmp/libxmp/4.6.1/libxmp-lite-4.6.1.tar.gz"
+  sha256 "d2096d0ad04d90556a88856a3a9e093d434ed3b6b6791907be73db7e2b9b7837"
   license "MIT"
 
   bottle do
@@ -19,22 +19,22 @@ class LibxmpLite < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
   test do
-    (testpath/"test.c").write <<~'EOS'
+    (testpath/"test.c").write <<~C
       #include <stdio.h>
       #include <libxmp-lite/xmp.h>
 
       int main(int argc, char* argv[]){
-        printf("libxmp-lite %s/%c%u\n", XMP_VERSION, *xmp_version, xmp_vercode);
+        printf("libxmp-lite %s/%c%u\\n", XMP_VERSION, *xmp_version, xmp_vercode);
         return 0;
       }
-    EOS
+    C
 
-    system ENV.cc, "test.c", "-I", include, "-L", lib, "-L#{lib}", "-lxmp-lite", "-o", "test"
-    system "#{testpath}/test"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lxmp-lite", "-o", "test"
+    system "./test"
   end
 end
