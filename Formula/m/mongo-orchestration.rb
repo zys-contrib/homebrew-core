@@ -9,12 +9,12 @@ class MongoOrchestration < Formula
   head "https://github.com/10gen/mongo-orchestration.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a25bc059c11f4278be77b58aed7b436a4a67f22f283727ae0effd7feced1cab6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "279cc710f34e644bc071f4886a9b78db5ba606594ec895f66a29af91cd2701cb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0ae506920b6d2237295bee49207ac8e6527f4aa68ecf0c19eed88370972fef01"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2dcf09fba57848009e2619c44f49908620dfa82bf336dbcdf926c162fd13bce8"
-    sha256 cellar: :any_skip_relocation, ventura:       "c5aa61f592bc7e4df5f1f23e13c35367519ea8591b3a7cb4cf427c6dd39f2e8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9538b4208c255994d76f2a0aa09a3fc7f36a136374fb314ef44c45f9740c6d19"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8abc7643eb1d0ddbc458fdbb8d806f7af9f84be7d0094729dfeaf28307f113f3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4bccf9535d58505d0aaa6bf9429e76322c059f0b1f75ee7361bae53b6ceb0673"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "dbcb57f04d98bb9d462d7047d245752e12c4b9236d1a33bd308e2accbdb5eb10"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5fcd6f986675f1a135eb375da060a46af0303aae7384d51268c77cf0caea230e"
+    sha256 cellar: :any_skip_relocation, ventura:       "4cbaa37de6faf043f5081423868a65f90daef4da3af8871f91a4c1ae93f498ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e04db3d3881b772f140d09a397b6570951fbdca51ad5f51eade6b686ec03577"
   end
 
   depends_on "certifi"
