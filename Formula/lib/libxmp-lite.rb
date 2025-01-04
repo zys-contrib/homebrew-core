@@ -6,16 +6,12 @@ class LibxmpLite < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "c45fbdc96da10e952e39b5b1cb2893f4f3e466dcf09ff85e6c0c7b13697ffa34"
-    sha256 cellar: :any,                 arm64_sonoma:   "f26e1ba3917347f6a7a258c0dae899801b702c4dac38732b92bd7f0df92813fc"
-    sha256 cellar: :any,                 arm64_ventura:  "9500723abc3c75d1b85b4673344bf7ef874a6374883042fc8ec9cfe5f8064412"
-    sha256 cellar: :any,                 arm64_monterey: "fcfcc41e351cc97fc54a8c47fc958ac4c140fcfca85efbe4dc59d6c4768dc4e0"
-    sha256 cellar: :any,                 arm64_big_sur:  "6569f2687511dbc55c47854deda2bacac26e6e27b431da225b508814c720500e"
-    sha256 cellar: :any,                 sonoma:         "64a236751b18526082594d9cf8df3073b63f3e62476243a615aa802fee0fe0e5"
-    sha256 cellar: :any,                 ventura:        "7f9ac879b3cd5e9b67cac75a79c5f25b53165986444edcefaf8149f1c0f00c33"
-    sha256 cellar: :any,                 monterey:       "165bc02b01f381bd122b421490245ade0b277d4e0051dc4498b8354edb811488"
-    sha256 cellar: :any,                 big_sur:        "56c37651e4a234b8796895786eccc4aacc03eb22c8aa3d30e16598856c4462a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1cf6c9f842c6d2c80e98c6731e0707ea6f9c8ac9b89dc8c3b5a1d396d81ce46c"
+    sha256 cellar: :any,                 arm64_sequoia: "45f2bf9d9951767cf6b3432907a7d78c4e64ad758b28bd691f763446ee84eeb1"
+    sha256 cellar: :any,                 arm64_sonoma:  "04a21a3c396232c2ab897af6d7becbfd7e983e53f230082cf7852f2cdc76956a"
+    sha256 cellar: :any,                 arm64_ventura: "3e1bc29593bab4b7cfc75fa8127468f79e04f2664abe204b246c029b02b5acea"
+    sha256 cellar: :any,                 sonoma:        "cfb0b254511b6c25751c6ba6ba0af28ac18e8bfc7d5b14aa2a1794199d06098d"
+    sha256 cellar: :any,                 ventura:       "f82931dcaf8023784413cf966e64085f0d31083e25b39296bbd36cf3fe5d9fea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "422e9bdeaf10af4d9b4d587653ad89aa5cf2e4fedd7d7ee2581b0f899982af7d"
   end
 
   def install
