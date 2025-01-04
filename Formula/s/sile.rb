@@ -1,20 +1,9 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://sile-typesetter.org"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.15.9/sile-0.15.9.tar.zst"
+  sha256 "fbda59503b333d82661601db647d1a2ad67aa8b7098e1ef78c6d8216844ac567"
   license "MIT"
-  revision 1
-
-  stable do
-    url "https://github.com/sile-typesetter/sile/releases/download/v0.15.8/sile-0.15.8.tar.zst"
-    sha256 "64c17abafd5b1ef30419a81b000998870c1b081b6372d55bc31df9c3b83f0f6a"
-
-    # Needed to workaround upstream source dist snafu, see configure phase
-    on_macos do
-      depends_on "autoconf" => :build
-      depends_on "automake" => :build
-      depends_on "libtool" => :build
-    end
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "760dcc9aead85503c481ad2c62bc69e81569258a5188ef79115df15fa0359982"
@@ -205,14 +194,6 @@ class Sile < Formula
 
     system "./bootstrap.sh" if build.head?
     system "./configure", *configure_args, *std_configure_args
-    # Work around platform detection results having been baked into the
-    # source dist (generated on Linux) with an extra configure cycle to
-    # regenerate aminclude.m4 *after* having actually run the platform
-    # detection on the target platform and found Darwin.
-    if build.stable? && OS.mac?
-      system "autoreconf", "-fiv"
-      system "./configure", *configure_args, *std_configure_args
-    end
     system "make"
     system "make", "install"
   end
