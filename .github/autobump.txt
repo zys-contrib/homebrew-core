@@ -3365,6 +3365,7 @@ wikibase-cli
 wildfly-as
 wildmidi
 wimlib
+winetricks
 wiredtiger
 wireguard-go
 wiremock-standalone
