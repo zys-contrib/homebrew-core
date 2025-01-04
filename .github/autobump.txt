@@ -594,6 +594,7 @@ cppcheck
 cppinsights
 cppman
 cpr
+cproto
 cpu_features
 cpufetch
 cpuid
