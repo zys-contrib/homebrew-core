@@ -2587,6 +2587,7 @@ qbittorrent-cli
 qbs
 qca
 qcachegrind
+qcli
 qd
 qdmr
 qemu
