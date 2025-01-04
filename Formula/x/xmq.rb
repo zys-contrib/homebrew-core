@@ -32,7 +32,7 @@ class Xmq < Formula
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
-    system "make", "install", "DESTDIR=#{prefix}"
+    system "make", "install"
   end
 
   test do
