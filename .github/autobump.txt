@@ -3422,6 +3422,7 @@ xrootd
 xsimd
 xterm
 xtrans
+xurls
 xwin
 xxhash
 xz
