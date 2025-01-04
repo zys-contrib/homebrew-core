@@ -1036,6 +1036,7 @@ frpc
 frps
 fselect
 fsql
+fswatch
 ftnchek
 fuc
 fuego-firestore

@@ -1,8 +1,8 @@
 class Fswatch < Formula
   desc "Monitor a directory for changes and run a shell command"
   homepage "https://github.com/emcrisostomo/fswatch"
-  url "https://github.com/emcrisostomo/fswatch/releases/download/1.17.1/fswatch-1.17.1.tar.gz"
-  sha256 "c38e341c567f5f16bfa64b72fc48bba5e93873d8572522e670e6f320bbc2122f"
+  url "https://github.com/emcrisostomo/fswatch/releases/download/1.18.0/fswatch-1.18.0.tar.gz"
+  sha256 "aa7454d1fc4e8f5eb0e9bd4711473c8c7c2b257e2fdea62527e86f7afaef091b"
   license all_of: ["GPL-3.0-or-later", "Apache-2.0"]
 
   livecheck do
@@ -25,10 +25,7 @@ class Fswatch < Formula
   end
 
   def install
-    ENV.cxx11
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
