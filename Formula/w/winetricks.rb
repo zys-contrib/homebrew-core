@@ -1,8 +1,8 @@
 class Winetricks < Formula
   desc "Automatic workarounds for problems in Wine"
   homepage "https://github.com/Winetricks/winetricks"
-  url "https://github.com/Winetricks/winetricks/archive/refs/tags/20240105.tar.gz"
-  sha256 "e92929045cf9ffb1e8d16ef8fd971ea1cf63a28a73916b1951e9553c94482f61"
+  url "https://github.com/Winetricks/winetricks/archive/refs/tags/20250102.tar.gz"
+  sha256 "24d339806e3309274ee70743d76ff7b965fef5a534c001916d387c924eebe42e"
   license "LGPL-2.1-or-later"
   head "https://github.com/Winetricks/winetricks.git", branch: "master"
 
