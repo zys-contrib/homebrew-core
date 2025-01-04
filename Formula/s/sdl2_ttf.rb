@@ -14,14 +14,12 @@ class Sdl2Ttf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "d39aae740c3fecc2329784ee379b5faaebb2ae9977ac43e827aeb767a26f15da"
-    sha256 cellar: :any,                 arm64_sonoma:   "244dc789ae5618ab35e6ff0508b9fb5a298e777ca5a41cbd41dc00846ab3a900"
-    sha256 cellar: :any,                 arm64_ventura:  "51fc93a32a3ae58c3467186c977782f6aee043dcfec5990311393ce78fdd293c"
-    sha256 cellar: :any,                 arm64_monterey: "7000ed898fccf6f0ce7dd6ef383a5e389edb37cef5284156eb165dfc21d8339e"
-    sha256 cellar: :any,                 sonoma:         "a84ed76722bda781c2ea2a978d6ddf8d895752e45b9dfaf9a0988d5c3e3755e8"
-    sha256 cellar: :any,                 ventura:        "8f40d557b225e0fdd5ce0a80e9fb97fbf68ac1f147f38ea333b83e651cb80e81"
-    sha256 cellar: :any,                 monterey:       "f06a7a2c359bf6a8eb4668e06b6d92374b72f3c3b0a0cc9e9fb97c11acfae87b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "60ca48a32fed27ead81ba32acc20e755e6e35dd5e4ef984eacb0319ea4381cf2"
+    sha256 cellar: :any,                 arm64_sequoia: "15e7d2771f3011e7acc050c32642eb312e96b51596300562a9f6395669608779"
+    sha256 cellar: :any,                 arm64_sonoma:  "63163b41f4746695229e47cdf721975c8d03ea0809f924c8434389e38912e186"
+    sha256 cellar: :any,                 arm64_ventura: "50e4a60835bd4eb6437e7612f39e40f9377f555ef8046c8a465b622adfbcedaa"
+    sha256 cellar: :any,                 sonoma:        "601eca4a716530bd0758865775581bb82f581c5a728df398231a0e4ba9b3071f"
+    sha256 cellar: :any,                 ventura:       "effa9785cf42d097925fc27008e432f279aa519c11f48cfd98ee942301d15a47"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "482786481f8a3f5a8f6f147156f5af9cd192e43e2d5b6adf3a5914bcc53bc1cc"
   end
 
   head do
