@@ -2784,6 +2784,7 @@ scw
 sdb
 sdl2
 sdl2_image
+sdl2_ttf
 seal
 seam
 seaweedfs
