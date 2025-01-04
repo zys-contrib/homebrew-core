@@ -27,6 +27,7 @@ class Lnav < Formula
     depends_on "re2c" => :build
   end
 
+  depends_on "rust" => :build
   depends_on "libarchive"
   depends_on "ncurses"
   depends_on "pcre2"
@@ -43,11 +44,14 @@ class Lnav < Formula
                           "--with-sqlite3=#{Formula["sqlite"].opt_prefix}",
                           "--with-readline=#{Formula["readline"].opt_prefix}",
                           "--with-libarchive=#{Formula["libarchive"].opt_prefix}",
-                          "--with-ncurses=#{Formula["ncurses"].opt_prefix}"
+                          "--with-ncurses=#{Formula["ncurses"].opt_prefix}",
+                          "--with-rust=#{Formula["rust"].opt_prefix}"
     system "make", "install", "V=1"
   end
 
   test do
     system bin/"lnav", "-V"
+
+    assert_match "col1", pipe_output("#{bin}/lnav -n -c ';from [{ col1=1 }] | take 1'", "foo")
   end
 end
