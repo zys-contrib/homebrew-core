@@ -4,6 +4,7 @@ class Mold < Formula
   url "https://github.com/rui314/mold/archive/refs/tags/v2.35.1.tar.gz"
   sha256 "912b90afe7fde03e53db08d85a62c7b03a57417e54afc72c08e2fa07cab421ff"
   license "MIT"
+  revision 1
   head "https://github.com/rui314/mold.git", branch: "main"
 
   bottle do
