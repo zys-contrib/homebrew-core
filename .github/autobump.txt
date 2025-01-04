@@ -2910,6 +2910,7 @@ sourcery
 spack
 spades
 spatialindex
+spectra
 spectral-cli
 spglib
 sphinx-doc
