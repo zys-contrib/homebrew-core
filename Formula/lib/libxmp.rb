@@ -1,8 +1,8 @@
 class Libxmp < Formula
   desc "C library for playback of module music (MOD, S3M, IT, etc)"
   homepage "https://xmp.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/xmp/libxmp/4.6.0/libxmp-4.6.0.tar.gz"
-  sha256 "2d3c45fe523b50907e89e60f9a3b7f4cc9aab83ec9dbba7743eaffbcdcb35ea6"
+  url "https://downloads.sourceforge.net/project/xmp/libxmp/4.6.1/libxmp-4.6.1.tar.gz"
+  sha256 "af605e72c83b24abaf03269347e24ebc3fc06cd7b495652a2c619c1f514bc5cb"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -32,7 +32,7 @@ class Libxmp < Formula
 
   def install
     system "autoconf" if build.head?
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
 
     pkgshare.install resource("demo_mods")
@@ -40,6 +40,7 @@ class Libxmp < Formula
 
   test do
     test_mod = "#{pkgshare}/give-me-an-om.mod"
+
     (testpath/"libxmp_test.c").write <<~C
       #include <stdio.h>
       #include "xmp.h"
@@ -63,6 +64,6 @@ class Libxmp < Formula
     C
 
     system ENV.cc, "libxmp_test.c", "-L#{lib}", "-lxmp", "-o", "libxmp_test"
-    assert_equal "give me an om", shell_output("\"#{testpath}/libxmp_test\" #{test_mod}").chomp
+    assert_equal "give me an om", shell_output("#{testpath}/libxmp_test #{test_mod}").chomp
   end
 end
