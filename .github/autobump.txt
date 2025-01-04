@@ -2148,6 +2148,7 @@ nbdime
 ncc
 ncdc
 ncdu
+ncmpc
 ncmpcpp
 ncnn
 nco
