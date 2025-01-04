@@ -3070,6 +3070,7 @@ television
 teller
 telnet
 telnetd
+templ
 template-glib
 temporal
 tendermint
