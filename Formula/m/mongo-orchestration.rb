@@ -3,8 +3,8 @@ class MongoOrchestration < Formula
 
   desc "REST API to manage MongoDB configurations on a single host"
   homepage "https://github.com/10gen/mongo-orchestration"
-  url "https://files.pythonhosted.org/packages/59/7c/b1a9ed6bfedb7133c56d1253123ddea4d6396aac745f589f3e55fde1e27f/mongo_orchestration-0.10.0.tar.gz"
-  sha256 "c11126757e64c9ed08585a53bd95c0edb7fd0d8ca0861c13329c903936966f15"
+  url "https://files.pythonhosted.org/packages/73/8f/f087958ff2ce6b0f06d5be16717e48d2009d598e4ae26270437b473a211a/mongo_orchestration-0.11.0.tar.gz"
+  sha256 "6f53db5cb6bc1ab4a8f282f2638e1c2d35b7fdcb15f6c8e034acf5d0676e3df5"
   license "Apache-2.0"
   head "https://github.com/10gen/mongo-orchestration.git", branch: "master"
 
@@ -26,8 +26,8 @@ class MongoOrchestration < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
-    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
+    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
+    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
   end
 
   resource "cheroot" do
@@ -66,8 +66,8 @@ class MongoOrchestration < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
-    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
+    url "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz"
+    sha256 "f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"
   end
 
   def install
