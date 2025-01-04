@@ -9,7 +9,7 @@ class GalleryDl < Formula
   head "https://github.com/mikf/gallery-dl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b074e224956c433a61f4f308e9507f9586d02435307f98f93470ac0b8b11ff6c"
+    sha256 cellar: :any_skip_relocation, all: "68c5b479e072e9c44fcd1350792e7bcad1cae553295cad1a9b489842f6369d93"
   end
 
   depends_on "certifi"
