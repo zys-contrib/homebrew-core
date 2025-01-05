@@ -2266,6 +2266,7 @@ open-mpi
 open62541
 openal-soft
 openapi-diff
+openapi-tui
 openbao
 openblas
 opencl-clhpp-headers
