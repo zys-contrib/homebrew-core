@@ -1839,6 +1839,7 @@ libxml2
 libxmlb
 libxmlsec1
 libxmp
+libxmp-lite
 libxmu
 libxo
 libxrender
