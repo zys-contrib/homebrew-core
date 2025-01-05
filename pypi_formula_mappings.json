@@ -833,6 +833,9 @@
   },
   "streamlink": {
     "exclude_packages": ["certifi"]
+  },  
+  "streamrip": {
+    "exclude_packages": ["certifi", "pillow"]    
   },
   "subliminal": {
     "exclude_packages": ["certifi"]
