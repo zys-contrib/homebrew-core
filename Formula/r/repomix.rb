@@ -6,12 +6,12 @@ class Repomix < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "78c9e9725fc574230cda758edb9f74c9e82ff0ab80bb09ea81c34d24f8807b0e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "78c9e9725fc574230cda758edb9f74c9e82ff0ab80bb09ea81c34d24f8807b0e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "78c9e9725fc574230cda758edb9f74c9e82ff0ab80bb09ea81c34d24f8807b0e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "81483f1bf2aff2ac615f911e29766e409a0d6c6a7b90f8f44dd4c86ad28e367c"
-    sha256 cellar: :any_skip_relocation, ventura:       "81483f1bf2aff2ac615f911e29766e409a0d6c6a7b90f8f44dd4c86ad28e367c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ebff89c0be9873d683ead8b802ef57eef1fe661e2fe092893c27fd760efb73d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5397e55b51f5773ed0cca19dfb78f2acb04e001966137adf12b3c11370ca51f6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5397e55b51f5773ed0cca19dfb78f2acb04e001966137adf12b3c11370ca51f6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5397e55b51f5773ed0cca19dfb78f2acb04e001966137adf12b3c11370ca51f6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "97f4e44260bf1a671a994ad797e256b3bb208632f2914fc5d37806512f08b47e"
+    sha256 cellar: :any_skip_relocation, ventura:       "97f4e44260bf1a671a994ad797e256b3bb208632f2914fc5d37806512f08b47e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "527dab7f07d17216e33d5b3e0ca50d89296acb98183eeeaa6d7a3e467c4bd3c3"
   end
 
   depends_on "node"
