@@ -3,8 +3,8 @@ class Grokj2k < Formula
   homepage "https://github.com/GrokImageCompression/grok"
   # pull from git tag to get submodules
   url "https://github.com/GrokImageCompression/grok.git",
-      tag:      "v14.1.0",
-      revision: "959b0a770e41dc48d6117eb1d42b617d96a1c66c"
+      tag:      "v14.2.0",
+      revision: "71ecb66d6467580231a13e61cbb2fbb99ed2b12d"
   license "AGPL-3.0-or-later"
   head "https://github.com/GrokImageCompression/grok.git", branch: "master"
 
