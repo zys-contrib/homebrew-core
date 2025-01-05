@@ -1,8 +1,8 @@
 class Roapi < Formula
   desc "Full-fledged APIs for static datasets without writing a single line of code"
   homepage "https://roapi.github.io/docs"
-  url "https://github.com/roapi/roapi/archive/refs/tags/roapi-v0.12.0.tar.gz"
-  sha256 "09f9099f04f92e92598b16fe00402911fff6b77cc4d32268ad1fb4a0b5894c8c"
+  url "https://github.com/roapi/roapi/archive/refs/tags/roapi-v0.12.3.tar.gz"
+  sha256 "3ffb4c3aaa261dd18d8d4def4a2330d498181b4e1ec7f3dd7f1844af85f6d90e"
   license "Apache-2.0"
 
   bottle do
@@ -17,12 +17,6 @@ class Roapi < Formula
   end
 
   depends_on "rust" => :build
-
-  # explicitly specify lifetime for `ExcelSubrange` return type, upstream pr ref, https://github.com/roapi/roapi/pull/353
-  patch do
-    url "https://github.com/roapi/roapi/commit/6f8b597177b5abce1b7672df2c058ca3c3679535.patch?full_index=1"
-    sha256 "eb24da11bd453621824384c2df9295f24fcd4d4f8f5f79aa07a495617ad935b4"
-  end
 
   def install
     # skip default features like snmalloc which errs on ubuntu 16.04
