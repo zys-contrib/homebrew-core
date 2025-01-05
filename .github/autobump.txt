@@ -227,6 +227,7 @@ bazel-remote
 bazelisk
 bbot
 bbtools
+bc
 bc-gh
 bcoin
 bcpp
