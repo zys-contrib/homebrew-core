@@ -4,6 +4,7 @@ class Nmap < Formula
   url "https://nmap.org/dist/nmap-7.95.tar.bz2"
   sha256 "e14ab530e47b5afd88f1c8a2bac7f89cd8fe6b478e22d255c5b9bddb7a1c5778"
   license :cannot_represent
+  revision 1
   head "https://svn.nmap.org/nmap/"
 
   livecheck do
