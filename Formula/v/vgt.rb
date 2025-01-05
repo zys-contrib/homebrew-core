@@ -6,6 +6,15 @@ class Vgt < Formula
   license "MIT"
   head "https://github.com/roblaszczak/vgt.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b7d4427dfe87372d187344ca5f584db793edcba6c21a64161ad1a7e19e3b723"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7b7d4427dfe87372d187344ca5f584db793edcba6c21a64161ad1a7e19e3b723"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7b7d4427dfe87372d187344ca5f584db793edcba6c21a64161ad1a7e19e3b723"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d2a8a56c5cbb80908ba244db470a0cc708ca661d241c8867a3648d70d33a83ca"
+    sha256 cellar: :any_skip_relocation, ventura:       "d2a8a56c5cbb80908ba244db470a0cc708ca661d241c8867a3648d70d33a83ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e7fb72f52e24e0095a704bccbbb3aed40ba98aa3edc34eaf37e220bad3ab481"
+  end
+
   depends_on "go"
 
   def install
