@@ -2677,6 +2677,7 @@ revive
 rex
 rgbds
 rhash
+rhino
 rhit
 riemann
 riemann-client
