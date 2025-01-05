@@ -15,6 +15,15 @@ class GhcAT910 < Formula
     regex(/href=.*?download[._-]ghc[._-][^"' >]+?\.html[^>]*?>\s*?v?(9\.10(?:\.\d+)+)\s*?</i)
   end
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "ec9bf60301efe6176480908497e6bbcf760c8933cb6e7e5f37ebb974511503ad"
+    sha256 cellar: :any,                 arm64_sonoma:  "6adabdb9471ae60464844e605ea1b125072093c3545bbb6be58c97e068e4b179"
+    sha256 cellar: :any,                 arm64_ventura: "7873d62ffe85f56f79253dd01207e5d2ff9d517327908d24df0cddf0507a894d"
+    sha256 cellar: :any,                 sonoma:        "468cb6b1d315ee7666776732ff81810ef758fafab73cb9e4625f2eae4eec6b53"
+    sha256 cellar: :any,                 ventura:       "bdb6eb7758ff9cbe21ddd04b686adde591cccf4cc783f61f6dbd748d1d717d51"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7094724850adb80577444deb76d26cd865c71f45d6afaae2f92cb9809cf7fd76"
+  end
+
   keg_only :versioned_formula
 
   depends_on "autoconf" => :build
