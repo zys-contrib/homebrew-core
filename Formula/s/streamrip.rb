@@ -7,6 +7,15 @@ class Streamrip < Formula
   sha256 "83ee51192faeb8134ba29e772fee949de9778f6f9c7987abe421044e44b49bb4"
   license "GPL-3.0-only"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "efb4aa3d9b9f640b598c4f314c43a5789c4e4cee44c84843343bc5380bc6ca8f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b7628d4f3c24da152c34f76115e7666e76426fabe23fe93e977296b2b6ff7a32"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "77dc15a0363d29f30a821a2d0bc5dba3e2af5e260d8544143aaa32c0ed90b71d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5767bfb01b4a9e299f21385613dbf4394c8fe21e1e78d8e185c82832712dd1ba"
+    sha256 cellar: :any_skip_relocation, ventura:       "19eb260e6a8862ea8564731a134086d21c6362e414a9b98756f5313ddcc28ba2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b3e831cb2a5f56573671636c32b64e9ddbfb1ddda4a7f548f5ebe9ceefc57b4"
+  end
+
   depends_on "certifi"
   depends_on "ffmpeg"
   depends_on "pillow"
