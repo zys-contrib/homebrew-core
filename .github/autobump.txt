@@ -3281,6 +3281,7 @@ vexctl
 vfox
 vgmstream
 vgrep
+vgt
 vhs
 victorialogs
 victoriametrics
