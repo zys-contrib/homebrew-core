@@ -7,12 +7,12 @@ class Aliyunpan < Formula
   head "https://github.com/tickstep/aliyunpan.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f569e3b67095bfcaef12ad472152f4c0f37ce5179c103b8d61ad5e0b91025575"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f569e3b67095bfcaef12ad472152f4c0f37ce5179c103b8d61ad5e0b91025575"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f569e3b67095bfcaef12ad472152f4c0f37ce5179c103b8d61ad5e0b91025575"
-    sha256 cellar: :any_skip_relocation, sonoma:        "95236bc14906d4459ccc5384feaaf5eb13bc65ab505dd43b7dfe2124d22ffbdc"
-    sha256 cellar: :any_skip_relocation, ventura:       "95236bc14906d4459ccc5384feaaf5eb13bc65ab505dd43b7dfe2124d22ffbdc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d4a976ba7fcee08561b378a671bc31f5cbc089e7f058d838c85fe8efe25b67f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c65367c3fb8bd9a0a573d2c1d8bf770e3562a62ddc1bdf9154f9f064d0134999"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c65367c3fb8bd9a0a573d2c1d8bf770e3562a62ddc1bdf9154f9f064d0134999"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c65367c3fb8bd9a0a573d2c1d8bf770e3562a62ddc1bdf9154f9f064d0134999"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5a651844e9eba0c66b41200ad77c79c300e7ef6d7b554b0532d397bf4e278ce7"
+    sha256 cellar: :any_skip_relocation, ventura:       "5a651844e9eba0c66b41200ad77c79c300e7ef6d7b554b0532d397bf4e278ce7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b7137e52c74a9cbe93ba39c81e1b30fac5f88069b5aaad5fdabed97f36d69ac"
   end
 
   depends_on "go" => :build
