@@ -3461,6 +3461,7 @@ you-get
 youplot
 youtubedr
 youtubeuploader
+yozefu
 yq
 yt-dlp
 yubico-piv-tool
