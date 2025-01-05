@@ -6,6 +6,15 @@ class Yozefu < Formula
   license "Apache-2.0"
   head "https://github.com/MAIF/yozefu.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "a2d0b9e15b95f8b15a4613475ab56396229dcd6b7011e73b93a94fe00ed238b2"
+    sha256 cellar: :any,                 arm64_sonoma:  "26ced7f140f7a2db6577a04d287325010920c207e64d6848ad3dac67c07a8307"
+    sha256 cellar: :any,                 arm64_ventura: "4509429f15b40d818a027b8f8d5dd484178353abf46cad2a5abfb4b624d81374"
+    sha256 cellar: :any,                 sonoma:        "f80d5874e60f3db277c10893fde54dc93ea0df9af6e2c4d9f30356d5e7c0ad75"
+    sha256 cellar: :any,                 ventura:       "32a7601f29c5a3b8ae2b06691e4904c7499db6dbbc2e84a0aec78fe98ec2e491"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a471fc50a5de224f6e43c9ab89f7854933e702ffbdc0344cd5982c055294cff2"
+  end
+
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
