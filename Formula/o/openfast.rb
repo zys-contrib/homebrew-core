@@ -7,12 +7,12 @@ class Openfast < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "8a72a85dbff83d23d14d233cae5b4150671b388906468aac72f057c921a40444"
-    sha256 cellar: :any,                 arm64_sonoma:  "5cb454a6ff547ca213af905a82b60ae0c53bc15bfdf3c18ca1e2ecee287339c2"
-    sha256 cellar: :any,                 arm64_ventura: "e2e86e68c2989ffbfa297d88872fdda7c1087e76c8fa87cf7b8ff8df032030a5"
-    sha256 cellar: :any,                 sonoma:        "ed061e7af5ed1d7c37fcbe175a83d423a5ef68e746d1cd85a31983ea9342370e"
-    sha256 cellar: :any,                 ventura:       "ca645a3c5f01606ad21253ea7f7ccb4fe60b72f392bde4d5f5fbc344283cfe7c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "895ca9cbad2586ae82aa5d2e44dc6a09086cb914e50218a4b2fe279fdf353141"
+    sha256 cellar: :any,                 arm64_sequoia: "6011d2e3412e31860c39930ab33ef4ec7d691cb1a2df590de5ab0b84ad355b1f"
+    sha256 cellar: :any,                 arm64_sonoma:  "5ac345426fe4c2c76e65d1d6c96837743079092bb790fadd382d2cd8dce74d67"
+    sha256 cellar: :any,                 arm64_ventura: "867a21611383da85141308a12cc66b9dad4fc2b0c36e257e24258e3bf6560698"
+    sha256 cellar: :any,                 sonoma:        "bbe62040b3ac7ef796397567e1937c048ddab57e39c14fc9483cf036cd2cc6ec"
+    sha256 cellar: :any,                 ventura:       "0aba092881a376bf010a1420560c1041db25c2c6d59b77fefcd42effa387747b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e804242164afeada61dab7af3c51e5206738d75e25aa0373ff567158d0837ae"
   end
 
   depends_on "cmake" => :build
