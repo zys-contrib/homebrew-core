@@ -7,12 +7,12 @@ class Qsv < Formula
   head "https://github.com/dathere/qsv.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cfd65ae7bec0ad2bc5088fa2ac7013c1eda71326568c6f8b33f6ca596bd08929"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "24d543706a408c2e9c06e3c40b73c164d2ddaa66c8172f1d6141edc7b60875d8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c7cc215c5b7827df8ed0c672243a7648a4aeda21c1671efc50a8251c8e7f363e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b43b6d118781cde8ef56cd40b604f91765a0dca12a9fad4c8eaeef6ee9096421"
-    sha256 cellar: :any_skip_relocation, ventura:       "4fd97de6e88658dad19ab38a290d3ec199823da0ed45110edf497b57911447a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3a4fa1ee8e48b4065a9959d5c5b29f6e1db2647d6bab694b7e3de43543dbe36"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1b0df2442af410b80010ff676dfdfd317f36777d945339fe2852b8d98cbde152"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ffb0469653d3ceb0c12f45d5289397e6273493b546eeb397f1a943ec1aa11c92"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ac04ae6b7401d0d4dcf0aa97fe334e3344f4eb5fa6c1035121d7fbd5a60efc9e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "be8d55c5997a98f0722dee1b6ae2b3b0ebca6678034588e561207035654d47b8"
+    sha256 cellar: :any_skip_relocation, ventura:       "3ab92df106f5b060116ea094c4575d9752ead76eb030daf4ed250f32471e94f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3bc2cbb9dffec4beacfd8462131a92775ed87025ebd764ffaa928fe26c81f73"
   end
 
   depends_on "rust" => :build
