@@ -1,8 +1,8 @@
 class Jnv < Formula
   desc "Interactive JSON filter using jq"
   homepage "https://github.com/ynqa/jnv"
-  url "https://github.com/ynqa/jnv/archive/refs/tags/v0.4.2.tar.gz"
-  sha256 "12f23a6082afbb80e567222ebfb827d71c08fb343473c1f909f5554aa9a4867f"
+  url "https://github.com/ynqa/jnv/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "45cf21e6f33ea6c40a52d6d281a4ac4b67bcc02f8de6d615a56ad150a27ed666"
   license "MIT"
   head "https://github.com/ynqa/jnv.git", branch: "main"
 
@@ -32,6 +32,11 @@ class Jnv < Formula
     assert_match version.to_s, shell_output(bin/"jnv --version")
 
     output = pipe_output("#{bin}/jnv 2>&1", "homebrew", 1)
-    assert_match "Error: expected value at line 1 column 1", output
+    expected_output = if OS.mac?
+      "Error: The cursor position could not be read within a normal duration"
+    else
+      "Error: No such device or address"
+    end
+    assert_match expected_output, output
   end
 end
