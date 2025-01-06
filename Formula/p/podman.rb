@@ -5,6 +5,7 @@ class Podman < Formula
       tag:      "v5.3.1",
       revision: "4cbdfde5d862dcdbe450c0f1d76ad75360f67a3c"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
+  revision 1
   head "https://github.com/containers/podman.git", branch: "main"
 
   bottle do
@@ -45,8 +46,8 @@ class Podman < Formula
 
   resource "gvproxy" do
     on_macos do
-      url "https://github.com/containers/gvisor-tap-vsock/archive/refs/tags/v0.8.0.tar.gz"
-      sha256 "460b576073c05229663766637f3b05e0a1fbcf0764843730923064f253021558"
+      url "https://github.com/containers/gvisor-tap-vsock/archive/refs/tags/v0.8.1.tar.gz"
+      sha256 "9b7fb12dfc37b0a727f2209ff8b557c4ec922d11cec30a778c192da360db4a2f"
     end
   end
 
