@@ -1,9 +1,9 @@
 class Bc < Formula
   desc "Arbitrary precision numeric processing language"
   homepage "https://www.gnu.org/software/bc/"
-  url "https://ftp.gnu.org/gnu/bc/bc-1.08.0.tar.gz"
-  mirror "https://ftpmirror.gnu.org/bc/bc-1.08.0.tar.gz"
-  sha256 "7db49996cbe16d7602936fef586e69e492c3df65765c0a891841025a1ad741ef"
+  url "https://ftp.gnu.org/gnu/bc/bc-1.08.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/bc/bc-1.08.1.tar.gz"
+  sha256 "b71457ffeb210d7ea61825ff72b3e49dc8f2c1a04102bbe23591d783d1bfe996"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -28,9 +28,6 @@ class Bc < Formula
 
   conflicts_with "bc-gh", because: "both install `bc` and `dc` binaries"
 
-  # build fix to fix `No rule to make target `-ledit', needed by `dc'.  Stop.`
-  patch :DATA
-
   def install
     # prevent user BC_ENV_ARGS from interfering with or influencing the
     # bootstrap phase of the build, particularly
@@ -50,27 +47,3 @@ class Bc < Formula
     assert_match "2", pipe_output(bin/"bc", "1+1\n", 0)
   end
 end
-
-__END__
-diff --git a/dc/Makefile.am b/dc/Makefile.am
-index 6a7fe7f..61e79ca 100644
---- a/dc/Makefile.am
-+++ b/dc/Makefile.am
-@@ -11,4 +11,3 @@ MAINTAINERCLEANFILES = Makefile.in
-
- AM_CFLAGS = @CFLAGS@
-
--$(PROGRAMS): $(LDADD)
-diff --git a/dc/Makefile.in b/dc/Makefile.in
-index b20e82f..8e7ed75 100644
---- a/dc/Makefile.in
-+++ b/dc/Makefile.in
-@@ -610,8 +610,6 @@ uninstall-am: uninstall-binPROGRAMS
- .PRECIOUS: Makefile
-
-
--$(PROGRAMS): $(LDADD)
--
- # Tell versions [3.59,3.63) of GNU make to not export all variables.
- # Otherwise a system limit (for SysV at least) may be exceeded.
- .NOEXPORT:
