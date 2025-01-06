@@ -1,8 +1,8 @@
 class GhcAT98 < Formula
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/9.8.2/ghc-9.8.2-src.tar.xz"
-  sha256 "e2fb7a7dd7461237d22e8365a83edd9e1a77d2e15d045f3945396845a87781c9"
+  url "https://downloads.haskell.org/~ghc/9.8.4/ghc-9.8.4-src.tar.xz"
+  sha256 "17e8188f3c8a5c2f73fb4e35d01032e8dc258835ec876d52c8ad8ee3d24b2fc5"
   # We build bundled copies of libffi and GMP so GHC inherits the licenses
   license all_of: [
     "BSD-3-Clause",
@@ -31,7 +31,7 @@ class GhcAT98 < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "sphinx-doc" => :build
   depends_on "xz" => :build
 
@@ -111,7 +111,7 @@ class GhcAT98 < Formula
     ENV["CC"] = ENV["ac_cv_path_CC"] = OS.linux? ? "cc" : ENV.cc
     ENV["CXX"] = ENV["ac_cv_path_CXX"] = OS.linux? ? "c++" : ENV.cxx
     ENV["LD"] = "ld"
-    ENV["PYTHON"] = which("python3.12")
+    ENV["PYTHON"] = which("python3.13")
 
     binary = buildpath/"binary"
     resource("binary").stage do
