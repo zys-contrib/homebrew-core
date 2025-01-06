@@ -7,12 +7,12 @@ class Jnv < Formula
   head "https://github.com/ynqa/jnv.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c0cf70293e7111aec8fcc6ff7d8782df0a64324fa9aba266556e9ada1ec0a6bc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "435612947d9def4bbd93299bd0a642574a290a85fa85555e89d4421bb7a1da27"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d4ae1af80dd9b3e71cdb82ac43cfb314ad39abdae7b67d91185472c085957262"
-    sha256 cellar: :any_skip_relocation, sonoma:        "14c45837cc6aabe8acb4664dd207f60996bc371ee02af9b4df3fa6fa0a6ec00f"
-    sha256 cellar: :any_skip_relocation, ventura:       "4c646d3a72b8931e85298c85db9dc673d8fe6785f93bac9ce0dcd07bf103daf6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a99e6ff1cf644ca2cbcc72ea2443508e6f0ff5ab2eed863ff51c55559af0bd9e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d01a95c658e9704e2ff8356c94ab58625571f9dcff6ea616b558e6f6c2cc61ef"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c688c552454c6bfd534d75c20f8dbe8745c846a456e4c150bdc7aa8ad03602bc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "73d2990fed120cf65fecc358b2da15447ab4540253ba21908f3ff67c69d76791"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b33c998f4f590c6363fd450fd4bbdcd7115d6f1a7302c73016a4b2cdcd4eb946"
+    sha256 cellar: :any_skip_relocation, ventura:       "ce13308a377d7f3d19095a57a178ab5cfe770b0a590659f97fb6cefbee41296c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ff26530bbe19dc29210440a2a9459583d56e6026291f80e63058c95aede0f5e"
   end
 
   depends_on "autoconf" => :build
