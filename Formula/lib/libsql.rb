@@ -1,8 +1,8 @@
 class Libsql < Formula
   desc "Fork of SQLite that is both Open Source, and Open Contributions"
   homepage "https://turso.tech/libsql"
-  url "https://github.com/tursodatabase/libsql/releases/download/libsql-server-v0.24.30/source.tar.gz"
-  sha256 "b9334866c74103056747753f940c8e597e78b1ab131c1fe37e5d865b4ca2ea8b"
+  url "https://github.com/tursodatabase/libsql/releases/download/libsql-server-v0.24.31/source.tar.gz"
+  sha256 "ca9a321622e632150166cd5625f48185ba88f8807de41b1105e483c920cacde9"
   license "MIT"
   head "https://github.com/tursodatabase/libsql.git", branch: "main"
 
@@ -30,6 +30,7 @@ class Libsql < Formula
   test do
     pid = spawn(bin/"sqld")
     sleep 2
+    sleep 3 if OS.mac? && Hardware::CPU.intel?
     assert_predicate testpath/"data.sqld", :exist?
 
     assert_match version.to_s, shell_output("#{bin}/sqld --version")
