@@ -9,7 +9,7 @@ class Pygments < Formula
   head "https://github.com/pygments/pygments.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f8b6791f0368db838d44d86d74dfc8464445baedf337ba406e8cd322e767546d"
+    sha256 cellar: :any_skip_relocation, all: "98328d1e104147cef03596a6f3be5ef664810d9cae9cf17d6d8eaf2803285775"
   end
 
   depends_on "python@3.13"
