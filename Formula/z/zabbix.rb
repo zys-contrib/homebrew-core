@@ -12,12 +12,12 @@ class Zabbix < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "559cdfca8486b90e599aa36ca6779ac5b0b47f402d525eb1c383b52813698322"
-    sha256 arm64_sonoma:  "86449000d3263400aa7324d5faf701cf07efb51963cc085795399bc47ecf3b15"
-    sha256 arm64_ventura: "f20842ee415396a3036ebddbfae7b41fca30e229c0a751b974935def9117c29d"
-    sha256 sonoma:        "967f97a3f0a1d659e01744bc73ff079a1c798708fc81219f50c618706b648b9b"
-    sha256 ventura:       "8f1105b3cd41e68bdd0c85166875b0c370246fe391bf13f35513281d406b70bd"
-    sha256 x86_64_linux:  "bcc9abefcb758ba207f6da96748f331e07e6bac13b72a6daa991f2b429bfc3ad"
+    sha256 arm64_sequoia: "2f2211d977c01905d4bef29222d69c5a02d666a0e7e97f0223c401d239a74a5b"
+    sha256 arm64_sonoma:  "5895a32296ff9c18b40afd16f5972e28c51d1df182d4b6700e4bf62fdb6e4060"
+    sha256 arm64_ventura: "9e8d6f1f095a805be359cdfa79ef998936669d8bd9442f4122ab18852a4d54aa"
+    sha256 sonoma:        "ee9c5b06397bf4f154cd02f830479e9686c8245ae9e6ea58b116434b0bec6d54"
+    sha256 ventura:       "b3d5cdb35401f0b1ccb977c70a8e4790ac41d2a135f32d8fa2c9095ec54edd5e"
+    sha256 x86_64_linux:  "7fdf93b9a8ac73a9e24f659b98103657ce0228e7f4fad6b0a23a6731604a1aa0"
   end
 
   depends_on "pkgconf" => :build
