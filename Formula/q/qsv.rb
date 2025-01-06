@@ -1,10 +1,10 @@
 class Qsv < Formula
   desc "Ultra-fast CSV data-wrangling toolkit"
-  homepage "https://github.com/jqnatividad/qsv"
-  url "https://github.com/jqnatividad/qsv/archive/refs/tags/1.0.0.tar.gz"
-  sha256 "92ca4fef2c0f58aa5d322a01a70a7e9dd689f8055cdf64aaf1422cb28fe5357b"
+  homepage "https://github.com/dathere/qsv"
+  url "https://github.com/dathere/qsv/archive/refs/tags/2.0.0.tar.gz"
+  sha256 "499820c938e2c9cdb9686cdd02ab7a31e207e9fd803ccc720b5e5ce09dfd7cd6"
   license any_of: ["MIT", "Unlicense"]
-  head "https://github.com/jqnatividad/qsv.git", branch: "master"
+  head "https://github.com/dathere/qsv.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "cfd65ae7bec0ad2bc5088fa2ac7013c1eda71326568c6f8b33f6ca596bd08929"
@@ -31,13 +31,13 @@ class Qsv < Formula
   test do
     (testpath/"test.csv").write("first header,second header")
     assert_equal <<~EOS, shell_output("#{bin}/qsv stats test.csv")
-      field,type,is_ascii,sum,min,max,range,sort_order,min_length,max_length,sum_length,avg_length,mean,sem,stddev,variance,cv,nullcount,max_precision,sparsity,qsv__value
-      first header,NULL,,,,,,,,,,,,,,,,0,,,
-      second header,NULL,,,,,,,,,,,,,,,,0,,,
-      qsv__rowcount,,,,,,,,,,,,,,,,,,,,0
-      qsv__columncount,,,,,,,,,,,,,,,,,,,,2
-      qsv__filesize_bytes,,,,,,,,,,,,,,,,,,,,26
-      qsv__fingerprint_hash,,,,,,,,,,,,,,,,,,,,1d0c55659105190da4e4e4d2ff69ae40956634c83dee786393680d9d02006bff
+      field,type,is_ascii,sum,min,max,range,sort_order,min_length,max_length,sum_length,avg_length,stddev_length,variance_length,cv_length,mean,sem,geometric_mean,harmonic_mean,stddev,variance,cv,nullcount,max_precision,sparsity,qsv__value
+      first header,NULL,,,,,,,,,,,,,,,,,,,,,0,,,
+      second header,NULL,,,,,,,,,,,,,,,,,,,,,0,,,
+      qsv__rowcount,,,,,,,,,,,,,,,,,,,,,,,,,0
+      qsv__columncount,,,,,,,,,,,,,,,,,,,,,,,,,2
+      qsv__filesize_bytes,,,,,,,,,,,,,,,,,,,,,,,,,26
+      qsv__fingerprint_hash,,,,,,,,,,,,,,,,,,,,,,,,,b818de06455146a422a60ade18c7e4ee5872089c79c32fd8a87a0f05e79564ed
     EOS
   end
 end
