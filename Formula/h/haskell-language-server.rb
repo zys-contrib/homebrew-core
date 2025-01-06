@@ -1,10 +1,18 @@
 class HaskellLanguageServer < Formula
   desc "Integration point for ghcide and haskell-ide-engine. One IDE to rule them all"
   homepage "https://github.com/haskell/haskell-language-server"
-  url "https://github.com/haskell/haskell-language-server/releases/download/2.9.0.1/haskell-language-server-2.9.0.1-src.tar.gz"
-  sha256 "bdcdca4d4ec2a6208e3a32309ad88f6ebc51bdaef44cc59b3c7c004699d1f7bd"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/haskell/haskell-language-server.git", branch: "master"
+
+  stable do
+    url "https://github.com/haskell/haskell-language-server/releases/download/2.9.0.1/haskell-language-server-2.9.0.1-src.tar.gz"
+    sha256 "bdcdca4d4ec2a6208e3a32309ad88f6ebc51bdaef44cc59b3c7c004699d1f7bd"
+
+    # Backport support for newer GHC 9.8
+    # Ref: https://github.com/haskell/haskell-language-server/commit/6d0a6f220226fe6c1cb5b6533177deb55e755b0b
+    patch :DATA
+  end
 
   # we need :github_latest here because otherwise
   # livecheck picks up spurious non-release tags
@@ -33,16 +41,17 @@ class HaskellLanguageServer < Formula
   uses_from_macos "zlib"
 
   def ghcs
-    deps.map(&:to_formula)
-        .select { |f| f.name.match? "ghc" }
+    deps.filter_map { |dep| dep.to_formula if dep.name.match? "ghc" }
         .sort_by(&:version)
   end
 
   def install
-    # Backport newer index-state to get `hashable` fix needed to build on ARM Monterey
-    # Ref: https://github.com/haskell/haskell-language-server/commit/376f7f1802298d23aff6aa94592cd46c4d68e61b
+    # Backport newer index-state for GHC 9.8.4 support in ghc-lib-parser.
+    # We use the timestamp of r1 revision to avoid latter part of commit
+    # Ref: https://github.com/haskell/haskell-language-server/commit/25c5d82ce09431a1b53dfa1784a276a709f5e479
+    # Ref: https://hackage.haskell.org/package/ghc-lib-parser-9.8.4.20241130/revisions/
     # TODO: Remove on the next release
-    inreplace "cabal.project", ": 2024-06-13T17:12:34Z", ": 2024-06-29T00:00:00Z" if build.stable?
+    inreplace "cabal.project", ": 2024-06-13T17:12:34Z", ": 2024-12-04T16:29:32Z" if build.stable?
 
     system "cabal", "v2-update"
 
@@ -69,22 +78,33 @@ class HaskellLanguageServer < Formula
   end
 
   test do
-    valid_hs = testpath/"valid.hs"
-    valid_hs.write <<~HASKELL
+    (testpath/"valid.hs").write <<~HASKELL
       f :: Int -> Int
       f x = x + 1
     HASKELL
 
-    invalid_hs = testpath/"invalid.hs"
-    invalid_hs.write <<~HASKELL
+    (testpath/"invalid.hs").write <<~HASKELL
       f :: Int -> Int
     HASKELL
 
     ghcs.each do |ghc|
       with_env(PATH: "#{ghc.bin}:#{ENV["PATH"]}") do
-        assert_match "Completed (1 file worked, 1 file failed)",
-          shell_output("#{bin}/haskell-language-server-#{ghc.version.major_minor} #{testpath}/*.hs 2>&1", 1)
+        hls = bin/"haskell-language-server-#{ghc.version.major_minor}"
+        assert_match "Completed (1 file worked, 1 file failed)", shell_output("#{hls} #{testpath}/*.hs 2>&1", 1)
       end
     end
   end
 end
+
+__END__
+--- a/ghcide/src/Development/IDE/GHC/Compat/Core.hs
++++ b/ghcide/src/Development/IDE/GHC/Compat/Core.hs
+@@ -674,7 +674,7 @@ initObjLinker env =
+ loadDLL :: HscEnv -> String -> IO (Maybe String)
+ loadDLL env str = do
+     res <- GHCi.loadDLL (GHCi.hscInterp env) str
+-#if MIN_VERSION_ghc(9,11,0)
++#if MIN_VERSION_ghc(9,11,0) || (MIN_VERSION_ghc(9, 8, 3) && !MIN_VERSION_ghc(9, 9, 0))
+     pure $
+       case res of
+         Left err_msg -> Just err_msg
