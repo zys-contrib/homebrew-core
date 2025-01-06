@@ -7,14 +7,12 @@ class CabalInstall < Formula
   head "https://github.com/haskell/cabal.git", branch: "3.14"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6d973fbc7b286f613320ff1a359023078ab06aa8e87209c8f785e601d452fbca"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6f6c8f744e69dc10b3512979588c0730147d0f2ae09c2d990953a3cb87f0cd8a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d74da35f87ef2ebbed1f38e3bd83661579d822a86f41aa32c0c7d59af3d2e6fc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b38e6149b74b53c25b2493bf6a208ff8093a2cad6003d33ab2a0380611ebb049"
-    sha256 cellar: :any_skip_relocation, sonoma:         "14b2ef3160b714b0f8105f32b35c3f06978b37eb0a9ca05fc1874266938663f3"
-    sha256 cellar: :any_skip_relocation, ventura:        "2ee5bc7a0cc5d2e6e758ae8d01b0adfe29073d0e8dd0e96c3a9eed852a064520"
-    sha256 cellar: :any_skip_relocation, monterey:       "49b7a075b4dd8c82487206c31f2b8d05084f5a189689d015c0fe2203427ef9e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb3155168d1f4d92e6277b7af7fcd99e0ff9519d56097030a0cff7d5690a71a8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d6b9eea47a6d667685e4b687469ffc3ea5a1eac6790629ace17d39c4789e85b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6433e78d1f8658935d46a92db1413c091ed6274885266e479eb26fa8370dd124"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "35f8c9c087cf7be5efbfa16248cda01f7fc64bfddf969dd4c0bc7c948f14a5c4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "23ae2f85cc3dab2e22ddf853b2479fe0c16a43f089c44242bb065ec8f846faf5"
+    sha256 cellar: :any_skip_relocation, ventura:       "2e541aa04959d1550d57bab5f938c11c89e725160565318d5e7e9228bbfa234e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "305b229f4b2de647cbd67e93ca479ccc70ac0870c3c52c19e0a112b88666add6"
   end
 
   depends_on "ghc"
