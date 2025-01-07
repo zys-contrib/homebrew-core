@@ -3,8 +3,8 @@ class Codelimit < Formula
 
   desc "Your Refactoring Alarm"
   homepage "https://github.com/getcodelimit/codelimit"
-  url "https://files.pythonhosted.org/packages/d6/2b/5e982b31e4540706ece41e8cedd87674ada874fe58b6f89fd97d5d3a73f2/codelimit-0.17.1.tar.gz"
-  sha256 "e4247881bad0e63b5cf7be729d798ebc531e8b6a5c11ceb4198aa5cdfe6ac081"
+  url "https://files.pythonhosted.org/packages/74/ed/b5a6b4f9e60be22b9b40ec82724182eb4d41285ea372326f011863e29549/codelimit-0.18.0.tar.gz"
+  sha256 "9f482c7851be67ed1b0af4ce87acbc89155e3f2a8017c7d219fc30a103b8bf90"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -86,8 +86,8 @@ class Codelimit < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz"
-    sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
+    url "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
+    sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
   end
 
   resource "pyperclip" do
@@ -136,6 +136,9 @@ class Codelimit < Formula
   end
 
   def install
+    # attrs > hatchling, fix to `ZIP does not support timestamps before 1980` error
+    ENV["SOURCE_DATE_EPOCH"] = Time.now.to_i.to_s
+
     virtualenv_install_with_resources
   end
 
