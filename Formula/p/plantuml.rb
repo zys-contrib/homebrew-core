@@ -12,7 +12,7 @@ class Plantuml < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "82992f645426367c84b8242daf0d46bfbec9e79a6f9c7984ff28ad4c8bd4c9f7"
+    sha256 cellar: :any_skip_relocation, all: "6550138ba3fb943a383323b04df9addd5555334266ee116c24367aeb904946fd"
   end
 
   depends_on "graphviz"
