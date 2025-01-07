@@ -1,12 +1,12 @@
 class OilsForUnix < Formula
   desc "Bash-compatible Unix shell with more consistent syntax and semantics"
-  homepage "https://www.oilshell.org/"
-  url "https://www.oilshell.org/download/oils-for-unix-0.24.0.tar.gz"
-  sha256 "df4afed94d53b303a782ce0380c393d60f6d21921ef2a25922b400828add98f3"
+  homepage "https://oils.pub/"
+  url "https://oils.pub/download/oils-for-unix-0.27.0.tar.gz"
+  sha256 "ab539162dffc1694fd5ae89c00e405cc5f7b73660159ec5b269bedea631df17d"
   license "Apache-2.0"
 
   livecheck do
-    url "https://www.oilshell.org/releases.html"
+    url "https://oils.pub/releases.html"
     regex(/href=.*?oils-for-unix[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
