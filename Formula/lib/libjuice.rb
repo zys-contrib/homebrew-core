@@ -1,8 +1,8 @@
 class Libjuice < Formula
   desc "UDP Interactive Connectivity Establishment (ICE) library"
   homepage "https://github.com/paullouisageneau/libjuice"
-  url "https://github.com/paullouisageneau/libjuice/archive/refs/tags/v1.5.7.tar.gz"
-  sha256 "6385c574f3c33f766ed25cddf919625b0ae8ca0d76871f70301e5a0cf2c93dc8"
+  url "https://github.com/paullouisageneau/libjuice/archive/refs/tags/v1.5.8.tar.gz"
+  sha256 "aa81809384c7e2594853304034a60fa2c2a234483b31cb531a4fc19e5877b709"
   license "MPL-2.0"
 
   bottle do
