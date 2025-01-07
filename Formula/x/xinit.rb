@@ -1,8 +1,8 @@
 class Xinit < Formula
   desc "Start the X Window System server"
   homepage "https://gitlab.freedesktop.org/xorg/app/xinit"
-  url "https://www.x.org/releases/individual/app/xinit-1.4.2.tar.xz"
-  sha256 "b7d8dc8d22ef9f15985a10b606ee4f2aad6828befa437359934647e88d331f23"
+  url "https://www.x.org/releases/individual/app/xinit-1.4.3.tar.xz"
+  sha256 "86409f21a6a31148d2c1c17bf5f2d904eb5ef455f9dc67c49fbd0c10ab18fd5a"
   license all_of: ["MIT", "APSL-2.0"]
 
   bottle do
@@ -35,8 +35,8 @@ class Xinit < Formula
     depends_on "quartz-wm"
 
     resource "xquartz" do
-      url "https://github.com/XQuartz/XQuartz/archive/refs/tags/XQuartz-2.8.2.tar.gz"
-      sha256 "050c538cf2ed39f49a366c7424c7b22781c9f7ebe02aa697f12e314913041000"
+      url "https://github.com/XQuartz/XQuartz/archive/refs/tags/XQuartz-2.8.5.tar.gz"
+      sha256 "5c8c4f48d5e30fdabfba3543174ea67e53f334650b4cfd637714e559eec102d4"
     end
   end
 
