@@ -1,8 +1,8 @@
 class Rbw < Formula
   desc "Unofficial Bitwarden CLI client"
   homepage "https://github.com/doy/rbw"
-  url "https://github.com/doy/rbw/archive/refs/tags/1.13.1.tar.gz"
-  sha256 "2e3181417732b5ab32456a1babff2febeee695604e85db2c94668270ed8a2036"
+  url "https://github.com/doy/rbw/archive/refs/tags/1.13.2.tar.gz"
+  sha256 "afe8887b64c4da6e5f33535d02ad4e1fe75c536a55d63291622b4b339522d138"
   license "MIT"
   head "https://github.com/doy/rbw.git", branch: "master"
 
