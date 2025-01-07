@@ -1437,6 +1437,7 @@ ipython
 ircd-hybrid
 ircii
 iredis
+isa-l
 isl
 iso-codes
 ispc
