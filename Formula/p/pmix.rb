@@ -20,12 +20,12 @@ class Pmix < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "aa8d3800fdcc79fad479a431e304d5bda425a0d280ff4b6f122583f2ec25c142"
-    sha256 arm64_sonoma:  "560cd6420113aed6f2d099fcf806cc4d87d3b531a6e2860998f8ae1f4980e615"
-    sha256 arm64_ventura: "db2a331eeb1822b36667ad66f7559ed4185ff665d47492020864d68a8a2c6d77"
-    sha256 sonoma:        "d93a21ec141dab7d214157db3bacbaa5e51d3f6236e462c3c3717f66203f97f1"
-    sha256 ventura:       "62812873f092e08036885e88c93f733cccf727e59993902ed12217aa225b60ea"
-    sha256 x86_64_linux:  "3a5ad6e788077ac5f7113c0d974dfabf8eeacf76181923988f5f7a73d47506d6"
+    sha256 arm64_sequoia: "87d034df133b3907036920b56bf695e12995398c429d43b33190aab7b63458fb"
+    sha256 arm64_sonoma:  "419bffb91abc0ab7e774e6c4cd8a10cef590ac7be7b769055a5cde00fd84c97e"
+    sha256 arm64_ventura: "f8b40d4e1fb759ddb4e8a4a77c602ba6ffbaf4c7d8f6ff8ef8c1c972feda6769"
+    sha256 sonoma:        "5346c6ffb4f6a63210fe911e3d8b7bbcb6523b81a4ffd682cce01924b131acee"
+    sha256 ventura:       "98b66984039760a5571856cb75936132471588bc4d11cc22fd7bd1ac963829b4"
+    sha256 x86_64_linux:  "eda624ee8c86875ea6d1f59f787c10e088c6a03bab3c2042e96cfbf2df5c2e31"
   end
 
   head do
