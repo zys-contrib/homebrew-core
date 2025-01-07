@@ -3426,6 +3426,7 @@ xerces-c
 xfig
 xgboost
 xh
+xinit
 xkbcomp
 xkeyboardconfig
 xlsxio
