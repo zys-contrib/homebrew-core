@@ -3,17 +3,17 @@ class Codelimit < Formula
 
   desc "Your Refactoring Alarm"
   homepage "https://github.com/getcodelimit/codelimit"
-  url "https://files.pythonhosted.org/packages/d6/2b/5e982b31e4540706ece41e8cedd87674ada874fe58b6f89fd97d5d3a73f2/codelimit-0.17.1.tar.gz"
-  sha256 "e4247881bad0e63b5cf7be729d798ebc531e8b6a5c11ceb4198aa5cdfe6ac081"
+  url "https://files.pythonhosted.org/packages/74/ed/b5a6b4f9e60be22b9b40ec82724182eb4d41285ea372326f011863e29549/codelimit-0.18.0.tar.gz"
+  sha256 "9f482c7851be67ed1b0af4ce87acbc89155e3f2a8017c7d219fc30a103b8bf90"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "aa50fe055d67235968fcb0b3caa8cfaa83ac5130b660d9d6b2426b8189bd603c"
-    sha256 cellar: :any,                 arm64_sonoma:  "ed9e7406e99e293cc8bb8613e31f2c604533435d0048aa10c67351eb277ad95e"
-    sha256 cellar: :any,                 arm64_ventura: "da9f0a3eeda3bc10f9c2f357d10dc3865a35570a990d7a7949249839b00db917"
-    sha256 cellar: :any,                 sonoma:        "0078df2a2820b4b75ed8f61498c1cbfa9888af706fd4d31feef6f7549507e7c9"
-    sha256 cellar: :any,                 ventura:       "dd54d785f96b527661865ca7b3c591b12771dd2d6e02b80fa1307dcf53304d96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d323196cb9075c91a766152bc79a2f35200a30fba50cef7520d36493a3e4d7d"
+    sha256 cellar: :any,                 arm64_sequoia: "9560d66ceb91911c33b37f09cb7a32a6a284bfdd5d05d1d30dac083cf530165a"
+    sha256 cellar: :any,                 arm64_sonoma:  "3249fde89190c6806cd446cdfa66005960cec68e5e784951dae96f3d74943f2d"
+    sha256 cellar: :any,                 arm64_ventura: "51def0f53ce1ebf71b7c7180c60c72544be614111d09cbb4971278cba1713229"
+    sha256 cellar: :any,                 sonoma:        "2510774c6a1352d42e8e067cad27b976c2e060c513d5f0e1f4dc080883252f7d"
+    sha256 cellar: :any,                 ventura:       "512bbe7439f8cc321583275018552aaa291688461ab231d993fe1dd8d25c6f92"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28815a26379f8de8649e45a2ac6e9ec9ff96e3002891a36e1e8eba66460ae071"
   end
 
   depends_on "certifi"
@@ -86,8 +86,8 @@ class Codelimit < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz"
-    sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
+    url "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
+    sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
   end
 
   resource "pyperclip" do
@@ -136,6 +136,9 @@ class Codelimit < Formula
   end
 
   def install
+    # attrs > hatchling, fix to `ZIP does not support timestamps before 1980` error
+    ENV["SOURCE_DATE_EPOCH"] = Time.now.to_i.to_s
+
     virtualenv_install_with_resources
   end
 
