@@ -1,19 +1,10 @@
 class Bat < Formula
   desc "Clone of cat(1) with syntax highlighting and Git integration"
   homepage "https://github.com/sharkdp/bat"
+  url "https://github.com/sharkdp/bat/archive/refs/tags/v0.25.0.tar.gz"
+  sha256 "4433403785ebb61d1e5d4940a8196d020019ce11a6f7d4553ea1d324331d8924"
   license any_of: ["Apache-2.0", "MIT"]
-  revision 2
   head "https://github.com/sharkdp/bat.git", branch: "master"
-
-  # Remove `stable` block when patch is no longer needed.
-  stable do
-    url "https://github.com/sharkdp/bat/archive/refs/tags/v0.24.0.tar.gz"
-    sha256 "907554a9eff239f256ee8fe05a922aad84febe4fe10a499def72a4557e9eedfb"
-
-    # Update libgit2-sys to support libgit2 1.8.
-    # Backport of https://github.com/sharkdp/bat/commit/c59dad0cae45d7aa84ad87583d6b6904b30839b2
-    patch :DATA
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "0725b04fd2c2bc239c1607b2677e3b31f577585ef7937f0b5813be3c7ecb3707"
@@ -66,46 +57,3 @@ class Bat < Formula
     end
   end
 end
-
-__END__
-diff --git a/Cargo.lock b/Cargo.lock
-index d51c98a..90367a0 100644
---- a/Cargo.lock
-+++ b/Cargo.lock
-@@ -523,9 +523,9 @@ dependencies = [
- 
- [[package]]
- name = "git2"
--version = "0.18.0"
-+version = "0.19.0"
- source = "registry+https://github.com/rust-lang/crates.io-index"
--checksum = "12ef350ba88a33b4d524b1d1c79096c9ade5ef8c59395df0e60d1e1889414c0e"
-+checksum = "b903b73e45dc0c6c596f2d37eccece7c1c8bb6e4407b001096387c63d0d93724"
- dependencies = [
-  "bitflags 2.4.0",
-  "libc",
-@@ -658,9 +658,9 @@ checksum = "b4668fb0ea861c1df094127ac5f1da3409a82116a4ba74fca2e58ef927159bb3"
- 
- [[package]]
- name = "libgit2-sys"
--version = "0.16.1+1.7.1"
-+version = "0.17.0+1.8.1"
- source = "registry+https://github.com/rust-lang/crates.io-index"
--checksum = "f2a2bb3680b094add03bb3732ec520ece34da31a8cd2d633d1389d0f0fb60d0c"
-+checksum = "10472326a8a6477c3c20a64547b0059e4b0d086869eee31e6d7da728a8eb7224"
- dependencies = [
-  "cc",
-  "libc",
-diff --git a/Cargo.toml b/Cargo.toml
-index e31fbc3..5fb32c8 100644
---- a/Cargo.toml
-+++ b/Cargo.toml
-@@ -69,7 +69,7 @@ os_str_bytes = { version = "~6.4", optional = true }
- run_script = { version = "^0.10.0", optional = true}
- 
- [dependencies.git2]
--version = "0.18"
-+version = "0.19"
- optional = true
- default-features = false
- 
