@@ -477,6 +477,7 @@ ckan
 clac
 clair
 clamav
+clang-build-analyzer
 clang-format
 clang-uml
 claws-mail
