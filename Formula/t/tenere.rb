@@ -17,13 +17,15 @@ class Tenere < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "libgit2@1.7"
   depends_on "oniguruma"
 
   uses_from_macos "zlib"
 
   def install
-    ENV["LIBGIT2_NO_VENDOR"] = "1"
+    # TODO: ENV["LIBGIT2_NO_VENDOR"] = "1"
+    libgit2_version = File.read("Cargo.lock")[/name = "libgit2-sys"\nversion = "(.+)\+(.+)"/, 2]
+    odie "Unbundled libgit2 as now using #{libgit2_version}!" if Version.new(libgit2_version) >= "1.8"
+
     ENV["RUSTONIG_SYSTEM_LIBONIG"] = "1"
 
     system "cargo", "install", *std_cargo_args
