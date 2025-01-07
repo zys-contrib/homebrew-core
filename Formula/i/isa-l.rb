@@ -1,8 +1,8 @@
 class IsaL < Formula
   desc "Intelligent Storage Acceleration Library"
   homepage "https://github.com/intel/isa-l"
-  url "https://github.com/intel/isa-l/archive/refs/tags/v2.31.0.tar.gz"
-  sha256 "e218b7b2e241cfb8e8b68f54a6e5eed80968cc387c4b1af03708b54e9fb236f1"
+  url "https://github.com/intel/isa-l/archive/refs/tags/v2.31.1.tar.gz"
+  sha256 "5c9da8f2024c1949457e91226d73cd71e52ec4574803899f0d600ee9e58c3561"
   license "BSD-3-Clause"
 
   bottle do
@@ -21,12 +21,6 @@ class IsaL < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "nasm" => :build
-
-  # fix mach compilation
-  patch do
-    url "https://github.com/intel/isa-l/commit/f1b144bbab7cd1f603565b3b7f92bfb47b86e646.patch?full_index=1"
-    sha256 "41a300e3155a281dbf05aa79d54250b19eda035a8166f5368c18867467475c0b"
-  end
 
   def install
     system "./autogen.sh"
