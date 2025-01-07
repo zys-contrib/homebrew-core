@@ -1,12 +1,12 @@
 class Oil < Formula
   desc "Bash-compatible Unix shell with more consistent syntax and semantics"
-  homepage "https://www.oilshell.org/"
-  url "https://www.oilshell.org/download/oil-0.24.0.tar.gz"
-  sha256 "f199f5384e72c53eeb8a159ee7ac1b92819adc13a6dc5644ccae33e7ceaa9c72"
+  homepage "https://oils.pub/"
+  url "https://oils.pub/download/oil-0.27.0.tar.gz"
+  sha256 "7461e9a7bc35e807d90dd878a1e6642167699e7bb19cf605ce075b08e0a7588c"
   license "Apache-2.0"
 
   livecheck do
-    url "https://www.oilshell.org/releases.html"
+    url "https://oils.pub/releases.html"
     regex(/href=.*?oil[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
@@ -24,6 +24,9 @@ class Oil < Formula
   conflicts_with "etsh", "omake", because: "both install 'osh' binaries"
 
   def install
+    # Workaround for newer Clang/GCC
+    ENV.append_to_cflags "-Wno-implicit-function-declaration"
+
     system "./configure", "--prefix=#{prefix}",
                           "--datarootdir=#{share}",
                           "--with-readline=#{Formula["readline"].opt_prefix}"
