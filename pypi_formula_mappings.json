@@ -819,7 +819,8 @@
     "exclude_packages": ["certifi"]
   },
   "snapcraft": {
-    "extra_packages": ["catkin-pkg"]
+    "exclude_packages": ["certifi", "cryptography", "pygit2"],
+    "extra_packages": ["catkin-pkg", "jeepney", "pylxd", "secretstorage"]
   },
   "sphinx-doc": {
     "exclude_packages": ["certifi"],
