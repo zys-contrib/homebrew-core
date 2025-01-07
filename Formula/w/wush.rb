@@ -1,8 +1,8 @@
 class Wush < Formula
   desc "Transfer files between computers via WireGuard"
   homepage "https://github.com/coder/wush"
-  url "https://github.com/coder/wush/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "724a5b874fdf35856ece92d2967700e56c9f81e932893d5c7bf9ee8dce4fe128"
+  url "https://github.com/coder/wush/archive/refs/tags/v0.4.1.tar.gz"
+  sha256 "77d5a912465d1e8ec478252a9a69a04d39af75a126ac9ed94823f33a60b3d8f9"
   license "CC0-1.0"
 
   bottle do
