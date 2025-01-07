@@ -2352,6 +2352,7 @@ oxipng
 oxker
 oxlint
 p11-kit
+p7zip
 pacapt
 packetbeat
 packetq
