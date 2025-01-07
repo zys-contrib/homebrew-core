@@ -2654,6 +2654,8 @@ recc
 recode
 recoverpy
 redict
+redis
+redis@6.2
 redka
 redress
 redwax-tool
