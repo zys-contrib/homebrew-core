@@ -4,6 +4,7 @@ class Fastp < Formula
   url "https://github.com/OpenGene/fastp/archive/refs/tags/v0.24.0.tar.gz"
   sha256 "42445973c57be9209c753027e99781261c69381013813c576ad447e413ff3d04"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "b3ab9145befee1c91f94affcbff56639d42d51d0ca15968a77a03fe8f3470e34"
