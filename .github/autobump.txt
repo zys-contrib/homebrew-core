@@ -2855,6 +2855,7 @@ silk
 simde
 simdjson
 simdutf
+simg2img
 simgrid
 simple-scan
 sing-box

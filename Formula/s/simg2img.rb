@@ -1,8 +1,8 @@
 class Simg2img < Formula
   desc "Tool to convert Android sparse images to raw images and back"
   homepage "https://github.com/anestisb/android-simg2img"
-  url "https://github.com/anestisb/android-simg2img/archive/refs/tags/1.1.4.tar.gz"
-  sha256 "cbd32490c1e29d9025601b81089b5aec1707cb62020dfcecd8747af4fde6fecd"
+  url "https://github.com/anestisb/android-simg2img/archive/refs/tags/1.1.5.tar.gz"
+  sha256 "d9e9ec2c372dbbb69b9f90b4da24c89b092689e45cd5f74f0e13003bc367f3fc"
   license "Apache-2.0"
   head "https://github.com/anestisb/android-simg2img.git", branch: "master"
 
@@ -17,12 +17,6 @@ class Simg2img < Formula
   end
 
   uses_from_macos "zlib"
-
-  # Fix execution on apple silicon from a fork
-  patch do
-    url "https://github.com/anestisb/android-simg2img/commit/931df9dd83e7feea11197402c5b4e7ad489f4abf.patch?full_index=1"
-    sha256 "97f7e1256e9bc0fcfb4e1714ac503c7d5a4901a1685fe86307222d0f67ae5898"
-  end
 
   def install
     system "make", "PREFIX=#{prefix}", "install"
