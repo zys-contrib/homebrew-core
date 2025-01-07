@@ -9,12 +9,12 @@ class LinodeCli < Formula
   head "https://github.com/linode/linode-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a717533093bfed669c8a5b81734e1ceb109d8e27fe115025ee3b166ea7b8993c"
-    sha256 cellar: :any,                 arm64_sonoma:  "3c3e2f240639c01519fa9432ddd41dcac9d70d98de0bb99e966cad01256f146a"
-    sha256 cellar: :any,                 arm64_ventura: "45842042b1a0f7cd4388d17b583f2ba6a2fa18ba7d572500bf256e2187ea0c74"
-    sha256 cellar: :any,                 sonoma:        "120e7240fba0ceba4330ea6d9155d31b5bc29e9ceb2bc7c868c6800720ad8270"
-    sha256 cellar: :any,                 ventura:       "8b9f2e1a72baf0010a3c23df095dec374741f234671a0029c4cdf99a64760612"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ec4314858b25fae6d8e5a38357e0261f184cd94e7a7dbe94531fec7de32620a"
+    sha256 cellar: :any,                 arm64_sequoia: "3d7fae77d9ee204da311af6952e530a7ca63704936beee34f93763198ae56c5e"
+    sha256 cellar: :any,                 arm64_sonoma:  "c989b9db0c51ce05d5553589265583c4b2d2ff6b2d7b43e06e9c80be1e59cca1"
+    sha256 cellar: :any,                 arm64_ventura: "2335e9aa3af64a91b75d3ba9b82ecd6658e54758d360eefb437d27d527211760"
+    sha256 cellar: :any,                 sonoma:        "1c8626dd198a2500de45e9e9cb29d28f86ebb4b0db57688570127f97fde50570"
+    sha256 cellar: :any,                 ventura:       "7ba242d4efe7a112e8b23ac8747ddae7134841682330218719912e645de44b3b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4449d9be3628b13bcc2e1411750f40901367c4a00a3d887abd69bb7145651fd4"
   end
 
   depends_on "certifi"
