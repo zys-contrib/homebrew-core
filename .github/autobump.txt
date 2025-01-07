@@ -510,6 +510,7 @@ cloudfox
 cloudlist
 cloudprober
 cloudquery
+cloudsplaining
 clozure-cl
 clp
 clusterawsadm
