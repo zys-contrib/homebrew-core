@@ -1,10 +1,9 @@
 class Clangql < Formula
   desc "Run a SQL like language to perform queries on C/C++ files"
   homepage "https://github.com/AmrDeveloper/ClangQL"
-  url "https://github.com/AmrDeveloper/ClangQL/archive/refs/tags/0.6.0.tar.gz"
-  sha256 "a3ccd60735a57effe8a2aa9ee80ff3fabd1dc0a186365e20b506aa442edc3ac5"
+  url "https://github.com/AmrDeveloper/ClangQL/archive/refs/tags/0.8.0.tar.gz"
+  sha256 "67c318d5299af809abbd3ddb5488d10be6c71710169da79292523a0d48ef0042"
   license "MIT"
-  revision 1
   head "https://github.com/AmrDeveloper/ClangQL.git", branch: "master"
 
   bottle do
