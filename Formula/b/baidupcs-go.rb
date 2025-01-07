@@ -1,8 +1,8 @@
 class BaidupcsGo < Formula
   desc "Terminal utility for Baidu Network Disk"
   homepage "https://github.com/qjfoidnh/BaiduPCS-Go"
-  url "https://github.com/qjfoidnh/BaiduPCS-Go/archive/refs/tags/v3.9.6.tar.gz"
-  sha256 "d6fadb9ed5ef28d0a64123f1c12855ad19c5cd44df67a844dc654fa3bdd2fc0b"
+  url "https://github.com/qjfoidnh/BaiduPCS-Go/archive/refs/tags/v3.9.7.tar.gz"
+  sha256 "a2dc89951ffb4421eacc992e248ae84e8ba9a971989b47707ed9faf53cc7a519"
   license "Apache-2.0"
   head "https://github.com/qjfoidnh/BaiduPCS-Go.git", branch: "main"
 
@@ -15,8 +15,7 @@ class BaidupcsGo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb643c2966d45e3c056d1029c390376df7ad795b231b6a2c61e343772ab9dbbf"
   end
 
-  # use "go" again when https://github.com/qjfoidnh/BaiduPCS-Go/issues/336 is resolved and released
-  depends_on "go@1.22" => :build
+  depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
