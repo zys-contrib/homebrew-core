@@ -1599,6 +1599,7 @@ kubeshark
 kubespy
 kubetail
 kubetrim
+kubetui
 kubevela
 kubevious
 kubevpn
