@@ -3,8 +3,8 @@ class PodmanCompose < Formula
 
   desc "Alternative to docker-compose using podman"
   homepage "https://github.com/containers/podman-compose"
-  url "https://files.pythonhosted.org/packages/bd/67/0f8cf5ef346a22ce73dfdd0e60cf81342329b71a7fc118128929f0c07b62/podman_compose-1.2.0.tar.gz"
-  sha256 "e47665546598a48d83d30ca2709a679412824bbe84b93f61779bc863e1a6f060"
+  url "https://files.pythonhosted.org/packages/a8/e7/0d23c675128a53bc220c296e6abdcbda872dd1fef48d4513f351f4031d24/podman_compose-1.3.0.tar.gz"
+  sha256 "e65a70e8fa26bd195d2017ac5893149b40c0df5a0c20d480a338c4f60218b1fa"
   license "GPL-2.0-only"
 
   bottle do
@@ -56,6 +56,6 @@ class PodmanCompose < Formula
     # If it's trying to connect to Podman, we know it at least found the
     # compose.yml file and parsed/validated the contents
     expected = OS.linux? ? "Error: cannot re-exec process" : "Cannot connect to Podman"
-    assert_match expected, shell_output("#{bin}/podman-compose down 2>&1")
+    assert_match expected, shell_output("#{bin}/podman-compose down 2>&1", 1)
   end
 end
