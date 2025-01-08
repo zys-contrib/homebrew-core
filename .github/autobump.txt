@@ -541,6 +541,7 @@ code-server
 codec2
 codelimit
 coder
+codesnap
 codespell
 codevis
 cog
