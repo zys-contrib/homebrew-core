@@ -1,8 +1,8 @@
 class MinizipNg < Formula
   desc "Zip file manipulation library with minizip 1.x compatibility layer"
   homepage "https://github.com/zlib-ng/minizip-ng"
-  url "https://github.com/zlib-ng/minizip-ng/archive/refs/tags/4.0.7.tar.gz"
-  sha256 "a87f1f734f97095fe1ef0018217c149d53d0f78438bcb77af38adc21dff2dfbc"
+  url "https://github.com/zlib-ng/minizip-ng/archive/refs/tags/4.0.8.tar.gz"
+  sha256 "c3e9ceab2bec26cb72eba1cf46d0e2c7cad5d2fe3adf5df77e17d6bbfea4ec8f"
   license "Zlib"
   head "https://github.com/zlib-ng/minizip-ng.git", branch: "dev"
 
@@ -52,7 +52,8 @@ class MinizipNg < Formula
       #include <stdint.h>
       #include <time.h>
       #include "mz_zip.h"
-      #include "mz_compat.h"
+      #include "mz.h"
+      #include "zip.h"
       int main(void)
       {
         zipFile hZip = zipOpen2_64("test.zip", APPEND_STATUS_CREATE, NULL, NULL);
