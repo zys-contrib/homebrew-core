@@ -1,13 +1,13 @@
 class Rbenv < Formula
   desc "Ruby version manager"
   homepage "https://rbenv.org"
-  url "https://github.com/rbenv/rbenv/archive/refs/tags/v1.3.1.tar.gz"
-  sha256 "96b8e0430b2f227c193ef016b68ae565753cb8deff13cad1d700c73c0397ff5d"
+  url "https://github.com/rbenv/rbenv/archive/refs/tags/v1.3.2.tar.gz"
+  sha256 "e2104f6472d7a8477409c46d4de39562b4d01899148a3dbed73c1d99a0b4bb2a"
   license "MIT"
   head "https://github.com/rbenv/rbenv.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d29a7c7ab121835cb05f1a1e49f4ddda5c037570e00172ab9f078c3b151f9efc"
+    sha256 cellar: :any_skip_relocation, all: "8158fb1f059c1316523b2cc9074c5c041b3944828dc3b76cb032f893e754f013"
   end
 
   depends_on "ruby-build"
