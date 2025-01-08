@@ -1,8 +1,8 @@
 class Openlibm < Formula
   desc "High quality, portable, open source libm implementation"
   homepage "https://openlibm.org"
-  url "https://github.com/JuliaMath/openlibm/archive/refs/tags/v0.8.4.tar.gz"
-  sha256 "c0bac12a6596f2315341790a7f386f9162a5b1f98db9ec40d883fce64e231942"
+  url "https://github.com/JuliaMath/openlibm/archive/refs/tags/v0.8.5.tar.gz"
+  sha256 "d380c2d871f6dc16e22893569d57bda9121742cc8f6534510526e5278867c6cf"
   license all_of: ["MIT", "ISC", "BSD-2-Clause"]
 
   bottle do
