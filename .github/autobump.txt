@@ -1759,6 +1759,7 @@ liboqs
 liborigin
 libosinfo
 libp11
+libpaho-mqtt
 libpanel
 libpano
 libpcap
