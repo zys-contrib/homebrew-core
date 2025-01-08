@@ -7,8 +7,7 @@ class Rbenv < Formula
   head "https://github.com/rbenv/rbenv.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "8c1ae8d76748e0140a458cd4c83b2f6ed83da17777940f7878ce5348ede8aeff"
+    sha256 cellar: :any_skip_relocation, all: "d29a7c7ab121835cb05f1a1e49f4ddda5c037570e00172ab9f078c3b151f9efc"
   end
 
   depends_on "ruby-build"
