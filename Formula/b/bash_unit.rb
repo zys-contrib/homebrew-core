@@ -6,7 +6,7 @@ class BashUnit < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "34176de04475a95302410fbb0d9deb4078f034bbef39b17b2fe16c1ce48ffa35"
+    sha256 cellar: :any_skip_relocation, all: "2d5f3bacff684950c7a12a1ba1eb01c63368461d46994f9cfd4209150b73bc8d"
   end
 
   uses_from_macos "bc" => :test
