@@ -6,14 +6,12 @@ class TemplateGlib < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "7887fb177fae9618c344c0b89c051295c177afcc8ae7965c5b1ecc4286b94dfc"
-    sha256 cellar: :any, arm64_sonoma:   "2daee9e38dd1b1ef69dffd166f01fced59f2b995503bfa0b535217b75b0d9978"
-    sha256 cellar: :any, arm64_ventura:  "7fd444eaf0477d2faddb96a278f30c2c3d2073ab4e6b3bb8860262e1e4652812"
-    sha256 cellar: :any, arm64_monterey: "d1ad92f56762b7dc87a65ebcbeb0cbac29235c0a6234a07b07dcaf8e6efa9840"
-    sha256 cellar: :any, sonoma:         "384136ebb3f6198eb39a87a900f0b9a588160f01272d926aaf556dc00fee74c5"
-    sha256 cellar: :any, ventura:        "79aa07a322b002473fbd829d79dff1c6a2147d74e3186e843fb8b0572e3a9381"
-    sha256 cellar: :any, monterey:       "d23a2768d603f656bbd31439504dae0ad391ecd3329a1db66ca107f78b68663b"
-    sha256               x86_64_linux:   "d38c3fb436805bed97da9b3d88798a2b094b6eb51fc4ddc00cf43301ecde486d"
+    sha256 cellar: :any, arm64_sequoia: "57bcd419dd5b8203787927b3f80030cdd588dcdfb1b8d9f421d221d6ce8d620a"
+    sha256 cellar: :any, arm64_sonoma:  "34f5aa6d72e339e7f00a1c3edf3e4ca888e3287361c72608bd9059c2e160237e"
+    sha256 cellar: :any, arm64_ventura: "cbab4dae5f31a1f03b008c1c2716a392d627342f4ef0725c8acec4bf75b3af57"
+    sha256 cellar: :any, sonoma:        "d1caeed1a18c589d0254c2d5ed7f7ef3be5072ba29719dd89a80dd0e5775fc56"
+    sha256 cellar: :any, ventura:       "3274fa074958fd821bc76a53a6a029d92f0a0f4f8726279e644f54e8ea824b4e"
+    sha256               x86_64_linux:  "5c6b0220a451c784ae6a1d249fefc47d257b5e1a5bbc5aebf35fce80d01c4bc7"
   end
 
   depends_on "bison" => :build # does not appear to work with system bison
