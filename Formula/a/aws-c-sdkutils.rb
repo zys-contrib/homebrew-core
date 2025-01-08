@@ -1,8 +1,8 @@
 class AwsCSdkutils < Formula
   desc "C99 library implementing AWS SDK specific utilities"
   homepage "https://github.com/awslabs/aws-c-sdkutils"
-  url "https://github.com/awslabs/aws-c-sdkutils/archive/refs/tags/v0.2.1.tar.gz"
-  sha256 "17bdec593f3ae8a837622ef81055db81cc2dd14b86d33b21df878a7ab918d0e4"
+  url "https://github.com/awslabs/aws-c-sdkutils/archive/refs/tags/v0.2.2.tar.gz"
+  sha256 "75defbfd4d896b8bdc0790bd25d854218acae61b9409d1956d33832924b82045"
   license "Apache-2.0"
 
   bottle do
