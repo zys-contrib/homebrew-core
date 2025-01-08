@@ -3,18 +3,18 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/03/95/b705e4a7fb1787d9829f7e29b32f4d8cc253bfb8c321d67cc38ce765dcb0/snakemake-8.26.0.tar.gz"
-  sha256 "b52390cd6c3b591e5c4a0977df93d8f25a4a38a5c43dee4c7e2093393cb1f053"
+  url "https://files.pythonhosted.org/packages/5d/d8/5f93d9a4a8984d64e0299af194f0667d9384efbf0f5fc1b3434ad30db9c6/snakemake-8.27.0.tar.gz"
+  sha256 "7bee7e4f255fd75738b6840c3453c9b5a4f33c628705c38a5a462db008f0334d"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7006cc09885f71cc8401647bdc150d28b9d2095d73d0da674055ca588ea4c9a9"
-    sha256 cellar: :any,                 arm64_sonoma:  "d4d6f04f1aed14ac12920f49e56b702893d29de2463ca597238e90a3101bebfc"
-    sha256 cellar: :any,                 arm64_ventura: "df80c41a307a1fccb7d08158ee130e708e9ee1fd2e42d76f1a4bc8d250de74f6"
-    sha256 cellar: :any,                 sonoma:        "35bf6f7a530c1387f37c88bb70457160b339b63b05f68040e0c61e7bdf8c184f"
-    sha256 cellar: :any,                 ventura:       "1d46902affb601aae62096e614963703a1e283a9919036a662e52a66dc9c5948"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ea2aa0cc3c158d893c11fa37247d09c2d59dbdade960a662d23a6ab58a5b276"
+    sha256 cellar: :any,                 arm64_sequoia: "c731d0793b244e63f876abbb6eec9e3b979fea76673919f366f4a784672b7134"
+    sha256 cellar: :any,                 arm64_sonoma:  "72c9d6b4785893ef4e0bf36f361db36bad42e2016c7191e0901a91d45c694560"
+    sha256 cellar: :any,                 arm64_ventura: "3849b2df6e84e91daf812fee637f520e13cb07d26edf149b4c2e937108a4dd83"
+    sha256 cellar: :any,                 sonoma:        "e5210f5eb6b8ff27e89d0541f8af31ab2fa81cb9bb3005d17b4421f83c48b552"
+    sha256 cellar: :any,                 ventura:       "f52ba37201143cc070d0d3338a43b44dfab944674da906c3f526fa6c19fe4069"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5c0a5ad8576006c56e1a2eda23b9fff4912311d60c1ff3543e49ca53de7ab9f"
   end
 
   depends_on "rust" => :build
@@ -39,8 +39,8 @@ class Snakemake < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
-    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
+    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
+    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
   end
 
   resource "conda-inject" do
@@ -79,13 +79,13 @@ class Snakemake < Formula
   end
 
   resource "gitdb" do
-    url "https://files.pythonhosted.org/packages/19/0d/bbb5b5ee188dec84647a4664f3e11b06ade2bde568dbd489d9d64adef8ed/gitdb-4.0.11.tar.gz"
-    sha256 "bf5421126136d6d0af55bc1e7c1af1c397a34f5b7bd79e776cd3e89785c2b04b"
+    url "https://files.pythonhosted.org/packages/72/94/63b0fc47eb32792c7ba1fe1b694daec9a63620db1e313033d18140c2320a/gitdb-4.0.12.tar.gz"
+    sha256 "5ef71f855d191a3326fcfbc0d5da835f26b13fbcba60c32c21091c349ffdb571"
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/b6/a1/106fd9fa2dd989b6fb36e5893961f82992cf676381707253e0bf93eb1662/GitPython-3.1.43.tar.gz"
-    sha256 "35f314a9f878467f5453cc1fee295c3e18e52f1b99f10f6cf5b1682e968a9e7c"
+    url "https://files.pythonhosted.org/packages/c0/89/37df0b71473153574a5cdef8f242de422a0f5d26d7a9e231e6f169b4ad14/gitpython-3.1.44.tar.gz"
+    sha256 "c87e30b26253bf5418b01b0660f818967f3c503193838337fe5e573331249269"
   end
 
   resource "humanfriendly" do
@@ -189,8 +189,8 @@ class Snakemake < Formula
   end
 
   resource "smmap" do
-    url "https://files.pythonhosted.org/packages/88/04/b5bf6d21dc4041000ccba7eb17dd3055feb237e7ffc2c20d3fae3af62baa/smmap-5.0.1.tar.gz"
-    sha256 "dceeb6c0028fdb6734471eb07c0cd2aae706ccaecab45965ee83f11c8d3b1f62"
+    url "https://files.pythonhosted.org/packages/44/cd/a040c4b3119bbe532e5b0732286f805445375489fceaec1f48306068ee3b/smmap-5.0.2.tar.gz"
+    sha256 "26ea65a03958fa0c8a1c7e8c7a58fdc77221b8910f6be2131affade476898ad5"
   end
 
   resource "snakemake-interface-common" do
