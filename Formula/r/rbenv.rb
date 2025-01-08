@@ -1,8 +1,8 @@
 class Rbenv < Formula
   desc "Ruby version manager"
   homepage "https://rbenv.org"
-  url "https://github.com/rbenv/rbenv/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "7e49e529ce0c876748fa75a61efdd62efa2634906075431a1818b565825eb758"
+  url "https://github.com/rbenv/rbenv/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "96b8e0430b2f227c193ef016b68ae565753cb8deff13cad1d700c73c0397ff5d"
   license "MIT"
   head "https://github.com/rbenv/rbenv.git", branch: "master"
 
