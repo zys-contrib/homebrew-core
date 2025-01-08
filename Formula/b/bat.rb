@@ -1,10 +1,20 @@
 class Bat < Formula
   desc "Clone of cat(1) with syntax highlighting and Git integration"
   homepage "https://github.com/sharkdp/bat"
-  url "https://github.com/sharkdp/bat/archive/refs/tags/v0.25.0.tar.gz"
-  sha256 "4433403785ebb61d1e5d4940a8196d020019ce11a6f7d4553ea1d324331d8924"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/sharkdp/bat.git", branch: "master"
+
+  stable do
+    url "https://github.com/sharkdp/bat/archive/refs/tags/v0.25.0.tar.gz"
+    sha256 "4433403785ebb61d1e5d4940a8196d020019ce11a6f7d4553ea1d324331d8924"
+
+    # git2 bump to use libgit2 1.9, upstream pr ref, https://github.com/sharkdp/bat/pull/3169
+    patch do
+      url "https://github.com/sharkdp/bat/commit/01680e444ba4273b17d2d6d85a19f7a5e7046820.patch?full_index=1"
+      sha256 "ad450b12f6a4a8332bf1e249a239518c7edfe94ccc6abbbeb705cf22620c5619"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "7f6511940674c9e8097336d21780e84bfd49d93e56661ec93ed26178af9938f3"
@@ -17,7 +27,7 @@ class Bat < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "libgit2@1.8" # needs https://github.com/rust-lang/git2-rs/issues/1109 to support libgit2 1.9
+  depends_on "libgit2"
   depends_on "oniguruma"
 
   def install
@@ -49,7 +59,7 @@ class Bat < Formula
     assert_match "Homebrew test", output
 
     [
-      Formula["libgit2@1.8"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
       Formula["oniguruma"].opt_lib/shared_library("libonig"),
     ].each do |library|
       assert check_binary_linkage(bin/"bat", library),
