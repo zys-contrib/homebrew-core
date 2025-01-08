@@ -4,7 +4,7 @@ class Amber < Formula
   url "https://github.com/amberframework/amber/archive/refs/tags/v1.4.1.tar.gz"
   sha256 "92664a859fb27699855dfa5d87dc9bf2e4a614d3e54844a8344196d2807e775c"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -28,38 +28,14 @@ class Amber < Formula
 
   uses_from_macos "zlib"
 
-  # Temporary resource to fix build with Crystal 1.13
-  resource "optarg" do
-    url "https://github.com/amberframework/optarg/archive/refs/tags/v0.9.3.tar.gz"
-    sha256 "0d31c0cfdc1c3ec1ca8bfeabea1fc796a1bb02e0a798a8f40f10b035dd4712e9"
-
-    # PR ref: https://github.com/amberframework/optarg/pull/6
-    patch do
-      url "https://github.com/amberframework/optarg/commit/56b34d117458b67178f77523561813d16ccddaf8.patch?full_index=1"
-      sha256 "c5d9c374b0fdafe63136cd02126ac71ce394b1706ced59da5584cdc9559912c8"
-    end
-  end
-
   # patch granite to fix db dependency resolution issue
   # upstream patch https://github.com/amberframework/amber/pull/1339
   patch do
-    url "https://github.com/amberframework/amber/commit/20f95cae1d8c934dcd97070daeaec0077b00d599.patch?full_index=1"
-    sha256 "ad8a303fe75611583ada10686fee300ab89f3ae37139b50f22eeabef04a48bdf"
+    url "https://github.com/amberframework/amber/commit/54b1de90cd3e395cd09326b1d43074e267c79695.patch?full_index=1"
+    sha256 "be0e30f08b8f7fcb71604eb01136d82d48b7e34afac9a1c846c74a7a7d2f8bd6"
   end
 
   def install
-    (buildpath/"optarg").install resource("optarg")
-    (buildpath/"shard.override.yml").write <<~YAML
-      dependencies:
-        optarg:
-          path: #{buildpath}/optarg
-    YAML
-
-    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
-    # libunwind due to it being present in a library search path.
-    llvm = Formula["llvm"]
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", llvm.opt_lib if DevelopmentTools.clang_build_version >= 1500
-
     system "shards", "install"
     system "make", "install", "PREFIX=#{prefix}"
   end
@@ -79,9 +55,8 @@ class Amber < Formula
     end
 
     cd "test_app" do
-      build_app = shell_output("shards build test_app")
-      assert_match "Building", build_app
-      assert_predicate testpath/"test_app/bin/test_app", :exist?
+      assert_match "Building", shell_output("#{Formula["crystal"].bin}/shards build test_app")
     end
+    assert_path_exists testpath/"test_app/bin/test_app"
   end
 end
