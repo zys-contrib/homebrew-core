@@ -1,10 +1,9 @@
 class Pygit2 < Formula
   desc "Bindings to the libgit2 shared library"
   homepage "https://github.com/libgit2/pygit2"
-  url "https://files.pythonhosted.org/packages/a4/85/c848cdf44214bf541c4a725a0a6e271f8db9f18cfccef702d53f83f1e19a/pygit2-1.16.0.tar.gz"
-  sha256 "7b29a6796baa15fc89d443ac8d51775411d9b1e5b06dc40d458c56c8576b48a2"
+  url "https://files.pythonhosted.org/packages/b7/ea/17aa8ca38750f1ba69511ceeb41d29961f90eb2e0a242b668c70311efd4e/pygit2-1.17.0.tar.gz"
+  sha256 "fa2bc050b2c2d3e73b54d6d541c792178561a344f07e409f532d5bb97ac7b894"
   license "GPL-2.0-only" => { with: "GCC-exception-2.0" }
-  revision 1
   head "https://github.com/libgit2/pygit2.git", branch: "master"
 
   bottle do
@@ -19,7 +18,7 @@ class Pygit2 < Formula
   depends_on "python@3.12" => [:build, :test]
   depends_on "python@3.13" => [:build, :test]
   depends_on "cffi"
-  depends_on "libgit2@1.8"
+  depends_on "libgit2"
 
   def pythons
     deps.map(&:to_formula)
