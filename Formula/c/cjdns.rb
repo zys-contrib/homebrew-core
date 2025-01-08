@@ -1,8 +1,8 @@
 class Cjdns < Formula
   desc "Advanced mesh routing system with cryptographic addressing"
   homepage "https://github.com/cjdelisle/cjdns/"
-  url "https://github.com/cjdelisle/cjdns/archive/refs/tags/cjdns-v22.tar.gz"
-  sha256 "21b555f7850f94cc42134f59cb99558baaaa18acf4c5544e8647387d4a5019ec"
+  url "https://github.com/cjdelisle/cjdns/archive/refs/tags/cjdns-v22.1.tar.gz"
+  sha256 "3fcd4dcbfbf8d34457c6b22c1024edb8be4a771eea34391a7e7437af72f52083"
   license all_of: ["GPL-3.0-or-later", "GPL-2.0-or-later", "BSD-3-Clause", "MIT"]
   head "https://github.com/cjdelisle/cjdns.git", branch: "master"
 
@@ -23,17 +23,9 @@ class Cjdns < Formula
   depends_on "rust" => :build
 
   def install
-    # Work-around for build issue with Xcode 15.3
-    # upstream PR patch, https://github.com/cjdelisle/cjdns/pull/1263
-    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
-
-    # Avoid using -march=native
-    inreplace "node_build/make.js",
-              "var NO_MARCH_FLAG = ['arm', 'ppc', 'ppc64', 'arm64'];",
-              "var NO_MARCH_FLAG = ['x64', 'arm', 'arm64', 'ppc', 'ppc64'];"
-
     system "./do"
     bin.install "cjdroute"
+    bin.install "cjdnstool"
 
     man1.install "doc/man/cjdroute.1"
     man5.install "doc/man/cjdroute.conf.5"
@@ -42,5 +34,8 @@ class Cjdns < Formula
   test do
     sample_conf = JSON.parse(shell_output("#{bin}/cjdroute --genconf"))
     assert_equal "NONE", sample_conf["admin"]["password"]
+
+    help_output = shell_output("#{bin}/cjdnstool --help")
+    assert_match "cexec", help_output
   end
 end
