@@ -7,15 +7,12 @@ class Amber < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia:  "316df6cc7883f0019a4d8b7cea12981c76558ee23c91ce802d8a5a27f4e1dae3"
-    sha256 arm64_sonoma:   "149fc485a57fe986e601b0072476fc7b52de0feb888dcac0e7c153459290f548"
-    sha256 arm64_ventura:  "d9e1818484cce9f61edffedeb494e01f69a07d137880179f84dabef6b48b063f"
-    sha256 arm64_monterey: "3b8de888365014ecb18fc427906bf5121c6f5c0b6eceaf8311ede6030b22334d"
-    sha256 sonoma:         "bce2680561c7ce0a84ee72e598e4569382fe29ec44a156517c1dfd9bcc936951"
-    sha256 ventura:        "e16a952e1ed4e62ab4512dbd678a85d45031a2157898d033b1a95de311619a7a"
-    sha256 monterey:       "a662a8236dbfedeb36a8e291243fcd6c2c76fcb4c7aa1a2f34f7cdad6badc4f0"
-    sha256 x86_64_linux:   "18ea26aa05700494f2acf965ad8db36bf9c1e8f36ca1c606091e1373effaad9d"
+    sha256 arm64_sequoia: "c8bb8c22fe777f8058380a9193fa2128127a80e5b4e5a695fdd5b3684db1cbc0"
+    sha256 arm64_sonoma:  "aedf640540270738aa662506e1a34e9853c4c7474310b2b7a5d4dc86d6c3a5c9"
+    sha256 arm64_ventura: "b48cb05e8b797ee829115cc6c60e89172169a0f68c4122fa8f9aaa07be7df8d0"
+    sha256 sonoma:        "d5632dc63a99120dcd4715a94f58d12dc9ea1ff69914bc6202c7fd0809bdcb29"
+    sha256 ventura:       "430d7db186ae038f2d9b5da2f1f96e1f32f3dcfeb5139fc94c1a5d7da705b48b"
+    sha256 x86_64_linux:  "459d2c3de122b8f9f0890270fd3b638180521f96976572ef59f31c5a8712bf65"
   end
 
   depends_on "bdw-gc"
