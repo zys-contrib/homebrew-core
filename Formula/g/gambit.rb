@@ -1,8 +1,8 @@
 class Gambit < Formula
   desc "Software tools for game theory"
   homepage "http://www.gambit-project.org"
-  url "https://github.com/gambitproject/gambit/archive/refs/tags/v16.2.0.tar.gz"
-  sha256 "cf8f36c7031834287a5fdde01af0845065706b11e6388087ef4303b6025221ec"
+  url "https://github.com/gambitproject/gambit/archive/refs/tags/v16.2.1.tar.gz"
+  sha256 "d6b8bf8a7d42f20e157e0452b323feb260eee7fe06940841ed83e1307978dabc"
   license all_of: ["GPL-2.0-or-later", "Zlib"]
 
   livecheck do
@@ -28,10 +28,9 @@ class Gambit < Formula
 
   def install
     system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--with-wx-prefix=#{Formula["wxwidgets"].opt_prefix}"
+    system "./configure", "--disable-silent-rules",
+                          "--with-wx-prefix=#{Formula["wxwidgets"].opt_prefix}",
+                          *std_configure_args
     system "make", "install"
 
     # Sanitise references to Homebrew shims

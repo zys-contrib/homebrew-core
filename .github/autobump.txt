@@ -1063,6 +1063,7 @@ g-ls
 g2o
 gabo
 gallery-dl
+gambit
 gammaray
 garble
 gat
