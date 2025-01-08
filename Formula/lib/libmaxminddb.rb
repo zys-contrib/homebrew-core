@@ -6,12 +6,12 @@ class Libmaxminddb < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3d4e0e8dc919dcba38a6de6baca2ae25d4ff75348ea714c82cc2fb82a243f050"
-    sha256 cellar: :any,                 arm64_sonoma:  "27330e63c22df07dc570e7d957c8b209cbf2ecefb072328fc966d4e17fb27a78"
-    sha256 cellar: :any,                 arm64_ventura: "a38120ab57d6fc47fd42d02523bc254ed0c8b99eb3e10797ca1804de9422d195"
-    sha256 cellar: :any,                 sonoma:        "aac0b31cc53611c237c4ff061c96da6fba693448cfaf7273214a91ddd43169d9"
-    sha256 cellar: :any,                 ventura:       "e8457afa8e8350aa4386b6a6d2d139413e9ebc6e9a5deb681d1e5ab99bfe709a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1dfbbc29e0d66bdfa737c2f447b31f0abab14f2444e4530bef4624576163931"
+    sha256 cellar: :any,                 arm64_sequoia: "3ffbb17c6726c153b4bc03e29c7e9a6b8cbcf6a5ee5ef7cd5f71669976f1c95e"
+    sha256 cellar: :any,                 arm64_sonoma:  "b40ceae04dc452083b0433ddd4a7140f07161edc86011cc825396e0be5ea8fc7"
+    sha256 cellar: :any,                 arm64_ventura: "d920a8819e4acf730919982f56530ca0ddfc30393ba13008ec755e0e9ded60c3"
+    sha256 cellar: :any,                 sonoma:        "2abe0a47830d9c59f6ad0d3654911046a8caf6d498b2f0387fac4f28f29ef41f"
+    sha256 cellar: :any,                 ventura:       "d18ba104a623ccd271751a3f897b5cdee8d41ba33160d3f7416913b679120c99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f3573469c931c658ca3bcf5199c7698a1750b075a79ccfdbc9dee49d9f651f0"
   end
 
   head do
