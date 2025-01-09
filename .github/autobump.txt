@@ -1624,6 +1624,7 @@ langgraph-cli
 languagetool
 languagetool-rust
 lanraragi
+lapack
 lastpass-cli
 lastz
 laszip
