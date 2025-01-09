@@ -4,7 +4,7 @@ class GitDelta < Formula
   url "https://github.com/dandavison/delta/archive/refs/tags/0.18.2.tar.gz"
   sha256 "64717c3b3335b44a252b8e99713e080cbf7944308b96252bc175317b10004f02"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/dandavison/delta.git", branch: "main"
 
   bottle do
@@ -18,15 +18,15 @@ class GitDelta < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "libgit2@1.8" # needs https://github.com/rust-lang/git2-rs/issues/1109 to support libgit2 1.9
+  depends_on "libgit2"
   depends_on "oniguruma"
 
   uses_from_macos "zlib"
 
-  # support libgit2 1.8, https://github.com/dandavison/delta/pull/1930
+  # support libgit2 1.9, https://github.com/dandavison/delta/pull/1930
   patch do
-    url "https://github.com/dandavison/delta/commit/b90f249f7186696bb104cd992d705108373d216a.patch?full_index=1"
-    sha256 "a3b2839fe70c8a2452e016dff663791d42ad650f9169e210a6a8fe1a519e2939"
+    url "https://github.com/dandavison/delta/commit/9d6101e82a79daecfa9e81fa54c440b2e0442a33.patch?full_index=1"
+    sha256 "1967b73aeaba44cf96a3f2866d436449668028d6f8a6fa77dbc0d5c3c386c0cf"
   end
 
   def install
