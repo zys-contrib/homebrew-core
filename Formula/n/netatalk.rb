@@ -14,6 +14,15 @@ class Netatalk < Formula
   ]
   head "https://github.com/Netatalk/netatalk.git", branch: "main"
 
+  bottle do
+    sha256 arm64_sequoia: "5aff5ad6a6dccba9fab03fd27a12cd517ab04f73c535b7b45535cf13d8957175"
+    sha256 arm64_sonoma:  "d9146fce6e190d8f5558389f6ee795331dd801f6af42cb7a57a2b246b8e9277f"
+    sha256 arm64_ventura: "ea9c8c297943ae06289cecaecc46873808e4c025dcd26efb2cd14c960c4613a9"
+    sha256 sonoma:        "22af562496f53cffb3aa4ed4d5f6be7dbbe29e35fe9720c5942d1e4c180e1d38"
+    sha256 ventura:       "f54bb34fae8700afc7eebfe3946fcb9442d2eaabc5f55391803e2fc50605e074"
+    sha256 x86_64_linux:  "eeaf7470fce660f94284f477223bf45fb9ccafa4c4f06217e317e6d24a53f018"
+  end
+
   depends_on "docbook-xsl" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
