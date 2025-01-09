@@ -4,7 +4,7 @@ class GitInteractiveRebaseTool < Formula
   url "https://github.com/MitMaro/git-interactive-rebase-tool/archive/refs/tags/2.4.1.tar.gz"
   sha256 "0b1ba68a1ba1548f44209ce1228d17d6d5768d72ffa991909771df8e9d42d70d"
   license "GPL-3.0-or-later"
-  revision 3
+  revision 4
 
   livecheck do
     url :stable
@@ -22,14 +22,14 @@ class GitInteractiveRebaseTool < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "libgit2@1.8" # needs https://github.com/rust-lang/git2-rs/issues/1109 to support libgit2 1.9
+  depends_on "libgit2"
 
   uses_from_macos "zlib"
 
-  # support libgit2 1.8, upstream pr ref, https://github.com/MitMaro/git-interactive-rebase-tool/pull/948
+  # support libgit2 1.9, upstream pr ref, https://github.com/MitMaro/git-interactive-rebase-tool/pull/948
   patch do
-    url "https://github.com/MitMaro/git-interactive-rebase-tool/commit/508291ca003d5cd380a1c34f27efde913b488888.patch?full_index=1"
-    sha256 "1256c6e9fa3a7c3ed196d30a2a35b9c05e06434ed954e8a4e58e1d2ceb1ae7d8"
+    url "https://github.com/MitMaro/git-interactive-rebase-tool/commit/f3193b3faae665605d6bac4c1bafa798d3d241ae.patch?full_index=1"
+    sha256 "32c6cc976407c0d2f41e434e35274f86d64b8b396ed18927c833af656551ebd3"
   end
 
   def install
@@ -73,7 +73,7 @@ class GitInteractiveRebaseTool < Formula
     assert_equal expected_git_rebase_todo, todo_file.read
 
     [
-      Formula["libgit2@1.8"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
     ].each do |library|
       assert check_binary_linkage(bin/"interactive-rebase-tool", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
