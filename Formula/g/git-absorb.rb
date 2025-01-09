@@ -17,13 +17,20 @@ class GitAbsorb < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "libgit2@1.8" # needs https://github.com/rust-lang/git2-rs/issues/1109 to support libgit2 1.9
+  depends_on "libgit2"
+
+  # patch to use libgit2 1.9, upstream pr ref, https://github.com/tummychow/git-absorb/pull/138
+  patch do
+    url "https://github.com/tummychow/git-absorb/commit/a7d5688f426490a92b5bb73e3a2cfccc565747f8.patch?full_index=1"
+    sha256 "cb6bf13ec90de7c434addf1467a259537d9a993f5d2481e6cba86b3543d38eed"
+  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
-    system "cargo", "install", *std_cargo_args
-    man1.install "Documentation/git-absorb.1"
 
+    system "cargo", "install", *std_cargo_args
+
+    man1.install "Documentation/git-absorb.1"
     generate_completions_from_executable(bin/"git-absorb", "--gen-completions")
   end
 
@@ -46,7 +53,7 @@ class GitAbsorb < Formula
     linkage_with_libgit2 = (bin/"git-absorb").dynamically_linked_libraries.any? do |dll|
       next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
 
-      File.realpath(dll) == (Formula["libgit2@1.8"].opt_lib/shared_library("libgit2")).realpath.to_s
+      File.realpath(dll) == (Formula["libgit2"].opt_lib/shared_library("libgit2")).realpath.to_s
     end
 
     assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."
