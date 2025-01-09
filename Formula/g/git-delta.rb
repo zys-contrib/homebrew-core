@@ -8,12 +8,12 @@ class GitDelta < Formula
   head "https://github.com/dandavison/delta.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4bb9a2113f9fb21101c8d4bcc11b37048a008ddf0c140cdcfa7e1bbbf8650e55"
-    sha256 cellar: :any,                 arm64_sonoma:  "0b9bb3ae47e22b36121b5ff4c87422cf356705f9c7eaf1bfc9d011489bb0a9c4"
-    sha256 cellar: :any,                 arm64_ventura: "2be672321d53b1c798d3997088e015d0a038bbe94dd5797c298ef167eee0c959"
-    sha256 cellar: :any,                 sonoma:        "28949d77b77db2413a12e397d3292d050603be2d7e491ee2406a1c41a87224a9"
-    sha256 cellar: :any,                 ventura:       "93c87379b5ea08686f959f9d5b8f6bb52e59cbf549b38a0f1ed9e06907ccae87"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "086c0c46d5ad7ef03a390e168ddf375c2e8b9734bdca0338f4aa5d879eea62d9"
+    sha256 cellar: :any,                 arm64_sequoia: "7c27a32de04509f9a25338f7cc4bafb70afd00f7cbea5da8c204a71c0f2a732b"
+    sha256 cellar: :any,                 arm64_sonoma:  "a6c8b820d16efadc9177575a7fb3a4a523156d025be6ab605a9309669171e63d"
+    sha256 cellar: :any,                 arm64_ventura: "ff3d53184c7906ef335c901fec639c8355f802644d025703b0b39c6b18b0727f"
+    sha256 cellar: :any,                 sonoma:        "e17a98613a20338c989370e9d6f456d526b5cfb3d9ba92ad9b6a48b409948ca0"
+    sha256 cellar: :any,                 ventura:       "c84810ecf79b524ce48078f5c7356385fd9dd00d79aeb6ce5f907d4e08264061"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbff34c88d3f5db15c4cb31935f6727e7fc2f682ae3a4e0ccd572685cd5c2fb5"
   end
 
   depends_on "pkgconf" => :build
