@@ -187,6 +187,7 @@ awsdac
 awslogs
 axel
 azcopy
+azqr
 azure-core-cpp
 azurehound
 b2-tools
