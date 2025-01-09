@@ -1,8 +1,8 @@
 class Syncthing < Formula
   desc "Open source continuous file synchronization application"
   homepage "https://syncthing.net/"
-  url "https://github.com/syncthing/syncthing/archive/refs/tags/v1.29.0.tar.gz"
-  sha256 "2d2ead8ada92e48c9b45a62e1c85b781214579d125bf04c8a95859760c7db71b"
+  url "https://github.com/syncthing/syncthing/archive/refs/tags/v1.29.1.tar.gz"
+  sha256 "a9446652ce994ef479e8637b797803c7f53dec65d4cf45dfa6a394ff3475bbaa"
   license "MPL-2.0"
   head "https://github.com/syncthing/syncthing.git", branch: "main"
 
