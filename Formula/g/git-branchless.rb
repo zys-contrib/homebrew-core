@@ -22,12 +22,12 @@ class GitBranchless < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ca739d76b3d52de81f0ec9e679aba6847426b0c4d9c84b8db0c934ad576dc439"
-    sha256 cellar: :any,                 arm64_sonoma:  "993e9b56d4598738d7c5fd6fb6b90393396cd59a3bfb630294c7709a6507b04b"
-    sha256 cellar: :any,                 arm64_ventura: "a1e2afd8baea79531f7774ec70cc2230c945edde309036d0fb0aa5a9809b87fa"
-    sha256 cellar: :any,                 sonoma:        "4ca5e3cd013c7556f3b32d06cac5186e3bdf369afdc2fe92c81ef52e08f631ff"
-    sha256 cellar: :any,                 ventura:       "c72f47a4f49662451cd7154370b69240f75ceb7db7f33b90bc0e8532f39dd5c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c6f31ef2352a3bbcc8e2478b7edfcf91df250d22084ade647a3fb187ace0f32"
+    sha256 cellar: :any,                 arm64_sequoia: "3efab33fd1452f9b179eb701f2f0b3ad59b836245d6466172a5ce5bacd54bb78"
+    sha256 cellar: :any,                 arm64_sonoma:  "f3713da56ed61e4ba98216df90e57bde5dba088d9d54cc48b396e42bda4e87b7"
+    sha256 cellar: :any,                 arm64_ventura: "916640be323bdacc4fd0ad5ed2803cb1a4584d52ada450ae97b26b400c9abde6"
+    sha256 cellar: :any,                 sonoma:        "17d8fa92649b7b75f85551251c4bdea543489247b14292b31f02696aea408222"
+    sha256 cellar: :any,                 ventura:       "ae5923a733959106c2f4de98cf3c069d736af1f644991abb4355ab2bb72d12df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "246ff33a6a9007356ee52818e9ac3697cec0d8b8a173987870a9a0b7577b1b4a"
   end
 
   depends_on "pkgconf" => :build
