@@ -5,12 +5,12 @@ class Unisonlang < Formula
 
   stable do
     url "https://github.com/unisonweb/unison.git",
-        tag:      "release/0.5.29",
-        revision: "99baffd3b436d9d87254f8dbdf13a479fc63f4e3"
+        tag:      "release/0.5.31",
+        revision: "4324c53e83ae12ac1fdee52822356e22fa5419fb"
 
     resource "local-ui" do
-      url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/0.5.29.tar.gz"
-      sha256 "1e6c2b1f299495159f15113b669bfeb13bb53bf68205203e4a30f82c2f434fe4"
+      url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/0.5.31.tar.gz"
+      sha256 "f11c7101de9fe1ead9f4531e230a2d795d0789b0eab1c1afa2ca0d19c264df54"
     end
   end
 
