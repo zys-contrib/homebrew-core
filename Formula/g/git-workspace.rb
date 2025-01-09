@@ -7,12 +7,12 @@ class GitWorkspace < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7e3014c3ae6e598214600ff258e9feff56f15c8e7c9adca97531b3b0da45f741"
-    sha256 cellar: :any,                 arm64_sonoma:  "5fd7c6693cd59d753d788b3b0f4db497fe9a881f985177301207b1fc71c0b71a"
-    sha256 cellar: :any,                 arm64_ventura: "91dcb531a3afab0d3f095eee50f31952c533c1805f0546311b85445da48163bf"
-    sha256 cellar: :any,                 sonoma:        "5539681a422dd24fabd97d4bde87a260db8c36db20ded02801d26e3c2f9241e8"
-    sha256 cellar: :any,                 ventura:       "bb9928d297f3534b54774f21ef1114326af4e9743ad7a4e26b1b5dc80337354c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28872e2b1ca35ed93e46dad8f7cce54dbc0941073151c00a67040c2bbb59d6c0"
+    sha256 cellar: :any,                 arm64_sequoia: "37536ae9e70e4244174267114d5727b34d002276e3daaf09ab03eea059288915"
+    sha256 cellar: :any,                 arm64_sonoma:  "bd263f8dcf6df3bc14102c2300a2735c07e3ca4d03e89d6b461c1266f64bc993"
+    sha256 cellar: :any,                 arm64_ventura: "5063d18c73c5f99151cfb9c7bf9f057e401264104c2106198bdaf9d4ae1e1dad"
+    sha256 cellar: :any,                 sonoma:        "6a6a2b672032b44124896ae6d4817e9a8b4e86a69fa8fedc7eb15f28832cf4ed"
+    sha256 cellar: :any,                 ventura:       "5223e5ff55ff03b1aa3e6ba8621da0351156424bc6cb6657b0ffbed528a6414d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4cd16d0a2c3941d7abc2fd59a437ff96fd62b4f6dd552d52f1a8af4b8286c32"
   end
 
   depends_on "pkgconf" => :build
