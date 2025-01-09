@@ -7,12 +7,13 @@ class GitAbsorb < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "30bdd79e994ae339882f9d9b758f808a430839e23d8f05cd165a3eca51e9825d"
-    sha256 cellar: :any,                 arm64_sonoma:  "633ec7dee3d9e2d67cb769cc40e4d98736ab0c3e3a0bb232462aba861ee47c4e"
-    sha256 cellar: :any,                 arm64_ventura: "08385cd180f2c66dea7b196fd73afc5508f6e947f6e4ff3e45b1d2404d8d1b32"
-    sha256 cellar: :any,                 sonoma:        "b4b5c9c9f0f3ec884693cae8b837279d0b84cc3ad652598d29427ff22aceaa63"
-    sha256 cellar: :any,                 ventura:       "02bc3097f3b59424eab05c5e8df7184fb26896fad8050bdebc76c15324d26748"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55b65e73c6509e7cf7b4cfb2ca37f28f5d8df9f81859e82e80fd306b79fddb96"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "678f0567eda10a1341972c676ad3c9433269609d5d8aeb03d2d899b015b85df2"
+    sha256 cellar: :any,                 arm64_sonoma:  "674145b9573fccdc080a3e61435cfe4e49f7ad939c48f58759ab088b3ce4decb"
+    sha256 cellar: :any,                 arm64_ventura: "dda96ef119e6eabfe891707e7c049f0abb5ff6d9de1014597cc51ef5fa36febe"
+    sha256 cellar: :any,                 sonoma:        "aeaf6c2d75dd48a3eef2595dceec1edefbd7724e9ccf9e1acbaf7ae48ac6e65a"
+    sha256 cellar: :any,                 ventura:       "b7e617d3c205794b774a5ae137467e67ff1539f327ebedc1de287ad68b677e49"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0821ca7fbac6b09e07df65c0f8e74a3a5f04f5ddbbe1fa87eb5de0f3ca0327c5"
   end
 
   depends_on "pkgconf" => :build
