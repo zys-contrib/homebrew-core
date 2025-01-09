@@ -20,30 +20,26 @@ class Anyenv < Formula
   end
 
   def install
+    inreplace "libexec/anyenv", "/usr/local", HOMEBREW_PREFIX
     prefix.install %w[bin completions libexec]
   end
 
   test do
-    Dir.mktmpdir do |dir|
-      profile = "#{dir}/.profile"
-      File.open(profile, "w") do |f|
-        content = <<~SHELL
-          export ANYENV_ROOT=#{dir}/anyenv
-          export ANYENV_DEFINITION_ROOT=#{dir}/anyenv-install
-          eval "$(anyenv init -)"
-        SHELL
-        f.write(content)
-      end
+    anyenv_root = testpath/"anyenv"
+    profile = testpath/".profile"
+    profile.write <<~SHELL
+      export ANYENV_ROOT=#{anyenv_root}
+      export ANYENV_DEFINITION_ROOT=#{testpath}/anyenv-install
+      eval "$(#{bin}/anyenv init -)"
+    SHELL
 
-      cmds = <<~SHELL
-        anyenv install --force-init
-        anyenv install --list
-        anyenv install rbenv
-        rbenv install --list
-      SHELL
-      cmds.split("\n").each do |cmd|
-        shell_output(". #{profile} && #{cmd}")
-      end
-    end
+    anyenv_install = ". #{profile} && #{bin}/anyenv install"
+    assert_match "Completed!", shell_output("#{anyenv_install} --force-init")
+    assert_match(/^\s*rbenv$/, shell_output("#{anyenv_install} --list"))
+    assert_match "succeeded!", shell_output("#{anyenv_install} rbenv")
+
+    anyenv_rbenv_path = "#{anyenv_root}/envs/rbenv/bin/rbenv"
+    assert_equal anyenv_rbenv_path, shell_output(". #{profile} && which rbenv").chomp
+    assert_match(/^\d+\.\d+\.\d+$/, shell_output(". #{profile} && rbenv install --list"))
   end
 end
