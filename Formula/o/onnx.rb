@@ -4,7 +4,7 @@ class Onnx < Formula
   url "https://github.com/onnx/onnx/archive/refs/tags/v1.17.0.tar.gz"
   sha256 "8d5e983c36037003615e5a02d36b18fc286541bf52de1a78f6cf9f32005a820e"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "0fe872816c9c83d21d581d36b2cae018c38b5006916ef20130ced9347b70c7a4"
