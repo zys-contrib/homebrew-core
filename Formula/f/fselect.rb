@@ -7,12 +7,12 @@ class Fselect < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9312998702ee83c806f9b8a81680b134a5b0673de1bfcb19e0d3e623e9c05fcf"
-    sha256 cellar: :any,                 arm64_sonoma:  "aee99ad575ad0ee51b8da39d8b5eec8ed8c996d05a07a6906cadeadbf43da820"
-    sha256 cellar: :any,                 arm64_ventura: "5f3dd57481b735dac9c15672fac8ade8e4849b3c8b2f2e0ec5d68e19d72f09b5"
-    sha256 cellar: :any,                 sonoma:        "064482d661067674ac21273e77738d3967d85fceb9035d171afb70b020166b43"
-    sha256 cellar: :any,                 ventura:       "3088a497579df2acbfb99951d22a91b20fb4bfa093a7a92a680cc2fb54cd5440"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1978401b8eeaad13e973afdb08633715c9b517da32428ae40fcac426bc56c5a0"
+    sha256 cellar: :any,                 arm64_sequoia: "d46f7a11a969a0834c8df0f05ab418edefe5c060b6d83ebfadd6bc8208097cc8"
+    sha256 cellar: :any,                 arm64_sonoma:  "fb9c9ab8540eb5bea59b2628ecc1b7cd7f443cced29a4f4d4980da28d52eacb2"
+    sha256 cellar: :any,                 arm64_ventura: "a6d21976498388e1aa0b8e1576c38da9bd0b2d4e2388f351494e6db45d17f419"
+    sha256 cellar: :any,                 sonoma:        "c6faa7e35e104b9d91cdaefa1afd52d611db3be3068f1281a5503373be39aed2"
+    sha256 cellar: :any,                 ventura:       "f021952fe39663d1bdb48c8527b1880a41aa8e3e4da3d8e14d25787fa8c49dc1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59bfbff90e894ee8c08e6cd6d2169ece13458897af3cac07ac70be545d0a43f1"
   end
 
   depends_on "cmake" => :build # for libz-ng-sys
