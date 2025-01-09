@@ -1,8 +1,8 @@
 class Netatalk < Formula
   desc "File server for Macs, compliant with Apple Filing Protocol (AFP)"
   homepage "https://netatalk.io"
-  url "https://github.com/Netatalk/netatalk/releases/download/netatalk-4-0-8/netatalk-4.0.8.tar.xz"
-  sha256 "d09d591521b27b91b1c2a6255a2e059af8c9fda43570f983f0a145706e5f7628"
+  url "https://github.com/Netatalk/netatalk/releases/download/netatalk-4-1-0/netatalk-4.1.0.tar.xz"
+  sha256 "96f70e0e67af6159b1465388a48d30df207f465377205ee932a1ef22617e0331"
   license all_of: [
     "GPL-2.0-only",
     "GPL-2.0-or-later",
@@ -32,7 +32,7 @@ class Netatalk < Formula
   depends_on "cracklib"
   depends_on "libevent"
   depends_on "libgcrypt"
-  depends_on "mysql"
+  depends_on "mariadb"
   depends_on "openldap" # macOS LDAP.Framework is not fork safe
 
   uses_from_macos "libxslt" => :build
@@ -45,11 +45,7 @@ class Netatalk < Formula
     depends_on "avahi" # on macOS we use native mDNS instead
     depends_on "cups" # used by the AppleTalk print server
     depends_on "libtirpc" # on macOS we use native RPC instead
-  end
-
-  patch do
-    url "https://github.com/Netatalk/netatalk/commit/206fb7771862b9b98452c934dac884aaa397c8ca.patch?full_index=1"
-    sha256 "fd448734556daf0344be4fa0bb09e4704c4123078ad804069d288aa0e3e104d6"
+    depends_on "linux-pam"
   end
 
   def install
@@ -67,6 +63,7 @@ class Netatalk < Formula
       "-Dwith-init-dir=#{prefix}",
       "-Dwith-init-hooks=false",
       "-Dwith-install-hooks=false",
+      "-Dwith-lockfile-path=#{var}/run",
       "-Dwith-statedir-path=#{var}",
       "-Dwith-pam-config-path=#{etc}/pam.d",
       "-Dwith-rpath=false",
@@ -81,6 +78,23 @@ class Netatalk < Formula
   service do
     name macos: "io.netatalk.daemon", linux: "netatalk"
     require_root true
+  end
+
+  def caveats
+    on_macos do
+      on_arm do
+        <<~EOS
+          Authenticating as a system user requires manually installing the
+          PAM configuration file to a predetermined location by running:
+
+            sudo install -d -o $USER -g admin /usr/local/etc
+            mkdir -p /usr/local/etc/pam.d
+            cp $(brew --prefix)/etc/pam.d/netatalk /usr/local/etc/pam.d
+
+          See `man pam.conf` for more information.
+        EOS
+      end
+    end
   end
 
   test do
