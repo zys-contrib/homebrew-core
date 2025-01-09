@@ -3,22 +3,13 @@ class Mlx < Formula
 
   desc "Array framework for Apple silicon"
   homepage "https://github.com/ml-explore/mlx"
+  url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.22.0.tar.gz"
+  sha256 "c8c890f450a4c09704b2597c56e111fbd4eb2c75d66a9c8f1fb1096c3e2b2cbe"
   license all_of: [
     "MIT", # main license
     "Apache-2.0", # metal-cpp resource
   ]
   head "https://github.com/ml-explore/mlx.git", branch: "main"
-
-  stable do
-    url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.21.1.tar.gz"
-    sha256 "1ce949256c343a4a9fb1e53cc15f537ad2faceccbb3ad314cd47a198b534bcac"
-
-    # fix x86 tests, upstream pr ref, https://github.com/ml-explore/mlx/pull/1691
-    patch do
-      url "https://github.com/ml-explore/mlx/commit/f3dfa36a3aa67dfc4488996bf7f218f976bef9aa.patch?full_index=1"
-      sha256 "5b798fa17ee6fccd4b031b99d8301f9fb434545f6e4ebbbd544376403c1a4c3d"
-    end
-  end
 
   bottle do
     sha256 cellar: :any, arm64_sequoia: "575a6fdd16b8e35a74c193a8e34caace3c057e1dae8829bf8b3e5320f5c41e5a"
@@ -46,12 +37,12 @@ class Mlx < Formula
     depends_on "openblas"
   end
 
-  # https://github.com/ml-explore/mlx/blob/v#{version}/CMakeLists.txt#L91C21-L91C97
+  # https://github.com/ml-explore/mlx/blob/v#{version}/CMakeLists.txt#L98
   # Included in not_a_binary_url_prefix_allowlist.json
   resource "metal-cpp" do
     on_arm do
-      url "https://developer.apple.com/metal/cpp/files/metal-cpp_macOS15_iOS18-beta.zip"
-      sha256 "d0a7990f43c7ce666036b5649283c9965df2f19a4a41570af0617bbe93b4a6e5"
+      url "https://developer.apple.com/metal/cpp/files/metal-cpp_macOS15_iOS18.zip"
+      sha256 "0433df1e0ab13c2b0becbd78665071e3fa28381e9714a3fce28a497892b8a184"
     end
   end
 
