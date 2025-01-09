@@ -1,30 +1,23 @@
 class Eza < Formula
   desc "Modern, maintained replacement for ls"
   homepage "https://github.com/eza-community/eza"
-  url "https://github.com/eza-community/eza/archive/refs/tags/v0.20.15.tar.gz"
-  sha256 "cbb50e61b35b06ccf487ee6cc88d3b624931093546194dd5a2bbd509ed1786d6"
+  url "https://github.com/eza-community/eza/archive/refs/tags/v0.20.16.tar.gz"
+  sha256 "be5eb8d314f817bbfdcad4d21e66d2a8c4006ba4619735297b5233887ebdbe99"
   license "EUPL-1.2"
-  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "55c6c9d272929f739343123f40060696d3feaf7c14d1c1acb70972d47f1e38aa"
-    sha256 cellar: :any,                 arm64_sonoma:  "e72f8a8d3a3a8907fee79ffca57ec20758ac989ef927a9306b43648cb60f311f"
-    sha256 cellar: :any,                 arm64_ventura: "04b6296f15d56e106778b621163829f24d83e6d34c3891c91560210cbfef62f7"
-    sha256 cellar: :any,                 sonoma:        "22b0c6b0f0c3600a455468924cd38ca5a781e6e255c82998034c63cb3f168adf"
-    sha256 cellar: :any,                 ventura:       "2b39d3a516e84eb9d22886d8acd3a7573a9f4f2bb08f338a9f0b0ce24805210d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2109d06eb6c10d8212a52cb4c5914d46014de699c74394cebbd0d805f7158d7e"
+    sha256 cellar: :any,                 arm64_sequoia: "037a3eb1e26c2d23cef52b0a310f37131946c51a830529ab81a94492cf62b58a"
+    sha256 cellar: :any,                 arm64_sonoma:  "998c070811129b6a71953fc450b25d0a65663d3b99615f388ac6f28bb22349a8"
+    sha256 cellar: :any,                 arm64_ventura: "c43d86e9a96d02864410bc463bd9ff26aae793a5ea609987dce7b4fee481de5b"
+    sha256 cellar: :any,                 sonoma:        "cc37088f74be683b70c28a818ff8fb90db9efef27553d8a23962ed38e97563e0"
+    sha256 cellar: :any,                 ventura:       "211f311e6e85c635bf275554844a7f5cc8a0236079f797a2eab4292801c6bd44"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e809038d80e94dcae6681fb71f90eda3335f5c03a60086e5db3edb4aa9b51b5"
   end
 
   depends_on "pandoc" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libgit2"
-
-  # libgit2 1.9 build patch
-  patch do
-    url "https://github.com/eza-community/eza/commit/7241ea4d128ca47b8f5e756a65fa3d4f1d5b5ce7.patch?full_index=1"
-    sha256 "e8b0a22c552d746936c332ff0558192578a8016aa6f5cb060535c5d1adeddcc7"
-  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
