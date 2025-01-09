@@ -2,17 +2,22 @@ class Prr < Formula
   desc "Mailing list style code reviews for github"
   homepage "https://github.com/danobi/prr"
   license "GPL-2.0-only"
-  revision 2
+  revision 3
   head "https://github.com/danobi/prr.git", branch: "master"
 
   stable do
     url "https://github.com/danobi/prr/archive/refs/tags/v0.19.0.tar.gz"
     sha256 "76d101fefe42456d0c18a64e6f57b9d3a84baaecaf1e3a5e94b93657a6773c11"
 
-    # support libgit2 1.8, upstream pr ref, https://github.com/MitMaro/git-interactive-rebase-tool/pull/948
+    # support libgit2 1.8, upstream pr ref, https://github.com/danobi/prr/pull/67
     patch do
       url "https://github.com/danobi/prr/commit/c860f3d29c3607b10885e6526bea4cfd242815b5.patch?full_index=1"
       sha256 "208bbbdf4358f98c01b567146d0da2d1717caa53e4d2e5ea55ae29f5adaaaae2"
+    end
+    # support libgit2 1.9, upstream pr ref, https://github.com/danobi/prr/pull/69
+    patch do
+      url "https://github.com/danobi/prr/commit/84c0d0c324fb5a1334b72dc1fdf65c8e81c2cd01.patch?full_index=1"
+      sha256 "e695229e73e83f5d06c9b9ac9714c053088f6862d6db699e1d3101413b2d06d4"
     end
 
     # completion and manpage support, upstream pr ref, https://github.com/danobi/prr/pull/68
@@ -33,7 +38,7 @@ class Prr < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "libgit2@1.8" # needs https://github.com/rust-lang/git2-rs/issues/1109 to support libgit2 1.9
+  depends_on "libgit2"
   depends_on "openssl@3"
 
   uses_from_macos "zlib"
@@ -68,7 +73,7 @@ class Prr < Formula
     assert_match "Failed to read config", shell_output("#{bin}/prr get Homebrew/homebrew-core/6 2>&1", 1)
 
     [
-      Formula["libgit2@1.8"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
     ].each do |library|
