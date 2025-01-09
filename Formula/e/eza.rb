@@ -1,10 +1,9 @@
 class Eza < Formula
   desc "Modern, maintained replacement for ls"
   homepage "https://github.com/eza-community/eza"
-  url "https://github.com/eza-community/eza/archive/refs/tags/v0.20.15.tar.gz"
-  sha256 "cbb50e61b35b06ccf487ee6cc88d3b624931093546194dd5a2bbd509ed1786d6"
+  url "https://github.com/eza-community/eza/archive/refs/tags/v0.20.16.tar.gz"
+  sha256 "be5eb8d314f817bbfdcad4d21e66d2a8c4006ba4619735297b5233887ebdbe99"
   license "EUPL-1.2"
-  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "55c6c9d272929f739343123f40060696d3feaf7c14d1c1acb70972d47f1e38aa"
@@ -19,12 +18,6 @@ class Eza < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libgit2"
-
-  # libgit2 1.9 build patch
-  patch do
-    url "https://github.com/eza-community/eza/commit/7241ea4d128ca47b8f5e756a65fa3d4f1d5b5ce7.patch?full_index=1"
-    sha256 "e8b0a22c552d746936c332ff0558192578a8016aa6f5cb060535c5d1adeddcc7"
-  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
