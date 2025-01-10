@@ -8,13 +8,7 @@ class Mat2 < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7540fc693b8b6d49f20b01806636224abb0a1df3a4820b0583849bed74e5ca1f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7540fc693b8b6d49f20b01806636224abb0a1df3a4820b0583849bed74e5ca1f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7540fc693b8b6d49f20b01806636224abb0a1df3a4820b0583849bed74e5ca1f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7540fc693b8b6d49f20b01806636224abb0a1df3a4820b0583849bed74e5ca1f"
-    sha256 cellar: :any_skip_relocation, ventura:       "7540fc693b8b6d49f20b01806636224abb0a1df3a4820b0583849bed74e5ca1f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3186ddb81c91afdd65c6c3fbc63ea467b15c55b35bcfc8d239362aa6a8bc3af"
+    sha256 cellar: :any_skip_relocation, all: "7b534040135d940e613435f419dd0556e98b876b3ff9364d67dc001ac3412ec7"
   end
 
   depends_on "exiftool"
