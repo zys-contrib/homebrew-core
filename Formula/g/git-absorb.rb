@@ -1,10 +1,9 @@
 class GitAbsorb < Formula
   desc "Automatic git commit --fixup"
   homepage "https://github.com/tummychow/git-absorb"
-  url "https://github.com/tummychow/git-absorb/archive/refs/tags/0.6.16.tar.gz"
-  sha256 "d0fac448801674a4d4d5d42d6ef2d2e21545ad66755023c531a273a47893a573"
+  url "https://github.com/tummychow/git-absorb/archive/refs/tags/0.6.17.tar.gz"
+  sha256 "512ef2bf0e642f8c34eb56aad657413bd9e04595e3bc4650ecf1c0799f148ca4"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
     rebuild 1
@@ -19,12 +18,6 @@ class GitAbsorb < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libgit2"
-
-  # patch to use libgit2 1.9, upstream pr ref, https://github.com/tummychow/git-absorb/pull/138
-  patch do
-    url "https://github.com/tummychow/git-absorb/commit/a7d5688f426490a92b5bb73e3a2cfccc565747f8.patch?full_index=1"
-    sha256 "cb6bf13ec90de7c434addf1467a259537d9a993f5d2481e6cba86b3543d38eed"
-  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
