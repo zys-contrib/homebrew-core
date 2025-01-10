@@ -1,8 +1,8 @@
 class Lighttpd < Formula
   desc "Small memory footprint, flexible web-server"
   homepage "https://www.lighttpd.net/"
-  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.76.tar.xz"
-  sha256 "8cbf4296e373cfd0cedfe9d978760b5b05c58fdc4048b4e2bcaf0a61ac8f5011"
+  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.77.tar.xz"
+  sha256 "acafabdbfa2267d8b6452d03d85fdd2a66525f3f05a36a79b6645c017f1562ce"
   license "BSD-3-Clause"
 
   livecheck do
@@ -55,15 +55,16 @@ class Lighttpd < Formula
     system "make", "install"
 
     unless File.exist? etc/"lighttpd"
-      (etc/"lighttpd").install "doc/config/lighttpd.conf", "doc/config/modules.conf"
+      (etc/"lighttpd").install "doc/config/lighttpd.conf", "doc/config/lighttpd.annotated.conf",
+        "doc/config/modules.conf"
       (etc/"lighttpd/conf.d/").install Dir["doc/config/conf.d/*.conf"]
-      inreplace etc + "lighttpd/lighttpd.conf" do |s|
+      inreplace etc + "lighttpd/lighttpd.annotated.conf" do |s|
         s.sub!(/^var\.log_root\s*=\s*".+"$/, "var.log_root    = \"#{var}/log/lighttpd\"")
         s.sub!(/^var\.server_root\s*=\s*".+"$/, "var.server_root = \"#{var}/www\"")
         s.sub!(/^var\.state_dir\s*=\s*".+"$/, "var.state_dir   = \"#{var}/lighttpd\"")
         s.sub!(/^var\.home_dir\s*=\s*".+"$/, "var.home_dir    = \"#{var}/lighttpd\"")
         s.sub!(/^var\.conf_dir\s*=\s*".+"$/, "var.conf_dir    = \"#{etc}/lighttpd\"")
-        s.sub!(/^server\.port\s*=\s*80$/, "server.port = 8080")
+        s.sub!(/^#server\.port\s*=\s*80$/, "server.port = 8080")
         s.sub!(%r{^server\.document-root\s*=\s*server_root \+ "/htdocs"$}, "server.document-root = server_root")
 
         s.sub!(/^server\.username\s*=\s*".+"$/, 'server.username  = "_www"')
