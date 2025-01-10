@@ -1,8 +1,8 @@
 class Usage < Formula
   desc "Tool for working with usage-spec CLIs"
   homepage "https://usage.jdx.dev/"
-  url "https://github.com/jdx/usage/archive/refs/tags/v1.7.4.tar.gz"
-  sha256 "a768c0aef980ebc83bf93f763372c23de6c3aad03a925f981209dbc24ad59072"
+  url "https://github.com/jdx/usage/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "fbdee1ec486b5abedcd762b81756bc98529c2bb751b7b9d830c98480b1a61cb6"
   license "MIT"
   head "https://github.com/jdx/usage.git", branch: "main"
 
