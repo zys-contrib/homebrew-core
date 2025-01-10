@@ -6,12 +6,12 @@ class Libultrahdr < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "905307f2f26285b508f922afc27a1800f521b458d4a23f3de4155f9d1d550db6"
-    sha256 cellar: :any,                 arm64_sonoma:  "452c322b2272b9611d43f7bcf607959c7dc8b370ca09ba985ecc7a1b3f4b4f10"
-    sha256 cellar: :any,                 arm64_ventura: "37a2b65a14283d0aeaf0b911929e7d14cdea11a7d4fbd35b0a5aa3a8e382934f"
-    sha256 cellar: :any,                 sonoma:        "70c4fb49c02722a165a39b06f1ac470c23f36c6f6b41349b64f2a3745aaf5baf"
-    sha256 cellar: :any,                 ventura:       "78861e16bf480d6766775801cb6c5da50f0ca433bb5c56090dd5e217ecaf2121"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e203cb46ab293d6566dda0753a5d6a5e21d81e554b55ef3018809333b691dfba"
+    sha256 cellar: :any,                 arm64_sequoia: "f74e0cb7b904bfbf1bf949e0354a89bb28ffc76824f7bb612d76758f6d5a67c2"
+    sha256 cellar: :any,                 arm64_sonoma:  "c2850201ee80d9eaf326a417cc3d7e2a33503c8c1956057e772713ff2d1afbc5"
+    sha256 cellar: :any,                 arm64_ventura: "09fbfccb0ff2373e1ba0c07f2445c6ca4c75d2d9148a5de09b471b2094bfaa27"
+    sha256 cellar: :any,                 sonoma:        "d4ea563be110bda70feb1489f4f4defadc3d856742d78c75a4c4da45b99fb008"
+    sha256 cellar: :any,                 ventura:       "bba3657ad279753243ff8feb518836f9f0117d4976b1e59ce1087cbf8b021907"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "853ae42d73cddb32e68911498a9b5ca8822f944274b35c7a98ba2ebf412edcb9"
   end
 
   depends_on "cmake" => :build
