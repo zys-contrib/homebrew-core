@@ -1,8 +1,8 @@
 class Dante < Formula
   desc "SOCKS server and client, implementing RFC 1928 and related standards"
   homepage "https://www.inet.no/dante/"
-  url "https://www.inet.no/dante/files/dante-1.4.3.tar.gz"
-  sha256 "418a065fe1a4b8ace8fbf77c2da269a98f376e7115902e76cda7e741e4846a5d"
+  url "https://www.inet.no/dante/files/dante-1.4.4.tar.gz"
+  sha256 "1973c7732f1f9f0a4c0ccf2c1ce462c7c25060b25643ea90f9b98f53a813faec"
   license "BSD-Inferno-Nettverk"
 
   livecheck do
@@ -25,6 +25,8 @@ class Dante < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "19ae4553c91fc1991fd495f3b3e25d92fa7cbd59bd7d32f8fc71444f02bbbee5"
   end
 
+  uses_from_macos "libxcrypt"
+
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
@@ -35,7 +37,7 @@ class Dante < Formula
     system "./configure", "--disable-debug",
                           "--disable-silent-rules",
                           # Enabling dependency tracking disables universal
-                          # build, avoiding a build error on Mojave
+                          # build, avoiding causing size or memmove detection issues.
                           "--enable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}/dante"
@@ -43,6 +45,6 @@ class Dante < Formula
   end
 
   test do
-    system "#{sbin}/sockd", "-v"
+    system sbin/"sockd", "-v"
   end
 end

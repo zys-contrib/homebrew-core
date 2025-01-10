@@ -659,6 +659,7 @@ d2
 daemon
 dagger
 daktilo
+dante
 daq
 dar
 darcs
