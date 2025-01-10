@@ -5,15 +5,15 @@ class Libpulsar < Formula
   mirror "https://archive.apache.org/dist/pulsar/pulsar-client-cpp-3.6.0/apache-pulsar-client-cpp-3.6.0.tar.gz"
   sha256 "522ca67bc911fcd4c0c9e4278628c9167b614a887c63fb04b04370156254d3b3"
   license "Apache-2.0"
-  revision 6
+  revision 7
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "816b2ec9deccd1d19669f28e487ab75e05ea77055fcfd443f0dcd2dda83fabf4"
-    sha256 cellar: :any,                 arm64_sonoma:  "969e691bd2630a3d97c9291675cd12afe9e1ff81f1fd66ad0f72bcd3cb0c5d38"
-    sha256 cellar: :any,                 arm64_ventura: "9fd142a31a4306e8fcf0d48b958310fd58b555aea54d5caa8d6df698e7d70254"
-    sha256 cellar: :any,                 sonoma:        "e7269ae02774170efad469b1ba26906b0d392202d6b0e5a02c8c1a166c9739a0"
-    sha256 cellar: :any,                 ventura:       "80379aa8ca491a0af30530e8cb27e7c821d4072d4752ee09d61bad51171a15e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ab75ee9e7f26b90493dc4fb98f7f1b71d5decc400a56a4a3d10c9caf297ed8c"
+    sha256 cellar: :any,                 arm64_sequoia: "1bb7bf6eaf3e6e92977bb797544ce31fdad49910ec0bd375db0ea4789ab35945"
+    sha256 cellar: :any,                 arm64_sonoma:  "874285b114c6691197709c1b7cbc248a5435b63c0504af23859996beea7fff4f"
+    sha256 cellar: :any,                 arm64_ventura: "6b4ccbda0803501d327b27cb8afa56d49b3c6cfef5750607ba31d6ee05a2bab0"
+    sha256 cellar: :any,                 sonoma:        "68d58c966df0f5d5a71779773c6bb543098220a54c9b6fa87247bb0dbc1b184f"
+    sha256 cellar: :any,                 ventura:       "8ab149de3f777c4c65b78eea95b709fb97323c9e6c2f0d2a80355dc8970e61f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78b634da78a5ce40542ae9d4e18cd0e2cc5aa0399c54acdb345a16402e044433"
   end
 
   depends_on "asio" => :build # FIXME: Not compatible with Boost.Asio 1.87+
