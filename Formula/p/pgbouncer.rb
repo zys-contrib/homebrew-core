@@ -1,8 +1,8 @@
 class Pgbouncer < Formula
   desc "Lightweight connection pooler for PostgreSQL"
   homepage "https://www.pgbouncer.org/"
-  url "https://www.pgbouncer.org/downloads/files/1.23.1/pgbouncer-1.23.1.tar.gz"
-  sha256 "1963b497231d9a560a62d266e4a2eae6881ab401853d93e5d292c3740eec5084"
+  url "https://www.pgbouncer.org/downloads/files/1.24.0/pgbouncer-1.24.0.tar.gz"
+  sha256 "e76adf941a3191a416e223c0b2cdbf73159eef80a2a32314af6fbd82e41a1d41"
   license "ISC"
 
   livecheck do
