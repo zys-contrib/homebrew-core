@@ -431,6 +431,7 @@ cgal
 cgif
 cgl
 cglm
+cgns
 cgrep
 chafa
 chain-bench
