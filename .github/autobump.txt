@@ -1807,6 +1807,7 @@ libsql
 libssh
 libssh2
 libstrophe
+libsvgtiny
 libsvm
 libtensorflow
 libtiff
