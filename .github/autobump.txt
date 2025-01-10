@@ -1969,6 +1969,7 @@ marksman
 marp-cli
 massdriver
 massren
+mat2
 matplotplusplus
 matterbridge
 maturin
