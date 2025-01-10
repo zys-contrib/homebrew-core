@@ -1793,6 +1793,7 @@ libscfg
 libsecret
 libserialport
 libshumate
+libsixel
 libslirp
 libsm
 libsndfile

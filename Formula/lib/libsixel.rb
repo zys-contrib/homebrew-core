@@ -1,10 +1,9 @@
 class Libsixel < Formula
   desc "SIXEL encoder/decoder implementation"
   homepage "https://github.com/saitoha/sixel"
-  url "https://github.com/libsixel/libsixel/archive/refs/tags/v1.10.3.tar.gz"
-  sha256 "028552eb8f2a37c6effda88ee5e8f6d87b5d9601182ddec784a9728865f821e0"
+  url "https://github.com/libsixel/libsixel/archive/refs/tags/v1.10.5.tar.gz"
+  sha256 "b6654928bd423f92e6da39eb1f40f10000ae2cc6247247fc1882dcff6acbdfc8"
   license "MIT"
-  revision 1
   head "https://github.com/libsixel/libsixel.git", branch: "master"
 
   bottle do
