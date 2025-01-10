@@ -7,12 +7,12 @@ class Libpulsar < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1bb7bf6eaf3e6e92977bb797544ce31fdad49910ec0bd375db0ea4789ab35945"
-    sha256 cellar: :any,                 arm64_sonoma:  "874285b114c6691197709c1b7cbc248a5435b63c0504af23859996beea7fff4f"
-    sha256 cellar: :any,                 arm64_ventura: "6b4ccbda0803501d327b27cb8afa56d49b3c6cfef5750607ba31d6ee05a2bab0"
-    sha256 cellar: :any,                 sonoma:        "68d58c966df0f5d5a71779773c6bb543098220a54c9b6fa87247bb0dbc1b184f"
-    sha256 cellar: :any,                 ventura:       "8ab149de3f777c4c65b78eea95b709fb97323c9e6c2f0d2a80355dc8970e61f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78b634da78a5ce40542ae9d4e18cd0e2cc5aa0399c54acdb345a16402e044433"
+    sha256 cellar: :any,                 arm64_sequoia: "2762cb88dd01d626ab6dd265e2264b195133c4874b82f189ea8001a918869c7b"
+    sha256 cellar: :any,                 arm64_sonoma:  "34bf8ce2ebbc5f95e33a1dc572e8f08927e8c1adb14bcb68e18b30e978baf6d6"
+    sha256 cellar: :any,                 arm64_ventura: "2aa84c52798c6a67d233b56df26029742569b882c6cca6907cbc7ab46283f3f1"
+    sha256 cellar: :any,                 sonoma:        "28e17003491d94d95f5330fa8345aaea561dd9a021f30fdad0068246faf1e4b5"
+    sha256 cellar: :any,                 ventura:       "b734145006bc1f4cf5697518cd9dec720c42ba7743c6d6f8e21721bc14fede9f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bcca0ff004a931852586876682e27da0345e55fea30a522c50772a15bef394f1"
   end
 
   depends_on "asio" => :build # FIXME: Not compatible with Boost.Asio 1.87+
