@@ -1,8 +1,8 @@
 class Lziprecover < Formula
   desc "Data recovery tool and decompressor for files in the lzip compressed data format"
   homepage "https://www.nongnu.org/lzip/lziprecover.html"
-  url "https://download-mirror.savannah.gnu.org/releases/lzip/lziprecover/lziprecover-1.24.tar.gz"
-  sha256 "1d699cfaefe92eb2624a3652580bcafe0bbb98fe7818c25e6de823bcdd0d458f"
+  url "https://download-mirror.savannah.gnu.org/releases/lzip/lziprecover/lziprecover-1.25.tar.gz"
+  sha256 "4f392f9c780ae266ee3d0db166b0f1b4d3ae07076e401dc2b199dc3a0fff8b45"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -24,7 +24,7 @@ class Lziprecover < Formula
   depends_on "lzip" => :test
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
@@ -53,7 +53,7 @@ class Lziprecover < Formula
     assert_match "Decoder error", shell_output("#{bin}/lziprecover -t #{path}.lz 2>&1", 2)
 
     # Attempt to recover the corrupted archive
-    system bin/"lziprecover", "-R", "#{path}.lz"
+    system bin/"lziprecover", "-B", "#{path}.lz"
 
     # Verify that recovered data is unchanged
     system bin/"lziprecover", "-d", "#{fixed_path}.lz"

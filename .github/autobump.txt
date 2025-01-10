@@ -1928,6 +1928,7 @@ lychee
 lynis
 lz4
 lzip
+lziprecover
 macchina
 mackup
 macmon
