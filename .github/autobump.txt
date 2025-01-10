@@ -3106,6 +3106,7 @@ tenere
 tengo
 tenv
 tere
+termbg
 terminator
 termscp
 termshark
