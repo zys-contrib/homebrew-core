@@ -1,8 +1,8 @@
 class Cppad < Formula
   desc "Differentiation of C++ Algorithms"
   homepage "https://www.coin-or.org/CppAD"
-  url "https://github.com/coin-or/CppAD/archive/refs/tags/20240000.7.tar.gz"
-  sha256 "b3cdc7e18fe3cb2bd427be4abb264c3c58bbb3bd5f88a4244a92c34f893dbab7"
+  url "https://github.com/coin-or/CppAD/archive/refs/tags/20250000.0.tar.gz"
+  sha256 "5439b4c972ed16f1583f2f41f20bd958019558506626b0e916a3e84bbf06cbc5"
   license "EPL-2.0"
   version_scheme 1
   head "https://github.com/coin-or/CppAD.git", branch: "master"
@@ -24,6 +24,7 @@ class Cppad < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkgconf" => :build
 
   def install
     ENV.cxx11
