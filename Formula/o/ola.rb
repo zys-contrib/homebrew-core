@@ -27,12 +27,12 @@ class Ola < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "da0b6d336c77add2ec88c13f7f3d1300fdd6257505240d3b6cefe32320994259"
-    sha256                               arm64_sonoma:  "ca21235c13a13e393cc0792c760a094a68e68713b27a8db93c42ae58f6f8fa48"
-    sha256                               arm64_ventura: "91339dd372819edaeedf7f5f2ce528c023d7d592f2df4a2e5c13bf47b8d92810"
-    sha256                               sonoma:        "1d1cfc263bfa58ac6a4a789fbcf982997785664c9bd477c2192a53a8131a01cb"
-    sha256                               ventura:       "ec372bbb7ab577e8b75b2ff79b2a92e90a8eecbba2083bccb7194c8698609e42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3aa81849e9a64ad7ae28324c9418d12c9267828da8cf03121999dc513a0ce20"
+    sha256                               arm64_sequoia: "6d4182b55d3ec40ac585f082515e7ee1125e42acbc6902e3ab1d15c01721b465"
+    sha256                               arm64_sonoma:  "9b45e675b229a1443b89f643533a07aaf3f9674062bbf6115ba899d1b5388b49"
+    sha256                               arm64_ventura: "98db8a67a41af2686b691188404ac2c3ba49c1e63f20c929f2c37048a63aea12"
+    sha256                               sonoma:        "a548628c89e92f9d84659e771a35e745b44cab0713a49a0885f3a56ed075666c"
+    sha256                               ventura:       "b87bb7a4367d5859724b59883b8912bfeaa05317813dbedba687ba7c2b15d48b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74cc94c3489eafd39fe993859da64ea188d1f1d40532fe044c75fe1f27e7ed27"
   end
 
   head do
