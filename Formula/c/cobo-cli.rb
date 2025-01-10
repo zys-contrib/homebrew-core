@@ -8,13 +8,13 @@ class CoboCli < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "03f0ae59508dcbee81fafbae557996d4650fe4fa1618dc1ca1455a22ee20be33"
-    sha256 cellar: :any,                 arm64_sonoma:  "83ad0211dfbd36df1f81ed68d66f3dcbe44d36baaf16a3232bd7961291da0da8"
-    sha256 cellar: :any,                 arm64_ventura: "931a2a853714477b7f5a6e79b6ad228bef542c5459c3e767f53dce7d789239aa"
-    sha256 cellar: :any,                 sonoma:        "5a5680c570e26141e83ccb3f35fd14e271fa72f75fea9ca450b8778e3162d31a"
-    sha256 cellar: :any,                 ventura:       "68b3c825383bfcedf49ab711a0287462e2cd042670f1ddf2b5019971fe200a2a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "786835dfc48af95185b3a9ee4c84a49d9590288549117ef71af6e63135071458"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia: "d5a8f6f864bce60e582cb73e9415a23ddbca53b543f29ea33eb67564110bf6cf"
+    sha256 cellar: :any,                 arm64_sonoma:  "652be51343a462a3678ce3c57678694395c37c509a27a35bf1f32609850e8384"
+    sha256 cellar: :any,                 arm64_ventura: "d80cd0db285dc6e99f55079ad565efca256acf5254e893fea2daa8d6cfe83c2b"
+    sha256 cellar: :any,                 sonoma:        "40d4ab83dfbd6ed44d1906c52c45e2b4dab041f6ad20a3eb5fd923a71fb51908"
+    sha256 cellar: :any,                 ventura:       "3dd94d11b64260f1077fa488eb910fca49277a5e9fafb9b20d8f9a8e036a6bc2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1642e5cb6304cbf47ef746d55d38789f67264103b6b0913e2ccf2027a25e6632"
   end
 
   depends_on "certifi"
