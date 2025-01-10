@@ -3,8 +3,8 @@ class Localai < Formula
 
   desc "OpenAI alternative"
   homepage "https://localai.io"
-  url "https://github.com/mudler/LocalAI/archive/refs/tags/v2.24.2.tar.gz"
-  sha256 "6dd03d21c4c903890bd2bdc6c18b4a1191b1a79dc296ccbf817d773cdcdb401a"
+  url "https://github.com/mudler/LocalAI/archive/refs/tags/v2.25.0.tar.gz"
+  sha256 "f9d7a8ceae6987a7ad3ac3a67bc604bea2f539275015fc88203e2762ec5fc697"
   license "MIT"
 
   bottle do
@@ -27,8 +27,8 @@ class Localai < Formula
   depends_on "python@3.13" => :build
 
   resource "grpcio-tools" do
-    url "https://files.pythonhosted.org/packages/2a/2f/d2fc30b79d892050a3c40ef8d17d602f4c6eced066d584621c7bbf195b0e/grpcio_tools-1.68.1.tar.gz"
-    sha256 "2413a17ad16c9c821b36e4a67fc64c37b9e4636ab1c3a07778018801378739ba"
+    url "https://files.pythonhosted.org/packages/64/ec/1c25136ca1697eaa09a02effe3e74959fd9fb6aba9960d7340dd6341c5ce/grpcio_tools-1.69.0.tar.gz"
+    sha256 "3e1a98f4d9decb84979e1ddd3deb09c0a33a84b6e3c0776d5bde4097e3ab66dd"
   end
 
   def python3
