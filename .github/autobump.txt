@@ -540,6 +540,7 @@ coconut
 code-cli
 code-minimap
 code-server
+codeberg-cli
 codec2
 codelimit
 coder
