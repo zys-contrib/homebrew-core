@@ -6,12 +6,12 @@ class AtSpi2Core < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_sequoia: "e593b674b0e959eef42b4072451cf34a56082a4a00d58a27a187f5cb893118c0"
-    sha256 arm64_sonoma:  "13ddf331202d2f26478c0d2874b7c29d02fa7adda274e33bdb49d8b5115e3a43"
-    sha256 arm64_ventura: "8aa34bba472670a471e0d105875a8cdc08ef53d852224caa0588dfbf805a7b5a"
-    sha256 sonoma:        "36aa898dd88a1334f346684f4a09a6535774c43ee568b8f035a24c38cf226378"
-    sha256 ventura:       "8591d35b85eee65936789b8bcfd15734fb5d7da01652219704db8456788fd52d"
-    sha256 x86_64_linux:  "202197a5e6cd0df0a4b43a3feb3f55f3ed8eef4443e635525a74df46c2d372ac"
+    sha256 arm64_sequoia: "4264bd769015c0ccdbb58594426089453dc8a2d87e96903bd5e472a6f4ad657a"
+    sha256 arm64_sonoma:  "242f10012d6f91d57a00cc89f493c36ac8397855c6e1054dfa53fb1de56b1d41"
+    sha256 arm64_ventura: "37647494241aaf057e9be263d3ebcbb1424d2f1bc3697623202ff5d903036adb"
+    sha256 sonoma:        "4429f84c5a3a1824cbd55a0c662123bc7d03bda08efa898a754912875a745067"
+    sha256 ventura:       "e435be0dddb4487ccd8107f6deb4eeed662e58a8f9c856a8e5ae4c8028e89a86"
+    sha256 x86_64_linux:  "6306633df318eab967fcba50c9814926df2462d67b0b3c1f5583c4233ac5dbc2"
   end
 
   depends_on "gettext" => :build
