@@ -276,6 +276,9 @@ class Gptme < Formula
     sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
   end
 
+  # patch to support poetry 2.0, upstream pr ref, https://github.com/ErikBjare/gptme/pull/392
+  patch :DATA
+
   def install
     virtualenv_install_with_resources
 
@@ -291,3 +294,61 @@ class Gptme < Formula
       shell_output("#{bin}/gptme -n 2>&1")
   end
 end
+
+__END__
+diff --git a/pyproject.toml b/pyproject.toml
+index b6ee93e..f6df181 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,8 +1,10 @@
+-[tool.poetry]
++[project]
+ name = "gptme"
+ version = "0.25.0"
+ description = "Personal AI assistant in your terminal that can use the shell, run code, edit files, browse the web, and use vision. An unconstrained local alternative to ChatGPT's Code Interpreter."
+-authors = ["Erik Bjäreholt <erik@bjareho.lt>"]
++authors = [
++    { name = "Erik Bjäreholt", email = "erik@bjareho.lt>" },
++]
+ readme = "README.md"
+ license = "MIT"
+ packages = [
+@@ -11,24 +13,6 @@ packages = [
+
+ include = ["gptme/server/static/**/*", "media/logo.png"]
+
+-[project]
+-name = "gptme"
+-dependencies = [
+-    "python = \"^3.10\"",
+-    "click = \"^8.0\"",
+-    "python-dotenv = \"^1.0.0\"",
+-    "rich = \"^13.5.2\"",
+-    "tabulate = \"*\"",
+-    "pick = \"^2.2.0\"",
+-    "tiktoken = \">=0.7\"",
+-    "tomlkit = \"*\"",
+-    "typing-extensions = \"*\"",
+-    "platformdirs = \"^4.3\"",
+-    "lxml = \"*\"",
+-    "ipython = \"^8.17.2\"",
+-    "bashlex = \"^0.18\"",
+-]
+-
+ [project.scripts]
+ gptme = "gptme.cli:main"
+ gptme-server = "gptme.server.cli:main"
+@@ -42,13 +26,6 @@ Repository = "https://github.com/ErikBjare/gptme"
+ Documentation = "https://gptme.org/docs/"
+ Issues = "https://github.com/ErikBjare/gptme/issues"
+
+-[tool.poetry.scripts]
+-gptme = "gptme.cli:main"
+-gptme-server = "gptme.server.cli:main"
+-gptme-eval = "gptme.eval.main:main"
+-gptme-util = "gptme.util.cli:main"
+-gptme-nc = "gptme.ncurses:main"
+-
+ [tool.poetry.dependencies]
+ python = "^3.10"
+ click = "^8.0"
