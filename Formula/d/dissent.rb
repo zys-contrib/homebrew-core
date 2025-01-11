@@ -1,10 +1,19 @@
 class Dissent < Formula
   desc "GTK4 Discord client in Go"
   homepage "https://github.com/diamondburned/dissent"
-  url "https://github.com/diamondburned/dissent/archive/refs/tags/v0.0.31.tar.gz"
-  sha256 "0e7ce9abfa6f8fb4c2c88a78ec18a84403d706ef08ceec955d173223835cb17d"
   license "GPL-3.0-or-later"
   head "https://github.com/diamondburned/dissent.git", branch: "main"
+
+  stable do
+    url "https://github.com/diamondburned/dissent/archive/refs/tags/v0.0.31.tar.gz"
+    sha256 "0e7ce9abfa6f8fb4c2c88a78ec18a84403d706ef08ceec955d173223835cb17d"
+
+    # Backport support for libspelling 0.4+
+    patch do
+      url "https://github.com/diamondburned/dissent/commit/b5e6a54c7407522930adc0b3cd39a8ef93bacd61.patch?full_index=1"
+      sha256 "5ba24c584eaf67f9efedc39090e33972515c1922260824bcb5ade8ac714de354"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "ab4d0479dea0c67a710b925414a9a55b2c3a739c481f975cc19515a6781eee64"
@@ -27,7 +36,7 @@ class Dissent < Formula
   depends_on "gtksourceview5"
   depends_on "libadwaita"
   depends_on "libcanberra"
-  depends_on "libspelling@0.2"
+  depends_on "libspelling"
   depends_on "pango"
 
   on_macos do
