@@ -1,8 +1,8 @@
 class GitGui < Formula
   desc "Tcl/Tk UI for the git revision control system"
   homepage "https://git-scm.com"
-  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.47.1.tar.xz"
-  sha256 "f3d8f9bb23ae392374e91cd9d395970dabc5b9c5ee72f39884613cd84a6ed310"
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.48.0.tar.xz"
+  sha256 "4803b809c42696b3b8cce6b0ba6de26febe1197f853daf930a484db93c1ad0d5"
   license "GPL-2.0-only"
   head "https://github.com/git/git.git", branch: "master"
 
@@ -15,15 +15,6 @@ class GitGui < Formula
   end
 
   depends_on "tcl-tk@8"
-
-  # Patch to fix Homebrew/homebrew-core#68798.
-  # Remove when the following PR has been merged
-  # and included in a release:
-  # https://github.com/git/git/pull/944
-  patch do
-    url "https://github.com/git/git/commit/1db62e44b7ec93b6654271ef34065b31496cd02e.patch?full_index=1"
-    sha256 "0c7816ee9c8ddd7aa38aa29541c9138997650713bce67bdef501b1de0b50f539"
-  end
 
   def install
     # build verbosely
