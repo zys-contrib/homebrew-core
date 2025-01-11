@@ -8,13 +8,12 @@ class Localai < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6cbba8cd0121fc2130aac0a2a2bf139faee570bf56d82f5ef03122bdbb25f556"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d2a507a8f3dfcb311bdb40c07ca3313196e5bb566dee51b829d315961e677d0d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8645fa2b753e7737c594c67b2a18ab510baf311cdd6c626b43db9417eae341ba"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ad2e277808b710eda5d98e0c1e984c721f4e426b04c3d0e0a60a34bcb6897ea4"
-    sha256 cellar: :any_skip_relocation, ventura:       "5a6f4d946f11b75a4164eb21c106a697b3b3e16efb93c9ca7fb236aa5e01f9fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad9706f203403ba6384e7afac7e9b73fc185a66e7e9e8bacf51a56d3c5ae2153"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "904d279970c6299905286e715bb500218893aec94a2fc1ce39da45ea2c266bfb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f716e429d99817ece6065bf898c17211053cd33247360fd986ac03609ce71750"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "311f2c6871548f143436fe724c28587d89bde8f51db1ee3324306941eaf2b0f3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d8531f0a4e4e4aa70aa9940dc9ab785237baabb93a11c5920cb04bab49d49ded"
+    sha256 cellar: :any_skip_relocation, ventura:       "baab0b7f85d1caf7a74c140b50d5cd73ff61556cc9ec71edff0faba53a4701eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9bb2343ae59d232ecf625a5ad23fec90aea9883066bae1a49ec9c1f3fdb4c768"
   end
 
   depends_on "abseil" => :build
