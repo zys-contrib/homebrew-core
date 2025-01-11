@@ -1,8 +1,8 @@
 class Oha < Formula
   desc "HTTP load generator, inspired by rakyll/hey with tui animation"
   homepage "https://github.com/hatoo/oha/"
-  url "https://github.com/hatoo/oha/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "2e8d42df346486d3ed5be5016361f40a12989aeffd1c239e307e3bcb414d84c9"
+  url "https://github.com/hatoo/oha/archive/refs/tags/v1.6.0.tar.gz"
+  sha256 "44ae493c24f42f8994b4192ace99e63866c054e305d368bf77176108cbfa93fd"
   license "MIT"
   head "https://github.com/hatoo/oha.git", branch: "master"
 
@@ -21,6 +21,12 @@ class Oha < Formula
 
   on_linux do
     depends_on "openssl@3" # Uses Secure Transport on macOS
+  end
+
+  # revert `cc` crate to 1.2.7, upstream pr ref, https://github.com/hatoo/oha/pull/662
+  patch do
+    url "https://github.com/hatoo/oha/commit/e016c271326c201343cf17347dd5c5d6b0de1ab7.patch?full_index=1"
+    sha256 "c3b9b1ef1486e0a9427b2623c8f6852c78fd7fd020383f36a5d2d62cb20b5970"
   end
 
   def install
