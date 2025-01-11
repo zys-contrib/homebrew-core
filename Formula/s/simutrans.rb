@@ -1,10 +1,9 @@
 class Simutrans < Formula
   desc "Transport simulator"
   homepage "https://www.simutrans.com/"
-  url "svn://servers.simutrans.org/simutrans/trunk/", revision: "11395"
-  version "124.2.2"
+  url "svn://servers.simutrans.org/simutrans/trunk/", revision: "11590"
+  version "124.3"
   license "Artistic-1.0"
-  revision 2
   head "https://github.com/simutrans/simutrans.git", branch: "master"
 
   livecheck do
@@ -40,8 +39,8 @@ class Simutrans < Formula
   uses_from_macos "zlib"
 
   resource "pak64" do
-    url "https://downloads.sourceforge.net/project/simutrans/pak64/124-2/simupak64-124-2.zip"
-    sha256 "e690e4647a1a617032a3778a2457c8812cc4510afad0f5bf8524999468146d86"
+    url "https://downloads.sourceforge.net/project/simutrans/pak64/124-3/simupak64-124-3.zip"
+    sha256 "ecde0e15301320549e92a9113fcdd1ada3b7f9aa1fce3d59a5dc98d56d648756"
   end
   resource "soundfont" do
     url "https://src.fedoraproject.org/repo/pkgs/PersonalCopy-Lite-soundfont/PCLite.sf2/629732b7552c12a8fae5b046d306273a/PCLite.sf2"
