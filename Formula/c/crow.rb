@@ -7,7 +7,7 @@ class Crow < Formula
   head "https://github.com/CrowCpp/Crow.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "591303e4c68a602b25e69d055ddd5c8ebc2e273ce056c992d7b8bdad1520d068"
+    sha256 cellar: :any_skip_relocation, all: "9a24a5efe8bdb0ffab3bf58391375a00c5c5868217cd7d52bbf34066baa39f69"
   end
 
   depends_on "cmake" => :build
