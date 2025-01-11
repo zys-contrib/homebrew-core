@@ -1,8 +1,8 @@
 class TRec < Formula
   desc "Blazingly fast terminal recorder that generates animated gif images for the web"
   homepage "https://github.com/sassman/t-rec-rs"
-  url "https://github.com/sassman/t-rec-rs/archive/refs/tags/v0.7.6.tar.gz"
-  sha256 "a261104e33d6f60a8f9fe51c2339b79875ddb5ff5b9e7de68e7e52f9d25bf19e"
+  url "https://github.com/sassman/t-rec-rs/archive/refs/tags/v0.7.7.tar.gz"
+  sha256 "ec3a94178a6488d302a3eeaf2f41ffca6828cc53457d4bcb43e03cfff8cb7bb3"
   license "GPL-3.0-only"
 
   bottle do
@@ -30,7 +30,7 @@ class TRec < Formula
     if OS.mac?
       assert_equal "Error: Cannot grab screenshot from CGDisplay of window id 999999", o
     else
-      assert_equal "Error: Display parsing error", o
+      assert_equal "Error: $DISPLAY variable not set and no value was provided explicitly", o
     end
   end
 end
