@@ -1,8 +1,8 @@
 class Lunzip < Formula
   desc "Decompressor for lzip files"
   homepage "https://www.nongnu.org/lzip/lunzip.html"
-  url "https://download-mirror.savannah.gnu.org/releases/lzip/lunzip/lunzip-1.14.tar.gz"
-  sha256 "70a30ca88c538b074a04a6d5fa12a57f8e89febcb9145d322e9525f3694e4cb0"
+  url "https://download-mirror.savannah.gnu.org/releases/lzip/lunzip/lunzip-1.15.tar.gz"
+  sha256 "fdb930b87672a238a54c4b86d63df1c86038ff577d512adbc8e2c754c046d8f2"
   license "GPL-2.0-or-later"
 
   livecheck do
