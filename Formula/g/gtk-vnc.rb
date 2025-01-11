@@ -14,14 +14,12 @@ class GtkVnc < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "2d43bed50ae8dec6f17f3fce8c398c44d362741e949df7104147f029aae9f11b"
-    sha256 arm64_sonoma:   "1d86f05b499aca8550e57a6ee7da3aa3dbac6c71315a8fb99744e8dc6c00fe58"
-    sha256 arm64_ventura:  "bf1f1b44af9394444c670557a75710c82d7b6f748150f80beec54eb30a81840e"
-    sha256 arm64_monterey: "48885c5c13f4d2a23eb1d236a8ee89f9be610831ac7f129d610f6e7b984c2b40"
-    sha256 sonoma:         "08bc0bff60068971369a5baaea058ba8e01e403a03f33f8f5f4d45d73b3551e0"
-    sha256 ventura:        "6c50230eb976ffcdb056931d1a3a4217ebb19e9a7ea23beba16fa274ec358a04"
-    sha256 monterey:       "7242716e44c0aa52b9b0a481e445a34eedbcb75cb15f0a8af38374666cc8d06b"
-    sha256 x86_64_linux:   "9992fdf41743bef7fb279857b510441e0b95b63082ccaad5690a36776de48089"
+    sha256 arm64_sequoia: "e4fbfc19655d663d62ac42d2fea67cd8920872f2e7062d04d04db9e640e84f55"
+    sha256 arm64_sonoma:  "4c9533a7b17df72d46ca4ab708d7fb819cc785d84d122bcca4c5975be6bc292a"
+    sha256 arm64_ventura: "3004e00b5f09d325aea98dc419e455e0180ce3c4c2f174194a469cf2b61cbe70"
+    sha256 sonoma:        "cc38da956437c5ded9cb307deea89853870637f83323b94b11be1c455229dc3f"
+    sha256 ventura:       "90a6efce4d4be08febcdc180184396fe0f091d299e0f3e3d758424137671e414"
+    sha256 x86_64_linux:  "8588d8654acbd5f147f4541d4df783a3fa8d6bd5f737bdba62f74fd448985c96"
   end
 
   depends_on "gettext" => :build
