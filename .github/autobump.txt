@@ -1579,6 +1579,7 @@ ksops
 ktfmt
 ktor
 kty
+kube-bench
 kube-linter
 kube-ps1
 kube-score
