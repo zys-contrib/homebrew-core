@@ -1,10 +1,9 @@
 class CargoC < Formula
   desc "Helper program to build and install c-like libraries"
   homepage "https://github.com/lu-zero/cargo-c"
-  url "https://github.com/lu-zero/cargo-c/archive/refs/tags/v0.10.7.tar.gz"
-  sha256 "c4532dd2bf23769df5f64649d5b0c037fb2a29467c74d16a54bad3054d9f3f3a"
+  url "https://github.com/lu-zero/cargo-c/archive/refs/tags/v0.10.8.tar.gz"
+  sha256 "2c7bfff50e9c11801c92280f34f7d308857652b0c3875d0fd0906167623414ac"
   license "MIT"
-  revision 1
 
   livecheck do
     url :stable
@@ -38,6 +37,10 @@ class CargoC < Formula
     # Ensure the correct `openssl` will be picked up.
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
+
+    # revert `cc` crate to 1.2.7, upstream pr ref, https://github.com/lu-zero/cargo-c/pull/437
+    system "cargo", "update", "-p", "cc", "--precise", "1.2.7"
+    odie "remove cc crate update" if version > "0.10.8"
 
     system "cargo", "install", *std_cargo_args
   end
