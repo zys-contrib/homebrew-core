@@ -1,10 +1,9 @@
 class GtkVnc < Formula
   desc "VNC viewer widget for GTK"
-  homepage "https://wiki.gnome.org/Projects/gtk-vnc"
-  url "https://download.gnome.org/sources/gtk-vnc/1.3/gtk-vnc-1.3.1.tar.xz"
-  sha256 "512763ac4e0559d0158b6682ca5dd1a3bd633f082f5e4349d7158e6b5f80f1ce"
+  homepage "https://gitlab.gnome.org/GNOME/gtk-vnc"
+  url "https://download.gnome.org/sources/gtk-vnc/1.4/gtk-vnc-1.4.0.tar.xz"
+  sha256 "1be64c4e4760c52b3ec33067290d1efa40ad4cecab6c673813804e3c559d9683"
   license "LGPL-2.1-or-later"
-  revision 1
 
   # gtk-vnc doesn't use the usual "even-numbered minor is stable" GNOME version
   # scheme, so we have to provide a regex to opt out of the `Gnome` strategy's
@@ -34,6 +33,7 @@ class GtkVnc < Formula
   depends_on "cairo"
   depends_on "gdk-pixbuf"
   depends_on "glib"
+  depends_on "gmp"
   depends_on "gnutls"
   depends_on "gtk+3"
   depends_on "libgcrypt"
@@ -46,12 +46,6 @@ class GtkVnc < Formula
 
   on_linux do
     depends_on "libx11"
-  end
-
-  # coroutine: avoid ucontext impl on macOS M1 hardware. Remove in the next release
-  patch do
-    url "https://gitlab.gnome.org/GNOME/gtk-vnc/-/commit/40c59c557ecf7d22d307b8cf890ce08b0376ca5a.diff"
-    sha256 "795f35a50bb4a1976d05b961a708415246a2c3f1164c1f9d4e7931996af9f706"
   end
 
   def install
