@@ -1,8 +1,8 @@
 class Himalaya < Formula
   desc "CLI email client written in Rust"
   homepage "https://github.com/pimalaya/himalaya"
-  url "https://github.com/pimalaya/himalaya/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "2f16737d4ff29b8495979045abb94723b684b200b98cab27ae45f8b270da5b9c"
+  url "https://github.com/pimalaya/himalaya/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "bc5ee10ebdb23ea205215650070373dc591f083a96b1d6d038aa23a105256f94"
   license "MIT"
 
   bottle do
@@ -19,6 +19,12 @@ class Himalaya < Formula
 
   on_linux do
     depends_on "openssl@3"
+  end
+
+  # revert `cc` crate to 1.2.7, upstream pr ref, https://github.com/pimalaya/himalaya/pull/542
+  patch do
+    url "https://github.com/pimalaya/himalaya/commit/ea70e7c123fd8b30e5b36ab62bfcfafa63779797.patch?full_index=1"
+    sha256 "44e8c415819272971787761f285be397ddc384a4230890bf1c8494c786b45373"
   end
 
   def install
