@@ -1,8 +1,8 @@
 class Nvc < Formula
   desc "VHDL compiler and simulator"
   homepage "https://github.com/nickg/nvc"
-  url "https://github.com/nickg/nvc/releases/download/r1.14.2/nvc-1.14.2.tar.gz"
-  sha256 "420826dc44ed209d7346e183438a654af1816bd802d15fded2f8a9c272a47331"
+  url "https://github.com/nickg/nvc/releases/download/r1.15.0/nvc-1.15.0.tar.gz"
+  sha256 "27aa4a11060bb642f031d96d9e85f3132fbf9ed45819859dcbb811756b1b0cad"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -46,8 +46,6 @@ class Nvc < Formula
                              "--prefix=#{prefix}",
                              "--with-system-cc=#{ENV.cc}",
                              "--disable-silent-rules"
-      inreplace ["Makefile", "config.h"], Superenv.shims_path/ENV.cc, ENV.cc
-      ENV.deparallelize
       system "make", "V=1"
       system "make", "V=1", "install"
     end
