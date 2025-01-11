@@ -1301,6 +1301,7 @@ gum
 gumbo-parser
 gupnp
 gupnp-tools
+gurk
 gwt
 gwyddion
 gxml
