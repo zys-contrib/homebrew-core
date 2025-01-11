@@ -2562,6 +2562,7 @@ ptex
 ptpython
 pueue
 pug
+pugixml
 pulsarctl
 pure
 pure-ftpd
