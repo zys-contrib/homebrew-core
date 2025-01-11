@@ -21,13 +21,12 @@ class PinentryMac < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "1759d4b87b044210921e272a7b17088619a0926cc0cf2e6575ce41a67e23dd76"
-    sha256 cellar: :any, arm64_sonoma:   "d9b12bddf25fdd63200405e9d47e97b0f26f1a7072008f4a162a4904057ea793"
-    sha256 cellar: :any, arm64_ventura:  "16372bcfc0e902ab575e8e1cd8413c6e2079cec95b0b932713351f1e412fc23c"
-    sha256 cellar: :any, arm64_monterey: "b8cc948168aee564dee88bc7cd7d6ab027890a9f4535d2d5e097bbd7a4de9c33"
-    sha256 cellar: :any, sonoma:         "7274251e5bccbbb1bd94323d42a345e35eb5a963ee22f88d234d5624a1ec5dab"
-    sha256 cellar: :any, ventura:        "75d4f6ca57c0ee9b2f5bcb1160476dbe120d9208b234eb3e7e9cc39da11ef2d0"
-    sha256 cellar: :any, monterey:       "99e48f5cb775d70647132279317d6f3d1999f97df4db76e8631ddc76c88b79fe"
+    rebuild 1
+    sha256 cellar: :any, arm64_sequoia: "bc6676111bdf951f0cf02cb73dc697ddb248b202ae355dafd95db76f0d613523"
+    sha256 cellar: :any, arm64_sonoma:  "14210a275cd79e331a9f3e743e2b1ab438599aa9606dff0c4f92ea3729ea1bed"
+    sha256 cellar: :any, arm64_ventura: "88e9c185744b022538687f5457cf983cd008f3c7e0c88d3de6c88999ab434e4c"
+    sha256 cellar: :any, sonoma:        "9d83f7520b7714a41dbba0ca5bb70c04865537a672ab026e91c534b259cd8287"
+    sha256 cellar: :any, ventura:       "06b27d956af99787f8f4a4eae11517b9d7ace95d5cebbbbe0db0904660598064"
   end
 
   depends_on "autoconf" => :build
