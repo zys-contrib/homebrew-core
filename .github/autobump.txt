@@ -407,6 +407,7 @@ cdebug
 cdk
 cdk8s
 cdktf
+cdncheck
 cdogs-sdl
 cdsclient
 cdxgen
