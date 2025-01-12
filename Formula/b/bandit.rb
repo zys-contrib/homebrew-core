@@ -3,8 +3,8 @@ class Bandit < Formula
 
   desc "Security-oriented static analyser for Python code"
   homepage "https://github.com/PyCQA/bandit"
-  url "https://files.pythonhosted.org/packages/57/c3/bea54f22cdc8224f0ace18b2cf86c6adf7010285d0ed51b703af9910c5b2/bandit-1.8.0.tar.gz"
-  sha256 "b5bfe55a095abd9fe20099178a7c6c060f844bfd4fe4c76d28e35e4c52b9d31e"
+  url "https://files.pythonhosted.org/packages/0a/a4/030de3683f7abda813cc545b4b198842a5ef4ce9cb51a0bc103e14be1e97/bandit-1.8.1.tar.gz"
+  sha256 "692553451fb36864c80663cd0d8a0015a2a25359d4c2fdea5255708eb7a82013"
   license "Apache-2.0"
   head "https://github.com/PyCQA/bandit.git", branch: "main"
 
@@ -36,8 +36,8 @@ class Bandit < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz"
-    sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
+    url "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
+    sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
   end
 
   resource "pyyaml" do
