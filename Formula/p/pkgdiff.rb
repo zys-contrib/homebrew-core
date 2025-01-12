@@ -6,8 +6,7 @@ class Pkgdiff < Formula
   license "GPL-2.0-only"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "1c25de8323bd487af7aeb730739a6bfcae9aba334da7ef20a0166b56c705341e"
+    sha256 cellar: :any_skip_relocation, all: "d61bc9f1e348b223672343dccd6a023459f729576a4850d91406ef253ccaa8b0"
   end
 
   depends_on "binutils"
