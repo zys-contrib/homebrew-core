@@ -3,10 +3,9 @@ class Urh < Formula
 
   desc "Universal Radio Hacker"
   homepage "https://github.com/jopohl/urh"
-  url "https://files.pythonhosted.org/packages/d8/dc/a6dcf5686e980530b23bc16936cd9c879c50da133f319f729da6d20bd95b/urh-2.9.6.tar.gz"
-  sha256 "0dee42619009361e8f5f54d48f31e1c6cf24b171c773dd38f99a34111a0945e1"
+  url "https://files.pythonhosted.org/packages/7b/af/be36ae7e9184410c2c6d406a1551d7096f394e238cc5f63cb4ddcfc5f2e5/urh-2.9.8.tar.gz"
+  sha256 "864130b19553833827931f48f874045a39a6cee219a310a910bcd2ef02cf96b4"
   license "GPL-3.0-only"
-  revision 2
   head "https://github.com/jopohl/urh.git", branch: "master"
 
   bottle do
@@ -18,25 +17,37 @@ class Urh < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c07f1091b4d163888bde7bfce246c3c94cbfeb8ba76b982dbbdd4f75cef4a16"
   end
 
+  depends_on "cmake" => :build # for numpy
+  depends_on "meson" => :build # for numpy
+  depends_on "ninja" => :build # for numpy
   depends_on "pkgconf" => :build
   depends_on "hackrf"
-  depends_on "numpy"
   depends_on "pyqt@5"
   depends_on "python@3.13"
+
+  on_linux do
+    depends_on "patchelf" => :build # for numpy
+  end
 
   resource "cython" do
     url "https://files.pythonhosted.org/packages/84/4d/b720d6000f4ca77f030bd70f12550820f0766b568e43f11af7f7ad9061aa/cython-3.0.11.tar.gz"
     sha256 "7146dd2af8682b4ca61331851e6aebce9fe5158e75300343f80c07ca80b1faff"
   end
 
+  # upstream issue: https://github.com/jopohl/urh/issues/1149
+  resource "numpy" do
+    url "https://files.pythonhosted.org/packages/65/6e/09db70a523a96d25e115e71cc56a6f9031e7b8cd166c1ac8438307c14058/numpy-1.26.4.tar.gz"
+    sha256 "2a02aba9ed12e4ac4eb3ea9421c420301a0c6460d9830d74a9df87efa4912010"
+  end
+
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/26/10/2a30b13c61e7cf937f4adf90710776b7918ed0a9c434e2c38224732af310/psutil-6.1.0.tar.gz"
-    sha256 "353815f59a7f64cdaca1c0307ee13558a0512f6db064e92fe833784f08539c7a"
+    url "https://files.pythonhosted.org/packages/1f/5a/07871137bb752428aa4b659f910b399ba6f291156bdea939be3e96cae7cb/psutil-6.1.1.tar.gz"
+    sha256 "cf8496728c18f2d0b45198f06895be52f36611711746b7f30c464b422b50e2f5"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/43/54/292f26c208734e9a7f067aea4a7e282c080750c4546559b58e2e45413ca0/setuptools-75.6.0.tar.gz"
-    sha256 "8199222558df7c86216af4f84c30e9b34a61d8ba19366cc914424cdbd28252f6"
+    url "https://files.pythonhosted.org/packages/92/ec/089608b791d210aec4e7f97488e67ab0d33add3efccb83a056cbafe3a2a6/setuptools-75.8.0.tar.gz"
+    sha256 "c5afc8f407c626b8313a86e10311dd3f661c6cd9c09d4bf8c15c0e11f9f2b0e6"
   end
 
   def install
