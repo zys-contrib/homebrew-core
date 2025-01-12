@@ -1,10 +1,9 @@
 class Efl < Formula
   desc "Enlightenment Foundation Libraries"
   homepage "https://www.enlightenment.org"
-  url "https://download.enlightenment.org/rel/libs/efl/efl-1.27.0.tar.xz"
-  sha256 "3dfb99fbcc268c0bc797e2f83e8c503ef9de66284f40b381bb597a08185c00f4"
+  url "https://download.enlightenment.org/rel/libs/efl/efl-1.28.0.tar.xz"
+  sha256 "f09a43d6b4861be06cc0e2849c53296413d4e52c8e31f52fc95e9ea5f1c59a36"
   license all_of: ["GPL-2.0-only", "LGPL-2.1-only", "BSD-2-Clause", "FTL", "zlib-acknowledgement"]
-  revision 2
 
   livecheck do
     url "https://download.enlightenment.org/rel/libs/efl/"
@@ -80,6 +79,7 @@ class Efl < Formula
       -Dsystemd=false
       -Dv4l2=false
       -Dx11=false
+      -Dlua-interpreter=luajit
     ]
     args << "-Dcocoa=true" if OS.mac?
 
