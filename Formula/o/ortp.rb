@@ -4,16 +4,18 @@ class Ortp < Formula
   license "GPL-3.0-or-later"
 
   stable do
-    url "https://gitlab.linphone.org/BC/public/ortp/-/archive/5.3.84/ortp-5.3.84.tar.bz2"
-    sha256 "e0b539a0021c8b6babca5efddc9362954148824f59c4c316d772a124ebbb51bd"
+    url "https://gitlab.linphone.org/BC/public/ortp/-/archive/5.3.102/ortp-5.3.102.tar.bz2"
+    sha256 "71af95cb7e383a308ec7a12aa52442b15d4135ed1168fecf9cccb7411be3da31"
 
     depends_on "mbedtls"
 
     # bctoolbox appears to follow ortp's version. This can be verified at the GitHub mirror:
     # https://github.com/BelledonneCommunications/bctoolbox
     resource "bctoolbox" do
-      url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/5.3.84/bctoolbox-5.3.84.tar.bz2"
-      sha256 "1c9ec26a91e74f720b16416a0e9e5e84c8aeb04b3fc490c22a4b2fc10ab6d5e3"
+      url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/5.3.102/bctoolbox-5.3.102.tar.bz2"
+      sha256 "5332dd2ad7e5b6f8e944d2fc002b72b0ed40a8210df1cd76e5f5458cff26adc2"
+
+      patch :DATA
     end
   end
 
@@ -29,8 +31,6 @@ class Ortp < Formula
   head do
     url "https://gitlab.linphone.org/BC/public/ortp.git", branch: "master"
 
-    depends_on "openssl@3"
-
     resource "bctoolbox" do
       url "https://gitlab.linphone.org/BC/public/bctoolbox.git", branch: "master"
     end
@@ -38,13 +38,17 @@ class Ortp < Formula
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
+  depends_on "mbedtls"
 
   def install
     odie "bctoolbox resource needs to be updated" if build.stable? && version != resource("bctoolbox").version
 
     resource("bctoolbox").stage do
-      args = ["-DENABLE_TESTS_COMPONENT=OFF", "-DBUILD_SHARED_LIBS=ON"]
-      args += ["-DENABLE_MBEDTLS=OFF", "-DENABLE_OPENSSL=ON"] if build.head?
+      args = %w[
+        -DENABLE_TESTS_COMPONENT=OFF
+        -DBUILD_SHARED_LIBS=ON
+        -DENABLE_MBEDTLS=ON
+      ]
 
       system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args(install_prefix: libexec)
       system "cmake", "--build", "build"
@@ -84,3 +88,26 @@ class Ortp < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/src/crypto/mbedtls.cc b/src/crypto/mbedtls.cc
+index 4bc16d4..278c524 100644
+--- a/src/crypto/mbedtls.cc
++++ b/src/crypto/mbedtls.cc
+@@ -106,8 +106,6 @@ public:
+ 	std::unique_ptr<RNG> sRNG;
+ 	mbedtlsStaticContexts() {
+ #ifdef BCTBX_USE_MBEDTLS_PSA
+-		mbedtls_threading_set_alt(threading_mutex_init_cpp, threading_mutex_free_cpp, threading_mutex_lock_cpp,
+-		                          threading_mutex_unlock_cpp);
+ 		if (psa_crypto_init() != PSA_SUCCESS) {
+ 			bctbx_error("MbedTLS PSA init fail");
+ 		}
+@@ -120,7 +118,6 @@ public:
+ 		sRNG = nullptr;
+ #ifdef BCTBX_USE_MBEDTLS_PSA
+ 		mbedtls_psa_crypto_free();
+-		mbedtls_threading_free_alt();
+ #endif // BCTBX_USE_MBEDTLS_PSA
+ 	}
+ };
