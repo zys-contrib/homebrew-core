@@ -71,7 +71,7 @@ class TclTk < Formula
   resource "itk4" do
     url "https://github.com/tcltk/itk/archive/refs/tags/itk-4-2-3.tar.gz"
     version "4.2.3"
-    sha256 "3eea66dfc57259d85ad741a01786b70ae4b3ae9774d27e24f7d0917c7451e94b"
+    sha256 "bc5ed347212fce403e04d3161cd429319af98da47effd3e32e20d2f04293b036"
   end
 
   def install
