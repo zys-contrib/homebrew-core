@@ -7,12 +7,12 @@ class Tflint < Formula
   head "https://github.com/terraform-linters/tflint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "84a20a964b92a2814fa4f9b33b1b5323c82e8d3af280e7f86a5f714da0177f4a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "84a20a964b92a2814fa4f9b33b1b5323c82e8d3af280e7f86a5f714da0177f4a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "84a20a964b92a2814fa4f9b33b1b5323c82e8d3af280e7f86a5f714da0177f4a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "89021b8493375b8b282c81319c5dbb91432c77d317a069f7ae32cbd7315f56f6"
-    sha256 cellar: :any_skip_relocation, ventura:       "89021b8493375b8b282c81319c5dbb91432c77d317a069f7ae32cbd7315f56f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea6105e001955a34e8fe1c0326830970abb4d98e28a51eca3a13605c6966b90c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9057b79318ad075b2b82149a5edab1843ebc3d4ee2f5c223f04df07dc8e81b0c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9057b79318ad075b2b82149a5edab1843ebc3d4ee2f5c223f04df07dc8e81b0c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9057b79318ad075b2b82149a5edab1843ebc3d4ee2f5c223f04df07dc8e81b0c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "79d70362f32df52d4bba4c381db269820d560ea1b1422d9394f69c8a9af6150c"
+    sha256 cellar: :any_skip_relocation, ventura:       "b47163cb2780405442beb60deafa133bbce04e50ba3c1b6da815efdb71a35491"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3fddc9984148f84cfc20e70c178212b590a2dc03f796ff708acbe69d1ac10175"
   end
 
   depends_on "go" => :build
