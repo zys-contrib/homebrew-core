@@ -2480,6 +2480,7 @@ pixman
 pjproject
 pkg-config-wrapper
 pkgconf
+pkgdiff
 pkl
 plantuml
 planus
