@@ -1,8 +1,9 @@
 class TtyShare < Formula
   desc "Terminal sharing over the Internet"
-  homepage "https://tty-share.com/"
-  url "https://github.com/elisescu/tty-share/archive/refs/tags/v2.4.0.tar.gz"
-  sha256 "90e566cd4c064a1c0b31a418c149a1766f158dd01b3563e7501c98dafd8c244f"
+  # too many redirects issue with the homepage, https://github.com/elisescu/tty-share/issues/83
+  homepage "https://github.com/elisescu/tty-share"
+  url "https://github.com/elisescu/tty-share/archive/refs/tags/v2.4.1.tar.gz"
+  sha256 "abc186307a95f55f1750592a38871d4839d2ff26365880110bdf107675ea264a"
   license "MIT"
 
   bottle do
@@ -23,7 +24,7 @@ class TtyShare < Formula
 
   def install
     ldflags = "-s -w -X main.version=#{version}"
-    system "go", "build", *std_go_args(ldflags:), "-mod=vendor"
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
