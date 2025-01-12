@@ -8,6 +8,15 @@ class Tach < Formula
   license "MIT"
   head "https://github.com/gauge-sh/tach.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "24037ae3edc313eafef43f32f88bcc5475d49b42d64765dc54ff16087cd5c10f"
+    sha256 cellar: :any,                 arm64_sonoma:  "959cbcdd2f5b25558fc7fb14d912d27cc386b19f4c52982e9d63613ffd06606c"
+    sha256 cellar: :any,                 arm64_ventura: "22d2410ae83f88972991e80c2564ca281855f4406a4bc6362f027fb8fae12582"
+    sha256 cellar: :any,                 sonoma:        "1f69c8d1f95daca3b9b47a7187c92b74ab67baa6aa8d6776bb5162cb046734cd"
+    sha256 cellar: :any,                 ventura:       "5c61aa8ff829cc9752e63959d2095a10ff93bfe8493785130bcb274d2e717bbd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36e7681ca0207d8e18bdfc1b621a422c2dfa06547cfd30bc71ecf239d2c422c4"
+  end
+
   depends_on "rust" => :build
   depends_on "libyaml"
   depends_on "python@3.13"
