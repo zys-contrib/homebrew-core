@@ -1,9 +1,14 @@
 class Nuxeo < Formula
   desc "Enterprise Content Management"
   homepage "https://nuxeo.github.io/"
-  url "https://cdn.nuxeo.com/nuxeo-10.10/nuxeo-server-10.10-tomcat.zip"
-  sha256 "93a923a6e654d216a57fc91767a428e8c22cf5a879f264474f8976016e34ca6f"
+  url "https://packages.nuxeo.com/repository/maven-public/org/nuxeo/ecm/distribution/nuxeo-server-tomcat/11.4.42/nuxeo-server-tomcat-11.4.42.zip"
+  sha256 "38b6e7495223ff9e54857bd78fab832f1462201c713fba70a2a87d6a5d8cdd24"
   license "Apache-2.0"
+
+  livecheck do
+    url "https://doc.nuxeo.com/nxdoc/master/installing-the-nuxeo-platform-on-mac-os/"
+    regex(%r{href=.*?/nuxeo-server-tomcat[._-]v?(\d+(?:\.\d+)+)\.zip}i)
+  end
 
   bottle do
     rebuild 1
@@ -34,7 +39,8 @@ class Nuxeo < Formula
     env["NUXEO_HOME"] = libexec.to_s
     env["NUXEO_CONF"] = "#{etc}/nuxeo.conf"
 
-    (bin/"nuxeoctl").write_env_script "#{libexec}/bin/nuxeoctl", env
+    chmod 0755, libexec/"bin/nuxeoctl"
+    (bin/"nuxeoctl").write_env_script libexec/"bin/nuxeoctl", env
 
     inreplace "#{libexec}/bin/nuxeo.conf" do |s|
       s.gsub!(/#nuxeo\.log\.dir.*/, "nuxeo.log.dir=#{var}/log/nuxeo")
@@ -73,7 +79,7 @@ class Nuxeo < Formula
 
     ENV["NUXEO_CONF"] = "#{testpath}/nuxeo.conf"
 
-    assert_match %r{#{testpath}/nuxeo\.conf}, shell_output("#{libexec}/bin/nuxeoctl config -q --get nuxeo.conf")
-    assert_match libexec.to_s, shell_output("#{libexec}/bin/nuxeoctl config -q --get nuxeo.home")
+    assert_match %r{#{testpath}/nuxeo\.conf}, shell_output("#{libexec}/bin/nuxeoctl config --get nuxeo.conf")
+    assert_match libexec.to_s, shell_output("#{libexec}/bin/nuxeoctl config --get nuxeo.home")
   end
 end
