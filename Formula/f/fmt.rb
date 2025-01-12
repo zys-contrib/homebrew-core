@@ -1,8 +1,8 @@
 class Fmt < Formula
   desc "Open-source formatting library for C++"
   homepage "https://fmt.dev/"
-  url "https://github.com/fmtlib/fmt/releases/download/11.1.1/fmt-11.1.1.zip"
-  sha256 "a25124e41c15c290b214c4dec588385153c91b47198dbacda6babce27edc4b45"
+  url "https://github.com/fmtlib/fmt/releases/download/11.1.2/fmt-11.1.2.zip"
+  sha256 "ef54df1d4ba28519e31bf179f6a4fb5851d684c328ca051ce5da1b52bf8b1641"
   license "MIT"
   head "https://github.com/fmtlib/fmt.git", branch: "master"
 
