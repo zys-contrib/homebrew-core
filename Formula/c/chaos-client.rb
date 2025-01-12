@@ -6,6 +6,15 @@ class ChaosClient < Formula
   license "MIT"
   head "https://github.com/projectdiscovery/chaos-client.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0fad8ac3817b56bacd3383d334d2a33c7542dc71ee557afce144a82d759eac5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7ee39f40b5e740afd156a0ef79b7cad536369095b04ff72a75c958f50c0bce92"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5a847c1647361de8fe446c786e5954939b70d4bdce2fba6b191da934b3f67c01"
+    sha256 cellar: :any_skip_relocation, sonoma:        "beba47d0434fe37e817143e1f41e8025678220d0e428f4347fba7d11fe6951b8"
+    sha256 cellar: :any_skip_relocation, ventura:       "d0d8eeea7253bc21784261ea3b5127928bc9b0eb174291c879094378c548c4a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d4734d00dfa7a505a34db36e3121a9b8562da89f79923164f65f742fb50fc55"
+  end
+
   depends_on "go" => :build
 
   def install
