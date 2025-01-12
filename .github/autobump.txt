@@ -3067,6 +3067,7 @@ systemd
 t-completion
 ta-lib
 tabiew
+tach
 tailscale
 tailspin
 tailwindcss
