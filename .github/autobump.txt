@@ -441,6 +441,7 @@ chainloop-cli
 chainsaw
 chamber
 changie
+chaos-client
 chaoskube
 charm-tools
 charmcraft
