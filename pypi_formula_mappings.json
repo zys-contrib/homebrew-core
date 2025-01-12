@@ -452,8 +452,7 @@
     "extra_packages": ["requests"]
   },
   "jenkins-job-builder": {
-    "exclude_packages": ["certifi"],
-    "extra_packages": ["setuptools"]
+    "exclude_packages": ["certifi"]
   },
   "jinja2-cli": "jinja2-cli[yaml,toml,xml]",
   "jrnl": {
