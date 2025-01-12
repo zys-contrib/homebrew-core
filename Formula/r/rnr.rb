@@ -1,8 +1,8 @@
 class Rnr < Formula
   desc "Command-line tool to batch rename files and directories"
   homepage "https://github.com/ismaelgv/rnr"
-  url "https://github.com/ismaelgv/rnr/archive/refs/tags/v0.4.2.tar.gz"
-  sha256 "cde8e5366552263300e60133b82f6a3868aeced2fe83abc91c2168085dff0998"
+  url "https://github.com/ismaelgv/rnr/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "b8edab04e1129b8caeb0c8634dd3bbc9986528c5ec479f7e7f072dbe7bf9ba20"
   license "MIT"
 
   bottle do
@@ -35,8 +35,10 @@ class Rnr < Formula
     mkdir "one"
     touch "one/foo.doc"
 
-    system bin/"rnr", "-f", "doc", "txt", "foo.doc", "one/foo.doc"
+    system bin/"rnr", "regex", "-f", "doc", "txt", "foo.doc", "one/foo.doc"
     refute_predicate testpath/"foo.doc", :exist?
     assert_predicate testpath/"foo.txt", :exist?
+
+    assert_match version.to_s, shell_output("#{bin}/rnr --version")
   end
 end
