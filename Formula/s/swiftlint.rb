@@ -2,8 +2,8 @@ class Swiftlint < Formula
   desc "Tool to enforce Swift style and conventions"
   homepage "https://github.com/realm/SwiftLint"
   url "https://github.com/realm/SwiftLint.git",
-      tag:      "0.57.1",
-      revision: "25f2776977e663305bee71309ea1e34d435065f1"
+      tag:      "0.58.0",
+      revision: "fcd4374431159a645d27d549ac3879f3e0ee1fa6"
   license "MIT"
   head "https://github.com/realm/SwiftLint.git", branch: "main"
 
@@ -38,7 +38,7 @@ class Swiftlint < Formula
     (testpath/"Test.swift").write "import Foundation"
     assert_match "Test.swift:1:1: warning: Trailing Newline Violation: " \
                  "Files should have a single trailing newline (trailing_newline)",
-      shell_output("SWIFTLINT_SWIFT_VERSION=3 SWIFTLINT_DISABLE_SOURCEKIT=1 #{bin}/swiftlint lint --no-cache").chomp
+      shell_output("SWIFTLINT_SWIFT_VERSION=5 SWIFTLINT_DISABLE_SOURCEKIT=1 #{bin}/swiftlint lint --no-cache").chomp
     assert_match version.to_s,
       shell_output("#{bin}/swiftlint version").chomp
   end
