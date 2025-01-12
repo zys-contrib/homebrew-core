@@ -1,18 +1,18 @@
 class CargoExpand < Formula
   desc "Show what Rust code looks like with macros expanded"
   homepage "https://github.com/dtolnay/cargo-expand"
-  url "https://github.com/dtolnay/cargo-expand/archive/refs/tags/1.0.98.tar.gz"
-  sha256 "97bbb66f2524a3004fb23bf091342bfb5034b3e0c35ab943209922943dc23ee4"
+  url "https://github.com/dtolnay/cargo-expand/archive/refs/tags/1.0.99.tar.gz"
+  sha256 "7d0b4a02283843b13098a9301e70a60928f246676cfef7b017a3b8cbe443b987"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/dtolnay/cargo-expand.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4bbb3543b70dcac954517c0d6fb3c9e5b1c6eb9dd444e7c0e09d611300dd36a0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1b71d12129bf80b27c3e96557bad97969c0a70b0df3a5277a9baf4e448abb28b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "038e56823d6282dca1d1d87b26f609415047e7e75c48d8811ab799697f37f815"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f136f7476f4f1bd55d13b63ee1f6c3303c4aa3fb829d666e8691c403afe38726"
-    sha256 cellar: :any_skip_relocation, ventura:       "339322675f433e522021799e5554e1fa1b5f40d428a20add0b8c38ae4a075eb7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed63401ef42440c302dd552fbd21293ac7fe42400ef533cb605e289b4338f183"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "73c53ede77e48b9ff21982ec0d3996ab7acee1aef647d5269d5d174203a81489"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4de9b9437bbf4ca12cbb5c99304af5446229c7a14f194d6c7ffcfc766ef3d105"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "bb769a1058f3fcefd1d69ed136a7833d9b74432cd28aaa497324db2038ce1e3f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "698c021cd184e1f388cbacf58b8b4e62968dd0a1a2a1c3f6090c0133950379f2"
+    sha256 cellar: :any_skip_relocation, ventura:       "5396659f49b909b4e8b9ab180a6066bb9ec1db24f3c593ed5d8b189ed5e2457e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7bc03b9a487953b34e9121b08ba642ad4addfca1254d4581bd69b36e54df1998"
   end
 
   depends_on "rust" => :build
