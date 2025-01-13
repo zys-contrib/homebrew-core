@@ -11,12 +11,12 @@ class Artillery < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "c174084835854f3b2aced22c9f0757a812ce5310b881aca219649013af686a1e"
-    sha256                               arm64_sonoma:  "3721080d63033b99429b71e2715c959503935393ffa81ff2d3461b1f5f4ad6bb"
-    sha256                               arm64_ventura: "60483ff57bf8508616c963d3619ebad3862c0b6172023c1fb2be282f9eabf64a"
-    sha256                               sonoma:        "886c98590003880a066bfd51635de8a40fdabc5cf21026ec1a9163ac86e23165"
-    sha256                               ventura:       "7a8ee9928bb7fa176ba69625bfc23464efb506618f3120c59f21a625a3968c71"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75aa55f1c140266b444bc11cbdd68997443f6e661c4e028beb9972e6eb677c28"
+    sha256                               arm64_sequoia: "18e367a6dbc8dee58671b9a885f694284893493b45d4b692c66b3734af65f8db"
+    sha256                               arm64_sonoma:  "0aeea463a5068167ea244a2866d91b039088529399f79063483c9a9df76ad2fe"
+    sha256                               arm64_ventura: "da5a85b601ebbd27bf1689902ff0d0122393881294510265059fc1012cdf607f"
+    sha256                               sonoma:        "0475d0998555c0b01a3b1c7817fcd046617702f977cbac92bad7f3e847ac7d1c"
+    sha256                               ventura:       "208f1c86bc65e2f56b9052a277b2bd04b547315201ae650d9dfaa0c4800b32cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0579e9a607b7a09eddcf8001c3449b134cbf1cd904053600272fb793ded88de"
   end
 
   depends_on "node"
