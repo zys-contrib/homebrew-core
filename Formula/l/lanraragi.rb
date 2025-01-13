@@ -1,8 +1,8 @@
 class Lanraragi < Formula
   desc "Web application for archival and reading of manga/doujinshi"
   homepage "https://github.com/Difegue/LANraragi"
-  url "https://github.com/Difegue/LANraragi/archive/refs/tags/v.0.9.30.tar.gz"
-  sha256 "ec3ec61acebaf427e5c8b6873fd477d6aae5b084552ac981112692535ad0fbdf"
+  url "https://github.com/Difegue/LANraragi/archive/refs/tags/v.0.9.31.tar.gz"
+  sha256 "a104d84d491d00b27b04edbd05016605ab1a6114c076d9a01cdca1496715804d"
   license "MIT"
   head "https://github.com/Difegue/LANraragi.git", branch: "dev"
 
