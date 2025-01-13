@@ -6,12 +6,12 @@ class CubejsCli < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "65100f22221ee96fc2f2e0f25f586e77b70183f0efb979961c1805cbdd7c8380"
-    sha256 cellar: :any,                 arm64_sonoma:  "65100f22221ee96fc2f2e0f25f586e77b70183f0efb979961c1805cbdd7c8380"
-    sha256 cellar: :any,                 arm64_ventura: "65100f22221ee96fc2f2e0f25f586e77b70183f0efb979961c1805cbdd7c8380"
-    sha256 cellar: :any,                 sonoma:        "d0e217e80a5873e7abac1937d9d4dcf924ba0da92aa0521678ce9518a1cf2995"
-    sha256 cellar: :any,                 ventura:       "d0e217e80a5873e7abac1937d9d4dcf924ba0da92aa0521678ce9518a1cf2995"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8474c068b8e74b0cd4928d4469b5a48628c8bc189342c9192366e2a391fbea1d"
+    sha256 cellar: :any,                 arm64_sequoia: "1aeea8575348aae1b3099e603bf2418546ae1cfdcd6045642a2034db5dcd7537"
+    sha256 cellar: :any,                 arm64_sonoma:  "1aeea8575348aae1b3099e603bf2418546ae1cfdcd6045642a2034db5dcd7537"
+    sha256 cellar: :any,                 arm64_ventura: "1aeea8575348aae1b3099e603bf2418546ae1cfdcd6045642a2034db5dcd7537"
+    sha256 cellar: :any,                 sonoma:        "f466c9f3e80e10aa0fa7c6f5c5531ddb4d730f0b672bcc4d210c73402bd0de41"
+    sha256 cellar: :any,                 ventura:       "f466c9f3e80e10aa0fa7c6f5c5531ddb4d730f0b672bcc4d210c73402bd0de41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "acce345c88a386915652f646af90266f25a4feee25c12aff008eb161b61906ae"
   end
 
   depends_on "node"
