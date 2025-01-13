@@ -1,8 +1,8 @@
 class Oauth2c < Formula
   desc "User-friendly CLI for OAuth2"
   homepage "https://github.com/cloudentity/oauth2c"
-  url "https://github.com/cloudentity/oauth2c/archive/refs/tags/v1.17.0.tar.gz"
-  sha256 "5ce0453584c79ebc5679a8613b22da21ace5545aec40da54f93aac2ffcbddc4b"
+  url "https://github.com/cloudentity/oauth2c/archive/refs/tags/v1.17.1.tar.gz"
+  sha256 "c9dea296abecb938ffa02e8bdb78bcd721443afd68b51b19d21db6fdc43e6fe2"
   license "Apache-2.0"
   head "https://github.com/cloudentity/oauth2c.git", branch: "master"
 
