@@ -1,9 +1,9 @@
 class Lzlib < Formula
   desc "Data compression library"
   homepage "https://www.nongnu.org/lzip/lzlib.html"
-  url "https://download.savannah.gnu.org/releases/lzip/lzlib/lzlib-1.14.tar.gz"
-  mirror "https://download-mirror.savannah.gnu.org/releases/lzip/lzlib/lzlib-1.14.tar.gz"
-  sha256 "5acac8714ed4f306020bae660dddce706e5f8a795863679037da9fe6bf4dcf6f"
+  url "https://download.savannah.gnu.org/releases/lzip/lzlib/lzlib-1.15.tar.gz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/lzip/lzlib/lzlib-1.15.tar.gz"
+  sha256 "4afab907a46d5a7d14e927a1080c3f4d7e3ca5a0f9aea81747d8fed0292377ff"
   license "BSD-2-Clause"
 
   livecheck do

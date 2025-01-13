@@ -1939,6 +1939,7 @@ lynis
 lz4
 lzip
 lziprecover
+lzlib
 macchina
 mackup
 macmon
