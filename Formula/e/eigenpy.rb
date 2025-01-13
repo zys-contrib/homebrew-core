@@ -1,10 +1,9 @@
 class Eigenpy < Formula
   desc "Python bindings of Eigen library with Numpy support"
   homepage "https://github.com/stack-of-tasks/eigenpy"
-  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v3.10.1/eigenpy-3.10.1.tar.gz"
-  sha256 "7b4ea31c8eda2eeba6b1ebb22ebfe72b650e04da20e6ef48d48008c2afb1bbc4"
+  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v3.10.2/eigenpy-3.10.2.tar.gz"
+  sha256 "1b24316e01e9d1d8f90baca838f9d9996608b0390df13491900e92ca59801db2"
   license "BSD-2-Clause"
-  revision 2
   head "https://github.com/stack-of-tasks/eigenpy.git", branch: "master"
 
   bottle do
