@@ -1,8 +1,8 @@
 class Gambit < Formula
   desc "Software tools for game theory"
   homepage "http://www.gambit-project.org"
-  url "https://github.com/gambitproject/gambit/archive/refs/tags/v16.2.1.tar.gz"
-  sha256 "d6b8bf8a7d42f20e157e0452b323feb260eee7fe06940841ed83e1307978dabc"
+  url "https://github.com/gambitproject/gambit/archive/refs/tags/v16.3.0.tar.gz"
+  sha256 "d72e991ce935a3dc893947c413410348e2c2eb9cd912ec3b083699a4ccae4d77"
   license all_of: ["GPL-2.0-or-later", "Zlib"]
 
   livecheck do
