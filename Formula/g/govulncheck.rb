@@ -6,14 +6,12 @@ class Govulncheck < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "241264db9449a92aee067de28f0e3f29d20fc1bcbf33f8d7f87ba088885542e2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "45cacfa3490e92ae8db85cbae1eb85d5d2242264ef18299c96f69c33b09ba769"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "45cacfa3490e92ae8db85cbae1eb85d5d2242264ef18299c96f69c33b09ba769"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "45cacfa3490e92ae8db85cbae1eb85d5d2242264ef18299c96f69c33b09ba769"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bad51736276a2a11ceecff012ac9b1294309cdb4aa28228a416d3d61811599f9"
-    sha256 cellar: :any_skip_relocation, ventura:        "bad51736276a2a11ceecff012ac9b1294309cdb4aa28228a416d3d61811599f9"
-    sha256 cellar: :any_skip_relocation, monterey:       "bad51736276a2a11ceecff012ac9b1294309cdb4aa28228a416d3d61811599f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6aa83918d5c88c5f171e209d3b3edf61e55150dcb7e2350784e37688ea036fcd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0c40fec06a95ecdd66dd1fe57b32c2bba8eff75b47d93450185495307313dde"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e0c40fec06a95ecdd66dd1fe57b32c2bba8eff75b47d93450185495307313dde"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e0c40fec06a95ecdd66dd1fe57b32c2bba8eff75b47d93450185495307313dde"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5c0b6b71f712a526b08d5454b56ed3df896e585a98fc564f6380c25501729bb4"
+    sha256 cellar: :any_skip_relocation, ventura:       "5c0b6b71f712a526b08d5454b56ed3df896e585a98fc564f6380c25501729bb4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b81782bbd9ea51aa7469409a35d6b9641f52f2ba492bdde3caa760673d1ecbd"
   end
 
   depends_on "go" => [:build, :test]
