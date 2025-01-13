@@ -1,8 +1,8 @@
 class GolangciLintLangserver < Formula
   desc "Language server for `golangci-lint`"
   homepage "https://github.com/nametake/golangci-lint-langserver"
-  url "https://github.com/nametake/golangci-lint-langserver/archive/refs/tags/v0.0.9.tar.gz"
-  sha256 "ad7241d271b9b46b6fc784ab1d035c322bd6ae44938514d69f5ad516a1a9fbfd"
+  url "https://github.com/nametake/golangci-lint-langserver/archive/refs/tags/v0.0.10.tar.gz"
+  sha256 "65c2ffa9b71da3fe7298d4b86ae5cd64108bdc8313026d9613f19956d5855abc"
   license "MIT"
   head "https://github.com/nametake/golangci-lint-langserver.git", branch: "master"
 
