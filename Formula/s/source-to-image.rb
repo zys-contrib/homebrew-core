@@ -2,8 +2,8 @@ class SourceToImage < Formula
   desc "Tool for building source and injecting into docker images"
   homepage "https://github.com/openshift/source-to-image"
   url "https://github.com/openshift/source-to-image.git",
-      tag:      "v1.4.0",
-      revision: "d3544c7ee6453f8f6f953f6f27b60190b1eb386f"
+      tag:      "v1.5.0",
+      revision: "aa5e5680081ed2ba20ad91cf3e0c3bcd242bdcd5"
   license "Apache-2.0"
   head "https://github.com/openshift/source-to-image.git", branch: "master"
 
