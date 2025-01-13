@@ -3,8 +3,8 @@ class Bandit < Formula
 
   desc "Security-oriented static analyser for Python code"
   homepage "https://github.com/PyCQA/bandit"
-  url "https://files.pythonhosted.org/packages/0a/a4/030de3683f7abda813cc545b4b198842a5ef4ce9cb51a0bc103e14be1e97/bandit-1.8.1.tar.gz"
-  sha256 "692553451fb36864c80663cd0d8a0015a2a25359d4c2fdea5255708eb7a82013"
+  url "https://files.pythonhosted.org/packages/9b/e2/c229cdb4eefc124e5b77ac2557eb0a3cb5b9fc89bc465dd2b8dc1033dbb8/bandit-1.8.2.tar.gz"
+  sha256 "e00ad5a6bc676c0954669fe13818024d66b70e42cf5adb971480cf3b671e835f"
   license "Apache-2.0"
   head "https://github.com/PyCQA/bandit.git", branch: "main"
 
