@@ -2721,6 +2721,7 @@ river
 rizin
 rke
 rmw
+rnr
 roadrunner
 roapi
 robin-map
