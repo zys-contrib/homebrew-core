@@ -2507,6 +2507,7 @@ podsync
 poetry
 poke
 policy_sentry
+polkit
 polynote
 ponyc
 popeye
