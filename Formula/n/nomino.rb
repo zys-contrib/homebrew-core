@@ -1,8 +1,8 @@
 class Nomino < Formula
   desc "Batch rename utility"
   homepage "https://github.com/yaa110/nomino"
-  url "https://github.com/yaa110/nomino/archive/refs/tags/1.4.0.tar.gz"
-  sha256 "4b0e1debd76995b60ad020db97431ffcc01a64d4fc0040702ef0dea7ea368536"
+  url "https://github.com/yaa110/nomino/archive/refs/tags/1.5.0.tar.gz"
+  sha256 "f309f2c31d83b7a75df287e72eb5d8296cba154d889c8a4e16e30c57eacbf6f6"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/yaa110/nomino.git", branch: "master"
 
@@ -26,7 +26,7 @@ class Nomino < Formula
       (testpath/"Homebrew-#{n}.txt").write n.to_s
     end
 
-    system bin/"nomino", "-e", ".*-(\\d+).*", "{}"
+    system bin/"nomino", ".*-(\\d+).*", "{}"
 
     (1..9).each do |n|
       assert_equal n.to_s, (testpath/"#{n}.txt").read
