@@ -1551,6 +1551,7 @@ kerl
 kew
 keydb
 keyring
+kfr
 khal
 ki
 kickstart
