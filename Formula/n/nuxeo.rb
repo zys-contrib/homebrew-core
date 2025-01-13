@@ -11,18 +11,12 @@ class Nuxeo < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "be539f51e82cac0c62396dbaa6cef1b5aed902b7eeb6db157ff4ed27d5867cae"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "91529a50c5884a8acfe586aeed26e210a16c586394561cb1dd877cdb9e753284"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9934a6e927552abb69fded251e937080ea9982e343870b8ce0eebde144ac5b52"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9934a6e927552abb69fded251e937080ea9982e343870b8ce0eebde144ac5b52"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9934a6e927552abb69fded251e937080ea9982e343870b8ce0eebde144ac5b52"
-    sha256 cellar: :any_skip_relocation, sonoma:         "abda12e73ac873abc6eaaf7cc8d8ba5a68d979ee9104821623fad2ffaf5a8707"
-    sha256 cellar: :any_skip_relocation, ventura:        "0510b9e5e54d325058dd57c1f6246f551b32fd34f7282480c4c03a85cba10ce7"
-    sha256 cellar: :any_skip_relocation, monterey:       "0510b9e5e54d325058dd57c1f6246f551b32fd34f7282480c4c03a85cba10ce7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0510b9e5e54d325058dd57c1f6246f551b32fd34f7282480c4c03a85cba10ce7"
-    sha256 cellar: :any_skip_relocation, catalina:       "0510b9e5e54d325058dd57c1f6246f551b32fd34f7282480c4c03a85cba10ce7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9934a6e927552abb69fded251e937080ea9982e343870b8ce0eebde144ac5b52"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bfb386e5a43d6172b64ad766dac4c3e0abd1974f773137636df9a27e4d9e0d40"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bfb386e5a43d6172b64ad766dac4c3e0abd1974f773137636df9a27e4d9e0d40"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "bfb386e5a43d6172b64ad766dac4c3e0abd1974f773137636df9a27e4d9e0d40"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d2b82e5f576dbc1052cb08fa1c28da569dbabf3bed0c6b8988141e0f40b021ab"
+    sha256 cellar: :any_skip_relocation, ventura:       "d2b82e5f576dbc1052cb08fa1c28da569dbabf3bed0c6b8988141e0f40b021ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bfb386e5a43d6172b64ad766dac4c3e0abd1974f773137636df9a27e4d9e0d40"
   end
 
   depends_on "exiftool"
