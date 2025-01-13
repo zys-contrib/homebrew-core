@@ -1,8 +1,8 @@
 class Mpop < Formula
   desc "POP3 client"
   homepage "https://marlam.de/mpop/"
-  url "https://marlam.de/mpop/releases/mpop-1.4.20.tar.xz"
-  sha256 "35cc7de17e3ddaca4743863464488f8c82a83ac1b3764fddd7f423881435bf4b"
+  url "https://marlam.de/mpop/releases/mpop-1.4.21.tar.xz"
+  sha256 "4ca0d1e0d01366fe3e0cf490d88d154df511278fb595638713be3ca675665855"
   license "GPL-3.0-or-later"
 
   livecheck do
