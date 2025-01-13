@@ -24,12 +24,12 @@ class UtilLinux < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "42d3b2661d4735f55fbffb3e13aed987fdc39692954e23586232c1618cf7371c"
-    sha256 arm64_sonoma:  "aeafc4c9fa896b2ce3863051e94c4fa3d88b0a8f1bc31635676ebe829ca95932"
-    sha256 arm64_ventura: "a5c7b0571b4fe3cacc961c4e3088eb578f977a3287fd188ddc30bd2e3f6132f5"
-    sha256 sonoma:        "792afe2787d5e872feadf43c9d91a50f74bd4198396af11296d6b93a6012cb5e"
-    sha256 ventura:       "8efa7d9b65962fc8ff4c593d9152890787637563f4b072c75607e4621c7be888"
-    sha256 x86_64_linux:  "507480e0586315062e59be6cbd1d6adfa8ea23498f5797d52376ae161abff8a4"
+    sha256 arm64_sequoia: "f52b125dc397f644d8c39eaf445f0dba977daaf0c2c36a1cc8f8d5fda7fdc983"
+    sha256 arm64_sonoma:  "a4a808c4f0d83572be37bb87f47c3caf0196e7dc6efda2292eb433f43a95cbde"
+    sha256 arm64_ventura: "5813684b14b36ef9eb21ae44778509a3b5317177d36424e5684f93e6d38dd2ed"
+    sha256 sonoma:        "4e510ac6858c30bf51f48704554f479afa65651e9d70cecead695be3b27bab31"
+    sha256 ventura:       "a3ffdf52748b08c8ac4a59685dad9d61c6bb97eec580b101e5e573412184ca41"
+    sha256 x86_64_linux:  "5472eb4abe7ce0d30ff3548dda8da1edab2adc47b10acac6fc5f467171519616"
   end
 
   keg_only :shadowed_by_macos, "macOS provides the uuid.h header"
