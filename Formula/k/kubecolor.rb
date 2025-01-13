@@ -1,8 +1,8 @@
 class Kubecolor < Formula
   desc "Colorize your kubectl output"
   homepage "https://kubecolor.github.io/"
-  url "https://github.com/kubecolor/kubecolor/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "4bd7cc508ebcedffa93107121b98b8ac84757e191057b0ccee66b2024f611df2"
+  url "https://github.com/kubecolor/kubecolor/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "251b3e2e84bd3574a9c628961066c8b41c403de6ecfb83b7aebd0dd5d7018290"
   license "MIT"
 
   bottle do
