@@ -61,7 +61,6 @@ ansible
 ansible-creator
 ansible-lint
 ansible@10
-ansible@9
 ansifilter
 ant
 antidote
@@ -288,7 +287,6 @@ borgbackup
 borgmatic
 bosh-cli
 botan
-botan@2
 bottom
 bounceback
 bowtie2
@@ -564,7 +562,6 @@ conan@1
 concurrencykit
 conda-zsh-completion
 conduit
-condure
 conftest
 conmon
 consul-template
@@ -789,7 +786,6 @@ dprint
 dra
 draco
 draft
-drafter
 dragonbox
 driftctl
 drill
@@ -860,7 +856,6 @@ ejabberd
 ejdb
 eksctl
 elan-init
-elektra
 elfutils
 elfx86exts
 elixir
@@ -1322,7 +1317,6 @@ harfbuzz
 harper
 haskell-language-server
 haskell-stack
-hasura-cli
 hatari
 hatch
 havn
@@ -1587,7 +1581,6 @@ kube-bench
 kube-linter
 kube-ps1
 kube-score
-kubeaudit
 kubebuilder
 kubecfg
 kubecm
@@ -1718,7 +1711,7 @@ libgedit-tepl
 libgeotiff
 libgetdata
 libgit2
-libgit2@1.7
+libgit2@1.8
 libgpg-error
 libgr
 libgsf
@@ -2202,7 +2195,6 @@ nnn
 node
 node-build
 node-sass
-node@18
 node@20
 node@22
 node_exporter
@@ -2845,7 +2837,6 @@ ser2net
 serialosc
 serie
 serpl
-serverless
 service-weaver
 sesh
 sf
@@ -3096,7 +3087,6 @@ tcl-tk@8
 tcpdump
 tcpreplay
 tcsh
-tctl
 tdb
 tealdeer
 tectonic
@@ -3121,7 +3111,6 @@ tere
 termbg
 terminator
 termscp
-termshark
 terracognita
 terraform-inventory
 terraform-local
@@ -3354,7 +3343,6 @@ vsh
 vtclock
 vte3
 vtk
-vue-cli
 vue-language-server
 vulkan-extensionlayer
 vulkan-validationlayers
