@@ -6,8 +6,8 @@ class Llvm < Formula
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.6/llvm-project-19.1.6.src.tar.xz"
-    sha256 "e3f79317adaa9196d2cfffe1c869d7c100b7540832bc44fe0d3f44a12861fa34"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.7/llvm-project-19.1.7.src.tar.xz"
+    sha256 "82401fea7b79d0078043f7598b835284d6650a75b93e64b6f761ea7b63097501"
 
     # Remove the following patches in LLVM 20.
 
@@ -23,6 +23,13 @@ class Llvm < Formula
     patch do
       url "https://github.com/llvm/llvm-project/commit/88dd0d33147a7f46a3c9df4aed28ad4e47ef597c.patch?full_index=1"
       sha256 "0acaa80042055ad194306abb9843a94da24f53ee2bb819583d624391a6329b90"
+    end
+
+    # Fix triple config loading for clang-cl
+    # https://github.com/llvm/llvm-project/pull/111397
+    patch do
+      url "https://github.com/llvm/llvm-project/commit/a3e8b860788934d7cc1489f850f00dcfd9d8b595.patch?full_index=1"
+      sha256 "6d8403fec7be55004e94de90b074c2c166811903ad4921fd76274498c5a60a23"
     end
   end
 
@@ -60,13 +67,6 @@ class Llvm < Formula
     depends_on "pkgconf" => :build
     depends_on "binutils" # needed for gold
     depends_on "elfutils" # openmp requires <gelf.h>
-  end
-
-  # Fix triple config loading for clang-cl
-  # https://github.com/llvm/llvm-project/pull/111397
-  patch do
-    url "https://github.com/llvm/llvm-project/commit/a3e8b860788934d7cc1489f850f00dcfd9d8b595.patch?full_index=1"
-    sha256 "6d8403fec7be55004e94de90b074c2c166811903ad4921fd76274498c5a60a23"
   end
 
   def python3
