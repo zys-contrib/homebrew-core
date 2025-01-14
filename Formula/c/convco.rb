@@ -1,11 +1,17 @@
 class Convco < Formula
   desc "Conventional commits, changelog, versioning, validation"
   homepage "https://convco.github.io"
-  url "https://github.com/convco/convco/archive/refs/tags/v0.6.1.tar.gz"
-  sha256 "ed68341e065f76f22b6d93ff3686836a812f6a031dc7ee00bed7e048b0da4294"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/convco/convco.git", branch: "master"
+
+  stable do
+    url "https://github.com/convco/convco/archive/refs/tags/v0.6.1.tar.gz"
+    sha256 "ed68341e065f76f22b6d93ff3686836a812f6a031dc7ee00bed7e048b0da4294"
+
+    # libgit2 1.9 patch, upstream pr ref, https://github.com/convco/convco/pull/299
+    patch :DATA
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "c5e8f4af7167c711b94120c2a0dd293289b3e4a3ba78945a6fb9c5d1efd2aab2"
@@ -18,7 +24,7 @@ class Convco < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "libgit2@1.8" # needs https://github.com/rust-lang/git2-rs/issues/1109 to support libgit2 1.9
+  depends_on "libgit2"
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
@@ -40,8 +46,51 @@ class Convco < Formula
     linkage_with_libgit2 = (bin/"convco").dynamically_linked_libraries.any? do |dll|
       next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
 
-      File.realpath(dll) == (Formula["libgit2@1.8"].opt_lib/shared_library("libgit2")).realpath.to_s
+      File.realpath(dll) == (Formula["libgit2"].opt_lib/shared_library("libgit2")).realpath.to_s
     end
     assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."
   end
 end
+
+__END__
+diff --git a/Cargo.lock b/Cargo.lock
+index cbdd452..4bc0524 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -366,9 +366,9 @@ checksum = "4271d37baee1b8c7e4b708028c57d816cf9d2434acb33a549475f78c181f6253"
+
+ [[package]]
+ name = "git2"
+-version = "0.19.0"
++version = "0.20.0"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "b903b73e45dc0c6c596f2d37eccece7c1c8bb6e4407b001096387c63d0d93724"
++checksum = "3fda788993cc341f69012feba8bf45c0ba4f3291fcc08e214b4d5a7332d88aff"
+ dependencies = [
+  "bitflags 2.4.1",
+  "libc",
+@@ -452,9 +452,9 @@ checksum = "d8adc4bb1803a324070e64a98ae98f38934d91957a99cfb3a43dcbc01bc56439"
+
+ [[package]]
+ name = "libgit2-sys"
+-version = "0.17.0+1.8.1"
++version = "0.18.0+1.9.0"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "10472326a8a6477c3c20a64547b0059e4b0d086869eee31e6d7da728a8eb7224"
++checksum = "e1a117465e7e1597e8febea8bb0c410f1c7fb93b1e1cddf34363f8390367ffec"
+ dependencies = [
+  "cc",
+  "libc",
+diff --git a/Cargo.toml b/Cargo.toml
+index 7b8f7e9..7edb023 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -23,7 +23,7 @@ anyhow = { version = "1.0.89", features = ["backtrace"] }
+ clap = { version = "4.5.20", features = ["derive", "env"] }
+ ctrlc = "3.4.5"
+ dialoguer = { version = "0.11.0", features = ["fuzzy-select"] }
+-git2 = { version = "0.19.0", default-features = false }
++git2 = { version = "0.20.0", default-features = false }
+ handlebars = "6.1.0"
+ regex = "1.11.0"
+ semver = "1.0.23"
