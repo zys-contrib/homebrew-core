@@ -1,8 +1,8 @@
 class Cyphernetes < Formula
   desc "Kubernetes Query Language"
   homepage "https://cyphernet.es"
-  url "https://github.com/AvitalTamir/cyphernetes/archive/refs/tags/v0.15.1.tar.gz"
-  sha256 "304d80ee9c103bdcc0ceaf6337fd95cdb1f68f8fb5b834afe281c0acbe19d08d"
+  url "https://github.com/AvitalTamir/cyphernetes/archive/refs/tags/v0.15.2.tar.gz"
+  sha256 "6f75b0ffd3b479f8c4f52e4a70922894fdc18382e52d960e05047cb2fadbd7c6"
   license "Apache-2.0"
 
   bottle do
@@ -24,8 +24,8 @@ class Cyphernetes < Formula
   end
 
   test do
-    output = shell_output("#{bin}/cyphernetes query 'MATCH (d:Deployment)->(s:Service) RETURN d'", 1)
-    assert_match("Error getting current context:  current context  does not exist in kubeconfig", output)
+    output = shell_output("#{bin}/cyphernetes query 'MATCH (d:Deployment)->(s:Service) RETURN d' 2>&1", 1)
+    assert_match("Error creating provider:  failed to create config: invalid configuration", output)
 
     assert_match version.to_s, shell_output("#{bin}/cyphernetes version")
   end
