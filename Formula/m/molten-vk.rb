@@ -180,8 +180,8 @@ class MoltenVk < Formula
 
     inreplace "MoltenVK/icd/MoltenVK_icd.json",
               "./libMoltenVK.dylib",
-              (lib/"libMoltenVK.dylib").relative_path_from(share/"vulkan/icd.d")
-    (share/"vulkan").install "MoltenVK/icd" => "icd.d"
+              (lib/"libMoltenVK.dylib").relative_path_from(prefix/"etc/vulkan/icd.d")
+    (prefix/"etc/vulkan").install "MoltenVK/icd" => "icd.d"
   end
 
   test do
