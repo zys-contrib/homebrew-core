@@ -1,8 +1,8 @@
 class Libqalculate < Formula
   desc "Library for Qalculate! program"
   homepage "https://qalculate.github.io/"
-  url "https://github.com/Qalculate/libqalculate/releases/download/v5.4.0/libqalculate-5.4.0.tar.gz"
-  sha256 "1fe956877ff1bbb1f4b470c41cdf3d971cebbeda6a35e92282f0eea5193ac343"
+  url "https://github.com/Qalculate/libqalculate/releases/download/v5.5.0/libqalculate-5.5.0.tar.gz"
+  sha256 "6d58c6092242ea7cfa137d73abe74b0e3e0a2b59e99c5db60d045b82c673f72b"
   license "GPL-2.0-or-later"
 
   bottle do
