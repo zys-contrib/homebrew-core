@@ -3,8 +3,8 @@ class Emscripten < Formula
   homepage "https://emscripten.org/"
   # To automate fetching the required resource revisions, you can use this helper script:
   #   https://gist.github.com/carlocab/2db1d7245fa0cd3e92e01fe37b164021
-  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/3.1.74.tar.gz"
-  sha256 "07bc112871a4992a9e4bac5131f2f28554e47f826adeca40943144b159ddb700"
+  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/4.0.0.tar.gz"
+  sha256 "43c4bba08c6e9d588c0d8f580f54026eb5487e3d7aeec6ec6c755af347dc9bab"
   license all_of: [
     "Apache-2.0", # binaryen
     "Apache-2.0" => { with: "LLVM-exception" }, # llvm
@@ -64,7 +64,7 @@ class Emscripten < Formula
   # Then use the listed binaryen_revision for the revision below.
   resource "binaryen" do
     url "https://github.com/WebAssembly/binaryen.git",
-        revision: "52bc45fc34ec6868400216074744147e9d922685"
+        revision: "63be8c0fe9ae9a63c91f5bf3b0f8d6c2446620b2"
   end
 
   # emscripten does not support using the stable version of LLVM.
