@@ -17,12 +17,12 @@ class Sheldon < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6b4ca226568ec1d56bdf2d8d38c89f5ffae1194216072ba9505f502085b4a4f0"
-    sha256 cellar: :any,                 arm64_sonoma:  "77bcbdffab00767b124322df281f6a5d731aa0a9d07f594e9b5265d4dc26fef9"
-    sha256 cellar: :any,                 arm64_ventura: "50df0255e0d8c049b435e20d83346b68cc7cf2490add53214c9cdb67a8a802ab"
-    sha256 cellar: :any,                 sonoma:        "995b5d37feedc55e4a9bb14ecc3bec14b935ae7982aad6fecc995935d7cba08a"
-    sha256 cellar: :any,                 ventura:       "c66a4800c30bb98897effdad71d930936c0546ed83fe32c3eb5e28665f9cda18"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1af78241af1979a6d1f15c69b4707afa43b16c1e3fb2c06e0ff8f8d5bc4e4523"
+    sha256 cellar: :any,                 arm64_sequoia: "875da89f7f77f5732a41cf11d9e07b910c83df53308e15db903cd8a94db399d2"
+    sha256 cellar: :any,                 arm64_sonoma:  "184896fd71f1b89f52b938b00b11a3a970b6686f169a4901de096eb62b6394e6"
+    sha256 cellar: :any,                 arm64_ventura: "3c2e0757902ea633afc098891c7d0dffc180ac777d204914010bf0a90e979e9b"
+    sha256 cellar: :any,                 sonoma:        "99d2d886fe8e349ec5fb9e94fabdf4c0d745ac691ff9523e0ab5aa38abf49141"
+    sha256 cellar: :any,                 ventura:       "364a7a195e5bdabaf3b3a4f792e3d7cd81fc7179b10a8398c71c51e814963d80"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a0926421d405a3141ab5fefc7370874c51705d728900bfc25a5f3e105f846b2"
   end
 
   depends_on "pkgconf" => :build
