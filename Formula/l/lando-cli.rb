@@ -12,12 +12,12 @@ class LandoCli < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "038d84af674de18ae405fb188d624734b498a1392d267aefcbc8ab4eccd9490b"
-    sha256                               arm64_sonoma:  "d8481ddf943f38def1242640e77f0c147cc4f684ed26090ffc33463d7dfa740f"
-    sha256                               arm64_ventura: "4c8a13102692b0d2303124db7bf8436d74195ddee1577abb67f301693eb27ccf"
-    sha256                               sonoma:        "d5b8c79f3adfd123cd9425a99c4ca74259d2320115f78b075c64740d37799124"
-    sha256                               ventura:       "3a9828ab0551b5e83bc7d2a888e46df5f74eff4323f624c402771d1bff123d05"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b29e2cc18a1b4c2691238614691cafccf1a91b15007dbaa338d29c0cf0fbc31d"
+    sha256                               arm64_sequoia: "925ce562b77f1662ea8a54dae7b4467a88c35d5905465b689cd053e6b4d33656"
+    sha256                               arm64_sonoma:  "6e913ee94ae11437b0e71b0b48ab3ca827b1a7f9626936a11b56c9c272747a60"
+    sha256                               arm64_ventura: "9dbf9212f7c6f144e8545211aa791d8f3df2fa71e29b01dbd15e158ba2c1aca5"
+    sha256                               sonoma:        "c5f2da575c0ea134b91a99f2234dfa6bb8a5c8bf9a32ffeab99028eefd25a014"
+    sha256                               ventura:       "cee53e83aa077628055470d1fd288cdec461d54c4e948f46bd88ed5a6831bff5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6176b2c8ac31de81fec54cefa8055b709e81ccddd02d85cf1cf308fadf5776d"
   end
 
   depends_on "node"
