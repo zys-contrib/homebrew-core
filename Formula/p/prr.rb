@@ -1,31 +1,10 @@
 class Prr < Formula
   desc "Mailing list style code reviews for github"
   homepage "https://github.com/danobi/prr"
+  url "https://github.com/danobi/prr/archive/refs/tags/v0.20.0.tar.gz"
+  sha256 "fa25e4690a6976af37738b417b01f1fa0df7448efd631239aadea0399a9e862a"
   license "GPL-2.0-only"
-  revision 3
   head "https://github.com/danobi/prr.git", branch: "master"
-
-  stable do
-    url "https://github.com/danobi/prr/archive/refs/tags/v0.19.0.tar.gz"
-    sha256 "76d101fefe42456d0c18a64e6f57b9d3a84baaecaf1e3a5e94b93657a6773c11"
-
-    # support libgit2 1.8, upstream pr ref, https://github.com/danobi/prr/pull/67
-    patch do
-      url "https://github.com/danobi/prr/commit/c860f3d29c3607b10885e6526bea4cfd242815b5.patch?full_index=1"
-      sha256 "208bbbdf4358f98c01b567146d0da2d1717caa53e4d2e5ea55ae29f5adaaaae2"
-    end
-    # support libgit2 1.9, upstream pr ref, https://github.com/danobi/prr/pull/69
-    patch do
-      url "https://github.com/danobi/prr/commit/84c0d0c324fb5a1334b72dc1fdf65c8e81c2cd01.patch?full_index=1"
-      sha256 "e695229e73e83f5d06c9b9ac9714c053088f6862d6db699e1d3101413b2d06d4"
-    end
-
-    # completion and manpage support, upstream pr ref, https://github.com/danobi/prr/pull/68
-    patch do
-      url "https://github.com/danobi/prr/commit/8ba7fdc2fcca86236311c65481af5b27a276a806.patch?full_index=1"
-      sha256 "f74882907e25bc1af3e1556407c84e5477b3d7be3e51a2b40178ae17aaafaa0d"
-    end
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "1935f2644eed1aea55ec06e5169cf4768f4add80d324be5bb986ba6e6b4cf416"
