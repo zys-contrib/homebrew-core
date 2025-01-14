@@ -6,12 +6,12 @@ class NodeSass < Formula
   license "MIT"
 
   bottle do
-    sha256                               arm64_sequoia: "9d13f36e56028f0500f182dd6156af2321f27691cf19cabf00999af9603b9ec0"
-    sha256                               arm64_sonoma:  "f6bf5c31811320078a7ff91d04e6edf6be87eb0d8a8037cc11b5b0215273712e"
-    sha256                               arm64_ventura: "99f379008178b537671ede0de35cc04654d1fe04e27f8f78b084eb44466b1a79"
-    sha256                               sonoma:        "b95d2329300a6cc02af3544abd6e68b915a6c611175a3123ed48588672c5cbf2"
-    sha256                               ventura:       "5caf3ef316ce07899d41e016a7226a976577c8dae6d1f2d086392382ce98c7df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f4197df23a0d0ff3d4f27a07954fde705c2fb9ef8b41ee72be1433a0b92ba96"
+    sha256                               arm64_sequoia: "a5525f4edc7a54be7a70d234d39ad42563f09eed547a025b6b7669301c8b0fd0"
+    sha256                               arm64_sonoma:  "17ef224fa46e33065812a51c95d428dad70b6332491d485ed1f332aaf5ce36b5"
+    sha256                               arm64_ventura: "d3f5af5a11dc632dee150e0668f5c9559b4d16786e397724d415ea60d35c17a6"
+    sha256                               sonoma:        "8e0df65e7e6339085f781b411c06a0537dc0d8c59789258c94418690bc1276c4"
+    sha256                               ventura:       "8eed7363370c09d05a028d253f17490ac8c9d81965150ba1f7048d7bb808c120"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f15cc2bf7ddd97fa00ef9df66756290f28f64d189187211413b0dcd2823c36d"
   end
 
   depends_on "node"
