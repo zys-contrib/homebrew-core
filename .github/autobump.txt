@@ -1972,7 +1972,6 @@ mariadb-connector-odbc
 mariadb@10.11
 mariadb@10.5
 mariadb@10.6
-mariadb@11.2
 mariadb@11.4
 markdown-oxide
 markdownlint-cli
