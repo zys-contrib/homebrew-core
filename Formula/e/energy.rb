@@ -1,8 +1,8 @@
 class Energy < Formula
   desc "CLI is used to initialize the Energy development environment tools"
   homepage "https://energye.github.io"
-  url "https://github.com/energye/energy/archive/refs/tags/v2.5.2.tar.gz"
-  sha256 "693ab9fa18633eb7e35089588eb58eb49c9db7886ef175b534aa1ab26862a57c"
+  url "https://github.com/energye/energy/archive/refs/tags/v2.5.3.tar.gz"
+  sha256 "0b0c2edb114647ef7baa72bbebe04643a179f03b2700439087027d7dd0ab6eb2"
   license "Apache-2.0"
 
   bottle do
