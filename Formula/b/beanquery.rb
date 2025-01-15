@@ -7,6 +7,15 @@ class Beanquery < Formula
   sha256 "b69e099b8421b219bbcc3293af77e3c4ccad7ab25bf520fee48788672ffbf64a"
   license "GPL-2.0-only"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "524bcd44ee4459540ba85b770352970815ba18f6c08640ed18a72c47af45ee59"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a0bcc22da5e37256f7ef397b382e85d7342613dafefa6dbeccfc191b91fc75f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "63ddd18ec335a19f6b3f0e5fed1efdbd4c31f72d96ef328aa5c2aba910d0b8d1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "be0d6cbc30bb9ac669951dcfd6186fb8a3541fcb47aae5950588bd9946ec3490"
+    sha256 cellar: :any_skip_relocation, ventura:       "b92693ad9f3c86dd1f1ef62bea2f170bba9fe1b81f1dcc11fc4a905b88ce630a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f9b366199597258009dfbab13417889537343c76c7d8db6ec0d35129012844f"
+  end
+
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "python@3.13"
