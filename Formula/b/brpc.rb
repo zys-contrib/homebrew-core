@@ -1,20 +1,10 @@
 class Brpc < Formula
   desc "Better RPC framework"
   homepage "https://brpc.apache.org/"
+  url "https://dlcdn.apache.org/brpc/1.12.0/apache-brpc-1.12.0-src.tar.gz"
+  sha256 "8318865a3178221580a075731e2a76254efd1428e0153a8147d8a74926ce8dfa"
   license "Apache-2.0"
-  revision 4
   head "https://github.com/apache/brpc.git", branch: "master"
-
-  stable do
-    url "https://dlcdn.apache.org/brpc/1.11.0/apache-brpc-1.11.0-src.tar.gz"
-    sha256 "7076b564bf3d4e1f9ed248ba7051ae42e9c63340febccea5005efc89d068f339"
-
-    # Backport support for newer protobuf
-    patch do
-      url "https://github.com/apache/brpc/commit/282776acaf2c894791d2b5d4c294a28cfa2d4138.patch?full_index=1"
-      sha256 "ce55b0d5df5b8aaf1c54cd7d80f32c01e8fd35c97f12b864ea6618b38d2db547"
-    end
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "eb2a217b6a15d024383db4495ec31b21b71c07d2143e70c065a89c91ef89a8b5"
@@ -37,11 +27,10 @@ class Brpc < Formula
     depends_on "pkgconf" => :test
   end
 
-  # Apply open PR commit to fix compile with Protobuf 29+.
-  # PR ref: https://github.com/apache/brpc/pull/2830
+  # `GFLAGS_NS` build patch, upstream pr ref, https://github.com/apache/brpc/pull/2878
   patch do
-    url "https://github.com/apache/brpc/commit/8d1ee6d06ffdf84a33bd083463663ece5fb9e7a9.patch?full_index=1"
-    sha256 "9602c9200bd53b58e359cdf408775c21584ce613404097f6f3832f4df3bcba9c"
+    url "https://github.com/apache/brpc/commit/cf6b81f9f7ab31626e942c2ef1b56432a242d1a1.patch?full_index=1"
+    sha256 "12c062d417e32a1810a8b223d5582748c2f3c4521864a2dd74575b4a10c4484d"
   end
 
   def install
