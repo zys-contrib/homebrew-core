@@ -2844,6 +2844,7 @@ seqkit
 sequin
 sequoia-sq
 ser2net
+serf
 serialosc
 serie
 serpl
