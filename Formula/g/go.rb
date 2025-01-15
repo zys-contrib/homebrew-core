@@ -5,6 +5,7 @@ class Go < Formula
   mirror "https://fossies.org/linux/misc/go1.23.4.src.tar.gz"
   sha256 "ad345ac421e90814293a9699cca19dd5238251c3f687980bbcae28495b263531"
   license "BSD-3-Clause"
+  revision 1
   head "https://go.googlesource.com/go.git", branch: "master"
 
   livecheck do
@@ -64,12 +65,6 @@ class Go < Formula
   end
 
   def install
-    inreplace "go.env" do |s|
-      # Remove misleading comment about automatically downloading newer toolchains.
-      s.gsub!(/^# Automatically download.*$/, "")
-      s.gsub!(/^GOTOOLCHAIN=.*$/, "GOTOOLCHAIN=local")
-    end
-
     (buildpath/"gobootstrap").install resource("gobootstrap")
     ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
 
@@ -92,17 +87,7 @@ class Go < Formula
     rm_r(libexec/"src/runtime/pprof/testdata")
   end
 
-  def caveats
-    <<~EOS
-      Homebrew's Go toolchain is configured with
-        GOTOOLCHAIN=local
-      per Homebrew policy on tools that update themselves.
-    EOS
-  end
-
   test do
-    assert_equal "local", shell_output("#{bin}/go env GOTOOLCHAIN").strip
-
     (testpath/"hello.go").write <<~GO
       package main
 
