@@ -1959,6 +1959,7 @@ makedepend
 makensis
 makepkg
 mako
+malcontent
 man-db
 manifest-tool
 manticoresearch
