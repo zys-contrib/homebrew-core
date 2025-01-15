@@ -2,8 +2,8 @@ class Serf < Formula
   desc "Service orchestration and management tool"
   homepage "https://serfdom.io/"
   url "https://github.com/hashicorp/serf.git",
-      tag:      "v0.10.1",
-      revision: "e853b565da00a84dadd5e2ea0dc7919250ddb726"
+      tag:      "v0.10.2",
+      revision: "93c69c072b854e28812e80a803ca769ed1f85999"
   license "MPL-2.0"
   head "https://github.com/hashicorp/serf.git", branch: "master"
 
