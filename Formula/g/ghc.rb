@@ -17,15 +17,12 @@ class Ghc < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sequoia:  "c66497c1502eca61fadd32c472008252b16e98ced0356cc976b6d608bb1f84a6"
-    sha256 cellar: :any,                 arm64_sonoma:   "b19571cdba5c506d91746371da935f9119ba0b430152ab13171500310aeccfd1"
-    sha256 cellar: :any,                 arm64_ventura:  "a4ef8db08ae1add452fe6a3a4fa78741f44e0af47b0bacb736233d257d93dac3"
-    sha256 cellar: :any,                 arm64_monterey: "ff5d7b284fd740b563f58194ec6b04bcccded9ac9129f49c1879a21f9a88e1e6"
-    sha256 cellar: :any,                 sonoma:         "29a5fedd616190f976ac522b8d177b91c5232a0a724c14a3ec42fd89598ad047"
-    sha256 cellar: :any,                 ventura:        "476e2488366161a4c26bce29d7e1882021bb0067fe9d23f9a0d63a594623e7f7"
-    sha256 cellar: :any,                 monterey:       "6fd86a7600ebfa95c764803bab46752dab8dfce0408b4f682c210c76dde83234"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b153bea1e7d233e3dc154bdaa4117e4eff7b29ae8fca606a429311d9bc322696"
+    sha256 cellar: :any,                 arm64_sequoia: "0cbc0801cb71cda95756b1926ee60ccfcff38a5113b0eedfbbae8f3bcbe03216"
+    sha256 cellar: :any,                 arm64_sonoma:  "2b87f819d22a4f5dfb112dc02bcea4e9f7abefc792192b1623c5dfb2dedf488f"
+    sha256 cellar: :any,                 arm64_ventura: "8a321896cc41c9cd2b626ddd87ac23dc10c6744da2fe2c445ae638b5f8eb7c03"
+    sha256 cellar: :any,                 sonoma:        "a9ea60687b80e702b59a4435abe8938d8d73335655453ef1bf6c498ef900007f"
+    sha256 cellar: :any,                 ventura:       "0415a4cda74b5b5377eb9e8711973af0b48953608453c3277a634178a4b78b57"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a582bb99457e8305100a0b452a51879b4ab029205e7fec58853fbf022bb2f157"
   end
 
   depends_on "autoconf" => :build
