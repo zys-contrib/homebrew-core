@@ -2,8 +2,8 @@ class DotnetAT8 < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-  url "https://github.com/dotnet/dotnet/archive/refs/tags/v8.0.11.tar.gz"
-  sha256 "d7cb383bbfa20f86e085615ab3dcb769e5c9af7330d90834ce34889857bd92e5"
+  url "https://github.com/dotnet/dotnet/archive/refs/tags/v8.0.12.tar.gz"
+  sha256 "8f42cdbe7d3c6c5d1f3ce38a052481255dc6ec1cea9af3584e94980bd5eb6dc4"
   license "MIT"
 
   livecheck do
@@ -43,8 +43,8 @@ class DotnetAT8 < Formula
   end
 
   resource "release.json" do
-    url "https://github.com/dotnet/dotnet/releases/download/v8.0.11/release.json"
-    sha256 "585e6094fa25acc8b8907220b6c8a167ba3611fc082c1b220486df1cebce4caf"
+    url "https://github.com/dotnet/dotnet/releases/download/v8.0.12/release.json"
+    sha256 "fb24cb8e32d591acce3feed93a6ae23847bbb40cb64f58c258a4522be8fd1a6f"
   end
 
   # Backport fix to build with Xcode 16
