@@ -779,6 +779,7 @@ dosbox-x
 dotbot
 dotenv-linter
 dotnet
+dotnet@8
 dotslash
 dotter
 double-conversion
