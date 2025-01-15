@@ -15,15 +15,17 @@ class Resvg < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "11bf96aa1daaab9003c19e0daac5477387f61cc7132dc3069fb855ca92241e3a"
   end
 
+  depends_on "cargo-c" => :build
   depends_on "rust" => :build
+  depends_on "pkgconf" => :test
 
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/usvg")
     system "cargo", "install", *std_cargo_args(path: "crates/resvg")
 
-    system "cargo", "build", "--locked", "--lib", "--manifest-path", "crates/c-api/Cargo.toml", "--release"
-    include.install "crates/c-api/resvg.h", "crates/c-api/ResvgQt.h"
-    lib.install "target/release/#{shared_library("libresvg")}", "target/release/libresvg.a"
+    system "cargo", "cinstall", "--jobs", ENV.make_jobs.to_s, "--release", "--locked",
+                    "--manifest-path", "crates/c-api/Cargo.toml",
+                    "--prefix", prefix, "--libdir", lib
   end
 
   test do
@@ -66,7 +68,9 @@ class Resvg < Formula
         return 0;
       }
     C
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lresvg", "-o", "test"
+
+    flags = shell_output("pkgconf --cflags --libs resvg").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *flags
     assert_equal "160 35", shell_output("./test #{test_fixtures("test.svg")}").chomp
   end
 end
