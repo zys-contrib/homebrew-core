@@ -4,6 +4,7 @@ class YaraX < Formula
   url "https://github.com/VirusTotal/yara-x/archive/refs/tags/v0.12.0.tar.gz"
   sha256 "f73f7c3d2b38e7190d9b588bbc4eb6664123cd95a10c30e198f0653da1db8932"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/VirusTotal/yara-x.git", branch: "main"
 
   bottle do
@@ -15,10 +16,13 @@ class YaraX < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd8ec8bd9807a760e9d048969158301e2680168f1479865723ea1eb94db49215"
   end
 
+  depends_on "cargo-c" => :build
   depends_on "rust" => :build
 
   def install
     system "cargo", "install", *std_cargo_args(path: "cli")
+    system "cargo", "cinstall", "-p", "yara-x-capi", "--jobs", ENV.make_jobs.to_s, "--release",
+                    "--prefix", prefix, "--libdir", lib
 
     generate_completions_from_executable(bin/"yr", "completion")
   end
