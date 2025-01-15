@@ -22,13 +22,12 @@ class Go < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "ce9aad234b15d873fcd727306ab7a361db924b449f527904b3614c3aa4773767"
-    sha256 arm64_sonoma:  "ce9aad234b15d873fcd727306ab7a361db924b449f527904b3614c3aa4773767"
-    sha256 arm64_ventura: "ce9aad234b15d873fcd727306ab7a361db924b449f527904b3614c3aa4773767"
-    sha256 sonoma:        "333dc0e36f21c81f8b07f8b0d9125a6cc0b16979de9d996979bf1eff6280b9bf"
-    sha256 ventura:       "333dc0e36f21c81f8b07f8b0d9125a6cc0b16979de9d996979bf1eff6280b9bf"
-    sha256 x86_64_linux:  "b18da6cb774e738cb65bd9840521a85c1eda42323e3264730794624a81dcfa64"
+    sha256 arm64_sequoia: "cf5710a74df36981bf8dda6ce6c32373e294234f686d117c4778ef4d9edc52b0"
+    sha256 arm64_sonoma:  "cf5710a74df36981bf8dda6ce6c32373e294234f686d117c4778ef4d9edc52b0"
+    sha256 arm64_ventura: "cf5710a74df36981bf8dda6ce6c32373e294234f686d117c4778ef4d9edc52b0"
+    sha256 sonoma:        "01f4245c3c9b634c4e61014d648b64d25d7f03728227bea40e25d381ce8be119"
+    sha256 ventura:       "01f4245c3c9b634c4e61014d648b64d25d7f03728227bea40e25d381ce8be119"
+    sha256 x86_64_linux:  "13be2cc9eb9e7792a205709e92905a6f69e5b79b41898c41a0cf0ceabcb3a4d0"
   end
 
   # Don't update this unless this version cannot bootstrap the new version.
