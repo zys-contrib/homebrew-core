@@ -6,12 +6,12 @@ class Osmcoastline < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "605a3249c4abf3290bbb6aace0bb6606581fca5f77ef1d2020132c562e8cb06f"
-    sha256 cellar: :any,                 arm64_sonoma:  "396e9a1d22e2b775246004c456bfa26c722a11844fd5a3352c09167d0dd3157c"
-    sha256 cellar: :any,                 arm64_ventura: "c40d8ac027bfcf5d2a38d7021d352e37596708a1afe43465dc52b0010e6f8b7e"
-    sha256 cellar: :any,                 sonoma:        "36b1d0c5c69680f9fbafd5fbbba294890a148c3d0558dfba796f8f26ab313d27"
-    sha256 cellar: :any,                 ventura:       "11ab1852aa52d2baf18133093871584c7e19b12b63f40d2f496da44def050451"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1cd072c14fc969499f6f7824659012ea476cade804d9e5dff1f9adc4edee014c"
+    sha256 cellar: :any,                 arm64_sequoia: "dc16d9bbd13a4f77009a7bb0c87a2461dbbf0f004a57676da70803435096cb00"
+    sha256 cellar: :any,                 arm64_sonoma:  "c89acfaeebd5e4661327ab2abb42ff5407365f251a052b97b80f3a4fddd266ac"
+    sha256 cellar: :any,                 arm64_ventura: "3c08b87fc5b15d8a778ed08c9d7cb0dcfa5935413e5a85a2a3170024118b3a78"
+    sha256 cellar: :any,                 sonoma:        "9323e20db733822fbeafb7a4042009e82a57f65e94c78855e647c9b0df01bc50"
+    sha256 cellar: :any,                 ventura:       "13ca3a9c33d469ed3a7e261ac9376d732db372f4fc7a20d06533fd3374356559"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "44ab937e69ae5ff226d3528cacbf640b3f486e311d438c02f8e40cd9202a5e18"
   end
 
   depends_on "cmake" => :build
