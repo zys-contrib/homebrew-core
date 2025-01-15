@@ -14,12 +14,12 @@ class Cbindgen < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a22e2c180c47b277e859d4967a4f032b447c3427c4f3d9c4ced02f0969a34ce8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1d07ecac429a68030fcb2c3924a541c086e326eb5cabd4fba4a4772b252d0646"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3a6db1176b7a1528189a75c126c77f8d0ac6597adc1e06bcb4e48d4cf2cf16b2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c6be1b16cb36b35d7bd12dbd59c083f38bee58fda0bda09624010bd2b13d4124"
-    sha256 cellar: :any_skip_relocation, ventura:       "598a96f4d0aa79d28b22341bddd873b3e67d6f72d39fcfe39d1b1c2aedbfdf5f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb304bf7bbea54486ec6b2945efbf46c226faa3e766aae974a1447bcb5b9482a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0df66e4cab38006433238decb3fe8fd5eaa4a77c76981310e82c1229ee4a8ced"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f7f83495c72708ad9815b2e06f663b723f5e0c4e5a20b223cd84769dbe3926b2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8dab680300f1ee305201074750750b01c9d52c5f433d060f95bdb370bdd4f872"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7be18e30d681d36db517850dbaf464fa075d2241d70b0440c537a2e5ad9eed35"
+    sha256 cellar: :any_skip_relocation, ventura:       "7ea8cc561d6dc567fde59dda56db68960fa6c53c4834101771be6126b41cfc3b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bdc85b8b19a708a8ab78b4650398ad16c6b4e3faf949a8e2164e9d3eeba70f93"
   end
 
   depends_on "rust" => :build
