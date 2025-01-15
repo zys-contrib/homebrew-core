@@ -2757,6 +2757,7 @@ rrdtool
 rsgain
 rshijack
 rswift
+rsync
 rsyncy
 rsyslog
 rtl_433
