@@ -15,12 +15,14 @@ class LolHtml < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc2b1c0c0004fa4d21f5e7149e28aff9175711bc63cc4c71af6c72279cb4cfd1"
   end
 
+  depends_on "cargo-c" => :build
   depends_on "rust" => :build
+  depends_on "pkgconf" => :test
 
   def install
-    system "cargo", "build", "--locked", "--lib", "--manifest-path", "c-api/Cargo.toml", "--release"
-    include.install "c-api/include/lol_html.h"
-    lib.install "c-api/target/release/#{shared_library("liblolhtml")}", "c-api/target/release/liblolhtml.a"
+    system "cargo", "cinstall", "--jobs", ENV.make_jobs.to_s, "--release", "--locked",
+                    "--manifest-path", "c-api/Cargo.toml",
+                    "--prefix", prefix, "--libdir", lib
   end
 
   test do
@@ -38,7 +40,8 @@ class LolHtml < Formula
       }
     C
 
-    system ENV.cc, "test.c", "-L#{lib}", "-llolhtml", "-o", "test"
+    flags = shell_output("pkgconf --cflags --libs lol-html").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
 end
