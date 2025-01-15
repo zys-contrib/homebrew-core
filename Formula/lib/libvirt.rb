@@ -1,8 +1,8 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://libvirt.org/"
-  url "https://download.libvirt.org/libvirt-10.10.0.tar.xz"
-  sha256 "e1bd7bd31b7c0d0ae073dec050bb5b0232b3e4adebdc58ea82fe8b366c765796"
+  url "https://download.libvirt.org/libvirt-11.0.0.tar.xz"
+  sha256 "01a176ff4042ad58cf83c09fe0925d6bc8eed0ecce1e0ee19b8ef4c1ffa3806e"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
   head "https://gitlab.com/libvirt/libvirt.git", branch: "master"
 
@@ -46,6 +46,7 @@ class Libvirt < Formula
 
   on_linux do
     depends_on "acl"
+    depends_on "libnl"
     depends_on "libtirpc"
     depends_on "util-linux"
   end
