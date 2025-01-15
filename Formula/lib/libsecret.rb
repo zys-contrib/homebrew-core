@@ -1,8 +1,8 @@
 class Libsecret < Formula
   desc "Library for storing/retrieving passwords and other secrets"
   homepage "https://wiki.gnome.org/Projects/Libsecret"
-  url "https://download.gnome.org/sources/libsecret/0.21/libsecret-0.21.5.tar.xz"
-  sha256 "08f45c44760ab4c2d6febd6e0eeb421663b29a72be52c48c61c507b0ef6a7920"
+  url "https://download.gnome.org/sources/libsecret/0.21/libsecret-0.21.6.tar.xz"
+  sha256 "747b8c175be108c880d3adfb9c3537ea66e520e4ad2dccf5dce58003aeeca090"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later", "Apache-2.0"]
 
   # libsecret doesn't use GNOME's "even-numbered minor is stable" version
@@ -35,12 +35,6 @@ class Libsecret < Formula
 
   on_macos do
     depends_on "gettext"
-  end
-
-  # ignore dbus test for macos build, upstream pr ref, https://gitlab.gnome.org/GNOME/libsecret/-/merge_requests/156
-  patch do
-    url "https://gitlab.gnome.org/GNOME/libsecret/-/commit/952caf24867b80b65935f856fb8fb4f96d93c43c.diff"
-    sha256 "a175d262c887961bd380130c8354a4d2919027b592a7949d8e94773e46683e0f"
   end
 
   def install
