@@ -1,9 +1,9 @@
 class Plzip < Formula
   desc "Data compressor"
   homepage "https://www.nongnu.org/lzip/plzip.html"
-  url "https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.11.tar.gz"
-  mirror "https://download-mirror.savannah.gnu.org/releases/lzip/plzip/plzip-1.11.tar.gz"
-  sha256 "d8e3cbe45c9222383339130e1bcc6e5e884d776b63f188896e6df67bc1d5626b"
+  url "https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.12.tar.gz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/lzip/plzip/plzip-1.12.tar.gz"
+  sha256 "50d71aad6fa154ad8c824279e86eade4bcf3bb4932d757d8f281ac09cfadae30"
   license "GPL-2.0-or-later"
 
   livecheck do

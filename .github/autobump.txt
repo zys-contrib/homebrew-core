@@ -2488,6 +2488,7 @@ planus
 platformio
 plow
 pluto
+plzip
 pmd
 pmix
 pmtiles
