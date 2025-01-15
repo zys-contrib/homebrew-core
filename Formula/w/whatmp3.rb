@@ -9,8 +9,7 @@ class Whatmp3 < Formula
   head "https://github.com/RecursiveForest/whatmp3.git", branch: "master"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, all: "33b3b2f4177414409c8c5e06ebf4fbbbe50c6c9537c281881bcf719a9f35fecc"
+    sha256 cellar: :any_skip_relocation, all: "d2a7f02319c285fdb7f1ecd703b2ac07721c727bb2611cef1767d8c36115dfa2"
   end
 
   depends_on "flac"
