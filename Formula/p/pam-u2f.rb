@@ -1,10 +1,9 @@
 class PamU2f < Formula
   desc "Provides an easy way to use U2F-compliant authenticators with PAM"
   homepage "https://developers.yubico.com/pam-u2f/"
-  url "https://developers.yubico.com/pam-u2f/Releases/pam_u2f-1.3.0.tar.gz"
-  sha256 "72360c6875485eb4df409da8f8f52b17893f05e4d998529c238814480e115220"
+  url "https://developers.yubico.com/pam-u2f/Releases/pam_u2f-1.3.1.tar.gz"
+  sha256 "9a13549947f844f6b3ab691d71afb4f6f00a45d165fed27b01c66c07750a9387"
   license "BSD-2-Clause"
-  revision 1
   head "https://github.com/Yubico/pam-u2f.git", branch: "master"
 
   livecheck do
