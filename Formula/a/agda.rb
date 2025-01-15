@@ -92,10 +92,10 @@ class Agda < Formula
       --allow-newer=agda2hs:filepath
     ]
     # Workaround for https://github.com/agda/agda/commit/e11ae9875470aab7b68b98d9d9574e736dbcaddd
-    ghc912_args << "--allow-newer=Agda:hashable"
-    # Workaround to build with GHC 9.12, remove after https://github.com/haskell/aeson/pull/1126
-    # is merged and available on Hackage or if `aeson` is willing to provide a metadata revision
-    ghc912_args << "--allow-newer=aeson:ghc-prim,aeson:template-haskell"
+    if build.stable?
+      odie "Remove allow-newer hashable workaround!" if version > "2.6.4.3"
+      ghc912_args << "--allow-newer=Agda:hashable"
+    end
 
     cabal_args = ghc912_args + std_cabal_v2_args.reject { |s| s["installdir"] }
 
