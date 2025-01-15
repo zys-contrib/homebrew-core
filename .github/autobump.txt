@@ -1769,6 +1769,7 @@ libopenmpt
 liboqs
 liborigin
 libosinfo
+libosmium
 libp11
 libpaho-mqtt
 libpanel
