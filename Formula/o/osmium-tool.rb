@@ -1,10 +1,9 @@
 class OsmiumTool < Formula
   desc "Libosmium-based command-line tool for processing OpenStreetMap data"
   homepage "https://osmcode.org/osmium-tool/"
-  url "https://github.com/osmcode/osmium-tool/archive/refs/tags/v1.16.0.tar.gz"
-  sha256 "f98454d9f901be42e0b6751aef40106d734887ee35190c224b174c2f27ef1c0f"
+  url "https://github.com/osmcode/osmium-tool/archive/refs/tags/v1.17.0.tar.gz"
+  sha256 "a7c8e5ee108258a3867c21e80d8bf50ee5b7784c56a12523750d882814e3d6df"
   license "GPL-3.0-or-later"
-  revision 5
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "a9935acb79dc891c9293def4ebe33455538b5b9c5df5a5199a36b60e965f9e45"
@@ -17,6 +16,7 @@ class OsmiumTool < Formula
 
   depends_on "cmake" => :build
   depends_on "libosmium" => :build
+  depends_on "nlohmann-json" => :build
   depends_on "pandoc" => :build
   depends_on "boost"
   depends_on "lz4"

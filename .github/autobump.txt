@@ -2364,6 +2364,7 @@ osinfo-db
 osinfo-db-tools
 osm2pgsql
 osmcoastline
+osmium-tool
 ospray
 osslsigncode
 osv-scanner
