@@ -2,8 +2,8 @@ class Helm < Formula
   desc "Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/helm/helm.git",
-      tag:      "v3.16.4",
-      revision: "7877b45b63f95635153b29a42c0c2f4273ec45ca"
+      tag:      "v3.17.0",
+      revision: "301108edc7ac2a8ba79e4ebf5701b0b6ce6a31e4"
   license "Apache-2.0"
   head "https://github.com/helm/helm.git", branch: "main"
 
@@ -17,12 +17,6 @@ class Helm < Formula
   end
 
   depends_on "go" => :build
-
-  # fix testchart lint errors, upstream pr ref, https://github.com/helm/helm/pull/13329
-  patch do
-    url "https://github.com/helm/helm/commit/ddead08eb8e7e3fbbdbb6d40938dda36905789af.patch?full_index=1"
-    sha256 "471c2d7dcbd48d37eaf69e552d53e928e9ba42efccb021d78bbd354599d80811"
-  end
 
   def install
     system "make", "build"
