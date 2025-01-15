@@ -1,8 +1,8 @@
 class Blades < Formula
   desc "Blazing fast dead simple static site generator"
   homepage "https://www.getblades.org/"
-  url "https://github.com/grego/blades/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "e9ee64ead54e1942397ea5d6fcfd6ba928a888c1f4c127b11dec9fbadd283cc2"
+  url "https://github.com/grego/blades/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "6bcce947580243e83a9bf4d6ec4afbc7e6cd0c7541a16d904c7d4f1314036bd0"
   license "GPL-3.0-or-later"
   head "https://github.com/grego/blades.git", branch: "master"
 
@@ -26,6 +26,8 @@ class Blades < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/blades version")
+
     require "expect"
     require "pty"
 
@@ -35,12 +37,11 @@ class Blades < Formula
       w.write "brew\r"
       refute_nil r.expect("Author:", timeout), "Expected author input"
       w.write "test\r"
+      w.write "Y\r" # `Start with a minimal working template?`
       Process.wait pid
     end
 
     assert_path_exists testpath/"content"
     assert_match "title = \"brew\"", (testpath/"Blades.toml").read
-
-    assert_match "blades #{version}", shell_output("#{bin}/blades --version")
   end
 end
