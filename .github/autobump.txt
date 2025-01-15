@@ -2361,6 +2361,7 @@ osi
 osinfo-db
 osinfo-db-tools
 osm2pgsql
+osmcoastline
 ospray
 osslsigncode
 osv-scanner

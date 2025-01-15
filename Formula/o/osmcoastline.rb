@@ -1,10 +1,9 @@
 class Osmcoastline < Formula
   desc "Extracts coastline data from OpenStreetMap planet file"
   homepage "https://osmcode.org/osmcoastline/"
-  url "https://github.com/osmcode/osmcoastline/archive/refs/tags/v2.4.0.tar.gz"
-  sha256 "2c1a28313ed19d6e2fb1cb01cde8f4f44ece378393993b0059f447c5fce11f50"
+  url "https://github.com/osmcode/osmcoastline/archive/refs/tags/v2.4.1.tar.gz"
+  sha256 "3a76ed8c8481e5499c8fedbba3b6af4f33f73bbbfc4e6154ea50fe48ae7054a9"
   license "GPL-3.0-or-later"
-  revision 7
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "605a3249c4abf3290bbb6aace0bb6606581fca5f77ef1d2020132c562e8cb06f"
@@ -27,12 +26,6 @@ class Osmcoastline < Formula
   uses_from_macos "bzip2"
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
-
-  # To fix gdal-3.7.0
-  patch do
-    url "https://github.com/osmcode/osmcoastline/commit/67cc33161069f65e315acae952492ab5ee07af15.patch?full_index=1"
-    sha256 "31b89e33b22ccdfe289a5da67480f9791bdd4f410c6a7831f0c1e007c4258e68"
-  end
 
   def install
     # Work around an Xcode 15 linker issue which causes linkage against LLVM's
