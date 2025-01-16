@@ -15,12 +15,12 @@ class AzureCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "625075ddb021f2393e7cf776ec42b449b194b562ead1c56f4b4abbaf025bcdf6"
-    sha256 cellar: :any,                 arm64_sonoma:  "5d282d39405880f7c32f55bca8e22fb95658082cc9eeaa3d1a49a65713cf2603"
-    sha256 cellar: :any,                 arm64_ventura: "1609beae4c84bb2a5b82808b6f6c65bbe77ce3b7018df6afe5063e015a397c84"
-    sha256 cellar: :any,                 sonoma:        "d3e3bd91ea0f07d99006d5132ca8c7d4d2e393ec45bb1090e3a0821b5b7d9ee3"
-    sha256 cellar: :any,                 ventura:       "5f777037075d6f60bb2cd6d7f85640982e913449ea1fc3a13f51406090f1868c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13cd4f4918fc3c139c74b4fb693b74557bcce9fed495b03fc68b629e29b64e0b"
+    sha256 cellar: :any,                 arm64_sequoia: "17daf9104ec9177e1142ace07d19fbc3740748780c4c9df422265004fc8ba92a"
+    sha256 cellar: :any,                 arm64_sonoma:  "8ab0e2187dbc953c12a75449889abaa3d102a5f029699cb5e8c6977d0a8027be"
+    sha256 cellar: :any,                 arm64_ventura: "968af291b8306e711c5e4f29ac2a2ab7c50d66635d7aeffb39eb2df1aeb38bbe"
+    sha256 cellar: :any,                 sonoma:        "4a8c1a1bbf6243b985e23e7af42e524c8c4e1c93f5904c40467adaaeaab3b0ba"
+    sha256 cellar: :any,                 ventura:       "d2150d574a5ae8885ecccd1b6ff736dbc0d74b4611304e78ef4627d1ffed52c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08201971d0b910ab2f3017f2424ac89365e42a6db57bc43cb6a43b1cce9c11bb"
   end
 
   # `pkgconf`, `rust`, and `openssl@3` are for cryptography.
