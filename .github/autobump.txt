@@ -1296,6 +1296,7 @@ gtksourceview5
 gtranslator
 gucharmap
 guile
+guile-fibers
 gulp-cli
 gum
 gumbo-parser
@@ -2869,6 +2870,7 @@ shell2http
 shellcheck
 shellharden
 shellz
+shepherd
 sherlock
 shfmt
 showcert
