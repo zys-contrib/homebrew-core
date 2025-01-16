@@ -1,8 +1,8 @@
 class Rainfrog < Formula
   desc "Database management TUI for Postgres"
   homepage "https://github.com/achristmascarl/rainfrog"
-  url "https://github.com/achristmascarl/rainfrog/archive/refs/tags/v0.2.10.tar.gz"
-  sha256 "fbcbd03fd92a43a34e2090fe776fc241d253e254c3ced91f18bb7b2328ea307d"
+  url "https://github.com/achristmascarl/rainfrog/archive/refs/tags/v0.2.11.tar.gz"
+  sha256 "ed75a222c625f1d61a52289408b094cd593dd4303573683969c65fbb1d1668c7"
   license "MIT"
   head "https://github.com/achristmascarl/rainfrog.git", branch: "main"
 
