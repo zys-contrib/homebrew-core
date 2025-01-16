@@ -1,10 +1,10 @@
 class ScalaAT213 < Formula
   desc "JVM-based programming language"
   homepage "https://www.scala-lang.org/"
-  url "https://downloads.lightbend.com/scala/2.13.15/scala-2.13.15.tgz"
-  mirror "https://www.scala-lang.org/files/archive/scala-2.13.15.tgz"
-  mirror "https://downloads.typesafe.com/scala/2.13.15/scala-2.13.15.tgz"
-  sha256 "8d7219d2ad881c81cf7709a9e49534e6ce12d017ede1473eafd1e9bb287c39b1"
+  url "https://downloads.lightbend.com/scala/2.13.16/scala-2.13.16.tgz"
+  mirror "https://www.scala-lang.org/files/archive/scala-2.13.16.tgz"
+  mirror "https://downloads.typesafe.com/scala/2.13.16/scala-2.13.16.tgz"
+  sha256 "937f743be315302caad15be99ab1ca425ff7e63f15ef5790db6c81bb49543256"
   license "Apache-2.0"
 
   livecheck do
