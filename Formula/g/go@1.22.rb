@@ -21,12 +21,12 @@ class GoAT122 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "175e41037e8ddcc19b274f9e2b167dc701c7a7ab5edc425c9a9a8455e8a9ec66"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f13075e13dfcbe79bb924c919b2eaf482c8dd23dc80d1be5f2cdcc52c8636f9b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2bdb68a40f283e409b1c2ce4820c54f5fd74877a2c05b9d9d35c39ade08b12fa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9b1ee7aced05cc0affb137d42fe432919476e43451349a27246eb0e859f58d88"
-    sha256 cellar: :any_skip_relocation, ventura:       "8a15c77eb0fbc50df3db4952dcaf86e9fa0e8b72c22aa4857317ee5849e44500"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c503736f4ec712b65bb4d899d8a8fdd510027640f6988a58dc0f7035d8e5a864"
+    sha256 arm64_sequoia: "bf4bb48caf0fd288afd7fef5221494383054e7760900c54cb3a72c7cfd518d5e"
+    sha256 arm64_sonoma:  "f88650d91eadc4c714dc722de9011b08d9bc30d2f53c9ceb7cef355927232025"
+    sha256 arm64_ventura: "efce25229471aa84fda3cc92b5f0a13f3f1d5269a6b87f08969f3ec93818beda"
+    sha256 sonoma:        "9970ec125b2b0ccbdbecc3855538d60070d1e75dd0835185999d22b297dc71b9"
+    sha256 ventura:       "58bc476df5596177562958ab9419ee0ffefa4b59be39af47e6437ff5ce48665e"
+    sha256 x86_64_linux:  "070f65df59f86b5bd6b8d40183c0574c443e12dc133c8b0ea8cba0fd1d52c3c1"
   end
 
   keg_only :versioned_formula
