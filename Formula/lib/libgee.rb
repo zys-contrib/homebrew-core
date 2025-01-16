@@ -6,15 +6,12 @@ class Libgee < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "2e94fefbe95465772e0676f4d0f65ae212867caeaf659921e069ae1f153e5c4e"
-    sha256 cellar: :any,                 arm64_sonoma:   "0f3ac7bcee7e8a3ef342362cc6fb67c7f20f6e616ccaebe0b6d187069498f559"
-    sha256 cellar: :any,                 arm64_ventura:  "648c253edc216944b0e678393a1376050dce9c2136a2e23543e0c2c399d9c27b"
-    sha256 cellar: :any,                 arm64_monterey: "4db78ce506f169e6cf5e958f3fe5b53b53cd8b89658b27177021d38446705ec1"
-    sha256 cellar: :any,                 sonoma:         "81a4559f30db3797dc6f91af8e0cc639814ddbb36a625fdfcaad51de153a7990"
-    sha256 cellar: :any,                 ventura:        "49e93aa588f553b9781e84a7e9e0e9fe2dcb511976218ef2385983da6e318d67"
-    sha256 cellar: :any,                 monterey:       "1514560672301f3b58ea438cbe537af7e878b0def106674bee39f022902a2508"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cfcece11cd71b887bf40f1ea11e69d2fdb14133ae914b1d67858213b6e49fe0c"
+    sha256 cellar: :any,                 arm64_sequoia: "f6f8a615e12ebbf0e2d1ef652b9d6118ce7090cf975e76c9199b80f2d54a0ee2"
+    sha256 cellar: :any,                 arm64_sonoma:  "a74893c386bc3c98b3eca70f4698eac4fc16a7c7ce9621ecd9951881b52617b2"
+    sha256 cellar: :any,                 arm64_ventura: "9f59442b282ad4bc6857568f22fc866f04111dfa83f52a36fdff920b72404efd"
+    sha256 cellar: :any,                 sonoma:        "54b304a5bb1c6cd0b4cf4ad92e33497616250375a1d199b056f712059484c8f8"
+    sha256 cellar: :any,                 ventura:       "18ef7dfdbad016c9f6027374cb705a7e2195204d524cc42439d98855e24837f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "695ca3b94a6452ef5d365da12bcf3b9b12a3e80c298f5c6d032bd873926a9ef4"
   end
 
   depends_on "gobject-introspection" => :build
