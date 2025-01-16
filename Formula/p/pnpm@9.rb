@@ -10,6 +10,15 @@ class PnpmAT9 < Formula
     regex(/["']version["']:\s*?["']([^"']+)["']/i)
   end
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "6ff60c8771feb0aef2902ace289b67971ffb9c3073a33e843553b4d6c3f6372a"
+    sha256 cellar: :any,                 arm64_sonoma:  "6ff60c8771feb0aef2902ace289b67971ffb9c3073a33e843553b4d6c3f6372a"
+    sha256 cellar: :any,                 arm64_ventura: "6ff60c8771feb0aef2902ace289b67971ffb9c3073a33e843553b4d6c3f6372a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6dba7e1d848bcc4f65d46a3669ac528e0d5d07b2f5f02b009294aea54170ce8b"
+    sha256 cellar: :any_skip_relocation, ventura:       "6dba7e1d848bcc4f65d46a3669ac528e0d5d07b2f5f02b009294aea54170ce8b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07ebb08635c6819c1eaf35ba3c8bc1303d0f018782e68289a8cfcd33880abc0c"
+  end
+
   keg_only :versioned_formula
 
   depends_on "node" => [:build, :test]
