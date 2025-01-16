@@ -2429,6 +2429,7 @@ percona-toolkit
 percona-xtrabackup
 periscope
 perl
+perl-dbd-mysql
 perltidy
 peru
 pferd
