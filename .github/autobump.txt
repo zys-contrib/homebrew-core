@@ -2764,6 +2764,7 @@ rubberband
 ruby
 ruby@3.1
 ruby@3.2
+ruby@3.3
 ruff
 ruff-lsp
 rune
