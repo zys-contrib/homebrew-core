@@ -1,8 +1,8 @@
 class Inchi < Formula
   desc "IUPAC International Chemical Identifier"
   homepage "https://www.inchi-trust.org/"
-  url "https://github.com/IUPAC-InChI/InChI/releases/download/v1.07.1/INCHI-1-SRC.zip"
-  sha256 "fe6e1ee25714988f7b86420b7615b4e1d7c01fda9b93d63b634a0c021ac9f917"
+  url "https://github.com/IUPAC-InChI/InChI/releases/download/v1.07.2/INCHI-1-SRC.zip"
+  sha256 "4a5627befd1ea29853d4920d975563874108648efe9bfcd1d4dfa3a215032cfb"
   license "MIT"
 
   bottle do
@@ -16,10 +16,6 @@ class Inchi < Formula
 
   # These used to be part of open-babel
   link_overwrite "include/inchi/inchi_api.h", "lib/libinchi.dylib", "lib/libinchi.so"
-
-  # Fix dylib file names
-  # PR ref: https://github.com/IUPAC-InChI/InChI/pull/62
-  patch :p2, :DATA
 
   def install
     bin.mkpath
@@ -74,31 +70,3 @@ class Inchi < Formula
     EOS
   end
 end
-
-__END__
-diff --git a/INCHI-1-SRC/INCHI_API/libinchi/gcc/makefile b/INCHI-1-SRC/INCHI_API/libinchi/gcc/makefile
-index 6d5a722..5b953ed 100644
---- a/INCHI-1-SRC/INCHI_API/libinchi/gcc/makefile
-+++ b/INCHI-1-SRC/INCHI_API/libinchi/gcc/makefile
-@@ -175,7 +175,7 @@ else ifeq ($(OS_ID),2)
- # jwm: linking to .dylib on OS X
- $(API_CALLER_PATHNAME) : $(API_CALLER_OBJS) $(INCHI_LIB_PATHNAME).so$(VERSION)
- 	$(LINKER) -o $(API_CALLER_PATHNAME) $(API_CALLER_OBJS) \
--$(INCHI_LIB_PATHNAME).dylib$(VERSION) -lm
-+$(INCHI_LIB_PATHNAME)$(VERSION).dylib -lm
- else
- # djb-rwth: linking to .so on Linux
- $(API_CALLER_PATHNAME) : $(API_CALLER_OBJS) $(INCHI_LIB_PATHNAME).so$(VERSION)
-@@ -253,9 +253,9 @@ $(INCHI_LIB_PATHNAME).dll$(VERSION): $(INCHI_LIB_OBJS)
- $(INCHI_LIB_OBJS) -Wl$(LINUX_MAP),-soname,$(INCHI_LIB_NAME).dll$(VERSION) -Wl,--subsystem,windows -lm
- else ifeq ($(OS_ID), 2)
- # jwm: creating .dylib on OS X
--$(INCHI_LIB_PATHNAME).dylib$(VERSION): $(INCHI_LIB_OBJS)
--	$(SHARED_LINK) $(SHARED_LINK_PARM) -o $(INCHI_LIB_PATHNAME).dylib$(VERSION)	\
--$(INCHI_LIB_OBJS) -Wl$(LINUX_MAP)$(LINUX_Z_RELRO) -install_name $(INCHI_LIB_NAME).dylib$(VERSION) -lm
-+$(INCHI_LIB_PATHNAME)$(VERSION).dylib: $(INCHI_LIB_OBJS)
-+	$(SHARED_LINK) $(SHARED_LINK_PARM) -o $(INCHI_LIB_PATHNAME)$(VERSION).dylib	\
-+$(INCHI_LIB_OBJS) -Wl$(LINUX_MAP)$(LINUX_Z_RELRO) -install_name $(INCHI_LIB_NAME)$(VERSION).dylib -lm
- else
- # djb-rwth: creating .so on Linux
- $(INCHI_LIB_PATHNAME).so$(VERSION): $(INCHI_LIB_OBJS)
