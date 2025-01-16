@@ -6,12 +6,12 @@ class NpmCheckUpdates < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8d8cd56854d6ee8038eec42f86dd91a500c158e5220d50564af852b3b7c2fbbd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8d8cd56854d6ee8038eec42f86dd91a500c158e5220d50564af852b3b7c2fbbd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8d8cd56854d6ee8038eec42f86dd91a500c158e5220d50564af852b3b7c2fbbd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2b3811259e687b6e8099f5f6e4b2e58ee283f3ae4b366a70fd4c0f616e63b105"
-    sha256 cellar: :any_skip_relocation, ventura:       "2b3811259e687b6e8099f5f6e4b2e58ee283f3ae4b366a70fd4c0f616e63b105"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d8cd56854d6ee8038eec42f86dd91a500c158e5220d50564af852b3b7c2fbbd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "70216dedf167fb43b9571e82588e6dac49632cf5f3106365fc4a6964e5fcdecd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "70216dedf167fb43b9571e82588e6dac49632cf5f3106365fc4a6964e5fcdecd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "70216dedf167fb43b9571e82588e6dac49632cf5f3106365fc4a6964e5fcdecd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "079eb7c988be53219f9f3aee8aa83bfaa60cf962c637fafc31ecd6d18bca524f"
+    sha256 cellar: :any_skip_relocation, ventura:       "079eb7c988be53219f9f3aee8aa83bfaa60cf962c637fafc31ecd6d18bca524f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "70216dedf167fb43b9571e82588e6dac49632cf5f3106365fc4a6964e5fcdecd"
   end
 
   depends_on "node"
