@@ -1,8 +1,8 @@
 class Regal < Formula
   desc "Linter and language server for Rego"
   homepage "https://docs.styra.com/regal"
-  url "https://github.com/StyraInc/regal/archive/refs/tags/v0.30.0.tar.gz"
-  sha256 "1277ce36e84ef58e4777a2a763aab3255457487fcc909a6784959987808a08be"
+  url "https://github.com/StyraInc/regal/archive/refs/tags/v0.30.1.tar.gz"
+  sha256 "41627aa17f2f7954f6ee684a0d688479d034bed03a46df6f977cb57e1f6bbfd8"
   license "Apache-2.0"
   head "https://github.com/StyraInc/regal.git", branch: "main"
 
