@@ -8,12 +8,12 @@ class DockerMachine < Formula
   head "https://gitlab.com/gitlab-org/ci-cd/docker-machine.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "247bf9c1d7c27d6950483d4dfcb9aa3aedd6028b21179762d617633ee63d20d7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "247bf9c1d7c27d6950483d4dfcb9aa3aedd6028b21179762d617633ee63d20d7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "247bf9c1d7c27d6950483d4dfcb9aa3aedd6028b21179762d617633ee63d20d7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7c88c09f080a7ddaf3877cec4553dd5c3d4352ac48ecf1733eb9246d8f1615f4"
-    sha256 cellar: :any_skip_relocation, ventura:       "7c88c09f080a7ddaf3877cec4553dd5c3d4352ac48ecf1733eb9246d8f1615f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cedf535c7d5fad36fdeb31243404e2f842ca4473d43d18d34e924ac9c3de36c4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8a4beb153b0c550f4bd6b40003bb5ba4cd7f5b70e3d95935fecd9c7053fa2049"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a4beb153b0c550f4bd6b40003bb5ba4cd7f5b70e3d95935fecd9c7053fa2049"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8a4beb153b0c550f4bd6b40003bb5ba4cd7f5b70e3d95935fecd9c7053fa2049"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9d9b287490a70d58ced64b975b8c7281d012ea560deb0817da4697e0ab119922"
+    sha256 cellar: :any_skip_relocation, ventura:       "9d9b287490a70d58ced64b975b8c7281d012ea560deb0817da4697e0ab119922"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "638e1dfd7391e17f2796c71cc54f0f2fddaaffb9c80acbb487db0a8a53edfbe1"
   end
 
   depends_on "go" => :build
