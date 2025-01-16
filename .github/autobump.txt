@@ -1720,6 +1720,7 @@ libgedit-amtk
 libgedit-gfls
 libgedit-gtksourceview
 libgedit-tepl
+libgee
 libgeotiff
 libgetdata
 libgit2
