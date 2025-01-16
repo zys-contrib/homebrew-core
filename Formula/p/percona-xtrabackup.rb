@@ -1,12 +1,12 @@
 class PerconaXtrabackup < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
-  url "https://downloads.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.35-32/source/tarball/percona-xtrabackup-8.0.35-32.tar.gz"
-  sha256 "04982a36e36d0e9dfb8487afa77329dd0d2d38da163a205f0179635ceea1aff1"
+  url "https://downloads.percona.com/downloads/Percona-XtraBackup-8.4/Percona-XtraBackup-8.4.0-2/source/tarball/percona-xtrabackup-8.4.0-2.tar.gz"
+  sha256 "0777e3d3c3b4d4649ed23ed7197ec0aa71379b4a4a41b969b7286f6cf8888b4a"
   license "GPL-2.0-only"
 
   livecheck do
-    url "https://docs.percona.com/percona-xtrabackup/latest/"
+    url "https://docs.percona.com/percona-xtrabackup/#{version.major_minor}/"
     regex(/href=.*?v?(\d+(?:[.-]\d+)+)\.html/i)
     strategy :page_match do |page, regex|
       page.scan(regex).map do |match|
@@ -29,10 +29,9 @@ class PerconaXtrabackup < Formula
 
   depends_on "bison" => :build # needs bison >= 3.0.4
   depends_on "cmake" => :build
-  depends_on "libevent" => :build
   depends_on "pkgconf" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "mysql@8.0" => :test
+  depends_on "mysql@8.4" => :test
   depends_on "icu4c@76"
   depends_on "libev"
   depends_on "libgcrypt"
@@ -55,16 +54,10 @@ class PerconaXtrabackup < Formula
     depends_on "procps"
   end
 
-  # https://github.com/percona/percona-xtrabackup/blob/percona-xtrabackup-#{version}/cmake/boost.cmake
-  resource "boost" do
-    url "https://downloads.sourceforge.net/project/boost/boost/1.77.0/boost_1_77_0.tar.bz2"
-    sha256 "fc9f85fc030e233142908241af7a846e60630aa7388de9a5fafb1f3a26840854"
-  end
-
   # Apply fix for newer protobuf from MySQL repo. Remove once Percona syncs with MySQL 8.0.40 / 8.4.3
   patch do
-    url "https://github.com/mysql/mysql-server/commit/269abc0409b22bb87ec88bd4d53dfb7a1403eace.patch?full_index=1"
-    sha256 "ffcee32804e7e1237907432adb3590fcbf30c625eea836df6760c05a312a84e1"
+    url "https://github.com/mysql/mysql-server/commit/941e4ac8cfdacc7c2cd1c11b4d72329b70c46564.patch?full_index=1"
+    sha256 "1c39061a6c90e25a542f547ff8e5463d84c446009b4ab317c2c52184a4f931b8"
   end
 
   # Patch out check for Homebrew `boost`.
@@ -76,9 +69,8 @@ class PerconaXtrabackup < Formula
     # Remove bundled libraries other than explicitly allowed below.
     # `boost` and `rapidjson` must use bundled copy due to patches.
     # `lz4` is still needed due to xxhash.c used by mysqlgcs
-    keep = %w[duktape libkmip lz4 rapidjson robin-hood-hashing]
+    keep = %w[boost libbacktrace libcno libkmip lz4 rapidjson unordered_dense]
     (buildpath/"extra").each_child { |dir| rm_r(dir) unless keep.include?(dir.basename.to_s) }
-    (buildpath/"boost").install resource("boost")
 
     perl = "/usr/bin/perl"
     if OS.linux?
@@ -104,9 +96,7 @@ class PerconaXtrabackup < Formula
       -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
       -DWITH_ICU=#{icu4c.opt_prefix}
       -DWITH_SYSTEM_LIBS=ON
-      -DWITH_BOOST=#{buildpath}/boost
       -DWITH_EDITLINE=system
-      -DWITH_LIBEVENT=system
       -DWITH_LZ4=system
       -DWITH_PROTOBUF=system
       -DWITH_SSL=system
@@ -134,7 +124,7 @@ class PerconaXtrabackup < Formula
   end
 
   test do
-    mysql = Formula["mysql@8.0"]
+    mysql = Formula["mysql@8.4"]
     common_args = %W[--no-defaults --port=#{free_port} --socket=#{testpath}/mysql.sock]
     client_args = %w[--user=root --password=]
     server_args = %W[--datadir=#{testpath}/mysql --tmpdir=#{testpath}/tmp]
@@ -169,17 +159,17 @@ end
 
 __END__
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 42e63d0..5d21cc3 100644
+index 438dff720c5..47863c17e23 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -1942,31 +1942,6 @@ MYSQL_CHECK_RAPIDJSON()
+@@ -1948,31 +1948,6 @@ MYSQL_CHECK_RAPIDJSON()
  MYSQL_CHECK_FIDO()
  MYSQL_CHECK_FIDO_DLLS()
 
 -IF(APPLE)
 -  GET_FILENAME_COMPONENT(HOMEBREW_BASE ${HOMEBREW_HOME} DIRECTORY)
 -  IF(EXISTS ${HOMEBREW_BASE}/include/boost)
--    FOREACH(SYSTEM_LIB ICU LIBEVENT LZ4 PROTOBUF ZSTD FIDO)
+-    FOREACH(SYSTEM_LIB ICU LZ4 PROTOBUF ZSTD FIDO)
 -      IF(WITH_${SYSTEM_LIB} STREQUAL "system")
 -        MESSAGE(FATAL_ERROR
 -          "WITH_${SYSTEM_LIB}=system is not compatible with Homebrew boost\n"
@@ -193,7 +183,7 @@ index 42e63d0..5d21cc3 100644
 -    ENDFOREACH()
 -  ENDIF()
 -  # Ensure that we look in /usr/local/include or /opt/homebrew/include
--  FOREACH(SYSTEM_LIB ICU LIBEVENT LZ4 PROTOBUF ZSTD FIDO)
+-  FOREACH(SYSTEM_LIB ICU LZ4 PROTOBUF ZSTD FIDO)
 -    IF(WITH_${SYSTEM_LIB} STREQUAL "system")
 -      INCLUDE_DIRECTORIES(SYSTEM ${HOMEBREW_BASE}/include)
 -      BREAK()
@@ -201,6 +191,6 @@ index 42e63d0..5d21cc3 100644
 -  ENDFOREACH()
 -ENDIF()
 -
- IF(WITH_AUTHENTICATION_FIDO OR WITH_AUTHENTICATION_CLIENT_PLUGINS)
+ IF(WITH_AUTHENTICATION_WEBAUTHN OR
+   WITH_AUTHENTICATION_CLIENT_PLUGINS)
    IF(WITH_FIDO STREQUAL "system" AND
-     NOT WITH_SSL STREQUAL "system")
