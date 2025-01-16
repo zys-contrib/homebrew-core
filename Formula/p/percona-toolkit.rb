@@ -12,12 +12,13 @@ class PerconaToolkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "20acd34ed6c90230cab848cc2d60244eb417bf4eb27ce69fb48a9809681e8f57"
-    sha256 cellar: :any,                 arm64_sonoma:  "9bb2cec45a90341e259b773737d409aaf0ecbb862d9578849c4740785d2d760c"
-    sha256 cellar: :any,                 arm64_ventura: "cf116bff658175721671f8c152c40e669e895ff5dd9a474167fd306fcfbc97df"
-    sha256 cellar: :any,                 sonoma:        "7bab53293a32c33c15b7764666d828125f4abdd244e2e8e1b486f2c078229116"
-    sha256 cellar: :any,                 ventura:       "05a8dc478966a2395d7d83bc1cf816e683795db19d83417a244db43b1caca830"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8ee2ab6048715176684e52a0dcbfcd186addb7bdd791c433df9c8e0f568d291"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a37d5376a12782664896830ae588d515b1bbde0d4452156c9319e6b391a453ea"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a37d5376a12782664896830ae588d515b1bbde0d4452156c9319e6b391a453ea"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5986cbc073b8a2f0cf7b6b53b1a2a7e1029e2f498d0471dd46189067884f8f1a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f3cbec25f4fa8beb974b310c074a90e6ef1eb58bcef0c1274f59217931983a93"
+    sha256 cellar: :any_skip_relocation, ventura:       "51e79707676df290463b16f92541773bd254a0b1014dac67b4c238db6cbfb6e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40e8a0ed87eaa24b89d1b6c7c47bd3298281b8fa1ea653bd80761112cbf165d1"
   end
 
   depends_on "go" => :build
