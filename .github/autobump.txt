@@ -3254,6 +3254,7 @@ typos-lsp
 typst
 typstyle
 tz
+tzdb
 tzdiff
 u-boot-tools
 uade
