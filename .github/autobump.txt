@@ -2048,6 +2048,7 @@ minimal-racket
 minio-warp
 minipro
 miniserve
+minisign
 miniupnpc
 minizinc
 minizip
