@@ -1,8 +1,8 @@
 class Xmq < Formula
   desc "Tool and language to work with xml/html/json"
   homepage "https://libxmq.org"
-  url "https://github.com/libxmq/xmq/archive/refs/tags/3.2.1.tar.gz"
-  sha256 "77916f6a59a1db3ada1c005eb7475d4009b4fe3323d659be79f2dc975d0330c1"
+  url "https://github.com/libxmq/xmq/archive/refs/tags/3.2.2.tar.gz"
+  sha256 "e59037ecb33fc76454d00cb3342863b7e45cd29a25929f4eb465e99c488c5e2a"
   license "MIT"
 
   bottle do
