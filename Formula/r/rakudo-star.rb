@@ -6,12 +6,13 @@ class RakudoStar < Formula
   license "Artistic-2.0"
 
   bottle do
-    sha256 arm64_sequoia: "523d234bf059e1ea81d7633b3caafd94973b9e42f1df746a694b1ccd0d2e1368"
-    sha256 arm64_sonoma:  "6413d986f8f733757258d15ab38de86f8046fb8c312f4d107212b8ab3bf5e6f0"
-    sha256 arm64_ventura: "a1ca5dbba61fe6a6c8b2e333e59f5db3e5e7751d4ac07a212599ea7b65dc2734"
-    sha256 sonoma:        "766709a05b53bcad5ee13ce700159a589ff6ccf6fcb68d0e11c3235f78542a2a"
-    sha256 ventura:       "2030e6969c29ad77c123946f46172e42786a4cb21140aab0bc9ccee0f9bb0088"
-    sha256 x86_64_linux:  "94d39d2e72eb57c4afc4a1bb4733b6cae96d77618cc4a997b495e7cbd728dca7"
+    rebuild 1
+    sha256 arm64_sequoia: "5f333665dfe2213e47659de5c105161f240f0b451907a3041996cec27975db3c"
+    sha256 arm64_sonoma:  "f8fe89c21b5a88b97144615679ce401d28249ed1e4b9e692d5224aded1ca7068"
+    sha256 arm64_ventura: "05e6ee91230256c4e845ecb13005dc39eead7bc11c4c85cc3ed492673ef74850"
+    sha256 sonoma:        "3ca9539f0917ca056c321887a9d848d608310f61dae42ef2b756a4f700227968"
+    sha256 ventura:       "24ce60a9c53bdd182b70b308dabdf32c2932656f52cf292bc583e3b90f813c89"
+    sha256 x86_64_linux:  "1187c0324314df2a54a8e37352f2578b5c70d7899abf8eb351d47472c40b863c"
   end
 
   depends_on "bash" => :build
