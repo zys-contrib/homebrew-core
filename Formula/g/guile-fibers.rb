@@ -5,6 +5,15 @@ class GuileFibers < Formula
   sha256 "a5e1a9c49c0efe7ac6f355662041430d4b64e59baa538d2b8fb5ef7528d81dbf"
   license "LGPL-3.0-or-later"
 
+  bottle do
+    sha256 arm64_sequoia: "b0ffb1a8e973c4c824afef59cc42b36f02f402ac562157be5eeefe4fd5f35552"
+    sha256 arm64_sonoma:  "aecafccfe6ae02c9d8aa3cec97cc91017995e5af3b6844f92f6a895289385828"
+    sha256 arm64_ventura: "c4efa5f223403ee3bb438ef926dca0775564e5756e6ce9c0e754698542c7b90a"
+    sha256 sonoma:        "e314596a82b167bcd6548de44fd5d415987b257d8b46e2640a5924cc3c741530"
+    sha256 ventura:       "b1fc7b219a7f68cded6c9786daedae1450870fcf5feccdd04cb38ce3ad4bc5b2"
+    sha256 x86_64_linux:  "d94c75d9e2acfbf27ba8387935d757398f54287c38654ae9a51169934f54c096"
+  end
+
   depends_on "guile"
   depends_on "libevent"
 
