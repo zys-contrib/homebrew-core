@@ -2496,6 +2496,7 @@ pnetcdf
 pngquant
 pnpm
 pnpm@8
+pnpm@9
 po4a
 pocketbase
 pocl
