@@ -1,8 +1,8 @@
 class Awk < Formula
   desc "Text processing scripting language"
   homepage "https://www.cs.princeton.edu/~bwk/btl.mirror/"
-  url "https://github.com/onetrueawk/awk/archive/refs/tags/20240728.tar.gz"
-  sha256 "2d479817f95d5997fc4348ecebb1d8a1b25c81cebedb46ca4f59434247e08543"
+  url "https://github.com/onetrueawk/awk/archive/refs/tags/20250116.tar.gz"
+  sha256 "e031b1e1d2b230f276f975bffb923f0ea15f798c839d15a3f26a1a39448e32d7"
   license "SMLNJ"
   head "https://github.com/onetrueawk/awk.git", branch: "master"
 
