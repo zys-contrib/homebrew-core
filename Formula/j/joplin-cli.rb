@@ -1,8 +1,8 @@
 class JoplinCli < Formula
   desc "Note taking and to-do application with synchronization capabilities"
   homepage "https://joplinapp.org/"
-  url "https://registry.npmjs.org/joplin/-/joplin-3.2.2.tgz"
-  sha256 "46cda9164f1e20c2ea451fa12398532fbbeb421a9bcdf275ac220f4163f75da5"
+  url "https://registry.npmjs.org/joplin/-/joplin-3.2.3.tgz"
+  sha256 "7dffd1f21357f306958eed02a79ac1223e69b847ae55ddbd613fb1564f9cf2b4"
   license "MIT"
 
   bottle do
