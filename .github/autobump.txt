@@ -2869,6 +2869,7 @@ shell2http
 shellcheck
 shellharden
 shellz
+shepherd
 sherlock
 shfmt
 showcert
