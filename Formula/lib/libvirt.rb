@@ -12,12 +12,12 @@ class Libvirt < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "15426fa6e8f2cd3a47712c3c03a459d8f2f5d61ba25e7efb914bcef4df160175"
-    sha256 arm64_sonoma:  "2b4fd22a9da0135432d0b90f4f14b9ca2606471dc104e665994cfb64fc148863"
-    sha256 arm64_ventura: "ba956771e23c62aab80c6ea5726183f83a8626b70db1b6532201204a8f12d4a9"
-    sha256 sonoma:        "8fe072fe12eca1c590474a08baaa2747e67ac3460aaa278960d0133c49eaf2ff"
-    sha256 ventura:       "9c95359ab212b5744897da183502624cd680cebf3d52592e2d0028ab6ce082df"
-    sha256 x86_64_linux:  "6d90ff6608ceb0f9158df4bc2d8bd9725c825ba012518d10c1b93ff3db7ffe15"
+    sha256 arm64_sequoia: "b092d35546e041875cb44212534c268af1edd890ca43dc8791cf7343600a9854"
+    sha256 arm64_sonoma:  "1b6ecfc3ea7683e43b90981597f48e377d4f84c1043d685f63f132e436dde12f"
+    sha256 arm64_ventura: "6da44d956b8aee804e02e07f1a06cba44d3016ef006dd2df82368b25eba56c62"
+    sha256 sonoma:        "f34fff265b817ce46160c0ff32a9db3829cf0c36763c5b0eeb60f2646fc352fc"
+    sha256 ventura:       "40fb73f7ac0a824916e4db73995dd128088c95d656c683ed4d3167fb2d4c7a00"
+    sha256 x86_64_linux:  "ba000a71c66398bf89a6df3887355bcab3acf94fbe9432ba5cee54e94cc20321"
   end
 
   depends_on "docutils" => :build
