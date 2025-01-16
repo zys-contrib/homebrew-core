@@ -10,6 +10,15 @@ class Xtermcontrol < Formula
     regex(/href=.*?xtermcontrol[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "91e3dd1b814e1b6fb24ddff2fbc094d1126e9c88e156e8f66291dd0c25a84aa9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1631d01a3eee1cf04f37e7d01dcdb6d7066221ea94990b6a429f322acabcc5db"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "816846a55ddf739e1d3f34f7e11c7280fd3ecca79c51a65a42e749bda0e80f0c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9f3d0725dc8f0531f83b61cf552c46db71c3bcf63fb0580e9e4682d6fe63eb44"
+    sha256 cellar: :any_skip_relocation, ventura:       "678d0bb992613a535f7381fb59483f893dac21057bace98338fbbdd9102c1cb7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "10810f15d508c5a29c6df7ff1b757d6c2bac3d332772bb0ba142aa7e687fc1d8"
+  end
+
   def install
     system "./configure", *std_configure_args
     system "make", "install"
