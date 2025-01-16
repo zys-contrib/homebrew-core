@@ -1,8 +1,8 @@
 class Mago < Formula
   desc "Toolchain for PHP to help developers write better code"
   homepage "https://github.com/carthage-software/mago"
-  url "https://github.com/carthage-software/mago/archive/refs/tags/0.0.20.tar.gz"
-  sha256 "f8f4e55eb3bf81466fad82232ea4f6c6ec86fb370c9e6c7ab8c255163e4e8fe2"
+  url "https://github.com/carthage-software/mago/archive/refs/tags/0.1.0.tar.gz"
+  sha256 "87657cb877840c53def1947dc98ef6801f873acd88780506deaa321d121a2c55"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
@@ -34,6 +34,6 @@ class Mago < Formula
 
     (testpath/"unformatted.php").write("<?php echo 'Unformatted';?>")
     system bin/"mago", "fmt"
-    assert_match "<?php\necho 'Unformatted';\n\n", (testpath/"unformatted.php").read
+    assert_match "<?php echo 'Unformatted';\n", (testpath/"unformatted.php").read
   end
 end
