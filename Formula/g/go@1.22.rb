@@ -5,6 +5,7 @@ class GoAT122 < Formula
   mirror "https://fossies.org/linux/misc/go1.22.11.src.tar.gz"
   sha256 "a60c23dec95d10a2576265ce580f57869d5ac2471c4f4aca805addc9ea0fc9fe"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://go.dev/dl/?mode=json"
@@ -33,8 +34,6 @@ class GoAT122 < Formula
   depends_on "go" => :build
 
   def install
-    inreplace "go.env", /^GOTOOLCHAIN=.*$/, "GOTOOLCHAIN=local"
-
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
       # Set portable defaults for CC/CXX to be used by cgo
@@ -53,17 +52,7 @@ class GoAT122 < Formula
     rm_r(libexec/"src/runtime/pprof/testdata")
   end
 
-  def caveats
-    <<~EOS
-      Homebrew's Go toolchain is configured with
-        GOTOOLCHAIN=local
-      per Homebrew policy on tools that update themselves.
-    EOS
-  end
-
   test do
-    assert_equal "local", shell_output("#{bin}/go env GOTOOLCHAIN").strip
-
     (testpath/"hello.go").write <<~GO
       package main
 
