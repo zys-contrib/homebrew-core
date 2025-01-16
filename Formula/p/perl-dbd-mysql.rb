@@ -3,8 +3,8 @@
 class PerlDbdMysql < Formula
   desc "MySQL driver for the Perl5 Database Interface (DBI)"
   homepage "https://dbi.perl.org/"
-  url "https://cpan.metacpan.org/authors/id/D/DV/DVEEDEN/DBD-mysql-5.010.tar.gz"
-  sha256 "2ca2ff39d93e89d4f7446e5f0faf03805e9167ee9b8a04ba7cb246e2cb46eee7"
+  url "https://cpan.metacpan.org/authors/id/D/DV/DVEEDEN/DBD-mysql-5.011.tar.gz"
+  sha256 "a3a70873ed965b172bff298f285f5d9bbffdcceba73d229b772b4d8b1b3992a1"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   head "https://github.com/perl5-dbi/DBD-mysql.git", branch: "master"
 
@@ -17,7 +17,10 @@ class PerlDbdMysql < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "640c1908b0319455228d26ce96e9a03ab9d13303f8ababfabb6c05e230e986fd"
   end
 
-  keg_only "it is mainly used internally by other formulae"
+  keg_only <<~EOS
+    it is mainly used internally by other formulae.
+    Users are advised to use `cpan` to install DBD::mysql
+  EOS
 
   depends_on "mysql" => :test
   depends_on "mysql-client"
@@ -31,8 +34,8 @@ class PerlDbdMysql < Formula
 
   resource "DBI" do
     on_linux do
-      url "https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/DBI-1.645.tgz"
-      sha256 "e38b7a5efee129decda12383cf894963da971ffac303f54cc1b93e40e3cf9921"
+      url "https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/DBI-1.646.tar.gz"
+      sha256 "53ab32ac8c30295a776dde658df22be760936cdca5a3c003a23bda6d829fa184"
     end
   end
 
@@ -104,9 +107,8 @@ class PerlDbdMysql < Formula
 
     system mysql.bin/"mysqld", *mysqld_args, "--initialize-insecure"
     pid = spawn(mysql.bin/"mysqld", *mysqld_args)
-    begin
+    with_env(PERL5LIB: libexec/"lib/perl5") do
       sleep 5
-      ENV["PERL5LIB"] = libexec/"lib/perl5"
       assert_equal "1,Tim\n2,Jochen\n", shell_output("#{perl} test.pl")
     ensure
       system mysql.bin/"mysqladmin", "--port=#{port}", "--socket=#{socket}", "--user=root", "--password=", "shutdown"
