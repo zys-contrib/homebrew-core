@@ -6,6 +6,15 @@ class Shepherd < Formula
   sha256 "895d0051e1cc473b1f79f63913777b4d15f89f16d0a723774176da102e2710c5"
   license "GPL-3.0-or-later"
 
+  bottle do
+    sha256 arm64_sequoia: "740ff4879eb0b645160af23435a9577f507d4b967d67f2134dcba7d42f99e36c"
+    sha256 arm64_sonoma:  "740ff4879eb0b645160af23435a9577f507d4b967d67f2134dcba7d42f99e36c"
+    sha256 arm64_ventura: "740ff4879eb0b645160af23435a9577f507d4b967d67f2134dcba7d42f99e36c"
+    sha256 sonoma:        "b6956667e60138b0f47296a9742fa98a730a101a2bd89945392e3266d0160de9"
+    sha256 ventura:       "b6956667e60138b0f47296a9742fa98a730a101a2bd89945392e3266d0160de9"
+    sha256 x86_64_linux:  "dc48d821c2067b81c6bf86c04a659aaa781d96a6e4bfd80da9b54b22f6342f4a"
+  end
+
   depends_on "pkgconf" => :build
   depends_on "guile"
   depends_on "guile-fibers"
