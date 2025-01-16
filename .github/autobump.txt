@@ -1296,6 +1296,7 @@ gtksourceview5
 gtranslator
 gucharmap
 guile
+guile-fibers
 gulp-cli
 gum
 gumbo-parser
