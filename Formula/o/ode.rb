@@ -1,10 +1,9 @@
 class Ode < Formula
   desc "Simulating articulated rigid body dynamics"
   homepage "https://www.ode.org/"
-  url "https://bitbucket.org/odedevs/ode/downloads/ode-0.16.5.tar.gz"
-  sha256 "ba875edd164570958795eeaa70f14853bfc34cc9871f8adde8da47e12bd54679"
+  url "https://bitbucket.org/odedevs/ode/downloads/ode-0.16.6.tar.gz"
+  sha256 "c91a28c6ff2650284784a79c726a380d6afec87ecf7a35c32a6be0c5b74513e8"
   license any_of: ["LGPL-2.1-or-later", "BSD-3-Clause"]
-  revision 1
   head "https://bitbucket.org/odedevs/ode.git", branch: "master"
 
   bottle do
