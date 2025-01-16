@@ -1362,6 +1362,7 @@ hoverfly
 howard-hinnant-date
 hpack
 hsd
+html2markdown
 htmldoc
 htmlq
 htmltest
