@@ -8,12 +8,12 @@ class Swiftlint < Formula
   head "https://github.com/realm/SwiftLint.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d00e434994863073a3356e0eb6d13c71c4b7018120b98658ba3fafb74ced3ad"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "530ec6c7ab4c6412db0b04857ab733be63f5722b2404ba8aebf0f30ec8b33a24"
-    sha256 cellar: :any,                 arm64_ventura: "6fe4758695f19509ace5b0138b3652bd1286682a972e42c1ee5dcd6a210a1754"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ed908a27065f4dca7e568499528354341807b33c7303b64128b3f4d0bafd53f6"
-    sha256 cellar: :any,                 ventura:       "dcebc777186154ce565abdaa7aa533d529615493242abd151f5b24114784ac92"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1bc4bcac9acd3c18841e5db025e1230ee058acff9dd102cf5f9c459b60018bbc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "956e860516741c967673bc13658f6f7fdeb6e50eb466940b47c5acfbc7ba7b09"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3a4c23ccfa7a25ee13441b0bafc46ba6ba6fe344553d1b144ae9cb6dbe8b2cdf"
+    sha256 cellar: :any,                 arm64_ventura: "853f96cd9ca8f9356708aa6ef17f8ca9690167923cac23c5ed9eb3b7dafc8cc0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cc52151499acbf8f5fec2237862bde4c40754a9f50155af82e1cd6f301fcd091"
+    sha256 cellar: :any,                 ventura:       "ba07bcc9302547f20a2b09139f4975bff73d64f13bfd3550a400c7171390d812"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4fc3b510739f75b2c71e53e8e80976652b5d76f9fec18ea8b17597b573c6a9c"
   end
 
   depends_on macos: :ventura
