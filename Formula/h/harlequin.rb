@@ -6,7 +6,7 @@ class Harlequin < Formula
   url "https://files.pythonhosted.org/packages/bb/c1/0fc47822534938e73f070eb485059be414bb6ee274ac05e1d5d695fb4c24/harlequin-1.25.2.tar.gz"
   sha256 "8319da69b07afd063e1296ebba1569374daa171489b97bd35d2dbdae802e6144"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
     rebuild 2
