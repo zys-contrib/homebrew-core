@@ -1503,6 +1503,7 @@ jrnl
 jruby
 jscpd
 jsdoc3
+jsign
 json-fortran
 json-glib
 json2ts
