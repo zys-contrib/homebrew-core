@@ -6,12 +6,12 @@ class Mako < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9b6148464e5dae545dca0885fd6551ef8e782942de0071eea0a1e0f6449735bf"
-    sha256 cellar: :any,                 arm64_sonoma:  "9b6148464e5dae545dca0885fd6551ef8e782942de0071eea0a1e0f6449735bf"
-    sha256 cellar: :any,                 arm64_ventura: "9b6148464e5dae545dca0885fd6551ef8e782942de0071eea0a1e0f6449735bf"
-    sha256 cellar: :any,                 sonoma:        "d156d59dfb7042baff78040d2d1492af04dabe292299c342516b3bded3899489"
-    sha256 cellar: :any,                 ventura:       "d156d59dfb7042baff78040d2d1492af04dabe292299c342516b3bded3899489"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cbb3c23456443ca57da33884693df518e5abb2a27bb18e3d685d475f641d74ba"
+    sha256 cellar: :any,                 arm64_sequoia: "0c91beb6fe9a75990514e203e57b9b83fb394830a768bddb5b54c9ea439a4d59"
+    sha256 cellar: :any,                 arm64_sonoma:  "0c91beb6fe9a75990514e203e57b9b83fb394830a768bddb5b54c9ea439a4d59"
+    sha256 cellar: :any,                 arm64_ventura: "0c91beb6fe9a75990514e203e57b9b83fb394830a768bddb5b54c9ea439a4d59"
+    sha256 cellar: :any,                 sonoma:        "82ff5e74b8b46c237f7e3c60943e58ab455cfe018f8ce179199e0db5dcf11cfc"
+    sha256 cellar: :any,                 ventura:       "82ff5e74b8b46c237f7e3c60943e58ab455cfe018f8ce179199e0db5dcf11cfc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f1c4eaf5d84058cc55108d62dee03312cb699e2eeb3a286d27c1c0582d589a9"
   end
 
   depends_on "node"
