@@ -2,8 +2,8 @@ class DeviceMapper < Formula
   desc "Userspace library and tools for logical volume management"
   homepage "https://sourceware.org/dm"
   url "https://sourceware.org/git/lvm2.git",
-      tag:      "v2_03_28",
-      revision: "f87a6ad6d6f7cde0170fd479a45ee5b0a1c63d52"
+      tag:      "v2_03_30",
+      revision: "9f81fccd65a29030bf70417e8aca659ae536e081"
   license "LGPL-2.1-only"
 
   livecheck do
