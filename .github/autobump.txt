@@ -545,6 +545,7 @@ code-minimap
 code-server
 codeberg-cli
 codec2
+codecov-cli
 codelimit
 coder
 codesnap
