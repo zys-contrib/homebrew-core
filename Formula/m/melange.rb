@@ -12,12 +12,12 @@ class Melange < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "51b9f56b633c1990329293ad5e8631ad2aa5034cbdda77101d08b8b92e02c36e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "51b9f56b633c1990329293ad5e8631ad2aa5034cbdda77101d08b8b92e02c36e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "51b9f56b633c1990329293ad5e8631ad2aa5034cbdda77101d08b8b92e02c36e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "206100a6ad4986d1482c4cffeab4d0fb8054649806993b4ed3c6efd91b669647"
-    sha256 cellar: :any_skip_relocation, ventura:       "206100a6ad4986d1482c4cffeab4d0fb8054649806993b4ed3c6efd91b669647"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24ffffa78fe08b5201761d2b65e514c2d01b43ce1c36f9c9fca502285ae6d89c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "926f1adfffdf9ab7ae82aa33e171acca52c6157465946e957a742c696fbfd29f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "926f1adfffdf9ab7ae82aa33e171acca52c6157465946e957a742c696fbfd29f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "926f1adfffdf9ab7ae82aa33e171acca52c6157465946e957a742c696fbfd29f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4d5fe9b5c5aaa314e0df05297fa538000dc91ceedee1d483b59eb08ddc54015f"
+    sha256 cellar: :any_skip_relocation, ventura:       "4d5fe9b5c5aaa314e0df05297fa538000dc91ceedee1d483b59eb08ddc54015f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "44acc4836219801b1b665bc1f9fdedb6b0e861e9f88efedf565d563c70fd7e7c"
   end
 
   depends_on "go" => :build
