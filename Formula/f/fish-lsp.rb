@@ -6,6 +6,15 @@ class FishLsp < Formula
   license "MIT"
   head "https://github.com/ndonfris/fish-lsp.git", branch: "master"
 
+  bottle do
+    sha256                               arm64_sequoia: "262affd100aa67d1959987036404ee1a1da277b5e3033ebf56f0add5152f86ca"
+    sha256                               arm64_sonoma:  "cc5d172d38d3e7cf02243da09f0269478abd5da536eb2c3fc6df0b69cb232f4d"
+    sha256                               arm64_ventura: "dee73c808f55636618f4d2794ec1def3bfff0d0ed24c5166fe817d1e27f2076c"
+    sha256                               sonoma:        "b0dfe36d799467431c8cadbdf830cef2ef82337005e4e59f6f7119172e3899d4"
+    sha256                               ventura:       "9015110d31f885b970a44fe7c735aa17166a595b93f70ccd2ee376cc01dfba21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5b261fb388f3f2d5ef74091c9292bd4689a7fce09dc590b7ad15ffda20b7159"
+  end
+
   depends_on "fish" => [:build, :test]
   depends_on "node"
 
