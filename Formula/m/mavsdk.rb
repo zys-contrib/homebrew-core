@@ -2,10 +2,9 @@ class Mavsdk < Formula
   desc "API and library for MAVLink compatible systems written in C++17"
   homepage "https://mavsdk.mavlink.io"
   url "https://github.com/mavlink/MAVSDK.git",
-      tag:      "v2.14.1",
-      revision: "2b98c53af5f5c0ad5686816e85b47090569245a4"
+      tag:      "v3.0.0",
+      revision: "e0e4ffb34a1913960f6c9ccdc8bcbea0447d26ad"
   license "BSD-3-Clause"
-  revision 2
 
   livecheck do
     url :stable
@@ -49,11 +48,17 @@ class Mavsdk < Formula
   end
 
   # ver={version} && \
-  # curl -s https://raw.githubusercontent.com/mavlink/MAVSDK/v$ver/third_party/mavlink/CMakeLists.txt && \
+  # curl -s https://raw.githubusercontent.com/mavlink/MAVSDK/v$ver/third_party/mavlink/CMakeLists.txt \
   # | grep 'MAVLINK_GIT_HASH'
   resource "mavlink" do
     url "https://github.com/mavlink/mavlink.git",
-        revision: "f1d42e2774cae767a1c0651b0f95e3286c587257"
+        revision: "5e3a42b8f3f53038f2779f9f69bd64767b913bb8"
+  end
+
+  # macos rpath fix, upstream pr ref, https://github.com/mavlink/MAVSDK/pull/2495
+  patch do
+    url "https://github.com/mavlink/MAVSDK/commit/6d11efa589dbe045890c2f3a5db8091833b0f1a3.patch?full_index=1"
+    sha256 "c10aa11c78281eef4326548b4cbc25fd637d709e814f62f2a3025b7d16d5af04"
   end
 
   def install
@@ -75,15 +80,17 @@ class Mavsdk < Formula
 
     # Source build adapted from
     # https://mavsdk.mavlink.io/develop/en/contributing/build.html
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DSUPERBUILD=OFF",
-                    "-DBUILD_SHARED_LIBS=ON",
-                    "-DBUILD_MAVSDK_SERVER=ON",
-                    "-DBUILD_TESTS=OFF",
-                    "-DVERSION_STR=v#{version}-#{tap.user}",
-                    "-DCMAKE_PREFIX_PATH=#{libexec}",
-                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                    *std_cmake_args
+    args = %W[
+      -DSUPERBUILD=OFF
+      -DBUILD_SHARED_LIBS=ON
+      -DBUILD_MAVSDK_SERVER=ON
+      -DBUILD_TESTS=OFF
+      -DVERSION_STR=v#{version}-#{tap.user}
+      -DCMAKE_PREFIX_PATH=#{libexec}
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -97,7 +104,7 @@ class Mavsdk < Formula
       #include <mavsdk/mavsdk.h>
       using namespace mavsdk;
       int main() {
-          Mavsdk mavsdk{Mavsdk::Configuration{Mavsdk::ComponentType::GroundStation}};
+          Mavsdk mavsdk{Mavsdk::Configuration{ComponentType::GroundStation}};
           std::cout << mavsdk.version() << std::endl;
           return 0;
       }
