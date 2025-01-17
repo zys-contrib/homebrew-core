@@ -11,14 +11,12 @@ class Dialog < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9f7090669978888d1cac3055e3eb119055cbbf63d5adef3cd370480096253d6a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c5c48877fe16832b1ab4898c94a642e8b5bf78683202a9996498a0049e0217c5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bf1e44f6a3456d9fc125a5c980df2a45cb104cd8d6b3883c7617743ff0ef9a15"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0a639f7053e72045fd49d4ea0d48d89d56d82261c881bdedc9f48806489cdd99"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6f95c25a531ae22049228e4b326ac6a34407fa6c9bb2ba1c95aa142546fa0333"
-    sha256 cellar: :any_skip_relocation, ventura:        "0566e9e30b16caa72edd7890d9abfc362f1a4b2f246ed5ac3ffe5604d9a0aeb6"
-    sha256 cellar: :any_skip_relocation, monterey:       "80e53812d09c9edee3593f510b6923b02c808c81d2de6f490dde51a615c27d96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46d4079965af97a483e15e0141ead64496a412008bf17021485a28680eeb7aa4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4d2469f63747ff4fd24c4f56ed8c40fc25bf9ad4b7125641efade529ec966910"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "730c804e04d5d9da67ddde062fa9434f022b7739b376c4b49a93161db69dcda1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c592b9a7cc4715b80b7461cd020a4de1672f17b845d70c2e77bb55670b660bd9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "38c5ed508d93b2fc7635c23d7fb5dbfc7c5edf336dc461e4b8b351b34ea09643"
+    sha256 cellar: :any_skip_relocation, ventura:       "c1ba6e432599dae77a21e6a22107b5b432bfc66d5036d0adfde9c52aa181f7de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f46ba5552ed2d230e0a3fb2aa544e98a2638f7ff6e6af8731a1d69726840179"
   end
 
   uses_from_macos "ncurses"
