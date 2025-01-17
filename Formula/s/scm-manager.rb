@@ -11,7 +11,7 @@ class ScmManager < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c34c7d874fc5777459d1312b62358c823aff945c4e0b01289c7aa193e5c01af3"
+    sha256 cellar: :any_skip_relocation, all: "d55cedfcb8eccb8e2a53ed7e2231198ecfd424f8f1ba76b7f45375c336c9c195"
   end
 
   depends_on "jsvc"
