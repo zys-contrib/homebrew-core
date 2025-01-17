@@ -17,11 +17,25 @@ class GitWorkspace < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libgit2"
+  depends_on "libssh2"
   depends_on "openssl@3"
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
+    ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
+    # Ensure the correct `openssl` will be picked up.
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
     system "cargo", "install", *std_cargo_args
+  end
+
+  def check_binary_linkage(binary, library)
+    binary.dynamically_linked_libraries.any? do |dll|
+      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
+
+      File.realpath(dll) == File.realpath(library)
+    end
   end
 
   test do
@@ -32,12 +46,15 @@ class GitWorkspace < Formula
     output = shell_output("#{bin}/git-workspace update 2>&1", 1)
     assert_match "Error fetching repositories from Github user/org foo", output
 
-    linkage_with_libgit2 = (bin/"git-workspace").dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == (Formula["libgit2"].opt_lib/shared_library("libgit2")).realpath.to_s
+    linked_libraries = [
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      Formula["libssh2"].opt_lib/shared_library("libssh2"),
+      Formula["openssl@3"].opt_lib/shared_library("libssl"),
+    ]
+    linked_libraries << (Formula["openssl@3"].opt_lib/shared_library("libcrypto")) if OS.mac?
+    linked_libraries.each do |library|
+      assert check_binary_linkage(bin/"git-workspace", library),
+             "No linkage with #{library.basename}! Cargo is likely using a vendored version."
     end
-
-    assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."
   end
 end
