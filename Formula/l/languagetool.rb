@@ -22,10 +22,10 @@ class Languagetool < Formula
   end
 
   depends_on "maven" => :build
-  depends_on "openjdk@11"
+  depends_on "openjdk@17"
 
   def install
-    java_version = "11"
+    java_version = "17"
     ENV["JAVA_HOME"] = Language::Java.java_home(java_version)
     system "mvn", "clean", "package", "-DskipTests"
 
