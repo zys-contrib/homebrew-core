@@ -95,9 +95,7 @@ class PerlBuild < Formula
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
     # Ensure we don't install the pre-packed script
-    (buildpath/"perl-build").unlink
-    # Remove this apparently dead symlink.
-    (buildpath/"bin/perl-build").unlink
+    rm(["perl-build", "bin/perl-build"])
 
     build_pl = ["Module::Build::Tiny", "CPAN::Perl::Releases::MetaCPAN"]
     resources.each do |r|
@@ -118,22 +116,19 @@ class PerlBuild < Formula
       end
     end
 
-    ENV.prepend_path "PATH", libexec/"bin"
-    system "perl", "Build.PL", "--install_base", libexec
+    system "perl", "Build.PL", "--install_base", libexec, "--install_path", "bindoc=#{man1}"
     # Replace the dead symlink we removed earlier.
     (buildpath/"bin").install_symlink buildpath/"script/perl-build"
     system "./Build"
     system "./Build", "install"
 
-    %w[perl-build plenv-install plenv-uninstall].each do |cmd|
-      (bin/cmd).write_env_script(libexec/"bin/#{cmd}", PERL5LIB: ENV["PERL5LIB"])
-    end
+    bin.install libexec/"bin/plenv-install", libexec/"bin/plenv-uninstall"
+    (bin/"perl-build").write_env_script(libexec/"bin/perl-build", PERL5LIB: ENV["PERL5LIB"])
 
     # Replace cellar path to perl with opt path.
     if OS.linux?
-      inreplace Dir[libexec/"bin/{perl-build,config_data}"] do |s|
-        s.sub! Formula["perl"].bin.realpath, Formula["perl"].opt_bin
-      end
+      inreplace_files = [libexec/"bin/perl-build", libexec/"bin/config_data"]
+      inreplace inreplace_files, Formula["perl"].bin.realpath, Formula["perl"].opt_bin, global: false
     end
   end
 
