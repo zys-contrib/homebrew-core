@@ -19,12 +19,20 @@ class CargoUpdate < Formula
   depends_on "rust" => :build
   depends_on "rustup" => :test
 
+  depends_on "libgit2"
+  depends_on "libssh2"
   depends_on "openssl@3"
 
   uses_from_macos "curl"
   uses_from_macos "zlib"
 
   def install
+    ENV["LIBGIT2_NO_VENDOR"] = "1"
+    ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
+    # Ensure the correct `openssl` will be picked up.
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
     system "cargo", "install", *std_cargo_args
   end
 
