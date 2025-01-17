@@ -3,8 +3,8 @@ class Tach < Formula
 
   desc "Tool to enforce dependencies using modular architecture"
   homepage "https://docs.gauge.sh/getting-started/introduction"
-  url "https://files.pythonhosted.org/packages/54/c8/4064f6e97abeda0dd5a68a23a9cc46f236850d8247f124847ae3f03f86ff/tach-0.20.0.tar.gz"
-  sha256 "65ec25354c36c1305a7abfae33f138e9b6026266a19507ff4724f3dda9b55c67"
+  url "https://files.pythonhosted.org/packages/8c/fa/61d4208652b4ddfeb12236a9d582b21831ab4a38b5956ac9210dc521e97c/tach-0.21.0.tar.gz"
+  sha256 "628ba343fe84b95998a5652520862e42c306b15c89fd32da88efe0031f986051"
   license "MIT"
   head "https://github.com/gauge-sh/tach.git", branch: "main"
 
@@ -87,8 +87,8 @@ class Tach < Formula
   end
 
   resource "tomli-w" do
-    url "https://files.pythonhosted.org/packages/d4/19/b65f1a088ee23e37cdea415b357843eca8b1422a7b11a9eee6e35d4ec273/tomli_w-1.1.0.tar.gz"
-    sha256 "49e847a3a304d516a169a601184932ef0f6b61623fe680f836a2aa7128ed0d33"
+    url "https://files.pythonhosted.org/packages/19/75/241269d1da26b624c0d5e110e8149093c759b7a286138f4efd61a60e75fe/tomli_w-1.2.0.tar.gz"
+    sha256 "2dd14fac5a47c27be9cd4c976af5a12d87fb1f0b4512f81d69cce3b35ae25021"
   end
 
   resource "wcwidth" do
