@@ -4,6 +4,7 @@ class Actionlint < Formula
   url "https://github.com/rhysd/actionlint/archive/refs/tags/v1.7.6.tar.gz"
   sha256 "59b49d1cabe927d2f1ba67b15f4cd44e56b30ba28eaf48f9bdd71274bedb8061"
   license "MIT"
+  revision 1
   head "https://github.com/rhysd/actionlint.git", branch: "main"
 
   bottle do
@@ -18,6 +19,12 @@ class Actionlint < Formula
   depends_on "go" => :build
   depends_on "ronn" => :build
   depends_on "shellcheck"
+
+  # Support ARM64 runners, upstream pr ref, https://github.com/rhysd/actionlint/pull/503
+  patch do
+    url "https://github.com/rhysd/actionlint/commit/9058a060232e484b6bc958a8f56e908108d1c85c.patch?full_index=1"
+    sha256 "4a721ad09d1be86be8210571666625f8dfdf0387fce2b6776bd0e45ef87e24b9"
+  end
 
   def install
     ldflags = "-s -w -X github.com/rhysd/actionlint.version=#{version}"
