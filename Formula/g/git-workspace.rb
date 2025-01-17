@@ -1,10 +1,9 @@
 class GitWorkspace < Formula
   desc "Sync personal and work git repositories from multiple providers"
   homepage "https://github.com/orf/git-workspace"
-  url "https://github.com/orf/git-workspace/archive/refs/tags/v1.8.0.tar.gz"
-  sha256 "b6499b70362730dbe1674fd07bd9aefef0bcd45ba4504ed0cce62ef2c7ecad1f"
+  url "https://github.com/orf/git-workspace/archive/refs/tags/v1.9.0.tar.gz"
+  sha256 "d5e2a5a0a568c46b408f82f981ea3672066d4496755fc14837e553e451c69f2d"
   license "MIT"
-  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "37536ae9e70e4244174267114d5727b34d002276e3daaf09ab03eea059288915"
@@ -19,12 +18,6 @@ class GitWorkspace < Formula
   depends_on "rust" => :build
   depends_on "libgit2"
   depends_on "openssl@3"
-
-  # patch to support libgit2 1.9, upstream pr ref, https://github.com/orf/git-workspace/pull/390
-  patch do
-    url "https://github.com/orf/git-workspace/commit/9250483b38f24ac60a025ddcd49b21f847d37b60.patch?full_index=1"
-    sha256 "3d8201522021b5aacfb9b332c02ddac4c1ca409857cbe4acca226f229fd5ae8f"
-  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
