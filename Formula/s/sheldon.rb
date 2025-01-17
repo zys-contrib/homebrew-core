@@ -28,6 +28,7 @@ class Sheldon < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libgit2"
+  depends_on "libssh2"
   depends_on "openssl@3"
 
   # curl-config on ventura builds do not report http2 feature,
@@ -36,13 +37,11 @@ class Sheldon < Formula
   uses_from_macos "curl", since: :sonoma
 
   def install
-    # Ensure the declared `openssl@3` dependency will be picked up.
-    # https://docs.rs/openssl/latest/openssl/#manual
+    ENV["LIBGIT2_NO_VENDOR"] = "1"
+    ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
+    # Ensure the correct `openssl` will be picked up.
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
-
-    # Replace vendored `libgit2` with our formula
-    ENV["LIBGIT2_NO_VENDOR"] = "1"
 
     system "cargo", "install", "--no-default-features", *std_cargo_args
 
@@ -65,6 +64,7 @@ class Sheldon < Formula
 
     libraries = [
       Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      Formula["libssh2"].opt_lib/shared_library("libssh2"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
     ]
