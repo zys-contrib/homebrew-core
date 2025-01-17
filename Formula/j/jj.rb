@@ -18,8 +18,11 @@ class Jj < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
+
   depends_on "libgit2"
+  depends_on "libssh2"
   depends_on "openssl@3"
+
   uses_from_macos "zlib"
 
   # patch to use libgit2 1.9, upstream pr ref, https://github.com/jj-vcs/jj/pull/5315
@@ -30,6 +33,10 @@ class Jj < Formula
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
+    ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
+    # Ensure the correct `openssl` will be picked up.
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
 
     system "cargo", "install", *std_cargo_args(path: "cli")
 
@@ -52,6 +59,7 @@ class Jj < Formula
 
     [
       Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      Formula["libssh2"].opt_lib/shared_library("libssh2"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
     ].each do |library|
