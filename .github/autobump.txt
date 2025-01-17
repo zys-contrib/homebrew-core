@@ -384,6 +384,7 @@ cargo-release
 cargo-run-bin
 cargo-shuttle
 cargo-udeps
+cargo-update
 cargo-watch
 cargo-zigbuild
 cariddi
