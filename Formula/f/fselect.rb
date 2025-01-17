@@ -18,7 +18,9 @@ class Fselect < Formula
   depends_on "cmake" => :build # for libz-ng-sys
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
+
   depends_on "libgit2"
+  depends_on "libssh2"
   depends_on "openssl@3"
 
   uses_from_macos "bzip2"
@@ -29,6 +31,7 @@ class Fselect < Formula
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
+    ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
     # Ensure the correct `openssl` will be picked up.
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
@@ -51,7 +54,7 @@ class Fselect < Formula
 
     linked_libraries = [
       Formula["libgit2"].opt_lib/shared_library("libgit2"),
-      Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
+      Formula["libssh2"].opt_lib/shared_library("libssh2"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
     ]
     linked_libraries << (Formula["openssl@3"].opt_lib/shared_library("libcrypto")) if OS.mac?
@@ -68,7 +71,7 @@ index 1df37fd..3845112 100644
 --- a/Cargo.lock
 +++ b/Cargo.lock
 @@ -650,9 +650,9 @@ checksum = "07e28edb80900c19c28f1072f2e8aeca7fa06b23cd4169cefe1af5aa3260783f"
- 
+
  [[package]]
  name = "git2"
 -version = "0.19.0"
@@ -80,7 +83,7 @@ index 1df37fd..3845112 100644
   "bitflags 2.6.0",
   "libc",
 @@ -1074,9 +1074,9 @@ checksum = "5aaeb2981e0606ca11d79718f8bb01164f1d6ed75080182d3abf017e6d244b6d"
- 
+
  [[package]]
  name = "libgit2-sys"
 -version = "0.17.0+1.8.1"
