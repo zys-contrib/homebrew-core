@@ -32,7 +32,7 @@ class Netatalk < Formula
   depends_on "cracklib"
   depends_on "libevent"
   depends_on "libgcrypt"
-  depends_on "mariadb"
+  depends_on "mariadb-connector-c"
   depends_on "openldap" # macOS LDAP.Framework is not fork safe
 
   uses_from_macos "libxslt" => :build
