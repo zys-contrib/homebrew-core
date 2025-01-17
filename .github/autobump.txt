@@ -1552,6 +1552,7 @@ kcgi
 kcov
 kcptun
 kea
+keep-sorted
 kepubify
 kerl
 kew
