@@ -1,8 +1,8 @@
 class Sdl2Sound < Formula
   desc "Abstract soundfile decoder for SDL"
   homepage "https://icculus.org/SDL_sound/"
-  url "https://github.com/icculus/SDL_sound/releases/download/v2.0.2/SDL2_sound-2.0.2.tar.gz"
-  sha256 "465a81d6004af731768b881b2f50383150cc58a8d346653bad85e2375829cc3a"
+  url "https://github.com/icculus/SDL_sound/releases/download/v2.0.4/SDL2_sound-2.0.4.tar.gz"
+  sha256 "f73f6720dba2e677c0bf70d0c76ca3c96d865d04025e49a8b161711685961931"
   license all_of: [
     "Zlib",
     any_of: ["Artistic-1.0-Perl", "LGPL-2.1-or-later"], # timidity
@@ -65,7 +65,7 @@ class Sdl2Sound < Formula
          File extension "UMX"
          File extension "XM"
          Written by Torbjörn Andersson <d91tan@Update.UU.SE>.
-         http://modplug-xmms.sourceforge.net/
+         https://modplug-xmms.sourceforge.net/
 
        * MPEG-1 Audio Layer I-III
          File extension "MP3"
@@ -82,7 +82,7 @@ class Sdl2Sound < Formula
        * Audio Interchange File Format
          File extension "AIFF"
          File extension "AIF"
-         Written by TorbjÃ¶rn Andersson <d91tan@Update.UU.SE>.
+         Written by Torbjörn Andersson <d91tan@Update.UU.SE>.
          https://icculus.org/SDL_sound/
 
        * Sun/NeXT audio file format
