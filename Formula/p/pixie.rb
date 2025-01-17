@@ -2,8 +2,8 @@ class Pixie < Formula
   desc "Observability tool for Kubernetes applications"
   homepage "https://px.dev/"
   url "https://github.com/pixie-io/pixie.git",
-      tag:      "release/cli/v0.8.7",
-      revision: "3ed59977567fb3e36e8b676de1103cc34958a076"
+      tag:      "release/cli/v0.8.8",
+      revision: "042e35639f16d32fced41939c5fbc5085e1272ff"
   license "Apache-2.0"
   head "https://github.com/pixie-io/pixie.git", branch: "main"
 
@@ -13,12 +13,12 @@ class Pixie < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c91417ca437da25a30940e4f81d89c1c4ddfd67e69538d0b4ddd305a0647abf5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f8a1f102321d3cab4555f3bde2509a072a9fc1db4fd079ca8b13720cd2ac633c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2e2cbf7a7caed84e44b4582541a3787ae61c14b0fd5a630dfd3e81fe94812a13"
-    sha256 cellar: :any_skip_relocation, sonoma:        "369899091d98a201067d84f6b311d41aef000c1ebf618f462629931d7c55f7e9"
-    sha256 cellar: :any_skip_relocation, ventura:       "98b0623e3eef47b89e3c6beaf3caada305f0ae6fe329dbfeab2bca31ca135285"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49b7ae9bec2d0f4407e410b9fc1aad3d7f96d3bf1ab277b2d7d82de0c89ab68d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6c7fbaafa23de8f05e452d24747a4edd4c8a0d61a0a01b3ba664ca804c843e8e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "76f8833feb8e94f8f7fb33848057603d35acf63c1d6acdbfd02d3a4c22e863fb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1cf672d31b3b683081c257958eb297f56ff5f0b394dc48f51e4be862751f9bce"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8fdd739ced12415fabcad6ceeb96550171e1b585143f274376ec56f776c83d90"
+    sha256 cellar: :any_skip_relocation, ventura:       "afdfd7b18e2528f563336d90b53d9266a72b86d847df1afac796fc70f7f6e8e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da530afc94d1ab1753b32d48e963b6cb6e4c45ef4daaaa2cad0255e54fab966a"
   end
 
   depends_on "go" => :build
