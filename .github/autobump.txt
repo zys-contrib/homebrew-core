@@ -1710,6 +1710,7 @@ libepoxy
 libesedb
 libetonyek
 libewf
+libexif
 libfabric
 libffcall
 libffi

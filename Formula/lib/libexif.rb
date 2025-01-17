@@ -1,9 +1,14 @@
 class Libexif < Formula
   desc "EXIF parsing library"
   homepage "https://libexif.github.io/"
-  url "https://github.com/libexif/libexif/releases/download/v0.6.24/libexif-0.6.24.tar.bz2"
-  sha256 "d47564c433b733d83b6704c70477e0a4067811d184ec565258ac563d8223f6ae"
+  url "https://github.com/libexif/libexif/releases/download/v0.6.25/libexif-0.6.25.tar.bz2"
+  sha256 "7c9eba99aed3e6594d8c3e85861f1c6aaf450c218621528bc989d3b3e7a26307"
   license all_of: ["LGPL-2.1-or-later", "LGPL-2.0-or-later"]
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 arm64_sequoia:  "df36ccbc1e0580aabd7dc8bb37d092f961473d49e8731e0a35a5f675b44fa4f7"
