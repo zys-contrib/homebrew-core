@@ -7,24 +7,33 @@ class CargoUpdate < Formula
   head "https://github.com/nabijaczleweli/cargo-update.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1506d6731e67f9668912ee05124cbc1e5dc8f8f9264a8279b15afb86beb0b074"
-    sha256 cellar: :any,                 arm64_sonoma:  "2472f0e080ea5498a9640c7208b2976b387f215b15dc7ec63ce0bb2669fc7d7a"
-    sha256 cellar: :any,                 arm64_ventura: "3da0e37d79d0f0119e3a62005cd7f7565c7772f07ebb3755ff258a98f88ed43a"
-    sha256 cellar: :any,                 sonoma:        "5b3056af65e3f2a791588b88bc2eed97c1d9c732b0f91eea59d73bc0b3f696a4"
-    sha256 cellar: :any,                 ventura:       "e2d7579199c484930578c471ca2d5f2cb228dd1c5dde114a5552ee9ee95c8015"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2cc6e09d23c9db33efe7b3dc64133067c3111afe97b80f11e3a8fed0023d38f9"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "d6ccdb6406072e4557c05aaad243001c48094e00ca4033429ded4163a676429b"
+    sha256 cellar: :any,                 arm64_sonoma:  "8c5d0979b2e76bd69c026de1b41f294645552ca9f5dadcea81065da4910995cb"
+    sha256 cellar: :any,                 arm64_ventura: "c066f18bb4ce58400a43d03d87f27c40ed2d29d21b516e6be8c8e87221db9b22"
+    sha256 cellar: :any,                 sonoma:        "272f21263ee5dd7930e5adefb688995f9bcba61ff647353ca575bce312cecf81"
+    sha256 cellar: :any,                 ventura:       "5b3aaa05b5d5c51523fcf4c0ded1c0f838ecb4bef30def7471f68319e494f968"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15edf65d1ee7008ac0a4a4e66b7ca4f6f018f3a84327f9a509a36be5b1171484"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "rustup" => :test
 
+  depends_on "libgit2"
+  depends_on "libssh2"
   depends_on "openssl@3"
 
   uses_from_macos "curl"
   uses_from_macos "zlib"
 
   def install
+    ENV["LIBGIT2_NO_VENDOR"] = "1"
+    ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
+    # Ensure the correct `openssl` will be picked up.
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
     system "cargo", "install", *std_cargo_args
   end
 
