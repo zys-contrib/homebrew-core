@@ -1,8 +1,8 @@
 class DsdaDoom < Formula
   desc "Fork of prboom+ with a focus on speedrunning"
   homepage "https://github.com/kraflab/dsda-doom"
-  url "https://github.com/kraflab/dsda-doom/archive/refs/tags/v0.28.2.tar.gz"
-  sha256 "5cab9227a5ab1c6fded71321c2d9ae2b481e8defc7f04ea9ca232cb13b856ce6"
+  url "https://github.com/kraflab/dsda-doom/archive/refs/tags/v0.28.3.tar.gz"
+  sha256 "4ccd3f365cb594f9de5a59006445d9642457b97a8271e1977d8104e6aa040c70"
   license "GPL-2.0-only"
   head "https://github.com/kraflab/dsda-doom.git", branch: "master"
 
