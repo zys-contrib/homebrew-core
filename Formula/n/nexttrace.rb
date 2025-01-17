@@ -1,8 +1,8 @@
 class Nexttrace < Formula
   desc "Open source visual route tracking CLI tool"
   homepage "https://nxtrace.github.io/NTrace-core/"
-  url "https://github.com/nxtrace/NTrace-core/archive/refs/tags/v1.3.6.tar.gz"
-  sha256 "ddfae697445b0e86ddada4c0871f6cd7646f26bb2653b33b09e03becdebe7ced"
+  url "https://github.com/nxtrace/NTrace-core/archive/refs/tags/v1.3.7.tar.gz"
+  sha256 "94f8893f80b6b0a8d02b2fe709a62557034f3e32879a55807c38cb6ee2f8ab01"
   license "GPL-3.0-only"
   head "https://github.com/nxtrace/NTrace-core.git", branch: "main"
 
@@ -22,8 +22,7 @@ class Nexttrace < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "be00c4943af521d667ba4dc21000c6f5aeb434ad4c30683e0fc0046549362f23"
   end
 
-  # use "go" again after https://github.com/nxtrace/NTrace-core/issues/247 is fixed and released
-  depends_on "go@1.22" => :build
+  depends_on "go" => :build
 
   def install
     ldflags = %W[
@@ -31,7 +30,9 @@ class Nexttrace < Formula
       -X github.com/nxtrace/NTrace-core/config.Version=#{version}
       -X github.com/nxtrace/NTrace-core/config.CommitID=brew
       -X github.com/nxtrace/NTrace-core/config.BuildDate=#{time.iso8601}
+      -checklinkname=0
     ]
+    # checklinkname=0 is a workaround for Go >= 1.23, see https://github.com/nxtrace/NTrace-core/issues/247
     system "go", "build", *std_go_args(ldflags:)
   end
 
