@@ -1,8 +1,8 @@
 class Ingress2gateway < Formula
   desc "Convert Kubernetes Ingress resources to Kubernetes Gateway API resources"
   homepage "https://github.com/kubernetes-sigs/ingress2gateway"
-  url "https://github.com/kubernetes-sigs/ingress2gateway/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "87813319e61b317f9c15e6df9db972a314518570c0b5fef5097c58fdba841a9d"
+  url "https://github.com/kubernetes-sigs/ingress2gateway/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "7c511e4c309b62d01ce2128643922637f0ca77524bab2c4c6811bebbb43ff119"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/ingress2gateway.git", branch: "main"
 
@@ -63,6 +63,8 @@ class Ingress2gateway < Formula
       apiVersion: gateway.networking.k8s.io/v1
       kind: Gateway
       metadata:
+        annotations:
+          gateway.networking.k8s.io/generator: ingress2gateway-#{version}
         creationTimestamp: null
         name: nginx
         namespace: bar
@@ -87,6 +89,8 @@ class Ingress2gateway < Formula
       apiVersion: gateway.networking.k8s.io/v1
       kind: HTTPRoute
       metadata:
+        annotations:
+          gateway.networking.k8s.io/generator: ingress2gateway-#{version}
         creationTimestamp: null
         name: foo-foo-bar
         namespace: bar
