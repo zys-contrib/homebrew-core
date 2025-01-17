@@ -17,6 +17,15 @@ class PerconaXtrabackupAT80 < Formula
     end
   end
 
+  bottle do
+    sha256 arm64_sequoia: "e5afd37f5fd4c4f32d8774cdb17d48ffccdbaed1101f8870b3dd327b8eab1dbc"
+    sha256 arm64_sonoma:  "99483ad138428415892749dfbde689af2cd9fcf66e66a4861068349edfb7c7ea"
+    sha256 arm64_ventura: "79a0f127c6ac44100e902bb0416d191123a829c9b4288f27db14d62de0418432"
+    sha256 sonoma:        "2122b3ef73c7120d2f2a4f4e8d6c2e21838fd4837de8cdff80f3509b78fd32eb"
+    sha256 ventura:       "4c060f49c28ef29a5c97463574cf2822836970bbbc03cec70c2b1ab437890152"
+    sha256 x86_64_linux:  "1ee6bc1d9aabde4fef12b4c0519c8baefaacc43ca9c9f4dd0e7677caf38e353a"
+  end
+
   keg_only :versioned_formula
 
   depends_on "bison" => :build # needs bison >= 3.0.4
