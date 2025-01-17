@@ -31,9 +31,12 @@ class Flang < Formula
   end
 
   def install
+    # Generate omp_lib.h and omp_lib.F90 to be used by flang build
+    system "cmake", "-S", "openmp", "-B", "build/projects/openmp", *std_cmake_args
+
     llvm = Formula["llvm"]
-    # NOTE: Setting `BUILD_SHARED_LIBRARIES=ON` causes the just-built flang to throw ICE.
     args = %W[
+      -DLLVM_TOOL_OPENMP_BUILD=ON
       -DCLANG_DIR=#{llvm.opt_lib}/cmake/clang
       -DFLANG_INCLUDE_TESTS=OFF
       -DFLANG_REPOSITORY_STRING=#{tap&.issues_url}
@@ -46,6 +49,8 @@ class Flang < Formula
       -DMLIR_DIR=#{llvm.opt_lib}/cmake/mlir
     ]
     args << "-DFLANG_VENDOR_UTI=sh.brew.flang" if tap&.official?
+    # FIXME: Setting `BUILD_SHARED_LIBS=ON` causes the just-built flang to throw ICE on macOS
+    args << "-DBUILD_SHARED_LIBS=ON" if OS.linux?
 
     ENV.append_to_cflags "-ffat-lto-objects" if OS.linux? # Unsupported on macOS.
     system "cmake", "-S", "flang", "-B", "build", *args, *std_cmake_args
@@ -126,6 +131,8 @@ class Flang < Formula
 
     system bin/flang_driver, "-v", "test.f90", "-o", "test"
     assert_equal "Done", shell_output("./test").chomp
+
+    return if OS.linux?
 
     system "ar", "x", lib/"libFortranCommon.a"
     testpath.glob("*.o").each do |object_file|
