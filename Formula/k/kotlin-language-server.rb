@@ -1,8 +1,8 @@
 class KotlinLanguageServer < Formula
   desc "Intelligent Kotlin support for any editor/IDE using the Language Server Protocol"
   homepage "https://github.com/fwcd/kotlin-language-server"
-  url "https://github.com/fwcd/kotlin-language-server/archive/refs/tags/1.3.12.tar.gz"
-  sha256 "6d36c011b9a1f02f2d83570e1e03c77e2481a744ce3f6a7579cc83681f604aa8"
+  url "https://github.com/fwcd/kotlin-language-server/archive/refs/tags/1.3.13.tar.gz"
+  sha256 "4cb346f989ef114f6073cb9401968a7dd27eb5cd96993fa6856203610a13f96e"
   license "MIT"
 
   bottle do
@@ -18,6 +18,12 @@ class KotlinLanguageServer < Formula
 
   depends_on "gradle" => :build
   depends_on "openjdk@21"
+
+  # file permission literal patch, upstream pr ref, https://github.com/fwcd/kotlin-language-server/pull/611
+  patch do
+    url "https://github.com/fwcd/kotlin-language-server/commit/a788e5f7b449dd701adc642c7cfb129f1895bd3e.patch?full_index=1"
+    sha256 "cc9f6c68a09c76017099ffdd9bfe242a81b51221131bc33f3a7e2baa5bea6d01"
+  end
 
   def install
     ENV["JAVA_HOME"] = Language::Java.java_home("21")
