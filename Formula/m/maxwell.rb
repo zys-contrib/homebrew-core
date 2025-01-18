@@ -14,7 +14,7 @@ class Maxwell < Formula
     sha256 cellar: :any_skip_relocation, all: "58f41cbfb3c50e3d931f95ee539e609da5e5d0fddc99edcd4302dc263c4c8ed2"
   end
 
-  depends_on "openjdk@11"
+  depends_on "openjdk"
 
   def install
     libexec.install Dir["*"]
@@ -23,7 +23,7 @@ class Maxwell < Formula
       bin.install libexec/"bin/#{f}"
     end
 
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("11.0"))
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env)
   end
 
   test do
