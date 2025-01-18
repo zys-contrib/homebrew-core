@@ -39,15 +39,13 @@ class Zsh < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_sequoia:  "15e9037c0726a957c252406d8dcd10b92bf96f080ffd6a21f252f88cfe2328b2"
-    sha256 arm64_sonoma:   "2724270ffc9ec802c84de94466076bbff2e9de712dc4542e2b98646d5bdf9120"
-    sha256 arm64_ventura:  "de824bdff0cf68af18e1ca615d3e0646968a9cc0411cde518c86ff4e446e75ed"
-    sha256 arm64_monterey: "9f2b18137c50145752b9c64f02a2be3ffbfedfcbff5b91ebe3f0d20358fe2a07"
-    sha256 sonoma:         "ab60dacfc4fa57a741cd735b268ef64e51bab181b39cfb3846f2a546c22793ff"
-    sha256 ventura:        "3e0713581f6c028b856556e9f5e2201e9fd9d333bc13fc6156bdb0c58d097626"
-    sha256 monterey:       "e09b2792c4d231b4917ebe8c3565ba66c22d15c5242043af47e3075f50470839"
-    sha256 x86_64_linux:   "28d2fb59ee1c2db1ea2a0a2923201fde83b4b8cb2891ac3bbee288e7cf9cb2c6"
+    rebuild 3
+    sha256 arm64_sequoia: "93cacab325d2a9c4ce40a2cebb157b1bf4e062f0d54855d10d2a78f78e2f101f"
+    sha256 arm64_sonoma:  "6fd7134e255c752fca9e8dee3823df44b8ba3303f96bb93c232cd2510edad79d"
+    sha256 arm64_ventura: "e821a4b4e3bb5c3198b1073cc42550b5eda9705c6957bb10a55c524c8d55a8ed"
+    sha256 sonoma:        "73b9003f3f58e116c9af05de333a8d0fe32ef21f4b189ed1503faf5d8f131130"
+    sha256 ventura:       "d671549769838f9a60961866e6f94d4f9eac71678cb930ad69055aa0812c7d52"
+    sha256 x86_64_linux:  "7203ae875e4d101cfd8288474ba18dabd4b1469f908f3a11a685b5630cc826ab"
   end
 
   head do
