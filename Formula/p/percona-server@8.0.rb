@@ -17,6 +17,15 @@ class PerconaServerAT80 < Formula
     end
   end
 
+  bottle do
+    sha256 arm64_sequoia: "cb125ddd7595efd0e92ccb4f4e053db69c92d9cd739ad31b8b458db863ef9324"
+    sha256 arm64_sonoma:  "c3c879d0b2bd04e9eaa4811a9ba90f99ad82de67a04cc4b65ed09e0f69452041"
+    sha256 arm64_ventura: "d0ac375df688d6fbbf824408f3842d653949cb6fe80730d4b231152f28b704b9"
+    sha256 sonoma:        "485efb2b577503cacec0d48d6da734eb71c21da61bf0f51fc59f54c7c7918651"
+    sha256 ventura:       "315761a59cf60d727ac928cdf3aa6c36f51dd5e1fd71b544858e0495d55a6c03"
+    sha256 x86_64_linux:  "b310c666b0a39f19e9dd6fd0d01e4b2b3b543cffc1e7180a91aec19401eb39f8"
+  end
+
   keg_only :versioned_formula
 
   depends_on "bison" => :build
