@@ -1,9 +1,9 @@
 class Mmseqs2 < Formula
   desc "Software suite for very fast sequence search and clustering"
   homepage "https://mmseqs.com/"
-  url "https://github.com/soedinglab/MMseqs2/archive/refs/tags/16-747c6.tar.gz"
-  version "16-747c6"
-  sha256 "faeb6841feb8e028651c2391de1346c55c2091a96520b625525d27b99d07ef1d"
+  url "https://github.com/soedinglab/MMseqs2/archive/refs/tags/17-b804f.tar.gz"
+  version "17-b804f"
+  sha256 "300ebd14bf4e007b339037e5f73d8ff9c4e34f8495204c4a8c59c7672b689db2"
   license "MIT"
   head "https://github.com/soedinglab/MMseqs2.git", branch: "master"
 
@@ -30,10 +30,10 @@ class Mmseqs2 < Formula
     depends_on "gawk"
   end
 
-  # check revision with https://github.com/soedinglab/MMseqs2/wiki/Home/_history
+  # `git ls-remote https://github.com/soedinglab/MMseqs2.wiki.git HEAD`
   resource "documentation" do
     url "https://github.com/soedinglab/MMseqs2.wiki.git",
-        revision: "0e84198b94460abc6bc353021c16469d9543eefd"
+        revision: "b1ccffcaf6be0f857e37670a260311f2416b6794"
   end
 
   def install
