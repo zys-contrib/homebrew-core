@@ -1694,6 +1694,7 @@ libcdr
 libchewing
 libclc
 libcoap
+libcotp
 libcouchbase
 libcpuid
 libcss
