@@ -7,12 +7,12 @@ class Pkgx < Formula
   head "https://github.com/pkgxdev/pkgx.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "acc706537e61dd2af1820c050d597391aa2ab77f564a8cde4dfb5a9518e219c3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "05431a3bfe321785575475f0a965482452b1178f136081d2ff74d33c13128d55"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "224a1ffe0c053f6cb98d113d8d16fe94edd397600da7d07625e132bc6ce3e72b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "914f6a489d66b9821b1b22a78848692a1ba7cf93c7f070f42a1d7f2547b69a89"
-    sha256 cellar: :any_skip_relocation, ventura:       "b777cd91d17e9a7f0a3ea9415c44db1e1c5c9692c1c66520d0f5cd6b74fb2f9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7158dc75ccab6c6fafcafeff6b8d976afbc1ee478bdab4e6981fde060b402b83"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5f77987ce353af185be7d7c4d1a13e6c38a62bf75046284e1e93c0283a9288d1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1e81d0f1eea7410e0b93fdd3df9bb0050b1b0ea5bfbf547687d3f6ae99c99996"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f2a3e62201da98b970822c4f7dbbe7a6b674a9f49ae752c1731855ecc2a4e515"
+    sha256 cellar: :any_skip_relocation, sonoma:        "39c01540f7b68c7b44ee2f9118f07081aa5f742be89133b954f1cf2b4f995fd9"
+    sha256 cellar: :any_skip_relocation, ventura:       "df20febf873562fedbe09cd487e8ad3aaf80059dbe5f065b2919fb4a53daf0ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff24611811bf0e7cba81e298e5d2e060447a09fad7e1b631bf794fdd98b073ce"
   end
 
   depends_on "rust" => :build
