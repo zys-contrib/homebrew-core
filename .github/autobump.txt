@@ -2366,6 +2366,7 @@ orgalorg
 orientdb
 ormolu
 orocos-kdl
+ory-hydra
 osc
 osctrl-cli
 osi
