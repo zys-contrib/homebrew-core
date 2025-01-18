@@ -18,12 +18,12 @@ class PerconaServer < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "7c456f1f1415322cdb5f79dd56733ae4992fff109e7d1f7880b09ca88503d032"
-    sha256 arm64_sonoma:  "3782d7bf2f6b76ed88df11b66a3e91079c3c5871b298437bc3ac8a2ab6d0fc6c"
-    sha256 arm64_ventura: "1789387d1bff059bac32c7e2d8c912ff4a03b28aeefbf53845e2b8b18a3969f2"
-    sha256 sonoma:        "bbb07a26cb305c9ff6319d8d8ff8270f665e1e166fa63708dc2ef40badc04be0"
-    sha256 ventura:       "40049e14f51428d0f7e92a58d8456e698d8750dd8dd6587cdaaed813048b2944"
-    sha256 x86_64_linux:  "aed371c8cd1999e1af8a3a208bfcb4ddab0d9263ce75f966489dc1c08a927398"
+    sha256 arm64_sequoia: "178d82b3db05a5a7b18d56b3543ca414f8cd39ef81686d3f0b5a22ac6dfa6a7c"
+    sha256 arm64_sonoma:  "102326c938c21077c25a4ccb0e5a86498383d7df20c6ead4511074db8d1ab3a3"
+    sha256 arm64_ventura: "23ca1f5ec39d9c376940923114c2507dfd9d21a294d813f8166944662706902d"
+    sha256 sonoma:        "83f27ea31aec5bfa2135b5cbe052aab9980e0d5aa3466e5f5ecec6f9bfc2e6a4"
+    sha256 ventura:       "bbdc26a2ae63bbaa76f643f28b093db94c60317bf6fa94b961c763959253be6d"
+    sha256 x86_64_linux:  "4c36de24fb32225376a5d306a4c5ef76fe5f0cda206b88aea17552d3901fcafa"
   end
 
   depends_on "bison" => :build
