@@ -23,31 +23,36 @@ class Dwm < Formula
   end
 
   depends_on "dmenu"
+  depends_on "fontconfig"
   depends_on "libx11"
   depends_on "libxft"
   depends_on "libxinerama"
 
   def install
-    # The dwm default quit keybinding Mod1-Shift-q collides with
-    # the Mac OS X Log Out shortcut in the Apple menu.
-    inreplace "config.def.h",
-    "{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },",
-    "{ MODKEY|ControlMask,           XK_q,      quit,           {0} },"
-    inreplace "dwm.1", '.B Mod1\-Shift\-q', '.B Mod1\-Control\-q'
+    if OS.mac?
+      # The dwm default quit keybinding Mod1-Shift-q collides with
+      # the Mac OS X Log Out shortcut in the Apple menu.
+      inreplace "config.def.h",
+      "{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },",
+      "{ MODKEY|ControlMask,           XK_q,      quit,           {0} },"
+      inreplace "dwm.1", '.B Mod1\-Shift\-q', '.B Mod1\-Control\-q'
+    end
     system "make", "FREETYPEINC=#{Formula["freetype2"].opt_include}/freetype2", "PREFIX=#{prefix}", "install"
   end
 
   def caveats
-    <<~EOS
-      In order to use the Mac OS X command key for dwm commands,
-      change the X11 keyboard modifier map using xmodmap (1).
+    on_macos do
+      <<~EOS
+        In order to use the Mac OS X command key for dwm commands,
+        change the X11 keyboard modifier map using xmodmap (1).
 
-      e.g. by running the following command from $HOME/.xinitrc
-      xmodmap -e 'remove Mod2 = Meta_L' -e 'add Mod1 = Meta_L'&
+        e.g. by running the following command from $HOME/.xinitrc
+        xmodmap -e 'remove Mod2 = Meta_L' -e 'add Mod1 = Meta_L'&
 
-      See also https://gist.github.com/311377 for a handful of tips and tricks
-      for running dwm on Mac OS X.
-    EOS
+        See also https://gist.github.com/311377 for a handful of tips and tricks
+        for running dwm on Mac OS X.
+      EOS
+    end
   end
 
   test do
