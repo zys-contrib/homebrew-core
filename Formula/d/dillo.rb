@@ -1,10 +1,9 @@
 class Dillo < Formula
   desc "Fast and small graphical web browser"
   homepage "https://dillo-browser.github.io/"
-  url "https://github.com/dillo-browser/dillo/releases/download/v3.1.1/dillo-3.1.1.tar.bz2"
-  sha256 "5b85adc2315cff1f6cc29c4fa7e285a964cc3adb7b4cd652349c178292a4fb9e"
+  url "https://github.com/dillo-browser/dillo/releases/download/v3.2.0/dillo-3.2.0.tar.bz2"
+  sha256 "1066ed42ea7fe0ce19e79becd029c651c15689922de8408e13e70bb5701931bf"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
     sha256 arm64_sequoia: "9404791603f2b7fb3fa522b7382a6475a9b4f3ac1c0809c06be4d14b5eddc803"
@@ -77,6 +76,6 @@ class Dillo < Formula
 
     assert_match "DEFAULT DENY", (testpath/".dillo/cookiesrc").read
 
-    assert_match "Dillo version #{version}", shell_output("#{bin}/dillo --version")
+    assert_match version.to_s, shell_output("#{bin}/dillo --version")
   end
 end
