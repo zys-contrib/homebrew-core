@@ -1,8 +1,8 @@
-class PerconaServer < Formula
+class PerconaServerAT80 < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://downloads.percona.com/downloads/Percona-Server-8.4/Percona-Server-8.4.3-3/source/tarball/percona-server-8.4.3-3.tar.gz"
-  sha256 "dfb5b46fccd8284ad3a09054f9a62d0a6423a2b703b6fb86d186cec09cee660a"
+  url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.36-28/source/tarball/percona-server-8.0.36-28.tar.gz"
+  sha256 "8a4b44bd9cf79a38e6275e8f5f9d4e8d2c308854b71fd5bf5d1728fff43a6844"
   license "BSD-3-Clause"
 
   livecheck do
@@ -18,19 +18,22 @@ class PerconaServer < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "178d82b3db05a5a7b18d56b3543ca414f8cd39ef81686d3f0b5a22ac6dfa6a7c"
-    sha256 arm64_sonoma:  "102326c938c21077c25a4ccb0e5a86498383d7df20c6ead4511074db8d1ab3a3"
-    sha256 arm64_ventura: "23ca1f5ec39d9c376940923114c2507dfd9d21a294d813f8166944662706902d"
-    sha256 sonoma:        "83f27ea31aec5bfa2135b5cbe052aab9980e0d5aa3466e5f5ecec6f9bfc2e6a4"
-    sha256 ventura:       "bbdc26a2ae63bbaa76f643f28b093db94c60317bf6fa94b961c763959253be6d"
-    sha256 x86_64_linux:  "4c36de24fb32225376a5d306a4c5ef76fe5f0cda206b88aea17552d3901fcafa"
+    sha256 arm64_sequoia: "cb125ddd7595efd0e92ccb4f4e053db69c92d9cd739ad31b8b458db863ef9324"
+    sha256 arm64_sonoma:  "c3c879d0b2bd04e9eaa4811a9ba90f99ad82de67a04cc4b65ed09e0f69452041"
+    sha256 arm64_ventura: "d0ac375df688d6fbbf824408f3842d653949cb6fe80730d4b231152f28b704b9"
+    sha256 sonoma:        "485efb2b577503cacec0d48d6da734eb71c21da61bf0f51fc59f54c7c7918651"
+    sha256 ventura:       "315761a59cf60d727ac928cdf3aa6c36f51dd5e1fd71b544858e0495d55a6c03"
+    sha256 x86_64_linux:  "b310c666b0a39f19e9dd6fd0d01e4b2b3b543cffc1e7180a91aec19401eb39f8"
   end
+
+  keg_only :versioned_formula
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "abseil"
   depends_on "icu4c@76"
+  depends_on "libevent"
   depends_on "libfido2"
   depends_on "lz4"
   depends_on "openldap" # Needs `ldap_set_urllist_proc`, not provided by LDAP.framework
@@ -49,24 +52,41 @@ class PerconaServer < Formula
     depends_on "libtirpc"
   end
 
-  conflicts_with "mariadb", "mysql", because: "percona, mariadb, and mysql install the same binaries"
-
-  # https://github.com/percona/percona-server/blob/8.4/cmake/os/Darwin.cmake
+  # https://github.com/percona/percona-server/blob/8.0/cmake/os/Darwin.cmake
   fails_with :clang do
     build 999
     cause "Requires Apple Clang 10.0 or newer"
   end
 
-  # https://github.com/percona/percona-server/blob/8.4/cmake/os/Linux.cmake
-  fails_with :gcc do
-    version "9"
-    cause "Requires GCC 10 or newer"
+  # https://github.com/percona/percona-server/blob/Percona-Server-#{version}/cmake/boost.cmake
+  resource "boost" do
+    url "https://downloads.sourceforge.net/project/boost/boost/1.77.0/boost_1_77_0.tar.bz2"
+    sha256 "fc9f85fc030e233142908241af7a846e60630aa7388de9a5fafb1f3a26840854"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/percona/percona-server/refs/tags/Percona-Server-#{LATEST_VERSION}/cmake/boost.cmake"
+      regex(%r{/release/v?(\d+(?:\.\d+)+)/}i)
+    end
+  end
+
+  # Backport support for newer Protobuf. Remove with 8.0.39
+  patch do
+    url "https://github.com/percona/percona-server/commit/089c011f8e2a865e4bd97715653b4bc0973c43a1.patch?full_index=1"
+    sha256 "aac166f579e636923abeb86cc89934efaf0185df35355aab2d08192d9bf9efd8"
+  end
+  # Backport support for Protobuf 22+ on Linux. Remove with 8.0.40
+  patch do
+    url "https://github.com/mysql/mysql-server/commit/269abc0409b22bb87ec88bd4d53dfb7a1403eace.patch?full_index=1"
+    sha256 "ffcee32804e7e1237907432adb3590fcbf30c625eea836df6760c05a312a84e1"
   end
 
   # Patch out check for Homebrew `boost`.
   # This should not be necessary when building inside `brew`.
   # https://github.com/Homebrew/homebrew-test-bot/pull/820
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/030f7433e89376ffcff836bb68b3903ab90f9cdc/mysql/boost-check.patch"
+    sha256 "af27e4b82c84f958f91404a9661e999ccd1742f57853978d8baec2f993b51153"
+  end
 
   def datadir
     var/"mysql"
@@ -76,8 +96,9 @@ class PerconaServer < Formula
     # Remove bundled libraries other than explicitly allowed below.
     # `boost` and `rapidjson` must use bundled copy due to patches.
     # `lz4` is still needed due to xxhash.c used by mysqlgcs
-    keep = %w[boost coredumper duktape libbacktrace libcno libkmip lz4 opensslpp rapidjson unordered_dense]
+    keep = %w[coredumper duktape libkmip lz4 opensslpp rapidjson robin-hood-hashing]
     (buildpath/"extra").each_child { |dir| rm_r(dir) unless keep.include?(dir.basename.to_s) }
+    (buildpath/"boost").install resource("boost")
 
     # Find Homebrew OpenLDAP instead of the macOS framework
     inreplace "cmake/ldap.cmake", "NAMES ldap_r ldap", "NAMES ldap"
@@ -109,14 +130,17 @@ class PerconaServer < Formula
       -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
       -DWITH_ICU=#{icu4c.opt_prefix}
       -DWITH_SYSTEM_LIBS=ON
+      -DWITH_BOOST=#{buildpath}/boost
       -DWITH_EDITLINE=system
       -DWITH_FIDO=system
+      -DWITH_LIBEVENT=system
       -DWITH_LZ4=system
       -DWITH_PROTOBUF=system
       -DWITH_SSL=system
       -DWITH_ZLIB=system
       -DWITH_ZSTD=system
       -DWITH_UNIT_TESTS=OFF
+      -DWITH_INNODB_MEMCACHED=ON
       -DROCKSDB_BUILD_ARCH=#{ENV.effective_arch}
     ]
     args << "-DROCKSDB_DISABLE_AVX2=ON" if build.bottle?
@@ -230,41 +254,3 @@ class PerconaServer < Formula
     end
   end
 end
-
-__END__
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 438dff720c5..47863c17e23 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -1948,31 +1948,6 @@ MYSQL_CHECK_RAPIDJSON()
- MYSQL_CHECK_FIDO()
- MYSQL_CHECK_FIDO_DLLS()
-
--IF(APPLE)
--  GET_FILENAME_COMPONENT(HOMEBREW_BASE ${HOMEBREW_HOME} DIRECTORY)
--  IF(EXISTS ${HOMEBREW_BASE}/include/boost)
--    FOREACH(SYSTEM_LIB ICU LZ4 PROTOBUF ZSTD FIDO)
--      IF(WITH_${SYSTEM_LIB} STREQUAL "system")
--        MESSAGE(FATAL_ERROR
--          "WITH_${SYSTEM_LIB}=system is not compatible with Homebrew boost\n"
--          "MySQL depends on ${BOOST_PACKAGE_NAME} with a set of patches.\n"
--          "Including headers from ${HOMEBREW_BASE}/include "
--          "will break the build.\n"
--          "Please use WITH_${SYSTEM_LIB}=bundled\n"
--          "or do 'brew uninstall boost' or 'brew unlink boost'"
--          )
--      ENDIF()
--    ENDFOREACH()
--  ENDIF()
--  # Ensure that we look in /usr/local/include or /opt/homebrew/include
--  FOREACH(SYSTEM_LIB ICU LZ4 PROTOBUF ZSTD FIDO)
--    IF(WITH_${SYSTEM_LIB} STREQUAL "system")
--      INCLUDE_DIRECTORIES(SYSTEM ${HOMEBREW_BASE}/include)
--      BREAK()
--    ENDIF()
--  ENDFOREACH()
--ENDIF()
--
- IF(WITH_AUTHENTICATION_WEBAUTHN OR
-   WITH_AUTHENTICATION_CLIENT_PLUGINS)
-   IF(WITH_FIDO STREQUAL "system" AND
