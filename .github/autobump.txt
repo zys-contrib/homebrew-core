@@ -2498,6 +2498,7 @@ pjproject
 pkg-config-wrapper
 pkgconf
 pkgdiff
+pkgx
 pkl
 plantuml
 planus
