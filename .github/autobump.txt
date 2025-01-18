@@ -283,6 +283,7 @@ bluez
 bmake
 bnd
 bob
+bold
 bomber
 bore-cli
 borgbackup
