@@ -115,6 +115,7 @@ asak
 ascii
 asciidoctor
 asciidoctorj
+asciigen
 asdf
 asio
 ask-cli
