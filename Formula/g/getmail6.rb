@@ -16,12 +16,12 @@ class Getmail6 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d0d3044ddc889dca094c9c74de6b9cebc1990c26ae1cf581472b5846e30e62d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d0d3044ddc889dca094c9c74de6b9cebc1990c26ae1cf581472b5846e30e62d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6d0d3044ddc889dca094c9c74de6b9cebc1990c26ae1cf581472b5846e30e62d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1ad9fc279bfb480b7f89fcd79da25efa69424986fee612443a57a0442670096d"
-    sha256 cellar: :any_skip_relocation, ventura:       "1ad9fc279bfb480b7f89fcd79da25efa69424986fee612443a57a0442670096d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d0d3044ddc889dca094c9c74de6b9cebc1990c26ae1cf581472b5846e30e62d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9bbf4c8110ea08f2c74e41950c103f6e09d8189f1a312ebeab6445fd464d2b9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b9bbf4c8110ea08f2c74e41950c103f6e09d8189f1a312ebeab6445fd464d2b9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b9bbf4c8110ea08f2c74e41950c103f6e09d8189f1a312ebeab6445fd464d2b9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "da9a298711699f9dff1c11747dafc6527b8f9938632bc3cdde2998f13b20207c"
+    sha256 cellar: :any_skip_relocation, ventura:       "da9a298711699f9dff1c11747dafc6527b8f9938632bc3cdde2998f13b20207c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9bbf4c8110ea08f2c74e41950c103f6e09d8189f1a312ebeab6445fd464d2b9"
   end
 
   uses_from_macos "python", since: :catalina
