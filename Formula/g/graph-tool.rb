@@ -3,8 +3,8 @@ class GraphTool < Formula
 
   desc "Efficient network analysis for Python 3"
   homepage "https://graph-tool.skewed.de/"
-  url "https://downloads.skewed.de/graph-tool/graph-tool-2.86.tar.bz2"
-  sha256 "954029be1146474b704b5e366acd12d97a72c9bff80facffe8ebd3d5099b7b61"
+  url "https://downloads.skewed.de/graph-tool/graph-tool-2.88.tar.bz2"
+  sha256 "fe6af66e247fbc6d5628ba4c6e2b6fec8708b100df9b5eb1c79e62f13bab01dc"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -112,6 +112,9 @@ class GraphTool < Formula
     "python3.13"
   end
 
+  # remove obsolete pointer_traits workaround for older libstdc++
+  patch :DATA
+
   def install
     site_packages = Language::Python.site_packages(python3)
     xy = Language::Python.major_minor_version(python3)
@@ -179,3 +182,30 @@ class GraphTool < Formula
     refute_match "Graph drawing will not work", shell_output("#{python3} test.py 2>&1")
   end
 end
+
+__END__
+diff --git a/src/boost-workaround/boost/container/vector_old.hpp b/src/boost-workaround/boost/container/vector_old.hpp
+index c4152c8..f72e646 100644
+--- a/src/boost-workaround/boost/container/vector_old.hpp
++++ b/src/boost-workaround/boost/container/vector_old.hpp
+@@ -3167,20 +3167,6 @@ struct has_trivial_destructor_after_move<boost::container::vector<T, Allocator,
+
+ }
+
+-//See comments on vec_iterator::element_type to know why is this needed
+-#ifdef BOOST_GNU_STDLIB
+-
+-BOOST_MOVE_STD_NS_BEG
+-
+-template <class Pointer, bool IsConst>
+-struct pointer_traits< boost::container::vec_iterator<Pointer, IsConst> >
+-   : public boost::intrusive::pointer_traits< boost::container::vec_iterator<Pointer, IsConst> >
+-{};
+-
+-BOOST_MOVE_STD_NS_END
+-
+-#endif   //BOOST_GNU_STDLIB
+-
+ #endif   //#ifndef BOOST_CONTAINER_DOXYGEN_INVOKED
+
+ #include <boost/container/detail/config_end.hpp>
