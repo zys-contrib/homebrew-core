@@ -1,9 +1,8 @@
 class Serf < Formula
   desc "Service orchestration and management tool"
   homepage "https://serfdom.io/"
-  url "https://github.com/hashicorp/serf.git",
-      tag:      "v0.10.2",
-      revision: "93c69c072b854e28812e80a803ca769ed1f85999"
+  url "https://github.com/hashicorp/serf/archive/refs/tags/v0.10.2.tar.gz"
+  sha256 "bcccbf847024af099e164faf6d6d111345edf166eb24e53e3ccc7f37d6e281a1"
   license "MPL-2.0"
   head "https://github.com/hashicorp/serf.git", branch: "master"
 
@@ -16,8 +15,7 @@ class Serf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f31db74461f5197f712b31fe8ce24137c8594d691244ed0b1a63702f9e75caae"
   end
 
-  # use "go" again after https://github.com/hashicorp/serf/issues/736 is fixed and released
-  depends_on "go@1.22" => :build
+  depends_on "go" => :build
 
   uses_from_macos "zip" => :build
 
@@ -32,9 +30,7 @@ class Serf < Formula
   end
 
   test do
-    pid = fork do
-      exec bin/"serf", "agent"
-    end
+    pid = spawn bin/"serf", "agent"
     sleep 1
     assert_match(/:7946.*alive$/, shell_output("#{bin}/serf members"))
   ensure
