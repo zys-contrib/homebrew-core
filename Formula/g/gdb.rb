@@ -1,9 +1,9 @@
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-15.2.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-15.2.tar.xz"
-  sha256 "83350ccd35b5b5a0cba6b334c41294ea968158c573940904f00b92f76345314d"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-16.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-16.1.tar.xz"
+  sha256 "c2cc5ccca029b7a7c3879ce8a96528fdfd056b4d884f2b0511e8f7bc723355c6"
   license "GPL-3.0-or-later"
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
@@ -43,7 +43,15 @@ class Gdb < Formula
     EOS
   end
 
+  # Fix build on Linux
+  # Ref: https://sourceware.org/bugzilla/show_bug.cgi?id=32578
+  patch :DATA
+
   def install
+    # Fix `error: use of undeclared identifier 'command_style'`
+    inreplace "gdb/darwin-nat.c", "#include \"cli/cli-cmds.h\"",
+                                  "#include \"cli/cli-cmds.h\"\n#include \"cli/cli-style.h\""
+
     args = %W[
       --enable-targets=all
       --with-lzma
@@ -75,3 +83,31 @@ class Gdb < Formula
     system bin/"gdb", bin/"gdb", "-configuration"
   end
 end
+
+__END__
+diff --git a/bfd/Makefile.in b/bfd/Makefile.in
+index aec3717485a..ee674a36c5b 100644
+--- a/bfd/Makefile.in
++++ b/bfd/Makefile.in
+@@ -1318,7 +1318,7 @@ REGEN_TEXI = \
+ 	$(MKDOC) -f $(srcdir)/doc/doc.str < $< > $@.tmp; \
+ 	texi=$@; \
+ 	texi=$${texi%.stamp}.texi; \
+-	test -e $$texi || test ! -f $(srcdir)/$$texi || $(LN_S) $(srcdir)/$$texi $$texi; \
++	test -e $$texi || test ! -f $(srcdir)/$$texi || $(LN_S) $(abs_srcdir)/$$texi $$texi; \
+ 	$(SHELL) $(srcdir)/../move-if-change $@.tmp $$texi; \
+ 	touch $@; \
+ 	)
+diff --git a/bfd/doc/local.mk b/bfd/doc/local.mk
+index 97d658b5a48..9b75402387c 100644
+--- a/bfd/doc/local.mk
++++ b/bfd/doc/local.mk
+@@ -101,7 +101,7 @@ REGEN_TEXI = \
+ 	$(MKDOC) -f $(srcdir)/%D%/doc.str < $< > $@.tmp; \
+ 	texi=$@; \
+ 	texi=$${texi%.stamp}.texi; \
+-	test -e $$texi || test ! -f $(srcdir)/$$texi || $(LN_S) $(srcdir)/$$texi $$texi; \
++	test -e $$texi || test ! -f $(srcdir)/$$texi || $(LN_S) $(abs_srcdir)/$$texi $$texi; \
+ 	$(SHELL) $(srcdir)/../move-if-change $@.tmp $$texi; \
+ 	touch $@; \
+ 	)
