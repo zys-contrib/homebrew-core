@@ -1,8 +1,8 @@
 class Dum < Formula
   desc "Npm scripts runner written in Rust"
   homepage "https://github.com/egoist/dum"
-  url "https://github.com/egoist/dum/archive/refs/tags/v0.1.19.tar.gz"
-  sha256 "94af37a8f9a0689ea27d7f338b495793349b75f56b516c17cd207e7c47c52c4f"
+  url "https://github.com/egoist/dum/archive/refs/tags/v0.1.20.tar.gz"
+  sha256 "fb5aa412a1a034b74cfe0b0b7196ed2fa1e4d0728b3388f52481f9ff7e97547a"
   license "MIT"
   head "https://github.com/egoist/dum.git", branch: "main"
 
