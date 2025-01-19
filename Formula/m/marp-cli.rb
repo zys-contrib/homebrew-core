@@ -1,8 +1,8 @@
 class MarpCli < Formula
   desc "Easily convert Marp Markdown files into static HTML/CSS, PDF, PPT and images"
   homepage "https://github.com/marp-team/marp-cli"
-  url "https://registry.npmjs.org/@marp-team/marp-cli/-/marp-cli-4.1.0.tgz"
-  sha256 "4140cc623f9ed6de896115379f80f3d893dd4a2366018cf519a15866722b5833"
+  url "https://registry.npmjs.org/@marp-team/marp-cli/-/marp-cli-4.1.1.tgz"
+  sha256 "f2ccd943378f35f1a685a9de3f7da699dac84c46a0db429b495fdc26d77785f8"
   license "MIT"
 
   bottle do
