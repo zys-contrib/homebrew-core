@@ -3066,6 +3066,7 @@ subversion
 suite-sparse
 sundials
 superfile
+superhtml
 superlu
 surfer
 suricata
