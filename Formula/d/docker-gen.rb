@@ -7,12 +7,12 @@ class DockerGen < Formula
   head "https://github.com/nginx-proxy/docker-gen.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dafd6a49b6e79ccc946671078f50f14cbb1d4c44682742bb9b96ef271bd20877"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dafd6a49b6e79ccc946671078f50f14cbb1d4c44682742bb9b96ef271bd20877"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "dafd6a49b6e79ccc946671078f50f14cbb1d4c44682742bb9b96ef271bd20877"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d8aa6742657bf8cfcb1734a94d036c6a350bd9c489ff33151ea267e12bbfdb65"
-    sha256 cellar: :any_skip_relocation, ventura:       "d8aa6742657bf8cfcb1734a94d036c6a350bd9c489ff33151ea267e12bbfdb65"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "384c295bfd719f37599329389ec61307fa0bf3aac6989b8421acd14c3e19be54"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "20e7c36a1a9669b5522afa938c309eff16db714977cddb51c83323bd6adea29a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "20e7c36a1a9669b5522afa938c309eff16db714977cddb51c83323bd6adea29a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "20e7c36a1a9669b5522afa938c309eff16db714977cddb51c83323bd6adea29a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "667dedbf731c359e0a2594693bbf23c622c1730b95f4fbdce190487c26348bb7"
+    sha256 cellar: :any_skip_relocation, ventura:       "667dedbf731c359e0a2594693bbf23c622c1730b95f4fbdce190487c26348bb7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "44958d90e65e758b8a61601286f0f6106f47d7f7f52b0ddc95e1f1460c8f41cd"
   end
 
   depends_on "go" => :build
