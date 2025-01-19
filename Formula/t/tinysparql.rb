@@ -14,6 +14,10 @@ class Tinysparql < Formula
     regex(/tinysparql[._-]v?(\d+(?:(?!\.9\d)\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 x86_64_linux: "4e1081d7cbc80ae6fcf6794cac44aece3fa5adf5a33e838f89c51d0997dc95cc"
+  end
+
   depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
