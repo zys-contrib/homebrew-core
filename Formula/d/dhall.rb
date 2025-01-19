@@ -1,8 +1,8 @@
 class Dhall < Formula
   desc "Interpreter for the Dhall language"
   homepage "https://dhall-lang.org/"
-  url "https://hackage.haskell.org/package/dhall-1.42.1/dhall-1.42.1.tar.gz"
-  sha256 "ce8cfa44978091811e7c77eb6d2a80cbc55b4582045a0740c44e277af4388758"
+  url "https://hackage.haskell.org/package/dhall-1.42.2/dhall-1.42.2.tar.gz"
+  sha256 "9a907dd95f4eefee9110f8090d83021371b6b301da315b5b2911c766e0c67b3b"
   license "BSD-3-Clause"
 
   bottle do
@@ -22,17 +22,7 @@ class Dhall < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  # Use newer metadata revision to relax upper bounds on dependencies for GHC 9.10
-  resource "2.cabal" do
-    url "https://hackage.haskell.org/package/dhall-1.42.1/revision/2.cabal"
-    sha256 "642785a2db236c7e94a5765e70690f88f87ef9c01a891669674b9cbc70a14948"
-  end
-
   def install
-    # Backport support for GHC 9.10
-    odie "Remove resource and workaround!" if version > "1.42.1"
-    resource("2.cabal").stage { buildpath.install "2.cabal" => "dhall.cabal" }
-
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args
     man1.install "man/dhall.1"
