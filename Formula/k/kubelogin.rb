@@ -7,12 +7,12 @@ class Kubelogin < Formula
   head "https://github.com/int128/kubelogin.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6e8bbacf41e7ae77170391e882c29601aba3f90099615ed91b4ab0e58ebf3d99"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6e8bbacf41e7ae77170391e882c29601aba3f90099615ed91b4ab0e58ebf3d99"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6e8bbacf41e7ae77170391e882c29601aba3f90099615ed91b4ab0e58ebf3d99"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1921051de1894d2358a60b7ffb7b44ea5c618f7e20a7996b6e53554d57c9b5f9"
-    sha256 cellar: :any_skip_relocation, ventura:       "1921051de1894d2358a60b7ffb7b44ea5c618f7e20a7996b6e53554d57c9b5f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "938becd0829f2e0990943a2c05e9f458856456dc190597c2f6020aa06c4defef"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "25c132b84fa44e929ffdeffe81de28f2b866014712e83da8f69a094db1f1f4b9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "25c132b84fa44e929ffdeffe81de28f2b866014712e83da8f69a094db1f1f4b9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "25c132b84fa44e929ffdeffe81de28f2b866014712e83da8f69a094db1f1f4b9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e926b4d191d4e0c7a97537da4a44874af6d5dfe887e7cc16a1cee4069534996c"
+    sha256 cellar: :any_skip_relocation, ventura:       "e926b4d191d4e0c7a97537da4a44874af6d5dfe887e7cc16a1cee4069534996c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "371aaea650a40c78e51a0cc16caf1d4efdfe7684a267a8700a5b46ba79c9c61f"
   end
 
   depends_on "go" => :build
