@@ -8,12 +8,12 @@ class Rpl < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e21fbbe1397c75585de173cc9ac41713132e7c06f8c772c0239199a3d4aad505"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "984bfd891baffa48a330da55353fe16f9aff22eaee04f695383c7c43e2e2c881"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ca6a8c3bfac2b63ecc04aeeac3deefc8cf82462011b7e09b5d9954583122cfd4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "714ca8ae0b424e4efff0810076cd025e5b52e26a668c9cc7f18c1676187530de"
-    sha256 cellar: :any_skip_relocation, ventura:       "920899906c6043557000d8c51a89f21fa9e68cd3f29f32a87cc25cc763affce3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0044c74ca3d32031c2d3236360c7845e62c084445c5a9653a63d8e3c10f3d2a0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2f2688bbf2f3c0992730e9e74e951a16a90fc363e395928205e92b6b654eec9f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a3bde49799ea9c9df361f7906b77ced1024a65ee48cb0ae86e95c851959ae1ab"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6c198651e00d89a8dc1b5a9a0a44519f69c16d09c27b052682f5833003e66e49"
+    sha256 cellar: :any_skip_relocation, sonoma:        "be1ebeb43eb88d18eab4598f38c27ac768ad35885eaf3238b7d8d18b235f1ed5"
+    sha256 cellar: :any_skip_relocation, ventura:       "24b4f7e1a0f50a9cddbc61a5fe831bd5aa1b5c74213e5ae70dd5942143d4acce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "690ee22d68487bc065efa26e1e92df9c1f963d6d1beb8b438fce6d56ef84b887"
   end
 
   depends_on "python@3.13"
