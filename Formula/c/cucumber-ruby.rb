@@ -20,7 +20,7 @@ class CucumberRuby < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "ruby@3.3" # ruby 3.4 support bug report, https://github.com/cucumber/cucumber-ruby/issues/1769
+  depends_on "ruby"
 
   uses_from_macos "libffi", since: :catalina
 
@@ -116,6 +116,6 @@ class CucumberRuby < Formula
 
   test do
     assert_match "create   features", shell_output("#{bin}/cucumber --init")
-    assert_predicate testpath/"features", :exist?
+    assert_path_exists testpath/"features"
   end
 end
