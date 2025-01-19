@@ -22,8 +22,7 @@ class Hof < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "864e536e05475800bc1303a29f19c1f68a6f73ed05bfbd86112904449ddeb0e9"
   end
 
-  # use "go" again after https://github.com/hofstadter-io/hof/issues/391 is fixed and released
-  depends_on "go@1.22" => :build
+  depends_on "go" => :build
 
   def install
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
@@ -32,7 +31,7 @@ class Hof < Formula
     ldflags = %W[
       -s -w
       -X github.com/hofstadter-io/hof/cmd/hof/verinfo.Version=#{version}
-      -X github.com/hofstadter-io/hof/cmd/hof/verinfo.Commit=
+      -X github.com/hofstadter-io/hof/cmd/hof/verinfo.Commit=#{tap.user}
       -X github.com/hofstadter-io/hof/cmd/hof/verinfo.BuildDate=#{time.iso8601}
       -X github.com/hofstadter-io/hof/cmd/hof/verinfo.GoVersion=#{Formula["go"].version}
       -X github.com/hofstadter-io/hof/cmd/hof/verinfo.BuildOS=#{os}
@@ -51,7 +50,7 @@ class Hof < Formula
     assert_match version.to_s, shell_output("#{bin}/hof version")
 
     system bin/"hof", "mod", "init", "brew.sh/brewtest"
-    assert_predicate testpath/"cue.mod", :exist?
+    assert_path_exists testpath/"cue.mod"
     assert_match 'module: "brew.sh/brewtest"', (testpath/"cue.mod/module.cue").read
   end
 end
