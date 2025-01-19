@@ -1,25 +1,10 @@
 class DhallLspServer < Formula
   desc "Language Server Protocol (LSP) server for Dhall"
   homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-lsp-server"
+  url "https://hackage.haskell.org/package/dhall-lsp-server-1.1.4/dhall-lsp-server-1.1.4.tar.gz"
+  sha256 "4c7f056c8414f811edb14d26b0a7d3f3225762d0023965e474b5712ed18c9a6d"
   license "BSD-3-Clause"
   head "https://github.com/dhall-lang/dhall-haskell.git", branch: "main"
-
-  stable do
-    url "https://hackage.haskell.org/package/dhall-lsp-server-1.1.3/dhall-lsp-server-1.1.3.tar.gz"
-    sha256 "885595eb731bd2eab28073751b9981e0406e69c4a8288748675439d0b0968ded"
-
-    # Backport relaxed upper bound on lens. Remove on next release.
-    patch :p2 do
-      url "https://github.com/dhall-lang/dhall-haskell/commit/5e817a9c6bccf72123a3c67961af149b32d75c10.patch?full_index=1"
-      sha256 "f66004893312b9001e2dd122880c63d0e6fccbc7af0e8a549a08a171d99e2d07"
-    end
-
-    # Backport https://github.com/dhall-lang/dhall-haskell/commit/d7a024e1ff87b89a64e51699e3f609fd4a719451
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/039ff700fbd7682314f2ceb0dd0fcb0040e30c46/dhall-lsp-server/ghc-9.6.patch"
-      sha256 "aff01a4c9fda024a3cf51067a8762cf74ee8b9cc3f8cd63812e9410f6044ed96"
-    end
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "be84073f0eab1bca53d11e14033e15d1ba9b98a71bb6f1109d257fed2df6f32f"
@@ -41,21 +26,14 @@ class DhallLspServer < Formula
   uses_from_macos "zlib"
 
   def install
-    args = []
-    if build.head?
-      cd name
-    else
-      # Backport support for GHC 9.8
-      odie "Try removing workaround!" if version > "1.1.3"
-      args += ["--allow-newer=dhall-json:aeson"]
-      inreplace "#{name}.cabal" do |s|
-        # https://github.com/dhall-lang/dhall-haskell/commit/28d346f00d12fa134b4c315974f76cc5557f1330
-        s.gsub! ", mtl                  >= 2.2.2    && < 2.3", ", mtl                  >= 2.2.2    && < 2.4"
-        s.gsub! ", transformers         >= 0.5.5.0  && < 0.6", ", transformers         >= 0.5.5.0  && < 0.7"
-        # https://github.com/dhall-lang/dhall-haskell/commit/587c0875f9539a526037712870c45cc8fe853689
-        s.gsub! "  aeson                >= 1.3.1.1  && < 2.2", "  aeson                >= 1.3.1.1  && < 2.3"
-      end
-    end
+    cd name if build.head?
+
+    # Workaround until dhall-json has a new package release or metadata revision
+    # https://github.com/dhall-lang/dhall-haskell/commit/28d346f00d12fa134b4c315974f76cc5557f1330
+    args = ["--allow-newer=dhall-json:aeson", "--constraint=aeson<2.3"]
+
+    # Workaround until https://github.com/dhall-lang/dhall-haskell/pull/2571 is available
+    args += ["--allow-newer=lsp:lsp-types", "--constraint=lsp-types>=2.1 && <2.2"]
 
     system "cabal", "v2-update"
     system "cabal", "v2-install", *args, *std_cabal_v2_args
