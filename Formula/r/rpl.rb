@@ -3,8 +3,8 @@ class Rpl < Formula
 
   desc "Text replacement utility"
   homepage "https://github.com/rrthomas/rpl"
-  url "https://files.pythonhosted.org/packages/8d/41/b122e853b64ce9e539be9cb69e5955f73ba0b096d2ced15f5e56db6eada8/rpl-1.16.tar.gz"
-  sha256 "b81a732987dd1aeda3d5911ac384cdd5f1fe5bd54bac97fb6bceefcd90415376"
+  url "https://files.pythonhosted.org/packages/d2/52/762474c7ec7b36b2dbc5f4494137dc9ec31129aa482107a7a619dae6d78a/rpl-1.16.1.tar.gz"
+  sha256 "5539b8294e7d624e74d6d51d567e33ddb171f4eb74d020cbf471a57f8e3fb78e"
   license "GPL-3.0-or-later"
 
   bottle do
