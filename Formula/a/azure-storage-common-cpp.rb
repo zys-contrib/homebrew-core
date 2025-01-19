@@ -10,6 +10,15 @@ class AzureStorageCommonCpp < Formula
     regex(/^azure-storage-common[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "f07897053b2eb41eb11229b6cb6a4040840bd8cadae47934d1b6b90e1fff72df"
+    sha256 cellar: :any,                 arm64_sonoma:  "214bcb7ebdded6e6e6db2467bd0d35dab8eb4e417f66b63dd17568e5724f5584"
+    sha256 cellar: :any,                 arm64_ventura: "a4604e47a183e51c56226b17f0030617219baf7e2915fcdce3bb9453242e685a"
+    sha256 cellar: :any,                 sonoma:        "6f729a47c25866a27cc410b052c4738c203dfb7a6f26f83dd3a8e16c7e9891f5"
+    sha256 cellar: :any,                 ventura:       "9e5cfb5a0eccd57c23af032175e1125b387415d60b8742ecd076ff932a82ee2c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dbd47c8d70aa9f4035ed52b17b9285c028c88e89138d0b9d92416fe741263cf7"
+  end
+
   depends_on "cmake" => :build
   depends_on "azure-core-cpp"
   depends_on "openssl@3"
