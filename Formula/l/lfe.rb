@@ -16,7 +16,7 @@ class Lfe < Formula
   end
 
   depends_on "emacs" => :build
-  depends_on "erlang@26"
+  depends_on "erlang"
 
   def install
     system "make"
@@ -28,9 +28,6 @@ class Lfe < Formula
     pkgshare.install "dev", "examples", "test"
     doc.install Pathname.glob("doc/*.txt")
     elisp.install Pathname.glob("emacs/*.elc")
-
-    # TODO: Remove me when we depend on unversioned `erlang`.
-    bin.env_script_all_files libexec, PATH: "#{Formula["erlang@26"].opt_bin}:$PATH"
   end
 
   test do
