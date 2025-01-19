@@ -15,12 +15,12 @@ class Pango < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "e2ef4cb8cf3873c305583007042b28c671f4304a98b61393d55d648c0adeeb99"
-    sha256 cellar: :any, arm64_sonoma:  "d8b10b2f3a325e83d3708521b22036df61443b4893769e0746df8c0c494df346"
-    sha256 cellar: :any, arm64_ventura: "7af3642f5c4fa54379458abb5886fffe2b8fd9317cf79f2dd7642b37effbe7b0"
-    sha256 cellar: :any, sonoma:        "9bbbc81df1caaa6542d0f44a0589246a1bc63f76e7931fd0dbfc590282e1e6eb"
-    sha256 cellar: :any, ventura:       "8af53c650b5a85678b094257eeb34a12c8a361784d9c733bfe943721aff7b79b"
-    sha256               x86_64_linux:  "527535d140cb4aea12448046f8024e7cf185ecac583c6e4127fa987a5a32a8fa"
+    sha256 cellar: :any, arm64_sequoia: "48507210c600d918ab097c8be972714d2d221ec7d57590aa01a7543dd73ff96d"
+    sha256 cellar: :any, arm64_sonoma:  "10d30603c08a15d21c900460daed6d3393c7b3f11a1efcfaa95dfbc045023f30"
+    sha256 cellar: :any, arm64_ventura: "4cfd2e2270153041accfa3058a3775be97269cd8c25714108ef31bd1713ffd3a"
+    sha256 cellar: :any, sonoma:        "b8f0e79a0f83ea4217c6cf8c99cc1162e4c1b53e35ef07e0716f1046e05b2e2a"
+    sha256 cellar: :any, ventura:       "092ccfa014c748aa3b6c29fbbe55ab05b59615ad169fafd52339533b06adb2e5"
+    sha256               x86_64_linux:  "afb0dbe85b9754c5daddb614add5e0092dbfec27a3e0fc88ab1cb71a6623ed23"
   end
 
   depends_on "gobject-introspection" => :build
