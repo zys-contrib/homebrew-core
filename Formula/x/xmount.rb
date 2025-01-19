@@ -13,9 +13,9 @@ class Xmount < Formula
   depends_on "pkgconf" => :build
   depends_on "afflib"
   depends_on "libewf"
-  depends_on "libfuse@2"
+  depends_on "libfuse"
   depends_on :linux # on macOS, requires closed-source macFUSE
-  depends_on "openssl@3"
+  depends_on "zlib"
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
