@@ -3555,6 +3555,7 @@ zig
 zigmod
 zim
 zipkin
+zix
 zizmor
 zk
 zlib

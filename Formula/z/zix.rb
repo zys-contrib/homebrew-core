@@ -1,8 +1,8 @@
 class Zix < Formula
   desc "C99 portability and data structure library"
   homepage "https://gitlab.com/drobilla/zix"
-  url "https://gitlab.com/drobilla/zix/-/archive/v0.4.2/zix-v0.4.2.tar.gz"
-  sha256 "f6e885025d516638d07e1ead6a809be75790355c47c1143272e69b9153321ed4"
+  url "https://gitlab.com/drobilla/zix/-/archive/v0.6.2/zix-v0.6.2.tar.gz"
+  sha256 "caa1435c870767e12f71454e8b17e878fa9b4bb35730b8f570934fb7cb74031c"
   license "ISC"
   head "https://gitlab.com/drobilla/zix.git", branch: "main"
 
