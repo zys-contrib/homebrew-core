@@ -2314,6 +2314,7 @@ opencl-clhpp-headers
 opencl-headers
 opencl-icd-loader
 opencolorio
+opencsg
 opendetex
 opendht
 openexr
