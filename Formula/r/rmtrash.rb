@@ -1,8 +1,8 @@
 class Rmtrash < Formula
   desc "Move files and directories to the trash"
   homepage "https://github.com/TBXark/rmtrash"
-  url "https://github.com/TBXark/rmtrash/archive/refs/tags/0.6.6.tar.gz"
-  sha256 "24ba6b5982ded6429a2d8d86d9b5a9d83beb88b1b551a2152d0bc8177d782d2f"
+  url "https://github.com/TBXark/rmtrash/archive/refs/tags/0.6.7.tar.gz"
+  sha256 "8c29f30294e1cbf1cdfc4b4f23e595e9d683aac8a21280b7218e894824caa80f"
   license "MIT"
   head "https://github.com/TBXark/rmtrash.git", branch: "master"
 
@@ -20,6 +20,7 @@ class Rmtrash < Formula
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
     bin.install ".build/release/rmtrash"
+    man1.install "Manual/rmtrash.1"
   end
 
   test do
