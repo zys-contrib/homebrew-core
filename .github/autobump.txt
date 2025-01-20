@@ -3078,6 +3078,7 @@ subfinder
 subliminal
 subnetcalc
 subversion
+suil
 suite-sparse
 sundials
 superfile
