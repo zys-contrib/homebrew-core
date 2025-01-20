@@ -7,12 +7,12 @@ class Xcbeautify < Formula
   head "https://github.com/cpisciotta/xcbeautify.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "91b1a8a18e7a79e13f023aa298a4d96d05f6137c5f32769ed54c3a537b04fcbb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "539dd4c92488f30701acf38583a3a602baea5cdaf799c4648879b8eef093d7a4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9eaa1e83e4b88323c014514ebcd15799d7dab85fcaf82012d579585b12330df0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d292eb1018bc17962f59ff1684b125f12af4a53691e805d0c943ffc868236e57"
-    sha256 cellar: :any_skip_relocation, ventura:       "108d4cc8fffddf3baa8e93e95a8153cf8eb083c0c8f17c90b6b5e1259d390d5d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d194e98ec00ddd04c3087130ed8ddb26ed375d58dd45fe410d40f2ba01ce2dc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ab2fcacaf0a16472d7ed115937171f47472fcc8ca7a6394e1d53c66227b5858e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0e98daee69487849c3cd8a825063e77abd48e29211ac438acac1232c30d514f6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a34cfa881b276f8775750ff605c976be33a26310285f384555827704a5f9ca14"
+    sha256 cellar: :any_skip_relocation, sonoma:        "723d1ffe6bae8ed764c840e6c6d03a1dac05e98f0dbab77ee2967d46c26b7940"
+    sha256 cellar: :any_skip_relocation, ventura:       "a3f49ab16f9a89f51c5a360a9e361756c4ca7a424339b9f81d66f04123b1f53a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b656bf4300abbe6a9b644f147e609e25a0f443205781b6c164abb4075e7f629"
   end
 
   # needs Swift tools version 5.9.0
