@@ -1,8 +1,8 @@
 class Krakend < Formula
   desc "Ultra-High performance API Gateway built in Go"
   homepage "https://www.krakend.io/"
-  url "https://github.com/krakendio/krakend-ce/archive/refs/tags/v2.8.0.tar.gz"
-  sha256 "c1b74db06cc2d410e132e51bdc92aacfd937099b74b02904a8057e4cb568dd53"
+  url "https://github.com/krakendio/krakend-ce/archive/refs/tags/v2.9.0.tar.gz"
+  sha256 "beb1e9bb3e89a9b20e5fe91d759f4e8788ae0ea7524c8145f9b0c56570b9cc8c"
   license "Apache-2.0"
 
   bottle do
@@ -17,8 +17,13 @@ class Krakend < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "build"
-    bin.install "krakend"
+    ldflags = %W[
+      -s -w
+      -X github.com/krakendio/krakend-ce/v2/pkg.Version=#{version}
+      -X github.com/luraproject/lura/v2/core.KrakendVersion=#{version}
+    ]
+
+    system "go", "build", *std_go_args(ldflags:), "./cmd/krakend-ce"
   end
 
   test do
