@@ -2965,6 +2965,7 @@ soapyremote
 socat
 socket_vmnet
 solana
+solargraph
 solhint
 sollya
 solr
