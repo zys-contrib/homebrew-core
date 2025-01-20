@@ -717,6 +717,7 @@ dhall
 dhall-bash
 dhall-json
 dhall-lsp-server
+dhall-toml
 dhall-yaml
 di
 dialog
