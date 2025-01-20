@@ -9,13 +9,12 @@ class Beancount < Formula
   head "https://github.com/beancount/beancount.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "220fca5da217c97fb5a9fad7ca6915bc55c9bae1d79fbdad5ee965442077d3d1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "09220a93a40eaa115f24d4e39e9e0f74aefaf36a973a42a56b7f23ab9af1f8f7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bcc06911282b28ad7c6f77c9b846eda048d22c90d09ebc353734273b0e9c0e5d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "904439e31cf5362140019d4bc222f5ece05c5421fbcfb6d1123732be6cf8e445"
-    sha256 cellar: :any_skip_relocation, ventura:       "3c2df16ce54d376f303adae8bf2aea116c294b884f7e4661b73fe4dd9ab80619"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b9af264b6a0e9e5862107f3eb0d162ad92ce914f96e452f3efbf31e790c6e9b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8dc1fcd7f2317ea72784d7fbf2f76c54e2db0326d7526f22a1b9a9c291efc222"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9a4c201840e45d79de983afd1068d188f3bc8d55d6d45f7cb2bb3434920f1e77"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ea4e49c721b56ee17b5c3cb7adbf37427f73beb5feb9dba8b96319f2c15e6a00"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c87741dafbf02e62986b0fa4b485542bb2f1e8cbc2d8f967475e94d46058c6a9"
+    sha256 cellar: :any_skip_relocation, ventura:       "0417cdbffbbb58e14ed1f6496f390da38ffddf7f43483206ae61ceb97dff809b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f61124a05787d02519432086cbbbafef2b979e40747d7e9801559d81b0b1003f"
   end
 
   depends_on "meson" => :build
