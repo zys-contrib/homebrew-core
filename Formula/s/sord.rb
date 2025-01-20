@@ -1,8 +1,8 @@
 class Sord < Formula
   desc "C library for storing RDF data in memory"
   homepage "https://drobilla.net/software/sord.html"
-  url "https://download.drobilla.net/sord-0.16.16.tar.xz"
-  sha256 "257f876d756143da02ee84c9260af93559d6249dd87f317e70ab5fffcc975fd0"
+  url "https://download.drobilla.net/sord-0.16.18.tar.xz"
+  sha256 "4f398b635894491a4774b1498959805a08e11734c324f13d572dea695b13d3b3"
   license "ISC"
 
   livecheck do

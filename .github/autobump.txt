@@ -2976,6 +2976,7 @@ sonobuoy
 sophus
 soplex
 sops
+sord
 sound-touch
 source-to-image
 sourcekitten
