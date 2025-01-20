@@ -1,8 +1,8 @@
 class Scala < Formula
   desc "JVM-based programming language"
   homepage "https://www.scala-lang.org/"
-  url "https://github.com/scala/scala3/releases/download/3.6.2/scala3-3.6.2.tar.gz"
-  sha256 "9525b93f8b9488330ecbdb85df3046d3ef46c6760ac23248902c4d89194c5206"
+  url "https://github.com/scala/scala3/releases/download/3.6.3/scala3-3.6.3.tar.gz"
+  sha256 "23e3d83d244b4bc434489fc1100a05c01ec4705111669379a46703e5c1b094d5"
   license "Apache-2.0"
 
   livecheck do
@@ -20,9 +20,6 @@ class Scala < Formula
   conflicts_with "pwntools", because: "both install `common` binaries"
 
   def install
-    # fix `scala-cli.jar` path, upstream pr ref, https://github.com/scala/scala3/pull/22185
-    inreplace "libexec/cli-common-platform", "bin/scala-cli", "libexec/scala-cli"
-
     rm Dir["bin/*.bat"]
 
     libexec.install "lib", "maven2", "VERSION", "libexec"
