@@ -1205,6 +1205,7 @@ goaccess
 goawk
 gobject-introspection
 gocloc
+gocryptfs
 goctl
 godap
 goffice
