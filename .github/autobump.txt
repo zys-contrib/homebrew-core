@@ -1557,6 +1557,7 @@ kcov
 kcptun
 kea
 keep-sorted
+keploy
 kepubify
 kerl
 kew
