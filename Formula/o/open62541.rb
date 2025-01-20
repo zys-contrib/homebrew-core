@@ -1,8 +1,8 @@
 class Open62541 < Formula
   desc "Open source implementation of OPC UA"
   homepage "https://open62541.org/"
-  url "https://github.com/open62541/open62541/archive/refs/tags/v1.4.8.tar.gz"
-  sha256 "b0e83206eb1c80c646d8fbd3fc70eff4de5b72cfba895d6629572559db43414b"
+  url "https://github.com/open62541/open62541/archive/refs/tags/v1.4.9.tar.gz"
+  sha256 "8735e61391cde0d84e6347a4293d2400b6a72838fb44513caf22d70dfca3a0cf"
   license "MPL-2.0"
 
   livecheck do
@@ -21,6 +21,12 @@ class Open62541 < Formula
 
   depends_on "cmake" => :build
   uses_from_macos "python" => :build
+
+  # fallback to a normal static mutex initializer for macos builds
+  patch do
+    url "https://github.com/open62541/open62541/commit/ddff3a1bd33ccbda6456d9ae2c2d408ea718b47b.patch?full_index=1"
+    sha256 "1f361b583baa3396833370463f2f95fdbac11ed8dda586ac9f3489439590dda1"
+  end
 
   def install
     cmake_args = %w[
