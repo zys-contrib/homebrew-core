@@ -2880,6 +2880,7 @@ seqkit
 sequin
 sequoia-sq
 ser2net
+serd
 serf
 serialosc
 serie
