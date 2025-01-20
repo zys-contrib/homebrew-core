@@ -2880,6 +2880,7 @@ serie
 serpl
 service-weaver
 sesh
+sextractor
 sf
 sfcgal
 sfml
