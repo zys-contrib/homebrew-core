@@ -12,11 +12,11 @@ class Itk < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:  "7e6fa6206a1287a8e41aa8a66866b964400d2323e5d0272fba30be3f94e98bf3"
-    sha256                               arm64_ventura: "98e52f5398df15ccc136dd725a50d8b3e544aebe9829fb0dd6296d28da4cf53d"
-    sha256                               sonoma:        "14099a14dce6c7ff00da7ddecb42b5f543dfcc53e18e78eb0cea8398b7bd020b"
-    sha256                               ventura:       "001226c931a2e1da1a3520d7280b2c5e647655aeea68ca7ee21a2e5ee462950f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77d624a275a5943065f01141493a8cc3ab37becaa3e0e5d32bff7fac188e7d2d"
+    sha256                               arm64_sonoma:  "59ae9aa0b8491af1972441322070ed97c8fa4c1fc70d5c8f09f4d71b708332af"
+    sha256                               arm64_ventura: "e2299872d6fd931f2d11d7bf8b7c3546fb1cd4600b0e373e92638ecccb056eed"
+    sha256                               sonoma:        "b0b120dc29fd81d6715b46fd48a2a7eb2d0ffe9e3b12d0b4b376fcf9c4bcad9c"
+    sha256                               ventura:       "feb698370fb7e2d8aeec2dc8eded0d3445faf63ef225acb6d75abb6d49ab00ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "27c315dfc3d6c8c5c4ad54a209c25343f46b501121ea701772264b1ebe336e55"
   end
 
   depends_on "cmake" => :build
