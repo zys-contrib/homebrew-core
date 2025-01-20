@@ -1,8 +1,8 @@
 class Privoxy < Formula
   desc "Advanced filtering web proxy"
   homepage "https://www.privoxy.org/"
-  url "https://downloads.sourceforge.net/project/ijbswa/Sources/3.0.34%20%28stable%29/privoxy-3.0.34-stable-src.tar.gz"
-  sha256 "e6ccbca1656f4e616b4657f8514e33a70f6697e9d7294356577839322a3c5d2c"
+  url "https://downloads.sourceforge.net/project/ijbswa/Sources/4.0.0%20%28stable%29/privoxy-4.0.0-stable-src.tar.gz"
+  sha256 "c08e2ba0049307017bf9d8a63dd2a0dfb96aa0cdeb34ae007776e63eba62a26f"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -26,17 +26,6 @@ class Privoxy < Formula
   depends_on "pcre2"
 
   uses_from_macos "zlib"
-
-  # Backport PCRE2 support from HEAD. Remove in the next release.
-  # Same patches used by Debian (excluding regression testcase 87253c99)
-  patch do
-    url "https://www.privoxy.org/gitweb/?p=privoxy.git;a=patch;h=53748ca8ca3c893025be34dd4f104546fcbd0602"
-    sha256 "61861bc3809f06eb77129d466c6e27f35972fa4aef8be2db2b6a789a3700fee8"
-  end
-  patch do
-    url "https://www.privoxy.org/gitweb/?p=privoxy.git;a=patch;h=e73b93ea9ad1f3e980bd78ed3ebf65dedbb598a2"
-    sha256 "19e58a263c308ada537109092e9b5dbb0e1625ce486b605d1392b72449adc174"
-  end
 
   def install
     system "autoreconf", "--force", "--install", "--verbose"

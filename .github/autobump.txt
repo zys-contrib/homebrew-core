@@ -2561,6 +2561,7 @@ primecount
 primesieve
 principalmapper
 prism-cli
+privoxy
 probe-rs-tools
 procps
 procs
