@@ -1331,6 +1331,7 @@ haskell-stack
 hatari
 hatch
 havn
+hawkeye
 haxe
 hbase
 hblock
