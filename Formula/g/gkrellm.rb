@@ -11,13 +11,11 @@ class Gkrellm < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "993ebbc08b5ec357975352c9a128735a459e5e844d45502fc47179f2ffbb70e7"
-    sha256 arm64_ventura:  "b76e8a47e234dcaddce425c0c01250bd5055de84de83428e1035e7545fa59eeb"
-    sha256 arm64_monterey: "cffde5aecac4ab95199a6a127eefa70248eea91eab2e3eb48f67b808e8094bd1"
-    sha256 sonoma:         "2fd34cbbdb66f96ab134190c082ad04c14bd82a93a972f0cf5ad01636d71cda3"
-    sha256 ventura:        "39828a1b0aa6586591195d1b7175a9a127abf4ed13e6a22094410f88ed05da7c"
-    sha256 monterey:       "ac1bdf3dcd6745101eb07b106acd4ae64d7e68ea27307dfc7033d1915f8af74d"
-    sha256 x86_64_linux:   "8d8b012ba597fb48d4a205aecfff14230f67053b25a504e64945378fa3331fd4"
+    sha256 arm64_sonoma:  "291a90717a25bb95ef0c496bdec82d885587559c31009bd552eedaa3a25f583d"
+    sha256 arm64_ventura: "f7de52218b179c4604afe3453fd8d23e2f43cb974b73db9ac8ddd638317fc185"
+    sha256 sonoma:        "40c0010f6bb061498f99a49574e95f69e48d3208a4a45d4958ebbf8b40e55100"
+    sha256 ventura:       "b8ccfe42efe43ed8059fb2cb003af40f5c1cfe707022a01034a775240334eb7a"
+    sha256 x86_64_linux:  "866d5ec29d28c584d77357100e4f8909cf2524cefb6859670578695c4dcb6cfb"
   end
 
   depends_on "pkgconf" => :build
