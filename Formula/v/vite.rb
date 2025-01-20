@@ -1,17 +1,17 @@
 class Vite < Formula
   desc "Next generation frontend tooling. It's fast!"
   homepage "https://vitejs.dev/"
-  url "https://registry.npmjs.org/vite/-/vite-6.0.8.tgz"
-  sha256 "7e7be275e3a257cf88c5a5ed5de65a2d1785f79b6bc06e873f0e0d1c3a164ce7"
+  url "https://registry.npmjs.org/vite/-/vite-6.0.9.tgz"
+  sha256 "b6a35a42d91e605df10380bd0bd3987487b3ddb27820aa06bf2cf37796e31c3d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3015b63c67275ede95accdaf2be1fa31b7cac2f9d5ce8c2d5f8c317bf88d07cb"
-    sha256 cellar: :any,                 arm64_sonoma:  "3015b63c67275ede95accdaf2be1fa31b7cac2f9d5ce8c2d5f8c317bf88d07cb"
-    sha256 cellar: :any,                 arm64_ventura: "3015b63c67275ede95accdaf2be1fa31b7cac2f9d5ce8c2d5f8c317bf88d07cb"
-    sha256 cellar: :any,                 sonoma:        "f96aab0e100e1684c14d47be395c1430dc0a1bc450148f33b1e9675f9dc10250"
-    sha256 cellar: :any,                 ventura:       "f96aab0e100e1684c14d47be395c1430dc0a1bc450148f33b1e9675f9dc10250"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad1a8e8e3a02cf038f2bb9ef7215f17d3d457c359b664d05d526ca433b41b4f2"
+    sha256 cellar: :any,                 arm64_sequoia: "15848b9d56b2dea74fbdbb23cd7c3a8c43ee8c9ff7fae779a12e405462e12953"
+    sha256 cellar: :any,                 arm64_sonoma:  "15848b9d56b2dea74fbdbb23cd7c3a8c43ee8c9ff7fae779a12e405462e12953"
+    sha256 cellar: :any,                 arm64_ventura: "15848b9d56b2dea74fbdbb23cd7c3a8c43ee8c9ff7fae779a12e405462e12953"
+    sha256 cellar: :any,                 sonoma:        "7f43d723d6952b530c49b9f9aed69f8398e6ff8a55da5be4075c1d6341bec6f2"
+    sha256 cellar: :any,                 ventura:       "7f43d723d6952b530c49b9f9aed69f8398e6ff8a55da5be4075c1d6341bec6f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26c20be7da9dd8096e2f9b79bdc846545ff4569a2db665bfc822e709a5d5340c"
   end
 
   depends_on "node"
