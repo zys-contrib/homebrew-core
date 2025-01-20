@@ -1,8 +1,8 @@
 class Tailwindcss < Formula
   desc "Utility-first CSS framework"
   homepage "https://tailwindcss.com"
-  url "https://github.com/tailwindlabs/tailwindcss/archive/refs/tags/v3.4.17.tar.gz"
-  sha256 "89c0a7027449cbe564f8722e84108f7bfa0224b5d9289c47cc967ffef8e1b016"
+  url "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.4.17.tgz"
+  sha256 "c42aab85fa6442055980e2ce61b4328f64a25abef44907feb75bd90681331d2a"
   license "MIT"
 
   bottle do
@@ -14,24 +14,16 @@ class Tailwindcss < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "646671381a5cbb0a2231f3a40021fbc2790311303f5c131d0d844ef892104ca2"
   end
 
-  depends_on "node" => :build
+  depends_on "node"
 
   def install
-    system "npm", "install", *std_npm_args(prefix: false)
-    system "npm", "run", "build"
-
-    cd "standalone-cli" do
-      system "npm", "install", *std_npm_args(prefix: false)
-      system "npm", "run", "build"
-      os = OS.mac? ? "macos" : "linux"
-      cpu = Hardware::CPU.arm? ? "arm64" : "x64"
-      bin.install "dist/tailwindcss-#{os}-#{cpu}" => "tailwindcss"
-    end
+    system "npm", "install", *std_npm_args
+    bin.install_symlink libexec.glob("bin/*")
   end
 
   test do
     (testpath/"input.css").write("@tailwind base;")
     system bin/"tailwindcss", "-i", "input.css", "-o", "output.css"
-    assert_predicate testpath/"output.css", :exist?
+    assert_path_exists testpath/"output.css"
   end
 end
