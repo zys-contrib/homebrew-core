@@ -1,10 +1,9 @@
 class Gkrellm < Formula
   desc "Extensible GTK system monitoring application"
   homepage "https://billw2.github.io/gkrellm/gkrellm.html"
-  url "https://gkrellm.srcbox.net/releases/gkrellm-2.3.11.tar.bz2"
-  sha256 "1ee0643ed9ed99f88c1504c89d9ccb20780cf29319c904b68e80a8e7c8678c06"
+  url "https://gkrellm.srcbox.net/releases/gkrellm-2.4.0.tar.bz2"
+  sha256 "6f83665760b936ad4b55f9182b1ec7601faf38a0f25ea1e4bddc9965088f032d"
   license "GPL-3.0-or-later"
-  revision 4
 
   livecheck do
     url "https://gkrellm.srcbox.net/releases/"
@@ -41,6 +40,12 @@ class Gkrellm < Formula
     depends_on "libice"
     depends_on "libsm"
     depends_on "libx11"
+  end
+
+  # disable systemd service handling on macos, upstream pr ref: https://git.srcbox.net/gkrellm/gkrellm/pulls/44
+  patch do
+    url "https://git.srcbox.net/gkrellm/gkrellm/commit/bb444190052b3d4096bbaaeaef15a57df4212b3c.patch?full_index=1"
+    sha256 "20e7d9ed74977450c4417b558a2bd3bbb2cbaf6c0e8cd4df12ea07cf574fb703"
   end
 
   def install
