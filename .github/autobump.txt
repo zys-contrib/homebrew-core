@@ -1520,6 +1520,7 @@ jsdoc3
 jsign
 json-fortran
 json-glib
+json2hcl
 json2ts
 json2tsv
 jsoncpp
