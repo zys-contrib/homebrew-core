@@ -1893,6 +1893,7 @@ lightgbm
 lighthouse
 lightning
 lighttpd
+lilv
 lima
 limbo
 link-grammar
