@@ -11,13 +11,12 @@ class Privoxy < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "97f2f5971c167ff964445e8294e6b577ecfab9edc660133281ddc77f066ccc77"
-    sha256 cellar: :any,                 arm64_sonoma:  "08aeaed4a5bceb64b7133cd1b9cedc8caa425de38581020e7b2c8554ec0609fd"
-    sha256 cellar: :any,                 arm64_ventura: "064cbe795744a5e15d18b2f2fa28b92992fcb2eae53fd6de3546908b0f2f041f"
-    sha256 cellar: :any,                 sonoma:        "b209390e2cdaf34c07e1530708abacb1613b08e8c8bec9a237c36200882e4f54"
-    sha256 cellar: :any,                 ventura:       "97bb54f2c404b840d1d12e25a1093b767ceacdb2cb829b3ee7178ac755693deb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d2377396f93e9ddfb8725a754533e1ce4e9077d15087773f6a9f807b50ae533"
+    sha256 cellar: :any,                 arm64_sequoia: "d83863aa3c2b997f07b85eb2c0508411720d70c7d9e2d8a0d3aad6f6570dd4c7"
+    sha256 cellar: :any,                 arm64_sonoma:  "5ffeba4e02190b9ef05a1991918b68f35816922b1e5ea18222823abd3b04efae"
+    sha256 cellar: :any,                 arm64_ventura: "320b704c330b960bff73567056912529c9840b7be022b2fa36d336755fab634e"
+    sha256 cellar: :any,                 sonoma:        "890bbcfe55da09152be6367010e6a102ea9163b0e95c76a93051f41fc069a84d"
+    sha256 cellar: :any,                 ventura:       "87f744512b9c327b249c529495b8604cb6e4b0dbcd4bccbe8380e300dc1dfde8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "deeadf7f6f8e636fecafd58b7b3c201f1303f7b971af0667d43c54ccf3977bc7"
   end
 
   depends_on "autoconf" => :build
