@@ -1,8 +1,8 @@
 class Hoverfly < Formula
   desc "API simulations for development and testing"
   homepage "https://hoverfly.io/"
-  url "https://github.com/SpectoLabs/hoverfly/archive/refs/tags/v1.10.7.tar.gz"
-  sha256 "d0203f84a4e1137978d3420eefca13768f85d6dc40d511a184d338fcd240114a"
+  url "https://github.com/SpectoLabs/hoverfly/archive/refs/tags/v1.10.8.tar.gz"
+  sha256 "9674aee1ae2b32552c44c2a8fb520b838f5340ff7d90bf94f5a7ddf5df6d44d4"
   license "Apache-2.0"
   head "https://github.com/SpectoLabs/hoverfly.git", branch: "master"
 
@@ -16,6 +16,12 @@ class Hoverfly < Formula
   end
 
   depends_on "go" => :build
+
+  # version patch, upstream pr ref, https://github.com/SpectoLabs/hoverfly/pull/1171
+  patch do
+    url "https://github.com/SpectoLabs/hoverfly/commit/e4aae6a3fa53acb444e3fe12ae2ded1c1ebb915a.patch?full_index=1"
+    sha256 "2b31220b440026f8e6a616760ff1eb67b58cc5dac73beeaa6a2c5a1eb6a18a99"
+  end
 
   def install
     ldflags = "-s -w -X main.hoverctlVersion=#{version}"
