@@ -1,8 +1,8 @@
 class Ddclient < Formula
   desc "Update dynamic DNS entries"
   homepage "https://ddclient.net/"
-  url "https://github.com/ddclient/ddclient/archive/refs/tags/v3.11.2.tar.gz"
-  sha256 "243cd832abd3cdd2b49903e1b5ed7f450e2d9c4c0eaf8ce4fe692c244d3afd77"
+  url "https://github.com/ddclient/ddclient/archive/refs/tags/v4.0.0.tar.gz"
+  sha256 "4b37c99ac0011102d7db62f1ece7ff899b06df3d4b172e312703931a3c593c93"
   license "GPL-2.0-or-later"
   head "https://github.com/ddclient/ddclient.git", branch: "master"
 
@@ -52,12 +52,6 @@ class Ddclient < Formula
     end
   end
 
-  # disable automake treating warnings as error, upstream pr ref, https://github.com/ddclient/ddclient/pull/746
-  patch do
-    url "https://github.com/ddclient/ddclient/commit/9eb4558772b84516363c960fe53c014575d80df9.patch?full_index=1"
-    sha256 "e491f223f033aad7c213cd9a1a761fefffc6220660e3f4ac150ca65e1381cf7a"
-  end
-
   def install
     if OS.linux?
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
@@ -86,18 +80,7 @@ class Ddclient < Formula
 
   def post_install
     (var/"run").mkpath
-    chmod "go-r", etc/"ddclient.conf"
-
-    # Migrate old configuration files to the new location that `ddclient` checks.
-    # Remove on 31/12/2023.
-    old_config_file = pkgetc/"ddclient.conf"
-    return unless old_config_file.exist?
-
-    new_config_file = etc/"ddclient.conf"
-    ohai "Migrating `#{old_config_file}` to `#{new_config_file}`..."
-    etc.install new_config_file => "ddclient.conf.default" if new_config_file.exist?
-    etc.install old_config_file
-    rm_r(pkgetc) if pkgetc.empty?
+    chmod "go-r", pkgetc/"ddclient.conf"
   end
 
   def caveats
