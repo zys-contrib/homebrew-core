@@ -1,8 +1,8 @@
 class Hck < Formula
   desc "Sharp cut(1) clone"
   homepage "https://github.com/sstadick/hck"
-  url "https://github.com/sstadick/hck/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "1bfec031e1d5bc34ab32cee4e4185c0277d8e8f29712ec8f2dcdd8347011430b"
+  url "https://github.com/sstadick/hck/archive/refs/tags/v0.11.1.tar.gz"
+  sha256 "7b3d2e61d1e0014184e111c86a0ef92437820f9a090effa43bce6af2c220b315"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/sstadick/hck.git", branch: "master"
 
