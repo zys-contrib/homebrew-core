@@ -6,6 +6,15 @@ class C2patool < Formula
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/contentauth/c2pa-rs.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "2febe9bc7da2dbf7ca0ceca46799f08e82bb2ee34e7469ee5ac44c68c531267f"
+    sha256 cellar: :any,                 arm64_sonoma:  "5448b01a63662702af3c28d35f1276e2d05108ae16b7dda8d9a2ae79e7bc3e15"
+    sha256 cellar: :any,                 arm64_ventura: "5eb46b393f3b595b01651a20d0d9cea3bc755ea4d8bef537e93334e83deeed64"
+    sha256 cellar: :any,                 sonoma:        "25de7218304aeceeb903134eca7c1d75ad01ae6a645dbe09c38b0137b928f648"
+    sha256 cellar: :any,                 ventura:       "07b14818377e4d3117a6bd033f55d8444035c5fc654366198df8c983c03f9192"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd629e27beb64b104d2e1c27434009421e495f3b885218dfa8af9ddb08cfd66b"
+  end
+
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
