@@ -1,8 +1,8 @@
 class Sshs < Formula
   desc "Graphical command-line client for SSH"
   homepage "https://github.com/quantumsheep/sshs"
-  url "https://github.com/quantumsheep/sshs/archive/refs/tags/4.6.0.tar.gz"
-  sha256 "58e104dac3a1515f79421b46b22079cc443261c15ca5b97fb025a00775d600ff"
+  url "https://github.com/quantumsheep/sshs/archive/refs/tags/4.6.1.tar.gz"
+  sha256 "4a8d96ca607f3d20e641341b82e5d6118fcf5c8fbbab74f114dd9ad4eef6e1c0"
   license "MIT"
 
   bottle do
@@ -15,12 +15,6 @@ class Sshs < Formula
   end
 
   depends_on "rust" => :build
-
-  # version patch, upstream pr ref, https://github.com/quantumsheep/sshs/pull/115
-  patch do
-    url "https://github.com/quantumsheep/sshs/commit/de24632c4a83beb82ca041f4cfaa5e1c534993b3.patch?full_index=1"
-    sha256 "40c0e71b5fd3edc06250f1e4775395c49607dca7c3da6c36065e0c084a8e2b9f"
-  end
 
   def install
     system "cargo", "install", *std_cargo_args
