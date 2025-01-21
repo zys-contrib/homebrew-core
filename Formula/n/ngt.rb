@@ -1,8 +1,8 @@
 class Ngt < Formula
   desc "Neighborhood graph and tree for indexing high-dimensional data"
   homepage "https://github.com/yahoojapan/NGT"
-  url "https://github.com/yahoojapan/NGT/archive/refs/tags/v2.3.8.tar.gz"
-  sha256 "a50ac5644b1b8d594338ab7579d824a91c5640ee0fb1f33e00513f98926b091f"
+  url "https://github.com/yahoojapan/NGT/archive/refs/tags/v2.3.9.tar.gz"
+  sha256 "2b0dabe1216ba063068834bed144bd1e077c79a5f8d8e05f53d0df2818d762cd"
   license "Apache-2.0"
 
   livecheck do
@@ -27,12 +27,6 @@ class Ngt < Formula
 
   on_linux do
     depends_on "openblas"
-  end
-
-  # fix narrowing conversion error, upstream pr ref, https://github.com/yahoojapan/NGT/pull/177
-  patch do
-    url "https://github.com/yahoojapan/NGT/commit/16077296a104e33cee160cce53398805a560a5e4.patch?full_index=1"
-    sha256 "b7a98a89769430cf2c9122c6c3a560b041f35498b08e10eddfd3497f2c189550"
   end
 
   def install
