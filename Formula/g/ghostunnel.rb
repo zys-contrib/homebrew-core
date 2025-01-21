@@ -1,8 +1,8 @@
 class Ghostunnel < Formula
   desc "Simple SSL/TLS proxy with mutual authentication"
   homepage "https://github.com/ghostunnel/ghostunnel"
-  url "https://github.com/ghostunnel/ghostunnel/archive/refs/tags/v1.8.3.tar.gz"
-  sha256 "999cdc019ad1ec90b69370169469d4a32bf7bfffe646c7843aba083e2e35e613"
+  url "https://github.com/ghostunnel/ghostunnel/archive/refs/tags/v1.8.4.tar.gz"
+  sha256 "6700ea0ae9a83df18aa216f6346f177ff70e6d80df16690742b823a92af3af46"
   license "Apache-2.0"
   head "https://github.com/ghostunnel/ghostunnel.git", branch: "master"
 
@@ -31,6 +31,7 @@ class Ghostunnel < Formula
         "--disable-authentication", "--shutdown-timeout=1s", "--connect-timeout=1s"
     end
     sleep 1
+    sleep 2 if OS.mac? && Hardware::CPU.intel?
     shell_output("curl -o /dev/null http://localhost:#{port}/", 56)
   end
 end
