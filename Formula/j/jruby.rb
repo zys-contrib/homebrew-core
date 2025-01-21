@@ -11,12 +11,12 @@ class Jruby < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "90f1d4c62a14003b9e9fb14466f990d60eef3200823d09569c2e3235cc04f4df"
-    sha256 cellar: :any,                 arm64_sonoma:  "90f1d4c62a14003b9e9fb14466f990d60eef3200823d09569c2e3235cc04f4df"
-    sha256 cellar: :any,                 arm64_ventura: "90f1d4c62a14003b9e9fb14466f990d60eef3200823d09569c2e3235cc04f4df"
-    sha256 cellar: :any,                 sonoma:        "96de337118b5728b1da86328c614a03cc927e84ebb8c3d7a6967fcbaee87fa31"
-    sha256 cellar: :any,                 ventura:       "96de337118b5728b1da86328c614a03cc927e84ebb8c3d7a6967fcbaee87fa31"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bad7e6b6572b85417d3d5f1a22066e6cb3f89c46c86c4aad7ec1a75e530ffb7f"
+    sha256 cellar: :any,                 arm64_sequoia: "3f3330a7e9413afa5ad1677fc5c68bd1803b5d976a3fa5f88f30942943bbe4e6"
+    sha256 cellar: :any,                 arm64_sonoma:  "3f3330a7e9413afa5ad1677fc5c68bd1803b5d976a3fa5f88f30942943bbe4e6"
+    sha256 cellar: :any,                 arm64_ventura: "3f3330a7e9413afa5ad1677fc5c68bd1803b5d976a3fa5f88f30942943bbe4e6"
+    sha256 cellar: :any,                 sonoma:        "bc13189a0f27d4b0f7eb1ee9ce856a247181d594ac4c2a6fdd3827b281c4897b"
+    sha256 cellar: :any,                 ventura:       "bc13189a0f27d4b0f7eb1ee9ce856a247181d594ac4c2a6fdd3827b281c4897b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7797250814f6d55c9a6378b802c46eec34e3b24d4d342d10b0ca62b185ab8ef"
   end
 
   depends_on "openjdk"
