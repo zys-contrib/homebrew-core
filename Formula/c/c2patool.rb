@@ -6,6 +6,11 @@ class C2patool < Formula
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/contentauth/c2pa-rs.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^c2patool[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "2febe9bc7da2dbf7ca0ceca46799f08e82bb2ee34e7469ee5ac44c68c531267f"
     sha256 cellar: :any,                 arm64_sonoma:  "5448b01a63662702af3c28d35f1276e2d05108ae16b7dda8d9a2ae79e7bc3e15"
