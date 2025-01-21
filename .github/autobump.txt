@@ -685,6 +685,7 @@ dbml-cli
 dbus
 dcd
 dcm2niix
+ddclient
 ddcutil
 ddns-go
 ddrescue
