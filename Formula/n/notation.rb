@@ -7,14 +7,12 @@ class Notation < Formula
   head "https://github.com/notaryproject/notation.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8f154bacbf4da75dab08520d7a574bb1dbf271960290d83200b4d44260c2fbd2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8257d351a65fd2ad5b0d66c99b4bf332a067c49cb0d581b1a0b81b96c90c3af2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8257d351a65fd2ad5b0d66c99b4bf332a067c49cb0d581b1a0b81b96c90c3af2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8257d351a65fd2ad5b0d66c99b4bf332a067c49cb0d581b1a0b81b96c90c3af2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "94198be627dfa4aa0bc197a41901491b9ee5ac9de28c2f1ea17fdc5a48805469"
-    sha256 cellar: :any_skip_relocation, ventura:        "94198be627dfa4aa0bc197a41901491b9ee5ac9de28c2f1ea17fdc5a48805469"
-    sha256 cellar: :any_skip_relocation, monterey:       "94198be627dfa4aa0bc197a41901491b9ee5ac9de28c2f1ea17fdc5a48805469"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24561723cc8e33f7f5b97d051e1187683ad46f312734e98f36a3eb479a126706"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "93c93fda8136ff9f88209e2ccc520e4557edad0d5006f6c70d2e7da4b26f27bf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "93c93fda8136ff9f88209e2ccc520e4557edad0d5006f6c70d2e7da4b26f27bf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "93c93fda8136ff9f88209e2ccc520e4557edad0d5006f6c70d2e7da4b26f27bf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5bc38bf0a9afe139774c69c796856069c5474bd22b687b5d82bf48300babe7d9"
+    sha256 cellar: :any_skip_relocation, ventura:       "5bc38bf0a9afe139774c69c796856069c5474bd22b687b5d82bf48300babe7d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "051c86bc0519f990ade4cdc6c8b60ee5110bffffc19dac693552e80c9f419884"
   end
 
   depends_on "go" => :build
