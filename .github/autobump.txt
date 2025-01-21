@@ -262,6 +262,7 @@ bind
 bindfs
 bindgen
 bingrep
+binocle
 binsider
 biodiff
 biome
