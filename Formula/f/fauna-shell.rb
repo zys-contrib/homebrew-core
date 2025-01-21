@@ -1,8 +1,8 @@
 class FaunaShell < Formula
   desc "Interactive shell for FaunaDB"
   homepage "https://fauna.com/"
-  url "https://registry.npmjs.org/fauna-shell/-/fauna-shell-3.0.1.tgz"
-  sha256 "258ed7dcb3c369aee861a6e69bf807fea3f00540a6b86d2cfae8d8162e32c2de"
+  url "https://registry.npmjs.org/fauna-shell/-/fauna-shell-4.0.0.tgz"
+  sha256 "6dd5c853c1a62e72d6101741a498b3b9fe4db21e68ec2e024541b488b858c77f"
   license "MPL-2.0"
   head "https://github.com/fauna/fauna-shell.git", branch: "main"
 
@@ -20,25 +20,19 @@ class FaunaShell < Formula
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
+
+    # Remove incompatible pre-built binaries
+    libexec.glob("lib/node_modules/fauna-shell/dist/{*.node,fauna}")
+           .each { |f| rm(f) }
   end
 
   test do
-    output = shell_output("#{bin}/fauna endpoint list 2>&1")
-    assert_match "Available endpoints:\n", output
+    assert_match version.to_s, shell_output("#{bin}/fauna --version")
 
-    # FIXME: This test seems to stall indefinitely on Linux.
-    # https://github.com/jdxcode/password-prompt/issues/12
-    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"].present?
+    output = shell_output("#{bin}/fauna database list 2>&1", 1)
+    assert_match "The requested user 'default' is not signed in or has expired.", output
 
-    output = shell_output("#{bin}/fauna endpoint add https://db.fauna.com:443 " \
-                          "--no-input --url http://localhost:8443 " \
-                          "--secret your_fauna_secret --set-default")
-    assert_match "Saved endpoint https://db.fauna.com:443", output
-
-    expected = <<~EOS
-      Available endpoints:
-      * https://db.fauna.com:443
-    EOS
-    assert_equal expected, shell_output("#{bin}/fauna endpoint list")
+    output = shell_output("#{bin}/fauna local --name local-fauna 2>&1", 1)
+    assert_match "[StartContainer] Docker service is not available", output
   end
 end
