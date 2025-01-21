@@ -2,10 +2,9 @@ class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
   url "https://github.com/containers/podman.git",
-      tag:      "v5.3.1",
-      revision: "4cbdfde5d862dcdbe450c0f1d76ad75360f67a3c"
+      tag:      "v5.3.2",
+      revision: "85043bb1a3818102194afa82845cb63841067c9c"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
-  revision 1
   head "https://github.com/containers/podman.git", branch: "main"
 
   bottle do
@@ -45,29 +44,29 @@ class Podman < Formula
 
   resource "gvproxy" do
     on_macos do
-      url "https://github.com/containers/gvisor-tap-vsock/archive/refs/tags/v0.8.1.tar.gz"
-      sha256 "9b7fb12dfc37b0a727f2209ff8b557c4ec922d11cec30a778c192da360db4a2f"
+      url "https://github.com/containers/gvisor-tap-vsock/archive/refs/tags/v0.8.2.tar.gz"
+      sha256 "57bf983cc636d107cd86ecf3a147674cf2f2c18d7a5a92a9b39da842547bbc51"
     end
   end
 
   resource "vfkit" do
     on_macos do
-      url "https://github.com/crc-org/vfkit/archive/refs/tags/v0.5.1.tar.gz"
-      sha256 "0825d5efabc5ec8817d2ed89f18717b2b4fa5be804b0f2ccc891b4a23b64d771"
+      url "https://github.com/crc-org/vfkit/archive/refs/tags/v0.6.0.tar.gz"
+      sha256 "4efaf318729101076d3bf821baf88e5f5bf89374684b35b2674c824a76feafdf"
     end
   end
 
   resource "catatonit" do
     on_linux do
-      url "https://github.com/openSUSE/catatonit/archive/refs/tags/v0.2.0.tar.gz"
-      sha256 "d0cf1feffdc89c9fb52af20fc10127887a408bbd99e0424558d182b310a3dc92"
+      url "https://github.com/openSUSE/catatonit/archive/refs/tags/v0.2.1.tar.gz"
+      sha256 "771385049516fdd561fbb9164eddf376075c4c7de3900a8b18654660172748f1"
     end
   end
 
   resource "netavark" do
     on_linux do
-      url "https://github.com/containers/netavark/archive/refs/tags/v1.13.0.tar.gz"
-      sha256 "34862383aee916677333b586f57d8b1d29f94676029da23c9a1ad1fcb509d1c1"
+      url "https://github.com/containers/netavark/archive/refs/tags/v1.13.1.tar.gz"
+      sha256 "b3698021677fb3b0fd1dc5f669fd62b49a7f4cf26bb70f977663f6d1a5046a31"
     end
   end
 
