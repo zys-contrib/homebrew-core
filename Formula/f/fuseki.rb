@@ -1,9 +1,9 @@
 class Fuseki < Formula
   desc "SPARQL server"
   homepage "https://jena.apache.org/documentation/fuseki2/"
-  url "https://www.apache.org/dyn/closer.lua?path=jena/binaries/apache-jena-fuseki-5.2.0.tar.gz"
-  mirror "https://archive.apache.org/dist/jena/binaries/apache-jena-fuseki-5.2.0.tar.gz"
-  sha256 "a90033fadef096dc23ad81737eb3c98b4d4251ee1337f19216d485c4e43c8aec"
+  url "https://www.apache.org/dyn/closer.lua?path=jena/binaries/apache-jena-fuseki-5.3.0.tar.gz"
+  mirror "https://archive.apache.org/dist/jena/binaries/apache-jena-fuseki-5.3.0.tar.gz"
+  sha256 "0d5647be9bd478930478dde180bcc14f568019a21f8f62ddb1e05c4ba5cf9fb9"
   license "Apache-2.0"
 
   bottle do
@@ -13,9 +13,9 @@ class Fuseki < Formula
   depends_on "openjdk"
 
   def install
-    prefix.install "bin"
+    rm "fuseki-server.bat"
 
-    %w[fuseki-server fuseki].each do |exe|
+    %w[fuseki-server fuseki-backup fuseki].each do |exe|
       libexec.install exe
       (bin/exe).write_env_script(libexec/exe,
                                  JAVA_HOME:   Formula["openjdk"].opt_prefix,
@@ -26,9 +26,7 @@ class Fuseki < Formula
       (libexec/exe).chmod 0755
     end
 
-    # Non-symlinked binaries and application files
-    libexec.install "fuseki-server.jar",
-                    "webapp"
+    libexec.install "fuseki-server.jar"
   end
 
   def post_install
