@@ -6,6 +6,15 @@ class Json2hcl < Formula
   license "MIT"
   head "https://github.com/kvz/json2hcl.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3a798a235db04843eee5ce55e66bc4bd3b1c197b9868fe945fba5137be4f190e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3a798a235db04843eee5ce55e66bc4bd3b1c197b9868fe945fba5137be4f190e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3a798a235db04843eee5ce55e66bc4bd3b1c197b9868fe945fba5137be4f190e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "62798fba3369e97896eb088773cef0d613b1ce3caa6b952b19f780038a8dad65"
+    sha256 cellar: :any_skip_relocation, ventura:       "62798fba3369e97896eb088773cef0d613b1ce3caa6b952b19f780038a8dad65"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2948c8a75a038d66472436983a09b1e32cab8b7dc9a5d3d3b8dfec86a75a2eaa"
+  end
+
   depends_on "go" => :build
 
   def install
