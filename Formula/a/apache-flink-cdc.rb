@@ -8,7 +8,7 @@ class ApacheFlinkCdc < Formula
   head "https://github.com/apache/flink-cdc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d6116bd41efd4a1104463f34261e854a6d0799e25159611ee2482d1d7aabb94f"
+    sha256 cellar: :any_skip_relocation, all: "68208a88aaed1d60d35718e6c47548d1f4939b4a18ea008d857b76c931de0745"
   end
 
   depends_on "apache-flink" => :test
