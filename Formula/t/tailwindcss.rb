@@ -1,9 +1,14 @@
 class Tailwindcss < Formula
   desc "Utility-first CSS framework"
   homepage "https://tailwindcss.com"
-  url "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.4.17.tgz"
-  sha256 "c42aab85fa6442055980e2ce61b4328f64a25abef44907feb75bd90681331d2a"
+  url "https://registry.npmjs.org/tailwindcss/-/tailwindcss-4.0.0.tgz"
+  sha256 "72309ed7264bb66a0e4ed4171a064f9f4ea3b92906afe67b8afedbd8f9e78b28"
   license "MIT"
+
+  livecheck do
+    url "https://github.com/tailwindlabs/tailwindcss"
+    strategy :github_latest
+  end
 
   bottle do
     rebuild 1
@@ -17,7 +22,17 @@ class Tailwindcss < Formula
 
   depends_on "node"
 
+  resource "tailwind-cli" do
+    url "https://registry.npmjs.org/@tailwindcss/cli/-/cli-4.0.0.tgz"
+    sha256 "a6a772944d048966e9db2bdc7521053ea3d8bd06cfdff7931fdc4bb2313e6369"
+  end
+
   def install
+    # install the dedicated tailwind-cli package
+    resource("tailwind-cli").stage do
+      system "npm", "install", *std_npm_args
+    end
+
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
   end
