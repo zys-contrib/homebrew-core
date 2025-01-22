@@ -19,7 +19,7 @@ class Awscli < Formula
 
   depends_on "cmake" => :build
   depends_on "cryptography"
-  depends_on "python@3.12"
+  depends_on "python@3.12" # Python 3.13 issue: https://github.com/aws/aws-cli/issues/9234
 
   uses_from_macos "libffi"
   uses_from_macos "mandoc"
