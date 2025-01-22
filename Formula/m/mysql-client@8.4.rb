@@ -1,8 +1,8 @@
 class MysqlClientAT84 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.4/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.3.tar.gz"
-  sha256 "7ac9564c478022f73005ff89bbb40f67b381fc06d5518416bdffec75e625b818"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.4.tar.gz"
+  sha256 "fb290ef748894434085249c31bca52ac71853124446ab218bb3bc502bf0082a5"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -32,6 +32,10 @@ class MysqlClientAT84 < Formula
   depends_on "zstd"
 
   uses_from_macos "libedit"
+
+  on_linux do
+    depends_on "libtirpc" => :build
+  end
 
   def install
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
