@@ -1817,6 +1817,7 @@ libre
 librealsense
 librespot
 libressl
+librime
 librist
 librsvg
 librtlsdr

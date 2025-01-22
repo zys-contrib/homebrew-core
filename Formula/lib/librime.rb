@@ -2,10 +2,9 @@ class Librime < Formula
   desc "Rime Input Method Engine"
   homepage "https://rime.im"
   url "https://github.com/rime/librime.git",
-      tag:      "1.12.0",
-      revision: "c7ab6390c143a11d670f3add41218111edb883c9"
+      tag:      "1.13.0",
+      revision: "e8184dceaf9a89a21d6dc25c1850779cd652c472"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "4323fda208914bea9fe7fba22b29cdd85a05fe13c10c143c65587a09eb16bb29"
@@ -24,20 +23,15 @@ class Librime < Formula
   depends_on "capnp"
   depends_on "gflags"
   depends_on "glog"
-  depends_on "googletest"
   depends_on "leveldb"
   depends_on "lua"
   depends_on "marisa"
   depends_on "opencc"
   depends_on "yaml-cpp"
 
-  on_linux do
-    depends_on "libunwind"
-  end
-
   resource "lua" do
     url "https://github.com/hchunhui/librime-lua.git",
-        revision: "b210d0cfbd2a3cc6edd4709dd0a92c479bfca10b"
+        revision: "e3912a4b3ac2c202d89face3fef3d41eb1d7fcd6"
   end
 
   resource "octagram" do
@@ -64,6 +58,7 @@ class Librime < Formula
       -DBUILD_MERGED_PLUGINS=OFF
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DENABLE_EXTERNAL_PLUGINS=ON
+      -DBUILD_TEST=OFF
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
