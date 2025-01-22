@@ -23,11 +23,12 @@ class Opencv < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:  "d035c4506b85c05055ee3116fbfd48bde6633a38a4923e14cb4933aa8ca3e9a8"
-    sha256 arm64_ventura: "9e2476f323c7b24ae18690cdaa4341a87e972a41c2674d20436c089ed9e20671"
-    sha256 sonoma:        "73cff09359f66beeb837e43a4e4123fcdb1bf5999c78bf77bc52a3e9d74b51fe"
-    sha256 ventura:       "d6be06315f928644ad2f90f01700e8f6af37903894d36e9527351fca9bfadf9e"
-    sha256 x86_64_linux:  "b5da4aa096725d6fe1a3254edfc32ffbea13186c49d6aa9b72f9dbc80ef529b6"
+    rebuild 1
+    sha256 arm64_sonoma:  "94e02970c7bda9ce47a544cd6b1a716e420c45ab5440ed5419c49659e0722152"
+    sha256 arm64_ventura: "8d7212a2badc196d319fb22a1f81be21d8c3d050cefb085a85bfdc80cca23de8"
+    sha256 sonoma:        "792ad416576124b960df8f38cb49b4b09b2c16e92a4c1694224a904b4b6f1e00"
+    sha256 ventura:       "29b1019de41831c01ede50c8e15eb5a28abfb805f3cbca8ee849d7beda9a9652"
+    sha256 x86_64_linux:  "9814579263537723d893b5785649823d737b111c6cc7408faba58cdec7541895"
   end
 
   head do
