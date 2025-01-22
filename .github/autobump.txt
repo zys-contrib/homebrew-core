@@ -3041,6 +3041,7 @@ srt
 srtp
 sse2neon
 ssh-audit
+ssh-mitm
 sshs
 ssldump
 sslh
