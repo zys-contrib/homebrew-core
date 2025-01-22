@@ -28,14 +28,13 @@ class Pocsuite3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "5afdcbcbf2f59760c913954e625a2be82f702825c57b8d159054e6c9ec575d6c"
-    sha256 cellar: :any,                 arm64_sonoma:   "87432dc1483b8d711f44587d434d9c378e6df53728b607f61d6161ed0b866780"
-    sha256 cellar: :any,                 arm64_ventura:  "23774e53c7c6b0413b209cb4b072732cccfe9079a2191c2da5f8879e34b75ad5"
-    sha256 cellar: :any,                 arm64_monterey: "78ef059feda4ca1a13c005167c4d8663c401bf89d34e007470ce8ef7b7ee790e"
-    sha256 cellar: :any,                 sonoma:         "9335aa0028fc926f86ea7c09d3da2482a0a064737c07535342cae5ac7c25bb78"
-    sha256 cellar: :any,                 ventura:        "b7a12dfc9a31e153e01be50ec8df9f2e60025c43ee61f75aa1fba9a3a7719d6e"
-    sha256 cellar: :any,                 monterey:       "21b31e74ae7088891111b288a75af74e314e58c44bf420988eb79625eb583990"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b904a94861cbbfdc9a759cbe1cc8880d3b8a9fc027814549db23911b36c53d88"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "148dce91ced8405367b6758e0d47bb9a2f41cfc6fa1b9c20049b6f712e2a5c1d"
+    sha256 cellar: :any,                 arm64_sonoma:  "e62ec6439b38aa364a77482c242578e9b89f5cb7ea83bd85a274d4a4e0ba411b"
+    sha256 cellar: :any,                 arm64_ventura: "c72deb8b5e16df341d216141b9bee62fa211413781b3c2d935c9c7bbe07c9d8a"
+    sha256 cellar: :any,                 sonoma:        "6f86e39cb3b17ff2c3a2fd19df02325958527450c23fac2f0197ac3dab01ce9d"
+    sha256 cellar: :any,                 ventura:       "09a8bb0237f9a8a2dd8fc61ab3617b734dcb26fd39b6240becc9a2e15bc50afb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9c5ba490de8b4677b999d77b38ec7925f935e055bdf697d0a1862c4ec5062c7"
   end
 
   depends_on "certifi"
