@@ -1155,6 +1155,7 @@ git-xargs
 gitbackup
 gitbucket
 gitea
+github-keygen
 github-markdown-toc
 gitlab-ci-local
 gitlab-gem
