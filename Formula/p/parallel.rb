@@ -14,7 +14,7 @@ class Parallel < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "dcd4342e34778826d6b8b3a85c29b2d8d6a7c07b22865787577971c0d3282a4a"
+    sha256 cellar: :any_skip_relocation, all: "8274fb6ab5699c9a1682675a02d2559229654efee9a11708d65bdbb8ac54c9a5"
   end
 
   conflicts_with "moreutils", because: "both install a `parallel` executable"
