@@ -1,8 +1,8 @@
 class Xcbeautify < Formula
   desc "Little beautifier tool for xcodebuild"
   homepage "https://github.com/cpisciotta/xcbeautify"
-  url "https://github.com/cpisciotta/xcbeautify/archive/refs/tags/2.21.0.tar.gz"
-  sha256 "1585e079ce0a2d066d6cc2e24fa1034b5ff9a197155b090496f8e86a584c99d8"
+  url "https://github.com/cpisciotta/xcbeautify/archive/refs/tags/2.22.0.tar.gz"
+  sha256 "3108b2cbd273bbb82ad41c5e02ede8129b073c0e75736b582c75a5098ac42dc7"
   license "MIT"
   head "https://github.com/cpisciotta/xcbeautify.git", branch: "main"
 
