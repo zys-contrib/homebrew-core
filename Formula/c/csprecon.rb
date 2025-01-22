@@ -1,8 +1,8 @@
 class Csprecon < Formula
   desc "Discover new target domains using Content Security Policy"
   homepage "https://github.com/edoardottt/csprecon"
-  url "https://github.com/edoardottt/csprecon/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "afadd6706ef13be458f5bc15bf8549a5772e141e4be49d2fec1507aabf79d4dd"
+  url "https://github.com/edoardottt/csprecon/archive/refs/tags/v0.4.1.tar.gz"
+  sha256 "69200ae4bc99ba41c5a884af6491373cf9cfc5cd66590804c6254460951da968"
   license "MIT"
 
   bottle do
