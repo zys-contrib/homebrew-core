@@ -29,6 +29,9 @@ class Brotli < Formula
     system "cmake", "--build", "build", "--verbose"
     system "ctest", "--test-dir", "build", "--verbose"
     system "cmake", "--install", "build"
+    system "cmake", "-S", ".", "-B", "build-static", "-DBUILD_SHARED_LIBS=OFF", *std_cmake_args
+    system "cmake", "--build", "build-static"
+    lib.install buildpath.glob("build-static/*.a")
   end
 
   test do
