@@ -1,8 +1,8 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.com/"
-  url "https://github.com/denoland/deno/releases/download/v2.1.6/deno_src.tar.gz"
-  sha256 "1a6b88bbebd006b92f8522553f7fbca97e32420c2ce7685e3578bfa75cc1b8fc"
+  url "https://github.com/denoland/deno/releases/download/v2.1.7/deno_src.tar.gz"
+  sha256 "1dda00e42dfc858f9e6858101d743b34bab80e0235532a504311dd48d1b38973"
   license "MIT"
   head "https://github.com/denoland/deno.git", branch: "main"
 
@@ -52,8 +52,8 @@ class Deno < Formula
 
   # VERSION=#{version} && curl -s https://raw.githubusercontent.com/denoland/deno/v$VERSION/Cargo.lock | grep -C 1 'name = "deno_core"'
   resource "deno_core" do
-    url "https://github.com/denoland/deno_core/archive/refs/tags/0.330.0.tar.gz"
-    sha256 "d05fb04360a1a193a51399b713f068ee2376b4e389ec3bb3cc7f0996d1bc1292"
+    url "https://github.com/denoland/deno_core/archive/refs/tags/0.331.0.tar.gz"
+    sha256 "d21cdcfadfdeed8f684da05440beef3840effe4a0c93763ca203ca379ca84bad"
   end
 
   # The latest commit from `denoland/icu`, go to https://github.com/denoland/rusty_v8/tree/v#{rusty_v8_version}/third_party
