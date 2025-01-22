@@ -1,8 +1,8 @@
 class Davix < Formula
   desc "Library and tools for advanced file I/O with HTTP-based protocols"
   homepage "https://github.com/cern-fts/davix"
-  url "https://github.com/cern-fts/davix/releases/download/R_0_8_7/davix-0.8.7.tar.gz"
-  sha256 "78c24e14edd7e4e560392d67147ec8658c2aa0d3640415bdf6bc513afcf695e6"
+  url "https://github.com/cern-fts/davix/releases/download/R_0_8_8/davix-0.8.8.tar.gz"
+  sha256 "7ff139babf39030dd9984ad5ff8cd5da1ced2963f53f04efc387101840ff3458"
   license "LGPL-2.1-or-later"
   head "https://github.com/cern-fts/davix.git", branch: "devel"
 
@@ -34,6 +34,8 @@ class Davix < Formula
       -DEMBEDDED_LIBCURL=FALSE
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DLIB_SUFFIX=
+      -DBENCH_TESTS=FALSE
+      -DDAVIX_TESTS=FALSE
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args
