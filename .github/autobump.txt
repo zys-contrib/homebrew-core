@@ -34,6 +34,7 @@ aiven-client
 akamai
 alda
 alembic
+algernon
 algol68g
 aliae
 aliddns
