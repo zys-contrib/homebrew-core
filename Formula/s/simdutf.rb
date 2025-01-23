@@ -1,8 +1,8 @@
 class Simdutf < Formula
   desc "Unicode conversion routines, fast"
   homepage "https://github.com/simdutf/simdutf"
-  url "https://github.com/simdutf/simdutf/archive/refs/tags/v6.0.3.tar.gz"
-  sha256 "3932bc91246d72a8e79c8aba17fbd4740468d0f42c0bd32bb156e97264a7a3dc"
+  url "https://github.com/simdutf/simdutf/archive/refs/tags/v6.1.0.tar.gz"
+  sha256 "ef2903a7f085090c58f3acfa93a62733ae92a3f9b1d50800edec77a6816d7d67"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/simdutf/simdutf.git", branch: "master"
 
@@ -21,7 +21,6 @@ class Simdutf < Formula
 
   depends_on "cmake" => :build
   depends_on "icu4c@76"
-  depends_on macos: :catalina
 
   uses_from_macos "python" => :build
 
@@ -29,6 +28,12 @@ class Simdutf < Formula
   resource "base64" do
     url "https://github.com/aklomp/base64/archive/refs/tags/v0.5.2.tar.gz"
     sha256 "723a0f9f4cf44cf79e97bcc315ec8f85e52eb104c8882942c3f2fba95acc080d"
+  end
+
+  # git patch for 6.1.0 release, upstream pr ref, https://github.com/simdutf/simdutf/pull/657
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/9988a01b6b424b0dc8c146dd2de1a99c58029e33/simdutf/6.1.0-git.patch"
+    sha256 "38bf789ff3e617c2933953933b4199e30e58c914bc30d663f1c982417a6cc5f2"
   end
 
   def install
