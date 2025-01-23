@@ -487,6 +487,9 @@
   "linode-cli": {
     "exclude_packages": ["certifi"]
   },
+  "litecli": {
+    "exclude_packages": ["setuptools"]
+  },
   "literate-git": {
     "exclude_packages": ["pygit2"]
   },
