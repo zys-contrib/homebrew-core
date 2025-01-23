@@ -4,6 +4,7 @@ class Podman < Formula
   url "https://github.com/containers/podman/archive/refs/tags/v5.3.2.tar.gz"
   sha256 "e7d7abf2d4ecae7217af017a4199d555563721bf6c3ae52e68704ee8268c432b"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
+  revision 1
   head "https://github.com/containers/podman.git", branch: "main"
 
   # There can be a notable gap between when a version is tagged and a
@@ -54,8 +55,8 @@ class Podman < Formula
 
   resource "gvproxy" do
     on_macos do
-      url "https://github.com/containers/gvisor-tap-vsock/archive/refs/tags/v0.8.2.tar.gz"
-      sha256 "57bf983cc636d107cd86ecf3a147674cf2f2c18d7a5a92a9b39da842547bbc51"
+      url "https://github.com/containers/gvisor-tap-vsock/archive/refs/tags/v0.8.1.tar.gz"
+      sha256 "9b7fb12dfc37b0a727f2209ff8b557c4ec922d11cec30a778c192da360db4a2f"
     end
   end
 
