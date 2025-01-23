@@ -11,12 +11,12 @@ class Kpcli < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0991d50f7bbfb5497cdc6f11451ae4afc7bc401f8fb42c22ed2fe2462f76fc3c"
-    sha256 cellar: :any,                 arm64_sonoma:  "e0e888f834e59b0f689b1a09b8a57a7b14486ed4e59ab57059148997426a9cfe"
-    sha256 cellar: :any,                 arm64_ventura: "cb5613547fabf4a3c64c63fca89d0dbb9ce89929af775e1b197dae269ad9c9f9"
-    sha256 cellar: :any,                 sonoma:        "3ac9362b734c246ac1712a6ca6ac6add3b4aece7d4855093f6bf60ec16069629"
-    sha256 cellar: :any,                 ventura:       "01e84f2fd256f2da77d888af856f78f44448516c862d567a9cebdc77ec507ec2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fdb39a1f8a11283be6f40c6c81bbf904cccea244f1ff6db0bb7c71e8da682e2c"
+    sha256 cellar: :any,                 arm64_sequoia: "07acbda85e763997f4f4350cb67ee904413309b57132dd9b528fd73913dc6320"
+    sha256 cellar: :any,                 arm64_sonoma:  "ccc808e72ee497400ca548656f35fa746f00c43acafa9000a2c82608e2d9a23e"
+    sha256 cellar: :any,                 arm64_ventura: "e749db8f89b0c44e1f4bdf8939f17d17588d0ad085b80eec57133550180974d9"
+    sha256 cellar: :any,                 sonoma:        "7e4fbc43db9b559627b88caeaac89eb1c0a7b3bf94830cc47fb52498a9121c71"
+    sha256 cellar: :any,                 ventura:       "5b6f7ccdcd16433c960df66d0219223f9b16879052f3762b632ded2f51ea104d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "194893adad47f2845c789a032750b49f46ce0900a6d72858305f9f820de97a04"
   end
 
   depends_on "readline"
