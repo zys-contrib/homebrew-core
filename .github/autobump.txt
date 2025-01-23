@@ -2162,6 +2162,7 @@ mycli
 mycorrhiza
 mydumper
 mypy
+mysql-connector-c++
 mysqltuner
 n
 naabu
