@@ -1,11 +1,11 @@
 class Glooctl < Formula
   desc "Envoy-Powered API Gateway"
-  homepage "https://docs.solo.io/gloo/latest/"
+  homepage "https://docs.solo.io/gloo-edge/main/reference/cli/glooctl/"
   # NOTE: Please wait until the newest stable release is finished building and
   # no longer marked as "Pre-release" before creating a PR for a new version.
   url "https://github.com/solo-io/gloo.git",
-      tag:      "v1.18.5",
-      revision: "4d967c194137fb2a013b8fb1d5a267698015b5f6"
+      tag:      "v1.18.6",
+      revision: "98f32bc97a3b515e73c48a4c1fd5aaaa9f901ad4"
   license "Apache-2.0"
   head "https://github.com/solo-io/gloo.git", branch: "main"
 
