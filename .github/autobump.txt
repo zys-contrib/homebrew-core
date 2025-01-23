@@ -2026,6 +2026,7 @@ md4c
 mdbook
 mdbtools
 mdcat
+mdds
 mdless
 mdsh
 mdz
