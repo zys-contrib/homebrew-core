@@ -1,8 +1,9 @@
 class Stella < Formula
   desc "Atari 2600 VCS emulator"
   homepage "https://stella-emu.github.io/"
-  url "https://github.com/stella-emu/stella/archive/refs/tags/6.7.1.tar.gz"
-  sha256 "c65067ea0cd99c56a4b6a7e7fbb0e0912ec1f6963eccba383aece69114d5f50b"
+  url "https://github.com/stella-emu/stella/archive/refs/tags/7.0c.tar.gz"
+  version "7.0c"
+  sha256 "1b40955f24f3f1f00dff0f4cb46bc1cab4c5e1b9017521b525c5e304be554e3a"
   license "GPL-2.0-or-later"
   head "https://github.com/stella-emu/stella.git", branch: "master"
 
@@ -25,11 +26,17 @@ class Stella < Formula
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
+  # ventura build patch, upstream pr ref, https://github.com/stella-emu/stella/pull/1064
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/932732469b2d4ace873187b55973cce3e1627b34/stella/7.0c-ventura.patch"
+    sha256 "6295953eced4509376f4deb7b1ab511df5fed10cff4fab40feaa4ca8c53922ad"
+  end
+
   def install
     sdl2 = Formula["sdl2"]
     libpng = Formula["libpng"]
     if OS.mac?
-      cd "src/macos" do
+      cd "src/os/macos" do
         inreplace "stella.xcodeproj/project.pbxproj" do |s|
           s.gsub! %r{(\w{24} /\* SDL2\.framework)}, '//\1'
           s.gsub! %r{(\w{24} /\* png)}, '//\1'
