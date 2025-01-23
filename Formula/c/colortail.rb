@@ -1,9 +1,9 @@
 class Colortail < Formula
   desc "Like tail(1), but with various colors for specified output"
   homepage "https://github.com/joakim666/colortail"
-  url "https://github.com/joakim666/colortail.git",
-      revision: "f44fce0dbfd6bd38cba03400db26a99b489505b5"
+  url "https://github.com/joakim666/colortail/archive/f44fce0dbfd6bd38cba03400db26a99b489505b5.tar.gz"
   version "0.3.4"
+  sha256 "1f6d7c6bf088c9134946f55e1df382cde0b168600afbeeb3107a668badf3b487"
   license "GPL-2.0-or-later"
 
   bottle do
