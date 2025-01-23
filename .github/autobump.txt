@@ -2200,6 +2200,7 @@ neon
 neonctl
 neosync
 neovide
+neovim-qt
 nerdctl
 nerdfetch
 nerdfix
