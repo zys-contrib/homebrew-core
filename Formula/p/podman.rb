@@ -1,11 +1,20 @@
 class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
-  url "https://github.com/containers/podman.git",
-      tag:      "v5.3.2",
-      revision: "85043bb1a3818102194afa82845cb63841067c9c"
+  url "https://github.com/containers/podman/archive/refs/tags/v5.3.2.tar.gz"
+  sha256 "e7d7abf2d4ecae7217af017a4199d555563721bf6c3ae52e68704ee8268c432b"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
   head "https://github.com/containers/podman.git", branch: "main"
+
+  # There can be a notable gap between when a version is tagged and a
+  # corresponding release is created and upstream uses GitHub releases to
+  # indicate when a version is released, so we check the "latest" release
+  # instead of the Git tags. Maintainers confirmed:
+  # https://github.com/Homebrew/homebrew-core/pull/205162#issuecomment-2607793814
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8dd4222f51fb1ddc2378729d0d9ba398cbab3a961a471e5ea4e5ccf36ada3dc6"
