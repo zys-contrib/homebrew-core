@@ -2412,6 +2412,7 @@ oxlint
 p11-kit
 p7zip
 pacapt
+packcc
 packetbeat
 packetq
 packmol
