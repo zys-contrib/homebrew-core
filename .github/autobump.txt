@@ -2622,6 +2622,7 @@ purescript-language-server
 pushpin
 putty
 pv
+pwned
 pwntools
 py-spy
 py3cairo
