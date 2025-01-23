@@ -1,8 +1,8 @@
 class Ormolu < Formula
   desc "Formatter for Haskell source code"
   homepage "https://github.com/tweag/ormolu"
-  url "https://github.com/tweag/ormolu/archive/refs/tags/0.7.7.0.tar.gz"
-  sha256 "443739623df64936894a8197a1c4e275afde65870020f27f61cb51a384bdc437"
+  url "https://github.com/tweag/ormolu/archive/refs/tags/0.8.0.0.tar.gz"
+  sha256 "e3948bfa80984b70cf0b701b15d206c9010862ea29d44a9a3ebd417646854948"
   license "BSD-3-Clause"
   head "https://github.com/tweag/ormolu.git", branch: "master"
 
@@ -18,7 +18,7 @@ class Ormolu < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.10" => :build # GHC 9.12 PR: https://github.com/tweag/ormolu/pull/1140
+  depends_on "ghc" => :build
 
   def install
     system "cabal", "v2-update"
