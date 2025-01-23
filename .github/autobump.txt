@@ -1449,6 +1449,7 @@ inxi
 ioctl
 ios-webkit-debug-proxy
 iowow
+ipatool
 iperf
 iperf3
 ipfs
