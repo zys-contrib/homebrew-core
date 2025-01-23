@@ -9,13 +9,12 @@ class SshMitm < Formula
   head "https://github.com/ssh-mitm/ssh-mitm.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "bad464b27d45fd17f9b91d5d2cd652ac9b66b4cbe45c4725ffb723820bb0319d"
-    sha256 cellar: :any,                 arm64_sonoma:  "8a4509d8f7de16690cb3c292ff9e19fe55d66550283effbfbef02a0bcd8e1152"
-    sha256 cellar: :any,                 arm64_ventura: "1000a33333cb126802387132f451f0eb777a5d899e556daef27ce03995c26a49"
-    sha256 cellar: :any,                 sonoma:        "349b210d8d17ed642d0000abbd7605b32fe790ac7b4a61a8daa813e3fce6885e"
-    sha256 cellar: :any,                 ventura:       "8b1f21b4a7a49deecba74ff91467dcda93895f9b79919f2b5ebac46aa9d1f72f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "972bf036544288557f5abe6b087d4a1355c12f47469abbb757dc41bf95a03a80"
+    sha256 cellar: :any,                 arm64_sequoia: "a55f5b4396464f2e0381ae81d6d8d979840c0cb44c2f7ccd1a497cb03098fc8f"
+    sha256 cellar: :any,                 arm64_sonoma:  "a446014221ba0da416901d29855310739ce926dc307b0786780a8a6f79d0c758"
+    sha256 cellar: :any,                 arm64_ventura: "4b8683db03fe15cc9ea0c26d3cd4a1f84c17653cc318538f58bdd60c9ef4bca2"
+    sha256 cellar: :any,                 sonoma:        "2ac9ca03de245736c9aa765420d8d902287427b33a5f98c503d71afdaaac6d03"
+    sha256 cellar: :any,                 ventura:       "d64f6ecb3406e0cdbab184d33372a4ff98cf995c09f436eff8b51c06b62ebe3d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1837df8e3c1b90cd075c5e6b33757f004211048f4c188b9384d5ff523c2ba166"
   end
 
   depends_on "rust" => :build # for bcrypt
