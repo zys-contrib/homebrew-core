@@ -7,8 +7,7 @@ class GithubKeygen < Formula
   head "https://github.com/dolmen/github-keygen.git", branch: "release"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "5a44d2a88e85b0bdf5295eb909e89bb59d23061fff128759100f1565521f05ad"
+    sha256 cellar: :any_skip_relocation, all: "ce4d2d363e88f82852998fb401ac8bdbcffae2c1028c521bb3e99dc9e1fc598f"
   end
 
   def install
