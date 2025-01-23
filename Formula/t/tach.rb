@@ -3,8 +3,8 @@ class Tach < Formula
 
   desc "Tool to enforce dependencies using modular architecture"
   homepage "https://docs.gauge.sh/getting-started/introduction"
-  url "https://files.pythonhosted.org/packages/8c/fa/61d4208652b4ddfeb12236a9d582b21831ab4a38b5956ac9210dc521e97c/tach-0.21.0.tar.gz"
-  sha256 "628ba343fe84b95998a5652520862e42c306b15c89fd32da88efe0031f986051"
+  url "https://files.pythonhosted.org/packages/04/02/c9009f0c3d04ad15415a11fcbc41906f8fb99ccfa082a532cd66b33e8975/tach-0.22.0.tar.gz"
+  sha256 "d655d1aaae112d29976037e77c89d6f38c086cc8079f79322cc96197eee23a9e"
   license "MIT"
   head "https://github.com/gauge-sh/tach.git", branch: "main"
 
@@ -47,8 +47,8 @@ class Tach < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/2d/4f/feb5e137aff82f7c7f3248267b97451da3644f6cdc218edfe549fb354127/prompt_toolkit-3.0.48.tar.gz"
-    sha256 "d6623ab0477a80df74e646bdbc93621143f5caf104206aa29294d53de1a03d90"
+    url "https://files.pythonhosted.org/packages/a1/e1/bd15cb8ffdcfeeb2bdc215de3c3cffca11408d829e4b8416dcfe71ba8854/prompt_toolkit-3.0.50.tar.gz"
+    sha256 "544748f3860a2623ca5cd6d2795e7a14f3d0e1c3c9728359013f79877fc89bab"
   end
 
   resource "pydot" do
