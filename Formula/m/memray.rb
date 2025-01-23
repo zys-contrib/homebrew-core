@@ -3,10 +3,9 @@ class Memray < Formula
 
   desc "Memory profiler for Python applications"
   homepage "https://bloomberg.github.io/memray/"
-  url "https://files.pythonhosted.org/packages/88/8b/0a9854e5b6ce0875f2e2ad163cfecdb8de59fc1a2f1b9a1cb7c683a67826/memray-1.12.0.tar.gz"
-  sha256 "3b61c199a60197ae6164a2b44cd828c52de24083ecc49e9ac7d6287686bd68f3"
+  url "https://files.pythonhosted.org/packages/e8/d3/b2a01137e2391917928187c4c2837c2750cc832c99a6aecd6e0d6ea07c58/memray-1.15.0.tar.gz"
+  sha256 "1beffa2bcba3dbe0f095d547927286eca46e272798b83026dd1b5db58e16ed56"
   license "Apache-2.0"
-  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "8a76ee4c9c79aa43d58e67deafea8214c24eab988775652d4d7a7a0f6a4f0675"
@@ -18,10 +17,20 @@ class Memray < Formula
   end
 
   depends_on "lz4"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   on_linux do
+    depends_on "pkgconf" => :build # for libdebuginfod
+    depends_on "curl" # for libdebuginfod
+    depends_on "elfutils" # for libdebuginfod
+    depends_on "json-c" # for libdebuginfod
     depends_on "libunwind"
+
+    # TODO: Consider creating a formula for (lib)debuginfod
+    resource "elfutils" do
+      url "https://sourceware.org/elfutils/ftp/0.192/elfutils-0.192.tar.bz2"
+      sha256 "616099beae24aba11f9b63d86ca6cc8d566d968b802391334c91df54eab416b4"
+    end
   end
 
   resource "jinja2" do
@@ -60,8 +69,8 @@ class Memray < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz"
-    sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
+    url "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
+    sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
   end
 
   resource "rich" do
@@ -85,12 +94,26 @@ class Memray < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    if OS.linux?
+      without = "elfutils"
+      libelf = Formula["elfutils"].opt_lib/"libelf.so"
+      resource("elfutils").stage do
+        # https://github.com/bloomberg/memray/blob/main/pyproject.toml#L96-L104
+        system "./configure", "--disable-debuginfod",
+                              "--disable-nls",
+                              "--disable-silent-rules",
+                              "--enable-libdebuginfod",
+                              *std_configure_args(prefix: libexec)
+        system "make", "-C", "debuginfod", "install", "bin_PROGRAMS=", "libelf=#{libelf}"
+        ENV.append "LDFLAGS", "-L#{libexec}/lib -Wl,-rpath,#{libexec}/lib"
+      end
+    end
+    virtualenv_install_with_resources(without:)
   end
 
   test do
     system bin/"memray", "run", "--output", "output.bin", "-c", "print()"
-    assert_predicate testpath/"output.bin", :exist?
+    assert_path_exists testpath/"output.bin"
 
     assert_match version.to_s, shell_output("#{bin}/memray --version")
   end
