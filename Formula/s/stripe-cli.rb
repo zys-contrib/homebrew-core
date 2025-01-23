@@ -1,8 +1,8 @@
 class StripeCli < Formula
   desc "Command-line tool for Stripe"
   homepage "https://stripe.com/docs/stripe-cli"
-  url "https://github.com/stripe/stripe-cli/archive/refs/tags/v1.23.6.tar.gz"
-  sha256 "5868d029e614b585b84034056458d6ca90470d77a6ded047d3039d893ae8d1fd"
+  url "https://github.com/stripe/stripe-cli/archive/refs/tags/v1.23.8.tar.gz"
+  sha256 "0f399e6da38d57dea07c59728eee17fe44c9f96a83427801b9bb196d3255e8da"
   license "Apache-2.0"
 
   bottle do
@@ -18,8 +18,8 @@ class StripeCli < Formula
 
   # fish completion support patch, upstream pr ref, https://github.com/stripe/stripe-cli/pull/1282
   patch do
-    url "https://github.com/stripe/stripe-cli/commit/ef36be45f56821a33ac175bb4f483f08cca3f458.patch?full_index=1"
-    sha256 "e64d6ab6ed1b93749b8d65a429b0132063fb86520960b7d0c87fa6f7f9221252"
+    url "https://github.com/stripe/stripe-cli/commit/de62a98881671ce83973e1b696d3a7ea820b8d0e.patch?full_index=1"
+    sha256 "2b30ee04680e16b5648495e2fe93db3362931cf7151b1daa1f7e95023b690db8"
   end
 
   def install
