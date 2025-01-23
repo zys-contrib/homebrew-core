@@ -7,14 +7,11 @@ class NeovimQt < Formula
   head "https://github.com/equalsraf/neovim-qt.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sonoma:   "cbc794e2861dfc0445333cd7c0015d486a2bc207fdc30c29093c3f798cd4722e"
-    sha256 cellar: :any,                 arm64_ventura:  "e53af8f8ce0d65b0b5ea14544fe07be12e5b560a07f045479c8a9db96be46fa9"
-    sha256 cellar: :any,                 arm64_monterey: "59268e9d0fce3668e5f97f820c3b3389f371b31cb61a7afd5fb5c8bfe6bf80d6"
-    sha256 cellar: :any,                 sonoma:         "8ec8250d0dcacab51744c6c96c69dba8a5a7d076f37caebed58893d2961fd098"
-    sha256 cellar: :any,                 ventura:        "f2faacba3619337ebe82f43d0183bededa813ac608ffde74a5b6db7bfe578e71"
-    sha256 cellar: :any,                 monterey:       "e7c53a22b12dc61f48db137534e077965917f548b337f9b6ad0bf6ad51b44ebc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c72d8cf5d5aca2b06de38325c2236688aded8c62ccfdc8e8c4c4a8e80abedfb9"
+    sha256 cellar: :any,                 arm64_sonoma:  "dd8bbbc56a52276068547d4cb4e84cbdd1e9f05293800e7fc60aae9cd1c96bd0"
+    sha256 cellar: :any,                 arm64_ventura: "7ab5ee7ef90dc33466c2525ab9afb54cf697406025424e3cb6e8171fc1c61f7a"
+    sha256 cellar: :any,                 sonoma:        "a535fb79e82a33cce34998ce1b38b104539117b89549f09621978d87521e33e7"
+    sha256 cellar: :any,                 ventura:       "edbafb81758da42687579cac4f13b06b4658488bb6132b5fe20fb9012dfb9156"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22f2e5fc2cf3d1f0863688b460cca53ebca3a23e9fd79d0bb769c3bbb8d6e640"
   end
 
   depends_on "cmake" => :build
