@@ -8,13 +8,12 @@ class Revive < Formula
   head "https://github.com/mgechev/revive.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e269b45094637b8e11dd11a57dcd8efae2c6d8b036f529e0b7e5d8efbb8ea7d8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e269b45094637b8e11dd11a57dcd8efae2c6d8b036f529e0b7e5d8efbb8ea7d8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e269b45094637b8e11dd11a57dcd8efae2c6d8b036f529e0b7e5d8efbb8ea7d8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "23432d2d934e2fc3ce768eb0c7cf0d8da04919a50d771aaeb4ed35b29a90ce86"
-    sha256 cellar: :any_skip_relocation, ventura:       "23432d2d934e2fc3ce768eb0c7cf0d8da04919a50d771aaeb4ed35b29a90ce86"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7654c411b10b2628d31b23f7ed265b3437cd8d9f13579d0b029a4cb3f5b9cd77"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "76aedee694602eb8ce7c49da56434faf645bbd4372110dd1a3ab5d5f3731f90f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "76aedee694602eb8ce7c49da56434faf645bbd4372110dd1a3ab5d5f3731f90f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "76aedee694602eb8ce7c49da56434faf645bbd4372110dd1a3ab5d5f3731f90f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cdee64fe8a8255f4bcd997d8d794ad2008cfd731493d19db81bee45409d9197c"
+    sha256 cellar: :any_skip_relocation, ventura:       "cdee64fe8a8255f4bcd997d8d794ad2008cfd731493d19db81bee45409d9197c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd1cdd13ca95cc045e554530ff958fea29235e3e6cdc03ab3e0baf389618c9d2"
   end
 
   depends_on "go" => [:build, :test]
