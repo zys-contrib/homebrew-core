@@ -6,13 +6,11 @@ class Licenseplist < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b7115ed0eea2301764e7a7c6dd95a347b6a9e4c3e1b54813e1add1a3ee3a13f6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d59a05770a35e561a0a48f7a240232b1237518da494c1936354d1fd52e3f75e4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dd8b9ca63a55d8845b131309ff91d16326142d86e5ff82326f9844c839dff249"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c58f8521a81b73e152bc1ba8abedd5b3ba9bcf2d617fbeaab7bb6cdc7024390d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "14ed6bedae42146b9415df415a3720eb296146344764be30d3cc9798a6010178"
-    sha256 cellar: :any_skip_relocation, ventura:        "1ad3a02f9aa813725a18131e09cd9c2543eb74ee97cbd24230ca87ee42e0c54b"
-    sha256 cellar: :any_skip_relocation, monterey:       "34f8b86092a7a9dcf1e890b246b93686a07256ed014faea9060db9317e9df9a1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "774d4bba3eb81b30ffbc0ae774741c19c468f4d5ad61d2aac53328569ce9816a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fab21cc4a4a6539e7b5b68b00a82b1b47f6d156876abaa26523ad92c859b3497"
+    sha256 cellar: :any,                 arm64_ventura: "8280eb4be57b63c4bc9c4ff042742d9a3d97f266175e7fa2a6e75b5b67635856"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e6161ed3859e2579f707b57e656af4a0834c373013fa65eacee8318ca466249c"
+    sha256 cellar: :any,                 ventura:       "b24b5485f266bb8651ccec6b185a5a8cc934dbe2b5a9a361f30060d16619203b"
   end
 
   depends_on :macos
