@@ -2981,6 +2981,7 @@ snakeviz
 snap
 snapcast
 snapcraft
+snapraid
 sng
 sngrep
 sniffer
