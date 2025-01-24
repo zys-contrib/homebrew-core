@@ -1,17 +1,17 @@
 class SigsumGo < Formula
   desc "Key transparency toolkit"
   homepage "https://sigsum.org"
-  url "https://git.glasklar.is/sigsum/core/sigsum-go/-/archive/v0.9.1/sigsum-go-v0.9.1.tar.bz2"
-  sha256 "68f3a66af6727fa1b44d7dd2429748b23b8767547750113318494c58d7b04ae8"
+  url "https://git.glasklar.is/sigsum/core/sigsum-go/-/archive/v0.10.0/sigsum-go-v0.10.0.tar.bz2"
+  sha256 "b74e5e1e192d0be9860cff8153e778aeec3a703637668e8f0c5d4c426e2b4eed"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5a977129deb4d7146c9a4a5e8cc40cc414b1a05fa755f0c2c83f4e4028275f29"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5a977129deb4d7146c9a4a5e8cc40cc414b1a05fa755f0c2c83f4e4028275f29"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5a977129deb4d7146c9a4a5e8cc40cc414b1a05fa755f0c2c83f4e4028275f29"
-    sha256 cellar: :any_skip_relocation, sonoma:        "273c62d9c41f9cc2a0398928e08fcde450e00dbe88c319c5389831b9d231f167"
-    sha256 cellar: :any_skip_relocation, ventura:       "273c62d9c41f9cc2a0398928e08fcde450e00dbe88c319c5389831b9d231f167"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49ca2235c08e62ddc302f3d03a7aae581d400c6694f723265c173333fed62d33"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f7014991ad0f6a7f496dac69aea18c4490d4a4fd88f4dd36bb5956ceaf577885"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f7014991ad0f6a7f496dac69aea18c4490d4a4fd88f4dd36bb5956ceaf577885"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f7014991ad0f6a7f496dac69aea18c4490d4a4fd88f4dd36bb5956ceaf577885"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e5fbfa9b8578f857989d80a8ccc9e16f41b25989f575aa2293d565efe9734563"
+    sha256 cellar: :any_skip_relocation, ventura:       "e5fbfa9b8578f857989d80a8ccc9e16f41b25989f575aa2293d565efe9734563"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "05b65af19ba9f4c2974aa45f38e698c75ed2dc93811f80491eabd39ea7c02d15"
   end
 
   depends_on "go" => :build
