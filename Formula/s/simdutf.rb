@@ -12,11 +12,11 @@ class Simdutf < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "e4e6f6c35a03b5298d8fc5e903f4f052f6a836d714182f8cdf8a6a249fd95a3c"
-    sha256 cellar: :any, arm64_sonoma:  "78d81462239a71c50179a65e9ae63bda64ab170e1a0f54e97db4f765ab2e4265"
-    sha256 cellar: :any, arm64_ventura: "0847766dd42149d771e60db322a329e54bb8b65c8feb1031b0a6cd35bca79b3a"
-    sha256 cellar: :any, sonoma:        "1f6835d989644af3e6db2ac1c785b37c2e14bb8ad539d78e773baac200c8bc3f"
-    sha256 cellar: :any, ventura:       "680f6afecf5b1b5e35330e5351e6eb34d87486e961f52f66b8fa5cf8cab9e056"
+    sha256 cellar: :any, arm64_sequoia: "8edb6effdc9e58705630a8b5daaa080c1e1aa7fb6a40ea86a89edd798c58f1d5"
+    sha256 cellar: :any, arm64_sonoma:  "662dabb5eb1777dd4f8398fd0f445089eb3ef44696999bf2ac64686976468c69"
+    sha256 cellar: :any, arm64_ventura: "4aaf96c3f8f01f3b36088954641f171ef0c68b9be2a21364f8f336486740d877"
+    sha256 cellar: :any, sonoma:        "83dca3e27792e57ab4e6bd848d4bebacadf2378d9223d3bceb3244c4d77d7f9c"
+    sha256 cellar: :any, ventura:       "7c58fe575ea47778c32dcd1a51a7bf5d8f2832d1dce6b396bf205f722a31ff30"
   end
 
   depends_on "cmake" => :build
