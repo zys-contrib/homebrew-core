@@ -1,8 +1,8 @@
 class Freetds < Formula
   desc "Libraries to talk to Microsoft SQL Server and Sybase databases"
   homepage "https://www.freetds.org/"
-  url "https://www.freetds.org/files/stable/freetds-1.4.24.tar.bz2", using: :homebrew_curl
-  sha256 "07cea1b457f8fd5bad75bc342371b7e7e092f9247a813dc7b627c9235dfdb642"
+  url "https://www.freetds.org/files/stable/freetds-1.4.25.tar.bz2", using: :homebrew_curl
+  sha256 "14d15dacb442ac2626d26be5a21093a1d6351607009e8449c0916c566a844af5"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -36,6 +36,12 @@ class Freetds < Formula
 
   on_linux do
     depends_on "readline"
+  end
+
+  # fix tds_convert_int1 signature mismatch, upstream pr ref, https://github.com/FreeTDS/freetds/pull/631
+  patch do
+    url "https://github.com/FreeTDS/freetds/commit/51176366cbfc8929c9d7b864766bc27d60cc0360.patch?full_index=1"
+    sha256 "e6d64d6996862dcf575b0f2711c7ccf0d319e42950fca08ac40f5a0b7f810993"
   end
 
   def install
