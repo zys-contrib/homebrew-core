@@ -1,8 +1,8 @@
 class Licenseplist < Formula
   desc "License list generator of all your dependencies for iOS applications"
   homepage "https://www.slideshare.net/mono0926/licenseplist-a-license-list-generator-of-all-your-dependencies-for-ios-applications"
-  url "https://github.com/mono0926/LicensePlist/archive/refs/tags/3.25.1.tar.gz"
-  sha256 "f78887b2043d02108fda19ac587391b88ee9c911bf6558c119b261e6d220e2b5"
+  url "https://github.com/mono0926/LicensePlist/archive/refs/tags/3.26.0.tar.gz"
+  sha256 "cf9d4060806d12981328d98c81a24c76c7a70c6716fd7a2269f3f2d23c30b6fd"
   license "MIT"
 
   bottle do
@@ -15,12 +15,13 @@ class Licenseplist < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "34f8b86092a7a9dcf1e890b246b93686a07256ed014faea9060db9317e9df9a1"
   end
 
-  depends_on xcode: ["13.3", :build]
   depends_on :macos
-  uses_from_macos "swift" => :build
+
+  uses_from_macos "swift" => :build, since: :sonoma # swift 6.0+
 
   def install
-    system "make", "install", "PREFIX=#{prefix}"
+    system "swift", "build", "--disable-sandbox", "--configuration", "release"
+    bin.install ".build/release/license-plist"
   end
 
   test do

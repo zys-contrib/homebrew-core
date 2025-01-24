@@ -1906,6 +1906,7 @@ libzzip
 license-eye
 licensed
 licensefinder
+licenseplist
 lightgbm
 lighthouse
 lightning
