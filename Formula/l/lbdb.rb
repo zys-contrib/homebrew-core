@@ -1,8 +1,8 @@
 class Lbdb < Formula
   desc "Little brother's database for the mutt mail reader"
   homepage "https://www.spinnaker.de/lbdb/"
-  url "https://www.spinnaker.de/lbdb/download/lbdb-0.55.1.tar.gz"
-  sha256 "fa9289c3137f0e95021bc848f40926874c2d43de685988688a38f41666865d4e"
+  url "https://www.spinnaker.de/lbdb/download/lbdb-0.56.tar.gz"
+  sha256 "baa6a23b61394d792b7b221e1961d9ba5710614c9324e8f59b35c126c2b4e74e"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -23,13 +23,13 @@ class Lbdb < Formula
   depends_on "khard"
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--libdir=#{lib}/lbdb"
+    system "./configure", "--libexecdir=#{lib}/lbdb", *std_configure_args
     system "make", "install"
   end
 
   test do
     assert_match version.major_minor.to_s, shell_output("#{bin}/lbdbq -v")
-    assert_predicate lib/"lbdb/m_abook", :exist?, "m_abook module is missing!"
-    assert_predicate lib/"lbdb/m_khard", :exist?, "m_khard module is missing!"
+    assert_path_exists lib/"lbdb/m_abook", "m_abook module is missing!"
+    assert_path_exists lib/"lbdb/m_khard", "m_khard module is missing!"
   end
 end
