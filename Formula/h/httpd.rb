@@ -1,9 +1,9 @@
 class Httpd < Formula
   desc "Apache HTTP server"
   homepage "https://httpd.apache.org/"
-  url "https://dlcdn.apache.org/httpd/httpd-2.4.62.tar.bz2"
-  mirror "https://downloads.apache.org/httpd/httpd-2.4.62.tar.bz2"
-  sha256 "674188e7bf44ced82da8db522da946849e22080d73d16c93f7f4df89e25729ec"
+  url "https://dlcdn.apache.org/httpd/httpd-2.4.63.tar.bz2"
+  mirror "https://downloads.apache.org/httpd/httpd-2.4.63.tar.bz2"
+  sha256 "88fc236ab99b2864b248de7d49a008ec2afd7551e64dce8b95f58f32f94c46ab"
   license "Apache-2.0"
 
   bottle do
@@ -166,10 +166,10 @@ class Httpd < Formula
         LoadModule mpm_prefork_module #{lib}/httpd/modules/mod_mpm_prefork.so
       EOS
 
-      pid = fork do
-        exec bin/"httpd", "-X", "-f", "#{testpath}/httpd.conf"
-      end
+      pid = spawn bin/"httpd", "-X", "-f", "#{testpath}/httpd.conf"
+
       sleep 3
+      sleep 2 if OS.mac? && Hardware::CPU.intel?
 
       assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
 
