@@ -20,7 +20,7 @@ class Harlequin < Formula
   depends_on "ninja" => :build
   depends_on "apache-arrow"
   depends_on "libpq" # psycopg
-  depends_on "python@3.12" # Python 3.13: https://github.com/tconbeer/harlequin/issues/697
+  depends_on "python@3.13"
   depends_on "unixodbc" # harlequin-odbc
 
   on_linux do
