@@ -2932,6 +2932,7 @@ sigma-cli
 signal-cli
 signmykey
 sigstore
+sigsum-go
 sile
 silicon
 silk
