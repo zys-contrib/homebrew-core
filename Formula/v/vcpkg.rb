@@ -1,9 +1,9 @@
 class Vcpkg < Formula
   desc "C++ Library Manager"
   homepage "https://github.com/microsoft/vcpkg"
-  url "https://github.com/microsoft/vcpkg-tool/archive/refs/tags/2025-01-20.tar.gz"
-  version "2025.01.20"
-  sha256 "97b85f52edaff8076a51c259f1d1e706c1f2390a73fec1661c8710a67c53206c"
+  url "https://github.com/microsoft/vcpkg-tool/archive/refs/tags/2025-01-24.tar.gz"
+  version "2025.01.24"
+  sha256 "b90e4299787e643ec7ca110aa83e7c3bcf602d15ff72aaeb1941d771462b7170"
   license "MIT"
   head "https://github.com/microsoft/vcpkg-tool.git", branch: "main"
 
@@ -21,12 +21,12 @@ class Vcpkg < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1860c9fb7950c1b5fabdb497d448f21c7636f23da2ca11e9f883387d3dc71be6"
-    sha256 cellar: :any,                 arm64_sonoma:  "2172953a33daf8d11277f9b96d7ab1eab6534c4b5f19f87fa09154fd6ec415f3"
-    sha256 cellar: :any,                 arm64_ventura: "0b5a62fc1a2e3c545ae139da4c368f293f5797a11ece3cabb8db65fa9aa4f4e6"
-    sha256 cellar: :any,                 sonoma:        "8cb3ca4048f4ba354a3b484b40bcff8e77e09af807bdea677cc63145778cd412"
-    sha256 cellar: :any,                 ventura:       "a307fbd0b0fddc5066f967617359f282592cba30c45497b4e260820881294285"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "898f977bbe5423b44ca5fb46496be3ed15247d8e87211521044018949e5957f9"
+    sha256 cellar: :any,                 arm64_sequoia: "4a99e5821a61987c7306d64f594ca0e238e02e22980bbd79dace903a6f1d62ec"
+    sha256 cellar: :any,                 arm64_sonoma:  "af6777f5cad53499c0e7f8ba55cbd1b465d0f9b821db6864c37befd54bfa6f46"
+    sha256 cellar: :any,                 arm64_ventura: "2db6866c8af13635db7e71e5d27bb7734fd3df3212b634c3e9c589df20786938"
+    sha256 cellar: :any,                 sonoma:        "2684dea1de947e3384b5be7576580e6624b48931e19667bbe4578ebe5c5dab27"
+    sha256 cellar: :any,                 ventura:       "b24c091ef30d264302c3a517ac2619a9743ebc455b6705c364c7bcc0b1316527"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8ca10d9bc895bbc4e6a56e7a11daf9182e422db7ee819367c15ca4ae13ba9dd"
   end
 
   depends_on "cmake" => :build
