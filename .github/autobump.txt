@@ -375,6 +375,7 @@ cargo-cyclonedx
 cargo-deny
 cargo-depgraph
 cargo-dist
+cargo-edit
 cargo-expand
 cargo-flamegraph
 cargo-generate
