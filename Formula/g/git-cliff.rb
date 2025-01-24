@@ -1,10 +1,9 @@
 class GitCliff < Formula
   desc "Highly customizable changelog generator"
   homepage "https://github.com/orhun/git-cliff"
-  url "https://github.com/orhun/git-cliff/archive/refs/tags/v2.7.0.tar.gz"
-  sha256 "7b9a74f0871983bf5c326ffd7358ba46925f14a6feb1638c8c1e5d6b36448eae"
+  url "https://github.com/orhun/git-cliff/archive/refs/tags/v2.8.0.tar.gz"
+  sha256 "dfcf7b7d903c6479e58c8e7594364d67ce59e3e50351b3277eb33482a783418d"
   license all_of: ["Apache-2.0", "MIT"]
-  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "c0b3c51c4e0acf10cc05d274fe62490f4f71480f304fc99d367ccc05405f9871"
@@ -18,12 +17,6 @@ class GitCliff < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libgit2"
-
-  # patch to build with libgit2 1.9, upstream pr ref, https://github.com/orhun/git-cliff/pull/1002
-  patch do
-    url "https://github.com/orhun/git-cliff/commit/ff4bfb112d7ac72cbd759718f6fc96c708684f4f.patch?full_index=1"
-    sha256 "647235c0db29b56bb54c72c3bf89087bdd0abfe96a65773627d0937e323d1bdb"
-  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
