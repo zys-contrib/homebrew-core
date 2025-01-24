@@ -2062,6 +2062,7 @@ micronaut
 microplane
 micropython
 microsocks
+midnight-commander
 mighttpd2
 mihomo
 mikmod
