@@ -1,8 +1,8 @@
 class CargoEdit < Formula
   desc "Utility for managing cargo dependencies from the command-line"
   homepage "https://killercup.github.io/cargo-edit/"
-  url "https://github.com/killercup/cargo-edit/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "c81a73fb1ef4ffef722835baf473beed9868ce2c58ad98a27596f2cbabbfcba3"
+  url "https://github.com/killercup/cargo-edit/archive/refs/tags/v0.13.1.tar.gz"
+  sha256 "11a973bc77ef1562a599e8acc844bf763be4e9caf6e5a650239bc9c6d2077e5b"
   license "MIT"
 
   bottle do
