@@ -7,15 +7,12 @@ class Scalapack < Formula
   head "https://github.com/Reference-ScaLAPACK/scalapack.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "c995d114d9ed5d64a4478188051b057f1afbda10f860a6ad05240089014525f1"
-    sha256 cellar: :any,                 arm64_sonoma:   "384fa978e53d02b1a25071e9cc0d89cd47a7d8881b735a946e947dca95590f25"
-    sha256 cellar: :any,                 arm64_ventura:  "82500bf38af074441e92db1599b2594959d811b0bcee284c8cc36f92120525b4"
-    sha256 cellar: :any,                 arm64_monterey: "4096375cb8f2af6801d1d0bbab6465b4e057e6c685ecf5e57f9f4fac8ea3166d"
-    sha256 cellar: :any,                 sonoma:         "30b66a1c884bc106b96b9e82cde6d8b1c026f24307e8d5aeddb8bf4e3f91eff1"
-    sha256 cellar: :any,                 ventura:        "5e64fada8dd814c16f4a2c620e8f1dc0b784519fc697ab1df907cc906aab6c8e"
-    sha256 cellar: :any,                 monterey:       "168b5c717d4f360d03990e104b18d32f16e1da9cf1b2e5b6ee88fff8a0a5b33d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f792514fdcdf56ca86e9b562b3a3f5e2fef3b2e84ea2648a68d0cda1cd60653"
+    sha256 cellar: :any,                 arm64_sequoia: "dc18849ba919f1b668d9367aa6b3c33de0c5da835880a6cff52a0cec5e959480"
+    sha256 cellar: :any,                 arm64_sonoma:  "04781e79d6a399a6b78be71b07b4f1ff77c52763637607b3784d9eed0a9d5871"
+    sha256 cellar: :any,                 arm64_ventura: "cab596587baa484ed8304b5075f192dbbb867ea1794583937812d2e8b08f43e9"
+    sha256 cellar: :any,                 sonoma:        "08ed075c53763c8c8bab09b40dcf7e20eb4931e4191d67d295587f7caacacbb5"
+    sha256 cellar: :any,                 ventura:       "fed1f3d1a4eeca5c906e7c1bd84859631518e3901943fc5abce91823b8efdf91"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ce59c95648217335fa463f14c0e3d2f87581f66ad82bdc5c0c60bda88b00048"
   end
 
   depends_on "cmake" => :build
