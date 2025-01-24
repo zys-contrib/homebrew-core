@@ -11,8 +11,7 @@ class Libseccomp < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "b4b142cee20a2d5f092213acfa48481babfe45f5242f845eee9e258b2de71312"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "827764369e33cc2ca6ef5961ab87b4005dc023942fe407f1427d775aec63e4d0"
   end
 
   head do
