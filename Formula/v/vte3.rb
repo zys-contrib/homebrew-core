@@ -1,8 +1,8 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://wiki.gnome.org/Apps/Terminal/VTE"
-  url "https://download.gnome.org/sources/vte/0.78/vte-0.78.0.tar.xz"
-  sha256 "07f09c6228a8bb3c1599dd0f5a6ec797b30d3010c3ac91cf21b69d9635dfaf7c"
+  url "https://download.gnome.org/sources/vte/0.78/vte-0.78.3.tar.xz"
+  sha256 "97e2ac3a27bc5755358a223f55f5a2518654aa0361bfc61a196c1c2e08798eff"
   license "LGPL-2.0-or-later"
 
   bottle do
@@ -49,10 +49,6 @@ class Vte3 < Formula
     # upstream bug report, https://gitlab.gnome.org/GNOME/vte/-/issues/2823
     # TODO: Investigate using the `fast_float` formula instead of the one bundled here.
     patch do
-      url "https://gitlab.gnome.org/kraj/vte/-/commit/c90b078ecf4382458a9af44d765d710eb46b0453.diff"
-      sha256 "fd8fd85339df1aa5ffb2617d6e67d26e26abb9caeb06ef7766b13341231c2c79"
-    end
-    patch do
       url "https://gitlab.gnome.org/kraj/vte/-/commit/2a32e43e43b04771a3357d3d4ccbafa7714e0114.diff"
       sha256 "f69f103b19de93f94fca05dea5a151b4109085ce716472acddb9a112502437d4"
     end
@@ -78,8 +74,6 @@ class Vte3 < Formula
   end
 
   # submitted upstream as https://gitlab.gnome.org/tschoonj/vte/merge_requests/1
-  # color-test upstream fix commit, https://gitlab.gnome.org/GNOME/vte/-/commit/c8838779d5f8c0e03411cef9775cd8f5a10a6204
-  # meson build fix, upstream bug report, https://gitlab.gnome.org/GNOME/vte/-/issues/2827
   patch :DATA
 
   def install
@@ -159,36 +153,3 @@ index 79d4a702..0495dea8 100644
      include_directories: incs,
      dependencies: libvte_gtk3_deps,
      cpp_args: libvte_gtk3_cppflags,
-diff --git a/src/color-test.cc b/src/color-test.cc
-index 0ed9089..1bfad31 100644
---- a/src/color-test.cc
-+++ b/src/color-test.cc
-@@ -165,7 +165,7 @@ static void
- test_color_to_string (void)
- {
-         auto test = [](std::string str,
--                       bool alpha = false) constexpr noexcept -> void
-+                       bool alpha = false) noexcept -> void
-         {
-                 auto const value = parse<rgba>(str);
-                 assert(value);
-diff --git a/src/meson.build b/src/meson.build
-index 228ecf0..fba5958 100644
---- a/src/meson.build
-+++ b/src/meson.build
-@@ -73,6 +73,7 @@ minifont_coverage_sources = custom_target(
-   ),
-   capture: false,
-   command: [
-+    python,
-     files('minifont-coverage.py'),
-     '--output', '@OUTPUT@',
-     '@INPUT@',
-@@ -596,6 +597,7 @@ test_minifont_sources += custom_target(
-   ),
-   capture: false,
-   command: [
-+    python,
-     files('minifont-coverage.py'),
-     '--output', '@OUTPUT@',
-     '--tests',
