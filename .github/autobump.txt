@@ -1195,6 +1195,7 @@ gnu-apl
 gnu-getopt
 gnu-typist
 gnu-units
+gnu-which
 gnumeric
 gnunet
 gnupg
