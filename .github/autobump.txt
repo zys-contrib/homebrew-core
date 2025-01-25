@@ -3016,6 +3016,7 @@ sound-touch
 source-to-image
 sourcekitten
 sourcery
+spacer
 spack
 spades
 spatialindex
