@@ -37,6 +37,9 @@ class LibpeasAT1 < Formula
     # Help pkg-config find python as we only provide `python3-embed` for aliased python formula
     inreplace "meson.build", "'python3-embed'", "'python-#{pyver}-embed'"
 
+    # ensure Meson uses homebrew python@3.13
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["python@3.13"].opt_lib/"pkgconfig"
+
     args = %w[
       -Dpython3=true
       -Dintrospection=true
