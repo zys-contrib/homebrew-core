@@ -12,8 +12,8 @@ class FabricCompletion < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "c79615acadeb92fbdcad5c5b496b9ea36ec2ceedacc17fd26807d6c2c8fb1477"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "3d2a6d8ccfa6f87727fb8d7530c7a4fb20fda11dd0a580740bb7a4179b0e54c0"
   end
 
   def install
