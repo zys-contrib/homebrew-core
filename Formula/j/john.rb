@@ -27,6 +27,8 @@ class John < Formula
     sha256 x86_64_linux:   "bdb9812c37929c373227f39150582a83711b083483631bad0fd1896b03b41c44"
   end
 
+  uses_from_macos "libxcrypt"
+
   conflicts_with "john-jumbo", because: "both install the same binaries"
 
   # Backport of official patch from jumbo fork (https://www.openwall.com/lists/john-users/2016/01/04/1)
