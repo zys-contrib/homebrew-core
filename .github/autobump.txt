@@ -2580,6 +2580,7 @@ powerman
 powerman-dockerize
 pqiv
 pre-commit
+precious
 presenterm
 prestd
 prestodb
