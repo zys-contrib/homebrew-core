@@ -3,8 +3,8 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/27/ce/3f845b251f1b52a03654d23f9f0ce353787f4feb8998ab875e485dfd11cb/borgmatic-1.9.7.tar.gz"
-  sha256 "81bc712b631cdee0a2d087987b866d8b181bfd4cc63ee68f44c2530cf8e2b6bc"
+  url "https://files.pythonhosted.org/packages/37/18/855fc19d12484fce39542047958f722863f6216dca79b9ec595a9854dce8/borgmatic-1.9.8.tar.gz"
+  sha256 "bc919168283d79e12febcbc44c6f2dbbd2335d21f16ba5708cc6837e5a20d316"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -21,8 +21,8 @@ class Borgmatic < Formula
   depends_on "python@3.13"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/48/c8/6260f8ccc11f0917360fc0da435c5c9c7504e3db174d5a12a1494887b045/attrs-24.3.0.tar.gz"
-    sha256 "8f5c07333d543103541ba7be0e2ce16eeee8130cb0b3f9238ab904ce1e85baff"
+    url "https://files.pythonhosted.org/packages/49/7c/fdf464bcc51d23881d110abd74b512a42b3d5d376a55a831b44c603ae17f/attrs-25.1.0.tar.gz"
+    sha256 "1c97078a80c814273a76b2a298a932eb681c87415c11dee0a6921de7f1b02c3e"
   end
 
   resource "charset-normalizer" do
@@ -51,8 +51,8 @@ class Borgmatic < Formula
   end
 
   resource "referencing" do
-    url "https://files.pythonhosted.org/packages/27/32/fd98246df7a0f309b58cae68b10b6b219ef2eb66747f00dfb34422687087/referencing-0.36.1.tar.gz"
-    sha256 "ca2e6492769e3602957e9b831b94211599d2aade9477f5d44110d2530cf9aade"
+    url "https://files.pythonhosted.org/packages/2f/db/98b5c277be99dd18bfd91dd04e1b759cad18d1a338188c936e92f921c7e2/referencing-0.36.2.tar.gz"
+    sha256 "df2e89862cd09deabbdba16944cc3f10feb6b3e6f18e902f7cc25609a34775aa"
   end
 
   resource "requests" do
