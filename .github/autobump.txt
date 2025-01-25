@@ -470,6 +470,7 @@ chezmoi
 chezscheme
 chibi-scheme
 chicken
+chiko
 chisel-tunnel
 chkbit
 chkrootkit
