@@ -3321,6 +3321,7 @@ tzdb
 tzdiff
 u-boot-tools
 uade
+ubi
 ucloud
 uffizzi
 uftrace
