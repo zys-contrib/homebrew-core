@@ -1,8 +1,8 @@
 class Fourmolu < Formula
   desc "Formatter for Haskell source code"
   homepage "https://github.com/fourmolu/fourmolu"
-  url "https://github.com/fourmolu/fourmolu/archive/refs/tags/v0.17.0.0.tar.gz"
-  sha256 "c5cfe76b98af560fc54babd70f6dfb959c549b09a7977501f19d7b6a8a9495b5"
+  url "https://github.com/fourmolu/fourmolu/archive/refs/tags/v0.18.0.0.tar.gz"
+  sha256 "9aa651611f15091261e1de9322ff7726954711172cec17bf61b179d3cbd70c1b"
   license "BSD-3-Clause"
   head "https://github.com/fourmolu/fourmolu.git", branch: "master"
 
