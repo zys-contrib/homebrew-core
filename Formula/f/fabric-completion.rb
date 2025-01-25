@@ -1,9 +1,9 @@
 class FabricCompletion < Formula
   desc "Bash completion for Fabric"
   homepage "https://github.com/n0740/fabric-completion"
-  url "https://github.com/n0740/fabric-completion.git",
-      revision: "5b5910492046e6335af0e88550176d2583d9a510"
+  url "https://github.com/n0740/fabric-completion/archive/5b5910492046e6335af0e88550176d2583d9a510.tar.gz"
   version "1"
+  sha256 "34db5a8b207a66170580fc5c9d7521e76f3c3ee85471fa19a27718dca9a934a7"
   license "MIT"
   head "https://github.com/n0740/fabric-completion.git", branch: "master"
 
