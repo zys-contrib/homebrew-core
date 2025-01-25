@@ -11,12 +11,12 @@ class Groovysdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "98589d880eb28fd123bc6767b26155b92f5e010e6aa5da18046b3d886b4fcf98"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "98589d880eb28fd123bc6767b26155b92f5e010e6aa5da18046b3d886b4fcf98"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "98589d880eb28fd123bc6767b26155b92f5e010e6aa5da18046b3d886b4fcf98"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8c1602220d7f6a31c2ffe8584ded688fcfb98e402b69bf705a6091c1e0fd5309"
-    sha256 cellar: :any_skip_relocation, ventura:       "8c1602220d7f6a31c2ffe8584ded688fcfb98e402b69bf705a6091c1e0fd5309"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "98589d880eb28fd123bc6767b26155b92f5e010e6aa5da18046b3d886b4fcf98"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a3b512377361d281b6c275f3113d986607070bb5e24d76be54a936241cd31708"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a3b512377361d281b6c275f3113d986607070bb5e24d76be54a936241cd31708"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a3b512377361d281b6c275f3113d986607070bb5e24d76be54a936241cd31708"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5e19ad027f51679a6d23ec7d211811505f216fa75cc0740d0e43021156647313"
+    sha256 cellar: :any_skip_relocation, ventura:       "5e19ad027f51679a6d23ec7d211811505f216fa75cc0740d0e43021156647313"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3b512377361d281b6c275f3113d986607070bb5e24d76be54a936241cd31708"
   end
 
   depends_on "openjdk"
