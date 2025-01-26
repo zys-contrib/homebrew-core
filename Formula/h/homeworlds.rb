@@ -1,15 +1,10 @@
 class Homeworlds < Formula
   desc "C++ framework for the game of Binary Homeworlds"
   homepage "https://github.com/Quuxplusone/Homeworlds/"
-  url "https://github.com/Quuxplusone/Homeworlds.git",
-      revision: "917cd7e7e6d0a5cdfcc56cd69b41e3e80b671cde"
-  version "20141022"
+  url "https://github.com/Quuxplusone/Homeworlds/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "3ffbad58943127850047ef144a572f6cc84fd1ec2d29dad1f118db75419bf600"
   license "BSD-2-Clause"
-  revision 5
-
-  livecheck do
-    skip "No version information available to check"
-  end
+  version_scheme 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "1c9858b9293f5f31151e0365d9be0d80065fb353a0f5bb28d5f50c6bed5e91cf"
@@ -28,7 +23,12 @@ class Homeworlds < Formula
   depends_on "wxwidgets"
 
   def install
-    system "make"
-    bin.install "wxgui" => "homeworlds-wx", "annotate" => "homeworlds-cli"
+    system "make", "homeworlds-cli", "homeworlds-wx"
+    bin.install "homeworlds-cli", "homeworlds-wx"
+  end
+
+  test do
+    output = shell_output(bin/"homeworlds-cli", 1)
+    assert_match "Error: Incorrect command-line arguments", output
   end
 end
