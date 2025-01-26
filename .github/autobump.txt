@@ -3031,6 +3031,7 @@ sphinx-doc
 spicetify-cli
 spidermonkey
 spidermonkey@115
+spiped
 spirv-llvm-translator
 sponge
 spoofdpi
