@@ -3432,6 +3432,7 @@ vte3
 vtk
 vue-language-server
 vulkan-extensionlayer
+vulkan-profiles
 vulkan-validationlayers
 vulkan-volk
 vulsio-gost
