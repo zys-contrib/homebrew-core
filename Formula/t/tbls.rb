@@ -1,8 +1,8 @@
 class Tbls < Formula
   desc "CI-Friendly tool for document a database"
   homepage "https://github.com/k1LoW/tbls"
-  url "https://github.com/k1LoW/tbls/archive/refs/tags/v1.80.0.tar.gz"
-  sha256 "d28301c1ffe05a1b72bf61b21e052178380b2c7ec923303ee3bcce3ce3b0a991"
+  url "https://github.com/k1LoW/tbls/archive/refs/tags/v1.81.0.tar.gz"
+  sha256 "8616e136efdb1fa97f3804f65037b21c90b469c6a29f51ab3924805cce1522b6"
   license "MIT"
   head "https://github.com/k1LoW/tbls.git", branch: "main"
 
@@ -30,7 +30,7 @@ class Tbls < Formula
   end
 
   test do
-    assert_match "invalid database scheme", shell_output(bin/"tbls doc", 1)
+    assert_match "unsupported driver", shell_output(bin/"tbls doc", 1)
     assert_match version.to_s, shell_output(bin/"tbls version")
   end
 end
