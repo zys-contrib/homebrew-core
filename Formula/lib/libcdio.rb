@@ -1,9 +1,8 @@
 class Libcdio < Formula
   desc "Compact Disc Input and Control Library"
-  homepage "https://www.gnu.org/software/libcdio/"
-  url "https://ftp.gnu.org/gnu/libcdio/libcdio-2.1.0.tar.bz2"
-  mirror "https://ftpmirror.gnu.org/libcdio/libcdio-2.1.0.tar.bz2"
-  sha256 "8550e9589dbd594bfac93b81ecf129b1dc9d0d51e90f9696f1b2f9b2af32712b"
+  homepage "https://savannah.gnu.org/projects/libcdio/"
+  url "https://github.com/libcdio/libcdio/releases/download/2.2.0/libcdio-2.2.0.tar.gz"
+  sha256 "1b6c58137f71721ddb78773432d26252ee6500d92d227d4c4892631c30ea7abb"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -24,12 +23,6 @@ class Libcdio < Formula
   end
 
   depends_on "pkgconf" => :build
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
 
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args
