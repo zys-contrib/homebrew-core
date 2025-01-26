@@ -1,9 +1,9 @@
 class Snort < Formula
   desc "Flexible Network Intrusion Detection System"
   homepage "https://www.snort.org"
-  url "https://github.com/snort3/snort3/archive/refs/tags/3.6.1.0.tar.gz"
-  mirror "https://fossies.org/linux/misc/snort3-3.6.1.0.tar.gz"
-  sha256 "aba1c8d1dd099bf7abfeac7f073413ce4b6bd527d8ecaa92aa47726c753c3a89"
+  url "https://github.com/snort3/snort3/archive/refs/tags/3.6.2.0.tar.gz"
+  mirror "https://fossies.org/linux/misc/snort3-3.6.2.0.tar.gz"
+  sha256 "26cb2d06de9f9575e62087869fbb6fc52a409ce8cdf2da85c287e1f27e3da4d6"
   license "GPL-2.0-only"
   head "https://github.com/snort3/snort3.git", branch: "master"
 
@@ -34,7 +34,7 @@ class Snort < Formula
   depends_on "libpcap" # macOS version segfaults
   depends_on "luajit"
   depends_on "openssl@3"
-  depends_on "pcre" # PCRE2 issue: https://github.com/snort3/snort3/issues/254
+  depends_on "pcre2"
   depends_on "vectorscan"
   depends_on "xz" # for lzma.h
 
