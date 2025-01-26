@@ -2806,6 +2806,7 @@ rqlite
 rrdtool
 rsgain
 rshijack
+rsnapshot
 rswift
 rsync
 rsyncy
