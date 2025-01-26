@@ -1,8 +1,8 @@
 class Lowdown < Formula
   desc "Simple markdown translator"
   homepage "https://kristaps.bsd.lv/lowdown"
-  url "https://github.com/kristapsdz/lowdown/archive/refs/tags/VERSION_1_4_0.tar.gz"
-  sha256 "ee45a6270f38826490c17612c34cc8ac25269101deeca02d5d689b4bfd8f3f4c"
+  url "https://github.com/kristapsdz/lowdown/archive/refs/tags/VERSION_2_0_0.tar.gz"
+  sha256 "cad0c7eda8ce19aef4f0e261a66bceca162f9f33defd86c9ed1b243223f84b4b"
   license "ISC"
 
   bottle do
@@ -14,6 +14,8 @@ class Lowdown < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f64c8593b86e2032b5cfce2cf86d85fac19e78ab2bc4f16443d1ab52a3bb3bc"
   end
 
+  depends_on "bmake" => :build
+
   def install
     configure_args = %W[MANDIR=#{man} PREFIX=#{prefix}]
     if OS.mac?
@@ -24,8 +26,8 @@ class Lowdown < Formula
     end
 
     system "./configure", *configure_args
-    system "make"
-    system "make", "install", "install_libs"
+    system "bmake"
+    system "bmake", "install", "install_libs"
   end
 
   test do
