@@ -2,12 +2,11 @@ class Fastd < Formula
   desc "Fast and Secure Tunnelling Daemon"
   homepage "https://github.com/neocturne/fastd"
   license "BSD-2-Clause"
-  revision 2
   head "https://github.com/neocturne/fastd.git", branch: "main"
 
   stable do
-    url "https://github.com/neocturne/fastd/releases/download/v22/fastd-22.tar.xz"
-    sha256 "19750b88705d66811b7c21b672537909c19ae6b21350688cbd1a3a54d08a8951"
+    url "https://github.com/neocturne/fastd/releases/download/v23/fastd-23.tar.xz"
+    sha256 "dcab54485c79dda22ce6308a2a48764d53977a518952facd1204ba21af1c86e0"
 
     # remove in next release
     patch do
