@@ -1,8 +1,8 @@
 class Bacon < Formula
   desc "Background rust code check"
   homepage "https://dystroy.org/bacon/"
-  url "https://github.com/Canop/bacon/archive/refs/tags/v3.8.0.tar.gz"
-  sha256 "b5db72bf1be28ac67c2df5ed251fa806091a46af5ebab176a6f30d9566ca25c1"
+  url "https://github.com/Canop/bacon/archive/refs/tags/v3.9.0.tar.gz"
+  sha256 "64f65248e4be36347611315b3168b015324b137cb35207342dfdc9712051bd83"
   license "AGPL-3.0-or-later"
   head "https://github.com/Canop/bacon.git", branch: "main"
 
@@ -15,8 +15,13 @@ class Bacon < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5960372397f9a92f759c7c5379df2c6d81f9c5718a95b4e72ff66f3e98a3e350"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "rustup" => :test
+
+  on_linux do
+    depends_on "alsa-lib"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args
