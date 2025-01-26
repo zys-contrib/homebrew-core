@@ -1,10 +1,9 @@
 class Garble < Formula
   desc "Obfuscate Go builds"
   homepage "https://github.com/burrowers/garble"
-  url "https://github.com/burrowers/garble/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "22a1696ce880b34ca5ff949b6b5a42d4e370502e0b40b59eaa679eae13e45363"
+  url "https://github.com/burrowers/garble/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "9fb75bad82fc89afe08bbdb26c9bbbba8766a1663f8bb585318cf363fd3eedbf"
   license "BSD-3-Clause"
-  revision 4
   head "https://github.com/burrowers/garble.git", branch: "master"
 
   bottle do
