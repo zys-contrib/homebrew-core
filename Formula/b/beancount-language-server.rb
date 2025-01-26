@@ -1,8 +1,8 @@
 class BeancountLanguageServer < Formula
   desc "Language server for beancount files"
   homepage "https://github.com/polarmutex/beancount-language-server"
-  url "https://github.com/polarmutex/beancount-language-server/archive/refs/tags/v1.3.6.tar.gz"
-  sha256 "b5f3d156dfbd1508e3e2825fbe87247969bec24a554bab3a5eec81beddca117b"
+  url "https://github.com/polarmutex/beancount-language-server/archive/refs/tags/v1.3.7.tar.gz"
+  sha256 "d1da21e518815514ebb1d69e863dc414ce6480ab0eb81e113edb91fca4a5d999"
   license "MIT"
   head "https://github.com/polarmutex/beancount-language-server.git", branch: "main"
 
@@ -40,5 +40,7 @@ class BeancountLanguageServer < Formula
       stdin.write "Content-Length: #{json.size}\r\n\r\n#{json}"
       assert_match(/^Content-Length: \d+/i, stdout.readline)
     end
+
+    assert_match version.to_s, shell_output("#{bin}/beancount-language-server --version")
   end
 end
