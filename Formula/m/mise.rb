@@ -1,8 +1,8 @@
 class Mise < Formula
   desc "Polyglot runtime manager (asdf rust clone)"
   homepage "https://mise.jdx.dev/"
-  url "https://github.com/jdx/mise/archive/refs/tags/v2025.1.14.tar.gz"
-  sha256 "6745ef5b1be5478848e1e45d826dc1e37b177efeefc5fedf6fb184ddb7204aac"
+  url "https://github.com/jdx/mise/archive/refs/tags/v2025.1.15.tar.gz"
+  sha256 "d3f2db473b9639e77f63e1dca462b7ca8b5a3fee8083ce7f196c1463745fc69d"
   license "MIT"
   head "https://github.com/jdx/mise.git", branch: "main"
 
@@ -23,19 +23,15 @@ class Mise < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
-  depends_on "libgit2@1.8" # needs https://github.com/rust-lang/git2-rs/issues/1109 to support libgit2 1.9
-  depends_on "openssl@3"
   depends_on "usage"
 
   uses_from_macos "bzip2"
 
   on_linux do
-    depends_on "xz" # for liblzma
+    depends_on "openssl@3"
   end
 
   def install
-    ENV["LIBGIT2_NO_VENDOR"] = "1"
-
     # Ensure that the `openssl` crate picks up the intended library.
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
@@ -70,14 +66,5 @@ class Mise < Formula
     system bin/"mise", "settings", "set", "experimental", "true"
     system bin/"mise", "use", "go@1.23"
     assert_match "1.23", shell_output("#{bin}/mise exec -- go version")
-
-    [
-      Formula["libgit2@1.8"].opt_lib/shared_library("libgit2"),
-      Formula["openssl@3"].opt_lib/shared_library("libssl"),
-      Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
-    ].each do |library|
-      assert check_binary_linkage(bin/"mise", library),
-             "No linkage with #{library.basename}! Cargo is likely using a vendored version."
-    end
   end
 end
