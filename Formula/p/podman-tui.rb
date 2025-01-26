@@ -1,8 +1,8 @@
 class PodmanTui < Formula
   desc "Podman Terminal User Interface"
   homepage "https://github.com/containers/podman-tui"
-  url "https://github.com/containers/podman-tui/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "5a56d0f98e9537cefec1db2e685afc4f0453fcf0272a5f922f3ca04b3b2f9f59"
+  url "https://github.com/containers/podman-tui/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "80cc3775361bc210cca825d2bf584ab5d5a2e9baece6c989792119c4ebd34733"
   license "Apache-2.0"
 
   bottle do
