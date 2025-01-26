@@ -3,8 +3,8 @@ class ScikitImage < Formula
 
   desc "Image processing in Python"
   homepage "https://scikit-image.org"
-  url "https://files.pythonhosted.org/packages/e6/8d/383e5438c807804b66d68ed2c09202d185ea781b6022aa8b9fac3851137f/scikit_image-0.25.0.tar.gz"
-  sha256 "58d94fea11b6b3306b3770417dc1cbca7fa9bcbd6a13945d7910399c88c2018c"
+  url "https://files.pythonhosted.org/packages/83/e5/496a74ccfc1206666b9c7164a16657febdfeb6df0e458cb61286b20102c9/scikit_image-0.25.1.tar.gz"
+  sha256 "d4ab30540d114d37c35fe5c837f89b94aaba2a7643afae8354aa353319e9bbbb"
   license "BSD-3-Clause"
   head "https://github.com/scikit-image/scikit-image.git", branch: "main"
 
@@ -30,8 +30,8 @@ class ScikitImage < Formula
   end
 
   resource "imageio" do
-    url "https://files.pythonhosted.org/packages/70/aa/2e7a49259339e691ff2b477ae0696b1784a09313c5872700bbbdd00a3030/imageio-2.36.1.tar.gz"
-    sha256 "e4e1d231f47f9a9e16100b0f7ce1a86e8856fb4d1c0fa2c4365a316f1746be62"
+    url "https://files.pythonhosted.org/packages/0c/47/57e897fb7094afb2d26e8b2e4af9a45c7cf1a405acdeeca001fdf2c98501/imageio-2.37.0.tar.gz"
+    sha256 "71b57b3669666272c818497aebba2b4c5f20d5b37c81720e5e1a56d59c492996"
   end
 
   resource "lazy-loader" do
@@ -50,8 +50,8 @@ class ScikitImage < Formula
   end
 
   resource "tifffile" do
-    url "https://files.pythonhosted.org/packages/37/c9/fc4e490c5b0ccad68c98ea1d6e0f409bd7d50e2e8fc30a0725594d3104ff/tifffile-2024.12.12.tar.gz"
-    sha256 "c38e929bf74c04b6c8708d87f16b32c85c6d7c2514b99559ea3db8003ba4edda"
+    url "https://files.pythonhosted.org/packages/d5/fc/697d8dac6936a81eda88e7d4653d567fcb0d504efad3fd28f5272f96fcf9/tifffile-2025.1.10.tar.gz"
+    sha256 "baaf0a3b87bf7ec375fa1537503353f70497eabe1bdde590f2e41cc0346e612f"
   end
 
   def install
