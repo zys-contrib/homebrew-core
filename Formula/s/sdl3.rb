@@ -12,6 +12,15 @@ class Sdl3 < Formula
     strategy :github_latest
   end
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "cd0666d5f37a27cc66311756d868e971ec15a2573dc19240cb98d34a991f352d"
+    sha256 cellar: :any,                 arm64_sonoma:  "3de7a53ffe85996d48f6f6704f3be9c88aa2a8692c51dcdddddc84f90b02bfb9"
+    sha256 cellar: :any,                 arm64_ventura: "f0d9cb86ed4036a5c5da3008ce8dd76528c9c9f54e684c2c74e53067baf32a76"
+    sha256 cellar: :any,                 sonoma:        "4339c70cd1dfde8b1d90d1bdee543715fcb9dacc60bbf69af9ec27623b7a7e79"
+    sha256 cellar: :any,                 ventura:       "0442b21f126459a72f46e4f533b390a0970f3321ef2716d0a4c3f3947f863d4c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eac5c83251c1d2dcdfcabe7c700465f865f675a51161205fd2e5e8acf6419b83"
+  end
+
   depends_on "cmake" => :build
 
   on_linux do
