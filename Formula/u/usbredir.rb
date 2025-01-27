@@ -1,8 +1,8 @@
 class Usbredir < Formula
   desc "USB traffic redirection library"
   homepage "https://www.spice-space.org"
-  url "https://www.spice-space.org/download/usbredir/usbredir-0.14.0.tar.xz"
-  sha256 "924dfb5c78328fae45a4c93a01bc83bb72c1310abeed119109255627a8baa332"
+  url "https://www.spice-space.org/download/usbredir/usbredir-0.15.0.tar.xz"
+  sha256 "6dc2a380277688a068191245dac2ab7063a552999d8ac3ad8e841c10ff050961"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
 
   livecheck do
