@@ -17,6 +17,7 @@ class Bazel < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3fff3607b0e68a3ef19810fe60418093e9ba3ac59fa6dc1af71a8187ba8c304a"
     sha256 cellar: :any_skip_relocation, sonoma:        "819cc3996a5b758d2ee1892f777c8236849fd480fd9b742d4fb11cf13598fee8"
     sha256 cellar: :any_skip_relocation, ventura:       "d8d1a7f56fd5131c04fdf8c12056dbbee07252f371e0971d684591cec46600cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b464c711857cfa9533e99754eef2a5d2acfd227f992777ac0973d373d6560bfb"
   end
 
   depends_on "python@3.13" => :build
