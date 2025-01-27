@@ -7,7 +7,7 @@ class Libdivide < Formula
   head "https://github.com/ridiculousfish/libdivide.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "141be3f2da0edeeca9fdab66cbf77e23deb8acfbdde691d0a8f69cfe933f2e71"
+    sha256 cellar: :any_skip_relocation, all: "1bcba36eed605054470693093dd47baf69817c8aaa85d9a046e5f665e124fce8"
   end
 
   depends_on "cmake" => :build
