@@ -1,8 +1,8 @@
 class Sequin < Formula
   desc "Human-readable ANSI sequences"
   homepage "https://github.com/charmbracelet/sequin"
-  url "https://github.com/charmbracelet/sequin/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "545b43475cd217465dbf5e620fb7bc129fca532ef768a1b51cfc1f11d8e98d4b"
+  url "https://github.com/charmbracelet/sequin/archive/refs/tags/v0.3.1.tar.gz"
+  sha256 "52f4d704a6e019df05dfc0ee3808fdf6c7d3245dcaa6262db8ca33c9de303da9"
   license "MIT"
   head "https://github.com/charmbracelet/sequin.git", branch: "main"
 
