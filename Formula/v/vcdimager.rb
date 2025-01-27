@@ -5,7 +5,7 @@ class Vcdimager < Formula
   mirror "https://ftpmirror.gnu.org/vcdimager/vcdimager-2.0.1.tar.gz"
   sha256 "67515fefb9829d054beae40f3e840309be60cda7d68753cafdd526727758f67a"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "85fbe503d6e9e641b2624d2a35840df34515ee12c018e269e6a536a553c59187"
