@@ -9,13 +9,12 @@ class Mvt < Formula
   head "https://github.com/mvt-project/mvt.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "ee10b437d9f678a4e4004015bb4a12876ecdeada8083ec725734445938eb7e21"
-    sha256 cellar: :any,                 arm64_sonoma:  "86e182c22f1d7356bbc225a3a208d19b4a95623fc547822a9357c203beb504ca"
-    sha256 cellar: :any,                 arm64_ventura: "eaa771afad4f2be8c846292a48603d51a20a47a4ee1818586701ec2f81be9e33"
-    sha256 cellar: :any,                 sonoma:        "480e41f5bd529948ad68c3c9a95a31139fe86f853bfdf68bf0bd345e3e924546"
-    sha256 cellar: :any,                 ventura:       "0c7d1fd324966ebd5230cde35c0f2d036a2f18ffc5c344c6cff7ebf7ea7f592c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67219e51666b7ee97362449189e4acf1e93adcc4f4be528cd265939b7a53e107"
+    sha256 cellar: :any,                 arm64_sequoia: "e9d2a466119b63dde7fc528be5e6aea55b36dba330c27e3d9c08258a03e89a1c"
+    sha256 cellar: :any,                 arm64_sonoma:  "607c5f59dbd08c428c29d4b83c525d4e1ee4b5f2b71d70aa822de39dc89b4ea0"
+    sha256 cellar: :any,                 arm64_ventura: "4f92a4a195e51bed398ccac5e6e4d1f23cab5f3eda6f9ad11b1367222d5ea222"
+    sha256 cellar: :any,                 sonoma:        "32c6f03c6f0e9e465d579edaac5a38e672f9d209d908d98ee252c9107358d131"
+    sha256 cellar: :any,                 ventura:       "054c3c39ddc0b13ce7df8eeea14be0cfb44124633a3c9151dd3c00b402d5ece4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29e681c4766dec54f9f00b79211fdfc150fd8111f77f614b873d4ef6ab90d679"
   end
 
   depends_on "certifi"
