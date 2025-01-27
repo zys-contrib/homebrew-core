@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package and dependency manager supporting the latest PEP standards"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/7f/11/4975ee5d8ca1612929e915f052358b31219516f90e43f19b69a451ba6463/pdm-2.22.2.tar.gz"
-  sha256 "907dbaa1659f07c763902f8429c1573aa32b5ef2d99b3b123b5f1e38015c917b"
+  url "https://files.pythonhosted.org/packages/62/cc/ef1269d05827ba2f429ed97c37e33e93fd8959d8846b5bc2f542f8d57492/pdm-2.22.3.tar.gz"
+  sha256 "f409d37b44f6b9938e4eed0bd0ca8016d15cd4514337640d6f962a74d022b412"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -41,8 +41,8 @@ class Pdm < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/9d/db/3ef5bb276dae18d6ec2124224403d1d67bccdbefc17af4cc8f553e341ab1/filelock-3.16.1.tar.gz"
-    sha256 "c249fbfcd5db47e5e2d6d62198e565475ee65e4831e2561c8e313fa7eb961435"
+    url "https://files.pythonhosted.org/packages/dc/9c/0b15fb47b464e1b663b1acd1253a062aa5feecb07d4e597daea542ebd2b5/filelock-3.17.0.tar.gz"
+    sha256 "ee4e77401ef576ebb38cd7f13b9b28893194acc20a8e68e18730ba9c0e54660e"
   end
 
   resource "findpython" do
@@ -166,8 +166,8 @@ class Pdm < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/50/39/689abee4adc85aad2af8174bb195a819d0be064bf55fcc73b49d2b28ae77/virtualenv-20.28.1.tar.gz"
-    sha256 "5d34ab240fdb5d21549b76f9e8ff3af28252f5499fb6d6f031adac4e5a8c5329"
+    url "https://files.pythonhosted.org/packages/a7/ca/f23dcb02e161a9bba141b1c08aa50e8da6ea25e6d780528f1d385a3efe25/virtualenv-20.29.1.tar.gz"
+    sha256 "b8b8970138d32fb606192cb97f6cd4bb644fa486be9308fb9b63f81091b5dc35"
   end
 
   def install
