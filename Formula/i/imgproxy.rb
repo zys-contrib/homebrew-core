@@ -1,8 +1,8 @@
 class Imgproxy < Formula
   desc "Fast and secure server for resizing and converting remote images"
   homepage "https://imgproxy.net"
-  url "https://github.com/imgproxy/imgproxy/archive/refs/tags/v3.27.1.tar.gz"
-  sha256 "ab09340fbb2e3928d458c3d26bf6af28010e57bded98d04475fa9922d43f6646"
+  url "https://github.com/imgproxy/imgproxy/archive/refs/tags/v3.27.2.tar.gz"
+  sha256 "e9500cc11a87c63c558200f7dc21537ebb0e8ac4dbb55894af99ff5e7a188484"
   license "MIT"
   head "https://github.com/imgproxy/imgproxy.git", branch: "master"
 
@@ -40,7 +40,7 @@ class Imgproxy < Formula
 
     pid = spawn bin/"imgproxy"
     sleep 20
-    sleep 40 if OS.mac? && Hardware::CPU.intel?
+    sleep 50 if OS.mac? && Hardware::CPU.intel?
 
     output = testpath/"test-converted.png"
     url = "http://127.0.0.1:#{port}/insecure/resize:fit:100:100:true/plain/local:///test.jpg@png"
