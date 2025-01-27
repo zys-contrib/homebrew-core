@@ -6,6 +6,15 @@ class RedoclyCli < Formula
   license "MIT"
   head "https://github.com/redocly/redocly-cli.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "265df1dcf49808794e3489b951154d680777fbd3269e828f699729010bd20328"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "265df1dcf49808794e3489b951154d680777fbd3269e828f699729010bd20328"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "265df1dcf49808794e3489b951154d680777fbd3269e828f699729010bd20328"
+    sha256 cellar: :any_skip_relocation, sonoma:        "21659e09a43a2551cd78a1aa80b5587bcb6f2e7441bbab6feaebfcd2f49e624f"
+    sha256 cellar: :any_skip_relocation, ventura:       "21659e09a43a2551cd78a1aa80b5587bcb6f2e7441bbab6feaebfcd2f49e624f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "265df1dcf49808794e3489b951154d680777fbd3269e828f699729010bd20328"
+  end
+
   depends_on "node"
 
   def install
