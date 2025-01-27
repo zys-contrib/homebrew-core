@@ -1,20 +1,18 @@
 class C2048 < Formula
   desc "Console version of 2048"
   homepage "https://github.com/mevdschee/2048.c"
-  url "https://github.com/mevdschee/2048.c/archive/refs/tags/v1.0.1.tar.gz"
-  sha256 "43a357a6d30859f2f6e797ddf96f35c278b5f0ad7dd1bfc70c3b6d3f24e89dcd"
+  url "https://github.com/mevdschee/2048.c/archive/refs/tags/v1.0.2.tar.gz"
+  sha256 "c594b0fa5f40a991ca4b77d1905bb59f73071684afc245ad0df2c6c42e514f43"
   license "MIT"
   head "https://github.com/mevdschee/2048.c.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2ab8b2461f82798497f1fbcabafd377d47dc9de01bdda39ccd1327155c6bd7d9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "70383d07768ee266589fb68153f475d2a532a52d65c9b4735bb591e595247756"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6a00b75193488ac82165f59f6c8cd5999436a1fad98a21302a2f72fc2a363cff"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9c2e0fda330d41c94bd5ce41e82e04d9e897a4e1fecc8d7951dca3fccabeff0b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d88c36a1c245aa7c108c9bed1389c4762dbf0e9325a891ecc3c7aeece155dbf7"
-    sha256 cellar: :any_skip_relocation, ventura:        "119185f87ee1a7368b93b6a081b21d4e84e10bcf080deab904d76d90d4bd890f"
-    sha256 cellar: :any_skip_relocation, monterey:       "f9b5374da1d1e2926e5c734632570d9a217d5d20ddaceef28171fef326cc285a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6863918a25b7da026077d19d297b4c6e54185d1ed790027de0c44ae6566baef2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "42f45739dd7914283f571c1c9f019fa41f0364110be7bb638f8c444f3638478c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2558b6e88ade9cfbd6650af8e3df2fec47afba1c5eabb799684c1e156d86ba92"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9ac0c931a854d9d4f0d94bd5e729b85dd702c22739780341570679fc0fbfdbdc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "46f063e7bbe544a0ac619a39ab1edda6e16fe7a72150c830d82d6ed2a11fecf6"
+    sha256 cellar: :any_skip_relocation, ventura:       "06006da3d1403977e11399aa2c25eaf583c0b20648f6ddeb2510bea7e65549e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5bf732ef1884150bc27c66d5e167f6de841ca282663e1b9f8ea1e531fcdb630d"
   end
 
   def install
