@@ -1934,6 +1934,7 @@ litmusctl
 little-cms2
 livekit
 livekit-cli
+lizard
 lla
 llama.cpp
 lldpd
