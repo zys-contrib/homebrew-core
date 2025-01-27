@@ -1,9 +1,17 @@
 class GolangMigrate < Formula
   desc "Database migrations CLI tool"
   homepage "https://github.com/golang-migrate/migrate"
-  url "https://github.com/golang-migrate/migrate/archive/refs/tags/v4.18.1.tar.gz"
-  sha256 "06cb38c81f0152670c730e906a27f49b353958fe90dcdf9f90f318785c19977f"
+  url "https://github.com/golang-migrate/migrate/archive/refs/tags/v4.18.2.tar.gz"
+  sha256 "a7bd48cd45dc2546f23f01750486fbba5b70b723500a881bb56221b11533a6f0"
   license "MIT"
+
+  # There can be a notable gap between when a version is tagged and a
+  # corresponding release is created, so we check the "latest" release instead
+  # of the Git tags.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ef4734cd2decfa9e8a4c89318920ce3084d53a40b3a00544ced5a9a40795fe2a"
