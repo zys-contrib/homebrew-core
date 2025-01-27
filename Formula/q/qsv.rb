@@ -1,10 +1,18 @@
 class Qsv < Formula
   desc "Ultra-fast CSV data-wrangling toolkit"
   homepage "https://github.com/dathere/qsv"
-  url "https://github.com/dathere/qsv/archive/refs/tags/2.2.0.tar.gz"
-  sha256 "1b2f6eaef2269815516ea8abc95292881877f19fb6007eac1e42f187d8ab350a"
+  url "https://github.com/dathere/qsv/archive/refs/tags/2.2.1.tar.gz"
+  sha256 "3ada256641d4a56e82cd9d3e48f62188eb6d8dd80b96385ac72c302d729504a4"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/dathere/qsv.git", branch: "master"
+
+  # There can be a notable gap between when a version is tagged and a
+  # corresponding release is created, so we check the "latest" release instead
+  # of the Git tags.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "874ff0a240e86352ac849710ec20cf524df1e7a72743603620d38e4331c583fb"
