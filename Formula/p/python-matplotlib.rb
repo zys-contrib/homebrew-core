@@ -74,17 +74,13 @@ class PythonMatplotlib < Formula
   end
 
   def install
-    # `matplotlib` needs extra inputs to use system libraries.
-    # Ref: https://github.com/matplotlib/matplotlib/blob/v3.8.3/doc/users/installing/dependencies.rst#use-system-libraries
-    # TODO: Update build to use `--config-settings=setup-args=...` when `matplotlib` switches to `meson-python`.
-    ENV["MPLSETUPCFG"] = buildpath/"mplsetup.cfg"
-    (buildpath/"mplsetup.cfg").write <<~EOS
-      [libs]
-      system_freetype = true
-      system_qhull = true
-    EOS
+    venv = virtualenv_create(libexec, python3)
+    venv.pip_install resources
+    system python3, "-m", "pip", "--python=#{venv.root}", "install",
+                                 "--config-settings=setup-args=-Dsystem-freetype=true",
+                                 "--config-settings=setup-args=-Dsystem-qhull=true",
+                                 *std_pip_args(prefix: false, build_isolation: true), "."
 
-    venv = virtualenv_install_with_resources
     (prefix/Language::Python.site_packages(python3)/"homebrew-matplotlib.pth").write venv.site_packages
   end
 
