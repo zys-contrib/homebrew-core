@@ -1,8 +1,8 @@
 class C2048 < Formula
   desc "Console version of 2048"
   homepage "https://github.com/mevdschee/2048.c"
-  url "https://github.com/mevdschee/2048.c/archive/refs/tags/v1.0.1.tar.gz"
-  sha256 "43a357a6d30859f2f6e797ddf96f35c278b5f0ad7dd1bfc70c3b6d3f24e89dcd"
+  url "https://github.com/mevdschee/2048.c/archive/refs/tags/v1.0.2.tar.gz"
+  sha256 "c594b0fa5f40a991ca4b77d1905bb59f73071684afc245ad0df2c6c42e514f43"
   license "MIT"
   head "https://github.com/mevdschee/2048.c.git", branch: "main"
 
