@@ -1,8 +1,8 @@
 class Svgbob < Formula
   desc "Convert your ascii diagram scribbles into happy little SVG"
   homepage "https://ivanceras.github.io/svgbob-editor/"
-  url "https://github.com/ivanceras/svgbob/archive/refs/tags/0.7.4.tar.gz"
-  sha256 "ec44991bcb34afe227135f3465b12baa6f438d0f7df7765676acca43372feeef"
+  url "https://github.com/ivanceras/svgbob/archive/refs/tags/0.7.6.tar.gz"
+  sha256 "d5b5fc4a04e9efc1cd313c84a8f843d8221718b34e8d3e135e97d44b81317bbf"
   license "Apache-2.0"
   head "https://github.com/ivanceras/svgbob.git", branch: "master"
 
