@@ -4,6 +4,7 @@ class SvtAv1 < Formula
   url "https://gitlab.com/AOMediaCodec/SVT-AV1/-/archive/v2.3.0/SVT-AV1-v2.3.0.tar.bz2"
   sha256 "f65358499f572a47d6b076dda73681a8162b02c0b619a551bc2d62ead8ee719a"
   license "BSD-3-Clause"
+  revision 1
   head "https://gitlab.com/AOMediaCodec/SVT-AV1.git", branch: "master"
 
   bottle do
@@ -19,15 +20,12 @@ class SvtAv1 < Formula
   depends_on "nasm" => :build
 
   def install
-    extra_cmake_args = %W[-DCMAKE_INSTALL_RPATH=#{rpath}]
+    # Features are enabled based on compiler support, and then the appropriate
+    # implementations are chosen at runtime.
+    # See https://gitlab.com/AOMediaCodec/SVT-AV1/-/blob/master/Source/Lib/Codec/common_dsp_rtcd.c
+    ENV.runtime_cpu_detection
 
-    # Explicitly disable ARM NEON I8MM extension on Apple Silicon: upstream
-    # build script attempts to detect CPU features via compiler flags, which
-    # are stripped by brew's compiler shim. The M1 chip does not support the
-    # I8MM extension (hw.optional.arm.FEAT_I8MM).
-    extra_cmake_args << "-DENABLE_NEON_I8MM=OFF" if OS.mac?
-
-    system "cmake", "-S", ".", "-B", "build", *extra_cmake_args, *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
