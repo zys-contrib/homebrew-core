@@ -7,12 +7,12 @@ class C2048 < Formula
   head "https://github.com/mevdschee/2048.c.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "42f45739dd7914283f571c1c9f019fa41f0364110be7bb638f8c444f3638478c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2558b6e88ade9cfbd6650af8e3df2fec47afba1c5eabb799684c1e156d86ba92"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9ac0c931a854d9d4f0d94bd5e729b85dd702c22739780341570679fc0fbfdbdc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "46f063e7bbe544a0ac619a39ab1edda6e16fe7a72150c830d82d6ed2a11fecf6"
-    sha256 cellar: :any_skip_relocation, ventura:       "06006da3d1403977e11399aa2c25eaf583c0b20648f6ddeb2510bea7e65549e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5bf732ef1884150bc27c66d5e167f6de841ca282663e1b9f8ea1e531fcdb630d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aac8d147591dcc68329b42238cc2363f05fda1533e3e897fd0d2d67c830f6ac0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6b575648a9003e0a7479ce49a0224cfb1e9f1d9e492f7a5b050ec096375a5135"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d6c6ade21d0fe28b3408b166d29ab5f6d16435f9dc4c8700fe6a7c490816009f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0c43e42fd31143a4e0f008a2620e092b0a431b0fe0c68c5adc72acc975859cb1"
+    sha256 cellar: :any_skip_relocation, ventura:       "6c6cc4ae173a335eda1f921c2f37dc34bb7b5a3cbba6b77c32f296ba5cd54be2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dabedc2a620cb0966fcf79c27b6135366a02fc7f37f3413c7cb65df0eec15644"
   end
 
   def install
