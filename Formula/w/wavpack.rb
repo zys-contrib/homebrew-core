@@ -13,12 +13,12 @@ class Wavpack < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cb70a84a6cc19d591e35a189b967c680d7aa7b4e2e2180a2974522632a8a0689"
-    sha256 cellar: :any,                 arm64_sonoma:  "e81b0faa4a74bfa117a41b26c358cdc2d5c95a985bd506ae77a39f03f00462e5"
-    sha256 cellar: :any,                 arm64_ventura: "1ace95c9aad605b67cc2db70065d98533937273db110f51dfd2903a54052ac98"
-    sha256 cellar: :any,                 sonoma:        "b5a87dd2838c8bcf36b1792d823cdd933b1a1ab7c5e0a74461741560899d3256"
-    sha256 cellar: :any,                 ventura:       "479bd9776d9612beddb07f95b47069fc3a786c756072a5a10753243bf7c5d268"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee7be71f43bafcd435401da7bdb994eb7c3572f08fc9ff6e0b3c053da51ba84f"
+    sha256 cellar: :any,                 arm64_sequoia: "7a3c71972558779ba65c5333c17b5032577623b5695465cd0fc3fa62b43fe9d4"
+    sha256 cellar: :any,                 arm64_sonoma:  "9f2cdfe3f3a442474eb944bcc1ca76878944a16cf89d7c6378f09716ecb7d613"
+    sha256 cellar: :any,                 arm64_ventura: "885ff22f136e5db9b1b5fb4ddd578cc8715f958b8e7c02fa177f5b8e3550523a"
+    sha256 cellar: :any,                 sonoma:        "db86d639bbac1a81d89399fdaf1f540c2176eaa37843045ca1b342b05cd821ac"
+    sha256 cellar: :any,                 ventura:       "1166057de1b8298cf43af6c40e3bf12675179f43a8da756dfce3a04fc1790af5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0fbe02a0b9e22e0628253a9ae6bb85a9195108cd2469a0623c66f41fb0464e25"
   end
 
   head do
