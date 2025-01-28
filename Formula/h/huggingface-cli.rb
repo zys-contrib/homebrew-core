@@ -8,12 +8,12 @@ class HuggingfaceCli < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "100e976510b08023a63581a9729cdaa9472a91591371d49cb1dd67dafbcf4601"
-    sha256 cellar: :any,                 arm64_sonoma:  "aac6538c18199792301633a2b491472989480e96fc325224959001fa839b15ec"
-    sha256 cellar: :any,                 arm64_ventura: "1f471aebe67af0363ba4d6bec15c34b4cd1d86b36f56418c6c3142544dcd5846"
-    sha256 cellar: :any,                 sonoma:        "0993476eef16a772dfad4636d0f35ac4764776864baf808d19a7f7a7c83bdad0"
-    sha256 cellar: :any,                 ventura:       "d9875c231e37848aed72354e60ac570ebf9113c27f21a6e0c7add755eaa55f00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "95f29985daa48efd1f5a87f416ecb71844eadacab085b23f74f42fa47ce116aa"
+    sha256 cellar: :any,                 arm64_sequoia: "7e5d900bd9abca0990d9ddf9e295950ffcc4ce1fa0c5a1f933ba4453f9f70153"
+    sha256 cellar: :any,                 arm64_sonoma:  "27cf4e293f783fa2947ef0144afc17b5077223b2663a8c8e37bfccc78272378c"
+    sha256 cellar: :any,                 arm64_ventura: "2788d0f8c1c7382523ccc1dfd093c648c03775bf51c51273b3dc95080e3cb237"
+    sha256 cellar: :any,                 sonoma:        "c63e240536fd35e0d366adb21b1ec392585fcdb086b70df7cae0ebf5bcf17ccc"
+    sha256 cellar: :any,                 ventura:       "b4bae207086fcacf6d4e704be512c7de455463d466f2a8dcfb3ac81ffc4dd431"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5b44aa786feb52c55eee12a276a25a576ddb328947c3813eb34e5dddc15ef71"
   end
 
   depends_on "certifi"
