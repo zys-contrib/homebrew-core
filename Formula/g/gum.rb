@@ -1,8 +1,8 @@
 class Gum < Formula
   desc "Tool for glamorous shell scripts"
   homepage "https://github.com/charmbracelet/gum"
-  url "https://github.com/charmbracelet/gum/archive/refs/tags/v0.15.1.tar.gz"
-  sha256 "bd3c3ad77ea7699e82b3688797b72c38116dd781ef93bd35bdc11bd80d1aec1c"
+  url "https://github.com/charmbracelet/gum/archive/refs/tags/v0.15.2.tar.gz"
+  sha256 "c1950ef71284189436712f385adbf1a3d8df20a8735c9add5344601aedb97ac1"
   license "MIT"
   head "https://github.com/charmbracelet/gum.git", branch: "main"
 
