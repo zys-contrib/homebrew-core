@@ -3,8 +3,8 @@ class Abi3audit < Formula
 
   desc "Scans Python packages for abi3 violations and inconsistencies"
   homepage "https://github.com/pypa/abi3audit"
-  url "https://files.pythonhosted.org/packages/f7/b1/6f30cdfcf77d41b4a53e431acf458dc94e553697ea769a5397b3634afc43/abi3audit-0.0.20.tar.gz"
-  sha256 "b31d9f0dde0cd46c13db13f71372235318dfb535a8df5f40839711b0968fd45f"
+  url "https://files.pythonhosted.org/packages/df/83/c2ba9ad764c3f432651ce396468b99995fb3fe97c29f7549d1c3cfb05112/abi3audit-0.0.21.tar.gz"
+  sha256 "78f6155dfcf089657764bf194ddeac987111a5648eba54fcd6b486968db4d3fa"
   license "MIT"
 
   bottle do
@@ -25,13 +25,13 @@ class Abi3audit < Formula
   end
 
   resource "abi3info" do
-    url "https://files.pythonhosted.org/packages/ea/32/0d0f9b6b69385361d6cd45b16817910a3d2e13b5d9a5e06f5d550016ab77/abi3info-2024.10.26.tar.gz"
-    sha256 "b41fdf4f19e1b39d1e7d8269ad12d59a18d54c71601818ca61b1ed5a87341d13"
+    url "https://files.pythonhosted.org/packages/f2/50/3ade9c5354a3bb2134fec8fc56004fc935ae1df473681b8199172848bf7a/abi3info-2025.1.9.tar.gz"
+    sha256 "8a2c3aff803164e763ccba11ef35067b684e9ceba876f00410bb054f58e02345"
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/48/c8/6260f8ccc11f0917360fc0da435c5c9c7504e3db174d5a12a1494887b045/attrs-24.3.0.tar.gz"
-    sha256 "8f5c07333d543103541ba7be0e2ce16eeee8130cb0b3f9238ab904ce1e85baff"
+    url "https://files.pythonhosted.org/packages/49/7c/fdf464bcc51d23881d110abd74b512a42b3d5d376a55a831b44c603ae17f/attrs-25.1.0.tar.gz"
+    sha256 "1c97078a80c814273a76b2a298a932eb681c87415c11dee0a6921de7f1b02c3e"
   end
 
   resource "cattrs" do
