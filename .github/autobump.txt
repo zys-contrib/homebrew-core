@@ -3334,6 +3334,7 @@ uffizzi
 uftrace
 ugit
 ugrep
+uhd
 unar
 unbound
 uncover

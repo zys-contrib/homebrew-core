@@ -3,24 +3,10 @@ class Uhd < Formula
 
   desc "Hardware driver for all USRP devices"
   homepage "https://files.ettus.com/manual/"
+  url "https://github.com/EttusResearch/uhd/archive/refs/tags/v4.8.0.0.tar.gz"
+  sha256 "a2159491949477dca67f5a9b05f5a80d8c2b32e91b95dd7fac8ddd3893e36d09"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
-  revision 3
   head "https://github.com/EttusResearch/uhd.git", branch: "master"
-
-  stable do
-    url "https://github.com/EttusResearch/uhd/archive/refs/tags/v4.7.0.0.tar.gz"
-    sha256 "afe56842587ce72d6a57535a2b15c061905f0a039abcc9d79f0106f072a00d10"
-
-    # Backport support for Boost 1.87.0
-    patch do
-      url "https://github.com/EttusResearch/uhd/commit/2dc7b3e572830c71d49ee0648eef445e7f3abfd6.patch?full_index=1"
-      sha256 "337b55e9323aef61274f52ff6c9d557fcae56b568dda029c3a70b33cccaaf636"
-    end
-    patch do
-      url "https://github.com/EttusResearch/uhd/commit/adfe953d965e58b5931c1b1968899492c8087cf6.patch?full_index=1"
-      sha256 "a9cc7e247a20157e2cbbf241315ef8fe53bdcf7db320a483b2466abcbd4efffe"
-    end
-  end
 
   livecheck do
     url :stable
@@ -48,13 +34,13 @@ class Uhd < Formula
   end
 
   resource "mako" do
-    url "https://files.pythonhosted.org/packages/67/03/fb5ba97ff65ce64f6d35b582aacffc26b693a98053fa831ab43a437cbddb/Mako-1.3.5.tar.gz"
-    sha256 "48dbc20568c1d276a2698b36d968fa76161bf127194907ea6fc594fa81f943bc"
+    url "https://files.pythonhosted.org/packages/5f/d9/8518279534ed7dace1795d5a47e49d5299dd0994eed1053996402a8902f9/mako-1.3.8.tar.gz"
+    sha256 "577b97e414580d3e088d47c2dbbe9594aa7a5146ed2875d4dfa9075af2dd3cc8"
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/b4/d2/38ff920762f2247c3af5cbbbbc40756f575d9692d381d7c520f45deb9b8f/markupsafe-3.0.1.tar.gz"
-    sha256 "3e683ee4f5d0fa2dde4db77ed8dd8a876686e3fc417655c2ece9a90576905344"
+    url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
+    sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
   end
 
   def python3
