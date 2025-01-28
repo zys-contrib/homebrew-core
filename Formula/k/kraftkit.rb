@@ -1,8 +1,8 @@
 class Kraftkit < Formula
   desc "Build and use highly customized and ultra-lightweight unikernel VMs"
   homepage "https://unikraft.org/docs/cli"
-  url "https://github.com/unikraft/kraftkit/archive/refs/tags/v0.9.4.tar.gz"
-  sha256 "919b86d44232ca443dee7b7be547fa6983036ac9dd3c11a0b744c1a6799af550"
+  url "https://github.com/unikraft/kraftkit/archive/refs/tags/v0.10.1.tar.gz"
+  sha256 "97ef3f7fc3d667ad1a9e6af5a55fa20b89848d2f690e76501c75a0ec0669deea"
   license "BSD-3-Clause"
 
   livecheck do
@@ -43,7 +43,7 @@ class Kraftkit < Formula
     expected = if OS.mac?
       "could not determine hypervisor and system mode"
     else
-      "found unikraft.org/helloworld:latest (qemu/x86_64)"
+      "finding unikraft.org/helloworld:latest"
     end
     assert_match expected, shell_output("#{bin}/kraft run unikraft.org/helloworld:latest 2>&1", 1)
 
