@@ -1,8 +1,8 @@
 class Kubehound < Formula
   desc "Tool for building Kubernetes attack paths"
   homepage "https://kubehound.io"
-  url "https://github.com/DataDog/KubeHound/archive/refs/tags/v1.6.3.tar.gz"
-  sha256 "e1858065aeb44d6dccb002bc909be9fd8b9b228ae004c4d74bfebe80fa8c13fa"
+  url "https://github.com/DataDog/KubeHound/archive/refs/tags/v1.6.4.tar.gz"
+  sha256 "63cb38cc12f33842a255852a45d2c795f8b20cd7de546154af1dc6a7c9fa0441"
   license "Apache-2.0"
 
   livecheck do
@@ -32,7 +32,7 @@ class Kubehound < Formula
       -X github.com/DataDog/KubeHound/pkg/config.BuildOs=#{goos}
       -X github.com/DataDog/KubeHound/pkg/config.BuildArch=#{goarch}
     ]
-    system "go", "build", *std_go_args(ldflags:), "./cmd/kubehound/"
+    system "go", "build", *std_go_args(ldflags:), "-tags", "no_backend", "./cmd/kubehound/"
 
     generate_completions_from_executable(bin/"kubehound", "completion")
   end
@@ -41,7 +41,7 @@ class Kubehound < Formula
     assert_match "kubehound version: v#{version}", shell_output("#{bin}/kubehound version")
 
     ENV["DOCKER_HOST"] = "unix://#{testpath}/invalid.sock"
-    error_message = "error starting the kubehound stack: Cannot connect to the Docker daemon"
+    error_message = "error starting the kubehound stack"
     assert_match error_message, shell_output("#{bin}/kubehound backend up 2>&1", 1)
   end
 end
