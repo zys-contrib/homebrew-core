@@ -17,6 +17,7 @@ adios2
 adns
 adr-viewer
 adwaita-icon-theme
+aerc
 aerleon
 aespipe
 afflib
