@@ -2889,6 +2889,7 @@ scummvm
 scummvm-tools
 scw
 sdb
+sdcc
 sdl2
 sdl2_image
 sdl2_sound
