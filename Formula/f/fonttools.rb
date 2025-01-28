@@ -3,8 +3,8 @@ class Fonttools < Formula
 
   desc "Library for manipulating fonts"
   homepage "https://github.com/fonttools/fonttools"
-  url "https://files.pythonhosted.org/packages/49/2e/0b11e907b90665253dbad425479e874e38a9e81ced397a4e3312b9116935/fonttools-4.55.6.tar.gz"
-  sha256 "1beb4647a0df5ceaea48015656525eb8081af226fe96554089fd3b274d239ef0"
+  url "https://files.pythonhosted.org/packages/55/55/3b1566c6186a5e58a17a19ad63195f87c6ca4039ef10ff5318a1b9fc5639/fonttools-4.55.7.tar.gz"
+  sha256 "6899e3d97225a8218f525e9754da0376e1c62953a0d57a76c5abaada51e0d140"
   license "MIT"
   head "https://github.com/fonttools/fonttools.git", branch: "main"
 
