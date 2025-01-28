@@ -1,8 +1,8 @@
 class Wavpack < Formula
   desc "Hybrid lossless audio compression"
   homepage "https://www.wavpack.com/"
-  url "https://www.wavpack.com/wavpack-5.8.0.tar.bz2"
-  sha256 "d2079e339582d43a0ee58626d9ed5e2d46c6886e788700093faf3753db68e6cd"
+  url "https://www.wavpack.com/wavpack-5.8.1.tar.bz2"
+  sha256 "7bd540ed92d2d1bf412213858a9e4f1dfaf6d9a614f189b0622060a432e77bbf"
   license "BSD-3-Clause"
 
   # The first-party download page also links to `xmms-wavpack` releases, so
@@ -26,13 +26,6 @@ class Wavpack < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
-  end
-
-  # Compilation broken in 5.8.0 on macOS, remove once fixed
-  # https://github.com/dbry/WavPack/issues/195
-  patch do
-    url "https://github.com/dbry/WavPack/commit/e71d65cfa71cd96e00edf39f80298028fd08dc16.patch?full_index=1"
-    sha256 "314d279f26fc3ac2934dce32b370546c26deb2b48696e9a7f7046e5797b78622"
   end
 
   def install
