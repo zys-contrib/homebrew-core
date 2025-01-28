@@ -1,8 +1,8 @@
 class Wavpack < Formula
   desc "Hybrid lossless audio compression"
   homepage "https://www.wavpack.com/"
-  url "https://www.wavpack.com/wavpack-5.7.0.tar.bz2"
-  sha256 "8944b237968a1b3976a1eb47cd556916e041a2aa8917495db65f82c3fcc2a225"
+  url "https://www.wavpack.com/wavpack-5.8.0.tar.bz2"
+  sha256 "d2079e339582d43a0ee58626d9ed5e2d46c6886e788700093faf3753db68e6cd"
   license "BSD-3-Clause"
 
   # The first-party download page also links to `xmms-wavpack` releases, so
@@ -13,14 +13,12 @@ class Wavpack < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "34fa8bce44dec654eccbaf58d97fe7e9ae4824f5aaaf3ed3ac8ea8acf5e04f86"
-    sha256 cellar: :any,                 arm64_sonoma:   "a52595d292c101c9976c2ef02756e0d90b985a10e58a7305d9a4a31279eecf57"
-    sha256 cellar: :any,                 arm64_ventura:  "18dc138bdded56a9eeb9b246b5a1c2b809ab27be62b55fbd19f3a04f96517dc5"
-    sha256 cellar: :any,                 arm64_monterey: "d920574d1f4493faf11e8d772ed39821159349c22c6de11be99f8058bfbea686"
-    sha256 cellar: :any,                 sonoma:         "8595bdb5181479ab687368280cf55758afde4017d67a15b93923a6dff487734c"
-    sha256 cellar: :any,                 ventura:        "139b76fb2ed0c471294576ea6ba387fbed526c3c228bee05a2bfced748f6788f"
-    sha256 cellar: :any,                 monterey:       "e0d0a48bca189c2a28edd80c406f3c09693d1f6d351ff21b6bf74b7210bc72e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb9564559131803d0e34f4d72c42ea6d20046197ea49b5fc58250cba812cfb66"
+    sha256 cellar: :any,                 arm64_sequoia: "cb70a84a6cc19d591e35a189b967c680d7aa7b4e2e2180a2974522632a8a0689"
+    sha256 cellar: :any,                 arm64_sonoma:  "e81b0faa4a74bfa117a41b26c358cdc2d5c95a985bd506ae77a39f03f00462e5"
+    sha256 cellar: :any,                 arm64_ventura: "1ace95c9aad605b67cc2db70065d98533937273db110f51dfd2903a54052ac98"
+    sha256 cellar: :any,                 sonoma:        "b5a87dd2838c8bcf36b1792d823cdd933b1a1ab7c5e0a74461741560899d3256"
+    sha256 cellar: :any,                 ventura:       "479bd9776d9612beddb07f95b47069fc3a786c756072a5a10753243bf7c5d268"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee7be71f43bafcd435401da7bdb994eb7c3572f08fc9ff6e0b3c053da51ba84f"
   end
 
   head do
@@ -28,6 +26,13 @@ class Wavpack < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
+  end
+
+  # Compilation broken in 5.8.0 on macOS, remove once fixed
+  # https://github.com/dbry/WavPack/issues/195
+  patch do
+    url "https://github.com/dbry/WavPack/commit/e71d65cfa71cd96e00edf39f80298028fd08dc16.patch?full_index=1"
+    sha256 "314d279f26fc3ac2934dce32b370546c26deb2b48696e9a7f7046e5797b78622"
   end
 
   def install
