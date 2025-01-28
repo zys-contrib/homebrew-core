@@ -1858,6 +1858,7 @@ libtirpc
 libtommath
 libtool
 libtorrent-rakshasa
+libtorrent-rasterbar
 libtrace
 libtrng
 libucl
