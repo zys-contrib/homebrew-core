@@ -5,6 +5,7 @@ class Flang < Formula
   sha256 "82401fea7b79d0078043f7598b835284d6650a75b93e64b6f761ea7b63097501"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   livecheck do
@@ -64,7 +65,9 @@ class Flang < Formula
     # Our LLVM is built with exception-handling, which requires linkage with the C++ standard library.
     # TODO: Remove this if/when we've rebuilt LLVM with `LLVM_ENABLE_EH=OFF`.
     flang_cfg_file = if OS.mac?
-      ["-lc++", "-Wl,-lto_library,#{llvm.opt_lib}/libLTO.dylib"]
+      resource_dir = Utils.safe_popen_read(llvm.opt_bin/"clang", "-print-resource-dir").chomp
+      resource_dir.gsub!(llvm.prefix.realpath, llvm.opt_prefix)
+      ["-lc++", "-Wl,-lto_library,#{llvm.opt_lib}/libLTO.dylib", "-resource-dir=#{resource_dir}"]
     else
       ["-lstdc++"]
     end
@@ -161,6 +164,14 @@ class Flang < Formula
 
     sorted_testresult = testresult.split("\n").sort.join("\n")
     assert_equal expected_result.strip, sorted_testresult.strip
+
+    (testpath/"runtimes.f90").write <<~FORTRAN
+      Program main
+        Complex :: y
+        y = y/2
+      End Program
+    FORTRAN
+    system bin/flang_driver, "-v", "runtimes.f90"
 
     return if OS.linux?
 
