@@ -1,8 +1,8 @@
 class Metabase < Formula
   desc "Business intelligence report server"
   homepage "https://www.metabase.com/"
-  url "https://downloads.metabase.com/v0.52.7/metabase.jar"
-  sha256 "f9c31b2719c4f80bbdbec4d3a598c8a1a2a69707b5c0234561c03cf0cb7363f4"
+  url "https://downloads.metabase.com/v0.52.8/metabase.jar"
+  sha256 "675e01b8a69200cce581db6aa6973fdc8b42c5567013813511051531547a2704"
   license "AGPL-3.0-only"
 
   livecheck do
