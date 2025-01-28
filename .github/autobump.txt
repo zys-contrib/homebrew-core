@@ -1474,6 +1474,7 @@ iredis
 isa-l
 isl
 iso-codes
+isort
 ispc
 istioctl
 isync
