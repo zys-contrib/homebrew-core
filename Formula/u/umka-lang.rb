@@ -6,6 +6,15 @@ class UmkaLang < Formula
   license "BSD-2-Clause"
   head "https://github.com/vtereshkov/umka-lang.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "e11927e3f524ea90873d145bd96ccfa4f8ed07c557289197d49622b94724c6db"
+    sha256 cellar: :any,                 arm64_sonoma:  "d675847bcbbdf3eee73b4d1cf58545425c95a9e5af65cc774470d72acdc76feb"
+    sha256 cellar: :any,                 arm64_ventura: "efe21ea65bc28aa268d765f3d1f97db53548f5d936eaed3589387340b9d5e073"
+    sha256 cellar: :any,                 sonoma:        "9a75ffa1d9b4fbe9e1bfbe6b541f1f7dc0ad6de9ff26946ffe252dd27689c0af"
+    sha256 cellar: :any,                 ventura:       "9f6e6d107a8b34d31ca053f21f13eb59ba9fccfac06ea25e52679ffa5c1f2429"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74feb99912b383376a05160e5448396d60cb61427da89aed9acd1486f3eac528"
+  end
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
