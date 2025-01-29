@@ -7,12 +7,11 @@ class PinentryMac < Formula
   head "https://github.com/GPGTools/pinentry.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_sequoia: "bc6676111bdf951f0cf02cb73dc697ddb248b202ae355dafd95db76f0d613523"
-    sha256 cellar: :any, arm64_sonoma:  "14210a275cd79e331a9f3e743e2b1ab438599aa9606dff0c4f92ea3729ea1bed"
-    sha256 cellar: :any, arm64_ventura: "88e9c185744b022538687f5457cf983cd008f3c7e0c88d3de6c88999ab434e4c"
-    sha256 cellar: :any, sonoma:        "9d83f7520b7714a41dbba0ca5bb70c04865537a672ab026e91c534b259cd8287"
-    sha256 cellar: :any, ventura:       "06b27d956af99787f8f4a4eae11517b9d7ace95d5cebbbbe0db0904660598064"
+    sha256 cellar: :any, arm64_sequoia: "f0cacdc9497edf7391983fe84573ddfd826d0315680847a3f78ec020b6d145e5"
+    sha256 cellar: :any, arm64_sonoma:  "6c879dba2621079072e566b95c00f96e7731a164dc6206054933058375df7014"
+    sha256 cellar: :any, arm64_ventura: "9fd717f5a5b6223bd307503d72290ba678b8f0af9d185e952741bd6f73dab482"
+    sha256 cellar: :any, sonoma:        "bac8b8241d3fa0eaaba5bb9073f1f5a32fa064ab59ab2f230a1e86efb432d9d8"
+    sha256 cellar: :any, ventura:       "e454945cc2ca007d6c030f75389380aa3892183bf9214181c98b5949cc3ecddf"
   end
 
   depends_on "autoconf" => :build
