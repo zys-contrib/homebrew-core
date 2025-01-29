@@ -4,7 +4,7 @@ class Gnuradio < Formula
   desc "SDK for signal processing blocks to implement software radios"
   homepage "https://gnuradio.org/"
   license "GPL-3.0-or-later"
-  revision 5
+  revision 6
   head "https://github.com/gnuradio/gnuradio.git", branch: "main"
 
   stable do
