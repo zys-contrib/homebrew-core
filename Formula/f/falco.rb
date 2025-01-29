@@ -7,12 +7,12 @@ class Falco < Formula
   head "https://github.com/ysugimoto/falco.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c33b5e090f264f853a74c29717eb053a04af6247fac4ecefcf8a8cda1c44e372"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c33b5e090f264f853a74c29717eb053a04af6247fac4ecefcf8a8cda1c44e372"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c33b5e090f264f853a74c29717eb053a04af6247fac4ecefcf8a8cda1c44e372"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3014e45ab054195a58d75905cea4bdbde9c88bfc8283fec064644200745fbdaa"
-    sha256 cellar: :any_skip_relocation, ventura:       "3014e45ab054195a58d75905cea4bdbde9c88bfc8283fec064644200745fbdaa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fce072d832aecd7147b9f311746d807a727e104129a29efb2b3c0db93903bc61"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "900a452fc0bcb6a7614417e094129fefaceab48b6293289890327def6ffe8e6a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "900a452fc0bcb6a7614417e094129fefaceab48b6293289890327def6ffe8e6a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "900a452fc0bcb6a7614417e094129fefaceab48b6293289890327def6ffe8e6a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "10de0399255dbbfe714eb0c830a23e5cff19ee350760c810ccd7216127679768"
+    sha256 cellar: :any_skip_relocation, ventura:       "10de0399255dbbfe714eb0c830a23e5cff19ee350760c810ccd7216127679768"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af3865fef93fa268facb5572cf09dcc284272a46d3080bf86d08773c5edf6940"
   end
 
   depends_on "go" => :build
