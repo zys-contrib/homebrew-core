@@ -1,8 +1,8 @@
 class AwsCCompression < Formula
   desc "C99 implementation of huffman encoding/decoding"
   homepage "https://github.com/awslabs/aws-c-compression"
-  url "https://github.com/awslabs/aws-c-compression/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "7e5d7308d1dbb1801eae9356ef65558f707edf33660dd6443c985db9474725eb"
+  url "https://github.com/awslabs/aws-c-compression/archive/refs/tags/v0.3.1.tar.gz"
+  sha256 "d89fca17a37de762dc34f332d2da402343078da8dbd2224c46a11a88adddf754"
   license "Apache-2.0"
 
   bottle do
