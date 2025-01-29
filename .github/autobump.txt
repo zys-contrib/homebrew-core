@@ -1967,6 +1967,7 @@ luajit-openresty
 luarocks
 luau
 lucky-commit
+ludusavi
 luit
 lune
 lunzip
