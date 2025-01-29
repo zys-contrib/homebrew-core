@@ -3409,6 +3409,7 @@ victorialogs
 victoriametrics
 viddy
 video-compare
+vile
 vim
 vineyard
 vips
