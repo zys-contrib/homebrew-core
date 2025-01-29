@@ -1,8 +1,8 @@
 class AwsSdkCpp < Formula
   desc "AWS SDK for C++"
   homepage "https://github.com/aws/aws-sdk-cpp"
-  url "https://github.com/aws/aws-sdk-cpp/archive/refs/tags/1.11.480.tar.gz"
-  sha256 "7d6a2e4ba851d773236745ac399a5120bcb04e8122e45b589742bd45ebc72a7f"
+  url "https://github.com/aws/aws-sdk-cpp/archive/refs/tags/1.11.495.tar.gz"
+  sha256 "5f743acefc1899d2efaec4c98bd3279e802307801a8af8eea9ab977bd803407a"
   license "Apache-2.0"
   head "https://github.com/aws/aws-sdk-cpp.git", branch: "main"
 
@@ -41,7 +41,7 @@ class AwsSdkCpp < Formula
 
     args = %W[
       -DBUILD_DEPS=OFF
-      -DCMAKE_MODULE_PATH=#{Formula["aws-c-common"].opt_lib}/cmake
+      -DCMAKE_MODULE_PATH=#{Formula["aws-c-common"].opt_lib}/cmake/aws-c-common/modules
       -DCMAKE_SHARED_LINKER_FLAGS=#{linker_flags.join(" ")}
       -DENABLE_TESTING=OFF
     ]
