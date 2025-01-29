@@ -1,8 +1,8 @@
 class Mmdbctl < Formula
   desc "MMDB file management CLI supporting various operations on MMDB database files"
   homepage "https://github.com/ipinfo/mmdbctl"
-  url "https://github.com/ipinfo/mmdbctl/archive/refs/tags/mmdbctl-1.4.6.tar.gz"
-  sha256 "08a8033cdcb14aad77153aea3e7a2d29b8c605f2c537f23de449d30f1fe6e52f"
+  url "https://github.com/ipinfo/mmdbctl/archive/refs/tags/mmdbctl-1.4.7.tar.gz"
+  sha256 "b871a2d0ad556868ce9610cf819447fc38566aeace7a66294f00ab5544588a77"
   license "Apache-2.0"
   head "https://github.com/ipinfo/mmdbctl.git", branch: "master"
 
