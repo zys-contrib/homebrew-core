@@ -7,12 +7,12 @@ class FaunaShell < Formula
   head "https://github.com/fauna/fauna-shell.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f61c240a86f5c598cb335a81b0f9c4f1808c04e89a0a6159f837e61e60610a5d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f61c240a86f5c598cb335a81b0f9c4f1808c04e89a0a6159f837e61e60610a5d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f61c240a86f5c598cb335a81b0f9c4f1808c04e89a0a6159f837e61e60610a5d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0738790ea782077df1050168e258e91a85cdb5c1c61aa540bad7f579f43026e6"
-    sha256 cellar: :any_skip_relocation, ventura:       "0738790ea782077df1050168e258e91a85cdb5c1c61aa540bad7f579f43026e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f61c240a86f5c598cb335a81b0f9c4f1808c04e89a0a6159f837e61e60610a5d"
+    sha256                               arm64_sequoia: "3a775fa6fad091d1c382d58c49d484e416261ce2073c36ed6271364a34fc4821"
+    sha256                               arm64_sonoma:  "9002e01f762eb91b75a41e88d537b00610cbfa942f2fa84c2bc157882cefa551"
+    sha256                               arm64_ventura: "374ccb0c275550317f8b579c6e663eaa8ae22a498c83f94cb33f5ca06d3b7640"
+    sha256                               sonoma:        "ff54487e87007c2255d2821735ef79a48e2110eabcced192b53efc067339eb63"
+    sha256                               ventura:       "1c13fb4091005e6408f8db2b02e2a56d69a1833d4b1dc3d4e9d9b50ea8676c5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a682cf65cd7e19afb1a0c8af45d3d76325376311433592478c2412e091ba7cfd"
   end
 
   depends_on "node"
