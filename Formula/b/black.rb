@@ -9,13 +9,12 @@ class Black < Formula
   head "https://github.com/psf/black.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1d907b91a649712809d1ee774c56b098d77824b94e844eeab813ccaa9473b118"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3317317a40344aa0134a70f9843208e3404de3b9884ff94d3b82903364238a60"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6d2d3dd428ea124603044c3191378e9e2d86fc04a96b3d8cbda4265226934627"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6a41000d596987c927ef1f018bb07de8f62aed2c38ee45b2a6bebc30ca5f33ee"
-    sha256 cellar: :any_skip_relocation, ventura:       "06b304505e915cdc75102d3cff1fd089237c454fd2bd73ee7b49fb29aeb9acb8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f23e5359f4294329e7b47878c065d16e6497f106d7ec31b1d94fc52dd7922d0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "46c64691bb6258ab24509fee79523f5ff62cc09219ad325fe2872d3b8c2005ab"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "32faab47d3445dcf22eb782211f9959b38dd2933817b710b3c69774eb54270d2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5c78a437c2d5cb0cc4c2452be34a125b05e7d1bafc6d931f7fe337451cce67f6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d647d07c26cb7d24012d24054f40be1e4e9cb93a4918b12090a7cd81b44c7b42"
+    sha256 cellar: :any_skip_relocation, ventura:       "57156446b37bee3a2f9c804793842a60b340dc97000d55e5ccf717dcaf5e4add"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fdf2182bd82d22039120cff8bd9eb9546e89231b241fd2f15701f36ed7009315"
   end
 
   depends_on "python@3.13"
