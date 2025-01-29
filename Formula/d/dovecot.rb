@@ -49,6 +49,9 @@ class Dovecot < Formula
   patch :DATA
 
   def install
+    # Re-generate file as only Linux has inotify support for imap-hibernate
+    rm "src/config/all-settings.c" unless OS.linux?
+
     args = %W[
       --libexecdir=#{libexec}
       --sysconfdir=#{etc}
