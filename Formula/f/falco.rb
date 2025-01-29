@@ -1,8 +1,8 @@
 class Falco < Formula
   desc "VCL parser and linter optimized for Fastly"
   homepage "https://github.com/ysugimoto/falco"
-  url "https://github.com/ysugimoto/falco/archive/refs/tags/v1.11.2.tar.gz"
-  sha256 "0aa2f046ad1c10aedb0e81b46aabd354d22f161138eb231ee0a11e4b5156c932"
+  url "https://github.com/ysugimoto/falco/archive/refs/tags/v1.12.0.tar.gz"
+  sha256 "be0e9eb5fa40900a2fd742baffef681a4ff2b26df87b56a61e7f7afc1baaa643"
   license "MIT"
   head "https://github.com/ysugimoto/falco.git", branch: "main"
 
@@ -23,7 +23,7 @@ class Falco < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/falco -V 2>&1", 1)
+    assert_match version.to_s, shell_output("#{bin}/falco -V 2>&1")
 
     pass_vcl = testpath/"pass.vcl"
     pass_vcl.write <<~EOS
