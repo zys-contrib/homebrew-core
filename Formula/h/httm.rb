@@ -1,8 +1,8 @@
 class Httm < Formula
   desc "Interactive, file-level Time Machine-like tool for ZFS/btrfs"
   homepage "https://github.com/kimono-koans/httm"
-  url "https://github.com/kimono-koans/httm/archive/refs/tags/0.45.3.tar.gz"
-  sha256 "bb9f35ad9a2e7c066434e7eb6d9850bdebaf5b0023c60978760cb352f01509c6"
+  url "https://github.com/kimono-koans/httm/archive/refs/tags/0.45.4.tar.gz"
+  sha256 "ff130208f7d16798b4b4bf07e692299b11017df22de89307a9a42b8059db15cc"
   license "MPL-2.0"
   head "https://github.com/kimono-koans/httm.git", branch: "master"
 
@@ -35,7 +35,7 @@ class Httm < Formula
 
   test do
     touch testpath/"foo"
-    assert_equal "Error: httm could not find any valid datasets on the system.",
+    assert_equal "ERROR: httm could not find any valid datasets on the system.",
       shell_output("#{bin}/httm #{testpath}/foo 2>&1", 1).strip
     assert_equal "httm #{version}", shell_output("#{bin}/httm --version").strip
   end
