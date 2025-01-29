@@ -6,12 +6,12 @@ class Berglas < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "87bbcd1e2ae89f5fd3cfd7f44627e84bc530777a42d874b715c40adb43f22db8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "87bbcd1e2ae89f5fd3cfd7f44627e84bc530777a42d874b715c40adb43f22db8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "87bbcd1e2ae89f5fd3cfd7f44627e84bc530777a42d874b715c40adb43f22db8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7fe0179ad31b2e73b28eae4fda8f31861a4503159410ad928ac5e31b568dbc96"
-    sha256 cellar: :any_skip_relocation, ventura:       "7fe0179ad31b2e73b28eae4fda8f31861a4503159410ad928ac5e31b568dbc96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "107d44fafc6f9fdd29ae907139da5f4455ac4f13dee3e1c269a25f1beadd49cd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "beb81e6cde2715d940c8a4e45c227f4567b911dd1e9761da30898a59202c7823"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "beb81e6cde2715d940c8a4e45c227f4567b911dd1e9761da30898a59202c7823"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "beb81e6cde2715d940c8a4e45c227f4567b911dd1e9761da30898a59202c7823"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d07d28cd51350bb08973f3ffa54853854a14acb5533839463c376efc3745f4d0"
+    sha256 cellar: :any_skip_relocation, ventura:       "d07d28cd51350bb08973f3ffa54853854a14acb5533839463c376efc3745f4d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3cebca5f4a9f168a4a380d19aaec3dc1c02330623fde67d51c378058caf77f3"
   end
 
   depends_on "go" => :build
