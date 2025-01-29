@@ -1,8 +1,8 @@
 class Squealer < Formula
   desc "Scans Git repositories or filesystems for secrets in commit histories"
   homepage "https://github.com/owenrumney/squealer"
-  url "https://github.com/owenrumney/squealer/archive/refs/tags/v1.2.6.tar.gz"
-  sha256 "7b13a6d5d52d2cf54c13b0f25d48b8c5712e5a0d2e9cda7122ecd685f565c76e"
+  url "https://github.com/owenrumney/squealer/archive/refs/tags/v1.2.8.tar.gz"
+  sha256 "87e8cf36596f3523d65438db14ecc0ff58e4bf7f80e2183512a4118a612e3ea6"
   license "Unlicense"
   head "https://github.com/owenrumney/squealer.git", branch: "main"
 
