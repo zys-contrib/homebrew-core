@@ -25,15 +25,9 @@ class Xplr < Formula
     system "cargo", "install", "--no-default-features", *std_cargo_args
   end
 
-  def check_binary_linkage(binary, library)
-    binary.dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == File.realpath(library)
-    end
-  end
-
   test do
+    require "utils/linkage"
+
     input, = Open3.popen2 "SHELL=/bin/sh script -q output.txt"
     input.puts "stty rows 80 cols 130"
     input.puts bin/"xplr"
@@ -46,7 +40,7 @@ class Xplr < Formula
       assert_match testpath.to_s, contents
     end
 
-    assert check_binary_linkage(bin/"xplr",
+    assert Utils.binary_linked_to_library?(bin/"xplr",
                                 Formula["luajit"].opt_lib/shared_library("libluajit")),
            "No linkage with libluajit! Cargo is likely using a vendored version."
   end
