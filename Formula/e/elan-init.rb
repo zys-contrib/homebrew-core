@@ -12,15 +12,12 @@ class ElanInit < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9414f2c97133007a99261abfea1cb188f953939c0b62b85700b56e8042679461"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7aef59f7e264ecf7a2c856e2666e6aafd3ea7eace3eaf43437531490773e0102"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b82859cd41243cd8d4acfc1d28862c32261c4a9f588da90422641dd8992f8bea"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dda8aedbfe1d28aa4d97b3269cf17088d0efa0843661e548c70c6b7615813db8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5c6589bc32c581d6d3c614ea1b46ee3497d0859adae548ab2a732ecd1008dafa"
-    sha256 cellar: :any_skip_relocation, ventura:        "efb5e621bf215f9c7061d05ca9f9b1fb251a0c270ea1d323cd5991606e897d93"
-    sha256 cellar: :any_skip_relocation, monterey:       "bfcde921f1b585c26c5150a8cf258d6d5c752ce4d67cab58cafb742562de8e88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45ca6bf10c24f0d45e7a81dfe66d94ae87b25ea61b0d635bbcaf46e1d20f153d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0c98f09e8ad0d1d0a6571ff4a3191355c5d7a4dc3f406c43b8295bdf8d04c289"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e2dbdd3b3c78bc9b39e2a09efaabbae4115879a377ee6eeaa7ab09e4d3ee8b95"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f7e83cc46ec88becb47ed816223d8f33844207baa06ee06ec2edb55d62469d8b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aea9617dc272dacc99fe46890ccbd692ad1dbe099a4eca45eb498352836898df"
+    sha256 cellar: :any_skip_relocation, ventura:       "6df9763566d60e2cd8c1f536a1fbaa4c943aa196c6b38770ffbd541efdd9faee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e74a7723c370df806b28db12b15b2ec97e80adc936039156516ffb642e67238"
   end
 
   depends_on "pkgconf" => :build
