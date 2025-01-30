@@ -7,7 +7,7 @@ class PhpCsFixer < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e5e0e5084d197956289adbf6d52c72dfa85af254f7fcda00aabeb2aab19114ed"
+    sha256 cellar: :any_skip_relocation, all: "3920a6fd31b704c0f8ce9b85720d2f51f35fc1ab992af6b14d1c9d48d1c9e605"
   end
 
   depends_on "php@8.3" # php 8.4 support milestone, https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/milestone/173
