@@ -1,8 +1,8 @@
 class AdaUrl < Formula
   desc "WHATWG-compliant and fast URL parser written in modern C++"
   homepage "https://github.com/ada-url/ada"
-  url "https://github.com/ada-url/ada/archive/refs/tags/v2.9.2.tar.gz"
-  sha256 "f41575ad7eec833afd9f6a0d6101ee7dc2f947fdf19ae8f1b54a71d59f4ba5ec"
+  url "https://github.com/ada-url/ada/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "3045b370d006798cb502f186b55fc290811f4392a7c11b803a6a6f7dea593fce"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/ada-url/ada.git", branch: "main"
 
@@ -18,15 +18,34 @@ class AdaUrl < Formula
   end
 
   depends_on "cmake" => :build
+
   uses_from_macos "python" => :build
 
+  on_macos do
+    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1500
+  end
+
+  fails_with :clang do
+    build 1500
+    cause "Requires C++20 support"
+  end
+
+  fails_with :gcc do
+    version "11"
+    cause "Requires C++20"
+  end
+
   def install
-    system "cmake", "-B", "build", *std_cmake_args
+    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1500
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
 
   test do
+    ENV["CXX"] = Formula["llvm"].opt_bin/"clang++" if OS.mac? && DevelopmentTools.clang_build_version <= 1500
+
     (testpath/"test.cpp").write <<~CPP
       #include "ada.h"
       #include <iostream>
@@ -39,7 +58,7 @@ class AdaUrl < Formula
       }
     CPP
 
-    system ENV.cxx, "test.cpp", "-std=c++17",
+    system ENV.cxx, "test.cpp", "-std=c++20",
            "-I#{include}", "-L#{lib}", "-lada", "-o", "test"
     assert_equal "http:", shell_output("./test").chomp
   end
