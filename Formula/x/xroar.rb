@@ -1,8 +1,8 @@
 class Xroar < Formula
   desc "Dragon and Tandy 8-bit computer emulator"
   homepage "https://www.6809.org.uk/xroar/"
-  url "https://www.6809.org.uk/xroar/dl/xroar-1.7.3.tar.gz"
-  sha256 "f88f4ebf852be4262935020f350d9ce55e2b054172f9851ba47fe34e10940dea"
+  url "https://www.6809.org.uk/xroar/dl/xroar-1.8.tar.gz"
+  sha256 "9c3a557685a99d265ad414e57b258651086d403fa64996c83ca57814ad9a8b14"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -36,6 +36,9 @@ class Xroar < Formula
   end
 
   def install
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-silent-rules", "--without-x", *std_configure_args
     system "make", "install"
