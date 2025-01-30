@@ -1,8 +1,8 @@
 class Soplex < Formula
   desc "Optimization package for solving linear programming problems (LPs)"
   homepage "https://soplex.zib.de/"
-  url "https://soplex.zib.de/download/release/soplex-7.1.2.0.tgz"
-  sha256 "3808d72889272c70c43170722e2ebbc21bb787e164fb84df562d713e395744b1"
+  url "https://soplex.zib.de/download/release/soplex-7.1.3.0.tgz"
+  sha256 "ed51f0d82ea115a99323864832c14bcbf69ad563793d8b1c7413ba2d4c037c9f"
   license "Apache-2.0"
 
   livecheck do
