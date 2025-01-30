@@ -10,13 +10,12 @@ class PetscComplex < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "6b9445e4dcddc5f6ca94f1e911c283a94b9d1c2fdc1d6f1125481a77d998594b"
-    sha256 arm64_sonoma:  "89414ad98e2a5ed7e53713a165d03513b9d93bdd03154704ed352eef1952919d"
-    sha256 arm64_ventura: "f394da63bbb9baf4890a8c0c160f36edc7279fa25b457f983b06b0511efe2b25"
-    sha256 sonoma:        "c787a2098cfebc34afe335dba2936e8d056f908e2b5f61fed1ff4d0f49452e20"
-    sha256 ventura:       "e0e9a98dba8555af3556905b38c94a9216114f5b27c98013afd84e330993d506"
-    sha256 x86_64_linux:  "39da56eb04dffad2d7f3bcfb338ad89dff5a7b971dfd70cd412f8c06840ea328"
+    sha256 arm64_sequoia: "0fbe2648ec780725e86041fd9b33b30401cde6300d7d319ef09b1eeaf2e1946e"
+    sha256 arm64_sonoma:  "8818ac801db040c7f75fb54f1dabac09248c3e90beca54e5135bd11d13521e7e"
+    sha256 arm64_ventura: "204014520a4299900da1182479bed1762b9b6f62716152277665630d02aea15b"
+    sha256 sonoma:        "764948055758bbf5631d026fe723090fec75395a1e67735a4cabd7dd7a525b4f"
+    sha256 ventura:       "37689188d51433f7624a90693be7804186513e41b8ffeb38d8b402e7b9e405a3"
+    sha256 x86_64_linux:  "20efdd2dfc89b9689f2909fda6b6aa56e986fc719af054e4ed7703022051ed05"
   end
 
   depends_on "fftw"
