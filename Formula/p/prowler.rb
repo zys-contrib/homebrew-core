@@ -3,8 +3,8 @@ class Prowler < Formula
 
   desc "Tool for cloud security assessments, audits, incident response, and more"
   homepage "https://prowler.com/"
-  url "https://files.pythonhosted.org/packages/d6/3b/bfb6826dc1f0d5f24db9a39bde8531bb9ab61c862571529dfc56ffb75404/prowler-5.2.1.tar.gz"
-  sha256 "fe35106c7fb53b7ccecc2f384caf2270ceefc36de7610e4dc63f5825384f1b86"
+  url "https://files.pythonhosted.org/packages/e3/20/0d30b0ab9d3b542619040f2fbb4c5e26152611c1bb9f8501be5913b0d69a/prowler-5.2.2.tar.gz"
+  sha256 "a9c14b6a54e207a391b6c0b67396d387e43b5c3968a9b718f78ba38714d90b03"
   license "Apache-2.0"
 
   bottle do
@@ -451,8 +451,8 @@ class Prowler < Formula
   end
 
   resource "msgraph-core" do
-    url "https://files.pythonhosted.org/packages/85/c8/2b06bdb135691102bdced91b5c715e37fbe153b19c11355f0b9158601c1a/msgraph_core-1.2.0.tar.gz"
-    sha256 "a4e42f692e664c60d63359e610bbf990f57b42d8080417261ff7042bbd59c98b"
+    url "https://files.pythonhosted.org/packages/b4/e6/48222b947cfd7f29ca14c0585d7e39615e6cd187a60da497d721b329d420/msgraph_core-1.2.1.tar.gz"
+    sha256 "87a3cb4d36dad590a3f02aaedf422547cbac10460bd9f0b6c984fab9556150d3"
   end
 
   resource "msgraph-sdk" do
