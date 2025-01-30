@@ -3,17 +3,17 @@ class Texttest < Formula
 
   desc "Tool for text-based Approval Testing"
   homepage "https://www.texttest.org/"
-  url "https://files.pythonhosted.org/packages/98/37/ca672c427d128e127587d8addc21343b09e242482a5bf475349f2aff4369/texttest-4.4.1.tar.gz"
-  sha256 "1719d9c7e00b138f0c40a1582399c4300c2b7d1609d374341a77cfea76978fb8"
+  url "https://files.pythonhosted.org/packages/0b/e0/4c6eb823436d221ccfeec099c228ee5c477483693fa167f0c70a3b55e5e4/texttest-4.4.2.tar.gz"
+  sha256 "144c9ac050e836ef1aa7a5668519640cd449b8b7031513348d5fcbb9f6623952"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d812b136c436d44b688f9d0c30d6f1b3b9bfaff9fdf2875c14f7c381c4f6b23"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7b472aec384950ef9c8d127f58d0ad6c05162ed86dc6dcb1c40080d1a368873a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "03498616b898f19e7b5e18c9350f71a963698462c52ad5545723e0958f210016"
-    sha256 cellar: :any_skip_relocation, sonoma:        "86b76d158ecb43d65c66aa426df46c3d61d9b17f59dc50df6b7404f5bf05f848"
-    sha256 cellar: :any_skip_relocation, ventura:       "b712314e420fc6829411b822833794d5ac66221833df1560e5b7399eca899323"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dcf8efe552a492c9e0dd0035787d7017c4335aabd82bfb36fdc94b6f9718a7cf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6f7659944882f48484ddc33338131c281f32cd382c5d0790a6a631c223da7a2c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3752a2afe8de0a8a810ecc64c538d405b30dd967a446b71dc507fa37b9d0f5c8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "471631388fcad4b8d56fa54a18f7040211c7992e2ad81d44a88bf92a8de713a1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ba57a4b5a86b503059223870a76189163bf3b816947c969cf6de569427de292e"
+    sha256 cellar: :any_skip_relocation, ventura:       "f18ed2a3a25f41a54b2155c7a1e171cffb35f389d4a95d0e80c820eeae615a52"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a001e34e0c48f5b9cf3c3d887655107834523e7bdfe481c2e273915f0cf65f8e"
   end
 
   depends_on "adwaita-icon-theme"
