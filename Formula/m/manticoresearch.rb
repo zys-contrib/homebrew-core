@@ -1,8 +1,8 @@
 class Manticoresearch < Formula
   desc "Open source text search engine"
   homepage "https://manticoresearch.com"
-  url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/6.3.8.tar.gz"
-  sha256 "633a55f20545eb4c722dd05175b7187ca802d765fc3eaf9cce3bc2ebb4eaebbe"
+  url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/7.0.0.tar.gz"
+  sha256 "7d65ae4c40eb2641474fe7347590684b1a779df66f9d91374836887d486ddfdc"
   license all_of: [
     "GPL-3.0-or-later",
     "GPL-2.0-only", # wsrep
@@ -27,7 +27,7 @@ class Manticoresearch < Formula
     sha256 x86_64_linux:  "9499fd95c8b1e71dcd1d004531edc7b8baf0a8a52868f46c435adb752979a297"
   end
 
-  depends_on "boost" => :build
+  depends_on "boost@1.85" => :build
   depends_on "cmake" => :build
   depends_on "nlohmann-json" => :build
   depends_on "snowball" => :build # for libstemmer.a
