@@ -3,18 +3,17 @@ class Texttest < Formula
 
   desc "Tool for text-based Approval Testing"
   homepage "https://www.texttest.org/"
-  url "https://files.pythonhosted.org/packages/78/ad/26a9b4447d1a6692119b2600606f813755bb44eca72640c95cbad92ecf2a/TextTest-4.4.0.1.tar.gz"
-  sha256 "f80ba8a65d048de52a038f3d125a5f47cb5b629e50a7a7f358cff404a8838fa8"
+  url "https://files.pythonhosted.org/packages/98/37/ca672c427d128e127587d8addc21343b09e242482a5bf475349f2aff4369/texttest-4.4.1.tar.gz"
+  sha256 "1719d9c7e00b138f0c40a1582399c4300c2b7d1609d374341a77cfea76978fb8"
   license "LGPL-2.1-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "391bf3cb3b1c414c96e37c5bcc5741dbb1ae059cbe1251224194fd7840a6f661"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4865496f4043e96bddef882094a7e08d3056a151990a1a83305500a500bd0092"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bf6c82b4a760c1f02612c560b6ab04b8bbc4a0d1dc2c193730607a7fe10bdd79"
-    sha256 cellar: :any_skip_relocation, sonoma:        "55ab51362a999050f962fe162c66e18f7237816b36d8ac38bb59fa117f580f6e"
-    sha256 cellar: :any_skip_relocation, ventura:       "a3ddf9f6dd0b68726f98e3e3f888359ed46c8739bd82ad90662533814e3e5e85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d792f108c5f2b916e3f2dfd4e45d5bd29df80fa5b58ad6fe347db24fe37fec61"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d812b136c436d44b688f9d0c30d6f1b3b9bfaff9fdf2875c14f7c381c4f6b23"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7b472aec384950ef9c8d127f58d0ad6c05162ed86dc6dcb1c40080d1a368873a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "03498616b898f19e7b5e18c9350f71a963698462c52ad5545723e0958f210016"
+    sha256 cellar: :any_skip_relocation, sonoma:        "86b76d158ecb43d65c66aa426df46c3d61d9b17f59dc50df6b7404f5bf05f848"
+    sha256 cellar: :any_skip_relocation, ventura:       "b712314e420fc6829411b822833794d5ac66221833df1560e5b7399eca899323"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dcf8efe552a492c9e0dd0035787d7017c4335aabd82bfb36fdc94b6f9718a7cf"
   end
 
   depends_on "adwaita-icon-theme"
@@ -23,14 +22,8 @@ class Texttest < Formula
   depends_on "python@3.13"
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/18/c7/8c6872f7372eb6a6b2e4708b88419fb46b857f7a2e1892966b851cc79fc9/psutil-6.0.0.tar.gz"
-    sha256 "8faae4f310b6d969fa26ca0545338b21f73c6b15db7c4a8d934a5482faa818f2"
-  end
-
-  # Remove `pipes` for python 3.13
-  patch do
-    url "https://github.com/texttest/texttest/commit/9ee930d60a42058b541cc872acdf5aca2471a983.patch?full_index=1"
-    sha256 "181c2a5a4d09703686c801f3f0894c79b17a48f56dc4bbd549030b58eadc2b9b"
+    url "https://files.pythonhosted.org/packages/1f/5a/07871137bb752428aa4b659f910b399ba6f291156bdea939be3e96cae7cb/psutil-6.1.1.tar.gz"
+    sha256 "cf8496728c18f2d0b45198f06895be52f36611711746b7f30c464b422b50e2f5"
   end
 
   def install
