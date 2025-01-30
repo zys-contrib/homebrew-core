@@ -1,8 +1,8 @@
 class Tig < Formula
   desc "Text interface for Git repositories"
   homepage "https://jonas.github.io/tig/"
-  url "https://github.com/jonas/tig/releases/download/tig-2.5.10/tig-2.5.10.tar.gz"
-  sha256 "f655cc1366fc10058a2bd505bb88ca78e653ff7526c1b81774c44b9d841210e3"
+  url "https://github.com/jonas/tig/releases/download/tig-2.5.11/tig-2.5.11.tar.gz"
+  sha256 "b36ef52b1a19d87257adfa9047cc3e21d6bd528bbd28458fe49003eb3e374aa7"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -25,6 +25,7 @@ class Tig < Formula
     depends_on "xmlto" => :build
   end
 
+  depends_on "pkgconf" => :build
   # https://github.com/jonas/tig/issues/1210
   depends_on "ncurses"
   depends_on "pcre2"
