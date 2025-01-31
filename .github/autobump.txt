@@ -2759,6 +2759,7 @@ rekor-cli
 release-it
 remarshal
 remind
+render
 renovate
 replxx
 repo
