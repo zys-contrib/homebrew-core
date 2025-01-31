@@ -1,8 +1,8 @@
 class Mujs < Formula
   desc "Embeddable Javascript interpreter"
   homepage "https://www.mujs.com/"
-  url "https://mujs.com/downloads/mujs-1.3.5.tar.gz"
-  sha256 "78a311ae4224400774cb09ef5baa2633c26971513f8b931d3224a0eb85b13e0b"
+  url "https://mujs.com/downloads/mujs-1.3.6.tar.gz"
+  sha256 "7cf3a5e622cff41903efff0334518fc94af063256752c38ba4618a5191e44f18"
   license "ISC"
   head "https://github.com/ccxvii/mujs.git", branch: "master"
 
