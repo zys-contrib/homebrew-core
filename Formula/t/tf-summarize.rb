@@ -6,6 +6,15 @@ class TfSummarize < Formula
   license "MIT"
   head "https://github.com/dineshba/tf-summarize.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "49d532560bc3caf6e781226c2f9559532f8f73bf1132664b36b97883f2573ad5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "49d532560bc3caf6e781226c2f9559532f8f73bf1132664b36b97883f2573ad5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "49d532560bc3caf6e781226c2f9559532f8f73bf1132664b36b97883f2573ad5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b6850383b616f89461bf37cd0389bd0fc9bf2d79f41cd490e3e19166b1c09171"
+    sha256 cellar: :any_skip_relocation, ventura:       "b6850383b616f89461bf37cd0389bd0fc9bf2d79f41cd490e3e19166b1c09171"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7984edfb50bba79f2729f8d566314c0cdf95f3d648d63472738210773f6c0c89"
+  end
+
   depends_on "go" => :build
 
   def install
