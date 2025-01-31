@@ -1,10 +1,9 @@
 class Wolfmqtt < Formula
   desc "Small, fast, portable MQTT client C implementation"
   homepage "https://github.com/wolfSSL/wolfMQTT"
-  url "https://github.com/wolfSSL/wolfMQTT/archive/refs/tags/v1.19.1.tar.gz"
-  sha256 "77031b151092e8506d7c621f5e12e79531edca2336edf23146d3d72c70e6557f"
+  url "https://github.com/wolfSSL/wolfMQTT/archive/refs/tags/v1.19.2.tar.gz"
+  sha256 "25a3ac5dbcbd94849640abf84d455a4fc76270b603b3fd2da1025daa257d8a70"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/wolfSSL/wolfMQTT.git", branch: "master"
 
   bottle do
