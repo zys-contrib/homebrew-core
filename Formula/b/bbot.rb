@@ -3,8 +3,8 @@ class Bbot < Formula
 
   desc "OSINT automation tool"
   homepage "https://github.com/blacklanternsecurity/bbot"
-  url "https://files.pythonhosted.org/packages/97/19/c90ee1a2f492779689600225f39de6439c836f3e27ba6d22cb911f1572fa/bbot-2.3.1.tar.gz"
-  sha256 "b75a94bb0f53715e3ce436be22c9d2159ef148df945643d934394a474b8864d0"
+  url "https://files.pythonhosted.org/packages/64/01/f40bb2ad1bf4be92e873f06057e8e5b169a15444bd06a4c49fdb7171152f/bbot-2.3.2.tar.gz"
+  sha256 "7ed5bfb4df5299931346394d995117b57d87ccf87abef15c523f20d8be55bd91"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -213,8 +213,8 @@ class Bbot < Formula
   end
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/fd/05/bed626b9f7bb2322cdbbf7b4bd8f54b1b617b0d2ab2d3547d6e39428a48e/pyzmq-26.2.0.tar.gz"
-    sha256 "070672c258581c8e4f640b5159297580a9974b026043bd4ab0470be9ed324f1f"
+    url "https://files.pythonhosted.org/packages/5a/e3/8d0382cb59feb111c252b54e8728257416a38ffcb2243c4e4775a3c990fe/pyzmq-26.2.1.tar.gz"
+    sha256 "17d72a74e5e9ff3829deb72897a175333d3ef5b5413948cae3cf7ebf0b02ecca"
   end
 
   resource "radixtarget" do
