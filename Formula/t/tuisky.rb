@@ -1,18 +1,18 @@
 class Tuisky < Formula
   desc "TUI client for bluesky"
   homepage "https://github.com/sugyan/tuisky"
-  url "https://github.com/sugyan/tuisky/archive/refs/tags/v0.1.6.tar.gz"
-  sha256 "3e02d3ed0ce0adfe405ce0dc3efe63ec508cbbdfde95fb7b3e9960a3e3e86fab"
+  url "https://github.com/sugyan/tuisky/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "cedfc4ae396af0dadc357f93b65a9f35cfda3afca1a5ad41d9d27cc293bc8df4"
   license "MIT"
   head "https://github.com/sugyan/tuisky.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec91483715129272fe6838210eb3171d544c4f959e7124711951f868e5535e5b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e59d40de23a058c94aac3d1ba6e99e916b1d8acbda469970847b937760115ce6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4fc96ae7f73ee11a89b1299f511c30d520676be8a13996bfc99f03c0dc238d05"
-    sha256 cellar: :any_skip_relocation, sonoma:        "93b22b23643b4aea41293b24be6b859435fd05b9a2acbb3425bee8ce85217978"
-    sha256 cellar: :any_skip_relocation, ventura:       "2ad91ad8cb03dd39a3167efa2162e0a5c409322967c6d6369a69c97c4e8dd63e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a2306a9137730db5cf1f04aa315c442e3b340535867c451c7942bb0dc414357"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4bec1436fe2ba2762e82506425c4e86bdc373c945ea5a7b98a9d3be4ccf1abcd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5eacb4566e7efb2db350967d77f293d5783ee22d89c5011ebbc4ee556507e671"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3f5790a02cfde8e721b118708d057234399f87f04d878328091ac85937d23657"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bbad1992312186bb58bd8e409a4272fcc6024c4f7f9331915ddd72e32cea6d3d"
+    sha256 cellar: :any_skip_relocation, ventura:       "b76b6484e2b5d50e470d92db22c19cd6586ba87505a55312546777338c5c8dad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "913b599a66307525601ec61513440037544cf246df75a68d28208e871274fd67"
   end
 
   depends_on "pkgconf" => :build
