@@ -1,8 +1,8 @@
 class VulkanUtilityLibraries < Formula
   desc "Utility Libraries for Vulkan"
   homepage "https://github.com/KhronosGroup/Vulkan-Utility-Libraries"
-  url "https://github.com/KhronosGroup/Vulkan-Utility-Libraries/archive/refs/tags/v1.4.306.tar.gz"
-  sha256 "8e60c2a92677d18a5f2417479b3ae0df65c66ab1d52e8918de175460a4c86a8a"
+  url "https://github.com/KhronosGroup/Vulkan-Utility-Libraries/archive/refs/tags/v1.4.307.tar.gz"
+  sha256 "fc95ed875dddd96a58a4b1389f7b1acaf410b206e034529ac0187b9e42878513"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-Utility-Libraries.git", branch: "main"
 
