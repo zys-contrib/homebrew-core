@@ -3,8 +3,8 @@ class Prowler < Formula
 
   desc "Tool for cloud security assessments, audits, incident response, and more"
   homepage "https://prowler.com/"
-  url "https://files.pythonhosted.org/packages/e3/20/0d30b0ab9d3b542619040f2fbb4c5e26152611c1bb9f8501be5913b0d69a/prowler-5.2.2.tar.gz"
-  sha256 "a9c14b6a54e207a391b6c0b67396d387e43b5c3968a9b718f78ba38714d90b03"
+  url "https://files.pythonhosted.org/packages/45/90/087b1225b7f87e34db62581fa0dbb5eb3e2473a3ee663c6dd20e4933163e/prowler-5.2.3.tar.gz"
+  sha256 "71cea94159282547b2ab77fcac884b6e017b75d82f847ec1284da83b563d3a98"
   license "Apache-2.0"
 
   bottle do
