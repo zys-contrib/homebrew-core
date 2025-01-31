@@ -2043,6 +2043,7 @@ mdbook
 mdbtools
 mdcat
 mdds
+mdformat
 mdless
 mdsh
 mdz
