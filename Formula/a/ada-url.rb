@@ -1,18 +1,18 @@
 class AdaUrl < Formula
   desc "WHATWG-compliant and fast URL parser written in modern C++"
   homepage "https://github.com/ada-url/ada"
-  url "https://github.com/ada-url/ada/archive/refs/tags/v3.0.0.tar.gz"
-  sha256 "3045b370d006798cb502f186b55fc290811f4392a7c11b803a6a6f7dea593fce"
+  url "https://github.com/ada-url/ada/archive/refs/tags/v3.0.1.tar.gz"
+  sha256 "525890a87a002b1cc14c091800c53dcf4a24746dbfc5e3b8a9c80490daad9263"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/ada-url/ada.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "478d262d91cc68c6f9912c833c7a75a1d866da04a98eacf84289003dae80e2d7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aea96e365e7a785199e7579c1beb18c009eb634a7fdc2b79821e7d1764a1ee5c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "075ac46124ebf24c5a837ce7bf1c0fc5358758d31f48562e199e9d4f1ba5580b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "184fc1e9046c0c22f83498aee0ec945ee69d2ddf4039cc7683cba9135bd956a7"
-    sha256 cellar: :any_skip_relocation, ventura:       "6e46ceeeae69b0d7fc278e5c295348329970503ea2578b826f233df7f10b8e9f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebccab8cce7cb929746d4a1e00976b514e25b3652cde89f167a199b1f709bffe"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "739c5139b3e763f44f52fe88a7ff99318cb61e9c89ed33ad8b127daea2e0281f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5097b840139824ae60d2cfdbf58f0d8d796ca44c99998488204449887345f974"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d8daaf099011c96704ba9a8582ebc4840d32b2df76359b9e58c5c0f2d8a3d6dc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8ac8000180cd8fb8c3715dad105f2c5b5850dd39378c1203d46edfb5cc143924"
+    sha256 cellar: :any_skip_relocation, ventura:       "c092a3f8b7f90dec4d421cdc419599dd8117fac40e9405b16d52e5260a6e7845"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68a3227288c9fde80005ba0a48bc30a02042071221d3bba53af0b7f5c1335d2f"
   end
 
   depends_on "cmake" => :build
