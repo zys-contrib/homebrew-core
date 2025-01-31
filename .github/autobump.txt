@@ -3205,6 +3205,7 @@ termbg
 terminator
 termscp
 terracognita
+terraform-cleaner
 terraform-inventory
 terraform-local
 terraform-ls
