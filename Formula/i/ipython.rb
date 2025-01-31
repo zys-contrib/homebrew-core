@@ -9,12 +9,12 @@ class Ipython < Formula
   head "https://github.com/ipython/ipython.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "20fc452c3852c60dbe8158c9ec0002552dfe18248f05ac86948e2e559d5d0577"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "20fc452c3852c60dbe8158c9ec0002552dfe18248f05ac86948e2e559d5d0577"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "20fc452c3852c60dbe8158c9ec0002552dfe18248f05ac86948e2e559d5d0577"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4fe04f865643025442463f70a73ade9988c0b786d9b045b65d11e28ea2290f57"
-    sha256 cellar: :any_skip_relocation, ventura:       "4fe04f865643025442463f70a73ade9988c0b786d9b045b65d11e28ea2290f57"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20fc452c3852c60dbe8158c9ec0002552dfe18248f05ac86948e2e559d5d0577"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "30530a603d1af4d3e316c407a7121efb876e48e81da08eb0f8c07b044b17f50e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "30530a603d1af4d3e316c407a7121efb876e48e81da08eb0f8c07b044b17f50e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "30530a603d1af4d3e316c407a7121efb876e48e81da08eb0f8c07b044b17f50e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e923fdee672486fd8cab5665afba57464c17d3b8cfcb547f9278a755b582a5a8"
+    sha256 cellar: :any_skip_relocation, ventura:       "e923fdee672486fd8cab5665afba57464c17d3b8cfcb547f9278a755b582a5a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30530a603d1af4d3e316c407a7121efb876e48e81da08eb0f8c07b044b17f50e"
   end
 
   depends_on "python@3.13"
