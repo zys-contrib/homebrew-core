@@ -11,12 +11,12 @@ class GitXargs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a697827b5c1a6c51816a023c785d73c1bcc0fb511e6d98960a5eedaeec32fe32"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a697827b5c1a6c51816a023c785d73c1bcc0fb511e6d98960a5eedaeec32fe32"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a697827b5c1a6c51816a023c785d73c1bcc0fb511e6d98960a5eedaeec32fe32"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8ef413c4a0c4d2719a18b832a360168b293a11d2e31fa903d8ffe5337922b3ed"
-    sha256 cellar: :any_skip_relocation, ventura:       "8ef413c4a0c4d2719a18b832a360168b293a11d2e31fa903d8ffe5337922b3ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed83fd2f7e10a505d944252c721bc2c577f52682eea7b1597194faa4b337de69"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "167caf47d40b4ca8023166a57ca035387237769fcd4aebbb5d961fec74577cb4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "167caf47d40b4ca8023166a57ca035387237769fcd4aebbb5d961fec74577cb4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "167caf47d40b4ca8023166a57ca035387237769fcd4aebbb5d961fec74577cb4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7c85b6e85851c35895e61ab79ef5cc16cabb963f6b50a42d7887bd4b1309c1b5"
+    sha256 cellar: :any_skip_relocation, ventura:       "7c85b6e85851c35895e61ab79ef5cc16cabb963f6b50a42d7887bd4b1309c1b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f14cf4558666920c26b6cff51917d57c43843502f7ac81fdd7809ca3270032c"
   end
 
   depends_on "go" => :build
