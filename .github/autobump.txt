@@ -3227,6 +3227,7 @@ texlab
 texmath
 texttest
 tf-profile
+tf-summarize
 tfautomv
 tfel
 tfmigrate
