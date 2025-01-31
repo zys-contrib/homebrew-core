@@ -1,8 +1,8 @@
 class Tailwindcss < Formula
   desc "Utility-first CSS framework"
   homepage "https://tailwindcss.com"
-  url "https://registry.npmjs.org/tailwindcss/-/tailwindcss-4.0.1.tgz"
-  sha256 "92667633156f8c06ef1b542011d61d85def080186f3d639c53b8e3a2d220547a"
+  url "https://registry.npmjs.org/tailwindcss/-/tailwindcss-4.0.2.tgz"
+  sha256 "4636533065a1ac058611aebfde93ef16d8197b162447cf212e17468a07f5a93e"
   license "MIT"
   head "https://github.com/tailwindlabs/tailwindcss.git", branch: "next"
 
@@ -26,8 +26,8 @@ class Tailwindcss < Formula
   depends_on "node"
 
   resource "tailwind-cli" do
-    url "https://registry.npmjs.org/@tailwindcss/cli/-/cli-4.0.1.tgz"
-    sha256 "a4527c1cb630901e0fa10f7f153eb169e3fc794e8dc224fa150ae5a5350f5b44"
+    url "https://registry.npmjs.org/@tailwindcss/cli/-/cli-4.0.2.tgz"
+    sha256 "1f0923f621c91729ae5469670c5fa3e34b184162a251369ffac0e77b60f9e4c6"
   end
 
   def install
