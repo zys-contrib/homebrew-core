@@ -1,17 +1,17 @@
 class Mago < Formula
   desc "Toolchain for PHP to help developers write better code"
   homepage "https://github.com/carthage-software/mago"
-  url "https://github.com/carthage-software/mago/archive/refs/tags/0.7.0.tar.gz"
-  sha256 "148b95922814fbbf2b320eae968d36263e4f022f47b4af7c21e9ac8c2e7ec2b5"
+  url "https://github.com/carthage-software/mago/archive/refs/tags/0.8.0.tar.gz"
+  sha256 "312a5718bca6a02b93f91aae6231fb2c28af1c06d883f23a3cdaa3717fd8c385"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "70d2b63b0130aa7736940303e2f1a4dffe35503306c587ae942721a67cdf98e2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d13eb088316cbeaf4db4db830d2dc310f8336186160a71e783940570538dcb87"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "17290935825d5be950439281f5727fc79ff585988a7269871e4502f6868a7873"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a89f54f35ff49f261f639521ea298697e5d0048d5c02262f5d2cc155ae0555c7"
-    sha256 cellar: :any_skip_relocation, ventura:       "d73d528698164ad7893cb891754b93add85037e29f1a895c618e2b3c0e465250"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09ece907009b6cd9f722b8f130ab77bc49432753917ba46d7680a7d8e8b2320f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c9c8ac77fe5e2333d27fef2a31ef81ebd3025698ca87d880032aa1cdfb38eb8b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "048b4d95edf79e82243a27c784c06deaf9a1244a3826df6677520e88c9ecbb9d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f6de591ce8c8dcecb628b4547eb10ecb603403615c6679a5bc7d858969f0086d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "abbe2c05f83320d9bfa1a6996ad409dd3fbbec99dde2434e8554e92208dec67c"
+    sha256 cellar: :any_skip_relocation, ventura:       "5058ee2857f05456b3be090349a57a3465022582a0e8b187720e34ef78262556"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "98b367bfe7df7b15cf4ff3f15e4efdbc924934d26467114b28c7fdf6d6fbb0e5"
   end
 
   depends_on "pkgconf" => :build
