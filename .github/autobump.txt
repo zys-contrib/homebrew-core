@@ -131,8 +131,8 @@ assimp
 ast-grep
 astgen
 astro
-astroterm
 astrometry-net
+astroterm
 astyle
 asuka
 asymptote
@@ -3035,6 +3035,7 @@ spacer
 spack
 spades
 spatialindex
+spdlog
 spectra
 spectral-cli
 spglib

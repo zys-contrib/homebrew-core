@@ -1,10 +1,9 @@
 class Spdlog < Formula
   desc "Super fast C++ logging library"
   homepage "https://github.com/gabime/spdlog"
-  url "https://github.com/gabime/spdlog/archive/refs/tags/v1.15.0.tar.gz"
-  sha256 "9962648c9b4f1a7bbc76fd8d9172555bad1871fdb14ff4f842ef87949682caa5"
+  url "https://github.com/gabime/spdlog/archive/refs/tags/v1.15.1.tar.gz"
+  sha256 "25c843860f039a1600f232c6eb9e01e6627f7d030a2ae5e232bdd3c9205d26cc"
   license "MIT"
-  revision 1
   head "https://github.com/gabime/spdlog.git", branch: "v1.x"
 
   bottle do
@@ -18,12 +17,6 @@ class Spdlog < Formula
 
   depends_on "cmake" => :build
   depends_on "fmt"
-
-  # fmt 11.1 compatibility patch, upstream pr ref, https://github.com/gabime/spdlog/pull/3301
-  patch do
-    url "https://github.com/gabime/spdlog/commit/e693420a38b58d29a56b3ea921e15b175a5f2843.patch?full_index=1"
-    sha256 "70555a85ae64b55deeaa4cec8397e6a81e5cc44bc18ed39e98a97f331c61417a"
-  end
 
   def install
     ENV.cxx11
