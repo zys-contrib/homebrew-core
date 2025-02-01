@@ -1,8 +1,8 @@
 class Mpi4py < Formula
   desc "Python bindings for MPI"
   homepage "https://mpi4py.github.io/"
-  url "https://github.com/mpi4py/mpi4py/releases/download/4.0.1/mpi4py-4.0.1.tar.gz"
-  sha256 "f3174b245775d556f4fddb32519a2066ef0592edc810c5b5a59238f9a0a40c89"
+  url "https://github.com/mpi4py/mpi4py/releases/download/4.0.2/mpi4py-4.0.2.tar.gz"
+  sha256 "86085436d3ea3587323321b9e661e4df60eabbcf11c2c9cf63d0873ca111cc8b"
   license "BSD-3-Clause"
 
   bottle do
