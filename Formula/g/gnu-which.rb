@@ -8,12 +8,12 @@ class GnuWhich < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c7928bd6791212cc8afefc5d00e53e2bde7badff33468376f327ba2d74a00957"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3ab019fd8d7a3c9df012134b1a2ce2bb8bfa4470f7af00359b4d0ea767df16a1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c8035df0864348c6088ae2cdf4b16cf750e045d7fef4bd27bd7b5432047dd126"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a5a80fc5dbe8b0e59def3a1a382dfe6cfb524a0510f6f2a8d4d456c2f4838fb5"
-    sha256 cellar: :any_skip_relocation, ventura:       "da10c97c2031a30b93ba9a53825833012b4fe8a17739441ee9562f1b6d4f978c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72d67f5b023062866d2883ea9a90e1f1ae3c1d7527bf725013407fb88c851cf9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "91778a7be9cd94c5de2d8040fb7405541497dd97df1daa1cc562b5a7194e2688"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3b59742c30bca0d70fd803414b20aba6af45ff3fe59941bcb68485074b7ca28b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "17a52b327ea1d2a30313c98f73105943f22c6307aa29ced85558440c679fbcc6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1a0d51cf354ef62e06eaeaf5a6fe4a76f655ba084025382dbf6405a35feacc42"
+    sha256 cellar: :any_skip_relocation, ventura:       "c6ec0fe0903e5d08057045a2d4e99a1a6b934ae0df8c530fb06571cdb98084ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81baea2942f92fa1c2cfa15adc71aa2d9e845c48f4339586cc78985327b53666"
   end
 
   def install
