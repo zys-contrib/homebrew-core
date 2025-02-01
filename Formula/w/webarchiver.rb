@@ -1,8 +1,8 @@
 class Webarchiver < Formula
   desc "Allows you to create Safari .webarchive files"
   homepage "https://github.com/newzealandpaul/webarchiver"
-  url "https://github.com/newzealandpaul/webarchiver/archive/refs/tags/0.12.tar.gz"
-  sha256 "bb21767a506841a41ca4ea44d78c6f3012e61ca327df620a7c312759e4b5866d"
+  url "https://github.com/newzealandpaul/webarchiver/archive/refs/tags/0.13.tar.gz"
+  sha256 "bbb81adb809a2817e6febdcf801af805b9f4d3080127411e544ac00ee4575242"
   license "GPL-3.0-only"
   head "https://github.com/newzealandpaul/webarchiver.git", branch: "master"
 

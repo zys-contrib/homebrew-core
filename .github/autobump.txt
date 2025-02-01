@@ -3484,6 +3484,7 @@ weasyprint
 weaviate
 weaviate-cli
 web-ext
+webarchiver
 webdis
 webhook
 webkitgtk
