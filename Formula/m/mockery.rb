@@ -15,12 +15,12 @@ class Mockery < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "907159ef05b2979e146635495aab5251a3cf67f754aba647a7d3f6246f0fc6f7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "907159ef05b2979e146635495aab5251a3cf67f754aba647a7d3f6246f0fc6f7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "907159ef05b2979e146635495aab5251a3cf67f754aba647a7d3f6246f0fc6f7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "354c46ac886ea7a91c68e2cf713db3a85a303363b9eefb010bcb57c4975d86f7"
-    sha256 cellar: :any_skip_relocation, ventura:       "354c46ac886ea7a91c68e2cf713db3a85a303363b9eefb010bcb57c4975d86f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7e06734d16775400161ff9eaeac070a185905f2199f501bff6479acfaf9860f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7cdbe3e96471f4733295066c9aa3c34f47d6aff13b5587355c05cf0cf7a35518"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7cdbe3e96471f4733295066c9aa3c34f47d6aff13b5587355c05cf0cf7a35518"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7cdbe3e96471f4733295066c9aa3c34f47d6aff13b5587355c05cf0cf7a35518"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9fbdd41ce4937ad899474054842e9aa0819d221d32953b6f3df64d49049fa068"
+    sha256 cellar: :any_skip_relocation, ventura:       "9fbdd41ce4937ad899474054842e9aa0819d221d32953b6f3df64d49049fa068"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3a5afc8d499310171fd62956710a29cf163dbddfaecf923157ea7251ae7e58a"
   end
 
   depends_on "go" => :build
