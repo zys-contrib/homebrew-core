@@ -1,11 +1,14 @@
 class Mockery < Formula
   desc "Mock code autogenerator for Golang"
   homepage "https://github.com/vektra/mockery"
-  url "https://github.com/vektra/mockery/archive/refs/tags/v2.52.0.tar.gz"
-  sha256 "e985df448c594b37e9e89af16db1a0b070d13310c8d1d4a87a5e600235f159ef"
+  url "https://github.com/vektra/mockery/archive/refs/tags/v2.52.1.tar.gz"
+  sha256 "1bc8127b4df281d692c58ca3d10167fad759ca5796e88d4e2c84aed02aed18cd"
   license "BSD-3-Clause"
   head "https://github.com/vektra/mockery.git", branch: "master"
 
+  # There can be a notable gap between when a version is tagged and a
+  # corresponding release is created, so we check the "latest" release instead
+  # of the Git tags.
   livecheck do
     url :stable
     strategy :github_latest
