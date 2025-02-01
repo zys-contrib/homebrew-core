@@ -3,8 +3,8 @@ class Harlequin < Formula
 
   desc "Easy, fast, and beautiful database client for the terminal"
   homepage "https://harlequin.sh"
-  url "https://files.pythonhosted.org/packages/ae/dc/5661096405bd9987a6a194b027fbfdf5bf6649299c2179b7cfe220084215/harlequin-2.0.0.tar.gz"
-  sha256 "d9bb419859bf35263e0a6875592b72b81f4aab70373a55c937cfc608c38585cd"
+  url "https://files.pythonhosted.org/packages/5c/ff/8ea460457b314d49bd08e888c7086b0029c7293b6b68c4ef89bccdf012e1/harlequin-2.0.1.tar.gz"
+  sha256 "d44c8abd9f6d0b8b5fd2975add08f475859a36ebf59fd373a5d3c9e6d4b1c384"
   license "MIT"
 
   bottle do
@@ -44,8 +44,8 @@ class Harlequin < Formula
   end
 
   resource "harlequin-mysql" do
-    url "https://files.pythonhosted.org/packages/8a/21/4301627383d091e16190ec3d4271974fe37c840eb3f7c9cd794e984371f4/harlequin_mysql-1.0.0.tar.gz"
-    sha256 "8e1f8d391e0980bcb6fa257aca939a4ef35f0fa699fad9a03e4835169b6f4585"
+    url "https://files.pythonhosted.org/packages/44/e1/d210f15f8090a7c0834b3bf90c46d202028d401fe96e9dd86e59abfaad40/harlequin_mysql-1.1.0.tar.gz"
+    sha256 "7a5a82e5c2eb9383a30443d387a139a4509b111afc2fe935b619e6c73409ee7b"
   end
 
   resource "harlequin-odbc" do
@@ -54,8 +54,8 @@ class Harlequin < Formula
   end
 
   resource "harlequin-postgres" do
-    url "https://files.pythonhosted.org/packages/12/26/dc5d5369f1409e0d322e653bf8f6eb78da8f7002d0e5d854563d6514106b/harlequin_postgres-1.0.0.tar.gz"
-    sha256 "d7fb402e4639c33f6539673642c66411afeac740f18ca22255f5d37cebb8c101"
+    url "https://files.pythonhosted.org/packages/99/06/7ae3b90f55d454fb6a82844ab92bc385bc96d62ae5fd15f0af12575b011e/harlequin_postgres-1.1.0.tar.gz"
+    sha256 "5e9e863170dcf4a8c7f194a30ae7e3c791226371fd08a9779c5bcff432d1d69d"
   end
 
   resource "jinja2" do
@@ -165,8 +165,8 @@ class Harlequin < Formula
   end
 
   resource "shandy-sqlfmt" do
-    url "https://files.pythonhosted.org/packages/39/38/f634ed73c65ba8e8061c65479af73e0b4afa53530af026489ca17b549559/shandy_sqlfmt-0.24.0.tar.gz"
-    sha256 "ae34d34dc88ef4a2c97677d7d3d95d7f362908aa6f97e3fb0529cab4a96799ba"
+    url "https://files.pythonhosted.org/packages/e9/82/43763176f899a87ea66cfe335659862ca2c623de7382d164f01ea35519fd/shandy_sqlfmt-0.26.0.tar.gz"
+    sha256 "d95abd381640a846c71b0e2effb30d47f0b3eb5f69fb337fafe663634857f7a5"
   end
 
   resource "textual" do
