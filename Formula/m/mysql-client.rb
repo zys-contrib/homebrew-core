@@ -12,12 +12,13 @@ class MysqlClient < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "d7cbacfd9a72ce4175cca92f698bf6d5b0ad876cfe7ad56583da4eb47e711fb8"
-    sha256 arm64_sonoma:  "3518276d4ee3de355b13536159cd12e08806310533dd1f0b0ec0283e8a115b23"
-    sha256 arm64_ventura: "bf42757730352f5e72a9e82aa9f03d57e4489b246c56a26a6eb98a4f374e7ddd"
-    sha256 sonoma:        "d84203856589cfde7c8a240ea663f5867604312857b32c4a012f4f118bd46b68"
-    sha256 ventura:       "4f6d8d1fd35cef9713e9aaa04c363397db6d0956d28a29d0edc3440633ac7daa"
-    sha256 x86_64_linux:  "e701db03a28393941bfe883ad5a7c5f324285cffb16ad19a14a19da669ef54c3"
+    rebuild 1
+    sha256 arm64_sequoia: "c4b51d60d329627b0bca80778923029370114a70254997708c575fadfd9015c4"
+    sha256 arm64_sonoma:  "3672adb23db8d2a37e0944de6d65bb1fcc24d2e6857e087b6571597f41614c66"
+    sha256 arm64_ventura: "c4372cac59de87ed6fefc83219c733e572bf07eeaba5b715ef0a103ea0427e70"
+    sha256 sonoma:        "1f226108adb194a8ab72e5aa869942b0d522de4d1e604c46ad749c9639a4bfdb"
+    sha256 ventura:       "7e92947dd3cee27ff2b6c31b09ba72fe4293ec706b60794fca616de76a93a30c"
+    sha256 x86_64_linux:  "c0c20206bcff3871a7c039a7435c22f255a1f29c2582dcfe0a9198e1b6a30fc9"
   end
 
   keg_only "it conflicts with mysql (which contains client libraries)"
