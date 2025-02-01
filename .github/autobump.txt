@@ -131,8 +131,8 @@ assimp
 ast-grep
 astgen
 astro
-astroterm
 astrometry-net
+astroterm
 astyle
 asuka
 asymptote
@@ -2195,6 +2195,7 @@ nanopb
 nasm
 nats-server
 nats-streaming-server
+naturaldocs
 navi
 navidrome
 nbdime
