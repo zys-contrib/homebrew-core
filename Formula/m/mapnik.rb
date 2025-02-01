@@ -3,10 +3,9 @@ class Mapnik < Formula
   homepage "https://mapnik.org/"
   # needs submodules
   url "https://github.com/mapnik/mapnik.git",
-      tag:      "v4.0.4",
-      revision: "5d155480e196fdc1b0627c7cc7044f09751069f1"
+      tag:      "v4.0.5",
+      revision: "ad6a7507d5ce0484e85da80ad2a27adb1e15b101"
   license "LGPL-2.1-or-later"
-  revision 1
   head "https://github.com/mapnik/mapnik.git", branch: "master"
 
   livecheck do
