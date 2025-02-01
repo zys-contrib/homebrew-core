@@ -3,8 +3,8 @@ class Aider < Formula
 
   desc "AI pair programming in your terminal"
   homepage "https://aider.chat/"
-  url "https://files.pythonhosted.org/packages/95/b6/0d5c4e78c36dd99e4648c7c243d198ef63399ee670dd811bcc4296eabd5b/aider_chat-0.72.3.tar.gz"
-  sha256 "5f0b4dd60e5dcf8d4cf23a4fd709fac1f523a2baa0124f1f0a5518d2dfc59db0"
+  url "https://files.pythonhosted.org/packages/00/a0/713e14bbc2c5f23ec9f9dfbe34c4b9f89122bee5b805dbcbeb60f689c981/aider_chat-0.73.0.tar.gz"
+  sha256 "372b6cbfdb5ea9f04e3fdfdf2716731e3c8d906882758692db61bf1f95848a33"
   license "Apache-2.0"
   head "https://github.com/paul-gauthier/aider.git", branch: "main"
 
@@ -23,7 +23,7 @@ class Aider < Formula
   depends_on "libyaml"
   depends_on "numpy"
   depends_on "pillow"
-  depends_on "python@3.12" # py3.13 support issue, https://github.com/Aider-AI/aider/issues/1984
+  depends_on "python@3.12" # py3.13 support issue, https://github.com/Aider-AI/aider/issues/3037
   depends_on "scipy"
 
   resource "aiohappyeyeballs" do
@@ -480,7 +480,8 @@ class Aider < Formula
   test do
     mkdir "tmptestdir" do
       assert_match version.to_s, shell_output("#{bin}/aider --version")
-      assert_match "OPENAI_API_KEY: Not set", shell_output("#{bin}/aider --yes --exit --no-check-update")
+      output = shell_output("#{bin}/aider --yes --exit --no-check-update 2>&1", 1)
+      assert_match "You need to specify a --model and an --api-key to use", output
       ENV["OPENAI_API_KEY"] = "invalid"
       output = shell_output("#{bin}/aider --yes --exit --message=test --no-check-update 2>&1")
       assert_match "Incorrect API key", output
