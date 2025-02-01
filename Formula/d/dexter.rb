@@ -1,10 +1,9 @@
 class Dexter < Formula
   desc "Automatic indexer for Postgres"
   homepage "https://github.com/ankane/dexter"
-  url "https://github.com/ankane/dexter/archive/refs/tags/v0.5.5.tar.gz"
-  sha256 "4e5c7a8e1e77af44e16fefe2dcb5fc221612be0b6977547318edd9e597467e19"
+  url "https://github.com/ankane/dexter/archive/refs/tags/v0.5.6.tar.gz"
+  sha256 "f2bebde21f8f06f726e6c16cd932afa8fe42714012f3ce53b4e0355b7cb91628"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "27202dafe7bc5b4ab458a294f03a8874a2d65806ed5b89c1e9c95859855c7ceb"
@@ -20,18 +19,18 @@ class Dexter < Formula
   depends_on "ruby"
 
   resource "google-protobuf" do
-    url "https://rubygems.org/gems/google-protobuf-3.25.3.gem"
-    sha256 "39bd97cbc7631905e76cdf8f1bf3dda1c3d05200d7e23f575aced78930fbddd6"
+    url "https://rubygems.org/gems/google-protobuf-4.29.3.gem"
+    sha256 "9a5576c0059f57d7e07107bda8287ac14d0c59c71fe939b260855d3f46b9b566"
   end
 
   resource "pg" do
-    url "https://rubygems.org/gems/pg-1.5.6.gem"
-    sha256 "4bc3ad2438825eea68457373555e3fd4ea1a82027b8a6be98ef57c0d57292b1c"
+    url "https://rubygems.org/gems/pg-1.5.9.gem"
+    sha256 "761efbdf73b66516f0c26fcbe6515dc7500c3f0aa1a1b853feae245433c64fdc"
   end
 
   resource "pg_query" do
-    url "https://rubygems.org/gems/pg_query-5.1.0.gem"
-    sha256 "b7f7f47c864f08ccbed46a8244906fb6ee77ee344fd27250717963928c93145d"
+    url "https://rubygems.org/gems/pg_query-6.0.0.gem"
+    sha256 "fbf09a4e900cee1d61e2bbfda1fefdbc35bc83c5f1c7ae1be1c6ffc5ae0f5c04"
   end
 
   resource "slop" do
