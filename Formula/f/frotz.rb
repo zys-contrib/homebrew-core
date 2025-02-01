@@ -1,10 +1,9 @@
 class Frotz < Formula
   desc "Infocom-style interactive fiction player"
   homepage "https://661.org/proj/if/frotz/"
-  url "https://gitlab.com/DavidGriffith/frotz/-/archive/2.54/frotz-2.54.tar.bz2"
-  sha256 "756d7e11370c9c8e61573e350e2a5071e77fd2781be74c107bd432f817f3abc7"
+  url "https://gitlab.com/DavidGriffith/frotz/-/archive/2.55/frotz-2.55.tar.bz2"
+  sha256 "235a8606aa1e654aa5a5a41b5c7b5ae1e934aab30fb2e2b18e2e35a4eafcd745"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://gitlab.com/DavidGriffith/frotz.git", branch: "master"
 
   bottle do
@@ -35,9 +34,10 @@ class Frotz < Formula
 
   uses_from_macos "zlib"
 
-  resource("testdata") do
-    url "https://gitlab.com/DavidGriffith/frotz/-/raw/2.53/src/test/etude/etude.z5"
-    sha256 "bfa2ef69f2f5ce3796b96f9b073676902e971aedb3ba690b8835bb1fb0daface"
+  # fix SDL interface build failure
+  patch do
+    url "https://gitlab.com/DavidGriffith/frotz/-/commit/52be64afc92a6ea0a982ff83205a67cbfb94b619.diff"
+    sha256 "d9105caf79c436d98fa80b8091b1dd05de88c8c7f26c2a688133879b7dfa3477"
   end
 
   def install
@@ -53,6 +53,11 @@ class Frotz < Formula
   end
 
   test do
+    resource "testdata" do
+      url "https://gitlab.com/DavidGriffith/frotz/-/raw/2.53/src/test/etude/etude.z5"
+      sha256 "bfa2ef69f2f5ce3796b96f9b073676902e971aedb3ba690b8835bb1fb0daface"
+    end
+
     resource("testdata").stage do
       assert_match "TerpEtude", pipe_output("#{bin}/dfrotz etude.z5", ".")
     end

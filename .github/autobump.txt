@@ -1066,6 +1066,7 @@ freexl
 frei0r
 fribidi
 frizbee
+frotz
 frozen
 frpc
 frps
