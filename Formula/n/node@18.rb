@@ -1,9 +1,15 @@
 class NodeAT18 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v18.20.5/node-v18.20.5.tar.xz"
-  sha256 "76037b9bad0ab9396349282dbfcec1b872ff7bd8c8d698853bebd982940858bf"
+  url "https://nodejs.org/dist/v18.20.6/node-v18.20.6.tar.xz"
+  sha256 "c669b48b632fa6797d4f5fa7bbd2b476ec961120957864402226cc9fd8ebbc0e"
   license "MIT"
+
+  # Remove livecheck on 2025-04-30
+  livecheck do
+    url "https://nodejs.org/dist/"
+    regex(%r{href=["']?v?(18(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
     sha256 arm64_sequoia: "434f258d8fc32a3b1fff91bb529069a51bf1e9c79e7d834c70685a408cd7e2ec"
@@ -34,7 +40,7 @@ class NodeAT18 < Formula
   uses_from_macos "zlib"
 
   on_macos do
-    depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1100
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1100
   end
 
   fails_with :clang do
