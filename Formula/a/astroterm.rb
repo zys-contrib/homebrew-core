@@ -6,6 +6,15 @@ class Astroterm < Formula
   license "MIT"
   head "https://github.com/da-luce/astroterm.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "036452503726262a378258524100a05b94e707cf5da53ff02cfe2f13877eb651"
+    sha256 cellar: :any,                 arm64_sonoma:  "604d56382ab8b716235ffb58fc9b72c1f7698ed7a303fde3907e8885973d6639"
+    sha256 cellar: :any,                 arm64_ventura: "4fd420c68e227aa7cf752508342e103efe42ad1b9f366e1675157dc467c8a700"
+    sha256 cellar: :any,                 sonoma:        "9be14e54e27d8837276013b70ee461c81d445ebee9ec6b50bc44810d0b372e12"
+    sha256 cellar: :any,                 ventura:       "01a5b1c28c12ca3e6d7feb3733d0c13500d11c452928846ae57e3fa83164e299"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a11eedf6721ddd00da0341ca160c8e77676d4f1ee4773cec91dbdfdeeafb8a11"
+  end
+
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "argtable3"
