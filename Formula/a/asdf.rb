@@ -13,7 +13,12 @@ class Asdf < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "a94dd362ce5c3a818f4fa56607eac3c616a3c1191e9f41480093bda2dc308af4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a94dd362ce5c3a818f4fa56607eac3c616a3c1191e9f41480093bda2dc308af4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a94dd362ce5c3a818f4fa56607eac3c616a3c1191e9f41480093bda2dc308af4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a94dd362ce5c3a818f4fa56607eac3c616a3c1191e9f41480093bda2dc308af4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a94dd362ce5c3a818f4fa56607eac3c616a3c1191e9f41480093bda2dc308af4"
+    sha256 cellar: :any_skip_relocation, ventura:       "a94dd362ce5c3a818f4fa56607eac3c616a3c1191e9f41480093bda2dc308af4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a94dd362ce5c3a818f4fa56607eac3c616a3c1191e9f41480093bda2dc308af4"
   end
 
   depends_on "autoconf"
