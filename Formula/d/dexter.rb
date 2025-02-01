@@ -6,12 +6,12 @@ class Dexter < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "27202dafe7bc5b4ab458a294f03a8874a2d65806ed5b89c1e9c95859855c7ceb"
-    sha256 cellar: :any,                 arm64_sonoma:  "0b2c142baaf6765573801d064a9e8617636eaa2cfdd19b077d21fa21d6240637"
-    sha256 cellar: :any,                 arm64_ventura: "52d040b9a7eb12451548f5c1974ca57d4d434f9f494d674244fa9b8ae0130ec0"
-    sha256 cellar: :any,                 sonoma:        "33f9a88a2a7e9a131edf0ba3decbe2c505ab7427357bb72bc554433c85d6549d"
-    sha256 cellar: :any,                 ventura:       "b9c7c9ea2fe582b7db9824418bdf9cdb27c323c4e13d7d29e16eda7093233533"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7af786c843b3ddabc4856afa1a82269d5585df4473c702339c0927c6671a39a"
+    sha256 cellar: :any,                 arm64_sequoia: "37a406d94e604468c6bd45f08225600fc3a929c38cdafbbcb6b0d1e73f833873"
+    sha256 cellar: :any,                 arm64_sonoma:  "096fe52ac18aab6b6c77f98cd4b0ce92a9501b5759095a1d85a06394c8590531"
+    sha256 cellar: :any,                 arm64_ventura: "6a409cba5aeaff176b666c1cd2e9b53deaa704b5a1b46a3fe697703d8df302bb"
+    sha256 cellar: :any,                 sonoma:        "3b9d57da475b9026fc2e469f6a442d1acd744192e817fb46086def143d75b5b5"
+    sha256 cellar: :any,                 ventura:       "f21626ffdfeb5712eee1d1d6d311eb29c1bb6bf5e15a74de726628b4204474be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c769be717ed914c7552d0aaccff2e9d53171f256ac7c9d9bbad0afa40b4bbaf8"
   end
 
   depends_on "postgresql@17" => :test
