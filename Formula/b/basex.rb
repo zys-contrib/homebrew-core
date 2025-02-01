@@ -7,8 +7,8 @@ class Basex < Formula
   license "BSD-3-Clause"
 
   livecheck do
-    url "https://files.basex.org/releases/"
-    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+    url "https://basex.org/download/"
+    regex(%r{href=.*?/v?(\d+(?:\.\d+)+)/BaseX[._-]?v?(\d+(?:\.\d+)*)\.zip}i)
   end
 
   bottle do
