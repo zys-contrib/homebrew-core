@@ -2195,6 +2195,7 @@ nanopb
 nasm
 nats-server
 nats-streaming-server
+naturaldocs
 navi
 navidrome
 nbdime
