@@ -1,8 +1,8 @@
 class Qxmpp < Formula
   desc "Cross-platform C++ XMPP client and server library"
   homepage "https://github.com/qxmpp-project/qxmpp/"
-  url "https://github.com/qxmpp-project/qxmpp/archive/refs/tags/v1.9.3.tar.gz"
-  sha256 "6331561ae5cdbd7f850e4e886b8f42796d630a69b94252cae87fd67edb7adf7e"
+  url "https://github.com/qxmpp-project/qxmpp/archive/refs/tags/v1.9.4.tar.gz"
+  sha256 "4403e43a0e8b6afa68f6e1e986e4ec19a08a6bf0db539ab7934a58afa1ddc532"
   license "LGPL-2.1-or-later"
 
   bottle do
