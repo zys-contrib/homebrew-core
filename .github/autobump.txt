@@ -2614,6 +2614,7 @@ proselint
 proteinortho
 proto
 protobuf
+protobuf-c
 protoc-gen-go
 protoc-gen-go-grpc
 protoc-gen-grpc-java

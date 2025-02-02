@@ -1,10 +1,9 @@
 class ProtobufC < Formula
   desc "Protocol buffers library"
   homepage "https://github.com/protobuf-c/protobuf-c"
-  url "https://github.com/protobuf-c/protobuf-c/releases/download/v1.5.0/protobuf-c-1.5.0.tar.gz"
-  sha256 "7b404c63361ed35b3667aec75cc37b54298d56dd2bcf369de3373212cc06fd98"
+  url "https://github.com/protobuf-c/protobuf-c/releases/download/v1.5.1/protobuf-c-1.5.1.tar.gz"
+  sha256 "20d1dc257da96f8ddff8be4dd9779215bbd0a6069ed53bbe9de38fa7629be06b"
   license "BSD-2-Clause"
-  revision 16
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "e126a9b3a7187dd6d62c635505b284c9bf15375f76f53e8fcb37b4864a9d4606"
@@ -27,17 +26,6 @@ class ProtobufC < Formula
   depends_on "pkgconf" => :build
   depends_on "abseil"
   depends_on "protobuf"
-
-  # Apply commits from open PR to support Protobuf 26.
-  # PR ref: https://github.com/protobuf-c/protobuf-c/pull/711
-  patch do
-    url "https://github.com/protobuf-c/protobuf-c/commit/e3acc96ca2a00ef715fa2caa659f677cad8a9fa0.patch?full_index=1"
-    sha256 "3b564a971023d127bb7b666e5669f792c94766836ccaed5acfae3e23b8152d43"
-  end
-  patch do
-    url "https://github.com/protobuf-c/protobuf-c/commit/1b4b205d87b1bc6f575db1fd1cbbb334a694abe8.patch?full_index=1"
-    sha256 "6d02812445a229963add1b41c07bebddc3437fecb2a03844708512326fd70914"
-  end
 
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
