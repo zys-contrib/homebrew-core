@@ -1930,6 +1930,7 @@ linode-cli
 linux-headers@5.15
 linux-pam
 liqoctl
+liquid-dsp
 liquidprompt
 lit
 litecli
