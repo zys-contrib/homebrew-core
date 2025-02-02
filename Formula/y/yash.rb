@@ -1,8 +1,8 @@
 class Yash < Formula
   desc "Yet another shell: a POSIX-compliant command-line shell"
   homepage "https://magicant.github.io/yash/"
-  url "https://github.com/magicant/yash/releases/download/2.57/yash-2.57.tar.xz"
-  sha256 "f5ff3334dcfa0fdde3882f5df002623f46a0a4f2b2335e7d91715520d8fb1dab"
+  url "https://github.com/magicant/yash/releases/download/2.58/yash-2.58.tar.xz"
+  sha256 "1a027496a6b8d2aa946d0b13407fdc3d5030f1d17f09b27768967c50f09e61f0"
   license "GPL-2.0-or-later"
 
   bottle do
