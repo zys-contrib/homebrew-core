@@ -1,9 +1,8 @@
 class Lazydocker < Formula
   desc "Lazier way to manage everything docker"
   homepage "https://github.com/jesseduffield/lazydocker"
-  url "https://github.com/jesseduffield/lazydocker.git",
-      tag:      "v0.24.1",
-      revision: "be051153525b018a46f71a2b2ed42cde39a1110c"
+  url "https://github.com/jesseduffield/lazydocker/archive/refs/tags/v0.24.1.tar.gz"
+  sha256 "f54197d333a28e658d2eb4d9b22461ae73721ec9e4106ba23ed177fc530c21f4"
   license "MIT"
 
   bottle do
@@ -19,7 +18,12 @@ class Lazydocker < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.version=#{version} -X main.buildSource=homebrew"
+    ldflags = %W[
+      -s -w
+      -X main.version=#{version}
+      -X main.date=#{time.iso8601}
+      -X main.buildSource=homebrew
+    ]
     system "go", "build", "-mod=vendor", *std_go_args(ldflags:)
   end
 
