@@ -1,8 +1,8 @@
 class Inlyne < Formula
   desc "GPU powered yet browserless tool to help you quickly view markdown files"
   homepage "https://github.com/Inlyne-Project/inlyne"
-  url "https://github.com/Inlyne-Project/inlyne/archive/refs/tags/v0.4.3.tar.gz"
-  sha256 "60f111e67d8e0b2bbb014900d4bc84ce6d2823c8daaba2d7eda0d403b01d7d1b"
+  url "https://github.com/Inlyne-Project/inlyne/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "0473d154469c4f078029c2fdb58dca19b8d415633934773c41930536b54e71e0"
   license "MIT"
   head "https://github.com/Inlyne-Project/inlyne.git", branch: "main"
 
