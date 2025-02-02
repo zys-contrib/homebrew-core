@@ -3475,6 +3475,7 @@ wasmedge
 wasmer
 wasmtime
 watch
+watcher
 watchexec
 wavpack
 wayland
