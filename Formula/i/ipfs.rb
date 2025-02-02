@@ -1,9 +1,8 @@
 class Ipfs < Formula
   desc "Peer-to-peer hypermedia protocol"
   homepage "https://ipfs.tech/"
-  url "https://github.com/ipfs/kubo.git",
-      tag:      "v0.33.0",
-      revision: "8b657380277b79299dffe42993ec4f7de4a759d3"
+  url "https://github.com/ipfs/kubo/archive/refs/tags/v0.33.0.tar.gz"
+  sha256 "f58da2d4e8552b0d76c95715ec86bf868216fdd539669ea060827a527458cc5f"
   license all_of: [
     "MIT",
     any_of: ["MIT", "Apache-2.0"],
@@ -27,10 +26,13 @@ class Ipfs < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "build"
-    bin.install "cmd/ipfs/ipfs"
+    ldflags = %W[
+      -s -w
+      -X github.com/ipfs/kubo.CurrentCommit=#{tap.user}
+    ]
+    system "go", "build", *std_go_args(ldflags:), "./cmd/ipfs"
 
-    generate_completions_from_executable(bin/"ipfs", "commands", "completion", shells: [:bash])
+    generate_completions_from_executable(bin/"ipfs", "commands", "completion")
   end
 
   service do
@@ -38,6 +40,6 @@ class Ipfs < Formula
   end
 
   test do
-    assert_match "initializing IPFS node", shell_output(bin/"ipfs init")
+    assert_match "initializing IPFS node", shell_output("#{bin}/ipfs init")
   end
 end
