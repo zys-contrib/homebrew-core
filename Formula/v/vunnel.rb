@@ -211,6 +211,12 @@ class Vunnel < Formula
   end
 
   def install
+    # Remove with next version, already fixed in
+    # https://github.com/anchore/vunnel/commit/2831a9a55c80f8d6ba31862219e68f796dde7455.patch
+    inreplace "pyproject.toml" do |s|
+      s.gsub! 'python = ">=3.11,<=3.13"', 'python = ">=3.11,<3.14"'
+    end
+
     # Fix compilation of ijson native extensions, note:
     # This would not be needed if latest ijson version is used upstream, but there are reasons it is
     # currently held back: https://github.com/anchore/vunnel/pull/103
