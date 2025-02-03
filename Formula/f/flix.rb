@@ -12,12 +12,12 @@ class Flix < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d7e7260c556e1d04ea446c7e941fecf4867bbcbe4542cd33feec379633fe604b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "73749b4ab033ac9bfcdba23b2f3e2c773d366831bf82be17e24fccfc5b06b167"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "949e295ca0a979a9b5b075f15c1909cffa09cd1e596dd8e0366c6db83461af33"
-    sha256 cellar: :any_skip_relocation, sonoma:        "46047d3022975ae641830d59dd43aaa833903d372d508b838f7e92574af4b19c"
-    sha256 cellar: :any_skip_relocation, ventura:       "511decfa4fb55ce353a1d9b8ecdd23fc2eb1c90e030928abf31a967f816c32be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb6df7cfce51e82f1b0697b8c2f8544616435f26f67f64a25f852898b9d54e3f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3fed48bde551863ee55d9303b860c147d07ec38ce2a587069576ac98b0c0bdef"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d991f07ad8e22ea85e3b3f8a128615aa547255c872eee0d957ce8c3805951198"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "aea0d3dee278b30bc1c01a76f766090a2847320410b7809704e82eacb3d0817d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "14c05e4bd6923291b1bb58a39b772633a3415dd66000ae5dff76ed91377692a8"
+    sha256 cellar: :any_skip_relocation, ventura:       "260a3e1333e326e69f19864650f5d7b5574353521d87aaf63172eb7f43e2faf9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1c11e8a21a2835c873aa32bf844c7eed0390a91a253f586624be0f0adc94741"
   end
 
   depends_on "gradle" => :build
