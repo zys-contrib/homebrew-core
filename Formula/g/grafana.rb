@@ -1,8 +1,8 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/refs/tags/v11.4.0.tar.gz"
-  sha256 "c3a63aade2a86aa360c9b46f4963e60673fc51bb6c54a088d44dfab5a8fb465e"
+  url "https://github.com/grafana/grafana/archive/refs/tags/v11.5.1.tar.gz"
+  sha256 "f8f593871c432b300a531ab240fc3946aca5c559108e22e9a657feeb809c8527"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/grafana.git", branch: "main"
 
@@ -21,7 +21,8 @@ class Grafana < Formula
   end
 
   depends_on "go" => :build
-  depends_on "node" => :build
+  depends_on "node@22" => :build
+  depends_on "yarn" => :build
 
   uses_from_macos "python" => :build, since: :catalina
   uses_from_macos "zlib"
@@ -34,14 +35,11 @@ class Grafana < Formula
   def install
     ENV["NODE_OPTIONS"] = "--max-old-space-size=8000"
 
-    ENV["COREPACK_ENABLE_DOWNLOAD_PROMPT"] = "0"
-    system "corepack", "enable", "--install-directory", buildpath
-
     system "make", "gen-go"
     system "go", "run", "build.go", "build"
 
-    system buildpath/"yarn", "install"
-    system buildpath/"yarn", "build"
+    system "yarn", "install"
+    system "yarn", "build"
 
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
@@ -49,10 +47,9 @@ class Grafana < Formula
     bin.install "bin/#{os}-#{arch}/grafana-cli"
     bin.install "bin/#{os}-#{arch}/grafana-server"
 
-    (etc/"grafana").mkpath
     cp "conf/sample.ini", "conf/grafana.ini.example"
-    etc.install "conf/sample.ini" => "grafana/grafana.ini"
-    etc.install "conf/grafana.ini.example" => "grafana/grafana.ini.example"
+    pkgetc.install "conf/sample.ini" => "grafana.ini"
+    pkgetc.install "conf/grafana.ini.example"
     pkgshare.install "conf", "public", "tools"
   end
 
