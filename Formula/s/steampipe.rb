@@ -1,8 +1,8 @@
 class Steampipe < Formula
   desc "Use SQL to instantly query your cloud services"
   homepage "https://steampipe.io/"
-  url "https://github.com/turbot/steampipe/archive/refs/tags/v1.0.2.tar.gz"
-  sha256 "2e06aab9fc4fb4b45be7747eb24aaf07f10fcb19ee706204dbcc2f211bc37053"
+  url "https://github.com/turbot/steampipe/archive/refs/tags/v1.0.3.tar.gz"
+  sha256 "da82252d369c41509e251e9f914cd922e24977026449982d612a37d81b620bb4"
   license "AGPL-3.0-only"
   head "https://github.com/turbot/steampipe.git", branch: "main"
 
