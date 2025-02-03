@@ -7,6 +7,11 @@ class YaraX < Formula
   revision 1
   head "https://github.com/VirusTotal/yara-x.git", branch: "main"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "bf35e2c0e39fb7959945c139b6d74d36c5f0977087aa53bc869572e804e9ff24"
     sha256 cellar: :any,                 arm64_sonoma:  "9cc3b18bd091c5cf660c147db7828a1b5e2f31464b22303dd9ba827fd428919f"
