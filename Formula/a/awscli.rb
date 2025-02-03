@@ -3,8 +3,8 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/refs/tags/2.23.11.tar.gz"
-  sha256 "68c5cbcc2547fe7cf3b84fc9cef3f5d59082534d3a142308f20c62cb3d25a0ff"
+  url "https://github.com/aws/aws-cli/archive/refs/tags/2.23.12.tar.gz"
+  sha256 "72b83c2108168705c1405660975ade4d6a307f7cf1db798c50c297eb5ccc272a"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
@@ -29,8 +29,8 @@ class Awscli < Formula
   end
 
   resource "awscrt" do
-    url "https://files.pythonhosted.org/packages/ff/ba/ff910e6c0f51eae21cd517b17bf0fc532230b72b2f759bd0482ac2f8706b/awscrt-0.23.4.tar.gz"
-    sha256 "3ef5212a3c3b0549b3b0e85507b7bbdfb891ff40ca4c597e92db07a0bf7b614a"
+    url "https://files.pythonhosted.org/packages/fe/50/0e3fd91488e5f0a18bc829869fc081cf4d9cd86642d9ee21b32907b02e80/awscrt-0.23.8.tar.gz"
+    sha256 "cba55f3ee80ea3192a0a24e84caad778570250800a59d29ef9efbcd4d1612f2f"
   end
 
   resource "colorama" do
