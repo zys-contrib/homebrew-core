@@ -1,8 +1,8 @@
 class Sad < Formula
   desc "CLI search and replace | Space Age seD"
   homepage "https://github.com/ms-jpq/sad"
-  url "https://github.com/ms-jpq/sad/archive/refs/tags/v0.4.31.tar.gz"
-  sha256 "c717e54798e21356340271e32e43de5b05ba064ae64edf639fede27b1ed15ceb"
+  url "https://github.com/ms-jpq/sad/archive/refs/tags/v0.4.32.tar.gz"
+  sha256 "a67902b9edb287861668ee3e39482c17b41c60e244ece62b3f8016250286294f"
   license "MIT"
   head "https://github.com/ms-jpq/sad.git", branch: "senpai"
 
