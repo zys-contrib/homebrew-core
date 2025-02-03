@@ -1,8 +1,8 @@
 class Megatools < Formula
   desc "Command-line client for Mega.co.nz"
   homepage "https://megatools.megous.com/"
-  url "https://megatools.megous.com/builds/megatools-1.11.1.20241028.tar.gz"
-  sha256 "3632135a23aa737950e74183199eb23d4e44461ca4221842717225fb31527a4d"
+  url "https://megatools.megous.com/builds/megatools-1.11.3.20250203.tar.gz"
+  sha256 "37a426ecd360220c9d6c1389c19a9e8f3e07077a9d996e3fd9f756657c1df0a9"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
 
   livecheck do
