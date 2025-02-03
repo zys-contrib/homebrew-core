@@ -1,8 +1,8 @@
 class Atmos < Formula
   desc "Universal Tool for DevOps and Cloud Automation"
   homepage "https://github.com/cloudposse/atmos"
-  url "https://github.com/cloudposse/atmos/archive/refs/tags/v1.157.0.tar.gz"
-  sha256 "21874be52f37e242532c2a169a0b598d3c9e727d6e58097663d3f553db37c00b"
+  url "https://github.com/cloudposse/atmos/archive/refs/tags/v1.158.0.tar.gz"
+  sha256 "1839572c4958647a41a0bf7203d0843e10020f5833831ba9b1ede7b07e764eb5"
   license "Apache-2.0"
 
   bottle do
@@ -48,6 +48,7 @@ class Atmos < Formula
           - "**/*globals*"
         name_pattern: "{tenant}-{environment}-{stage}"
       logs:
+        file: "/dev/stderr"
         verbose: false
         colors: true
     YAML
