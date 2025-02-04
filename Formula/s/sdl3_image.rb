@@ -6,6 +6,15 @@ class Sdl3Image < Formula
   license "Zlib"
   head "https://github.com/libsdl-org/SDL_image.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "7b4a40bd5b49da068f9f7b1aa6416ea1608435a6b962880d1f4005b3c12c63c3"
+    sha256 cellar: :any,                 arm64_sonoma:  "ce64145b5f82c159ee9791c5bdb8a2d44090b3de8851f8454458f8b2124c43cb"
+    sha256 cellar: :any,                 arm64_ventura: "b2576e6ef14d01ef979668451f3894258e3f4ec10620f974cf276f06a1a6a49c"
+    sha256 cellar: :any,                 sonoma:        "0a5582939101f4c5fddc3cc4a17f288778a55b18164412b059c9fc503bcaf752"
+    sha256 cellar: :any,                 ventura:       "5db9220c012cc50214d03950d86eab0aca7d529387e3119706fc66216def2ff2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a4806be12a2ccd946d99cdfdf6ed5022ee19a35091da9222845cae2e1bceb23"
+  end
+
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "jpeg-turbo"
