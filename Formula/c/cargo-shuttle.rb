@@ -1,8 +1,8 @@
 class CargoShuttle < Formula
   desc "Build & ship backends without writing any infrastructure files"
   homepage "https://shuttle.dev"
-  url "https://github.com/shuttle-hq/shuttle/archive/refs/tags/v0.51.0.tar.gz"
-  sha256 "5a5ef70767e9e07867fe2ad4b51909e2d4ec05d79065ca016b77cd9070b1eafd"
+  url "https://github.com/shuttle-hq/shuttle/archive/refs/tags/v0.52.0.tar.gz"
+  sha256 "d377bb0b1c5a6ef01ca0b9eefc9af9549a24d90432a49c9486b431074dcf22f9"
   license "Apache-2.0"
   head "https://github.com/shuttle-hq/shuttle.git", branch: "main"
 
@@ -17,7 +17,7 @@ class CargoShuttle < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "libgit2@1.8" # needs https://github.com/rust-lang/git2-rs/issues/1109 to support libgit2 1.9
+  depends_on "libgit2"
 
   uses_from_macos "bzip2"
 
