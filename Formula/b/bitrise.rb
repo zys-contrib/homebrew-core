@@ -4,6 +4,7 @@ class Bitrise < Formula
   url "https://github.com/bitrise-io/bitrise/archive/refs/tags/2.27.0.tar.gz"
   sha256 "2dd64874e60208602b5b78c4bd521926dc476766965cb46d5dc0fbd00ecd0ce9"
   license "MIT"
+  head "https://github.com/bitrise-io/bitrise.git", branch: "master"
 
   livecheck do
     url :stable
@@ -27,9 +28,10 @@ class Bitrise < Formula
     ldflags = %W[
       -s -w
       -X github.com/bitrise-io/bitrise/version.VERSION=#{version}
+      -X github.com/bitrise-io/bitrise/version.Commit=#{tap.user}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags.join(" "))
+    system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
   test do
