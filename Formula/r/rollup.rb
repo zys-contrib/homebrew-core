@@ -6,12 +6,12 @@ class Rollup < Formula
   license all_of: ["ISC", "MIT"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c3ea6c65881753ff4ed1ac94da9ca4db8c33cd09ed9b6858c217a9f4ceffb5bf"
-    sha256 cellar: :any,                 arm64_sonoma:  "c3ea6c65881753ff4ed1ac94da9ca4db8c33cd09ed9b6858c217a9f4ceffb5bf"
-    sha256 cellar: :any,                 arm64_ventura: "c3ea6c65881753ff4ed1ac94da9ca4db8c33cd09ed9b6858c217a9f4ceffb5bf"
-    sha256 cellar: :any,                 sonoma:        "d9ac68c28781e779d15f10c93e400c80a321d07885c0f7f8944eb07aeb60a09c"
-    sha256 cellar: :any,                 ventura:       "d9ac68c28781e779d15f10c93e400c80a321d07885c0f7f8944eb07aeb60a09c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "076dac5348a61acfa69fe15eca17d6eee445762ef06a7e9f27da6741f25ed3bb"
+    sha256 cellar: :any,                 arm64_sequoia: "00a8b99e5fcf599bc88c5db0bafda4d45a8c53f42d3c97be543481ef733b8602"
+    sha256 cellar: :any,                 arm64_sonoma:  "00a8b99e5fcf599bc88c5db0bafda4d45a8c53f42d3c97be543481ef733b8602"
+    sha256 cellar: :any,                 arm64_ventura: "00a8b99e5fcf599bc88c5db0bafda4d45a8c53f42d3c97be543481ef733b8602"
+    sha256 cellar: :any,                 sonoma:        "6894d74553b2423d7153db7e53be53703bd02410c8c1c4b69ca496d6ddcb61d2"
+    sha256 cellar: :any,                 ventura:       "6894d74553b2423d7153db7e53be53703bd02410c8c1c4b69ca496d6ddcb61d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9467e94593992b6171a4f60ec9913bf6419523d3411b78c7162b2fcba9ebaa0c"
   end
 
   depends_on "node"
