@@ -4,6 +4,7 @@ class Malcontent < Formula
   url "https://github.com/chainguard-dev/malcontent/archive/refs/tags/v1.8.6.tar.gz"
   sha256 "282f46640dccfe4b254ae4d0025e983ab8d0273c177966512523e988c0a4a13f"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "21e574522d3c15ba2194dea95c7b8fcdebad8c38f215cca35fcea387ff7ccfec"
