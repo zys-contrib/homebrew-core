@@ -4,6 +4,7 @@ class Ldc < Formula
   url "https://github.com/ldc-developers/ldc/releases/download/v1.40.1/ldc-1.40.1-src.tar.gz"
   sha256 "b643bee2ee6f9819084ef7468cf739257974a99f3980364d20201bc806a4a454"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/ldc-developers/ldc.git", branch: "master"
 
   livecheck do
@@ -24,8 +25,8 @@ class Ldc < Formula
   depends_on "cmake" => :build
   depends_on "libconfig" => :build
   depends_on "pkgconf" => :build
-  depends_on "lld"
-  depends_on "llvm"
+  depends_on "lld@19" => :test
+  depends_on "llvm@19" # LLVM 20 PR: https://github.com/ldc-developers/ldc/pull/4843
   depends_on "zstd"
 
   uses_from_macos "libxml2" => :build
@@ -94,7 +95,8 @@ class Ldc < Formula
     D
     system bin/"ldc2", "test.d"
     assert_match "Hello, world!", shell_output("./test")
-    with_env(PATH: "#{llvm.opt_bin}:#{ENV["PATH"]}") do
+    lld = deps.map(&:to_formula).find { |f| f.name.match?(/^lld(@\d+(\.\d+)*)?$/) }
+    with_env(PATH: "#{lld.opt_bin}:#{ENV["PATH"]}") do
       system bin/"ldc2", "-flto=thin", "--linker=lld", "test.d"
       assert_match "Hello, world!", shell_output("./test")
       system bin/"ldc2", "-flto=full", "--linker=lld", "test.d"
