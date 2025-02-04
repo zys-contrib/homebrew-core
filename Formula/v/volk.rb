@@ -8,13 +8,12 @@ class Volk < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
-    rebuild 2
-    sha256 arm64_sequoia: "c7e790569a2a56a6b940629c4a7f43f405e6880dca4ca28fb10c865946a8c082"
-    sha256 arm64_sonoma:  "461091295111ed35c5042dc8365ecd5ebb8427f228cf727467e29810e7c30ccf"
-    sha256 arm64_ventura: "81d0ba801a5fef0e427d011bcfe612304aced3b066e069cdd1336193f1f97334"
-    sha256 sonoma:        "0fa13e15334a491e0a64c9303db8fd497158f2d533b30bdde35d0ff7ed7ae767"
-    sha256 ventura:       "b7a3423c4cc84375a4dd2ac5b0694f75b154b4652aebc8bf4373b84b58403bab"
-    sha256 x86_64_linux:  "7a3729f082520b38cd8409f2e032c6986d77a056a72f2b152e7e91dfe3309621"
+    sha256 cellar: :any,                 arm64_sequoia: "1f910c4f27cfbd4419f857c369337c1fcce0068b05d01391fa1f6b5d9db00055"
+    sha256 cellar: :any,                 arm64_sonoma:  "7a2efd35a0db458e5afe369c40a303b561a34df77d1fae9c11378afc31d2fedf"
+    sha256 cellar: :any,                 arm64_ventura: "46b4a7e08f105a3348f4ac8007b8718c76715dbc35dd2f6da818031ffef214e8"
+    sha256 cellar: :any,                 sonoma:        "791c5ee148b98b0707ebe2fa57f66d6310be6ef0eeb6b16925edea23c9b92f2d"
+    sha256 cellar: :any,                 ventura:       "17265b6ad8a1b44a34f0ed8a9acb52abfdc6d3021adeb44b692022cc80376200"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a453a467d9e9fcd933395cb567e39e003e3ec7f294bd422757f209e7ba418eb"
   end
 
   depends_on "cmake" => :build
