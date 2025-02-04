@@ -4,14 +4,15 @@ class Malcontent < Formula
   url "https://github.com/chainguard-dev/malcontent/archive/refs/tags/v1.8.6.tar.gz"
   sha256 "282f46640dccfe4b254ae4d0025e983ab8d0273c177966512523e988c0a4a13f"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "21e574522d3c15ba2194dea95c7b8fcdebad8c38f215cca35fcea387ff7ccfec"
-    sha256 cellar: :any,                 arm64_sonoma:  "15bae21aa368c40552b76e177a9e93cb4cc92debece18f3264ebfc122a0a3fe0"
-    sha256 cellar: :any,                 arm64_ventura: "0ab802e01d203cd0ae28a066c5e26209976b1010049271ce140728b5b659c819"
-    sha256 cellar: :any,                 sonoma:        "bc8b0999868c1bdd49e5025f9bd54c53cf3e0d7f68760ffcc9a4c3ae86148389"
-    sha256 cellar: :any,                 ventura:       "13aad75c87e25237c28cb0f7d4dbc5cc031cdbc95dc96ae90656d14d4f25ee98"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5d281303886d09f7bc59704f8e4ff9f02a4925501f2cbb723a9df38657b5028"
+    sha256 cellar: :any,                 arm64_sequoia: "791b8b3abdb78182e80c065dc39e1e33511a9d42361c56d9f1b6aabc863d210e"
+    sha256 cellar: :any,                 arm64_sonoma:  "204313a9f1b0feb2b5c4462da364a16899371b416e85570a438952b0d7313c29"
+    sha256 cellar: :any,                 arm64_ventura: "b9f3ca66fb8c7ed1b91c7830f6be70e5b723e066776d26c3b9d1ad1017b6d45a"
+    sha256 cellar: :any,                 sonoma:        "d4f27aad582a1893b5e3e11b6cb1b1e6bda6e3688c26bd23d3ab2b753789bfaa"
+    sha256 cellar: :any,                 ventura:       "75fcd3417df05b7ded112f989ec8c9665a77e0fc0302a7ffdf85c4192057cd7d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "007dbb723d6950dd7316ad76b1444e2adcbfd89668ebb7a56baa23994b59736b"
   end
 
   depends_on "go" => :build
