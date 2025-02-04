@@ -1,8 +1,8 @@
 class RubyAT32 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.6.tar.gz"
-  sha256 "d9cb65ecdf3f18669639f2638b63379ed6fbb17d93ae4e726d4eb2bf68a48370"
+  url "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.7.tar.gz"
+  sha256 "8488fa620ff0333c16d437f2b890bba3b67f8745fdecb1472568a6114aad9741"
   license "Ruby"
 
   livecheck do
