@@ -10,6 +10,15 @@ class Lazysql < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b39c736b95ed324b0cdf0053829afbda0796b858b70b43d1f1a1233b00c0960e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b39c736b95ed324b0cdf0053829afbda0796b858b70b43d1f1a1233b00c0960e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b39c736b95ed324b0cdf0053829afbda0796b858b70b43d1f1a1233b00c0960e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b2c989d974d85f2bf369c684e86e31e83e83d86a2a0f70dea8593c9a5df605b8"
+    sha256 cellar: :any_skip_relocation, ventura:       "b2c989d974d85f2bf369c684e86e31e83e83d86a2a0f70dea8593c9a5df605b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a017abc286d60d26ad804e35f22da4aeba2c0c01ae3fb4bf6e11d5f7459417b"
+  end
+
   depends_on "go" => :build
   uses_from_macos "sqlite" => :test
 
