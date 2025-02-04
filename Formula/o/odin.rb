@@ -6,6 +6,7 @@ class Odin < Formula
       revision: "951bef4ade595e5fa7e8f0d0681e4e34ab1ca9d3"
   version "2025-03"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/odin-lang/Odin.git", branch: "master"
 
   bottle do
@@ -18,7 +19,7 @@ class Odin < Formula
   end
 
   depends_on "glfw"
-  depends_on "llvm"
+  depends_on "llvm@19"
   depends_on "raylib"
 
   resource "raygui" do
@@ -29,6 +30,7 @@ class Odin < Formula
   def install
     llvm = deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+(\.\d+)*)?$/) }
     ENV["LLVM_CONFIG"] = (llvm.opt_bin/"llvm-config").to_s
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{llvm.opt_lib}" if OS.linux?
 
     # Delete pre-compiled binaries which brew does not allow.
     buildpath.glob("vendor/**/*.{lib,dll,a,dylib,so,so.*}").map(&:unlink)
