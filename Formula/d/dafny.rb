@@ -1,8 +1,8 @@
 class Dafny < Formula
   desc "Verification-aware programming language"
   homepage "https://github.com/dafny-lang/dafny/blob/master/README.md"
-  url "https://github.com/dafny-lang/dafny/archive/refs/tags/v4.9.0.tar.gz"
-  sha256 "dab75085d50e46b923a79b530a288f62a34d1bac45f6ca64881e094553c247b8"
+  url "https://github.com/dafny-lang/dafny/archive/refs/tags/v4.10.0.tar.gz"
+  sha256 "bd643ae9cd5b697505ca3682fa4d15238c6746701eaa1eeba4c541006674da40"
   license "MIT"
 
   bottle do
@@ -12,15 +12,10 @@ class Dafny < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5797f4585a7641abb8e04c9ff93410bb9efed682344b772edd313ff6622a2dd"
   end
 
-  # Align deprecation with dotnet@6. Can be undeprecated if dependency is updated.
-  # Issue ref: https://github.com/dafny-lang/dafny/issues/4948
-  # PR ref: https://github.com/dafny-lang/dafny/pull/5322
-  deprecate! date: "2024-11-12", because: "uses deprecated `dotnet@6`"
-
   depends_on "gradle" => :build
   depends_on "openjdk" => [:build, :test]
 
-  depends_on "dotnet@6"
+  depends_on "dotnet@8"
   depends_on "z3"
 
   def install
@@ -33,7 +28,7 @@ class Dafny < Formula
 
     (bin/"dafny").write <<~EOS
       #!/bin/bash
-      exec "#{Formula["dotnet@6"].opt_bin}/dotnet" "#{libexec}/Dafny.dll" "$@"
+      exec "#{Formula["dotnet@8"].opt_bin}/dotnet" "#{libexec}/Dafny.dll" "$@"
     EOS
   end
 
