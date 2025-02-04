@@ -15,6 +15,7 @@ class Pyside < Formula
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
   ]
+  revision 1
 
   livecheck do
     url "https://download.qt.io/official_releases/QtForPython/pyside6/"
@@ -55,6 +56,12 @@ class Pyside < Formula
 
   def install
     ENV.append_path "PYTHONPATH", buildpath/"build/sources"
+    if OS.mac?
+      # Avoid detection of unwanted formulae. Should be handled in brew instead
+      ENV["CMAKE_PREFIX_PATH"] = ENV["CMAKE_PREFIX_PATH"].split(":")
+                                                         .reject { |p| p == HOMEBREW_PREFIX.to_s }
+                                                         .join(":")
+    end
 
     extra_include_dirs = [Formula["qt"].opt_include]
     extra_include_dirs << Formula["mesa"].opt_include if OS.linux?
