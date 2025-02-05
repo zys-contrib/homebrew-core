@@ -1,8 +1,8 @@
 class Codesnap < Formula
   desc "Generates code snapshots in various formats"
   homepage "https://github.com/mistricky/CodeSnap"
-  url "https://github.com/mistricky/CodeSnap/archive/refs/tags/v0.10.1.tar.gz"
-  sha256 "df25de3eb35c597c9de5f6e7bff1b9dceaca660f456f484e7ff4536ba3a62fb1"
+  url "https://github.com/mistricky/CodeSnap/archive/refs/tags/v0.10.4.tar.gz"
+  sha256 "ce12517002d02ce94d29a032db921fab49925ef51d4b8d4d117f60f46754b601"
   license "MIT"
   head "https://github.com/mistricky/CodeSnap.git", branch: "main"
 
@@ -20,7 +20,7 @@ class Codesnap < Formula
   def install
     system "cargo", "install", *std_cargo_args(path: "cli")
 
-    pkgshare.install "examples"
+    pkgshare.install "cli/examples"
   end
 
   test do
