@@ -6,6 +6,15 @@ class Dud < Formula
   license "BSD-3-Clause"
   head "https://github.com/kevin-hanselman/dud.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e40fc688de77f2aa11aaf87d123516aa14883010c37e6ba1bc8e035dc6ee1dfb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e40fc688de77f2aa11aaf87d123516aa14883010c37e6ba1bc8e035dc6ee1dfb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e40fc688de77f2aa11aaf87d123516aa14883010c37e6ba1bc8e035dc6ee1dfb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9ba8951fd0efc9b6a64503491025a2f9b6a0a741e3fcd147dc5f0855a9333a51"
+    sha256 cellar: :any_skip_relocation, ventura:       "9ba8951fd0efc9b6a64503491025a2f9b6a0a741e3fcd147dc5f0855a9333a51"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6d2d41cbcbda86daf9354b22905a9bdc50b1b866e9727510929ce13a11eb837"
+  end
+
   depends_on "go" => :build
 
   def install
