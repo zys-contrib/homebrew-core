@@ -4,6 +4,7 @@ class Cmark < Formula
   url "https://github.com/commonmark/cmark/archive/refs/tags/0.31.1.tar.gz"
   sha256 "3da93db5469c30588cfeb283d9d62edfc6ded9eb0edc10a4f5bbfb7d722ea802"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2ef6e622a90bf422b50d87ced249c01fcddf68577dca5c1d253ae49e65507612"
@@ -20,7 +21,7 @@ class Cmark < Formula
   uses_from_macos "python" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
