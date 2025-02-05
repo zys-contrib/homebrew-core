@@ -1,8 +1,8 @@
 class PythonFreethreading < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.13.1/Python-3.13.1.tgz"
-  sha256 "1513925a9f255ef0793dbf2f78bb4533c9f184bdd0ad19763fd7f47a400a7c55"
+  url "https://www.python.org/ftp/python/3.13.2/Python-3.13.2.tgz"
+  sha256 "b8d79530e3b7c96a5cb2d40d431ddb512af4a563e863728d8713039aa50203f9"
   license "Python-2.0"
 
   livecheck do
@@ -27,7 +27,7 @@ class PythonFreethreading < Formula
   # not actually used, we just want this installed to ensure there are no conflicts.
   uses_from_macos "python" => :test
   uses_from_macos "bzip2"
-  uses_from_macos "expat"
+  uses_from_macos "expat", since: :sequoia
   uses_from_macos "libedit"
   uses_from_macos "libffi", since: :catalina
   uses_from_macos "libxcrypt"
