@@ -1,8 +1,8 @@
 class PythonTkAT313 < Formula
   desc "Python interface to Tcl/Tk"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.13.1/Python-3.13.1.tgz"
-  sha256 "1513925a9f255ef0793dbf2f78bb4533c9f184bdd0ad19763fd7f47a400a7c55"
+  url "https://www.python.org/ftp/python/3.13.2/Python-3.13.2.tgz"
+  sha256 "b8d79530e3b7c96a5cb2d40d431ddb512af4a563e863728d8713039aa50203f9"
   license "Python-2.0"
 
   livecheck do
@@ -85,11 +85,11 @@ index 073b3ae20797c3..8ddb7f97e3b233 100644
 @@ -321,6 +321,8 @@ def _tclobj_to_py(val):
      elif hasattr(val, 'typename'): # some other (single) Tcl object
          val = _convert_stringval(val)
- 
+
 +    if isinstance(val, tuple) and len(val) == 0:
 +        return ''
      return val
- 
+
  def tclobjs_to_py(adict):
 diff --git a/Modules/_tkinter.c b/Modules/_tkinter.c
 index b0b70ccb8cc3d3..45897817a56051 100644
@@ -101,19 +101,19 @@ index b0b70ccb8cc3d3..45897817a56051 100644
      const Tcl_ObjType *UTF32StringType;
 +    const Tcl_ObjType *PixelType;
  } TkappObject;
- 
+
  #define Tkapp_Interp(v) (((TkappObject *) (v))->interp)
 @@ -637,6 +638,7 @@ Tkapp_New(const char *screenName, const char *className,
      v->ListType = Tcl_GetObjType("list");
      v->StringType = Tcl_GetObjType("string");
      v->UTF32StringType = Tcl_GetObjType("utf32string");
 +    v->PixelType = Tcl_GetObjType("pixel");
- 
+
      /* Delete the 'exit' command, which can screw things up */
      Tcl_DeleteCommand(v->interp, "exit");
 @@ -1236,7 +1238,8 @@ FromObj(TkappObject *tkapp, Tcl_Obj *value)
      }
- 
+
      if (value->typePtr == tkapp->StringType ||
 -        value->typePtr == tkapp->UTF32StringType)
 +        value->typePtr == tkapp->UTF32StringType ||
