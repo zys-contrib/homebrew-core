@@ -6,12 +6,12 @@ class Xeol < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "834c0966f109b5bb98df2988f16205dac8e1ec4bc8dd6ab48d3c1bf3f23db358"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8d25f80d8ad7ff85f10061004890782ac5f3b26c613d4ef881c17965d033aa88"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7b3b7a5bf361e3bb7431b12dde030e44c2fe482f44177f401b966bc14152d1e3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9e49c8d52941a9aa7828b3472c9ab0d45ca7f8ced54eed271afa0ea7efd70b34"
-    sha256 cellar: :any_skip_relocation, ventura:       "0fdfc2749d0346201c9bd2fcc4a63ce72acb3d56a80e9ef85e4272751915dee5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa1240dac7c29ba68c1aae1e13285d24484fb8171ed1be02be6445e3d62c86b4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "87e10685819794180c332478791c95bdd3cf530316988b0066f2e93bb7044e1b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "14546bd6908a08395a2e47b9722a8b71dbb5573ffb36ed07c6688239920eb1e8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2ca37e39aa875054b79af7b5fce4e950df3367720c8beb976e2a63c914a92990"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c16d9c302d027e78722592c58fb83010609ff9bbff084032885b8090f568c2a2"
+    sha256 cellar: :any_skip_relocation, ventura:       "a7771325fd5a20e2478d7e21271d70b565749171eef0c58d7bf4a30e33c7f63f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26c1eb3ae580c51f6c68917cd78e410ebedcfe7c62310f0bace9d92dd9ecbf7d"
   end
 
   depends_on "go" => :build
