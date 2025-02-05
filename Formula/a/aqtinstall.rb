@@ -7,6 +7,15 @@ class Aqtinstall < Formula
   sha256 "860b2fb20556229d2142ee38d2a6c96e32eecab267fbe3b13be50b9a3a1f3cba"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "82f9597cabf10586c985245754d44cefde95b6164e40429490201e1c3cd6b5d8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a59ae26ba6e67eea4f8217e10321334a79a5eeb90c7c51e08a86fd6bedcd73cb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "271e56eec17151de23fac4c80cfc254fa755ce5d35136505c939932680296bde"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d22d23a4eceaffad925b0f5eb1c18fc48bf4516c5da2dbb7f054c3b70f9d5a0c"
+    sha256 cellar: :any_skip_relocation, ventura:       "30a32db7a9a714e03fed45fea75e69639162734eb816d5538c741fe90a18887b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a47ce5dd04e96e80d699c9041e6285ebeedf32d80eade48fece3b5a333e35fc2"
+  end
+
   depends_on "python@3.13"
 
   resource "beautifulsoup4" do
