@@ -1,8 +1,8 @@
 class WebExt < Formula
   desc "Command-line tool to help build, run, and test web extensions"
   homepage "https://github.com/mozilla/web-ext"
-  url "https://registry.npmjs.org/web-ext/-/web-ext-8.3.0.tgz"
-  sha256 "c653efdb1e8082f80512a1b635dea6b475748bff4f363f7e59e36fe0b4eb3503"
+  url "https://registry.npmjs.org/web-ext/-/web-ext-8.4.0.tgz"
+  sha256 "5dcddeaa63ca25a0cbb2ea641d12691af7f92e816f96d4e0f56daa31150f3e1f"
   license "MPL-2.0"
 
   bottle do
