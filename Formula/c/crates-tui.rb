@@ -1,8 +1,8 @@
 class CratesTui < Formula
   desc "TUI for exploring crates.io using Ratatui"
   homepage "https://github.com/ratatui/crates-tui"
-  url "https://github.com/ratatui/crates-tui/archive/refs/tags/v0.1.24.tar.gz"
-  sha256 "da1a6b5a04ab27c3b26fbd616a9fe8ddf52f437a8259a551b54e4aad4ea8ce19"
+  url "https://github.com/ratatui/crates-tui/archive/refs/tags/v0.1.25.tar.gz"
+  sha256 "b02e2fa3b7225b5638f9ab8716c3cf21dfb32d96aee140ead2f451005abd58c2"
   license "MIT"
   head "https://github.com/ratatui/crates-tui.git", branch: "main"
 
