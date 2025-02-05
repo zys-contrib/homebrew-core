@@ -6,10 +6,11 @@ class Dafny < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2a36bf3e4ca3d330259682a45b8e2819ff8c77c64268038675cab30ee2757f92"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1d0c2d698efa882dc35316a259c2d1bca1f3814f2b143f01e1088e3a4b10c77b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b780a11bcc50e5c26ee52e3ea912be50caf1d0404afe9fb0f6bd3d55b3b48fe9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5797f4585a7641abb8e04c9ff93410bb9efed682344b772edd313ff6622a2dd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b0379afe58205e4e147a773cfe4e45102e4b6bda9a2a40e862641730e23381b6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e361b9620dab3bc75b0f55c708fac271c5da152a11aade9873838b52af43c9c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "72f8fd00da940888a1a2cb7a5ad9ca0919a1537f2b2901336fd21e760f11cc6f"
+    sha256 cellar: :any_skip_relocation, ventura:       "a717a33ebf39dcfa1bf658103e5e70d07961643d9652c4823f6969beb47735ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e7397f8784ded9a6688b1e1a3e5ee31b2278d44e55462429395f1b374b3b736"
   end
 
   depends_on "gradle" => :build
