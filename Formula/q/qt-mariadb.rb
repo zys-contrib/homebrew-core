@@ -10,11 +10,11 @@ class QtMariadb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "36df0a8bb8e0085f4dd4c3431ecc198edcb0e3a579160e565cdda35cbfec6cf1"
-    sha256 cellar: :any,                 arm64_ventura: "82acaa2afe947a56264be5673dc7dedbff76cc6cd2cce32241794920296d5f49"
-    sha256 cellar: :any,                 sonoma:        "f66b1041ae0f2861b81d6e728b893517c7a6246aa0c1f46742a97f27734f8db3"
-    sha256 cellar: :any,                 ventura:       "e5e0fd4650fd6dc4936ec257dbbc9275a8d0d603bef546c1020c9b21edb2e3dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe26e8dedfa68195ae611d654ec004731e975e6c1ae99b6655c9ce88f840bd48"
+    sha256 cellar: :any,                 arm64_sonoma:  "4d42506b7beecfab62b65c36fdcd784be6d69816527d936e5edd638f2f5a5c2e"
+    sha256 cellar: :any,                 arm64_ventura: "2719c7ade47c12b67ad5b1e09160ac6a58d8139a030c525104d89647818d6fcd"
+    sha256 cellar: :any,                 sonoma:        "a4df69579bdc41f009d1e686c67d654f10774bbee5b7124fbd810f74dd2aec8e"
+    sha256 cellar: :any,                 ventura:       "e0359f957bfb7f5207b1c7602e5af0087e311ae70f08b74f84769637be5901f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4dcfeca0c1c6f6c4caf2f6b035d00d6578971e5012d926a22c8eede6f062f638"
   end
 
   depends_on "cmake" => [:build, :test]
