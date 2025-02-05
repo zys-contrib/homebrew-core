@@ -4,6 +4,7 @@ class Gammaray < Formula
   url "https://github.com/KDAB/GammaRay/releases/download/v3.1.0/gammaray-3.1.0.tar.gz"
   sha256 "93b52d5318374896621e1d8b5dd03379c53e0458b1633b539d18737fe8c300cf"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/KDAB/GammaRay.git", branch: "master"
 
   bottle do
