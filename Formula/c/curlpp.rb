@@ -4,7 +4,7 @@ class Curlpp < Formula
   url "https://github.com/jpbarrette/curlpp/archive/refs/tags/v0.8.1.tar.gz"
   sha256 "97e3819bdcffc3e4047b6ac57ca14e04af85380bd93afe314bee9dd5c7f46a0a"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "c7da94222136941056463454413c370c6258106b8851b5114d7cd07b7cb80b28"
@@ -24,6 +24,14 @@ class Curlpp < Formula
   depends_on "cmake" => :build
 
   uses_from_macos "curl"
+
+  patch do
+    # build patch for curl 8.10+
+    on_linux do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/0089ecdbd3df70aa0efc06801d82700bd24be023/curlpp/curl-8.10.patch"
+      sha256 "77212f725bc4916432bff3cd6ecf009e6a24dcec31048a9311b02af8c9b7b338"
+    end
+  end
 
   def install
     ENV.cxx11
