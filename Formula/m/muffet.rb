@@ -7,12 +7,12 @@ class Muffet < Formula
   head "https://github.com/raviqqe/muffet.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b2065a6c0186ffda9fff18085b5c622e723d49769396d1a01289e1d9e5c4176a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b2065a6c0186ffda9fff18085b5c622e723d49769396d1a01289e1d9e5c4176a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b2065a6c0186ffda9fff18085b5c622e723d49769396d1a01289e1d9e5c4176a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5e91e049274c923f00da03d29622b6a1236b601100e2b5b771b33d3281f282c6"
-    sha256 cellar: :any_skip_relocation, ventura:       "5e91e049274c923f00da03d29622b6a1236b601100e2b5b771b33d3281f282c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8355f387677d8564a9fe4821572f6c99e76fa33f9a9a291796f049eb0b78f59e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e56f4d50c60c38899dac2ccb9fd247803dfa695a547d1f084955c7fd93e751d1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e56f4d50c60c38899dac2ccb9fd247803dfa695a547d1f084955c7fd93e751d1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e56f4d50c60c38899dac2ccb9fd247803dfa695a547d1f084955c7fd93e751d1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "694f6195e8501a68423a05a0f882cd485d5f44385f4ef67ace5a6f9e4420b328"
+    sha256 cellar: :any_skip_relocation, ventura:       "694f6195e8501a68423a05a0f882cd485d5f44385f4ef67ace5a6f9e4420b328"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54996f8a1026d9e4be730a91dc29138a770989dc61ed8374556eb1cb64cf9968"
   end
 
   depends_on "go" => :build
