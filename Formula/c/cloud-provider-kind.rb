@@ -6,6 +6,15 @@ class CloudProviderKind < Formula
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/cloud-provider-kind.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "82743514320e02d3a5bd8fb46b9e8e4e8c39e0b71270b998559c930d3a85061e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "82743514320e02d3a5bd8fb46b9e8e4e8c39e0b71270b998559c930d3a85061e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "82743514320e02d3a5bd8fb46b9e8e4e8c39e0b71270b998559c930d3a85061e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "597af62080bacddce17502631e2513d4846873be929c2792c7264368ced03d74"
+    sha256 cellar: :any_skip_relocation, ventura:       "597af62080bacddce17502631e2513d4846873be929c2792c7264368ced03d74"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5545b87301dda62fe2db61748cd20f8560777c781f1333c769b23d77dcff92a6"
+  end
+
   depends_on "go" => :build
 
   def install
