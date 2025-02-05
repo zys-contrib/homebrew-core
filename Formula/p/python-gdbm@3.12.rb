@@ -1,8 +1,8 @@
 class PythonGdbmAT312 < Formula
   desc "Python interface to gdbm"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.12.8/Python-3.12.8.tgz"
-  sha256 "5978435c479a376648cb02854df3b892ace9ed7d32b1fead652712bee9d03a45"
+  url "https://www.python.org/ftp/python/3.12.9/Python-3.12.9.tgz"
+  sha256 "45313e4c5f0e8acdec9580161d565cf5fea578e3eabf25df7cc6355bf4afa1ee"
   license "Python-2.0"
 
   livecheck do
@@ -26,6 +26,13 @@ class PythonGdbmAT312 < Formula
   end
 
   def install
+    xy = Language::Python.major_minor_version python3
+    python_include = if OS.mac?
+      Formula["python@#{xy}"].opt_frameworks/"Python.framework/Versions/#{xy}/include/python#{xy}"
+    else
+      Formula["python@#{xy}"].opt_include/"python#{xy}"
+    end
+
     cd "Modules" do
       (Pathname.pwd/"setup.py").write <<~PYTHON
         from setuptools import setup, Extension
@@ -35,7 +42,7 @@ class PythonGdbmAT312 < Formula
               version="#{version}",
               ext_modules = [
                 Extension("_gdbm", ["_gdbmmodule.c"],
-                          include_dirs=["#{Formula["gdbm"].opt_include}"],
+                          include_dirs=["#{Formula["gdbm"].opt_include}", "#{python_include}/internal"],
                           libraries=["gdbm"],
                           library_dirs=["#{Formula["gdbm"].opt_lib}"])
               ]
