@@ -7,12 +7,12 @@ class RedoclyCli < Formula
   head "https://github.com/redocly/redocly-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9bc51384214e3eaa2c1fa01647a3db439a79cb96e43d3f41e84b1d04f45690e5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9bc51384214e3eaa2c1fa01647a3db439a79cb96e43d3f41e84b1d04f45690e5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9bc51384214e3eaa2c1fa01647a3db439a79cb96e43d3f41e84b1d04f45690e5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d903b13018f35dded2762a4e4d0d935e35b3f9662f46f854ba0e2ec185c3cc1f"
-    sha256 cellar: :any_skip_relocation, ventura:       "d903b13018f35dded2762a4e4d0d935e35b3f9662f46f854ba0e2ec185c3cc1f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9bc51384214e3eaa2c1fa01647a3db439a79cb96e43d3f41e84b1d04f45690e5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "12e1b1022ece5e5f01027dfd58893aa3896e8a2815dba2fcb496962d80b64925"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "12e1b1022ece5e5f01027dfd58893aa3896e8a2815dba2fcb496962d80b64925"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "12e1b1022ece5e5f01027dfd58893aa3896e8a2815dba2fcb496962d80b64925"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8f75bf6e9f2b00078c2063ab959089d1561ff16f7740df7cd6c689cf41e969f7"
+    sha256 cellar: :any_skip_relocation, ventura:       "8f75bf6e9f2b00078c2063ab959089d1561ff16f7740df7cd6c689cf41e969f7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12e1b1022ece5e5f01027dfd58893aa3896e8a2815dba2fcb496962d80b64925"
   end
 
   depends_on "node"
