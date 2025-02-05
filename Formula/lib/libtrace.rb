@@ -1,9 +1,9 @@
 class Libtrace < Formula
   desc "Library for trace processing supporting multiple inputs"
   homepage "https://github.com/LibtraceTeam/libtrace"
-  url "https://github.com/LibtraceTeam/libtrace/archive/refs/tags/4.0.26-1.tar.gz"
-  version "4.0.26"
-  sha256 "8174322a0ca44398addf7dfabea926876ef0b88ea453023c8bd6749ac0333cab"
+  url "https://github.com/LibtraceTeam/libtrace/archive/refs/tags/4.0.27-1.tar.gz"
+  version "4.0.27"
+  sha256 "68441ff9152f4c52f094480320417b2a157dd8e7f3532a619ec5bb890ea949bf"
   license all_of: ["GPL-2.0-or-later", "LGPL-3.0-or-later"]
 
   livecheck do
@@ -35,6 +35,7 @@ class Libtrace < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "libpcap"
+  uses_from_macos "ncurses"
 
   resource "homebrew-8021x.pcap" do
     url "https://github.com/LibtraceTeam/libtrace/raw/9e82eabc39bc491c74cc4215d7eda5f07b85a8f5/test/traces/8021x.pcap"
