@@ -6,13 +6,12 @@ class Fselect < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "d1028fcca660a0a1876cd8ad5d92314dff3ee6fef54fb10bffc59cabfc9c1dc8"
-    sha256 cellar: :any,                 arm64_sonoma:  "a9acdc57d9a524f57854fcc56baeb3424bcc9df9312f90e32a6d1154d35ea9bd"
-    sha256 cellar: :any,                 arm64_ventura: "dfebd2f2eb389bb277d9d36891d6119bec6874c6b7d3a1ebf2fdd9ec924c9cf1"
-    sha256 cellar: :any,                 sonoma:        "3244d215731477c373e75589d09c48e408fe17c52b97412beb92a774de8ae920"
-    sha256 cellar: :any,                 ventura:       "d93fa6b4d3a3e8e04a79f3c14423e8e6b5c4291c873c4c66c04b0bd0beb4911c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cda28ae154ab74d840102f543cbab87ca90e53f03d60e907cb9f7209e80042d0"
+    sha256 cellar: :any,                 arm64_sequoia: "c1785ec66f4e55b795503170aaf43b4ab897b2da4852acc072f8eedd0c3cc7f3"
+    sha256 cellar: :any,                 arm64_sonoma:  "726d35a261fe7fbe30c4c4f2ddd145d23ff33075fa646e322b1f9d41daaf731f"
+    sha256 cellar: :any,                 arm64_ventura: "43bba5700b6a79fbef7f60189e63357cc3baa01e52d0ae56d4a5d4c531a11fdc"
+    sha256 cellar: :any,                 sonoma:        "d5e29d73d836e83477d197bb6154435c058c50c672ba46b0b113620609109063"
+    sha256 cellar: :any,                 ventura:       "b087b27e909dc500699ac7e775d3d0b8971ab27670024bcb443a2358b8525c68"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "121d50a814277f56cb8b684746e81ac02f79cbd14efdc8259dbf85749ec9728b"
   end
 
   depends_on "cmake" => :build # for libz-ng-sys
