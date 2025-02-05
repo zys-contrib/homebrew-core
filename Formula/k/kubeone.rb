@@ -5,8 +5,8 @@ class Kubeone < Formula
   head "https://github.com/kubermatic/kubeone.git", branch: "main"
 
   stable do
-    url "https://github.com/kubermatic/kubeone/archive/refs/tags/v1.9.1.tar.gz"
-    sha256 "bd19d41be2a172b5ad280e29fe7aac6d1f6c8d10c42bc6a4655bc4bb72aab2af"
+    url "https://github.com/kubermatic/kubeone/archive/refs/tags/v1.9.2.tar.gz"
+    sha256 "642ac0217212374fa584fae47856646ce52e5a63484237c899578ac854136311"
 
     # fish completion support patch, upstream pr ref, https://github.com/kubermatic/kubeone/pull/3471
     patch do
