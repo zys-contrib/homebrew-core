@@ -4,6 +4,7 @@ class Curlcpp < Formula
   url "https://github.com/JosephP91/curlcpp/archive/refs/tags/3.1.tar.gz"
   sha256 "ba7aeed9fde9e5081936fbe08f7a584e452f9ac1199e5fabffbb3cfc95e85f4b"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "02d6013f6cebe3e32f938baf215bc25a97b6b20b04e7639f59f360f81c0984a1"
@@ -22,8 +23,16 @@ class Curlcpp < Formula
 
   uses_from_macos "curl"
 
+  # remove use of CURLOPT_CLOSEPOLICY (removed since curl 8.10+), upstream pr ref, https://github.com/JosephP91/curlcpp/pull/159
+  patch do
+    on_linux do
+      url "https://github.com/JosephP91/curlcpp/commit/bc3800510f30ed74c90227b166d134cd13fd63cf.patch?full_index=1"
+      sha256 "0954b32d0304ad9b4acecf3f647242b2c5736f4c6576a390e665e57883dcf10f"
+    end
+  end
+
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=SHARED"
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=SHARED", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
