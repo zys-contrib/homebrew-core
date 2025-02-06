@@ -1,8 +1,8 @@
 class Bao < Formula
   desc "Implementation of BLAKE3 verified streaming"
   homepage "https://github.com/oconnor663/bao"
-  url "https://github.com/oconnor663/bao/archive/refs/tags/0.12.1.tar.gz"
-  sha256 "1565b3a8d043b485983ffa14cb2fbd939cca0511f7df711227fc695847c67c01"
+  url "https://github.com/oconnor663/bao/archive/refs/tags/0.13.0.tar.gz"
+  sha256 "05a8bb641710eb70ba59f2a765128211a554b186f117a48bb0c10e055dc23db4"
   license any_of: ["Apache-2.0", "CC0-1.0"]
   head "https://github.com/oconnor663/bao.git", branch: "master"
 
