@@ -7,12 +7,12 @@ class Verovio < Formula
   head "https://github.com/rism-digital/verovio.git", branch: "develop"
 
   bottle do
-    sha256 arm64_sequoia: "6076672f943ccebd0f7aac7805001aa9d4e7bcf65d359e9969860aaa98796de2"
-    sha256 arm64_sonoma:  "4efe1058fd2c45d2b1749b8683a2734ffe6388deb8c311e69ca8637da36c987d"
-    sha256 arm64_ventura: "291caa707fe635b104c24ef48f791f33008cbefb3ceb5c3b0a6a0bbe2e4461e8"
-    sha256 sonoma:        "cf9cac00c664f3a57511857899512453ed4becda3684879e2f06809fbcaac234"
-    sha256 ventura:       "9143a905311e96bb38beb55fba06d3018246c193a130449fc1177174cb103415"
-    sha256 x86_64_linux:  "0ac976fbe1edb62069f5b07f15f177dfeb1e13c1271cc74cf28f195be6a0953d"
+    sha256 arm64_sequoia: "7dfc82a1128362e9d374445f2484f3716e849ac972e8cc4e06029117fb760d83"
+    sha256 arm64_sonoma:  "7d8e58036363a410e22d04dac8fc4d8012d87734b5919febb3bab0a9417f5c7b"
+    sha256 arm64_ventura: "33af995f18d1ce2dc29e2ac40441de035c45f4e25a8688db97db52ffaf5d502d"
+    sha256 sonoma:        "033bdfc9a3d91580b62d95aa1327480af7008a36815bbc4c421b29284374eb02"
+    sha256 ventura:       "9f42a22bb93be8ea6f8becf920cd3de117f6f6b08451547834b19cb80222221a"
+    sha256 x86_64_linux:  "80617595df50e81d38f0ab6d4c35a82c99034d6f4b89f03383faccd566b064c3"
   end
 
   depends_on "cmake" => :build
