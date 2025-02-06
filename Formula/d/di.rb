@@ -1,8 +1,8 @@
 class Di < Formula
   desc "Advanced df-like disk information utility"
   homepage "https://diskinfo-di.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/diskinfo-di/di-4.54.0.1.tar.gz"
-  sha256 "b401e647ecc3c8a697651bd29ad1cc6ae319f69a248b4dc4d3af0742f64b4ffb"
+  url "https://downloads.sourceforge.net/project/diskinfo-di/di-5.0.0.tar.gz"
+  sha256 "f6007412d5350f6bdc7c6ac6fc522139723520d6cd1d6ae0a348cfa66b2ce582"
   license "Zlib"
 
   # This only matches tarballs in the root directory, as a way of avoiding
@@ -21,8 +21,21 @@ class Di < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d3898fd49a626edd4b27777a5b5f9a58c2e9f65fd4939eed0a3e47d0ee6a361"
   end
 
+  depends_on "cmake" => :build
+  depends_on "pkgconf" => :build
+
   def install
-    system "make", "install", "prefix=#{prefix}"
+    args = %W[
+      -DDI_BUILD=Release
+      -DDI_VERSION=#{version}
+      -DDI_LIBVERSION=#{version}
+      -DDI_SOVERSION=#{version.major}
+      -DDI_RELEASE_STATUS=production
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
