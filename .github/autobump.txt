@@ -2745,6 +2745,7 @@ rbw
 rclone
 rcs
 rdb
+rdfind
 re-flex
 re2c
 readpe
