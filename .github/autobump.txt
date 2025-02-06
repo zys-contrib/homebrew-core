@@ -633,6 +633,7 @@ croaring
 croc
 cromwell
 crossplane
+crosstool-ng
 crow
 crowdin
 crun
