@@ -7,12 +7,12 @@ class Pinact < Formula
   head "https://github.com/suzuki-shunsuke/pinact.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a80c20655c50613257e73d435d8bc4923f88ecb9ab970fbd8a6c30c9dc062908"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a80c20655c50613257e73d435d8bc4923f88ecb9ab970fbd8a6c30c9dc062908"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a80c20655c50613257e73d435d8bc4923f88ecb9ab970fbd8a6c30c9dc062908"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0df3670013d1e15f2531c11f7a09980aadb6822c521513e6fa8f55b2d3cb0434"
-    sha256 cellar: :any_skip_relocation, ventura:       "0df3670013d1e15f2531c11f7a09980aadb6822c521513e6fa8f55b2d3cb0434"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20205b699570a2b22bf3d6a81436efbf99aaaab2502692d5abc68d77d8a3f1f5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "32c26c242d9811ef6638eee692db928e73e1414e144596bfb8eb4eff90c6a542"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "32c26c242d9811ef6638eee692db928e73e1414e144596bfb8eb4eff90c6a542"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "32c26c242d9811ef6638eee692db928e73e1414e144596bfb8eb4eff90c6a542"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7d1edcce660b0f49fba5c3423a4dd1636f2bc76b23627cf2367f041caa8c75a3"
+    sha256 cellar: :any_skip_relocation, ventura:       "7d1edcce660b0f49fba5c3423a4dd1636f2bc76b23627cf2367f041caa8c75a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b4f7835fa328625a885a971fef65a75e322f8293d43fd981b316110d9e422895"
   end
 
   depends_on "go" => :build
