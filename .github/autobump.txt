@@ -2758,6 +2758,7 @@ redict
 redis
 redis@6.2
 redka
+redocly-cli
 redress
 redwax-tool
 regal
