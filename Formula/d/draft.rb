@@ -1,8 +1,8 @@
 class Draft < Formula
   desc "Day 0 tool for getting your app on Kubernetes fast"
   homepage "https://github.com/Azure/draft"
-  url "https://github.com/Azure/draft/archive/refs/tags/v0.17.3.tar.gz"
-  sha256 "8d108f2bf9116f7a8e41315976cfb9b775985084dea3a4e14df08731ea0ecd3e"
+  url "https://github.com/Azure/draft/archive/refs/tags/v0.17.4.tar.gz"
+  sha256 "f2f17afc951bfdf195dc6051a9a9d920b2fed348a0423e350ac624aae2a8b94e"
   license "MIT"
   head "https://github.com/Azure/draft.git", branch: "main"
 
