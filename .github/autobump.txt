@@ -3625,6 +3625,7 @@ zfind
 zig
 zigmod
 zim
+zint
 zipkin
 zix
 zizmor
