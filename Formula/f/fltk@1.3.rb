@@ -1,8 +1,8 @@
 class FltkAT13 < Formula
   desc "Cross-platform C++ GUI toolkit"
   homepage "https://www.fltk.org/"
-  url "https://www.fltk.org/pub/fltk/1.3.10/fltk-1.3.10-source.tar.gz"
-  sha256 "c1c96d4f2ca7844f4b7945b4670aff2846f150cd5f3e23e3e4c70a61807108c7"
+  url "https://github.com/fltk/fltk/releases/download/release-1.3.11/fltk-1.3.11-source.tar.bz2"
+  sha256 "ca2e144e5f89173cd094cc273940d56230b1bf613083a0792e6406dc191cd99f"
   license "LGPL-2.0-only" => { with: "FLTK-exception" }
 
   livecheck do
