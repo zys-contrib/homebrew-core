@@ -1,10 +1,9 @@
 class Tdb < Formula
   desc "Trivial DataBase, by the Samba project"
   homepage "https://tdb.samba.org/"
-  url "https://www.samba.org/ftp/tdb/tdb-1.4.12.tar.gz"
-  sha256 "6ce4b27498812d09237ece65a0d6dfac0941610e709848ecb822aa241084cd7a"
+  url "https://www.samba.org/ftp/tdb/tdb-1.4.13.tar.gz"
+  sha256 "5ee276e7644d713e19e4b6adc00b440afb5851ff21e65821ffaed89e15a5e167"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url "https://www.samba.org/ftp/tdb/"
