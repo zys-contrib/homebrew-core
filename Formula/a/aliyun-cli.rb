@@ -2,8 +2,8 @@ class AliyunCli < Formula
   desc "Universal Command-Line Interface for Alibaba Cloud"
   homepage "https://github.com/aliyun/aliyun-cli"
   url "https://github.com/aliyun/aliyun-cli.git",
-      tag:      "v3.0.250",
-      revision: "b9ab5d4128c61606c8ba741a450910b4eb1965b1"
+      tag:      "v3.0.251",
+      revision: "83a89f320513edafa160a880192daf904d0ed374"
   license "Apache-2.0"
 
   bottle do
