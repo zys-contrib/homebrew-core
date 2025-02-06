@@ -12,12 +12,12 @@ class Geph4 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c377652c9ad9fd810ebdc5380f52208e625f17ac309d730e82abd6990dbff6a7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f79b07516a297946af9454388454f88d11a5ac9f4f40c85b0950968ae0c18c4d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1a8cfc2400eeaa4705df40723341170e7d3b5ab3f6304e3981e7a966ca87fed7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9ead74d4213a31bc64919c9ba59aea232f20d654a5c331f36d75f63d2ce290f8"
-    sha256 cellar: :any_skip_relocation, ventura:       "2173eddf4eb9eafd021653cfdce74fd58529d320826715c2bd55e54a625e167a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ccc16e2a1bffc6af3f42fbfb92f13974131f29fdc8b275ea5da2026183393cb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0b30c6cde357e44275c21b07809e4c98c182eb699f4e428d2771591af3b39d9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2ddd5990b7e71e79a1c5f4a9a4d3c5a1f0775e9e71fd6f65891aa3ef40a0788a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ae6746873f5e388997999eef08abf08c5a8d8569eb53714bd9f66662d0748771"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fe8a81a93713f259f57841f394a549f710976207041cc8c6dafa5c112bdab613"
+    sha256 cellar: :any_skip_relocation, ventura:       "8e0025c6fb53958c109ec13c5171025b73e9fdf6f0aef7b469360d0a9649ffcc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ad7ff203343c524343f173a4838e1fe0daa10f720a77178932b412c8b32ea44"
   end
 
   depends_on "rust" => :build
