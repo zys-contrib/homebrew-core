@@ -1,10 +1,9 @@
 class Haiti < Formula
   desc "Hash type identifier"
   homepage "https://noraj.github.io/haiti/#/"
-  url "https://github.com/noraj/haiti/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "ee1fee20c891db567abe753de25e7f1f1d4c7c59d92b6ce28f2e96606f247828"
+  url "https://github.com/noraj/haiti/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "f6b8bf21104cedda21d1cdfa9931b5f7a6049231aedba984a0e92e49123a3791"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "0cc641884533a948e74cddcae36687ab233903722c81582ddf1d365c99d67570"
