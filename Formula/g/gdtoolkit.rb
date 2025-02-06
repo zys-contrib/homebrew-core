@@ -7,6 +7,15 @@ class Gdtoolkit < Formula
   sha256 "f17089c3e33d0053ab229a637a9faabc0fb8ebb07412fe719ed00b2e66adc343"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "18c9d3e8faaf0038a293dc1ee6d5b8a57f0d46c50f43e1b164b8dea6a4a6e7e9"
+    sha256 cellar: :any,                 arm64_sonoma:  "34d4cf5f883f6b13dc87d513171f15b2d9bcb639e394bdefbcd92b272337b949"
+    sha256 cellar: :any,                 arm64_ventura: "ed386e1d59fe6471f1e192e7a82a1c4274ae628b4d35274ab1d8451d06d06099"
+    sha256 cellar: :any,                 sonoma:        "97cd6163cfe41d41fe0748c65bc7c838e83749f6d5635286019d6b4dd32dcfc6"
+    sha256 cellar: :any,                 ventura:       "951eeeeed7dbe1ef467685b65721c54f01323f2836225a737697bf822f854bd5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "377d555ae1057c4a0e61c54f0d0a44c44f6eaa19ef6bd0bfd41c854bcabd78f1"
+  end
+
   depends_on "libyaml"
   depends_on "python@3.13"
 
