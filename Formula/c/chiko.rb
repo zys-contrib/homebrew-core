@@ -7,12 +7,12 @@ class Chiko < Formula
   head "https://github.com/felangga/chiko.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "56efedda7eb1b8077245451134fbebb015e36915bf5b821df13e3f17d91e39d7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "56efedda7eb1b8077245451134fbebb015e36915bf5b821df13e3f17d91e39d7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "56efedda7eb1b8077245451134fbebb015e36915bf5b821df13e3f17d91e39d7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d0fec974cc0e42f8c102c07b9afbba41b02fca453f67638ea08ab38136f955c1"
-    sha256 cellar: :any_skip_relocation, ventura:       "d0fec974cc0e42f8c102c07b9afbba41b02fca453f67638ea08ab38136f955c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a090ba84fa12454b6d5e516b076b04237676cf4ff7a72f2c8925e7ecbe55665"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3bf3bc9f7cf55b56f24b95bbc15efe3e72f2f7fb95306b7bcfd5a5ce888fc3f7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3bf3bc9f7cf55b56f24b95bbc15efe3e72f2f7fb95306b7bcfd5a5ce888fc3f7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3bf3bc9f7cf55b56f24b95bbc15efe3e72f2f7fb95306b7bcfd5a5ce888fc3f7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0f5d3d68b54b6978276870173f9097ed716f6028c92c7fd8ca7b97ebcf7ea7ea"
+    sha256 cellar: :any_skip_relocation, ventura:       "0f5d3d68b54b6978276870173f9097ed716f6028c92c7fd8ca7b97ebcf7ea7ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "985fec7e611dd6be7e2925396906174a3f98fa543b044e311408d733948fe8a7"
   end
 
   depends_on "go" => :build
