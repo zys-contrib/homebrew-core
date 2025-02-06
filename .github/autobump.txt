@@ -3238,6 +3238,7 @@ testkube
 testscript
 testssl
 tetra
+tevent
 tex-fmt
 texinfo
 texlab
