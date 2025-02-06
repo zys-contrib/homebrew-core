@@ -2684,6 +2684,7 @@ pytest
 python-argcomplete
 python-build
 python-launcher
+python-lsp-server
 python-markdown
 python-matplotlib
 python-packaging
