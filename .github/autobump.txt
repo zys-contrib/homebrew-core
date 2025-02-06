@@ -1382,6 +1382,7 @@ hive
 hivemind
 hivex
 hledger
+hlint
 hof
 homebank
 hopenpgp-tools
