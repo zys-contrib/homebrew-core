@@ -7,14 +7,12 @@ class Hlint < Formula
   head "https://github.com/ndmitchell/hlint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1a79fe9800a476c55ea668a9594da108f23635df72bb426d6d3976da27e14ec8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "93280e9808e8d43e4d01945354fb77440c661f0b3d92e6686ddc9899212c9799"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "616ff80e2cbaf17bfae3a60fed8ac681f876afa4002f284ac73009763e87aa3c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6c5a25193ca8218a016a076089372b90c1486c6eeb2277703e5a07c837482c24"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ae5cb9e9f135e44bd99b3f244c2e923c7cff19f7eb5dd91216190f113d1761b2"
-    sha256 cellar: :any_skip_relocation, ventura:        "4750816681363312e4dbe546ecac8e3c0e73e5d1aa7e9fbe8c32000de864568a"
-    sha256 cellar: :any_skip_relocation, monterey:       "a1b46d1026989148f27bc966e2b44b7105101dd79b7632b2ffa008e8732be3eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "79daab64b66211cd019e0e6ae9b8a3dacfb4d13831697337f0647837b1b2723e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9f3a91f79fe82520ad8dfabefbce65bb2ea46b6204b4502f273e77c25ad6506"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e5145bf4f71231257b00c87da12917717656ef7ce2cc3b0ab34ab0eda2b27c34"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ca888410bda893835a17d6b612b1d81c6b27c3b7d48a8f3c235b8300bde6211c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1fabac4ad28935c5b1f84a5e2ca98e3e5d10ad97bd3ef4ec43df68e13be4236a"
+    sha256 cellar: :any_skip_relocation, ventura:       "25bddf78c27dcd1c33697450946158fa12af8f8a487c38b906490878e4f8c3a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2217e05a4e5a0fc44c950f63111bcbd4bd48d2148fa95ec8820a7f50f9a5ea6e"
   end
 
   depends_on "cabal-install" => :build
