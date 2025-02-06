@@ -741,6 +741,7 @@ diffoci
 diffoscope
 diffstat
 difftastic
+diffutils
 digdag
 dillo
 directx-headers
