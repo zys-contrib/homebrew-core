@@ -3,20 +3,10 @@ class Openvino < Formula
 
   desc "Open Visual Inference And Optimization toolkit for AI inference"
   homepage "https://docs.openvino.ai"
+  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2025.0.0.tar.gz"
+  sha256 "d2cbff5a0ac1bc738c33ba103569f8daf20d3a17d3db94da11ae207ffb9e4395"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
-
-  stable do
-    url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2024.6.0.tar.gz"
-    sha256 "93f417409f3bf12445cb0d72b2af13d849d2b5125d5330d832f1bae55283e5b7"
-
-    # Backport fix to build with Protobuf >= 27
-    patch do
-      url "https://github.com/openvinotoolkit/openvino/commit/103c3b72259648c990970afb8ce2bec489fcf583.patch?full_index=1"
-      sha256 "c70f019f57b8bf32d716d90d138b6e74c8d5688dde94db3deca621688efd98a1"
-    end
-  end
 
   livecheck do
     url :stable
@@ -53,8 +43,8 @@ class Openvino < Formula
     depends_on "opencl-icd-loader"
 
     resource "onednn_gpu" do
-      url "https://github.com/oneapi-src/oneDNN/archive/0f269193c7466313888d3338209d0d06a22cc6fa.tar.gz"
-      sha256 "abad1ff4ac138c593b7a927ef2099b01447af1f7364848392a950ba17b32bcd8"
+      url "https://github.com/oneapi-src/oneDNN/archive/706a3ce3b391cf1d8a904a8efa981c70078719eb.tar.gz"
+      sha256 "1a656eb32f383cef82b703c355d762b2162f5aaa7b6f54b2c1e47995a9cee1f2"
     end
   end
 
@@ -77,8 +67,8 @@ class Openvino < Formula
   end
 
   resource "onednn_cpu" do
-    url "https://github.com/openvinotoolkit/oneDNN/archive/c60a9946aa2386890e5c9f5587974facb7624227.tar.gz"
-    sha256 "37cea8af9772053fd6d178817f64d59e3aa7de9fd8f1aa21873075bb0664240f"
+    url "https://github.com/openvinotoolkit/oneDNN/archive/1789b1e0ae441de15d793123003a900a35d1dc71.tar.gz"
+    sha256 "551070032ce5d2ed6adc2216e9b061782da097b1ce28c403eaa16b230b09f6a7"
   end
 
   resource "openvino-telemetry" do
@@ -93,13 +83,6 @@ class Openvino < Formula
 
   def python3
     "python3.13"
-  end
-
-  # Fix to evade redefinition errors in ocl_ext.hpp (https://github.com/openvinotoolkit/openvino/pull/27698)
-  # Remove patch when available in release.
-  patch do
-    url "https://github.com/openvinotoolkit/openvino/commit/9736b1811d5916b37473483b237314d0370e2ce8.patch?full_index=1"
-    sha256 "ff2dc599930b42f922d0ddc1158e22cdab3590a6e05159efcc307638015c8798"
   end
 
   def install
