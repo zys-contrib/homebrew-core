@@ -1,8 +1,8 @@
 class Rdfind < Formula
   desc "Find duplicate files based on content (NOT file names)"
   homepage "https://rdfind.pauldreik.se/"
-  url "https://rdfind.pauldreik.se/rdfind-1.6.0.tar.gz"
-  sha256 "7a406e8ef1886a5869655604618dd98f672f12c6a6be4926d053be65070f3279"
+  url "https://rdfind.pauldreik.se/rdfind-1.7.0.tar.gz"
+  sha256 "78c463152e1d9e4fd1bfeb83b9c92df5e7fc4c5f93c7d426fb1f7efa2be4df29"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -26,10 +26,9 @@ class Rdfind < Formula
   depends_on "nettle"
 
   def install
-    ENV.cxx11
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    ENV.append "CXXFLAGS", "-std=c++17"
+
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
