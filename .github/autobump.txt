@@ -3178,6 +3178,7 @@ tailwindcss
 tailwindcss-language-server
 talhelper
 talisman
+talloc
 talosctl
 tanka
 taplo
