@@ -1,10 +1,19 @@
 class Citus < Formula
   desc "PostgreSQL-based distributed RDBMS"
   homepage "https://www.citusdata.com"
-  url "https://github.com/citusdata/citus/archive/refs/tags/v12.1.5.tar.gz"
-  sha256 "bc95a30e93459f0398865e9dced53e61e758483b78c9fdc4eab2bc1317db2ea4"
   license "AGPL-3.0-only"
   head "https://github.com/citusdata/citus.git", branch: "main"
+
+  stable do
+    url "https://github.com/citusdata/citus/archive/refs/tags/v13.0.1.tar.gz"
+    sha256 "b7fdc3ad6eca9dd6a1066e897a249fdca289e96d81921d4c7bf98cb4302ce817"
+
+    # Backport DLSUFFIX usage to fix extension on macOS
+    patch do
+      url "https://github.com/citusdata/citus/commit/0f28a69f12418d211ffba5f7ddd222fd0c47daeb.patch?full_index=1"
+      sha256 "b8a350538d75523ecc171ea8f10fc1d0a2f97bd7ac6116169d773b0b5714215e"
+    end
+  end
 
   # There can be a notable gap between when a version is tagged and a
   # corresponding release is created, so we check the "latest" release instead
@@ -25,8 +34,7 @@ class Citus < Formula
 
   depends_on "lz4"
   depends_on "openssl@3"
-  depends_on "postgresql@14"
-  depends_on "readline"
+  depends_on "postgresql@17"
   depends_on "zstd"
 
   uses_from_macos "curl"
