@@ -13,12 +13,12 @@ class Trino < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "791be307105c5a6731790e676d8e681ab569a6b29b3e06dfc09074b125dffedc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "791be307105c5a6731790e676d8e681ab569a6b29b3e06dfc09074b125dffedc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "791be307105c5a6731790e676d8e681ab569a6b29b3e06dfc09074b125dffedc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "03069aa7ba823097f4cee85c417464964882fdd10750399e47f418ae8ec21c2f"
-    sha256 cellar: :any_skip_relocation, ventura:       "03069aa7ba823097f4cee85c417464964882fdd10750399e47f418ae8ec21c2f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "490156059e830eab8739db6440ee197050c62a1dd7c26369fe05ee691234ac51"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec1b9f36ff27b4bc879822a307ec1d7350ef2f90403c98f13ddbe291dda3eb9c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ec1b9f36ff27b4bc879822a307ec1d7350ef2f90403c98f13ddbe291dda3eb9c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ec1b9f36ff27b4bc879822a307ec1d7350ef2f90403c98f13ddbe291dda3eb9c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7ef8a2037980a5c013d5a1315fb7d264cc8633c189369f4d81056d04458946da"
+    sha256 cellar: :any_skip_relocation, ventura:       "7ef8a2037980a5c013d5a1315fb7d264cc8633c189369f4d81056d04458946da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62360a7519b7481b8bece0ad260ed873a4d5fe31fcd5adce38e1e9a232f80276"
   end
 
   depends_on "gnu-tar" => :build
