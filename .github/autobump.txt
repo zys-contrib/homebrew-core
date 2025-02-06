@@ -1334,6 +1334,7 @@ h26forge
 h3
 hackrf
 hadoop
+haiti
 halide
 halp
 hamlib
