@@ -1,10 +1,9 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy2.7-v7.3.17-src.tar.bz2"
-  sha256 "50e06840f4bbde91448080a4118068a89b8fbcae25ff8da1e2bb1402dc9a0346"
+  url "https://downloads.python.org/pypy/pypy2.7-v7.3.18-src.tar.bz2"
+  sha256 "737435ddfc5afa5b97a7209c87d70d5f1062426c053b9bb8b99a0347cb4891fa"
   license "MIT"
-  revision 1
   head "https://github.com/pypy/pypy.git", branch: "main"
 
   livecheck do
@@ -46,8 +45,14 @@ class Pypy < Formula
       end
     end
     on_linux do
-      url "https://downloads.python.org/pypy/pypy2.7-v7.3.11-linux64.tar.bz2"
-      sha256 "ba8ed958a905c0735a4cfff2875c25089954dc020e087d982b0ffa5b9da316cd"
+      on_arm do
+        url "https://downloads.python.org/pypy/pypy2.7-v7.3.11-aarch64.tar.bz2"
+        sha256 "ea924da1defe9325ef760e288b04f984614e405580f5321eb6a5c8f539bd415a"
+      end
+      on_intel do
+        url "https://downloads.python.org/pypy/pypy2.7-v7.3.11-linux64.tar.bz2"
+        sha256 "ba8ed958a905c0735a4cfff2875c25089954dc020e087d982b0ffa5b9da316cd"
+      end
     end
   end
 
@@ -74,6 +79,9 @@ class Pypy < Formula
     # Work-around for build issue with Xcode 15.3
     # upstream bug report, https://github.com/pypy/pypy/issues/4931
     ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+
+    # Avoid statically linking to libffi
+    inreplace "rpython/rlib/clibffi.py", '"libffi.a"', "\"#{shared_library("libffi")}\""
 
     # The `tcl-tk` library paths are hardcoded and need to be modified for non-/usr/local prefix
     tcltk = Formula["tcl-tk@8"]
@@ -144,10 +152,10 @@ class Pypy < Formula
 
     # Tell distutils-based installers where to put scripts
     scripts_folder.mkpath
-    (distutils/"distutils.cfg").atomic_write <<~EOS
+    (distutils/"distutils.cfg").atomic_write <<~INI
       [install]
       install-scripts=#{scripts_folder}
-    EOS
+    INI
 
     %w[setuptools pip].each do |pkg|
       resource(pkg).stage do
