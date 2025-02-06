@@ -1,8 +1,8 @@
 class Tailwindcss < Formula
   desc "Utility-first CSS framework"
   homepage "https://tailwindcss.com"
-  url "https://registry.npmjs.org/tailwindcss/-/tailwindcss-4.0.3.tgz"
-  sha256 "8b5a00d0c29cfce9ec97cde2144a40a279c133a42074f5d1d9958b8efee1495a"
+  url "https://registry.npmjs.org/tailwindcss/-/tailwindcss-4.0.4.tgz"
+  sha256 "e609ad18ca3b6a033879192f214d1c75394c1bbd7eb662aee5df5ddee0a8ee72"
   license "MIT"
   head "https://github.com/tailwindlabs/tailwindcss.git", branch: "next"
 
@@ -26,8 +26,8 @@ class Tailwindcss < Formula
   depends_on "node"
 
   resource "tailwind-cli" do
-    url "https://registry.npmjs.org/@tailwindcss/cli/-/cli-4.0.3.tgz"
-    sha256 "d9df4e36cd823bbf90aeb9f7dc8e1bd1886501ef0ff51cba83526d29a41d5402"
+    url "https://registry.npmjs.org/@tailwindcss/cli/-/cli-4.0.4.tgz"
+    sha256 "b75edc09ae4e5b4e9b3d6817f31c083346a23089a80591b62e4ff9de2cb9e300"
 
     livecheck do
       formula :parent
