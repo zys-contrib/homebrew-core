@@ -1,10 +1,9 @@
 class Jj < Formula
   desc "Git-compatible distributed version control system"
   homepage "https://github.com/jj-vcs/jj"
-  url "https://github.com/jj-vcs/jj/archive/refs/tags/v0.25.0.tar.gz"
-  sha256 "3a99528539e414a3373f24eb46a0f153d4e52f7035bb06df47bd317a19912ea3"
+  url "https://github.com/jj-vcs/jj/archive/refs/tags/v0.26.0.tar.gz"
+  sha256 "099eeb346f32a4968ebb8273566321eff2e6ca6a7de0c9dcfd7eee016b37cba1"
   license "Apache-2.0"
-  revision 2
   head "https://github.com/martinvonz/jj.git", branch: "main"
 
   bottle do
@@ -42,15 +41,17 @@ class Jj < Formula
     system "cargo", "install", *std_cargo_args(path: "cli")
 
     generate_completions_from_executable(bin/"jj", shell_parameter_format: :clap)
-
-    (man1/"jj.1").write Utils.safe_popen_read(bin/"jj", "util", "mangen")
+    system bin/"jj", "util", "install-man-pages", man
   end
 
   test do
     require "utils/linkage"
 
-    system bin/"jj", "init", "--git"
-    assert_predicate testpath/".jj", :exist?
+    touch testpath/"README.md"
+    system bin/"jj", "git", "init"
+    system bin/"jj", "describe", "-m", "initial commit"
+    assert_match "README.md", shell_output("#{bin}/jj file list")
+    assert_match "initial commit", shell_output("#{bin}/jj log")
 
     [
       Formula["libgit2"].opt_lib/shared_library("libgit2"),
