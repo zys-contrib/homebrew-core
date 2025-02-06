@@ -1,8 +1,8 @@
 class Zint < Formula
   desc "Barcode encoding library supporting over 50 symbologies"
   homepage "https://www.zint.org.uk/"
-  url "https://downloads.sourceforge.net/project/zint/zint/2.13.0/zint-2.13.0-src.tar.gz"
-  sha256 "0e957cf17c3eeb4ad619b2890d666d12a5c7adc7e7c39c207739b0f4f5c65fa2"
+  url "https://downloads.sourceforge.net/project/zint/zint/2.14.0/zint-2.14.0-src.tar.gz"
+  sha256 "5ceb8a169a315402a99a2493ea42f7b832cf7aea0051da9beaddfbf7e2e64a07"
   license "GPL-3.0-or-later"
   head "https://git.code.sf.net/p/zint/code.git", branch: "master"
 
@@ -26,10 +26,7 @@ class Zint < Formula
   depends_on "libpng"
 
   def install
-    # Sandbox fix: install FindZint.cmake in zint's prefix, not cmake's.
-    inreplace "CMakeLists.txt", "${CMAKE_ROOT}", "#{share}/cmake"
-
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
