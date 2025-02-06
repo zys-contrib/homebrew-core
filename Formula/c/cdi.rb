@@ -11,12 +11,12 @@ class Cdi < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "40afb9a4266c870e3b8a6cc4eedab7c3911fe3b72ae520c3fff92fabe00b6b66"
-    sha256 cellar: :any,                 arm64_sonoma:  "bdf7e3284f561677b004b52473f13894a406ecd49fe60f1e1577aa2623950baf"
-    sha256 cellar: :any,                 arm64_ventura: "ec51ac120f66ba071d6f16067730974b41bb5326ec9e21f827d93943a0f4e956"
-    sha256 cellar: :any,                 sonoma:        "4652de47f7701dd0ddaae4905bd0e9ce6fed470c92bbc5beb3676c0ec10c4d46"
-    sha256 cellar: :any,                 ventura:       "a6523b754420a7653b26e08e8180c24a412b393194ffc1a2a4ff915a97de8d04"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7977e0ed395f88c6aa0d80b9a0e8765bf1a147baa70fc6a08244a1271a8c1c7e"
+    sha256 cellar: :any,                 arm64_sequoia: "f798120f10757919038021b9a9e4510d331b614ac678818a636cf7c33c730ac0"
+    sha256 cellar: :any,                 arm64_sonoma:  "053f10293e8fb895eb957978e7ac14a8b974c1df4a0b2cb7111e60befda3f2cc"
+    sha256 cellar: :any,                 arm64_ventura: "3db0ffc99f12fa23bc860e769b42c06b994b3d51930a1395ca642ab771d34a89"
+    sha256 cellar: :any,                 sonoma:        "c1d6beb0092822a5b1d8f179a5c00d7d18af5894fd12bf12a47979d51a817887"
+    sha256 cellar: :any,                 ventura:       "8aaf19d666c9153a30716fa898303a1810b4f264e92bca4a2b7506f36e1a8225"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "979e1583f8751f47f6a04c3d06dc53a51c041ee7e9c4eec5b019397ae06864bf"
   end
 
   depends_on "eccodes"
