@@ -1,8 +1,8 @@
 class Rmtrash < Formula
   desc "Move files and directories to the trash"
   homepage "https://github.com/TBXark/rmtrash"
-  url "https://github.com/TBXark/rmtrash/archive/refs/tags/0.6.7.tar.gz"
-  sha256 "8c29f30294e1cbf1cdfc4b4f23e595e9d683aac8a21280b7218e894824caa80f"
+  url "https://github.com/TBXark/rmtrash/archive/refs/tags/0.6.8.tar.gz"
+  sha256 "9055a538b7e282aebd61f74241d5e2009455b1ae7e7029eba87bc41bbd684d4a"
   license "MIT"
   head "https://github.com/TBXark/rmtrash.git", branch: "master"
 
