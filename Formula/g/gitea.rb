@@ -1,8 +1,8 @@
 class Gitea < Formula
   desc "Painless self-hosted all-in-one software development service"
   homepage "https://about.gitea.com/"
-  url "https://dl.gitea.com/gitea/1.23.2/gitea-src-1.23.2.tar.gz"
-  sha256 "4e37f620b6c5450bb4000f0a74013b109f4cc71f3adbbb7f6043c366131b2c24"
+  url "https://dl.gitea.com/gitea/1.23.3/gitea-src-1.23.3.tar.gz"
+  sha256 "e3c2993c06d3f717aa9000c877d090da18b51b1f708c569e85b7d67fa643bad3"
   license "MIT"
   head "https://github.com/go-gitea/gitea.git", branch: "main"
 
