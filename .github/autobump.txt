@@ -1095,6 +1095,7 @@ gator
 gatsby-cli
 gau
 gawk
+gaze
 gcalcli
 gcem
 gci
