@@ -3183,6 +3183,7 @@ tailwindcss
 tailwindcss-language-server
 talhelper
 talisman
+talloc
 talosctl
 tanka
 taplo
@@ -3242,6 +3243,7 @@ testkube
 testscript
 testssl
 tetra
+tevent
 tex-fmt
 texinfo
 texlab
