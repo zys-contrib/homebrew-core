@@ -107,6 +107,10 @@ class Bash < Formula
     sha256 x86_64_linux:  "cf656843709a32e900c8e4e971cf0d0c3c0c568215ded674b1fccf5b7154f97f"
   end
 
+  # System ncurses lacks functionality
+  # https://github.com/Homebrew/homebrew-core/issues/158667
+  depends_on "ncurses"
+
   def install
     # When built with SSH_SOURCE_BASHRC, bash will source ~/.bashrc when
     # it's non-interactively from sshd.  This allows the user to set
@@ -121,7 +125,7 @@ class Bash < Formula
     # FIXME: Setting `-rpath` flags don't seem to work on Linux.
     ENV.prepend_path "HOMEBREW_RPATH_PATHS", rpath(target: lib/"bash") if OS.linux?
 
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--with-curses"
     system "make", "install"
 
     (include/"bash/builtins").install lib/"bash/loadables.h"
