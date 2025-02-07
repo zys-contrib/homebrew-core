@@ -12,12 +12,12 @@ class VulkanVolk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aee4fb59d3f267e8b2b39622b0991b41e098573e2c45385be2fc451ce714637a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b48f1b6b9303b0a5f3d9f165a29f61f39daecbe0de3a0005d857a95c7ab319bb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9f4240d466c92ee942fcec6c6514f942c0247c30ba532f633e5292768a707bb0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "51087cc3da7daefb9e7031d07b26927fc9628ee940d464c02c40daafeb25049f"
-    sha256 cellar: :any_skip_relocation, ventura:       "c866a1242f9ee9938ed34ad1d6a7f956410d94d3963abc28564d330d3f2c2edc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67b001e1b4c1f1539126d272f332bc93f64ad06121f9f43c3d376f434e39df8a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6389f9bcab41e5566ee16fca5d5465c1410863fec4929c3d152bd32b04d46362"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3e8a60d3d09eae2333f5fa75c6872e50bd76e761c005c8a9e0ea7d07f15d77e9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "863d46fd9e310960f37cc5c42c7c7a4ad85e1829eac029c6870beab60d6470b0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "00f9886c70f494eeccfac950bc333791460e4de095aa013087b6c7a3bff55264"
+    sha256 cellar: :any_skip_relocation, ventura:       "8cea28e7d794025e9a8850fe0b9d74c8fc7b020a2de28df5db2e3ad172671894"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "965e3cb209a17668d88cc996d47f41df131b9e79b618e14a212840913da91969"
   end
 
   depends_on "cmake" => :build
