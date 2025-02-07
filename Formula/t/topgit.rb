@@ -6,8 +6,7 @@ class Topgit < Formula
   license "GPL-2.0-only"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "fe4b9aa22aa1c75a5718b0db398e1351457108d92b5414176e46cadca8a1aa47"
+    sha256 cellar: :any_skip_relocation, all: "00f58e04cdec33f5f8b5a141443aeba8fd6ceb94bc43b834954dbd40eda37e73"
   end
 
   def install
