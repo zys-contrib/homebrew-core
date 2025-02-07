@@ -2,8 +2,8 @@ class Azqr < Formula
   desc "Azure Quick Review"
   homepage "https://azure.github.io/azqr/"
   url "https://github.com/Azure/azqr.git",
-      tag:      "v.2.2.0",
-      revision: "0dab1442ebb47dd3f8e2ab82beeb328d4f287fcf"
+      tag:      "v.2.2.1",
+      revision: "8934c46e166438dba8f4a1ebe336bc20b19be68a"
   license "MIT"
 
   bottle do
