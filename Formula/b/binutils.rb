@@ -1,9 +1,9 @@
 class Binutils < Formula
   desc "GNU binary tools for native development"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.43.1.tar.bz2"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.43.1.tar.bz2"
-  sha256 "becaac5d295e037587b63a42fad57fe3d9d7b83f478eb24b67f9eec5d0f1872f"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.44.tar.bz2"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.44.tar.bz2"
+  sha256 "f66390a661faa117d00fab2e79cf2dc9d097b42cc296bf3f8677d1e7b452dc3a"
   license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later", "LGPL-2.0-or-later", "LGPL-3.0-only"]
 
   bottle do
@@ -25,8 +25,6 @@ class Binutils < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "zlib"
 
-  link_overwrite "bin/gold"
-  link_overwrite "bin/ld.gold"
   link_overwrite "bin/dwp"
 
   def install
@@ -45,7 +43,6 @@ class Binutils < Formula
       "--enable-interwork",
       "--enable-multilib",
       "--enable-64-bit-bfd",
-      "--enable-gold",
       "--enable-plugins",
       "--enable-targets=all",
       "--with-system-zlib",
@@ -61,7 +58,6 @@ class Binutils < Formula
         bin.install_symlink f => "g" + File.basename(f)
       end
     else
-      bin.install_symlink "ld.gold" => "gold"
       # Reduce the size of the bottle.
       bin_files = bin.children.select(&:elf?)
       system "strip", *bin_files, *lib.glob("*.a")
