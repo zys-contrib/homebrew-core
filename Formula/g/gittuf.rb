@@ -1,8 +1,8 @@
 class Gittuf < Formula
   desc "Security layer for Git repositories"
   homepage "https://gittuf.dev/"
-  url "https://github.com/gittuf/gittuf/archive/refs/tags/v0.8.1.tar.gz"
-  sha256 "3d85ecc16fe64d58805558d0f7ecfe3c38533f8d145b1b57cad23ad8e40203c5"
+  url "https://github.com/gittuf/gittuf/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "c441d89133fab916f3827ea850472aba7ff2eae47c886cb17ff3aafc84901505"
   license "Apache-2.0"
   head "https://github.com/gittuf/gittuf.git", branch: "main"
 
