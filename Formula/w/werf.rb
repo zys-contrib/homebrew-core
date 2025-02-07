@@ -15,12 +15,12 @@ class Werf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cb226e9f6c1e9df181a8aa08ca4371616312d07563077acd0c85eb429c5d17d3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5343e13f0bea3628436c0c6fc68ea2caf637cf31b82f999a74b22542b507b126"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e5a39ba38b407536a37c20e24b1f84651757e2d0e5b3c63766128650c61e400c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ae401a7243f8fe7ec24419a6129235644e354b295840622b7e19103a5a804ac0"
-    sha256 cellar: :any_skip_relocation, ventura:       "f7c2d44c9b7d83847c49dd91ddc428bfe3e96091a9b4d72ede8530dba487a390"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "184cbafffec12f38ef4a94a9c7efd2c0ae9551d5863b1e84bbe581a044ba7ae7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9ce6a5fdae12a41c5c5a8a8631bc4653b0250f56b96e6af47df583373de3b750"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0a72b75013556efe1ab2db651db828559d19a27ebdd4dc394350214cc2e68fee"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "24c96528221d4e5d155404035a2e8d5867380d80327431439d4af24c7ff6a947"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4b3a443f0e676e78f94f352950f6d51013c2beabf92d9fca281260e1857032c5"
+    sha256 cellar: :any_skip_relocation, ventura:       "c15dd51e44e675dd043ada1462d94b487027e9af3d6b432fa925310e190111a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3a976df77d995dd48281b4f936ccf388dc1a8e760ed86457515526040bb0e70"
   end
 
   depends_on "go" => :build
