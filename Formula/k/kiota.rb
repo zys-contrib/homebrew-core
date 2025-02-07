@@ -1,8 +1,8 @@
 class Kiota < Formula
   desc "OpenAPI based HTTP Client code generator"
   homepage "https://aka.ms/kiota/docs"
-  url "https://github.com/microsoft/kiota/archive/refs/tags/v1.22.3.tar.gz"
-  sha256 "bbb696e3336803d5c9b30e89114dd86c9f62d393b1953a6d3ad5ea70987d4a08"
+  url "https://github.com/microsoft/kiota/archive/refs/tags/v1.23.0.tar.gz"
+  sha256 "1ca7eba6265dd3af133707a794be6898e69e61522b9f506166d18191525607ae"
   license "MIT"
   head "https://github.com/microsoft/kiota.git", branch: "main"
 
@@ -14,10 +14,10 @@ class Kiota < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "76e16158020a935e21886ae0bac3b0bfbbd25ad861f9839d70a5d450f93e5450"
   end
 
-  depends_on "dotnet@8"
+  depends_on "dotnet"
 
   def install
-    dotnet = Formula["dotnet@8"]
+    dotnet = Formula["dotnet"]
 
     args = %W[
       --configuration Release
