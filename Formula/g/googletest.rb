@@ -1,8 +1,8 @@
 class Googletest < Formula
   desc "Google Testing and Mocking Framework"
   homepage "https://github.com/google/googletest"
-  url "https://github.com/google/googletest/archive/refs/tags/v1.15.2.tar.gz"
-  sha256 "7b42b4d6ed48810c5362c265a17faebe90dc2373c885e5216439d37927f02926"
+  url "https://github.com/google/googletest/archive/refs/tags/v1.16.0.tar.gz"
+  sha256 "78c676fc63881529bf97bf9d45948d905a66833fbfa5318ea2cd7478cb98f399"
   license "BSD-3-Clause"
   head "https://github.com/google/googletest.git", branch: "main"
 
