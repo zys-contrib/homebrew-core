@@ -2536,6 +2536,7 @@ pinentry
 pinocchio
 pinot
 pint
+pioneer
 pip-audit
 pip-tools
 pipdeptree
