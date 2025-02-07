@@ -1,8 +1,8 @@
 class Microsocks < Formula
   desc "Tiny, portable SOCKS5 server with very moderate resource usage"
   homepage "https://github.com/rofl0r/microsocks"
-  url "https://github.com/rofl0r/microsocks/archive/refs/tags/v1.0.4.tar.gz"
-  sha256 "130127a87f55870f18fbe47a64d9b9533020e2900802d36a0f6fd2b074313deb"
+  url "https://github.com/rofl0r/microsocks/archive/refs/tags/v1.0.5.tar.gz"
+  sha256 "939d1851a18a4c03f3cc5c92ff7a50eaf045da7814764b4cb9e26921db15abc8"
   license "MIT"
   head "https://github.com/rofl0r/microsocks.git", branch: "master"
 
