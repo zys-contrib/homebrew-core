@@ -4,7 +4,7 @@ class MingwW64 < Formula
   url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v12.0.0.tar.bz2"
   sha256 "cc41898aac4b6e8dd5cffd7331b9d9515b912df4420a3a612b5ea2955bbeed2f"
   license "ZPL-2.1"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -36,9 +36,9 @@ class MingwW64 < Formula
   uses_from_macos "zlib"
 
   resource "binutils" do
-    url "https://ftp.gnu.org/gnu/binutils/binutils-2.43.1.tar.bz2"
-    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.43.1.tar.bz2"
-    sha256 "becaac5d295e037587b63a42fad57fe3d9d7b83f478eb24b67f9eec5d0f1872f"
+    url "https://ftp.gnu.org/gnu/binutils/binutils-2.44.tar.bz2"
+    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.44.tar.bz2"
+    sha256 "f66390a661faa117d00fab2e79cf2dc9d097b42cc296bf3f8677d1e7b452dc3a"
   end
 
   resource "gcc" do
