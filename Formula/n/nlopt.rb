@@ -32,6 +32,9 @@ class Nlopt < Formula
     system "cmake", "--install", "build"
 
     pkgshare.install "test/box.c"
+
+    # Avoid rebuilding dependents that hard-code the prefix.
+    inreplace lib/"pkgconfig/nlopt.pc", prefix, opt_prefix
   end
 
   test do
