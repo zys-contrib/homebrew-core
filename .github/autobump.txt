@@ -1863,6 +1863,7 @@ libssh2
 libstrophe
 libsvgtiny
 libsvm
+libtasn1
 libtensorflow
 libtiff
 libtirpc
