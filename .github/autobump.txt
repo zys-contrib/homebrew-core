@@ -2217,6 +2217,7 @@ ncnn
 nco
 ncspot
 ncview
+ne
 neatvi
 nebula
 needle
