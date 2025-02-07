@@ -2793,6 +2793,7 @@ restic
 restview
 resvg
 retire
+reuse
 reveal-md
 revive
 rex
