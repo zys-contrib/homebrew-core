@@ -1,8 +1,8 @@
 class Envelope < Formula
   desc "Environment variables CLI tool"
   homepage "https://github.com/mattrighetti/envelope"
-  url "https://github.com/mattrighetti/envelope/archive/refs/tags/0.3.12.tar.gz"
-  sha256 "6deb645775426bd9f34b4ed581a3b26e490c3dbcec742114a7e2ddf144b8586f"
+  url "https://github.com/mattrighetti/envelope/archive/refs/tags/0.4.0.tar.gz"
+  sha256 "f855ecc19d5508bb4d08181d4e7c6d87f52faedf066299722056afe14b07b66d"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/mattrighetti/envelope.git", branch: "master"
 
