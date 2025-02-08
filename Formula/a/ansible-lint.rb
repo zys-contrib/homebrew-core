@@ -150,12 +150,16 @@ class AnsibleLint < Formula
 
   def install
     virtualenv_install_with_resources
+    rm(bin/name)
+    (bin/name).write_env_script libexec/"bin"/name, PATH: "#{libexec}/bin:${PATH}"
   end
 
   test do
-    output = shell_output("#{bin}/ansible-lint --version")
-    ansible_lint_core_version = output.match(/ansible-core:([\d.]+)/)[1]
+    mkdir ".git"
+    output = shell_output("#{bin}/ansible-lint --version 2>&1")
+    refute_match "WARNING", output
 
+    ansible_lint_core_version = output.match(/ansible-core:([\d.]+)/)[1]
     ansible = Formula["ansible"].opt_bin/"ansible"
     assert_match "[core #{ansible_lint_core_version}]", shell_output("#{ansible} --version")
 
