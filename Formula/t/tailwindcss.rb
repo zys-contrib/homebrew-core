@@ -15,29 +15,70 @@ class Tailwindcss < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256                               arm64_sequoia: "6ddcb14591250bac2b506d8cc3d161f3952bf4646a6c4993ce69d0b4d7c0cccc"
-    sha256                               arm64_sonoma:  "b2abd59f889f631763abaf580cdb77a3cd48062052a81cc5f11db1bf23b04625"
-    sha256                               arm64_ventura: "27f32f13c1337f9f9d5a181ea736e30d9f14fa18fdda0aa5d3d728a532127e61"
-    sha256                               sonoma:        "e40dff6e0235180c0fb521094240ba1e7f00e42a5e110ef734354232e3b550c4"
-    sha256                               ventura:       "7d74640a9d98207da0f65a0457f772238710e549e4969974f2cfe8655299debe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3133d07f96695bc8115105f5033c85ba809063535603d2603c380ad5c053cfd1"
+    rebuild 3
+    sha256                               arm64_sequoia: "4b07d832b9b409eb89bb494ca4771cb4978e20696949fc4271af8ee875c21775"
+    sha256                               arm64_sonoma:  "3d595a4fb22c6e44e8a1c896cd4cbdbe3736e5b02b66f908d019a6158f5d704c"
+    sha256                               arm64_ventura: "da9e957d0684c94d819d77af1ed63e3456b20a2bec056f23c6c7d429d6c40de0"
+    sha256                               sonoma:        "5860731c783817ab1b3d2ce81d303c06ab64f9e9fc363af26fda0dcaccb3d815"
+    sha256                               ventura:       "7062ef8ff60c8ab06d3606773e75da094e4e5532e4734b3199d67745df0b19bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46a47aa02521d222502b2681c04a85a123291555a3fa859787a7c55cb8b6d55c"
   end
 
   depends_on "node"
 
+  # Imitate standalone CLI and include first-party plugins
+  # https://github.com/tailwindlabs/tailwindcss/blob/main/packages/%40tailwindcss-standalone/package.json#L28-L31
+  resource "@tailwindcss/aspect-ratio" do
+    url "https://registry.npmjs.org/@tailwindcss/aspect-ratio/-/aspect-ratio-0.4.2.tgz"
+    sha256 "858df3d82234e12e59e6f8bd5d272d1e6c65aefcb4263dac84d0331f5ef00455"
+  end
+
+  resource "@tailwindcss/forms" do
+    url "https://registry.npmjs.org/@tailwindcss/forms/-/forms-0.5.10.tgz"
+    sha256 "f5003f088c8bfeef2d2576932b0521e29f84b7ca68e59afd709fef75bd4fe9bb"
+  end
+
+  resource "@tailwindcss/typography" do
+    url "https://registry.npmjs.org/@tailwindcss/typography/-/typography-0.5.16.tgz"
+    sha256 "41bb083cd966434072dd8a151c8989e1cfa574eb5ba580b719da013d32b6828e"
+  end
+
   def install
+    resources.each do |r|
+      system "npm", "install", *std_npm_args(prefix: false), r.cached_download
+    end
     system "npm", "install", *std_npm_args
     bin.install libexec.glob("bin/*")
     bin.env_script_all_files libexec/"bin", NODE_PATH: libexec/"lib/node_modules/@tailwindcss/cli/node_modules"
   end
 
   test do
+    # https://github.com/tailwindlabs/tailwindcss/blob/main/integrations/cli/standalone.test.ts
+    (testpath/"index.html").write <<~HTML
+      <div className="prose">
+        <h1>Headline</h1>
+      </div>
+      <input type="text" class="form-input" />
+      <div class="aspect-w-16"></div>
+    HTML
+
     (testpath/"input.css").write <<~CSS
       @tailwind base;
       @import "tailwindcss";
+      @import "tailwindcss/theme" theme(reference);
+      @import "tailwindcss/utilities";
+
+      @plugin "@tailwindcss/forms";
+      @plugin "@tailwindcss/typography";
+      @plugin "@tailwindcss/aspect-ratio";
     CSS
-    system bin/"tailwindcss", "-i", "input.css", "-o", "output.css"
+
+    system bin/"tailwindcss", "--input", "input.css", "--output", "output.css"
     assert_path_exists testpath/"output.css"
+
+    output = (testpath/"output.css").read
+    assert_match ".form-input {", output
+    assert_match ".prose {", output
+    assert_match ".aspect-w-16 {", output
   end
 end
