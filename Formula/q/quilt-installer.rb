@@ -1,8 +1,8 @@
 class QuiltInstaller < Formula
   desc "Installer for Quilt for the vanilla launcher"
   homepage "https://quiltmc.org/"
-  url "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.10.1/quilt-installer-0.10.1.jar"
-  sha256 "7683e8a15f5f43904418201b678680ad8c52c576e301336233184aa4bb2047e1"
+  url "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.10.2/quilt-installer-0.10.2.jar"
+  sha256 "42bcd1337074d25b51c1d97f2c43cab397d851b38f32b4ab5c87c84897c28c9a"
   license "Apache-2.0"
 
   livecheck do
