@@ -4,7 +4,7 @@ class Fftw < Formula
   url "https://fftw.org/fftw-3.3.10.tar.gz"
   sha256 "56c932549852cddcfafdab3820b0200c7742675be92179e59e6215b340e26467"
   license all_of: ["GPL-2.0-or-later", "BSD-2-Clause"]
-  revision 1
+  revision 2
 
   livecheck do
     url :homepage
@@ -32,6 +32,12 @@ class Fftw < Formula
   end
 
   fails_with :clang
+
+  # Fix the cmake config file when configured with autotools, upstream pr ref, https://github.com/FFTW/fftw3/pull/338
+  patch do
+    url "https://github.com/FFTW/fftw3/commit/394fa85ab5f8914b82b3404844444c53f5c7f095.patch?full_index=1"
+    sha256 "2f3c719ad965b3733e5b783a1512af9c2bd9731bb5109879fbce5a76fa62eb14"
+  end
 
   def install
     ENV.runtime_cpu_detection
