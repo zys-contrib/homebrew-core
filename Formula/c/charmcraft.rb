@@ -3,8 +3,8 @@ class Charmcraft < Formula
 
   desc "Tool to build charms and publish them on Charmhub"
   homepage "https://charmhub.io"
-  url "https://files.pythonhosted.org/packages/4c/3d/20a0273cb18de0bd8946b3e275d7e8bddb352e4990a6046f7133df1fe11b/charmcraft-3.4.1.tar.gz"
-  sha256 "28f639430883ff131e9d88acd9d2d299a82b4cb72772506f0d8ec40d7eaf7e47"
+  url "https://files.pythonhosted.org/packages/53/9e/55d1427225ac81563826f595853b11fe8a4c7efe2ecb84d2a2b47e28248b/charmcraft-3.4.2.tar.gz"
+  sha256 "6b7da36e03db9e7533e5953e571e28904b2c25c7db6022889c2282f99d591aa6"
   license "Apache-2.0"
 
   bottle do
@@ -75,8 +75,8 @@ class Charmcraft < Formula
   end
 
   resource "craft-parts" do
-    url "https://files.pythonhosted.org/packages/2a/b2/b876f3d9e1fe110d6f09dbf2e25a2751a6fa91a9ddacd131b03b1027a689/craft_parts-2.5.0.tar.gz"
-    sha256 "334faf23d88a34d6bd845b8ef12616fc03f1dbf87f3d313074ff31275fbcb0ad"
+    url "https://files.pythonhosted.org/packages/c1/89/a22b2a4e8ae2328dba5e719d2eb47a244b274368a2690a0f3512d4d6e79b/craft_parts-2.6.0.tar.gz"
+    sha256 "74532696167b741c39d1c0eafd6a6b7e52aef0a76c8cd54b176e43dd5e89e1a0"
   end
 
   resource "craft-platforms" do
