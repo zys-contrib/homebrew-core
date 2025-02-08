@@ -1539,6 +1539,7 @@ jr
 jreleaser
 jrnl
 jruby
+js-beautify
 jscpd
 jsdoc3
 jsign
