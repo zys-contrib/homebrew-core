@@ -1,8 +1,8 @@
 class Rsgain < Formula
   desc "ReplayGain 2.0 tagging utility"
   homepage "https://github.com/complexlogic/rsgain"
-  url "https://github.com/complexlogic/rsgain/archive/refs/tags/v3.5.3.tar.gz"
-  sha256 "4288ecec00b0d907af86779b38874a2c4dcd67005f1b7fe09f6767ac5dc8e7a6"
+  url "https://github.com/complexlogic/rsgain/archive/refs/tags/v3.6.tar.gz"
+  sha256 "26f7acd1ba0851929dc756c93b3b1a6d66d7f2f36b31f744c8181f14d7b5c8a7"
   license "BSD-2-Clause"
   head "https://github.com/complexlogic/rsgain.git", branch: "master"
 
