@@ -1,8 +1,8 @@
 class SpicetifyCli < Formula
   desc "Command-line tool to customize Spotify client"
   homepage "https://github.com/spicetify/cli"
-  url "https://github.com/spicetify/cli/archive/refs/tags/v2.39.0/v2.39.0.tar.gz"
-  sha256 "6c629263b4b0ee6ca3d008e547fa2ca198dd14f4a538dcc6d8f085f66d61ae98"
+  url "https://github.com/spicetify/cli/archive/refs/tags/v2.39.2/v2.39.2.tar.gz"
+  sha256 "33a1681a667de9492a87085227cfd73aabe8aba9cf217728a74df8adc0a062bc"
   license "LGPL-2.1-only"
   head "https://github.com/spicetify/cli.git", branch: "master"
 
