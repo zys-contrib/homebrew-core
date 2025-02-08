@@ -28,11 +28,15 @@ class Tailwindcss < Formula
 
   def install
     system "npm", "install", *std_npm_args
-    bin.install_symlink libexec.glob("bin/*")
+    bin.install libexec.glob("bin/*")
+    bin.env_script_all_files libexec/"bin", NODE_PATH: libexec/"lib/node_modules/@tailwindcss/cli/node_modules"
   end
 
   test do
-    (testpath/"input.css").write("@tailwind base;")
+    (testpath/"input.css").write <<~CSS
+      @tailwind base;
+      @import "tailwindcss";
+    CSS
     system bin/"tailwindcss", "-i", "input.css", "-o", "output.css"
     assert_path_exists testpath/"output.css"
   end
