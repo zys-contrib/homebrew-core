@@ -1,8 +1,8 @@
 class Ots < Formula
   desc "Share end-to-end encrypted secrets with others via a one-time URL"
   homepage "https://ots.sniptt.com"
-  url "https://github.com/sniptt-official/ots/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "2b627dfa22e3f92f3c70b2d4ecaf8a9a63ff8183b31e611dc1933cebb3b0ff22"
+  url "https://github.com/sniptt-official/ots/archive/refs/tags/v0.3.1.tar.gz"
+  sha256 "09f0b0d7ca44ec8414dbf631009df8c00f4750247c0f9ba25a32f0aa270e09cc"
   license "Apache-2.0"
 
   bottle do
