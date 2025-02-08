@@ -1,8 +1,8 @@
 class Jhipster < Formula
   desc "Generate, develop and deploy Spring Boot + Angular/React applications"
   homepage "https://www.jhipster.tech/"
-  url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-8.8.0.tgz"
-  sha256 "2636cccb29f9e9e2e62166ff7a6d4a720b4c4ed072a17e4636ae74bdd167a4d5"
+  url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-8.9.0.tgz"
+  sha256 "57e7c0730c9fd2abf2c3228cb4451c91f09baf2d54df73a1bbc1fc608ff455b3"
   license "Apache-2.0"
 
   bottle do
