@@ -167,8 +167,6 @@ jobs:
       - name: Check bottle attestation
         id: attestation
         if: always()
-        env:
-          HOMEBREW_FORMULA: ${{ matrix.name }}
         run: brew verify --os=all --arch=all "$FORMULA"
 
       - name: Report attestation issues
