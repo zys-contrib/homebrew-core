@@ -7,16 +7,12 @@ class Frotz < Formula
   head "https://gitlab.com/DavidGriffith/frotz.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia:  "c96fca92b26db27a63e7af61f8ebfbe6c17e0735208de53417ce04f8affb1233"
-    sha256 arm64_sonoma:   "9268c52d9e973184f11ef416876c6c4363cb583437fd2fdadd31e8f54a916e85"
-    sha256 arm64_ventura:  "6eb9830313b69d067df65c9e62af464f8126311e35169159a74699c0ae8e4886"
-    sha256 arm64_monterey: "8f3a750df4256314233253f180352abbe52636744d5bf48675d0358108644f63"
-    sha256 arm64_big_sur:  "2042388f4f26618cbd7e41b5b39ef84be6da3fb4242127ed8c0694f67e10ee0f"
-    sha256 sonoma:         "900180b9242da1ba00d22ca6f5338791d7f393d3ca7476f616641c40a3ec94ef"
-    sha256 ventura:        "55d904bd4171290616fb0138a178e000ce592d02601d412f3f82c3ed5a502ca7"
-    sha256 monterey:       "d682adea94ffdcb59065b589f781106ae753dcf04253b3e69a5e5df672a5553a"
-    sha256 big_sur:        "f2ba195e9b744fb2a1d846f365603956b0261bfff8b97c07558fc2fc46b9a750"
+    sha256 arm64_sequoia: "624ff5dacf69ae3388d0c62040b5a5bd96efb74998e858b0050677fbbf1ef85a"
+    sha256 arm64_sonoma:  "b60c0567651c1c60ca575897dd34211f12b4c88d99d7b21e18af209e81c4a44d"
+    sha256 arm64_ventura: "3b4a5db73230793ae6dd4a1bad5625f8c680e35d64dd5abc7481cb8c5445ff8b"
+    sha256 sonoma:        "a811b517afb5ce7d597cf82a5b04925c302789a502d78363d0cd14755d31896b"
+    sha256 ventura:       "8904ff9893d5daa532535d53eebdbd387e569892f0544ae9b1d8995e44906d46"
+    sha256 x86_64_linux:  "2130987d855f301a70ddf5b8a91aaa3dc348f773da11dcafa62c83339cc96d41"
   end
 
   depends_on "pkgconf" => :build
