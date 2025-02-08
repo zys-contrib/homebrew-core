@@ -1,8 +1,8 @@
 class JsBeautify < Formula
   desc "JavaScript, CSS and HTML unobfuscator and beautifier"
   homepage "https://beautifier.io"
-  url "https://registry.npmjs.org/js-beautify/-/js-beautify-1.15.1.tgz"
-  sha256 "b840f39d9e8c41a54909f299e1850c254ed33cdefc2d983726ee1f607506a36b"
+  url "https://registry.npmjs.org/js-beautify/-/js-beautify-1.15.2.tgz"
+  sha256 "268e43dbfcaa8056ae6947fa1085a4a354867cfb3ae170f875b3b5897fde2a73"
   license "MIT"
 
   bottle do
