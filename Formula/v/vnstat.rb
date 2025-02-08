@@ -1,8 +1,8 @@
 class Vnstat < Formula
   desc "Console-based network traffic monitor"
   homepage "https://humdi.net/vnstat/"
-  url "https://humdi.net/vnstat/vnstat-2.12.tar.gz"
-  sha256 "b7386b12fc1fc6f47fab31f208b12eda61862e63e229e84e95a6fa80406d2852"
+  url "https://humdi.net/vnstat/vnstat-2.13.tar.gz"
+  sha256 "c9fe19312d1ec3ddfbc4672aa951cf9e61ca98dc14cad3d3565f7d9803a6b187"
   license "GPL-2.0-only"
   head "https://github.com/vergoh/vnstat.git", branch: "master"
 
@@ -71,6 +71,7 @@ class Vnstat < Formula
     begin
       stat = IO.popen("#{bin}/vnstatd --nodaemon --config vnstat.conf")
       sleep 1
+      sleep 2 if OS.mac? && Hardware::CPU.intel?
     ensure
       Process.kill "SIGINT", stat.pid
       Process.wait stat.pid
