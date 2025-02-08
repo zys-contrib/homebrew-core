@@ -1,18 +1,18 @@
 class Envelope < Formula
   desc "Environment variables CLI tool"
   homepage "https://github.com/mattrighetti/envelope"
-  url "https://github.com/mattrighetti/envelope/archive/refs/tags/0.3.12.tar.gz"
-  sha256 "6deb645775426bd9f34b4ed581a3b26e490c3dbcec742114a7e2ddf144b8586f"
+  url "https://github.com/mattrighetti/envelope/archive/refs/tags/0.4.0.tar.gz"
+  sha256 "f855ecc19d5508bb4d08181d4e7c6d87f52faedf066299722056afe14b07b66d"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/mattrighetti/envelope.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2c0cf2f0fdc14d5952058149e3e46e2676217cd8afc292acdac7a12156db38db"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8dac95f255b257fa8122c5c479422b3c368d67948eeb91bb7e3144ac72e5eb74"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5fb67ba1dd8b37503332ff4e3b3c126460945a94891e7014c473065a59ad4c46"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cd582e7e0b208fb0985c3e8ec7ed2058d7437c02b48fc590e83d7f51e138ddae"
-    sha256 cellar: :any_skip_relocation, ventura:       "0157f4505292701dc9b16fb42a7d46b28a82a8a7205ca3c6451a36efaf4b767c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "284137aa430e081be9a59a0c1616fbae45147d86ca8cc5642418959cf5f25f5b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "97769996b52b7dfb3d4dc879f1decb372b7bfb6a7987d5c65d9de8da7535ad30"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f13e878c3298859c728acbbe8d194f7e8ca1d1e5d4f0f8c48f0f82d022dd5563"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a9e3e5f20142d839375290206505376207918d02934f7d2c3e8ce94501421da7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "70634e1d40b81b499516c7e5ef642671d59c6d43937b1431e9c0cf3a8c2614e2"
+    sha256 cellar: :any_skip_relocation, ventura:       "20a95fa5a7496e2c130f390c76af8f6685263e6cd64f7bdf4b5337c0ca211787"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c62ee614d6e26134758eaa05d737f02ec24ebd2953171f67dcf268f8bbd4b4d4"
   end
 
   depends_on "pandoc" => :build
