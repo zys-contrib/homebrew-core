@@ -1,8 +1,8 @@
 class Jackett < Formula
   desc "API Support for your favorite torrent trackers"
   homepage "https://github.com/Jackett/Jackett"
-  url "https://github.com/Jackett/Jackett/archive/refs/tags/v0.22.1381.tar.gz"
-  sha256 "35a83139a0a10b0e9775ba88f43d26b75c69ced29c3a4fa3d0edfebd355a27c3"
+  url "https://github.com/Jackett/Jackett/archive/refs/tags/v0.22.1382.tar.gz"
+  sha256 "1a666234bdfce44cd9961e218612e0233fe7c17d5b0cde725055e1e9ad63b9db"
   license "GPL-2.0-only"
   head "https://github.com/Jackett/Jackett.git", branch: "master"
 
