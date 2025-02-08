@@ -26,18 +26,59 @@ class Tailwindcss < Formula
 
   depends_on "node"
 
+  # Imitate standalone CLI and include first-party plugins
+  # https://github.com/tailwindlabs/tailwindcss/blob/main/packages/%40tailwindcss-standalone/package.json#L28-L31
+  resource "@tailwindcss/aspect-ratio" do
+    url "https://registry.npmjs.org/@tailwindcss/aspect-ratio/-/aspect-ratio-0.4.2.tgz"
+    sha256 "858df3d82234e12e59e6f8bd5d272d1e6c65aefcb4263dac84d0331f5ef00455"
+  end
+
+  resource "@tailwindcss/forms" do
+    url "https://registry.npmjs.org/@tailwindcss/forms/-/forms-0.5.10.tgz"
+    sha256 "f5003f088c8bfeef2d2576932b0521e29f84b7ca68e59afd709fef75bd4fe9bb"
+  end
+
+  resource "@tailwindcss/typography" do
+    url "https://registry.npmjs.org/@tailwindcss/typography/-/typography-0.5.16.tgz"
+    sha256 "41bb083cd966434072dd8a151c8989e1cfa574eb5ba580b719da013d32b6828e"
+  end
+
   def install
+    resources.each do |r|
+      system "npm", "install", *std_npm_args(prefix: false), r.cached_download
+    end
     system "npm", "install", *std_npm_args
     bin.install libexec.glob("bin/*")
     bin.env_script_all_files libexec/"bin", NODE_PATH: libexec/"lib/node_modules/@tailwindcss/cli/node_modules"
   end
 
   test do
+    # https://github.com/tailwindlabs/tailwindcss/blob/main/integrations/cli/standalone.test.ts
+    (testpath/"index.html").write <<~HTML
+      <div className="prose">
+        <h1>Headline</h1>
+      </div>
+      <input type="text" class="form-input" />
+      <div class="aspect-w-16"></div>
+    HTML
+
     (testpath/"input.css").write <<~CSS
       @tailwind base;
       @import "tailwindcss";
+      @import "tailwindcss/theme" theme(reference);
+      @import "tailwindcss/utilities";
+
+      @plugin "@tailwindcss/forms";
+      @plugin "@tailwindcss/typography";
+      @plugin "@tailwindcss/aspect-ratio";
     CSS
-    system bin/"tailwindcss", "-i", "input.css", "-o", "output.css"
+
+    system bin/"tailwindcss", "--input", "input.css", "--output", "output.css"
     assert_path_exists testpath/"output.css"
+
+    output = (testpath/"output.css").read
+    assert_match ".form-input {", output
+    assert_match ".prose {", output
+    assert_match ".aspect-w-16 {", output
   end
 end
