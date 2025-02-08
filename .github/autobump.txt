@@ -3097,6 +3097,7 @@ sse2neon
 ssh-audit
 ssh-mitm
 sshs
+sshuttle
 ssldump
 sslh
 sslscan
