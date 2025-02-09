@@ -1578,6 +1578,7 @@ kalker
 kallisto
 kamal-proxy
 kamel
+kanata
 kapacitor
 karmadactl
 kaskade
