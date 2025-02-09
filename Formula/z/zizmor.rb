@@ -1,8 +1,8 @@
 class Zizmor < Formula
   desc "Find security issues in GitHub Actions setups"
   homepage "https://github.com/woodruffw/zizmor"
-  url "https://github.com/woodruffw/zizmor/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "7fee5244723fd3da8b3211fc0edf1cdc269cfb7e36221c411e409a147b4da211"
+  url "https://github.com/woodruffw/zizmor/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "a8ed1b318de38ffa2e1847ae4b66cd44324030cd0fe7239e82430341b39c16ee"
   license "MIT"
 
   bottle do
