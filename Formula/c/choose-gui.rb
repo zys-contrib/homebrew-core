@@ -1,8 +1,8 @@
 class ChooseGui < Formula
   desc "Fuzzy matcher that uses std{in,out} and a native GUI"
   homepage "https://github.com/chipsenkbeil/choose"
-  url "https://github.com/chipsenkbeil/choose/archive/refs/tags/1.4.1.tar.gz"
-  sha256 "71cbe036fd60e18522b35b588196acc82ec2f6b9ab49a6da0472dc01e6d1ae54"
+  url "https://github.com/chipsenkbeil/choose/archive/refs/tags/1.5.0.tar.gz"
+  sha256 "34dd16ac0b5e1b8b2468d677a985690e3bac01cb0c45e2eaf5d493df968cca2b"
   license "MIT"
 
   bottle do
