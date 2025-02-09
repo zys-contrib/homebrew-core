@@ -1,8 +1,8 @@
 class Walk < Formula
   desc "Terminal navigator"
   homepage "https://github.com/antonmedv/walk"
-  url "https://github.com/antonmedv/walk/archive/refs/tags/v1.11.0.tar.gz"
-  sha256 "8df1a97a4f123a81e20f5344ed1c0f6f390776c5934cb9c3f38ff82f69bd7898"
+  url "https://github.com/antonmedv/walk/archive/refs/tags/v1.12.0.tar.gz"
+  sha256 "81db744bbd36d55bde26f7fafce8a067baa6d1d81ae59aa090f48c93023a2bd4"
   license "MIT"
 
   bottle do
