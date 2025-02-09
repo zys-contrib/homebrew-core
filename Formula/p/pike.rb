@@ -1,12 +1,10 @@
 class Pike < Formula
   desc "Dynamic programming language"
   homepage "https://pike.lysator.liu.se/"
-  # Homepage has an expired SSL cert as of 16/12/2020, so we add a Debian mirror
-  url "https://pike.lysator.liu.se/pub/pike/latest-stable/Pike-v8.0.1738.tar.gz"
-  mirror "https://deb.debian.org/debian/pool/main/p/pike8.0/pike8.0_8.0.1738.orig.tar.gz"
-  sha256 "1033bc90621896ef6145df448b48fdfa342dbdf01b48fd9ae8acf64f6a31b92a"
+  url "https://pike.lysator.liu.se/pub/pike/latest-stable/Pike-v8.0.1956.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/p/pike8.0/pike8.0_8.0.1956.orig.tar.gz"
+  sha256 "6a0f2677eb579865321bd75118c638c335860157a420a96e52e2765513dad4c0"
   license any_of: ["GPL-2.0-only", "LGPL-2.1-only", "MPL-1.1"]
-  revision 3
 
   livecheck do
     url "https://pike.lysator.liu.se/download/pub/pike/latest-stable/"
@@ -51,10 +49,6 @@ class Pike < Formula
   def install
     ENV.append "CFLAGS", "-m64"
     ENV.deparallelize
-
-    # Fix compile with newer Clang
-    # https://git.lysator.liu.se/pikelang/pike/-/issues/10058
-    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
     # Use GNU sed on macOS to avoid this build failure:
     # sed: RE error: illegal byte sequence
