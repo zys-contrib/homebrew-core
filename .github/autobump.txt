@@ -2536,6 +2536,7 @@ picotool
 pidgin
 pie
 pig
+pike
 piknik
 pillow
 pinact
