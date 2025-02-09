@@ -6,12 +6,12 @@ class Wgo < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9f537c5a08b29090c71c4a70583944b417499aae36fc9558bef092f9a8441b1f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f537c5a08b29090c71c4a70583944b417499aae36fc9558bef092f9a8441b1f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9f537c5a08b29090c71c4a70583944b417499aae36fc9558bef092f9a8441b1f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e55ff32ecd04a049b4997262f88f89e308e41bc7f1f277b5cd4b6259d9989817"
-    sha256 cellar: :any_skip_relocation, ventura:       "e55ff32ecd04a049b4997262f88f89e308e41bc7f1f277b5cd4b6259d9989817"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1be2dae5a84151eb4e4df49613d2849b22372e456212605d3a2224538f583172"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "79d2284328fac85aba25665f145a7cb00fdc6682e947dbe5b53ebaaa4a474e82"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "79d2284328fac85aba25665f145a7cb00fdc6682e947dbe5b53ebaaa4a474e82"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "79d2284328fac85aba25665f145a7cb00fdc6682e947dbe5b53ebaaa4a474e82"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a60b2425c23d392f383d74be726721392eae17f7ff74ebea52b5e5116995c467"
+    sha256 cellar: :any_skip_relocation, ventura:       "a60b2425c23d392f383d74be726721392eae17f7ff74ebea52b5e5116995c467"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2dcea8ece21d782265432ecd2a8484d527eff5023f08565d072593b6e81c34e5"
   end
 
   depends_on "go" => :build
