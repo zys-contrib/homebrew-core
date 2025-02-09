@@ -3,7 +3,7 @@ class Seaweedfs < Formula
   homepage "https://github.com/seaweedfs/seaweedfs"
   url "https://github.com/seaweedfs/seaweedfs.git",
       tag:      "3.84",
-      revision: "95d8f4415aedf3ec911f47d3e7f9459248c71c97"
+      revision: "5e46960651b68add6be02d93f34183218d8ca431"
   license "Apache-2.0"
   head "https://github.com/seaweedfs/seaweedfs.git", branch: "master"
 
