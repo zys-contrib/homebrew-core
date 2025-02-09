@@ -2,8 +2,8 @@ class Asymptote < Formula
   desc "Powerful descriptive vector graphics language"
   homepage "https://asymptote.sourceforge.io"
   # Keep version in sync with manual below
-  url "https://downloads.sourceforge.net/project/asymptote/2.95/asymptote-2.95.src.tgz"
-  sha256 "15604fd02cb6ddbc5b807529d2e6fc617c825a184dd0d7b71390c567aeac78e7"
+  url "https://downloads.sourceforge.net/project/asymptote/2.97/asymptote-2.97.src.tgz"
+  sha256 "32fb4a8defe3d9dcb8f875ea681e49525b54de2bdb6676e63a3281f372f0b55d"
   license "LGPL-3.0-only"
 
   livecheck do
@@ -22,6 +22,7 @@ class Asymptote < Formula
 
   depends_on "glm" => :build
   depends_on "pkgconf" => :build
+  depends_on "bdw-gc"
   depends_on "fftw"
   depends_on "ghostscript"
   depends_on "gsl"
@@ -33,14 +34,15 @@ class Asymptote < Formula
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "libtool" => :build
     depends_on "freeglut"
     depends_on "libtirpc"
     depends_on "mesa"
   end
 
   resource "manual" do
-    url "https://downloads.sourceforge.net/project/asymptote/2.95/asymptote.pdf"
-    sha256 "6fa4428a78c6af413ed82173056dd6330a496c5f7e930883b16c5cbfc01394cf"
+    url "https://downloads.sourceforge.net/project/asymptote/2.97/asymptote.pdf"
+    sha256 "3dcec72335f080c8d1be1b742751bbeb980b63cc5d1f754f1b289f7061c851cf"
 
     livecheck do
       formula :parent
@@ -52,18 +54,13 @@ class Asymptote < Formula
 
     system "./configure", *std_configure_args
 
-    # Avoid use of MacTeX with these commands
-    # (instead of `make all && make install`)
-    touch buildpath/"doc/asy-latex.pdf"
-    system "make", "asy"
-    system "make", "asy-keywords.el"
-    system "make", "install-asy"
-
-    # https://github.com/vectorgraphics/asymptote/issues/497
-    chmod "+x", pkgshare/"GUI/xasy.py"
+    # Avoid use of LaTeX with these commands (instead of `make all && make install`)
+    # Also workaround to override bundled bdw-gc. Upstream is not willing to add configure option.
+    # Ref: https://github.com/vectorgraphics/asymptote/issues/521#issuecomment-2644549764
+    system "make", "install-asy", "GCLIB=#{Formula["bdw-gc"].opt_lib/shared_library("libgc")}"
 
     doc.install resource("manual")
-    (share/"emacs/site-lisp").install_symlink pkgshare
+    elisp.install_symlink pkgshare.glob("*.el")
   end
 
   test do
@@ -74,6 +71,6 @@ class Asymptote < Formula
     EOF
 
     system bin/"asy", testpath/"line.asy"
-    assert_predicate testpath/"line.pdf", :exist?
+    assert_path_exists testpath/"line.pdf"
   end
 end
