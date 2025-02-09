@@ -1,8 +1,8 @@
 class Envelope < Formula
   desc "Environment variables CLI tool"
   homepage "https://github.com/mattrighetti/envelope"
-  url "https://github.com/mattrighetti/envelope/archive/refs/tags/0.4.0.tar.gz"
-  sha256 "f855ecc19d5508bb4d08181d4e7c6d87f52faedf066299722056afe14b07b66d"
+  url "https://github.com/mattrighetti/envelope/archive/refs/tags/0.5.0.tar.gz"
+  sha256 "9d4c65872526489a7d6209f349f29573bb10e6933be067716a8b91443059d872"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/mattrighetti/envelope.git", branch: "master"
 
@@ -34,13 +34,13 @@ class Envelope < Formula
     assert_equal "envelope #{version}", shell_output("#{bin}/envelope --version").strip
 
     assert_match "error: envelope is not initialized in current directory",
-      shell_output("#{bin}/envelope list 2>&1", 1)
+      shell_output("#{bin}/envelope list --sort date 2>&1", 1)
 
     system bin/"envelope", "init"
     system bin/"envelope", "add", "dev", "var1", "test1"
     system bin/"envelope", "add", "dev", "var2", "test2"
     system bin/"envelope", "add", "prod", "var1", "test1"
     system bin/"envelope", "add", "prod", "var2", "test2"
-    assert_match "dev\nprod", shell_output("#{bin}/envelope list")
+    assert_match "dev\nprod", shell_output("#{bin}/envelope list --sort date")
   end
 end
