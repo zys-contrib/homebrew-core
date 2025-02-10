@@ -6,12 +6,12 @@ class JsBeautify < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "29e9aedce3dab79ba2935272623a0cd2fd1fecf179d47edcf5f1eef551886f2e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "29e9aedce3dab79ba2935272623a0cd2fd1fecf179d47edcf5f1eef551886f2e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "29e9aedce3dab79ba2935272623a0cd2fd1fecf179d47edcf5f1eef551886f2e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8525811f74295d714605fbc23bba97c666608b2868a48b88f3fc4c748e8ee7d6"
-    sha256 cellar: :any_skip_relocation, ventura:       "8525811f74295d714605fbc23bba97c666608b2868a48b88f3fc4c748e8ee7d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29e9aedce3dab79ba2935272623a0cd2fd1fecf179d47edcf5f1eef551886f2e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2332076adad7076309a54f947f9893ede77035ec5afa6bd951102229284cfeec"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2332076adad7076309a54f947f9893ede77035ec5afa6bd951102229284cfeec"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2332076adad7076309a54f947f9893ede77035ec5afa6bd951102229284cfeec"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5772744b71950a488cbf593992b6bad07733966df35a2833245b8695ffb4181a"
+    sha256 cellar: :any_skip_relocation, ventura:       "5772744b71950a488cbf593992b6bad07733966df35a2833245b8695ffb4181a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2332076adad7076309a54f947f9893ede77035ec5afa6bd951102229284cfeec"
   end
 
   depends_on "node"
