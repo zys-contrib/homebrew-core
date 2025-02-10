@@ -1,8 +1,8 @@
 class GtkVnc < Formula
   desc "VNC viewer widget for GTK"
   homepage "https://gitlab.gnome.org/GNOME/gtk-vnc"
-  url "https://download.gnome.org/sources/gtk-vnc/1.4/gtk-vnc-1.4.0.tar.xz"
-  sha256 "1be64c4e4760c52b3ec33067290d1efa40ad4cecab6c673813804e3c559d9683"
+  url "https://download.gnome.org/sources/gtk-vnc/1.5/gtk-vnc-1.5.0.tar.xz"
+  sha256 "c0beb4747528ad931da43acc567c6a0190f7fc624465571ed9ccece02c34dd23"
   license "LGPL-2.1-or-later"
 
   # gtk-vnc doesn't use the usual "even-numbered minor is stable" GNOME version
