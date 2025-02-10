@@ -1825,6 +1825,7 @@ libpaper
 libpcap
 libpeas
 libphonenumber
+libpinyin
 libpipeline
 libplacebo
 libplctag

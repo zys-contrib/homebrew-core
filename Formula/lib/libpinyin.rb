@@ -1,8 +1,8 @@
 class Libpinyin < Formula
   desc "Library to deal with pinyin"
   homepage "https://github.com/libpinyin/libpinyin"
-  url "https://github.com/libpinyin/libpinyin/archive/refs/tags/2.8.1.tar.gz"
-  sha256 "42c4f899f71fc26bcc57bb1e2a9309c2733212bb241a0008ba3c9b5ebd951443"
+  url "https://github.com/libpinyin/libpinyin/archive/refs/tags/2.10.0.tar.gz"
+  sha256 "478d98ce15a2ff887fdd183c904dba82c2724f3cb9439f8441c736f0ff293279"
   license "GPL-3.0-or-later"
 
   # Tags with a 90+ patch are unstable (e.g., the 2.9.91 tag is marked as
@@ -45,8 +45,8 @@ class Libpinyin < Formula
   # The language model file is independently maintained by the project owner.
   # To update this resource block, the URL can be found in data/Makefile.am.
   resource "model" do
-    url "https://downloads.sourceforge.net/libpinyin/models/model19.text.tar.gz"
-    sha256 "56422a4ee5966c2c809dd065692590ee8def934e52edbbe249b8488daaa1f50b"
+    url "https://downloads.sourceforge.net/libpinyin/models/model20.text.tar.gz"
+    sha256 "59c68e89d43ff85f5a309489499cbcde282d2b04bd91888734884b7defcb1155"
   end
 
   def install
