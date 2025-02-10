@@ -8,8 +8,7 @@ class EyeD3 < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 6
-    sha256 cellar: :any_skip_relocation, all: "8faeb282de11f645e221dc739a28c1ba308ab14f26cd19da5378179eb040217e"
+    sha256 cellar: :any_skip_relocation, all: "7c6a2d09381919f40cc7b2a78c63ff8b65b303091159632c27888b16e0c1e1bb"
   end
 
   depends_on "python@3.13"
