@@ -46,11 +46,10 @@ class VulkanTools < Formula
       # account for using already-built MoltenVK instead of the source repo
       inreplace "cube/CMakeLists.txt",
                 "${MOLTENVK_DIR}/MoltenVK/icd/MoltenVK_icd.json",
-                "${MOLTENVK_DIR}/share/vulkan/icd.d/MoltenVK_icd.json"
-      inreplace buildpath.glob("*/macOS/*/CMakeLists.txt") do |s|
-        s.gsub! "${MOLTENVK_DIR}/Package/Release/MoltenVK/dynamic/dylib/macOS/libMoltenVK.dylib",
+                "${MOLTENVK_DIR}/etc/vulkan/icd.d/MoltenVK_icd.json"
+      inreplace buildpath.glob("*/macOS/*/CMakeLists.txt"),
+                "${MOLTENVK_DIR}/Package/Release/MoltenVK/dynamic/dylib/macOS/libMoltenVK.dylib",
                 "${MOLTENVK_DIR}/lib/libMoltenVK.dylib"
-      end
     end
 
     args = [
@@ -105,7 +104,14 @@ class VulkanTools < Formula
   end
 
   test do
-    ENV["VK_ICD_FILENAMES"] = lib/"mock_icd/VkICD_mock_icd.json"
-    system bin/"vulkaninfo", "--summary"
+    with_env(VK_ICD_FILENAMES: lib/"mock_icd/VkICD_mock_icd.json") do
+      assert_match "Vulkan Mock Device", shell_output("#{bin}/vulkaninfo --summary")
+    end
+
+    return if !OS.mac? || (Hardware::CPU.intel? && ENV["HOMEBREW_GITHUB_ACTIONS"])
+
+    with_env(XDG_DATA_DIRS: testpath) do
+      assert_match "DRIVER_ID_MOLTENVK", shell_output("#{bin}/vulkaninfo --summary")
+    end
   end
 end
