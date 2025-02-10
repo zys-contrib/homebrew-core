@@ -7,12 +7,12 @@ class Yamlfmt < Formula
   head "https://github.com/google/yamlfmt.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2343005d1b1df4aa279d819c1aff8d28a3a13046e8a16a91d0528aaaf9022041"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2343005d1b1df4aa279d819c1aff8d28a3a13046e8a16a91d0528aaaf9022041"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2343005d1b1df4aa279d819c1aff8d28a3a13046e8a16a91d0528aaaf9022041"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cfa25baa8706007c5403efc39836074f54b5fb8878547299af7cde2561a8f808"
-    sha256 cellar: :any_skip_relocation, ventura:       "cfa25baa8706007c5403efc39836074f54b5fb8878547299af7cde2561a8f808"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfd5debc8b0e9a2a45e43b802ba41921a8c62b3a9bf178caa80c72cfa7c82b6c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "432bc292d0feb0e9597bd786e628e01b0557a847d303cf1e5006c5b70111041f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "432bc292d0feb0e9597bd786e628e01b0557a847d303cf1e5006c5b70111041f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "432bc292d0feb0e9597bd786e628e01b0557a847d303cf1e5006c5b70111041f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "899210545175b84e91bee5ae9337912ce1d6d755d462f9ec2620a2f8a722d0ff"
+    sha256 cellar: :any_skip_relocation, ventura:       "899210545175b84e91bee5ae9337912ce1d6d755d462f9ec2620a2f8a722d0ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "818289e664422a8c73aea66665a680d7bfbd4e18d5b34b06e081a68cfb3478ad"
   end
 
   depends_on "go" => :build
