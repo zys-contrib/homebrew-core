@@ -19,6 +19,9 @@ class Ad < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+    # remove `doc_prefix` with next release
+    doc_prefix = build.head? ? "docs" : "doc"
+    man.install buildpath/"#{doc_prefix}/man/ad.1"
   end
 
   test do
