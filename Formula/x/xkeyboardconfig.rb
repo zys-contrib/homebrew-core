@@ -7,8 +7,7 @@ class Xkeyboardconfig < Formula
   head "https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "3e9bd10096890fe0f8e9246fa9dcc2f4d9332298d6ffa4ca1d89af59cef84039"
+    sha256 cellar: :any_skip_relocation, all: "1571357873553cfd7bd11548375e148f50d9f6680f361384402550ceb3f5a65e"
   end
 
   depends_on "gettext" => :build
