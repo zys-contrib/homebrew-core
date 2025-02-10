@@ -1,8 +1,8 @@
 class Mikutter < Formula
   desc "Extensible Twitter client"
   homepage "https://mikutter.hachune.net/"
-  url "https://mikutter.hachune.net/bin/mikutter-5.1.0.tar.gz", using: :homebrew_curl
-  sha256 "86c0b30f38fa6e67ed2c9c5b013497b75ef6895f5c53c58eccc708294693c98d"
+  url "https://mikutter.hachune.net/bin/mikutter-5.1.1.tar.gz", using: :homebrew_curl
+  sha256 "ddff538aae249bd636604128bac1ccb526a4ed5c32f00b45d3c3c1dbcdb655de"
   license "MIT"
   head "git://mikutter.hachune.net/mikutter.git", branch: "develop"
 
@@ -280,10 +280,9 @@ class Mikutter < Formula
     end
 
     gemfile_remove_test!
-    system "bundle", "config",
-           "build.nokogiri", "--use-system-libraries"
-    system "bundle", "install",
-           "--local", "--path=#{lib}/mikutter/vendor"
+    system "bundle", "config", "build.nokogiri", "--use-system-libraries"
+    system "bundle", "config", "set", "--local", "path", "#{lib}/mikutter/vendor"
+    system "bundle", "install"
 
     rm_r("vendor")
     (lib/"mikutter").install "plugin"
