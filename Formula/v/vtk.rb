@@ -4,7 +4,7 @@ class Vtk < Formula
   url "https://www.vtk.org/files/release/9.4/VTK-9.4.1.tar.gz"
   sha256 "c253b0c8d002aaf98871c6d0cb76afc4936c301b72358a08d5f3f72ef8bc4529"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://gitlab.kitware.com/vtk/vtk.git", branch: "master"
 
   bottle do
@@ -54,12 +54,14 @@ class Vtk < Formula
     depends_on "mesa"
   end
 
-  def install
-    # Work around problematic netCDF CMake file by forcing pkg-config fallback.
-    # Ref: https://github.com/Unidata/netcdf-c/issues/1444
-    odie "Try removing netCDF workaround!" if Formula["netcdf"].stable.version > "4.9.2"
-    inreplace "CMake/FindNetCDF.cmake", "find_package(netCDF CONFIG QUIET)", "# \\0"
+  # Apply Arch Linux patch to fix build with netcdf 4.9.3+
+  # Issue ref: https://gitlab.kitware.com/vtk/vtk/-/issues/19616
+  patch do
+    url "https://gitlab.archlinux.org/archlinux/packaging/packages/vtk/-/raw/b4d07bd7ee5917e2c32f7f056cf78472bcf1cec2/netcdf-4.9.3.patch"
+    sha256 "87535578bbb0023ede506fd64afae95cdf4fb698c543f9735e6267730634afbc"
+  end
 
+  def install
     # Work around superenv to avoid mixing `expat` usage in libraries across dependency tree.
     # Brew `expat` usage in Python has low impact as it isn't loaded unless pyexpat is used.
     # TODO: Consider adding a DSL for this or change how we handle Python's `expat` dependency
