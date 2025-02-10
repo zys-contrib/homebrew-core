@@ -7,12 +7,12 @@ class Parlay < Formula
   head "https://github.com/snyk/parlay.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9500bdf0d7d002f14516ed724c1fafb1455c4eca2ea29acce67bfc05744c9f8f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9500bdf0d7d002f14516ed724c1fafb1455c4eca2ea29acce67bfc05744c9f8f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9500bdf0d7d002f14516ed724c1fafb1455c4eca2ea29acce67bfc05744c9f8f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6a31b8e96a35dde70feb12cc350d8b9cf896b190f8960e95ec99d5421a887341"
-    sha256 cellar: :any_skip_relocation, ventura:       "6a31b8e96a35dde70feb12cc350d8b9cf896b190f8960e95ec99d5421a887341"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ffbc99d7d2c246b4ee5bfc0b0391f995c7692b72ce55edd67a818b975c58476e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "456169da5e7f9bfdb41468ca3ef6da4cc0633bd53223dda865131da73eabf013"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "456169da5e7f9bfdb41468ca3ef6da4cc0633bd53223dda865131da73eabf013"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "456169da5e7f9bfdb41468ca3ef6da4cc0633bd53223dda865131da73eabf013"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8f7f8ab6b8b264968c52d0406f6e076dcf4fa9708f4e5cb193dfe197633a3739"
+    sha256 cellar: :any_skip_relocation, ventura:       "8f7f8ab6b8b264968c52d0406f6e076dcf4fa9708f4e5cb193dfe197633a3739"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1daa00909693aa418948b5433d7e1a484e78572c7043a536f98a70c4508a4780"
   end
 
   depends_on "go" => :build
