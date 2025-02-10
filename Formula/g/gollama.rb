@@ -7,12 +7,12 @@ class Gollama < Formula
   head "https://github.com/sammcj/gollama.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8cebe90c5b57e989b726ac58fa5450ce42d869debfa9f9dd6c5b506a0d5184c7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e46e45f3ef75bc2c678fe75bbbb0ff78a36c93929ee0a341c10da6653f455ed7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "886c4ca6da85e6f373f6f0700c4de3f3c82fc254bef30d393885cc71657cb53b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3a9ee324d31de45d7717afc80b247623481df8fb4e76cbccf53f6269b13c515f"
-    sha256 cellar: :any_skip_relocation, ventura:       "d72f64eb2ba070857b76338cde9118c6ed9f6b65f61565852343c54747aca6c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff8979e678bd1bcf35868585cf0cc9ef512aab009c1a32e7bdb8fabaac5ab3bc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "338cdb69c0dc45c2d53e33910c76c821f540b615c0fe40b4daa3f954d3e4c11b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f054622b611846d59a3fe0adbaafd155fe9b89e4d2e371fc8415fd3ab6a0bad8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "adf2e62ead3440fe9d4b125f96bfed4e02bf103b609949e20f642f8fde735cd7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "788c2c8aafdff0edfb101c202eb0f8377c26df911f272c14b731a1c8018b7156"
+    sha256 cellar: :any_skip_relocation, ventura:       "a6dd74aa8691867b99996f8b495d08c4375ba2f2bf4c1248c1f2044329b42c0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c205fc7d5bd60bad77ed817cc0d03a99febb046d0844e529b4c944ecc173d075"
   end
 
   depends_on "go" => :build
