@@ -1,8 +1,8 @@
 class Harper < Formula
   desc "Grammar Checker for Developers"
   homepage "https://github.com/elijah-potter/harper"
-  url "https://github.com/elijah-potter/harper/archive/refs/tags/v0.19.1.tar.gz"
-  sha256 "257310c97cc757117c7a9ca59d5bc3cfa4c229f0ec433ebc241d487ad6847645"
+  url "https://github.com/elijah-potter/harper/archive/refs/tags/v0.20.0.tar.gz"
+  sha256 "3b027e49ecd5196117d41075fc7e849d76ac25fca00ecdac34a5c1ccb4408606"
   license "Apache-2.0"
   head "https://github.com/elijah-potter/harper.git", branch: "master"
 
@@ -36,7 +36,7 @@ class Harper < Formula
     assert_equal "Word", JSON.parse(output.lines.first)["kind"]["kind"]
 
     output = shell_output("#{bin}/harper-cli words")
-    assert_equal "B", output.lines.first.chomp
+    assert_equal "\"B\"", output.lines.first.chomp
 
     # test harper-ls
     json = <<~JSON
