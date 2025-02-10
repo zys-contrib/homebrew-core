@@ -1,8 +1,8 @@
 class NodeAT20 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v20.18.2/node-v20.18.2.tar.xz"
-  sha256 "69bf81b70f3a95ae0763459f02860c282d7e3a47567c8afaf126cc778176a882"
+  url "https://nodejs.org/dist/v20.18.3/node-v20.18.3.tar.xz"
+  sha256 "0674f16f3bc284c11724cd3f7c2a43f7c2c13d2eb7a872dd0db198f3d588c5f2"
   license "MIT"
 
   livecheck do
@@ -46,12 +46,6 @@ class NodeAT20 < Formula
     cause <<~EOS
       error: calling a private constructor of class 'v8::internal::(anonymous namespace)::RegExpParserImpl<uint8_t>'
     EOS
-  end
-
-  # Backport support for ICU 76+
-  patch do
-    url "https://github.com/nodejs/node/commit/81517faceac86497b3c8717837f491aa29a5e0f9.patch?full_index=1"
-    sha256 "79a5489617665c5c88651a7dc364b8967bebdea5bdf361b85572d041a4768662"
   end
 
   def install
