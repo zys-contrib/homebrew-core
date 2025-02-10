@@ -1,9 +1,9 @@
 class Oggz < Formula
   desc "Command-line tool for manipulating Ogg files"
   homepage "https://www.xiph.org/oggz/"
-  url "https://downloads.xiph.org/releases/liboggz/liboggz-1.1.1.tar.gz", using: :homebrew_curl
-  mirror "https://ftp.osuosl.org/pub/xiph/releases/liboggz/liboggz-1.1.1.tar.gz"
-  sha256 "6bafadb1e0a9ae4ac83304f38621a5621b8e8e32927889e65a98706d213d415a"
+  url "https://downloads.xiph.org/releases/liboggz/liboggz-1.1.2.tar.gz", using: :homebrew_curl
+  mirror "https://ftp.osuosl.org/pub/xiph/releases/liboggz/liboggz-1.1.2.tar.gz"
+  sha256 "c97e4fba7954a9faf79ddcf406992c6f7bb0214e96d4957a07a2fda0265e5ab2"
   license "BSD-3-Clause"
 
   livecheck do
@@ -32,10 +32,10 @@ class Oggz < Formula
   depends_on "pkgconf" => :build
   depends_on "libogg"
 
-  # Fix -flat_namespace being used on Big Sur and later.
+  # build patch to include `<inttypes.h>` to fix missing printf format macros
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c7dd59ab42edc3652529563bfb12ca9d1140c4af/liboggz/1.1.2-inttypes.patch"
+    sha256 "0ec758ab05982dc302592f3b328a7b7c47e60672ef7da1133bcbebc4413a20a3"
   end
 
   def install
