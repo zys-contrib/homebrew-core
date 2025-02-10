@@ -4,6 +4,7 @@ class Eccodes < Formula
   url "https://confluence.ecmwf.int/download/attachments/45757960/eccodes-2.40.0-Source.tar.gz"
   sha256 "f58d5d7390fce86c62b26d76b9bc3c4d7d9a6cf2e5f8145d1d598089195e51ff"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://confluence.ecmwf.int/display/ECC/Releases"
