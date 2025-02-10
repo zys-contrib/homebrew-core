@@ -2332,6 +2332,7 @@ odbc2parquet
 ode
 odo-dev
 odpi
+oggz
 oh-my-posh
 oha
 oil
