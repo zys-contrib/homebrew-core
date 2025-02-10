@@ -15,12 +15,12 @@ class Sqlite < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "56459499fcb30c412b34069af462affba6150a684684b747a7696fb96bd6afe5"
-    sha256 cellar: :any,                 arm64_sonoma:  "88f8ceb923134e0f733355ddd5d8aeca284a6749b47bf42dab86de23854b8255"
-    sha256 cellar: :any,                 arm64_ventura: "b7aa1674e769996a9fff7a79b81eae73dfcb7c91dd2b746bd2f0c8c9f05ddb4e"
-    sha256 cellar: :any,                 sonoma:        "7ca5392892461703f4aaad060a0c33849d95a523e16e7b9e86ec97b94ccd1082"
-    sha256 cellar: :any,                 ventura:       "3046ba527c7add5e0406dfb8cdce75a76fa6ba273a3bf0a64041adc2753ef8dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8bc3f02f117c74ccf0f315354ccc1ecf10a013c7b2cbc6b7137617f1422a30e"
+    sha256 cellar: :any,                 arm64_sequoia: "a91a65a3ba87aa27d72f88b2d390119c68fd70808bdb6e052ec90e6a9ae410cc"
+    sha256 cellar: :any,                 arm64_sonoma:  "dabadec36af0936ea2271e30c9c0debf5400b33a5e494ef22d577edb3aa9e04d"
+    sha256 cellar: :any,                 arm64_ventura: "9a21952b5fc721e40a60e733cc86d3aea9781abaccbe8d8c56ebfb7b642fcdf2"
+    sha256 cellar: :any,                 sonoma:        "d3adb49dbd199ab48cf0f79ff2b796c074b2c0ac4ec0e9eaa3b0c7a2c7c50cb6"
+    sha256 cellar: :any,                 ventura:       "e815e1bcaa86dbeff68ce9d00093be91884da3b20652fdf1dfff4fa9427da526"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7b98407d745abc5b56519d93267b67ccc0e3593c1415b0b62df779f2089eb97"
   end
 
   keg_only :provided_by_macos
