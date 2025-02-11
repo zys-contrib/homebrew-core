@@ -1,8 +1,8 @@
 class Tabiew < Formula
   desc "TUI to view and query tabular files (CSV,TSV, Parquet, etc.)"
   homepage "https://github.com/shshemi/tabiew"
-  url "https://github.com/shshemi/tabiew/archive/refs/tags/v0.8.1.tar.gz"
-  sha256 "912c45cf26d83b96a0003c0134c2971c82cbdf2dda630fa8fa11e41c4ce28150"
+  url "https://github.com/shshemi/tabiew/archive/refs/tags/v0.8.2.tar.gz"
+  sha256 "b4f35ea8e7cf320b88b4e5c2060305190fad5126285a14bc044207e4ddd487b0"
   license "MIT"
 
   bottle do
