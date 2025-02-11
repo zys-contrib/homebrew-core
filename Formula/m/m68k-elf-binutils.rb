@@ -11,12 +11,12 @@ class M68kElfBinutils < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "a639815d8c2a5c622987e5d0321d0340d65ffbe116d40516e37abc82a5060db5"
-    sha256 arm64_sonoma:  "91ca55dad31c7914b101bdbf6e4977f9a5a556ddc7ce933f1eb5c460689d1f32"
-    sha256 arm64_ventura: "8e8119e5fc1eef55a01bd4ad0525cdf44350c0b66a1f09d6067ff6684977523f"
-    sha256 sonoma:        "94ed2bc055753fbfc6f91384185edf78ff76379a465240508df924951447f0e5"
-    sha256 ventura:       "7e8e89c9ed43be2afc20492a78eb88ba1ac69e52e61e93c67f9c14e8089dc845"
-    sha256 x86_64_linux:  "1bf1b448a1db6fd2784405902d6598d485bb713b1016d9ca68f56e5531ca158e"
+    sha256 arm64_sequoia: "2d13019a91e96df4bec9d103b27bf8e762937caf8f06bd9b3a82593ffc411ee4"
+    sha256 arm64_sonoma:  "0f60c3ff36204622b577350ce4031ce145d4c6c8284245f04de949816702284c"
+    sha256 arm64_ventura: "a5ed324082026d635a02de4cc13bd7a4295be5d35206473dedbd7a551bff7254"
+    sha256 sonoma:        "02e128023ae78f6353cf68d79e00e92e7bda8ca424f0f6e7dbf0d01e781979b9"
+    sha256 ventura:       "b138ddd64a69bb9a42a5c5e76c3223365f3b23b3e282fba0df09feaa6b5fc5a4"
+    sha256 x86_64_linux:  "8f2c362af5db10ad9e8aa38efbe0cb2440231d73747f54a2c3f48f49cff52277"
   end
 
   depends_on "pkgconf" => :build
