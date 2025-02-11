@@ -1,10 +1,9 @@
 class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
-  url "https://github.com/containers/podman/archive/refs/tags/v5.3.2.tar.gz"
-  sha256 "e7d7abf2d4ecae7217af017a4199d555563721bf6c3ae52e68704ee8268c432b"
+  url "https://github.com/containers/podman/archive/refs/tags/v5.4.0.tar.gz"
+  sha256 "e5efb825558624d0539dac94847c39aafec68e6d4dd712435ff4ec1b17044b69"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
-  revision 1
   head "https://github.com/containers/podman.git", branch: "main"
 
   # There can be a notable gap between when a version is tagged and a
@@ -58,8 +57,8 @@ class Podman < Formula
   # More context: https://github.com/Homebrew/homebrew-core/pull/205303
   resource "gvproxy" do
     on_macos do
-      url "https://github.com/containers/gvisor-tap-vsock/archive/refs/tags/v0.8.1.tar.gz"
-      sha256 "9b7fb12dfc37b0a727f2209ff8b557c4ec922d11cec30a778c192da360db4a2f"
+      url "https://github.com/containers/gvisor-tap-vsock/archive/refs/tags/v0.8.3.tar.gz"
+      sha256 "5dd666c3d599c80c15182f80d848446482bdd7937b780517e591f5681a0b6889"
     end
   end
 
@@ -94,6 +93,7 @@ class Podman < Formula
   def install
     if OS.mac?
       ENV["CGO_ENABLED"] = "1"
+      ENV["BUILD_ORIGIN"] = "brew"
 
       system "gmake", "podman-remote"
       bin.install "bin/darwin/podman" => "podman-remote"
@@ -131,6 +131,7 @@ class Podman < Formula
       ENV.O0
       ENV["PREFIX"] = prefix
       ENV["HELPER_BINARIES_DIR"] = opt_libexec/"podman"
+      ENV["BUILD_ORIGIN"] = "brew"
 
       system "make"
       system "make", "install", "install.completions"
