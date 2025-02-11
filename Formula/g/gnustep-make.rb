@@ -1,8 +1,8 @@
 class GnustepMake < Formula
   desc "Basic GNUstep Makefiles"
   homepage "https://gnustep.github.io/"
-  url "https://github.com/gnustep/tools-make/releases/download/make-2_9_2/gnustep-make-2.9.2.tar.gz"
-  sha256 "f540df9f0e1daeb3d23b08e14b204b2a46f1d0a4005cb171c95323413806e4e1"
+  url "https://github.com/gnustep/tools-make/releases/download/make-2_9_3/gnustep-make-2.9.3.tar.gz"
+  sha256 "93ca320b706279ebca53760da89d4c3f2bbc547f4723967140a34346d9f04c24"
   license "GPL-3.0-or-later"
 
   livecheck do
