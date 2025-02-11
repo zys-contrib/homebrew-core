@@ -12,12 +12,12 @@ class Telegraf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "002cba94efed39a426f06b3b4ac925a5a9e8c226be14295f711595cab8347703"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5da6c404414625161e60fac1a64d9061fa7afccb889ab2fd356ba65dd219af45"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "272b90faf143ec7af58ccd04420b7b5d9f8b85f9e8698cf0eb734998378a4aa3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6691f732485c531569529abc34485a3d13102367ba5afe997f88c4d0619fed31"
-    sha256 cellar: :any_skip_relocation, ventura:       "db3e3f707d08db3eaa2b27eee6db1b9c1cc04737ce6ec4ed662eb65c46456e0e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85515117b8cd51bbbbe38b54f8ca7005a1d1c2d42024335e020f9d6003355112"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "94be4d63017fbc22f365959f4b0ce4a753c1787b3d7f84a5dae04619c722c30b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2461b380d9b1b7319ff4451ac10ec84e6259ee7f6c70bd2ecfecf56a8cd1f94c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f58b5cb279e6994e5fe61df805d0407f9b5160f568638e0d0b5669291018ca00"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fcd9e0501a4b284974f33666b4c51053ae0b93b00b96b71623aab831ce580c50"
+    sha256 cellar: :any_skip_relocation, ventura:       "410e227319ea47a5be146e439ea146585536691b6cc90e4fcc6a237ad9162cb6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d321331da9fea48481219d8592cf4ca0e017c919f0d9387c5a3579ae514f49b8"
   end
 
   depends_on "go" => :build
