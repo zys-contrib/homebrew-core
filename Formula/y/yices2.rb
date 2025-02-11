@@ -6,6 +6,15 @@ class Yices2 < Formula
   license "GPL-3.0-only"
   head "https://github.com/SRI-CSL/yices2.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "7aa9455d40cdd55ef92337c0216bbd59eb9a79436112ba5048371762c2ef6447"
+    sha256 cellar: :any,                 arm64_sonoma:  "0ebe8f48d46ba45ce6f51e16731dc13419c44274b68909ed9635dcb13b6387cc"
+    sha256 cellar: :any,                 arm64_ventura: "e9f1e7539230db974013b318edcb79b903d4481f535412a15a011e8db1e848a7"
+    sha256 cellar: :any,                 sonoma:        "df4295c2f41d0c4615eddc34ec1a6027ac42f1878ef5a480073b9173e6694966"
+    sha256 cellar: :any,                 ventura:       "e6ef02af7980cac20b6421c387b7273c96526b00979764eed016201d08ae2f4b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e262428f6fe4f84fb209b35479ed9210fa975ec908120e77dcea8f797fc6752"
+  end
+
   depends_on "autoconf" => :build
   depends_on "gperf" => :build
   depends_on "gmp"
