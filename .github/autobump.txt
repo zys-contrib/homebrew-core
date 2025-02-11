@@ -200,6 +200,7 @@ babl
 bacon
 bacula-fd
 badkeys
+bagels
 bagit
 baidupcs-go
 balena-cli
