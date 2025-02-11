@@ -437,6 +437,7 @@ cfengine
 cffi
 cfitsio
 cfn-lint
+cfnctl
 cfonts
 cfr-decompiler
 cfripper
