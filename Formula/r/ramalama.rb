@@ -7,6 +7,15 @@ class Ramalama < Formula
   sha256 "23b42864952604f1f7666412fb3d296738fd3369287c97f340066be90a4a2235"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e3d279edcd13a35a3baca8cdd379489e2cd904c80a711127a542cb825321f7de"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e3d279edcd13a35a3baca8cdd379489e2cd904c80a711127a542cb825321f7de"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e3d279edcd13a35a3baca8cdd379489e2cd904c80a711127a542cb825321f7de"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5c0671e2235197b4f71658f630d0af7c5c47cea307c56a0d417841bcb1cabe6a"
+    sha256 cellar: :any_skip_relocation, ventura:       "5c0671e2235197b4f71658f630d0af7c5c47cea307c56a0d417841bcb1cabe6a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a06eed5683e2f16ad5a80450f65547134740eea5d17031addb97a972997bce7f"
+  end
+
   depends_on "python@3.13"
 
   resource "argcomplete" do
