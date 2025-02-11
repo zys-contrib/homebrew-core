@@ -1364,6 +1364,7 @@ hbase
 hblock
 hck
 hcl2json
+hcledit
 hcloud
 hcxtools
 heartbeat
