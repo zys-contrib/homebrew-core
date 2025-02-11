@@ -17,12 +17,12 @@ class Podman < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8d3c5a1c99fe2e4309ea96158e12f9132da072786b5cca5d2a6ddeb57a9b49eb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d54aef6a18d43715e8cc5e1e486cf255e3e5931654e46bf95012a83c7341904"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b2779601ca3ae538593ee8399591f51c625027194d28d2c9768b7831f4b8f261"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2aab6be60b444c3dd2470f3b11a5414bb19901f27b6f49e64716f093801e2a9d"
-    sha256 cellar: :any_skip_relocation, ventura:       "4de740a6f9e3a1d5dd61985d03c6a5e5ba0ac62aee27ab1219f2bb617f831fa5"
-    sha256                               x86_64_linux:  "eb228f53621c5be1b1fcec6efca2b06790cd8f1d5ea602e1b91e33de30d0d4b1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "39b29d9f45b76993bf471174c7bf5bc3ffbdfaacad5406a18d2fd203bb221f58"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8000fe73e511908388ca85e95fdddcb69bca121ef920aaf922fac46e8167afaf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a6cbe0f0c8a6ccd8b25fad0bb1b330a8fb0b04711e1e92534ddd12c5ad1ee704"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aea19cb2fa59cfe149c5ce7ea75071edbd9e9df42cee087cab744462036dc810"
+    sha256 cellar: :any_skip_relocation, ventura:       "b8c247a4cdbc95ff13fb42839e8bb04bc721578b2b13a0ade01a86fbb8524b8e"
+    sha256                               x86_64_linux:  "96c4efce605131f7952989bb0101db40a84d12e7febe0881bb252c6892d5f948"
   end
 
   depends_on "go" => :build
