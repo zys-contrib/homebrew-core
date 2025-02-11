@@ -1545,6 +1545,7 @@ jreleaser
 jrnl
 jruby
 js-beautify
+jsbeautifier
 jscpd
 jsdoc3
 jsign
