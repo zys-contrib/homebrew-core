@@ -1,8 +1,8 @@
 class Inko < Formula
   desc "Safe and concurrent object-oriented programming language"
   homepage "https://inko-lang.org/"
-  url "https://releases.inko-lang.org/0.17.1.tar.gz"
-  sha256 "752c1881b7029f76f7a900ace23fbc5b81e1ceebea214c7f998c03284fd92dba"
+  url "https://releases.inko-lang.org/0.18.0.tar.gz"
+  sha256 "8ebd2c1d8cb3375b50c4236c39f331fd0942861ebeb30b317ec0f904843b5a26"
   license "MPL-2.0"
   head "https://github.com/inko-lang/inko.git", branch: "main"
 
@@ -25,7 +25,7 @@ class Inko < Formula
 
   depends_on "coreutils" => :build
   depends_on "rust" => :build
-  depends_on "llvm"
+  depends_on "llvm@17" # see https://github.com/inko-lang/inko/blob/4738b81dbec1f50dadeec3608dde855583f80dda/ci/mac.sh#L5
   depends_on "zstd"
 
   uses_from_macos "libffi", since: :catalina
