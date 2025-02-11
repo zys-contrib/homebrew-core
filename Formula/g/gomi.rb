@@ -1,8 +1,8 @@
 class Gomi < Formula
   desc "Functions like rm but with the ability to restore files"
   homepage "https://gomi.dev"
-  url "https://github.com/babarot/gomi/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "bd7441272c6ac1ae6c3fb378c4fe1bdf5f9c12995eebc2cbacca3da8d7906c1c"
+  url "https://github.com/babarot/gomi/archive/refs/tags/v1.3.2.tar.gz"
+  sha256 "4adfb52f01a860c0248fc63785dc55e2a8cc7e7cb4084f29256d1f14e4524042"
   license "MIT"
   head "https://github.com/babarot/gomi.git", branch: "main"
 
