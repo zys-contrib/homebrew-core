@@ -1,8 +1,8 @@
 class CargoHack < Formula
   desc "Cargo subcommand to provide options for testing and continuous integration"
   homepage "https://github.com/taiki-e/cargo-hack"
-  url "https://github.com/taiki-e/cargo-hack/archive/refs/tags/v0.6.34.tar.gz"
-  sha256 "68315c0370ce9794ba44f18e586e1f6491c63615c0423e052d61833cfb96116c"
+  url "https://github.com/taiki-e/cargo-hack/archive/refs/tags/v0.6.35.tar.gz"
+  sha256 "3a61da5f6d3620a64ceee2a3666817ffe0f4bfc9966699814e0b094fe10492a7"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/taiki-e/cargo-hack.git", branch: "main"
 
