@@ -9,8 +9,7 @@ class CmakeLanguageServer < Formula
   head "https://github.com/regen100/cmake-language-server.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "86cdbf04946f27a7004d51e49f0513c6d0a77835289c1299da6653a5ec5f41aa"
+    sha256 cellar: :any_skip_relocation, all: "196609d5f168161292e11fb6799acd9b4c907e1a81a9c476848e981aae23e4a4"
   end
 
   depends_on "python@3.13"
