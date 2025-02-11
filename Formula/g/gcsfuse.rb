@@ -1,8 +1,8 @@
 class Gcsfuse < Formula
   desc "User-space file system for interacting with Google Cloud"
   homepage "https://github.com/googlecloudplatform/gcsfuse"
-  url "https://github.com/GoogleCloudPlatform/gcsfuse/archive/refs/tags/v2.9.0.tar.gz"
-  sha256 "92ed235b9eb602f6ddf833cb3bc84f09be9911c2c1b837ea64cb6c27977b5b7b"
+  url "https://github.com/GoogleCloudPlatform/gcsfuse/archive/refs/tags/v2.9.1.tar.gz"
+  sha256 "bfd19cd71d4594070d68d882af436cc358bed7a09973c1e5aa2008831aa62e9d"
   license "Apache-2.0"
   head "https://github.com/GoogleCloudPlatform/gcsfuse.git", branch: "master"
 
