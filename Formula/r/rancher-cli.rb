@@ -15,12 +15,12 @@ class RancherCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f69c78c8d188ce9f0187dd7b30ae7acb4a679fb73cc1d958401a8522e660796f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f69c78c8d188ce9f0187dd7b30ae7acb4a679fb73cc1d958401a8522e660796f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f69c78c8d188ce9f0187dd7b30ae7acb4a679fb73cc1d958401a8522e660796f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "77af6b0df353a12ebfbfc1022a78f47fa7e866114e24a77905a43d7dd839eda1"
-    sha256 cellar: :any_skip_relocation, ventura:       "77af6b0df353a12ebfbfc1022a78f47fa7e866114e24a77905a43d7dd839eda1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebb29f7da2a74dcd0508ed9f961bcf75fd69a163436762fe20617d63920067ff"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "29c8bad6f2eb8f3b84251616f8b63af406c230bf93a444590e86a2d51f308147"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "29c8bad6f2eb8f3b84251616f8b63af406c230bf93a444590e86a2d51f308147"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "29c8bad6f2eb8f3b84251616f8b63af406c230bf93a444590e86a2d51f308147"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a30f84832bd2b4893516e322866195943fd7db9e7d404ba7e18eb979fe03f35d"
+    sha256 cellar: :any_skip_relocation, ventura:       "a30f84832bd2b4893516e322866195943fd7db9e7d404ba7e18eb979fe03f35d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "753ec0d4a96594846b6396ad334a74f43f0b954150b391b8042f27e3a2d92218"
   end
 
   depends_on "go" => :build
