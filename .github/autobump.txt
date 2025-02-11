@@ -3625,6 +3625,7 @@ yaz
 yazi
 ydiff
 yewtube
+yices2
 ykman
 yle-dl
 yo
