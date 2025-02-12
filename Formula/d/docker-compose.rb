@@ -1,8 +1,8 @@
 class DockerCompose < Formula
   desc "Isolated development environments using Docker"
   homepage "https://docs.docker.com/compose/"
-  url "https://github.com/docker/compose/archive/refs/tags/v2.32.4.tar.gz"
-  sha256 "2574c30f5746f43209b203c1acb23c26a92598944d990c12eafecda663b80e9c"
+  url "https://github.com/docker/compose/archive/refs/tags/v2.33.0.tar.gz"
+  sha256 "6543bc9876688d021310df2b910a7f93b5710464660fab9a63e0c6cb1f2ac48d"
   license "Apache-2.0"
   head "https://github.com/docker/compose.git", branch: "main"
 
@@ -45,7 +45,7 @@ class DockerCompose < Formula
   end
 
   test do
-    output = shell_output(bin/"docker-compose up 2>&1", 14)
+    output = shell_output(bin/"docker-compose up 2>&1", 1)
     assert_match "no configuration file provided", output
   end
 end
