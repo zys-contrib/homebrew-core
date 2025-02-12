@@ -1,10 +1,9 @@
 class Fbthrift < Formula
   desc "Facebook's branch of Apache Thrift, including a new C++ server"
   homepage "https://github.com/facebook/fbthrift"
-  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2024.12.02.00.tar.gz"
-  sha256 "c394eb7a607c54f6ec57979b06f4ebdcab6b3ae66ef71ad4a532b98ed39027fe"
+  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2025.02.10.00.tar.gz"
+  sha256 "27703284abca7bd35d340529152c5890a37d840e3f9c5b2d89c125936260ac25"
   license "Apache-2.0"
-  revision 3
   head "https://github.com/facebook/fbthrift.git", branch: "main"
 
   bottle do
@@ -64,9 +63,11 @@ class Fbthrift < Formula
     shared_args = ["-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}", "-DCMAKE_POSITION_INDEPENDENT_CODE=ON"]
     shared_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup -Wl,-dead_strip_dylibs" if OS.mac?
 
-    system "cmake", "-S", ".", "-B", "build/shared", *shared_args, *std_cmake_args
-    system "cmake", "--build", "build/shared"
-    system "cmake", "--install", "build/shared"
+    # We build in-source to avoid an error from thrift/lib/cpp2/test:
+    # Output path .../build/shared/thrift/lib/cpp2/test/../../../conformance/if is unusable or not a directory
+    system "cmake", "-S", ".", "-B", ".", *shared_args, *std_cmake_args
+    system "cmake", "--build", "."
+    system "cmake", "--install", "."
 
     elisp.install "thrift/contrib/thrift.el"
     (share/"vim/vimfiles/syntax").install "thrift/contrib/thrift.vim"
