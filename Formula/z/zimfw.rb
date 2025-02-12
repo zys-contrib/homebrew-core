@@ -5,6 +5,10 @@ class Zimfw < Formula
   sha256 "c9ff0392a6b6a7edaf65a21e8f9fed6fcd40bb7f9374e52942a35cdd40bb9c0a"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "a4addd17b99cf3280e6431695d579fd363e6b6873f6c3de7689f429bd1b20455"
+  end
+
   uses_from_macos "zsh" => :test
 
   def install
