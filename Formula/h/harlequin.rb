@@ -3,8 +3,8 @@ class Harlequin < Formula
 
   desc "Easy, fast, and beautiful database client for the terminal"
   homepage "https://harlequin.sh"
-  url "https://files.pythonhosted.org/packages/51/13/949231ac99a157445e3e3b6237bb82140036a062444dd7359c43aa09c973/harlequin-2.0.3.tar.gz"
-  sha256 "e991ada24ddfcbf5409af3100f95f29aad7dd7e33dcb0ae833d0078a19a78c41"
+  url "https://files.pythonhosted.org/packages/d0/44/921ce550ed36c112e3fd88ba78b6499b42a9e88411ecd518a8159d50afb7/harlequin-2.0.4.tar.gz"
+  sha256 "edbe6b746a20877ffcd4e95da0f3890684000f9a32d6257fdcde06615e77a700"
   license "MIT"
 
   bottle do
@@ -33,8 +33,8 @@ class Harlequin < Formula
   end
 
   resource "cython" do
-    url "https://files.pythonhosted.org/packages/84/4d/b720d6000f4ca77f030bd70f12550820f0766b568e43f11af7f7ad9061aa/cython-3.0.11.tar.gz"
-    sha256 "7146dd2af8682b4ca61331851e6aebce9fe5158e75300343f80c07ca80b1faff"
+    url "https://files.pythonhosted.org/packages/5a/25/886e197c97a4b8e254173002cdc141441e878ff29aaa7d9ba560cd6e4866/cython-3.0.12.tar.gz"
+    sha256 "b988bb297ce76c671e28c97d017b95411010f7c77fa6623dd0bb47eed1aee1bc"
   end
 
   resource "duckdb" do
@@ -53,8 +53,8 @@ class Harlequin < Formula
   end
 
   resource "harlequin-postgres" do
-    url "https://files.pythonhosted.org/packages/99/06/7ae3b90f55d454fb6a82844ab92bc385bc96d62ae5fd15f0af12575b011e/harlequin_postgres-1.1.0.tar.gz"
-    sha256 "5e9e863170dcf4a8c7f194a30ae7e3c791226371fd08a9779c5bcff432d1d69d"
+    url "https://files.pythonhosted.org/packages/d9/e6/a8e7474791ca694ae8b1f4ad1aa2eeca7fc1ccec10be20dbdd12be7acce0/harlequin_postgres-1.1.1.tar.gz"
+    sha256 "3ba0981b3b17aa72984bb36ea16dc1eac3398ade23c59fd14ac6f883e1ca369b"
   end
 
   resource "jinja2" do
@@ -174,8 +174,8 @@ class Harlequin < Formula
   end
 
   resource "textual-fastdatatable" do
-    url "https://files.pythonhosted.org/packages/06/cc/93f2131c7b4e388560cc633b5992c54ea56b7f1ef00a1641c0e33f92a722/textual_fastdatatable-0.11.0.tar.gz"
-    sha256 "a2305f5745dc1ab4088a3f0d5c7dcfb8993d711a296954664c3492712fa5cc4b"
+    url "https://files.pythonhosted.org/packages/ef/da/9e86cadf3824df250126616a19d3b79f48f13e0f336605e1a2ab3d5a0aef/textual_fastdatatable-0.12.0.tar.gz"
+    sha256 "56b035e22d694fa902a8b80120765addd6e32f4eee0151ee46fa6ab1deaad59e"
   end
 
   resource "textual-textarea" do
