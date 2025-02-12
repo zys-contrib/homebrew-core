@@ -2,8 +2,8 @@ class MkdocsMaterial < Formula
   include Language::Python::Virtualenv
   desc "Material Design theme for MkDocs"
   homepage "https://squidfunk.github.io/mkdocs-material/"
-  url "https://files.pythonhosted.org/packages/0f/1e/65b4fda4debf5e337b2ad4e692423dba4f5c77f49c4dee170c47a7dbac25/mkdocs_material-9.6.3.tar.gz"
-  sha256 "c87f7d1c39ce6326da5e10e232aed51bae46252e646755900f4b0fc9192fa832"
+  url "https://files.pythonhosted.org/packages/9b/80/4efbd3df76c6c1ec27130b43662612f9033adc5a4166f1df2acb8dd6fb1b/mkdocs_material-9.6.4.tar.gz"
+  sha256 "4d1d35e1c1d3e15294cb7fa5d02e0abaee70d408f75027dc7be6e30fb32e6867"
   license "MIT"
 
   bottle do
