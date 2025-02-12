@@ -779,6 +779,7 @@ docker-credential-helper
 docker-credential-helper-ecr
 docker-gen
 docker-machine
+docker-machine-driver-vultr
 docker-slim
 docker-squash
 dockerfile-language-server
