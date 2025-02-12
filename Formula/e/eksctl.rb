@@ -16,16 +16,10 @@ class Eksctl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "efcd6814978a781db4e305a197f1f0ea5b3feaa70b0610600bf5b489f6f8caa8"
   end
 
-  depends_on "counterfeiter" => :build
   depends_on "go" => :build
-  depends_on "go-bindata" => :build
-  depends_on "ifacemaker" => :build
-  depends_on "mockery" => :build
 
   def install
-    ENV["GOBIN"] = HOMEBREW_PREFIX/"bin"
-    ENV.deparallelize # Makefile prerequisites need to be run in order
-    system "make", "build"
+    system "make", "binary"
     bin.install "eksctl"
 
     generate_completions_from_executable(bin/"eksctl", "completion")
