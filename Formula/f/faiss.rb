@@ -2,7 +2,7 @@ class Faiss < Formula
   desc "Efficient similarity search and clustering of dense vectors"
   homepage "https://github.com/facebookresearch/faiss"
   url "https://github.com/facebookresearch/faiss/archive/refs/tags/v1.10.0.tar.gz"
-  sha256 "18a1604867021641cb3bafcd9fbca4df944fd65e45747e186b69c7e7f72d0f3b"
+  sha256 "65b5493d6b8cb992f104677cab255a9b71ef1e1d2ea3b1500dc995c68b429949"
   license "MIT"
 
   livecheck do
