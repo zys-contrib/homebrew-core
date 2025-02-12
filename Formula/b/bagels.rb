@@ -7,6 +7,15 @@ class Bagels < Formula
   sha256 "799dfde373a1fa9deddf2190b4a39023b32c64e9d5efef1608cc5132b8fb61a3"
   license "GPL-3.0-or-later"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "d604a4e3a3fc566861745feec5707ac2d33e4398a5845c0210f10380fcc28dcd"
+    sha256 cellar: :any,                 arm64_sonoma:  "be49f9ce1fe8a2fa5ac6f50fe8eb960c84495ca5a2f22777ea6da3aafbf1a5c7"
+    sha256 cellar: :any,                 arm64_ventura: "aa4a4aef20e493e45a238cb535cb799b1bd397c9465dae700a2d5d958a0aa4b1"
+    sha256 cellar: :any,                 sonoma:        "73d559aea056c8d8d1610ac8426d2bf6ac6f0210eb606cae29205338f14d4a97"
+    sha256 cellar: :any,                 ventura:       "328a3ea37d72bd39435b9cb09d560ae09bc09f3086c3e38e94453f025eaa6bde"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15f56ee493d9140ce670e84fc2d87593a4d0c84d6e0937f97ae1d7b75d90323e"
+  end
+
   depends_on "rust" => :build # for pydantic_core
   depends_on "libyaml"
   depends_on "numpy"
