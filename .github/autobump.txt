@@ -1691,6 +1691,7 @@ latexindent
 latexml
 latino
 lazydocker
+lazyjj
 lbdb
 lc0
 lcm
