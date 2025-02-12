@@ -2,8 +2,8 @@ class GolangciLint < Formula
   desc "Fast linters runner for Go"
   homepage "https://golangci-lint.run/"
   url "https://github.com/golangci/golangci-lint.git",
-        tag:      "v1.64.3",
-        revision: "09167d709ffc36a06517334ed4af8766c858de51"
+        tag:      "v1.64.4",
+        revision: "04aec4f787c25a737641f3d434059880d2af0f53"
   license "GPL-3.0-only"
   head "https://github.com/golangci/golangci-lint.git", branch: "master"
 
