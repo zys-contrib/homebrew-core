@@ -1,8 +1,8 @@
 class Faircamp < Formula
   desc "Static site generator for audio producers"
   homepage "https://codeberg.org/simonrepp/faircamp"
-  url "https://codeberg.org/simonrepp/faircamp/archive/1.1.1.tar.gz"
-  sha256 "ecb9a30a505b0453900457d5f9396833eb458545d97f4ce46c219a90ead4708d"
+  url "https://codeberg.org/simonrepp/faircamp/archive/1.2.0.tar.gz"
+  sha256 "4aecd8ea0b9a975fd8880ac75829d3f8611abd853a0bf40512b7e8cec450d2c8"
   license "AGPL-3.0-or-later"
 
   bottle do
@@ -55,9 +55,9 @@ class Faircamp < Formula
     assert_path_exists output_dir/"favicon.svg"
     assert_path_exists output_dir/"album"/"index.html"
     assert_path_exists output_dir/"album"/"cover_1.jpg"
-    assert_path_exists output_dir/"album"/"opus-96"/"ASINtk0hKII"/"01 Track01.opus"
-    assert_path_exists output_dir/"album"/"opus-96"/"uWPoxZFX0kQ"/"02 Track02.opus"
-    assert_path_exists output_dir/"album"/"mp3-v5"/"1syLQAjRlm8"/"01 Track01.mp3"
-    assert_path_exists output_dir/"album"/"mp3-v5"/"zh4GTzy3VT0"/"02 Track02.mp3"
+    assert_path_exists output_dir/"album"/"1"/"opus-96"/"8zjo5mMqlmM"/"01 Track01.opus"
+    assert_path_exists output_dir/"album"/"2"/"opus-96"/"visBSotimzQ"/"02 Track02.opus"
+    assert_path_exists output_dir/"album"/"1"/"mp3-v5"/"tbscAvvooxg"/"01 Track01.mp3"
+    assert_path_exists output_dir/"album"/"2"/"mp3-v5"/"d3t6L5fUbXg"/"02 Track02.mp3"
   end
 end
