@@ -2892,6 +2892,7 @@ saml2aws
 sbcl
 sbom-tool
 sbt
+sby
 sc-im
 scala
 scala@2.12
