@@ -2547,6 +2547,7 @@ pike
 piknik
 pillow
 pinact
+pinboard-notes-backup
 pinentry
 pinocchio
 pinot
