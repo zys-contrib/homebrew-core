@@ -1,8 +1,8 @@
 class TailwindcssLanguageServer < Formula
   desc "LSP for TailwindCSS"
   homepage "https://github.com/tailwindlabs/tailwindcss-intellisense/tree/HEAD/packages/tailwindcss-language-server"
-  url "https://github.com/tailwindlabs/tailwindcss-intellisense/archive/refs/tags/v0.14.3.tar.gz"
-  sha256 "05efc986955321d19f25e3b2fed6ba75c7f1ad3e71a641b1d474b2ac750bf8ef"
+  url "https://github.com/tailwindlabs/tailwindcss-intellisense/archive/refs/tags/v0.14.4.tar.gz"
+  sha256 "da3412c0af5471dbc9d4510ca967c3d90e7db49ffea0cee5d7a3821fba5e07eb"
   license "MIT"
 
   livecheck do
