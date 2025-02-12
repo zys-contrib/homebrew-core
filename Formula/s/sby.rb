@@ -3,8 +3,8 @@ class Sby < Formula
 
   desc "Front-end for Yosys-based formal verification flows"
   homepage "https://symbiyosys.readthedocs.io/en/latest/"
-  url "https://github.com/YosysHQ/sby/archive/refs/tags/v0.49.tar.gz"
-  sha256 "199bbba310089f42ac4705ecf0d2e26e1e671ae661c6240c7e795f05af1325b9"
+  url "https://github.com/YosysHQ/sby/archive/refs/tags/v0.50.tar.gz"
+  sha256 "e538809f527628010830b2bbc450863c41617181972f3ab183728a6ab3194255"
   license "ISC"
   head "https://github.com/YosysHQ/sby.git", branch: "main"
 
