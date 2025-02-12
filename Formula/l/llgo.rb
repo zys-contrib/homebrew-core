@@ -4,6 +4,7 @@ class Llgo < Formula
   url "https://github.com/goplus/llgo/archive/refs/tags/v0.9.9.tar.gz"
   sha256 "705fed97ef8b337863fd9bbb40653c22fd93ba689f879db06801d37e5d8fe809"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_sequoia: "e4f7a4e54a80876defc9ef22d779e0043f897c3dd146efb4494a4dac722018f1"
