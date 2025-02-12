@@ -1,8 +1,8 @@
 class Sshx < Formula
   desc "Fast, collaborative live terminal sharing over the web"
   homepage "https://sshx.io"
-  url "https://github.com/ekzhang/sshx/archive/refs/tags/v0.3.1.tar.gz"
-  sha256 "3bc2abc59be26c9eefaf7fc999aa4a3723d2916414c319fd06555415278acb64"
+  url "https://github.com/ekzhang/sshx/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "b92370d5d66266e2ea234d6be9515afeebf7d4b594b12035c19f13409a469531"
   license "MIT"
 
   bottle do
