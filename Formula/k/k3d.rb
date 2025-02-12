@@ -1,8 +1,8 @@
 class K3d < Formula
   desc "Little helper to run CNCF's k3s in Docker"
   homepage "https://k3d.io"
-  url "https://github.com/k3d-io/k3d/archive/refs/tags/v5.8.1.tar.gz"
-  sha256 "b4835360685b89ce1e13e1ccaa3f4d0cd7775b09c7ebe6dfc9b0e3d64f952487"
+  url "https://github.com/k3d-io/k3d/archive/refs/tags/v5.8.2.tar.gz"
+  sha256 "666c6666be63baea6f574c83a61ffcf323d7a1949780ee42775e934b6e352948"
   license "MIT"
 
   livecheck do
