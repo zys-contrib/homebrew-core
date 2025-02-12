@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/semgrep/semgrep.git",
-      tag:      "v1.107.0",
-      revision: "92313a429752186e4a39b2d6f7edeefe80dabbb0"
+      tag:      "v1.108.0",
+      revision: "2fc9561439da51936a772afda12e3db28bc4f8db"
   license "LGPL-2.1-only"
   head "https://github.com/semgrep/semgrep.git", branch: "develop"
 
@@ -190,8 +190,8 @@ class Semgrep < Formula
   end
 
   resource "peewee" do
-    url "https://files.pythonhosted.org/packages/b4/dc/832bcf4ea5ee2ebc4ea42ef36e44a451de5d80f8b9858bf2066e30738c67/peewee-3.17.8.tar.gz"
-    sha256 "ce1d05db3438830b989a1b9d0d0aa4e7f6134d5f6fd57686eeaa26a3e6485a8c"
+    url "https://files.pythonhosted.org/packages/57/09/4393bd378e70b7fc3163ee83353cc27bb520010a5c2b3c924121e7e7e068/peewee-3.17.9.tar.gz"
+    sha256 "fe15cd001758e324c8e3ca8c8ed900e7397c2907291789e1efc383e66b9bc7a8"
   end
 
   resource "protobuf" do
