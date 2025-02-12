@@ -12,11 +12,11 @@ class DotnetAT8 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "505ce4b696f40616cbfad2f5f196d9ba508623aef599becf2ba5d63d3a307934"
-    sha256 cellar: :any,                 arm64_sonoma:  "10fa0584aa38f3dd61bfc32d9190d34119f696f288e7e19cdb9378a2fdf1cbf5"
-    sha256 cellar: :any,                 arm64_ventura: "b95f290cdde4671fae98a91f4922ae573a648b31b97b231711d8a28ee2eec505"
-    sha256 cellar: :any,                 ventura:       "49ba5702149614519597484b7a352884536c5680148838dc79f6c0149c63f9d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d559106959224e1e0e5aa12cc744b9beacc046106019dc1b136d2148f83ed21d"
+    sha256 cellar: :any,                 arm64_sequoia: "a9f0f1f8711ff76deb10496c24bd2daf843aab668b57898fc9304aac0431c384"
+    sha256 cellar: :any,                 arm64_sonoma:  "e7957558faea782a21b19e7234cc2a43205338d66cb3883ff969f9f221584c86"
+    sha256 cellar: :any,                 arm64_ventura: "95a8231577db9ce5d892bd0faa007ad1d5323e21796e77e0ddc165d86190850c"
+    sha256 cellar: :any,                 ventura:       "bb04d278df05e3bbc022c415cd0705ba88484c7316381d33d09c7492274cff53"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75db5f0b5c406f90f0b65551d5f389e96efc3e35a3aecbeade45e23ceaf7a3b8"
   end
 
   keg_only :versioned_formula
