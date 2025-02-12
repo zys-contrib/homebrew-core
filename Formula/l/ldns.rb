@@ -28,6 +28,12 @@ class Ldns < Formula
 
   conflicts_with "drill", because: "both install a `drill` binary"
 
+  # build patch to work with swig 4.3.0, upstream pr ref, https://github.com/NLnetLabs/ldns/pull/257
+  patch do
+    url "https://github.com/NLnetLabs/ldns/commit/49b2e4a938d263bb8c532e64f33690551e43ca0c.patch?full_index=1"
+    sha256 "e7dd20b06cf1b0728d0822118a8ae231405579a9f35b0d66ac6422249c2be518"
+  end
+
   def python3
     "python3.13"
   end
