@@ -1,9 +1,9 @@
 class Shepherd < Formula
   desc "Service manager that looks after the herd of system services"
   homepage "https://www.gnu.org/software/shepherd/"
-  url "https://ftp.gnu.org/gnu/shepherd/shepherd-1.0.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/shepherd/shepherd-1.0.1.tar.gz"
-  sha256 "895d0051e1cc473b1f79f63913777b4d15f89f16d0a723774176da102e2710c5"
+  url "https://ftp.gnu.org/gnu/shepherd/shepherd-1.0.2.tar.gz"
+  mirror "https://ftpmirror.gnu.org/shepherd/shepherd-1.0.2.tar.gz"
+  sha256 "df4bac04b4b0476fa8f9ed138292ac2cc54b4304b5eefd859ed4892d4f9924bf"
   license "GPL-3.0-or-later"
 
   bottle do
