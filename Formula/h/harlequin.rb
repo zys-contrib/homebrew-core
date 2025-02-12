@@ -8,12 +8,12 @@ class Harlequin < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "de49bff78e170b9fd067a9bccb3a48d60d3b1afcda5c94e473cd5979e6c2b1d1"
-    sha256 cellar: :any,                 arm64_sonoma:  "bbc273a73779a8b07aa110d9d27bb8e6416a25c87a8cfb1ba4641aca1cf81694"
-    sha256 cellar: :any,                 arm64_ventura: "25ce9cc750c9c2d180ea62f806f34c3236817baa0784031265780e3e89bd79ea"
-    sha256 cellar: :any,                 sonoma:        "237404ab59bd8ea57d5ac5540bef2e5654eeb95db4c36bc5150e8be763648488"
-    sha256 cellar: :any,                 ventura:       "5a38aa26fc76b3d8cf45662b231ceb6f3367984af5c5503619303ae1fe21ede7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62d9306b2a1ef14dfb22aae9ad1759bbb6c332617bb806cdd2154e1604e51563"
+    sha256 cellar: :any,                 arm64_sequoia: "50627e0d184eee0ac222d9f9aea8fa0d74e6e173749fa6990b3452df535ef168"
+    sha256 cellar: :any,                 arm64_sonoma:  "7ab2251ee6f86cb99a141f589d0f098b33dce2e88a388ba1234c7fcd6746d11a"
+    sha256 cellar: :any,                 arm64_ventura: "0f79a8bf6d21bd08230f1755f771c52a92e50a5e66435f4fd4e87c66b01a8520"
+    sha256 cellar: :any,                 sonoma:        "42f38b42f4340cdeef356fe794732b400a52d2f40c55a6aebe40b6c14609e709"
+    sha256 cellar: :any,                 ventura:       "b98c6ceeb1d895074ab5b8f2deb1b9b8919b7dd8b15748a296512bb5198466d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "298b15ff5cdba02216894d6ab0601a9d1cb6a5b295c08c6aaab89d75cc5a5ecb"
   end
 
   depends_on "cmake" => :build
