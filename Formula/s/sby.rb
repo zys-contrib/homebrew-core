@@ -8,6 +8,15 @@ class Sby < Formula
   license "ISC"
   head "https://github.com/YosysHQ/sby.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0b81884bc7bf026ab188ebcca1e2b714a4deae8f739a90bd9a4c43d5b31175e9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0b81884bc7bf026ab188ebcca1e2b714a4deae8f739a90bd9a4c43d5b31175e9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0b81884bc7bf026ab188ebcca1e2b714a4deae8f739a90bd9a4c43d5b31175e9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0b81884bc7bf026ab188ebcca1e2b714a4deae8f739a90bd9a4c43d5b31175e9"
+    sha256 cellar: :any_skip_relocation, ventura:       "0b81884bc7bf026ab188ebcca1e2b714a4deae8f739a90bd9a4c43d5b31175e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "491f3ac4bf3697b25388f152cbcfd9d78c572cddb3acd850cb451305d5cfea11"
+  end
+
   depends_on "yices2" => :test
   depends_on "python@3.13"
   depends_on "yosys"
