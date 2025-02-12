@@ -2,10 +2,9 @@ class Onnxruntime < Formula
   desc "Cross-platform, high performance scoring engine for ML models"
   homepage "https://github.com/microsoft/onnxruntime"
   url "https://github.com/microsoft/onnxruntime.git",
-      tag:      "v1.20.1",
-      revision: "5c1b7ccbff7e5141c1da7a9d963d660e5741c319"
+      tag:      "v1.20.2",
+      revision: "8608bf02f21774be0388d2aa3a9f886d009d0b4c"
   license "MIT"
-  revision 2
 
   livecheck do
     url :stable
@@ -46,8 +45,8 @@ class Onnxruntime < Formula
 
   # https://github.com/microsoft/onnxruntime/blob/v#{version}/cmake/deps.txt#L52
   resource "pytorch_cpuinfo" do
-    url "https://github.com/pytorch/cpuinfo/archive/ca678952a9a8eaa6de112d154e8e104b22f9ab3f.tar.gz"
-    sha256 "c8f43b307fa7d911d88fec05448161eb1949c3fc0cb62f3a7a2c61928cdf2e9b"
+    url "https://github.com/pytorch/cpuinfo/archive/8a1772a0c5c447df2d18edf33ec4603a8c9c04a6.tar.gz"
+    sha256 "37bb2fd2d1e87102baea8d131a0c550c4ceff5a12fba61faeb1bff63868155f1"
   end
 
   # Backport fix for build on Linux
