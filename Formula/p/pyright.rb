@@ -1,8 +1,8 @@
 class Pyright < Formula
   desc "Static type checker for Python"
   homepage "https://github.com/microsoft/pyright"
-  url "https://registry.npmjs.org/pyright/-/pyright-1.1.393.tgz"
-  sha256 "8b18e165f045ce90bac365fc6730242c136add74a409dcd09c534efe2a5062a2"
+  url "https://registry.npmjs.org/pyright/-/pyright-1.1.394.tgz"
+  sha256 "68fff0726d94afa6e44fa0faf447f25349b92d6d4e5cdc73289b84ba40f7ffa6"
   license "MIT"
   head "https://github.com/microsoft/pyright.git", branch: "main"
 
