@@ -3640,6 +3640,7 @@ yices2
 ykman
 yle-dl
 yo
+yor
 yorkie
 yosys
 you-get
