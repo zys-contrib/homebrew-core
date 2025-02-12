@@ -1,8 +1,8 @@
 class Lnav < Formula
   desc "Curses-based tool for viewing and analyzing log files"
   homepage "https://lnav.org/"
-  url "https://github.com/tstack/lnav/releases/download/v0.12.3/lnav-0.12.3.tar.gz"
-  sha256 "db5eee92aa00ce0b0614186c918a11db2fe6c06104fb615ad82cbea295ea6dac"
+  url "https://github.com/tstack/lnav/releases/download/v0.12.4/lnav-0.12.4.tar.gz"
+  sha256 "e1e70c9e5a2fce21da80eec9b9c3adb09fd05e03986285098a9f2567c1eb4792"
   license "BSD-2-Clause"
 
   livecheck do
@@ -30,6 +30,7 @@ class Lnav < Formula
 
   depends_on "rust" => :build
   depends_on "libarchive"
+  depends_on "libunistring"
   depends_on "ncurses"
   depends_on "pcre2"
   depends_on "readline"
@@ -41,12 +42,11 @@ class Lnav < Formula
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", *std_configure_args,
-                          "--with-sqlite3=#{Formula["sqlite"].opt_prefix}",
+    system "./configure", "--with-sqlite3=#{Formula["sqlite"].opt_prefix}",
                           "--with-readline=#{Formula["readline"].opt_prefix}",
                           "--with-libarchive=#{Formula["libarchive"].opt_prefix}",
                           "--with-ncurses=#{Formula["ncurses"].opt_prefix}",
-                          "--with-rust=#{Formula["rust"].opt_prefix}"
+                          *std_configure_args
     system "make", "install", "V=1"
   end
 
