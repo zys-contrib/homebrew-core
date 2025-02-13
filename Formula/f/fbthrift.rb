@@ -43,9 +43,7 @@ class Fbthrift < Formula
 
   fails_with :clang do
     build 1100
-    cause <<~EOS
-      error: 'asm goto' constructs are not supported yet
-    EOS
+    cause "error: 'asm goto' constructs are not supported yet"
   end
 
   def install
@@ -61,7 +59,10 @@ class Fbthrift < Formula
     # to include them, make sure `bin/thrift1` links with the dynamic libraries
     # instead of the static ones (e.g. `libcompiler_base`, `libcompiler_lib`, etc.)
     shared_args = ["-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}", "-DCMAKE_POSITION_INDEPENDENT_CODE=ON"]
-    shared_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup -Wl,-dead_strip_dylibs" if OS.mac?
+    if OS.mac?
+      shared_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup -Wl,-dead_strip_dylibs"
+      shared_args << "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-dead_strip_dylibs"
+    end
 
     # We build in-source to avoid an error from thrift/lib/cpp2/test:
     # Output path .../build/shared/thrift/lib/cpp2/test/../../../conformance/if is unusable or not a directory
