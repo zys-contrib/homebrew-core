@@ -12,12 +12,12 @@ class Riscv64ElfGdb < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "5ec7913f8ee922a161642d928054caa35012e7f76ff5704dccc562a41e8c6204"
-    sha256 arm64_sonoma:  "bb83ca7cbf60932bb75c8fc83da5759aa200c63473345c34d6df0094fdb73aa7"
-    sha256 arm64_ventura: "aa4ad7c443da6dae85fa8f5ef83385baab09ee04255d05ce4c10dcdfdeed25bf"
-    sha256 sonoma:        "b72f8922d44047607f80203783d0f8bcdd4ce3f64a6cbf98c6bc1b79ba9fd6e2"
-    sha256 ventura:       "e4468e209f5e31f7166ad69bb1c839bdfee4a11d1ad8d971def7e50856c9858f"
-    sha256 x86_64_linux:  "6eea4c66dca856214bbfc2f0784ff4f8d1e77e90cbb1a337d941ba76e721dbdd"
+    sha256 arm64_sequoia: "a49f2518da1c45d36c859eb865144227d4d07486b8ba024170db83dd80f2eba1"
+    sha256 arm64_sonoma:  "e7b19f8779b005c08bbe5a9489504e93264c2a3eff23d595238897fb53b72cc3"
+    sha256 arm64_ventura: "fccea4d5843a8e3d9f85355f50aa13abeef2396172710a9ff9c5670cdad1d03d"
+    sha256 sonoma:        "ac495dcb93f738f074ac61abbdc5c66ea3f43646eed971cd9cb0efb758d059cd"
+    sha256 ventura:       "dd8565db43dd825209c342591779a47bc117b26e19c1904a1f7f71079813e7b0"
+    sha256 x86_64_linux:  "30ec6c9bd936d13e75de1c5c4f6bbb210c75b5b1dd3fd0327dd0f90a40dbba52"
   end
 
   depends_on "riscv64-elf-gcc" => :test
