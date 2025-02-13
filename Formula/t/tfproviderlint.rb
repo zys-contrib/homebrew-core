@@ -4,6 +4,7 @@ class Tfproviderlint < Formula
   url "https://github.com/bflad/tfproviderlint/archive/refs/tags/v0.31.0.tar.gz"
   sha256 "9defa750077052ebf1639532e771a9e986b7a53948b6a16cb647ceaf60cfbce1"
   license "MPL-2.0"
+  revision 1
   head "https://github.com/bflad/tfproviderlint.git", branch: "main"
 
   bottle do
