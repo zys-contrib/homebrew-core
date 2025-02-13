@@ -1,8 +1,8 @@
 class K6 < Formula
   desc "Modern load testing tool, using Go and JavaScript"
   homepage "https://k6.io"
-  url "https://github.com/grafana/k6/archive/refs/tags/v0.56.0.tar.gz"
-  sha256 "a11776d57e9cf3fb306c4f0df9141f972c1b6506c47a750fd71d0f5b24945272"
+  url "https://github.com/grafana/k6/archive/refs/tags/v0.57.0.tar.gz"
+  sha256 "75ccb3f7a9d3c2045d71b9bbb37d8a5e1b482b374d5c3deedac4523700a5bf05"
   license "AGPL-3.0-or-later"
 
   bottle do
