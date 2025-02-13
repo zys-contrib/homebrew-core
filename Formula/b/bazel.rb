@@ -1,8 +1,9 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/7.4.1/bazel-7.4.1-dist.zip"
-  sha256 "83386618bc489f4da36266ef2620ec64a526c686cf07041332caff7c953afaf5"
+  # TODO: Try removing `bazel@7` workaround whenever new release is available
+  url "https://github.com/bazelbuild/bazel/releases/download/8.1.0/bazel-8.1.0-dist.zip"
+  sha256 "e08b9137eb85da012afae2d5f34348e5622df273e74d4140e8c389f0ea275f27"
   license "Apache-2.0"
 
   livecheck do
@@ -25,6 +26,19 @@ class Bazel < Formula
 
   uses_from_macos "unzip"
   uses_from_macos "zip"
+
+  if DevelopmentTools.clang_build_version >= 1600
+    depends_on "bazel@7" => :build
+
+    resource "bazel-src" do
+      url "https://github.com/bazelbuild/bazel/archive/refs/tags/8.1.0.tar.gz"
+      sha256 "bc2b40c9e4bfe17dd60e2adff47fad75a34788b9b3496e4f8496e3730066db69"
+
+      livecheck do
+        formula :parent
+      end
+    end
+  end
 
   on_linux do
     on_intel do
@@ -61,7 +75,34 @@ class Bazel < Formula
     (buildpath/"sources").install buildpath.children
 
     cd "sources" do
-      system "./compile.sh"
+      if DevelopmentTools.clang_build_version >= 1600
+        # Work around an error which is seen bootstrapping Bazel 8 on newer Clang
+        # from the `-fmodules-strict-decluse` set by `layering_check`:
+        #
+        #   external/abseil-cpp+/absl/container/internal/raw_hash_set.cc:26:10: error:
+        #   module abseil-cpp+//absl/container:raw_hash_set does not depend on a module
+        #   exporting 'absl/base/internal/endian.h'
+        #
+        # TODO: Try removing when newer versions of dependencies (e.g. abseil-cpp >= 20250127.0)
+        # are available in https://github.com/bazelbuild/bazel/blob/#{version}/MODULE.bazel
+
+        # The dist zip lacks some files to build directly with Bazel
+        odie "Resource bazel-src needs to be updated!" if resource("bazel-src").version != version
+        rm_r(Pathname.pwd.children)
+        resource("bazel-src").stage(Pathname.pwd)
+        rm(".bazelversion")
+
+        extra_bazel_args += %W[
+          --compilation_mode=opt
+          --stamp
+          --embed_label=#{ENV["EMBED_LABEL"]}
+        ]
+        system Formula["bazel@7"].bin/"bazel", "build", *extra_bazel_args, "//src:bazel_nojdk"
+        Pathname("output").install "bazel-bin/src/bazel_nojdk" => "bazel"
+      else
+        system "./compile.sh"
+      end
+
       system "./output/bazel", "--output_user_root=#{buildpath}/output_user_root",
                                "build",
                                "scripts:bash_completion",
