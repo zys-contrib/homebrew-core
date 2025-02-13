@@ -1,8 +1,8 @@
 class Qsv < Formula
   desc "Ultra-fast CSV data-wrangling toolkit"
   homepage "https://github.com/dathere/qsv"
-  url "https://github.com/dathere/qsv/archive/refs/tags/2.2.1.tar.gz"
-  sha256 "3ada256641d4a56e82cd9d3e48f62188eb6d8dd80b96385ac72c302d729504a4"
+  url "https://github.com/dathere/qsv/archive/refs/tags/3.0.0.tar.gz"
+  sha256 "25d2fec81e027682c3a67b5d3088082df77a899c946fff423b0f969353b7968b"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/dathere/qsv.git", branch: "master"
 
@@ -39,13 +39,13 @@ class Qsv < Formula
   test do
     (testpath/"test.csv").write("first header,second header")
     assert_equal <<~EOS, shell_output("#{bin}/qsv stats test.csv")
-      field,type,is_ascii,sum,min,max,range,sort_order,min_length,max_length,sum_length,avg_length,stddev_length,variance_length,cv_length,mean,sem,geometric_mean,harmonic_mean,stddev,variance,cv,nullcount,max_precision,sparsity,qsv__value
-      first header,NULL,,,,,,,,,,,,,,,,,,,,,0,,,
-      second header,NULL,,,,,,,,,,,,,,,,,,,,,0,,,
-      qsv__rowcount,,,,,,,,,,,,,,,,,,,,,,,,,0
-      qsv__columncount,,,,,,,,,,,,,,,,,,,,,,,,,2
-      qsv__filesize_bytes,,,,,,,,,,,,,,,,,,,,,,,,,26
-      qsv__fingerprint_hash,,,,,,,,,,,,,,,,,,,,,,,,,b818de06455146a422a60ade18c7e4ee5872089c79c32fd8a87a0f05e79564ed
+      field,type,is_ascii,sum,min,max,range,sort_order,sortiness,min_length,max_length,sum_length,avg_length,stddev_length,variance_length,cv_length,mean,sem,geometric_mean,harmonic_mean,stddev,variance,cv,nullcount,max_precision,sparsity,qsv__value
+      first header,NULL,,,,,,,,,,,,,,,,,,,,,,0,,,
+      second header,NULL,,,,,,,,,,,,,,,,,,,,,,0,,,
+      qsv__rowcount,,,,,,,,,,,,,,,,,,,,,,,,,,0
+      qsv__columncount,,,,,,,,,,,,,,,,,,,,,,,,,,2
+      qsv__filesize_bytes,,,,,,,,,,,,,,,,,,,,,,,,,,26
+      qsv__fingerprint_hash,,,,,,,,,,,,,,,,,,,,,,,,,,589aa48c29e0a4abf207a0ff266da0903608c1281478acd75457c8f8ccea455a
     EOS
   end
 end
