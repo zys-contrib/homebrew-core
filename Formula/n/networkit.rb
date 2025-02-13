@@ -1,10 +1,9 @@
 class Networkit < Formula
   desc "Performance toolkit for large-scale network analysis"
   homepage "https://networkit.github.io"
-  url "https://github.com/networkit/networkit/archive/refs/tags/11.0.tar.gz"
-  sha256 "3cba54b384db4adfd88c984805647a3b74ed52168b6178cba6dd58f1cbd73120"
+  url "https://github.com/networkit/networkit/archive/refs/tags/11.0.1.tar.gz"
+  sha256 "fbdc86b6ac6486ce4e0898f386c5371bd07b9a420293306f2e632549378f4b86"
   license "MIT"
-  revision 1
 
   bottle do
     rebuild 1
@@ -33,12 +32,6 @@ class Networkit < Formula
 
   def python3
     which("python3.13")
-  end
-
-  # Add compat for numpy 2.0
-  patch do
-    url "https://github.com/networkit/networkit/commit/165503580caac864c7a31558b4c5fee27bcb007e.patch?full_index=1"
-    sha256 "67bd2d1fe3ebccb42ccdd1f7cf5aeea40967caa4e9bc96cc69737dc14ffa9654"
   end
 
   def install
