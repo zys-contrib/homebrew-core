@@ -1569,6 +1569,7 @@ juicefs
 juju
 julia
 jupyterlab
+jupytext
 just
 jwt-cli
 jxl-oxide
