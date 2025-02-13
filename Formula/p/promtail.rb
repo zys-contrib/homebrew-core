@@ -11,12 +11,12 @@ class Promtail < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c327a20a092e22b436044f7d2f52f0c64e08deeba519f907773b9231bd4b65b2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "13489ec35a2bf94c582823eaf9a44f3dd82c01285ab744c7bedd035d981b8866"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "804f580bfa400f674bce4e4b4d766b1ed7fbc2909078016e585c600ea311d10d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "779b37392f462f360d333f4495e517d7123d8622b41094f3becf8f242eff21c9"
-    sha256 cellar: :any_skip_relocation, ventura:       "6f8b25b6ff9c30a47604f35b109220dae432eefb9389c989abaee3c23ae6bfbf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1164b17aa1229aba3f930a40f3d7210c0fa2ba0a08fba0d57dcf972bc8e7f687"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4ff3d92a0f16eef8330153d6ea6b1c0047bb3620358fc9bd82452611a70c7cda"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5fc4df2d1b0f08ec0b5a0f97a9eb8299360bad1ab6b1b2c9744019482d1f62f3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "da275644211d95fe71fa98e3f85701b4723b850976a95bd1e3187ceb77dd3b6f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7da0231c105ed10dd8dc57673e2fd888d1b66e1eeeba71d417286c6fa148c512"
+    sha256 cellar: :any_skip_relocation, ventura:       "4691cda0dfe1871a23d401e9b9ec8c8a2faf01c9442369f842776777355d90c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c521a6eb0e5e828c1deed985e0b02113883d879f7df319c0ca68c0c0e935e95e"
   end
 
   depends_on "go" => :build
