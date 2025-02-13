@@ -7,12 +7,12 @@ class Cdncheck < Formula
   head "https://github.com/projectdiscovery/cdncheck.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b3c7460bfe832254b41cf180b7767fabc2c3d52b23aad990783143e6cb730bfa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5ad11fbaeba40508ca2ceae361156d2d66963355f1aa05b2f28c26a0747bd2a7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2bf6c89272f824b48034fe9331d16f62c1ecb0be866a3c88fc0d1fc420145f6d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3d442205b07302b60d25a468390c45c4060a27c248aada6d2944381ce1c6560e"
-    sha256 cellar: :any_skip_relocation, ventura:       "5e385b8e9e1f9499eff500c55afdb4df15e3d4a8ab5540d0c6fe9615fa854d6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d191d7f40f2bd2cfae453a35c1dd42be2d8e9accf1475741350816e3206410e0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9b98b2e27061e8ebf22a7625667a3c9f9489330735d60fcb14ee51d53fe08243"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f4d9f26d46ae4123bcdd840b9f1a94a73c42e49fcd027e21fbe9e392f9e9dcab"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cdbe0a1551b6813b1f9d190fff1ec388dd5cc12dc87939288c401bbf36c9c71c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "745f96d5edd38a3f67da29cee0a9c4b32977c9b405701948a04add71de6b1a02"
+    sha256 cellar: :any_skip_relocation, ventura:       "bc6856a7f455b221b71611f31f33cc51720c939f870512bb168a4d7819b579ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aff7fedd41ee458172e0e158ac47fc41f9c70489d89d082b8d2acc72459e7d5c"
   end
 
   depends_on "go" => :build
