@@ -1104,6 +1104,7 @@ gateway-go
 gator
 gatsby-cli
 gau
+gauge
 gawk
 gaze
 gcalcli
