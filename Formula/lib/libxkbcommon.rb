@@ -1,15 +1,10 @@
 class Libxkbcommon < Formula
   desc "Keyboard handling library"
   homepage "https://xkbcommon.org/"
-  url "https://xkbcommon.org/download/libxkbcommon-1.7.0.tar.xz"
-  sha256 "65782f0a10a4b455af9c6baab7040e2f537520caa2ec2092805cdfd36863b247"
+  url "https://github.com/xkbcommon/libxkbcommon/archive/refs/tags/xkbcommon-1.8.0.tar.gz"
+  sha256 "025c53032776ed850fbfb92683a703048cd70256df4ac1a1ec41ed3455d5d39c"
   license "MIT"
   head "https://github.com/xkbcommon/libxkbcommon.git", branch: "master"
-
-  livecheck do
-    url :homepage
-    regex(/href=.*?libxkbcommon[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
 
   bottle do
     sha256 arm64_sequoia:  "2d1173708252e2588f86db7f8668590d37e7abf293938dd569c009ffc7b6dab0"
