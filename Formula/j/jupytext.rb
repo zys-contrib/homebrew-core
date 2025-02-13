@@ -7,6 +7,15 @@ class Jupytext < Formula
   sha256 "fc4e97f0890e22062c4ef10313c7ca960b07b3767246a1fef7585888cc2afe5d"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "7710b25faeb208cb201066c33c840194d0d9a0fbd012fabc57dbcb3088a643fb"
+    sha256 cellar: :any,                 arm64_sonoma:  "83aa7f66d243d1e12d9ac65b8d02d8e5fa4abcb1fa3be9eca3711b8e0365eaf6"
+    sha256 cellar: :any,                 arm64_ventura: "65e83be7858490dd6a3d4265d9d12828802f7af6eb0dbf8bd7b38513fe276634"
+    sha256 cellar: :any,                 sonoma:        "de8faf4d069862bf893f2e8bd6aac5c425abd6154d41c48ef98dd3b2a395a53e"
+    sha256 cellar: :any,                 ventura:       "eac45328d8e8716634e6da1002290fdc599c33e50d82f3b69eb6589f21b61e18"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8fd2c8359e912e7f14b13265775e25d29986ef0f7989a739bc7ea54dce3bc948"
+  end
+
   depends_on "rust" => :build # for rpds-py
   depends_on "libyaml"
   depends_on "python@3.13"
