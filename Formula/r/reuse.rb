@@ -13,6 +13,15 @@ class Reuse < Formula
   ]
   head "https://github.com/fsfe/reuse-tool.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "435c32f0ed5458f6b1cf78b31a7bdc8bfbb06200259dd5e8118aa411ebb04c44"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "16db21b6f6e97a7436dda3857890556fc3307ff3007d455e49058ab468b1e4ff"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7c28246a79c8a98e751d9482869f734175a1221bcfa59f865c05c6827cbeb2ec"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0ad7d0a980489ede6cf0eee44fcfac99de765cd4311edd059b88f07fd3e610ec"
+    sha256 cellar: :any_skip_relocation, ventura:       "85f04a61780f915a76525107d516e91c40ec29cd8fe667959d74e34adf61e132"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "285bccad1dbe8f775264e53482f94827e73df845f74399f0274d69702396adca"
+  end
+
   depends_on "python@3.13"
 
   resource "attrs" do
