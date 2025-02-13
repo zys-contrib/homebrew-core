@@ -19,6 +19,15 @@ class GoAT123 < Formula
     end
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cf4db4579df6a906f27611a27613a8d6583292a50534470d101e276e5c4ee31b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cf4db4579df6a906f27611a27613a8d6583292a50534470d101e276e5c4ee31b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cf4db4579df6a906f27611a27613a8d6583292a50534470d101e276e5c4ee31b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4654e00aa7967d9c8cf325253d1f82896f2a6ea40de389879cdfffa235e374af"
+    sha256 cellar: :any_skip_relocation, ventura:       "4654e00aa7967d9c8cf325253d1f82896f2a6ea40de389879cdfffa235e374af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "00ba9579754a0e0a4e6a6840dff51ad36c78cd8e4a3e820631083f09d32cc12b"
+  end
+
   keg_only :versioned_formula
 
   depends_on "go" => :build
