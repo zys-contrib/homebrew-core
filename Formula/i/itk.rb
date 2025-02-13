@@ -1,8 +1,8 @@
 class Itk < Formula
   desc "Insight Toolkit is a toolkit for performing registration and segmentation"
   homepage "https://itk.org"
-  url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.4.0/InsightToolkit-5.4.0.tar.gz"
-  sha256 "cdd6ce44f15c1246c3c7a439bbbb431dc09706d6465d79fafb6fb14a02517e3b"
+  url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.4.2/InsightToolkit-5.4.2.tar.gz"
+  sha256 "906e60577c95e0bbf51f661af894b5b16663606e39565c4854c803bc98b13e7d"
   license "Apache-2.0"
   head "https://github.com/InsightSoftwareConsortium/ITK.git", branch: "master"
 
@@ -22,6 +22,7 @@ class Itk < Formula
   depends_on "cmake" => :build
 
   depends_on "double-conversion"
+  depends_on "expat"
   depends_on "fftw"
   depends_on "gdcm"
   depends_on "hdf5"
@@ -30,7 +31,6 @@ class Itk < Formula
   depends_on "libtiff"
   depends_on "vtk"
 
-  uses_from_macos "expat"
   uses_from_macos "zlib"
 
   on_macos do
