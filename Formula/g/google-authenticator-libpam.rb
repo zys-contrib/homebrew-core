@@ -1,8 +1,8 @@
 class GoogleAuthenticatorLibpam < Formula
   desc "PAM module for two-factor authentication"
   homepage "https://github.com/google/google-authenticator-libpam"
-  url "https://github.com/google/google-authenticator-libpam/archive/refs/tags/1.10.tar.gz"
-  sha256 "6fe08e7a73ed8f176569c3ad6ad95a5677873e59300d463a2d962c92685a8596"
+  url "https://github.com/google/google-authenticator-libpam/archive/refs/tags/1.11.tar.gz"
+  sha256 "3ee08a6dd46aace7dba1c88cf47e9cd267447ccd1cd8be1d5a05fd0e6816062d"
   license "Apache-2.0"
 
   bottle do
