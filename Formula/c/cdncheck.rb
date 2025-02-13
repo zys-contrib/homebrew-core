@@ -1,8 +1,8 @@
 class Cdncheck < Formula
   desc "Utility to detect various technology for a given IP address"
   homepage "https://projectdiscovery.io"
-  url "https://github.com/projectdiscovery/cdncheck/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "fef8644c0efd215feb28738d48e4e07ad106c9159ac08fe167a46a7b32f07ce9"
+  url "https://github.com/projectdiscovery/cdncheck/archive/refs/tags/v1.1.1.tar.gz"
+  sha256 "f94c62d4f4b1b5cb84c2cc6a465d364b747b585c8f7522f10a6983f26b318236"
   license "MIT"
   head "https://github.com/projectdiscovery/cdncheck.git", branch: "main"
 
@@ -17,11 +17,12 @@ class Cdncheck < Formula
 
   depends_on "go" => :build
 
-  # Fixes incorrect version
-  # Upstream PR ref: https://github.com/projectdiscovery/cdncheck/pull/379
+  # Fix for incorrect version. The commit was made after the release. At the
+  # time of the next release, ensure that the commit updating the version is
+  # part of the release. Remove this patch in the next release.
   patch do
-    url "https://github.com/projectdiscovery/cdncheck/commit/d85cbad8c8afccd534cff23481a8e22cc5b1f7df.patch?full_index=1"
-    sha256 "aa4fd9b6b5307cf3ac68f4e8b7f4029b0666aaa1a85f15d8f51cc8de19ea9450"
+    url "https://github.com/projectdiscovery/cdncheck/commit/a1c2dc71a1cf5c773a9adc44b2ae76bc041cc452.patch?full_index=1"
+    sha256 "2ad6e32682eb4a74d838087fe93b5aeb7864d0b982087e18a143a68278f6fca6"
   end
 
   def install
@@ -31,6 +32,6 @@ class Cdncheck < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/cdncheck -version 2>&1")
 
-    assert_match "Found result: 1", shell_output("#{bin}/cdncheck -i 103.244.50.0/32 2>&1")
+    assert_match "Found result: 1", shell_output("#{bin}/cdncheck -i 173.245.48.12/32 2>&1")
   end
 end
