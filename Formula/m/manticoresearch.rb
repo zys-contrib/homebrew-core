@@ -27,12 +27,12 @@ class Manticoresearch < Formula
     sha256 x86_64_linux:  "17b7c8d8284cd3d36691c692675d7a266ac733e410b9beb012b64cd36a515b6c"
   end
 
-  depends_on "boost@1.85" => :build
   depends_on "cmake" => :build
   depends_on "nlohmann-json" => :build
   depends_on "snowball" => :build # for libstemmer.a
 
   # NOTE: `libpq`, `mariadb-connector-c`, `unixodbc` and `zstd` are dynamically loaded rather than linked
+  depends_on "boost@1.85"
   depends_on "cctz"
   depends_on "icu4c@76"
   depends_on "libpq"
@@ -50,6 +50,9 @@ class Manticoresearch < Formula
   uses_from_macos "zlib"
 
   def install
+    # Avoid statically linking to boost
+    inreplace "src/CMakeLists.txt", "set ( Boost_USE_STATIC_LIBS ON )", "set ( Boost_USE_STATIC_LIBS OFF )"
+
     # Work around error when building with GCC
     # Issue ref: https://github.com/manticoresoftware/manticoresearch/issues/2393
     ENV.append_to_cflags "-fpermissive" if OS.linux?
