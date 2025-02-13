@@ -12,12 +12,12 @@ class ArmNoneEabiGdb < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "f65b635fd9e25b640a6eb95eccbfae48107a24ee3c0e79c5244540a70af23f8c"
-    sha256 arm64_sonoma:  "3bef540704b5fe721617e765aafe78b038d59bba4f208221371721fcdb33b62d"
-    sha256 arm64_ventura: "9e1a328344bdeb83168921e6c659dff60176894dc4b35f05b1e91e66a1e8e326"
-    sha256 sonoma:        "afc6b9e86828e50d6a06a88a78a053f0922c78712fc8bf453e67eba3403d572f"
-    sha256 ventura:       "e9d346bdd318547661c7f98843877ea5d282f15af424af4234553c73170c6d66"
-    sha256 x86_64_linux:  "7df0ac86aa70a50f11ec3f558b3ecee4c06129bbbb086a1bd4fb106a16eb3b2e"
+    sha256 arm64_sequoia: "da9e100c4e870b117a2e4583963fb553dcc633ec069e2345ff518b15c6049114"
+    sha256 arm64_sonoma:  "b7084cbe774ca5645217c8ac68e5be55dd208aa03906c42be7f74bdff3472b38"
+    sha256 arm64_ventura: "84f06764a8ab3d08cdc3c2c5f142a0cf0972719729030bfc6fb701fc21d3a960"
+    sha256 sonoma:        "1d248fb0625a51c366cb6d12973126c4dbdb8ccb694a7c2c6397555240597173"
+    sha256 ventura:       "7a7e708092fa51ec9cd61e60d864df12d2ae757a1a38537bfedf47116d94cd7d"
+    sha256 x86_64_linux:  "049ce2849b35c04bf081c83a74a602386295c3c6afb749254500ca956a8f45ec"
   end
 
   depends_on "arm-none-eabi-gcc" => :test
