@@ -9,13 +9,7 @@ class Platformio < Formula
   head "https://github.com/platformio/platformio-core.git", branch: "develop"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "60ab58f8375605bae10aa757307e592dce384301091fda14f51c6cd276e833e4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "60ab58f8375605bae10aa757307e592dce384301091fda14f51c6cd276e833e4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "60ab58f8375605bae10aa757307e592dce384301091fda14f51c6cd276e833e4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5cb5a7af6ae4af1300f61d1f20643c12eda5b5c4af6042e3d3c3bfc9fb8a7fdc"
-    sha256 cellar: :any_skip_relocation, ventura:       "5cb5a7af6ae4af1300f61d1f20643c12eda5b5c4af6042e3d3c3bfc9fb8a7fdc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5cb5a7af6ae4af1300f61d1f20643c12eda5b5c4af6042e3d3c3bfc9fb8a7fdc"
+    sha256 cellar: :any_skip_relocation, all: "aeadd2ff97659f8e4512022598a2c2fb3ba9fc09f97c4a8fb740680f3487a5fe"
   end
 
   depends_on "certifi"
