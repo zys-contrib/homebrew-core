@@ -20,20 +20,25 @@ class Golines < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    ldflags = "-s -w -X main.version=#{version} -X main.commit=#{tap.user} -X main.date=#{time.iso8601}"
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/golines --version")
+
     (testpath/"given.go").write <<~GO
       package main
 
       var strings = []string{"foo", "bar", "baz"}
     GO
+
     (testpath/"expected.go").write <<~GO
       package main
 
       var strings = []string{\n\t"foo",\n\t"bar",\n\t"baz",\n}
     GO
+
     assert_equal (testpath/"expected.go").read, shell_output("#{bin}/golines --max-len=30 given.go")
   end
 end
