@@ -23,28 +23,21 @@ class Inko < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a464bbf5537cbf94b716031ed226554911d45581444207f3cc19b8f8c185dbe"
   end
 
-  depends_on "coreutils" => :build
   depends_on "rust" => :build
   depends_on "llvm@17" # see https://github.com/inko-lang/inko/blob/4738b81dbec1f50dadeec3608dde855583f80dda/ci/mac.sh#L5
-  depends_on "zstd"
 
   uses_from_macos "libffi", since: :catalina
-  uses_from_macos "ncurses"
-  uses_from_macos "ruby", since: :sierra
-  uses_from_macos "zlib"
-
-  on_macos do
-    depends_on "z3"
-  end
 
   def install
-    ENV.prepend_path "PATH", Formula["coreutils"].opt_libexec/"gnubin"
+    # Avoid statically linking to LLVM
+    inreplace "compiler/Cargo.toml", 'features = ["prefer-static"]', 'features = ["force-dynamic"]'
+
     system "make", "build", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
-    (testpath/"hello.inko").write <<~EOS
+    (testpath/"hello.inko").write <<~INKO
       import std.stdio (Stdout)
 
       class async Main {
@@ -52,7 +45,7 @@ class Inko < Formula
           Stdout.new.print('Hello, world!')
         }
       }
-    EOS
+    INKO
     assert_equal "Hello, world!\n", shell_output("#{bin}/inko run hello.inko")
   end
 end
