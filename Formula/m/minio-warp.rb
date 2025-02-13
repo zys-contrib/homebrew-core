@@ -1,8 +1,8 @@
 class MinioWarp < Formula
   desc "S3 benchmarking tool"
   homepage "https://github.com/minio/warp"
-  url "https://github.com/minio/warp/archive/refs/tags/v1.0.8.tar.gz"
-  sha256 "38227c37d1f5618c10e03dfbae8a460983da2678de363674b418155e5278b105"
+  url "https://github.com/minio/warp/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "f8a0f0bbb2bbca40b945c7ab3d5e1936390dfc796e12c2b87e61bcd7b1faadc5"
   license "AGPL-3.0-or-later"
 
   bottle do
@@ -30,7 +30,7 @@ class MinioWarp < Formula
 
   test do
     output = shell_output("#{bin}/warp list --no-color 2>&1", 1)
-    assert_match "warp: Preparing server", output
+    assert_match "warp: <ERROR> Error preparing server", output
 
     assert_match version.to_s, shell_output("#{bin}/warp --version")
   end
