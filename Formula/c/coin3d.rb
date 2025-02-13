@@ -1,26 +1,16 @@
 class Coin3d < Formula
-  desc "Open Inventor 2.1 API implementation (Coin) with Python bindings (Pivy)"
+  desc "Open Inventor 2.1 API implementation (Coin)"
   homepage "https://coin3d.github.io/"
-  license all_of: ["BSD-3-Clause", "ISC"]
-  revision 1
+  license "BSD-3-Clause"
+  revision 2
 
   stable do
     url "https://github.com/coin3d/coin/releases/download/v4.0.3/coin-4.0.3-src.tar.gz"
     sha256 "66e3f381401f98d789154eb00b2996984da95bc401ee69cc77d2a72ed86dfda8"
 
     resource "soqt" do
-      url "https://github.com/coin3d/soqt/releases/download/v1.6.2/soqt-1.6.2-src.tar.gz"
-      sha256 "fb483b20015ab827ba46eb090bd7be5bc2f3d0349c2f947c3089af2b7003869c"
-    end
-
-    # We use the pre-release to support `pyside` and `python@3.12`.
-    # This matches Arch Linux[^1] and Debian[^2] packages.
-    #
-    # [^1]: https://archlinux.org/packages/extra/x86_64/python-pivy/
-    # [^2]: https://packages.debian.org/trixie/python3-pivy
-    resource "pivy" do
-      url "https://github.com/coin3d/pivy/archive/refs/tags/0.6.9.a0.tar.gz"
-      sha256 "2c2da80ae216fe06394562f4a8fc081179d678f20bf6f8ec412cda470d7eeb91"
+      url "https://github.com/coin3d/soqt/releases/download/v1.6.3/soqt-1.6.3-src.tar.gz"
+      sha256 "79342e89290783457c075fb6a60088aad4a48ea072ede06fdf01985075ef46bd"
     end
   end
 
@@ -43,19 +33,14 @@ class Coin3d < Formula
     resource "soqt" do
       url "https://github.com/coin3d/soqt.git", branch: "master"
     end
-
-    resource "pivy" do
-      url "https://github.com/coin3d/pivy.git", branch: "master"
-    end
   end
 
+  depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "swig" => :build
-  depends_on "boost"
-  depends_on "pyside"
-  depends_on "python@3.13"
   depends_on "qt"
+
+  uses_from_macos "expat"
 
   on_linux do
     depends_on "libx11"
@@ -73,6 +58,7 @@ class Coin3d < Formula
                     "-DCOIN_BUILD_MAC_FRAMEWORK=OFF",
                     "-DCOIN_BUILD_DOCUMENTATION=ON",
                     "-DCOIN_BUILD_TESTS=OFF",
+                    "-DUSE_EXTERNAL_EXPAT=ON",
                     *std_cmake_args(find_framework: "FIRST")
     system "cmake", "--build", "_build"
     system "cmake", "--install", "_build"
@@ -87,16 +73,10 @@ class Coin3d < Formula
       system "cmake", "--build", "_build"
       system "cmake", "--install", "_build"
     end
+  end
 
-    resource("pivy").stage do
-      # Allow setup.py to build with Qt6 as we saw some issues using CMake directly on Intel
-      inreplace "distutils_cmake/CMakeLists.txt", " NONE)", ")" # allow languages
-      ENV.append "CXXFLAGS", "-std=c++17"
-
-      ENV.append_path "CMAKE_PREFIX_PATH", prefix.to_s
-      ENV["LDFLAGS"] = "-Wl,-rpath,#{opt_lib}"
-      system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
-    end
+  def caveats
+    "The Python bindings (Pivy) are now in the `pivy` formula."
   end
 
   test do
@@ -117,14 +97,5 @@ class Coin3d < Formula
 
     system ENV.cc, "test.cpp", "-L#{lib}", "-lCoin", *opengl_flags, "-o", "test"
     system "./test"
-
-    # Set QT_QPA_PLATFORM to minimal to avoid error:
-    # "This application failed to start because no Qt platform plugin could be initialized."
-    ENV["QT_QPA_PLATFORM"] = "minimal" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-    system python3, "-c", <<~PYTHON
-      import shiboken6
-      from pivy.sogui import SoGui
-      assert SoGui.init("test") is not None
-    PYTHON
   end
 end
