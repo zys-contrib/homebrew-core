@@ -1,8 +1,8 @@
 class TyposCli < Formula
   desc "Source code spell checker"
   homepage "https://github.com/crate-ci/typos"
-  url "https://github.com/crate-ci/typos/archive/refs/tags/v1.29.5.tar.gz"
-  sha256 "4593f4191b3f54e5793b3e398524923a818ed66af656bfaae879f7f967ccedde"
+  url "https://github.com/crate-ci/typos/archive/refs/tags/v1.29.7.tar.gz"
+  sha256 "967d5ec67f7e58b4eb443c975ec8597d173b6d519b6a2fc908a449236219c11a"
   license any_of: ["Apache-2.0", "MIT"]
 
   livecheck do
