@@ -1,9 +1,9 @@
 class LicenseEye < Formula
   desc "Tool to check and fix license headers and resolve dependency licenses"
   homepage "https://github.com/apache/skywalking-eyes"
-  url "https://www.apache.org/dyn/closer.lua?path=skywalking/eyes/0.6.0/skywalking-license-eye-0.6.0-src.tgz"
-  mirror "https://archive.apache.org/dist/skywalking/eyes/0.6.0/skywalking-license-eye-0.6.0-src.tgz"
-  sha256 "4d2fc42551b7d07c930733968802bd4fd17157c4bc723d6c7cdad867a9fcd2fc"
+  url "https://www.apache.org/dyn/closer.lua?path=skywalking/eyes/0.7.0/skywalking-license-eye-0.7.0-src.tgz"
+  mirror "https://archive.apache.org/dist/skywalking/eyes/0.7.0/skywalking-license-eye-0.7.0-src.tgz"
+  sha256 "d4663ac8222aa9610abba48670c22bb1ab4fb893bd2f9592c2efd4b6c0225b50"
   license "Apache-2.0"
   head "https://github.com/apache/skywalking-eyes.git", branch: "main"
 
