@@ -6,6 +6,15 @@ class BaconLs < Formula
   license "MIT"
   head "https://github.com/crisidev/bacon-ls.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4940f897ca1df93ae9f9e96b1e430c10747022d9058832b591632ee884873e09"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "76bec4b7e2c68e524d1eb999e2ab9739b88564056444146979425dda18e8a2b3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "54cdb4ed83b36564d155ec092a8fe9c2ef5fe888d2946fb4ec0c64a0b77c98e1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4f98d8853bcc964491cb6f40bafe0a617684d2fb5ead9b95864276c5ae25f450"
+    sha256 cellar: :any_skip_relocation, ventura:       "dfe548f5eb42ed54f9f7e3554c2fbbe4ec10e944cdab05e01b160c58090f2aac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f25e1dacac50c72b5299d39f4b8c7bad145fc03cbdbdab04008ae090532a9e1"
+  end
+
   depends_on "rust" => :build
 
   def install
