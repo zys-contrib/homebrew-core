@@ -1600,6 +1600,7 @@ kcov
 kcptun
 kea
 keep-sorted
+keeper-commander
 keploy
 kepubify
 kerl
