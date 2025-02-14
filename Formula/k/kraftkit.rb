@@ -1,8 +1,8 @@
 class Kraftkit < Formula
   desc "Build and use highly customized and ultra-lightweight unikernel VMs"
   homepage "https://unikraft.org/docs/cli"
-  url "https://github.com/unikraft/kraftkit/archive/refs/tags/v0.10.1.tar.gz"
-  sha256 "97ef3f7fc3d667ad1a9e6af5a55fa20b89848d2f690e76501c75a0ec0669deea"
+  url "https://github.com/unikraft/kraftkit/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "a0ca6e51259fa74cb68ec4fdce6030f24aeedb131eb2d6da5011d1292ccff704"
   license "BSD-3-Clause"
 
   livecheck do
