@@ -229,6 +229,7 @@ bats-core
 batt
 bazarr
 bazel
+bazel@7
 bazel-diff
 bazel-remote
 bazelisk
