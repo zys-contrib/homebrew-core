@@ -2933,6 +2933,7 @@ scrcpy
 screen
 screenfetch
 scriptisto
+scrypt
 scs
 scummvm
 scummvm-tools
