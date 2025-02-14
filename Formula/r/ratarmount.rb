@@ -7,6 +7,10 @@ class Ratarmount < Formula
   sha256 "fc5fadfc4dc268613eb3df832a0b3a3bc7fd40cd119b6aff83beaaa29ed05254"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "11268d8d0bd4a24d02de87d4834083d228f6d4a1de4ee88a5686039fb6679ac4"
+  end
+
   depends_on "libffi"
   depends_on "libfuse"
   depends_on "libgit2"
