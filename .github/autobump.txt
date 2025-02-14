@@ -2883,6 +2883,7 @@ rustcat
 rustls-ffi
 rustscan
 rustup
+rustywind
 rye
 ryelang
 s-nail
