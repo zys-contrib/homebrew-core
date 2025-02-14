@@ -1165,6 +1165,7 @@ git-ignore
 git-interactive-rebase-tool
 git-lfs
 git-machete
+git-mob
 git-quick-stats
 git-review
 git-split-diffs
