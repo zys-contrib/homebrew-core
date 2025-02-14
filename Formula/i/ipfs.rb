@@ -1,8 +1,8 @@
 class Ipfs < Formula
   desc "Peer-to-peer hypermedia protocol"
   homepage "https://ipfs.tech/"
-  url "https://github.com/ipfs/kubo/archive/refs/tags/v0.33.1.tar.gz"
-  sha256 "2208e5942fd456852695de225f7ef5b20c511af9fc928364699fd28d165f99a8"
+  url "https://github.com/ipfs/kubo/archive/refs/tags/v0.33.2.tar.gz"
+  sha256 "0dcab7d932a7c613fe0421ba1a5a0c71138709c151610f57666a15d163c982b2"
   license all_of: [
     "MIT",
     any_of: ["MIT", "Apache-2.0"],
