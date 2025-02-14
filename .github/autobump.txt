@@ -3635,6 +3635,7 @@ yaegi
 yaf
 yamale
 yaml-language-server
+yamlfix
 yamlfmt
 yamllint
 yara
