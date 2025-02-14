@@ -3097,6 +3097,7 @@ spot
 spotbugs
 spotify_player
 sq
+sql-formatter
 sql-migrate
 sqlancer
 sqlboiler
