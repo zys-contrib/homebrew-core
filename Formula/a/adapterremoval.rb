@@ -5,6 +5,15 @@ class Adapterremoval < Formula
   sha256 "a4433a45b73ead907aede22ed0c7ea6fbc080f6de6ed7bc00f52173dfb309aa1"
   license "GPL-3.0-or-later"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ad8f771d05f2b2a193c0bdac1ffdbae8b9213e1cc04a0c92d35135d4d5504262"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "70ace6d9c876a32e46322733499ec9c331d56d48f3a4c567f997bc43e3304deb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2efcd4380b4a9be30bcaa32552abe16aee7742860c49b4854651f3775914d118"
+    sha256 cellar: :any_skip_relocation, sonoma:        "324c6792d35fed4dc9a80e8853261cdfc232f9510d4480878ec774e20d5f733b"
+    sha256 cellar: :any_skip_relocation, ventura:       "04770b3b45993c485713def1d48d104c8ddd83b95fe12a02a45860b04d171423"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ac45069d93dbe0781c369b55b7252bf863d7cc379c359b4e56d4bb589e35fd1"
+  end
+
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
