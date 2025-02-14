@@ -1017,6 +1017,7 @@ flashrom
 flatbuffers
 flawz
 fleet-cli
+flexiblas
 flint
 flit
 flix
