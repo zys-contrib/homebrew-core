@@ -6,6 +6,15 @@ class Rustywind < Formula
   license "Apache-2.0"
   head "https://github.com/avencera/rustywind.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7e05b9993506c365685c99f7b05d720e88c8ca2327ab1ceb1fcbc081f681667a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a520c723738b1bddc8d486daf4f824a49a3b5b7d6b4e7b89476b86cc02ed176"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "44726d34333e418935756b19684d159ab1bb27db577f9725b88b315588dd4a25"
+    sha256 cellar: :any_skip_relocation, sonoma:        "83c06900245ea815e2b9786455420adc6182d3f54de8b48c08570eda701f2bed"
+    sha256 cellar: :any_skip_relocation, ventura:       "e319851c4b8d0fa6739c868b4d1e40152af226b66fe999cb237898299d057168"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7e803756988646dbed34dbb9bb803e42a65ff504f4c5caf7619b04aaadb0664"
+  end
+
   depends_on "rust" => :build
 
   def install
