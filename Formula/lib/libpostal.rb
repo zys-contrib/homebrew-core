@@ -6,6 +6,15 @@ class Libpostal < Formula
   license "MIT"
   head "https://github.com/openvenues/libpostal.git", branch: "master"
 
+  bottle do
+    sha256 arm64_sequoia: "977117dd4cbadd9c7a54b1a98cbf8a4cf5d76435d3fb2a4bd7219777b7ddac8c"
+    sha256 arm64_sonoma:  "814ede166ebe7352cc9850527f29e9395eea6a2248a16ad450d0606216923e25"
+    sha256 arm64_ventura: "e6412f74a7d126a91f3c29337f73e3284329c95b1fba7924a653f3115918802c"
+    sha256 sonoma:        "077f8b1500c01ca5f5c6586b6570d33c0af2285b4d6e2811af431918b4b382c0"
+    sha256 ventura:       "4e553905102caddeb88a154bd251748381ca94ee63ce1b2f56cf80e65aabe327"
+    sha256 x86_64_linux:  "6f935c41597746bddc0c0e0fcc132f7e9ed9de317f8a49702f25cc01ce4fe844"
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
