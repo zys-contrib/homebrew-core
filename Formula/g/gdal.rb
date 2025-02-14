@@ -1,10 +1,9 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
-  url "https://github.com/OSGeo/gdal/releases/download/v3.10.1/gdal-3.10.1.tar.gz"
-  sha256 "b1c739256d074be42d67c6c3d33eee94c90a490ebb02fcb7fc21c569a6fc78bd"
+  url "https://github.com/OSGeo/gdal/releases/download/v3.10.2/gdal-3.10.2.tar.gz"
+  sha256 "ca710aab81eb4d638f5dbd4f03d4d4b902aeb6ee73a3d4a8c5e966b6b648b0da"
   license "MIT"
-  revision 2
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -90,12 +89,6 @@ class Gdal < Formula
 
   def python3
     "python3.13"
-  end
-
-  # poppler 25.02.0 build patch, upstream pr ref, https://github.com/OSGeo/gdal/pull/11805
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ea59760694bf0187189f7008aac7cff70260db3c/gdal/gdal-3.10.1-poppler-25.02.0.patch"
-    sha256 "67b2d107c913d155dd8ba7ff4c534bbd6a85a48a003e01e7d59a69a066fab570"
   end
 
   def install
