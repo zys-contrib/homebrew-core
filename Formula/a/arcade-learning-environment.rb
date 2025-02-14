@@ -3,8 +3,8 @@ class ArcadeLearningEnvironment < Formula
 
   desc "Platform for AI research"
   homepage "https://github.com/Farama-Foundation/Arcade-Learning-Environment"
-  url "https://github.com/Farama-Foundation/Arcade-Learning-Environment/archive/refs/tags/v0.10.1.tar.gz"
-  sha256 "7e0473de29b63f59054f8a165a968cf5a168bd9c07444d377a1f70401d268894"
+  url "https://github.com/Farama-Foundation/Arcade-Learning-Environment/archive/refs/tags/v0.10.2.tar.gz"
+  sha256 "901a2dd3a5709361d5e6f95eb4798a749870c924a549c20b516b12da4fa43457"
   license "GPL-2.0-only"
   head "https://github.com/Farama-Foundation/Arcade-Learning-Environment.git", branch: "master"
 
@@ -19,6 +19,7 @@ class ArcadeLearningEnvironment < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "ninja" => :build
   depends_on "pybind11" => :build
   depends_on "python-setuptools" => :build
   depends_on macos: :catalina # requires std::filesystem
