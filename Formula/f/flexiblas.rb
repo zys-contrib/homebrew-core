@@ -16,14 +16,12 @@ class Flexiblas < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "85c5e7cc7cb883d37d387adb373ff940259e07e71e5d3dde745aee51b657ec8d"
-    sha256 arm64_sonoma:   "144a287222ffe00ffc4c12190a63b3da143f4f1392de28a00caf3386ead4d3d8"
-    sha256 arm64_ventura:  "082787d3a84f8c9cc680c8c06d4ec26f7b3c09f0af57b00e3babac0d63bac2c1"
-    sha256 arm64_monterey: "0d582036b81e7b61e9b8df071569ff2c3eb856b1f94f32159d6835411ee8e150"
-    sha256 sonoma:         "548e8910615427d94a6d3585ae53a6759a00af6ef70811b3b5c3713cd23a57bd"
-    sha256 ventura:        "4723c25e4e8f206f0bfe2c0d373ba24ec0827f0f0bb026e999994e003fd2a5de"
-    sha256 monterey:       "166ec9738f3faa20546e6cc0a7ea69ce657026450d80acd3df5d3c4df060cd2a"
-    sha256 x86_64_linux:   "e8286f52769a07dbcaf7dc0d3845e46b63d5c2c31ce516828e612eef952dcd81"
+    sha256 arm64_sequoia: "81a6bd02a4470c49a02bb0ba140bd5c00ec38059d663b898fd5e94d8beca4aa5"
+    sha256 arm64_sonoma:  "89310043062ecb77eeb2da42028a1c0eb897d7466074b793987b946b149b64ec"
+    sha256 arm64_ventura: "0bb756b92366da37fb73d75a4d1b12ab88c5f093cd586f714a2ae03dcfda7a04"
+    sha256 sonoma:        "ea77b40631ddeef92fb906dc36a03bdbf5a2d0f814c88b7cb86be444f346fcb1"
+    sha256 ventura:       "acc87e21dc68cd426558496c53782a3c29da31620e6a74a61009679c5aa3b2a9"
+    sha256 x86_64_linux:  "7ef88457713b30a28faf7491cf78686d301c680bf520e47ec570a8116260b923"
   end
 
   depends_on "cmake" => :build
