@@ -5,6 +5,10 @@ class SqlFormatter < Formula
   sha256 "7197a33453d262f0a62fe28c52d9ea7e6793f68a4a9e352b5e3b622da2283ee9"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "f72f7d24b87e4051c9a0cdf673c00e9b718fd22e92e200ad633348b01d85ba31"
+  end
+
   depends_on "node"
 
   def install
