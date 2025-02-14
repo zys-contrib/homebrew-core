@@ -5,6 +5,15 @@ class Mummer < Formula
   sha256 "bc20ae2701a0b2e323e4e515b7cfa18a0f0cb34a4ff5844b289b2de0154e3d3e"
   license "Artistic-2.0"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "531fd07a35db174253c4ef9793b769ef8fb9eda7c18665fcd910d1ecdc644d29"
+    sha256 cellar: :any,                 arm64_sonoma:  "10ea871df20fefead713e4bd505c41b60d89f6baa3acc9a53608b53b9dba8bb7"
+    sha256 cellar: :any,                 arm64_ventura: "6a0f7b4ad59e2edd7e2e1f5efd20fd1dc96ba70f8190450f9835c616591b5c49"
+    sha256 cellar: :any,                 sonoma:        "6fafc17a6f92671ab3bbbe782da92288f0987d108ef6c919fb78832ec86054b5"
+    sha256 cellar: :any,                 ventura:       "275577377003c87c3c04ac07992f7b508f107a30be3a5a9906c26243b0f07820"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cfdbd99b231c881102c83c2f902dd3ab5c1b499ed27e9307baf5272e3439ff9b"
+  end
+
   depends_on "gcc"
 
   fails_with :clang do
