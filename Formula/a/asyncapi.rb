@@ -1,8 +1,8 @@
 class Asyncapi < Formula
   desc "All in one CLI for all AsyncAPI tools"
   homepage "https://github.com/asyncapi/cli"
-  url "https://registry.npmjs.org/@asyncapi/cli/-/cli-2.16.1.tgz"
-  sha256 "202afb3900b65fe808d33520a86e39199c8cd5425eb0d3a392c0d7a70e4393b2"
+  url "https://registry.npmjs.org/@asyncapi/cli/-/cli-2.16.2.tgz"
+  sha256 "f9a016d4874e846d7273b6c3ce7f794f3b1eaeca8b09ae0b70945a98a21c8feb"
   license "Apache-2.0"
 
   bottle do
@@ -22,7 +22,7 @@ class Asyncapi < Formula
   end
 
   test do
-    system bin/"asyncapi", "new", "--file-name=asyncapi.yml", "--example=default-example.yaml", "--no-tty"
+    system bin/"asyncapi", "new", "file", "--file-name=asyncapi.yml", "--example=default-example.yaml", "--no-tty"
     assert_predicate testpath/"asyncapi.yml", :exist?, "AsyncAPI file was not created"
   end
 end
