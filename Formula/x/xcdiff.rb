@@ -2,8 +2,8 @@ class Xcdiff < Formula
   desc "Tool to diff xcodeproj files"
   homepage "https://github.com/bloomberg/xcdiff"
   url "https://github.com/bloomberg/xcdiff.git",
-      tag:      "0.12.0",
-      revision: "8ae8a1074662dfbef271140bfb4ae424b331dde9"
+      tag:      "0.13.0",
+      revision: "99301ee4578224f0660a1312abc465c5a37176c5"
   license "Apache-2.0"
   head "https://github.com/bloomberg/xcdiff.git", branch: "main"
 
@@ -18,12 +18,8 @@ class Xcdiff < Formula
   end
 
   depends_on :macos
-  depends_on xcode: "14.1"
 
-  resource "homebrew-testdata" do
-    url "https://github.com/bloomberg/xcdiff/archive/refs/tags/0.10.0.tar.gz"
-    sha256 "c093e128873f1bb2605b14bf9100c5ad7855be17b14f2cad36668153110b1265"
-  end
+  uses_from_macos "swift" => :build, since: :sonoma # swift 5.10+
 
   def install
     system "make", "update_version"
@@ -33,6 +29,11 @@ class Xcdiff < Formula
   end
 
   test do
+    resource "homebrew-testdata" do
+      url "https://github.com/bloomberg/xcdiff/archive/refs/tags/0.10.0.tar.gz"
+      sha256 "c093e128873f1bb2605b14bf9100c5ad7855be17b14f2cad36668153110b1265"
+    end
+
     assert_match version.to_s, shell_output("#{bin}/xcdiff --version").chomp
     project = "Fixtures/ios_project_1/Project.xcodeproj"
     diff_args = "-p1 #{project} -p2 #{project}"
