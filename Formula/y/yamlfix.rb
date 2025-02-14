@@ -7,6 +7,15 @@ class Yamlfix < Formula
   sha256 "81d7220b62798d1dda580e1574b3d3d6926701ae8cd79588c4e0b33f2e345d85"
   license "GPL-3.0-or-later"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "badcb1e0519bceb4de7cd7db81a69c4947230941656959a170cd0a98668a66b1"
+    sha256 cellar: :any,                 arm64_sonoma:  "a9cf9fbed2979245068bd2e15cac71ffc87623f77bd35fac4a9ba68836c1fdb2"
+    sha256 cellar: :any,                 arm64_ventura: "d1e35c718ba628e672c8ae7b4d6970f4d6baa180425764b839c1e98be5d28166"
+    sha256 cellar: :any,                 sonoma:        "a4fdb343c7e93340801caf53a1b4c7ef98f657d149d93985d7f480dade902c82"
+    sha256 cellar: :any,                 ventura:       "54c2f7af91fa5db4af9520a588bfe788ff2aa5235adbd48e7940c07e89297091"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e2329c6594e7413ce24f09fd3ad8d601204d5c985667ce8a6aa12f86566cfe2"
+  end
+
   depends_on "rust" => :build # for pydantic_core
   depends_on "python@3.13"
 
