@@ -12,6 +12,7 @@ action-validator
 actionlint
 activemq
 ada-url
+adapterremoval
 adb-enhanced
 adios2
 adns
@@ -2763,6 +2764,7 @@ rakudo-star
 rancher-cli
 ranger
 rapidfuzz-cpp
+ratarmount
 ratchet
 ratfor
 ratify
