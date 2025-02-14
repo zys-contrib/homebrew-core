@@ -11,12 +11,12 @@ class Gdal < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "94921c7f36a7763c05e71eecf4c20a81cfc45bf4bfcb93241d949bca60989b45"
-    sha256 arm64_sonoma:  "1e5a5c2c0d613b2329ae3367002a5f9f1243d2fa7f3533068486f7cb1e3a7845"
-    sha256 arm64_ventura: "498d7cfeb3831d085269c0c136084d1d97d9bfbb0e04cc68c23549c42695c3ba"
-    sha256 sonoma:        "65acd9c14b940f08cf057716f111be5c4f710b30ded382f19cc661df18917ab0"
-    sha256 ventura:       "fdad06a01155baf56759527adfb8dbefad937208c1372657e96e81e0cd806ec9"
-    sha256 x86_64_linux:  "a65968e019b1f6327d70d96cb4cd5c28506ab6db1cbb9d8747438d8786eeedd3"
+    sha256 arm64_sequoia: "06325237c39345ae5312877a92ead83372d851aa7a74e3a2aa0a4200baa7e350"
+    sha256 arm64_sonoma:  "f527bc6c7ec57f31fdc1ca69d31da9164b236ca7e5c92170a5f27ff27eb53126"
+    sha256 arm64_ventura: "d763635b98c7ff5e63771a180652ecf3a2d4dbab706e42aeec4742079edf9a44"
+    sha256 sonoma:        "0988d28ecc64e0a8722cd9b5633884b3d9cbcf7bca38c2a49d01d3fcb84c1960"
+    sha256 ventura:       "b4a1decd1349ee4f4f28445ba92e7554e78acc53eb4f8a1956f4908ba4507621"
+    sha256 x86_64_linux:  "f80409e468b0df14108501c0bceefcf22b74b2f1195cb5c25cf3cd296deb6520"
   end
 
   head do
