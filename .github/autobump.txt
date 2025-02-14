@@ -198,6 +198,7 @@ b2-tools
 babel
 babl
 bacon
+bacon-ls
 bacula-fd
 badkeys
 bagels
