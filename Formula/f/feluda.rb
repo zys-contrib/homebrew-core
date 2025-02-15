@@ -6,6 +6,14 @@ class Feluda < Formula
   license "MIT"
   head "https://github.com/anistark/feluda.git", branch: "main"
 
+  # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
+  # labeled as "pre-release" on GitHub before the version is released, so it's
+  # necessary to use the `GithubLatest` strategy.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b4ade29a11d407a76a8a3dcb063f66ee1892e92280d5198ff7e1830f048e52d3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f84090458eff4c02e7a3d79b56a157b19abcee483f749778eb8d8a5e420bad4"
