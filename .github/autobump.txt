@@ -1704,6 +1704,7 @@ latexml
 latino
 lazydocker
 lazyjj
+lazysql
 lbdb
 lc0
 lcm
