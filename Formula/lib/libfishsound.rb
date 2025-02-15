@@ -1,9 +1,9 @@
 class Libfishsound < Formula
   desc "Decode and encode audio data using the Xiph.org codecs"
   homepage "https://xiph.org/fishsound/"
-  url "https://downloads.xiph.org/releases/libfishsound/libfishsound-1.0.0.tar.gz", using: :homebrew_curl
-  mirror "https://ftp.osuosl.org/pub/xiph/releases/libfishsound/libfishsound-1.0.0.tar.gz"
-  sha256 "2e0b57ce2fecc9375eef72938ed08ac8c8f6c5238e1cae24458f0b0e8dade7c7"
+  url "https://downloads.xiph.org/releases/libfishsound/libfishsound-1.0.1.tar.gz", using: :homebrew_curl
+  mirror "https://ftp.osuosl.org/pub/xiph/releases/libfishsound/libfishsound-1.0.1.tar.gz"
+  sha256 "03eb1601e2306adc88c776afdf212217c6547990d2d0f9ca544dad9a8a9dbb8f"
   license "BSD-3-Clause"
 
   livecheck do
@@ -32,12 +32,6 @@ class Libfishsound < Formula
 
   depends_on "pkgconf" => :build
   depends_on "libvorbis"
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
-  end
 
   def install
     system "./configure", *std_configure_args
