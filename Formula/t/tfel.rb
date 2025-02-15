@@ -5,7 +5,7 @@ class Tfel < Formula
   sha256 "021864ad5b27ffce1915bcacc8f39f3e8a72ce6bd32e80a61ea0998a060180e5"
   license "GPL-1.0-or-later"
   revision 2
-  head "https://github.com/thelfer/tfel.git", using: :git, branch: "master"
+  head "https://github.com/thelfer/tfel.git", branch: "master"
 
   bottle do
     sha256 arm64_sequoia: "46bf238c2aa38c1ede704b6917f0807ae4a5476185d8f4524c041a3ee759e3f7"
@@ -17,7 +17,7 @@ class Tfel < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "gcc" => :build
+  depends_on "gcc" => :build # for gfortran
   depends_on "boost-python3"
   depends_on "python@3.13"
 
@@ -41,15 +41,18 @@ class Tfel < Formula
       "-Denable-ansys=ON",
       "-Denable-europlexus=ON",
       "-Dpython-static-interpreter-workaround=ON",
-
     ]
+    # Avoid linkage to boost container and graph modules
+    # Issue ref: https://github.com/boostorg/boost/issues/985
+    args << "-DCMAKE_MODULE_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
+
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
 
   test do
-    (testpath/"test.mfront").write <<~EOS
+    (testpath/"test.mfront").write <<~MFRONT
       @Parser Implicit;
       @Behaviour Norton;
       @Algorithm NewtonRaphson_NumericalJacobian ;
@@ -69,8 +72,8 @@ class Tfel < Formula
         feel += dp*n-deto ;
         fp -= dt*A*pow(seq,m) ;
       }
-    EOS
+    MFRONT
     system bin/"mfront", "--obuild", "--interface=generic", "test.mfront"
-    assert_predicate testpath/"src"/shared_library("libBehaviour"), :exist?
+    assert_path_exists testpath/"src"/shared_library("libBehaviour")
   end
 end
