@@ -1,43 +1,34 @@
-class Bazel < Formula
+class BazelAT7 < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  # TODO: Try removing `bazel@7` workaround whenever new release is available
-  url "https://github.com/bazelbuild/bazel/releases/download/8.1.0/bazel-8.1.0-dist.zip"
-  sha256 "e08b9137eb85da012afae2d5f34348e5622df273e74d4140e8c389f0ea275f27"
+  url "https://github.com/bazelbuild/bazel/releases/download/7.5.0/bazel-7.5.0-dist.zip"
+  sha256 "9d3d9b74cf3cbba0401874c3a1f70efc6531878d34146b22d4fd209276efafdd"
   license "Apache-2.0"
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    regex(/^v?(7(?:\.\d+)+)$/i)
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "472f77f944556bba51535e45a2d92a0bbc0a2bde37d797df21b702df908c9d09"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "868faa558046e2712a88b567c0b8b48037d5da1e63cba385cd1b37f8569b7d90"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a9394432b0545c80b2056a0387145521b6f288e55e132c4426a2193464048f4e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "da0b1863a2c1738b2148f51e82c923b9746d38cced6eade4888cfc2100b35bbd"
-    sha256 cellar: :any_skip_relocation, ventura:       "6e8ef16299213c72697d8afb14697c564204e3a4ef6920b0cf062a8fdc92c19c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2d5846c6e545d20e7b2de8bd0ac3ffd72236b8272d50073a1adc30fb956458b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b10fc5c92751ed7c907ed621eb42e2c1d377089ed7d05b7613634a86385f34e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "63850ab1d8b6a984577ba3d87d4d3a133e6b3e1b0d6613df0176ae1b3e9bbb7d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9853c78824ec885d1d7b7306e6882c7243395de8fe055abc2877aaed1502b486"
+    sha256 cellar: :any_skip_relocation, sonoma:        "094e82dadafcea81e42fca307c1962695a8a0e5b2748335500daad183e5a56a4"
+    sha256 cellar: :any_skip_relocation, ventura:       "66e0a7448cb5374793a663252775bdfed4647461214e428aeb23c6d124d3d9d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e098d28082d5e8f800e17d4d2477bd37fcd80ed85b7a5ab4844d596264136a93"
   end
+
+  keg_only :versioned_formula
+
+  # https://bazel.build/release#support-matrix
+  deprecate! date: "2027-01-01", because: :unsupported
 
   depends_on "python@3.13" => :build
   depends_on "openjdk@21"
 
   uses_from_macos "unzip"
   uses_from_macos "zip"
-
-  if DevelopmentTools.clang_build_version >= 1600
-    depends_on "bazel@7" => :build
-
-    resource "bazel-src" do
-      url "https://github.com/bazelbuild/bazel/archive/refs/tags/8.1.0.tar.gz"
-      sha256 "bc2b40c9e4bfe17dd60e2adff47fad75a34788b9b3496e4f8496e3730066db69"
-
-      livecheck do
-        formula :parent
-      end
-    end
-  end
 
   on_linux do
     on_intel do
@@ -46,8 +37,6 @@ class Bazel < Formula
       pour_bottle? only_if: :default_prefix
     end
   end
-
-  conflicts_with "bazelisk", because: "Bazelisk replaces the bazel binary"
 
   def bazel_real
     libexec/"bin/bazel-real"
@@ -74,34 +63,7 @@ class Bazel < Formula
     (buildpath/"sources").install buildpath.children
 
     cd "sources" do
-      if DevelopmentTools.clang_build_version >= 1600
-        # Work around an error which is seen bootstrapping Bazel 8 on newer Clang
-        # from the `-fmodules-strict-decluse` set by `layering_check`:
-        #
-        #   external/abseil-cpp+/absl/container/internal/raw_hash_set.cc:26:10: error:
-        #   module abseil-cpp+//absl/container:raw_hash_set does not depend on a module
-        #   exporting 'absl/base/internal/endian.h'
-        #
-        # TODO: Try removing when newer versions of dependencies (e.g. abseil-cpp >= 20250127.0)
-        # are available in https://github.com/bazelbuild/bazel/blob/#{version}/MODULE.bazel
-
-        # The dist zip lacks some files to build directly with Bazel
-        odie "Resource bazel-src needs to be updated!" if resource("bazel-src").version != version
-        rm_r(Pathname.pwd.children)
-        resource("bazel-src").stage(Pathname.pwd)
-        rm(".bazelversion")
-
-        extra_bazel_args += %W[
-          --compilation_mode=opt
-          --stamp
-          --embed_label=#{ENV["EMBED_LABEL"]}
-        ]
-        system Formula["bazel@7"].bin/"bazel", "build", *extra_bazel_args, "//src:bazel_nojdk"
-        Pathname("output").install "bazel-bin/src/bazel_nojdk" => "bazel"
-      else
-        system "./compile.sh"
-      end
-
+      system "./compile.sh"
       system "./output/bazel", "--output_user_root=#{buildpath}/output_user_root",
                                "build",
                                "scripts:bash_completion",
