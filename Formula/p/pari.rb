@@ -23,6 +23,11 @@ class Pari < Formula
   depends_on "readline"
 
   def install
+    # Work around for optimization bug causing corrupted last_tmp_file
+    # Ref: https://github.com/Homebrew/homebrew-core/issues/207722
+    # Ref: https://pari.math.u-bordeaux.fr/cgi-bin/bugreport.cgi?bug=2608
+    ENV.O1 if ENV.compiler == :clang
+
     readline = Formula["readline"].opt_prefix
     gmp = Formula["gmp"].opt_prefix
     system "./Configure", "--prefix=#{prefix}",
@@ -54,5 +59,13 @@ class Pari < Formula
   test do
     (testpath/"math.tex").write "$k_{n+1} = n^2 + k_n^2 - k_{n-1}$"
     system bin/"tex2mail", testpath/"math.tex"
+
+    (testpath/"test.gp").write <<~GP
+      default(parisize,"1G");
+      default(realprecision,10);
+      dist(a,b) = sqrt(a^2+b^2);
+      print(dist(1,2));
+    GP
+    assert_equal "2.236067977\n", pipe_output("#{bin}/gp --quiet test.gp", "", 0)
   end
 end
