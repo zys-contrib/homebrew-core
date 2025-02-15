@@ -1,8 +1,8 @@
 class Diary < Formula
   desc "Text-based journaling program"
   homepage "https://diary.p0c.ch"
-  url "https://code.in0rdr.ch/diary/archive/diary-v0.15.tar.gz"
-  sha256 "51103df0ddb33a1e86bb85e435ba7b7a5ba464ce49234961ca3e3325cd123d4c"
+  url "https://code.in0rdr.ch/diary/archive/diary-v0.16.tar.gz"
+  sha256 "9140762d44251ebce08d5ae45878a30fc9c35dcdd98fe64da618cdd2062552dc"
   license "MIT"
 
   livecheck do
