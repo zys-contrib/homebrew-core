@@ -8,6 +8,15 @@ class KeeperCommander < Formula
   license "MIT"
   head "https://github.com/Keeper-Security/Commander.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "f18266a02bf37015787a149624dc0efd6dd45f4fb103ae0cac01e6e8451a3959"
+    sha256 cellar: :any,                 arm64_sonoma:  "7b87e5ae728c2376af9a64c83990dfb1e9c233f2ee1ed999c39f13e9c73a027e"
+    sha256 cellar: :any,                 arm64_ventura: "c012ca8f1715759ae8a8d1eb8761942b113002898980c2555b12d77815051694"
+    sha256 cellar: :any,                 sonoma:        "7e534080ed074fcf8c2ef9b694bc6bb8736bc415f47f644d715561101d62ff7d"
+    sha256 cellar: :any,                 ventura:       "487e5a6d6c6b05ff354a1a427a15c79dc32a33049e86684131c839cd3676bdf6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f1c2fae4b4defbbccfc3a33f829369154412373b61620e31ac791c931509cdd"
+  end
+
   # bcrypt dependencies
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
