@@ -16,25 +16,17 @@ class Mgis < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm" => :build
 
   depends_on "boost-python3"
+  depends_on "gcc" # for gfortran
   depends_on "numpy"
   depends_on "python@3.13"
-
-  on_macos do
-    depends_on "gcc"
-  end
 
   def python3
     which("python3.13")
   end
 
   def install
-    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
-    # libunwind due to it being present in a library search path.
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib if DevelopmentTools.clang_build_version >= 1500
-
     args = [
       "-Denable-portable-build=ON",
       "-Denable-website=OFF",
@@ -50,8 +42,15 @@ class Mgis < Formula
       "-DPython_ADDITIONAL_VERSIONS=#{Language::Python.major_minor_version python3}",
     ]
 
-    site_packages = prefix/Language::Python.site_packages(python3)
-    args << "-DCMAKE_MODULE_LINKER_FLAGS=-Wl,-rpath,#{rpath(source: site_packages/"mgis")}" if OS.mac?
+    if OS.mac?
+      # Use -dead_strip_dylibs to avoid linkage to boost container and graph modules
+      # Issue ref: https://github.com/boostorg/boost/issues/985
+      linker_flags = %W[
+        -Wl,-dead_strip_dylibs
+        -Wl,-rpath,#{rpath(source: prefix/Language::Python.site_packages(python3)/"mgis")}
+      ]
+      args << "-DCMAKE_MODULE_LINKER_FLAGS=#{linker_flags.join(" ")}"
+    end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
