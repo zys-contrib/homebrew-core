@@ -34,6 +34,7 @@ class Nmap < Formula
   uses_from_macos "zlib"
 
   conflicts_with "cern-ndiff", "ndiff", because: "both install `ndiff` binaries"
+  conflicts_with "nping", because: "both install `nping` binaries"
 
   def install
     ENV.deparallelize
