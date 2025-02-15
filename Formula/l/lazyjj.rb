@@ -1,8 +1,8 @@
 class Lazyjj < Formula
   desc "TUI for Jujutsu/jj"
   homepage "https://github.com/Cretezy/lazyjj"
-  url "https://github.com/Cretezy/lazyjj/archive/refs/tags/v0.4.2.tar.gz"
-  sha256 "f92f084b9483e760a17807e49ad5547999074f14e62acd6ca413388a6d669f3c"
+  url "https://github.com/Cretezy/lazyjj/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "67cb6363e40e97fdbced8a789d93a4fde14ac12a74baf83a600ecc48b8baa0ef"
   license "Apache-2.0"
   head "https://github.com/Cretezy/lazyjj.git", branch: "main"
 
