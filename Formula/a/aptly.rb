@@ -6,6 +6,11 @@ class Aptly < Formula
   license "MIT"
   head "https://github.com/aptly-dev/aptly.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "00afc5743bb99def2fe714eb4e53e74b820b34eb9d6645e789876ec2737fad43"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "00afc5743bb99def2fe714eb4e53e74b820b34eb9d6645e789876ec2737fad43"
