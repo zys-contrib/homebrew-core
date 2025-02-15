@@ -12,12 +12,12 @@ class Aptly < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "00afc5743bb99def2fe714eb4e53e74b820b34eb9d6645e789876ec2737fad43"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "00afc5743bb99def2fe714eb4e53e74b820b34eb9d6645e789876ec2737fad43"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "00afc5743bb99def2fe714eb4e53e74b820b34eb9d6645e789876ec2737fad43"
-    sha256 cellar: :any_skip_relocation, sonoma:        "931925d2fb70f5853905dab848cdd4de31de4803ed157f8595eac575bae73b07"
-    sha256 cellar: :any_skip_relocation, ventura:       "931925d2fb70f5853905dab848cdd4de31de4803ed157f8595eac575bae73b07"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2bec25970b0507190160fd5a8c3d777f286ff018517972039a98bc9152b20b0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "135fdf1a0b34d87659f430d7be2f552062cd15982bba236d1741bee4ba5a4675"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "135fdf1a0b34d87659f430d7be2f552062cd15982bba236d1741bee4ba5a4675"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "135fdf1a0b34d87659f430d7be2f552062cd15982bba236d1741bee4ba5a4675"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f762cd5fa3143bcf4cb16bb8495b5a007d88335b117eaa537676bb23ee41d3fe"
+    sha256 cellar: :any_skip_relocation, ventura:       "f762cd5fa3143bcf4cb16bb8495b5a007d88335b117eaa537676bb23ee41d3fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1bcf9a9430011265aaa5b98175f8dc1c3cf2d73e3034f719d175567bcf549126"
   end
 
   depends_on "go" => :build
