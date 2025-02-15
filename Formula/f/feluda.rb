@@ -6,6 +6,15 @@ class Feluda < Formula
   license "MIT"
   head "https://github.com/anistark/feluda.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b4ade29a11d407a76a8a3dcb063f66ee1892e92280d5198ff7e1830f048e52d3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f84090458eff4c02e7a3d79b56a157b19abcee483f749778eb8d8a5e420bad4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2d2e97928d083344aeabfb42eb3b5e15ef651ef5ef4cf775a5f614cf7272a8e1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3851de57965b8cdf75686f653fbdd164f3759e803992911776e9965b74c82a24"
+    sha256 cellar: :any_skip_relocation, ventura:       "86593140ef88c4fa7f154b71cfe9c5ef2407764bb20f812c9b8f5e8a7108ba41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "183ab11d5cb7756ab03d2a70e67f8121e9be0fd370ca194b365eaca222d9d631"
+  end
+
   depends_on "rust" => :build
 
   def install
