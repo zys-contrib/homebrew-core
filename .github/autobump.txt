@@ -983,6 +983,7 @@ fdupes
 feh
 feishu2md
 felinks
+feluda
 fend
 fennel
 fern-api
