@@ -518,6 +518,7 @@ clickhouse-cpp
 clickhouse-sql-parser
 cliclick
 clifm
+clinfo
 cling
 clingo
 clipboard
