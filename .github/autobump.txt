@@ -563,6 +563,7 @@ coconut
 code-cli
 code-minimap
 code-server
+code2prompt
 codeberg-cli
 codec2
 codelimit
