@@ -1,8 +1,8 @@
 class Promtail < Formula
   desc "Log agent for Loki"
   homepage "https://grafana.com/loki"
-  url "https://github.com/grafana/loki/archive/refs/tags/v3.4.1.tar.gz"
-  sha256 "8e496f9abc85f7d4fa05efb70fbff419bc581f342574afdb13fd3c4ec33a77bf"
+  url "https://github.com/grafana/loki/archive/refs/tags/v3.4.2.tar.gz"
+  sha256 "37572bf4d444db657d397d205f5998c200233f9f568efc5d99a2b24c3589fbe5"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/loki.git", branch: "main"
 
@@ -51,6 +51,7 @@ class Promtail < Formula
 
     fork { exec bin/"promtail", "-config.file=promtail-local-config.yaml" }
     sleep 3
+    sleep 3 if OS.mac? && Hardware::CPU.intel?
 
     output = shell_output("curl -s localhost:#{port}/metrics")
     assert_match "log_messages_total", output
