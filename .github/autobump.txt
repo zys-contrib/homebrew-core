@@ -232,9 +232,9 @@ bats-core
 batt
 bazarr
 bazel
-bazel@7
 bazel-diff
 bazel-remote
+bazel@7
 bazelisk
 bbot
 bbtools
@@ -2954,6 +2954,7 @@ sdl2_mixer
 sdl2_sound
 sdl2_ttf
 sdl3
+sdns
 seal
 seam
 seaweedfs
