@@ -1104,6 +1104,7 @@ g2o
 gabo
 gallery-dl
 gambit
+game-music-emu
 gammaray
 garble
 gat
