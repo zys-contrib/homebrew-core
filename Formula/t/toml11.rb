@@ -1,8 +1,8 @@
 class Toml11 < Formula
   desc "TOML for Modern C++"
   homepage "https://github.com/ToruNiina/toml11"
-  url "https://github.com/ToruNiina/toml11/archive/refs/tags/v4.3.0.tar.gz"
-  sha256 "af95dab1bbb9b05a597e73d529a7269e13f1869e9ca9bd4779906c5cd96e282b"
+  url "https://github.com/ToruNiina/toml11/archive/refs/tags/v4.4.0.tar.gz"
+  sha256 "815bfe6792aa11a13a133b86e7f0f45edc5d71eb78f5fb6686c49c7f792b9049"
   license "MIT"
 
   livecheck do
