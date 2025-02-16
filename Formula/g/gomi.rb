@@ -1,8 +1,8 @@
 class Gomi < Formula
   desc "Functions like rm but with the ability to restore files"
   homepage "https://gomi.dev"
-  url "https://github.com/babarot/gomi/archive/refs/tags/v1.3.2.tar.gz"
-  sha256 "4adfb52f01a860c0248fc63785dc55e2a8cc7e7cb4084f29256d1f14e4524042"
+  url "https://github.com/babarot/gomi/archive/refs/tags/v1.4.2.tar.gz"
+  sha256 "3409175045abb07ec0a0104eb76c436695669202ce446903de467b69b3ec8c66"
   license "MIT"
   head "https://github.com/babarot/gomi.git", branch: "main"
 
@@ -28,6 +28,9 @@ class Gomi < Formula
   end
 
   test do
+    # Create a trash directory
+    mkdir ".gomi"
+
     assert_match version.to_s, shell_output("#{bin}/gomi --version")
 
     (testpath/"trash").write <<~TEXT
