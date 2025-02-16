@@ -1775,6 +1775,7 @@ libfabric
 libffcall
 libffi
 libfido2
+libfishsound
 libfixbuf
 libfontenc
 libfreenect
