@@ -1413,6 +1413,7 @@ hoverfly
 howard-hinnant-date
 hpack
 hsd
+html-xml-utils
 html2markdown
 htmldoc
 htmlq
