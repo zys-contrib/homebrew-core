@@ -3,8 +3,8 @@ class Poetry < Formula
 
   desc "Python package management tool"
   homepage "https://python-poetry.org/"
-  url "https://files.pythonhosted.org/packages/fb/9d/242fc15689320b11f91b0b54cd09a27809043e397f116fa9ec51e9ef963b/poetry-2.1.0.tar.gz"
-  sha256 "fe86f70f06f307db9ceb093b66bb85f1391f078eec1b5eda0f52e78541d17105"
+  url "https://files.pythonhosted.org/packages/a9/69/fbcaa6e878a9e8a9ab86222637f6058b1e611f416c402475b5c9a9dcbca6/poetry-2.1.1.tar.gz"
+  sha256 "d82673865bf13d6cd0dacf28c69a89670456d8df2f9e5da82bfb5f833ba00efc"
   license "MIT"
   head "https://github.com/python-poetry/poetry.git", branch: "master"
 
@@ -165,8 +165,8 @@ class Poetry < Formula
   end
 
   resource "poetry-core" do
-    url "https://files.pythonhosted.org/packages/38/bf/426857756fd5bf44d80cd3a33d5a6de135e46715dfa171e34ad25d652a40/poetry_core-2.1.0.tar.gz"
-    sha256 "ceea605d31dbae232eee53f81489e4c1de203fc00e7f7e25fd095c8629e5feec"
+    url "https://files.pythonhosted.org/packages/8e/70/83d629533a57950f38f5bda64cea57c7c566cb6ad01e4c5380a13a2ac138/poetry_core-2.1.1.tar.gz"
+    sha256 "c1a1f6f00e4254742f40988a8caf665549101cf9991122cd5de1198897768b1a"
   end
 
   resource "pyproject-hooks" do
