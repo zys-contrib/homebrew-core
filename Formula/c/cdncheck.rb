@@ -1,10 +1,15 @@
 class Cdncheck < Formula
   desc "Utility to detect various technology for a given IP address"
   homepage "https://projectdiscovery.io"
-  url "https://github.com/projectdiscovery/cdncheck/archive/refs/tags/v1.1.2.tar.gz"
-  sha256 "3c95c6d7edcaba7a232abf21c92afe439d8f948a1b9c960539faef80ba007390"
+  url "https://github.com/projectdiscovery/cdncheck/archive/refs/tags/v1.1.5.tar.gz"
+  sha256 "5fbf2dc4883385db1fb9e0b48edeb6120d86c6b23b70f76476c5432a0515fdf1"
   license "MIT"
   head "https://github.com/projectdiscovery/cdncheck.git", branch: "main"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c4ea498560b05fcd284a78c28780a27749f4b32c28555a98105ee2dce7edbf89"
@@ -16,14 +21,6 @@ class Cdncheck < Formula
   end
 
   depends_on "go" => :build
-
-  # Fix for incorrect version. The commit was made after the release. At the
-  # time of the next release, ensure that the commit updating the version is
-  # part of the release. Remove this patch in the next release.
-  patch do
-    url "https://github.com/projectdiscovery/cdncheck/commit/430afb8d3e8a732cafc849beb270e788ded3bd09.patch?full_index=1"
-    sha256 "b658666f659fb11adb29b2ad084667daa982c63e8239a884662dc9b7e099b55d"
-  end
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/cdncheck"
