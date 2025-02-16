@@ -3,8 +3,8 @@ class Zydis < Formula
   homepage "https://zydis.re"
   # pull from git tag to get submodules
   url "https://github.com/zyantific/zydis.git",
-      tag:      "v4.1.0",
-      revision: "569320ad3c4856da13b9dbf1f0d9e20bda63870e"
+      tag:      "v4.1.1",
+      revision: "a2278f1d254e492f6a6b39f6cb5d1f5d515659dc"
   license "MIT"
   head "https://github.com/zyantific/zydis.git", branch: "master"
 
