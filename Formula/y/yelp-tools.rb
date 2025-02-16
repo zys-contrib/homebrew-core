@@ -9,13 +9,13 @@ class YelpTools < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any,                 arm64_sequoia: "19cea9b4aea4306c27cf8670b72009111acd01359e9896850231cc6a4c13ccdb"
-    sha256 cellar: :any,                 arm64_sonoma:  "8e94caafb0c2920ce1e46bc4d4499033e1ad366e240c8e9aed59cade7e18feef"
-    sha256 cellar: :any,                 arm64_ventura: "f7b601e215e171c88e066bc78dcb06238ecc8fe0c23b38ef97c852546a07a953"
-    sha256 cellar: :any,                 sonoma:        "b5a88a52c0e06460d402f94f56eb2afc2faefb1dfc256f01d8ec2bcb03482390"
-    sha256 cellar: :any,                 ventura:       "85810d052d35bb12a405a1b6d2411db345980b8fdb848b9cc46215face0631e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f2e4140b9a219e6c08455422ea64ee0dbd07907cf457707f469f778db0083ad"
+    rebuild 5
+    sha256 cellar: :any,                 arm64_sequoia: "b7fdc8113c53b2269004863275eb727529213a7306fe048195c6d772d068f9a7"
+    sha256 cellar: :any,                 arm64_sonoma:  "fecff16b031b801b36674d3ce40d9076a53d50a588874b6c1c003d2a53dd8c65"
+    sha256 cellar: :any,                 arm64_ventura: "552d5b45480d56d8c411142fdd7f7a425e63d84869d1f5bf67f1cc16fbea0ce7"
+    sha256 cellar: :any,                 sonoma:        "eb9926b85d1ba6364f317753ef6bbff66e60935d6acebbe0dbf760a2773357ab"
+    sha256 cellar: :any,                 ventura:       "9d91490539a030c77b1110b8c0a66a5a82ba7f904c958a3eff9b436e56f5f10c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f59435fcac44fa0fb975fe0f65fbc6a2d93649c97b004fff1decd049dbc43517"
   end
 
   depends_on "gettext" => :build
