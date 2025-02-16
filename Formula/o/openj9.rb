@@ -32,6 +32,7 @@ class Openj9 < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "fontconfig"
+  depends_on "freetype"
   depends_on "giflib"
   depends_on "harfbuzz"
   depends_on "jpeg-turbo"
@@ -111,6 +112,7 @@ class Openj9 < Formula
       --with-debug-level=release
       --with-jvm-variants=server
       --with-native-debug-symbols=none
+      --with-extra-ldflags=-Wl,-rpath,#{loader_path.gsub("$", "\\$$")},-rpath,#{loader_path.gsub("$", "\\$$")}/server
 
       --with-vendor-bug-url=#{tap.issues_url}
       --with-vendor-name=#{tap.user}
@@ -121,6 +123,7 @@ class Openj9 < Formula
       --without-version-opt
       --without-version-pre
 
+      --with-freetype=system
       --with-giflib=system
       --with-harfbuzz=system
       --with-lcms=system
@@ -132,8 +135,13 @@ class Openj9 < Formula
       --enable-full-docs=no
     ]
     config_args += if OS.mac?
+      # Allow unbundling `freetype` on macOS
+      inreplace "make/autoconf/lib-freetype.m4", '= "xmacosx"', '= ""'
+
       %W[
         --enable-dtrace
+        --with-freetype-include=#{Formula["freetype"].opt_include}
+        --with-freetype-lib=#{Formula["freetype"].opt_lib}
         --with-sysroot=#{MacOS.sdk_path}
       ]
     else
@@ -144,6 +152,7 @@ class Openj9 < Formula
         --with-x=#{HOMEBREW_PREFIX}
         --with-cups=#{Formula["cups"].opt_prefix}
         --with-fontconfig=#{Formula["fontconfig"].opt_prefix}
+        --with-stdc++lib=dynamic
       ]
     end
     # Ref: https://github.com/eclipse-openj9/openj9/issues/13767
@@ -160,7 +169,7 @@ class Openj9 < Formula
       libexec.install Dir["build/*/images/jdk-bundle/*"].first => "openj9.jdk"
       jdk /= "openj9.jdk/Contents/Home"
       rm jdk/"lib/src.zip"
-      rm_r(Dir.glob(jdk/"**/*.dSYM"))
+      rm_r(jdk.glob("**/*.dSYM"))
     else
       libexec.install Dir["build/linux-x86_64-server-release/images/jdk/*"]
     end
