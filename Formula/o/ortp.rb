@@ -4,16 +4,16 @@ class Ortp < Formula
   license "GPL-3.0-or-later"
 
   stable do
-    url "https://gitlab.linphone.org/BC/public/ortp/-/archive/5.3.104/ortp-5.3.104.tar.bz2"
-    sha256 "d548e369c22350fd436f7d7755ff1112e57dfe7831d2c4b5fbdef08456785cc4"
+    url "https://gitlab.linphone.org/BC/public/ortp/-/archive/5.3.105/ortp-5.3.105.tar.bz2"
+    sha256 "8907bba9fd92774758557032e9a1988d0f3364dc55866008c6990d2ae60ba0c1"
 
     depends_on "mbedtls"
 
     # bctoolbox appears to follow ortp's version. This can be verified at the GitHub mirror:
     # https://github.com/BelledonneCommunications/bctoolbox
     resource "bctoolbox" do
-      url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/5.3.104/bctoolbox-5.3.104.tar.bz2"
-      sha256 "7ef49eaf25576f2c220a20bd3016ee73ee15630b7694e969d4d14f433a57ca1a"
+      url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/5.3.105/bctoolbox-5.3.105.tar.bz2"
+      sha256 "cbf014d799668d3b48f375632fa2d85c4724280c277b3d4069d6a6b103a7414b"
 
       livecheck do
         formula :parent
