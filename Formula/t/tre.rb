@@ -1,14 +1,9 @@
 class Tre < Formula
   desc "Lightweight, POSIX-compliant regular expression (regex) library"
-  homepage "https://laurikari.net/tre/"
-  url "https://laurikari.net/tre/tre-0.8.0.tar.bz2"
-  sha256 "8dc642c2cde02b2dac6802cdbe2cda201daf79c4ebcbb3ea133915edf1636658"
+  homepage "https://github.com/laurikari/tre"
+  url "https://github.com/laurikari/tre/releases/download/v0.9.0/tre-0.9.0.tar.gz"
+  sha256 "f57f5698cafdfe516d11fb0b71705916fe1162f14b08cf69d7cf86923b5a2477"
   license "BSD-2-Clause"
-
-  livecheck do
-    url "https://laurikari.net/tre/download/"
-    regex(/href=.*?tre[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
 
   bottle do
     sha256 cellar: :any, arm64_sequoia:  "65e18fa2b212d3a257575084556b5aee964bcab0003f66023cf774c1959d1bce"
