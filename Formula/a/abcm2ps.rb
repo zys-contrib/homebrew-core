@@ -1,9 +1,14 @@
 class Abcm2ps < Formula
   desc "ABC music notation software"
   homepage "http://moinejf.free.fr"
-  url "https://github.com/leesavide/abcm2ps/archive/refs/tags/v8.14.15.tar.gz"
-  sha256 "5f02ac6203c4226cfbc6206935dca715ed7c45328535ee23e776c9da0219c822"
+  url "https://chiselapp.com/user/moinejf/repository/abcm2ps/tarball/v8.14.17/download.tar.gz"
+  sha256 "61df2c53f932b9dbce57e1c6c4ff5be6e69ca2162317a7c3e61297befa40aeaa"
   license "GPL-3.0-or-later"
+
+  livecheck do
+    url "https://chiselapp.com/user/moinejf/repository/abcm2ps/taglist"
+    regex(%r{"tagDsp">v?(\d+(?:\.\d+)+)</span>}i)
+  end
 
   bottle do
     sha256 arm64_sequoia:  "ec8cb5380cfee0043e5454ea122ff004c6366c19b06268edabf8af5f9481399f"
@@ -15,8 +20,6 @@ class Abcm2ps < Formula
     sha256 monterey:       "faaf0e3188a69245c09d790d31241ef2f057dffd94ff48b33463e2860fa0072f"
     sha256 x86_64_linux:   "cb486f3afb52ba110aa20878c5ac7b14bca9a1e4acd6b1a30fc4fd7741a55b93"
   end
-
-  deprecate! date: "2025-01-10", because: :repo_archived
 
   depends_on "pkgconf" => :build
 
