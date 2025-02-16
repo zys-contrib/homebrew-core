@@ -10,7 +10,8 @@ class Chrpath < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "00a03fa6ee632a4c0dbba7e0b581501b3e6118fd1cc6cfe1c0e6f53b900dca68"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "5401a0819599b170252c91c03bbef3b8a4e7e61f3a4333fcc9c271afd897ee8c"
   end
 
   depends_on :linux
