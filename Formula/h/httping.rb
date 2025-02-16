@@ -1,9 +1,9 @@
 class Httping < Formula
   desc "Ping-like tool for HTTP requests"
   homepage "https://github.com/folkertvanheusden/HTTPing"
-  url "https://github.com/folkertvanheusden/HTTPing/archive/refs/tags/v2.9.tar.gz"
-  sha256 "37da3c89b917611d2ff81e2f6c9e9de39d160ef0ca2cb6ffec0bebcb9b45ef5d"
-  license "GPL-3.0-only"
+  url "https://github.com/folkertvanheusden/HTTPing/archive/refs/tags/v4.4.0.tar.gz"
+  sha256 "87fa2da5ac83c4a0edf4086161815a632df38e1cc230e1e8a24a8114c09da8fd"
+  license "AGPL-3.0-only"
 
   # There can be a notable gap between when a version is tagged and a
   # corresponding release is created, so we check the "latest" release instead
@@ -27,6 +27,7 @@ class Httping < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "94b00c89e3f72041ad7e5aee324783437ad76f99c1b5bfdacf858e6aaa4d101d"
   end
 
+  depends_on "cmake" => :build
   depends_on "gettext" => :build # for msgfmt
   depends_on "openssl@3"
 
@@ -37,12 +38,11 @@ class Httping < Formula
   end
 
   def install
-    # Reported upstream, see: https://github.com/folkertvanheusden/HTTPing/issues/4
-    inreplace "utils.h", "useconds_t", "unsigned int"
-    # Reported upstream, see: https://github.com/folkertvanheusden/HTTPing/issues/7
-    inreplace %w[configure Makefile], "lncursesw", "lncurses"
-    ENV.append "LDFLAGS", "-lintl" if OS.mac?
-    system "make", "install", "PREFIX=#{prefix}"
+    # MSG_FASTOPEN is not defined on MacOS
+    inreplace "tcp.c", "#if defined(__FreeBSD__)", "#if defined(__FreeBSD__) || !defined(MSG_FASTOPEN)"
+    system "cmake", "-S", ".", "-B", "build", "-DUSE_SSL=ON", "-DUSE_GETTEXT=ON", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
