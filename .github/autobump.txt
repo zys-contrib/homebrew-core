@@ -295,6 +295,7 @@ bluez
 bmake
 bnd
 bob
+bochs
 bold
 bomber
 bore-cli

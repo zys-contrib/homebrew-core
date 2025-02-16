@@ -1,8 +1,8 @@
 class Bochs < Formula
   desc "Open source IA-32 (x86) PC emulator written in C++"
   homepage "https://bochs.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/bochs/bochs/2.8/bochs-2.8.tar.gz"
-  sha256 "a85b13aff7d8411f7a9f356ba6c33b5f5dc1fbb107eb5018cc23a62639da0059"
+  url "https://downloads.sourceforge.net/project/bochs/bochs/3.0/bochs-3.0.tar.gz"
+  sha256 "cb6f542b51f35a2cc9206b2a980db5602b7cd1b7cf2e4ed4f116acd5507781aa"
   license "LGPL-2.0-or-later"
 
   livecheck do
@@ -30,6 +30,9 @@ class Bochs < Formula
   on_linux do
     depends_on "readline"
   end
+
+  # include `<libgen.h>` for macos build, upstream bug report, https://sourceforge.net/p/bochs/bugs/1466/
+  patch :DATA
 
   def install
     args = %W[
@@ -96,3 +99,20 @@ class Bochs < Formula
     assert_match(expected, stderr)
   end
 end
+
+__END__
+diff --git a/gui/keymap.cc b/gui/keymap.cc
+index 3426b6b..7bf76d8 100644
+--- a/gui/keymap.cc
++++ b/gui/keymap.cc
+@@ -30,6 +30,10 @@
+ #include "gui.h"
+ #include "keymap.h"
+
++#if defined(__APPLE__)
++#include <libgen.h>
++#endif
++
+ // Table of bochs "BX_KEY_*" symbols
+ // the table must be in BX_KEY_* order
+ const char *bx_key_symbol[BX_KEY_NBKEYS] = {
