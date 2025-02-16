@@ -13,12 +13,12 @@ class Squid < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "46834c46b9dfba33e335871ea5521c52f0970e22492a10a7652e4c6ce7ad60d9"
-    sha256 arm64_sonoma:  "0e5e93eebd07b2919e38a59becf1738a94d36d2ab36e8244fd0f50fb557acab0"
-    sha256 arm64_ventura: "066142a4881ba69f68ab5c80f8997392225b44a3ffe1f6c098a457476ca55eec"
-    sha256 sonoma:        "e47b6716e23cfe55ebc170cc8a563883e2d12bd2a0f7c190dbeaff3dcc3456d0"
-    sha256 ventura:       "66876aa03fd2e9937b29cdb881fb1ced3ffd269209e282a4f2586f61fe3577ae"
-    sha256 x86_64_linux:  "6706fe36e154fa9191414c35176698c6c3204ddae2ee3bdb415bbf5636b3099f"
+    sha256 arm64_sequoia: "d2cd4e77ccc3da42ec7ded1f1f1a4a2e754734e17bf369b0dd99d542642ac4bd"
+    sha256 arm64_sonoma:  "be53c543fec807a6841cc164cb9edb1433d26b8b4730bb0accacfdcebed45c63"
+    sha256 arm64_ventura: "e7ef982e31124eb3b920cdc13351547b3bce8d574c8dddf18de73474dab7ae09"
+    sha256 sonoma:        "472c374fa36f3e97a90d192d1fa4fcecfdd9cd45d5069e8c93ebd080ba581094"
+    sha256 ventura:       "81747c30da12ba7291b8353836cea7708983d2e0775672462764076e5f1d4cdf"
+    sha256 x86_64_linux:  "86929f4464c2dd41698c7c68936bab3b9a716635cd57e5ab125086fcb23abca4"
   end
 
   head do
