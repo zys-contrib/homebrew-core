@@ -7,6 +7,14 @@ class Vfkit < Formula
   license "Apache-2.0"
   head "https://github.com/crc-org/vfkit.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "83741ac07575350b4c819b70b291029828cac87a8bcbb94535b57296f15f9546"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f6829dc7d2da23e3f4dfe1f146cdd65b74d41908fc40e50908a55452dd2bcf45"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "81e0474b832666ce417d2ea5ccf9c71784a8a977762f0301beb5fb3aba78f4ad"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a48302fd279c84d501b902c8e223171973d4fbb61c8b8e1036cbf774f52d6e77"
+    sha256 cellar: :any_skip_relocation, ventura:       "dea4fb7662382b37d239b7fa53a7eb6a9311566c55f44bbc14b7aee2a7572b62"
+  end
+
   depends_on "go" => :build
   depends_on :macos
 
