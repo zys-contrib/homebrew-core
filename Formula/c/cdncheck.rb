@@ -1,8 +1,8 @@
 class Cdncheck < Formula
   desc "Utility to detect various technology for a given IP address"
   homepage "https://projectdiscovery.io"
-  url "https://github.com/projectdiscovery/cdncheck/archive/refs/tags/v1.1.1.tar.gz"
-  sha256 "f94c62d4f4b1b5cb84c2cc6a465d364b747b585c8f7522f10a6983f26b318236"
+  url "https://github.com/projectdiscovery/cdncheck/archive/refs/tags/v1.1.2.tar.gz"
+  sha256 "3c95c6d7edcaba7a232abf21c92afe439d8f948a1b9c960539faef80ba007390"
   license "MIT"
   head "https://github.com/projectdiscovery/cdncheck.git", branch: "main"
 
@@ -21,8 +21,8 @@ class Cdncheck < Formula
   # time of the next release, ensure that the commit updating the version is
   # part of the release. Remove this patch in the next release.
   patch do
-    url "https://github.com/projectdiscovery/cdncheck/commit/a1c2dc71a1cf5c773a9adc44b2ae76bc041cc452.patch?full_index=1"
-    sha256 "2ad6e32682eb4a74d838087fe93b5aeb7864d0b982087e18a143a68278f6fca6"
+    url "https://github.com/projectdiscovery/cdncheck/commit/430afb8d3e8a732cafc849beb270e788ded3bd09.patch?full_index=1"
+    sha256 "b658666f659fb11adb29b2ad084667daa982c63e8239a884662dc9b7e099b55d"
   end
 
   def install
