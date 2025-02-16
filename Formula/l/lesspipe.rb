@@ -11,7 +11,7 @@ class Lesspipe < Formula
   ]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "60855dd9c2df49e9a281435ff6e1f7423253dcb73f76e9d1408179daffbf54e2"
+    sha256 cellar: :any_skip_relocation, all: "7f22b2da49eb3d1351d4ed294dc21a75b794d4db4b10e91f0f4c28903ab32056"
   end
 
   uses_from_macos "perl"
