@@ -1574,6 +1574,7 @@ jsonnet
 jsonnet-bundler
 jsonrpc-glib
 jsontoolkit
+jsrepo
 jsvc
 jtbl
 juicefs
