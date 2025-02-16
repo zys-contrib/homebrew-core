@@ -434,7 +434,6 @@ cdxgen
 cekit
 censys
 cern-ndiff
-certbot
 certifi
 certigo
 cf
