@@ -1631,6 +1631,7 @@ kn
 knot
 knot-resolver
 ko
+koji
 kompose
 kool
 kops
