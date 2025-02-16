@@ -2,8 +2,8 @@ class Librime < Formula
   desc "Rime Input Method Engine"
   homepage "https://rime.im"
   url "https://github.com/rime/librime.git",
-      tag:      "1.13.0",
-      revision: "e8184dceaf9a89a21d6dc25c1850779cd652c472"
+      tag:      "1.13.1",
+      revision: "1c23358157934bd6e6d6981f0c0164f05393b497"
   license "BSD-3-Clause"
 
   bottle do
