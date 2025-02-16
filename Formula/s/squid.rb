@@ -1,13 +1,15 @@
 class Squid < Formula
   desc "Advanced proxy caching server for HTTP, HTTPS, FTP, and Gopher"
   homepage "https://www.squid-cache.org/"
-  url "http://www.squid-cache.org/Versions/v6/squid-6.12.tar.xz"
-  sha256 "f3df3abb2603a513266f24a5d4699a9f0d76b9f554d1848b67f9c51cd3b3cb50"
+  url "https://github.com/squid-cache/squid/releases/download/SQUID_6_13/squid-6.13.tar.xz"
+  sha256 "232e0567946ccc0115653c3c18f01e83f2d9cc49c43d9dead8b319af0b35ad52"
   license "GPL-2.0-or-later"
 
+  # The Git repository contains tags for a higher major version that isn't the
+  # current release series yet, so we check the latest GitHub release instead.
   livecheck do
-    url "https://www.squid-cache.org/Versions/"
-    regex(%r{<td>\s*v?(\d+(?:\.\d+)+)\s*</td>}im)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
@@ -20,7 +22,7 @@ class Squid < Formula
   end
 
   head do
-    url "https://git.launchpad.net/squid", using: :git, branch: "v6"
+    url "https://github.com/squid-cache/squid.git", branch: "v6"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
