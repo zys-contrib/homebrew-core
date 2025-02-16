@@ -32,9 +32,13 @@ class Httping < Formula
     depends_on "gettext" # for libintl
   end
 
+  # enable TCP Fast Open on macOS, upstream pr ref, https://github.com/folkertvanheusden/HTTPing/pull/48
+  patch do
+    url "https://github.com/folkertvanheusden/HTTPing/commit/79236affb75667cf195f87a58faaebe619e7bfd4.patch?full_index=1"
+    sha256 "765fd15dcb35a33141d62b70e4888252a234b9f845c8e35059654852a0d19d1c"
+  end
+
   def install
-    # MSG_FASTOPEN is not defined on MacOS
-    inreplace "tcp.c", "#if defined(__FreeBSD__)", "#if defined(__FreeBSD__) || !defined(MSG_FASTOPEN)"
     system "cmake", "-S", ".", "-B", "build", "-DUSE_SSL=ON", "-DUSE_GETTEXT=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
