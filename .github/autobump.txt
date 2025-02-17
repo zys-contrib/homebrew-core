@@ -3574,6 +3574,7 @@ weechat
 wego
 werf
 west
+wfa2-lib
 wgcf
 wget2
 wgo
