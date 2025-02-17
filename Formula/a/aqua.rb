@@ -6,6 +6,15 @@ class Aqua < Formula
   license "MIT"
   head "https://github.com/aquaproj/aqua.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6ee1f38e4d23cd8d30c1de7f39c3c3cb025856f4605619fc9931b70944ea604b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6ee1f38e4d23cd8d30c1de7f39c3c3cb025856f4605619fc9931b70944ea604b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6ee1f38e4d23cd8d30c1de7f39c3c3cb025856f4605619fc9931b70944ea604b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e9143d36c45ea971402315b8102ca598507fd95ebba6146b3a46db534e9104f8"
+    sha256 cellar: :any_skip_relocation, ventura:       "e9143d36c45ea971402315b8102ca598507fd95ebba6146b3a46db534e9104f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09ee47d7ea9b641e69410cc49c204530e13eadc7f4d6678bfe795a768a8b2728"
+  end
+
   depends_on "go" => :build
 
   def install
