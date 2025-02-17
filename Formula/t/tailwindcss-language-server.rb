@@ -13,12 +13,12 @@ class TailwindcssLanguageServer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "11ac53ce0d54e27bdf5696519421f4178e7af751299a5d6a1e174e9b6dc2050a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "11ac53ce0d54e27bdf5696519421f4178e7af751299a5d6a1e174e9b6dc2050a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "11ac53ce0d54e27bdf5696519421f4178e7af751299a5d6a1e174e9b6dc2050a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "11ac53ce0d54e27bdf5696519421f4178e7af751299a5d6a1e174e9b6dc2050a"
-    sha256 cellar: :any_skip_relocation, ventura:       "11ac53ce0d54e27bdf5696519421f4178e7af751299a5d6a1e174e9b6dc2050a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e6bbcc315a6d074d5d5e73f5381a9c611ffd9c11b531773275019123450fed8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "891c68b9a704d7cfb06ba9f9312594cf7cb12137aa52639e41a783cb1b1f0fe0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "891c68b9a704d7cfb06ba9f9312594cf7cb12137aa52639e41a783cb1b1f0fe0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "891c68b9a704d7cfb06ba9f9312594cf7cb12137aa52639e41a783cb1b1f0fe0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "891c68b9a704d7cfb06ba9f9312594cf7cb12137aa52639e41a783cb1b1f0fe0"
+    sha256 cellar: :any_skip_relocation, ventura:       "891c68b9a704d7cfb06ba9f9312594cf7cb12137aa52639e41a783cb1b1f0fe0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83ebfd9e6a55f3e52a5c38676c0783d16e003791d4a79a5b2df2812978beaf54"
   end
 
   depends_on "pnpm" => :build
