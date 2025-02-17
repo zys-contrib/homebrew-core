@@ -1,8 +1,8 @@
 class Ncmpc < Formula
   desc "Curses Music Player Daemon (MPD) client"
   homepage "https://www.musicpd.org/clients/ncmpc/"
-  url "https://www.musicpd.org/download/ncmpc/0/ncmpc-0.51.tar.xz"
-  sha256 "e74be00e69bc3ed1268cafcc87274e78dfbde147f2480ab0aad8260881ec7271"
+  url "https://www.musicpd.org/download/ncmpc/0/ncmpc-0.52.tar.xz"
+  sha256 "3af225496fe363a8534a9780fb46ae1bd17baefd80cf4ba7430a19cddd73eb1a"
   license "GPL-2.0-or-later"
 
   livecheck do
