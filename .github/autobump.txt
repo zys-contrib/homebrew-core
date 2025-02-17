@@ -3396,6 +3396,7 @@ tfproviderlint
 tfschema
 tfsec
 tfupdate
+tgenv
 tgpt
 tgui
 thanos

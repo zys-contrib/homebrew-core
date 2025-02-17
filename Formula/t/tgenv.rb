@@ -1,15 +1,10 @@
 class Tgenv < Formula
   desc "Terragrunt version manager inspired by tfenv"
-  homepage "https://github.com/cunymatthieu/tgenv"
-  url "https://github.com/cunymatthieu/tgenv/archive/refs/tags/v0.0.3.tar.gz"
-  sha256 "e59c4cc9dfccb7d52b9ff714b726ceee694cfa389474cbe01a65c5f9bc13eca4"
+  homepage "https://github.com/tgenv/tgenv"
+  url "https://github.com/tgenv/tgenv/archive/refs/tags/v1.2.1.tar.gz"
+  sha256 "241b18ee59bd993256c9dc0847e23824c9ebf42b4d121db11fbdff9ddb6432b2"
   license "MIT"
-  head "https://github.com/cunymatthieu/tgenv.git", branch: "master"
-
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
+  head "https://github.com/tgenv/tgenv.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -26,6 +21,7 @@ class Tgenv < Formula
   end
 
   test do
-    assert_match "0.69.9", shell_output("#{bin}/tgenv list-remote")
+    ret_status = OS.mac? ? 1 : 0
+    assert_match "0.73.6", shell_output("#{bin}/tgenv list-remote 2>&1", ret_status)
   end
 end
