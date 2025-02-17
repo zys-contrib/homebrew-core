@@ -4,6 +4,7 @@ class Mercury < Formula
   url "https://dl.mercurylang.org/release/mercury-srcdist-22.01.8.tar.gz"
   sha256 "a097e8cc8eca0152ed9527c1caf73e5c9c83f6ada1d313a25b80fe79072fbad8"
   license all_of: ["GPL-2.0-only", "LGPL-2.0-only", "MIT"]
+  revision 1
 
   livecheck do
     url "https://dl.mercurylang.org/"
