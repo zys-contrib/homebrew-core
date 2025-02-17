@@ -92,6 +92,7 @@ appwrite
 apr
 apt
 aptly
+aqua
 aravis
 arcade-learning-environment
 archi-steam-farm
