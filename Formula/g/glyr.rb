@@ -4,7 +4,7 @@ class Glyr < Formula
   url "https://github.com/sahib/glyr/archive/refs/tags/1.0.10.tar.gz"
   sha256 "77e8da60221c8d27612e4a36482069f26f8ed74a1b2768ebc373c8144ca806e8"
   license "LGPL-3.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "75c0b25000de973e7ea592d3ae07a610f54038c6e73adddf93ca8f50e0df12ff"
