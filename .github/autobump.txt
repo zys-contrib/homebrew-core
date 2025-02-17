@@ -789,6 +789,7 @@ docker-machine-driver-vultr
 docker-slim
 docker-squash
 dockerfile-language-server
+dockerfilegraph
 dockerize
 dockly
 dockviz
