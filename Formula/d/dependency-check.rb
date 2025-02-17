@@ -1,10 +1,10 @@
 class DependencyCheck < Formula
   desc "OWASP dependency-check"
   homepage "https://owasp.org/www-project-dependency-check/"
-  url "https://github.com/jeremylong/DependencyCheck/releases/download/v12.1.0/dependency-check-12.1.0-release.zip"
+  url "https://github.com/dependency-check/DependencyCheck/releases/download/v12.1.0/dependency-check-12.1.0-release.zip"
   sha256 "0e5ba6ae58e753d5841048c6c8e495dbc4c7a4ea921a2b14daeac65195700532"
   license "Apache-2.0"
-  head "https://github.com/jeremylong/DependencyCheck.git", branch: "main"
+  head "https://github.com/dependency-check/DependencyCheck.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "7a544b181ccc16b74084bb1fa5f3da563a732bd64d824717879e334b19f58556"
@@ -46,7 +46,7 @@ class DependencyCheck < Formula
     EOS
     system bin/"dependency-check", "-P", "temp-props.properties", "-f", "XML",
               "--project", "dc", "-s", libexec, "-d", testpath, "-o", testpath,
-              "--nvdDatafeed", "https://jeremylong.github.io/DependencyCheck/hb_nvd/",
+              "--nvdDatafeed", "https://dependency-check.github.io/DependencyCheck/hb_nvd/",
               "--disableKnownExploited"
     assert_predicate testpath/"dependency-check-report.xml", :exist?
   end
