@@ -1,9 +1,9 @@
 class Logtalk < Formula
   desc "Declarative object-oriented logic programming language"
   homepage "https://logtalk.org/"
-  url "https://github.com/LogtalkDotOrg/logtalk3/archive/refs/tags/lgt3890stable.tar.gz"
-  version "3.89.0"
-  sha256 "78174128b65713c1ba33b8c3249cafd9fcc36d175bd077946cdb928693505e2b"
+  url "https://github.com/LogtalkDotOrg/logtalk3/archive/refs/tags/lgt3891stable.tar.gz"
+  version "3.89.1"
+  sha256 "6ebca8de86b6589cd7cceede6200049c4bb267e8c563702d58bd5c56c9944f12"
   license "Apache-2.0"
   head "https://github.com/LogtalkDotOrg/logtalk3.git", branch: "master"
 
