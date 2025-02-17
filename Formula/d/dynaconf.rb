@@ -8,7 +8,7 @@ class Dynaconf < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5fd03735a6ab36167f875847dcdad3f8d4160ceb2411d2a4ce990a0cc86d9d1c"
+    sha256 cellar: :any_skip_relocation, all: "d16d121cb8ee8c6f5db0f745e28413a935e997df9f8b5cbe9c317101cef64183"
   end
 
   depends_on "python@3.13"
