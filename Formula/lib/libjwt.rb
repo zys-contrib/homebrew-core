@@ -1,8 +1,8 @@
 class Libjwt < Formula
   desc "JSON Web Token C library"
-  homepage "https://github.com/benmcollins/libjwt"
-  url "https://github.com/benmcollins/libjwt/releases/download/v2.1.1/libjwt-2.1.1.tar.bz2"
-  sha256 "e50e7d88a5a6f04e3dbaffca5218869b7a14a26d8ecc9c791df858a1442a04d7"
+  homepage "https://libjwt.io/"
+  url "https://github.com/benmcollins/libjwt/releases/download/v3.2.0/libjwt-3.2.0.tar.xz"
+  sha256 "17ee4e25adfbb91003946af967ff04068a5c93d6b51ad7ad892f1441736b71b9"
   license "MPL-2.0"
   head "https://github.com/benmcollins/libjwt.git", branch: "master"
 
@@ -20,18 +20,16 @@ class Libjwt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "759f89d1e9d8b9ab0fa8fbaada2b5235855d52db35c6106bb4af23d31fb31452"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "gnutls"
   depends_on "jansson"
   depends_on "openssl@3"
 
   def install
-    system "autoreconf", "--force", "--install", "--verbose" if build.head?
-    system "./configure", "--disable-silent-rules", *std_configure_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", "-DWITH_TESTS=OFF", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -39,9 +37,11 @@ class Libjwt < Formula
       #include <stdlib.h>
       #include <jwt.h>
 
-      int main() {
-        jwt_t *jwt = NULL;
-        if (jwt_new(&jwt) != 0) return 1;
+      int main(void) {
+        jwt_builder_t *builder = jwt_builder_new();
+        char *token = jwt_builder_generate(builder);
+        free(token);
+        jwt_builder_free(builder);
         return 0;
       }
     C
