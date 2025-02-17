@@ -1,18 +1,18 @@
 class Envd < Formula
   desc "Reproducible development environment for AI/ML"
   homepage "https://envd.tensorchord.ai"
-  url "https://github.com/tensorchord/envd/archive/refs/tags/v0.4.3.tar.gz"
-  sha256 "4524206b20e371507bfc4d7eaaa631188e6542132d47638280a641c1656071a4"
+  url "https://github.com/tensorchord/envd/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "9f67938b67202ce3044b697a92d9340ea513c68f7f81f454e7d0f55ab99366b5"
   license "Apache-2.0"
   head "https://github.com/tensorchord/envd.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e27cc64092b3fae645f85cc04fbedb4544db7e66f850fc287c932aac058df287"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "380655aaa5b9c458320bba15603fccaa8b37f97644ffdd2efb3be8d99a172709"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9670557698e24a077ff59e82056b210cf107ec8c458132969f0e5617f35304fc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "12b5bfe20ad6451276b6c5f51a509d76a8655ae401246f3d72b46d877f8f3231"
-    sha256 cellar: :any_skip_relocation, ventura:       "a760096210ca7768bb142e5529af18c416b3f69257bc7044219b18e96e45ccd1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2a078fe8d9d3ac1b0e3f91e988e98145d6f107483d531c2bf8b7f64ad0d44fc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f1f435d15e6c79f47a5c509ecd1e6d5f33b3f096a111540b397071dac2bdb019"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2f531a57820ece786fc3ace7ca936efbb6ea04e7d0a353a9597ea820422a5376"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "55819a3c51216cce1fdbdfee26b11ae403613fd74999b75a81039e590b35078f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fa10a85335dc0112be06a2801d8750b21b2db45968b48197d7056b7b22515c50"
+    sha256 cellar: :any_skip_relocation, ventura:       "369dd02b6d66a778220d34725bba9f1ddc6938bd6103000782f3bf4f8216c8bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4441201d8b904f032d67d0b6396340cd86f42a1f2b1f8d7814c16733f54260c3"
   end
 
   depends_on "go" => :build
