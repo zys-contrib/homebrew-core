@@ -1,8 +1,8 @@
 class CargoMsrv < Formula
   desc "Find the minimum supported Rust version (MSRV) for your project"
   homepage "https://foresterre.github.io/cargo-msrv"
-  url "https://github.com/foresterre/cargo-msrv/archive/refs/tags/v0.17.1.tar.gz"
-  sha256 "b9e628ab70bbd008da0c57ba3d0f4f66c5fcc1cd694de5ec970a363cce780c06"
+  url "https://github.com/foresterre/cargo-msrv/archive/refs/tags/v0.18.1.tar.gz"
+  sha256 "81ae871c3aba6d044b7f3fcee7d7a102f5f673f45883afb23e57663e98ef6bb9"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/foresterre/cargo-msrv.git", branch: "main"
 
