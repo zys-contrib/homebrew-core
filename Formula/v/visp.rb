@@ -150,6 +150,21 @@ class Visp < Formula
               opencv.prefix.realpath, opencv.opt_prefix
   end
 
+  def post_install
+    # Replace SDK paths in bottle when pouring on different OS version than bottle OS.
+    # This avoids error like https://github.com/orgs/Homebrew/discussions/5853
+    # TODO: Consider handling this in brew, e.g. as part of keg cleaner or bottle relocation
+    if OS.mac? && Tab.for_formula(self).poured_from_bottle && MacOS.version != bottle&.tag&.to_macos_version
+      sdk_path_files = [
+        lib/"cmake/visp/VISPConfig.cmake",
+        lib/"cmake/visp/VISPModules.cmake",
+        lib/"pkgconfig/visp.pc",
+      ]
+      bottle_sdk_path = MacOS.sdk_for_formula(self, bottle&.tag&.to_macos_version).path
+      inreplace sdk_path_files, bottle_sdk_path, MacOS.sdk_for_formula(self).path, audit_result: false
+    end
+  end
+
   test do
     (testpath/"test.cpp").write <<~CPP
       #include <visp3/core/vpConfig.h>
