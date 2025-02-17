@@ -1285,6 +1285,7 @@ gotpm
 gource
 govc
 govulncheck
+gowall
 gowsdl
 gpa
 gpac
