@@ -6,6 +6,11 @@ class Aqua < Formula
   license "MIT"
   head "https://github.com/aquaproj/aqua.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6ee1f38e4d23cd8d30c1de7f39c3c3cb025856f4605619fc9931b70944ea604b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6ee1f38e4d23cd8d30c1de7f39c3c3cb025856f4605619fc9931b70944ea604b"
