@@ -6,6 +6,15 @@ class Dockerfilegraph < Formula
   license "MIT"
   head "https://github.com/patrickhoefler/dockerfilegraph.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e21fd8811676dd3e118643887c4be1d461135099d242bc4dfd7e03865f99d967"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e21fd8811676dd3e118643887c4be1d461135099d242bc4dfd7e03865f99d967"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e21fd8811676dd3e118643887c4be1d461135099d242bc4dfd7e03865f99d967"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1f311726ad5127bba9ba18276d612eabcc76185dd9e23cc04018e10c4846642c"
+    sha256 cellar: :any_skip_relocation, ventura:       "1f311726ad5127bba9ba18276d612eabcc76185dd9e23cc04018e10c4846642c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db0db365f115b033077ee99d0cd540182bfeaaf394989caf04aa36e6e182095c"
+  end
+
   depends_on "go" => :build
   depends_on "graphviz"
 
