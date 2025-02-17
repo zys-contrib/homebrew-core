@@ -7,7 +7,8 @@ class DependencyCheck < Formula
   head "https://github.com/dependency-check/DependencyCheck.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "7a544b181ccc16b74084bb1fa5f3da563a732bd64d824717879e334b19f58556"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "a566364f6c008c5b2597ee44e7a541db0d657067ae5223822118c162a44b577d"
   end
 
   depends_on "openjdk"
