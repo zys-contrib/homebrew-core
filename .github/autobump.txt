@@ -3080,6 +3080,7 @@ snyk-cli
 soapyremote
 socat
 socket_vmnet
+soft-serve
 solana
 solargraph
 solhint
