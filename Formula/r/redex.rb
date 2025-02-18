@@ -3,7 +3,7 @@ class Redex < Formula
   include Language::Python::Virtualenv
 
   desc "Bytecode optimizer for Android apps"
-  homepage "https://github.com/facebook/redex"
+  homepage "https://fbredex.com/"
   license "MIT"
   revision 18
   head "https://github.com/facebook/redex.git", branch: "main"
