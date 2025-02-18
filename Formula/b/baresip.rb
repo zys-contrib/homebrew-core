@@ -6,12 +6,12 @@ class Baresip < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 arm64_sequoia: "e4d892397a4399b413de474fd2b2711a816784e5647122b83524f56fb18eda7c"
-    sha256 arm64_sonoma:  "b153302292ab73aba4aa42f052f4dcae03b27b148570e6bcbe12d669b2ea8b1e"
-    sha256 arm64_ventura: "8d3430aaf06f590828f6ad2ce18557331de34e20c2dc2b1b1070796ba94ed7d5"
-    sha256 sonoma:        "60258a7d03e3c38af2f1219be109b2d174e69849805398b33915bfdaccd0dd37"
-    sha256 ventura:       "9434bd3b917860055a44f400ee3ac12ee54e99871c7e5bc9a0d960aec79c41ea"
-    sha256 x86_64_linux:  "2cf2f60134a3cebeb9816f2e50023ceac1007bd98112004b957f27aa7504759c"
+    sha256 arm64_sequoia: "a51687d5f93a9f801b12ed1202ed208cec649ded4512f4fb0bb5eb65c1ad67a7"
+    sha256 arm64_sonoma:  "4df77290ff1a5cdbe886a8f520562e95e63b18f36db2d228e849ab04d095543d"
+    sha256 arm64_ventura: "7ae38a16356c5c03e8e729e634bba751f50dbcbcf51c9f6835f765f6064f8cca"
+    sha256 sonoma:        "992c66834fb96b6948012c27fe2fb79039304a83701385b2e2eec65655d4ea16"
+    sha256 ventura:       "34a3b070a3ccc27ead9150893c99a6d01f7b010e72241bcaf3ec91a8f1693ce4"
+    sha256 x86_64_linux:  "6114e2da3f0f8a7bd2152f295a09bd2b8b5145ae40c98b6d1a09474af380bcb8"
   end
 
   depends_on "cmake" => :build
