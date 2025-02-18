@@ -33,7 +33,7 @@ class Manticoresearch < Formula
   depends_on "snowball" => :build # for libstemmer.a
 
   # NOTE: `libpq`, `mariadb-connector-c`, `unixodbc` and `zstd` are dynamically loaded rather than linked
-  depends_on "boost@1.85"
+  depends_on "boost"
   depends_on "cctz"
   depends_on "icu4c@76"
   depends_on "libpq"
@@ -49,6 +49,10 @@ class Manticoresearch < Formula
   uses_from_macos "expat"
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
+
+  # Allow building with Boost 1.87.0. Issue reported upstream following CONTRIBUTING.md
+  # Issue ref: https://github.com/manticoresoftware/manticoresearch/issues/3099
+  patch :DATA
 
   def install
     # Avoid statically linking to boost
@@ -113,3 +117,36 @@ class Manticoresearch < Formula
     Process.wait(pid)
   end
 end
+
+__END__
+diff --git a/src/searchdbuddy.cpp b/src/searchdbuddy.cpp
+index 7faf78557..36f030edc 100644
+--- a/src/searchdbuddy.cpp
++++ b/src/searchdbuddy.cpp
+@@ -14,7 +14,7 @@
+ #include "netreceive_ql.h"
+ #include "client_session.h"
+ 
+-#include <boost/asio/io_service.hpp>
++#include <boost/asio/io_context.hpp>
+ #include <boost/asio/read_until.hpp>
+ #include <boost/process.hpp>
+ #if _WIN32
+@@ -32,7 +32,7 @@ static CSphString g_sUrlBuddy;
+ static CSphString g_sStartArgs;
+ 
+ static const int PIPE_BUF_SIZE = 2048;
+-static std::unique_ptr<boost::asio::io_service> g_pIOS;
++static std::unique_ptr<boost::asio::io_context> g_pIOS;
+ static std::vector<char> g_dPipeBuf ( PIPE_BUF_SIZE );
+ static CSphVector<char> g_dLogBuf ( PIPE_BUF_SIZE );
+ static std::unique_ptr<boost::process::async_pipe> g_pPipe;
+@@ -357,7 +357,7 @@ BuddyState_e TryToStart ( const char * sArgs, CSphString & sError )
+ 	g_pPipe.reset();
+ 	g_pIOS.reset();
+ 
+-	g_pIOS.reset ( new boost::asio::io_service );
++	g_pIOS.reset ( new boost::asio::io_context );
+ 	g_pPipe.reset ( new boost::process::async_pipe ( *g_pIOS ) );
+ 
+ 	std::unique_ptr<boost::process::child> pBuddy;
