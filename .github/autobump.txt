@@ -1373,6 +1373,7 @@ haskell-language-server
 haskell-stack
 hatari
 hatch
+havener
 havn
 hawkeye
 haxe
