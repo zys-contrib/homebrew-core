@@ -3042,6 +3042,7 @@ sip
 sipp
 siril
 sispmctl
+sitefetch
 six
 sjk
 sk
