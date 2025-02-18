@@ -6,6 +6,15 @@ class SoftServe < Formula
   license "MIT"
   head "https://github.com/charmbracelet/soft-serve.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "85bc09fd28e5c098ab0990635acdd54b69852b952542d4fef2d3613fdf5ded86"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "85bc09fd28e5c098ab0990635acdd54b69852b952542d4fef2d3613fdf5ded86"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "85bc09fd28e5c098ab0990635acdd54b69852b952542d4fef2d3613fdf5ded86"
+    sha256 cellar: :any_skip_relocation, sonoma:        "48decefca6c0282b3a1c48b74aa616198ebd5ac9aca9ea8308d0190639e33e68"
+    sha256 cellar: :any_skip_relocation, ventura:       "48decefca6c0282b3a1c48b74aa616198ebd5ac9aca9ea8308d0190639e33e68"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e34f3cf4b7d5921712f10a2582325d513587d94ff70786d1b5ec72904cc35402"
+  end
+
   depends_on "go" => :build
 
   def install
