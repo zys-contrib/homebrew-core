@@ -1,8 +1,8 @@
 class Slumber < Formula
   desc "Terminal-based HTTP/REST client"
   homepage "https://slumber.lucaspickering.me/"
-  url "https://github.com/LucasPickering/slumber/archive/refs/tags/v2.5.0.tar.gz"
-  sha256 "14319206deb7691b44d074caa32837b4a6dad558ced5f68d0666671a0fb25089"
+  url "https://github.com/LucasPickering/slumber/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "d64a03fbe394880ba076cb7bce5a43d7ef0811d9f469a62821301a8c70451feb"
   license "MIT"
   head "https://github.com/LucasPickering/slumber.git", branch: "master"
 
