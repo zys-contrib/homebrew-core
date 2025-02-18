@@ -6,6 +6,15 @@ class Nak < Formula
   license "Unlicense"
   head "https://github.com/fiatjaf/nak.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1199a2a9addc062d1db7b755e951ad5343cf5c4170d0fa721fb4584ac3ea5a2a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1199a2a9addc062d1db7b755e951ad5343cf5c4170d0fa721fb4584ac3ea5a2a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1199a2a9addc062d1db7b755e951ad5343cf5c4170d0fa721fb4584ac3ea5a2a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8af621e4c532ae4b2dbbf8ffbb83db1444ed10331c74fb3399bb2860306b3883"
+    sha256 cellar: :any_skip_relocation, ventura:       "8af621e4c532ae4b2dbbf8ffbb83db1444ed10331c74fb3399bb2860306b3883"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74bf666e697b0bc981c260e90a88cd4bc6cecc00052e92977f855dac84e189cc"
+  end
+
   depends_on "go" => :build
 
   def install
