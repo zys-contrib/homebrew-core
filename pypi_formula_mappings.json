@@ -818,6 +818,9 @@
   "snakemake": {
     "exclude_packages": ["certifi"]
   },
+  "snowflake-cli": {
+    "exclude_packages": ["certifi", "cryptography"]
+  },
   "snapcraft": {
     "exclude_packages": ["certifi", "cryptography", "pygit2"],
     "extra_packages": ["catkin-pkg", "jeepney", "pylxd", "secretstorage"]

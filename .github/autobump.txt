@@ -3080,6 +3080,7 @@ sniffglue
 sniffnet
 snort
 snowflake
+snowflake-cli
 snyk-cli
 soapyremote
 socat
