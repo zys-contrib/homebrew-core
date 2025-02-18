@@ -5,12 +5,12 @@ class Unisonlang < Formula
 
   stable do
     url "https://github.com/unisonweb/unison.git",
-        tag:      "release/0.5.33",
-        revision: "49432a6c3463326c3a0fadaea2794a66fdaabde9"
+        tag:      "release/0.5.34",
+        revision: "63b59ffff35687d646cd222296920bd6c1e052d9"
 
     resource "local-ui" do
-      url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/0.5.33.tar.gz"
-      sha256 "22ad22c040d41e2c64a891c4831c6481656cbd75df9af12e3f403ca5eb8736b5"
+      url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/0.5.34.tar.gz"
+      sha256 "26935abf5f3b97ac1b2b8aea27824eb2c711e17a6a3980c39176292f693743e1"
 
       livecheck do
         formula :parent
