@@ -6,6 +6,15 @@ class Hk < Formula
   license "MIT"
   head "https://github.com/jdx/hk.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "8ee67fa9eb5eb2c281560919a2fe81412cd8bd026448bf7d85399015ebe6e512"
+    sha256 cellar: :any,                 arm64_sonoma:  "29177adae99204239d592d740e5fac4e000500b20ddb0c483a8516f1036a2fc6"
+    sha256 cellar: :any,                 arm64_ventura: "06176abe764cc1843e598174ed5e8222265029dbeff2b484f62a7c711d4c635d"
+    sha256 cellar: :any,                 sonoma:        "e9d9551ccf71bbde40df0cba76e6aebcc5503b447cfbbf7ce08cfce5ccbc683f"
+    sha256 cellar: :any,                 ventura:       "0e142f020996acf8e14f9a053ac89ee142680d8f884635211baf05f3a066a6a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c53d2052ff34f4b4f11f7ca876d743efca43bb253123df3f31a3caa05d7d77af"
+  end
+
   depends_on "rust" => [:build, :test]
   depends_on "usage" => :build
   depends_on "openssl@3"
