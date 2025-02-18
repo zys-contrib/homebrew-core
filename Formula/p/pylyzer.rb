@@ -6,12 +6,12 @@ class Pylyzer < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "80b35f5bcc4ce9ddfb992259c79000055a916044cd97cf09acb532f50cab9271"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e9c235283ccba319dff2c2fe9204759a633a4cff7cc3e9b066f1a1a7a59d272d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f1dc4bdb0b269631680c4d362b1b6c666c077dd193d5e622c06ee34fe7403b72"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ff164eebc98cd919642a91f06ca4b5861cc93ce7e3d893b7acc7eafc933e0e1f"
-    sha256 cellar: :any_skip_relocation, ventura:       "5e82fb5b005e79d69e133cafea2178fe6ddca51417cf1a3baef53de7682e5998"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b1f6ec7e6ff15a565ce99d8de7a0906e4591f4e6cf6503c4b903b286db276fa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d45435080d7e5e7391d5f4164809250503d00299661952a1b4a1d5b02e28cd70"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c354b6e8546940a6cf82d992d744467be63667d3cb1c340782ec9d0d2d96d323"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3e160d50dee647b09167bc5ab7bf34ed13cb33907afc54b47c3d25994a4f37eb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2fc314e27c04f0c90f028b0b508e60618fb0c47ea2c60b6cc55795fe73874b28"
+    sha256 cellar: :any_skip_relocation, ventura:       "c66ba5da2a4f15b6dfaab5fe901fb2edcb0067cd4b58a75ce32441c8a9d25b27"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b63015c1fc66a845525da21aeb0f3afd3b711ae96e1c0e69e01ab2dc92cd007"
   end
 
   depends_on "rust" => :build
