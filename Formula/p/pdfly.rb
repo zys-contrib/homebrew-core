@@ -7,6 +7,15 @@ class Pdfly < Formula
   sha256 "aff261b45397b2c6eb1e2cdd42fd89325aa5e88c2dae9f0af15d3859bdcba9b9"
   license "BSD-3-Clause"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "7e91da36531c3b7076bcffd1dde7aba56d94e8c11b13447fe1d40496b7e498b6"
+    sha256 cellar: :any,                 arm64_sonoma:  "26394b3ed577a21919b60a24c74c983e4480564b85ec159dbb0b0224599737b1"
+    sha256 cellar: :any,                 arm64_ventura: "09f6c3a13a4e014c9c588cab0cae45322d271214b6aec592a2321b31c45074ef"
+    sha256 cellar: :any,                 sonoma:        "f6facb62383357c88042f90b1dbe8a8fe82b48b00568dc851d16708c26928f1f"
+    sha256 cellar: :any,                 ventura:       "e58d87bc2e341ca79f8b965d3610ee8e8b895517e91b4ca16397d65ad0d0a814"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a38bab6d6d1cdec358d0ec1caa52fab83d4bbae465e0d5b133636f4636ebd64"
+  end
+
   depends_on "rust" => :build # for pydantic-core
   depends_on "pillow"
   depends_on "python@3.13"
