@@ -7,12 +7,12 @@ class Azqr < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1c2fcb50b3092b7c31c1d472918d796161b2e4f0eb07042d93b44bc12652c971"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1c2fcb50b3092b7c31c1d472918d796161b2e4f0eb07042d93b44bc12652c971"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1c2fcb50b3092b7c31c1d472918d796161b2e4f0eb07042d93b44bc12652c971"
-    sha256 cellar: :any_skip_relocation, sonoma:        "22314116c9a63d630d9218987e46230bbefab6b4fddff26220bebcf12e59e0e3"
-    sha256 cellar: :any_skip_relocation, ventura:       "22314116c9a63d630d9218987e46230bbefab6b4fddff26220bebcf12e59e0e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad747cf0300ebaba4aea4bd6b5700bdc6aa994578a5effef2e75a67fa612d724"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7ca73999116b8640104882d88bc9f8d8cd9a26494a566533eff7fff6c7485bdd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7ca73999116b8640104882d88bc9f8d8cd9a26494a566533eff7fff6c7485bdd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7ca73999116b8640104882d88bc9f8d8cd9a26494a566533eff7fff6c7485bdd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "680e6f7881e66390111c08f07d3bdcfcacd1a33ddea610bcbb829a44697aa54a"
+    sha256 cellar: :any_skip_relocation, ventura:       "680e6f7881e66390111c08f07d3bdcfcacd1a33ddea610bcbb829a44697aa54a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4df6ddbc27e4a74b4207060426f9700c1bb90bb923defcf3676d1cdcff2128c1"
   end
 
   depends_on "go" => :build
