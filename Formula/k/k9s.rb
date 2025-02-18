@@ -2,8 +2,8 @@ class K9s < Formula
   desc "Kubernetes CLI To Manage Your Clusters In Style!"
   homepage "https://k9scli.io/"
   url "https://github.com/derailed/k9s.git",
-      tag:      "v0.40.3",
-      revision: "5aeb09f72d315435520b51f028cf4dd814ec86b3"
+      tag:      "v0.40.4",
+      revision: "e44c223e91c7fe5f6c77e3236272d1cf94bdd536"
   license "Apache-2.0"
   head "https://github.com/derailed/k9s.git", branch: "master"
 
@@ -13,12 +13,12 @@ class K9s < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "77a3617aa9e0fd9239a2cf45bcba95b5418cfb0c70f94666fd7c0fa3fbd01159"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "74ee14a9e84168dc35daccc076fc86c695c2f405471d0d7dbb5fe4b49c69cbcd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "92eddd0b5c59b824fe85a520d6a8d03d8818a6252e699e978ec32c5def57e927"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a6be3b7d80a6a604a352e9aec078d6015778a413acfa1d813213d260faeabdc1"
-    sha256 cellar: :any_skip_relocation, ventura:       "0efbf33477a5afb11d792c40c1eda9c42320c319fc0922a2573f942271012e15"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83fe3f4f58aa37f6c144048b59a7482b8a5954031fc4a5640b39249ad4ead831"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "84c9a7e933da7928a8fbaedc215cdd4f5754afff29057f1753b3599ceddb264e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "67d570bb7be24f32f2e251a258bff46068c909f81acb4371ed0247fd2720da8f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b3dc70e55e630c41770f34ee3c38608284a1128fc8f6c07b2240037a14b24b78"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7a97dffb9a46acc8665136e3ce9c3958ac8171195e732c75eb4d1a3f89ffea3c"
+    sha256 cellar: :any_skip_relocation, ventura:       "fc74d2b8378b9276854cb8523bce68b25a2f7f035d6a95879c094beafd15d7dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9cc3905723ccd8343360f0041213037c1d167479818ba373562a05652c03c90a"
   end
 
   depends_on "go" => :build
