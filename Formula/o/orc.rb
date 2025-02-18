@@ -1,8 +1,8 @@
 class Orc < Formula
   desc "Oil Runtime Compiler (ORC)"
   homepage "https://gstreamer.freedesktop.org/projects/orc.html"
-  url "https://gstreamer.freedesktop.org/src/orc/orc-0.4.40.tar.xz"
-  sha256 "3fc2bee78dfb7c41fd9605061fc69138db7df007eae2f669a1f56e8bacef74ab"
+  url "https://gstreamer.freedesktop.org/src/orc/orc-0.4.41.tar.xz"
+  sha256 "cb1bfd4f655289cd39bc04642d597be9de5427623f0861c1fc19c08d98467fa2"
   license all_of: ["BSD-2-Clause", "BSD-3-Clause"]
 
   livecheck do
