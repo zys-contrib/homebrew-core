@@ -3,8 +3,8 @@ class AwsSamCli < Formula
 
   desc "CLI tool to build, test, debug, and deploy Serverless applications using AWS SAM"
   homepage "https://aws.amazon.com/serverless/sam/"
-  url "https://files.pythonhosted.org/packages/1c/d1/a7eb32712ea926684f294d0b6dcb3bb87f909f50b935ae284580a471206c/aws_sam_cli-1.133.0.tar.gz"
-  sha256 "db4bffe87593368173dcc41808f8d1c756c69b0672b4e4bb3665399ef05b7827"
+  url "https://files.pythonhosted.org/packages/2f/73/aa0dad3ac023852cc66d331e114732258458954e7097fb1ad5e6b04487cf/aws_sam_cli-1.134.0.tar.gz"
+  sha256 "247cd8b9ff64d146cd95e10a51b7c5b44f5c5e404149fd0b0fab183b412a69ef"
   license "Apache-2.0"
 
   bottle do
@@ -61,8 +61,8 @@ class AwsSamCli < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/8c/bd/46dea249b6fab89f30a341683844d7b176ce0c439b90c59818bd6407b505/boto3-1.36.16.tar.gz"
-    sha256 "0cf92ca0538ab115447e1c58050d43e1273e88c58ddfea2b6f133fdc508b400a"
+    url "https://files.pythonhosted.org/packages/50/d0/4b0f04a8704cc303645e8c8f2f701ae01d802e73e755720a7e8be515736e/boto3-1.36.22.tar.gz"
+    sha256 "768c8a4d4a6227fe2258105efa086f1424cba5ca915a5eb2305b2cd979306ad1"
   end
 
   resource "boto3-stubs" do
@@ -71,13 +71,13 @@ class AwsSamCli < Formula
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/d2/98/a32b62a6dabc91611343e8fcf6634c97d3711c5d4be090f4388efff35e2a/botocore-1.36.16.tar.gz"
-    sha256 "10c6aa386ba1a9a0faef6bb5dbfc58fc2563a3c6b95352e86a583cd5f14b11f3"
+    url "https://files.pythonhosted.org/packages/a6/88/0b5d5674d26ae43f0115cad6bd8e0c2b4da7ac5b14352e52c682702863c5/botocore-1.36.22.tar.gz"
+    sha256 "59520247d5a479731724f97c995d5a1c2aae3b303b324f39d99efcfad1d3019e"
   end
 
   resource "botocore-stubs" do
-    url "https://files.pythonhosted.org/packages/42/c7/1c7da9ce859ae55183ebbd61c8e54b7bd56a9903bab00ed36405e686394e/botocore_stubs-1.36.16.tar.gz"
-    sha256 "acb480ba8e46950d6760b8bf2f38f7e73c135bd8339c0b7d9f2b5c631d3caf17"
+    url "https://files.pythonhosted.org/packages/6b/cf/37dd8c91169efae5e1c6bced8eba6d5547d33be625ccdbd2a091ba959ac3/botocore_stubs-1.36.22.tar.gz"
+    sha256 "20d46e9639edd2eef37197bba0f9dbee77410ac00a9c4de627711c949c543454"
   end
 
   resource "cfn-lint" do
@@ -361,8 +361,8 @@ class AwsSamCli < Formula
   end
 
   resource "types-awscrt" do
-    url "https://files.pythonhosted.org/packages/94/6d/12d3cd2e3b547564558fe0606b38f0aea87b75e470171e866c776eb4a9b8/types_awscrt-0.23.9.tar.gz"
-    sha256 "57ec68d45ef873458df7307ec80578a6334696f088549ab349c3d655e7e3562b"
+    url "https://files.pythonhosted.org/packages/a3/53/7c69677327794fe91cc89a1362400b78f00b1a20364384da1e004c259d42/types_awscrt-0.23.10.tar.gz"
+    sha256 "965659260599b421564204b895467684104a2c0311bbacfd3c2423b8b0d3f3e9"
   end
 
   resource "types-python-dateutil" do
