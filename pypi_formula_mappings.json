@@ -619,6 +619,9 @@
   "pass-import": {
     "exclude_packages": ["certifi"]
   },
+  "pdfly": {
+    "exclude_packages": ["pillow"]
+  },
   "pdm": {
     "exclude_packages": ["certifi"]
   },

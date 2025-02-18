@@ -2525,6 +2525,7 @@ pdal
 pdfalyzer
 pdfcpu
 pdfgrep
+pdfly
 pdftk-java
 pdm
 pdns
