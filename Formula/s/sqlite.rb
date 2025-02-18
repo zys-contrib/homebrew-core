@@ -1,9 +1,9 @@
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/index.html"
-  url "https://www.sqlite.org/2025/sqlite-autoconf-3490000.tar.gz"
-  version "3.49.0"
-  sha256 "4d8bfa0b55e36951f6e5a9fb8c99f3b58990ab785c57b4f84f37d163a0672759"
+  url "https://www.sqlite.org/2025/sqlite-autoconf-3490100.tar.gz"
+  version "3.49.1"
+  sha256 "106642d8ccb36c5f7323b64e4152e9b719f7c0215acf5bfeac3d5e7f97b59254"
   license "blessing"
 
   livecheck do
@@ -29,12 +29,6 @@ class Sqlite < Formula
   depends_on "readline"
 
   uses_from_macos "zlib"
-
-  # add macos linker patch, upstream discussion, https://sqlite.org/forum/forumpost/a179331cbb
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c797b2d7779960ba443c498c04c02e8a47626f33/sqlite/3.49.0-macos-linker.patch"
-    sha256 "d284149cc327be3e5e9a0a7150ce584f5da584e44645ad036b6d2cd143e3e638"
-  end
 
   def install
     # Default value of MAX_VARIABLE_NUMBER is 999 which is too low for many
