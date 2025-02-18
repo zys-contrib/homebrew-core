@@ -5,6 +5,14 @@ class Terragrunt < Formula
   sha256 "8d934db115722c801b0a522bddfd14616b6c64dc689be3ea0ecda170b521e0b3"
   license "MIT"
 
+  # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
+  # labeled as "pre-release" on GitHub before the version is released, so it's
+  # necessary to use the `GithubLatest` strategy.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a8f4d8735b47eba96ae34009d2d62161266b176e00a780909d3f77521ed0ab4b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a8f4d8735b47eba96ae34009d2d62161266b176e00a780909d3f77521ed0ab4b"
