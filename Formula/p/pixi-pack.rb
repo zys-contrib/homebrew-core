@@ -1,8 +1,8 @@
 class PixiPack < Formula
   desc "Pack and unpack conda environments created with pixi"
-  homepage "https://github.com/quantco/pixi-pack"
-  url "https://github.com/quantco/pixi-pack/archive/refs/tags/v0.3.1.tar.gz"
-  sha256 "d0c6eb4d20747a5ea47093dc06e80e15a46ec3fd9c3c1e93ee035480e3b0a75a"
+  homepage "https://pixi.sh/latest/advanced/production_deployment/#pixi-pack"
+  url "https://github.com/quantco/pixi-pack/archive/refs/tags/v0.3.2.tar.gz"
+  sha256 "52c15d74879c5593f52e9b6c3db19dacb2a9a127bd9f247c2282fe1d21d70ca0"
   license "BSD-3-Clause"
   head "https://github.com/quantco/pixi-pack.git", branch: "main"
 
@@ -51,6 +51,13 @@ class PixiPack < Formula
         size: 159003
         timestamp: 1725018903918
     YAML
+
+    (testpath/"pixi.toml").write <<~TOML
+      [project]
+      name = "test"
+      version = "0.1.0"
+    TOML
+
     system bin/"pixi-pack", "pack", "--platform", "linux-64"
     assert_path_exists testpath/"environment.tar"
   end
