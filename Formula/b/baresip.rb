@@ -4,6 +4,7 @@ class Baresip < Formula
   url "https://github.com/baresip/baresip/archive/refs/tags/v3.20.0.tar.gz"
   sha256 "df3df6b94bb72f4105a542246e02800db05cd6877088b0567c6169b94be5fea5"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 arm64_sequoia: "a51687d5f93a9f801b12ed1202ed208cec649ded4512f4fb0bb5eb65c1ad67a7"
