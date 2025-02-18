@@ -3,8 +3,8 @@ class ScikitImage < Formula
 
   desc "Image processing in Python"
   homepage "https://scikit-image.org"
-  url "https://files.pythonhosted.org/packages/83/e5/496a74ccfc1206666b9c7164a16657febdfeb6df0e458cb61286b20102c9/scikit_image-0.25.1.tar.gz"
-  sha256 "d4ab30540d114d37c35fe5c837f89b94aaba2a7643afae8354aa353319e9bbbb"
+  url "https://files.pythonhosted.org/packages/c7/a8/3c0f256012b93dd2cb6fda9245e9f4bff7dc0486880b248005f15ea2255e/scikit_image-0.25.2.tar.gz"
+  sha256 "e5a37e6cd4d0c018a7a55b9d601357e3382826d3888c10d0213fc63bff977dde"
   license "BSD-3-Clause"
   head "https://github.com/scikit-image/scikit-image.git", branch: "main"
 
