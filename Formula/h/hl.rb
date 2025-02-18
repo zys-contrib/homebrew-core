@@ -6,6 +6,15 @@ class Hl < Formula
   license "MIT"
   head "https://github.com/pamburus/hl.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "88ec7527a5a24dba4be691e4bf070d20fb2357142236b0dc8e4c55401962795e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7b7e09debd5f49ae7697195c014bba6a6ad83f22fa9edd0d3a67d414e8cd2fc9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ffc21768b2567f55716ada4e2c881469c1b55f12289d162ceeb6811b41f5ab6b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "277ea2dcfef835944504d65687804d09949bf6b090eeee6f17bd22cd88acd98f"
+    sha256 cellar: :any_skip_relocation, ventura:       "16584dfbbb07ac85b35f93187dba3c24304c0e8a3d79691939cdbebca61ee509"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80cb3f081fb3bca61dac1cfc770a8e341caa849deb8180f1e9df8bbab708f01c"
+  end
+
   depends_on "rust" => :build
 
   def install
