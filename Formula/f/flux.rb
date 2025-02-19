@@ -2,8 +2,8 @@ class Flux < Formula
   desc "Lightweight scripting language for querying databases"
   homepage "https://www.influxdata.com/products/flux/"
   url "https://github.com/influxdata/flux.git",
-      tag:      "v0.195.2",
-      revision: "c2433e6a9351b50e9c1c7de8a52a72176e08b845"
+      tag:      "v0.196.1",
+      revision: "ba61b9b27df5368b0fbf05df5bbbfcfb60c96dd7"
   license "MIT"
   head "https://github.com/influxdata/flux.git", branch: "master"
 
@@ -42,12 +42,6 @@ class Flux < Formula
       url "https://raw.githubusercontent.com/influxdata/flux/v#{LATEST_VERSION}/go.mod"
       regex(/pkg-config\s+v?(\d+(?:\.\d+)+)/i)
     end
-  end
-
-  # rust 1.83.0 build patch, upstream pr ref, https://github.com/influxdata/flux/pull/5516
-  patch do
-    url "https://github.com/influxdata/flux/commit/08b6cb784759242fd1455f1d28e653194745c0c6.patch?full_index=1"
-    sha256 "3c40b88897c1bd34c70f277e13320148cbee44b8ac7b8029be6bf4f541965302"
   end
 
   def install
