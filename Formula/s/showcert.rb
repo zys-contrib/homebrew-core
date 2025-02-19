@@ -3,8 +3,8 @@ class Showcert < Formula
 
   desc "X.509 TLS certificate reader and creator"
   homepage "https://github.com/yaroslaff/showcert"
-  url "https://files.pythonhosted.org/packages/98/46/23b8cffc150fbcaea1da3335a73fb2e12e888350ce9681abf8bb76dd1f7e/showcert-0.2.12.tar.gz"
-  sha256 "4f9f29f7385033fef3c0e12b84869cb19bd126fea8c50904e6259b5b025e481b"
+  url "https://files.pythonhosted.org/packages/73/3b/c12cf95dee088c8edfa5ae6ccff5866f2e8e179b5c7bb482282a3da967a7/showcert-0.3.3.tar.gz"
+  sha256 "bad2e4dacccc3cc448989249b433fd8e7072a31a53b07d0ea052fea8082bf483"
   license "MIT"
   head "https://github.com/yaroslaff/showcert.git", branch: "master"
 
@@ -27,8 +27,8 @@ class Showcert < Formula
   end
 
   resource "pyopenssl" do
-    url "https://files.pythonhosted.org/packages/c1/d4/1067b82c4fc674d6f6e9e8d26b3dff978da46d351ca3bac171544693e085/pyopenssl-24.3.0.tar.gz"
-    sha256 "49f7a019577d834746bc55c5fce6ecbcec0f2b4ec5ce1cf43a9a173b8138bb36"
+    url "https://files.pythonhosted.org/packages/9f/26/e25b4a374b4639e0c235527bbe31c0524f26eda701d79456a7e1877f4cc5/pyopenssl-25.0.0.tar.gz"
+    sha256 "cd2cef799efa3936bb08e8ccb9433a575722b9dd986023f1cabc4ae64e9dac16"
   end
 
   def install
