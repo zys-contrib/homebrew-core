@@ -3,8 +3,8 @@ class Molecule < Formula
 
   desc "Automated testing for Ansible roles"
   homepage "https://molecule.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/d7/6e/304492b6c99f4927f382d9a109459efa2226d36d0a54cd405e73cd95d125/molecule-25.3.0.tar.gz"
-  sha256 "8c2148be7220e5cce7c8d709a03f60dba7207f1a7ea30ff1d134c9160a58bd22"
+  url "https://files.pythonhosted.org/packages/d6/fe/de492105b3d8973c82231bad57a6468c8ca4d1eaae2a2a93edd7725fbc1b/molecule-25.3.1.tar.gz"
+  sha256 "c8766907c8b8bfec88d7d1a5df1232bd4606a0c53d9cb95d38e84b455a6993a6"
   license "MIT"
 
   bottle do
