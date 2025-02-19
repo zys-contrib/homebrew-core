@@ -15,6 +15,7 @@ class Libdpp < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "nlohmann-json" => :build
   depends_on "openssl@3"
   depends_on "opus"
   depends_on "pkgconf"
@@ -22,7 +23,13 @@ class Libdpp < Formula
   uses_from_macos "zlib"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DDPP_BUILD_TEST=OFF", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DDPP_BUILD_TEST=OFF",
+                    "-DDPP_NO_CONAN=ON",
+                    "-DDPP_NO_VCPKG=ON",
+                    "-DDPP_USE_EXTERNAL_JSON=ON",
+                    "-DRUN_LDCONFIG=OFF",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
