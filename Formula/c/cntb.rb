@@ -6,12 +6,12 @@ class Cntb < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e3ebf61bb32b355cf6e37413e7d819324be9314daa27f7d7bcf28b12f0d8b405"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e3ebf61bb32b355cf6e37413e7d819324be9314daa27f7d7bcf28b12f0d8b405"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e3ebf61bb32b355cf6e37413e7d819324be9314daa27f7d7bcf28b12f0d8b405"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6fb502905bcd106e517f442e80f724a30d171938b0f185adb472a737759af75b"
-    sha256 cellar: :any_skip_relocation, ventura:       "6fb502905bcd106e517f442e80f724a30d171938b0f185adb472a737759af75b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1f7dd285d9f9c17f9195df6ebd77c9e338c4aa896adcb2ddeeb242bba419c0c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d1015034e1cd267b3a8ca19c2e130b5813924706a69997a9106fc6714905222"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d1015034e1cd267b3a8ca19c2e130b5813924706a69997a9106fc6714905222"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2d1015034e1cd267b3a8ca19c2e130b5813924706a69997a9106fc6714905222"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b8b801ac1899bd8b2302ca19d2c19b4221b3b5f56f303c1459ec16608fa3336a"
+    sha256 cellar: :any_skip_relocation, ventura:       "b8b801ac1899bd8b2302ca19d2c19b4221b3b5f56f303c1459ec16608fa3336a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c95866891216ebc9cfd7bc5e88987fb8b3d5887a3acc1b9a1c7318b205ccdcf"
   end
 
   depends_on "go" => :build
