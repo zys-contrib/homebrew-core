@@ -1,8 +1,8 @@
 class Rover < Formula
   desc "CLI for managing and maintaining data graphs with Apollo Studio"
   homepage "https://www.apollographql.com/docs/rover/"
-  url "https://github.com/apollographql/rover/archive/refs/tags/v0.27.1.tar.gz"
-  sha256 "b760be27c8a93eabb08e037c91bec65506b40f5011c7ba9c957f5369430520e1"
+  url "https://github.com/apollographql/rover/archive/refs/tags/v0.27.2.tar.gz"
+  sha256 "afdaa5ab4d1afc3d1138a93aca207aa666e9d262e4a3484d352969420868e186"
   license "MIT"
   head "https://github.com/apollographql/rover.git", branch: "main"
 
