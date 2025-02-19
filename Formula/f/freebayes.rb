@@ -19,12 +19,12 @@ class Freebayes < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "42919ea368e7fb300680e17b7eb783e61eaa251c8b1492d2eba3e9db068bf3e8"
-    sha256 cellar: :any, arm64_sonoma:  "c367f0574466d1c538750aeed89d68b2066280be424fbfdd8f33f92ae6f3e538"
-    sha256 cellar: :any, arm64_ventura: "58b47ea65fc8b8fd2bcedad4b67e9edb1f41781679ddbd2f2d7d214a1e3eaabc"
-    sha256 cellar: :any, sonoma:        "d6c0009f7ed19acbfe3d93a83fe4a1ec6d1c21867f67ad037bfda62c56394122"
-    sha256 cellar: :any, ventura:       "b2631095db533474d1e6ce81dc00412cbf2c378bcd9cec40959b029aa8e9a8f4"
-    sha256               x86_64_linux:  "056ef004633b4ad83902199054e990313f0e2654455ebe17f822b28d5a7add9a"
+    sha256 cellar: :any, arm64_sequoia: "33af05be5ee1447351c87cc4619116ce170e8859ff0533c070f346fb2f6eca8b"
+    sha256 cellar: :any, arm64_sonoma:  "315f293a526bef59d1c63f8f4f4fb27783852f19dfaa20218131d4604523a22f"
+    sha256 cellar: :any, arm64_ventura: "c29719f1990607011ef77722f0059255652d721641ba57ffa1fc1d7effed0bdc"
+    sha256 cellar: :any, sonoma:        "7d68eca383a04fae9434a48205c7548bb02a6ec9e1f511645e69c33959e35a4e"
+    sha256 cellar: :any, ventura:       "2b5efeb60159a49524d33c803581815a4005afe972a4c3cb102d04ce91b7120e"
+    sha256               x86_64_linux:  "8b76cc3e3db9575510c456b74286a1f5732e5495b3c1232311a2c0c220fc7e0f"
   end
 
   depends_on "cmake" => :build # for vcflib
