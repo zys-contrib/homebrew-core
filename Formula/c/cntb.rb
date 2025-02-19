@@ -1,8 +1,8 @@
 class Cntb < Formula
   desc "Contabo Command-Line Interface (CLI)"
   homepage "https://github.com/contabo/cntb"
-  url "https://github.com/contabo/cntb/archive/refs/tags/v1.5.2.tar.gz"
-  sha256 "d6823a3ecd8cb668e065eae97d7ca9c2a172826ba222789001e881e87592d733"
+  url "https://github.com/contabo/cntb/archive/refs/tags/v1.5.3.tar.gz"
+  sha256 "d7320abad0c67e0b22bf008e7efba0ca55c48838d42b6ae3bce2e9bfabb96ec6"
   license "GPL-3.0-only"
 
   bottle do
