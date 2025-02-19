@@ -2593,6 +2593,7 @@ pipgrip
 pipx
 pivit
 pixi
+pixi-pack
 pixie
 pixman
 pjproject
