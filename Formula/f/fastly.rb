@@ -6,6 +6,15 @@ class Fastly < Formula
   license "Apache-2.0"
   head "https://github.com/fastly/cli.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "938771676a0ef36958ecbe40229d692c62c557eea1b700c3e0e0fa76b23a2b69"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "938771676a0ef36958ecbe40229d692c62c557eea1b700c3e0e0fa76b23a2b69"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "938771676a0ef36958ecbe40229d692c62c557eea1b700c3e0e0fa76b23a2b69"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8953388559ef3660d4bb04a1c13206958afc0f52dfbbebd3f0a4d5331f372960"
+    sha256 cellar: :any_skip_relocation, ventura:       "8953388559ef3660d4bb04a1c13206958afc0f52dfbbebd3f0a4d5331f372960"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34267c566806213e3ec9927d8a973ad99b71b5732b46f4e910af933d7364afe0"
+  end
+
   depends_on "go" => :build
 
   def install
