@@ -24,16 +24,31 @@ class Netpbm < Formula
     sha256 x86_64_linux:  "389525c1edd732598087f85a27752cf394815d6984321285f77941a0086ba366"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "jasper"
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
 
   uses_from_macos "flex" => :build
+  uses_from_macos "python" => :build
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
   conflicts_with "jbigkit", because: "both install `pbm.5` and `pgm.5` files"
+
+  resource "html" do
+    # Rolling release, latest revision also documents previous software versions
+    # NOTE: Keep "revision" and "version" in sync
+    url "https://svn.code.sf.net/p/netpbm/code/userguide", revision: "5015"
+    version "5015"
+
+    livecheck do
+      url "https://sourceforge.net/p/netpbm/code/HEAD/log/?path=/userguide"
+      regex(/\[r?(\d+)\]/i)
+      strategy :page_match
+    end
+  end
 
   def install
     cp "config.mk.in", "config.mk"
@@ -57,6 +72,7 @@ class Netpbm < Formula
         s.change_make_var! "CFLAGS_SHLIB", "-fPIC"
       end
     end
+    inreplace "buildtools/manpage.mk", "python", "python3"
 
     ENV.deparallelize
 
@@ -78,10 +94,21 @@ class Netpbm < Formula
       (lib/"pkgconfig").install "pkgconfig_template" => "netpbm.pc"
     end
 
-    # We don't run `make install`, so an unversioned library symlink is never generated.
-    # FIXME: Check whether we can call `make install` instead of creating this manually.
+    # Generate unversioned library symlink (upstream does not do this)
     libnetpbm = lib.glob(shared_library("libnetpbm", "*")).reject(&:symlink?).first.basename
     lib.install_symlink libnetpbm => shared_library("libnetpbm")
+
+    resource("html").stage buildpath/"userguide"
+    make_args = %W[
+      USERGUIDE=#{buildpath}/userguide
+      -f
+      #{buildpath}/buildtools/manpage.mk
+    ]
+    mkdir buildpath/"netpbmdoc" do
+      system "make", *make_args, "manpages"
+      [man1, man3, man5].map(&:mkpath)
+      system "make", "MANDIR=#{man}", *make_args, "installman"
+    end
   end
 
   test do
