@@ -968,6 +968,7 @@ fastd
 fastfec
 fastfetch
 fastlane
+fastly
 fastnetmon
 fastp
 fastqc
