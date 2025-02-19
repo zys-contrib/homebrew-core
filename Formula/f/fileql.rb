@@ -1,8 +1,8 @@
 class Fileql < Formula
   desc "Run SQL-like query on local files instead of database files using the GitQL SDK"
   homepage "https://github.com/AmrDeveloper/FileQL"
-  url "https://github.com/AmrDeveloper/FileQL/archive/refs/tags/0.9.0.tar.gz"
-  sha256 "34a749bdc8c3346d386b817af6c4786a56b99ce39e8cb699f2c02c4863e397e7"
+  url "https://github.com/AmrDeveloper/FileQL/archive/refs/tags/0.10.0.tar.gz"
+  sha256 "c85976ffd14454be0f3f973d6d97621f10d8dc0d4814448bd66d2a376f6dfdc2"
   license "MIT"
   head "https://github.com/AmrDeveloper/FileQL.git", branch: "master"
 
