@@ -6,19 +6,20 @@ class Jsrepo < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0696c30e6adb61c1211decd613cded096207d6c54967c0d00d8042e13c6a8e6d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0696c30e6adb61c1211decd613cded096207d6c54967c0d00d8042e13c6a8e6d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0696c30e6adb61c1211decd613cded096207d6c54967c0d00d8042e13c6a8e6d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "73f4e978edff8159e9762734472fb74efe1998db8aea43e3c13d7bfdca9c68e8"
-    sha256 cellar: :any_skip_relocation, ventura:       "73f4e978edff8159e9762734472fb74efe1998db8aea43e3c13d7bfdca9c68e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0696c30e6adb61c1211decd613cded096207d6c54967c0d00d8042e13c6a8e6d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "35871b3db3a970d2ef7f098a272ace12715ac7afa9f92206a240635fc4671f4e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "35871b3db3a970d2ef7f098a272ace12715ac7afa9f92206a240635fc4671f4e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "35871b3db3a970d2ef7f098a272ace12715ac7afa9f92206a240635fc4671f4e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "04847931900d298fb6afcdb6a717a64e195a7ab5ae3c0a34f5b1f195faf783fc"
+    sha256 cellar: :any_skip_relocation, ventura:       "04847931900d298fb6afcdb6a717a64e195a7ab5ae3c0a34f5b1f195faf783fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35871b3db3a970d2ef7f098a272ace12715ac7afa9f92206a240635fc4671f4e"
   end
 
   depends_on "node"
 
   def install
     system "npm", "install", *std_npm_args
-    bin.install_symlink libexec/"bin/jsrepo"
+    bin.install_symlink libexec.glob("bin/*")
   end
 
   test do
