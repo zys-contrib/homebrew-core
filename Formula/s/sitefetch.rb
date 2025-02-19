@@ -5,6 +5,10 @@ class Sitefetch < Formula
   sha256 "eb65e7d0179e5c06f70a3071865cf8199827428adb64da19de12afaf682c0ddd"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "5f514ec63a1829bd85a7cb8f5aef1f4712ab83e21480f583a05d4e231f90ac83"
+  end
+
   depends_on "node"
 
   def install
