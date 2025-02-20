@@ -28,9 +28,10 @@ class QtAT5 < Formula
 
   keg_only :versioned_formula
 
+  depends_on "ninja" => :build
   depends_on "node" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.12" => :build # Python 3.13 fails with ModuleNotFoundError: No module named 'pipes'
+  depends_on "python@3.13" => :build
   depends_on xcode: :build
   depends_on "freetype"
   depends_on "glib"
@@ -102,23 +103,15 @@ class QtAT5 < Formula
         tag:      "v5.15.18-lts",
         revision: "87ceb6a2ef5ee25d56f765dc533728c4ca4787e0"
 
-    # Use Arch Linux's patch for ICU 75 support
+    # Use Debian patches for ICU 75+, brew Ninja and Python 3.13
     patch do
-      url "https://gitlab.archlinux.org/archlinux/packaging/packages/qt5-webengine/-/raw/a6348f22ac66f1337f400497a5b36057810acf97/qt5-webengine-icu-75.patch"
-      sha256 "7cac28ba784d24b4abf6414079548ada165343af507ecd8e23cbe7e4f63ae52f"
-      directory "src/3rdparty"
-    end
-
-    # Use Arch Linux / Debian patches for Python 3.12 support
-    patch do
-      url "https://gitlab.archlinux.org/archlinux/packaging/packages/qt5-webengine/-/raw/55a02804953a9035cdee7e6ff2e2dae0bf5c5fea/python3.12-imp.patch"
-      sha256 "1f4357708e985bb5aca61a7e5dc4c0c1285d2af00994bb49ff89ede78198e0d2"
-      directory "src/3rdparty/chromium"
-    end
-    patch do
-      url "https://gitlab.archlinux.org/archlinux/packaging/packages/qt5-webengine/-/raw/6b0c0e76e0934db2f84be40cb5978cee47266e78/python3.12-six.patch"
-      sha256 "ac87ec55ee5cbcf2d520e1ea433d041c0bf754271a17f859edbb9976f192ce3f"
-      directory "src/3rdparty/chromium"
+      url "https://deb.debian.org/debian/pool/main/q/qtwebengine-opensource-src/qtwebengine-opensource-src_5.15.18+dfsg-2.debian.tar.xz"
+      sha256 "2d2d671c26a94ec1ec9d5fb3cbe57b3ec0ed98a2e5cc7471c573b763d8e098e6"
+      apply "patches/build-with-c++17.patch",
+            "patches/ninja-1.12.patch",
+            "patches/python3.12-imp.patch",
+            "patches/python3.12-six.patch",
+            "patches/python3.13-pipes.patch"
     end
   end
 
@@ -191,9 +184,17 @@ class QtAT5 < Formula
     directory "qtbase"
   end
 
+  # CVE-2025-23050
+  # Remove with Qt 5.15.19
+  patch do
+    url "https://download.qt.io/official_releases/qt/5.15/CVE-2025-23050-qtconnectivity-5.15.diff"
+    sha256 "76e303b6465babb6d0d275792f7f3c41e3df87a6a17992e8b7b8e47272682ce7"
+    directory "qtconnectivity"
+  end
+
   def install
     # Install python dependencies for QtWebEngine
-    venv = virtualenv_create(buildpath/"venv", "python3.12")
+    venv = virtualenv_create(buildpath/"venv", "python3.13")
     venv.pip_install resources.reject { |r| r.name == "qtwebengine" }
     ENV.prepend_path "PATH", venv.root/"bin"
 
@@ -276,6 +277,13 @@ class QtAT5 < Formula
                 "\\0 \"-Wno-enum-constexpr-conversion\","
     end
 
+    # Work around Clang failure in bundled freetype: error: unknown type name 'Byte'
+    # https://gitlab.freedesktop.org/freetype/freetype/-/commit/a25e85ed95dc855e42e6bb55138e27d362c5ea1e
+    if DevelopmentTools.clang_build_version >= 1600
+      inreplace "qtwebengine/src/3rdparty/chromium/third_party/freetype/src/src/gzip/ftzconf.h",
+                "#if !defined(MACOS) && !defined(TARGET_OS_MAC)", "#if !defined(__MACTYPES__)"
+    end
+
     system "./configure", *args
     system "make"
     ENV.deparallelize
@@ -299,9 +307,7 @@ class QtAT5 < Formula
     # own version.
     # If you read this and you can eliminate it or upstream it: please do!
     # More context in https://github.com/Homebrew/homebrew-core/pull/124923
-    qtversion_xml = share/"qtcreator/QtProject/qtcreator/qtversion.xml"
-    qtversion_xml.dirname.mkpath
-    qtversion_xml.write <<~XML
+    (share/"qtcreator/QtProject/qtcreator/qtversion.xml").write <<~XML
       <?xml version="1.0" encoding="UTF-8"?>
       <!DOCTYPE QtCreatorQtVersions>
       <qtcreator>
