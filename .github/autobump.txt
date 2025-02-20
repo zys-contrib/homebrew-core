@@ -2604,6 +2604,7 @@ pkgconf
 pkgdiff
 pkgx
 pkl
+pkl-lsp
 plantuml
 planus
 platformio
