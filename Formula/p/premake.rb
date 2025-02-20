@@ -1,8 +1,8 @@
 class Premake < Formula
   desc "Write once, build anywhere Lua-based build system"
   homepage "https://premake.github.io/"
-  url "https://github.com/premake/premake-core/releases/download/v5.0.0-beta4/premake-5.0.0-beta4-src.zip"
-  sha256 "7ed887b3731ef6454b7c1cf99adbecb77f1abee088d0478916db8a4da16a1e82"
+  url "https://github.com/premake/premake-core/releases/download/v5.0.0-beta5/premake-5.0.0-beta5-src.zip"
+  sha256 "660ba0dd472c06be59da60b78c3abaf8cef10a0a4f3b9ad69d8e34fbd190126b"
   license "BSD-3-Clause"
   version_scheme 1
   head "https://github.com/premake/premake-core.git", branch: "master"
@@ -30,16 +30,11 @@ class Premake < Formula
     # upstream issue, https://github.com/premake/premake-core/issues/2092
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
-    if build.head?
-      platform = OS.mac? ? "osx" : "linux"
-      system "make", "-f", "Bootstrap.mak", platform
-      system "./bin/release/premake5", "gmake2"
-      system "./bin/release/premake5", "embed"
-      system "make"
-    else
-      platform = OS.mac? ? "macosx" : "unix"
-      system "make", "-C", "build/gmake2.#{platform}", "config=release"
-    end
+    platform = OS.mac? ? "osx" : "linux"
+    system "make", "-f", "Bootstrap.mak", platform
+    system "./bin/release/premake5", "gmake2"
+    system "./bin/release/premake5", "embed"
+    system "make"
     bin.install "bin/release/premake5"
   end
 
