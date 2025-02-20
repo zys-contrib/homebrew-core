@@ -11,6 +11,7 @@ act
 action-validator
 actionlint
 activemq
+ad
 ada-url
 adapterremoval
 adb-enhanced
