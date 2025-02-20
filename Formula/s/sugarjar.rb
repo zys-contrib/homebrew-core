@@ -1,8 +1,8 @@
 class Sugarjar < Formula
   desc "Helper utility for a better Git/GitHub experience"
   homepage "https://github.com/jaymzh/sugarjar/"
-  url "https://github.com/jaymzh/sugarjar/archive/refs/tags/v1.1.2.tar.gz"
-  sha256 "5639b253c0e9d2c61e22d7b687c616750ab9359457241ec10844865228b3ce8d"
+  url "https://github.com/jaymzh/sugarjar/archive/refs/tags/v1.1.3.tar.gz"
+  sha256 "0ecdf0dcf44fb863b27a965cfe8d52b0436eb46f08503f2ab3a36d0bfea0b6e7"
   license "Apache-2.0"
 
   bottle do
@@ -28,6 +28,9 @@ class Sugarjar < Formula
     bin.install libexec/"bin/sj"
     bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
     bash_completion.install "extras/sugarjar_completion.bash" => "sj"
+
+    # Remove mkmf.log files to avoid shims references
+    rm Dir["#{libexec}/extensions/*/*/*/mkmf.log"]
   end
 
   test do
