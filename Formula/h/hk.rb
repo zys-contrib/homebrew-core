@@ -1,8 +1,8 @@
 class Hk < Formula
   desc "Git hook and pre-commit lint manager"
   homepage "https://hk.jdx.dev"
-  url "https://github.com/jdx/hk/archive/refs/tags/v0.3.3.tar.gz"
-  sha256 "583829ba1c025186bf3dcd79b7e3d3cebd20d4f5a5a1a0cd751366723ba1b812"
+  url "https://github.com/jdx/hk/archive/refs/tags/v0.4.1.tar.gz"
+  sha256 "dd36dd2c2cfb4131d7329df47f68b8c6eaf8695dcac4d84e71c9dfe69d0a39a5"
   license "MIT"
   head "https://github.com/jdx/hk.git", branch: "main"
 
@@ -16,9 +16,10 @@ class Hk < Formula
   end
 
   depends_on "rust" => [:build, :test]
-  depends_on "usage" => :build
+
   depends_on "openssl@3"
   depends_on "pkl"
+  depends_on "usage"
 
   uses_from_macos "zlib"
 
@@ -32,14 +33,29 @@ class Hk < Formula
   end
 
   test do
-    (testpath/"hk.pkl").write <<~PKL
-      amends "https://hk.jdx.dev/v0/hk.pkl"
-      import "https://hk.jdx.dev/v0/builtins/cargo_clippy.pkl"
-      import "https://hk.jdx.dev/v0/builtins/cargo_fmt.pkl"
+    assert_match version.to_s, shell_output("#{bin}/hk --version")
 
-      `pre-commit` {
-          ["cargo-clippy"] = new cargo_clippy.CargoClippy {}
-          ["cargo-fmt"] = new cargo_fmt.CargoFmt {}
+    (testpath/"hk.pkl").write <<~PKL
+      amends "package://github.com/jdx/hk/releases/download/v#{version}/hk@#{version}#/Config.pkl"
+
+      linters {
+          ["cargo-clippy"] {
+              glob = new { "*.rs" }
+              check = "cargo clippy -- -D warnings"
+              fix = "cargo clippy --fix --allow-dirty"
+          }
+          ["cargo-fmt"] {
+              glob = new { "*.rs" }
+              check = "cargo fmt -- --check"
+              fix = "cargo fmt"
+          }
+      }
+
+      hooks {
+          ["pre-commit"] {
+              ["cargo-clippy"] = new Fix {}
+              ["cargo-fmt"] = new Fix {}
+          }
       }
     PKL
 
