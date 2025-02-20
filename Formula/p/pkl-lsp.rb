@@ -10,6 +10,10 @@ class PklLsp < Formula
     strategy :github_latest
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "909fbb43ab9445b1b8b31a1846e55d4ad105cf0912f3a21e3c19dabb654a991b"
+  end
+
   depends_on "openjdk"
 
   def install
