@@ -3,8 +3,8 @@ class Drogon < Formula
   homepage "https://drogon.org"
   # pull from git tag to get submodules
   url "https://github.com/drogonframework/drogon.git",
-      tag:      "v1.9.9",
-      revision: "38dd5fea31a7a2727c0a6f6b6b04252374796cab"
+      tag:      "v1.9.10",
+      revision: "cbf63f8fc4d849bbb82eeb1c83fcf8ff953f19f3"
   license "MIT"
   head "https://github.com/drogonframework/drogon.git", branch: "master"
 
