@@ -1,8 +1,8 @@
 class Joern < Formula
   desc "Open-source code analysis platform based on code property graphs"
   homepage "https://joern.io/"
-  url "https://github.com/joernio/joern/archive/refs/tags/v4.0.250.tar.gz"
-  sha256 "aab4654d317cdae12b283f040d58cbcdd3da9eb75161d28caaa5230651e1bae3"
+  url "https://github.com/joernio/joern/archive/refs/tags/v4.0.260.tar.gz"
+  sha256 "a7befe0688c755e2536022e43e78054bc14eddb9c36125f98a89e4ffcf2dc193"
   license "Apache-2.0"
 
   livecheck do
