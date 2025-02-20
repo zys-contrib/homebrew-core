@@ -1,8 +1,8 @@
 class Ad < Formula
   desc "Adaptable text editor inspired by vi, kakoune, and acme"
   homepage "https://github.com/sminez/ad"
-  url "https://github.com/sminez/ad/archive/refs/tags/0.2.0.tar.gz"
-  sha256 "7bb4aba27b34e0eb0814bfa14c3b6d87a0c411e8ae12de2c62f76f23ab358a70"
+  url "https://github.com/sminez/ad/archive/refs/tags/0.3.0.tar.gz"
+  sha256 "86c759384f792d9cfbf3b3fab38df9e935ebea9c1765dfa5f6139f319f38ca45"
   license "MIT"
   head "https://github.com/sminez/ad.git", branch: "develop"
 
@@ -20,9 +20,7 @@ class Ad < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
-    # remove `doc_prefix` with next release
-    doc_prefix = build.head? ? "docs" : "doc"
-    man.install buildpath/"#{doc_prefix}/man/ad.1"
+    man.install buildpath/"docs/man/ad.1"
   end
 
   test do
