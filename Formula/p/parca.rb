@@ -1,8 +1,8 @@
 class Parca < Formula
   desc "Continuous profiling for analysis of CPU and memory usage"
   homepage "https://www.parca.dev/"
-  url "https://github.com/parca-dev/parca/archive/refs/tags/v0.22.0.tar.gz"
-  sha256 "75520fffeed72daa82a4287387380560506ec7ad1f9fb6b54ca6f112f7271686"
+  url "https://github.com/parca-dev/parca/archive/refs/tags/v0.23.0.tar.gz"
+  sha256 "3250d0da865b395f3ceb663c18c50f433b553a8d8339b1ae5cfa95d77cf7d3d3"
   license "Apache-2.0"
   head "https://github.com/parca-dev/parca.git", branch: "main"
 
@@ -18,6 +18,12 @@ class Parca < Formula
   depends_on "go" => :build
   depends_on "node" => :build
   depends_on "pnpm" => :build
+
+  # remove unused `@ts-expect-error` directive, upstream pr ref, https://github.com/parca-dev/parca/pull/5518
+  patch do
+    url "https://github.com/parca-dev/parca/commit/a99156d7a5c8f6a1a42f1f83f7af864cbc11fef8.patch?full_index=1"
+    sha256 "01d5f31de779146e333a55f4371f20f39a554d2b9f8e2fe78b9ba747650d14c6"
+  end
 
   def install
     system "pnpm", "--dir", "ui", "install"
