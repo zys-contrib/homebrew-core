@@ -1,9 +1,9 @@
 class Genders < Formula
   desc "Static cluster configuration database for cluster management"
   homepage "https://github.com/chaos/genders"
-  url "https://github.com/chaos/genders/archive/refs/tags/genders-1-29-1.tar.gz"
-  version "1.29.1"
-  sha256 "42c37c53a831e007b4fd5a5596060417186724e18cbd5c9dbb3a7185144200c2"
+  url "https://github.com/chaos/genders/archive/refs/tags/genders-1-30-1.tar.gz"
+  version "1.30.1"
+  sha256 "6cbe717add68b45d27685fb9f324b5eb531da660ca22aa4430738b27c3e19bf2"
   license "GPL-2.0-or-later"
 
   livecheck do
