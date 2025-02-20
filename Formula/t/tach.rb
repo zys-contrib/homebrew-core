@@ -9,12 +9,12 @@ class Tach < Formula
   head "https://github.com/gauge-sh/tach.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e9612909a16c1336a5c8306fc31f6aed420d1c538341922cb07f4f22d546bf93"
-    sha256 cellar: :any,                 arm64_sonoma:  "cc027338694fe100b07b556fe5e8c7886bed5107e20abdef2503aca22d367186"
-    sha256 cellar: :any,                 arm64_ventura: "168cd280aec834c45ec901c8c69f5ae4ecd973a91b7b8fc2afbf201f225222e5"
-    sha256 cellar: :any,                 sonoma:        "f86a7869da741f68ecb0d9ceb4bbe54f5212e79dd7a58284ee22a0ede8c0e565"
-    sha256 cellar: :any,                 ventura:       "37a0166c451397de3349b9093cde2af308ab5d0de956a1b4fee3448db0b238a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "671a58206dff960a8d0ac6cd3f192dfa6abfec727c4a844da24f9f72724890cd"
+    sha256 cellar: :any,                 arm64_sequoia: "248e744526a5abae5d7cd66c337c52132c3cb84ece16a550eb508ffcdad3c540"
+    sha256 cellar: :any,                 arm64_sonoma:  "85af5df51b797f08525923e49a90bae8706ceae93954a12965bc0b5579210aed"
+    sha256 cellar: :any,                 arm64_ventura: "be57434380c15cf60c05c99e37ff7cd02e5fbf57644119962ef8cc7623867b4e"
+    sha256 cellar: :any,                 sonoma:        "d18ce86da31c47c898aa4fe85a41da1b62e6c289156568fe32086f6f8f6fc0e2"
+    sha256 cellar: :any,                 ventura:       "40832aac52126fff1d0b0dc919c73a8594ae34b8c2040feede6c784d5a1d1a1c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "02f05e9eef7e164ab6529f771c5c4abb073cbe30db296a8fbfd4cd04a122d09c"
   end
 
   depends_on "rust" => :build
