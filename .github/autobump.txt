@@ -1844,6 +1844,7 @@ libnetfilter_conntrack
 libnfs
 libnftnl
 libnghttp3
+libnotify
 libntlm
 libobjc2
 libomp
