@@ -7,12 +7,12 @@ class Ad < Formula
   head "https://github.com/sminez/ad.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2173b14ad6153e3f0ac126516ccaa1dada78fe53dff8152595e5446ecf273525"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "28229269cc42c121f9ddd7a690fd985a1a2cb885b16259b7047006265b9d54ad"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bc5e94b51304fd915296a6eac2424f5cbfb6e07b5087eac866bc1f275eeea872"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1cbcd0187197ffc8afb854a65b2072225babc97a48e416730301d38457245c26"
-    sha256 cellar: :any_skip_relocation, ventura:       "cedb51cf770a0ec98743b9218075bb5ef957fe8ac6888e30095528bb9178a75b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "051dfca0111ac70afc85a5db37641688f9530f52c3c61ae1b568fdce059cb5c3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4874d80cf8ec7d9a713ac0403e759fb024deea5a0aa9b0baaf77bb75da6dc379"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ed349050f01a8877ff816ab5a680f2bdfdce30c022a78f7b2a68ec2a87f4665d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1b292412f05f615a3d450d6a45359307330b4b492f822b19c888bab607a191d3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "811782a9dfec54873725b526d03d7820f0c07b7ea4c3559cc298a63b7b68ea41"
+    sha256 cellar: :any_skip_relocation, ventura:       "42174e0d98492a910e6109919c4217b8653f2e3b43917dc18e79fcf379ba1ee8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69c603b8ed8f547bbf1bbefe0001e8c828de418ee9f1e0e74e19161581b7767f"
   end
 
   depends_on "rust" => :build
