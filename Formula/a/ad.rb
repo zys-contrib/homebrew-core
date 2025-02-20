@@ -1,8 +1,8 @@
 class Ad < Formula
   desc "Adaptable text editor inspired by vi, kakoune, and acme"
   homepage "https://github.com/sminez/ad"
-  url "https://github.com/sminez/ad/archive/refs/tags/0.3.0.tar.gz"
-  sha256 "86c759384f792d9cfbf3b3fab38df9e935ebea9c1765dfa5f6139f319f38ca45"
+  url "https://github.com/sminez/ad/archive/refs/tags/0.3.1.tar.gz"
+  sha256 "809cd09550daf38b1c4b7d19b975e6dbeb85f424f8942f20fc9cd7808c1ef196"
   license "MIT"
   head "https://github.com/sminez/ad.git", branch: "develop"
 
