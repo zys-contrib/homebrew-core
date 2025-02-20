@@ -3,8 +3,8 @@ class Trino < Formula
 
   desc "Distributed SQL query engine for big data"
   homepage "https://trino.io"
-  url "https://search.maven.org/remotecontent?filepath=io/trino/trino-server/470/trino-server-470.tar.gz", using: :nounzip
-  sha256 "16618db7c176d6c687f5782b97ec49c4a7beeab8f1f3edbd3f2c7b79d0b014ca"
+  url "https://search.maven.org/remotecontent?filepath=io/trino/trino-server/471/trino-server-471.tar.gz", using: :nounzip
+  sha256 "79f5db4cf09b0626c5fb908544992460ae1580d620e5049901dffb02579d3cbe"
   license "Apache-2.0"
 
   livecheck do
@@ -27,8 +27,8 @@ class Trino < Formula
   uses_from_macos "python"
 
   resource "trino-src" do
-    url "https://github.com/trinodb/trino/archive/refs/tags/470.tar.gz", using: :nounzip
-    sha256 "e9989b2734dccd4c7900ccc9b96e7ef37ab3cf0368fb4be3734165442e89f1a5"
+    url "https://github.com/trinodb/trino/archive/refs/tags/471.tar.gz", using: :nounzip
+    sha256 "b5c1b34605b629351ab432b88469b2a65205d2089d17fc71181499fd66214ae8"
 
     livecheck do
       formula :parent
@@ -36,8 +36,8 @@ class Trino < Formula
   end
 
   resource "trino-cli" do
-    url "https://search.maven.org/remotecontent?filepath=io/trino/trino-cli/470/trino-cli-470-executable.jar"
-    sha256 "694648f9906b43b308c6b2e529723231047feda6add186ab1eb0389516824d55"
+    url "https://search.maven.org/remotecontent?filepath=io/trino/trino-cli/471/trino-cli-471-executable.jar"
+    sha256 "ed19c4d7b3cff28e21f84583a01dec575cdc17f406a3a9d589640c271e0a03dd"
 
     livecheck do
       formula :parent
