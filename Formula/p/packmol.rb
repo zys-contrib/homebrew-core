@@ -12,12 +12,12 @@ class Packmol < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "32ba6788148895835c258ec084cbf4220ecafa23f8aa8b09b7efc58da3ca1a7d"
-    sha256 cellar: :any,                 arm64_sonoma:  "275d73533481113d0d6baa94bf2c5e45a8f05ad9de7ba2de3ad74b9323af2702"
-    sha256 cellar: :any,                 arm64_ventura: "a5a5938f6b68b5d521c402cbb7efeb9652956703131f3fffc2551bb10cf53cbc"
-    sha256                               sonoma:        "9d242a812d54cf0b1dd20998c4b094a4105f389a044ef6173422e733fc8822d1"
-    sha256                               ventura:       "0848948b90d17c36556074cb46ad71b24b4aef91b4c3f92f5a659af33965069d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc9ee8786e21b4e38db4a0fd3d581f7b8f2f58863ec9fee0e796ae4dae743473"
+    sha256 cellar: :any,                 arm64_sequoia: "e9092146f495c98489c749d32bbb02aef6157c31bb45a8a3cfd1b80350c11b3b"
+    sha256 cellar: :any,                 arm64_sonoma:  "1a8ccc2c91b4a6897b1189c6265adb7131be3bf78b57e1707e69cbbd20b929f2"
+    sha256 cellar: :any,                 arm64_ventura: "15b47f6996ecc36f93bb16467a57f5c6f3a336e1260a0e2d4862a62c15cefb72"
+    sha256                               sonoma:        "2385a7df9292607e7a346b26576cf03f742b3e63914ce0d64504462fecb89308"
+    sha256                               ventura:       "ff8fe40ab5cc1980358d3c231d8fc07a292b088216869821700afdaf862406f7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "94b1a58b91a2b8ff35d095a816a01324cfa47281423098dd29becd3d4ffb8682"
   end
 
   depends_on "gcc" # for gfortran
