@@ -1234,6 +1234,7 @@ gnupg
 gnupg-pkcs11-scd
 gnupg@2.2
 gnuplot
+gnuradio
 gnutls
 go
 go-blueprint
