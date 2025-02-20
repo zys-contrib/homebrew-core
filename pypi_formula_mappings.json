@@ -365,6 +365,7 @@
     "extra_packages": ["packaging"]
   },
   "gnuradio": {
+    "package_name": "",
     "extra_packages": [
       "click", "jsonschema", "lxml", "mako",
       "packaging", "pygccxml", "pyyaml", "setuptools"
