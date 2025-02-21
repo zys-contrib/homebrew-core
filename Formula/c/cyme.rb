@@ -7,13 +7,12 @@ class Cyme < Formula
   head "https://github.com/tuna-f1sh/cyme.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "244a202824cc27d020db9505baf4ee03eec551e0799b6d9d35e4c2c2e14276ba"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "92f56bf275c07bf90c444333cc92dcc46a7db09c012c9cab7ed1e97b2fbebd5e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e017e04dce4daf71bf0005c1ee4cb16ee2a51ead69b65d98df12230fce055a6d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b20b8975c9dd97bf1bdd643bce57e60df1dd06243c69046456c02e7c1261e4ec"
-    sha256 cellar: :any_skip_relocation, ventura:       "0606d756ecb564d38ec451de8e5d5e3b3f5608a344efb1008653f37b81f4f386"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c626a54bf672a2aebf0d339aff3a5c42c6e07029fecb340b6832653a5026225a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f9460a7f4c1ce1c8c3ec689d5640b25814457a5a549f138071fbe056b5b2202e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd4d14f6550b077d1970615fac39a52898c194a7ddc91b0f72b21b46cf1fc154"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ff8f29b0c7c7d9cde0ecf72645c9539c6989bb25ccbc78f771d2512b0d36def6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "655fefb9e28cf371c9f69eb0e81855bbace8e8ab7244533d4223102f72ddf462"
+    sha256 cellar: :any_skip_relocation, ventura:       "6a21baa067354074899e99552d724cbb5c3147ef239ccb03c04dde31440536b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "928779ea652db2b1c9e45bae7179b9010759ccd888d5f7d8dade42e5225a36ad"
   end
 
   depends_on "rust" => :build
