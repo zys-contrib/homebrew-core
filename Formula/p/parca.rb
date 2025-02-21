@@ -7,12 +7,12 @@ class Parca < Formula
   head "https://github.com/parca-dev/parca.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a731dff07d7576ff50e07c99a870a59293974a6c0b43bc0837f2e1df7833e9f7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a731dff07d7576ff50e07c99a870a59293974a6c0b43bc0837f2e1df7833e9f7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a731dff07d7576ff50e07c99a870a59293974a6c0b43bc0837f2e1df7833e9f7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "729e2c16c850b5afa8edb50f35133e53c865f514dc24def2757a6f181417b19c"
-    sha256 cellar: :any_skip_relocation, ventura:       "729e2c16c850b5afa8edb50f35133e53c865f514dc24def2757a6f181417b19c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9204200ba7fa0ab6dab75950c5da72037e4c9bbead8cbab429657825849c189"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7bb5c629b89ac734fac86e534ea55f87d6bb1d0af2bd6e7e601dcdcdbe444ef7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7bb5c629b89ac734fac86e534ea55f87d6bb1d0af2bd6e7e601dcdcdbe444ef7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7bb5c629b89ac734fac86e534ea55f87d6bb1d0af2bd6e7e601dcdcdbe444ef7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b95f1771c4a22811fea4dffbe49e6138e5cee8ef2c6a92fdbb33b98805752777"
+    sha256 cellar: :any_skip_relocation, ventura:       "b95f1771c4a22811fea4dffbe49e6138e5cee8ef2c6a92fdbb33b98805752777"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b10a1557d1f8e1894eb4a294a7e499398ceff984dea5bf139e948624c93f9bf"
   end
 
   depends_on "go" => :build
