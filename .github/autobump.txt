@@ -3522,6 +3522,7 @@ virtualfish
 virtuoso
 virustotal-cli
 vis
+visidata
 vite
 vitess
 viu
