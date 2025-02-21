@@ -1478,6 +1478,7 @@ immudb
 imposm3
 inchi
 include-what-you-use
+infisical
 influxdb
 influxdb-cli
 influxdb@1
