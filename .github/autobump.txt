@@ -858,6 +858,7 @@ dwarfs
 dwarfutils
 dwm
 dxpy
+dyff
 dyld-headers
 dynaconf
 dynare
