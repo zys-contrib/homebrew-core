@@ -7,12 +7,12 @@ class Kuzu < Formula
   head "https://github.com/kuzudb/kuzu.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6d2dacbb10920115e077c613a7e8e7902967544d4cc7a45826c7e843e5ef1222"
-    sha256 cellar: :any,                 arm64_sonoma:  "5f7a932b0fb7842efe5dc54f1b57ead3b560cb880d2817177506680b72effae8"
-    sha256 cellar: :any,                 arm64_ventura: "5cc48a6a184a09e9d1a32021be4b311435aed1f3efdecd8a6241a878bfab3067"
-    sha256 cellar: :any,                 sonoma:        "199d1f0b6facf0add4a413649df67ed7cb396f3d03465fb927790038fe3d3fc3"
-    sha256 cellar: :any,                 ventura:       "a3e5b145c6923a60882112b63220ff033b77f067424973ac9bf3ed67fc6d6b98"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4da969de520e286e67a637e1f9f9ccfd923d6388a07fa762262d46f8f76db697"
+    sha256 cellar: :any,                 arm64_sequoia: "d398a6e349f862f332d0c69057f0ab503f80b6753777a43d8b2f7249a0e3e21f"
+    sha256 cellar: :any,                 arm64_sonoma:  "934594dcb163be71eeab324572929d34354880699634d04011895eb834f4d4e1"
+    sha256 cellar: :any,                 arm64_ventura: "922c1f9fa1ea0a9ee52fdab82f25c670d84169abb49b0592e4392bd3225fbff2"
+    sha256 cellar: :any,                 sonoma:        "ba6af14278b00d20000601c0fed8206e11ec48d1edec6c212f6bd84fb8c0acca"
+    sha256 cellar: :any,                 ventura:       "71c1cf9fc580c303ccf289d6f25d3eef7add80a1a36c72807bfd4f011a8c1277"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17eeb27f61ff0c5f78d832e2ca58c47122ddfa497739546e2475fb324df89fee"
   end
 
   depends_on "cmake" => :build
