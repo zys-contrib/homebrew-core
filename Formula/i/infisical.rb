@@ -11,6 +11,15 @@ class Infisical < Formula
     regex(%r{^infisical-cli/v?(\d+(?:\.\d+)+)$}i)
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2a67692400259c89ef72d66305ad2044f9507b978f095975a05c43145bbe07d9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2a67692400259c89ef72d66305ad2044f9507b978f095975a05c43145bbe07d9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2a67692400259c89ef72d66305ad2044f9507b978f095975a05c43145bbe07d9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ab5abe9f7cd7916d21354f15850d6aa9ba9f21f8e204fc71f021cf2637125d42"
+    sha256 cellar: :any_skip_relocation, ventura:       "ab5abe9f7cd7916d21354f15850d6aa9ba9f21f8e204fc71f021cf2637125d42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de44651ba00eece2b22d78900a5165c1cf86d87d1de48cac459980ea1b156123"
+  end
+
   depends_on "go"
 
   def install
