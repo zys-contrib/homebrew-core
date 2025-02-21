@@ -3,8 +3,8 @@ class Charmcraft < Formula
 
   desc "Tool to build charms and publish them on Charmhub"
   homepage "https://charmhub.io"
-  url "https://files.pythonhosted.org/packages/53/9e/55d1427225ac81563826f595853b11fe8a4c7efe2ecb84d2a2b47e28248b/charmcraft-3.4.2.tar.gz"
-  sha256 "6b7da36e03db9e7533e5953e571e28904b2c25c7db6022889c2282f99d591aa6"
+  url "https://files.pythonhosted.org/packages/96/c1/54c4193113f9a340c60acff29bb22ac310668219bf0aac59004bafde5d95/charmcraft-3.4.3.tar.gz"
+  sha256 "ef398a210cad0cb78cc176beed4459de52c966c5d28ca16544a4639d3c1d2fce"
   license "Apache-2.0"
 
   bottle do
@@ -55,8 +55,8 @@ class Charmcraft < Formula
   end
 
   resource "craft-application" do
-    url "https://files.pythonhosted.org/packages/89/bb/447ed537b8f201a499fa4f908a292249aee7dd6916fe6579e5449767aa6e/craft_application-4.8.3.tar.gz"
-    sha256 "709b08defc8f5678d96bb4c7a15cb598af6e7a79b84c517d8e0158fb2eeae058"
+    url "https://files.pythonhosted.org/packages/d8/c5/0e7e7f712e5024c106641ef7b0b77e40964a3f79747ea0d5308e0e97d3f2/craft_application-4.9.1.tar.gz"
+    sha256 "71e674c89cb492e16011741ee9d423dde9d851aa895c8073a2925c583a2d505b"
   end
 
   resource "craft-archives" do
@@ -75,18 +75,18 @@ class Charmcraft < Formula
   end
 
   resource "craft-parts" do
-    url "https://files.pythonhosted.org/packages/c1/89/a22b2a4e8ae2328dba5e719d2eb47a244b274368a2690a0f3512d4d6e79b/craft_parts-2.6.0.tar.gz"
-    sha256 "74532696167b741c39d1c0eafd6a6b7e52aef0a76c8cd54b176e43dd5e89e1a0"
+    url "https://files.pythonhosted.org/packages/fb/d7/f8d6c8aca83d1c751b0ed30c7e5b70f119f5d020569ae91626c37347caa9/craft_parts-2.6.2.tar.gz"
+    sha256 "937ac0f5a4abc7b2a1c9b236652b95a7d39de95bb76c380e0fb1249a8b4df0ea"
   end
 
   resource "craft-platforms" do
-    url "https://files.pythonhosted.org/packages/30/cb/898d65cfdde700565dc6339e09d919a6e0ac65e27486427ba4d7eb7f6434/craft_platforms-0.5.0.tar.gz"
-    sha256 "f41226163ca111517abd30fd3d1e8c16f08819eb3623b36e5a58d1db3ea8da21"
+    url "https://files.pythonhosted.org/packages/ab/7e/a9a54ac2025f5399689027fd317273f477c7c15478b2c59791aa48f34262/craft_platforms-0.6.0.tar.gz"
+    sha256 "7aa153bfff5a28cf4f8c8a7b3da29c259da3a9d9a2f9a2e7c52e118e5735a927"
   end
 
   resource "craft-providers" do
-    url "https://files.pythonhosted.org/packages/29/1f/4c0eb72331e11ec8fec5cd24e993fe1e34ca04331251b90b8b6c7b1b72c7/craft_providers-2.1.0.tar.gz"
-    sha256 "9494a70cd0f86c13a746157bc1a54520e867656690f60d07d4ffdce39f60a99a"
+    url "https://files.pythonhosted.org/packages/16/92/93e3f7adff46a338ae7087ffedab34dd116b329917735677f3205369b931/craft_providers-2.2.0.tar.gz"
+    sha256 "dda4df4f777fbc6fbb4fd72cb85ccd237d07875b80a5c95bc70ace3c22d26b07"
   end
 
   resource "craft-store" do
@@ -125,8 +125,8 @@ class Charmcraft < Formula
   end
 
   resource "humanize" do
-    url "https://files.pythonhosted.org/packages/6a/40/64a912b9330786df25e58127194d4a5a7441f818b400b155e748a270f924/humanize-4.11.0.tar.gz"
-    sha256 "e66f36020a2d5a974c504bd2555cf770621dbdbb6d82f94a6857c0b1ea2608be"
+    url "https://files.pythonhosted.org/packages/5b/8c/4f2f0784d08a383b5de3d3b1d65a6f204cc5dc487621c91c550388d756af/humanize-4.12.1.tar.gz"
+    sha256 "1338ba97415c96556758a6e2f65977ed406dddf4620d4c6db9bbdfd07f0f1232"
   end
 
   resource "idna" do
@@ -310,8 +310,8 @@ class Charmcraft < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/01/80/cce854d0921ff2f0a9fa831ba3ad3c65cee3a46711addf39a2af52df2cfd/rpds_py-0.22.3.tar.gz"
-    sha256 "e32fee8ab45d3c2db6da19a5323bc3362237c8b653c70194414b892fd06a080d"
+    url "https://files.pythonhosted.org/packages/0a/79/2ce611b18c4fd83d9e3aecb5cba93e1917c050f556db39842889fa69b79f/rpds_py-0.23.1.tar.gz"
+    sha256 "7f3240dcfa14d198dba24b8b9cb3b108c06b68d45b7babd9eefc1038fdf7e707"
   end
 
   resource "secretstorage" do
