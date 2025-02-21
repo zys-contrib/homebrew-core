@@ -11,6 +11,15 @@ class Foundry < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "78ff8652a90cb8d32de04aa6809e9e6c2561eb3c3cbdda338e715b316ccc96ff"
+    sha256 cellar: :any,                 arm64_sonoma:  "a0de976f21af591c1c6d9eebf189dd7331ba73ec0696158a1c63a466af50cdd8"
+    sha256 cellar: :any,                 arm64_ventura: "cbcf0183338dd2c1fe828751be9beff628b463dc9823de6663d862f880b9d3b3"
+    sha256 cellar: :any,                 sonoma:        "63ffceae04fa1e06412b6f3ac9d0d31add503b6640024d0c36884dbb6b7968da"
+    sha256 cellar: :any,                 ventura:       "d4b44ff2c60a65e49040aa6f8d1caac6ffab4a762420fdb1fe85afd1221487bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c3e2a9cb0a69adb19eb0deb11f5ae79b24830ae17e0eb12120622fa60de017e"
+  end
+
   depends_on "help2man" => :build
   depends_on "rust" => :build
 
