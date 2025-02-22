@@ -16,8 +16,7 @@ class Avfs < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 x86_64_linux: "6e98b737305eb3e7370df0c26aeaaff9845ddc47b9698786c008740bafc3aadd"
+    sha256 x86_64_linux: "44c9d1451dd67af972b90f625e38f9a48b089dbfbbf2b76b4d2e6ac668e61eb5"
   end
 
   depends_on "pkgconf" => :build
