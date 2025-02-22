@@ -2316,6 +2316,7 @@ nnn
 node
 node-build
 node-sass
+node@18
 node@20
 node@22
 node_exporter
