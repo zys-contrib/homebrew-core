@@ -1,8 +1,8 @@
 class Goplus < Formula
   desc "Programming language for engineering, STEM education, and data science"
   homepage "https://goplus.org"
-  url "https://github.com/goplus/gop/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "d22d4921c0bdc60670aaaf3ea24eae3d3a96580feafb4d75494ef02364ef7480"
+  url "https://github.com/goplus/gop/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "934ec2fac7bc4d2fe313cf194973d5611a75fabd438d62f7f2cf09349658ebc9"
   license "Apache-2.0"
   head "https://github.com/goplus/gop.git", branch: "main"
 
