@@ -162,6 +162,7 @@ autopep8
 autorest
 autorestic
 autotrace
+avfs
 avrdude
 awk
 aws-amplify
