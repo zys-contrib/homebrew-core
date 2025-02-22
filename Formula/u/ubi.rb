@@ -7,12 +7,12 @@ class Ubi < Formula
   head "https://github.com/houseabsolute/ubi.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d41fb93c5bacbde823658c82c29c15804194f536db6c00c1b918dcd3a8446a59"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a020b89632a4018a8e050ead4583094b05cac0299b8e24b73deee388f6b36fa1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "26ce62c4b76c7981bbb80ecda0812ae4d3b1c65c74033444fc24e3f2a1eadd9e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4f63794b7e776b76494ce381139e492fefb4795cb35b2de8761bf762688e6e0a"
-    sha256 cellar: :any_skip_relocation, ventura:       "76c9db5378cbde87f6b5e6354464750bbcd4188197ccdcdfa6889b9f494b05d8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fb51c613149517442ea7dd3e170fc70600633738049373913c235f4defdbefd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6b7ec47fb63209d5871eb9836e1a2f19e1dbf54d092715fc3a000930d04d69b0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d43ef587509f1a31df3e8827340cf75e2d7622b99124cb0307d14fe349d13137"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c601f5856f6241abb52a6125c4a95432766f07c9b10fa0ac8b77a7913ff4fdfd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fa8af992b3ce1f958d0595db60407484b13f5d47b9c87e8ac6125617620112a0"
+    sha256 cellar: :any_skip_relocation, ventura:       "e67f2960e5f9c639dbde3717eac7300579adf288e978dbd1f9f2b56dba7ce48e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08f8efcbf5bf3e5bc2afdd29e8d592f83153e18f1642920bbc220e150052b21a"
   end
 
   depends_on "pkgconf" => :build
