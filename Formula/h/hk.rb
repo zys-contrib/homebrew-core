@@ -1,8 +1,8 @@
 class Hk < Formula
   desc "Git hook and pre-commit lint manager"
   homepage "https://hk.jdx.dev"
-  url "https://github.com/jdx/hk/archive/refs/tags/v0.4.3.tar.gz"
-  sha256 "753cb1173713a47eba7e90f9e43bfab120596cdd1c47ad306e3f7823460dd898"
+  url "https://github.com/jdx/hk/archive/refs/tags/v0.4.4.tar.gz"
+  sha256 "3a067511d78203e86d02a820411fa496e8ada2f2caf5f6232f5035152d6d35c5"
   license "MIT"
   head "https://github.com/jdx/hk.git", branch: "main"
 
@@ -37,25 +37,16 @@ class Hk < Formula
 
     (testpath/"hk.pkl").write <<~PKL
       amends "package://github.com/jdx/hk/releases/download/v#{version}/hk@#{version}#/Config.pkl"
+      import "package://github.com/jdx/hk/releases/download/v#{version}/hk@#{version}#/builtins/cargo_clippy.pkl"
 
       linters {
-          ["cargo-clippy"] {
-              glob = new { "*.rs" }
-              check = "cargo clippy -- -D warnings"
-              fix = "cargo clippy --fix --allow-dirty"
-          }
-          ["cargo-fmt"] {
-              glob = new { "*.rs" }
-              check = "cargo fmt -- --check"
-              fix = "cargo fmt"
-          }
+        ["cargo-clippy"] = new cargo_clippy.CargoClippy {}
       }
 
       hooks {
-          ["pre-commit"] {
-              ["cargo-clippy"] = new Fix {}
-              ["cargo-fmt"] = new Fix {}
-          }
+        ["pre-commit"] {
+          ["fix"] = new Fix {}
+        }
       }
     PKL
 
@@ -64,6 +55,6 @@ class Hk < Formula
     system "git", "commit", "-m", "Initial commit"
 
     output = shell_output("#{bin}/hk run pre-commit --all -v 2>&1")
-    assert_match(/cargo-fmt\s* ✓ done/, output)
+    assert_match(/cargo-clippy\s* ✓ done/, output)
   end
 end
