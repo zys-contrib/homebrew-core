@@ -3528,6 +3528,7 @@ virtuoso
 virustotal-cli
 vis
 visidata
+vit
 vite
 vitess
 viu
