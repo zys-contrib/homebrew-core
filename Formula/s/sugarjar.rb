@@ -6,13 +6,12 @@ class Sugarjar < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b8d688e5faaf4e262f1fce1d6c89da0250a897c979956938668d6d9157de08c7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b8d688e5faaf4e262f1fce1d6c89da0250a897c979956938668d6d9157de08c7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b8d688e5faaf4e262f1fce1d6c89da0250a897c979956938668d6d9157de08c7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "03b52333c3f2564ea1c2fb278f00cc0493ad928006fd1e95c0e48db925520889"
-    sha256 cellar: :any_skip_relocation, ventura:       "03b52333c3f2564ea1c2fb278f00cc0493ad928006fd1e95c0e48db925520889"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8d688e5faaf4e262f1fce1d6c89da0250a897c979956938668d6d9157de08c7"
+    sha256 cellar: :any,                 arm64_sequoia: "65ecd2cb3766d4be72ad9a424cda88fa979f8cddd12f3a2b30a60e4d8461faa4"
+    sha256 cellar: :any,                 arm64_sonoma:  "e6eab020e7abe1cb0965d77b1f1c2a2d04e2d1db36554b2ac9519f0fea76d856"
+    sha256 cellar: :any,                 arm64_ventura: "09fbeeaf8df6d59a5d76fe3e29bda8033dc7fef35c043ed4cf90cf59c9dc1d4b"
+    sha256 cellar: :any,                 sonoma:        "30a3729d83daeed129153ca04149ec548755ba97b4bd09e733093a402bbc4e3a"
+    sha256 cellar: :any,                 ventura:       "49e038185795406e1d605fa7ca8a42eb8d86c78300b368688cb0aee70ebc4abe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "623d49621a6203cee40d565a9aee6cc078add987fc50aa2dc9245ae411891414"
   end
 
   depends_on "gh"
