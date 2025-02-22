@@ -1,8 +1,8 @@
 class OsctrlCli < Formula
   desc "Fast and efficient osquery management"
   homepage "https://osctrl.net"
-  url "https://github.com/jmpsec/osctrl/archive/refs/tags/v0.4.2.tar.gz"
-  sha256 "afc854ecef0d877f5b56ae93b9e9b115964d8fa1a9762b5e40fc9ef4f0e2f1d0"
+  url "https://github.com/jmpsec/osctrl/archive/refs/tags/v0.4.3.tar.gz"
+  sha256 "ed53a2878bf564ac31b24bffe78929f3c87ed3fb092920a0c1853c1ba660d0ba"
   license "MIT"
 
   bottle do
@@ -17,7 +17,7 @@ class OsctrlCli < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cli"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/cli"
   end
 
   test do
