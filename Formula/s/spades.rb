@@ -14,13 +14,12 @@ class Spades < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "36804b795a1a9d5a7b60414c8d4b46ff6bcdbcd9d9e74771170bb9b05e635892"
-    sha256 cellar: :any,                 arm64_sonoma:  "40c88655fd60c534ae6988c153b5e609aca9642612a30d5afb9ef7e014d50b5e"
-    sha256 cellar: :any,                 arm64_ventura: "6421a91f79aa8f03c5dfd76e07562fe92e21c33d1cd136ebc08abc6883991587"
-    sha256 cellar: :any,                 sonoma:        "3c740b96b14eeb5fc184cb8186c0d7a5ebc829d40c1ab04eaa7843a30a6d0853"
-    sha256 cellar: :any,                 ventura:       "582d300f360e60ce1d683dda845193ee256a1513ebdb42814bc81f55e2fb05b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fc9c195a2edf4522a54b55a96d66859c8e68d2e69dba7cdec98f53dfd14b37f"
+    sha256 cellar: :any,                 arm64_sequoia: "69a44601e2610d74f2e6ee13f6d0046a36985f3c54d9c0d137e34f9db584a512"
+    sha256 cellar: :any,                 arm64_sonoma:  "f507fb31ec2fb29fff6536c3822f534cbd54784c0328392ed01280cbf7d092f9"
+    sha256 cellar: :any,                 arm64_ventura: "72a0885601ba7ccd4d33d012a87717d7ac534cabe4038934edf78d85327fe222"
+    sha256 cellar: :any,                 sonoma:        "d7aeb7950ae594ee222349482647583010a62d4a081d444b26b0a49e7987fcee"
+    sha256 cellar: :any,                 ventura:       "d62717c7f424bb42fd57d6c435c39b14ae141fb0e410e391d25146042d64a5f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7316228bf8b38afeaf0ea84a3010d973f4650f5e0a71d024d7e009c92f17e26a"
   end
 
   depends_on "cmake" => :build
