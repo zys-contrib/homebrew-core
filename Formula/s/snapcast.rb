@@ -7,11 +7,11 @@ class Snapcast < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "6b17c4eedd473db0afc71acd236274684301d5f2afd59a4ac3fcea1ac70e9fd3"
-    sha256 cellar: :any, arm64_sonoma:  "9fb4e448fd43f004e193bc6d6329d5ceb20e7d2c9744dd63b344ef9727e9ad1a"
-    sha256 cellar: :any, arm64_ventura: "397cdd8dd74abb4e6eaa1f9e79432c62916b26323e314b4846bf3239d4dd6080"
-    sha256 cellar: :any, sonoma:        "c7df35a8fc084671ac76e12d9408d047f77bea3ef5da4cfd5ad5760495eb96ab"
-    sha256 cellar: :any, ventura:       "273d7eb4aca4df0376c1ac091e764c25554eed4a2a1c252f70a30fa0eb2f5260"
+    sha256 cellar: :any, arm64_sequoia: "503bcd02e9c1cee66a0fe1c31b4fb92c456e0403dbeff251ab37a89d097800ba"
+    sha256 cellar: :any, arm64_sonoma:  "5148be65fd513313ab9eae89eada1ab878e311c5bf7bae260adc8d9742005213"
+    sha256 cellar: :any, arm64_ventura: "0dbfc1421b25651a69006ac4f2dc5995c79ad832f582b57877b53deed618b47e"
+    sha256 cellar: :any, sonoma:        "e7a695a5486603ca20361ee1ea25680f77cbfefe31b073b2f881c1f4dd7e7302"
+    sha256 cellar: :any, ventura:       "7c12245e729a102ec2b284ce3cc5ff11532269effd442175acc8890c440a1b7f"
   end
 
   depends_on "boost" => :build
