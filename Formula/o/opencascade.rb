@@ -1,11 +1,10 @@
 class Opencascade < Formula
   desc "3D modeling and numerical simulation software for CAD/CAM/CAE"
   homepage "https://dev.opencascade.org/"
-  url "https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=refs/tags/V7_8_1;sf=tgz"
-  version "7.8.1"
-  sha256 "33f2bdb67e3f6ae469f3fa816cfba34529a23a9cb736bf98a32b203d8531c523"
+  url "https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=refs/tags/V7_9_0;sf=tgz"
+  version "7.9.0"
+  sha256 "ff118a524ec451867e8f0ac3b631522c98f2b4353c7dbf2786bf239589909ec6"
   license "LGPL-2.1-only"
-  revision 1
 
   # The first-party download page (https://dev.opencascade.org/release)
   # references version 7.5.0 and hasn't been updated for later maintenance
@@ -41,12 +40,6 @@ class Opencascade < Formula
   on_linux do
     depends_on "libx11"
     depends_on "mesa" # For OpenGL
-  end
-
-  # Backport fix for incorrect type
-  patch do
-    url "https://github.com/Open-Cascade-SAS/OCCT/commit/7236e83dcc1e7284e66dc61e612154617ef715d6.patch?full_index=1"
-    sha256 "ed8848b3891df4894de56ae8f8c51f6a4b78477c0063d957321c1cace4613c29"
   end
 
   def install
