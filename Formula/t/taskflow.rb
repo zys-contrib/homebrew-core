@@ -6,6 +6,10 @@ class Taskflow < Formula
   license "MIT"
   head "https://github.com/taskflow/taskflow.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "71f0e0bea86e6e5da59e055c6c8d339d8941889bf753c82b480e3ee5a3d59078"
+  end
+
   depends_on "cmake" => :build
   depends_on "make" => :build
 
