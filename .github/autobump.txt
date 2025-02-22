@@ -659,6 +659,7 @@ crystal
 crystalline
 crytic-compile
 csfml
+cspell
 csprecon
 css-crush
 csview
