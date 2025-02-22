@@ -3,8 +3,8 @@ class KeeperCommander < Formula
 
   desc "Command-line and SDK interface to Keeper Password Manager"
   homepage "https://docs.keeper.io/en/privileged-access-manager/commander-cli/overview"
-  url "https://github.com/Keeper-Security/Commander/archive/refs/tags/v17.0.6.tar.gz"
-  sha256 "2e4f933d4c2e82dc3dfa83f67e0eb2997abcb354c57d5d0f7a1c96c15cc346e8"
+  url "https://files.pythonhosted.org/packages/88/7d/a2e829e26939837214e59c612e4a94d623ff14ac5456a7dbbd36d1c9686e/keepercommander-17.0.6.tar.gz"
+  sha256 "0a5f36db2c74301211f41cc169b064533884912b392ea6b135bea63fa4fd3ab1"
   license "MIT"
   head "https://github.com/Keeper-Security/Commander.git", branch: "master"
 
@@ -21,9 +21,9 @@ class KeeperCommander < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
-  depends_on "openssl@3"
+  depends_on "certifi"
+  depends_on "cryptography"
   depends_on "python@3.13"
-  uses_from_macos "libffi"
 
   resource "annotated-types" do
     url "https://files.pythonhosted.org/packages/ee/67/531ea369ba64dcff5ec9c3402f9f51bf748cec26dde048a2f973a4eea7f5/annotated_types-0.7.0.tar.gz"
@@ -40,16 +40,6 @@ class KeeperCommander < Formula
     sha256 "6765386e3ab87f569b276988742039baab087b2cdb01e809d74e74503c2faafe"
   end
 
-  resource "certifi" do
-    url "https://files.pythonhosted.org/packages/1c/ab/c9f1e32b7b1bf505bf26f0ef697775960db7932abeb7b516de930ba2705f/certifi-2025.1.31.tar.gz"
-    sha256 "3d5da6925056f6f18f119200434a4780a94263f10d1c21d032a6f6b2baa20651"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/fc/97/c783634659c2920c3fc70419e3af40972dbaf758daa229a7d6ea6135c90d/cffi-1.17.1.tar.gz"
-    sha256 "1c39c6016c32bc48dd54561950ebd6836e1670f2ae46128f67cf49e789c52824"
-  end
-
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
     sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
@@ -58,11 +48,6 @@ class KeeperCommander < Formula
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
     sha256 "08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"
-  end
-
-  resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/c7/67/545c79fe50f7af51dbad56d16b23fe33f63ee6a5d956b3cb68ea110cbe64/cryptography-44.0.1.tar.gz"
-    sha256 "f51f5705ab27898afda1aaa430f34ad90dc117421057782022edf0600bec5f14"
   end
 
   resource "fido2" do
@@ -93,11 +78,6 @@ class KeeperCommander < Formula
   resource "protobuf" do
     url "https://files.pythonhosted.org/packages/f7/d1/e0a911544ca9993e0f17ce6d3cc0932752356c1b0a834397f28e63479344/protobuf-5.29.3.tar.gz"
     sha256 "5da0f41edaf117bde316404bad1a486cb4ededf8e4a54891296f648e8e076620"
-  end
-
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/1d/b2/31537cf4b1ca988837256c910a668b553fceb8f069bedc4b1c826024b52c/pycparser-2.22.tar.gz"
-    sha256 "491c8be9c040f5390f5bf44a5b07752bd07f56edf992381b05c701439eec10f6"
   end
 
   resource "pycryptodomex" do
@@ -156,8 +136,8 @@ class KeeperCommander < Formula
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/94/54/8359678c726243d19fae38ca14a334e740782336c9f19700858c4eb64a1e/websockets-14.2.tar.gz"
-    sha256 "5059ed9c54945efb321f097084b4c7e52c246f2c869815876a69d1efc4ad6eb5"
+    url "https://files.pythonhosted.org/packages/2e/7a/8bc4d15af7ff30f7ba34f9a172063bfcee9f5001d7cef04bee800a658f33/websockets-15.0.tar.gz"
+    sha256 "ca36151289a15b39d8d683fd8b7abbe26fc50be311066c5f8dcf3cb8cee107ab"
   end
 
   resource "zipp" do
