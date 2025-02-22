@@ -2,6 +2,7 @@ class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
   license "Apache-2.0"
+  revision 1
 
   stable do
     url "https://github.com/neovim/neovim/archive/refs/tags/v0.10.4.tar.gz"
