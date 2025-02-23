@@ -1,8 +1,8 @@
 class Code2prompt < Formula
   desc "CLI tool to convert your codebase into a single LLM prompt"
   homepage "https://github.com/mufeedvh/code2prompt"
-  url "https://github.com/mufeedvh/code2prompt/archive/refs/tags/v2.0.0.tar.gz"
-  sha256 "cf08be573e816ebe8852cd8afa6fd122f6b5c00c081ac058ada326647cf8251c"
+  url "https://github.com/mufeedvh/code2prompt/archive/refs/tags/v2.1.0.tar.gz"
+  sha256 "f1864a5d9e8e23270e0ef17ec56d709dad0ba4134950cf72b310a63b548b5c2d"
   license "MIT"
   head "https://github.com/mufeedvh/code2prompt.git", branch: "main"
 
