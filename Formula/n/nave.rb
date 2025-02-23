@@ -1,8 +1,8 @@
 class Nave < Formula
   desc "Virtual environments for Node.js"
   homepage "https://github.com/isaacs/nave"
-  url "https://github.com/isaacs/nave/archive/refs/tags/v3.5.2.tar.gz"
-  sha256 "df8d71ae46a0c9a29e68ced233fdc3a73f4068b9098e7c6b5bc4679019ffe1d9"
+  url "https://github.com/isaacs/nave/archive/refs/tags/v3.5.3.tar.gz"
+  sha256 "ab4b82c0ed7a2859be9ba3f5bdad7bc6db6709596972f53305fae48c150a4c99"
   license "ISC"
   head "https://github.com/isaacs/nave.git", branch: "master"
 
