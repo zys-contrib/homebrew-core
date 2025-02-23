@@ -1,8 +1,8 @@
 class Scooter < Formula
   desc "Interactive find and replace in the terminal"
   homepage "https://github.com/thomasschafer/scooter"
-  url "https://github.com/thomasschafer/scooter/archive/refs/tags/v0.2.3.tar.gz"
-  sha256 "071966e1a67179396f30d51c39db391a04f9d067034410ec5584bff64f5ae8b2"
+  url "https://github.com/thomasschafer/scooter/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "bdaaf67e8fecb4ea53dcd74c576261ceb8640e6fdbf8fb86d350eb38206313fb"
   license "MIT"
 
   bottle do
