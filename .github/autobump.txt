@@ -3243,6 +3243,7 @@ swig
 swtpm
 syft
 symengine
+symfony-cli
 synchrony
 syncthing
 sysaidmin
