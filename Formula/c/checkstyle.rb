@@ -6,7 +6,7 @@ class Checkstyle < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "7e22bedccb6dbf333992472a72684c2118ca1968b29a29ff2668756cd93098c2"
+    sha256 cellar: :any_skip_relocation, all: "09c3a246e572b8b231b8299d99ca027c70352b5cae9ddc1a937d6750863b1d07"
   end
 
   depends_on "openjdk"
