@@ -7,12 +7,12 @@ class Swiftdraw < Formula
   head "https://github.com/swhitty/SwiftDraw.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d4ce592b977ff2760ee21403b7d24a7f84fed3d1c748b7e77a6506f2a07c79f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "32d96fa1995cc9e11e85366b513cdc5e71a6097856214f332552b032b3ebbbd8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2c2c92ae072b567ec4b00aabb5509f002f9c2bda3b5aad64d1ddcc2737f05006"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ef22f3a2698093ef006bcb42af6a34b9a413b2522c3bb1aab236776bd896a2bf"
-    sha256 cellar: :any_skip_relocation, ventura:       "753cdba79222ce445b2366903bced65f7d8ab14001e6ba42bcce2406a05c6acb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da825bfc8cf39cbc5bcff4a95ec72d852fa348d2ca1db5861246c9938848f6f4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7ca747b9bf1119959ed5ddcbabb7bb44ebba82528a4e60722c101c839a5a954c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8fc7a9f4fae79506c918485aa94bcf741f7a2f976193321b14a6e5a765709677"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "026e31936ac8f2d54c360b09ae6b82d4d41b6b4c7ca256538035440b5135ee3b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4345336e22701897238692f12bbc7422db66594e5689d9467642bc15f07d02e9"
+    sha256 cellar: :any_skip_relocation, ventura:       "dae95a102bc2a0d24b72629ca1ac38005e829865abc3758302093e1899da2138"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab6aba2678a45ffc7c453212ac877e79a8e1c87810eff5d765a36853c2a0611a"
   end
 
   depends_on xcode: ["14.0", :build]
