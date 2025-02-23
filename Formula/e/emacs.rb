@@ -1,11 +1,10 @@
 class Emacs < Formula
   desc "GNU Emacs text editor"
   homepage "https://www.gnu.org/software/emacs/"
-  url "https://ftp.gnu.org/gnu/emacs/emacs-29.4.tar.xz"
-  mirror "https://ftpmirror.gnu.org/emacs/emacs-29.4.tar.xz"
-  sha256 "ba897946f94c36600a7e7bb3501d27aa4112d791bfe1445c61ed28550daca235"
+  url "https://ftp.gnu.org/gnu/emacs/emacs-30.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/emacs/emacs-30.1.tar.xz"
+  sha256 "6ccac1ae76e6af93c6de1df175e8eb406767c23da3dd2a16aa67e3124a6f138f"
   license "GPL-3.0-or-later"
-  revision 2
 
   bottle do
     sha256 arm64_sequoia: "a35f383006a8934c58a3f45947533572b4a69d8b7694e81324a0d86be5cb0061"
@@ -27,7 +26,6 @@ class Emacs < Formula
   depends_on "texinfo" => :build
   depends_on "gmp"
   depends_on "gnutls"
-  depends_on "jansson"
   depends_on "tree-sitter"
 
   uses_from_macos "libxml2"
