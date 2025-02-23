@@ -2,7 +2,7 @@ class Gmsh < Formula
   desc "3D finite element grid generator with CAD engine"
   homepage "https://gmsh.info/"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
   head "https://gitlab.onelab.info/gmsh/gmsh.git", branch: "master"
 
   stable do
