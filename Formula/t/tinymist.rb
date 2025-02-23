@@ -15,12 +15,12 @@ class Tinymist < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "918f23ed033a41542a00934756d8bc16c30e84fceef63251052e7de1fe5503ab"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7829a9a5d91ebabc12db3143e72ea40f61a377f7efb7aa70f6fd56e03a194376"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3c559cead72b5369a431f2387fbce2df99bc05c081787bc7b42e37b79c72de04"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a81818885a97e16e1921accf71925966a6e2f343f078d5789a7ce4340ff9bf78"
-    sha256 cellar: :any_skip_relocation, ventura:       "4d51f528da2036950a42e914be1a635475e23802cdfed5c574f59582473544c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b4ba937caaad2d1afa0d0a7a6aaf4e18309dc4d00fd95285f017854507982faf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e3098445993396bd95c899405d7b7e32b9544becc69e56fd04a63dd381d0928"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "894a857ab28fb6b62f979c32c48c04c6cfa2e1bcc72bdc6b159fc5a5d8fca7f5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "518ef0a120815146809a1980bcbd59da67816114d24127d0b980433e993b209f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7fef07c3b501dccb67500bb420ffbad3ba1334800ed8e67c0420f53ef4daa408"
+    sha256 cellar: :any_skip_relocation, ventura:       "52ecf3d05159c7f381e2b1b1c7e31d6e0b8d08bb90dd8c47835dba3672eb3a7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63ad21ab21b35be75bb625386b2c4c320d67e7bc752933998dc950603a8052f5"
   end
 
   depends_on "rust" => :build
