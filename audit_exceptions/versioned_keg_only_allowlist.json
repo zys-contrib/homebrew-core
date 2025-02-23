@@ -4,8 +4,6 @@
   "bash-completion@2",
   "cairomm@1.14",
   "clang-format@11",
-  "gcc@7",
-  "gcc@8",
   "gcc@9",
   "gcc@10",
   "gcc@11",
