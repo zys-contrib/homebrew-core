@@ -840,6 +840,7 @@ dstack
 dstask
 dtc
 dtm
+dtsroll
 dua-cli
 dub
 duck
