@@ -1,8 +1,8 @@
 class Hk < Formula
   desc "Git hook and pre-commit lint manager"
   homepage "https://hk.jdx.dev"
-  url "https://github.com/jdx/hk/archive/refs/tags/v0.4.4.tar.gz"
-  sha256 "3a067511d78203e86d02a820411fa496e8ada2f2caf5f6232f5035152d6d35c5"
+  url "https://github.com/jdx/hk/archive/refs/tags/v0.4.5.tar.gz"
+  sha256 "e2a02db455cfdc7445ccc95b932eb1a62c32e9cdc643ee3010eed4d2b98c6f7c"
   license "MIT"
   head "https://github.com/jdx/hk.git", branch: "main"
 
@@ -55,6 +55,6 @@ class Hk < Formula
     system "git", "commit", "-m", "Initial commit"
 
     output = shell_output("#{bin}/hk run pre-commit --all -v 2>&1")
-    assert_match(/cargo-clippy\s* ✓ done/, output)
+    assert_match(/cargo-clippy\s* ✓/, output)
   end
 end
