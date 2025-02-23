@@ -7,12 +7,12 @@ class Cxgo < Formula
   head "https://github.com/gotranspile/cxgo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6b98556bfbd62b06a623e825d495a714c17679a71a179b7e6c4bd180303ab7e0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6b98556bfbd62b06a623e825d495a714c17679a71a179b7e6c4bd180303ab7e0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6b98556bfbd62b06a623e825d495a714c17679a71a179b7e6c4bd180303ab7e0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7e8587aa4932c76cb8d97dbbe6ec70074f522005a2803050aa30096337e89da4"
-    sha256 cellar: :any_skip_relocation, ventura:       "7e8587aa4932c76cb8d97dbbe6ec70074f522005a2803050aa30096337e89da4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b857eada57e6a2a1502c16e1d23faac1b6a82ed24d04eddfbb0b9e2e358f4eaf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8e46f296a649e4f4f524de427e79cf5a8c28ac4d5b55f3e5aae9243b7ea31f31"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e46f296a649e4f4f524de427e79cf5a8c28ac4d5b55f3e5aae9243b7ea31f31"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8e46f296a649e4f4f524de427e79cf5a8c28ac4d5b55f3e5aae9243b7ea31f31"
+    sha256 cellar: :any_skip_relocation, sonoma:        "52cc457a3e45486011265da5f3c5b9f702cfa593fc943d23c4606d2708406b91"
+    sha256 cellar: :any_skip_relocation, ventura:       "52cc457a3e45486011265da5f3c5b9f702cfa593fc943d23c4606d2708406b91"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42180c97c67c678111bed63bd39aae1663b8527e8adade1bffffdc048a676ead"
   end
 
   depends_on "go" => :build
