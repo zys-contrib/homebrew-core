@@ -6,8 +6,7 @@ class VueLanguageServer < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "14531671c5def6a50555531037e25ba5d420deb71cd5c8aa2cb91b9c93c8bf24"
+    sha256 cellar: :any_skip_relocation, all: "379c624f586b93c2bb8cc1fbe17d337ced9a50ce597ba6a62f9c32e838e4a85a"
   end
 
   depends_on "node"
