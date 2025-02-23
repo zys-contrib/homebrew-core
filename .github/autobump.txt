@@ -300,6 +300,7 @@ bnd
 bob
 bochs
 bold
+bombardier
 bomber
 bore-cli
 borgbackup
