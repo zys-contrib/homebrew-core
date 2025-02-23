@@ -6,12 +6,12 @@ class Edgevpn < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d4110c762e1783ef3a98bbca249fe45e7e4c61d9394014f66cb118f66a01175"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d4110c762e1783ef3a98bbca249fe45e7e4c61d9394014f66cb118f66a01175"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6d4110c762e1783ef3a98bbca249fe45e7e4c61d9394014f66cb118f66a01175"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0bc199ec38a7027cc1115f93f788693597bc0227c625ac98f4935f69348b8a0b"
-    sha256 cellar: :any_skip_relocation, ventura:       "0bc199ec38a7027cc1115f93f788693597bc0227c625ac98f4935f69348b8a0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c552dea00fe83f63838068767124e6cee18178628b1800b4015ae59284157c2a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e2cf151662af07dd9e4c6a65dffdf63cdaab07ffac018084cea10f001e52e4d4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e2cf151662af07dd9e4c6a65dffdf63cdaab07ffac018084cea10f001e52e4d4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e2cf151662af07dd9e4c6a65dffdf63cdaab07ffac018084cea10f001e52e4d4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d5a1ffa9b9736aae84868962214ea5cfef60a0e637427a406a4fb87c686a64e4"
+    sha256 cellar: :any_skip_relocation, ventura:       "d5a1ffa9b9736aae84868962214ea5cfef60a0e637427a406a4fb87c686a64e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6872fd5382897a2ff306488f45b2e69ff2747a0cadc4e1e74d62c44eb8084279"
   end
 
   depends_on "go" => :build
