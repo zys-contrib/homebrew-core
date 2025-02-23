@@ -1,8 +1,8 @@
 class Bombardier < Formula
   desc "Cross-platform HTTP benchmarking tool"
   homepage "https://github.com/codesenberg/bombardier"
-  url "https://github.com/codesenberg/bombardier/archive/refs/tags/v2.0.tar.gz"
-  sha256 "7afdeee6d7b2601cdefcfe6f822fc13de11cfe97b6848154460e17c1b454e278"
+  url "https://github.com/codesenberg/bombardier/archive/refs/tags/v2.0.1.tar.gz"
+  sha256 "ecab7b58a5f7fbb74ca390e3256522243087a7ad41f167eead8a62b4c19c12a8"
   license "MIT"
   head "https://github.com/codesenberg/bombardier.git", branch: "master"
 
