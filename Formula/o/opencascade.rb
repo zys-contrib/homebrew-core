@@ -20,12 +20,12 @@ class Opencascade < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0b595733f44fc4274d778db8b823a084c8c7db25340e379f9576a459ced632d7"
-    sha256 cellar: :any,                 arm64_sonoma:  "50d193d6a0919f8f5cd3b015a76093c29a18d2400fcfb87ef1452dde71650dae"
-    sha256 cellar: :any,                 arm64_ventura: "0dbe2be098a5fcc4e0a23bd40885510a28a5121361668ebe0c53ccf3aac26ee9"
-    sha256 cellar: :any,                 sonoma:        "5d9d9858f837687cc5500eb05db8792b37cb31711deb7c5ef43bab7c13f876d0"
-    sha256 cellar: :any,                 ventura:       "077de8a6d15b74ace2cceaf344a6b3e2251df03d0e84bbee6b4ccf677d560b4d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c10e9c2b101c131e968115e39ba3ae20aa35559f8e2adce8ee7b809c4624444"
+    sha256 cellar: :any,                 arm64_sequoia: "4859dfeb89c2e8f650f80ba42e3c0ab573d8e6aeb42a0bf1cc08b5ec51614444"
+    sha256 cellar: :any,                 arm64_sonoma:  "288f7cc7ce278d5c1e8cd354bf2c516dbf9e82e7d00ee9e0c78511b32f965f5e"
+    sha256 cellar: :any,                 arm64_ventura: "c4b464fe8f78edcf70d5a8f9662fce4a470746c3d0010e1a7f7a39a4a319e8f8"
+    sha256 cellar: :any,                 sonoma:        "ec0c1ef905475a63e3970aaf523b4d7282756d158dba923d026f8b293077e604"
+    sha256 cellar: :any,                 ventura:       "9a0a430bd6c19e8eb09552e7ca9d243e62edf8354c8e11cd354a094437b7d7a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1081e3305009581bef27218ae339299e175f79d6c614e2a6528ac551259bc98b"
   end
 
   depends_on "cmake" => [:build, :test]
