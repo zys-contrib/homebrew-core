@@ -2,11 +2,18 @@ class Gstreamer < Formula
   desc "Development framework for multimedia applications"
   homepage "https://gstreamer.freedesktop.org/"
   license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
-  revision 1
+  revision 2
 
   stable do
     url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.24.12/gstreamer-1.24.12.tar.bz2"
     sha256 "23c0e1de51ce96be8ef26c79f9b971a11ab82c8e6267cea8c3933ede28fba155"
+
+    # Backport support for `svt-av1` >= 3.0.0
+    # upstream commit ref, https://gitlab.freedesktop.org/gstreamer/gstreamer/-/commit/6bdfaa4606c417be8a64f4494fe95ea30421c24b
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/6cf03eafb8a3e77dcd4a7ddfc668f142dd42f9ee/gstreamer/gst-plugins-bad-svtav1.patch"
+      sha256 "a45f7a192df14b22c4bd106a63ad691ca6f8a219a37904f7a6e9dab9cc9dafea"
+    end
 
     # When updating this resource, use the tag that matches the GStreamer version.
     resource "rs" do
