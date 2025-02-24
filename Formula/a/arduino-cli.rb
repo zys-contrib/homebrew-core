@@ -1,8 +1,8 @@
 class ArduinoCli < Formula
   desc "Arduino command-line interface"
-  homepage "https://github.com/arduino/arduino-cli"
-  url "https://github.com/arduino/arduino-cli/archive/refs/tags/v1.1.1.tar.gz"
-  sha256 "df09593aee5f9e03b4aa4321fca90def01336f11681d87d57e5c73e4574a92cc"
+  homepage "https://arduino.github.io/arduino-cli/latest/"
+  url "https://github.com/arduino/arduino-cli/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "f576e40873037e39cdd1a8297b34aa8305b53e2268307944765778a925dba0f1"
   license "GPL-3.0-only"
   head "https://github.com/arduino/arduino-cli.git", branch: "master"
 
@@ -25,9 +25,9 @@ class ArduinoCli < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/arduino/arduino-cli/version.versionString=#{version}
-      -X github.com/arduino/arduino-cli/version.commit=#{tap.user}
-      -X github.com/arduino/arduino-cli/version.date=#{time.iso8601}
+      -X github.com/arduino/arduino-cli/internal/version.versionString=#{version}
+      -X github.com/arduino/arduino-cli/internal/version.commit=#{tap.user}
+      -X github.com/arduino/arduino-cli/internal/version.date=#{time.iso8601}
     ]
     system "go", "build", *std_go_args(ldflags:)
 
