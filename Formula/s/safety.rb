@@ -3,8 +3,8 @@ class Safety < Formula
 
   desc "Checks Python dependencies for known vulnerabilities and suggests remediations"
   homepage "https://safetycli.com/product/safety-cli"
-  url "https://files.pythonhosted.org/packages/53/d9/b4f443bce33e451e3fbb3ca14de11d4c87d5675a56bbcac9934fac75f4f0/safety-3.3.0.tar.gz"
-  sha256 "67f9f823120e42ff3f0f5fdba00d0547fb9c655bc77c179084b75bf961abcfae"
+  url "https://files.pythonhosted.org/packages/dc/55/873096606ff9cfad99cb3de8377461fb05217f65ad0690b9fe6a6e3afe95/safety-3.3.1.tar.gz"
+  sha256 "679834432d0ad64c54e0b864ac6715d4743a65f8db67512380ee7ee2011c206a"
   license "MIT"
   head "https://github.com/pyupio/safety.git", branch: "main"
 
@@ -63,9 +63,9 @@ class Safety < Formula
     sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
   end
 
-  resource "levenshtein" do
-    url "https://files.pythonhosted.org/packages/97/e6/79807d3b59a67dd78bb77072ca6a28d8db0935161fecf935e6c38c5f6825/levenshtein-0.26.1.tar.gz"
-    sha256 "0d19ba22330d50609b2349021ec3cf7d905c6fe21195a2d0d876a146e7ed2575"
+  resource "joblib" do
+    url "https://files.pythonhosted.org/packages/64/33/60135848598c076ce4b231e1b1895170f45fbcaeaa2c9d5e38b04db70c35/joblib-1.4.2.tar.gz"
+    sha256 "2382c5816b2636fbd20a09e0f4e9dad4736765fdfb7dca582943b9c1366b3f0e"
   end
 
   resource "markdown-it-py" do
@@ -86,6 +86,11 @@ class Safety < Formula
   resource "mdurl" do
     url "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz"
     sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
+  end
+
+  resource "nltk" do
+    url "https://files.pythonhosted.org/packages/3c/87/db8be88ad32c2d042420b6fd9ffd4a149f9a0d7f0e86b3f543be2eeeedd2/nltk-3.9.1.tar.gz"
+    sha256 "87d127bd3de4bd89a4f81265e5fa59cb1b199b27440175370f7417d2bc7ae868"
   end
 
   resource "packaging" do
@@ -113,14 +118,9 @@ class Safety < Formula
     sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
   end
 
-  resource "python-levenshtein" do
-    url "https://files.pythonhosted.org/packages/31/72/58d77cb80b3c130d94f53a8204ffad9acfddb925b2fb5818ff9af0b3c832/python_levenshtein-0.26.1.tar.gz"
-    sha256 "24ba578e28058ebb4afa2700057e1678d7adf27e43cd1f17700c09a9009d5d3a"
-  end
-
-  resource "rapidfuzz" do
-    url "https://files.pythonhosted.org/packages/c9/df/c300ead8c2962f54ad87872e6372a6836f0181a7f20b433c987bd106bfce/rapidfuzz-3.12.1.tar.gz"
-    sha256 "6a98bbca18b4a37adddf2d8201856441c26e9c981d8895491b5bc857b5f780eb"
+  resource "regex" do
+    url "https://files.pythonhosted.org/packages/8e/5f/bd69653fbfb76cf8604468d3b4ec4c403197144c7bfe0e6a5fc9e02a07cb/regex-2024.11.6.tar.gz"
+    sha256 "7ab159b063c52a0333c884e4679f8d7a85112ee3078fe3d9004b2dd875585519"
   end
 
   resource "requests" do
@@ -139,8 +139,8 @@ class Safety < Formula
   end
 
   resource "safety-schemas" do
-    url "https://files.pythonhosted.org/packages/ee/b5/736f73c3acb96b93f64006fa3fa6c78d99a7abba6aad46acc3f0b2438b2d/safety_schemas-0.0.10.tar.gz"
-    sha256 "5ec83bb19e17003748d2a4b11e43e1f2b4471c9434329e9a0d80d1069966b96c"
+    url "https://files.pythonhosted.org/packages/91/a2/e75f7de6a0872ed80b4b09221a9640d5856a8c3730ba59534d3007c9ae3a/safety_schemas-0.0.11.tar.gz"
+    sha256 "10804372e077ca5a95e740cc507e73d9173663284006fcaaf5756179ba13ac9d"
   end
 
   resource "setuptools" do
@@ -151,6 +151,11 @@ class Safety < Formula
   resource "shellingham" do
     url "https://files.pythonhosted.org/packages/58/15/8b3609fd3830ef7b27b655beb4b4e9c62313a4e8da8c676e142cc210d58e/shellingham-1.5.4.tar.gz"
     sha256 "8dbca0739d487e5bd35ab3ca4b36e11c4078f3a234bfce294b0a0291363404de"
+  end
+
+  resource "tqdm" do
+    url "https://files.pythonhosted.org/packages/a8/4b/29b4ef32e036bb34e4ab51796dd745cdba7ed47ad142a9f4a1eb8e0c744d/tqdm-4.67.1.tar.gz"
+    sha256 "f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2"
   end
 
   resource "typer" do
