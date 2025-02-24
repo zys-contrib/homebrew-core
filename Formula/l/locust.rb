@@ -3,8 +3,8 @@ class Locust < Formula
 
   desc "Scalable user load testing tool written in Python"
   homepage "https://locust.io/"
-  url "https://files.pythonhosted.org/packages/73/11/44af1d3999ae77573e435b8fbdc3e2ea624c11661cde8ac4e0c6ece0e15c/locust-2.32.10.tar.gz"
-  sha256 "09dc28a788cdcd5b0c5ec5b34e2577e45f9b43d349b8614b74f0de86779c8856"
+  url "https://files.pythonhosted.org/packages/f8/d4/873b1415c8a667982c5f229c6b74abed9fe0ead29ad87d862e5116ea2679/locust-2.33.0.tar.gz"
+  sha256 "ba291b7ab2349cc2db540adb8888bc93feb89ea4e4e10d80b935e5065091e8e9"
   license "MIT"
 
   bottle do
@@ -53,8 +53,8 @@ class Locust < Formula
   end
 
   resource "flask-cors" do
-    url "https://files.pythonhosted.org/packages/4f/d0/d9e52b154e603b0faccc0b7c2ad36a764d8755ef4036acbf1582a67fb86b/flask_cors-5.0.0.tar.gz"
-    sha256 "5aadb4b950c4e93745034594d9f3ea6591f734bb3662e16e255ffbf5e89c88ef"
+    url "https://files.pythonhosted.org/packages/32/d8/667bd90d1ee41c96e938bafe81052494e70b7abd9498c4a0215c103b9667/flask_cors-5.0.1.tar.gz"
+    sha256 "6ccb38d16d6b72bbc156c1c3f192bc435bfcc3c2bc864b2df1eb9b2d97b2403c"
   end
 
   resource "flask-login" do
