@@ -1,8 +1,8 @@
 class Qsv < Formula
   desc "Ultra-fast CSV data-wrangling toolkit"
   homepage "https://qsv.dathere.com/"
-  url "https://github.com/dathere/qsv/archive/refs/tags/3.0.0.tar.gz"
-  sha256 "25d2fec81e027682c3a67b5d3088082df77a899c946fff423b0f969353b7968b"
+  url "https://github.com/dathere/qsv/archive/refs/tags/3.1.1.tar.gz"
+  sha256 "a533e35c4c2a4145e9d94fec76f5cc0ddf4b9f650286145172096e677fce6af5"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/dathere/qsv.git", branch: "master"
 
@@ -23,6 +23,8 @@ class Qsv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b123f993a9d9990368fa962c29d9c76f519d86e857ab43ddaceca97c391ab72"
   end
 
+  depends_on "cmake" => :build # for libz-ng-sys
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   on_linux do
@@ -38,7 +40,7 @@ class Qsv < Formula
 
   test do
     (testpath/"test.csv").write("first header,second header")
-    assert_equal <<~EOS, shell_output("#{bin}/qsv stats test.csv")
+    assert_equal <<~EOS, shell_output("#{bin}/qsv stats --dataset-stats test.csv")
       field,type,is_ascii,sum,min,max,range,sort_order,sortiness,min_length,max_length,sum_length,avg_length,stddev_length,variance_length,cv_length,mean,sem,geometric_mean,harmonic_mean,stddev,variance,cv,nullcount,max_precision,sparsity,qsv__value
       first header,NULL,,,,,,,,,,,,,,,,,,,,,,0,,,
       second header,NULL,,,,,,,,,,,,,,,,,,,,,,0,,,
