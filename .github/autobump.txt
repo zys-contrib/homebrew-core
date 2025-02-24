@@ -3342,6 +3342,7 @@ tfproviderlint
 tfschema
 tfsec
 tfupdate
+tgpt
 tgui
 thanos
 the-way
