@@ -1557,6 +1557,7 @@ jhipster
 jikken
 jimtcl
 jing-trang
+jira-cli
 jj
 jlog
 jmeter
