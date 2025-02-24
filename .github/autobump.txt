@@ -2110,6 +2110,7 @@ mdcat
 mdds
 mdformat
 mdless
+mdq
 mdsh
 mdz
 mdzk
