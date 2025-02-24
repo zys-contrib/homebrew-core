@@ -26,8 +26,17 @@ class Par2 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "68a34f74212b806d82f10515575e8f62a90eb2066d6fffb24c5f422a380854fb"
   end
 
+  on_macos do
+    depends_on "libomp"
+  end
+
   def install
-    system "./configure", "--prefix=#{prefix}"
+    if OS.mac?
+      libomp = Formula["libomp"]
+      ENV.append_to_cflags "-Xpreprocessor -fopenmp -I#{libomp.opt_include} -L#{libomp.opt_lib} -lomp"
+    end
+
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
