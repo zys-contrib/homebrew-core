@@ -22,6 +22,11 @@ class Daemontools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b6e2a4ebdbbc3105db2cc0425d85d782a5f0cccd10def1e0a7c63c05e13c2b1"
   end
 
+  resource "man" do
+    url "https://deb.debian.org/debian/pool/main/d/daemontools/daemontools_0.76-8.1.debian.tar.xz"
+    sha256 "b9a1ed0ea88172d921738237c48e67cbe3b04e5256fea8ec00f32116c9ef74c0"
+  end
+
   # Fix build failure due to missing #include <errno.h> on Linux.
   # Patch submitted to author by email.
   patch do
@@ -49,6 +54,10 @@ class Daemontools < Formula
 
       system "package/compile"
       bin.install Dir["command/*"]
+    end
+
+    resource("man").stage do
+      man8.install Dir["daemontools-man/*.8"]
     end
   end
 
