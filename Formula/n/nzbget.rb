@@ -1,10 +1,9 @@
 class Nzbget < Formula
   desc "Binary newsgrabber for nzb files"
   homepage "https://nzbget.com"
-  url "https://github.com/nzbgetcom/nzbget/archive/refs/tags/v24.5.tar.gz"
-  sha256 "d8a26fef9f92d63258251c69af01f39073a479e48c14114dc96d285470312c83"
+  url "https://github.com/nzbgetcom/nzbget/archive/refs/tags/v24.6.tar.gz"
+  sha256 "93626dff2e725a1f1d99d14377826b264c7ae500559c6ad29d7cdd3c6d2dc6a3"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/nzbgetcom/nzbget.git", branch: "develop"
 
   bottle do
