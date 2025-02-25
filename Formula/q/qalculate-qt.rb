@@ -7,11 +7,11 @@ class QalculateQt < Formula
   head "https://github.com/Qalculate/qalculate-qt.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "37caa473c2b48e5e6bd3c498ce5d2ca638192adff0cfe72599c33f4731d8d374"
-    sha256 cellar: :any,                 arm64_ventura: "e2ad4002f02e22d166a3af195e6892678ba8e7c7eed08f2eee30ac6bbc64db02"
-    sha256 cellar: :any,                 sonoma:        "e14797dec296ea99cb35a501eed70e86e6c8c5ff2de57006b673fffe3dd581fb"
-    sha256 cellar: :any,                 ventura:       "676d648e392041cf859e3caa1905ffdbbd108d04fa53cd5b5a33cd619f2530e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16e07f18e15d0b528dadf060a42c4326c1a096317e479fabf43a3bf5efe60c0f"
+    sha256 cellar: :any,                 arm64_sonoma:  "b06ff9fe513cb5cf5001cd191b09c8c216b4ecc0fcb72811758e7887cc5504cc"
+    sha256 cellar: :any,                 arm64_ventura: "0a09e028d074e3e8e8f7b83b43db1f03b2ae21d59a97e12cb09e22ff53849100"
+    sha256 cellar: :any,                 sonoma:        "a612516358a27b4d6c6d44d539b1c46b06d13de1143105b199e56964963e5ffd"
+    sha256 cellar: :any,                 ventura:       "9c64e3a28a9b2fa83c4ba77f289ad8cf163acab3d8b982e67b7cf2333a7da06f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "05413f45291372343722733bc6c2d4d8c1b1d9b77d34a7695d6f5c683bbb9fbb"
   end
 
   depends_on "pkgconf" => :build
