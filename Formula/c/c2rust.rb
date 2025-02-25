@@ -6,13 +6,12 @@ class C2rust < Formula
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "6eefd13cc36a0b3ab1cbfa9ec802bacd36ef00206ed3cf827c62f9c403c48676"
-    sha256 cellar: :any,                 arm64_sonoma:  "069b88aa5e4065712b9dd17c778bcda625d3ed6c1f1a5e781238fed63bed1783"
-    sha256 cellar: :any,                 arm64_ventura: "39fd69af63e922ea4238fd482f100abb7b16c4cd780f25405c85212542400fc1"
-    sha256 cellar: :any,                 sonoma:        "d8142840f7b061e9a1fe8a7abc122a02241d085da8b9be1a2a37ee3f3bdcfe1b"
-    sha256 cellar: :any,                 ventura:       "aa1fe9c8bab9e74dc4eb4a95587b26723eb37cdd9a409251073d3a55fa51a723"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5016b79a5d6b22e582fd3ac7aaecf39bffa3677f3247408f725e77b42502bba"
+    sha256 cellar: :any,                 arm64_sequoia: "dacd5b36647696ad2e1863cb2f12fa8c6063c242f691d371b808a1b0310f0911"
+    sha256 cellar: :any,                 arm64_sonoma:  "b97d3c3bfc6ef351f11d6c354429883673846f68fd5f4358b8f6d6bbf57355c0"
+    sha256 cellar: :any,                 arm64_ventura: "0b0a702e795b476ee814afb2baae0ada272969df641eeb73de82ca4c730688fa"
+    sha256 cellar: :any,                 sonoma:        "77ed97b9636ca5992fa5b445d951976d696c2d4aa50e321d60d046601ecf832f"
+    sha256 cellar: :any,                 ventura:       "dea354ab6e4c104f14001b5005589ffbfc617e7c3af9c52b8333016edf6236ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fffe661d012d1c8957c55d107c6c85438f2a3c8199d2d298744ad5964626da33"
   end
 
   depends_on "cmake" => [:build, :test]
