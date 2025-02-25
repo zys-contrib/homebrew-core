@@ -1,8 +1,8 @@
 class Inchi < Formula
   desc "IUPAC International Chemical Identifier"
   homepage "https://www.inchi-trust.org/"
-  url "https://github.com/IUPAC-InChI/InChI/releases/download/v1.07.2/INCHI-1-SRC.zip"
-  sha256 "4a5627befd1ea29853d4920d975563874108648efe9bfcd1d4dfa3a215032cfb"
+  url "https://github.com/IUPAC-InChI/InChI/releases/download/v1.07.3/INCHI-1-SRC.zip"
+  sha256 "b42d828b5d645bd60bc43df7e0516215808d92e5a46c28e12b1f4f75dfaae333"
   license "MIT"
 
   bottle do
