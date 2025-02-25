@@ -1,8 +1,8 @@
 class Libdex < Formula
   desc "Future-based programming for GLib-based applications"
   homepage "https://gitlab.gnome.org/GNOME/libdex"
-  url "https://gitlab.gnome.org/GNOME/libdex/-/archive/0.9.0/libdex-0.9.0.tar.gz"
-  sha256 "c4da72a9215dc30e51c7ca17be169233e26ed56298645c28445d0da71e69aec2"
+  url "https://gitlab.gnome.org/GNOME/libdex/-/archive/0.9.1/libdex-0.9.1.tar.gz"
+  sha256 "8106d034bd34fd3dd2160f9ac1c594e4291aa54a258c5c84cca7a7260fce2fe1"
   license "LGPL-2.1-or-later"
   head "https://gitlab.gnome.org/GNOME/libdex.git", branch: "main"
 
@@ -22,8 +22,19 @@ class Libdex < Formula
   depends_on "vala" => :build # for vapigen
   depends_on "glib"
 
+  on_macos do
+    # TODO: Upstream patch removing `libatomic` requirement on macOS, as it isn't needed.
+    depends_on "gcc" => :build
+  end
+
   def install
-    system "meson", "setup", "build", "-Dexamples=false", "-Dsysprof=false", "-Dtests=false", *std_meson_args
+    ENV.append "LDFLAGS", "-L#{Formula["gcc"].opt_lib}/gcc/current" if OS.mac?
+    args = %w[
+      -Dexamples=false
+      -Dtests=false
+    ]
+
+    system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
     pkgshare.install "examples", "build/config.h"
