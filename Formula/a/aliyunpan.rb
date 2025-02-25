@@ -1,8 +1,8 @@
 class Aliyunpan < Formula
   desc "Command-line client tool for Alibaba aDrive disk"
   homepage "https://github.com/tickstep/aliyunpan"
-  url "https://github.com/tickstep/aliyunpan/archive/refs/tags/v0.3.5.tar.gz"
-  sha256 "65aff30f4129a77af2a7cc3cffd95bf3234abf65acb5cc1d4a97eed701369f03"
+  url "https://github.com/tickstep/aliyunpan/archive/refs/tags/v0.3.6.tar.gz"
+  sha256 "8ed4222479ef72f7b63e64a851804a6a9ddb917c20026cdc1255ff0450c1a251"
   license "Apache-2.0"
   head "https://github.com/tickstep/aliyunpan.git", branch: "main"
 
