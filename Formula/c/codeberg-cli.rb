@@ -7,12 +7,12 @@ class CodebergCli < Formula
   head "https://codeberg.org/Aviac/codeberg-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3a764c3f1e6b3a4187050e62ec0606f5b0c41b542842dd65d8e7bf3a0186219c"
-    sha256 cellar: :any,                 arm64_sonoma:  "9195c2c7ee00ce0809b185a7060a54242aa44bd7797e2a2eac77f1d8a4f204f2"
-    sha256 cellar: :any,                 arm64_ventura: "ee265e81ca7146a9942ae8d60b11f34709a6b2e2fd5b3cebc1136f1d561bc555"
-    sha256 cellar: :any,                 sonoma:        "160a1990a673c56f3e3cea058c8ac23a952fb95ed5ed60838feec93d6064e5df"
-    sha256 cellar: :any,                 ventura:       "11b46470d5f083410b2d0b6af069deff3081ed5a317836f8264682c79362db37"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "407a3a9e6419a3485e85bffa2ed27c8a1b35885240cd2c0b23b970d0e1dcd4cf"
+    sha256 cellar: :any,                 arm64_sequoia: "21d2cd2ea6730f8ef6e08f58492fa33d91140ef96c843b0aed67ce92107f3c62"
+    sha256 cellar: :any,                 arm64_sonoma:  "7de0a03f0cd0c10d0fd3cdc5f5ff48f7c5bdfa2e4b6e894fdcf5f9f5c79a2481"
+    sha256 cellar: :any,                 arm64_ventura: "f8e8824143098d71ddeba4c33e58d091a4b899b2c785fc6ff990a714a325c69b"
+    sha256 cellar: :any,                 sonoma:        "745cc127a2cd69da11b14a18db4aca864533d237de3d31f1dad63c6cd3b01db2"
+    sha256 cellar: :any,                 ventura:       "01f84efd74f4eb2581d569d008905bd555367bf074089d907c8987569fb0d9b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ff0610fc76fa040d713d925372cce80286a2b8f1f399400f94127fc2277cabb"
   end
 
   depends_on "pkgconf" => :build
