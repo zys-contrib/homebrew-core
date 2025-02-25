@@ -3,8 +3,8 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/31/8f/549a22adf7121a7cc4bd6458df1da7388bc0d39fe926c833bb24ef191276/esphome-2025.2.0.tar.gz"
-  sha256 "17a74b524977d8919424cb6b6b305a5ad06b73658379cc7561f10aa59cde117c"
+  url "https://files.pythonhosted.org/packages/fa/e2/48de5920344b2ea4191b3bbced910903be98d0a14866a9be59e4003ab4f8/esphome-2025.2.1.tar.gz"
+  sha256 "8ff675390a58c267765bed644cc7c8fcc1bf11b7354c4a2f8c873aa74c954864"
   license "MIT"
 
   bottle do
@@ -23,8 +23,8 @@ class Esphome < Formula
   depends_on "python@3.13"
 
   resource "aioesphomeapi" do
-    url "https://files.pythonhosted.org/packages/81/5d/af87d02e7ee8f6b5d34b07e3ea533bba43c2653954cd25e749fa09782228/aioesphomeapi-29.1.0.tar.gz"
-    sha256 "d4ba93e0fecf3efb240c3cabbf3dac8bee720b7db718b3bc16c29dd6bf165a5d"
+    url "https://files.pythonhosted.org/packages/fe/a0/f3e3413a574e2c20448f4c1cee9356d1e1a65840f1bfcd77dd1fce773719/aioesphomeapi-29.1.1.tar.gz"
+    sha256 "5ce6c5304e6a397e802a9224f08cc5be38da4d3dd29a1f0f0d4cc2b3e0121bf1"
   end
 
   resource "aiohappyeyeballs" do
@@ -48,8 +48,8 @@ class Esphome < Formula
   end
 
   resource "async-interrupt" do
-    url "https://files.pythonhosted.org/packages/6e/15/96fb85b0f1a87d8feae8069351d32fe0bfa196f5b4aa0cf9cad191781d14/async_interrupt-1.2.1.tar.gz"
-    sha256 "52b8cbf763d8328c79946b1c9b4c34108370e9022cf285ad0c6c53042dabc82f"
+    url "https://files.pythonhosted.org/packages/56/79/732a581e3ceb09f938d33ad8ab3419856181d95bb621aa2441a10f281e10/async_interrupt-1.2.2.tar.gz"
+    sha256 "be4331a029b8625777905376a6dc1370984c8c810f30b79703f3ee039d262bf7"
   end
 
   resource "bitarray" do
@@ -178,8 +178,8 @@ class Esphome < Formula
   end
 
   resource "pyelftools" do
-    url "https://files.pythonhosted.org/packages/88/56/0f2d69ed9a0060da009f672ddec8a71c041d098a66f6b1d80264bf6bbdc0/pyelftools-0.31.tar.gz"
-    sha256 "c774416b10310156879443b81187d182d8d9ee499660380e645918b50bc88f99"
+    url "https://files.pythonhosted.org/packages/b9/ab/33968940b2deb3d92f5b146bc6d4009a5f95d1d06c148ea2f9ee965071af/pyelftools-0.32.tar.gz"
+    sha256 "6de90ee7b8263e740c8715a925382d4099b354f29ac48ea40d840cf7aa14ace5"
   end
 
   resource "pyparsing" do
