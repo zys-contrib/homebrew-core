@@ -1,9 +1,9 @@
 class MariadbConnectorOdbc < Formula
   desc "Database driver using the industry standard ODBC API"
   homepage "https://mariadb.org/download/?tab=connector&prod=connector-odbc"
-  url "https://archive.mariadb.org/connector-odbc-3.2.4/mariadb-connector-odbc-3.2.4-src.tar.gz"
-  mirror "https://fossies.org/linux/misc/mariadb-connector-odbc-3.2.4-src.tar.gz/"
-  sha256 "964812d9b0df0a03482fbddb79ccab6a1879f14e9258476c57b5796cdb7f004b"
+  url "https://archive.mariadb.org/connector-odbc-3.2.5/mariadb-connector-odbc-3.2.5-src.tar.gz"
+  mirror "https://fossies.org/linux/misc/mariadb-connector-odbc-3.2.5-src.tar.gz/"
+  sha256 "3b728f8b5f446581759cc3fb0d7a66ee83d33f96c0a77389b37886bdd9c27e31"
   license "LGPL-2.1-or-later"
 
   livecheck do
