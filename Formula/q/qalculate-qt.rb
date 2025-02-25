@@ -1,8 +1,8 @@
 class QalculateQt < Formula
   desc "Multi-purpose desktop calculator"
   homepage "https://qalculate.github.io/"
-  url "https://github.com/Qalculate/qalculate-qt/releases/download/v5.5.0/qalculate-qt-5.5.0.tar.gz"
-  sha256 "e7e97b2fb6fde836eae2e7bc4249d54cd5ecac13c00e56188de0c21664fb4086"
+  url "https://github.com/Qalculate/qalculate-qt/releases/download/v5.5.1/qalculate-qt-5.5.1.tar.gz"
+  sha256 "2d01841f7a7703417c6c251bcd6bcda81db0bf7d5c32827b7a8b396d572af843"
   license "GPL-2.0-or-later"
   head "https://github.com/Qalculate/qalculate-qt.git", branch: "main"
 
