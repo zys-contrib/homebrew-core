@@ -9,7 +9,7 @@ class NicotinePlus < Formula
   head "https://github.com/nicotine-plus/nicotine-plus.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "af1f4ffd58ac45eb0d375df8ef5e39979c885cdbe426cd6488155bfe6b0dd90c"
+    sha256 cellar: :any_skip_relocation, all: "477f72d5df21ca011ae3180eb0c07762d5cf64b737e670a8b2b0508b1135ce5b"
   end
 
   depends_on "adwaita-icon-theme"
