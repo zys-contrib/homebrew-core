@@ -22,12 +22,11 @@ class Rtabmap < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_sonoma:  "efd50883572aa0c10a2fa435f148bca43bf7822d0d65948b5fbfa21cfa052d80"
-    sha256                               arm64_ventura: "38d22af33407cf0e98dc8076775e55699f0c445311bac17bcfcbc2fefcbdd8ab"
-    sha256                               sonoma:        "44e60e0677742e0e9da6ec271c0080625abd04c05f58b38457ba286538643864"
-    sha256                               ventura:       "27c9873f7e95a90fddd2c15d7a57b71eba01714f314b84897c6f4a6ced24f798"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c80825db603f2696e1ddbbdd608c6422295fdd41d600482384b543b704bccecb"
+    sha256                               arm64_sonoma:  "1d433bee617217b945cc97f14e98ef947b3966d804f884f047607fb51fb13852"
+    sha256                               arm64_ventura: "1e9747b0eb5689899563716f8956590a882545c2f0a9e73df82cd4148f1f198c"
+    sha256                               sonoma:        "99d65d4e03958e697247bf67bbce34cd78356c48e06c119883252ab0eabc9f6f"
+    sha256                               ventura:       "6d1567f28fac55c42410af8f0946efd7f5513a21c66bdce68a609f90918a47df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78f9cf656952b8ca809bd8f68b6903727b9957aedb88f592e680de09ddbbbf37"
   end
 
   depends_on "cmake" => [:build, :test]
