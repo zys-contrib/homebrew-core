@@ -2571,6 +2571,7 @@ pgpool-ii
 pgrok
 pgroonga
 pgrouting
+pgrx
 pgweb
 phive
 phoronix-test-suite
