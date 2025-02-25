@@ -6,12 +6,12 @@ class Dtsroll < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4aaf6da89655bd3ef6efffaa43864993834a2c2906a8ce38d82b5520ccc7734a"
-    sha256 cellar: :any,                 arm64_sonoma:  "4aaf6da89655bd3ef6efffaa43864993834a2c2906a8ce38d82b5520ccc7734a"
-    sha256 cellar: :any,                 arm64_ventura: "4aaf6da89655bd3ef6efffaa43864993834a2c2906a8ce38d82b5520ccc7734a"
-    sha256 cellar: :any,                 sonoma:        "8ba13591c84098ce42062f50731285ab777027da8081117304284c2d359e75c3"
-    sha256 cellar: :any,                 ventura:       "8ba13591c84098ce42062f50731285ab777027da8081117304284c2d359e75c3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aaa7c618b76c1a0781a581ac9cd7b929b64530eb32f6bcad45fb8f19a9f4139b"
+    sha256 cellar: :any,                 arm64_sequoia: "f4e9c696c1eff169a56afc231df64ddb3afd1a94a93d06df600cbca2f243ac01"
+    sha256 cellar: :any,                 arm64_sonoma:  "f4e9c696c1eff169a56afc231df64ddb3afd1a94a93d06df600cbca2f243ac01"
+    sha256 cellar: :any,                 arm64_ventura: "f4e9c696c1eff169a56afc231df64ddb3afd1a94a93d06df600cbca2f243ac01"
+    sha256 cellar: :any,                 sonoma:        "16f1125c683e13616e62314f8e4bc91be5181ac227b3aeb99dcb1d4fc2035e62"
+    sha256 cellar: :any,                 ventura:       "16f1125c683e13616e62314f8e4bc91be5181ac227b3aeb99dcb1d4fc2035e62"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "64e17a278f414e6c1c8efbd55f535d0ef459bb7c657b3ae2b4196611c21530e6"
   end
 
   depends_on "node"
