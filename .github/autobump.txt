@@ -2892,6 +2892,7 @@ rospo
 roswell
 rover
 roxctl
+rp
 rpg-cli
 rpki-client
 rpl
