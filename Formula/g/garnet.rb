@@ -5,6 +5,14 @@ class Garnet < Formula
   sha256 "f8332a6347ffb6836d4e8786242c8ac66b1422f5e1afa6c6cd3ef5f28085b844"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "c2c3df413d8223f1988e20045708047dd04b3761a7ceef3f59185db0f3d6d7f2"
+    sha256 cellar: :any,                 arm64_sonoma:  "3c3f3d95ba9ecfec4f1366abe6cfc5b9b612c119d77a78f6b3db3d359905e246"
+    sha256 cellar: :any,                 arm64_ventura: "3cf61e06bda4ab58b5caa8af1515f18b3e83c4fcdd96a3f21b0366d66aa5a953"
+    sha256 cellar: :any,                 ventura:       "0e1a8d19cb138c7abd281bbcabaf522050be8d49c7016c40f6312f0eb6cc4085"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5061ef2e492efa8ef38883741bf55fc85f0baa1a1a2403bc04c1dca79dfa3885"
+  end
+
   depends_on "redis" => :test
   depends_on "dotnet@8"
 
