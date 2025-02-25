@@ -3,8 +3,8 @@ class Tmt < Formula
 
   desc "Test Management Tool"
   homepage "https://tmt.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/fc/eb/5eaeaba925f68cadb62e5af4b394d270c580b6a8586deb253ebe9f669771/tmt-1.42.1.tar.gz"
-  sha256 "9f822f29294841fe8324a30f537462a0b07d215a8ef50a5d78bde579870b41d0"
+  url "https://files.pythonhosted.org/packages/83/ac/e26eaa08ca1dbcd77f7f70206a64e82554a2d60cf756ee348dc614771df7/tmt-1.43.0.tar.gz"
+  sha256 "81d33c0f0edd71fd265d51a07245d783fa608264adac1a55db90059ff7a012da"
   license "MIT"
 
   bottle do
@@ -132,8 +132,8 @@ class Tmt < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/01/80/cce854d0921ff2f0a9fa831ba3ad3c65cee3a46711addf39a2af52df2cfd/rpds_py-0.22.3.tar.gz"
-    sha256 "e32fee8ab45d3c2db6da19a5323bc3362237c8b653c70194414b892fd06a080d"
+    url "https://files.pythonhosted.org/packages/0a/79/2ce611b18c4fd83d9e3aecb5cba93e1917c050f556db39842889fa69b79f/rpds_py-0.23.1.tar.gz"
+    sha256 "7f3240dcfa14d198dba24b8b9cb3b108c06b68d45b7babd9eefc1038fdf7e707"
   end
 
   resource "ruamel-yaml" do
