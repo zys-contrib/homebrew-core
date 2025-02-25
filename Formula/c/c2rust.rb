@@ -1,10 +1,9 @@
 class C2rust < Formula
   desc "Migrate C code to Rust"
   homepage "https://c2rust.com/"
-  url "https://github.com/immunant/c2rust/archive/refs/tags/v0.19.0.tar.gz"
-  sha256 "912c28e5e289d1a9ef1e0f6c89db97eba19eda58625ca8bdc5b513fdb3c19ba4"
+  url "https://github.com/immunant/c2rust/archive/refs/tags/v0.20.0.tar.gz"
+  sha256 "482330d3f27cfe85deea207e490bebbbe9c709b4bc054e3135498b3bbb585bec"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
     rebuild 1
