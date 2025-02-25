@@ -19,6 +19,9 @@ class Hl < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    generate_completions_from_executable(bin/"hl", "--shell-completions")
+    (man1/"hl.1").write Utils.safe_popen_read(bin/"hl", "--man-page")
   end
 
   test do
