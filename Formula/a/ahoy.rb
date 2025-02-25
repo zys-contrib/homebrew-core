@@ -1,8 +1,8 @@
 class Ahoy < Formula
   desc "Creates self documenting CLI programs from commands in YAML files"
   homepage "https://github.com/ahoy-cli/ahoy/"
-  url "https://github.com/ahoy-cli/ahoy/archive/refs/tags/v2.3.0.tar.gz"
-  sha256 "d48b832a475fc9aa5ea42784ac77805afa7bcd477d919a603ec022c240a045df"
+  url "https://github.com/ahoy-cli/ahoy/archive/refs/tags/v2.4.0.tar.gz"
+  sha256 "934456f62143eb6dd92507e0144abbc3e3c0aa8a23955f89704f366b5df260f9"
   license "MIT"
 
   bottle do
