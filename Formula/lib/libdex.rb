@@ -7,12 +7,13 @@ class Libdex < Formula
   head "https://gitlab.gnome.org/GNOME/libdex.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "07c9470048c9cdd6af39d187814db8b9e93675aab30efa4300183f9b1560bdd4"
-    sha256 cellar: :any, arm64_sonoma:  "d8765b482b523859c0e228f9c0a0de5129619c7de0e2c9de102169c0247b49ea"
-    sha256 cellar: :any, arm64_ventura: "7fd54a3b492258b75d9e53d4119b56118cf22a03a447a963be5431d436770ac5"
-    sha256 cellar: :any, sonoma:        "fe9bf7725f6980fde3533522dddac891e80633fbcc7daf4d3f390badbf61c649"
-    sha256 cellar: :any, ventura:       "850122b0eaa9b09fe8338b8fba31897c54ba840bca12b0da67a1ade907db8826"
-    sha256               x86_64_linux:  "fedc83d3a2b00d5a2c65869142c7371db367f956bdceeb5fc9f09e96bfe9da13"
+    rebuild 1
+    sha256 cellar: :any, arm64_sequoia: "de849fbc65398cd3211401ec52da982cb0de056560f41b3e2160d1feb7a73439"
+    sha256 cellar: :any, arm64_sonoma:  "29dfd7bc1929d344f4c3f6f494cadc6128dda0878a1aadfc36c7c3c176c6341d"
+    sha256 cellar: :any, arm64_ventura: "5be369e6134c47622e5b011578440873938ef02d947367ae7fa0bf39a6dd4f71"
+    sha256 cellar: :any, sonoma:        "2febc85628e62c50dde34a00489a9305c4e5685a5dccbef795be377ef4f546e3"
+    sha256 cellar: :any, ventura:       "7a42ee50ef5afa0d4708c3004bca40f4fd6457dda4c5665497842d2995822280"
+    sha256               x86_64_linux:  "8452e353f07907069edccfd963920c8545673aa759047e0b1a9e253b226c57f5"
   end
 
   depends_on "gobject-introspection" => :build
@@ -22,13 +23,14 @@ class Libdex < Formula
   depends_on "vala" => :build # for vapigen
   depends_on "glib"
 
-  on_macos do
-    # TODO: Upstream patch removing `libatomic` requirement on macOS, as it isn't needed.
-    depends_on "gcc" => :build
+  # Guards a libatomic check that fails on macOS
+  # Upstream ref: https://gitlab.gnome.org/GNOME/libdex/-/merge_requests/21
+  patch do
+    url "https://gitlab.gnome.org/GNOME/libdex/-/commit/24e6bddd32c7db70235bb1576c33731a26609ffb.diff"
+    sha256 "f7b0e4b92cd1a3cebfb1a62f5ffd74b7d77f550be74627311c3a29e8ad991cd4"
   end
 
   def install
-    ENV.append "LDFLAGS", "-L#{Formula["gcc"].opt_lib}/gcc/current" if OS.mac?
     args = %w[
       -Dexamples=false
       -Dtests=false
