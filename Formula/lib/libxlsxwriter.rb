@@ -1,8 +1,8 @@
 class Libxlsxwriter < Formula
   desc "C library for creating Excel XLSX files"
   homepage "https://libxlsxwriter.github.io/"
-  url "https://github.com/jmcnamara/libxlsxwriter/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "242821862d5841e68ce9b0d7c774cd3b2c9136bb684a2b0c26cea9447cc31ff3"
+  url "https://github.com/jmcnamara/libxlsxwriter/archive/refs/tags/v1.2.1.tar.gz"
+  sha256 "f3a43fb6b4dab2d65bcbce56088f58c94a8ae7fb5746106c069d77ef87794a24"
   license "BSD-2-Clause"
   head "https://github.com/jmcnamara/libxlsxwriter.git", branch: "main"
 
