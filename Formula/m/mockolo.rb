@@ -1,8 +1,8 @@
 class Mockolo < Formula
   desc "Efficient Mock Generator for Swift"
   homepage "https://github.com/uber/mockolo"
-  url "https://github.com/uber/mockolo/archive/refs/tags/2.3.0.tar.gz"
-  sha256 "af978fdafe12502962b8ff82f888d003718a7c6307e375f85ed3b5b56a21f5b4"
+  url "https://github.com/uber/mockolo/archive/refs/tags/2.3.1.tar.gz"
+  sha256 "b4cf043d0f606b8e7744a5febdcef907c63f38fd35c4b11cb14ce90242eb56e5"
   license "Apache-2.0"
 
   bottle do
