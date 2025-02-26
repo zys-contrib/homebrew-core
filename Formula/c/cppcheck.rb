@@ -15,12 +15,12 @@ class Cppcheck < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "2224472b512733d634e848e2b0c21d67b5a5f54cc3660a850b9e81cb485509fd"
-    sha256 arm64_sonoma:  "51ac5e63e02ca5dc64bee8c03d7e54c22d0f8a8a287a5dc836829aed8844432a"
-    sha256 arm64_ventura: "3b97505a72400d1970632c1d8b3961b7a1d408b4dbff809af067813518ce62b6"
-    sha256 sonoma:        "e324c5366f7f94ce62f83ea33e3a61ae8670d8dc5180032c26bcd5e059e53f3c"
-    sha256 ventura:       "aca6314e77f43c1b53baedab39f1baa9e9c6e05c72f1aaedb6c7700d6478314a"
-    sha256 x86_64_linux:  "3962818dcc3342beee3d04b506b489324d4481f58919d9fffe855051b060a2d0"
+    sha256 arm64_sequoia: "206160b7783f7c60c7e5ec950f67fc6a7b3d7b016fee9342235f9f1fcb8e645d"
+    sha256 arm64_sonoma:  "2ede7bd9259c9139c00904ca8091602a57fed8ef139f2e85f7889fa919d2b3c9"
+    sha256 arm64_ventura: "a428674b288493fea056e88d430c3263a57b94f2f142b7bb7237a77f794fdfeb"
+    sha256 sonoma:        "714aadb21afbee797947ebb8b1edba2539baf2ad52e77b50ae9a4bebaf40fd67"
+    sha256 ventura:       "ee7dea8418338de2a88388c2ef8f3cbc5380102b957dcaffd2d354b638285d25"
+    sha256 x86_64_linux:  "ef4965de8d6c6af29dc5935986d828162b6a44ff33b4f9391e2a6b34ab6004f3"
   end
 
   depends_on "cmake" => :build
