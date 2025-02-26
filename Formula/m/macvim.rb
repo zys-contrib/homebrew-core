@@ -2,11 +2,10 @@
 class Macvim < Formula
   desc "GUI for vim, made for macOS"
   homepage "https://github.com/macvim-dev/macvim"
-  url "https://github.com/macvim-dev/macvim/archive/refs/tags/release-180.tar.gz"
-  version "9.1.0727"
-  sha256 "e1bc74beb3ee594503b5e1e20a9d075b5972bbaa642a91921116531475f46a6f"
+  url "https://github.com/macvim-dev/macvim/archive/refs/tags/release-181.tar.gz"
+  version "9.1.1128"
+  sha256 "ee4127ff18f55f04b69e401fc444c94b9e4d2bf60580ed18e85b78f2e34efbd3"
   license "Vim"
-  revision 1
   head "https://github.com/macvim-dev/macvim.git", branch: "master"
 
   # The stable Git tags use a `release-123` format and it's necessary to check
