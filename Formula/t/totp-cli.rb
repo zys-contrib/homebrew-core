@@ -1,18 +1,18 @@
 class TotpCli < Formula
   desc "Authy/Google Authenticator like TOTP CLI tool written in Go"
   homepage "https://yitsushi.github.io/totp-cli/"
-  url "https://github.com/yitsushi/totp-cli/archive/refs/tags/v1.8.8.tar.gz"
-  sha256 "3fe158259b845ff5e957a2d26b290a7474b6ce63dadd52e1046f697991b3924c"
+  url "https://github.com/yitsushi/totp-cli/archive/refs/tags/v1.9.0.tar.gz"
+  sha256 "45bae6dbd01cc974c10a5ab9705d6162a8ec21b8a6c26872793d40cd4980c809"
   license "MIT"
   head "https://github.com/yitsushi/totp-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d3fb44e2dc96600996a071d09b320d9433b86f223dd4db1d5d78a56cd77067bc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d3fb44e2dc96600996a071d09b320d9433b86f223dd4db1d5d78a56cd77067bc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d3fb44e2dc96600996a071d09b320d9433b86f223dd4db1d5d78a56cd77067bc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "37cfcee16c239ee82285f7f68f5137d40b77277fa4b84506b50fa7b73b848d57"
-    sha256 cellar: :any_skip_relocation, ventura:       "37cfcee16c239ee82285f7f68f5137d40b77277fa4b84506b50fa7b73b848d57"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72045ef678c09cfe94ca044cc7ae8057bdd2a79201abc15469ef7f0e6be11ae8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d1ba65121e55a917ce6d4c8465a7151036b599623501019c2a4e3fcee8c7690e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d1ba65121e55a917ce6d4c8465a7151036b599623501019c2a4e3fcee8c7690e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d1ba65121e55a917ce6d4c8465a7151036b599623501019c2a4e3fcee8c7690e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f2f1405aea08f73873c8caa778a9cb0d9d88649cbc40ee48fc112a8327490200"
+    sha256 cellar: :any_skip_relocation, ventura:       "f2f1405aea08f73873c8caa778a9cb0d9d88649cbc40ee48fc112a8327490200"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8132b854a0f30b2e49ca2d3364e3b7a6aadfa319241d8bb5c9586b505bb121b6"
   end
 
   depends_on "go" => :build
