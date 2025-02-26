@@ -3,8 +3,8 @@ class CyclonedxPython < Formula
 
   desc "Creates CycloneDX Software Bill of Materials (SBOM) from Python projects"
   homepage "https://cyclonedx.org/"
-  url "https://files.pythonhosted.org/packages/f0/73/fa71371a6b25f493668a42c98f18739ce614a0ab495bf03adcc298676f71/cyclonedx_bom-5.2.0.tar.gz"
-  sha256 "4a4ac184dc050a34e90cc0826cebe7952b834e4ff252abbaf5a40de9d67bc310"
+  url "https://files.pythonhosted.org/packages/62/bf/0d59cb517e032eed773365f7b6493499d7e9c1335e272d1a6dc0e318ec9a/cyclonedx_bom-5.3.0.tar.gz"
+  sha256 "1468aaf8dc4c8f178fc8403141281bdd9ba609053aaddea68348b2dfb5da6bc7"
   license "Apache-2.0"
   head "https://github.com/CycloneDX/cyclonedx-python.git", branch: "main"
 
@@ -44,8 +44,8 @@ class CyclonedxPython < Formula
   end
 
   resource "cyclonedx-python-lib" do
-    url "https://files.pythonhosted.org/packages/ba/5d/266fab8eb5c5306889472d6e166f438d65daaff6c7c4d8b0e6d7b8926410/cyclonedx_python_lib-8.8.0.tar.gz"
-    sha256 "181e7215c247ed185d1bdfad2dfdc142fd98485af3d531db12388abce9e5523a"
+    url "https://files.pythonhosted.org/packages/0c/0f/0016e48240e6107a2f8650c3100d8afee4073e0f0d821a62f6e0391e11d3/cyclonedx_python_lib-9.0.2.tar.gz"
+    sha256 "5a653e3c2536c648c63a3ed090320e5a1ee58438cd28774260f77f3adb444290"
   end
 
   resource "defusedxml" do
@@ -109,8 +109,8 @@ class CyclonedxPython < Formula
   end
 
   resource "py-serializable" do
-    url "https://files.pythonhosted.org/packages/16/cf/6e482507764034d6c41423a19f33fdd59655052fdb2ca4358faa3b0bcfd1/py_serializable-1.1.2.tar.gz"
-    sha256 "89af30bc319047d4aa0d8708af412f6ce73835e18bacf1a080028bb9e2f42bdb"
+    url "https://files.pythonhosted.org/packages/f0/75/813967eae0542776314c6def33feac687642a193b9d5591c20684b2eafd8/py_serializable-2.0.0.tar.gz"
+    sha256 "e9e6491dd7d29c31daf1050232b57f9657f9e8a43b867cca1ff204752cf420a5"
   end
 
   resource "pyparsing" do
@@ -139,8 +139,8 @@ class CyclonedxPython < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/01/80/cce854d0921ff2f0a9fa831ba3ad3c65cee3a46711addf39a2af52df2cfd/rpds_py-0.22.3.tar.gz"
-    sha256 "e32fee8ab45d3c2db6da19a5323bc3362237c8b653c70194414b892fd06a080d"
+    url "https://files.pythonhosted.org/packages/0a/79/2ce611b18c4fd83d9e3aecb5cba93e1917c050f556db39842889fa69b79f/rpds_py-0.23.1.tar.gz"
+    sha256 "7f3240dcfa14d198dba24b8b9cb3b108c06b68d45b7babd9eefc1038fdf7e707"
   end
 
   resource "six" do
