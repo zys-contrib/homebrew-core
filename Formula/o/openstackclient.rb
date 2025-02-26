@@ -4,8 +4,8 @@ class Openstackclient < Formula
   desc "Command-line client for OpenStack"
   homepage "https://openstack.org"
   # TODO: remove `setuptools` from pypi_formula_mappings.json after https://review.opendev.org/c/openstack/pbr/+/924216
-  url "https://files.pythonhosted.org/packages/89/6c/4d7cc407d4c8b99285f35cc276a12ed33bf95cc17fc26d32a3f424e540b0/python_openstackclient-7.3.1.tar.gz"
-  sha256 "d382072d92ee53375a5999fd4142ddcb5f012c85392ffd0aa7415792ad4080b0"
+  url "https://files.pythonhosted.org/packages/9f/08/d53dc0e3d52a03ad6abe2c301ed0504e0eeb8054f52b672d6bdfafa2132f/python_openstackclient-7.4.0.tar.gz"
+  sha256 "e817e11a01cb2b516fbd99dce45c099c8e41c43d11bb11e6672703a838449d9f"
   license "Apache-2.0"
 
   bottle do
@@ -66,8 +66,8 @@ class Openstackclient < Formula
   end
 
   resource "decorator" do
-    url "https://files.pythonhosted.org/packages/66/0c/8d907af351aa16b42caae42f9d6aa37b900c67308052d10fdce809f8d952/decorator-5.1.1.tar.gz"
-    sha256 "637996211036b6385ef91435e4fae22989472f9d571faba8927ba8253acbc330"
+    url "https://files.pythonhosted.org/packages/43/fa/6d96a0978d19e17b68d634497769987b16c8f4cd0a7a05048bec693caa6b/decorator-5.2.1.tar.gz"
+    sha256 "65f266143752f734b0a7cc83c46f4618af75b8c5911b00ccb61d0ac9b6da0360"
   end
 
   resource "dogpile-cache" do
@@ -351,8 +351,8 @@ class Openstackclient < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/92/ec/089608b791d210aec4e7f97488e67ab0d33add3efccb83a056cbafe3a2a6/setuptools-75.8.0.tar.gz"
-    sha256 "c5afc8f407c626b8313a86e10311dd3f661c6cd9c09d4bf8c15c0e11f9f2b0e6"
+    url "https://files.pythonhosted.org/packages/e8/42/0e5f75d734f181367de4acd9aba8f875453a5905169c5485ca8416b015ae/setuptools-75.8.1.tar.gz"
+    sha256 "65fb779a8f28895242923582eadca2337285f0891c2c9e160754df917c3d2530"
   end
 
   resource "six" do
