@@ -1222,6 +1222,7 @@ glider
 glm
 global
 glooctl
+glow
 glslang
 gmailctl
 gmic
