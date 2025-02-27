@@ -1942,6 +1942,7 @@ libvirt-python
 libvisio
 libvncserver
 libwbxml
+libwebsockets
 libwpe
 libx11
 libxau
