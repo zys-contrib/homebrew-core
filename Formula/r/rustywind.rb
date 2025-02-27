@@ -1,8 +1,8 @@
 class Rustywind < Formula
   desc "CLI for organizing Tailwind CSS classes"
   homepage "https://github.com/avencera/rustywind"
-  url "https://github.com/avencera/rustywind/archive/refs/tags/v0.23.1.tar.gz"
-  sha256 "d7ba13370721df4cc6728ca6b956f9a92ab260de08c03ef445a105a87e382546"
+  url "https://github.com/avencera/rustywind/archive/refs/tags/v0.24.0.tar.gz"
+  sha256 "90559cb75c9b28bfafd04a1e800b482e374eadcfc21a6be1ed369651d066ac4d"
   license "Apache-2.0"
   head "https://github.com/avencera/rustywind.git", branch: "master"
 
