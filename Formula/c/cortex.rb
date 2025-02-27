@@ -1,8 +1,8 @@
 class Cortex < Formula
   desc "Long term storage for Prometheus"
   homepage "https://cortexmetrics.io/"
-  url "https://github.com/cortexproject/cortex/archive/refs/tags/v1.18.1.tar.gz"
-  sha256 "667a0d78c9c3c319ccee503951237883f1402dda33cf27f2e64af2faaa54412e"
+  url "https://github.com/cortexproject/cortex/archive/refs/tags/v1.19.0.tar.gz"
+  sha256 "7cb6b312f67263e40fef3a99afb7d12bce69fe035e7b787b9c1efb4bf7a693bc"
   license "Apache-2.0"
 
   livecheck do
@@ -45,6 +45,7 @@ class Cortex < Formula
 
     # A minimal working config modified from
     # https://github.com/cortexproject/cortex/blob/master/docs/configuration/single-process-config-blocks.yaml
+    (testpath/"data/alerts").mkpath
     (testpath/"cortex.yaml").write <<~YAML
       server:
         http_listen_port: #{port}
@@ -58,6 +59,15 @@ class Cortex < Formula
         backend: filesystem
         filesystem:
           dir: #{testpath}/data/tsdb
+
+      alertmanager:
+        external_url: http://localhost/alertmanager
+
+      alertmanager_storage:
+        backend: local
+        local:
+          # Make sure file exist
+          path:  #{testpath}/data/alerts
     YAML
 
     Open3.popen3(
