@@ -540,6 +540,7 @@ cloudflare-wrangler
 cloudflared
 cloudformation-cli
 cloudformation-guard
+cloudfoundry-cli
 cloudfox
 cloudlist
 cloudprober
