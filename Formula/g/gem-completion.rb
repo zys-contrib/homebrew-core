@@ -12,7 +12,7 @@ class GemCompletion < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "cf301278a53387a05bbe44db4f921629211afb38be7057bcc60ff0088f5ebae1"
+    sha256 cellar: :any_skip_relocation, all: "ae8a1951beb43f5f63f4a3961545d3a325e8ccdbf9da708c5175673012a5757a"
   end
 
   def install
