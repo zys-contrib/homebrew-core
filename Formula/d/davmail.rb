@@ -12,7 +12,7 @@ class Davmail < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c55c26e3679337482c014409c4fec1ba607af4e644a47063c3d81785f30bf3b0"
+    sha256 cellar: :any_skip_relocation, all: "c48497283b8ffca924a12cbaa5227d0653b3c37990540eeb01593cf7fa7b93fa"
   end
 
   depends_on "openjdk"
