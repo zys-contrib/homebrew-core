@@ -1774,6 +1774,7 @@ libbsd
 libcap
 libcap-ng
 libcdr
+libcec
 libchewing
 libclc
 libcoap
