@@ -3,8 +3,8 @@ class YleDl < Formula
 
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://files.pythonhosted.org/packages/60/5d/bde58d3197b54f90554c4308aef3622d3c07a0649646f5d92277df3e72a8/yle_dl-20250126.tar.gz"
-  sha256 "72e9a992896d6c0a86d5310574b9ebd432b45f0756b500396453079c6287ed66"
+  url "https://files.pythonhosted.org/packages/ba/2f/bec8195b15b6574b7ae54d436a1a712db6404e46a5005b1f304bd257a7a4/yle_dl-20250227.tar.gz"
+  sha256 "6c252704d4aa4f75e4303ea26823cacebb1ba417f13e5791eea8ba09d769dd40"
   license "GPL-3.0-or-later"
   head "https://github.com/aajanki/yle-dl.git", branch: "master"
 
@@ -41,8 +41,8 @@ class YleDl < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/e7/6b/20c3a4b24751377aaa6307eb230b66701024012c29dd374999cc92983269/lxml-5.3.0.tar.gz"
-    sha256 "4e109ca30d1edec1ac60cdbe341905dc3b8f55b16855e03a54aaf59e51ec8c6f"
+    url "https://files.pythonhosted.org/packages/ef/f6/c15ca8e5646e937c148e147244817672cf920b56ac0bf2cc1512ae674be8/lxml-5.3.1.tar.gz"
+    sha256 "106b7b5d2977b339f1e97efe2778e2ab20e99994cbb0ec5e55771ed0795920c8"
   end
 
   resource "requests" do
