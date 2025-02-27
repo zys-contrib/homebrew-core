@@ -3,8 +3,8 @@ class CodecovCli < Formula
 
   desc "Codecov's command-line interface"
   homepage "https://cli.codecov.io/"
-  url "https://files.pythonhosted.org/packages/57/b8/ff5edc3f3887a62daac908021d0c3cd2b14a4f7f04d5e10727fc412aeccc/codecov_cli-10.1.1.tar.gz"
-  sha256 "332a0262b3e8dbf5df7eaa9ba36f83275a9ff8759e2eea2c472c28569e1708b0"
+  url "https://files.pythonhosted.org/packages/49/17/092d44f2efcd7294dc6494a5352896bd8d604ea89020168cbf60b07a9e67/codecov_cli-10.2.0.tar.gz"
+  sha256 "f2107e320d5dc384280c56c40d59eac60a69a67ec7c78127d753f265738869bd"
   license "Apache-2.0"
   head "https://github.com/codecov/codecov-cli.git", branch: "main"
 
@@ -92,8 +92,8 @@ class CodecovCli < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/92/ec/089608b791d210aec4e7f97488e67ab0d33add3efccb83a056cbafe3a2a6/setuptools-75.8.0.tar.gz"
-    sha256 "c5afc8f407c626b8313a86e10311dd3f661c6cd9c09d4bf8c15c0e11f9f2b0e6"
+    url "https://files.pythonhosted.org/packages/d1/53/43d99d7687e8cdef5ab5f9ec5eaf2c0423c2b35133a2b7e7bc276fc32b21/setuptools-75.8.2.tar.gz"
+    sha256 "4880473a969e5f23f2a2be3646b2dfd84af9028716d398e46192f84bc36900d2"
   end
 
   resource "sniffio" do
