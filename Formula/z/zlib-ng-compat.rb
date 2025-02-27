@@ -11,12 +11,12 @@ class ZlibNgCompat < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "76c20d6ed2c49ff701a6b6481a77f9552b483689c7a34ca80cf3ee81ea618983"
-    sha256 cellar: :any,                 arm64_sonoma:  "ffb9478de009ee51ef72b0457eef3210c505d7fe905428df405227afb53f3833"
-    sha256 cellar: :any,                 arm64_ventura: "47cee490e09b583e965247a94c0c7868e1a60fcb6c80096fd047b6be58c84ae3"
-    sha256 cellar: :any,                 sonoma:        "2b33cae6f27b6bd9f0ae79614b9cada2d89710916c4fb111ae6faac9c59c48a9"
-    sha256 cellar: :any,                 ventura:       "7e8ea237b3589fa3f07f71de4c11687d10efc1c7c8d0640ec5a1564e477bdd79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3eefb9467069e984bfcc3f1c2a18262fa424e56664a9c97631ca0ce7c045b35"
+    sha256 cellar: :any,                 arm64_sequoia: "e2d7639b525b2b29a92177ba00e7f9dd20d7d686cb70bfeb7a4ed188b3c8facd"
+    sha256 cellar: :any,                 arm64_sonoma:  "c5349d5f9559feff1607c65e71522907e1ce5f0c7c7409ff6b0ee02142f3de9f"
+    sha256 cellar: :any,                 arm64_ventura: "b83317e0a1ca1730f74a02edf766237627d3799fad25e17274b1bd3b944ab7be"
+    sha256 cellar: :any,                 sonoma:        "e290f3ee57dfd952c5a901b12a1939d4acf3f49778ab975fbf884390be21ef81"
+    sha256 cellar: :any,                 ventura:       "1951f082859a44e33e0ae0d86d60ff9e3800654945e3c75aec0ce67da58277d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3f0416dc6d54348eddc7a621f3ec918069915ff9ec503a8ab88c3b9c677695b"
   end
 
   keg_only :shadowed_by_macos, "macOS provides zlib"
