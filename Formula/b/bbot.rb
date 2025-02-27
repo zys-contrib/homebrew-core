@@ -8,12 +8,12 @@ class Bbot < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9c7fa99b99c3031387476071262e0c403a70290a26cb8692d9fc3cac89bb2294"
-    sha256 cellar: :any,                 arm64_sonoma:  "02bd99098c2aa59a6d4f3eb4f5cc9db2c5120a5b6da449ea2880de3c9618dde2"
-    sha256 cellar: :any,                 arm64_ventura: "36b925398bc75e49916f56eaab7cad77a2a9aeb326fe05314efcf8ab7f37ab53"
-    sha256 cellar: :any,                 sonoma:        "26b951045d385d23650ecb26b9bbdc3a4587e8c47a63234827d9cdc95ce9a010"
-    sha256 cellar: :any,                 ventura:       "b5f75dd759eb5293f0323218bd5bd2bd32ed90ee8996275d8d1185b859d66995"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08ecc4ab9fd8d3b90627b04f64da75f4d67d564acadc09b3f96aade46d96431f"
+    sha256 cellar: :any,                 arm64_sequoia: "300979563b389e707c3ff49eb11fd7a914de61c268aaf27380052db962c566ab"
+    sha256 cellar: :any,                 arm64_sonoma:  "c40a74c65d5705e6a93e5f95d5742e363432bc3e06911e310d47ff6a79f9d833"
+    sha256 cellar: :any,                 arm64_ventura: "fb7a402a964365e1349940ae71f165ded328a4ddd2f92b396af9e937385d1f4b"
+    sha256 cellar: :any,                 sonoma:        "b949e4a22b9e7b34389f376a817bfb4e89eaef4b887ff75290a6580d6e11fe03"
+    sha256 cellar: :any,                 ventura:       "664718f88fd17c342ef8a01cd593e071b5f64a706c588e03f7d8685e636a61b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24f3aec722ff2f598fc4215f5e651a15eda980cc13508fe2b3e8eb41cbe51540"
   end
 
   depends_on "cmake" => :build
