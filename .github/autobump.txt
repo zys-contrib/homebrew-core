@@ -3668,6 +3668,7 @@ xfig
 xgboost
 xh
 xinit
+xk6
 xkbcomp
 xkeyboardconfig
 xlsxio
