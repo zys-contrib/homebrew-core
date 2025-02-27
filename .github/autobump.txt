@@ -1814,6 +1814,7 @@ libgee
 libgeotiff
 libgetdata
 libgit2
+libgit2-glib
 libgit2@1.8
 libgpg-error
 libgr
