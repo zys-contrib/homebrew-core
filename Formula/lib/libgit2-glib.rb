@@ -1,10 +1,9 @@
 class Libgit2Glib < Formula
   desc "Glib wrapper library around libgit2 git access library"
   homepage "https://gitlab.gnome.org/GNOME/libgit2-glib"
-  url "https://gitlab.gnome.org/GNOME/libgit2-glib/-/archive/v1.2.0/libgit2-glib-v1.2.0.tar.bz2"
-  sha256 "421ac5c99e02c5b6235842e60eb7f9fa8dc580d2500fb1eb521ced8a22de9f29"
+  url "https://gitlab.gnome.org/GNOME/libgit2-glib/-/archive/v1.2.1/libgit2-glib-v1.2.1.tar.bz2"
+  sha256 "e15d98cf15cd9dc8aaae8a11ab44f51f3a0da3ad4ace80ede3831c934e1897d7"
   license "LGPL-2.1-only"
-  revision 4
   head "https://gitlab.gnome.org/GNOME/libgit2-glib.git", branch: "master"
 
   bottle do
@@ -26,19 +25,6 @@ class Libgit2Glib < Formula
 
   on_macos do
     depends_on "gettext"
-  end
-
-  # Support libgit2 1.8+.
-  # https://gitlab.gnome.org/GNOME/libgit2-glib/-/merge_requests/40
-  patch do
-    url "https://gitlab.gnome.org/GNOME/libgit2-glib/-/commit/a76fdf96c3af9ce9d21a3985c4be8a1aa6eea661.diff"
-    sha256 "24d32bfc972959c054794917f4043226fc267fafaaf8d8fc7d4128cfa9b5b231"
-  end
-
-  # Support libgit2 1.9, upstream pr ref, https://gitlab.gnome.org/GNOME/libgit2-glib/-/merge_requests/46
-  patch do
-    url "https://gitlab.gnome.org/GNOME/libgit2-glib/-/commit/93685d4297e425af67ac6888d6b66dfbcd4b95c8.diff"
-    sha256 "338a51bb04f89a2f53994db206b179e4f20ba69d7aaf38d06ae899dd1c44dab1"
   end
 
   def install
