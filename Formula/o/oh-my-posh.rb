@@ -15,12 +15,12 @@ class OhMyPosh < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b94e151098cfac8bf9000177d6b047f6122d464a600b615ecff151d25c1aa25a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7861dd068a1875d2838edfdc24e5fb034952e04d54345801d78b2d0291a839d4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f88b50ff494f4c22e75e0783a19e0f7bd1cddb080651351ddab6195696583d34"
-    sha256 cellar: :any_skip_relocation, sonoma:        "eed8735a5f8c05b7f391212f857cddfe87a5cea1fcaa6b9e517e68a62755d88a"
-    sha256 cellar: :any_skip_relocation, ventura:       "8c37467c27e7c4c290c4e826bc024e0c472974fc298444782a494746bc3422c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dda3a3d099b654907b03c4d4fd634a6a868ac7d3d2262caf8f226dea6524f400"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7e867def623ccd22577b395c25adc8c90fe799a41243a1a6c6daf7e574b6adbe"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9535a44586d35da6ffd3a4e40b020b6f691f9958e16258ee69617d0bb7728bf7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "91841433620118f40e9b272b9bf1f79bc49fd653184c1898b2fe901bdbd6bc5c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0336f028bf88795e9a177fbffa06973d4a716802cacdadf460828bba35d7031b"
+    sha256 cellar: :any_skip_relocation, ventura:       "071b008a5f211d0f78be591983d160f77e613cd90728e8d6fee38f747c4bbca9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6961c319c82a774cfcd6a05f292824a9b95d924322d3a0fe274aa54fc1a14d4"
   end
 
   depends_on "go" => :build
