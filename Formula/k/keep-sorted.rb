@@ -7,12 +7,13 @@ class KeepSorted < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "797e297714c252a065978c49a89f01ebfc6c1752e53e02471655259fe247d88e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "797e297714c252a065978c49a89f01ebfc6c1752e53e02471655259fe247d88e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "797e297714c252a065978c49a89f01ebfc6c1752e53e02471655259fe247d88e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "352cd36a00bd951afd2daa050b61e26152f45f8b6c6c1e10962b8647feb9d147"
-    sha256 cellar: :any_skip_relocation, ventura:       "352cd36a00bd951afd2daa050b61e26152f45f8b6c6c1e10962b8647feb9d147"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e54d534f58e5b89b4e4d80f0f621b736704de48121ae6ed599d059e037a64f2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3a1bc62473d80f7809175c4b234a4802384e1c9c61e76d68d74e63b0547a48ca"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3a1bc62473d80f7809175c4b234a4802384e1c9c61e76d68d74e63b0547a48ca"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3a1bc62473d80f7809175c4b234a4802384e1c9c61e76d68d74e63b0547a48ca"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ab10e635e641f4b72fc32aa7acb82d0672d509d625efa233205ec825f79428a7"
+    sha256 cellar: :any_skip_relocation, ventura:       "ab10e635e641f4b72fc32aa7acb82d0672d509d625efa233205ec825f79428a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1db18645ba138068b86a632c11652ba82715098395af15c8f87529400bdb9634"
   end
 
   depends_on "go" => :build
