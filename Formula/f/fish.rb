@@ -1,8 +1,8 @@
 class Fish < Formula
   desc "User-friendly command-line shell for UNIX-like operating systems"
   homepage "https://fishshell.com"
-  url "https://github.com/fish-shell/fish-shell/releases/download/3.7.1/fish-3.7.1.tar.xz"
-  sha256 "614c9f5643cd0799df391395fa6bbc3649427bb839722ce3b114d3bbc1a3b250"
+  url "https://github.com/fish-shell/fish-shell/releases/download/4.0.0/fish-4.0.0.tar.xz"
+  sha256 "2fda5bd970357064d8d4c896e08285ba59965ca2a8c4829ca8a82bf3b89c69f3"
   license "GPL-2.0-only"
 
   livecheck do
@@ -26,13 +26,14 @@ class Fish < Formula
   head do
     url "https://github.com/fish-shell/fish-shell.git", branch: "master"
 
-    depends_on "rust" => :build
     depends_on "sphinx-doc" => :build
   end
 
   depends_on "cmake" => :build
+  depends_on "rust" => :build
   # Apple ncurses (5.4) is 15+ years old and
   # has poor support for modern terminals
+  # The library itself is not needed, but the terminfo database is
   depends_on "ncurses"
   depends_on "pcre2"
 
