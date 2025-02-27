@@ -7,12 +7,12 @@ class AdaUrl < Formula
   head "https://github.com/ada-url/ada.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "179c063815f30d7fe8423ca2a7836924ae6ada680366cec4c4968fdc16653fa5"
-    sha256 cellar: :any,                 arm64_sonoma:  "abb8ee262ff43dcdb78041e0f4523fe3410b8b9eb71f5ffaf03f55659a8db618"
-    sha256 cellar: :any,                 arm64_ventura: "fa17f6130ac83779429d32e016ce54bae8c7d781f60ffb6d6cbb75182bea63df"
-    sha256 cellar: :any,                 sonoma:        "4793233a3edde82def02dd2b7ad65615f41e7b8cc8930bb5a7f36e45e6ede791"
-    sha256 cellar: :any,                 ventura:       "b60d1fb9ac6e97114aa2770d9ca8509baeabfa6979178b1415793ad7ed2cbe52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52deb20bad2c64732ea2da22cd692a59bfe55eb3401660053257bc1e8a470be2"
+    sha256 cellar: :any,                 arm64_sequoia: "3d0c7d205062304e7987762407467db755f399a1571ad60800f32704e856e22e"
+    sha256 cellar: :any,                 arm64_sonoma:  "1b65fd469391d24415b9becfd75a17b8152ce0a1f82bdd84fdf84021c2a3c761"
+    sha256 cellar: :any,                 arm64_ventura: "f38f7af9255f3ef5af68360c08935b0b6e84bc9f16a2cb95a59573d91002fc7b"
+    sha256 cellar: :any,                 sonoma:        "485bde8945602efba97f9b7f3bf57175701c54a4e212b3d74a63f4ba3d33b617"
+    sha256 cellar: :any,                 ventura:       "ac3b862b510dc1d7277f92a0b6f3106c713014cf4c5921a62a22966829971e6c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e53bea71239ec13fb530aa3db57df9863dcdfa43878453d115f743c0c12f656b"
   end
 
   depends_on "cmake" => :build
