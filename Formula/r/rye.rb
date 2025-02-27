@@ -1,8 +1,8 @@
 class Rye < Formula
   desc "Package Management Solution for Python (consider the successor \"uv\" instead)"
   homepage "https://rye.astral.sh/"
-  url "https://github.com/astral-sh/rye/archive/refs/tags/0.43.0.tar.gz"
-  sha256 "e4106514141a2369802852346ad652f9b10d30b42e89d2e8e6c4a1dcbc65db6b"
+  url "https://github.com/astral-sh/rye/archive/refs/tags/0.44.0.tar.gz"
+  sha256 "6ef86ccba82b59edfc4f6deba39be6394e7866fe2250596b96124c20327f0581"
   license "MIT"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
