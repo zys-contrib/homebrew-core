@@ -7,7 +7,7 @@ class Cli11 < Formula
   head "https://github.com/CLIUtils/CLI11.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ac6e1c22dd84d1140e50cb956aa137895d11ab8e0c6343b732f07e3114e31988"
+    sha256 cellar: :any_skip_relocation, all: "2e33f4138edb61fd28013e3b07a676073c521bf6004d3313f3bb07a7a824315b"
   end
 
   depends_on "cmake" => :build
