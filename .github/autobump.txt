@@ -2648,6 +2648,7 @@ po4a
 pocketbase
 pocl
 poco
+pocsuite3
 pod2man
 podlet
 podman
