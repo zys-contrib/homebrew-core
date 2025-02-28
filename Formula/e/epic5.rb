@@ -1,9 +1,9 @@
 class Epic5 < Formula
   desc "Enhanced, programmable IRC client"
   homepage "https://www.epicsol.org/"
-  url "https://ftp.epicsol.org/pub/epic/EPIC5-PRODUCTION/epic5-3.0.2.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/epic5/epic5-3.0.2.tar.xz"
-  sha256 "4220fd2f1e08c5b47ec34345c3970036a37d72fbb5411e39c10f3bce557c14d5"
+  url "https://ftp.epicsol.org/pub/epic/EPIC5-PRODUCTION/epic5-3.0.3.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/epic5/epic5-3.0.3.tar.xz"
+  sha256 "63a411215c14040b65b5d728aff10f7523d55e170f6298fb01e1cf958d79d326"
   license "BSD-3-Clause"
   head "https://git.epicsol.org/epic5.git", branch: "master"
 
