@@ -20,9 +20,13 @@ class Gromacs < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkgconf" => :build
   depends_on "fftw"
   depends_on "gcc" # for OpenMP
+  depends_on "lmfit"
   depends_on "openblas"
+
+  uses_from_macos "zlib"
 
   fails_with :clang
 
@@ -52,6 +56,8 @@ class Gromacs < Formula
       -DGROMACS_CXX_COMPILER=#{cxx}
       -DGMX_VERSION_STRING_OF_FORK=#{tap.user}
       -DGMX_INSTALL_LEGACY_API=ON
+      -DGMX_EXTERNAL_ZLIB=ON
+      -DGMX_USE_LMFIT=EXTERNAL
     ]
 
     # Force SSE2/SSE4.1 for compatibility when building Intel bottles
