@@ -600,6 +600,7 @@ consul-template
 container-structure-test
 contentful-cli
 convco
+convmv
 convox
 cookiecutter
 copa
