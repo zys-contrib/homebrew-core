@@ -11,18 +11,23 @@ class Gromacs < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "44f56f6256f9fa1fef887b7049692de7a76aab4fcdc184da7874e5cb38e1cddc"
-    sha256 arm64_sonoma:  "b2a693c17dca973a459496021fa1bd83d25c361af9438cba5ba1d395cc6d5daf"
-    sha256 arm64_ventura: "cc397203c9c8b1951205e6a28670f072b4103fc29b30586bd636dacf7d22d2d1"
-    sha256 sonoma:        "8eec8e174badc80050dc8039f075fc048ced62a312b525dc9b2149893aa18a53"
-    sha256 ventura:       "6823221c0eee4ecbf4c0f4df722a42f993a7d3c1e6d6f8ab6a52efbbb84128fc"
-    sha256 x86_64_linux:  "14733c2fbae27301cefcb3ac77cccd2699a46223f2fdb9fe6782661baa10c19d"
+    rebuild 1
+    sha256 arm64_sequoia: "1ef7ef8b8e243845125d8f54459af0bbeecd2d0cd2c9e6e2196168b1f807dd60"
+    sha256 arm64_sonoma:  "f3c88c1d78f055ea70e2f160ce4110620ff3cd51e8d93a5d9d37f0998a586ed8"
+    sha256 arm64_ventura: "fd6e5a07ba953b529a496015349cecd5c9ad6b1d66c0e0ce2b94be08d2b9851a"
+    sha256 sonoma:        "a3817d56bd459fa7ec6aec143865493806c933d34bddbf27156223934609bc84"
+    sha256 ventura:       "c945a81d50d997c833cb02b5b3fcc872224c2f8ad65dd7ada892501ee8d95ce5"
+    sha256 x86_64_linux:  "68111b0a4216477e6a041cf034de48e8d1b2e720943a816868100b2b7f9371b6"
   end
 
   depends_on "cmake" => :build
+  depends_on "pkgconf" => :build
   depends_on "fftw"
   depends_on "gcc" # for OpenMP
+  depends_on "lmfit"
   depends_on "openblas"
+
+  uses_from_macos "zlib"
 
   fails_with :clang
 
@@ -52,6 +57,8 @@ class Gromacs < Formula
       -DGROMACS_CXX_COMPILER=#{cxx}
       -DGMX_VERSION_STRING_OF_FORK=#{tap.user}
       -DGMX_INSTALL_LEGACY_API=ON
+      -DGMX_EXTERNAL_ZLIB=ON
+      -DGMX_USE_LMFIT=EXTERNAL
     ]
 
     # Force SSE2/SSE4.1 for compatibility when building Intel bottles
