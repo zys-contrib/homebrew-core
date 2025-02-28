@@ -1,20 +1,10 @@
 class Gfold < Formula
   desc "Help keep track of your Git repositories, written in Rust"
   homepage "https://github.com/nickgerace/gfold"
+  url "https://github.com/nickgerace/gfold/archive/refs/tags/2025.2.1.tar.gz"
+  sha256 "f4bfb2c69da1f2e1a70713b316c2befef553039bc7248594f8f990115a66cc33"
   license "Apache-2.0"
-  revision 2
   head "https://github.com/nickgerace/gfold.git", branch: "main"
-
-  stable do
-    url "https://github.com/nickgerace/gfold/archive/refs/tags/4.6.0.tar.gz"
-    sha256 "f965daa340349b04bd9d29b5013dcb3006d2f5333cdbae1f1e3901a685e7bf7d"
-
-    # libgit2 1.9 build patch
-    patch do
-      url "https://github.com/nickgerace/gfold/commit/9dd050617adefa5776d6056892b3ca7c5fda8b2d.patch?full_index=1"
-      sha256 "bbb38a7419c82e5b33fe261dd1790d7d87a03d4930e801d0421287530dcf978d"
-    end
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "c8fb05b44e4e1463813e968cd143c5e75058a3bc68a21be4d6000a70181ab721"
