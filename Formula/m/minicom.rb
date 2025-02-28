@@ -1,8 +1,8 @@
 class Minicom < Formula
   desc "Menu-driven communications program"
   homepage "https://packages.debian.org/sid/minicom"
-  url "https://deb.debian.org/debian/pool/main/m/minicom/minicom_2.9.orig.tar.bz2"
-  sha256 "9efbb6458140e5a0de445613f0e76bcf12cbf7a9892b2f53e075c2e7beaba86c"
+  url "https://deb.debian.org/debian/pool/main/m/minicom/minicom_2.10.orig.tar.bz2"
+  sha256 "90e7ce2856b3eaaa3f452354d17981c49d32c426a255b6f0d3063a227c101538"
   license "GPL-2.0-or-later"
 
   livecheck do
