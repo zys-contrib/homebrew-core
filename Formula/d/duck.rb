@@ -12,12 +12,12 @@ class Duck < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "de5427ed1c9db98edd4c633d948b8a1a8d488077e28cfca013159785d7cb4c96"
-    sha256 cellar: :any, arm64_sonoma:  "d18bdc35d038bc7a8667c10b41a9c9b8367b553adaf2920b0c1b52a64950f38d"
-    sha256 cellar: :any, arm64_ventura: "5a345c332e1f280810bccbc6b1e78cbd7676032e29a23b4c3b522c82221958c4"
-    sha256 cellar: :any, sonoma:        "6b9f64369e33d5c0a580990eb0ea3d18c9f37698842f30e2dcbb9bdd8479a754"
-    sha256 cellar: :any, ventura:       "05b443e05dab27348dc8d331b1e79c3e65570d15fd8bf69569942bd40c0e1bd3"
-    sha256               x86_64_linux:  "eeb0cfd0629c64025dc5dda88b9be7059254da331d53c0ae5bd8f7ece093f485"
+    sha256 cellar: :any, arm64_sequoia: "f277eaa9c7ae08b9595053a7e3b321f839f0767b2cecf0d2a8639478d838755c"
+    sha256 cellar: :any, arm64_sonoma:  "0a4a451e488552fe764bd16332d723aa273d6597563ddf0bc29ab5fa67a5f6f2"
+    sha256 cellar: :any, arm64_ventura: "11bfc50049d90a411de5c0c85d98125cd8089f2846898cc3bf6997b54b02bab5"
+    sha256 cellar: :any, sonoma:        "7b2b873e4b820c24f2911d7c4407b28fa5b0c028a2304ddd80d09d36fbb17a5e"
+    sha256 cellar: :any, ventura:       "75ecee54c2369560ca942d8a929ec13575cda5f5bd5390123c778f5fbae11ecb"
+    sha256               x86_64_linux:  "e2fe7084857f46a3e16623f5ceef60a206013792508b21868b13cf11a08c4f24"
   end
 
   depends_on "ant" => :build
