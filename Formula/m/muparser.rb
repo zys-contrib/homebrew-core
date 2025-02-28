@@ -4,6 +4,7 @@ class Muparser < Formula
   url "https://github.com/beltoforion/muparser/archive/refs/tags/v2.3.5.tar.gz"
   sha256 "20b43cc68c655665db83711906f01b20c51909368973116dfc8d7b3c4ddb5dd4"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/beltoforion/muparser.git", branch: "master"
 
   bottle do
@@ -17,10 +18,14 @@ class Muparser < Formula
 
   depends_on "cmake" => :build
 
+  on_macos do
+    conflicts_with "gromacs", because: "gromacs ships its own copy of muparser"
+  end
+
   def install
     ENV.cxx11 if OS.linux?
 
-    system "cmake", "-S", ".", "-B", "build", "-DENABLE_OPENMP=OFF", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DENABLE_OPENMP=#{OS.mac? ? "OFF" : "ON"}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
