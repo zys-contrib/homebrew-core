@@ -4,7 +4,7 @@ class Acl2 < Formula
   url "https://github.com/acl2/acl2/archive/refs/tags/8.6.tar.gz"
   sha256 "c2d73e66422901b3cc2a6f5a9ab50f5f3b1b4060cf9dc9148d076f3a8b957cf9"
   license "BSD-3-Clause"
-  revision 4
+  revision 5
 
   bottle do
     sha256 arm64_sequoia: "ffbf45c85874e6995d030b22fcc53c44805283a8694e2ea5ef472153fe76ef4d"
