@@ -17,12 +17,12 @@ class Renovate < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f48522276356b4fa42e6be1bde6919243b9329cb6585541bfe7816042c2a6fb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b4887bc4e0e7b93b28fa245153e74cde1bcd9123a7a9de7198ef4274977cb12c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "53225a441fbb22fe987c9b3d37ce3e03e77e39dda3756a419490c2e3ec768f95"
-    sha256 cellar: :any_skip_relocation, sonoma:        "93390bcbce8d675475ca9f4281b8e68b6d8ee5501c3bda9a2bbba66effdf636c"
-    sha256 cellar: :any_skip_relocation, ventura:       "d91eeddbfb0ca43d41a4dbdbc9e16214b36d0c99b0a9691ee88c033504e0e360"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb5c31566257b55854ae403aa8945f6672eff48fcb0e13a36aee3f57a478c812"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9e8298c45337c216dc064541914b42c5b199332cd6ffa0789a6713f6271d0e95"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a9169221731bb8f7e12a17d94d73384f5d93bc893c97e670fe5a5a59abbc75da"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "362c2e16747ecdc1c958857ae4aab7f74aad202b628233d9598618addd7992b9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dcd757606000ee28d2316638762ac4957730a9791e77cfde83ccf51b81f6e62c"
+    sha256 cellar: :any_skip_relocation, ventura:       "0803980276e4eafc4f32f82d8025885b63d7f8d806d1678ee86d5be721689703"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33a32c125ce168d91ee84a4f9911c42ee53a00347741ff0ad834d91a18027172"
   end
 
   depends_on "node@22"
