@@ -3,8 +3,8 @@ class Tach < Formula
 
   desc "Tool to enforce dependencies using modular architecture"
   homepage "https://docs.gauge.sh/getting-started/introduction"
-  url "https://files.pythonhosted.org/packages/52/76/09e0d7889684dca1201f42ea52bc2e7fc8c08bf92dd84fa12d24cb506819/tach-0.27.0.tar.gz"
-  sha256 "0c221a51ddfce5a4d65183f0ff2ebda6fd4230c36eb39cf2021c1aeea84be81a"
+  url "https://files.pythonhosted.org/packages/6e/82/27dbdea50809c310942e4c6128749639206f88b9de10b423ab4e280d5e1f/tach-0.27.1.tar.gz"
+  sha256 "1a2571e69feb7c5485945466699909d152b411508b7235480d7b06b18e1ad005"
   license "MIT"
   head "https://github.com/gauge-sh/tach.git", branch: "main"
 
