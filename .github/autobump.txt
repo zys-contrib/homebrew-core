@@ -2163,6 +2163,7 @@ mimirtool
 minder
 minetest
 minica
+minicom
 minigraph
 minijinja-cli
 minikube
