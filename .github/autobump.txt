@@ -961,6 +961,7 @@ eza
 f2
 f3d
 faas-cli
+fabio
 fabric
 fabric-installer
 facad
