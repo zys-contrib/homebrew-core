@@ -1,9 +1,9 @@
 class Genders < Formula
   desc "Static cluster configuration database for cluster management"
   homepage "https://github.com/chaos/genders"
-  url "https://github.com/chaos/genders/archive/refs/tags/genders-1-30-1.tar.gz"
-  version "1.30.1"
-  sha256 "6cbe717add68b45d27685fb9f324b5eb531da660ca22aa4430738b27c3e19bf2"
+  url "https://github.com/chaos/genders/archive/refs/tags/genders-1-31-1.tar.gz"
+  version "1.31.1"
+  sha256 "bb443a3c3b8b09a22d97550a997966cb9cd77ca47c24026393988702b07ffe07"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -28,7 +28,6 @@ class Genders < Formula
   uses_from_macos "perl" => :build
   uses_from_macos "python" => :build
 
-  # upstream issue to drop distutils usage, https://github.com/chaos/genders/issues/65
   on_linux do
     depends_on "python-setuptools" => :build
   end
@@ -41,6 +40,8 @@ class Genders < Formula
 
   def install
     ENV["PYTHON"] = which("python3")
+
+    ENV.append "CXXFLAGS", "-std=c++14"
 
     system "./configure", "--with-java-extensions=no", *std_configure_args
     system "make", "install"
