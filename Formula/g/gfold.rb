@@ -7,12 +7,12 @@ class Gfold < Formula
   head "https://github.com/nickgerace/gfold.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c8fb05b44e4e1463813e968cd143c5e75058a3bc68a21be4d6000a70181ab721"
-    sha256 cellar: :any,                 arm64_sonoma:  "e5a04e5a6969aa68a5d91e9205a93910a84317d5570a41e1115f26a23bdf62e8"
-    sha256 cellar: :any,                 arm64_ventura: "71d2cf8716fc3e10d1fce289ae2f10c7c533775a27f1e0eace914d525fcf7a4d"
-    sha256 cellar: :any,                 sonoma:        "cd2484f7a149a5cac2708ae97de755e25f85f776bde43b3fc77bf88480bb2c38"
-    sha256 cellar: :any,                 ventura:       "f2cd2b75deb9e7194a9c6e7b0f1cc2e83095d629fe257e0f9f2f8b5e1430effb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec6098aad7b88db6c94eb6773a5c2a1e67d08e60d44736ab5af143ca8734f6f8"
+    sha256 cellar: :any,                 arm64_sequoia: "7bb9ab4516cf303807d550bd93f23554e10f4f4482369d3ab1fbf7506e4a605b"
+    sha256 cellar: :any,                 arm64_sonoma:  "56125c3b687ac854b0ffb3bb5b34d0e4c158395b43fa8f86151220322cecd4fb"
+    sha256 cellar: :any,                 arm64_ventura: "06169b9151d2bde14a0c1782a1357dafd8d0a0fb51f8673c86c8307e3131df35"
+    sha256 cellar: :any,                 sonoma:        "4f809c3dc6027ecf9a95fce8773c9722a249d450c8201ff8d46e6869c7840a21"
+    sha256 cellar: :any,                 ventura:       "6aac2335765c4330e3977f8cb185773f99fb065cc4c4f75a28701ec25a1d9b48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "512c8665866e3918dc0d2ed50dceea71ec220498e9be5eb33cb249faeda251dc"
   end
 
   depends_on "pkgconf" => :build
