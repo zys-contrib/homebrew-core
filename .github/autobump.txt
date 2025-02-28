@@ -960,6 +960,7 @@ exult
 eza
 f2
 f3d
+faac
 faas-cli
 fabric
 fabric-installer
