@@ -1,8 +1,8 @@
 class Convmv < Formula
   desc "Filename encoding conversion tool"
   homepage "https://www.j3e.de/linux/convmv/"
-  url "https://www.j3e.de/linux/convmv/convmv-2.05.tar.gz"
-  sha256 "53b6ac8ae4f9beaee5bc5628f6a5382bfd14f42a5bed3d881b829d7b52d81ca6"
+  url "https://www.j3e.de/linux/convmv/convmv-2.06.tar.gz"
+  sha256 "a37192e266742e7fe33ec19a3be49aea7fd4d066887863a6e193fa345bf2e592"
   license "GPL-2.0-or-later"
 
   livecheck do
