@@ -1,8 +1,8 @@
 class ClickhouseSqlParser < Formula
   desc "Writing clickhouse sql parser in pure Go"
   homepage "https://github.com/AfterShip/clickhouse-sql-parser"
-  url "https://github.com/AfterShip/clickhouse-sql-parser/archive/refs/tags/v0.4.3.tar.gz"
-  sha256 "e7285893a09463eea8a34794b3838ca979afd47a47e3ff9a0fe661fdc9571224"
+  url "https://github.com/AfterShip/clickhouse-sql-parser/archive/refs/tags/v0.4.4.tar.gz"
+  sha256 "97e577154a69b4675eb218e21f125f065b2382ad77a06e08bb03c7bb31a4cdc5"
   license "MIT"
   head "https://github.com/AfterShip/clickhouse-sql-parser.git", branch: "master"
 
