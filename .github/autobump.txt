@@ -3719,6 +3719,7 @@ yices2
 ykman
 yle-dl
 yo
+yoke
 yor
 yorkie
 yosys
