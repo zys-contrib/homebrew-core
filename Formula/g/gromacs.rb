@@ -1,8 +1,8 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
   homepage "https://www.gromacs.org/"
-  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2024.5.tar.gz"
-  sha256 "fecf06b186cddb942cfb42ee8da5f3eb2b9993e6acc0a2f18d14ac0b014424f3"
+  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2025.0.tar.gz"
+  sha256 "a27ad35a646295bbec129abe684d9d03d1e2e0bd76b0d625e9055746aaefae82"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -28,6 +28,14 @@ class Gromacs < Formula
   depends_on "openblas"
 
   uses_from_macos "zlib"
+
+  on_macos do
+    conflicts_with "muparser", because: "gromacs ships its own copy of muparser"
+  end
+
+  on_linux do
+    depends_on "muparser"
+  end
 
   fails_with :clang
 
@@ -60,6 +68,13 @@ class Gromacs < Formula
       -DGMX_EXTERNAL_ZLIB=ON
       -DGMX_USE_LMFIT=EXTERNAL
     ]
+    args << if OS.mac?
+      # Use bundled `muparser` as brew formula is linked to libc++ on macOS but we need libstdc++.
+      # TODO: Try switching `gromacs` and its dependency tree to use Apple Clang + `libomp`
+      "-DFETCHCONTENT_SOURCE_DIR_MUPARSER=#{buildpath}/src/external/muparser"
+    else
+      "-DGMX_USE_MUPARSER=EXTERNAL"
+    end
 
     # Force SSE2/SSE4.1 for compatibility when building Intel bottles
     if Hardware::CPU.intel?
