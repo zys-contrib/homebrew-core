@@ -1,10 +1,9 @@
 class Cabin < Formula
   desc "Package manager and build system for C++"
   homepage "https://github.com/cabinpkg/cabin"
-  url "https://github.com/cabinpkg/cabin/archive/refs/tags/0.11.1.tar.gz"
-  sha256 "3c9bd2898e6fe692eb988dc71f22214ff938255ef2282d5d7d9c6bdf149d173f"
+  url "https://github.com/cabinpkg/cabin/archive/refs/tags/0.12.1.tar.gz"
+  sha256 "a8e038452b28880a464885dcbfe515441e0a066e673d3cce5df46871ad4fa38f"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/cabinpkg/cabin.git", branch: "main"
 
   bottle do
@@ -17,11 +16,14 @@ class Cabin < Formula
   end
 
   depends_on "nlohmann-json" => :build
+  depends_on "pkgconf" => :build
   depends_on "toml11" => :build
+
   depends_on "curl"
   depends_on "fmt"
   depends_on "libgit2"
   depends_on "pkgconf"
+  depends_on "spdlog"
   depends_on "tbb"
 
   on_macos do
