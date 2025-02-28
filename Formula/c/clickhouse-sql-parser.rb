@@ -7,12 +7,12 @@ class ClickhouseSqlParser < Formula
   head "https://github.com/AfterShip/clickhouse-sql-parser.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "26fd113b62e0ad290b47ebf3d2eb2f2c57a45631ae248fed056d01bc6618bda6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "26fd113b62e0ad290b47ebf3d2eb2f2c57a45631ae248fed056d01bc6618bda6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "26fd113b62e0ad290b47ebf3d2eb2f2c57a45631ae248fed056d01bc6618bda6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f07e4cb778ccedede857deddf0c833333878f4e86b316e791be2c1d7cdad2ea8"
-    sha256 cellar: :any_skip_relocation, ventura:       "f07e4cb778ccedede857deddf0c833333878f4e86b316e791be2c1d7cdad2ea8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a515503b972f30f487447c491701dfcaa15ae04ca55c8ab2ef35575b907121b3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d0d4a4ac4f1904d7370ece32eebc711558eca70be0a79aaf46eab4f5b38ae64"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d0d4a4ac4f1904d7370ece32eebc711558eca70be0a79aaf46eab4f5b38ae64"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2d0d4a4ac4f1904d7370ece32eebc711558eca70be0a79aaf46eab4f5b38ae64"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0ad9e98d36a58a643bba7f37d8037b7c15f367a1b1e92e56f22c74cb1de93add"
+    sha256 cellar: :any_skip_relocation, ventura:       "0ad9e98d36a58a643bba7f37d8037b7c15f367a1b1e92e56f22c74cb1de93add"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4dd93075390d6fbaefeba1d8033d844995d18b6faf50bcc79f1f0229cb5e3fe"
   end
 
   depends_on "go" => :build
