@@ -3736,6 +3736,7 @@ youtubeuploader
 yozefu
 yq
 yt-dlp
+ytt
 yubico-piv-tool
 yyjson
 z.lua
