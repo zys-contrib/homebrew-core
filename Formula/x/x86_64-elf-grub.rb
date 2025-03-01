@@ -33,15 +33,19 @@ class X8664ElfGrub < Formula
   resource "unifont" do
     url "https://ftp.gnu.org/gnu/unifont/unifont-16.0.02/unifont-16.0.02.pcf.gz", using: :nounzip
     mirror "https://mirrors.ocf.berkeley.edu/gnu/unifont/unifont-16.0.02/unifont-16.0.02.pcf.gz"
+    version "16.0.02"
     sha256 "02a3fe11994d3cdaf1d4bd5d2b6b609735e6823e01764ae83b704e02ec2f640d"
   end
 
-  def install
-    target = "x86_64-elf"
-    ENV["CFLAGS"] = "-Os -Wno-error=incompatible-pointer-types"
+  def target
+    "x86_64-elf"
+  end
 
-    resource("unifont").stage do
-      cp "unifont-16.0.02.pcf.gz", buildpath/"unifont.pcf.gz"
+  def install
+    ENV.append_to_cflags "-Wno-error=incompatible-pointer-types"
+
+    resource("unifont").stage do |r|
+      buildpath.install "unifont-#{r.version}.pcf.gz" => "unifont.pcf.gz"
     end
     ENV["UNIFONT"] = buildpath/"unifont.pcf.gz"
 
@@ -50,9 +54,9 @@ class X8664ElfGrub < Formula
         --disable-werror
         --enable-grub-mkfont
         --target=#{target}
-        --prefix=#{prefix}/#{target}
+        --prefix=#{prefix/target}
         --bindir=#{bin}
-        --libdir=#{lib}/#{target}
+        --libdir=#{lib/target}
         --with-platform=efi
         --program-prefix=#{target}-
       ]
@@ -61,16 +65,13 @@ class X8664ElfGrub < Formula
       system "make"
       system "make", "install"
 
-      mkdir_p "#{prefix}/#{target}/share/grub"
+      (prefix/target/"share/grub").mkpath
 
-      system "./grub-mkfont",
-        "--output=#{prefix}/#{target}/share/grub/unicode.pf2",
-        ENV["UNIFONT"].to_s
+      system "./grub-mkfont", "--output=#{prefix/target}/share/grub/unicode.pf2", ENV["UNIFONT"]
     end
   end
 
   test do
-    target = "x86_64-elf"
     (testpath/"boot.c").write <<~C
       __asm__(
         ".align 4\\n"
@@ -80,7 +81,6 @@ class X8664ElfGrub < Formula
       );
     C
     system Formula["#{target}-gcc"].bin/"#{target}-gcc", "-c", "-o", "boot", "boot.c"
-    assert_match "0",
-      shell_output("#{bin}/#{target}-grub-file --is-x86-multiboot boot; echo -n $?")
+    system bin/"#{target}-grub-file", "--is-x86-multiboot", "boot"
   end
 end
