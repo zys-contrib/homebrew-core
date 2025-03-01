@@ -18,6 +18,10 @@ class Luanti < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    sha256 x86_64_linux: "a569fcf42e7b1541322d1e6164eb8e15331efc65d8accb33418629b62fbb525a"
+  end
+
   head do
     url "https://github.com/luanti-org/luanti.git", branch: "master"
 
