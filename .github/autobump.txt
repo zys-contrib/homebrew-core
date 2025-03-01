@@ -1229,6 +1229,7 @@ glibmm@2.66
 glider
 glm
 global
+globstar
 glooctl
 glow
 glslang
