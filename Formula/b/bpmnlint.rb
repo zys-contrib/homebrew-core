@@ -5,6 +5,10 @@ class Bpmnlint < Formula
   sha256 "13029d4c6e3f9480dff23eaa389cd0648ba8aaefb9b3c4c5e809fff6999c6ba2"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "24e3db56cf9a45f19d574952134c16298e0716b7b4503fc4ece101c70ae64e72"
+  end
+
   depends_on "node"
 
   def install
