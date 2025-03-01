@@ -3429,6 +3429,7 @@ translate-toolkit
 transmission-cli
 trash-cli
 travis
+trdsql
 tree
 tree-sitter
 treefmt
