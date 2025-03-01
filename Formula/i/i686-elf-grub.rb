@@ -27,17 +27,20 @@ class I686ElfGrub < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "python" => :build
 
+  def target
+    "i686-elf"
+  end
+
   def install
-    target = "i686-elf"
-    ENV["CFLAGS"] = "-Os -Wno-error=incompatible-pointer-types"
+    ENV.append_to_cflags "-Wno-error=incompatible-pointer-types"
 
     mkdir "build" do
       args = %W[
         --disable-werror
         --target=#{target}
-        --prefix=#{prefix}/#{target}
+        --prefix=#{prefix/target}
         --bindir=#{bin}
-        --libdir=#{lib}/#{target}
+        --libdir=#{lib/target}
         --with-platform=pc
         --program-prefix=#{target}-
       ]
@@ -49,7 +52,6 @@ class I686ElfGrub < Formula
   end
 
   test do
-    target = "i686-elf"
     (testpath/"boot.c").write <<~C
       __asm__(
         ".align 4\\n"
@@ -59,7 +61,6 @@ class I686ElfGrub < Formula
       );
     C
     system Formula["#{target}-gcc"].bin/"#{target}-gcc", "-c", "-o", "boot", "boot.c"
-    assert_match "0",
-      shell_output("#{bin}/#{target}-grub-file --is-x86-multiboot boot; echo -n $?")
+    system bin/"#{target}-grub-file", "--is-x86-multiboot", "boot"
   end
 end
