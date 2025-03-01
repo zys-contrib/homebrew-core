@@ -3,8 +3,8 @@ class Posting < Formula
 
   desc "Modern API client that lives in your terminal"
   homepage "https://github.com/darrenburns/posting"
-  url "https://github.com/darrenburns/posting/archive/refs/tags/2.3.0.tar.gz"
-  sha256 "960b95c8bb2ae11db3cc4cb6b7ec20af87cd47218f77b62b80a527c8c590a595"
+  url "https://github.com/darrenburns/posting/archive/refs/tags/2.3.1.tar.gz"
+  sha256 "0d3706c593614a41424fcc8769ba82bdd28186d99b8e58d8202d11c17a20b7de"
   license "Apache-2.0"
 
   bottle do
