@@ -12,12 +12,12 @@ class Lazygit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d25a46255f893ba1503b1920e4fbe94d15b36b5cd8816a42a7f13295dae7b117"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d25a46255f893ba1503b1920e4fbe94d15b36b5cd8816a42a7f13295dae7b117"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d25a46255f893ba1503b1920e4fbe94d15b36b5cd8816a42a7f13295dae7b117"
-    sha256 cellar: :any_skip_relocation, sonoma:        "92dc8524699dd8b2158d055ea3032c64da6e3ad58041b620a3474159d6fd3030"
-    sha256 cellar: :any_skip_relocation, ventura:       "92dc8524699dd8b2158d055ea3032c64da6e3ad58041b620a3474159d6fd3030"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74fc0e7556b4961c59add72612f8b149f7974924d8cf3b8fbf31405b5fe3bf5b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cbdb434e7d8a11ea5d58815ca7640b5fce8f72228b057281de3bd5df2bee8aa0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cbdb434e7d8a11ea5d58815ca7640b5fce8f72228b057281de3bd5df2bee8aa0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cbdb434e7d8a11ea5d58815ca7640b5fce8f72228b057281de3bd5df2bee8aa0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "69948032b5dcb0a4946877d0537bbe7d98b37ab08f67b2d55729096309ea8461"
+    sha256 cellar: :any_skip_relocation, ventura:       "69948032b5dcb0a4946877d0537bbe7d98b37ab08f67b2d55729096309ea8461"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a19c84fac75979ac5c0676bbdf2b0c52f396678eb3576afeab08e2c7f43c5c1b"
   end
 
   depends_on "go" => :build
