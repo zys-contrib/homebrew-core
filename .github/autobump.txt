@@ -1425,6 +1425,7 @@ hidapi
 highlight
 highs
 himalaya
+hishtory
 hive
 hivemind
 hivex
