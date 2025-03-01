@@ -2034,6 +2034,7 @@ lttng-ust
 lua
 luacheck
 luajit-openresty
+luanti
 luarocks
 luau
 lucky-commit
