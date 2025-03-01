@@ -6,6 +6,15 @@ class X8664ElfGrub < Formula
   sha256 "b79ea44af91b93d17cd3fe80bdae6ed43770678a9a5ae192ccea803ebb657ee1"
   license "GPL-3.0-or-later"
 
+  bottle do
+    sha256 arm64_sequoia: "b76374ca36987f1bfef95216c14af606d263e17863df4d7b1a33b3cf65d953a3"
+    sha256 arm64_sonoma:  "b5687ab4349a959b3bae9afb76103ab55bb5f0902eb199ab4aba00d974fc6c49"
+    sha256 arm64_ventura: "406969f44c862754472dac117737965cf4c1ba427eba3ff478f0ce0bbfa75cc7"
+    sha256 sonoma:        "a9e8fd25bd063a89080bee2e33d88e70fcd0227a2a8fb20e43e270d59062da95"
+    sha256 ventura:       "e1770bd69fae7db684989eee7416337abb4f301a53a1034ab39efee73547cda9"
+    sha256 x86_64_linux:  "c578c06b175f785718eafaa9e54c45bd767ba73a041cf1db73a72a6103573375"
+  end
+
   depends_on "help2man" => :build
   depends_on "objconv" => :build
   depends_on "pkgconf" => :build
