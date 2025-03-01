@@ -1,8 +1,8 @@
 class Faudio < Formula
   desc "Accuracy-focused XAudio reimplementation for open platforms"
   homepage "https://fna-xna.github.io/"
-  url "https://github.com/FNA-XNA/FAudio/archive/refs/tags/25.02.tar.gz"
-  sha256 "eab667d231e5036b0e5c3c6f89fb4ea792284493d46161bc056a88a6dadc2683"
+  url "https://github.com/FNA-XNA/FAudio/archive/refs/tags/25.03.tar.gz"
+  sha256 "1eeb1d2d6ed038a68e6b0a02614d4c7f859aa0a22c4a64e0bd49c26573823ae8"
   license "Zlib"
   head "https://github.com/FNA-XNA/FAudio.git", branch: "master"
 
@@ -16,7 +16,7 @@ class Faudio < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "sdl2"
+  depends_on "sdl3"
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
