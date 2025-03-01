@@ -5,6 +5,15 @@ class Kirimase < Formula
   sha256 "5d6d0e43b8bd07bcae71b279820491053b8a1445c5e6f8f66f5f0d158a67d16c"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2bb5a1ace88dffb207488229a4e1d18fc2b637154ce6f66604c2dfac5a8ef0ab"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2bb5a1ace88dffb207488229a4e1d18fc2b637154ce6f66604c2dfac5a8ef0ab"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2bb5a1ace88dffb207488229a4e1d18fc2b637154ce6f66604c2dfac5a8ef0ab"
+    sha256 cellar: :any_skip_relocation, sonoma:        "65d1f5094b1cee9827cad481203142f0529725823e5ea708b2881f49208f5a61"
+    sha256 cellar: :any_skip_relocation, ventura:       "65d1f5094b1cee9827cad481203142f0529725823e5ea708b2881f49208f5a61"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2bb5a1ace88dffb207488229a4e1d18fc2b637154ce6f66604c2dfac5a8ef0ab"
+  end
+
   depends_on "node"
 
   def install
