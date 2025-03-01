@@ -6,6 +6,11 @@ class Acl2 < Formula
   license "BSD-3-Clause"
   revision 5
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 arm64_sequoia: "948b994db97b785fb9c3a9fb5392ba6b907c7842c759a8f1e6f97db35627b7ef"
     sha256 arm64_sonoma:  "94e1bdd88263445bd76fa62a77236fff2d184d23bed1785e05eb1bfa0c984a41"
