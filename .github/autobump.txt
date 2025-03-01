@@ -2346,6 +2346,7 @@ notation
 notcurses
 notify
 nox
+nping
 npm-check-updates
 npth
 nq
