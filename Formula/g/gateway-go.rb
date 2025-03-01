@@ -1,8 +1,8 @@
 class GatewayGo < Formula
   desc "GateWay Client for OpenIoTHub"
   homepage "https://github.com/OpenIoTHub"
-  url "https://github.com/OpenIoTHub/gateway-go/archive/refs/tags/v0.3.4.tar.gz"
-  sha256 "77001d6db5019a292db7b2f81fa005fed77316872859879b03f27a76247b1a6d"
+  url "https://github.com/OpenIoTHub/gateway-go/archive/refs/tags/v0.3.5.tar.gz"
+  sha256 "7716275d2347d67a8dbbaeb0181ae32c544d349984aced0dea3b3d45048fb6ff"
   license "MIT"
   head "https://github.com/OpenIoTHub/gateway-go.git", branch: "master"
 
@@ -22,9 +22,10 @@ class GatewayGo < Formula
   def install
     ldflags = %W[
       -s -w
-      -X main.version=#{version}
-      -X main.commit=
-      -X main.builtBy=homebrew
+      -X github.com/OpenIoTHub/gateway-go/info.Version=#{version}
+      -X github.com/OpenIoTHub/gateway-go/info.Commit=
+      -X github.com/OpenIoTHub/gateway-go/info.Date=#{Time.now.iso8601}
+      -X github.com/OpenIoTHub/gateway-go/info.BuiltBy=homebrew
     ]
     system "go", "build", *std_go_args(ldflags:)
     (etc/"gateway-go").install "gateway-go.yaml"
