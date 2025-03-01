@@ -1,8 +1,8 @@
 class Goctl < Formula
   desc "Generates server-side and client-side code for web and RPC services"
   homepage "https://go-zero.dev"
-  url "https://github.com/zeromicro/go-zero/archive/refs/tags/tools/goctl/v1.7.7.tar.gz"
-  sha256 "6bd4f06a7170c86bcf9d1afcd46250ce8d5e5ed629bf8e9ee9a7c299ffbb68b0"
+  url "https://github.com/zeromicro/go-zero/archive/refs/tags/tools/goctl/v1.8.1.tar.gz"
+  sha256 "16e7e90c95e702da6d9e102a95a07dcca7c5e7bd08351c8e56b6fe40fea9a27d"
   license "MIT"
 
   livecheck do
@@ -20,12 +20,6 @@ class Goctl < Formula
   end
 
   depends_on "go" => :build
-
-  # version patch pr, https://github.com/zeromicro/go-zero/pull/4645
-  patch do
-    url "https://github.com/zeromicro/go-zero/commit/05eb6e846e746941ccafc852ac3a242d02e33a42.patch?full_index=1"
-    sha256 "5b2d87638e11cf3b53685c2b62ab31fdcd9135136b73752dad64059f7e7f89a3"
-  end
 
   def install
     chdir "tools/goctl" do
