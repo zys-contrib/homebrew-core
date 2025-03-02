@@ -15,15 +15,21 @@ class Gdb < Formula
 
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "xz" # required for lzma support
 
-  uses_from_macos "expat"
-  uses_from_macos "libxcrypt"
+  uses_from_macos "expat", since: :sequoia # minimum macOS due to python
   uses_from_macos "ncurses"
 
   on_macos do
     depends_on arch: :x86_64 # gdb is not supported on macOS ARM
+  end
+
+  # Workaround for https://github.com/Homebrew/brew/issues/19315
+  on_sequoia :or_newer do
+    on_intel do
+      depends_on "expat"
+    end
   end
 
   on_system :linux, macos: :ventura_or_newer do
@@ -51,7 +57,7 @@ class Gdb < Formula
     args = %W[
       --enable-targets=all
       --with-lzma
-      --with-python=#{Formula["python@3.12"].opt_bin}/python3.12
+      --with-python=#{which("python3.13")}
       --disable-binutils
     ]
 
