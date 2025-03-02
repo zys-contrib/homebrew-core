@@ -6,6 +6,15 @@ class Gotz < Formula
   license "MIT"
   head "https://github.com/merschformann/gotz.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7517157f5b5c8c0611af3bcfbcef7aff207d75e13a86373dbb76736eafb435d0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7517157f5b5c8c0611af3bcfbcef7aff207d75e13a86373dbb76736eafb435d0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7517157f5b5c8c0611af3bcfbcef7aff207d75e13a86373dbb76736eafb435d0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d000373150d1f394a6a29f1ccf647150f23d3e77ac0dbb6d22fe9ddf5664d74f"
+    sha256 cellar: :any_skip_relocation, ventura:       "d000373150d1f394a6a29f1ccf647150f23d3e77ac0dbb6d22fe9ddf5664d74f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cdfc38f0f1b39b310f96c6f9dc9f364b38e49e4907959aa61e5261346ec51274"
+  end
+
   depends_on "go" => :build
 
   def install
