@@ -8,14 +8,12 @@ class GitCinnabar < Formula
   head "https://github.com/glandium/git-cinnabar.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "99c02a643befda05778ed9b365be8e082140800e74faf1413e3ba58f23f0c97e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ec8094c3444e434cb9e580e557b91cd3485038298042fd4aebbfeabff8ba7f5f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ddf4e52af50bac133c8877f0e6a1d43a212109486a3fcafbe366ddf6e626db6e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "25b5ee9e84d9727139db12076fa763c60f18672a411ce381abbd1d92e49591f7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c30765fd16526a147917232d187b8e29942da4f94424a7cdc18590d3603a4318"
-    sha256 cellar: :any_skip_relocation, ventura:        "138a2b8ef8e48750cf057f3b8e10c3a4fe3636e019fa5db296f66ed096e8fcfa"
-    sha256 cellar: :any_skip_relocation, monterey:       "3bea846899473f3954266b82561067e0d91d0ba93ec28cdf6fcf8677be9b47cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c449068a55d96e667dcbc19f84df226ce39aac3a41b8f5c3be68101667e29c3c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bbec8ba2f241b5ca4a754b66a765c13130278e5b3c15eafb8281cfde5d67ad43"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "92d4d70823d61bf2e8793f7109c9290372ed9d393af4f657d19d7105edf71bdc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "79b0454e2d7fd8002add055b94fcde2320b6b9becd606a313f45ab25629a4b84"
+    sha256 cellar: :any_skip_relocation, sonoma:        "93eabe52049e96756bb94774a56aa5e8f80bf2e93deaaa3185db565f26aa0ccb"
+    sha256 cellar: :any_skip_relocation, ventura:       "c0938a0c6484cceeb1f146ee8283514020bd47778c3b45a7d6468724165e165c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cce2b5104907dbefa016ad18eb73b0ca104ec51288c9dbda51a64b52ad0c0a41"
   end
 
   depends_on "rust" => :build
