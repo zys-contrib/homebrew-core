@@ -23,15 +23,19 @@ class Gdcm < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
+  depends_on "python@3.13" => [:build, :test] # for bindings, avoid runtime dependency due to `expat`
   depends_on "swig" => :build
+  depends_on "charls"
+  depends_on "json-c"
   depends_on "openjpeg"
   depends_on "openssl@3"
-  depends_on "python@3.13"
 
   uses_from_macos "expat"
+  uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "python@3.13"
     depends_on "util-linux" # for libuuid
   end
 
@@ -56,11 +60,14 @@ class Gdcm < Formula
       "-DGDCM_BUILD_EXAMPLES=OFF",
       "-DGDCM_BUILD_DOCBOOK_MANPAGES=OFF",
       "-DGDCM_USE_VTK=OFF", # No VTK 9 support: https://sourceforge.net/p/gdcm/bugs/509/
+      "-DGDCM_USE_SYSTEM_CHARLS=ON",
       "-DGDCM_USE_SYSTEM_EXPAT=ON",
-      "-DGDCM_USE_SYSTEM_ZLIB=ON",
-      "-DGDCM_USE_SYSTEM_UUID=ON",
+      "-DGDCM_USE_SYSTEM_JSON=ON",
+      "-DGDCM_USE_SYSTEM_LIBXML2=ON",
       "-DGDCM_USE_SYSTEM_OPENJPEG=ON",
       "-DGDCM_USE_SYSTEM_OPENSSL=ON",
+      "-DGDCM_USE_SYSTEM_UUID=ON",
+      "-DGDCM_USE_SYSTEM_ZLIB=ON",
       "-DGDCM_WRAP_PYTHON=ON",
       "-DPYTHON_EXECUTABLE=#{python3}",
       "-DPYTHON_INCLUDE_DIR=#{python_include}",
@@ -89,8 +96,7 @@ class Gdcm < Formula
       }
     CPP
 
-    system ENV.cxx, "-std=c++11", "-isystem", "#{include}/gdcm-3.0", "-o", "test.cxx.o", "-c", "test.cxx"
-    system ENV.cxx, "-std=c++11", "test.cxx.o", "-o", "test", "-L#{lib}", "-lgdcmDSED"
+    system ENV.cxx, "-std=c++11", "test.cxx", "-o", "test", "-I#{include}/gdcm-3.0", "-L#{lib}", "-lgdcmDSED"
     system "./test"
 
     system python3, "-c", "import gdcm"
