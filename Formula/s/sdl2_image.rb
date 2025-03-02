@@ -8,8 +8,7 @@ class Sdl2Image < Formula
 
   livecheck do
     url :stable
-    regex(/release[._-]v?(2(?:\.\d+)+)/i)
-    strategy :github_releases
+    regex(/^(?:release[._-])?v?(2(?:\.\d+)+)$/i)
   end
 
   bottle do
