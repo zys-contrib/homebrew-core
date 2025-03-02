@@ -1,8 +1,8 @@
 class Mergiraf < Formula
   desc "Syntax-aware git merge driver"
   homepage "https://mergiraf.org"
-  url "https://codeberg.org/mergiraf/mergiraf/archive/v0.5.1.tar.gz"
-  sha256 "90cff495a1c84bb074b0c0846fe22a32b1765e76de0046e3e444d5a209099086"
+  url "https://codeberg.org/mergiraf/mergiraf/archive/v0.6.0.tar.gz"
+  sha256 "548b0ae3d811d6410beae9e7294867c7e6d791cf9f68ddda5c24e287f7978030"
   license "GPL-3.0-only"
   head "https://codeberg.org/mergiraf/mergiraf.git", branch: "main"
 
@@ -24,6 +24,6 @@ class Mergiraf < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/mergiraf -V")
 
-    assert_match "YAML (*yml, *yaml)", shell_output("#{bin}/mergiraf languages")
+    assert_match "YAML (*.yml, *.yaml)", shell_output("#{bin}/mergiraf languages")
   end
 end
