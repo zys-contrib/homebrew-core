@@ -1304,6 +1304,7 @@ gotestsum
 gotestwaf
 gotify
 gotpm
+gotz
 gource
 govc
 govulncheck
