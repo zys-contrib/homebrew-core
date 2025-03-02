@@ -14,7 +14,9 @@ class Mummer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "cfdbd99b231c881102c83c2f902dd3ab5c1b499ed27e9307baf5272e3439ff9b"
   end
 
-  depends_on "gcc"
+  on_macos do
+    depends_on "gcc"
+  end
 
   fails_with :clang do
     cause <<~CAUSE
