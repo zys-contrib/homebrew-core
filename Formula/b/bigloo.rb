@@ -1,9 +1,10 @@
 class Bigloo < Formula
   desc "Scheme implementation with object system, C, and Java interfaces"
   homepage "https://www-sop.inria.fr/indes/fp/Bigloo/"
-  url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo-4.5b.tar.gz"
-  sha256 "864d525ee6a7ff339fd9a8c973cc46bf9a623a3827d84bfb6e04a29223707da5"
+  url "https://www-sop.inria.fr/indes/fp/Bigloo/download/bigloo-4.6a.tar.gz"
+  sha256 "c538929e040d0d7a25ed0d2b7bba6e6a482446df5f03a21a7598ab20a85f5522"
   license "GPL-2.0-or-later"
+  head "https://github.com/manuel-serrano/bigloo.git", branch: "master"
 
   livecheck do
     url "https://www-sop.inria.fr/indes/fp/Bigloo/download.html"
@@ -31,19 +32,11 @@ class Bigloo < Formula
   depends_on "pcre2"
   depends_on "sqlite"
 
-  on_macos do
-    depends_on arch: :x86_64
-  end
-
   on_linux do
     depends_on "alsa-lib"
   end
 
   def install
-    # Remove when included in a release:
-    # https://github.com/manuel-serrano/bigloo/commit/8b2a912c7c668a2a0bfa2ec30bc68bfdd05d2d7f
-    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
-
     # Force bigloo not to use vendored libraries
     inreplace "configure", /(^\s+custom\w+)=yes$/, "\\1=no"
 
