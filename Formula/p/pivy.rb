@@ -15,6 +15,14 @@ class Pivy < Formula
     end
   end
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sonoma:  "49312c6ceb49fc4e4141430afe844ed52fb2f828445497fb74a695dd1c7c23dc"
+    sha256 cellar: :any,                 arm64_ventura: "37951e1aeb75c56bcb13e495dc15a70b7658c75bdc2ae782cdec2adf5b4180e4"
+    sha256 cellar: :any,                 sonoma:        "4aef1788e33fd3bed8094c79592e374525d579068517e7e4a6c66f4f36669343"
+    sha256 cellar: :any,                 ventura:       "73554f28642f20a5c770d7dd948f6cc44c140f0a0ce142f4754de42621d02f5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "773ce675502fc88dd841d625e99b748d03b7519a962a3deb7239d456810491cf"
+  end
+
   depends_on "cmake" => :build
   depends_on "swig" => :build
   depends_on "coin3d"
