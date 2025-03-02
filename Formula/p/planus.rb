@@ -7,12 +7,12 @@ class Planus < Formula
   head "https://github.com/planus-org/planus.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ab3ff8c8cdf462069e279ae00fffd7ca1a453457db6c9598b3a3092a026837c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "493795e9f371316c332888509c1165cc96e3862029938cec770f3c66f2d78e4c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "dd78db28a274542d1ef00dcd9828746c492a0c13755ba062bc280bec42cfa2eb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9e1a4aaff76893fdd726bc1301d37248c1b34d7e917c4b8a3756ff2f5bdd1d4b"
-    sha256 cellar: :any_skip_relocation, ventura:       "771284605efc4b0bd94918cf2f48d7b4ce644752271cbb62d056b5a64b1f1e52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4294dbd6efc94cebb3798226c79dbaf2ed40b6b3ffd835d4690b71c5ae3cbc37"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9dba48be6e547ba8587b1817226ca0ae1f55641cdc1d6f2dd9c41c9c8fb1903"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4cb483d4499fe5f26af67e782d259a6177668d94189c234f583a61d2191c41b5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "72c79d7843232d9129eb468d6754bb7c3f01743de385b026b83f83f815935199"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b447d497d16a77f75046ec5e21dfd4d460a89bfa80d59d7b66cfb78beff0c917"
+    sha256 cellar: :any_skip_relocation, ventura:       "e211abbe537766952f09d5d299cb0e07bafe15d274756ed313416734aa1c2203"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01b73a1936dac8940d36d78673f5cdd9d8643981b70eaa71afc2c38256904226"
   end
 
   depends_on "rust" => :build
