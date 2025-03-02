@@ -3154,6 +3154,7 @@ spacer
 spack
 spades
 spatialindex
+spawn-fcgi
 spdlog
 spectra
 spectral-cli

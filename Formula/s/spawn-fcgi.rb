@@ -1,8 +1,8 @@
 class SpawnFcgi < Formula
   desc "Spawn FastCGI processes"
   homepage "https://redmine.lighttpd.net/projects/spawn-fcgi"
-  url "https://www.lighttpd.net/download/spawn-fcgi-1.6.5.tar.gz"
-  sha256 "a72d7bf7fb6d1a0acda89c93d4f060bf77a2dba97ddcfecd00f11e708f592c40"
+  url "https://www.lighttpd.net/download/spawn-fcgi-1.6.6.tar.gz"
+  sha256 "4ffe2e9763cf71ca52c3d642a7bfe20d6be292ba0f2ec07a5900c3110d0e5a85"
   license "BSD-3-Clause"
   head "https://git.lighttpd.net/lighttpd/spawn-fcgi.git", branch: "master"
 
@@ -22,10 +22,16 @@ class SpawnFcgi < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "72213bcf6bfdc11d458bd7cd7ce57a2b75dff10c4d9cc197c2eb6a25025afa25"
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
