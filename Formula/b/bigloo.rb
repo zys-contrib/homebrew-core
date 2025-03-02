@@ -12,10 +12,12 @@ class Bigloo < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 sonoma:       "7c420cdf1da7454605ebda44ec9ab6c90dad2d9e3a8f6cb43bfb6341479f4971"
-    sha256 ventura:      "c9c8be5bd55652c23c05de35d1c7f704a851003a0a2759741a1fbe50c75bc458"
-    sha256 x86_64_linux: "57660e09f1eea22c2e2faae872353d1c1229e76a19d4dddbee07978bbe94e312"
+    sha256 arm64_sequoia: "6bfb6e05b7b761e60e5a0eee80d23db93e60adbb0880f5e958e5e49f0abaeaad"
+    sha256 arm64_sonoma:  "8723768bd382b813e4f174748f7e24a30c4057fc621b85bfe626f2de3733d22c"
+    sha256 arm64_ventura: "8c89e1697c5edc4553159ed58c38cb335e13ce7f77c42344c775366cbcf86b5f"
+    sha256 sonoma:        "124693cf3bfbab077a4f5a04ec303afee067cdae075c0b592d94a086cec29ff0"
+    sha256 ventura:       "96afc3354138710c08ee5a425a14873ecc26b89e9fd17f878395a3bd30224d87"
+    sha256 x86_64_linux:  "c9f677f9a73a1f415d34af3d0a77b04f4b7279caa0b6e9447fcce5fdf5b7d874"
   end
 
   depends_on "autoconf" => :build
