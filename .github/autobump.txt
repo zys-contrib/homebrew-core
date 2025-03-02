@@ -1178,6 +1178,7 @@ ginac
 gismo
 git-absorb
 git-annex
+git-cinnabar
 git-cliff
 git-codereview
 git-cola
