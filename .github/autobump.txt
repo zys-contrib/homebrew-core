@@ -3239,6 +3239,7 @@ stripe-cli
 stripe-mock
 strongswan
 structurizr-cli
+sttr
 stunnel
 stylelint
 stylish-haskell
