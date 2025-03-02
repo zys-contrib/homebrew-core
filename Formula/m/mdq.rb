@@ -1,19 +1,10 @@
 class Mdq < Formula
   desc "Like jq but for Markdown"
   homepage "https://github.com/yshavit/mdq"
+  url "https://github.com/yshavit/mdq/archive/refs/tags/v0.3.1.tar.gz"
+  sha256 "b6bf39ac84363ed4e750a8342ca609105a8c0b84b50e5da6bf3be4130c367d75"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/yshavit/mdq.git", branch: "main"
-
-  stable do
-    url "https://github.com/yshavit/mdq/archive/refs/tags/v0.3.0.tar.gz"
-    sha256 "0a62a73f762e6ffa38dc914c585916d50d093c282a4805d6abd3cf1896a14293"
-
-    # version report patch
-    patch do
-      url "https://github.com/yshavit/mdq/commit/d7b91546474dcd09e4ec384afcff0be726743522.patch?full_index=1"
-      sha256 "7cdfdb00badb3a604589eeb53b620c5bca3da1c12000aec6f05b316ddfa3d920"
-    end
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b3d2f2855283fc7e7458e5ffb04007aa1bd0ba143205a8a252b5ced1e2816c92"
