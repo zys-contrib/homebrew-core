@@ -1,8 +1,8 @@
 class Sdl3Image < Formula
   desc "Library for loading images as SDL surfaces and textures"
   homepage "https://github.com/libsdl-org/SDL_image"
-  url "https://github.com/libsdl-org/SDL_image/releases/download/release-3.2.0/SDL3_image-3.2.0.tar.gz"
-  sha256 "1690baea71b2b4ded9895126cddbc03a1000b027d099a4fb4669c4d23d73b19f"
+  url "https://github.com/libsdl-org/SDL_image/releases/download/release-3.2.2/SDL3_image-3.2.2.tar.gz"
+  sha256 "fc6669329eb9f5ae644ca6ffa8ce0ee8749ab51c197b51476991df7407d8cf24"
   license "Zlib"
   head "https://github.com/libsdl-org/SDL_image.git", branch: "main"
 
