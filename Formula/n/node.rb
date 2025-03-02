@@ -12,12 +12,12 @@ class Node < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "fa212d020ebe27ec7b9ab94acacf723a68a44b4df05605d20fbcd400c954d2b5"
-    sha256 arm64_sonoma:  "6dafc72cee35075df496e7a96ff5e666906576dfc7c315bfd67c128dca0c5428"
-    sha256 arm64_ventura: "ac717359a1096ac553f6ddcf81a1bc2e82e537dde601c80d28b9ade79d9bd917"
-    sha256 sonoma:        "ae067ede633d1e446fbc07fa0c3fdcdcc86eec45eb64a3b107477b57a6238dc1"
-    sha256 ventura:       "44b8e75249508519c81bdb6e579f9b290aaa8a04050ab479f42fe0e75d4f55d4"
-    sha256 x86_64_linux:  "25dd0ca724d0a46608098fa1972acdca9d0a3e3d6e06e70e00facb6156e1d882"
+    sha256 arm64_sequoia: "57e1da8a3afbd55a86fc84896c6fc26c9540307b8133025306e22468df245794"
+    sha256 arm64_sonoma:  "814474a24476b34dc1c7c3c4e9d3301bc23d837271771f8863fbf55767e6fb4f"
+    sha256 arm64_ventura: "daf3b721086554a30ac684b28129497ef425cf5de1d0ad32de99b40aae7c0e72"
+    sha256 sonoma:        "a5dd17ffbbb098060620a34d8ea48317122f10e1d14aca2d90e1b229eaf1ef5b"
+    sha256 ventura:       "40e63a434aaecc214d4986a339c399b35f3530b0f252183bb6654e3687f57cbf"
+    sha256 x86_64_linux:  "853778f8d87627477986aefd6c8dcab1466630b2bb41850bbef94a9dbbe267ac"
   end
 
   depends_on "pkgconf" => :build
