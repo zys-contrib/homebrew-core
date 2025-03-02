@@ -6,8 +6,6 @@ class Sdl2Image < Formula
   license "Zlib"
   head "https://github.com/libsdl-org/SDL_image.git", branch: "main"
 
-  # This formula uses a file from a GitHub release, so we check the latest
-  # release version instead of Git tags.
   livecheck do
     url :stable
     regex(/release[._-]v?(2(?:\.\d+)+)/i)
