@@ -7,7 +7,7 @@ class Sdl2 < Formula
 
   livecheck do
     url :stable
-    regex(/release[._-](2(?:\.\d+)+)/i)
+    regex(/^(?:release[._-])?v?(2(?:\.\d+)+)$/i)
   end
 
   bottle do
