@@ -1,8 +1,8 @@
 class Cdncheck < Formula
   desc "Utility to detect various technology for a given IP address"
   homepage "https://projectdiscovery.io"
-  url "https://github.com/projectdiscovery/cdncheck/archive/refs/tags/v1.1.7.tar.gz"
-  sha256 "51dcc4d212d98060f9bd5b8c4b57a52b91452aa1a5befc2ce0ed90c9b21b49c6"
+  url "https://github.com/projectdiscovery/cdncheck/archive/refs/tags/v1.1.8.tar.gz"
+  sha256 "0140424474c6b920fb0eaaa11140dc4c43c194a153b3681ad65ae952b2928bc4"
   license "MIT"
   head "https://github.com/projectdiscovery/cdncheck.git", branch: "main"
 
