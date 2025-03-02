@@ -8,12 +8,13 @@ class Fdroidserver < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0be7ca048a6266ed48be85622e1bc743be39507c561a6cf1b6e92d396a8dd054"
-    sha256 cellar: :any,                 arm64_sonoma:  "e4d4fb89de686a62ac69fe6670ce89bcf46c3e60972f93f43b450c6a27566216"
-    sha256 cellar: :any,                 arm64_ventura: "74e41a5c5fedcb86cefb7e4fb88f3a96295b3c5b9fb3d0dedfd2f168d68aff55"
-    sha256 cellar: :any,                 sonoma:        "5586aa074eca2a01478fdc5211a02a49474819b78f3cb0559d9d1e2f7432ff7e"
-    sha256 cellar: :any,                 ventura:       "72b2f3a9329ef11d6ae5998beb38ae3dc19575fbf1c2c331afb5426965b5cf60"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de7a66a787654ef316c575acba27766754abc82773ea75dcd4f445bc778b5562"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "87584b4e50932313e4676a916cc1079f58080abec52fcb41ba7878d68c115696"
+    sha256 cellar: :any,                 arm64_sonoma:  "20b3219ab1e0c3389187e5fd2d6e1dc998fe21fbb6e093fea650e938ba09567a"
+    sha256 cellar: :any,                 arm64_ventura: "2478cb1193af86c2b4a31ea82292c4ce0a99cf5adb2ff930dbdd2174e50308a0"
+    sha256 cellar: :any,                 sonoma:        "4e96157cde9c2e92e3ae4733d65578912317ab5c0ee72f02f1ea9758c46dbd92"
+    sha256 cellar: :any,                 ventura:       "7642cf6115bb3444cc50a1fc5c3eb352ec76fb3ebf198610eaa3655928936658"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "037f7ff146e94c497b74262a2e946d96a4e41a37a5a426a81f4ab557968c7103"
   end
 
   depends_on "ninja" => :build
