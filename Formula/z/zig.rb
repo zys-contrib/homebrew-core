@@ -28,6 +28,9 @@ class Zig < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  # https://github.com/Homebrew/homebrew-core/issues/209483
+  skip_clean "lib/zig/libc/darwin/libSystem.tbd"
+
   def install
     llvm = deps.find { |dep| dep.name.match?(/^llvm(@\d+)?$/) }
                .to_formula
@@ -68,6 +71,24 @@ class Zig < Formula
     ZIG
     system bin/"zig", "build-exe", "hello.zig"
     assert_equal "Hello, world!", shell_output("./hello")
+
+    arches = ["aarch64", "x86_64"]
+    systems = ["macos", "linux"]
+    arches.each do |arch|
+      systems.each do |os|
+        system bin/"zig", "build-exe", "hello.zig", "-target", "#{arch}-#{os}", "--name", "hello-#{arch}-#{os}"
+        assert_path_exists testpath/"hello-#{arch}-#{os}"
+        file_output = shell_output("file --brief hello-#{arch}-#{os}").strip
+        if os == "linux"
+          assert_match(/\bELF\b/, file_output)
+          assert_match(/\b#{arch.tr("_", "-")}\b/, file_output)
+        else
+          assert_match(/\bMach-O\b/, file_output)
+          expected_arch = (arch == "aarch64") ? "arm64" : arch
+          assert_match(/\b#{expected_arch}\b/, file_output)
+        end
+      end
+    end
 
     # error: 'TARGET_OS_IPHONE' is not defined, evaluates to 0
     # https://github.com/ziglang/zig/issues/10377
