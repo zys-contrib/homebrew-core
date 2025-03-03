@@ -36,15 +36,14 @@ class Freerdp < Formula
   depends_on "libxv"
   depends_on "openssl@3"
   depends_on "pkcs11-helper"
-  depends_on "sdl2"
-  depends_on "sdl2_ttf"
+  depends_on "sdl3"
+  depends_on "sdl3_ttf"
 
   uses_from_macos "cups"
   uses_from_macos "zlib"
 
   on_linux do
     depends_on "alsa-lib"
-    depends_on "ffmpeg"
     depends_on "glib"
     depends_on "icu4c@76"
     depends_on "krb5"
@@ -54,8 +53,6 @@ class Freerdp < Formula
   end
 
   def install
-    ENV.append_to_cflags "-I#{Formula["sdl2_ttf"].opt_include}/SDL2"
-
     args = %W[
       -DBUILD_SHARED_LIBS=ON
       -DCMAKE_INSTALL_NAME_DIR=#{lib}
@@ -64,6 +61,8 @@ class Freerdp < Formula
       -DWITH_MANPAGES=OFF
       -DWITH_WEBVIEW=OFF
       -DWITH_CLIENT_SDL=ON
+      -DWITH_CLIENT_SDL2=OFF
+      -DWITH_CLIENT_SDL3=ON
     ]
 
     # Native macOS client and server implementations are unmaintained and use APIs that are obsolete on Sequoia.
