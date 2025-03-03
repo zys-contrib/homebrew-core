@@ -7,12 +7,12 @@ class Gotz < Formula
   head "https://github.com/merschformann/gotz.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7517157f5b5c8c0611af3bcfbcef7aff207d75e13a86373dbb76736eafb435d0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7517157f5b5c8c0611af3bcfbcef7aff207d75e13a86373dbb76736eafb435d0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7517157f5b5c8c0611af3bcfbcef7aff207d75e13a86373dbb76736eafb435d0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d000373150d1f394a6a29f1ccf647150f23d3e77ac0dbb6d22fe9ddf5664d74f"
-    sha256 cellar: :any_skip_relocation, ventura:       "d000373150d1f394a6a29f1ccf647150f23d3e77ac0dbb6d22fe9ddf5664d74f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cdfc38f0f1b39b310f96c6f9dc9f364b38e49e4907959aa61e5261346ec51274"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4317835c1730257089a65d977a268a6eba6a834f123d9ef66abf9f58e7a93159"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4317835c1730257089a65d977a268a6eba6a834f123d9ef66abf9f58e7a93159"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4317835c1730257089a65d977a268a6eba6a834f123d9ef66abf9f58e7a93159"
+    sha256 cellar: :any_skip_relocation, sonoma:        "84b6e31be4184df0b1eed709ac11f277ba1364332218b51ed04cf82014cd2d69"
+    sha256 cellar: :any_skip_relocation, ventura:       "84b6e31be4184df0b1eed709ac11f277ba1364332218b51ed04cf82014cd2d69"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1bd56b05cc1dcc194266bd0c14e305cefbd3861c4c52c04dbddcfecf49b44312"
   end
 
   depends_on "go" => :build
