@@ -5,6 +5,10 @@ class OrgFormation < Formula
   sha256 "a3d4be909939bb85b033886bbf8913ffe20e0946ad62f19a0169e2cfc8811406"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "f6a65fc18513bc1b102e4e1fbfa2714b884d9fe4728d6708ad853dbd24541673"
+  end
+
   depends_on "node"
 
   def install
