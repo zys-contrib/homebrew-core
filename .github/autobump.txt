@@ -2516,6 +2516,7 @@ osv-scanner
 otree
 ots
 ott
+ov
 overarch
 overmind
 overtls
