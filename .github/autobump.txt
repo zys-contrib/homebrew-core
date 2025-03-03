@@ -1626,6 +1626,7 @@ k6
 k8sgpt
 k9s
 kafka
+kafkactl
 kahip
 kakoune
 kalker
