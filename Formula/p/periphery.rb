@@ -1,8 +1,8 @@
 class Periphery < Formula
   desc "Identify unused code in Swift projects"
   homepage "https://github.com/peripheryapp/periphery"
-  url "https://github.com/peripheryapp/periphery/archive/refs/tags/3.0.1.tar.gz"
-  sha256 "6498ba5bf27b5e0ea76e254538f1c5f9a38b828b26edb9d2e6b46db6c05f91c2"
+  url "https://github.com/peripheryapp/periphery/archive/refs/tags/3.0.2.tar.gz"
+  sha256 "06c0f71e5afb2ae7ccbb53502500160aa2d8b6da2c9e48e61334c6b83c987a72"
   license "MIT"
   head "https://github.com/peripheryapp/periphery.git", branch: "master"
 
