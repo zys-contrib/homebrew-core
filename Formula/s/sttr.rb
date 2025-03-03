@@ -6,6 +6,15 @@ class Sttr < Formula
   license "MIT"
   head "https://github.com/abhimanyu003/sttr.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fa528ec2bd8efbc1126ceb0b6702e7cd8f90fb429f5690f02f39ff77d009a4a5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fa528ec2bd8efbc1126ceb0b6702e7cd8f90fb429f5690f02f39ff77d009a4a5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "fa528ec2bd8efbc1126ceb0b6702e7cd8f90fb429f5690f02f39ff77d009a4a5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3e18d094bbf79a426042de8d821efaddac406fa0a34ab1f536c9bf8e80b14ed0"
+    sha256 cellar: :any_skip_relocation, ventura:       "3e18d094bbf79a426042de8d821efaddac406fa0a34ab1f536c9bf8e80b14ed0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ac912ccf592e11d84b1d2f655cbbc920672b6de974a5e611da733aa2017e317"
+  end
+
   depends_on "go" => :build
 
   def install
