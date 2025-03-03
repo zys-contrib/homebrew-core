@@ -1,8 +1,8 @@
 class Sdl2Image < Formula
   desc "Library for loading images as SDL surfaces and textures"
   homepage "https://github.com/libsdl-org/SDL_image"
-  url "https://github.com/libsdl-org/SDL_image/releases/download/release-2.8.6/SDL2_image-2.8.6.tar.gz"
-  sha256 "b71903ef444e6011b7d7751f2cf1bc90994810e199818f2706be62d45b10a848"
+  url "https://github.com/libsdl-org/SDL_image/releases/download/release-2.8.8/SDL2_image-2.8.8.tar.gz"
+  sha256 "2213b56fdaff2220d0e38c8e420cbe1a83c87374190cba8c70af2156097ce30a"
   license "Zlib"
   head "https://github.com/libsdl-org/SDL_image.git", branch: "main"
 
