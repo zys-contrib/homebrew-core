@@ -1493,6 +1493,7 @@ imgdiet
 imgp
 imgproxy
 immich-cli
+immich-go
 immortal
 immudb
 imposm3
