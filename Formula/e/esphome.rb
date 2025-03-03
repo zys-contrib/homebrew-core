@@ -3,8 +3,8 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/fa/e2/48de5920344b2ea4191b3bbced910903be98d0a14866a9be59e4003ab4f8/esphome-2025.2.1.tar.gz"
-  sha256 "8ff675390a58c267765bed644cc7c8fcc1bf11b7354c4a2f8c873aa74c954864"
+  url "https://files.pythonhosted.org/packages/17/77/bffd84669d3131556d04fc8b5955a4e4f194fad642709c63dd0e4a9d507d/esphome-2025.2.2.tar.gz"
+  sha256 "ff354e7fa5ead0e48a4e7e54e3ff4c242f2a442643e2b49528d71e564d88a20f"
   license "MIT"
 
   bottle do
@@ -23,8 +23,8 @@ class Esphome < Formula
   depends_on "python@3.13"
 
   resource "aioesphomeapi" do
-    url "https://files.pythonhosted.org/packages/fe/a0/f3e3413a574e2c20448f4c1cee9356d1e1a65840f1bfcd77dd1fce773719/aioesphomeapi-29.1.1.tar.gz"
-    sha256 "5ce6c5304e6a397e802a9224f08cc5be38da4d3dd29a1f0f0d4cc2b3e0121bf1"
+    url "https://files.pythonhosted.org/packages/38/71/c24935da3ed2ad393ad3bb25aa930fe9d15ad8483ce0c40fe867dbe888d2/aioesphomeapi-29.3.2.tar.gz"
+    sha256 "f8c8d4a0d523d8af0e09f639d529efaa0ffa99ffbb53f5c7afc92d2a4606d09f"
   end
 
   resource "aiohappyeyeballs" do
