@@ -1,8 +1,8 @@
 class Conduit < Formula
   desc "Streams data between data stores. Kafka Connect replacement. No JVM required"
   homepage "https://conduit.io/"
-  url "https://github.com/ConduitIO/conduit/archive/refs/tags/v0.13.1.tar.gz"
-  sha256 "929201cb59e28d0e26f442e8a9edc76105c31fb8a1e942457842e6c41d6e72ce"
+  url "https://github.com/ConduitIO/conduit/archive/refs/tags/v0.13.2.tar.gz"
+  sha256 "33cb99f1b3340b7212c58a5c1f1a3547960803415957011cc9e2b5b7b421096f"
   license "Apache-2.0"
   head "https://github.com/ConduitIO/conduit.git", branch: "main"
 
