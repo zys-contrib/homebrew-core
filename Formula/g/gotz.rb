@@ -1,8 +1,8 @@
 class Gotz < Formula
   desc "Displays timezones in your terminal"
   homepage "https://github.com/merschformann/gotz"
-  url "https://github.com/merschformann/gotz/archive/refs/tags/v0.1.13.tar.gz"
-  sha256 "8bc7be0a954aedc2bdbbabb27e81d4c257443f6aa784b770294ad56e7cebdaac"
+  url "https://github.com/merschformann/gotz/archive/refs/tags/v0.1.14.tar.gz"
+  sha256 "44258a08762fda0f0f6eb5afe4eefc8256539da1a8215f77048c1c6f0f0070e5"
   license "MIT"
   head "https://github.com/merschformann/gotz.git", branch: "main"
 
