@@ -1634,6 +1634,7 @@ kamal-proxy
 kamel
 kanata
 kapacitor
+kapp
 karmadactl
 kaskade
 katana
