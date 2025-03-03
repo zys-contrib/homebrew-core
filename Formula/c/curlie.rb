@@ -1,8 +1,8 @@
 class Curlie < Formula
   desc "Power of curl, ease of use of httpie"
   homepage "https://github.com/rs/curlie"
-  url "https://github.com/rs/curlie/archive/refs/tags/v1.7.2.tar.gz"
-  sha256 "b2ced685c6d2cde951cbd894ecc16df2f987f9d680830bcf482a7dcd22165116"
+  url "https://github.com/rs/curlie/archive/refs/tags/v1.8.1.tar.gz"
+  sha256 "0b90d359b94af1d32cb2d34607f2bee10200e2f6a35f55840472e78dab7ed6f4"
   license "MIT"
 
   bottle do
