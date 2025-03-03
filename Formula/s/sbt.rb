@@ -6,9 +6,11 @@ class Sbt < Formula
   sha256 "32c15233c636c233ee25a2c31879049db7021cfef70807c187515c39b96b0fe6"
   license "Apache-2.0"
 
+  # Upstream sometimes creates releases that use a stable tag (e.g., `v1.2.3`)
+  # but are labeled as "pre-release" on GitHub.
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_latest
   end
 
   bottle do
