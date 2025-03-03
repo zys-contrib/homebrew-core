@@ -6,14 +6,12 @@ class Curlie < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "acbbd0d3410d0700c655c45233c9bf2d936f5e7ac6fe39cee18a2aba2ab118a5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "47bf51d69cfc8d16acc0e7a7754d67cff06e934f1df856c7c62d4cb117ce8d05"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "47bf51d69cfc8d16acc0e7a7754d67cff06e934f1df856c7c62d4cb117ce8d05"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "47bf51d69cfc8d16acc0e7a7754d67cff06e934f1df856c7c62d4cb117ce8d05"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c4bf5ea0b7864ba51f58e6fe41fca0f8ea55a1455f55445129685135f849c1da"
-    sha256 cellar: :any_skip_relocation, ventura:        "c4bf5ea0b7864ba51f58e6fe41fca0f8ea55a1455f55445129685135f849c1da"
-    sha256 cellar: :any_skip_relocation, monterey:       "c4bf5ea0b7864ba51f58e6fe41fca0f8ea55a1455f55445129685135f849c1da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef8133ced104b6e62026f4c285e60870805c9c96b85ad2583d1af3e55c2695d8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "97885e654230197afb49fcbbe27e15b7938d1cd144d15149a1f9b2b585364e35"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "97885e654230197afb49fcbbe27e15b7938d1cd144d15149a1f9b2b585364e35"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "97885e654230197afb49fcbbe27e15b7938d1cd144d15149a1f9b2b585364e35"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aa1c3af58c3196b7eccbc096fd8a8af0036044ad528e21ea35794ffbf79499dc"
+    sha256 cellar: :any_skip_relocation, ventura:       "aa1c3af58c3196b7eccbc096fd8a8af0036044ad528e21ea35794ffbf79499dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee1ca8a2f3407b408bc2e4a8c94775872617198507e216d69997c462bb590264"
   end
 
   depends_on "go" => :build
