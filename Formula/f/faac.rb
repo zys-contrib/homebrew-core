@@ -1,8 +1,8 @@
 class Faac < Formula
   desc "ISO AAC audio encoder"
   homepage "https://sourceforge.net/projects/faac/"
-  url "https://github.com/knik0/faac/archive/refs/tags/faac-1.31.tar.gz"
-  sha256 "92894e3205ca7fbb0b0d38161ae94c9e884efe5af65886e5ad60eb1a318c78f1"
+  url "https://github.com/knik0/faac/archive/refs/tags/faac-1.31.1.tar.gz"
+  sha256 "3191bf1b131f1213221ed86f65c2dfabf22d41f6b3771e7e65b6d29478433527"
   license "LGPL-2.1-or-later"
 
   bottle do
