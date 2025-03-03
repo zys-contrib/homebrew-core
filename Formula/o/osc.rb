@@ -3,8 +3,8 @@ class Osc < Formula
 
   desc "Command-line interface to work with an Open Build Service"
   homepage "https://openbuildservice.org"
-  url "https://github.com/openSUSE/osc/archive/refs/tags/1.12.1.tar.gz"
-  sha256 "17570bfe80d5937564036e466c2470c4de37697a16902451556e5af81791aab1"
+  url "https://github.com/openSUSE/osc/archive/refs/tags/1.13.0.tar.gz"
+  sha256 "cb454b663c5625dc7dd2cb826c25c6be71bf780ae94f78261ab44df95d767d17"
   license "GPL-2.0-or-later"
   head "https://github.com/openSUSE/osc.git", branch: "master"
 
@@ -31,6 +31,11 @@ class Osc < Formula
   resource "rpm" do
     url "https://files.pythonhosted.org/packages/d3/36/3dae1ccf058414ee9cc1d39722216db0e0430002ce5008c0b0244f1886fd/rpm-0.3.1.tar.gz"
     sha256 "d75c5dcb581f1e9c4f89cb6667e938e944c6e7c17dd96829e1553c39f3a4c961"
+  end
+
+  resource "ruamel-yaml" do
+    url "https://files.pythonhosted.org/packages/ea/46/f44d8be06b85bc7c4d8c95d658be2b68f27711f279bf9dd0612a5e4794f5/ruamel.yaml-0.18.10.tar.gz"
+    sha256 "20c86ab29ac2153f80a428e1254a8adf686d3383df04490514ca3b79a362db58"
   end
 
   resource "urllib3" do
