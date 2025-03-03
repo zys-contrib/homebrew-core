@@ -6,6 +6,15 @@ class Kafkactl < Formula
   license "Apache-2.0"
   head "https://github.com/deviceinsight/kafkactl.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e9acad5b914763f89340a8a0cd62173fb2703e5acdcc1f8ca58765c6fa7a50c7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e9acad5b914763f89340a8a0cd62173fb2703e5acdcc1f8ca58765c6fa7a50c7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e9acad5b914763f89340a8a0cd62173fb2703e5acdcc1f8ca58765c6fa7a50c7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "959aa526759e6a7b40ed808b5eea08efb980f686d41af10b757b04764c516974"
+    sha256 cellar: :any_skip_relocation, ventura:       "959aa526759e6a7b40ed808b5eea08efb980f686d41af10b757b04764c516974"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff2f34ce6e8c6b4a177bb44e62e45ac78cd8aafe316858e54ab39f404c95bba2"
+  end
+
   depends_on "go" => :build
 
   def install
