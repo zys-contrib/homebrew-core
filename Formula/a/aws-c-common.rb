@@ -1,8 +1,8 @@
 class AwsCCommon < Formula
   desc "Core c99 package for AWS SDK for C"
   homepage "https://github.com/awslabs/aws-c-common"
-  url "https://github.com/awslabs/aws-c-common/archive/refs/tags/v0.11.1.tar.gz"
-  sha256 "b442cc59f507fbe232c0ae433c836deff83330270a58fa13bf360562efda368a"
+  url "https://github.com/awslabs/aws-c-common/archive/refs/tags/v0.11.2.tar.gz"
+  sha256 "52023547b68ba47083289f8ec19e2143c5c92a68e83dd33c18088ad20057d7f6"
   license "Apache-2.0"
 
   bottle do
