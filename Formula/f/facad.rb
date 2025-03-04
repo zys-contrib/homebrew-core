@@ -1,8 +1,8 @@
 class Facad < Formula
   desc "Modern, colorful directory listing tool for the command-line"
   homepage "https://github.com/yellow-footed-honeyguide/facad"
-  url "https://github.com/yellow-footed-honeyguide/facad/archive/refs/tags/v2.20.5.tar.gz"
-  sha256 "592b973a2c889f0a509fb332d6390c36ceed01114e1e6ebe97afbec53f209a1d"
+  url "https://github.com/yellow-footed-honeyguide/facad/archive/refs/tags/v2.20.9.tar.gz"
+  sha256 "9ddf10abeb37694c364d169f2016f93fd9c85e3ef84cd3f20baaa571cc7a716e"
   license "MIT"
 
   bottle do
@@ -16,12 +16,6 @@ class Facad < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-
-  # this patch includes header with `PATH_MAX` macro on macOS
-  patch do
-    url "https://github.com/yellow-footed-honeyguide/facad/commit/94defddf0b4c4ee5ba1e81c784d4285b508cae43.patch?full_index=1"
-    sha256 "b818ee8f3109b6b483545624cee042c07d25e7b052467ff2de6cf98acb192e88"
-  end
 
   def install
     system "meson", "setup", "build", *std_meson_args
