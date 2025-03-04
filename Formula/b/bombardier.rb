@@ -7,12 +7,12 @@ class Bombardier < Formula
   head "https://github.com/codesenberg/bombardier.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ca2757dea44a23cc24a96ac00bf997e4346c7eb6ba6d4a7d1101c1c0590a788c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ca2757dea44a23cc24a96ac00bf997e4346c7eb6ba6d4a7d1101c1c0590a788c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ca2757dea44a23cc24a96ac00bf997e4346c7eb6ba6d4a7d1101c1c0590a788c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "27caf31ac3919ea126a7c469b3eaf8739856ed41fad5f9572f77007a4a07bc08"
-    sha256 cellar: :any_skip_relocation, ventura:       "27caf31ac3919ea126a7c469b3eaf8739856ed41fad5f9572f77007a4a07bc08"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e82f5ee68aae2ae92ffa726006da57cbb050174abf510d2c75ae04a13ad92c2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9485c29e3e9dadce928f167deea422c02238f212e5cf46b51de4e3298e25b2ec"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9485c29e3e9dadce928f167deea422c02238f212e5cf46b51de4e3298e25b2ec"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9485c29e3e9dadce928f167deea422c02238f212e5cf46b51de4e3298e25b2ec"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fb82f62d4fc9f0766effee00a2b90e8a1e4a05e06244598d1652c4cd8241d051"
+    sha256 cellar: :any_skip_relocation, ventura:       "fb82f62d4fc9f0766effee00a2b90e8a1e4a05e06244598d1652c4cd8241d051"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8bcdfdcc9bfb6f81117fce7d1d7d169823c5b7bf15367af83ffdde9041953e9d"
   end
 
   depends_on "go" => :build
