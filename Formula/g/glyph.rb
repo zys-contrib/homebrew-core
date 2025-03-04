@@ -5,6 +5,15 @@ class Glyph < Formula
   sha256 "1cfb17da971cc0daac9d0a7744dd1c05fd3382b2522d64e62cdfb28a8faf5d84"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "e375e615bd24d1ab0c349fc2d6ef36d6382e22af39021b6049bfbc8529dba28c"
+    sha256 cellar: :any,                 arm64_sonoma:  "c99e812fd75226cd9cead1d219fb61f8ea51ad5393b026ebfc2e15ef09b81430"
+    sha256 cellar: :any,                 arm64_ventura: "a2841556a54f74d09be1737c7fe60dce6388154cdbdc4c58ff1308a13b984946"
+    sha256 cellar: :any,                 sonoma:        "4a79fad7a3b61acbf76dacada0d1c830ff919be231eaa4aa17dda4a9158416d5"
+    sha256 cellar: :any,                 ventura:       "098729cdee8a707007d0587338b66f02ec96ef972499b68e5bf314b90b551be3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aff1d7bf9c3446ccf07d3c36e9b5ae3159b5172e161957f67ec3be7483358d87"
+  end
+
   depends_on "pkgconf" => :build
   depends_on "zig" => :build
   depends_on "ffmpeg"
