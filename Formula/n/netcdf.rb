@@ -12,13 +12,12 @@ class Netcdf < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "70dfa63c3d6c0bc99c87e3396640dab20168be0922c86220b37249f12aca32b5"
-    sha256 cellar: :any,                 arm64_sonoma:  "1de9848cbbca463fb680cd0d9046eb0074c4fc5a576c6ec170226b7e8003e29c"
-    sha256 cellar: :any,                 arm64_ventura: "de58c0589a531564788da724ea83373d9a7d6e5eb85eb59106fc8141be027edc"
-    sha256 cellar: :any,                 sonoma:        "3c20b4751784056cefd18fc1c3d6d8c5f000a2f3cfdd0ae17889d2d3f7f7fb04"
-    sha256 cellar: :any,                 ventura:       "55bfa492d1653d4b73ef9cb288d4133e00ec101427d406461f20d379dadc7d12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d08319d7d9cc73b8dbdea396221f5c499a3db2f50933640af1407e2140875a22"
+    sha256 cellar: :any,                 arm64_sequoia: "b6556411dffb6a79cade21f4c5935a7732f32b0566fbd95adc9c803578dd7f4c"
+    sha256 cellar: :any,                 arm64_sonoma:  "8e5f6edbc1bdc0514eabbb6ba699bfd3a1dac8056d0a18e76eacb4dfdbc747f5"
+    sha256 cellar: :any,                 arm64_ventura: "db5219d0b13f8c474852b9786e1c604ec6776a488cfa78446b6cbff87a917827"
+    sha256 cellar: :any,                 sonoma:        "8dc2871bf05e90c183d942121bdbeb217b52e84d3c2d76945a747b47664b5206"
+    sha256 cellar: :any,                 ventura:       "1521a5bcfc4a455a2b7848c85c4351c7809e31a11d11df4d7739236fe8d80588"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c90a09f5e615e4c0bd1140e7e33341eb0dc0bc61934bea412cbb2d54066a191"
   end
 
   depends_on "cmake" => :build
