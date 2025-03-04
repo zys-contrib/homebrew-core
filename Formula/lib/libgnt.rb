@@ -11,14 +11,12 @@ class Libgnt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "06e99df7a279d7a4f75274f96a0db2f6afe0c6b234bbc92d967f289d001cc4c5"
-    sha256 cellar: :any, arm64_sonoma:   "92cb079a6648bbd97c733c00ab6d0ca2bbaa10fa07dd7edafe0e467d59cd928d"
-    sha256 cellar: :any, arm64_ventura:  "cef0929d73436e28d17b5373a7088b7cbebddb53cd2aa5ae332e8b3c7264b2d5"
-    sha256 cellar: :any, arm64_monterey: "0345644c556d7cca3a1974f1d716ca906b3a9819122b8832af2f5fe436febe44"
-    sha256 cellar: :any, sonoma:         "b935c28f5db2f8b807c8550f02eb766793bf324a7b6beaa5f7e83b4dd4671e37"
-    sha256 cellar: :any, ventura:        "9e74dedfc9bc7dd2d44936fa08782aa46bf4e8b9fcf448ba6dfbab1390b229d5"
-    sha256 cellar: :any, monterey:       "b8ee230409a87a54eb1739b0df20eb82c121d0a6d53674b2d8503476fd315b27"
-    sha256               x86_64_linux:   "a1aeee55bd6025c795083d7889415358ab4241b74bc37cd7392833e971eae98d"
+    sha256 cellar: :any, arm64_sequoia: "83d17065c582bdcf162513a0523c19c44db30b00842cda416a2d335b7abc0eb9"
+    sha256 cellar: :any, arm64_sonoma:  "40ab4a1893fe00347a02fb7b4cdf258598e1ae27e1594a1c4dff5461633f1a8a"
+    sha256 cellar: :any, arm64_ventura: "c564614df4b284c52854d467589dd9603a3502f38c9a07f11a8c35e778617c8b"
+    sha256 cellar: :any, sonoma:        "4f3826fd8c722f84e3c568a74c27d48bc3f6a3a15db15721da56447c3f9d9d15"
+    sha256 cellar: :any, ventura:       "567c90442a84e13142d104bd45b65df01359f65aa38b67f52f644d4cd1f5c90f"
+    sha256               x86_64_linux:  "23fe502bda696d00cfd7dd0f0f4022c46268337ae7bea8b0470b497d89540240"
   end
 
   depends_on "gtk-doc" => :build
