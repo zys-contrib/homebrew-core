@@ -1,8 +1,8 @@
 class DockerCredentialHelper < Formula
   desc "Platform keystore credential helper for Docker"
   homepage "https://github.com/docker/docker-credential-helpers"
-  url "https://github.com/docker/docker-credential-helpers/archive/refs/tags/v0.9.1.tar.gz"
-  sha256 "aa4c2aa7987e780769b116f5cef263c13813ef9d40367c7830f71ce486c937b3"
+  url "https://github.com/docker/docker-credential-helpers/archive/refs/tags/v0.9.2.tar.gz"
+  sha256 "bdad4f712244f11dc64890db2f915166306bb4b040149f4497c31f33c7a87327"
   license "MIT"
   head "https://github.com/docker/docker-credential-helpers.git", branch: "master"
 
