@@ -7,7 +7,7 @@ class Yadm < Formula
   head "https://github.com/yadm-dev/yadm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "98fc64e460827dd5a7ad790e0c1c0ca5fe99e2f392d1dd9ca7433ab0b1982da8"
+    sha256 cellar: :any_skip_relocation, all: "323e01bb5b2d4578628cf24afdd1446f6b858927b62cc461da626339f5c053f0"
   end
 
   def install
