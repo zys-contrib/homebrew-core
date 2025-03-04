@@ -3041,6 +3041,7 @@ sentry-cli
 seqkit
 sequin
 sequoia-sq
+sequoia-sqv
 ser2net
 serd
 serf
