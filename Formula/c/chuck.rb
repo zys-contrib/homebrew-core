@@ -13,12 +13,12 @@ class Chuck < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "775bf00f05b209536fafb9545cdcbe51c0da3d716566b975e192db2c6d739b60"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "327ed6c159ebd35647b90743e5406f42d93ccae78d885ae630a820de808e9da3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "488ee8960fbbc51c09970551c77df30832c8717000a860dda9887ca2e66ce1c6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fc3990012ae2a5e68b85532d3ce490bbea0a4e7f8f4827b97998956201aba58f"
-    sha256 cellar: :any_skip_relocation, ventura:       "412634f85e469d3918b11fe631623729e179242fce929914111cb61fa60adef7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2694e0c7f57dc9dc4f7613cde9e7bc8d082168cad05ab4387969b80a352ff7d0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4c9a2adb9ee9ade9e1c73c3c5c9a598f5c952b20958c27e8133c6db403a392ed"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "204c18dc2e95d84c3e9c418b66c89a10ea2d399d4a123fa79de0223ca357e379"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1d3ff5a5d188bd91ad4aa19ad123782858778e1ed93c4b7fea0f8cfbdf7943fe"
+    sha256 cellar: :any_skip_relocation, sonoma:        "434cdc4ed0d648e25520cf96199b6b4b5faf9a5aa4730606b7026f7e9e4250e6"
+    sha256 cellar: :any_skip_relocation, ventura:       "00c0c2b78cb9c2e56b870191b7a22b62796fc99aae1a482f43ef8b8d4540bb65"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d8cf39a956e5031f5384f070e3656c2e320e59d28ffcbe26568066cbcdb9163"
   end
 
   uses_from_macos "bison" => :build
