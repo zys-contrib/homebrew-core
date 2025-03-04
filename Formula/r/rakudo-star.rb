@@ -1,8 +1,8 @@
 class RakudoStar < Formula
   desc "Rakudo compiler and commonly used packages"
   homepage "https://rakudo.org/"
-  url "https://github.com/rakudo/star/releases/download/2025.01/rakudo-star-2025.01.tar.gz"
-  sha256 "34c2853614c6a5b830fc7efccfde3281960a815023e6fac6835643bf8ae9f779"
+  url "https://github.com/rakudo/star/releases/download/2025.02/rakudo-star-2025.02.tar.gz"
+  sha256 "0f85bd4556d89941bead607e8316af5632fb256b0569d49273aa5e9a043f8b6f"
   license "Artistic-2.0"
 
   livecheck do
@@ -23,7 +23,6 @@ class RakudoStar < Formula
   depends_on "pkgconf" => :build
   depends_on "sqlite" => [:build, :test]
   depends_on "libtommath"
-  depends_on "libuv"
   depends_on "mimalloc"
   depends_on "openssl@3" # for OpenSSL module, loaded by path
   depends_on "readline" # for Readline module, loaded by path
@@ -32,6 +31,10 @@ class RakudoStar < Formula
   uses_from_macos "perl" => :build
   uses_from_macos "libffi", since: :catalina
   uses_from_macos "libxml2"
+
+  on_macos do
+    depends_on "libuv"
+  end
 
   conflicts_with "moar", because: "both install `moar` binaries"
   conflicts_with "moarvm", "nqp", because: "rakudo-star currently ships with moarvm and nqp included"
@@ -52,15 +55,20 @@ class RakudoStar < Formula
   def install
     # Unbundle libraries in MoarVM
     moarvm_3rdparty = buildpath.glob("src/moarvm-*/MoarVM-*/3rdparty").first
-    %w[dyncall libatomicops libtommath libuv mimalloc].each { |dir| rm_r(moarvm_3rdparty/dir) }
+    %w[dyncall libatomicops libtommath mimalloc].each { |dir| rm_r(moarvm_3rdparty/dir) }
     moarvm_configure_args = %W[
       --c11-atomics
       --has-libffi
       --has-libtommath
-      --has-libuv
       --has-mimalloc
       --pkgconfig=#{Formula["pkgconf"].opt_bin}/pkgconf
     ]
+    # FIXME: brew `libuv` causes runtime failures on Linux, e.g.
+    # "Cannot find method 'made' on object of type NQPMu"
+    if OS.mac?
+      moarvm_configure_args << "--has-libuv"
+      rm_r(moarvm_3rdparty/"libuv")
+    end
     inreplace "lib/actions/install.bash", "@@MOARVM_CONFIGURE_ARGS@@", moarvm_configure_args.join(" ")
 
     # Help Readline module find brew `readline` on Linux
@@ -77,21 +85,14 @@ class RakudoStar < Formula
     # Help DBIish module find sqlite shared library
     ENV["DBIISH_SQLITE_LIB"] = Formula["sqlite"].opt_lib/shared_library("libsqlite3")
 
-    # openssl module's brew --prefix openssl probe fails so
-    # set value here
-    openssl_prefix = Formula["openssl@3"].opt_prefix
-    ENV["OPENSSL_PREFIX"] = openssl_prefix.to_s
+    # openssl module's brew --prefix openssl probe fails so set value here
+    ENV["OPENSSL_PREFIX"] = Formula["openssl@3"].opt_prefix
 
     system "bin/rstar", "install", "-p", prefix.to_s
 
     #  Installed scripts are now in share/perl/{site|vendor}/bin, so we need to symlink it too.
     bin.install_symlink (share/"perl6/vendor/bin").children
     bin.install_symlink (share/"perl6/site/bin").children
-
-    # Move the man pages out of the top level into share.
-    # Not all backends seem to generate man pages at this point (moar does not, parrot does),
-    # so we need to check if the directory exists first.
-    share.install prefix/"man" if (prefix/"man").directory?
   end
 
   def post_install
