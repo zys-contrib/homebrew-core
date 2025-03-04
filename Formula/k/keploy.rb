@@ -6,12 +6,12 @@ class Keploy < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b86a12c2d1005df3cef61374f44528e8d8baccdc81931d2dad2b3863640276a8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b86a12c2d1005df3cef61374f44528e8d8baccdc81931d2dad2b3863640276a8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b86a12c2d1005df3cef61374f44528e8d8baccdc81931d2dad2b3863640276a8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7829299f2382b6f0ad6e2037fc4a8ff86c87f5ca4547160945cabfc62ba89170"
-    sha256 cellar: :any_skip_relocation, ventura:       "7829299f2382b6f0ad6e2037fc4a8ff86c87f5ca4547160945cabfc62ba89170"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83b4c1e72cb39c4a2c22e4097c0df7f27c77dfba9ca100d505740bf12515979b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5d260e34a2a2829ddc0c5cb391160a63bdbdcfc63c733ce6d65fbfd280f3dbff"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5d260e34a2a2829ddc0c5cb391160a63bdbdcfc63c733ce6d65fbfd280f3dbff"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5d260e34a2a2829ddc0c5cb391160a63bdbdcfc63c733ce6d65fbfd280f3dbff"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3f388f58903d738d03ce722d21a90ba3de93354030a1d61fd7e96e909c572b29"
+    sha256 cellar: :any_skip_relocation, ventura:       "3f388f58903d738d03ce722d21a90ba3de93354030a1d61fd7e96e909c572b29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7db6b350e1c9b8aa7d5dba353072b4d6c5d003634f69de10c4dd31b640453d61"
   end
 
   depends_on "go" => :build
