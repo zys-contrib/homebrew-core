@@ -2,7 +2,7 @@ class Ppsspp < Formula
   desc "PlayStation Portable emulator"
   homepage "https://ppsspp.org/"
   license all_of: ["GPL-2.0-or-later", "BSD-3-Clause"]
-  revision 2
+  revision 3
   head "https://github.com/hrydgard/ppsspp.git", branch: "master"
 
   stable do
