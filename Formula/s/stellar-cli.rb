@@ -1,8 +1,8 @@
 class StellarCli < Formula
   desc "Stellar command-line tool for interacting with the Stellar network"
   homepage "https://developers.stellar.org"
-  url "https://github.com/stellar/stellar-cli/archive/refs/tags/v22.2.0.tar.gz"
-  sha256 "e34fd978de0c873777fa67473d458a8b5cffd07c6bc5ae036bd146eac0a960bd"
+  url "https://github.com/stellar/stellar-cli/archive/refs/tags/v22.3.0.tar.gz"
+  sha256 "99366c26e0a142a82a68897710001b0190c680aad5bc4e7f396ab4c14d3948c7"
   license "Apache-2.0"
   head "https://github.com/stellar/stellar-cli.git", branch: "main"
 
@@ -18,6 +18,11 @@ class StellarCli < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "openssl@3"
+
+  on_linux do
+    depends_on "dbus"
+    depends_on "systemd" # for libudev
+  end
 
   def install
     system "cargo", "install", "--bin=stellar", "--features=opt", *std_cargo_args(path: "cmd/stellar-cli")
