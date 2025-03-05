@@ -6,6 +6,15 @@ class Rhai < Formula
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/rhaiscript/rhai.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6b13e0af55b0f0ff2c11db28b877fa24fb9b395df051a8cb406e3fbdb8c55439"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fcc91dc8b4817eb2e12ee73a317e283deb4ce9e3cdb61e10ec5f440835e89546"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "007a9c01d4d28fb5f1890cbd50db8da29774dfb2166924f3bc46002eca043aff"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0e9e3530ec4b005d6b144c0869754d38f02fbe9f0e0c306684a4a5aac0389a1c"
+    sha256 cellar: :any_skip_relocation, ventura:       "fd7252baec59a484b66ff70db31eec2c15ad6ec57230b014b3dfcf8d4aa45cb9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "625323d49d84a3cf9e0ea41a65b1d6d5b7bba882a55117da31e9b94bf0036a7b"
+  end
+
   depends_on "rust" => :build
 
   def install
