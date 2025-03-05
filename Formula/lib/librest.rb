@@ -1,10 +1,9 @@
 class Librest < Formula
   desc "Library to access RESTful web services"
   homepage "https://wiki.gnome.org/Projects/Librest"
-  url "https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz"
-  sha256 "0513aad38e5d3cedd4ae3c551634e3be1b9baaa79775e53b2dba9456f15b01c9"
+  url "https://download.gnome.org/sources/rest/0.9/rest-0.9.1.tar.xz"
+  sha256 "9266a5c10ece383e193dfb7ffb07b509cc1f51521ab8dad76af96ed14212c2e3"
   license all_of: ["LGPL-2.1-or-later", "LGPL-3.0-or-later"]
-  revision 4
 
   # librest doesn't seem to follow the typical GNOME version scheme, so we
   # provide a regex to disable the `Gnome` strategy's version filtering.
@@ -29,28 +28,26 @@ class Librest < Formula
   end
 
   depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
 
   depends_on "glib"
-  depends_on "libsoup@2"
+  depends_on "json-glib"
+  depends_on "libsoup"
 
   uses_from_macos "libxml2"
 
-  on_macos do
-    depends_on "gettext"
+  # Backport fix to avoid gnome-online-accounts crash
+  patch do
+    url "https://gitlab.gnome.org/GNOME/librest/-/commit/dc860c817c311f07b489cd00c6c8dea4ad1999ca.diff"
+    sha256 "af856766a93efa65e8ac619ab2be1f974a6fdd522dc38296aaa76b0359dbad65"
   end
 
   def install
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libsoup@2"].opt_lib/"pkgconfig"
-    ENV.prepend_path "XDG_DATA_DIRS", Formula["libsoup@2"].opt_share
-    ENV.prepend_path "XDG_DATA_DIRS", HOMEBREW_PREFIX/"share"
-
-    system "./configure", "--disable-silent-rules",
-                          "--without-gnome",
-                          "--without-ca-certificates",
-                          "--enable-introspection=yes",
-                          *std_configure_args
-    system "make", "install"
+    system "meson", "setup", "build", "-Dexamples=false", "-Dgtk_doc=false", "-Dtests=false", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
@@ -67,8 +64,7 @@ class Librest < Formula
       }
     C
 
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libsoup@2"].opt_lib/"pkgconfig"
-    flags = shell_output("pkgconf --cflags --libs rest-0.7").chomp.split
+    flags = shell_output("pkgconf --cflags --libs rest-1.0").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
