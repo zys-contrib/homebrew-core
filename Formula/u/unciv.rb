@@ -10,6 +10,10 @@ class Unciv < Formula
     regex(/^v?(\d+(?:\.\d+)+(?:[._-]?patch\d*)?)$/i)
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "8cc59207c5c11d4f31a168392e0e377bc66675ffb7db83c07aad3630dd63ee7e"
+  end
+
   depends_on "openjdk"
 
   def install
