@@ -33,6 +33,8 @@ class Systemd < Formula
     sha256 x86_64_linux: "06bb06a6a612764a2fcde5fabdc38a27adb34fe03816538ea18671c6a8c77312"
   end
 
+  keg_only "it will shadow system systemd if linked"
+
   depends_on "coreutils" => :build
   depends_on "docbook-xsl" => :build
   depends_on "gettext" => :build
