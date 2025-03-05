@@ -9,7 +9,7 @@ class AivenClient < Formula
   head "https://github.com/aiven/aiven-client.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "dad3ddcaff32cb602598c5569f1069b434cb95c820d7e73083867582e1688961"
+    sha256 cellar: :any_skip_relocation, all: "f63ee735597d6b2f03d718162aad0d01cd64c0db655912d2f133ca9267690099"
   end
 
   depends_on "certifi"
