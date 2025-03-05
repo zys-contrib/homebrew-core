@@ -9,12 +9,12 @@ class Yoke < Formula
   head "https://github.com/yokecd/yoke.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "056a61119c8ee4cac70913fccef84d5afeddc8ba8d69cac07548281b8e209f2b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "056a61119c8ee4cac70913fccef84d5afeddc8ba8d69cac07548281b8e209f2b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "056a61119c8ee4cac70913fccef84d5afeddc8ba8d69cac07548281b8e209f2b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "aa65f099b77ff3d27a250d3eb9f9fd31ab82256f363e93b217a117e67b17446b"
-    sha256 cellar: :any_skip_relocation, ventura:       "aa65f099b77ff3d27a250d3eb9f9fd31ab82256f363e93b217a117e67b17446b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4dc4ae1ca0902d902170625fe25d67b836505b8ec331fb76c81ede0c80cd8a21"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e796914c6ceed01ef4a181bac5eea271b79cda1aa7a0b09f7fd06b37b0bdc93a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e796914c6ceed01ef4a181bac5eea271b79cda1aa7a0b09f7fd06b37b0bdc93a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e796914c6ceed01ef4a181bac5eea271b79cda1aa7a0b09f7fd06b37b0bdc93a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f9697fc94ce462e5d7fb9214b5ba92186a9bf6a1bcea754a12167eba5c506181"
+    sha256 cellar: :any_skip_relocation, ventura:       "f9697fc94ce462e5d7fb9214b5ba92186a9bf6a1bcea754a12167eba5c506181"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ceb4ae5e8d37531487d01738171da5c62b3fec9665b665f62901aa316b8c6727"
   end
 
   depends_on "go" => :build
