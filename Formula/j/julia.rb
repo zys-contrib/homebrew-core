@@ -10,7 +10,6 @@ class Julia < Formula
     sha256 "027b258b47b4e1a81d1ecdd355adeffdb6c0181c9ad988e717f5e475a12a1de8"
 
     depends_on "libgit2@1.8"
-    depends_on "mbedtls@2"
 
     # Link against libgcc_s.1.1.dylib, not libgcc_s.1.dylib
     # https://github.com/JuliaLang/julia/pull/56965#event-15826575851
@@ -91,7 +90,6 @@ class Julia < Formula
       USE_SYSTEM_LIBGIT2=1
       USE_SYSTEM_LIBSSH2=1
       USE_SYSTEM_LIBSUITESPARSE=1
-      USE_SYSTEM_MBEDTLS=1
       USE_SYSTEM_MPFR=1
       USE_SYSTEM_NGHTTP2=1
       USE_SYSTEM_OPENLIBM=1
@@ -157,10 +155,9 @@ class Julia < Formula
       ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}"
     end
 
-    # Remove library versions from MbedTLS_jll, nghttp2_jll and others
+    # Remove library versions from nghttp2_jll and others
     # https://git.archlinux.org/svntogit/community.git/tree/trunk/julia-hardcoded-libs.patch?h=packages/julia
     stdlib_deps = %w[nghttp2 LibGit2 OpenLibm SuiteSparse]
-    stdlib_deps << "MbedTLS" if build.stable?
     stdlib_deps.each do |dep|
       inreplace (buildpath/"stdlib").glob("**/#{dep}_jll.jl") do |s|
         s.gsub!(%r{@rpath/lib(\w+)(\.\d+)*\.dylib}, "@rpath/lib\\1.dylib")
@@ -174,11 +171,12 @@ class Julia < Formula
     if build.head?
       args << "USE_SYSTEM_CURL=1"
     else
-      args << "USE_SYSTEM_CURL=0"
+      args += ["USE_SYSTEM_CURL=0", "USE_SYSTEM_MBEDTLS=0"]
       # Julia 1.11 is incompatible with curl >= 8.10
       # Issue ref: https://github.com/JuliaLang/Downloads.jl/issues/260
-      odie "Try unbundling curl!" if version >= "1.12"
+      odie "Try unbundling curl and removing mbedtls references!" if version >= "1.12"
       # Workaround to install bundled curl without bundling other libs
+      system "make", "-C", "deps", "install-mbedtls", *args
       system "make", "-C", "deps", "install-curl", *args
     end
 
@@ -238,7 +236,7 @@ class Julia < Formula
     # Most of these also check that Julia can load Homebrew-provided libraries.
     jlls = %w[
       MPFR_jll SuiteSparse_jll Zlib_jll OpenLibm_jll
-      nghttp2_jll MbedTLS_jll LibGit2_jll GMP_jll
+      nghttp2_jll LibGit2_jll GMP_jll
       OpenBLAS_jll CompilerSupportLibraries_jll dSFMT_jll LibUV_jll
       LibSSH2_jll LibCURL_jll libLLVM_jll PCRE2_jll
     ]
