@@ -1,8 +1,8 @@
 class FancyCat < Formula
   desc "PDF reader for terminal emulators using the Kitty image protocol"
   homepage "https://github.com/freref/fancy-cat"
-  url "https://github.com/freref/fancy-cat/archive/refs/tags/v0.3.1.tar.gz"
-  sha256 "818650bd3c5c1d3aa3a573d185a49ea3466bda86d3e659965941887b424661d7"
+  url "https://github.com/freref/fancy-cat/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "bce101d5eb009ec9057f7b87f6ad767ee96238abcee8854a9db7febd0229a2bf"
   license "AGPL-3.0-or-later"
 
   bottle do
@@ -16,12 +16,6 @@ class FancyCat < Formula
 
   depends_on "zig" => :build
   depends_on "mupdf"
-
-  # version patch, upstream pr ref, https://github.com/freref/fancy-cat/pull/68
-  patch do
-    url "https://github.com/freref/fancy-cat/commit/817906c7a08907da1acc4a436acd2650d5e7ba72.patch?full_index=1"
-    sha256 "ddb4e776077b9b7d79eead905964a95c790a75a2c1bc8f43b86dfc814ee5de27"
-  end
 
   def install
     # Fix illegal instruction errors when using bottles on older CPUs.
