@@ -1,8 +1,8 @@
 class Qthreads < Formula
   desc "Lightweight locality-aware user-level threading runtime"
   homepage "https://www.sandia.gov/qthreads/"
-  url "https://github.com/sandialabs/qthreads/releases/download/1.21/qthreads-1.21.tar.gz"
-  sha256 "428983e7423d10ca9be2830c3b3935516286b160694d1d054ed76ae12c510171"
+  url "https://github.com/sandialabs/qthreads/archive/refs/tags/1.22.tar.gz"
+  sha256 "76804e730145ee26f661c0fbe3f773f2886d96cb8a72ea79666f7714403d48ad"
   license "BSD-3-Clause"
   head "https://github.com/sandialabs/qthreads.git", branch: "main"
 
@@ -15,15 +15,12 @@ class Qthreads < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1d37bb159cb706c38bf76372026532407eba1e1f93702147710c0d5ecffae32"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
 
   def install
-    system "./autogen.sh"
-    system "./configure", "--disable-silent-rules", *std_configure_args
-    system "make"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     pkgshare.install "userguide/examples"
     doc.install "userguide"
   end
