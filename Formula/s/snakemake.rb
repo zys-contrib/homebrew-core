@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/64/bd/b97639e0290c7a2a276bd3ef8bfea8b9a204df3bf6e3d074e05758ed7403/snakemake-8.29.0.tar.gz"
-  sha256 "9f8648f95e27b7c44c4de23a38956840a047a59065a344cba06935a18559162f"
+  url "https://files.pythonhosted.org/packages/85/62/cbbea9e924f50bc411d6d87dfa091e2b925db42b9107e3f130065ee3768a/snakemake-8.29.1.tar.gz"
+  sha256 "77821ec5d44384bf7a2de18dd29a5be10bc1ba2c2fcc7744ef966affd4f78926"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -56,11 +56,6 @@ class Snakemake < Formula
   resource "connection-pool" do
     url "https://files.pythonhosted.org/packages/bd/df/c9b4e25dce00f6349fd28aadba7b6c3f7431cc8bd4308a158fbe57b6a22e/connection_pool-0.0.3.tar.gz"
     sha256 "bf429e7aef65921c69b4ed48f3d48d3eac1383b05d2df91884705842d974d0dc"
-  end
-
-  resource "datrie" do
-    url "https://files.pythonhosted.org/packages/9d/fe/db74bd405d515f06657f11ad529878fd389576dca4812bea6f98d9b31574/datrie-0.8.2.tar.gz"
-    sha256 "525b08f638d5cf6115df6ccd818e5a01298cd230b2dac91c8ff2e6499d18765d"
   end
 
   resource "docutils" do
