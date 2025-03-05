@@ -1,8 +1,8 @@
 class Grype < Formula
   desc "Vulnerability scanner for container images and filesystems"
   homepage "https://github.com/anchore/grype"
-  url "https://github.com/anchore/grype/archive/refs/tags/v0.87.0.tar.gz"
-  sha256 "487ba946a94e9fe19fbb067e2b636ea784d55c2cbc6c3b3bbb9c2db83ad22012"
+  url "https://github.com/anchore/grype/archive/refs/tags/v0.88.0.tar.gz"
+  sha256 "7d0adadbe0ff88b4b62782f8de7f2ecf7ce17c61560cadd9a1c0fcd1f85d1b0c"
   license "Apache-2.0"
   head "https://github.com/anchore/grype.git", branch: "main"
 
@@ -25,7 +25,7 @@ class Grype < Formula
   end
 
   test do
-    assert_match "database metadata not found", shell_output("#{bin}/grype db status 2>&1", 1)
+    assert_match "database does not exist", shell_output("#{bin}/grype db status 2>&1", 1)
     assert_match "update to the latest db", shell_output("#{bin}/grype db check", 100)
     assert_match version.to_s, shell_output("#{bin}/grype version 2>&1")
   end
