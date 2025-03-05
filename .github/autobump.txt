@@ -2893,6 +2893,7 @@ reveal-md
 revive
 rex
 rgbds
+rhai
 rhash
 rhino
 rhit
