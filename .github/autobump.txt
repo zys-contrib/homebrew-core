@@ -1349,7 +1349,6 @@ groonga
 groovy
 groovysdk
 grpc
-grpc-swift
 grpcui
 grype
 gsan
@@ -2727,6 +2726,7 @@ protobuf-c
 protoc-gen-go
 protoc-gen-go-grpc
 protoc-gen-grpc-java
+protoc-gen-grpc-swift
 protoc-gen-grpc-web
 protolint
 prowler
