@@ -3,8 +3,8 @@ class Mlx < Formula
 
   desc "Array framework for Apple silicon"
   homepage "https://github.com/ml-explore/mlx"
-  url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.23.1.tar.gz"
-  sha256 "93a89562477cee41cff61ac47dc43d459807232b210622f45691a7bb50315d73"
+  url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.23.2.tar.gz"
+  sha256 "02b24a1065d4eaf8cf7ca253dd8df9c916230c6a282f99c13cdecb10ff0aab86"
   license all_of: [
     "MIT", # main license
     "Apache-2.0", # metal-cpp resource
