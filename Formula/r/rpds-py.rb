@@ -7,6 +7,15 @@ class RpdsPy < Formula
   sha256 "e32fee8ab45d3c2db6da19a5323bc3362237c8b653c70194414b892fd06a080d"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "ccd8ecaa61411931509e62ae0deb46d057b8a3667ca3a8cdc8537700403e6df5"
+    sha256 cellar: :any,                 arm64_sonoma:  "3e3a2632a9785a78eb16b5cd537b897e9a04b6a8695be75a86e9810b25d9b7b7"
+    sha256 cellar: :any,                 arm64_ventura: "ea02b94654f20a008b848e7db22ee90e5560037f416039d8570ba26ba13a85bd"
+    sha256 cellar: :any,                 sonoma:        "c3d38941701efe85718068dab4efe79b32b17831ddc44f05ecb5078e25abba9c"
+    sha256 cellar: :any,                 ventura:       "aaf703ec84e39712572acf5cd11f19c8ac11974c0010aaf1548b85be19e73ebb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08ec2905d57ea48cbca4f7a033866ff8abe99b56cd93aac3b02b1cabf8a9f0e1"
+  end
+
   depends_on "maturin" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
