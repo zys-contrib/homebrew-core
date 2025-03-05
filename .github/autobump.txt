@@ -1075,6 +1075,7 @@ foreman
 forgit
 fork-cleaner
 fortio
+fortitude
 fortls
 fossil
 fourmolu
