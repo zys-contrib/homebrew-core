@@ -9,6 +9,7 @@ class Bitcoin < Formula
     "BSL-1.0", # src/tinyformat.h
     "Sleepycat", # resource("bdb")
   ]
+  revision 1
   head "https://github.com/bitcoin/bitcoin.git", branch: "master"
 
   livecheck do
