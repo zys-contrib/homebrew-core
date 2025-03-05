@@ -2926,6 +2926,7 @@ roswell
 rover
 roxctl
 rp
+rpds-py
 rpg-cli
 rpki-client
 rpl
