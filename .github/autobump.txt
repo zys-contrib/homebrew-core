@@ -1261,7 +1261,7 @@ go-feature-flag-relay-proxy
 go-md2man
 go-size-analyzer
 go-task
-go@1.22
+go@1.23
 goaccess
 goawk
 gobject-introspection
