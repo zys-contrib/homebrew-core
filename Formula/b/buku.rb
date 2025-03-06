@@ -10,12 +10,12 @@ class Buku < Formula
   head "https://github.com/jarun/buku.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e21aab12edfb5ed957b882de61b739cfa96cd2b66475181b882c3c30323fd4b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b623288b44db6297ba1f2d8d513103291d18b43c29f980fe5a571f944864b68d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2f76d0977a40c829227c09e24d51e7c4d4b47280b686fb2ecd1a441bd4414b40"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3417f96fdd88257c76fa40dd7942959c96121c1414ce8e6d2354ee7c563804c7"
-    sha256 cellar: :any_skip_relocation, ventura:       "682f27f719652fcd1cd08291182dbedc112ac985ed15c94e9ae94e10a21f8b6b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03eb99f07115d1dca39d1daaea0df354c18f37703ae386880ae1c772219772dd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f9e9ada33f4ceed0d64870888ef0aa2d47fbc8d7472d44d5d04903f4e23a53f3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0e2a3f573759f416945e12dcd41dc2e2b90db44ca9bdc441983937920f7ef79c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "54de12a32e4ea424bc008f27eab490643467760d2647bb21e2b541fa651ef01a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a6204f9d6e6877bc9aaba326aa03b00375c01162062777d4e465a11916688986"
+    sha256 cellar: :any_skip_relocation, ventura:       "0ef74ba32389f16e7735f633b93146fd3e4edbbfd6e193c9cd488f91dc452428"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3050ed929c5c6c9bbdf01b22ce7eb5c12f366736a4af95a91e818e8300685f6"
   end
 
   depends_on "certifi"
