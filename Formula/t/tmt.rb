@@ -9,12 +9,12 @@ class Tmt < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1219b1e7df3216230a11041afbde85331b63a0ddf0a21fdebcedc54749b6f8e2"
-    sha256 cellar: :any,                 arm64_sonoma:  "f45b8ecc5fd0e1feb0a509b8e113074859dd95e9f1519910bd3e39d7f3a821a6"
-    sha256 cellar: :any,                 arm64_ventura: "ab55c1b60712c368fdbf65d72e81998e1c6898db5891587401845e8c31f53904"
-    sha256 cellar: :any,                 sonoma:        "5fe5245c2b084f00b128afc4d6281596734c00efe3fbce52a52619de622b97b3"
-    sha256 cellar: :any,                 ventura:       "19d123a1e6a991441703f71be065f74ad3f88861f7df66da1601776b0ad99cdd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b05b64f640b9204eec3cb800e8df8646bb5352507afb56af5b21dcf50a37fba"
+    sha256 cellar: :any,                 arm64_sequoia: "986abeb4e7392267af156d7a4c38ecd5a2fd9d8789bebcce4f8d201415a09c31"
+    sha256 cellar: :any,                 arm64_sonoma:  "0449dfc2a046b0cf593468d7ea4a5b87767065258ed42392ba752a2c0b507367"
+    sha256 cellar: :any,                 arm64_ventura: "2503858fd03a60f2d116916b5f4a1496824a34ca74b4280a43676475e31a9739"
+    sha256 cellar: :any,                 sonoma:        "59aed1f8de7ae4d9db5e77eff9219246ed8dd4f22a1d08f4cd2bbd7a1cfa82f7"
+    sha256 cellar: :any,                 ventura:       "8dacdeb76576f73c39fe7d78c4071906198a36fe8e8a2782ab44f4630fa71657"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03407489d29645cbad5be7432a54e0da40f051f2d11d64f278fbc4494283a26f"
   end
 
   depends_on "rust" => :build # for rpds-py
