@@ -1,14 +1,9 @@
 class Ripmime < Formula
   desc "Extract attachments out of MIME encoded email packages"
   homepage "https://pldaniels.com/ripmime/"
-  url "https://pldaniels.com/ripmime/ripmime-1.4.0.10.tar.gz"
-  sha256 "896115488a7b7cad3b80f2718695b0c7b7c89fc0d456b09125c37f5a5734406a"
+  url "https://github.com/inflex/ripMIME/archive/refs/tags/1.4.1.0.tar.gz"
+  sha256 "6d551d6b65b4da6c6b8dfd05be8141026cc760ca1fb8a707b7bf96c199c9f52d"
   license "BSD-3-Clause"
-
-  livecheck do
-    url :homepage
-    regex(/href=.*?ripmime[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8c027eccffd894d36c64385cb6347681f51a16f3cf414ee28d1e72f4b24e74c8"
