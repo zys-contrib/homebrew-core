@@ -1,8 +1,8 @@
 class AwsCEventStream < Formula
   desc "C99 implementation of the vnd.amazon.eventstream content-type"
   homepage "https://github.com/awslabs/aws-c-event-stream"
-  url "https://github.com/awslabs/aws-c-event-stream/archive/refs/tags/v0.5.3.tar.gz"
-  sha256 "98f66598f9af0f9ee714a441b0ce99777c76a0493c4802dd960dc24caa293400"
+  url "https://github.com/awslabs/aws-c-event-stream/archive/refs/tags/v0.5.4.tar.gz"
+  sha256 "cef8b78e362836d15514110fb43a0a0c7a86b0a210d5fe25fd248a82027a7272"
   license "Apache-2.0"
 
   bottle do
