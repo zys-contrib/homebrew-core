@@ -7,6 +7,15 @@ class Gersemi < Formula
   sha256 "bc31021b7f7a6d30360e6600ed1c6621a02c627a7b5d8f237cbcc8adcc7b1201"
   license "MPL-2.0"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "90d259be0309a3fca14d476f3d24a2401394eefc4966d8db7dae4748bcf43dc7"
+    sha256 cellar: :any,                 arm64_sonoma:  "38b492705da575b3b0785e48dd1e887eb53acaec827abf4be9534150a2219f15"
+    sha256 cellar: :any,                 arm64_ventura: "891f6adfc231a1628ccfdb681f979e97faa186fde0e853b92ea06ed14462128d"
+    sha256 cellar: :any,                 sonoma:        "e472584d092eae19c3f4372e8af7958d2efbc75e60245c39e12e619b6899bf38"
+    sha256 cellar: :any,                 ventura:       "f1ff3ac0e4a54d1c7c26e9542cc3edc74c65077daa61ec243aa8a2b71aff751c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74f49f3fd8be09dacea1724fc86d55e96dfbccb8caa5dfd09d8e1d6edc1725fd"
+  end
+
   depends_on "libyaml"
   depends_on "python@3.13"
 
