@@ -10,12 +10,12 @@ class Fava < Formula
   head "https://github.com/beancount/fava.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "86dffea8363bde5a0949c0ce6d2f2423ee26a4639dc277fc33dbb08773bb57be"
-    sha256 cellar: :any,                 arm64_sonoma:  "2a22c3399e8ef68248b3d2f70b1cce3d7fa6ad6fb1b61e3f80f9b6d7dc8d9015"
-    sha256 cellar: :any,                 arm64_ventura: "92e321458fdd5d7cadbac674d5971df11b391068edea8a522b669680493fb570"
-    sha256 cellar: :any,                 sonoma:        "5c8f7aa0157ed7417c4061612e8a4946e1f5ec6bb07f4982e28d86b422701eb1"
-    sha256 cellar: :any,                 ventura:       "a46453464c3e722123958a9115d20844e52afb6ae7a2ce112b28c9e7b26c8836"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "822b41828ca604c4c5aae2aea0fd8c17b1b4ebeb6f4d8f42ae457bc451824d34"
+    sha256 cellar: :any,                 arm64_sequoia: "2a40103331ad97301f87a7548dc1d58b5a397e8bdbccfda31408bef2bf786de9"
+    sha256 cellar: :any,                 arm64_sonoma:  "b91a203ab893b195f38a0fec13cde84e83e2c27b9e5bcbc87369afe307674984"
+    sha256 cellar: :any,                 arm64_ventura: "a7b743d3fc86c54650248694067d0198523eaa71119035e4edcca0abff6c1d20"
+    sha256 cellar: :any,                 sonoma:        "250b3e3755b046ac688b8dcc35e56a7d6179d26ea30c716bc34acbdd7e107bec"
+    sha256 cellar: :any,                 ventura:       "d522789b27b90118c85a5de8943c0ebd4c7e2beed17f598eb6a0ea9a3d467faa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "313c09784dda3c14df2ca71fcea1ed38d4dd22a4701b53d7dfbb187aa49b8742"
   end
 
   depends_on "bison" => :build # for beancount
