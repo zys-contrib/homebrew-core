@@ -13,18 +13,12 @@ class Librest < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_sequoia:  "b495dc3f46d8a9540285976f91890822b26bb33455aa22aad0d0c1eedbd542fc"
-    sha256                               arm64_sonoma:   "83899cbb34ed5f7f1015a92854e0593d720bdbe31d1f44a0b29e24823e26503d"
-    sha256                               arm64_ventura:  "5b9577e9c171c879a9fe98ed60239ac2997732b0d3d23be936ec4c8b51e660d7"
-    sha256                               arm64_monterey: "b82cb89cd5181ce20e2bce9f9255bd7878a13d9badb6c0c8fe633be3c1fe748a"
-    sha256                               arm64_big_sur:  "ce82e6e380a02285f90307b8609e63cba7dfa52a3d1fae7092296f49e67f624f"
-    sha256                               sonoma:         "d1addd9b604b10a54daecd910eeb9eb739349d9e46d2c9fe4c58d3c7d8e64def"
-    sha256                               ventura:        "0d09e17ff17368fce86679192c085e87cb17d48dc71e95cc27caa653b5ea614f"
-    sha256                               monterey:       "fc839b0cce9619c5489fe51408792ada7ab2a5569419cd38569ca13fa6ef356b"
-    sha256                               big_sur:        "83313f7234d69f6801104ba55c1b60933d8db57d8b8f818b336b8a498043b067"
-    sha256                               catalina:       "7616a630b4f286a28c6520917353196f29e5ddbc488bf6880d14cb518271ff26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ea0c9d41ed04199de23e8cc5cc1b0dc8ea45e24f437b0b78dc823ce0dea0018"
+    sha256 cellar: :any, arm64_sequoia: "06a5c8af4c882c1b19125a18709bb62b407e4b9ba38cc1cad2d7752cd589aead"
+    sha256 cellar: :any, arm64_sonoma:  "35deb8d1d89dbdd0c7969023d92ef822175d1eaeb307033e7014ccf8bb100eed"
+    sha256 cellar: :any, arm64_ventura: "c23e539c42b6212b8f58e04631f6b0603baa2974d6de31a2f39bec3e436c5d7b"
+    sha256 cellar: :any, sonoma:        "0634c21e72f7232145f23bf36578835e0669d0d17db351491d57b8e15867aff3"
+    sha256 cellar: :any, ventura:       "2b1dc70cd6eb900751e74bfbec6c61fb7ab603f75499717fa010403a591dd822"
+    sha256               x86_64_linux:  "cc33d81a4b567bb31a1289239b806b9b312e66c47c83f1e3c8f0a7c6590d70ed"
   end
 
   depends_on "gobject-introspection" => :build
