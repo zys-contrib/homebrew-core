@@ -6,6 +6,7 @@ class Sqlfluff < Formula
   url "https://files.pythonhosted.org/packages/e5/1d/2bdff48cfe61115ecec38ba5e64fcb74f446449aa88d4c1e5d98f8100bf7/sqlfluff-3.3.1.tar.gz"
   sha256 "fbd877395ea597686421a5d453c6844243f1b4082563e05d20b36171804e459a"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "3a56d92f4842ad6e4d89f6674ff2b512cabc78d76f93c6e63bfe99abd2ef10cc"
@@ -35,8 +36,8 @@ class Sqlfluff < Formula
   end
 
   resource "diff-cover" do
-    url "https://files.pythonhosted.org/packages/e4/82/67771e01d6087a158dde1698b9ced07970cd19a44c99a02dd90d33e2e50d/diff_cover-9.2.2.tar.gz"
-    sha256 "9a1bffd8a9fd18989f8173987826818854dffb659ec6fbafe669f304d1e4fd57"
+    url "https://files.pythonhosted.org/packages/27/03/9b78acb6ccd661a7679776885eda642ad33061697f054516324c0526c906/diff_cover-9.2.3.tar.gz"
+    sha256 "342e92128e6236b1adee2ddb4e6cbc1d470465c14829cfc64c4cdae581115f3b"
   end
 
   resource "iniconfig" do
@@ -45,8 +46,8 @@ class Sqlfluff < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "markupsafe" do
@@ -80,8 +81,8 @@ class Sqlfluff < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/05/35/30e0d83068951d90a01852cb1cef56e5d8a09d20c7f511634cc2f7e0372a/pytest-8.3.4.tar.gz"
-    sha256 "965370d062bce11e73868e0335abac31b4d3de0e82f4007408d242b4f8610761"
+    url "https://files.pythonhosted.org/packages/ae/3c/c9d525a414d506893f0cd8a8d0de7706446213181570cdbd766691164e40/pytest-8.3.5.tar.gz"
+    sha256 "f4efe70cc14e511565ac476b57c279e12a855b11f48f212af1080ef2263d3845"
   end
 
   resource "pyyaml" do
