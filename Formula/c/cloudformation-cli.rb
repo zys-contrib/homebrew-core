@@ -9,12 +9,12 @@ class CloudformationCli < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a72546f0f59038a679ea2b1b5ee0ce2c7708f6f197427f3ca43333a787a80f58"
-    sha256 cellar: :any,                 arm64_sonoma:  "c7559e37684be6a409083833ec6c5107618deb0113bc59a79b144f42bc193fb0"
-    sha256 cellar: :any,                 arm64_ventura: "d9bde5948417d3fce0d3f9b9637a6b4b75742b37dd57b58d612f59950be6d13d"
-    sha256 cellar: :any,                 sonoma:        "57e709a7e8fe0e579d8ae76217a8f128321790ecf1ed85e047076d5f41276dcd"
-    sha256 cellar: :any,                 ventura:       "1263d09280ef1b108033f24ac3b465f59406ba284691c98f73b17c00adf9126f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4cd55afd1dc9a85a1bd60de07ef1a588ffa7ef376066caa0ab30dbd2d2bb05cf"
+    sha256 cellar: :any,                 arm64_sequoia: "59ef56ddc5339a7b682424482633485eece0e70661f31ad0ad315e8187ddf305"
+    sha256 cellar: :any,                 arm64_sonoma:  "8c6ace29a7b231c0805a6b735375009b628b98fc20a04d3f60990f4853337399"
+    sha256 cellar: :any,                 arm64_ventura: "812f45a40eccc5c16045e0bc4eb85bbde01565efd6686f84134d1589f7c3753b"
+    sha256 cellar: :any,                 sonoma:        "fd86eaf04ed4bddf2ed5520f4e335bde0dddf75017b5f028f82f0bb0c49f6d2a"
+    sha256 cellar: :any,                 ventura:       "9f0025026e43f144de67d2f4dd0f7c3e74daac83d15f7e5ecfe9f5eacb5c6dfb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4846cc61ee65c993098ca501770a70552e3205d8e42bc798fa5c0db2a94df15b"
   end
 
   depends_on "rust" => :build # for pydantic
