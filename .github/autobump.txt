@@ -1156,6 +1156,7 @@ geoipupdate
 geos
 geoserver
 geph4
+gersemi
 getmail6
 gettext
 gexiv2
