@@ -9,12 +9,12 @@ class Grip < Formula
   revision 10
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "805f7c7e4fa02073808032fa485eb51b2ec22339462e1cc447f953f1331dcae8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "48135a1ca3940f821599c23a83541bfced226ea42e05be55ac5a987753154b53"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "471eecb8662de1606016457d1e7b33b53db3ad289ff485e9e384d44f98881af4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c2207942a66f36dcca8a18ddea7bd8da4d72216bdcbe1f1814ef094e80be49fe"
-    sha256 cellar: :any_skip_relocation, ventura:       "ec886880dc18b59f61b8e135ed3e425ae50d44b471b9fd721a47130f62cd8a38"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7323caf08ac65c0e49ff4ca873c59b5de5f81c82732a117f8d7faf1d3d3c2494"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bfbabd0b3a7aa21d71c8273a2327def8689b4c85a1f68bf68f938f9cc22b2d2d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6532dd465a05ca3646caa9b1e682e5d168a3a7a08850411d33ebf65bca6ee1d2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "90c032ed6d115520523eb80a0e29aefc225266b36e63ee6e9e434e2b22427442"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5b84fbdcabef3b3a9477f38fb0cecd1baa6bf8de0f95ae86023738fb22096842"
+    sha256 cellar: :any_skip_relocation, ventura:       "da3cff1b62ee8cdd568bba39e7e0b9fbba86c12cc3d247215d4d3fd60b9dffb8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3f89a2b965a2533f76b1501b32be8d630e15c6b72ad72b21ff5b17b56976502"
   end
 
   depends_on "certifi"
