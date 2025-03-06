@@ -8,12 +8,12 @@ class Vfox < Formula
   head "https://github.com/version-fox/vfox.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "af79f8aac78dc39f6a9b1a106d930d9e9b2e08a4d44607884eb0a001e5d8c71e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "af79f8aac78dc39f6a9b1a106d930d9e9b2e08a4d44607884eb0a001e5d8c71e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "af79f8aac78dc39f6a9b1a106d930d9e9b2e08a4d44607884eb0a001e5d8c71e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0f3d8d2ef115ead07d2df006b81ba601d4b69f0c8023aa93a1dad79c9df0639b"
-    sha256 cellar: :any_skip_relocation, ventura:       "0f3d8d2ef115ead07d2df006b81ba601d4b69f0c8023aa93a1dad79c9df0639b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5badd71c37ee37e0da41ebc327963c23682b4f34f2ef2eb9cfdbec1d53dffe0a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aec0042954fd8a9a5d4746f17e5d8c4c64ae7cf5048410f8782600a0c03a6dcb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aec0042954fd8a9a5d4746f17e5d8c4c64ae7cf5048410f8782600a0c03a6dcb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "aec0042954fd8a9a5d4746f17e5d8c4c64ae7cf5048410f8782600a0c03a6dcb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d499c87ae59c53506f6e8ea4884f0e4a3c50f1ed126231bdaae2a7baa5eebf5f"
+    sha256 cellar: :any_skip_relocation, ventura:       "d499c87ae59c53506f6e8ea4884f0e4a3c50f1ed126231bdaae2a7baa5eebf5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68855efd62fa491308346d441e4261b8ee910965fd3b4650b28ef3d430a193d3"
   end
 
   depends_on "go" => :build
