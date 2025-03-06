@@ -7,13 +7,12 @@ class Skate < Formula
   head "https://github.com/charmbracelet/skate.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f44627754bdf718f9e9dcb792a9fb17e71a3bf5f572051ccbfc6c58c5034cd8d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f44627754bdf718f9e9dcb792a9fb17e71a3bf5f572051ccbfc6c58c5034cd8d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f44627754bdf718f9e9dcb792a9fb17e71a3bf5f572051ccbfc6c58c5034cd8d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0143bd4b5134b89dd110fcc8a7486aa9b59b212fed966787dc4daaab1e757ab7"
-    sha256 cellar: :any_skip_relocation, ventura:       "0143bd4b5134b89dd110fcc8a7486aa9b59b212fed966787dc4daaab1e757ab7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17f8a89cbcbcf6016b838293c4ce88b91e2f9d63c3565c0fd86276075fcaeaf3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "51dffe30dad6853d764248411bd1b373e56795410d7480ffcee819a67cf5b641"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "51dffe30dad6853d764248411bd1b373e56795410d7480ffcee819a67cf5b641"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "51dffe30dad6853d764248411bd1b373e56795410d7480ffcee819a67cf5b641"
+    sha256 cellar: :any_skip_relocation, sonoma:        "873150989401c84050ba2180e0edc835fd0daf05481d723626457ee6a7ff40cb"
+    sha256 cellar: :any_skip_relocation, ventura:       "873150989401c84050ba2180e0edc835fd0daf05481d723626457ee6a7ff40cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "698c00996b38d34b04b8adadba65ffc338f77ac2f58889a31721f3b54d2e4fff"
   end
 
   depends_on "go" => :build
