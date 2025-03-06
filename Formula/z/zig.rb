@@ -23,11 +23,12 @@ class Zig < Formula
   depends_on "lld"
   depends_on "llvm"
   depends_on macos: :big_sur # https://github.com/ziglang/zig/issues/13313
-  depends_on "z3"
-  depends_on "zstd"
 
-  uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+  # NOTE: `z3` should be macOS-only dependency whenever we need to re-add
+  on_macos do
+    depends_on "z3"
+    depends_on "zstd"
+  end
 
   # https://github.com/Homebrew/homebrew-core/issues/209483
   skip_clean "lib/zig/libc/darwin/libSystem.tbd"
