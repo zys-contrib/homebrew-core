@@ -7,12 +7,12 @@ class GnomeRecipes < Formula
   revision 3
 
   bottle do
-    sha256 arm64_sequoia: "aeca025b7378f47ce41dc347deb424d0944de6e7da3408c6e775570ec25a321c"
-    sha256 arm64_sonoma:  "b65f11b25c9f58fa146f4a60b1c8ac1f1f807ffb48c91234b73736ae9d8d3ad6"
-    sha256 arm64_ventura: "839f681efb2bc6d86d2c399a1bb4236f852a177f0c1899b65580a5ef55511acb"
-    sha256 sonoma:        "056abd76e963efbe48a5459b8a0a6c7d97b51efaacdd4ae7ec401c1c433e1f58"
-    sha256 ventura:       "cbb8cda97c299ad0c43bc5536923992ce0aee73ce2757956c17d477e588de34c"
-    sha256 x86_64_linux:  "0cbf9ab64b5ab37f4ea338f445b5f53d50ee6cd5cf91d66da1bdd348a3982775"
+    sha256 arm64_sequoia: "e6384179a8520296a354b16a713f771ce12005fae15e20b04cad20d70ab78249"
+    sha256 arm64_sonoma:  "26db0d944ceb54fe93dae2eda5d59e8e6d1e42b379d6ace92bc4c8d91c103423"
+    sha256 arm64_ventura: "8d4546ce3489e1abd91c8b8e041e9d45abd62e9544406c2a0d8db793ab4ff845"
+    sha256 sonoma:        "91887470bc686dd30fd50ffda8d7b77fb1c641ce2b82332355c17cd08e363655"
+    sha256 ventura:       "5f5da99ec97f1dc810806d10dab0e7ca7f1efd274acb24964f434908012e3912"
+    sha256 x86_64_linux:  "24c8b3034d9679e5efe8db3197a10de7e3a810d91f5fcc1557d9a2aed3f4a684"
   end
 
   depends_on "gettext" => :build
