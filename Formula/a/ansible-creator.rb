@@ -6,22 +6,23 @@ class AnsibleCreator < Formula
   url "https://files.pythonhosted.org/packages/52/bc/32cbe5da6d0216d70f83e3f751b16b5cfe1500362fa07e12d1819afe2bc2/ansible_creator-25.0.0.tar.gz"
   sha256 "f3348e185ae9ec2fb522c4b4cb4eaa4eb67e7f53f767acbdfd6739f22421b8e2"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "85e88791ad7a129725e44441edaabaece13c20a214c9ea5c428e8203c4e1479b"
-    sha256 cellar: :any,                 arm64_sonoma:  "8bc60eff09fe1a4537c731a3096044a6a3489b2ce63c6f380f311ae4aba43753"
-    sha256 cellar: :any,                 arm64_ventura: "9a8fa22dfbc053f033b1cd05827b26fb9d856d6dbbcec17fcf5c3ebb7d49e61a"
-    sha256 cellar: :any,                 sonoma:        "1d1fcab7fa731bf1dd64633572025b9d24ffd89ec56d33d9382663f15837e76d"
-    sha256 cellar: :any,                 ventura:       "80a7911d795852f0f0189a2ea1e9dc4bc8c3048f9e3a4ee6d2ec84028f144b73"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20350be282372d53371735f975868fe35c2d0776faf2caf5438ab91c313d66b2"
+    sha256 cellar: :any,                 arm64_sequoia: "22582493aeb7640e1c4c978499c8797d8b566cc5194632075e7b9d8ade8a5c08"
+    sha256 cellar: :any,                 arm64_sonoma:  "e2ddc38dc5874f655299899a424c88f11b06d77fe4e4b0a12228272dc19b4cae"
+    sha256 cellar: :any,                 arm64_ventura: "de121d053c4ef845279094a946a2444623faf58e63d07637c623282fdefb9036"
+    sha256 cellar: :any,                 sonoma:        "c24dba7103d664bf2cacd7b987f4e8005c0c3929933dbf54cc5e6af5d638ac7a"
+    sha256 cellar: :any,                 ventura:       "9d7331e237f32ebfc13d580ea084bf9f777af8bd06c31ecd21edad0bd57470f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9e5627cea1a7287d7bee6b774deae68ecb179cd1c71df0ebabd5f4654041cf2"
   end
 
   depends_on "libyaml"
   depends_on "python@3.13"
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "markupsafe" do
