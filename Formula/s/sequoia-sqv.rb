@@ -1,8 +1,8 @@
 class SequoiaSqv < Formula
   desc "Simple OpenPGP signature verification program"
   homepage "https://sequoia-pgp.org/"
-  url "https://gitlab.com/sequoia-pgp/sequoia-sqv/-/archive/v1.2.1/sequoia-sqv-v1.2.1.tar.bz2"
-  sha256 "a25c7e829122f63fc1b849ecf9a139baada4bc0d9ca622caf3e479061c4fe33e"
+  url "https://gitlab.com/sequoia-pgp/sequoia-sqv/-/archive/v1.3.0/sequoia-sqv-v1.3.0.tar.bz2"
+  sha256 "cfa9159cbeda4e4d0e3c2778374b24004037bb21d5ea6441f0fb80c68cedfce0"
   license "LGPL-2.0-or-later"
   head "https://gitlab.com/sequoia-pgp/sequoia-sqv.git", branch: "main"
 
