@@ -6,6 +6,7 @@ class Bbot < Formula
   url "https://files.pythonhosted.org/packages/ac/e4/57bcd8983c0a22ea49552345b4f508bd8d03f0025a0a74064d9137bed15d/bbot-2.4.0.tar.gz"
   sha256 "049a3235a090846a13d91f3df77b1c8974a2f08ce410982a95a6832c19f3ebde"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "300979563b389e707c3ff49eb11fd7a914de61c268aaf27380052db962c566ab"
@@ -77,8 +78,8 @@ class Bbot < Formula
   end
 
   resource "deepdiff" do
-    url "https://files.pythonhosted.org/packages/89/12/207d2ec96a526cf9d04fc2423ff9832e93b665e94b9d7c9b5198903e18a7/deepdiff-8.2.0.tar.gz"
-    sha256 "6ec78f65031485735545ffbe7a61e716c3c2d12ca6416886d5e9291fc76c46c3"
+    url "https://files.pythonhosted.org/packages/06/23/26a13806c06d9a9202433dae15740444d0bfbb365965a8af8a0b6b3a95bb/deepdiff-8.3.0.tar.gz"
+    sha256 "92a8d7c75a4b26b385ec0372269de258e20082307ccf74a4314341add3d88391"
   end
 
   resource "dnspython" do
@@ -112,8 +113,8 @@ class Bbot < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "lockfile" do
@@ -282,8 +283,8 @@ class Bbot < Formula
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/2e/7a/8bc4d15af7ff30f7ba34f9a172063bfcee9f5001d7cef04bee800a658f33/websockets-15.0.tar.gz"
-    sha256 "ca36151289a15b39d8d683fd8b7abbe26fc50be311066c5f8dcf3cb8cee107ab"
+    url "https://files.pythonhosted.org/packages/21/e6/26d09fab466b7ca9c7737474c52be4f76a40301b08362eb2dbc19dcc16c1/websockets-15.0.1.tar.gz"
+    sha256 "82544de02076bafba038ce055ee6412d68da13ab47f0c60cab827346de828dee"
   end
 
   resource "wordninja" do
