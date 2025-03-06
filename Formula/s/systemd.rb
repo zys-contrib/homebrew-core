@@ -3,8 +3,8 @@ class Systemd < Formula
 
   desc "System and service manager"
   homepage "https://systemd.io"
-  url "https://github.com/systemd/systemd/archive/refs/tags/v257.3.tar.gz"
-  sha256 "99365d1a01bcc59a659ab59c7bae9c34f7eb2998f1656ee0a4aae05312eacdc9"
+  url "https://github.com/systemd/systemd/archive/refs/tags/v257.4.tar.gz"
+  sha256 "3e7955ecdb8ad317b2876a31ad749e4dd71d371f343de40d856d62c1eb2ffa2a"
   license all_of: [
     # Main license is LGPL-2.1-or-later while systemd-udevd is GPL-2.0-or-later
     "LGPL-2.1-or-later",
@@ -27,11 +27,10 @@ class Systemd < Formula
     { any_of: ["MIT", "GPL-2.0-or-later" => { with: "Linux-syscall-note" }] },
     { any_of: ["GPL-2.0-only", "BSD-2-Clause"] },
   ]
-  revision 1
   head "https://github.com/systemd/systemd.git", branch: "main"
 
   bottle do
-    sha256 x86_64_linux: "404fefee76cbb70a0ef7f781def5d4ec1e7da4e546896a08f1ba8b65740b1670"
+    sha256 x86_64_linux: "11cbe75b25e7bd77625f0c56710059ced178576e6d1ad0e865418a2f38210cb8"
   end
 
   depends_on "coreutils" => :build
