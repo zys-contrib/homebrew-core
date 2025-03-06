@@ -12,12 +12,12 @@ class Cloudquery < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "af63cfd7a676b7ffb0e43f87c19d60cc3438325a419f7783673bef579379e7e3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "af63cfd7a676b7ffb0e43f87c19d60cc3438325a419f7783673bef579379e7e3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "af63cfd7a676b7ffb0e43f87c19d60cc3438325a419f7783673bef579379e7e3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a1746b509e9a2bee6dcbc0e88781596174124f846209f3cb45fb57c0bfc23f93"
-    sha256 cellar: :any_skip_relocation, ventura:       "a1746b509e9a2bee6dcbc0e88781596174124f846209f3cb45fb57c0bfc23f93"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb64a4224a355e9a16b8348a7a3a742dad61a9776673d1b13271bcdd62f2c6ba"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "03887d2d474bb0c0fe25f4c4dcc31528e2c3e17813ab8c95a49c1ad4a8183223"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "03887d2d474bb0c0fe25f4c4dcc31528e2c3e17813ab8c95a49c1ad4a8183223"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "03887d2d474bb0c0fe25f4c4dcc31528e2c3e17813ab8c95a49c1ad4a8183223"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e2b42c0598d5a70f0b854385827d4c2491037b9bf4c5c9792e7a07813fa90b58"
+    sha256 cellar: :any_skip_relocation, ventura:       "e2b42c0598d5a70f0b854385827d4c2491037b9bf4c5c9792e7a07813fa90b58"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc9689cb46d687112638b4cf9fc65d53ed7b8d732fb26f451fdb300566675366"
   end
 
   depends_on "go" => :build
