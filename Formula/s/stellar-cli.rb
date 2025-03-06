@@ -16,12 +16,12 @@ class StellarCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dc440feec95560befc6f897ad9d35c7c94c33951cad66c38bf66fff3d30c73be"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e2744c25f71ee2cd483954a89b3fa92867ac8cf2c2ce7b198d5737fbf810a7ea"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "084c413de377523beb81ec084760e45990d55ec8561738b84fb421eb1042cf73"
-    sha256 cellar: :any_skip_relocation, sonoma:        "80ea755df0a760f0f03658344ce88b47339950b0cc47ebbcbd0ac481a684112c"
-    sha256 cellar: :any_skip_relocation, ventura:       "78de1f3155f28a8f3e3a8261e8e1c7c04aeb6c0952f3c5e853083c7617242efc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f14e98a0fb5131b95e3c0b3214afefdeffd120ff35fe6dedc78de3bb014c5eda"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8b20f502bd4172793d82fc4d54337f2dcfed350a31758cd8e25858593af5d28c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1dcbfdc1c905889aa961c0bd1970455438bfcee6cc08a1254bf127198b47eb5c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c3bd33995e6eed202679a5d07db289db85be622e389790b68045963a44fe1b71"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5c052d7e27beb9001bae914bb2479abf773a3fd9b675530950f6eb124d00bf22"
+    sha256 cellar: :any_skip_relocation, ventura:       "e04f51f45f61145a5a2eb592b36e2655375ee17429249099cc30339cc77734ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afd0e787133539f769ffaa7a6adab9949a7d600320cb6e3686d29e2f35b00b50"
   end
 
   depends_on "pkgconf" => :build
