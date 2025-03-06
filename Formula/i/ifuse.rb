@@ -17,8 +17,8 @@ class Ifuse < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "4f5277e44f39b185e4fbed2f1634e4e6e57b48651dd117cb9b6c5dfcc6acab0a"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "b3182da5c1d4d56eb06f4edcdc6d375b21f808437f3adfbf044e69d881dc3b7f"
   end
 
   depends_on "autoconf" => :build
