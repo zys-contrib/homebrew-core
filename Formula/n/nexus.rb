@@ -1,8 +1,8 @@
 class Nexus < Formula
   desc "Repository manager for binary software components"
-  homepage "https://www.sonatype.org/"
-  url "https://github.com/sonatype/nexus-public/archive/refs/tags/release-3.38.1-01.tar.gz"
-  sha256 "83b3a39e4d350d9786ce47410607fdd9ec04fca4f8451c0a763d8e22c5639e87"
+  homepage "https://www.sonatype.com/"
+  url "https://github.com/sonatype/nexus-public/archive/refs/tags/release-3.76.1-01.tar.gz"
+  sha256 "e2fe13994f4ffcc3e5389ea90e14a1dcc7af92ce37015a961f89bbf151d29c86"
   license "EPL-1.0"
 
   # As of writing, upstream is publishing both v2 and v3 releases. The "latest"
@@ -23,14 +23,24 @@ class Nexus < Formula
   end
 
   depends_on "maven" => :build
-  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
-  depends_on "openjdk@8"
+  depends_on "openjdk@17"
 
   uses_from_macos "unzip" => :build
 
+  on_macos do
+    depends_on arch: :x86_64 # due to node binary fetched by frontend-maven-plugin
+  end
+
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk@8"].opt_prefix
-    system "mvn", "install", "-DskipTests"
+    # Workaround build error: Couldn't find package "@sonatype/nexus-ui-plugin@workspace:*"
+    # Ref: https://github.com/sonatype/nexus-public/issues/417
+    # Ref: https://github.com/sonatype/nexus-public/issues/432#issuecomment-2663250153
+    inreplace ["components/nexus-rapture/package.json", "plugins/nexus-coreui-plugin/package.json"],
+              '"@sonatype/nexus-ui-plugin": "workspace:*"',
+              '"@sonatype/nexus-ui-plugin": "*"'
+
+    ENV["JAVA_HOME"] = Language::Java.java_home("17")
+    system "mvn", "install", "-DskipTests", "-Dpublic"
     system "unzip", "-o", "-d", "target", "assemblies/nexus-base-template/target/nexus-base-template-#{version}.zip"
 
     rm(Dir["target/nexus-base-template-#{version}/bin/*.bat"])
@@ -38,7 +48,7 @@ class Nexus < Formula
     libexec.install Dir["target/nexus-base-template-#{version}/*"]
 
     env = {
-      JAVA_HOME:  Formula["openjdk@8"].opt_prefix,
+      JAVA_HOME:  ENV["JAVA_HOME"],
       KARAF_DATA: "${NEXUS_KARAF_DATA:-#{var}/nexus}",
       KARAF_LOG:  "#{var}/log/nexus",
       KARAF_ETC:  "#{etc}/nexus",
@@ -63,7 +73,8 @@ class Nexus < Formula
       ENV["NEXUS_KARAF_DATA"] = testpath/"data"
       exec bin/"nexus", "server"
     end
-    sleep 100
-    assert_match "<title>Nexus Repository Manager</title>", shell_output("curl --silent --fail http://localhost:8081")
+    sleep 50
+    sleep 50 if OS.mac? && Hardware::CPU.intel?
+    assert_match "<title>Sonatype Nexus Repository</title>", shell_output("curl --silent --fail http://localhost:8081")
   end
 end
