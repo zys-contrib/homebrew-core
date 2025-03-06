@@ -14,12 +14,9 @@ class Nexus < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, sonoma:       "1ef405d468f02b4d97e3e61d83d36341e7550642ac097bdfba458f515ad04e78"
-    sha256 cellar: :any_skip_relocation, ventura:      "9114db0415c4582f0d1e97e8d7cb8758a1bd2d8094222eae33119f189a3dc85d"
-    sha256 cellar: :any_skip_relocation, monterey:     "2d4e904050b210d103b36b47aaed37dcef075aa24b3713d54f040203308cf0e3"
-    sha256 cellar: :any_skip_relocation, big_sur:      "ebcc0f030b0c84158344636dc0884d511ad386df587d92725f251725066c7151"
-    sha256 cellar: :any_skip_relocation, catalina:     "abc68c0f85091cfd502bf0d4d8b87be1281e63a2350dcaf24b4a407317b14d35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "dcbe0eea411e6b44a8a86d0ee9ede0b8a1ba15aaeef69cecfb0185b9629f1ac6"
+    sha256 cellar: :any_skip_relocation, sonoma:       "8382a3070ff6768a2f9946744a34875ab23981068beecb5339e02b0afadab719"
+    sha256 cellar: :any_skip_relocation, ventura:      "a5684351606c7ea7750ce7934fcea0d3e6b64f50fa0d9739c07e33f96288151b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "30c5f8c306c9382151e2ad703e505a6353beba3b09359f8f7b4be440b3ae591a"
   end
 
   depends_on "maven" => :build
