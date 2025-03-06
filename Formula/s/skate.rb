@@ -1,8 +1,8 @@
 class Skate < Formula
   desc "Personal key value store"
   homepage "https://github.com/charmbracelet/skate"
-  url "https://github.com/charmbracelet/skate/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "09a29b9f10a3098780c397e89ff50578498abb2659b3d861ba90a9429f192970"
+  url "https://github.com/charmbracelet/skate/archive/refs/tags/v1.0.1.tar.gz"
+  sha256 "f844fd980e1337be0f1bc321e58e48680fe3855e17c6c334ed8b22b9059949d2"
   license "MIT"
   head "https://github.com/charmbracelet/skate.git", branch: "main"
 
