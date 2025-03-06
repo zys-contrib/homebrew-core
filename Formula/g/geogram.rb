@@ -1,8 +1,8 @@
 class Geogram < Formula
   desc "Programming library of geometric algorithms"
   homepage "https://github.com/BrunoLevy/geogram/wiki"
-  url "https://github.com/BrunoLevy/geogram/releases/download/v1.9.3/geogram_1.9.3.tar.gz"
-  sha256 "3ae6ffec34e1624bec342988c1cd8ebbc8cc74a8e5c8d622fa7ec45800197a1a"
+  url "https://github.com/BrunoLevy/geogram/releases/download/v1.9.4/geogram_1.9.4.tar.gz"
+  sha256 "d0d54887e3c07cefc801de553a9d3bbddece43400c28d36ba031302a196c1c91"
   license all_of: ["BSD-3-Clause", :public_domain, "LGPL-3.0-or-later", "MIT"]
   head "https://github.com/BrunoLevy/geogram.git", branch: "main"
 
