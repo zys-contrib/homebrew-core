@@ -1,8 +1,8 @@
 class Liqoctl < Formula
   desc "Is a CLI tool to install and manage Liqo-enabled clusters"
   homepage "https://liqo.io"
-  url "https://github.com/liqotech/liqo/archive/refs/tags/v0.10.3.tar.gz"
-  sha256 "01c03c7eba34e04a4ba0fc9d0b1f08d9fb2d6b101f5b997bb2d9dbfd8ef993d5"
+  url "https://github.com/liqotech/liqo/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "0fc334ed6a1f0b7afa337b6a76796c1485e93af9cdd35c562fc52136b32611bf"
   license "Apache-2.0"
 
   bottle do
@@ -23,7 +23,7 @@ class Liqoctl < Formula
 
     ldflags = %W[
       -s -w
-      -X github.com/liqotech/liqo/pkg/liqoctl/version.liqoctlVersion=v#{version}
+      -X github.com/liqotech/liqo/pkg/liqoctl/version.LiqoctlVersion=v#{version}
     ]
 
     system "go", "build", *std_go_args(ldflags:), "./cmd/liqoctl"
