@@ -6,6 +6,15 @@ class Algolia < Formula
   license "MIT"
   head "https://github.com/algolia/cli.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e3838d70240aaee37f970111e75b7bcaf0f6f072dd7f6c38b74d802abf192c76"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e3838d70240aaee37f970111e75b7bcaf0f6f072dd7f6c38b74d802abf192c76"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e3838d70240aaee37f970111e75b7bcaf0f6f072dd7f6c38b74d802abf192c76"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7f9f58f1756da53c7323aeafc4e571ab02f581233f2de04de9f06239b77e6e50"
+    sha256 cellar: :any_skip_relocation, ventura:       "7f9f58f1756da53c7323aeafc4e571ab02f581233f2de04de9f06239b77e6e50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d96519f4745556eb24812382b9ca4682bd8196af3f648a2895240b13937ae61d"
+  end
+
   depends_on "go" => :build
 
   def install
