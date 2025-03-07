@@ -6,6 +6,15 @@ class AsyncSimple < Formula
   license "Apache-2.0"
   head "https://github.com/alibaba/async_simple.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "755cd0582500b20090528bb4192041eb7a57e2b1ba4fb87ecfe1082926c77415"
+    sha256 cellar: :any,                 arm64_sonoma:  "e89443db479ff1e8aabc39e482f1c4cb72b3214a485588c0d461a21342fa9197"
+    sha256 cellar: :any,                 arm64_ventura: "9563803b43de1611be1f4f38083535f9ea944907a4b07808e67400448096a52e"
+    sha256 cellar: :any,                 sonoma:        "3e19085474250b8f93b361127483b8fa68e509d0c1e4132976090279bf746429"
+    sha256 cellar: :any,                 ventura:       "4b9d30e6cc11876a60fe9180ae43ef4de77b21c3d49c789b2f5a6d73be8048be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31cccc38ea016889db7f4a52700115a22d5eb7432e403c6939ef8bafb12bdd8e"
+  end
+
   depends_on "cmake" => :build
 
   def install
