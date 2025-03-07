@@ -7,6 +7,14 @@ class DvrScan < Formula
   sha256 "7e1d291df6184dab8fbd79e2639c90f8b2fe4f8c5c73265ed39f03f79b3167dd"
   license "BSD-2-Clause"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "83911a64fc655e2326960f5f9c7e5a0606c706d73ebd2cb909e7473d3bcdcddd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c2d29d7f050b083386ec3e363fbc134ef02d8579498577b57d7edecb2c145e41"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cac79911dd503f51e7e6e33987e5e4a8e791aa16f603743a133b3772c98c5579"
+    sha256 cellar: :any_skip_relocation, ventura:       "d01411ccdb13c2b34d99b5b35ed27ab316c771e0b94a4b2f575202a7701a515e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4aa475bd319341a32720e2589256ae7a76390640e25eec4b6cf01bcb88273343"
+  end
+
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "ffmpeg"
