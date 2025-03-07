@@ -1,8 +1,8 @@
 class OpenapiTui < Formula
   desc "TUI to list, browse and run APIs defined with openapi spec"
   homepage "https://github.com/zaghaghi/openapi-tui"
-  url "https://github.com/zaghaghi/openapi-tui/archive/refs/tags/0.10.1.tar.gz"
-  sha256 "fcabd971c5587394e84c1b0c30dace7db0ae950af3d76b0ea47331b19eeb8590"
+  url "https://github.com/zaghaghi/openapi-tui/archive/refs/tags/0.10.2.tar.gz"
+  sha256 "e9ca7bc160ca6fdf50f7534318589fcb725564c05b81f40742e37a422f35a191"
   license "MIT"
   head "https://github.com/zaghaghi/openapi-tui.git", branch: "main"
 
