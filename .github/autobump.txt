@@ -2321,6 +2321,7 @@ nest
 nestopia-ue
 netaddr
 netcdf
+netfetch
 nethogs
 netlify-cli
 nettle
