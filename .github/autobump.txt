@@ -2596,6 +2596,7 @@ pg_cron
 pg_partman
 pgbadger
 pgbouncer
+pgcli
 pgpool-ii
 pgrok
 pgroonga
