@@ -1,10 +1,19 @@
 class VulkanTools < Formula
   desc "Vulkan utilities and tools"
   homepage "https://github.com/KhronosGroup/Vulkan-Tools"
-  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.4.309.tar.gz"
-  sha256 "dba9f4e514cd09dd120dde4a63c50a28a9a5063cb990082c2e5c0c235e1605c6"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-Tools.git", branch: "main"
+
+  stable do
+    url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.4.310.tar.gz"
+    sha256 "304c3f6c3395186a6559078f3b174de58b467a5b5a3254bf2f1a6fecd833bcfb"
+
+    # patch to support support for iOS and Metal surfaces
+    patch do
+      url "https://github.com/KhronosGroup/Vulkan-Tools/commit/42c54538e6c165adbc4492e89188066c68c14542.patch?full_index=1"
+      sha256 "b2dcfd6046f6848c33e22ed57049718c704f2186838b2f6ceee80bcae18fd558"
+    end
+  end
 
   livecheck do
     url :stable
