@@ -40,6 +40,7 @@ alda
 alembic
 algernon
 algol68g
+algolia
 aliae
 aliddns
 aliyun-cli
