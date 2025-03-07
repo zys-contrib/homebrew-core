@@ -1,18 +1,18 @@
 class OpenapiTui < Formula
   desc "TUI to list, browse and run APIs defined with openapi spec"
   homepage "https://github.com/zaghaghi/openapi-tui"
-  url "https://github.com/zaghaghi/openapi-tui/archive/refs/tags/0.10.1.tar.gz"
-  sha256 "fcabd971c5587394e84c1b0c30dace7db0ae950af3d76b0ea47331b19eeb8590"
+  url "https://github.com/zaghaghi/openapi-tui/archive/refs/tags/0.10.2.tar.gz"
+  sha256 "e9ca7bc160ca6fdf50f7534318589fcb725564c05b81f40742e37a422f35a191"
   license "MIT"
   head "https://github.com/zaghaghi/openapi-tui.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "572f836b188722339bd195d37fa72edf7049abf5d54761750e4a7210edd1c824"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1dc08516061e7a429cf34c39f9fe08c64a2bf068bbe5f0118a202e281c4722c4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a3e737a05a7212e5864dbf112639759801c440f1440c5f7433ae06048908c021"
-    sha256 cellar: :any_skip_relocation, sonoma:        "16d79e3c693d2870f3d3deb567e32f5cfecf556cbfd49978816f9ac75155997a"
-    sha256 cellar: :any_skip_relocation, ventura:       "dec93d0f7e9f87101f3ce77e5ef493e9b7fb27cfc746ff7a6bd6d97485466748"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a508729f861145564f28d53675d23c1a2f4157fbbd0cc83caa7b49be28b23176"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f7b112fae0439ef77af1a9e09c8a410f01e8c1252b844bc2f7d6b60ab9d07d75"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d599c38c9300b99b49333535053f1b6fc53818c44ee849ff1757a40f58d236d6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "63b3e891441decfa79e4b67e540c621bd5612ffba84afa88f39331a51288a571"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d97601e0e2591e9f91575a45b4aafd1df30bb1a8e70c45c33a0bba5dfc991c66"
+    sha256 cellar: :any_skip_relocation, ventura:       "4b3b7fbf36c415d947e3036563cf82f868a041599cb4b9a1f527df18f21a6fee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1dcf51adfd672b44a54ee82e3e9ba21a8f0021252e50ac40eba70a7ce4e8d5c"
   end
 
   depends_on "pkgconf" => :build
