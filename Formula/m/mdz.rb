@@ -1,8 +1,8 @@
 class Mdz < Formula
   desc "CLI for the mdz ledger Open Source"
   homepage "https://github.com/LerianStudio/midaz"
-  url "https://github.com/LerianStudio/midaz/archive/refs/tags/v1.48.0.tar.gz"
-  sha256 "ea69c5359b72eebb10389cf8ffc1966a66b25d5e7df66ac5349ab91e40d3e32c"
+  url "https://github.com/LerianStudio/midaz/archive/refs/tags/v1.49.0.tar.gz"
+  sha256 "90dd73587171517ca5bf2130c7e882c7e4fbf740a1d7343a2686f770e2d71b35"
   license "Apache-2.0"
 
   bottle do
