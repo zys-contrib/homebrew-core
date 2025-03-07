@@ -2,8 +2,8 @@ class CloudflareQuiche < Formula
   desc "Savoury implementation of the QUIC transport protocol and HTTP/3"
   homepage "https://docs.quic.tech/quiche/"
   url "https://github.com/cloudflare/quiche.git",
-      tag:      "0.23.2",
-      revision: "c5fc0679ece63636a2264ef273c75f08a405fdf7"
+      tag:      "0.23.4",
+      revision: "68c296009f87a10e1cb935c5879e53bcc412d00c"
   license "BSD-2-Clause"
   head "https://github.com/cloudflare/quiche.git", branch: "master"
 
@@ -23,6 +23,8 @@ class CloudflareQuiche < Formula
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
+
+  uses_from_macos "llvm" => :build
 
   def install
     system "cargo", "install", *std_cargo_args(path: "apps")
