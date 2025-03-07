@@ -26,12 +26,12 @@ class PdftkJava < Formula
   end
 
   depends_on "gradle" => :build
-  depends_on "openjdk@11"
+  depends_on "openjdk"
 
   def install
     system "gradle", "shadowJar", "--no-daemon"
     libexec.install "build/libs/pdftk-all.jar"
-    bin.write_jar_script libexec/"pdftk-all.jar", "pdftk", java_version: "11"
+    bin.write_jar_script libexec/"pdftk-all.jar", "pdftk"
     man1.install "pdftk.1"
   end
 
