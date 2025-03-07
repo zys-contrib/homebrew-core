@@ -22,15 +22,16 @@ class SwaggerCodegenAT2 < Formula
   keg_only :versioned_formula
 
   depends_on "maven" => :build
-  depends_on "openjdk@11"
+  depends_on "openjdk@21"
 
   def install
     # Need to set JAVA_HOME manually since maven overrides 1.8 with 1.7+
-    ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
+    java_version = "21"
+    ENV["JAVA_HOME"] = Language::Java.java_home(java_version)
 
     system "mvn", "clean", "package"
     libexec.install "modules/swagger-codegen-cli/target/swagger-codegen-cli.jar"
-    bin.write_jar_script libexec/"swagger-codegen-cli.jar", "swagger-codegen", java_version: "11"
+    bin.write_jar_script(libexec/"swagger-codegen-cli.jar", "swagger-codegen", java_version:)
   end
 
   test do
