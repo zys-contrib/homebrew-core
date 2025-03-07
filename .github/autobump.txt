@@ -679,6 +679,7 @@ cucumber-ruby
 cue
 cups
 curl
+curlie
 cvs-fast-export
 cweb
 cxgo
