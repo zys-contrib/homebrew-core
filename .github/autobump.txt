@@ -1129,6 +1129,7 @@ gambit
 game-music-emu
 gammaray
 garble
+garnet
 gat
 gateway-go
 gator

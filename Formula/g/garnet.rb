@@ -1,8 +1,8 @@
 class Garnet < Formula
   desc "High-performance cache-store"
   homepage "https://microsoft.github.io/garnet/"
-  url "https://github.com/microsoft/garnet/archive/refs/tags/v1.0.57.tar.gz"
-  sha256 "f8332a6347ffb6836d4e8786242c8ac66b1422f5e1afa6c6cd3ef5f28085b844"
+  url "https://github.com/microsoft/garnet/archive/refs/tags/v1.0.59.tar.gz"
+  sha256 "69f9addeeea587aa47f2610d82eb9e7b3260ce02d6f9037cedc2a008d0ae031a"
   license "MIT"
 
   bottle do
