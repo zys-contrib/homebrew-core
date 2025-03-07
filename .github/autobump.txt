@@ -962,6 +962,7 @@ eza
 f2
 f3d
 faac
+faad2
 faas-cli
 fabio
 fabric
