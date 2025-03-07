@@ -3146,6 +3146,7 @@ snowflake-cli
 snyk-cli
 soapyremote
 socat
+soci
 socket_vmnet
 soft-serve
 solana
