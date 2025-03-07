@@ -7,12 +7,12 @@ class GitlabCiLocal < Formula
   head "https://github.com/firecow/gitlab-ci-local.git", branch: "master"
 
   bottle do
-    sha256                               arm64_sequoia: "c554226dcc01a2b63a7692aa2b44d70b4cc707f7fc15902f4502a6359c5a692a"
-    sha256                               arm64_sonoma:  "dc5482ed2feb9841fc1f26457f3e0f570f1d47523dab77a439e372be836aad4e"
-    sha256                               arm64_ventura: "2570917dd299c4ef3354ab8d70c7509be56c7d2d0af624b5042aba0e32d25d6d"
-    sha256                               sonoma:        "05c77cb4111fccddbf1c9ae21cc8dad185915dbd2c22b62b57d4f9d815bb5ed2"
-    sha256                               ventura:       "0664b3036f576b3454e1eb4c8ecdb4115a4bcd06aed4bb517d241d202937bae0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac1f3233695e3223a14a8a2468e509d069d346c8b0a87cdda98ad15266d5dca9"
+    sha256                               arm64_sequoia: "a38b268bbd7e64676188d95108683280aac1a6ee9348c79a1c2f3d4210446aec"
+    sha256                               arm64_sonoma:  "1a270da6cd4cc27072ee28812487dc645340a17992c574ee5f8099040ab52ffd"
+    sha256                               arm64_ventura: "8184c017a04e94a0dcc5a88698c8b5483525fbbf352dfedf21aeb4b37aff70c7"
+    sha256                               sonoma:        "b633e3249419bcff292b6d7e62bba044ef10dead3465b00201f33ba8ae994fc6"
+    sha256                               ventura:       "6298de2ebc161af2e6297451ab7beaf7f06436d2dbaed664708c7b7c0f0f2ae7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f42bb808b7fc933e73d2de971a833d1e441a93b82dbe3570b769fd8edea141c5"
   end
 
   depends_on "node"
