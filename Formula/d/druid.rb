@@ -16,7 +16,7 @@ class Druid < Formula
   end
 
   depends_on "zookeeper" => :test
-  depends_on "openjdk@11"
+  depends_on "openjdk@17" # JDK 21 issue: https://github.com/apache/druid/issues/17429
 
   resource "mysql-connector-java" do
     url "https://search.maven.org/remotecontent?filepath=com/mysql/mysql-connector-j/8.2.0/mysql-connector-j-8.2.0.jar"
@@ -51,7 +51,7 @@ class Druid < Formula
     end
 
     bin.install Dir["#{libexec}/bin/*.sh"]
-    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env("11")
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env("17")
 
     Pathname.glob("#{bin}/*.sh") do |file|
       mv file, bin/"druid-#{file.basename}"
