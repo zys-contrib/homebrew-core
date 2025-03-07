@@ -2851,6 +2851,7 @@ ratchet
 ratfor
 ratify
 rattler-build
+rattler-index
 rav1e
 raven
 raxml-ng
