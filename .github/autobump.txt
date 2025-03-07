@@ -2354,6 +2354,7 @@ node@18
 node@20
 node@22
 nodeenv
+nom
 nomino
 nopoll
 noseyparker
