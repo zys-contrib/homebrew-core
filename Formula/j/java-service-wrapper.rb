@@ -15,17 +15,17 @@ class JavaServiceWrapper < Formula
   end
 
   depends_on "ant" => :build
-  depends_on "openjdk@11" => :build
+  depends_on "openjdk" => [:build, :test]
 
   on_linux do
     depends_on "cunit" => :build
   end
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
+    ENV["JAVA_HOME"] = Language::Java.java_home
 
-    # Default javac target version is 1.4, use 1.6 which is the minimum available on openjdk@11
-    system "ant", "-Dbits=64", "-Djavac.target.version=1.6"
+    # Default javac target version is 1.4, use 1.8 which is the minimum available on newer openjdk
+    system "ant", "-Dbits=64", "-Djavac.target.version=1.8"
 
     libexec.install "lib", "bin", "src/bin" => "scripts"
 
@@ -39,9 +39,45 @@ class JavaServiceWrapper < Formula
   end
 
   test do
-    ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
+    ENV["JAVA_HOME"] = java_home = Language::Java.java_home
 
     output = shell_output("#{libexec}/bin/testwrapper status", 1)
-    assert_match("Test Wrapper Sample Application", output)
+    assert_equal "Test Wrapper Sample Application (not installed) is not running.\n", output
+
+    (testpath/"bin").install_symlink libexec/"bin/wrapper"
+    cp libexec/"scripts/App.sh.in", testpath/"bin/helloworld"
+    chmod "+x", testpath/"bin/helloworld"
+    inreplace testpath/"bin/helloworld" do |s|
+      s.gsub! "@app.name@", "helloworld"
+      s.gsub! "@app.long.name@", "Hello World"
+    end
+
+    (testpath/"conf/wrapper.conf").write <<~INI
+      wrapper.java.command=#{java_home}/bin/java
+      wrapper.java.mainclass=org.tanukisoftware.wrapper.WrapperSimpleApp
+      wrapper.jarfile=#{libexec}/lib/wrapper.jar
+      wrapper.java.classpath.1=#{testpath}
+      wrapper.java.library.path.1=#{libexec}/lib
+      wrapper.java.additional.auto_bits=TRUE
+      wrapper.java.additional.1=-Xms128M
+      wrapper.java.additional.2=-Xmx512M
+      wrapper.app.parameter.1=HelloWorld
+      wrapper.logfile=#{testpath}/wrapper.log
+    INI
+
+    (testpath/"HelloWorld.java").write <<~JAVA
+      public class HelloWorld {
+        public static void main(String args[]) {
+          System.out.println("Hello, world!");
+        }
+      }
+    JAVA
+
+    system "#{java_home}/bin/javac", "HelloWorld.java"
+    assert_match <<~EOS, shell_output("bin/helloworld console")
+      jvm 1    | WrapperManager: Initializing...
+      jvm 1    | Hello, world!
+      wrapper  | <-- Wrapper Stopped
+    EOS
   end
 end
