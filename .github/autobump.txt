@@ -2820,6 +2820,7 @@ qtkeychain
 quantlib
 quantum++
 quasi88
+quazip
 questdb
 quick-lint-js
 quicktype
