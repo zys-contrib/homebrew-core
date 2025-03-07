@@ -1,8 +1,8 @@
 class Vet < Formula
   desc "Policy driven vetting of open source dependencies"
   homepage "https://github.com/safedep/vet"
-  url "https://github.com/safedep/vet/archive/refs/tags/v1.9.4.tar.gz"
-  sha256 "4d6b31de086a88b66d45f36353d4e67846a3ef8b85c310492b67628c17c88896"
+  url "https://github.com/safedep/vet/archive/refs/tags/v1.9.5.tar.gz"
+  sha256 "2089c9660f2200cdb56bb6c0fbd039bd411dbefd3d64a42bf44c99540fe4e8c5"
   license "Apache-2.0"
 
   bottle do
@@ -14,14 +14,10 @@ class Vet < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1cd2ade93ca9d6ebbbefc852b31764bbe0d8197b53e71a370d2dcdb97977ad2d"
   end
 
-  depends_on "go" => :build
+  depends_on "go"
 
   def install
-    ldflags = %W[
-      -s -w
-      -X main.commit=#{tap.user}
-      -X main.version=#{version}
-    ]
+    ldflags = "-s -w -X main.version=#{version} -X main.commit=#{tap.user}"
     system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"vet", "completion")
