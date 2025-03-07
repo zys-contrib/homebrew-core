@@ -1,8 +1,8 @@
 class Tailwindcss < Formula
   desc "Utility-first CSS framework"
   homepage "https://tailwindcss.com"
-  url "https://registry.npmjs.org/@tailwindcss/cli/-/cli-4.0.11.tgz"
-  sha256 "0c03f5969b3fdb133779f90af532769a65f8ed05a9db160fd09de4ee29836b27"
+  url "https://registry.npmjs.org/@tailwindcss/cli/-/cli-4.0.12.tgz"
+  sha256 "38b57c0a52e3acfab3e7a5b721152b21dfe4ddd2531e553993cf6eb6fbad5354"
   license "MIT"
   head "https://github.com/tailwindlabs/tailwindcss.git", branch: "next"
 
