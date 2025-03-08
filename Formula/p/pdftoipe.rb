@@ -4,7 +4,7 @@ class Pdftoipe < Formula
   url "https://github.com/otfried/ipe-tools/archive/refs/tags/v7.2.29.1.tar.gz"
   sha256 "604ef6e83ad8648fa09c41a788549db28193bb3638033d69cac2b0b3f33bd69b"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "20219ab43fa27bfafe7b30f47a7c44e32dcecaa3639798403033427908b11524"
