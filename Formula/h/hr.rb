@@ -7,8 +7,7 @@ class Hr < Formula
   head "https://github.com/LuRsT/hr.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "2b4ca59ba24ac04e3a7c8d76f3a75b1ea8fb01f919e7a5ef7b7ee01a36820ac4"
+    sha256 cellar: :any_skip_relocation, all: "ef156edf072a61b38e5fd50fa8eb8e71f651ed459132490b8994737eb2691ed7"
   end
 
   def install
