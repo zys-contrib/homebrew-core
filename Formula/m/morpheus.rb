@@ -12,12 +12,12 @@ class Morpheus < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "e5b99913c66785c4df9f1c817dea7b459d799b2acb8dc71992dc15abdcbf109f"
-    sha256                               arm64_sonoma:  "08f5ca07e9f086c265eea28368b54f3372a43f1cee0995cdb80362c6f4a325e1"
-    sha256                               arm64_ventura: "c236a0b101aef381e2e0b906303cd7a792bfcc7b434f11500d88fda3f99b298b"
-    sha256 cellar: :any,                 sonoma:        "404c1b6d8e89639ef8fc8bcf98913522a3f7b9aed62d405d3147d3435436bddb"
-    sha256 cellar: :any,                 ventura:       "30fd1987a9df02e998951e99ebb91358923348c7236bff102eaa531652e706cd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d34c85f01b5da908e9b659468f9108cc245b40893018c739781e1f25975b0ce6"
+    sha256                               arm64_sequoia: "11e3811c5e5932f71678bea042c542a8a9ca5e0e24be85d4ce37f04b2096af1f"
+    sha256                               arm64_sonoma:  "5875ccd833c4e41e3c0d6a92a6e345bebf5b79cb6fddde17e25383dc20a7330c"
+    sha256                               arm64_ventura: "e7e28d8b1bd4020ca3e99ddcceeb9c3af6abc63bb4bdc60bfd6302f04f50d849"
+    sha256 cellar: :any,                 sonoma:        "31b3c036148a0c2ffbd42abc324e85fd5709323ef52977340b128ff92cac7c86"
+    sha256 cellar: :any,                 ventura:       "29d8f5b2730cbda1d887ea580c643d26f80bcd224de09f27245595361f820862"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac0786ead33d0beb6c8fd5ba6554e2de1df213ba821576fa849a1a8dff1fb4a0"
   end
 
   depends_on "boost" => :build
