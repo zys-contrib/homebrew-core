@@ -1,8 +1,8 @@
 class Chezmoi < Formula
   desc "Manage your dotfiles across multiple diverse machines, securely"
   homepage "https://chezmoi.io/"
-  url "https://github.com/twpayne/chezmoi/archive/refs/tags/v2.60.1.tar.gz"
-  sha256 "de4cfaf2aee8d2eaa83a4945253386991a08d3d2e9262846b18df3bfa0252419"
+  url "https://github.com/twpayne/chezmoi/releases/download/v2.60.1/chezmoi-2.60.1.tar.gz"
+  sha256 "38ba72df91c16cbdb25302e2a1239f7b72fe4c4cdc0249d79b1ad455271bef99"
   license "MIT"
   head "https://github.com/twpayne/chezmoi.git", branch: "master"
 
@@ -28,7 +28,7 @@ class Chezmoi < Formula
     ldflags = %W[
       -s -w
       -X main.version=#{version}
-      -X main.commit=#{tap.user}
+      -X main.commit=#{File.read("COMMIT")}
       -X main.date=#{time.iso8601}
       -X main.builtBy=#{tap.user}
     ]
@@ -41,6 +41,7 @@ class Chezmoi < Formula
 
   test do
     # test version to ensure that version number is embedded in binary
+    assert_match(/commit [0-9a-f]{40}/, shell_output("#{bin}/chezmoi --version"))
     assert_match "version v#{version}", shell_output("#{bin}/chezmoi --version")
     assert_match "built by #{tap.user}", shell_output("#{bin}/chezmoi --version")
 
