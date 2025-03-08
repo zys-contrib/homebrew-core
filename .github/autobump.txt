@@ -3607,6 +3607,7 @@ volta
 votca
 vpn-slice
 vrc-get
+vsce
 vscode-langservers-extracted
 vsearch
 vsh
