@@ -15,7 +15,7 @@ class Ringojs < Formula
     sha256 cellar: :any_skip_relocation, all: "fdb1ddd59e1f97eb6b776de6710f8bf9dc96c8e9cede250c0a1bdec08475e643"
   end
 
-  depends_on "openjdk@17"
+  depends_on "openjdk"
 
   def install
     rm Dir["bin/*.cmd"]
@@ -24,10 +24,9 @@ class Ringojs < Formula
     # Ensure bottles are uniform. The `/usr/local` references are all in comments.
     inreplace %w[modules/fs.js modules/globals.js], "/usr/local", HOMEBREW_PREFIX
 
+    bin.install Dir["bin/*"]
     libexec.install Dir["*"]
-    bin.install Dir["#{libexec}/bin/*"]
-    java_env = { RINGO_HOME: libexec }
-    java_env.merge! Language::Java.overridable_java_home_env("17")
+    java_env = Language::Java.overridable_java_home_env.merge(RINGO_HOME: libexec)
     bin.env_script_all_files libexec/"bin", java_env
   end
 
