@@ -1,8 +1,8 @@
 class MacosTrash < Formula
   desc "Move files and folders to the trash"
   homepage "https://github.com/sindresorhus/macos-trash"
-  url "https://github.com/sindresorhus/macos-trash/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "c4472b5c8024806720779bc867da1958fe871fbd93d200af8a2cc4ad1941be28"
+  url "https://github.com/sindresorhus/macos-trash/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "95eeea2a96e5d989145da4697206062798b9f708101dc426ae5a489969619114"
   license "MIT"
   head "https://github.com/sindresorhus/macos-trash.git", branch: "main"
 
@@ -21,9 +21,9 @@ class MacosTrash < Formula
 
   keg_only :shadowed_by_macos
 
-  depends_on xcode: ["12.0", :build]
+  depends_on xcode: ["16.0", :build]
   depends_on :macos
-  uses_from_macos "swift", since: :big_sur # Swift 5.5.0
+  uses_from_macos "swift", since: :sonoma # Swift 6.0
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
