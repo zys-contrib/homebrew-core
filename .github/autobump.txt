@@ -2898,6 +2898,7 @@ reposurgeon
 repren
 reproc
 restic
+restish
 restview
 resvg
 retire
