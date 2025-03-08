@@ -1,13 +1,13 @@
 class Vsce < Formula
   desc "Tool for packaging, publishing and managing VS Code extensions"
   homepage "https://code.visualstudio.com/api/working-with-extensions/publishing-extension#vsce"
-  url "https://registry.npmjs.org/vsce/-/vsce-2.15.0.tgz"
-  sha256 "df4dd4002ad13c4787d29f4ced37133970c89db04af1c9041ad14b279b2a722f"
+  url "https://registry.npmjs.org/@vscode/vsce/-/vsce-3.2.2.tgz"
+  sha256 "c64c08c922ce0a093ec7ac3d0bf9951f46cdca4ea0241d66c3e0b14fca8c645a"
   license "MIT"
   head "https://github.com/microsoft/vscode-vsce.git", branch: "main"
 
   livecheck do
-    url "https://registry.npmjs.org/vsce/latest"
+    url "https://registry.npmjs.org/@vscode/vsce/latest"
     regex(/["']version["']:\s*?["']([^"']+)["']/i)
   end
 
@@ -25,6 +25,8 @@ class Vsce < Formula
 
   depends_on "node"
 
+  uses_from_macos "zlib"
+
   on_linux do
     depends_on "pkgconf" => :build
     depends_on "glib"
@@ -38,6 +40,6 @@ class Vsce < Formula
 
   test do
     error = shell_output(bin/"vsce verify-pat 2>&1", 1)
-    assert_match "The Personal Access Token is mandatory", error
+    assert_match "Extension manifest not found:", error
   end
 end
