@@ -321,6 +321,10 @@
     "package_name": "fastapi[standard]",
     "exclude_packages": ["certifi"]
   },
+  "fb-client": {
+    "package_name": "",
+    "extra_packages": ["pycurl", "pyxdg"]
+  },
   "fdroidserver": {
     "package_name": "fdroidserver[optional]",
     "exclude_packages": ["certifi", "cryptography", "numpy", "pillow", "puremagic"],
