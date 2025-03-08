@@ -21,17 +21,17 @@ class Verapdf < Formula
   end
 
   depends_on "maven" => :build
-  depends_on "openjdk@21"
+  depends_on "openjdk"
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk@21"].opt_prefix
+    ENV["JAVA_HOME"] = Language::Java.java_home
     system "mvn", "clean", "install", "-DskipTests"
 
     installer_file = Pathname.glob("installer/target/verapdf-izpack-installer-*.jar").first
     system "java", "-DINSTALL_PATH=#{libexec}", "-jar", installer_file, "-options-system"
 
     bin.install libexec/"verapdf", libexec/"verapdf-gui"
-    bin.env_script_all_files libexec, Language::Java.overridable_java_home_env("21")
+    bin.env_script_all_files libexec, Language::Java.overridable_java_home_env
     prefix.install "tests"
   end
 
