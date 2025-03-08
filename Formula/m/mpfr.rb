@@ -3,8 +3,20 @@ class Mpfr < Formula
   homepage "https://www.mpfr.org/"
   url "https://ftp.gnu.org/gnu/mpfr/mpfr-4.2.1.tar.xz"
   mirror "https://ftpmirror.gnu.org/mpfr/mpfr-4.2.1.tar.xz"
+  version "4.2.1-p1"
   sha256 "277807353a6726978996945af13e52829e3abd7a9a5b7fb2793894e18f1fcbb2"
   license "LGPL-3.0-or-later"
+  head "https://gitlab.inria.fr/mpfr/mpfr.git", branch: "master"
+
+  # Upstream patches, list at https://www.mpfr.org/mpfr-current/#fixed
+  %w[
+    01 3ec29a67cfa75c35e90d32cafa552956018c79526b4aa412f3beff21dacfb41e
+  ].each_slice(2) do |p, checksum|
+    patch do
+      url "https://www.mpfr.org/mpfr-4.2.1/patch#{p}"
+      sha256 checksum
+    end
+  end
 
   livecheck do
     url "https://www.mpfr.org/mpfr-current/"
@@ -35,20 +47,23 @@ class Mpfr < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "18857bac44d9f49faeb1d147146ba7fb420d5bf85076f69c68a86a563b203c13"
   end
 
-  head do
-    url "https://gitlab.inria.fr/mpfr/mpfr.git", branch: "master"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "gmp"
+
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "texinfo" => :build
+  end
 
   def install
     system "./autogen.sh" if build.head?
 
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules"
+    odie "check if autoreconf line can be removed" if version > "4.2.1-p1"
+    # regenerate since the files were generated using automake 1.17
+    system "autoreconf", "--force", "--install", "--verbose"
+
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "check"
     system "make", "install"
