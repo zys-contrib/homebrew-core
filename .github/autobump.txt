@@ -1199,6 +1199,7 @@ git-lfs
 git-machete
 git-mob
 git-quick-stats
+git-remote-hg
 git-review
 git-split-diffs
 git-subrepo
