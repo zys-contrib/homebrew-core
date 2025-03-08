@@ -2363,6 +2363,7 @@ nopoll
 noseyparker
 notation
 notcurses
+noti
 notify
 nox
 nping
