@@ -21,13 +21,14 @@ class Ki < Formula
   end
 
   depends_on "maven" => :build
-  depends_on "openjdk@11"
+  depends_on "openjdk"
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
+    ENV["JAVA_HOME"] = Language::Java.java_home
+
     system "mvn", "-DskipTests", "package"
     libexec.install "lib/ki-shell.jar"
-    bin.write_jar_script libexec/"ki-shell.jar", "ki", java_version: "11"
+    bin.write_jar_script libexec/"ki-shell.jar", "ki"
   end
 
   test do
