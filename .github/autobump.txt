@@ -1447,6 +1447,7 @@ hopenpgp-tools
 hoverfly
 howard-hinnant-date
 hpack
+hr
 hsd
 html-xml-utils
 html2markdown
