@@ -2,8 +2,8 @@ class Onnxruntime < Formula
   desc "Cross-platform, high performance scoring engine for ML models"
   homepage "https://github.com/microsoft/onnxruntime"
   url "https://github.com/microsoft/onnxruntime.git",
-      tag:      "v1.20.2",
-      revision: "8608bf02f21774be0388d2aa3a9f886d009d0b4c"
+      tag:      "v1.21.0",
+      revision: "e0b66cad282043d4377cea5269083f17771b6dfc"
   license "MIT"
 
   livecheck do
@@ -39,37 +39,18 @@ class Onnxruntime < Formula
   #
   # https://github.com/microsoft/onnxruntime/blob/v#{version}/cmake/deps.txt#L25
   resource "eigen" do
-    url "https://gitlab.com/libeigen/eigen/-/archive/e7248b26a1ed53fa030c5c459f7ea095dfd276ac/eigen-e7248b26a1ed53fa030c5c459f7ea095dfd276ac.tar.bz2"
-    sha256 "a3f1724de1dc7e7f74fbcc206ffcaeba27fd89b37dc71f9c31e505634d0c1634"
+    url "https://gitlab.com/libeigen/eigen/-/archive/1d8b82b0740839c0de7f1242a3585e3390ff5f33/eigen-1d8b82b0740839c0de7f1242a3585e3390ff5f33.tar.bz2"
+    sha256 "37c2385d5b18471d46ac8c971ce9cf6a5a25d30112f5e4a2761a18c968faa202"
   end
 
-  # https://github.com/microsoft/onnxruntime/blob/v#{version}/cmake/deps.txt#L52
+  # https://github.com/microsoft/onnxruntime/blob/v#{version}/cmake/deps.txt#L51
   resource "pytorch_cpuinfo" do
     url "https://github.com/pytorch/cpuinfo/archive/8a1772a0c5c447df2d18edf33ec4603a8c9c04a6.tar.gz"
     sha256 "37bb2fd2d1e87102baea8d131a0c550c4ceff5a12fba61faeb1bff63868155f1"
   end
 
-  # Backport fix for build on Linux
-  patch do
-    url "https://github.com/microsoft/onnxruntime/commit/4d614e15bd9e6949bc3066754791da403e00d66c.patch?full_index=1"
-    sha256 "76f9920e591bc52ea80f661fa0b5b15479960004f1be103467b219e55c73a8cc"
-  end
-
-  # Backport support for Protobuf 26+
-  patch do
-    url "https://github.com/microsoft/onnxruntime/commit/704523c2d8a142f723a5cc242c62f5b20afa4944.patch?full_index=1"
-    sha256 "68a0300b02f1763a875c7f890c4611a95233b7ff1f7158f4328d5f906f21c84d"
-  end
-
   def install
     python3 = which("python3.13")
-
-    # Workaround to use brew `nsync`. Remove in future release with
-    # https://github.com/microsoft/onnxruntime/commit/88676e62b966add2cc144a4e7d8ae1dbda1148e8
-    inreplace "cmake/external/onnxruntime_external_deps.cmake" do |s|
-      s.gsub!(/ NAMES nsync unofficial-nsync$/, " NAMES nsync_cpp")
-      s.gsub!(/\bunofficial::nsync::nsync_cpp\b/, "nsync_cpp")
-    end
 
     resources.each do |r|
       (buildpath/"build/_deps/#{r.name}-src").install r
