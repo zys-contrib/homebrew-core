@@ -951,6 +951,7 @@ etcd
 etcd-cpp-apiv3
 ethereum
 eva
+evans
 evince
 evtx
 exercism
