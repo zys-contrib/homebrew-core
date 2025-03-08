@@ -4,6 +4,7 @@ class Cppcheck < Formula
   url "https://github.com/danmar/cppcheck/archive/refs/tags/2.17.1.tar.gz"
   sha256 "bfd681868248ec03855ca7c2aea7bcb1f39b8b18860d76aec805a92a967b966c"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/danmar/cppcheck.git", branch: "main"
 
   # There can be a notable gap between when a version is tagged and a
