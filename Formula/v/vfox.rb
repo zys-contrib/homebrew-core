@@ -2,8 +2,8 @@ class Vfox < Formula
   desc "Version manager with support for Java, Node.js, Flutter, .NET & more"
   # homepage site issue report, https://github.com/version-fox/vfox/issues/426
   homepage "https://github.com/version-fox/vfox"
-  url "https://github.com/version-fox/vfox/archive/refs/tags/v0.6.2.tar.gz"
-  sha256 "77f277682a850b8312c60c4bcc8cb782486c51ed20272b47ccd64d3ac1f35111"
+  url "https://github.com/version-fox/vfox/archive/refs/tags/v0.6.3.tar.gz"
+  sha256 "3d9daed3cd3938e7c0e4881b09b15717d368a9993ff884067d406d50f96c4733"
   license "Apache-2.0"
   head "https://github.com/version-fox/vfox.git", branch: "main"
 
