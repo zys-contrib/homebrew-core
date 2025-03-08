@@ -1,9 +1,9 @@
 class X8664ElfGrub < Formula
   desc "GNU GRUB bootloader for x86_64-elf"
   homepage "https://savannah.gnu.org/projects/grub"
-  url "https://ftp.gnu.org/gnu/grub/grub-2.06.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/gnu/grub/grub-2.06.tar.xz"
-  sha256 "b79ea44af91b93d17cd3fe80bdae6ed43770678a9a5ae192ccea803ebb657ee1"
+  url "https://ftp.gnu.org/gnu/grub/grub-2.12.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/gnu/grub/grub-2.12.tar.xz"
+  sha256 "f3c97391f7c4eaa677a78e090c7e97e6dc47b16f655f04683ebd37bef7fe0faa"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -15,6 +15,7 @@ class X8664ElfGrub < Formula
     sha256 x86_64_linux:  "c578c06b175f785718eafaa9e54c45bd767ba73a041cf1db73a72a6103573375"
   end
 
+  depends_on "gawk" => :build
   depends_on "help2man" => :build
   depends_on "objconv" => :build
   depends_on "pkgconf" => :build
@@ -43,6 +44,9 @@ class X8664ElfGrub < Formula
 
   def install
     ENV.append_to_cflags "-Wno-error=incompatible-pointer-types"
+    ENV["PATH"]=prefix/"opt/gawk/libexec/gnubin:#{ENV["PATH"]}"
+
+    touch buildpath/"grub-core/extra_deps.lst"
 
     resource("unifont").stage do |r|
       buildpath.install "unifont-#{r.version}.pcf.gz" => "unifont.pcf.gz"
