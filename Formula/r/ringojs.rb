@@ -11,8 +11,8 @@ class Ringojs < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "fdb1ddd59e1f97eb6b776de6710f8bf9dc96c8e9cede250c0a1bdec08475e643"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "3ab47d6d66c7528f9cc7b67be71d428bdab468c46724952615112e03cc50a544"
   end
 
   depends_on "openjdk"
