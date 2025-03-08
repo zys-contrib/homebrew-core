@@ -1,10 +1,9 @@
 class Pdf2svg < Formula
   desc "PDF converter to SVG"
   homepage "https://cityinthesky.co.uk/opensource/pdf2svg"
-  url "https://github.com/dawbarton/pdf2svg/archive/refs/tags/v0.2.3.tar.gz"
-  sha256 "4fb186070b3e7d33a51821e3307dce57300a062570d028feccd4e628d50dea8a"
+  url "https://github.com/dawbarton/pdf2svg/archive/refs/tags/v0.2.4.tar.gz"
+  sha256 "fd765256f18b5890639e93cabdf631b640966ed1ea9ebd561aede9d3be2155e4"
   license "GPL-2.0-or-later"
-  revision 6
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "d8eeaafdf393cfa6a111959c4b64ded4dc4111c0706a823f25dcbda06c105b92"
