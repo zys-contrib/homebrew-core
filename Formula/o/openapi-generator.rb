@@ -20,7 +20,7 @@ class OpenapiGenerator < Formula
     depends_on "maven" => :build
   end
 
-  depends_on "openjdk@11"
+  depends_on "openjdk"
 
   def install
     if build.head?
@@ -30,7 +30,7 @@ class OpenapiGenerator < Formula
       libexec.install "openapi-generator-cli-#{version}.jar" => "openapi-generator-cli.jar"
     end
 
-    bin.write_jar_script libexec/"openapi-generator-cli.jar", "openapi-generator", java_version: "11"
+    bin.write_jar_script libexec/"openapi-generator-cli.jar", "openapi-generator"
   end
 
   test do
