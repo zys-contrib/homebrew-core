@@ -1570,6 +1570,7 @@ jd
 jdnssec-tools
 jena
 jenkins
+jenkins-cli
 jenkins-job-builder
 jenkins-lts
 jerryscript
