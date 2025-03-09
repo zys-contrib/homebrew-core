@@ -11,12 +11,12 @@ class Opencsg < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3593c6eaad9f71c123a0812369c2e73d8ba7b130e83d9d8260580ce931e6e688"
-    sha256 cellar: :any,                 arm64_sonoma:  "df8adadeacc94919520029a57d1aea0bc10cce4a3283ad8c553249e60111b699"
-    sha256 cellar: :any,                 arm64_ventura: "877b8b0e60156bf6b5dbf7ac59bf985009feac839253357ad6053294ebec072c"
-    sha256 cellar: :any,                 sonoma:        "c8988828a3e4baf9a1111262498e0253fb30af2b5fb9a0100cb94f12f188d45f"
-    sha256 cellar: :any,                 ventura:       "bb2ce70f809a01ca27fdf9a3dd6cfc0cc7befb4d3811cc76e8e8a3735b5f68a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0ab095beec175e194a91f8ee2cdb4019c8e62e639f3f3bf8d52dca372d1e903"
+    sha256 cellar: :any,                 arm64_sequoia: "f92caa541b802161c2c60e745a49574ba379dcd40492dfb2cc9c4e123c89920d"
+    sha256 cellar: :any,                 arm64_sonoma:  "07b56281fbb460cadee1c2117d80a52d3967069363af998d99c7f2dc46ef1891"
+    sha256 cellar: :any,                 arm64_ventura: "e7ca2f7b0365b03aeea72adc6e87c80d8153f07bef3108fdc56eaab0682ad6c1"
+    sha256 cellar: :any,                 sonoma:        "89f9db42762d2ab1958e8bd5654c4f46644a1a831e1966f3581932925ea2212a"
+    sha256 cellar: :any,                 ventura:       "2c2c3b7ba27e8ee0190776fa0f35729e4bf0d27bb7d581e56f3cdf62d1d95fc4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6dc9589d54eb362645b8563f62c66b5e29bd44c50c0c4c483db011b3aac5ee5"
   end
 
   depends_on "cmake" => :build
