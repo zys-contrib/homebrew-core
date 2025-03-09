@@ -1,8 +1,8 @@
 class Gleam < Formula
   desc "Statically typed language for the Erlang VM"
   homepage "https://gleam.run"
-  url "https://github.com/gleam-lang/gleam/archive/refs/tags/v1.8.1.tar.gz"
-  sha256 "5ad243c092fb229d0ae77214beaa462cd9a53018e553decb9b12a2ea1fab6494"
+  url "https://github.com/gleam-lang/gleam/archive/refs/tags/v1.9.0.tar.gz"
+  sha256 "ba3121d6e335f086caa5eeaf1caca61960a75f25f60e6d99c7b129d52f12153d"
   license "Apache-2.0"
   head "https://github.com/gleam-lang/gleam.git", branch: "main"
 
@@ -26,7 +26,7 @@ class Gleam < Formula
   depends_on "rebar3"
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "compiler-cli")
+    system "cargo", "install", *std_cargo_args(path: "gleam-bin")
   end
 
   test do
