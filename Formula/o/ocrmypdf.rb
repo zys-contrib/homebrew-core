@@ -6,6 +6,7 @@ class Ocrmypdf < Formula
   url "https://files.pythonhosted.org/packages/07/cf/d207aea8442a8e5a63b16faae89af2b9e3474d8d5925a5ea8c4f10f73fa9/ocrmypdf-16.10.0.tar.gz"
   sha256 "d5b907a7b92951f1f3617f0f5ca002d866143d94fd168546a70e51756bf6412e"
   license "MPL-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "7dc0816282934a40bfc6d6151bd20916f5230369d76b7541980aa0e997fba59e"
