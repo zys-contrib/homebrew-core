@@ -2528,6 +2528,7 @@ osmium-tool
 ospray
 osslsigncode
 osv-scanner
+otel-cli
 otree
 ots
 ott
