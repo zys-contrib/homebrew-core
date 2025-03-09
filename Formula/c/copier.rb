@@ -3,10 +3,9 @@ class Copier < Formula
 
   desc "Utility for rendering projects templates"
   homepage "https://copier.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/44/49/1a43fade92e3af317393943ac005ed1b4094a88e999acda34f3d0e27aef8/copier-9.5.0.tar.gz"
-  sha256 "db7311075176376ee746fe610ffb5b27db7ac755585d6149894f677ffbce127d"
+  url "https://files.pythonhosted.org/packages/d2/a2/b8919c3c3fe31ccfae6a16bbef0279396c0f9d4fb49dfd333ab4cc92bdb6/copier-9.6.0.tar.gz"
+  sha256 "e05a18b387b96e8d1fbd5271d37f59c9a02be5ad717f7878d0505562fd62b786"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "fff70a27727168bf3a475fdda7308eed4ef488f8f9e06b4de684e8f68a7e6c8e"
