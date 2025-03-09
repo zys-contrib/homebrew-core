@@ -2296,6 +2296,7 @@ nbdime
 ncc
 ncdc
 ncdu
+ncmdump
 ncmpc
 ncmpcpp
 ncnn
