@@ -1,8 +1,8 @@
 class Goku < Formula
   desc "HTTP load testing tool"
   homepage "https://github.com/jcaromiq/goku"
-  url "https://github.com/jcaromiq/goku/archive/refs/tags/v1.1.7.tar.gz"
-  sha256 "799e155c93937ccba830670fa25890d5fe53ceb01737926914d480ce0c39c752"
+  url "https://github.com/jcaromiq/goku/archive/refs/tags/v1.1.8.tar.gz"
+  sha256 "d03020d63d36465bda0f07b3f3790b9e33579afe176a25fd01e89e9e9d066fc1"
   license "MIT"
   head "https://github.com/jcaromiq/goku.git", branch: "main"
 
