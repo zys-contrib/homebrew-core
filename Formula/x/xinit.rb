@@ -1,8 +1,8 @@
 class Xinit < Formula
   desc "Start the X Window System server"
   homepage "https://gitlab.freedesktop.org/xorg/app/xinit"
-  url "https://www.x.org/releases/individual/app/xinit-1.4.3.tar.xz"
-  sha256 "86409f21a6a31148d2c1c17bf5f2d904eb5ef455f9dc67c49fbd0c10ab18fd5a"
+  url "https://www.x.org/releases/individual/app/xinit-1.4.4.tar.xz"
+  sha256 "40a47c7a164c7f981ce3787b4b37f7e411fb43231dcde543d70094075dacfef9"
   license all_of: ["MIT", "APSL-2.0"]
 
   bottle do
