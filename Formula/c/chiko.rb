@@ -1,8 +1,8 @@
 class Chiko < Formula
   desc "Ultimate Beauty gRPC Client for your Terminal"
   homepage "https://github.com/felangga/chiko"
-  url "https://github.com/felangga/chiko/archive/refs/tags/v0.0.6.tar.gz"
-  sha256 "02e0672b22545669e32d93f1a7ef62ea1f1b98f2eea9ba354e536e2a8540fde5"
+  url "https://github.com/felangga/chiko/archive/refs/tags/v0.1.0.tar.gz"
+  sha256 "0bb2303106b9ff04a71dcd8bb0109e8b5ef7a9ec70783730164ef57b19478bbc"
   license "MIT"
   head "https://github.com/felangga/chiko.git", branch: "main"
 
@@ -18,7 +18,7 @@ class Chiko < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/chiko"
   end
 
   test do
