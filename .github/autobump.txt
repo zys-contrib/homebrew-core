@@ -3614,6 +3614,7 @@ votca
 vpn-slice
 vrc-get
 vsce
+vscli
 vscode-langservers-extracted
 vsearch
 vsh
