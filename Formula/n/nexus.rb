@@ -20,13 +20,14 @@ class Nexus < Formula
   end
 
   depends_on "maven" => :build
+  depends_on "node" => :build
+  depends_on "yarn" => :build
   depends_on "openjdk@17"
 
   uses_from_macos "unzip" => :build
 
-  on_macos do
-    depends_on arch: :x86_64 # due to node binary fetched by frontend-maven-plugin
-  end
+  # Avoid downloading copies of node and yarn
+  patch :DATA
 
   def install
     # Workaround build error: Couldn't find package "@sonatype/nexus-ui-plugin@workspace:*"
@@ -36,28 +37,31 @@ class Nexus < Formula
               '"@sonatype/nexus-ui-plugin": "workspace:*"',
               '"@sonatype/nexus-ui-plugin": "*"'
 
-    ENV["JAVA_HOME"] = Language::Java.java_home("17")
+    java_version = "17"
+    ENV["JAVA_HOME"] = Language::Java.java_home(java_version)
+    java_env = Language::Java.overridable_java_home_env(java_version)
+    java_env.merge!(KARAF_DATA: "${NEXUS_KARAF_DATA:-#{var}/nexus}",
+                    KARAF_LOG:  var/"log/nexus",
+                    KARAF_ETC:  pkgetc)
+
+    with_env(SKIP_YARN_COREPACK_CHECK: "1") do
+      system "yarn", "install", "--immutable"
+      system "yarn", "workspaces", "run", "build-all"
+    end
+
     system "mvn", "install", "-DskipTests", "-Dpublic"
     system "unzip", "-o", "-d", "target", "assemblies/nexus-base-template/target/nexus-base-template-#{version}.zip"
 
     rm(Dir["target/nexus-base-template-#{version}/bin/*.bat"])
     rm_r("target/nexus-base-template-#{version}/bin/contrib")
     libexec.install Dir["target/nexus-base-template-#{version}/*"]
-
-    env = {
-      JAVA_HOME:  ENV["JAVA_HOME"],
-      KARAF_DATA: "${NEXUS_KARAF_DATA:-#{var}/nexus}",
-      KARAF_LOG:  "#{var}/log/nexus",
-      KARAF_ETC:  "#{etc}/nexus",
-    }
-
-    (bin/"nexus").write_env_script libexec/"bin/nexus", env
+    (bin/"nexus").write_env_script libexec/"bin/nexus", java_env
   end
 
   def post_install
-    mkdir_p "#{var}/log/nexus" unless (var/"log/nexus").exist?
-    mkdir_p "#{var}/nexus" unless (var/"nexus").exist?
-    mkdir "#{etc}/nexus" unless (etc/"nexus").exist?
+    (var/"log/nexus").mkpath unless (var/"log/nexus").exist?
+    (var/"nexus").mkpath unless (var/"nexus").exist?
+    pkgetc.mkpath unless pkgetc.exist?
   end
 
   service do
@@ -65,13 +69,66 @@ class Nexus < Formula
   end
 
   test do
-    mkdir "data"
-    fork do
-      ENV["NEXUS_KARAF_DATA"] = testpath/"data"
-      exec bin/"nexus", "server"
-    end
+    port = free_port
+    (testpath/"data/etc/nexus.properties").write "application-port=#{port}"
+    pid = spawn({ "NEXUS_KARAF_DATA" => testpath/"data" }, bin/"nexus", "server")
     sleep 50
     sleep 50 if OS.mac? && Hardware::CPU.intel?
-    assert_match "<title>Sonatype Nexus Repository</title>", shell_output("curl --silent --fail http://localhost:8081")
+    assert_match "<title>Sonatype Nexus Repository</title>", shell_output("curl --silent --fail http://localhost:#{port}")
+  ensure
+    Process.kill "TERM", pid
+    Process.wait pid
   end
 end
+
+__END__
+diff --git a/plugins/nexus-coreui-plugin/pom.xml b/plugins/nexus-coreui-plugin/pom.xml
+index 9b8325fd98..2a58a07afe 100644
+--- a/plugins/nexus-coreui-plugin/pom.xml
++++ b/plugins/nexus-coreui-plugin/pom.xml
+@@ -172,7 +172,7 @@
+         <artifactId>karaf-maven-plugin</artifactId>
+       </plugin>
+ 
+-      <plugin>
++      <!--plugin>
+         <groupId>com.github.eirslett</groupId>
+         <artifactId>frontend-maven-plugin</artifactId>
+ 
+@@ -212,12 +212,12 @@
+             </goals>
+             <phase>test</phase>
+             <configuration>
+-              <arguments>test --reporters=jest-junit --reporters=default</arguments>
++              <arguments>test -reporters=jest-junit -reporters=default</arguments>
+               <skip>${npm.skipTests}</skip>
+             </configuration>
+           </execution>
+         </executions>
+-      </plugin>
++      </plugin-->
+     </plugins>
+   </build>
+ 
+diff --git a/pom.xml b/pom.xml
+index 6647497628..d99148b421 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -877,7 +877,7 @@
+           </executions>
+         </plugin>
+ 
+-        <plugin>
++        <!--plugin>
+           <groupId>com.github.eirslett</groupId>
+           <artifactId>frontend-maven-plugin</artifactId>
+           <version>1.11.3</version>
+@@ -932,7 +932,7 @@
+               </configuration>
+             </execution>
+           </executions>
+-        </plugin>
++        </plugin-->
+ 
+         <plugin>
+           <groupId>com.mycila</groupId>
