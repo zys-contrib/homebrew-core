@@ -1,11 +1,20 @@
 class Beast < Formula
   desc "Bayesian Evolutionary Analysis Sampling Trees"
   homepage "https://beast.community/"
-  url "https://github.com/beast-dev/beast-mcmc/archive/refs/tags/v1.10.4.tar.gz"
-  sha256 "6e28e2df680364867e088acd181877a5d6a1d664f70abc6eccc2ce3a34f3c54a"
   license "LGPL-2.1-or-later"
   revision 1
   head "https://github.com/beast-dev/beast-mcmc.git", branch: "master"
+
+  stable do
+    url "https://github.com/beast-dev/beast-mcmc/archive/refs/tags/v1.10.4.tar.gz"
+    sha256 "6e28e2df680364867e088acd181877a5d6a1d664f70abc6eccc2ce3a34f3c54a"
+
+    # Backport support for building on newer OpenJDK
+    patch do
+      url "https://github.com/beast-dev/beast-mcmc/commit/3b91c1d391daf350c92f84c5900b58ff72a889af.patch?full_index=1"
+      sha256 "64511255b4cd3339ad9be5a6b1cb98283cb279cab5a60913b9a1619433b702f7"
+    end
+  end
 
   livecheck do
     url :stable
@@ -24,17 +33,17 @@ class Beast < Formula
 
   depends_on "ant" => :build
   depends_on "beagle"
-  depends_on "openjdk@11"
+  depends_on "openjdk"
 
   def install
-    ENV["JAVA_HOME"] = Language::Java.java_home("11")
+    ENV["JAVA_HOME"] = Language::Java.java_home
     system "ant", "linux"
     libexec.install Dir["release/Linux/BEASTv*/*"]
     pkgshare.install_symlink libexec/"examples"
     bin.install Dir[libexec/"bin/*"]
 
-    env = Language::Java.overridable_java_home_env("11")
-    env["PATH"] = "$JAVA_HOME/bin:$PATH" if OS.linux?
+    env = Language::Java.overridable_java_home_env
+    env["PATH"] = "${JAVA_HOME}/bin:${PATH}" if OS.linux?
     bin.env_script_all_files libexec/"bin", env
     inreplace libexec/"bin/beast", "/usr/local", HOMEBREW_PREFIX
   end
