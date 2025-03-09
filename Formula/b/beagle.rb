@@ -22,33 +22,45 @@ class Beagle < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openjdk@11" => [:build, :test]
+  depends_on "openjdk" => [:build, :test]
 
   def install
     # Avoid building Linux bottle with `-march=native`. Need to enable SSE4.1 for _mm_dp_pd
     # Issue ref: https://github.com/beagle-dev/beagle-lib/issues/189
     inreplace "CMakeLists.txt", "-march=native", "-msse4.1" if OS.linux? && build.bottle?
 
-    ENV["JAVA_HOME"] = Language::Java.java_home("11")
+    ENV["JAVA_HOME"] = Language::Java.java_home
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+    pkgshare.install "examples/tinytest/tinytest.cpp"
   end
 
   test do
-    (testpath/"test.cpp").write <<~CPP
-      #include "libhmsbeagle/platform.h"
-      int main() { return 0; }
-    CPP
+    if OS.mac? && Hardware::CPU.arm? && Hardware::CPU.virtualized?
+      # OpenCL is not supported on virtualized arm64 macOS which breaks all Beagle functionality
+      (testpath/"test.cpp").write <<~CPP
+        #include <iostream>
+        #include "libhmsbeagle/beagle.h"
+        int main() {
+          std::cout << beagleGetVersion();
+          return 0;
+        }
+      CPP
+      system ENV.cxx, "test.cpp", "-o", "test", "-I#{include}/libhmsbeagle-1", "-L#{lib}", "-lhmsbeagle"
+      assert_match version.to_s, shell_output("./test")
+    else
+      system ENV.cxx, pkgshare/"tinytest.cpp", "-o", "test", "-I#{include}/libhmsbeagle-1", "-L#{lib}", "-lhmsbeagle"
+      assert_match "sumLogL = -1498.", shell_output("./test")
+    end
+
     (testpath/"T.java").write <<~JAVA
       class T {
         static { System.loadLibrary("hmsbeagle-jni"); }
         public static void main(String[] args) {}
       }
     JAVA
-    system ENV.cxx, "-I#{include}/libhmsbeagle-1", testpath/"test.cpp", "-o", "test"
-    system "./test"
-    system Formula["openjdk@11"].bin/"javac", "T.java"
-    system Formula["openjdk@11"].bin/"java", "-Djava.library.path=#{lib}", "T"
+    system Formula["openjdk"].bin/"javac", "T.java"
+    system Formula["openjdk"].bin/"java", "-Djava.library.path=#{lib}", "T"
   end
 end
