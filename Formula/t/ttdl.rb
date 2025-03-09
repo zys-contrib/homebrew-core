@@ -1,8 +1,8 @@
 class Ttdl < Formula
   desc "Terminal Todo List Manager"
   homepage "https://github.com/VladimirMarkelov/ttdl"
-  url "https://github.com/VladimirMarkelov/ttdl/archive/refs/tags/v4.9.0.tar.gz"
-  sha256 "6f29837ba2cff3090991aca20b01d041bfc8834d02dac243ddea2a12fa9596d1"
+  url "https://github.com/VladimirMarkelov/ttdl/archive/refs/tags/v4.10.0.tar.gz"
+  sha256 "b9c33fdd50ee87b344595b0ad4d3be8b5e957d15c8d5dcb27920d6447d6aa6f7"
   license "MIT"
 
   bottle do
