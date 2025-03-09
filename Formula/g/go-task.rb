@@ -1,8 +1,8 @@
 class GoTask < Formula
   desc "Task is a task runner/build tool that aims to be simpler and easier to use"
   homepage "https://taskfile.dev/"
-  url "https://github.com/go-task/task/archive/refs/tags/v3.41.0.tar.gz"
-  sha256 "18302d17d660b25d388338765664e4f66853f10d6ab9a5f2285e56f30a077976"
+  url "https://github.com/go-task/task/archive/refs/tags/v3.42.0.tar.gz"
+  sha256 "8d3cd23ce03a40fd40d37ffb5c36ec2b4be5f4e01ca110e719297d1c75c42d65"
   license "MIT"
   head "https://github.com/go-task/task.git", branch: "main"
 
@@ -19,10 +19,17 @@ class GoTask < Formula
 
   conflicts_with "task", because: "both install `task` binaries"
 
+  # version report patch, upstream pr ref, https://github.com/go-task/task/pull/2105
+  patch do
+    url "https://github.com/go-task/task/commit/44cb98cb0620ea98c43d0f11ce92f5692ad57212.patch?full_index=1"
+    sha256 "78861415be4e9da4f40ecff7b50300926f70fc4d993c3d83cd808040d711b35e"
+  end
+
   def install
     ldflags = %W[
       -s -w
       -X github.com/go-task/task/v3/internal/version.version=#{version}
+      -X github.com/go-task/task/v3/internal/version.sum=#{tap.user}
     ]
     system "go", "build", *std_go_args(ldflags:, output: bin/"task"), "./cmd/task"
     bash_completion.install "completion/bash/task.bash" => "task"
