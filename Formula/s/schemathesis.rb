@@ -3,8 +3,8 @@ class Schemathesis < Formula
 
   desc "Testing tool for web applications with specs"
   homepage "https://schemathesis.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/da/cf/c1313799f49f6b20a885dd705c41545ab819ae861050845eb49ff13c5897/schemathesis-3.39.12.tar.gz"
-  sha256 "ee6c68344542786bfac57c1ef042955e2e58bafaeddc611e9b98e071e44285c5"
+  url "https://files.pythonhosted.org/packages/4e/be/918f02628aadbee2974bcd8fe0c447a691e136fda3310acbe6f215999193/schemathesis-3.39.13.tar.gz"
+  sha256 "2507aaddd43c2f300dede034249a6a7a170245e24647c61686548484f345cf94"
   license "MIT"
 
   bottle do
@@ -89,8 +89,8 @@ class Schemathesis < Formula
   end
 
   resource "hypothesis" do
-    url "https://files.pythonhosted.org/packages/3b/73/109fbf6f9a76db10ebdbff69b3aba59e3b9ade6fd0702811a9be796702f3/hypothesis-6.127.6.tar.gz"
-    sha256 "9b5292f3f2d505bf0f3e060b1c12f3643fa9b7cd036f41f3456c5f7cc7f73164"
+    url "https://files.pythonhosted.org/packages/b6/8c/67b9517d1210eaa15b3026e8dbdee5356bc1c59298cdbe3feef7ad105da9/hypothesis-6.128.1.tar.gz"
+    sha256 "f949f36f2c98f9b859f07fd5404d3ece0f4e0104b8e438c3c27ed6d6c31e2ced"
   end
 
   resource "hypothesis-graphql" do
@@ -229,8 +229,8 @@ class Schemathesis < Formula
   end
 
   resource "starlette" do
-    url "https://files.pythonhosted.org/packages/44/b6/fb9a32e3c5d59b1e383c357534c63c2d3caa6f25bf3c59dd89d296ecbaec/starlette-0.46.0.tar.gz"
-    sha256 "b359e4567456b28d473d0193f34c0de0ed49710d75ef183a74a5ce0499324f50"
+    url "https://files.pythonhosted.org/packages/04/1b/52b27f2e13ceedc79a908e29eac426a63465a1a01248e5f24aa36a62aeb3/starlette-0.46.1.tar.gz"
+    sha256 "3c88d58ee4bd1bb807c0d1acb381838afc7752f9ddaec81bbe4383611d833230"
   end
 
   resource "starlette-testclient" do
