@@ -4,6 +4,7 @@ class Paperjam < Formula
   url "https://mj.ucw.cz/download/linux/paperjam-1.2.1.tar.gz"
   sha256 "bd38ed3539011f07e8443b21985bb5cd97c656e12d9363571f925d039124839b"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :homepage
@@ -23,7 +24,11 @@ class Paperjam < Formula
   depends_on "docbook-xsl" => :build
   depends_on "libpaper"
   depends_on "qpdf"
+
   uses_from_macos "libxslt"
+
+  # notified the upstream about the patch
+  patch :DATA
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
@@ -37,3 +42,42 @@ class Paperjam < Formula
     assert_path_exists testpath/"output.pdf"
   end
 end
+
+__END__
+diff --git a/pdf-tools.cc b/pdf-tools.cc
+index 0d74ca3..23d5ee4 100644
+--- a/pdf-tools.cc
++++ b/pdf-tools.cc
+@@ -7,6 +7,7 @@
+ #include <cstdio>
+ #include <cstdlib>
+ #include <cstring>
++#include <memory>
+
+ #include <iconv.h>
+
+@@ -229,7 +230,7 @@ QPDFObjectHandle page_to_xobject(QPDF *out, QPDFObjectHandle page)
+ 	}
+
+ 	vector<QPDFObjectHandle> contents = page.getPageContents();
+-	auto ph = PointerHolder<QPDFObjectHandle::StreamDataProvider>(new CombineFromContents_Provider(contents));
++	auto ph = std::shared_ptr<QPDFObjectHandle::StreamDataProvider>(new CombineFromContents_Provider(contents));
+ 	xo_stream.replaceStreamData(ph, QPDFObjectHandle::newNull(), QPDFObjectHandle::newNull());
+ 	return xo_stream;
+ }
+diff --git a/pdf.cc b/pdf.cc
+index 9f8dc12..41a158b 100644
+--- a/pdf.cc
++++ b/pdf.cc
+@@ -185,7 +185,11 @@ static void make_info_dict()
+     {
+       const string to_copy[] = { "/Title", "/Author", "/Subject", "/Keywords", "/Creator", "/CreationDate" };
+       for (string key: to_copy)
+-	info.replaceOrRemoveKey(key, orig_info.getKey(key));
++        {
++          QPDFObjectHandle value = orig_info.getKey(key);
++          if (!value.isNull())
++            info.replaceKey(key, value);
++        }
+     }
+ }
