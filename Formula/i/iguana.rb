@@ -6,6 +6,10 @@ class Iguana < Formula
   license "Apache-2.0"
   head "https://github.com/qicosmos/iguana.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "432724e0049958a5e03b6b55f68d751b8215290f2bd6b3d24805600baeed2298"
+  end
+
   depends_on "frozen"
 
   def install
