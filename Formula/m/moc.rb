@@ -2,7 +2,7 @@ class Moc < Formula
   desc "Terminal-based music player"
   homepage "https://moc.daper.net/"
   license "GPL-2.0-or-later"
-  revision 9
+  revision 10
 
   stable do
     url "https://ftp.daper.net/pub/soft/moc/stable/moc-2.5.2.tar.bz2"
@@ -66,6 +66,7 @@ class Moc < Formula
   depends_on "ffmpeg@4" # FFmpeg 5 issue: https://moc.daper.net/node/3644
   depends_on "flac"
   depends_on "jack"
+  depends_on "libmodplug"
   depends_on "libogg"
   depends_on "libsamplerate"
   depends_on "libsndfile"
