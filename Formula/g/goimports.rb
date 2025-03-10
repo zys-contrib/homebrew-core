@@ -11,6 +11,15 @@ class Goimports < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ca73b64411c476974011e8e7d215c01a777a21b4e40a796c55fe4493d700ae08"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ca73b64411c476974011e8e7d215c01a777a21b4e40a796c55fe4493d700ae08"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ca73b64411c476974011e8e7d215c01a777a21b4e40a796c55fe4493d700ae08"
+    sha256 cellar: :any_skip_relocation, sonoma:        "65e81110176181a0e58ebac7c96fab37c2d4bf31b0f11db4ea9b553a0e95574f"
+    sha256 cellar: :any_skip_relocation, ventura:       "65e81110176181a0e58ebac7c96fab37c2d4bf31b0f11db4ea9b553a0e95574f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c270a1a30c4f64666550eb981628385cd10d83c45975a8b477ac69a6c1b87c8"
+  end
+
   depends_on "go"
 
   def install
