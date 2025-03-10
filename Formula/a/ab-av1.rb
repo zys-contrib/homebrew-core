@@ -6,6 +6,15 @@ class AbAv1 < Formula
   license "MIT"
   head "https://github.com/alexheretic/ab-av1.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eb6575659db45c41b513d1501402ea133a567f4d313bc12f1564e6f8e0c8872c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "81265d1f80b4c66a6d638ccde86115f597d53cb8b30d18ce57e99bedff30a0f8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a0f29a5e3f2cf738a56f972bde4630a6a7785d16c8140060b85395ba0c09172d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "138996029202461b5a53ca6be0e1f6bf27d2e7aa8e31a49c69c2036412ed3e87"
+    sha256 cellar: :any_skip_relocation, ventura:       "b63035f379c8907b750c2a21e01dd59d25b07bdd045a799f5459be73be0d8167"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba12601b3ae443186290445556655b42be739944c1c9bdfb0cce8268316bbe96"
+  end
+
   depends_on "rust" => :build
   depends_on "ffmpeg"
 
