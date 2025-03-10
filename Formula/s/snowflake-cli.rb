@@ -8,12 +8,12 @@ class SnowflakeCli < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6c39b900fa1769f393361be9bb3337c68f8fbc19dc6c1cd35824e43d1941400d"
-    sha256 cellar: :any,                 arm64_sonoma:  "0f187f3b2ab218dece862284739fac6357b0f73f31ac771bcd4b412965fba28f"
-    sha256 cellar: :any,                 arm64_ventura: "727e5b98c8a26b004d9abcf9ca51191f20e716f62ca0a448e9b295883038faa1"
-    sha256 cellar: :any,                 sonoma:        "69be7af1361846cf0ce736448c5403a2b723b0ff6adfa2c97c03abb757dccd1d"
-    sha256 cellar: :any,                 ventura:       "006ddcd2b789e1b2f57bc9afdc2917678546c65dd966ca87f45f2d863add5097"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bba7e9928d118e01e0fb95707f77591b2fdbc580172a4b0d124376ebbf25dd9d"
+    sha256 cellar: :any,                 arm64_sequoia: "e0fe944a3cd365deeb5ccf0bf64dc82ad93b83baaab0cedaf5c04710f064c4e1"
+    sha256 cellar: :any,                 arm64_sonoma:  "ea5347afd9ca12d9f379f39856df68b7529f53e9b144d175ef395eafa7adb0cb"
+    sha256 cellar: :any,                 arm64_ventura: "1ba454fb4f3ff61579b5bdbc94368c4a998e29c09f282ef70ad155837da813c2"
+    sha256 cellar: :any,                 sonoma:        "17838c99f7ba77aca6171f8b6087d8641ec79a85597ada82d9e9e20c8d889a79"
+    sha256 cellar: :any,                 ventura:       "bb8cfb54b74947ba9bd8b62d2bf278493ca77a449975b0cce677a982aa1cb2c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e711b1a2827830155ea84db3a205cf349bc63513d65c40c361935ad2a296283e"
   end
 
   depends_on "rust" => :build # for pydantic-core
