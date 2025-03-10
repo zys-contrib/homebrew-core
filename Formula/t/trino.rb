@@ -43,11 +43,28 @@ class Trino < Formula
     end
   end
 
-  # Update by finding airbase version at https://github.com/trinodb/trino/blob/#{version}/pom.xml#L8 and then
-  # get dep.launcher.version at https://github.com/airlift/airbase/blob/<airbase-version>/airbase/pom.xml#L225
+  # `brew livecheck --autobump --resources trino` should show the launcher version which is found by
+  # getting airbase version at https://github.com/trinodb/trino/blob/#{version}/pom.xml#L8 and then
+  # dep.launcher.version at https://github.com/airlift/airbase/blob/<airbase-version>/airbase/pom.xml#L225
   resource "launcher" do
     url "https://github.com/airlift/launcher/archive/refs/tags/303.tar.gz"
     sha256 "14e6ecbcbee3f0d24b9de1f7be6f3a220153ea17d3fc88d05bbb12292b3dd52c"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/trinodb/trino/refs/tags/#{LATEST_VERSION}/pom.xml"
+      regex(%r{<artifactId>airbase</artifactId>\s*<version>(\d+(?:\.\d+)*)</version>}i)
+      strategy :page_match do |page, regex|
+        airbase_version = page[regex, 1]
+        next if airbase_version.blank?
+
+        get_airbase_page = Homebrew::Livecheck::Strategy.page_content(
+          "https://raw.githubusercontent.com/airlift/airbase/refs/tags/#{airbase_version}/airbase/pom.xml",
+        )
+        next if get_airbase_page[:content].blank?
+
+        get_airbase_page[:content][%r{<dep\.launcher\.version>(\d+(?:\.\d+)*)</dep\.launcher\.version>}i, 1]
+      end
+    end
   end
 
   resource "procname" do
