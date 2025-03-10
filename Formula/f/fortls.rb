@@ -9,8 +9,7 @@ class Fortls < Formula
   head "https://github.com/fortran-lang/fortls.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "adcb346ec466108c4913bcb503e59ff3cf83c6ac25dd2898a5b3bcc4c598eaea"
+    sha256 cellar: :any_skip_relocation, all: "24f719643578f366550f725f7baf1f395a826fa53c4c8d17c4e3abdde608c859"
   end
 
   depends_on "python@3.13"
