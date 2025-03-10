@@ -1,8 +1,8 @@
 class Asyncapi < Formula
   desc "All in one CLI for all AsyncAPI tools"
   homepage "https://github.com/asyncapi/cli"
-  url "https://registry.npmjs.org/@asyncapi/cli/-/cli-2.16.7.tgz"
-  sha256 "640f1b843bed71d4e663bf37d337acb384e28bf55491c8d007b2ec6bf04e9f95"
+  url "https://registry.npmjs.org/@asyncapi/cli/-/cli-2.16.8.tgz"
+  sha256 "6e70d5dfe0edf4726e869ed42ae59047fc958517001d41af32f7dcc088e8ddfa"
   license "Apache-2.0"
 
   bottle do
@@ -19,6 +19,10 @@ class Asyncapi < Formula
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    # Cleanup .pnpm folder
+    node_modules = libexec/"lib/node_modules/@asyncapi/cli/node_modules"
+    rm_r (node_modules/"@asyncapi/studio/build/standalone/node_modules/.pnpm") if OS.linux?
   end
 
   test do
