@@ -11,14 +11,13 @@ class Beagle < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "68b15491189b2d39203b4675128f67e2757f7c32a61fd6771495ad634ec1b1f3"
-    sha256 cellar: :any,                 arm64_sonoma:   "b6d8ccd22a1a3dd0fc66aa753d774382005e10a6c92102af898a8c48a249e2d6"
-    sha256 cellar: :any,                 arm64_ventura:  "3d83a1652998bf200c2b1a7942fb3946d751a9d647f46b1275109e49c48be695"
-    sha256 cellar: :any,                 arm64_monterey: "8ec46e2c91cff30977deec35fc3e01707f11f81960075c16da25edb8a6f9ca8c"
-    sha256 cellar: :any,                 sonoma:         "da4b28f050e38cfafa7cdcfaef9cec21e01f9335a609ea2e415357c8fe901da4"
-    sha256 cellar: :any,                 ventura:        "b59a52ec3fac58ea5c9e1b9e9240befe1f3d81fb30803c8c1028047f3d192cdb"
-    sha256 cellar: :any,                 monterey:       "ab9a7a95580ffe99fde279ce650f66a39fc3f1065c9cf767feb4b2bec6f71b3d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a8fce3c841addff79fd9d784f923a29b7e5f3549ce75b91c2d895f83542411c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "fe362a0f25bf169bb507df13e17e4647a85b185383308fa2c6907bf57a0c3bc9"
+    sha256 cellar: :any,                 arm64_sonoma:  "a15730feb6101837d824ccc36397e4f777e450312e3e142b5e0a4752f44cfb4b"
+    sha256 cellar: :any,                 arm64_ventura: "630068ff93debb8af7e06748abb07dc1637467795b01bbd04aca01212a23c683"
+    sha256 cellar: :any,                 sonoma:        "1a82a444e21aaf6ed87d13d100fe09bf5dada1f97794a349cb66e429d35ed7dd"
+    sha256 cellar: :any,                 ventura:       "a249e59ce098ccab24c15b794bcd148dca578ce4cb5aad253732c8e9466c7f89"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc0660f81935172863061b141e4576bedc36db62b6b0c0b7f5bececc5ed40689"
   end
 
   depends_on "cmake" => :build
