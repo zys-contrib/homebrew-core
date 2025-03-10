@@ -11,7 +11,7 @@ class QuiltInstaller < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b0e97a729b329cd0490501e161907b2d6cd8460bf8fe31dedf0369aa0f14cd70"
+    sha256 cellar: :any_skip_relocation, all: "c2c3e3aa829bedf8617e2a6159dd32b8f80177f6ad1035e9a5fc51bef91330ab"
   end
 
   depends_on "openjdk"
