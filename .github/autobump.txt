@@ -1649,6 +1649,7 @@ kapp
 karmadactl
 kaskade
 katana
+kbld
 kcat
 kcgi
 kcov
