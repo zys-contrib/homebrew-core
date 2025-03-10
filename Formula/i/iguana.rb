@@ -7,7 +7,7 @@ class Iguana < Formula
   head "https://github.com/qicosmos/iguana.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "432724e0049958a5e03b6b55f68d751b8215290f2bd6b3d24805600baeed2298"
+    sha256 cellar: :any_skip_relocation, all: "73d3a46b7dd83e975b5846d908ae88d60f42164d4a80ccfac6d896da899ed3ff"
   end
 
   depends_on "frozen"
