@@ -4,6 +4,7 @@ class Minimap2 < Formula
   url "https://github.com/lh3/minimap2/archive/refs/tags/v2.28.tar.gz"
   sha256 "5ea6683b4184b5c49f6dbaef2bc5b66155e405888a0790d1b21fd3c93e474278"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -25,11 +26,11 @@ class Minimap2 < Formula
 
   def install
     if Hardware::CPU.arm?
-      system "make", "arm_neon=1", "aarch64=1"
+      system "make", "arm_neon=1", "aarch64=1", "extra"
     else
-      system "make"
+      system "make", "extra"
     end
-    bin.install "minimap2"
+    bin.install "minimap2", "sdust"
     pkgshare.install "test"
   end
 
