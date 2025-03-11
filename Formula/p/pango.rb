@@ -1,8 +1,8 @@
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "https://www.gtk.org/docs/architecture/pango"
-  url "https://download.gnome.org/sources/pango/1.56/pango-1.56.1.tar.xz"
-  sha256 "426be66460c98b8378573e7f6b0b2ab450f6bb6d2ec7cecc33ae81178f246480"
+  url "https://download.gnome.org/sources/pango/1.56/pango-1.56.2.tar.xz"
+  sha256 "03b7afd7ed730bef651155cbfb5320556b8ef92b0dc04abbb9784dcd4057afe7"
   license "LGPL-2.0-or-later"
   head "https://gitlab.gnome.org/GNOME/pango.git", branch: "main"
 
