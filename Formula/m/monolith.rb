@@ -1,8 +1,8 @@
 class Monolith < Formula
   desc "CLI tool for saving complete web pages as a single HTML file"
   homepage "https://github.com/Y2Z/monolith"
-  url "https://github.com/Y2Z/monolith/archive/refs/tags/v2.8.3.tar.gz"
-  sha256 "51769e6505d5708ac296e5d93e280c9fefa7873452d471c5106aaeb7c3667f9f"
+  url "https://github.com/Y2Z/monolith/archive/refs/tags/v2.9.0.tar.gz"
+  sha256 "c923af01abfde33328d48418af49d4a80143ad1070838f2b9d2a197bb1d66724"
   license "CC0-1.0"
 
   bottle do
