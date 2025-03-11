@@ -5,6 +5,10 @@ class Libgudev < Formula
   sha256 "61266ab1afc9d73dbc60a8b2af73e99d2fdff47d99544d085760e4fa667b5dd1"
   license "LGPL-2.1-or-later"
 
+  bottle do
+    sha256 x86_64_linux: "c1e3053f6df286a07df2a34c82054fabb56af45680102943a5e459d12cc94cad"
+  end
+
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
