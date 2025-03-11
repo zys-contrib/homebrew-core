@@ -15,12 +15,12 @@ class CoreLightning < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "69c1ba439cf206219c154dd28f66cbf44e531bcefd726a7b7eede0197b98b3b0"
-    sha256 arm64_sonoma:  "17f04a11c8743d96bf5960cd1a74ab28f8fa77c95d1ff2064f195179cb3f2288"
-    sha256 arm64_ventura: "c60f604073799ff53ffbb7a8e7d0a50df9f9b95cfd9ebc352c1edfa83b9848c1"
-    sha256 sonoma:        "e9ea211db180a522a8ee32fc94cdd4a3b4a38016863498afd3c99d9fd43f542b"
-    sha256 ventura:       "64f72091f377bdc161bcbe576455680a20f4c2f2976d6f543e3d71cf36264141"
-    sha256 x86_64_linux:  "5ba06e91b61fffb2da1d2181da8bd1921ea27dd93c382ebc2abb8817c7c01028"
+    sha256 arm64_sequoia: "be9c3ee38faf131c6d7c126d56836d5f3ccde084570cc05b5cf56468cb7fc654"
+    sha256 arm64_sonoma:  "00fb478eeb22d34d5e33dbae828157b83b799e2a2b38e8914d01fcf198dca637"
+    sha256 arm64_ventura: "ca3c9f32c93decb9e007c95efdc421ebbdaee4b1766e7efefc5ccf496d0a945f"
+    sha256 sonoma:        "1b922f5184455ba135a5ddf27f1e8c3d67393dda6e153e6e93cf6051f8cdd1a8"
+    sha256 ventura:       "f654e1cc81b09d28b1f97aa76738b3e0b6b744d3471b92023ccdc34dcdb85e74"
+    sha256 x86_64_linux:  "df98949e07cd165f09994cada540a03e620f3f181bbaed6683e5803a3c008c0f"
   end
 
   depends_on "autoconf" => :build
