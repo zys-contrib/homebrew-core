@@ -12,12 +12,12 @@ class Sysdig < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "10e48ef9eeec0d5669fb74a701c7b56f14ecde55e5fac23ef18fed8b9151819c"
-    sha256                               arm64_sonoma:  "a7f09c2dfd4ae9188473a982df684e6ffb13f90dd6a1888a0747972f01b2c87b"
-    sha256                               arm64_ventura: "edde771b93afc34fe1f702a3d620a69f172f1406afdccdd9eee432cefeb9b126"
-    sha256                               sonoma:        "cf22c0f58a531675d6ddd045c597caf8c1b2c993b42bfeb4a86b3353b974c923"
-    sha256                               ventura:       "8852c89b06aa29c2c32b0b8a6d9f00344db8e7712ce5c8b5b818901710ad6ea2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "293ea9eedf018f38f77d9c318520655cd0f1f16cb919cc3932e2f5d87fa47a50"
+    sha256                               arm64_sequoia: "eb1dce084f4165754b69538c6b8e454c9aeec3b615c8183c80f448b0bcf74ca8"
+    sha256                               arm64_sonoma:  "3a19ff09d40e20b06229ddc66b887d5c39c7ca52c3e9153b7170ce3778fde5f1"
+    sha256                               arm64_ventura: "2e529abfbb23fe431f8ec0f6ce1a6704eb3e359327e91aee202a0e055ca987b4"
+    sha256                               sonoma:        "887232ecdaa980a68cea3c023ba358212b4446b73a194610c982f9ee7f473d89"
+    sha256                               ventura:       "23914115de4402ed85a7f94eefea6cc242ff572cee6a42d2c6156cedf15febbe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ea6b2ec1e8bf9cfec26c4c3300c9ff1cf09abacf885d95d0473c27748a8cb6b"
   end
 
   depends_on "cmake" => :build
