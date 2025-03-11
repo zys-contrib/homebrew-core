@@ -1,8 +1,8 @@
 class Descope < Formula
   desc "Command-line utility for performing common tasks on Descope projects"
   homepage "https://www.descope.com"
-  url "https://github.com/descope/descopecli/archive/refs/tags/v0.8.12.tar.gz"
-  sha256 "2d41eed7b13e2872a762d703588d169a92e1cdcd772dcfb9b4a5aea63e626a69"
+  url "https://github.com/descope/descopecli/archive/refs/tags/v0.8.13.tar.gz"
+  sha256 "0f2aea0e65687db859563206c421567c4a5b664b5975fc621b4c2bada17ac6e5"
   license "MIT"
 
   bottle do
