@@ -1850,6 +1850,7 @@ libgit2@1.8
 libgpg-error
 libgr
 libgsf
+libgudev
 libgusb
 libgweather
 libhandy
