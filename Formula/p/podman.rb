@@ -1,8 +1,8 @@
 class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
-  url "https://github.com/containers/podman/archive/refs/tags/v5.4.0.tar.gz"
-  sha256 "e5efb825558624d0539dac94847c39aafec68e6d4dd712435ff4ec1b17044b69"
+  url "https://github.com/containers/podman/archive/refs/tags/v5.4.1.tar.gz"
+  sha256 "502117195c06678db612313aaf42505cabeea860f8668802a0608754eb0df9f6"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
   head "https://github.com/containers/podman.git", branch: "main"
 
@@ -57,8 +57,8 @@ class Podman < Formula
   # More context: https://github.com/Homebrew/homebrew-core/pull/205303
   resource "gvproxy" do
     on_macos do
-      url "https://github.com/containers/gvisor-tap-vsock/archive/refs/tags/v0.8.3.tar.gz"
-      sha256 "5dd666c3d599c80c15182f80d848446482bdd7937b780517e591f5681a0b6889"
+      url "https://github.com/containers/gvisor-tap-vsock/archive/refs/tags/v0.8.4.tar.gz"
+      sha256 "6a2645a3627bdf1d8bfe4a41ecf97956df987464aade18e1574f67e21950e0d1"
     end
   end
 
