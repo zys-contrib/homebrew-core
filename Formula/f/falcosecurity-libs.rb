@@ -14,6 +14,15 @@ class FalcosecurityLibs < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "4a6ffe7949b2b99681b5910fa8e446474fb9da0f77bb456f4648a36326859d0d"
+    sha256 cellar: :any,                 arm64_sonoma:  "7a03e319abca76c699350e6cd29ecc4a64034783529dd4f5f174816015665604"
+    sha256 cellar: :any,                 arm64_ventura: "34039bf2d3496a572bf2ac212b3f9cc38345a0e80e56e8d793bc5968debff22b"
+    sha256 cellar: :any,                 sonoma:        "83488cbd04dfd36f495d901d219ad43d14b0acdd92dd72796a442229054c4586"
+    sha256 cellar: :any,                 ventura:       "3b3d9451afb904eb09553ea09f17d8f23959dd5aa0deeaa0f84219f9c7b8d637"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a691bd6a78782032b328fb7a70d3c16b743c58a644602f020a5c0c60eec65361"
+  end
+
   depends_on "cmake" => :build
   depends_on "valijson" => :build
   depends_on "googletest" => :test
