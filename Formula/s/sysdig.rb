@@ -34,6 +34,8 @@ class Sysdig < Formula
     depends_on "tbb"
   end
 
+  link_overwrite "etc/bash_completion.d/sysdig"
+
   def install
     # Workaround to find some headers
     # TODO: Fix upstream to use standard paths, e.g. sinsp.h -> libsinsp/sinsp.h
@@ -44,7 +46,6 @@ class Sysdig < Formula
     args = %W[
       -DSYSDIG_VERSION=#{version}
       -DUSE_BUNDLED_DEPS=OFF
-      -DDIR_ETC=#{etc}
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
