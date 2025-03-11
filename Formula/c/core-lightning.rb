@@ -3,9 +3,10 @@ class CoreLightning < Formula
 
   desc "Lightning Network implementation focusing on spec compliance and performance"
   homepage "https://github.com/ElementsProject/lightning"
-  url "https://github.com/ElementsProject/lightning/releases/download/v24.11.1/clightning-v24.11.1.zip"
-  sha256 "15dac3f85034b7dd282675e3500f286a553b0c38d4bfbd1f02d78dc5b86c7209"
+  url "https://github.com/ElementsProject/lightning/releases/download/v25.02/clightning-v25.02.zip"
+  sha256 "d34706fc391103047f7ccbae2979a5d90022134c82e9395052a5c42db6c33d11"
   license "MIT"
+  head "https://github.com/ElementsProject/lightning.git", branch: "master"
 
   livecheck do
     url :stable
@@ -29,6 +30,7 @@ class CoreLightning < Formula
   depends_on "lowdown" => :build
   depends_on "pkgconf" => :build
   depends_on "protobuf" => :build
+  depends_on "python-setuptools" => :build
   depends_on "python@3.13" => :build
   depends_on "rust" => :build
   depends_on "bitcoin"
@@ -53,9 +55,11 @@ class CoreLightning < Formula
     sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
   end
 
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/43/54/292f26c208734e9a7f067aea4a7e282c080750c4546559b58e2e45413ca0/setuptools-75.6.0.tar.gz"
-    sha256 "8199222558df7c86216af4f84c30e9b34a61d8ba19366cc914424cdbd28252f6"
+  # Configure script overwrites `PKG_CONFIG_PATH` on macOS
+  # PR: https://github.com/ElementsProject/lightning/pull/8146
+  patch do
+    url "https://github.com/botantony/lightning/commit/cca721a9f3c5a15f6792b0dc1941959dbd93ac2f.patch?full_index=1"
+    sha256 "ee375b92de3d49f4bdf33acf2eb672b693f5806ee418a380e37f3a6a4047c91d"
   end
 
   def install
