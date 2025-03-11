@@ -1,8 +1,8 @@
 class Sleuthkit < Formula
   desc "Forensic toolkit"
   homepage "https://www.sleuthkit.org/"
-  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.12.1/sleuthkit-4.12.1.tar.gz"
-  sha256 "6b2de0baabc6a38429a33993114ca3820329b477d5038cbf45fcf69fca8addfd"
+  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.13.0/sleuthkit-4.13.0.tar.gz"
+  sha256 "f1490de8487df8708a4287c0d03bf0cb2153a799db98c584ab60def5c55c68f2"
   license all_of: ["IPL-1.0", "CPL-1.0", "GPL-2.0-or-later"]
 
   livecheck do
@@ -30,6 +30,7 @@ class Sleuthkit < Formula
   depends_on "libewf"
   depends_on "libpq"
   depends_on "openjdk"
+  depends_on "openssl@3"
   depends_on "sqlite"
 
   uses_from_macos "zlib"
@@ -37,19 +38,14 @@ class Sleuthkit < Formula
   conflicts_with "ffind", because: "both install a `ffind` executable"
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
-    ENV["ANT_FOUND"] = Formula["ant"].opt_bin/"ant"
-    ENV.append_to_cflags "-DNDEBUG"
+    ENV["JAVA_HOME"] = java_home = Language::Java.java_home
+    # https://github.com/sleuthkit/sleuthkit/blob/develop/docs/README_Java.md#macos
+    ENV["JNI_CPPFLAGS"] = "-I#{java_home}/include -I#{java_home}/include/darwin" if OS.mac?
+    # https://github.com/sleuthkit/sleuthkit/issues/3216
+    ENV.deparallelize
 
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", "--disable-silent-rules", "--enable-java", *std_configure_args
     system "make", "install"
-
-    cd "bindings/java" do
-      system "ant"
-
-      inreplace ["Makefile", "jni/Makefile"], Superenv.shims_path/"ld", "ld" if OS.linux?
-    end
-    prefix.install "bindings"
   end
 
   test do
