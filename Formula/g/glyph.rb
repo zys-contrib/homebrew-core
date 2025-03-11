@@ -1,8 +1,8 @@
 class Glyph < Formula
   desc "Converts images/video to ASCII art"
   homepage "https://github.com/seatedro/glyph"
-  url "https://github.com/seatedro/glyph/archive/refs/tags/v1.0.10.tar.gz"
-  sha256 "1cfb17da971cc0daac9d0a7744dd1c05fd3382b2522d64e62cdfb28a8faf5d84"
+  url "https://github.com/seatedro/glyph/archive/refs/tags/v1.0.11.tar.gz"
+  sha256 "7de7936a13b92b18240134bef64c006ab73988850a8776a1b276e22b73377f15"
   license "MIT"
 
   bottle do
