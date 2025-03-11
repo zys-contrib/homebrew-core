@@ -1,10 +1,9 @@
 class GupnpTools < Formula
   desc "Free replacements of Intel's UPnP tools"
   homepage "https://wiki.gnome.org/GUPnP/"
-  url "https://download.gnome.org/sources/gupnp-tools/0.12/gupnp-tools-0.12.1.tar.xz"
-  sha256 "53cf93123f397e8f8f0b8e9e4364c86a7502a5334f4c0be2e054a824478bd5ba"
+  url "https://download.gnome.org/sources/gupnp-tools/0.12/gupnp-tools-0.12.2.tar.xz"
+  sha256 "4c92f2d1a3d454ec1f5fb05ef08ca34df9c743af64c8b5965c35884d46cb005c"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
-  revision 1
 
   bottle do
     rebuild 1
@@ -34,12 +33,6 @@ class GupnpTools < Formula
 
   on_macos do
     depends_on "gettext"
-  end
-
-  # Backport fix for libxml 2.12. Remove in the next release.
-  patch do
-    url "https://gitlab.gnome.org/GNOME/gupnp-tools/-/commit/4e06104df81fba2cda06d4747b33e75f4cade458.diff"
-    sha256 "a7e5c3ebf6dfd98fe17825b66b57ee40c839c19878261749f436676466faa945"
   end
 
   def install
