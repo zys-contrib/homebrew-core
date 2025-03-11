@@ -6,12 +6,12 @@ class SigsumGo < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "96537b5947091ef902a6064914e41baab59b1437ec9a568fe50793dfcd329a35"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "96537b5947091ef902a6064914e41baab59b1437ec9a568fe50793dfcd329a35"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "96537b5947091ef902a6064914e41baab59b1437ec9a568fe50793dfcd329a35"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9fc8d859e0b1bc751cbb93293736dbe3f8faa03559738224a676c2269f27cadf"
-    sha256 cellar: :any_skip_relocation, ventura:       "9fc8d859e0b1bc751cbb93293736dbe3f8faa03559738224a676c2269f27cadf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "363dbc9e425648b90b1c35e17ec477a82542627e4b7341e15ebff37fc50b863b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9638155a9a7648a2e8afb5a63235ae1cfa12c44c2663f6721c5049c7b0bd93a1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9638155a9a7648a2e8afb5a63235ae1cfa12c44c2663f6721c5049c7b0bd93a1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9638155a9a7648a2e8afb5a63235ae1cfa12c44c2663f6721c5049c7b0bd93a1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "28b6ea511a47f962f6b539023736dc398f3386013f38a7ee3f806ba323f9873a"
+    sha256 cellar: :any_skip_relocation, ventura:       "28b6ea511a47f962f6b539023736dc398f3386013f38a7ee3f806ba323f9873a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b465fac2fb93c9e50fae5bd612e30de82bec9292fe4e74cd1622dea04952589"
   end
 
   depends_on "go" => :build
