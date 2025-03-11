@@ -19,6 +19,15 @@ class Gcr < Formula
     regex(/gcr[._-]v?(\d+\.\d+\.(?:\d|[1-8]\d+)(?:\.\d+)*)\.t/i)
   end
 
+  bottle do
+    sha256 arm64_sequoia: "48695c463b081f11bf5a01d56bb60eff12937d98cec4fa84ab96e68f60978383"
+    sha256 arm64_sonoma:  "3fdc72dd94c511e5015848fc98e51a05d16b191ccd655dbfff4d09b963ece956"
+    sha256 arm64_ventura: "cae0a6f29bd0788fcf76ddceb83cec01285bb2efe6556161523a6c8eb7852f68"
+    sha256 sonoma:        "7b508d0794660e0b2953414f6ef83d26e3cd7811bf77e77a4b9e7f212793645e"
+    sha256 ventura:       "07092cb9612568e58f652cf543ee2bfac09194aec8b075ab6611166eb74611d8"
+    sha256 x86_64_linux:  "7613ae7fbb8eb5b86076407007ce98992d97dfdee6d7c224ae8209184eeffe42"
+  end
+
   depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
