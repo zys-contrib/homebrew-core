@@ -7,12 +7,12 @@ class CargoMsrv < Formula
   head "https://github.com/foresterre/cargo-msrv.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "531161c9309058f2f2995948cc1b5b6bfa5cc6f60d30a28ff22aed4033938b10"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b6c73128306399f448e0bc9917c46fe348ce7b6c7760db04ae4a9d24f2db4e11"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a832bc6d08b1ff5c24c03a1810a3403edf5fc2608a422636394e88e021355d13"
-    sha256 cellar: :any_skip_relocation, sonoma:        "38d185972dc92f8b5beca50d059108fba8fd2784eaf9fc54dbfcbbe24ca3e150"
-    sha256 cellar: :any_skip_relocation, ventura:       "d51438aacf1f8277c3bbe94c8ea891248f292ed196c5400922ea7fa00256a9c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1823d9af0c541469f28e700353eaa76b1a91b57f8da5eb9b7fc8e74939d0afbf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bc1ba56ad77fbd7b986c1d4645eabfcbf5e945b62a2b6e3913433d433c56ec12"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ccfbb358d7fa2a26c3c0cf8d2c5e4e33cdc1c20e3142b249e02ff637bd96f9e3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "daf377e846a33a704032ffa2884671eeaf14b4c424f8647278643a8cfb578878"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a4c2df9052995c392d2593f76dec47f4e59b391f27b32c834f14416dd178d50f"
+    sha256 cellar: :any_skip_relocation, ventura:       "44d546a93282b93cdc519eb82c43e6a7ff0a317959ce08558ce0486605338fb2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3071bf253f249aa4e37d5a52a5b52b0d03427d7c99f7adeaa69c4f2f655e4111"
   end
 
   depends_on "rust" => :build
