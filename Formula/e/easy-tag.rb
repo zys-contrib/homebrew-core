@@ -40,6 +40,7 @@ class EasyTag < Formula
   depends_on "libvorbis"
   depends_on "pango"
   depends_on "speex"
+  depends_on "taglib"
   depends_on "wavpack"
 
   uses_from_macos "perl" => :build
@@ -65,6 +66,9 @@ class EasyTag < Formula
   end
 
   def install
+    inreplace "src/tags/gio_wrapper.cc" do |s|
+      s.gsub! "ulong", "unsigned long"
+    end
     ENV["LIBTOOLIZE"] = "glibtoolize"
     system "autoreconf", "--force", "--install", "--verbose"
     ENV.append "LIBS", "-lz"
