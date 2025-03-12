@@ -6,6 +6,15 @@ class NodeRed < Formula
   license "Apache-2.0"
   head "https://github.com/node-red/node-red.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "ef1c67c28407a8a57ed82cbc8c1da9a0535dc4432be1db15b815fb4bd6920fc5"
+    sha256 cellar: :any,                 arm64_sonoma:  "ef1c67c28407a8a57ed82cbc8c1da9a0535dc4432be1db15b815fb4bd6920fc5"
+    sha256 cellar: :any,                 arm64_ventura: "ef1c67c28407a8a57ed82cbc8c1da9a0535dc4432be1db15b815fb4bd6920fc5"
+    sha256 cellar: :any,                 sonoma:        "d48c0d73840489fe500398d2a58cce5d112c62ccbd8ce1f294688a43562045fc"
+    sha256 cellar: :any,                 ventura:       "d48c0d73840489fe500398d2a58cce5d112c62ccbd8ce1f294688a43562045fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "94b147afe0b47f633a38f2055292a62dcfd78d7a31a4f336e7f84b29879d57f1"
+  end
+
   depends_on "node"
 
   def install
