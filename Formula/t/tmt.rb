@@ -3,10 +3,9 @@ class Tmt < Formula
 
   desc "Test Management Tool"
   homepage "https://tmt.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/83/ac/e26eaa08ca1dbcd77f7f70206a64e82554a2d60cf756ee348dc614771df7/tmt-1.43.0.tar.gz"
-  sha256 "81d33c0f0edd71fd265d51a07245d783fa608264adac1a55db90059ff7a012da"
+  url "https://files.pythonhosted.org/packages/b1/b4/4a681ea94c91f6280236bedd8b0082493f9eb107522f39c0a191f76145ac/tmt-1.44.0.tar.gz"
+  sha256 "21e417563333a0ef49c90ab78506f3df9701e37200bf7e89a6ce72051587b3a6"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "986abeb4e7392267af156d7a4c38ecd5a2fd9d8789bebcce4f8d201415a09c31"
@@ -28,8 +27,8 @@ class Tmt < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/49/7c/fdf464bcc51d23881d110abd74b512a42b3d5d376a55a831b44c603ae17f/attrs-25.1.0.tar.gz"
-    sha256 "1c97078a80c814273a76b2a298a932eb681c87415c11dee0a6921de7f1b02c3e"
+    url "https://files.pythonhosted.org/packages/69/82/3c4e1d44f3cbaa2a578127d641fe385ba3bff6c38b789447ae11a21fa413/attrs-25.2.0.tar.gz"
+    sha256 "18a06db706db43ac232cce80443fcd9f2500702059ecf53489e3c5a3f417acaf"
   end
 
   resource "charset-normalizer" do
@@ -63,8 +62,8 @@ class Tmt < Formula
   end
 
   resource "fmf" do
-    url "https://files.pythonhosted.org/packages/52/1f/c8e8e74f0c40e9a0230dad81b87b4a4d7afad7c51db54e16350aaecefded/fmf-1.6.1.tar.gz"
-    sha256 "cf80a4ac3ca1d9cad4453fe8205ee02912d27269d6384723d6a6aa1808b43c2e"
+    url "https://files.pythonhosted.org/packages/2c/fe/aed3f3befc18d725776c10fe621790002671d0c4d50a6287d71fa371cf90/fmf-1.7.0.tar.gz"
+    sha256 "131b557786b912f99d49d8dcc84196e3c2f39c5ce5ffe8b78e48150afd380dc3"
   end
 
   resource "idna" do
