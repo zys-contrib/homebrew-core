@@ -1,8 +1,8 @@
 class Deadfinder < Formula
   desc "Finds broken links"
   homepage "https://rubygems.org/gems/deadfinder"
-  url "https://github.com/hahwul/deadfinder/archive/refs/tags/1.6.1.tar.gz"
-  sha256 "89eb3ce461b89b486220fa61579cda71c2ea90a261588a98f58cc66202883b82"
+  url "https://github.com/hahwul/deadfinder/archive/refs/tags/1.7.0.tar.gz"
+  sha256 "f3fdb26e3a6c3f8f3b0f41d79c61f282e57b680c732636545662baede420dfa7"
   license "MIT"
   head "https://github.com/hahwul/deadfinder.git", branch: "main"
 
@@ -46,6 +46,6 @@ class Deadfinder < Formula
   test do
     assert_match version.to_s, shell_output(bin/"deadfinder version")
 
-    assert_match "Done", shell_output(bin/"deadfinder url https://brew.sh")
+    assert_match "Task completed", shell_output(bin/"deadfinder url https://brew.sh")
   end
 end
