@@ -12,58 +12,36 @@ class Scotch < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "92d2f145da7c1d8ba98af44802e2559a1135ae8dbe93b66accb721882b5c25a7"
-    sha256 cellar: :any,                 arm64_sonoma:  "bd954b30d0f7bf9342d0ca1064d7911a6e89821b21f821f8eb66e9d84b0868e0"
-    sha256 cellar: :any,                 arm64_ventura: "a160800ce17a50773a9e1e45564cd6545a5c71718535e66dcad648dc8046333b"
-    sha256 cellar: :any,                 sonoma:        "f2ba17bc5147d76d1fefd5ec59f8b43d2460cdb79b4e9dddad4918d7f2e458f1"
-    sha256 cellar: :any,                 ventura:       "9f667ef06d2ead0f46601721aaa656c535669975268acb234ab080004de1918e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e1e2cfd818f3b90daa1747abb648b43c6bbbf6727b87be4f88e7456b89331cb"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "39084ae881ffe4dccdb9d22b73055f179fc30b7e60ae5428036996c7055bb56c"
+    sha256 cellar: :any,                 arm64_sonoma:  "c55478e91e7451e694d3ab1c809d4c56718cc95c3c4977704d234e9a7214b637"
+    sha256 cellar: :any,                 arm64_ventura: "1d0b2f7d0f7aa088a2f9b197995dcfbcd1d76c6f86e39639a894ac12d076d74f"
+    sha256 cellar: :any,                 sonoma:        "80a9d176f4bfe11816faa6b4297383557f5a9d8c65ea50e0e2842981c51ef522"
+    sha256 cellar: :any,                 ventura:       "f3393fa769311f954f65d3453bae2a3853eb3b3eb5ab08437b2d323d457e8c86"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "855bafd1f9712cfe84d3dfb9bc11f17856b95304d65449a450672ef996dae625"
   end
 
   depends_on "bison" => :build
+  depends_on "cmake" => :build
   depends_on "open-mpi"
+  depends_on "xz"
 
   uses_from_macos "flex" => :build
+  uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
   def install
-    makefile_inc_suffix = OS.mac? ? "i686_mac_darwin10" : "x86-64_pc_linux2"
-    (buildpath/"src").install_symlink "Make.inc/Makefile.inc.#{makefile_inc_suffix}" => "Makefile.inc"
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DENABLE_TESTS=OFF",
+                    "-DINSTALL_METIS_HEADERS=OFF",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
-    cd "src" do
-      inreplace_files = ["Makefile.inc"]
-      inreplace_files << "Make.inc/Makefile.inc.#{makefile_inc_suffix}.shlib" unless OS.mac?
-
-      inreplace inreplace_files do |s|
-        s.change_make_var! "CCS", ENV.cc
-        s.change_make_var! "CCP", "mpicc"
-        s.change_make_var! "CCD", "mpicc"
-      end
-
-      system "make", "libscotch", "libptscotch"
-      lib.install buildpath.glob("lib/*.a")
-      system "make", "realclean"
-
-      # Build shared libraries. See `Makefile.inc.*.shlib`.
-      if OS.mac?
-        inreplace "Makefile.inc" do |s|
-          s.change_make_var! "LIB", ".dylib"
-          s.change_make_var! "AR", ENV.cc
-          s.change_make_var! "ARFLAGS", "-shared -Wl,-undefined,dynamic_lookup -o"
-          s.change_make_var! "CLIBFLAGS", "-shared -fPIC"
-          s.change_make_var! "RANLIB", "true"
-        end
-      else
-        Pathname("Makefile.inc").unlink
-        ln_sf "Make.inc/Makefile.inc.#{makefile_inc_suffix}.shlib", "Makefile.inc"
-      end
-
-      system "make", "scotch", "ptscotch", "esmumps", "ptesmumps"
-      system "make", "prefix=#{prefix}", "install"
-
-      pkgshare.install "check/test_strat_seq.c"
-      pkgshare.install "check/test_strat_par.c"
-    end
+    pkgshare.install "src/check/test_strat_seq.c"
+    pkgshare.install "src/check/test_strat_par.c"
 
     # License file has a non-standard filename
     prefix.install buildpath.glob("LICEN[CS]E_*.txt")
