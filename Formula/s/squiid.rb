@@ -1,8 +1,8 @@
 class Squiid < Formula
   desc "Do advanced algebraic and RPN calculations"
   homepage "https://imaginaryinfinity.net/projects/squiid/"
-  url "https://gitlab.com/ImaginaryInfinity/squiid-calculator/squiid/-/archive/1.2.2/squiid-1.2.2.tar.gz"
-  sha256 "75b2ac5526878aa49aa97c63f7041796768fcfc3a7c63e3692fa65648ea5ebfc"
+  url "https://gitlab.com/ImaginaryInfinity/squiid-calculator/squiid/-/archive/1.3.0/squiid-1.3.0.tar.gz"
+  sha256 "bcf83dcc8bb1374866ee4fb8b31b96203476bb8cdde80cb0d24edfdbebd11469"
   license "GPL-3.0-or-later"
 
   bottle do
