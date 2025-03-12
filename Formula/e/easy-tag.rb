@@ -7,12 +7,12 @@ class EasyTag < Formula
   revision 12
 
   bottle do
-    sha256 arm64_sequoia: "8c29dc74a17f41bde4c53800d5e27b53b3fe54e14231cf7bb4825826007edae9"
-    sha256 arm64_sonoma:  "996d40e2aec8366f8187e8bdf1f0dc19dfdc0b87803fc01ae4b8d3f1b0d4c7ff"
-    sha256 arm64_ventura: "72758b1a6c3f5ad69114ce3843b7bbb374b71540799d41a388ca586f90b65a5a"
-    sha256 sonoma:        "fca7fab0f6df02b7d25324d2ef86c3387f4a587ab2a8ec475b2cb54d25e34889"
-    sha256 ventura:       "198606e1a0afe6e1659c588b89d75e6bd328bf8afff9748ee4cb6e908f94e64e"
-    sha256 x86_64_linux:  "3076252648242e093cbd37926bf16a6a9a3967b4123355d5fc5f2d115ee46095"
+    sha256 arm64_sequoia: "d04b63e28faa7da6ebab02e67dbf9b815cb4da4e382d98cac430184426a73f9b"
+    sha256 arm64_sonoma:  "6f77c6d7fe588b1bf054cb77d0a9f3fc1a3021b8197ed2e2f30f08441ebb7749"
+    sha256 arm64_ventura: "7aab98173864bbc6c9be2abd2e1ffaaa0629820740ac7299e3ee31bd858da934"
+    sha256 sonoma:        "01e68eed3d45841e47f3dc5d881a96edcbb687795cb79c94adcf51f83bd291a4"
+    sha256 ventura:       "e66e57435c818f0c4fd5e9a926e4716fee394f91c2391be98f0a5c31514eb897"
+    sha256 x86_64_linux:  "7732a032b2ed7d6aafbe639d15ecd7d2583b286b1ba7e6433e6b58d9d9f0935f"
   end
 
   depends_on "appstream-glib" => :build
