@@ -7,16 +7,12 @@ class Taglib < Formula
   head "https://github.com/taglib/taglib.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "394ab63cec3e1288117fe9076afce0952b31a549db29de41c4a5f5cc8905aead"
-    sha256 cellar: :any,                 arm64_sonoma:   "5b79928275529b55ab078a708cbfb98e174f7e5b7d668bf86bccb0634f443f0f"
-    sha256 cellar: :any,                 arm64_ventura:  "c921c460750f74d8c025ed12189704bba122e1883c1e034b2cc86d451e81dfbe"
-    sha256 cellar: :any,                 arm64_monterey: "5d012c93d5f25fded733a3b8cb3d834ab25ff121e32265d5bfcf38634b1171e5"
-    sha256 cellar: :any,                 arm64_big_sur:  "f1b3bc322c1588095ffaa5bb957af0e3b53651d022e3b3ec0616c58cb4c6e6cd"
-    sha256 cellar: :any,                 sonoma:         "87427348eee256dd9d02bcfe85d909fedba634ce9325a7c0800a4a40a202b28d"
-    sha256 cellar: :any,                 ventura:        "a0e1acf193f45734d34409416134a0181ef2a70a23db77564b2f6d1e3dfb2f9b"
-    sha256 cellar: :any,                 monterey:       "585afe1f5b71dd705e40075c5fdc898d5aa137a278a64c141ee5e249dcb5a27b"
-    sha256 cellar: :any,                 big_sur:        "ce0540a13cf0cd98e968f40c46e154a3947a0c2d682f5023cd14830ae9b1f0b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1762030a268fcab40eb571d7ac9a6065db25f7b6c1898ce142f49d5f3f7bf80e"
+    sha256 cellar: :any,                 arm64_sequoia: "bcee4f3d052cbe5989067daf7a174503c25b7192cf061776cdd907b466ff3058"
+    sha256 cellar: :any,                 arm64_sonoma:  "4294daac491a5377c5600ffc009127c145ee9b57b326a2e0ddb36fbfa392a1cc"
+    sha256 cellar: :any,                 arm64_ventura: "74dbb8c6094f04e047bfd5fa118a979f477d071b9cf836418e3b0f937903e121"
+    sha256 cellar: :any,                 sonoma:        "98bc5de27c719c40923a8a9b949cede60d16e5fe6fced83e77feed4add720251"
+    sha256 cellar: :any,                 ventura:       "8841e4c1db0f37278adc2f3c62b0b115c55293bc277e1e2f99b8c545b8ba73e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f43bb70deddf02f695e91b7f4c4153b4f690133e5e03a711a27790a0a4172c28"
   end
 
   depends_on "cmake" => :build
