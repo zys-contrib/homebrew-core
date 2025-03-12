@@ -11,11 +11,11 @@ class EcflowUi < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:  "153bc8ab240d65a16a4c5ad4449c185d90329ef43ea074c6504acb0680e8a9a4"
-    sha256                               arm64_ventura: "94420e9fd169676d0a1c33cbc2f47a64466195057a0047d8ec732ffd2c0c48ab"
-    sha256                               sonoma:        "e9eee9af7a98101c0838eba512f52128b8fda9d97b3393115b7218f1e968604c"
-    sha256                               ventura:       "7263d14acf0987506e03b09cedbe0e21ad34316f80330d110ecc719bd513497c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83d02added8979e97cc532eecd8354c125016fa1e2d71dc399b39902d992d718"
+    sha256                               arm64_sonoma:  "2a5fc93133a9f1e4ae9589fa08a3388c81976e0bbbb826159521f4879d15b97c"
+    sha256                               arm64_ventura: "74fa25efbbe69e5f2dfeac4a84a795cd7ed25292b7bac935af7f5c00c4a04f69"
+    sha256                               sonoma:        "38f610c0932a0d4920d0ab1a234a1f51157131d9f45e8e48fcd876ec99246329"
+    sha256                               ventura:       "97361cd5fcda1bdc13924de64bd711a26e4b693c84128fd97e9f82b47b998d23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6b3756be6cd5b323a7ab077218bb418315ff79d954ba8827803248a12218117"
   end
 
   depends_on "boost" => :build
