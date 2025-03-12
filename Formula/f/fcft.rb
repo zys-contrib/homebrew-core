@@ -6,7 +6,7 @@ class Fcft < Formula
   license "MIT"
 
   bottle do
-    sha256 x86_64_linux: "7a90b8e425ae6a8d4f111f76fdeae526ccbb2b83064c176cddab1b9086a33341"
+    sha256 x86_64_linux: "90115572cb995074db6e84e595b3b1c69f82bf7695a1db4c0034a667f1b6c955"
   end
 
   depends_on "meson" => :build
