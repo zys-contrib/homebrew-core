@@ -1,8 +1,8 @@
 class CargoShuttle < Formula
   desc "Build & ship backends without writing any infrastructure files"
   homepage "https://shuttle.dev"
-  url "https://github.com/shuttle-hq/shuttle/archive/refs/tags/v0.52.0.tar.gz"
-  sha256 "d377bb0b1c5a6ef01ca0b9eefc9af9549a24d90432a49c9486b431074dcf22f9"
+  url "https://github.com/shuttle-hq/shuttle/archive/refs/tags/v0.53.0.tar.gz"
+  sha256 "fd6df2d28d5a0f1a4cefcaefb1d5a7e73a40e2aed8f15f7276277596fd970f1d"
   license "Apache-2.0"
   head "https://github.com/shuttle-hq/shuttle.git", branch: "main"
 
@@ -36,6 +36,7 @@ class CargoShuttle < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/shuttle --version")
     assert_match "Forbidden", shell_output("#{bin}/shuttle account 2>&1", 1)
-    assert_match "Error: failed to get cargo metadata", shell_output("#{bin}/shuttle deployment status 2>&1", 1)
+    output = shell_output("#{bin}/shuttle deployment status 2>&1", 1)
+    assert_match "ailed to find a Rust project in this directory.", output
   end
 end
