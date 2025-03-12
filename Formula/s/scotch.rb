@@ -21,49 +21,26 @@ class Scotch < Formula
   end
 
   depends_on "bison" => :build
+  depends_on "cmake" => :build
   depends_on "open-mpi"
+  depends_on "xz"
 
   uses_from_macos "flex" => :build
+  uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
   def install
-    makefile_inc_suffix = OS.mac? ? "i686_mac_darwin10" : "x86-64_pc_linux2"
-    (buildpath/"src").install_symlink "Make.inc/Makefile.inc.#{makefile_inc_suffix}" => "Makefile.inc"
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DENABLE_TESTS=OFF",
+                    "-DINSTALL_METIS_HEADERS=OFF",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
-    cd "src" do
-      inreplace_files = ["Makefile.inc"]
-      inreplace_files << "Make.inc/Makefile.inc.#{makefile_inc_suffix}.shlib" unless OS.mac?
-
-      inreplace inreplace_files do |s|
-        s.change_make_var! "CCS", ENV.cc
-        s.change_make_var! "CCP", "mpicc"
-        s.change_make_var! "CCD", "mpicc"
-      end
-
-      system "make", "libscotch", "libptscotch"
-      lib.install buildpath.glob("lib/*.a")
-      system "make", "realclean"
-
-      # Build shared libraries. See `Makefile.inc.*.shlib`.
-      if OS.mac?
-        inreplace "Makefile.inc" do |s|
-          s.change_make_var! "LIB", ".dylib"
-          s.change_make_var! "AR", ENV.cc
-          s.change_make_var! "ARFLAGS", "-shared -Wl,-undefined,dynamic_lookup -o"
-          s.change_make_var! "CLIBFLAGS", "-shared -fPIC"
-          s.change_make_var! "RANLIB", "true"
-        end
-      else
-        Pathname("Makefile.inc").unlink
-        ln_sf "Make.inc/Makefile.inc.#{makefile_inc_suffix}.shlib", "Makefile.inc"
-      end
-
-      system "make", "scotch", "ptscotch", "esmumps", "ptesmumps"
-      system "make", "prefix=#{prefix}", "install"
-
-      pkgshare.install "check/test_strat_seq.c"
-      pkgshare.install "check/test_strat_par.c"
-    end
+    pkgshare.install "src/check/test_strat_seq.c"
+    pkgshare.install "src/check/test_strat_par.c"
 
     # License file has a non-standard filename
     prefix.install buildpath.glob("LICEN[CS]E_*.txt")
