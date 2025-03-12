@@ -21,8 +21,8 @@ class Glib < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
+  depends_on "python-setuptools" => :build # for gobject-introspection
   depends_on "pcre2"
-  depends_on "python-setuptools"
 
   uses_from_macos "flex" => :build # for gobject-introspection
   uses_from_macos "libffi", since: :catalina
@@ -31,10 +31,6 @@ class Glib < Formula
 
   on_macos do
     depends_on "gettext"
-  end
-
-  on_system :linux, macos: :mojave_or_older do
-    depends_on "python-setuptools" => :build # for gobject-introspection
   end
 
   on_linux do
