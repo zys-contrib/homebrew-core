@@ -22,12 +22,37 @@ class RedwaxTool < Formula
   depends_on "pkgconf" => :build
   depends_on "apr"
   depends_on "apr-util"
+  depends_on "ldns"
+  depends_on "libical"
+  depends_on "nspr"
+  depends_on "nss"
   depends_on "openssl@3"
+  depends_on "p11-kit"
+  depends_on "unbound"
 
   uses_from_macos "expat"
 
   def install
-    system "./configure", "--disable-silent-rules", "--with-openssl", *std_configure_args
+    # Work around superenv to avoid mixing `expat` usage in libraries across dependency tree.
+    # Brew `expat` usage in Python has low impact as it isn't loaded unless pyexpat is used.
+    # TODO: Consider adding a DSL for this or change how we handle Python's `expat` dependency
+    if OS.mac? && MacOS.version < :sequoia
+      env_vars = %w[CMAKE_PREFIX_PATH HOMEBREW_INCLUDE_PATHS HOMEBREW_LIBRARY_PATHS PATH PKG_CONFIG_PATH]
+      ENV.remove env_vars, /(^|:)#{Regexp.escape(Formula["expat"].opt_prefix)}[^:]*/
+      ENV.remove "HOMEBREW_DEPENDENCIES", "expat"
+    end
+
+    args = %w[
+      --disable-silent-rules
+      --with-openssl
+      --with-nss
+      --with-p11-kit
+      --with-libical
+      --with-ldns
+      --with-unbound
+    ]
+    args << "--with-keychain" if OS.mac?
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 
