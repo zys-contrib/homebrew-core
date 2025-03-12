@@ -12,11 +12,11 @@ class Qmmp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "24a3a45737a94147fce75d1630df1b1d028c0742bd67c9c3ddf4eb499e2787a4"
-    sha256 cellar: :any,                 arm64_ventura: "c9986e043bc2e4bebe7f21ade88566e215d986b249831dae16a2c3e25bf23fe8"
-    sha256 cellar: :any,                 sonoma:        "c3cd2a1a053eeb4c5c82e687d3136bde8dcce8d4d051ed3f42da4a6fe56ee361"
-    sha256 cellar: :any,                 ventura:       "34c2c7f43fc5dd5b485bcc681d590a66dbcff4b55ff29b7517e45ff85c2c48a3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9e28d6b699b0e33896350fd20cbd58ff26f4cfb1f7a83ee942b8f3ac5cdf6ed"
+    sha256 cellar: :any,                 arm64_sonoma:  "5a026724dfaa94732e7cc749baa013bc25782b03e6155f40025fc6692fe4b1b3"
+    sha256 cellar: :any,                 arm64_ventura: "0097a2462c6cd4af2f8e017117d57bf04cdb8eae14e2ec2add0b09d764d940c1"
+    sha256 cellar: :any,                 sonoma:        "2683f5bb4937701adaa655158da8f78eeea817622c7f7fd020ce9110c2fbb851"
+    sha256 cellar: :any,                 ventura:       "50553475fd30aea759262b890cf9f7cf9dbd89a43cfae266607b482c11add98b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b154d59693a72394df6eb920a2c193b4b55f2f892a18f4989ffcf3465f7228a"
   end
 
   depends_on "cmake" => :build
