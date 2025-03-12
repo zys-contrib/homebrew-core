@@ -28,19 +28,15 @@ class GnomeRecipes < Formula
   depends_on "gnome-autoar"
   depends_on "gspell"
   depends_on "gtk+3"
-  depends_on "json-glib" # for goa
+  depends_on "json-glib"
   depends_on "libcanberra"
-  depends_on "librest" # for goa
+  depends_on "libgoa"
+  depends_on "librest"
   depends_on "libsoup"
   depends_on "pango"
 
   on_macos do
     depends_on "gettext"
-  end
-
-  resource "goa" do
-    url "https://download.gnome.org/sources/gnome-online-accounts/3.52/gnome-online-accounts-3.52.3.1.tar.xz"
-    sha256 "49ed727d6fc49474996fa7edf0919b21e4fc856ea37e6e30f17b50b103af9701"
   end
 
   # Apply Debian patch to support newer libsoup and librest
@@ -53,25 +49,6 @@ class GnomeRecipes < Formula
   def install
     # stop meson_post_install.py from doing what needs to be done in the post_install step
     ENV["DESTDIR"] = "/"
-
-    resource("goa").stage do
-      system "meson", "setup", "build", "-Dgoabackend=false",
-                                        "-Ddocumentation=false",
-                                        "-Dintrospection=false",
-                                        "-Dman=false",
-                                        "-Dvapi=false",
-                                        *std_meson_args.map { |s| s.sub prefix, libexec }
-      system "meson", "compile", "-C", "build", "--verbose"
-      system "meson", "install", "-C", "build"
-    end
-
-    ENV.prepend_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
-
-    # Add RPATH to libexec in goa-1.0.pc on Linux.
-    unless OS.mac?
-      inreplace libexec/"lib/pkgconfig/goa-1.0.pc", "-L${libdir}",
-                "-Wl,-rpath,${libdir} -L${libdir}"
-    end
 
     # BSD tar does not support the required options
     inreplace "src/gr-recipe-store.c", "argv[0] = \"tar\";", "argv[0] = \"gtar\";" if OS.mac?
