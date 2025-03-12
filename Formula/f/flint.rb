@@ -1,10 +1,9 @@
 class Flint < Formula
   desc "C library for number theory"
   homepage "https://flintlib.org/"
-  url "https://github.com/flintlib/flint/releases/download/v3.1.3-p1/flint-3.1.3-p1.tar.gz"
-  sha256 "96637ba9de43397d06657deefe8e6dee9d226992b5526bb1c9a9d563b983e027"
+  url "https://github.com/flintlib/flint/releases/download/v3.2.0/flint-3.2.0.tar.gz"
+  sha256 "6d182c4a05d3d6bfc611565d6331d02f94066a3be32df36ed880264afa9c30f4"
   license "LGPL-3.0-or-later"
-  head "https://github.com/flintlib/flint.git", branch: "main"
 
   livecheck do
     url :stable
@@ -23,18 +22,21 @@ class Flint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "999413efcfa5455b771d5fe28356fb36515c41b243bda6f4206240e2dbb3295d"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  head do
+    url "https://github.com/flintlib/flint.git", branch: "main"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    uses_from_macos "m4" => :build
+  end
+
   depends_on "gmp"
   depends_on "mpfr"
-  uses_from_macos "m4" => :build
 
   def install
     # to build against NTL
     ENV.cxx11
-
-    system "./bootstrap.sh" if build.head?
 
     args = %W[
       --with-gmp=#{Formula["gmp"].prefix}
@@ -47,15 +49,19 @@ class Flint < Formula
       # we cannot rely on -march options
       if build.bottle?
         # prevent avx{2,512} in case we are building on a machine that supports it
-        args << "--enable-arch=#{Hardware.oldest_cpu}"
+        args << if OS.mac?
+          "--host=#{ENV.effective_arch}-apple-darwin#{OS.kernel_version}"
+        else
+          "--host=#{ENV.effective_arch}-unknown-linux-gnu"
+        end
       elsif Hardware::CPU.avx2?
         # TODO: enable avx512 support
         args << "--enable-avx2"
       end
     end
 
+    system "./bootstrap.sh" if build.head?
     system "./configure", *args, *std_configure_args
-
     system "make"
     system "make", "install"
   end
@@ -71,7 +77,7 @@ class Flint < Formula
       int main(int argc, char* argv[])
       {
           slong i, bit_bound;
-          mp_limb_t prime, res;
+          ulong prime, res;
           fmpz_t x, y, prod;
 
           if (argc != 2)
