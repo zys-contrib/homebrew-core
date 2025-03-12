@@ -7,14 +7,12 @@ class Ncmdump < Formula
   head "https://github.com/taurusxin/ncmdump.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "5cb059fc2cc8ec831eef8e54ccbf72efbada242917cbe95ce19b33a129ba6949"
-    sha256 cellar: :any,                 arm64_sonoma:   "6b6ea8422cf6c07ba41cdec25cd75e74881a0b9d131ca4fc4e7fa5a36a45ccae"
-    sha256 cellar: :any,                 arm64_ventura:  "78c634b892549c682cd00c6962208eb52b451c184356d7d1629f6c1206beeab3"
-    sha256 cellar: :any,                 arm64_monterey: "af2c32f41f65892c7b8d2e09972e438827624e440d438d65ec13c56508f8445c"
-    sha256 cellar: :any,                 sonoma:         "62112dfde17a6a5e81071383e42befcb8b29660ccc4851dcb62209d9f2aeb8be"
-    sha256 cellar: :any,                 ventura:        "05583fb35e51d6227ba2dbfd43052a60a362af345ae7e70a9acf284404bda5db"
-    sha256 cellar: :any,                 monterey:       "157a0d4a3b8860df60878495e101b2264eb5e2c740e3fa1232af96f945667b79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ef82870ff5763efecb19096dd73cc4090c392d694cdce5e4e1d22cd169cb568"
+    sha256 cellar: :any,                 arm64_sequoia: "9b8b18693e23e28c86536d252255072708216e857cd2e8e7102551dbbd07e4ea"
+    sha256 cellar: :any,                 arm64_sonoma:  "6cc0adacd3083f40ad30cf8ea914f508c23e1720d23020775d914011615dffc3"
+    sha256 cellar: :any,                 arm64_ventura: "50fe70048df8144284e69b364daa834e073dddae300321bfec326d076d7f4733"
+    sha256 cellar: :any,                 sonoma:        "6ce7bd73a815fe8a87ea4edf1df074ab29f5b57793888f7f45b8f08d5146617c"
+    sha256 cellar: :any,                 ventura:       "08a148b759c425f00c14dd9a47e488e81654e6cd8a3473488ca1d91529e07b6b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77421b520db321edb6b48416603b3c3ffc1319d4c3937ca0bd067e344662caa5"
   end
 
   depends_on "cmake" => :build
