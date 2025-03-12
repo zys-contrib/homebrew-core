@@ -23,6 +23,10 @@ class Asdf < Formula
   depends_on "go" => :build
 
   def install
+    # fix https://github.com/asdf-vm/asdf/issues/1992
+    # relates to https://github.com/Homebrew/homebrew-core/issues/163826
+    ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
+
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "./cmd/asdf"
     generate_completions_from_executable(bin/"asdf", "completion")
     libexec.install Dir["asdf.*"]
