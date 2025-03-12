@@ -31,45 +31,47 @@ class Gmsh < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "eigen" => :build
   depends_on "cairo"
   depends_on "fltk"
-  depends_on "gcc" # for gfortran
   depends_on "gmp"
   depends_on "jpeg-turbo"
   depends_on "libpng"
-  depends_on "open-mpi"
+  depends_on "metis"
   depends_on "opencascade"
 
   uses_from_macos "zlib"
 
   on_macos do
     depends_on "freetype"
+    depends_on "libomp"
   end
 
   on_linux do
-    depends_on "libx11"
     depends_on "mesa"
     depends_on "mesa-glu"
   end
 
   def install
+    # Remove some bundled libraries to make sure brew formula is used
+    rm_r(%w[
+      contrib/eigen
+      contrib/metis
+    ])
+
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
     ENV["CASROOT"] = Formula["opencascade"].opt_prefix
 
-    args = %W[
-      -DENABLE_OS_SPECIFIC_INSTALL=0
-      -DGMSH_BIN=#{bin}
-      -DGMSH_LIB=#{lib}
-      -DGMSH_DOC=#{pkgshare}/gmsh
-      -DGMSH_MAN=#{man}
+    args = %w[
+      -DENABLE_OS_SPECIFIC_INSTALL=OFF
       -DENABLE_BUILD_LIB=ON
       -DENABLE_BUILD_SHARED=ON
-      -DENABLE_NATIVE_FILE_CHOOSER=ON
       -DENABLE_PETSC=OFF
       -DENABLE_SLEPC=OFF
       -DENABLE_OCC=ON
+      -DENABLE_SYSTEM_CONTRIB=ON
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
