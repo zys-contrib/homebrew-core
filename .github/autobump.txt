@@ -199,6 +199,7 @@ axel
 azcopy
 azqr
 azure-core-cpp
+azure-storage-common-cpp
 azurehound
 b2-tools
 babel
