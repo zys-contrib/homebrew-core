@@ -3212,6 +3212,7 @@ spoofdpi
 spot
 spotbugs
 spotify_player
+spytrap-adb
 sq
 sql-formatter
 sql-migrate
