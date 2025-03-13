@@ -1,8 +1,8 @@
 class Libnetworkit < Formula
   desc "NetworKit is an OS-toolkit for large-scale network analysis"
   homepage "https://networkit.github.io"
-  url "https://github.com/networkit/networkit/archive/refs/tags/11.0.1.tar.gz"
-  sha256 "fbdc86b6ac6486ce4e0898f386c5371bd07b9a420293306f2e632549378f4b86"
+  url "https://github.com/networkit/networkit/archive/refs/tags/11.1.tar.gz"
+  sha256 "c8db0430f6d7503eaf1e59fbf181374dc9eaa70f572c56d2efa75dd19a3548a9"
   license "MIT"
 
   livecheck do
@@ -29,7 +29,7 @@ class Libnetworkit < Formula
   def install
     system "cmake", "-S", ".", "-B", "build",
                     "-DNETWORKIT_EXT_TLX=#{Formula["tlx"].opt_prefix}",
-                    "-DNETWORKIT_CXX_STANDARD=17",
+                    "-DNETWORKIT_CXX_STANDARD=20",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -46,7 +46,7 @@ class Libnetworkit < Formula
       }
     CPP
     omp_flags = OS.mac? ? ["-I#{Formula["libomp"].opt_include}"] : []
-    system ENV.cxx, "-std=c++17", "test.cpp", "-L#{lib}", "-lnetworkit", "-o", "test", *omp_flags
+    system ENV.cxx, "-std=c++20", "test.cpp", "-L#{lib}", "-lnetworkit", "-o", "test", *omp_flags
     system "./test"
   end
 end
