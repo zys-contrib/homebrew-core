@@ -1235,6 +1235,7 @@ glasskube
 glaze
 gleam
 glfw
+glib
 glib-networking
 glibmm
 glibmm@2.66
