@@ -2,10 +2,9 @@ class MkdocsMaterial < Formula
   include Language::Python::Virtualenv
   desc "Material Design theme for MkDocs"
   homepage "https://squidfunk.github.io/mkdocs-material/"
-  url "https://files.pythonhosted.org/packages/9b/d7/93e19c9587e5f4ed25647890555d58cf484a4d412be7037dc17b9c9179d9/mkdocs_material-9.6.7.tar.gz"
-  sha256 "3e2c1fceb9410056c2d91f334a00cdea3215c28750e00c691c1e46b2a33309b4"
+  url "https://files.pythonhosted.org/packages/10/0a/17557708cfc6a11a1a941199b6b54a8990b297d910db81a43f1082b11e1b/mkdocs_material-9.6.8.tar.gz"
+  sha256 "8de31bb7566379802532b248bd56d9c4bc834afc4625884bf5769f9412c6a354"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "6581322a8abffdf1f2896b2c3429bd0f6ad6893581343d0091d6b06eefb4dc82"
