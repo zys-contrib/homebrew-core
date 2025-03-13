@@ -1855,6 +1855,7 @@ libgudev
 libgusb
 libgweather
 libhandy
+libharu
 libheif
 libhubbub
 libical

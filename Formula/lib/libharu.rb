@@ -1,8 +1,8 @@
 class Libharu < Formula
   desc "Library for generating PDF files"
   homepage "https://github.com/libharu/libharu"
-  url "https://github.com/libharu/libharu/archive/refs/tags/v2.4.4.tar.gz"
-  sha256 "227ab0ae62979ad65c27a9bc36d85aa77794db3375a0a30af18acdf4d871aee6"
+  url "https://github.com/libharu/libharu/archive/refs/tags/v2.4.5.tar.gz"
+  sha256 "0ed3eacf3ceee18e40b6adffbc433f1afbe3c93500291cd95f1477bffe6f24fc"
   license "Zlib"
   head "https://github.com/libharu/libharu.git", branch: "master"
 
