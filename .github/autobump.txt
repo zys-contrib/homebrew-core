@@ -1472,6 +1472,7 @@ hubble
 huggingface-cli
 hugo
 humanlog
+hurl
 hut
 hwatch
 hwloc
