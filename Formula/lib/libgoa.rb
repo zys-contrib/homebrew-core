@@ -10,6 +10,15 @@ class Libgoa < Formula
     formula "gnome-online-accounts"
   end
 
+  bottle do
+    sha256 cellar: :any, arm64_sequoia: "9dd4a824fec1934b3c2cbbcaf654a2797a54afdb36dc00ba1126093b41529fd3"
+    sha256 cellar: :any, arm64_sonoma:  "1bb59cf37d39e23c46d956bd19d6b629529f10dd9841678619fe85fa365755ce"
+    sha256 cellar: :any, arm64_ventura: "1c0bcf1fee9f98d2fe18175a41d7f19cd30dc19c766ffca09d28b77518a26ef7"
+    sha256 cellar: :any, sonoma:        "3657b52f048664a50626d49ca9e16b15f5817ada32ade77eecc9c731c3b1a331"
+    sha256 cellar: :any, ventura:       "08160332b0c6fffd20cf49c6e627e9a348c16266a143d366eb576f8ed4af80ef"
+    sha256               x86_64_linux:  "c0a81866c3903ff29073cc684e4e4fd86a281dfeffcfe8a0fab4cb5393e4d0be"
+  end
+
   depends_on "dbus" => [:build, :test]
   depends_on "gobject-introspection" => :build
   depends_on "gtk4" => :build # gtk4-update-icon-cache
