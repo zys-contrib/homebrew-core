@@ -1,8 +1,8 @@
 class Libstrophe < Formula
   desc "XMPP library for C"
   homepage "https://strophe.im/libstrophe/"
-  url "https://github.com/strophe/libstrophe/archive/refs/tags/0.13.1.tar.gz"
-  sha256 "0268509f150d72ef63e830db9e6f0d4ecff9727ee0976ffb99a6feb6eb4100c7"
+  url "https://github.com/strophe/libstrophe/archive/refs/tags/0.14.0.tar.gz"
+  sha256 "adeb9e673d7f8b8cd20a2437cc220a8de581abf6e46594896b622e3e0dfa5c1f"
   license all_of: ["GPL-3.0-only", "MIT"]
   head "https://github.com/strophe/libstrophe.git", branch: "master"
 
