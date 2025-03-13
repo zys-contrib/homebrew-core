@@ -6,7 +6,7 @@ class Snapcraft < Formula
   url "https://github.com/canonical/snapcraft/archive/refs/tags/8.6.3.tar.gz"
   sha256 "8f27bdfac3b4597c9d8cb6445530ea284664c8b490af77ba215ee1e46fc7f9e8"
   license "GPL-3.0-only"
-  revision 1
+  revision 2
   head "https://github.com/canonical/snapcraft.git", branch: "main"
 
   livecheck do
