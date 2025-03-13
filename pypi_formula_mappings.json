@@ -975,6 +975,7 @@
     "exclude_packages": ["certifi"]
   },
   "zim": {
+    "package_name": "",
     "extra_packages": ["pyxdg", "setuptools"]
   }
 }
