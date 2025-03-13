@@ -1,10 +1,21 @@
 class Edencommon < Formula
   desc "Shared library for Watchman and Eden projects"
   homepage "https://github.com/facebookexperimental/edencommon"
-  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2025.03.03.00.tar.gz"
-  sha256 "06287c72531b2c0088c4a18efec581fc28ffaa8fb8c3b60761a8deb0d81dd1df"
   license "MIT"
   head "https://github.com/facebookexperimental/edencommon.git", branch: "main"
+
+  # Remove stable block when patch is no longer needed.
+  stable do
+    url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2025.03.10.00.tar.gz"
+    sha256 "11339514e6e55f962bd364ed6885479905638cd4a825c49e81d24a7fdaf0586a"
+
+    # Fix build failure. Remove at next release.
+    # https://github.com/facebookexperimental/edencommon/pull/23
+    patch do
+      url "https://github.com/facebookexperimental/edencommon/commit/917bc45667f136375c195150f8f6ded3ec7642f1.patch?full_index=1"
+      sha256 "10f853b37f4a6deb9a46039e76e5b7a9e77362581d18cbe630536f1586eb9c6f"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "e35c51dae3769f96fdede78f5bfbaf5b3a013339bbcd03f9f7702b513f366080"
