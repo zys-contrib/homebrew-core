@@ -6,12 +6,12 @@ class SigsumGo < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9638155a9a7648a2e8afb5a63235ae1cfa12c44c2663f6721c5049c7b0bd93a1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9638155a9a7648a2e8afb5a63235ae1cfa12c44c2663f6721c5049c7b0bd93a1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9638155a9a7648a2e8afb5a63235ae1cfa12c44c2663f6721c5049c7b0bd93a1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "28b6ea511a47f962f6b539023736dc398f3386013f38a7ee3f806ba323f9873a"
-    sha256 cellar: :any_skip_relocation, ventura:       "28b6ea511a47f962f6b539023736dc398f3386013f38a7ee3f806ba323f9873a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b465fac2fb93c9e50fae5bd612e30de82bec9292fe4e74cd1622dea04952589"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7bd593429b56a8d070f3b29e7c277e304d24a2a38f8b529d81ccb0bb76c23f5c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7bd593429b56a8d070f3b29e7c277e304d24a2a38f8b529d81ccb0bb76c23f5c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7bd593429b56a8d070f3b29e7c277e304d24a2a38f8b529d81ccb0bb76c23f5c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b7cd72aeea9a62700f5027faf590582cb7e5b71449312470b38a7bfac58ef4f7"
+    sha256 cellar: :any_skip_relocation, ventura:       "b7cd72aeea9a62700f5027faf590582cb7e5b71449312470b38a7bfac58ef4f7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fc07ff5fd182004f2a608bc99133537fd0d5f91d84c806b5c42b88d3a1e1224"
   end
 
   depends_on "go" => :build
