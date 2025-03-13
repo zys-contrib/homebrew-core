@@ -5,6 +5,15 @@ class GrafanaAlloy < Formula
   sha256 "f45657c08d2097cf5dc35199d4f878a55ad58f8767f27867c6993c9ed58b596f"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ef5ac7377832740d1e2b49122746b9864915b0f3ea001ee028d7c35e6774d9c5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b6c5fa1e5f73357a4abaf6ca9d14831bc388746e491e2b8c0d018062be991bde"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2a10339da73ab50cf9e3096746ceb1174c743b6f2c739fcbfda92a02c1f94bce"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e80a82d6967c5211850b2bb33de3de384b420236935fcc8c36dd8364231dc54b"
+    sha256 cellar: :any_skip_relocation, ventura:       "86342199bea3bc0b93b5622497a03191f26602d3b67161ddac00e8374d7e0526"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b2ad023f06260e5dc7ae04f67c7d44271a582639d10414d163ec8a2ea25406ce"
+  end
+
   depends_on "go" => :build
   depends_on "node" => :build
   depends_on "yarn" => :build
