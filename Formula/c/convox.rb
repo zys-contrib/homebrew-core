@@ -1,8 +1,8 @@
 class Convox < Formula
   desc "Command-line interface for the Convox PaaS"
   homepage "https://convox.com/"
-  url "https://github.com/convox/convox/archive/refs/tags/3.20.0.tar.gz"
-  sha256 "fc8470df9ec15637b1c6682a28194254f0da0667109a8e7d3df66ef1619d99d9"
+  url "https://github.com/convox/convox/archive/refs/tags/3.20.1.tar.gz"
+  sha256 "3018f92163338e651d2f87f4d58b91aaaf8d908442f484e34927e13228042c8e"
   license "Apache-2.0"
   version_scheme 1
 
