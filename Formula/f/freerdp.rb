@@ -1,8 +1,8 @@
 class Freerdp < Formula
   desc "X11 implementation of the Remote Desktop Protocol (RDP)"
   homepage "https://www.freerdp.com/"
-  url "https://github.com/FreeRDP/FreeRDP/releases/download/3.13.0/freerdp-3.13.0.tar.gz"
-  sha256 "e66c25780ba8abc0f3d43bdc2e73bd47a0a28fba1dca6f09096cbc320c6622bf"
+  url "https://github.com/FreeRDP/FreeRDP/releases/download/3.14.0/freerdp-3.14.0.tar.gz"
+  sha256 "f475cf586292e0f8460f241755b6ae4dcd499c8115191d533c305f2867367074"
   license "Apache-2.0"
 
   bottle do
