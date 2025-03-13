@@ -6,6 +6,15 @@ class GnomeOnlineAccounts < Formula
   license "LGPL-2.0-or-later"
   head "https://gitlab.gnome.org/GNOME/gnome-online-accounts.git", branch: "master"
 
+  bottle do
+    sha256 arm64_sequoia: "3f255232ee5f8a201aef353309206f49c669b0aa317628f238a47876c7bd828c"
+    sha256 arm64_sonoma:  "fc2ba3422a641df17ce52b7853cf4a6d0c3936b47a932ae468a9b09fd511367e"
+    sha256 arm64_ventura: "d607be2571d60c9f1de21c1da9018e697ddfb9c2b2c124be6de3cc5c67628927"
+    sha256 sonoma:        "44a14c5ac71d8de101d4ce97fe355ee388035aa47d6cff4e35ce95e89e5302d0"
+    sha256 ventura:       "563e6665d4d778eacec2fc479533cca72fe49015a08c1ab1969debb9e7599b72"
+    sha256 x86_64_linux:  "56d71c5f46fecb992afc135e3f6734e6af7dc586d9e038f9921e31df7aa7a915"
+  end
+
   depends_on "dbus" => :build
   depends_on "docbook-xsl" => :build
   depends_on "gobject-introspection" => :build
