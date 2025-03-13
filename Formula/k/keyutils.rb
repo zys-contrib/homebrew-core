@@ -5,6 +5,10 @@ class Keyutils < Formula
   sha256 "a61d5706136ae4c05bd48f86186bcfdbd88dd8bd5107e3e195c924cfc1b39bb4"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d5b06c4e38d2c4b7decb5b7bc0431b3416993231e5fa688950e4df83686a298d"
+  end
+
   depends_on :linux
 
   def install
