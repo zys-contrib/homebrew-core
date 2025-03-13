@@ -16,11 +16,11 @@ class Qbs < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "eea32037b439e083b77ad5ab7bf432377509109c01bf83048be9d5fbc3017b06"
-    sha256 cellar: :any,                 arm64_ventura: "38ea1b19469dc7d00a63ea7ee25b1c9c7e7d9e148a2f08c3e8a96c661fbd7978"
-    sha256 cellar: :any,                 sonoma:        "85b8fd07fe6c14739ba23038cd97f79aa6dec68e6a3a400a9580c699dcb9d3de"
-    sha256 cellar: :any,                 ventura:       "a5d95d351b47662f1338467d2b650a5e0511d0f91304ea4c2d1c53fcd30c3fe0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a5531d639d29e1d52a0cc75c510dd1527d67d77d2eb233be9f9c4be7de06a2e"
+    sha256 cellar: :any,                 arm64_sonoma:  "ecf80ccf08832360e1e80c2aa550d917438a4a068e5033e3c20379f2260be485"
+    sha256 cellar: :any,                 arm64_ventura: "ba73083d54ee2e7dca9e5426cd0b644fbf5a4f7f11c1d55fca32dcdf00e103f7"
+    sha256 cellar: :any,                 sonoma:        "df65d6a290f11846512605e8a2b3e9baeb51fd57457ab58b6b690dce4297fbcc"
+    sha256 cellar: :any,                 ventura:       "f41a9f59182e39c946124adeed801fc6c43d67c47a619ad9bfbb11c8995a9fa7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f90bc36ef68d4bc42aaa8615710f36ed6eca1b7a9cb4e1fe67e46b1b316f125e"
   end
 
   depends_on "cmake" => :build
