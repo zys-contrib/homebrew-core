@@ -3272,6 +3272,7 @@ stow
 stp
 strace
 streamlink
+streamrip
 streamvbyte
 stress-ng
 stripe-cli
