@@ -1290,6 +1290,7 @@ golangci-lint
 golangci-lint-langserver
 gollama
 gomi
+gomplate
 google-authenticator-libpam
 google-benchmark
 google-java-format
