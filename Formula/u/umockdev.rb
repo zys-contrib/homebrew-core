@@ -6,6 +6,10 @@ class Umockdev < Formula
   license "LGPL-2.1-or-later"
   head "https://github.com/martinpitt/umockdev.git", branch: "main"
 
+  bottle do
+    sha256 x86_64_linux: "7ad4f20e560ca3dbff215a5780424964b2773b4f8f10269cab867ffaa5dbb86d"
+  end
+
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
