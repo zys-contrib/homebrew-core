@@ -1,10 +1,9 @@
 class Newt < Formula
   desc "Library for color text mode, widget based user interfaces"
   homepage "https://pagure.io/newt"
-  url "https://releases.pagure.org/newt/newt-0.52.24.tar.gz"
-  sha256 "5ded7e221f85f642521c49b1826c8de19845aa372baf5d630a51774b544fbdbb"
+  url "https://releases.pagure.org/newt/newt-0.52.25.tar.gz"
+  sha256 "ef0ca9ee27850d1a5c863bb7ff9aa08096c9ed312ece9087b30f3a426828de82"
   license "LGPL-2.0-or-later"
-  revision 2
 
   livecheck do
     url "https://releases.pagure.org/newt/"
@@ -43,8 +42,10 @@ class Newt < Formula
         # don't link to libpython.dylib
         # causes https://github.com/Homebrew/homebrew/issues/30252
         # https://bugzilla.redhat.com/show_bug.cgi?id=1192286
-        s.gsub! "`$$pyconfig --ldflags`", '"-undefined dynamic_lookup"'
-        s.gsub! "`$$pyconfig --libs`", '""'
+        s.gsub! "`$$pyconfig --ldflags --embed || $$pyconfig --ldflags`", '"-undefined dynamic_lookup"'
+
+        s.gsub! "`$$ver -c \"import sysconfig; print(sysconfig.get_path('platlib'))\"`",
+                "#{lib}/python3.13/site-packages"
       end
     end
 
