@@ -1,10 +1,9 @@
 class Latexindent < Formula
   desc "Add indentation to LaTeX files"
   homepage "https://latexindentpl.readthedocs.io"
-  url "https://github.com/cmhughes/latexindent.pl/archive/refs/tags/V3.24.4.tar.gz"
-  sha256 "7b7216604d1e544b7f22cf520b3ca1817222e70e28fe2865bcc4d0e3284c497c"
+  url "https://github.com/cmhughes/latexindent.pl/archive/refs/tags/V3.24.5.tar.gz"
+  sha256 "3bafd91da0bfd8c530cd9e8bd8dd98948d95850d314cfb459bb180f12a608b83"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "83b002051cf480f85aa240da502d46ad9c0cd213f743b4134e681a76a65e5e90"
@@ -30,8 +29,8 @@ class Latexindent < Formula
   end
 
   resource "Class::Data::Inheritable" do
-    url "https://cpan.metacpan.org/authors/id/R/RS/RSHERER/Class-Data-Inheritable-0.09.tar.gz"
-    sha256 "44088d6e90712e187b8a5b050ca5b1c70efe2baa32ae123e9bd8f59f29f06e4d"
+    url "https://cpan.metacpan.org/authors/id/R/RS/RSHERER/Class-Data-Inheritable-0.10.tar.gz"
+    sha256 "aa1ae68a611357b7bfd9a2f64907cc196ddd6d047cae64ef9d0ad099d98ae54a"
   end
 
   resource "Devel::GlobalDestruction" do
@@ -125,8 +124,8 @@ class Latexindent < Formula
   end
 
   resource "Specio" do
-    url "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Specio-0.48.tar.gz"
-    sha256 "0c85793580f1274ef08173079131d101f77b22accea7afa8255202f0811682b2"
+    url "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Specio-0.50.tar.gz"
+    sha256 "467baf0582681626266318e3154727497d7205996fbd76674ba58ed79e10640e"
   end
 
   resource "Sub::Exporter::Progressive" do
@@ -150,8 +149,8 @@ class Latexindent < Formula
   end
 
   resource "Try::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.31.tar.gz"
-    sha256 "3300d31d8a4075b26d8f46ce864a1d913e0e8467ceeba6655d5d2b2e206c11be"
+    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.32.tar.gz"
+    sha256 "ef2d6cab0bad18e3ab1c4e6125cc5f695c7e459899f512451c8fa3ef83fa7fc0"
   end
 
   resource "Unicode::LineBreak" do
@@ -170,13 +169,13 @@ class Latexindent < Formula
   end
 
   resource "YAML::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/YAML-Tiny-1.74.tar.gz"
-    sha256 "7b38ca9f5d3ce24230a6b8bdc1f47f5b2db348e7f7f9666c26f5955636e33d6c"
+    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/YAML-Tiny-1.76.tar.gz"
+    sha256 "a8d584394cf069bf8f17cba3dd5099003b097fce316c31fb094f1b1c171c08a3"
   end
 
   resource "namespace::autoclean" do
-    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/namespace-autoclean-0.29.tar.gz"
-    sha256 "45ebd8e64a54a86f88d8e01ae55212967c8aa8fed57e814085def7608ac65804"
+    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/namespace-autoclean-0.31.tar.gz"
+    sha256 "d3b32c82e1d2caa9d58b8c8075965240e6cab66ab9350bd6f6bea4ca07e938d6"
   end
 
   resource "namespace::clean" do
