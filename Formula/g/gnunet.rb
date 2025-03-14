@@ -1,9 +1,9 @@
 class Gnunet < Formula
   desc "Framework for distributed, secure and privacy-preserving applications"
   homepage "https://gnunet.org/"
-  url "https://ftp.gnu.org/gnu/gnunet/gnunet-0.23.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gnunet/gnunet-0.23.1.tar.gz"
-  sha256 "6fd05b69076b3b1a8e7e20b254e044fdd4c6da5313196317f3de088f7d025cf2"
+  url "https://ftp.gnu.org/gnu/gnunet/gnunet-0.24.0.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gnunet/gnunet-0.24.0.tar.gz"
+  sha256 "06852f9f4833e6cb06beeddf8727ab94c43853af723a76387ad771612e163c57"
   license "AGPL-3.0-or-later"
 
   bottle do
@@ -15,6 +15,8 @@ class Gnunet < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ac3072699a9e63f67b894dc08f71c7fa7fcd6e42d59da7617b59b987d0d1c47"
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "gettext"
   depends_on "gmp"
@@ -37,10 +39,9 @@ class Gnunet < Formula
   end
 
   def install
-    ENV.deparallelize if OS.linux?
-
-    system "./configure", "--disable-documentation", *std_configure_args
-    system "make", "install"
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
