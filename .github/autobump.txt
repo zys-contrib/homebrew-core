@@ -717,6 +717,7 @@ datasette
 dav1d
 dbml-cli
 dbus
+dbus-glib
 dcd
 dcm2niix
 ddclient
