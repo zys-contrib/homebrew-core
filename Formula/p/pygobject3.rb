@@ -1,10 +1,9 @@
 class Pygobject3 < Formula
   desc "GNOME Python bindings (based on GObject Introspection)"
   homepage "https://pygobject.gnome.org"
-  url "https://download.gnome.org/sources/pygobject/3.50/pygobject-3.50.0.tar.xz"
-  sha256 "8d836e75b5a881d457ee1622cae4a32bcdba28a0ba562193adb3bbb472472212"
+  url "https://download.gnome.org/sources/pygobject/3.52/pygobject-3.52.3.tar.gz"
+  sha256 "00e427d291e957462a8fad659a9f9c8be776ff82a8b76bdf402f1eaeec086d82"
   license "LGPL-2.1-or-later"
-  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_sequoia: "2c86ffbaf32b22811f8fff5a6040677f4268af2578660fb007a5c5d4956c1133"
