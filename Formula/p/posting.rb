@@ -3,8 +3,8 @@ class Posting < Formula
 
   desc "Modern API client that lives in your terminal"
   homepage "https://github.com/darrenburns/posting"
-  url "https://files.pythonhosted.org/packages/09/4c/268522087625286ad9ca5211ea5a9430fc1621468a826e198a63f3c34d1c/posting-2.4.0.tar.gz"
-  sha256 "7784cc49eaeed3ea78252ad4fff20db49284aa1e29a33ed21ed4920bfdbf58c4"
+  url "https://files.pythonhosted.org/packages/a8/d6/4d9b3b7337125e7006c76df9835d90953786c7fc3f226a8ac1c05e550750/posting-2.5.4.tar.gz"
+  sha256 "c066531a98a92dd343a6b639e230025cc9998ba73a992cf9f5af4a9fe02a82fc"
   license "Apache-2.0"
 
   bottle do
@@ -85,6 +85,11 @@ class Posting < Formula
     sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
   end
 
+  resource "openapi-pydantic" do
+    url "https://files.pythonhosted.org/packages/02/2e/58d83848dd1a79cb92ed8e63f6ba901ca282c5f09d04af9423ec26c56fd7/openapi_pydantic-0.5.1.tar.gz"
+    sha256 "ff6835af6bde7a459fb93eb93bb92b8749b754fc6e51b2f1590a19dc3005ee0d"
+  end
+
   resource "platformdirs" do
     url "https://files.pythonhosted.org/packages/13/fc/128cc9cb8f03208bdbf93d3aa862e16d376844a14f9a0ce5cf4507372de4/platformdirs-4.3.6.tar.gz"
     sha256 "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"
@@ -136,13 +141,13 @@ class Posting < Formula
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/1a/a7/b0c42e9ccea22dc59b4074c848e2daf9f9d82250ae56f4bd2c918d5f3f2c/textual-2.1.1.tar.gz"
-    sha256 "c1dd54fce53c3abe87a021735efbbfd8af5313191f0729a02ecdb3083367cf62"
+    url "https://files.pythonhosted.org/packages/41/62/4af4689dd971ed4fb3215467624016d53550bff1df9ca02e7625eec07f8b/textual-2.1.2.tar.gz"
+    sha256 "aae3f9fde00c7440be00e3c3ac189e02d014f5298afdc32132f93480f9e09146"
   end
 
   resource "textual-autocomplete" do
-    url "https://files.pythonhosted.org/packages/bd/d3/7837e2ee1807c72e2a8a185c6e5e729dbe68161d8476055d989f3a2db348/textual_autocomplete-3.0.0a13.tar.gz"
-    sha256 "db5a4ae956dd7d6dece53f7f695e97f2ab75819dd96b8a1c064ec5966b3ab113"
+    url "https://files.pythonhosted.org/packages/06/70/8540596d2f6c00657fe346c49d8ceb09785e5333d6be969d781cf51260c6/textual_autocomplete-4.0.0a0.tar.gz"
+    sha256 "c2c8e680e0ef1607dbcaac56de3b07f3c242f33d1365038284b82272cef00076"
   end
 
   # Unmaintained package and so use a fork of original
@@ -183,9 +188,9 @@ class Posting < Formula
     # https://web.archive.org/web/20230505222426/https://swagger.io/docs/specification/basic-structure/
     (testpath/"minimal.yaml").write <<~YAML
       ---
-      openapi: 3.0.3
+      openapi: 3.1.1
       info:
-        version: 0.0.0
+        version: "0.0.0"
         title: Sample API
       servers:
         - url: http://api.example.com/v1
@@ -205,6 +210,7 @@ class Posting < Formula
                       type: array
                       items:
                         type: string
+      components: {}
     YAML
     output = shell_output("#{bin}/posting import minimal.yaml")
     assert_match "Successfully imported OpenAPI spec", output
