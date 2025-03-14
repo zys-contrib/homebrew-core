@@ -6,6 +6,15 @@ class Projectable < Formula
   license "MIT"
   head "https://github.com/dzfrias/projectable.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "f355d14b2034c1fb76bf40a0ac128cb5676f234169393a61de59ae51e77da776"
+    sha256 cellar: :any,                 arm64_sonoma:  "0eafa10a8ae0d7b2a90f70145efb71a517609fa31e09ee10b7fe734201965f0c"
+    sha256 cellar: :any,                 arm64_ventura: "a288dcbf708ffeb16c512655d9426e801553471fee1c095a6d2d329f41ccb6ec"
+    sha256 cellar: :any,                 sonoma:        "69ff855f70534030139cdda5c4097aa271b15d3d1a0fb0f12455fa6c1e35e94a"
+    sha256 cellar: :any,                 ventura:       "9e4c0a031c0e5a51107f68cceaa6840ef7a39fbcd434d1ec04b80a8b891a2cc9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "136b8c39fe40e6103870b2b193562107b86302613337bce7892b24dcb2007515"
+  end
+
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
