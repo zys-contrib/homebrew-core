@@ -1,8 +1,8 @@
 class Mdsh < Formula
   desc "Markdown shell pre-processor"
   homepage "https://zimbatm.github.io/mdsh/"
-  url "https://github.com/zimbatm/mdsh/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "6d87498bf600ef3b0d5ac8813e676ee1e7913057cf9290a288b4d93c7ffcc4e9"
+  url "https://github.com/zimbatm/mdsh/archive/refs/tags/v0.9.1.tar.gz"
+  sha256 "d380bb4646e272282966e152a7c3c17c71ace59c2ec1cb105327b969d1410b62"
   license "MIT"
   head "https://github.com/zimbatm/mdsh.git", branch: "main"
 
@@ -18,6 +18,12 @@ class Mdsh < Formula
   end
 
   depends_on "rust" => :build
+
+  # version flag patch, PR: https://github.com/zimbatm/mdsh/pull/80
+  patch do
+    url "https://github.com/zimbatm/mdsh/commit/bef17517e9176f7807f80a4f074fb7db8968a026.patch?full_index=1"
+    sha256 "937aaa314e606463dee16fc7fda30aff8b981eb96e22fa7f5904e12c1ff6a907"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args
