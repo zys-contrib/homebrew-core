@@ -1,8 +1,8 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10040/ghostpdl-10.04.0.tar.xz"
-  sha256 "0603f5629bc6f567b454911d104cd96702489c9e70e577787843f480b23d4a77"
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10050/ghostpdl-10.05.0.tar.xz"
+  sha256 "f154039345b6e9957b0750f872374d887d76321d52bbcc9d3b85487855e08f02"
   license "AGPL-3.0-or-later"
 
   # The GitHub tags omit delimiters (e.g. `gs9533` for version 9.53.3). The
