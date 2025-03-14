@@ -3,8 +3,8 @@ class KeeperCommander < Formula
 
   desc "Command-line and SDK interface to Keeper Password Manager"
   homepage "https://docs.keeper.io/en/privileged-access-manager/commander-cli/overview"
-  url "https://files.pythonhosted.org/packages/a6/0f/c03afbcc879c72e9e5f84ba015ccee8c43d38e1585e78644fdca316f80a4/keepercommander-17.0.9.tar.gz"
-  sha256 "82f551c79c757dfd0faf0df316ee8880dbe965fbea2bee65206877ef66c615f6"
+  url "https://files.pythonhosted.org/packages/f2/4e/18d6e6635f8bc007349e86cec30873fdbf0abe83a57ae3db0fdf603eaf99/keepercommander-17.0.10.tar.gz"
+  sha256 "0678434f4ca632a68b41a05f861a9f5f22ae13a715866e7395a924d8b7d99999"
   license "MIT"
   head "https://github.com/Keeper-Security/Commander.git", branch: "master"
 
@@ -76,8 +76,8 @@ class KeeperCommander < Formula
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/53/6a/2629bb3529e5bdfbd6c4608ff5c7d942cd4beae85793f84ba543aab2548a/protobuf-6.30.0.tar.gz"
-    sha256 "852b675d276a7d028f660da075af1841c768618f76b90af771a8e2c29e6f5965"
+    url "https://files.pythonhosted.org/packages/55/de/8216061897a67b2ffe302fd51aaa76bbf613001f01cd96e2416a4955dd2b/protobuf-6.30.1.tar.gz"
+    sha256 "535fb4e44d0236893d5cf1263a0f706f1160b689a7ab962e9da8a9ce4050b780"
   end
 
   resource "pycryptodomex" do
