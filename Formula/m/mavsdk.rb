@@ -2,10 +2,9 @@ class Mavsdk < Formula
   desc "API and library for MAVLink compatible systems written in C++17"
   homepage "https://mavsdk.mavlink.io"
   url "https://github.com/mavlink/MAVSDK.git",
-      tag:      "v3.0.0",
-      revision: "e0e4ffb34a1913960f6c9ccdc8bcbea0447d26ad"
+      tag:      "v3.1.0",
+      revision: "effa4a8ff433ce1d6734c990b5105d1f358399d7"
   license "BSD-3-Clause"
-  revision 2
 
   livecheck do
     url :stable
@@ -54,12 +53,6 @@ class Mavsdk < Formula
   resource "mavlink" do
     url "https://github.com/mavlink/mavlink.git",
         revision: "5e3a42b8f3f53038f2779f9f69bd64767b913bb8"
-  end
-
-  # macos rpath fix, upstream pr ref, https://github.com/mavlink/MAVSDK/pull/2495
-  patch do
-    url "https://github.com/mavlink/MAVSDK/commit/6d11efa589dbe045890c2f3a5db8091833b0f1a3.patch?full_index=1"
-    sha256 "c10aa11c78281eef4326548b4cbc25fd637d709e814f62f2a3025b7d16d5af04"
   end
 
   def install
