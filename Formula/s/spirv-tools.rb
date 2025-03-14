@@ -13,12 +13,12 @@ class SpirvTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "dd48bd3884089475e5d4a0788671bae84237472c2d8f4b1e137ee9659dd0d930"
-    sha256 cellar: :any,                 arm64_sonoma:  "3e13659fecef14440ccc1333ee42caae026c64f92bae95733abfa321471ca866"
-    sha256 cellar: :any,                 arm64_ventura: "0c966b165a0aea28bad766d2108f9d0d5eec2687fe969e5806bb3c7cc76b5e39"
-    sha256 cellar: :any,                 sonoma:        "d0da8f7c3b37a8c53f38666d57902a471e51179a7f41f793be54fc2aabedd109"
-    sha256 cellar: :any,                 ventura:       "8a8592b088000444d10b87a0856cbcc7d84b0e4f860549970d44fa918a2caa06"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7723fcdc6b02dbe8bea57e040ae3c899366f11b47ad96921a8a5e1c792fd392"
+    sha256 cellar: :any,                 arm64_sequoia: "2f5f2e1ba96aecba35eae1799552f436b222d077c6ac112c4ab9c491f51bda4d"
+    sha256 cellar: :any,                 arm64_sonoma:  "e80491c515fdf0656fb5c31557accc6565897f50a55354129093a71d8a34e63f"
+    sha256 cellar: :any,                 arm64_ventura: "9bba6a4515cb43ae13bc4ebff4bfe2c8bb6fe5b28df55aa7d05a21f6160ad6be"
+    sha256 cellar: :any,                 sonoma:        "7154e89ba9cb1f3563278fd15275871aa544ad8604ceb423939fca7a0d2f88b1"
+    sha256 cellar: :any,                 ventura:       "36bbd5099b5a79720e187a4fd58eb7da8ce7bd3a3627cff0ce2642dbcccb822f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f6d416dacf98bd3c2422672d6ab8fbc8b0abfcc38a5d6b5521bc72cb0a86fbd"
   end
 
   depends_on "cmake" => :build
