@@ -3,8 +3,8 @@ class Tach < Formula
 
   desc "Tool to enforce dependencies using modular architecture"
   homepage "https://docs.gauge.sh/getting-started/introduction"
-  url "https://files.pythonhosted.org/packages/5e/c1/62221258b64bdb160667eba8074ca8e8c9636889ceb67fdf0d4dc1f8877d/tach-0.28.0.tar.gz"
-  sha256 "054f9e7c58754054d06b0935df2400c4200c7d00d19443bf9212a9911d3bb684"
+  url "https://files.pythonhosted.org/packages/b3/4b/e618b08b1e6354673cb39f8d52bf4677448b81404579073e1c4e85401d79/tach-0.28.1.tar.gz"
+  sha256 "c03bf287e22672eba61329d9cdc586e4cfa97f6ce7d774f33ff20af9caed531f"
   license "MIT"
   head "https://github.com/gauge-sh/tach.git", branch: "main"
 
@@ -103,6 +103,6 @@ class Tach < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/tach --version")
 
-    assert_match "tach.toml not found", shell_output("#{bin}/tach server 2>&1", 1)
+    assert_match "Configuration file not found.", shell_output("#{bin}/tach server 2>&1", 1)
   end
 end
