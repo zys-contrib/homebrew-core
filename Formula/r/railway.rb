@@ -1,8 +1,8 @@
 class Railway < Formula
   desc "Develop and deploy code with zero configuration"
   homepage "https://railway.com/"
-  url "https://github.com/railwayapp/cli/archive/refs/tags/v3.22.2.tar.gz"
-  sha256 "36351c647e83d472ca3619aef87a1ca96b13d4e812ef19e47de633a52bbd58c2"
+  url "https://github.com/railwayapp/cli/archive/refs/tags/v3.23.0.tar.gz"
+  sha256 "4e3855b32188478217f75c1095d5eda665433e323c2a3220322d80a890bb8d01"
   license "MIT"
   head "https://github.com/railwayapp/cli.git", branch: "master"
 
@@ -27,6 +27,6 @@ class Railway < Formula
     output = shell_output("#{bin}/railway init 2>&1", 1).chomp
     assert_match "Unauthorized. Please login with `railway login`", output
 
-    assert_equal "railwayapp #{version}", shell_output("#{bin}/railway --version").chomp
+    assert_equal "railwayapp #{version}", shell_output("#{bin}/railway --version").strip
   end
 end
