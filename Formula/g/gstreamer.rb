@@ -24,12 +24,12 @@ class Gstreamer < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "a38da309e4747f9a178d8dc557091175bf07b3d3a7d383f54319e79c609edf27"
-    sha256 arm64_sonoma:  "f1240f7461e8fc7a53394d3a436cbd5b1fd558d708236f63156efb623ce94ca4"
-    sha256 arm64_ventura: "0a7c3c0a1a4bc917f0cb5610a323fa50cf8dea1355fdc627f1cbd55275e79066"
-    sha256 sonoma:        "f52a86f4395812dbf4a0330b7d248cbc75a046a1b81a3451ac59e99aa40ae832"
-    sha256 ventura:       "b08db4711208311934a634be7038a8646c2f7daee1a117fd71dcb66aebebc6aa"
-    sha256 x86_64_linux:  "ea55a9a147fc5b4b03b5780d46f196929a37c2e266e07dd3d2e32066bcb77dd2"
+    sha256 arm64_sequoia: "4adf4d3fa3de5513b2eb79a0e538b5cc3dcc6e5be5f9cb84a610bdc6a1e51977"
+    sha256 arm64_sonoma:  "bff65d606c2511a878e585788e1a4fc55aba28b8701595a901ceb197b102aeb3"
+    sha256 arm64_ventura: "711ebce7bed0a6919d6d7a3d1383d843a3d8c1e7c681e9e93b2003259911b402"
+    sha256 sonoma:        "a32f6414f98f4afd36cbdcdbb492996c6f7ed597af344ea53dc433e79bf0a190"
+    sha256 ventura:       "5ddd03422b27bf91d68ff43f9241bdbdabb41084b74d261e278e60700e379999"
+    sha256 x86_64_linux:  "21cd7b2b7ddef45220f72e6ac354407e5831b765068757a408da6614bed20755"
   end
 
   head do
