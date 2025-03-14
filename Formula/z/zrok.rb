@@ -1,8 +1,8 @@
 class Zrok < Formula
   desc "Geo-scale, next-generation sharing platform built on top of OpenZiti"
   homepage "https://zrok.io"
-  url "https://github.com/openziti/zrok/releases/download/v0.4.49/source-v0.4.49.tar.gz"
-  sha256 "624d0ced7dadbb5e4b7e9b31bf0b3a3b38d028a92cbf26c29e1bad4e4fa44b3a"
+  url "https://github.com/openziti/zrok/releases/download/v1.0.0/source-v1.0.0.tar.gz"
+  sha256 "2980581c45514240598135deed8a999bc65359527ded31a5bb855d05e70f2254"
   # The main license is Apache-2.0. ACKNOWLEDGEMENTS.md lists licenses for parts of code
   license all_of: ["Apache-2.0", "BSD-3-Clause", "MIT"]
   head "https://github.com/openziti/zrok.git", branch: "main"
@@ -20,9 +20,11 @@ class Zrok < Formula
   depends_on "node" => :build
 
   def install
-    cd buildpath/"ui" do
-      system "npm", "install", *std_npm_args(prefix: false)
-      system "npm", "run", "build"
+    ["ui", "agent/agentUi"].each do |ui_dir|
+      cd "#{buildpath}/#{ui_dir}" do
+        system "npm", "install", *std_npm_args(prefix: false)
+        system "npm", "run", "build"
+      end
     end
 
     ldflags = %W[
