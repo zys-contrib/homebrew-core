@@ -3,8 +3,8 @@ class Memray < Formula
 
   desc "Memory profiler for Python applications"
   homepage "https://bloomberg.github.io/memray/"
-  url "https://files.pythonhosted.org/packages/e8/d3/b2a01137e2391917928187c4c2837c2750cc832c99a6aecd6e0d6ea07c58/memray-1.15.0.tar.gz"
-  sha256 "1beffa2bcba3dbe0f095d547927286eca46e272798b83026dd1b5db58e16ed56"
+  url "https://files.pythonhosted.org/packages/22/82/61c74f5bde38a57b3087f8838bcdb4d91c11860f03f56e7f9fb829ef045f/memray-1.16.0.tar.gz"
+  sha256 "57319f74333a58a9b3d5fba411b0bff3f2974a37e362a09a577e7c6fe1d29a36"
   license "Apache-2.0"
 
   bottle do
@@ -34,8 +34,8 @@ class Memray < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "linkify-it-py" do
@@ -79,8 +79,8 @@ class Memray < Formula
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/1f/b6/59b1de04bb4dca0f21ed7ba0b19309ed7f3f5de4396edf20cc2855e53085/textual-1.0.0.tar.gz"
-    sha256 "bec9fe63547c1c552569d1b75d309038b7d456c03f86dfa3706ddb099b151399"
+    url "https://files.pythonhosted.org/packages/41/62/4af4689dd971ed4fb3215467624016d53550bff1df9ca02e7625eec07f8b/textual-2.1.2.tar.gz"
+    sha256 "aae3f9fde00c7440be00e3c3ac189e02d014f5298afdc32132f93480f9e09146"
   end
 
   resource "typing-extensions" do
