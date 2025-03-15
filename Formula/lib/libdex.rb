@@ -1,8 +1,8 @@
 class Libdex < Formula
   desc "Future-based programming for GLib-based applications"
   homepage "https://gitlab.gnome.org/GNOME/libdex"
-  url "https://gitlab.gnome.org/GNOME/libdex/-/archive/0.9.1/libdex-0.9.1.tar.gz"
-  sha256 "8106d034bd34fd3dd2160f9ac1c594e4291aa54a258c5c84cca7a7260fce2fe1"
+  url "https://gitlab.gnome.org/GNOME/libdex/-/archive/0.10.0/libdex-0.10.0.tar.gz"
+  sha256 "1795d8cb281df4e4d292725d4ed8982a424bf258f13e866bd1a3818c5bd4ea4c"
   license "LGPL-2.1-or-later"
   head "https://gitlab.gnome.org/GNOME/libdex.git", branch: "main"
 
@@ -30,13 +30,6 @@ class Libdex < Formula
   depends_on "pkgconf" => [:build, :test]
   depends_on "vala" => :build # for vapigen
   depends_on "glib"
-
-  # Guards a libatomic check that fails on macOS
-  # Upstream ref: https://gitlab.gnome.org/GNOME/libdex/-/merge_requests/21
-  patch do
-    url "https://gitlab.gnome.org/GNOME/libdex/-/commit/24e6bddd32c7db70235bb1576c33731a26609ffb.diff"
-    sha256 "f7b0e4b92cd1a3cebfb1a62f5ffd74b7d77f550be74627311c3a29e8ad991cd4"
-  end
 
   def install
     args = %w[
