@@ -11,6 +11,15 @@ class Jaguar < Formula
     strategy :github_latest
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cdd3467da2c9acb517cc19d6ef0b4f1fbc2313b2828bbc8777a81b1c2a373742"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cdd3467da2c9acb517cc19d6ef0b4f1fbc2313b2828bbc8777a81b1c2a373742"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cdd3467da2c9acb517cc19d6ef0b4f1fbc2313b2828bbc8777a81b1c2a373742"
+    sha256 cellar: :any_skip_relocation, sonoma:        "beb26265c06c261c1b6aa0e8e32dc9285b160681c68d4cea899820ab873a4c23"
+    sha256 cellar: :any_skip_relocation, ventura:       "beb26265c06c261c1b6aa0e8e32dc9285b160681c68d4cea899820ab873a4c23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f46404fec602c9235fbcb1df08cb7d236eaa7a5c667789990d66d576c956ca31"
+  end
+
   depends_on "go" => :build
 
   def install
