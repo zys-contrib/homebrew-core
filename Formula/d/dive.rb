@@ -4,6 +4,7 @@ class Dive < Formula
   url "https://github.com/wagoodman/dive/archive/refs/tags/v0.12.0.tar.gz"
   sha256 "2b69b8d28220c66e2575a782a370a0c05077936ae3ce69180525412fcca09230"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bf611f1db98b6448498c325f832af72d2073dcf4341ed7d13b1e6c9a992d3704"
@@ -17,12 +18,6 @@ class Dive < Formula
   end
 
   depends_on "go" => :build
-
-  on_linux do
-    depends_on "gpgme" => :build
-    depends_on "pkgconf" => :build
-    depends_on "device-mapper"
-  end
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
