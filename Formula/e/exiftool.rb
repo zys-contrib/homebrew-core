@@ -14,13 +14,12 @@ class Exiftool < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bf0a297965b43e49f314d7e517031a6042b56e87e7c1aded5dab54892b518db2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "85e7cd59d232f2f68d991515a9aa292c70cc67c7f2f8f3add7927044347bab01"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f15e5fb708305cf1f845452f0cdf79f64c0453cf9575ec00dbe0e83b664acf9d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b4fa352aa6dedef57625d850dd1dfbe54e895a5b6cd95a5caa298668df2065b1"
-    sha256 cellar: :any_skip_relocation, ventura:       "69bd0f39288c627797e2169e51b3f29ae58a374f1c8c0e626b2d931a0fd7eb33"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9238991716985f3ead7fcd0055738c8ff691842dbcb6b4091f5494658f2ac37d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9038d59421449f5909515ab6a6c53a41ec5580ade1c722f28ad38f7ec2825f6c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "37c990988f852110496a00cf326f0219ec692e63bd611070d05c006980f048f9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "92be4c9bcf1a5cc15d0add39b99e4f5700370ada508249b6260bd16819f9f238"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8cd715cfc5873d8fb4896e96f23d2177aac470ee4967133f36a8af86483c97e9"
+    sha256 cellar: :any_skip_relocation, ventura:       "116d159c783674cb3c4f8e5b926793f9aa57deadabb09b90cf750468cfba0db7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "778d74fe43eebb6c5693be1b5ae560397129455717b50b9cb63512844aaf0b06"
   end
 
   depends_on "cmake" => :build
