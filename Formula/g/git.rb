@@ -12,12 +12,12 @@ class Git < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "93411cd96da6dceec87bf10ebbd97d28f175628bef0cb277ca9609c2cff37569"
-    sha256 arm64_sonoma:  "eddc3aeee81a51722bd6e4b6474146b3ee01dea958298604abbef7082578d735"
-    sha256 arm64_ventura: "8e6df03005d01a9059910399c38f00f3d1e548f3bf7634ee0aae4fb59e95d349"
-    sha256 sonoma:        "714f0ac2810a192f985ac3c56a761da485f584b46bc224b84e4d320fefbaae89"
-    sha256 ventura:       "4adaf7973e9079c6f2a5aa5696fb8eb60f5dbe0b036db05107a0f340b9aff8bf"
-    sha256 x86_64_linux:  "a21df5a7f11b40ff4f0600e8e7c73b9703cf23cb47ab2db52e27fe2a0e73d97b"
+    sha256 arm64_sequoia: "83df6cf802d005d34f131e88c8eea50c8ec6d8b9423953bde99ccfcdd1d53789"
+    sha256 arm64_sonoma:  "eb79df674513c1e717ca017d7f0a17b133848e290506bf6fddd679b7c34de3c9"
+    sha256 arm64_ventura: "c7929c0bf264ff32908bc84dfb3ceba14aa49e76fb5198378844aed57bf42849"
+    sha256 sonoma:        "a70ad86dbc6a66082eabba15d36bf99d98d143e132d1ab87bd3e9d0cebdd6cb5"
+    sha256 ventura:       "659039899bf999a8c461495e1d09f05a82fa4bb6ab88cdb4b33644a1269a1acc"
+    sha256 x86_64_linux:  "af9d9ec1116d609058099016b1a013b99cc60a6016dc80c5df12ab30560e3a5d"
   end
 
   depends_on "gettext"
