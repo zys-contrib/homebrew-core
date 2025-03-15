@@ -3,8 +3,8 @@ class Yamllint < Formula
 
   desc "Linter for YAML files"
   homepage "https://github.com/adrienverge/yamllint"
-  url "https://files.pythonhosted.org/packages/cc/b6/d17e75cc0b1b0a93cb04bb0b350c6ab10f48271f35897849c5d136b7a037/yamllint-1.36.0.tar.gz"
-  sha256 "3835a65994858679ea06fd998dd968c3f71935cd93742990405999d888e21130"
+  url "https://files.pythonhosted.org/packages/d8/1e/f08445d56c0d32551c9c7e8324888446ccc49ac021ca3b136ab384cef35a/yamllint-1.36.1.tar.gz"
+  sha256 "a287689daaafc301a80549b2d0170452ebfdcabd826e3fe3b4c66e322d4851fa"
   license "GPL-3.0-or-later"
   head "https://github.com/adrienverge/yamllint.git", branch: "master"
 
