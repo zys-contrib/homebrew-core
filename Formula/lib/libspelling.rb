@@ -1,10 +1,9 @@
 class Libspelling < Formula
   desc "Spellcheck library for GTK 4"
   homepage "https://gitlab.gnome.org/GNOME/libspelling"
-  url "https://gitlab.gnome.org/GNOME/libspelling/-/archive/0.4.6/libspelling-0.4.6.tar.bz2"
-  sha256 "5625bbb3db35e8163c71c66ae29308244543316d0aeb8489d942fab9afd9222d"
+  url "https://gitlab.gnome.org/GNOME/libspelling/-/archive/0.4.7/libspelling-0.4.7.tar.bz2"
+  sha256 "96fc2b1ae447536e00a6231541bb177a08fda6f30fdfeae68a0622040d82d827"
   license "LGPL-2.1-or-later"
-  revision 1
 
   bottle do
     sha256 arm64_sequoia: "8ef3a05b6182b74aeabd5566a2bd0a17fe4b2ef67e6763e6c1b99053309b99b1"
