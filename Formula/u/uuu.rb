@@ -4,6 +4,7 @@ class Uuu < Formula
   url "https://github.com/nxp-imx/mfgtools/releases/download/uuu_1.5.201/uuu_source-uuu_1.5.201.tar.gz"
   sha256 "c763b87ffdf10ac5499a0c319463759caa336bc6567b56d6d0ef448590c1a76d"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/nxp-imx/mfgtools.git", branch: "master"
 
   livecheck do
@@ -33,6 +34,12 @@ class Uuu < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
+
+  # cmake 4.0 build patch, upstream pr ref, https://github.com/nxp-imx/mfgtools/pull/467
+  patch do
+    url "https://github.com/nxp-imx/mfgtools/commit/2c712cb86478a3527145272f0cc96533f9386b7a.patch?full_index=1"
+    sha256 "220fd4a7d9f1abe957e621da486eabe6c8a35e61d4c3e6c5f54bcedcf0e13ed0"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
