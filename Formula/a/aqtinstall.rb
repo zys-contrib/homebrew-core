@@ -3,8 +3,8 @@ class Aqtinstall < Formula
 
   desc "Another unofficial Qt installer"
   homepage "https://github.com/miurahr/aqtinstall"
-  url "https://files.pythonhosted.org/packages/ab/e8/65c7eb453e2ee9fe433347b1f4af3d4a09dcf1a88ff78bf94fd009462f7f/aqtinstall-3.2.0.tar.gz"
-  sha256 "860b2fb20556229d2142ee38d2a6c96e32eecab267fbe3b13be50b9a3a1f3cba"
+  url "https://files.pythonhosted.org/packages/de/c6/4e122b226120407b76b473433b24a7628853ce4c4405ed3d56d52f8e6a9e/aqtinstall-3.2.1.tar.gz"
+  sha256 "80005d4f8eebd50487a87fec2de4d4f808bb72fc923026eef9e3575795f801bf"
   license "MIT"
 
   bottle do
@@ -19,8 +19,8 @@ class Aqtinstall < Formula
   depends_on "python@3.13"
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/52/f4/c64f8d746f61edb305afc057c58895d0ded4b01532472aff6a5e15ba4655/beautifulsoup4-4.13.2.tar.gz"
-    sha256 "da9184389e6848818cf31c970ba3cbe6f33c2b8fbabd70d5bd4a2bfa0c1c4272"
+    url "https://files.pythonhosted.org/packages/f0/3c/adaf39ce1fb4afdd21b611e3d530b183bb7759c9b673d60db0e347fd4439/beautifulsoup4-4.13.3.tar.gz"
+    sha256 "1bd32405dacc920b42b83ba01644747ed77456a65760e285fbc47633ceddaf8b"
   end
 
   resource "brotli" do
@@ -49,8 +49,8 @@ class Aqtinstall < Formula
   end
 
   resource "humanize" do
-    url "https://files.pythonhosted.org/packages/6a/40/64a912b9330786df25e58127194d4a5a7441f818b400b155e748a270f924/humanize-4.11.0.tar.gz"
-    sha256 "e66f36020a2d5a974c504bd2555cf770621dbdbb6d82f94a6857c0b1ea2608be"
+    url "https://files.pythonhosted.org/packages/5b/8c/4f2f0784d08a383b5de3d3b1d65a6f204cc5dc487621c91c550388d756af/humanize-4.12.1.tar.gz"
+    sha256 "1338ba97415c96556758a6e2f65977ed406dddf4620d4c6db9bbdfd07f0f1232"
   end
 
   resource "idna" do
@@ -74,8 +74,8 @@ class Aqtinstall < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/1f/5a/07871137bb752428aa4b659f910b399ba6f291156bdea939be3e96cae7cb/psutil-6.1.1.tar.gz"
-    sha256 "cf8496728c18f2d0b45198f06895be52f36611711746b7f30c464b422b50e2f5"
+    url "https://files.pythonhosted.org/packages/2a/80/336820c1ad9286a4ded7e845b2eccfcb27851ab8ac6abece774a6ff4d3de/psutil-7.0.0.tar.gz"
+    sha256 "7be9c3eba38beccb6495ea33afd982a44074b78f28c434a1f51cc07fd315c456"
   end
 
   resource "py7zr" do
@@ -89,8 +89,8 @@ class Aqtinstall < Formula
   end
 
   resource "pycryptodomex" do
-    url "https://files.pythonhosted.org/packages/11/dc/e66551683ade663b5f07d7b3bc46434bf703491dbd22ee12d1f979ca828f/pycryptodomex-3.21.0.tar.gz"
-    sha256 "222d0bd05381dd25c32dd6065c071ebf084212ab79bab4599ba9e6a3e0009e6c"
+    url "https://files.pythonhosted.org/packages/ba/d5/861a7daada160fcf6b0393fb741eeb0d0910b039ad7f0cd56c39afdd4a20/pycryptodomex-3.22.0.tar.gz"
+    sha256 "a1da61bacc22f93a91cbe690e3eb2022a03ab4123690ab16c46abb693a9df63d"
   end
 
   resource "pyppmd" do
