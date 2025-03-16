@@ -5,6 +5,7 @@ class Openrct2 < Formula
       tag:      "v0.4.20",
       revision: "1c1b6d4b26e0f7d564b00a4d10e1770b93bfbda7"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/OpenRCT2/OpenRCT2.git", branch: "develop"
 
   bottle do
@@ -23,7 +24,7 @@ class Openrct2 < Formula
   depends_on "duktape"
   depends_on "flac"
   depends_on "freetype"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "libogg"
   depends_on "libpng"
   depends_on "libvorbis"
