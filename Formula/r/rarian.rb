@@ -4,6 +4,7 @@ class Rarian < Formula
   url "https://gitlab.freedesktop.org/rarian/rarian/-/releases/0.8.6/downloads/assets/rarian-0.8.6.tar.bz2"
   sha256 "9d4f7873009d2e31b8b1ec762606b12bee5526e1fe75de48e9495382bfef2bea"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :homepage
