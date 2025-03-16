@@ -728,6 +728,7 @@ deadfinder
 deark
 debianutils
 decasify
+decompose
 define
 dehydrated
 delve
