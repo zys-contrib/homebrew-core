@@ -4,6 +4,7 @@ class Simdutf < Formula
   url "https://github.com/simdutf/simdutf/archive/refs/tags/v6.3.1.tar.gz"
   sha256 "7a36c37db8f6dd36e03b1e894075c15f54dac6d0fe45026090eb56b941fcadca"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/simdutf/simdutf.git", branch: "master"
 
   livecheck do
@@ -20,7 +21,7 @@ class Simdutf < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
 
   uses_from_macos "python" => :build
 
