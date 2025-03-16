@@ -2783,6 +2783,7 @@ pueue
 pug
 pugixml
 pulsarctl
+pumba
 punktf
 pure
 pure-ftpd
