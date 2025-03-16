@@ -4,6 +4,7 @@ class Zig < Formula
   url "https://ziglang.org/download/0.14.0/zig-0.14.0.tar.xz"
   sha256 "c76638c03eb204c4432ae092f6fa07c208567e110fbd4d862d131a7332584046"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://ziglang.org/download/"
@@ -32,6 +33,10 @@ class Zig < Formula
 
   # https://github.com/Homebrew/homebrew-core/issues/209483
   skip_clean "lib/zig/libc/darwin/libSystem.tbd"
+
+  # Fix linkage with libc++.
+  # https://github.com/ziglang/zig/pull/23264
+  patch :DATA
 
   def install
     llvm = deps.find { |dep| dep.name.match?(/^llvm(@\d+)?$/) }
@@ -106,3 +111,38 @@ class Zig < Formula
     assert_equal "Hello, world!", shell_output("./hello")
   end
 end
+
+__END__
+From 8f9216e7d10970c21fcda9e8fe6af91a7e0f7db9 Mon Sep 17 00:00:00 2001
+From: Michael Dusan <michael.dusan@gmail.com>
+Date: Mon, 10 Mar 2025 17:32:00 -0400
+Subject: [PATCH] macos stage3: add link support for system libc++
+
+- activates when -DZIG_SHARED_LLVM=ON
+- activates when llvm_config is used and --shared-mode is shared
+- otherwise vendored libc++ is used
+
+closes #23189
+---
+ build.zig | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/build.zig b/build.zig
+index 15762f0ae881..ea729f408f74 100644
+--- a/build.zig
++++ b/build.zig
+@@ -782,7 +782,13 @@ fn addCmakeCfgOptionsToExe(
+                 mod.linkSystemLibrary("unwind", .{});
+             },
+             .ios, .macos, .watchos, .tvos, .visionos => {
+-                mod.link_libcpp = true;
++                if (static or !std.zig.system.darwin.isSdkInstalled(b.allocator)) {
++                    mod.link_libcpp = true;
++                } else {
++                    const sdk = std.zig.system.darwin.getSdk(b.allocator, b.graph.host.result) orelse return error.SdkDetectFailed;
++                    const @"libc++" = b.pathJoin(&.{ sdk, "usr/lib/libc++.tbd" });
++                    exe.root_module.addObjectFile(.{ .cwd_relative = @"libc++" });
++                }
+             },
+             .windows => {
+                 if (target.abi != .msvc) mod.link_libcpp = true;
