@@ -15,6 +15,7 @@ activemq
 ad
 ada-url
 adapterremoval
+adaptivecpp
 adb-enhanced
 adios2
 adns
