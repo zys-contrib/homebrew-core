@@ -1,20 +1,20 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://wiki.gnome.org/Apps/Terminal/VTE"
-  url "https://download.gnome.org/sources/vte/0.78/vte-0.78.4.tar.xz"
-  sha256 "2dea4e412266592b6460a3fe4488f5e3d50712f139815790c0ecb44710f7e17e"
+  url "https://download.gnome.org/sources/vte/0.80/vte-0.80.0.tar.xz"
+  sha256 "267f63739765e568cf8113d0e2ee8f593028946187854bebe268c778e62647c8"
   license "LGPL-2.0-or-later"
-  revision 1
 
   bottle do
-    sha256 arm64_sequoia: "611afe0a8dad1445b2ccd59139731b0d27274b4f355781cb087944c96fc4ce94"
-    sha256 arm64_sonoma:  "f924c2f69b6c48e6f4f6630bf89a46af6cd8672abb992fa64987880988f0734a"
-    sha256 arm64_ventura: "8e4b04daf51ec10f85160c150747b32b48249589489a668f8ec565383fce5afd"
-    sha256 sonoma:        "88270d57094a08936b9e472deb60113efd5b6b0dd8bef3283b29ad63d824a9ca"
-    sha256 ventura:       "04305fb0746b9f545466f90b0cfd533b36d242aca233179ba4448c3ee5436e65"
-    sha256 x86_64_linux:  "20d612959ffc55a1b1bb87e40c7c50725a80731a39727773bae37bd257dae51c"
+    sha256 arm64_sequoia: "edc7df783b940b6a482335fbddd5cf1a978b80650be547e8587dcb7240cafa56"
+    sha256 arm64_sonoma:  "bf02222d695ac6660c000c0b92ba95da607efafee6e14786a321293ea5230515"
+    sha256 arm64_ventura: "d170211ed1164f6bb27bc7d6709ea806537a601bbcb11dc76cfb633c4a4630f0"
+    sha256 sonoma:        "7052726aa28bfc89db5a9c76e3c6c7a0fe92975e8e48868cb58e505dca9bd2d7"
+    sha256 ventura:       "76cda9814b676ff2e56e9805099d7eb137fb5e3ce33b7ab51c4cb4c09c494f04"
+    sha256 x86_64_linux:  "d103ff999020e4eb23266239d59e57786219c2e1f092dcfaf42ad6506817a0d2"
   end
 
+  depends_on "fast_float" => :build
   depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
@@ -40,33 +40,20 @@ class Vte3 < Formula
   uses_from_macos "python" => :build
 
   on_macos do
-    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1500
     depends_on "gettext"
-    # Undefined symbols for architecture x86_64:
-    #   "std::__1::__libcpp_verbose_abort(char const*, ...)", referenced from: ...
-    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1400
+  end
 
-    # Use fast_float implementation for from_chars
-    # upstream bug report, https://gitlab.gnome.org/GNOME/vte/-/issues/2823
-    # TODO: Investigate using the `fast_float` formula instead of the one bundled here.
-    patch do
-      url "https://gitlab.gnome.org/kraj/vte/-/commit/2a32e43e43b04771a3357d3d4ccbafa7714e0114.diff"
-      sha256 "f69f103b19de93f94fca05dea5a151b4109085ce716472acddb9a112502437d4"
-    end
-    patch do
-      url "https://gitlab.gnome.org/kraj/vte/-/commit/705e019713539bdaf2c50763ba585484c6253a59.diff"
-      sha256 "d09c512852a65a81f56b07c013ee0cc0c17b9dcbf63d9fcc2ac58173092bb80b"
+  on_ventura :or_older do
+    depends_on "llvm" => :build
+
+    fails_with :clang do
+      cause "error: 'to_chars' is unavailable: introduced in macOS 13.3"
     end
   end
 
   on_linux do
     depends_on "linux-headers@5.15" => :build
     depends_on "systemd"
-  end
-
-  fails_with :clang do
-    build 1500
-    cause "Requires C++20"
   end
 
   fails_with :gcc do
@@ -78,21 +65,7 @@ class Vte3 < Formula
   patch :DATA
 
   def install
-    if OS.mac? && DevelopmentTools.clang_build_version <= 1500
-      llvm = Formula["llvm"]
-      ENV.llvm_clang
-      if DevelopmentTools.clang_build_version <= 1400
-        ENV.prepend "LDFLAGS", "-L#{llvm.opt_lib}/c++ -L#{llvm.opt_lib} -lunwind"
-      else
-        # Avoid linkage to LLVM libunwind. Should have been handled by superenv but still occurs
-        ENV.remove "HOMEBREW_LIBRARY_PATHS", llvm.opt_lib
-      end
-    end
-
-    if ENV.compiler == :clang
-      ENV.append "CXXFLAGS", "-stdlib=libc++"
-      ENV.append "LDFLAGS", "-stdlib=libc++"
-    end
+    ENV.llvm_clang if OS.mac? && MacOS.version <= :ventura
 
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
@@ -108,8 +81,6 @@ class Vte3 < Formula
   end
 
   test do
-    ENV.clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1500)
-
     (testpath/"test.c").write <<~C
       #include <vte/vte.h>
 
@@ -118,11 +89,11 @@ class Vte3 < Formula
         return 0;
       }
     C
-    flags = shell_output("pkg-config --cflags --libs vte-2.91").chomp.split
+    flags = shell_output("pkgconf --cflags --libs vte-2.91").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
 
-    flags = shell_output("pkg-config --cflags --libs vte-2.91-gtk4").chomp.split
+    flags = shell_output("pkgconf --cflags --libs vte-2.91-gtk4").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
