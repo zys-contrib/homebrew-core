@@ -3,7 +3,11 @@ class Veryfasttree < Formula
   homepage "https://github.com/citiususc/veryfasttree"
   url "https://github.com/citiususc/veryfasttree/archive/refs/tags/v4.0.4.tar.gz"
   sha256 "27c779164f4fa0c75897a6e95b35f820a2a10e7c244b8923c575e0ea46f15f6b"
-  license "GPL-3.0-only"
+  license all_of: [
+    "GPL-3.0-only",
+    "BSD-3-Clause", # libs/cli11
+    "MPL-2.0", # libs/bxzstr
+  ]
   head "https://github.com/citiususc/veryfasttree.git", branch: "master"
 
   bottle do
@@ -19,19 +23,30 @@ class Veryfasttree < Formula
   depends_on "cmake" => :build
   depends_on "robin-map" => :build
   depends_on "xxhash" => :build
-  depends_on "libomp"
+
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "libomp"
+  end
+
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DUSE_SHARED=ON", "-DUSE_NATIVE=OFF", *std_cmake_args
+    # remove libraries that can be unbundled
+    rm_r(Dir["libs/*"] - ["libs/CLI11", "libs/bxzstr"])
+
+    args = ["-DUSE_SHARED=ON"]
+    args << "-DUSE_NATIVE=OFF" if ENV.effective_arch != :native
+    args << "-DUSE_SEE4=ON" if Hardware::CPU.intel? && OS.mac? && MacOS.version.requires_sse41?
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     man1.install "man/VeryFastTree.1"
   end
 
   test do
-    (testpath/"test.fasta").write <<~EOS
+    (testpath/"test.fasta").write <<~FASTA
       >N3289
       --RNRSCRRDNTNGQDLQAALAIFAAKVYVGVALQSVQVAAGIGKHPVYKHIPSKKYTGL
       IIQELYLERLMAELADGLADAAPDVLLDIRGLMLALDAPAREKPIIL-LHLAASAGDALR
@@ -87,7 +102,7 @@ class Veryfasttree < Formula
       VTLESYLESIVAGLYA-GATKAPNLLQAVLILFLNVVGFALLHPGALLLTMAAVLHNELI
       GKLKEFSRELLERLAASVITGLAVPELTGDEGTLAAGVILMALLAALLLYLLLDPLLSGF
       SGDLPDSGLAVHA----
-    EOS
+    FASTA
     system bin/"VeryFastTree", "test.fasta"
   end
 end
