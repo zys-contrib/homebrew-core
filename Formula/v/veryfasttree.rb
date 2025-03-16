@@ -11,12 +11,13 @@ class Veryfasttree < Formula
   head "https://github.com/citiususc/veryfasttree.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "be966294bd7e7793920e064538c8f301d30cf36e836149151a7dc9749751699e"
-    sha256 cellar: :any,                 arm64_sonoma:  "ad4a872d4517fad3f3a1ee924c42cd529cc50583d1cd01267808a64f30122c33"
-    sha256 cellar: :any,                 arm64_ventura: "5feeb83511115643cddc8bd05cea9b8215606d1e39edb9eba23028c5d646a02e"
-    sha256 cellar: :any,                 sonoma:        "84f8d609b53f4eccf0471604f90098e8a2e9525cc1eb8a942a0a9896f405bcf5"
-    sha256 cellar: :any,                 ventura:       "b675c4443158d46942e000086a79e1b3d8262ffb9703d9dd23ae256fea2895d8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93bc3678c5bc47c3f3a82b01e6a81ce7c247119fa1086cd1c5c1bafa4f979720"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "3b4f10da88fbaf21f6082772ddc623d10f9cff34d3be95ac45924baf5c17769b"
+    sha256 cellar: :any,                 arm64_sonoma:  "ff5e59bfbcad12d6870b9409386bb11501d3713444863286c576abc8ebfac815"
+    sha256 cellar: :any,                 arm64_ventura: "3a1062d7ed565cb1429d559ed74b54473320305f26268bd76d2733121f2ff77d"
+    sha256 cellar: :any,                 sonoma:        "8d2e08a346280fa22e36641d702d1fc7feb5a95cd37d94b6e213171379c9a63e"
+    sha256 cellar: :any,                 ventura:       "f5c4898142258d22a2f9eb459596656de0a4f446a9c6fa68926b2d56b4b6cef5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9055dc85be8ca2fc65b2f47f13c8bd6d38427f6ee8f92f1128e502cb538dc341"
   end
 
   depends_on "boost" => :build
