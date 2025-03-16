@@ -4,7 +4,7 @@ class Libzim < Formula
   url "https://github.com/openzim/libzim/archive/refs/tags/9.2.3.tar.gz"
   sha256 "7c6e7fcaf5bc82447edb12c6c573779af6d77b3b79227da57586e81c4e13f1bf"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any, arm64_sequoia: "00a0a3a9e17a6cf09d3de5ff755527249bff3d816f99a5adb1d6afa47968fba9"
@@ -19,7 +19,7 @@ class Libzim < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
 
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "xapian"
   depends_on "xz"
   depends_on "zstd"
