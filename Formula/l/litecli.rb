@@ -3,8 +3,8 @@ class Litecli < Formula
 
   desc "CLI for SQLite Databases with auto-completion and syntax highlighting"
   homepage "https://github.com/dbcli/litecli"
-  url "https://files.pythonhosted.org/packages/f6/77/6b62be09298a72ba9381d7350658b657ab96a737f815f767b6516dc3e4e4/litecli-1.14.4.tar.gz"
-  sha256 "abdfcd75f6c5fb42aa9e6e0c409ae84090998b105cf875ae0b157a1f1ba5653b"
+  url "https://files.pythonhosted.org/packages/7b/22/fdcf997419c9e359da587d2fddd4a7d0cc18783c3f0b08ca179bef5efd04/litecli-1.15.0.tar.gz"
+  sha256 "3285997f57b2d72dc70e9856cb302cddd8de07b0cebf5c90a60ecd20a053cd79"
   license "BSD-3-Clause"
 
   bottle do
@@ -16,8 +16,8 @@ class Litecli < Formula
   uses_from_macos "sqlite"
 
   resource "cli-helpers" do
-    url "https://files.pythonhosted.org/packages/ab/de/79529bd31c1664415d9554c0c5029f2137afe9808f35637bbcca977d9022/cli_helpers-2.3.1.tar.gz"
-    sha256 "b82a8983ceee21f180e6fd0ddb7ca8dae43c40e920951e3817f996ab204dae6a"
+    url "https://files.pythonhosted.org/packages/f9/7c/3344a9b856b9582df36c7a525f5710294f349499d16dcbf343453f70bdb8/cli_helpers-2.4.0.tar.gz"
+    sha256 "55903b705a212a473731db20fa26f58655e354078b99cb13c99ec06940287a4d"
   end
 
   resource "click" do
