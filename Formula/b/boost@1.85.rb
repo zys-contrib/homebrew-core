@@ -4,7 +4,7 @@ class BoostAT185 < Formula
   url "https://github.com/boostorg/boost/releases/download/boost-1.85.0/boost-1.85.0-b2-nodocs.tar.xz"
   sha256 "09f0628bded81d20b0145b30925d7d7492fd99583671586525d5d66d4c28266a"
   license "BSL-1.0"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "663d20076d5f0eca3aeaaad6e8b3dfb7face08b889e7aaf534205bb06c599d84"
@@ -17,7 +17,7 @@ class BoostAT185 < Formula
 
   keg_only :versioned_formula
 
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "xz"
   depends_on "zstd"
 
