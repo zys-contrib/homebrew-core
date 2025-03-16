@@ -71,7 +71,6 @@ class Trailscraper < Formula
     sha256 "cab66d3380cca3e70939ef2255d01cd8aece6a4907a9528740f668c4b0611861"
   end
 
-  # setuptools explicitly added due to https://github.com/flosell/trailscraper/issues/602
   resource "setuptools" do
     url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
     sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
