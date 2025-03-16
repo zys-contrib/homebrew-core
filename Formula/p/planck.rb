@@ -4,7 +4,7 @@ class Planck < Formula
   url "https://github.com/planck-repl/planck/archive/refs/tags/2.28.0.tar.gz"
   sha256 "44f52e170d9a319ec89d3f7a67a7bb8082354f3da385a83bd3c7ac15b70b9825"
   license "EPL-1.0"
-  revision 2
+  revision 3
   head "https://github.com/planck-repl/planck.git", branch: "master"
 
   bottle do
@@ -20,7 +20,7 @@ class Planck < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on xcode: :build
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "libzip"
 
   uses_from_macos "vim" => :build # for xxd
