@@ -1383,6 +1383,7 @@ gtk4
 gtkmm4
 gtksourceview5
 gtranslator
+gtree
 gucharmap
 guile
 guile-fibers
