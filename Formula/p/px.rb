@@ -4,8 +4,8 @@ class Px < Formula
   desc "Ps and top for human beings (px / ptop)"
   homepage "https://github.com/walles/px"
   url "https://github.com/walles/px.git",
-      tag:      "3.6.7",
-      revision: "fd13adf8defba0418efdb0dbdb7ce9df4be3d92a"
+      tag:      "3.6.9",
+      revision: "e4c9737b03ba8533cc3428524effe1028bd4a7ce"
   license "MIT"
 
   bottle do
@@ -25,8 +25,6 @@ class Px < Formula
   conflicts_with "pixie", because: "both install `px` binaries"
 
   def install
-    system "python3", "devbin/update_version_py.py"
-
     virtualenv_install_with_resources
 
     man1.install Dir["doc/*.1"]
