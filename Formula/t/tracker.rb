@@ -6,7 +6,7 @@ class Tracker < Formula
       tag:      "3.6.0",
       revision: "624ef729966f2d9cf748321bd7bac822489fa8ed"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
-  revision 3
+  revision 4
 
   bottle do
     sha256 arm64_sequoia: "7bc9ae43638dc877591fddf360e63423faca1c263a80eaec7016c56c526c7891"
@@ -26,7 +26,7 @@ class Tracker < Formula
 
   depends_on "dbus"
   depends_on "glib"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "json-glib"
   depends_on "libsoup"
   depends_on "sqlite"
