@@ -95,6 +95,7 @@ appwrite
 apr
 apt
 aptly
+aqtinstall
 aqua
 aravis
 arcade-learning-environment
