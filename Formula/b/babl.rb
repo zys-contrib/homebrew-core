@@ -1,8 +1,8 @@
 class Babl < Formula
   desc "Dynamic, any-to-any, pixel format translation library"
   homepage "https://www.gegl.org/babl/"
-  url "https://download.gimp.org/pub/babl/0.1/babl-0.1.110.tar.xz"
-  sha256 "bf47be7540d6275389f66431ef03064df5376315e243d0bab448c6aa713f5743"
+  url "https://download.gimp.org/pub/babl/0.1/babl-0.1.112.tar.xz"
+  sha256 "fb696682421787c8fecc83e8aab48121dec8ee38d119b65291cfcbe315028a79"
   license "LGPL-3.0-or-later"
   # Use GitHub instead of GNOME's git. The latter is unreliable.
   head "https://github.com/GNOME/babl.git", branch: "master"
@@ -29,6 +29,12 @@ class Babl < Formula
   depends_on "pkgconf" => :build
   depends_on "vala" => :build
   depends_on "little-cms2"
+
+  uses_from_macos "libffi" => :build # to add to PKG_CONFIG_PATH for glib
+
+  on_linux do
+    depends_on "util-linux" => :build # to add to PKG_CONFIG_PATH for glib
+  end
 
   def install
     system "meson", "setup", "build", "-Dwith-docs=false", *std_meson_args
