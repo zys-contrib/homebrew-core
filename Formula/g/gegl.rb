@@ -12,12 +12,12 @@ class Gegl < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "a785f128328733feb0b406241d69cef44bee86a6e6fcdf38e4f305c7d6736c90"
-    sha256 arm64_sonoma:  "c28fad7c14e1b73fe7faab66b1c07cde024a679ddf70a9458458af2aa11bf9ca"
-    sha256 arm64_ventura: "d7aac72171fcf4bd621ee47d07d962e3f0748c17cd26443c452c75df60e9d365"
-    sha256 sonoma:        "ec04339a372756e2b4159e9954d2555282518f80058f87a8b4a3e555a8b5b3c8"
-    sha256 ventura:       "dddc5322ed23341f623259cc8656a42cf669f219b8aa2d84f7d0c146a9c58c8f"
-    sha256 x86_64_linux:  "604c85171d76a5724f55b96d71abda65fdbc0dd532f4be2ea13caaca650b1c79"
+    sha256 arm64_sequoia: "8e762d3968390721fd9e20b8d719b7c7fb0f5f86dc317555ece92a2c8a5dba9b"
+    sha256 arm64_sonoma:  "63af32d6c0be7cc58488ca3e56f452c696cb3b4f380e524b011525bdf30d458b"
+    sha256 arm64_ventura: "aeec62033b2069abfa708d8e747404b7a45a89e84e64621d2ab5acff64463ea3"
+    sha256 sonoma:        "5b75460c53c04b6468f61c0a54bccd955f9b3c16c71e35bed5382bc33c8a3b33"
+    sha256 ventura:       "391b52930fb2942495ff33d4da88507ed81a60ed57d77dbaa33132952a63cf6d"
+    sha256 x86_64_linux:  "b466a750a9522784d94dbe13ef96b1ff660def99d7c38534791863e5dfbf514c"
   end
 
   depends_on "gettext" => :build
