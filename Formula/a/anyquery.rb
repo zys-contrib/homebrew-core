@@ -6,6 +6,15 @@ class Anyquery < Formula
   license "AGPL-3.0-only"
   head "https://github.com/julien040/anyquery.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b5b6e24b8e94777dccc686edf15b2969d75c6aca82695ad1da949196693f8020"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f467fd2cf8d7f6f65b86b9f4f2bf8cce8030b9391fda28ddc49d07105ad70770"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9fd1f6bc159bdaba1c5b72aaf46acb641d3cadeef4b99c34a8245611d9563698"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6cd293246bffc75773851e498c7a4e0f3965230e9440706d3eea6cafcce68559"
+    sha256 cellar: :any_skip_relocation, ventura:       "263847bc660b69f116e926987bf4a570688cd036b5fc5b15b129976af44b4777"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f979906506f75715e4a8f47b77e1722c43b3d01891b31907db0d512a77b6a7f"
+  end
+
   depends_on "go" => :build
 
   def install
