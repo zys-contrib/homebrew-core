@@ -4,6 +4,7 @@ class Tarantool < Formula
   url "https://download.tarantool.org/tarantool/src/tarantool-3.3.1.tar.gz"
   sha256 "c0f9d2160da2fa73a7dfb7e87d064d35554bf90358464e4c4ab9cced4695264e"
   license "BSD-2-Clause"
+  revision 1
   version_scheme 1
   head "https://github.com/tarantool/tarantool.git", branch: "master"
 
@@ -25,7 +26,7 @@ class Tarantool < Formula
 
   depends_on "cmake" => :build
   depends_on "curl" # curl 8.4.0+
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "libyaml"
   depends_on "openssl@3"
   depends_on "readline"
