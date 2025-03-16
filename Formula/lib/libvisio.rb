@@ -12,12 +12,12 @@ class Libvisio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c15aee39fd82305afa238f8b1c75202284ff9b0d5d261226343ffcd53cdb0064"
-    sha256 cellar: :any,                 arm64_sonoma:  "983ffaa320faf381b16d3f1593ba000e7d8e18cbd39501a06191a6f29c553a36"
-    sha256 cellar: :any,                 arm64_ventura: "0f6f5116ca551ef8b0f5139d49de28f4e45fe192954f38ba4606608f17dbb3b4"
-    sha256 cellar: :any,                 sonoma:        "6a5606558f7bf409f7efd1787a1337895d2b2f4db4cf256a8b138e5f0114322a"
-    sha256 cellar: :any,                 ventura:       "f954859d9ab8bac097995131b4322e10cbe544fe2fc21f75493b0fd9b04d0334"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c94de8e456f793629b0325a003292735f212e9ddcdd18dee9dc3f6c74845981"
+    sha256 cellar: :any,                 arm64_sequoia: "b1d82aaa71ed70e5c67c507843c5e0ad1e7ed0baa1ddb0d65c92f382d2f209b8"
+    sha256 cellar: :any,                 arm64_sonoma:  "548d6e3a65308733f84b62d945aa751a23498898250d2d9d10fc58d6af475d85"
+    sha256 cellar: :any,                 arm64_ventura: "4cc867e8cbb1c6db5fceb6c50ccd440c90b7bccc9a71b4d251c4815ba69cc6c5"
+    sha256 cellar: :any,                 sonoma:        "59b2d3c7b44168b3778795e95f730e361ad392107ff4de14a2ef4356234a2bc8"
+    sha256 cellar: :any,                 ventura:       "cd2c9346d09b98e85f7bcee3da6571d6391b7456fc5feb61ba212ce9b8a7c68a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc9f80d9caf8b35a27876747278ec7dc4247de6ff8f06c96cec900a5a09167c0"
   end
 
   depends_on "boost" => :build
