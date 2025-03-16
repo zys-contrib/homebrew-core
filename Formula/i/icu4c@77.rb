@@ -17,6 +17,15 @@ class Icu4cAT77 < Formula
     end
   end
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "19f6b5fef0cdf1dfc7f136ca103348ec8530ffdf8012273f6ee4a6159cdfaf75"
+    sha256 cellar: :any,                 arm64_sonoma:  "f2b3a9d78e046b3b1ca1f06227272c0ea25490bd8efa4c98a33ffdcc734452ff"
+    sha256 cellar: :any,                 arm64_ventura: "425a38eb7a7a1bb54dd25ac58194ef89d79caf1777a01fb244ed37487c1f7d80"
+    sha256 cellar: :any,                 sonoma:        "54d609febedd08e8a4a825435d85f6d4db045f586523edb8965434e8e9c93fa6"
+    sha256 cellar: :any,                 ventura:       "6f04d1757707495212ff68722bab629766329874ef7d0531e756903dff5022cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f82d4ca07fbdcf99cb5553ae9cf298bbff475a465f13e1c5d934dcbcb1e14741"
+  end
+
   keg_only :shadowed_by_macos, "macOS provides libicucore.dylib (but nothing else)"
 
   def install
