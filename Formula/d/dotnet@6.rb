@@ -6,6 +6,7 @@ class DotnetAT6 < Formula
       tag:      "v6.0.136",
       revision: "d638663530d923adbe0442604b7a6562127321e9"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "50966bc99116591a7fcfd12df0791a5865cb5829cf39a6ce23f0c6f904a67c0c"
@@ -22,7 +23,7 @@ class DotnetAT6 < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "python@3.13" => :build
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "openssl@3"
 
   uses_from_macos "llvm" => :build
