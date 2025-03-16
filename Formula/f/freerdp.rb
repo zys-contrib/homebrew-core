@@ -4,6 +4,7 @@ class Freerdp < Formula
   url "https://github.com/FreeRDP/FreeRDP/releases/download/3.14.0/freerdp-3.14.0.tar.gz"
   sha256 "f475cf586292e0f8460f241755b6ae4dcd499c8115191d533c305f2867367074"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 arm64_sequoia: "9907a1b94790e14b5c00ee19604a2d0e36741f7e203c634d40a042c1cef81fa7"
@@ -45,7 +46,7 @@ class Freerdp < Formula
   on_linux do
     depends_on "alsa-lib"
     depends_on "glib"
-    depends_on "icu4c@76"
+    depends_on "icu4c@77"
     depends_on "krb5"
     depends_on "libfuse"
     depends_on "systemd"
