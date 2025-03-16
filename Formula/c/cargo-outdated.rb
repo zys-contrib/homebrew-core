@@ -1,15 +1,9 @@
 class CargoOutdated < Formula
   desc "Cargo subcommand for displaying when Rust dependencies are out of date"
   homepage "https://github.com/kbknapp/cargo-outdated"
-  # We use crates.io url since the corresponding GitHub tag is missing. This is the latest
-  # release as the official installation method of `cargo install --locked cargo-outdated`
-  # pulls same source from crates.io. v0.15.0+ is needed to avoid an older unsupported libgit2.
-  # We can switch back to GitHub releases when upstream decides to upload.
-  # Issue ref: https://github.com/kbknapp/cargo-outdated/issues/388
-  url "https://static.crates.io/crates/cargo-outdated/cargo-outdated-0.16.0.crate"
-  sha256 "965d39dfcc7afd39a0f2b01e282525fc2211f6e8acc85f1ee27f704420930678"
+  url "https://github.com/kbknapp/cargo-outdated/archive/refs/tags/v0.17.0.tar.gz"
+  sha256 "6c1c6914f34d3c0d9ebf26b74224fa6744a374e876b35f9836193c2b03858fa4"
   license "MIT"
-  revision 1
   head "https://github.com/kbknapp/cargo-outdated.git", branch: "master"
 
   bottle do
@@ -33,6 +27,7 @@ class CargoOutdated < Formula
     ENV["LIBGIT2_NO_VENDOR"] = "1"
     ENV["OPENSSL_NO_VENDOR"] = "1"
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+
     system "cargo", "install", *std_cargo_args
   end
 
