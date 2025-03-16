@@ -1,8 +1,8 @@
 class Html2markdown < Formula
   desc "Convert HTML to Markdown"
   homepage "https://html-to-markdown.com"
-  url "https://github.com/JohannesKaufmann/html-to-markdown/archive/refs/tags/v2.3.0.tar.gz"
-  sha256 "39b0078fc5deff3990a3fbaab43083ca083fc562ea73302a1d7583495c4699e2"
+  url "https://github.com/JohannesKaufmann/html-to-markdown/archive/refs/tags/v2.3.1.tar.gz"
+  sha256 "27d6f6bd8e261ba614079942b1bbd967264208f2269b2da12881ec3d594573eb"
   license "MIT"
   head "https://github.com/JohannesKaufmann/html-to-markdown.git", branch: "main"
 
