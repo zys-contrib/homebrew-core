@@ -11,6 +11,7 @@ class QtAT5 < Formula
   mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.16/single/qt-everywhere-opensource-src-5.15.16.tar.xz"
   sha256 "efa99827027782974356aceff8a52bd3d2a8a93a54dd0db4cca41b5e35f1041c"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
+  revision 1
 
   livecheck do
     url "https://download.qt.io/official_releases/qt/5.15/"
@@ -64,7 +65,7 @@ class QtAT5 < Formula
     depends_on "expat"
     depends_on "fontconfig"
     depends_on "harfbuzz"
-    depends_on "icu4c@76"
+    depends_on "icu4c@77"
     depends_on "libdrm"
     depends_on "libevent"
     depends_on "libice"
