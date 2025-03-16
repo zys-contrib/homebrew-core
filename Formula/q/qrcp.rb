@@ -1,8 +1,8 @@
 class Qrcp < Formula
   desc "Transfer files to and from your computer by scanning a QR code"
   homepage "https://qrcp.sh"
-  url "https://github.com/claudiodangelis/qrcp/archive/refs/tags/v0.11.4.tar.gz"
-  sha256 "d8f860a22fd0a1a450b6f5c449cf4c10a47f1c70ae0196898f866bb7618ec6c7"
+  url "https://github.com/claudiodangelis/qrcp/archive/refs/tags/v0.11.5.tar.gz"
+  sha256 "3eb98c08062c3056425ec997c25cd0c7de9492f016c083d540bd83bf68ed914f"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class Qrcp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c60d772f6858493e7cf3b1f32e29fa634dece4a22624df5ae6d2ba93172025b0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c60d772f6858493e7cf3b1f32e29fa634dece4a22624df5ae6d2ba93172025b0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c60d772f6858493e7cf3b1f32e29fa634dece4a22624df5ae6d2ba93172025b0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "23786e9d1e6633643a2ff886208d483a2da9944bf5adcf0b23c7e01107ae5a33"
-    sha256 cellar: :any_skip_relocation, ventura:       "23786e9d1e6633643a2ff886208d483a2da9944bf5adcf0b23c7e01107ae5a33"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f9e828594359fe1fe0ba1ef8ac8390c0969190dbbc622afe2960dbc26f66fbd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "15adbe49e05094652fa17a1b6099f6e2e213d2bad52e5952ac65a57f57066322"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "15adbe49e05094652fa17a1b6099f6e2e213d2bad52e5952ac65a57f57066322"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "15adbe49e05094652fa17a1b6099f6e2e213d2bad52e5952ac65a57f57066322"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cd6ab4e941c7b5b82b0f09ea0667899877925020a9cb1bb5ff6e7939d745819b"
+    sha256 cellar: :any_skip_relocation, ventura:       "cd6ab4e941c7b5b82b0f09ea0667899877925020a9cb1bb5ff6e7939d745819b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f66311bb89610d7cf99b367ca4383514c660e4bba980d192fb6b2fe948aeb097"
   end
 
   depends_on "go" => :build
