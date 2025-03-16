@@ -5,6 +5,7 @@ class SpidermonkeyAT115 < Formula
   version "115.21.0"
   sha256 "ff118b1d6d17cefe8eef08bba74ae0d47939010d21afdbaadd8859fd4016b674"
   license "MPL-2.0"
+  revision 1
 
   # Spidermonkey versions use the same versions as Firefox, so we simply check
   # Firefox ESR release versions.
@@ -27,7 +28,7 @@ class SpidermonkeyAT115 < Formula
   depends_on "pkgconf" => :build
   depends_on "python@3.11" => :build # https://bugzilla.mozilla.org/show_bug.cgi?id=1857515
   depends_on "rust" => :build
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "nspr"
   depends_on "readline"
 
