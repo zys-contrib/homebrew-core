@@ -4,6 +4,7 @@ class PostgresqlAT16 < Formula
   url "https://ftp.postgresql.org/pub/source/v16.8/postgresql-16.8.tar.bz2"
   sha256 "9468083a56ce0ee7d294601b74dad3dd9fc69d87aff61f0a9fb63c813ff7efd8"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -26,7 +27,7 @@ class PostgresqlAT16 < Formula
 
   depends_on "gettext" => :build
   depends_on "pkgconf" => :build
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
 
   # GSSAPI provided by Kerberos.framework crashes when forked.
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
