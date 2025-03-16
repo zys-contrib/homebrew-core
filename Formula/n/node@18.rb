@@ -4,6 +4,7 @@ class NodeAT18 < Formula
   url "https://nodejs.org/dist/v18.20.7/node-v18.20.7.tar.xz"
   sha256 "9a89659fad80c1b6da33d29f43f5865483ccb1952ddad434ee22f8193607277f"
   license "MIT"
+  revision 1
 
   # Remove livecheck on 2025-04-30
   livecheck do
@@ -31,7 +32,7 @@ class NodeAT18 < Formula
   depends_on "python@3.13" => :build
   depends_on "brotli"
   depends_on "c-ares"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "openssl@3"
