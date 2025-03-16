@@ -74,6 +74,7 @@ antidote
 antlr
 antlr4-cpp-runtime
 anycable-go
+anyquery
 aom
 apache-drill
 apache-flink
