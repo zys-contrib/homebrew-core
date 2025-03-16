@@ -1254,6 +1254,7 @@ gmime
 gmsh
 gnmic
 gnome-autoar
+gnome-builder
 gnu-apl
 gnu-getopt
 gnu-typist
