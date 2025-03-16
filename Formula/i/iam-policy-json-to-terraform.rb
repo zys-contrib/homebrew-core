@@ -1,8 +1,8 @@
 class IamPolicyJsonToTerraform < Formula
   desc "Convert a JSON IAM Policy into terraform"
   homepage "https://github.com/flosell/iam-policy-json-to-terraform"
-  url "https://github.com/flosell/iam-policy-json-to-terraform/archive/refs/tags/1.9.0.tar.gz"
-  sha256 "e6bdaa4643ff61b2affdb71ac6008bc9857863affb9cdcc7519f07208ffa5953"
+  url "https://github.com/flosell/iam-policy-json-to-terraform/archive/refs/tags/1.9.1.tar.gz"
+  sha256 "5943b0a352758d4a6e9d7d759fd10af24f42abe7012b862cf92048b6dc6e15fb"
   license "Apache-2.0"
   head "https://github.com/flosell/iam-policy-json-to-terraform.git", branch: "master"
 
