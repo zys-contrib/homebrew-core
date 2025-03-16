@@ -8,12 +8,12 @@ class Aqtinstall < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "82f9597cabf10586c985245754d44cefde95b6164e40429490201e1c3cd6b5d8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a59ae26ba6e67eea4f8217e10321334a79a5eeb90c7c51e08a86fd6bedcd73cb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "271e56eec17151de23fac4c80cfc254fa755ce5d35136505c939932680296bde"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d22d23a4eceaffad925b0f5eb1c18fc48bf4516c5da2dbb7f054c3b70f9d5a0c"
-    sha256 cellar: :any_skip_relocation, ventura:       "30a32db7a9a714e03fed45fea75e69639162734eb816d5538c741fe90a18887b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a47ce5dd04e96e80d699c9041e6285ebeedf32d80eade48fece3b5a333e35fc2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6bae085ca061fadbcbf0d15c6e1fc5a36776dd51e62161bd89e0a2b05e786b2e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "18587357a412fa3e04beb885a50eda950ff5346e682ac082612548a35b7a5ca9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "602f0515af58cced1f36ac5e133172e40f7c8a19df70dd544cf5c224f607410d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "25dbc8e783e9558de958fca4a5b88ed4d00be16633762117ab966d5c78a9918d"
+    sha256 cellar: :any_skip_relocation, ventura:       "d404a32e21f3a5e5bdc86f316afc0577e21605db9fa4af30a6d26dc28ccf4e21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ebd32bd548797fff9f1d3d66d72941a6bf61fead384f965fded846449fd490f"
   end
 
   depends_on "python@3.13"
