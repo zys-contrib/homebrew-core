@@ -330,6 +330,9 @@
     "exclude_packages": ["certifi", "cryptography", "numpy", "pillow", "puremagic"],
     "extra_packages": ["androguard<4", "python-magic"]
   },
+  "fiona": {
+    "exclude_packages": ["certifi"]
+  },
   "flintrock": {
     "exclude_packages": ["cryptography"]
   },

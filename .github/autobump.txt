@@ -1040,6 +1040,7 @@ findent
 findomain
 findutils
 fio
+fiona
 firebase-cli
 firefly
 firefoxpwa
