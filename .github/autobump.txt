@@ -2089,6 +2089,7 @@ luau
 lucky-commit
 ludusavi
 luit
+lume
 lune
 lunzip
 lutok

@@ -1,10 +1,10 @@
 class Lume < Formula
   desc "Create and manage Apple Silicon-native virtual machines"
-  homepage "https://github.com/trycua/lume"
-  url "https://github.com/trycua/lume/archive/refs/tags/v0.1.9.tar.gz"
-  sha256 "6be0e43366187b753c4f9645d20e27ffda5b06092ef8db0ac798707932bf5373"
+  homepage "https://github.com/trycua/computer"
+  url "https://github.com/trycua/computer/archive/refs/tags/v0.1.11.tar.gz"
+  sha256 "a02948bf158db28c18def79e20549780d9d16ba59dd5dd7b9f0a76d8652a85a4"
   license "MIT"
-  head "https://github.com/trycua/lume.git", branch: "main"
+  head "https://github.com/trycua/computer.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e4df79bd82fda01c6eadfad7575496c8c888cab6a007e72ae22014547db7e225"
@@ -16,9 +16,13 @@ class Lume < Formula
   depends_on :macos
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release", "--product", "lume"
-    system "/usr/bin/codesign", "-f", "-s", "-", "--entitlement", "resources/lume.entitlements", ".build/release/lume"
-    bin.install ".build/release/lume"
+    cd "libs/lume" do
+      system "swift", "build", "--disable-sandbox", "-c", "release", "--product", "lume"
+      system "/usr/bin/codesign", "-f", "-s", "-",
+             "--entitlement", "resources/lume.entitlements",
+             ".build/release/lume"
+      bin.install ".build/release/lume"
+    end
   end
 
   test do
