@@ -7,6 +7,15 @@ class Rasterio < Formula
   sha256 "201f05dbc7c4739dacb2c78a1cf4e09c0b7265b0a4d16ccbd1753ce4f2af350a"
   license "BSD-3-Clause"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "78c22b105ddfe5627305ac933da41a879b078f0678696837dc34453bd4a9aaf1"
+    sha256 cellar: :any,                 arm64_sonoma:  "c0772d77c4daf508c53825cba58a5e6619ca380b05a8033a21176f7ffc97967d"
+    sha256 cellar: :any,                 arm64_ventura: "a7f901287973fee54bbbe87c7a98f71cd790e2b941c87118469cc45d6768062d"
+    sha256 cellar: :any,                 sonoma:        "08dcd483af2d7e48cebf0bdb69c0e881d77eb8cdc00f131dd3ffb7e27fb112fa"
+    sha256 cellar: :any,                 ventura:       "b11fc4d43981cd10e892d7a023ad165697ef0205d3a8d29ce5ba4fcd8d29d604"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb48e6529ce61237e5da0d9f80b495289a53cc7e772d6ed4cc3af55a9f9f0de5"
+  end
+
   depends_on "cmake" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
