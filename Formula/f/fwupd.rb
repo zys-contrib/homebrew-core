@@ -6,7 +6,7 @@ class Fwupd < Formula
   url "https://github.com/fwupd/fwupd/releases/download/2.0.6/fwupd-2.0.6.tar.xz"
   sha256 "57d91327c4541490ce731f24d4bcd5301ba7561e264db2f0a4031f48e6d6dae2"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
   head "https://github.com/fwupd/fwupd.git", branch: "main"
 
   bottle do
