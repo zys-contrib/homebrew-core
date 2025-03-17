@@ -2885,6 +2885,7 @@ rancher-cli
 ranger
 rapidfuzz-cpp
 rapidyaml
+rasterio
 ratarmount
 ratchet
 ratfor
