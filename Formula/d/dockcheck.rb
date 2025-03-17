@@ -6,6 +6,10 @@ class Dockcheck < Formula
   license "GPL-3.0-only"
   head "https://github.com/mag37/dockcheck.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "e2bfd6f23a61930d729b915a2ff87721aa397b4793c0d7e1c6ccfba231bbaf5c"
+  end
+
   depends_on "jq"
   depends_on "regclient"
 
