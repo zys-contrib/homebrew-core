@@ -7,12 +7,12 @@ class LibspellingAT02 < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "2cd2a76ecb4d0c55efe4f3ad8f58bc8a6a8c077bc453ef004f0285aa071a24a2"
-    sha256 cellar: :any, arm64_sonoma:  "b652f34c8392f88a799e5285224b9af15781c556b4badd43b93d0689e55e91cb"
-    sha256 cellar: :any, arm64_ventura: "9bac22470da786b43ab4cee4811ec97315593e6ca65a845cb50ceab4cbcdae2e"
-    sha256 cellar: :any, sonoma:        "b9696d798a8832c3ecf34dd3cac5f7213b830e6f37ce80bb2013a44449673b3d"
-    sha256 cellar: :any, ventura:       "6d90b748623f6bca87717ef60777ac623a3a12478c234af42acb24c44b116ed7"
-    sha256               x86_64_linux:  "524fb06ad25e8e6a8ca34c3cdde8a9089557b17bac93039aeefb3f357cd0c5fa"
+    sha256 cellar: :any, arm64_sequoia: "2743f798c8a8ab3afa19842bdddb996e868736ec1d95b324e18994b987625773"
+    sha256 cellar: :any, arm64_sonoma:  "87bcb552532a3c890664a0b16a858ff766f49fc595ced5b8a5c387da2e3c4ce3"
+    sha256 cellar: :any, arm64_ventura: "3fd146874edb16cefef9b8b2288fdcfbe0ef6811ee8e2d87635e6eb13acb2eb2"
+    sha256 cellar: :any, sonoma:        "00d924b8e7f5cd27fbbe087e60a343c5a10617ac99d3605340eac21d0e31c171"
+    sha256 cellar: :any, ventura:       "611812775575e4302a6612301a51d6036dc14dbbd4c031d848446e89219f08c5"
+    sha256               x86_64_linux:  "624143b2d621071b4239dbdf74b9adde6f7da4a8cbc42742bdee7435fd187749"
   end
 
   keg_only :versioned_formula
