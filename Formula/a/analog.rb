@@ -1,8 +1,8 @@
 class Analog < Formula
   desc "Logfile analyzer"
   homepage "https://www.c-amie.co.uk/software/analog/"
-  url "https://github.com/c-amie/analog-ce/archive/refs/tags/6.0.17.tar.gz"
-  sha256 "0e5794c2eaa5826dc014916e413e90eb2714a646ff8d6ec026437182d789b117"
+  url "https://github.com/c-amie/analog-ce/archive/refs/tags/6.0.18.tar.gz"
+  sha256 "6c5d3f05643196b64eadeccb7b5063e2508c0155ac34c1fe848f6d055c371933"
   license "GPL-2.0-only"
   head "https://github.com/c-amie/analog-ce.git", branch: "master"
 
@@ -23,7 +23,8 @@ class Analog < Formula
   depends_on "gd"
   depends_on "jpeg-turbo"
   depends_on "libpng"
-  depends_on "pcre"
+  depends_on "minizip"
+  depends_on "pcre2"
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
@@ -33,8 +34,10 @@ class Analog < Formula
       "CC=#{ENV.cc}",
       "CFLAGS=#{ENV.cflags}",
       %Q(DEFS='-DLANGDIR="#{pkgshare}/lang/"' -DHAVE_GD -DHAVE_ZLIB -DHAVE_BZLIB -DHAVE_PCRE),
-      "LIBS=-lgd -lpng -ljpeg -lz -lbz2 -lpcre -lm",
+      "LIBS=-lgd -lpng -ljpeg -lz -lbz2 -lpcre2-8 -lminizip -lm",
       "OS=#{OS.mac? ? "OSX" : "UNIX"}",
+      "SUBDIRS=libgd",
+      "SUBDIROBJS=libgd/gdfontf.o",
     ]
     system "make", *args
 
