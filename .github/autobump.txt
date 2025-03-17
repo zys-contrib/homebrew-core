@@ -3617,6 +3617,7 @@ verovio
 versitygw
 vet
 vexctl
+vfkit
 vfox
 vgmstream
 vgrep
