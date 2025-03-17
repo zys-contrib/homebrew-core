@@ -1394,6 +1394,7 @@ gupnp
 gupnp-av
 gupnp-tools
 gurk
+gut
 gwt
 gwyddion
 gxml
