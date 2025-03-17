@@ -1,8 +1,8 @@
 class Cdxgen < Formula
   desc "Creates CycloneDX Software Bill-of-Materials (SBOM) for projects"
   homepage "https://github.com/CycloneDX/cdxgen"
-  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-11.2.1.tgz"
-  sha256 "dddacdc2ca8ed2b0ede47fb7de64c699d4831fbe0b3e07dc2d23c928120aa711"
+  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-11.2.2.tgz"
+  sha256 "4952a313c611dc7a2341d97dc28d1809fc2e7cfb7bb9858b53353ba4fd2a16e0"
   license "Apache-2.0"
 
   bottle do
