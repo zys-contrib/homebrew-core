@@ -799,6 +799,7 @@ dnstwist
 dnsx
 doc8
 docfx
+dockcheck
 docker-buildx
 docker-compose
 docker-credential-helper
