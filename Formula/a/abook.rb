@@ -1,14 +1,22 @@
 class Abook < Formula
   desc "Address book with mutt support"
   homepage "https://abook.sourceforge.io/"
-  url "https://abook.sourceforge.io/devel/abook-0.6.1.tar.gz"
-  sha256 "f0a90df8694fb34685ecdd45d97db28b88046c15c95e7b0700596028bd8bc0f9"
-  license all_of: ["GPL-2.0-only", "GPL-2.0-or-later", "GPL-3.0-or-later", :public_domain, "X11"]
+  license all_of: [
+    "GPL-3.0-only",
+    "GPL-2.0-or-later",  # mbswidth.c
+    "LGPL-2.0-or-later", # getopt.c
+    "BSD-2-Clause",      # xmalloc.c
+    "BSD-4.3RENO",       # ldif.c
+  ]
   head "https://git.code.sf.net/p/abook/git.git", branch: "master"
 
-  livecheck do
-    url :homepage
-    regex(/href=.*?abook[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  stable do
+    url "https://git.code.sf.net/p/abook/git.git",
+        tag:      "ver_0_6_2",
+        revision: "a243d4a18a64f4ee188191a797b34f60d4ff852f"
+
+    # Backport include from https://sourceforge.net/p/abook/git/ci/39484721c44629fb1f54d92f09c92ef4c3201302/
+    patch :DATA
   end
 
   bottle do
@@ -39,9 +47,6 @@ class Abook < Formula
   end
 
   def install
-    # fix "undefined symbols" error caused by C89 inline behaviour
-    inreplace "database.c", "inline int", "int"
-
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
@@ -51,3 +56,17 @@ class Abook < Formula
     system bin/"abook", "--formats"
   end
 end
+
+__END__
+diff --git a/database.c b/database.c
+index 384223e..eb9b4b0 100644
+--- a/database.c
++++ b/database.c
+@@ -12,6 +12,7 @@
+ #include <string.h>
+ #include <unistd.h>
+ #include <assert.h>
++#include <ctype.h>
+ #ifdef HAVE_CONFIG_H
+ #      include "config.h"
+ #endif
