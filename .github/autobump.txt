@@ -3402,6 +3402,7 @@ terminator
 termscp
 terracognita
 terraform-cleaner
+terraform-iam-policy-validator
 terraform-inventory
 terraform-local
 terraform-ls
