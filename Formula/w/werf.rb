@@ -42,13 +42,13 @@ class Werf < Formula
       tags = %w[
         dfrunsecurity dfrunnetwork dfrunmount dfssh containers_image_openpgp
         osusergo exclude_graphdriver_devicemapper netgo no_devmapper static_build
-      ].join(" ")
+      ]
     else
       ldflags = "-s -w -X github.com/werf/werf/v2/pkg/werf.Version=#{version}"
       tags = "dfrunsecurity dfrunnetwork dfrunmount dfssh containers_image_openpgp"
     end
 
-    system "go", "build", *std_go_args(ldflags:), "-tags", tags, "./cmd/werf"
+    system "go", "build", *std_go_args(ldflags:, tags:), "./cmd/werf"
 
     generate_completions_from_executable(bin/"werf", "completion")
   end
