@@ -7,8 +7,8 @@ class Lume < Formula
   head "https://github.com/trycua/computer.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "89ff53f20fb71a898cce25d8d52acf63bf806defc7be2bf5315442510b8510f8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "98c1bf7b95da61037616926f8d1c34472ece46e2f6af069a09e5406c4fdbb709"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f0ad7f2b1d8082b8b14b7333db4bfe6d15cdbb38e60533ee0abb08aac94fdca3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "925c088d9fac2dd064adc507061306ed62a9b3db0701159b26cf7558514ca7e6"
   end
 
   depends_on xcode: ["16.0", :build]
