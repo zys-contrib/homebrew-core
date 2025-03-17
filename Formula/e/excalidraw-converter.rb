@@ -6,6 +6,15 @@ class ExcalidrawConverter < Formula
   license "MIT"
   head "https://github.com/sindrel/excalidraw-converter.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "763dc4bb5ee943e4410d0e62ce974df086fb30c9880aad434931d5ec7ee315b9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "763dc4bb5ee943e4410d0e62ce974df086fb30c9880aad434931d5ec7ee315b9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "763dc4bb5ee943e4410d0e62ce974df086fb30c9880aad434931d5ec7ee315b9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "922fa0d2076dab8305a8b3272be219dca5b5df39f1fe1fac65399406bfe000bb"
+    sha256 cellar: :any_skip_relocation, ventura:       "922fa0d2076dab8305a8b3272be219dca5b5df39f1fe1fac65399406bfe000bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd5c567b5a6222f47ad7af9c470e806c5518d85dd37bdd614859217a0b6b7ad6"
+  end
+
   depends_on "go" => :build
 
   def install
