@@ -341,7 +341,7 @@
   },
   "fonttools": "fonttools[woff]",
   "forbidden": {
-    "exclude_packages": ["certifi"]
+    "exclude_packages": ["certifi", "cffi", "cryptography", "pycparser"]
   },
   "fwupd": {
     "package_name": "",
