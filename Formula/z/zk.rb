@@ -28,7 +28,8 @@ class Zk < Formula
 
   def install
     ldflags = "-s -w -X main.Version=#{version} -X main.Build=#{tap.user}"
-    system "go", "build", *std_go_args(ldflags:), "-tags", "fts5,icu"
+    tags = %w[fts5 icu]
+    system "go", "build", *std_go_args(ldflags:, tags:)
   end
 
   test do
