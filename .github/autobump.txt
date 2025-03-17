@@ -992,7 +992,6 @@ fanyi
 fast_float
 fastapi
 fastd
-fastfec
 fastfetch
 fastlane
 fastly
