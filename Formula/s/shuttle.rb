@@ -6,6 +6,15 @@ class Shuttle < Formula
   license "Apache-2.0"
   head "https://github.com/lunarway/shuttle.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "414eba11f78301d309539025b2a9bee382861c85a6ffb60a8d6088eccf49f309"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "414eba11f78301d309539025b2a9bee382861c85a6ffb60a8d6088eccf49f309"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "414eba11f78301d309539025b2a9bee382861c85a6ffb60a8d6088eccf49f309"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bc4f871490cdf6db9bf94893d38fec42bcf43c112551bd5be81a0a0881208467"
+    sha256 cellar: :any_skip_relocation, ventura:       "bc4f871490cdf6db9bf94893d38fec42bcf43c112551bd5be81a0a0881208467"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c99e855c6690a5fbe1c25e42989b914ecd974f185c6229d83796dae55ad870f7"
+  end
+
   depends_on "go" => :build
 
   def install
