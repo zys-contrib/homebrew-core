@@ -7,12 +7,12 @@ class Cyctl < Formula
   head "https://github.com/cyclops-ui/cyclops.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3c042b3a0bef33eb9bf8321d455213a0b44d58debd960c149a54a7a999be0f90"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3c042b3a0bef33eb9bf8321d455213a0b44d58debd960c149a54a7a999be0f90"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3c042b3a0bef33eb9bf8321d455213a0b44d58debd960c149a54a7a999be0f90"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ecd0f900c7651b24cddaefc67baa37e63bedd7aa9e6b56c43f3dc83ebc71c9bb"
-    sha256 cellar: :any_skip_relocation, ventura:       "ecd0f900c7651b24cddaefc67baa37e63bedd7aa9e6b56c43f3dc83ebc71c9bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d91d1d79d60bc0c2497f0f31db6d1d6245c985f14085698ff8ae206c2f0ab89"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "144ae5b7fc8944c1939b6582db7ad26f0459ce767f861cf0af40c2dffac598b1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "144ae5b7fc8944c1939b6582db7ad26f0459ce767f861cf0af40c2dffac598b1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "144ae5b7fc8944c1939b6582db7ad26f0459ce767f861cf0af40c2dffac598b1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "177270fc4276e2c73513191dbf51afd63848ec8c97263acf47e000a11a331882"
+    sha256 cellar: :any_skip_relocation, ventura:       "177270fc4276e2c73513191dbf51afd63848ec8c97263acf47e000a11a331882"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb863aa4609e00c735786834f2320b77f4bcdaa5432bb508be15275e32fd2b5c"
   end
 
   depends_on "go" => :build
