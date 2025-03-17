@@ -7,6 +7,15 @@ class Fiona < Formula
   sha256 "b00ae357669460c6491caba29c2022ff0acfcbde86a95361ea8ff5cd14a86b68"
   license "BSD-3-Clause"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "4788e6cf99582a5fcf1e4abce4daf43ff504482a19193e84804aab2a55b252f9"
+    sha256 cellar: :any,                 arm64_sonoma:  "2d4556ca589bb67a2926ab0795e7301014c40b554ac540d0f1179c20f47eb6c7"
+    sha256 cellar: :any,                 arm64_ventura: "69bf18aeb4f2097080198331df624d1c0cb3cc513aaae674bc6b9a96f5ef7eb6"
+    sha256 cellar: :any,                 sonoma:        "0503bf091d2469c634b4e9adcd1006694fd0bb8a94b4e6303f7174047e97f202"
+    sha256 cellar: :any,                 ventura:       "0eb27e2fa495234f3a09126af55384b4fb98ce50cffac8274ea398dad91f3bf0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b9ecbc80ed54a93dc848950821fdb15a292b9589da5acc1250b33eb4bf1faa3"
+  end
+
   depends_on "certifi"
   depends_on "gdal"
   depends_on "python@3.13"
