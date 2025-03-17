@@ -7,12 +7,12 @@ class Arelo < Formula
   head "https://github.com/makiuchi-d/arelo.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "004dda4498091c9e31eed59807f4c927f4a6bb691f97102604c7f81e6dc3f32c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "004dda4498091c9e31eed59807f4c927f4a6bb691f97102604c7f81e6dc3f32c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "004dda4498091c9e31eed59807f4c927f4a6bb691f97102604c7f81e6dc3f32c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b8656cef98a651a508f92fb61044308241002f8e8804b3ddc8922a4efc26cc9d"
-    sha256 cellar: :any_skip_relocation, ventura:       "b8656cef98a651a508f92fb61044308241002f8e8804b3ddc8922a4efc26cc9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "00a84420a3ed2428661d3a81a173872cce1aeea4a6ca383e11ba48a047f557cc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8a65cd591d58a5581dd46a35489a1564b65fb085da85d282ab055565879d4cfb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a65cd591d58a5581dd46a35489a1564b65fb085da85d282ab055565879d4cfb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8a65cd591d58a5581dd46a35489a1564b65fb085da85d282ab055565879d4cfb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c70fc1419c521df1d984b9461606e07390a68940e037f4faba5f44ff6b892c08"
+    sha256 cellar: :any_skip_relocation, ventura:       "c70fc1419c521df1d984b9461606e07390a68940e037f4faba5f44ff6b892c08"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e4d715cba448b13d5d7fca0275a00e858d12d225440f33df060b07ff20d68a0"
   end
 
   depends_on "go" => :build
