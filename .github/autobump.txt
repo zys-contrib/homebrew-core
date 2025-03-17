@@ -1822,6 +1822,7 @@ libbpf
 libbsd
 libcap
 libcap-ng
+libcbor
 libcdr
 libcec
 libchewing
