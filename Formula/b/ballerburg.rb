@@ -1,15 +1,10 @@
 class Ballerburg < Formula
   desc "Castle combat game"
-  homepage "https://baller.tuxfamily.org/"
-  url "https://download.tuxfamily.org/baller/ballerburg-1.2.2.tar.gz"
-  sha256 "8e001efa44b70a9a51041a6ce39a2b01d9d3135d2ec54ca54196fc34f164914e"
+  homepage "https://baller.frama.io/"
+  url "https://framagit.org/baller/ballerburg/-/archive/v1.2.3/ballerburg-v1.2.3.tar.bz2"
+  sha256 "2e55087c70e10a827a270493732d3928f8fb0abb6b583661f80cbbe1efac80f7"
   license "GPL-3.0-or-later"
-  head "https://git.tuxfamily.org/baller/baller.git", branch: "master"
-
-  livecheck do
-    url :homepage
-    regex(/href=.*?ballerburg[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  head "https://framagit.org/baller/ballerburg.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "18e27b920964203d30abe78eaf1ad8b3542b9ad1dca97303841f0cf2a83f0b8d"
