@@ -1,8 +1,8 @@
 class Binaryen < Formula
   desc "Compiler infrastructure and toolchain library for WebAssembly"
   homepage "https://webassembly.org/"
-  url "https://github.com/WebAssembly/binaryen/archive/refs/tags/version_121.tar.gz"
-  sha256 "93f3b3d62def4aee6d09b11e6de75b955d29bc37878117e4ed30c3057a2ca4b4"
+  url "https://github.com/WebAssembly/binaryen/archive/refs/tags/version_122.tar.gz"
+  sha256 "53f01137c3c420e691f4e7fc781896c24eb4da2bc064a5c8a7495d073c3740e2"
   license "Apache-2.0"
   head "https://github.com/WebAssembly/binaryen.git", branch: "main"
 
