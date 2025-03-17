@@ -7,6 +7,15 @@ class TerraformIamPolicyValidator < Formula
   sha256 "f43359ee0478f10e7b27a3fb7282c284304615cc6f06fd5aa3aa631edbe4811a"
   license "MIT-0"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "579fbf421d2560b9ad43d93f3549e559c099f3811ff09fc62b2ea1637855a0b6"
+    sha256 cellar: :any,                 arm64_sonoma:  "947eca6f3676c6544d596b46c713ba5316c510a2f6b325fdd7d9d0b0bc1b8e13"
+    sha256 cellar: :any,                 arm64_ventura: "b89e2714f23a60a4ddf0fe2719c93a31264a8ecb528549418a978b44a658c8ff"
+    sha256 cellar: :any,                 sonoma:        "4d1256d5c37bf22b127cefc065b33a6a5fbfd46da050044f04ce17b9e23d8b4d"
+    sha256 cellar: :any,                 ventura:       "a3653d4fd8972af3496ebecf50946dca9a12e5e09b208254a4968e4b612565c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f630df08d4441513159d5853e5a8eda4d964b436cd5cc3a636ebd64baae400b"
+  end
+
   depends_on "libyaml"
   depends_on "python@3.13"
 
