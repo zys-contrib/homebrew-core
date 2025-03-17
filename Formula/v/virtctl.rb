@@ -1,8 +1,8 @@
 class Virtctl < Formula
   desc "Allows for using more advanced kubevirt features"
   homepage "https://kubevirt.io/"
-  url "https://github.com/kubevirt/kubevirt/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "19d6624f4f7268062b38f535a0315674f3e6f37550a4a0af9861b7a146dbe0f1"
+  url "https://github.com/kubevirt/kubevirt/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "35f3c1939ba8101c0566c277379b2badea557aa865cfcb843e52387aceca5470"
   license "Apache-2.0"
   head "https://github.com/kubevirt/kubevirt.git", branch: "main"
 
@@ -35,6 +35,6 @@ class Virtctl < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/virtctl version -c")
-    assert_match "connection refused", shell_output("#{bin}/virtctl userlist myvm", 1)
+    assert_match "connection refused", shell_output("#{bin}/virtctl userlist myvm 2>&1", 1)
   end
 end
