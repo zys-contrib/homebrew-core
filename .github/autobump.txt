@@ -170,7 +170,6 @@ avfs
 avrdude
 awk
 aws-amplify
-aws-auth
 aws-c-auth
 aws-c-cal
 aws-c-common
@@ -2166,7 +2165,6 @@ md2pdf
 md4c
 mdbook
 mdbtools
-mdcat
 mdds
 mdformat
 mdless
