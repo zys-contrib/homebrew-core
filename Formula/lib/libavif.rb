@@ -1,8 +1,8 @@
 class Libavif < Formula
   desc "Library for encoding and decoding .avif files"
   homepage "https://github.com/AOMediaCodec/libavif"
-  url "https://github.com/AOMediaCodec/libavif/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "2182f4900d1a9617cee89746922a58dd825f2a3547f23907b8d78dc3685f7d8c"
+  url "https://github.com/AOMediaCodec/libavif/archive/refs/tags/v1.2.1.tar.gz"
+  sha256 "9c859c7c12ccb0f407511bfe303e6a7247f5f6738f54852662c6df8048daddf4"
   license "BSD-2-Clause"
 
   bottle do
@@ -21,13 +21,6 @@ class Libavif < Formula
   depends_on "libpng"
 
   uses_from_macos "zlib"
-
-  # Review for removal on 1.2.1 release
-  # https://github.com/AOMediaCodec/libavif/issues/2653
-  patch do
-    url "https://github.com/AOMediaCodec/libavif/commit/7cc1dccabd45864dc0945882faa0348dcded847f.patch?full_index=1"
-    sha256 "904feeb044dc3e8dc9029764125333bcd3a48e400691f9c67f64929ab20cff89"
-  end
 
   def install
     args = %W[
