@@ -1,8 +1,8 @@
 class Mago < Formula
   desc "Toolchain for PHP to help developers write better code"
   homepage "https://github.com/carthage-software/mago"
-  url "https://github.com/carthage-software/mago/archive/refs/tags/0.20.2.tar.gz"
-  sha256 "a1ae5c465bfd98b1623cde74bca1806bd853fa4f7beff364144fa1d5ed6b6298"
+  url "https://github.com/carthage-software/mago/archive/refs/tags/0.20.3.tar.gz"
+  sha256 "750dad79619cb686e432dd76a54370d2cf2f8e663cd6718200c7352189582efb"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
