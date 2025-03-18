@@ -6,12 +6,12 @@ class Dockerize < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b57b9ebe03b3afde02bcbbd9e401eb03e6e1bc83c3a31550261f168b0b2ce9c0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b57b9ebe03b3afde02bcbbd9e401eb03e6e1bc83c3a31550261f168b0b2ce9c0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b57b9ebe03b3afde02bcbbd9e401eb03e6e1bc83c3a31550261f168b0b2ce9c0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7ad3c8b8755e27ad6b2b03a2cec3a44c48dc58ce030939c6ad25987a02266cf3"
-    sha256 cellar: :any_skip_relocation, ventura:       "7ad3c8b8755e27ad6b2b03a2cec3a44c48dc58ce030939c6ad25987a02266cf3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee13bb018a21a4b21f4cc93c689c2aa2d7b45cfde157345db8f58b3412f73f5e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d9678f32f8aa1cbb9ab471d09d55191d4c0d2a04af7888fed7512d37ae042e6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d9678f32f8aa1cbb9ab471d09d55191d4c0d2a04af7888fed7512d37ae042e6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2d9678f32f8aa1cbb9ab471d09d55191d4c0d2a04af7888fed7512d37ae042e6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9d911cdb52483e88d898e261ef49ed47cb3922edaef5b7c85c58c233244ab392"
+    sha256 cellar: :any_skip_relocation, ventura:       "9d911cdb52483e88d898e261ef49ed47cb3922edaef5b7c85c58c233244ab392"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5564e1ba66e1b6b143c2187d573f8accf0fc33f55bc69b22264ca9c8e423b2ac"
   end
 
   depends_on "go" => :build
