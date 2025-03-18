@@ -4,7 +4,7 @@ class EasyrpgPlayer < Formula
   url "https://easyrpg.org/downloads/player/0.8/easyrpg-player-0.8.tar.xz"
   sha256 "06e6d034348d1c52993d0be6b88fc3502a6c7718e366f691401539d5a2195c79"
   license "GPL-3.0-or-later"
-  revision 7
+  revision 8
 
   livecheck do
     url "https://easyrpg.org/player/downloads/"
@@ -21,7 +21,6 @@ class EasyrpgPlayer < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "expat"
   depends_on "fmt"
   depends_on "freetype"
   depends_on "harfbuzz"
@@ -36,6 +35,7 @@ class EasyrpgPlayer < Formula
   depends_on "sdl2"
   depends_on "speexdsp"
 
+  uses_from_macos "expat"
   uses_from_macos "zlib"
 
   on_macos do
