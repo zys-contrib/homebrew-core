@@ -2,8 +2,8 @@ class Argocd < Formula
   desc "GitOps Continuous Delivery for Kubernetes"
   homepage "https://argoproj.github.io/cd/"
   url "https://github.com/argoproj/argo-cd.git",
-      tag:      "v2.14.5",
-      revision: "f463a945d57267e9691cede37021d9ddc5994f36"
+      tag:      "v2.14.6",
+      revision: "fe2a6e91b61299a476cc25948cbb53eb1ca1cc14"
   license "Apache-2.0"
 
   # There can be a notable gap between when a version is tagged and a
