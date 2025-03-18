@@ -2,7 +2,7 @@ class Liblcf < Formula
   desc "Library for RPG Maker 2000/2003 games data"
   homepage "https://easyrpg.org/"
   license "MIT"
-  revision 5
+  revision 6
   head "https://github.com/EasyRPG/liblcf.git", branch: "master"
 
   stable do
@@ -13,6 +13,12 @@ class Liblcf < Formula
     patch do
       url "https://github.com/EasyRPG/liblcf/commit/8c782e54ba244981141d91e7d44922952563677c.patch?full_index=1"
       sha256 "593f729e7f9a5411e6d8548aaac0039e09eee437f525409a9ca8513a0ee15cd0"
+    end
+
+    # Backport CMake fix when using FindEXPAT
+    patch do
+      url "https://github.com/EasyRPG/liblcf/commit/a759e18d39cd73c0d2934896ed5c9520a9e1ca94.patch?full_index=1"
+      sha256 "4b34c80fbb80f388a3c08cf9e810a13c58e79c11671fc5064a54c1b6c0d5956d"
     end
   end
 
@@ -26,8 +32,9 @@ class Liblcf < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "expat" # Building against `liblcf` fails with `uses_from_macos`
   depends_on "icu4c@77"
+
+  uses_from_macos "expat"
 
   def install
     system "cmake", "-S", ".", "-B", "build",
