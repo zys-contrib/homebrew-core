@@ -1,8 +1,8 @@
 class Garnet < Formula
   desc "High-performance cache-store"
   homepage "https://microsoft.github.io/garnet/"
-  url "https://github.com/microsoft/garnet/archive/refs/tags/v1.0.59.tar.gz"
-  sha256 "69f9addeeea587aa47f2610d82eb9e7b3260ce02d6f9037cedc2a008d0ae031a"
+  url "https://github.com/microsoft/garnet/archive/refs/tags/v1.0.60.tar.gz"
+  sha256 "c9e4377f9996306d1eed9dbb5ba64306e99db2083cc43d32c2271d5a74e43c1e"
   license "MIT"
 
   bottle do
@@ -14,7 +14,7 @@ class Garnet < Formula
   end
 
   depends_on "redis" => :test
-  depends_on "dotnet@8"
+  depends_on "dotnet"
 
   on_linux do
     depends_on "cmake" => :build
@@ -32,7 +32,7 @@ class Garnet < Formula
       end
     end
 
-    dotnet = Formula["dotnet@8"]
+    dotnet = Formula["dotnet"]
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
