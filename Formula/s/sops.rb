@@ -4,7 +4,7 @@ class Sops < Formula
   url "https://github.com/getsops/sops/archive/refs/tags/v3.9.4.tar.gz"
   sha256 "3e0fc9a43885e849eba3b099d3440c3147ad0a0cd5dd77a9ef87c266a8488249"
   license "MPL-2.0"
-  head "https://github.com/getsops/sops.git", branch: "master"
+  head "https://github.com/getsops/sops.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "47fb0da48816583bb499374230d9a1eb3d568dbfb3e5dad262b2b416f13c71c6"
