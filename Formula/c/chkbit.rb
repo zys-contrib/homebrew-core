@@ -1,8 +1,8 @@
 class Chkbit < Formula
   desc "Check your files for data corruption"
   homepage "https://github.com/laktak/chkbit"
-  url "https://github.com/laktak/chkbit/archive/refs/tags/v6.2.0.tar.gz"
-  sha256 "faaf2d26d44a5a74855c40aabe07d6a41030c3fdfe1181993290ed04e9f62bb9"
+  url "https://github.com/laktak/chkbit/archive/refs/tags/v6.3.0.tar.gz"
+  sha256 "69b48926eb3bff15e8e7a1501d906e7ca84646275d47121399e7f3b10d629449"
   license "MIT"
   head "https://github.com/laktak/chkbit.git", branch: "master"
 
