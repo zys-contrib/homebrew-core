@@ -1,8 +1,8 @@
 class Apptainer < Formula
   desc "Application container and unprivileged sandbox platform for Linux"
   homepage "https://apptainer.org/"
-  url "https://github.com/apptainer/apptainer/releases/download/v1.3.6/apptainer-1.3.6.tar.gz"
-  sha256 "b5343369e7fdf67572f887d81f8d2b938f099fb39c876d96430d747935960d51"
+  url "https://github.com/apptainer/apptainer/releases/download/v1.4.0/apptainer-1.4.0.tar.gz"
+  sha256 "204cded54046547cb3eb4c7874bdf45892fedc58b0d104195c59d2972cba51d3"
   license "BSD-3-Clause"
 
   bottle do
