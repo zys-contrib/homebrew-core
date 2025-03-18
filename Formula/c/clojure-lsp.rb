@@ -2,18 +2,15 @@ class ClojureLsp < Formula
   desc "Language Server (LSP) for Clojure"
   homepage "https://github.com/clojure-lsp/clojure-lsp"
   url "https://github.com/clojure-lsp/clojure-lsp/releases/download/2025.03.07-17.42.36/clojure-lsp-standalone.jar"
-  version "20250307T174236"
+  version "2025.03.07-17.42.36"
   sha256 "671512207513256d93b516621122809ee04e4bbb36530ceaa534e00318e447b4"
   license "MIT"
+  version_scheme 1
   head "https://github.com/clojure-lsp/clojure-lsp.git", branch: "master"
 
   livecheck do
     url :stable
-    regex(%r{^(?:release[._-])?v?(\d+(?:[T/.-]\d+)+)$}i)
-    strategy :git do |tags, regex|
-      # Convert tags like `2021.03.01-19.18.54` to `20210301T191854` format
-      tags.filter_map { |tag| tag[regex, 1]&.delete(".")&.gsub(%r{[/-]}, "T") }
-    end
+    regex(/^v?(\d{4}(?:[.-]\d+)+)$/i)
   end
 
   bottle do
