@@ -6,6 +6,15 @@ class Nmstatectl < Formula
   license "Apache-2.0"
   head "https://github.com/nmstate/nmstate.git", branch: "base"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1a24fef699129063c836a235da8469c673702c8016227f4d67495631e64a4bf4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e3734bcae262aedff626fadde0742aae1bf323a1e5224529124d971538346982"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2edbf59b1594e54d90effb4a7286194cecb915b187ba9ed53454e428fb90d5cc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8197fe2b146f38d04a0bff498854dada75c745e56b3732675be0a7284e833959"
+    sha256 cellar: :any_skip_relocation, ventura:       "2bdb25f9adfc399727a0e1b59cd591253fc027c37fe479b25b3480de067832a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a616de452d02a243a04eba18b028dd90ca67ec0f8286d5367d6ed3613e8f1da1"
+  end
+
   depends_on "rust" => :build
 
   def install
