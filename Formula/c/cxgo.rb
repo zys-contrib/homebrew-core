@@ -1,8 +1,8 @@
 class Cxgo < Formula
   desc "Transpiling C to Go"
   homepage "https://github.com/gotranspile/cxgo"
-  url "https://github.com/gotranspile/cxgo/archive/refs/tags/v0.5.1.tar.gz"
-  sha256 "64252b1d02cf242212d028967a9d5e42a6b38e22a4386527319ebb320000f43f"
+  url "https://github.com/gotranspile/cxgo/archive/refs/tags/v0.5.2.tar.gz"
+  sha256 "942393dc381dcf47724c93b5d6c4cd7695c0000628ecb7f30c5b99be4676ae83"
   license "MIT"
   head "https://github.com/gotranspile/cxgo.git", branch: "main"
 
