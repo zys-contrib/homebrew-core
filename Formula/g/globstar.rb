@@ -6,12 +6,12 @@ class Globstar < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "86602cf26e12eee612048bd54f971415b520bb0c6688d1843b0aa8375fafa41c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "53d557d29358d9cad38c5c64196f32145478dc62f572e50172006d62097b1118"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ca1fe29b075c256b708942a0362b0bd057372f654a605cb0ec75ec2f3a89cbed"
-    sha256 cellar: :any_skip_relocation, sonoma:        "273386e83fdf02388d56e4b68347b579e151980ea5876c5235251281327209c9"
-    sha256 cellar: :any_skip_relocation, ventura:       "4834ae2163f809777e60b8e454b1a1f089dd441b911751f480d210784207475d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9936485bf91a145a15ad20b9dae1010d3a95dcf64aa8f5aa942efcad86873925"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "45ad2c11adc4c28da3836c15f22f4318c52d2a29e1dc28ac876cda068a88cc4a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "20b560b75268a0781a780c92176e46496630338906259c12225e5e6193d45ef2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c49dcaf5577a2e8ec134cecc760c7ee3a0206000c7cbc9292ade1c75b408f5f1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "116375d39499ba2150c9ec17c2615193770b6a57fec59f9031f19af84612862a"
+    sha256 cellar: :any_skip_relocation, ventura:       "0348cd49b847bbb725cb24380ff0eb75c28a87301253155b4ef0fd81a9c68254"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8bf25fdea6a172a3dbefff55a657439ea74d99ea08b8cbb307fb5dd36476bc93"
   end
 
   depends_on "go" => :build
