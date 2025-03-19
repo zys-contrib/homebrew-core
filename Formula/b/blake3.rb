@@ -1,8 +1,8 @@
 class Blake3 < Formula
   desc "C implementation of the BLAKE3 cryptographic hash function"
   homepage "https://github.com/BLAKE3-team/BLAKE3"
-  url "https://github.com/BLAKE3-team/BLAKE3/archive/refs/tags/1.6.1.tar.gz"
-  sha256 "1f2fbd93790694f1ad66eef26e23c42260a1916927184d78d8395ff1a512d285"
+  url "https://github.com/BLAKE3-team/BLAKE3/archive/refs/tags/1.7.0.tar.gz"
+  sha256 "59bb6f42ecf1bd136b40eaffe40232fc76488b03954ef25cb588404b8d66a7e0"
   license any_of: ["CC0-1.0", "Apache-2.0"]
 
   bottle do
