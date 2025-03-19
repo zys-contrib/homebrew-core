@@ -3471,6 +3471,7 @@ tkey-ssh-agent
 tlsx
 tml
 tmpmail
+tmpreaper
 tmt
 tmux-mem-cpu-load
 tmux-sessionizer
