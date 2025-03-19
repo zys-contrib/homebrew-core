@@ -1518,6 +1518,7 @@ imessage-exporter
 imgdiet
 imgp
 imgproxy
+imlib2
 immich-cli
 immich-go
 immortal
