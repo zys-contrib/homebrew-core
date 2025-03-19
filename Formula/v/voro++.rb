@@ -4,7 +4,7 @@ class Voroxx < Formula
   url "https://math.lbl.gov/voro++/download/dir/voro++-0.4.6.tar.gz"
   sha256 "ef7970071ee2ce3800daa8723649ca069dc4c71cc25f0f7d22552387f3ea437e"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://math.lbl.gov/voro++/download/"
@@ -28,6 +28,7 @@ class Voroxx < Formula
   end
 
   def install
+    inreplace "config.mk", "CFLAGS=", "CFLAGS=-fPIC " if OS.linux?
     system "make", "install", "PREFIX=#{prefix}"
     pkgshare.install("examples")
     mv prefix/"man", share/"man"
