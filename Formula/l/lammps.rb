@@ -27,12 +27,13 @@ class Lammps < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "89227eb8b499dbe9ba095bddba0801dda8a613e5f6872028b8c51e1f035ee87f"
-    sha256 cellar: :any,                 arm64_sonoma:  "465ccc4bcc1caf691fcf0df4f01acef665cd9e09dec5f6d6e891631afc7248cd"
-    sha256 cellar: :any,                 arm64_ventura: "1fa9cbca449a1efafdbc3dc8cc88c8089287fa5da226f1c7e414e536fe333ab5"
-    sha256 cellar: :any,                 sonoma:        "ad2879b677bcdb3713a8c1b97a29129b8608eada959fa45ec743262635c4a795"
-    sha256 cellar: :any,                 ventura:       "fb6d882f046e167118ff064db3e0bc8d4a164a3664d55c8f179150acdb19eceb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77ef1b3d53e70864197aaba1b3001abd15b756dacb0fea3359c8d916d4fd8528"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "68dadea5323f428530fce56d1ee3f59f1c198d781e7460a22ec4cc9f3f3f96a8"
+    sha256 cellar: :any,                 arm64_sonoma:  "724c532f8d3f41e5ecf955d9afd5a06dabe5b244bf953cc3877b668e7f7573fd"
+    sha256 cellar: :any,                 arm64_ventura: "af826f4ddd364978c779bc4d85d74ab47e19de0aad783c1f98cbf2c0085f5bbc"
+    sha256 cellar: :any,                 sonoma:        "e12baae2c10968d8eba18ea3e5db1b3de2fbac84cf6174add5628b8231a3b99e"
+    sha256 cellar: :any,                 ventura:       "6ee483146f85ba818c42f9fde3d019d90e2bbefea837878eade1251d97132286"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96fae09fc6dbb95cfa7c4506565cdcc9873ea710e3ddf38fc0361fc5cd18806b"
   end
 
   depends_on "cmake" => :build
@@ -45,6 +46,7 @@ class Lammps < Formula
   depends_on "kim-api"
   depends_on "libpng"
   depends_on "open-mpi"
+  depends_on "voro++"
 
   uses_from_macos "curl"
 
@@ -60,6 +62,7 @@ class Lammps < Formula
         "-C", "cmake/presets/nolib.cmake",
         "-DPKG_INTEL=no",
         "-DPKG_KIM=yes",
+        "-DPKG_VORONOI=yes",
         "-DLAMMPS_MACHINE=#{variant}",
         "-DBUILD_MPI=#{(variant == "mpi") ? "yes" : "no"}",
         "-DBUILD_OMP=#{(variant == "serial") ? "no" : "yes"}",
@@ -81,5 +84,9 @@ class Lammps < Formula
 
   test do
     system bin/"lmp_serial", "-in", pkgshare/"bench/in.lj"
+    output = shell_output("#{bin}/lmp_serial -h")
+    %w[KSPACE POEMS VORONOI].each do |pkg|
+      assert_match pkg, output
+    end
   end
 end
