@@ -4,16 +4,15 @@ class MinioMc < Formula
   url "https://github.com/minio/mc.git",
       tag:      "RELEASE.2025-03-12T17-29-24Z",
       revision: "c1d5d4cbb4caf05afef3ea06a91a56bd778336de"
-  version "20250312172924"
+  version "2025-03-12T17-29-24Z"
   license "AGPL-3.0-or-later"
+  version_scheme 1
   head "https://github.com/minio/mc.git", branch: "master"
 
   livecheck do
     url :stable
     regex(/^(?:RELEASE[._-]?)?([\dTZ-]+)$/i)
-    strategy :github_latest do |json, regex|
-      json["tag_name"]&.scan(regex)&.map { |match| match[0].tr("TZ-", "") }
-    end
+    strategy :github_latest
   end
 
   bottle do
@@ -34,7 +33,7 @@ class MinioMc < Formula
       system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"mc")
     else
       minio_release = stable.specs[:tag]
-      minio_version = minio_release.gsub("RELEASE.", "").chomp.gsub(/T(\d+)-(\d+)-(\d+)Z/, 'T\1:\2:\3Z')
+      minio_version = version.to_s.gsub(/T(\d+)-(\d+)-(\d+)Z/, 'T\1:\2:\3Z')
       proj = "github.com/minio/mc"
 
       ldflags = %W[
@@ -42,18 +41,15 @@ class MinioMc < Formula
         -X #{proj}/cmd.Version=#{minio_version}
         -X #{proj}/cmd.ReleaseTag=#{minio_release}
         -X #{proj}/cmd.CommitID=#{Utils.git_head}
+        -X #{proj}/cmd.CopyrightYear=#{version.major}
       ]
       system "go", "build", *std_go_args(ldflags:, output: bin/"mc")
     end
   end
 
   test do
-    assert_equal version.to_s,
-                 shell_output("#{bin}/mc --version 2>&1")
-                   .match(/(?:RELEASE[._-]?)?([\dTZ-]+)/)
-                   .to_s
-                   .gsub(/[^\d]/, ""),
-                 "`version` is incorrect"
+    output = shell_output("#{bin}/mc --version 2>&1")
+    assert_equal version.to_s, output[/(?:RELEASE[._-]?)?([\dTZ-]+)/, 1], "`version` is incorrect"
 
     system bin/"mc", "mb", testpath/"test"
     assert_path_exists testpath/"test"
