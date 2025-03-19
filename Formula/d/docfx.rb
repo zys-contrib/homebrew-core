@@ -13,6 +13,7 @@ class Docfx < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb3af6fd91667aa0f5f693eb9513a2aefa3ac3b8c5d607bb2ebc4af364a5b958"
   end
 
+  depends_on "node" => :build
   depends_on "dotnet"
 
   def install
@@ -34,6 +35,10 @@ class Docfx < Formula
       -p:TargetFrameworks=net#{dotnet.version.major_minor}
     ]
 
+    cd "templates" do
+      system "npm", "install", *std_npm_args(prefix: false)
+      system "npm", "run", "build"
+    end
     system "dotnet", "publish", "src/docfx", *args
 
     (bin/"docfx").write_env_script libexec/"docfx",
@@ -43,5 +48,6 @@ class Docfx < Formula
   test do
     system bin/"docfx", "init", "--yes", "--output", testpath/"docfx_project"
     assert_path_exists testpath/"docfx_project/docfx.json", "Failed to generate project"
+    assert_match "modern", shell_output("#{bin}/docfx template list")
   end
 end
