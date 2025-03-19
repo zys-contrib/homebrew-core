@@ -169,5 +169,6 @@
   "wires": "geckodriver",
   "wpcli-completion": "wp-cli-completion",
   "wxmac": "wxwidgets",
+  "xkeyboardconfig": "xkeyboard-config",
   "xu4": "scummvm"
 }
