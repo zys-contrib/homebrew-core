@@ -1,8 +1,8 @@
 class Senpai < Formula
   desc "Modern terminal IRC client"
   homepage "https://sr.ht/~delthas/senpai/"
-  url "https://git.sr.ht/~delthas/senpai/archive/v0.3.0.tar.gz"
-  sha256 "c02f63a7d76ae13ed888fc0de17fa9fd5117dcb3c9edc5670341bf2bf3b88718"
+  url "https://git.sr.ht/~delthas/senpai/archive/v0.4.0.tar.gz"
+  sha256 "ff5697bc09a133b73a93db17302309b81d6d11281ea85d80157f1977e8b1a1e2"
   license "MIT"
 
   bottle do
