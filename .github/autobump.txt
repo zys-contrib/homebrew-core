@@ -1291,6 +1291,7 @@ goctl
 godap
 goffice
 gofumpt
+goimports
 gojq
 gokey
 goku
