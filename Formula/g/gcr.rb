@@ -1,8 +1,8 @@
 class Gcr < Formula
   desc "Library for bits of crypto UI and parsing"
   homepage "https://gitlab.gnome.org/GNOME/gcr"
-  url "https://download.gnome.org/sources/gcr/4.3/gcr-4.3.1.tar.xz"
-  sha256 "b2f070fff1840eef70546a28be80235427c116aadc593b5b68ccc869be3aa09d"
+  url "https://download.gnome.org/sources/gcr/4.4/gcr-4.4.0.1.tar.xz"
+  sha256 "0c3c341e49f9f4f2532a4884509804190a0c2663e6120360bb298c5d174a8098"
   license all_of: [
     "LGPL-2.0-or-later",
     "LGPL-2.1-or-later",
