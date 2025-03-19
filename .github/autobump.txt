@@ -3867,6 +3867,7 @@ zookeeper
 zoro
 zoxide
 zpaqfranz
+zsh-autocomplete
 zsh-autosuggestions
 zsh-lovers
 zsh-vi-mode
