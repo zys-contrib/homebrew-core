@@ -15,7 +15,7 @@ class Tinysparql < Formula
   end
 
   bottle do
-    sha256 x86_64_linux: "2b4c574f6a456443a13928503b240d5134c73e3a7f47432cc7d837834f91898f"
+    sha256 x86_64_linux: "2289bb008fc9bad101d446e7ac5b03d22bd568eacbad0f9ea6bc38149a7c04da"
   end
 
   depends_on "gettext" => :build
