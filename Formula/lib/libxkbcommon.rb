@@ -21,7 +21,7 @@ class Libxkbcommon < Formula
   depends_on "pkgconf" => :build
 
   depends_on "libxcb"
-  depends_on "xkeyboardconfig"
+  depends_on "xkeyboard-config"
   depends_on "xorg-server"
 
   uses_from_macos "libxml2"
