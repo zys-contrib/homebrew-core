@@ -6,6 +6,10 @@ class XkeyboardConfig < Formula
   license "MIT"
   head "https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "fe749c953e59bccd2a20d2d5576a20bf1b2a29ce3830ed81f9b9a9658838682e"
+  end
+
   depends_on "gettext" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
