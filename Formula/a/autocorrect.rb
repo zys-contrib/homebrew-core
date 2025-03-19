@@ -1,8 +1,8 @@
 class Autocorrect < Formula
   desc "Linter and formatter to improve copywriting, correct spaces, words between CJK"
   homepage "https://huacnlee.github.io/autocorrect/"
-  url "https://github.com/huacnlee/autocorrect/archive/refs/tags/v2.13.0.tar.gz"
-  sha256 "4848b672a779a67c0649098ba5ff58cd89dd69bd3bc8bda159889190971ced76"
+  url "https://github.com/huacnlee/autocorrect/archive/refs/tags/v2.13.2.tar.gz"
+  sha256 "48ae3f07ab3f8a1df40f2fe6404ab8dc39b459d566490bac6c4ffb6a91a0d223"
   license "MIT"
   head "https://github.com/huacnlee/autocorrect.git", branch: "main"
 
