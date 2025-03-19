@@ -11,6 +11,7 @@ class Blake3 < Formula
     sha256 cellar: :any,                 arm64_ventura: "307c1b8cd50a6d785b2fd0a3077062afa3d1911e2d3e4e5a7506a1846388a2ef"
     sha256 cellar: :any,                 sonoma:        "fc1bb7f40a27e2f6f0773d645f595854a6742d9c3e05f7bf9aea44282c1e7a41"
     sha256 cellar: :any,                 ventura:       "fd6eb2e84a42713f32d1ee86fd0571b904dbef11730f50d1d85ff1073981503b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a18828ddb9b96c6d8c579caa59cb068e121d83256f7187a6a905980409f8c7ae"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8db865f0ad29f90a9d99dc84f31edacc113f99742df8a85d29dd53d62b57eac"
   end
 
