@@ -45,6 +45,7 @@ class Lammps < Formula
   depends_on "kim-api"
   depends_on "libpng"
   depends_on "open-mpi"
+  depends_on "voro++"
 
   uses_from_macos "curl"
 
@@ -60,6 +61,7 @@ class Lammps < Formula
         "-C", "cmake/presets/nolib.cmake",
         "-DPKG_INTEL=no",
         "-DPKG_KIM=yes",
+        "-DPKG_VORONOI=yes",
         "-DLAMMPS_MACHINE=#{variant}",
         "-DBUILD_MPI=#{(variant == "mpi") ? "yes" : "no"}",
         "-DBUILD_OMP=#{(variant == "serial") ? "no" : "yes"}",
@@ -81,5 +83,9 @@ class Lammps < Formula
 
   test do
     system bin/"lmp_serial", "-in", pkgshare/"bench/in.lj"
+    output = shell_output("#{bin}/lmp_serial -h")
+    %w[KSPACE POEMS VORONOI].each do |pkg|
+      assert_match pkg, output
+    end
   end
 end
