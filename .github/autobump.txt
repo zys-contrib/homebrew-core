@@ -717,6 +717,7 @@ dartsim
 datafusion
 datalad
 datasette
+datatype99
 dav1d
 dbml-cli
 dbus
