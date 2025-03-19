@@ -38,12 +38,12 @@ class GnuGetopt < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "24e3eb7e6c01fff592fbd7164de2d7d50066c1bceaf603be4e7a5ceb5ce50d7a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "77bc7ffe11cdcb42f8a881cd5b94387c3256151368838c6aea183aa7d49b4f88"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ec0572e61250be617ecb43f3a510367346b892513c59fe747e5112b18c80605a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a82fd4ac44d93d2ba9ea942bd3508c513d88294bf4fd30dcdf7c9cc506985d7e"
-    sha256 cellar: :any_skip_relocation, ventura:       "74b397b3555d9421d60813e226c75b9ee7d09f3e8a3f78271fe4dd3c0b8fb18a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d1d16f2d1a15fb653999ee2a54691ff400cf87916ec81cae64f28f9f24b48da"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "56589a88d65309ca6eb5f8110dba58a592bb39dfca2b01ec3e710d1515301a9e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f66eab32c181a9f58ac40434ad4fdb7908e2f9e8ef0247f2076105a1811d2395"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c4d0fbdb714ad12cf070d38a590066c9b0b25be32025f3d96672dd7912ab293b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "410a045158138d1b15ec926fd02c04132562f26b848a6950c90ee7204918de83"
+    sha256 cellar: :any_skip_relocation, ventura:       "31bf079de0d0829cba00e616fc79ddb787a3fcfc559024905c47512a78871871"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87f5c0068cb0fa80cf8b814cfb3ff8501e4ff1fa65eae15a20328bd782e76434"
   end
 
   keg_only :shadowed_by_macos, "macOS provides BSD getopt"
