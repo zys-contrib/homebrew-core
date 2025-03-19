@@ -3,8 +3,8 @@ class Harlequin < Formula
 
   desc "Easy, fast, and beautiful database client for the terminal"
   homepage "https://harlequin.sh"
-  url "https://files.pythonhosted.org/packages/0b/f6/b1094cef796b4108c6fb40b16df7e977c944046c8215a5f610efc223e631/harlequin-2.1.0.tar.gz"
-  sha256 "45572f40558570f4e18e04415653ceff29dcb18437410a54ee7b20f15e95333d"
+  url "https://files.pythonhosted.org/packages/64/51/d12957bf861a76c8cf3817d97c8c532df558d06f50c8d4d56a906170ecfe/harlequin-2.1.1.tar.gz"
+  sha256 "ee843ad37a838520e9c3260ace2104f3515d3de8d7d1873837d6b8abe0b10f6d"
   license "MIT"
 
   bottle do
@@ -39,8 +39,8 @@ class Harlequin < Formula
   end
 
   resource "duckdb" do
-    url "https://files.pythonhosted.org/packages/e3/e2/5e6820ec8cc50c4ab6172debea68e2236ea6a5d9caa56297cfb42fca1fa2/duckdb-1.2.0.tar.gz"
-    sha256 "a5ce81828e6d1c3f06836d3bda38eef8355765f08ad5ce239abd6f56934dd1f8"
+    url "https://files.pythonhosted.org/packages/41/b4/34b98425d643e412f52703829b5ed2da7d7cb6dd40c80a3aa210002cafa8/duckdb-1.2.1.tar.gz"
+    sha256 "15d49030d04572540cc1c8ad8a491ce018a590ec995d5d38c8f5f75b6422413e"
   end
 
   resource "harlequin-mysql" do
@@ -49,8 +49,8 @@ class Harlequin < Formula
   end
 
   resource "harlequin-odbc" do
-    url "https://files.pythonhosted.org/packages/33/2f/dd73b3d42d5f4f071310e4762cfb900ca6eee59c70fbe1ab7af27a776785/harlequin_odbc-0.3.0.tar.gz"
-    sha256 "e69872ffbc86893d26ae1d9602b200e40b04d0b18a84e5d06d2b525e6ea10d69"
+    url "https://files.pythonhosted.org/packages/e5/c0/a012185883fd7d472954e945dbcb5fbad50272c5d0b84396886896bf8682/harlequin_odbc-0.3.1.tar.gz"
+    sha256 "c12ea98101ba5dffe212df2d5fbe0aef2e786eaa58d03d911bc3bbf89491be01"
   end
 
   resource "harlequin-postgres" do
@@ -155,8 +155,8 @@ class Harlequin < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/32/d2/7b171caf085ba0d40d8391f54e1c75a1cda9255f542becf84575cfd8a732/setuptools-76.0.0.tar.gz"
-    sha256 "43b4ee60e10b0d0ee98ad11918e114c70701bc6051662a9a675a0496c1a158f4"
+    url "https://files.pythonhosted.org/packages/fa/2b/287ade3a580869e6178cb37d045f54272b1f006f2c0ff6fad08db258d027/setuptools-76.1.0.tar.gz"
+    sha256 "4959b9ad482ada2ba2320c8f1a8d8481d4d8d668908a7a1b84d987375cd7f5bd"
   end
 
   resource "shandy-sqlfmt" do
