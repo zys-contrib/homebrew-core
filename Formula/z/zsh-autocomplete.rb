@@ -1,8 +1,8 @@
 class ZshAutocomplete < Formula
   desc "Real-time type-ahead completion for Zsh"
   homepage "https://github.com/marlonrichert/zsh-autocomplete"
-  url "https://github.com/marlonrichert/zsh-autocomplete/archive/refs/tags/24.09.04.tar.gz"
-  sha256 "bfcaa4b2d3add07c6b3d5a587d9ed743e091f1bb8e818cbd157895376edf2e87"
+  url "https://github.com/marlonrichert/zsh-autocomplete/archive/refs/tags/25.03.19.tar.gz"
+  sha256 "866451178e35b50f7f86a6b50d8cdb28494bb3a7be02b1c7adf909390a9774fb"
   license "MIT"
   head "https://github.com/marlonrichert/zsh-autocomplete.git", branch: "main"
 
