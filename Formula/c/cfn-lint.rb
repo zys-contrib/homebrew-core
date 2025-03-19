@@ -3,17 +3,17 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-lint/"
-  url "https://files.pythonhosted.org/packages/64/e0/ecaa114492f9ce9de84852016a010e1b689438e473be1e5a73e51d59ca15/cfn_lint-1.31.0.tar.gz"
-  sha256 "0a1ef7c3ad400fc8530c7785c6597706727ee7d3fc525e541f20d547c86fcd5d"
+  url "https://files.pythonhosted.org/packages/da/ae/4c8678131dce48d49208b9919282448d3e060893875a905fd7df13a74f99/cfn_lint-1.31.1.tar.gz"
+  sha256 "31fea2670ec8a98e8fc4ed78b1db13ca282a2ded37317b9acf1d4d7ab3fc999e"
   license "MIT-0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3e7feacef24de93bdf0c4c0c4fe723c1d99b3c6d64342afc6488937065e41442"
-    sha256 cellar: :any,                 arm64_sonoma:  "e99fec0f1143f69f500e2b243f3156839c68bab086113d0fcd3d792e120c20ab"
-    sha256 cellar: :any,                 arm64_ventura: "a1a328cbf955494a873ba6aa574e667e5c283f44960b1875a8e37c91a1687ec2"
-    sha256 cellar: :any,                 sonoma:        "5d2593072ad88ff558874515fec9c1701638045b12d43922372e30dc171bb661"
-    sha256 cellar: :any,                 ventura:       "aed58b334a95148118394c138ce789d12dd5edb4354252be09631ceb00604130"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a421274b23c787c68d07452274c0d889b1aff8819e2490118f7156abf140cce4"
+    sha256 cellar: :any,                 arm64_sequoia: "dd75b855f0200b3b75cecd0d45236c4ceae3ce68b5daf58c36c881e265d9faab"
+    sha256 cellar: :any,                 arm64_sonoma:  "079ee38fbd89ee96401245a8eae032b694913367e2569d8808676a51883cdab6"
+    sha256 cellar: :any,                 arm64_ventura: "2b325f4621ffec2e99728770fd1fe0362633cddbb5cd179391817552779e8cb8"
+    sha256 cellar: :any,                 sonoma:        "46f9fbc671ee3ceaadcd92feb5bce4e1592bf8c2209759da1ca850b772d302c2"
+    sha256 cellar: :any,                 ventura:       "37e472bcac1112e7393d6b9e7050841c24e28e27b4a5517f51a292c3f150a4fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d446bdc2d22651a6bbedf5f1c9c653a51dfd12a2f880ec48aaa6a5181c3ed8a1"
   end
 
   depends_on "rust" => :build
