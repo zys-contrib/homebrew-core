@@ -3091,6 +3091,7 @@ selenium-server
 semgrep
 semver
 sendme
+senpai
 sentencepiece
 sentry-cli
 seqkit
