@@ -3766,7 +3766,7 @@ xh
 xinit
 xk6
 xkbcomp
-xkeyboardconfig
+xkeyboard-config
 xlsxio
 xmake
 xmlrpc-c
