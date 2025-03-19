@@ -1,8 +1,8 @@
 class Humanlog < Formula
   desc "Logs for humans to read"
   homepage "https://github.com/humanlogio/humanlog"
-  url "https://github.com/humanlogio/humanlog/archive/refs/tags/v0.8.1.tar.gz"
-  sha256 "b397c8e064e7d694a4e01952ac66b04d7417cd2087d6ef36a6004427a771293f"
+  url "https://github.com/humanlogio/humanlog/archive/refs/tags/v0.8.2.tar.gz"
+  sha256 "aa6914581f0e915dd435c382ea0d6b7f8af5c5809c56eab7c055fd290d58b689"
   license "Apache-2.0"
   head "https://github.com/humanlogio/humanlog.git", branch: "master"
 
