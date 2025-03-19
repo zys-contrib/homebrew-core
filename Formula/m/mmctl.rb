@@ -1,11 +1,15 @@
 class Mmctl < Formula
   desc "Remote CLI tool for Mattermost server"
-  homepage "https://github.com/mattermost/mmctl"
-  url "https://github.com/mattermost/mmctl.git",
-      tag:      "v7.10.5",
-      revision: "ce61514f470b82795eb25d927bbf073b3bd037c6"
-  license "Apache-2.0"
-  head "https://github.com/mattermost/mmctl.git", branch: "master"
+  homepage "https://github.com/mattermost/mattermost"
+  url "https://github.com/mattermost/mattermost/archive/refs/tags/v10.6.1.tar.gz"
+  sha256 "78fc4e398cb63d11141d2915d12fbd900755eeada7ba5f239d13c2cf053a38b8"
+  license all_of: ["AGPL-3.0-only", "Apache-2.0"]
+  head "https://github.com/mattermost/mattermost.git", branch: "master"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e438f2cd6a51a683e033ce697e7c660888708f59df47ca4777e44bcc4c1f14e8"
@@ -20,13 +24,15 @@ class Mmctl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4eb33d2c49c5db76ea8afb3bb3a5b28b8c4234e7161a520c3e934f251407538d"
   end
 
-  deprecate! date: "2024-08-01", because: :repo_archived
-
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/mattermost/mmctl/commands.BuildHash=#{Utils.git_head}"
-    system "go", "build", *std_go_args(ldflags:), "-mod=vendor"
+    # remove non open source files
+    rm_r("server/enterprise")
+
+    ldflags = "-s -w -X github.com/mattermost/mattermost/server/v8/cmd/mmctl/commands.buildDate=#{time.iso8601}"
+    system "make", "-C", "server", "setup-go-work"
+    system "go", "build", "-C", "server", *std_go_args(ldflags:), "./cmd/mmctl"
 
     # Install shell completions
     generate_completions_from_executable(bin/"mmctl", "completion", shells: [:bash, :zsh])
