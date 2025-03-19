@@ -12,12 +12,12 @@ class CloudNuke < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ed48e67ea53dc11ed3f4c8f4b845c7fd6c6ed6ab7e7b1d079870d5960c44c58a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ed48e67ea53dc11ed3f4c8f4b845c7fd6c6ed6ab7e7b1d079870d5960c44c58a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ed48e67ea53dc11ed3f4c8f4b845c7fd6c6ed6ab7e7b1d079870d5960c44c58a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ceda6f48d619e26be92576c031628e4dcee2a1388de7ba7fdef820016a7a07ed"
-    sha256 cellar: :any_skip_relocation, ventura:       "ceda6f48d619e26be92576c031628e4dcee2a1388de7ba7fdef820016a7a07ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28d71a6c40a5df3f64e5bb4fbd18abfb6a2020472971f277591d7ab74769003b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3a1a154621c3e2309233516ca923b3731b9bee9b84fe4f034fa56d7eb293f954"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3a1a154621c3e2309233516ca923b3731b9bee9b84fe4f034fa56d7eb293f954"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3a1a154621c3e2309233516ca923b3731b9bee9b84fe4f034fa56d7eb293f954"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e1003bd78a32461e6154796cf0f506c4c9f7075935a26787735e3e470b81d808"
+    sha256 cellar: :any_skip_relocation, ventura:       "e1003bd78a32461e6154796cf0f506c4c9f7075935a26787735e3e470b81d808"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d5325d05479fcaf45a8064bafd14a7fec6b33553e834cc7e8b6e2602ec134a6"
   end
 
   depends_on "go" => :build
