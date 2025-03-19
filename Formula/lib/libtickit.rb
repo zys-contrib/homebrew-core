@@ -1,8 +1,8 @@
 class Libtickit < Formula
   desc "Library for building interactive full-screen terminal programs"
   homepage "https://www.leonerd.org.uk/code/libtickit/"
-  url "https://www.leonerd.org.uk/code/libtickit/libtickit-0.4.3.tar.gz"
-  sha256 "a830588fa1f4c99d548c11e6df50281c23dfa01f75e2ab95151f02715db6bd63"
+  url "https://www.leonerd.org.uk/code/libtickit/libtickit-0.4.5.tar.gz"
+  sha256 "8f3d9ec4a8fcfa57425621eb21dc7c6cefc2f24b2a93d28db0ace9d1eab627c6"
   license "MIT"
 
   livecheck do
