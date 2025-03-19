@@ -1,10 +1,9 @@
 class Cocogitto < Formula
   desc "Conventional Commits toolbox"
   homepage "https://docs.cocogitto.io/"
-  url "https://github.com/cocogitto/cocogitto/archive/refs/tags/6.2.0.tar.gz"
-  sha256 "fd7d69fb5b6d64e292877d87a77864d5081906b6e515e20b93348b7f05bd05c1"
+  url "https://github.com/cocogitto/cocogitto/archive/refs/tags/6.3.0.tar.gz"
+  sha256 "bf78a06ec20cd33c4f9bcddb427067de34d005fb6d4a41727239b7b1e8e916e0"
   license "MIT"
-  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "27fbf4df39907711ecc2c82abe07b3c689c876aae77aa5d325bcd9e9b007a7c8"
@@ -20,17 +19,6 @@ class Cocogitto < Formula
   depends_on "libgit2"
 
   conflicts_with "cog", because: "both install `cog` binaries"
-
-  # support libgit2 1.8, upstream pr ref, https://github.com/cocogitto/cocogitto/pull/433
-  patch do
-    url "https://github.com/cocogitto/cocogitto/commit/47689fe4f431d7b1371ff34cb430fbffc19f40c5.patch?full_index=1"
-    sha256 "508a34432f907500d2a92940647501512e789cac53e85497a83b1b99089ae07b"
-  end
-  # support libgit2 1.9, upstream pr ref, https://github.com/cocogitto/cocogitto/pull/439
-  patch do
-    url "https://github.com/cocogitto/cocogitto/commit/bf0933b33e1729161434b7cd92906c6e2d663016.patch?full_index=1"
-    sha256 "5828494ce483901d1169acd714f7baf69a2c17eb1ecd716ea2490376763acef3"
-  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
