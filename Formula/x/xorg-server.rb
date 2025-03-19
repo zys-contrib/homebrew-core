@@ -39,7 +39,7 @@ class XorgServer < Formula
   depends_on "xcb-util-renderutil"
   depends_on "xcb-util-wm"
   depends_on "xkbcomp"
-  depends_on "xkeyboardconfig"
+  depends_on "xkeyboard-config"
 
   on_macos do
     depends_on "libapplewm"
