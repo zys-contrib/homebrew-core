@@ -1,8 +1,8 @@
 class GnuGetopt < Formula
   desc "Command-line option parsing utility"
   homepage "https://github.com/util-linux/util-linux"
-  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.40/util-linux-2.40.4.tar.xz"
-  sha256 "5c1daf733b04e9859afdc3bd87cc481180ee0f88b5c0946b16fdec931975fb79"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.41/util-linux-2.41.tar.xz"
+  sha256 "81ee93b3cfdfeb7d7c4090cedeba1d7bbce9141fd0b501b686b3fe475ddca4c6"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -16,19 +16,24 @@ class GnuGetopt < Formula
                      .sort_by { |v| Version.new(v) }
       next versions if versions.blank?
 
-      # Assume the last-sorted version is newest
-      newest_version = versions.last
+      # Check the highest version, falling back to the second-highest version
+      # if no matching versions are found in the version directory (e.g.,
+      # upstream has created a version directory using a stable version format
+      # but the version directory only contained unstable versions).
+      dir_versions = []
+      versions[-2..].reverse_each do |version|
+        # Fetch the page for the version directory
+        dir_page = Homebrew::Livecheck::Strategy.page_content(
+          URI.join(@url, "v#{version}/").to_s,
+        )
+        next versions if dir_page[:content].blank?
 
-      # Fetch the page for the newest version directory
-      dir_page = Homebrew::Livecheck::Strategy.page_content(
-        URI.join(@url, "v#{newest_version}/").to_s,
-      )
-      next versions if dir_page[:content].blank?
+        # Identify versions from files in the version directory
+        dir_versions = dir_page[:content].scan(regex).flatten
+        break unless dir_versions.empty?
+      end
 
-      # Identify versions from files in the version directory
-      dir_versions = dir_page[:content].scan(regex).flatten
-
-      dir_versions || versions
+      dir_versions.presence || versions
     end
   end
 
