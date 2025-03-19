@@ -1,10 +1,16 @@
 class Xorriso < Formula
   desc "ISO9660+RR manipulation tool"
   homepage "https://www.gnu.org/software/xorriso/"
-  url "https://ftp.gnu.org/gnu/xorriso/xorriso-1.5.6.tar.gz"
-  mirror "https://ftpmirror.gnu.org/xorriso/xorriso-1.5.6.tar.gz"
-  sha256 "d4b6b66bd04c49c6b358ee66475d806d6f6d7486e801106a47d331df1f2f8feb"
+  url "https://ftp.gnu.org/gnu/xorriso/xorriso-1.5.6.pl02.tar.gz"
+  mirror "https://ftpmirror.gnu.org/xorriso/xorriso-1.5.6.pl02.tar.gz"
+  version "1.5.6.pl02"
+  sha256 "786f9f5df9865cc5b0c1fecee3d2c0f5e04cab8c9a859bd1c9c7ccd4964fdae1"
   license "GPL-2.0-or-later"
+
+  livecheck do
+    url :stable
+    regex(/href=.*?xorriso[._-]v?(\d+(?:\.\d+)+(?:\.pl\d+)?)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9b8deb74524ee426ccfed55983d41f621de69ba1ffea7c574496b1bec72ef3ae"
@@ -21,13 +27,8 @@ class Xorriso < Formula
 
   uses_from_macos "zlib"
 
-  # Submit the patch into the upstream, see:
-  # https://lists.gnu.org/archive/html/bug-xorriso/2023-06/msg00000.html
-  patch :DATA
-
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
 
     # `make install` has to be deparallelized due to the following error:
@@ -42,17 +43,3 @@ class Xorriso < Formula
     assert_match version.to_s, shell_output("#{bin}/xorriso -version")
   end
 end
-
-__END__
-diff --git a/libisofs/rockridge.h b/libisofs/rockridge.h
-index 5649eb7..01c4224 100644
---- a/libisofs/rockridge.h
-+++ b/libisofs/rockridge.h
-@@ -41,6 +41,8 @@
-
- #include "ecma119.h"
-
-+/* For ssize_t */
-+#include <unistd.h>
-
- #define SUSP_SIG(entry, a, b) ((entry->sig[0] == a) && (entry->sig[1] == b))
