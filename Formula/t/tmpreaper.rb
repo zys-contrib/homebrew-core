@@ -1,9 +1,8 @@
 class Tmpreaper < Formula
   desc "Clean up files in directories based on their age"
   homepage "https://packages.debian.org/sid/tmpreaper"
-  url "https://deb.debian.org/debian/pool/main/t/tmpreaper/tmpreaper_1.6.17.tar.gz"
-  mirror "https://fossies.org/linux/misc/tmpreaper_1.6.17.tar.gz"
-  sha256 "1ca94d156eb68160ec9b6ed8b97d70fbee996de21437f0cf7d0c3b46709fecbc"
+  url "https://ftp.debian.org/debian/pool/main/t/tmpreaper/tmpreaper_1.6.18.tar.xz"
+  sha256 "2ae7de0775b49abd222d09ad71360d795b40aa7c31253363e64c182966a37c00"
   license "GPL-2.0-only"
 
   livecheck do
@@ -30,6 +29,7 @@ class Tmpreaper < Formula
 
   on_linux do
     depends_on "e2fsprogs"
+    depends_on "util-linux"
   end
 
   def install
