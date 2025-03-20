@@ -1,8 +1,8 @@
 class Sv2v < Formula
   desc "SystemVerilog to Verilog conversion"
   homepage "https://github.com/zachjs/sv2v"
-  url "https://github.com/zachjs/sv2v/archive/refs/tags/v0.0.12.tar.gz"
-  sha256 "b64312c995f2d2792fbe610f4a0440259e7e2a9ad9032b37beabf621da51c6da"
+  url "https://github.com/zachjs/sv2v/archive/refs/tags/v0.0.13.tar.gz"
+  sha256 "4ce7df8c6fa3857da6a2b69343c29e7c627a4283090f2b07221aa9ef956a88c8"
   license "BSD-3-Clause"
 
   bottle do

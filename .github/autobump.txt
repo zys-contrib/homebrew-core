@@ -3327,6 +3327,7 @@ superhtml
 superlu
 surfer
 suricata
+sv2v
 svgbob
 svgo
 svlint
