@@ -13,6 +13,7 @@ class Pylint < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a9aabc718cabdf37f82b21f653afbf7ee80ce71d6312eaa3a80e89b183a25e1b"
     sha256 cellar: :any_skip_relocation, sonoma:        "28a575b0b0b228a89d98654c3dc8a19918dd217e7275f8d69d5e0633754e55d8"
     sha256 cellar: :any_skip_relocation, ventura:       "61a5b3fd549cc307a71a2ee6dd7473681c81143b1002aee0bd00ebc7409c3677"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee51774a3f3f096cb0bb517b7e0e52c3323960adb9d37a7f015cf6ee73b1480c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c88c619245a7f5c33aeca56d9704b9f23815327f634c65f0db1e24645f4ef233"
   end
 
