@@ -411,6 +411,7 @@ cargo-public-api
 cargo-release
 cargo-run-bin
 cargo-shuttle
+cargo-sort
 cargo-spellcheck
 cargo-udeps
 cargo-update
