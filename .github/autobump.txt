@@ -3830,6 +3830,7 @@ yq
 yt-dlp
 ytt
 yubico-piv-tool
+yutu
 yyjson
 z.lua
 z3
