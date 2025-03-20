@@ -7,6 +7,15 @@ class Yutu < Formula
   license "MIT"
   head "https://github.com/eat-pray-ai/yutu.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "769982f81b6613ca99435d73d739889dc2a28633240711b3de1470e41674b527"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "769982f81b6613ca99435d73d739889dc2a28633240711b3de1470e41674b527"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "769982f81b6613ca99435d73d739889dc2a28633240711b3de1470e41674b527"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5da87bf441efd6276fd9e6241be7a3855bd1717d337cc6326a59fc6882298625"
+    sha256 cellar: :any_skip_relocation, ventura:       "5da87bf441efd6276fd9e6241be7a3855bd1717d337cc6326a59fc6882298625"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a48c7c00352680173f29011cab792b26524cffe064c57686a37e3a0919751059"
+  end
+
   depends_on "go" => :build
 
   def install
