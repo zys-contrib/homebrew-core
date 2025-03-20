@@ -4,6 +4,7 @@ class Opensaml < Formula
   url "https://shibboleth.net/downloads/c++-opensaml/3.3.1/opensaml-3.3.1.tar.bz2"
   sha256 "d8e24e070fc6bb80682632ca32c8569a9f3ef170ba57e3b82818322e75b6a37e"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://shibboleth.net/downloads/c++-opensaml/latest/"
