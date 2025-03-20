@@ -16,6 +16,7 @@ class XmlSecurityC < Formula
     sha256 cellar: :any,                 arm64_ventura: "b4431f1f09c66f1dc9c73eb72cc78c724e0b0a072f93e26917a114b4eae88ccc"
     sha256 cellar: :any,                 sonoma:        "58c0752a0c3a1aa6b51dd7c48058661c0d5c56e7d336412a47db907b851d6451"
     sha256 cellar: :any,                 ventura:       "abc08033a4513a659e7938e3708dabc82fd26451d46ea6f400292e4bef28ff98"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "649bcd04da8d6bf105dab88cc9de4c1b6efb55e4b20a75371e7f4a4b96b47761"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2cce7dc9da8984c26b39b9e203162782902841d2ca55b40299c846522ba17407"
   end
 
