@@ -4,7 +4,7 @@ class Runme < Formula
   url "https://github.com/runmedev/runme/archive/refs/tags/v3.12.7.tar.gz"
   sha256 "26fa831b2848d75de42f9f48cfbe3c15ee6624336dc747cd3c52763bb76d3f35"
   license "Apache-2.0"
-  head "https://github.com/stateful/runme.git", branch: "main"
+  head "https://github.com/runmedev/runme.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9077a299edd0efa813c60bc0828d6040f79ab4517c35445b96cff919e5f8bcf"
@@ -20,9 +20,9 @@ class Runme < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/stateful/runme/v3/internal/version.BuildDate=#{time.iso8601}
-      -X github.com/stateful/runme/v3/internal/version.BuildVersion=#{version}
-      -X github.com/stateful/runme/v3/internal/version.Commit=#{tap.user}
+      -X github.com/runmedev/runme/v3/internal/version.BuildDate=#{time.iso8601}
+      -X github.com/runmedev/runme/v3/internal/version.BuildVersion=#{version}
+      -X github.com/runmedev/runme/v3/internal/version.Commit=#{tap.user}
     ]
 
     system "go", "build", *std_go_args(ldflags:)
@@ -30,7 +30,7 @@ class Runme < Formula
   end
 
   test do
-    system bin/"runme", "--version"
+    assert_match version.to_s, shell_output("#{bin}/runme --version")
     markdown = (testpath/"README.md")
     markdown.write <<~MARKDOWN
       # Some Markdown
