@@ -1,8 +1,8 @@
 class TailwindcssLanguageServer < Formula
   desc "LSP for TailwindCSS"
   homepage "https://github.com/tailwindlabs/tailwindcss-intellisense/tree/HEAD/packages/tailwindcss-language-server"
-  url "https://github.com/tailwindlabs/tailwindcss-intellisense/archive/refs/tags/v0.14.9.tar.gz"
-  sha256 "2616d7da876b9b81ded4db27f4e2e25831a042877c80c0f24c3d796ab71fac89"
+  url "https://github.com/tailwindlabs/tailwindcss-intellisense/archive/refs/tags/v0.14.10.tar.gz"
+  sha256 "fa54c1ae94d54c45bee3a659633dcee5d8515f91611ea4fb853352f1d0fcb52a"
   license "MIT"
 
   livecheck do
@@ -13,12 +13,12 @@ class TailwindcssLanguageServer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b1461f7a7c4486c588d19e2a4377e902a27b04d1fbc92c2c163ec97daf1c41b7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b1461f7a7c4486c588d19e2a4377e902a27b04d1fbc92c2c163ec97daf1c41b7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b1461f7a7c4486c588d19e2a4377e902a27b04d1fbc92c2c163ec97daf1c41b7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b1461f7a7c4486c588d19e2a4377e902a27b04d1fbc92c2c163ec97daf1c41b7"
-    sha256 cellar: :any_skip_relocation, ventura:       "b1461f7a7c4486c588d19e2a4377e902a27b04d1fbc92c2c163ec97daf1c41b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b95d765188c0d530caa4c9631064ebab2c883c0927c639fcb063bf618269154a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a1832b3ac46749a1c0549e6155ee0547a0ad7fcc9032daba525b808d9681fe19"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a1832b3ac46749a1c0549e6155ee0547a0ad7fcc9032daba525b808d9681fe19"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a1832b3ac46749a1c0549e6155ee0547a0ad7fcc9032daba525b808d9681fe19"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a1832b3ac46749a1c0549e6155ee0547a0ad7fcc9032daba525b808d9681fe19"
+    sha256 cellar: :any_skip_relocation, ventura:       "a1832b3ac46749a1c0549e6155ee0547a0ad7fcc9032daba525b808d9681fe19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "673c305addfb1140823e0af3958430e981a64234951b2de15c4a72ef07744519"
   end
 
   depends_on "pnpm@9" => :build
