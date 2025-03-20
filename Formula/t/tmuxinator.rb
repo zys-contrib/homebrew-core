@@ -1,8 +1,8 @@
 class Tmuxinator < Formula
   desc "Manage complex tmux sessions easily"
   homepage "https://github.com/tmuxinator/tmuxinator"
-  url "https://github.com/tmuxinator/tmuxinator/archive/refs/tags/v3.3.3.tar.gz"
-  sha256 "af5104c0beda911a8f263808ffb16e4438dbc755ee77bbf528d4bb46cac07a95"
+  url "https://github.com/tmuxinator/tmuxinator/archive/refs/tags/v3.3.4.tar.gz"
+  sha256 "a923c48127e0d63d0b5397f6297842ed51cf5a5762c348e1db0efd59506c58bd"
   license "MIT"
   head "https://github.com/tmuxinator/tmuxinator.git", branch: "master"
 
@@ -25,8 +25,8 @@ class Tmuxinator < Formula
   end
 
   resource "erubi" do
-    url "https://rubygems.org/downloads/erubi-1.12.0.gem"
-    sha256 "27bedb74dfb1e04ff60674975e182d8ca787f2224f2e8143268c7696f42e4723"
+    url "https://rubygems.org/downloads/erubi-1.13.1.gem"
+    sha256 "a082103b0885dbc5ecf1172fede897f9ebdb745a4b97a5e8dc63953db1ee4ad9"
   end
 
   def install
