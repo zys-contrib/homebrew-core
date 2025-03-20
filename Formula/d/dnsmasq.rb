@@ -18,6 +18,7 @@ class Dnsmasq < Formula
     sha256 sonoma:         "0e20ef773a39be121ee8fddc46a6dca9f1d6b9c09cc069bfa75334bff479079b"
     sha256 ventura:        "f0fda257b89641375e5711c1afdc66c35771234a7fc2a51c124cc856085dd005"
     sha256 monterey:       "51b10e0af794890ffcf3220848032c3086af3d3f5d488b454003fcde72793225"
+    sha256 arm64_linux:    "15c2bb4d47683dd1237329bc38a6d46be5253e0a2050a63302c71b0059fefe10"
     sha256 x86_64_linux:   "ba407d18d57b06e39f5576cda5f97703b1def62c14960d62f16eecd236180fc4"
   end
 
