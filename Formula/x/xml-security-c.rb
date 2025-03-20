@@ -11,12 +11,12 @@ class XmlSecurityC < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0ef901d1dd62aede4b0a35b64342b969c1895b519dbe5c41dd2b1a5f82d8c7dc"
-    sha256 cellar: :any,                 arm64_sonoma:  "eb8d5c236aae4140590391f48ac857513958496d3e3d6e593201ef72cc321e40"
-    sha256 cellar: :any,                 arm64_ventura: "ce3ae37e20ef8933d995af0447d498c1fa0f244298694e589b998467323851c2"
-    sha256 cellar: :any,                 sonoma:        "9e8f17a36572dcf16e4da2ecc143a77b58647a5c15e4d7a67bd23bb1261907ed"
-    sha256 cellar: :any,                 ventura:       "516a9bcaa920f654420dd343fab87694cf5902a15d17ec5cfa949c007e01b416"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "027db5710abf606d13b530d94cbfd9c9b0f6b619080dd2aff53fcec7a965ed9d"
+    sha256 cellar: :any,                 arm64_sequoia: "7f42a4e63dc531c44888737938b0e97780bb25053f42f5cd35671294251a9f6d"
+    sha256 cellar: :any,                 arm64_sonoma:  "82490b87ef4a44db821acf34f13bffcf99fd52a3ff372886ee1f001f6d22433a"
+    sha256 cellar: :any,                 arm64_ventura: "b4431f1f09c66f1dc9c73eb72cc78c724e0b0a072f93e26917a114b4eae88ccc"
+    sha256 cellar: :any,                 sonoma:        "58c0752a0c3a1aa6b51dd7c48058661c0d5c56e7d336412a47db907b851d6451"
+    sha256 cellar: :any,                 ventura:       "abc08033a4513a659e7938e3708dabc82fd26451d46ea6f400292e4bef28ff98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2cce7dc9da8984c26b39b9e203162782902841d2ca55b40299c846522ba17407"
   end
 
   depends_on "pkgconf" => :build
