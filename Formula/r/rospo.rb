@@ -6,12 +6,12 @@ class Rospo < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f11a2d08a4cecef42916f83697ff87772fea78817570e1fc9c8e862f072d7b9e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f11a2d08a4cecef42916f83697ff87772fea78817570e1fc9c8e862f072d7b9e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f11a2d08a4cecef42916f83697ff87772fea78817570e1fc9c8e862f072d7b9e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b199cd2126cb02f02e5a945b3d0427add807f1352595b5820503628f0f5809a1"
-    sha256 cellar: :any_skip_relocation, ventura:       "b199cd2126cb02f02e5a945b3d0427add807f1352595b5820503628f0f5809a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb8cda6b51663e37774ec54506f8c206cee6db50c65f71e5be833278fce51409"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a38299addf3e2fb0de87abb726fb40dc629af9d9b370ba656749efb7490e87ed"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a38299addf3e2fb0de87abb726fb40dc629af9d9b370ba656749efb7490e87ed"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a38299addf3e2fb0de87abb726fb40dc629af9d9b370ba656749efb7490e87ed"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c8f39e941e155718d2e6033d946952ac1095321a206491ca3908af8574e97187"
+    sha256 cellar: :any_skip_relocation, ventura:       "c8f39e941e155718d2e6033d946952ac1095321a206491ca3908af8574e97187"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa3e69f483e95ffa4457f8a0f9e68cbbd313c864cdb24c316d729f8ed5693c33"
   end
 
   depends_on "go" => :build
