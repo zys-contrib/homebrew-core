@@ -2775,6 +2775,7 @@ proteinortho
 proto
 protobuf
 protobuf-c
+protobuf@29
 protoc-gen-go
 protoc-gen-go-grpc
 protoc-gen-grpc-java
