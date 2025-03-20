@@ -1,8 +1,8 @@
 class Pinact < Formula
   desc "Pins GitHub Actions to full hashes and versions"
   homepage "https://github.com/suzuki-shunsuke/pinact"
-  url "https://github.com/suzuki-shunsuke/pinact/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "70dab074f1012bd4922ab1550ff2780100174be0c550c9ffcfe54ed6c5b81f76"
+  url "https://github.com/suzuki-shunsuke/pinact/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "52f407d11d599ceaba78646388850161c77eb7ccb609d0a053e70bdc3496ca79"
   license "MIT"
   head "https://github.com/suzuki-shunsuke/pinact.git", branch: "main"
 
