@@ -1,8 +1,8 @@
 class MongodbAtlasCli < Formula
   desc "Atlas CLI enables you to manage your MongoDB Atlas"
   homepage "https://www.mongodb.com/docs/atlas/cli/stable/"
-  url "https://github.com/mongodb/mongodb-atlas-cli/archive/refs/tags/atlascli/v1.41.0.tar.gz"
-  sha256 "76326d2b7a4361994682458d14a982904f3c9f67f111e4415b52a1e58d5fcd8e"
+  url "https://github.com/mongodb/mongodb-atlas-cli/archive/refs/tags/atlascli/v1.41.1.tar.gz"
+  sha256 "42e287d84cc9bd2c1a5f4cac4ff2d88c986b6519bd3b8491ba5b5646dc6ea0ee"
   license "Apache-2.0"
   head "https://github.com/mongodb/mongodb-atlas-cli.git", branch: "master"
 
