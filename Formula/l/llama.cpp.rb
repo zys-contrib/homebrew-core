@@ -8,9 +8,14 @@ class LlamaCpp < Formula
   license "MIT"
   head "https://github.com/ggerganov/llama.cpp.git", branch: "master"
 
+  # llama.cpp publishes new tags too often
+  # Having multiple updates in one day is not very convenient
+  # Update formula only after 10 new tags (1 update per ≈2 days)
+  #
+  # `trottle 10` doesn't work
   livecheck do
     url :stable
-    regex(/^v?b(\d+(?:\.\d+)*)$/i)
+    regex(/^v?b(\d+(?:\.\d+)*0)$/i)
   end
 
   bottle do
