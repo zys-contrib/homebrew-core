@@ -30,7 +30,7 @@ class BashGitPrompt < Formula
   end
 
   test do
-    output = shell_output("/bin/sh #{share}/gitstatus.sh 2>&1")
+    output = shell_output("/bin/bash #{share}/gitstatus.sh 2>&1")
     assert_match "not a git repository", output
   end
 end
