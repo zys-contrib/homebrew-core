@@ -1,8 +1,8 @@
 class Cubelib < Formula
   desc "Performance report explorer for Scalasca and Score-P"
   homepage "https://scalasca.org/software/cube-4.x/download.html"
-  url "https://apps.fz-juelich.de/scalasca/releases/cube/4.8/dist/cubelib-4.8.2.tar.gz"
-  sha256 "d6fdef57b1bc9594f1450ba46cf08f431dd0d4ae595c47e2f3454e17e4ae74f4"
+  url "https://apps.fz-juelich.de/scalasca/releases/cube/4.9/dist/cubelib-4.9.tar.gz"
+  sha256 "a0658f5bf3f74bf7dcf465ab6e30476751ad07eb93618801bdcf190ba3029443"
   license "BSD-3-Clause"
 
   livecheck do
