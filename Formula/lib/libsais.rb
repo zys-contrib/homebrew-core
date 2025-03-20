@@ -7,12 +7,12 @@ class Libsais < Formula
   head "https://github.com/IlyaGrebnov/libsais.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "19bba27b56a4c890084cbf223e58ef3b14efab3a0c61edd6b025b628317f4a29"
-    sha256 cellar: :any,                 arm64_sonoma:  "c5cc957760d690302bde741e4ab8f55c906384c44d09564dcd1c4f7723aecbeb"
-    sha256 cellar: :any,                 arm64_ventura: "8a5e36ed28f7410bdc6908100dd7194b298d6784cd99545293879d5426ce7e9f"
-    sha256 cellar: :any,                 sonoma:        "51caf063ac38481b690df2d89b3ee2f66a9762f27666b6e3351426cdc41254e3"
-    sha256 cellar: :any,                 ventura:       "831d57970132761ab8d3ee5b6bef2dbd7e03cf235a99f41c45dee2743335e02b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c199bd76b40ac1e5a2775d5fa739447eee86f38d3ffc3caca932156826e160c3"
+    sha256 cellar: :any,                 arm64_sequoia: "71798230e0812f09a513abb2d6f6f9d414199f6020de68b0155a57349fde1cd0"
+    sha256 cellar: :any,                 arm64_sonoma:  "02a2cd486eacd8a0024b3f146d258a452ac91de055fc79e60607b4447c43143d"
+    sha256 cellar: :any,                 arm64_ventura: "be3653aabdd632b2a1ff411c322f7d48120ab416acf294d7d4a8853bff45c080"
+    sha256 cellar: :any,                 sonoma:        "4ce985b643d0aa19ec9602dde6d39d6108fd9fa17925e74fec29752530079c81"
+    sha256 cellar: :any,                 ventura:       "6824497f202de858ba1ff2d9c2d926a3bc9f0ae71648b12bbe3a8331d08ca1cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b37dc5e73a77d10484285a2d4efc121b6d1fb972695c2964904affc63f808b98"
   end
 
   depends_on "cmake" => :build
