@@ -1,15 +1,10 @@
 class NagaCli < Formula
   desc "Shader translation command-line tool"
   homepage "https://wgpu.rs/"
-  url "https://github.com/gfx-rs/wgpu/archive/refs/tags/naga-cli-v23.0.0.tar.gz"
-  sha256 "bf1ff22de43699835524862a2f1908fcf1888ab8d252af19b32c0f545b9a18b7"
+  url "https://static.crates.io/crates/naga-cli/naga-cli-24.0.0.crate"
+  sha256 "ec4c933ea97858af5e100edbdc64d53ed5f63e5ce29ddba0b91e895c52ebf049"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/gfx-rs/wgpu.git", branch: "trunk"
-
-  livecheck do
-    url :stable
-    regex(/^naga-cli[._-]v?(\d+(?:\.\d+)+)$/i)
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "eea8149092b5b62a0144f70033752baff0451b81530f4228ac663fcc72bcdc61"
@@ -25,7 +20,7 @@ class NagaCli < Formula
   conflicts_with "naga", because: "both install `naga` binary"
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "naga-cli")
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
