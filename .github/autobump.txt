@@ -2288,6 +2288,7 @@ mrboom
 mruby
 msgpack
 msgpack-cxx
+msitools
 msktutil
 msmtp
 mtbl
