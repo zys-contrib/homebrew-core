@@ -27,6 +27,19 @@ class Dolt < Formula
     end
   end
 
+  def post_install
+    (var/"log").mkpath unless (var/"log").exist?
+    (var/"dolt").mkpath
+  end
+
+  service do
+    run [opt_bin/"dolt", "sql-server"]
+    keep_alive true
+    log_path var/"log/dolt.log"
+    error_log_path var/"log/dolt.error.log"
+    working_dir var/"dolt"
+  end
+
   test do
     ENV["DOLT_ROOT_PATH"] = testpath
 
