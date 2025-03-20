@@ -19,11 +19,12 @@ class ExcalidrawConverter < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
+    bin.install_symlink "excalidraw-converter" => "exconv"
   end
 
   test do
     resource "test_input.excalidraw" do
-      url "https://raw.githubusercontent.com/sindrel/excalidraw-converter/refs/heads/master/test/data/test_input.excalidraw"
+      url "https://raw.githubusercontent.com/sindrel/excalidraw-converter/refs/tags/v1.4.3/test/data/test_input.excalidraw"
       sha256 "46fd108ab73f6ba70610cb2a79326e453246d58399b65ffc95e0de41dd2f12e8"
     end
 
@@ -31,5 +32,6 @@ class ExcalidrawConverter < Formula
     system bin/"excalidraw-converter", "gliffy", "-i", testpath/"test_input.excalidraw", "-o",
 testpath/"test_output.gliffy"
     assert_path_exists testpath/"test_output.gliffy"
+    system bin/"exconv", "version"
   end
 end
