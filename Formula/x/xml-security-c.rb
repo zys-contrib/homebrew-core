@@ -1,11 +1,14 @@
 class XmlSecurityC < Formula
   desc "Implementation of primary security standards for XML"
   homepage "https://santuario.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=santuario/c-library/xml-security-c-2.0.4.tar.bz2"
-  mirror "https://archive.apache.org/dist/santuario/c-library/xml-security-c-2.0.4.tar.bz2"
-  sha256 "c83ed1b7c0189cce27a49caa81986938e76807bf35597e6056259af30726beca"
+  url "https://shibboleth.net/downloads/xml-security-c/3.0.0/xml-security-c-3.0.0.tar.bz2"
+  sha256 "a4c9e1ae3ed3e8dab5d82f4dbdb8414bcbd0199a562ad66cd7c0cd750804ff32"
   license "Apache-2.0"
-  revision 2
+
+  livecheck do
+    url "https://shibboleth.net/downloads/xml-security-c/"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "0ef901d1dd62aede4b0a35b64342b969c1895b519dbe5c41dd2b1a5f82d8c7dc"
@@ -20,15 +23,13 @@ class XmlSecurityC < Formula
   depends_on "openssl@3"
   depends_on "xerces-c"
 
-  # Fix -flat_namespace being used on Big Sur and later.
+  # Apply Debian patch to avoid segfault in test
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    url "https://sources.debian.org/data/main/x/xml-security-c/3.0.0-2/debian/patches/Provide-the-Xerces-URI-Resolver-for-the-tests.patch"
+    sha256 "585938480165026990e874fecfae42601dde368f345f1e6ee54b189dbcd01734"
   end
 
   def install
-    ENV.cxx11
-
     system "./configure", "--with-openssl=#{Formula["openssl@3"].opt_prefix}", *std_configure_args
     system "make", "install"
   end
