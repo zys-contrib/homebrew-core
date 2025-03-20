@@ -31,6 +31,9 @@ class Nss < Formula
   conflicts_with "resty", because: "both install `pp` binaries"
 
   def install
+    # Fails on arm64 macOS for some reason with:
+    #   aes-armv8.c:14:2: error: "Compiler option is invalid"
+    ENV.runtime_cpu_detection if OS.linux? || Hardware::CPU.intel?
     ENV.deparallelize
     cd "nss"
 
