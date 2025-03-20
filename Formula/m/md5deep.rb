@@ -27,9 +27,7 @@ class Md5deep < Formula
 
   # Fix compilation error due to very old GNU config scripts in source repo
   # reported upstream at https://github.com/jessek/hashdeep/issues/400
-  on_arm do
-    patch :DATA
-  end
+  patch :DATA
 
   # Fix compilation error due to pointer comparison
   patch do
@@ -46,7 +44,7 @@ class Md5deep < Formula
 
   def install
     system "sh", "bootstrap.sh"
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
@@ -54,22 +52,30 @@ class Md5deep < Formula
     (testpath/"testfile.txt").write("This is a test file")
     # Do not reduce the spacing of the below text.
     assert_equal "91b7b0b1e27bfbf7bc646946f35fa972c47c2d32  testfile.txt",
-    shell_output("#{bin}/sha1deep -b testfile.txt").strip
+                 shell_output("#{bin}/sha1deep -b testfile.txt").strip
   end
 end
 
 __END__
-diff --git a/config.guess b/config.guess
-index cc726cd..37d7e9d 100755
 --- a/config.guess
 +++ b/config.guess
-@@ -1130,6 +1130,9 @@ EOF
+@@ -797,6 +797,9 @@
+     arm*:Linux:*:*)
+	echo ${UNAME_MACHINE}-unknown-linux-gnu
+	exit 0 ;;
++    aarch64:Linux:*:*)
++	echo ${UNAME_MACHINE}-unknown-linux-gnu
++	exit 0 ;;
+     ia64:Linux:*:*)
+	echo ${UNAME_MACHINE}-unknown-linux-gnu
+	exit 0 ;;
+@@ -1130,6 +1133,9 @@
      *:Rhapsody:*:*)
- 	echo ${UNAME_MACHINE}-apple-rhapsody${UNAME_RELEASE}
- 	exit 0 ;;
-+	arm64:Darwin:*:*)
+	echo ${UNAME_MACHINE}-apple-rhapsody${UNAME_RELEASE}
+	exit 0 ;;
++    arm64:Darwin:*:*)
 +	echo arm-apple-darwin"$UNAME_RELEASE"
 +	exit ;;
      *:Darwin:*:*)
- 	case `uname -p` in
- 	    *86) UNAME_PROCESSOR=i686 ;;
+	case `uname -p` in
+	    *86) UNAME_PROCESSOR=i686 ;;
