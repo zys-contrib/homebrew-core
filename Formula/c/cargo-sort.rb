@@ -6,6 +6,15 @@ class CargoSort < Formula
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/devinr528/cargo-sort.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f705b9d2acf22f9d3a938c0a6fcfd91542216c3c5708ca9b925b6306335cad00"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "50433c453c2b06805d430060ab93af25bf7c357a6561d7ecdb5f20b005b5ee2e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cce8f602feae89f057f651943a59cb19054ac9dfd795b55ec036c83c0e6277e5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0d07ea46096df39b7e931785beff09de82825d8312599c62d2768c9809b53e70"
+    sha256 cellar: :any_skip_relocation, ventura:       "8f7d7d7098162924d7b52634dcc6b8e79c488340a440a414884ccfd61dac769c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4dca60b315658ddd7aecbddae66691dc439fcdf620325e5cb367df4c754f4a1"
+  end
+
   depends_on "rust" => :build
   depends_on "rustup" => :test
 
