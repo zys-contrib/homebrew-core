@@ -12,6 +12,7 @@ class Libsais < Formula
     sha256 cellar: :any,                 arm64_ventura: "be3653aabdd632b2a1ff411c322f7d48120ab416acf294d7d4a8853bff45c080"
     sha256 cellar: :any,                 sonoma:        "4ce985b643d0aa19ec9602dde6d39d6108fd9fa17925e74fec29752530079c81"
     sha256 cellar: :any,                 ventura:       "6824497f202de858ba1ff2d9c2d926a3bc9f0ae71648b12bbe3a8331d08ca1cd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "be08cee2abbb93bc7e3a2bb078569f55fd38de28ad68a315f807355b5cca89f7"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b37dc5e73a77d10484285a2d4efc121b6d1fb972695c2964904affc63f808b98"
   end
 
