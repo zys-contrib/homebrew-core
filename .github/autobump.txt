@@ -3099,6 +3099,7 @@ sendme
 senpai
 sentencepiece
 sentry-cli
+sentry-native
 seqkit
 sequin
 sequoia-sq
