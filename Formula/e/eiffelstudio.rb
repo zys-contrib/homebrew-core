@@ -1,9 +1,9 @@
 class Eiffelstudio < Formula
   desc "Development environment for the Eiffel language"
   homepage "https://www.eiffel.com"
-  url "https://ftp.eiffel.com/pub/download/23.09/pp/PorterPackage_std_23.09_107341.tar"
-  version "23.09.107341"
-  sha256 "f92dad3226b81e695ba6deb752d7b8e84351f1dcab20e18492cc56a2b7d8d4b1"
+  url "https://ftp.eiffel.com/pub/download/24.05/pp/PorterPackage_24.05_rev_107822.tar"
+  version "24.05.107822"
+  sha256 "ca3f2f428568eea7823a1a8bd0d66713b5cadb051cada956a0d3b85a0022621c"
   license "GPL-2.0-only"
 
   livecheck do
@@ -49,11 +49,6 @@ class Eiffelstudio < Formula
       if OS.mac?
         # Fix flat namespace usage in C shared library.
         s.gsub! "-flat_namespace -undefined suppress", "-undefined dynamic_lookup"
-      else
-        # Use ENV.cc to link shared objects instead of directly invoking ld.
-        # Reported upstream: https://support.eiffel.com/report_detail/19873.
-        s.gsub! "sharedlink='ld'", "sharedlink='#{ENV.cc}'"
-        s.gsub! "ldflags=\"-m elf_x86_64\"", "ldflags=''"
       end
     end
     system "tar", "cjf", "c.tar.bz2", "C"
