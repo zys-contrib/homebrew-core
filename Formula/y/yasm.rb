@@ -1,6 +1,8 @@
 class Yasm < Formula
   desc "Modular BSD reimplementation of NASM"
-  homepage "https://yasm.tortall.net/"
+  # Actual homepage shown below, but currently unreachable:
+  # homepage "https://yasm.tortall.net/"
+  homepage "https://www.tortall.net/projects/yasm/manual/html/"
   url "https://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz"
   mirror "https://ftp.openbsd.org/pub/OpenBSD/distfiles/yasm-1.3.0.tar.gz"
   sha256 "3dce6601b495f5b3d45b59f7d2492a340ee7e84b5beca17e48f862502bd5603f"
@@ -108,7 +110,7 @@ class Yasm < Formula
         .len:   equ     $ - msg
       ASM
       system bin/"yasm", "-f", "elf64", "test.asm"
-      system "/usr/bin/ld", "-static", "-o", "test", "test.o"
+      system "/usr/bin/ld", "-static", "-o", "test", "test.o" if Hardware::CPU.intel?
     end
     assert_equal "Hello, world!\n", shell_output("./test") if Hardware::CPU.intel?
   end
