@@ -7,12 +7,12 @@ class Kapp < Formula
   head "https://github.com/carvel-dev/kapp.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "988fb14b5443bf60238e93290c5e02654e8b3de078d53e86bc27cce529b772e1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "988fb14b5443bf60238e93290c5e02654e8b3de078d53e86bc27cce529b772e1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "988fb14b5443bf60238e93290c5e02654e8b3de078d53e86bc27cce529b772e1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0306278aa240526fb267b7f1cbf5b40f10011fcbc3df06d7167fd53e02103f69"
-    sha256 cellar: :any_skip_relocation, ventura:       "0306278aa240526fb267b7f1cbf5b40f10011fcbc3df06d7167fd53e02103f69"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71646e52dde56f6d7a41d1d1aac4a3c7f8e6af8f4cdd2145788c609f0ad49c30"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7ff0deb34460ced94c830822c2afeec04d2f02be064c44cd317f9b1024a3bb7d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7ff0deb34460ced94c830822c2afeec04d2f02be064c44cd317f9b1024a3bb7d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7ff0deb34460ced94c830822c2afeec04d2f02be064c44cd317f9b1024a3bb7d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "42dc350969ed21ec5b85cdc93dac10a05b52a8181237260cfb20e0a6f38b9836"
+    sha256 cellar: :any_skip_relocation, ventura:       "42dc350969ed21ec5b85cdc93dac10a05b52a8181237260cfb20e0a6f38b9836"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6cdfdd87b0b11d42bd1e2a77d01e6b054254c89b1d5b412a0e698788f8024757"
   end
 
   depends_on "go" => :build
