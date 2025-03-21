@@ -24,34 +24,39 @@ class X265 < Formula
   def install
     ENV.runtime_cpu_detection
     # Build based off the script at ./build/linux/multilib.sh
-    args = std_cmake_args + %W[
+    args = %W[
       -DLINKED_10BIT=ON
       -DLINKED_12BIT=ON
       -DEXTRA_LINK_FLAGS=-L.
       -DEXTRA_LIB=x265_main10.a;x265_main12.a
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
-    high_bit_depth_args = std_cmake_args + %w[
+    args << "-DENABLE_SVE2=OFF" if OS.linux? && Hardware::CPU.arm?
+    high_bit_depth_args = %w[
       -DHIGH_BIT_DEPTH=ON -DEXPORT_C_API=OFF
       -DENABLE_SHARED=OFF -DENABLE_CLI=OFF
     ]
+    high_bit_depth_args << "-DENABLE_SVE2=OFF" if OS.linux? && Hardware::CPU.arm?
+
     (buildpath/"8bit").mkpath
+    system "cmake", "-S", buildpath/"source", "-B", "10bit",
+                    "-DENABLE_HDR10_PLUS=ON",
+                    *high_bit_depth_args,
+                    *std_cmake_args
+    system "cmake", "--build", "10bit"
+    mv "10bit/libx265.a", buildpath/"8bit/libx265_main10.a"
 
-    mkdir "10bit" do
-      system "cmake", buildpath/"source", "-DENABLE_HDR10_PLUS=ON", *high_bit_depth_args
-      system "make"
-      mv "libx265.a", buildpath/"8bit/libx265_main10.a"
-    end
+    system "cmake", "-S", buildpath/"source", "-B", "12bit",
+                    "-DMAIN12=ON",
+                    *high_bit_depth_args,
+                    *std_cmake_args
+    system "cmake", "--build", "12bit"
+    mv "12bit/libx265.a", buildpath/"8bit/libx265_main12.a"
 
-    mkdir "12bit" do
-      system "cmake", buildpath/"source", "-DMAIN12=ON", *high_bit_depth_args
-      system "make"
-      mv "libx265.a", buildpath/"8bit/libx265_main12.a"
-    end
+    system "cmake", "-S", buildpath/"source", "-B", "8bit", *args, *std_cmake_args
+    system "cmake", "--build", "8bit"
 
     cd "8bit" do
-      system "cmake", buildpath/"source", *args
-      system "make"
       mv "libx265.a", "libx265_main.a"
 
       if OS.mac?
