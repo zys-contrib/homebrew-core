@@ -20,6 +20,7 @@ class Asciitex < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "28a1327d58e05b74df8382ce37595d8d80decaf5cdbac4739995bc53d9f30ef7"
     sha256 cellar: :any_skip_relocation, sierra:         "9828783530514218f99ea7eabfad2031caeac979fac90cc9e049de4b4622fb80"
     sha256 cellar: :any_skip_relocation, el_capitan:     "0ae267d7ffcf17769da97275af047dc2a4ba9e5086acdb53dd11ca41f3d40ddb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "0c58b7bfb137b8905ee389497448200beeaf56f9636938f926aaf7497b9dced9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "630265b0202b14fd9459b9f772f8f2c1518ddf1b5a5baf6f086f693c8054b470"
   end
 
