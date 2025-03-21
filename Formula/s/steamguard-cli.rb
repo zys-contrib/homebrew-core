@@ -11,6 +11,7 @@ class SteamguardCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "addd417cd0b2cce815ffcd08cfde925021815d1053e9b71c72fcfe2918da150b"
     sha256 cellar: :any_skip_relocation, sonoma:        "64f8b4287b795d0eb4246ad9a8d024bd639fba17382b748db076ab320d2c470b"
     sha256 cellar: :any_skip_relocation, ventura:       "cc6bea182abebee804675f170153061ba678f73b8f35dc8aa8ca4d66df95f25b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7fa2c52d87a5563f4c780ee97c660c83658d7f13250d4fe1858b8ff7eff8d56d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "47d2c72e74aa0aea06bfb8b8dcfdc55d58738fb758853e45615cddfb749d8e8b"
   end
 
