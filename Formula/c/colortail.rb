@@ -1,9 +1,8 @@
 class Colortail < Formula
   desc "Like tail(1), but with various colors for specified output"
   homepage "https://github.com/joakim666/colortail"
-  url "https://github.com/joakim666/colortail/archive/f44fce0dbfd6bd38cba03400db26a99b489505b5.tar.gz"
-  version "0.3.4"
-  sha256 "1f6d7c6bf088c9134946f55e1df382cde0b168600afbeeb3107a668badf3b487"
+  url "https://github.com/joakim666/colortail/releases/download/0.3.5/colortail-0.3.5.tar.gz"
+  sha256 "8d259560c6f4a4aaf1f4bbdb2b62d3e1053e7e19fefad7de322131b7e80e294d"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -16,18 +15,8 @@ class Colortail < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa418e94d26b6b470e6f936a18cc61a18d064a52a3be518d9d6b575b214bbb9d"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-
-  # Upstream PR to fix the build on ML
-  patch do
-    url "https://github.com/joakim666/colortail/commit/36dd0437bb364fd1493934bdb618cc102a29d0a5.patch?full_index=1"
-    sha256 "d799ddadeb652321f2bc443a885ad549fa0fe6e6cfc5d0104da5156305859dd3"
-  end
-
   def install
-    system "./autogen.sh", "--disable-dependency-tracking",
-                           "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
