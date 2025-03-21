@@ -11,6 +11,7 @@ class CubejsCli < Formula
     sha256 cellar: :any,                 arm64_ventura: "cb3773f27338eaefa3adb12623db5e247562ffc4e538ee190dcbffde6bfae1f3"
     sha256 cellar: :any,                 sonoma:        "d7f3d51cb3baf8ed9010c683d97929e34534003138b3f90edca263cf85912a09"
     sha256 cellar: :any,                 ventura:       "d7f3d51cb3baf8ed9010c683d97929e34534003138b3f90edca263cf85912a09"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1e06fbcee27950a6cb0b54ea4497c4dbe33c4d7299debe0356deeb466599cde3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9234faee03395049b0fa8a4549c3b3e9174c769579098dbb09abfee922b3fe80"
   end
 
