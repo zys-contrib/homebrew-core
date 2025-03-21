@@ -1,13 +1,13 @@
 class SpatialiteTools < Formula
   desc "CLI tools supporting SpatiaLite"
   homepage "https://www.gaia-gis.it/fossil/spatialite-tools/index"
-  url "https://www.gaia-gis.it/gaia-sins/spatialite-tools-sources/spatialite-tools-5.1.0.tar.gz"
-  sha256 "df3030367c089ca90fa6630897f3f1a280784da29e1ba634f340dba4b08583b5"
+  url "https://www.gaia-gis.it/gaia-sins/spatialite-tools-sources/spatialite-tools-5.1.0a.tar.gz"
+  sha256 "119e34758e8088cdbb43ed81b4a6eaea88c764b0b7da19001a5514b2545501ce"
   license "GPL-3.0-or-later"
 
   livecheck do
     url "https://www.gaia-gis.it/gaia-sins/spatialite-tools-sources/"
-    regex(/href=.*?spatialite-tools[._-]v?(\d+(?:\.\d+)+)\.(?:t|zip)/i)
+    regex(/href=.*?spatialite-tools[._-]v?(\d+(?:\.\d+)+[a-z]?)\.(?:t|zip)/i)
   end
 
   bottle do
