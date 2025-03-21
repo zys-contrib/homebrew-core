@@ -12,6 +12,7 @@ class Hk < Formula
     sha256 cellar: :any,                 arm64_ventura: "38c538cc20ff913b3db1385067455f48de326fda1a109142e23bec6477e5901e"
     sha256 cellar: :any,                 sonoma:        "9a10feca3c209a776668596be1ca79120199d3163619bb040c0001a6bd2dd7f5"
     sha256 cellar: :any,                 ventura:       "fcfdbf6449c11d2fa65f5b0c39355d0433500e37d7b93c4aed772b494d651617"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a33394786e0abdabfd569bcf890df37a6ddbc47d86ea07aad1de0bfda065df9b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2108938d73a52a551b7f0115f7a491f9dea3a9cf73cb2df3bf9082c9beb9b2c4"
   end
 
