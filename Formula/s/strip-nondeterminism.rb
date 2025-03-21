@@ -17,6 +17,7 @@ class StripNondeterminism < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b09a9787d5eca23d947ca3fcf5744202051290337ee041f88af17fb70fc41c6b"
     sha256 cellar: :any_skip_relocation, sonoma:        "5a853e47eb7bd6b1f321040f2debd817ab1e1291ef5df6b8381c888594d67727"
     sha256 cellar: :any_skip_relocation, ventura:       "75901bb6038f31a4afe830eee9de9c020c514d9eb6c7333ad5ed545f4bbdbe61"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "56debe860510e4194923c1398ccfc9b56250c2539503cb9bb1b95951a56df1d0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f49f58ba6bd0bff56bbf6d0a1344f3aa46c8e2f7faf44c2b0d57b454d75488e0"
   end
 
