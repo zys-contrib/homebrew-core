@@ -12,12 +12,12 @@ class Netdata < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "86659b5011bb7f7d2caacdbffe8bfb52e570026eefcc28db297c58e13cc55105"
-    sha256 arm64_sonoma:  "7f49dca20ba3a479be97800eb84790be64e3fb8a2d1d658ed6160d266068b081"
-    sha256 arm64_ventura: "f9d215d7780084e9d4d61a76c810ec7e1c45c9dbaf6c0613cb626a89fcc97026"
-    sha256 sonoma:        "e7985f32bb0bcc982a520d01b95d65a8e7e9ac18e81e427dec281bfa7a7413ef"
-    sha256 ventura:       "a7802a15c80aafd9504c875db123906c5d70887578597a51ab9bb26380bc13fc"
-    sha256 x86_64_linux:  "1ea6bc52591b731ffecebc4e3cc134f51b6aeb9c48645bc70e0c0a7dfe9a7f49"
+    sha256 arm64_sequoia: "5b04243d61f40289d64bf10503de5934ab02fc794c31e6999c47bc1305f4a2b2"
+    sha256 arm64_sonoma:  "8b9b0ba4f1349ff2cd40fa76341ce9d38e989da3ea72e1069d1e49193b6d2430"
+    sha256 arm64_ventura: "842d17e734e12fba64c693707f3054b66fd9e795c76c7ad9b56aa6263914c1d4"
+    sha256 sonoma:        "0ccd380970cd677d4c51b3fbeea7233a90c2aedfa7578befd88fc1cb7ccdc163"
+    sha256 ventura:       "551c77d23c64029806aa27b6a894adc8739c1d16623191d8a57681ca5c22263b"
+    sha256 x86_64_linux:  "d124b07aa6061ec17b44def219b2652df12dc8033dcfccb22f450f9cd39e4e01"
   end
 
   depends_on "cmake" => :build
