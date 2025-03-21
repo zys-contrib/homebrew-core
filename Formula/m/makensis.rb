@@ -6,14 +6,12 @@ class Makensis < Formula
   license "Zlib"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d5198ddb8f17e70b6804b1622d67d2c754b836b7e16f8cd44b0a22a639e3e82e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c74338c424627cfab6d21fa5d3ce53bc39d641f10b0a3150322943e32c422b35"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fe5df7005bbb4cf75e23485a9810b3c8e5139441db9442dc2022216a0b019d4f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ccbda3098670472ecc0c5fa2d1e364b49ce361fb642d3ec13b88f31a23ee8740"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fc8db0474581a68a3393de4494c79f738cfcf7fdbd293e7be373196139b21656"
-    sha256 cellar: :any_skip_relocation, ventura:        "241bfaef69832fed9d6200be45bb05608750180702697c261a1eea6db3606a7f"
-    sha256 cellar: :any_skip_relocation, monterey:       "087967b7c39a1e0c6ddb70c197bc9ccc0bcce13fa52190e0f7ec87ca8511dafd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5fd35ae601106c7530eb53aaf72dcb3bf3553ec52b19e33e2f6944aec8481b3f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "edd2d0dcc5ca368334522b123210e7d9d3336efc5e0091f12500fa02a8e304d8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "065f088b4c9681f571c8e73b76bcd730ac34b5ab86ac011707d31b28479b8533"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "71dd1af5b0c2c9a040bac2d58965ba3141dbb2c23a95f36d7ad7fb2b2e1b40fa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "985171f35c2c617499f333b4926367ee656660b85e9a83c045a691633e1af9d1"
+    sha256 cellar: :any_skip_relocation, ventura:       "b41b708bb2a20b5f006d3123070d7a9d16c02796201a86fa5456b7673a299994"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c8e1672901d8376fcbcc0579302f0338629852fde0a262cdab694613fe89785"
   end
 
   depends_on "mingw-w64" => :build
