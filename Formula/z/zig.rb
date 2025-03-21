@@ -17,6 +17,7 @@ class Zig < Formula
     sha256 cellar: :any,                 arm64_ventura: "b7cadbfbaea540925472f28df0e119c4e26233335cb8886b755ceb1663b5e00a"
     sha256 cellar: :any,                 sonoma:        "1b9125a527782269930c27e0d67a62c3c36656e01906725f080ac972f6bbf3a7"
     sha256 cellar: :any,                 ventura:       "537e3e061b77ad9ca512aa866b9aae06fee5d1e2faa85128cf903aa3d18dc9ca"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bc74fb16422994ef50087b89eee304931acb3568103fc6688176ffc015eeb2d2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a71266139b1fe7f17638b0ad92b36a424295db899797bcef6fd9a6e64d68d6bc"
   end
 
