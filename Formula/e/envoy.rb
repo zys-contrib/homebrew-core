@@ -1,19 +1,10 @@
 class Envoy < Formula
   desc "Cloud-native high-performance edge/middle/service proxy"
   homepage "https://www.envoyproxy.io/index.html"
+  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.33.1.tar.gz"
+  sha256 "eddd1e4be75fc0606a5e721d3c219063b34504169da162a1615afbf4f9910e42"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/envoy.git", branch: "main"
-
-  stable do
-    url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.33.0.tar.gz"
-    sha256 "fd726135761ea163f0312d49960c602c9b4fcb78ca3c36600975fed16e0787c4"
-
-    # Backport disabling libcurl docs to fix build. Remove in the next release.
-    patch do
-      url "https://github.com/envoyproxy/envoy/commit/ae6cb3254cbf98999993d0120d289a207a57f825.patch?full_index=1"
-      sha256 "a5c25bad6884f382909036ac9e8c812c5d3ba3104f2f1d24f5035acf705b0d74"
-    end
-  end
 
   livecheck do
     url :stable
