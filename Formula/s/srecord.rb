@@ -1,8 +1,8 @@
 class Srecord < Formula
   desc "Tools for manipulating EPROM load files"
   homepage "https://srecord.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/srecord/srecord/1.64/srecord-1.64.tar.gz"
-  sha256 "49a4418733c508c03ad79a29e95acec9a2fbc4c7306131d2a8f5ef32012e67e2"
+  url "https://downloads.sourceforge.net/project/srecord/srecord/1.65/srecord-1.65.0-Source.tar.gz"
+  sha256 "81c3d07cf15ce50441f43a82cefd0ac32767c535b5291bcc41bd2311d1337644"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later"]
 
   bottle do
@@ -23,34 +23,41 @@ class Srecord < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ccca42765c5c335dd26b2be5ad0a30b95d279e59958c89950d8cdbb5321816f"
   end
 
-  depends_on "boost" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
+  depends_on "doxygen" => :build
+  depends_on "ghostscript" => :build # for ps2pdf
+  depends_on "graphviz" => :build
+  depends_on "libpaper" => :build # for paper
+  depends_on "netpbm" => :build # for pnmcrop
+  depends_on "psutils" => :build # for psselect
+
   depends_on "libgcrypt"
 
-  on_sonoma :or_newer do
-    depends_on "ghostscript" => :build # for ps2pdf
+  on_macos do
+    depends_on "coreutils" => :build # for ptx
   end
 
-  on_ventura :or_newer do
+  on_system :linux, macos: :ventura_or_newer do
     depends_on "groff" => :build
   end
 
-  on_linux do
-    depends_on "ghostscript" => :build # for ps2pdf
-    depends_on "groff" => :build
-  end
-
-  # Use macOS's pstopdf
+  # Apply Fedora patch to build shared library and avoid installing a duplicate libgcrypt
+  # Issue ref: https://github.com/sierrafoxtrot/srecord/issues/29
   patch do
-    on_ventura :or_older do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/srecord/1.64.patch"
-      sha256 "140e032d0ffe921c94b19145e5904538233423ab7dc03a9c3c90bf434de4dd03"
-    end
+    url "https://src.fedoraproject.org/rpms/srecord/raw/4d2b7a885e73398fe1caf7fa3d514b522a1bca2f/f/srecord-1.65-fedora.patch"
+    sha256 "8e6f0b3f71b99700d598b461272a6926ec5b5445b6758df455aaba02f596c8e9"
   end
 
   def install
-    system "./configure", *std_configure_args, "LIBTOOL=glibtool"
-    system "make", "install"
+    # Issue ref: https://github.com/sierrafoxtrot/srecord/issues/65
+    inreplace "CMakeLists.txt", 'set(CMAKE_INSTALL_PREFIX "/usr")', ""
+
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
+    # Remove over 40MB of documentation bringing install to 3MB
+    rm_r(doc/"htdocs")
   end
 
   test do
