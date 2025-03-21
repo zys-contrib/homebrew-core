@@ -1,8 +1,8 @@
 class Uffizzi < Formula
   desc "Self-serve developer platforms in minutes, not months with k8s virtual clusters"
   homepage "https://uffizzi.com"
-  url "https://github.com/UffizziCloud/uffizzi_cli/archive/refs/tags/v2.4.16.tar.gz"
-  sha256 "a23f624ce8c8603c51ec0fa73a998d79461ff451effaed3eac07708c1023fc31"
+  url "https://github.com/UffizziCloud/uffizzi_cli/archive/refs/tags/v2.4.17.tar.gz"
+  sha256 "1feeae19c455b16d4bcf153fad984d3f013b274744b6046ba3ef62e07c6922ac"
   license "Apache-2.0"
 
   livecheck do
@@ -82,8 +82,8 @@ class Uffizzi < Formula
   end
 
   resource "sentry-ruby" do
-    url "https://rubygems.org/gems/sentry-ruby-5.22.4.gem"
-    sha256 "e48daf000ab386958a8f8f6c200be29b0b2ef24f23384b7fe7c5eccec091a82c"
+    url "https://rubygems.org/gems/sentry-ruby-5.23.0.gem"
+    sha256 "8e8bb2f9a56a267a50fcba947f2ae131b6542f45fc3bb5764c2c25ba68f385cc"
   end
 
   resource "securerandom" do
@@ -172,13 +172,13 @@ class Uffizzi < Formula
   end
 
   resource "activesupport" do
-    url "https://rubygems.org/gems/activesupport-8.0.1.gem"
-    sha256 "fd5bc74641c24ac3541055c2879789198ff42adee3e39c2933289ba008912e37"
+    url "https://rubygems.org/gems/activesupport-8.0.2.gem"
+    sha256 "8565cddba31b900cdc17682fd66ecd020441e3eef320a9930285394e8c07a45e"
   end
 
   resource "uffizzi-cli" do
-    url "https://rubygems.org/gems/uffizzi-cli-2.4.16.gem"
-    sha256 "36bcf82ee092fb99f9dea6270fafa71bdf9794adc28deccb1ee0288064ed7aa4"
+    url "https://rubygems.org/gems/uffizzi-cli-2.4.17.gem"
+    sha256 "bb997e9b0dad3f7c9f2ec8e9b5b427e40d43f0794d02e4fd36a1bc298b548231"
   end
 
   def install
