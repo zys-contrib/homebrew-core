@@ -31,11 +31,14 @@ class Flang < Formula
     "flang-new"
   end
 
+  def llvm
+    Formula["llvm"]
+  end
+
   def install
     # Generate omp_lib.h and omp_lib.F90 to be used by flang build
     system "cmake", "-S", "openmp", "-B", "build/projects/openmp", *std_cmake_args
 
-    llvm = Formula["llvm"]
     args = %W[
       -DLLVM_TOOL_OPENMP_BUILD=ON
       -DCLANG_DIR=#{llvm.opt_lib}/cmake/clang
@@ -146,9 +149,9 @@ class Flang < Formula
 
     openmp_flags = %w[-fopenmp]
     openmp_flags += if OS.mac?
-      %W[-L#{Formula["llvm"].opt_lib}]
+      %W[-L#{llvm.opt_lib}]
     else
-      libomp_dir = Formula["llvm"].opt_lib/"#{Hardware::CPU.arch}-unknown-linux-gnu"
+      libomp_dir = llvm.opt_lib/Utils.safe_popen_read(llvm.opt_bin/"clang", "--print-target-triple").chomp
       %W[-L#{libomp_dir} -Wl,-rpath,#{libomp_dir} -Wl,-rpath,#{lib}]
     end
     system bin/flang_driver, "-v", *openmp_flags, "omptest.f90", "-o", "omptest"
