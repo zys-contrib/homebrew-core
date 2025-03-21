@@ -1,10 +1,9 @@
 class Dive < Formula
   desc "Tool for exploring each layer in a docker image"
   homepage "https://github.com/wagoodman/dive"
-  url "https://github.com/wagoodman/dive/archive/refs/tags/v0.12.0.tar.gz"
-  sha256 "2b69b8d28220c66e2575a782a370a0c05077936ae3ce69180525412fcca09230"
+  url "https://github.com/wagoodman/dive/archive/refs/tags/v0.13.0.tar.gz"
+  sha256 "91449d9777c3b52ddfd9cf922b8bb980cd9270eaf056ea70b319a8779f7e2c2b"
   license "MIT"
-  revision 1
   head "https://github.com/wagoodman/dive.git", branch: "main"
 
   bottle do
