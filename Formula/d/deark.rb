@@ -18,6 +18,7 @@ class Deark < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "7baa0958b2bf84ba3725381f05741aaa4f6c1c620ee3c6887451d0e3aa8be0fc"
     sha256 cellar: :any_skip_relocation, ventura:        "78180c749974f3df237f9436b8d2f87f5e31b834ecd564d6b83ce54cc860774a"
     sha256 cellar: :any_skip_relocation, monterey:       "c88568646b14a09092425cf09120b09f0996af5bede89c448ea3fb9949c08ac7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "99a99e3715e53511970066c41a14f0b824e5079c9c6527ad38cdb4284eeef741"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "63ae702046e2330da0ecebbd379c191bf3edf69a3e1e374b281ffffea42b44aa"
   end
 
