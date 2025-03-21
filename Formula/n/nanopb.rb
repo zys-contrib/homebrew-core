@@ -20,6 +20,7 @@ class Nanopb < Formula
     sha256 cellar: :any,                 arm64_ventura: "a7acbc645e97667aa9924d1fb85a579cd6c4f628e79deabb467033a027db4de4"
     sha256 cellar: :any,                 sonoma:        "d60addc61d0a2454f9118b4b8c727c59ba271b4aa04c758d2b242dbb5514dff5"
     sha256 cellar: :any,                 ventura:       "39d4114c8a87b5bffac3e7dd7c230fb774ecd1c3c3b09d91e5bb9d631f43b5c4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4ad24fb383ea51833f9d0f785b5f5ad96694e167becdfd8fe209e1b6815a31fe"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "efeceec89652aa4621f289e3b1918c83fb768f958792cf85cee62f3dd38b4471"
   end
 
