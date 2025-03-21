@@ -243,7 +243,8 @@ class Subversion < Formula
     platform = if OS.mac?
       "darwin-thread-multi-2level"
     else
-      "#{Hardware::CPU.arch}-#{OS.kernel_name.downcase}-thread-multi"
+      arch = Hardware::CPU.arm? ? :aarch64 : Hardware::CPU.arch
+      "#{arch}-#{OS.kernel_name.downcase}-thread-multi"
     end
 
     perl = DevelopmentTools.locate("perl")
