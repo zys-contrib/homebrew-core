@@ -1,10 +1,15 @@
 class StripNondeterminism < Formula
   desc "Tool for stripping bits of non-deterministic information from files"
   homepage "https://salsa.debian.org/reproducible-builds/strip-nondeterminism"
-  url "https://salsa.debian.org/reproducible-builds/strip-nondeterminism/-/archive/1.14.0/strip-nondeterminism-1.14.0.tar.bz2"
-  sha256 "a401c4a3bec46ae01da84c4de1c41b81402bbd2355c7978ba700cbad9873950f"
+  url "https://salsa.debian.org/reproducible-builds/strip-nondeterminism/-/archive/1.14.1/strip-nondeterminism-1.14.1.tar.bz2"
+  sha256 "149e5e7585cd1d8e777564d5772fb1afa5ed7be4a049c52ffc3a31de2bc04b93"
   license "GPL-3.0-or-later"
   head "https://salsa.debian.org/reproducible-builds/strip-nondeterminism.git", branch: "master"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4c7fca2d3bbf74fe614e02075d0419f2507d68efa53de4988605893271a2bc3e"
@@ -20,19 +25,18 @@ class StripNondeterminism < Formula
   uses_from_macos "file-formula" => :test
   uses_from_macos "perl"
 
+  # NOTE: Getopt::Long is included with Perl. Archive::Zip is included with macOS
+
   resource "Archive::Cpio" do
     url "https://cpan.metacpan.org/authors/id/P/PI/PIXEL/Archive-Cpio-0.10.tar.gz"
     sha256 "246fb31669764e78336b2191134122e07c44f2d82dc4f37d552ab28f8668bed3"
   end
 
   resource "Archive::Zip" do
-    url "https://cpan.metacpan.org/authors/id/P/PH/PHRED/Archive-Zip-1.68.tar.gz"
-    sha256 "984e185d785baf6129c6e75f8eb44411745ac00bf6122fb1c8e822a3861ec650"
-  end
-
-  resource "Getopt::Long" do
-    url "https://cpan.metacpan.org/authors/id/J/JV/JV/Getopt-Long-2.58.tar.gz"
-    sha256 "1305ed46ea21f794304e97aa3dcd3a38519059785e9db7415daf2c218506c569"
+    on_linux do
+      url "https://cpan.metacpan.org/authors/id/P/PH/PHRED/Archive-Zip-1.68.tar.gz"
+      sha256 "984e185d785baf6129c6e75f8eb44411745ac00bf6122fb1c8e822a3861ec650"
+    end
   end
 
   def install
