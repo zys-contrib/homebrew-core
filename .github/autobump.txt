@@ -144,7 +144,6 @@ astroterm
 astyle
 asuka
 asymptote
-asyncapi
 asyncplusplus
 at-spi2-core
 atac
@@ -170,7 +169,6 @@ avfs
 avrdude
 awk
 aws-amplify
-aws-auth
 aws-c-auth
 aws-c-cal
 aws-c-common
@@ -412,6 +410,8 @@ cargo-public-api
 cargo-release
 cargo-run-bin
 cargo-shuttle
+cargo-sort
+cargo-spellcheck
 cargo-udeps
 cargo-update
 cargo-watch
@@ -717,6 +717,7 @@ dartsim
 datafusion
 datalad
 datasette
+datatype99
 dav1d
 dbml-cli
 dbus
@@ -799,6 +800,7 @@ dnstwist
 dnsx
 doc8
 docfx
+dockcheck
 docker-buildx
 docker-compose
 docker-credential-helper
@@ -806,7 +808,6 @@ docker-credential-helper-ecr
 docker-gen
 docker-machine
 docker-machine-driver-vultr
-docker-slim
 docker-squash
 dockerfile-language-server
 dockerfilegraph
@@ -991,7 +992,6 @@ fanyi
 fast_float
 fastapi
 fastd
-fastfec
 fastfetch
 fastlane
 fastly
@@ -1291,6 +1291,7 @@ goctl
 godap
 goffice
 gofumpt
+goimports
 gojq
 gokey
 goku
@@ -1519,6 +1520,7 @@ imessage-exporter
 imgdiet
 imgp
 imgproxy
+imlib2
 immich-cli
 immich-go
 immortal
@@ -1540,6 +1542,7 @@ inlyne
 inspircd
 instaloader
 instead
+interface99
 internetarchive
 inxi
 ioctl
@@ -1821,6 +1824,7 @@ libbpf
 libbsd
 libcap
 libcap-ng
+libcbor
 libcdr
 libcec
 libchewing
@@ -1970,6 +1974,7 @@ libsvgtiny
 libsvm
 libtasn1
 libtensorflow
+libtickit
 libtiff
 libtirpc
 libtommath
@@ -2165,7 +2170,6 @@ md2pdf
 md4c
 mdbook
 mdbtools
-mdcat
 mdds
 mdformat
 mdless
@@ -2226,6 +2230,7 @@ miniupnpc
 minizinc
 minizip
 minizip-ng
+mintoolkit
 minuit2
 mist-cli
 mk-configure
@@ -2282,6 +2287,7 @@ mrboom
 mruby
 msgpack
 msgpack-cxx
+msitools
 msktutil
 msmtp
 mtbl
@@ -2310,6 +2316,7 @@ mysql-connector-c++
 mysqltuner
 n
 naabu
+naga-cli
 nagios
 nagios-plugins
 nak
@@ -2638,6 +2645,7 @@ pg_partman
 pgbadger
 pgbouncer
 pgcli
+pgformatter
 pgpool-ii
 pgrok
 pgroonga
@@ -2855,7 +2863,6 @@ qpid-proton
 qrcp
 qrtool
 qshell
-qsoas
 qsv
 qthreads
 qtkeychain
@@ -3090,8 +3097,10 @@ selenium-server
 semgrep
 semver
 sendme
+senpai
 sentencepiece
 sentry-cli
+sentry-native
 seqkit
 sequin
 sequoia-sq
@@ -3206,7 +3215,6 @@ solr
 solr@8.11
 sonar-scanner
 sonarqube
-sonarqube-lts
 sonic
 sonobuoy
 sophus
@@ -3321,6 +3329,7 @@ superhtml
 superlu
 surfer
 suricata
+sv2v
 svgbob
 svgo
 svlint
@@ -3379,6 +3388,7 @@ tcl-tk
 tcl-tk@8
 tcpdump
 tcpreplay
+tcpsplit
 tcsh
 tdb
 tealdeer
@@ -3465,6 +3475,7 @@ tkey-ssh-agent
 tlsx
 tml
 tmpmail
+tmpreaper
 tmt
 tmux-mem-cpu-load
 tmux-sessionizer
@@ -3615,6 +3626,7 @@ verovio
 versitygw
 vet
 vexctl
+vfkit
 vfox
 vgmstream
 vgrep
@@ -3765,7 +3777,7 @@ xh
 xinit
 xk6
 xkbcomp
-xkeyboardconfig
+xkeyboard-config
 xlsxio
 xmake
 xmlrpc-c
@@ -3821,6 +3833,7 @@ yq
 yt-dlp
 ytt
 yubico-piv-tool
+yutu
 yyjson
 z.lua
 z3
@@ -3859,6 +3872,7 @@ zookeeper
 zoro
 zoxide
 zpaqfranz
+zsh-autocomplete
 zsh-autosuggestions
 zsh-lovers
 zsh-vi-mode

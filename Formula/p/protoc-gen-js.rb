@@ -13,6 +13,7 @@ class ProtocGenJs < Formula
     sha256 cellar: :any,                 arm64_ventura: "beda6ac3c389b97f9576a937f9f05a7d5eb080266616cbc3f5c128dc640087d0"
     sha256 cellar: :any,                 sonoma:        "b27424da44d8473270ad385e5d02b652e812f6fffbc6463bc7db9298532cfd13"
     sha256 cellar: :any,                 ventura:       "ef8957fa3237a984dd1cb5abca15f38578e2705041f54ffa98853e99b7775651"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "99b1c695621c0c09ee5f67a5b53f1cc22171bf476c30869ae82a976ea284a30d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b73db501545dd71f9d63bdac58dd15dbab247ecabcb1f20798323af9c5280d90"
   end
 

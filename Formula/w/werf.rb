@@ -1,8 +1,8 @@
 class Werf < Formula
   desc "Consistent delivery tool for Kubernetes"
   homepage "https://werf.io/"
-  url "https://github.com/werf/werf/archive/refs/tags/v2.32.0.tar.gz"
-  sha256 "9da5d5d672f875ca8b75558c04dcc0951df00f21ac4e3d1bc5d3e234c0f47a6e"
+  url "https://github.com/werf/werf/archive/refs/tags/v2.32.2.tar.gz"
+  sha256 "ce6b745e7c81516f609999ee10cb85e3c9a4842af346af87b53c60730201ccfa"
   license "Apache-2.0"
   head "https://github.com/werf/werf.git", branch: "main"
 
@@ -15,12 +15,12 @@ class Werf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ef52d6ffc73828859f4b3deb72b901cdffac09e747d747b454b4a51e69c5083f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "88f1ef2e0ea8521b4e09d2c4c57624d298ca94828a0d3ea84eb188c1449629fa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "454015a15b8df3357ec7c1c4f519080c3a6a98739f38da2f02e3b4ae9ef2fbf3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5ae0d8b3f7ab8e72cdf678bfa13670b9a1eacc3c89de7b2655956860821cc9ed"
-    sha256 cellar: :any_skip_relocation, ventura:       "ab3bb6e0ae68782d3b4bf394b6a3391257d0166d7bb37352aad5b305875ef742"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9df479f69a3c9ff55264870174fd7b85acd8f2d036b9e3d5e4d84b1f9e87a1df"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "34126983941a65fa13ee6c81f4582d8a32445acd95cc4e95fde09951193e987b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "874a857561d922a3cd1ff52db5dda6af1d8c14606c912ce3fc463bf6246cd6ec"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5767aef1d9d4e0522d6695906fd28c6f5b1042e1695f9aa41521fad469eecd28"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2d95c733c0a6059b1a4b1513b9b96ddef5d6091130c2edcde6d10f7523342cdd"
+    sha256 cellar: :any_skip_relocation, ventura:       "598e89b6ad6ff7c4a44f296ff7a2b835df9e088ae393230240581ce41ddedda5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3eb3b3fbd45d6963618c519652af52705f66fca5308bb68be507d60649f7a43e"
   end
 
   depends_on "go" => :build
@@ -42,13 +42,13 @@ class Werf < Formula
       tags = %w[
         dfrunsecurity dfrunnetwork dfrunmount dfssh containers_image_openpgp
         osusergo exclude_graphdriver_devicemapper netgo no_devmapper static_build
-      ].join(" ")
+      ]
     else
       ldflags = "-s -w -X github.com/werf/werf/v2/pkg/werf.Version=#{version}"
       tags = "dfrunsecurity dfrunnetwork dfrunmount dfssh containers_image_openpgp"
     end
 
-    system "go", "build", *std_go_args(ldflags:), "-tags", tags, "./cmd/werf"
+    system "go", "build", *std_go_args(ldflags:, tags:), "./cmd/werf"
 
     generate_completions_from_executable(bin/"werf", "completion")
   end

@@ -3,23 +3,28 @@ class LlamaCpp < Formula
   homepage "https://github.com/ggerganov/llama.cpp"
   # CMake uses Git to generate version information.
   url "https://github.com/ggerganov/llama.cpp.git",
-      tag:      "b4897",
-      revision: "b3c9a65673a63a6c9a75da24ee00d13499494e0c"
+      tag:      "b4930",
+      revision: "dbb3a4739e53226346c772dd72666e68b78dc583"
   license "MIT"
   head "https://github.com/ggerganov/llama.cpp.git", branch: "master"
 
+  # llama.cpp publishes new tags too often
+  # Having multiple updates in one day is not very convenient
+  # Update formula only after 10 new tags (1 update per ≈2 days)
+  #
+  # `trottle 10` doesn't work
   livecheck do
     url :stable
-    regex(/^v?b(\d+(?:\.\d+)*)$/i)
+    regex(/^v?b(\d+(?:\.\d+)*0)$/i)
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "88fd9ace725f859cf74ad6d6a40541826b72f35f7998704a53bb514f21fb8f94"
-    sha256 cellar: :any,                 arm64_sonoma:  "b87db3901a22d5ef2b6ae11c454d50b31822c589b38e7aa3b6cb63475f1b7f91"
-    sha256 cellar: :any,                 arm64_ventura: "b2cd2f77d9257a53ba47e979d28c8c56fedd56325fcf864126369a44af99b6bd"
-    sha256 cellar: :any,                 sonoma:        "856a7f38a8e650d95085980a7dff8e87781e651b863a2d896a00647b74c72fbd"
-    sha256 cellar: :any,                 ventura:       "808c471725e2f7a4d9870836506cbb04b9f3f27f95c63852529bae4fb1931105"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "64b065c7034e4e91c4f6431b794ce41af502169a6e25a1261d108068b5672f31"
+    sha256 cellar: :any,                 arm64_sequoia: "29b812b5fdaeb11ed2366cf959290867e58d3ab6d158eba7288c8b8ecf254b9c"
+    sha256 cellar: :any,                 arm64_sonoma:  "05d1dbea3f0ce89df0608929df9c50c64d2bab72374203bb073d484a0905200d"
+    sha256 cellar: :any,                 arm64_ventura: "a7feeff5a8ad0ce2e53c19488f018a8e33bb0138c5e20f9d893cf0a7b458b1cf"
+    sha256 cellar: :any,                 sonoma:        "21be01ca0ad4dbe2fedad4967890746a968c8e71107d9191e3247fac7682301d"
+    sha256 cellar: :any,                 ventura:       "42f5cd21f32003b13228a81eb8d9c82af724e276b2a7301b9ca58eea9ebae3a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0fcbc63e5a912102195181bd9885f85e1d21d5f36a498ceb05e31dde9ca8974"
   end
 
   depends_on "cmake" => :build

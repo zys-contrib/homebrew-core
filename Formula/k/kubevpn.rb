@@ -31,7 +31,7 @@ class Kubevpn < Formula
       -X #{project}/cmd/kubevpn/cmds.Branch=master
       -X #{project}/cmd/kubevpn/cmds.OsArch=#{goos}/#{goarch}
     ]
-    system "go", "build", *std_go_args(ldflags:), "-tags", tags, "./cmd/kubevpn"
+    system "go", "build", *std_go_args(ldflags:, tags:), "./cmd/kubevpn"
 
     generate_completions_from_executable(bin/"kubevpn", "completion")
   end

@@ -27,10 +27,10 @@ class Earthly < Formula
       -X main.DefaultBuildkitdImage=earthly/buildkitd:v#{version}
       -X main.Version=v#{version}
       -X main.GitSha=#{Utils.git_head}
-      -X main.BuiltBy=homebrew
+      -X main.BuiltBy=#{tap.user}
     ]
     tags = "dfrunmount dfrunsecurity dfsecrets dfssh dfrunnetwork dfheredoc forceposix"
-    system "go", "build", "-tags", tags, *std_go_args(ldflags:), "./cmd/earthly"
+    system "go", "build", *std_go_args(ldflags:, tags:), "./cmd/earthly"
 
     generate_completions_from_executable(bin/"earthly", "bootstrap", "--source", shells: [:bash, :zsh])
   end

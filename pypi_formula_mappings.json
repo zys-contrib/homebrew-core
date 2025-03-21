@@ -341,7 +341,7 @@
   },
   "fonttools": "fonttools[woff]",
   "forbidden": {
-    "exclude_packages": ["certifi"]
+    "exclude_packages": ["certifi", "cffi", "cryptography", "pycparser"]
   },
   "fwupd": {
     "package_name": "",
@@ -615,6 +615,8 @@
     "exclude_packages": ["cryptography"]
   },
   "osc": {
+    "package_name": "",
+    "extra_packages": ["rpm", "ruamel-yaml", "urllib3"],
     "exclude_packages": ["cryptography"]
   },
   "osc-cli": {
