@@ -11,6 +11,7 @@ class NpmCheckUpdates < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a7e6065f8bb9d50aa175d8d9a4409414cf5f04c05fce96837283a474812a94fe"
     sha256 cellar: :any_skip_relocation, sonoma:        "e4856b560bb049bca4ecc7195503c749abde1a579bb5f9ebd7aa7dafaefb10e3"
     sha256 cellar: :any_skip_relocation, ventura:       "e4856b560bb049bca4ecc7195503c749abde1a579bb5f9ebd7aa7dafaefb10e3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a7e6065f8bb9d50aa175d8d9a4409414cf5f04c05fce96837283a474812a94fe"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7e6065f8bb9d50aa175d8d9a4409414cf5f04c05fce96837283a474812a94fe"
   end
 
