@@ -57,7 +57,8 @@ class CargoBundle < Formula
     bundle_subdir = if OS.mac?
       "osx/#{testproject}.app"
     else
-      "deb/#{testproject}_#{version}_amd64.deb"
+      arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch
+      "deb/#{testproject}_#{version}_#{arch}.deb"
     end
     bundle_path = testpath/testproject/"target/release/bundle"/bundle_subdir
     assert_path_exists bundle_path
