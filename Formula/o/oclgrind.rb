@@ -37,7 +37,10 @@ class Oclgrind < Formula
   end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
+    llvm = deps.find { |dep| dep.name.match?(/^llvm(@\d+)?$/) }
+               .to_formula
+    rpaths = [rpath, rpath(target: llvm.opt_lib)]
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     # Install the optional ICD into #{prefix}/etc rather than #{etc} as it contains realpath
