@@ -12,6 +12,7 @@ class Watchman < Formula
     sha256 cellar: :any,                 arm64_ventura: "db4f41d9e265aa57cf432ce574d7d17f02c42705d1e71d761d25de6eca5bed84"
     sha256 cellar: :any,                 sonoma:        "98308a1dbcd0f9a41fdd468f96b10c3429116ceca2aba2e5ecb8636844974584"
     sha256 cellar: :any,                 ventura:       "03cef545398ae45b8759a7a11065ce018fbac1b5fe7b28dc2df3bf57cd556420"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c6bf5d94272ea2ab7af97f70b6a6be101247d25475d0ba4fc76fa4315e55cd19"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b7c4c2f9e57a4fdd362d227a72dac2d109310b7911a99d1da2ac6e65ad6d9cf"
   end
 
