@@ -12,6 +12,7 @@ class Zellij < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "74296e4cfd4f587a6d510f0ac4f85550bb4462dcd4116c81ac45aefb3d403dc8"
     sha256 cellar: :any_skip_relocation, sonoma:        "ef168ad14b66d374faa6b8b578811ce2005184ff0fee29a1501a928fa2bce382"
     sha256 cellar: :any_skip_relocation, ventura:       "7fa03010a491cb9059abb9d1213562ecc35bdcf3b59d0991cddb84f41c5f499b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "88ee394841f67002aab90ad258a8a3a77c3e0b33f1685013053c8f5b9337a11d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "afa7482e5fa44b9816c71a52aeef26421a621999b16e24dd7034faa920790aed"
   end
 
