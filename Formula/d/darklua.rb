@@ -6,6 +6,15 @@ class Darklua < Formula
   license "MIT"
   head "https://github.com/seaofvoices/darklua.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "65353fe3b327985d26b88e45acc7d2448458850a15c70acd9e310dece10b5140"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "51e1aae12cddb661d59ac58804f67e610308b2fcdd4d8e1820b14c7d2fafb049"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5bd5f668a31c24ca6fd4c317e4699531c323b64c5cd19e37eb8b3458d6d8df63"
+    sha256 cellar: :any_skip_relocation, sonoma:        "96749c157b2ff99a438cddb5159ffec85660e16b00e48ffb63a80882ca6278ed"
+    sha256 cellar: :any_skip_relocation, ventura:       "ac5f3cc4f6355b66cae12369ae5dd85e1ab095af27a23cdf8a047c330b0f7b39"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8354ab92f83f7c68125c741cf2857d3fd8706e16a8769b719b16103b9a8e24d0"
+  end
+
   depends_on "rust" => :build
 
   def install
