@@ -801,7 +801,7 @@ class Llvm < Formula
         }
       C
 
-      rpath_flag = "-Wl,-rpath,#{lib}/#{Hardware::CPU.arch}-unknown-linux-gnu" if OS.linux?
+      rpath_flag = "-Wl,-rpath,#{lib/Utils.safe_popen_read(bin/"clang", "--print-target-triple").chomp}" if OS.linux?
       system bin/"clang", "-L#{lib}", "-fopenmp", "-nobuiltininc",
                           "-I#{lib}/clang/#{llvm_version_major}/include",
                           rpath_flag.to_s, "omptest.c", "-o", "omptest"
