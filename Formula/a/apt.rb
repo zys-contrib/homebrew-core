@@ -2,8 +2,8 @@ class Apt < Formula
   desc "Advanced Package Tool"
   homepage "https://wiki.debian.org/Apt"
   # Using git tarball as Debian does not retain old versions at deb.debian.org
-  url "https://salsa.debian.org/apt-team/apt/-/archive/2.9.33/apt-2.9.33.tar.bz2"
-  sha256 "44e0751a378f2d0375622694e450eb65558e56b4269c733adb1ea0b94527432b"
+  url "https://salsa.debian.org/apt-team/apt/-/archive/2.9.34/apt-2.9.34.tar.bz2"
+  sha256 "fd5011f49efff51f5851dc0429fa74cc1d0d5b7733a34bfcbd203cd327517247"
   license "GPL-2.0-or-later"
 
   livecheck do
