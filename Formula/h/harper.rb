@@ -1,8 +1,8 @@
 class Harper < Formula
   desc "Grammar Checker for Developers"
   homepage "https://github.com/elijah-potter/harper"
-  url "https://github.com/elijah-potter/harper/archive/refs/tags/v0.25.1.tar.gz"
-  sha256 "b444d052e13255fff3e087cb6b02de2bac9410f5373370ece36b74412849c599"
+  url "https://github.com/elijah-potter/harper/archive/refs/tags/v0.26.0.tar.gz"
+  sha256 "fb003fb7343d96243ccf2b7703c61122e8543343ad99f3b935b467be4e85bcd2"
   license "Apache-2.0"
   head "https://github.com/elijah-potter/harper.git", branch: "master"
 
@@ -31,13 +31,13 @@ class Harper < Formula
       This is an example to ensure language detection works properly.
     MARKDOWN
 
-    system bin/"harper-cli", "lint", "test.md"
+    # Dialect in https://github.com/Automattic/harper/blob/833b212e8665567fa2912e6c07d7c83d394dd449/harper-core/src/word_metadata.rs#L357-L362
+    system bin/"harper-cli", "lint", "--dialect", "American", "test.md"
 
     output = shell_output("#{bin}/harper-cli parse test.md")
     assert_equal "Word", JSON.parse(output.lines.first)["kind"]["kind"]
 
-    output = shell_output("#{bin}/harper-cli words")
-    assert_equal "\"B\"", output.lines.first.chomp
+    assert_match "\"iteration\"", shell_output("#{bin}/harper-cli words")
 
     # test harper-ls
     json = <<~JSON
