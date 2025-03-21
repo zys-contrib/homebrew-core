@@ -12,6 +12,7 @@ class Cdk8s < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8648c1eac31eba058b8ff6af2f0867aae32b723bc6bd4edd56d67e8d7665c1ca"
     sha256 cellar: :any_skip_relocation, sonoma:        "933ace1ed26389e619bc9137165adfb33c8aef6a36a960365b01319851f75a75"
     sha256 cellar: :any_skip_relocation, ventura:       "933ace1ed26389e619bc9137165adfb33c8aef6a36a960365b01319851f75a75"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8648c1eac31eba058b8ff6af2f0867aae32b723bc6bd4edd56d67e8d7665c1ca"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8648c1eac31eba058b8ff6af2f0867aae32b723bc6bd4edd56d67e8d7665c1ca"
   end
 
