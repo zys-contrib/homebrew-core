@@ -12,6 +12,7 @@ class Television < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "abd8a46ca808a451a414f332a57ce4b1c8fd8131fcb907ce55e40e52249f4471"
     sha256 cellar: :any_skip_relocation, sonoma:        "5fca1c3bb0d33576638438e2735b57696952d0cf0916ecc940a5c7af238f038c"
     sha256 cellar: :any_skip_relocation, ventura:       "66fddee64ce35625b3e068f7fcb869623df392214ae8ec784df7f68e59439bfe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d16a96257af5148b1f6e5a573ba77024be0f61e029ec9b5880a1312171ace420"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c8ef047ab04ac64afabac215d899ce68f54edc15ad81f2a294bf9dc65ea65e3"
   end
 
