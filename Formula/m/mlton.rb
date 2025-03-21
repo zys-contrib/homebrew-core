@@ -47,8 +47,14 @@ class Mlton < Formula
     end
 
     on_linux do
-      url "https://github.com/MLton/mlton/releases/download/on-20241230-release/mlton-20241230-1.amd64-linux.ubuntu-24.04_glibc2.39.tgz"
-      sha256 "95d5e78c77161aeefb2cff562fabd30ba1678338713c50147e5000f9ba481593"
+      on_arm do
+        url "https://github.com/MLton/mlton/releases/download/on-20241230-release/mlton-20241230-1.arm64-linux.ubuntu-24.04-arm_glibc2.39.tgz"
+        sha256 "ae7eb9b76e7749f51284033791788b4091d3ec94bb10eddf00f076dcb588c1f7"
+      end
+      on_intel do
+        url "https://github.com/MLton/mlton/releases/download/on-20241230-release/mlton-20241230-1.amd64-linux.ubuntu-24.04_glibc2.39.tgz"
+        sha256 "95d5e78c77161aeefb2cff562fabd30ba1678338713c50147e5000f9ba481593"
+      end
     end
   end
 
