@@ -17,6 +17,7 @@ class S2n < Formula
     sha256 cellar: :any,                 arm64_ventura: "ec81383e60a6202a04404dc3d5b9b3134edd5a77dabbaf9e822bed24382aefd4"
     sha256 cellar: :any,                 sonoma:        "a1dc453246e53fa3305dd0c81a3f79b74ba5418f14332374abd17d62940f0ce2"
     sha256 cellar: :any,                 ventura:       "e8e1d2e869240157dd2302361cf988c3921b17d6579e529b5c9eb6edf7cc2adb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "691faf41781948129689e1647a85d3b87c3a46586ffb288ae6840be6bb4cc0b3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8217e04f229e4762ff681291b005c233bdd2b6f1d5759cfacb7847966a9dcc6c"
   end
 
