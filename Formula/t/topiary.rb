@@ -1,8 +1,8 @@
 class Topiary < Formula
   desc "Uniform formatter for simple languages, as part of the Tree-sitter ecosystem"
   homepage "https://topiary.tweag.io/"
-  url "https://github.com/tweag/topiary/archive/refs/tags/v0.5.1.tar.gz"
-  sha256 "7c84c7f1c473609153895c8857a35925e2c0d623e60f3ee00255202c2461785a"
+  url "https://github.com/tweag/topiary/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "d0cc71693a1d889e6031eb9b0ad453f50bfde4a9bbe58a2294b9d2c88449a06c"
   license "MIT"
 
   bottle do
@@ -32,14 +32,7 @@ class Topiary < Formula
       }
     RUST
 
-    (testpath/"config.toml").write <<~TOML
-      [language]
-      name = "rust"
-      extensions = ["rs"]
-      indent = "    " # 4 spaces
-    TOML
-
-    system bin/"topiary", "format", "-C", testpath/"config.toml", testpath/"test.rs"
+    system bin/"topiary", "format", testpath/"test.rs"
 
     assert_match <<~RUST, File.read("#{testpath}/test.rs")
       fn main() {
