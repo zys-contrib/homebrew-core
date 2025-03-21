@@ -1,22 +1,11 @@
 class Mpfr < Formula
   desc "C library for multiple-precision floating-point computations"
   homepage "https://www.mpfr.org/"
-  url "https://ftp.gnu.org/gnu/mpfr/mpfr-4.2.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/mpfr/mpfr-4.2.1.tar.xz"
-  version "4.2.1-p1"
-  sha256 "277807353a6726978996945af13e52829e3abd7a9a5b7fb2793894e18f1fcbb2"
+  url "https://ftp.gnu.org/gnu/mpfr/mpfr-4.2.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/mpfr/mpfr-4.2.2.tar.xz"
+  sha256 "b67ba0383ef7e8a8563734e2e889ef5ec3c3b898a01d00fa0a6869ad81c6ce01"
   license "LGPL-3.0-or-later"
   head "https://gitlab.inria.fr/mpfr/mpfr.git", branch: "master"
-
-  # Upstream patches, list at https://www.mpfr.org/mpfr-current/#fixed
-  %w[
-    01 3ec29a67cfa75c35e90d32cafa552956018c79526b4aa412f3beff21dacfb41e
-  ].each_slice(2) do |p, checksum|
-    patch do
-      url "https://www.mpfr.org/mpfr-4.2.1/patch#{p}"
-      sha256 checksum
-    end
-  end
 
   livecheck do
     url "https://www.mpfr.org/mpfr-current/"
@@ -56,10 +45,6 @@ class Mpfr < Formula
 
   def install
     system "./autogen.sh" if build.head?
-
-    odie "check if autoreconf line can be removed" if version > "4.2.1-p1"
-    # regenerate since the files were generated using automake 1.17
-    system "autoreconf", "--force", "--install", "--verbose"
 
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
