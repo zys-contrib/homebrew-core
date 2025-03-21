@@ -11,6 +11,7 @@ class Promptfoo < Formula
     sha256 cellar: :any,                 arm64_ventura: "42b258efd235835d0dcce5fb7c24a2bf22f94df24e7d4d135339e5deb9196cbd"
     sha256                               sonoma:        "d054d372d3c883f6af3fdb5538bffa2c7323039018adca5e3c61195888118fc0"
     sha256                               ventura:       "53a25a5d18e953dfbe981d21df6cfc4c4f1ece526342f9ed8bb74c5b8bf30869"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f53b9082c6a943c748a55216d342298604d47d1eb437c03f9a6ace5829114ae"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "66f324633b5efb8b73e1b1069979a62e6907f0d92f4414c8650c19ba48c0ff3e"
   end
 
