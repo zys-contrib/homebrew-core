@@ -2316,6 +2316,7 @@ mysql-connector-c++
 mysqltuner
 n
 naabu
+naga-cli
 nagios
 nagios-plugins
 nak
