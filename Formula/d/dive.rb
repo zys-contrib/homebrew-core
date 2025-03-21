@@ -7,12 +7,12 @@ class Dive < Formula
   head "https://github.com/wagoodman/dive.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "44b9241dc0d0cedd1eec7b294b1fcfea2f01afc319709b88ad5ba61fb7c69df4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "44b9241dc0d0cedd1eec7b294b1fcfea2f01afc319709b88ad5ba61fb7c69df4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "44b9241dc0d0cedd1eec7b294b1fcfea2f01afc319709b88ad5ba61fb7c69df4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8e2e5f58c3bd4a14dd5439a912ad552fe5396fe9d2e318995fa1a0e50c7ea275"
-    sha256 cellar: :any_skip_relocation, ventura:       "8e2e5f58c3bd4a14dd5439a912ad552fe5396fe9d2e318995fa1a0e50c7ea275"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e45819927ba03dad0ff53a6549135d7bfc7b84c6e49ad6cac64829fa13e124ac"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "79a2438765e47aded7dfd78aacc90e975910ee5031301e86f8c432b61d497595"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "79a2438765e47aded7dfd78aacc90e975910ee5031301e86f8c432b61d497595"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "79a2438765e47aded7dfd78aacc90e975910ee5031301e86f8c432b61d497595"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e9c1f5f308785a0e356662f9679f18f78a41c9c343f7055bb9657b784db70b99"
+    sha256 cellar: :any_skip_relocation, ventura:       "e9c1f5f308785a0e356662f9679f18f78a41c9c343f7055bb9657b784db70b99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d2c4e660a335804b98e10d62cb1c3051856a15aa201d031415b95ccb6e3fc31"
   end
 
   depends_on "go" => :build
