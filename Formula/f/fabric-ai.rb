@@ -6,6 +6,15 @@ class FabricAi < Formula
   license "MIT"
   head "https://github.com/danielmiessler/fabric.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7e64cebca775c3b216210804d58a008ba77c33152185620d81baa539fff33f8b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7e64cebca775c3b216210804d58a008ba77c33152185620d81baa539fff33f8b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7e64cebca775c3b216210804d58a008ba77c33152185620d81baa539fff33f8b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5b14fd9567637be42b687ccbe50333b4673ac721df646f0cb333e33ac8ee7c3a"
+    sha256 cellar: :any_skip_relocation, ventura:       "5b14fd9567637be42b687ccbe50333b4673ac721df646f0cb333e33ac8ee7c3a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2afcccea05e9bf6a75a86ae5d6631971da537e3c8b5817a5adb1d83865ce13f9"
+  end
+
   depends_on "go" => :build
 
   def install
