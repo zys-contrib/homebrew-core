@@ -4,16 +4,15 @@ class Minio < Formula
   url "https://github.com/minio/minio.git",
       tag:      "RELEASE.2025-03-12T18-04-18Z",
       revision: "dbf31af6cb0d5ea33b277b6e461cfea98262778e"
-  version "20250312180418"
+  version "2025-03-12T18-04-18Z"
   license "AGPL-3.0-or-later"
+  version_scheme 1
   head "https://github.com/minio/minio.git", branch: "master"
 
   livecheck do
     url :stable
     regex(/^(?:RELEASE[._-]?)?([\dTZ-]+)$/i)
-    strategy :github_latest do |json, regex|
-      json["tag_name"]&.scan(regex)&.map { |match| match[0].tr("TZ-", "") }
-    end
+    strategy :github_latest
   end
 
   bottle do
@@ -31,14 +30,15 @@ class Minio < Formula
     if build.head?
       system "go", "build", *std_go_args
     else
-      release = stable.specs[:tag]
-      version = release.gsub("RELEASE.", "").chomp.gsub(/T(\d+)-(\d+)-(\d+)Z/, 'T\1:\2:\3Z')
+      minio_release = stable.specs[:tag]
+      minio_version = version.to_s.gsub(/T(\d+)-(\d+)-(\d+)Z/, 'T\1:\2:\3Z')
 
       ldflags = %W[
         -s -w
-        -X github.com/minio/minio/cmd.Version=#{version}
-        -X github.com/minio/minio/cmd.ReleaseTag=#{release}
+        -X github.com/minio/minio/cmd.Version=#{minio_version}
+        -X github.com/minio/minio/cmd.ReleaseTag=#{minio_release}
         -X github.com/minio/minio/cmd.CommitID=#{Utils.git_head}
+        -X github.com/minio/minio/cmd.CopyrightYear=#{version.major}
       ]
 
       system "go", "build", *std_go_args(ldflags:)
@@ -59,14 +59,10 @@ class Minio < Formula
   end
 
   test do
-    assert_equal version.to_s,
-                 shell_output("#{bin}/minio --version 2>&1")
-                   .match(/(?:RELEASE[._-]?)?([\dTZ-]+)/)
-                   .to_s
-                   .gsub(/[^\d]/, ""),
-                 "`version` is incorrect"
+    output = shell_output("#{bin}/minio --version 2>&1")
+    assert_equal version.to_s, output[/(?:RELEASE[._-]?)?([\dTZ-]+)/, 1], "`version` is incorrect"
 
-    assert_match "minio server - start object storage server",
-      shell_output("#{bin}/minio server --help 2>&1")
+    output = shell_output("#{bin}/minio server --help 2>&1")
+    assert_match "minio server - start object storage server", output
   end
 end
