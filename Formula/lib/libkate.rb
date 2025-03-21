@@ -1,11 +1,9 @@
 class Libkate < Formula
   desc "Overlay codec for multiplexed audio/video in Ogg"
-  homepage "https://code.google.com/archive/p/libkate/"
-  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/libkate/libkate-0.4.1.tar.gz"
-  mirror "https://deb.debian.org/debian/pool/main/libk/libkate/libkate_0.4.1.orig.tar.gz"
-  sha256 "c40e81d5866c3d4bf744e76ce0068d8f388f0e25f7e258ce0c8e76d7adc87b68"
+  homepage "https://wiki.xiph.org/index.php/OggKate"
+  url "https://downloads.xiph.org/releases/kate/libkate-0.4.3.tar.gz"
+  sha256 "96827ca136ad496b4e34ff3ed2434a8e76ad83b1e6962b5df06ad24cbbfeebaf"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
     rebuild 3
@@ -26,18 +24,26 @@ class Libkate < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "159b8a3fb3e5ed3f1fe68bd29dbe791f5a4e967fe7b94af24a4148d09f7c6e03"
   end
 
+  head do
+    url "https://gitlab.xiph.org/xiph/kate.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    uses_from_macos "bison" => :build
+    uses_from_macos "flex" => :build
+  end
+
   depends_on "pkgconf" => :build
   depends_on "libogg"
   depends_on "libpng"
 
   def install
-    # Workaround to disable Python detection. The configure script finds python3;
-    # however, this breaks install as it needs python2 to compile the KateDJ tool.
-    ENV["PYTHON"] = ":"
-
-    system "./configure", "--enable-shared",
-                          "--enable-static",
-                          *std_configure_args
+    configure = build.head? ? "./autogen.sh" : "./configure"
+    system configure, "--disable-silent-rules",
+                      "--enable-shared",
+                      "--enable-static",
+                      *std_configure_args
     system "make", "check"
     system "make", "install"
 
