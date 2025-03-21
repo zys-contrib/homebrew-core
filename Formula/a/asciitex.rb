@@ -24,6 +24,10 @@ class Asciitex < Formula
   end
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `SYNTAX_ERR_FLAG'; array.o:(.bss+0x0): first defined here
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
     system "./configure", "--prefix=#{prefix}", "--disable-gtk"
     inreplace "Makefile", "man/asciiTeX_gui.1", ""
     system "make", "install"
