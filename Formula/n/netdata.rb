@@ -1,10 +1,9 @@
 class Netdata < Formula
   desc "Diagnose infrastructure problems with metrics, visualizations & alarms"
   homepage "https://www.netdata.cloud/"
-  url "https://github.com/netdata/netdata/releases/download/v1.44.3/netdata-v1.44.3.tar.gz"
-  sha256 "50df30a9aaf60d550eb8e607230d982827e04194f7df3eba0e83ff7919270ad2"
+  url "https://github.com/netdata/netdata/releases/download/v2.3.0/netdata-v2.3.0.tar.gz"
+  sha256 "a5470c547f11deeb58ae6faf21e0b891997055ea293a626102be85e3ab7f011f"
   license "GPL-3.0-or-later"
-  revision 15
 
   livecheck do
     url :stable
@@ -21,9 +20,8 @@ class Netdata < Formula
     sha256 x86_64_linux:  "1ea6bc52591b731ffecebc4e3cc134f51b6aeb9c48645bc70e0c0a7dfe9a7f49"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "m4" => :build
+  depends_on "cmake" => :build
+  depends_on "go" => :build
   depends_on "pkgconf" => :build
   depends_on "abseil"
   depends_on "json-c"
@@ -33,72 +31,40 @@ class Netdata < Formula
   depends_on "openssl@3"
   depends_on "pcre2"
   depends_on "protobuf"
-  depends_on "protobuf-c"
+  depends_on "snappy"
 
+  uses_from_macos "curl"
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "bison" => :build
+    depends_on "flex" => :build
+    depends_on "brotli"
+    depends_on "elfutils"
+    depends_on "freeipmi"
+    depends_on "libcap"
+    depends_on "libmnl"
+    depends_on "systemd"
     depends_on "util-linux"
-  end
-
-  resource "judy" do
-    url "https://downloads.sourceforge.net/project/judy/judy/Judy-1.0.5/Judy-1.0.5.tar.gz"
-    sha256 "d2704089f85fdb6f2cd7e77be21170ced4b4375c03ef1ad4cf1075bd414a63eb"
+    depends_on "zstd"
   end
 
   def install
-    # daemon/buildinfo.c saves the configure args and certain environment
-    # variables used to build netdata. Remove the environment variable that may
-    # reference `HOMEBREW_LIBRARY`, which can make bottling fail.
-    ENV.delete "PKG_CONFIG_LIBDIR"
-
-    # https://github.com/protocolbuffers/protobuf/issues/9947
-    ENV.append_to_cflags "-DNDEBUG"
-
-    # We build judy as static library, so we don't need to install it
-    # into the real prefix
-    judyprefix = "#{buildpath}/resources/judy"
-
-    resource("judy").stage do
-      system "./configure", "--disable-shared", *std_configure_args(prefix: judyprefix)
-
-      # Parallel build is broken
-      ENV.deparallelize do
-        system "make", "install"
-      end
+    # Install files using Homebrew's directory layout rather than relative to root.
+    inreplace "packaging/cmake/Modules/NetdataEBPFLegacy.cmake", "DESTINATION usr/", "DESTINATION "
+    inreplace "CMakeLists.txt" do |s|
+      s.gsub! %r{(\s"?(?:\$\{NETDATA_RUNTIME_PREFIX\}/)?)usr/}, "\\1"
+      s.gsub! %r{(\s"?)(?:\$\{NETDATA_RUNTIME_PREFIX\}/)?etc/}, "\\1#{etc}/"
+      s.gsub! %r{(\s"?)(?:\$\{NETDATA_RUNTIME_PREFIX\}/)?var/}, "\\1#{var}/"
     end
 
-    ENV["PREFIX"] = prefix
-    ENV.append "CFLAGS", "-I#{judyprefix}/include"
-    ENV.append "LDFLAGS", "-L#{judyprefix}/lib"
-
-    # We need C++17 for protobuf.
-    inreplace "configure.ac", "# AX_CXX_COMPILE_STDCXX(17, noext, optional)",
-                              "AX_CXX_COMPILE_STDCXX(17, noext, mandatory)"
-
-    system "autoreconf", "--force", "--install", "--verbose"
-    args = %W[
-      --disable-silent-rules
-      --sysconfdir=#{etc}
-      --localstatedir=#{var}
-      --libexecdir=#{libexec}
-      --with-math
-      --with-zlib
-      --enable-dbengine
-      --with-user=netdata
-    ]
-    if OS.mac?
-      args << "UUID_LIBS=-lc"
-      args << "UUID_CFLAGS=-I/usr/include"
-    else
-      args << "UUID_LIBS=-luuid"
-      args << "UUID_CFLAGS=-I#{Formula["util-linux"].opt_include}"
-    end
-    system "./configure", *args, *std_configure_args
-    system "make", "clean"
-    system "make", "install"
-
-    (etc/"netdata").install "system/netdata.conf"
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_FOR_PACKAGING=ON",
+                    "-DENABLE_PLUGIN_NFACCT=OFF",
+                    "-DENABLE_PLUGIN_XENSTAT=OFF",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   def post_install
@@ -115,6 +81,9 @@ class Netdata < Formula
   end
 
   test do
+    directories = prefix.children(false).map(&:to_s)
+    %w[usr var etc].each { |dir| refute_includes directories, dir }
+
     system sbin/"netdata", "-W", "set", "registry", "netdata unique id file",
                            "#{testpath}/netdata.unittest.unique.id",
                            "-W", "set", "registry", "netdata management api key file",
