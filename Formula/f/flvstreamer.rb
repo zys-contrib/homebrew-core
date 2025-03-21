@@ -30,6 +30,9 @@ class Flvstreamer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "99df5a533003260eea6277d1fa2bb80d0354b666a6a99195c46813e3313c701f"
   end
 
+  # adobe flash player EOL 12/31/2020, https://www.adobe.com/products/flashplayer/end-of-life-alternative.html
+  deprecate! date: "2025-03-21", because: :unmaintained
+
   conflicts_with "rtmpdump", because: "both install 'rtmpsrv', 'rtmpsuck' and 'streams' binary"
 
   def install
