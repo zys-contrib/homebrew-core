@@ -1,11 +1,16 @@
 class GitAnnex < Formula
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-10.20250115/git-annex-10.20250115.tar.gz"
-  sha256 "d1c0b27ba44be4a8d615280cd16652fd8cb1d7bd6ec44ba938bea01886d259d4"
+  url "https://hackage.haskell.org/package/git-annex-10.20250320/git-annex-10.20250320.tar.gz"
+  sha256 "b1c426ba737291d1e432d5062784ecd25fc14a48407e030d34c48ceed40a5a0e"
   license all_of: ["AGPL-3.0-or-later", "BSD-2-Clause", "BSD-3-Clause",
                    "GPL-2.0-only", "GPL-3.0-or-later", "MIT"]
   head "git://git-annex.branchable.com/", branch: "master"
+
+  livecheck do
+    url "https://hackage.haskell.org/package/git-annex"
+    regex(/href=.*?git-annex[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "0d5776c0fb0d8193b6e99b6a7ce2b2e7e90d3a45f1a13d8a4d781d0a39a6ccf3"
