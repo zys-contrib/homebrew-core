@@ -1,10 +1,9 @@
 class Libzdb < Formula
   desc "Database connection pool library"
   homepage "https://tildeslash.com/libzdb/"
-  url "https://tildeslash.com/libzdb/dist/libzdb-3.2.3.tar.gz"
-  sha256 "a1957826fab7725484fc5b74780a6a7d0d8b7f5e2e54d26e106b399e0a86beb0"
+  url "https://tildeslash.com/libzdb/dist/libzdb-3.4.0.tar.gz"
+  sha256 "abd675719bcbdde430aa4ee13975b980d55d2abcb5cc228082a30320a6bb9f0f"
   license "GPL-3.0-only"
-  revision 6
 
   livecheck do
     url :homepage
@@ -26,7 +25,7 @@ class Libzdb < Formula
   depends_on "sqlite"
 
   def install
-    system "./configure", "--disable-silent-rules", "--enable-sqliteunlock", *std_configure_args
+    system "./configure", "--disable-silent-rules", "--enable-protected", "--enable-sqliteunlock", *std_configure_args
     system "make", "install"
     (pkgshare/"test").install Dir["test/*.{c,cpp}"]
   end
