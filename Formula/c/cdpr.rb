@@ -26,8 +26,15 @@ class Cdpr < Formula
   uses_from_macos "libpcap"
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `timeout'; /tmp/ccw1Bjcf.o:(.bss+0x0): first defined here
+    # multiple definition of `cdprs'; /tmp/ccw1Bjcf.o:(.bss+0x4): first defined here
+    # multiple definition of `handle'; /tmp/ccw1Bjcf.o:(.bss+0x8): first defined here
+    cflags = []
+    cflags << "-fcommon" if OS.linux?
+
     # Makefile hardcodes gcc and other atrocities
-    system ENV.cc, "cdpr.c", "cdprs.c", "conffile.c", "-lpcap", "-o", "cdpr"
+    system ENV.cc, *cflags, "cdpr.c", "cdprs.c", "conffile.c", "-lpcap", "-o", "cdpr"
     bin.install "cdpr"
   end
 
