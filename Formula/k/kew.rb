@@ -12,6 +12,7 @@ class Kew < Formula
     sha256 cellar: :any,                 arm64_ventura: "c2eb5ab968885b6d7397175aef1ed17359a65dadbb6c0f7924078c6ea42c1d51"
     sha256 cellar: :any,                 sonoma:        "ced2c32a7bdf437f3cc5c5a864e16c71350e41630375b0462447390563b8fe0e"
     sha256 cellar: :any,                 ventura:       "63e5e071a2ce34a6dbf8dd5c185f86620cfc81b3fd318d8d7931905ae4c21259"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c7c77e5477ef2ca707045ffb6b2f99d0699ac2887b4dd16fbb3e16546ceab636"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "babe267a37fd48838da3ec4b5da871ace41bf16a6920b50c33c93f745b5d7c31"
   end
 
