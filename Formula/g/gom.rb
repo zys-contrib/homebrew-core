@@ -1,10 +1,16 @@
 class Gom < Formula
   desc "GObject wrapper around SQLite"
   homepage "https://wiki.gnome.org/Projects/Gom"
-  url "https://download.gnome.org/sources/gom/0.4/gom-0.4.tar.xz"
-  sha256 "68d08006aaa3b58169ce7cf1839498f45686fba8115f09acecb89d77e1018a9d"
+  url "https://download.gnome.org/sources/gom/0.5/gom-0.5.3.tar.xz"
+  sha256 "069d0909fbdc6b4d27edf7a879366194e3ab508b03548bf5b89ff63546d20177"
   license "LGPL-2.1-or-later"
-  revision 3
+
+  # We use a common regex because gom doesn't use GNOME's "even-numbered
+  # minor is stable" version scheme.
+  livecheck do
+    url :stable
+    regex(/gom[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     rebuild 3
