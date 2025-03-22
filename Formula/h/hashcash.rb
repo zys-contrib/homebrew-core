@@ -26,7 +26,8 @@ class Hashcash < Formula
 
   def install
     ENV.append_to_cflags "-Dunix"
-    system "make", "x86-openssl",
+    platform = Hardware::CPU.intel? ? "x86" : "generic"
+    system "make", "#{platform}-openssl",
                    "LIBCRYPTO=#{Formula["openssl@3"].opt_lib}/#{shared_library("libcrypto")}"
     system "make", "install",
                    "PACKAGER=HOMEBREW",
