@@ -24,25 +24,18 @@ class Libbs2b < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d6af3a009939d61fdec9ddd863c4c6e8b51d4f3bd5bc73f55dfc76ac2f48231"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkgconf" => :build
   depends_on "libsndfile"
 
-  on_macos do
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
   def install
-    if OS.mac?
-      # fix 'error: support for lzma-compressed distribution archives has been removed'
-      inreplace "configure.ac", "dist-lzma", ""
-      system "autoreconf", "--force", "--verbose", "--install"
-    end
+    # fix 'error: support for lzma-compressed distribution archives has been removed'
+    inreplace "configure.ac", "dist-lzma", ""
+    system "autoreconf", "--force", "--verbose", "--install"
 
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-static",
-                          "--enable-shared"
+    system "./configure", "--disable-static", "--enable-shared", *std_configure_args
     system "make", "install"
   end
 
