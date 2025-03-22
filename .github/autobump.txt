@@ -1798,6 +1798,7 @@ leakcanary-shark
 lean-cli
 leapp-cli
 leetcode-cli
+leetgo
 leetup
 legba
 legitify
