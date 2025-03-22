@@ -1,9 +1,9 @@
 class Gdbm < Formula
   desc "GNU database manager"
   homepage "https://www.gnu.org.ua/software/gdbm/"
-  url "https://ftp.gnu.org/gnu/gdbm/gdbm-1.24.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gdbm/gdbm-1.24.tar.gz"
-  sha256 "695e9827fdf763513f133910bc7e6cfdb9187943a4fec943e57449723d2b8dbf"
+  url "https://ftp.gnu.org/gnu/gdbm/gdbm-1.25.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gdbm/gdbm-1.25.tar.gz"
+  sha256 "d02db3c5926ed877f8817b81cd1f92f53ef74ca8c6db543fbba0271b34f393ec"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -18,26 +18,24 @@ class Gdbm < Formula
     sha256               x86_64_linux:   "7fd35749fc28a0bf5e2f3c7cc74d8e2da38914d3009127cbedf9cf617cb6fe61"
   end
 
-  # Fix -flat_namespace being used on Big Sur and later.
+  # Backport fix for macOS
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    url "https://git.savannah.gnu.org/cgit/gdbm.git/patch/?id=ed0a865345681982ea02c6159c0f3d7702c928a1"
+    sha256 "d2ba39d1948f5b1f048997716beaaa96d07fba594e81854cb01574378f645e07"
   end
 
-  # --enable-libgdbm-compat for dbm.h / gdbm-ndbm.h compatibility:
-  #   https://www.gnu.org.ua/software/gdbm/manual/html_chapter/gdbm_19.html
-  # Use --without-readline because readline detection is broken in 1.13
-  # https://github.com/Homebrew/homebrew-core/pull/10903
   def install
-    args = %W[
-      --disable-dependency-tracking
+    # --enable-libgdbm-compat for dbm.h / gdbm-ndbm.h compatibility:
+    #   https://www.gnu.org.ua/software/gdbm/manual/html_chapter/gdbm_19.html
+    # Use --without-readline because readline detection is broken in 1.13
+    # https://github.com/Homebrew/homebrew-core/pull/10903
+    args = %w[
       --disable-silent-rules
       --enable-libgdbm-compat
       --without-readline
-      --prefix=#{prefix}
     ]
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
 
     # Avoid conflicting with macOS SDK's ndbm.h.  Renaming to gdbm-ndbm.h
