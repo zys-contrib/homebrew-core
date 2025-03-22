@@ -11,13 +11,13 @@ class Dar < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "fe08149cad8919cfcf79dc4e6a603963ea47048e96b6fc0c32c6dcc39d6e9cdf"
-    sha256 arm64_sonoma:  "c6cd34bc8495ba6405ec1d8483426c6f9affc6706878f07dcae70e24b062875b"
-    sha256 arm64_ventura: "d15d9e8e9ed1d7b9d569e6655106800612d6fd63fa8680baed3eb7bf7ef5caa7"
-    sha256 sonoma:        "405f94e8feac3c42b4d3975a7693a65e32249a20a713765472fee003843b53dd"
-    sha256 ventura:       "027bf33538192f67a38b0f1ebd27e21ae954e53e5795a1e8fef746349641278c"
-    sha256 arm64_linux:   "5f366021167bf9ab3269d4552865b51b5a6e2763162b1eada52a45d49598c1b6"
-    sha256 x86_64_linux:  "a93ac5969bfbfe78c2be10668b1c8c381d1b4e3cadb831f222e863cfbc644d62"
+    sha256 arm64_sequoia: "c1edb8bbd7c24b4449d558aa34c1e11f25e032a8e52545a273758b1540c28d67"
+    sha256 arm64_sonoma:  "7c22d77abed655c9fe78c5f9bf82ef8afea3351508e6e5cae840aa289148a1f2"
+    sha256 arm64_ventura: "a54bc17f46e2c74c4d4f9c36d655b9f7f37427f09ce0eef08d91a3d5df312254"
+    sha256 sonoma:        "0bca4d8a3e1da533332fe535d0d35f7fd13d87db88cae93b5b444e427cdb3028"
+    sha256 ventura:       "cbbeca869cc054e953129ebe8e992b4bf8af69d0bd64570b49a2ff6abc25646f"
+    sha256 arm64_linux:   "b48d311bb953658903d6e2e84efeba2da0a94b7f9a8fa0488ea8786e2db61fd7"
+    sha256 x86_64_linux:  "5c2f273a76143c4aa87aa957647ddb3e3373ffa661edb57a685eca84aaddb77c"
   end
 
   depends_on "argon2"
