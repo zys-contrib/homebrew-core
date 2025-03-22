@@ -1,10 +1,9 @@
 class Libowfat < Formula
   desc "Reimplements libdjb"
   homepage "https://www.fefe.de/libowfat/"
-  url "https://www.fefe.de/libowfat/libowfat-0.32.tar.xz"
-  sha256 "f4b9b3d9922dc25bc93adedf9e9ff8ddbebaf623f14c8e7a5f2301bfef7998c1"
+  url "https://www.fefe.de/libowfat/libowfat-0.34.tar.xz"
+  sha256 "d4330d373ac9581b397bc24a22ad1f7f5d58a7fe36d9d239fe352ceffc5d304b"
   license "GPL-2.0-only"
-  revision 1
   head ":pserver:cvs:@cvs.fefe.de:/cvs", using: :cvs
 
   bottle do
@@ -15,14 +14,6 @@ class Libowfat < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "9fd957c443aa34237004dbcce7254377b164262df39bb3ba7ea8a8f1d70f5f59"
     sha256 cellar: :any_skip_relocation, mojave:         "2b1cffc2e679e98801f576358d42fb3b7217187f2551f5fe4460f5b29ffd485c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed6b06c82988da9cee1f3d4fc9f9e7b180fcf656cb1e508237b3cfe225257770"
-  end
-
-  # https://github.com/Homebrew/homebrew-core/pull/125418
-  disable! date: "2024-06-15", because: :does_not_build
-
-  patch do
-    url "https://github.com/mistydemeo/libowfat/commit/278a675a6984e5c202eee9f7e36cda2ae5da658d.patch?full_index=1"
-    sha256 "32eab2348f495f483f7cd34ffd7543bd619f312b7094a4b55be9436af89dd341"
   end
 
   def install
