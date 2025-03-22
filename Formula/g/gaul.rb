@@ -23,20 +23,17 @@ class Gaul < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "86d80af0c4bdef2186dccac01b0046ca2ca2c81c484b7c5f279553b2e190b53c"
   end
 
-  on_macos do
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   def install
-    # Run autoreconf on macOS to rebuild configure script so that it doesn't try
-    # to build with a flat namespace.
-    system "autoreconf", "--force", "--verbose", "--install" if OS.mac?
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-debug",
-                          "--disable-g",
-                          "--prefix=#{prefix}"
+    # Run autoreconf to regenerate the configure script and update outdated macros.
+    # This ensures that the build system is properly configured on both macOS
+    # (avoiding issues like flat namespace conflicts) and Linux (where outdated
+    # config scripts may fail to detect the correct build type).
+    system "autoreconf", "--force", "--verbose", "--install"
+    system "./configure", "--disable-g", *std_configure_args
     system "make", "install"
   end
 end
