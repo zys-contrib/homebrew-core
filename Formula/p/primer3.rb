@@ -1,13 +1,16 @@
 class Primer3 < Formula
   desc "Program for designing PCR primers"
-  homepage "https://primer3.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/primer3/primer3/2.4.0/primer3-2.4.0.tar.gz"
-  sha256 "6d537640c86e2b4656ae77f75b6ad4478fd0ca43985a56cce531fb9fc0431c47"
-  license "GPL-2.0-or-later"
+  homepage "https://primer3.org/"
+  url "https://github.com/primer3-org/primer3/archive/refs/tags/v2.6.1.tar.gz"
+  sha256 "805cef7ef39607cd40f0f5bb8b32e35e20007153a0a55131dd430ce644c8fb9e"
+  license all_of: [
+    "GPL-2.0-or-later",
+    "GPL-3.0-or-later", # Amplicon3
+  ]
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/primer3[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
@@ -29,14 +32,9 @@ class Primer3 < Formula
   end
 
   def install
-    cd "src" do
-      system "make"
-
-      # Lack of make install target reported to upstream
-      # https://github.com/primer3-org/primer3/issues/1
-      bin.install %w[primer3_core ntdpal ntthal oligotm long_seq_tm_test]
-      pkgshare.install "primer3_config"
-    end
+    system "make", "-C", "src", "install", "PREFIX=#{prefix}"
+    pkgshare.install "src/primer3_config"
+    prefix.install "src/LICENSE_GPL3_for_Amplicon3"
   end
 
   test do
