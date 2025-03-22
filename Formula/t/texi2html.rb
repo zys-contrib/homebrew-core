@@ -29,8 +29,11 @@ class Texi2html < Formula
   depends_on "gettext"
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}",
-                          "--mandir=#{man}", "--infodir=#{info}"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", "--mandir=#{man}", "--infodir=#{info}", *args, *std_configure_args
     chmod 0755, "./install-sh"
     system "make", "install"
   end
