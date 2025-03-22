@@ -1,8 +1,8 @@
 class Libusb < Formula
   desc "Library for USB device access"
   homepage "https://libusb.info/"
-  url "https://github.com/libusb/libusb/releases/download/v1.0.27/libusb-1.0.27.tar.bz2"
-  sha256 "ffaa41d741a8a3bee244ac8e54a72ea05bf2879663c098c82fc5757853441575"
+  url "https://github.com/libusb/libusb/releases/download/v1.0.28/libusb-1.0.28.tar.bz2"
+  sha256 "966bb0d231f94a474eaae2e67da5ec844d3527a1f386456394ff432580634b29"
   license "LGPL-2.1-or-later"
 
   livecheck do
