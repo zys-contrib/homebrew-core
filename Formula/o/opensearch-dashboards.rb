@@ -2,9 +2,14 @@ class OpensearchDashboards < Formula
   desc "Open source visualization dashboards for OpenSearch"
   homepage "https://opensearch.org/docs/dashboards/index/"
   url "https://github.com/opensearch-project/OpenSearch-Dashboards.git",
-      tag:      "2.18.0",
-      revision: "543420113443b184e313e489215a88090d60e2b5"
+      tag:      "2.19.1",
+      revision: "782801008fa7d872292e48caca1aca74be5304a6"
   license "Apache-2.0"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "43d27f18dc92a6ffdb28fe4f0c61c3a36e28c75e9f4c8a366cfad62a506df579"
@@ -21,7 +26,7 @@ class OpensearchDashboards < Formula
 
   depends_on "yarn" => :build
   depends_on "opensearch" => :test
-  depends_on "node@18"
+  depends_on "node@18" # https://github.com/opensearch-project/OpenSearch-Dashboards/issues/9459
 
   # - Do not download node and discard all actions related to this node
   patch :DATA
