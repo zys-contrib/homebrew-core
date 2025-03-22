@@ -1,8 +1,8 @@
 class Gitleaks < Formula
   desc "Audit git repos for secrets"
   homepage "https://gitleaks.io/"
-  url "https://github.com/gitleaks/gitleaks/archive/refs/tags/v8.24.0.tar.gz"
-  sha256 "a0c1e7c3b5d0ee621f1e48b3d502132f8a3e20f9ac2ce3f450c6fca55c702038"
+  url "https://github.com/gitleaks/gitleaks/archive/refs/tags/v8.24.2.tar.gz"
+  sha256 "b6fd2641657de6349c7c5d36c658f6ba79305cfc5c0614a5fd5232c699a0753f"
   license "MIT"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -36,7 +36,7 @@ class Gitleaks < Formula
     system "git", "init"
     system "git", "add", "README"
     system "git", "commit", "-m", "Initial commit"
-    assert_match(/WRN\S* leaks found: [1-9]/, shell_output("#{bin}/gitleaks detect 2>&1", 1))
+    assert_match(/WRN.*leaks found: [1-9]/, shell_output("#{bin}/gitleaks detect 2>&1", 1))
     assert_equal version.to_s, shell_output("#{bin}/gitleaks version").strip
   end
 end
