@@ -1,8 +1,8 @@
 class Bwa < Formula
   desc "Burrow-Wheeler Aligner for pairwise alignment of DNA"
   homepage "https://github.com/lh3/bwa"
-  url "https://github.com/lh3/bwa/archive/refs/tags/v0.7.18.tar.gz"
-  sha256 "194788087f7b9a77c0114aa481b2ef21439f6abab72488c83917302e8d0e7870"
+  url "https://github.com/lh3/bwa/archive/refs/tags/v0.7.19.tar.gz"
+  sha256 "cdff5db67652c5b805a3df08c4e813a822c65791913eccfb3cf7d528588f37bc"
   license all_of: ["GPL-3.0-or-later", "MIT"]
   head "https://github.com/lh3/bwa.git", branch: "master"
 
