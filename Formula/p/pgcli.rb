@@ -3,8 +3,8 @@ class Pgcli < Formula
 
   desc "CLI for Postgres with auto-completion and syntax highlighting"
   homepage "https://pgcli.com/"
-  url "https://files.pythonhosted.org/packages/20/6e/914150245fd7f1c249e437a567998f27b6ff22a64ca8e64cd45fc27ee31a/pgcli-4.2.0.tar.gz"
-  sha256 "0d3ed9916f3bbe245c283bf484453080ff00227ab085660c6cfbb0ec53f2e9e6"
+  url "https://files.pythonhosted.org/packages/ab/9a/c86de44b7a663f0a15cb835d317f22f2ef8438154f6b646ffe32baa3799d/pgcli-4.3.0.tar.gz"
+  sha256 "765ae1550c5508a481f19f16a99716c253fe91afb255797add2d635da20b6aef"
   license "BSD-3-Clause"
 
   bottle do
@@ -20,8 +20,8 @@ class Pgcli < Formula
   depends_on "python@3.13"
 
   resource "cli-helpers" do
-    url "https://files.pythonhosted.org/packages/ab/de/79529bd31c1664415d9554c0c5029f2137afe9808f35637bbcca977d9022/cli_helpers-2.3.1.tar.gz"
-    sha256 "b82a8983ceee21f180e6fd0ddb7ca8dae43c40e920951e3817f996ab204dae6a"
+    url "https://files.pythonhosted.org/packages/f9/7c/3344a9b856b9582df36c7a525f5710294f349499d16dcbf343453f70bdb8/cli_helpers-2.4.0.tar.gz"
+    sha256 "55903b705a212a473731db20fa26f58655e354078b99cb13c99ec06940287a4d"
   end
 
   resource "click" do
@@ -45,8 +45,8 @@ class Pgcli < Formula
   end
 
   resource "psycopg" do
-    url "https://files.pythonhosted.org/packages/0e/cf/dc1a4d45e3c6222fe272a245c5cea9a969a7157639da606ac7f2ab5de3a1/psycopg-3.2.5.tar.gz"
-    sha256 "f5f750611c67cb200e85b408882f29265c66d1de7f813add4f8125978bfd70e8"
+    url "https://files.pythonhosted.org/packages/67/97/eea08f74f1c6dd2a02ee81b4ebfe5b558beb468ebbd11031adbf58d31be0/psycopg-3.2.6.tar.gz"
+    sha256 "16fa094efa2698f260f2af74f3710f781e4a6f226efe9d1fd0c37f384639ed8a"
   end
 
   resource "pygments" do
@@ -67,6 +67,11 @@ class Pgcli < Formula
   resource "tabulate" do
     url "https://files.pythonhosted.org/packages/ec/fe/802052aecb21e3797b8f7902564ab6ea0d60ff8ca23952079064155d1ae1/tabulate-0.9.0.tar.gz"
     sha256 "0095b12bf5966de529c0feb1fa08671671b3368eec77d7ef7ab114be2c068b3c"
+  end
+
+  resource "tzlocal" do
+    url "https://files.pythonhosted.org/packages/8b/2e/c14812d3d4d9cd1773c6be938f89e5735a1f11a9f184ac3639b93cef35d5/tzlocal-5.3.1.tar.gz"
+    sha256 "cceffc7edecefea1f595541dbd6e990cb1ea3d19bf01b2809f362a03dd7921fd"
   end
 
   resource "wcwidth" do
