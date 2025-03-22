@@ -25,8 +25,11 @@ class GnuShogi < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}"
-    system "make"
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `DRAW'; globals.o:(.bss+0x0): first defined here
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
+    system "./configure", *std_configure_args
     system "make", "install", "MANDIR=#{man6}", "INFODIR=#{info}"
   end
 
