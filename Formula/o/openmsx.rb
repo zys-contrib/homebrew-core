@@ -1,10 +1,9 @@
 class Openmsx < Formula
   desc "MSX emulator"
   homepage "https://openmsx.org/"
-  url "https://github.com/openMSX/openMSX/releases/download/RELEASE_19_1/openmsx-19.1.tar.gz"
-  sha256 "979b1322215095d82d5ea4a455c5e089fcbc4916c0725d6362a15b7022c0e249"
+  url "https://github.com/openMSX/openMSX/releases/download/RELEASE_20_0/openmsx-20.0.tar.gz"
+  sha256 "4c645e5a063e00919fa04720d39f62fb8dcb6321276637b16b5788dea5cd1ebf"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/openMSX/openMSX.git", branch: "master"
 
   livecheck do
@@ -39,8 +38,12 @@ class Openmsx < Formula
   uses_from_macos "python" => :build
   uses_from_macos "zlib"
 
-  on_macos do
-    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1300
+  on_ventura :or_older do
+    depends_on "llvm" => :build
+
+    fails_with :clang do
+      cause "Requires C++20"
+    end
   end
 
   on_linux do
@@ -49,25 +52,13 @@ class Openmsx < Formula
     depends_on "tcl-tk@8"
   end
 
-  fails_with :clang do
-    build 1300
-    cause "Requires C++20"
-  end
-
   fails_with :gcc do
     version "7"
     cause "Requires C++20"
   end
 
-  # https://github.com/openMSX/openMSX/pull/1542
-  # remove in version > 19.1
-  patch do
-    url "https://github.com/openMSX/openMSX/commit/78939807459c8647174d86f0bcd77ed4310e187d.patch?full_index=1"
-    sha256 "cf752e2d85a8907cc55e12f7fa9350ffad61325c2614e011face593e57a58299"
-  end
-
   def install
-    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1300
+    ENV.llvm_clang if OS.mac? && MacOS.version <= :ventura
 
     # Hardcode prefix
     inreplace "build/custom.mk", "/opt/openMSX", prefix
