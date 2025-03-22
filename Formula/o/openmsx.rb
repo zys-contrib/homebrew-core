@@ -18,12 +18,12 @@ class Openmsx < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "79b26f0bc081f8b8974e162246116bffdcbd0b6221fdab1e2e1dec4e4a845ebe"
-    sha256 cellar: :any,                 arm64_sonoma:  "b591ec9b4206114bc22294ec7efcab63064fda6232b49aea074bf151907581b4"
-    sha256 cellar: :any,                 arm64_ventura: "2244a38af42b9cbf7cdf6f5a2a52b54bf37bc9557de622d461dccc7b9920ddb5"
-    sha256 cellar: :any,                 sonoma:        "67024fa6b9d9568053cb3c712d89f1bf336e5e39e1d21335e7ea36652524a598"
-    sha256 cellar: :any,                 ventura:       "b25732b1cd38a2354146f923b7737fa47f9a217fcf3bcb254bab35e1b065282a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9760971e0edbb18c0aa386bd5a3fcacb2b99bad467aaf66b52184c809e5c77dd"
+    sha256 cellar: :any, arm64_sequoia: "ee0a9be62e2b1c04669a5fdbadbf59ece48fb64cfc5c6287cc3c404ce39f884f"
+    sha256 cellar: :any, arm64_sonoma:  "ed81ae7655dd0ca38610c9c5fd48ede0676f2244e29cbdaef8e8dfd62f153abf"
+    sha256 cellar: :any, arm64_ventura: "89b5d4a1cb8f3c248549e45542e47d15030eac7246d2f59162da2c9f4e162fcd"
+    sha256 cellar: :any, sonoma:        "9362583e5d32849d94162a48cfc68d4294d01dd20d2fe968e54a2684590584cb"
+    sha256 cellar: :any, ventura:       "66143d111af9938f34491c5e892c5884ddd501b5d10ca73fcd6665548f0fa7d5"
+    sha256               x86_64_linux:  "ab58976a39c13c22ef52e773f9faf6ea1f489e61164b4ff41d71e28376d4f30a"
   end
 
   depends_on "freetype"
