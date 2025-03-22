@@ -1,8 +1,8 @@
 class DepTree < Formula
   desc "Tool for visualizing dependencies between files and enforcing dependency rules"
   homepage "https://github.com/gabotechs/dep-tree"
-  url "https://github.com/gabotechs/dep-tree/archive/refs/tags/v0.23.3.tar.gz"
-  sha256 "c6257189f94d3ff5bd37a178168c8274bdcb3f3b4fc874061c0cbd7f53ed65d2"
+  url "https://github.com/gabotechs/dep-tree/archive/refs/tags/v0.23.4.tar.gz"
+  sha256 "84f303594bce854527fe85208867a5060314ff3b24990d7c0f2846d364d81d4a"
   license "MIT"
   head "https://github.com/gabotechs/dep-tree.git", branch: "main"
 
