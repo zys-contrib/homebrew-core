@@ -1,10 +1,9 @@
 class Vice < Formula
   desc "Versatile Commodore Emulator"
   homepage "https://sourceforge.net/projects/vice-emu/"
-  url "https://downloads.sourceforge.net/project/vice-emu/releases/vice-3.8.tar.gz"
-  sha256 "1d7dc4d0f2bbcc2a871bb954ff4a5df63048dea9c16f5f1e9bc8260fa41a1004"
+  url "https://downloads.sourceforge.net/project/vice-emu/releases/vice-3.9.tar.gz"
+  sha256 "40202b63455e26b87ecc63eb5a52322c6fa3f57cab12acf0c227cf9f4daec370"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://svn.code.sf.net/p/vice-emu/code/trunk/vice"
 
   livecheck do
@@ -77,12 +76,13 @@ class Vice < Formula
                           "--with-vorbis",
                           "--with-gif",
                           "--with-png",
+                          "--without-evdev", # TODO: needs libevdev
                           *std_configure_args
     system "make", "install"
   end
 
   test do
-    output = shell_output("#{bin}/x64sc -console -limitcycles 1000000 -logfile -", 1)
+    output = shell_output("#{bin}/x64sc -console -limitcycles 1000000", 1)
     assert_match "Initializing chip model", output
   end
 end
