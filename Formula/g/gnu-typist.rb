@@ -13,6 +13,7 @@ class GnuTypist < Formula
     sha256 arm64_ventura: "790643311a056fa38bc014e51107bf0984f25d77506f86e60f3843ac8ee5b3cc"
     sha256 sonoma:        "7d10079dae92ce4490e710e6fb6ebe12c6d0703ae8d8a0f31b48c4759a8325d4"
     sha256 ventura:       "7cc31cf6f3f5cd325c69d8b61fe0a75e0f1fd0ab0be47649ca06423a14fed6cf"
+    sha256 arm64_linux:   "879de43a7a494a24e1eb6f732b6dadb1a6c9af1de7911b2872a7322503f6e5dd"
     sha256 x86_64_linux:  "15b3985018e2cb520b709f0cf8c0b41307c49caf6756255638a1ddc9f37f3ac6"
   end
 
