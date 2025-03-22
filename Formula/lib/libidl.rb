@@ -23,15 +23,36 @@ class Libidl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ede5070565f89d3e7f24f01d9da73d50b6c008fbf12f7247d3cd04b8076d842"
   end
 
-  depends_on "pkgconf" => :build
-  depends_on "gettext"
+  depends_on "gettext" => :build
+  depends_on "pkgconf" => [:build, :test]
   depends_on "glib"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
+  on_macos do
+    depends_on "gettext"
+  end
+
   def install
-    system "./configure", *std_configure_args
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <libIDL/IDL.h>
+      int main(void) {
+        return 0;
+      }
+    C
+
+    pkg_config_flags = shell_output("pkg-config --cflags --libs libIDL-2.0").chomp.split
+    system ENV.cc, "test.c", *pkg_config_flags, "-o", "test"
+    system "./test"
   end
 end
