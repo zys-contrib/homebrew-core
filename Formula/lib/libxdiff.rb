@@ -29,18 +29,25 @@ class Libxdiff < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7b3220efc3c97fefbe4ec212663fe86de66179d36fb974377790d72ebd5ed41"
   end
 
-  on_macos do
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   def install
-    system "autoreconf", "--force", "--verbose", "--install" if OS.mac?
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    system "autoreconf", "--force", "--verbose", "--install"
+    system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <xdiff.h>
+      int main(void) {
+        return 0;
+      }
+    C
+
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lxdiff", "-o", "test"
+    system "./test"
   end
 end
