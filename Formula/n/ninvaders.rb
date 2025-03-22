@@ -26,6 +26,10 @@ class Ninvaders < Formula
   uses_from_macos "ncurses"
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `skill_level'; aliens.o:(.bss+0x67c): first defined here
+    inreplace "Makefile", "-Wall", "-Wall -fcommon" if OS.linux?
+
     ENV.deparallelize # this formula's build system can't parallelize
     inreplace "Makefile" do |s|
       s.change_make_var! "CC", ENV.cc
