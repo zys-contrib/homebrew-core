@@ -1,8 +1,8 @@
 class Redir < Formula
-  desc "Port redirector"
-  homepage "https://github.com/TracyWebTech/redir"
-  url "https://github.com/TracyWebTech/redir/archive/refs/tags/2.2.1-9.tar.gz"
-  sha256 "7e6612a0eee1626a0e7d9888de49b9c0fa4b7f75c5c4caca7804bf73d73f01fe"
+  desc "TCP port redirector for UNIX"
+  homepage "https://github.com/troglobit/redir"
+  url "https://github.com/troglobit/redir/releases/download/v3.3/redir-3.3.tar.xz"
+  sha256 "7ce53ac52a24c1b3279b994bfffbd429c44df2db10a4b1a0f54e108604fdae6e"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -26,9 +26,8 @@ class Redir < Formula
   uses_from_macos "netcat" => :test
 
   def install
-    system "make"
-    bin.install "redir"
-    man1.install "redir.man"
+    system "./configure", "--disable-silent-rules", "--enable-compat", *std_configure_args
+    system "make", "install"
   end
 
   test do
