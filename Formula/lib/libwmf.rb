@@ -36,12 +36,20 @@ class Libwmf < Formula
   uses_from_macos "zlib"
 
   def install
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
     system "./configure", "--with-png=#{Formula["libpng"].opt_prefix}",
                           "--with-freetype=#{Formula["freetype"].opt_prefix}",
                           "--with-jpeg=#{Formula["jpeg-turbo"].opt_prefix}",
-                          *std_configure_args
+                          *args, *std_configure_args
     system "make"
     ENV.deparallelize # yet another rubbish Makefile
     system "make", "install"
+  end
+
+  test do
+    assert_match version.major_minor_patch.to_s, shell_output("#{bin}/wmf2svg --version 2>&1", 2)
   end
 end
