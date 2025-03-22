@@ -1,8 +1,8 @@
 class Perceptualdiff < Formula
   desc "Perceptual image comparison tool"
   homepage "https://pdiff.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/pdiff/pdiff/perceptualdiff-1.1.1/perceptualdiff-1.1.1-src.tar.gz"
-  sha256 "ab349279a63018663930133b04852bde2f6a373cc175184b615944a10c1c7c6a"
+  url "https://github.com/myint/perceptualdiff/archive/refs/tags/v2.1.tar.gz"
+  sha256 "0dea51046601e4d23dc45a3ec342f1a305baf3bf3328e9ccdae115fe1942f041"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -27,11 +27,6 @@ class Perceptualdiff < Formula
   depends_on "freeimage"
 
   def install
-    # cstdio header should be included explicitly to placate older compilers
-    # Included upstream in https://sourceforge.net/p/pdiff/code/53/, remove on next release
-    inreplace "Metric.cpp", "#include \"Metric.h\"\n",
-              "#include <cstdio>\n#include \"Metric.h\"\n"
-
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
