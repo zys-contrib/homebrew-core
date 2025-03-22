@@ -34,9 +34,19 @@ class Msdl < Formula
   patch :DATA
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `display_flags'; asf.o:(.bss+0x0): first defined here
+    # multiple definition of `colors_available'; asf.o:(.bss+0x4): first defined here
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    system bin/"msdl", "http://example.org/index.html"
+    assert_path_exists "index.html"
   end
 end
 
