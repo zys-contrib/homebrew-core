@@ -34,6 +34,8 @@ class Libpgm < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  uses_from_macos "python" => :build
+
   def install
     workdir = build.stable? ? "openpgm/pgm" : "pgm"
     cd workdir do
