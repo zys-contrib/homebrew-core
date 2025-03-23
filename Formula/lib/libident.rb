@@ -29,17 +29,18 @@ class Libident < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f80a93f7750a66e987f21af7db62ba4f72c2c277036049915d3c8e6a8b044cf2"
   end
 
-  on_macos do
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   def install
-    system "autoreconf", "--force", "--install", "--verbose" if OS.mac?
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    # Run autoreconf to regenerate the configure script and update outdated macros.
+    # This ensures that the build system is properly configured on both macOS
+    # (avoiding issues like flat namespace conflicts) and Linux (where outdated
+    # config scripts may fail to detect the correct build type).
+    system "autoreconf", "--force", "--install", "--verbose"
+
+    system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
   end
 end
