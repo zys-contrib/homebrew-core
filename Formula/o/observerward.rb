@@ -1,8 +1,8 @@
 class Observerward < Formula
   desc "Web application and service fingerprint identification tool"
   homepage "https://emo-crab.github.io/observer_ward/"
-  url "https://github.com/emo-crab/observer_ward/archive/refs/tags/v2025.3.3.tar.gz"
-  sha256 "382fade85c16464f9135ccc1bb1daccee8a16cd69818a21a3e6b5474964cdd82"
+  url "https://github.com/emo-crab/observer_ward/archive/refs/tags/v2025.3.23.tar.gz"
+  sha256 "569a7a7c7d1adce237bf151981dcb5dd98009bb4dd4fc7a3e96d7b58fade56d6"
   license "GPL-3.0-only"
 
   bottle do
@@ -15,13 +15,8 @@ class Observerward < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@3"
 
   def install
-    # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
-    ENV["OPENSSL_NO_VENDOR"] = "1"
-
     system "cargo", "install", *std_cargo_args(path: "observer_ward")
   end
 
@@ -30,13 +25,5 @@ class Observerward < Formula
 
     system bin/"observer_ward", "-u"
     assert_match "0example", shell_output("#{bin}/observer_ward -t https://www.example.com/")
-
-    [
-      Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
-      Formula["openssl@3"].opt_lib/shared_library("libssl"),
-    ].each do |library|
-      assert Utils.binary_linked_to_library?(bin/"observer_ward", library),
-             "No linkage with #{library.basename}! Cargo is likely using a vendored version."
-    end
   end
 end
