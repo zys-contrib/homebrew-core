@@ -1,8 +1,8 @@
 class Newsboat < Formula
   desc "RSS/Atom feed reader for text terminals"
   homepage "https://newsboat.org/"
-  url "https://newsboat.org/releases/2.38/newsboat-2.38.tar.xz"
-  sha256 "d6fef6f08948f107826e8dbbce35043c984e6e8517f90f5475da04e6e914db85"
+  url "https://newsboat.org/releases/2.39/newsboat-2.39.tar.xz"
+  sha256 "62551a7d574d7fb3af7a87f9dbd0795e4d9420ca7136abc2265b4b06663be503"
   license "MIT"
   head "https://github.com/newsboat/newsboat.git", branch: "master"
 
@@ -40,7 +40,7 @@ class Newsboat < Formula
   # https://github.com/newsboat/newsboat/issues/232
   resource("libstfl") do
     url "https://github.com/newsboat/stfl.git",
-        revision: "c2c10b8a50fef613c0aacdc5d06a0fa610bf79e9"
+        revision: "bbb2404580e845df2556560112c8aefa27494d66"
   end
 
   def install
