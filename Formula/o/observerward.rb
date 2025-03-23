@@ -6,12 +6,12 @@ class Observerward < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c401dec7dca5407da20c122458cbcea8a8b92862ee1310783d8503601aa1d224"
-    sha256 cellar: :any,                 arm64_sonoma:  "c3989e1b4991cb1c8a99121bb89a9c8f20db13cee82b8e7db65f11d10779feca"
-    sha256 cellar: :any,                 arm64_ventura: "4b738cc306be1ca64405932b5aeb4a80105db5464f9f3fb396936d6e1dcd298c"
-    sha256 cellar: :any,                 sonoma:        "640f640385535222de1215ade4372817c43aea4de52d97034433950497a804e3"
-    sha256 cellar: :any,                 ventura:       "08d80c52700f6c03f98aab4e1b8680aa76ce56cddb08c6cef2f9e24265fc135f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "801c0e8486d7deacb402507848cf17ba8573d2730efea0dbbf44cdea70f5cbed"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e1b860d72b57de88d74d10b06db1ccfcbbe2b4f9ddc4938e5265b13bcc4c7934"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1fcef1fcd4fe8037d843f9f4d9e86b8a7c10de8d8b8b09143df3c1ddba2e8d0b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "314ce22acb8e7294a13b79a3e27d367f8ffd641f3b62e82d600ffac1ebd98aa3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f37df0d086d902784f76fb54b261419e30c873f2cb65e3afa2780a540509c749"
+    sha256 cellar: :any_skip_relocation, ventura:       "b36705e37778f49ad1a378e9c3181a786d302a031373f36fc82452845718160b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "537cb4353e9d0636c7a68313c4cc0eefa6d56815729425aa5f8c7ee15f7f6f41"
   end
 
   depends_on "rust" => :build
