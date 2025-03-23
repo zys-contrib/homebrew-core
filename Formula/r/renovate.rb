@@ -22,6 +22,7 @@ class Renovate < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0b16101a18b4faa1093903d681111a68e4ae1ff6a8f6f2a4db68a71ef0c86fa2"
     sha256 cellar: :any_skip_relocation, sonoma:        "8790b6adcb5904c36de3e8565a5c05b2180bfa4f79425d0041274140d3aea5b2"
     sha256 cellar: :any_skip_relocation, ventura:       "f68de79b8530b81dff286bbd6a2738a8a4212014dcd6558964b04107657a75da"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "93d61d748728dd5d555058d84106e41011740016aef2dfc2da21b6a7af05f13e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "83258b38f4064bd6f1afb724977b53fc4eefd1ae54e671cc012143558ec46652"
   end
 
