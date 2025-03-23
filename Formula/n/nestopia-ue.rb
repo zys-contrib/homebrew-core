@@ -1,19 +1,10 @@
 class NestopiaUe < Formula
   desc "NES emulator"
   homepage "http://0ldsk00l.ca/nestopia/"
+  url "https://github.com/0ldsk00l/nestopia/archive/refs/tags/1.53.1.tar.gz"
+  sha256 "21aa45f6c608fe290d73fdec0e6f362538a975455b16a4cc54bcdd10962fff3e"
   license "GPL-2.0-or-later"
   head "https://github.com/0ldsk00l/nestopia.git", branch: "master"
-
-  stable do
-    url "https://github.com/0ldsk00l/nestopia/archive/refs/tags/1.53.0.tar.gz"
-    sha256 "27a26a6fd92e6acc2093bbd6c1e3ab7f2fff419d9ed6de13bc43349b52e1f705"
-
-    # add back `--version` command, see discussions in https://github.com/0ldsk00l/nestopia/issues/430
-    patch do
-      url "https://github.com/0ldsk00l/nestopia/commit/76c5d0cdb75444c54258a184eb7a488b8f1dd4ec.patch?full_index=1"
-      sha256 "4f1ad461502fe837261860690ab936a642925299054b0e8fe4b0b3e1a243e9e7"
-    end
-  end
 
   bottle do
     sha256 arm64_sequoia: "a0bdb08096a005edbb35f9807d2b834e9a8f79811c75b473d5584e0bf4efdcdc"
