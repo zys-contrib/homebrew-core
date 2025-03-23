@@ -21,6 +21,7 @@ class Libuecc < Formula
     sha256 cellar: :any,                 high_sierra:    "95646c23acf19c1f07032c6f311f446e7a32b1a9d0c1dd385ec3c41811036572"
     sha256 cellar: :any,                 sierra:         "4722877fdc4538c814a10e6d0dc2f1a4d2a3571ce4ca1c8b37279c88cd83883f"
     sha256 cellar: :any,                 el_capitan:     "d9e52027a6535fb74e44026d23ef13a2417a1f22402173dc90d136071ea5290d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "0856cd70a483837f05bc33484a8c23104e5e6bdd97b2bc04f30a837cadbe2e00"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f4ead35052be0dce1efbee86333ca2bfb632cc3fb1bb00c8c836199f4f7d90c"
   end
 
