@@ -37,7 +37,25 @@ class Libart < Formula
   end
 
   def install
-    system "./configure", *std_configure_args
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/libart2-config --version")
+
+    (testpath/"test.c").write <<~EOS
+      #include <libart_lgpl/art_svp.h>
+      int main(void) {
+        return 0;
+      }
+    EOS
+
+    system ENV.cc, "-o", "test", "test.c", "-I#{include}/libart-2.0", "-L#{lib}", "-lart_lgpl_2"
+    system "./test"
   end
 end
