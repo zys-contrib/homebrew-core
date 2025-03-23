@@ -13,6 +13,7 @@ class Coreutils < Formula
     sha256 arm64_ventura: "660a337982d5823866a3fa1a96176a02be60ed36e60b11f3d2daddda36070edc"
     sha256 sonoma:        "39905d59ea233abe321d959141ae14a8abd28d94fa06e8b92c64c886b630febd"
     sha256 ventura:       "f3a168a88b2e1c90be1e8281927f9b6fcf74c19ab391477af859d7a01d8696ae"
+    sha256 arm64_linux:   "7c00b70363d68afd160edab9acc5b09abee3588b329c0c8f76d6333cb26ed13f"
     sha256 x86_64_linux:  "3735c0172cd6a0679f3dc2b37f5b1b4f55fd290fa48ab07231f55e898be6fe69"
   end
 
