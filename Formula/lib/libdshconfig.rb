@@ -26,6 +26,7 @@ class Libdshconfig < Formula
     sha256 cellar: :any,                 high_sierra:    "2000ae2106bb3b10a77b91b75a40dbb6ec60a8aad8de220aa2af69e1a41b905f"
     sha256 cellar: :any,                 sierra:         "82fc9db7c3ad20bdcd5681be1075ae4853b6f19caeb41624dac33d53470b2523"
     sha256 cellar: :any,                 el_capitan:     "a26ea1d1cefed24fd890bbc65f9a11d171cdbcb1c00936562255e2adfe29205f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "6d07f65b30564eeab22a2f2e50f02fe6983ea927e381b1c1c398b044f456cb2a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ad27e681ca7e49ff1b99f92fe3a62ecd6edd34bfb3fbc0f4f8cbc9ad386cc86"
   end
 
