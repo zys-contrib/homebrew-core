@@ -44,9 +44,11 @@ class Nload < Formula
 
   def install
     system "./run_autotools"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     # Unset LDFLAGS, "-s" causes the linker to crash
     system "make", "install", "LDFLAGS="
   end
