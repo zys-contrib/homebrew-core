@@ -46,8 +46,14 @@ class Nuvie < Formula
       s.gsub! "/Library/Application Support/Nuvie/",
               "#{var}/nuvie/"
     end
+
     system "./autogen.sh" if build.head?
-    system "./configure", *std_configure_args, "--disable-sdltest"
+
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", "--disable-sdltest", *args, *std_configure_args
     system "make"
     bin.install "nuvie"
     pkgshare.install "data"
