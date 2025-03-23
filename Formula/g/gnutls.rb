@@ -12,15 +12,13 @@ class Gnutls < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "e927eab61e775a8b65079c2163fb29b9f03c90caf68cc13788dfea249ed6201e"
-    sha256 arm64_sonoma:   "46373a7206cc70289bfef2081508c62cc74a2589060b21ce26c44c4c86fbda41"
-    sha256 arm64_ventura:  "7b18d9403f8cc6a5e2e3fd427a07e32ccb1d7969715fbf5b72cfb4b5a01d8a3c"
-    sha256 arm64_monterey: "2a6bb19c341be5dcc2e351e68380b05f246407bd57b2dc7e94743d14e473cde8"
-    sha256 sonoma:         "7136ceb68e1bf94ad28db2990cc10da909b742390be65963b78e8b115f97b51d"
-    sha256 ventura:        "08b8fc7ded2a17510ab505965c754bccf3cf21ae690d76af744f96d800223de2"
-    sha256 monterey:       "80f7875ba4d2409f85851a3c61bf8c178415e863528357bc587578e8d0536c10"
-    sha256 arm64_linux:    "3e80e41323baff837dce16bb7ec6a7f5af07df02ddee324eefcdf2c55542a6fa"
-    sha256 x86_64_linux:   "9bedb5b302e02e32c64bf75c488216dd644bc205d9e99d2b26edfdf7f3d81b93"
+    sha256 arm64_sequoia: "eaf32401a72c80651227e7f5ab70ff762fe7bd990bb566bf4621b37e570ddc66"
+    sha256 arm64_sonoma:  "2d163de276e87a18604036beb10346fd37bdbeb4ff5fea25137c4680af19ce90"
+    sha256 arm64_ventura: "449610f6f2c79b039cf3f1ea411aad84e97f72e251bebe8c62fdbf577ecc8509"
+    sha256 sonoma:        "2eb812e6c094f544e61d0d50b200138ba2a6f56cacd111a2c40fc248a62b6193"
+    sha256 ventura:       "580ac871323833e54492cb4fa2b1f5629db8dddf80a177112df5db39a1e2e904"
+    sha256 arm64_linux:   "9b3b3dc001ebd678f2fd3e82b85de6b52b371f3a567231f59765dcada04afcd6"
+    sha256 x86_64_linux:  "b0c2c48ea42aa6768c7b6bb6ff2fba60f6e334817dc27beac7f06686b1fe3254"
   end
 
   depends_on "pkgconf" => :build
