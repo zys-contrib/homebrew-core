@@ -172,7 +172,8 @@ class OpenjdkAT8 < Formula
         --with-fontconfig=#{HOMEBREW_PREFIX}
         --with-stdc++lib=dynamic
       ]
-      extra_rpath = rpath(source: libexec/"lib/amd64", target: libexec/"jre/lib/amd64")
+      arch = Hardware::CPU.arm? ? "aarch64" : "amd64"
+      extra_rpath = rpath(source: libexec/"lib"/arch, target: libexec/"jre/lib"/arch)
       ldflags << "-Wl,-rpath,#{extra_rpath.gsub("$", "\\$$$$")}"
     end
     args << "--with-extra-ldflags=#{ldflags.join(" ")}"
