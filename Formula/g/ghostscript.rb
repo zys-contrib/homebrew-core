@@ -4,6 +4,7 @@ class Ghostscript < Formula
   url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10050/ghostpdl-10.05.0.tar.xz"
   sha256 "f154039345b6e9957b0750f872374d887d76321d52bbcc9d3b85487855e08f02"
   license "AGPL-3.0-or-later"
+  revision 1
 
   # The GitHub tags omit delimiters (e.g. `gs9533` for version 9.53.3). The
   # `head` repository tags are formatted fine (e.g. `ghostpdl-9.53.3`) but a
@@ -69,6 +70,7 @@ class Ghostscript < Formula
               --disable-cups
               --disable-gtk
               --with-system-libtiff
+              --without-versioned-path
               --without-x]
 
     # Set the correct library install names so that `brew` doesn't need to fix them up later.
@@ -80,6 +82,20 @@ class Ghostscript < Formula
     ENV.deparallelize { system "make", "install-so" }
 
     (pkgshare/"fonts").install resource("fonts")
+
+    # Temporary backwards compatibility symlinks
+    if build.stable?
+      odie "Remove backwards compatibility symlink and caveat!" if version >= "10.07"
+      pkgshare.install_symlink pkgshare => version.to_s
+      doc.install_symlink doc => version.to_s
+    end
+  end
+
+  def caveats
+    <<~CAVEATS
+      Ghostscript is now built `--without-versioned-path`. Temporary backwards
+      compatibility symlinks exist but will be removed with 10.07.0 release.
+    CAVEATS
   end
 
   test do
