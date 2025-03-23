@@ -53,6 +53,7 @@ class Coreutils < Formula
   end
 
   def install
+    ENV.runtime_cpu_detection
     system "./bootstrap" if build.head?
 
     args = %W[
