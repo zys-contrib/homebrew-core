@@ -6,6 +6,11 @@ class Ssocr < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/auerswal/ssocr.git", branch: "master"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?ssocr[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "fd18440ae84caaafcb2f5d788c6c23ae95c0240dfc9f6b5166f35eaca59d33b5"
     sha256 cellar: :any,                 arm64_sonoma:  "1ec94528ade23b5dae8efcd5d564d3bace361e8f2cb2187634f48f493954d9f0"
