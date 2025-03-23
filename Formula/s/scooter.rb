@@ -1,8 +1,8 @@
 class Scooter < Formula
   desc "Interactive find and replace in the terminal"
   homepage "https://github.com/thomasschafer/scooter"
-  url "https://github.com/thomasschafer/scooter/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "bdaaf67e8fecb4ea53dcd74c576261ceb8640e6fdbf8fb86d350eb38206313fb"
+  url "https://github.com/thomasschafer/scooter/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "19f38c588b11c3c69c8229182f875ac61a529604e6af73c00ed6259dca3880e9"
   license "MIT"
 
   bottle do
@@ -18,7 +18,7 @@ class Scooter < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(path: "scooter")
   end
 
   test do
