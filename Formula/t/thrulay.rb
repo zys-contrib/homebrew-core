@@ -29,9 +29,17 @@ class Thrulay < Formula
     # Fix flat namespace usage
     inreplace "configure", "${wl}-flat_namespace ${wl}-undefined ${wl}suppress", "${wl}-undefined ${wl}dynamic_lookup"
 
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     ENV.deparallelize
     system "make", "install"
+  end
+
+  test do
+    # prints "thrulay/2 (client part) release 0.9rc1"
+    system bin/"thrulay", "-V"
   end
 end
