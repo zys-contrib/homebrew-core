@@ -24,8 +24,13 @@ class Nettoe < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `addrfamily'; nettoe.o:(.bss+0x68): first defined here
+    # multiple definition of `NO_COLORS'; nettoe.o:(.bss+0x64): first defined here
+    # multiple definition of `NO_BEEP'; nettoe.o:(.bss+0x60): first defined here
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
