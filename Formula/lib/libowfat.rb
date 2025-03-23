@@ -6,6 +6,11 @@ class Libowfat < Formula
   license "GPL-2.0-only"
   head ":pserver:cvs:@cvs.fefe.de:/cvs", using: :cvs
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?libowfat[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c3846b7776a5350100cf8a734e0a45fcbe822f53128ab88bce24cfb259b3d27c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "60f9182c837f2b6ff6a79e76e7c4965c717055448b3c2928baf297fd944c3035"
