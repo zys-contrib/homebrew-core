@@ -28,6 +28,8 @@ class Vrpn < Formula
       -DVRPN_BUILD_CLIENTS=OFF
       -DVRPN_BUILD_JAVA=OFF
       -DVRPN_USE_WIIUSE=OFF
+      -DVRPN_BUILD_PYTHON=OFF
+      -DVRPN_BUILD_PYTHON_HANDCODED_3X=OFF
     ]
 
     args << "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}" if OS.mac?
