@@ -594,6 +594,7 @@ colmap
 commandbox
 commitizen
 commitlint
+compiledb
 composer
 comrak
 comtrya
