@@ -30,6 +30,11 @@ class Ipv6toolkit < Formula
   uses_from_macos "libpcap"
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `pcap_filter'; /tmp/cck9bqrJ.o:(.bss+0x238): first defined here
+    # multiple definition of `errbuf'; /tmp/cck9bqrJ.o:(.bss+0x12e38): first defined here
+    inreplace "GNUmakefile", "-Wall", "-Wall -fcommon" if OS.linux?
+
     system "make"
     system "make", "install", "DESTDIR=#{prefix}", "PREFIX=", "MANPREFIX=/share"
   end
