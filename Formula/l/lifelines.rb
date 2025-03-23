@@ -20,6 +20,7 @@ class Lifelines < Formula
     sha256 high_sierra:    "95457e5f439d945c32e65a32a43a5396b8c7f33466f0c83a0671936f095d649a"
     sha256 sierra:         "1a974d23d51da7a7d2aedaec195291195a9eb442839a9bb9e5574ed6d8c01199"
     sha256 el_capitan:     "20b13125e3312866baed38e6f6ffd706a6f4a0436617e8a6055f1f776a76b9a2"
+    sha256 arm64_linux:    "532a5dbb1bc790b73bff79343958cc3ee07ece8171406a059a86af2db1fd8edc"
     sha256 x86_64_linux:   "4372b0ed3cfd9ca0d9a89696a502f7ba9e989698dd7064761296dabcc47003f3"
   end
 
