@@ -20,6 +20,7 @@ class Pinfo < Formula
     sha256 mojave:         "b81b1202add75d938802681618f5bf95dd245e03ff80f5f0ca67a5ba8b7bfb84"
     sha256 high_sierra:    "84edf6ec00f570004abc6f3d0335196b513a4a52e589919ca1e70c35b31525cc"
     sha256 sierra:         "9b8e3d359081d68626f86cab8b048926b6471f8ca1be8e47ca8625e22da5021f"
+    sha256 arm64_linux:    "0fc3fd25aa157f655c7c9e98252b638f7233bb98de481e07808270df7f390a8f"
     sha256 x86_64_linux:   "9823885d8c5febf0b8415e6ac455fec62834b65b75333eec2a314dfeaf2bfd61"
   end
 
