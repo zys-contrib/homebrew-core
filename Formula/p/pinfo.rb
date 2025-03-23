@@ -28,11 +28,17 @@ class Pinfo < Formula
   depends_on "libtool" => :build
   depends_on "gettext"
 
+  uses_from_macos "ncurses"
+
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build
   end
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `use_manual'; pinfo-pinfo.o:(.bss+0x8): first defined here
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
     system "autoreconf", "--force", "--install"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
