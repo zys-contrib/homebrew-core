@@ -29,9 +29,15 @@ class Ipsumdump < Formula
     sha256 x86_64_linux:   "27e438253bf0b215381e8f27d3898eab9e905181266347997c5f59cfdc46175a"
   end
 
+  # add missing definition for SIOCGSTAMP to support linux arm build
+  patch :DATA
+
   def install
-    system "./configure", "--prefix=#{prefix}"
-    system "make"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 
@@ -41,3 +47,21 @@ class Ipsumdump < Formula
     assert_match "!data count\n" + ("1\n" * 12), output
   end
 end
+
+__END__
+diff --git a/src/fromdevice.cc b/src/fromdevice.cc
+index 76e2b12..f59d7bd 100644
+--- a/src/fromdevice.cc
++++ b/src/fromdevice.cc
+@@ -28,6 +28,11 @@
+ #else
+ # include <sys/ioccom.h>
+ #endif
++
++#ifndef SIOCGSTAMP
++#define SIOCGSTAMP 0x8906
++#endif
++
+ #if HAVE_NET_BPF_H
+ # include <net/bpf.h>
+ # define PCAP_DONT_INCLUDE_PCAP_BPF_H 1
