@@ -15,7 +15,10 @@ class Libcpuid < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on arch: :x86_64
+
+  on_macos do
+    depends_on arch: :x86_64
+  end
 
   def install
     system "autoreconf", "--force", "--install", "--verbose"
