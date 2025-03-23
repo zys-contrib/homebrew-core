@@ -33,16 +33,21 @@ class GnupgAT14 < Formula
   uses_from_macos "zlib"
 
   def install
-    args = %W[
-      --disable-dependency-tracking
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `mpi_debug_mode'; mpicalc.o:(.bss+0x344): first defined here
+    # multiple definition of `memory_stat_debug_mode'; mpicalc.o:(.bss+0x348): first defined here
+    # multiple definition of `memory_debug_mode'; mpicalc.o:(.bss+0x34c): first defined here
+    # multiple definition of `iobuf_debug_mode'; mpicalc.o:(.bss+0x350): first defined here
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
+    args = %w[
       --disable-silent-rules
-      --prefix=#{prefix}
       --disable-asm
       --program-suffix=1
       --with-libusb=no
     ]
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "check"
 
