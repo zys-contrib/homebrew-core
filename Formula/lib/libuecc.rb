@@ -1,15 +1,10 @@
 class Libuecc < Formula
   desc "Very small Elliptic Curve Cryptography library"
-  homepage "https://git.universe-factory.net/libuecc/"
-  url "https://git.universe-factory.net/libuecc/snapshot/libuecc-7.tar"
-  sha256 "0120aee869f56289204255ba81535369816655264dd018c63969bf35b71fd707"
+  homepage "https://git.universe-factory.net/fastd/libuecc"
+  url "https://git.universe-factory.net/fastd/libuecc/archive/v7.tar.gz"
+  sha256 "80ef381fae912db88a33ebe1b4c7a722b98ed3b1939f75415068b025c5675818"
   license "BSD-2-Clause"
-  head "https://git.universe-factory.net/libuecc", using: :git, branch: "master"
-
-  livecheck do
-    url :head
-    regex(/href=.*?libuecc[._-]v?(\d+(?:\.\d+)*)\.t/i)
-  end
+  head "https://git.universe-factory.net/fastd/libuecc.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "a94e6f279789d442ddfce719d48af0c5a430e4d255f9c8dd16b7cb691062988f"
