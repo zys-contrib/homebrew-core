@@ -2,7 +2,7 @@ class IsaL < Formula
   desc "Intelligent Storage Acceleration Library"
   homepage "https://github.com/intel/isa-l"
   url "https://github.com/intel/isa-l/archive/refs/tags/v2.31.1.tar.gz"
-  sha256 "5c9da8f2024c1949457e91226d73cd71e52ec4574803899f0d600ee9e58c3561"
+  sha256 "e1d5573a4019738243b568ab1e1422e6ab7557c5cae33cc8686944d327ad6bb4"
   license "BSD-3-Clause"
 
   bottle do
@@ -21,7 +21,7 @@ class IsaL < Formula
 
   def install
     system "./autogen.sh"
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "install"
     pkgshare.install "examples"
