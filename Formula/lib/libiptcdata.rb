@@ -23,14 +23,24 @@ class Libiptcdata < Formula
     sha256 x86_64_linux:   "4e929a2391eb2733d481f84b82cc925a1d0cf943bed4f99af876f4240b62c9c0"
   end
 
-  depends_on "gettext"
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     # Fix flat namespace usage
     inreplace "configure", "${wl}-flat_namespace ${wl}-undefined ${wl}suppress", "${wl}-undefined ${wl}dynamic_lookup"
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/iptc --version")
+    assert_match "ModelVersion", shell_output("#{bin}/iptc --list")
   end
 end
