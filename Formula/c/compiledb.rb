@@ -9,8 +9,7 @@ class Compiledb < Formula
   head "https://github.com/nickdiego/compiledb.git", branch: "main"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, all: "ef5eaedacb5fa01a610f2232066c7809743d3952eee15db2f459a664663a6a48"
+    sha256 cellar: :any_skip_relocation, all: "e1ba5487728c29b4d7c4c01a7d359a6d7b6879986bb58d9d1798b98a233fbde7"
   end
 
   depends_on "python@3.13"
