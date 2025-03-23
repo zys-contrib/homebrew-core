@@ -35,18 +35,22 @@ class Truecrack < Formula
   def install
     if OS.linux?
       # Issue ref: https://github.com/lvaccaro/truecrack/issues/56
-      inreplace "src/Makefile.in", /^CFLAGS = /, "\\0-fcommon "
+      inreplace "src/Makefile.in", /^CFLAGS = /, "\\0-fcommon -Wno-implicit-function-declaration "
     elsif DevelopmentTools.clang_build_version >= 1403
       # Fix compile with newer Clang
       inreplace "src/Makefile.in", /^CFLAGS = /, "\\0-Wno-implicit-function-declaration "
     end
+
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
 
     # Re datarootdir override: Dumps two files in top-level share
     # (autogen.sh and cudalt.py) which could cause conflict elsewhere.
     system "./configure", "--enable-cpu",
                           "--datarootdir=#{pkgshare}",
                           "--mandir=#{man}",
-                          *std_configure_args
+                          *args, *std_configure_args
     system "make", "install"
   end
 
