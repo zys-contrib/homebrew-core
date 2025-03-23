@@ -1,8 +1,8 @@
 class Termscp < Formula
   desc "Feature rich terminal file transfer and explorer"
   homepage "https://termscp.veeso.dev/"
-  url "https://github.com/veeso/termscp/archive/refs/tags/v0.16.1.tar.gz"
-  sha256 "318673db7d4c8b580f8f6a2b4e305fed3e7afc151217be5e16cf1a8f33fc2af4"
+  url "https://github.com/veeso/termscp/archive/refs/tags/v0.17.0.tar.gz"
+  sha256 "ada7bbf513104272687c703217f2cc45f834af979fa6bde1b7ab4ee059d67669"
   license "MIT"
   head "https://github.com/veeso/termscp.git", branch: "main"
 
