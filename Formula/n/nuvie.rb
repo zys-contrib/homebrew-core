@@ -17,6 +17,7 @@ class Nuvie < Formula
     sha256 cellar: :any,                 monterey:       "d88f929686eb725ccb1702103cf814e40047ce6bfaa0cee764a601c2d84724ad"
     sha256 cellar: :any,                 big_sur:        "8c0568e88b4192a2d6ff1511d560214efb1e1c914116c78ce1350fa9b872c09d"
     sha256 cellar: :any,                 catalina:       "252ecb752212720f38209762e1ae067cc25e77e9c5c4939ce01040c4e86fae5c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "091eec095a34ae54b3fdff107228ee6f2a13d1f2ba64a0844ffc498bab1e01b9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f177e380622df80bbc34340afde5d533df0d29f6a9a671fe416f57d1222643a"
   end
 
