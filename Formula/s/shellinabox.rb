@@ -41,7 +41,7 @@ class Shellinabox < Formula
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
     # Force use of native ptsname_r(), to work around a weird XCode issue on 10.13
-    ENV.append_to_cflags "-DHAVE_PTSNAME_R=1" if MacOS.version == :high_sierra
+    ENV.append_to_cflags "-DHAVE_PTSNAME_R=1" if OS.mac? && MacOS.version == :high_sierra
     system "autoreconf", "-fiv"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
