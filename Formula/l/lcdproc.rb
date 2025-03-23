@@ -16,12 +16,16 @@ class Lcdproc < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on arch: :x86_64
+
   depends_on "libftdi"
   depends_on "libusb"
   depends_on "libusb-compat" # Remove when all drivers migrated https://github.com/lcdproc/lcdproc/issues/13
 
   uses_from_macos "ncurses"
+
+  on_macos do
+    depends_on arch: :x86_64
+  end
 
   def install
     ENV.append_to_cflags "-fcommon" if ENV.compiler.to_s.start_with?("gcc")
