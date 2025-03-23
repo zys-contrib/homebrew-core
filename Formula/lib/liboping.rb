@@ -38,10 +38,18 @@ class Liboping < Formula
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
+
+    # move `Net::Oping.3` manpage to man3 dir
+
+    if OS.linux?
+      mv prefix/"man/man3/Net::Oping.3", man3
+      rm_r prefix/"man"
+    else
+      mv prefix/"local/share/man/man3/Net::Oping.3pm", man3
+      rm_r prefix/"local"
+    end
   end
 
   def caveats
