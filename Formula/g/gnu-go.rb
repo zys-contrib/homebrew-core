@@ -29,9 +29,11 @@ class GnuGo < Formula
   end
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-readline"
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `DRAW'; globals.o:(.bss+0x0): first defined here
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
+    system "./configure", "--with-readline", *std_configure_args
     system "make", "install"
   end
 
