@@ -13,14 +13,13 @@ class Cryptominisat < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sequoia: "48e71ad8b236eb736317e8b39f1a1fac2334e345b315aa9cd04bc843fe706580"
-    sha256 cellar: :any,                 arm64_sonoma:  "bbeb9f9fe45dd2c144870ffa0a77c3b332c694cc7fa4e4c17cf219f4f3ab16c2"
-    sha256 cellar: :any,                 arm64_ventura: "5ffbbf9b609d5a8e0e5dc2bce7237b0a6a7ed184bae66fa4a3a68c9f650b80c2"
-    sha256 cellar: :any,                 sonoma:        "15d86b66627d95536445093c9702b5fcf439e6a6ad67037cc192b5bdec5f5e8b"
-    sha256 cellar: :any,                 ventura:       "ed2723cfbf766a67cfea9a20aba7be51b4b05e0a6f723da3b1133e4260561828"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "032b8da9b23bdd1c81b7c62fd88126c4400ab74804c6e2b38f6a03e60d728d41"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4291fd6c5691c5de3eeaadb1f6bee8dd83ec80e3ae9dd23baf2a48069b741ef8"
+    sha256 cellar: :any, arm64_sequoia: "b503cbfc78c8ccc52b5c61c393f934178b6b23fc24706e69ef36eb54da28f6d6"
+    sha256 cellar: :any, arm64_sonoma:  "912b97d4711728c84b253e021fa6b8e44e71f85275da05b1e25c9345ab490771"
+    sha256 cellar: :any, arm64_ventura: "312052a0e90409e8ff3e6fe381939fd89a88b0aa4668929c8bf3b69f946b0eb8"
+    sha256 cellar: :any, sonoma:        "f0b7d6be7d368640b55db2eb9c66d2eebca3866e82c806761a98b4b3ce148582"
+    sha256 cellar: :any, ventura:       "59abe6398e16ea1b55a555594da6ef56499953648f7ad30740ff78f8cb7d25fa"
+    sha256               arm64_linux:   "9f74deb3dd6da246645a5ab19d3464c1346d3c61a68d7f13e016ad178184214e"
+    sha256               x86_64_linux:  "5fa5d82e89cd5a41834ad0fad26871fda52d043424f2860ca86008e0f342995c"
   end
 
   depends_on "cmake" => :build
