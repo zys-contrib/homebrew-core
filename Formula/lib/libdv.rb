@@ -24,28 +24,24 @@ class Libdv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b4e579189286f35409557243fe450e7509536f831777f37ae2f7519913bddcf8"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkgconf" => :build
   depends_on "popt"
-
-  on_macos do
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-    depends_on "pkgconf" => :build
-  end
 
   # remove SDL1 dependency by force
   patch :DATA
 
   def install
-    if OS.mac?
-      # This fixes an undefined symbol error on compile.
-      # See the port file for libdv:
-      #   https://trac.macports.org/browser/trunk/dports/multimedia/libdv/Portfile
-      # This flag is the preferred method over what macports uses.
-      # See the apple docs: https://cl.ly/2HeF bottom of the "Finding Imported Symbols" section
-      ENV.append "LDFLAGS", "-undefined dynamic_lookup"
-      system "autoreconf", "--force", "--install", "--verbose"
-    end
+    # This fixes an undefined symbol error on compile.
+    # See the port file for libdv:
+    #   https://trac.macports.org/browser/trunk/dports/multimedia/libdv/Portfile
+    # This flag is the preferred method over what macports uses.
+    # See the apple docs: https://cl.ly/2HeF bottom of the "Finding Imported Symbols" section
+    ENV.append "LDFLAGS", "-undefined dynamic_lookup" if OS.mac?
+
+    system "autoreconf", "--force", "--install", "--verbose"
 
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
@@ -56,6 +52,11 @@ class Libdv < Formula
                           "--disable-sdltest",
                           *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    system bin/"dubdv", "--version"
+    system bin/"dvconnect", "--version"
   end
 end
 
