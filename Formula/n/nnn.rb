@@ -1,8 +1,8 @@
 class Nnn < Formula
   desc "Tiny, lightning fast, feature-packed file manager"
   homepage "https://github.com/jarun/nnn"
-  url "https://github.com/jarun/nnn/archive/refs/tags/v5.0.tar.gz"
-  sha256 "31e8fd85f3dd7ab2bf0525c3c0926269a1e6d35a5343a6714315642370d8605a"
+  url "https://github.com/jarun/nnn/archive/refs/tags/v5.1.tar.gz"
+  sha256 "9faaff1e3f5a2fd3ed570a83f6fb3baf0bfc6ebd6a9abac16203d057ac3fffe3"
   license "BSD-2-Clause"
   head "https://github.com/jarun/nnn.git", branch: "master"
 
