@@ -12,6 +12,7 @@ class BlockGooseCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "99c4fd2bb1ae90040c4fab68f63c449d0230f6788710fe851fbb5852069d9903"
     sha256 cellar: :any_skip_relocation, sonoma:        "407c172a1a49ca868e7b365a2d5fefce69a627352f3fabd33cbb5f491d34ddaa"
     sha256 cellar: :any_skip_relocation, ventura:       "823a9697bff14f5f8da1edf2ed0881e1e1bbc11dd4e7c9be4045681b27f138d7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "60d511fed6e0cd47868ee73d8f290d20fe2d1f859406cd3241ed36db4156ccd0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1dae52c89d437c815002a415f31fc93ed89a442cd2ea535f235fe074e014b70"
   end
 
