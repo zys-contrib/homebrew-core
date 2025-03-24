@@ -17,6 +17,7 @@ class Gegl < Formula
     sha256 arm64_ventura: "aeec62033b2069abfa708d8e747404b7a45a89e84e64621d2ab5acff64463ea3"
     sha256 sonoma:        "5b75460c53c04b6468f61c0a54bccd955f9b3c16c71e35bed5382bc33c8a3b33"
     sha256 ventura:       "391b52930fb2942495ff33d4da88507ed81a60ed57d77dbaa33132952a63cf6d"
+    sha256 arm64_linux:   "9bfb4a554c3effe461d65ebdb9b32cf8387393d0d7fa121ac5ebb35e8eed7697"
     sha256 x86_64_linux:  "b466a750a9522784d94dbe13ef96b1ff660def99d7c38534791863e5dfbf514c"
   end
 
