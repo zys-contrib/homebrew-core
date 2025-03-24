@@ -6,6 +6,15 @@ class BlockGooseCli < Formula
   license "Apache-2.0"
   head "https://github.com/block/goose.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9867442ebf941c94d246e9771f7234da0950d1e1d4d7deb7abd7176d9190ed13"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6aa190cad52a55322cab225e7c9ec011fece8d433efcac4ebf97b871bfbe8906"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "99c4fd2bb1ae90040c4fab68f63c449d0230f6788710fe851fbb5852069d9903"
+    sha256 cellar: :any_skip_relocation, sonoma:        "407c172a1a49ca868e7b365a2d5fefce69a627352f3fabd33cbb5f491d34ddaa"
+    sha256 cellar: :any_skip_relocation, ventura:       "823a9697bff14f5f8da1edf2ed0881e1e1bbc11dd4e7c9be4045681b27f138d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1dae52c89d437c815002a415f31fc93ed89a442cd2ea535f235fe074e014b70"
+  end
+
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
