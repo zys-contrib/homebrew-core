@@ -12,6 +12,7 @@ class IsaL < Formula
     sha256 cellar: :any,                 arm64_ventura: "ee7744d14e7835a1473f1c411e14648b56d3aa1af4d699357c1275c555a689d0"
     sha256 cellar: :any,                 sonoma:        "5a50a8e10d340dad15b350e8cfee247d36d305293aadb78802dfed9a9662f436"
     sha256 cellar: :any,                 ventura:       "02e1310ed918a703cc9d85e0cc6d4e17eee42fa64c640b82eecb68cfa837ee44"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "721ad28e5067ae0ded3a409859243bcbea8fa14b7bafc858424c177b4d6134e7"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6cc323c0888ad23cc884dbcd260f08706daf6ac31d765554adce4bd35fa3824"
   end
 
