@@ -12,6 +12,7 @@ class Lavat < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "aa35b73d1492a19eafc5bbd3302a1077edaa9b278e693d9794bc277e3612ec48"
     sha256 cellar: :any_skip_relocation, sonoma:        "2e47c15c73dd362b47bf2cbf6a41a331f74d2e52d66a8ce400799f22cb832457"
     sha256 cellar: :any_skip_relocation, ventura:       "374fe07d517384128561390cb971d836add8956932030f29062df39e97f3e23e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "755983a2b14cd7dbc52a2f2681765a16b8fc14979e383382597a3a9da9343141"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "25c91db37d725ae7e134e65cc7151e104e57dc0fd0adf2b431feb1593bb00a9b"
   end
 
