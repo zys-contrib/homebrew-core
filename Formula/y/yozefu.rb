@@ -1,8 +1,8 @@
 class Yozefu < Formula
   desc "TUI for exploring data in a Kafka cluster"
   homepage "https://github.com/MAIF/yozefu"
-  url "https://github.com/MAIF/yozefu/archive/refs/tags/v0.0.9.tar.gz"
-  sha256 "18f69f35960cc2600a7acbbbba7e5613a3aa3b63dd3ae9600714efc853bfb943"
+  url "https://github.com/MAIF/yozefu/archive/refs/tags/v0.0.10.tar.gz"
+  sha256 "c3053428ad866de6afc930f77260f96023906d496ef6acb9f70bd1fe2a25b2ce"
   license "Apache-2.0"
   head "https://github.com/MAIF/yozefu.git", branch: "main"
 
@@ -20,6 +20,8 @@ class Yozefu < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "openssl@3"
+
+  uses_from_macos "llvm" => :build # for libclang
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
