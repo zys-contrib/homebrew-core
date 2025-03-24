@@ -3,8 +3,8 @@ class Beanquery < Formula
 
   desc "Customizable lightweight SQL query tool"
   homepage "https://github.com/beancount/beanquery"
-  url "https://files.pythonhosted.org/packages/cd/04/8d9f3a48065fbf3f58826e8ea08bff35710ea8d542ed04654e87ec7b7b94/beanquery-0.1.0.tar.gz"
-  sha256 "b69e099b8421b219bbcc3293af77e3c4ccad7ab25bf520fee48788672ffbf64a"
+  url "https://files.pythonhosted.org/packages/7c/90/801eec23a07072dcf8df061cb6f27be6045e08c12a90b287e872ce0a12d3/beanquery-0.2.0.tar.gz"
+  sha256 "2d72b50a39003435c7fed183666572b8ea878b9860499d0f196b38469384cd2c"
   license "GPL-2.0-only"
 
   bottle do
@@ -17,17 +17,20 @@ class Beanquery < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f9b366199597258009dfbab13417889537343c76c7d8db6ec0d35129012844f"
   end
 
+  depends_on "bison" => :build # for beancount
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "python@3.13"
+
+  uses_from_macos "flex" => :build # for beancount
 
   on_linux do
     depends_on "patchelf" => :build
   end
 
   resource "beancount" do
-    url "https://files.pythonhosted.org/packages/bb/0d/4bfa4e10c1dac42a8cf4bf43a7867b32b7779ff44272639b765a04b8553e/beancount-3.0.0.tar.gz"
-    sha256 "cf6686869c7ea3eefc094ee13ed866bf5f7a2bb0c61e4d4f5df3e35f846cffdf"
+    url "https://files.pythonhosted.org/packages/93/a6/973010277d08f95ba3c6f4685010fe00c6858a136ed357c7e797a0ccbc04/beancount-3.1.0.tar.gz"
+    sha256 "1e70aba21fae648bc069452999d62c94c91edd7567f41697395c951be791ee0b"
   end
 
   resource "click" do
@@ -50,9 +53,9 @@ class Beanquery < Formula
     sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
-  resource "tatsu" do
-    url "https://files.pythonhosted.org/packages/09/f6/d53b45ea138e24199486e11deadedf06d0bedc9373911582b57a484f3d59/TatSu-5.7.4.zip"
-    sha256 "ebd8212323328115bc4967db9a40d7f15b627db4663290c64e5ef8fe71dca0ae"
+  resource "tatsu-lts" do
+    url "https://files.pythonhosted.org/packages/4a/40/4bbdba35865ebaf33a192cea87bfafb4f4ca6b4bf45c18b89c6eed086b98/tatsu_lts-5.13.1.tar.gz"
+    sha256 "b9f0d38bf820d92077b5722bad26f68020c8e4ee663f7e35d4a0d95e4ebc5623"
   end
 
   def install
