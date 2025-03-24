@@ -3,10 +3,9 @@ class Ford < Formula
 
   desc "Automatic documentation generator for modern Fortran programs"
   homepage "https://github.com/Fortran-FOSS-Programmers/ford"
-  url "https://files.pythonhosted.org/packages/b5/eb/ec32133d28c57141d96081f5a23060e7cca71b423ff96505cd7ebac50aa7/ford-7.0.9.tar.gz"
-  sha256 "b9b660552a753f1d5265c3355548ca2bc4e38828a0802c03da347ebdd6d594ab"
+  url "https://files.pythonhosted.org/packages/01/08/a2380f5a63e0dc8e428c9307ee26e4455fce4775a76964a86b7068a9edc7/ford-7.0.10.tar.gz"
+  sha256 "b1271adcd8a33af89aa65cd176ed25fe252b3e0a52aa9f1fd00b0e8c51fc4086"
   license "GPL-3.0-or-later"
-  revision 2
   head "https://github.com/Fortran-FOSS-Programmers/ford.git", branch: "master"
 
   bottle do
@@ -103,7 +102,18 @@ class Ford < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_install_with_resources without: "markdown-include"
+
+    resource("markdown-include").stage do
+      # Setuptools no longer supports the keys with hyphen in the `setup.cfg` file
+      # Fix patch cannot be applied and so manually change the key name
+      #   - `setup.cfg` in PyPI and github is a bit different
+      #   - `ford` uses outdated version of `markdown-include`
+      # PR Ref: https://github.com/cmacmackin/markdown-include/pull/51
+      inreplace "setup.cfg", "description-file", "description_file"
+      venv.pip_install Pathname.pwd
+    end
+
     doc.install "2008standard.pdf", "2003standard.pdf"
     pkgshare.install "example/example-project-file.md"
   end
