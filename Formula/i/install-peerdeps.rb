@@ -6,8 +6,7 @@ class InstallPeerdeps < Formula
   license "MIT"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "8b8235bb0d694175e47f0dd39cb14fdc1cf9474c25516f37b7f01a216db0d022"
+    sha256 cellar: :any_skip_relocation, all: "679fc964017ac26ac7bea5d6662dcce74a754e608725b92e0e0ee73124638f28"
   end
 
   depends_on "node"
