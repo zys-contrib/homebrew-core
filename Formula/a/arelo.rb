@@ -1,8 +1,8 @@
 class Arelo < Formula
   desc "Simple auto reload (live reload) utility"
   homepage "https://github.com/makiuchi-d/arelo"
-  url "https://github.com/makiuchi-d/arelo/archive/refs/tags/v1.15.1.tar.gz"
-  sha256 "1ee05f22bf6725e1966760107bfb2fc1170dc78ceab0556312419925001d916e"
+  url "https://github.com/makiuchi-d/arelo/archive/refs/tags/v1.15.2.tar.gz"
+  sha256 "9b2f0013ccb00667b79e7ef65e8d0e97fb996cc1a3d0b98489dccbc97e003f0f"
   license "MIT"
   head "https://github.com/makiuchi-d/arelo.git", branch: "master"
 
