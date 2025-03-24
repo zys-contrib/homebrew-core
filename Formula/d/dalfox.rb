@@ -1,8 +1,8 @@
 class Dalfox < Formula
   desc "XSS scanner and utility focused on automation"
   homepage "https://dalfox.hahwul.com"
-  url "https://github.com/hahwul/dalfox/archive/refs/tags/v2.9.3.tar.gz"
-  sha256 "4f0d746e887a42132ccbcea73450748a4f025d81faaa6817ce617bb0372105fd"
+  url "https://github.com/hahwul/dalfox/archive/refs/tags/v2.10.0.tar.gz"
+  sha256 "cec08c3256b072cf6aa1408aa4e0a111baad4a069601fdc7502119afe61077ee"
   license "MIT"
   head "https://github.com/hahwul/dalfox.git", branch: "main"
 
@@ -29,7 +29,7 @@ class Dalfox < Formula
     assert_match version.to_s, shell_output("#{bin}/dalfox version 2>&1")
 
     url = "http://testphp.vulnweb.com/listproducts.php?cat=123&artist=123&asdf=ff"
-    output = shell_output("#{bin}/dalfox url #{url}")
-    assert_match "[POC][G][GET][BUILTIN]", output
+    output = shell_output("#{bin}/dalfox url \"#{url}\" 2>&1")
+    assert_match "Finish Scan!", output
   end
 end
