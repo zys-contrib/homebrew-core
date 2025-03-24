@@ -15,12 +15,12 @@ class Eiffelstudio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2c5655afc34eec519316fc5fb3f9c725cbcf50d0bf4827102548bda6387cd12d"
-    sha256 cellar: :any,                 arm64_sonoma:  "0354eb4c3580064948257f7577b9c1a6de298148adcb599530973ab7fd546e71"
-    sha256 cellar: :any,                 arm64_ventura: "24da4037b60feac74beae6588fc4dd998abda669233090597a7d283286b1ab4c"
-    sha256 cellar: :any,                 sonoma:        "64e3fae2de6e0167f75255a50ce952182af971e1085261f08320a5497fc0f300"
-    sha256 cellar: :any,                 ventura:       "268a946d64769df550f47f3446dd068db381666bbcf7614e82f6c53edfc6df71"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea1bb6c9813e6f2b36b34f5046ed2893ae5ca1349903beefd648976c87f92883"
+    sha256 cellar: :any,                 arm64_sequoia: "f53fe709078a0b99df505467ce2ed36139b7bb692e76b51cb66d3c177eb81c1f"
+    sha256 cellar: :any,                 arm64_sonoma:  "756ba74eb55015c9a862e66c71e30b044df6ed6387e4c75804b04f17abe0c565"
+    sha256 cellar: :any,                 arm64_ventura: "edd61003eaccc9f0f98dc887c6446520eac6e5a2201cffb1467cc360f836f0d6"
+    sha256 cellar: :any,                 sonoma:        "ca47472f6ff1d99d2a6f625c8fc29056b5cfba9f01fa967582da0afe6af634a0"
+    sha256 cellar: :any,                 ventura:       "962dd821c1033fccab1662fac98c08d85c784bb249ee892c98ab424ba59e11fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08f320ba178cd2a918863d1dbb9bf44a1e9b5ae4c5e0b269c6f2377d17e9d961"
   end
 
   depends_on "pkgconf" => :build
