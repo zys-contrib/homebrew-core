@@ -6,12 +6,12 @@ class Gtranslator < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sequoia: "9528d2d0c63f9fc72e116c529635b9a1062c378de167317f533eeb19f26b3ec9"
-    sha256 arm64_sonoma:  "dbbbb590aa84894918b7d13179f95c4a5e3048df1707ef285011dc070e09aeeb"
-    sha256 arm64_ventura: "44f9fae1b4fcc02e8cd7cb1c81162e14a7122a17046e14f719f11faebbc01983"
-    sha256 sonoma:        "a7bee03217bdf2fec854a4ac33c6fdb7dc2a73c230f880aa51c162e6f0a25487"
-    sha256 ventura:       "b9ced5aee8dfac8bdeaddb5be0e3221660298cbb622dc8739a5112c3fe9f696c"
-    sha256 x86_64_linux:  "0c4b171ded4cde9d2cd935af1d7e8993cd28d9a929b11d8bbbca29ba45b87c35"
+    sha256 arm64_sequoia: "fbcbdf1b0c13c0333ab1f149aabab989a49a674026ad6b1dfbb080dbbe262de6"
+    sha256 arm64_sonoma:  "580ba20e94c0065f9de1136ed40ff1ee2c9099ec8953f9ce6cd054f18d5db6a8"
+    sha256 arm64_ventura: "25e6488bef8333cdcf5cdd7bdaebcaa9b4aed313b7d622c63471cb0dd283cb15"
+    sha256 sonoma:        "726b1853ffff31972de87fe405054ba68275e37795ae9008d4e32b261b87822f"
+    sha256 ventura:       "b0a7410ae57d2dfe88fb9b1b24280c17be9f0328391ce5d8c4daeb988ea7cd61"
+    sha256 x86_64_linux:  "f90143186e87fb3d3216ea137e1976b4d60fb3e77fcbd0ea8b2444de389358a2"
   end
 
   depends_on "desktop-file-utils" => :build # for update-desktop-database
