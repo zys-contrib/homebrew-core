@@ -7,13 +7,13 @@ class CargoExpand < Formula
   head "https://github.com/dtolnay/cargo-expand.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ee3990129d757a037152829a090e3579b9f71fe071cda69c7a12c617c1108645"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "09964858ce9cc9e836b5e9022fbd6a1779bbfe851c2e086df92397aa07e05689"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "28a11090a5e2b814e9aceb87c9a9955f61e153a76c1c47193f372dcff6234ced"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2b8b52f7e30ce27c796f824a90434baa3e38174cd7bcc85dea10bd07d676a770"
-    sha256 cellar: :any_skip_relocation, ventura:       "5b78196528e1ff81ece9e90ffc88a4def945025e8adc938f7516fafe9f1080e6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "610478839b867697ac953d58a81d8b5c0b635bb7ea5d7e9a6b5595edabafd797"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "789069f3518a26efd6a3af93b817d6fcce1e610c6fb543bc6334a7fbb2510ec8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e39208dd173710e175ae57ff0168d61d5a5f73493ed250524e3887d6da784588"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eb6aa5c973552ab93458bf4b493fe2cecafe4c025578129571d1c8d675e0f5ba"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6e07ef089f411320a42ee8df9c097ce0120fa4fffb9d4d05bba7087f58a3a94d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5a9229dc4422ff2ce6106beada047c9d58446c92182c2c3e1f258247ef0aa870"
+    sha256 cellar: :any_skip_relocation, ventura:       "c58608ae019a5f92ce2ea0bf86e58a5311eaa4bf208ec41704570df534ed49fc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "93fc42d58dc75c52fdc297fa7d0369c81cd2f5749077ded62b1656fa9c0e6840"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e800f9f9df16421e259cea5148550d778f899d33131ceab313ca89cecf4efe19"
   end
 
   depends_on "rust" => :build
