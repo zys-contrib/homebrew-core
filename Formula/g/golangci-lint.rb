@@ -2,8 +2,8 @@ class GolangciLint < Formula
   desc "Fast linters runner for Go"
   homepage "https://golangci-lint.run/"
   url "https://github.com/golangci/golangci-lint.git",
-        tag:      "v1.64.8",
-        revision: "8b37f14162043f908949f1b363d061dc9ba713c0"
+        tag:      "v2.0.0",
+        revision: "f1f8343d12ac33720efeb5898141d1e065789751"
   license "GPL-3.0-only"
   head "https://github.com/golangci/golangci-lint.git", branch: "master"
 
@@ -55,14 +55,14 @@ class GolangciLint < Formula
 
     args = %w[
       --color=never
-      --disable-all
+      --default=none
       --issues-exit-code=0
-      --print-issued-lines=false
+      --output.text.print-issued-lines=false
       --enable=unused
     ].join(" ")
 
     ok_test = shell_output("#{bin}/golangci-lint run #{args} #{testpath}/try.go")
-    expected_message = "try.go:3:6: func `add` is unused (unused)"
+    expected_message = "try.go:3:6: func add is unused (unused)"
     assert_match expected_message, ok_test
   end
 end
