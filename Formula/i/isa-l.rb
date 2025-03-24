@@ -6,12 +6,13 @@ class IsaL < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6bc5013abd53459542e5ae34601a89d12e8d7ef496938cc73ff2ca9e9959f945"
-    sha256 cellar: :any,                 arm64_sonoma:  "d6ed28d3bd60bc3d5101a80a6d0dd115623cc81ae2e3675ed94ab71b8950b43f"
-    sha256 cellar: :any,                 arm64_ventura: "3167c838574ee9cc7c09a31a87b7823a6b2de3d9e522d13ca6ec3f1b70c91b79"
-    sha256 cellar: :any,                 sonoma:        "56a08d986c604d2800e03819b521d2fecac4af595fbdb66c79090b2f3961ca19"
-    sha256 cellar: :any,                 ventura:       "833a3eced0fda7d8e15e6d5d75363c0f221fa91e6f04464099d59dcc3cbc3fb0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe15b388084f75d25b81e4c24dc350fdce19538ae107432fa8a6be740c765e8e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "6715b874f4070412fd9fde672ac8d3afeabcedd94e585a2ee16a5e20823a3dc5"
+    sha256 cellar: :any,                 arm64_sonoma:  "cdde71e94bd415fff6acacfe9d8dcd064b956d639192ffae847743e46cee219f"
+    sha256 cellar: :any,                 arm64_ventura: "ee7744d14e7835a1473f1c411e14648b56d3aa1af4d699357c1275c555a689d0"
+    sha256 cellar: :any,                 sonoma:        "5a50a8e10d340dad15b350e8cfee247d36d305293aadb78802dfed9a9662f436"
+    sha256 cellar: :any,                 ventura:       "02e1310ed918a703cc9d85e0cc6d4e17eee42fa64c640b82eecb68cfa837ee44"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6cc323c0888ad23cc884dbcd260f08706daf6ac31d765554adce4bd35fa3824"
   end
 
   depends_on "autoconf" => :build
