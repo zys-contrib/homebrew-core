@@ -1,10 +1,9 @@
 class Tarsnap < Formula
   desc "Online backups for the truly paranoid"
   homepage "https://www.tarsnap.com/"
-  url "https://www.tarsnap.com/download/tarsnap-autoconf-1.0.40.tgz"
-  sha256 "bccae5380c1c1d6be25dccfb7c2eaa8364ba3401aafaee61e3c5574203c27fd5"
+  url "https://www.tarsnap.com/download/tarsnap-autoconf-1.0.41.tgz"
+  sha256 "bebdbe1e6e91233755beb42ef0b4adbefd9573455258f009fb331556c799b3d0"
   license "0BSD"
-  revision 1
 
   livecheck do
     url "https://www.tarsnap.com/download.html"
@@ -37,12 +36,6 @@ class Tarsnap < Formula
 
   on_linux do
     depends_on "e2fsprogs" => :build
-  end
-
-  # Needed for tarsnap 1.0.40; should not be needed for 1.0.41 or higher
-  patch do
-    url "https://github.com/Tarsnap/tarsnap/commit/4af6d8350ab53d0f1f3104ce3d9072c2d5f9ef7a.patch?full_index=1"
-    sha256 "4136b5643e25f7d5e454c014b3c13d7ad015a02e796c5c91b3e4eeca28c1556e"
   end
 
   def install
