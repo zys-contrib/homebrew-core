@@ -20,6 +20,7 @@ class Raptor < Formula
     sha256 cellar: :any,                 ventura:        "6e1542f6b1550034210dec5ce87896ef4be236e60ac6b4a21136b7029b7c2dc5"
     sha256 cellar: :any,                 monterey:       "d91142c6c8c5057b57a334ad8c8a856e620303cf4fefc4e9bc95a9715f9d338f"
     sha256 cellar: :any,                 big_sur:        "ba5e405a3c7b6f8f89e91474e1ebe98370a592ba3a2c8b506577c8e7197cd859"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "8dbff84e7fe63b4dbb4e65820e2a053e02213acd4b71a026542321b07b5c9dbc"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "15e86d1b093c1984b4d6296466470f879edd31763d16b75130389046ca2cb4ec"
   end
 
