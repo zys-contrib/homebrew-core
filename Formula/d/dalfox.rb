@@ -7,14 +7,12 @@ class Dalfox < Formula
   head "https://github.com/hahwul/dalfox.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b6743620830cf863fc799cb8cd09f454f1f4d5b660d82fc03cc897b0fc668870"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4c65ecc87b57da0ddcd9bd81a61270c4b8f37cda54e2b54bfa1ad554529dd411"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4c65ecc87b57da0ddcd9bd81a61270c4b8f37cda54e2b54bfa1ad554529dd411"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4c65ecc87b57da0ddcd9bd81a61270c4b8f37cda54e2b54bfa1ad554529dd411"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e04ac808f686150e9434d4d180b1b90584e054e17f41800dd46fbce391b36e75"
-    sha256 cellar: :any_skip_relocation, ventura:        "e04ac808f686150e9434d4d180b1b90584e054e17f41800dd46fbce391b36e75"
-    sha256 cellar: :any_skip_relocation, monterey:       "e04ac808f686150e9434d4d180b1b90584e054e17f41800dd46fbce391b36e75"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d29b5c65f9f4da17add6bea4f885c6efab4d4028950268276f08d515d9563ac8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1f6fc3493d1989bd64cff86554e6be1c0d397b966b88000041917810cce12764"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1f6fc3493d1989bd64cff86554e6be1c0d397b966b88000041917810cce12764"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1f6fc3493d1989bd64cff86554e6be1c0d397b966b88000041917810cce12764"
+    sha256 cellar: :any_skip_relocation, sonoma:        "88a35ff5ec2a4c7db0b451fbd4ad20d45346ee10386841a2270c45d6a47d0766"
+    sha256 cellar: :any_skip_relocation, ventura:       "88a35ff5ec2a4c7db0b451fbd4ad20d45346ee10386841a2270c45d6a47d0766"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd1a1b8b5b9d015f06704bbe902bb8b9183806c425bd26aa34dce39e84916250"
   end
 
   depends_on "go" => :build
