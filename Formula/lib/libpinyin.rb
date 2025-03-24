@@ -1,8 +1,8 @@
 class Libpinyin < Formula
   desc "Library to deal with pinyin"
   homepage "https://github.com/libpinyin/libpinyin"
-  url "https://github.com/libpinyin/libpinyin/archive/refs/tags/2.10.0.tar.gz"
-  sha256 "478d98ce15a2ff887fdd183c904dba82c2724f3cb9439f8441c736f0ff293279"
+  url "https://github.com/libpinyin/libpinyin/archive/refs/tags/2.10.1.tar.gz"
+  sha256 "f7444b0cedeb1e6011e08aa503e1e1513df11b60cddc7ed9693e630675d8fd87"
   license "GPL-3.0-or-later"
 
   # Tags with a 90+ patch are unstable (e.g., the 2.9.91 tag is marked as
