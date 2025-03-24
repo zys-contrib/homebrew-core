@@ -7,13 +7,13 @@ class Newsboat < Formula
   head "https://github.com/newsboat/newsboat.git", branch: "master"
 
   bottle do
-    sha256 arm64_sequoia: "f17fe5c89d9d05d1e699d4f31c73867f6057529f3258af78513803d298897431"
-    sha256 arm64_sonoma:  "0243d2cba34a5cb3ddeb47a48ab2f4a5572831fba6f6f375f23840216dfab513"
-    sha256 arm64_ventura: "65ff1d67ce979e06ffe26f1cc1bec5678a72cc72c1d901ff4b1de89110bcc5af"
-    sha256 sonoma:        "1943df946a712d69e2302f16bf0504fa0d8d6fd13b73b69e0720ab0fc1ecbdc0"
-    sha256 ventura:       "e4134c046f1eca9d2966d29bfd40435648d74afc05015f5c2185145de8f2bf77"
-    sha256 arm64_linux:   "3bee70f7d4af0428b87ae2874625e77bc9f9f7a786c4adf78f4a5fcd87542ce7"
-    sha256 x86_64_linux:  "2e8c24e389a1de485b2fefd72eddcd76a5c8abe9e8197cc05705fb3737bda619"
+    sha256 arm64_sequoia: "784097ba80326b979eb1911e3069703e74931f098b4b4b09e6860d55625436a9"
+    sha256 arm64_sonoma:  "cb4fb9c1e39faebed2936c9024596c5aae56a04d5383d114b2764fa231314e79"
+    sha256 arm64_ventura: "0f259c3cfdc92b561aba4dab533c737000591552ee2741f2e18dd8b575ca1df4"
+    sha256 sonoma:        "118530c4024a841179a291c9cb8cc510def37e0dadc51204423cc55d1d5ef12d"
+    sha256 ventura:       "64d63a00c216d589829b44c64d8cc1ff6c833d8fb0eff4bd8f699be39aca7998"
+    sha256 arm64_linux:   "c5fc2f3b3031c7959cd6aca3038143adc52f77525e92d9d2b043717f9985ac1a"
+    sha256 x86_64_linux:  "9594e4b2d0db3616517b295e687cc0832b149a68546dcdce2ab9309a622ea32d"
   end
 
   depends_on "asciidoctor" => :build
