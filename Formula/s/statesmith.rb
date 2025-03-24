@@ -10,6 +10,7 @@ class Statesmith < Formula
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "926fafa1d15bcca00d6372824d26c6bbd55a59b0a6cf5cf34ec338c7462321e4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0a11d4baa36bad4b9781afeda8e6767a5e6883e800cfbda179755c41f0344f13"
     sha256 cellar: :any_skip_relocation, ventura:       "0a52242c5fc55c753a125e12de944672d59ca660c5f7852b7e8809996380b0b6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3ea33392880ca8706e3013cd7d491be55f24ac755a0f0907956d07932937cf37"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9cccfa195619b84f8094ad0a86f8b6ec9b6f11d6c137bbedca6e7f10d06c3c2c"
   end
 
