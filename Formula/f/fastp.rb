@@ -12,6 +12,7 @@ class Fastp < Formula
     sha256 cellar: :any,                 arm64_ventura: "2db312fadbe52246448cc481e9a497e1a88c233b369e3fb4e57274451167d4ca"
     sha256 cellar: :any,                 sonoma:        "edf65bd19025373896ee67537cf40753cb29eff691192e06b5ef1db0d07744ad"
     sha256 cellar: :any,                 ventura:       "5fe76051073d69ce846aed31f01cceae1c32fdaf329b9ca2feec825434c6fd79"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4bb59d6348fab36c97b7f9bcb50134a593623f179ee8e45661001fe5ebb1ab1b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a58d8f99ec2c14988a9ee2351feae042053d7d5e3e8266b8b9dda439f2172bbb"
   end
 
