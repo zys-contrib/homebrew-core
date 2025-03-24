@@ -1,8 +1,8 @@
 class Gocloc < Formula
   desc "Little fast LoC counter"
   homepage "https://github.com/hhatto/gocloc"
-  url "https://github.com/hhatto/gocloc/archive/refs/tags/v0.6.0.tar.gz"
-  sha256 "f75b9b086488c03422af273fbf98507417850895ed40ffaa0e745c627c7b2f3a"
+  url "https://github.com/hhatto/gocloc/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "9375f6699a7bffad42da661b4ba7988af23dd01191da4a4b21eca8f9bb676d9a"
   license "MIT"
   head "https://github.com/hhatto/gocloc.git", branch: "master"
 
