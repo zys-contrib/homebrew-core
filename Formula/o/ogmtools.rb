@@ -38,9 +38,10 @@ class Ogmtools < Formula
   end
 
   def install
+    ENV.cxx11
+
     ENV.append "CPPFLAGS", "-I#{Formula["libvorbis"].opt_include}"
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}", "--mandir=#{man}"
+    system "./configure", "--mandir=#{man}", *std_configure_args
 
     system "make", "install", "LIBS=-L#{Formula["libvorbis"].opt_lib} -lvorbis -lvorbisenc"
   end
