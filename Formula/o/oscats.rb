@@ -14,6 +14,7 @@ class Oscats < Formula
     sha256 cellar: :any,                 sonoma:         "13bd95cd190928092251cd826497867f03f36d6a3f4f1deee6e00577c2bb4c23"
     sha256 cellar: :any,                 ventura:        "cafcdb6c91e58beebb50ab5fdf28a7f9246df0256be3285a49f70e6b79f6323c"
     sha256 cellar: :any,                 monterey:       "d86233a0472773367baa7cded028f338d8ee4121b742bfa8a0aa9fd275ac95fe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "5455564ddd14e3caddfc1af6a1f7440daf719e7446c51a0f3beefab3088ce053"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cea14d82ea0d9f7fea63cbd5364ccd2a85d0d8b8e02a498904b3f1bec140712c"
   end
 
