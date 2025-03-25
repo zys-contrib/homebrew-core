@@ -26,11 +26,11 @@ class Fprobe < Formula
   uses_from_macos "libpcap"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--mandir=#{man}",
-                          "--prefix=#{prefix}"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", "--disable-silent-rules", "--mandir=#{man}", *args, *std_configure_args
     system "make", "install"
   end
 
