@@ -2,8 +2,8 @@ class Rubyfmt < Formula
   desc "Ruby autoformatter"
   homepage "https://github.com/fables-tales/rubyfmt"
   url "https://github.com/fables-tales/rubyfmt.git",
-      tag:      "v0.10.0",
-      revision: "e00d2ab89fd4b0b85a7897fac393c1ad987136de"
+      tag:      "v0.11.0",
+      revision: "55f41919cf5779fb9e2c410c04e2f613f7d79f2b"
   license "MIT"
   head "https://github.com/fables-tales/rubyfmt.git", branch: "trunk"
 
