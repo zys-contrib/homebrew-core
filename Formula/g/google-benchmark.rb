@@ -7,13 +7,13 @@ class GoogleBenchmark < Formula
   head "https://github.com/google/benchmark.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "640ba4c9e992d27b80aeb54e9cabf1d9386c230440940ebdf02e8f7db09713a8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1c9fc96575cd6f7e7241e359df03a9dbaffea569c160b0cab81d54aa9593e352"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "89a1537bc5004572aa0277a5c113e3907b4453b0ccf15b4c0d980a70c5afc117"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0e63378d17e3a72b1c7a198a61e74ca823217edbb1abf080ad64d093b107a699"
-    sha256 cellar: :any_skip_relocation, ventura:       "bf91cfbe179fb24d2c297fbc87d01e028862340b82a94b9018e59e1f3716bce6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "19d3aadbccf3360938e155dd48b949a4571c67a3ee4eb7e24e0ff559991a1d12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8a44839b256fd772353566f2cd8a73266e90a72da964454730481e62dc020f4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f0676c30ba82c95b4c4aea312440390f63d0feaca33ae74779a37750c97df56a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3b6cdab0a525f0bedd85e42d88c24df6895d74129a0e91d404a281fde8c2e45c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "551d7ade1d078ca9d41198c11b2a4935545d82000c21bba64bfa531de196e597"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8b90185572865b582432fbf48a404f26aeb3448dbeeb765e4439e4c262fa18ca"
+    sha256 cellar: :any_skip_relocation, ventura:       "d3683500e476bb47bbb3c960552620b374af7fa606c96dc7f046b657b495aa74"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e1013d1853765ad47f5d91def16096ad3f5b11f2b50d392845e66b4587bafb7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec39d18dae247211ee8a4d9786d5f1c76b7e92273632cbcf2d0ab0d970ca208f"
   end
 
   depends_on "cmake" => :build
