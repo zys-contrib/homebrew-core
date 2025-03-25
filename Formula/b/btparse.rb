@@ -24,12 +24,18 @@ class Btparse < Formula
 
   def install
     # workaround for Xcode 14.3
-    ENV.append "CFLAGS", "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+    if DevelopmentTools.clang_build_version >= 1403 || (OS.linux? && Hardware::CPU.arm?)
+      ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+    end
 
     # Fix flat namespace usage
     inreplace "configure", "${wl}-flat_namespace ${wl}-undefined ${wl}suppress", "${wl}-undefined ${wl}dynamic_lookup"
 
-    system "./configure", "--mandir=#{man}", *std_configure_args
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", "--mandir=#{man}", *args, *std_configure_args
     system "make", "install"
   end
 
