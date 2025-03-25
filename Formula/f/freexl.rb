@@ -20,6 +20,7 @@ class Freexl < Formula
     sha256 cellar: :any,                 ventura:        "deffaa3f557b73b8bfe491a641ed7bb0727bd8b8f6d81cbb8795f530e7db2624"
     sha256 cellar: :any,                 monterey:       "3578de5c3c6d52a04ee32fad357d1c4f25ee62a8d2a05dbf21fbe5e5e3595620"
     sha256 cellar: :any,                 big_sur:        "915b680af0a7f34c12f86630fe22ac48b479fc14e24df6a4fb2c9274b0a971d3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "26dd6ba610ed245687f64deae257c8aa2e21a9878a6430f442a0cbea4a894425"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a23aa6cd549e49b7d3d3f5bf160d97d1125c26587074580b2926060003269e9"
   end
 
