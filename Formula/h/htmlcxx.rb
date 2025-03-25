@@ -29,7 +29,9 @@ class Htmlcxx < Formula
   end
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    ENV.cxx11
+
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
