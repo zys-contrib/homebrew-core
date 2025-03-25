@@ -1,10 +1,9 @@
 class Memcacheq < Formula
   desc "Queue service for memcache"
-  homepage "https://code.google.com/archive/p/memcacheq/"
-  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/memcacheq/memcacheq-0.2.0.tar.gz"
-  sha256 "b314c46e1fb80d33d185742afe3b9a4fadee5575155cb1a63292ac2f28393046"
+  homepage "https://github.com/stvchu/memcacheq"
+  url "https://github.com/stvchu/memcacheq/archive/refs/tags/v0.2.1.tar.gz"
+  sha256 "ace33313568959b5a301dda491f63af09793987b73fd15abd3fb613829eda07e"
   license "BSD-3-Clause"
-  revision 5
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "f056c80f984e46a6a4d683ff08eb5832a19d589fc6c0824d75c4d749655fbe2b"
@@ -26,10 +25,24 @@ class Memcacheq < Formula
 
   def install
     ENV.append "CFLAGS", "-std=gnu89"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-threads"
+    system "./configure", "--enable-threads", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    port = free_port
+    pid = spawn(bin/"memcacheq", "-p", port.to_s, "-H", testpath)
+    sleep 5
+    TCPSocket.open("localhost", port) do |sock|
+      sock.puts("set brew 2 0 3\r\n100\r\n")
+      assert_equal "STORED\r\n", sock.gets
+      sock.puts("stats queue\r\n")
+      assert_equal "STAT brew 1/0\r\n", sock.gets
+    ensure
+      sock.close
+    end
+  ensure
+    Process.kill "TERM", pid
+    Process.wait pid
   end
 end
