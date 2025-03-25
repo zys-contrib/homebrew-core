@@ -1,8 +1,8 @@
 class Dcfldd < Formula
   desc "Enhanced version of dd for forensics and security"
-  homepage "https://dcfldd.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/dcfldd/dcfldd/1.3.4-1/dcfldd-1.3.4-1.tar.gz"
-  sha256 "f5143a184da56fd5ac729d6d8cbcf9f5da8e1cf4604aa9fb97c59553b7e6d5f8"
+  homepage "https://github.com/resurrecting-open-source-projects/dcfldd"
+  url "https://github.com/resurrecting-open-source-projects/dcfldd/archive/refs/tags/v1.9.2.tar.gz"
+  sha256 "52468122e915273eaffde94cb0b962adaefe260b8af74e98e1282e2177f01194"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -23,13 +23,13 @@ class Dcfldd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "319e81385163d7cda46d9000f62a1b28a4c750513a30a3f33cb9fd3ac02895b1"
   end
 
-  def install
-    # Workaround for Xcode 14.3
-    if DevelopmentTools.clang_build_version >= 1403
-      ENV.append_to_cflags "-Wno-implicit-function-declaration -Wno-implicit-int"
-    end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "pkgconf" => :build
 
-    system "./configure", "--mandir=#{man}", *std_configure_args
+  def install
+    system "./autogen.sh"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
