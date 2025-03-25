@@ -1,8 +1,8 @@
 class GoogleBenchmark < Formula
   desc "C++ microbenchmark support library"
   homepage "https://github.com/google/benchmark"
-  url "https://github.com/google/benchmark/archive/refs/tags/v1.9.1.tar.gz"
-  sha256 "32131c08ee31eeff2c8968d7e874f3cb648034377dfc32a4c377fa8796d84981"
+  url "https://github.com/google/benchmark/archive/refs/tags/v1.9.2.tar.gz"
+  sha256 "409075176168dc46bbb81b74c1b4b6900385b5d16bfc181d678afb060d928bd3"
   license "Apache-2.0"
   head "https://github.com/google/benchmark.git", branch: "main"
 
@@ -40,7 +40,7 @@ class GoogleBenchmark < Formula
       BENCHMARK_MAIN();
     CPP
     flags = ["-I#{include}", "-L#{lib}", "-lbenchmark", "-pthread"] + ENV.cflags.to_s.split
-    system ENV.cxx, "-o", "test", "test.cpp", *flags
+    system ENV.cxx, "-std=c++17", "-o", "test", "test.cpp", *flags
     system "./test"
   end
 end
