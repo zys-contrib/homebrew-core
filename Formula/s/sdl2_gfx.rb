@@ -32,13 +32,13 @@ class Sdl2Gfx < Formula
   depends_on "sdl2"
 
   def install
-    extra_args = []
-    extra_args << "--disable-mmx" if Hardware::CPU.arm?
+    args = []
+    args << "--disable-mmx" if Hardware::CPU.arm?
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--disable-sdltest",
-                          *extra_args
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", "--disable-sdltest", *args, *std_configure_args
     system "make", "install"
   end
 
