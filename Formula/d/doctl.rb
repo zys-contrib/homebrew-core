@@ -1,8 +1,8 @@
 class Doctl < Formula
   desc "Command-line tool for DigitalOcean"
   homepage "https://github.com/digitalocean/doctl"
-  url "https://github.com/digitalocean/doctl/archive/refs/tags/v1.123.0.tar.gz"
-  sha256 "061f85a79a39011d3f71c9c75762d2316e96cfb1c9e6dafde419d23a977f4b9b"
+  url "https://github.com/digitalocean/doctl/archive/refs/tags/v1.124.0.tar.gz"
+  sha256 "19ad2d9ca14a4269926179cd91de1c62aba92a2dc4919da504469ba16054c48c"
   license "Apache-2.0"
   head "https://github.com/digitalocean/doctl.git", branch: "main"
 
