@@ -28,13 +28,15 @@ class Ophcrack < Formula
 
   def install
     args = %W[
-      --disable-debug
       --disable-gui
       --with-libssl=#{Formula["openssl@3"].opt_prefix}
-      --prefix=#{prefix}
     ]
     args << "--with-libexpat=#{Formula["expat"].opt_prefix}" if OS.linux?
-    system "./configure", *args
+
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 
