@@ -26,6 +26,7 @@ class Sdl2Gfx < Formula
     sha256 cellar: :any,                 high_sierra:    "6563ae4bda51a996e537cfe88509da94402b52469e11b92211b5bca58800ab24"
     sha256 cellar: :any,                 sierra:         "fba875841d99a80ba39af65733a0df33adf220d29fbd5e313dfcc695b61bc8e4"
     sha256 cellar: :any,                 el_capitan:     "aaec64e6b0020e3a0b2faf6ca37e5bc4b27d7327125a58831b0cd34803935cc7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "4774eb2e827ddefb293a54c297cd292530b2aad4ffffafae52385fed9eda3497"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a779702029d05cd1923b70eff455385362d0069fcf31e0e0c1211279893ae5a"
   end
 
