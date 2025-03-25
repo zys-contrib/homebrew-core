@@ -21,6 +21,7 @@ class Pax < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "d38daea0b26ae854ac1b08b4e3df4689b9ebbc7658604ea0d61fae0a3d263933"
     sha256 cellar: :any_skip_relocation, big_sur:        "3bee37a3e3c998d25eb643ba3b5883d423b2209caf40f8f950f0ea72d0413f4c"
     sha256 cellar: :any_skip_relocation, catalina:       "7445d8ab0193bfc4e2bb4c8a7497e8010cb47b63bb9fa49c887b2f3a3e133d6e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "7311b4bf4cdf82d37661f21a7fa3feeb8e6d00107d89557d6326a9b6074b2dee"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ebf0c050c23153d61d4bd703a0f9a4194018a54ad873a5594a70182058280ec"
   end
 
