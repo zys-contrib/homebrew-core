@@ -19,6 +19,7 @@ class Btparse < Formula
     sha256 cellar: :any,                 mojave:         "d69b814282b1205eb311f2b8f1f2d0077e2adeef72c2a010084eec34ffef7b71"
     sha256 cellar: :any,                 high_sierra:    "92fe826bfbaed8583343dbae8d2cf51d6161658e8ecd44a4bf7a308ab1f06d61"
     sha256 cellar: :any,                 sierra:         "b31041f88e5253fd880d38190b4828f8c9cee34f141352d5c3b70b33e18d824f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "a38cb6010173a8291ff7f70a323775f1131adfcdb6a755a7ebdf3e8269397353"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb28ef3caa60d179c008ab9fbd54395014c35119cb9b1c1f2168a3e6bde294d0"
   end
 
