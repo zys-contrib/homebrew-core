@@ -1,8 +1,8 @@
 class Broot < Formula
   desc "New way to see and navigate directory trees"
   homepage "https://dystroy.org/broot/"
-  url "https://github.com/Canop/broot/archive/refs/tags/v1.45.0.tar.gz"
-  sha256 "526325b369a7b5821ec0a99504fb11d35795218bbc0bc895444fa2e3ca4284d2"
+  url "https://github.com/Canop/broot/archive/refs/tags/v1.45.1.tar.gz"
+  sha256 "3ce8dcfdc64f03e64547b4413c3d94f47003054aa3e779089393d3e8a7ed3837"
   license "MIT"
   head "https://github.com/Canop/broot.git", branch: "master"
 
@@ -52,7 +52,7 @@ class Broot < Formula
     require "io/console"
     PTY.spawn(bin/"broot", "-c", ":print_tree", "--color", "no", "--outcmd", testpath/"output.txt") do |r, w, pid|
       r.winsize = [20, 80] # broot dependency terminal requires width > 2
-      w.write "n\r"
+      w.write "n\r\n"
       output = ""
       begin
         r.each { |line| output += line }
