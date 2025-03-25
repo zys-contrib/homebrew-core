@@ -29,10 +29,11 @@ class Freexl < Formula
   uses_from_macos "expat"
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}",
-                          "--disable-silent-rules"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
 
-    system "make", "check"
+    system "./configure", "--disable-silent-rules", *args, *std_configure_args
     system "make", "install"
 
     system "doxygen"
