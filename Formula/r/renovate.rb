@@ -17,13 +17,13 @@ class Renovate < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cd7648f8691b18673ae8f814be793384566c584d41e33af7fcc8dc6b15433af7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d4b3049a585bb4ce1d1f4c3fda105de010fd980ba5bc532a4b5e033632eb13ab"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a5096569cbd2c6f2c82e227f5d7d014fe0a0a027297a45655bac9b0d93b0562c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ab0b6a2773550b8f4be332ab44f7621109006e23aaa7871d4380fc1caeecceec"
-    sha256 cellar: :any_skip_relocation, ventura:       "8178f573224ddfadcbe7864ba448b21b8a836b36661c4867c01360aade1d0d30"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ad7c9bc77d7f0f9d92f4adf4cb2b19d2425bb3e56c8bc938e8a6a60fffcc5b1f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a36a2f9914f8ecc7883c8f884ce16ebb7c8a0a10ceed3634f3982154ab8f7f5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8eb3b0f8c8716d9ede4359c65b49876b9f589c56322b247bc37e6d5d7c848d80"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b183bd803a98bb9a897212a1f91b71f9deec90e8fb00004cef11e9029da1e672"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "dad62c6c906d249102357f7d07217b50f16afd9a2083594731ea029aa8ae1927"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2433ec5e96743636f75257400008b00cc28c565d8184ddaab65e98866b5bbe04"
+    sha256 cellar: :any_skip_relocation, ventura:       "7ef1458a48169aa13b9e42f761e5583e9d1037a8e27d5f36c859648ce926c820"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "408e318c07604bde178388514ac5e9068624e6e87b863c3259485b8254114bac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ae88ca211f58fc7639c5b60580508184e2d7d2b1235447888bd4dc25958b749"
   end
 
   depends_on "node@22"
