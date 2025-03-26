@@ -3,9 +3,9 @@ class Kea < Formula
   homepage "https://www.isc.org/kea/"
   # NOTE: the livecheck block is a best guess at excluding development versions.
   #       Check https://www.isc.org/download/#Kea to make sure we're using a stable version.
-  url "https://ftp.isc.org/isc/kea/2.6.1/kea-2.6.1.tar.gz"
-  mirror "https://dl.cloudsmith.io/public/isc/kea-2-6/raw/versions/2.6.1/kea-2.6.1.tar.gz"
-  sha256 "d2ce14a91c2e248ad2876e29152d647bcc5e433bc68dafad0ee96ec166fcfad1"
+  url "https://ftp.isc.org/isc/kea/2.6.2/kea-2.6.2.tar.gz"
+  mirror "https://dl.cloudsmith.io/public/isc/kea-2-6/raw/versions/2.6.2/kea-2.6.2.tar.gz"
+  sha256 "8a50b63103734b59c3b8619ccd6766d2dfee3f02e3a5f9f3abc1cd55f70fa424"
   license "MPL-2.0"
 
   livecheck do
@@ -35,7 +35,8 @@ class Kea < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "boost"
+  # boost@1.87 deprecates ip::address::from_string which is used by kea
+  depends_on "boost@1.85"
   depends_on "log4cplus"
   depends_on "openssl@3"
 
