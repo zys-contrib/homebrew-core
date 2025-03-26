@@ -3,8 +3,8 @@ class CheckJsonschema < Formula
 
   desc "JSON Schema CLI"
   homepage "https://github.com/python-jsonschema/check-jsonschema"
-  url "https://files.pythonhosted.org/packages/a5/69/4f2427d4c5bb20a59f79df38769defd043227493801b01e7d9838820779b/check_jsonschema-0.32.0.tar.gz"
-  sha256 "2912d2193940b88cac756936a3a26e99fb2466c33e7d1a5d50c93b6bb13bd0fa"
+  url "https://files.pythonhosted.org/packages/f6/fd/2eb043e0a792279684d2a69679bba19a0d8766171d20fb28e4194d986f1c/check_jsonschema-0.32.1.tar.gz"
+  sha256 "08eadf78801f272881527f6c0c3d5ad131807a58073ff441802d90a7437adea7"
   license "Apache-2.0"
   head "https://github.com/python-jsonschema/check-jsonschema.git", branch: "main"
 
