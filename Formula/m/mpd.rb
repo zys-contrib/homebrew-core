@@ -1,20 +1,10 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
+  url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.24.2.tar.gz"
+  sha256 "6a6e7654f394d540831925b9215c8db0e8ca4ab26b268396c2713e63cd2604b4"
   license "GPL-2.0-or-later"
-  revision 2
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
-
-  stable do
-    url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.23.17.tar.gz"
-    sha256 "6fcdc5db284297150734afd9b3d1a5697a29f6297eff1b56379018e31d023838"
-
-    # support libnfs 6.0.0, upstream commit ref, https://github.com/MusicPlayerDaemon/MPD/commit/31e583e9f8d14b9e67eab2581be8e21cd5712b47
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/557ad661621fa81b5e6ff92ab169ba40eba58786/mpd/0.23.16-libnfs-6.patch"
-      sha256 "e0f2e6783fbb92d9850d31f245044068dc0614721788d16ecfa8aacfc5c27ff3"
-    end
-  end
 
   bottle do
     sha256 cellar: :any, arm64_sequoia: "e75d7e545378317554e51e1c4f7d94cfa75380b00dde5b50a955963b1095857d"
@@ -65,6 +55,14 @@ class Mpd < Formula
   uses_from_macos "curl"
   uses_from_macos "zlib"
 
+  on_ventura :or_older do
+    depends_on "llvm"
+
+    fails_with :clang do
+      cause "Needs C++20 std::make_unique_for_overwrite"
+    end
+  end
+
   on_linux do
     depends_on "systemd" => :build
     depends_on "alsa-lib"
@@ -75,16 +73,15 @@ class Mpd < Formula
   end
 
   def install
-    # mpd specifies -std=gnu++0x, but clang appears to try to build
-    # that against libstdc++ anyway, which won't work.
-    # The build is fine with G++.
-    ENV.libcxx
-
-    # https://github.com/MusicPlayerDaemon/MPD/pull/2198
-    inreplace "src/lib/nfs/meson.build", "['>= 4', '< 6']", "['>= 4']"
+    if OS.mac? && MacOS.version <= :ventura
+      ENV.llvm_clang
+      ENV.append "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/unwind -lunwind"
+      # When using Homebrew's superenv shims, we need to use HOMEBREW_LIBRARY_PATHS
+      # rather than LDFLAGS for libc++ in order to correctly link to LLVM's libc++.
+      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib/"c++"
+    end
 
     args = %W[
-      -Dcpp_std=c++20
       --sysconfdir=#{etc}
       -Dmad=disabled
       -Dmpcdec=disabled
