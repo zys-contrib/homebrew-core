@@ -7,12 +7,12 @@ class Crossplane < Formula
   head "https://github.com/crossplane/crossplane.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dfa687c70d42a30eaee72e9ddae408f98c54bb172096c0aa3c69f19ddcaf21a2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dfa687c70d42a30eaee72e9ddae408f98c54bb172096c0aa3c69f19ddcaf21a2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "dfa687c70d42a30eaee72e9ddae408f98c54bb172096c0aa3c69f19ddcaf21a2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1d98655c28ca5552dec17967d93f0a6b6dbd1f076495d88ba8b4fb75d5ecc282"
-    sha256 cellar: :any_skip_relocation, ventura:       "1d98655c28ca5552dec17967d93f0a6b6dbd1f076495d88ba8b4fb75d5ecc282"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80caea326b2576025a62c4e071775388ae6b214deace59879bf7ac44070f48b6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a0097f1f2198e3c77e240942c7479408ce791d29d1c21071839ad88a52c1aab3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a0097f1f2198e3c77e240942c7479408ce791d29d1c21071839ad88a52c1aab3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a0097f1f2198e3c77e240942c7479408ce791d29d1c21071839ad88a52c1aab3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c4cba58169c84389b8830fd7ac8ead6bccee3303970a0898d8fff82b8bb337c5"
+    sha256 cellar: :any_skip_relocation, ventura:       "c4cba58169c84389b8830fd7ac8ead6bccee3303970a0898d8fff82b8bb337c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c9923ddfa4d8b280aa9285b8f71c097ff58b29df0db14877a1417adcd0cf983"
   end
 
   depends_on "go" => :build
