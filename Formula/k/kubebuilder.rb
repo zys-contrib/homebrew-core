@@ -2,8 +2,8 @@ class Kubebuilder < Formula
   desc "SDK for building Kubernetes APIs using CRDs"
   homepage "https://github.com/kubernetes-sigs/kubebuilder"
   url "https://github.com/kubernetes-sigs/kubebuilder.git",
-      tag:      "v4.5.1",
-      revision: "0ace7a8753c52b35014e43edc2a0b0454b78e769"
+      tag:      "v4.5.2",
+      revision: "7c707052daa2e8bd51f47548c02710b1f1f7a77e"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/kubebuilder.git", branch: "master"
 
@@ -24,13 +24,13 @@ class Kubebuilder < Formula
 
     ldflags = %W[
       -s -w
-      -X main.kubeBuilderVersion=#{version}
-      -X main.goos=#{goos}
-      -X main.goarch=#{goarch}
-      -X main.gitCommit=#{Utils.git_head}
-      -X main.buildDate=#{time.iso8601}
+      -X sigs.k8s.io/kubebuilder/v4/cmd.kubeBuilderVersion=#{version}
+      -X sigs.k8s.io/kubebuilder/v4/cmd.goos=#{goos}
+      -X sigs.k8s.io/kubebuilder/v4/cmd.goarch=#{goarch}
+      -X sigs.k8s.io/kubebuilder/v4/cmd.gitCommit=#{Utils.git_head}
+      -X sigs.k8s.io/kubebuilder/v4/cmd.buildDate=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags:), "./cmd"
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"kubebuilder", "completion")
   end
