@@ -3582,6 +3582,7 @@ unicorn
 unison
 unisonlang
 universal-ctags
+unshield
 unxip
 uptimed
 urdfdom
