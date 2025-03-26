@@ -6,6 +6,13 @@ class Pinact < Formula
   license "MIT"
   head "https://github.com/suzuki-shunsuke/pinact.git", branch: "main"
 
+  # Pre-release version has a suffix `-\d` for example `3.0.0-0`
+  # so we restrict the regex to only match stable versions
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ba5eb0e4e270bfc01db5b82f09b0cd1b6c9ae463e31c2e15793c9fe58e3bcd5c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ba5eb0e4e270bfc01db5b82f09b0cd1b6c9ae463e31c2e15793c9fe58e3bcd5c"
