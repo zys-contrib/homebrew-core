@@ -1,10 +1,10 @@
 class JvmMon < Formula
   desc "Console-based JVM monitoring"
   homepage "https://github.com/ajermakovics/jvm-mon"
-  url "https://github.com/ajermakovics/jvm-mon/releases/download/0.3/jvm-mon-0.3.tar.gz"
-  sha256 "9b5dd3d280cb52b6e2a9a491451da2ee41c65c770002adadb61b02aa6690c940"
+  url "https://github.com/ajermakovics/jvm-mon/archive/refs/tags/1.2.tar.gz"
+  sha256 "5bc23aef365b9048fd4c4974028d4d1bbd79e495c9fa2d57446fc64a515d9319"
   license "Apache-2.0"
-  revision 3
+  head "https://github.com/ajermakovics/jvm-mon.git", branch: "master"
 
   livecheck do
     url :stable
@@ -20,21 +20,27 @@ class JvmMon < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "0c83187b28705971793ac3f89c385a07edd958d20d3d30e0c133b77bc5fc0ac0"
   end
 
-  depends_on "openjdk@8"
-
-  on_macos do
-    depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
-  end
+  depends_on "go" => :build
+  depends_on "openjdk" => :build
 
   def install
-    rm(Dir["bin/*.bat"])
-    libexec.install Dir["*"]
+    ENV["GOBIN"] = buildpath/"bin"
+    ENV.prepend_path "PATH", buildpath/"bin"
 
-    (bin/"jvm-mon").write_env_script libexec/"bin/jvm-mon", Language::Java.java_home_env("1.8")
+    cd "jvm-mon-go" do
+      system "./make-agent.sh"
+      system "go", "build", *std_go_args(ldflags: "-s -w")
+    end
   end
 
   test do
-    ENV.append "_JAVA_OPTIONS", "-Duser.home=#{testpath}"
-    system "echo q | #{bin}/jvm-mon"
+    assert_match version.to_s, shell_output("#{bin}/jvm-mon -v 2>&1")
+
+    require "pty"
+    ENV["TERM"] = "xterm"
+    PTY.spawn(bin/"jvm-mon") do |_r, w, _pid|
+      sleep 1
+      w.write "q"
+    end
   end
 end
