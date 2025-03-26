@@ -8,13 +8,13 @@ class Solargraph < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a01a7933988410b5082fe964c445cb9020d826ebe1d39bde2df4d0ffbfacddda"
-    sha256 cellar: :any,                 arm64_sonoma:  "cc5593f9816b58ba88086bfd7dcc5de7dbf5a230dd3021c0e5a120584914de52"
-    sha256 cellar: :any,                 arm64_ventura: "9a40c2a674ed5a30f49fbb2a9247ce9293460b1b7c22a33e5f6b1cf7987b3276"
-    sha256 cellar: :any,                 sonoma:        "fbff78ad48ea609bf58ebb627c945be8ee96a8a2522ee832ac85d93749c33542"
-    sha256 cellar: :any,                 ventura:       "641b17ff4ce1f5dea9878cb2211668429e5c6baf385d8162a0084b6eeae7f16c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "aeac92990df3c89959776c1a6de1ddd4cebfb05a72205ac7e2d90459b1610479"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d7bf019876fbf4b618a8ce26bf80af0de4947bdcd972da31b9b03fac78a673d"
+    sha256 cellar: :any,                 arm64_sequoia: "47669d2521e737b17ebfe8f88899816e4ae083a32c8da92c0f8e7e6b845592a3"
+    sha256 cellar: :any,                 arm64_sonoma:  "2ef55b257fd25f0af57736fc89efd4679b0c308efd16dac520494658211cf50e"
+    sha256 cellar: :any,                 arm64_ventura: "d62a970fa9d61c5f8710ec379f47f530b375b0750367e51a2d47d0ab513c4702"
+    sha256 cellar: :any,                 sonoma:        "ac0305a94265eb4425c569f114ea786821648547aa8337a74adf8cd47cfff25c"
+    sha256 cellar: :any,                 ventura:       "8ba129debf8b176037dd66d8b09f0f74886564561e065c40c49c42f0e8dd0c55"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f20b1e4bfcb5f521022d34a05e539783bcd63a6f52ee39c0bb0b34d12108f3d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54b42ca23672cd63546a59f40396dc6afe54a1252e573996336789b6f7778509"
   end
 
   depends_on "ruby" # Requires >= Ruby 2.7
