@@ -3,8 +3,8 @@ class Emscripten < Formula
   homepage "https://emscripten.org/"
   # To automate fetching the required resource revisions, you can use this helper script:
   #   https://gist.github.com/carlocab/2db1d7245fa0cd3e92e01fe37b164021
-  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/4.0.5.tar.gz"
-  sha256 "96db9e6cd193f5374c5fc4370848724559ec9a9e204088b6b3801ea89dd44bea"
+  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/4.0.6.tar.gz"
+  sha256 "dbb093551cb0a9ac9e873d5ba719e6a3147202cbe0073563ad33dbbf969cd764"
   license all_of: [
     "Apache-2.0", # binaryen
     "Apache-2.0" => { with: "LLVM-exception" }, # llvm
