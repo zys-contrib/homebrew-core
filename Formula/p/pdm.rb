@@ -2,7 +2,7 @@ class Pdm < Formula
   include Language::Python::Virtualenv
 
   desc "Modern Python package and dependency manager supporting the latest PEP standards"
-  homepage "https://pdm.fming.dev"
+  homepage "https://pdm-project.org"
   url "https://files.pythonhosted.org/packages/9c/b9/0b150ec7aae72771ece43539163892366fff3def8da6e4a512ed7b8e39c5/pdm-2.22.4.tar.gz"
   sha256 "8483f3d2285039cea7e07c5ba6ac7e1fcba358129f8831fb75065a797d27b923"
   license "MIT"
