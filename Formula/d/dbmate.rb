@@ -19,7 +19,7 @@ class Dbmate < Formula
 
   def install
     tags = %w[
-      sqlite_omit_load_extension sqlite_json
+      sqlite_omit_load_extension sqlite_json sqlite_fts5
     ]
     system "go", "build", *std_go_args(ldflags: "-s -w", tags:)
   end
