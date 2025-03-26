@@ -7,12 +7,12 @@ class Kiota < Formula
   head "https://github.com/microsoft/kiota.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bd4a7d7831db09203c2a952c37ae86b5c492478f80bdb9be503ef5eaed25e1d8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "03682b91acaee392899690a7137009b191c0803424e0e65ac32f1218da3df085"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7df99fb9a7615826fdd8aa344bc58c51aef757ede65b1fdd88cbc4b278d5177b"
-    sha256 cellar: :any_skip_relocation, ventura:       "f50670ea1752378916e90c2fbd3a5836cf3857da99ab3f0e3a4112976476599b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3418b8b11f1bbe536872515587bd2654ac84cbe81f3212a0cdf08cdaae0ca00b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec3ee595eaa9ea10d69e446504c362551980516874c9a58d571493138abae6ad"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4ec67b831138e8c4e1651cba1b505a6edc1eec38a412944d0fc766e85c944611"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8ce330b72dbefd98cf124054695b2c688c5957aa49aaead90b24caaf2f8ee416"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b9e1ff804f61aad114c52c76114ebe478783fd6ab654e7c1f26b967d2c8d3b85"
+    sha256 cellar: :any_skip_relocation, ventura:       "90ecf1f2b03dfe77963714993545055ca7dda786b06b84a45e36df4f2141fdac"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "08ef3dd31459fc84e25cad7fc3d5366a2aecf9bd1eda3f42ff30f66daf1e8fa5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f1161e2c839b410877a01fc2065955d1e660b6731de757d18102cb1c9d68c5a8"
   end
 
   depends_on "dotnet"
