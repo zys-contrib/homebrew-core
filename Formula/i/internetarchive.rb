@@ -8,7 +8,7 @@ class Internetarchive < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "61c91cfb37177a3009cf687e623cfdd0664e04c29ccbac654dd7f902a0243665"
+    sha256 cellar: :any_skip_relocation, all: "a6a71a47bb4f31a3765ec82c443c9c946c8e304ece98e8d3986a10b21b2c030d"
   end
 
   depends_on "certifi"
