@@ -7,12 +7,12 @@ class Ratchet < Formula
   head "https://github.com/sethvargo/ratchet.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "731e388794c5bf52887d80293db50d77ac4ce187ae03cb3464b581e4c97e53a3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "731e388794c5bf52887d80293db50d77ac4ce187ae03cb3464b581e4c97e53a3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "731e388794c5bf52887d80293db50d77ac4ce187ae03cb3464b581e4c97e53a3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6e279a44bed6b30f883e9c7e09bd1d245dd5fb0afd326d14d8bbf5910f085a04"
-    sha256 cellar: :any_skip_relocation, ventura:       "6e279a44bed6b30f883e9c7e09bd1d245dd5fb0afd326d14d8bbf5910f085a04"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f9099d35c16f164c8acf2789eb8abc9f8ab153164c3068db45ff57c59ed0a70"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "edcf5ec75e624b9c1bec9d18c8b0053d3091d9d2c40939abbd9b60cfdeae48b4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "edcf5ec75e624b9c1bec9d18c8b0053d3091d9d2c40939abbd9b60cfdeae48b4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "edcf5ec75e624b9c1bec9d18c8b0053d3091d9d2c40939abbd9b60cfdeae48b4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "26cc8b980e8b1a5128528deafa59de21522885ff913b85545d11538c6df9f694"
+    sha256 cellar: :any_skip_relocation, ventura:       "26cc8b980e8b1a5128528deafa59de21522885ff913b85545d11538c6df9f694"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e39bbdd264c9fbed80d2b057b53efbd4a5a850bb9875744fa3424955fb6165e"
   end
 
   depends_on "go" => :build
