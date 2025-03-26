@@ -1,8 +1,8 @@
 class Cot < Formula
   desc "Rust web framework for lazy developers"
   homepage "https://cot.rs"
-  url "https://github.com/cot-rs/cot/archive/refs/tags/cot-v0.1.4.tar.gz"
-  sha256 "cf2dade71a6fcb4bfdc03c1db423b45eb325a9a048c933afd506f49d55fe6831"
+  url "https://github.com/cot-rs/cot/archive/refs/tags/cot-v0.2.0.tar.gz"
+  sha256 "083110a93a3269934e7662045c8432d28370c3bea467b531ef01ebaa4ca19a88"
   license "Apache-2.0"
 
   bottle do
@@ -22,7 +22,7 @@ class Cot < Formula
   end
 
   test do
-    assert_match "cot-cli #{version}", shell_output("#{bin}/cot --version")
+    assert_match version.to_s, shell_output("#{bin}/cot --version")
 
     system bin/"cot", "new", "test-project"
     assert_path_exists testpath/"test-project/Cargo.toml"
