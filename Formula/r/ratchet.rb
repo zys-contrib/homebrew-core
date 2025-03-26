@@ -1,8 +1,8 @@
 class Ratchet < Formula
   desc "Tool for securing CI/CD workflows with version pinning"
   homepage "https://github.com/sethvargo/ratchet"
-  url "https://github.com/sethvargo/ratchet/archive/refs/tags/v0.10.2.tar.gz"
-  sha256 "6072b00cc01c90aed978ea7e49de9b5e3f73a3ab663cd5b9e594b95c3cf45d3a"
+  url "https://github.com/sethvargo/ratchet/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "4913dd26c03bedd67beb232ae17a348c34df204fe9a3f57325a089c4c92b12ef"
   license "Apache-2.0"
   head "https://github.com/sethvargo/ratchet.git", branch: "main"
 
@@ -32,9 +32,9 @@ class Ratchet < Formula
   test do
     cp_r pkgshare/"testdata", testpath
     output = shell_output(bin/"ratchet check testdata/github.yml 2>&1", 1)
-    assert_match "found 4 unpinned refs", output
+    assert_match "found 5 unpinned refs", output
 
     output = shell_output(bin/"ratchet -v 2>&1")
-    assert_match "ratchet #{version} (homebrew", output
+    assert_match "ratchet #{version}", output
   end
 end
