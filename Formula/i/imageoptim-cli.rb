@@ -18,14 +18,16 @@ class ImageoptimCli < Formula
     sha256 cellar: :any_skip_relocation, monterey: "fb18de0c4c68f50c4239b1ca4374a56a0d6ba981d0e7597d54c4f32de4c0c1ca"
   end
 
-  depends_on "node" => :build
   depends_on "yarn" => :build
-  depends_on arch: :x86_64 # Installs pre-built x86-64 binaries
   depends_on :macos
+  depends_on "node"
 
   def install
+    # Adjust package.json's bin and add missing shebang to avoid bundling node
+    inreplace "src/imageoptim.ts", "import chalk from 'chalk'", "#!/usr/bin/env node\n\nimport chalk from 'chalk'"
+    system "npm", "pkg", "set", "bin.imageoptim=dist/imageoptim.js"
     system "yarn", "install"
-    system "npm", "run", "build"
+    system "npm", "run", "build:ts"
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
   end
