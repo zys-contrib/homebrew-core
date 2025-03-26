@@ -1,8 +1,8 @@
 class Cryptol < Formula
   desc "Domain-specific language for specifying cryptographic algorithms"
   homepage "https://www.cryptol.net/"
-  url "https://hackage.haskell.org/package/cryptol-3.2.0/cryptol-3.2.0.tar.gz"
-  sha256 "ed078965bd7d2468eb403c698374d9525bc2314f9fc53fc7683a7cab5d2ba25b"
+  url "https://hackage.haskell.org/package/cryptol-3.3.0/cryptol-3.3.0.tar.gz"
+  sha256 "3ba3d1083c3aacd6c5ad5bbe4fddb9d9519717af4d3c6fe05d9c0c698fb737b0"
   license "BSD-3-Clause"
   head "https://github.com/GaloisInc/cryptol.git", branch: "master"
 
