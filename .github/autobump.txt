@@ -70,6 +70,7 @@ ansible-creator
 ansible-lint
 ansible@10
 ansifilter
+ansilove
 ant
 antidote
 antlr
