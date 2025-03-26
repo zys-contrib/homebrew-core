@@ -6,7 +6,7 @@ class SqlFormatter < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5f4c6e670cb00b0a54a140757c25b6f3574bb57b913db5410b4233f92f801f1e"
+    sha256 cellar: :any_skip_relocation, all: "4eeff26086c737129415cb643c7414645bb9ec2f826be0c995b209919acda695"
   end
 
   depends_on "node"
