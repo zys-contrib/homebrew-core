@@ -3,19 +3,19 @@ class CheckJsonschema < Formula
 
   desc "JSON Schema CLI"
   homepage "https://github.com/python-jsonschema/check-jsonschema"
-  url "https://files.pythonhosted.org/packages/5c/68/a2c997e461be3e6d5d70130759ceba14dedcac565c7d1458e568cc6ec5f1/check_jsonschema-0.31.3.tar.gz"
-  sha256 "760b14fd3b1866363ae4886a8ce00dbc2e117abc995e4390c5071aeb3ac00910"
+  url "https://files.pythonhosted.org/packages/a5/69/4f2427d4c5bb20a59f79df38769defd043227493801b01e7d9838820779b/check_jsonschema-0.32.0.tar.gz"
+  sha256 "2912d2193940b88cac756936a3a26e99fb2466c33e7d1a5d50c93b6bb13bd0fa"
   license "Apache-2.0"
   head "https://github.com/python-jsonschema/check-jsonschema.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d475fc1b527dc6b60c86ccc665d71ca079e67b9bc43bfba69e86389a7d1ba499"
-    sha256 cellar: :any,                 arm64_sonoma:  "5e222ff84a5313bf8ce7613fca4c1a030cfe67f9cff18867abbaa0c34409cd66"
-    sha256 cellar: :any,                 arm64_ventura: "6ce3f66422d6d430c1724eb1681ab4388e6151123d983007c704327e0b339dd1"
-    sha256 cellar: :any,                 sonoma:        "c440d4052185f0bcb8a9a82d9027af64506ae8a87c115c90397431272f47a7dd"
-    sha256 cellar: :any,                 ventura:       "4a1ab031b88c84de5d45aa3434dfa3923b7a706cdf636a7217a267bed498d3a7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "275dbf929f7516701b9cb118a9b9ae4485e742283dddbc5109f6b8d475114b9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32bd21ba28312a3633b16930d3c8412e3f2698def710ebf7ba9032437e59e2c1"
+    sha256 cellar: :any,                 arm64_sequoia: "d23ec222fadeb8dc330863f500fc319a9b8ceb944530579852705eaa40e62bb9"
+    sha256 cellar: :any,                 arm64_sonoma:  "46bdff04bbf6dd11f88a5b3f38e0464b524a49b2d505ed18553f3ee27b6bdd18"
+    sha256 cellar: :any,                 arm64_ventura: "ccb07ad9da21ff157d76dd67262f22230b6f1ff1b0f8975dbaf18da32d775d2d"
+    sha256 cellar: :any,                 sonoma:        "2e07fadaaa8ce9f15775f64a37fdb09d3579f48102fd6452f15e093d5011db10"
+    sha256 cellar: :any,                 ventura:       "151aeb956111fa793383d26cd44761ff05ce801294537d93ab4ec43c77e95db1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a8fb6b2d323b42e026d67f76c5482ede43a37970df56abe08c358969de9cac10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71a367b5741870bc1e0b9c7cfd70af7ddad60118c5248fb5e2110533e563b60a"
   end
 
   depends_on "rust" => :build
@@ -28,8 +28,8 @@ class CheckJsonschema < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/49/7c/fdf464bcc51d23881d110abd74b512a42b3d5d376a55a831b44c603ae17f/attrs-25.1.0.tar.gz"
-    sha256 "1c97078a80c814273a76b2a298a932eb681c87415c11dee0a6921de7f1b02c3e"
+    url "https://files.pythonhosted.org/packages/5a/b0/1367933a8532ee6ff8d63537de4f1177af4bff9f3e829baf7331f595bb24/attrs-25.3.0.tar.gz"
+    sha256 "75d7cefc7fb576747b2c81b4442d4d4a1ce0900973527c011d1030fd3bf4af1b"
   end
 
   resource "charset-normalizer" do
@@ -83,8 +83,8 @@ class CheckJsonschema < Formula
   end
 
   resource "regress" do
-    url "https://files.pythonhosted.org/packages/6a/66/48fe4e8d5b14f9d5ac394b4f8847c1cf69f8c1cfa4c2b216f570f0114f97/regress-2024.11.1.tar.gz"
-    sha256 "f029ac1c6fe6facdc99700b0169cfe5fb0bd7e5e373a1299fe5084af6982b983"
+    url "https://files.pythonhosted.org/packages/69/d0/db85f957d8e738557f9d37ebc5792ea0e8552170b99feb27213d5b1f7bd1/regress-2025.3.1.tar.gz"
+    sha256 "c7ba8d16e5053d773f488664c10180989e77f24228b446ec985ed76e3ac05901"
   end
 
   resource "requests" do
