@@ -12,12 +12,12 @@ class JvmMon < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, sonoma:       "88c2a99416c6bd4c33480769b5e47f9f4964d28d0f04fbcb1821e2fda0e891b7"
-    sha256 cellar: :any_skip_relocation, ventura:      "c20d541a04a08a0282c90ed1968fbc03d5be5012f9a73e22b52d2ded67c9a880"
-    sha256 cellar: :any_skip_relocation, monterey:     "c20d541a04a08a0282c90ed1968fbc03d5be5012f9a73e22b52d2ded67c9a880"
-    sha256 cellar: :any_skip_relocation, big_sur:      "c20d541a04a08a0282c90ed1968fbc03d5be5012f9a73e22b52d2ded67c9a880"
-    sha256 cellar: :any_skip_relocation, catalina:     "c20d541a04a08a0282c90ed1968fbc03d5be5012f9a73e22b52d2ded67c9a880"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "0c83187b28705971793ac3f89c385a07edd958d20d3d30e0c133b77bc5fc0ac0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "10a26ecfa58c04851ac693f4078c151ba47bf479b960d85394cb72c899a28f9a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "09709070da8e62235d9ed766340d9d876e66bcc257f5d3c90ddde822645d278a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5e4f4e6acf9d320c547226bd60956f2eff27f191112364c335cd7275ec74c45a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6395f1d02431f71ee3b99c0ab677c3ef7abbbbfe0791b18d633d1a413f64421d"
+    sha256 cellar: :any_skip_relocation, ventura:       "d8adbf4d100d14d5f2b10d4c69e926ad9e4213a26c6f3c91eff6abb10c7bf73f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8277320c0f5297ef19291fcc094805434559387bc24308597c3670d7b6abeeec"
   end
 
   depends_on "go" => :build
