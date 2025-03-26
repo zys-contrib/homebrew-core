@@ -1,12 +1,9 @@
 class Vineyard < Formula
-  include Language::Python::Virtualenv
-
   desc "In-memory immutable data manager. (Project under CNCF)"
   homepage "https://v6d.io"
-  url "https://github.com/v6d-io/v6d/releases/download/v0.23.2/v6d-0.23.2.tar.gz"
-  sha256 "2a2788ed77b9459477b3e90767a910e77e2035a34f33c29c25b9876568683fd4"
+  url "https://github.com/v6d-io/v6d/releases/download/v0.24.2/v6d-0.24.2.tar.gz"
+  sha256 "a3acf9a9332bf5cce99712f9fd00a271b4330add302a5a8bbfd388e696a795c8"
   license "Apache-2.0"
-  revision 11
 
   bottle do
     sha256                               arm64_sequoia: "b6dc11e4e502840985f86d45b4107f81025805784e7f65694cd528c096acb737"
@@ -20,6 +17,7 @@ class Vineyard < Formula
   depends_on "cmake" => [:build, :test]
   depends_on "llvm" => :build # for clang Python bindings
   depends_on "openssl@3" => :build # indirect (not linked) but CMakeLists.txt checks for it
+  depends_on "python-setuptools" => :build
   depends_on "python@3.13" => :build
   depends_on "apache-arrow"
   depends_on "boost@1.85"
@@ -31,15 +29,14 @@ class Vineyard < Formula
   depends_on "libgrape-lite"
   depends_on "open-mpi"
 
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
-    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
+  on_linux do
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
   def install
     python3 = "python3.13"
-    venv = virtualenv_create(buildpath/"venv", python3)
-    venv.pip_install resources
     # LLVM is keg-only.
     llvm = deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+)?$/) }
     ENV.prepend_path "PYTHONPATH", llvm.opt_prefix/Language::Python.site_packages(python3)
@@ -52,7 +49,7 @@ class Vineyard < Formula
       "-DCMAKE_FIND_PACKAGE_PREFER_CONFIG=ON", # for newer protobuf
       "-DLIBGRAPELITE_INCLUDE_DIRS=#{Formula["libgrape-lite"].opt_include}",
       "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
-      "-DPYTHON_EXECUTABLE=#{venv.root}/bin/python",
+      "-DPYTHON_EXECUTABLE=#{which(python3)}",
       "-DUSE_EXTERNAL_ETCD_LIBS=ON",
       "-DUSE_EXTERNAL_HIREDIS_LIBS=ON",
       "-DUSE_EXTERNAL_REDIS_LIBS=ON",
