@@ -3,8 +3,8 @@ class Tach < Formula
 
   desc "Tool to enforce dependencies using modular architecture"
   homepage "https://docs.gauge.sh/getting-started/introduction"
-  url "https://files.pythonhosted.org/packages/7d/16/500bce5278b4122a715ed99ec9f5d20a233c59d0ed03f886fffce916ebf9/tach-0.28.3.tar.gz"
-  sha256 "85d4f21f6a319acd31fb6309fb52f7101d99ea75d4a8fcc6565b247cc53374ec"
+  url "https://files.pythonhosted.org/packages/55/e7/b088b681f6fe586b6480ffe0a6c03caa1f339b8758ece81b40059a85d68d/tach-0.28.4.tar.gz"
+  sha256 "ea6a0cc4b620119f169d02a81b63e16a478b8ea19874e12535cce573df516f13"
   license "MIT"
   head "https://github.com/gauge-sh/tach.git", branch: "main"
 
@@ -63,8 +63,8 @@ class Tach < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/8b/1a/3544f4f299a47911c2ab3710f534e52fea62a633c96806995da5d25be4b2/pyparsing-3.2.1.tar.gz"
-    sha256 "61980854fd66de3a90028d679a954d5f2623e83144b5afe5ee86f43d762e5f0a"
+    url "https://files.pythonhosted.org/packages/bb/22/f1129e69d94ffff626bdb5c835506b3a5b4f3d070f17ea295e12c2c6f60f/pyparsing-3.2.3.tar.gz"
+    sha256 "b9c13f1ab8b3b542f72e28f634bad4de758ab3ce4546e4301970ad6fa77c38be"
   end
 
   resource "pyyaml" do
