@@ -1,8 +1,8 @@
 class Qjackctl < Formula
   desc "Simple Qt application to control the JACK sound server daemon"
   homepage "https://qjackctl.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/qjackctl/qjackctl/1.0.3/qjackctl-1.0.3.tar.gz"
-  sha256 "167fd2a8b4c0dc1b825c26feb58842250057f5290b43404b0952fab4baadf173"
+  url "https://downloads.sourceforge.net/project/qjackctl/qjackctl/1.0.4/qjackctl-1.0.4.tar.gz"
+  sha256 "e3eb6f989d947dcd97b4fe774294347106a0a6829c0480a965393ebca97514ae"
   license "GPL-2.0-or-later"
   head "https://git.code.sf.net/p/qjackctl/code.git", branch: "master"
 
@@ -46,9 +46,12 @@ class Qjackctl < Formula
   end
 
   test do
+    # Detected locale "C" with character encoding "US-ASCII", which is not UTF-8.
+    ENV["LC_ALL"] = "en_US.UTF-8"
+
     # Set QT_QPA_PLATFORM to minimal to avoid error "qt.qpa.xcb: could not connect to display"
     ENV["QT_QPA_PLATFORM"] = "minimal" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    assert_match version.to_s, shell_output("#{bin}/qjackctl --version 2>&1")
+    assert_match version.to_s, shell_output("#{bin}/qjackctl --version 2>&1", 1)
   end
 end
