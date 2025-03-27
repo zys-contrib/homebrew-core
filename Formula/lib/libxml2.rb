@@ -2,11 +2,10 @@ class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org/"
   license "MIT"
-  revision 1
 
   stable do
-    url "https://download.gnome.org/sources/libxml2/2.13/libxml2-2.13.6.tar.xz"
-    sha256 "f453480307524968f7a04ec65e64f2a83a825973bcd260a2e7691be82ae70c96"
+    url "https://download.gnome.org/sources/libxml2/2.13/libxml2-2.13.7.tar.xz"
+    sha256 "14796d24402108e99d8de4e974d539bed62e23af8c4233317274ce073ceff93b"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
