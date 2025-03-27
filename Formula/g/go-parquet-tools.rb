@@ -6,12 +6,12 @@ class GoParquetTools < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c295a89822e0a3f458267ea41abee2ea472cc37a460cc57abef1d6683f379d7f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c295a89822e0a3f458267ea41abee2ea472cc37a460cc57abef1d6683f379d7f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c295a89822e0a3f458267ea41abee2ea472cc37a460cc57abef1d6683f379d7f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "75b254bdfc99492993df8f0ffe4e8ad659a0eb11ade9445411a6f55a98857e0f"
-    sha256 cellar: :any_skip_relocation, ventura:       "75b254bdfc99492993df8f0ffe4e8ad659a0eb11ade9445411a6f55a98857e0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "baebb4667af1521d5e670e271e9cf12168ac49dc62bc6f7afec6518190de52ba"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "25906c46d600af510d792dbedd5e13f01e0838eb407571685da2730b4bb42d06"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "25906c46d600af510d792dbedd5e13f01e0838eb407571685da2730b4bb42d06"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "25906c46d600af510d792dbedd5e13f01e0838eb407571685da2730b4bb42d06"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f91b2c350095fa233f2284703c7b1643fb3f9a3f0379afa23632db725f95d0f1"
+    sha256 cellar: :any_skip_relocation, ventura:       "f91b2c350095fa233f2284703c7b1643fb3f9a3f0379afa23632db725f95d0f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ae87da8cda0efe12df800e4c622ed622020a86e53d658a50d56635f7d2d721d"
   end
 
   depends_on "go" => :build
