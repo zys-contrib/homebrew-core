@@ -1,8 +1,8 @@
 class SnykCli < Formula
   desc "Scans and monitors projects for security vulnerabilities"
   homepage "https://snyk.io"
-  url "https://registry.npmjs.org/snyk/-/snyk-1.1296.0.tgz"
-  sha256 "555343b824881a9a5b3a459488e34ce8b56603d0f386b4ded2e8b0839edaf0b0"
+  url "https://registry.npmjs.org/snyk/-/snyk-1.1296.1.tgz"
+  sha256 "35d53f3a468df2a6c491b09b22195ea1082a00ac7a9f89f748e30d283479eb81"
   license "Apache-2.0"
 
   bottle do
