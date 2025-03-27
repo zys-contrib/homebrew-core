@@ -6,6 +6,15 @@ class Gama < Formula
   license "GPL-3.0-only"
   head "https://github.com/termkit/gama.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9078cd53e0763f843729a0ffda3321354a6b664ffb2bed87e372e700cd9faef1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9078cd53e0763f843729a0ffda3321354a6b664ffb2bed87e372e700cd9faef1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9078cd53e0763f843729a0ffda3321354a6b664ffb2bed87e372e700cd9faef1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0c8a11688f5d7cc46cfb8bdcfab4ec50a22bd17447ca4d274942270e2c671ed5"
+    sha256 cellar: :any_skip_relocation, ventura:       "0c8a11688f5d7cc46cfb8bdcfab4ec50a22bd17447ca4d274942270e2c671ed5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "104456f00e51024a56c6e94f32e471b1288925f7cbe4a568fe73f360379566dd"
+  end
+
   depends_on "go" => :build
 
   def install
