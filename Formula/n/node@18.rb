@@ -1,10 +1,9 @@
 class NodeAT18 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v18.20.7/node-v18.20.7.tar.xz"
-  sha256 "9a89659fad80c1b6da33d29f43f5865483ccb1952ddad434ee22f8193607277f"
+  url "https://nodejs.org/dist/v18.20.8/node-v18.20.8.tar.xz"
+  sha256 "36a7bf1a76d62ce4badd881ee5974a323c70e1d8d19165732684e145632460d9"
   license "MIT"
-  revision 1
 
   # Remove livecheck on 2025-04-30
   livecheck do
