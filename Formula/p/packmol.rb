@@ -1,8 +1,8 @@
 class Packmol < Formula
   desc "Packing optimization for molecular dynamics simulations"
   homepage "https://www.ime.unicamp.br/~martinez/packmol/"
-  url "https://github.com/m3g/packmol/archive/refs/tags/v20.16.1.tar.gz"
-  sha256 "2984c57f3729ac9c2659a3ce88a4420f2fb5f422fec2b49a081bf0ac5474245c"
+  url "https://github.com/m3g/packmol/archive/refs/tags/v21.0.0.tar.gz"
+  sha256 "5c751ec7f4e6960837c3579237d36449d1b37cfa240fb9590f74f558dc1fe155"
   license "MIT"
   head "https://github.com/m3g/packmol.git", branch: "master"
 
@@ -21,6 +21,7 @@ class Packmol < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d04056434173fec7d1ca461ec4dc312a0322116b84a21280cdc5fc080c25f3fd"
   end
 
+  depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
 
   resource "homebrew-testdata" do
@@ -29,12 +30,10 @@ class Packmol < Formula
   end
 
   def install
-    # Avoid passing -march=native to gfortran
-    inreplace "Makefile", "-march=native", ENV["HOMEBREW_OPTFLAGS"] if build.bottle?
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
-    system "./configure"
-    system "make"
-    bin.install "packmol"
     pkgshare.install "solvate.tcl"
     (pkgshare/"examples").install resource("homebrew-testdata")
   end
