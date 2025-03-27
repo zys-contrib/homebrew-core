@@ -1,10 +1,9 @@
 class NetcdfFortran < Formula
   desc "Fortran libraries and utilities for NetCDF"
   homepage "https://www.unidata.ucar.edu/software/netcdf/"
-  url "https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.6.1.tar.gz"
-  sha256 "40b534e0c81b853081c67ccde095367bd8a5eead2ee883431331674e7aa9509f"
+  url "https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.6.2.tar.gz"
+  sha256 "44cc7b5626b0b054a8503b8fe7c1b0ac4e0a79a69dad792c212454906a9224ca"
   license "NetCDF"
-  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "e9798dfd835b908c9580046e00d5e096b10a60565cd24d231a2ef74f2fcb2964"
@@ -22,7 +21,7 @@ class NetcdfFortran < Formula
   depends_on "netcdf"
 
   def install
-    args = std_cmake_args + %w[-DENABLE_TESTS=OFF -DENABLE_NETCDF_4=ON -DENABLE_DOXYGEN=OFF]
+    args = std_cmake_args + %w[-DENABLE_TESTS=OFF -DENABLE_DOXYGEN=OFF]
 
     # Help netcdf-fortran find netcf
     # https://github.com/Unidata/netcdf-fortran/issues/301#issuecomment-1183204019
@@ -38,8 +37,7 @@ class NetcdfFortran < Formula
     lib.install "build_static/fortran/libnetcdff.a"
 
     # Remove shim paths
-    inreplace [bin/"nf-config", lib/"libnetcdff.settings", lib/"pkgconfig/netcdf-fortran.pc"],
-      Superenv.shims_path/ENV.cc, ENV.cc
+    inreplace [bin/"nf-config", lib/"pkgconfig/netcdf-fortran.pc"], Superenv.shims_path/ENV.cc, ENV.cc
   end
 
   test do
