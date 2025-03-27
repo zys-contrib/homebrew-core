@@ -1,8 +1,8 @@
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Aug2024-SP2/MonetDB-11.51.7.tar.xz"
-  sha256 "98fd6512858911b0e6e3a0f62432f4ac7acb34ca8b6adc882db6e3315fc297c6"
+  url "https://www.monetdb.org/downloads/sources/Mar2025/MonetDB-11.53.3.tar.xz"
+  sha256 "23e1f6a73ac721298f9b611f18930b8ceda34c6f497a4e458034b7131660c070"
   license "MPL-2.0"
   head "https://dev.monetdb.org/hg/MonetDB", using: :hg
 
@@ -55,6 +55,9 @@ class Monetdb < Formula
                     "-DWITH_OPENSSL=ON",
                     "-DWITH_PCRE=ON",
                     "-DWITH_PROJ=OFF",
+                    "-DWITH_RTREE=OFF",
+                    "-DWITH_SQLPARSE=OFF",
+                    "-DWITH_VALGRIND=OFF",
                     "-DWITH_XML2=ON",
                     "-DWITH_ZLIB=ON",
                     *std_cmake_args
