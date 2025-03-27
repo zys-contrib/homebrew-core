@@ -25,6 +25,10 @@ class Cbmbasic < Formula
   end
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `RAM'; cbmbasic.o:(.bss+0x10): first defined here
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
     system "make", "CFLAGS=#{ENV.cflags}", "LDFLAGS=#{ENV.ldflags}"
     bin.install "cbmbasic"
   end
