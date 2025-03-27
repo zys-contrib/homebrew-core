@@ -7,13 +7,13 @@ class Trunk < Formula
   head "https://github.com/trunk-rs/trunk.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "13d33e2b14759b44bb3babaa8d405ddb4c742af080e0a766ecb4596a3ef23440"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1232263623291e4caf55a37752707bbaf1d49d37fa491efa415083721cdd20db"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "faca30935470a29f37b9f79d6b6d1b9f4db936e01c2fb432f72bc26dc7dd9e4f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ca31b7ae402a2d5b858b84affada5e25584aa673d5b280c4047f8178002d2806"
-    sha256 cellar: :any_skip_relocation, ventura:       "a434191351050daf1e6d5043953fbddd8340e6323b1bea5e46afad0ac9408a13"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f07e17b1243c8d301fc1060f92c715190198b6ab1b5b185b2159e380e21c7d28"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8d60fd83793c1302c267cf840fda84889a90932e31a5fa93877d6fcd5f13033"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4c2af54483256c650ac8778f608124738357bf8dc26237bd8f3faf27a94cefa4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "be120b59376be127905f7e42482017c76e433a0343c769990200059e9d6aa517"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6397a7c138d1fa72c0a6e61e49a608adcc0f031edad07f3cbc81456b0f9a6337"
+    sha256 cellar: :any_skip_relocation, sonoma:        "079dc6afcc308861e054c6e3ed7c685113aed53089358847e9843de449993b5a"
+    sha256 cellar: :any_skip_relocation, ventura:       "36f28c2820a1bb7a5b1da6e9a55a807d4c392d763a4dbcfa31a3fb7a22e5a141"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0fec4fd912c2976e31a39bfbfc716a4292b2f874755378b983881f02785b717b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34c073754e857b14098d4d57565096e3a8bbe467951a27f3bbc86e42153135bc"
   end
 
   depends_on "pkgconf" => :build
