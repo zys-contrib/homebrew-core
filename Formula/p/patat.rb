@@ -1,8 +1,8 @@
 class Patat < Formula
   desc "Terminal-based presentations using Pandoc"
   homepage "https://github.com/jaspervdj/patat"
-  url "https://hackage.haskell.org/package/patat-0.14.0.0/patat-0.14.0.0.tar.gz"
-  sha256 "a89c193664f89c12c04b7c6350ed03ce2de862dd30d1a1ee413c7169c1e08084"
+  url "https://hackage.haskell.org/package/patat-0.14.2.0/patat-0.14.2.0.tar.gz"
+  sha256 "ee9d06575907495192569b1bea4c98c74f811f925276e214eb86bb6e0ee20e6a"
   license "GPL-2.0-or-later"
   head "https://github.com/jaspervdj/patat.git", branch: "main"
 
