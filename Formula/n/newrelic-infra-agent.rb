@@ -2,8 +2,8 @@ class NewrelicInfraAgent < Formula
   desc "New Relic infrastructure agent"
   homepage "https://github.com/newrelic/infrastructure-agent"
   url "https://github.com/newrelic/infrastructure-agent.git",
-      tag:      "1.62.0",
-      revision: "defe0d3e795953c6761131ffe0e4e03505e3267d"
+      tag:      "1.63.0",
+      revision: "c82224577ad3109202227f7ca63f68a5060d6cd9"
   license "Apache-2.0"
   head "https://github.com/newrelic/infrastructure-agent.git", branch: "master"
 
