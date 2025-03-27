@@ -1,5 +1,5 @@
 class Rainfrog < Formula
-  desc "Database management TUI for Postgres"
+  desc "Database management TUI for PostgreSQL/MySQL/SQLite"
   homepage "https://github.com/achristmascarl/rainfrog"
   url "https://github.com/achristmascarl/rainfrog/archive/refs/tags/v0.3.0.tar.gz"
   sha256 "e99dfbdce5a5b5c051dbaec49351e475ebd89a121534e91291b9907dcae57de2"
