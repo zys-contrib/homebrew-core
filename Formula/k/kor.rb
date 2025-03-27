@@ -1,8 +1,8 @@
 class Kor < Formula
   desc "CLI tool to discover unused Kubernetes resources"
   homepage "https://github.com/yonahd/kor"
-  url "https://github.com/yonahd/kor/archive/refs/tags/v0.5.9.tar.gz"
-  sha256 "d62ee695d55cd691946f9565a9e46762f145b78c2f6999ad3f1d8b69c2b2d1f2"
+  url "https://github.com/yonahd/kor/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "55b7a31d731776e539970ddc789de2595756215d178c6decf1b78dc9c876fc0c"
   license "MIT"
 
   bottle do
