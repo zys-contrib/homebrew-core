@@ -1,8 +1,8 @@
 class Vapor < Formula
   desc "Command-line tool for Vapor (Server-side Swift web framework)"
   homepage "https://vapor.codes"
-  url "https://github.com/vapor/toolbox/archive/refs/tags/19.0.0.tar.gz"
-  sha256 "30bc592c82748459794be67b457a328f93afc9f6ecbd4ed9e267d1ff16456bf6"
+  url "https://github.com/vapor/toolbox/archive/refs/tags/19.1.0.tar.gz"
+  sha256 "f84f09c6ce7cbc6c7f6dd936fb3601bf2aeaaccdf50dc60c61e2b075579d0d2d"
   license "MIT"
   head "https://github.com/vapor/toolbox.git", branch: "main"
 
