@@ -3221,7 +3221,6 @@ sollya
 solr
 solr@8.11
 sonar-scanner
-sonarqube
 sonic
 sonobuoy
 sophus
