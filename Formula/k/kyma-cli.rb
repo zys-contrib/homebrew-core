@@ -1,8 +1,8 @@
 class KymaCli < Formula
   desc "Kyma command-line interface"
   homepage "https://kyma-project.io"
-  url "https://github.com/kyma-project/cli/archive/refs/tags/2.20.5.tar.gz"
-  sha256 "6c39252cc15aeb4828831d040819297c9cd7a5235844ae9c9ea91dad8db02551"
+  url "https://github.com/kyma-project/cli/archive/refs/tags/3.0.0.tar.gz"
+  sha256 "b92eb18d96d4a47e581dde9fca3fc084c5d52af342a8dc6eb682a09b3e5b12ef"
   license "Apache-2.0"
   head "https://github.com/kyma-project/cli.git", branch: "main"
 
@@ -30,19 +30,18 @@ class KymaCli < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/kyma-project/cli/cmd/kyma/version.Version=#{version}
+      -X github.com/kyma-project/cli.v#{version.major}/internal/cmd/version.version=#{version}
     ]
 
-    system "go", "build", *std_go_args(output: bin/"kyma", ldflags:), "./cmd"
+    system "go", "build", *std_go_args(output: bin/"kyma", ldflags:)
 
     generate_completions_from_executable(bin/"kyma", "completion")
   end
 
   test do
-    touch testpath/"kubeconfig"
-    assert_match "invalid configuration",
-      shell_output("#{bin}/kyma deploy --kubeconfig ./kubeconfig 2>&1", 2)
+    assert_match "failed to create cluster connection",
+      shell_output("#{bin}/kyma alpha kubeconfig generate --token test-token --skip-extensions 2>&1", 1)
 
-    assert_match "Kyma CLI version: #{version}", shell_output("#{bin}/kyma version 2>&1", 2)
+    assert_match "Kyma-CLI Version: #{version}", shell_output("#{bin}/kyma version")
   end
 end
