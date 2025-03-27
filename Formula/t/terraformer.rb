@@ -1,8 +1,8 @@
 class Terraformer < Formula
   desc "CLI tool to generate terraform files from existing infrastructure"
   homepage "https://github.com/GoogleCloudPlatform/terraformer"
-  url "https://github.com/GoogleCloudPlatform/terraformer/archive/refs/tags/0.8.24.tar.gz"
-  sha256 "d366476777b31149738b8e5f916e080d54403fb4ca7a6e97edc885d3623a5f19"
+  url "https://github.com/GoogleCloudPlatform/terraformer/archive/refs/tags/0.8.30.tar.gz"
+  sha256 "9e4738fadae011e458fa6fee168f47166cd3a9f5d7a9378018116345b0d6b4e6"
   license "Apache-2.0"
   head "https://github.com/GoogleCloudPlatform/terraformer.git", branch: "master"
 
@@ -22,7 +22,11 @@ class Terraformer < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    ldflags = %w[-s -w]
+    # Work around failure: ld: B/BL out of range -162045188 (max +/-128MB)
+    ldflags << "-extldflags=-ld_classic" if DevelopmentTools.clang_build_version == 1500 && Hardware::CPU.arm?
+
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
