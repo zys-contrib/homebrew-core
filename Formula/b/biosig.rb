@@ -11,12 +11,12 @@ class Biosig < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "117069306a551af329ca174824f8e68f8ecbfc9285ef33a0b9457137dafd1ca9"
-    sha256 cellar: :any,                 arm64_sonoma:  "2afa576649a1ce599abd86cf16c92e8137e1fd5513401c0f91635c679f23732a"
-    sha256 cellar: :any,                 arm64_ventura: "ec0026a9de7bed96c71de9d1e086134cb1f308582cd41f70457cc4fcd01b941b"
-    sha256 cellar: :any,                 sonoma:        "3004a0bb2aa939134d7823a4db2355ea83f4fd9866870a6b9bbf1686e85a31e0"
-    sha256 cellar: :any,                 ventura:       "3615427d4eaba6e8322770bdce3d29033bd8361a5613d682033e1477c4ce416c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e74145def1020e92731a83f67b2a805ecd74871cfe4936c425fa95a5de396cfe"
+    sha256 cellar: :any,                 arm64_sequoia: "152be2d169a73dbd8afcbb4e5060d547f7a0d439ed64626c6ccc969974d94e18"
+    sha256 cellar: :any,                 arm64_sonoma:  "4d28f7a3f4ce3494c4557958c730b07bd08b19b8dbb056f7282f8e5fc396d918"
+    sha256 cellar: :any,                 arm64_ventura: "738017ce88f7c9d43596aeeddc99ce04c6a6896ab02922da8c056ea24f3d0e6b"
+    sha256 cellar: :any,                 sonoma:        "b410b16cdff030dfe233751c39c6523d5a841bd35bdd2e9cd153582b881d3f96"
+    sha256 cellar: :any,                 ventura:       "0f235a6d5036c54a44fe76c5dd3b3cb321805ea72663b3abd1565674a3bd5856"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85ab1e23f4ec3552398ee860ee360c73eea317bc9e8881b90e1f9cc9d9069f02"
   end
 
   depends_on "gawk" => :build
