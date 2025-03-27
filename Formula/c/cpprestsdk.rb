@@ -1,12 +1,11 @@
 class Cpprestsdk < Formula
   desc "C++ libraries for cloud-based client-server communication"
   homepage "https://github.com/microsoft/cpprestsdk"
-  # pull from git tag to get submodules
-  url "https://github.com/microsoft/cpprestsdk.git",
-      tag:      "v2.10.19",
-      revision: "411a109150b270f23c8c97fa4ec9a0a4a98cdecf"
+  # do not pull bundled libraries in submodules
+  url "https://github.com/microsoft/cpprestsdk/archive/refs/tags/v2.10.19.tar.gz"
+  sha256 "4b0d14e5bfe77ce419affd253366e861968ae6ef2c35ae293727c1415bd145c8"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/microsoft/cpprestsdk.git", branch: "master"
 
   bottle do
@@ -20,15 +19,26 @@ class Cpprestsdk < Formula
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "boost@1.85" # Issue ref: https://github.com/microsoft/cpprestsdk/issues/1323
+  depends_on "boost"
   depends_on "openssl@3"
 
   uses_from_macos "zlib"
+
+  # Apply vcpkg patch to support Boost 1.87.0+
+  # Issue ref: https://github.com/microsoft/cpprestsdk/issues/1815
+  # Issue ref: https://github.com/microsoft/cpprestsdk/issues/1323
+  patch do
+    url "https://raw.githubusercontent.com/microsoft/vcpkg/566f9496b7e00ee0cc00aca0ab90493d122d148a/ports/cpprestsdk/fix-asio-error.patch"
+    sha256 "8fa4377a86afb4cdb5eb2331b5fb09fd7323dc2de90eb2af2b46bb3585a8022e"
+  end
 
   def install
     system "cmake", "-S", "Release", "-B", "build",
                     "-DBUILD_SAMPLES=OFF",
                     "-DBUILD_TESTS=OFF",
+                    # Disable websockets feature due to https://github.com/zaphoyd/websocketpp/issues/1157
+                    # Needs upstream response and fix in `websocketpp` formula (do not use bundled copy)
+                    "-DCPPREST_EXCLUDE_WEBSOCKETS=ON",
                     "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
                     *std_cmake_args
     system "cmake", "--build", "build"
@@ -44,12 +54,12 @@ class Cpprestsdk < Formula
         std::cout << client.request(web::http::methods::GET).get().extract_string().get() << std::endl;
       }
     CPP
-    boost = Formula["boost@1.85"]
+    boost = Formula["boost"]
     system ENV.cxx, "test.cc", "-std=c++11",
                     "-I#{boost.include}", "-I#{Formula["openssl@3"].include}", "-I#{include}",
                     "-L#{boost.lib}", "-L#{Formula["openssl@3"].lib}", "-L#{lib}",
-                    "-lssl", "-lcrypto", "-lboost_random-mt", "-lboost_chrono-mt", "-lboost_thread-mt",
-                    "-lboost_system-mt", "-lboost_filesystem-mt", "-lcpprest",
+                    "-lssl", "-lcrypto", "-lboost_random", "-lboost_chrono", "-lboost_thread",
+                    "-lboost_system", "-lboost_filesystem", "-lcpprest",
                     "-o", "test_cpprest"
     assert_match "<title>Example Domain</title>", shell_output("./test_cpprest")
   end
