@@ -432,14 +432,18 @@ class Swift < Formula
         ENV.remove "PKG_CONFIG_PATH", Formula["sqlite"].opt_lib/"pkgconfig"
       end
       if OS.linux?
+        # List of valid values in class StdlibDeploymentTarget in
+        # utils/swift_build_support/swift_build_support/targets.py
+        arch = (Hardware::CPU.arm? && Hardware::CPU.is_64_bit?) ? "aarch64" : Hardware::CPU.arch
+
         args += %W[
           --libcxx=0
           --foundation
           --libdispatch
           --xctest
 
-          --host-target=linux-#{Hardware::CPU.arch}
-          --stdlib-deployment-targets=linux-#{Hardware::CPU.arch}
+          --host-target=linux-#{arch}
+          --stdlib-deployment-targets=linux-#{arch}
           --build-swift-static-stdlib
           --build-swift-static-sdk-overlay
           --install-foundation
