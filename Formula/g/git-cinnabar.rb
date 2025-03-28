@@ -2,8 +2,8 @@ class GitCinnabar < Formula
   desc "Git remote helper to interact with mercurial repositories"
   homepage "https://github.com/glandium/git-cinnabar"
   url "https://github.com/glandium/git-cinnabar.git",
-      tag:      "0.7.1",
-      revision: "ff7d25b5900b49ae2b5df34d14d1f8ff618a481d"
+      tag:      "0.7.2",
+      revision: "1975d040654a4f015456eef6869e40d32761d083"
   license "GPL-2.0-only"
   head "https://github.com/glandium/git-cinnabar.git", branch: "master"
 
