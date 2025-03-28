@@ -4,7 +4,7 @@ class Zig < Formula
   url "https://ziglang.org/download/0.14.0/zig-0.14.0.tar.xz"
   sha256 "c76638c03eb204c4432ae092f6fa07c208567e110fbd4d862d131a7332584046"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://ziglang.org/download/"
@@ -22,13 +22,12 @@ class Zig < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "lld"
-  depends_on "llvm"
+  depends_on "lld@19"
+  depends_on "llvm@19"
   depends_on macos: :big_sur # https://github.com/ziglang/zig/issues/13313
 
   # NOTE: `z3` should be macOS-only dependency whenever we need to re-add
   on_macos do
-    depends_on "z3"
     depends_on "zstd"
   end
 
