@@ -424,7 +424,6 @@ jobs:
         run: |
           echo "::notice ::Local repository HEAD: $EXPECTED_SHA"
 
-          success=0
           attempt=0
           max_attempts=10
           timeout=1
@@ -446,7 +445,7 @@ jobs:
           done
 
           # One last check...
-          if [[ -z "$success" ]] && [[ "$EXPECTED_SHA" != "$(git ls-remote origin "pull/$PR/head" | cut -f1)" ]]
+          if [[ -z "${success:-}" ]] && [[ "$EXPECTED_SHA" != "$(git ls-remote origin "pull/$PR/head" | cut -f1)" ]]
           then
             echo "::error ::No attempts remaining. Giving up."
             exit 1
