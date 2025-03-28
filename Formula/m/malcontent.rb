@@ -7,12 +7,12 @@ class Malcontent < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5f9826278ae01cdfd7a33d72059b898517b10885f74ea7600de19fe1509bc34d"
-    sha256 cellar: :any,                 arm64_sonoma:  "2fde26e76d32c802cbf6b47a6df9dc245dace3ad7f405bb1282384ab1698b539"
-    sha256 cellar: :any,                 arm64_ventura: "292c95f0f2f0fe45a35d4f2554658ed8b43d8b66536d865e91b4c284e624aa68"
-    sha256 cellar: :any,                 sonoma:        "88d21d680798ab9238095cf09fce13673fa021bd7e90cd9bd8659c3474faa8ff"
-    sha256 cellar: :any,                 ventura:       "559f16e8f755f6268b43708737cf840dc3cf41831ffbcb6aa716b7e7a16ea01e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04805311b1135528b8046327207486b02afd55856ab3ac4c94e68ccbed54870c"
+    sha256 cellar: :any,                 arm64_sequoia: "a1a8615fa9a332af2a514af65d23e3bcc7158d7cc9bea15a9212fdede9178098"
+    sha256 cellar: :any,                 arm64_sonoma:  "6610c243c016ad2a53173c4cd1420ed47b615547be74aa463fa167a566cba5dd"
+    sha256 cellar: :any,                 arm64_ventura: "6d167940661e65fbafbcd3761a8a8e32831528fc569b72838db2b75fcd006b31"
+    sha256 cellar: :any,                 sonoma:        "e907aaea36f4a12189ab7d3bc7f0874a4f7e72b6ee5de51ab81590f10041a3ed"
+    sha256 cellar: :any,                 ventura:       "01b15f934a271b3cbe21389fe5ad9172ae9574478ea3520b40e2f076926eaf21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b2cd159afef5de21e3e829b04cb86903a0af6a8560161a815351da0bdd8c6ff"
   end
 
   depends_on "go" => :build
