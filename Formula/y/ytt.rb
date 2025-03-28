@@ -1,8 +1,8 @@
 class Ytt < Formula
   desc "YAML templating tool that works on YAML structure instead of text"
   homepage "https://carvel.dev/ytt/"
-  url "https://github.com/carvel-dev/ytt/archive/refs/tags/v0.51.1.tar.gz"
-  sha256 "d1c4c814f702802a4acd94a5131797d09ff0ba065c746411d65237823bcc1374"
+  url "https://github.com/carvel-dev/ytt/archive/refs/tags/v0.51.2.tar.gz"
+  sha256 "c795c388612d93a2a139fce378b5721db2404a2a70fb3d67124931453b11f163"
   license "Apache-2.0"
   head "https://github.com/carvel-dev/ytt.git", branch: "develop"
 
