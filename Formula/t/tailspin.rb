@@ -1,8 +1,8 @@
 class Tailspin < Formula
   desc "Log file highlighter"
   homepage "https://github.com/bensadeh/tailspin"
-  url "https://github.com/bensadeh/tailspin/archive/refs/tags/4.0.0.tar.gz"
-  sha256 "f13ab53eb3bd59733d3fe53a6f03dd42be3801eef7456155f520139036ffb865"
+  url "https://github.com/bensadeh/tailspin/archive/refs/tags/5.0.0.tar.gz"
+  sha256 "bc694666876d06f2dde7b738d8bd9ce27e122d11bba7b6da923b1837c23c12ae"
   license "MIT"
   head "https://github.com/bensadeh/tailspin.git", branch: "main"
 
@@ -21,19 +21,15 @@ class Tailspin < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    generate_completions_from_executable(bin/"tspin", "--hidden-generate-shell-completions")
+    bash_completion.install "completions/tspin.bash" => "tspin"
+    fish_completion.install "completions/tspin.fish" => "tspin"
+    zsh_completion.install "completions/tspin.zsh" => "_tspin"
     man1.install "man/tspin.1"
   end
 
   test do
-    output = shell_output("#{bin}/tspin --start-at-end 2>&1")
-
-    expected = if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-      ""
-    else
-      "Missing filename"
-    end
-    assert_match expected, output
+    (testpath/"test.log").write("test")
+    shell_output("#{bin}/tspin --start-at-end test.log")
 
     assert_match version.to_s, shell_output("#{bin}/tspin --version")
   end
