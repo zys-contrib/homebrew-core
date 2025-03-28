@@ -7,12 +7,12 @@ class Ytt < Formula
   head "https://github.com/carvel-dev/ytt.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dbecabaa27ac7218711e30559fcc75385168016e449de841e444a49eb169d074"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dbecabaa27ac7218711e30559fcc75385168016e449de841e444a49eb169d074"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "dbecabaa27ac7218711e30559fcc75385168016e449de841e444a49eb169d074"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ae53ae8ac35bc5d016f34e097a8fba019d1236074508e63fb98924b8055f09d1"
-    sha256 cellar: :any_skip_relocation, ventura:       "ae53ae8ac35bc5d016f34e097a8fba019d1236074508e63fb98924b8055f09d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6611056f1cba2cc3c19c546aa9734ec595f2133f2c070b39015d319a366e3ff4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d442c92b422f125631bd3810a1325915b723ade414d152c2e8e400b2c674c36c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d442c92b422f125631bd3810a1325915b723ade414d152c2e8e400b2c674c36c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d442c92b422f125631bd3810a1325915b723ade414d152c2e8e400b2c674c36c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8670f9590fc7b28812ca115049835ca966298308557e58ae2c2c7303f0f516bd"
+    sha256 cellar: :any_skip_relocation, ventura:       "8670f9590fc7b28812ca115049835ca966298308557e58ae2c2c7303f0f516bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b2cc30cb9ebd651a3418fd18dc5724e6c18bb276b675baf2bb3ec067fc8705e"
   end
 
   depends_on "go" => :build
