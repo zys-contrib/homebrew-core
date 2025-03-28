@@ -1,8 +1,8 @@
 class Globstar < Formula
   desc "Static analysis toolkit for writing and running code checkers"
   homepage "https://globstar.dev"
-  url "https://github.com/DeepSourceCorp/globstar/archive/refs/tags/v0.5.1.tar.gz"
-  sha256 "3b00cbf096e43d5973c408939fd2dbf71be0696cc58ef0694b017c38cb858145"
+  url "https://github.com/DeepSourceCorp/globstar/archive/refs/tags/v0.6.1.tar.gz"
+  sha256 "d2723d485d3a0baa4e707bfcebdd60960ae6a8928277acf5c0602aac1f050286"
   license "MIT"
 
   bottle do
@@ -17,6 +17,7 @@ class Globstar < Formula
   depends_on "go" => :build
 
   def install
+    system "make", "generate-registry"
     system "go", "build", *std_go_args(ldflags: "-s -w -X globstar.dev/pkg/cli.version=#{version}"), "./cmd/globstar"
   end
 
