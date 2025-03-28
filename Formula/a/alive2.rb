@@ -2,10 +2,9 @@ class Alive2 < Formula
   desc "Automatic verification of LLVM optimizations"
   homepage "https://github.com/AliveToolkit/alive2"
   url "https://github.com/AliveToolkit/alive2.git",
-      tag:      "v19.0",
-      revision: "84041960f183aec74d740ff881c95a4ce5234d3d"
+      tag:      "v20.0",
+      revision: "c0f5434f402ad91714ee0952f686cd0f524920ad"
   license "MIT"
-  revision 1
   head "https://github.com/AliveToolkit/alive2.git", branch: "master"
 
   bottle do
@@ -27,6 +26,10 @@ class Alive2 < Formula
   uses_from_macos "zlib"
 
   def install
+    # Work around ir/state.cpp:730:40: error: reference to local binding
+    # 'src_data' declared in enclosing function 'IR::State::copyUBFromBB'
+    ENV.llvm_clang if OS.mac? && MacOS.version <= :ventura
+
     system "cmake", "-S", ".", "-B", "build", "-DBUILD_LLVM_UTILS=ON", "-DBUILD_TV=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
