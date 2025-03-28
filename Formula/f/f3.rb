@@ -1,8 +1,8 @@
 class F3 < Formula
   desc "Test various flash cards"
   homepage "https://fight-flash-fraud.readthedocs.io/en/latest/"
-  url "https://github.com/AltraMayor/f3/archive/refs/tags/v8.0.tar.gz"
-  sha256 "fb5e0f3b0e0b0bff2089a4ea6af53278804dfe0b87992499131445732e311ab4"
+  url "https://github.com/AltraMayor/f3/archive/refs/tags/v9.0.tar.gz"
+  sha256 "569ec069dc3ec1c74d90d6704aa8b7f45240f5998a9dc6f14f1736c917506ecb"
   license "GPL-3.0-only"
   head "https://github.com/AltraMayor/f3.git", branch: "master"
 
