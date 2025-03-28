@@ -1,8 +1,8 @@
 class SentryNative < Formula
   desc "Sentry SDK for C, C++ and native applications"
   homepage "https://docs.sentry.io/platforms/native/"
-  url "https://github.com/getsentry/sentry-native/archive/refs/tags/0.8.2.tar.gz"
-  sha256 "37a7ca1f85bcad4663d1fe7e9f0e302041c7a5c64aae222408db6cf876bc2f8b"
+  url "https://github.com/getsentry/sentry-native/archive/refs/tags/0.8.3.tar.gz"
+  sha256 "aa35384cbcac5e91249a1101ed16e32e7da5ed387595b9fc7d914ae58f0eaac5"
   license "MIT"
 
   bottle do
@@ -19,19 +19,19 @@ class SentryNative < Formula
   uses_from_macos "curl"
   uses_from_macos "zlib"
 
-  # No recent tagged releases, so we use the latest commit as of 2025-Mar-10
+  # No recent tagged releases, use the latest commit
   resource "breakpad" do
     url "https://github.com/getsentry/breakpad.git",
         revision: "ecff426597666af4231da8505a85a61169c5ab04"
   end
 
-  # No recent tagged releases, so we use the latest commit as of 2025-Mar-10
+  # No recent tagged releases, use the latest commit
   resource "crashpad" do
     url "https://github.com/getsentry/crashpad.git",
-        revision: "4cd23a2bedb49751d871da086b20b66888562924"
+        revision: "2d97a484bb628b05a46203e4a05c6c827796e5cd"
   end
 
-  # No recent tagged releases, so we use the latest commit as of 2025-Mar-10
+  # No recent tagged releases, use the latest commit
   resource "libunwindstack-ndk" do
     url "https://github.com/getsentry/libunwindstack-ndk.git",
         revision: "284202fb1e42dbeba6598e26ced2e1ec404eecd1"
