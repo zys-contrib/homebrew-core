@@ -1166,6 +1166,7 @@ gdbm
 gdcm
 gdk-pixbuf
 gdu
+geesefs
 geeqie
 gegl
 genact
