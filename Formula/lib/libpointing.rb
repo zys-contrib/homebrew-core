@@ -20,6 +20,7 @@ class Libpointing < Formula
     sha256 cellar: :any,                 high_sierra:    "97e7550c8e3c3007df96cc98eab35a297ed857a6fd1bc24011d1dea8350966e5"
     sha256 cellar: :any,                 sierra:         "1fc9b4bdab762eb8f93c4a75c57e82b14f3274186f5185fa9a17e8d0f3bc3452"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "ffb598217e1da31c8150b384ff7a88d6afdb3c5980edf11f7422033ca5bb2972"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0bb26145aac1e2fa3a1a552c8120a5f2f6fbd0fb7b9836dfccdbbaaeec7e161c"
   end
 
   uses_from_macos "python" => :build
