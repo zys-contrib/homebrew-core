@@ -6,12 +6,12 @@ class Malcontent < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a1a8615fa9a332af2a514af65d23e3bcc7158d7cc9bea15a9212fdede9178098"
-    sha256 cellar: :any,                 arm64_sonoma:  "6610c243c016ad2a53173c4cd1420ed47b615547be74aa463fa167a566cba5dd"
-    sha256 cellar: :any,                 arm64_ventura: "6d167940661e65fbafbcd3761a8a8e32831528fc569b72838db2b75fcd006b31"
-    sha256 cellar: :any,                 sonoma:        "e907aaea36f4a12189ab7d3bc7f0874a4f7e72b6ee5de51ab81590f10041a3ed"
-    sha256 cellar: :any,                 ventura:       "01b15f934a271b3cbe21389fe5ad9172ae9574478ea3520b40e2f076926eaf21"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b2cd159afef5de21e3e829b04cb86903a0af6a8560161a815351da0bdd8c6ff"
+    sha256 cellar: :any,                 arm64_sequoia: "4b578de3e90f341a633c00d0fb734a927c9bd9fce379f5a469dfc242d0d1a903"
+    sha256 cellar: :any,                 arm64_sonoma:  "88e3a321ad1b5b95bebedce2cb774e68482c909934538f73aeb0559d9e583524"
+    sha256 cellar: :any,                 arm64_ventura: "6f6bc958daad98d78764f36117d705d893c124938af99b2319447e9b08c976e4"
+    sha256 cellar: :any,                 sonoma:        "640a13dc82e5fabff6efe7ae2015e5b4b7b778c624e77791da5a717f81e4b364"
+    sha256 cellar: :any,                 ventura:       "c411b381c02e58229be7e346fdae7c60cc5b20fdc6222f6fa1eef22619b6503c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1498c207bd012a369d9e811e8e83748731b45c168d98e73cdadfb766d8d9f77"
   end
 
   depends_on "go" => :build
