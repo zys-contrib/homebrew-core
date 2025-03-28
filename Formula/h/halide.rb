@@ -1,10 +1,16 @@
 class Halide < Formula
   desc "Language for fast, portable data-parallel computation"
   homepage "https://halide-lang.org"
-  url "https://github.com/halide/Halide/archive/refs/tags/v19.0.0.tar.gz"
-  sha256 "83bae1f0e24dc44d9d85014d5cd0474df2dd03975680894ce3fafd6e97dffee2"
   license "MIT"
-  head "https://github.com/halide/Halide.git", branch: "main"
+  revision 1
+
+  stable do
+    url "https://github.com/halide/Halide/archive/refs/tags/v19.0.0.tar.gz"
+    sha256 "83bae1f0e24dc44d9d85014d5cd0474df2dd03975680894ce3fafd6e97dffee2"
+
+    depends_on "lld@19"
+    depends_on "llvm@19" # TODO: Use `lld`/`llvm` in both stable and head in Halide 20
+  end
 
   livecheck do
     url :stable
@@ -21,13 +27,18 @@ class Halide < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a0bf8651e7a1c027c38776e0df09d4117156145efbacbc0fbbf00e0806cea21"
   end
 
+  head do
+    url "https://github.com/halide/Halide.git", branch: "main"
+
+    depends_on "lld"
+    depends_on "llvm"
+  end
+
   depends_on "cmake" => :build
   depends_on "pybind11" => :build
   depends_on "flatbuffers"
   depends_on "jpeg-turbo"
   depends_on "libpng"
-  depends_on "lld"
-  depends_on "llvm"
   depends_on "python@3.13"
   depends_on "wabt"
 
@@ -40,8 +51,10 @@ class Halide < Formula
   end
 
   def install
+    llvm = deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+(\.\d+)*)?$/) }
     site_packages = prefix/Language::Python.site_packages(python3)
     rpaths = [rpath, rpath(source: site_packages/"halide")]
+    rpaths << llvm.opt_lib.to_s if OS.linux?
     args = [
       "-DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}",
       "-DHalide_INSTALL_PYTHONDIR=#{site_packages}/halide",
