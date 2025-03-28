@@ -1,8 +1,8 @@
 class AwsCrtCpp < Formula
   desc "C++ wrapper around the aws-c-* libraries"
   homepage "https://github.com/awslabs/aws-crt-cpp"
-  url "https://github.com/awslabs/aws-crt-cpp/archive/refs/tags/v0.31.2.tar.gz"
-  sha256 "c4d5eb3fd5707e4874f922f2ffb07f78f2d2660ff02210d1f8ace8b67bb5536f"
+  url "https://github.com/awslabs/aws-crt-cpp/archive/refs/tags/v0.32.2.tar.gz"
+  sha256 "0969801f13344deaf6e4dc8d458798e0692d4a67dde5ccac3eda9f261ad771bd"
   license "Apache-2.0"
 
   bottle do
@@ -27,10 +27,6 @@ class AwsCrtCpp < Formula
   depends_on "aws-checksums"
 
   def install
-    # Fix to 'aws/crt/checksum/CRC.h' file not found
-    # Issue ref: https://github.com/awslabs/aws-crt-cpp/issues/725
-    cp_r "include/aws/crt/checksum", "include/aws/crt/checksums"
-
     args = %W[
       -DBUILD_DEPS=OFF
       -DBUILD_SHARED_LIBS=ON
@@ -49,7 +45,7 @@ class AwsCrtCpp < Formula
       #include <aws/crt/Allocator.h>
       #include <aws/crt/Api.h>
       #include <aws/crt/Types.h>
-      #include <aws/crt/checksums/CRC.h>
+      #include <aws/crt/checksum/CRC.h>
 
       int main() {
         Aws::Crt::ApiHandle apiHandle(Aws::Crt::DefaultAllocatorImplementation());
