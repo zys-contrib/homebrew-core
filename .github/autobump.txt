@@ -1140,6 +1140,7 @@ g-ls
 g2o
 gabo
 gallery-dl
+gama
 gambit
 game-music-emu
 gammaray
