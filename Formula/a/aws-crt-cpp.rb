@@ -6,12 +6,12 @@ class AwsCrtCpp < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b11162837987c23539960912ad192b650214e3091b6f890afe8fb302773be348"
-    sha256 cellar: :any,                 arm64_sonoma:  "8c2f3d1cd89f891d92dde3d083787f5d67fba5b466e70348d74bca3292484678"
-    sha256 cellar: :any,                 arm64_ventura: "8c47cab9d49246e5919a21cda4ca6f9985b812081153db2d370cf3dd285a58a1"
-    sha256 cellar: :any,                 sonoma:        "0e26c82e864c762804ae5e6065a7865f34498320a46f7e33fa447d217a48d203"
-    sha256 cellar: :any,                 ventura:       "b73677fdd4555d11d55e0e5bd8c6f9b11526e3e5f1912eb22211f5e4a378e617"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65bf79f43f6ffaef190227b9962240511463a0286055b657c68d5c1b04a38d4e"
+    sha256 cellar: :any,                 arm64_sequoia: "303baf1a21f3d467f5fba001e823aef3cd9c4ba1d0e4b922f1fc8e8867950de2"
+    sha256 cellar: :any,                 arm64_sonoma:  "50e67e176e6e8d5b79040a2329b76f2818601079cdfdb2ee62ab0b8a6a2a0cae"
+    sha256 cellar: :any,                 arm64_ventura: "093d2af376f015e0332d73c37a01d7f1a2c7c9acc6159b0f5495ad5c9a2ce8c7"
+    sha256 cellar: :any,                 sonoma:        "86f89ef414462d6cd16bec595685a5afc6f3cc2b3a331854d93b93e08a1b30a8"
+    sha256 cellar: :any,                 ventura:       "8c793d1fc885369d71b3cfcdef4f25dfad5b2bae09e927f9c72da915a1c3d44f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bfa41772bc811d8079004274f509d4b7cffd53fa91fe26eeabab8ac36c45ed91"
   end
 
   depends_on "cmake" => :build
