@@ -1,8 +1,8 @@
 class Kmod < Formula
   desc "Linux kernel module handling"
   homepage "https://git.kernel.org/pub/scm/utils/kernel/kmod/kmod.git"
-  url "https://mirrors.edge.kernel.org/pub/linux/utils/kernel/kmod/kmod-34.1.tar.xz"
-  sha256 "125957c9125fc5db1bd6a2641a1c9a6a0b500882fb8ccf7fb6483fcae5309b17"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/kernel/kmod/kmod-34.2.tar.xz"
+  sha256 "5a5d5073070cc7e0c7a7a3c6ec2a0e1780850c8b47b3e3892226b93ffcb9cb54"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
 
   livecheck do
