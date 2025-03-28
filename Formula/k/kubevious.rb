@@ -1,8 +1,8 @@
 class Kubevious < Formula
   desc "Detects and prevents Kubernetes misconfigurations and violations"
   homepage "https://github.com/kubevious/cli"
-  url "https://registry.npmjs.org/kubevious/-/kubevious-1.0.62.tgz"
-  sha256 "d6961f75fd5cd329c70ad5581aa148bb36364367eeae40c82a499bdcae38647f"
+  url "https://registry.npmjs.org/kubevious/-/kubevious-1.0.63.tgz"
+  sha256 "b9a41e92d891385ee1c8edd140fbbd06bea1d6cbc2730b25f2dc618b140db8c5"
   license "Apache-2.0"
 
   bottle do
