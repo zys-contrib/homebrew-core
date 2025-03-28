@@ -424,6 +424,7 @@ jobs:
         run: |
           echo "::notice ::Local repository HEAD: $EXPECTED_SHA"
 
+          success=0
           attempt=0
           max_attempts=10
           timeout=1
