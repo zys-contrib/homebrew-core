@@ -21,6 +21,7 @@ class Scip < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "boost"
   depends_on "cppad"
   depends_on "gmp"
   depends_on "ipopt"
