@@ -1,8 +1,8 @@
 class Lutok < Formula
   desc "Lightweight C++ API for Lua"
   homepage "https://github.com/freebsd/lutok"
-  url "https://github.com/freebsd/lutok/releases/download/lutok-0.6/lutok-0.6.tar.gz"
-  sha256 "e4832908d5dfa203860c7a301109cf1daae3456d0beb54d6e70da252e51f6948"
+  url "https://github.com/freebsd/lutok/releases/download/lutok-0.6.1/lutok-0.6.1.tar.gz"
+  sha256 "509c43c240ba47b8c452b45f3423a416fa91bdfc0341bfb806e0b78f65ce452d"
   license "BSD-3-Clause"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
