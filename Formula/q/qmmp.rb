@@ -1,10 +1,9 @@
 class Qmmp < Formula
   desc "Qt-based Multimedia Player"
   homepage "https://qmmp.ylsoftware.com/"
-  url "https://qmmp.ylsoftware.com/files/qmmp/2.2/qmmp-2.2.3.tar.bz2"
-  sha256 "993e57d8e11b083bb6f246738505edf35d498ffe82a1936f3129b8bb09eab244"
+  url "https://qmmp.ylsoftware.com/files/qmmp/2.2/qmmp-2.2.4.tar.bz2"
+  sha256 "489db0dd2bed32ba3cae5ab8b2f80d31e97e81bdfc5dbd7c82487c29e325cf81"
   license "GPL-2.0-or-later"
-  revision 2
 
   livecheck do
     url "https://qmmp.ylsoftware.com/downloads.php"
@@ -71,14 +70,13 @@ class Qmmp < Formula
   end
 
   resource "qmmp-plugin-pack" do
-    url "https://qmmp.ylsoftware.com/files/qmmp-plugin-pack/2.2/qmmp-plugin-pack-2.2.1.tar.bz2"
-    sha256 "bfb19dfc657a3b2d882bb1cf4069551488352ae920d8efac391d218c00770682"
-  end
+    url "https://qmmp.ylsoftware.com/files/qmmp-plugin-pack/2.2/qmmp-plugin-pack-2.2.2.tar.bz2"
+    sha256 "0e85c8290b49aceddb7a52f9452d9c0c008539b6fba4ab2296b59a67d0b0846b"
 
-  # add taglib 2.x support
-  patch do
-    url "https://sources.debian.org/data/main/q/qmmp/2.2.3-1/debian/patches/0002-Fix-taglib-2.x-compatibility.patch"
-    sha256 "837bea7d6af9dc0be072b450f74ce9382ae1c7963d2e4a78c9eb2208b283ea62"
+    livecheck do
+      url "https://qmmp.ylsoftware.com/plugins.php"
+      regex(/href=.*?qmmp-plugin-pack[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    end
   end
 
   def install
@@ -94,10 +92,6 @@ class Qmmp < Formula
       cmake_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup"
       cmake_args << "-DCMAKE_MODULE_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup"
     end
-
-    # Fix to recognize x11
-    # Issue ref: https://sourceforge.net/p/qmmp-dev/tickets/1177/
-    inreplace "src/plugins/Ui/skinned/CMakeLists.txt", "PkgConfig::X11", "${X11_LDFLAGS}"
 
     system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
     system "cmake", "--build", "build"
