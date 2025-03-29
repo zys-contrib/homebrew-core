@@ -22,6 +22,7 @@ class Foma < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed4b46bd3f62ab26bbb0407019c2989448d3b9df0680ebb87266bdbfe5b3e9c9"
   end
 
+  uses_from_macos "flex" => :build
   uses_from_macos "zlib"
 
   on_linux do
@@ -31,6 +32,15 @@ class Foma < Formula
   conflicts_with "freeling", because: "freeling ships its own copy of foma"
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `g_defines_f'; int_stack.o:(.bss+0x1800000): first defined here
+    # multiple definition of `g_defines'; int_stack.o:(.bss+0x1800008): first defined here
+    if OS.linux?
+      inreplace "Makefile" do |s|
+        s.change_make_var! "CFLAGS", "#{s.get_make_var("CFLAGS")} -fcommon"
+      end
+    end
+
     system "make"
     system "make", "install", "prefix=#{prefix}"
   end
