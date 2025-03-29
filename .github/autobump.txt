@@ -1507,6 +1507,7 @@ i2util
 iamb
 iamy
 ibazel
+icann-rdap
 icbirc
 icloudpd
 icon
