@@ -3,8 +3,8 @@ class Ramalama < Formula
 
   desc "Goal of RamaLama is to make working with AI boring"
   homepage "https://github.com/containers/ramalama"
-  url "https://files.pythonhosted.org/packages/64/91/3b33c028d0ea097c68ed0aef748fdf6101debb7427ef425f6e3f141e823c/ramalama-0.6.4.tar.gz"
-  sha256 "0b02ad223d9156623366fb91b2166551ddbfd453ad19369439730203d9a69c70"
+  url "https://files.pythonhosted.org/packages/52/3a/e8c6d8e89aadbb82bbb4359ba813ce948fd6ae97c6b0a40a3a55fd1b5e3c/ramalama-0.7.1.tar.gz"
+  sha256 "519021171f31bdc26ab9873c38d5b638eeee265305963764e2df348164ef92e1"
   license "MIT"
 
   bottle do
@@ -20,8 +20,8 @@ class Ramalama < Formula
   depends_on "python@3.13"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/ee/be/29abccb5d9f61a92886a2fba2ac22bf74326b5c4f55d36d0a56094630589/argcomplete-3.6.0.tar.gz"
-    sha256 "2e4e42ec0ba2fff54b0d244d0b1623e86057673e57bafe72dda59c64bd5dee8b"
+    url "https://files.pythonhosted.org/packages/0a/35/aacd2207c79d95e4ace44292feedff8fccfd8b48135f42d84893c24cc39b/argcomplete-3.6.1.tar.gz"
+    sha256 "927531c2fbaa004979f18c2316f6ffadcfc5cc2de15ae2624dfe65deaf60e14f"
   end
 
   def install
