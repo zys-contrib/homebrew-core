@@ -1424,6 +1424,7 @@ haproxy
 haproxy@2.8
 harfbuzz
 harper
+harsh
 haskell-language-server
 haskell-stack
 hatari
