@@ -3,8 +3,8 @@ class Pycodestyle < Formula
 
   desc "Simple Python style checker in one Python file"
   homepage "https://pycodestyle.pycqa.org/"
-  url "https://github.com/PyCQA/pycodestyle/archive/refs/tags/2.12.1.tar.gz"
-  sha256 "231f65fbf5558e342cbad275245accb8a988d637cbeaf66508dd890f3d2d60fa"
+  url "https://github.com/PyCQA/pycodestyle/archive/refs/tags/2.13.0.tar.gz"
+  sha256 "b1a4db0d9b8285f6643bcdb41362be6d6c94b891b13ead09c57a2513c46b717b"
   license "MIT"
   head "https://github.com/PyCQA/pycodestyle.git", branch: "master"
 
