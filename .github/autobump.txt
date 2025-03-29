@@ -1846,6 +1846,7 @@ libdap
 libdeflate
 libdex
 libdivide
+libdmtx
 libdnet
 libdom
 libdpp
