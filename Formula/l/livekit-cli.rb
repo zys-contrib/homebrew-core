@@ -1,19 +1,10 @@
 class LivekitCli < Formula
   desc "Command-line interface to LiveKit"
   homepage "https://livekit.io"
+  url "https://github.com/livekit/livekit-cli/archive/refs/tags/v2.4.0.tar.gz"
+  sha256 "50ace1d37d6ffd80dd186dc685a43812f85a0bbdd6b006327dbf26b802a04958"
   license "Apache-2.0"
   head "https://github.com/livekit/livekit-cli.git", branch: "main"
-
-  stable do
-    url "https://github.com/livekit/livekit-cli/archive/refs/tags/v2.3.3.tar.gz"
-    sha256 "a01ce7e297566aab77f97fabf4a4fe13755a5039bd35a5e440c9e94630125bd2"
-
-    # version patch, upstream pr ref, https://github.com/livekit/livekit-cli/pull/521
-    patch do
-      url "https://github.com/livekit/livekit-cli/commit/9a8ecb16d1822d1ec5fe3d78df91ec93dd7e6f4b.patch?full_index=1"
-      sha256 "ca323f16e12ab9afaa129c27ecd24d82f18d68404b4d05d6dd0cdc43255278e1"
-    end
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8d6c5ff4844f6d3da36ea78a7ac94fc8b1ad086a66e27c997a8aef81dc210a32"
