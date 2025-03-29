@@ -6,13 +6,13 @@ class Kubevious < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6649285a0612dbbb94b3294d1a61b63847291626cb1cfabe317053be02caa5fa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6649285a0612dbbb94b3294d1a61b63847291626cb1cfabe317053be02caa5fa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6649285a0612dbbb94b3294d1a61b63847291626cb1cfabe317053be02caa5fa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6662e0e9b747da81e039e82d9cb3f26e972b83482e6fac21dff5325bcd8a639d"
-    sha256 cellar: :any_skip_relocation, ventura:       "6662e0e9b747da81e039e82d9cb3f26e972b83482e6fac21dff5325bcd8a639d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6649285a0612dbbb94b3294d1a61b63847291626cb1cfabe317053be02caa5fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6649285a0612dbbb94b3294d1a61b63847291626cb1cfabe317053be02caa5fa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bf541437312693b6b7eb8c2e24d522381e69939b41e2e708bd9ac1c459bd1620"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bf541437312693b6b7eb8c2e24d522381e69939b41e2e708bd9ac1c459bd1620"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "bf541437312693b6b7eb8c2e24d522381e69939b41e2e708bd9ac1c459bd1620"
+    sha256 cellar: :any_skip_relocation, sonoma:        "174afab940f90a87e14b1f4e257044b0598400c24cf204e046a89708b4d01495"
+    sha256 cellar: :any_skip_relocation, ventura:       "174afab940f90a87e14b1f4e257044b0598400c24cf204e046a89708b4d01495"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf541437312693b6b7eb8c2e24d522381e69939b41e2e708bd9ac1c459bd1620"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf541437312693b6b7eb8c2e24d522381e69939b41e2e708bd9ac1c459bd1620"
   end
 
   depends_on "node"
