@@ -1,8 +1,8 @@
 class Pgrok < Formula
   desc "Poor man's ngrok, multi-tenant HTTP/TCP reverse tunnel solution"
   homepage "https://github.com/pgrok/pgrok"
-  url "https://github.com/pgrok/pgrok/archive/refs/tags/v1.4.4.tar.gz"
-  sha256 "163fa1148de55580d68a0a13244c9e383d5648f81879fca375e43aaad870c23b"
+  url "https://github.com/pgrok/pgrok/archive/refs/tags/v1.4.5.tar.gz"
+  sha256 "b43c145970d8a3f02aa7f1e96d5607ea57daabd675e0d760bbc837f7113bdc43"
   license "MIT"
 
   bottle do
