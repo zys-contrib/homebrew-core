@@ -1223,6 +1223,7 @@ git-split-diffs
 git-subrepo
 git-sync
 git-town
+git-who
 git-xargs
 gitbackup
 gitbucket
