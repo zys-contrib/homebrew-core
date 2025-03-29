@@ -34,23 +34,23 @@ class Mesa < Formula
   depends_on "bindgen" => :build
   depends_on "bison" => :build # can't use from macOS, needs '> 2.3'
   depends_on "glslang" => :build
-  depends_on "libxfixes" => :build
   depends_on "libxrandr" => :build
   depends_on "libxrender" => :build
   depends_on "libxshmfence" => :build
   depends_on "libyaml" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkgconf" => :build
+  depends_on "pkgconf" => [:build, :test]
   depends_on "python@3.13" => :build
   depends_on "rust" => :build
   depends_on "xorgproto" => :build
 
-  depends_on "libclc" # runtime dependency for share/clc
+  depends_on "libclc" # OpenCL support needs share/clc/*.bc files at runtime
   depends_on "libpng"
   depends_on "libx11"
   depends_on "libxcb"
   depends_on "libxext"
+  depends_on "libxfixes"
   depends_on "llvm"
   depends_on "spirv-llvm-translator"
   depends_on "spirv-tools"
@@ -190,16 +190,7 @@ class Mesa < Formula
     end
 
     %w[glxgears.c gl_wrap.h].each { |r| resource(r).stage(testpath) }
-    flags = %W[
-      -I#{include}
-      -L#{lib}
-      -L#{Formula["libx11"].lib}
-      -L#{Formula["libxext"].lib}
-      -lGL
-      -lX11
-      -lXext
-      -lm
-    ]
-    system ENV.cc, "glxgears.c", "-o", "gears", *flags
+    flags = shell_output("pkgconf --cflags --libs gl x11 xext").chomp.split
+    system ENV.cc, "glxgears.c", "-o", "gears", *flags, "-lm"
   end
 end
