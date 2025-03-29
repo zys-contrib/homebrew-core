@@ -102,18 +102,7 @@ class Ford < Formula
   end
 
   def install
-    venv = virtualenv_install_with_resources without: "markdown-include"
-
-    resource("markdown-include").stage do
-      # Setuptools no longer supports the keys with hyphen in the `setup.cfg` file
-      # Fix patch cannot be applied and so manually change the key name
-      #   - `setup.cfg` in PyPI and github is a bit different
-      #   - `ford` uses outdated version of `markdown-include`
-      # PR Ref: https://github.com/cmacmackin/markdown-include/pull/51
-      inreplace "setup.cfg", "description-file", "description_file"
-      venv.pip_install Pathname.pwd
-    end
-
+    virtualenv_install_with_resources
     doc.install "2008standard.pdf", "2003standard.pdf"
     pkgshare.install "example/example-project-file.md"
   end
