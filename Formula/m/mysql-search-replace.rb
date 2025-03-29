@@ -1,4 +1,8 @@
+require "language/php"
+
 class MysqlSearchReplace < Formula
+  include Language::PHP::Shebang
+
   desc "Database search and replace script in PHP"
   homepage "https://interconnectit.com/products/search-and-replace-for-wordpress-databases/"
   url "https://github.com/interconnectit/Search-Replace-DB/archive/refs/tags/4.1.2.tar.gz"
@@ -9,11 +13,13 @@ class MysqlSearchReplace < Formula
     sha256 cellar: :any_skip_relocation, all: "08b03d69eae7a4b2f89ead89f79ac09cd0bd093da29e0255329c308fd559ff43"
   end
 
+  depends_on "php"
+
   def install
     libexec.install "srdb.class.php"
     libexec.install "srdb.cli.php" => "srdb"
-    chmod 0755, libexec/"srdb"
-    bin.install_symlink libexec/"srdb"
+    rewrite_shebang detected_php_shebang, libexec/"srdb" if OS.linux?
+    bin.write_exec_script libexec/"srdb"
   end
 
   test do
