@@ -7,15 +7,12 @@ class Hashlink < Formula
   head "https://github.com/HaxeFoundation/hashlink.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sequoia:  "c4e82df868e4b04a3f1eabeb3166c81282cc6de61b4d22e469096fe6fb36e955"
-    sha256 cellar: :any,                 arm64_sonoma:   "49c5e4244cc628ab69ce7dad3d7908dff8d61035d9f6c2f8298574ef35341a4e"
-    sha256 cellar: :any,                 arm64_ventura:  "fd29a416c322068567b89dce7ea79f2d8977bbf87fadb3546fd2bcd253b36ba4"
-    sha256 cellar: :any,                 arm64_monterey: "17054886a8d100e481b845a4a977a0aa5e5a354a4145f5911aeb837e14fae5b4"
-    sha256 cellar: :any,                 sonoma:         "f30c155da0e4809aaaf95f42f70e975a669ab1cca3acbcb2da9adc0c7144cbf5"
-    sha256 cellar: :any,                 ventura:        "b5d824577be90d958356a8b91ad3caee21db129bd0595cfa2d9d792fe583bba8"
-    sha256 cellar: :any,                 monterey:       "9053a0d1ff26dc49ded63dac843e01ab4f5e3df43cadb99631e1596289d5ccfc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "286beb90726c27f47fc2f27280ac1b682ccfde139bf669d628958a9b6df85746"
+    sha256 cellar: :any,                 arm64_sequoia: "88ce0382363f5995731d0fc498aa87d0e3a63e5e1df9dcb850f9aae11f47ce4f"
+    sha256 cellar: :any,                 arm64_sonoma:  "74702f549d40fa1f1ca50bab1bf403f99b2ed87e2ff6ae9db26ee6ac417b4668"
+    sha256 cellar: :any,                 arm64_ventura: "97f8de5f331d21b2d857282e6b3bed1d8b47fd02c3e77aedb789b9711088aee9"
+    sha256 cellar: :any,                 sonoma:        "99ef63e02f0bbb6a3e54b02319796fed5660f992ee0e1dbe9097239044ad4faa"
+    sha256 cellar: :any,                 ventura:       "f7e72d266dc1e415280ee163dcbcc8ef6802751e8469229da7c75653b621dca0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7e70f6faae35bb958d819576c54d06d9852415cbbc5e98c8846db377a83eed8"
   end
 
   depends_on "haxe" => :test
