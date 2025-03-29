@@ -1,8 +1,8 @@
 class Atop < Formula
   desc "Advanced system and process monitor for Linux using process events"
   homepage "https://www.atoptool.nl"
-  url "https://github.com/Atoptool/atop/archive/refs/tags/v2.11.0.tar.gz"
-  sha256 "f61d01fcae4fd5e2644ed4e210a0cbcfc9bf85cef32b00e342417e3923eda49c"
+  url "https://github.com/Atoptool/atop/archive/refs/tags/v2.11.1.tar.gz"
+  sha256 "72b39a6f9afd917cf6b92e544b28e9a65942da1b97bdee4ca7eafeea9d169a76"
   license "GPL-2.0-or-later"
   head "https://github.com/Atoptool/atop.git", branch: "master"
 
