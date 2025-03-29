@@ -1,8 +1,8 @@
 class AngleGrinder < Formula
   desc "Slice and dice log files on the command-line"
   homepage "https://github.com/rcoh/angle-grinder"
-  url "https://github.com/rcoh/angle-grinder/archive/refs/tags/v0.19.4.tar.gz"
-  sha256 "13ae3912dcc34c2648d8ef57fe8d976cb978c70e6976ead079ea5d7609532172"
+  url "https://github.com/rcoh/angle-grinder/archive/refs/tags/v0.19.6.tar.gz"
+  sha256 "f76e236f0825ca3f0b165e37d6448fa36e39c41690e7469d02c37eeb0c972222"
   license "MIT"
 
   bottle do
