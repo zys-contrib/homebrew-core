@@ -1,8 +1,8 @@
 class Libspnav < Formula
   desc "Client library for connecting to 3Dconnexion's 3D input devices"
   homepage "https://spacenav.sourceforge.net/"
-  url "https://github.com/FreeSpacenav/libspnav/releases/download/v1.1/libspnav-1.1.tar.gz"
-  sha256 "04b297f68a10db4fa40edf68d7f823ba7b9d0442f2b665181889abe2cea42759"
+  url "https://github.com/FreeSpacenav/libspnav/releases/download/v1.2/libspnav-1.2.tar.gz"
+  sha256 "093747e7e03b232e08ff77f1ad7f48552c06ac5236316a5012db4269951c39db"
   license "BSD-3-Clause"
 
   bottle do
