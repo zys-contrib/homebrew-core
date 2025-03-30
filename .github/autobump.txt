@@ -1450,6 +1450,7 @@ helm-ls
 helmfile
 helmify
 helmsman
+hercules
 hermit
 heroku
 hevi

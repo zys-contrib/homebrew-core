@@ -1,8 +1,8 @@
 class Hercules < Formula
   desc "System/370, ESA/390 and z/Architecture Emulator"
   homepage "https://sdl-hercules-390.github.io/html/"
-  url "https://github.com/SDL-Hercules-390/hyperion/archive/refs/tags/Release_4.7.tar.gz"
-  sha256 "74c747773e0b5639164f6f69ce9220e1bd1d4853c5c4f18329da21c03aebe388"
+  url "https://github.com/SDL-Hercules-390/hyperion/archive/refs/tags/Release_4.8.tar.gz"
+  sha256 "91ac45a1cce8196f32a7d7918db6f935c29a891cd0baedeec70f9290bce91de9"
   license "QPL-1.0"
   head "https://github.com/SDL-Hercules-390/hyperion.git", branch: "master"
 
@@ -23,6 +23,7 @@ class Hercules < Formula
   depends_on "cmake" => :build
   depends_on "gnu-sed" => :build
   depends_on "libtool" => :build
+
   uses_from_macos "zlib"
 
   resource "crypto" do
@@ -36,8 +37,8 @@ class Hercules < Formula
   end
 
   resource "SoftFloat" do
-    url "https://github.com/SDL-Hercules-390/SoftFloat/archive/4b0c326008e174610969c92e69178939ed80653d.tar.gz"
-    sha256 "46a141a183cb1ad8de937612d134ad51e8ff100931bcf6d4a62874baadf18e69"
+    url "https://github.com/SDL-Hercules-390/SoftFloat/archive/c114c53e672d92671e0971cfbf8fe2bed3d5ae9e.tar.gz"
+    sha256 "3dfbd1c1dc2ee6b1dcc6d67fa831d0590982c28f518ef207363950125d36aa47"
   end
 
   resource "telnet" do
