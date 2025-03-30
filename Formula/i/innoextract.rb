@@ -2,7 +2,7 @@ class Innoextract < Formula
   desc "Tool to unpack installers created by Inno Setup"
   homepage "https://constexpr.org/innoextract/"
   license "Zlib"
-  revision 10
+  revision 11
   head "https://github.com/dscharrer/innoextract.git", branch: "master"
 
   stable do
