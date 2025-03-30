@@ -1,19 +1,10 @@
 class Pivy < Formula
   desc "Python bindings to coin3d"
   homepage "https://github.com/coin3d/pivy"
+  url "https://github.com/coin3d/pivy/archive/refs/tags/0.6.10.tar.gz"
+  sha256 "7b409816c9fad84cf94f93659281f9dd2501d285eb2fc609e9401a3d004ce723"
   license "ISC"
   head "https://github.com/coin3d/pivy.git", branch: "master"
-
-  stable do
-    url "https://github.com/coin3d/pivy/archive/refs/tags/0.6.9.tar.gz"
-    sha256 "c207f5ed73089b2281356da4a504c38faaab90900b95639c80772d9d25ba0bbc"
-
-    # Backport fix for Qt6 QtOpenGLWidgets
-    patch do
-      url "https://github.com/coin3d/pivy/commit/e81c5f32538891c740b90b5d2eb77fa6a9e1cb43.patch?full_index=1"
-      sha256 "c54b660f09957ad7673d29328fb1cbe77b9eb4b090f2371b6e16b4c333e679c4"
-    end
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:  "49312c6ceb49fc4e4141430afe844ed52fb2f828445497fb74a695dd1c7c23dc"

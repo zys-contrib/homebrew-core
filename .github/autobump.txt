@@ -2717,6 +2717,7 @@ pipet
 pipgrip
 pipx
 pivit
+pivy
 pixi
 pixi-pack
 pixie
