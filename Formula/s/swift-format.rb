@@ -2,10 +2,9 @@ class SwiftFormat < Formula
   desc "Formatting technology for Swift source code"
   homepage "https://github.com/swiftlang/swift-format"
   url "https://github.com/swiftlang/swift-format.git",
-      tag:      "600.0.0",
-      revision: "65f9da9aad84adb7e2028eb32ca95164aa590e3b"
+      tag:      "601.0.0",
+      revision: "ffbb3225ffda37b62c7283c70e87e8bc7e8e202a"
   license "Apache-2.0"
-  revision 1
   version_scheme 1
   head "https://github.com/swiftlang/swift-format.git", branch: "main"
 
@@ -31,13 +30,6 @@ class SwiftFormat < Formula
   depends_on xcode: ["14.0", :build]
 
   uses_from_macos "swift" => :build
-
-  # Fix hang on Linux.
-  # Remove with the next release.
-  patch do
-    url "https://github.com/swiftlang/swift-format/commit/5a1348bd9d08227b2af8a94e95bf2ebb1ca1817e.patch?full_index=1"
-    sha256 "0b012627c97d077cbbbc5c9427bab8f6a5c03b150116b2370eaa43bb0b4d9454"
-  end
 
   def install
     args = if OS.mac?

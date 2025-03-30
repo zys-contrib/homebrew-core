@@ -3357,6 +3357,7 @@ swagger2markup-cli
 swc
 swctl
 swi-prolog
+swift-format
 swift-protobuf
 swift-sh
 swiftformat
