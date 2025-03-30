@@ -1393,6 +1393,7 @@ gtk-gnutella
 gtk-mac-integration
 gtk+3
 gtk4
+gtkmm3
 gtkmm4
 gtksourceview5
 gtranslator
