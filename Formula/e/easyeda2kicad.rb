@@ -8,6 +8,15 @@ class Easyeda2kicad < Formula
   license "AGPL-3.0-or-later"
   head "https://github.com/uPesy/easyeda2kicad.py.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "63ed5e301650da8befc358c541925387a1f08b8eff7f0ce6a6c929a305961945"
+    sha256 cellar: :any,                 arm64_sonoma:  "d0014b3a6121857ab6c8bd613f394d1c18d68ec6491b20bc60834a76109936ab"
+    sha256 cellar: :any,                 arm64_ventura: "7d35b33026997cbc4fe5eab77ab2b052b22e586d8c9aaf2d886aea8d9d752c19"
+    sha256 cellar: :any,                 sonoma:        "bcfd1712307952ae5734a3b388582968b872da58a1942e02998fa87b8b791518"
+    sha256 cellar: :any,                 ventura:       "61ee7b4c3d3b2e8268b59b1dce11d1ed967a6a397b28198bd7a3cb3d404b12be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "41b4e8ded36b17d0d72029b1df3c1275aa92e428e232f0bdccb171ef12937b21"
+  end
+
   depends_on "rust" => :build
   depends_on "python@3.13"
 
