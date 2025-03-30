@@ -44,10 +44,8 @@ class SuiteSparse < Formula
 
   def install
     # Avoid references to Homebrew shims
-    if OS.mac?
-      inreplace "GraphBLAS/cmake_modules/GraphBLAS_JIT_configure.cmake",
-          "C_COMPILER_BINARY \"${CMAKE_C_COMPILER}\"", "C_COMPILER_BINARY \"#{ENV.cc}\""
-    end
+    inreplace "GraphBLAS/cmake_modules/GraphBLAS_JIT_configure.cmake",
+              "C_COMPILER_BINARY \"${CMAKE_C_COMPILER}\"", "C_COMPILER_BINARY \"#{ENV.cc}\""
 
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}",
                                               *std_cmake_args
