@@ -1987,6 +1987,7 @@ libsoundio
 libsoup
 libspelling
 libspiro
+libspnav
 libsql
 libssh
 libssh2
