@@ -104,6 +104,7 @@ class FluidSynth < Formula
     assert_path_exists wavout
 
     # Check the pkg-config module
+    ENV.append_path "PKG_CONFIG_PATH", Formula["systemd"].lib/"pkgconfig" if OS.linux?
     system "pkgconf", "--cflags", "--libs", "--static", lib/"pkgconfig/fluidsynth.pc"
   end
 end
