@@ -1937,6 +1937,7 @@ libnghttp3
 libnotify
 libntlm
 libobjc2
+libomemo-c
 libomp
 libopenmpt
 liboqs
