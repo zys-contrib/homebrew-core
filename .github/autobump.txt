@@ -2798,6 +2798,7 @@ projectable
 prometheus
 prometheus-cpp
 promptfoo
+proper
 proselint
 proteinortho
 proto
