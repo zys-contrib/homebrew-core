@@ -1,8 +1,8 @@
 class LsLint < Formula
   desc "Extremely fast file and directory name linter"
   homepage "https://ls-lint.org/"
-  url "https://github.com/loeffel-io/ls-lint/archive/refs/tags/v2.2.3.tar.gz"
-  sha256 "10a6f03747b0f9c38538a8c54f8ee7e4539dbadae687519e7f5f8a140f55f34e"
+  url "https://github.com/loeffel-io/ls-lint/archive/refs/tags/v2.3.0.tar.gz"
+  sha256 "b68b924ee8a8bea41a8508824555455a001af48df3f1f60d7f4fc55b2abe7188"
   license "MIT"
   head "https://github.com/loeffel-io/ls-lint.git", branch: "master"
 
@@ -29,7 +29,7 @@ class LsLint < Formula
     touch testpath/"Library/test.py"
 
     output = shell_output("#{bin}/ls-lint -config #{pkgshare}/.ls-lint.yml -workdir #{testpath} 2>&1", 1)
-    assert_match "Library failed for rules: snakecase", output
+    assert_match "Library failed for `.dir` rules: snakecase", output
 
     assert_match version.to_s, shell_output("#{bin}/ls-lint -version")
   end

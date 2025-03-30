@@ -2096,6 +2096,7 @@ logrotate
 logstash
 lol-html
 lout
+ls-lint
 lsd
 lsix
 lsof
