@@ -1890,6 +1890,7 @@ libgweather
 libhandy
 libharu
 libheif
+libheinz
 libhubbub
 libical
 libice
