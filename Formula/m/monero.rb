@@ -1,21 +1,13 @@
 class Monero < Formula
   desc "Official Monero wallet and CPU miner"
   homepage "https://www.getmonero.org/downloads/#cli"
+  url "https://downloads.getmonero.org/cli/monero-source-v0.18.4.0.tar.bz2"
+  sha256 "fe982ced4603aa7e54989326e3d1830ac1a1387e99722c419e2b103b8e8aa1a0"
   license "BSD-3-Clause"
-  revision 1
-
-  stable do
-    # TODO: Remove `boost@1.85` and move `boost` out of HEAD in next release
-    url "https://github.com/monero-project/monero.git",
-        tag:      "v0.18.3.4",
-        revision: "b089f9ee69924882c5d14dd1a6991deb05d9d1cd"
-
-    depends_on "boost@1.85" # Boost 1.87+ issue ref: https://github.com/monero-project/monero/issues/9596
-  end
 
   livecheck do
-    url :stable
-    strategy :github_latest
+    url "https://downloads.getmonero.org/cli/source"
+    strategy :header_match
   end
 
   bottle do
@@ -30,13 +22,13 @@ class Monero < Formula
   head do
     url "https://github.com/monero-project/monero.git", branch: "master"
 
-    depends_on "boost" # TODO: use on stable in 0.18.4.0
     depends_on "libusb" # TODO: use on stable in 0.19 (?)
     depends_on "protobuf" # TODO: use on stable in 0.19 (?)
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
+  depends_on "boost"
   depends_on "hidapi"
   depends_on "libsodium"
   depends_on "openssl@3"
@@ -47,10 +39,10 @@ class Monero < Formula
   conflicts_with "wownero", because: "both install a wallet2_api.h header"
 
   def install
-    # Boost 1.87.0 fix has been backported to release-0.18 branch so should make it into 0.18.4.0
-    # Ref: https://github.com/monero-project/monero/commit/01bcd52924244ec8d2a24c10fcef8959289d09ff
-    # Ref: https://github.com/monero-project/monero/issues/9758
-    odie "Remove `boost@1.85` and move `boost` out of HEAD!" if build.stable? && version >= "0.18.4.0"
+    # Partial backport for CMake 4 compatibility
+    # https://github.com/monero-project/monero/commit/eb083ca423c6dc7431d3f1e2992307cfccec4a9f
+    inreplace "CMakeLists.txt", "cmake_minimum_required(VERSION 3.1)",
+                                "cmake_minimum_required(VERSION 3.5)"
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
