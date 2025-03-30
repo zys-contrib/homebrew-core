@@ -2669,6 +2669,8 @@ perl
 perl-dbd-mysql
 perltidy
 peru
+petsc
+petsc-complex
 pferd
 pfetch-rs
 pg_cron
