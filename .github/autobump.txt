@@ -3533,6 +3533,7 @@ topgit
 topgrade
 topiary
 tor
+torsocks
 totp-cli
 tox
 toxcore
