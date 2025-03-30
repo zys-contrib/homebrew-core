@@ -1,8 +1,8 @@
 class Libformfactor < Formula
   desc "C++ library for the efficient computation of scattering form factors"
   homepage "https://jugit.fz-juelich.de/mlz/libformfactor"
-  url "https://jugit.fz-juelich.de/mlz/libformfactor/-/archive/v0.3.1/libformfactor-v0.3.1.tar.bz2"
-  sha256 "fc629a3e843e920b250393b0072f6673e26783b0776e8f08523534875950f298"
+  url "https://jugit.fz-juelich.de/mlz/libformfactor/-/archive/v0.3.2/libformfactor-v0.3.2.tar.bz2"
+  sha256 "b5cdb57fcbde6b39e314d7a040466a863f25625f112057e6d369a9ea5049dc1f"
   license "GPL-3.0-or-later"
 
   bottle do

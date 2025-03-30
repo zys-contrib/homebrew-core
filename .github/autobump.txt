@@ -1869,6 +1869,7 @@ libfido2
 libfishsound
 libfixbuf
 libfontenc
+libformfactor
 libfreenect
 libfs
 libgedit-amtk
