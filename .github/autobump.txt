@@ -2349,6 +2349,7 @@ nbdime
 ncc
 ncdc
 ncdu
+ncftp
 ncmdump
 ncmpc
 ncmpcpp
