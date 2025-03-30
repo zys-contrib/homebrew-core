@@ -1459,6 +1459,7 @@ hexo
 hexyl
 hfstospell
 hgrep
+hjson
 hickory-dns
 hidapi
 highlight
