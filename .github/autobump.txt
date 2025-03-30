@@ -3473,6 +3473,7 @@ tex-fmt
 texinfo
 texlab
 texmath
+text-embeddings-inference
 texttest
 tf-profile
 tf-summarize
