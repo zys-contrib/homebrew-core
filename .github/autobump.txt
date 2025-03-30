@@ -2107,6 +2107,7 @@ logstash
 logswan
 lol-html
 lout
+ls-lint
 lsd
 lsix
 lsof
