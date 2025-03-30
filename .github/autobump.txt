@@ -2094,6 +2094,7 @@ log4cxx
 logdy
 logrotate
 logstash
+logswan
 lol-html
 lout
 lsd
