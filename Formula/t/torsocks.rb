@@ -1,8 +1,8 @@
 class Torsocks < Formula
   desc "Use SOCKS-friendly applications with Tor"
   homepage "https://gitlab.torproject.org/tpo/core/torsocks"
-  url "https://gitlab.torproject.org/tpo/core/torsocks/-/archive/v2.4.0/torsocks-v2.4.0.tar.bz2"
-  sha256 "54b2e3255b697fb69bb92388376419bcef1f94d511da3980f9ed5cd8a41df3a8"
+  url "https://gitlab.torproject.org/tpo/core/torsocks/-/archive/v2.5.0/torsocks-v2.5.0.tar.bz2"
+  sha256 "31a917328b221e955230b7663abfbc50d3a9b445a68cb0313c11cf884f8cb41f"
   license "GPL-2.0-only"
   head "https://gitlab.torproject.org/tpo/core/torsocks.git", branch: "main"
 
