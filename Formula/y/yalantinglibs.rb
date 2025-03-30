@@ -7,7 +7,7 @@ class Yalantinglibs < Formula
   head "https://github.com/alibaba/yalantinglibs.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "8086a786c602d66397f747f125e70cb1a8bea4d4aa143591ffb854e9681e1afb"
+    sha256 cellar: :any_skip_relocation, all: "e6e98c999fe9853935b3fc19703d5a5a16e335e5456deac04ae734828a09abd4"
   end
 
   depends_on "cmake" => :build
