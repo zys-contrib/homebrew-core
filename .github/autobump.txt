@@ -1894,6 +1894,7 @@ libhubbub
 libical
 libice
 libiconv
+libidn
 libidn2
 libimagequant
 libimobiledevice-glue
