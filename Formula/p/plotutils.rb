@@ -29,7 +29,10 @@ class Plotutils < Formula
   depends_on "libpng"
 
   on_linux do
+    depends_on "libx11"
     depends_on "libxaw"
+    depends_on "libxext"
+    depends_on "libxt"
   end
 
   def install
@@ -39,17 +42,16 @@ class Plotutils < Formula
     # Avoid `-flat_namespace` flag.
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s if OS.mac?
 
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
+    args = %w[
       --disable-silent-rules
-      --prefix=#{prefix}
       --enable-libplotter
     ]
     # Prevent opportunistic linkage to X11
     args << "--without-x" if OS.mac?
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
   end
