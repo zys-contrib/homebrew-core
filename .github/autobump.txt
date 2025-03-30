@@ -3822,6 +3822,7 @@ xz
 yadm
 yaegi
 yaf
+yalantinglibs
 yamale
 yaml-language-server
 yamlfix
