@@ -1343,6 +1343,7 @@ gowall
 gowsdl
 gpa
 gpac
+gpatch
 gperftools
 gpg-tui
 gpgme
