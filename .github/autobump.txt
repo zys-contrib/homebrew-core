@@ -3213,6 +3213,7 @@ slackcat
 slackdump
 sleef
 slepc
+slepc-complex
 sleuthkit
 slides
 slirp4netns
