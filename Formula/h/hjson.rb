@@ -6,6 +6,15 @@ class Hjson < Formula
   license "MIT"
   head "https://github.com/hjson/hjson-go.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a524276874872d3ffbfee5f62065b5a6f6e23471ca54462b1c51d4871629fdd3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a524276874872d3ffbfee5f62065b5a6f6e23471ca54462b1c51d4871629fdd3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a524276874872d3ffbfee5f62065b5a6f6e23471ca54462b1c51d4871629fdd3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "820698eab9d0e0387089b4ef8bae5241a467b5cadbddfc75637aab484af2029f"
+    sha256 cellar: :any_skip_relocation, ventura:       "820698eab9d0e0387089b4ef8bae5241a467b5cadbddfc75637aab484af2029f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "601b7b091f0d37b1d40e798903dc3fa4fe1a4dbf80caa7de60cce49ad5831707"
+  end
+
   depends_on "go" => :build
 
   def install
