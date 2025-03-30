@@ -1,17 +1,17 @@
 class Dish < Formula
   desc "Lightweight monitoring service that efficiently checks socket connections"
   homepage "https://github.com/thevxn/dish"
-  url "https://github.com/thevxn/dish/archive/refs/tags/v1.9.2.tar.gz"
-  sha256 "0238614dee2dcc70fb5d1d6a4bab2eb766335474b0835b7fbaa540d8c73a4750"
+  url "https://github.com/thevxn/dish/archive/refs/tags/v1.10.1.tar.gz"
+  sha256 "ad131f52a9b3fedce05c009a27fff96d8ca5829fed000f4ed98538222b9c6fb4"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8090b66b20f175d132edfefa27c52f65a7b4a56f47e294d25f9cf65d0a5cce3c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8090b66b20f175d132edfefa27c52f65a7b4a56f47e294d25f9cf65d0a5cce3c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8090b66b20f175d132edfefa27c52f65a7b4a56f47e294d25f9cf65d0a5cce3c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9ece7754be7c6554405fa18bc6ebeaa048387ddd66534868c233e165821ca2a5"
-    sha256 cellar: :any_skip_relocation, ventura:       "9ece7754be7c6554405fa18bc6ebeaa048387ddd66534868c233e165821ca2a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "715ce7c2a122672f8cd05e9d09297ab2a5eeaf02ef21a1bb5eea93ad405672ea"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c752abb80ed1d8a1570a40b063f564291cc4f58b0fd55bbae52d24aa84f3dfbd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c752abb80ed1d8a1570a40b063f564291cc4f58b0fd55bbae52d24aa84f3dfbd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c752abb80ed1d8a1570a40b063f564291cc4f58b0fd55bbae52d24aa84f3dfbd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bcb6b02f1a24980c85ee9d6ba5c745935d5e1077f7b9e9b99fd89d8cc3f31754"
+    sha256 cellar: :any_skip_relocation, ventura:       "bcb6b02f1a24980c85ee9d6ba5c745935d5e1077f7b9e9b99fd89d8cc3f31754"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd0d855ad488c186ffdbb6b0ebda595409a2b9782d81a969c6da258663e1a798"
   end
 
   depends_on "go" => :build
