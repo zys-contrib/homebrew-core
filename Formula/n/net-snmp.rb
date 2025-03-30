@@ -59,6 +59,8 @@ class NetSnmp < Formula
     system "autoreconf", "-fvi" if Hardware::CPU.arm?
     system "./configure", *args
     system "make"
+    # Work around snmptrapd.c:(.text+0x1e0): undefined reference to `dropauth'
+    ENV.deparallelize if OS.linux?
     system "make", "install"
   end
 
