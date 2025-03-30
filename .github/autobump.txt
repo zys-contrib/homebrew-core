@@ -1827,6 +1827,7 @@ lgogdownloader
 libabigail
 libadwaita
 libaec
+libansilove
 libarchive
 libass
 libassuan
