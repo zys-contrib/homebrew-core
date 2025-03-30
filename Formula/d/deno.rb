@@ -61,13 +61,7 @@ class Deno < Formula
 
     # use our clang version, and disable lld because the build assumes the lld
     # supports features from newer clang versions (>=20)
-    ENV["GN_ARGS"] = "clang_version=#{llvm.version.major}"
-    if OS.mac?
-      ENV.append "GN_ARGS", "use_lld=false"
-    else
-      ENV.append "GN_ARGS", "use_lld=true"
-      ENV.delete "RUSTFLAGS"
-    end
+    ENV["GN_ARGS"] = "clang_version=#{llvm.version.major} use_lld=#{OS.linux?}"
 
     system "cargo", "install", "--no-default-features", "-vv", *std_cargo_args(path: "cli")
     generate_completions_from_executable(bin/"deno", "completions")
