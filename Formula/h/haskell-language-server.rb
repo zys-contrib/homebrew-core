@@ -1,18 +1,10 @@
 class HaskellLanguageServer < Formula
   desc "Integration point for ghcide and haskell-ide-engine. One IDE to rule them all"
   homepage "https://github.com/haskell/haskell-language-server"
+  url "https://github.com/haskell/haskell-language-server/releases/download/2.10.0.0/haskell-language-server-2.10.0.0-src.tar.gz"
+  sha256 "dd7ba032767e9a955f334617eef8f4b8b12b260191f97ad883545851f498dc0a"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/haskell/haskell-language-server.git", branch: "master"
-
-  stable do
-    url "https://github.com/haskell/haskell-language-server/releases/download/2.9.0.1/haskell-language-server-2.9.0.1-src.tar.gz"
-    sha256 "bdcdca4d4ec2a6208e3a32309ad88f6ebc51bdaef44cc59b3c7c004699d1f7bd"
-
-    # Backport support for newer GHC 9.8
-    # Ref: https://github.com/haskell/haskell-language-server/commit/6d0a6f220226fe6c1cb5b6533177deb55e755b0b
-    patch :DATA
-  end
 
   # we need :github_latest here because otherwise
   # livecheck picks up spurious non-release tags
@@ -31,8 +23,8 @@ class HaskellLanguageServer < Formula
   end
 
   depends_on "cabal-install" => [:build, :test]
+  depends_on "ghc" => [:build, :test]
   depends_on "ghc@9.10" => [:build, :test]
-  depends_on "ghc@9.6" => [:build, :test]
   depends_on "ghc@9.8" => [:build, :test]
 
   uses_from_macos "ncurses"
@@ -44,17 +36,15 @@ class HaskellLanguageServer < Formula
   end
 
   def install
-    # Backport newer index-state for GHC 9.8.4 support in ghc-lib-parser.
-    # We use the timestamp of r1 revision to avoid latter part of commit
-    # Ref: https://github.com/haskell/haskell-language-server/commit/25c5d82ce09431a1b53dfa1784a276a709f5e479
-    # Ref: https://hackage.haskell.org/package/ghc-lib-parser-9.8.4.20241130/revisions/
-    # TODO: Remove on the next release
-    inreplace "cabal.project", ": 2024-06-13T17:12:34Z", ": 2024-12-04T16:29:32Z" if build.stable?
+    # Cannot dynamically link when supporting multiple versions of GHC in single formula
+    args = ["--disable-executable-dynamic", "--flags=-dynamic -test-exe"]
+    # Work around failure: ld: B/BL out of range 204883708 (max +/-128MB)
+    args << "--ghc-option=-optl-ld_classic" if DevelopmentTools.clang_build_version == 1500 && Hardware::CPU.arm?
 
     system "cabal", "v2-update"
 
     ghcs.each do |ghc|
-      system "cabal", "v2-install", "--with-compiler=#{ghc.bin}/ghc", "--flags=-dynamic", *std_cabal_v2_args
+      system "cabal", "v2-install", "--with-compiler=#{ghc.bin}/ghc", *args, *std_cabal_v2_args
 
       cmds = ["haskell-language-server", "ghcide-bench"]
       cmds.each do |cmd|
@@ -93,16 +83,3 @@ class HaskellLanguageServer < Formula
     end
   end
 end
-
-__END__
---- a/ghcide/src/Development/IDE/GHC/Compat/Core.hs
-+++ b/ghcide/src/Development/IDE/GHC/Compat/Core.hs
-@@ -674,7 +674,7 @@ initObjLinker env =
- loadDLL :: HscEnv -> String -> IO (Maybe String)
- loadDLL env str = do
-     res <- GHCi.loadDLL (GHCi.hscInterp env) str
--#if MIN_VERSION_ghc(9,11,0)
-+#if MIN_VERSION_ghc(9,11,0) || (MIN_VERSION_ghc(9, 8, 3) && !MIN_VERSION_ghc(9, 9, 0))
-     pure $
-       case res of
-         Left err_msg -> Just err_msg
