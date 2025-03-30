@@ -1459,6 +1459,7 @@ hevi
 hexo
 hexyl
 hfstospell
+hg-fast-export
 hgrep
 hjson
 hickory-dns
