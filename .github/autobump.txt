@@ -2995,6 +2995,7 @@ risor
 river
 rizin
 rke
+rmlint
 rmw
 rnr
 roadrunner
