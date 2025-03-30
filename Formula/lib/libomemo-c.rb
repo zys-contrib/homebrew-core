@@ -1,8 +1,8 @@
 class LibomemoC < Formula
   desc "Implementation of Signal's ratcheting forward secrecy protocol"
   homepage "https://github.com/dino/libomemo-c"
-  url "https://github.com/dino/libomemo-c/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "03195a24ef7a86c339cdf9069d7f7569ed511feaf55e853bfcb797d2698ba983"
+  url "https://github.com/dino/libomemo-c/archive/refs/tags/v0.5.1.tar.gz"
+  sha256 "d1b65dbf7bccc67523abfd5e429707f540b2532932d128b2982f0246be2b22a0"
   license "GPL-3.0-only"
 
   bottle do
@@ -104,7 +104,7 @@ class LibomemoC < Formula
       }
     C
 
-    flags = shell_output("pkgconf --cflags --libs libomemo-c").chomp.split
+    flags = shell_output("pkgconf --cflags --libs libomemo-c libprotobuf-c").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
