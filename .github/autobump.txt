@@ -3251,6 +3251,7 @@ sophus
 soplex
 sops
 sord
+souffle
 sound-touch
 source-to-image
 sourcekitten
