@@ -2779,6 +2779,7 @@ privoxy
 probe-rs-tools
 procps
 procs
+profanity
 proftpd
 proj
 projectable
