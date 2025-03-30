@@ -22,7 +22,6 @@ class Allegro < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "dumb"
   depends_on "flac"
   depends_on "freetype"
   depends_on "libogg"
@@ -51,12 +50,13 @@ class Allegro < Formula
   end
 
   def install
-    cmake_args = std_cmake_args + %W[
+    cmake_args = %W[
       -DWANT_DOCS=OFF
+      -DWANT_DUMB=OFF
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
 
-    system "cmake", "-S", ".", "-B", "build", *cmake_args
+    system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
