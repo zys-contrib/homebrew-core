@@ -781,6 +781,7 @@ dillo
 directx-headers
 direnv
 direvent
+dish
 diskus
 dislocker
 displayplacer
@@ -1166,8 +1167,8 @@ gdbm
 gdcm
 gdk-pixbuf
 gdu
-geesefs
 geeqie
+geesefs
 gegl
 genact
 geni
