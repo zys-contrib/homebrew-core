@@ -1461,7 +1461,6 @@ hexyl
 hfstospell
 hg-fast-export
 hgrep
-hjson
 hickory-dns
 hidapi
 highlight
@@ -1471,6 +1470,7 @@ hishtory
 hive
 hivemind
 hivex
+hjson
 hk
 hl
 hledger
