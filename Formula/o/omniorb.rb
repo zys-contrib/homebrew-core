@@ -1,8 +1,8 @@
 class Omniorb < Formula
   desc "IOR and naming service utilities for omniORB"
   homepage "https://omniorb.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/omniorb/omniORB/omniORB-4.3.2/omniORB-4.3.2.tar.bz2"
-  sha256 "1c745330d01904afd7a1ed0a5896b9a6e53ac1a4b864a48503b93c7eecbf1fa8"
+  url "https://downloads.sourceforge.net/project/omniorb/omniORB/omniORB-4.3.3/omniORB-4.3.3.tar.bz2"
+  sha256 "accd25e2cb70c4e33ed227b0d93e9669e38c46019637887c771398870ed45e7a"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   livecheck do
@@ -28,8 +28,8 @@ class Omniorb < Formula
   uses_from_macos "zlib"
 
   resource "bindings" do
-    url "https://downloads.sourceforge.net/project/omniorb/omniORBpy/omniORBpy-4.3.2/omniORBpy-4.3.2.tar.bz2"
-    sha256 "cb5717d412a101baf430f598cac7d69231884dae4372d8e2adf3ddeebc5f7ebb"
+    url "https://downloads.sourceforge.net/project/omniorb/omniORBpy/omniORBpy-4.3.3/omniORBpy-4.3.3.tar.bz2"
+    sha256 "385c14e7ccd8463a68a388f4f2be3edcdd3f25a86b839575326bd2dc00078c22"
 
     livecheck do
       formula :parent
