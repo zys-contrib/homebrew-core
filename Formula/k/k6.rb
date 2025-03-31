@@ -1,8 +1,8 @@
 class K6 < Formula
   desc "Modern load testing tool, using Go and JavaScript"
   homepage "https://k6.io"
-  url "https://github.com/grafana/k6/archive/refs/tags/v0.57.0.tar.gz"
-  sha256 "75ccb3f7a9d3c2045d71b9bbb37d8a5e1b482b374d5c3deedac4523700a5bf05"
+  url "https://github.com/grafana/k6/archive/refs/tags/v0.58.0.tar.gz"
+  sha256 "013c5deb43264afc2f17a2f059fa27a706464abb235af401acfda26bb45fd8e7"
   license "AGPL-3.0-or-later"
 
   bottle do
@@ -17,6 +17,9 @@ class K6 < Formula
   depends_on "go" => :build
 
   def install
+    # see comment, https://github.com/Homebrew/homebrew-core/pull/217383#issuecomment-2766058674
+    odie "Revert the version check for 0.58.0" if build.stable? && version > "0.58.0"
+
     system "go", "build", *std_go_args(ldflags: "-s -w")
 
     generate_completions_from_executable(bin/"k6", "completion")
@@ -30,6 +33,7 @@ class K6 < Formula
     JS
 
     assert_match "whatever", shell_output("#{bin}/k6 run whatever.js 2>&1")
-    assert_match version.to_s, shell_output("#{bin}/k6 version")
+
+    system bin/"k6", "version"
   end
 end
