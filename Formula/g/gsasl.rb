@@ -1,9 +1,9 @@
 class Gsasl < Formula
   desc "SASL library command-line interface"
   homepage "https://www.gnu.org/software/gsasl/"
-  url "https://ftp.gnu.org/gnu/gsasl/gsasl-2.2.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gsasl/gsasl-2.2.1.tar.gz"
-  sha256 "d45b562e13bd13b9fc20b372f4b53269740cf6279f836f09ce11b9d32bcee075"
+  url "https://ftp.gnu.org/gnu/gsasl/gsasl-2.2.2.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gsasl/gsasl-2.2.2.tar.gz"
+  sha256 "41e8e442648eccaf6459d9ad93d4b18530b96c8eaf50e3f342532ef275eff3ba"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -20,10 +20,12 @@ class Gsasl < Formula
 
   depends_on "libgcrypt"
 
+  on_macos do
+    depends_on "gettext"
+  end
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--with-gssapi-impl=mit",
-                          "--prefix=#{prefix}"
+    system "./configure", "--with-gssapi-impl=mit", *std_configure_args
     system "make", "install"
   end
 
