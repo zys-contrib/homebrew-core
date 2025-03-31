@@ -1461,7 +1461,6 @@ hexyl
 hfstospell
 hg-fast-export
 hgrep
-hjson
 hickory-dns
 hidapi
 highlight
@@ -1471,6 +1470,7 @@ hishtory
 hive
 hivemind
 hivex
+hjson
 hk
 hl
 hledger
@@ -2670,6 +2670,8 @@ perl
 perl-dbd-mysql
 perltidy
 peru
+petsc
+petsc-complex
 pferd
 pfetch-rs
 pg_cron
@@ -3211,6 +3213,8 @@ skylighting
 slackcat
 slackdump
 sleef
+slepc
+slepc-complex
 sleuthkit
 slides
 slirp4netns
