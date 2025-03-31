@@ -1,13 +1,12 @@
 class Afflib < Formula
   desc "Advanced Forensic Format"
   homepage "https://github.com/sshock/AFFLIBv3"
-  url "https://github.com/sshock/AFFLIBv3/archive/refs/tags/v3.7.20.tar.gz"
-  sha256 "7264d705ff53185f0847c69abdfce072779c0b907257e087a6372c7608108f65"
+  url "https://github.com/sshock/AFFLIBv3/archive/refs/tags/v3.7.21.tar.gz"
+  sha256 "047fce790d69c234dde1d23ad9e1f0cf868ac51b2ad9a76560d01e80f2f1c452"
   license all_of: [
     "BSD-4-Clause", # AFFLIB 2.0a14 and before
     :public_domain, # contributions after 2.0a14
   ]
-  revision 1
 
   bottle do
     rebuild 2
@@ -31,21 +30,6 @@ class Afflib < Formula
   uses_from_macos "curl"
   uses_from_macos "expat"
   uses_from_macos "zlib"
-
-  # Backport commits for regenerated pyaff.c to fix build with Python 3.12.
-  # Remove in the next release.
-  patch do
-    url "https://github.com/sshock/AFFLIBv3/commit/e465b771c11a975e69bd3d89c11dbc15b6c3c951.patch?full_index=1"
-    sha256 "833e168baaddbf243d8a58cd370998c47745fe6bd6d1e4a912bd00df05fb28aa"
-  end
-  patch do
-    url "https://github.com/sshock/AFFLIBv3/commit/4309b86f4a5e9beab4c41e16a7a971f79b56f644.patch?full_index=1"
-    sha256 "48f0852729ff33f53d8f2a6aa135ef7459ce481d2d34a5fa27068edd3a883401"
-  end
-  patch do
-    url "https://github.com/sshock/AFFLIBv3/commit/01210f488410a23838c54fcc22297cf08ac7de66.patch?full_index=1"
-    sha256 "7ad16951841f278631f11432ba7ec2284c317367bb5f28816eb9a6748be1065a"
-  end
 
   def python3
     which("python3.13")
