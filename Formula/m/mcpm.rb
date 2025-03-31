@@ -13,6 +13,7 @@ class Mcpm < Formula
     sha256 cellar: :any,                 arm64_ventura: "0078a8d2f2f0fb2b5b784de2665527ceea9e26e0faa3e9084aeea20e839b52f9"
     sha256 cellar: :any,                 sonoma:        "a20e651cf32e5d80129401ae79adf8cf611f4fe03cd08865893ffdf3d9e63371"
     sha256 cellar: :any,                 ventura:       "69bfca6f1b4b5059e47df0df6144c8e4e45366b8e10c5559034b73b4f31e1168"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "19fb351c3826fd66ba1223252764de166ae0b7d32d7346528f163d408ba66f06"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e2878222dd4c2fb444be0d1a3f9d4cfe7d250c4f3e12da3d0137e735e6b6cb9"
   end
 
