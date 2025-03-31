@@ -1,9 +1,10 @@
 class Adaptivecpp < Formula
   desc "SYCL and C++ standard parallelism for CPUs and GPUs"
-  homepage "https://github.com/AdaptiveCpp/AdaptiveCpp"
+  homepage "https://adaptivecpp.github.io/"
   url "https://github.com/AdaptiveCpp/AdaptiveCpp/archive/refs/tags/v24.10.0.tar.gz"
   sha256 "3bcd94eee41adea3ccc58390498ec9fd30e1548af5330a319be8ce3e034a6a0b"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/AdaptiveCpp/AdaptiveCpp.git", branch: "develop"
 
   bottle do
@@ -18,7 +19,7 @@ class Adaptivecpp < Formula
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "llvm"
+  depends_on "llvm@19"
   uses_from_macos "python"
 
   on_macos do
@@ -26,19 +27,24 @@ class Adaptivecpp < Formula
   end
 
   def install
-    libomp_root = Formula["libomp"].opt_prefix
+    args = []
+    if OS.mac?
+      libomp_root = Formula["libomp"].opt_prefix
+      args << "-DOpenMP_ROOT=#{libomp_root}"
+    end
 
-    system "cmake", "-S", ".", "-B", "build", "-DOpenMP_ROOT=#{libomp_root}", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
     # Avoid references to Homebrew shims directory
-    shim_references = [prefix/"etc/AdaptiveCpp/acpp-core.json"]
-    inreplace shim_references, Superenv.shims_path/ENV.cxx, ENV.cxx
+    inreplace prefix/"etc/AdaptiveCpp/acpp-core.json", Superenv.shims_path/ENV.cxx, ENV.cxx
+    return unless OS.mac?
 
     # we add -I#{libomp_root}/include to default-omp-cxx-flags
     inreplace prefix/"etc/AdaptiveCpp/acpp-core.json",
-      "\"default-omp-cxx-flags\" : \"", "\"default-omp-cxx-flags\" : \"-I#{libomp_root}/include "
+              "\"default-omp-cxx-flags\" : \"",
+              "\"default-omp-cxx-flags\" : \"-I#{libomp_root}/include "
   end
 
   test do
