@@ -1,8 +1,8 @@
 class Sdl3Ttf < Formula
   desc "Library for using TrueType fonts in SDL applications"
   homepage "https://github.com/libsdl-org/SDL_ttf"
-  url "https://github.com/libsdl-org/SDL_ttf/releases/download/release-3.2.0/SDL3_ttf-3.2.0.tar.gz"
-  sha256 "9a741defb7c7d6dff658d402cb1cc46c1409a20df00949e1572eb9043102eb62"
+  url "https://github.com/libsdl-org/SDL_ttf/releases/download/release-3.2.2/SDL3_ttf-3.2.2.tar.gz"
+  sha256 "63547d58d0185c833213885b635a2c0548201cc8f301e6587c0be1a67e1e045d"
   license "Zlib"
   head "https://github.com/libsdl-org/SDL_ttf.git", branch: "main"
 
