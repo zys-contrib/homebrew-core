@@ -356,6 +356,9 @@
   "gcalcli": {
     "exclude_packages": ["certifi"]
   },
+  "gdown": {
+    "exclude_packages": ["certifi"]
+  },
   "ggshield": {
     "exclude_packages": ["certifi", "cryptography"]
   },
