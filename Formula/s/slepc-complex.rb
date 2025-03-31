@@ -10,13 +10,13 @@ class SlepcComplex < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "ab7353a6dabe7d12b44fe9f606178d93ea79319d12f18196ab8eb7ecdb363e5e"
-    sha256 arm64_sonoma:  "8c83602b8ee3da9d3c6037acc701892a06427dcc65196521240f3a28f0d0e425"
-    sha256 arm64_ventura: "2454ec267bb175ee89e152eb83ad919099f4469e49f80ec98da6deba0da1510c"
-    sha256 sonoma:        "1bf269557030623c97a6524ac992f20ccae2337c41cb0027888d042874d2e82a"
-    sha256 ventura:       "74c1ece8bf8ae685f8f9b0817cea8c3b005e949ef8953999c0485af27dd30578"
-    sha256 arm64_linux:   "a777dcc11e6171a07f570e8dc038a062d79437aea8ec9641aa846ca070ae1d27"
-    sha256 x86_64_linux:  "29b2f617d5cae86c0a023d2aaea35d053f73b06e40f6e705aeeedbc99e2aadb7"
+    sha256 arm64_sequoia: "28a4f94479c586cf452f90911bd643c1781bfc62b787db99a208179d4a7a9549"
+    sha256 arm64_sonoma:  "c0917a212c8888bb946ba9ec282bdb60986b2fa29cbaa566fdd160f93f34feed"
+    sha256 arm64_ventura: "a8679229f0c2befa3f76feb2c69eb479d3ef882f2436f3ee1784c6634a2fa125"
+    sha256 sonoma:        "d73a31882881c83dd96aa0e26694d2d3a3060675ddc919fd04e98631f11f868c"
+    sha256 ventura:       "af9d83dae9a5ca03f1c52b3125c4cf0b0f22c667322c49a046fb391e27aee75b"
+    sha256 arm64_linux:   "c18fab6ddd8d27ec7474ca34cd91da6dc4f7b5a591525953b62fca6d93359994"
+    sha256 x86_64_linux:  "cfa1feab93781a66b95621c6b3433f92a14826ea9beb5d322ffd53aade3c112a"
   end
 
   depends_on "open-mpi"
