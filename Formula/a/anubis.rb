@@ -6,6 +6,15 @@ class Anubis < Formula
   license "MIT"
   head "https://github.com/TecharoHQ/anubis.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b2241dceebc74fdf932b603b8814ccf376b3cf3adc73c3443130370a87a2524"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9e349d7bf471af558c873ea8136bfbe1d8e7392407e6c98431a2fea823eeba7a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "708416608f6f95c0456a1c67fa33e9f12c019d05097135ed0f1625c0ac31f5d5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "df1d1333625ff6fdbfacf5eba3b70b375c8167daf841d98b910d11381479a405"
+    sha256 cellar: :any_skip_relocation, ventura:       "b1478e8576020db2763777f5209105e1537b9e97058d8e6ed0ce2cf60e33efab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfb88fb1317d933bba2c27e5a2338cb0b6f734100eee4ccc9362808dc12db9db"
+  end
+
   depends_on "go" => :build
   depends_on "webify" => :test
 
