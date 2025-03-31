@@ -7,6 +7,15 @@ class Mcpm < Formula
   sha256 "21cf6b88f9b0709bc85c962548642bf284ff06849ff784bcb64a407f6147e667"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "26c2b2ae44273e8c10ceaddc2b234f185a59cdb0fceb30fa9e1ebadbddc88f76"
+    sha256 cellar: :any,                 arm64_sonoma:  "0eb13d383ecf000e02681e7819b93e2093ee8d0cbbce07c2856398db2a9ea40a"
+    sha256 cellar: :any,                 arm64_ventura: "0078a8d2f2f0fb2b5b784de2665527ceea9e26e0faa3e9084aeea20e839b52f9"
+    sha256 cellar: :any,                 sonoma:        "a20e651cf32e5d80129401ae79adf8cf611f4fe03cd08865893ffdf3d9e63371"
+    sha256 cellar: :any,                 ventura:       "69bfca6f1b4b5059e47df0df6144c8e4e45366b8e10c5559034b73b4f31e1168"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e2878222dd4c2fb444be0d1a3f9d4cfe7d250c4f3e12da3d0137e735e6b6cb9"
+  end
+
   depends_on "rust" => :build
   depends_on "python@3.13"
 
