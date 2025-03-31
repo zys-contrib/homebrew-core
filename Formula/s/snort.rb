@@ -1,9 +1,9 @@
 class Snort < Formula
   desc "Flexible Network Intrusion Detection System"
   homepage "https://www.snort.org"
-  url "https://github.com/snort3/snort3/archive/refs/tags/3.7.1.0.tar.gz"
-  mirror "https://fossies.org/linux/misc/snort3-3.7.1.0.tar.gz"
-  sha256 "3bb7a573e46f47f7be9e37dfe1902c43b9d5a9a5abd4d30282675a37089e518f"
+  url "https://github.com/snort3/snort3/archive/refs/tags/3.7.2.0.tar.gz"
+  mirror "https://fossies.org/linux/misc/snort3-3.7.2.0.tar.gz"
+  sha256 "5dc9beb0e115b6c33ce3cc8bd4a38decfb82c199761233e9ee21401a047e0f27"
   license "GPL-2.0-only"
   head "https://github.com/snort3/snort3.git", branch: "master"
 
@@ -43,6 +43,12 @@ class Snort < Formula
 
   on_linux do
     depends_on "libunwind"
+  end
+
+  # support cmake 4.0, upstream pr ref, https://github.com/snort3/snort3/pull/409
+  patch do
+    url "https://github.com/snort3/snort3/commit/565f3ee1fc9c62a8943a82f0f52a7973530f9a18.patch?full_index=1"
+    sha256 "bcd3ce2d90e98c55e57aba85be879a290976c232e9ab2ee9d45b295eb61178af"
   end
 
   def install
