@@ -16,13 +16,13 @@ class C3c < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "e8bbd2763c670ba8e2ace676eb18c7fc8ee03f42aaec19777ed230337ad778e8"
-    sha256 cellar: :any, arm64_sonoma:  "e8d5ce6f914cb3ac611e76102eff6a81ab05180dabac63143d7abe8cccdfe0b7"
-    sha256 cellar: :any, arm64_ventura: "f22286709d993d82e0f93b268a12eb648dfe1b71a23a9aad34d67ca5e58e15d8"
-    sha256 cellar: :any, sonoma:        "9549e22881b981f11afc3bd3e003ce96948daf9efdd66a5ad7ea582193ab5f3e"
-    sha256 cellar: :any, ventura:       "98d0dce27cd81b573d44cd823c904767ae2522b7bdac0d9b46aa5114dd409a98"
-    sha256               arm64_linux:   "84c2d2f3501513c198b8839a5ef65b629017d0bbc77dca4a5c64dad8402f9b6d"
-    sha256               x86_64_linux:  "265de4641c331430bdba1b940b0be1b31fd25f38d30f6c38473eb3099260a6c3"
+    sha256 cellar: :any, arm64_sequoia: "4e3e81a90f428a524fb1fe247fd09b9c7044a79f81e625767ac7ef9a837c3441"
+    sha256 cellar: :any, arm64_sonoma:  "000442a03f72526350dac1b6ceeb86cbebd11f2fb71c692cd038e73b9aa3c1c3"
+    sha256 cellar: :any, arm64_ventura: "6546943258ad231be505b55ce876eac74f0e3b0800f374b458dce3c436ca2686"
+    sha256 cellar: :any, sonoma:        "e50318e100d1251b8fad71ebe1f32a4f8f6c1b32490a183c0e577bf00ac62e13"
+    sha256 cellar: :any, ventura:       "be87e459a83fdda796d2440f8ab043bcba84c699acdcbf809450cfdd7a2e9f62"
+    sha256               arm64_linux:   "4ca837fed3ad2e3c3a5963dd4ddc046d5d029e7cc6192ae8b44652931afc613e"
+    sha256               x86_64_linux:  "d2cf20c5ef48945abec0073efcd6627bd7c3497ac2e7b73b65e3ed5e1c6e142b"
   end
 
   depends_on "cmake" => :build
