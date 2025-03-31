@@ -7,6 +7,15 @@ class XCmd < Formula
 
   head "https://github.com/x-cmd/x-cmd.git", branch: "X"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a9e9d45759eb975546409d87239bc4dc4481bfcf5ede5c671a41847d4e95179b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a9e9d45759eb975546409d87239bc4dc4481bfcf5ede5c671a41847d4e95179b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a9e9d45759eb975546409d87239bc4dc4481bfcf5ede5c671a41847d4e95179b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4412b5da947a0c7fdb8c2a29b931bbf6653a94d924c303532864d4649196673e"
+    sha256 cellar: :any_skip_relocation, ventura:       "4412b5da947a0c7fdb8c2a29b931bbf6653a94d924c303532864d4649196673e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9e9d45759eb975546409d87239bc4dc4481bfcf5ede5c671a41847d4e95179b"
+  end
+
   def install
     prefix.install Dir.glob("*")
     prefix.install Dir.glob(".x-cmd")
