@@ -1582,6 +1582,7 @@ ipython
 ircd-hybrid
 ircii
 iredis
+is-fast
 isa-l
 isl
 iso-codes
