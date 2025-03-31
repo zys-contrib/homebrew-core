@@ -1,8 +1,8 @@
 class Krep < Formula
   desc "High-Performance String Search Utility"
   homepage "https://davidesantangelo.github.io/krep/"
-  url "https://github.com/davidesantangelo/krep/archive/refs/tags/v0.1.7.tar.gz"
-  sha256 "a42f1d70dd1826bcfc5ffc91c9a6f52ff3e85bb47bda7b67038f549dd6c00982"
+  url "https://github.com/davidesantangelo/krep/archive/refs/tags/v0.2.3.tar.gz"
+  sha256 "bad5889fdd52a54fe18c393d2f051fd34e969125d4d446aff8eb26e183dac009"
   license "BSD-2-Clause"
 
   bottle do
@@ -13,12 +13,6 @@ class Krep < Formula
     sha256 cellar: :any_skip_relocation, ventura:       "60361e418894afcba4e48e9ddcc17104c830f9470ad21743932985311e754251"
     sha256 cellar: :any_skip_relocation, arm64_linux:   "8061ccae7328e5d40f4842c3fdc66503880dd2cfdf840b5d57c436fdc002e919"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ee3401fc0295b747eb1af5d787538af453240f369c89544f3628fbdd01e05f8"
-  end
-
-  # version patch, PR: https://github.com/davidesantangelo/krep/pull/14
-  patch do
-    url "https://github.com/davidesantangelo/krep/commit/d3957a2100961b29ba1259a1d2c8d4028d187e78.patch?full_index=1"
-    sha256 "fcedb45bf86c870173595eb5353ca64d03fc69ff8a074043f6e198f84e13a57a"
   end
 
   def install
