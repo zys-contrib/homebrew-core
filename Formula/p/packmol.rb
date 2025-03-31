@@ -1,8 +1,8 @@
 class Packmol < Formula
   desc "Packing optimization for molecular dynamics simulations"
   homepage "https://www.ime.unicamp.br/~martinez/packmol/"
-  url "https://github.com/m3g/packmol/archive/refs/tags/v21.0.0.tar.gz"
-  sha256 "5c751ec7f4e6960837c3579237d36449d1b37cfa240fb9590f74f558dc1fe155"
+  url "https://github.com/m3g/packmol/archive/refs/tags/v21.0.1.tar.gz"
+  sha256 "554a8a88348ad82b46e6195ff7c7698356b4a5a815c4f1c8615ef1b0651a5b9e"
   license "MIT"
   head "https://github.com/m3g/packmol.git", branch: "master"
 
@@ -27,6 +27,12 @@ class Packmol < Formula
   resource "homebrew-testdata" do
     url "https://www.ime.unicamp.br/~martinez/packmol/examples/examples.tar.gz"
     sha256 "97ae64bf5833827320a8ab4ac39ce56138889f320c7782a64cd00cdfea1cf422"
+  end
+
+  # support cmake 4.0, upstream pr ref, https://github.com/m3g/packmol/pull/94
+  patch do
+    url "https://github.com/m3g/packmol/commit/a1da16a7f3aeb2e004a963cf92bf9e57e94e4982.patch?full_index=1"
+    sha256 "5e073f744559a3b47c1b78075b445e3dd0b4e89e3918f4cbf8e651c77b83d173"
   end
 
   def install
