@@ -2,10 +2,9 @@ class Wabt < Formula
   desc "Web Assembly Binary Toolkit"
   homepage "https://github.com/WebAssembly/wabt"
   url "https://github.com/WebAssembly/wabt.git",
-      tag:      "1.0.36",
-      revision: "3e826ecde1adfba5f88d10d361131405637e65a3"
+      tag:      "1.0.37",
+      revision: "5e81f6aeddf94fd7743c8c2049f5084c74ff6ab1"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable
@@ -34,6 +33,7 @@ class Wabt < Formula
       -DBUILD_TESTS=OFF
       -DWITH_WASI=ON
       -DFETCHCONTENT_FULLY_DISCONNECTED=OFF
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     ]
 
     system "cmake", *args, *std_cmake_args
