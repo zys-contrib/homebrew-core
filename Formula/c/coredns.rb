@@ -1,8 +1,8 @@
 class Coredns < Formula
   desc "DNS server that chains plugins"
   homepage "https://coredns.io/"
-  url "https://github.com/coredns/coredns/archive/refs/tags/v1.12.0.tar.gz"
-  sha256 "71a585f7d41cd07a0839788bd3bb17bcc26501711c857eeae7cae2f1f654eeac"
+  url "https://github.com/coredns/coredns/archive/refs/tags/v1.12.1.tar.gz"
+  sha256 "665b2096611b960572b40ad7e943e9c6cca58da5f3885e148868578b15fbf8ef"
   license "Apache-2.0"
   head "https://github.com/coredns/coredns.git", branch: "master"
 
