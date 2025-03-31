@@ -9,14 +9,13 @@ class Afflib < Formula
   ]
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sequoia: "af52cd782cf1b09fa70e6aa3b44579058589a7cbec2f17a93186eec3590a0d12"
-    sha256 cellar: :any,                 arm64_sonoma:  "8e84ddb30d99b5c56442a283864d27424fba3ec1e918219c0fca34c64f040973"
-    sha256 cellar: :any,                 arm64_ventura: "b311a78fdc13c779b83bf5fa6acdab8c1c8393d66ff6d161530a634502533144"
-    sha256 cellar: :any,                 sonoma:        "e8b9a5c531f2bcbff5a706b6c592a764e58cb3d81143dcc22309166f97734277"
-    sha256 cellar: :any,                 ventura:       "a039726658443649798f2058fc46b37250f9dd7d86ce29f453f149be2b464ac0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1a9d43ca1e5b0080c2fdaa815f305cee0862825d069f1aa9a211d78ad5248fcd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6c3fd05bc590c7920e9c78895e931dea3e61ead38101fe87e483dc268f951e3"
+    sha256 cellar: :any,                 arm64_sequoia: "415198525cd476abc0821e74c603ed01181276a3dd535ab18040cbe069195581"
+    sha256 cellar: :any,                 arm64_sonoma:  "5f03dcc0b3c684a789bf81d700e7ddfe0a14093915c2872634424b55652a1389"
+    sha256 cellar: :any,                 arm64_ventura: "6e8bbe1340c8f6b0c0b4e171ce27e0bb58fc7dd4c582dd55ca22cc78f5738599"
+    sha256 cellar: :any,                 sonoma:        "dd9226742b7b0c22ec05712fe074202a59af8d6734062ae86080843c8bfa71d1"
+    sha256 cellar: :any,                 ventura:       "79daeac53f022c937b8f637b1be92b5b710b9aad7d2072225bacd85516229df9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "11e7390f80f0cec23e526eebc6347ec8632dd5c1e0fd7e209c0db7cc330e8acb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fad4c5a290b821683ac96da984b2dd64a3c7b09277e58d8a6cf571825069d8c"
   end
 
   depends_on "autoconf" => :build
