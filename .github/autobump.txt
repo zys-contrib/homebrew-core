@@ -1166,6 +1166,7 @@ gdal
 gdbm
 gdcm
 gdk-pixbuf
+gdown
 gdu
 geeqie
 geesefs
