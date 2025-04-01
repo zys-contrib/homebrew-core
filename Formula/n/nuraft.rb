@@ -1,8 +1,8 @@
 class Nuraft < Formula
   desc "C++ implementation of Raft core logic as a replication library"
   homepage "https://github.com/eBay/NuRaft"
-  url "https://github.com/eBay/NuRaft/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "42d19682149cf24ae12de0dabf70d7ad7e71e49fbfa61d565e9b46e2b3cd517f"
+  url "https://github.com/eBay/NuRaft/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "073c3b321efec9ce6b2bc487c283e493a1b2dd41082c5e9ac0b8f00f9b73832d"
   license "Apache-2.0"
 
   bottle do
@@ -19,14 +19,11 @@ class Nuraft < Formula
   end
 
   depends_on "cmake" => :build
+
   depends_on "asio"
   depends_on "openssl@3"
 
-  # patch to include missing header, `event_awaiter.h`, remove when it is available
-  patch do
-    url "https://github.com/eBay/NuRaft/commit/65736ff4314a0fa15f724a213fa42bf26bc86f70.patch?full_index=1"
-    sha256 "0d06d4a6b5b6fa348affacfff6bc100df1403a7194d7caf2b205e8a142401863"
-  end
+  uses_from_macos "zlib"
 
   def install
     # We override OPENSSL_LIBRARY_PATH to avoid statically linking to OpenSSL
