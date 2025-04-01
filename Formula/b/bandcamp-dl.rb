@@ -9,7 +9,7 @@ class BandcampDl < Formula
   head "https://github.com/iheanyi/bandcamp-dl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c29447db1a3a1e82d583043b725a2814716a769574b96ad699bcebaedfc84436"
+    sha256 cellar: :any_skip_relocation, all: "d9efd68207c36b160b6c6baa3aa4d86c8058c7b55c06e59bcddee0d17a977715"
   end
 
   depends_on "certifi"
