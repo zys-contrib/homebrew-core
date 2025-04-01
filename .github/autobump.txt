@@ -3518,6 +3518,7 @@ tintin
 tiny
 tinymist
 tinyproxy
+tinyxml2
 tio
 tippecanoe
 titlecase
