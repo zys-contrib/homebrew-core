@@ -75,6 +75,7 @@ ant
 antidote
 antlr
 antlr4-cpp-runtime
+anubis
 anycable-go
 anyquery
 aom
