@@ -1,9 +1,9 @@
 class SpidermonkeyAT115 < Formula
   desc "JavaScript-C Engine"
   homepage "https://spidermonkey.dev"
-  url "https://archive.mozilla.org/pub/firefox/releases/115.21.1esr/source/firefox-115.21.1esr.source.tar.xz"
-  version "115.21.1"
-  sha256 "470d5e5a6c27df2d91a69d885951a79b807b5586e4ad88c76e6c1764007e696a"
+  url "https://archive.mozilla.org/pub/firefox/releases/115.22.0esr/source/firefox-115.22.0esr.source.tar.xz"
+  version "115.22.0"
+  sha256 "f57b6507ab1db52183df2aadb1fd81d9f0108b185226d1bac6205b7d7d3005b3"
   license "MPL-2.0"
 
   # Spidermonkey versions use the same versions as Firefox, so we simply check
