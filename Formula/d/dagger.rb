@@ -12,12 +12,12 @@ class Dagger < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5c28196584da9f02156c2059256c428d92b027b99adc4642e5c636073462a3df"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5c28196584da9f02156c2059256c428d92b027b99adc4642e5c636073462a3df"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5c28196584da9f02156c2059256c428d92b027b99adc4642e5c636073462a3df"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d40d48eff5e1e01fef4298ad5b65054ccf980f17a4d44a3b37ea924272ae3ead"
-    sha256 cellar: :any_skip_relocation, ventura:       "d40d48eff5e1e01fef4298ad5b65054ccf980f17a4d44a3b37ea924272ae3ead"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2951994e79b2504bec08e7b4cd4d7cbbde87a80515d43ee49c5a4d83f53f64c9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ea66e6ce4a7ef664385a1789f6b7baeb175b2be82f8e4c3b3457fb491da13308"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ea66e6ce4a7ef664385a1789f6b7baeb175b2be82f8e4c3b3457fb491da13308"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ea66e6ce4a7ef664385a1789f6b7baeb175b2be82f8e4c3b3457fb491da13308"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e8d9df66c708fc79aa5e54902cac2a2cdd83e2f5fc385d21c7f5b454b6f74399"
+    sha256 cellar: :any_skip_relocation, ventura:       "e8d9df66c708fc79aa5e54902cac2a2cdd83e2f5fc385d21c7f5b454b6f74399"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f2fa97e11291f49fe8715f45cf5deac448662ce157f778ceacf2e339bcfd0ed"
   end
 
   depends_on "go" => :build
