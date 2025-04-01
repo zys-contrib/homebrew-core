@@ -1,8 +1,8 @@
 class FluentBit < Formula
   desc "Fast and Lightweight Logs and Metrics processor"
   homepage "https://github.com/fluent/fluent-bit"
-  url "https://github.com/fluent/fluent-bit/archive/refs/tags/v3.2.10.tar.gz"
-  sha256 "f86ecbe208ae152841909a063f28ca250b8a6771c5e43dcb1786ef310f927904"
+  url "https://github.com/fluent/fluent-bit/archive/refs/tags/v4.0.0.tar.gz"
+  sha256 "ef9a479c8cc12e01de6682e0cfd21a0a5d335a0ab9be14bbca37211fbf428cad"
   license "Apache-2.0"
   head "https://github.com/fluent/fluent-bit.git", branch: "master"
 
@@ -39,6 +39,7 @@ class FluentBit < Formula
 
     args = %w[
       -DFLB_PREFER_SYSTEM_LIB_LUAJIT=ON
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
