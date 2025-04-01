@@ -1248,6 +1248,7 @@ glances
 glassfish
 glasskube
 glaze
+glbinding
 gleam
 glfw
 glib
