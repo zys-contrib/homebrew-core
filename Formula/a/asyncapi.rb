@@ -1,8 +1,8 @@
 class Asyncapi < Formula
   desc "All in one CLI for all AsyncAPI tools"
   homepage "https://github.com/asyncapi/cli"
-  url "https://registry.npmjs.org/@asyncapi/cli/-/cli-2.17.0.tgz"
-  sha256 "96d16885b2199d7490abc74f39cc9204326cf3574cc5959d8014282237b80653"
+  url "https://registry.npmjs.org/@asyncapi/cli/-/cli-3.0.0.tgz"
+  sha256 "907792742a44feb2c610fbb1b50275aacc8a655ea5e50682a09a2d2f67bd1c52"
   license "Apache-2.0"
 
   bottle do
@@ -18,12 +18,15 @@ class Asyncapi < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *std_npm_args
+    system "npm", "install", "--ignore-scripts", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
     # Cleanup .pnpm folder
     node_modules = libexec/"lib/node_modules/@asyncapi/cli/node_modules"
     rm_r (node_modules/"@asyncapi/studio/build/standalone/node_modules/.pnpm") if OS.linux?
+
+    # Replace universal binaries with their native slices
+    deuniversalize_machos node_modules/"fsevents/fsevents.node"
   end
 
   test do
