@@ -14,6 +14,9 @@ class Encfs < Formula
     sha256 x86_64_linux: "1952d5ef71cdd862776574b47add8ae4649b907c6ed734fac41b7357d13250f7"
   end
 
+  # see commit, https://github.com/vgough/encfs/commit/aa106e6eddcc16ce7f763c63e5f20dd9eb7f0f52
+  deprecate! date: "2025-04-01", because: :unmaintained
+
   depends_on "cmake" => :build
   depends_on "gettext" => :build
   depends_on "pkgconf" => :build
