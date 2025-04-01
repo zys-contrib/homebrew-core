@@ -17,6 +17,7 @@ class Freeling < Formula
 
   depends_on "cmake" => :build
   depends_on "boost"
+  depends_on "dynet"
   depends_on "icu4c@77"
 
   uses_from_macos "zlib"
@@ -26,6 +27,11 @@ class Freeling < Formula
   conflicts_with "crfsuite", because: "both install `crfsuite` binaries"
 
   def install
+    # Unbundle `dynet` and its dependency `eigen`
+    rm_r(["src/eigen3", "src/libdynet"])
+    (buildpath/"src/eigen3").mkpath
+    (buildpath/"src/libdynet/CMakeLists.txt").write ""
+
     # icu4c 75+ needs C++17
     inreplace "CMakeLists.txt", "set(CMAKE_CXX_STANDARD 11)", "set(CMAKE_CXX_STANDARD 17)"
 
