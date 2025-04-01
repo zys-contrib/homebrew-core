@@ -1,8 +1,8 @@
 class Kuzu < Formula
   desc "Embeddable graph database management system built for query speed & scalability"
   homepage "https://kuzudb.com/"
-  url "https://github.com/kuzudb/kuzu/archive/refs/tags/v0.8.2.tar.gz"
-  sha256 "e802083bd0d4337210bc4e49261f22a3fc6535cca1214c054a7ebcffbddc8b43"
+  url "https://github.com/kuzudb/kuzu/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "b4b687ad9c901584ccb2142f5c2f2d3b8a99c272c09b119c5412c06d7d230668"
   license "MIT"
   head "https://github.com/kuzudb/kuzu.git", branch: "master"
 
@@ -24,14 +24,18 @@ class Kuzu < Formula
     depends_on "llvm" if DevelopmentTools.clang_build_version <= 1400
   end
 
+  on_linux do
+    depends_on "gcc@12" if DevelopmentTools.gcc_version("/usr/bin/gcc") < 12
+  end
+
   fails_with :clang do
     build 1400
     cause "Requires C++20"
   end
 
   fails_with :gcc do
-    version "9"
-    cause "Requires C++20"
+    version "11"
+    cause "needs GCC 12 or newer"
   end
 
   def install
