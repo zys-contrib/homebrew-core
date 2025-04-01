@@ -1,8 +1,8 @@
 class Vet < Formula
   desc "Policy driven vetting of open source dependencies"
   homepage "https://github.com/safedep/vet"
-  url "https://github.com/safedep/vet/archive/refs/tags/v1.9.8.tar.gz"
-  sha256 "f29cce46bf3c7a718b114a6d849e2d8ff5a42e08c29a8e09d583f9fd9812fc7d"
+  url "https://github.com/safedep/vet/archive/refs/tags/v1.9.9.tar.gz"
+  sha256 "8f639957b6964a8afa104f4dcd151c08143fafe1832435fbfab15a6abdd701a4"
   license "Apache-2.0"
 
   bottle do
@@ -24,7 +24,7 @@ class Vet < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/vet version 2>&1", 1)
+    assert_match version.to_s, shell_output("#{bin}/vet version 2>&1")
 
     output = shell_output("#{bin}/vet scan parsers 2>&1")
     assert_match "Available Lockfile Parsers", output
