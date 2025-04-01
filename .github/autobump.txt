@@ -3916,6 +3916,7 @@ zk
 zlib
 zlib-ng
 zlib-ng-compat
+zlib-rs
 zlint
 zlog
 zls
