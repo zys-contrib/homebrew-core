@@ -1,8 +1,8 @@
 class Glbinding < Formula
   desc "C++ binding for the OpenGL API"
   homepage "https://glbinding.org/"
-  url "https://github.com/cginternals/glbinding/archive/refs/tags/v3.3.0.tar.gz"
-  sha256 "a0aa5e67b538649979a71705313fc2b2c3aa49cf9af62a97f7ee9a665fd30564"
+  url "https://github.com/cginternals/glbinding/archive/refs/tags/v3.4.0.tar.gz"
+  sha256 "0f623f9eb924d9e24124fd014c877405560f8864a4a1f9b1f92a160dfa32f816"
   license "MIT"
   head "https://github.com/cginternals/glbinding.git", branch: "master"
 
@@ -30,6 +30,11 @@ class Glbinding < Formula
     # Force install to use system directory structure as the upstream only
     # considers /usr and /usr/local to be valid for a system installation
     inreplace "CMakeLists.txt", "set(SYSTEM_DIR_INSTALL FALSE)", "set(SYSTEM_DIR_INSTALL TRUE)"
+
+    # support cmake 4 build, upstream pr ref, https://github.com/cginternals/glbinding/pull/356
+    inreplace ["CMakeLists.txt", "source/tests/CMakeLists.txt"] do |f|
+      f.gsub! "cmake_minimum_required(VERSION 3.0", "cmake_minimum_required(VERSION 3.5"
+    end
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DOPTION_BUILD_OWN_KHR_HEADERS=#{OS.mac? ? "ON" : "OFF"}",
