@@ -8,6 +8,10 @@ class Gdown < Formula
   license "MIT"
   head "https://github.com/wkentaro/gdown.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "dbe8205dcb2ff37ab21c7402969db71fa0bf923ae39fcda541570162cb297b42"
+  end
+
   depends_on "certifi"
   depends_on "python@3.13"
 
