@@ -21,8 +21,6 @@ class Freeling < Formula
 
   uses_from_macos "zlib"
 
-  conflicts_with "dynet", because: "freeling ships its own copy of dynet"
-  conflicts_with "eigen", because: "freeling ships its own copy of eigen"
   conflicts_with "foma", because: "freeling ships its own copy of foma"
   conflicts_with "hunspell", because: "both install 'analyze' binary"
   conflicts_with "crfsuite", because: "both install `crfsuite` binaries"
