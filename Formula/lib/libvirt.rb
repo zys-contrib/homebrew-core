@@ -1,8 +1,8 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://libvirt.org/"
-  url "https://download.libvirt.org/libvirt-11.1.0.tar.xz"
-  sha256 "19aebfd98d209792d569cdcf944dafb85c00d264f3b55fa1216b18f9bc9cb226"
+  url "https://download.libvirt.org/libvirt-11.2.0.tar.xz"
+  sha256 "07b91052b4e44cf2e5c21bfe1a8095f98db47a917b38d95d2a7ec50ff6bdade9"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
   head "https://gitlab.com/libvirt/libvirt.git", branch: "master"
 
@@ -62,6 +62,7 @@ class Libvirt < Formula
       -Ddriver_network=enabled
       -Dinit_script=none
       -Dqemu_datadir=#{Formula["qemu"].opt_pkgshare}
+      -Drunstatedir=#{var}/run
     ]
     system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
