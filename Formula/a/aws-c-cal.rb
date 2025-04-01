@@ -1,8 +1,8 @@
 class AwsCCal < Formula
   desc "AWS Crypto Abstraction Layer"
   homepage "https://github.com/awslabs/aws-c-cal"
-  url "https://github.com/awslabs/aws-c-cal/archive/refs/tags/v0.8.8.tar.gz"
-  sha256 "45a5e5e4b9070b02c8a847ff7531068f882622a4e8ac4fed4776b7729f018ea9"
+  url "https://github.com/awslabs/aws-c-cal/archive/refs/tags/v0.8.9.tar.gz"
+  sha256 "4419890f1f720f57e3e028a4d548aef5e98946761243ca9ae10f75dc44243085"
   license "Apache-2.0"
 
   bottle do
