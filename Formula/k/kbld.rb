@@ -7,12 +7,12 @@ class Kbld < Formula
   head "https://github.com/carvel-dev/kbld.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "516e60d8536c37a1733172e2a5e950026f97ff66d09820b05196e4e59dd80082"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "516e60d8536c37a1733172e2a5e950026f97ff66d09820b05196e4e59dd80082"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "516e60d8536c37a1733172e2a5e950026f97ff66d09820b05196e4e59dd80082"
-    sha256 cellar: :any_skip_relocation, sonoma:        "618fa0ac2340bfcab3ada07fdb70f64c7a7eef31ad8d41b6a30c7bc8dcac2fd5"
-    sha256 cellar: :any_skip_relocation, ventura:       "618fa0ac2340bfcab3ada07fdb70f64c7a7eef31ad8d41b6a30c7bc8dcac2fd5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e15c17078103f935499e0913a345fb044a77feb5bd7336f90b795a02d5159228"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c7f1bb8b384ec3e998664dfa802d6ffe2b45292271578d8bb69b1b6c3ec833b1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c7f1bb8b384ec3e998664dfa802d6ffe2b45292271578d8bb69b1b6c3ec833b1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c7f1bb8b384ec3e998664dfa802d6ffe2b45292271578d8bb69b1b6c3ec833b1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e52451eb1aae5b209ee35e119032ed9d730c66011769c3a8d3a617812f459b94"
+    sha256 cellar: :any_skip_relocation, ventura:       "e52451eb1aae5b209ee35e119032ed9d730c66011769c3a8d3a617812f459b94"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4395ebf25b1d26792a00165507ff93e2f2c6b260aa2b3a43f4a07f007c0ad431"
   end
 
   depends_on "go" => :build
