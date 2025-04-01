@@ -4,6 +4,7 @@ class Fx < Formula
   url "https://github.com/antonmedv/fx/archive/refs/tags/35.0.0.tar.gz"
   sha256 "5ab642bb91ad9c1948de1add2d62acec22d82398e420957c191c1549999eb351"
   license "MIT"
+  head "https://github.com/antonmedv/fx.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0b71d8d70e749ebe94c56fcb8e1fd7b6f1011089efa35047b55e555f5a6f7406"
@@ -21,6 +22,7 @@ class Fx < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
+    generate_completions_from_executable(bin/"fx", "--comp")
   end
 
   test do
