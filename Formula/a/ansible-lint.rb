@@ -3,10 +3,9 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://ansible-lint.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/46/8b/d49eb4551a85ea55ddb8616bc5c311276bc0393971a1a6dbf12dd8133810/ansible_lint-25.1.3.tar.gz"
-  sha256 "ff92b31c83a2366381907e21c9a9d4de57f0cd7574e9943ea1b7e32b371f31a2"
+  url "https://files.pythonhosted.org/packages/dd/e3/895e1c13276e97eb8d48c054b6d6fc9ea379cfe75f83e720d9d2ae6d0fd3/ansible_lint-25.2.0.tar.gz"
+  sha256 "141e77359a1bf657a845213f9d07a27d1c93c478b1b0b23c16b89472d8ed1952"
   license all_of: ["MIT", "GPL-3.0-or-later"]
-  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "4a4937ab06d10a2a0caf87dd3173e9d89213bdb5c7b65f93f804186e93ddbccf"
@@ -121,8 +120,8 @@ class AnsibleLint < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/0a/79/2ce611b18c4fd83d9e3aecb5cba93e1917c050f556db39842889fa69b79f/rpds_py-0.23.1.tar.gz"
-    sha256 "7f3240dcfa14d198dba24b8b9cb3b108c06b68d45b7babd9eefc1038fdf7e707"
+    url "https://files.pythonhosted.org/packages/0b/b3/52b213298a0ba7097c7ea96bee95e1947aa84cc816d48cebb539770cdf41/rpds_py-0.24.0.tar.gz"
+    sha256 "772cc1b2cd963e7e17e6cc55fe0371fb9c704d63e44cacec7b9b7f523b78919e"
   end
 
   resource "ruamel-yaml" do
