@@ -77,6 +77,10 @@ class Mesa < Formula
     depends_on "lm-sensors"
     depends_on "wayland"
 
+    on_arm do
+      depends_on "pycparser" => :build
+    end
+
     on_intel do
       depends_on "cbindgen" => :build
     end
