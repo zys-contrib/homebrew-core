@@ -31,6 +31,7 @@ class Libva < Formula
                           "--enable-x11",
                           "--disable-glx",
                           "--enable-wayland",
+                          "--with-drivers-path=#{HOMEBREW_PREFIX}/lib/dri",
                           *std_configure_args
     system "make"
     system "make", "install"
@@ -40,10 +41,14 @@ class Libva < Formula
     %w[libva libva-drm libva-wayland libva-x11].each do |name|
       assert_match "-I#{include}", shell_output("pkgconf --cflags #{name}")
     end
+
+    # We cannot run a functional test without a VA-API driver; however, the
+    # drivers have a dependency on `libva` which results in a dependency loop
     (testpath/"test.c").write <<~C
+      #include <stddef.h>
       #include <va/va.h>
       int main(int argc, char *argv[]) {
-        VADisplay display;
+        VADisplay display = NULL;
         vaDisplayIsValid(display);
         return 0;
       }
