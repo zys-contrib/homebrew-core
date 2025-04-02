@@ -1,8 +1,8 @@
 class Nano < Formula
   desc "Free (GNU) replacement for the Pico text editor"
   homepage "https://www.nano-editor.org/"
-  url "https://www.nano-editor.org/dist/v8/nano-8.3.tar.xz"
-  sha256 "551b717b2e28f7e90f749323686a1b5bbbd84cfa1390604d854a3ca3778f111e"
+  url "https://www.nano-editor.org/dist/v8/nano-8.4.tar.xz"
+  sha256 "5ad29222bbd55624d87ea677928b3106a743114d6c6f9b41f36c97be2a8e628d"
   license "GPL-3.0-or-later"
 
   livecheck do
