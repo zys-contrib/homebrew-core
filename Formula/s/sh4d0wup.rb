@@ -20,14 +20,10 @@ class Sh4d0wup < Formula
   depends_on "rust" => :build
   depends_on "pgpdump" => :test
 
-  depends_on "gmp"
-  depends_on "nettle"
   depends_on "openssl@3"
   depends_on "pcsc-lite"
   depends_on "xz"
   depends_on "zstd"
-
-  uses_from_macos "bzip2"
 
   def install
     # Work around an Xcode 15 linker issue which causes linkage against LLVM's
