@@ -1,8 +1,8 @@
 class Hl < Formula
   desc "Fast and powerful log viewer and processor"
   homepage "https://github.com/pamburus/hl"
-  url "https://github.com/pamburus/hl/archive/refs/tags/v0.30.4.tar.gz"
-  sha256 "b32769af62391a55e04f0074ab36662307deecabca3df8e5fab70ec84b3bb367"
+  url "https://github.com/pamburus/hl/archive/refs/tags/v0.31.0.tar.gz"
+  sha256 "929e47639e448b2bdbaac75406e44db183f2d9a34e9882ccd7bc87119cc0db6b"
   license "MIT"
   head "https://github.com/pamburus/hl.git", branch: "master"
 
@@ -35,6 +35,6 @@ class Hl < Formula
     EOS
 
     output = shell_output("#{bin}/hl --level ERROR sample.log")
-    assert_equal "Feb 17 12:01:00.000 │ERR│ An error occurred", output.chomp
+    assert_equal "Feb 17 12:01:00.000 [ERR] An error occurred", output.chomp
   end
 end
