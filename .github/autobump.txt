@@ -3228,6 +3228,7 @@ sleuthkit
 slides
 slirp4netns
 sloc
+sloth
 slsa-verifier
 slumber
 slurm
