@@ -2604,6 +2604,7 @@ ospray
 osslsigncode
 osv-scanner
 otel-cli
+otf2
 otree
 ots
 ott
