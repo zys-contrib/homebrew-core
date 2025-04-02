@@ -15,13 +15,13 @@ class C3c < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "4e3e81a90f428a524fb1fe247fd09b9c7044a79f81e625767ac7ef9a837c3441"
-    sha256 cellar: :any, arm64_sonoma:  "000442a03f72526350dac1b6ceeb86cbebd11f2fb71c692cd038e73b9aa3c1c3"
-    sha256 cellar: :any, arm64_ventura: "6546943258ad231be505b55ce876eac74f0e3b0800f374b458dce3c436ca2686"
-    sha256 cellar: :any, sonoma:        "e50318e100d1251b8fad71ebe1f32a4f8f6c1b32490a183c0e577bf00ac62e13"
-    sha256 cellar: :any, ventura:       "be87e459a83fdda796d2440f8ab043bcba84c699acdcbf809450cfdd7a2e9f62"
-    sha256               arm64_linux:   "4ca837fed3ad2e3c3a5963dd4ddc046d5d029e7cc6192ae8b44652931afc613e"
-    sha256               x86_64_linux:  "d2cf20c5ef48945abec0073efcd6627bd7c3497ac2e7b73b65e3ed5e1c6e142b"
+    sha256 cellar: :any, arm64_sequoia: "b4979cd4cff8e1ff1d90a8ced045063aacb10b95bc4b08008e6d093c37e6d454"
+    sha256 cellar: :any, arm64_sonoma:  "e133eefe54ba5b5e6c824a557232f36045db1d9ba962bc95b7f16835e6ac5158"
+    sha256 cellar: :any, arm64_ventura: "a24c77072e80c0c58168685d2454487f6b5006b993270b9cb703198fea8bf19d"
+    sha256 cellar: :any, sonoma:        "efb961142f818e43d5b025b2b7e2b2878cc56396289dfec2269a3cc7bb3e4088"
+    sha256 cellar: :any, ventura:       "466b6ec7e5701dcd7559d87f6cdbe83098866894e257a3d76d4160be60a0b241"
+    sha256               arm64_linux:   "e65075becd83ff9b4a83b5fb2661dbf2e39716daa77a94263a8fb530ad01470a"
+    sha256               x86_64_linux:  "24bb1fd3a6499c7bf288be9c0b5f0b75d3968b9becf09bd584c5e026ec06d3dd"
   end
 
   depends_on "cmake" => :build
