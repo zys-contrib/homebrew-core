@@ -3787,6 +3787,7 @@ wgcf
 wget2
 wgo
 whatmp3
+whisper-cpp
 whistle
 whois
 widelands
