@@ -1,10 +1,15 @@
 class Sloth < Formula
   desc "Prometheus SLO generator"
   homepage "https://sloth.dev/"
-  url "https://github.com/slok/sloth/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "17f7ce5ebc1ebe29391b0848616c2a9881f70cd72780605db55cfd817a8331af"
+  url "https://github.com/slok/sloth/archive/refs/tags/v0.12.0.tar.gz"
+  sha256 "783689544f1829cb139ab3bbdd5e53cc835469a92c4a187384ff51f08eceb284"
   license "Apache-2.0"
   head "https://github.com/slok/sloth.git", branch: "main"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ce4ad62a11adf1950981a013b45c2ab33bd59b930046ce35b0d5722a46d100e6"
