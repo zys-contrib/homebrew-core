@@ -1,8 +1,8 @@
 class Sh4d0wup < Formula
   desc "Signing-key abuse and update exploitation framework"
   homepage "https://github.com/kpcyrd/sh4d0wup"
-  url "https://github.com/kpcyrd/sh4d0wup/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "63662f386302ceb06470cab62a36924a1a2efcb51602913f8cf6e2a5a2a34acc"
+  url "https://github.com/kpcyrd/sh4d0wup/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "cfc1c38f89d35de6a1822469679a73e5bcb7d5b9f6f8519bee1c3f2948c227f3"
   license "GPL-3.0-or-later"
 
   bottle do
