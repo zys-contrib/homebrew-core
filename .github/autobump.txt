@@ -970,6 +970,7 @@ evans
 evince
 evtx
 excalidraw-converter
+exempi
 exercism
 exiftool
 exim
