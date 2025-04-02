@@ -3,6 +3,10 @@ class Qt < Formula
 
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
+  url "https://download.qt.io/official_releases/qt/6.9/6.9.0/single/qt-everywhere-src-6.9.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.9/6.9.0/single/qt-everywhere-src-6.9.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.9/6.9.0/single/qt-everywhere-src-6.9.0.tar.xz"
+  sha256 "4f61e50551d0004a513fefbdb0a410595d94812a48600646fb7341ea0d17e1cb"
   license all_of: [
     "BSD-3-Clause",
     "GFDL-1.3-no-invariants-only",
@@ -10,22 +14,7 @@ class Qt < Formula
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     "LGPL-3.0-only",
   ]
-  revision 1
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
-
-  stable do
-    url "https://download.qt.io/official_releases/qt/6.8/6.8.2/single/qt-everywhere-src-6.8.2.tar.xz"
-    mirror "https://qt.mirror.constant.com/archive/qt/6.8/6.8.2/single/qt-everywhere-src-6.8.2.tar.xz"
-    mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.8/6.8.2/single/qt-everywhere-src-6.8.2.tar.xz"
-    sha256 "659d8bb5931afac9ed5d89a78e868e6bd00465a58ab566e2123db02d674be559"
-
-    # Backport support for pkgconfig files on macOS
-    patch do
-      url "https://github.com/qt/qtbase/commit/7a31e402f24ec29c571f825e06bd569477501dfc.patch?full_index=1"
-      sha256 "81b7afb9a5118332545108e94105a0f22023f422d032632043b64ab93fefd06c"
-      directory "qtbase"
-    end
-  end
 
   # The first-party website doesn't make version information readily available,
   # so we check the `head` repository tags instead.
@@ -220,6 +209,8 @@ class Qt < Formula
     ]
 
     cmake_args += if OS.mac?
+      ENV["SDKROOT"] = MacOS.sdk_for_formula(self).path
+
       # NOTE: `chromium` should be built with the latest SDK because it uses
       # `___builtin_available` to ensure compatibility.
       #
