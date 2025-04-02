@@ -1,8 +1,8 @@
 class Mandown < Formula
   desc "Man-page inspired Markdown viewer"
   homepage "https://github.com/Titor8115/mandown"
-  url "https://github.com/Titor8115/mandown/archive/refs/tags/v1.0.5.1.tar.gz"
-  sha256 "44cfd210cb12051ceb5ea53d902f8190dbdb802c97608297c37c4efbd102d489"
+  url "https://github.com/Titor8115/mandown/archive/refs/tags/v1.0.5.2.tar.gz"
+  sha256 "9903203fb95364a8b2774fe4eb4260daa725873d8f9a6e079d4c2ace81bede92"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -15,8 +15,8 @@ class Mandown < Formula
 
   depends_on "pkgconf" => :build
   depends_on "libconfig"
+  depends_on "ncurses" # undeclared identifier 'BUTTON5_PRESSED' with macos
   uses_from_macos "libxml2"
-  uses_from_macos "ncurses"
 
   def install
     system "make", "install", "PREFIX=#{prefix}", "PKG_CONFIG=pkg-config"
