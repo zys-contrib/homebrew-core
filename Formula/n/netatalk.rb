@@ -1,8 +1,8 @@
 class Netatalk < Formula
   desc "File server for Macs, compliant with Apple Filing Protocol (AFP)"
   homepage "https://netatalk.io"
-  url "https://github.com/Netatalk/netatalk/releases/download/netatalk-4-1-2/netatalk-4.1.2.tar.xz"
-  sha256 "a825f6ff7efedb09bb9ca75727ab43126797000f89775db72c8d9520bf481e9c"
+  url "https://github.com/Netatalk/netatalk/releases/download/netatalk-4-2-0/netatalk-4.2.0.tar.xz"
+  sha256 "768a91014e298dc1d14ef28ebe330ddad49928e3c34f307353b8bdd317f50a52"
   license all_of: [
     "GPL-2.0-only",
     "GPL-2.0-or-later",
@@ -31,6 +31,7 @@ class Netatalk < Formula
 
   depends_on "berkeley-db@5" # macOS bdb library lacks DBC type etc.
   depends_on "cracklib"
+  depends_on "iniparser"
   depends_on "libevent"
   depends_on "libgcrypt"
   depends_on "mariadb-connector-c"
@@ -56,6 +57,7 @@ class Netatalk < Formula
     inreplace "distrib/initscripts/macos.netatalk.plist.in", "@bindir@", opt_bin
     inreplace "distrib/initscripts/macos.netatalk.plist.in", "@sbindir@", opt_sbin
     inreplace "distrib/initscripts/systemd.netatalk.service.in", "@sbindir@", opt_sbin
+    inreplace "config/meson.build", "cups_libdir / 'cups/backend'", "'#{libexec}/cups/backend'"
     bdb5_rpath = rpath(target: Formula["berkeley-db@5"].opt_lib)
     ENV.append "LDFLAGS", "-Wl,-rpath,#{bdb5_rpath}" if OS.linux?
     args = [
