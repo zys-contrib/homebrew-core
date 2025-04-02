@@ -968,6 +968,7 @@ eva
 evans
 evince
 evtx
+excalidraw-converter
 exercism
 exiftool
 exim
