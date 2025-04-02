@@ -1,8 +1,8 @@
 class Limbo < Formula
   desc "Interactive SQL shell for Limbo"
   homepage "https://github.com/tursodatabase/limbo"
-  url "https://github.com/tursodatabase/limbo/archive/refs/tags/v0.0.17.tar.gz"
-  sha256 "ca80c71148d4124bfa3ec2a9e33a6a750e92735ba3dba57168e4a47131123cdd"
+  url "https://github.com/tursodatabase/limbo/archive/refs/tags/v0.0.18.tar.gz"
+  sha256 "669bc4cbd47c8e9044064a3fdcfc4314b2da0c26c02b804ab27ea2f2eb5a3da6"
   license "MIT"
   head "https://github.com/tursodatabase/limbo.git", branch: "main"
 
