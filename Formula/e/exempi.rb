@@ -1,12 +1,12 @@
 class Exempi < Formula
   desc "Library to parse XMP metadata"
-  homepage "https://wiki.freedesktop.org/libopenraw/Exempi/"
-  url "https://libopenraw.freedesktop.org/download/exempi-2.6.5.tar.bz2"
-  sha256 "e9f9a3d42bff73b5eb0f77ec22cd0163c3e21949cc414ad1f19a0465dde41ffe"
+  homepage "https://libopenraw.freedesktop.org/exempi/"
+  url "https://libopenraw.freedesktop.org/download/exempi-2.6.6.tar.bz2"
+  sha256 "7513b7e42c3bd90a58d77d938c60d2e87c68f81646e7cb8b12d71fe334391c6f"
   license "BSD-3-Clause"
 
   livecheck do
-    url "https://libopenraw.freedesktop.org/exempi/"
+    url :homepage
     regex(/href=.*?exempi[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
@@ -26,9 +26,7 @@ class Exempi < Formula
   uses_from_macos "zlib"
 
   def install
-    system "./configure", "--disable-silent-rules",
-                          "--disable-unittest",
-                          *std_configure_args
+    system "./configure", "--disable-silent-rules", "--disable-unittest", *std_configure_args
     system "make", "install"
   end
 
