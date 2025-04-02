@@ -646,6 +646,7 @@ cpp-peglib
 cppad
 cppcheck
 cppinsights
+cpplint
 cppman
 cpr
 cproto
