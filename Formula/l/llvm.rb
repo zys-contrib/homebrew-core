@@ -2,8 +2,8 @@ class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
   # TODO: Rebase `clang-cl` patch.
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.1/llvm-project-20.1.1.src.tar.xz"
-  sha256 "4d5ebbd40ce1e984a650818a4bb5ae86fc70644dec2e6d54e78b4176db3332e0"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.2/llvm-project-20.1.2.src.tar.xz"
+  sha256 "f0a4a240aabc9b056142d14d5478bb6d962aeac549cbd75b809f5499240a8b38"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/llvm/llvm-project.git", branch: "main"
@@ -87,6 +87,11 @@ class Llvm < Formula
                              .select { |name| name.start_with? "python@" }
                              .map { |py| py.delete_prefix("python@") }
     site_packages = Language::Python.site_packages(python3).delete_prefix("lib/")
+
+    # Work around build failure (maybe from CMake 4 update) by using environment
+    # variable for https://cmake.org/cmake/help/latest/variable/CMAKE_OSX_SYSROOT.html
+    # TODO: Consider if this should be handled in superenv as impacts other formulae
+    ENV["SDKROOT"] = MacOS.sdk_for_formula(self).path if OS.mac? && MacOS.sdk_root_needed?
 
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
