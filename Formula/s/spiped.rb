@@ -1,8 +1,8 @@
 class Spiped < Formula
   desc "Secure pipe daemon"
   homepage "https://www.tarsnap.com/spiped.html"
-  url "https://www.tarsnap.com/spiped/spiped-1.6.3.tgz"
-  sha256 "70c53070dbbb10d1442754aeafb01b08ec829203d41023647dbf1a1435ee4a65"
+  url "https://www.tarsnap.com/spiped/spiped-1.6.4.tgz"
+  sha256 "424fb4d3769d912b04de43d21cc32748cdfd3121c4f1d26d549992a54678e06a"
   license "BSD-2-Clause"
 
   livecheck do
