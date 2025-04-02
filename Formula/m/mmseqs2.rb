@@ -39,6 +39,7 @@ class Mmseqs2 < Formula
 
   def install
     args = %W[
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
       -DHAVE_TESTS=0
       -DHAVE_MPI=0
       -DVERSION_OVERRIDE=#{version}
@@ -48,15 +49,6 @@ class Mmseqs2 < Formula
       "-DHAVE_ARM8=1"
     else
       "-DHAVE_SSE4_1=1"
-    end
-
-    if OS.mac?
-      libomp = Formula["libomp"]
-      args << "-DOpenMP_C_FLAGS=-Xpreprocessor -fopenmp -I#{libomp.opt_include}"
-      args << "-DOpenMP_C_LIB_NAMES=omp"
-      args << "-DOpenMP_CXX_FLAGS=-Xpreprocessor -fopenmp -I#{libomp.opt_include}"
-      args << "-DOpenMP_CXX_LIB_NAMES=omp"
-      args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.a"
     end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
@@ -81,6 +73,7 @@ class Mmseqs2 < Formula
     end
 
     resource("homebrew-testdata").stage do
+      ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
       system "./run_regression.sh", "#{bin}/mmseqs", "scratch"
     end
   end
