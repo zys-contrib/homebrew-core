@@ -2399,6 +2399,7 @@ nestopia-ue
 netaddr
 netcdf
 netcdf-fortran
+netdata
 netfetch
 nethogs
 netlify-cli
