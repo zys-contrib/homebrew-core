@@ -12,6 +12,7 @@ class Libva < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "fdff2870c6a9e5dae9d2f34703a55112bbc86ffd0ff8426d7e52b3a3fbae9720"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "159b556ea708ad404ef2716f18c3e135e285b3f55be0ca01905fc4205b48cc24"
   end
 
