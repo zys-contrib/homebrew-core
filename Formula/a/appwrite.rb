@@ -19,6 +19,8 @@ class Appwrite < Formula
 
   def install
     system "npm", "install", *std_npm_args
+    inreplace libexec/"lib/node_modules/appwrite-cli/install.sh", "/usr/local", "@@HOMEBREW_PREFIX@@"
+    inreplace libexec/"lib/node_modules/appwrite-cli/ldid/Makefile", "/usr/local", "@@HOMEBREW_PREFIX@@"
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
