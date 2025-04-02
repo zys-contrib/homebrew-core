@@ -3263,6 +3263,7 @@ socket_vmnet
 soft-serve
 solana
 solargraph
+solarus
 solhint
 sollya
 solr

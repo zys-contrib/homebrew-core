@@ -2,10 +2,9 @@ class Solarus < Formula
   desc "Action-RPG game engine"
   homepage "https://www.solarus-games.org/"
   url "https://gitlab.com/solarus-games/solarus.git",
-      tag:      "v1.6.5",
-      revision: "3aec70b0556a8d7aed7903d1a3e4d9a18c5d1649"
+      tag:      "v2.0.0",
+      revision: "1c69f3d7ec133eaff28c22d756170eba69a520b0"
   license "GPL-3.0-or-later"
-  revision 2
 
   livecheck do
     url :stable
@@ -33,6 +32,9 @@ class Solarus < Formula
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "luajit"
+  # Upstream only supports OpenAL Soft and not macOS OpenAL.framework
+  # https://gitlab.com/solarus-games/solarus/-/blob/dev/cmake/modules/FindOpenAL.cmake?ref_type=heads#L38
+  depends_on "openal-soft"
   depends_on "physfs"
   depends_on "sdl2"
   depends_on "sdl2_image"
@@ -40,13 +42,6 @@ class Solarus < Formula
 
   on_linux do
     depends_on "mesa"
-    depends_on "openal-soft"
-  end
-
-  # Backport fix for error: GLM: GLM_GTX_matrix_transform_2d is an experimental extension
-  patch do
-    url "https://gitlab.com/solarus-games/solarus/-/commit/2200e0ccc8e2850d2a265cace96c3f548d988f2d.diff"
-    sha256 "dee33b7f334be09d358b1c6534d3230cb66038095f9d77f87d9bc285082f6393"
   end
 
   def install
