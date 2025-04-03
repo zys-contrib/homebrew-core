@@ -18,6 +18,12 @@ class LiquidDsp < Formula
   depends_on "automake" => :build
   depends_on "fftw"
 
+  # Backport fix for ARM64 Linux
+  patch do
+    url "https://github.com/jgaeddert/liquid-dsp/commit/3a5e1f578ad5e73d7665e71781e764765608c2a2.patch?full_index=1"
+    sha256 "8dcece1e5e612b5dad77030dfd453f0f47755fdb41e6201c0c8b6b7123f053b9"
+  end
+
   def install
     system "./bootstrap.sh"
     system "./configure", "--prefix=#{prefix}"
