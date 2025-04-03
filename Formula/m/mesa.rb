@@ -3,8 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://archive.mesa3d.org/mesa-25.0.2.tar.xz"
-  sha256 "adf904d083b308df95898600ffed435f4b5c600d95fb6ec6d4c45638627fdc97"
+  url "https://archive.mesa3d.org/mesa-25.0.3.tar.xz"
+  sha256 "5ff426ed6ce0588fd96d18975bdff451ae2ab2fe98b5d1528842ee71ec66711b"
   license all_of: [
     "MIT",
     "Apache-2.0", # include/{EGL,GLES*,vk_video,vulkan}, src/egl/generate/egl.xml, src/mapi/glapi/registry/gl.xml
@@ -20,7 +20,6 @@ class Mesa < Formula
     { "GPL-1.0-or-later" => { with: "Linux-syscall-note" } }, # include/drm-uapi/sync_file.h
     { "GPL-2.0-only" => { with: "Linux-syscall-note" } }, # include/drm-uapi/{d3dkmthk.h,dma-buf.h,etnaviv_drm.h}
   ]
-  revision 1
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   bottle do
