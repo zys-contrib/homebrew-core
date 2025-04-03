@@ -20,9 +20,13 @@ class Tracy < Formula
   depends_on "pkgconf" => :build
   depends_on "capstone"
   depends_on "freetype"
-  depends_on "glfw"
+
+  on_macos do
+    depends_on "glfw"
+  end
 
   on_linux do
+    depends_on "wayland-protocols" => :build
     depends_on "dbus"
     depends_on "libxkbcommon"
     depends_on "mesa"
