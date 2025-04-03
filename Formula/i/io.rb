@@ -9,6 +9,12 @@ class Io < Formula
     url "https://github.com/IoLanguage/io/archive/refs/tags/2017.09.06.tar.gz"
     sha256 "9ac5cd94bbca65c989cd254be58a3a716f4e4f16480f0dc81070457aa353c217"
 
+    # Backport fix for Linux build
+    patch do
+      url "https://github.com/IoLanguage/io/commit/92fe8304c55b84a17b0624613a7006e85a0128a2.patch?full_index=1"
+      sha256 "183367979123123671fcd076aba3820ed20066add66725211a396eb5c621a6c6"
+    end
+
     # build patch for sysctl.h as glibc 2.32 removed <sys/sysctl.h>
     patch :DATA
   end
@@ -23,9 +29,12 @@ class Io < Formula
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on arch: :x86_64 # https://github.com/IoLanguage/io/issues/465
 
   uses_from_macos "libxml2"
+
+  on_macos do
+    depends_on arch: :x86_64 # https://github.com/IoLanguage/io/issues/465
+  end
 
   def install
     ENV.deparallelize
@@ -33,16 +42,19 @@ class Io < Formula
     # FSF GCC needs this to build the ObjC bridge
     ENV.append_to_cflags "-fobjc-exceptions"
 
-    unless build.head?
+    inreplace "CMakeLists.txt" do |s|
       # Turn off all add-ons in main cmake file
-      inreplace "CMakeLists.txt", "add_subdirectory(addons)",
-                                  "#add_subdirectory(addons)"
+      s.gsub! "add_subdirectory(addons)", "#add_subdirectory(addons)" unless build.head?
+      # Allow building on non-x86_64 platforms
+      # Ref: https://github.com/IoLanguage/io/issues/450 / https://github.com/IoLanguage/io/issues/474
+      s.gsub! 'SET(CMAKE_C_FLAGS "-msse2")', "" unless Hardware::CPU.intel?
     end
 
-    args = %w[
+    args = %W[
       -DCMAKE_DISABLE_FIND_PACKAGE_ODE=ON
       -DCMAKE_DISABLE_FIND_PACKAGE_Theora=ON
       -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
