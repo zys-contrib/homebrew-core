@@ -36,7 +36,10 @@ class Globjects < Formula
     # considers /usr and /usr/local to be valid for a system installation
     inreplace "CMakeLists.txt", "set(SYSTEM_DIR_INSTALL FALSE)", "set(SYSTEM_DIR_INSTALL TRUE)"
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+                    "-DOPTION_BUILD_TESTS=OFF",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
