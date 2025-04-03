@@ -20,6 +20,7 @@ class Log4cpp < Formula
     sha256 cellar: :any,                 ventura:        "a91172e8e2ce71ce7f02272721f010923fbaa860922b516e5f5ab27ea6a7e6a7"
     sha256 cellar: :any,                 monterey:       "68f55e83feff7de8701a8f995c33468cc267b238808b195c4929a32430e1fa35"
     sha256 cellar: :any,                 big_sur:        "70a13ba2b47676203ab6affca7cecd19df2568c59df1bf6886d94bedc2d57a75"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "f1e8877b5575ca2bfc5bbda57e8d09f236ae2be4b7c3b9247839fff34f7b1f26"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cce5ef111899b449de8806d1ba7a63ad3f841219c7b0d8734e94a18ee67e8983"
   end
 
