@@ -17,6 +17,7 @@ class Seexpr < Formula
     sha256 cellar: :any,                 arm64_ventura: "48d883728af997e5d3805c2b162973aa5d883b38db75ce2caeb5174406276713"
     sha256 cellar: :any,                 sonoma:        "e4c95048b7bef18faee54008b94f674863f18b42fd1fa6bc978c6c96a0167791"
     sha256 cellar: :any,                 ventura:       "1634179b0990f9b55997ea81ff5a9b8702cb4d8fdaaa3f3ef64d34b5ccb45bfb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fc21c3bcac5847ffdfab83c45e85312726b9bc0bc4f6af7b3a1457b85e2baa97"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb306407c4c3dceac93d89e8505a81bde4b4a20798f2e856bf7189ae41dc77ea"
   end
 
