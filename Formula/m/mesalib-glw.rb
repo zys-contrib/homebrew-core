@@ -34,7 +34,10 @@ class MesalibGlw < Formula
   depends_on "mesa"
 
   def install
-    system "./configure", *std_configure_args
+    args = []
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 end
