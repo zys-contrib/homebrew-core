@@ -13,6 +13,7 @@ class Freeglut < Formula
     sha256 cellar: :any,                 sonoma:         "ae8ac9e040e9fdefa287e882cd7fec7b0952a98dc5bf025875b0b16d2c6a37a6"
     sha256 cellar: :any,                 ventura:        "e636688689f5be4828151ce0ad415387fd10b0a6fd4610a9c0919882c8e084c9"
     sha256 cellar: :any,                 monterey:       "95b2565476d715ae6a7a8230ae2af1539455cdba8b898e640ef1f7ca2e7926a0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "3405d3188375a12576a2c5a4fb747b2699b5cc8c771222a1d94cc0067d0edff9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2dd41f7adaac60fd1674cd3147c0f10d6eb37f48345b1b13d6f080c4d0e1a68b"
   end
 
