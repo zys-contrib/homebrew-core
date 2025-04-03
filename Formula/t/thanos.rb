@@ -1,8 +1,8 @@
 class Thanos < Formula
   desc "Highly available Prometheus setup with long term storage capabilities"
   homepage "https://thanos.io"
-  url "https://github.com/thanos-io/thanos/archive/refs/tags/v0.37.2.tar.gz"
-  sha256 "ebe569241c38bc2e055c0f5fa24172f636b8922b74f1e5dc6a184fb31b66e73c"
+  url "https://github.com/thanos-io/thanos/archive/refs/tags/v0.38.0.tar.gz"
+  sha256 "2c9fef368e612c24d3270b57685e8025dfc0cdf6c3717cce801483e6ec499104"
   license "Apache-2.0"
 
   bottle do
