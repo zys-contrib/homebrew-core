@@ -12,29 +12,19 @@ class Atlantis < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cd8dc5bf2c72dba15e8e4f5afa82aae1d2c86584ab8cf316402643bb997e86e2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cd8dc5bf2c72dba15e8e4f5afa82aae1d2c86584ab8cf316402643bb997e86e2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cd8dc5bf2c72dba15e8e4f5afa82aae1d2c86584ab8cf316402643bb997e86e2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a6f8a7eb008ecfa68768fb083c4b5a189f150151df8506b45a5ab8040c9e3b16"
-    sha256 cellar: :any_skip_relocation, ventura:       "a6f8a7eb008ecfa68768fb083c4b5a189f150151df8506b45a5ab8040c9e3b16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca957ae37e0f71e77558d06d8e127b6a91826eff7dae83db6513602ffc407855"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "42ffbb98e33c3681c42c8fe9e4d95e31a7dee7a6d54916f3439e55b459f9db3c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "42ffbb98e33c3681c42c8fe9e4d95e31a7dee7a6d54916f3439e55b459f9db3c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "42ffbb98e33c3681c42c8fe9e4d95e31a7dee7a6d54916f3439e55b459f9db3c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3731dc8da6b18a92bc89876ccb5f63b433c585036203d4badfd99bef8579a477"
+    sha256 cellar: :any_skip_relocation, ventura:       "3731dc8da6b18a92bc89876ccb5f63b433c585036203d4badfd99bef8579a477"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76dc8770847e76b0b5d4939fe5d2870958a17cc8408485aec3f4da71c974e90a"
   end
 
   depends_on "go" => :build
-
-  resource "terraform" do
-    # https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
-    # Do not update terraform, it switched to the BUSL license
-    # Waiting for https://github.com/runatlantis/atlantis/issues/3741
-    url "https://github.com/hashicorp/terraform/archive/refs/tags/v1.5.7.tar.gz"
-    sha256 "6742fc87cba5e064455393cda12f0e0241c85a7cb2a3558d13289380bb5f26f5"
-  end
+  depends_on "opentofu"
 
   def install
-    resource("terraform").stage do
-      system "go", "build", *std_go_args(ldflags: "-s -w", output: libexec/"bin/terraform")
-    end
-
     ldflags = %W[
       -s -w
       -X main.version=#{version}
@@ -48,15 +38,25 @@ class Atlantis < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/atlantis version")
+
     port = free_port
-    loglevel = "info"
-    gh_args = "--gh-user INVALID --gh-token INVALID --gh-webhook-secret INVALID --repo-allowlist INVALID"
-    command = bin/"atlantis server --atlantis-url http://invalid/ --port #{port} #{gh_args} --log-level #{loglevel}"
-    pid = Process.spawn(command)
-    system "sleep", "5"
-    output = `curl -vk# 'http://localhost:#{port}/' 2>&1`
+    args = %W[
+      --atlantis-url http://invalid/
+      --port #{port}
+      --gh-user INVALID
+      --gh-token INVALID
+      --gh-webhook-secret INVALID
+      --repo-allowlist INVALID
+      --log-level info
+      --default-tf-distribution opentofu
+      --default-tf-version #{Formula["opentofu"].version}
+    ]
+    pid = spawn(bin/"atlantis", "server", *args)
+    sleep 5
+    output = shell_output("curl -vk# 'http://localhost:#{port}/' 2>&1")
     assert_match %r{HTTP/1.1 200 OK}m, output
     assert_match "atlantis", output
+  ensure
     Process.kill("TERM", pid)
   end
 end
