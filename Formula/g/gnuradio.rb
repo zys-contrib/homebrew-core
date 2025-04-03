@@ -26,7 +26,6 @@ class Gnuradio < Formula
   depends_on "doxygen" => :build
   depends_on "pkgconf" => :build
   depends_on "pybind11" => :build
-  depends_on "rust" => :build # for rpds-py
   depends_on "adwaita-icon-theme"
   depends_on "boost"
   depends_on "cppzmq"
@@ -38,7 +37,6 @@ class Gnuradio < Formula
   depends_on "jack"
   depends_on "libsndfile"
   depends_on "libyaml"
-  depends_on "log4cpp"
   depends_on "numpy"
   depends_on "portaudio"
   depends_on "pygobject3"
@@ -46,6 +44,7 @@ class Gnuradio < Formula
   depends_on "python@3.13"
   depends_on "qt@5" # Qt6 issue: https://github.com/gnuradio/gnuradio/issues/7708
   depends_on "qwt-qt5"
+  depends_on "rpds-py"
   depends_on "soapyrtlsdr"
   depends_on "soapysdr"
   depends_on "spdlog"
@@ -75,8 +74,8 @@ class Gnuradio < Formula
   # * setuptools - gr-utils/modtool/cli/base.py
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/49/7c/fdf464bcc51d23881d110abd74b512a42b3d5d376a55a831b44c603ae17f/attrs-25.1.0.tar.gz"
-    sha256 "1c97078a80c814273a76b2a298a932eb681c87415c11dee0a6921de7f1b02c3e"
+    url "https://files.pythonhosted.org/packages/5a/b0/1367933a8532ee6ff8d63537de4f1177af4bff9f3e829baf7331f595bb24/attrs-25.3.0.tar.gz"
+    sha256 "75d7cefc7fb576747b2c81b4442d4d4a1ce0900973527c011d1030fd3bf4af1b"
   end
 
   resource "click" do
@@ -115,8 +114,8 @@ class Gnuradio < Formula
   end
 
   resource "pygccxml" do
-    url "https://files.pythonhosted.org/packages/26/44/a9fef507f807be838fa0991517df226abd26233cf75fb8d4e97970552174/pygccxml-2.6.1.tar.gz"
-    sha256 "fc1b483c91848dada921efbe0e172648e2c6aa42d78ec920a372375e4ee32841"
+    url "https://files.pythonhosted.org/packages/5e/ef/e2752b28eb259e5ecc82dd1c4063cb0289969fae414d33445b533cc97ea3/pygccxml-3.0.2.tar.gz"
+    sha256 "e1a8c738765f4eb2819cc7439975631f838e59a1cf3fa49896e0a1967c5e2bee"
   end
 
   resource "pyyaml" do
@@ -129,14 +128,9 @@ class Gnuradio < Formula
     sha256 "df2e89862cd09deabbdba16944cc3f10feb6b3e6f18e902f7cc25609a34775aa"
   end
 
-  resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/01/80/cce854d0921ff2f0a9fa831ba3ad3c65cee3a46711addf39a2af52df2cfd/rpds_py-0.22.3.tar.gz"
-    sha256 "e32fee8ab45d3c2db6da19a5323bc3362237c8b653c70194414b892fd06a080d"
-  end
-
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/92/ec/089608b791d210aec4e7f97488e67ab0d33add3efccb83a056cbafe3a2a6/setuptools-75.8.0.tar.gz"
-    sha256 "c5afc8f407c626b8313a86e10311dd3f661c6cd9c09d4bf8c15c0e11f9f2b0e6"
+    url "https://files.pythonhosted.org/packages/a9/5a/0db4da3bc908df06e5efae42b44e75c81dd52716e10192ff36d0c1c8e379/setuptools-78.1.0.tar.gz"
+    sha256 "18fd474d4a82a5f83dac888df697af65afa82dec7323d09c3e37d1f14288da54"
   end
 
   def python3
@@ -246,11 +240,10 @@ class Gnuradio < Formula
 
     boost = Formula["boost"]
     system ENV.cxx, testpath/"test.c++", "-std=c++17", "-I#{boost.opt_include}", "-L#{lib}",
-           "-lgnuradio-blocks", "-lgnuradio-runtime", "-lgnuradio-pmt",
-           "-L#{boost.opt_lib}", "-lboost_system",
-           "-L#{Formula["log4cpp"].opt_lib}", "-llog4cpp",
-           "-L#{Formula["fmt"].opt_lib}", "-lfmt",
-           "-o", testpath/"test"
+                    "-lgnuradio-blocks", "-lgnuradio-runtime", "-lgnuradio-pmt",
+                    "-L#{boost.opt_lib}", "-lboost_system",
+                    "-L#{Formula["fmt"].opt_lib}", "-lfmt",
+                    "-o", testpath/"test"
     system "./test"
 
     (testpath/"test.py").write <<~PYTHON
