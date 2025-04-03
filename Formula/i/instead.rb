@@ -39,6 +39,7 @@ class Instead < Formula
 
   def install
     system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
                     "-DWITH_GTK2=OFF",
                     "-DWITH_LUAJIT=ON",
                     *std_cmake_args
