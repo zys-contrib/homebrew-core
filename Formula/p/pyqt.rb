@@ -4,6 +4,7 @@ class Pyqt < Formula
   url "https://files.pythonhosted.org/packages/ce/bf/ff284a136b39cb1873c18e4fca4a40a8847c84a1910c5fb38c6a77868968/pyqt6-6.8.1.tar.gz"
   sha256 "91d937d6166274fafd70f4dee11a8da6dbfdb0da53de05f5d62361ddf775e256"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:  "364815998ca1a7e33573c26be81e2e797a09b7bc7a696594fa0d8cd819460989"
@@ -52,6 +53,12 @@ class Pyqt < Formula
       url "https://gitlab.archlinux.org/archlinux/packaging/packages/pyqt6-webengine/-/raw/85846264bbfd2628fae66786e2f48ae40fddadca/fix-build.patch"
       sha256 "14b523cf26fd6e066ed1900fd59e1e6f8d7abc5900a04fc5b9bc9f3cb831045f"
     end
+  end
+
+  # Apply Arch Linux patch to fix build with Qt 6.9
+  patch do
+    url "https://gitlab.archlinux.org/archlinux/packaging/packages/pyqt6/-/raw/5a29c7c906d26b5d952ed76e57b83519cb5aa1a0/qt-6.9.patch"
+    sha256 "f69d5c5e6b1bc1eaa3aa08f205b55ac38bc38b9326b6875c77de65b5e58d05d9"
   end
 
   def python3
