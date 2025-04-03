@@ -6,12 +6,12 @@ class Weaviate < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "933adf228dce704f452d5076c484e570dcaaaa29670ca9ef31caf4f3934f6a5f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "933adf228dce704f452d5076c484e570dcaaaa29670ca9ef31caf4f3934f6a5f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "933adf228dce704f452d5076c484e570dcaaaa29670ca9ef31caf4f3934f6a5f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "440898a8ca4c17b61338c5d4d0062c698eb0caa2c5b2ee2f6dd6d3f34e6ed9b2"
-    sha256 cellar: :any_skip_relocation, ventura:       "440898a8ca4c17b61338c5d4d0062c698eb0caa2c5b2ee2f6dd6d3f34e6ed9b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c80d296af71994063ba71bfab74755f169b06d62c1bf291fca7757ef661ddab"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a306c7c3b9afb86c6e42e938b53e0c1f4d60f4663e15c798399ac538dec2469a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a306c7c3b9afb86c6e42e938b53e0c1f4d60f4663e15c798399ac538dec2469a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a306c7c3b9afb86c6e42e938b53e0c1f4d60f4663e15c798399ac538dec2469a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a79267fa605314962e744124d163ae7a80578797cdfd8a773d8ff7cbd0922214"
+    sha256 cellar: :any_skip_relocation, ventura:       "a79267fa605314962e744124d163ae7a80578797cdfd8a773d8ff7cbd0922214"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec813db651c9c487e90e3498deb10387247154965f05f5dbb2dc7e5756fe2eeb"
   end
 
   depends_on "go" => :build
