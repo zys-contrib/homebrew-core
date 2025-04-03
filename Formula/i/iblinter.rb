@@ -19,10 +19,12 @@ class Iblinter < Formula
 
   depends_on xcode: ["10.2", :build]
 
+  uses_from_macos "swift"
+
   # Fetch a copy of SourceKitten in order to fix build with newer Swift.
   # Issue ref: https://github.com/IBDecodable/IBLinter/issues/189
   resource "SourceKitten" do
-    on_sequoia :or_newer do
+    on_system :linux, macos: :sonoma_or_newer do
       # https://github.com/IBDecodable/IBLinter/blob/0.5.0/Package.resolved#L41-L47
       url "https://github.com/jpsim/SourceKitten.git",
           tag:      "0.29.0",
@@ -35,7 +37,7 @@ class Iblinter < Formula
 
   def install
     args = ["--disable-sandbox", "--configuration", "release"]
-    if OS.mac? && MacOS.version >= :sequoia
+    if !OS.mac? || MacOS.version >= :sonoma
       (buildpath/"SourceKitten").install resource("SourceKitten")
       system "swift", "package", *args, "edit", "SourceKitten", "--path", buildpath/"SourceKitten"
     end
