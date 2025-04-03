@@ -29,13 +29,17 @@ class Sdl2 < Formula
   end
 
   on_linux do
+    depends_on "mesa" => :build
     depends_on "pkgconf" => :build
-    depends_on "libice"
+    depends_on "alsa-lib"
+    depends_on "libx11"
     depends_on "libxcursor"
+    depends_on "libxext"
+    depends_on "libxfixes"
+    depends_on "libxi"
+    depends_on "libxrandr"
     depends_on "libxscrnsaver"
-    depends_on "libxxf86vm"
     depends_on "pulseaudio"
-    depends_on "xinput"
   end
 
   def install
@@ -60,7 +64,6 @@ class Sdl2 < Formula
         --enable-video-x11
         --enable-video-x11-scrnsaver
         --enable-video-x11-xcursor
-        --enable-video-x11-xinerama
         --enable-video-x11-xinput
         --enable-video-x11-xrandr
         --enable-video-x11-xshape
