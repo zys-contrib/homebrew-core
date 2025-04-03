@@ -1,8 +1,8 @@
 class Tailspin < Formula
   desc "Log file highlighter"
   homepage "https://github.com/bensadeh/tailspin"
-  url "https://github.com/bensadeh/tailspin/archive/refs/tags/5.0.0.tar.gz"
-  sha256 "bc694666876d06f2dde7b738d8bd9ce27e122d11bba7b6da923b1837c23c12ae"
+  url "https://github.com/bensadeh/tailspin/archive/refs/tags/5.1.0.tar.gz"
+  sha256 "24bdd0e3d44fec2f2891c6105767806bb0be92a54cc1459ae48c68c0d3a6aa17"
   license "MIT"
   head "https://github.com/bensadeh/tailspin.git", branch: "main"
 
@@ -29,7 +29,7 @@ class Tailspin < Formula
 
   test do
     (testpath/"test.log").write("test")
-    shell_output("#{bin}/tspin --start-at-end test.log")
+    shell_output("#{bin}/tspin test.log")
 
     assert_match version.to_s, shell_output("#{bin}/tspin --version")
   end
