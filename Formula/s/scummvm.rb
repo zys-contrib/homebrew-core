@@ -35,11 +35,14 @@ class Scummvm < Formula
   depends_on "libvorbis"
   depends_on "libvpx"
   depends_on "mad"
-  depends_on "musepack"
   depends_on "sdl2"
   depends_on "theora"
 
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "musepack"
+  end
 
   on_linux do
     depends_on "alsa-lib"
