@@ -1,8 +1,8 @@
 class Whistle < Formula
   desc "HTTP, HTTP2, HTTPS, Websocket debugging proxy"
   homepage "https://github.com/avwo/whistle"
-  url "https://registry.npmjs.org/whistle/-/whistle-2.9.94.tgz"
-  sha256 "eecf60c073a5252cdaf0c60061a8a189ee27ed384cf14075615327619a0f2322"
+  url "https://registry.npmjs.org/whistle/-/whistle-2.9.95.tgz"
+  sha256 "0bfe5ad5e2339678c3403cb4f42ca063b24f1e60f249060efafd6bb0967c99b9"
   license "MIT"
 
   bottle do
