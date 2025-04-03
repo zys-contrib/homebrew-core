@@ -1,8 +1,8 @@
 class Kubevpn < Formula
   desc "Offers a Cloud-Native Dev Environment that connects to your K8s cluster network"
   homepage "https://www.kubevpn.dev"
-  url "https://github.com/kubenetworks/kubevpn/archive/refs/tags/v2.5.0.tar.gz"
-  sha256 "b36fd17cb05834d7132c9a3fd8afd2643e6a62d005f7ba58d6001928715b8af8"
+  url "https://github.com/kubenetworks/kubevpn/archive/refs/tags/v2.5.1.tar.gz"
+  sha256 "3e6e45c422e946502b540e53d4ff2d56524d8cb9ba0a9fc402420b595500f92b"
   license "MIT"
 
   bottle do
