@@ -38,17 +38,14 @@ class Ospray < Formula
   end
 
   def install
-    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
-    # libunwind due to it being present in a library search path.
-    if DevelopmentTools.clang_build_version >= 1500
-      ENV.remove "HOMEBREW_LIBRARY_PATHS",
-                 Formula["ispc"].deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }.opt_lib
-    end
+    # Workaround for newer `ispc` + `llvm` until support is added
+    inreplace "cmake/compiler/ispc.cmake", "define_ispc_isa_options(AVX512KNL avx512knl-x16)", ""
 
     resources.each do |r|
       r.stage do
         args = %W[
           -DCMAKE_INSTALL_NAME_DIR=#{lib}
+          -DCMAKE_POLICY_VERSION_MINIMUM=3.5
           -DBUILD_EXAMPLES=OFF
         ]
         system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
