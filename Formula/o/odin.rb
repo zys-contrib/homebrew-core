@@ -2,11 +2,10 @@ class Odin < Formula
   desc "Programming language with focus on simplicity, performance and modern systems"
   homepage "https://odin-lang.org/"
   url "https://github.com/odin-lang/Odin.git",
-      tag:      "dev-2025-03",
-      revision: "951bef4ade595e5fa7e8f0d0681e4e34ab1ca9d3"
-  version "2025-03"
+      tag:      "dev-2025-04",
+      revision: "d9f990d42e2a1bccf3e7be8ba02efa6504e9af9b"
+  version "2025-04"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/odin-lang/Odin.git", branch: "master"
 
   bottle do
@@ -20,7 +19,8 @@ class Odin < Formula
   end
 
   depends_on "glfw"
-  depends_on "llvm@19"
+  depends_on "lld"
+  depends_on "llvm"
   depends_on "raylib"
 
   resource "raygui" do
