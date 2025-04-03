@@ -21,20 +21,9 @@ class Atlantis < Formula
   end
 
   depends_on "go" => :build
-
-  resource "terraform" do
-    # https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
-    # Do not update terraform, it switched to the BUSL license
-    # Waiting for https://github.com/runatlantis/atlantis/issues/3741
-    url "https://github.com/hashicorp/terraform/archive/refs/tags/v1.5.7.tar.gz"
-    sha256 "6742fc87cba5e064455393cda12f0e0241c85a7cb2a3558d13289380bb5f26f5"
-  end
+  depends_on "opentofu"
 
   def install
-    resource("terraform").stage do
-      system "go", "build", *std_go_args(ldflags: "-s -w", output: libexec/"bin/terraform")
-    end
-
     ldflags = %W[
       -s -w
       -X main.version=#{version}
@@ -48,15 +37,25 @@ class Atlantis < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/atlantis version")
+
     port = free_port
-    loglevel = "info"
-    gh_args = "--gh-user INVALID --gh-token INVALID --gh-webhook-secret INVALID --repo-allowlist INVALID"
-    command = bin/"atlantis server --atlantis-url http://invalid/ --port #{port} #{gh_args} --log-level #{loglevel}"
-    pid = Process.spawn(command)
-    system "sleep", "5"
-    output = `curl -vk# 'http://localhost:#{port}/' 2>&1`
+    args = %W[
+      --atlantis-url http://invalid/
+      --port #{port}
+      --gh-user INVALID
+      --gh-token INVALID
+      --gh-webhook-secret INVALID
+      --repo-allowlist INVALID
+      --log-level info
+      --default-tf-distribution opentofu
+      --default-tf-version #{Formula["opentofu"].version}
+    ]
+    pid = spawn(bin/"atlantis", "server", *args)
+    sleep 5
+    output = shell_output("curl -vk# 'http://localhost:#{port}/' 2>&1")
     assert_match %r{HTTP/1.1 200 OK}m, output
     assert_match "atlantis", output
+  ensure
     Process.kill("TERM", pid)
   end
 end
