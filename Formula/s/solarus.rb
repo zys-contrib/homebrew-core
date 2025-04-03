@@ -17,6 +17,7 @@ class Solarus < Formula
     sha256                               arm64_ventura: "010d2aa833ddfaa4bed2f231858589d37cf667b75e85bae1dbfed9e00cba7209"
     sha256                               sonoma:        "ef4bed02bcff7a4c5ef11bf7c2b8975a96e125b937f5326e3c45f52132563cb8"
     sha256                               ventura:       "83234601f53be7a2a3137671d73e94000b47316e77547332f066e70770469e20"
+    sha256                               arm64_linux:   "c4bc34e892827477f7dc3c599df51d44e2b9f714bfda46c54e238e0d46e22923"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "04d4e184b09908722468e977d425e4a1e441eb8dfe576d662445de67b659f73a"
   end
 
