@@ -32,6 +32,7 @@ class GlbindingAT2 < Formula
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
                     "-DOPTION_BUILD_TESTS=OFF",
                     "-DOPTION_BUILD_GPU_TESTS=OFF",
                     *std_cmake_args
