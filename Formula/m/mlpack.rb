@@ -1,8 +1,8 @@
 class Mlpack < Formula
   desc "Scalable C++ machine learning library"
   homepage "https://www.mlpack.org"
-  url "https://mlpack.org/files/mlpack-4.5.1.tar.gz"
-  sha256 "58059b911a78b8bda91eef4cfc6278383b24e71865263c2e0569cf5faa59dda3"
+  url "https://mlpack.org/files/mlpack-4.6.0.tar.gz"
+  sha256 "8b90c18b25f94319c5969796e63fea96f3f85d9eff41323f12e9964706935632"
   license all_of: ["BSD-3-Clause", "MPL-2.0", "BSL-1.0", "MIT"]
   head "https://github.com/mlpack/mlpack.git", branch: "master"
 
@@ -24,13 +24,13 @@ class Mlpack < Formula
   depends_on "ensmallen"
 
   resource "stb_image" do
-    url "https://raw.githubusercontent.com/nothings/stb/0bc88af4de5fb022db643c2d8e549a0927749354/stb_image.h"
-    version "2.29"
-    sha256 "c54b15a689e6a1f32c75e2ec23afa442e3e0e37e894b73c1974d08679b20dd5c"
+    url "https://raw.githubusercontent.com/nothings/stb/013ac3beddff3dbffafd5177e7972067cd2b5083/stb_image.h"
+    version "2.30"
+    sha256 "594c2fe35d49488b4382dbfaec8f98366defca819d916ac95becf3e75f4200b3"
   end
 
   resource "stb_image_write" do
-    url "https://raw.githubusercontent.com/nothings/stb/1ee679c/stb_image_write.h"
+    url "https://raw.githubusercontent.com/nothings/stb/1ee679ca2ef753a528db5ba6801e1067b40481b8/stb_image_write.h"
     version "1.16"
     sha256 "cbd5f0ad7a9cf4468affb36354a1d2338034f2c12473cf1a8e32053cb6914a05"
   end
