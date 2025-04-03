@@ -1,8 +1,8 @@
 class CargoGenerate < Formula
   desc "Use pre-existing git repositories as templates"
   homepage "https://github.com/cargo-generate/cargo-generate"
-  url "https://github.com/cargo-generate/cargo-generate/archive/refs/tags/v0.23.0.tar.gz"
-  sha256 "01b285b8bcefd0500444ba57c079ee955bc7d3417eb16143c1cd0e4fa35fecd1"
+  url "https://github.com/cargo-generate/cargo-generate/archive/refs/tags/v0.23.1.tar.gz"
+  sha256 "b5408fcd96cb1cfe26625684c677169a299035cae2f73fa00ba09b411c4478c5"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/cargo-generate/cargo-generate.git", branch: "main"
 
