@@ -382,6 +382,7 @@
   },
   "gnuradio": {
     "package_name": "",
+    "exclude_packages": ["rpds-py"],
     "extra_packages": [
       "click", "jsonschema", "lxml", "mako",
       "packaging", "pygccxml", "pyyaml", "setuptools"
