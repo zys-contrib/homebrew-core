@@ -52,7 +52,7 @@ class Seexpr < Formula
 
   test do
     actual_output = shell_output("#{bin}/asciiGraph2 'x^3-8*x'").lines.map(&:rstrip).join("\n")
-    roundoff = "#" if Hardware::CPU.arm? && OS.mac? && MacOS.version >= :ventura
+    roundoff = "#" if Hardware::CPU.arm? && (!OS.mac? || MacOS.version >= :ventura)
     expected_output = <<~EOS
                                     |        #
                               ##    |        #
@@ -86,6 +86,6 @@ class Seexpr < Formula
                           #         |
     EOS
 
-    assert_equal actual_output, expected_output.rstrip
+    assert_equal expected_output.rstrip, actual_output
   end
 end
