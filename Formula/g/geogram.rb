@@ -28,16 +28,21 @@ class Geogram < Formula
   end
 
   def install
-    (buildpath/"CMakeOptions.txt").append_lines <<~EOS
+    (buildpath/"CMakeOptions.txt").append_lines <<~CMAKE
       set(CMAKE_INSTALL_PREFIX #{prefix})
       set(GEOGRAM_USE_SYSTEM_GLFW3 ON)
-    EOS
+    CMAKE
+
+    platform = if OS.mac?
+      "Darwin-clang-dynamic"
+    elsif Hardware::CPU.intel?
+      "Linux64-gcc-dynamic"
+    else
+      "Linux64-gcc-aarch64"
+    end
 
     system "./configure.sh"
-    platform = OS.mac? ? "Darwin-clang" : "Linux64-gcc"
-    cd "build/#{platform}-dynamic-Release" do
-      system "make", "install"
-    end
+    system "make", "-C", "build/#{platform}-Release", "install"
 
     (share/"cmake/Modules").install Dir[lib/"cmake/modules/*"]
   end
