@@ -41,11 +41,22 @@ class Fpc < Formula
       url "https://downloads.sourceforge.net/project/freepascal/Mac%20OS%20X/3.2.2/fpc-3.2.2.intelarm64-macosx.dmg"
       sha256 "05d4510c8c887e3c68de20272abf62171aa5b2ef1eba6bce25e4c0bc41ba8b7d"
     end
-
     on_linux do
-      url "https://downloads.sourceforge.net/project/freepascal/Linux/3.2.2/fpc-3.2.2.x86_64-linux.tar"
-      sha256 "5adac308a5534b6a76446d8311fc340747cbb7edeaacfe6b651493ff3fe31e83"
+      on_arm do
+        url "https://downloads.sourceforge.net/project/freepascal/Linux/3.2.2/fpc-3.2.2.aarch64-linux.tar"
+        sha256 "b39470f9b6b5b82f50fc8680a5da37d2834f2129c65c24c5628a80894d565451"
+      end
+      on_intel do
+        url "https://downloads.sourceforge.net/project/freepascal/Linux/3.2.2/fpc-3.2.2.x86_64-linux.tar"
+        sha256 "5adac308a5534b6a76446d8311fc340747cbb7edeaacfe6b651493ff3fe31e83"
+      end
     end
+  end
+
+  # Backport fix for arm64 linux
+  patch do
+    url "https://gitlab.com/freepascal.org/fpc/source/-/commit/a20a7e3497bccf3415bf47ccc55f133eb9d6d6a0.diff"
+    sha256 "7fac043022a6f3ffa91287f856c2c4959fdc374ff9169a244eaf55a3897c76d8"
   end
 
   def install
@@ -59,8 +70,9 @@ class Fpc < Formula
         system "pkgutil", "--expand-full", pkg_path, "contents"
         fpc_bootstrap.install Dir["contents/Payload/usr/local/*"]
       else
+        arch = Hardware::CPU.arm? ? "aarch64" : Hardware::CPU.arch.to_s
         mkdir "packages"
-        system "tar", "-xf", "binary.x86_64-linux.tar", "-C", "packages"
+        system "tar", "-xf", "binary.#{arch}-linux.tar", "-C", "packages"
         mkdir_p fpc_bootstrap
         Dir["packages/*.tar.gz"].each do |tarball|
           system "tar", "-xzf", tarball, "-C", fpc_bootstrap
