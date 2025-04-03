@@ -32,9 +32,8 @@ class Vgrep < Formula
   depends_on "go-md2man" => :build
 
   def install
-    system "make", "release"
-    mkdir bin
-    system "make", "install", "PREFIX=#{prefix}"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
+    system "make", "install-docs", "PREFIX=#{prefix}"
   end
 
   test do
