@@ -7,13 +7,13 @@ class Mlpack < Formula
   head "https://github.com/mlpack/mlpack.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "14103e2ce794d0e8cda3bb85a4ca003bb15e696294865e788cd2f5bbab1f33c2"
-    sha256 cellar: :any,                 arm64_sonoma:  "f08fb3c4bd5fecca6e3000d55d50930981abc3b18c990ba266199f85c466afaa"
-    sha256 cellar: :any,                 arm64_ventura: "6d19da72724ba1093b67d027fb8fe78fc1432056331a8ad762b8064f20e47ae4"
-    sha256 cellar: :any,                 sonoma:        "3d7638fd522a387521743fcee1baf6e5cbfaf0e64d594c16a96f04f75083a03e"
-    sha256 cellar: :any,                 ventura:       "7bbd042a5ce26f803ed770587a64805486f84c1955ec6ab926634e6150148285"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "51165e0db78be4b403f90ccbbd4448ef2f26541ce374635cda5e3065a69a65b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec3664885fb3cf60787a14f0a0b2492a4ffa18c90a6a95561e75bf506a18b119"
+    sha256 cellar: :any,                 arm64_sequoia: "0a848971744841b9c2b69e72f9278ccc3919e0cb1e76c17d5746d6f8995fe632"
+    sha256 cellar: :any,                 arm64_sonoma:  "4847d0506016e9dc8f02e767b5429c774e0fad94d9dd3b9fc0ed20df0eb09130"
+    sha256 cellar: :any,                 arm64_ventura: "ab482efe1cb0d76d14e830324fc86e3fc94a1f73693c0b8f3a5d997c15d1e0b2"
+    sha256 cellar: :any,                 sonoma:        "bf5ffec4001dc1e4fd99c1725908774c0276b9c2935ab0b6e7d0f05c3fc10c39"
+    sha256 cellar: :any,                 ventura:       "6713071f58a6590bf0f7c3fde1665bdcbd196d4de767619557b3a59701d38d12"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b7bd5686814b5585bbd65a62483dcc657e1d8d5ef89e6fb05c177e17f8ba4633"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea78fedd0a7920c99f65b2f1a9ed618c84b2bb5e844c5a58e82edff18a424432"
   end
 
   depends_on "cmake" => :build
