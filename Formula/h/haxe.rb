@@ -89,7 +89,7 @@ class Haxe < Formula
 
     # Rebuild haxelib as a valid binary
     cd "extra/haxelib_src" do
-      system "cmake", ".", *std_cmake_args
+      system "cmake", ".", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *std_cmake_args
       system "make"
     end
     rm "haxelib"
