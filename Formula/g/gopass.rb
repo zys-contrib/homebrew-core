@@ -23,7 +23,11 @@ class Gopass < Formula
   end
 
   def install
-    system "make", "install", "PREFIX=#{prefix}/"
+    args = ["PREFIX=#{prefix}/"]
+    # Build without -buildmode=pie to avoid patchelf.rb corrupting binary
+    args << "BUILDFLAGS=$(BUILDFLAGS_NOPIE)" if OS.linux?
+
+    system "make", "install", *args
 
     bash_completion.install "bash.completion" => "gopass"
     fish_completion.install "fish.completion" => "gopass.fish"
