@@ -35,11 +35,15 @@ class Seexpr < Formula
   end
 
   def install
+    sse4 = Hardware::CPU.intel? && ((OS.mac? && MacOS.version.requires_sse4?) ||
+                                    (!build.bottle? && Hardware::CPU.sse4?))
+
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DUSE_PYTHON=FALSE
       -DENABLE_LLVM_BACKEND=FALSE
       -DENABLE_QT5=FALSE
+      -DENABLE_SSE4=#{sse4 ? "ON" : "OFF"}
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
