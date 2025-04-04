@@ -3,8 +3,8 @@ class Cycode < Formula
 
   desc "Boost security in your dev lifecycle via SAST, SCA, Secrets & IaC scanning"
   homepage "https://github.com/cycodehq/cycode-cli"
-  url "https://files.pythonhosted.org/packages/73/8e/3f824f1428c629ad5ab9c1878bdc4d6c45289d14349586c76803ccda7432/cycode-2.3.2.tar.gz"
-  sha256 "eeb7b9051978e36ed1b3d4d3ee11e9cff641d43fb84785fd756409c3a1a09c0a"
+  url "https://files.pythonhosted.org/packages/b1/99/fee37603993657f34a50a9d641faabf4525e34c7af29415dcb1877430d59/cycode-2.3.3.tar.gz"
+  sha256 "ee56a8adbcb3dac09e36ca8a68240676a8f770bbc91ec8af8a62dfc87c90656c"
   license "MIT"
 
   bottle do
@@ -122,8 +122,8 @@ class Cycode < Formula
   end
 
   resource "sentry-sdk" do
-    url "https://files.pythonhosted.org/packages/f1/ef/4847dcd63e3f3c451cf701a825d21200f1322d46ac97586d5c90a13dfea1/sentry_sdk-2.24.1.tar.gz"
-    sha256 "8ba3c29990fa48865b908b3b9dc5ae7fa7e72407c7c9e91303e5206b32d7b8b1"
+    url "https://files.pythonhosted.org/packages/85/2f/a0f732270cc7c1834f5ec45539aec87c360d5483a8bd788217a9102ccfbd/sentry_sdk-2.25.1.tar.gz"
+    sha256 "f9041b7054a7cf12d41eadabe6458ce7c6d6eea7a97cfe1b760b6692e9562cf0"
   end
 
   resource "six" do
