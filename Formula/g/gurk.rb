@@ -1,8 +1,8 @@
 class Gurk < Formula
   desc "Signal Messenger client for terminal"
   homepage "https://github.com/boxdot/gurk-rs"
-  url "https://github.com/boxdot/gurk-rs/archive/refs/tags/v0.6.4.tar.gz"
-  sha256 "6e1ea43aad916e5c7f1fbbb852b06b28d9a5546d1bf80d93a50c3d6d9d3c42a4"
+  url "https://github.com/boxdot/gurk-rs/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "55cdac0b67db51f6257d2f04d5513ed5c79bb70752dc219fb38b80ff73d9d346"
   license "AGPL-3.0-only"
 
   bottle do
@@ -37,7 +37,7 @@ class Gurk < Formula
       output_log = testpath/"output.log"
       pid = spawn bin/"gurk", "--relink", [:out, :err] => output_log.to_s
       sleep 2
-      assert_match "Linking new device with device name", output_log.read
+      assert_match "Please enter your display name", output_log.read
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)
