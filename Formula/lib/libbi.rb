@@ -16,6 +16,7 @@ class Libbi < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "ef73bed34be4fd7cb1579190d6422266e84aca5bb7da499720bce3ff3f56f7c9"
     sha256 cellar: :any_skip_relocation, monterey:       "70f2987d8bc35f8d6dc5004e02c46e4d8936e30dd2472821f2247126b56bba10"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "9d7b9882a40417f97c719dee775dd0fdf9c54d25c0717a96101105f4cd82540a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20f25556a4e78e00b4cfd286563a225f5ccb4c200510461dbd21925b662f6e89"
   end
 
   depends_on "automake"
