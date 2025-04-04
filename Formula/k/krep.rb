@@ -6,13 +6,13 @@ class Krep < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "96e401b9d3d87fcc4224981f9b3d40850de7ef87ba0d501f87cf645657fcc265"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2c7e72c36436357fcb5d95023cd8604857cd33c0a6554a4b086f5313a72d503f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "022acac0980768e4e1e69a88e0e71e36e4200fcdaaeb02b3215850100ad25ed8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0d605668f58e285e2edd74fc3daaa247ff7f1e9bfd3d48d4352aeac7b0c915eb"
-    sha256 cellar: :any_skip_relocation, ventura:       "a6ff32a1b743729c0f1ff3f0bce7a25f41d0631c2399d12b923275c22947d001"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9aae6119814bde3f06714acd6f6ea45fcbb494a574d17e76e693ab4c0437f25c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "205331eaae7c0efe533dc411cf657c2812cdb507c8fe8aff91dfa22d24ecf67b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "750270c365baf190de542b6e9539bfca05922f15c15853e0f5e09212fdcb321d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8da7f1a5c1d1726a4cd7fe22f7145380e46f67ed34dd9d6f2ba0d6c7897d8e90"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "99c11c211528b9a594a3cbc1f1e6c6a092736d048b88f60481702c8efb48202b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "39d952db048b3baa7986df7626f523ec50b06486de8137186e2c70ad212d04a2"
+    sha256 cellar: :any_skip_relocation, ventura:       "4600364d46417e162e7a8aecfcbb661bc614fdca2fe8378cd51d8101c326d8b6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "88137fc42272df68e7b3645bbade0d230e69113251a77e796c96529702042c7f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01642f64e77450379d5ea582cfea44b52573cc036730d3f25249514421283e08"
   end
 
   def install
