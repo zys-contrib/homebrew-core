@@ -20,7 +20,6 @@
   ],
   ["apache-arrow", "apache-arrow-glib"],
   ["avro-c", "avro-cpp", "avro-tools"],
-  ["aws-console", "cfn-format", "rain"],
   ["b3sum", "blake3"],
   ["bcftools", "htslib", "samtools"],
   ["boost", "boost-bcp", "boost-build", "boost-mpi", "boost-python3"],

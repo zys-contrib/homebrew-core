@@ -183,6 +183,7 @@ aws-c-s3
 aws-c-sdkutils
 aws-cdk
 aws-checksums
+aws-console
 aws-crt-cpp
 aws-elasticbeanstalk
 aws-es-proxy
@@ -456,6 +457,7 @@ cf2tf
 cfengine
 cffi
 cfitsio
+cfn-format
 cfn-lint
 cfnctl
 cfonts
@@ -2936,6 +2938,7 @@ radamsa
 radare2
 rage
 railway
+rain
 rainfrog
 rakudo-star
 ramalama
