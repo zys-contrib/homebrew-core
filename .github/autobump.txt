@@ -2280,6 +2280,7 @@ mlt
 mlton
 mlx
 mmark
+mmctl
 mmdbctl
 mmseqs2
 mmv
