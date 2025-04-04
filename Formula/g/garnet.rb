@@ -1,8 +1,8 @@
 class Garnet < Formula
   desc "High-performance cache-store"
   homepage "https://microsoft.github.io/garnet/"
-  url "https://github.com/microsoft/garnet/archive/refs/tags/v1.0.61.tar.gz"
-  sha256 "faef1fac90b6479eb992ec9bec01e3dcff4bef164f425d96c4a10953b668868a"
+  url "https://github.com/microsoft/garnet/archive/refs/tags/v1.0.62.tar.gz"
+  sha256 "1d6e0669711a8d8940b1d71b2b0329998eb42964ceda2da2cd39d40149bea029"
   license "MIT"
 
   bottle do
@@ -26,7 +26,9 @@ class Garnet < Formula
   def install
     if OS.linux?
       cd "libs/storage/Tsavorite/cc" do
-        system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+        # Fix to cmake version 4 compatibility
+        arg = "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+        system "cmake", "-S", ".", "-B", "build", arg, *std_cmake_args
         system "cmake", "--build", "build"
         rm "../cs/src/core/Device/runtimes/linux-x64/native/libnative_device.so"
         cp "build/libnative_device.so", "../cs/src/core/Device/runtimes/linux-x64/native/libnative_device.so"
