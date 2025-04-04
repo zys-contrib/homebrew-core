@@ -1,8 +1,8 @@
 class Feluda < Formula
   desc "Detect license usage restrictions in your project"
   homepage "https://github.com/anistark/feluda"
-  url "https://github.com/anistark/feluda/archive/refs/tags/1.5.2.tar.gz"
-  sha256 "7b79f5374bb6b1b1bdb4e8f2bd0bac5d52a66b4aed58cbd2fae7b6facf153701"
+  url "https://github.com/anistark/feluda/archive/refs/tags/1.5.3.tar.gz"
+  sha256 "851d673150219667c5fac86b70be62d283af05d294aee0d511a65874232c8ba8"
   license "MIT"
   head "https://github.com/anistark/feluda.git", branch: "main"
 
