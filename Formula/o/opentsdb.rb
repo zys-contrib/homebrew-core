@@ -12,8 +12,9 @@ class Opentsdb < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, sonoma:  "1e94a2ce5cc95c944f5763df3442cc2fe71d12279f134b0a051549c6b4bd902a"
-    sha256 cellar: :any_skip_relocation, ventura: "022671a452bff9bacb3c84213f26adfb9d4fc50bdfbd28e2997262f6f5936607"
+    sha256 cellar: :any_skip_relocation, sonoma:       "1e94a2ce5cc95c944f5763df3442cc2fe71d12279f134b0a051549c6b4bd902a"
+    sha256 cellar: :any_skip_relocation, ventura:      "022671a452bff9bacb3c84213f26adfb9d4fc50bdfbd28e2997262f6f5936607"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "8c51dd6ebd008e6868a745d85dfe01374ef3b4e3ada22a54d4015d89e7973443"
   end
 
   depends_on "autoconf" => :build
