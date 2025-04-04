@@ -27,6 +27,8 @@ class Plank < Formula
 
   depends_on xcode: ["11.3", :build]
 
+  uses_from_macos "swift" => :build
+
   # fix build failures, upstream pr ref, https://github.com/pinterest/plank/pull/301
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/65b5a59920d2e06d62ce7fa0a9d7a6fcc72aa23d/plank/1.6.patch"
