@@ -1,8 +1,8 @@
 class Gickup < Formula
   desc "Backup all your repositories with Ease"
   homepage "https://cooperspencer.github.io/gickup-documentation/"
-  url "https://github.com/cooperspencer/gickup/archive/refs/tags/v0.10.36.tar.gz"
-  sha256 "208de2a724fbcdbc7d2b8ec38d8d61451fe8967bab5329ca4400c323378e53da"
+  url "https://github.com/cooperspencer/gickup/archive/refs/tags/v0.10.37.tar.gz"
+  sha256 "fd817cab05b5abd847ddb173a63e8895b933a197ef16dfdf5dfd329378b4ff32"
   license "Apache-2.0"
   head "https://github.com/cooperspencer/gickup.git", branch: "main"
 
@@ -35,7 +35,7 @@ class Gickup < Formula
             ssh: true
     YAML
 
-    output = shell_output("#{bin}/gickup --dryrun 2>&1")
+    output = shell_output("#{bin}/gickup --dryrun 2>&1", 1)
     assert_match "grabbing the repositories from Brew Test", output
 
     assert_match version.to_s, shell_output("#{bin}/gickup --version")
