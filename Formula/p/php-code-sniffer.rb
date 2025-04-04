@@ -1,8 +1,8 @@
 class PhpCodeSniffer < Formula
   desc "Check coding standards in PHP, JavaScript and CSS"
   homepage "https://github.com/PHPCSStandards/PHP_CodeSniffer"
-  url "https://github.com/PHPCSStandards/PHP_CodeSniffer/releases/download/3.12.0/phpcs.phar"
-  sha256 "a7d659269a1963e729f29fe9e4ec46202be8f843ba20aaed6ca5cefa2d4396fc"
+  url "https://github.com/PHPCSStandards/PHP_CodeSniffer/releases/download/3.12.1/phpcs.phar"
+  sha256 "7d714f6ebea0c9a257cbbb1a912a607c68f03f0d3b688f489efbd2eaa72f9261"
   license "BSD-3-Clause"
 
   bottle do
@@ -12,8 +12,8 @@ class PhpCodeSniffer < Formula
   depends_on "php"
 
   resource "phpcbf.phar" do
-    url "https://github.com/PHPCSStandards/PHP_CodeSniffer/releases/download/3.12.0/phpcbf.phar"
-    sha256 "7ee8682c53b3ded51e528f9cec20fb56c6720636e5407833f92047f9a690a761"
+    url "https://github.com/PHPCSStandards/PHP_CodeSniffer/releases/download/3.12.1/phpcbf.phar"
+    sha256 "8dcf5337b077812e4266bef5f23c04d2513cb23c95b29478f12faedc096dcec7"
 
     livecheck do
       formula :parent
