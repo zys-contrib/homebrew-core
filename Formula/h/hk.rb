@@ -1,8 +1,8 @@
 class Hk < Formula
   desc "Git hook and pre-commit lint manager"
   homepage "https://hk.jdx.dev"
-  url "https://github.com/jdx/hk/archive/refs/tags/v0.6.5.tar.gz"
-  sha256 "6313818ca222aef08c537ba2ef4a132f1087d689fb8aa020bbeab121f5fcdf92"
+  url "https://github.com/jdx/hk/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "7e92695a18c29fd8f72bec89b33d851e5cef8ec0c3049def47025126b02713c2"
   license "MIT"
   head "https://github.com/jdx/hk.git", branch: "main"
 
@@ -38,15 +38,11 @@ class Hk < Formula
 
     (testpath/"hk.pkl").write <<~PKL
       amends "package://github.com/jdx/hk/releases/download/v#{version}/hk@#{version}#/Config.pkl"
-      import "package://github.com/jdx/hk/releases/download/v#{version}/hk@#{version}#/builtins/cargo_clippy.pkl"
-
-      linters {
-        ["cargo-clippy"] = new cargo_clippy.CargoClippy {}
-      }
+      import "package://github.com/jdx/hk/releases/download/v#{version}/hk@#{version}#/builtins.pkl"
 
       hooks {
         ["pre-commit"] {
-          ["fix"] = new Fix {}
+          steps = new { ["cargo-clippy"] = builtins.cargo_clippy }
         }
       }
     PKL
