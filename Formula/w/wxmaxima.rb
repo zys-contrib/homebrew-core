@@ -45,7 +45,10 @@ class Wxmaxima < Formula
     # Disable CMake fixup_bundle to prevent copying dylibs
     inreplace "src/CMakeLists.txt", "fixup_bundle(", "# \\0"
 
-    system "cmake", "-S", ".", "-B", "build-wxm", "-G", "Ninja", *std_cmake_args
+    # https://github.com/wxMaxima-developers/wxmaxima/blob/main/Compiling.md#wxwidgets-isnt-found
+    args = OS.mac? ? [] : ["-DWXM_DISABLE_WEBVIEW=ON"]
+
+    system "cmake", "-S", ".", "-B", "build-wxm", "-G", "Ninja", *args, *std_cmake_args
     system "cmake", "--build", "build-wxm"
     system "cmake", "--install", "build-wxm"
     bash_completion.install "data/wxmaxima"
