@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/b0/84/ec977765e2ac972fd6a2f787b003a100709864d5251dd565d6eb9e2f46e3/snakemake-9.1.6.tar.gz"
-  sha256 "69fd1304b739ff6531eef151d29e302d962d6b55c145f6571734273121af6872"
+  url "https://files.pythonhosted.org/packages/08/c4/30e2da0434fc04a6f61c2c2ebc72be6ec5ce6f5b59f76f9a50c10db2f9bf/snakemake-9.1.7.tar.gz"
+  sha256 "3d9f2f93af7f5f427090df4528b0dd38f2139ccce0ce12e3236800f061e639e4"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -135,8 +135,8 @@ class Snakemake < Formula
   end
 
   resource "plac" do
-    url "https://files.pythonhosted.org/packages/9b/79/1edb4c836c69306d0ecb0865f46d62ea7e28ef16b3f95bb394e4f2a46330/plac-1.4.3.tar.gz"
-    sha256 "d4cb3387b2113a28aebd509433d0264a4e5d9bb7c1a86db4fbd0a8f11af74eb3"
+    url "https://files.pythonhosted.org/packages/23/09/26ef2d614cabdcc52a7f383d0dc7967bf46be3c9700898c594e37b710c3d/plac-1.4.5.tar.gz"
+    sha256 "5f05bf85235c017fcd76c73c8101d4ff8e96beb3dc58b9a37de49cac7de82d14"
   end
 
   resource "platformdirs" do
