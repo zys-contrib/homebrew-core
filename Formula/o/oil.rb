@@ -32,6 +32,19 @@ class Oil < Formula
                           "--with-readline=#{Formula["readline"].opt_prefix}"
     system "make"
     system "./install"
+
+    # patchelf.rb cannot handle ELF with appended zip data so keep the original files
+    # used at https://github.com/oils-for-unix/oils/blob/master/Makefile#L189-L190
+    libexec.install "_build/oil/ovm-opt.stripped", "_build/oil/bytecode-opy.zip" if build.bottle? && OS.linux?
+  end
+
+  def post_install
+    if libexec.exist?
+      bin.install libexec/"ovm-opt.stripped" => "oil.ovm"
+      (bin/"oil.ovm").binwrite((libexec/"bytecode-opy.zip").binread, mode: "a")
+      (bin/"oil.ovm").chmod(0555)
+      rm_r(libexec)
+    end
   end
 
   test do
