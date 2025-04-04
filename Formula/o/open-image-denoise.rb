@@ -1,8 +1,8 @@
 class OpenImageDenoise < Formula
   desc "High-performance denoising library for ray tracing"
   homepage "https://openimagedenoise.github.io"
-  url "https://github.com/OpenImageDenoise/oidn/releases/download/v2.3.2/oidn-2.3.2.src.tar.gz"
-  sha256 "0ca50e621294e8be238bee2d814fb0391e252e3f3c93fdd4bc253a60e0d00c68"
+  url "https://github.com/OpenImageDenoise/oidn/releases/download/v2.3.3/oidn-2.3.3.src.tar.gz"
+  sha256 "ccf221535b4007607fb53d3ff5afa74de25413bb8ef5d03d215f46c7cc2f96cf"
   license "Apache-2.0"
 
   bottle do
