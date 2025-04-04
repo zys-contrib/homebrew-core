@@ -19,6 +19,7 @@ class Ospray < Formula
     sha256 cellar: :any,                 sonoma:        "46f203d6c6db606e4fe48a8b63da54ece1badb1c4eae09cbcd842e297f6d04c1"
     sha256 cellar: :any,                 ventura:       "9d056ad5ebb6d60a81a44e64d5042870f8efb8579ea7b7e27e4ba4dc4f1545ab"
     sha256 cellar: :any_skip_relocation, arm64_linux:   "3c0dbef40ef62c06ac0d81fdad78b51f2c2f4a1f81dc7a5f605abedf4c75ad57"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ce0ebb61c0d3a09ce6e51d886f705e306b881d289fc9bbe62abe892b144532b"
   end
 
   depends_on "cmake" => :build
