@@ -1,8 +1,8 @@
 class GoSizeAnalyzer < Formula
   desc "Analyzing the dependencies in compiled Golang binaries"
   homepage "https://github.com/Zxilly/go-size-analyzer"
-  url "https://github.com/Zxilly/go-size-analyzer/archive/refs/tags/v1.7.7.tar.gz"
-  sha256 "f1d57260a218f009359492a2a85258ad8a64109b716d81e0c2ef156db31a7a7a"
+  url "https://github.com/Zxilly/go-size-analyzer/archive/refs/tags/v1.7.8.tar.gz"
+  sha256 "482cdde972259a996c2f00d61cf99662723176404438169b62dd05db6e2e4683"
   license "AGPL-3.0-only"
   head "https://github.com/Zxilly/go-size-analyzer.git", branch: "master"
 
@@ -39,7 +39,7 @@ class GoSizeAnalyzer < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/gsa --version")
-    assert_match "Usage", shell_output("#{bin}/gsa invalid 2>&1", 1)
+    assert_match "Usage", shell_output("#{bin}/gsa invalid 2>&1", 80)
 
     (testpath/"hello.go").write <<~GO
       package main
