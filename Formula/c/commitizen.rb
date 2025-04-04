@@ -3,10 +3,9 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/b5/fd/cd449bed87a26ecb61c950410e2d94e97ac31bf1f3ec69cc718b215384ce/commitizen-4.4.1.tar.gz"
-  sha256 "626d9f545fb9b2db42305e16ef35d6348a35081a80527bad863a05a7ba0bec21"
+  url "https://files.pythonhosted.org/packages/67/e5/6e8b6af23bf6d463870f8c29fd9be853d733825b297bb699be4310810990/commitizen-4.5.0.tar.gz"
+  sha256 "78753c447bf631aa6da180454e436fc6032a36d3ef93fb296534a19e27d2a696"
   license "MIT"
-  revision 1
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
   bottle do
