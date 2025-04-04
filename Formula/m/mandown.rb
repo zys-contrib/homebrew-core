@@ -31,7 +31,13 @@ class Mandown < Formula
       <html><head><title>test.md(7)</title></head><body><h1>Hi from readme file!</h1>
       </body></html>
     HTML
-    system bin/"mdn", "-f", "test.md", "-o", "test"
+    if OS.mac?
+      system bin/"mdn", "-f", "test.md", "-o", "test"
+    else
+      require "pty"
+      _, _, pid = PTY.spawn(bin/"mdn", "-f", "test.md", "-o", "test")
+      Process.wait(pid)
+    end
     assert_equal expected_output, File.read("test")
   end
 end
