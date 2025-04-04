@@ -6,11 +6,11 @@ class Mandown < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "d1116264c89f5e6f91d55fb6e7cc6245dc804911a0903a0136c5abcbce38094b"
-    sha256 cellar: :any, arm64_sonoma:  "6849a425fac96c73d2a4dbd6028cf9a84633eed12a4e863077294752193d9ecf"
-    sha256 cellar: :any, arm64_ventura: "63cfd069f04d06f78c7e77726d24d55d9dae8f6b135bf479fb08fc5b70564ed2"
-    sha256 cellar: :any, sonoma:        "98b3dc3dbcbea95cd7219e2e9c17ddac7908ab2cb4c2059c6d730c8d50806119"
-    sha256 cellar: :any, ventura:       "e84f21bc7098f4e67560c2ac79f9bcfb42789c204c65635694033802e2b6f2ec"
+    sha256 cellar: :any, arm64_sequoia: "16dc6fc0dce771f2568a38212dbb8ee9a4c262d737e83ae2a05575f1f29931bc"
+    sha256 cellar: :any, arm64_sonoma:  "7ae97c8f48213d8aad67e3d9edb24d832569fa69487a4fb7c1db3447b2a024c8"
+    sha256 cellar: :any, arm64_ventura: "24b373ecb63b84230f0f86f745cb4249239a042b32ab1cbfd40605078460119d"
+    sha256 cellar: :any, sonoma:        "6992cc1fe420af48147fb1a65db14b4c802977e42d5398bd794761c735131d53"
+    sha256 cellar: :any, ventura:       "8eae3a3b31cd0d843b6ff09dfe3469ec3bee7767a51fcb39c189de9f6526148a"
   end
 
   depends_on "pkgconf" => :build
