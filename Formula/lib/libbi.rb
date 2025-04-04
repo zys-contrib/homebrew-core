@@ -136,20 +136,15 @@ class Libbi < Formula
     end
 
     system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "INSTALLSITESCRIPT=#{bin}"
-
-    # Disable dynamic selection of perl which may cause segfault when an
-    # incompatible perl is picked up.
-    # See, e.g., https://github.com/Homebrew/homebrew-core/issues/4936
-    inreplace "script/libbi", "#!/usr/bin/env perl", "#!/usr/bin/perl"
-
     system "make"
     system "make", "install"
 
     pkgshare.install "Test.bi", "test.conf"
-    bin.env_script_all_files(libexec+"bin", PERL5LIB: ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
   end
 
   test do
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{HOMEBREW_PREFIX}/lib" if OS.linux?
     cp Dir[pkgshare/"Test.bi", pkgshare/"test.conf"], testpath
     system bin/"libbi", "sample", "@test.conf"
     assert_path_exists testpath/"test.nc"
