@@ -35,6 +35,7 @@ class Intercal < Formula
     sha256 mojave:       "d048d5c58fd1fc3b17c44103b3bbddd445a657415c215916587d9eb8e7f9c2da"
     sha256 high_sierra:  "c0569e08915adc912bdc3fb149d0d3c50e7a2d941fff8b2d951b22fcfaf4539f"
     sha256 sierra:       "b00c959878aaead39f9106ef199d7082b4e1a62ef6957f11796a99650678c9b2"
+    sha256 arm64_linux:  "dcf9671a1cd68f29ad22ed2ea028a790f03cd0b794a4156d3e958794dec68052"
     sha256 x86_64_linux: "31105eaa4a4800c562060caa8fa7c241b946c8dca2e92f0b2e101c34830787e8"
   end
 
