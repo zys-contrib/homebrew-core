@@ -1,8 +1,8 @@
 class IrcdHybrid < Formula
   desc "High-performance secure IRC server"
   homepage "https://www.ircd-hybrid.org/"
-  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.46/ircd-hybrid-8.2.46.tgz"
-  sha256 "a5d5c8f1888fa82fbded7a313456f5a659b871f2ce07e6ff81eb5a8d73f3c74b"
+  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.47/ircd-hybrid-8.2.47.tgz"
+  sha256 "d5f253f6dd1a93e7183323f410b7e2269ba4392d3d00a0e7dc6248f6f9864ffe"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -20,6 +20,7 @@ class IrcdHybrid < Formula
     sha256 x86_64_linux:  "031299ee9f3e08184069491b048f1005e5c73b098247a0d33765c95fbae7a438"
   end
 
+  depends_on "jansson"
   depends_on "openssl@3"
 
   uses_from_macos "libxcrypt"
