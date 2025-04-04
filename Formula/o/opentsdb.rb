@@ -33,11 +33,11 @@ class Opentsdb < Formula
     with_env(JAVA_HOME: Language::Java.java_home("1.8")) do
       ENV.prepend_path "PATH", Formula["python@3.13"].opt_libexec/"bin"
       system "autoreconf", "--force", "--install", "--verbose"
-      system "./configure", *std_configure_args,
-                            "--disable-silent-rules",
+      system "./configure", "--disable-silent-rules",
+                            "--localstatedir=#{var}/opentsdb",
                             "--mandir=#{man}",
                             "--sysconfdir=#{etc}",
-                            "--localstatedir=#{var}/opentsdb"
+                            *std_configure_args
       system "make"
       bin.mkpath
       (pkgshare/"static/gwt/opentsdb/images/ie6").mkpath
@@ -106,7 +106,7 @@ class Opentsdb < Formula
     ENV["HBASE_CONF_DIR"] = testpath/"conf"
     ENV["HBASE_PID_DIR"]  = testpath/"pid"
 
-    system "#{Formula["hbase"].opt_bin}/start-hbase.sh"
+    system Formula["hbase"].opt_bin/"start-hbase.sh"
     begin
       sleep 10
 
@@ -121,7 +121,11 @@ class Opentsdb < Formula
       end
       sleep 15
 
-      pipe_output("nc localhost 4242 2>&1", "put homebrew.install.test 1356998400 42.5 host=webserver01 cpu=0\n")
+      TCPSocket.open("localhost", 4242) do |sock|
+        sock.puts("put homebrew.install.test 1356998400 42.5 host=webserver01 cpu=0\n")
+      ensure
+        sock.close
+      end
 
       system bin/"tsdb", "query", "1356998000", "1356999000", "sum",
              "homebrew.install.test", "host=webserver01", "cpu=0"
