@@ -1,8 +1,8 @@
 class Hermit < Formula
   desc "Manages isolated, self-bootstrapping sets of tools in software projects"
   homepage "https://cashapp.github.io/hermit"
-  url "https://github.com/cashapp/hermit/archive/refs/tags/v0.44.4.tar.gz"
-  sha256 "99dcc97d40293354df6f0bc2ea95d69fc3f0a7407ef8f3d726af3636e58aa265"
+  url "https://github.com/cashapp/hermit/archive/refs/tags/v0.44.5.tar.gz"
+  sha256 "cf5def9512ba8bda98a58a530688b1c9a730ee759ed50802bdc689608543888a"
   license "Apache-2.0"
 
   bottle do
