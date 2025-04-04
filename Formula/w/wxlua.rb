@@ -22,18 +22,27 @@ class Wxlua < Formula
   depends_on "lua"
   depends_on "wxwidgets"
 
+  on_linux do
+    depends_on "xorg-server" => :test
+  end
+
   def install
     lua = Formula["lua"]
     wxwidgets = Formula["wxwidgets"]
     lua_version = lua.version.major_minor
 
     args = %W[
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
       -DwxLua_LUA_LIBRARY_VERSION=#{lua_version}
       -DwxLua_LUA_INCLUDE_DIR=#{lua.opt_include}/lua
       -DwxLua_LUA_LIBRARY=#{lua.opt_lib/shared_library("liblua")}
       -DwxWidgets_CONFIG_EXECUTABLE=#{wxwidgets.opt_bin}/wx-config
       -DwxLua_LUA_LIBRARY_USE_BUILTIN=FALSE
     ]
+    # Some components are not enabled in brew `wxwidgets`:
+    # * webview - needs `webkitgtk` dependency
+    # * media   - needs `gstreamer` dependency
+    args << "-DwxWidgets_COMPONENTS=gl;stc;xrc;richtext;propgrid;html;aui;adv;core;xml;net;base" if OS.linux?
 
     system "cmake", "-S", "wxLua", "-B", "build-wxlua", *args, *std_cmake_args
     system "cmake", "--build", "build-wxlua"
@@ -49,6 +58,14 @@ class Wxlua < Formula
       print(wxlua.wxLUA_VERSION_STRING)
     LUA
 
+    if OS.linux?
+      xvfb_pid = spawn Formula["xorg-server"].bin/"Xvfb", ":1"
+      ENV["DISPLAY"] = ":1"
+      sleep 10
+    end
+
     assert_match "wxLua #{version}", shell_output("lua example.wx.lua")
+  ensure
+    Process.kill("TERM", xvfb_pid) if xvfb_pid
   end
 end
