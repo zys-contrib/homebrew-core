@@ -34,6 +34,10 @@ class Strongswan < Formula
   uses_from_macos "curl"
 
   def install
+    # Work around RPATH modifications corrupting binary. Upstream patchelf fixed this issue
+    # https://github.com/NixOS/patchelf/issues/315 but it may be missing in patchelf.rb
+    ENV.append_path "HOMEBREW_RPATH_PATHS", libexec if OS.linux?
+
     args = %W[
       --sbindir=#{bin}
       --sysconfdir=#{etc}
