@@ -1,8 +1,8 @@
 class Krep < Formula
   desc "High-Performance String Search Utility"
   homepage "https://davidesantangelo.github.io/krep/"
-  url "https://github.com/davidesantangelo/krep/archive/refs/tags/v0.3.7.tar.gz"
-  sha256 "ff7f051c5bf9a2b5178ae79ae7144459569f23cbae37a548825dbc262091f7ba"
+  url "https://github.com/davidesantangelo/krep/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "0bd9f6345be337bf5bba787fe60fc28c93f5de583a0ea1f56e32a0113740d8b3"
   license "BSD-2-Clause"
 
   bottle do
@@ -20,7 +20,7 @@ class Krep < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/krep -v", 1)
+    assert_match version.to_s, shell_output("#{bin}/krep -v")
 
     text_file = testpath/"file.txt"
     text_file.write "This should result in one match"
