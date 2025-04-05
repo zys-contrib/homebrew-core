@@ -1,8 +1,8 @@
 class Dish < Formula
   desc "Lightweight monitoring service that efficiently checks socket connections"
   homepage "https://github.com/thevxn/dish"
-  url "https://github.com/thevxn/dish/archive/refs/tags/v1.10.2.tar.gz"
-  sha256 "b325de866ee3da27ca1509b5904caa1dd3ebad5ae96e2e6226f636fb9fbcbad6"
+  url "https://github.com/thevxn/dish/archive/refs/tags/v1.10.3.tar.gz"
+  sha256 "81c4e7c883e109ce09fa02a4cebf99d148570f906f2c603b5fb63e2a2aff7b2b"
   license "MIT"
 
   bottle do
@@ -22,6 +22,6 @@ class Dish < Formula
 
   test do
     ouput = shell_output("#{bin}/dish https://example.com/:instance 2>&1")
-    assert_match "error fetching sockets from remote source --- got 404 (404 Not Found)", ouput
+    assert_match "error loading socket list: failed to fetch sockets from remote source", ouput
   end
 end
