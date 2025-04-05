@@ -4,7 +4,7 @@ class GitSeries < Formula
   url "https://github.com/git-series/git-series/archive/refs/tags/0.9.1.tar.gz"
   sha256 "c0362e19d3fa168a7cb0e260fcdecfe070853b163c9f2dfd2ad8213289bc7e5f"
   license "MIT"
-  revision 12
+  revision 13
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "2e348dcdc3d49977fe6647cc92e833f174fde3b6ec3e199c0965639b6e76f868"
@@ -18,7 +18,7 @@ class GitSeries < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "libgit2@1.8" # needs https://github.com/rust-lang/git2-rs/issues/1109 to support libgit2 1.9
+  depends_on "libgit2"
   depends_on "libssh2"
   depends_on "openssl@3"
 
@@ -58,7 +58,7 @@ class GitSeries < Formula
     system bin/"git-series", "commit", "-a", "-m", "new feature v1"
 
     linked_libraries = [
-      Formula["libgit2@1.8"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
       Formula["libssh2"].opt_lib/shared_library("libssh2"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
     ]
