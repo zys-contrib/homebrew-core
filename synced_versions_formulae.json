@@ -45,7 +45,6 @@
   ["libnice", "libnice-gstreamer"],
   ["llvm", "lld", "flang"],
   ["qalculate-gtk", "qalculate-qt"],
-  ["logcli", "loki", "promtail"],
   ["mame", "rom-tools"],
   ["mecab-unidic", "mecab-unidic-extended"],
   ["moarvm", "nqp", "rakudo"],
