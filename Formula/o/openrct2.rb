@@ -2,10 +2,9 @@ class Openrct2 < Formula
   desc "Open source re-implementation of RollerCoaster Tycoon 2"
   homepage "https://openrct2.io/"
   url "https://github.com/OpenRCT2/OpenRCT2.git",
-      tag:      "v0.4.20",
-      revision: "1c1b6d4b26e0f7d564b00a4d10e1770b93bfbda7"
+      tag:      "v0.4.21",
+      revision: "ea5f02a87af0942ee8af4cd2fdda01a95495aafe"
   license "GPL-3.0-only"
-  revision 1
   head "https://github.com/OpenRCT2/OpenRCT2.git", branch: "develop"
 
   bottle do
@@ -30,7 +29,7 @@ class Openrct2 < Formula
   depends_on "libpng"
   depends_on "libvorbis"
   depends_on "libzip"
-  depends_on macos: :mojave # `error: call to unavailable member function 'value': introduced in macOS 10.14`
+  depends_on macos: :sonoma # Needs C++20 features not in Ventura
   depends_on "openssl@3"
   depends_on "sdl2"
   depends_on "speexdsp"
@@ -49,21 +48,41 @@ class Openrct2 < Formula
   end
 
   resource "objects" do
-    url "https://github.com/OpenRCT2/objects/releases/download/v1.5.1/objects.zip"
-    sha256 "c6b800cbcd7b1b9c707f3657fbc5f2db9d3cfd9c2adf668accc9ddbacd7841df"
+    url "https://github.com/OpenRCT2/objects/releases/download/v1.6.1/objects.zip"
+    sha256 "6829186630e52c332b6a4847ebb936c549a522fcadaf8f5e5e4579c4c91a4450"
+  end
+
+  resource "openmusic" do
+    url "https://github.com/OpenRCT2/OpenMusic/releases/download/v1.6/openmusic.zip"
+    sha256 "f097d3a4ccd39f7546f97db3ecb1b8be73648f53b7a7595b86cccbdc1a7557e4"
+  end
+
+  resource "opensound" do
+    url "https://github.com/OpenRCT2/OpenSoundEffects/releases/download/v1.0.5/opensound.zip"
+    sha256 "a952148be164c128e4fd3aea96822e5f051edd9a0b1f2c84de7f7628ce3b2e18"
   end
 
   def install
     # Avoid letting CMake download things during the build process.
-    (buildpath/"data/title").install resource("title-sequences")
+    (buildpath/"data/sequence").install resource("title-sequences")
     (buildpath/"data/object").install resource("objects")
+    resource("openmusic").stage do
+      (buildpath/"data/assetpack").install Dir["assetpack/*"]
+      (buildpath/"data/object/official").install "object/official/music"
+    end
+    resource("opensound").stage do
+      (buildpath/"data/assetpack").install Dir["assetpack/*"]
+      (buildpath/"data/object/official").install "object/official/audio"
+    end
 
-    args = [
-      "-DWITH_TESTS=OFF",
-      "-DDOWNLOAD_TITLE_SEQUENCES=OFF",
-      "-DDOWNLOAD_OBJECTS=OFF",
-      "-DMACOS_USE_DEPENDENCIES=OFF",
-      "-DDISABLE_DISCORD_RPC=ON",
+    args = %w[
+      -DWITH_TESTS=OFF
+      -DDOWNLOAD_TITLE_SEQUENCES=OFF
+      -DDOWNLOAD_OBJECTS=OFF
+      -DDOWNLOAD_OPENMSX=OFF
+      -DDOWNLOAD_OPENSFX=OFF
+      -DMACOS_USE_DEPENDENCIES=OFF
+      -DDISABLE_DISCORD_RPC=ON
     ]
     args << "-DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}" if OS.mac?
 
@@ -71,7 +90,7 @@ class Openrct2 < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    # By default macOS build only looks up data in app bundle Resources
+    # By default, the macOS build only looks for data in app bundle Resources.
     libexec.install bin/"openrct2"
     (bin/"openrct2").write <<~BASH
       #!/bin/bash
