@@ -2450,6 +2450,7 @@ noseyparker
 notation
 notcurses
 noti
+notifiers
 notify
 nox
 nping
