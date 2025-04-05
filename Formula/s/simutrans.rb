@@ -1,10 +1,9 @@
 class Simutrans < Formula
   desc "Transport simulator"
   homepage "https://www.simutrans.com/"
-  url "svn://servers.simutrans.org/simutrans/trunk/", revision: "11590"
-  version "124.3"
+  url "svn://servers.simutrans.org/simutrans/trunk/", revision: "11671"
+  version "124.3.1"
   license "Artistic-1.0"
-  revision 1
   head "https://github.com/simutrans/simutrans.git", branch: "master"
 
   livecheck do
@@ -50,6 +49,9 @@ class Simutrans < Formula
   end
 
   def install
+    # fixed in 9aa819, remove in next release
+    inreplace "cmake/MacBundle.cmake", "SOURCE_DIR}src", "SOURCE_DIR}/src"
+
     # These translations are dynamically generated.
     system "./tools/get_lang_files.sh"
 
