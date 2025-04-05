@@ -36,12 +36,37 @@ class Musepack < Formula
   depends_on "libcuefile"
   depends_on "libreplaygain"
 
+  # Backport upstream fixes from SVN for `-fno-common` and installing shared library
+  patch :p0 do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/743dc747e291fd5b1c6ebedfef2778f1f7cde77d/musepack/r479.patch"
+    sha256 "efef0421e3bb25c065c5e77d6c2e4bcdcc89fbcb03c7a7cfd7565ee5478fc8ba"
+  end
+  patch :p0 do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/743dc747e291fd5b1c6ebedfef2778f1f7cde77d/musepack/r482.patch"
+    sha256 "b147cc7effe9230401a0a865fdea1805be8eb26a24059bb36e39da1012e8da4b"
+  end
+  patch :p0 do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/743dc747e291fd5b1c6ebedfef2778f1f7cde77d/musepack/r491.patch"
+    sha256 "9003ff9c3e939dc880cc1ab1a46626eb9cf67a27b2610e7bac0945256bbb5cab"
+  end
+
+  # Apply Gentoo patches for fixing parallel build and another `-fno-common` issue
+  patch do
+    url "https://raw.githubusercontent.com/gentoo/gentoo/f5d4d4995d45baf77c176224b62e424dca037aef/media-sound/musepack-tools/files/musepack-tools-495-fixup-link-depends.patch"
+    sha256 "6dbada5a1e90c8fd1fe60084c04e2193cd027c6959ecaf6a37151a674ddb6a77"
+  end
+  patch do
+    url "https://raw.githubusercontent.com/gentoo/gentoo/f5d4d4995d45baf77c176224b62e424dca037aef/media-sound/musepack-tools/files/musepack-tools-495-incompatible-pointers.patch"
+    sha256 "25b43fa3ad4ae6eef1e483e3b675b521049901809a024e22aa0aee2237501654"
+  end
+
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-
-    lib.install "build/libmpcdec/libmpcdec.dylib"
   end
 
   test do
