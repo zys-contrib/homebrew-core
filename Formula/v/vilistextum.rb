@@ -35,6 +35,10 @@ class Vilistextum < Formula
   end
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `<symbol>`; <file>.o:<location>: first defined here
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"
