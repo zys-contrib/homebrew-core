@@ -1,10 +1,9 @@
 class CargoC < Formula
   desc "Helper program to build and install c-like libraries"
   homepage "https://github.com/lu-zero/cargo-c"
-  url "https://github.com/lu-zero/cargo-c/archive/refs/tags/v0.10.11.tar.gz"
-  sha256 "8a6d6dc589d6d70bd7eb95971e3c608240e1f9c938dd5b54a049977333b59f05"
+  url "https://github.com/lu-zero/cargo-c/archive/refs/tags/v0.10.12.tar.gz"
+  sha256 "ae118882067e1e7dcd8106933329cf018ddc6ea56cabfea7642a7699d6ce700f"
   license "MIT"
-  revision 1
 
   livecheck do
     url :stable
@@ -32,12 +31,6 @@ class CargoC < Formula
   # see discussions in https://github.com/Homebrew/homebrew-core/pull/197727
   uses_from_macos "curl", since: :sonoma
   uses_from_macos "zlib"
-
-  # bump cargo to 0.87
-  patch do
-    url "https://github.com/lu-zero/cargo-c/commit/8c5b7af3d6edb6d99f7bffcc94adf550cfee65b3.patch?full_index=1"
-    sha256 "a9938fae68b87a65a6d64b3e6a4b644ed543fb572cd9385321bb91deb3d6c5a2"
-  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
