@@ -724,6 +724,7 @@ dart-sdk
 dartsim
 datafusion
 datalad
+datamash
 datasette
 datatype99
 dav1d
