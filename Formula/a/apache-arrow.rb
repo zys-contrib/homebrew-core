@@ -2,7 +2,7 @@ class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
   license "Apache-2.0"
-  revision 2
+  revision 3
   head "https://github.com/apache/arrow.git", branch: "main"
 
   stable do
@@ -59,6 +59,10 @@ class ApacheArrow < Formula
   def install
     ENV.llvm_clang if OS.linux?
 
+    # upstream pr ref, https://github.com/apache/arrow/pull/44989
+    odie "Remove CMAKE_POLICY_VERSION_MINIMUM workaround!" if build.stable? && version > "19.0.1"
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+
     # We set `ARROW_ORC=OFF` because it fails to build with Protobuf 27.0
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
@@ -87,6 +91,7 @@ class ApacheArrow < Formula
       -DARROW_WITH_UTF8PROC=ON
       -DARROW_INSTALL_NAME_RPATH=OFF
       -DPARQUET_BUILD_EXECUTABLES=ON
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     ]
     args << "-DARROW_MIMALLOC=ON" unless Hardware::CPU.arm?
     # Reduce overlinking. Can remove on Linux if GCC 11 issue is fixed
