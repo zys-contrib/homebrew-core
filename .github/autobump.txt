@@ -2125,6 +2125,7 @@ ls-lint
 lsd
 lsix
 lsof
+ltex-ls-plus
 lttng-ust
 lua
 luacheck
