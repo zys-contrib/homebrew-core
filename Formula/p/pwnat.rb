@@ -22,7 +22,7 @@ class Pwnat < Formula
   end
 
   def install
-    system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}", "LDFLAGS=-lz"
+    system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"
     bin.install "pwnat"
     man1.install "manpage.txt" => "pwnat.1"
   end
