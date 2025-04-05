@@ -2115,10 +2115,12 @@ localstack
 locust
 log4cplus
 log4cxx
+logcli
 logdy
 logrotate
 logstash
 logswan
+loki
 lol-html
 lout
 ls-lint
@@ -2826,6 +2828,7 @@ projectable
 prometheus
 prometheus-cpp
 promptfoo
+promtail
 proper
 proselint
 proteinortho
