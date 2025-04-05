@@ -7,7 +7,7 @@ class Typescript < Formula
   head "https://github.com/Microsoft/TypeScript.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ac531f0522d2dbdb3275bf84d5b63a83c7fcf47f7f7d90e4bca19fcc543270fd"
+    sha256 cellar: :any_skip_relocation, all: "af7b5de78b6badec07a3319bbfe295792ace24e06a50b7c8b66d6701d0af3521"
   end
 
   depends_on "node"
