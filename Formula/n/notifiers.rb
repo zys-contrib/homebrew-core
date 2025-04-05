@@ -8,14 +8,13 @@ class Notifiers < Formula
   license "MIT"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sequoia: "300a45400582879b760961cd9f525b80ed441b32c521d0906507908e3048aa68"
-    sha256 cellar: :any,                 arm64_sonoma:  "96e52beab3b7f4f970ab35b0503960e5dfdcebafa3328e8d0e59cdf994d6c947"
-    sha256 cellar: :any,                 arm64_ventura: "457f3a729ded33ed9beb948a57adee6fbd7602fa969d415bbf526455ea1bf043"
-    sha256 cellar: :any,                 sonoma:        "c96537d4fb246ed71c41bfe6c61fd5f9a29eae517fb368b11a2c9313c2fbcf36"
-    sha256 cellar: :any,                 ventura:       "2024eaac6704991a447f683b6df66129055273e49d9edcfeb4c80a3aeef2bc96"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5af85ebe0bad3d18355ae10cabab6648750552c422f58f6d385cda62a7804dfc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87b54598ebff943a76750851764c55942cc308c3fc1f0f7d6a672d97465ddd08"
+    sha256 cellar: :any,                 arm64_sequoia: "11ebab39c6d85a806a6e9fc9f1b72adf92f8993783f8a75312bb1a5794e83c5f"
+    sha256 cellar: :any,                 arm64_sonoma:  "c615419b970c4dcfd8728efe90253909e8211054cb92d8980afd9b44462df506"
+    sha256 cellar: :any,                 arm64_ventura: "9e9f4b2e767226a0817e045f475f589c9bdda8fc34538cd37ef25b6d49012034"
+    sha256 cellar: :any,                 sonoma:        "c23986b48ab53a2b654b61c02dde1ef9f107f3155f1625c25e3f6e71b36a2bc5"
+    sha256 cellar: :any,                 ventura:       "cba2fdef7b1f6da1ba6584d6d4656c25222aacdb00a2cf51e77d2bd78a1aee8b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "90abd812f4f5d7d295cb4187b26842221edc9f0fa8a124e1eb0e5acf85da08db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88ae7c98d8435e74025269957c336a44b975dbffe26eba29e1b192bb55cb9807"
   end
 
   depends_on "rust" => :build # for rpds-py
