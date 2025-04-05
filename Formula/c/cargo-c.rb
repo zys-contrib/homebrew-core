@@ -1,10 +1,9 @@
 class CargoC < Formula
   desc "Helper program to build and install c-like libraries"
   homepage "https://github.com/lu-zero/cargo-c"
-  url "https://github.com/lu-zero/cargo-c/archive/refs/tags/v0.10.11.tar.gz"
-  sha256 "8a6d6dc589d6d70bd7eb95971e3c608240e1f9c938dd5b54a049977333b59f05"
+  url "https://github.com/lu-zero/cargo-c/archive/refs/tags/v0.10.12.tar.gz"
+  sha256 "ae118882067e1e7dcd8106933329cf018ddc6ea56cabfea7642a7699d6ce700f"
   license "MIT"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,13 +11,13 @@ class CargoC < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "298df64a0e6a0dc44feb6e6f187ee495a64091c2d7d195a7ac2030296a38c7e5"
-    sha256 cellar: :any,                 arm64_sonoma:  "15b1aa983ae12abeb6dc7ba2a7aeae970d084e1bcf77d29dcf7fc13edc1e9210"
-    sha256 cellar: :any,                 arm64_ventura: "98619f3def2143892c25e9984be916a898565ad813dd587d3af907065c657afb"
-    sha256 cellar: :any,                 sonoma:        "6053926d4acca21c203de290071319528f6dd15ac42c853a789907d6a5dfdfac"
-    sha256 cellar: :any,                 ventura:       "9e401453b90ff4daee3a67da086f94b1bdf928a61a4ab5bd3b23643946bf2b19"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5dbe0a6f7c5f845845753b643a2dbafe4ccdbe597155891256996b18dcb3dced"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5c4fa68eb6e3bf658bfdbd90a0606b8d392e6fbe56b3e8004a9655bc432568c"
+    sha256 cellar: :any,                 arm64_sequoia: "93eabec8c07314b2ffa10da04e1c5a8680811b52746cc003d1f692c369f68363"
+    sha256 cellar: :any,                 arm64_sonoma:  "f6a450122898ab833029022d1304918e8d5e8ed0776f662b1e2b56d467080d3f"
+    sha256 cellar: :any,                 arm64_ventura: "81448628a286cc6b30d9374103706490600e50fb2500316d8e1aafb5eb5805a3"
+    sha256 cellar: :any,                 sonoma:        "61ce2d2c5cb0a8072cc4258b09f4b8d3a8864d3c8c1a6c64c2e750b6d2c9164a"
+    sha256 cellar: :any,                 ventura:       "29dded3c27c5c6e011f9fe530b63e6c1aa539ec62a948cccc467610d3c17ddeb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c7ad0460d3c55f96057e1560cfcb58a1596b9b23eedfa5ae250bffaf550b4768"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6e540ac5f80fc34832486811dc88991bd5d59e181f20c3d76220dfcba1333d3"
   end
 
   depends_on "pkgconf" => :build
@@ -32,12 +31,6 @@ class CargoC < Formula
   # see discussions in https://github.com/Homebrew/homebrew-core/pull/197727
   uses_from_macos "curl", since: :sonoma
   uses_from_macos "zlib"
-
-  # bump cargo to 0.87
-  patch do
-    url "https://github.com/lu-zero/cargo-c/commit/8c5b7af3d6edb6d99f7bffcc94adf550cfee65b3.patch?full_index=1"
-    sha256 "a9938fae68b87a65a6d64b3e6a4b644ed543fb572cd9385321bb91deb3d6c5a2"
-  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
