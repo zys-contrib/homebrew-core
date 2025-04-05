@@ -33,7 +33,10 @@ class ZeldaRothSe < Formula
   uses_from_macos "unzip" => :test
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DSOLARUS_INSTALL_DATADIR=#{share}", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+                    "-DSOLARUS_INSTALL_DATADIR=#{share}",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

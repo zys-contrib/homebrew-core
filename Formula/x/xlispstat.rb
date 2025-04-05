@@ -37,7 +37,11 @@ class Xlispstat < Formula
     # Fix compile with newer Clang
     ENV.append "CC", "-Wno-implicit-int -Wno-int-conversion" if DevelopmentTools.clang_build_version >= 1403
 
-    system "./configure", *std_configure_args
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     ENV.deparallelize # Or make fails bytecompiling lisp code
     system "make"
     system "make", "install"
