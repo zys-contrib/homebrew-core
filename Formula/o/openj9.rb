@@ -78,8 +78,14 @@ class Openj9 < Formula
       end
     end
     on_linux do
-      url "https://github.com/AdoptOpenJDK/semeru22-binaries/releases/download/jdk-22.0.1%2B8_openj9-0.45.0/ibm-semeru-open-jdk_x64_linux_22.0.1_8_openj9-0.45.0.tar.gz"
-      sha256 "6e54d984bc0c058ffb7a604810dfffba210d79e12855e5c61e9295fedeff32db"
+      on_arm do
+        url "https://github.com/AdoptOpenJDK/semeru22-binaries/releases/download/jdk-22.0.1%2B8_openj9-0.45.0/ibm-semeru-open-jdk_aarch64_linux_22.0.1_8_openj9-0.45.0.tar.gz"
+        sha256 "feb2734b519990d730c577254df5a97f7110bb851994ce775977894a9fdc22c7"
+      end
+      on_intel do
+        url "https://github.com/AdoptOpenJDK/semeru22-binaries/releases/download/jdk-22.0.1%2B8_openj9-0.45.0/ibm-semeru-open-jdk_x64_linux_22.0.1_8_openj9-0.45.0.tar.gz"
+        sha256 "6e54d984bc0c058ffb7a604810dfffba210d79e12855e5c61e9295fedeff32db"
+      end
     end
   end
 
@@ -161,6 +167,7 @@ class Openj9 < Formula
     config_args << "--with-noncompressedrefs" if OS.mac? && Hardware::CPU.arm?
 
     ENV["CMAKE_CONFIG_TYPE"] = "Release"
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
 
     system "bash", "./configure", *config_args
     system "make", "all", "-j"
@@ -169,11 +176,11 @@ class Openj9 < Formula
     if OS.mac?
       libexec.install Dir["build/*/images/jdk-bundle/*"].first => "openj9.jdk"
       jdk /= "openj9.jdk/Contents/Home"
-      rm jdk/"lib/src.zip"
-      rm_r(jdk.glob("**/*.dSYM"))
     else
-      libexec.install Dir["build/linux-x86_64-server-release/images/jdk/*"]
+      libexec.install Dir["build/linux-*-server-release/images/jdk/*"]
     end
+    rm jdk/"lib/src.zip"
+    rm_r(jdk.glob("**/*.{dSYM,debuginfo}"))
 
     bin.install_symlink Dir[jdk/"bin/*"]
     include.install_symlink Dir[jdk/"include/*.h"]
