@@ -1,8 +1,8 @@
 class Tfprovidercheck < Formula
   desc "CLI to prevent malicious Terraform Providers from being executed"
   homepage "https://github.com/suzuki-shunsuke/tfprovidercheck"
-  url "https://github.com/suzuki-shunsuke/tfprovidercheck/archive/refs/tags/v1.0.3.tar.gz"
-  sha256 "f2957ec6eb9cdd8abd8165bf6c3b048e14f44f5b9575d11624144a7c3e97ffd5"
+  url "https://github.com/suzuki-shunsuke/tfprovidercheck/archive/refs/tags/v1.0.4.tar.gz"
+  sha256 "999816d11c9b30a01af4725a118e2e974f6927875fe0d1045ae6e0ab49e95284"
   license "MIT"
   head "https://github.com/suzuki-shunsuke/tfprovidercheck.git", branch: "main"
 
