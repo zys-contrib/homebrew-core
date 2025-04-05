@@ -4,6 +4,7 @@ class CargoOutdated < Formula
   url "https://github.com/kbknapp/cargo-outdated/archive/refs/tags/v0.17.0.tar.gz"
   sha256 "6c1c6914f34d3c0d9ebf26b74224fa6744a374e876b35f9836193c2b03858fa4"
   license "MIT"
+  revision 1
   head "https://github.com/kbknapp/cargo-outdated.git", branch: "master"
 
   bottle do
@@ -19,10 +20,21 @@ class CargoOutdated < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "rustup" => :test
-  depends_on "libgit2@1.8" # needs https://github.com/rust-lang/git2-rs/issues/1109 to support libgit2 1.9
+  depends_on "libgit2"
   depends_on "openssl@3"
 
   uses_from_macos "zlib"
+
+  # libgit2 1.9 patch, upstream pr ref, https://github.com/kbknapp/cargo-outdated/pull/417
+  patch do
+    url "https://github.com/kbknapp/cargo-outdated/commit/67213eb08b60f402d543d4b2aeb79f813f1ade5e.patch?full_index=1"
+    sha256 "712df30c8293327848e5156df8524f60fb425c9d397f954d88c5d31c36189a79"
+  end
+  # cargo 0.87 update
+  patch do
+    url "https://github.com/kbknapp/cargo-outdated/commit/9c766bf49d37fc2d3fc19ee6b06c4b022c7138a1.patch?full_index=1"
+    sha256 "5d3d1361804eb64272eb8d88110eeafbf998eff4262687989164b0d32e0c2225"
+  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
@@ -63,7 +75,7 @@ class CargoOutdated < Formula
     end
 
     [
-      Formula["libgit2@1.8"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
     ].each do |library|
