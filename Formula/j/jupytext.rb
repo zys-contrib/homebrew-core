@@ -3,8 +3,8 @@ class Jupytext < Formula
 
   desc "Jupyter notebooks as Markdown documents, Julia, Python or R scripts"
   homepage "https://jupytext.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/a0/40/641e0a94d84dee18b7815233a1e0e3c54228169fad529f12c3549a12f9ac/jupytext-1.16.7.tar.gz"
-  sha256 "fc4e97f0890e22062c4ef10313c7ca960b07b3767246a1fef7585888cc2afe5d"
+  url "https://files.pythonhosted.org/packages/17/b5/b04008ae2f3b37f0a955d9232c729589bcf40819732cd08a54bce08feb83/jupytext-1.17.0.tar.gz"
+  sha256 "c74adf6d205a778f481189e986b6066af79bdeb69099f4138d933cc15c398fb6"
   license "MIT"
 
   bottle do
@@ -22,8 +22,8 @@ class Jupytext < Formula
   depends_on "python@3.13"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/49/7c/fdf464bcc51d23881d110abd74b512a42b3d5d376a55a831b44c603ae17f/attrs-25.1.0.tar.gz"
-    sha256 "1c97078a80c814273a76b2a298a932eb681c87415c11dee0a6921de7f1b02c3e"
+    url "https://files.pythonhosted.org/packages/5a/b0/1367933a8532ee6ff8d63537de4f1177af4bff9f3e829baf7331f595bb24/attrs-25.3.0.tar.gz"
+    sha256 "75d7cefc7fb576747b2c81b4442d4d4a1ce0900973527c011d1030fd3bf4af1b"
   end
 
   resource "fastjsonschema" do
@@ -72,8 +72,8 @@ class Jupytext < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/13/fc/128cc9cb8f03208bdbf93d3aa862e16d376844a14f9a0ce5cf4507372de4/platformdirs-4.3.6.tar.gz"
-    sha256 "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"
+    url "https://files.pythonhosted.org/packages/b6/2d/7d512a3913d60623e7eb945c6d1b4f0bddf1d0b7ada5225274c87e5b53d1/platformdirs-4.3.7.tar.gz"
+    sha256 "eb437d586b6a0986388f0d6f74aa0cde27b48d0e3d66843640bfb6bdcdb6e351"
   end
 
   resource "pyyaml" do
@@ -87,8 +87,8 @@ class Jupytext < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/01/80/cce854d0921ff2f0a9fa831ba3ad3c65cee3a46711addf39a2af52df2cfd/rpds_py-0.22.3.tar.gz"
-    sha256 "e32fee8ab45d3c2db6da19a5323bc3362237c8b653c70194414b892fd06a080d"
+    url "https://files.pythonhosted.org/packages/0b/b3/52b213298a0ba7097c7ea96bee95e1947aa84cc816d48cebb539770cdf41/rpds_py-0.24.0.tar.gz"
+    sha256 "772cc1b2cd963e7e17e6cc55fe0371fb9c704d63e44cacec7b9b7f523b78919e"
   end
 
   resource "traitlets" do
