@@ -12,6 +12,7 @@ class Dbxml < Formula
     sha256 cellar: :any,                 arm64_ventura: "3b54187469d0a475dcd814126f9f15c82a9b66699edc45653e112ee24164ad2d"
     sha256 cellar: :any,                 sonoma:        "f5f58b63b160c729ff6350cec92474f1a9eed2ac3207413cd275b4ed6f19bbed"
     sha256 cellar: :any,                 ventura:       "67ce232d02670a98765d472293a358fb71f1d2ba3160786d218b4b3249275009"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "30a75d75523b43d1a4b2eaeb6997cf8ebee9ed3d2e854c9387b1f474c65f79f0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "936250b2d49f27ab6123d1eb1cc6405b22777dd95617d4aead5f958ac19e2a05"
   end
 
