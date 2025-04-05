@@ -30,6 +30,14 @@ class DvdxrwTools < Formula
 
   uses_from_macos "m4" => :build
 
+  # Apply Fedora patch for missing header on Linux
+  patch do
+    on_linux do
+      url "https://src.fedoraproject.org/rpms/dvd+rw-tools/raw/938529cda09efcc2f79478be1632648adc3537af/f/dvd+rw-tools-7.1-sysmacro-inc.patch"
+      sha256 "28a69bb73c5d819cb445add766e1d68134dc0ec26fe83cc87164ec4853c9541d"
+    end
+  end
+
   # Respect $prefix on macOS.
   # Fix build failure because of missing #include <limits.h> on Linux.
   # Patch submitted to author by email.

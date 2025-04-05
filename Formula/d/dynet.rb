@@ -24,8 +24,19 @@ class Dynet < Formula
   depends_on "cmake" => :build
   depends_on "eigen"
 
+  on_linux do
+    on_arm do
+      depends_on "llvm" => :build
+
+      fails_with :gcc do
+        cause "https://github.com/clab/dynet/issues/266"
+      end
+    end
+  end
+
   def install
     args = %W[
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
       -DEIGEN3_INCLUDE_DIR=#{Formula["eigen"].opt_include}/eigen3
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
