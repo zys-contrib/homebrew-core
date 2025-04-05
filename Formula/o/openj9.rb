@@ -23,6 +23,8 @@ class Openj9 < Formula
     sha256 cellar: :any, arm64_ventura: "2ce146ac5d3dd24c2128a3a415ccd7cbde196fba5886a9cfe9b17456f23acef4"
     sha256 cellar: :any, sonoma:        "556ef126e9179af15826e7eb1877b6733b951990808b4ae5b8875d3ca0927119"
     sha256 cellar: :any, ventura:       "6ebb3a8c650f109ec0c0769e8d8da7217852fb26099908abd7446a81c0244132"
+    sha256               arm64_linux:   "bb9d01b54445f63cb3ae6d6fe095e08b9c3442bcc15f2dac9858cc34d951409b"
+    sha256               x86_64_linux:  "4a236476593a25dd692c85fc8ded426ddb7d5e63995b42e6c5aa8632a13934d2"
   end
 
   keg_only :shadowed_by_macos
