@@ -4,6 +4,7 @@ class CargoUdeps < Formula
   url "https://github.com/est31/cargo-udeps/archive/refs/tags/v0.1.55.tar.gz"
   sha256 "bc84beb17213c69fd452d240a85697b96b167e45f43207e8f9202b5bd4277926"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "667c084abc9e6a266bf67e636a0a639353563ae250b07061f0b73e762dc3da57"
@@ -18,11 +19,22 @@ class CargoUdeps < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "rustup" => :test
-  depends_on "libgit2@1.8" # needs https://github.com/rust-lang/git2-rs/issues/1109 to support libgit2 1.9
+  depends_on "libgit2"
   depends_on "libssh2"
   depends_on "openssl@3"
 
   uses_from_macos "zlib"
+
+  # patch to use libgit2 1.9, upstream pr ref, https://github.com/est31/cargo-udeps/pull/305
+  patch do
+    url "https://github.com/est31/cargo-udeps/commit/adede771b25ce753ca223cc1c5f36ff0951e5032.patch?full_index=1"
+    sha256 "e8119b2c2d6aada2b7f48c8011a0aec494abb516a443950fd8de1496497aefe2"
+  end
+  # cargo 0.87 fix
+  patch do
+    url "https://github.com/est31/cargo-udeps/commit/401859a2ea50a72e2764c997cf39ca805d3e7c5d.patch?full_index=1"
+    sha256 "f9be0d2587084c0d6e5ddb71b2a0b8a63271b7205a3871af1a32c9933ca4ddd8"
+  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
@@ -60,7 +72,7 @@ class CargoUdeps < Formula
     end
 
     [
-      Formula["libgit2@1.8"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
       Formula["libssh2"].opt_lib/shared_library("libssh2"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
