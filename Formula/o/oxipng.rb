@@ -17,6 +17,16 @@ class Oxipng < Formula
   depends_on "rust" => :build
 
   def install
+    # Upstream uses qemu to cross compile for Linux aarch64, which is not desirable in brew.
+    # https://github.com/shssoichiro/oxipng/commit/1f2e0f336a826bd578a49c1dd477fb38773dd6ce
+    #
+    # cargo allows setting the variable to some other non-empty string, but not fully
+    # unsetting it, so remove the assignment from the source file.
+    # https://github.com/toml-lang/toml/issues/30
+    # https://doc.rust-lang.org/cargo/reference/config.html#environment-variables
+    # https://doc.rust-lang.org/cargo/reference/config.html#command-line-overrides
+    inreplace ".cargo/config.toml", "runner = \"qemu-aarch64\"", ""
+
     system "cargo", "install", *std_cargo_args
     system "cargo", "run",
            "--manifest-path", "xtask/Cargo.toml",
