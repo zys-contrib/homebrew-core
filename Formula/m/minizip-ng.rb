@@ -1,8 +1,8 @@
 class MinizipNg < Formula
   desc "Zip file manipulation library with minizip 1.x compatibility layer"
   homepage "https://github.com/zlib-ng/minizip-ng"
-  url "https://github.com/zlib-ng/minizip-ng/archive/refs/tags/4.0.8.tar.gz"
-  sha256 "c3e9ceab2bec26cb72eba1cf46d0e2c7cad5d2fe3adf5df77e17d6bbfea4ec8f"
+  url "https://github.com/zlib-ng/minizip-ng/archive/refs/tags/4.0.9.tar.gz"
+  sha256 "353a9e1c1170c069417c9633cc94ced74f826319d6d0b46d442c2cd7b00161c1"
   license "Zlib"
   head "https://github.com/zlib-ng/minizip-ng.git", branch: "dev"
 
