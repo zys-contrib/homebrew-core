@@ -1,8 +1,8 @@
 class Cpm < Formula
   desc "Fast CPAN module installer"
   homepage "https://metacpan.org/pod/cpm"
-  url "https://cpan.metacpan.org/authors/id/S/SK/SKAJI/App-cpm-0.997021.tar.gz"
-  sha256 "2f76c59c5e112c96ca6fe949fc31f7cd6156852c1cbf1278695177a82224c597"
+  url "https://cpan.metacpan.org/authors/id/S/SK/SKAJI/App-cpm-0.997022.tar.gz"
+  sha256 "5965eb6952bb1abd88c3be863b300590e824026895e4ab6b9e81d62609c404ed"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   head "https://github.com/skaji/cpm.git", branch: "master"
 
@@ -41,8 +41,8 @@ class Cpm < Formula
   end
 
   resource "Capture::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.48.tar.gz"
-    sha256 "6c23113e87bad393308c90a207013e505f659274736638d8c79bac9c67cc3e19"
+    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.50.tar.gz"
+    sha256 "ca6e8d7ce7471c2be54e1009f64c367d7ee233a2894cacf52ebe6f53b04e81e5"
   end
 
   resource "Class::Tiny" do
@@ -53,6 +53,11 @@ class Cpm < Formula
   resource "Command::Runner" do
     url "https://cpan.metacpan.org/authors/id/S/SK/SKAJI/Command-Runner-0.200.tar.gz"
     sha256 "5ad26d06111bfecd53c8f5bb5dea94bf2025f6c78e95f6d8012e4cfa89e29f26"
+  end
+
+  resource "Darwin::InitObjC" do
+    url "https://cpan.metacpan.org/authors/id/S/SK/SKAJI/Darwin-InitObjC-0.001.tar.gz"
+    sha256 "9a5f2887cb2fd427d64937743ffe3e748eab38b5b64906185fc243861e189f91"
   end
 
   resource "ExtUtils::Config" do
@@ -151,8 +156,8 @@ class Cpm < Formula
   end
 
   resource "YAML::PP" do
-    url "https://cpan.metacpan.org/authors/id/T/TI/TINITA/YAML-PP-v0.38.0.tar.gz"
-    sha256 "a819465c52f6a341049a3942742c08e04f2894b2a66482e43a7f407ce10b4ea0"
+    url "https://cpan.metacpan.org/authors/id/T/TI/TINITA/YAML-PP-v0.39.0.tar.gz"
+    sha256 "32f53c65781277dcbe50827b4cbf217eceeff264779e3a6c98c94229eb149f58"
   end
 
   resource "local::lib" do
@@ -167,6 +172,7 @@ class Cpm < Formula
       "Module::Build::Tiny",
       "Module::cpmfile",
       "Command::Runner",
+      "Darwin::InitObjC",
       "Parallel::Pipes",
     ]
 
