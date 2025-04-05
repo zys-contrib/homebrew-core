@@ -4,6 +4,7 @@ class CargoC < Formula
   url "https://github.com/lu-zero/cargo-c/archive/refs/tags/v0.10.11.tar.gz"
   sha256 "8a6d6dc589d6d70bd7eb95971e3c608240e1f9c938dd5b54a049977333b59f05"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -22,7 +23,7 @@ class CargoC < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "libgit2@1.8" # needs https://github.com/rust-lang/git2-rs/issues/1109 to support libgit2 1.9
+  depends_on "libgit2"
   depends_on "libssh2"
   depends_on "openssl@3"
 
@@ -31,6 +32,12 @@ class CargoC < Formula
   # see discussions in https://github.com/Homebrew/homebrew-core/pull/197727
   uses_from_macos "curl", since: :sonoma
   uses_from_macos "zlib"
+
+  # bump cargo to 0.87
+  patch do
+    url "https://github.com/lu-zero/cargo-c/commit/8c5b7af3d6edb6d99f7bffcc94adf550cfee65b3.patch?full_index=1"
+    sha256 "a9938fae68b87a65a6d64b3e6a4b644ed543fb572cd9385321bb91deb3d6c5a2"
+  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
@@ -50,7 +57,7 @@ class CargoC < Formula
     assert_match cargo_error, shell_output("#{bin}/cargo-cbuild cbuild 2>&1", 1)
 
     [
-      Formula["libgit2@1.8"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
       Formula["libssh2"].opt_lib/shared_library("libssh2"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
