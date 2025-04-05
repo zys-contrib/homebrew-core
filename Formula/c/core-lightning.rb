@@ -3,8 +3,8 @@ class CoreLightning < Formula
 
   desc "Lightning Network implementation focusing on spec compliance and performance"
   homepage "https://github.com/ElementsProject/lightning"
-  url "https://github.com/ElementsProject/lightning/releases/download/v25.02/clightning-v25.02.zip"
-  sha256 "d34706fc391103047f7ccbae2979a5d90022134c82e9395052a5c42db6c33d11"
+  url "https://github.com/ElementsProject/lightning/releases/download/v25.02.1/clightning-v25.02.1.zip"
+  sha256 "d1e44b73f6d1e2c8e73482b38645fdc95080a32a5fd53561a5af3ce269950b9e"
   license "MIT"
   head "https://github.com/ElementsProject/lightning.git", branch: "master"
 
@@ -46,13 +46,18 @@ class CoreLightning < Formula
   end
 
   resource "mako" do
-    url "https://files.pythonhosted.org/packages/5f/d9/8518279534ed7dace1795d5a47e49d5299dd0994eed1053996402a8902f9/mako-1.3.8.tar.gz"
-    sha256 "577b97e414580d3e088d47c2dbbe9594aa7a5146ed2875d4dfa9075af2dd3cc8"
+    url "https://files.pythonhosted.org/packages/62/4f/ddb1965901bc388958db9f0c991255b2c469349a741ae8c9cd8a562d70a6/mako-1.3.9.tar.gz"
+    sha256 "b5d65ff3462870feec922dbccf38f6efb44e5714d7b593a656be86663d8600ac"
   end
 
   resource "markupsafe" do
     url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
     sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
+  end
+
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/a9/5a/0db4da3bc908df06e5efae42b44e75c81dd52716e10192ff36d0c1c8e379/setuptools-78.1.0.tar.gz"
+    sha256 "18fd474d4a82a5f83dac888df697af65afa82dec7323d09c3e37d1f14288da54"
   end
 
   # Configure script overwrites `PKG_CONFIG_PATH` on macOS
