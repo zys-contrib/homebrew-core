@@ -1,8 +1,8 @@
 class Fgbio < Formula
   desc "Tools for working with genomic and high throughput sequencing data"
   homepage "https://fulcrumgenomics.github.io/fgbio/"
-  url "https://github.com/fulcrumgenomics/fgbio/releases/download/2.5.0/fgbio-2.5.0.jar"
-  sha256 "902b73a4eca6e6ee0ad4c4b929983d39ed69b1b1493d398a7a21b1166721f0d2"
+  url "https://github.com/fulcrumgenomics/fgbio/releases/download/2.5.21/fgbio-2.5.21.jar"
+  sha256 "55319fdc5df8f38eb5b1c83e34ab1561494b8d8fe59f27e0b5a807a4c70db2dd"
   license "MIT"
 
   bottle do
