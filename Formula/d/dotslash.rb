@@ -54,6 +54,18 @@ class Dotslash < Formula
               }
             ]
           },
+          "linux-aarch64": {
+            "size": 44559104,
+            "hash": "blake3",
+            "digest": "bd605f5957f792def0885db18a9595202ba13f64d2e8d92514f95fb8c8ee5de5",
+            "format": "tar.gz",
+            "path": "node-v18.19.0-linux-arm64/bin/node",
+            "providers": [
+              {
+                "url": "https://nodejs.org/dist/v18.19.0/node-v18.19.0-linux-arm64.tar.gz"
+              }
+            ]
+          },
           "linux-x86_64": {
             "size": 44694523,
             "hash": "blake3",
