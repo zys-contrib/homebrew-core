@@ -53,6 +53,8 @@ class BerkeleyDbAT4 < Formula
       --mandir=#{man}
       --enable-cxx
     ]
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
 
     # BerkeleyDB requires you to build everything from the build_unix subdirectory
     cd "build_unix" do
@@ -92,6 +94,7 @@ class BerkeleyDbAT4 < Formula
       -L#{lib}
       -ldb_cxx
     ]
+    flags << "-Wl,-rpath,#{lib}" if OS.linux?
     system ENV.cxx, "test.cpp", "-o", "test", *flags
     system "./test"
     assert_path_exists testpath/"test.db"
