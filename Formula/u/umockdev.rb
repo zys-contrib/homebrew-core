@@ -68,6 +68,7 @@ class Umockdev < Formula
       }
     C
 
+    ENV.append_path "PKG_CONFIG_PATH", Formula["systemd"].lib/"pkgconfig" if OS.linux?
     flags = shell_output("pkgconf --cflags --libs umockdev-1.0 libudev").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system bin/"umockdev-wrapper", testpath/"test"

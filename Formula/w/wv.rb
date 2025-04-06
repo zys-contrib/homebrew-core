@@ -40,7 +40,11 @@ class Wv < Formula
       ENV.append_to_cflags "-Wno-incompatible-function-pointer-types -Wno-int-conversion"
     end
 
-    system "./configure", "--mandir=#{man}", *std_configure_args
+    args = ["--mandir=#{man}"]
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make"
     ENV.deparallelize
     # the makefile generated does not create the file structure when installing
