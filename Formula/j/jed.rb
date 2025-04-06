@@ -39,13 +39,17 @@ class Jed < Formula
   depends_on "s-lang"
 
   def install
+    args = ["--with-slang=#{Formula["s-lang"].opt_prefix}"]
+
     if build.head?
       cd "autoconf" do
         system "make"
       end
+    elsif OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      # Help old config scripts identify arm64 linux
+      args << "--build=aarch64-unknown-linux-gnu"
     end
-    system "./configure", "--prefix=#{prefix}",
-                          "--with-slang=#{Formula["s-lang"].opt_prefix}"
+    system "./configure", *args, *std_configure_args
     system "make"
     ENV.deparallelize
     system "make", "install"
