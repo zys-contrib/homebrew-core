@@ -15,6 +15,7 @@ class Foot < Formula
   depends_on "pkgconf" => :build
   depends_on "scdoc" => :build
   depends_on "tllist" => :build
+  depends_on "wayland-protocols" => :build
 
   depends_on "fcft"
   depends_on "fontconfig"
