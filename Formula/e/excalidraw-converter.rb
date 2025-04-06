@@ -18,18 +18,20 @@ class ExcalidrawConverter < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args(ldflags: "-s -w -X diagram-converter/cmd.version=#{version}")
     bin.install_symlink "excalidraw-converter" => "exconv"
   end
 
   test do
-    resource "test_input.excalidraw" do
-      url "https://raw.githubusercontent.com/sindrel/excalidraw-converter/refs/tags/v1.4.3/test/data/test_input.excalidraw"
-      sha256 "46fd108ab73f6ba70610cb2a79326e453246d58399b65ffc95e0de41dd2f12e8"
+    test_version = version
+
+    resource "test_homebrew.excalidraw" do
+      url "https://raw.githubusercontent.com/sindrel/excalidraw-converter/refs/tags/v#{test_version}/test/data/test_homebrew.excalidraw"
+      sha256 "87e06e6b89a489fe01ccd06e51b8cc2b73bb51ff02e998d04eaa092a025d64e0"
     end
 
-    resource("test_input.excalidraw").stage testpath
-    system bin/"excalidraw-converter", "gliffy", "-i", testpath/"test_input.excalidraw", "-o",
+    resource("test_homebrew.excalidraw").stage testpath
+    system bin/"excalidraw-converter", "gliffy", "-i", testpath/"test_homebrew.excalidraw", "-o",
 testpath/"test_output.gliffy"
     assert_path_exists testpath/"test_output.gliffy"
     system bin/"exconv", "version"
