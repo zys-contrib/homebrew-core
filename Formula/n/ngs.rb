@@ -1,8 +1,8 @@
 class Ngs < Formula
   desc "Powerful programming language and shell designed specifically for Ops"
   homepage "https://ngs-lang.org/"
-  url "https://github.com/ngs-lang/ngs/archive/refs/tags/v0.2.16.tar.gz"
-  sha256 "282bcd00164044a01b025b5373ed2e0b03d6e5b3d04cea2f363629a7ea5b92c7"
+  url "https://github.com/ngs-lang/ngs/archive/refs/tags/v0.2.17.tar.gz"
+  sha256 "029c5d1167e884fee54fc99881e3d8c30478314f6e5fc2a7b832c909ed35d5b0"
   license "GPL-3.0-only"
   head "https://github.com/ngs-lang/ngs.git", branch: "master"
 
@@ -34,7 +34,6 @@ class Ngs < Formula
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-    share.install prefix/"man" unless OS.mac?
   end
 
   test do
