@@ -6,6 +6,15 @@ class GithubMcpServer < Formula
   license "MIT"
   head "https://github.com/github/github-mcp-server.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b12e2c4b32871e8241c09948c1d0ce05a846c5fe9cafba7c0a40f7304b34a85d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b12e2c4b32871e8241c09948c1d0ce05a846c5fe9cafba7c0a40f7304b34a85d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b12e2c4b32871e8241c09948c1d0ce05a846c5fe9cafba7c0a40f7304b34a85d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7cd2b8a16a9e8999dbf8e81336b0d5fcaac2131751b37346552dabd8f45a0a05"
+    sha256 cellar: :any_skip_relocation, ventura:       "7cd2b8a16a9e8999dbf8e81336b0d5fcaac2131751b37346552dabd8f45a0a05"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d6ad198b094bfa987704270f64036fe3795cee439f863c97fc11c885d84c90f"
+  end
+
   depends_on "go" => :build
 
   def install
