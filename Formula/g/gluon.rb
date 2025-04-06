@@ -1,11 +1,19 @@
 class Gluon < Formula
   desc "Static, type inferred and embeddable language written in Rust"
   homepage "https://gluon-lang.org"
-  # TODO: Remove deprecation if new release is available that fixes build
-  url "https://github.com/gluon-lang/gluon/archive/refs/tags/v0.18.2.tar.gz"
-  sha256 "b5f82fecdf56b8b25ed516a023d31bcaf576b2bb3b2aee3e53d6f50ea8f281a3"
   license "MIT"
   head "https://github.com/gluon-lang/gluon.git", branch: "master"
+
+  stable do
+    url "https://github.com/gluon-lang/gluon/archive/refs/tags/v0.18.2.tar.gz"
+    sha256 "b5f82fecdf56b8b25ed516a023d31bcaf576b2bb3b2aee3e53d6f50ea8f281a3"
+
+    # Backport fix for newer Rust
+    patch do
+      url "https://github.com/gluon-lang/gluon/commit/6085b002e67fb473ab69fbd210433b0e8f7e7750.patch?full_index=1"
+      sha256 "5d3bb7f8ff8c2d9be6aaea9f5e4542804b2aa250100993c33ec2daee220a8d07"
+    end
+  end
 
   # There's a lot of false tags here.
   # Those prefixed with 'v' seem to be ok.
@@ -24,16 +32,10 @@ class Gluon < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba2ee59f07103937ec724410329016ff048f6da389b45b78fca28a63f11c18d1"
   end
 
-  # Unable to builds functional binaries since Rust 1.81.0.
-  # Issue ref: https://github.com/gluon-lang/gluon/issues/967
-  deprecate! date: "2024-11-07", because: :does_not_build
-
   depends_on "rust" => :build
 
   def install
-    cd "repl" do
-      system "cargo", "install", *std_cargo_args
-    end
+    system "cargo", "install", *std_cargo_args(path: "repl")
   end
 
   test do
