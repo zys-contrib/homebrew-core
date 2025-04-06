@@ -7,12 +7,12 @@ class Atmos < Formula
   head "https://github.com/cloudposse/atmos.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9c1435ab7dc6a51faefb36bb41356e58b803435520a5109825d8595b85dfe19"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "929860d39bf49ea608ee4c33332324fc9ce0fa1c4a4cf48597be021ba56bf515"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "44079ae0e1b16edb77416c0ab1c7a2bdb0184e0124dca7f6f5c3a28cd5a9581b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c97e598445ad5c804f80cb2f93bb405b5ea51df12f21ad223e415a164d167fee"
-    sha256 cellar: :any_skip_relocation, ventura:       "b2bc4b28814dfe2a482ada8531079ac1656145ddc93090fa3df3868d364dd0b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc5f615df00de4d9fd1f672181cd933bd14e21eec2fda933896267c59d289663"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2eb3b26664158b623078cf3dc47d060f6cc7a4d7eb448bd168bc45192edde2b5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "540506fe3f0d1442cb291055db6d84f56ebc0d82b65f53ee14581f2e129d1c3a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5e519ac6bb3d7b4eeef211a2f8ea2c7f125443a6c3b8e427fd06a6ede5307f41"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7d2000d38d4d6a46f0f5b608cf17cab1dd4d8d07cd29a60b6abb51b84a35962f"
+    sha256 cellar: :any_skip_relocation, ventura:       "e83ecfc01fa0906025fe35f0ef43d750d4d6e8b834fc3508d4c119d86c2ed9c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b5a7ba317489c1871991c24277bb7ea1296a55ba2c1b278c6083bc4c22eb894"
   end
 
   depends_on "go" => :build
