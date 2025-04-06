@@ -4,6 +4,7 @@ class Dish < Formula
   url "https://github.com/thevxn/dish/archive/refs/tags/v1.10.2.tar.gz"
   sha256 "b325de866ee3da27ca1509b5904caa1dd3ebad5ae96e2e6226f636fb9fbcbad6"
   license "MIT"
+  head "https://github.com/thevxn/dish.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "045fdcc6b846a489d563852ced996d3570303a43dd08ee9114ebdc2bf5e1b713"
