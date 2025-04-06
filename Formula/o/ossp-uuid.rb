@@ -49,11 +49,16 @@ class OsspUuid < Formula
       s.gsub! %r{^(libdir)=\$\{exec_prefix\}/lib$}, '\1=@\1@'
     end
 
-    system "./configure", "--prefix=#{prefix}",
-                          "--includedir=#{include}/ossp",
-                          "--without-perl",
-                          "--without-php",
-                          "--without-pgsql"
+    args = %W[
+      --includedir=#{include}/ossp
+      --without-perl
+      --without-php
+      --without-pgsql
+    ]
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
   end
