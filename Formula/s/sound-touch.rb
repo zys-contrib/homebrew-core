@@ -1,8 +1,8 @@
 class SoundTouch < Formula
   desc "Audio processing library"
   homepage "https://www.surina.net/soundtouch/"
-  url "https://codeberg.org/soundtouch/soundtouch/archive/2.3.3.tar.gz"
-  sha256 "43b23dfac2f64a3aff55d64be096ffc7b73842c3f5665caff44975633a975a99"
+  url "https://codeberg.org/soundtouch/soundtouch/archive/2.4.0.tar.gz"
+  sha256 "3dda3c9ab1e287f15028c010a66ab7145fa855dfa62763538f341e70b4d10abd"
   license "LGPL-2.1-or-later"
 
   bottle do
