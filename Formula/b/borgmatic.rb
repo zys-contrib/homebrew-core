@@ -3,18 +3,18 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/8f/c5/8a46323a6ca0e501b408f6af2d07bff1e768250f4e0af3684f75e34ffe66/borgmatic-2.0.0.tar.gz"
-  sha256 "2c05437a7586acdff8888048312ca737cc8de41088b72743a2b4dc5c004ccb33"
+  url "https://files.pythonhosted.org/packages/09/9b/af368c4f688052ef2f43b969ba485e1e67ad08c9a1c688d20d5816a5ad14/borgmatic-2.0.1.tar.gz"
+  sha256 "57443da81facc9b9ab282fe0777b3b670bb06902384eb14527da4bf57331484f"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e08a0f001bd96d5b076f94d2fd5dd15c022435d8508e49a8d3697c8695fdba07"
-    sha256 cellar: :any,                 arm64_sonoma:  "693143dc2a7abfee9f7173aa07fd608b353094ac52a24bb41528fdee95c1a4d9"
-    sha256 cellar: :any,                 arm64_ventura: "6ae2fdd0731227b8835dae8927120fa7bd1c0adbb57c82ddbe454c6924c565ef"
-    sha256 cellar: :any,                 sonoma:        "7f420c8169e7588cc060951d958cf971c02b9a215135087dea679d47ef4a42c8"
-    sha256 cellar: :any,                 ventura:       "73db32a9ea5100ff8d909737e8dbe82be78c4352740fa5d090e34f1c09bb9f13"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "947f093c673b2b5cc7f1a8d56b9fdb311d64ceaa90dbe8d2f3d44c40d40c8926"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1630c4ea26dfdcdcd40b089f93922d9acb2b03aabe90f374f0cebe97eab0e14"
+    sha256 cellar: :any,                 arm64_sequoia: "cda8b1b23742bbd54d9ad2552d8cc69049cd65e943d68cffbe5d12da1a7dce5a"
+    sha256 cellar: :any,                 arm64_sonoma:  "95d5be70da7d325fa30834c3f9597afa4c6890b4dc1ebd12da775cf80ba2f233"
+    sha256 cellar: :any,                 arm64_ventura: "ddfb914fe3a8e0b5909dd453372b74c49c994f2150afd01bb2da3c35521de0c0"
+    sha256 cellar: :any,                 sonoma:        "d797f4afbab375d58982e9e3303424ffbf471b29d41eed25bb1bf57772d29b23"
+    sha256 cellar: :any,                 ventura:       "959a94d29d2e28852a8fe4e01900740d5ac445ec816b863637e5b44594dd0d46"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ad0edf7111d9c1da286bfe463118a45f28b9923fdbfe43035d7d680432745a0a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "053c4179d17cd5d621989112927e0f9e5b833b0de324519ad16dbd20cfce78d9"
   end
 
   depends_on "rust" => :build # for rpds-py
