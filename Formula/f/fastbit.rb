@@ -45,10 +45,11 @@ class Fastbit < Formula
 
   def install
     ENV.cxx11
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-java=#{Formula["openjdk"].opt_prefix}"
+    args = ["--with-java=#{Formula["openjdk"].opt_prefix}"]
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
     libexec.install lib/"fastbitjni.jar"
     bin.write_jar_script libexec/"fastbitjni.jar", "fastbitjni"

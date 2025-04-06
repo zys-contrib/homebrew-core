@@ -75,8 +75,12 @@ class Ekg2 < Formula
       --without-perl
       --without-python
     ]
-    # Newer ncurses has opaque structures so old plugin code no longer works
-    args << "--without-ncurses" unless OS.mac?
+    if OS.linux?
+      # Newer ncurses has opaque structures so old plugin code no longer works
+      args << "--without-ncurses"
+      # Help old config scripts identify arm64 linux
+      args << "--build=aarch64-unknown-linux-gnu" if Hardware::CPU.arm? && Hardware::CPU.is_64_bit? && build.stable?
+    end
 
     configure = build.head? ? "./autogen.sh" : "./configure"
     system configure, *args, *std_configure_args

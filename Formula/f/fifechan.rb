@@ -39,7 +39,10 @@ class Fifechan < Formula
   end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DENABLE_SDL_CONTRIB=ON", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+                    "-DENABLE_SDL_CONTRIB=ON",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

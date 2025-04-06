@@ -21,7 +21,27 @@ class FairyStockfish < Formula
   end
 
   def install
-    arch = Hardware::CPU.arm? ? "apple-silicon" : "x86-64-modern"
+    arch = if Hardware::CPU.arm?
+      if OS.mac?
+        "apple-silicon"
+      else
+        "armv8"
+      end
+    elsif build.bottle?
+      if OS.mac? && MacOS.version.requires_sse41?
+        "x86-64-sse41-popcnt"
+      else
+        "x86-64-ssse3"
+      end
+    elsif Hardware::CPU.avx2?
+      "x86-64-avx2"
+    elsif Hardware::CPU.sse4_1?
+      "x86-64-sse41-popcnt"
+    elsif Hardware::CPU.ssse3?
+      "x86-64-ssse3"
+    else
+      "x86-64"
+    end
 
     system "make", "-C", "src", "build", "ARCH=#{arch}"
     bin.install "src/stockfish" => "fairy-stockfish"

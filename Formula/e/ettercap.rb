@@ -87,6 +87,7 @@ class Ettercap < Formula
     args = %W[
       -DBUNDLED_LIBS=OFF
       -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
       -DENABLE_CURSES=ON
       -DENABLE_GTK=ON
       -DENABLE_IPV6=ON
