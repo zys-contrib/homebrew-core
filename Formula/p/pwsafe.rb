@@ -42,8 +42,15 @@ class Pwsafe < Formula
   end
 
   def install
-    system "autoreconf", "--force", "--install", "--verbose" if build.head?
-    system "./configure", "--mandir=#{man}", "--without-x", *std_configure_args
+    args = ["--mandir=#{man}", "--without-x"]
+    if build.head?
+      system "autoreconf", "--force", "--install", "--verbose"
+    elsif OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      # Help old config scripts identify arm64 linux
+      args << "--build=aarch64-unknown-linux-gnu"
+    end
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 
