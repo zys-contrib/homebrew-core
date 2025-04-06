@@ -8,13 +8,13 @@ class Posting < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b6f3d03281b8f56165d579aa5216fc621869406507c0a0b424d33f7fb82e92e3"
-    sha256 cellar: :any,                 arm64_sonoma:  "cc949d9fc5bb97f4dc22c83171dbf324f9028de72903722dd14d632fae6a058d"
-    sha256 cellar: :any,                 arm64_ventura: "7df3b969e322e94c452251f240626e9149104ed6d7cd6fc8c942c86010a66877"
-    sha256 cellar: :any,                 sonoma:        "e6bbd72834b9b41b76c70156d61e663af9e63fe0eca082efaf88459c0c1b35b6"
-    sha256 cellar: :any,                 ventura:       "bb73b8da211684ebf2e4ca25c958e373aca840552be9c5e7d3dc68099d08a1b7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1aac61e8255d20a46dd01f9df478e8881d6aa025a5c145986bddd73659aad675"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "651b1ff573b378703f8dea3739f3acffcf3a6badb181fd4f0ccc535a0d47fd1e"
+    sha256 cellar: :any,                 arm64_sequoia: "104b4c64dbb8364e1b09952405db0c48bf5a901ef9b90681b05f6b5e3c9934f4"
+    sha256 cellar: :any,                 arm64_sonoma:  "9b76d6af1d70bdbe77ed393853e29eca2c8f4893a6a82e1b91f30f3a699e4fb3"
+    sha256 cellar: :any,                 arm64_ventura: "44848246f531e8800cd1eb38b11a81047b32ff9ce9d4b64735e5c6902852b98d"
+    sha256 cellar: :any,                 sonoma:        "9170fd60a78cc6aba8081ba0492897dbfccacea60c16ae9c7c6aabf52a264a29"
+    sha256 cellar: :any,                 ventura:       "4424415f29b6e9553eeabc773f7dd80e08e80dadca79e6998bdc5874235cf4c1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d22e0c1da88f01a742e41cd3ad3d16c303a5b1d76fd375c8bcd0e4e92b3fa4b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b4aaa8fbcfa8112aa69e36d8b10af8c88f1c12db9bffa4b983574d37d4c8095d"
   end
 
   depends_on "cmake" => :build
