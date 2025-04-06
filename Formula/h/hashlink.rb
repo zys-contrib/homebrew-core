@@ -1,10 +1,19 @@
 class Hashlink < Formula
   desc "Virtual machine for Haxe"
   homepage "https://hashlink.haxe.org/"
-  url "https://github.com/HaxeFoundation/hashlink/archive/refs/tags/1.15.tar.gz"
-  sha256 "3c3e3d47ed05139163310cbe49200de8fb220cd343a979cd1f39afd91e176973"
   license "MIT"
   head "https://github.com/HaxeFoundation/hashlink.git", branch: "master"
+
+  stable do
+    url "https://github.com/HaxeFoundation/hashlink/archive/refs/tags/1.15.tar.gz"
+    sha256 "3c3e3d47ed05139163310cbe49200de8fb220cd343a979cd1f39afd91e176973"
+
+    # Backport fix for arm64 linux, https://github.com/HaxeFoundation/hashlink/pull/765
+    patch do
+      url "https://github.com/HaxeFoundation/hashlink/commit/6794cdbe4407d26f405e5978890de67d4d42a96d.patch?full_index=1"
+      sha256 "fe885f32e89831a3269cb0da738316843af8ee80f55dc859c97a9cfb1725e7d8"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "88ce0382363f5995731d0fc498aa87d0e3a63e5e1df9dcb850f9aae11f47ce4f"
@@ -42,6 +51,7 @@ class Hashlink < Formula
       # make file doesn't set rpath on mac yet
       args << "EXTRA_LFLAGS=-Wl,-rpath,#{rpath}"
     else
+      args << "ARCH=arm64" if Hardware::CPU.arm?
       # On Linux, also set RPATH in LIBFLAGS, so that the linker will also add the RPATH to .hdll files.
       inreplace "Makefile", "LIBFLAGS =", "LIBFLAGS = -Wl,-rpath,${INSTALL_LIB_DIR}"
     end
