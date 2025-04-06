@@ -38,13 +38,18 @@ class Omniorb < Formula
   def install
     odie "bindings resource needs to be updated" if version != resource("bindings").version
 
+    # Help old config scripts identify arm64 linux
+    build_arg = []
+    build_arg << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
     ENV["PYTHON"] = python3 = which("python3.13")
     xy = Language::Python.major_minor_version python3
     inreplace "configure",
               /am_cv_python_version=`.*`/,
               "am_cv_python_version='#{xy}'"
-    args = ["--with-openssl"]
+    args = build_arg + ["--with-openssl"]
     args << "--enable-cfnetwork" if OS.mac?
+
     system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
@@ -53,7 +58,7 @@ class Omniorb < Formula
       inreplace "configure",
                 /am_cv_python_version=`.*`/,
                 "am_cv_python_version='#{xy}'"
-      system "./configure", *std_configure_args
+      system "./configure", *build_arg, *std_configure_args
       ENV.deparallelize # omnipy.cc:392:44: error: use of undeclared identifier 'OMNIORBPY_DIST_DATE'
       system "make", "install"
     end
