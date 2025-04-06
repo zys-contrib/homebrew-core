@@ -26,11 +26,12 @@ class Flint < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
-    uses_from_macos "m4" => :build
   end
 
   depends_on "gmp"
   depends_on "mpfr"
+
+  uses_from_macos "m4" => :build
 
   def install
     # to build against NTL
