@@ -6,6 +6,15 @@ class Chdig < Formula
   license "MIT"
   head "https://github.com/azat/chdig.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d0b6aae807bafef2f9b8c3cc2cac8902c9b940d851eda09e92284b21323d7f3e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "99944617ef118d2e9a4e68555767e98de81a3975749f4c5a102170ad58f035d3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3557f765cf85fefaf43aa5e105046d1c6af9d8a02e4418d71aac39af0ba48cc7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b37e7f6058d736a6bdc07cc101e566b558e50362989e6fc55ac516619023af6f"
+    sha256 cellar: :any_skip_relocation, ventura:       "8b45e4939a1bc047185558281ff150015ea516db42f8bcbde87640f1bf2ac8e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebb0df2a001498ca8993adcb52d37bfc26057dc9313a6d557cb53c87eae67593"
+  end
+
   depends_on "rust" => :build
 
   def install
