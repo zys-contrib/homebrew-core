@@ -31,7 +31,8 @@ class GitSvn < Formula
 
     ENV["PERL_PATH"] = perl
     subversion = Formula["subversion"]
-    os_tag = OS.mac? ? "darwin-thread-multi-2level" : "x86_64-linux-thread-multi"
+    arch = Hardware::CPU.arm? ? "aarch64" : Hardware::CPU.arch
+    os_tag = OS.mac? ? "darwin-thread-multi-2level" : "#{arch}-linux-thread-multi"
     ENV["PERLLIB_EXTRA"] = subversion.opt_lib/"perl5/site_perl"/perl_version/os_tag
     if OS.mac?
       ENV["PERLLIB_EXTRA"] += ":" + %W[
