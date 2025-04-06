@@ -13,6 +13,7 @@ class Evtx < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "50ad5fc49b1cc7eb1a6f1d55e3a4b0ae9a2635eb8bdbd78d68016a69c531c15d"
     sha256 cellar: :any_skip_relocation, sonoma:        "cd9762d528f9b57d15b07c0711ae454b0586f0f43b4f359b9d9ac7d07bf55eda"
     sha256 cellar: :any_skip_relocation, ventura:       "4fecfa0eed949e0c12a4b067814231f3594c9f0750c762fe11caeb4e52f512ef"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "78f6aa38281dc73df685038ae3e156ff24bedf40fd8dd65c582d84a58d8d2ce4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c0ee6a7a20a5136cae808acfa75f22b8013aa294819344a870ad76d83d8b3c9"
   end
 
