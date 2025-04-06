@@ -1,9 +1,18 @@
 class Mp3unicode < Formula
   desc "Command-line utility to convert mp3 tags between different encodings"
   homepage "https://mp3unicode.sourceforge.net/"
-  url "https://github.com/alonbl/mp3unicode/releases/download/mp3unicode-1.2.1/mp3unicode-1.2.1.tar.bz2"
-  sha256 "375b432ce784407e74fceb055d115bf83b1bd04a83b95256171e1a36e00cfe07"
   license "GPL-2.0-only"
+
+  stable do
+    url "https://github.com/alonbl/mp3unicode/releases/download/mp3unicode-1.2.1/mp3unicode-1.2.1.tar.bz2"
+    sha256 "375b432ce784407e74fceb055d115bf83b1bd04a83b95256171e1a36e00cfe07"
+
+    # Backport support for taglib 2
+    patch do
+      url "https://github.com/alonbl/mp3unicode/commit/a4958c3b5cbfd7464a2d05f5212c0eb21ddf7210.patch?full_index=1"
+      sha256 "7cdaf35bb09b5d4ee9c3ef4703bed415ed9df8be5e64f06dc7b4654739e58ab4"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "6612359fa6921d2c5d688200c5406a41a56a344f0ee288f7cb031fa8171ac4cf"
@@ -30,15 +39,12 @@ class Mp3unicode < Formula
     depends_on "automake" => :build
   end
 
-  # does not build with taglib 2, https://github.com/alonbl/mp3unicode/issues/3
-  # no new commits since Dec 2016
-  deprecate! date: "2024-04-04", because: :unmaintained
-
   depends_on "pkgconf" => :build
   depends_on "taglib"
 
   def install
     ENV.append "ICONV_LIBS", "-liconv" if OS.mac?
+    ENV.append "CXXFLAGS", "-std=c++17"
 
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", *std_configure_args
