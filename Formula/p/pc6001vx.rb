@@ -2,8 +2,8 @@ class Pc6001vx < Formula
   desc "PC-6001 emulator"
   # http://eighttails.seesaa.net/ gives 405 error
   homepage "https://github.com/eighttails/PC6001VX"
-  url "https://eighttails.up.seesaa.net/bin/PC6001VX_4.2.11_src.tar.gz"
-  sha256 "8ad576192b555d0c21c1317351c52fce7b9ecb02c8ee9bd52ceb5e4b61901b4b"
+  url "https://eighttails.up.seesaa.net/bin/PC6001VX_4.2.12_src.tar.gz"
+  sha256 "344c8c4a8947d3dd8430ff4eb4a6e5679ac574bc268d0c4cefe3c341f1b79610"
   license "LGPL-2.1-or-later"
   head "https://github.com/eighttails/PC6001VX.git", branch: "master"
 
