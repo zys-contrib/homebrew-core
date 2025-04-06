@@ -4,8 +4,8 @@ class Breezy < Formula
   desc "Version control system implemented in Python with multi-format support"
   # homepage "https://www.breezy-vcs.org/" # https://bugs.launchpad.net/brz/+bug/2102204
   homepage "https://github.com/breezy-team/breezy"
-  url "https://files.pythonhosted.org/packages/15/b1/4d7fe9b01f072bd18bf4c6c4bf546b9f18ad4c3890f3f11fbb4d20f5bdbf/breezy-3.3.10.tar.gz"
-  sha256 "8e61aeb4800048d6f8fe43f701e510b571255387e64a999624caf46227b58cf7"
+  url "https://files.pythonhosted.org/packages/d6/47/165a8967701fb047b46879db7d2fa50b80fd3e7da22fb54ba131b823081c/breezy-3.3.11.tar.gz"
+  sha256 "11cb9c5e2fac2038630e863088f047eade4653cbf2b995f732322f6c143bbb3b"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -56,14 +56,6 @@ class Breezy < Formula
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz"
     sha256 "f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"
-  end
-
-  # Apply Ubuntu patch for timezone bug introduced from switching tzlocal to zoneinfo
-  # Issue ref: https://bugs.launchpad.net/brz/+bug/2103478
-  patch do
-    url "http://archive.ubuntu.com/ubuntu/pool/universe/b/breezy/breezy_3.3.10-1ubuntu1.debian.tar.xz"
-    sha256 "8ef13e6117dbcc0ad4022a3456306c043223d3380f47db62c8754d904bee99d2"
-    apply "patches/20_fix_timezone_retrieval"
   end
 
   def install
