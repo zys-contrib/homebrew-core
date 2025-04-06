@@ -32,8 +32,14 @@ class Pth < Formula
     inreplace "configure", "${wl}-flat_namespace ${wl}-undefined ${wl}suppress",
       "${wl}-undefined ${wl}dynamic_lookup"
 
+    args = []
+    # Help old config scripts identify arm64 linux
+    if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      args += ["--build=aarch64-unknown-linux-gnu", "--host=aarch64-unknown-linux-gnu"]
+    end
+
     # NOTE: The shared library will not be build with --disable-debug, so don't add that flag
-    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
+    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}", *args
     system "make"
     system "make", "install"
   end
