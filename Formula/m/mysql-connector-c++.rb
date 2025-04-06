@@ -1,7 +1,7 @@
 class MysqlConnectorCxx < Formula
   desc "MySQL database connector for C++ applications"
-  homepage "https://dev.mysql.com/downloads/connector/cpp/"
-  url "https://dev.mysql.com/get/Downloads/Connector-C++/mysql-connector-c++-9.2.0-src.tar.gz"
+  homepage "https://github.com/mysql/mysql-connector-cpp"
+  url "https://cdn.mysql.com/Downloads/Connector-C++/mysql-connector-c++-9.2.0-src.tar.gz"
   sha256 "249eac2c77f2e4780e0d61b1c3f671ac93cc6e37eee7c9cb81655930e3a38435"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
@@ -27,6 +27,8 @@ class MysqlConnectorCxx < Formula
   depends_on "zstd"
 
   def install
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+
     args = %w[lz4 rapidjson zlib zstd].map do |libname|
       rm_r(buildpath/"cdk/extra"/libname)
       "-DWITH_#{libname.upcase}=system"
