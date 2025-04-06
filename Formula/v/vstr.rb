@@ -35,8 +35,13 @@ class Vstr < Formula
 
   def install
     ENV.append "CFLAGS", "--std=gnu89"
-    ENV["ac_cv_func_stat64"] = "no" if Hardware::CPU.arm?
-    system "./configure", "--mandir=#{man}", *std_configure_args
+    ENV["ac_cv_func_stat64"] = "no" if OS.mac? && Hardware::CPU.arm?
+
+    args = ["--mandir=#{man}"]
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 
