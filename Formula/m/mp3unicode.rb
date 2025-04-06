@@ -21,6 +21,7 @@ class Mp3unicode < Formula
     sha256 cellar: :any,                 arm64_ventura: "bebb09ce30735cc1bddb24b9470f1b07e203405c035f590a4302c6afdbbc1a0a"
     sha256 cellar: :any,                 sonoma:        "eb03f9111f1e15d3876c862ea20356838e695baa922328f51892809dbead2443"
     sha256 cellar: :any,                 ventura:       "515babceaa10d361c09079bc4810fedff9542ed526ee84d3feb448ee8d60175d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f652c90bd61d95a3926b6ffc9ed41169d315e94006924a34c680e79db7f092af"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b8357a98b0f7229b16cbcd8c1463ff8f5c27f12f31747c0adee5b9d4b663c47"
   end
 
