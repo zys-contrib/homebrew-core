@@ -4,6 +4,7 @@ class Atmos < Formula
   url "https://github.com/cloudposse/atmos/archive/refs/tags/v1.169.0.tar.gz"
   sha256 "a0d95f3b5e2911dbd41375867973e46ac1b1356b381607db31c7259ca10d0364"
   license "Apache-2.0"
+  head "https://github.com/cloudposse/atmos.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9c1435ab7dc6a51faefb36bb41356e58b803435520a5109825d8595b85dfe19"
