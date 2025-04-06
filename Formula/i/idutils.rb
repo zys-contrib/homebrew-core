@@ -38,9 +38,19 @@ class Idutils < Formula
   patch :DATA
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-lispdir=#{elisp}"
+    args = ["--disable-silent-rules", "--with-lispdir=#{elisp}"]
+    if OS.linux?
+      # Help old config scripts identify arm64 linux
+      args << "--build=aarch64-unknown-linux-gnu" if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      # Workaround to use outdated gnulib with glibc 2.28+ based on gnulib fix[^1].
+      # Upstream updated to newer gnulib[^2] which should fix issue in next release.
+      #
+      # [^1]: https://github.com/coreutils/gnulib/commit/4af4a4a71827c0bc5e0ec67af23edef4f15cee8e
+      # [^2]: https://git.savannah.gnu.org/cgit/idutils.git/commit/?id=6efa403e105381a468d8b2cb8c254c1c217d1b53
+      ENV.append_to_cflags "-D_IO_ftrylockfile -D_IO_IN_BACKUP=0x100"
+    end
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 
