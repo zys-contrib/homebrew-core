@@ -2232,7 +2232,6 @@ melange
 meli
 melody
 memcached
-memray
 memtester
 menhir
 mercurial
