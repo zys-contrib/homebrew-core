@@ -39,11 +39,11 @@ class Julius < Formula
     inreplace "libsent/src/adin/adin_mic_darwin_coreaudio.c",
       "#include <stdio.h>", "#include <stdio.h>\n#include <sent/stddefs.h>"
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--mandir=#{man}",
-                          "--prefix=#{prefix}"
+    args = ["--disable-silent-rules", "--mandir=#{man}"]
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
   end
