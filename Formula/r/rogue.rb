@@ -31,10 +31,13 @@ class Rogue < Formula
 
   def install
     # Fix main.c:241:11: error: incomplete definition of type 'struct _win_st'
-    ENV.append "CPPFLAGS", "-DNCURSES_OPAQUE=0"
+    ENV.append "CPPFLAGS", "-DNCURSES_OPAQUE=0 -DNCURSES_INTERNALS"
 
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
 
     inreplace "config.h", "rogue.scr", "#{var}/rogue/rogue.scr"
 
