@@ -29,6 +29,12 @@ class Wxpython < Formula
     depends_on "gtk+3"
   end
 
+  # Backport increase of SIP ABI to fix build
+  patch do
+    url "https://github.com/wxWidgets/Phoenix/commit/de9aa4be5bb49adf82991c7582ea3c42ed505bf7.patch?full_index=1"
+    sha256 "bf752fa850459d963cf8a7678dd0463934888d9867a9ac80d58ca51d19cb9f93"
+  end
+
   # build patch to build with doxygen 1.11.0+, remove in next release
   # upstream commit ref, https://github.com/wxWidgets/wxWidgets/commit/2d79dfc7a2a8dd42021ff0ea3dcc8ed05f7c23ef
   patch :DATA
