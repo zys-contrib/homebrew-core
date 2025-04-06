@@ -3794,6 +3794,7 @@ websocat
 webtorrent-cli
 weechat
 wego
+weighttp
 werf
 west
 wfa2-lib
