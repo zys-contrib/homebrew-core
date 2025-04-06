@@ -16,6 +16,14 @@ class UmkaLang < Formula
   end
 
   def install
+    # Workaround to build on arm64 linux
+    if OS.linux? && Hardware::CPU.arm?
+      inreplace "Makefile" do |s|
+        cflags = s.get_make_var("CFLAGS").split
+        s.change_make_var! "CFLAGS", cflags.join(" ") if cflags.delete("-malign-double")
+      end
+    end
+
     system "make", "install", "PREFIX=#{prefix}"
   end
 
