@@ -865,9 +865,6 @@
   "ssh-mitm": {
     "exclude_packages": ["cryptography"]
   },
-  "sslyze": {
-    "exclude_packages": ["typing-extensions", "pycparser"]
-  },
   "streamlink": {
     "exclude_packages": ["certifi"]
   },
