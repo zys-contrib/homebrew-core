@@ -1,7 +1,7 @@
 class IrcdIrc2 < Formula
   desc "Original IRC server daemon"
-  homepage "http://www.irc.org/"
-  url "http://www.irc.org/ftp/irc/server/irc2.11.2p3.tgz"
+  homepage "https://web.archive.org/web/20240814044559/http://www.irc.org/"
+  url "https://web.archive.org/web/20240805183402/http://www.irc.org/ftp/irc/server/irc2.11.2p3.tgz"
   version "2.11.2p3"
   sha256 "be94051845f9be7da0e558699c4af7963af7e647745d339351985a697eca2c81"
   # The `:cannot_represent` is for a Digital Equipment Corporation license.
@@ -13,11 +13,6 @@ class IrcdIrc2 < Formula
     "BSD-4-Clause-UC", # ircd/{res_comp.c,res_init.c,res_mkquery.c,resolv_def.h}
     :cannot_represent, # ircd/{res_comp.c,res_init.c,res_mkquery.c,resolv_def.h}
   ]
-
-  livecheck do
-    url "http://www.irc.org/ftp/irc/server/"
-    regex(/href=.*?irc[._-]?v?(\d+(?:\.\d+)+(?:p\d+)?)\.t/i)
-  end
 
   bottle do
     rebuild 2
@@ -52,7 +47,17 @@ class IrcdIrc2 < Formula
     EOS
   end
 
+  # Last release on 2010-08-13 and site is down
+  deprecate! date: "2025-04-06", because: :unmaintained
+
   uses_from_macos "libxcrypt"
+
+  on_linux do
+    on_arm do
+      # Added automake as a build dependency to update config files for ARM support.
+      depends_on "automake" => :build
+    end
+  end
 
   conflicts_with "ircd-hybrid", because: "both install `ircd` binaries"
 
@@ -64,6 +69,13 @@ class IrcdIrc2 < Formula
     # Remove header with incompatible IBM license and add linker flags to use system library instead
     rm("ircd/nameser_def.h")
     ENV.append "LIBS", "-lresolv"
+
+    if OS.linux? && Hardware::CPU.arm?
+      # Workaround for ancient config files not recognizing aarch64 macos.
+      %w[config.guess config.sub].each do |fn|
+        cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, "support/#{fn}"
+      end
+    end
 
     system "./configure", "--prefix=#{prefix}",
                           "--localstatedir=#{var}",
