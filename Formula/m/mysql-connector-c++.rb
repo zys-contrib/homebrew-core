@@ -16,6 +16,7 @@ class MysqlConnectorCxx < Formula
     sha256 cellar: :any,                 arm64_ventura: "8b3803e560a68274050bcec0a6fddd07456f5728ba702a3e270f6d63dce6381a"
     sha256 cellar: :any,                 sonoma:        "9b4da7849dd498166e14f2d3441b6be67d9e156a3870496db51723625720d368"
     sha256 cellar: :any,                 ventura:       "74edf08d8a04e56c4a0b9fae3206c2d68254adde919cdd5d2c188933cede1e52"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8d109dedb5d9443eb665926387a41a94d8f9f6c7abc52abf0047e2a4e651758"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "63877e2393a6e26f83636ce0f7962bdf0a6446acff8082b61ec283fcbd59d584"
   end
 
