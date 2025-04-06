@@ -1,8 +1,8 @@
 class Openvi < Formula
   desc "Portable OpenBSD vi for UNIX systems"
   homepage "https://github.com/johnsonjh/OpenVi"
-  url "https://github.com/johnsonjh/OpenVi/archive/refs/tags/7.6.30.tar.gz"
-  sha256 "1ac5487280deca5fe539d5b6302bfbc95a9eb52aa2e3807d30f5dd82f0bdb355"
+  url "https://github.com/johnsonjh/OpenVi/archive/refs/tags/7.6.31.tar.gz"
+  sha256 "75ef62fd882d8a18e388509f5fe4eca6b241f3286f6121e2bcbea65ec592ae11"
   license "BSD-3-Clause"
   head "https://github.com/johnsonjh/OpenVi.git", branch: "master"
 
