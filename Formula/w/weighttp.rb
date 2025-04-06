@@ -1,8 +1,8 @@
 class Weighttp < Formula
   desc "Webserver benchmarking tool that supports multithreading"
   homepage "https://redmine.lighttpd.net/projects/weighttp/wiki"
-  url "https://github.com/lighttpd/weighttp/archive/refs/tags/weighttp-0.4.tar.gz"
-  sha256 "b4954f2a1eca118260ffd503a8e3504dd32942e2e61d0fa18ccb6b8166594447"
+  url "https://github.com/lighttpd/weighttp/archive/refs/tags/weighttp-0.5.tar.gz"
+  sha256 "5900600cc108041d0e38abd02354d7d3b14649c827c4266c0d550b87904f1141"
   license "MIT"
   head "https://git.lighttpd.net/lighttpd/weighttp.git", branch: "master"
 
@@ -25,18 +25,15 @@ class Weighttp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7ef5cfd2cdadf8036c30295d3c51a56399d8acee7e2dc96aa1d75d471e2c1a0"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "libev"
 
   def install
-    system "autoupdate"
-    system "./autogen.sh"
-    system "./configure", *std_configure_args
-    system "make"
-    system "make", "install"
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
