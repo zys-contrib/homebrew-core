@@ -22,13 +22,22 @@ class Vc4asm < Formula
 
   depends_on "cmake" => :build
 
+  # Backport fix for GCC 9+
+  patch do
+    url "https://github.com/maazl/vc4asm/commit/ff16f635b07e14b07c1de69bf322e3bf7feecd93.patch?full_index=1"
+    sha256 "b4c6e87018aa512ff8398cc77bd3f80dd9aaca196c3da76a845db7e25eaac99b"
+  end
+
   def install
     # Upstream create a "CMakeCache.txt" directory in their tarball
     # because they don't want CMake to write a cache file, but brew
     # expects this to be a file that can be copied to HOMEBREW_LOGS
     rm_r "CMakeCache.txt"
 
-    system "cmake", "-S.", "-Bbuild", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+                    "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
