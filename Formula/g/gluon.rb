@@ -29,6 +29,7 @@ class Gluon < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "27627946ae35b4b9e35631903c1cbcb9bcd857375f2d035e3dfa400ab9f77ee9"
     sha256 cellar: :any_skip_relocation, ventura:        "03b4837e4adabb86f4e12acf9310b7888560c97608473b27c230fcd57f1ed88f"
     sha256 cellar: :any_skip_relocation, monterey:       "64fb0c4cda091c3e4ef737ba21f06c9e43bcac513af09f6057b077f11c86e793"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "4c82fdd95ab9c907ca146f9cc9f5f8c34d026389368d81bc5943fee7d6b28a5b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba2ee59f07103937ec724410329016ff048f6da389b45b78fca28a63f11c18d1"
   end
 
