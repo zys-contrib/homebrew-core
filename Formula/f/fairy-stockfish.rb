@@ -17,6 +17,7 @@ class FairyStockfish < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8d1e77f421472a96ed0281cf542c4c8d6edd58c181ddce745fc1901659e68593"
     sha256 cellar: :any_skip_relocation, sonoma:        "ba82fe79eb4b379870174e79a83b61136a519b94419a471bcb6b20754d015d86"
     sha256 cellar: :any_skip_relocation, ventura:       "c5ed0d702fac374bebd45b8a2a9e8074c887bda62e980f2528c5b35f94296650"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "04a1cdcecf55712d376a05918b2ec1423f3ac0f56eae9b6c8fcfe3a8687f3312"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "aba797d91cba8f0b56caf85f3d55e4c2fdf4a83bb1be0c11255fa580c320ed53"
   end
 
