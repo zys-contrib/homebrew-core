@@ -2426,6 +2426,7 @@ nfdump
 nfpm
 nftables
 nginx
+ngs
 ngt
 nickel
 nickle
