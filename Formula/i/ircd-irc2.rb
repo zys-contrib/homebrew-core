@@ -23,6 +23,7 @@ class IrcdIrc2 < Formula
     sha256 sonoma:         "f5fcb1c6dea38be635adcc3bb4a6b32d8034d4c02ee5ea1034a66e6b64059cbd"
     sha256 ventura:        "fcde6372721ec2700d587fd077cb410df0afdc5100d8181576a5f905728e7ed9"
     sha256 monterey:       "90c0639ec3e7ab17eaa97b90af15b30b14896d23f7f3c492b88a3190555781ff"
+    sha256 arm64_linux:    "6dab067580b38df4623c5256bb04d641f108ec8997491b483e91b58df06e9257"
     sha256 x86_64_linux:   "524aef733a367cce6eb115c4453ec851ffe7ac7d731c3d5ce91195be201bddb1"
   end
 
