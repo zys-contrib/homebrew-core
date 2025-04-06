@@ -485,6 +485,7 @@ charmcraft
 chars
 chart-testing
 chatblade
+chdig
 cheat
 check-jsonschema
 checkbashisms
