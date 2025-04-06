@@ -16,6 +16,7 @@ class Omniorb < Formula
     sha256 cellar: :any,                 arm64_ventura: "06e5fcc950f5bd8934951855e1acbca7a18777d99ca2073218ee13e888b24cac"
     sha256 cellar: :any,                 sonoma:        "93972edcb883ea5c63561cdda88284a7bd30ef24e83409a05c89fed5505c80fd"
     sha256 cellar: :any,                 ventura:       "0cb78910e40ccc4833f93ead6794755d5883be7b1f0ae27ff7af40626d880dcb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "04357c618eb071ed217ed53de4207e1df04180a0bb25db3c0887d7b0f0ddb9f0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "26ff4fff24e440de45145c7d5db68cd860036563a2dbeb1a0606fc4af2c45bc6"
   end
 
