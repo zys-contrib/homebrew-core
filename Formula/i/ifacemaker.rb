@@ -1,8 +1,8 @@
 class Ifacemaker < Formula
   desc "Generate interfaces from structure methods"
   homepage "https://github.com/vburenin/ifacemaker"
-  url "https://github.com/vburenin/ifacemaker/archive/refs/tags/v1.2.1.tar.gz"
-  sha256 "3bbe9d742995ca5804da15f0f01ed85ff5d68b6b3e22b04c1491492eb703aa54"
+  url "https://github.com/vburenin/ifacemaker/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "36d1b93300169c2d9d607fc7c082ff62914300e2d20f67250113d0f9acf71457"
   license "Apache-2.0"
   head "https://github.com/vburenin/ifacemaker.git", branch: "master"
 
@@ -19,7 +19,7 @@ class Ifacemaker < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e76f770fa867389cf4b882db3ba239a4a35e0902ee5137d2860e975964fb0317"
   end
 
-  depends_on "go" => :build
+  depends_on "go"
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
