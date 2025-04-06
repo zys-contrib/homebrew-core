@@ -1240,6 +1240,7 @@ gitbucket
 gitea
 github-keygen
 github-markdown-toc
+github-mcp-server
 gitlab-ci-local
 gitlab-gem
 gitlab-runner
