@@ -7,6 +7,10 @@ class ApacheFlinkAT1 < Formula
   sha256 "5fc4551cd11aee83a9569392339c43fb32a60847db456e1cb4fa64c8daae0186"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "99384bed6ba14959e8215e2eb0ca41df3597021c0b5f1bdac4a952b4d7f74ecb"
+  end
+
   keg_only :versioned_formula
 
   depends_on "openjdk@11"
