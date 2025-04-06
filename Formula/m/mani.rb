@@ -6,6 +6,15 @@ class Mani < Formula
   license "MIT"
   head "https://github.com/alajmo/mani.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "066be4f13259634fe85d0a18574c98e6b275eaed65ca124f5c0e339e88497a07"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "066be4f13259634fe85d0a18574c98e6b275eaed65ca124f5c0e339e88497a07"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "066be4f13259634fe85d0a18574c98e6b275eaed65ca124f5c0e339e88497a07"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3a55190358a002ec44fdb57444ce463a5e185654811ab3bd6928618bf51a1880"
+    sha256 cellar: :any_skip_relocation, ventura:       "3a55190358a002ec44fdb57444ce463a5e185654811ab3bd6928618bf51a1880"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae89704ef4652bd3516c984967682192519dbdf4e69aab4317287166c6c288c8"
+  end
+
   depends_on "go" => :build
 
   def install
