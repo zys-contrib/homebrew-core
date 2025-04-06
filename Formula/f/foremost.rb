@@ -27,6 +27,10 @@ class Foremost < Formula
   end
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `search_spec'; main.o:(.bss+0x8): first defined here
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
     inreplace "Makefile" do |s|
       s.gsub! "/usr/", "#{prefix}/"
       s.change_make_var! "RAW_CC", ENV.cc

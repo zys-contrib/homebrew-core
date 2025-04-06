@@ -48,10 +48,21 @@ class Freedink < Formula
     sha256 "fa06a8a87bd4f3977440cdde0fb6145b6e5b0005b266b19c059d3fd7c2ff836a"
   end
 
+  # Apply Fedora patch to fix error "Please include config.h first."
+  patch :p0 do
+    on_linux do
+      url "https://src.fedoraproject.org/rpms/freedink/raw/9cd2c23c5a951b4de3ab53cdf72bd002adab1810/f/gnulib.patch"
+      sha256 "1812a5caeece9ffb94ffe65f709635792b26e2acf8ed2bfc1e5735ec0594a2f6"
+    end
+  end
+
   def install
     # cannot initialize a variable of type 'char *' with an rvalue of type 'const char *'
     inreplace "src/gfx_fonts.cpp", "char *familyname", "const char *familyname"
     inreplace "src/gfx_fonts.cpp", "char *stylename", "const char *stylename"
+
+    # Avoid windres causing build failure on Linux
+    ENV["ac_cv_prog_ac_ct_WINDRES"] = "" if OS.linux?
 
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
