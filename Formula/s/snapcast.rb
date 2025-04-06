@@ -50,7 +50,12 @@ class Snapcast < Formula
       output_log = testpath/"output.log"
       client_pid = spawn bin/"snapclient", [:out, :err] => output_log.to_s
       sleep 10
-      assert_match("Connected to", output_log.read)
+      if OS.mac?
+        assert_match("Connected to", output_log.read)
+      else
+        # Needs Avahi (which also needs D-Bus system bus) which requires root
+        assert_match "BrowseAvahi - Failed to create client", output_log.read
+      end
     ensure
       Process.kill("SIGTERM", client_pid)
     end
