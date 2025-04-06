@@ -16,6 +16,7 @@ class GitSvn < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ddb297076f639d70c1d52091677d909bff3ff64c6ef3b658f0204ddc384d7727"
     sha256 cellar: :any_skip_relocation, sonoma:        "a26e08911223593a443a3af16bf8506974fcb88ef713b9b9ef0d8bc4e9bddd06"
     sha256 cellar: :any_skip_relocation, ventura:       "ddb297076f639d70c1d52091677d909bff3ff64c6ef3b658f0204ddc384d7727"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1fae941338d50ea4de806b79ad273416818957109e7b5a690da78d25d7ebe3c6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a55f72b59419f5fc4c24daed700570caad867925fa1c8a26ad3db7db101bee14"
   end
 
