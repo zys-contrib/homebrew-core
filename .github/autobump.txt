@@ -2176,6 +2176,7 @@ mako
 malcontent
 man-db
 mandown
+mani
 manifest-tool
 manim
 manticoresearch
