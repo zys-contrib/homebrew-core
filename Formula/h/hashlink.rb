@@ -21,6 +21,7 @@ class Hashlink < Formula
     sha256 cellar: :any,                 arm64_ventura: "97f8de5f331d21b2d857282e6b3bed1d8b47fd02c3e77aedb789b9711088aee9"
     sha256 cellar: :any,                 sonoma:        "99ef63e02f0bbb6a3e54b02319796fed5660f992ee0e1dbe9097239044ad4faa"
     sha256 cellar: :any,                 ventura:       "f7e72d266dc1e415280ee163dcbcc8ef6802751e8469229da7c75653b621dca0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "032ad206b3a17a214c1c0d0cf8256b7882b1d962306dd8ab5ca7f39c4e3fdc99"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7e70f6faae35bb958d819576c54d06d9852415cbbc5e98c8846db377a83eed8"
   end
 
