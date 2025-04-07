@@ -1,13 +1,13 @@
 class Latex2rtf < Formula
   desc "Translate LaTeX to RTF"
   homepage "https://latex2rtf.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/latex2rtf/latex2rtf-unix/2.3.18/latex2rtf-2.3.18a.tar.gz"
+  # TODO: Switch to GitHub repo tarballs when upstream does a new release
+  url "https://deb.debian.org/debian/pool/main/l/latex2rtf/latex2rtf_2.3.18a.orig.tar.gz"
   sha256 "338ba2e83360f41ded96a0ceb132db9beaaf15018b36101be2bae8bb239017d9"
   license "GPL-2.0-or-later"
 
   livecheck do
-    url :stable
-    regex(%r{url=.*?/latex2rtf/files/latex2rtf-unix/[^/]+/latex2rtf[._-](\d+(?:[.-]\d+)+[a-z]?)\.t}i)
+    skip "New git repository doesn't have 2.x tags yet"
   end
 
   bottle do
@@ -25,7 +25,17 @@ class Latex2rtf < Formula
     sha256 x86_64_linux:   "4614b529d342e3e532c2c36fc3b6090dd889261c05ba3ea21847a276a063e4c5"
   end
 
+  head do
+    url "https://github.com/latex2rtf/latex2rtf.git", branch: "main"
+
+    on_system :linux, macos: :ventura_or_newer do
+      depends_on "texinfo" => :build
+    end
+  end
+
   def install
+    touch "doc/latex2rtf.pdf" if build.head? # avoid texlive
+
     inreplace "Makefile", "cp -p doc/latex2rtf.html $(DESTDIR)$(SUPPORTDIR)",
                           "cp -p doc/web/* $(DESTDIR)$(SUPPORTDIR)"
     system "make", "DESTDIR=",
