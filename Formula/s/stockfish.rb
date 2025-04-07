@@ -21,7 +21,17 @@ class Stockfish < Formula
   end
 
   def install
-    arch = Hardware::CPU.arm? ? "apple-silicon" : "x86-64-modern"
+    arch = if !build.bottle?
+      "native"
+    elsif Hardware::CPU.arm? && OS.mac?
+      "apple-silicon"
+    elsif Hardware::CPU.arm?
+      "armv8"
+    elsif OS.mac? && MacOS.version.requires_sse41?
+      "x86-64-sse41-popcnt"
+    else
+      "x86-64-ssse3"
+    end
 
     system "make", "-C", "src", "build", "ARCH=#{arch}"
     bin.install "src/stockfish"

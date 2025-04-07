@@ -24,6 +24,7 @@ class Spack < Formula
 
   def install
     rm Dir["bin/*.bat", "bin/*.ps1", "bin/haspywin.py"] # Remove Windows files.
+    rm "var/spack/repos/builtin/packages/patchelf/test/hello" # Remove pre-built test ELF
     prefix.install Dir["*"]
   end
 
