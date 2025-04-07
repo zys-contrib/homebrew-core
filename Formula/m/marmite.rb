@@ -12,6 +12,7 @@ class Marmite < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "88830317a2357d363919fe06b1b4c0804860f257f0a859aa39f1ef622e0840de"
     sha256 cellar: :any_skip_relocation, sonoma:        "bff5c7b07e1e059b78fc491dc3898d8e2c1d2c3d6d76d27e9845c674edab3d15"
     sha256 cellar: :any_skip_relocation, ventura:       "cc0448b1262edc1fe173095d3317c8945dd444d6627b07c81374cd901d279243"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2cc57b7a0831ae19203aaccee8ccc5226d277ed76f60939639b727cd8a4a1da1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "591b5b32a8a0e8ccf269226dfe0ece3947db93e80f58138a1db37a1836575e88"
   end
 
