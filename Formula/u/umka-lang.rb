@@ -12,6 +12,7 @@ class UmkaLang < Formula
     sha256 cellar: :any,                 arm64_ventura: "418314a8adc1c93e4c0e6400ea30672664038991510fbfdc0c11a3a71f507d0a"
     sha256 cellar: :any,                 sonoma:        "be7676e4e428a30af843522db044123aaa4b802e332c6cf0e9d23de034d7d013"
     sha256 cellar: :any,                 ventura:       "e49db55cf30c555f77ce8369c390a7cc3de87357e85de67d473193491bba43d4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ef1a81f5e6fe38ebeb15082fa96b485b0a5ba97a5924c1f26cd982d99864cacb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2c27a893352932034b036222eaffa57f761c6f1595734480031cfad76e87049"
   end
 
