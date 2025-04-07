@@ -4,6 +4,7 @@ class Ooniprobe < Formula
   url "https://github.com/ooni/probe-cli/archive/refs/tags/v3.24.0.tar.gz"
   sha256 "4c2dad0367cfe3924ca45c9f484660a132e843d6c55259ff375efadeb6d518c3"
   license "GPL-3.0-or-later"
+  head "https://github.com/ooni/probe-cli.git", branch: "master"
 
   livecheck do
     url :stable
