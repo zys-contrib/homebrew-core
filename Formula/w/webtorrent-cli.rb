@@ -16,9 +16,14 @@ class WebtorrentCli < Formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on "node"
+  # Using Node 20 due to issue with N-API 10 https://github.com/murat-dogan/node-datachannel/issues/333
+  # and unable to use newer node-datachannel https://github.com/ThaUnknown/webrtc-polyfill/issues/9
+  depends_on "node@20"
 
   def install
+    # Workaround for CMake 4 until node-datachannel -> libdatachannel -> plog is updated
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+
     system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
@@ -29,8 +34,8 @@ class WebtorrentCli < Formula
     rm [
       sb/"CMakeFiles/CMakeConfigureLog.yaml",
       sb/"CMakeFiles/rules.ninja",
-      sb/"CMakeFiles/3.31.2/CMakeCXXCompiler.cmake",
-      sb/"CMakeFiles/3.31.2/CMakeCCompiler.cmake",
+      sb/"CMakeFiles/#{Formula["cmake"].version}/CMakeCXXCompiler.cmake",
+      sb/"CMakeFiles/#{Formula["cmake"].version}/CMakeCCompiler.cmake",
       sb/"_deps/libdatachannel-subbuild/CMakeLists.txt",
       sb/"_deps/libdatachannel-subbuild/libdatachannel-populate-prefix/tmp/libdatachannel-populate-gitclone.cmake",
       sb/"_deps/libdatachannel-subbuild/libdatachannel-populate-prefix/tmp/libdatachannel-populate-gitupdate.cmake",
@@ -40,9 +45,11 @@ class WebtorrentCli < Formula
     # Remove incompatible pre-built binaries
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
-    pb = nm/"{bare-fs,bare-os,bufferutil,fs-native-extensions,utp-native,utf-8-validate}"
+    platforms = ["#{os}-#{arch}"]
+    platforms << "#{os}-x64+arm64" if OS.mac?
+    pb = nm/"{bare-fs,bare-os,bare-url,bufferutil,fs-native-extensions,utp-native,utf-8-validate}"
     libexec.glob(pb/"prebuilds/*").each do |dir|
-      rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}"
+      rm_r(dir) if platforms.exclude?(dir.basename.to_s)
       dir.glob("*.musl.node").map(&:unlink) if OS.linux?
     end
 
