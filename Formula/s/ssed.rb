@@ -26,18 +26,21 @@ class Ssed < Formula
     sha256                               x86_64_linux:   "093ca16b33b896aebd964aa694592dea5a87e47f59d46e52b11ffb46bca3d488"
   end
 
-  conflicts_with "gnu-sed", because: "both install share/info/sed.info"
-
   def install
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}",
-                          "--infodir=#{info}",
-                          "--program-prefix=s"
+    args = %W[
+      --mandir=#{man}
+      --infodir=#{info}
+      --program-prefix=s
+    ]
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
+    info.install info/"sed.info" => "ssed.info"
   end
 
   test do
