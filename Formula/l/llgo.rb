@@ -1,8 +1,8 @@
 class Llgo < Formula
   desc "Go compiler based on LLVM integrate with the C ecosystem and Python"
   homepage "https://github.com/goplus/llgo"
-  url "https://github.com/goplus/llgo/archive/refs/tags/v0.10.1.tar.gz"
-  sha256 "4ef8a05ff2739617be48de1eb7cfa3e37bd402595fda6bb6df106aadb6c96965"
+  url "https://github.com/goplus/llgo/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "f7b55b0d91527c11adbfde4e95f78ab8238e8a35066cd8663882074ac18f2b6b"
   license "Apache-2.0"
 
   livecheck do
@@ -23,7 +23,8 @@ class Llgo < Formula
   depends_on "go"
   depends_on "libffi"
   depends_on "libuv"
-  depends_on "llvm@18"
+  depends_on "lld@19"
+  depends_on "llvm@19"
   depends_on "openssl@3"
   depends_on "pkgconf"
   uses_from_macos "zlib"
@@ -40,9 +41,9 @@ class Llgo < Formula
     llvm = find_dep("llvm")
     ldflags = %W[
       -s -w
-      -X github.com/goplus/llgo/compiler/internal/env.buildVersion=v#{version}
-      -X github.com/goplus/llgo/compiler/internal/env.buildTime=#{time.iso8601}
-      -X github.com/goplus/llgo/compiler/internal/env/llvm.ldLLVMConfigBin=#{llvm.opt_bin/"llvm-config"}
+      -X github.com/goplus/llgo/internal/env.buildVersion=v#{version}
+      -X github.com/goplus/llgo/internal/env.buildTime=#{time.iso8601}
+      -X github.com/goplus/llgo/xtool/env/llvm.ldLLVMConfigBin=#{llvm.opt_bin/"llvm-config"}
     ]
     tags = nil
     if OS.linux?
@@ -56,13 +57,11 @@ class Llgo < Formula
       tags = "byollvm"
     end
 
-    cd "compiler" do
-      system "go", "build", *std_go_args(ldflags:, tags:), "-o", libexec/"bin/", "./cmd/llgo"
-    end
+    system "go", "build", *std_go_args(ldflags:, tags:), "-o", libexec/"bin/", "./cmd/llgo"
 
-    libexec.install "LICENSE", "README.md", "runtime"
+    libexec.install "LICENSE", "README.md", "go.mod", "go.sum", "runtime"
 
-    path_deps = %w[llvm go pkgconf].map { |name| find_dep(name).opt_bin }
+    path_deps = %w[lld llvm go pkgconf].map { |name| find_dep(name).opt_bin }
     script_env = { PATH: "#{path_deps.join(":")}:$PATH" }
 
     if OS.linux?
@@ -90,7 +89,7 @@ class Llgo < Formula
       import (
           "fmt"
 
-          "github.com/goplus/llgo/c"
+          "github.com/goplus/lib/c"
       )
 
       func Foo() string {
@@ -118,7 +117,7 @@ class Llgo < Formula
     (testpath/"go.mod").write <<~GOMOD
       module hello
     GOMOD
-    system "go", "get", "github.com/goplus/llgo"
+    system "go", "get", "github.com/goplus/lib"
     # Test llgo run
     assert_equal "Hello LLGO by fmt.Println\n" \
                  "Hello LLGO by c.Printf\n",
