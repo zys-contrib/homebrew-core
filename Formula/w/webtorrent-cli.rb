@@ -6,12 +6,13 @@ class WebtorrentCli < Formula
   license "MIT"
 
   bottle do
-    sha256 arm64_sequoia: "2f51039320fd1f4c65622c16387998ea51c75e9cc686f2f28e3f4c8d487948ee"
-    sha256 arm64_sonoma:  "5426246ae8ca317d1400c9c303b8b31fb38ccbe53c29c450b6258203d0ab4aa1"
-    sha256 arm64_ventura: "255d4b3c1c1f5637c67841c04df5b77d515f2f3aef49fbebd9c1d701b853bb63"
-    sha256 sonoma:        "2e1bb535aa93a68bbaa5da0dd2317ce6e76b7b2ddc325ac13052214fac5fe4c2"
-    sha256 ventura:       "e690cb2c937766b9d500d255f79518937ac010c12a35586f4739e012a7d950b1"
-    sha256 x86_64_linux:  "7684212b75eba13057dada394e1658bfb06d061b67da5e90809837c590eb1eb3"
+    rebuild 1
+    sha256 arm64_sequoia: "eb96a6e72f8c04344827b1d098938557cc110c58086e09e725bb6baa2c4f5439"
+    sha256 arm64_sonoma:  "e0d8b93558e6684dd9b06357cdaec1bf680f34e825cda653e981674c6c31e796"
+    sha256 arm64_ventura: "abe70e531a96d75b7ce514492dd43605e27b9276d210601f31a32624fe72af8c"
+    sha256 sonoma:        "fbe60e713aca44e2adc2ae4d50f2d93f6053047a90820c3ae620e142916180b0"
+    sha256 ventura:       "3f1f6158f5f07a5fce88a6c6497596da89c17fe438a761332921e4346c227f15"
+    sha256 x86_64_linux:  "c36c64165586a9af662fa923e602821e649bee2a5fda5563c5de109e6429a9c1"
   end
 
   depends_on "cmake" => :build
