@@ -12,6 +12,7 @@ class Ftxui < Formula
     sha256 cellar: :any,                 arm64_ventura: "8dc0bb17ff94cad0c42c10b46512207303359149f8d7362edca99dad63a08499"
     sha256 cellar: :any,                 sonoma:        "4085804f59cf1c50741e8f3a2747ab035553f5e207f9277d0db01116e0dd8bee"
     sha256 cellar: :any,                 ventura:       "c869aaf1aa5a002275acfd70095f2e6afa4021adbbaa8668466f8c679d9c6866"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "81d95f9c0e7da4ddff0c75c87805412d9d6d984ac4be0fb5624788666d68dd80"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "31c5f0e57e1d18e2e1aede1f9708242b3542bde0035d918f73bfee714a45002f"
   end
 
