@@ -34,7 +34,11 @@ class Spandsp < Formula
 
   def install
     ENV.deparallelize
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    args = ["--disable-silent-rules"]
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
   end
