@@ -4,6 +4,7 @@ class Kubetail < Formula
   url "https://github.com/kubetail-org/kubetail/archive/refs/tags/cli/v0.2.2.tar.gz"
   sha256 "c31e3eb0e4ad67c1e490c071bdaadfec6c7927e235fa6c8b420d226232a1c887"
   license "Apache-2.0"
+  head "https://github.com/kubetail-org/kubetail.git", branch: "main"
 
   livecheck do
     url :stable
