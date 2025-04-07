@@ -60,11 +60,16 @@ class Slashem < Formula
     # Fix issue where ioctl is not declared and fails on Sonoma
     inreplace "sys/share/ioctl.c", "#include \"hack.h\"", "#include \"hack.h\"\n#include <sys/ioctl.h>"
 
-    system "./configure", "--with-mandir=#{man}",
-                          "--with-group=#{Etc.getpwuid.gid}",
-                          "--with-owner=#{Etc.getpwuid.name}",
-                          "--enable-wizmode=#{Etc.getpwuid.name}",
-                          *std_configure_args
+    args = %W[
+      --with-mandir=#{man}
+      --with-group=#{Etc.getpwuid.gid}
+      --with-owner=#{Etc.getpwuid.name}
+      --enable-wizmode=#{Etc.getpwuid.name}
+    ]
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
 
     man6.install "doc/slashem.6", "doc/recover.6"
