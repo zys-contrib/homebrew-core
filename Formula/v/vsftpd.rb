@@ -28,6 +28,11 @@ class Vsftpd < Formula
 
   uses_from_macos "perl" => :build
 
+  on_linux do
+    depends_on "libcap"
+    depends_on "linux-pam"
+  end
+
   # Patch to remove UTMPX dependency, locate macOS's PAM library, and
   # remove incompatible LDFLAGS. (reported to developer via email)
   patch do
@@ -47,7 +52,9 @@ class Vsftpd < Formula
     inreplace "defs.h", "/etc/vsftpd.conf", "#{etc}/vsftpd.conf"
     inreplace "tunables.c", "/etc", etc
     inreplace "tunables.c", "/var", var
-    system "make"
+
+    args = OS.linux? ? ["LIBS=-lcap -lpam"] : []
+    system "make", *args
 
     # make install has all the paths hardcoded; this is easier:
     sbin.install "vsftpd"
