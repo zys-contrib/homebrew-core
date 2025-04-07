@@ -22,6 +22,7 @@ class Ucon64 < Formula
     sha256 monterey:       "1ffac20e4aafeabe33ab750f2f40589bb894caf7ee372380a065abeb7e06655c"
     sha256 big_sur:        "1638a10fb2622983abc00934ba023cb03a1d7b332e45d9024b717f74a0d3fee7"
     sha256 catalina:       "3672dbe3c97e6d71f22a6666adec1cca709ffc3dea9c76baf16fbeb8f63a4782"
+    sha256 arm64_linux:    "15cef90fe66dfeaa08768ef3a8c3640ae30454fbd7e682b05357b7bc95be9fb3"
     sha256 x86_64_linux:   "f2b2e0353e5bfa4e226a5182b6d36786874ced3c0ae4426866d2a2436aa0c739"
   end
 
