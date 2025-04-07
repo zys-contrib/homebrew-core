@@ -1,8 +1,8 @@
 class Libint < Formula
   desc "Library for computing electron repulsion integrals efficiently"
   homepage "https://github.com/evaleev/libint"
-  url "https://github.com/evaleev/libint/archive/refs/tags/v2.10.0.tar.gz"
-  sha256 "9a8a9197a6f17a64c993b230b722f1acde95b23c6076e9c10b523144f2d657ab"
+  url "https://github.com/evaleev/libint/archive/refs/tags/v2.10.1.tar.gz"
+  sha256 "c3673d34a4b8533e946538c5b72387a6ea0336f7132bab57c42c9ad9a3915620"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later"]
 
   bottle do
