@@ -41,9 +41,8 @@ class Slrn < Formula
                           "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
                           "--with-slrnpull=#{var}/spool/news/slrnpull",
                           "--with-slang=#{HOMEBREW_PREFIX}"
-    system "make", "all", "slrnpull"
-
     ENV.deparallelize
+    system "make", "all", "slrnpull"
     system "make", "install"
   end
 
