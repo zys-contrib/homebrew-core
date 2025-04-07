@@ -162,6 +162,7 @@ austin
 autobrr
 autoconf-archive
 autodiff
+autoenv
 automake
 autopep8
 autorest
