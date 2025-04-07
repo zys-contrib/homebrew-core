@@ -1,10 +1,11 @@
 class VulkanTools < Formula
   desc "Vulkan utilities and tools"
   homepage "https://github.com/KhronosGroup/Vulkan-Tools"
-  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.4.311.tar.gz"
-  sha256 "7113bc0c746b45072e269fada0d684b4ae9de609c38d9e764b59793b14120a7b"
+  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.4.312.tar.gz"
+  sha256 "e7052a8ac9ba730442cf5ca87dba28ac5b6bd3b3f9e55cfc115e14081a9f5fec"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-Tools.git", branch: "main"
+
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
