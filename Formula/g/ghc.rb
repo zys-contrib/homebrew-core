@@ -3,12 +3,7 @@ class Ghc < Formula
   homepage "https://haskell.org/ghc/"
   url "https://downloads.haskell.org/~ghc/9.12.2/ghc-9.12.2-src.tar.xz"
   sha256 "0e49cd5dde43f348c5716e5de9a5d7a0f8d68d945dc41cf75dfdefe65084f933"
-  # We build bundled copies of libffi and GMP so GHC inherits the licenses
-  license all_of: [
-    "BSD-3-Clause",
-    "MIT", # libffi
-    any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"], # GMP
-  ]
+  license "BSD-3-Clause"
   head "https://gitlab.haskell.org/ghc/ghc.git", branch: "master"
 
   livecheck do
@@ -30,17 +25,15 @@ class Ghc < Formula
   depends_on "python@3.13" => :build
   depends_on "sphinx-doc" => :build
   depends_on "xz" => :build
+  depends_on "gmp"
 
   uses_from_macos "m4" => :build
+  uses_from_macos "libffi"
   uses_from_macos "ncurses"
 
   # Build uses sed -r option, which is not available in Catalina shipped sed.
   on_catalina :or_older do
     depends_on "gnu-sed" => :build
-  end
-
-  on_linux do
-    depends_on "gmp" => :build
   end
 
   # A binary of ghc is needed to bootstrap ghc
@@ -104,14 +97,12 @@ class Ghc < Formula
     ENV["PYTHON"] = which("python3.13")
 
     binary = buildpath/"binary"
+    args = %W[
+      --with-gmp-includes=#{Formula["gmp"].opt_include}
+      --with-gmp-libraries=#{Formula["gmp"].opt_lib}
+    ]
     resource("binary").stage do
-      binary_args = []
-      if OS.linux?
-        binary_args << "--with-gmp-includes=#{Formula["gmp"].opt_include}"
-        binary_args << "--with-gmp-libraries=#{Formula["gmp"].opt_lib}"
-      end
-
-      system "./configure", "--prefix=#{binary}", *binary_args
+      system "./configure", "--prefix=#{binary}", *args
       ENV.deparallelize { system "make", "install" }
     end
 
@@ -127,15 +118,13 @@ class Ghc < Formula
       system "./boot"
     end
 
-    args = []
     if OS.mac?
       # https://gitlab.haskell.org/ghc/ghc/-/issues/22595#note_468423
       args << "--with-ffi-libraries=#{MacOS.sdk_path_if_needed}/usr/lib"
       args << "--with-ffi-includes=#{MacOS.sdk_path_if_needed}/usr/include/ffi"
-      args << "--with-system-libffi"
     end
 
-    system "./configure", "--prefix=#{prefix}", "--disable-numa", "--with-intree-gmp", *args
+    system "./configure", "--prefix=#{prefix}", "--disable-numa", "--with-system-libffi", *args
     hadrian_args = %W[
       -j#{ENV.make_jobs}
       --prefix=#{prefix}
