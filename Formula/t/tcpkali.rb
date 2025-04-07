@@ -29,7 +29,14 @@ class Tcpkali < Formula
   uses_from_macos "ncurses"
 
   def install
-    system "./configure", *std_configure_args
+    args = []
+    if OS.linux?
+      inreplace "src/tcpkali_syslimits.c", "<sys/sysctl.h>", "<linux/sysctl.h>"
+      # Help old config scripts identify arm64 linux
+      args << "--build=aarch64-unknown-linux-gnu" if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+    end
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 
