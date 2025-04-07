@@ -45,7 +45,10 @@ class Tsduck < Formula
   end
 
   def install
-    ENV["LINUXBREW"] = "true" if OS.linux?
+    if OS.linux?
+      ENV["LINUXBREW"] = "true"
+      ENV["VATEK_CFLAGS"] = "-I#{Formula["libvatek"].opt_include}/vatek"
+    end
     system "gmake", "NOGITHUB=1", "NOTEST=1"
     ENV.deparallelize
     system "gmake", "NOGITHUB=1", "NOTEST=1", "install", "SYSPREFIX=#{prefix}"

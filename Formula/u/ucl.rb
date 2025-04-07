@@ -29,6 +29,9 @@ class Ucl < Formula
   depends_on "automake" => :build
 
   def install
+    # Workaround to build with newer GCC
+    ENV.append "CFLAGS", "-std=c90" if OS.linux?
+
     # Workaround for ancient ./configure file
     # Normally it would be cleaner to run "autoremake" to get a more modern one,
     # but the tarball doesn't seem to include all of the local m4 files that were used
@@ -40,9 +43,7 @@ class Ucl < Formula
          "acconfig/#{fn}"
     end
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 

@@ -30,15 +30,26 @@ class Tcptrace < Formula
 
   uses_from_macos "libpcap"
 
+  on_linux do
+    on_arm do
+      depends_on "automake" => :build
+    end
+  end
+
   patch do
     url "https://github.com/msagarpatel/tcptrace/commit/f36b1567a5691d4c32489ab8493d8d4faaad3935.patch?full_index=1"
     sha256 "ee86790cc2c3cea38ab9d764b3bfbc6adf5f62ca6c33c590329c00429d0a9ef8"
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    # Workaround for ancient config files not recognizing aarch64 linux.
+    if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      %w[config.guess config.sub].each do |fn|
+        cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, fn
+      end
+    end
+
+    system "./configure", *std_configure_args
     system "make", "tcptrace"
 
     # don't install with owner/group

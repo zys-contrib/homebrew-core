@@ -43,11 +43,9 @@ class Ucon64 < Formula
                                    "\"#{opt_prefix}/libexec/#{shared_library("libdiscmage")}\""
 
     cd "src" do
-      system "./configure", "--disable-debug",
-                            "--disable-dependency-tracking",
-                            "--disable-silent-rules",
-                            "--prefix=#{prefix}",
-                            "--with-libdiscmage"
+      args = ["--disable-silent-rules", "--with-libdiscmage"]
+      args << "--disable-parallel" if OS.linux? && Hardware::CPU.arm? # no sys/io.h
+      system "./configure", *args, *std_configure_args
       system "make"
       bin.install "ucon64"
       libexec.install "libdiscmage/#{shared_library("discmage")}" => shared_library("libdiscmage")
