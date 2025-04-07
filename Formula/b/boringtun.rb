@@ -1,8 +1,8 @@
 class Boringtun < Formula
   desc "Userspace WireGuard implementation in Rust"
   homepage "https://github.com/cloudflare/boringtun"
-  url "https://github.com/cloudflare/boringtun/archive/refs/tags/boringtun-0.5.2.tar.gz"
-  sha256 "660f69e20b1980b8e75dc0373dfe137f58fb02b105d3b9d03f35e1ce299d61b3"
+  url "https://github.com/cloudflare/boringtun/archive/refs/tags/boringtun-0.6.0.tar.gz"
+  sha256 "3b9fbd7bbc76c5e98237b34b9790656fb38d09cb9ac417361bf5881e44581035"
   license "BSD-3-Clause"
   head "https://github.com/cloudflare/boringtun.git", branch: "master"
 

@@ -312,6 +312,7 @@ bomber
 bore-cli
 borgbackup
 borgmatic
+boringtun
 bosh-cli
 botan
 bottom
