@@ -145,6 +145,10 @@ jobs:
               path: Formula/.+
               content: depends_on "ffmpeg(@[0-9.]+)?"
 
+            - label: erlang
+              path: Formula/.+
+              content: depends_on "erlang(@[0-9.]+)?"
+
             - label: go
               path: Formula/.+
               content: depends_on "go(@[0-9.]+)?"
@@ -168,6 +172,10 @@ jobs:
             - label: macos-only
               path: Formula/.+
               content: depends_on :macos
+
+            - label: meson
+              path: Formula/.+
+              content: depends_on "meson"
 
             - label: lua
               path: Formula/.+
@@ -357,4 +365,8 @@ jobs:
 
             - label: autobump
               path: \.github/autobump\.txt
+              allow_any_match: true
+
+            - label: alias
+              path: Aliases/.+
               allow_any_match: true
