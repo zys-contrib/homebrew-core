@@ -1,8 +1,8 @@
 class GitMob < Formula
   desc "CLI tool for including co-authors in commits"
   homepage "https://github.com/rkotze/git-mob/blob/master/packages/git-mob"
-  url "https://registry.npmjs.org/git-mob/-/git-mob-4.0.0.tgz"
-  sha256 "eab3ac78b6a2eb910cc6d5d3829713ff75bd3df0c26d0339a549d3d88620def6"
+  url "https://registry.npmjs.org/git-mob/-/git-mob-4.0.1.tgz"
+  sha256 "b2f2c558aa7674b1275bb4f92cd6b967c90a6ee8a8db7d3a567524bf33d78242"
   license "MIT"
 
   bottle do
