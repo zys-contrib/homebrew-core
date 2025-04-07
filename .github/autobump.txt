@@ -3065,6 +3065,7 @@ rswift
 rsync
 rsyncy
 rsyslog
+rtags
 rtl_433
 rtorrent
 rubberband

@@ -2,20 +2,12 @@ class Rtags < Formula
   desc "Source code cross-referencer like ctags with a clang frontend"
   homepage "https://github.com/Andersbakken/rtags"
   license "GPL-3.0-or-later"
-  revision 3
   head "https://github.com/Andersbakken/rtags.git", branch: "master"
 
   stable do
     url "https://github.com/Andersbakken/rtags.git",
-        tag:      "v2.40",
-        revision: "8597d6d2adbe11570dab55629ef9a684304ec3cd"
-
-    # fix compiling with gcc 11
-    patch do
-      url "https://github.com/Andersbakken/rct/commit/31347b4ff91fa6ea68035e0e7b88ed0330016d7f.patch?full_index=1"
-      sha256 "9324dded21b6796e218b0f531ade00cc3b2ef725e00e8296c497db3de47638df"
-      directory "src/rct"
-    end
+        tag:      "v2.41",
+        revision: "39339388256df662d0084b4a094d03e52748f9e8"
 
     # fix lisp files, remove on release 2.42
     patch do
@@ -58,7 +50,10 @@ class Rtags < Formula
   uses_from_macos "zlib"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DRTAGS_NO_BUILD_CLANG=ON", *std_cmake_args
+    # Fix to add backward compatibility for CMake version 4
+    # `master` and `v2.41` are differ too much and so patch is not working
+    # PR ref: https://github.com/Andersbakken/rtags/pull/1443
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
