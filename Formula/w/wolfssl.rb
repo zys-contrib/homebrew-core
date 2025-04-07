@@ -45,6 +45,9 @@ class Wolfssl < Formula
       --enable-reproducible-build
     ]
 
+    # https://github.com/wolfSSL/wolfssl/issues/8148
+    args << "--disable-armasm" if OS.linux? && Hardware::CPU.arm?
+
     # Extra flag is stated as a needed for the Mac platform.
     # https://www.wolfssl.com/docs/wolfssl-manual/ch2/
     # Also, only applies if fastmath is enabled.
