@@ -30,6 +30,7 @@ class Sproxy < Formula
   depends_on "libtool" => :build
 
   uses_from_macos "perl"
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "openssl@3"
