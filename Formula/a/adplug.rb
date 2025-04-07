@@ -1,18 +1,9 @@
 class Adplug < Formula
   desc "Free, hardware independent AdLib sound player library"
   homepage "https://adplug.github.io"
+  url "https://github.com/adplug/adplug/releases/download/adplug-2.4/adplug-2.4.tar.bz2"
+  sha256 "de18463bf7c0cb639a3228ad47e69eb7f78a5a197802d325f3a5ed7e1c56d57f"
   license "LGPL-2.1-or-later"
-
-  stable do
-    url "https://github.com/adplug/adplug/releases/download/adplug-2.3.3/adplug-2.3.3.tar.bz2"
-    sha256 "a0f3c1b18fb49dea7ac3e8f820e091a663afa5410d3443612bf416cff29fa928"
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-    end
-  end
 
   bottle do
     rebuild 1
@@ -41,11 +32,6 @@ class Adplug < Formula
     depends_on "texinfo" => :build
   end
 
-  resource "ksms" do
-    url "http://advsys.net/ken/ksmsongs.zip"
-    sha256 "2af9bfc390f545bc7f51b834e46eb0b989833b11058e812200d485a5591c5877"
-  end
-
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", *std_configure_args
@@ -53,6 +39,11 @@ class Adplug < Formula
   end
 
   test do
+    resource "ksms" do
+      url "http://advsys.net/ken/ksmsongs.zip"
+      sha256 "2af9bfc390f545bc7f51b834e46eb0b989833b11058e812200d485a5591c5877"
+    end
+
     resource("ksms").stage do
       (testpath/".adplug").mkpath
       system bin/"adplugdb", "-v", "add", "JAZZSONG.KSM"
