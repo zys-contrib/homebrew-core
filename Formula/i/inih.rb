@@ -1,8 +1,8 @@
 class Inih < Formula
   desc "Simple .INI file parser in C"
   homepage "https://github.com/benhoyt/inih"
-  url "https://github.com/benhoyt/inih/archive/refs/tags/r59.tar.gz"
-  sha256 "062279922805f5e9a369551a08d5ddb506140fe50774183ffdbb7c22bb97e3f4"
+  url "https://github.com/benhoyt/inih/archive/refs/tags/r60.tar.gz"
+  sha256 "706aa05c888b53bd170e5d8aa8f8a9d9ccf5449dfed262d5103d1f292af26774"
   license "BSD-3-Clause"
 
   bottle do
