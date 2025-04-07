@@ -4,6 +4,7 @@ class Kor < Formula
   url "https://github.com/yonahd/kor/archive/refs/tags/v0.6.0.tar.gz"
   sha256 "55b7a31d731776e539970ddc789de2595756215d178c6decf1b78dc9c876fc0c"
   license "MIT"
+  head "https://github.com/yonahd/kor.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f704ad39dcecfda47d2d8c9ddcc329e93bfe8d8f620a94b9157137e4842bd697"
