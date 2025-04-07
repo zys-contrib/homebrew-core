@@ -19,8 +19,6 @@ class GnuSed < Formula
     sha256                               x86_64_linux:   "6ecac3ffdd0517ed1516ff18d79d4ea44f761b6fb2a5040c124bb51da35c03e1"
   end
 
-  conflicts_with "ssed", because: "both install share/info/sed.info"
-
   def install
     args = %W[
       --prefix=#{prefix}
