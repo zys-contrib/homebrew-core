@@ -31,10 +31,14 @@ class Lbzip2 < Formula
     sha256 "5b931e071e511a9c56e529278c249d7b2c82bbc3deda3dd9b739b3bd67d3d969"
   end
 
-  def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+  # Apply Arch Linux fix for newer glibc
+  patch do
+    url "https://gitlab.archlinux.org/archlinux/packaging/packages/lbzip2/-/raw/e707d24e8b5681f9d824e1141e41323ccd0a714d/lbzip2-gnulib-build-fix.patch"
+    sha256 "5eca4665b147655ce99f9ae5eff50e7db2714ba957e41e20b50d80533aeb6bef"
+  end
 
+  def install
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
