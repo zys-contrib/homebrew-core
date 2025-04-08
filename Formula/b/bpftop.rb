@@ -22,6 +22,11 @@ class Bpftop < Formula
   end
 
   def install
+    # Bypass Homebrew's compiler clang shim which adds incompatible option:
+    # clang: error: unsupported option '-mbranch-protection=' for target 'bpf'
+    clang = Formula["llvm"].opt_bin/"clang"
+    inreplace "build.rs", /^(\s*\.clang)_args/, "\\1(\"#{clang}\")\n\\0", global: false if Hardware::CPU.arm?
+
     system "cargo", "install", *std_cargo_args
   end
 
