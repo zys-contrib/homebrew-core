@@ -50,6 +50,8 @@ class Wownero < Formula
   conflicts_with "monero", because: "both install a wallet2_api.h header"
 
   def install
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+
     # Need to help CMake find `readline` when not using /usr/local prefix
     args = %W[-DReadline_ROOT_DIR=#{Formula["readline"].opt_prefix}]
 
