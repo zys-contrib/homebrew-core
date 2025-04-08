@@ -28,7 +28,10 @@ class Vpcs < Formula
       if OS.mac?
         system "make", "-f", "Makefile.osx"
       else
-        system "make", "-f", "Makefile.linux"
+        # Avoid conflicting getopt
+        rm "getopt.h"
+        # Use -fcommon to work around multiple definition of `vpc'
+        system "make", "-f", "Makefile.linux", "CCOPT=-fcommon"
       end
       bin.install "vpcs"
     end
