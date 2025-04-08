@@ -5,10 +5,11 @@ class Ppsspp < Formula
   revision 3
   head "https://github.com/hrydgard/ppsspp.git", branch: "master"
 
+  # TODO: Can remove CMAKE_POLICY_VERSION_MINIMUM when bumping version to 1.18+
+  # https://github.com/hrydgard/ppsspp/commit/fe91f246b2d22a25fcd52deb57211f1e86717c35
   stable do
-    url "https://github.com/hrydgard/ppsspp.git",
-        tag:      "v1.17.1",
-        revision: "d479b74ed9c3e321bc3735da29bc125a2ac3b9b2"
+    url "https://github.com/hrydgard/ppsspp/releases/download/v1.17.1/ppsspp-1.17.1.tar.xz"
+    sha256 "23e0b8649cc8124b0c22a62d4d41b592b6bd4064bce8c09b0d4abce895e132ae"
 
     # miniupnpc 2.2.8 compatibility patch
     patch :DATA
@@ -62,16 +63,17 @@ class Ppsspp < Formula
         system "./mac-build.sh"
       else
         rm_r("linux")
-        system "./linux_x86-64.sh"
+        arch = Hardware::CPU.intel? ? "x86-64" : Hardware::CPU.arch
+        system "./linux_#{arch}.sh"
       end
     end
 
     # Replace bundled MoltenVK dylib with symlink to Homebrew-managed dylib
     vulkan_frameworks = buildpath/"ext/vulkan/macOS/Frameworks"
-    rm(vulkan_frameworks/"libMoltenVK.dylib")
     vulkan_frameworks.install_symlink Formula["molten-vk"].opt_lib/"libMoltenVK.dylib"
 
     args = %w[
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
       -DUSE_SYSTEM_LIBZIP=ON
       -DUSE_SYSTEM_SNAPPY=ON
       -DUSE_SYSTEM_LIBSDL2=ON
