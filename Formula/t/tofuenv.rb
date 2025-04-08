@@ -7,7 +7,7 @@ class Tofuenv < Formula
   head "https://github.com/tofuutils/tofuenv.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ee28b005988edd5b72576d1019be4049ea7d09bb54f79644dfd56b88242017ac"
+    sha256 cellar: :any_skip_relocation, all: "3febcab9a632034fdedf2d4ae0105d4425bcdb12ac73e58b586a1ddf6db36487"
   end
 
   uses_from_macos "unzip"
