@@ -8,7 +8,7 @@ class EvernoteBackup < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "07f004b4c9d40bd634e6d6e3e049c0840fcddfd18fe396b2457be233a469958e"
+    sha256 cellar: :any_skip_relocation, all: "1bba1e0b577916885f7fc257a64ba73eb68cc22f81acc644ddee888e438ae048"
   end
 
   depends_on "certifi"
