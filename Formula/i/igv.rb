@@ -1,8 +1,8 @@
 class Igv < Formula
   desc "Interactive Genomics Viewer"
   homepage "https://igv.org/doc/desktop/"
-  url "https://data.broadinstitute.org/igv/projects/downloads/2.19/IGV_2.19.2.zip"
-  sha256 "cdf2cbab41226151e8e456ae33e1f15d0439951520f75bf1bf8d4afff9e0818a"
+  url "https://data.broadinstitute.org/igv/projects/downloads/2.19/IGV_2.19.3.zip"
+  sha256 "dbf500e021b4d56e86c162be9ac22599ceaf776bfad749a11768b37c105bcdd0"
   license "MIT"
 
   livecheck do
