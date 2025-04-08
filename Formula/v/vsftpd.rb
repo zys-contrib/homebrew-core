@@ -18,6 +18,7 @@ class Vsftpd < Formula
     sha256 arm64_ventura: "7e015b54e1995a19395d9802116f3f7d0895818260c1aeddd793ca2b2da806aa"
     sha256 sonoma:        "63fafab3ad2cc9aa1c22643d6b923292a58b0872abbc774fb028b0d79f3febe6"
     sha256 ventura:       "ac39611af47fe2cb0fa24462a75d835016c9edca1a5904ee112886e223fcc0b8"
+    sha256 arm64_linux:   "a7e48ecdd12b194050395cc3532a82bcc3724a4d19d0f5e43cb0cc62723f3440"
     sha256 x86_64_linux:  "4443fcbe19aa4dd49e55a9c5fcd7e3c069a07320a4c86b9d252c4020ba7614ee"
   end
 
