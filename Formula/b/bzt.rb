@@ -15,6 +15,7 @@ class Bzt < Formula
     sha256 cellar: :any,                 arm64_ventura: "58de6bf4118f25335b035152666fff9cbed8fe2639f4631136b73f246a9f099c"
     sha256 cellar: :any,                 sonoma:        "f74750cd3a53056e52578ccfba855f0b536258f7e31760e0b1a4d759066fc928"
     sha256 cellar: :any,                 ventura:       "f00f7dddca38fa98e2ffd42c1331dfbcbcfb4656608b64aad14dc34f76596e35"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b9317716560fb3397cd2003b18d841e72e8395ee59a9b56432a220641f1dbb95"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b22449edc64552c731be9036c28066f25730bdda9d363d151786d01785a2c12a"
   end
 
