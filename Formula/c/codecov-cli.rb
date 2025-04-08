@@ -3,8 +3,8 @@ class CodecovCli < Formula
 
   desc "Codecov's command-line interface"
   homepage "https://cli.codecov.io/"
-  url "https://files.pythonhosted.org/packages/6e/41/dfdea943f9cc15f90dc5251dc07af0a00bea07e3bfb7f1beb47a6ecfd37d/codecov_cli-10.3.0.tar.gz"
-  sha256 "9e913d86c17a1f76ab52e229d0e0ad8087ff2ef2038d4ac79432ba798b12e9c7"
+  url "https://files.pythonhosted.org/packages/64/e3/d5e09f0431304bc495dd84b1f846c801d08639bc3a8e8c3544d4c8348c52/codecov_cli-10.4.0.tar.gz"
+  sha256 "714618fc7797fb1e369e3c9e23125d323ff0bc4d1bf8cdeace5d8c7562398c4a"
   license "Apache-2.0"
   head "https://github.com/codecov/codecov-cli.git", branch: "main"
 
@@ -88,8 +88,8 @@ class CodecovCli < Formula
   end
 
   resource "sentry-sdk" do
-    url "https://files.pythonhosted.org/packages/f1/ef/4847dcd63e3f3c451cf701a825d21200f1322d46ac97586d5c90a13dfea1/sentry_sdk-2.24.1.tar.gz"
-    sha256 "8ba3c29990fa48865b908b3b9dc5ae7fa7e72407c7c9e91303e5206b32d7b8b1"
+    url "https://files.pythonhosted.org/packages/85/2f/a0f732270cc7c1834f5ec45539aec87c360d5483a8bd788217a9102ccfbd/sentry_sdk-2.25.1.tar.gz"
+    sha256 "f9041b7054a7cf12d41eadabe6458ce7c6d6eea7a97cfe1b760b6692e9562cf0"
   end
 
   resource "setuptools" do
