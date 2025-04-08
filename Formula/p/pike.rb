@@ -43,7 +43,7 @@ class Pike < Formula
   end
 
   def install
-    ENV.append "CFLAGS", "-m64"
+    ENV.append "CFLAGS", "-m64" if !OS.linux? || Hardware::CPU.intel?
     ENV.deparallelize
 
     # Use GNU sed on macOS to avoid this build failure:
