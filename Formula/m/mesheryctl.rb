@@ -2,8 +2,8 @@ class Mesheryctl < Formula
   desc "Command-line utility for Meshery, the cloud native management plane"
   homepage "https://meshery.io"
   url "https://github.com/meshery/meshery.git",
-      tag:      "v0.8.50",
-      revision: "410d5909221f22b22418cbd0d546ebafd87a51fe"
+      tag:      "v0.8.56",
+      revision: "e97b56a2298da35f2cd556780118e0775f205f29"
   license "Apache-2.0"
   head "https://github.com/meshery/meshery.git", branch: "master"
 
@@ -17,6 +17,12 @@ class Mesheryctl < Formula
   end
 
   depends_on "go" => :build
+
+  # https://github.com/meshery/meshery/pull/14341
+  patch do
+    url "https://github.com/meshery/meshery/commit/fee7380005018b60912e25b404ea77314f489c5e.patch?full_index=1"
+    sha256 "2ebba06d4f1079c6216eeea1bbc0f4befa78803fc7d471184e02813196559c3e"
+  end
 
   def install
     ENV["CGO_ENABLED"] = "0"
