@@ -6,6 +6,15 @@ class Fedify < Formula
   license "MIT"
   head "https://github.com/fedify-dev/fedify.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1a6eee481b77fb2cc8b85e957dfe44c7fffb6213bf4661fe5f374691d84c5747"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9c932db99151454bf7659d7190be0481b20f6461e211fb1032c1984865fb06c4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cdde9746fc8ae5857da9522997888f116976029b107b41799d7ebd59c11a5ecd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "621ea9b0a7f87d5766c94e8dd6e520cb2c6d3cddb9bf3e1626d3ed7c7da8d3d9"
+    sha256 cellar: :any_skip_relocation, ventura:       "ed9365c520104884e3757af88bd75032392cddb20da56bb2f205f96a8f2d7ced"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3555b1f7d5585b8e81bf751c2fb12ba521793e22ef3389468340587595c7540b"
+  end
+
   depends_on "deno" => :build
 
   def install
