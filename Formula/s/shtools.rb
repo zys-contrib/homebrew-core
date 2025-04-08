@@ -26,6 +26,9 @@ class Shtools < Formula
   end
 
   def install
+    # Workaround for arm64 linux, https://github.com/SHTOOLS/SHTOOLS/issues/507
+    inreplace "Makefile", " -m64 ", " " if OS.linux? && Hardware::CPU.arm?
+
     system "make", "fortran"
     system "make", "fortran-mp"
     system "make", "install", "PREFIX=#{prefix}"
@@ -33,10 +36,11 @@ class Shtools < Formula
 
   test do
     cp_r "#{share}/examples/shtools", testpath
+    m64 = "-m64" if Hardware::CPU.intel?
     system "make", "-C", "shtools/fortran",
                    "run-fortran-tests-no-timing",
                    "F95=gfortran",
-                   "F95FLAGS=-m64 -fPIC -O3 -std=gnu -ffast-math",
+                   "F95FLAGS=#{m64} -fPIC -O3 -std=gnu -ffast-math",
                    "MODFLAG=-I#{HOMEBREW_PREFIX}/include",
                    "LIBPATH=#{HOMEBREW_PREFIX}/lib",
                    "LIBNAME=SHTOOLS",
