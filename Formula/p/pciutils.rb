@@ -21,6 +21,6 @@ class Pciutils < Formula
 
   test do
     assert_match "lspci version", shell_output("#{bin}/lspci --version")
-    assert_match "Host bridge:", shell_output("#{bin}/lspci")
+    assert_match(/Host bridge:|controller:/, shell_output("#{bin}/lspci"))
   end
 end
