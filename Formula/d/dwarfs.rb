@@ -1,8 +1,8 @@
 class Dwarfs < Formula
   desc "Fast high compression read-only file system for Linux, Windows, and macOS"
   homepage "https://github.com/mhx/dwarfs"
-  url "https://github.com/mhx/dwarfs/releases/download/v0.11.3/dwarfs-0.11.3.tar.xz"
-  sha256 "5ccfc293d74e0509a848d10416b9682cf7318c8fa9291ba9e92e967b9a6bb994"
+  url "https://github.com/mhx/dwarfs/releases/download/v0.12.0/dwarfs-0.12.0.tar.xz"
+  sha256 "91d5a22e5cf125a9871bcbdb4875bdd661557757b9f50e88553da4b47f8351d2"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -46,7 +46,7 @@ class Dwarfs < Formula
   depends_on "zstd"
 
   on_macos do
-    depends_on "llvm" if DevelopmentTools.clang_build_version < 1500
+    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1500
   end
 
   on_linux do
@@ -54,16 +54,31 @@ class Dwarfs < Formula
   end
 
   fails_with :clang do
-    build 1499
+    build 1500
     cause "Not all required C++20 features are supported"
   end
 
-  def install
-    # Workaround for CMake 4 until https://github.com/facebook/folly/pull/2398
-    # This only goes into effect if it is higher than `cmake_minimum_required`
-    # so it only impacts submodules and not the main DwarFS which uses 3.28.0
-    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+  # Backport fix for linking to zstd
+  patch do
+    url "https://github.com/mhx/dwarfs/commit/f6cf57b4be14c098342d121c9a39f75af1847a78.patch?full_index=1"
+    sha256 "eebbf4010d20a8de62f0e185f50b8030346c7099fed9dcdd4f83a0a88dc42b12"
+  end
 
+  # Backport folly fix for LLVM 20
+  patch do
+    url "https://github.com/facebook/folly/commit/ef5160f6b02fb8eb971adf7edd3aea96ef73bc66.patch?full_index=1"
+    sha256 "66db8650dc30d285064fcccb93c5d4e7384cefae091b1fc76eddede279271332"
+    directory "folly"
+  end
+
+  # Apply folly fix for LLVM 20 from https://github.com/facebook/folly/pull/2404
+  patch do
+    url "https://github.com/facebook/folly/commit/1215a574e29ea94653dd8c48f72e25b5503ced18.patch?full_index=1"
+    sha256 "14a584c4f0a166d065d45eb691c23306289a5287960806261b605946166de590"
+    directory "folly"
+  end
+
+  def install
     args = %W[
       -DBUILD_SHARED_LIBS=ON
       -DCMAKE_INSTALL_RPATH=#{rpath}
@@ -81,12 +96,13 @@ class Dwarfs < Formula
       -DPREFER_SYSTEM_GTEST=ON
     ]
 
-    if OS.mac? && DevelopmentTools.clang_build_version < 1500
+    if OS.mac? && DevelopmentTools.clang_build_version <= 1500
       ENV.llvm_clang
 
       # Needed in order to find the C++ standard library
       # See: https://github.com/Homebrew/homebrew-core/issues/178435
-      ENV.prepend "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/c++ -L#{Formula["llvm"].opt_lib}/unwind -lunwind"
+      ENV.prepend "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/unwind -lunwind"
+      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib/"c++"
     end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
@@ -127,7 +143,7 @@ class Dwarfs < Formula
     CPP
 
     # ENV.llvm_clang doesn't work in the test block
-    ENV["CXX"] = Formula["llvm"].opt_bin/"clang++" if OS.mac? && DevelopmentTools.clang_build_version < 1500
+    ENV["CXX"] = Formula["llvm"].opt_bin/"clang++" if OS.mac? && DevelopmentTools.clang_build_version <= 1500
 
     system ENV.cxx, "-std=c++20", "test.cpp", "-I#{include}", "-L#{lib}", "-o", "test", "-ldwarfs_common"
 
