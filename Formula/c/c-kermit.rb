@@ -36,6 +36,16 @@ class CKermit < Formula
   patch :DATA
 
   def install
+    # Makefile only supports system libraries on Linux
+    if OS.linux?
+      inreplace "makefile" do |s|
+        s.gsub! "/usr/include/ncurses", "#{Formula["ncurses"].opt_include}/ncurses"
+        s.gsub! "/usr/lib/libncurses", "#{Formula["ncurses"].opt_lib}/libncurses"
+        s.gsub! "/usr/include/crypt", "#{Formula["libxcrypt"].opt_include}/crypt"
+        s.gsub! "/usr/lib/libcrypt", "#{Formula["libxcrypt"].opt_lib}/libcrypt"
+      end
+    end
+
     os = OS.mac? ? "macosx" : "linux"
     system "make", os
     man1.mkpath
