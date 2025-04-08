@@ -6,13 +6,13 @@ class BrunoCli < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "13024b2ed820961ff2ff4b03b927b655534107f77dafd15dd9b32d4663139880"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "13024b2ed820961ff2ff4b03b927b655534107f77dafd15dd9b32d4663139880"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "13024b2ed820961ff2ff4b03b927b655534107f77dafd15dd9b32d4663139880"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7b53bc574c37d80d9d994679644c5aaf44b5255c7fb65e6ac220b5a9c85ec4c2"
-    sha256 cellar: :any_skip_relocation, ventura:       "7b53bc574c37d80d9d994679644c5aaf44b5255c7fb65e6ac220b5a9c85ec4c2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "13024b2ed820961ff2ff4b03b927b655534107f77dafd15dd9b32d4663139880"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13024b2ed820961ff2ff4b03b927b655534107f77dafd15dd9b32d4663139880"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0a83caf5d8cc1f6db2095a5bb11ff790949ad43e9eba73eda2639a330a555167"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0a83caf5d8cc1f6db2095a5bb11ff790949ad43e9eba73eda2639a330a555167"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0a83caf5d8cc1f6db2095a5bb11ff790949ad43e9eba73eda2639a330a555167"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6c2f61da169e4e7775733eb24136eacd4de45efcf72004e8553e6173a6d47fc9"
+    sha256 cellar: :any_skip_relocation, ventura:       "6c2f61da169e4e7775733eb24136eacd4de45efcf72004e8553e6173a6d47fc9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a83caf5d8cc1f6db2095a5bb11ff790949ad43e9eba73eda2639a330a555167"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a83caf5d8cc1f6db2095a5bb11ff790949ad43e9eba73eda2639a330a555167"
   end
 
   depends_on "node"
