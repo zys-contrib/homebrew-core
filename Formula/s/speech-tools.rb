@@ -38,6 +38,7 @@ class SpeechTools < Formula
     sha256 cellar: :any,                 monterey:       "ff2891dc045fd7e6a9044dab515a213eb8cfacbdf94cee6191b4d14c32cdcff5"
     sha256 cellar: :any,                 big_sur:        "6752fe1558b7d5c824d6b8f534caf8a2ee2547cc8346e6802ba7138992af4ea3"
     sha256 cellar: :any,                 catalina:       "e88b78b7a2391634494dc70406f42667d8d152e41d8b85958afd38ec16d8b4e0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "1e482ece1583a25e8e5b78f5089af87629eee73d505c8013fad0fe33e085157f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "05b33f6bd508503c40c67baaa4d8766e3d3b58853b18c9f356d0e650a2ecad13"
   end
 
