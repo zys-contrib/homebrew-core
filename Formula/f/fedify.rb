@@ -12,6 +12,7 @@ class Fedify < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cdde9746fc8ae5857da9522997888f116976029b107b41799d7ebd59c11a5ecd"
     sha256 cellar: :any_skip_relocation, sonoma:        "621ea9b0a7f87d5766c94e8dd6e520cb2c6d3cddb9bf3e1626d3ed7c7da8d3d9"
     sha256 cellar: :any_skip_relocation, ventura:       "ed9365c520104884e3757af88bd75032392cddb20da56bb2f205f96a8f2d7ced"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3d2a723c5c7ac8906491fa61b0c97c440ded92f3a5950f5d58ea502e42fea564"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3555b1f7d5585b8e81bf751c2fb12ba521793e22ef3389468340587595c7540b"
   end
 
