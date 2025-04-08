@@ -2,8 +2,8 @@ class Duckdb < Formula
   desc "Embeddable SQL OLAP Database Management System"
   homepage "https://www.duckdb.org"
   url "https://github.com/duckdb/duckdb.git",
-      tag:      "v1.2.1",
-      revision: "8e52ec43959ab363643d63cb78ee214577111da4"
+      tag:      "v1.2.2",
+      revision: "7c039464e452ddc3330e2691d3fa6d305521d09b"
   license "MIT"
 
   bottle do
