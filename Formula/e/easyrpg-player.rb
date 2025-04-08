@@ -11,13 +11,13 @@ class EasyrpgPlayer < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "91a3f17478db7d87e435ede9a774f9aaa60efd9d1643bd40a1b46d41b6cb583f"
-    sha256 cellar: :any,                 arm64_sonoma:  "ee017d61080f9d8f939b265c48baa3a951c639539d7e60fc630a8ea59d75ceef"
-    sha256 cellar: :any,                 arm64_ventura: "07a6d81fc75427bb8844e9bd79b6b457def126c37ad2db8e386cf4eb979f5b37"
-    sha256 cellar: :any,                 sonoma:        "96816388fdb23de41c554995d0d4b52aa348c50430495d1e6248e425934f3c9f"
-    sha256 cellar: :any,                 ventura:       "7d669fe4965e4a7739897bd749ed5f184778d9493eb6e9938135ba23a9058f12"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "21364ac72fe87a73c520a849792e3ba9b06687a2bb47e28f3cee1d5852fc7895"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "900ef138e0241d3b323307182d08e38ae55d1e7f99ca82ec7cbf9e3bbc1c4124"
+    sha256 cellar: :any,                 arm64_sequoia: "29b59ec328ebcb9bdaf09f645ec253dc455aadbe85ac151a615c1c933eb405f0"
+    sha256 cellar: :any,                 arm64_sonoma:  "221de8ecdaee1f3b57abc2ad397173452de46d56ef6f31a755cc3c9c27c06b9c"
+    sha256 cellar: :any,                 arm64_ventura: "6ffd6cdda3ee15171eb3dd10b5a4c5db985db99aa8d3b9d7657be393191e04bf"
+    sha256 cellar: :any,                 sonoma:        "3e7e8cdde63642d4f0868ddcda54828b4bbe156e43a13ca369cd0d929512e713"
+    sha256 cellar: :any,                 ventura:       "9316377552b03c9261c8333248adfbecee36b78041fe1cc0f38601d73c24461e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "91fa3ccab4d41d231137740cb587782357d5ad146d247a6a42b578bb77933f3b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68a94c58e93a48d1450056d002a5759e7db40b694ae5a6f2f0ada4e09f5f74a4"
   end
 
   depends_on "cmake" => :build
