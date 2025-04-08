@@ -12,12 +12,12 @@ class Kitex < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3f4a7896876bae337c884ea58b5384ce45d97067563390230b808365e0840709"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3f4a7896876bae337c884ea58b5384ce45d97067563390230b808365e0840709"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3f4a7896876bae337c884ea58b5384ce45d97067563390230b808365e0840709"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1fd75ac2c0264237e9f4adeb32b60740fb0e772bafdf4a4db04e6125d608bb91"
-    sha256 cellar: :any_skip_relocation, ventura:       "1fd75ac2c0264237e9f4adeb32b60740fb0e772bafdf4a4db04e6125d608bb91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d391f80d886027fb30cf2d7b8781365b533b80bfbe0bf8462716b5676edf6589"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e977ed56c97e8d0d2c32aad83ecd614b852d05c8fd36559d38e71d7d4a4f799d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e977ed56c97e8d0d2c32aad83ecd614b852d05c8fd36559d38e71d7d4a4f799d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e977ed56c97e8d0d2c32aad83ecd614b852d05c8fd36559d38e71d7d4a4f799d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "abb62f18d9cd5aa89b0b6e4c0a0fbfc0562d763e22d451c819b316b62b386f52"
+    sha256 cellar: :any_skip_relocation, ventura:       "abb62f18d9cd5aa89b0b6e4c0a0fbfc0562d763e22d451c819b316b62b386f52"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "835f7e5d40ea401fcdb85aa90244a328d3d44eb46668025144ca1ba6ae8e1f63"
   end
 
   depends_on "go" => [:build, :test]
