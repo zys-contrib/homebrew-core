@@ -1,10 +1,9 @@
 class EasyrpgPlayer < Formula
   desc "RPG Maker 2000/2003 games interpreter"
   homepage "https://easyrpg.org/"
-  url "https://easyrpg.org/downloads/player/0.8/easyrpg-player-0.8.tar.xz"
-  sha256 "06e6d034348d1c52993d0be6b88fc3502a6c7718e366f691401539d5a2195c79"
+  url "https://easyrpg.org/downloads/player/0.8.1/easyrpg-player-0.8.1.tar.xz"
+  sha256 "51249fbc8da4e3ac2e8371b0d6f9f32ff260096f5478b3b95020e27b031dbd0d"
   license "GPL-3.0-or-later"
-  revision 8
 
   livecheck do
     url "https://easyrpg.org/player/downloads/"
@@ -46,12 +45,6 @@ class EasyrpgPlayer < Formula
   on_linux do
     depends_on "pkgconf" => :build
     depends_on "alsa-lib"
-  end
-
-  # Add support for fmt 10
-  patch do
-    url "https://github.com/EasyRPG/Player/commit/a4672d2e30db4e4918c8f3580236faed3c9d04c1.patch?full_index=1"
-    sha256 "026df27331e441116d2b678992d729f9aec3c30b52ffde98089527a5a25c79eb"
   end
 
   def install
