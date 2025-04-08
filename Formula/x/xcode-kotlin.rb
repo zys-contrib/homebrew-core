@@ -1,8 +1,8 @@
 class XcodeKotlin < Formula
   desc "Kotlin Native Xcode Plugin"
   homepage "https://github.com/touchlab/xcode-kotlin"
-  url "https://github.com/touchlab/xcode-kotlin/archive/refs/tags/2.1.0.tar.gz"
-  sha256 "840fb10e05e0f5e9a75620bc3f05a1a6fc16025db8da58c34a053f4d97c3b14f"
+  url "https://github.com/touchlab/xcode-kotlin/archive/refs/tags/2.2.0.tar.gz"
+  sha256 "6b30d73e4562723b9541f82d55b56b9fa22d1cb2aae421ea95b08507c4d0d09b"
   license "Apache-2.0"
   head "https://github.com/touchlab/xcode-kotlin.git", branch: "main"
 
@@ -27,7 +27,7 @@ class XcodeKotlin < Formula
 
   test do
     output = shell_output(bin/"xcode-kotlin info --only")
-    assert_match "Bundled plugin version:\t\t#{version}", output
+    assert_match(/Bundled plugin version:\s*#{version}/, output)
     assert_match(/Installed plugin version:\s*(?:(?:\d+)\.(?:\d+)\.(?:\d+)|none)/, output)
     assert_match(/Language spec installed:\s*(?:Yes|No)/, output)
     assert_match(/LLDB init installed:\s*(?:Yes|No)/, output)
