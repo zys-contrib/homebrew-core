@@ -27,9 +27,12 @@ class Lgeneral < Formula
   def install
     # Applied in community , to remove in next release
     inreplace "configure", "#include <unistd.h>", "#include <sys/stat.h>\n#include <unistd.h>"
-    system "./configure", *std_configure_args,
-                         "--disable-silent-rules",
-                         "--disable-sdltest"
+
+    args = ["--disable-silent-rules", "--disable-sdltest"]
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 
