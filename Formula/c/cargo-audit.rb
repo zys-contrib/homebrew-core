@@ -32,7 +32,7 @@ class CargoAudit < Formula
   def install
     system "cargo", "install", *std_cargo_args(path: "cargo-audit")
     # test cargo-audit
-    pkgshare.install "cargo-audit/tests/support"
+    pkgshare.install "cargo-audit/tests/support/base64_vuln"
   end
 
   test do
@@ -40,7 +40,7 @@ class CargoAudit < Formula
     assert_path_exists HOMEBREW_CACHE/"cargo_cache/advisory-db"
     assert_match "not found: Couldn't load Cargo.lock", output
 
-    cp_r "#{pkgshare}/support/base64_vuln/.", testpath
+    cp_r "#{pkgshare}/base64_vuln/.", testpath
     assert_match "error: 1 vulnerability found!", shell_output("#{bin}/cargo-audit audit 2>&1", 1)
   end
 end
