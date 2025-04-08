@@ -19,6 +19,7 @@ adaptivecpp
 adb-enhanced
 adios2
 adns
+adplug
 adr-viewer
 adwaita-icon-theme
 aerc
