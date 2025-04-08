@@ -1,26 +1,10 @@
 class Liblcf < Formula
   desc "Library for RPG Maker 2000/2003 games data"
   homepage "https://easyrpg.org/"
+  url "https://easyrpg.org/downloads/player/0.8.1/liblcf-0.8.1.tar.xz"
+  sha256 "e827b265702cf7d9f4af24b8c10df2c608ac70754ef7468e34836201ff172273"
   license "MIT"
-  revision 6
   head "https://github.com/EasyRPG/liblcf.git", branch: "master"
-
-  stable do
-    url "https://easyrpg.org/downloads/player/0.8/liblcf-0.8.tar.xz"
-    sha256 "6b0d8c7fefe3d66865336406f69ddf03fe59e52b5601687265a4d1e47a25c386"
-
-    # Backport C++17 for `icu4c` 75. Remove in the next release.
-    patch do
-      url "https://github.com/EasyRPG/liblcf/commit/8c782e54ba244981141d91e7d44922952563677c.patch?full_index=1"
-      sha256 "593f729e7f9a5411e6d8548aaac0039e09eee437f525409a9ca8513a0ee15cd0"
-    end
-
-    # Backport CMake fix when using FindEXPAT
-    patch do
-      url "https://github.com/EasyRPG/liblcf/commit/a759e18d39cd73c0d2934896ed5c9520a9e1ca94.patch?full_index=1"
-      sha256 "4b34c80fbb80f388a3c08cf9e810a13c58e79c11671fc5064a54c1b6c0d5956d"
-    end
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "e1151274ab64086b4a8aaa60158ec06b5ae873a01f509938b2f04ab61101195f"
@@ -34,6 +18,7 @@ class Liblcf < Formula
 
   depends_on "cmake" => :build
   depends_on "icu4c@77"
+  depends_on "inih"
 
   uses_from_macos "expat"
 
@@ -57,7 +42,7 @@ class Liblcf < Formula
         return 0;
       }
     CPP
-    system ENV.cxx, "test.cpp", "-std=c++14", "-I#{include}", "-L#{lib}", "-llcf", \
+    system ENV.cxx, "test.cpp", "-std=c++17", "-I#{include}", "-L#{lib}", "-llcf", \
       "-o", "test"
     system "./test"
   end
