@@ -40,7 +40,7 @@ class Taktuk < Formula
     system "./configure", "--prefix=#{prefix}"
     system "make"
     ENV.deparallelize
-    system "make", "install"
+    system "make", "install", "INSTALLSITEMAN3DIR=#{man3}"
   end
 
   test do
