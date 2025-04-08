@@ -1,29 +1,10 @@
 class Root < Formula
   desc "Analyzing petabytes of data, scientifically"
   homepage "https://root.cern"
+  url "https://root.cern/download/root_v6.34.08.source.tar.gz"
+  sha256 "806045b156de03fe8f5661a670eab877f2e4d2da6c234dc3e31e98e2d7d96fe8"
   license "LGPL-2.1-or-later"
   head "https://github.com/root-project/root.git", branch: "master"
-
-  stable do
-    url "https://root.cern/download/root_v6.34.06.source.tar.gz"
-    sha256 "a799d632dae5bb1ec87eae6ebc046a12268c6849f2a8837921c118fc51b6cff3"
-
-    # Backport unbundling of libraries on macOS
-    patch do
-      url "https://github.com/root-project/root/commit/73054b434996a530bfd0669d4ef5c1767a93ef70.patch?full_index=1"
-      sha256 "430c1e8aeafe5db1bd4298db27e1aecf903ad7f630465551e66ba70868747293"
-    end
-
-    # Apply fix for building with macOS 15.4, https://github.com/root-project/root/pull/18243
-    patch do
-      url "https://github.com/root-project/root/commit/0c3644b47f9dd59d33dffa6467275accd9824468.patch?full_index=1"
-      sha256 "5b2e8cc151e945cb46e60a1654f4ea3bc51477ae6b1485e8eda22674dd287875"
-    end
-    patch do
-      url "https://github.com/root-project/root/commit/7952c382eee83f222d724d43946ac6b9a7ffe486.patch?full_index=1"
-      sha256 "7214cf81275838cc95086c2d6828f661a85c467f2bf424dfc025585b7979a946"
-    end
-  end
 
   livecheck do
     url "https://root.cern/install/all_releases/"
