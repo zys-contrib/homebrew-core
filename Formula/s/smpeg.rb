@@ -50,6 +50,8 @@ class Smpeg < Formula
       --disable-opengl-player
       --disable-sdltest
     ]
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
 
     system "./autogen.sh"
     system "./configure", *args, *std_configure_args

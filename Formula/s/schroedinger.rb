@@ -37,8 +37,12 @@ class Schroedinger < Formula
   depends_on "orc"
 
   def install
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
-    system "./configure", *std_configure_args
+    system "./configure", *args, *std_configure_args
 
     # The test suite is known not to build against Orc >0.4.16 in Schroedinger 1.0.11.
     # A fix is in upstream, so test when pulling 1.0.12 if this is still needed. See:

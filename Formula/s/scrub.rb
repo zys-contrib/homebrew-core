@@ -33,9 +33,15 @@ class Scrub < Formula
   end
 
   def install
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    args = []
+    if build.head?
+      system "./autogen.sh"
+    elsif OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      # Help old config scripts identify arm64 linux
+      args << "--build=aarch64-unknown-linux-gnu"
+    end
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 
