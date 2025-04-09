@@ -1,8 +1,8 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://goteleport.com/"
-  url "https://github.com/gravitational/teleport/archive/refs/tags/v17.4.2.tar.gz"
-  sha256 "b4e5c1393595c755309b0c41b036ae1a7102c6a291cc8da42f8f7df910bdc701"
+  url "https://github.com/gravitational/teleport/archive/refs/tags/v17.4.3.tar.gz"
+  sha256 "1fb73f1b9c9de750a7c5ad69b4c3a6a45453a7ebf85b2c7d2174c2ad32fd41be"
   license all_of: ["AGPL-3.0-or-later", "Apache-2.0"]
   head "https://github.com/gravitational/teleport.git", branch: "master"
 
@@ -43,10 +43,7 @@ class Teleport < Formula
   conflicts_with "tctl", because: "both install `tctl` binaries"
 
   # disable `wasm-opt` for ironrdp pkg release build, upstream pr ref, https://github.com/gravitational/teleport/pull/50178
-  patch do
-    url "https://github.com/gravitational/teleport/commit/994890fb05360b166afd981312345a4cf01bc422.patch?full_index=1"
-    sha256 "9d60180ff69a8a8985773d3b2a107ab910b22040e4cbf6afed11bd2b64fc6996"
-  end
+  patch :DATA
 
   def install
     # Prevent pnpm from downloading another copy due to `packageManager` feature
@@ -87,3 +84,18 @@ class Teleport < Formula
     assert_match(/Version:\s*#{version}/, status)
   end
 end
+
+__END__
+diff --git a/web/packages/shared/libs/ironrdp/Cargo.toml b/web/packages/shared/libs/ironrdp/Cargo.toml
+index ddcc4db..913691f 100644
+--- a/web/packages/shared/libs/ironrdp/Cargo.toml
++++ b/web/packages/shared/libs/ironrdp/Cargo.toml
+@@ -7,6 +7,9 @@ publish.workspace = true
+ 
+ # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+ 
++[package.metadata.wasm-pack.profile.release]
++wasm-opt = false
++
+ [lib]
+ crate-type = ["cdylib"]
