@@ -825,6 +825,7 @@ docker-machine-driver-vultr
 docker-squash
 dockerfile-language-server
 dockerfilegraph
+dockerfmt
 dockerize
 dockly
 dockviz
