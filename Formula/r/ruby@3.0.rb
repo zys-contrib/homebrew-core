@@ -20,7 +20,6 @@ class RubyAT30 < Formula
 
   disable! date: "2025-04-23", because: :unmaintained
 
-  depends_on maximum_macos: [:sonoma, :build]
   depends_on "pkgconf" => :build
   depends_on "libyaml"
   depends_on "openssl@3"
@@ -41,6 +40,12 @@ class RubyAT30 < Formula
   resource "openssl" do
     url "https://github.com/ruby/openssl/archive/refs/tags/v3.2.0.tar.gz"
     sha256 "993534b105f5405c2db482ca26bb424d9e47f0ffe7e4b3259a15d95739ff92f9"
+  end
+
+  # Fix compile error in newer compilers.
+  patch do
+    url "https://github.com/ruby/bigdecimal/commit/6d510e47bce2ba4dbff4c48c26ee8d5cd8de1758.patch?full_index=1"
+    sha256 "8ad16dd450031adea22f433c84a61ea4780c99bec6f0f40b1a88e50a597bf54f"
   end
 
   def api_version
@@ -121,9 +126,14 @@ class RubyAT30 < Formula
       (rg_gems_in/"gems").install Dir[buildpath/"vendor_gem/gems/*"]
       (rg_gems_in/"specifications/default").install Dir[buildpath/"vendor_gem/specifications/default/*"]
       bin.install buildpath/"vendor_gem/bin/gem" => "gem"
-      (libexec/"gembin").install buildpath/"vendor_gem/bin/bundle" => "bundle"
-      (libexec/"gembin").install_symlink "bundle" => "bundler"
+      bin.install buildpath/"vendor_gem/bin/bundle" => "bundle"
+      bin.install buildpath/"vendor_gem/bin/bundler" => "bundler"
     end
+
+    # Customize rubygems to look/install in the global gem directory
+    # instead of in the Cellar, making gems last across reinstalls
+    config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
+    config_file.write rubygems_config
   end
 
   def post_install
@@ -135,21 +145,9 @@ class RubyAT30 < Formula
       #{rubygems_bindir}/bundler
     ].select { |file| File.exist?(file) })
     rm_r(Dir[HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/gems/bundler-*"])
-    rubygems_bindir.install_symlink Dir[libexec/"gembin/*"]
-
-    # Customize rubygems to look/install in the global gem directory
-    # instead of in the Cellar, making gems last across reinstalls
-    config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
-    config_file.unlink if config_file.exist?
-    config_file.write rubygems_config(api_version)
-
-    # Create the sitedir and vendordir that were skipped during install
-    %w[sitearchdir vendorarchdir].each do |dir|
-      mkdir_p `#{bin}/ruby -rrbconfig -e 'print RbConfig::CONFIG["#{dir}"]'`
-    end
   end
 
-  def rubygems_config(api_version)
+  def rubygems_config
     <<~EOS
       module Gem
         class << self
@@ -166,7 +164,7 @@ class RubyAT30 < Formula
             "lib",
             "ruby",
             "gems",
-            "#{api_version}"
+            RbConfig::CONFIG['ruby_version']
           ]
 
           @homebrew_path ||= File.join(*path)
