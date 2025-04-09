@@ -1,10 +1,9 @@
 class CargoRelease < Formula
   desc "Cargo subcommand `release`: everything about releasing a rust crate"
   homepage "https://github.com/crate-ci/cargo-release"
-  url "https://github.com/crate-ci/cargo-release/archive/refs/tags/v0.25.17.tar.gz"
-  sha256 "38dc83a5307492fb3d0d03c6c8eb3f8fd38e4a89969e86085d429c75071007dd"
+  url "https://github.com/crate-ci/cargo-release/archive/refs/tags/v0.25.18.tar.gz"
+  sha256 "a212d974db4cf46e580cf41e1f0bcf81ff30aac1dfe9e31cd0dc89c0b5eb3586"
   license any_of: ["Apache-2.0", "MIT"]
-  revision 1
   head "https://github.com/crate-ci/cargo-release.git", branch: "master"
 
   bottle do
@@ -21,12 +20,6 @@ class CargoRelease < Formula
   depends_on "rust" => :build
   depends_on "rustup" => :test
   depends_on "libgit2"
-
-  # libgit2 1.9 build patch, upstream pr ref, https://github.com/crate-ci/cargo-release/pull/876
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e43c3d5d867604166cbb95e241d3679eb8ca61b5/cargo-release/0.25.17-libgit2-1.9.patch"
-    sha256 "025e39c2bd6c8112e7528986b629a44d84c6d7036e2d1bd2864e650ff3156c60"
-  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
