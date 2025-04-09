@@ -46,6 +46,9 @@ class GatsbyCli < Formula
   end
 
   test do
+    # Workaround for https://github.com/nodejs/node-addon-api/issues/1007
+    ENV.append "CXXFLAGS", "-std=c++17" if OS.linux?
+
     system bin/"gatsby", "new", "hello-world", "https://github.com/gatsbyjs/gatsby-starter-hello-world"
     assert_path_exists testpath/"hello-world/package.json", "package.json was not cloned"
   end
