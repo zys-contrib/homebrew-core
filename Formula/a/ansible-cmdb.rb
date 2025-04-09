@@ -6,10 +6,7 @@ class AnsibleCmdb < Formula
   url "https://github.com/fboender/ansible-cmdb/archive/refs/tags/1.31.tar.gz"
   sha256 "8de9a02e3f0740967537850f6263756dca1bf506cd95c1f2ef7f4ee6d9ff23b8"
   license "GPL-3.0-or-later"
-
-  bottle do
-    sha256 cellar: :any_skip_relocation, all: "39eadb125103aac400189e36112333e6e1da17fb75eae26ec1dd34d99185d798"
-  end
+  revision 1
 
   depends_on "libyaml"
   depends_on "python@3.13"
@@ -19,17 +16,17 @@ class AnsibleCmdb < Formula
     sha256 "dc41ae07961f3f19f97241e4c7f611d84d076c420dd2876aadfd936e59c8c302"
   end
 
-  resource "Mako" do
+  resource "mako" do
     url "https://files.pythonhosted.org/packages/62/4f/ddb1965901bc388958db9f0c991255b2c469349a741ae8c9cd8a562d70a6/mako-1.3.9.tar.gz"
     sha256 "b5d65ff3462870feec922dbccf38f6efb44e5714d7b593a656be86663d8600ac"
   end
 
-  resource "MarkupSafe" do
+  resource "markupsafe" do
     url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
     sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
   end
 
-  resource "PyYAML" do
+  resource "pyyaml" do
     url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
     sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
