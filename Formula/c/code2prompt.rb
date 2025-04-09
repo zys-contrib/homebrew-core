@@ -1,8 +1,8 @@
 class Code2prompt < Formula
   desc "CLI tool to convert your codebase into a single LLM prompt"
   homepage "https://github.com/mufeedvh/code2prompt"
-  url "https://github.com/mufeedvh/code2prompt/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "f1864a5d9e8e23270e0ef17ec56d709dad0ba4134950cf72b310a63b548b5c2d"
+  url "https://github.com/mufeedvh/code2prompt/archive/refs/tags/v3.0.2.tar.gz"
+  sha256 "08e45407b71bf5e5fb89930043b085cf8965a008dc5004d4aa4ac64db0e447e0"
   license "MIT"
   head "https://github.com/mufeedvh/code2prompt.git", branch: "main"
 
@@ -27,7 +27,7 @@ class Code2prompt < Formula
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(path: "crates/code2prompt")
   end
 
   test do
@@ -40,8 +40,9 @@ class Code2prompt < Formula
           print("Hello, world!")
     PYTHON
 
-    output = shell_output("#{bin}/code2prompt --no-clipboard --json test.py")
-    assert_match "ChatGPT models, text-embedding-ada-002", JSON.parse(output)["model_info"]
+    system bin/"code2prompt", "--no-clipboard", "--output-file", "test.json", "--output-format", "json", "test.py"
+    json_output = (testpath/"test.json").read
+    assert_match "ChatGPT models, text-embedding-ada-002", JSON.parse(json_output)["model_info"]
 
     [
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
