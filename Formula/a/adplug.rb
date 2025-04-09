@@ -30,6 +30,9 @@ class Adplug < Formula
   end
 
   def install
+    # Workaround for arm64 linux, issue ref: https://github.com/adplug/adplug/issues/246
+    ENV.append_to_cflags "-fsigned-char" if OS.linux? && Hardware::CPU.arm?
+
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", *std_configure_args
     system "make", "install"
