@@ -16,8 +16,9 @@ class Sourcekitten < Formula
   end
 
   depends_on xcode: ["14.0", :build]
-  depends_on :macos
   depends_on xcode: "6.0"
+
+  uses_from_macos "swift"
 
   def install
     system "make", "prefix_install", "PREFIX=#{prefix}", "TEMPORARY_FOLDER=#{buildpath}/SourceKitten.dst"
