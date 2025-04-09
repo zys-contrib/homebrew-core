@@ -1,17 +1,17 @@
 class Dockerfmt < Formula
   desc "Dockerfile format and parser. a modern dockfmt"
   homepage "https://github.com/reteps/dockerfmt"
-  url "https://github.com/reteps/dockerfmt/archive/refs/tags/0.3.0.tar.gz"
-  sha256 "265e49b908b848b6e4b24c97520484fa92ad167c565fd6b05e8d3c0d261e5241"
+  url "https://github.com/reteps/dockerfmt/archive/refs/tags/0.3.2.tar.gz"
+  sha256 "42646ac90bdc70c31717dcaca15595d97c8a3f9419886b8241446a29cf39aac1"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "61933de82877e235f9300127ba05f66007673e6fb3bfe9bcd4312b01bd07b81e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "61933de82877e235f9300127ba05f66007673e6fb3bfe9bcd4312b01bd07b81e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "61933de82877e235f9300127ba05f66007673e6fb3bfe9bcd4312b01bd07b81e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9f8d9438137a7aaf7b6b79df39fd7a517783aab9cf0e3719e5d8383a6e81a7b8"
-    sha256 cellar: :any_skip_relocation, ventura:       "9f8d9438137a7aaf7b6b79df39fd7a517783aab9cf0e3719e5d8383a6e81a7b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97cc88369bb96a822fc88ae884f3b3dde759722fb59545ff77764fc2e9f22af8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6e5791aeedf1e46a961eb9fe4eb8ab2f95ef8738a610fab8f22269bd041636f2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6e5791aeedf1e46a961eb9fe4eb8ab2f95ef8738a610fab8f22269bd041636f2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6e5791aeedf1e46a961eb9fe4eb8ab2f95ef8738a610fab8f22269bd041636f2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "927a7e0e79cac12ccda96ef4c0c591c1d0882eeb2e893595ea6e13bb9e95d9b4"
+    sha256 cellar: :any_skip_relocation, ventura:       "927a7e0e79cac12ccda96ef4c0c591c1d0882eeb2e893595ea6e13bb9e95d9b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c1041093e74d0c825113c7e4d96b7ec914d95dd2a1179a8df853e30f3970a72"
   end
 
   depends_on "go" => :build
