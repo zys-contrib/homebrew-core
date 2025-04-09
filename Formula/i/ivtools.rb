@@ -19,7 +19,20 @@ class Ivtools < Formula
   depends_on "libx11"
   depends_on "libxext"
 
+  on_linux do
+    on_arm do
+      depends_on "automake" => :build
+    end
+  end
+
   def install
+    # Workaround for ancient config files not recognizing aarch64 linux.
+    if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      %w[config.guess config.sub].each do |fn|
+        cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, "src/scripts/#{fn}"
+      end
+    end
+
     cp "Makefile.orig", "Makefile"
     ace = Formula["ace"]
     args = %W[--mandir=#{man} --with-ace=#{ace.opt_include} --with-ace-libs=#{ace.opt_lib}]
