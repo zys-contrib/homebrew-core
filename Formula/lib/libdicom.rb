@@ -1,8 +1,8 @@
 class Libdicom < Formula
   desc "DICOM WSI read library"
   homepage "https://github.com/ImagingDataCommons/libdicom"
-  url "https://github.com/ImagingDataCommons/libdicom/releases/download/v1.1.0/libdicom-1.1.0.tar.xz"
-  sha256 "058bfaa7653c60a70798e021001d765e3f91ca4df5a8824b7604eaa57376449b"
+  url "https://github.com/ImagingDataCommons/libdicom/releases/download/v1.2.0/libdicom-1.2.0.tar.xz"
+  sha256 "3b8c05ceb6bf667fed997f23b476dd32c3dc6380eee1998185c211d86a7b4918"
   license "MIT"
 
   bottle do
