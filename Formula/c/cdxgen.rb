@@ -1,8 +1,8 @@
 class Cdxgen < Formula
   desc "Creates CycloneDX Software Bill-of-Materials (SBOM) for projects"
   homepage "https://github.com/CycloneDX/cdxgen"
-  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-11.2.2.tgz"
-  sha256 "4952a313c611dc7a2341d97dc28d1809fc2e7cfb7bb9858b53353ba4fd2a16e0"
+  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-11.2.3.tgz"
+  sha256 "78369fccaa389210a37e8e672f0c9d0930611efefb60459be0a56ea54b6bfdd6"
   license "Apache-2.0"
 
   bottle do
@@ -14,28 +14,66 @@ class Cdxgen < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a70aae36079f0b984b065365b55dc52cc3fd409fb84fce0c016c161a80b7d0d"
   end
 
+  depends_on "dotnet" # for dosai
   depends_on "node"
+  depends_on "ruby"
+  depends_on "sourcekitten"
+  depends_on "sqlite" # needs sqlite3_enable_load_extension
+  depends_on "trivy"
 
-  uses_from_macos "ruby"
+  resource "dosai" do
+    url "https://github.com/owasp-dep-scan/dosai/archive/refs/tags/v1.0.2.tar.gz"
+    sha256 "8dee3b328f58c75b62be9acbc26e00d6932599985c47588feb323c900fba6688"
+  end
 
   def install
-    system "npm", "install", *std_npm_args
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    # https://github.com/CycloneDX/cdxgen/blob/master/lib/managers/binary.js
+    # https://github.com/AppThreat/atom/blob/main/wrapper/nodejs/rbastgen.js
+    cdxgen_env = {
+      RUBY_CMD:         "${RUBY_CMD:-#{Formula["ruby"].opt_bin}/ruby}",
+      SOURCEKITTEN_CMD: "${SOURCEKITTEN_CMD:-#{Formula["sourcekitten"].opt_bin}/sourcekitten}",
+      TRIVY_CMD:        "${TRIVY_CMD:-#{Formula["trivy"].opt_bin}/trivy}",
+    }
 
-    # Remove incompatible pre-built binaries
+    system "npm", "install", "--sqlite=#{Formula["sqlite"].opt_prefix}", *std_npm_args
+    bin.install Dir[libexec/"bin/*"]
+    bin.env_script_all_files libexec/"bin", cdxgen_env
+
+    # Remove/replace pre-built binaries
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
     node_modules = libexec/"lib/node_modules/@cyclonedx/cdxgen/node_modules"
-    cdxgen_plugins = node_modules/"@cyclonedx/cdxgen-plugins-bin/plugins"
-    cdxgen_plugins.glob("*/*").each do |f|
-      next if f.basename.to_s.end_with?("-#{os}-#{arch}")
+    cdxgen_plugins = node_modules/"@cyclonedx/cdxgen-plugins-bin-#{os}-#{arch}/plugins"
+    rm_r(cdxgen_plugins/"dosai")
+    rm_r(cdxgen_plugins/"sourcekitten")
+    rm_r(cdxgen_plugins/"trivy")
+    # Remove pre-built osquery plugins for macOS arm builds
+    rm_r(cdxgen_plugins/"osquery") if OS.mac? && Hardware::CPU.arm?
 
-      rm f
+    resource("dosai").stage do
+      ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
+      dosai_cmd = "dosai-#{os}-#{arch}"
+      dotnet = Formula["dotnet"]
+      args = %W[
+        --configuration Release
+        --framework net#{dotnet.version.major_minor}
+        --no-self-contained
+        --output #{cdxgen_plugins}/dosai
+        --use-current-runtime
+        -p:AppHostRelativeDotNet=#{dotnet.opt_libexec.relative_path_from(cdxgen_plugins/"dosai")}
+        -p:AssemblyName=#{dosai_cmd}
+        -p:DebugType=None
+        -p:PublishSingleFile=true
+      ]
+      system "dotnet", "publish", "Dosai", *args
     end
 
-    # Remove pre-built osquery plugins for macOS arm builds
-    osquery_plugins = node_modules/"@cyclonedx/cdxgen-plugins-bin-darwin-arm64/plugins/osquery"
-    rm_r(osquery_plugins) if OS.mac? && Hardware::CPU.arm?
+    # Ignore specific Ruby patch version and reinstall for native dependencies
+    inreplace node_modules/"@appthreat/atom/rbastgen.js", /(RUBY_VERSION_NEEDED = ")[\d.]+"/, "\\1\""
+    cd node_modules/"@appthreat/atom/plugins/rubyastgen" do
+      rm_r("bundle")
+      system "./setup.sh"
+    end
   end
 
   test do
