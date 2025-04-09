@@ -1,8 +1,8 @@
 class Proxygen < Formula
   desc "Collection of C++ HTTP libraries"
   homepage "https://github.com/facebook/proxygen"
-  url "https://github.com/facebook/proxygen/releases/download/v2025.03.10.00/proxygen-v2025.03.10.00.tar.gz"
-  sha256 "92afaaefb61b792d5cc3cbb7df261f1946d568061f961dc7534044f03b132015"
+  url "https://github.com/facebook/proxygen/releases/download/v2025.04.07.00/proxygen-v2025.04.07.00.tar.gz"
+  sha256 "e76073abb0a3d70bec267038103b45c3f31c5d6012cc53ed5f8386acfea7789b"
   license "BSD-3-Clause"
   head "https://github.com/facebook/proxygen.git", branch: "main"
 
@@ -29,13 +29,30 @@ class Proxygen < Formula
   depends_on "wangle"
   depends_on "zstd"
 
-  uses_from_macos "gperf" => :build
+  # TODO: uses_from_macos "gperf" => :build
   uses_from_macos "python" => :build
   uses_from_macos "zlib"
 
   conflicts_with "hq", because: "both install `hq` binaries"
 
+  # FIXME: Build script is not compatible with gperf 3.2
+  resource "gperf" do
+    on_linux do
+      url "https://ftp.gnu.org/gnu/gperf/gperf-3.1.tar.gz"
+      mirror "https://ftpmirror.gnu.org/gperf/gperf-3.1.tar.gz"
+      sha256 "588546b945bba4b70b6a3a616e80b4ab466e3f33024a352fc2198112cdbb3ae2"
+    end
+  end
+
   def install
+    if OS.linux?
+      resource("gperf").stage do
+        system "./configure", *std_configure_args(prefix: buildpath/"gperf")
+        system "make", "install"
+        ENV.prepend_path "PATH", buildpath/"gperf/bin"
+      end
+    end
+
     args = ["-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}"]
     if OS.mac?
       args += [
