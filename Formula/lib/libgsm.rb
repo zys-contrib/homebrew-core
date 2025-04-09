@@ -42,7 +42,10 @@ class Libgsm < Formula
         -install_name #{lib/shared_library("libgsm", version.major.to_s)}
       ]
     else
-      ["-shared"]
+      %W[
+        -shared
+        -Wl,-soname,#{shared_library("libgsm", version.major.to_s)}
+      ]
     end
     arflags << "-o"
 
