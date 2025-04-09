@@ -8,12 +8,12 @@ class Zrok < Formula
   head "https://github.com/openziti/zrok.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cdfdde6b33b8b52fae001b52f5931cb42ea2f553a76185928ba2ad230641cf43"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b901976e32d0977c0d1fc0cad87ad8b07cf8eadf8199fb055621253d7343a4d8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d34211a49d71aae0bdb8126ec88cf0078113c1c33c5e0d4c9e735fd8209c05f3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "01fda32766e81ad823488acf0fecb8d972f74308e4e69f00d1b85a68f0883a90"
-    sha256 cellar: :any_skip_relocation, ventura:       "afdcdc1d0679c6cb58c1a76657602b7cd92ab11e70ee1c35e111ac4531c53020"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e567f814699d11cb6838573ae8660454a03524e80b39f70fffc4afac6f608e6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b8109ef5b4ab0e83ef5b505830ccbb9f9c03d1c6bd4f56760a0e5179e50ecff1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd1e8d4f576595de43dd2af72ae07052f4e50b8ce575aacbf0c896bec128eac8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "09a693d91215f1fb976674182eab12d7f66cd2fc0465751ecd07e1342a01ac64"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e6c083b0f8f54057002d496ef2dc05acbc62aac956bd91e628af71d8e5a1b6de"
+    sha256 cellar: :any_skip_relocation, ventura:       "b71feca38289edc1ea1a6540d80e205ba1cdcc003f18081b7278d4164e5c698a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4894de483ef625f8b34672181ed3ff4b53b32f2fecbdb3fb1392679874ffc9a6"
   end
 
   depends_on "go" => :build
