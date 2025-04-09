@@ -30,6 +30,8 @@ class Cryptopp < Formula
 
   def install
     ENV.cxx11
+    ENV.runtime_cpu_detection # https://github.com/weidai11/cryptopp/blob/master/cpu.h
+
     system "make", "all", "libcryptopp.pc", "PREFIX=#{prefix}"
     system "make", "test"
     system "make", "install-lib", "PREFIX=#{prefix}"
