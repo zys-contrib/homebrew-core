@@ -17,6 +17,7 @@ class Libgsm < Formula
     sha256 cellar: :any,                 arm64_ventura: "873e314d6adc194af517d5e44f780822d23f39e19b13baec333bd28d990fa5ea"
     sha256 cellar: :any,                 sonoma:        "b3ffd6c44c59f8cba9394605a52ac959cd69d50dc2e4173cdb6ea395bdbc493b"
     sha256 cellar: :any,                 ventura:       "b8c2c17f921fb1fe0bdf21868c08d66b6792a14e419c4ac15ee0d4d79f15e628"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d58e3f81b1b007ea285d82e680f1dff3fae11ebce2bb2c712af0d2dd0cca343"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a2e88a7ac1d423da03aba16b51e7eb10eb69925ad46fd98259c5bf054301600"
   end
 
