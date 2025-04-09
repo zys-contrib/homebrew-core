@@ -18,10 +18,16 @@ class Genometools < Formula
   end
 
   depends_on "pkgconf" => :build
+  depends_on "python@3.13" => [:build, :test]
   depends_on "cairo"
   depends_on "glib"
   depends_on "pango"
-  depends_on "python@3.13"
+  depends_on "tre"
+
+  uses_from_macos "bzip2"
+  uses_from_macos "expat"
+  uses_from_macos "sqlite"
+  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
@@ -35,8 +41,19 @@ class Genometools < Formula
   end
 
   def install
-    system "make", "prefix=#{prefix}"
-    system "make", "install", "prefix=#{prefix}"
+    # Manually unbundle as useshared=yes requires Lua 5.1 and older SAMtools
+    rm_r(Dir["src/external/{bzip2,expat,sqlite,tre,zlib}*"])
+
+    system "make", "install", "prefix=#{prefix}",
+                              "ADDITIONAL_SO_DEPS=",
+                              "ADDITIONAL_ZLIBS=",
+                              "DEPLIBS=-lbz2 -lz -lexpat -ltre -lsqlite3",
+                              "LIBBZ2_SRC=",
+                              "LIBEXPAT_SRC=",
+                              "LIBTRE_SRC=",
+                              "OVERRIDELIBS=",
+                              "SQLITE3_SRC=",
+                              "ZLIB_SRC="
 
     cd "gtpython" do
       # Use the shared library from this specific version of genometools.
