@@ -41,8 +41,16 @@ class Libdsk < Formula
     inreplace "Makefile.in", "SUBDIRS = . include lib tools man doc",
                              "SUBDIRS = . include lib tools man"
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    args = []
+    if OS.linux?
+      # Help old config scripts identify arm64 linux
+      args << "--build=aarch64-unknown-linux-gnu" if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      # Workaround for undefined reference to `major'. Remove in the next release
+      ENV.append "CFLAGS", "-include sys/sysmacros.h"
+      odie "Remove sys/sysmacros.h workaround!" if version >= "1.5"
+    end
+
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "check"
     system "make", "install"
