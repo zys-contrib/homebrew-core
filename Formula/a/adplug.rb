@@ -11,6 +11,7 @@ class Adplug < Formula
     sha256 cellar: :any,                 arm64_ventura: "cf6008d2cedfe92a81e66895841c5c0fa47c0807849c4f970a184012e5101d32"
     sha256 cellar: :any,                 sonoma:        "988cd421d220bba2933a2bba81df367e3a5cb6e64fdb02272a9532eadc51cd07"
     sha256 cellar: :any,                 ventura:       "e969b8061a3f8f10218e284760970bffbf963edd9d9c9ee1fbd98cf017aa5d71"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b4686e12a33772cc5af4303f201c88c59f2417e15e2189afeddaa10c78548976"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c16d651b0aff495078228866958b6a7a6d85c2006808b4393afa947a48e72a81"
   end
 
