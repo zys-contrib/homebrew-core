@@ -2,11 +2,10 @@ class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
   license "Apache-2.0"
-  revision 1
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/refs/tags/1.15.1.tar.gz"
-    sha256 "72b32f2da09059ca96331be124cf611d3c6bd6da80f52cd551df59bfe14e6ebd"
+    url "https://github.com/crystal-lang/crystal/archive/refs/tags/1.16.0.tar.gz"
+    sha256 "40d442b32d17878d7d01c05b1471347a9b3973e3f41d288be3703991cd3cd5c3"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/refs/tags/v0.19.1.tar.gz"
