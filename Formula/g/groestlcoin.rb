@@ -39,6 +39,7 @@ class Groestlcoin < Formula
   end
 
   def install
+    ENV.runtime_cpu_detection
     system "./autogen.sh"
     system "./configure", "--disable-silent-rules",
                           "--with-boost-libdir=#{Formula["boost"].opt_lib}",
