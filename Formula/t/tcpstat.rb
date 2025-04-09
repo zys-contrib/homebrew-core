@@ -28,6 +28,13 @@ class Tcpstat < Formula
   uses_from_macos "ncurses"
 
   def install
+    # Workaround for arm64 linux. Upstream isn't actively maintained
+    if OS.linux? && Hardware::CPU.arm?
+      inreplace "Makefile" do |s|
+        s.change_make_var! "CFLAGS", "#{s.get_make_var("CFLAGS")} -fsigned-char"
+      end
+    end
+
     system "make"
     bin.install "tcpstat"
   end
