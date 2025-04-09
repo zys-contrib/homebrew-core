@@ -4,6 +4,7 @@
   "blis",
   "botan",
   "coreutils",
+  "cryptopp",
   "fftw",
   "handbrake",
   "highway",
