@@ -16,6 +16,17 @@ class Kfr < Formula
 
   depends_on "cmake" => :build
 
+  on_arm do
+    # FIXME: `uses_from_macos` is not allowed in `on_arm` block
+    on_linux do
+      depends_on "llvm"
+    end
+
+    fails_with :gcc do
+      cause "ARM builds require Clang compiler"
+    end
+  end
+
   def install
     args = []
     # C API requires some clang extensions.
@@ -38,6 +49,7 @@ class Kfr < Formula
       }
     CPP
 
+    ENV.clang if OS.linux? && Hardware::CPU.arm?
     system ENV.cxx, "test.cpp", "-std=c++17", "-I#{include}", "-L#{lib}", "-lkfr_io",
                     "-o", "test"
     assert_equal "Hello KFR!", shell_output("./test").chomp
