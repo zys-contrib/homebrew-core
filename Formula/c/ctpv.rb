@@ -27,6 +27,9 @@ class Ctpv < Formula
   end
 
   def install
+    # Workaround for arm64 linux, issue ref: https://github.com/NikitaIvanovV/ctpv/issues/101
+    ENV.append_to_cflags "-fsigned-char" if OS.linux? && Hardware::CPU.arm?
+
     system "make", "PREFIX=#{prefix}", "install"
   end
 
