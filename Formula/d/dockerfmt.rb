@@ -6,12 +6,12 @@ class Dockerfmt < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bb49ccf3024d401f72de8357489af21fa1e7f74b8c7ef6a8540c6baba3f87854"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bb49ccf3024d401f72de8357489af21fa1e7f74b8c7ef6a8540c6baba3f87854"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bb49ccf3024d401f72de8357489af21fa1e7f74b8c7ef6a8540c6baba3f87854"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9b126040a72e805e74095fefa5d0d16c983eba6c6d62cb8f90eb3a05e0314268"
-    sha256 cellar: :any_skip_relocation, ventura:       "9b126040a72e805e74095fefa5d0d16c983eba6c6d62cb8f90eb3a05e0314268"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "157874321f5a2790dc67d204c74d49ef288ce43110862a1029572218a7ee163a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "61933de82877e235f9300127ba05f66007673e6fb3bfe9bcd4312b01bd07b81e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "61933de82877e235f9300127ba05f66007673e6fb3bfe9bcd4312b01bd07b81e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "61933de82877e235f9300127ba05f66007673e6fb3bfe9bcd4312b01bd07b81e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9f8d9438137a7aaf7b6b79df39fd7a517783aab9cf0e3719e5d8383a6e81a7b8"
+    sha256 cellar: :any_skip_relocation, ventura:       "9f8d9438137a7aaf7b6b79df39fd7a517783aab9cf0e3719e5d8383a6e81a7b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97cc88369bb96a822fc88ae884f3b3dde759722fb59545ff77764fc2e9f22af8"
   end
 
   depends_on "go" => :build
