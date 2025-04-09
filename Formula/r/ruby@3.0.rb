@@ -6,14 +6,14 @@ class RubyAT30 < Formula
   license "Ruby"
 
   bottle do
-    sha256 arm64_sonoma:   "03932ac38f421642c799c8370938a5f146b9d186eaed1b93bade9dbe7b6e367c"
-    sha256 arm64_ventura:  "c1364f85ba9f04e12b83c616231cdaa3074fbab02a068291554cd8890ab92f20"
-    sha256 arm64_monterey: "a873955806e5382935e19869ce6932ea346df51d510e5f0d89d954df8d8dc2bf"
-    sha256 sonoma:         "2f067da15c7461fcd89c5844f1d71923fa0fc1a9833be169e86facbe326f5b8f"
-    sha256 ventura:        "6a1dfafc2795a11ec7daccc315cb4b726487b93277f7004568d192aa2da4c758"
-    sha256 monterey:       "b796fe7095b946b1f446e791c5090bb1c7ab2d6d744e45e7c7a51f015a009ff3"
-    sha256 arm64_linux:    "250ecf8416fb1bdc79dcf7b7195c962daa59817502d8f8f39b8fa3b57fa3dcd2"
-    sha256 x86_64_linux:   "80af587b8fc9bbaa6af798f114ce75406d460beae0d602c0ea119f3a42f372ce"
+    rebuild 1
+    sha256 arm64_sequoia: "d6c0c2d1eef8d174fb0f72a27d861860da9630b07d7d9adc3d762e7048769b02"
+    sha256 arm64_sonoma:  "5c0e954edf5b76597d96a69550fffd3ab6b4d8d71d0d3bce7a728238c0aa1310"
+    sha256 arm64_ventura: "bb53ca40e06196dd45c889716af020211ee1477da8fbbe1afa2700a891f543c3"
+    sha256 sonoma:        "c62170dac9be26f52fb87691a143c7eba3cf42f6ceef370cc0a817b006f47448"
+    sha256 ventura:       "a8e4b31bebfa062b93199aae9920e4b6e08b6b03f9a469098948a20f72ec3a04"
+    sha256 arm64_linux:   "9498dca4eb73b1f7490207852edd22e18cb8087624ba92585f880840fe185c43"
+    sha256 x86_64_linux:  "82fa93efac645b47c3aea2062908182d521aecc5c6f71521a5077ae238e384d2"
   end
 
   keg_only :versioned_formula
