@@ -15,6 +15,7 @@ class Cf2tf < Formula
     sha256 cellar: :any,                 arm64_ventura: "2443965de239f1418ee045b96292132b9f8db08d7e43bdae45dfbe34914ee111"
     sha256 cellar: :any,                 sonoma:        "a47edb766183a195086eb42c08a9e430138a94dde90a85676f238b95e7cb2e33"
     sha256 cellar: :any,                 ventura:       "95781872e0f5985c51cf6f83aea2838e6a3e0f6ff296fec2ecd446b8bea9c75f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3139a1bcc40d3c0126f344447499af8a4f1c23f3b28138ee170fb7887151f057"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ade866bb2254c75d5cace101298f1b7480b1d5c19933f648fa3dd9644badefc9"
   end
 
