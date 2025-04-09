@@ -1,8 +1,8 @@
 class Gitsign < Formula
   desc "Keyless Git signing using Sigstore"
   homepage "https://github.com/sigstore/gitsign"
-  url "https://github.com/sigstore/gitsign/archive/refs/tags/v0.12.0.tar.gz"
-  sha256 "80a36439bbb01f4282792cd75257b52689e7eee9b0c6b9a635dfbff2958c9207"
+  url "https://github.com/sigstore/gitsign/archive/refs/tags/v0.13.0.tar.gz"
+  sha256 "646a86c2ff1786c2879b323304a1559c0b7f78913b9c825faa8612f6855be6b3"
   license "Apache-2.0"
   head "https://github.com/sigstore/gitsign.git", branch: "main"
 
