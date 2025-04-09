@@ -31,6 +31,9 @@ class Autobench < Formula
   depends_on "httperf"
 
   def install
+    # Workaround for arm64 linux. Upstream isn't actively maintained
+    ENV.append_to_cflags "-fsigned-char" if OS.linux? && Hardware::CPU.arm?
+
     system "make", "PREFIX=#{prefix}",
                    "MANDIR=#{man1}",
                    "CC=#{ENV.cc}",
