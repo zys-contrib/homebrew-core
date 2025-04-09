@@ -1877,6 +1877,7 @@ libcyaml
 libdap
 libdeflate
 libdex
+libdicom
 libdivide
 libdmtx
 libdnet
