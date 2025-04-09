@@ -1,8 +1,8 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.24.2.tar.gz"
-  sha256 "6a6e7654f394d540831925b9215c8db0e8ca4ab26b268396c2713e63cd2604b4"
+  url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.24.3.tar.gz"
+  sha256 "80bb03c32cc2c85cb2e91711f96c6e25cba5546908b003d0254946397f42acf7"
   license "GPL-2.0-or-later"
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
@@ -47,6 +47,7 @@ class Mpd < Formula
   depends_on "libvorbis"
   depends_on macos: :mojave # requires C++17 features unavailable in High Sierra
   depends_on "mpg123"
+  depends_on "nlohmann-json"
   depends_on "opus"
   depends_on "pcre2"
   depends_on "sqlite"
@@ -86,7 +87,6 @@ class Mpd < Formula
       --sysconfdir=#{etc}
       -Dmad=disabled
       -Dmpcdec=disabled
-      -Dsoundcloud=disabled
       -Dao=enabled
       -Dbzip2=enabled
       -Dchromaprint=enabled
@@ -100,6 +100,7 @@ class Mpd < Formula
       -Dwavpack=enabled
       -Dgme=enabled
       -Dmikmod=enabled
+      -Dnlohmann_json=enabled
       -Dsystemd_system_unit_dir=#{lib}/systemd/system
       -Dsystemd_user_unit_dir=#{lib}/systemd/user
     ]
