@@ -18,6 +18,7 @@ class CloudflareQuiche < Formula
     sha256 cellar: :any,                 arm64_ventura: "1a8c8e905dfdb07033c6c8ec8fa6b74bf3747540499a7b43d4f79aba919d95f8"
     sha256 cellar: :any,                 sonoma:        "7bf9f86f58942d9768e024129621a63ba1925648d22de594f7ab2685182d3307"
     sha256 cellar: :any,                 ventura:       "6097a4bae5e3fb9f5ec4f52369fd1aae350b688524eca657f35aa594926d7069"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f7594a535bd6c7100017a6f877ed9b80f3ad020308fce6c4ff38cd94aae02e6e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8388288dda3d0959536bda2d69a7a007849923839d8b7c69d411983dd4cc280"
   end
 
