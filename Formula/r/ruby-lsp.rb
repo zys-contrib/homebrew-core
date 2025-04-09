@@ -1,8 +1,8 @@
 class RubyLsp < Formula
   desc "Opinionated language server for Ruby"
   homepage "https://shopify.github.io/ruby-lsp"
-  url "https://github.com/Shopify/ruby-lsp/archive/refs/tags/v0.23.13.tar.gz"
-  sha256 "80f67f7afe9d069d752cda5853ffec7f7484616ff0063290b346ec7ccb7efbf7"
+  url "https://github.com/Shopify/ruby-lsp/archive/refs/tags/v0.23.14.tar.gz"
+  sha256 "041c25747d333c5aa934c527815a95df990a0ee1c7d6e489c381257b8b4be8cd"
   license "MIT"
   head "https://github.com/Shopify/ruby-lsp.git", branch: "main"
 
@@ -25,7 +25,10 @@ class RubyLsp < Formula
     system "gem", "build", "#{name}.gemspec"
     system "gem", "install", "#{name}-#{version}.gem"
     bin.install libexec/"bin/#{name}"
-    bin.env_script_all_files libexec/"bin", GEM_HOME: ENV["GEM_HOME"]
+
+    bin.env_script_all_files libexec/"bin",
+      PATH:     "#{Formula["ruby"].opt_bin}:$PATH",
+      GEM_HOME: ENV["GEM_HOME"]
   end
 
   test do
