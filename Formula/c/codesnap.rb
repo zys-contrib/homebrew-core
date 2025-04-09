@@ -12,6 +12,7 @@ class Codesnap < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b19d545c22aabf9d5c0fb7687a6b2347374f8971e449d5b44f372575c0e83f7c"
     sha256 cellar: :any_skip_relocation, sonoma:        "36a50cfbe2bae59b0d7089527901198a205b5f8430f2755dfbb11efc2c3555cc"
     sha256 cellar: :any_skip_relocation, ventura:       "4b995c68c32eb71757396aa31eb5e32e2fa687b1f618fa8f0dce79c876b57364"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "50459fa62d06a29db4985327eec166c9483b57a70c59b2208e0e80037b436dad"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "79b02ad6007e103662aada6a0c09af6576ab22248e6887440e2d1449455320a1"
   end
 
