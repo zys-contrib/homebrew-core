@@ -11,13 +11,14 @@ class RubyAT33 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "2f5b4396ef511b333babb65496681c99debbc7c0f0a3972670413c7377b68059"
-    sha256 arm64_sonoma:  "6091d52ce81cfae875e0aa81a6966b610085249720849dfdef97e9512d5e46d8"
-    sha256 arm64_ventura: "7ab1c8c70f3a5f66cb7689505377dbeb419ee81e27d7e28753f361629cadcedc"
-    sha256 sonoma:        "88a962010d1959823bdd07b583325455cbaf73dac09c9bdfdcee10a2de7b735f"
-    sha256 ventura:       "276f27adffbbf9078eb4d1342079fd500b1a364ffc96a49bc99f298c8e4f8067"
-    sha256 arm64_linux:   "d4b72d17607da161e87929af50b9d2ea8f0d4c987d2dc550186645b93916efef"
-    sha256 x86_64_linux:  "0d9b9ea1900adae95fdfce595612f5f8e155fb08aaa211906373ad1c3841b57f"
+    rebuild 1
+    sha256 arm64_sequoia: "dc9adec3972b25001078b160b3397c5691dffaf58f4f473d53e51fe790e770cb"
+    sha256 arm64_sonoma:  "1113aa90c9e7f5c6ae74e692e48b4ef914809dcddf2dde39b7f42cb48a9dfc9f"
+    sha256 arm64_ventura: "bcb80b97bac49bfa3a01387ddfc1316cce13dbbb76ff1c0fd2cb531bb37dee85"
+    sha256 sonoma:        "23b89fe8306d30294c71adea174614dfa2037d0965b9b84e3953ad4dd67daddc"
+    sha256 ventura:       "23d55faa41ee59010f6032b3daf8af40d400ed4dca1f4c148ce526991a452fac"
+    sha256 arm64_linux:   "16926fca0ffd7ab9df6e3159ee9c1b06239eecb551675b448ab0b0932592be15"
+    sha256 x86_64_linux:  "82d5099f32bb50f261407a77d77ee510fe821e069d71b7b32297b21bc684a701"
   end
 
   keg_only :versioned_formula
@@ -33,23 +34,6 @@ class RubyAT33 < Formula
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
 
-  def determine_api_version
-    Utils.safe_popen_read(bin/"ruby", "-e", "print Gem.ruby_api_version")
-  end
-
-  def api_version
-    if head?
-      if latest_head_prefix
-        determine_api_version
-      else
-        # Best effort guess
-        "#{stable.version.major.to_i}.#{stable.version.minor.to_i + 1}.0+0"
-      end
-    else
-      "#{version.major.to_i}.#{version.minor.to_i}.0"
-    end
-  end
-
   # Should be updated only when Ruby is updated (if an update is available).
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
@@ -61,6 +45,10 @@ class RubyAT33 < Formula
       url "https://rubygems.org/pages/download"
       regex(/href=.*?rubygems[._-]v?(\d+(?:\.\d+)+)\.t/i)
     end
+  end
+
+  def api_version
+    "3.3.0"
   end
 
   def rubygems_bindir
@@ -76,8 +64,6 @@ class RubyAT33 < Formula
     #       https://github.com/Homebrew/brew/pull/12508
     inreplace "tool/mkconfig.rb", /^(\s+val = )'"\$\(SDKROOT\)"'\+/, "\\1"
 
-    system "./autogen.sh" if build.head?
-
     paths = %w[libyaml openssl@3].map { |f| Formula[f].opt_prefix }
     args = %W[
       --prefix=#{prefix}
@@ -88,7 +74,6 @@ class RubyAT33 < Formula
       --with-opt-dir=#{paths.join(":")}
       --without-gmp
     ]
-    args << "--with-baseruby=#{RbConfig.ruby}" if build.head?
     args << "--disable-dtrace" if OS.mac? && !MacOS::CLT.installed?
 
     # Correct MJIT_CC to not use superenv shim
@@ -128,8 +113,6 @@ class RubyAT33 < Formula
       end
     end
 
-    return if build.head? # Use bundled RubyGems for --HEAD (will be newer)
-
     # This is easier than trying to keep both current & versioned Ruby
     # formulae repeatedly updated with Rubygem patches.
     resource("rubygems").stage do
@@ -153,12 +136,14 @@ class RubyAT33 < Formula
       (rg_gems_in/"gems").install Dir[buildpath/"vendor_gem/gems/*"]
       (rg_gems_in/"specifications/default").install Dir[buildpath/"vendor_gem/specifications/default/*"]
       bin.install buildpath/"vendor_gem/bin/gem" => "gem"
-      (libexec/"gembin").install buildpath/"vendor_gem/bin/bundle" => "bundle"
-      (libexec/"gembin").install_symlink "bundle" => "bundler"
+      bin.install buildpath/"vendor_gem/bin/bundle" => "bundle"
+      bin.install buildpath/"vendor_gem/bin/bundler" => "bundler"
     end
 
-    # remove all lockfiles in bin folder
-    rm Dir[bin/"*.lock"]
+    # Customize rubygems to look/install in the global gem directory
+    # instead of in the Cellar, making gems last across reinstalls
+    config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
+    config_file.write rubygems_config
   end
 
   def post_install
@@ -170,21 +155,9 @@ class RubyAT33 < Formula
       #{rubygems_bindir}/bundler
     ].select { |file| File.exist?(file) })
     rm_r(Dir[HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/gems/bundler-*"])
-    rubygems_bindir.install_symlink Dir[libexec/"gembin/*"]
-
-    # Customize rubygems to look/install in the global gem directory
-    # instead of in the Cellar, making gems last across reinstalls
-    config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
-    config_file.unlink if config_file.exist?
-    config_file.write rubygems_config(api_version)
-
-    # Create the sitedir and vendordir that were skipped during install
-    %w[sitearchdir vendorarchdir].each do |dir|
-      mkdir_p `#{bin}/ruby -rrbconfig -e 'print RbConfig::CONFIG["#{dir}"]'`
-    end
   end
 
-  def rubygems_config(api_version)
+  def rubygems_config
     <<~RUBY
       module Gem
         class << self
@@ -201,7 +174,7 @@ class RubyAT33 < Formula
             "lib",
             "ruby",
             "gems",
-            "#{api_version}"
+            RbConfig::CONFIG['ruby_version']
           ]
 
           @homebrew_path ||= File.join(*path)
@@ -270,7 +243,7 @@ class RubyAT33 < Formula
     hello_text = shell_output("#{bin}/ruby -e 'puts :hello'")
     assert_equal "hello\n", hello_text
 
-    assert_equal api_version, determine_api_version
+    assert_equal api_version, shell_output("#{bin}/ruby -e 'print Gem.ruby_api_version'")
 
     ENV["GEM_HOME"] = testpath
     system bin/"gem", "install", "json"
