@@ -1,9 +1,9 @@
 class Tomcat < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-11/v11.0.5/bin/apache-tomcat-11.0.5.tar.gz"
-  mirror "https://archive.apache.org/dist/tomcat/tomcat-11/v11.0.5/bin/apache-tomcat-11.0.5.tar.gz"
-  sha256 "b061faee9e3a0148d838ad8349ac8364cb54a28f71d6942e58e7c5e1ade11dae"
+  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-11/v11.0.6/bin/apache-tomcat-11.0.6.tar.gz"
+  mirror "https://archive.apache.org/dist/tomcat/tomcat-11/v11.0.6/bin/apache-tomcat-11.0.6.tar.gz"
+  sha256 "864458f646bf938d3feb5773456199819b91d52670e4d724b9866ccfd4761cef"
   license "Apache-2.0"
 
   bottle do
