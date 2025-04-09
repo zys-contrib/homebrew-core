@@ -33,8 +33,8 @@ class Newt < Formula
   end
 
   def install
-    if OS.mac?
-      inreplace "Makefile.in" do |s|
+    inreplace "Makefile.in" do |s|
+      if OS.mac?
         # name libraries correctly
         # https://bugzilla.redhat.com/show_bug.cgi?id=1192285
         s.gsub! "libnewt.$(SOEXT).$(SONAME)", "libnewt.$(SONAME).dylib"
@@ -44,10 +44,11 @@ class Newt < Formula
         # causes https://github.com/Homebrew/homebrew/issues/30252
         # https://bugzilla.redhat.com/show_bug.cgi?id=1192286
         s.gsub! "`$$pyconfig --ldflags --embed || $$pyconfig --ldflags`", '"-undefined dynamic_lookup"'
-
-        s.gsub! "`$$ver -c \"import sysconfig; print(sysconfig.get_path('platlib'))\"`",
-                "#{lib}/python3.13/site-packages"
       end
+
+      # install python modules in Cellar rather than global site-packages
+      s.gsub! "`$$ver -c \"import sysconfig; print(sysconfig.get_path('platlib'))\"`",
+              "#{lib}/python3.13/site-packages"
     end
 
     system "./configure", "--prefix=#{prefix}", "--without-tcl", "--with-python=#{python3}"
