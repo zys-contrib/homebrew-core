@@ -30,12 +30,9 @@ class Dash < Formula
   uses_from_macos "libedit"
 
   def install
-    ENV["ac_cv_func_stat64"] = "no" if Hardware::CPU.arm?
+    ENV["ac_cv_func_stat64"] = "no" if OS.mac? && Hardware::CPU.arm?
     system "./autogen.sh" if build.head?
-
-    system "./configure", "--prefix=#{prefix}",
-                          "--with-libedit",
-                          "--disable-dependency-tracking"
+    system "./configure", "--with-libedit", *std_configure_args
     system "make"
     system "make", "install"
   end
