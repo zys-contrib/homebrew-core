@@ -1,9 +1,9 @@
 class Rancid < Formula
   desc "Really Awesome New Cisco confIg Differ"
   homepage "https://www.shrubbery.net/rancid/"
-  url "https://www.shrubbery.net/pub/rancid/rancid-3.13.tar.gz"
-  mirror "https://deb.debian.org/debian/pool/main/r/rancid/rancid_3.13.orig.tar.gz"
-  sha256 "7241d2972b1f6f76a28bdaa0e7942b1257e08b404a15d121c9dee568178f8bf5"
+  url "https://www.shrubbery.net/pub/rancid/rancid-3.14.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/r/rancid/rancid_3.14.orig.tar.gz"
+  sha256 "cbf608d8508b55dffb6b30c7a1c45c16ea53af7611a466e0cc47a863252f6e49"
   license "BSD-3-Clause"
 
   livecheck do
