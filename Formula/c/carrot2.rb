@@ -2,8 +2,8 @@ class Carrot2 < Formula
   desc "Search results clustering engine"
   homepage "https://search.carrot2.org/"
   url "https://github.com/carrot2/carrot2.git",
-      tag:      "release/4.6.0",
-      revision: "a29bd71366f2ac3c135ee1a9cb9da3748954e088"
+      tag:      "release/4.7.0",
+      revision: "fd0b5a95214679f919746ab5abd710bc900d38ec"
   license "Apache-2.0"
 
   bottle do
@@ -19,7 +19,7 @@ class Carrot2 < Formula
   end
 
   depends_on "gradle" => :build
-  depends_on "node" => :build
+  depends_on "node@22" => :build
   depends_on "yarn" => :build
   depends_on "openjdk@21"
 
@@ -32,7 +32,7 @@ class Carrot2 < Formula
     # Use yarn and node from Homebrew
     inreplace "gradle/node/yarn-projects.gradle", "download = true", "download = false"
     inreplace "versions.toml" do |s|
-      s.gsub! "node = \"18.18.2\"", "node = \"#{Formula["node"].version}\""
+      s.gsub! "node = \"18.18.2\"", "node = \"#{Formula["node@22"].version}\""
       s.gsub! "yarn = \"1.22.19\"", "yarn = \"#{Formula["yarn"].version}\""
     end
 
