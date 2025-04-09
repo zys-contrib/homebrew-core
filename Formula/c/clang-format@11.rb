@@ -21,6 +21,7 @@ class ClangFormatAT11 < Formula
 
   depends_on "cmake" => :build
 
+  uses_from_macos "python" => :build
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -32,7 +33,7 @@ class ClangFormatAT11 < Formula
   def install
     (buildpath/"tools/clang").install resource("clang")
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *std_cmake_args
     system "cmake", "--build", "build", "--target", "clang-format"
 
     bin.install buildpath/"build/bin/clang-format" => "clang-format-11"
