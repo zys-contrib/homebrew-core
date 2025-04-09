@@ -24,8 +24,15 @@ class Dbacl < Formula
   end
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    args = []
+    if OS.linux?
+      # Help old config scripts identify arm64 linux
+      args << "--build=aarch64-unknown-linux-gnu" if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      # Work around error: unknown type name 'locale_t'
+      ENV.append "CFLAGS", "-std=gnu99"
+    end
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 
