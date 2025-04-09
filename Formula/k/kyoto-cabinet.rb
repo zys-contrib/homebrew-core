@@ -28,8 +28,12 @@ class KyotoCabinet < Formula
   patch :DATA
 
   def install
+    if OS.linux?
+      ENV.append_to_cflags "-I#{Formula["zlib"].opt_include}"
+      ENV.append "LDFLAGS", "-L#{Formula["zlib"].opt_lib}"
+    end
     ENV.cxx11
-    system "./configure", "--disable-debug", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make" # Separate steps required
     system "make", "install"
   end
