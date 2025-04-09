@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package and dependency manager supporting the latest PEP standards"
   homepage "https://pdm-project.org"
-  url "https://files.pythonhosted.org/packages/0f/72/e61e3c7c5f1db957fffdf6ce6244597090735ebbd97ce40542c0ecfcd030/pdm-2.23.0.tar.gz"
-  sha256 "ec5ce439648b42b928f4afa91c2b6251e6a33f40cc83779d899ca970bd9eb131"
+  url "https://files.pythonhosted.org/packages/9e/9e/826455c9ee86f0947859ec2ccf58f74d3568d1759d559a2d1fa5546de850/pdm-2.23.1.tar.gz"
+  sha256 "cf12cd2201df78a6543a5485ac1d7015a73b3a6b10c98b66dfae6ebd481386fe"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -29,6 +29,11 @@ class Pdm < Formula
   resource "blinker" do
     url "https://files.pythonhosted.org/packages/21/28/9b3f50ce0e048515135495f198351908d99540d69bfdc8c1d15b73dc55ce/blinker-1.9.0.tar.gz"
     sha256 "b4ce2265a7abece45e7cc896e98dbebe6cead56bcf805a3d23136d145f5445bf"
+  end
+
+  resource "charset-normalizer" do
+    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
+    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
   end
 
   resource "dep-logic" do
@@ -57,8 +62,8 @@ class Pdm < Formula
   end
 
   resource "hishel" do
-    url "https://files.pythonhosted.org/packages/10/b9/d7328c8507e45e27784e9c1f440c2b900ae1e60a980480d869b6c0b2553c/hishel-0.1.1.tar.gz"
-    sha256 "1f6421b78cc23fc43c610f651b7848c9b8eee2d29551d64a2ab0d45b319b6559"
+    url "https://files.pythonhosted.org/packages/a8/3d/f754187b9703a8db211e80cef0fc4e27e0ab2edbeacccf1257c096dade48/hishel-0.1.2.tar.gz"
+    sha256 "6643450bfb1cfa2ecd6002769f6f5069d0d048c9c1f1e29a98a48302d5875092"
   end
 
   resource "httpcore" do
@@ -69,6 +74,11 @@ class Pdm < Formula
   resource "httpx" do
     url "https://files.pythonhosted.org/packages/b1/df/48c586a5fe32a0f01324ee087459e112ebb7224f646c0b5023f5e79e9956/httpx-0.28.1.tar.gz"
     sha256 "75e98c5f16b0f35b567856f597f06ff2270a374470a5c2392242528e3e3e42fc"
+  end
+
+  resource "id" do
+    url "https://files.pythonhosted.org/packages/22/11/102da08f88412d875fa2f1a9a469ff7ad4c874b0ca6fed0048fe385bdb3d/id-1.5.0.tar.gz"
+    sha256 "292cb8a49eacbbdbce97244f47a97b4c62540169c976552e497fd57df0734c1d"
   end
 
   resource "idna" do
@@ -126,6 +136,11 @@ class Pdm < Formula
     sha256 "41f90bc6f5f177fb41f53e87666db362025010eb28f60a01c9143bfa33a2b2d5"
   end
 
+  resource "requests" do
+    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
+    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+  end
+
   resource "resolvelib" do
     url "https://files.pythonhosted.org/packages/79/e6/53dc936ddd11353967e5cb7361f537042914745fccfcaa3475505c9ac596/resolvelib-1.1.0.tar.gz"
     sha256 "b68591ef748f58c1e2a2ac28d0961b3586ae8b25f60b0ba9a5e4f3d87c1d6a79"
@@ -162,8 +177,13 @@ class Pdm < Formula
   end
 
   resource "unearth" do
-    url "https://files.pythonhosted.org/packages/c6/34/64d3ba3f69ef9d8afeed59432ba7fac495023408053294cb124aa3c5b356/unearth-0.17.3.tar.gz"
-    sha256 "32e96c9df63c563a118d411dfb4f9c672f181a410977f6765c0ed430b0d32784"
+    url "https://files.pythonhosted.org/packages/24/df/033117cc4636974ab79837b37bc79cecb18ff27bf172b5a2f7c4246bd0bc/unearth-0.17.5.tar.gz"
+    sha256 "a19e1c02e64b40518d088079c7416fc41b45a648b81a4128aac02597234ee6ba"
+  end
+
+  resource "urllib3" do
+    url "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz"
+    sha256 "f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"
   end
 
   resource "virtualenv" do
