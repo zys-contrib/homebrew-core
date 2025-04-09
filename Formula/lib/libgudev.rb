@@ -42,6 +42,7 @@ class Libgudev < Formula
         return 0;
       }
     C
+    ENV.append_path "PKG_CONFIG_PATH", Formula["systemd"].lib/"pkgconfig"
     system ENV.cc, "test.c", "-o", "test", *shell_output("pkgconf --cflags --libs gudev-1.0").chomp.split
     system "./test"
   end
