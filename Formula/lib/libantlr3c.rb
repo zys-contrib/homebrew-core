@@ -29,12 +29,15 @@ class Libantlr3c < Formula
 
   def install
     cd "runtime/C" do
-      system "autoreconf", "--force", "--install", "--verbose"
-      system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] },
-                            "--disable-debuginfo",
-                            "--enable-64bit",
-                            "--disable-antlrdebug"
+      args = %w[
+        --disable-antlrdebug
+        --disable-debuginfo
+        --enable-64bit
+      ]
+      args << "--disable-abiflags" if OS.linux? && Hardware::CPU.arm?
 
+      system "autoreconf", "--force", "--install", "--verbose"
+      system "./configure", *args, *std_configure_args.reject { |s| s["--disable-debug"] }
       system "make", "install"
     end
   end
