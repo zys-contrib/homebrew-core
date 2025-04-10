@@ -4,6 +4,7 @@ class Wxlua < Formula
   url "https://github.com/pkulchenko/wxlua/archive/refs/tags/v3.2.0.2.tar.gz"
   sha256 "62abe571803a9748e19e86e39cb0e254fd90a5925dc5f0e35669e693cbdb129e"
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
+  revision 1
   head "https://github.com/pkulchenko/wxlua.git", branch: "master"
 
   bottle do
