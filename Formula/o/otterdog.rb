@@ -8,6 +8,15 @@ class Otterdog < Formula
   license "EPL-2.0"
   head "https://github.com/eclipse-csi/otterdog.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "d5471ae37492083ace8f440f014a2d66909c4025541e381f6c4333c63db046ed"
+    sha256 cellar: :any,                 arm64_sonoma:  "9b652394f3b555afd613331902723f5342237f945b9c02670a2266e3afc121d5"
+    sha256 cellar: :any,                 arm64_ventura: "4ff3a985053672dadc3fbbb268ebbc5cf8d2cb8c407834579dd589cc48d064f1"
+    sha256 cellar: :any,                 sonoma:        "0e698daa04fd332f75aa560cdcae53c38c145cdef5841b8929dfb1e3ae01d99c"
+    sha256 cellar: :any,                 ventura:       "a7f9fe2c25ddcee2c4ed68b163dde89088588292fc2fd7196a4ff9200c28899d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef9ed3d0e651c688420e689c931fa5edc50c629ee8222fa554395ca27f4ee57a"
+  end
+
   depends_on "rust" => :build
   depends_on "certifi"
   depends_on "cryptography"
