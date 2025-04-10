@@ -1707,6 +1707,7 @@ kapacitor
 kapp
 karmadactl
 kaskade
+katago
 katana
 kbld
 kcat
