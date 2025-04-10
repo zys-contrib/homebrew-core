@@ -9,6 +9,7 @@ class Jupyterlab < Formula
     "BSD-3-Clause",
     "MIT", # semver.py
   ]
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "5a442bea593c72d38863d3f402ab3984c03bd90c7563ec0d4fca34d25cbfb9a9"
@@ -174,8 +175,8 @@ class Jupyterlab < Formula
   end
 
   resource "ipython" do
-    url "https://files.pythonhosted.org/packages/7d/ce/012a0f40ca58a966f87a6e894d6828e2817657cbdf522b02a5d3a87d92ce/ipython-9.0.2.tar.gz"
-    sha256 "ec7b479e3e5656bf4f58c652c120494df1820f4f28f522fb7ca09e213c2aab52"
+    url "https://files.pythonhosted.org/packages/70/9a/6b8984bedc990f3a4aa40ba8436dea27e23d26a64527de7c2e5e12e76841/ipython-9.1.0.tar.gz"
+    sha256 "a47e13a5e05e02f3b8e1e7a0f9db372199fe8c3763532fe7a1e0379e4e135f16"
   end
 
   resource "ipython-pygments-lexers" do
@@ -299,8 +300,8 @@ class Jupyterlab < Formula
   end
 
   resource "notebook" do
-    url "https://files.pythonhosted.org/packages/7d/97/369dd928d0561e7a8ae673156d2470664a83935320b068fa35b54d19f0bd/notebook-7.0.7.tar.gz"
-    sha256 "3bcff00c17b3ac142ef5f436d50637d936b274cfa0b41f6ac0175363de9b4e09"
+    url "https://files.pythonhosted.org/packages/33/7c/2dd051638502268da7a6784ae18bb40c2d7fcbea3581bf14078a168f9960/notebook-7.4.0.tar.gz"
+    sha256 "581d88f83709d90ce738dfd1d759892b96e3cbbc9c4a989912ed6c6a08f0d3e8"
   end
 
   resource "notebook-shim" do
@@ -399,8 +400,8 @@ class Jupyterlab < Formula
   end
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/3a/ed/c3876f3b3e8beba336214ce44e1efa1792dd537027cef24192ac2b077d7c/pyzmq-26.3.0.tar.gz"
-    sha256 "f1cd68b8236faab78138a8fc703f7ca0ad431b17a3fcac696358600d4e6243b3"
+    url "https://files.pythonhosted.org/packages/b1/11/b9213d25230ac18a71b39b3723494e57adebe36e066397b961657b3b41c1/pyzmq-26.4.0.tar.gz"
+    sha256 "4bd13f85f80962f91a651a7356fe0472791a5f7a92f227822b5acf44795c626d"
   end
 
   resource "referencing" do
