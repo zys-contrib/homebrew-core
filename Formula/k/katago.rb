@@ -48,6 +48,9 @@ class Katago < Formula
   end
 
   def install
+    # Workaround for arm64 linux, issue ref: https://github.com/lightvector/KataGo/issues/1049
+    ENV.append_to_cflags "-fsigned-char" if OS.linux? && Hardware::CPU.arm?
+
     args = ["-DNO_GIT_REVISION=1"]
     args += if OS.mac?
       ["-DUSE_BACKEND=OPENCL", "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}"]
