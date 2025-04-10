@@ -1,8 +1,8 @@
 class DockerCompose < Formula
   desc "Isolated development environments using Docker"
   homepage "https://docs.docker.com/compose/"
-  url "https://github.com/docker/compose/archive/refs/tags/v2.34.0.tar.gz"
-  sha256 "3612fa592658bfaaf646bf3c05289396af954bbbc6299d5bcddec5b0424589be"
+  url "https://github.com/docker/compose/archive/refs/tags/v2.35.0.tar.gz"
+  sha256 "37911c6303252c42d316dd5898b15b7e7054a9170d3ca2aafa2c5fce5fb6ec26"
   license "Apache-2.0"
   head "https://github.com/docker/compose.git", branch: "main"
 
