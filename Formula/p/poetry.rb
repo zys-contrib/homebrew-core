@@ -15,6 +15,7 @@ class Poetry < Formula
     sha256 cellar: :any,                 arm64_ventura: "933e110a12cda288e5704b7412ee81cbc014ff36663b043cfbb0fb7d6ff7a797"
     sha256 cellar: :any,                 sonoma:        "a5187c74b206a061db21596832d5f79d0d225aa006b6ddd32b7c8ac715eead93"
     sha256 cellar: :any,                 ventura:       "8c7d960a5a7abaa4478ca1cc3f61f3fc3c9385f8d28077c4d94911e98c83988b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dfdc590f91174e80b41029f91f10bd2a0eaee3450fff5dd3d21e6b029bfe469e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd39e1a9941e18ea336789e546922b643aef0ce9de7346385d11c7346fe2f9a0"
   end
 
