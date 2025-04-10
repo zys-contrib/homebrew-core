@@ -14,6 +14,7 @@ class AnsibleCmdb < Formula
     sha256 cellar: :any,                 arm64_ventura: "6f14fe8987e3919f7352c24eb57c59129a453047c0e759a1e265289c52f74092"
     sha256 cellar: :any,                 sonoma:        "ebccc3b4a0ce69d9ac06c7dd8fcb922b0513031e6531010b4e80e01b3a94d942"
     sha256 cellar: :any,                 ventura:       "3e171c3d264163e93fe3ad96ce5113d49f560d8c596f1dd6460c8a950b626240"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "166c728e271581dadf1c2764ab910b85b44ebffe41c3822b5748311184242beb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a142934b4b440e622a1e6958818e4588103c5a4511ac97fff5cb639a75323444"
   end
 
