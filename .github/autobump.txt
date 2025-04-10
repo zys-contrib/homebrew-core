@@ -732,6 +732,7 @@ datamash
 datasette
 datatype99
 dav1d
+dblab
 dbml-cli
 dbus
 dbus-glib
