@@ -2,8 +2,8 @@ class Rdkit < Formula
   desc "Open-source chemoinformatics library"
   homepage "https://rdkit.org/"
   # NOTE: Make sure to update RPATHs if any "@rpath-referenced libraries" show up in `brew linkage`
-  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2024_09_6.tar.gz"
-  sha256 "337075aadd51760fe920442c73972c2fef2561645785fac246615fcb03914062"
+  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2025_03_1.tar.gz"
+  sha256 "947e5aa004047fbec4bf4ba93b84a50ca7f68e248a0654080d8ca0cdb06e3534"
   license "BSD-3-Clause"
   head "https://github.com/rdkit/rdkit.git", branch: "master"
 
@@ -41,6 +41,11 @@ class Rdkit < Formula
   depends_on "py3cairo"
   depends_on "python@3.13"
 
+  resource "better_enums" do
+    url "https://github.com/aantron/better-enums/archive/refs/tags/0.11.3.tar.gz"
+    sha256 "1b1597f0aa5452b971a94ab13d8de3b59cce17d9c43c8081aa62f42b3376df96"
+  end
+
   def python3
     "python3.13"
   end
@@ -51,6 +56,8 @@ class Rdkit < Formula
   end
 
   def install
+    (buildpath/"better_enums").install resource("better_enums")
+
     python_rpath = rpath(source: lib/Language::Python.site_packages(python3))
     python_rpaths = [python_rpath, "#{python_rpath}/..", "#{python_rpath}/../.."]
     args = %W[
@@ -59,6 +66,7 @@ class Rdkit < Formula
       -DCMAKE_REQUIRE_FIND_PACKAGE_coordgen=ON
       -DCMAKE_REQUIRE_FIND_PACKAGE_maeparser=ON
       -DCMAKE_REQUIRE_FIND_PACKAGE_Inchi=ON
+      -DFETCHCONTENT_SOURCE_DIR_BETTER_ENUMS=#{buildpath}/better_enums
       -DINCHI_INCLUDE_DIR=#{Formula["inchi"].opt_include}/inchi
       -DRDK_INSTALL_INTREE=OFF
       -DRDK_BUILD_SWIG_WRAPPERS=OFF
