@@ -4,8 +4,8 @@ class Mapproxy < Formula
   desc "Accelerating web map proxy"
   # `mapproxy.org` is 404, upstream bug report, https://github.com/mapproxy/mapproxy/issues/983
   homepage "https://github.com/mapproxy/mapproxy"
-  url "https://files.pythonhosted.org/packages/18/b8/06d152b95be0d229d46778a9425488823a15bca88f60eaee127a53255f47/mapproxy-4.0.1.tar.gz"
-  sha256 "167cee557611815e2dc2ba3befec03441070e3596a9178905ba7ff506013b1e3"
+  url "https://files.pythonhosted.org/packages/72/50/523f219aee21e24dab7cf70ae23f30b15515f1f132686476df2265d6fca4/mapproxy-4.0.2.tar.gz"
+  sha256 "c62032f6ae35bb8b63acaf82a3b503562e72fa08712d3a690d9159e387f3db02"
   license "Apache-2.0"
 
   bottle do
@@ -66,8 +66,8 @@ class Mapproxy < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/0a/79/2ce611b18c4fd83d9e3aecb5cba93e1917c050f556db39842889fa69b79f/rpds_py-0.23.1.tar.gz"
-    sha256 "7f3240dcfa14d198dba24b8b9cb3b108c06b68d45b7babd9eefc1038fdf7e707"
+    url "https://files.pythonhosted.org/packages/0b/b3/52b213298a0ba7097c7ea96bee95e1947aa84cc816d48cebb539770cdf41/rpds_py-0.24.0.tar.gz"
+    sha256 "772cc1b2cd963e7e17e6cc55fe0371fb9c704d63e44cacec7b9b7f523b78919e"
   end
 
   resource "werkzeug" do
