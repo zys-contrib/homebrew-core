@@ -43,6 +43,7 @@ class Libpq < Formula
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+    ENV.runtime_cpu_detection
 
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",

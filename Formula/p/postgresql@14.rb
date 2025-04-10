@@ -46,6 +46,7 @@ class PostgresqlAT14 < Formula
   end
 
   def install
+    ENV.runtime_cpu_detection
     ENV.prepend "LDFLAGS", "-L#{Formula["openssl@3"].opt_lib} -L#{Formula["readline"].opt_lib}"
     ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@3"].opt_include} -I#{Formula["readline"].opt_include}"
 
