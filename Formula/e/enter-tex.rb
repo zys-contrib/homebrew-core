@@ -1,10 +1,9 @@
 class EnterTex < Formula
   desc "TeX/LaTeX text editor"
   homepage "https://gitlab.gnome.org/swilmet/enter-tex"
-  url "https://gitlab.gnome.org/swilmet/enter-tex/-/archive/3.47.0/enter-tex-3.47.0.tar.bz2"
-  sha256 "59a55f852ebb262aaca2f2380b85640ad380beba14ed1121e8beb0ba38aacccf"
+  url "https://gitlab.gnome.org/swilmet/enter-tex/-/archive/3.48.0/enter-tex-3.48.0.tar.bz2"
+  sha256 "265d83da04ea924838356d4944ce378ae8c97500adde30d4ecad32a9ef6b9903"
   license "GPL-3.0-or-later"
-  revision 2
   head "https://gitlab.gnome.org/swilmet/enter-tex.git", branch: "main"
 
   bottle do
