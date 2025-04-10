@@ -7,13 +7,13 @@ class NagaCli < Formula
   head "https://github.com/gfx-rs/wgpu.git", branch: "trunk"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c645077a6a47e576a4f0a5153f306e4c7cf7161ad72e8e1d051516efad8b0b3e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4727ba440c2b576c8c9f1ea269b2a271b087057f3c833129d051e4e58d76a796"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "41030b9721a9e558efe6904d2454e9165df706291d3b64c590ef3b52ee4699e6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "483988b6a90211e77b73e620175066f0781a505a7958317509cecf2764bd28a5"
-    sha256 cellar: :any_skip_relocation, ventura:       "c54819fafe621e27634132e58adbdf58d63afede2863bb4deca440a6c902db06"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9cbf9532e04d364f2322bd4e55d6669c8343bc7679dd4cb3efea90380672ec91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "84f5a6ee4dadb7873e0623169f13259626f3c475504de5d7367f11c3fad31234"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9f381df3f1f5551ef09d6f5a1db7c785ec7e1988cda561a593f94a32225c8993"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d457e86412f3df14521e8267d1ae644d399252c77fcf9bfa9384240307221465"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b9280d8353ef24bb2e18d9e51ebb092169f6d7320f5206abe2c7b5640c4ed54d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bc3ea3f9e021d67d263779865162628850433346461726780d2c1236cdc80c74"
+    sha256 cellar: :any_skip_relocation, ventura:       "baa2ba2e910a5516ee2ad96fd0688287eb9c4995bf72c057ffaf573bee22e336"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1299f4b9af4abfe2831665c53af2223929f4b0dfd6f1ec6bf534bfee77b7a075"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "00a19e82f71008d5e690cb4c72fcc9ecc7c86c9a3d0626fab0918d12bf25ecd7"
   end
 
   depends_on "rust" => :build
