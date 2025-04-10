@@ -1,10 +1,9 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/src/tarantool-3.3.1.tar.gz"
-  sha256 "c0f9d2160da2fa73a7dfb7e87d064d35554bf90358464e4c4ab9cced4695264e"
+  url "https://download.tarantool.org/tarantool/src/tarantool-3.3.2.tar.gz"
+  sha256 "c518d6f7a5737ab1124227e8c9bac9669f94331181240ce9f085fcf1cfc7972a"
   license "BSD-2-Clause"
-  revision 1
   version_scheme 1
   head "https://github.com/tarantool/tarantool.git", branch: "master"
 
@@ -39,7 +38,16 @@ class Tarantool < Formula
     depends_on "libunwind"
   end
 
+  # cmake 4 build patch, upstream pr ref, https://github.com/tarantool/tarantool/pull/11382
+  patch do
+    url "https://github.com/tarantool/tarantool/commit/68d591d8eb43d0a5de35cf7492955f18598629f2.patch?full_index=1"
+    sha256 "7aeace515b991cf45a477e706a69b2ee5621d45a0394065bf75b92dcb1086534"
+  end
+
   def install
+    # cmake 4 build patch for third parties
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+
     # Workaround for clang >= 16 until upstream fix is available[^1].
     # Also, trying to apply LuaJIT commit[^2] worked on Xcode 16 but caused issue on Xcode 15.
     #
