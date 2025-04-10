@@ -6,6 +6,15 @@ class Dblab < Formula
   license "MIT"
   head "https://github.com/danvergara/dblab.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "20dffdc520ad78c8e9646504ab62728551c7e6e90271fe949f2ce3910d26acbe"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3047aa1563b100da84c1b2526f3bdfebad492d585f6b93e0948ba5ae58d7d7ab"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9fa9d07b585ca8eaf2d01b9090894561d13b2d04c7dcf8f4431da91f468e567d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e4de556ff71bc799425eff6e8cb5fa31d43b69846d25b306e1b5fadfbcd68e76"
+    sha256 cellar: :any_skip_relocation, ventura:       "507440d4bca59b692fd97bba4c56b275fd904ef17bf834c7395ca5f966e4ee39"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a206dfeb89f7082430c9f5b46fe5c921b8dc7510091f0db44f096f921188dab0"
+  end
+
   depends_on "go" => :build
 
   def install
