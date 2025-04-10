@@ -2,9 +2,9 @@ class MariadbConnectorC < Formula
   desc "MariaDB database connector for C applications"
   homepage "https://mariadb.org/download/?tab=connector&prod=connector-c"
   # TODO: Remove backward compatibility library symlinks on breaking version bump
-  url "https://archive.mariadb.org/connector-c-3.4.4/mariadb-connector-c-3.4.4-src.tar.gz"
-  mirror "https://fossies.org/linux/misc/mariadb-connector-c-3.4.4-src.tar.gz/"
-  sha256 "58876fad1c2d33979d78bbfa61d7a3476e8faa2cd0af0f7f8bfeb06deaa1034e"
+  url "https://archive.mariadb.org/connector-c-3.4.5/mariadb-connector-c-3.4.5-src.tar.gz"
+  mirror "https://fossies.org/linux/misc/mariadb-connector-c-3.4.5-src.tar.gz/"
+  sha256 "b17e193816cb25c3364c2cc92a0ad3f1d0ad9f0f484dc76b8e7bdb5b50eac1a3"
   license "LGPL-2.1-or-later"
   head "https://github.com/mariadb-corporation/mariadb-connector-c.git", branch: "3.4"
 
