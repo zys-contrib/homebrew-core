@@ -6,6 +6,15 @@ class HubTool < Formula
   license "Apache-2.0"
   head "https://github.com/docker/hub-tool.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "383679a6456865f5e36b0d710ae259fca5057cba48f81fdccc0d03a197744806"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "383679a6456865f5e36b0d710ae259fca5057cba48f81fdccc0d03a197744806"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "383679a6456865f5e36b0d710ae259fca5057cba48f81fdccc0d03a197744806"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2e0722508d39f391bf7f7817a4ef1ff719fce73214a142168c08a67a9ef415f1"
+    sha256 cellar: :any_skip_relocation, ventura:       "2e0722508d39f391bf7f7817a4ef1ff719fce73214a142168c08a67a9ef415f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e083aecad14ea1110da6ed9679e67b27968203768977396d1fb2c78861523787"
+  end
+
   depends_on "go" => :build
 
   def install
