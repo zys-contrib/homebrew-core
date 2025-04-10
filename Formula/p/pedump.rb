@@ -13,6 +13,7 @@ class Pedump < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "185e205f37c88a84ab0e0fcd65b2415ff0a1a34980dadc27b4a104f287fd9677"
     sha256 cellar: :any_skip_relocation, ventura:        "185e205f37c88a84ab0e0fcd65b2415ff0a1a34980dadc27b4a104f287fd9677"
     sha256 cellar: :any_skip_relocation, monterey:       "185e205f37c88a84ab0e0fcd65b2415ff0a1a34980dadc27b4a104f287fd9677"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "0c8af7868718e799a4969fb5ca7f6787d98abaa403a96cf999d7ef33a3893861"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "eef22f866ba629a7e7c382057c48f5784da5ad7756a34b2d334d24c9c380e7f8"
   end
 
