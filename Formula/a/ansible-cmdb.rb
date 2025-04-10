@@ -8,6 +8,15 @@ class AnsibleCmdb < Formula
   license "GPL-3.0-or-later"
   revision 1
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "1273a6462f8b5745a2b1c297020a609de08c88703908deea3d3276a9af8e5a51"
+    sha256 cellar: :any,                 arm64_sonoma:  "1fe8dcbaadd7a83a63b6d2e9e7c33baf6eebcc7e6653f9a57ba7837759858a0c"
+    sha256 cellar: :any,                 arm64_ventura: "6f14fe8987e3919f7352c24eb57c59129a453047c0e759a1e265289c52f74092"
+    sha256 cellar: :any,                 sonoma:        "ebccc3b4a0ce69d9ac06c7dd8fcb922b0513031e6531010b4e80e01b3a94d942"
+    sha256 cellar: :any,                 ventura:       "3e171c3d264163e93fe3ad96ce5113d49f560d8c596f1dd6460c8a950b626240"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a142934b4b440e622a1e6958818e4588103c5a4511ac97fff5cb639a75323444"
+  end
+
   depends_on "libyaml"
   depends_on "python@3.13"
 
