@@ -1,8 +1,8 @@
 class Wxpython < Formula
   desc "Python bindings for wxWidgets"
   homepage "https://www.wxpython.org/"
-  url "https://files.pythonhosted.org/packages/a4/f5/8c272764770f47fd419cc2eff4c4fa1c0681c71bcc2f3158b3a83d1339ff/wxPython-4.2.2.tar.gz"
-  sha256 "5dbcb0650f67fdc2c5965795a255ffaa3d7b09fb149aa8da2d0d9aa44e38e2ba"
+  url "https://files.pythonhosted.org/packages/4c/d9/4451392d3d6ba45aa23aa77a6f1a9970b43351b956bf61e10fd513a1dc38/wxPython-4.2.3.tar.gz"
+  sha256 "20d6e0c927e27ced85643719bd63e9f7fd501df6e9a8aab1489b039897fd7c01"
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
 
   bottle do
@@ -22,7 +22,6 @@ class Wxpython < Formula
   depends_on "numpy"
   depends_on "pillow"
   depends_on "python@3.13"
-  depends_on "six"
   depends_on "wxwidgets"
 
   on_linux do
@@ -30,21 +29,14 @@ class Wxpython < Formula
     depends_on "gtk+3"
   end
 
-  # Backport increase of SIP ABI to fix build
-  patch do
-    url "https://github.com/wxWidgets/Phoenix/commit/de9aa4be5bb49adf82991c7582ea3c42ed505bf7.patch?full_index=1"
-    sha256 "bf752fa850459d963cf8a7678dd0463934888d9867a9ac80d58ca51d19cb9f93"
-  end
-
-  # build patch to build with doxygen 1.11.0+, remove in next release
-  # upstream commit ref, https://github.com/wxWidgets/wxWidgets/commit/2d79dfc7a2a8dd42021ff0ea3dcc8ed05f7c23ef
-  patch :DATA
-
   def python
     "python3.13"
   end
 
   def install
+    # Avoid requests build dependency which is used to download pre-builts
+    inreplace "build.py", /^(import|from) requests/, "#\\0"
+
     ENV.cxx11
     ENV["DOXYGEN"] = Formula["doxygen"].opt_bin/"doxygen"
     system python, "-u", "build.py", "dox", "touch", "etg", "sip", "build_py",
@@ -62,31 +54,3 @@ class Wxpython < Formula
     assert_match version.to_s, output
   end
 end
-
-__END__
-diff --git a/ext/wxWidgets/include/wx/datetime.h b/ext/wxWidgets/include/wx/datetime.h
-index 6eb2f8c..8c3cf43 100644
---- a/ext/wxWidgets/include/wx/datetime.h
-+++ b/ext/wxWidgets/include/wx/datetime.h
-@@ -148,7 +148,7 @@ public:
-         Local,
-
-         // zones from GMT (= Greenwich Mean Time): they're guaranteed to be
--        // consequent numbers, so writing something like `GMT0 + offset' is
-+        // consequent numbers, so writing something like `GMT0 + offset` is
-         // safe if abs(offset) <= 12
-
-         // underscore stands for minus
-diff --git a/ext/wxWidgets/interface/wx/datetime.h b/ext/wxWidgets/interface/wx/datetime.h
-index ae99947..4604b75 100644
---- a/ext/wxWidgets/interface/wx/datetime.h
-+++ b/ext/wxWidgets/interface/wx/datetime.h
-@@ -96,7 +96,7 @@ public:
-
-         ///@{
-         /// zones from GMT (= Greenwich Mean Time): they're guaranteed to be
--        /// consequent numbers, so writing something like `GMT0 + offset' is
-+        /// consequent numbers, so writing something like `GMT0 + offset` is
-         /// safe if abs(offset) <= 12
-
-         // underscore stands for minus
