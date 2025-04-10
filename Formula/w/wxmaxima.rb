@@ -4,6 +4,7 @@ class Wxmaxima < Formula
   url "https://github.com/wxMaxima-developers/wxmaxima/archive/refs/tags/Version-25.01.0.tar.gz"
   sha256 "18cce36cc6c41ca012ec128aafe3c96659b1d670f8a8f7d98395eac1a19ade6f"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/wxMaxima-developers/wxmaxima.git", branch: "main"
 
   livecheck do
