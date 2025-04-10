@@ -1,9 +1,14 @@
 class Libtcod < Formula
   desc "API for roguelike developers"
   homepage "https://github.com/libtcod/libtcod"
-  url "https://github.com/libtcod/libtcod/archive/refs/tags/1.24.0.tar.gz"
-  sha256 "13e7ed49f91b897ac637e29295df8eeac24e284fbd9129bb09fd05dba0dcc1fb"
-  license "BSD-3-Clause"
+  url "https://github.com/libtcod/libtcod/archive/refs/tags/2.1.1.tar.gz"
+  sha256 "ee9cc60140f480f72cb2321d5aa50beeaa829b0a4a651e8a37e2ba938ea23caa"
+  license all_of: [
+    "BSD-3-Clause",
+    "Zlib", # src/vendor/lodepng.c
+    { all_of: ["MIT", "Unicode-DFS-2015"] }, # src/vendor/utf8proc/utf8proc.c
+    { any_of: ["MIT", "Unlicense"] }, # src/vendor/stb_truetype.h
+  ]
 
   bottle do
     rebuild 1
@@ -18,25 +23,29 @@ class Libtcod < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "12e3ee471cffb22ddb86f69bd08aa5f7d39b2acd29709788af1b38a727486780"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on macos: :catalina
-  depends_on "sdl2"
+  depends_on "sdl3"
 
-  uses_from_macos "python" => :build
   uses_from_macos "zlib"
 
+  # TODO: Remove in syntax-only PR
   conflicts_with "libzip", because: "libtcod and libzip install a `zip.h` header"
 
   def install
-    cd "buildsys/autotools" do
-      system "autoreconf", "--force", "--install", "--verbose"
-      system "./configure", "--disable-silent-rules", *std_configure_args
-      system "make"
-      system "make", "install"
-    end
+    rm_r("src/vendor/zlib")
+
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DCMAKE_INSTALL_INCLUDEDIR=#{include}",
+                    "-DCMAKE_TOOLCHAIN_FILE=",
+                    "-DLIBTCOD_LODEPNG=vendored",
+                    "-DLIBTCOD_STB=vendored",
+                    "-DLIBTCOD_UTF8PROC=vendored", # https://github.com/JuliaStrings/utf8proc/pull/260
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
