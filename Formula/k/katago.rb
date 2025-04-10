@@ -16,16 +16,13 @@ class Katago < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "422d44198c78c32942ed61ff8b5aebf6ee7e70ca139d4d5d2948cdfd9da98317"
-    sha256 cellar: :any,                 arm64_sonoma:   "b8429e8dfd8e8ed55b43bcbe3303429a15d2198f766161223412a5aac9a26900"
-    sha256 cellar: :any,                 arm64_ventura:  "756948a27239a72cd8b6fa312fd4c3cb4fa9f20940c4158011a82e681938f5cd"
-    sha256 cellar: :any,                 arm64_monterey: "3c9d3dc8e2768770bd803e6ca8b557295275482df2b57f14b349980ddb7ec678"
-    sha256 cellar: :any,                 sonoma:         "ba24de18bcadf148cfc200afc681ab9297e640e2395de69ac43efbe5b4cbf313"
-    sha256 cellar: :any,                 ventura:        "ab482d1af11de5e268ad2465ee8feb5aa7436dbc7885cfefa677ab35c39462ef"
-    sha256 cellar: :any,                 monterey:       "27da9731aecb9f6f8bf0ce99d8d0719e2f833c9ba7342f784f3b6f952e45eb9b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "f5a46a44d6e32e7f21986ce70aa5ed124706a892681539c9d8c699fd07fc13bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3033bade67d18470af58d50cf498ec6a40cb9f36cccf3a1295d60faa71f7df59"
+    sha256 cellar: :any,                 arm64_sequoia: "5a264e055e864eaac12bd6aaa4319c241ec4aec9d11f0498628ea355ed1fe574"
+    sha256 cellar: :any,                 arm64_sonoma:  "88a641dbc9b421342f20d11a9cb5fd5e5f7ba73c7dc73548262d83ea026ebffc"
+    sha256 cellar: :any,                 arm64_ventura: "b6013659e4c2b58a85154c37561c0411398cf4cf110f80c0403de328b602beb0"
+    sha256 cellar: :any,                 sonoma:        "4823886c8e5743624206fc1ba979cffbc8becda48dbaf7c08dedf016985e05a9"
+    sha256 cellar: :any,                 ventura:       "227ee91388879da2b90df699da6fedb7af4179fc184d123b910d79dfbd087c13"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fb188bd4509aa99306c47c5b517ad9363aefc52454aa4e8a0882b9e78b800f1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a51477be4ab6623346dfb2d55f8ec53d14c91f4bee616f26a2515ba4c087ca3d"
   end
 
   depends_on "cmake" => :build
