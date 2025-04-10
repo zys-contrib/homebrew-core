@@ -29,8 +29,8 @@ class Unittest < Formula
   end
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    ENV.append "CXX", "-std=c++03"
+    system "./configure", *std_configure_args
     system "make", "install"
     pkgshare.install "test/unittesttest"
   end
