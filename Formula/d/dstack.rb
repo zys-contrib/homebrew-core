@@ -3,8 +3,8 @@ class Dstack < Formula
 
   desc "ML workflow orchestration system designed for reproducibility and collaboration"
   homepage "https://dstack.ai/"
-  url "https://files.pythonhosted.org/packages/71/f3/c90561a8d0c1b2f0d9d5be37d282aa461fdb4d158cbf6bde73e5cc91f9a8/dstack-0.19.2.tar.gz"
-  sha256 "559cd36f4b15a26a6d5cc410030b857ea4670c42e41224080ba88b9149f628f9"
+  url "https://files.pythonhosted.org/packages/33/17/e008993129de1ae1f28e20177c1ee2f54769062b7e8c53045bf8e5b46c79/dstack-0.19.3.tar.gz"
+  sha256 "2dac2d96d60210c838729142cdece22fc04295ddc6207fc77c6bd31f5618f16d"
   license "MPL-2.0"
 
   bottle do
@@ -82,8 +82,8 @@ class Dstack < Formula
   end
 
   resource "azure-core" do
-    url "https://files.pythonhosted.org/packages/cc/ee/668328306a9e963a5ad9f152cd98c7adad86c822729fd1d2a01613ad1e67/azure_core-1.32.0.tar.gz"
-    sha256 "22b3c35d6b2dae14990f6c1be2912bf23ffe50b220e708a28ab1bb92b1c730e5"
+    url "https://files.pythonhosted.org/packages/75/aa/7c9db8edd626f1a7d99d09ef7926f6f4fb34d5f9fa00dc394afdfe8e2a80/azure_core-1.33.0.tar.gz"
+    sha256 "f367aa07b5e3005fec2c1e184b882b0b039910733907d001c20fb08ebb8c0eb9"
   end
 
   resource "azure-identity" do
@@ -127,13 +127,13 @@ class Dstack < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/64/0e/e63f2459acb1d877ed23c35dcf99a269413d09d2c6ebf780627639f54e97/boto3-1.37.26.tar.gz"
-    sha256 "78fb57556c2337e087d2eda419ee371b52843a2420861114413791113efeabe2"
+    url "https://files.pythonhosted.org/packages/a3/3b/6b4562b00be71ec82de8f33c857501a093f99bdec439cda56622c3932eea/boto3-1.37.31.tar.gz"
+    sha256 "dfee02b2f8f632a239a2f4ba6a2d568e2edd7f7464e9afd8a487fdb3fa9a0ad3"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/86/06/f2b0b42a796319a67730bf33ef627ee627368f40858482f2d8d0ca4d8f52/botocore-1.37.26.tar.gz"
-    sha256 "7f6dc999e7a34c0917623aac67c9ea2389b741bb7babee1a88cf2cd04006ea7a"
+    url "https://files.pythonhosted.org/packages/c5/89/33afc4b679212a02e825e634a37bc48d51060811be64bb396aec06e9da52/botocore-1.37.31.tar.gz"
+    sha256 "eb3dfa44a87187bd82c3b493d568d8436270d4d000f237b49b669a01fcd8a21c"
   end
 
   resource "cached-classproperty" do
@@ -267,8 +267,8 @@ class Dstack < Formula
   end
 
   resource "gpuhunt" do
-    url "https://files.pythonhosted.org/packages/90/a5/51cfcffd0df8e54545ce7eace90a220a142297a18e6bc0ae1c9b88b3608f/gpuhunt-0.1.1.tar.gz"
-    sha256 "bb880ed8ef21a92ecdc0da1f9722b76f626df5bf20916b693cbfb30b78606d27"
+    url "https://files.pythonhosted.org/packages/28/d7/81dd2fdfd7e76baecf8986c588615652718b89b324351591162b599aba73/gpuhunt-0.1.2.tar.gz"
+    sha256 "447546e9a84c84655842c5f1bc6384f1a2e54c9d6b3874ee062cc9dd3b787b9f"
   end
 
   resource "greenlet" do
@@ -572,8 +572,8 @@ class Dstack < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/0e/3e/b00a62db91a83fff600de219b6ea9908e6918664899a2d85db222f4fbf19/typing_extensions-4.13.0.tar.gz"
-    sha256 "0a4ac55a5820789d87e297727d229866c9650f6521b64206413c4fbada24d95b"
+    url "https://files.pythonhosted.org/packages/76/ad/cd3e3465232ec2416ae9b983f27b9e94dc8171d56ac99b345319a9475967/typing_extensions-4.13.1.tar.gz"
+    sha256 "98795af00fb9640edec5b8e31fc647597b4691f099ad75f469a2616be1a76dff"
   end
 
   resource "tzlocal" do
@@ -597,8 +597,8 @@ class Dstack < Formula
   end
 
   resource "watchfiles" do
-    url "https://files.pythonhosted.org/packages/f5/26/c705fc77d0a9ecdb9b66f1e2976d95b81df3cae518967431e7dbf9b5e219/watchfiles-1.0.4.tar.gz"
-    sha256 "6ba473efd11062d73e4f00c2b730255f9c1bdd73cd5f9fe5b5da8dbd4a717205"
+    url "https://files.pythonhosted.org/packages/03/e2/8ed598c42057de7aa5d97c472254af4906ff0a59a66699d426fc9ef795d7/watchfiles-1.0.5.tar.gz"
+    sha256 "b7529b5dcc114679d43827d8c35a07c493ad6f083633d573d81c660abc5979e9"
   end
 
   resource "websocket-client" do
