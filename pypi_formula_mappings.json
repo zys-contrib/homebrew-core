@@ -632,6 +632,9 @@
   "osc-cli": {
     "exclude_packages": ["certifi"]
   },
+  "otterdog": {
+    "exclude_packages": ["certifi", "cryptography"]
+  },
   "parliament": {
     "extra_packages": ["setuptools"]
   },
