@@ -3630,6 +3630,7 @@ ttyplot
 tuisky
 tup
 twine
+twitch-cli
 txr
 tygo
 typescript
