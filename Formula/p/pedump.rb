@@ -20,6 +20,12 @@ class Pedump < Formula
 
   conflicts_with "mono", because: "both install `pedump` binaries"
 
+  # Backport Gemfile.lock update to fix build on newer Ruby
+  patch do
+    url "https://github.com/zed-0xff/pedump/commit/55072547f30bc4377add1c47a8f0022183b7292d.patch?full_index=1"
+    sha256 "fdb5e6dc525c55b449afbb3082c72270f7512bdfc8e78ae08c99fb169a067efd"
+  end
+
   def install
     ENV["GEM_HOME"] = libexec
     system "bundle", "config", "set", "without", "development"
