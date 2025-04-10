@@ -14,6 +14,7 @@ class Otterdog < Formula
     sha256 cellar: :any,                 arm64_ventura: "4ff3a985053672dadc3fbbb268ebbc5cf8d2cb8c407834579dd589cc48d064f1"
     sha256 cellar: :any,                 sonoma:        "0e698daa04fd332f75aa560cdcae53c38c145cdef5841b8929dfb1e3ae01d99c"
     sha256 cellar: :any,                 ventura:       "a7f9fe2c25ddcee2c4ed68b163dde89088588292fc2fd7196a4ff9200c28899d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "97a80bf433f8f13a68a00a74728ade22f373053e84b7cba7736cff0282cb7daa"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef9ed3d0e651c688420e689c931fa5edc50c629ee8222fa554395ca27f4ee57a"
   end
 
