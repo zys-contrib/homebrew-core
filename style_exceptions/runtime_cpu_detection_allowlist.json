@@ -1,11 +1,13 @@
 [
   "abseil",
   "aom",
+  "bitcoin",
   "blis",
   "botan",
   "coreutils",
   "cryptopp",
   "fftw",
+  "groestlcoin",
   "handbrake",
   "highway",
   "knot",
