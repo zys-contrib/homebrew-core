@@ -1513,6 +1513,7 @@ httpie
 httping
 httpx
 httpyac
+hub-tool
 hubble
 huggingface-cli
 hugo
