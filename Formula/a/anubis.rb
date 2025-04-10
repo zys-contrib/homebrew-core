@@ -1,8 +1,8 @@
 class Anubis < Formula
   desc "Protect resources from scraper bots"
   homepage "https://anubis.techaro.lol"
-  url "https://github.com/TecharoHQ/anubis/archive/refs/tags/v1.15.2.tar.gz"
-  sha256 "d3412918872d0e3fe95091953c23be860c81b289ec4c00f94ae090037b69a885"
+  url "https://github.com/TecharoHQ/anubis/archive/refs/tags/v1.16.0.tar.gz"
+  sha256 "8b2dce152312c895ddd06c370b7e7c74a5971a291e160a607716c5857bb5ff38"
   license "MIT"
   head "https://github.com/TecharoHQ/anubis.git", branch: "main"
 
@@ -29,7 +29,7 @@ class Anubis < Formula
 
     webify_pid = spawn Formula["webify"].opt_bin/"webify", "-addr", ":#{webify_port}", "echo", "Homebrew"
     anubis_pid = spawn bin/"anubis", "-bind", ":#{anubis_port}", "-target", "http://localhost:#{webify_port}",
-      "-serve-robots-txt", "-debug-x-real-ip-default", "127.0.0.1"
+      "-serve-robots-txt", "-use-remote-address", "127.0.0.1"
 
     assert_includes shell_output("curl --silent --retry 5 --retry-connrefused http://localhost:#{anubis_port}"),
       "Homebrew"
