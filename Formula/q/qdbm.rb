@@ -39,8 +39,12 @@ class Qdbm < Formula
       --enable-iconv
     ]
 
-    # Does not want to build on Linux
-    args << "--enable-bzip" if OS.mac?
+    if OS.mac?
+      # Does not want to build on Linux
+      args << "--enable-bzip"
+    else
+      ENV.append "LDFLAGS", "-L#{Formula["zlib"].opt_lib}"
+    end
 
     system "./configure", *args
     if OS.mac?
