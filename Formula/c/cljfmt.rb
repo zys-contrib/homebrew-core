@@ -1,8 +1,8 @@
 class Cljfmt < Formula
   desc "Formatting Clojure code"
   homepage "https://github.com/weavejester/cljfmt"
-  url "https://github.com/weavejester/cljfmt/archive/refs/tags/0.13.0.tar.gz"
-  sha256 "c5d646ac66bf059a032093a6e02bb10d9708d304de178bba42dcbb4119514361"
+  url "https://github.com/weavejester/cljfmt/archive/refs/tags/0.13.1.tar.gz"
+  sha256 "d9deca44683cbb8b81153ea596d1cffe2451ff59b39fcf654971bded96641000"
   license "EPL-1.0"
 
   bottle do
