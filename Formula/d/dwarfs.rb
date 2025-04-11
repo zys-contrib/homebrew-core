@@ -1,8 +1,8 @@
 class Dwarfs < Formula
   desc "Fast high compression read-only file system for Linux, Windows, and macOS"
   homepage "https://github.com/mhx/dwarfs"
-  url "https://github.com/mhx/dwarfs/releases/download/v0.12.0/dwarfs-0.12.0.tar.xz"
-  sha256 "91d5a22e5cf125a9871bcbdb4875bdd661557757b9f50e88553da4b47f8351d2"
+  url "https://github.com/mhx/dwarfs/releases/download/v0.12.1/dwarfs-0.12.1.tar.xz"
+  sha256 "5523a5c3aea244cbfbccfe64f1df6053b3901e6af8916fac1530faf0f7a5f07f"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -56,12 +56,6 @@ class Dwarfs < Formula
   fails_with :clang do
     build 1500
     cause "Not all required C++20 features are supported"
-  end
-
-  # Backport fix for linking to zstd
-  patch do
-    url "https://github.com/mhx/dwarfs/commit/f6cf57b4be14c098342d121c9a39f75af1847a78.patch?full_index=1"
-    sha256 "eebbf4010d20a8de62f0e185f50b8030346c7099fed9dcdd4f83a0a88dc42b12"
   end
 
   # Backport folly fix for LLVM 20
