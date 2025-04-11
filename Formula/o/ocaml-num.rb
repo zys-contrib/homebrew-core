@@ -34,7 +34,7 @@ class OcamlNum < Formula
       s.change_make_var! "prefix", prefix
     end
 
-    system "make"
+    ENV.deparallelize { system "make" }
     (lib/"ocaml/stublibs").mkpath # `make install` assumes this directory exists
     system "make", "install", "STDLIBDIR=#{lib}/ocaml"
 
