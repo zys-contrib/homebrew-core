@@ -30,6 +30,9 @@ class Rtf2latex2e < Formula
   end
 
   def install
+    # Workaround for arm64 linux. Upstream isn't actively maintained
+    ENV.append_to_cflags "-fsigned-char" if OS.linux? && Hardware::CPU.arm?
+
     # Workaround for newer Clang
     ENV.append "CC", "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
 
