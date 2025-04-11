@@ -1,10 +1,9 @@
 class Libphonenumber < Formula
   desc "C++ Phone Number library by Google"
   homepage "https://github.com/google/libphonenumber"
-  url "https://github.com/google/libphonenumber/archive/refs/tags/v9.0.2.tar.gz"
-  sha256 "ccc54c3ff073f6f9be3260d0e93a17ab6e98be6906a15625a614b41de0d1693b"
+  url "https://github.com/google/libphonenumber/archive/refs/tags/v9.0.3.tar.gz"
+  sha256 "496c0fa9f046d3750d747e929f21e95ca153a0266c57e0d92edf523adf2a35c9"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable
@@ -63,6 +62,7 @@ class Libphonenumber < Formula
 
     (testpath/"CMakeLists.txt").write <<~CMAKE
       cmake_minimum_required(VERSION 3.14)
+      set(CMAKE_CXX_STANDARD 17)
       project(test LANGUAGES CXX)
       find_package(Boost COMPONENTS date_time system thread)
       find_package(libphonenumber CONFIG REQUIRED)
