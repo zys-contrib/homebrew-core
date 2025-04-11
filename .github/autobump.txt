@@ -1432,6 +1432,7 @@ gwt
 gwyddion
 gxml
 gyb
+gzip
 h26forge
 h3
 hackrf
