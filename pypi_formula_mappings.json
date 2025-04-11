@@ -967,7 +967,7 @@
     "exclude_packages": ["certifi"]
   },
   "wxpython": {
-    "exclude_packages": ["numpy", "pillow", "six"]
+    "exclude_packages": ["numpy", "pillow"]
   },
   "xdot": {
     "exclude_packages": ["numpy", "pygobject"],
