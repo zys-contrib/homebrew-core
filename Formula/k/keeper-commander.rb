@@ -6,6 +6,7 @@ class KeeperCommander < Formula
   url "https://files.pythonhosted.org/packages/af/c3/3d596436f423d873592a4503cf4ca34da95331c328ddf93fde3ee8964d09/keepercommander-17.0.14.tar.gz"
   sha256 "f14fd6723fa2554c70c0230bd34eefeabf74089cf34bdb3e29f50e2eb122b117"
   license "MIT"
+  revision 1
   head "https://github.com/Keeper-Security/Commander.git", branch: "master"
 
   bottle do
