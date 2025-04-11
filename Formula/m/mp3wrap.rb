@@ -30,10 +30,10 @@ class Mp3wrap < Formula
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    # Workaround for arm64 linux. Upstream isn't actively maintained
+    ENV.append_to_cflags "-fsigned-char" if OS.linux? && Hardware::CPU.arm?
+
+    system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
   end
 
