@@ -1,8 +1,8 @@
 class Qbs < Formula
   desc "Build tool for developing projects across multiple platforms"
   homepage "https://wiki.qt.io/Qbs"
-  url "https://download.qt.io/official_releases/qbs/2.6.0/qbs-src-2.6.0.tar.gz"
-  sha256 "9eac7441a5c80df38190796012a842d0d22b0f3b11845d59c5d98b4e88457f02"
+  url "https://download.qt.io/official_releases/qbs/2.6.1/qbs-src-2.6.1.tar.gz"
+  sha256 "9f7f1a1f7daaa4a39fe3604f1851d0e520b576ee7750a7f97bf9401bcb849f2d"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only"] },
     { any_of: ["LGPL-3.0-only", "LGPL-2.1-only" => { with: "Qt-LGPL-exception-1.1" }] },
