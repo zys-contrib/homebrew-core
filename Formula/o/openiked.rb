@@ -1,9 +1,9 @@
 class Openiked < Formula
   desc "IKEv2 daemon - portable version of OpenBSD iked"
   homepage "https://openiked.org"
-  url "https://cdn.openbsd.org/pub/OpenBSD/OpenIKED/openiked-7.3.tar.gz"
-  mirror "https://mirror.edgecast.com/pub/OpenBSD/OpenIKED/openiked-7.3.tar.gz"
-  sha256 "9a04d513a81f9d5a873a0bd9992067a55796812674c9a96791b3adc6a63e6347"
+  url "https://cdn.openbsd.org/pub/OpenBSD/OpenIKED/openiked-7.4.tar.gz"
+  mirror "https://mirror.edgecast.com/pub/OpenBSD/OpenIKED/openiked-7.4.tar.gz"
+  sha256 "19b72b48080240c3eff585f5cbcf6aa7b5734192ad8bc6677ae64a455074358a"
   license "ISC"
 
   livecheck do
