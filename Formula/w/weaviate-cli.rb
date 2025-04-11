@@ -8,13 +8,13 @@ class WeaviateCli < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "8de747c4b91efbf8da6d4a5e30899ed861e0776c2caee9993c177183eb2908f3"
-    sha256 cellar: :any,                 arm64_sonoma:  "b94bf95a44913f19fdab8f7f2dbbcbff5c93dbdb35ab27ce9754593bbdab6639"
-    sha256 cellar: :any,                 arm64_ventura: "5ce9ce0e4fef8df462ab879b4ba3aebf787882221597ac57b44ad6d7a04b2d8a"
-    sha256 cellar: :any,                 sonoma:        "c10aa5f088506ac841ffdda612c1d4f316bb44dc428c7d241185b7fb2169157a"
-    sha256 cellar: :any,                 ventura:       "cdaf7f41821df8329ccbbdeafbcf2b9246d9f180563ff8b24c6baecaaaae097f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "76fbe0a08a1f4277a06c0c2300712ab2ad633e60011c36c230e61709a29f9b6d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7182969154fc7c76e16404bb83c2e60970108035b99edc3c79f53b104caa250"
+    sha256 cellar: :any,                 arm64_sequoia: "dcc61acba3735b094231cb457c2838e15c08898c414d6d853ba24910f720c92b"
+    sha256 cellar: :any,                 arm64_sonoma:  "0023bfad2bf31d0c3ffc6ba176a54eaee2a4022d53ba7a9db53388970fbe6423"
+    sha256 cellar: :any,                 arm64_ventura: "5c4f58a0bdc8456861813489c790d891094c25bb63f6807356a5fcd838fe7d73"
+    sha256 cellar: :any,                 sonoma:        "3388050d84ddeb47164106ac1ea168463fea5fefaec27bf268bf18fadfbb61c3"
+    sha256 cellar: :any,                 ventura:       "cc3bedd6c1319bb52551bd2845aa76413f84b9d74ae0cdace44bf9e4bbdee026"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "25a3bf940304ad931d5f16c87be9d8266900c8cb83730b6000af8aa60fe8c9f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c94e41404b4dce9f50bc5bd4dc1654a59609feaee1f046e92241363d9a160bc8"
   end
 
   depends_on "ninja" => :build
