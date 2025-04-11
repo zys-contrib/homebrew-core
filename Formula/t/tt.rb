@@ -11,6 +11,7 @@ class Tt < Formula
     sha256 cellar: :any,                 arm64_ventura: "169dca6aefecde284f27e645231ab4fe62a8e5a48bc62b833cfb346f58187d9f"
     sha256                               sonoma:        "c3768fa71b0bf4ad22ea1c68e5c68f365ef52ed4e222cd679b6fac6a6be7556c"
     sha256                               ventura:       "1ad0c8088eb44e175cf81b0b809cf81145eb6b735ac5b231baee7341f9ab2c06"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "02ea887a9ddd1690f43052cef92c96b55d535742a0fd38c2909a688978cf6bf3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0132d50e67199831ffa3ebfca8319db3e0d2737f7e37bf597b11ea2c0967d0d2"
   end
 
