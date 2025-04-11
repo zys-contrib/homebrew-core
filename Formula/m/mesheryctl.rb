@@ -13,6 +13,7 @@ class Mesheryctl < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5a3945c5dfa718ea9cc0d12afa16beb609a5b74e584ff647300efbea593e9e40"
     sha256 cellar: :any_skip_relocation, sonoma:        "224f416e40d4a8e084eb237e9ed07fe3991bd0fcb8b442bc2b264c00368cd34e"
     sha256 cellar: :any_skip_relocation, ventura:       "224f416e40d4a8e084eb237e9ed07fe3991bd0fcb8b442bc2b264c00368cd34e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e2e8ec50186dde8367adb7cdfb2279736a54516fbf2e70e9a0d92144a610ba03"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "54c788cb0c7f7a2608ca98556497bfe333751a159467ad429b46616a58d5d1fc"
   end
 
