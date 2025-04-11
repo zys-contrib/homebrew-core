@@ -442,6 +442,7 @@ ccache
 ccls
 cctz
 cdebug
+cdecl
 cdk
 cdk8s
 cdktf

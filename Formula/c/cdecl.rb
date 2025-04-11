@@ -1,8 +1,8 @@
 class Cdecl < Formula
   desc "Turn English phrases to C or C++ declarations"
   homepage "https://github.com/paul-j-lucas/cdecl"
-  url "https://github.com/paul-j-lucas/cdecl/releases/download/cdecl-18.4.1/cdecl-18.4.1.tar.gz"
-  sha256 "5b7899fb44b30e67a0375223368a7b342c2047ffa9f268b90f7c6eaa9db2a474"
+  url "https://github.com/paul-j-lucas/cdecl/releases/download/cdecl-18.4.2/cdecl-18.4.2.tar.gz"
+  sha256 "7ab5a9241734153d7d81b29787914b3120d23fdfa5c3a2e2fdde26208a35435c"
   license all_of: [
     "GPL-3.0-or-later",
     "LGPL-2.1-or-later", # gnulib
