@@ -3719,6 +3719,7 @@ vercel-cli
 verilator
 verovio
 versitygw
+veryfasttree
 vet
 vexctl
 vfkit
