@@ -25,17 +25,13 @@ class W3m < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "df1fa11c7bee916e98b1dee448030ab78a7ce622c1a3a1a3ef7937a5898ea3f5"
-    sha256 arm64_sonoma:   "efae67d8d635d8f05a27fc9ae4e75156bffa465828735428e3dfb6d1a117b6eb"
-    sha256 arm64_ventura:  "fc4a77c30411f61b24a69be7ac380d6f79d3e9617c47f18f9c26e9c7a5ae11ef"
-    sha256 arm64_monterey: "f987092472928a6f55bc65930ca911de4415f312cf9c9b8f3662baf4058b4b05"
-    sha256 arm64_big_sur:  "d777d1b1193a49785df6150d908e38db8b2de415432f4acc55a635be32e69f64"
-    sha256 sonoma:         "6a3667e99c6b8a5a0febbbe8567ed3a6a712d8421e34176cc2a51c7e20019fd0"
-    sha256 ventura:        "9403514e48aabc3e5ed768524465eafa7bb5b5f1f67f3a128fe98a1fbae4aaa8"
-    sha256 monterey:       "9e6a1fc7660ebab1bce04646cc625d107b43e0a5cba52c5b1f9868f56b4e4825"
-    sha256 big_sur:        "3e32fcd2f971f88a8dcac24702147ff5847afb329d9c54cadd40e9c102bcb3c5"
-    sha256 arm64_linux:    "8153cdf87230c974c302e3c1c8de717bbc95344be3e28fd8293f6a680b95256a"
-    sha256 x86_64_linux:   "1835ec7faed90c796e7290a5b6271dda1ac6b2bdb15ce577367852ad92681c39"
+    sha256 arm64_sequoia: "d43c6ea193e92ae3a7ff8c68d77dfa6b69b28695bf0ef4009c07a8b55049bbb0"
+    sha256 arm64_sonoma:  "7ebcfdfd3b2424232e38d4bb2df40b78aa189a5f9f59d7d95479a5c9b5504962"
+    sha256 arm64_ventura: "76450cc0ba39c902c03f3262950fc6fbd71ab37487d8b739d3c39294e08f269f"
+    sha256 sonoma:        "b832f5eced22941c1c3f44520dd6bc6f656d861c27eb52a942b93723df23d0da"
+    sha256 ventura:       "b0a1d6e3855af50f3d32878d2889fa99f281985bec224b18ce42e48d55df89a1"
+    sha256 arm64_linux:   "bf66af8f63d1faba8adeccf8539174f8cf1e40834068a57745ef7f8916694079"
+    sha256 x86_64_linux:  "08f462b37359e85d7d9628d5bfce123da1f7e28c1811157b3d485cb6424fff39"
   end
 
   depends_on "pkgconf" => :build
