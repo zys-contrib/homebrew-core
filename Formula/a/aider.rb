@@ -3,8 +3,8 @@ class Aider < Formula
 
   desc "AI pair programming in your terminal"
   homepage "https://aider.chat/"
-  url "https://files.pythonhosted.org/packages/e4/ee/aa3cf3d2afee5813b7dd6a0eab1a301ef4d067ecdd74eda5c319b66274f4/aider_chat-0.81.1.tar.gz"
-  sha256 "91cfb8f47f0704d243c2411d4ceed35495829c135d33449786b02b6211bd7e21"
+  url "https://files.pythonhosted.org/packages/ec/6c/ee6e59994e3bfecf5ede29da4565ed5bd3e05f33caf18725ffc773ff9d6a/aider_chat-0.81.2.tar.gz"
+  sha256 "2c3d27e87298d47cb9c1b297ed94ee01589d4172770f8c18efd92cc96efa93a3"
   license "Apache-2.0"
   head "https://github.com/paul-gauthier/aider.git", branch: "main"
 
