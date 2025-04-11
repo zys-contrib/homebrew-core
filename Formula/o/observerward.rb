@@ -17,6 +17,7 @@ class Observerward < Formula
   depends_on "rust" => :build
 
   def install
+    rm ".cargo/config.toml" # disable `+crc-static`
     system "cargo", "install", *std_cargo_args(path: "observer_ward")
   end
 
