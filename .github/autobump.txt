@@ -3532,6 +3532,7 @@ texttest
 tf-profile
 tf-summarize
 tfautomv
+tfcmt
 tfel
 tfmigrate
 tfprovidercheck
