@@ -12,13 +12,13 @@ class Dwarfs < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "6d190eb05a5238f78e18d44b79a288dce203e2400576a3eee55ad158ee95ed61"
-    sha256                               arm64_sonoma:  "970d1532da80f9a322469a68f67acf213e70952ec931a07a2b27b301860229a6"
-    sha256                               arm64_ventura: "3b062819c96c68269e1c0a69c4d1e90e77c1fd3f1a0e062c1f14d22c5882d81f"
-    sha256                               sonoma:        "afbb6bdb0e45ab238dc09bf3936f9e7c681ea9fd7ed855d62164f4371da30e7c"
-    sha256                               ventura:       "55d0f251f1ff9524274bf859d3216314b10dd6b7c95d7fd3fffed8e4a7c1199b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "87e76e2380739f39783bcee4155f66397816c86c39ad3306e7db90fc90390fdb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "930ed1a29aede949abac2c076801233c26caaa4c0bd2fd68949d179e4f567f86"
+    sha256                               arm64_sequoia: "5d8340b81ec91fd5ab8dbf946888f648f69a953121aaf253d034ede8d14b8a2a"
+    sha256                               arm64_sonoma:  "ad993054cfa3453a81a22fe0be8cd3fc7cace876492ec0ebbb758385344c2568"
+    sha256                               arm64_ventura: "dc094e6fa48d8921b1ae771094435a7be9aa036d448f88ffbe089f808c871200"
+    sha256                               sonoma:        "bd02bb768e8ff8635b0a1de9bbba74065734cf6d8a54647541909eb9953278d7"
+    sha256                               ventura:       "9305dadadfb7e066fdb590eda24fdb8df6c132582faf284a3c0047f8218aeae3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "28c3f90e1eaab15435667dc66335a67877776daacaf51c03197e59d5468bfbc4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1f01fee75da3a3c4251e21ff93a1c317422af404a17e57206073eeb0ab01eba"
   end
 
   depends_on "cmake" => :build
