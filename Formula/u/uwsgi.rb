@@ -1,8 +1,8 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/24/c2/d58480aadc9a1f420dd96fc43cf0dcd8cb5ededb95cab53743529c23b6cd/uwsgi-2.0.28.tar.gz"
-  sha256 "79ca1891ef2df14508ab0471ee8c0eb94bd2d51d03f32f90c4bbe557ab1e99d0"
+  url "https://files.pythonhosted.org/packages/af/74/34f5411f1c1dc55cbcba3d817d1723b920484d2aeede4663bbaa5be7ee22/uwsgi-2.0.29.tar.gz"
+  sha256 "6bd150ae60d0d9947429ea7dc8e5f868de027e5eb38355fb613b9413732c432f"
   license "GPL-2.0-or-later"
   head "https://github.com/unbit/uwsgi.git", branch: "master"
 
@@ -99,11 +99,15 @@ class Uwsgi < Formula
     PYTHON
 
     port = free_port
-
-    pid = fork do
-      exec "#{bin}/uwsgi --http-socket 127.0.0.1:#{port} --protocol=http --plugin python3 -w helloworld"
-    end
+    args = %W[
+      --http-socket 127.0.0.1:#{port}
+      --protocol=http
+      --plugin python3
+      -w helloworld
+    ]
+    pid = spawn("#{bin}/uwsgi", *args)
     sleep 4
+    sleep 6 if Hardware::CPU.intel?
 
     begin
       assert_match "Hello World", shell_output("curl localhost:#{port}")
