@@ -3,8 +3,8 @@ class LizardAnalyzer < Formula
 
   desc "Extensible Cyclomatic Complexity Analyzer"
   homepage "https://github.com/terryyin/lizard"
-  url "https://files.pythonhosted.org/packages/22/8c/f03b9ff77286303412a8b29dcf59f98c7e6be6d36a030743484c7f5d4935/lizard-1.17.23.tar.gz"
-  sha256 "78083d27c7d92bcb493f52f5c268061d3d4c9fba98bcab6282b99825b609d1b1"
+  url "https://files.pythonhosted.org/packages/d7/3f/fcdcd909b5fe2a2a75ed3ed7816acde0fee5f07f3e2724ac346b0928816b/lizard-1.17.24.tar.gz"
+  sha256 "7a776ee52f374ca433160dda8e6999547f9c7686dbbfccefd013b1e311d94a85"
   license "MIT"
 
   bottle do
