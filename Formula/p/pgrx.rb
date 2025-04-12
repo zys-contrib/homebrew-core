@@ -1,8 +1,8 @@
 class Pgrx < Formula
   desc "Build Postgres Extensions with Rust"
   homepage "https://github.com/pgcentralfoundation/pgrx"
-  url "https://github.com/pgcentralfoundation/pgrx/archive/refs/tags/v0.13.1.tar.gz"
-  sha256 "4416fc78cf5758931d0fd220c8343d3a8255e98af81833e87234fe35f02df7a0"
+  url "https://github.com/pgcentralfoundation/pgrx/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "d45ff33c8ed1e3a589e1a80c3758ea5269fb5932af215074b0027a90d05b7b25"
   license "MIT"
 
   bottle do
