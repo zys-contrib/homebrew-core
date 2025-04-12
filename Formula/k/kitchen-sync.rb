@@ -19,6 +19,7 @@ class KitchenSync < Formula
     sha256 cellar: :any,                 arm64_ventura: "2f96d60670814741428174b3b3459b52919437a27b0d2e6dd5649454921a98a6"
     sha256 cellar: :any,                 sonoma:        "dfcac11bf0d2ec89bf2674a869f4a97b260de93ab0d5b6c471b0fb971f11d37d"
     sha256 cellar: :any,                 ventura:       "cf4732bbdb5d936d9025af607d8282362d0db5325efb206ec37c4e307597fa5e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "54c90d739d37d7ac426fe208670030ea76ff64cfacfad8392e2d64dadbac716b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c0d7d9619e53a5f92ae9f77ce8998887682e7cbd89fc61f32665bbceb0699e13"
   end
 
