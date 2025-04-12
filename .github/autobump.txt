@@ -2376,6 +2376,7 @@ mycorrhiza
 mydumper
 mypy
 mysql-connector-c++
+mysql-search-replace
 mysqltuner
 n
 naabu
