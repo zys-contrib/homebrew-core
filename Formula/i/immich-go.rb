@@ -1,8 +1,8 @@
 class ImmichGo < Formula
   desc "Alternative to the official immich-CLI command written in Go"
   homepage "https://github.com/simulot/immich-go"
-  url "https://github.com/simulot/immich-go/archive/refs/tags/v0.25.2.tar.gz"
-  sha256 "b8a968fa5e1c1217f77b825bb4e9548adaf33e1682c052576a681a8bc11995b7"
+  url "https://github.com/simulot/immich-go/archive/refs/tags/v0.25.3.tar.gz"
+  sha256 "84c185ee719b5dc173e914c5f4bc5549f4787dc92470bf5fe16225f1eb9ef5d0"
   license "AGPL-3.0-only"
   head "https://github.com/simulot/immich-go.git", branch: "main"
 
