@@ -2577,6 +2577,7 @@ openfortivpn
 openfpgaloader
 openfst
 openh264
+openiked
 openimageio
 openiothub-server
 openj9
