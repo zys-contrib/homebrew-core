@@ -1,8 +1,8 @@
 class Tailspin < Formula
   desc "Log file highlighter"
   homepage "https://github.com/bensadeh/tailspin"
-  url "https://github.com/bensadeh/tailspin/archive/refs/tags/5.2.0.tar.gz"
-  sha256 "46a6238ff811a0114e01ba5b7ab6bafe2e18a53d616470dc1154609e4e32376b"
+  url "https://github.com/bensadeh/tailspin/archive/refs/tags/5.2.1.tar.gz"
+  sha256 "c74823ad1f63017001db6f891f8d4c37b50cbbcad8be61634a67bb9ac7d74ad7"
   license "MIT"
   head "https://github.com/bensadeh/tailspin.git", branch: "main"
 
@@ -18,11 +18,17 @@ class Tailspin < Formula
 
   depends_on "rust" => :build
 
+  # Gracefully handle reading from file over stdin
+  patch do
+    url "https://github.com/bensadeh/tailspin/commit/36e9866c9ad9fa2e8bd4c966e1517c3c64a1282e.patch?full_index=1"
+    sha256 "cd3ef1980c1380ee1b214ab025d1fe23b38ed298aade96eaa2c83a617116265d"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
 
     bash_completion.install "completions/tspin.bash" => "tspin"
-    fish_completion.install "completions/tspin.fish" => "tspin"
+    fish_completion.install "completions/tspin.fish"
     zsh_completion.install "completions/tspin.zsh" => "_tspin"
     man1.install "man/tspin.1"
   end
@@ -31,6 +37,6 @@ class Tailspin < Formula
     assert_match version.to_s, shell_output("#{bin}/tspin --version")
 
     (testpath/"test.log").write("test\n")
-    shell_output("#{bin}/tspin test.log")
+    system bin/"tspin", "test.log"
   end
 end
