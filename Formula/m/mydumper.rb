@@ -1,9 +1,10 @@
 class Mydumper < Formula
-  desc "How MySQL DBA & support engineer would imagine 'mysqldump' ;-)"
-  homepage "https://launchpad.net/mydumper"
-  url "https://github.com/mydumper/mydumper/archive/refs/tags/v0.18.1-1.tar.gz"
-  sha256 "db3d3db79880b59556275ef435bbf6ed2f3b90b1fd4ec70abd7f3907705f8b31"
+  desc "MySQL logical backup tool"
+  homepage "https://github.com/mydumper/mydumper"
+  url "https://github.com/mydumper/mydumper/archive/refs/tags/v0.19.1-1.tar.gz"
+  sha256 "5431a91befdb767f7620242da45673f699164f7590599b091f023f394802899c"
   license "GPL-3.0-or-later"
+  head "https://github.com/mydumper/mydumper.git", branch: "master"
 
   livecheck do
     url :stable
@@ -22,19 +23,25 @@ class Mydumper < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pcre" => :build # still needs pcre.h
   depends_on "pkgconf" => :build
   depends_on "sphinx-doc" => :build
   depends_on "glib"
   depends_on "mariadb-connector-c"
   depends_on "pcre2"
 
+  on_macos do
+    depends_on "openssl@3"
+  end
+
   def install
     # Avoid installing config into /etc
     inreplace "CMakeLists.txt", "/etc", etc
 
     # Override location of mysql-client
-    args = ["-DMYSQL_CONFIG_PREFER_PATH=#{Formula["mariadb-connector-c"].opt_bin}"]
+    args = %W[
+      -DMYSQL_CONFIG_PREFER_PATH=#{Formula["mariadb-connector-c"].opt_bin}
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+    ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
