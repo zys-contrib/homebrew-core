@@ -1,6 +1,7 @@
 [
   "abseil",
   "aom",
+  "awscli",
   "bitcoin",
   "blis",
   "botan",
