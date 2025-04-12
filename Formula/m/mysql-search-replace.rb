@@ -10,7 +10,7 @@ class MysqlSearchReplace < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "08b03d69eae7a4b2f89ead89f79ac09cd0bd093da29e0255329c308fd559ff43"
+    sha256 cellar: :any_skip_relocation, all: "904da213f1aa68f0c4c8b0c3fe00b1d05d0a1f192413b317ccec0c05d1714b14"
   end
 
   depends_on "php"
