@@ -1,19 +1,19 @@
 class Tailspin < Formula
   desc "Log file highlighter"
   homepage "https://github.com/bensadeh/tailspin"
-  url "https://github.com/bensadeh/tailspin/archive/refs/tags/5.1.0.tar.gz"
-  sha256 "24bdd0e3d44fec2f2891c6105767806bb0be92a54cc1459ae48c68c0d3a6aa17"
+  url "https://github.com/bensadeh/tailspin/archive/refs/tags/5.2.0.tar.gz"
+  sha256 "46a6238ff811a0114e01ba5b7ab6bafe2e18a53d616470dc1154609e4e32376b"
   license "MIT"
   head "https://github.com/bensadeh/tailspin.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c85395454cf8eba203893c94d863c3467afa45175a383a355cf5413c6548a5e6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "361e8ba97a5bab4b4d3e485c381c8621f84339979c5a9d6bfc47160e4153ff15"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1864a6e47c4bcb1d84a9e35bc8e7b173f5f437ce1e576897b8bfc61c4fcb0316"
-    sha256 cellar: :any_skip_relocation, sonoma:        "db2cb9f51a1c24055ff9f8e5d3bc522d83fc56d0a1b28bd5e534d005b0cb0950"
-    sha256 cellar: :any_skip_relocation, ventura:       "d50ea20bede326abd4359fb3a2032a65910b6bf92bb1d313cef9ca112d49ab21"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3a2d071e4d85dc929916cf0ff537585e7cb40d01c95a3bbda60e2e9053d5b16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d97dad3edf90b1984b3f550ba70a3cfe5c0489c4ff18fd12fca9d9f916283b35"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e8c2516dc0cf5929e0caea1101c37a7ac430444205ec9989373b7be5c2756487"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3b642db9f8c65574f61dbb93b486f2241a2ae6e24f2ceae5dccb3b8245e0f529"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "087a99a2693a0e4b0b0dfa8a49c15700157efe58a3d5893d87ed3edb38197209"
+    sha256 cellar: :any_skip_relocation, sonoma:        "636dc10348f30fa8c36f7cb55f4c323f282e3dcc04fbfa91fbbc6284a56f097e"
+    sha256 cellar: :any_skip_relocation, ventura:       "f6e7e9ebd402904edae1e099356d6c9ab79ef7a7842aec03d86eb31ba9bf4789"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a3952ed3673a9c6d9c3f9915fb1f6499d388a6c8a35b17e37d58532d840c3ffa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97b2d8260fb79ab1a4efc05265fa2fb002c32500bb546ac07b99188d876ccc9e"
   end
 
   depends_on "rust" => :build
@@ -28,9 +28,9 @@ class Tailspin < Formula
   end
 
   test do
-    (testpath/"test.log").write("test")
-    shell_output("#{bin}/tspin test.log")
-
     assert_match version.to_s, shell_output("#{bin}/tspin --version")
+
+    (testpath/"test.log").write("test\n")
+    shell_output("#{bin}/tspin test.log")
   end
 end
