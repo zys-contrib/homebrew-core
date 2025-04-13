@@ -7,12 +7,12 @@ class Dockerfmt < Formula
   head "https://github.com/reteps/dockerfmt.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "abc4a8b01ec1aa7184f18519328a66323798bf2bfaaedab7e93779d70b0240f4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "abc4a8b01ec1aa7184f18519328a66323798bf2bfaaedab7e93779d70b0240f4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "abc4a8b01ec1aa7184f18519328a66323798bf2bfaaedab7e93779d70b0240f4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "474dcee2aa0f1d14f4d7625e21d466fc83e3189896b921e2ae82bf1a2b63fc5c"
-    sha256 cellar: :any_skip_relocation, ventura:       "474dcee2aa0f1d14f4d7625e21d466fc83e3189896b921e2ae82bf1a2b63fc5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13a25fc5bca929319e034c927fa20246284c266e1e74ab3adc7ead9521a565a8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "817dd9b6ee04239bed351847c818e3b03ad416de6f92c382b2912946adf6dad6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "817dd9b6ee04239bed351847c818e3b03ad416de6f92c382b2912946adf6dad6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "817dd9b6ee04239bed351847c818e3b03ad416de6f92c382b2912946adf6dad6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2fa53942ecbce05e5cadfbe91181a9a59821e289532aa4c16fc7586ad91815e4"
+    sha256 cellar: :any_skip_relocation, ventura:       "2fa53942ecbce05e5cadfbe91181a9a59821e289532aa4c16fc7586ad91815e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3eac7455c0c547cf141b7911cc85ee6a3b92b2a54bba7ab4429d72dfccf2aed"
   end
 
   depends_on "go" => :build
