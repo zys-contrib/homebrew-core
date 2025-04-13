@@ -28,6 +28,7 @@ class Karchive < Formula
   depends_on "doxygen" => :build
   depends_on "extra-cmake-modules" => [:build, :test]
   depends_on "pkgconf" => :build
+  depends_on "openssl@3"
   depends_on "qt"
   depends_on "xz"
   depends_on "zstd"
