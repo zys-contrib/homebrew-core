@@ -2008,6 +2008,7 @@ libseccomp
 libsecret
 libserialport
 libshumate
+libsidplayfp
 libsixel
 libslirp
 libsm
