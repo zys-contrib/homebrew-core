@@ -7,13 +7,13 @@ class Tailspin < Formula
   head "https://github.com/bensadeh/tailspin.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e8c2516dc0cf5929e0caea1101c37a7ac430444205ec9989373b7be5c2756487"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3b642db9f8c65574f61dbb93b486f2241a2ae6e24f2ceae5dccb3b8245e0f529"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "087a99a2693a0e4b0b0dfa8a49c15700157efe58a3d5893d87ed3edb38197209"
-    sha256 cellar: :any_skip_relocation, sonoma:        "636dc10348f30fa8c36f7cb55f4c323f282e3dcc04fbfa91fbbc6284a56f097e"
-    sha256 cellar: :any_skip_relocation, ventura:       "f6e7e9ebd402904edae1e099356d6c9ab79ef7a7842aec03d86eb31ba9bf4789"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a3952ed3673a9c6d9c3f9915fb1f6499d388a6c8a35b17e37d58532d840c3ffa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97b2d8260fb79ab1a4efc05265fa2fb002c32500bb546ac07b99188d876ccc9e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8718e8706ef3ce73e5f41b77017456d99491552348218ceae526326c7478e046"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b0d039e5b379737920ed7b2ebee73ad36a957f36344abb82966598e4b0c776df"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "394db555cbbd6067a4c1fbb50ebcca9dc4a0fa5a7ea59985e2aa2eb8dccaad04"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fdc5e88f760f4787808e433554549a1e948cd8688a8bac9cc9144c8c408d5206"
+    sha256 cellar: :any_skip_relocation, ventura:       "2f2550234cd77c76d5e046b408245e2f38fdf9d11d38746286bef88727825dd3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "efc151614bb5a093b288bf28db8e1dfc92b0b1d2865ae0dfcf752543839123ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "040b222699a63e66c89a41f6df7ec16c2e561b4ad404729787194ddea0d0d282"
   end
 
   depends_on "rust" => :build
