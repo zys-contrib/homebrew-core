@@ -3,8 +3,8 @@ class Dnsrobocert < Formula
 
   desc "Manage Let's Encrypt SSL certificates based on DNS challenges"
   homepage "https://dnsrobocert.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/cc/67/3f45a9b4cd2102c93d011a4d4be0337a958b4f8e1981977c0ac929b56d4e/dnsrobocert-3.26.0.tar.gz"
-  sha256 "1422e04620706dc94fd96c0062ce5f41b2ecbbb0556dda14cf03885bf72c13d8"
+  url "https://files.pythonhosted.org/packages/5f/19/e8d64f9edb462c060c3fc95cae1410d7263fe8d66f80ff4a0253d7201758/dnsrobocert-3.26.1.tar.gz"
+  sha256 "b4f49ce4ff6db7e845e46597e99d9d464d1ddb15bea3e9dee729643a0092a911"
   license "MIT"
   head "https://github.com/adferrand/dnsrobocert.git", branch: "master"
 
@@ -288,8 +288,8 @@ class Dnsrobocert < Formula
   end
 
   resource "tencentcloud-sdk-python" do
-    url "https://files.pythonhosted.org/packages/89/d0/0553e1a1a65a0b10d2ab229a74a99bba08b53f34d410bb67f6982c4f9077/tencentcloud-sdk-python-3.0.1358.tar.gz"
-    sha256 "74419662a07b9380f75a066fe374e841fb2980f9675f6500cb6cd8056e4ffe1a"
+    url "https://files.pythonhosted.org/packages/49/e9/bd57d8403befa9f6da0899f0d53646ee2084f8632f2a1c1b145073c734b7/tencentcloud-sdk-python-3.0.1359.tar.gz"
+    sha256 "419d788ec413bc9a7c0711912787f22d9dd52033a359319a54a2d00d7ab47b9b"
   end
 
   resource "tldextract" do
