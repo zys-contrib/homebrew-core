@@ -29,7 +29,7 @@ class Asak < Formula
     system "cargo", "install", *std_cargo_args
 
     bash_completion.install "target/completions/asak.bash" => "asak"
-    fish_completion.install "target/completions/asak.fish" => "asak"
+    fish_completion.install "target/completions/asak.fish"
     zsh_completion.install "target/completions/_asak" => "_asak"
     man1.install "target/man/asak.1"
   end
