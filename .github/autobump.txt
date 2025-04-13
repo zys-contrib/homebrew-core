@@ -2376,6 +2376,7 @@ mycorrhiza
 mydumper
 mypy
 mysql-connector-c++
+mysql-search-replace
 mysqltuner
 n
 naabu
@@ -3203,6 +3204,7 @@ sesh
 sextractor
 sf
 sfcgal
+sfk
 sfml
 sh4d0wup
 shaderc
@@ -3412,6 +3414,7 @@ subfinder
 subliminal
 subnetcalc
 subversion
+sui
 suil
 suite-sparse
 sundials
