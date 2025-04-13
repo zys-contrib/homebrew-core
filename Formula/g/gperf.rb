@@ -1,9 +1,9 @@
 class Gperf < Formula
   desc "Perfect hash function generator"
   homepage "https://www.gnu.org/software/gperf/"
-  url "https://ftp.gnu.org/gnu/gperf/gperf-3.2.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gperf/gperf-3.2.tar.gz"
-  sha256 "e0ddadebb396906a3e3e4cac2f697c8d6ab92dffa5d365a5bc23c7d41d30ef62"
+  url "https://ftp.gnu.org/gnu/gperf/gperf-3.2.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gperf/gperf-3.2.1.tar.gz"
+  sha256 "ed5ad317858e0a9badbbada70df40194002e16e8834ac24491307c88f96f9702"
   license "GPL-3.0-or-later"
 
   bottle do
