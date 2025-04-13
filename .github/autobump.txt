@@ -2106,6 +2106,7 @@ linux-headers@5.15
 linux-pam
 liqoctl
 liquid-dsp
+liquidctl
 liquidprompt
 lit
 litecli
