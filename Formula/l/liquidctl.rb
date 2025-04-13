@@ -9,13 +9,13 @@ class Liquidctl < Formula
   head "https://github.com/liquidctl/liquidctl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a3f5fe7aa7882e86492bd878ee846acbbfd4bd4d4c1309f7ac57416f434ac829"
-    sha256 cellar: :any,                 arm64_sonoma:  "a6a8e6694b8615e1b2b38c9156188ff882f53d4d485faec6248581546ed859d6"
-    sha256 cellar: :any,                 arm64_ventura: "49576ad8d9c9de8468e5f4ea799e6a5fef805e6f2f8e8329e9e6610ad3a7976b"
-    sha256 cellar: :any,                 sonoma:        "f4663a574207d29d9572596f1e00752227f7c29145429eacfa6c4033975f6610"
-    sha256 cellar: :any,                 ventura:       "533cb471eb11fdb4b83e364a53f0d3fe0a344c079a208938143b77058fa62d23"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c524334dfc78d01f3f7a8d53089ea784e4db3472d13cac8d940741f7e015e19"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f1dd3a4be076e0773742b7daded5e8c16cb5c86b1efeb0ee29b75d67b8397cf"
+    sha256 cellar: :any,                 arm64_sequoia: "d510764a83983ce82305ca97ae0d5b7937829925bd64bb994be24bf7f0f0136c"
+    sha256 cellar: :any,                 arm64_sonoma:  "c80266cf95b59a392b3ba9d6eaefd1c54c7e26781e9f644080bf488ca334dfb4"
+    sha256 cellar: :any,                 arm64_ventura: "2df40c607570625a1e9df040d40d9591508367f43bd0d505059a79b47b6faf81"
+    sha256 cellar: :any,                 sonoma:        "f3aea3bc6615019e4e161c517ec821d8172a16306acc388b4bcf8e1e07ab893d"
+    sha256 cellar: :any,                 ventura:       "e548f1e3d0a29346377db2ce72f320ae08905ba1fe14d339d0ccf2dcdc9e346a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "07653b2aedc53c8f7d76a79ab2fb11f13dcd80205e58e76fb510fddc45893670"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e6bfb0f85eabaada1792f71d1a2852a777ffb9ba95da8f6cafaa1178e6ca0852"
   end
 
   depends_on "pkgconf" => :build
