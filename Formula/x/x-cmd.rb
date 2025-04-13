@@ -8,13 +8,13 @@ class XCmd < Formula
   head "https://github.com/x-cmd/x-cmd.git", branch: "X"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a9e9d45759eb975546409d87239bc4dc4481bfcf5ede5c671a41847d4e95179b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a9e9d45759eb975546409d87239bc4dc4481bfcf5ede5c671a41847d4e95179b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a9e9d45759eb975546409d87239bc4dc4481bfcf5ede5c671a41847d4e95179b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4412b5da947a0c7fdb8c2a29b931bbf6653a94d924c303532864d4649196673e"
-    sha256 cellar: :any_skip_relocation, ventura:       "4412b5da947a0c7fdb8c2a29b931bbf6653a94d924c303532864d4649196673e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a9e9d45759eb975546409d87239bc4dc4481bfcf5ede5c671a41847d4e95179b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9e9d45759eb975546409d87239bc4dc4481bfcf5ede5c671a41847d4e95179b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3cb0b1efc95f9cbf5a8f9c56f3872fd99dcfb15c6f36559ffeede268db2337e2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3cb0b1efc95f9cbf5a8f9c56f3872fd99dcfb15c6f36559ffeede268db2337e2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3cb0b1efc95f9cbf5a8f9c56f3872fd99dcfb15c6f36559ffeede268db2337e2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f8f827d60c24b936ac5eeb51fe7ae12b07f93ee16709a5ebc3133dbef7bdb4ee"
+    sha256 cellar: :any_skip_relocation, ventura:       "f8f827d60c24b936ac5eeb51fe7ae12b07f93ee16709a5ebc3133dbef7bdb4ee"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1341aa04b4102c35a4d9005d420546971d7d95e1cb0e874920378e0274f5aaa3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1341aa04b4102c35a4d9005d420546971d7d95e1cb0e874920378e0274f5aaa3"
   end
 
   def install
