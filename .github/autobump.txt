@@ -275,6 +275,7 @@ beanquery
 bear
 beautysh
 bed
+bedops
 bee
 behaviortree.cpp
 bench

@@ -1,8 +1,8 @@
 class Bedops < Formula
   desc "Set and statistical operations on genomic data of arbitrary scale"
   homepage "https://github.com/bedops/bedops"
-  url "https://github.com/bedops/bedops/archive/refs/tags/v2.4.41.tar.gz"
-  sha256 "3b868c820d59dd38372417efc31e9be3fbdca8cf0a6b39f13fb2b822607d6194"
+  url "https://github.com/bedops/bedops/archive/refs/tags/v2.4.42.tar.gz"
+  sha256 "9daa0c098e37490a07f84664d2c61ff8909689995cf7e1673d259ccd4f1c453c"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -25,8 +25,8 @@ class Bedops < Formula
 
   # Apply Debian patch to allow using system/brew libraries
   patch do
-    url "https://sources.debian.org/data/main/b/bedops/2.4.41%2Bdfsg-1/debian/patches/use_debian_libs"
-    sha256 "e9ec0c4603a6978af2eb2fc998091de855e397a456da240169140ad4dcbeae64"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/1d12e712a16527def49be17286f95fd501d00285/bedops/2.4.42-debian.patch"
+    sha256 "7d88db7624500521988d5260ec290578db74e85ad4b0cf0e1552e548691c3a21"
   end
 
   def install
