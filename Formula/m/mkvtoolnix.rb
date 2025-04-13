@@ -52,6 +52,8 @@ class Mkvtoolnix < Formula
     depends_on "gettext"
   end
 
+  conflicts_with cask: "mkvtoolnix"
+
   def install
     # Remove bundled libraries
     rm_r(buildpath.glob("lib/*") - buildpath.glob("lib/{avilib,librmff}*"))
