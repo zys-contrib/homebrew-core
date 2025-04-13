@@ -3413,6 +3413,7 @@ subfinder
 subliminal
 subnetcalc
 subversion
+sui
 suil
 suite-sparse
 sundials
