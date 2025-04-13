@@ -3204,6 +3204,7 @@ sesh
 sextractor
 sf
 sfcgal
+sfk
 sfml
 sh4d0wup
 shaderc
