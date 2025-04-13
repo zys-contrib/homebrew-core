@@ -3,8 +3,8 @@ class Dolphie < Formula
 
   desc "Feature-rich top tool for monitoring MySQL"
   homepage "https://github.com/charles-001/dolphie"
-  url "https://files.pythonhosted.org/packages/ec/32/2543150832412d24516c4f4651af8474ea3071f89679764ac9436b33a3e4/dolphie-6.8.3.tar.gz"
-  sha256 "8de2d6281ebc971cb8996312fde01df3f5407944804e9d2538d47573a2202bbd"
+  url "https://files.pythonhosted.org/packages/3a/aa/1a2b05994dffab3d9a0a47878779ae354c13bab3a3a3dddb17ee7540bb81/dolphie-6.9.1.tar.gz"
+  sha256 "79ccef87f8971f1a76176ab1ead85773f3a43f809605254be4ae61ba66066df5"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -68,8 +68,8 @@ class Dolphie < Formula
   end
 
   resource "orjson" do
-    url "https://files.pythonhosted.org/packages/ae/f9/5dea21763eeff8c1590076918a446ea3d6140743e0e36f58f369928ed0f4/orjson-3.10.15.tar.gz"
-    sha256 "05ca7fe452a2e9d8d9d706a2984c95b9c2ebc5db417ce0b7a49b91d50642a23e"
+    url "https://files.pythonhosted.org/packages/98/c7/03913cc4332174071950acf5b0735463e3f63760c80585ef369270c2b372/orjson-3.10.16.tar.gz"
+    sha256 "d2aaa5c495e11d17b9b93205f5fa196737ee3202f000aaebf028dc9a73750f10"
   end
 
   resource "packaging" do
@@ -123,13 +123,13 @@ class Dolphie < Formula
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/1f/b6/59b1de04bb4dca0f21ed7ba0b19309ed7f3f5de4396edf20cc2855e53085/textual-1.0.0.tar.gz"
-    sha256 "bec9fe63547c1c552569d1b75d309038b7d456c03f86dfa3706ddb099b151399"
+    url "https://files.pythonhosted.org/packages/dc/1f/df371f1455524a3d0079871e49e3850c82767904e9f4e2bdea6d30a866a7/textual-3.1.0.tar.gz"
+    sha256 "6bcab6581e9753d2a2043caf49f43c5818feb35f8049ed185bd38982bfb310ca"
   end
 
   resource "textual-autocomplete" do
-    url "https://files.pythonhosted.org/packages/98/43/50ff900a3a243c67154bfbc1e1b378bb35cfdfe69d7f5b219bf787f569c3/textual_autocomplete-4.0.2.tar.gz"
-    sha256 "ee11a48d49b06d0da6c4b4613c040c431417ebad4c7ca119d2e9472afd55911d"
+    url "https://files.pythonhosted.org/packages/7a/cf/9cf23ac193c70e7b0a6999dc9409650e9ab9960b1be167e7dda54f1028a8/textual_autocomplete-4.0.4.tar.gz"
+    sha256 "0969987b90a53c1f75753dfe3ad2c7ea0d974b5839dc2a00a2d332c000057871"
   end
 
   resource "tree-sitter" do
@@ -144,8 +144,8 @@ class Dolphie < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
-    sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
+    url "https://files.pythonhosted.org/packages/f6/37/23083fcd6e35492953e8d2aaaa68b860eb422b34627b13f2ce3eb6106061/typing_extensions-4.13.2.tar.gz"
+    sha256 "e6c81219bd689f51865d9e372991c540bda33a0379d5573cddb9a3a23f7caaef"
   end
 
   resource "uc-micro-py" do
@@ -154,8 +154,8 @@ class Dolphie < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz"
-    sha256 "f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"
+    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
+    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
   end
 
   resource "zstandard" do
