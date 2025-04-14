@@ -39,7 +39,12 @@ class Spades < Formula
   end
 
   def install
-    system "cmake", "-S", "src", "-B", "build", *std_cmake_args
+    system "cmake", "-S", "src", "-B", "build", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *std_cmake_args
+    # Build bundled zlib-ng with runtime detection
+    with_env(HOMEBREW_CCCFG: ENV["HOMEBREW_CCCFG"]) do
+      ENV.runtime_cpu_detection
+      system "cmake", "--build", "build", "--target", "zlibstatic"
+    end
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     rewrite_shebang detected_python_shebang, *bin.children
