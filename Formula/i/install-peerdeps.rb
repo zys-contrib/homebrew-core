@@ -1,8 +1,8 @@
 class InstallPeerdeps < Formula
   desc "CLI to automatically install peerDeps"
   homepage "https://github.com/nathanhleung/install-peerdeps"
-  url "https://registry.npmjs.org/install-peerdeps/-/install-peerdeps-3.0.6.tgz"
-  sha256 "b40952d6add99d566db6eb427b313054dc4edfe1c541a801a6bf49062f162451"
+  url "https://registry.npmjs.org/install-peerdeps/-/install-peerdeps-3.0.7.tgz"
+  sha256 "b161e9e3e497cd492e571393784232a9ac9e4518044cda909f7e1d09c4fb5ea7"
   license "MIT"
 
   bottle do
