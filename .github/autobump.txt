@@ -1581,6 +1581,7 @@ iniparser
 inko
 inlyne
 inspircd
+install-peerdeps
 instaloader
 instead
 interface99
