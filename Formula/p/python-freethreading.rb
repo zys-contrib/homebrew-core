@@ -10,14 +10,15 @@ class PythonFreethreading < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "fe9a952ea2bfb37e6f887519c4715bf2976811b59c1410a440d104fc1b1df67f"
-    sha256 arm64_sonoma:  "60101d14993ca6e6f8b1224009a8e02dfad4a8c760113e3cb6ad9ac9d6e02d19"
-    sha256 arm64_ventura: "85238571d2e786c8bbfb1c069a3f67c4320f43526fa1bbfcc4f1903246b6ad5d"
-    sha256 sequoia:       "e28d1b93f90e1e71ccef7e572e73556afdd9fa22fe2c23270cc7883a59c99017"
-    sha256 sonoma:        "6ae35ad58d8f68e2c12a7e392bb175714997ac8cccdb861158b48ad655411d34"
-    sha256 ventura:       "aa8ace19c0c2c652b1b051390417f27f8af0550aa1c97da350cb1a020ae701d4"
-    sha256 arm64_linux:   "e7ee55b706685a188c46f7b4c51fc8abc80102fd14321630fb4a9d53ef46b4bd"
-    sha256 x86_64_linux:  "906c8206b1960200ef8930a21b91a1bb9d6b92f130458c33acf4390d8ce253f8"
+    rebuild 1
+    sha256 arm64_sequoia: "780698a792348a25f93c7b284a922a8c70bcc2d45b2d48448ff8f930356c83a9"
+    sha256 arm64_sonoma:  "d5b4985f277da8b709d9fefb01db68d6dd9ce06d5cb4a79d188184f47877ca67"
+    sha256 arm64_ventura: "595d95dd44ff8977a90b93ba19e06d955bcc22d3bccd8167f37a45dcd348bc58"
+    sha256 sequoia:       "c2b278641312607921e8b492893c70792564497caa30ca6ca90f6ae69d5b093b"
+    sha256 sonoma:        "429c39c05aaa5c7e347938ae3a32fd46af6a953ecc9e830b185b19697596446e"
+    sha256 ventura:       "d5c3801396068e28ee0ce985a859c0536faf5086083ac0407eaf999ce5ed295f"
+    sha256 arm64_linux:   "325bf7a74398a202e6200dfb833a0023cd541eca5bb3ee30ba72e9dfee769bcb"
+    sha256 x86_64_linux:  "5b8957b64f45da4232da4a675f650447e609c2f61c3225568e6c40e190d3890b"
   end
 
   depends_on "pkgconf" => :build
