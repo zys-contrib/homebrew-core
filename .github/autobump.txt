@@ -3770,6 +3770,7 @@ vnstat
 vnu
 volk
 volta
+vorbis-tools
 votca
 vpn-slice
 vrc-get
