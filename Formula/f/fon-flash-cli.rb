@@ -16,6 +16,7 @@ class FonFlashCli < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "bea7e00d9364f56371c13a7f025d69322461ba39d2e9263c9b1a2ab0f78e8b00"
     sha256 cellar: :any_skip_relocation, monterey:       "614d3d86a8a73ed487ddd5991858a6c2719feda3b730d887e8842f14fbe0ddc4"
     sha256 cellar: :any_skip_relocation, big_sur:        "1ba579da3c78c940d52fd2811b976cc2f1908a5fda863adf0b9e78447eec6e25"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "b62ecc3ac4eb32167cb49010f68e32728a50ccf3a41857ddcf0030c06a8f1290"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0f4ec92c15b63f45030ffff6df6400adf06eab3417e7c938c2eb1b84f2084cf"
   end
 
