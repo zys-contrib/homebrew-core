@@ -8,13 +8,13 @@ class Weasyprint < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "64a8d8e7c8df0e78cd8e7de00af14b2de9316e43525474a20c488843f30b36e2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e66e567aaf3de16f289fea0835e43ee2266e57c89dd00e7e9a7ffee0c3339874"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2049c84ed6795c62d6c26a0450b63077fcecfd3bd4a250f1b81866f62d6b4cf0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "27557f500576bfc3f7ed67ec5e024a1631044b054eccb9b88fdee0e6edd789e9"
-    sha256 cellar: :any_skip_relocation, ventura:       "6e613821c9a3c1df2ab61308a243924bc63806771846faaa5e240978d3686406"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f1dddc8cd46ddd8febbbea3e13dc43ad277000bf0fd5ac9a94b48b41a62056cd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd8713b93d51c784ee9d7290641c416f6050616862f5409ffae5374db6786ef9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cb19a24a4ae05930d0e9569829598c313b81abc3c30330a488b2cf18c8c50e5f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "46eacde53c64bd14ddab0737f962a8254ed322a7825b08bbd9e6ddfab28099bb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "abc7ccfa638b28bbd7215c148252bfdb38d2344c36fbf417cc05b7114b169a55"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cc783f64a91be14e3ba8eb986f463c3a87204aff040ad2e438ff75f309afc94b"
+    sha256 cellar: :any_skip_relocation, ventura:       "4a2dda03c424995de22317715d54ab20dee50c2e5c0705c3125ee58383805557"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a9c4b5c226d70448bc68b2d4ff559a880ae710993604fca91091343abed92983"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5cf3e1a1d6c6bff570b8cec3e029951f06976f0dd0e803e5318c386efad2a427"
   end
 
   depends_on "pango"
