@@ -979,6 +979,7 @@ etcd-cpp-apiv3
 ethereum
 eva
 evans
+evil-helix
 evince
 evtx
 excalidraw-converter
