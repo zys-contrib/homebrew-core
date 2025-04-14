@@ -1,8 +1,8 @@
 class Minipro < Formula
   desc "Open controller for the MiniPRO TL866xx series of chip programmers"
   homepage "https://gitlab.com/DavidGriffith/minipro/"
-  url "https://gitlab.com/DavidGriffith/minipro/-/archive/0.7.2/minipro-0.7.2.tar.gz"
-  sha256 "77961e24da3fd14844768102893b291c55b379e49938b3665a9033622def8cbb"
+  url "https://gitlab.com/DavidGriffith/minipro/-/archive/0.7.3/minipro-0.7.3.tar.gz"
+  sha256 "49e7ddd448c12e1235631720bfbbe03dee3758ce717c16258a297112fb2a5eea"
   license "GPL-3.0-or-later"
   head "https://gitlab.com/DavidGriffith/minipro.git", branch: "master"
 
@@ -19,6 +19,8 @@ class Minipro < Formula
   depends_on "pkgconf" => :build
   depends_on "libusb"
   depends_on "srecord"
+
+  uses_from_macos "zlib"
 
   def install
     system "make", "CC=#{ENV.cc}", "PREFIX=#{prefix}"
