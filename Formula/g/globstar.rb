@@ -1,8 +1,8 @@
 class Globstar < Formula
   desc "Static analysis toolkit for writing and running code checkers"
   homepage "https://globstar.dev"
-  url "https://github.com/DeepSourceCorp/globstar/archive/refs/tags/v0.6.1.tar.gz"
-  sha256 "d2723d485d3a0baa4e707bfcebdd60960ae6a8928277acf5c0602aac1f050286"
+  url "https://github.com/DeepSourceCorp/globstar/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "a98edec5423394924288382650177549e4997647d145fafa8ade03c687cb39a0"
   license "MIT"
   head "https://github.com/DeepSourceCorp/globstar.git", branch: "master"
 
