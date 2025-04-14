@@ -786,6 +786,9 @@
   "ruff-lsp": {
     "exclude_packages": ["ruff"]
   },
+  "sacad": {
+    "exclude_packages": ["pillow"]
+  },
   "safety": {
     "exclude_packages": ["certifi", "cryptography"]
   },
