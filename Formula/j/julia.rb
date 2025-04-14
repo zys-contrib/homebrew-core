@@ -6,8 +6,8 @@ class Julia < Formula
   stable do
     # Use the `-full` tarball to avoid having to download during the build.
     # TODO: Check if we can unbundle `curl`: https://github.com/JuliaLang/Downloads.jl/issues/260
-    url "https://github.com/JuliaLang/julia/releases/download/v1.11.4/julia-1.11.4-full.tar.gz"
-    sha256 "c4936562d05128842d7fe2be30734333519ea94a54861b5d0bfe38d103e96b5b"
+    url "https://github.com/JuliaLang/julia/releases/download/v1.11.5/julia-1.11.5-full.tar.gz"
+    sha256 "147626db6b6887bfb6612cb6cd2a48d689806649fae34dc749fddc8375c2c625"
 
     depends_on "libgit2@1.8"
 
@@ -171,6 +171,8 @@ class Julia < Formula
     if build.head?
       args << "USE_SYSTEM_CURL=1"
     else
+      # Fix for cmake version 4 compatibility
+      inreplace "deps/tools/common.mk", "CMAKE_COMMON :=", "CMAKE_COMMON := -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
       args += ["USE_SYSTEM_CURL=0", "USE_SYSTEM_MBEDTLS=0"]
       # Julia 1.11 is incompatible with curl >= 8.10
       # Issue ref: https://github.com/JuliaLang/Downloads.jl/issues/260
