@@ -33,6 +33,9 @@ class Morse < Formula
 
     ENV["CC"] = "#{ENV.cc} -Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
+    # Build can fail if morse.1 and QSO.1 run simultaneously
+    ENV.deparallelize
+
     system "make", "all"
     bin.install %w[morse QSO]
     man1.install %w[morse.1 QSO.1]
