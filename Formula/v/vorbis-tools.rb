@@ -1,15 +1,14 @@
 class VorbisTools < Formula
   desc "Ogg Vorbis CODEC tools"
   homepage "https://github.com/xiph/vorbis-tools"
-  url "https://ftp.osuosl.org/pub/xiph/releases/vorbis/vorbis-tools-1.4.2.tar.gz"
-  mirror "https://mirror.csclub.uwaterloo.ca/xiph/releases/vorbis/vorbis-tools-1.4.2.tar.gz"
-  sha256 "db7774ec2bf2c939b139452183669be84fda5774d6400fc57fde37f77624f0b0"
+  url "https://ftp.osuosl.org/pub/xiph/releases/vorbis/vorbis-tools-1.4.3.tar.gz"
+  mirror "https://mirror.csclub.uwaterloo.ca/xiph/releases/vorbis/vorbis-tools-1.4.3.tar.gz"
+  sha256 "a1fe3ddc6777bdcebf6b797e7edfe0437954b24756ffcc8c6b816b63e0460dde"
   license all_of: [
     "LGPL-2.0-or-later", # intl/ (libintl)
     "GPL-2.0-or-later", # share/
     "GPL-2.0-only", # oggenc/, vorbiscomment/
   ]
-  revision 2
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/vorbis/?C=M&O=D"
@@ -38,9 +37,6 @@ class VorbisTools < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
-
-    # Fix mistaken recursive `.a` files.
-    patch :DATA
   end
 
   def install
@@ -63,18 +59,3 @@ class VorbisTools < Formula
     assert_match "20.625000 kb/s", output
   end
 end
-
-__END__
-diff --git a/share/Makefile.am b/share/Makefile.am
-index 1011f1d..bd69a67 100644
---- a/share/Makefile.am
-+++ b/share/Makefile.am
-@@ -11,7 +11,7 @@ libgetopt_a_SOURCES = getopt.c getopt1.c
- libbase64_a_SOURCES = base64.c
- 
- libpicture_a_SOURCES = picture.c
--libpicture_a_LIBADD = libbase64.a
-+libpicture_a_LIBADD = base64.o
- 
- EXTRA_DIST = charmaps.h makemap.c charset_test.c charsetmap.h
- 
