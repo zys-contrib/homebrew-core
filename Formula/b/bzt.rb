@@ -3,8 +3,8 @@ class Bzt < Formula
 
   desc "BlazeMeter Taurus"
   homepage "https://gettaurus.org/"
-  url "https://files.pythonhosted.org/packages/23/0d/2b00c42ced1b2497cbd29eca47cc457b277d119c1e93d76c8b29fec38bbf/bzt-1.16.39.tar.gz"
-  sha256 "e728997aed9bec3f4f26d82a7dc546e5e4f6ca8eae681e6c499c81681a3e07ce"
+  url "https://files.pythonhosted.org/packages/87/75/f2362e6e16f5a43b7db36efd018ba03e4fbdad89a0899983dbf09c243599/bzt-1.16.40.tar.gz"
+  sha256 "d178f4afabcc3ec3de2a7a6a46cbb0b6730b99e092a9af4e3a3b38fab661a744"
   license "Apache-2.0"
   head "https://github.com/Blazemeter/taurus.git", branch: "master"
 
@@ -142,8 +142,8 @@ class Bzt < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/fa/2d/6e0d6771cadd5ad14d13193cc8326dc0b341cc1659c306cbfce7a5058fff/multidict-6.3.2.tar.gz"
-    sha256 "c1035eea471f759fa853dd6e76aaa1e389f93b3e1403093fa0fd3ab4db490678"
+    url "https://files.pythonhosted.org/packages/da/2c/e367dfb4c6538614a0c9453e510d75d66099edf1c4e69da1b5ce691a1931/multidict-6.4.3.tar.gz"
+    sha256 "3ada0b058c9f213c5f95ba301f922d402ac234f1111a7d8fd70f1b99f3c281ec"
   end
 
   resource "multiprocess" do
@@ -177,13 +177,13 @@ class Bzt < Formula
   end
 
   resource "python-engineio" do
-    url "https://files.pythonhosted.org/packages/52/e0/a9e0fe427ce7f1b7dbf9531fa00ffe4b557c4a7bc8e71891c115af123170/python_engineio-4.11.2.tar.gz"
-    sha256 "145bb0daceb904b4bb2d3eb2d93f7dbb7bb87a6a0c4f20a94cc8654dec977129"
+    url "https://files.pythonhosted.org/packages/f7/e1/eee1129544b7f78fa2afa9fa0fce153cdcb21015b9b331d1b8adf90f45cb/python_engineio-4.12.0.tar.gz"
+    sha256 "f42a36a868d7063aa10ddccf6bd6117a169b6bd00d7ca53999772093b62014f9"
   end
 
   resource "python-socketio" do
-    url "https://files.pythonhosted.org/packages/ce/d0/40ed38076e8aee94785d546d3e3a1cae393da5806a8530be877187e2875f/python_socketio-5.12.1.tar.gz"
-    sha256 "0299ff1f470b676c09c1bfab1dead25405077d227b2c13cf217a34dadc68ba9c"
+    url "https://files.pythonhosted.org/packages/21/1a/396d50ccf06ee539fa758ce5623b59a9cb27637fc4b2dc07ed08bf495e77/python_socketio-5.13.0.tar.gz"
+    sha256 "ac4e19a0302ae812e23b712ec8b6427ca0521f7c582d6abb096e36e24a263029"
   end
 
   resource "pytz" do
