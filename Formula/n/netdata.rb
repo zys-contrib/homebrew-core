@@ -1,8 +1,8 @@
 class Netdata < Formula
   desc "Diagnose infrastructure problems with metrics, visualizations & alarms"
   homepage "https://www.netdata.cloud/"
-  url "https://github.com/netdata/netdata/releases/download/v2.3.2/netdata-v2.3.2.tar.gz"
-  sha256 "ae0ff66a4f9ea44ef4e51fbb331040508f1c12c7f6311bff347fe139870e5dd4"
+  url "https://github.com/netdata/netdata/releases/download/v2.4.0/netdata-v2.4.0.tar.gz"
+  sha256 "3349c893cad070273ed78334b29fbd4d320044f352e55c0881eb59033143711a"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -24,6 +24,7 @@ class Netdata < Formula
   depends_on "go" => :build
   depends_on "pkgconf" => :build
   depends_on "abseil"
+  depends_on "dlib"
   depends_on "json-c"
   depends_on "libuv"
   depends_on "libyaml"
@@ -32,6 +33,7 @@ class Netdata < Formula
   depends_on "pcre2"
   depends_on "protobuf"
   depends_on "snappy"
+  depends_on "zstd"
 
   uses_from_macos "curl"
   uses_from_macos "zlib"
@@ -56,6 +58,10 @@ class Netdata < Formula
       s.gsub! %r{(\s"?(?:\$\{NETDATA_RUNTIME_PREFIX\}/)?)usr/}, "\\1"
       s.gsub! %r{(\s"?)(?:\$\{NETDATA_RUNTIME_PREFIX\}/)?etc/}, "\\1#{etc}/"
       s.gsub! %r{(\s"?)(?:\$\{NETDATA_RUNTIME_PREFIX\}/)?var/}, "\\1#{var}/"
+      # Fix not to use `fetchContent` for `dlib` library
+      # Issue ref: https://github.com/netdata/netdata/issues/20147
+      s.gsub! "netdata_bundle_dlib()", "find_package(dlib REQUIRED)"
+      s.gsub! "netdata_add_dlib_to_target(netdata)", ""
     end
 
     system "cmake", "-S", ".", "-B", "build",
