@@ -2,8 +2,8 @@ class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
   # TODO: Try removing `bazel@7` workaround whenever new release is available
-  url "https://github.com/bazelbuild/bazel/releases/download/8.1.1/bazel-8.1.1-dist.zip"
-  sha256 "4c9487a16f7841150092f07d93a6727d66f2c4133a617d739dca8ec83fb0099c"
+  url "https://github.com/bazelbuild/bazel/releases/download/8.2.0/bazel-8.2.0-dist.zip"
+  sha256 "859bcdc655c2612a092b75e412082a34e2f1e47b643806de39be3e49c3cdc3f5"
   license "Apache-2.0"
 
   livecheck do
@@ -31,8 +31,8 @@ class Bazel < Formula
     depends_on "bazel@7" => :build
 
     resource "bazel-src" do
-      url "https://github.com/bazelbuild/bazel/archive/refs/tags/8.1.1.tar.gz"
-      sha256 "73d7e1eca0d27a52633dfa73db456e981c5d04ef8ffaa9120a664e093e500880"
+      url "https://github.com/bazelbuild/bazel/archive/refs/tags/8.2.0.tar.gz"
+      sha256 "93afb85c2fc3aa9cedd57926a08c88a9b44c53916c732e43531a6f9c2a27e01a"
 
       livecheck do
         formula :parent
