@@ -12,6 +12,7 @@ class Octobuild < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e28de2bd21191ed3cc1bf3480da02c4e9176ec4991d58fc7eb61d7c0f83ebd80"
     sha256 cellar: :any_skip_relocation, sonoma:        "33612f8a07e682ca29a89d541c17420bcaede31cccc382bef86333eaa792e82e"
     sha256 cellar: :any_skip_relocation, ventura:       "daa1e485d69f56da61fa011c64fc6c02304ce76eb620bf57346fbafc02fb9410"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3e98eedd1407f8d025d8f0218b3519914e5fce1120adea89b14a3aa2ee6ba9e4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "300255c2f90b74d17ad4abe23ad79e3729e602a7f69d1a0b2bd3d68f2e96eec2"
   end
 
