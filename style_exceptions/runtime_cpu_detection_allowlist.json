@@ -9,6 +9,7 @@
   "coreutils",
   "cryptopp",
   "fftw",
+  "fio",
   "groestlcoin",
   "handbrake",
   "highway",
