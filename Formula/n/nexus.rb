@@ -1,8 +1,9 @@
 class Nexus < Formula
   desc "Repository manager for binary software components"
   homepage "https://www.sonatype.com/"
-  url "https://github.com/sonatype/nexus-public/archive/refs/tags/release-3.76.1-01.tar.gz"
-  sha256 "e2fe13994f4ffcc3e5389ea90e14a1dcc7af92ce37015a961f89bbf151d29c86"
+  url "https://github.com/sonatype/nexus-public.git",
+      tag:      "release-3.79.1-04",
+      revision: "f87adc0e74e44bc26366a851ca96d16922f6f175"
   license "EPL-1.0"
 
   # As of writing, upstream is publishing both v2 and v3 releases. The "latest"
@@ -55,11 +56,11 @@ class Nexus < Formula
     end
 
     system "mvn", "install", "-DskipTests", "-Dpublic"
-    system "unzip", "-o", "-d", "target", "assemblies/nexus-base-template/target/nexus-base-template-#{version}.zip"
 
-    rm(Dir["target/nexus-base-template-#{version}/bin/*.bat"])
-    rm_r("target/nexus-base-template-#{version}/bin/contrib")
-    libexec.install Dir["target/nexus-base-template-#{version}/*"]
+    assembly = "assemblies/nexus-repository-core/target/assembly"
+    rm(Dir["#{assembly}/bin/*.bat"])
+    libexec.install Dir["#{assembly}/*"]
+    chmod "+x", Dir["#{libexec}/bin/*"]
     (bin/"nexus").write_env_script libexec/"bin/nexus", java_env
   end
 
