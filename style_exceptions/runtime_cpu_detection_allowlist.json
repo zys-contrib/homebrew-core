@@ -32,6 +32,7 @@
   "spidermonkey",
   "svt-av1",
   "vc",
+  "wiredtiger",
   "x265",
   "xxhash",
   "zlib-ng-compat"
