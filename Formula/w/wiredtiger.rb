@@ -30,6 +30,9 @@ class Wiredtiger < Formula
   uses_from_macos "zlib"
 
   def install
+    # CRC32 hardware detection: https://github.com/wiredtiger/wiredtiger/tree/develop/src/checksum
+    ENV.runtime_cpu_detection
+
     args = %W[
       -DHAVE_BUILTIN_EXTENSION_SNAPPY=1
       -DHAVE_BUILTIN_EXTENSION_ZLIB=1
