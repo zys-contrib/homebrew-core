@@ -41,6 +41,10 @@ class Genometools < Formula
   end
 
   def install
+    # Workaround for arm64 linux from char being unsigned.
+    # Same root cause as https://github.com/genometools/genometools/issues/311
+    ENV.append_to_cflags "-fsigned-char" if OS.linux? && Hardware::CPU.arm?
+
     # Manually unbundle as useshared=yes requires Lua 5.1 and older SAMtools
     rm_r(Dir["src/external/{bzip2,expat,sqlite,tre,zlib}*"])
 
