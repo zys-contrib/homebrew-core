@@ -46,6 +46,10 @@ class Rustup < Formula
     <<~EOS
       To initialize `rustup`, set a default toolchain:
         rustup default stable
+
+      If you have `rust` installed, ensure you have "$(brew --prefix rustup)/bin"
+      before "$(brew --prefix)/bin" in your $PATH:
+        #{Formatter.url("https://rust-lang.github.io/rustup/installation/already-installed-rust.html")}
     EOS
   end
 
