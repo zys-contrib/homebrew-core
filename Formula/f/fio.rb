@@ -24,6 +24,7 @@ class Fio < Formula
   conflicts_with "fiona", because: "both install `fio` binaries"
 
   def install
+    ENV.runtime_cpu_detection
     system "./configure"
     # fio's CFLAGS passes vital stuff around, and crushing it will break the build
     system "make", "prefix=#{prefix}",
