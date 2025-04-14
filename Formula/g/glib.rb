@@ -3,10 +3,9 @@ class Glib < Formula
 
   desc "Core application library for C"
   homepage "https://docs.gtk.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.84/glib-2.84.0.tar.xz"
-  sha256 "f8823600cb85425e2815cfad82ea20fdaa538482ab74e7293d58b3f64a5aff6a"
+  url "https://download.gnome.org/sources/glib/2.84/glib-2.84.1.tar.xz"
+  sha256 "2b4bc2ec49611a5fc35f86aca855f2ed0196e69e53092bab6bb73396bf30789a"
   license "LGPL-2.1-or-later"
-  revision 1
 
   bottle do
     sha256 arm64_sequoia: "c21897f3736205f1d1bf063c4c23693605ae1e50d1b3a386e929f695dc6b2956"
