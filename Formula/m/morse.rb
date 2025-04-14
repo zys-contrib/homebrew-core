@@ -19,6 +19,7 @@ class Morse < Formula
     sha256 cellar: :any,                 sonoma:         "6892afd65e72497a1fc11d849031e2ea034ffbd41f644a018ec14d0a1a110bfe"
     sha256 cellar: :any,                 ventura:        "6b25ce35c70900babe4699533e2161b58b7b73cb9349821e9043b5aa01f95e71"
     sha256 cellar: :any,                 monterey:       "56d73fcfdfaa67270047046e7785881149585063ea71f9d5da7e32b42f3fcd61"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "179f572cabeb59bddaa4fe3b5b8dad88130be7f98f768804dff18dc65a96671a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f8504ea84011770dbba7831cfb9a35742be9efc2d849657385fb7a68e7ade6f"
   end
 
