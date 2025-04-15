@@ -1,19 +1,10 @@
 class Kubeone < Formula
   desc "Automate cluster operations on all your environments"
   homepage "https://kubeone.io"
+  url "https://github.com/kubermatic/kubeone/archive/refs/tags/v1.10.0.tar.gz"
+  sha256 "19285f09a1376a5aed273eb194c09183e54a189bbd5cb508037c795d7de0802b"
   license "Apache-2.0"
   head "https://github.com/kubermatic/kubeone.git", branch: "main"
-
-  stable do
-    url "https://github.com/kubermatic/kubeone/archive/refs/tags/v1.9.2.tar.gz"
-    sha256 "642ac0217212374fa584fae47856646ce52e5a63484237c899578ac854136311"
-
-    # fish completion support patch, upstream pr ref, https://github.com/kubermatic/kubeone/pull/3471
-    patch do
-      url "https://github.com/kubermatic/kubeone/commit/e43259aaec109a313288928ad3c0569a3dfda68a.patch?full_index=1"
-      sha256 "3038576709fc007aece03b382715b1405e3e2b827a094def46f27f699f33e9fd"
-    end
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e8f3db4da01b8ae89b004406e754edc0c26c090820491a9d69e8e673d8660e99"
