@@ -1,10 +1,11 @@
 class MysqlAT80 < Formula
   desc "Open source relational database management system"
-  homepage "https://dev.mysql.com/doc/refman/8.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.41.tar.gz"
-  sha256 "719589993b1a6769edb82b59f28e0dab8d47df94fa53ac4e9340b7c5eaba937c"
+  # FIXME: Actual homepage fails audit due to Homebrew's user-agent
+  # homepage "https://dev.mysql.com/doc/refman/8.0/en/"
+  homepage "https://github.com/mysql/mysql-server"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.42.tar.gz"
+  sha256 "c2aa67c618edfa1bc379107fe819ca8e94cba5d85f156d1053b8fedc88cc5f8f"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
-  revision 3
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/8.0.html?tpl=files&os=src&version=8.0"
@@ -58,7 +59,7 @@ class MysqlAT80 < Formula
     # Remove bundled libraries other than explicitly allowed below.
     # `boost` and `rapidjson` must use bundled copy due to patches.
     # `lz4` is still needed due to xxhash.c used by mysqlgcs
-    keep = %w[libbacktrace lz4 rapidjson unordered_dense]
+    keep = %w[libbacktrace lz4 rapidjson unordered_dense xxhash]
     (buildpath/"extra").each_child { |dir| rm_r(dir) unless keep.include?(dir.basename.to_s) }
 
     # Disable ABI checking
