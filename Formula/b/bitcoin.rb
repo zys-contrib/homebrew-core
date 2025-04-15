@@ -1,15 +1,14 @@
 class Bitcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://bitcoincore.org/"
-  url "https://bitcoincore.org/bin/bitcoin-core-28.1/bitcoin-28.1.tar.gz"
-  sha256 "c5ae2dd041c7f9d9b7c722490ba5a9d624f7e9a089c67090615e1ba4ad0883ba"
+  url "https://bitcoincore.org/bin/bitcoin-core-29.0/bitcoin-29.0.tar.gz"
+  sha256 "882c782c34a3bf2eacd1fae5cdc58b35b869883512f197f7d6dc8f195decfdaa"
   license all_of: [
     "MIT",
     "BSD-3-Clause", # src/crc32c, src/leveldb
     "BSL-1.0", # src/tinyformat.h
     "Sleepycat", # resource("bdb")
   ]
-  revision 1
   head "https://github.com/bitcoin/bitcoin.git", branch: "master"
 
   livecheck do
@@ -27,21 +26,14 @@ class Bitcoin < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ab7e564dcc037305947232633244012fbe4043e09ab38db130bed6087d72325"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "boost" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "libevent"
   depends_on macos: :big_sur
-  depends_on "miniupnpc"
   depends_on "zeromq"
 
   uses_from_macos "sqlite"
-
-  on_linux do
-    depends_on "util-linux" => :build # for `hexdump`
-  end
 
   fails_with :gcc do
     version "10"
@@ -97,13 +89,14 @@ class Bitcoin < Formula
     end
 
     ENV.runtime_cpu_detection
-    system "./autogen.sh"
-    system "./configure", "--disable-silent-rules",
-                          "--with-boost-libdir=#{Formula["boost"].opt_lib}",
-                          "BDB_LIBS=-L#{buildpath}/bdb/lib -ldb_cxx-4.8",
-                          "BDB_CFLAGS=-I#{buildpath}/bdb/include",
-                          *std_configure_args
-    system "make", "install"
+    args = %W[
+      -DWITH_BDB=ON
+      -DBerkeleyDB_INCLUDE_DIR:PATH=#{buildpath}/bdb/include
+      -DWITH_ZMQ=ON
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     pkgshare.install "share/rpcauth"
   end
 
