@@ -17,6 +17,7 @@ class Ramalama < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "227aeaca335b819b1b356b81f1f06852a59f41732e6a3d6991d80ee40c93741a"
   end
 
+  depends_on "llama.cpp"
   depends_on "python@3.13"
 
   resource "argcomplete" do
