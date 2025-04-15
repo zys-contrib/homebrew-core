@@ -3867,6 +3867,7 @@ wush
 wxmaxima
 wxpython
 wxwidgets
+x-cmd
 x265
 x3270
 xa
