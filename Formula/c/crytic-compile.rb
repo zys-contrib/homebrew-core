@@ -3,8 +3,8 @@ class CryticCompile < Formula
 
   desc "Abstraction layer for smart contract build systems"
   homepage "https://github.com/crytic/crytic-compile"
-  url "https://files.pythonhosted.org/packages/e7/32/dfacd10aedde8576594566c53de75904b4d99abbf5e256ac6de8d3baae18/crytic_compile-0.3.8.tar.gz"
-  sha256 "dd8841701cfabf132ffff8b59e8dac32f5fafe369ec8b14b855f2f70565f11ad"
+  url "https://files.pythonhosted.org/packages/47/fb/e185388d15dc114a4b271fa3fca87dad8764382b52d328ed02040ac24f88/crytic_compile-0.3.9.tar.gz"
+  sha256 "04b9877477098875bec03f8444111fe6a48d330aaa63da35f6320ab40e31d9e0"
   license "AGPL-3.0-only"
   head "https://github.com/crytic/crytic-compile.git", branch: "master"
 
@@ -31,8 +31,8 @@ class CryticCompile < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/13/52/13b9db4a913eee948152a079fe58d035bd3d1a519584155da8e786f767e6/pycryptodome-3.21.0.tar.gz"
-    sha256 "f7787e0d469bdae763b876174cf2e6c0f7be79808af26b1da96f1a64bcf47297"
+    url "https://files.pythonhosted.org/packages/44/e6/099310419df5ada522ff34ffc2f1a48a11b37fc6a76f51a6854c182dbd3e/pycryptodome-3.22.0.tar.gz"
+    sha256 "fd7ab568b3ad7b77c908d7c3f7e167ec5a8f035c64ff74f10d47a4edd043d723"
   end
 
   resource "solc-select" do
