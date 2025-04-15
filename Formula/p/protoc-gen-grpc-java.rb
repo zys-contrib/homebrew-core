@@ -1,8 +1,8 @@
 class ProtocGenGrpcJava < Formula
   desc "Protoc plugin for gRPC Java"
   homepage "https://grpc.io/docs/languages/java/"
-  url "https://github.com/grpc/grpc-java/archive/refs/tags/v1.71.0.tar.gz"
-  sha256 "2942a56b794479a0bc1c0e69039c9ae615f1cb39d0e3af12af35c0eb3bd73fdf"
+  url "https://github.com/grpc/grpc-java/archive/refs/tags/v1.72.0.tar.gz"
+  sha256 "524a3d687f06ffd1c6ab66dbbb5de5b9f6adaa662570aa56e553d86c2065eb31"
   license "Apache-2.0"
 
   bottle do
@@ -20,12 +20,6 @@ class ProtocGenGrpcJava < Formula
   depends_on "pkgconf" => :build
   depends_on "abseil"
   depends_on "protobuf"
-
-  # Backport support for newer Gradle
-  patch do
-    url "https://github.com/grpc/grpc-java/commit/60f6ea7b8eec1692fc877ec82dd67d6bb888f706.patch?full_index=1"
-    sha256 "75f1061860e3a01f1e9c57c05bbdf461cd5b9bc3301f94f2b3db683264dee63b"
-  end
 
   def install
     # Workaround for newer Protobuf to link to Abseil libraries
