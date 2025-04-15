@@ -1,11 +1,9 @@
 class KitchenSync < Formula
   desc "Fast efficiently sync database without dumping & reloading"
   homepage "https://github.com/willbryant/kitchen_sync"
-  # TODO: Remove CMAKE_POLICY_VERSION_MINIMUM after https://github.com/willbryant/kitchen_sync/pull/120
-  url "https://github.com/willbryant/kitchen_sync/archive/refs/tags/v2.20.tar.gz"
-  sha256 "e79e5dfad48b8345b1d80444a0e992b2f9b9c53f29f6f607647e567292a7d0f2"
+  url "https://github.com/willbryant/kitchen_sync/archive/refs/tags/v2.21.tar.gz"
+  sha256 "0a2c25001069c90135a91b1cc70c1b9096c3c6e127f6a14f1b45cdbb0c209f09"
   license "MIT"
-  revision 3
   head "https://github.com/willbryant/kitchen_sync.git", branch: "main"
 
   livecheck do
@@ -27,15 +25,8 @@ class KitchenSync < Formula
   depends_on "libpq"
   depends_on "mariadb-connector-c"
 
-  # Apply PR for missing include https://github.com/willbryant/kitchen_sync/pull/121
-  patch do
-    url "https://github.com/willbryant/kitchen_sync/commit/f5b423aa2fb3680055e0c7f2eb5ee7bec9e032a0.patch?full_index=1"
-    sha256 "334768cc830db059e2e9dd0d43ccaeb3efb4a74e695e9933bc2fbf21b036ead5"
-  end
-
   def install
     system "cmake", "-S", ".", "-B", "build",
-                    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
                     "-DMySQL_INCLUDE_DIR=#{Formula["mariadb-connector-c"].opt_include}/mariadb",
                     "-DMySQL_LIBRARY_DIR=#{Formula["mariadb-connector-c"].opt_lib}",
                     "-DPostgreSQL_INCLUDE_DIR=#{Formula["libpq"].opt_include}",
