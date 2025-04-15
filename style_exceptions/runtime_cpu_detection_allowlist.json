@@ -29,6 +29,7 @@
   "postgresql@16",
   "postgresql@17",
   "qt",
+  "spades",
   "spidermonkey",
   "svt-av1",
   "vc",
