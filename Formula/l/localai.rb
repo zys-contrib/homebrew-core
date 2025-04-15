@@ -3,8 +3,8 @@ class Localai < Formula
 
   desc "OpenAI alternative"
   homepage "https://localai.io"
-  url "https://github.com/mudler/LocalAI/archive/refs/tags/v2.27.0.tar.gz"
-  sha256 "595ade8031a8f7d4fd23c4e3a5c24b37f542059f3585c9f15352da4fb79c06e0"
+  url "https://github.com/mudler/LocalAI/archive/refs/tags/v2.28.0.tar.gz"
+  sha256 "b75f7cffb3b105c1f5e7cd4aa2d5c18cf461b6af0977d150d654d596f1dc8d79"
   license "MIT"
 
   bottle do
@@ -35,6 +35,9 @@ class Localai < Formula
   end
 
   def install
+    # Fix to CMake Error at encodec.cpp/ggml/CMakeLists.txt:1 (cmake_minimum_required):
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+
     ENV["SDKROOT"] = MacOS.sdk_path if OS.mac?
 
     venv = virtualenv_create(buildpath/"venv", python3)
@@ -50,7 +53,7 @@ class Localai < Formula
 
     spawn bin/"local-ai", "run", "--address", addr
     sleep 5
-    sleep 10 if OS.mac? && Hardware::CPU.intel?
+    sleep 20 if OS.mac? && Hardware::CPU.intel?
 
     response = shell_output("curl -s -i #{addr}")
     assert_match "HTTP/1.1 200 OK", response
