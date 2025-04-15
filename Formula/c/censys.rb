@@ -8,14 +8,13 @@ class Censys < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e2468a08526856c7d66619081568dcd6a99490334fdea34df559ab63444ba906"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e2468a08526856c7d66619081568dcd6a99490334fdea34df559ab63444ba906"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e2468a08526856c7d66619081568dcd6a99490334fdea34df559ab63444ba906"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2b58903e65c6062fb761d54b749efdb254bd55b82c3ab782072ec662915075b4"
-    sha256 cellar: :any_skip_relocation, ventura:       "2b58903e65c6062fb761d54b749efdb254bd55b82c3ab782072ec662915075b4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "408ecd3a9f3b7dac25b97158c686381c4e3cfb59bb8635066b30705706b92eb4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "456877334b2c34f08aa83fcbd64d2a00aa565652952f8a8ad33839b80d4dfbfd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "038bfb0acdfbd0fef5a26dadbba5ceb7f44f4af277f8e8ed3a29ac534ec55100"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "038bfb0acdfbd0fef5a26dadbba5ceb7f44f4af277f8e8ed3a29ac534ec55100"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "038bfb0acdfbd0fef5a26dadbba5ceb7f44f4af277f8e8ed3a29ac534ec55100"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6f4ba8c73927c025e5866e419871e66194940829c4599935200d983bff221d5a"
+    sha256 cellar: :any_skip_relocation, ventura:       "6f4ba8c73927c025e5866e419871e66194940829c4599935200d983bff221d5a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a845233194bd8740aad99d915578ef34a7c8fa9f543c1c2f587082a6c7700ff0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a845233194bd8740aad99d915578ef34a7c8fa9f543c1c2f587082a6c7700ff0"
   end
 
   depends_on "certifi"
