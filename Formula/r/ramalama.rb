@@ -3,25 +3,25 @@ class Ramalama < Formula
 
   desc "Goal of RamaLama is to make working with AI boring"
   homepage "https://github.com/containers/ramalama"
-  url "https://files.pythonhosted.org/packages/64/91/3b33c028d0ea097c68ed0aef748fdf6101debb7427ef425f6e3f141e823c/ramalama-0.6.4.tar.gz"
-  sha256 "0b02ad223d9156623366fb91b2166551ddbfd453ad19369439730203d9a69c70"
+  url "https://files.pythonhosted.org/packages/77/28/c7a0f39b4cd57cd445c4f2cde35334d177ee09c0fa29242adf27b64d6ec2/ramalama-0.7.4.tar.gz"
+  sha256 "b002b141dc06b5c8388c49ead60dc10fbae596ce5211d9d4a08aeeb82915956d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "30517217e6d5e2ab75e67d0f7f96704e3ec61fc981ecb826cbaac4fed5ed7caa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "30517217e6d5e2ab75e67d0f7f96704e3ec61fc981ecb826cbaac4fed5ed7caa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "30517217e6d5e2ab75e67d0f7f96704e3ec61fc981ecb826cbaac4fed5ed7caa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "26c879451b402d80522c9d7b363ca7e5ca7b14cd48b8609f2ae8bcf574c324cd"
-    sha256 cellar: :any_skip_relocation, ventura:       "26c879451b402d80522c9d7b363ca7e5ca7b14cd48b8609f2ae8bcf574c324cd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e0235aa2c624770554f7694d0670c92ed4e7ace468cfaf41d7dea56555aa8e48"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "484f4ddfdcb04c54531daf47f8712faaa24a776f57ae9725218341565ddb7621"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "caf72bb72a592f9e0a0fc91db06ab1fa3145806fec093bf130c5b8b975d67ccb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "caf72bb72a592f9e0a0fc91db06ab1fa3145806fec093bf130c5b8b975d67ccb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "caf72bb72a592f9e0a0fc91db06ab1fa3145806fec093bf130c5b8b975d67ccb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ae1849710c9d9ce56c800947f2049c8fd32f90e36882ff35ffe3e8e3d66c71ae"
+    sha256 cellar: :any_skip_relocation, ventura:       "ae1849710c9d9ce56c800947f2049c8fd32f90e36882ff35ffe3e8e3d66c71ae"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "227aeaca335b819b1b356b81f1f06852a59f41732e6a3d6991d80ee40c93741a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "227aeaca335b819b1b356b81f1f06852a59f41732e6a3d6991d80ee40c93741a"
   end
 
   depends_on "python@3.13"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/ee/be/29abccb5d9f61a92886a2fba2ac22bf74326b5c4f55d36d0a56094630589/argcomplete-3.6.0.tar.gz"
-    sha256 "2e4e42ec0ba2fff54b0d244d0b1623e86057673e57bafe72dda59c64bd5dee8b"
+    url "https://files.pythonhosted.org/packages/16/0f/861e168fc813c56a78b35f3c30d91c6757d1fd185af1110f1aec784b35d0/argcomplete-3.6.2.tar.gz"
+    sha256 "d0519b1bc867f5f4f4713c41ad0aba73a4a5f007449716b16f385f2166dc6adf"
   end
 
   def install

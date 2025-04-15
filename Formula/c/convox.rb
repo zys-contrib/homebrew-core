@@ -1,10 +1,11 @@
 class Convox < Formula
   desc "Command-line interface for the Convox PaaS"
   homepage "https://convox.com/"
-  url "https://github.com/convox/convox/archive/refs/tags/3.20.1.tar.gz"
-  sha256 "3018f92163338e651d2f87f4d58b91aaaf8d908442f484e34927e13228042c8e"
+  url "https://github.com/convox/convox/archive/refs/tags/3.21.1.tar.gz"
+  sha256 "90381390ab6ad506fc8a8c9dde31ca8ae982fb4257399182b03fc0bfa437a1e6"
   license "Apache-2.0"
   version_scheme 1
+  head "https://github.com/convox/convox.git", branch: "master"
 
   livecheck do
     url :stable
@@ -12,12 +13,13 @@ class Convox < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5cde8bab7600e13780855111edf230fa7450fd857f4c49a992675893efa2b2e0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c2ecf7dbed94477d601574522222fd97cce0a2269aaed7f9a347bde41e3963c8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1bd8ba094164a0582d8143220b56279caf2fec56a19a3d09e4e38bebcf109b8b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f2b4e662702f07d270e61ecee33600dc1f1d278046f0ef484c462518041e6d84"
-    sha256 cellar: :any_skip_relocation, ventura:       "357006f2215e8d1c80bc9ae4390309b9f094643507e67d030df6192091500cc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f47defe4a47dd1fd5ee593af80ae6223d0e313726cba8cc381862400fb278e5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1a19f7976ee2cbb25d16e186607f6cb3d542c6e29eded9fd1515ce222b603d63"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "89c7e35ce6bb21e507a6f454486788e313cc73ff38c135657d7ab59cea6ce100"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "066102369b099db33cacdb8f581c82fae132a04fb7dc71411b102565c80464e2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3b6b901d35996735c3389b422276bd9b88cf7e6174ea192acc3f67b738ab670a"
+    sha256 cellar: :any_skip_relocation, ventura:       "1f7d45275015f7aca3a64626f3e76594c202bc4de96e1e031b5922463daac6b7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "876da8f6ed823519add026c2575066769dd01516f0d12382bcb5063a453d3e25"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8dd4c53acc2c5e3ed8053478c1f1174a9492163b4d0f89b30902d4740074018b"
   end
 
   depends_on "go" => :build

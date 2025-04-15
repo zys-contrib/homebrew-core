@@ -4,11 +4,13 @@ class GopassJsonapi < Formula
   url "https://github.com/gopasspw/gopass-jsonapi/archive/refs/tags/v1.15.15.tar.gz"
   sha256 "edd71e029d8f23e23f8b3a2fa5cf805910ca023d3607ea7bc0a59355b21b40b8"
   license "MIT"
+  head "https://github.com/gopasspw/gopass-jsonapi.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ed5097f32ddfab1e9a86dbf4f582750e0501c67556144723f652736828384872"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b5b12da7b04c28660980e9631be95862028b450206fb36c2e1cd536f4422113b"
     sha256 cellar: :any_skip_relocation, sonoma:        "d56468080fde6a5da8bfd1a4a18589ce4103631eb0cc2c21de05784f8bc7662e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d79d241a1376a7a789e14c787ea6271be6bea3ab1b94c70c0ea7181935c48b17"
   end
 
   depends_on "go" => :build

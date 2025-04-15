@@ -1,18 +1,18 @@
 class AngularCli < Formula
   desc "CLI tool for Angular"
   homepage "https://angular.dev/cli/"
-  url "https://registry.npmjs.org/@angular/cli/-/cli-19.2.5.tgz"
-  sha256 "496f3cd5de808c825190cc5efcc81fe4dc13d045f3dd9c88bc91d67c15fc5734"
+  url "https://registry.npmjs.org/@angular/cli/-/cli-19.2.7.tgz"
+  sha256 "e1a778c0ca103532cb897b95bb8208255bca1c8aff18542d7c9b5abd24d364d4"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "649c8b2fd330194670133eb2ba44230dde14b3715f5ae9641d8809a3bda389d1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "649c8b2fd330194670133eb2ba44230dde14b3715f5ae9641d8809a3bda389d1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "649c8b2fd330194670133eb2ba44230dde14b3715f5ae9641d8809a3bda389d1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f1e8546e5907d0b401e1bcadc491018465b392061cd47fe0f70db0c88e689f82"
-    sha256 cellar: :any_skip_relocation, ventura:       "f1e8546e5907d0b401e1bcadc491018465b392061cd47fe0f70db0c88e689f82"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "649c8b2fd330194670133eb2ba44230dde14b3715f5ae9641d8809a3bda389d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "649c8b2fd330194670133eb2ba44230dde14b3715f5ae9641d8809a3bda389d1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a454db10cc9b5dc1cc8e83ed8e0d04e5dd4777cb35b913051e3460d6bd06ede5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a454db10cc9b5dc1cc8e83ed8e0d04e5dd4777cb35b913051e3460d6bd06ede5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a454db10cc9b5dc1cc8e83ed8e0d04e5dd4777cb35b913051e3460d6bd06ede5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "278517279ec7ad120b2c0f586df7d3af3550af0c8a166196a406df9ba32acf92"
+    sha256 cellar: :any_skip_relocation, ventura:       "278517279ec7ad120b2c0f586df7d3af3550af0c8a166196a406df9ba32acf92"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a454db10cc9b5dc1cc8e83ed8e0d04e5dd4777cb35b913051e3460d6bd06ede5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a454db10cc9b5dc1cc8e83ed8e0d04e5dd4777cb35b913051e3460d6bd06ede5"
   end
 
   depends_on "node"

@@ -1,19 +1,19 @@
 class FirebaseCli < Formula
   desc "Firebase command-line tools"
   homepage "https://firebase.google.com/docs/cli/"
-  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-14.0.0.tgz"
-  sha256 "c75595b16590b9026769d3e825e2bbbf66e2d03aa86bc2b695138157321fec4f"
+  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-14.1.0.tgz"
+  sha256 "000b797e70aef9f76740b87033548e89124fab11acbeb17e64be1a30006225b8"
   license "MIT"
   head "https://github.com/firebase/firebase-tools.git", branch: "master"
 
   bottle do
-    sha256                               arm64_sequoia: "36a5222adb302d05cc2a995aabf6649bca3c4c84b77c1616e54a68b2394d8225"
-    sha256                               arm64_sonoma:  "5261f5da10f466bd8ada78ce3a287b14af521155c69848c16d1affc92f6c5b36"
-    sha256                               arm64_ventura: "0425f2d41d274a7215270cdf15e24caf863d3178f968bcf2d272372b7b161fa3"
-    sha256                               sonoma:        "88e858788089a5bd45fe8521cbd91f23c5d8685d5d5893bd298910a3df3e94c9"
-    sha256                               ventura:       "a4721c80053aa5406a1c8f0cf8cfd9c986efb28b46dd36a2feaa80592f9c8640"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c1e0218db5c311960ff7ff98af915979cc1ff09483d4e8c893e7c4392792ef7f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c02ab8690f698f789319446da4615e4cfce36b31eb273e1bdfb3048d1b0dc62"
+    sha256                               arm64_sequoia: "177c0170854300c8fb3a0cd5973da40cbdf0bfccf016a30777d25699be40799f"
+    sha256                               arm64_sonoma:  "765452975c224c7989de95cfac93821ee59d70de8eac9c964b6374f881cbb9af"
+    sha256                               arm64_ventura: "16e5f25bb7358eee185d5609055192616d6455467647d007dc31f70791e5aa7d"
+    sha256                               sonoma:        "abd9b25e47abfdf94ae8d9092432681cf6d9d37ef7dc4def4ccb0c8bbac2bf84"
+    sha256                               ventura:       "88ead664bf7c04c6eeda7251dda33f82036e4ac6e45a474868db5f0245af0d02"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e3cac81e44b3c6aeacfbf8acb57911c5138c1a03f402b36c1ae7633ec6be2b64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "965a393c8f19f42fae9dee9b38776cdf6fab1860367f9d9408a445536e0356fc"
   end
 
   depends_on "node"

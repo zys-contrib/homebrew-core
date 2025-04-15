@@ -1,23 +1,28 @@
 class AwsChecksums < Formula
   desc "Cross-Platform HW accelerated CRC32c and CRC32 with fallback"
   homepage "https://github.com/awslabs/aws-checksums"
-  url "https://github.com/awslabs/aws-checksums/archive/refs/tags/v0.2.5.tar.gz"
-  sha256 "c75f1697720d1f3bd5ac5e5a9613e0120337ef48c3c6bf1e6be3c802799ad8e4"
+  url "https://github.com/awslabs/aws-checksums/archive/refs/tags/v0.2.7.tar.gz"
+  sha256 "178e8398d98111f29150f7813a70c20ad97ab30be0de02525440355fe84ccb1d"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "56fbe04f6cb799201cb4bb3a85bad677d430355e1968bc9344417e524765c9fe"
-    sha256 cellar: :any,                 arm64_sonoma:  "fb1b2d8ebad3c864bf4ef0801973b8e5a16b3c2b5065d8e70eebe1571d6265cd"
-    sha256 cellar: :any,                 arm64_ventura: "4725c088afcbd3ca2dda9185718dc3ae1abc284adbdd7ac4a9e872ebb6cea438"
-    sha256 cellar: :any,                 sonoma:        "7a2fe131809186166b1324057958a302f52679080f44c6d86663dbffc8b8dd02"
-    sha256 cellar: :any,                 ventura:       "e6aac87dd7612d3f9a87a6b1192593123ed8fa52f5b1bedea84d8cf195eb7894"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fceabf4bbdcd03d7e8443cc14142465bdb7546cf4b928de4319cad9a894ed9e7"
+    sha256 cellar: :any,                 arm64_sequoia: "b109e8f4cf42b41d08ec355d3b2abf4e55cef2451ff308130815c026556982e7"
+    sha256 cellar: :any,                 arm64_sonoma:  "d162d62888aa8aae8ddcab6d6639395c452b930b6351e5fbfc32bac1a07d9465"
+    sha256 cellar: :any,                 arm64_ventura: "411782961b2ae15dbafeab24cc77f22ef3aafc58ae1d12eafd3655fee97e588f"
+    sha256 cellar: :any,                 sonoma:        "5813da053800b6fff4cb6e7b091b0a24991226702ad8a2e1193d9e90a0d60285"
+    sha256 cellar: :any,                 ventura:       "658f25960e74c00710c06ff1328678036b460f6e32f974ee3b1056f413628556"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "10aed55de1097e6ce6fdbfc40f93d8b148a7ede46eea8acb2b0c068d64136dd0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cef7f2358c7998d4da746e253e360b1665290a5893dc79344d44dbfe8d334abb"
   end
 
   depends_on "cmake" => :build
   depends_on "aws-c-common"
 
   def install
+    # Intel: https://github.com/awslabs/aws-checksums/commit/e03e976974d27491740c98f9132a38ee25fb27d0
+    # ARM:   https://github.com/awslabs/aws-checksums/commit/d7005974347050a97b13285eb0108dd1e59cf2c4
+    ENV.runtime_cpu_detection
+
     system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

@@ -1,19 +1,19 @@
 class NetlifyCli < Formula
   desc "Netlify command-line tool"
   homepage "https://www.netlify.com/docs/cli"
-  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-19.1.4.tgz"
-  sha256 "0d516ea1220f58053ea5ccee078a743433d8c4e082ee27b28a15f51765464f22"
+  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-20.0.0.tgz"
+  sha256 "67b878ac8de78bb326d44e2020e1c2bd3ddaf7025ca64a7a79b83447534df03b"
   license "MIT"
   head "https://github.com/netlify/cli.git", branch: "main"
 
   bottle do
-    sha256                               arm64_sequoia: "3da4ac627ef5a5ab74b81f58d3078c6892f7add1734e23a6518644d8711dc09f"
-    sha256                               arm64_sonoma:  "7f998137cfa01d82f4094bc9eaa9f3b73df8d74f2ceb9a41fb3c134573cb1a0b"
-    sha256                               arm64_ventura: "4b3fdf38246a398ed0b5b63187cbbfe36bab409cbb32dc1564af0c26293d0645"
-    sha256                               sonoma:        "3a0e845d223fc9c0d34fbdfe1517a8e7cab540b7d72c563f7412ff24c43ec0b3"
-    sha256                               ventura:       "45310243e4d1519f15b6cf54840c94409546e6d57019b3f5b1f1cdf178e15118"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "82ddcb19817641ca892e5eed8f7719dd2aec24187b74de2fbae18b743c1329be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d5e08dcc8942d2d03d19978fb230c621b16fba87109ac6825895006c75c4798"
+    sha256                               arm64_sequoia: "a3c329f87751e5fc5d93bb7c9abf600d9f33785fcdc38d032341a44009f5747b"
+    sha256                               arm64_sonoma:  "d2fdda57fa8b75a53a1300ebbe03d17a745efb0b0999a76ed3ca874d8a275bc2"
+    sha256                               arm64_ventura: "181d5d7199058ba50ef14af57f142cc2507d4acdbf18b41c2efaec6c05012a4a"
+    sha256                               sonoma:        "fcc3607cf327f7933fe159795363c4c99aa63d184104aa539b7b9c7af304a699"
+    sha256                               ventura:       "73c77a620267c916a3768f31af1919eeb5aed2bdd445dc502bb3839b98eed518"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3478d185343eabf1a0151cf27a231574067472146304dd356e513ec89178e6f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a03b95a291e65e3577e51ad539c7113ce4af5d11fe0ee3666268f876a2a89d2a"
   end
 
   depends_on "node"

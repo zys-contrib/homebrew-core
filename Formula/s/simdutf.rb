@@ -1,8 +1,8 @@
 class Simdutf < Formula
   desc "Unicode conversion routines, fast"
   homepage "https://simdutf.github.io/simdutf/"
-  url "https://github.com/simdutf/simdutf/archive/refs/tags/v6.4.0.tar.gz"
-  sha256 "96c89f9d49b74e4bc7e6dec6c7a7d343dc078cca1ea0ae3e5b499ac1958024c9"
+  url "https://github.com/simdutf/simdutf/archive/refs/tags/v6.5.0.tar.gz"
+  sha256 "26348c9b60bcf64b98dc598e0b8ccb3f0928cb991110ae82730e563ae85f2c05"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/simdutf/simdutf.git", branch: "master"
 
@@ -12,11 +12,13 @@ class Simdutf < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "f9be77881286087611d29679169212b76feeb18217126c67827c9e4a0b3e99c9"
-    sha256 cellar: :any, arm64_sonoma:  "33f41be164409624b7f0097c5f66d2e46d5c41ff1aebc29e80f6780cb0e935a3"
-    sha256 cellar: :any, arm64_ventura: "a01115295def6d5eb047b5d00aef2f8bc809b59a216048a2b6812cbd5c558e64"
-    sha256 cellar: :any, sonoma:        "9cb569f83641e1338575f56247bf027e04294914a578f23124e9f2bb05c88609"
-    sha256 cellar: :any, ventura:       "b5a1a94e9e766e8aa19cc38e0ed03ca9a26e25400d1b3629477f1a5fa59a25f6"
+    sha256 cellar: :any,                 arm64_sequoia: "cb461ef58c18a59760093e5f205e7ca31312d426e24278c2979371f86e5f1429"
+    sha256 cellar: :any,                 arm64_sonoma:  "6daafde3e962ce2ae4fb5ee3649a1f43806e0f73e07b5c203f9215e102a092c4"
+    sha256 cellar: :any,                 arm64_ventura: "a855c52074b0b4d67c5a1cb5715e717940f91052f5bba7efee940803721ee158"
+    sha256 cellar: :any,                 sonoma:        "a20dbc82e99e94b6b02d9788a3f215ac80e13d847835dfde28b9d064037d02f7"
+    sha256 cellar: :any,                 ventura:       "6c0df9d339170056dafb5ff3122f1f7604d8e85dd272ae70838e613abe39cfe6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "13a5ab25e7fb80f040a40f6b4af4d429dee942c08b8ed5c993849af37da1c016"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8b06473889ce106e5a0a77ab4b23960636fc0411437fd6e257c1f3a3eb0162f"
   end
 
   depends_on "cmake" => :build
@@ -48,6 +50,6 @@ class Simdutf < Formula
   end
 
   test do
-    system bin/"sutf-benchmark", "--random-utf8", "1024", "-I", "20"
+    system bin/"sutf-benchmark", "--random-utf8", "10240", "-I", "100"
   end
 end
