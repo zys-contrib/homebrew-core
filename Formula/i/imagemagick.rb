@@ -24,7 +24,6 @@ class Imagemagick < Formula
   depends_on "pkgconf" => :build
   depends_on "fontconfig"
   depends_on "freetype"
-  depends_on "ghostscript"
   depends_on "jpeg-turbo"
   depends_on "jpeg-xl"
   depends_on "libheif"
@@ -77,7 +76,7 @@ class Imagemagick < Formula
       "--with-webp=yes",
       "--with-heic=yes",
       "--with-raw=yes",
-      "--with-gslib",
+      "--without-gslib",
       "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts",
       "--with-lqr",
       "--without-djvu",
@@ -100,6 +99,13 @@ class Imagemagick < Formula
     system "make", "install"
   end
 
+  def caveats
+    <<~EOS
+      Ghostscript is not installed by default as a dependency.
+      If you need PS or PDF support, ImageMagick will still use the ghostscript formula if installed directly.
+    EOS
+  end
+
   test do
     assert_match "PNG", shell_output("#{bin}/identify #{test_fixtures("test.png")}")
 
@@ -114,6 +120,5 @@ class Imagemagick < Formula
     ["AVIF  HEIC      rw+", "ARW  DNG       r--", "DNG  DNG       r--"].each do |format|
       assert_match format, formats
     end
-    assert_match "Helvetica", shell_output("#{bin}/magick -list font")
   end
 end
