@@ -9,13 +9,13 @@ class Khal < Formula
   head "https://github.com/pimutils/khal.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d4ad937f119cffbf8f2ffb24eed2838bb50d509a78687711a86c55fdcf3ff1c5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d4ad937f119cffbf8f2ffb24eed2838bb50d509a78687711a86c55fdcf3ff1c5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d4ad937f119cffbf8f2ffb24eed2838bb50d509a78687711a86c55fdcf3ff1c5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "11b937d13e507cf211953741fb459260ab91826175b4dfba97b685e04445ad7c"
-    sha256 cellar: :any_skip_relocation, ventura:       "11b937d13e507cf211953741fb459260ab91826175b4dfba97b685e04445ad7c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d4ad937f119cffbf8f2ffb24eed2838bb50d509a78687711a86c55fdcf3ff1c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4ad937f119cffbf8f2ffb24eed2838bb50d509a78687711a86c55fdcf3ff1c5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "18cf8d3d72969bf1da0e4cb64248f66a0438b0ebacf7e4254bd987191639cfee"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "18cf8d3d72969bf1da0e4cb64248f66a0438b0ebacf7e4254bd987191639cfee"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "18cf8d3d72969bf1da0e4cb64248f66a0438b0ebacf7e4254bd987191639cfee"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d78b0935110727286c3a7cbb62f0bda1ebaa0c8290b8f14ac4494a8f2427bfb8"
+    sha256 cellar: :any_skip_relocation, ventura:       "d78b0935110727286c3a7cbb62f0bda1ebaa0c8290b8f14ac4494a8f2427bfb8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "18cf8d3d72969bf1da0e4cb64248f66a0438b0ebacf7e4254bd987191639cfee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "18cf8d3d72969bf1da0e4cb64248f66a0438b0ebacf7e4254bd987191639cfee"
   end
 
   depends_on "python@3.13"
