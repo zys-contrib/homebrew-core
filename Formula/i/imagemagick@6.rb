@@ -27,7 +27,6 @@ class ImagemagickAT6 < Formula
 
   depends_on "fontconfig"
   depends_on "freetype"
-  depends_on "ghostscript"
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
@@ -60,7 +59,7 @@ class ImagemagickAT6 < Formula
       --with-modules
       --with-webp=yes
       --with-openjp2
-      --with-gslib
+      --without-gslib
       --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
       --without-djvu
       --without-fftw
@@ -71,6 +70,13 @@ class ImagemagickAT6 < Formula
 
     system "./configure", *args, *std_configure_args
     system "make", "install"
+  end
+
+  def caveats
+    <<~EOS
+      Ghostscript is not installed by default as a dependency.
+      If you need PS or PDF support, ImageMagick will still use the ghostscript formula if installed directly.
+    EOS
   end
 
   test do
