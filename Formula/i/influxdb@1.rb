@@ -1,8 +1,8 @@
 class InfluxdbAT1 < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
-  url "https://github.com/influxdata/influxdb/archive/refs/tags/v1.11.8.tar.gz"
-  sha256 "c53e9390ca3c513c508aafc7b91d169fb5200ba741ac9756e59b2f674ae53738"
+  url "https://github.com/influxdata/influxdb/archive/refs/tags/v1.12.0.tar.gz"
+  sha256 "386ffaae9b050c52e720153f6c52b4a832d97edbfd589ffe498a269b6fe09fbf"
   # 1.x is using MIT license while 1.x and 3.x is using dual license (Apache-2.0/MIT)
   license "MIT"
 
@@ -31,16 +31,8 @@ class InfluxdbAT1 < Formula
   # If you're upgrading to a newer influxdb version, check to see if this needs
   # to be upgraded too.
   resource "pkg-config-wrapper" do
-    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.2.11.tar.gz"
-    sha256 "52b22c151163dfb051fd44e7d103fc4cde6ae8ff852ffc13adeef19d21c36682"
-  end
-
-  # update flux dep to fix rust build issue
-  # upstream bug report, https://github.com/influxdata/influxdb/issues/25440
-  # upstream rust 1.83 build patch, https://github.com/influxdata/flux/pull/5516
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a2f5c7e20f69eabde99098e6480d2b29faaf2638/influxdb%401/1.11.8-rust.patch"
-    sha256 "f24a5021b72a3ebd9b7234c35f033fa0f5d5f10377257af09dcfdbd84fcf5ed4"
+    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.2.14.tar.gz"
+    sha256 "465d2fb3fc6dab9aca60e3ee3ca623ea346f3544d53082505645f81a7c4cd6d3"
   end
 
   def install
