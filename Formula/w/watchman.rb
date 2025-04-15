@@ -3,20 +3,10 @@ class Watchman < Formula
 
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
+  url "https://github.com/facebook/watchman/archive/refs/tags/v2025.04.14.00.tar.gz"
+  sha256 "bf0c41aa60675bdc792434e8fac356f2669f96b1ec36516e281f1684cb140e85"
   license "MIT"
-  revision 1
   head "https://github.com/facebook/watchman.git", branch: "main"
-
-  stable do
-    url "https://github.com/facebook/watchman/archive/refs/tags/v2025.04.07.00.tar.gz"
-    sha256 "792ded3402b74d62c45b2ae5ff91eefe0472ce1937cf5067b019f90b9e6a67d3"
-
-    # Backport commit to fix build on Linux
-    patch do
-      url "https://github.com/facebook/watchman/commit/3d91e6db2f1e0cded7abdf10cf3bfc0a13c4f61f.patch?full_index=1"
-      sha256 "723a80ca790afbd942689e854abd0428438750171622f4c9a69ac65e2ac8e6e4"
-    end
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "4d4091a9f4743d4af0e141c50d01ac06bfa9bf118f4d74b3ab525897264d6c77"
