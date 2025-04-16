@@ -19,6 +19,7 @@ class Cortexso < Formula
   end
 
   depends_on "node"
+  depends_on "sqlite" # needs sqlite3_enable_load_extension
 
   on_linux do
     # Workaround for old `node-gyp` that needs distutils.
@@ -29,15 +30,14 @@ class Cortexso < Formula
   conflicts_with "cortex", because: "both install `cortex` binaries"
 
   def install
-    system "npm", "install", *std_npm_args
+    system "npm", "install", "--sqlite=#{Formula["sqlite"].opt_prefix}", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
-    # Remove incompatible pre-built binaries
-    os = OS.kernel_name.downcase
-    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
-    node_modules = libexec/"lib/node_modules/cortexso/node_modules/cpu-instructions/prebuilds"
-    node_modules.each_child do |dir|
-      rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}"
+    # Replace pre-built binaries
+    rm_r(libexec/"lib/node_modules/cortexso/node_modules/cpu-instructions/prebuilds")
+    cd libexec/"lib/node_modules/cortexso/node_modules/cpu-instructions" do
+      system "npm", "run", "build"
+      Pathname.glob("prebuilds/*/cpu-instructions.node").map { |f| f.rename(f.dirname/"cpuinfo.node") }
     end
   end
 
@@ -45,6 +45,7 @@ class Cortexso < Formula
     port = free_port
     pid = fork { exec bin/"cortex", "serve", "--port", port.to_s }
     sleep 10
+    sleep 10 if OS.mac? && Hardware::CPU.intel?
     begin
       assert_match "OK", shell_output("curl -s localhost:#{port}/v1/health")
     ensure
