@@ -1,8 +1,8 @@
 class Microplane < Formula
   desc "CLI tool to make git changes across many repos"
   homepage "https://github.com/Clever/microplane"
-  url "https://github.com/Clever/microplane/archive/refs/tags/v0.0.35.tar.gz"
-  sha256 "b8bdb4ae49a0354cc0a79dd4c91dddcf75167b02dc0b3060f071c27740ab58ff"
+  url "https://github.com/Clever/microplane/archive/refs/tags/v0.0.36.tar.gz"
+  sha256 "efa78a7b3b385124e73e230d71667a6af45cd294cd901ea25d47031a97c7498c"
   license "Apache-2.0"
   head "https://github.com/Clever/microplane.git", branch: "master"
 
@@ -16,6 +16,12 @@ class Microplane < Formula
   end
 
   depends_on "go" => :build
+
+  # bump to go 1.23, upstream pr ref, https://github.com/Clever/microplane/pull/295
+  patch do
+    url "https://github.com/Clever/microplane/commit/3e2f1371e56af6d65fc62af5c306a7d6485321ad.patch?full_index=1"
+    sha256 "6ba123167defb192f0f97d6dc918be9a557014f8a0367f6be663232b930e3dd5"
+  end
 
   def install
     system "go", "build", *std_go_args(output: bin/"mp", ldflags: "-s -w -X main.version=#{version}")
