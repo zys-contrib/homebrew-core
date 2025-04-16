@@ -2,10 +2,9 @@ class ErlangAT25 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/releases/download/OTP-25.3.2.19/otp_src_25.3.2.19.tar.gz"
-  sha256 "24e9b6c3dc4926619b82be4f46abdd757055fedd386f89b724f3e59573e5d1c4"
+  url "https://github.com/erlang/otp/releases/download/OTP-25.3.2.20/otp_src_25.3.2.20.tar.gz"
+  sha256 "9dda848291428c02d8373f32da5dabf7c1a1478d9cba268fa85475eb26371fe7"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable
@@ -37,8 +36,8 @@ class ErlangAT25 < Formula
   end
 
   resource "html" do
-    url "https://github.com/erlang/otp/releases/download/OTP-25.3.2.19/otp_doc_html_25.3.2.19.tar.gz"
-    sha256 "8f7b2ece491212c018211e9f70e09e99b6dd978bfa58dda752c30a79bc244ff7"
+    url "https://github.com/erlang/otp/releases/download/OTP-25.3.2.20/otp_doc_html_25.3.2.20.tar.gz"
+    sha256 "8ff5f2159fed059fbc7addce7b18f83b5e43d77f4a74b4dbb1f0f9c26a5c4ccc"
 
     livecheck do
       formula :parent
