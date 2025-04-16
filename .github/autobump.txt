@@ -3872,6 +3872,7 @@ x-cmd
 x265
 x3270
 xa
+xan
 xapian
 xauth
 xbyak
