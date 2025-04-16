@@ -57,7 +57,27 @@ class MariadbAT105 < Formula
     depends_on "linux-pam"
   end
 
+  # Backport fix for CMake 4.0
+  patch do
+    url "https://github.com/MariaDB/server/commit/2a5a12b227845e03575f1b1eb0f6366dccc3e026.patch?full_index=1"
+    sha256 "f3a4b5871141451edf3936bcad0861e3a38418c3a8c6a69dfeddb8d073ac3253"
+  end
+  patch do
+    url "https://github.com/codership/wsrep-lib/commit/324b01e4315623ce026688dd9da1a5f921ce7084.patch?full_index=1"
+    sha256 "eaa0c3b648b712b3dbab3d37dfca7fef8a072908dc28f2ed383fbe8d217be421"
+    directory "wsrep-lib"
+  end
+
   def install
+    ENV.runtime_cpu_detection
+
+    # Backport fix for CMake 4.0 in columnstore submodule
+    # https://github.com/mariadb-corporation/mariadb-columnstore-engine/commit/726cc3684b4de08934c2b14f347799fd8c3aac9a
+    # https://github.com/mariadb-corporation/mariadb-columnstore-engine/commit/7e17d8825409fb8cc0629bfd052ffac6e542b50e
+    inreplace "storage/columnstore/columnstore/CMakeLists.txt",
+              "CMAKE_MINIMUM_REQUIRED(VERSION 2.8.12)",
+              "CMAKE_MINIMUM_REQUIRED(VERSION 3.10)"
+
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
     # be overridden by calling --basedir= when calling.
