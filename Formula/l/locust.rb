@@ -3,8 +3,8 @@ class Locust < Formula
 
   desc "Scalable user load testing tool written in Python"
   homepage "https://locust.io/"
-  url "https://files.pythonhosted.org/packages/56/21/c2bfe4f9482f8754e9a1ff2b1840a1abe63640576fc918a67a02fff7d961/locust-2.34.1.tar.gz"
-  sha256 "184a6ffcb0d6c543bbeae4de65cbb198c7e0739d569d48a2b8bf5db962077733"
+  url "https://files.pythonhosted.org/packages/79/21/d5aeeee74173d73d7d8d392e307ec24d8281fca69a2bf1f19199bd84c498/locust-2.35.0.tar.gz"
+  sha256 "97f83e591646ca3227644cfb6d4fa590e9a3e3d791ab18b216ca98be235b9b24"
   license "MIT"
 
   bottle do
@@ -74,8 +74,8 @@ class Locust < Formula
   end
 
   resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/2f/ff/df5fede753cc10f6a5be0931204ea30c35fa2f2ea7a35b25bdaf4fe40e46/greenlet-3.1.1.tar.gz"
-    sha256 "4ce3ac6cdb6adf7946475d7ef31777c26d94bccc377e070a7986bd2d5c515467"
+    url "https://files.pythonhosted.org/packages/b0/9c/666d8c71b18d0189cf801c0e0b31c4bfc609ac823883286045b1f3ae8994/greenlet-3.2.0.tar.gz"
+    sha256 "1d2d43bd711a43db8d9b9187500e6432ddb4fafe112d082ffabca8660a9e01a7"
   end
 
   resource "idna" do
@@ -124,8 +124,8 @@ class Locust < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz"
-    sha256 "f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"
+    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
+    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
   end
 
   resource "werkzeug" do
