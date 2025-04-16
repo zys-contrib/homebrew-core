@@ -3384,6 +3384,7 @@ stanc3
 stanford-corenlp
 star
 starlark-rust
+statesmith
 static-web-server
 staticcheck
 statix
