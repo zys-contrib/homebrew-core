@@ -47,19 +47,21 @@ class Dwarf < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~C
-      #include <stdio.h>
-
-      int main(int argc, char *argv[]) {
-        printf("hello world\\n");
-      }
-    C
-    system ENV.cc, "test.c", "-o", "test"
     if OS.mac?
+      (testpath/"test.c").write <<~C
+        #include <stdio.h>
+
+        int main(int argc, char *argv[]) {
+          printf("hello world\\n");
+        }
+      C
+      system ENV.cc, "test.c", "-o", "test"
       output = shell_output("#{bin}/dwarf -c 'pp $mac' test")
       assert_equal "magic: 0xfeedfacf (-17958193)", output.lines[0].chomp
     else
-      assert_match "main header: elf", shell_output("#{bin}/dwarf -p test")
+      # Run test on x86-64 ELF as upstream never added EH_AARCH64 so part of
+      # output doesn't show correctly if test is run on aarch64 ELF.
+      assert_match "main header: elf", shell_output("#{bin}/dwarf -p #{test_fixtures("elf/hello")}")
     end
   end
 end
