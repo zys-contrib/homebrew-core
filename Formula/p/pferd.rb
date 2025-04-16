@@ -8,13 +8,13 @@ class Pferd < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2fd6f699900beaa481671b61cbe5c9dd068ea3743ffad45bdd003ef83595deb5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "96a06de3e3ddebc6085a84b8c8f1455d24802740ee431285f39529147594911e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6c763d1de9af9aad4c0d3f0c21be140887c0fd3f187e20b327fe956c82a903cc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "917d17bbece923d888a908cc0011fd6972711a7c87ca755857556bb20cb67a8c"
-    sha256 cellar: :any_skip_relocation, ventura:       "7d0b030f451ae873019b0231c426ac3cc4f4f59ea6e36af08f74dc6c08d2c8b1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0dfad6005f1e2b456a2435e7cb072178a8674b1c39569f1e9cd24eb1fab5f3a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "890c70cd61f1e0179222d9532db5e75bdddbb01ba83d142e0c99dc0232fcedbd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "697024153bf75cc11a0f977cadbcbbfd99669748591c2613096664ed1cc70898"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "617c9ec272ef0b1c85d13d47404d937dd3b523806b797010a03952c8d452ba7b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "20013035dce7da0efee6fbc9bfbd115b025f254610a8d632e75e57749b4b8f5d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e58b26f22e7e0365d5fe293da26b26851d400f31e2d5e18df4cb412c30ffd3b4"
+    sha256 cellar: :any_skip_relocation, ventura:       "16186b882299ee63d6726c76c5996a5e36434df8045549c6f8ee3330c7ea2e36"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "807e641cfe73887aa0af9f827084597369bb6d084f07dd397c3fd387a0d59b19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "088d1af3b6fe081ce9a1ca7224385177e83b0a1013a680852242514b4b048be2"
   end
 
   depends_on "certifi"
