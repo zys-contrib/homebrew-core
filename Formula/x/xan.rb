@@ -1,8 +1,8 @@
 class Xan < Formula
   desc "CSV CLI magician written in Rust"
   homepage "https://github.com/medialab/xan"
-  url "https://github.com/medialab/xan/archive/refs/tags/0.48.0.tar.gz"
-  sha256 "6b59b653b36a42c57a24eea48a977a0302d6e03e11058996cb3ec86fc6f3405f"
+  url "https://github.com/medialab/xan/archive/refs/tags/0.49.0.tar.gz"
+  sha256 "46e73d305a9982eb219e45399590be02a24a03d97e91aa4adc080303dcaff87d"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/medialab/xan.git", branch: "master"
 
