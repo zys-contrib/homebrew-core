@@ -1,8 +1,8 @@
 class Nexttrace < Formula
   desc "Open source visual route tracking CLI tool"
   homepage "https://www.nxtrace.org/"
-  url "https://github.com/nxtrace/NTrace-core/archive/refs/tags/v1.3.7.tar.gz"
-  sha256 "94f8893f80b6b0a8d02b2fe709a62557034f3e32879a55807c38cb6ee2f8ab01"
+  url "https://github.com/nxtrace/NTrace-core/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "acbc3a56cf3606314879986cf2a420a3dcb6c797c0611085fe13f514c12e4c91"
   license "GPL-3.0-only"
   head "https://github.com/nxtrace/NTrace-core.git", branch: "main"
 
