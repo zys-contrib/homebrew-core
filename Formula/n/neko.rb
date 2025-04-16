@@ -1,11 +1,10 @@
 class Neko < Formula
   desc "High-level, dynamically typed programming language"
   homepage "https://nekovm.org/"
-  url "https://github.com/HaxeFoundation/neko/archive/refs/tags/v2-4-0.tar.gz"
-  version "2.4.0"
-  sha256 "232d030ce27ce648f3b3dd11e39dca0a609347336b439a4a59e9a5c0a465ce15"
+  url "https://github.com/HaxeFoundation/neko/archive/refs/tags/v2-4-1.tar.gz"
+  version "2.4.1"
+  sha256 "702282028190dffa2078b00cca515b8e2ba889186a221df2226d2b6deb3ffaca"
   license "MIT"
-  revision 2
   head "https://github.com/HaxeFoundation/neko.git", branch: "master"
 
   bottle do
