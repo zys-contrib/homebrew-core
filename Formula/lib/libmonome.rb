@@ -20,6 +20,9 @@ class Libmonome < Formula
   uses_from_macos "python" => :build
 
   def install
+    # Workaround for arm64 linux, issue ref: https://github.com/monome/libmonome/issues/82
+    ENV.append_to_cflags "-fsigned-char" if OS.linux? && Hardware::CPU.arm?
+
     system "python3", "./waf", "configure", "--prefix=#{prefix}"
     system "python3", "./waf", "build"
     system "python3", "./waf", "install"
