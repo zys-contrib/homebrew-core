@@ -40,7 +40,7 @@ class DartSdk < Formula
       arch = Hardware::CPU.arm? ? "arm64" : "x64"
       system "./tools/build.py", "--mode=release", "--arch=#{arch}", "create_sdk"
       out = OS.linux? ? "out" : "xcodebuild"
-      libexec.install Dir["#{out}/Release#{arch.capitalize}/dart-sdk/*"]
+      libexec.install Dir["#{out}/Release#{arch.upcase}/dart-sdk/*"]
     end
     bin.install_symlink libexec/"bin/dart"
   end
