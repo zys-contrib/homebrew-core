@@ -1128,6 +1128,7 @@ freeglut
 freeipmi
 freerdp
 freeswitch
+freetds
 freetype
 freexl
 frei0r
