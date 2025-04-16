@@ -9,17 +9,16 @@ class Bind < Formula
   # downgrade.
 
   # TODO: Uncomment below when patch is no longer needed.
-  # url "https://downloads.isc.org/isc/bind9/9.20.7/bind-9.20.7.tar.xz"
-  # sha256 "43323c8d22d2144282c37b4060ec11e98c24835e225688876fad08ba7b95dca6"
+  # url "https://downloads.isc.org/isc/bind9/9.20.8/bind-9.20.8.tar.xz"
+  # sha256 "3004d99c476beab49a986c2d49f902e2cd7766c9ab18b261e8b353cabf3a04b5"
   license "MPL-2.0"
-  revision 1
   version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git", branch: "main"
 
   # TODO: Remove `stable` block when patch is no longer needed.
   stable do
-    url "https://downloads.isc.org/isc/bind9/9.20.7/bind-9.20.7.tar.xz"
-    sha256 "43323c8d22d2144282c37b4060ec11e98c24835e225688876fad08ba7b95dca6"
+    url "https://downloads.isc.org/isc/bind9/9.20.8/bind-9.20.8.tar.xz"
+    sha256 "3004d99c476beab49a986c2d49f902e2cd7766c9ab18b261e8b353cabf3a04b5"
 
     patch :DATA
   end
