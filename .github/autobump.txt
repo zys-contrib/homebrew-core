@@ -3898,6 +3898,7 @@ xkeyboard-config
 xlsxio
 xmake
 xmlrpc-c
+xmlsectool
 xmount
 xmq
 xmrig
