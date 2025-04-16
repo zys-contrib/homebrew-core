@@ -1875,6 +1875,7 @@ libcap-ng
 libcbor
 libcdr
 libcec
+libcerf
 libchewing
 libclc
 libcoap
