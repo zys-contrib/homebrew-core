@@ -1,9 +1,8 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  # TODO: Try removing `bazel@7` workaround whenever new release is available
-  url "https://github.com/bazelbuild/bazel/releases/download/8.2.0/bazel-8.2.0-dist.zip"
-  sha256 "859bcdc655c2612a092b75e412082a34e2f1e47b643806de39be3e49c3cdc3f5"
+  url "https://github.com/bazelbuild/bazel/releases/download/8.2.1/bazel-8.2.1-dist.zip"
+  sha256 "b12b95cc02cc5ee19ff7a6a7f71f9496631f937c8e13a8f53ee0ff7b7700bc16"
   license "Apache-2.0"
 
   livecheck do
@@ -26,19 +25,6 @@ class Bazel < Formula
 
   uses_from_macos "unzip"
   uses_from_macos "zip"
-
-  if DevelopmentTools.clang_build_version >= 1600
-    depends_on "bazel@7" => :build
-
-    resource "bazel-src" do
-      url "https://github.com/bazelbuild/bazel/archive/refs/tags/8.2.0.tar.gz"
-      sha256 "93afb85c2fc3aa9cedd57926a08c88a9b44c53916c732e43531a6f9c2a27e01a"
-
-      livecheck do
-        formula :parent
-      end
-    end
-  end
 
   on_linux do
     on_intel do
@@ -66,6 +52,13 @@ class Bazel < Formula
     # Bazel clears environment variables which breaks superenv shims
     ENV.remove "PATH", Superenv.shims_path
 
+    # Workaround to build zlib < 1.3.1 with Apple Clang 1700
+    # https://releases.llvm.org/18.1.0/tools/clang/docs/ReleaseNotes.html#clang-frontend-potentially-breaking-changes
+    # Issue ref: https://github.com/bazelbuild/bazel/issues/25124
+    if DevelopmentTools.clang_build_version >= 1700
+      extra_bazel_args += %w[--copt=-fno-define-target-os-macros --host_copt=-fno-define-target-os-macros]
+    end
+
     # Set dynamic linker similar to cc shim so that bottle works on older Linux
     if OS.linux? && build.bottle? && ENV["HOMEBREW_DYNAMIC_LINKER"]
       extra_bazel_args << "--linkopt=-Wl,--dynamic-linker=#{ENV["HOMEBREW_DYNAMIC_LINKER"]}"
@@ -75,36 +68,10 @@ class Bazel < Formula
     (buildpath/"sources").install buildpath.children
 
     cd "sources" do
-      if DevelopmentTools.clang_build_version >= 1600
-        # Work around an error which is seen bootstrapping Bazel 8 on newer Clang
-        # from the `-fmodules-strict-decluse` set by `layering_check`:
-        #
-        #   external/abseil-cpp+/absl/container/internal/raw_hash_set.cc:26:10: error:
-        #   module abseil-cpp+//absl/container:raw_hash_set does not depend on a module
-        #   exporting 'absl/base/internal/endian.h'
-        #
-        # TODO: Try removing when newer versions of dependencies (e.g. abseil-cpp >= 20250127.0)
-        # are available in https://github.com/bazelbuild/bazel/blob/#{version}/MODULE.bazel
-
-        # The dist zip lacks some files to build directly with Bazel
-        odie "Resource bazel-src needs to be updated!" if resource("bazel-src").version != version
-        rm_r(Pathname.pwd.children)
-        resource("bazel-src").stage(Pathname.pwd)
-        rm(".bazelversion")
-
-        extra_bazel_args += %W[
-          --compilation_mode=opt
-          --stamp
-          --embed_label=#{ENV["EMBED_LABEL"]}
-        ]
-        system Formula["bazel@7"].bin/"bazel", "build", *extra_bazel_args, "//src:bazel_nojdk"
-        Pathname("output").install "bazel-bin/src/bazel_nojdk" => "bazel"
-      else
-        system "./compile.sh"
-      end
-
+      system "./compile.sh"
       system "./output/bazel", "--output_user_root=#{buildpath}/output_user_root",
                                "build",
+                               *extra_bazel_args,
                                "scripts:bash_completion",
                                "scripts:fish_completion"
 
