@@ -1,18 +1,18 @@
 class Krep < Formula
   desc "High-Performance String Search Utility"
   homepage "https://github.com/davidesantangelo/krep"
-  url "https://github.com/davidesantangelo/krep/archive/refs/tags/v1.0.5.tar.gz"
-  sha256 "a45e1941d234691e5379a368f12389f1693c565f937399f1b4a4f6a599ddaa72"
+  url "https://github.com/davidesantangelo/krep/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "e92ef195faca4f444c244bb7c0eac327d3874ab43581bcd5abab0772039b7940"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8904b585c6c62ed0e87e562534d48538865ac78f341eab1e10b7fbedab36c91c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0c121ad9bc792a9f29e5028755f492ff48640402ea4e933fa9d9cbe970a2a628"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b75d8ee973595b504b91d2d156c24e7365f4c8ca152c2316d476a2a66f36bcfc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "320d8fc887368d4a9dfe59ec7c314272e496c97099c35b53607209dea25a4cbe"
-    sha256 cellar: :any_skip_relocation, ventura:       "49bc4ce550cb84bcadb5c9bbc41c5e8532eaf05fb2b77f5bfa9c2d7835026cc2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "67e72661d84eb9176b1661aa90d1fbceff5ae70231d1ac240df73d021cf80e10"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d922a39b90962f88efb9fa2777551242138f07e7440d673d289c22030a0746f0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "754038d5fbe381bd8885855a860acb6ec15aa3d2e55627be014253a466a816e3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "50f7efef1fbdf43e15d0157ca11fa5346092f4ab0b08f34d4bfd47767561415e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "02485f8423dadaa81f45654461153ce352d02d8af1ed4ec8e4d829afe1c3cf9e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "65ec3ea71eb41d8d8c464a91aeb771617058c0781cf81220f458331db4400594"
+    sha256 cellar: :any_skip_relocation, ventura:       "67d018d0f60996c44a12a2198d83f7451c3658c5a8e75b73deb85699136ad57d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0db0ab4eb942bb8e77bfc9c59e144811625360b99b4828a211465d64736c2055"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b41852e52bc1a35d1250b1d10b4568ca6f0b2bd8e027e6a8e11ff0432ea49e93"
   end
 
   def install
