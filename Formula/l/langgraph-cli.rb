@@ -3,8 +3,8 @@ class LanggraphCli < Formula
 
   desc "Command-line interface for deploying apps to the LangGraph platform"
   homepage "https://www.github.com/langchain-ai/langgraph"
-  url "https://files.pythonhosted.org/packages/7c/cd/9dd702ccf2f8708a2fd6c3e1346b6110e4fedd92148fa6647ea9bba6c6f8/langgraph_cli-0.2.4.tar.gz"
-  sha256 "27db1a49bf78131ae7f20304e849e5c4bac9c2d02d9cd76b593463c291184d76"
+  url "https://files.pythonhosted.org/packages/ab/bc/186b9445d5baea49b5a07bcaf45ad02e9508a3f5e32098fe51a77e8a7abe/langgraph_cli-0.2.5.tar.gz"
+  sha256 "bd21b0fd4078c33ee8b51025d21f3f4fd78afddbba8bc99f2b13e1d176e1a0c0"
   license "MIT"
 
   bottle do
