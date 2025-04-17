@@ -41,18 +41,20 @@ class Eiffelstudio < Formula
   end
 
   def install
-    platform = "#{OS.mac? ? "macosx" : OS.kernel_name.downcase}-x86-64"
+    platform = if OS.mac?
+      "macosx-x86-64"
+    else
+      "#{OS.kernel_name.downcase}-#{Hardware::CPU.arch.to_s.tr("_", "-")}"
+    end
 
     # Apply workarounds
     ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
-    system "tar", "xf", "c.tar.bz2"
-    inreplace "C/CONFIGS/#{platform}" do |s|
-      if OS.mac?
-        # Fix flat namespace usage in C shared library.
-        s.gsub! "-flat_namespace -undefined suppress", "-undefined dynamic_lookup"
-      end
+    if OS.mac?
+      system "tar", "xf", "c.tar.bz2"
+      # Fix flat namespace usage in C shared library.
+      inreplace "C/CONFIGS/#{platform}", "-flat_namespace -undefined suppress", "-undefined dynamic_lookup"
+      system "tar", "cjf", "c.tar.bz2", "C"
     end
-    system "tar", "cjf", "c.tar.bz2", "C"
 
     system "./compile_exes", platform
     system "./make_images", platform
