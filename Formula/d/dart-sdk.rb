@@ -11,6 +11,7 @@ class DartSdk < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c79a1a97598b2ced9424456b4ac349798e9dc3609c2932891c3da336c84afddf"
     sha256 cellar: :any_skip_relocation, sonoma:        "b093bb6e35f91068b8e4334da32a625650f73309b1362f4fbaf1611cf4937263"
     sha256 cellar: :any_skip_relocation, ventura:       "9d027e74e46f579aa40e1d74c566f5a3a144b6aabeea3e4b7a78a4b0fe5eb3aa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6f4bcb3418812e9907eae6fb5e0a25aaa9c6189110907e7f512599789191a8bb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ade94ed4188f4e323662abe3c1251949ff65afae6055af06ac67e62267dbf146"
   end
 
