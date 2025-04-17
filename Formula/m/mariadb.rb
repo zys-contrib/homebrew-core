@@ -61,7 +61,20 @@ class Mariadb < Formula
     sha256 "77b65b35cf0166b8bb576254ac289845db5a8e64e03b41f1bf4b2045ac1cd2d1"
   end
 
+  # Backport fix for CMake 4.0
+  patch do
+    url "https://github.com/codership/wsrep-lib/commit/324b01e4315623ce026688dd9da1a5f921ce7084.patch?full_index=1"
+    sha256 "eaa0c3b648b712b3dbab3d37dfca7fef8a072908dc28f2ed383fbe8d217be421"
+    directory "wsrep-lib"
+  end
+
   def install
+    ENV.runtime_cpu_detection
+
+    # Backport fix for CMake 4.0
+    # https://github.com/MariaDB/server/commit/cacaaebf01939d387645fb850ceeec5392496171
+    inreplace "storage/mroonga/CMakeLists.txt", "cmake_minimum_required(VERSION 2.8.12)", ""
+
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
     # be overridden by calling --basedir= when calling.
