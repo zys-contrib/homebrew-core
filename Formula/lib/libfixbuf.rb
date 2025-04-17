@@ -1,8 +1,8 @@
 class Libfixbuf < Formula
   desc "Implements the IPFIX Protocol as a C library"
   homepage "https://tools.netsa.cert.org/fixbuf/"
-  url "https://tools.netsa.cert.org/releases/libfixbuf-2.5.0.tar.gz"
-  sha256 "f985827d543f4f8802d12740f576d232aef1a364bcc9d85ad0ca3fe9142c6ead"
+  url "https://tools.netsa.cert.org/releases/libfixbuf-2.5.1.tar.gz"
+  sha256 "e75a463855a3d8a6060860f6490e79dee3305e650bbb60111c4dae8e52cbdae7"
   license "LGPL-3.0-only"
 
   # NOTE: This should be updated to check the main `/fixbuf/download.html`
