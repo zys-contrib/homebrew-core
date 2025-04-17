@@ -22,14 +22,24 @@ class Vlang < Formula
 
   depends_on "bdw-gc"
 
+  on_linux do
+    on_arm do
+      depends_on "llvm" => :build
+
+      fails_with :gcc do
+        cause "compilation failed with errors in vlib/v/ast/scope.v"
+      end
+    end
+  end
+
   conflicts_with "v", because: "both install `v` binaries"
 
   resource "vc" do
     # For every vlang release there is a matching commit of the V compiler in the format
     # "[v:master] {short SHA of the vlang release commit} - {vlang version number}".
     # The sources of this V compiler commit need to be used here
-    url "https://github.com/vlang/vc.git",
-        revision: "7d11c662eaac78bd5195ee5086069b2a65354047"
+    url "https://github.com/vlang/vc/archive/66ea39be2275ac723225b9ca99d51ec1212c640d.tar.gz"
+    sha256 "c3b57600ad8081a525045d9877e245db834655fefdc79d05dcbed385e0ed0a68"
 
     on_big_sur :or_older do
       patch do
