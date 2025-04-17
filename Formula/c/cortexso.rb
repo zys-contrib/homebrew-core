@@ -13,6 +13,7 @@ class Cortexso < Formula
     sha256                               arm64_ventura: "ea7343468eadc0574cb6ce2cf2b6614b8750a5977f9228ef3d1dd42a4e0b8641"
     sha256                               sonoma:        "b7e87930b4f4b3315d382bc46ca4c2207fe5b410c9054cee4e373f432738a7b3"
     sha256                               ventura:       "72e19258cda334b426b5fc40cddc58e7c184778c2e97c9f0f7636b1debe53e38"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "386e435cfaf38bc9e5730faf70bf67ed64e9c4b3f208646b832e0d4082866bdc"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "95cb135c5a9c3bc7194792b0dce8173b5bc261640f57ee4a8be05e31ec7cbfa3"
   end
 
