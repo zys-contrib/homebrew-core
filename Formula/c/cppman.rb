@@ -7,6 +7,15 @@ class Cppman < Formula
   sha256 "15a4e40ab025b4dcec5a73a50df26b7ddaef7c148fcb197940fff2484f9e9903"
   license "GPL-3.0-or-later"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e7edded6fb04088da0b36108353bc082e82481dd5d6ba603e4313f926c63a8c8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ef7dc14b3e716c606d544ca2602786015dadcae34900798e5848df1b5481eb4b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a8850c52d49794b7386b0465fa3be10e8b48d2fbd6dd0ab5243f1e22172b7790"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b53e16784003384fae92a99dea19f97ae79844da5c8f420db45e990534f6ac18"
+    sha256 cellar: :any_skip_relocation, ventura:       "ff6009f665c229db982f2bd5d6241536da69fc60840ef600b7f27483769d050e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3bdb4b1df81dcbf31ee521271f510c565492921d31ce2d3d1070e1a708f53715"
+  end
+
   depends_on "python@3.13"
 
   uses_from_macos "libxml2", since: :ventura
