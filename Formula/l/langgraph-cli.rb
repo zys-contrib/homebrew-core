@@ -7,6 +7,15 @@ class LanggraphCli < Formula
   sha256 "27db1a49bf78131ae7f20304e849e5c4bac9c2d02d9cd76b593463c291184d76"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "44e4236fe68747c94a21db0ce7e7d505d95174f78a34e94428136c8e045299af"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "44e4236fe68747c94a21db0ce7e7d505d95174f78a34e94428136c8e045299af"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "44e4236fe68747c94a21db0ce7e7d505d95174f78a34e94428136c8e045299af"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fc8056eb893d4f14d8741e568d4f1e9723e219846df95bd4a80daa1f43d8c042"
+    sha256 cellar: :any_skip_relocation, ventura:       "fc8056eb893d4f14d8741e568d4f1e9723e219846df95bd4a80daa1f43d8c042"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "44e4236fe68747c94a21db0ce7e7d505d95174f78a34e94428136c8e045299af"
+  end
+
   depends_on "python@3.13"
 
   resource "click" do
