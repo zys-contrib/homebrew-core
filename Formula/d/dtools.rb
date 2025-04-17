@@ -4,6 +4,7 @@ class Dtools < Formula
   url "https://github.com/dlang/tools/archive/refs/tags/v2.111.0.tar.gz"
   sha256 "4c391349e929f73b7ffe97da7b98fbbdb04effda3e6389d9d46dc9d9938ece3b"
   license "BSL-1.0"
+  revision 1
   head "https://github.com/dlang/tools.git", branch: "master"
 
   bottle do
