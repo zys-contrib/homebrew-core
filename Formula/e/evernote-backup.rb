@@ -7,6 +7,15 @@ class EvernoteBackup < Formula
   sha256 "c3dc859cfdb52e9a933654dce32be0c7e6af342860ae256f96d6964d9da25fb6"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c781fec483b28f1c8a5f0cc8f89fe1862787c90bbc65b1edbe373dc1ab57ffa9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c5a50d595016dd318293a690cb571ef3cf885c293d174fc37ec8a622a754392b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a9be38e667cce5069024f4758b6140a4216448ca680ef1352e38c2eff4adcc0a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2f0d7fe64b7e3a14d86473458972e30a5ab0e10fd5dd8e06bb2824c924a39853"
+    sha256 cellar: :any_skip_relocation, ventura:       "dfccb986b2125720aeec62bc77fa4a31e29b67e82f8ba5d4743d43e856cf223a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ab5a93b8ea3623206480f07c2c375310206bc7b8da3778a889b18e919459e9f"
+  end
+
   depends_on "certifi"
   depends_on "python@3.13"
 
