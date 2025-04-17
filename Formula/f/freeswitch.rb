@@ -157,6 +157,7 @@ class Freeswitch < Formula
     end
 
     resource("signalwire-c").stage do
+      ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
       system "cmake", ".", *std_cmake_args(install_prefix: libexec/"signalwire-c")
       system "cmake", "--build", "."
       system "cmake", "--install", "."
