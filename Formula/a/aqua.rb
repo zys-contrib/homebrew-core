@@ -1,8 +1,8 @@
 class Aqua < Formula
   desc "Declarative CLI Version manager"
   homepage "https://aquaproj.github.io/"
-  url "https://github.com/aquaproj/aqua/archive/refs/tags/v2.48.1.tar.gz"
-  sha256 "c12122389e13dfb7868a7bc94424208e5010f74e20d1bf84b459bd1186372c63"
+  url "https://github.com/aquaproj/aqua/archive/refs/tags/v2.48.2.tar.gz"
+  sha256 "d90d12921b48ce444b30e1944b7078df542dcbbf04b41d505984cfe156256870"
   license "MIT"
   head "https://github.com/aquaproj/aqua.git", branch: "main"
 
@@ -30,7 +30,7 @@ class Aqua < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/aqua version")
+    assert_match version.to_s, shell_output("#{bin}/aqua --version")
 
     system bin/"aqua", "init"
     assert_match "depName=aquaproj/aqua-registry", (testpath/"aqua.yaml").read
