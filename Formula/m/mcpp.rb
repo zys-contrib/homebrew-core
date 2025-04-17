@@ -26,6 +26,7 @@ class Mcpp < Formula
     sha256 cellar: :any,                 high_sierra:    "fe1489ca47b0d9e551b4aa1b6cb2a4135848be79e3982856442080f75fcb45d7"
     sha256 cellar: :any,                 sierra:         "cdd368c63dc6403832c938967f8f099ec3d02acfcc5c75ab0426ad1cd213b045"
     sha256 cellar: :any,                 el_capitan:     "0be73930b3dbc8bc247c9a26acbc6115d3f5f665daaabc9ab64606ac6793ace9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "e3b5ff7ba12b3476bfdbc98e83a6aefb67ccee2a96201ac521baa85389585e73"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7869ff9d2c9946dd38a7891ea70766983208df755ca0f206016211b3239701c8"
   end
 
