@@ -22,6 +22,7 @@ class Mariadb < Formula
     sha256 arm64_ventura: "93d5d35242544df13cd074a324ee5d93565ca75e1278efb7393f3e767eb343c3"
     sha256 sonoma:        "a6274271328cb579529ec17ec0a5daca2a98c490ad9c2c726be4cc74a99e3ba8"
     sha256 ventura:       "7d03aa1668de2cfb383369d4a84d86aa8445a0000950a152e6b92865489d4d7c"
+    sha256 arm64_linux:   "9e75ebe01b3ef57d95ea18bbaa32e8dab5c00a90596b2739dc0a95365be73250"
     sha256 x86_64_linux:  "74ce4ec27335b9aec7c54cb57a76d1e686f31f4e24a5705e93fe3ff8affe8ade"
   end
 
