@@ -3,8 +3,8 @@ class Pferd < Formula
 
   desc "Programm zum Flotten Einfachen Runterladen von Dateien"
   homepage "https://github.com/Garmelon/PFERD"
-  url "https://files.pythonhosted.org/packages/52/30/2eb6a1246b3964763acc1210b24810d5af30d8dde20d0ae1796d696d14c3/pferd-3.8.0.tar.gz"
-  sha256 "3a17c63bd9e135bd725bc3eadb479739e3e2f8124887cc96f87e076d534bde28"
+  url "https://files.pythonhosted.org/packages/73/19/c67800414ff5a742256a3a9714634d62f5dff42a12c3d3dca1665a4a22fb/pferd-3.8.1.tar.gz"
+  sha256 "e8acb0791eb07905f1dce2816f8483be9056f811afe588793f0b516e31d8c759"
   license "MIT"
 
   bottle do
@@ -132,8 +132,8 @@ class Pferd < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/fc/4d/8a8f57caccce49573e567744926f88c6ab3ca0b47a257806d1cf88584c5f/yarl-1.19.0.tar.gz"
-    sha256 "01e02bb80ae0dbed44273c304095295106e1d9470460e773268a27d11e594892"
+    url "https://files.pythonhosted.org/packages/62/51/c0edba5219027f6eab262e139f73e2417b0f4efffa23bf562f6e18f76ca5/yarl-1.20.0.tar.gz"
+    sha256 "686d51e51ee5dfe62dec86e4866ee0e9ed66df700d55c828a615640adc885307"
   end
 
   def install
