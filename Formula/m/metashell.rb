@@ -34,7 +34,16 @@ class Metashell < Formula
     sha256 "31472db5ae8e67483319dcbe104d5c7a533031f9845af2ddf5147f3caabf3ac2"
   end
 
+  # fix build with cmake 4, upstream PR ref, https://github.com/metashell/metashell/pull/306
+  patch do
+    url "https://github.com/metashell/metashell/commit/38b524ae291799a7ea9077745d3fc10ef2d40d54.patch?full_index=1"
+    sha256 "e97590ca1d2b5510dcfcca86aa608e828040bb91519f6b161f7b4311676f4fd4"
+  end
+
   def install
+    # remove -msse4.1 if unsupported, issue ref: https://github.com/metashell/metashell/issues/305
+    inreplace "3rd/boost/atomic/CMakeLists.txt", /\btarget_compile_options.*-msse4/, "#\\0" if Hardware::CPU.arm?
+
     # Build internal Clang
     system "cmake", "-S", "3rd/templight/llvm",
                     "-B", "build/templight",
