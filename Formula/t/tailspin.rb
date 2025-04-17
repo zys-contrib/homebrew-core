@@ -1,8 +1,8 @@
 class Tailspin < Formula
   desc "Log file highlighter"
   homepage "https://github.com/bensadeh/tailspin"
-  url "https://github.com/bensadeh/tailspin/archive/refs/tags/5.2.1.tar.gz"
-  sha256 "c74823ad1f63017001db6f891f8d4c37b50cbbcad8be61634a67bb9ac7d74ad7"
+  url "https://github.com/bensadeh/tailspin/archive/refs/tags/5.3.0.tar.gz"
+  sha256 "1bd959e1fc4f095f0237170c9f88fb0b6b70b7d975a21c6f26ef3b484ad655f0"
   license "MIT"
   head "https://github.com/bensadeh/tailspin.git", branch: "main"
 
@@ -17,12 +17,6 @@ class Tailspin < Formula
   end
 
   depends_on "rust" => :build
-
-  # Gracefully handle reading from file over stdin
-  patch do
-    url "https://github.com/bensadeh/tailspin/commit/36e9866c9ad9fa2e8bd4c966e1517c3c64a1282e.patch?full_index=1"
-    sha256 "cd3ef1980c1380ee1b214ab025d1fe23b38ed298aade96eaa2c83a617116265d"
-  end
 
   def install
     system "cargo", "install", *std_cargo_args
