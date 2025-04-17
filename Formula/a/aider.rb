@@ -9,13 +9,13 @@ class Aider < Formula
   head "https://github.com/paul-gauthier/aider.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "43ce8e84b700d73cc6423d4252477ce34184b628ed21c9683210473230e0553d"
-    sha256 cellar: :any,                 arm64_sonoma:  "637d1cc08084e64f55244edc7edc304483e4c8fcf433620626bd03a3451f6f5b"
-    sha256 cellar: :any,                 arm64_ventura: "305085eaba5bf586d1737f6273fb8fa91ea55b34c41e5f4cccd453585a6812a2"
-    sha256 cellar: :any,                 sonoma:        "58ab38edf8626b79418dc0315f6b9208452564908701fab0fd61ce34d941c79a"
-    sha256 cellar: :any,                 ventura:       "d919dbd87e4fdda8de32b7ff50a416bd4a11106092b9a891a70240220079ed6b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7d3326cae90af95ab4c38ae2a776b1aa0329b0b1cfd6443b0bba72fbbf2d856c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1333706d75bf18dc08154f4448b71395737fdf231c3316580ee6235102c24f01"
+    sha256 cellar: :any,                 arm64_sequoia: "8e9ab5c0fe29eefb0f748fac5a4479ed36d798cd14c0211bc74426ceaf14ca9c"
+    sha256 cellar: :any,                 arm64_sonoma:  "62f1f724a207676faaf1df13fa64ec45109f59fd10660fdb3f5c8881ae039d7e"
+    sha256 cellar: :any,                 arm64_ventura: "a3e82a58b58311bf6071b1e9d1154b9349d6c0b70f0b0a29cf7e2f5188914071"
+    sha256 cellar: :any,                 sonoma:        "3c4aaf8e490c106302d5de09881ee68ddbf770796d6be16773b948391694a01e"
+    sha256 cellar: :any,                 ventura:       "a7c1e0ba3c60df0858796ff19d69a64782210ed48658ca27a0dd00cb9a5f3aab"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "af930a524b63d87e3b968f3351cc3f4d0bd905769080083a8b413fdbce9c5859"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2fa31c739570523c3e31f224b64f68f7b0b8f3f079b3fae4656340e280fc254"
   end
 
   depends_on "rust" => :build # for pydantic_core
