@@ -11,7 +11,7 @@ class Unciv < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6d6e37733e1f8bf6acb376796536ff2c997ec0b52aee4ccdb61bcc3516399e8b"
+    sha256 cellar: :any_skip_relocation, all: "4eb99f56b8fa7b454ada44b3cb3922a94c242856538cd96da06ab518468f5f93"
   end
 
   depends_on "openjdk"
