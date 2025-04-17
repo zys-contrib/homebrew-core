@@ -4,16 +4,16 @@ class Ortp < Formula
   license "GPL-3.0-or-later"
 
   stable do
-    url "https://gitlab.linphone.org/BC/public/ortp/-/archive/5.3.106/ortp-5.3.106.tar.bz2"
-    sha256 "16692af175836d9e38ff79065b69aad0d63b7af0ea79c7fac48c3f1578af2529"
+    url "https://gitlab.linphone.org/BC/public/ortp/-/archive/5.4.9/ortp-5.4.9.tar.bz2"
+    sha256 "d44c496b6a5371062de383dea5428f95f306dba6744c51bbaf7739a894fbaf58"
 
     depends_on "mbedtls"
 
     # bctoolbox appears to follow ortp's version. This can be verified at the GitHub mirror:
     # https://github.com/BelledonneCommunications/bctoolbox
     resource "bctoolbox" do
-      url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/5.3.106/bctoolbox-5.3.106.tar.bz2"
-      sha256 "eeebad5333aaac08c522fb8dc077188901047f9fba1fb8845ac14d4fafbb48d3"
+      url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/5.4.9/bctoolbox-5.4.9.tar.bz2"
+      sha256 "c94394f710a04d2c5879c2b87851df2e92348e3ac61b9b4d04bf6ec994f53046"
 
       livecheck do
         formula :parent
@@ -96,23 +96,23 @@ end
 
 __END__
 diff --git a/src/crypto/mbedtls.cc b/src/crypto/mbedtls.cc
-index 4bc16d4..278c524 100644
+index cf146fd..8886b2d 100644
 --- a/src/crypto/mbedtls.cc
 +++ b/src/crypto/mbedtls.cc
-@@ -106,8 +106,6 @@ public:
+@@ -80,8 +80,6 @@ public:
+ 
  	std::unique_ptr<RNG> sRNG;
  	mbedtlsStaticContexts() {
- #ifdef BCTBX_USE_MBEDTLS_PSA
 -		mbedtls_threading_set_alt(threading_mutex_init_cpp, threading_mutex_free_cpp, threading_mutex_lock_cpp,
 -		                          threading_mutex_unlock_cpp);
  		if (psa_crypto_init() != PSA_SUCCESS) {
  			bctbx_error("MbedTLS PSA init fail");
  		}
-@@ -120,7 +118,6 @@ public:
+@@ -92,7 +90,6 @@ public:
+ 		// before destroying mbedtls internal context, destroy the static RNG
  		sRNG = nullptr;
- #ifdef BCTBX_USE_MBEDTLS_PSA
  		mbedtls_psa_crypto_free();
 -		mbedtls_threading_free_alt();
- #endif // BCTBX_USE_MBEDTLS_PSA
  	}
  };
+ static const auto mbedtlsStaticContextsInstance = std::make_unique<mbedtlsStaticContexts>();
