@@ -1,8 +1,8 @@
 class Cdktf < Formula
   desc "Cloud Development Kit for Terraform"
   homepage "https://github.com/hashicorp/terraform-cdk"
-  url "https://registry.npmjs.org/cdktf-cli/-/cdktf-cli-0.20.11.tgz"
-  sha256 "d540d7528bf60e2021137eeb0ea3182b097b76c9ca3dd8e80168926f6e9da70d"
+  url "https://registry.npmjs.org/cdktf-cli/-/cdktf-cli-0.20.12.tgz"
+  sha256 "90bb30b7eae861d2a7ab21d1fe4ddbf71c8f74e7b2c31052c9b9265ff69d4c6e"
   license "MPL-2.0"
 
   bottle do
