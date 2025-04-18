@@ -1,8 +1,8 @@
 class Dockerfmt < Formula
   desc "Dockerfile format and parser. a modern dockfmt"
   homepage "https://github.com/reteps/dockerfmt"
-  url "https://github.com/reteps/dockerfmt/archive/refs/tags/v0.3.5.tar.gz"
-  sha256 "7ea7e46a3d04618d229333ebddfc4786ce9dfe4bdf6f1c1dc82cf3deb9612b14"
+  url "https://github.com/reteps/dockerfmt/archive/refs/tags/v0.3.6.tar.gz"
+  sha256 "ce9f67ea2513cda0d04a26d11c80300a834242eee0656797901254ccb0c89553"
   license "MIT"
   head "https://github.com/reteps/dockerfmt.git", branch: "main"
 
