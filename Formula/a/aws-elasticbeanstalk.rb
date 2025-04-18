@@ -8,13 +8,13 @@ class AwsElasticbeanstalk < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "614e8561e116e24b474113e666a89bd639247d375e822775d3605c6a75b14943"
-    sha256 cellar: :any,                 arm64_sonoma:  "965cefcb8b5883a20722e37c97ca56bfaa2b98110b13547a43da9e7f2b74cdfb"
-    sha256 cellar: :any,                 arm64_ventura: "3744364a666c4243c72cb3756372c305e1461851a4d1c930deb8d678689d87e1"
-    sha256 cellar: :any,                 sonoma:        "802bdfadc424e080805703532d272c53a87f5723e8e7725fdcd76eff5720fa32"
-    sha256 cellar: :any,                 ventura:       "7c29e07cea734e8b4a65a5431c7b8b2b135e717188b79c687dd3bbc829dacc84"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "71ba7506a988bbf2d54fc244a2ac4a5c9fead089aef257a9b402c983a6a4666b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59983208260e4353a7152eaf198f219361fe3550844308b449bda1157df50269"
+    sha256 cellar: :any,                 arm64_sequoia: "5b9d146c25a951fbe114fc22569b7268297c6097ab7abe071a7348c5598c8d50"
+    sha256 cellar: :any,                 arm64_sonoma:  "6e7cba1c2fa1d5f66acff2332ac68de5f69e729d3f81e62e9d785e55e4548e74"
+    sha256 cellar: :any,                 arm64_ventura: "fc434f21876e6a1c75fedc1dc3f19893c550c2f6c4187ee258008cc66f90dd0d"
+    sha256 cellar: :any,                 sonoma:        "987cfe8a6c01f0c77ab50355fcdd5d39f876825f6d3e4bc7077d679c52a2b736"
+    sha256 cellar: :any,                 ventura:       "0290eb5362c2a5f7a51b87ef10b8674f9717edad7a2ae9330fbf2bd88f349381"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6bab3e4182bb534a91dbeffa296eb99d40eff630cdb99bf975fffb5baf8af8f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d09e1888a183c5004e5e5741dc0a8515c3de0b0cf693008ff6b42f4799f24792"
   end
 
   depends_on "certifi"
