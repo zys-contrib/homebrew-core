@@ -3,8 +3,8 @@ class Sysaidmin < Formula
 
   desc "GPT-powered sysadmin"
   homepage "https://github.com/skorokithakis/sysaidmin"
-  url "https://files.pythonhosted.org/packages/42/4e/7d216b49eb147018396f2f07f08d4c48a7d1700434b988d4a94d9d758dc7/sysaidmin-0.2.3.tar.gz"
-  sha256 "a68c41360e0efc9d56afc84a9ed5d460b6b7da98f44487be4596e0a486b9ac36"
+  url "https://files.pythonhosted.org/packages/01/09/99fc78c4db2391c30d7ebf3bc3d4cae59e013b9e420948716ebb800a59a5/sysaidmin-0.2.4.tar.gz"
+  sha256 "82ef3688b244e38397d29d1f328a482d6fe49037aa930ab227f26032d22db723"
   license "AGPL-3.0-or-later"
 
   bottle do
@@ -112,8 +112,8 @@ class Sysaidmin < Formula
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/04/e3/ed51b456c7f2a299af624dd6096e7c96d6f65de06ee2f7fb5884072a2c86/pydantic_settings-2.9.0.tar.gz"
-    sha256 "24fd3fe19bc2c0eddeff91860dc5e303572b39fb70b1391c64955dd4d1875098"
+    url "https://files.pythonhosted.org/packages/67/1d/42628a2c33e93f8e9acbde0d5d735fa0850f3e6a2f8cb1eb6c40b9a732ac/pydantic_settings-2.9.1.tar.gz"
+    sha256 "c509bf79d27563add44e8446233359004ed85066cd096d8b510f715e6ef5d268"
   end
 
   resource "python-dotenv" do
