@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package and dependency manager supporting the latest PEP standards"
   homepage "https://pdm-project.org"
-  url "https://files.pythonhosted.org/packages/9e/9e/826455c9ee86f0947859ec2ccf58f74d3568d1759d559a2d1fa5546de850/pdm-2.23.1.tar.gz"
-  sha256 "cf12cd2201df78a6543a5485ac1d7015a73b3a6b10c98b66dfae6ebd481386fe"
+  url "https://files.pythonhosted.org/packages/0f/8e/663193a3a039563f476846e448a8f7bfb91e96924c9d485ae26dd9d9b569/pdm-2.24.0.tar.gz"
+  sha256 "1bb831c97ed2267f9186f499e1f2946783c6ce1f1ad93020256cce08f4fad87c"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -37,8 +37,8 @@ class Pdm < Formula
   end
 
   resource "dep-logic" do
-    url "https://files.pythonhosted.org/packages/fa/d8/11db71e3b8961152a777258cf627f9fe9bacce7ec2f2e07d2e8c6ad0cd90/dep_logic-0.4.11.tar.gz"
-    sha256 "6084c81ce683943a60394ca0f8531ff803dfd955b5d7f52fb0571b53b930a182"
+    url "https://files.pythonhosted.org/packages/02/c8/f2d9d1e5ed8c4d37ed898ea4cdf20bed829d351fbf3426e815b68db3fa51/dep_logic-0.5.0.tar.gz"
+    sha256 "be92e772f15d2563edd6b8694a6818846ad2822310dfc8f39cd20ebb0b03e329"
   end
 
   resource "distlib" do
@@ -67,8 +67,8 @@ class Pdm < Formula
   end
 
   resource "httpcore" do
-    url "https://files.pythonhosted.org/packages/6a/41/d7d0a89eb493922c37d343b607bc1b5da7f5be7e383740b4753ad8943e90/httpcore-1.0.7.tar.gz"
-    sha256 "8551cb62a169ec7162ac7be8d4817d561f60e08eaa485234898414bb5a8a0b4c"
+    url "https://files.pythonhosted.org/packages/9f/45/ad3e1b4d448f22c0cff4f5692f5ed0666658578e358b8d58a19846048059/httpcore-1.0.8.tar.gz"
+    sha256 "86e94505ed24ea06514883fd44d2bc02d90e77e7979c8eb71b90f41d364a1bad"
   end
 
   resource "httpx" do
@@ -112,8 +112,8 @@ class Pdm < Formula
   end
 
   resource "pbs-installer" do
-    url "https://files.pythonhosted.org/packages/8b/67/365929546365e5fc69e090eeb5c1646bae6a8549d4d66959699e8d620562/pbs_installer-2025.3.17.tar.gz"
-    sha256 "dde058f925b989c1d3bd90739c16ffd0e68732f7716e4d1e01ca480d00a67560"
+    url "https://files.pythonhosted.org/packages/b9/f4/f60628d7424c7d7461c97317b642c48c3e21e9e09025f96179f9df61710f/pbs_installer-2025.4.9.tar.gz"
+    sha256 "15755bc94769a544af5dda155f973c70caf76f0e70b21f3c8a8ed506f102f88f"
   end
 
   resource "platformdirs" do
@@ -182,8 +182,8 @@ class Pdm < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz"
-    sha256 "f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"
+    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
+    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
   end
 
   resource "virtualenv" do
