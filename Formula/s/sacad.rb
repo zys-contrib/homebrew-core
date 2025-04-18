@@ -13,6 +13,7 @@ class Sacad < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1db21b5d97acc6eda7c4228b2b2beaff2c72526151b823931db678a67f878f8b"
     sha256 cellar: :any_skip_relocation, sonoma:        "cc399147b8a49e0655641cd97b524543b24d16bd75b0bcc9f34bebad81cc3d07"
     sha256 cellar: :any_skip_relocation, ventura:       "d45c054900915a504c447c0c287202975039feb33cbe2169496bc64a4a3e915a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d3c59d39a3064b7bbcd88b1027e78bd8eb1b1e327db3128d6c80ac84f0e3e4a8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "37b39ab05560f6440cdbb02e6cca68b5d0ee0f71ba5c3dba66c9fa6f4a923802"
   end
 
