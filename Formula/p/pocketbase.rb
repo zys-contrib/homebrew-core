@@ -16,8 +16,6 @@ class Pocketbase < Formula
 
   depends_on "go" => :build
 
-  uses_from_macos "netcat" => :test
-
   def install
     ENV["CGO_ENABLED"] = "0"
 
@@ -28,20 +26,21 @@ class Pocketbase < Formula
     assert_match "pocketbase version #{version}", shell_output("#{bin}/pocketbase --version")
 
     port = free_port
-    _, _, pid = PTY.spawn("#{bin}/pocketbase serve --dir #{testpath}/pb_data --http 127.0.0.1:#{port}")
-    sleep 5
+    PTY.spawn("#{bin}/pocketbase serve --dir #{testpath}/pb_data --http 127.0.0.1:#{port}") do |_, _, pid|
+      sleep 5
 
-    system "nc", "-z", "localhost", port
+      assert_match "API is healthy", shell_output("curl -s http://localhost:#{port}/api/health")
 
-    assert_path_exists testpath/"pb_data", "pb_data directory should exist"
-    assert_predicate testpath/"pb_data", :directory?, "pb_data should be a directory"
+      assert_path_exists testpath/"pb_data", "pb_data directory should exist"
+      assert_predicate testpath/"pb_data", :directory?, "pb_data should be a directory"
 
-    assert_path_exists testpath/"pb_data/data.db", "pb_data/data.db should exist"
-    assert_predicate testpath/"pb_data/data.db", :file?, "pb_data/data.db should be a file"
+      assert_path_exists testpath/"pb_data/data.db", "pb_data/data.db should exist"
+      assert_predicate testpath/"pb_data/data.db", :file?, "pb_data/data.db should be a file"
 
-    assert_path_exists testpath/"pb_data/auxiliary.db", "pb_data/auxiliary.db should exist"
-    assert_predicate testpath/"pb_data/auxiliary.db", :file?, "pb_data/auxiliary.db should be a file"
-  ensure
-    Process.kill "TERM", pid
+      assert_path_exists testpath/"pb_data/auxiliary.db", "pb_data/auxiliary.db should exist"
+      assert_predicate testpath/"pb_data/auxiliary.db", :file?, "pb_data/auxiliary.db should be a file"
+    ensure
+      Process.kill "TERM", pid
+    end
   end
 end
