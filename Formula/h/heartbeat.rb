@@ -19,8 +19,6 @@ class Heartbeat < Formula
   depends_on "go" => :build
   depends_on "mage" => :build
 
-  uses_from_macos "netcat" => :test
-
   def install
     # remove non open source files
     rm_r("x-pack")
@@ -86,10 +84,12 @@ class Heartbeat < Formula
       YAML
 
       pid = spawn bin/"heartbeat", "--path.config", testpath/"config", "--path.data", testpath/"data"
-      sleep 5
-      sleep 5 if OS.mac? && Hardware::CPU.intel?
-      assert_match "hello", pipe_output("nc -l #{port}", "goodbye\n", 0)
-      sleep 5
+      TCPServer.open(port) do |server|
+        session = server.accept
+        assert_equal "hello", session.gets.chomp
+        session.puts "goodbye"
+        session.close
+      end
 
       output = JSON.parse((testpath/"data/meta.json").read)
       assert_includes output, "first_start"
