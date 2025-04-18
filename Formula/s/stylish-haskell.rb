@@ -1,8 +1,8 @@
 class StylishHaskell < Formula
   desc "Haskell code prettifier"
   homepage "https://github.com/haskell/stylish-haskell"
-  url "https://github.com/haskell/stylish-haskell/archive/refs/tags/v0.15.0.0.tar.gz"
-  sha256 "54e6cc986ab4e3c0be278af9f30b53c5fa99ed8a9bd88cae9b1e0a0be3dbfe52"
+  url "https://github.com/haskell/stylish-haskell/archive/refs/tags/v0.15.1.0.tar.gz"
+  sha256 "0187bb335205f6b5c9c78d3fc27deb59ce7122c7eb7429b88971d8cb25d7be51"
   license "BSD-3-Clause"
   head "https://github.com/haskell/stylish-haskell.git", branch: "main"
 
@@ -16,7 +16,7 @@ class StylishHaskell < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.8" => :build # GHC 9.10 PR: https://github.com/haskell/stylish-haskell/pull/480
+  depends_on "ghc@9.10" => :build
 
   def install
     system "cabal", "v2-update"
