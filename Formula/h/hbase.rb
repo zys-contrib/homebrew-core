@@ -13,6 +13,7 @@ class Hbase < Formula
     sha256 arm64_ventura: "fe7c197d0041aefe2b7c087ebc8309da66974a2395db77d763b0c056513813bf"
     sha256 sonoma:        "03d6287c185c479d6fa135e85ddf90947df47b496d793720cfc994682e7f6ddc"
     sha256 ventura:       "f37ea71e025d1d3daa046013a6c55bc4d50118efa4a93513cd92cc278a5e9d2b"
+    sha256 arm64_linux:   "e0f0e0efda771923a5e568d44213faa079d49aec80981f07a2ec53d233e42a1e"
     sha256 x86_64_linux:  "5ed28e89fd22d263715dc6579d1185ed053546ed2f76ab6de8ec34dde3c88e0c"
   end
 
