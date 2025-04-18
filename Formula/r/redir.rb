@@ -14,21 +14,22 @@ class Redir < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "42d0afabc5b8a627139420184283cd83e9c277f5aabcf8f3c3192f0508116ec8"
   end
 
-  uses_from_macos "netcat" => :test
-
   def install
     system "./configure", "--disable-silent-rules", "--enable-compat", *std_configure_args
     system "make", "install"
   end
 
   test do
-    redir_pid = fork do
-      exec bin/"redir", "--cport=12345", "--lport=54321"
-    end
+    cport = free_port
+    lport = free_port
+    redir_pid = spawn bin/"redir", "--cport=#{cport}", "--lport=#{lport}"
     Process.detach(redir_pid)
 
-    nc_pid = fork do
-      exec "nc -l 12345"
+    server = TCPServer.new(cport)
+    server_pid = fork do
+      session = server.accept
+      session.puts "Hello world!"
+      session.close
     end
 
     # Give time to processes start
@@ -39,11 +40,13 @@ class Redir < Formula
       system "kill", "-0", redir_pid
 
       # Check if the port redirect works
-      system "nc", "-z", "localhost", "54321"
+      TCPSocket.open("localhost", lport) do |sock|
+        assert_equal "Hello world!", sock.gets.chomp
+      end
     ensure
       Process.kill("TERM", redir_pid)
-      Process.kill("TERM", nc_pid)
-      Process.wait(nc_pid)
+      Process.kill("TERM", server_pid)
+      Process.wait(server_pid)
     end
   end
 end
