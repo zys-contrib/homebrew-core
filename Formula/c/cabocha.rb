@@ -41,6 +41,8 @@ class Cabocha < Formula
       --with-charset=UTF8
       --with-posset=IPA
     ]
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
 
     system "./configure", *args
     system "make", "install"
@@ -52,7 +54,7 @@ class Cabocha < Formula
     else
       "md5sum"
     end
-    result = pipe_output(md5, pipe_output(bin/"cabocha", "CaboCha はフリーソフトウェアです。"))
+    result = pipe_output(md5, pipe_output(bin/"cabocha", "CaboCha はフリーソフトウェアです。", 0))
     assert_equal "a5b8293e6ebcb3246c54ecd66d6e18ee", result.chomp.split.first
   end
 end
