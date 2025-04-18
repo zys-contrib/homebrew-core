@@ -22,8 +22,6 @@ class Sixtunnel < Formula
     depends_on "libtool" => :build
   end
 
-  uses_from_macos "netcat" => :test
-
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-silent-rules", *std_configure_args
@@ -36,22 +34,21 @@ class Sixtunnel < Formula
     proxy_port = free_port
     server = TCPServer.new dest_port
 
-    fork do
-      loop do
-        session = server.accept
-        session.puts "Hello world!"
-        session.close
-      end
+    server_pid = fork do
+      session = server.accept
+      session.puts "Hello world!"
+      session.close
     end
-
     sleep 1
 
-    fork do
-      exec bin/"6tunnel", "-1", "-4", "-d", proxy_port.to_s, "localhost", dest_port.to_s
-    end
-
+    tunnel_pid = spawn bin/"6tunnel", "-1", "-4", "-d", proxy_port.to_s, "localhost", dest_port.to_s
     sleep 1
 
-    assert_equal "Hello world!", shell_output("nc localhost #{proxy_port}").chomp
+    TCPSocket.open("localhost", proxy_port) do |sock|
+      assert_equal "Hello world!", sock.gets.chomp
+    end
+  ensure
+    Process.kill "TERM", tunnel_pid if tunnel_pid
+    Process.kill "TERM", server_pid if server_pid
   end
 end
