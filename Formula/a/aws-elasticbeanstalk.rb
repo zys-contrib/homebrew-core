@@ -3,8 +3,8 @@ class AwsElasticbeanstalk < Formula
 
   desc "Client for Amazon Elastic Beanstalk web service"
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html"
-  url "https://files.pythonhosted.org/packages/65/b7/9cb688da4baf9528f6c99069099177fa412ed249f90eeaa25374693c6516/awsebcli-3.23.tar.gz"
-  sha256 "f1256f96a4ef12ab5eb68c6aeebeee06c1144b0e7579167ec0f5c823e78982b8"
+  url "https://files.pythonhosted.org/packages/bb/2a/ee0a6d0b2a001d48ab3f9aa957c031c61a98d350a31dd602dded2d7f00a8/awsebcli-3.23.1.tar.gz"
+  sha256 "3cecb7337e3be630364ec1bedb20e39ffa7523afeb96309becc7732bdf8806b9"
   license "Apache-2.0"
 
   bottle do
