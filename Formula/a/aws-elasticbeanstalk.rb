@@ -3,8 +3,8 @@ class AwsElasticbeanstalk < Formula
 
   desc "Client for Amazon Elastic Beanstalk web service"
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html"
-  url "https://files.pythonhosted.org/packages/f1/15/1de1a0b44ef91552f891a4bdf3a9458eb7cda904e6d609f219429deae9f4/awsebcli-3.22.1.tar.gz"
-  sha256 "e889fc961d7c3e05e4d53edbdfb2e58e42872e3843620be38cb96ba58fa68b32"
+  url "https://files.pythonhosted.org/packages/65/b7/9cb688da4baf9528f6c99069099177fa412ed249f90eeaa25374693c6516/awsebcli-3.23.tar.gz"
+  sha256 "f1256f96a4ef12ab5eb68c6aeebeee06c1144b0e7579167ec0f5c823e78982b8"
   license "Apache-2.0"
 
   bottle do
@@ -29,8 +29,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/7c/9c/1df6deceee17c88f7170bad8325aa91452529d683486273928eecfd946d8/botocore-1.35.99.tar.gz"
-    sha256 "1eab44e969c39c5f3d9a3104a0836c24715579a455f12b3979a31d7cde51b3c3"
+    url "https://files.pythonhosted.org/packages/96/d0/70969515e3ae8ff0fcccf22827d5d131bc7b8729331127415cf8f2861d63/botocore-1.37.37.tar.gz"
+    sha256 "3eadde6fed95c4cb469cc39d1c3558528b7fa76d23e7e16d4bddc77250431a64"
   end
 
   resource "cement" do
@@ -64,8 +64,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/24/9f/a9ae1e6efa11992dba2c4727d94602bd2f6ee5f0dedc29ee2d5d572c20f7/pathspec-0.10.1.tar.gz"
-    sha256 "7ace6161b621d31e7902eb6b5ae148d12cfd23f4a249b9ffb6b9fee12084323d"
+    url "https://files.pythonhosted.org/packages/ca/bc/f35b8446f4531a7cb215605d100cd88b7ac6f44ab3fc94870c120ab3adbf/pathspec-0.12.1.tar.gz"
+    sha256 "a482d51503a1ab33b1c67a6c3813a26953dbdc71c31dacaef9a838c4e29f5712"
   end
 
   resource "python-dateutil" do
