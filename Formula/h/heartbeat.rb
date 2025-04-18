@@ -13,6 +13,7 @@ class Heartbeat < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0888969d278cbf3cac8cb01e1693da7d9af05b76a7e3b49f0c268179f5aa568d"
     sha256 cellar: :any_skip_relocation, sonoma:        "295d0e949a5d7ee6a57507687dff5d0e313c9aae0af84d1c867e7b44ccd2880c"
     sha256 cellar: :any_skip_relocation, ventura:       "916aa84a80b85a4efe79e2d15a92785b129f4601daf04751b57a6d66aef0d83d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "70879b561f8fdc0b4f747c628148380a3425d5d020111a6fcb1ce3c74fb7c1dd"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "06ec9bfa1651e23eca306189c20658772875973bea28d12fd157e4be653125e1"
   end
 
