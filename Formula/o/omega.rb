@@ -11,13 +11,13 @@ class Omega < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "52ad2a9eb3d78d3025123d4d9cd5dbc4dd3007dbd95e5b36657cf5ccb420d849"
-    sha256 arm64_sonoma:  "02dd50fcb859e119737d2d992fb055fd83a7edde194a5cd5778b84beed465861"
-    sha256 arm64_ventura: "be25156706f01b6dbad1d8d2840558f700a840c4258b96c80f9711a72f542bde"
-    sha256 sonoma:        "91d06380b0e7325318f851da456247bfe79e9dfae9cc0fba39c0b717926e7330"
-    sha256 ventura:       "7c6282f0ea01a3af2933e90272e910479552d139658277b8aeb2993cf9644380"
-    sha256 arm64_linux:   "d634ba389104dd3fb2277c086df0b6a9035abba30c3db15a00b2ff3d57975be0"
-    sha256 x86_64_linux:  "f46bac4544451f7403feff746e53d37f6ec5dcf67d7a2a9545bd2958058547ae"
+    sha256 arm64_sequoia: "c34abdcf680fac4d08f36815972a52c2be9cb40a225d5019bbed0cf2fdf61498"
+    sha256 arm64_sonoma:  "6c1f87ad42018a1a5264505ab80b5c498dfe869a83eab41dd1fa45141a8572e5"
+    sha256 arm64_ventura: "f3b3ae91e6bab172e5cb7f2f20747fdfd5e7f5d1e339a256ba007dc7015018a3"
+    sha256 sonoma:        "9a12bcd4cdedd557d807684ea3a42e03040be95f1e35e92ea14347f6bac4c124"
+    sha256 ventura:       "32b4c40806a017933c9079220ad77be06fae097813c8444e4a92a22bd620ba8e"
+    sha256 arm64_linux:   "208ce1ee22f1e2ed0f24ab03e353b97b72e58ae16c8127b7317125c9cb1ac326"
+    sha256 x86_64_linux:  "d67d137cbe14ff00b796fde6474a9f4b8550eb337f345f0f609b2192e90b5206"
   end
 
   depends_on "pkgconf" => :build
