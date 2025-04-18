@@ -1,8 +1,8 @@
 class ElanInit < Formula
   desc "Lean Theorem Prover installer and version manager"
   homepage "https://github.com/leanprover/elan"
-  url "https://github.com/leanprover/elan/archive/refs/tags/v4.0.0.tar.gz"
-  sha256 "47db0835fb55ce394b4b10a41ad414831ea3a33f44c5b5c1f1feb28b44170b03"
+  url "https://github.com/leanprover/elan/archive/refs/tags/v4.0.1.tar.gz"
+  sha256 "a298124a295db27015eb95cf0d14508db8d65881a61fca88f311fcbc1591ab41"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/leanprover/elan.git", branch: "master"
 
