@@ -3,18 +3,18 @@ class SvtplayDl < Formula
 
   desc "Download videos from https://www.svtplay.se/"
   homepage "https://svtplay-dl.se/"
-  url "https://files.pythonhosted.org/packages/7c/18/beed941165689e5462c8294d2e4bc165570bb0a0e8961d9445cc26e45f06/svtplay_dl-4.107.tar.gz"
-  sha256 "c029e0f8e2782484e72eb83c69f4fca3254ace3cd3242919ad0e8bb9d84841e5"
+  url "https://files.pythonhosted.org/packages/71/9b/ce51dda73da3ee3f0c1897d5df46bbd0bcd9377d9002c02631306d92f363/svtplay_dl-4.109.tar.gz"
+  sha256 "8b6ed75c58be420616a9616d6cdbfd7039a448be55905fe1331ca13bea23176e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c62fa84bee7750e82122e2d5e521d5ed7973d5383d4ce2d6e49370cea26eb4b6"
-    sha256 cellar: :any,                 arm64_sonoma:  "36cc3366d5a064892b79dae8cbd303e6c6caaad69820ebaf07bb43aed9cedfa7"
-    sha256 cellar: :any,                 arm64_ventura: "0f3f6c9c23636fe5c2d440d866d98648e12520f1686a98ae1db059397a7f6d29"
-    sha256 cellar: :any,                 sonoma:        "39afa85885fe03c80261ab77a70733423cb0df42745a8c003cce7168f8c8c406"
-    sha256 cellar: :any,                 ventura:       "19bb9c6e35a2e040db7c2f1875fe2af441b3b08e89ff12451438016d59827ca6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e5f1c1439c56947a56bd8400acfe5cb3361a83716bdc5e9a11340877d06e614e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b256314b9c4a6c4e912e2cc70fa74941489e67d1d820febf27aba5cb57f0b57d"
+    sha256 cellar: :any,                 arm64_sequoia: "bbb80b6b9e0df5b530608f77a4cc74253f688af74f63991191f1a377b64fd904"
+    sha256 cellar: :any,                 arm64_sonoma:  "4d0090fb6a8bb1d898729d7a0a0882a5c228bd53b8f2d0be350c4ba140d94474"
+    sha256 cellar: :any,                 arm64_ventura: "d0bcb676130406bf89004d3e90f3f271d9dbc799b1d49a386cb976725deed6e2"
+    sha256 cellar: :any,                 sonoma:        "bee93180ee5152a8ddbe82f88dfab50ba019dcf96529a5befef44dfb8edc5e63"
+    sha256 cellar: :any,                 ventura:       "3af66a892a5eefb1028992ed82888567339c3d7442146d285689e10a2c81a099"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d62635752da56e37c174e647770fe9d1feddd2d3555ff83ef0cff6e9f7253e1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9164e1686f4d3f0f6ebc7012ea01dd123bee0907af9671f028cc4c0dd4acbdfb"
   end
 
   depends_on "certifi"
