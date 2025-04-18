@@ -47,6 +47,11 @@ class Qdbm < Formula
       ENV.append "LDFLAGS", "-L#{Formula["zlib"].opt_lib}"
     end
 
+    # GCC < 13 with -O2 or higher can cause segmentation faults from loop optimisation bug
+    if ENV.compiler.to_s.start_with?("gcc") && DevelopmentTools.gcc_version("gcc") < 13
+      ENV.append "CPPFLAGS", "-fno-tree-vrp"
+    end
+
     system "./configure", *args
     if OS.mac?
       system "make", "mac"
