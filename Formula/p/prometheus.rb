@@ -14,13 +14,13 @@ class Prometheus < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3594b19d99f83ab85e35178bb8f9d3603efd473270881bf70d1b3273ce3a54fe"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "471f086febbd80b85f1b14fc561ddf6acc88021072e8be89a4d04b6fae9e0ae0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6c0230e0ea47123db2b3907d07a08a9418472420d51728d9b038587c0afbea61"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8a31e3756ddebe6d334cb94eb9fdb52a27a0255c4b55315fa79299a4189e8a16"
-    sha256 cellar: :any_skip_relocation, ventura:       "22bc949812ba979d02882ad516bb94a3283357b363a34c2741849c930f9d6a73"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "981465ba5d0ba54483a405edbf30f04be25bb64e5380d54009a09cd097d01b16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c51ea49a42091295b4d1d19bc0d6a54fb720863ccd91f3f38922c84d5285d9d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8c923a4417f2df1f38e58be8dfea2e8b0f9947d0d7846b50390732d8507d729d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ae7321b0af3160846f44c3ab19687d41e2522c480cc0d70c5db288c8b8378d22"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2cce5dbab6fdcc602ad7b19d5246881340cc9c73f012dea34e5332c4b93667c0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9e8ffbe106b66b98fae120243391c5e7d8abbedf27829c7431afb5db44a27bf1"
+    sha256 cellar: :any_skip_relocation, ventura:       "f1aa55da6ad61b4c5e9581aa9b12fd2f62ff9f0561bae140114339de0f3194f3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ec96e25e99f1a94c64ebc062ef48f45d860fe77cd61496447e4ab694904f0f75"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3cb889a756a6561ed5eadd858d266c014d4262656207e2201bf763ecc2f150dc"
   end
 
   depends_on "gnu-tar" => :build
