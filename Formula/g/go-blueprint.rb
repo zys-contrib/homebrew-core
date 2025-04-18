@@ -7,12 +7,12 @@ class GoBlueprint < Formula
   head "https://github.com/Melkeydev/go-blueprint.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0725f929c512a502432367fd1bb61d7e8fbaa389829b3e0fa311fe68a8f04345"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0725f929c512a502432367fd1bb61d7e8fbaa389829b3e0fa311fe68a8f04345"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0725f929c512a502432367fd1bb61d7e8fbaa389829b3e0fa311fe68a8f04345"
-    sha256 cellar: :any_skip_relocation, sonoma:        "26d941f9f53d9ebfbcef0967598f28d83ca7882c7186f3b075af209a262e9adb"
-    sha256 cellar: :any_skip_relocation, ventura:       "26d941f9f53d9ebfbcef0967598f28d83ca7882c7186f3b075af209a262e9adb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5f3e42ce70e307c0e00e9865bcd3363ad5be69fb185da43a3f90937f8f40162"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e2809778c71838b79fbcba6eff8e34b01b28eb7c6a00ff88f6a389e00fd32ac"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1e2809778c71838b79fbcba6eff8e34b01b28eb7c6a00ff88f6a389e00fd32ac"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1e2809778c71838b79fbcba6eff8e34b01b28eb7c6a00ff88f6a389e00fd32ac"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f97759335828a8908ec2804d4b3a43954abfb225f32003bd90a80f03b7b67a70"
+    sha256 cellar: :any_skip_relocation, ventura:       "f97759335828a8908ec2804d4b3a43954abfb225f32003bd90a80f03b7b67a70"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2068007acdf35e674dbdd254e96e4efc05442b251c9aa0583a0a8a53a362e120"
   end
 
   depends_on "go"
