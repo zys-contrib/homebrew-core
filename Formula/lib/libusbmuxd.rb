@@ -13,6 +13,7 @@ class Libusbmuxd < Formula
     sha256 cellar: :any,                 sonoma:         "9b366b324e9758bd9f5d10c536e40ef2d90ed2caf2886ff7e55e13fe496628dd"
     sha256 cellar: :any,                 ventura:        "b188d3fcab748c6ac1e5740129bf4a07b2756dedd557d89f6f1291715bf6c45e"
     sha256 cellar: :any,                 monterey:       "4ea63ce7da1344b4e2fde47b7c2a9d8bad424bd5ce9282f6af1aa66a1155135b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "84338459d26e427bd4a56a6f2c3e15a98f7dc4fa667d62ad4d77d2b052a193b1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3e9212633194e2e9436afd98d00fd5e167ec0ff13f1abfd065112dd2dd32bd3"
   end
 
