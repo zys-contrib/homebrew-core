@@ -3820,6 +3820,7 @@ wazero
 wcslib
 wcurl
 weasyprint
+weaver
 weaviate
 weaviate-cli
 web-ext
