@@ -45,7 +45,6 @@ class Geckodriver < Formula
 
   depends_on "rust" => :build
 
-  uses_from_macos "netcat" => :test
   uses_from_macos "unzip"
 
   def install
@@ -68,11 +67,13 @@ class Geckodriver < Formula
 
   test do
     test_port = free_port
-    fork do
-      exec "#{bin}/geckodriver --port #{test_port}"
-    end
+    pid = spawn bin/"geckodriver", "--port", test_port.to_s
     sleep 2
 
-    system "nc", "-z", "localhost", test_port
+    # A functional test requires Firefox so we just make sure HTTP GET has a response
+    assert_equal "HTTP method not allowed", shell_output("curl -s http://localhost:#{test_port}/session")
+  ensure
+    Process.kill "TERM", pid
+    Process.wait pid
   end
 end
