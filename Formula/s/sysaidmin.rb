@@ -3,8 +3,8 @@ class Sysaidmin < Formula
 
   desc "GPT-powered sysadmin"
   homepage "https://github.com/skorokithakis/sysaidmin"
-  url "https://files.pythonhosted.org/packages/01/09/99fc78c4db2391c30d7ebf3bc3d4cae59e013b9e420948716ebb800a59a5/sysaidmin-0.2.4.tar.gz"
-  sha256 "82ef3688b244e38397d29d1f328a482d6fe49037aa930ab227f26032d22db723"
+  url "https://files.pythonhosted.org/packages/01/d8/f2b32cc85a544d1487bbdda7ec48d214c0e551d2d0ae6bbbb49d707fe297/sysaidmin-0.2.5.tar.gz"
+  sha256 "77c40710cead7bdcc6cb98b38d74dd05e1e1c24dbc450e3b983869a7c06da91f"
   license "AGPL-3.0-or-later"
 
   bottle do
