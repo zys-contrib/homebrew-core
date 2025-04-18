@@ -51,6 +51,7 @@ class Onnxruntime < Formula
 
   def install
     python3 = which("python3.13")
+    ENV.runtime_cpu_detection
 
     resources.each do |r|
       (buildpath/"build/_deps/#{r.name}-src").install r

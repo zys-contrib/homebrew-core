@@ -24,6 +24,7 @@
   "mariadb@11.4",
   "nsd",
   "nss",
+  "onnxruntime",
   "openblas",
   "opencv",
   "open-mpi",
