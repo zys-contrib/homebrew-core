@@ -1,8 +1,8 @@
 class Mox < Formula
   desc "Modern full-featured open source secure mail server"
   homepage "https://www.xmox.nl"
-  url "https://github.com/mjl-/mox/archive/refs/tags/v0.0.14.tar.gz"
-  sha256 "77d6424e6b4cdafdb5a19ea79adeef982c426c58804671a6a0167edda883d50c"
+  url "https://github.com/mjl-/mox/archive/refs/tags/v0.0.15.tar.gz"
+  sha256 "21d56acb240458af5dfe31f91010f0e1bf5988d55d9c15d8c078440d7ce4b66a"
   license "MIT"
 
   bottle do
