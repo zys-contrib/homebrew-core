@@ -11,6 +11,7 @@ class Pocketbase < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e15ab25186892f46344d2c469c0d5bc549204ba32064dbdf852b94ad98ecd92c"
     sha256 cellar: :any_skip_relocation, sonoma:        "736b94673d10aebea7191083855cc4925b2dcc89a16e4036b1d2e4c36fab3cb9"
     sha256 cellar: :any_skip_relocation, ventura:       "736b94673d10aebea7191083855cc4925b2dcc89a16e4036b1d2e4c36fab3cb9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e924451fc8b42ad228c9f490faa3857af884072a3daf396825b064ebfff096a0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "45eaac0819d34942b07600c5a972aa71315a3106f1ca92248ff7b6b284f79769"
   end
 
