@@ -7,6 +7,15 @@ class Sacad < Formula
   sha256 "73333aabbab71a941ed393e9c497250bb9a8a06eb93a4da9afef46d2d6dd5f00"
   license "MPL-2.0"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "209abcc3e86b84f3b8fb42814f6ed486528f4a80eda90f39bc498ebfb1c0f851"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f186d3996c26173edf0f409a7ae1a6142085d2640250c115fb3e94510730301d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1db21b5d97acc6eda7c4228b2b2beaff2c72526151b823931db678a67f878f8b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cc399147b8a49e0655641cd97b524543b24d16bd75b0bcc9f34bebad81cc3d07"
+    sha256 cellar: :any_skip_relocation, ventura:       "d45c054900915a504c447c0c287202975039feb33cbe2169496bc64a4a3e915a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "37b39ab05560f6440cdbb02e6cca68b5d0ee0f71ba5c3dba66c9fa6f4a923802"
+  end
+
   depends_on "pillow"
   depends_on "python@3.13"
 
