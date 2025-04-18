@@ -3,8 +3,8 @@ class Mcpm < Formula
 
   desc "Open source, community-driven MCP server and client manager"
   homepage "https://mcpm.sh/"
-  url "https://files.pythonhosted.org/packages/fa/1f/862a13634ea8df13f4e87bec7d090d211439ab56cb6d3269ac7d877e6225/mcpm-1.2.0.tar.gz"
-  sha256 "7385df66bdd75f169ef67b182594ead51729ca18f2fc8644490c9530989d66f1"
+  url "https://files.pythonhosted.org/packages/3b/eb/7ffeab6370b25415b6cb456a1cba2b385fe1fca17b802aac1d677407f209/mcpm-1.3.0.tar.gz"
+  sha256 "e1c081422c3c06cb4cbb9bcee2f7d35194aa3c7f41cc291e1614fa5acb6a6af2"
   license "MIT"
 
   bottle do
@@ -111,8 +111,8 @@ class Mcpm < Formula
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/88/82/c79424d7d8c29b994fb01d277da57b0a9b09cc03c3ff875f9bd8a86b2145/pydantic_settings-2.8.1.tar.gz"
-    sha256 "d5c663dfbe9db9d5e1c646b2e161da12f0d734d422ee56f567d0ea2cee4e8585"
+    url "https://files.pythonhosted.org/packages/04/e3/ed51b456c7f2a299af624dd6096e7c96d6f65de06ee2f7fb5884072a2c86/pydantic_settings-2.9.0.tar.gz"
+    sha256 "24fd3fe19bc2c0eddeff91860dc5e303572b39fb70b1391c64955dd4d1875098"
   end
 
   resource "pygments" do
