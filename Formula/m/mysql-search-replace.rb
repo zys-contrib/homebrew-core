@@ -1,5 +1,3 @@
-require "language/php"
-
 class MysqlSearchReplace < Formula
   include Language::PHP::Shebang
 
