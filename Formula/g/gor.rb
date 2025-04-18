@@ -28,7 +28,6 @@ class Gor < Formula
 
   depends_on "go" => :build
 
-  uses_from_macos "netcat" => :test
   uses_from_macos "libpcap"
 
   def install
@@ -36,10 +35,12 @@ class Gor < Formula
   end
 
   test do
+    (testpath/"test").write "Hello"
     test_port = free_port
-    spawn bin/"gor", "file-server", ":#{test_port}"
-
+    server_pid = spawn bin/"gor", "file-server", ":#{test_port}"
     sleep 2
-    system "nc", "-z", "localhost", test_port
+    assert_equal "Hello", shell_output("curl -s http://localhost:#{test_port}/test")
+  ensure
+    Process.kill "TERM", server_pid
   end
 end
