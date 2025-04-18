@@ -23,8 +23,6 @@ class MicroInetd < Formula
   # Original URLs are dead and last release from 2014-08-14
   deprecate! date: "2025-03-18", because: :unmaintained
 
-  uses_from_macos "netcat" => :test
-
   def install
     bin.mkpath
     man1.mkpath
@@ -33,14 +31,14 @@ class MicroInetd < Formula
 
   test do
     port = free_port
-    pid = fork do
-      exec bin/"micro_inetd", port.to_s, "/bin/echo", "OK"
-    end
+    pid = spawn bin/"micro_inetd", port.to_s, "/bin/echo", "OK"
 
     # wait for server to be running
     sleep 1
 
-    assert_equal "OK", shell_output("nc localhost #{port}").strip
+    TCPSocket.open("localhost", port) do |sock|
+      assert_equal "OK", sock.gets.strip
+    end
   ensure
     Process.kill "TERM", pid
     Process.wait pid
