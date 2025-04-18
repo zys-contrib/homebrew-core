@@ -19,7 +19,6 @@ class Sonic < Formula
   depends_on "rust" => :build
 
   uses_from_macos "llvm" => :build
-  uses_from_macos "netcat" => :test
 
   def install
     system "cargo", "install", *std_cargo_args
@@ -42,8 +41,19 @@ class Sonic < Formula
     inreplace "config.cfg", "[::1]:1491", "0.0.0.0:#{port}"
     inreplace "config.cfg", "#{var}/sonic", "."
 
-    fork { exec bin/"sonic" }
+    pid = spawn bin/"sonic"
     sleep 10
-    system "nc", "-z", "localhost", port
+    TCPSocket.open("localhost", port) do |sock|
+      assert_match "CONNECTED", sock.gets
+      sock.puts "START ingest SecretPassword"
+      assert_match "STARTED ingest protocol(1)", sock.gets
+      sock.puts 'PUSH messages user:0dcde3a6 conversation:71f3d63b "Hello world!"'
+      assert_match "OK", sock.gets
+      sock.puts "QUIT"
+      assert_match "ENDED", sock.gets
+    end
+  ensure
+    Process.kill "TERM", pid
+    Process.wait pid
   end
 end
