@@ -4,7 +4,6 @@ class Libusbmuxd < Formula
   url "https://github.com/libimobiledevice/libusbmuxd/releases/download/2.1.0/libusbmuxd-2.1.0.tar.bz2"
   sha256 "c35bf68f8e248434957bd5b234c389b02206a06ecd9303a7fb931ed7a5636b16"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  head "https://github.com/libimobiledevice/libusbmuxd.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "5d4892dedecd97caba1f56522add5e601b4bc09ccea572c7c9b3ff84bd14744a"
@@ -17,29 +16,37 @@ class Libusbmuxd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3e9212633194e2e9436afd98d00fd5e167ec0ff13f1abfd065112dd2dd32bd3"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  head do
+    url "https://github.com/libimobiledevice/libusbmuxd.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "pkgconf" => :build
   depends_on "libimobiledevice-glue"
   depends_on "libplist"
 
-  uses_from_macos "netcat" => :test
-
   def install
-    system "./autogen.sh", *std_configure_args, "--disable-silent-rules" if build.head?
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    configure = build.head? ? "./autogen.sh" : "./configure"
+    system configure, "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
   test do
     source = free_port
     dest = free_port
-    fork do
-      exec bin/"iproxy", "-s", "localhost", "#{source}:#{dest}"
-    end
 
-    sleep(2)
-    system "nc", "-z", "localhost", source
+    PTY.spawn(bin/"iproxy", "-s", "localhost", "#{source}:#{dest}") do |r, w, pid|
+      assert_match "Creating listening port #{source} for device port #{dest}", r.readline
+      assert_match "waiting for connection", r.readline
+      TCPSocket.new("localhost", source).close
+      assert_match "New connection for #{source}->#{dest}", r.readline
+    ensure
+      r.close
+      w.close
+      Process.wait(pid)
+    end
   end
 end
