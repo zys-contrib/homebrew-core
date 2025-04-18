@@ -1,7 +1,8 @@
 class Greed < Formula
   desc "Game of consumption"
   homepage "http://www.catb.org/~esr/greed/"
-  url "http://www.catb.org/~esr/greed/greed-4.3.tar.gz"
+  url "https://pkg.freebsd.org/ports-distfiles/greed-4.3.tar.gz"
+  mirror "http://www.catb.org/~esr/greed/greed-4.3.tar.gz"
   sha256 "60433afaef3eb8e20e4aa33d4b5538f6ea661b1880c98cd9d7c6df86c91d4baa"
   license "BSD-2-Clause"
   head "https://gitlab.com/esr/greed.git", branch: "master"
