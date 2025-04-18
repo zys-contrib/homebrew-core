@@ -11,6 +11,7 @@ class Sixtunnel < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1a6e10e77b34c4f10e17f389b38fb3c58690c7988e8274bbe2078fdff571d34f"
     sha256 cellar: :any_skip_relocation, sonoma:        "bf1635b9e636c6a40a57db5d56a3e4df68218b23b01be3e5568d573776eb6ad9"
     sha256 cellar: :any_skip_relocation, ventura:       "a0666f067478b4b5141260896b60dccf2a2eaeed3892e229eb267d44a045e0a9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3fa9b18d88f1816365473ae8b9ccc98bfdeb030dd6a0c6d5c3b6f2dc360c639b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f38f0ad3d208f1f83ba4d6bc75ddd2e5e02ab5579858ebdfe413da6da7bd3bac"
   end
 
