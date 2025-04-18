@@ -8,14 +8,13 @@ class Sysaidmin < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "7798ca068c13be7451d365618c879580beea9d69de17a8f6863d638d7760abad"
-    sha256 cellar: :any,                 arm64_sonoma:  "61977e8326ee3f7cd2cd93edd97ceb3b1f44a0028063ea137132efc5891c082d"
-    sha256 cellar: :any,                 arm64_ventura: "063e6c813e6f8ddd82e88aad47a806b357d1d4b6ed826197ac9d72c738a8b486"
-    sha256 cellar: :any,                 sonoma:        "086c36439a4211cd88bd7d4bf8c697896a1f8021027680024d9ed7209a52a42a"
-    sha256 cellar: :any,                 ventura:       "b8e4cfd27566802009ea1075accabc9897cd87aedabc733e0927cf91bc02e217"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "93f61c783c1aa305921e22e9da9a4f349d234ea9000b54756eda9c5ff3fef46d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "929b71dfe7a662893ff1ff029b3c5db939318a886db2f7c7ba9c1b3ebc7d42e2"
+    sha256 cellar: :any,                 arm64_sequoia: "5df50802b14ae3b53f0c4e7b4d0098a0a90b9b6c12bd1524d6bd424e22d7e28c"
+    sha256 cellar: :any,                 arm64_sonoma:  "6850d25c2577ff7aecaf3db498836dd24054f98fd1c96d853a18a57e40bf0021"
+    sha256 cellar: :any,                 arm64_ventura: "c040fa5fc2416377675360d8b11f4767a1efb0a0fc925864df6efc3ca8f12db0"
+    sha256 cellar: :any,                 sonoma:        "e08445c1d7cb9fcd9029be8f71faa5aef94bfea746e77bf87c735fa1d8af6247"
+    sha256 cellar: :any,                 ventura:       "d12ed6749c36ca6831bf1d6400252a1e3444bc2b9f2dd80bfe041d203d1855a6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1bbac09b1d7c945acda872b5a5b35e9b91e7970580495e0d2ae3c2f105d91d9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "493341073dd3e2c2e66170319d624cc02c21b620d0b5f9aa059156af0cce1e48"
   end
 
   depends_on "rust" => :build # for pydantic_core
