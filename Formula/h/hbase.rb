@@ -20,6 +20,13 @@ class Hbase < Formula
   depends_on "lzo"
   depends_on "openjdk@11"
 
+  on_linux do
+    on_arm do
+      # Added automake as a build dependency to update config files for ARM support.
+      depends_on "automake" => :build
+    end
+  end
+
   resource "hadoop-lzo" do
     url "https://github.com/cloudera/hadoop-lzo/archive/refs/tags/0.4.14.tar.gz"
     sha256 "aa8ddbb8b3f9e1c4b8cc3523486acdb7841cd97c002a9f2959c5b320c7bb0e6c"
@@ -49,6 +56,12 @@ class Hbase < Formula
     end
 
     resource("hadoop-lzo").stage do
+      if OS.linux? && Hardware::CPU.arm?
+        # Workaround for ancient config files not recognizing aarch64 macos.
+        automake_dir = Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"
+        %w[config.guess config.sub].each { |fn| cp automake_dir/fn, "src/native/config/#{fn}" }
+      end
+
       # Help configure to find liblzo on Linux.
       unless OS.mac?
         inreplace "src/native/configure",
@@ -59,9 +72,10 @@ class Hbase < Formula
       # Fixed upstream: https://github.com/cloudera/hadoop-lzo/blob/HEAD/build.xml#L235
       ENV["CLASSPATH"] = Dir["#{libexec}/lib/hadoop-common-*.jar"].first
       # Workaround for Xcode 14.3.
-      ENV["CFLAGS"] = "-m64 -Wno-implicit-function-declaration"
-      ENV["CXXFLAGS"] = "-m64"
+      ENV.append_to_cflags "-m64" if Hardware::CPU.intel?
+      ENV.append_to_cflags "-Wno-implicit-function-declaration"
       ENV["CPPFLAGS"] = "-I#{Formula["openjdk@11"].include}"
+
       system "ant", "compile-native", "tar"
       (libexec/"lib").install Dir["build/hadoop-lzo-*/hadoop-lzo-*.jar"]
       (libexec/"lib/native").install Dir["build/hadoop-lzo-*/lib/native/*"]
