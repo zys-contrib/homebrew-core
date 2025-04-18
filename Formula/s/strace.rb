@@ -15,9 +15,7 @@ class Strace < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "glibc"
   depends_on :linux
-  depends_on "linux-headers@5.15"
 
   def install
     system "./bootstrap" if build.head?
