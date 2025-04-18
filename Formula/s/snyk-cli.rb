@@ -19,6 +19,10 @@ class SnykCli < Formula
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    # Remove x86-64 ELF binaries on incompatible platforms
+    # TODO: Check if these should be built from source
+    rm(libexec.glob("lib/node_modules/snyk/dist/cli/*.node")) if !OS.linux? || !Hardware::CPU.intel?
   end
 
   test do
