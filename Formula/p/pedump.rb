@@ -28,6 +28,7 @@ class Pedump < Formula
   end
 
   def install
+    ENV["BUNDLE_VERSION"] = "system" # Avoid installing Bundler into the keg
     ENV["GEM_HOME"] = libexec
     system "bundle", "config", "set", "without", "development"
     system "bundle", "install"
