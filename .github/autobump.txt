@@ -88,6 +88,7 @@ apache-opennlp
 apache-pulsar
 apache-spark
 apachetop
+api-linter
 apibuilder-cli
 apkleaks
 apko
