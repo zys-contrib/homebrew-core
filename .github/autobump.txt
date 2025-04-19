@@ -2345,6 +2345,7 @@ morpheus
 morse
 mosquitto
 moto
+mox
 mpc
 mpd
 mpdecimal
