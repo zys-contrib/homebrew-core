@@ -5,6 +5,10 @@ class Xtl < Formula
   sha256 "ee38153b7dd0ec84cee3361f5488a4e7e6ddd26392612ac8821cbc76e740273a"
   license "BSD-3-Clause"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "695d77e88b992605995b4d8b4f0c90e4e3857248c57310b2b2fdce23fa44a86b"
+  end
+
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "nlohmann-json"
