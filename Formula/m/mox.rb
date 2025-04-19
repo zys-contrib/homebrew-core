@@ -6,12 +6,12 @@ class Mox < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b7f267981e17ec7e001f6c88b2c372e8e6da332a6efb28794ec589e7d480c7c0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b7f267981e17ec7e001f6c88b2c372e8e6da332a6efb28794ec589e7d480c7c0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b7f267981e17ec7e001f6c88b2c372e8e6da332a6efb28794ec589e7d480c7c0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b699c3df96a1dca8de7b8d09ca8088cd290af42bc9b2deb09a0d0651b18297e2"
-    sha256 cellar: :any_skip_relocation, ventura:       "b699c3df96a1dca8de7b8d09ca8088cd290af42bc9b2deb09a0d0651b18297e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c2d9848f3d8ce296861407977a374744c8260c484b4498e4dd0ce9c08046c8b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "065e4ac1d5ae489416cec6eb4a6663092901dcf41c1844a568538b42ef57d674"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "065e4ac1d5ae489416cec6eb4a6663092901dcf41c1844a568538b42ef57d674"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "065e4ac1d5ae489416cec6eb4a6663092901dcf41c1844a568538b42ef57d674"
+    sha256 cellar: :any_skip_relocation, sonoma:        "287c8a9a4efd5c1f2bf3c284d21c951364a6610e05c3eda981528a4c91431e2e"
+    sha256 cellar: :any_skip_relocation, ventura:       "287c8a9a4efd5c1f2bf3c284d21c951364a6610e05c3eda981528a4c91431e2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b18b6fd28c67104f382de54350ed48397b79a1ec24aa3c079bb616f3ca0437e2"
   end
 
   depends_on "go" => :build
