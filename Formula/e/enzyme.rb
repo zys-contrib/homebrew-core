@@ -1,10 +1,9 @@
 class Enzyme < Formula
   desc "High-performance automatic differentiation of LLVM"
   homepage "https://enzyme.mit.edu"
-  url "https://github.com/EnzymeAD/Enzyme/archive/refs/tags/v0.0.173.tar.gz"
-  sha256 "b8477fb5bead9e9ece76d450ebd0afee99914235c6e1a6ef8c05bf288e3c0478"
+  url "https://github.com/EnzymeAD/Enzyme/archive/refs/tags/v0.0.174.tar.gz"
+  sha256 "8d7d7ba8974b272ebd7360fa9385de24d2be6cc3f3d60078b4347c78eec3d06c"
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision 1
   head "https://github.com/EnzymeAD/Enzyme.git", branch: "main"
 
   bottle do
@@ -18,7 +17,7 @@ class Enzyme < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm"
+  depends_on "llvm@19"
 
   def llvm
     deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+)?$/) }
