@@ -3311,6 +3311,7 @@ soft-serve
 solana
 solargraph
 solarus
+solc-select
 solhint
 sollya
 solr
