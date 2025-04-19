@@ -4,6 +4,7 @@ class Fheroes2 < Formula
   url "https://github.com/ihhub/fheroes2/archive/refs/tags/1.1.7.tar.gz"
   sha256 "6419ad0bd0f1f684a9256c39fb6c02a026fc76581b0bc9632a597fbc8443fc03"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/ihhub/fheroes2.git", branch: "master"
 
   livecheck do
@@ -30,13 +31,34 @@ class Fheroes2 < Formula
 
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "dylibbundler" => :build
+  end
+
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    args = std_cmake_args
+    args << "-DMACOS_APP_BUNDLE=ON" if OS.mac?
+    system "cmake", "-S", ".", "-B", "build", *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    bin.install "script/demo/download_demo_version.sh" => "fheroes2-install-demo"
-    bin.install "script/homm2/extract_homm2_resources.sh" => "fheroes2-extract-resources"
+    if OS.mac?
+      prefix.install "build/fheroes2.app"
+      bin.write_exec_script "#{prefix}/fheroes2.app/Contents/MacOS/fheroes2"
+
+      libexec.install "script/demo/download_demo_version.sh"
+      libexec.install "script/demo/download_demo_version_for_app_bundle.sh"
+      libexec.install "script/homm2/extract_homm2_resources.sh"
+      libexec.install "script/homm2/extract_homm2_resources_for_app_bundle.sh"
+      chmod "+x", Dir["#{libexec}/*"]
+      bin.write_exec_script libexec/"download_demo_version_for_app_bundle.sh"
+      bin.write_exec_script libexec/"extract_homm2_resources_for_app_bundle.sh"
+      mv bin/"download_demo_version_for_app_bundle.sh", bin/"fheroes2-install-demo"
+      mv bin/"extract_homm2_resources_for_app_bundle.sh", bin/"fheroes2-extract-resources"
+    else
+      bin.install "script/demo/download_demo_version.sh" => "fheroes2-install-demo"
+      bin.install "script/homm2/extract_homm2_resources.sh" => "fheroes2-extract-resources"
+    end
   end
 
   def caveats
@@ -53,9 +75,21 @@ class Fheroes2 < Formula
   end
 
   test do
-    io = IO.popen("#{bin}/fheroes2 2>&1")
-    io.any? do |line|
-      line.include?("fheroes2 engine, version:")
+    assert_path_exists bin/"fheroes2"
+    assert_predicate bin/"fheroes2", :executable?
+    if OS.mac?
+      begin
+        pid = spawn(bin/"fheroes2")
+        sleep 2
+      ensure
+        Process.kill("SIGINT", pid)
+        Process.wait(pid)
+      end
+    else
+      io = IO.popen("#{bin}/fheroes2 2>&1")
+      io.any? do |line|
+        line.include?("fheroes2 engine, version:")
+      end
     end
   end
 end
