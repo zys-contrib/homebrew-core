@@ -6,6 +6,15 @@ class ProtocGenDoc < Formula
   license "MIT"
   head "https://github.com/pseudomuto/protoc-gen-doc.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f0234e290bc9f5d0d09bf239cc5c413588bc49e01d101ca7dc5ea26e4dfd2fa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f0234e290bc9f5d0d09bf239cc5c413588bc49e01d101ca7dc5ea26e4dfd2fa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8f0234e290bc9f5d0d09bf239cc5c413588bc49e01d101ca7dc5ea26e4dfd2fa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "18a8a8ac59d204179f88c0371314c66da653062752267295cc89ccbab9da0d60"
+    sha256 cellar: :any_skip_relocation, ventura:       "18a8a8ac59d204179f88c0371314c66da653062752267295cc89ccbab9da0d60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e23d75e3d15957c6ba2581fe5e3688c5fc7a6b78572bb80df3ad360730b07585"
+  end
+
   depends_on "go" => :build
   depends_on "protobuf"
 
