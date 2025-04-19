@@ -25,6 +25,7 @@ class Crystal < Formula
     sha256 cellar: :any,                 arm64_ventura: "0b75b63e9c76d1172cd247603922dcf1b03f20df47227c76628386770ce55004"
     sha256 cellar: :any,                 sonoma:        "79678b3c73cfd665fae6d265dc01420bd0c180d3fb791a0ccc2daee97e3e9599"
     sha256 cellar: :any,                 ventura:       "b61596c0eb2d258beeba9776535d0bd6f5e025c5e206c6721749dc13812f8ceb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2eebeba7ad2f1eb6d9862266229da4841654f847412061bf49dee80ab1f797e6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1bf7f006e482e895c38262d57065f3d4deaaa90ad07134a9f367675548955fa"
   end
 
