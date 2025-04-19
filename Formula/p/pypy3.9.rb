@@ -26,7 +26,7 @@ class Pypy39 < Formula
   depends_on "gdbm"
   depends_on "openssl@3"
   depends_on "sqlite"
-  depends_on "tcl-tk"
+  depends_on "tcl-tk@8"
   depends_on "xz"
 
   uses_from_macos "bzip2"
@@ -68,11 +68,13 @@ class Pypy39 < Formula
     ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
 
     # The `tcl-tk` library paths are hardcoded and need to be modified for non-/usr/local prefix
+    tcltk = Formula["tcl-tk@8"]
     inreplace "lib_pypy/_tkinter/tklib_build.py" do |s|
-      s.gsub! "/usr/local/opt/tcl-tk/", Formula["tcl-tk"].opt_prefix/""
-      # We moved `tcl-tk` headers to `include/tcl-tk`.
+      s.gsub! "['/usr/local/opt/tcl-tk/include']", "[]"
+      # We moved `tcl-tk` headers to `include/tcl-tk` and versioned TCL 8
       # TODO: upstream this.
-      s.gsub! "/include'", "/include/tcl-tk'"
+      s.gsub! "(homebrew + '/include')", "('#{tcltk.opt_include}/tcl-tk')"
+      s.gsub! "(homebrew + '/opt/tcl-tk/lib')", "('#{tcltk.opt_lib}')"
     end
 
     # Having PYTHONPATH set can cause the build to fail if another
@@ -153,10 +155,10 @@ class Pypy39 < Formula
     libexec.install_symlink scripts_folder => "bin" unless (libexec/"bin").exist?
 
     # Tell distutils-based installers where to put scripts
-    (distutils/"distutils.cfg").atomic_write <<~EOS
+    (distutils/"distutils.cfg").atomic_write <<~INI
       [install]
       install-scripts=#{scripts_folder}
-    EOS
+    INI
 
     %w[setuptools pip].each do |pkg|
       resource(pkg).stage do
