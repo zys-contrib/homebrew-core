@@ -19,8 +19,6 @@ class Sslh < Formula
   depends_on "libev"
   depends_on "pcre2"
 
-  uses_from_macos "netcat" => :test
-
   def install
     system "./configure", *std_configure_args
     system "make", "install", "PREFIX=#{prefix}"
@@ -29,11 +27,21 @@ class Sslh < Formula
   test do
     listen_port = free_port
     target_port = free_port
+    pid = spawn sbin/"sslh", "--http=localhost:#{target_port}", "--listen=localhost:#{listen_port}", "--foreground"
 
-    spawn sbin/"sslh", "--http=localhost:#{target_port}", "--listen=localhost:#{listen_port}", "--foreground"
+    fork do
+      TCPServer.open(target_port) do |server|
+        session = server.accept
+        session.write "HTTP/1.1 200 OK\r\n\r\nHello world!"
+        session.close
+      end
+    end
 
     sleep 1
     sleep 5 if OS.mac? && Hardware::CPU.intel?
-    system "nc", "-z", "localhost", listen_port
+    assert_equal "Hello world!", shell_output("curl -s http://localhost:#{listen_port}")
+  ensure
+    Process.kill "TERM", pid
+    Process.wait pid
   end
 end
