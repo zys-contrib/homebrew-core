@@ -6,6 +6,15 @@ class ApiLinter < Formula
   license "Apache-2.0"
   head "https://github.com/googleapis/api-linter.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "562e32b91b590f63e4b84a890fa0c85f186c538393b4831fa83687fdaf37740e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "562e32b91b590f63e4b84a890fa0c85f186c538393b4831fa83687fdaf37740e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "562e32b91b590f63e4b84a890fa0c85f186c538393b4831fa83687fdaf37740e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1853e3420fed61d571b911d032fc4987d718da146bada34285c75a9f43af3dba"
+    sha256 cellar: :any_skip_relocation, ventura:       "1853e3420fed61d571b911d032fc4987d718da146bada34285c75a9f43af3dba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "05821db020cab71b0d94325d43bb8e912e900a575443237ca1ecacb6f854ec3c"
+  end
+
   depends_on "go" => :build
 
   def install
