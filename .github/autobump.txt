@@ -2291,6 +2291,7 @@ minigraph
 minijinja-cli
 minikube
 minimal-racket
+minimap2
 minio
 minio-warp
 minipro
