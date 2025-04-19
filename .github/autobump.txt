@@ -337,6 +337,7 @@ bruno-cli
 btrfs-progs
 bubblewrap
 buf
+buffrs
 buildifier
 buildkit
 buildozer
