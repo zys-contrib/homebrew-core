@@ -1,8 +1,8 @@
 class Slackdump < Formula
   desc "Export Slack data without admin privileges"
   homepage "https://github.com/rusq/slackdump"
-  url "https://github.com/rusq/slackdump/archive/refs/tags/v3.0.10.tar.gz"
-  sha256 "fd3a560de14d224e497bc9360d1665d17144b3a0ce9fffa59a69fbf840e9e759"
+  url "https://github.com/rusq/slackdump/archive/refs/tags/v3.1.0.tar.gz"
+  sha256 "dfa7142259bc7ac4a707aed6f2677c505de4803a874c45f746c26420e04cc5cd"
   license "GPL-3.0-only"
   head "https://github.com/rusq/slackdump.git", branch: "master"
 
@@ -26,6 +26,6 @@ class Slackdump < Formula
     assert_match version.to_s, shell_output("#{bin}/slackdump version")
 
     output = shell_output("#{bin}/slackdump workspace list 2>&1", 9)
-    assert_match "ERROR 009 (User Error): no authenticated workspaces", output
+    assert_match "(User Error): no authenticated workspaces", output
   end
 end
