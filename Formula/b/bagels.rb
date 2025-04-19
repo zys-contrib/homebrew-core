@@ -3,8 +3,8 @@ class Bagels < Formula
 
   desc "Powerful expense tracker that lives in your terminal"
   homepage "https://github.com/EnhancedJax/Bagels"
-  url "https://files.pythonhosted.org/packages/40/87/c5ef18443c8a977fd75fbac7963091ddbafc5224e7efa4c2763bc9bec015/bagels-0.3.7.tar.gz"
-  sha256 "d54b923253cefd0e13ae635cee1ef36670581dd9669de9833cb3f3f6ef491c40"
+  url "https://files.pythonhosted.org/packages/62/2a/b8d02438c49943378181f59221fdf2c82f12f098ebe8bbc81ebe59b7c963/bagels-0.3.8.tar.gz"
+  sha256 "54a56145eae3ff7c55e55ecfefb91dab37711f0053ac68470d65da1bb2f572c9"
   license "GPL-3.0-or-later"
 
   bottle do
