@@ -15,12 +15,11 @@ class Haiti < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8ef3c1a86e06b06935f2cfba4b037d681d37ad589bc2196f4b882d76e933f02"
   end
 
-  # Requires Ruby >= 2.7
   depends_on "ruby"
 
   def install
+    ENV["BUNDLE_VERSION"] = "system" # Avoid installing Bundler into the keg
     ENV["GEM_HOME"] = libexec
-
     system "bundle", "config", "set", "without", "development", "test"
     system "bundle", "install"
     system "gem", "build", "haiti.gemspec"
