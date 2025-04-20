@@ -8,13 +8,13 @@ class Luvit < Formula
   head "https://github.com/luvit/luvit.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "6b60306e827d1ae928e60c37b00b83ca10a5bdfb02b0a67812e1eb999827c96d"
-    sha256 cellar: :any,                 arm64_sonoma:  "b0eb78bcb741a4096ecfdfcbf8656f73a1a36de52027ac2a1f001b646ff5c260"
-    sha256 cellar: :any,                 arm64_ventura: "4617df0255020cc2092491fcae316e8b24bb3dbad41199d478adc2347354be1d"
-    sha256 cellar: :any,                 sonoma:        "f339f8f017f800383975270f241aa1b422581d9bbb23968a3a93f1a414bb406c"
-    sha256 cellar: :any,                 ventura:       "a8ccb357aa21457d1faf621fda482fa4f70997121f31fd77256974a79d409e09"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f938d579e8d759b9880b38f4f8ad8aa6caab85b0e500c3a082b611a003e7ad1"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia: "f004efa20e48708ea7d0a1ea8bfa25bbe3d799ee20984e44f961021364d1dd92"
+    sha256 cellar: :any,                 arm64_sonoma:  "cb68897cf4876b88d1d6f4145fc9ede06ef04f4b882c7eff6a9ca8a10e0eb668"
+    sha256 cellar: :any,                 arm64_ventura: "7cd6942821d45baa652c413d10d4ad521828d0a86ee581f0f72ff06098491c27"
+    sha256 cellar: :any,                 sonoma:        "6f261a667091381e962a5ff45a4080328c111bfe5883ec9d988b08b4eefaa8e5"
+    sha256 cellar: :any,                 ventura:       "c18b8fc2393a68b9b37f5ad5676fd619cca659348fb16938574a0a3b2731ce91"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39109c056556f13c412c554fd1b421812b32e6d2bd01c4e103d71188612c21e9"
   end
 
   depends_on "cmake" => :build
