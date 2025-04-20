@@ -1,8 +1,8 @@
 class Fish < Formula
   desc "User-friendly command-line shell for UNIX-like operating systems"
   homepage "https://fishshell.com"
-  url "https://github.com/fish-shell/fish-shell/releases/download/4.0.1/fish-4.0.1.tar.xz"
-  sha256 "4ed63a70207283e15cf21fc5f21db4230421e4f98d4826b5b1c8254d69c762b5"
+  url "https://github.com/fish-shell/fish-shell/releases/download/4.0.2/fish-4.0.2.tar.xz"
+  sha256 "6e1ecdb164285fc057b2f35acbdc20815c1623099e7bb47bbfc011120adf7e83"
   license "GPL-2.0-only"
 
   livecheck do
