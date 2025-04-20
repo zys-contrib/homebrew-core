@@ -1,8 +1,8 @@
 class Lbfgspp < Formula
   desc "Header-only C++ library for L-BFGS and L-BFGS-B algorithms"
   homepage "https://lbfgspp.statr.me/"
-  url "https://github.com/yixuan/LBFGSpp/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "490720b9d5acce6459cb0336ca3ae0ffc48677225f0ebfb35c9bef6baefdfc6a"
+  url "https://github.com/yixuan/LBFGSpp/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "39c4aaebd8b94ccdc98191d51913a31cddd618cc0869d99f07a4b6da83ca6254"
   license "MIT"
   head "https://github.com/yixuan/LBFGSpp.git", branch: "master"
 
