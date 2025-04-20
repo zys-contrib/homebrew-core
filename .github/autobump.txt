@@ -1294,6 +1294,7 @@ gnmic
 gnome-autoar
 gnome-builder
 gnu-apl
+gnu-chess
 gnu-getopt
 gnu-typist
 gnu-units
