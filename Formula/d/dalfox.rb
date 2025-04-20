@@ -1,8 +1,8 @@
 class Dalfox < Formula
   desc "XSS scanner and utility focused on automation"
   homepage "https://dalfox.hahwul.com"
-  url "https://github.com/hahwul/dalfox/archive/refs/tags/v2.10.0.tar.gz"
-  sha256 "cec08c3256b072cf6aa1408aa4e0a111baad4a069601fdc7502119afe61077ee"
+  url "https://github.com/hahwul/dalfox/archive/refs/tags/v2.11.0.tar.gz"
+  sha256 "3bb78fcdcfd620aebb5f7488770ee4df7c7fb6448181963f290e60a1cba95459"
   license "MIT"
   head "https://github.com/hahwul/dalfox.git", branch: "main"
 
