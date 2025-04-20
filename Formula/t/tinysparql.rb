@@ -1,8 +1,8 @@
 class Tinysparql < Formula
   desc "Low-footprint RDF triple store with SPARQL 1.1 interface"
   homepage "https://tinysparql.org/"
-  url "https://download.gnome.org/sources/tinysparql/3.9/tinysparql-3.9.1.tar.xz"
-  sha256 "98e8933b946d8c54a77eadabd7f1d14cddd88fa43eef0d0ace3c0fcce646722b"
+  url "https://download.gnome.org/sources/tinysparql/3.9/tinysparql-3.9.2.tar.xz"
+  sha256 "14ce039024135e181022bcce4b1aad2e00377dd9c7d812b98391ccfc756dad8e"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
   head "https://gitlab.gnome.org/GNOME/tinysparql.git", branch: "main"
 
