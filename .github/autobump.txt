@@ -3652,6 +3652,7 @@ tsduck
 tt
 ttdl
 tty-share
+tty-solitaire
 ttyd
 ttyplot
 tuisky
