@@ -7,7 +7,7 @@ class Lbfgspp < Formula
   head "https://github.com/yixuan/LBFGSpp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a3fa9b668aa4ce459443ed3a31812abc4d072a8674ed7bf852ab0a8f1d01df45"
+    sha256 cellar: :any_skip_relocation, all: "915d14792b76cd42afb89064bd50c8119dcf4ba0f500d3d06032c6126a349011"
   end
 
   depends_on "cmake" => :build
