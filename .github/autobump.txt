@@ -3579,6 +3579,7 @@ tig
 tiger-vnc
 tika
 tile38
+timewarrior
 timg
 tin
 tintin
