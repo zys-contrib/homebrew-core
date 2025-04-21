@@ -26,10 +26,10 @@ class Ccrypt < Formula
   conflicts_with "ccat", because: "both install `ccat` binaries"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}",
-                          "--with-lispdir=#{share}/emacs/site-lisp/ccrypt"
+    args = ["--mandir=#{man}", "--with-lispdir=#{elisp}"]
+    args << "--disable-libcrypt" if OS.linux? # https://sourceforge.net/p/ccrypt/bugs/28/#22b5
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
     system "make", "check"
   end
