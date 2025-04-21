@@ -1,8 +1,8 @@
 class GoTask < Formula
   desc "Task is a task runner/build tool that aims to be simpler and easier to use"
   homepage "https://taskfile.dev/"
-  url "https://github.com/go-task/task/archive/refs/tags/v3.42.1.tar.gz"
-  sha256 "ebda29f1ec14e3e78f6d1e89136822c8177cc0b6d214fac8b1f027abce3c9042"
+  url "https://github.com/go-task/task/archive/refs/tags/v3.43.1.tar.gz"
+  sha256 "59e0122d5e082e7a22d3f1a981eae1599ed3e69478d367fe486f7d11d5e54be5"
   license "MIT"
   head "https://github.com/go-task/task.git", branch: "main"
 
@@ -19,12 +19,6 @@ class GoTask < Formula
 
   conflicts_with "task", because: "both install `task` binaries"
 
-  # version report patch, upstream pr ref, https://github.com/go-task/task/pull/2105
-  patch do
-    url "https://github.com/go-task/task/commit/44cb98cb0620ea98c43d0f11ce92f5692ad57212.patch?full_index=1"
-    sha256 "78861415be4e9da4f40ecff7b50300926f70fc4d993c3d83cd808040d711b35e"
-  end
-
   def install
     ldflags = %W[
       -s -w
@@ -38,8 +32,7 @@ class GoTask < Formula
   end
 
   test do
-    output = shell_output("#{bin}/task --version")
-    assert_match "Task version: #{version}", output
+    assert_match version.to_s, shell_output("#{bin}/task --version")
 
     (testpath/"Taskfile.yml").write <<~YAML
       version: '3'
