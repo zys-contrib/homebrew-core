@@ -1,8 +1,8 @@
 class Mdq < Formula
   desc "Like jq but for Markdown"
   homepage "https://github.com/yshavit/mdq"
-  url "https://github.com/yshavit/mdq/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "9b1021bf710a1028d534769f6cbf035b199a6fc8a24607f2dbe9f3b18a7146d1"
+  url "https://github.com/yshavit/mdq/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "4d9861053b121501547b72c079b12658b3e7c625f9f44f73671175888f029e46"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/yshavit/mdq.git", branch: "main"
 
