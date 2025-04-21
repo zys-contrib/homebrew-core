@@ -3,8 +3,8 @@ class Mcpm < Formula
 
   desc "Open source, community-driven MCP server and client manager"
   homepage "https://mcpm.sh/"
-  url "https://files.pythonhosted.org/packages/48/f0/cc3e2b32e4d197280b0187ae14c60e8e848c0a4b5b257d7dfa1fcbc7bc97/mcpm-1.4.1.tar.gz"
-  sha256 "202ec3e6b8e0f0b75e4bd6a19667b8d790cdf8ec9eb7e1d81a840f606a16c798"
+  url "https://files.pythonhosted.org/packages/25/66/f568325982715d7d72af8f843087797bcce0524a81c68afe80dfc41e2dfa/mcpm-1.4.4.tar.gz"
+  sha256 "cca47a655d85088997029fedd5d1adeea9df566d09bcd29192c11608951b48b6"
   license "MIT"
 
   bottle do
@@ -111,8 +111,8 @@ class Mcpm < Formula
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/04/e3/ed51b456c7f2a299af624dd6096e7c96d6f65de06ee2f7fb5884072a2c86/pydantic_settings-2.9.0.tar.gz"
-    sha256 "24fd3fe19bc2c0eddeff91860dc5e303572b39fb70b1391c64955dd4d1875098"
+    url "https://files.pythonhosted.org/packages/67/1d/42628a2c33e93f8e9acbde0d5d735fa0850f3e6a2f8cb1eb6c40b9a732ac/pydantic_settings-2.9.1.tar.gz"
+    sha256 "c509bf79d27563add44e8446233359004ed85066cd096d8b510f715e6ef5d268"
   end
 
   resource "pygments" do
@@ -171,8 +171,8 @@ class Mcpm < Formula
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/86/37/dd92f1f9cedb5eaf74d9999044306e06abe65344ff197864175dbbd91871/uvicorn-0.34.1.tar.gz"
-    sha256 "af981725fc4b7ffc5cb3b0e9eda6258a90c4b52cb2a83ce567ae0a7ae1757afc"
+    url "https://files.pythonhosted.org/packages/a6/ae/9bbb19b9e1c450cf9ecaef06463e40234d98d95bf572fab11b4f19ae5ded/uvicorn-0.34.2.tar.gz"
+    sha256 "0e929828f6186353a80b58ea719861d2629d766293b6d19baf086ba31d4f3328"
   end
 
   resource "watchfiles" do
