@@ -11,13 +11,13 @@ class Bazel < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6bd88817b4a5ec607993570dd95a63c923991064603c8fafadcab89013128cdf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e547f741fcfc696668babe788910e4d52e474049b3c60b0b67eb570399430015"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d8cc64084044ecc0441dd90750f23cfb1922113ad7be5e0507c5d87702fbd7f8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "58500963b8ec169ca775535f23a95a688d1944b342a3e7855bd550592fc80f75"
-    sha256 cellar: :any_skip_relocation, ventura:       "d9bc01acd4a61090b25a5541b0710be1901532fd377d21f86a16b7ca294c7f7d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d9ba78bcffc64486ba909994c4763baa734231c6c4524960353fd62f9d2e3c66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf890e5d1e219b9efb0a35616139b29efe43be066a3f64cc74c53e0b46e4f32b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8224a8feb8a996ee168e3ea0827a3c3b03f7548f073ac999c7492bec90083542"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cafc46ac731d4813486d8f2dcca404bd4c26b1a9dd1a7d5e3c969a91c9ec4cca"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "bf0164c7b1827eddeae7a5836b7cef7c7190bf4effaaa8200b4c112376d8b7e3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "741ea67f934716218cccab3f2ef504afc224a7e9ddc8e71eb2b86dcdbbcd934b"
+    sha256 cellar: :any_skip_relocation, ventura:       "413a2f767535186f8111dcd0f99fe45a50d26b9ced44c448d2c37e67b9d3d007"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7a59f868eeb3da45fa932b604f195ee68280a943355f62a22faf1a3f4c5d76c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50aaa13f1ad8ae797ba2eb663c5e1d0a92e3321973cedf1f1e62a56fcb0dd265"
   end
 
   depends_on "python@3.13" => :build
