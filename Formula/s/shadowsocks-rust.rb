@@ -1,8 +1,8 @@
 class ShadowsocksRust < Formula
   desc "Rust port of Shadowsocks"
   homepage "https://shadowsocks.org/"
-  url "https://github.com/shadowsocks/shadowsocks-rust/archive/refs/tags/v1.23.0.tar.gz"
-  sha256 "13307594159cfe23f91e69c8b08ba7a41a17a2f36a4bfb3821476026f7518cac"
+  url "https://github.com/shadowsocks/shadowsocks-rust/archive/refs/tags/v1.23.1.tar.gz"
+  sha256 "0af223694de7261d4cf00f49e34f6dfe9ea5385bfe52e64f96cb0d11f3b947b0"
   license "MIT"
   head "https://github.com/shadowsocks/shadowsocks-rust.git", branch: "master"
 
@@ -47,6 +47,7 @@ class ShadowsocksRust < Formula
     fork { exec bin/"ssserver", "-c", testpath/"server.json" }
     fork { exec bin/"sslocal", "-c", testpath/"local.json" }
     sleep 3
+    sleep 3 if OS.mac? && Hardware::CPU.intel?
 
     output = shell_output "curl --socks5 127.0.0.1:#{local_port} https://example.com"
     assert_match "Example Domain", output
