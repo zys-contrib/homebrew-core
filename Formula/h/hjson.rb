@@ -1,8 +1,8 @@
 class Hjson < Formula
   desc "Convert JSON to HJSON and vice versa"
   homepage "https://hjson.github.io/"
-  url "https://github.com/hjson/hjson-go/archive/refs/tags/v4.4.0.tar.gz"
-  sha256 "ba09dd33d655d99578f78722035e136449fcc6eaf1dc1b12eef1f0bb858749d4"
+  url "https://github.com/hjson/hjson-go/archive/refs/tags/v4.5.0.tar.gz"
+  sha256 "bd73ffdee391a51137544ca3fc0550a6d1e839d20088fe27bc20b2a79f7910b4"
   license "MIT"
   head "https://github.com/hjson/hjson-go.git", branch: "master"
 
