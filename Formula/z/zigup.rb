@@ -1,8 +1,8 @@
 class Zigup < Formula
   desc "Download and manage zig compilers"
   homepage "https://github.com/marler8997/zigup"
-  url "https://github.com/marler8997/zigup/archive/refs/tags/v2025_01_02.tar.gz"
-  sha256 "0b92de2a3afcecbf086102733215640189d744c4a17064b7492059ac198dd7f6"
+  url "https://github.com/marler8997/zigup/archive/refs/tags/v2025_04_20.tar.gz"
+  sha256 "3fabc75f05c7a80a9a19f7d79f3529c208db6303ffd1b3b0328e070fc6703654"
   license "MIT-0"
 
   bottle do
@@ -24,9 +24,13 @@ class Zigup < Formula
     else Hardware.oldest_cpu
     end
 
-    args = []
+    args = %W[
+      --prefix #{prefix}
+      --summary all
+      -fno-rosetta
+    ]
     args << "-Dcpu=#{cpu}" if build.bottle?
-    system "zig", "build", *args, *std_zig_args(release_mode: :safe)
+    system "zig", "build", *args
   end
 
   test do
