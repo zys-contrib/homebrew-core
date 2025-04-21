@@ -2240,6 +2240,7 @@ mbedtls@2
 mbt
 mcap
 mcfly
+mcpm
 md2pdf
 md4c
 mdbook
