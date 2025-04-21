@@ -5,6 +5,14 @@ class TechnitiumDns < Formula
   sha256 "7a5f47af4c938c5983e415547b777f853ede5ada8837012c8b5e8e36df1a380e"
   license "GPL-3.0-or-later"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dda28a9edfd838d85510d9663c0a24c3f1c404c072bf30cb8f3cfb21990837e3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1cc7e7cad9743fbf3261a1417f03a97d1bbfc37ad544420e4803105c7ec60eff"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f8ae57540aa984adcf9d21a2e4a30f7be73998036fce3e5ae0d84bc742693051"
+    sha256 cellar: :any_skip_relocation, ventura:       "079e61452c9d175605d9b960b49e24a5237f7da639d0765328c374fda5528da7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cda1cc0e7223d0c3b8b7e3f9a13af438e6fb4109e731b690544fd9c162182154"
+  end
+
   # TODO: update dotnet version
   # Issue ref: https://github.com/TechnitiumSoftware/DnsServer/issues/1303
   depends_on "dotnet@8"
