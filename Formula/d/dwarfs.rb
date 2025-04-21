@@ -1,8 +1,8 @@
 class Dwarfs < Formula
   desc "Fast high compression read-only file system for Linux, Windows, and macOS"
   homepage "https://github.com/mhx/dwarfs"
-  url "https://github.com/mhx/dwarfs/releases/download/v0.12.2/dwarfs-0.12.2.tar.xz"
-  sha256 "9b256d1f2bc17917cd63a1bee3bd5f505076b4d880fcf9daa18a6ca5bca35aeb"
+  url "https://github.com/mhx/dwarfs/releases/download/v0.12.3/dwarfs-0.12.3.tar.xz"
+  sha256 "bd2d54178c59e229f2280eea747479a569e6f6d38340e90360220d00988f5589"
   license "GPL-3.0-or-later"
 
   livecheck do
