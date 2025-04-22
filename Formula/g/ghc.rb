@@ -37,6 +37,23 @@ class Ghc < Formula
     depends_on "gnu-sed" => :build
   end
 
+  on_linux do
+    on_arm do
+      depends_on "gcc" => :build if DevelopmentTools.gcc_version("gcc") < 12
+
+      fails_with :gcc do
+        version "11"
+        cause <<~CAUSE
+          _build/stage1/compiler/build/GHC.p_dyn_o:(.text..LsO3B_info+0x198):
+          relocation truncated to fit: R_AARCH64_JUMP26 against symbol
+          `ghczm9zi12zi2zminplace_GHCziUtilsziPanic_showGhcException_info'
+          defined in .text.ghczm9zi12zi2zminplace_GHCziUtilsziPanic_showGhcException_info
+          section in _build/stage1/compiler/build/GHC/Utils/Panic.p_dyn_o
+        CAUSE
+      end
+    end
+  end
+
   # A binary of ghc is needed to bootstrap ghc
   resource "binary" do
     on_macos do
