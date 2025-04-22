@@ -3566,6 +3566,7 @@ tfprovidercheck
 tfproviderlint
 tfschema
 tfsec
+tfsort
 tfupdate
 tgenv
 tgpt
