@@ -13,8 +13,8 @@ class Nftables < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "3802fda16ebf84708a7db2e132b898e22f39de00df6a441d5fbc2c488b89f8ab"
-    sha256 x86_64_linux: "35ca044f907a3b7e1d9dff86f87924a5a772e63c7c4090c76dafbfeb49453440"
+    sha256 arm64_linux:  "19a175d38550ac4c326c1e4188e8df5fb005e9e6081e277f81039195297fdcaf"
+    sha256 x86_64_linux: "bb22f5e217d3160d41da139b1088f37b28efc2d83df39ea1bb2635701cf5f745"
   end
 
   depends_on "pkgconf" => :build
