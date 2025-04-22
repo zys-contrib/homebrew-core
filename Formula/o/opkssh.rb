@@ -6,6 +6,15 @@ class Opkssh < Formula
   license "Apache-2.0"
   head "https://github.com/openpubkey/opkssh.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "30b99b05d642470a9afaf636a5fd3b65a71832009a6914c8f2e1c7752c35d569"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "30b99b05d642470a9afaf636a5fd3b65a71832009a6914c8f2e1c7752c35d569"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "30b99b05d642470a9afaf636a5fd3b65a71832009a6914c8f2e1c7752c35d569"
+    sha256 cellar: :any_skip_relocation, sonoma:        "515dbf57d7f5df1039e21ac8c1a7ff217f922c4c2d7bac499596661db2d2b469"
+    sha256 cellar: :any_skip_relocation, ventura:       "515dbf57d7f5df1039e21ac8c1a7ff217f922c4c2d7bac499596661db2d2b469"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e98210a50e087103791f0601d5bfb9b93d416ba7ec14ba18845312cf11207507"
+  end
+
   depends_on "go" => :build
 
   def install
