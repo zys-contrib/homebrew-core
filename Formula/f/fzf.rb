@@ -1,18 +1,18 @@
 class Fzf < Formula
   desc "Command-line fuzzy finder written in Go"
   homepage "https://github.com/junegunn/fzf"
-  url "https://github.com/junegunn/fzf/archive/refs/tags/v0.60.3.tar.gz"
-  sha256 "bdef337774050c26c6c4a6f38bc4ccb0901450854cd7f667cb3a330166a9ada5"
+  url "https://github.com/junegunn/fzf/archive/refs/tags/v0.61.2.tar.gz"
+  sha256 "15a2d8b9bcd9cf85219f02f3cf750c45acd3d5901ce69a7dcdb9db3e12f36a90"
   license "MIT"
   head "https://github.com/junegunn/fzf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1124d444049ea2dc9d923143d5f2c782b6feb1363d982eaaa184189093d96545"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1124d444049ea2dc9d923143d5f2c782b6feb1363d982eaaa184189093d96545"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1124d444049ea2dc9d923143d5f2c782b6feb1363d982eaaa184189093d96545"
-    sha256 cellar: :any_skip_relocation, sonoma:        "297501a786733ce02b17f0556639b119db14eb44b2dc1e8b138c265ce4c265a1"
-    sha256 cellar: :any_skip_relocation, ventura:       "297501a786733ce02b17f0556639b119db14eb44b2dc1e8b138c265ce4c265a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2862b0887563608e244f1276ab13a6b6bf569e10f90dc12fcd65de53545f378"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0b1c77e2133c59eb830c17c485ecde46e92295f409f5aad484832b0cecb35f6a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0b1c77e2133c59eb830c17c485ecde46e92295f409f5aad484832b0cecb35f6a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0b1c77e2133c59eb830c17c485ecde46e92295f409f5aad484832b0cecb35f6a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "70daa82000b38947dac40aa30ff99e1f5b282c37c1caae1ce282caab1def2611"
+    sha256 cellar: :any_skip_relocation, ventura:       "70daa82000b38947dac40aa30ff99e1f5b282c37c1caae1ce282caab1def2611"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32a8cf44f558e7a1b9ec8f861400540df6b44470c16fca911d71de092fc6ee9d"
   end
 
   depends_on "go" => :build

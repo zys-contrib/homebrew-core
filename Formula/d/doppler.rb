@@ -1,18 +1,18 @@
 class Doppler < Formula
   desc "CLI for interacting with Doppler secrets and configuration"
   homepage "https://docs.doppler.com/docs"
-  url "https://github.com/DopplerHQ/cli/archive/refs/tags/3.73.0.tar.gz"
-  sha256 "b3d69eb202d6664007c20a253b2890ca4712a0f405d566368719d2ce73ab6b84"
+  url "https://github.com/DopplerHQ/cli/archive/refs/tags/3.73.2.tar.gz"
+  sha256 "1f59b0facd39905b831dd5275ffb508d5dfab5a6ecb74bb6ba54c68b8d47f7b7"
   license "Apache-2.0"
   head "https://github.com/DopplerHQ/cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2a62df112b4d3a7ac06a9dc08e9532475f14072619835d8016a1ba71040e8f20"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2a62df112b4d3a7ac06a9dc08e9532475f14072619835d8016a1ba71040e8f20"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2a62df112b4d3a7ac06a9dc08e9532475f14072619835d8016a1ba71040e8f20"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d0a8afcaf86adff201b478f0d5fae6cf4c04e23c268d0808f67fa4aa434981c9"
-    sha256 cellar: :any_skip_relocation, ventura:       "d0a8afcaf86adff201b478f0d5fae6cf4c04e23c268d0808f67fa4aa434981c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f95ef4a4577953c65326c223fd9c1274027bcde6f650de6f6b39a7c43949df6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "35670aacb361f976a2ad44ff2259cd9f65944fdfd73e19bc2c38a188a629781f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "35670aacb361f976a2ad44ff2259cd9f65944fdfd73e19bc2c38a188a629781f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "35670aacb361f976a2ad44ff2259cd9f65944fdfd73e19bc2c38a188a629781f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7d6e32e4bfbc7dfdc20df51f519d191c60acf4f2f473e769e9b6ed0c5eb0d176"
+    sha256 cellar: :any_skip_relocation, ventura:       "7d6e32e4bfbc7dfdc20df51f519d191c60acf4f2f473e769e9b6ed0c5eb0d176"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ae6ba10a9a861404f2345fc99bfab05b0471f1e434f8fe53ad30d2ec77e31eb"
   end
 
   depends_on "go" => :build

@@ -2,18 +2,19 @@ class Mesheryctl < Formula
   desc "Command-line utility for Meshery, the cloud native management plane"
   homepage "https://meshery.io"
   url "https://github.com/meshery/meshery.git",
-      tag:      "v0.8.50",
-      revision: "410d5909221f22b22418cbd0d546ebafd87a51fe"
+      tag:      "v0.8.59",
+      revision: "abe24cdb79d0c091d3346e68491d3d7772a812c3"
   license "Apache-2.0"
   head "https://github.com/meshery/meshery.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ee1cdee419e38f9f12e3228191b9733df5ee79c26e62a0f8d5ec2e3f4f8ad15"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5ee1cdee419e38f9f12e3228191b9733df5ee79c26e62a0f8d5ec2e3f4f8ad15"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5ee1cdee419e38f9f12e3228191b9733df5ee79c26e62a0f8d5ec2e3f4f8ad15"
-    sha256 cellar: :any_skip_relocation, sonoma:        "de02350c839ac0d1c97ca646bb81889f9d9eacfb730165b8eb7e3ad4fd3fb96a"
-    sha256 cellar: :any_skip_relocation, ventura:       "de02350c839ac0d1c97ca646bb81889f9d9eacfb730165b8eb7e3ad4fd3fb96a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "328dd118cdf64d00a266ab8dce0f66c76116e68f37c807085cef6db11c792ff9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3694b6fc79e8e36b834bc52fa13100556857fc8a9d4c4861643eef10208c8820"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3694b6fc79e8e36b834bc52fa13100556857fc8a9d4c4861643eef10208c8820"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3694b6fc79e8e36b834bc52fa13100556857fc8a9d4c4861643eef10208c8820"
+    sha256 cellar: :any_skip_relocation, sonoma:        "55dbc772a4fadfeddfd6c4a6e9a74d3e2231c4cf36cbfb34030b9c7e540424e9"
+    sha256 cellar: :any_skip_relocation, ventura:       "55dbc772a4fadfeddfd6c4a6e9a74d3e2231c4cf36cbfb34030b9c7e540424e9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "05034f5ecd90a9533782fdbfb5ad9442e7bf674033c34df820f67b5821f49f9d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8cffe47c7848a06f5b1488a62f03552232990c888f6f81c707491d9a8e085b20"
   end
 
   depends_on "go" => :build

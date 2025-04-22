@@ -1,17 +1,18 @@
 class Stylelint < Formula
   desc "Modern CSS linter"
   homepage "https://stylelint.io/"
-  url "https://registry.npmjs.org/stylelint/-/stylelint-16.16.0.tgz"
-  sha256 "7e69fc0625ff48b24390c25e5a02e7a1c59c0cb1d9763a960dd05ac9cfdda68e"
+  url "https://registry.npmjs.org/stylelint/-/stylelint-16.18.0.tgz"
+  sha256 "6cceab9c8ec1cba91baa2b35dc56fca86daaedc61a52f235c001440b98916bf1"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "40ef4b12d31ab87e650aabb84e3f88dc7785a4c14e2d396ebf502844943243fd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "40ef4b12d31ab87e650aabb84e3f88dc7785a4c14e2d396ebf502844943243fd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "40ef4b12d31ab87e650aabb84e3f88dc7785a4c14e2d396ebf502844943243fd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "39db02235a5c613441e0ab988da3932b67279daf4f27961e27d2756b893a98f0"
-    sha256 cellar: :any_skip_relocation, ventura:       "39db02235a5c613441e0ab988da3932b67279daf4f27961e27d2756b893a98f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40ef4b12d31ab87e650aabb84e3f88dc7785a4c14e2d396ebf502844943243fd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b786b31634b1268a098cd57ee3fa4e723ed6b40afa900b2323a2ee6531860e27"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b786b31634b1268a098cd57ee3fa4e723ed6b40afa900b2323a2ee6531860e27"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b786b31634b1268a098cd57ee3fa4e723ed6b40afa900b2323a2ee6531860e27"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fc778e32f7f80b7a87e1a86d4325442bbf11f77312115d81642bbd62195b4d0e"
+    sha256 cellar: :any_skip_relocation, ventura:       "fc778e32f7f80b7a87e1a86d4325442bbf11f77312115d81642bbd62195b4d0e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b786b31634b1268a098cd57ee3fa4e723ed6b40afa900b2323a2ee6531860e27"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b786b31634b1268a098cd57ee3fa4e723ed6b40afa900b2323a2ee6531860e27"
   end
 
   depends_on "node"

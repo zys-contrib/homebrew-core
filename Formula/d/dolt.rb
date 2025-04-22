@@ -1,9 +1,10 @@
 class Dolt < Formula
   desc "Git for Data"
   homepage "https://github.com/dolthub/dolt"
-  url "https://github.com/dolthub/dolt/archive/refs/tags/v1.50.5.tar.gz"
-  sha256 "83abb029926f333d31b5086f69eb4f2f8769027d81d54ddcfb50fd696eb54370"
+  url "https://github.com/dolthub/dolt/archive/refs/tags/v1.52.0.tar.gz"
+  sha256 "99a2ffc82494eb370e98555533d2cda40cedcc548cd61130a71fe8e2e9bbcf90"
   license "Apache-2.0"
+  head "https://github.com/dolthub/dolt.git", branch: "main"
 
   livecheck do
     url :stable
@@ -11,12 +12,13 @@ class Dolt < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d4b9e0017839871c296f6a7936b7005bb6007a489758ac171d08efabc417f65e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e9c994e2f86d63236a70d575942f8a44b0c2fd22d2c4c76beb9da5e315c5e140"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "dbac02869a5992191de28c57d1021823d708cc6deabc37781fb486dfd36beff9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7a477ef26d367f245f14a9c09eb21384418c23c4b2cd48f064c1f2c6f6c8b56d"
-    sha256 cellar: :any_skip_relocation, ventura:       "732d30a0b9cf02ecbc434d856fd5b2c185b7635fd69108e00777965525e0a22d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fdcb8ddc8c81faf77eada120d2c74708c6914d02ebd2f74505767248fd6127d5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9121299718dd08758a2a54e481c31ad22110e65aeb1f801d2c94a8990941445b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a3e86faf11e685dea44dcae7d28a6d2911d97570b6e4ecb34f1e088f64ae1aee"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d8cfb06d1ea0546d35f72f09085da858f90f802c01957bba2104e474488b8f8e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bd2ea53b021732e03166c9c285d6c5a369130efbe20a5b72e1cc679a1e02911f"
+    sha256 cellar: :any_skip_relocation, ventura:       "42b79fcf49efeaf42719f37bb114a34ac31c92c6f40a4f493f1d7971eeff5d0d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3b8108b88ebb92a91c595021cf86f995f793e65d31d783da8921778675ecd54c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dbe992e06f61fbedaa8098fdba1897d7e100cfbe7ab60655572dfd0f371861ed"
   end
 
   depends_on "go" => :build
@@ -25,6 +27,19 @@ class Dolt < Formula
     chdir "go" do
       system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/dolt"
     end
+  end
+
+  def post_install
+    (var/"log").mkpath unless (var/"log").exist?
+    (var/"dolt").mkpath
+  end
+
+  service do
+    run [opt_bin/"dolt", "sql-server"]
+    keep_alive true
+    log_path var/"log/dolt.log"
+    error_log_path var/"log/dolt.error.log"
+    working_dir var/"dolt"
   end
 
   test do

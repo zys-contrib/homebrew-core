@@ -1,20 +1,21 @@
 class Garnet < Formula
   desc "High-performance cache-store"
   homepage "https://microsoft.github.io/garnet/"
-  url "https://github.com/microsoft/garnet/archive/refs/tags/v1.0.59.tar.gz"
-  sha256 "69f9addeeea587aa47f2610d82eb9e7b3260ce02d6f9037cedc2a008d0ae031a"
+  url "https://github.com/microsoft/garnet/archive/refs/tags/v1.0.63.tar.gz"
+  sha256 "50806ab9ac54bde5f4ec3bbd9d125fe76c727050d304d1189907f7bea7e88df3"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "957698c6db789a8511e2eac79413af01cb483a552b9040530ee7f29004af57ce"
-    sha256 cellar: :any,                 arm64_sonoma:  "5b8c136f153cf7651e006f8ed7f89f5ef354b8d571674658a4091c61aa6d1969"
-    sha256 cellar: :any,                 arm64_ventura: "c86a7e9cde6f6b354b8e2449b7b147a4352b17450ea7e64ba540b52073f710ed"
-    sha256 cellar: :any,                 ventura:       "b2e6c8a4310db455e51bf61c02b4a4a9e83ae62b3ac782a5603bb9c902e126c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "042c1890436413f79f2f0cef12f00ef24f8cf78f3cb527ba60766d045d8df073"
+    sha256 cellar: :any,                 arm64_sequoia: "8fe34fed471728b7e7b958a12324f6cdaf1c824191aa378fb1773de336e21d21"
+    sha256 cellar: :any,                 arm64_sonoma:  "0d701d5dcafe8774431acfba5a54733d6aaed83414d7893c66b689ded3ada1b4"
+    sha256 cellar: :any,                 arm64_ventura: "bf80041ae13fd77feca8a1059353e867bcbd3ae7c7cf74b31d7622ebda3d77a3"
+    sha256 cellar: :any,                 ventura:       "fa993148492fd29fcfcb60204bf1f387da426bb499bd5ec8245ed52037d02199"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d2897019ca88b8bd47434b59de71c170258793a803ee31164152deb4477abad3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ad716cc5a8c5d1cd585bce48c942998e59dad6927ec9cd6f0a4a70711ef5ce4"
   end
 
-  depends_on "redis" => :test
-  depends_on "dotnet@8"
+  depends_on "valkey" => :test
+  depends_on "dotnet"
 
   on_linux do
     depends_on "cmake" => :build
@@ -25,14 +26,16 @@ class Garnet < Formula
   def install
     if OS.linux?
       cd "libs/storage/Tsavorite/cc" do
-        system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+        # Fix to cmake version 4 compatibility
+        arg = "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+        system "cmake", "-S", ".", "-B", "build", arg, *std_cmake_args
         system "cmake", "--build", "build"
         rm "../cs/src/core/Device/runtimes/linux-x64/native/libnative_device.so"
         cp "build/libnative_device.so", "../cs/src/core/Device/runtimes/linux-x64/native/libnative_device.so"
       end
     end
 
-    dotnet = Formula["dotnet@8"]
+    dotnet = Formula["dotnet"]
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
@@ -57,7 +60,7 @@ class Garnet < Formula
     end
     sleep 3
 
-    output = shell_output("#{Formula["redis"].opt_bin}/redis-cli -h 127.0.0.1 -p #{port} ping")
+    output = shell_output("#{Formula["valkey"].opt_bin}/valkey-cli -h 127.0.0.1 -p #{port} ping")
     assert_equal "PONG", output.strip
   end
 end

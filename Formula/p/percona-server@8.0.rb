@@ -4,7 +4,7 @@ class PerconaServerAT80 < Formula
   url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.40-31/source/tarball/percona-server-8.0.40-31.tar.gz"
   sha256 "1318670d8e176c24df74019f748f5f233e2787f865dd3d41d61790ab5a772c4e"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://www.percona.com/products-api.php", post_form: {
@@ -21,12 +21,13 @@ class PerconaServerAT80 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "b4a4d35c97ed5c11ca538ab79346e2b0bf5a8d64014e85ff4e8532657503f38c"
-    sha256 arm64_sonoma:  "e9b19cb3644e61639329cf4c44fb73d5f251226b9b1cce2bed6e8e8799283751"
-    sha256 arm64_ventura: "c8a29b5ae3ebab1b1079d60c621e9c54d48f06f8568d8741aaf43817a407aa83"
-    sha256 sonoma:        "b0c46d2637ab7598071f69417acea4e8c79b5aac99b601e320dc01cdb8d4bcf9"
-    sha256 ventura:       "063ba75b60edced94e2ea626c5245e7fb8b2eee4d3abdddf790afbb7c3dde614"
-    sha256 x86_64_linux:  "d9015184416c1647390cfdf83714bdf165974ff6c79c09f1504ee6497899a1ef"
+    sha256 arm64_sequoia: "32768a4fd0fe75e7a288731d9a3a1789548cbc6091f95a55cd068ea589340e27"
+    sha256 arm64_sonoma:  "d209d4ad284ebc053169ab6f615ef487eaeedb76b17b8a71d77e8821dfe3bf75"
+    sha256 arm64_ventura: "0c920c59d823d73888e88abc3102626ab4574422f71a391428d2e18b198d5008"
+    sha256 sonoma:        "450c309327f0a71240e8b6c54bd561749a930d662343e002ddde4eadc982154d"
+    sha256 ventura:       "d289a66cdfd3de7ed9f87d98dda41ebeba1dc18ac8223604b92e122ccd37d8e0"
+    sha256 arm64_linux:   "558a1988053cb70145a837ca6b62fe99396a02f4191a2801c7c5ddde6da00bb4"
+    sha256 x86_64_linux:  "5614bdeb9028553c82137264547db91e208c016ad98c2796eb703c8f66959848"
   end
 
   keg_only :versioned_formula
@@ -87,6 +88,13 @@ class PerconaServerAT80 < Formula
     sha256 "d4afcdfb0dd8dcb7c0f7e380a88605b515874628107295ab5b892e8f1e019604"
   end
 
+  # Backport fix for CMake 4.0
+  patch do
+    url "https://github.com/Percona-Lab/coredumper/commit/715fa9da1d7958e39d69e9b959c7a23fec8650ab.patch?full_index=1"
+    sha256 "632a6aff4091d9cbe010ed600eeb548ae7762ac7e822113f9c93e3fef9aafb4f"
+    directory "extra/coredumper"
+  end
+
   def datadir
     var/"mysql"
   end
@@ -141,9 +149,10 @@ class PerconaServerAT80 < Formula
       -DWITH_UNIT_TESTS=OFF
       -DWITH_INNODB_MEMCACHED=ON
       -DROCKSDB_BUILD_ARCH=#{ENV.effective_arch}
+      -DALLOW_NO_ARMV81A_CRYPTO=ON
+      -DALLOW_NO_SSE42=ON
     ]
     args << "-DROCKSDB_DISABLE_AVX2=ON" if build.bottle?
-    args << "-DALLOW_NO_SSE42=ON" if Hardware::CPU.intel? && (!OS.mac? || !MacOS.version.requires_sse42?)
     args << "-DWITH_KERBEROS=system" unless OS.mac?
 
     ENV.append "CXXFLAGS", "-std=c++17"

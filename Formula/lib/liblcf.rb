@@ -1,33 +1,26 @@
 class Liblcf < Formula
   desc "Library for RPG Maker 2000/2003 games data"
   homepage "https://easyrpg.org/"
+  url "https://easyrpg.org/downloads/player/0.8.1/liblcf-0.8.1.tar.xz"
+  sha256 "e827b265702cf7d9f4af24b8c10df2c608ac70754ef7468e34836201ff172273"
   license "MIT"
-  revision 5
   head "https://github.com/EasyRPG/liblcf.git", branch: "master"
 
-  stable do
-    url "https://easyrpg.org/downloads/player/0.8/liblcf-0.8.tar.xz"
-    sha256 "6b0d8c7fefe3d66865336406f69ddf03fe59e52b5601687265a4d1e47a25c386"
-
-    # Backport C++17 for `icu4c` 75. Remove in the next release.
-    patch do
-      url "https://github.com/EasyRPG/liblcf/commit/8c782e54ba244981141d91e7d44922952563677c.patch?full_index=1"
-      sha256 "593f729e7f9a5411e6d8548aaac0039e09eee437f525409a9ca8513a0ee15cd0"
-    end
-  end
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0ce1d52bf550672b277c189f92aa81e25b40a8b9342c31974a8da8d037311565"
-    sha256 cellar: :any,                 arm64_sonoma:  "3eb59771db72f108f7e2345aaf4095f55e621ace5b95a7af03f374ac34784b27"
-    sha256 cellar: :any,                 arm64_ventura: "d159fe2f340bf3ad58f1e730ce8b739e4e38deeeb5e87702d235754cc158b409"
-    sha256 cellar: :any,                 sonoma:        "deb6d3ce9b1ff44726207ba6754a80ba56f541e73c0332f4543d388caf3e0f6d"
-    sha256 cellar: :any,                 ventura:       "26b9bedec364a4e139c5db09ebdac6979b36581c29387994083a3e502fcb8df6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "743579b1d4cd94e49240f8ed6f432c146123764f5692cab39b477de090055a1a"
+    sha256 cellar: :any,                 arm64_sequoia: "3b50d8d26ad9ae4223f2b32c6e6339286076967625db097d6f59e51e301839ef"
+    sha256 cellar: :any,                 arm64_sonoma:  "b46ebee74b740c0c6fab8ed2c4d54126a190cb2f16d9c6528e9900e3dc51fb0e"
+    sha256 cellar: :any,                 arm64_ventura: "c36ac2cb17b1d1057e197d9e2f22d8dae23d1d44142dfab5d595e46edc6cb1fd"
+    sha256 cellar: :any,                 sonoma:        "a043c615f9b5d1c946eeec170beebf0fcdb561ff35f7bbc34561102519e3f452"
+    sha256 cellar: :any,                 ventura:       "8088af20377163a45aac512fc22a33d774d888dbe7becac630eda6ffa29cb0b3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4dbcfc8241bf5efa4380109aed635b6107a0f53fb0f698bf469e3f2a50a4c6ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "beefb8b7b075411dc9335ea16e330d963cf8d02f3e9d8d4b5f706ca82ecdcd03"
   end
 
   depends_on "cmake" => :build
-  depends_on "expat" # Building against `liblcf` fails with `uses_from_macos`
   depends_on "icu4c@77"
+  depends_on "inih"
+
+  uses_from_macos "expat"
 
   def install
     system "cmake", "-S", ".", "-B", "build",
@@ -49,7 +42,7 @@ class Liblcf < Formula
         return 0;
       }
     CPP
-    system ENV.cxx, "test.cpp", "-std=c++14", "-I#{include}", "-L#{lib}", "-llcf", \
+    system ENV.cxx, "test.cpp", "-std=c++17", "-I#{include}", "-L#{lib}", "-llcf", \
       "-o", "test"
     system "./test"
   end

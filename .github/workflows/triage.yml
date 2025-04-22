@@ -24,7 +24,7 @@ jobs:
     if: always() && github.repository_owner == 'Homebrew'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: event_payload
           path: ${{ github.event_path }}
@@ -105,7 +105,7 @@ jobs:
               path: Formula/.+
               content: \n  bottle do\n
               missing_content:
-                - '\n    sha256.* x86_64_linux: +"[a-fA-F0-9]+"\n'
+                - '\n    sha256.* (x86_64|arm64)_linux: +"[a-fA-F0-9]+"\n'
                 - '\n    sha256.* all: +"[a-fA-F0-9]+"\n'
                 - depends_on :macos
 
@@ -145,6 +145,10 @@ jobs:
               path: Formula/.+
               content: depends_on "ffmpeg(@[0-9.]+)?"
 
+            - label: erlang
+              path: Formula/.+
+              content: depends_on "erlang(@[0-9.]+)?"
+
             - label: go
               path: Formula/.+
               content: depends_on "go(@[0-9.]+)?"
@@ -168,6 +172,10 @@ jobs:
             - label: macos-only
               path: Formula/.+
               content: depends_on :macos
+
+            - label: meson
+              path: Formula/.+
+              content: depends_on "meson"
 
             - label: lua
               path: Formula/.+
@@ -239,6 +247,7 @@ jobs:
                 node|\
                 octave|\
                 opencascade|\
+                openfast|\
                 openvino|\
                 pcl|\
                 ponyc|\
@@ -263,6 +272,7 @@ jobs:
                 boost|\
                 brotli|\
                 c-ares|\
+                cabal-install|\
                 dav1d|\
                 freetype|\
                 gcc|\
@@ -357,4 +367,8 @@ jobs:
 
             - label: autobump
               path: \.github/autobump\.txt
+              allow_any_match: true
+
+            - label: alias
+              path: Aliases/.+
               allow_any_match: true

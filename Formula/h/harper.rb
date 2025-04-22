@@ -1,18 +1,19 @@
 class Harper < Formula
   desc "Grammar Checker for Developers"
   homepage "https://github.com/elijah-potter/harper"
-  url "https://github.com/elijah-potter/harper/archive/refs/tags/v0.25.1.tar.gz"
-  sha256 "b444d052e13255fff3e087cb6b02de2bac9410f5373370ece36b74412849c599"
+  url "https://github.com/elijah-potter/harper/archive/refs/tags/v0.29.1.tar.gz"
+  sha256 "9ac27ed81ee0b6e076adcb6b08abcc0633ba23df73d982a6f12ee6144534054a"
   license "Apache-2.0"
   head "https://github.com/elijah-potter/harper.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b75463040eea4df0b682e17fade0e51bbb09276c2ec328352962f6b583da1100"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "29a2c55f15e0c230ca7f353c53415d80e0578760a82bac8f2b47844260ec623c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "de821a284292e1ac8db4f31f7f273a438431b1af6479e51febbbb1902c7271b0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ee9a9a3a674e1abb93a8cf4cdf8aef09fef46369c7e25da6516467e96a6aaa31"
-    sha256 cellar: :any_skip_relocation, ventura:       "6390891c9979a7e5400b0d016ddb4b2f5f4b693bb69b161bfa1d5302d2ca917e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a088a3a14ffb889e1533241d40133a25bb9dd15b11ba4547514ce866b559c69f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "94957468d28f38dad9cabe951a4fcdae450c8f1c9606603df6336f8d6175fd3a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bba9bbaab7be82da0d18ed033a62ee69807155b475cdc96217831eb9e2d2a9a6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8e05d532381cda176469b0af19a3ebd31b42e62ca7ca4a3acf1b6b51f2c867d2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "53e6305b271fa8d840ddc17081b153541a2603b51bcf0c6770410c280a16b59c"
+    sha256 cellar: :any_skip_relocation, ventura:       "47c33eadbd6f7ad335f0d403ab511b1a2ebba159a3c52ddc73d23bac46c06b0b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "44d86a22c91c1e5cc6beabb50a19972a84957159af76b5f530aad259a48debe9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab30120d43384579d35bb7c925d9dc922c02f1966348e6e7ca7762d330037ece"
   end
 
   depends_on "rust" => :build
@@ -30,13 +31,13 @@ class Harper < Formula
       This is an example to ensure language detection works properly.
     MARKDOWN
 
-    system bin/"harper-cli", "lint", "test.md"
+    # Dialect in https://github.com/Automattic/harper/blob/833b212e8665567fa2912e6c07d7c83d394dd449/harper-core/src/word_metadata.rs#L357-L362
+    system bin/"harper-cli", "lint", "--dialect", "American", "test.md"
 
     output = shell_output("#{bin}/harper-cli parse test.md")
     assert_equal "Word", JSON.parse(output.lines.first)["kind"]["kind"]
 
-    output = shell_output("#{bin}/harper-cli words")
-    assert_equal "\"B\"", output.lines.first.chomp
+    assert_match "\"iteration\"", shell_output("#{bin}/harper-cli words")
 
     # test harper-ls
     json = <<~JSON

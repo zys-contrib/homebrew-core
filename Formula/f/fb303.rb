@@ -1,21 +1,23 @@
 class Fb303 < Formula
   desc "Thrift functions for querying information from a service"
   homepage "https://github.com/facebook/fb303"
-  url "https://github.com/facebook/fb303/archive/refs/tags/v2025.03.10.00.tar.gz"
-  sha256 "38b98b66f1f3a30f057f326114170bc7b253172719e5d8750ebd7802c75b66b1"
+  url "https://github.com/facebook/fb303/archive/refs/tags/v2025.04.14.00.tar.gz"
+  sha256 "abc733953f513bd47c18313dc6996f7ed42ee264a74ea1a9d2e5fd08a222137f"
   license "Apache-2.0"
   head "https://github.com/facebook/fb303.git", branch: "main"
 
   bottle do
-    sha256                               arm64_sequoia: "7531bfa125017c0bdacad831d395c9a450dfde965595d538b62022da9b5ab518"
-    sha256                               arm64_sonoma:  "125a803ac423784ee02c3e304aa9ad93c3a90985741f2b2fb4d0b414e571cfe6"
-    sha256                               arm64_ventura: "86a2220eeb203e6f5080ca8cac5c43b11bce910b300839049cdda2121a77ef03"
-    sha256 cellar: :any,                 sonoma:        "e9f75b27de79efeba83424c6df976eb73351b762639f08b9f6fc011d076e7f3f"
-    sha256 cellar: :any,                 ventura:       "fe03a862d0bd246f4b21feecb5a56459eacc19ca505e0d40bbe5df1f6fd750b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09ec078e445f16e5ec5ed2b2b66970a1c864ad9fb4758f9248202dd32b8dee98"
+    sha256                               arm64_sequoia: "1253a79ea90d4ce61028ffa1e86b6bacfe1c7a8c84f9b3af7f71f1dd0b435485"
+    sha256                               arm64_sonoma:  "4ec6f5e5248e2c9668c02fbb7558086573a7e90704bd2e9debc39513844a6a93"
+    sha256                               arm64_ventura: "8bed7326f7c98af8fc874dcba6a58b84e0e81400e893273557cb1bf765e0accb"
+    sha256 cellar: :any,                 sonoma:        "395c09480dccf69d6d334af1088fe28d339f07bfc3827bacae3dfa7c66aa6760"
+    sha256 cellar: :any,                 ventura:       "4b539956c83b521709fe15ce25d9d5e773891beddf99dd08ce1b1401a703b079"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "021b3a4ad2a6e4fc390fcea7ed54b97def1a15f99e804b55980ef0ce75091a54"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6996dccf816af9fe7ab14702bc00a7880ae64ea145445cb55f64982cf1493032"
   end
 
   depends_on "cmake" => :build
+  depends_on "mvfst" => :build
   depends_on "fbthrift"
   depends_on "fizz"
   depends_on "fmt"

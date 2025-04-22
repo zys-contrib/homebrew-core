@@ -1,18 +1,19 @@
 class Pyright < Formula
   desc "Static type checker for Python"
   homepage "https://github.com/microsoft/pyright"
-  url "https://registry.npmjs.org/pyright/-/pyright-1.1.396.tgz"
-  sha256 "5bbe6286ca3ad6613af6114bdd1c64cb3f1be669f7b50fb8013f5ac7b9387772"
+  url "https://registry.npmjs.org/pyright/-/pyright-1.1.399.tgz"
+  sha256 "653574de459ffb3884d5aa0002c5436cfb59d9fc59adbe40123591d6eb1cf05d"
   license "MIT"
   head "https://github.com/microsoft/pyright.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8408c8c7ebca66b998956e84f3de23f10795b40cbfa23287013c52940801cf2d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8408c8c7ebca66b998956e84f3de23f10795b40cbfa23287013c52940801cf2d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8408c8c7ebca66b998956e84f3de23f10795b40cbfa23287013c52940801cf2d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f0f04e37d48c263abc2211d3a4d1ca98f441e768373644ba83e3228f2d8f6604"
-    sha256 cellar: :any_skip_relocation, ventura:       "f0f04e37d48c263abc2211d3a4d1ca98f441e768373644ba83e3228f2d8f6604"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8408c8c7ebca66b998956e84f3de23f10795b40cbfa23287013c52940801cf2d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aa5d73d2384e50d36431e092a6ae46acb40c390deda527a7244a4a2dc869e03a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aa5d73d2384e50d36431e092a6ae46acb40c390deda527a7244a4a2dc869e03a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "aa5d73d2384e50d36431e092a6ae46acb40c390deda527a7244a4a2dc869e03a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9e5a5c95da0f425f759eb699f9911e06ef80222f67cf0a5f579e9247e129b2b0"
+    sha256 cellar: :any_skip_relocation, ventura:       "9e5a5c95da0f425f759eb699f9911e06ef80222f67cf0a5f579e9247e129b2b0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "aa5d73d2384e50d36431e092a6ae46acb40c390deda527a7244a4a2dc869e03a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa5d73d2384e50d36431e092a6ae46acb40c390deda527a7244a4a2dc869e03a"
   end
 
   depends_on "node"

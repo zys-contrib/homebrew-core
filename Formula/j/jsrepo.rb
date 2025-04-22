@@ -1,17 +1,18 @@
 class Jsrepo < Formula
   desc "Build and distribute your code"
   homepage "https://jsrepo.dev/"
-  url "https://registry.npmjs.org/jsrepo/-/jsrepo-1.45.0.tgz"
-  sha256 "d850da698f3da6a7ea62601c195407f4037b9a8e6e10921984d26013722bf29c"
+  url "https://registry.npmjs.org/jsrepo/-/jsrepo-1.47.1.tgz"
+  sha256 "ea2a8478fea26d20ac7034d22a73ff9c3b2052a2f1adb6a7e04efb47274cfe92"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7a3392d223678e374165e4b039c1a0e78ab7e95d55b368820108ab08dc8e2c6e"
-    sha256 cellar: :any,                 arm64_sonoma:  "7a3392d223678e374165e4b039c1a0e78ab7e95d55b368820108ab08dc8e2c6e"
-    sha256 cellar: :any,                 arm64_ventura: "7a3392d223678e374165e4b039c1a0e78ab7e95d55b368820108ab08dc8e2c6e"
-    sha256 cellar: :any,                 sonoma:        "2b76736c8fc594a12e2e350c68d476d34f3fef39a61b17ce8bf64966b8556d45"
-    sha256 cellar: :any,                 ventura:       "2b76736c8fc594a12e2e350c68d476d34f3fef39a61b17ce8bf64966b8556d45"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "759f037ed8fc2e3bfdaf384db72209a37098d54d0565ffa064fe8ed072d83dfb"
+    sha256 cellar: :any,                 arm64_sequoia: "455c3aa3bde815c831b8e03447809673e4a756c926011673efad8a605a3cbdc0"
+    sha256 cellar: :any,                 arm64_sonoma:  "455c3aa3bde815c831b8e03447809673e4a756c926011673efad8a605a3cbdc0"
+    sha256 cellar: :any,                 arm64_ventura: "455c3aa3bde815c831b8e03447809673e4a756c926011673efad8a605a3cbdc0"
+    sha256 cellar: :any,                 sonoma:        "11d8ad1ef59242cea86f19ccd3424f151a9980276440cc564b5006e235927c0a"
+    sha256 cellar: :any,                 ventura:       "11d8ad1ef59242cea86f19ccd3424f151a9980276440cc564b5006e235927c0a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4ad0071081a6592b94e89a3611a08475426e8a4b3eff1a409eba84914c71d152"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b4853fbda213bd746053593104742db6496dd58c1ff16e2788909bf0bf3375f"
   end
 
   depends_on "node"

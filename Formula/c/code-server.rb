@@ -1,17 +1,18 @@
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/coder/code-server"
-  url "https://registry.npmjs.org/code-server/-/code-server-4.98.2.tgz"
-  sha256 "37d4ab6edfbefb5bbe4074cf3b6a3a5fa5cbd42eb273f324bf4bd70c3a801688"
+  url "https://registry.npmjs.org/code-server/-/code-server-4.99.3.tgz"
+  sha256 "565b30701c077952685d43ee2d4681fc454f85361ca7a7709dc71dd6fb5dbbb0"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a385886473cab18df5ac15dfee5db230db272d717bf2f48109356ef016ccabd8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4b12fffbe3e1a6bb446c23a6273b4ef6a23ccd8ace0212d1df5f24a6e2035e64"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "15068e8a56365250c29b46cb3ab064a5e361a8462f524d26d06944c0cb10768a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "76e56814f0fc42ea9405396b59d20b961080d7b828f6781dea0d9700502db826"
-    sha256 cellar: :any_skip_relocation, ventura:       "fd9a56c45b5facc138fe4b25f2e7808cb9680c409c4d5cc59e5aac701ed9e872"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "253451531978cb2487ab1d7d971d716a1f42714f7d62bb611826a4f408f38abf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "876c279e3b2581743f5a083428376affc5b34a6de35944a1fda463b81b3b7e67"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a861c6ba0673f59db0430de52a877c737e98cee5f8fa4024238f79ef7d22595b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f79f3a584f819f4733c4f39b2b75523fee39b1c96332d92e40a8f29d1656a5ad"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0928b639778faa2de2ee2088867a3020f936ea39f46142b3f05609fabd021420"
+    sha256 cellar: :any_skip_relocation, ventura:       "a2bfad7e2ccc04b3628f72438636e79d6dace360c3371312a91b52514e43c02d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8963908279f02b3dd53d97900d0a2e15a3db15076d7ddf721486cf9004a1f684"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7c0739288d281cc8d4ced2ef5cc241c48d16985c3ebdf80d63e85f37f876124"
   end
 
   depends_on "node@20"

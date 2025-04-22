@@ -1,23 +1,18 @@
 class Krep < Formula
   desc "High-Performance String Search Utility"
-  homepage "https://davidesantangelo.github.io/krep/"
-  url "https://github.com/davidesantangelo/krep/archive/refs/tags/v0.1.7.tar.gz"
-  sha256 "a42f1d70dd1826bcfc5ffc91c9a6f52ff3e85bb47bda7b67038f549dd6c00982"
+  homepage "https://github.com/davidesantangelo/krep"
+  url "https://github.com/davidesantangelo/krep/archive/refs/tags/v1.1.2.tar.gz"
+  sha256 "99f17d33577861cb2d445345b159652f7f32bbb7d070314ca685d4ced74f2a81"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "344fd0cc3c14c4e8e757bc4c7b83cb5d2c568935f021faee0c2762b794829652"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "735169c73ed3610ec8dc079216086ff06464fba9db32bc3b6899e1e59992e6f4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "16b777782f2aa49e6eb4866c2cab287d8f801893f4bfdcc2c75092d676733cd5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8c327701bf9824a272194d492d705f46d528b3ea0608cf8c8a612c1b89ed830b"
-    sha256 cellar: :any_skip_relocation, ventura:       "60361e418894afcba4e48e9ddcc17104c830f9470ad21743932985311e754251"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ee3401fc0295b747eb1af5d787538af453240f369c89544f3628fbdd01e05f8"
-  end
-
-  # version patch, PR: https://github.com/davidesantangelo/krep/pull/14
-  patch do
-    url "https://github.com/davidesantangelo/krep/commit/d3957a2100961b29ba1259a1d2c8d4028d187e78.patch?full_index=1"
-    sha256 "fcedb45bf86c870173595eb5353ca64d03fc69ff8a074043f6e198f84e13a57a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "053c2b657d16d0c263b9e88f4d5ff2e6a7fa7a03a51397b14ed4d2035b27650b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "da42562f8dda54c176b8b581d7265f9b38b0e99ac6f6b8a2614124bf5d426aa0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "42b4c1f1cd9bda15f6c719ccad631a5e2717b9dc0b7dbd59e1aa200bbc92e823"
+    sha256 cellar: :any_skip_relocation, sonoma:        "85a070d044af9aa23410e8d74f96cb3a8a4f12e2ffab19f6f7a868940f529ade"
+    sha256 cellar: :any_skip_relocation, ventura:       "bff2901536aa00debb1f61ca555cbefbc7f7f702ca3e68d4c0fcce9dfc7b2fda"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f4989da74e5e6853ae5bf7181b98bad9c1b847468fb0d7d174c5b4e285bf2ec8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a4d8a6520e235f820932cc8cacfea508806967ac243bde9905d001ba7cab6ed"
   end
 
   def install
@@ -25,12 +20,12 @@ class Krep < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/krep -v")
+
     text_file = testpath/"file.txt"
     text_file.write "This should result in one match"
 
-    output = shell_output("#{bin}/krep -c 'match' #{text_file}")
-    assert_match "Found 1 matches", output
-
-    assert_match "krep v#{version}", shell_output("#{bin}/krep -v")
+    output = shell_output("#{bin}/krep -c 'match' #{text_file}").strip
+    assert_match "1", output
   end
 end

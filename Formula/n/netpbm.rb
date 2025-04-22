@@ -3,8 +3,8 @@ class Netpbm < Formula
   homepage "https://netpbm.sourceforge.net/"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for stable versions and matching revisions.
-  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "5026"
-  version "11.02.13"
+  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "5067"
+  version "11.02.15"
   license "GPL-3.0-or-later"
   version_scheme 1
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
@@ -16,12 +16,13 @@ class Netpbm < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "ae9e7443edf11e09774212001ab57a82742e4046859bf5f0362378f67d0c8730"
-    sha256 arm64_sonoma:  "0ba441b3d673734593c53a61a4c2eb8f76dad88243a5539495f082fe39874640"
-    sha256 arm64_ventura: "23e645f9fef98bac30cc9cece1235552bd594d0e1ffe6d90c25d988b0a7c04d5"
-    sha256 sonoma:        "d83edebecd77ebf26d86657c42da7b165beb1cdb8308c38683111ef87c80c164"
-    sha256 ventura:       "08ed24a72ee024e494bf1daaebc4e18c42d0950bb4e55334a0ce8cdad4effba7"
-    sha256 x86_64_linux:  "a3c3b007c004a6a23cd9a3535a3303c442ff9118629ec77bb2c2e01243ca638f"
+    sha256 arm64_sequoia: "654efca03d75a2a9d35af20ab312b2929baefefefb23c12a63372733913ceeba"
+    sha256 arm64_sonoma:  "29c8b6945dfb547ccbb1a77cd9a217ae5ad73860c5f6e919fce505ecdaa026cf"
+    sha256 arm64_ventura: "28b50ef187bf9bc6bb2979d27a960aa2d03a26775a7e311c1602785b0e85ba17"
+    sha256 sonoma:        "0a54b10246c52db1f99104e50fe8ca84e7995049431fd33ad98e9f4ee1d16de9"
+    sha256 ventura:       "f0ca2e61f90d07bb13788514e7dc551ea7d9602c399efe85159f584e9801fb4f"
+    sha256 arm64_linux:   "82aa042c713687ed55601ea00a5a5b12483f9b2232dabaded80939902215a892"
+    sha256 x86_64_linux:  "4492f46643f2ec80ad10659234d8d5fdcdb366fcdc9758d008141923271c6470"
   end
 
   depends_on "pkgconf" => :build
@@ -40,8 +41,8 @@ class Netpbm < Formula
   resource "html" do
     # Rolling release, latest revision also documents previous software versions
     # NOTE: Keep "revision" and "version" in sync
-    url "https://svn.code.sf.net/p/netpbm/code/userguide", revision: "5015"
-    version "5015"
+    url "https://svn.code.sf.net/p/netpbm/code/userguide", revision: "5035"
+    version "5035"
 
     livecheck do
       url "https://sourceforge.net/p/netpbm/code/HEAD/log/?path=/userguide"

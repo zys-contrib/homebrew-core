@@ -1,8 +1,8 @@
 class Imagemagick < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://imagemagick.org/index.php"
-  url "https://imagemagick.org/archive/releases/ImageMagick-7.1.1-45.tar.xz"
-  sha256 "a02466ef5bbc0ed2a25975da72d1274f1b4818b359decec0995a387453115c7d"
+  url "https://imagemagick.org/archive/releases/ImageMagick-7.1.1-47.tar.xz"
+  sha256 "2396cd3c4237cfbc09a89d31d1cee157ee11fbc8ec1e540530e10175cb707160"
   license "ImageMagick"
   head "https://github.com/ImageMagick/ImageMagick.git", branch: "main"
 
@@ -12,18 +12,19 @@ class Imagemagick < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "aa1223933b2d646d5027b7fb53999b905548b3fb37777e8ccbd903962fc93843"
-    sha256 arm64_sonoma:  "7496fe1c42a86cb561b9eda453cc8f87b2452de85daf857417b8f7060c3a7379"
-    sha256 arm64_ventura: "1c94d340d7c039f4b8df0ff91a1a847b7c396e76499f8d6fe744346e5576dfb5"
-    sha256 sonoma:        "40cdd46a5251b17fa55468cd60ceeb34efd8c10e7e42a0469a238f54c20de9ad"
-    sha256 ventura:       "bf930fb76b1bc9bb441990411d52b5f5b46e2a2a46e2ef552d6047429d413fc8"
-    sha256 x86_64_linux:  "ff9ba599c42cda29641cd8951a5436cc34371eb4e7e249c232fd5faac2948d67"
+    rebuild 1
+    sha256 arm64_sequoia: "3d7b63545a505aa12f4b9919c03499765b9ae91bb22c171503e00ef1403d447a"
+    sha256 arm64_sonoma:  "34e1150a01678d185c30df5f2274d07c4f06236f92b3fb707c3027e346f83610"
+    sha256 arm64_ventura: "81ba67cc61546e29607ff63e792dcaa078453c66300e62c48dd805c76b2b469e"
+    sha256 sonoma:        "4392321a4b1027b2b005046cc4da9695daabcf10fd7855f438757525a937dadb"
+    sha256 ventura:       "a4d5765e945c356571764b833bd1b884d93f4befe9dcc1b62c4213daa8f687b1"
+    sha256 arm64_linux:   "adfcf4acb6cb5c630fa7ed04cde51b2567bee8bced1bd9694c3f9e25df6f9721"
+    sha256 x86_64_linux:  "cd94eab74e5550506589f0b8b8f1e401e38f1a57d714c1005cdd61095c2cb6fd"
   end
 
   depends_on "pkgconf" => :build
   depends_on "fontconfig"
   depends_on "freetype"
-  depends_on "ghostscript"
   depends_on "jpeg-turbo"
   depends_on "jpeg-xl"
   depends_on "libheif"
@@ -76,7 +77,7 @@ class Imagemagick < Formula
       "--with-webp=yes",
       "--with-heic=yes",
       "--with-raw=yes",
-      "--with-gslib",
+      "--without-gslib",
       "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts",
       "--with-lqr",
       "--without-djvu",
@@ -99,6 +100,13 @@ class Imagemagick < Formula
     system "make", "install"
   end
 
+  def caveats
+    <<~EOS
+      Ghostscript is not installed by default as a dependency.
+      If you need PS or PDF support, ImageMagick will still use the ghostscript formula if installed directly.
+    EOS
+  end
+
   test do
     assert_match "PNG", shell_output("#{bin}/identify #{test_fixtures("test.png")}")
 
@@ -113,6 +121,5 @@ class Imagemagick < Formula
     ["AVIF  HEIC      rw+", "ARW  DNG       r--", "DNG  DNG       r--"].each do |format|
       assert_match format, formats
     end
-    assert_match "Helvetica", shell_output("#{bin}/magick -list font")
   end
 end

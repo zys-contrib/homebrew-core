@@ -1,10 +1,11 @@
 class MysqlAT80 < Formula
   desc "Open source relational database management system"
-  homepage "https://dev.mysql.com/doc/refman/8.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.41.tar.gz"
-  sha256 "719589993b1a6769edb82b59f28e0dab8d47df94fa53ac4e9340b7c5eaba937c"
+  # FIXME: Actual homepage fails audit due to Homebrew's user-agent
+  # homepage "https://dev.mysql.com/doc/refman/8.0/en/"
+  homepage "https://github.com/mysql/mysql-server"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.42.tar.gz"
+  sha256 "c2aa67c618edfa1bc379107fe819ca8e94cba5d85f156d1053b8fedc88cc5f8f"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
-  revision 2
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/8.0.html?tpl=files&os=src&version=8.0"
@@ -12,12 +13,13 @@ class MysqlAT80 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "a1f1eda47e693c481ee8483f61af06190fb17ac6b5cc6a6e6b6ce10dc077c803"
-    sha256 arm64_sonoma:  "2d58c071212bec4ccb4af5290175374ee122729edeb581ba21d9a8c9bbf73080"
-    sha256 arm64_ventura: "26a4c5293bf28e197cdea730d95d7c9636fa15bfcb623d30cc3d9c255b485732"
-    sha256 sonoma:        "fd0e8a77be32c4077d071dcd7560f94649faa987f22a87b277541bedde20b93b"
-    sha256 ventura:       "3b33da2d5df968da752dd5a0e00187750224f3d342bf7f9685e499a9cbd83d14"
-    sha256 x86_64_linux:  "2cea28515a581b23b698fb8178eeaee2546df141cf78a46146b788ef9a3d5a4f"
+    sha256 arm64_sequoia: "374dcbdffa60dd5a7c01788235ea51faf12c11d8276ed79339c361ada06a77cd"
+    sha256 arm64_sonoma:  "e1450da39223da0f12db39461a164ed9522a087e47a08df96cfb3e55bda4a4b4"
+    sha256 arm64_ventura: "4e256b2b28f4b9225536419d453c8d38c5129f7a35f275946c022f4dca16f4e1"
+    sha256 sonoma:        "49d14b9e9f9e46b4b1e2dd4d02ecb4129ab28020b67da39500abd8b6a05358a5"
+    sha256 ventura:       "94381480fb745013b9d709cf1463630fb094e2878a5fd6e769690813a16a93b0"
+    sha256 arm64_linux:   "7ccb69ac582f17faee3a17a4ab366fd7ae372fd066801e172d47e181f4a52065"
+    sha256 x86_64_linux:  "93cea0c407ddc6acf6e794315aede77261f9c75bb58dfeb3083e59cadf0ef4f8"
   end
 
   keg_only :versioned_formula
@@ -57,7 +59,7 @@ class MysqlAT80 < Formula
     # Remove bundled libraries other than explicitly allowed below.
     # `boost` and `rapidjson` must use bundled copy due to patches.
     # `lz4` is still needed due to xxhash.c used by mysqlgcs
-    keep = %w[libbacktrace lz4 rapidjson unordered_dense]
+    keep = %w[libbacktrace lz4 rapidjson unordered_dense xxhash]
     (buildpath/"extra").each_child { |dir| rm_r(dir) unless keep.include?(dir.basename.to_s) }
 
     # Disable ABI checking

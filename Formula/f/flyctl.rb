@@ -2,8 +2,8 @@ class Flyctl < Formula
   desc "Command-line tools for fly.io services"
   homepage "https://fly.io"
   url "https://github.com/superfly/flyctl.git",
-      tag:      "v0.3.89",
-      revision: "46425b2c84dbb1c1091a41d875736de6b7904afe"
+      tag:      "v0.3.107",
+      revision: "2bcae051d207f47e64b57383c099521751b302e7"
   license "Apache-2.0"
   head "https://github.com/superfly/flyctl.git", branch: "master"
 
@@ -18,12 +18,13 @@ class Flyctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6ad8f3e111679aa3f836ff62e92e607daa11e8e83f4e111302ede43400f949ed"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6ad8f3e111679aa3f836ff62e92e607daa11e8e83f4e111302ede43400f949ed"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6ad8f3e111679aa3f836ff62e92e607daa11e8e83f4e111302ede43400f949ed"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f0001300cb3a77152abc05183996c3726084567e93203d283d998c1a6eef5a8c"
-    sha256 cellar: :any_skip_relocation, ventura:       "f0001300cb3a77152abc05183996c3726084567e93203d283d998c1a6eef5a8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f3471c8853127adeaafd56547fa7158810a39560a3818f10d5eedcf3cc50d08"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "da027b02d2761e07e64d77a30391bd0a1957609442753f89bb6c16909674ee9d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "da027b02d2761e07e64d77a30391bd0a1957609442753f89bb6c16909674ee9d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "da027b02d2761e07e64d77a30391bd0a1957609442753f89bb6c16909674ee9d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d1d818261c82cc63db13d0d50892909fb11247118c81f1993c272edd4eae94c0"
+    sha256 cellar: :any_skip_relocation, ventura:       "d1d818261c82cc63db13d0d50892909fb11247118c81f1993c272edd4eae94c0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "afb3a7bb20a9edbb51b3cafe57ecafe2fd9b111e6dbcbf28fa087209d98b1286"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bbeea8cba18f1359e288c32376f3ace6be5ba37f1f650520c43fb088d4569267"
   end
 
   depends_on "go" => :build

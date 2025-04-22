@@ -2,8 +2,8 @@ class Docker < Formula
   desc "Pack, ship and run any application as a lightweight container"
   homepage "https://www.docker.com/"
   url "https://github.com/docker/cli.git",
-      tag:      "v28.0.1",
-      revision: "068a01ea9470df6494cc92d9e64e240805ae47a7"
+      tag:      "v28.1.1",
+      revision: "4eba3773274f9d21ba90ae5bc719c3f1e4bb07a1"
   license "Apache-2.0"
   head "https://github.com/docker/cli.git", branch: "master"
 
@@ -13,17 +13,19 @@ class Docker < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ce6746f4260d1af97c4a0cc96dfa1108ead7826491be28c888a0f5e7aabd2a57"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ce6746f4260d1af97c4a0cc96dfa1108ead7826491be28c888a0f5e7aabd2a57"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ce6746f4260d1af97c4a0cc96dfa1108ead7826491be28c888a0f5e7aabd2a57"
-    sha256 cellar: :any_skip_relocation, sonoma:        "817933212d839ace0e6f59ebed686c496947260c41ea48224a7c04e2ddd35cb8"
-    sha256 cellar: :any_skip_relocation, ventura:       "817933212d839ace0e6f59ebed686c496947260c41ea48224a7c04e2ddd35cb8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2458e35c71221b8cf4678e7cea2c84c02b67e58f1dfa20efe05ece4b3cbc843"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f4cafb97ca3f594ca7050af4399ec3ad80584c6ea703459b76a9a4ed254e2e8b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f4cafb97ca3f594ca7050af4399ec3ad80584c6ea703459b76a9a4ed254e2e8b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f4cafb97ca3f594ca7050af4399ec3ad80584c6ea703459b76a9a4ed254e2e8b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "57d7fd27548c111218a290190fef3d175dd3c370c6172a8a4b40dc4b4e591d39"
+    sha256 cellar: :any_skip_relocation, ventura:       "57d7fd27548c111218a290190fef3d175dd3c370c6172a8a4b40dc4b4e591d39"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1494bc4df83a5d766599f3bae796c6ec4699754b5763a00151e3eff5215c0e53"
   end
 
   depends_on "go" => :build
   depends_on "go-md2man" => :build
   depends_on "docker-completion"
+
+  conflicts_with cask: "docker"
 
   def install
     # TODO: Drop GOPATH when merged/released: https://github.com/docker/cli/pull/4116

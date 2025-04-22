@@ -1,18 +1,21 @@
 class Watchman < Formula
+  include Language::Python::Shebang
+
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
-  url "https://github.com/facebook/watchman/archive/refs/tags/v2025.03.10.00.tar.gz"
-  sha256 "047dbe45720f4eec3b8f30de4c3ae07dda7ef1f7e67336ca98490656319c00d3"
+  url "https://github.com/facebook/watchman/archive/refs/tags/v2025.04.14.00.tar.gz"
+  sha256 "bf0c41aa60675bdc792434e8fac356f2669f96b1ec36516e281f1684cb140e85"
   license "MIT"
   head "https://github.com/facebook/watchman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "539cd8e9a98cc2a0ad9302782d9df5d6481701b09555667d0581f2b91f3e0df8"
-    sha256 cellar: :any,                 arm64_sonoma:  "3a509de4f527b2335645ee195d2b09d7ab64d0630db41d4f651903134e2072b5"
-    sha256 cellar: :any,                 arm64_ventura: "db4f41d9e265aa57cf432ce574d7d17f02c42705d1e71d761d25de6eca5bed84"
-    sha256 cellar: :any,                 sonoma:        "98308a1dbcd0f9a41fdd468f96b10c3429116ceca2aba2e5ecb8636844974584"
-    sha256 cellar: :any,                 ventura:       "03cef545398ae45b8759a7a11065ce018fbac1b5fe7b28dc2df3bf57cd556420"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b7c4c2f9e57a4fdd362d227a72dac2d109310b7911a99d1da2ac6e65ad6d9cf"
+    sha256 cellar: :any,                 arm64_sequoia: "6303773a7b2c05ebe0cb559a6a8651bea44eb14130d3d1f0a54e96dc1a1015d2"
+    sha256 cellar: :any,                 arm64_sonoma:  "5a4d4a6fc2efb9647023ec18051c8ce1dc5cefd249633fbe7d2e5c06a91fe204"
+    sha256 cellar: :any,                 arm64_ventura: "cc0a70a317322cdf0f5342d78051d4de2765d8b44cceed693e46bc1dd14c3fdd"
+    sha256 cellar: :any,                 sonoma:        "270d0a034b1c6b8ada94d880429c4830ea7527cdb56be4ad1e577e7875bb19c1"
+    sha256 cellar: :any,                 ventura:       "8458b71beba431566c5a30bb230a2c5c6c375f1e96c270357befc78050416c8d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "00bef5ce7a9ab8351011173c1238adb2408d782ab94412a4604d65d66ba0af29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d53952154d4eef378192cd89429d3817a37a45a95e061d582e6a27b01ed16ad"
   end
 
   depends_on "cmake" => :build
@@ -65,6 +68,8 @@ class Watchman < Formula
     bin.install (path/"bin").children
     lib.install (path/"lib").children
     rm_r(path)
+
+    rewrite_shebang detected_python_shebang, *bin.children
   end
 
   test do

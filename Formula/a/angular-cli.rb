@@ -1,17 +1,18 @@
 class AngularCli < Formula
   desc "CLI tool for Angular"
   homepage "https://angular.dev/cli/"
-  url "https://registry.npmjs.org/@angular/cli/-/cli-19.2.3.tgz"
-  sha256 "fbbdd78f1794b0bf33ea62bc940f5e253d3e38d1cc7a85ec56597808ff3677de"
+  url "https://registry.npmjs.org/@angular/cli/-/cli-19.2.8.tgz"
+  sha256 "0e658b2619b2fb6220530f39e4c678cf8354b4806cedf101a7371646541e5187"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4301b47c24be58c7dd4f9ce6ebc129d43c22f3bbc572b76e248b9fbe9af6f979"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4301b47c24be58c7dd4f9ce6ebc129d43c22f3bbc572b76e248b9fbe9af6f979"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4301b47c24be58c7dd4f9ce6ebc129d43c22f3bbc572b76e248b9fbe9af6f979"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c3f43400c8786dc4b181a6acf7f70a92d17499f65202a1d55624bee5f4bb3562"
-    sha256 cellar: :any_skip_relocation, ventura:       "c3f43400c8786dc4b181a6acf7f70a92d17499f65202a1d55624bee5f4bb3562"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4301b47c24be58c7dd4f9ce6ebc129d43c22f3bbc572b76e248b9fbe9af6f979"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "541cdfd7f437942c9f14a41474d3a22fe5b92cd79c7afabd959ac2d6c1fc47a3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "541cdfd7f437942c9f14a41474d3a22fe5b92cd79c7afabd959ac2d6c1fc47a3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "541cdfd7f437942c9f14a41474d3a22fe5b92cd79c7afabd959ac2d6c1fc47a3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b248439f1a11bc3541634ec28fe6dcd5a3d1a1efbfa5b4ffdb2f500fd36b83e0"
+    sha256 cellar: :any_skip_relocation, ventura:       "b248439f1a11bc3541634ec28fe6dcd5a3d1a1efbfa5b4ffdb2f500fd36b83e0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "541cdfd7f437942c9f14a41474d3a22fe5b92cd79c7afabd959ac2d6c1fc47a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "541cdfd7f437942c9f14a41474d3a22fe5b92cd79c7afabd959ac2d6c1fc47a3"
   end
 
   depends_on "node"

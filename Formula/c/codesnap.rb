@@ -1,18 +1,19 @@
 class Codesnap < Formula
   desc "Generates code snapshots in various formats"
-  homepage "https://github.com/mistricky/CodeSnap"
-  url "https://github.com/mistricky/CodeSnap/archive/refs/tags/v0.10.5.tar.gz"
-  sha256 "f9ba0e36aab5c671f8068ca0d7bbd3cab4432f72096dbc6c425f4aaf9bc1b780"
+  homepage "https://github.com/codesnap-rs/codesnap"
+  url "https://github.com/codesnap-rs/codesnap/archive/refs/tags/v0.10.8.tar.gz"
+  sha256 "b5acb52f9c4d395d815ce61bccb835ee87e971ad72192c070e8ed565ae8fcb98"
   license "MIT"
-  head "https://github.com/mistricky/CodeSnap.git", branch: "main"
+  head "https://github.com/codesnap-rs/codesnap.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "17ca16883096a20e3cda88529115d8ef1a5f088fc0eaffb8d8e97161cb0414f0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3fa98da9b4c2b88d648449080060929b3000e70cdc9f7ebd5ffe9107aef7e283"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "341a5c76990f9725735ec11f9f53c420b63c03a67502bdc0884c373809ffd431"
-    sha256 cellar: :any_skip_relocation, sonoma:        "95c4376735bb1299e6cafb91689294569875c33229f2ccbc6ecd128c6836b037"
-    sha256 cellar: :any_skip_relocation, ventura:       "c64173e96b9d69335973405cbe3e97c25ce52a79a20a2d3810d271d5082dab32"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0f10db20d9533ba7e0b6014703f2b20633c454fb89ca3ccdb90e7554195e777"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b09d3bd4a671218042913bb02555f3578cb64bee42a55736e4a6dcc43095375f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "921db28ce4daab49dc2b6a1e2f07f9b3f3b51434405bcb5466caeb2a4e4e63c5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b19d545c22aabf9d5c0fb7687a6b2347374f8971e449d5b44f372575c0e83f7c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "36a50cfbe2bae59b0d7089527901198a205b5f8430f2755dfbb11efc2c3555cc"
+    sha256 cellar: :any_skip_relocation, ventura:       "4b995c68c32eb71757396aa31eb5e32e2fa687b1f618fa8f0dce79c876b57364"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "50459fa62d06a29db4985327eec166c9483b57a70c59b2208e0e80037b436dad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79b02ad6007e103662aada6a0c09af6576ab22248e6887440e2d1449455320a1"
   end
 
   depends_on "rust" => :build

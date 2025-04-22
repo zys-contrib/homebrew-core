@@ -1,18 +1,19 @@
 class Proxygen < Formula
   desc "Collection of C++ HTTP libraries"
   homepage "https://github.com/facebook/proxygen"
-  url "https://github.com/facebook/proxygen/releases/download/v2025.03.10.00/proxygen-v2025.03.10.00.tar.gz"
-  sha256 "92afaaefb61b792d5cc3cbb7df261f1946d568061f961dc7534044f03b132015"
+  url "https://github.com/facebook/proxygen/releases/download/v2025.04.14.00/proxygen-v2025.04.14.00.tar.gz"
+  sha256 "4ba8f199b1535899d3c9800db90ad0fc2995e9fd2c6f29e2872654d051ef5977"
   license "BSD-3-Clause"
   head "https://github.com/facebook/proxygen.git", branch: "main"
 
   bottle do
-    sha256                               arm64_sequoia: "37f7ed23ea37313cac665d08ee556091a47dbd8d52f6d7043a11a45fb3164a42"
-    sha256                               arm64_sonoma:  "08bc67dcb4e71c370dffcf7c0ec6ca41f44871ff360bed7195f788b7b3a982c9"
-    sha256                               arm64_ventura: "a567674fd8ec01290ee7eeff7476421f6d001f42c01bb6de9c4bcb320164e2f7"
-    sha256 cellar: :any,                 sonoma:        "c28f521b0248d827fae680bd54cf162c71a749f7f8bc68cb4c871e66136d7476"
-    sha256 cellar: :any,                 ventura:       "8194693bb2e3fc36925a1817caecfb77b46aa336982ee0f4a5d57c17794ebb82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50d54dce624c0a4e861911f49757cefc1efec0446a3806975de78afc2a15c318"
+    sha256                               arm64_sequoia: "39dcac55bd4807eac801dd676b540aef86d2080852945f410330e949d2660643"
+    sha256                               arm64_sonoma:  "941adda76a94cbef3baf6e3e7bf5f01056b8dfe62ea0e49a3acf551dfac65136"
+    sha256                               arm64_ventura: "fc0fa530f42d86da951ea6e19750dab8a9c4c91d4825544a96d386ead87eb5e5"
+    sha256 cellar: :any,                 sonoma:        "272084b86be566607bc205665b45ac90a6a61ee2096bed9a6fa8ba0f6e84a8fa"
+    sha256 cellar: :any,                 ventura:       "870cd952305ab527910af5d031f728ac05bc5fa496a181a41cdf3b077a8c3b4b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6ba9537785b8d10a2c91e9b15fbb947520ecacc6d95f18b573fa3f70f4978183"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4c6fba5b99c54f68eabb7d96f3d3290bdb9823cdffebf6001f3abcfaf011b4b"
   end
 
   depends_on "cmake" => :build
@@ -28,13 +29,30 @@ class Proxygen < Formula
   depends_on "wangle"
   depends_on "zstd"
 
-  uses_from_macos "gperf" => :build
+  # TODO: uses_from_macos "gperf" => :build
   uses_from_macos "python" => :build
   uses_from_macos "zlib"
 
   conflicts_with "hq", because: "both install `hq` binaries"
 
+  # FIXME: Build script is not compatible with gperf 3.2
+  resource "gperf" do
+    on_linux do
+      url "https://ftp.gnu.org/gnu/gperf/gperf-3.1.tar.gz"
+      mirror "https://ftpmirror.gnu.org/gperf/gperf-3.1.tar.gz"
+      sha256 "588546b945bba4b70b6a3a616e80b4ab466e3f33024a352fc2198112cdbb3ae2"
+    end
+  end
+
   def install
+    if OS.linux?
+      resource("gperf").stage do
+        system "./configure", *std_configure_args(prefix: buildpath/"gperf")
+        system "make", "install"
+        ENV.prepend_path "PATH", buildpath/"gperf/bin"
+      end
+    end
+
     args = ["-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}"]
     if OS.mac?
       args += [

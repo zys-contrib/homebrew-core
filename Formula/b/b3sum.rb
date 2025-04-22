@@ -1,17 +1,18 @@
 class B3sum < Formula
   desc "Command-line implementation of the BLAKE3 cryptographic hash function"
   homepage "https://github.com/BLAKE3-team/BLAKE3"
-  url "https://github.com/BLAKE3-team/BLAKE3/archive/refs/tags/1.6.1.tar.gz"
-  sha256 "1f2fbd93790694f1ad66eef26e23c42260a1916927184d78d8395ff1a512d285"
+  url "https://github.com/BLAKE3-team/BLAKE3/archive/refs/tags/1.8.2.tar.gz"
+  sha256 "6b51aefe515969785da02e87befafc7fdc7a065cd3458cf1141f29267749e81f"
   license any_of: ["CC0-1.0", "Apache-2.0"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "65d64c62ab2484cbdffbece175eff2581aceae032870c6224b52112ec4b46afb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f153cf056349e2e9df3b243177bc640aa1591523be053f8a8940d7e3b89a3df5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b70f96fe5586cb1c82c9e1e10b35727ca74f192fd7ae7c3369c1c594e534c0da"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7f98173bb23fe09e764977b26e0cbba9dd256acc89fc3967bf66b795d0e31e89"
-    sha256 cellar: :any_skip_relocation, ventura:       "f81531d6018c69c97dfe0798d43eff7e3efec4b6fe788f72ac8472cd9a36f1fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb06f7253fc69fc5d6e84ac9089176f1463d96806c03bdc028aaa6217b33257b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bad04179c8c37e7afa0fd83d28af8fe27607994fa8c39f309bd3e3c69b613086"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e906f67b37fd1f69281f71039786cf49bc8aba72b5879cc1dad720c414ad3982"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cfdaa91ad3f88c6fb734acad4adfd0e272881182d7f9810223964d1003c94ab0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8786885a570f8b3b2d6d66c2dbf7cdbe0317c4393bbf6a390882a450d6d5f4aa"
+    sha256 cellar: :any_skip_relocation, ventura:       "61606af42f07a5a6dcfcf1b2ffe6f76b046213cfba6f42a2afa1d06a798dc37b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7d94b9769af2a11c7ce1e4e1e8ecdd6c649ee305ed58e0363da5ce4509afe904"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c65b99dc2886d78591ab8ffcb62c760869a41c4c30b75677ac07830f96e4756"
   end
 
   depends_on "rust" => :build

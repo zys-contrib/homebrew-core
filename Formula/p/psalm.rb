@@ -1,8 +1,8 @@
 class Psalm < Formula
   desc "PHP Static Analysis Tool"
   homepage "https://psalm.dev"
-  url "https://github.com/vimeo/psalm/releases/download/6.9.0/psalm.phar"
-  sha256 "6489b23a966ec1319227a6206a2741d51d85c774cafc251acca316097be87d56"
+  url "https://github.com/vimeo/psalm/releases/download/6.10.1/psalm.phar"
+  sha256 "fb5a8c3aff6793e055f35d8c9f739898b4887215e1ccf4ac7033497e8aec2c8e"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,13 @@ class Psalm < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fd040d7d65ddc11d59ce635dad2389e5987111481ad48e61f6d6ef515a6355fd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fd040d7d65ddc11d59ce635dad2389e5987111481ad48e61f6d6ef515a6355fd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fd040d7d65ddc11d59ce635dad2389e5987111481ad48e61f6d6ef515a6355fd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9348376a6a30632f70c02cbeda788516dddfa106274d1bb085f3422b994b52a2"
-    sha256 cellar: :any_skip_relocation, ventura:       "9348376a6a30632f70c02cbeda788516dddfa106274d1bb085f3422b994b52a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd040d7d65ddc11d59ce635dad2389e5987111481ad48e61f6d6ef515a6355fd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bf442e890379a1030cc7b14cc396a1969d6999bbd19da7d1278d12e630e34f43"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bf442e890379a1030cc7b14cc396a1969d6999bbd19da7d1278d12e630e34f43"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "bf442e890379a1030cc7b14cc396a1969d6999bbd19da7d1278d12e630e34f43"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f6be59962f9afba1a0ad6050ad44a26225654bb31a24471f6915a6d4b5989a9f"
+    sha256 cellar: :any_skip_relocation, ventura:       "f6be59962f9afba1a0ad6050ad44a26225654bb31a24471f6915a6d4b5989a9f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf442e890379a1030cc7b14cc396a1969d6999bbd19da7d1278d12e630e34f43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf442e890379a1030cc7b14cc396a1969d6999bbd19da7d1278d12e630e34f43"
   end
 
   depends_on "composer" => :test

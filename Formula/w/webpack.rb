@@ -3,18 +3,19 @@ require "json"
 class Webpack < Formula
   desc "Bundler for JavaScript and friends"
   homepage "https://webpack.js.org/"
-  url "https://registry.npmjs.org/webpack/-/webpack-5.98.0.tgz"
-  sha256 "abd3a2b6e5b0a9bd92ff8d89faf11ae0cc29697768e239936cf2f6b613ae9cff"
+  url "https://registry.npmjs.org/webpack/-/webpack-5.99.6.tgz"
+  sha256 "a76b8e4fd4a508734ade13acfab6fbba628a19cdc45fce0ac48295b02c993b8b"
   license "MIT"
   head "https://github.com/webpack/webpack.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2bb12aec50e5582fd19fcaeac75d842fa903d6d231ab25c1b05edfc00f4f8711"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2bb12aec50e5582fd19fcaeac75d842fa903d6d231ab25c1b05edfc00f4f8711"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2bb12aec50e5582fd19fcaeac75d842fa903d6d231ab25c1b05edfc00f4f8711"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ae5fbd970bf08391801be99e67b0ef1d819d0aef8a03490ea6e296b05dbe4967"
-    sha256 cellar: :any_skip_relocation, ventura:       "ae5fbd970bf08391801be99e67b0ef1d819d0aef8a03490ea6e296b05dbe4967"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2bb12aec50e5582fd19fcaeac75d842fa903d6d231ab25c1b05edfc00f4f8711"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8dfd782f9338632d3e8b1429d39216f74cc5625b8016e26221b9e6fe2ee0d1ce"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8dfd782f9338632d3e8b1429d39216f74cc5625b8016e26221b9e6fe2ee0d1ce"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8dfd782f9338632d3e8b1429d39216f74cc5625b8016e26221b9e6fe2ee0d1ce"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1a8f413af7fc78d172794ce6ea59888d37561a98d447d8556a5ca277cfbeac91"
+    sha256 cellar: :any_skip_relocation, ventura:       "1a8f413af7fc78d172794ce6ea59888d37561a98d447d8556a5ca277cfbeac91"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8dfd782f9338632d3e8b1429d39216f74cc5625b8016e26221b9e6fe2ee0d1ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8dfd782f9338632d3e8b1429d39216f74cc5625b8016e26221b9e6fe2ee0d1ce"
   end
 
   depends_on "node"

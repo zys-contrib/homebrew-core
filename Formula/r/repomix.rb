@@ -1,17 +1,18 @@
 class Repomix < Formula
   desc "Pack repository contents into a single AI-friendly file"
   homepage "https://github.com/yamadashy/repomix"
-  url "https://registry.npmjs.org/repomix/-/repomix-0.3.0.tgz"
-  sha256 "b81033103c8eb519c630f2aa26cfb31bd93ed7c74b0a4e8b398e07fd04ebf65f"
+  url "https://registry.npmjs.org/repomix/-/repomix-0.3.2.tgz"
+  sha256 "2cac5fc2908837a38f7dc2f2ab805e5459b19a729de50289792e24279428e980"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ff45089780bab2444e4f6e25ce8a6f4018b014a6a992b49cf35e3513bca713ab"
-    sha256 cellar: :any,                 arm64_sonoma:  "ff45089780bab2444e4f6e25ce8a6f4018b014a6a992b49cf35e3513bca713ab"
-    sha256 cellar: :any,                 arm64_ventura: "ff45089780bab2444e4f6e25ce8a6f4018b014a6a992b49cf35e3513bca713ab"
-    sha256 cellar: :any,                 sonoma:        "4b031cccdb78ad9e1212b2a11db9b91853ccd5bf7087a85cc8d440ad80f3e499"
-    sha256 cellar: :any,                 ventura:       "4b031cccdb78ad9e1212b2a11db9b91853ccd5bf7087a85cc8d440ad80f3e499"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3481639aaccf52f0fb4c9fadbdf7e8ad7edac4c59f0fc18dfd906e8916a8ec75"
+    sha256 cellar: :any,                 arm64_sequoia: "b3b6c686eaf38506ad8a99af6273f49b81955e3b3507c24832b2b6f96cf867f9"
+    sha256 cellar: :any,                 arm64_sonoma:  "b3b6c686eaf38506ad8a99af6273f49b81955e3b3507c24832b2b6f96cf867f9"
+    sha256 cellar: :any,                 arm64_ventura: "b3b6c686eaf38506ad8a99af6273f49b81955e3b3507c24832b2b6f96cf867f9"
+    sha256 cellar: :any,                 sonoma:        "bcda22b1d9963541aee40868d0fd5c76eda7db8ea2894361d26ec3081a48462a"
+    sha256 cellar: :any,                 ventura:       "bcda22b1d9963541aee40868d0fd5c76eda7db8ea2894361d26ec3081a48462a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9448b1dd9162bfb56799ba40ce1365afd96117da066038b641228d5cee670da6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af13e2564029a2289a68e815733baf6f83b8fb455fcf946a8bcbb737488589d9"
   end
 
   depends_on "node"

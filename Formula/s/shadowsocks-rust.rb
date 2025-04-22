@@ -1,18 +1,19 @@
 class ShadowsocksRust < Formula
   desc "Rust port of Shadowsocks"
   homepage "https://shadowsocks.org/"
-  url "https://github.com/shadowsocks/shadowsocks-rust/archive/refs/tags/v1.22.0.tar.gz"
-  sha256 "2857372667b66aa7f8ef2d27a8a19209cbf3e5da2e6d1d1d493411d72d173861"
+  url "https://github.com/shadowsocks/shadowsocks-rust/archive/refs/tags/v1.23.1.tar.gz"
+  sha256 "0af223694de7261d4cf00f49e34f6dfe9ea5385bfe52e64f96cb0d11f3b947b0"
   license "MIT"
   head "https://github.com/shadowsocks/shadowsocks-rust.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "019c5f23cb3676ec1774b49a9134a49b597680363e42d62c47a293de4514107c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3e030e4abe5e96fa0364f5609cfb134ba0d165ffe946540e8074284616d2efeb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a1c016821c9cd5c96c4fe6e33cb70f7200da3d938edf45afbff634cb8642f74f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b21ccba1c553071f190d689eea861846d558245f36e20ad2c8928f10eeacc840"
-    sha256 cellar: :any_skip_relocation, ventura:       "c227603f53a0219a36917fcc56c29780713208b3c89c945f3481e0a2702158cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ee251afad6da19d3bc60433e74adf252c864eb47b247ab27381ee5092f73953"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "924fcd0a496e413cd6e1db0200281d6b4df05ea1edecd83538e824d9975bc9f4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "41ff08700be08f86c972d71a8700233b851bb71887e8e58061f7f094439a6119"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b64e8754f5692a56327e5002a684ad12e6ec47ceb6aa25d02b2ef979b2809f6b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9ffa97bb54ced8b1aeb3f8433b90607a1a66437f9ff99e238599868d1a156a7e"
+    sha256 cellar: :any_skip_relocation, ventura:       "627262b2357638bc6723bfad9003f3e03dae77c15feb4b6154f4943f7e406376"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "47ff281e6b9bdb4f04cb8536eb719aaa92cc5d72c99208b6351b797615f960d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07816828f1d33b7d2c43bff2fac295b1dcc1948bc49300f90f612a8928b3602e"
   end
 
   depends_on "rust" => :build
@@ -46,6 +47,7 @@ class ShadowsocksRust < Formula
     fork { exec bin/"ssserver", "-c", testpath/"server.json" }
     fork { exec bin/"sslocal", "-c", testpath/"local.json" }
     sleep 3
+    sleep 3 if OS.mac? && Hardware::CPU.intel?
 
     output = shell_output "curl --socks5 127.0.0.1:#{local_port} https://example.com"
     assert_match "Example Domain", output

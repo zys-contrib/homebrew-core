@@ -221,7 +221,7 @@ jobs:
           test-bot: false
 
       - name: Download bottles from GitHub Actions
-        uses: actions/download-artifact@cc203385981b70ca67e1cc392babf9cc229d5806 # v4.1.9
+        uses: actions/download-artifact@95815c38cf2ff2164869cbab79da8d1f422bc89e # v4.2.1
         with:
           pattern: bottles_*
           path: ${{ env.BOTTLES_DIR }}
@@ -236,7 +236,6 @@ jobs:
       - name: Set up commit signing
         uses: Homebrew/actions/setup-commit-signing@master
         with:
-          ssh: true
           signing_key: ${{ secrets.BREWTESTBOT_SSH_SIGNING_KEY }}
 
       - name: Generate build provenance

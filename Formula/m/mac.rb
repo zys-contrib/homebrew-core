@@ -1,9 +1,9 @@
 class Mac < Formula
   desc "Monkey's Audio lossless codec"
   homepage "https://www.monkeysaudio.com"
-  url "https://monkeysaudio.com/files/MAC_1096_SDK.zip"
-  version "10.96"
-  sha256 "73b25a517079bb015e2066b65854a7de0d8468f050b9b96025b7a3cb038f4dba"
+  url "https://monkeysaudio.com/files/MAC_1108_SDK.zip"
+  version "11.08"
+  sha256 "9b5350a3caeba8f49aa46b95109750913b782fa73e2398f67d724e953812dcf7"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,12 +12,13 @@ class Mac < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "578d3d0a7968057c86d572cfcf29a76819899de23e9a9ab0abdaafd37f81a214"
-    sha256 cellar: :any,                 arm64_sonoma:  "0dcbb8881af07a7b8fffe8c11eea741eec5775a010ecccd3b825ad61740c98a3"
-    sha256 cellar: :any,                 arm64_ventura: "db0479855c6cdb25ad011997b36e081496f7c336664e91d83d63b4bac7a5fdc2"
-    sha256 cellar: :any,                 sonoma:        "3e718d7aacc7d15046aa7fdd95e651a3119ccd5489325123ac07079a026ce7cf"
-    sha256 cellar: :any,                 ventura:       "4faf7f64d4a7d532ff27e349f06cf89f19329a17bb98dec19ca9f4bac29705f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d22279e7212b6ee3b924609b33a8a7092bf2ffaf8d654c814c9197909e90ca7"
+    sha256 cellar: :any,                 arm64_sequoia: "08df0b75d9848eca59ecb1b5577f49a377c1369652b6c7d2ec258bb9e692771e"
+    sha256 cellar: :any,                 arm64_sonoma:  "233c231067d746fa9f58c93f40fa1ad0fd6d6ed3f4a69b7686ebac97fe317528"
+    sha256 cellar: :any,                 arm64_ventura: "be5d30bf9dcf5d945b231e78525832e2c5fcfa659fdd36f0783930a043f23c1e"
+    sha256 cellar: :any,                 sonoma:        "0c9f1891ee3b3a3d0806f6183981944b5a68b03f4e562b87fae67e1c6f1d2254"
+    sha256 cellar: :any,                 ventura:       "ee090e62047ae8e4f30eebfca4b494664cc697fd353fba527421f0095e1244c5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b24af25da7cd973d0e83ee92baaec4e5a409f7ed0eed3a4396898c9aed2a0af9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab770f7a5d948df8da7006a9141ffecb25144bf789cc2da56b2e115635cc0f1f"
   end
 
   depends_on "cmake" => :build

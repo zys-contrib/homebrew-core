@@ -1,18 +1,18 @@
 class Lazyjournal < Formula
   desc "TUI for logs from journalctl, file system, Docker, Podman and Kubernetes pods"
   homepage "https://github.com/Lifailon/lazyjournal"
-  url "https://github.com/Lifailon/lazyjournal/archive/refs/tags/0.7.5.tar.gz"
-  sha256 "6405f53aba44ddf3e7e93b5ed5fc14f0132f6b84b4432e85d57c9ed32d847074"
+  url "https://github.com/Lifailon/lazyjournal/archive/refs/tags/0.7.8.tar.gz"
+  sha256 "64b23ee8a4d2c0588f0ffc372f8aa0a4841cc9bc2ec7b5d6a4cd0603b4feb687"
   license "MIT"
   head "https://github.com/Lifailon/lazyjournal.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "efafc02175b84177911c78ca8b0eaf699bbfebe8241c1ac94b53d42a609a4dde"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "efafc02175b84177911c78ca8b0eaf699bbfebe8241c1ac94b53d42a609a4dde"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "efafc02175b84177911c78ca8b0eaf699bbfebe8241c1ac94b53d42a609a4dde"
-    sha256 cellar: :any_skip_relocation, sonoma:        "30e7efa410739df2ac5853766b2d0f5b77f63c62c2d33433c5829ca56ef10939"
-    sha256 cellar: :any_skip_relocation, ventura:       "30e7efa410739df2ac5853766b2d0f5b77f63c62c2d33433c5829ca56ef10939"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "077ad1afb376863d49348af5395026c550297266472f8a476f168c258e37c711"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b92cbb1579960d97d75b36935f47b688423ec630b434524b01e34767bafd54d8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b92cbb1579960d97d75b36935f47b688423ec630b434524b01e34767bafd54d8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b92cbb1579960d97d75b36935f47b688423ec630b434524b01e34767bafd54d8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "abf19ab18b8b575c78a4d8842d05eae04be71183046e929088faa0f9f2f7ae27"
+    sha256 cellar: :any_skip_relocation, ventura:       "abf19ab18b8b575c78a4d8842d05eae04be71183046e929088faa0f9f2f7ae27"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dac6108176eb6a1339d7415547394ec4fb46f8e60e73205bf85654ed2757f493"
   end
 
   depends_on "go" => :build

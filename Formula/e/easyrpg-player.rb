@@ -1,10 +1,9 @@
 class EasyrpgPlayer < Formula
   desc "RPG Maker 2000/2003 games interpreter"
   homepage "https://easyrpg.org/"
-  url "https://easyrpg.org/downloads/player/0.8/easyrpg-player-0.8.tar.xz"
-  sha256 "06e6d034348d1c52993d0be6b88fc3502a6c7718e366f691401539d5a2195c79"
+  url "https://easyrpg.org/downloads/player/0.8.1/easyrpg-player-0.8.1.tar.xz"
+  sha256 "51249fbc8da4e3ac2e8371b0d6f9f32ff260096f5478b3b95020e27b031dbd0d"
   license "GPL-3.0-or-later"
-  revision 7
 
   livecheck do
     url "https://easyrpg.org/player/downloads/"
@@ -12,16 +11,16 @@ class EasyrpgPlayer < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a32ab95798e512a5e7aedbf1ed9427fa5b7f61c26e7b9eca46b8ec5309fa52b5"
-    sha256 cellar: :any,                 arm64_sonoma:  "a235adad11b54f8cff2742248e2feb77553091870043fbac8f86376c4396df2c"
-    sha256 cellar: :any,                 arm64_ventura: "0647aaa793ff98d38f4ab33a51739fd4a38e38b115f3a88c63e9cd750b32e653"
-    sha256 cellar: :any,                 sonoma:        "3a0abcf7abbdf8843d99e2a41d29f53b09117d26ca081a5dee9aed20dbd9a7ae"
-    sha256 cellar: :any,                 ventura:       "aa01edc79c1b3c6ac0b0ff91e292f5b0e47cbc42149419318a1204b13ea0edc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5dd92702f1a18aded2ddebeb9bda83e8f08f46aa78bcb956205bad2315403efc"
+    sha256 cellar: :any,                 arm64_sequoia: "29b59ec328ebcb9bdaf09f645ec253dc455aadbe85ac151a615c1c933eb405f0"
+    sha256 cellar: :any,                 arm64_sonoma:  "221de8ecdaee1f3b57abc2ad397173452de46d56ef6f31a755cc3c9c27c06b9c"
+    sha256 cellar: :any,                 arm64_ventura: "6ffd6cdda3ee15171eb3dd10b5a4c5db985db99aa8d3b9d7657be393191e04bf"
+    sha256 cellar: :any,                 sonoma:        "3e7e8cdde63642d4f0868ddcda54828b4bbe156e43a13ca369cd0d929512e713"
+    sha256 cellar: :any,                 ventura:       "9316377552b03c9261c8333248adfbecee36b78041fe1cc0f38601d73c24461e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "91fa3ccab4d41d231137740cb587782357d5ad146d247a6a42b578bb77933f3b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68a94c58e93a48d1450056d002a5759e7db40b694ae5a6f2f0ada4e09f5f74a4"
   end
 
   depends_on "cmake" => :build
-  depends_on "expat"
   depends_on "fmt"
   depends_on "freetype"
   depends_on "harfbuzz"
@@ -36,6 +35,7 @@ class EasyrpgPlayer < Formula
   depends_on "sdl2"
   depends_on "speexdsp"
 
+  uses_from_macos "expat"
   uses_from_macos "zlib"
 
   on_macos do
@@ -45,12 +45,6 @@ class EasyrpgPlayer < Formula
   on_linux do
     depends_on "pkgconf" => :build
     depends_on "alsa-lib"
-  end
-
-  # Add support for fmt 10
-  patch do
-    url "https://github.com/EasyRPG/Player/commit/a4672d2e30db4e4918c8f3580236faed3c9d04c1.patch?full_index=1"
-    sha256 "026df27331e441116d2b678992d729f9aec3c30b52ffde98089527a5a25c79eb"
   end
 
   def install

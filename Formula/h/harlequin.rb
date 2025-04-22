@@ -3,17 +3,18 @@ class Harlequin < Formula
 
   desc "Easy, fast, and beautiful database client for the terminal"
   homepage "https://harlequin.sh"
-  url "https://files.pythonhosted.org/packages/0b/f6/b1094cef796b4108c6fb40b16df7e977c944046c8215a5f610efc223e631/harlequin-2.1.0.tar.gz"
-  sha256 "45572f40558570f4e18e04415653ceff29dcb18437410a54ee7b20f15e95333d"
+  url "https://files.pythonhosted.org/packages/b2/e2/e9176c2102b0f9fa4384dcf6e20aa11aedd50f446180cca32e44e06f7fe1/harlequin-2.1.2.tar.gz"
+  sha256 "751f71384a40443810f192f48f1c9bbd6f24be053231368971c2271fb56956fa"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ce44267af453fc27558b8b7d5b0713e72ce4af02f228df13cd914a6018eb1a4b"
-    sha256 cellar: :any,                 arm64_sonoma:  "555be4cba27eca2685a5ad33a47dbe6bbcfb04b824265d41676b872fbe330b84"
-    sha256 cellar: :any,                 arm64_ventura: "4aee45bf2d24428250aec697423bfeb8119d1cf01363034dfb0a2ab7879f770a"
-    sha256 cellar: :any,                 sonoma:        "3e4b9f4dab9c88c2f493d746f095773b64477bc4fb6997ff189e9c3db6894beb"
-    sha256 cellar: :any,                 ventura:       "8a51e8b1b330c2786bf6c258b07e359a05536e9096b5f8480d2e6f2edf0171c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "679b0b267649f490042745ff4574bcc8c23fdc1e7a52559b39e1821502e11c4f"
+    sha256 cellar: :any,                 arm64_sequoia: "1cb7396dda2a840f7ffa488d3d7f6358152c727df60e22437de383732a7683c1"
+    sha256 cellar: :any,                 arm64_sonoma:  "0728497b8ddbc348a4ca7c4cc41f981e4ce826c18e0ee357ae431ddea080bd91"
+    sha256 cellar: :any,                 arm64_ventura: "89cb5cc85f0d2c0f982398bc4905a70035b8e8cfb771219c91b1d209147700b8"
+    sha256 cellar: :any,                 sonoma:        "e5fb063890fae202945e5eb1e3314d3963163572156437c04415fd5ed3d831ca"
+    sha256 cellar: :any,                 ventura:       "02f939918ee3d829e710cd5bbbfe838222d688fe753c5f5e62c31d66bdbdcda1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf2bd77c91b8a9bb130174383d7e5c72635d9a9d24e6e4eba63c94073b21909b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbd4614f5777dcc7a2ba3e83b48fca042e2f0c9713673f0e5312f24fa5638c63"
   end
 
   depends_on "cmake" => :build
@@ -39,8 +40,8 @@ class Harlequin < Formula
   end
 
   resource "duckdb" do
-    url "https://files.pythonhosted.org/packages/e3/e2/5e6820ec8cc50c4ab6172debea68e2236ea6a5d9caa56297cfb42fca1fa2/duckdb-1.2.0.tar.gz"
-    sha256 "a5ce81828e6d1c3f06836d3bda38eef8355765f08ad5ce239abd6f56934dd1f8"
+    url "https://files.pythonhosted.org/packages/28/b8/0f86278684fb7a1fac7c0c869fc6d68ed005cdc91c963eb4373e0551bc0a/duckdb-1.2.2.tar.gz"
+    sha256 "1e53555dece49201df08645dbfa4510c86440339889667702f936b7d28d39e43"
   end
 
   resource "harlequin-mysql" do
@@ -49,8 +50,8 @@ class Harlequin < Formula
   end
 
   resource "harlequin-odbc" do
-    url "https://files.pythonhosted.org/packages/33/2f/dd73b3d42d5f4f071310e4762cfb900ca6eee59c70fbe1ab7af27a776785/harlequin_odbc-0.3.0.tar.gz"
-    sha256 "e69872ffbc86893d26ae1d9602b200e40b04d0b18a84e5d06d2b525e6ea10d69"
+    url "https://files.pythonhosted.org/packages/e5/c0/a012185883fd7d472954e945dbcb5fbad50272c5d0b84396886896bf8682/harlequin_odbc-0.3.1.tar.gz"
+    sha256 "c12ea98101ba5dffe212df2d5fbe0aef2e786eaa58d03d911bc3bbf89491be01"
   end
 
   resource "harlequin-postgres" do
@@ -95,13 +96,13 @@ class Harlequin < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/13/fc/128cc9cb8f03208bdbf93d3aa862e16d376844a14f9a0ce5cf4507372de4/platformdirs-4.3.6.tar.gz"
-    sha256 "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"
+    url "https://files.pythonhosted.org/packages/b6/2d/7d512a3913d60623e7eb945c6d1b4f0bddf1d0b7ada5225274c87e5b53d1/platformdirs-4.3.7.tar.gz"
+    sha256 "eb437d586b6a0986388f0d6f74aa0cde27b48d0e3d66843640bfb6bdcdb6e351"
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/a1/e1/bd15cb8ffdcfeeb2bdc215de3c3cffca11408d829e4b8416dcfe71ba8854/prompt_toolkit-3.0.50.tar.gz"
-    sha256 "544748f3860a2623ca5cd6d2795e7a14f3d0e1c3c9728359013f79877fc89bab"
+    url "https://files.pythonhosted.org/packages/bb/6e/9d084c929dfe9e3bfe0c6a47e31f78a25c54627d64a66e884a8bf5474f1c/prompt_toolkit-3.0.51.tar.gz"
+    sha256 "931a162e3b27fc90c86f1b48bb1fb2c528c2761475e57c9c06de13311c7b54ed"
   end
 
   resource "psycopg" do
@@ -145,8 +146,8 @@ class Harlequin < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/ab/3a/0316b28d0761c6734d6bc14e770d85506c986c85ffb239e688eeaab2c2bc/rich-13.9.4.tar.gz"
-    sha256 "439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"
+    url "https://files.pythonhosted.org/packages/a1/53/830aa4c3066a8ab0ae9a9955976fb770fe9c6102117c8ec4ab3ea62d89e8/rich-14.0.0.tar.gz"
+    sha256 "82f1bc23a6a21ebca4ae0c45af9bdbc492ed20231dcb63f297d6d1021a9d5725"
   end
 
   resource "rich-click" do
@@ -155,8 +156,8 @@ class Harlequin < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/32/d2/7b171caf085ba0d40d8391f54e1c75a1cda9255f542becf84575cfd8a732/setuptools-76.0.0.tar.gz"
-    sha256 "43b4ee60e10b0d0ee98ad11918e114c70701bc6051662a9a675a0496c1a158f4"
+    url "https://files.pythonhosted.org/packages/a9/5a/0db4da3bc908df06e5efae42b44e75c81dd52716e10192ff36d0c1c8e379/setuptools-78.1.0.tar.gz"
+    sha256 "18fd474d4a82a5f83dac888df697af65afa82dec7323d09c3e37d1f14288da54"
   end
 
   resource "shandy-sqlfmt" do
@@ -202,8 +203,8 @@ class Harlequin < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
-    sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
+    url "https://files.pythonhosted.org/packages/f6/37/23083fcd6e35492953e8d2aaaa68b860eb422b34627b13f2ce3eb6106061/typing_extensions-4.13.2.tar.gz"
+    sha256 "e6c81219bd689f51865d9e372991c540bda33a0379d5573cddb9a3a23f7caaef"
   end
 
   resource "uc-micro-py" do

@@ -1,18 +1,24 @@
 class Limbo < Formula
   desc "Interactive SQL shell for Limbo"
   homepage "https://github.com/tursodatabase/limbo"
-  url "https://github.com/tursodatabase/limbo/archive/refs/tags/v0.0.16.tar.gz"
-  sha256 "3e30edbdebc8a0a5695b30e33b8324fd162ad51e77761bcbac6103f071cd7ec6"
+  url "https://github.com/tursodatabase/limbo/archive/refs/tags/v0.0.19.tar.gz"
+  sha256 "ac28707be9e10fc6d29b1da0d4dfea55f4b3a87120acc7e33a8d22c49b8f5f8c"
   license "MIT"
   head "https://github.com/tursodatabase/limbo.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3f56e927b2b0305020f79d83dc1f083a080fe17ff5cef3995fb30b3a52f6bd33"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a79e7f378d251e0bef78520e197e973cb5e98e570825bbd6c5c498da20d43323"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1876b5ef1f2d45719ddd161a323bd8e5e9ec69e015aa0259dce90165bf701dee"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d5137e5c5286a8498d662ee77067385c7c3ec88d9154fbb858052898d6d414b4"
-    sha256 cellar: :any_skip_relocation, ventura:       "b504ca773f5c4672cf6647c6315a04e5e929399936a72903a6f6da01ec513722"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2884fa23da88ff27c70b1dae40ebf5dea86d7ce8ce86a0ebbed75bcdbb298dbd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5abb8170d72d1b50fb8447c5c3df614556491ff27c7e9938523f8a3a72cee827"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e7cf1695ab12e211e75257f973665be767a8ff1b0c13621fd01a23ebd57f3928"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ac7ffdc473b6e1a7c09128be8b086903961485162e73615ca9c066af1e86ab0f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c29f5b7b9ca2cd66748a7d30f88a4231f13d7324cc85da6b9529bd5e6c563eff"
+    sha256 cellar: :any_skip_relocation, ventura:       "59200229349395e8a65eb2322bfb9ee281da2b644132f354f00d91edd61b6c6e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3b0a481edbc7a16e5b3d68a7e7f48e5c209517f24e3938c75ccc36c2ad090e92"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35e41397bd4b0929ed12c109c85c62ea57dd9349dabb17292a217c58eb29e615"
   end
 
   depends_on "rust" => :build

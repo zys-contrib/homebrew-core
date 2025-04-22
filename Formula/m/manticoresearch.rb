@@ -1,15 +1,14 @@
 class Manticoresearch < Formula
   desc "Open source text search engine"
   homepage "https://manticoresearch.com"
-  url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/7.4.6.tar.gz"
-  sha256 "413cf45b2cad144a40021aa1deb389ca2a5076a3c906759e66df0ca6e15570de"
+  url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/9.2.38.tar.gz"
+  sha256 "4f55b8663f18aba3d0f86ef9dced8b96db2c0af9b086c24f188b8db4298771c8"
   license all_of: [
     "GPL-3.0-or-later",
     "GPL-2.0-only", # wsrep
     { "GPL-2.0-only" => { with: "x11vnc-openssl-exception" } }, # galera
     { any_of: ["Unlicense", "MIT"] }, # uni-algo (our formula is too new)
   ]
-  revision 1
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git", branch: "master"
 
@@ -20,12 +19,13 @@ class Manticoresearch < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "56c19826137702dbbeecf89f987ae2a707c75cf5d418ba52ad4d7762bc0b855a"
-    sha256 arm64_sonoma:  "c43d97d7afb287c0f4600cd0a0d3d5fdba5c7ffa44a4192c2f29910e268879bb"
-    sha256 arm64_ventura: "229035329a3b01f25026ccc761894b4da5f33acfc581a7bb18a30c29200cda5a"
-    sha256 sonoma:        "5900027fb06a504770a336736f5542608d6567980683bb1509fff1d628505551"
-    sha256 ventura:       "c52d2a1d121db1e48ad3c3d3dc4947852b9953a27fc67c286374ace0162288c0"
-    sha256 x86_64_linux:  "8c709ccb795665629b6e3929f793b4320c9c7da2d168c516ae3603303b50db78"
+    sha256 arm64_sequoia: "34ae3d4c3752c94d3f29e96c7e16804f085b54646982b66fae943a46f97a3af3"
+    sha256 arm64_sonoma:  "e4d7a333e5d9d5843c36437c068b3b1a0ba436e7d8f3c9387fa4c2239aeb6fdc"
+    sha256 arm64_ventura: "2b9db80eea6b516fddcf22116a27c0e60ce22104f721f68443d012af3dee0abb"
+    sha256 sonoma:        "c15b7754d1e0f8dad7a33a755354b1061437dca01e9127ba016e7063d1d6a48c"
+    sha256 ventura:       "4700f9430155f70bb8b8ae29cd8eb4f95100f69c763cae171b36d343f5701dbe"
+    sha256 arm64_linux:   "091b046791a3820a7c1f9fdc34eb32bc3b7ec8c08884eb1370333ef9eb0a8fe7"
+    sha256 x86_64_linux:  "034efa1925bc21a0850635720647b8a0a514bc46f493f61be9a54190a8be2c25"
   end
 
   depends_on "cmake" => :build

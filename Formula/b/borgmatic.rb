@@ -3,17 +3,18 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/cb/67/ac576b6d7e3c56bd6992829ea9c28bd883f3d1d48b3b4df0dc9c9a225f57/borgmatic-1.9.14.tar.gz"
-  sha256 "c39d379705e5296953b20bb31025069ac6e1bdd2734c5e172be21bd8ab83d831"
+  url "https://files.pythonhosted.org/packages/99/23/a14c080701ceaab72c04c8a1dbba124c409b6f9b4bee81a2e6f59c708e31/borgmatic-2.0.3.tar.gz"
+  sha256 "c5b6cee784c72cb464456ccc0c0d49cf810d604f8b1a6182bc04c36c3a399516"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4f3fb421bbb7785f78a14b9b8752aecb8fde909929fc5e2e22a70de814089ceb"
-    sha256 cellar: :any,                 arm64_sonoma:  "488b17b1034cf08e3fa5599765cdd1957046a6b63cb6998419454927e27ba522"
-    sha256 cellar: :any,                 arm64_ventura: "0e37b81433319885aeb4e3560141e750bb8c647f275718ac5b814ee310aa7701"
-    sha256 cellar: :any,                 sonoma:        "e9a6edd1a05a3fc02362b3b70d0c8429dc007864790eda113ede74e34baed66c"
-    sha256 cellar: :any,                 ventura:       "0867c1c3f2126a0b12dc480903d5ee714a04f42af042ca25e1567a9d9f7aa453"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b930466b239a80e674c6aced80ee16aed66dd22a94461f80515df5303c9a2961"
+    sha256 cellar: :any,                 arm64_sequoia: "c3353c7696cb941267855247c7366c848ac249de6a7b9de5f5c4a15cf80cbb63"
+    sha256 cellar: :any,                 arm64_sonoma:  "b0971879be405bb4b2aa6e5f61b5b2e7cd4fbad3393a899d13e8d3f3c2f19696"
+    sha256 cellar: :any,                 arm64_ventura: "0932fdbb6ed29f265f7e35efaafedb0dc9da10e9c14e4d984b3d835b868f4c66"
+    sha256 cellar: :any,                 sonoma:        "369b704564e26a25ed0617a6cd5633fcdeec6eb86c7a0c53009fee82c7c42337"
+    sha256 cellar: :any,                 ventura:       "88f434e6e3b0cfbd948bd680aae5957bf10d055f9ac900aed6c2500fb831ff4d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0d12323d0f4cd3d9512bc825ba18361b2d6f9bbf92676b7a896eecff480dfcef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0cdc274fd6bbc2554a486e84ead331d199b8c241e904c90f632ed65fa23e668"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -21,8 +22,8 @@ class Borgmatic < Formula
   depends_on "python@3.13"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/49/7c/fdf464bcc51d23881d110abd74b512a42b3d5d376a55a831b44c603ae17f/attrs-25.1.0.tar.gz"
-    sha256 "1c97078a80c814273a76b2a298a932eb681c87415c11dee0a6921de7f1b02c3e"
+    url "https://files.pythonhosted.org/packages/5a/b0/1367933a8532ee6ff8d63537de4f1177af4bff9f3e829baf7331f595bb24/attrs-25.3.0.tar.gz"
+    sha256 "75d7cefc7fb576747b2c81b4442d4d4a1ce0900973527c011d1030fd3bf4af1b"
   end
 
   resource "charset-normalizer" do
@@ -61,8 +62,8 @@ class Borgmatic < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/0a/79/2ce611b18c4fd83d9e3aecb5cba93e1917c050f556db39842889fa69b79f/rpds_py-0.23.1.tar.gz"
-    sha256 "7f3240dcfa14d198dba24b8b9cb3b108c06b68d45b7babd9eefc1038fdf7e707"
+    url "https://files.pythonhosted.org/packages/0b/b3/52b213298a0ba7097c7ea96bee95e1947aa84cc816d48cebb539770cdf41/rpds_py-0.24.0.tar.gz"
+    sha256 "772cc1b2cd963e7e17e6cc55fe0371fb9c704d63e44cacec7b9b7f523b78919e"
   end
 
   resource "ruamel-yaml" do
@@ -71,8 +72,8 @@ class Borgmatic < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz"
-    sha256 "f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"
+    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
+    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
   end
 
   def install
@@ -154,7 +155,6 @@ class Borgmatic < Formula
       s.gsub! "- /var/log/syslog*", ""
       s.gsub! "- /home/user/path with spaces", ""
       s.gsub! "- path: ssh://user@backupserver/./sourcehostname.borg", "- path: #{repo_path}"
-      s.gsub! "- path: /mnt/backup", ""
       s.gsub!(/# ?local_path: borg1/, "local_path: #{borg}")
     end
 

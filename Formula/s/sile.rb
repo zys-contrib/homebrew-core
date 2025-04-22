@@ -1,18 +1,18 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.15.9/sile-0.15.9.tar.zst"
-  sha256 "fbda59503b333d82661601db647d1a2ad67aa8b7098e1ef78c6d8216844ac567"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.15.12/sile-0.15.12.tar.zst"
+  sha256 "a3234111d56bb22f0cba2608954ec88df260eb4772f054ed29770912003ec8a0"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "86e99ccc07b6ea49eb6a61e6bc5bba9975899ffd81e8ee3c649d73c85be2d457"
-    sha256 cellar: :any,                 arm64_sonoma:  "cdab701dfa371989e59a06b59664702506064f4a268fbef0bdfa0569b5d2fa89"
-    sha256 cellar: :any,                 arm64_ventura: "59556dc29d5cd7ef908968c605bf5f65a779f375c8ca1747a9fdc7a5a241003d"
-    sha256 cellar: :any,                 sonoma:        "717bd3c35f1663b7732df553489e8789085f645ab80b85791668ba4ec4c94e9f"
-    sha256 cellar: :any,                 ventura:       "138be23e31a9a6a09bde2c2e1eb596b3fbc51fe01a16cb218e9cc5a1940b9f71"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "385222574158101866e47748ef6242c1a9b373c9eadfb2a8d59365f8da464723"
+    sha256 cellar: :any,                 arm64_sequoia: "eca1e70dd844c9facaedb981b388afb6a238fba2f953b60dcf82a9dc00daf0fb"
+    sha256 cellar: :any,                 arm64_sonoma:  "336bc3d0f83537822e1b9613d0271246cb6f61a7e80b911f5aec23509662813c"
+    sha256 cellar: :any,                 arm64_ventura: "9776105f8da8dbefa26535ca9dd15ac771476b5a7a1d7320f038ddde52d79962"
+    sha256 cellar: :any,                 sonoma:        "89d04ca5e3ec6e92e79959f9a16a329ad6b47db644932f75c2024f2d3d0396dc"
+    sha256 cellar: :any,                 ventura:       "44367b55c868bd3659d507654a101812a2b4ea4876b9ff76bcef05aa8d27528d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "706444ee18db2eb49fe44044c9fbc170dd91180b3a80c5ab533658dcd03731b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "570ca957d702a09bb5901515a9216c72b2a770da6064bf8d5d276c1558fb3ad5"
   end
 
   head do

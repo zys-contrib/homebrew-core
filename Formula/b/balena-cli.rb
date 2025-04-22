@@ -1,22 +1,25 @@
 class BalenaCli < Formula
   desc "Command-line tool for interacting with the balenaCloud and balena API"
   homepage "https://docs.balena.io/reference/balena-cli/latest/"
-  url "https://registry.npmjs.org/balena-cli/-/balena-cli-21.1.0.tgz"
-  sha256 "5dc536aa47514bed0186fc92697ecfffd7519411f7cd6615c0bcb4978e8188e1"
+  url "https://registry.npmjs.org/balena-cli/-/balena-cli-21.1.9.tgz"
+  sha256 "4a2d28cca530a46ca105658aee8b8a722d35f89fc1878d92a1bf47ec005c6b72"
   license "Apache-2.0"
 
   livecheck do
     url "https://registry.npmjs.org/balena-cli/latest"
-    regex(/["']version["']:\s*?["']([^"']+)["']/i)
+    strategy :json do |json|
+      json["version"]
+    end
   end
 
   bottle do
-    sha256                               arm64_sequoia: "03274c66c4cb8b14af68c42ad1c7301462f7c9193f4485f563917b6d52cffa50"
-    sha256                               arm64_sonoma:  "d2e9ef2f44c96967bd298d793bb64fc402206869a9a47332bb551427e3a5fce0"
-    sha256                               arm64_ventura: "824059243e801dc35cc386632e683c4004526f676f0d15a33236b6fd33ab991b"
-    sha256                               sonoma:        "302fa20ec6da65e5cda6e641ffca5a6fcb4d7739af2abba7f4c5ffdc28ac1f01"
-    sha256                               ventura:       "a08198cd42e034f75b6b3d80501c424376ada0f0df97e59b3617c0daef826bf6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b1057ef5b5eadccaae4076743dfb5907c7efc91a86aa57a4cc6c633e265774f"
+    sha256                               arm64_sequoia: "c6a444a026b65f58d4b92aea49e8d8463fc3734770ecff3b13719ae9c3776715"
+    sha256                               arm64_sonoma:  "4e67bc44b7f47840dd4c9ec3089fdf4545fd531e1418f5e07d7eedebdfb52d63"
+    sha256                               arm64_ventura: "3ba624fa357493097d93258e585e9d955fe10a11ac736efe2d1a902328befba8"
+    sha256                               sonoma:        "da04cdb69b5e23fa9681394777ad32dc8b8960b5767e5c014877c68a295ad718"
+    sha256                               ventura:       "945f066a25ca9f2f5d6e6614c2c0a36a6f7ef95506ea0b15e6daf4afac397aa1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e0fac3051a72be06302957b480f7a89c61ee958bf8a7013b4d3f11c9bfed53d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9965a124318d98642dc396b322c4bbd241df9ee0da74a252cf7a94c92581dab0"
   end
 
   # need node@20, and also align with upstream, https://github.com/balena-io/balena-cli/blob/master/.github/actions/publish/action.yml#L21
