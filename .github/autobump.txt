@@ -2627,6 +2627,7 @@ openttd
 openvdb
 openvpn
 operator-sdk
+opkssh
 optipng
 opus
 or-tools
