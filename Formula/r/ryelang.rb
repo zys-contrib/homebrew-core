@@ -27,11 +27,19 @@ class Ryelang < Formula
 
   def install
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
-    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"rye")
+
+    ldflags = %W[
+      -s -w
+      -X github.com/refaktor/rye/runner.Version=#{version}
+    ]
+
+    system "go", "build", *std_go_args(ldflags:, output: bin/"rye")
     bin.install_symlink "rye" => "ryelang" # for backward compatibility
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/rye --version")
+
     (testpath/"hello.rye").write <<~EOS
       "Hello World" .replace "World" "Mars" |print
       "12 8 12 16 8 6" .load .unique .sum |print
