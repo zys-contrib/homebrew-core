@@ -12,6 +12,7 @@ class Wrkflw < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2c84fe3c5dea486dded0ae9a833be74dabae399fa82d79d505203c47abd24c10"
     sha256 cellar: :any_skip_relocation, sonoma:        "2824fa1b316132df7d9499e2259298b32e1f2eb70096098158459affc931f30d"
     sha256 cellar: :any_skip_relocation, ventura:       "197b230fe07bf13db3781c81961ce7c41a3dea6a3b0a9565a6a1872db000a917"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2ac3d094b2f926c3ed55a33e76fdf305880c39dcd84d4ffde665345737739a8c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "124942cdeee15a286a94762048e3162285f56e59b67d535ad99cbd0340d8d68d"
   end
 
