@@ -8,13 +8,13 @@ class LanggraphCli < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9692d331b507fa9eddbb57e5346c1f9b5893eacac414bb590b6c8ca99cc51b55"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9692d331b507fa9eddbb57e5346c1f9b5893eacac414bb590b6c8ca99cc51b55"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9692d331b507fa9eddbb57e5346c1f9b5893eacac414bb590b6c8ca99cc51b55"
-    sha256 cellar: :any_skip_relocation, sonoma:        "70f418b32da8d9d1a07dab0f1f4b8041070baee5c713ce8a82e5f85a33204520"
-    sha256 cellar: :any_skip_relocation, ventura:       "70f418b32da8d9d1a07dab0f1f4b8041070baee5c713ce8a82e5f85a33204520"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9692d331b507fa9eddbb57e5346c1f9b5893eacac414bb590b6c8ca99cc51b55"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9692d331b507fa9eddbb57e5346c1f9b5893eacac414bb590b6c8ca99cc51b55"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e8c4a9c95cbade8b9c2caf82f9892e9eec739e264e63da27117fe13d5424d69a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e8c4a9c95cbade8b9c2caf82f9892e9eec739e264e63da27117fe13d5424d69a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e8c4a9c95cbade8b9c2caf82f9892e9eec739e264e63da27117fe13d5424d69a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1014393dd89adcd67a5dc8c64ff8ceeda72d0d09953591cc498a54ea45a55452"
+    sha256 cellar: :any_skip_relocation, ventura:       "1014393dd89adcd67a5dc8c64ff8ceeda72d0d09953591cc498a54ea45a55452"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e8c4a9c95cbade8b9c2caf82f9892e9eec739e264e63da27117fe13d5424d69a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8c4a9c95cbade8b9c2caf82f9892e9eec739e264e63da27117fe13d5424d69a"
   end
 
   depends_on "python@3.13"
