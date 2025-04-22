@@ -21,9 +21,11 @@ class Allureofthestars < Formula
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
   depends_on "pkgconf" => :build
+  depends_on "gmp"
   depends_on "sdl2"
   depends_on "sdl2_ttf"
 
+  uses_from_macos "libffi"
   uses_from_macos "zlib"
 
   # TODO: Remove resource once new release is available or hackage revision (r2+) with
