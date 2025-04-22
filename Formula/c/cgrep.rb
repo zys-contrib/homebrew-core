@@ -21,7 +21,10 @@ class Cgrep < Formula
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
   depends_on "pkgconf" => :build
+  depends_on "gmp"
   depends_on "pcre"
+
+  uses_from_macos "libffi"
 
   conflicts_with "aerleon", because: "both install `cgrep` binaries"
 
