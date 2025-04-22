@@ -6,6 +6,15 @@ class Tfsort < Formula
   license "Apache-2.0"
   head "https://github.com/AlexNabokikh/tfsort.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a9e96459085e375e9e275166fc1f74db6f2852c8fbfe51ec5111b8d05d7885de"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a9e96459085e375e9e275166fc1f74db6f2852c8fbfe51ec5111b8d05d7885de"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a9e96459085e375e9e275166fc1f74db6f2852c8fbfe51ec5111b8d05d7885de"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5ab204f1c18c71186e2309b3c6af78d3ab6898e68928948191e0b405ff68c481"
+    sha256 cellar: :any_skip_relocation, ventura:       "5ab204f1c18c71186e2309b3c6af78d3ab6898e68928948191e0b405ff68c481"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a9db22f4974fdb7edac5af591e89afbe81fa9f14a77d89dc1a59648d8e56814"
+  end
+
   depends_on "go" => :build
 
   def install
