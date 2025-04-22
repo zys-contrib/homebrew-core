@@ -12,6 +12,7 @@ class Futhark < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "acaaa46da22d3b3706133b43afa9d4d3f4849a4493fa2c3bb9dafcd7fda6b164"
     sha256 cellar: :any_skip_relocation, sonoma:        "aa1316c2fdde22761cc79e018f10acada7f76e000e16b599de9c50282a45d7b0"
     sha256 cellar: :any_skip_relocation, ventura:       "7f3f8383c0b16688cf8a7a801491024267f235d7dbc689ba123ef8598a5fedd3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "28ea5ab239f6d1197b7702da137ab95289ad01068be429749b736db0fb1b10e6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc1b84b83dc2aab93a013baa6d01275765f9673748a87cc5380752311dc25ce1"
   end
 
