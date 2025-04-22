@@ -1,8 +1,8 @@
 class Chamber < Formula
   desc "CLI for managing secrets through AWS SSM Parameter Store"
   homepage "https://github.com/segmentio/chamber"
-  url "https://github.com/segmentio/chamber/archive/refs/tags/v3.1.1.tar.gz"
-  sha256 "67dd82fcc178d773e6425fa63c78adc022fb7cf9f7e262bea8c326f53d959504"
+  url "https://github.com/segmentio/chamber/archive/refs/tags/v3.1.2.tar.gz"
+  sha256 "cda68ed5f795d717d2debb4704739daad5f68fd3c2d1300b4c37160d05e1f5bb"
   license "MIT"
   head "https://github.com/segmentio/chamber.git", branch: "master"
 
