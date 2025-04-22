@@ -32,7 +32,9 @@ class Bench < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+  depends_on "gmp"
 
+  uses_from_macos "libffi"
   uses_from_macos "zlib"
 
   def install

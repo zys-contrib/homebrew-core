@@ -17,6 +17,9 @@ class CabalInstall < Formula
   end
 
   depends_on "ghc"
+  depends_on "gmp"
+
+  uses_from_macos "libffi"
   uses_from_macos "zlib"
 
   resource "bootstrap" do
