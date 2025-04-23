@@ -1032,6 +1032,7 @@ faudio
 fauna-shell
 faust
 favirecon
+fb303
 fblog
 fcft
 fcgi
