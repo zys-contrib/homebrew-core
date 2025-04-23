@@ -172,6 +172,7 @@ autorestic
 autotrace
 avfs
 avrdude
+avro-c
 awk
 aws-amplify
 aws-c-auth
