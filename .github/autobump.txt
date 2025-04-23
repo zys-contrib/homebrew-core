@@ -2140,6 +2140,7 @@ lizard
 lizard-analyzer
 lla
 llama.cpp
+lld
 lldpd
 llgo
 llm
