@@ -12,7 +12,7 @@ class Glassfish < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "33b829e4dac04c60d920106d99ec70d331ddeb88ac9b4e21d676a461cb11b76b"
+    sha256 cellar: :any_skip_relocation, all: "779bc9dceabcdf02f586a963f4fb7c5f89965ed1087a32c562288def13e11fa3"
   end
 
   # no java 22 support for glassfish 7.x
