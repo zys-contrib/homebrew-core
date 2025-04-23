@@ -1,8 +1,8 @@
 class Loki < Formula
   desc "Horizontally-scalable, highly-available log aggregation system"
   homepage "https://grafana.com/loki"
-  url "https://github.com/grafana/loki/archive/refs/tags/v3.4.3.tar.gz"
-  sha256 "00b6b671c1e5fbd52ab1fd014bb8a201d32fe01d9998a28d7dcc933a2c3e5f77"
+  url "https://github.com/grafana/loki/archive/refs/tags/v3.5.0.tar.gz"
+  sha256 "584d7f45cc85f884e8eb7e8ed8c35eacd2157c6edd0f2a2d0161ba39d22b86ae"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/loki.git", branch: "main"
 
@@ -21,6 +21,21 @@ class Loki < Formula
   end
 
   depends_on "go" => :build
+
+  # Fix to failed parsing config: loki-local-config.yaml: yaml: unmarshal errors:
+  # PR ref: https://github.com/grafana/loki/pull/16991
+  patch do
+    url "https://github.com/grafana/loki/commit/974d8cf5b04c0043ded02cfc3ee360cdff219674.patch?full_index=1"
+    sha256 "56a06b0cae70464d738f7aa7c306446f73ceea4badef0502826de9fd1d0c3475"
+  end
+  patch do
+    url "https://github.com/grafana/loki/commit/cc34c48732229f2edf742b5f69536aaa607edc56.patch?full_index=1"
+    sha256 "d8f35a91af95d5fe2c1a3c77fa4f2394cb279b88a6c4f8cf22fd2b9d8376dca8"
+  end
+  patch do
+    url "https://github.com/grafana/loki/commit/8ca1db1d24799468c0c6d0cd6b640a60eb246646.patch?full_index=1"
+    sha256 "4e2925424bcd7a093f4986d3005c888b98edcdae82b71ec4d71b957f4a9cbcfb"
+  end
 
   def install
     cd "cmd/loki" do
