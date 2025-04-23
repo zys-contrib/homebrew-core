@@ -23,11 +23,15 @@ class Slepc < Formula
   depends_on "open-mpi"
   depends_on "openblas"
   depends_on "petsc"
+  depends_on "scalapack"
 
   uses_from_macos "python" => :build
 
   on_macos do
+    depends_on "fftw"
     depends_on "gcc"
+    depends_on "hdf5-mpi"
+    depends_on "metis"
   end
 
   conflicts_with "slepc-complex", because: "slepc must be installed with either real or complex support, not both"
