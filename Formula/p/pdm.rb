@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package and dependency manager supporting the latest PEP standards"
   homepage "https://pdm-project.org"
-  url "https://files.pythonhosted.org/packages/0f/8e/663193a3a039563f476846e448a8f7bfb91e96924c9d485ae26dd9d9b569/pdm-2.24.0.tar.gz"
-  sha256 "1bb831c97ed2267f9186f499e1f2946783c6ce1f1ad93020256cce08f4fad87c"
+  url "https://files.pythonhosted.org/packages/f2/ca/29bfb48005d956c1f67385f9c6e134aea0a7ab298181fc82e201fa27ae78/pdm-2.24.1.tar.gz"
+  sha256 "fc8adf011caa4ee2b0f25dabf890152aa4153cc21599ea67fe0c14e533dcd6d9"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -107,8 +107,8 @@ class Pdm < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   resource "pbs-installer" do
