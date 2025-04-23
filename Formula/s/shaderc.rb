@@ -4,8 +4,8 @@ class Shaderc < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/google/shaderc/archive/refs/tags/v2025.1.tar.gz"
-    sha256 "358f9fa87b503bc7a3efe1575fbf581fca7f16dbc6d502ea2b02628d2d0d4014"
+    url "https://github.com/google/shaderc/archive/refs/tags/v2025.2.tar.gz"
+    sha256 "3fddc13bbb87411c6f7b8f447e87c1637933450087e70fc21da650041f4e0132"
 
     resource "glslang" do
       # https://github.com/google/shaderc/blob/known-good/known_good.json
