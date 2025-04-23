@@ -1082,6 +1082,7 @@ fisher
 fizz
 flac
 flake8
+flang
 flank
 flann
 flarectl
