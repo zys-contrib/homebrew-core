@@ -1,8 +1,8 @@
 class Re2c < Formula
   desc "Generate C-based recognizers from regular expressions"
   homepage "https://re2c.org/"
-  url "https://github.com/skvadrik/re2c/releases/download/4.1/re2c-4.1.tar.xz"
-  sha256 "cd7d9bbadb3f04f20da25e20e155655de57beef48e0807266938069f0e322e8b"
+  url "https://github.com/skvadrik/re2c/releases/download/4.2/re2c-4.2.tar.xz"
+  sha256 "c9dc2b24f340d135a07a1ac63ff53f7f8f74997fed5a4e9132a64050dbc3da1f"
   license :public_domain
 
   bottle do
