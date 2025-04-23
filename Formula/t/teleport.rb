@@ -56,8 +56,8 @@ class Teleport < Formula
     YAML
 
     ENV.prepend_path "PATH", Formula["rustup"].bin
-    system "rustup", "default", "stable"
     system "rustup", "set", "profile", "minimal"
+    system "rustup", "default", "stable"
 
     ENV.deparallelize { system "make", "full", "FIDO2=dynamic" }
     bin.install Dir["build/*"]
