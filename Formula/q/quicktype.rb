@@ -7,13 +7,13 @@ class Quicktype < Formula
   head "https://github.com/glideapps/quicktype.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "58ae1e2db79f0cd36c5ae3bfc03e62c42ac9189dd2e388ad0809b95568da15f3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "58ae1e2db79f0cd36c5ae3bfc03e62c42ac9189dd2e388ad0809b95568da15f3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "58ae1e2db79f0cd36c5ae3bfc03e62c42ac9189dd2e388ad0809b95568da15f3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b8933a693ee1464a6d04aa81c15a3cb1b9cc26b4b11ac49794051edd5e27aa14"
-    sha256 cellar: :any_skip_relocation, ventura:       "b8933a693ee1464a6d04aa81c15a3cb1b9cc26b4b11ac49794051edd5e27aa14"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f70d4e4cf6813dba301436a9996a98355f25f5953942bdc3fc14cb5d2e86aff8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "58ae1e2db79f0cd36c5ae3bfc03e62c42ac9189dd2e388ad0809b95568da15f3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b232d21c838d33967577d819959589c75616177b2bb19d5d85e97fc388ffda7a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b232d21c838d33967577d819959589c75616177b2bb19d5d85e97fc388ffda7a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b232d21c838d33967577d819959589c75616177b2bb19d5d85e97fc388ffda7a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "37f2acb7e5c3e62ea27468e5d29cbea812be2a634d3275fb13ce8b3893f36279"
+    sha256 cellar: :any_skip_relocation, ventura:       "37f2acb7e5c3e62ea27468e5d29cbea812be2a634d3275fb13ce8b3893f36279"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b232d21c838d33967577d819959589c75616177b2bb19d5d85e97fc388ffda7a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b232d21c838d33967577d819959589c75616177b2bb19d5d85e97fc388ffda7a"
   end
 
   depends_on "node"
