@@ -1,8 +1,8 @@
 class Gittuf < Formula
   desc "Security layer for Git repositories"
   homepage "https://gittuf.dev/"
-  url "https://github.com/gittuf/gittuf/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "c441d89133fab916f3827ea850472aba7ff2eae47c886cb17ff3aafc84901505"
+  url "https://github.com/gittuf/gittuf/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "0346b622ab1d4790e8adbe21256518e185fcc2bd379d5448b03662d7301e988c"
   license "Apache-2.0"
   head "https://github.com/gittuf/gittuf.git", branch: "main"
 
@@ -28,8 +28,8 @@ class Gittuf < Formula
     output = shell_output("#{bin}/gittuf policy init 2>&1", 1)
     assert_match "Error: required flag \"signing-key\" not set", output unless OS.linux?
 
-    output = shell_output("#{bin}/gittuf rsl remote check brewtest 2>&1", 1)
-    assert_match "Error: unable to identify GIT_DIR", output
+    output = shell_output("#{bin}/gittuf sync 2>&1", 1)
+    assert_match "Error: unable to identify git directory for repository", output
 
     assert_match version.to_s, shell_output("#{bin}/gittuf version")
   end
