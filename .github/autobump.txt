@@ -209,6 +209,7 @@ azure-core-cpp
 azure-storage-common-cpp
 azurehound
 b2-tools
+b3sum
 babel
 babl
 bacon
