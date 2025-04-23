@@ -3828,6 +3828,7 @@ wails
 wakatime-cli
 walk
 wallpaper
+wangle
 wartremover
 wasm-component-ld
 wasm-micro-runtime
