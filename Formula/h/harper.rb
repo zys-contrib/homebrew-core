@@ -1,10 +1,15 @@
 class Harper < Formula
   desc "Grammar Checker for Developers"
-  homepage "https://github.com/elijah-potter/harper"
-  url "https://github.com/elijah-potter/harper/archive/refs/tags/v0.29.1.tar.gz"
+  homepage "https://writewithharper.com/"
+  url "https://github.com/Automattic/harper/archive/refs/tags/v0.29.1.tar.gz"
   sha256 "9ac27ed81ee0b6e076adcb6b08abcc0633ba23df73d982a6f12ee6144534054a"
   license "Apache-2.0"
-  head "https://github.com/elijah-potter/harper.git", branch: "master"
+  head "https://github.com/Automattic/harper.git", branch: "master"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "94957468d28f38dad9cabe951a4fcdae450c8f1c9606603df6336f8d6175fd3a"
