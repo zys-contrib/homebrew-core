@@ -1076,6 +1076,7 @@ firebase-cli
 firefly
 firefoxpwa
 fisher
+fizz
 flac
 flake8
 flank
