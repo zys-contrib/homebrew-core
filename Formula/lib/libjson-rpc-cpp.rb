@@ -4,7 +4,7 @@ class LibjsonRpcCpp < Formula
   url "https://github.com/cinemast/libjson-rpc-cpp/archive/refs/tags/v1.4.1.tar.gz"
   sha256 "7a057e50d6203e4ea0a10ba5e4dbf344c48b177e5a3bf82e850eb3a783c11eb5"
   license "MIT"
-  revision 3
+  revision 4
   head "https://github.com/cinemast/libjson-rpc-cpp.git", branch: "master"
 
   bottle do
@@ -26,9 +26,15 @@ class LibjsonRpcCpp < Formula
   uses_from_macos "curl"
 
   def install
-    args = %w[
+    # Fix to Policy CMP0042 may not be set to OLD behavior
+    # because this version of CMake no longer supports it.
+    # Issue ref: https://github.com/cinemast/libjson-rpc-cpp/issues/334
+    inreplace "CMakeLists.txt", "cmake_policy(SET CMP0042 OLD)", ""
+    args = %W[
       -DCOMPILE_EXAMPLES=OFF
       -DCOMPILE_TESTS=OFF
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
