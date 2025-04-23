@@ -921,6 +921,7 @@ ecl
 ecs-deploy
 ed
 edbrowse
+edencommon
 edgevpn
 editorconfig
 editorconfig-checker
