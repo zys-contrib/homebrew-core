@@ -1107,6 +1107,7 @@ fnm
 fnt
 fobis
 folderify
+folly
 fontconfig
 fontforge
 fonts-encodings
