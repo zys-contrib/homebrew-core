@@ -16,12 +16,37 @@ class Superhtml < Formula
 
   depends_on "zig" => :build
 
+  # Backport dependency updates to cleanly apply Zig 0.14 commits
+  patch do
+    url "https://github.com/kristoff-it/superhtml/commit/0c65d59dad108eaa7869e70b67a1783d4c7f5ba4.patch?full_index=1"
+    sha256 "9312c6bae69ebbef9b2430fb36a3623d907ed3ea59649c93b592e1f6969e0e35"
+  end
+  patch do
+    url "https://github.com/kristoff-it/superhtml/commit/1d4fbe06aa056a5858d3fdcf33e5ec001f44f6ea.patch?full_index=1"
+    sha256 "78531ca8fc22e1f9936e6f0017073c4f143591d70fefffcdb335cbcb346ff5b9"
+  end
+  patch do
+    url "https://github.com/kristoff-it/superhtml/commit/9266b3131bbcc0705b3b752bcb7478871a143740.patch?full_index=1"
+    sha256 "efec7fa00e2094fdd69e6ec7d49ec6e26a355ad45f9f8079f16aae1a9eb84ca3"
+  end
+
+  # Backport commits to build with Zig 0.14
+  patch do
+    url "https://github.com/kristoff-it/superhtml/commit/44abb10a4b28b8b66710e8d4a56aa897b52c11a5.patch?full_index=1"
+    sha256 "8e98cd7d14a281e9269517d710e02cd2a0c074c56b7d64469148b49b686f1a92"
+  end
+  patch do
+    url "https://github.com/kristoff-it/superhtml/commit/848947947a3312dfe9b88a1976f8a6bc4804d316.patch?full_index=1"
+    sha256 "1ec6acde9d78d58ca36d61a5fb5ff8490f2ed56db8008755860aaab128e182ac"
+  end
+
   def install
     # Fix illegal instruction errors when using bottles on older CPUs.
     # https://github.com/Homebrew/homebrew-core/issues/92282
-    cpu = case Hardware.oldest_cpu
+    cpu = case ENV.effective_arch
     when :arm_vortex_tempest then "apple_m1" # See `zig targets`.
-    else Hardware.oldest_cpu
+    when :armv8 then "xgene1" # Closest to `-march=armv8-a`
+    else ENV.effective_arch
     end
 
     args = %W[
