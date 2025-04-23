@@ -2,8 +2,8 @@ class Libmsquic < Formula
   desc "Cross-platform, C implementation of the IETF QUIC protocol"
   homepage "https://github.com/microsoft/msquic"
   url "https://github.com/microsoft/msquic.git",
-      tag:      "v2.4.8",
-      revision: "5ddc9bff4e82e910872fd239340e7970e3c768f8"
+      tag:      "v2.4.9",
+      revision: "87c7ebebe8a5a4ccd1ecf412b24d384b4af4b71b"
   license "MIT"
 
   bottle do
