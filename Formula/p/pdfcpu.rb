@@ -6,13 +6,12 @@ class Pdfcpu < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c8b00881dea2ce25ee9915ca16b8ffd072b62d6a0024e303f25af6ee9359737f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c8b00881dea2ce25ee9915ca16b8ffd072b62d6a0024e303f25af6ee9359737f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c8b00881dea2ce25ee9915ca16b8ffd072b62d6a0024e303f25af6ee9359737f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d3b5b636b90de6b2bb44cc88cc6af4b4dadffdacdac95a0ce73ac091bbc48df0"
-    sha256 cellar: :any_skip_relocation, ventura:       "d3b5b636b90de6b2bb44cc88cc6af4b4dadffdacdac95a0ce73ac091bbc48df0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea91e61252e6c55260c9e40ba9fde54ee4197ff73caeb153af952e6ec7b3c255"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "014530fdc50251f13f51c0dfb6e40c36e666116ba289390eff455f1821bfc057"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "014530fdc50251f13f51c0dfb6e40c36e666116ba289390eff455f1821bfc057"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "014530fdc50251f13f51c0dfb6e40c36e666116ba289390eff455f1821bfc057"
+    sha256 cellar: :any_skip_relocation, sonoma:        "69a8c9d8147c1ae7219e8ab2d376b82804d9ff5671bf3b83406b5f45a2a18374"
+    sha256 cellar: :any_skip_relocation, ventura:       "69a8c9d8147c1ae7219e8ab2d376b82804d9ff5671bf3b83406b5f45a2a18374"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67ecf563884d2812c018acb22c74211894aceeba1e73de1cb701c07ea2e5f9cc"
   end
 
   depends_on "go" => :build
