@@ -3,8 +3,8 @@ class EvernoteBackup < Formula
 
   desc "Backup & export all Evernote notes and notebooks"
   homepage "https://github.com/vzhd1701/evernote-backup"
-  url "https://files.pythonhosted.org/packages/2c/c0/490d9cb0d4ef43ae630e7bc1ddde286d020ca8696ebe257a144f28e976ee/evernote_backup-1.13.0.tar.gz"
-  sha256 "c332c9c51ecdc3e14630729aab0e099730177b7ff4742466196f16a692106f6e"
+  url "https://files.pythonhosted.org/packages/77/09/021f30d5e05df5587f0621b4144b687d94af331fefa54f5a14b7cd2d80d1/evernote_backup-1.13.1.tar.gz"
+  sha256 "564c39cd92633e9e9492346363bd3f85175c15a9f73d5c34d35835a2ef05e197"
   license "MIT"
 
   bottle do
@@ -36,8 +36,8 @@ class EvernoteBackup < Formula
   end
 
   resource "evernote-plus" do
-    url "https://files.pythonhosted.org/packages/a0/5c/01fdd4fdfccbe63949c93622b87dd68fd53e0e2203feed561e45c9750108/evernote_plus-1.28.1.dev1.tar.gz"
-    sha256 "40ae5b5c93745de65e90cb4d1bba1ff63946cbac4ae447b2641f1d1b0f82869e"
+    url "https://files.pythonhosted.org/packages/d8/e8/d43bebb6f532598c98a11d07d2c9a114bd11ba780dc40b1d74f7466926a9/evernote_plus-1.28.1.dev2.tar.gz"
+    sha256 "fb5e2e6785814205e623bc70c3a1b5abb47dc90a3a7ff28b3d3b0dbc5fb31881"
   end
 
   resource "idna" do
