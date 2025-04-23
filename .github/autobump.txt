@@ -3840,6 +3840,7 @@ wasmtime
 watch
 watcher
 watchexec
+watchman
 wavpack
 wayland
 wayland-protocols
