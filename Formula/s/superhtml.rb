@@ -11,6 +11,7 @@ class Superhtml < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0d23e940a93d67b167a7f581c1558eb2c8576c94c3d9e0acfa0772fde7f36a01"
     sha256 cellar: :any_skip_relocation, sonoma:        "2eff6f7d3a54c0286b29a347c69d4aedf8d685eb28e48eb8dbf1c4aa82db437b"
     sha256 cellar: :any_skip_relocation, ventura:       "59b688fbedae2f2e86cad38aff7ced5f84757c8986151abb42c7bbfd86fe78b1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "56e298e19fd4b396615ccfd7939ab11dba25d2668533b4e9a3324f0207b027ec"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ffcd873d33cbb738fda0172a485473d7d2f5bf7c0b642b7c7ae93e840daa98f"
   end
 
