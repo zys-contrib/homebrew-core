@@ -13,13 +13,13 @@ class KubernetesCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e7a07d2c83dec6272531c92d58cc7b9a8217acf1ce0f6fcda31007573a977fb7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "850821d149a9923573034e59c880799a71151fcf19c84d4cbf59838e29d46e16"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "720041563595259ab615c89036a3e0cc065ef3f2df0371bbfd4f9b1fb7debac8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "be40a927d56b9b0238a95c34f80250c3ab47c729e149bbf8085da642e8cb32e3"
-    sha256 cellar: :any_skip_relocation, ventura:       "61bb47251d1b0121dda6a0fcc2aa115a3c198bfb7a17ddbe0f1835b09e18a493"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "211df1122eea354be1afa7452e5b15e2909e94362d7d19e1be5fcb660606103c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6aea7eb34fed51c8d5823f010bec328e465f377568d362bed1577f27b5c1ab37"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4ecec94a86bf2747a20a97e2bd8db4b20e54cac3aa4d762e33f60646d4d97300"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ed676e3f9e2664c536d3ff8d9694abd1316c8941e9dc19475977b7bc2b48f74e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "50b2f779cbf75369b220d2157348565ecac14fa683896d6e5431343a80ba2724"
+    sha256 cellar: :any_skip_relocation, sonoma:        "100eed4c7f30b03f3d52cb55515bd189fbee3ab528528a1425a0783bc890e0ba"
+    sha256 cellar: :any_skip_relocation, ventura:       "cf9dcf1ccc545847016e36430f47aa92b67eb21f65322bb06c2f250210da8d89"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9ae2dfce9560b7533c5220679182a23354fca9378eb56caa71c35f416b4335d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a922d49359951a683a6b84826b2052c5fca4e52627a8fd133213929c41616b2c"
   end
 
   depends_on "bash" => :build
