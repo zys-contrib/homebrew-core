@@ -3836,6 +3836,7 @@ walk
 wallpaper
 wangle
 wartremover
+wasi-runtimes
 wasm-component-ld
 wasm-micro-runtime
 wasm-pack
