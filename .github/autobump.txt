@@ -1034,6 +1034,7 @@ faust
 favirecon
 fb303
 fblog
+fbthrift
 fcft
 fcgi
 fclones
