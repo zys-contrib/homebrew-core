@@ -2143,6 +2143,7 @@ llama.cpp
 lldpd
 llgo
 llm
+llvm
 lmdb
 lmod
 lnav
