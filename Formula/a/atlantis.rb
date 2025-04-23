@@ -22,7 +22,7 @@ class Atlantis < Formula
   end
 
   depends_on "go" => :build
-  depends_on "opentofu"
+  depends_on "opentofu" => :test
 
   def install
     ldflags = %W[
@@ -31,9 +31,7 @@ class Atlantis < Formula
       -X main.commit=brew
       -X main.date=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags:, output: libexec/"bin/atlantis")
-
-    (bin/"atlantis").write_env_script libexec/"bin/atlantis", PATH: libexec/"bin"
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
