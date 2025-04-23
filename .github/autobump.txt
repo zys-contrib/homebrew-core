@@ -299,6 +299,7 @@ bkcrack
 bkt
 black
 blades
+blake3
 blast
 blis
 blisp
