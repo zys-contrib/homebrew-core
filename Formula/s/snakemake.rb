@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/c4/a8/6bb279dc67b54021b2b7a0d0a017024d5ed6fc20cbddd20300067a1160b8/snakemake-9.3.0.tar.gz"
-  sha256 "fbef1f10df5c75fd4806871fd17564d1eaebe74b945d3267771bd93d0d4b7de3"
+  url "https://files.pythonhosted.org/packages/c6/98/55b672c573f93c6635fb92a4795137846cacdd69891d1d30f47aba4a2e1c/snakemake-9.3.1.tar.gz"
+  sha256 "68b2f3cf541b86b418db88e2f13a0a7e736f9c01248709ba899e1ffbdf04c77d"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -110,8 +110,8 @@ class Snakemake < Formula
   end
 
   resource "jsonschema-specifications" do
-    url "https://files.pythonhosted.org/packages/10/db/58f950c996c793472e336ff3655b13fbcf1e3b359dcf52dcf3ed3b52c352/jsonschema_specifications-2024.10.1.tar.gz"
-    sha256 "0f38b83639958ce1152d02a7f062902c41c8fd20d558b0c34344292d417ae272"
+    url "https://files.pythonhosted.org/packages/bf/ce/46fbd9c8119cfc3581ee5643ea49464d168028cfb5caff5fc0596d0cf914/jsonschema_specifications-2025.4.1.tar.gz"
+    sha256 "630159c9f4dbea161a6a2205c3011cc4f18ff381b189fff48bb39b9bf26ae608"
   end
 
   resource "jupyter-core" do
@@ -130,8 +130,8 @@ class Snakemake < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   resource "plac" do
@@ -150,8 +150,8 @@ class Snakemake < Formula
   end
 
   resource "pulp" do
-    url "https://files.pythonhosted.org/packages/ce/44/4d2ebd90b5f6f018f9443b597a290f8a5d245d0f2e775e8b7472f68d9929/pulp-3.0.2.tar.gz"
-    sha256 "7e57cd4eb145bdca80214acb07315f03583dd1c00cc8f24f91bf037649f93eb6"
+    url "https://files.pythonhosted.org/packages/fb/92/bf4b947ec8aac629b835b588e70664c1d0150a8369f798b6c5adb32e39ba/pulp-3.1.1.tar.gz"
+    sha256 "300a330e917c9ca9ac7fda6f5849bbf30d489c368117f197a3e3fd0bc1966d95"
   end
 
   resource "pyyaml" do
