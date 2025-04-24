@@ -2389,6 +2389,7 @@ mubeng
 muffet
 mujs
 multi-git-status
+multi-gitter
 multitail
 muon
 muparser
