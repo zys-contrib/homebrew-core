@@ -14,7 +14,7 @@ class ClojureLsp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1e8163a3c0e28dfb59052462c4db5b7a45fac30ba6ef7fbb7cb1339ff7c0174c"
+    sha256 cellar: :any_skip_relocation, all: "fb8aa7c4f7cf409885b79b3ae076d99b81564354c8ca612503a39f96316f031c"
   end
 
   depends_on "openjdk"
