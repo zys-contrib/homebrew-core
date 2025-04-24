@@ -3554,6 +3554,7 @@ terraform-iam-policy-validator
 terraform-inventory
 terraform-local
 terraform-ls
+terraform-module-versions
 terraform-provider-libvirt
 terraformer
 terragrunt
