@@ -12,6 +12,7 @@ class Ferron < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "55bf7ce112938c94ee44559946f980446af8e39eeb606d380d841adaadfc1e2f"
     sha256 cellar: :any_skip_relocation, sonoma:        "175a34b4304e4ae6f2000235190b7c88a8a01ad615b159c3aeb8819a611e3b09"
     sha256 cellar: :any_skip_relocation, ventura:       "e0ef14d0ff0effe665e3542c423b7e6b3e3583ab8a11caf3c51c220662edd58c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "599548e8a0bb51b985a40eb1c212d9df58fa9059fc8fe4b17afa2710b7e72778"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "550b7c9f498d282f2f6ce7162abadf005f3a9d989fa4916fb073887411fe8eaf"
   end
 
