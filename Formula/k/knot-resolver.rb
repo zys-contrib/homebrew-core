@@ -1,8 +1,8 @@
 class KnotResolver < Formula
   desc "Minimalistic, caching, DNSSEC-validating DNS resolver"
   homepage "https://www.knot-resolver.cz"
-  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.7.4.tar.xz"
-  sha256 "6b6da6ecf06828041afad44dfa227781f0ae34ad183a667008509355d18bd9c8"
+  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.7.5.tar.xz"
+  sha256 "80239cf9aa92599d9cbad4642dea5520b2ccfbc9c6f968886ea46179cb3cdf66"
   license all_of: ["CC0-1.0", "GPL-3.0-or-later", "LGPL-2.1-or-later", "MIT"]
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git", branch: "master"
 
