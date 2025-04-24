@@ -7,13 +7,13 @@ class Cdk8s < Formula
   head "https://github.com/cdk8s-team/cdk8s-cli.git", branch: "2.x"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cafc43f023460725b6f72f9098ba50ff9d0bda4a372ff6678414cdf9dc77d75e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cafc43f023460725b6f72f9098ba50ff9d0bda4a372ff6678414cdf9dc77d75e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cafc43f023460725b6f72f9098ba50ff9d0bda4a372ff6678414cdf9dc77d75e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "db92a5ea31a28311996ad02fea8972729b0630125f8b588e7490f4b2813328b7"
-    sha256 cellar: :any_skip_relocation, ventura:       "db92a5ea31a28311996ad02fea8972729b0630125f8b588e7490f4b2813328b7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cafc43f023460725b6f72f9098ba50ff9d0bda4a372ff6678414cdf9dc77d75e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cafc43f023460725b6f72f9098ba50ff9d0bda4a372ff6678414cdf9dc77d75e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2da73d5227ff24960c3fe5aae95ff35bc77e2a65533db95da3f381945784fdaa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2da73d5227ff24960c3fe5aae95ff35bc77e2a65533db95da3f381945784fdaa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2da73d5227ff24960c3fe5aae95ff35bc77e2a65533db95da3f381945784fdaa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2c70a4308cab35a335a15c1204b395c13df935d88edeb9a7a1ea383d749cd85f"
+    sha256 cellar: :any_skip_relocation, ventura:       "2c70a4308cab35a335a15c1204b395c13df935d88edeb9a7a1ea383d749cd85f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2da73d5227ff24960c3fe5aae95ff35bc77e2a65533db95da3f381945784fdaa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2da73d5227ff24960c3fe5aae95ff35bc77e2a65533db95da3f381945784fdaa"
   end
 
   depends_on "node"
