@@ -11,6 +11,15 @@ class KubernetesCliAT132 < Formula
     regex(/^v?(1\.32(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b622184d551539afc287c7191f7f1e8213da397fd9724bd3d300371a30579b4f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e07c9dc801ddf59f9123bb779e6602b994f56c8856435e7e831d9b7d29300156"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3e2260b43334e1bba161f67eb37ec7913b2ef464f05fab19199b52a968f53236"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fed174d3474938938cf32ab1bb69191855dc57d549da9b90569008e4a82dbcad"
+    sha256 cellar: :any_skip_relocation, ventura:       "c032723a41d2e7682eb7a8bc0fcf89953efc69f2dcdc8819dbd55eeebb9f6ce5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "84168419122fef29efc6f801aaf6900fef6391a21fc232a3e73ce157a652b581"
+  end
+
   keg_only :versioned_formula
 
   # https://kubernetes.io/releases/patch-releases/#1-32
