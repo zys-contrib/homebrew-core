@@ -3,8 +3,8 @@ class Redis < Formula
   homepage "https://redis.io/"
   # NOTE: Do not bump to v7.4+ as license changed to RSALv2+SSPLv1
   # https://github.com/redis/redis/pull/13157
-  url "https://download.redis.io/releases/redis-7.2.7.tar.gz"
-  sha256 "72c081e3b8cfae7144273d26d76736f08319000af46c01515cad5d29765cead5"
+  url "https://download.redis.io/releases/redis-7.2.8.tar.gz"
+  sha256 "6be4fdfcdb2e5ac91454438246d00842d2671f792673390e742dfcaf1bf01574"
   license all_of: [
     "BSD-3-Clause",
     "BSD-2-Clause", # deps/jemalloc, deps/linenoise, src/lzf*
