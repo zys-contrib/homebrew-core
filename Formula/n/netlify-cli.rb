@@ -1,8 +1,8 @@
 class NetlifyCli < Formula
   desc "Netlify command-line tool"
   homepage "https://www.netlify.com/docs/cli"
-  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-20.0.3.tgz"
-  sha256 "a5c80c5049cb37642eab505f8bc2c8c2947d0c336f3a714f3517bd31e7f7b97d"
+  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-20.0.4.tgz"
+  sha256 "fab7d8ecb6040f3574fe5634f82fce5ae53b9d6cc818f2077dad73c781f1941e"
   license "MIT"
   head "https://github.com/netlify/cli.git", branch: "main"
 
