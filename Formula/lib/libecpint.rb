@@ -4,6 +4,7 @@ class Libecpint < Formula
   url "https://github.com/robashaw/libecpint/archive/refs/tags/v1.0.7.tar.gz"
   sha256 "e9c60fddb2614f113ab59ec620799d961db73979845e6e637c4a6fb72aee51cc"
   license "MIT"
+  revision 1
 
   bottle do
     rebuild 1
@@ -25,6 +26,10 @@ class Libecpint < Formula
   uses_from_macos "python" => :build
 
   def install
+    # Fix the error: found '_dawson' in libcerf.3.0.dylib, declaration possibly missing 'extern "C"'
+    # Issue ref: https://github.com/robashaw/libecpint/issues/65
+    inreplace "src/CMakeLists.txt", "cerf::cerf", "cerf::cerfcpp"
+
     args = [
       "-DBUILD_SHARED_LIBS=ON",
       "-DLIBECPINT_USE_CERF=ON",
