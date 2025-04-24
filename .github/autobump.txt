@@ -2861,6 +2861,7 @@ powerman-dockerize
 pqiv
 pre-commit
 precious
+preevy
 premake
 presenterm
 prestd
