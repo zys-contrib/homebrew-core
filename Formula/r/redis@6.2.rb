@@ -1,8 +1,8 @@
 class RedisAT62 < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  url "https://download.redis.io/releases/redis-6.2.17.tar.gz"
-  sha256 "f7aab300407aaa005bc1a688e61287111f4ae13ed657ec50ef4ab529893ddc30"
+  url "https://download.redis.io/releases/redis-6.2.18.tar.gz"
+  sha256 "470c75bac73d7390be4dd66479c6f29e86371c5d380ce0c7efb4ba2bbda3612d"
   license all_of: [
     "BSD-3-Clause",
     "BSD-2-Clause", # deps/jemalloc, deps/linenoise, src/lzf*
@@ -27,6 +27,9 @@ class RedisAT62 < Formula
   end
 
   keg_only :versioned_formula
+
+  # See EOL, https://redis.io/docs/latest/operate/rs/installing-upgrading/product-lifecycle/
+  deprecate! date: "2025-04-24", because: :unsupported
 
   depends_on "openssl@3"
 
