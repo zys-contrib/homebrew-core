@@ -3,18 +3,18 @@ class Pipenv < Formula
 
   desc "Python dependency management tool"
   homepage "https://github.com/pypa/pipenv"
-  url "https://files.pythonhosted.org/packages/75/9b/1ad83732235ca1fbb9e84d1869bc0243b884de2b27ef98d4415c08015368/pipenv-2025.0.0.tar.gz"
-  sha256 "218317023f9950a1f606f1f5c935980df00176b7b55b25a0007efa83293b0ec8"
+  url "https://files.pythonhosted.org/packages/34/34/d74db93377232bcd156132730a3e6d04ce7fbc07664e2bc558140337a378/pipenv-2025.0.1.tar.gz"
+  sha256 "923bfdf4e41d160d23d91cc1a8a00ebdf25f8bad4f014c3a278512e4c4f2d1d5"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "be0688b8e4bf1a6f5fbd6ddf484d5d8db177ea96b6ab548390751c12f9d09ea9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "be0688b8e4bf1a6f5fbd6ddf484d5d8db177ea96b6ab548390751c12f9d09ea9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "be0688b8e4bf1a6f5fbd6ddf484d5d8db177ea96b6ab548390751c12f9d09ea9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0ac881ddf91649888cc5b051a6b254695f6426042c50f94d386332c834663cdf"
-    sha256 cellar: :any_skip_relocation, ventura:       "0ac881ddf91649888cc5b051a6b254695f6426042c50f94d386332c834663cdf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d4e58e171f7c33839b9e0bf8ad309ad326a1d8141cd93578c4801de5a53c122c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4e58e171f7c33839b9e0bf8ad309ad326a1d8141cd93578c4801de5a53c122c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "69c4454303d9abb332e7603be6fd4558e8582a8d585ea43b1c53b97f6edec169"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "69c4454303d9abb332e7603be6fd4558e8582a8d585ea43b1c53b97f6edec169"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "69c4454303d9abb332e7603be6fd4558e8582a8d585ea43b1c53b97f6edec169"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4ad0ce68da4f78be13787bfb95149a1d31ee53813455f97c56fb1e5ff60e2a25"
+    sha256 cellar: :any_skip_relocation, ventura:       "4ad0ce68da4f78be13787bfb95149a1d31ee53813455f97c56fb1e5ff60e2a25"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c40714e95ecfaf3b4eddbc95a3fafff6b47aea33ad7bce5bc64a67abaae65ca8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c40714e95ecfaf3b4eddbc95a3fafff6b47aea33ad7bce5bc64a67abaae65ca8"
   end
 
   depends_on "certifi"
