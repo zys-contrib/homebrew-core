@@ -6,6 +6,15 @@ class TerraformModuleVersions < Formula
   license "MIT"
   head "https://github.com/keilerkonzept/terraform-module-versions.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d813ca4e8bc2426d3b3ba8f1c373fc915752ff4553b9d46034a6be95942d1cd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d813ca4e8bc2426d3b3ba8f1c373fc915752ff4553b9d46034a6be95942d1cd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2d813ca4e8bc2426d3b3ba8f1c373fc915752ff4553b9d46034a6be95942d1cd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e6f0f314bddecfd6dc337353bda79132f8b2de124ecb4b45ffe67dfc94601570"
+    sha256 cellar: :any_skip_relocation, ventura:       "e6f0f314bddecfd6dc337353bda79132f8b2de124ecb4b45ffe67dfc94601570"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ba49288a639cab0d6c07ccea353c5b67caf6d31de44f9d242813427e67e711f"
+  end
+
   depends_on "go" => :build
 
   def install
