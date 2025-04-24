@@ -1,8 +1,8 @@
 class Bde < Formula
   desc "Basic Development Environment: foundational C++ libraries used at Bloomberg"
   homepage "https://github.com/bloomberg/bde"
-  url "https://github.com/bloomberg/bde/archive/refs/tags/4.23.0.0.tar.gz"
-  sha256 "0c591fb87f6fe1e829eacd86f5608b439941eafd88916a42b073bd44f79ffddc"
+  url "https://github.com/bloomberg/bde/archive/refs/tags/4.24.0.0.tar.gz"
+  sha256 "52eee2f753108d5dbea6f05b11a08dc3ae90923379208705a7e5f686bf2c7faa"
   license "Apache-2.0"
 
   livecheck do
@@ -26,8 +26,8 @@ class Bde < Formula
   depends_on "pcre2"
 
   resource "bde-tools" do
-    url "https://github.com/bloomberg/bde-tools/archive/refs/tags/4.23.0.0.tar.gz"
-    sha256 "997fbe16756948449df06e8bf66b9cc289cb03f318a01489f58245f0bdaa2e4c"
+    url "https://github.com/bloomberg/bde-tools/archive/refs/tags/4.24.0.0.tar.gz"
+    sha256 "0907c0019a90a7cd0000f92c093ab0de5c7750ea749766701555bbb47521472f"
 
     livecheck do
       formula :parent
