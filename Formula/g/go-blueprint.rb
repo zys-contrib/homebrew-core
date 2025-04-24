@@ -1,8 +1,8 @@
 class GoBlueprint < Formula
   desc "CLI to streamline Go project setup with standardized structure"
   homepage "https://docs.go-blueprint.dev/"
-  url "https://github.com/Melkeydev/go-blueprint/archive/refs/tags/v0.10.7.tar.gz"
-  sha256 "24a3b3725afad41ed724af4f460b5dc502e2169f03ee5a826fc46a7c404fc1a1"
+  url "https://github.com/Melkeydev/go-blueprint/archive/refs/tags/v0.10.8.tar.gz"
+  sha256 "aaff26eb0c8e3b1be44cd3a4ab3d905e51d0c0618d058ae508d69402e9bd82eb"
   license "MIT"
   head "https://github.com/Melkeydev/go-blueprint.git", branch: "main"
 
