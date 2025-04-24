@@ -1,9 +1,10 @@
 class Calc < Formula
   desc "Arbitrary precision calculator"
   homepage "http://www.isthe.com/chongo/tech/comp/calc/"
-  url "https://downloads.sourceforge.net/project/calc/calc/2.15.1.0/calc-2.15.1.0.tar.bz2"
-  sha256 "633df610a5f5d2f69ad377e320afc85009052b4acc245f0586cbf932a179e2d6"
+  url "https://github.com/lcn2/calc/archive/refs/tags/v2.15.1.1.tar.gz"
+  sha256 "ad432c3202885fb93a82985c0a9cdd4c82f3877acc8f12a1504f56c8359e6bee"
   license "LGPL-2.1-or-later"
+  head "https://github.com/lcn2/calc.git", branch: "master"
 
   bottle do
     sha256 arm64_sequoia:  "d5522f39a915d85ae4fac013aad878a11f71228e3cc972a3149d6b33f1af92eb"
