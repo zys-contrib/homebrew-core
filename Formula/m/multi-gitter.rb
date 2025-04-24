@@ -6,6 +6,15 @@ class MultiGitter < Formula
   license "Apache-2.0"
   head "https://github.com/lindell/multi-gitter.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7a6b08b1ce3221f66eeae7ac47825bd859c6643bc867779515a3edec5e4218db"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7a6b08b1ce3221f66eeae7ac47825bd859c6643bc867779515a3edec5e4218db"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7a6b08b1ce3221f66eeae7ac47825bd859c6643bc867779515a3edec5e4218db"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3ae4e5b447e47aaf60d67c55ec876d78414d4958a20a703c003a96e9df578c29"
+    sha256 cellar: :any_skip_relocation, ventura:       "3ae4e5b447e47aaf60d67c55ec876d78414d4958a20a703c003a96e9df578c29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e6cf8ec9f2f8039dedb212885637778aef83830c25cabdc42672fee664842f7"
+  end
+
   depends_on "go" => :build
 
   def install
