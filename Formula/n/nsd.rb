@@ -1,8 +1,8 @@
 class Nsd < Formula
   desc "Name server daemon"
   homepage "https://www.nlnetlabs.nl/projects/nsd/"
-  url "https://www.nlnetlabs.nl/downloads/nsd/nsd-4.11.1.tar.gz"
-  sha256 "696e50052008de4fa7ab1d818d5b77eb63247eea2f0575114c9592ff9188a614"
+  url "https://www.nlnetlabs.nl/downloads/nsd/nsd-4.12.0.tar.gz"
+  sha256 "f9ecc2cf79ba50580f2df62918efc440084c5bf11057db44c19aa9643cd4b5e8"
   license "BSD-3-Clause"
 
   # We check the GitHub repo tags instead of
@@ -27,6 +27,7 @@ class Nsd < Formula
     sha256 x86_64_linux:  "89c40841c0b01e61324d89074a346a3318a9e6eab50561c6407b1eaae02860e7"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "libevent"
   depends_on "openssl@3"
 
