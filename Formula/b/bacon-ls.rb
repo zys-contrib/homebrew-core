@@ -1,8 +1,8 @@
 class BaconLs < Formula
   desc "Rust diagnostic provider based on Bacon"
   homepage "https://github.com/crisidev/bacon-ls"
-  url "https://github.com/crisidev/bacon-ls/archive/refs/tags/0.19.0.tar.gz"
-  sha256 "a1376645260417273c0953b713c49921104e93d39ce1568966cb03cf718549c7"
+  url "https://github.com/crisidev/bacon-ls/archive/refs/tags/0.20.0.tar.gz"
+  sha256 "d0e869a6ced81caf36dae0a5084a4ea7f40eca9940c7ce233f34de0761a5f289"
   license "MIT"
   head "https://github.com/crisidev/bacon-ls.git", branch: "main"
 
@@ -16,7 +16,12 @@ class BaconLs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f30465a7b4c3657adb157bd8b72124886dec0809b0dd58ec1382035f934ffafc"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
+
+  on_linux do
+    depends_on "openssl@3"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args
