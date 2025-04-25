@@ -8,13 +8,13 @@ class Mycli < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cfe3f9646439a7264bf6c076a55f21b4ea4255e4ccb43aafeca15043f68376cb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cfe3f9646439a7264bf6c076a55f21b4ea4255e4ccb43aafeca15043f68376cb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cfe3f9646439a7264bf6c076a55f21b4ea4255e4ccb43aafeca15043f68376cb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5b2a4e0fd5eba647e3d797ae50d492ab0613a6988d7d256c51d1fc365531c67e"
-    sha256 cellar: :any_skip_relocation, ventura:       "5b2a4e0fd5eba647e3d797ae50d492ab0613a6988d7d256c51d1fc365531c67e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cfe3f9646439a7264bf6c076a55f21b4ea4255e4ccb43aafeca15043f68376cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cfe3f9646439a7264bf6c076a55f21b4ea4255e4ccb43aafeca15043f68376cb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ff1b2a8ac47676141a99f7a34e2294f6516571d1daf1306f2692aab645505698"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ff1b2a8ac47676141a99f7a34e2294f6516571d1daf1306f2692aab645505698"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ff1b2a8ac47676141a99f7a34e2294f6516571d1daf1306f2692aab645505698"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8592f442db81a29137b85ae4f97b4c340750d660559e3ad81bd2706c249ce54e"
+    sha256 cellar: :any_skip_relocation, ventura:       "8592f442db81a29137b85ae4f97b4c340750d660559e3ad81bd2706c249ce54e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ff1b2a8ac47676141a99f7a34e2294f6516571d1daf1306f2692aab645505698"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff1b2a8ac47676141a99f7a34e2294f6516571d1daf1306f2692aab645505698"
   end
 
   depends_on "cryptography"
