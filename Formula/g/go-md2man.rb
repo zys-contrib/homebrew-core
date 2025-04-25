@@ -1,8 +1,8 @@
 class GoMd2man < Formula
   desc "Converts markdown into roff (man pages)"
   homepage "https://github.com/cpuguy83/go-md2man"
-  url "https://github.com/cpuguy83/go-md2man/archive/refs/tags/v2.0.6.tar.gz"
-  sha256 "5fa29154237bc840a10a06231c066f9ddbe06bb31d1c3372eab12e1ed977271f"
+  url "https://github.com/cpuguy83/go-md2man/archive/refs/tags/v2.0.7.tar.gz"
+  sha256 "ca3a5b57e2c01759f5a00ad2a578d034c5370fae9aa7a6c3af5648b2fc802a92"
   license "MIT"
   head "https://github.com/cpuguy83/go-md2man.git", branch: "master"
 
