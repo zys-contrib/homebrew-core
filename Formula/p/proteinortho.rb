@@ -16,6 +16,7 @@ class Proteinortho < Formula
   end
 
   depends_on "diamond"
+  depends_on "libomp"
   depends_on "openblas"
 
   def install
