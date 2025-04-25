@@ -3,8 +3,8 @@ class Locust < Formula
 
   desc "Scalable user load testing tool written in Python"
   homepage "https://locust.io/"
-  url "https://files.pythonhosted.org/packages/a3/78/0445c5ad5986c82ba481e7d087c30efecbe1b1b72dc5895e63bddabb244c/locust-2.36.1.tar.gz"
-  sha256 "4f3f4df666561f037cf2b085f1f49025b0107046ea5918c4b1391c7479b6bea7"
+  url "https://files.pythonhosted.org/packages/6d/90/55d4fbc8911e5e6ec4072caaca9e8b7b2b11279435c0d1330c9966b0c898/locust-2.36.2.tar.gz"
+  sha256 "604aff7535f5a83b7f666d32373b2dc74ad260c7c3d1dc274f4c82844be72eb6"
   license "MIT"
 
   bottle do
@@ -104,8 +104,8 @@ class Locust < Formula
   end
 
   resource "locust-cloud" do
-    url "https://files.pythonhosted.org/packages/6b/ae/dee7df5c64308ee0147d0d71c6057f9117571fb413f7609eb9b00bf61b29/locust_cloud-1.20.2-py3-none-any.whl"
-    sha256 "823b7a694e1041af5c45b60dc1486c0cb9fc1180ca128bbf665aac5b5d664a2c"
+    url "https://files.pythonhosted.org/packages/e9/0a/19a1fe79968b499e2ffd2a24b33335ea1383b32d2d7c7de2874e196c4c16/locust_cloud-1.20.5-py3-none-any.whl"
+    sha256 "db76c98883a3bf114e1994af618a98207595fc3767800d9674c42e43e5e80eff"
   end
 
   resource "markupsafe" do
@@ -126,11 +126,6 @@ class Locust < Formula
   resource "psutil" do
     url "https://files.pythonhosted.org/packages/2a/80/336820c1ad9286a4ded7e845b2eccfcb27851ab8ac6abece774a6ff4d3de/psutil-7.0.0.tar.gz"
     sha256 "7be9c3eba38beccb6495ea33afd982a44074b78f28c434a1f51cc07fd315c456"
-  end
-
-  resource "pyjwt" do
-    url "https://files.pythonhosted.org/packages/e7/46/bd74733ff231675599650d3e47f361794b22ef3e3770998dda30d3b63726/pyjwt-2.10.1.tar.gz"
-    sha256 "3cc5772eb20009233caf06e9d8a0577824723b44e6648ee0a2aedb6cf9381953"
   end
 
   resource "python-engineio" do
