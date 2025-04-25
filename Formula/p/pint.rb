@@ -6,12 +6,12 @@ class Pint < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9b93a61bad8cb5387dd3ef0656d4ea782e1187e821980f787b2892296e8b23d5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4757332d07472fd9ae55dda18bfb36a786308dfae488eb6dc7cef1ec7e71c438"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2e69e6203ce651d8d15fd6a1f9fdfa0c4d20bea92850654587e19ae6e8d83155"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7f6d9272eee87597863a4ca6b57513f1cf5e024b9c97e0352e8890a037d0c559"
-    sha256 cellar: :any_skip_relocation, ventura:       "bfb60bbb6cd55997824877ff312032ab1dfca90edd39dd10b9e48d258a560a28"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35e9e573892b68e307dc021e2625c73e7648694e14fe2a9c7ef9e4e34b6ace6e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2db2290a87cc128939436885c077f49fdf0c9e9a5cca0c829662f4875f1783cb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4b1cd75b47d36671e8ad4f9ce51359ba48b001a99b940a7da9eced631bf64efc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "363c6b553d6e85543ff8677b08288b35444d32334c68dd9263b5b11abe7e8f93"
+    sha256 cellar: :any_skip_relocation, sonoma:        "020e52fd8c4c8c4bad8093787c6a0c276f55e66fdf65c03379e26e6719f92101"
+    sha256 cellar: :any_skip_relocation, ventura:       "f078b2ed1e1e2143d7a3f1e4859321ddffaeafae8906acf7a29068627bb7263a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5f3417767db8a03bde3757a4951ff6e206e531efb06b3f2291a2cc4672ec14a"
   end
 
   depends_on "go" => :build
