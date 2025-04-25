@@ -3,8 +3,8 @@ class Prestodb < Formula
 
   desc "Distributed SQL query engine for big data"
   homepage "https://prestodb.io"
-  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.291/presto-server-0.291.tar.gz", using: :nounzip
-  sha256 "257702209ddfcc49dd6764ab8ea959d441313f3b74bb9b86c45c9a8a63a0a691"
+  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.292/presto-server-0.292.tar.gz", using: :nounzip
+  sha256 "4063126a908867f143e9c16b6cd3afeb49f6ad1de298dfc9810c4045f1c78693"
   license "Apache-2.0"
 
   # Upstream has said that we should check Maven for Presto version information
@@ -16,16 +16,21 @@ class Prestodb < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "1bc6a7c18c6d8b8cfa26f0b235c7d0b6e9706fe3d7a3feed66cede28b878bb39"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c72cbf63fde263aa303b17aacacd37c48f2b7e553cfde06d2950ff5084cdfb94"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c72cbf63fde263aa303b17aacacd37c48f2b7e553cfde06d2950ff5084cdfb94"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c72cbf63fde263aa303b17aacacd37c48f2b7e553cfde06d2950ff5084cdfb94"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c72cbf63fde263aa303b17aacacd37c48f2b7e553cfde06d2950ff5084cdfb94"
+    sha256 cellar: :any_skip_relocation, ventura:       "c72cbf63fde263aa303b17aacacd37c48f2b7e553cfde06d2950ff5084cdfb94"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c72cbf63fde263aa303b17aacacd37c48f2b7e553cfde06d2950ff5084cdfb94"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a4ca5d90974d99af3c5567f52f818425aab5cc3539c52647d1e1727b99d16db"
   end
 
   depends_on "openjdk@17"
   depends_on "python@3.13"
 
   resource "presto-cli" do
-    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.291/presto-cli-0.291-executable.jar"
-    sha256 "3919eb122ad7090364430b500478465024e6524c8399fbf54181e9ac4ebb176b"
+    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.292/presto-cli-0.292-executable.jar"
+    sha256 "874fb6c5adea4544e1dc297e20362d24a2bf5ef280900ab967ff735cc2c9abdb"
 
     livecheck do
       formula :parent
@@ -83,8 +88,6 @@ class Prestodb < Formula
 
     # Remove incompatible pre-built binaries
     libprocname_dirs = (libexec/"bin/procname").children
-    # Keep the Linux-x86_64 directory to make bottles identical
-    libprocname_dirs.reject! { |dir| dir.basename.to_s == "Linux-x86_64" }
     libprocname_dirs.reject! { |dir| dir.basename.to_s == "#{OS.kernel_name}-#{Hardware::CPU.arch}" }
     rm_r libprocname_dirs
   end
