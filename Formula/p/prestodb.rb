@@ -16,13 +16,8 @@ class Prestodb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c72cbf63fde263aa303b17aacacd37c48f2b7e553cfde06d2950ff5084cdfb94"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c72cbf63fde263aa303b17aacacd37c48f2b7e553cfde06d2950ff5084cdfb94"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c72cbf63fde263aa303b17aacacd37c48f2b7e553cfde06d2950ff5084cdfb94"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c72cbf63fde263aa303b17aacacd37c48f2b7e553cfde06d2950ff5084cdfb94"
-    sha256 cellar: :any_skip_relocation, ventura:       "c72cbf63fde263aa303b17aacacd37c48f2b7e553cfde06d2950ff5084cdfb94"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c72cbf63fde263aa303b17aacacd37c48f2b7e553cfde06d2950ff5084cdfb94"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a4ca5d90974d99af3c5567f52f818425aab5cc3539c52647d1e1727b99d16db"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "4eddb6530bd68a0cdcbfc9ffa891dcbef3a359110881db51d89af58fce4629bb"
   end
 
   depends_on "openjdk@17"
