@@ -3,8 +3,8 @@ class Rojo < Formula
   homepage "https://rojo.space/"
   # pull from git tag to get submodules
   url "https://github.com/rojo-rbx/rojo.git",
-      tag:      "v7.4.4",
-      revision: "5bd3c74db023c5588612bc73caace5f8d3a265b9"
+      tag:      "v7.5.0",
+      revision: "4ddbefa88facbd5e298a13db4517255262cc70d0"
   license "MPL-2.0"
   head "https://github.com/rojo-rbx/rojo.git", branch: "master"
 
