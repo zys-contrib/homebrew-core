@@ -1,8 +1,8 @@
 class Gtree < Formula
   desc "Generate directory trees and directories using Markdown or programmatically"
   homepage "https://ddddddo.github.io/gtree/"
-  url "https://github.com/ddddddO/gtree/archive/refs/tags/v1.11.4.tar.gz"
-  sha256 "a1c82e8abedee86d022c9c1cc65d69485c4b25fbb38c46d78714ad067c1e010b"
+  url "https://github.com/ddddddO/gtree/archive/refs/tags/v1.11.5.tar.gz"
+  sha256 "c479031e407182fe45da852d59bae529aa7a1bb15410f64fe59bae6f959ebd83"
   license "BSD-2-Clause"
   head "https://github.com/ddddddO/gtree.git", branch: "master"
 
