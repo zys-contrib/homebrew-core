@@ -1,8 +1,8 @@
 class Remind < Formula
   desc "Sophisticated calendar and alarm"
   homepage "https://dianne.skoll.ca/projects/remind/"
-  url "https://dianne.skoll.ca/projects/remind/download/remind-05.03.05.tar.gz"
-  sha256 "2f6b7fa45634c0bc8fa8d28f712b729f9176056074f43ca4dd5abce6b4c0255a"
+  url "https://dianne.skoll.ca/projects/remind/download/remind-05.03.06.tar.gz"
+  sha256 "ca63c147ccd154805ecb80f85f435d48705cb06f5685c9ac1610c5661427e223"
   license "GPL-2.0-only"
   head "https://git.skoll.ca/Skollsoft-Public/Remind.git", branch: "master"
 
@@ -24,13 +24,19 @@ class Remind < Formula
   conflicts_with "rem", because: "both install `rem` binaries"
 
   def install
+    # Fix to error: unsupported option '-ffat-lto-objects' for target 'arm64-apple-darwin24.4.0'
+    inreplace "configure", "-ffat-lto-objects", "" if DevelopmentTools.clang_build_version >= 1700
+
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
 
   test do
-    (testpath/"reminders").write "ONCE 2015-01-01 Homebrew Test"
+    (testpath/"reminders.rem").write <<~REM
+      SET $OnceFile "./once.timestamp"
+      REM ONCE 2015-01-01 MSG Homebrew Test
+    REM
     assert_equal "Reminders for Thursday, 1st January, 2015:\n\nHomebrew Test\n\n",
-      shell_output("#{bin}/remind reminders 2015-01-01")
+      shell_output("#{bin}/remind reminders.rem 2015-01-01")
   end
 end
