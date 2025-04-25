@@ -2,8 +2,8 @@ class Mas < Formula
   desc "Mac App Store command-line interface"
   homepage "https://github.com/mas-cli/mas"
   url "https://github.com/mas-cli/mas.git",
-      tag:      "v2.1.0",
-      revision: "a4756e8c82a2bae5d5de1b137ec16fa7c1df8c94"
+      tag:      "v2.2.1",
+      revision: "92cdd8d24c14f72f801f86f03a4ece1b376b0145"
   license "MIT"
   head "https://github.com/mas-cli/mas.git", branch: "main"
 
@@ -15,7 +15,7 @@ class Mas < Formula
     sha256 cellar: :any_skip_relocation, ventura:       "f46a11b8667581487e13b786d349545cfa2cc15e1093abf4017dc6aff4cc654e"
   end
 
-  depends_on xcode: ["14.2", :build]
+  depends_on xcode: ["15.0", :build]
   depends_on :macos
 
   def install
