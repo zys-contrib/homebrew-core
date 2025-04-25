@@ -1,4 +1,5 @@
 a2ps
+aarch64-elf-gcc
 ab-av1
 abcmidi
 abi3audit
@@ -119,6 +120,7 @@ argus-clients
 argyll-cms
 arjun
 arkade
+arm-none-eabi-gcc
 armadillo
 arp-scan
 arping
@@ -1553,6 +1555,7 @@ hz
 i2p
 i2pd
 i2util
+i686-elf-gcc
 iamb
 iamy
 ibazel
@@ -2193,6 +2196,7 @@ lz4
 lzip
 lziprecover
 lzlib
+m68k-elf-gcc
 macchina
 mackup
 macmon
@@ -3080,6 +3084,7 @@ riemann-client
 rio
 rip2
 ripsecrets
+riscv64-elf-gcc
 risor
 river
 rizin
@@ -3914,6 +3919,7 @@ wxwidgets
 x-cmd
 x265
 x3270
+x86_64-elf-gcc
 xa
 xan
 xapian
