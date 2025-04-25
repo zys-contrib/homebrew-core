@@ -1,8 +1,8 @@
 class Diesel < Formula
   desc "Command-line tool for Rust ORM Diesel"
   homepage "https://diesel.rs"
-  url "https://github.com/diesel-rs/diesel/archive/refs/tags/v2.2.8.tar.gz"
-  sha256 "dc5a7e39b45899ff9757d8fbc6bffb3567696bcd92de949fe971c8b934281b52"
+  url "https://github.com/diesel-rs/diesel/archive/refs/tags/v2.2.10.tar.gz"
+  sha256 "7b2bad8963a8c0617b2d2259b2edeb34f10f36615b9a86e2a4a71546a13d7047"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/diesel-rs/diesel.git", branch: "master"
 
