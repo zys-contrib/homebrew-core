@@ -45,10 +45,22 @@ class Curl < Formula
 
   uses_from_macos "krb5"
   uses_from_macos "openldap"
-  uses_from_macos "zlib"
+  uses_from_macos "zlib", since: :sierra
 
   on_system :linux, macos: :monterey_or_older do
     depends_on "libidn2"
+  end
+
+  # Fixes failure to download certdata.txt due to a redirect
+  patch do
+    url "https://github.com/curl/curl/commit/eeed87f0563d3ca73ff53813418d1f9f03c81fe5.patch?full_index=1"
+    sha256 "f7461a8042ca8ef86492338458ccd79ee286d17773487513928d7ed6ae25818c"
+  end
+
+  # Fixes build on macOS 10.12 and earlier
+  patch do
+    url "https://github.com/curl/curl/commit/d7914f75aa8ecdd68cdbb130c1351a7432597fe4.patch?full_index=1"
+    sha256 "2ba45be5c9238abc914c2a47cd604cbd08972583b310c9079b7b7909b352001b"
   end
 
   def install
