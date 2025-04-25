@@ -88,6 +88,8 @@ class Prestodb < Formula
 
     # Remove incompatible pre-built binaries
     libprocname_dirs = (libexec/"bin/procname").children
+    # Keep the Linux-x86_64 directory to make bottles identical
+    libprocname_dirs.reject! { |dir| dir.basename.to_s == "Linux-x86_64" }
     libprocname_dirs.reject! { |dir| dir.basename.to_s == "#{OS.kernel_name}-#{Hardware::CPU.arch}" }
     rm_r libprocname_dirs
   end
