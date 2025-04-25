@@ -1,8 +1,8 @@
 class Goku < Formula
   desc "HTTP load testing tool"
   homepage "https://github.com/jcaromiq/goku"
-  url "https://github.com/jcaromiq/goku/archive/refs/tags/v1.1.8.tar.gz"
-  sha256 "d03020d63d36465bda0f07b3f3790b9e33579afe176a25fd01e89e9e9d066fc1"
+  url "https://github.com/jcaromiq/goku/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "52a95fa94b808d2c93bc875d78278abc2d9bb9da373d6782f0d4e08394eb6c99"
   license "MIT"
   head "https://github.com/jcaromiq/goku.git", branch: "main"
 
@@ -19,7 +19,7 @@ class Goku < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(path: "cli")
   end
 
   test do
