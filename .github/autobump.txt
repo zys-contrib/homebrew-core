@@ -2679,7 +2679,6 @@ otf2
 otree
 ots
 ott
-otterdog
 ouch
 ov
 overarch
