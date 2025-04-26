@@ -1,9 +1,9 @@
 class Ncftp < Formula
   desc "FTP client with an advanced user interface"
   homepage "https://www.ncftp.com/"
-  url "https://www.ncftp.com/public_ftp/ncftp/ncftp-3.2.9-src.tar.gz"
-  mirror "https://fossies.org/linux/misc/ncftp-3.2.9-src.tar.gz"
-  sha256 "f1108e77782376f8aec691f68297a3364a9a7c2d9bb12e326f550ff9770f47a7"
+  url "https://www.ncftp.com/public_ftp/ncftp/ncftp-3.3.0-src.tar.gz"
+  mirror "https://fossies.org/linux/misc/ncftp-3.3.0-src.tar.gz"
+  sha256 "7920f884c2adafc82c8e41c46d6f3d22698785c7b3f56f5677a8d5c866396386"
   license "ClArtistic"
 
   livecheck do
