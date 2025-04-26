@@ -21,7 +21,6 @@ class Kubevpn < Formula
   def install
     goos = Utils.safe_popen_read("#{Formula["go"].bin}/go", "env", "GOOS").chomp
     goarch = Utils.safe_popen_read("#{Formula["go"].bin}/go", "env", "GOARCH").chomp
-    tags = "noassets"
     project = "github.com/wencaiwulue/kubevpn/v2"
     ldflags = %W[
       -s -w
@@ -32,7 +31,7 @@ class Kubevpn < Formula
       -X #{project}/cmd/kubevpn/cmds.Branch=master
       -X #{project}/cmd/kubevpn/cmds.OsArch=#{goos}/#{goarch}
     ]
-    system "go", "build", *std_go_args(ldflags:, tags:), "./cmd/kubevpn"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/kubevpn"
 
     generate_completions_from_executable(bin/"kubevpn", "completion")
   end
