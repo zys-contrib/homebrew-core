@@ -12,6 +12,7 @@ class Bkmr < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "15080316a55fca8676e80a893be4942fe8964f6f3bc2aba35e825a95dbe648d0"
     sha256 cellar: :any_skip_relocation, sonoma:        "ade0a7d4caad1f8a2c3fa063db92d880225668de22a245987783fd731ae0c179"
     sha256 cellar: :any_skip_relocation, ventura:       "20073c6b60c78ee55935848531fe973edb9350726c23cd6fcdaa8c7838eed961"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0e6d43e29827ab2fbc7b58910f0cdb7ff9698e7d07835e96c0585c9d0d87664c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "83747791a250c673d000397ae3bb0bfc71535e9f78685c8a042ce69898ef01e3"
   end
 
