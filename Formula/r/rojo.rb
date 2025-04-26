@@ -3,19 +3,19 @@ class Rojo < Formula
   homepage "https://rojo.space/"
   # pull from git tag to get submodules
   url "https://github.com/rojo-rbx/rojo.git",
-      tag:      "v7.5.0",
-      revision: "4ddbefa88facbd5e298a13db4517255262cc70d0"
+      tag:      "v7.5.1",
+      revision: "b2c4f550ee73985df05e5cca2595ff3d285d37ea"
   license "MPL-2.0"
   head "https://github.com/rojo-rbx/rojo.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "80d24a4b5c8e8a22c19c77e0987be9789c65bcf809df069d156626ab8b665a2a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7cefd90cd074c4f3ed908080d45b1f4df9a838505fa7ec583823fcb322261488"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ed1180e81620b6f28c4840ce71bf23dfb60752fb434016a7012f9e993bd729b7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "296522b8b183ffdefeb7d264eda004a3b29d28539cca38a61ef82e916378ad00"
-    sha256 cellar: :any_skip_relocation, ventura:       "0f48e0a38fafc99111d84c0ae8d73fbffc7dcff84008e373229e902b476238b0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8548a375eb1a71f0e337d6f8dded55bc4ca46f23f0f50c2e2e047e73f27e7b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "18e5672181a188030fdb6035abd42f44d9c5273cac957e9cd4e43db5b9072bf2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "037768a1eca693218a58a335c29ec37d422b2b6b93d937cbec8e4beae26b5427"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "297641291ed8411808105c23187d9e7041d5b1932f6f0f005b1238c4adedd607"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f4dc7549fc4c5457011ae775846ad419cbc7345bbc80e0aa0944f2c9e4175952"
+    sha256 cellar: :any_skip_relocation, sonoma:        "902353caa2688965ac93fce1fb0257ff4153b2b89a752a833ecaf634b11ff8ab"
+    sha256 cellar: :any_skip_relocation, ventura:       "e63a9354cc43e1ee5ad740d8289d04ead4c404ec8353bf62044cdabd130f3c0d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7ad928d24b8478be1818222f9cabdaecb84a4a6b96ddd60cd18011b3b81bfbb7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f9098f318c9d9d844b64aa223b69fca4c306fee098cc24ab97f4b2f66aa3203"
   end
 
   depends_on "pkgconf" => :build
