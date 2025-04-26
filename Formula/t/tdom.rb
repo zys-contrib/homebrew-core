@@ -5,6 +5,15 @@ class Tdom < Formula
   sha256 "ce22e3f42da9f89718688bf413b82fbf079b40252ba4dd7f2a0e752232bb67e8"
   license "MPL-2.0"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "f98f56e8f8be62637a79a2a50e0e25c4560336a00d0aa3b33350f2b8021d9337"
+    sha256 cellar: :any,                 arm64_sonoma:  "05e1ab5a96379f4cf427299ef7fc13cc7295201d099ebd729b4caca07ea29147"
+    sha256 cellar: :any,                 arm64_ventura: "14999e9dad6567460b4947213240636d8d6a392b9e8dad78b015ec319ba8a228"
+    sha256 cellar: :any,                 sonoma:        "3195c542314a9f7264cfd1d74ab76b81d984a0d64662ee9c8ae78678939be048"
+    sha256 cellar: :any,                 ventura:       "306b99b603977df988833a0510efa21466efb0adb65172112ae93336d8a686f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d70020be1396f84fdbfd00d80ba80ce290a0040b0e929ff7b8444d1f18c8882e"
+  end
+
   depends_on "tcl-tk"
 
   def install
