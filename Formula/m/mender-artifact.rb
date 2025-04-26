@@ -5,6 +5,12 @@ class MenderArtifact < Formula
   sha256 "d82cd2f802033d53f2e947ed8d9d6cdd7a036fadbd92a2696b72122bd2070039"
   license "Apache-2.0"
 
+  # exclude tags like `3.4.0b1` and `internal-v2020.02`
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "a4924ce544d84988a4dc0de898d58398343df8a283099105991ab425ecd2a020"
     sha256 cellar: :any,                 arm64_sonoma:  "c4fc3d5b4caebb7430d2c336012790b3a5ec6fcdd0ca3a12c0acbc33e15ca267"
