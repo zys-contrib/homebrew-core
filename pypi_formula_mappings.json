@@ -59,6 +59,10 @@
   "apprise": {
     "exclude_packages": ["certifi"]
   },
+  "arcade-learning-environment": {
+    "exclude_packages": ["numpy"],
+    "extra_packages": ["gymnasium"]
+  },
   "arjun": {
     "exclude_packages": ["certifi"]
   },

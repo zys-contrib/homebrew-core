@@ -3,8 +3,8 @@ class ArcadeLearningEnvironment < Formula
 
   desc "Platform for AI research"
   homepage "https://github.com/Farama-Foundation/Arcade-Learning-Environment"
-  url "https://github.com/Farama-Foundation/Arcade-Learning-Environment/archive/refs/tags/v0.10.2.tar.gz"
-  sha256 "901a2dd3a5709361d5e6f95eb4798a749870c924a549c20b516b12da4fa43457"
+  url "https://github.com/Farama-Foundation/Arcade-Learning-Environment/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "300717009d18c784bf4b407f608e269d7c87e40769c277206230011352e65b97"
   license "GPL-2.0-only"
   head "https://github.com/Farama-Foundation/Arcade-Learning-Environment.git", branch: "master"
 
@@ -21,9 +21,11 @@ class ArcadeLearningEnvironment < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "pybind11" => :build
+  depends_on "python-packaging" => :build
   depends_on "python-setuptools" => :build
   depends_on macos: :catalina # requires std::filesystem
   depends_on "numpy"
+  depends_on "opencv"
   depends_on "python@3.13"
   depends_on "sdl2"
 
@@ -35,11 +37,20 @@ class ArcadeLearningEnvironment < Formula
     sha256 "02ca777c16476a72fa36680a2ba78f24c3ac31b2155033549a5f37a0653117de"
   end
 
+  resource "gymnasium" do
+    url "https://files.pythonhosted.org/packages/90/69/70cd29e9fc4953d013b15981ee71d4c9ef4d8b2183e6ef2fe89756746dce/gymnasium-1.1.1.tar.gz"
+    sha256 "8bd9ea9bdef32c950a444ff36afc785e1d81051ec32d30435058953c20d2456d"
+  end
+
   def python3
     "python3.13"
   end
 
   def install
+    resource("gymnasium").stage do
+      system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
+    end
+
     system "cmake", "-S", ".", "-B", "build",
                     "-DSDL_SUPPORT=ON",
                     "-DSDL_DYNLOAD=ON",
