@@ -1,8 +1,8 @@
 class Antidote < Formula
   desc "Plugin manager for zsh, inspired by antigen and antibody"
   homepage "https://antidote.sh/"
-  url "https://github.com/mattmc3/antidote/archive/refs/tags/v1.9.8.tar.gz"
-  sha256 "c9c4f4f7ba2e696e80bc3e4c7df184389641f5aaf5ede660f9ce5093d37efa03"
+  url "https://github.com/mattmc3/antidote/archive/refs/tags/v1.9.9.tar.gz"
+  sha256 "a1b127d8c4f565e52e2c577cd95f788f4b88cd6c59198096eded8ca2c3f3891b"
   license "MIT"
 
   bottle do
