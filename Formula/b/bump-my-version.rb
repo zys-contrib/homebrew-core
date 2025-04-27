@@ -10,13 +10,13 @@ class BumpMyVersion < Formula
   head "https://github.com/callowayproject/bump-my-version.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "927439bc5c2fe5f5688842887d0fbd1d8a7a06b5c1a771d6d58e6081122c220d"
-    sha256 cellar: :any,                 arm64_sonoma:  "2c7c6c10479c7aad63dc70433b859e21bb597d074a97d22523a2f0ab7c20547d"
-    sha256 cellar: :any,                 arm64_ventura: "246ca9a0a37df42e9789d28919df35eb8ced05e170d4c23ccfb8af3d75fd5451"
-    sha256 cellar: :any,                 sonoma:        "c4668065db9a1f0d7b22bd207cd5c369ad2c8401cb7b604993e9ed27fafd61cd"
-    sha256 cellar: :any,                 ventura:       "6eca6f63db100fd8fdb9533a688580a0b045012dd3aa49d5cbc8e3e9c3bda4ff"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "75e36113593ef7afc3ad84f7867f438aee547cde163388907f0f484c71d944f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e53938553616e5f58e8239378e4b30c53a71bf3821560b53502f1fb6adb05174"
+    sha256 cellar: :any,                 arm64_sequoia: "dabd1f3b541b3761f0346c9dcaf84699edfcf370d8f4b2cf62c50f9b67e2b739"
+    sha256 cellar: :any,                 arm64_sonoma:  "9c418bef1d864dd40c41c4071cb6296db118d749f3dc8aa9249a30301d2deeb6"
+    sha256 cellar: :any,                 arm64_ventura: "236ad9f0bcad213d13b242fb4aedcea8053c7ad27133ab87b00a237d4ec339ff"
+    sha256 cellar: :any,                 sonoma:        "d1f62da5dd32593c58a715ddba2f8d0a6308d0cdea80493f5ce67b2c031d7285"
+    sha256 cellar: :any,                 ventura:       "2df17298f6344743445d007d1fbcfc9bf2da1904e796e1659709399483fb3190"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "337a0f0e726a151055c3ded41e4cd878f5dab8ca07a0196dc06b82ba2f2f82b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e4a1f0c3d51ef8a235791514b92c2f2f24c142ffc52c8f151099f6bb5441b24"
   end
 
   depends_on "rust" => :build # for pydantic_core
