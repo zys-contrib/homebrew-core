@@ -1,8 +1,8 @@
 class Bibtexconv < Formula
   desc "BibTeX file converter"
   homepage "https://github.com/dreibh/bibtexconv"
-  url "https://github.com/dreibh/bibtexconv/archive/refs/tags/bibtexconv-1.4.5.tar.gz"
-  sha256 "b198d41c0f83011163dd8a0388b06fcca86c8210920483e787ebd07fc09c5eef"
+  url "https://github.com/dreibh/bibtexconv/archive/refs/tags/bibtexconv-2.0.0.tar.gz"
+  sha256 "894d6cda1ff1016fc73eee52f11dc0b1daaa760b2da27ad3d9bb3ad5efbb395f"
   license "GPL-3.0-or-later"
   head "https://github.com/dreibh/bibtexconv.git", branch: "master"
 
@@ -23,7 +23,13 @@ class Bibtexconv < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "curl"
 
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1500
+  end
+
   def install
+    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1500
+
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
                     "-DCRYPTO_LIBRARY=#{Formula["openssl@3"].opt_lib}/#{shared_library("libcrypto")}"
     system "cmake", "--build", "build"
