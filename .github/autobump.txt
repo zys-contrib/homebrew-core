@@ -3620,6 +3620,7 @@ tippecanoe
 titlecase
 tkey-ssh-agent
 tlsx
+tmex
 tml
 tmpmail
 tmpreaper
