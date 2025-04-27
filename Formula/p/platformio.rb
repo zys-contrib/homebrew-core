@@ -10,7 +10,7 @@ class Platformio < Formula
   head "https://github.com/platformio/platformio-core.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b561469654cb856725e68ed36ae1cccb9a3e31bedced4cef5ee7fa75be34d2c9"
+    sha256 cellar: :any_skip_relocation, all: "965af2ec33c2097cf9d0a7d0e2b03c878cd95a4b19f542e390476b157ff2a040"
   end
 
   depends_on "certifi"
