@@ -11,6 +11,7 @@ class Newsraft < Formula
     sha256 cellar: :any,                 arm64_ventura: "7a43b1f4de9f8336d1ae341379973194fcb20190fec944cf82803a05239ba907"
     sha256 cellar: :any,                 sonoma:        "a08c905dcca181c8d6f4b152f1affa9f8ab95c5f86d89afc2ed816a389d0804e"
     sha256 cellar: :any,                 ventura:       "19ec74fd129425f061fac099cabad6242758e263f872486743bff5b1a476caaa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b940bbce47ca977559790c16a354d54bab562c19c2aeb995af1926558496fc58"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b7091f5e434a555cb3c21ff946ea84ee7a41570f0ca3a6e6010c55e4e87b6b2"
   end
 
