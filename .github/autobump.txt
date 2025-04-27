@@ -2472,6 +2472,7 @@ newman
 newrelic-cli
 newrelic-infra-agent
 newsboat
+newsraft
 newt
 nextdns
 nexttrace
