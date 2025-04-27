@@ -1,8 +1,8 @@
 class Postgraphile < Formula
   desc "GraphQL schema created by reflection over a PostgreSQL schema"
   homepage "https://www.graphile.org/postgraphile/"
-  url "https://registry.npmjs.org/postgraphile/-/postgraphile-4.14.0.tgz"
-  sha256 "7d7206f0a3c197358e616c02ca13de1b6889552a049ccf047c8a89e66117be81"
+  url "https://registry.npmjs.org/postgraphile/-/postgraphile-4.14.1.tgz"
+  sha256 "131cb5c572c68a42a6c612b65041a4fa656a5364a75f7384f1446f62a684c9fc"
   license "MIT"
   head "https://github.com/graphile/postgraphile.git", branch: "main"
 
