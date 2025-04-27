@@ -6,6 +6,7 @@ class ZabbixCli < Formula
   url "https://files.pythonhosted.org/packages/d3/ca/edb71c4462cc5bef8e107bcbf38f48f29eb2154ebec08ab373eb9c439d79/zabbix_cli_uio-3.5.2.tar.gz"
   sha256 "1a2eecfcb2e2164911f14aebfcbf40d73dda9f220e35072a44a7fd647e4d1508"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/unioslo/zabbix-cli.git", branch: "master"
 
   bottle do
@@ -38,13 +39,13 @@ class ZabbixCli < Formula
   end
 
   resource "h11" do
-    url "https://files.pythonhosted.org/packages/f5/38/3af3d3633a34a3316095b39c8e8fb4853a28a536e55d347bd8d8e9a14b03/h11-0.14.0.tar.gz"
-    sha256 "8f19fbbe99e72420ff35c00b27a34cb9937e902a8b810e2c88300c6f0a3b699d"
+    url "https://files.pythonhosted.org/packages/01/ee/02a2c011bdab74c6fb3c75474d40b3052059d95df7e73351460c8588d963/h11-0.16.0.tar.gz"
+    sha256 "4e35b956cf45792e4caa5885e69fba00bdbc6ffafbfa020300e549b208ee5ff1"
   end
 
   resource "httpcore" do
-    url "https://files.pythonhosted.org/packages/9f/45/ad3e1b4d448f22c0cff4f5692f5ed0666658578e358b8d58a19846048059/httpcore-1.0.8.tar.gz"
-    sha256 "86e94505ed24ea06514883fd44d2bc02d90e77e7979c8eb71b90f41d364a1bad"
+    url "https://files.pythonhosted.org/packages/06/94/82699a10bca87a5556c9c59b5963f2d039dbd239f25bc2a63907a05a14cb/httpcore-1.0.9.tar.gz"
+    sha256 "6e34463af53fd2ab5d807f399a9b45ea31c3dfa2276f15a2c3f00afff6e176e8"
   end
 
   resource "httpx" do
