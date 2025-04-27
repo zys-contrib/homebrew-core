@@ -6,6 +6,11 @@ class Anubis < Formula
   license "MIT"
   head "https://github.com/TecharoHQ/anubis.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "844a4735b49683b7945e8f303433aed2c30529479ee3c9f0642f1a16c11e3599"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9d0470c63cfbec43aa36ba1dad381186dc8c4ba2bb510081392e0d42ad746e0f"
