@@ -10,13 +10,13 @@ class Yewtube < Formula
   head "https://github.com/mps-youtube/yewtube.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9477d632857de9e13621ad1c9b2f369874c7bb74caca08d45e53f51abe29d4ac"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9477d632857de9e13621ad1c9b2f369874c7bb74caca08d45e53f51abe29d4ac"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9477d632857de9e13621ad1c9b2f369874c7bb74caca08d45e53f51abe29d4ac"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9477d632857de9e13621ad1c9b2f369874c7bb74caca08d45e53f51abe29d4ac"
-    sha256 cellar: :any_skip_relocation, ventura:       "9477d632857de9e13621ad1c9b2f369874c7bb74caca08d45e53f51abe29d4ac"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "922ffd859452373bf9520d2ed9b26cf20dbd7c0896b4ee31a918c86888680171"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fec46483845301e4dd34ac349e3af02ffe535f25332d64de7c52ffda3b378837"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ecec9eb9f3b3ff69d2c7d51999298e0989402fe43feece16a25f05904ac4989d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ecec9eb9f3b3ff69d2c7d51999298e0989402fe43feece16a25f05904ac4989d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ecec9eb9f3b3ff69d2c7d51999298e0989402fe43feece16a25f05904ac4989d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ecec9eb9f3b3ff69d2c7d51999298e0989402fe43feece16a25f05904ac4989d"
+    sha256 cellar: :any_skip_relocation, ventura:       "ecec9eb9f3b3ff69d2c7d51999298e0989402fe43feece16a25f05904ac4989d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5dfef9c8bed35a9cd280b2ee20f9c29b60ada0b95c536d7bdd6759bcc3c9e609"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5dfef9c8bed35a9cd280b2ee20f9c29b60ada0b95c536d7bdd6759bcc3c9e609"
   end
 
   depends_on "certifi"
