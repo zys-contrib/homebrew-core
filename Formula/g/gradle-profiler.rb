@@ -26,7 +26,7 @@ class GradleProfiler < Formula
   test do
     (testpath/"settings.gradle").write ""
     (testpath/"build.gradle").write 'println "Hello"'
-    output = shell_output("#{bin}/gradle-profiler --gradle-version 8.11 --profile chrome-trace")
+    output = shell_output("#{bin}/gradle-profiler --gradle-version 8.14 --profile chrome-trace")
     assert_includes output, "* Writing results to"
   end
 end
