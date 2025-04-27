@@ -8,13 +8,13 @@ class Ncnn < Formula
   head "https://github.com/Tencent/ncnn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b56deb036f5d3e34e7e31559e1b6aa4ab83004e7b8e7a0cf91395a4c1d5504e2"
-    sha256 cellar: :any,                 arm64_sonoma:  "440690d31d4a7ee1d749735cd5c916be3de0cbf88a9c5867bc3acb9affe80cb2"
-    sha256 cellar: :any,                 arm64_ventura: "eaaf9a2a436ae509b2ba17dacbf530eb3ff8ac69eadce2b1c149dd349d0b8e1f"
-    sha256 cellar: :any,                 sonoma:        "2e9b1c30216cafd36989660d61b416e7a3f15acd4086121a91664f6e2aa597f3"
-    sha256 cellar: :any,                 ventura:       "edfc87f796cfbdc84643c41acd2db12ebda9cbb03946528103e88e0504065a0a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "feb89d5e989e2ae2b5eab2d82f96ad6d6cd5685c8b75667ff8975bb7f0b3ee84"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6456b6429dbe703e12054472006ba8b37910c28e57b93920d9c7793b3ad00326"
+    sha256 cellar: :any,                 arm64_sequoia: "f58cf5927b78838dfccf0719e4a07fa008d83b8a051b945e9f886a8d311cfb13"
+    sha256 cellar: :any,                 arm64_sonoma:  "cc0b510dec956b1760c83a9f3ae396a4d7dcc5524726c9f0017505b0dd3d9537"
+    sha256 cellar: :any,                 arm64_ventura: "d919d3837e9fc3278a2b3fb1cd46127fdd067b89bc4fdb4e11c018d204f66202"
+    sha256 cellar: :any,                 sonoma:        "6e671c4926dd41ddf51c5a3612d4fd0f34f879d9619a0822f6bbf2f20845284e"
+    sha256 cellar: :any,                 ventura:       "ed829e66b66c4cda20f7e9282c428e5534171911ee9d88eb6c7436629be7c343"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "280175e2acaae15a5d57ec65c100401be28f431d6c8dc18b2c7720db055842cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "169b4b6bd3b08d7e698e34b84eed1ac2bffaca4b27f07cdda6237247431ef3ae"
   end
 
   depends_on "cmake" => :build
