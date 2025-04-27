@@ -3,8 +3,8 @@ class Mcpm < Formula
 
   desc "Open source, community-driven MCP server and client manager"
   homepage "https://mcpm.sh/"
-  url "https://files.pythonhosted.org/packages/71/f3/d92b94287227bd43ec043e0cf7264ef617542421ba090314eb8d075bcc46/mcpm-1.6.1.tar.gz"
-  sha256 "bf5f398c6d42f417095f1afc347b7b6a8efe38264d45965c64180ab516144f01"
+  url "https://files.pythonhosted.org/packages/92/40/946c120d1587f9f5ddf2eb50027cca48a34903eeac02743497564891d97f/mcpm-1.6.2.tar.gz"
+  sha256 "5ab3ceef5812a8348033bc73401a0886185b0fbc263704cd6e87b169cf43eb26"
   license "MIT"
 
   bottle do
@@ -31,8 +31,8 @@ class Mcpm < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/1c/ab/c9f1e32b7b1bf505bf26f0ef697775960db7932abeb7b516de930ba2705f/certifi-2025.1.31.tar.gz"
-    sha256 "3d5da6925056f6f18f119200434a4780a94263f10d1c21d032a6f6b2baa20651"
+    url "https://files.pythonhosted.org/packages/e8/9e/c05b3920a3b7d20d3d3310465f50348e5b3694f4f88c6daf736eef3024c4/certifi-2025.4.26.tar.gz"
+    sha256 "0a816057ea3cdefcef70270d2c515e4506bbc954f417fa5ade2021213bb8f0c6"
   end
 
   resource "charset-normalizer" do
