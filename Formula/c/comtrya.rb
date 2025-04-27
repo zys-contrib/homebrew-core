@@ -1,8 +1,8 @@
 class Comtrya < Formula
   desc "Configuration and dotfile management tool"
   homepage "https://comtrya.dev"
-  url "https://github.com/comtrya/comtrya/archive/refs/tags/v0.9.1.tar.gz"
-  sha256 "22634bb01f3758007bbb36f9ffdb3c9d4b55471dc23ee66f1ef21b80a23a5751"
+  url "https://github.com/comtrya/comtrya/archive/refs/tags/v0.9.2.tar.gz"
+  sha256 "7bbd6ac04314e2dd541d8104908a2e8991a7489daab5563d01d28a3e48c08350"
   license "MIT"
   head "https://github.com/comtrya/comtrya.git", branch: "main"
 
