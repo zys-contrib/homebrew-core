@@ -6,6 +6,7 @@ class BumpMyVersion < Formula
   url "https://files.pythonhosted.org/packages/13/0a/544e8eb6d46baa99bf16d180b4ddb4509631fa8476e686c8e6c47681afb4/bump_my_version-1.1.2.tar.gz"
   sha256 "0122845a78502b5a5a635ca17c1efb3e1ec05e77d72d13b2314186b9806882fb"
   license "MIT"
+  revision 1
   head "https://github.com/callowayproject/bump-my-version.git", branch: "master"
 
   bottle do
@@ -37,8 +38,8 @@ class BumpMyVersion < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/1c/ab/c9f1e32b7b1bf505bf26f0ef697775960db7932abeb7b516de930ba2705f/certifi-2025.1.31.tar.gz"
-    sha256 "3d5da6925056f6f18f119200434a4780a94263f10d1c21d032a6f6b2baa20651"
+    url "https://files.pythonhosted.org/packages/e8/9e/c05b3920a3b7d20d3d3310465f50348e5b3694f4f88c6daf736eef3024c4/certifi-2025.4.26.tar.gz"
+    sha256 "0a816057ea3cdefcef70270d2c515e4506bbc954f417fa5ade2021213bb8f0c6"
   end
 
   resource "click" do
@@ -47,13 +48,13 @@ class BumpMyVersion < Formula
   end
 
   resource "h11" do
-    url "https://files.pythonhosted.org/packages/f5/38/3af3d3633a34a3316095b39c8e8fb4853a28a536e55d347bd8d8e9a14b03/h11-0.14.0.tar.gz"
-    sha256 "8f19fbbe99e72420ff35c00b27a34cb9937e902a8b810e2c88300c6f0a3b699d"
+    url "https://files.pythonhosted.org/packages/01/ee/02a2c011bdab74c6fb3c75474d40b3052059d95df7e73351460c8588d963/h11-0.16.0.tar.gz"
+    sha256 "4e35b956cf45792e4caa5885e69fba00bdbc6ffafbfa020300e549b208ee5ff1"
   end
 
   resource "httpcore" do
-    url "https://files.pythonhosted.org/packages/9f/45/ad3e1b4d448f22c0cff4f5692f5ed0666658578e358b8d58a19846048059/httpcore-1.0.8.tar.gz"
-    sha256 "86e94505ed24ea06514883fd44d2bc02d90e77e7979c8eb71b90f41d364a1bad"
+    url "https://files.pythonhosted.org/packages/06/94/82699a10bca87a5556c9c59b5963f2d039dbd239f25bc2a63907a05a14cb/httpcore-1.0.9.tar.gz"
+    sha256 "6e34463af53fd2ab5d807f399a9b45ea31c3dfa2276f15a2c3f00afff6e176e8"
   end
 
   resource "httpx" do
@@ -77,8 +78,8 @@ class BumpMyVersion < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/a1/e1/bd15cb8ffdcfeeb2bdc215de3c3cffca11408d829e4b8416dcfe71ba8854/prompt_toolkit-3.0.50.tar.gz"
-    sha256 "544748f3860a2623ca5cd6d2795e7a14f3d0e1c3c9728359013f79877fc89bab"
+    url "https://files.pythonhosted.org/packages/bb/6e/9d084c929dfe9e3bfe0c6a47e31f78a25c54627d64a66e884a8bf5474f1c/prompt_toolkit-3.0.51.tar.gz"
+    sha256 "931a162e3b27fc90c86f1b48bb1fb2c528c2761475e57c9c06de13311c7b54ed"
   end
 
   resource "pydantic" do
@@ -92,8 +93,8 @@ class BumpMyVersion < Formula
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/88/82/c79424d7d8c29b994fb01d277da57b0a9b09cc03c3ff875f9bd8a86b2145/pydantic_settings-2.8.1.tar.gz"
-    sha256 "d5c663dfbe9db9d5e1c646b2e161da12f0d734d422ee56f567d0ea2cee4e8585"
+    url "https://files.pythonhosted.org/packages/67/1d/42628a2c33e93f8e9acbde0d5d735fa0850f3e6a2f8cb1eb6c40b9a732ac/pydantic_settings-2.9.1.tar.gz"
+    sha256 "c509bf79d27563add44e8446233359004ed85066cd096d8b510f715e6ef5d268"
   end
 
   resource "pygments" do
