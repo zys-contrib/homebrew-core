@@ -12,13 +12,13 @@ class Glslang < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1718b3da09df665f37ca130d3d5c584fb174e29feacfcf72399a817fa2c9031e"
-    sha256 cellar: :any,                 arm64_sonoma:  "d643e9284edbc89b4e4906e70afd7d06bf3fd2e20ebb9978bceb06e0903a7a30"
-    sha256 cellar: :any,                 arm64_ventura: "d2f5ca41a945434e67d0ac6ac48ee1903f24ccb02febd5e2a6b215926fb97ec1"
-    sha256 cellar: :any,                 sonoma:        "12987fe9368dfd4a4cfbf9ec2d8be0292fbb199b23fd148260023e895ae54d16"
-    sha256 cellar: :any,                 ventura:       "24d32a6307452552ecdf9fcd21c6000b1bf16c3faf2c56370ea5e501496a0be3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7a13bb0a37a1cf9609c8747b9de973124869b3da75c02bb84d512c638c21d03d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3968014ff1d39cb6760dddb458c74b05c5d539c630db05ead07b2d2d23a7e284"
+    sha256 cellar: :any,                 arm64_sequoia: "2574cfc92a1eab1cff6b23bdaa3ecd331e6dccb00f26f0f47e5afa9f7fa09e60"
+    sha256 cellar: :any,                 arm64_sonoma:  "4859ce0ef1be9e7f84495d71ed8a7c77be79b16cd21150c686a132a36928c114"
+    sha256 cellar: :any,                 arm64_ventura: "022092d34d24bd6c466c4fb58e983e93333cfb78385511a989415f9f444effa7"
+    sha256 cellar: :any,                 sonoma:        "70505478f4cc0a2d1279ddd3cbe2f6d08c0165a58c5abde06d3a54ad59d82072"
+    sha256 cellar: :any,                 ventura:       "bf5c7a620da27ffe8e699726cd0bf2714df095f486350fd0ed3f49f5ce02d4f4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "057e833ade33f1d532e92ea0d2f3ae5cd02ac29f4a1aceef660c1091e0c5cf42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "787c48045e0233ea28b67db07e0aeaf15d0fd05becc2f9d459d7c4695362d77e"
   end
 
   depends_on "cmake" => :build
