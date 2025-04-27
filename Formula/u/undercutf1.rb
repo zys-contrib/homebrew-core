@@ -6,6 +6,14 @@ class Undercutf1 < Formula
   license "GPL-3.0-only"
   head "https://github.com/JustAman62/undercut-f1.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "393c39bf49ccad140758dd223b8b28310c0d71f7eb782b8b0c9b0d69a73057a6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f5f6e5a70f920b28ba10a791ac64fcc9d7cddd1d88f3bd8a0a6ee81d1c07bc8d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "890534b7dd46ec41771a661304d7f0c4083f6907a96b9a9b484feffe8ff45d8d"
+    sha256 cellar: :any_skip_relocation, ventura:       "f5b64f54beafee397e678b7a3d48e4b4309eba91947fd2c1e1d3dcedea07565e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9df08d65910fc9db57280ab10eb55c321f47635e9053df447e5c501b5fce3bba"
+  end
+
   depends_on "dotnet"
   depends_on "ffmpeg"
   depends_on "fontconfig"
