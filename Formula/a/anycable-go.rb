@@ -1,10 +1,10 @@
 class AnycableGo < Formula
   desc "WebSocket server with action cable protocol"
-  homepage "https://github.com/anycable/anycable-go"
-  url "https://github.com/anycable/anycable-go/archive/refs/tags/v1.5.6.tar.gz"
-  sha256 "ac590a7072cd9048e588a1e9eada94d54e97f495f4a6986f2ade912581600aac"
+  homepage "https://github.com/anycable/anycable"
+  url "https://github.com/anycable/anycable/archive/refs/tags/v1.6.1.tar.gz"
+  sha256 "3d0324493b1c7733b75c2875308771914f99ad7621fa9ad1228323e2497406e1"
   license "MIT"
-  head "https://github.com/anycable/anycable-go.git", branch: "master"
+  head "https://github.com/anycable/anycable.git", branch: "main"
 
   livecheck do
     url :stable
@@ -27,9 +27,9 @@ class AnycableGo < Formula
       -s -w
     ]
     ldflags << if build.head?
-      "-X github.com/anycable/anycable-go/utils.sha=#{version.commit}"
+      "-X github.com/anycable/anycable/utils.sha=#{version.commit}"
     else
-      "-X github.com/anycable/anycable-go/utils.version=#{version}"
+      "-X github.com/anycable/anycable/utils.version=#{version}"
     end
 
     system "go", "build", *std_go_args(ldflags:), "./cmd/anycable-go"
