@@ -39,6 +39,12 @@ class Textidote < Formula
   end
 
   test do
+    # After openjdk 24, "jdk.xml.totalEntitySizeLimit" was modified to 100000 (and before that was 50000000),
+    # which would cause a JAXP00010004 error.
+    # See: https://docs.oracle.com/en/java/javase/23/docs/api/java.xml/module-summary.html#jdk.xml.totalEntitySizeLimit
+    # See: https://docs.oracle.com/en/java/javase/24/docs/api/java.xml/module-summary.html#jdk.xml.totalEntitySizeLimit
+    ENV["JAVA_OPTS"] = "-Djdk.xml.totalEntitySizeLimit=50000000"
+
     output = shell_output("#{bin}/textidote --version")
     assert_match "TeXtidote", output
 
