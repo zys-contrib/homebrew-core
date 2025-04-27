@@ -9,13 +9,13 @@ class Sysaidmin < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e6f2c27d4e2ad2be4732783fcdcd0a1a61202c6a00328af8e4a29a4d9f4536ac"
-    sha256 cellar: :any,                 arm64_sonoma:  "483606c0fd09b5653797532d1992ac491c07ff68323ee649cb981cfed9a32aa4"
-    sha256 cellar: :any,                 arm64_ventura: "baf0a066b54b009dd1da0a2d7f2ccc08dfa05bb14949065e87a275d0188631a1"
-    sha256 cellar: :any,                 sonoma:        "cc2bc0deae6f3140438ceb7fb1315d90f88a1a0b8723e8504e40190743525375"
-    sha256 cellar: :any,                 ventura:       "67c6e7df79acf1d89f18d185a460c9fdbe3eda3eb1ec1754a208363ec1911ebc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2f597c8125defc30a776ec9c4ebc4d1c9fc786bf708d1becf4c266f247c1540f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfb0a32000b46892ea3d3155a635bf0c5311f04e3f6a61d18ad62e11725d6db2"
+    sha256 cellar: :any,                 arm64_sequoia: "ab1447a16293a706addd85001c911b1543833b531d55feed4c45e74af35042a5"
+    sha256 cellar: :any,                 arm64_sonoma:  "243fedb5e15dc31b137ec7ee259d2a994b186c5df8f0951fcca3556959898a5d"
+    sha256 cellar: :any,                 arm64_ventura: "ccc927ca39e55adfc4915457466ce57a1f2f672efda5df4ca7aa5ddcc5afa6a9"
+    sha256 cellar: :any,                 sonoma:        "5f877f08a4c4dd09c344453f3247641a6ec70249c478b8dd0b4db599e4aadb43"
+    sha256 cellar: :any,                 ventura:       "da9a68d50f541d77d345a3fd83a7d7fcfe5cc76df46f8328b0bf7c7b539dbee9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e9427ceb6af716340329bf39701baef5406c4307fd01fb95397c2510bb5678e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "271c17ea3ddb5d63096b9c1978a840c40f7f29cf2326883f158064943da36ec7"
   end
 
   depends_on "rust" => :build # for pydantic_core
