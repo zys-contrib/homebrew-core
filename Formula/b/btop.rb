@@ -1,8 +1,8 @@
 class Btop < Formula
   desc "Resource monitor. C++ version and continuation of bashtop and bpytop"
   homepage "https://github.com/aristocratos/btop"
-  url "https://github.com/aristocratos/btop/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "ac0d2371bf69d5136de7e9470c6fb286cbee2e16b4c7a6d2cd48a14796e86650"
+  url "https://github.com/aristocratos/btop/archive/refs/tags/v1.4.1.tar.gz"
+  sha256 "40f6c54d1bc952c674b677d81dd25f55b61e9c004883c27950dc30780c86f381"
   license "Apache-2.0"
   head "https://github.com/aristocratos/btop.git", branch: "main"
 
@@ -73,7 +73,7 @@ class Btop < Formula
       # Apple silicon raises EIO
     end
 
-    log = (config/"btop.log").read
+    log = (testpath/".local/state/btop.log").read
     # SMC is not available in VMs.
     log = log.lines.grep_v(/ERROR:.* SMC /).join if Hardware::CPU.virtualized?
     assert_match "===> btop++ v.#{version}", log
