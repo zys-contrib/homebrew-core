@@ -1,8 +1,8 @@
 class CargoFlamegraph < Formula
   desc "Easy flamegraphs for Rust projects and everything else"
   homepage "https://github.com/flamegraph-rs/flamegraph"
-  url "https://github.com/flamegraph-rs/flamegraph/archive/refs/tags/v0.6.7.tar.gz"
-  sha256 "d7fa901673f4ece09226aeda416b98f919b7d946541ec948f1ef682bd6eec23b"
+  url "https://github.com/flamegraph-rs/flamegraph/archive/refs/tags/v0.6.8.tar.gz"
+  sha256 "2673a04bd4de142220d42706e0c25a4dea08aee52cdffbf87cca5738cec649ff"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/flamegraph-rs/flamegraph.git", branch: "main"
 
@@ -37,12 +37,7 @@ class CargoFlamegraph < Formula
     system "cargo", "new", "testproj", "--bin"
     cd "testproj" do
       system "cargo", "build", "--release"
-      expected = if OS.mac?
-        "Error: DTrace requires elevated permissions"
-      else
-        "WARNING: profiling without debuginfo"
-      end
-      assert_match expected, shell_output("cargo flamegraph 2>&1", 1)
+      assert_match "WARNING: profiling without debuginfo", shell_output("cargo flamegraph 2>&1", 1)
     end
 
     expected = if OS.mac?
