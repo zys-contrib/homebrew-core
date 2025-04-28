@@ -1,8 +1,8 @@
 class Spr < Formula
   desc "Submit pull requests for individual, amendable, rebaseable commits to GitHub"
   homepage "https://spacedentist.github.io/spr/"
-  url "https://github.com/spacedentist/spr/archive/refs/tags/v1.3.5.tar.gz"
-  sha256 "d1f53f4222fd9916c9edc0457bfe04bac66d9ff60a7c0e7a0c4519317c3f3fb8"
+  url "https://github.com/spacedentist/spr/archive/refs/tags/v1.3.6.tar.gz"
+  sha256 "a9ee0f3e1c90176841a42f2177a31c83a93a8cfb83bc1507fcb544ff8d997de7"
   license "MIT"
   head "https://github.com/spacedentist/spr.git", branch: "master"
 
@@ -19,17 +19,13 @@ class Spr < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "86d1aa332e5b30c08f8d1eaa2aa49a5371ead75d9e5061c6fd822d5a0c70f972"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
+
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "pkgconf" => :build
-  end
-
-  # rust 1.80 build patch, upstream pr ref, https://github.com/spacedentist/spr/pull/202
-  patch do
-    url "https://github.com/spacedentist/spr/commit/ed450a3ec9c2b79e585ff162f0f3bd2fb2be4b00.patch?full_index=1"
-    sha256 "e1b7dab848c828a704ceeff2e46511e17a16198f26b184f75afd8bf0f695d22e"
+    depends_on "openssl@3"
   end
 
   def install

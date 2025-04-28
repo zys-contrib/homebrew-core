@@ -3384,6 +3384,7 @@ spoofdpi
 spot
 spotbugs
 spotify_player
+spr
 spytrap-adb
 sq
 sql-formatter
