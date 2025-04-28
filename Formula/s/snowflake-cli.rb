@@ -3,8 +3,8 @@ class SnowflakeCli < Formula
 
   desc "CLI for snowflake"
   homepage "https://docs.snowflake.com/developer-guide/snowflake-cli/index"
-  url "https://files.pythonhosted.org/packages/5f/61/c6652f47e0a08163b8c25f4b708ddf134bdd9cc9a5d7bf7187a6cc5e598f/snowflake_cli-3.7.0.tar.gz"
-  sha256 "f9c491ca8e6c7be3c658c90e16c3cd84722da84eb6a43e5e1d66523fbd0bfe01"
+  url "https://files.pythonhosted.org/packages/b2/aa/3ab22ed5bf029702f09cd8a5345a0387d5f79ba8ee1d078ebee206084df8/snowflake_cli-3.7.1.tar.gz"
+  sha256 "98cba2d5eac9e27440ecd0e7bebdb7faa027abf6c04e0de74b6d9386f6478083"
   license "Apache-2.0"
 
   bottle do
@@ -111,13 +111,13 @@ class SnowflakeCli < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/88/3b/7fa1fe835e2e93fd6d7b52b2f95ae810cf5ba133e1845f726f5a992d62c2/more-itertools-10.6.0.tar.gz"
-    sha256 "2cd7fad1009c31cc9fb6a035108509e6547547a7a738374f10bd49a09eb3ee3b"
+    url "https://files.pythonhosted.org/packages/ce/a0/834b0cebabbfc7e311f30b46c8188790a37f89fc8d756660346fe5abfd09/more_itertools-10.7.0.tar.gz"
+    sha256 "9fddd5403be01a94b204faadcff459ec3568cf110265d3c54323e1e866ad29d3"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   resource "platformdirs" do
@@ -221,8 +221,8 @@ class SnowflakeCli < Formula
   end
 
   resource "types-setuptools" do
-    url "https://files.pythonhosted.org/packages/e9/6e/c54e6705e5fe67c3606e4c7c91123ecf10d7e1e6d7a9c11b52970cf2196c/types_setuptools-78.1.0.20250329.tar.gz"
-    sha256 "31e62950c38b8cc1c5114b077504e36426860a064287cac11b9666ab3a483234"
+    url "https://files.pythonhosted.org/packages/ce/61/5b764d556977ab27976f335d7493dc267b0dbcb5fae7fe117547c292c069/types_setuptools-79.0.0.20250422.tar.gz"
+    sha256 "9c9f699a5914d2ed97f02ee749fb2c7bc2898f8dad03b5dd74b74d4f80e29972"
   end
 
   resource "typing-extensions" do
