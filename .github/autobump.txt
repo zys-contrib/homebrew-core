@@ -1590,6 +1590,7 @@ imposm3
 inchi
 include-what-you-use
 inetutils
+infat
 infisical
 influxdb
 influxdb-cli
