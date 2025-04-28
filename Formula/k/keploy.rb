@@ -7,12 +7,12 @@ class Keploy < Formula
   head "https://github.com/keploy/keploy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9c3a2d94394278baa386d933526d2dc479ce4b4ca75d0f06e18ee0942b00e6f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b9c3a2d94394278baa386d933526d2dc479ce4b4ca75d0f06e18ee0942b00e6f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b9c3a2d94394278baa386d933526d2dc479ce4b4ca75d0f06e18ee0942b00e6f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c9f71a0bdada3c8696539494940d599f1f25d2022f24960ce553085e997e6b23"
-    sha256 cellar: :any_skip_relocation, ventura:       "c9f71a0bdada3c8696539494940d599f1f25d2022f24960ce553085e997e6b23"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db552a6165c5074ed8fd1fd471aee6f352407c05a29c246318f96efc83a57576"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5284f0bee63285c1ccfc92deae3d9df75fb9b4d8b75749c61b7186e6d718db79"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5284f0bee63285c1ccfc92deae3d9df75fb9b4d8b75749c61b7186e6d718db79"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5284f0bee63285c1ccfc92deae3d9df75fb9b4d8b75749c61b7186e6d718db79"
+    sha256 cellar: :any_skip_relocation, sonoma:        "22ee7bdf8ccfae4ddc2361c1a5fe5939e898d7543fcc98b334513bcbd6a76455"
+    sha256 cellar: :any_skip_relocation, ventura:       "22ee7bdf8ccfae4ddc2361c1a5fe5939e898d7543fcc98b334513bcbd6a76455"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ffc00603e0999fe4c227f54214f8d50316299dbb9d4705f5272ccbc00ccba43"
   end
 
   depends_on "go" => :build
