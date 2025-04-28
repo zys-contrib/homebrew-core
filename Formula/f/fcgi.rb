@@ -2,8 +2,8 @@ class Fcgi < Formula
   desc "Protocol for interfacing interactive programs with a web server"
   # Last known good original homepage: https://web.archive.org/web/20080906064558/www.fastcgi.com/
   homepage "https://fastcgi-archives.github.io/"
-  url "https://github.com/FastCGI-Archives/fcgi2/archive/refs/tags/2.4.5.tar.gz"
-  sha256 "92b0111a98d8636e06c128444a3d4d7a720bdd54e6ee4dd0c7b67775b1b0abff"
+  url "https://github.com/FastCGI-Archives/fcgi2/archive/refs/tags/2.4.6.tar.gz"
+  sha256 "39af4fb21a6d695a5f0b1c4fa95776d2725f6bc6c77680943a2ab314acd505c1"
   license "OML"
 
   bottle do
