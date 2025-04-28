@@ -10,7 +10,8 @@ class Solr < Formula
     sha256 cellar: :any_skip_relocation, all: "7c95f8f53dcd8074d27a4822d11f0f8c3184902b426931aa6c764f862bd5ecf4"
   end
 
-  depends_on "openjdk"
+  # Can be updated after https://github.com/apache/solr/pull/3153
+  depends_on "openjdk@21"
 
   def install
     pkgshare.install "bin/solr.in.sh"
