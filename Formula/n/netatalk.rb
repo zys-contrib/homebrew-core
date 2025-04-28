@@ -15,13 +15,13 @@ class Netatalk < Formula
   head "https://github.com/Netatalk/netatalk.git", branch: "main"
 
   bottle do
-    sha256 arm64_sequoia: "59e7f58d1549c181149791b1ed24db7771c38f23dbfbd56f5166873dba795ac1"
-    sha256 arm64_sonoma:  "8e4cd8614d2fcc8e10600407bbb2d37d82f684b68788157ba931f670f9155c9d"
-    sha256 arm64_ventura: "356a888b560821fc1304cbbf17ca75370e443cea515cc570c5532574c929b3be"
-    sha256 sonoma:        "e4aa6398b87f712b5f29708ac5bd106cd3205c2493b4a3d4bb12b9f3585367c7"
-    sha256 ventura:       "b5d5f71be553dfe45fa08fefbe02070c8ea09ebc1e6257181be764c0d78d8bf3"
-    sha256 arm64_linux:   "ba91e09a59aaf6d62d95e8dbf447a12b928ec431e686ba177b3f71311b9cc450"
-    sha256 x86_64_linux:  "e5c682255137d0aa2ae328024ee18608f6bbf588c23a46007665b64e951f8434"
+    sha256 arm64_sequoia: "ac81b1b9d7ca8deef169399a06ea00c0301cdeafc21acf8d2ad5e6dad5efd4f2"
+    sha256 arm64_sonoma:  "b6715d6e08404ab7042c91a1df8ce27194ab888d16c73fa3b54753439fd96378"
+    sha256 arm64_ventura: "d1b59437683448e0ae09a9882586a5170a2d2b3cad753cb004f076c5e126561b"
+    sha256 sonoma:        "387964b07b508bd7b1e45dedd1616d6808e4a056ed42fdefb4bb1b5476cbdf28"
+    sha256 ventura:       "2f4ace16beedba58d3059c532c458713b58b8a61cb564bda65d4c51d503cbd98"
+    sha256 arm64_linux:   "148a9a562c037ac889fb0093679e4120e6e0a327c7f2756b4289456f233989fb"
+    sha256 x86_64_linux:  "cc9daeb30fcc9efc9a520653c186cd8cf6e19c21ed2594ce346ba381df309a88"
   end
 
   depends_on "cmark-gfm" => :build
