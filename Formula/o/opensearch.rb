@@ -1,8 +1,8 @@
 class Opensearch < Formula
   desc "Open source distributed and RESTful search engine"
   homepage "https://github.com/opensearch-project/OpenSearch"
-  url "https://github.com/opensearch-project/OpenSearch/archive/refs/tags/2.19.1.tar.gz"
-  sha256 "99999a392dcf90bafebfa143ed071b45662fb022dcbcfa77df802248338d3a63"
+  url "https://github.com/opensearch-project/OpenSearch/archive/refs/tags/2.19.2.tar.gz"
+  sha256 "660eaf0958e79198c3f5483361b70a1f7618ae965955d25f2ca48ca2d113ed18"
   license "Apache-2.0"
 
   bottle do
@@ -16,12 +16,15 @@ class Opensearch < Formula
   end
 
   depends_on "gradle" => :build
-  depends_on "openjdk"
+  # Can be updated after https://github.com/opensearch-project/OpenSearch/pull/18085 is released.
+  depends_on "openjdk@21"
 
-  # Fix for gradle 8.13, could be removed in the next release
-  # We modify the patch to remove binary changes for linux
-  # PR Ref: https://github.com/opensearch-project/OpenSearch/pull/17345
+  # Remove below patches after https://github.com/opensearch-project/OpenSearch/pull/17942 is released.
   patch :DATA
+  patch do
+    url "https://github.com/opensearch-project/OpenSearch/commit/d3eb8fe5e85f1103d73410703269a0f967ad3ec2.patch?full_index=1"
+    sha256 "f9c91e12cdbcb8625bcc704d34d6d10bdfc94aa86395faa6293bdf41d030cfe8"
+  end
 
   def install
     platform = OS.kernel_name.downcase
@@ -63,7 +66,8 @@ class Opensearch < Formula
                 libexec/"bin/opensearch-keystore",
                 libexec/"bin/opensearch-plugin",
                 libexec/"bin/opensearch-shard"
-    bin.env_script_all_files(libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix)
+    # Can be updated after https://github.com/opensearch-project/OpenSearch/pull/18085 is released.
+    bin.env_script_all_files(libexec/"bin", JAVA_HOME: Formula["openjdk@21"].opt_prefix)
   end
 
   def post_install
@@ -127,17 +131,17 @@ index 679f7b9299248fb0f5173db8fccdfb77965e394b..187574da9e62aec063548871f5dc1a7f
    }
  }
 diff --git a/distribution/packages/build.gradle b/distribution/packages/build.gradle
-index ada19dfa38e785aed9ea01d613226d624856ebbd..d3cecde24a35dade98ed18c2d5f55dba0ee5b5b7 100644
+index 113ab8aced60b29406c60a80ae2097505eb9923b..b94431c63c96467fa75ba7cc607391997dd287fc 100644
 --- a/distribution/packages/build.gradle
 +++ b/distribution/packages/build.gradle
 @@ -63,7 +63,7 @@ import java.util.regex.Pattern
   */
- 
+
  plugins {
 -  id "com.netflix.nebula.ospackage-base" version "11.10.1"
-+  id "com.netflix.nebula.ospackage-base" version "11.11.1"
++  id "com.netflix.nebula.ospackage-base" version "11.11.2"
  }
- 
+
  void addProcessFilesTask(String type, boolean jdk) {
 diff --git a/gradle/code-coverage.gradle b/gradle/code-coverage.gradle
 index eb27dd1a76634251bceafd6fefbafd65eafd5c66..1e41f12e1cc48de3ec9bcd0078f348f3a30af8f3 100644
@@ -157,7 +161,7 @@ index c51246f2815f5294bd8a51b3ac25c19964577ac1..95e1a2f213a063c0f371f4eab8e67ba8
 --- a/gradle/wrapper/gradle-wrapper.properties
 +++ b/gradle/wrapper/gradle-wrapper.properties
 @@ -11,7 +11,7 @@
- 
+
  distributionBase=GRADLE_USER_HOME
  distributionPath=wrapper/dists
 -distributionUrl=https\://services.gradle.org/distributions/gradle-8.12.1-all.zip
@@ -177,12 +181,12 @@ index f5feea6d6b116baaca5a2642d4d9fa1f47d574a7..faf93008b77e7b52e18c44e4eef257fc
 -APP_HOME=$( cd -P "${APP_HOME:-./}" > /dev/null && printf '%s
 -' "$PWD" ) || exit
 +APP_HOME=$( cd -P "${APP_HOME:-./}" > /dev/null && printf '%s\n' "$PWD" ) || exit
- 
+
  # Use the maximum available, or set MAX_FD != -1 to use that value.
  MAX_FD=maximum
 @@ -206,7 +205,7 @@ fi
  DEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'
- 
+
  # Collect all arguments for the java command:
 -#   * DEFAULT_JVM_OPTS, JAVA_OPTS, JAVA_OPTS, and optsEnvironmentVar are not allowed to contain shell fragments,
 +#   * DEFAULT_JVM_OPTS, JAVA_OPTS, and optsEnvironmentVar are not allowed to contain shell fragments,
