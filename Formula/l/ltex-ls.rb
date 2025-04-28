@@ -45,7 +45,12 @@ class LtexLs < Formula
       libexec.install Dir["ltex-ls-#{version}/*"]
     end
 
-    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
+    # Fix run with `openjdk` 24.
+    # Reported upstream at https://github.com/valentjn/ltex-ls/issues/322.
+    envs = Language::Java.overridable_java_home_env.merge({
+      "JAVA_OPTS" => "${JAVA_OPTS:--Djdk.xml.totalEntitySizeLimit=50000000}",
+    })
+    bin.env_script_all_files libexec/"bin", envs
   end
 
   test do
