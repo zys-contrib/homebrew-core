@@ -3,10 +3,9 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://ansible-lint.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/fd/6a/275426480d8d76ccd334085f7e04ef53bacafd7b99e192ec508ca1498c7c/ansible_lint-25.2.1.tar.gz"
-  sha256 "ec4b1fcfa8bef13f547feefa22ea6864defd902b3a267ef8f4c5341976f45ff1"
+  url "https://files.pythonhosted.org/packages/24/50/3d0bb7e77aed2a66fce4b87aec249adb11070ef2025db1215b1c0fb14b51/ansible_lint-25.4.0.tar.gz"
+  sha256 "f2f2b31ad199925b2343f660552fb9468970f16c2c5d57da9feae70ec4eeca7d"
   license all_of: ["MIT", "GPL-3.0-or-later"]
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "54099409cfc978fd31b63a15df4d43ad77237ce9a4b2af4a6583fb6ebbb38dff"
@@ -61,8 +60,8 @@ class AnsibleLint < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/33/08/c1395a292bb23fd03bdf572a1357c5a733d3eecbab877641ceacab23db6e/importlib_metadata-8.6.1.tar.gz"
-    sha256 "310b41d755445d74569f993ccfc22838295d9fe005425094fad953d7f15c8580"
+    url "https://files.pythonhosted.org/packages/76/66/650a33bd90f786193e4de4b3ad86ea60b53c89b669a5c7be931fac31cdb0/importlib_metadata-8.7.0.tar.gz"
+    sha256 "d13b81ad223b890aa16c5471f2ac3056cf76c5f10f82d6f9292f0b415f389000"
   end
 
   resource "jinja2" do
@@ -76,8 +75,8 @@ class AnsibleLint < Formula
   end
 
   resource "jsonschema-specifications" do
-    url "https://files.pythonhosted.org/packages/10/db/58f950c996c793472e336ff3655b13fbcf1e3b359dcf52dcf3ed3b52c352/jsonschema_specifications-2024.10.1.tar.gz"
-    sha256 "0f38b83639958ce1152d02a7f062902c41c8fd20d558b0c34344292d417ae272"
+    url "https://files.pythonhosted.org/packages/bf/ce/46fbd9c8119cfc3581ee5643ea49464d168028cfb5caff5fc0596d0cf914/jsonschema_specifications-2025.4.1.tar.gz"
+    sha256 "630159c9f4dbea161a6a2205c3011cc4f18ff381b189fff48bb39b9bf26ae608"
   end
 
   resource "markupsafe" do
