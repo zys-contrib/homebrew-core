@@ -12,14 +12,13 @@ class Quilt < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d2b6755e89daa3a57fa60ad323cf75e0600cbd35b2149148546d023be74b24a5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d2b6755e89daa3a57fa60ad323cf75e0600cbd35b2149148546d023be74b24a5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "beda4b671dafc8440a3d73d8512d6ebfdb079ec999080db08085f76858d5be3b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d2b6755e89daa3a57fa60ad323cf75e0600cbd35b2149148546d023be74b24a5"
-    sha256 cellar: :any_skip_relocation, ventura:       "beda4b671dafc8440a3d73d8512d6ebfdb079ec999080db08085f76858d5be3b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c058d9d379174e2bfeae60710a80ad733892828a2b8d5438739d58672c6ad2f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "10a962d1f5d639afac31216ef075e670aedf9b302e3f2fd5d79c9c9e51865384"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "93979fd118d49801525b0d28a8572a055893d3e3169ee9eff1bca64e69d9ccc2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "93979fd118d49801525b0d28a8572a055893d3e3169ee9eff1bca64e69d9ccc2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "93979fd118d49801525b0d28a8572a055893d3e3169ee9eff1bca64e69d9ccc2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "93979fd118d49801525b0d28a8572a055893d3e3169ee9eff1bca64e69d9ccc2"
+    sha256 cellar: :any_skip_relocation, ventura:       "93979fd118d49801525b0d28a8572a055893d3e3169ee9eff1bca64e69d9ccc2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f0aadd65237093e1356cf63eef91a5ab80f8cba26bc8e034d05de7c3095dd64c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0aadd65237093e1356cf63eef91a5ab80f8cba26bc8e034d05de7c3095dd64c"
   end
 
   depends_on "coreutils"
