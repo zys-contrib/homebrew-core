@@ -1,8 +1,8 @@
 class Proxygen < Formula
   desc "Collection of C++ HTTP libraries"
   homepage "https://github.com/facebook/proxygen"
-  url "https://github.com/facebook/proxygen/releases/download/v2025.04.14.00/proxygen-v2025.04.14.00.tar.gz"
-  sha256 "4ba8f199b1535899d3c9800db90ad0fc2995e9fd2c6f29e2872654d051ef5977"
+  url "https://github.com/facebook/proxygen/releases/download/v2025.04.28.00/proxygen-v2025.04.28.00.tar.gz"
+  sha256 "d44cd1582e42a979fdf16848b4e2ba71ea0a4163f39400e09d04c289dc5209a6"
   license "BSD-3-Clause"
   head "https://github.com/facebook/proxygen.git", branch: "main"
 
