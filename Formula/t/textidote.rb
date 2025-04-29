@@ -32,19 +32,15 @@ class Textidote < Formula
 
     # Install the JAR + a wrapper script
     libexec.install "textidote.jar"
-    bin.write_jar_script libexec/"textidote.jar", "textidote"
+    # Fix run with `openjdk` 24.
+    # Reported upstream at https://github.com/sylvainhalle/textidote/issues/265.
+    bin.write_jar_script libexec/"textidote.jar", "textidote", "-Djdk.xml.totalEntitySizeLimit=50000000"
 
     bash_completion.install "Completions/textidote.bash" => "textidote"
     zsh_completion.install "Completions/textidote.zsh" => "_textidote"
   end
 
   test do
-    # After openjdk 24, "jdk.xml.totalEntitySizeLimit" was modified to 100000 (and before that was 50000000),
-    # which would cause a JAXP00010004 error.
-    # See: https://docs.oracle.com/en/java/javase/23/docs/api/java.xml/module-summary.html#jdk.xml.totalEntitySizeLimit
-    # See: https://docs.oracle.com/en/java/javase/24/docs/api/java.xml/module-summary.html#jdk.xml.totalEntitySizeLimit
-    ENV["JAVA_OPTS"] = "-Djdk.xml.totalEntitySizeLimit=50000000"
-
     output = shell_output("#{bin}/textidote --version")
     assert_match "TeXtidote", output
 
