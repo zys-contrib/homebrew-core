@@ -1,9 +1,15 @@
 class Otf2bdf < Formula
   desc "OpenType to BDF font converter"
   homepage "https://github.com/jirutka/otf2bdf"
-  url "https://slackware.uk/~urchlay/src/otf2bdf-3.1.tbz2"
-  sha256 "3d63892e81187d5192edb96c0dc6efca2e59577f00e461c28503006681aa5a83"
+  url "https://github.com/jirutka/otf2bdf/archive/refs/tags/v3.1_p1.tar.gz"
+  version "3.1_p1"
+  sha256 "deb1590c249edf11dda1c7136759b59207ea0ac1c737e1c2d68dedf87c51716e"
   license "MIT"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+(?:[._-]?p\d+)?)$/i)
+  end
 
   bottle do
     rebuild 2
@@ -27,15 +33,14 @@ class Otf2bdf < Formula
     end
   end
 
-  resource "mkinstalldirs" do
-    url "https://raw.githubusercontent.com/jirutka/otf2bdf/master/mkinstalldirs"
-    sha256 "e7b13759bd5caac0976facbd1672312fe624dd172bbfd989ffcc5918ab21bfc1"
-  end
-
   def install
-    buildpath.install resource("mkinstalldirs")
     chmod 0755, "mkinstalldirs"
-    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
+
+    # `otf2bdf.c` uses `#include <ft2build.h>`, not `<freetype2/ft2build.h>`,
+    # so freetype2 must be put into the search path.
+    ENV.append "CFLAGS", "-I#{Formula["freetype"].opt_include}/freetype2"
+
+    system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
   end
 
