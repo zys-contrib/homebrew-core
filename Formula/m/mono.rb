@@ -1,8 +1,8 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "https://www.mono-project.com/"
-  url "https://dl.winehq.org/mono/sources/mono/mono-6.14.0.tar.xz"
-  sha256 "6dd64b3900f5e5d5f55016d89ccf7635c8739cbb33cdb81c1c3b61622e91d510"
+  url "https://dl.winehq.org/mono/sources/mono/mono-6.14.1.tar.xz"
+  sha256 "3024c97c0bc8cbcd611c401d5f994528704108ceb31f31b28dea4783004d0820"
   license "Apache-2.0"
   head "https://gitlab.winehq.org/mono/mono.git", branch: "main"
 
@@ -34,7 +34,7 @@ class Mono < Formula
   uses_from_macos "zlib"
 
   on_macos do
-    if DevelopmentTools.clang_build_version == 1600
+    if DevelopmentTools.clang_build_version >= 1600
       depends_on "llvm" => :build
 
       fails_with :clang do
@@ -65,7 +65,7 @@ class Mono < Formula
   link_overwrite "lib/cli"
 
   def install
-    ENV.llvm_clang if DevelopmentTools.clang_build_version == 1600
+    ENV.llvm_clang if DevelopmentTools.clang_build_version >= 1600
 
     # Replace hardcoded /usr/share directory. Paths like /usr/share/.mono,
     # /usr/share/.isolatedstorage, and /usr/share/template are referenced in code.
