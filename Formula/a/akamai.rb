@@ -7,12 +7,12 @@ class Akamai < Formula
   head "https://github.com/akamai/cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6df8514c31f1cfffea1999be868bbe8169a8c39330c50b17ad5346a2c36eb137"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6df8514c31f1cfffea1999be868bbe8169a8c39330c50b17ad5346a2c36eb137"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6df8514c31f1cfffea1999be868bbe8169a8c39330c50b17ad5346a2c36eb137"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d5b47ce468330445f4590a44eca2c1cc142beef16394d20305509ce198391adf"
-    sha256 cellar: :any_skip_relocation, ventura:       "d5b47ce468330445f4590a44eca2c1cc142beef16394d20305509ce198391adf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3973ace14a11112bc74e098fc036dfef38258ae86864ec42b622028d33581555"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3b915d193b1283f0ad602de2d6b8b1803841801b8ef437f2946e44f3b68208f0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3b915d193b1283f0ad602de2d6b8b1803841801b8ef437f2946e44f3b68208f0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3b915d193b1283f0ad602de2d6b8b1803841801b8ef437f2946e44f3b68208f0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6c58192af7a10223a6a0d2ac49bbe2b44ba8b77b780677263cdf6f7c111e2117"
+    sha256 cellar: :any_skip_relocation, ventura:       "6c58192af7a10223a6a0d2ac49bbe2b44ba8b77b780677263cdf6f7c111e2117"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce4711c42cbe0383cac485f7bb0e83c75c73b23a36e38d562d882578302f21d3"
   end
 
   depends_on "go" => [:build, :test]
