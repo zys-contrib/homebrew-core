@@ -5,8 +5,8 @@ class Crystal < Formula
 
   stable do
     # TODO: Replace arm64 linux bootstrap with official when available
-    url "https://github.com/crystal-lang/crystal/archive/refs/tags/1.16.1.tar.gz"
-    sha256 "07d2ddb619aa15b30f16f8fafd6417e5e3a0fb6d97ce4f328e683796486976cf"
+    url "https://github.com/crystal-lang/crystal/archive/refs/tags/1.16.2.tar.gz"
+    sha256 "4f032761a4018c6fbcf1649b866217d9eb2f3139599c70fcb6dac83714839c5e"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/refs/tags/v0.19.1.tar.gz"
