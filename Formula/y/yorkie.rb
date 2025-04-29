@@ -1,8 +1,8 @@
 class Yorkie < Formula
   desc "Document store for collaborative applications"
   homepage "https://yorkie.dev/"
-  url "https://github.com/yorkie-team/yorkie/archive/refs/tags/v0.6.8.tar.gz"
-  sha256 "992e02c3a957b4dfd4f8da17ee661938e78c65170935bb7755f9a8ae208b1a6b"
+  url "https://github.com/yorkie-team/yorkie/archive/refs/tags/v0.6.9.tar.gz"
+  sha256 "eee58566b35fa9d35e744a7cbefada6803b966c78eef191c94ce2f99ee26bd97"
   license "Apache-2.0"
   head "https://github.com/yorkie-team/yorkie.git", branch: "main"
 
