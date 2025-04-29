@@ -1,8 +1,8 @@
 class Codesnap < Formula
   desc "Generates code snapshots in various formats"
   homepage "https://github.com/codesnap-rs/codesnap"
-  url "https://github.com/codesnap-rs/codesnap/archive/refs/tags/v0.10.9.tar.gz"
-  sha256 "bf3f040866fbc4b71f9b5722ad01f6e2de29a9c81f0d7ceff03966fa5cab2966"
+  url "https://github.com/codesnap-rs/codesnap/archive/refs/tags/v0.11.4.tar.gz"
+  sha256 "8bb83882697af81d950a27ad4edfa4b11c93c9982e02d34589a656ca15b58169"
   license "MIT"
   head "https://github.com/codesnap-rs/codesnap.git", branch: "main"
 
@@ -16,7 +16,12 @@ class Codesnap < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc6325d90f73e297cd0c92453a4c8c95ec276ab877885fd8214bfeecbccbd676"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
+
+  on_linux do
+    depends_on "openssl@3"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args(path: "cli")
