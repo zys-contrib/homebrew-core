@@ -7,13 +7,13 @@ class Bibtexconv < Formula
   head "https://github.com/dreibh/bibtexconv.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "62e4f8de96e91df024c4399e6f96cb934aee116b5d580b49bf8f7d96ebc0be87"
-    sha256 cellar: :any,                 arm64_sonoma:  "2ad45fad9ff8eb20fe21f9cc66ec9b442960667b05227e1cf367040dbd76af81"
-    sha256 cellar: :any,                 arm64_ventura: "8c45e24c01ce7937809c5113e12ca6bb8394ff6c9f4d07cef824d2309faabe45"
-    sha256 cellar: :any,                 sonoma:        "d2b1a3159517bd7a05000834ed1ed1c755889617edac9039c6b04b35ad1c56ad"
-    sha256 cellar: :any,                 ventura:       "ba9dfd0c21b7decd8e82d53672ad15c2d359e42f935ec27017ca11713eccb663"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "23c27733ef8c40165810742305fdd194abe219365eb0a7e19fbd34c835014f88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b6636010426b45bd161434ffdebe73b20ea0db6e1c84936b0f3b7420997c276"
+    sha256 cellar: :any,                 arm64_sequoia: "138a8763fdf7f0a8cb9176533994126cdd1ad4ad7d8235abd782140a9d52fb64"
+    sha256 cellar: :any,                 arm64_sonoma:  "151028cf9b243d37292e4d4b93094be1f544fd0b201e7e19d62083179a6bcac9"
+    sha256 cellar: :any,                 arm64_ventura: "fb2eb14d8a3481a48a7018d7b09f1e0abdcde2597599e0885534393c72e5dc8d"
+    sha256 cellar: :any,                 sonoma:        "b29cf7e29d63c463e282975b9eaeb5bff6ad1fbe464f4db2959b95a386c4a909"
+    sha256 cellar: :any,                 ventura:       "487f6fafa5555094d4ebfca0f2f2db644609f904fddd98e53b2c81b143adb85e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "661c36772b6b9456cbed2cca3a6920fa7f82c4e0643484b31eb02cc3e53e2e1c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "421887563ca96e4fd3b6810015f7fd2b88293a9d3883063490e39b4acd4fc709"
   end
 
   depends_on "bison" => :build
