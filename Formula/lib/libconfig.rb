@@ -1,9 +1,10 @@
 class Libconfig < Formula
   desc "Configuration file processing library"
   homepage "https://hyperrealm.github.io/libconfig/"
-  url "https://github.com/hyperrealm/libconfig/releases/download/v1.7.3/libconfig-1.7.3.tar.gz"
-  sha256 "545166d6cac037744381d1e9cc5a5405094e7bfad16a411699bcff40bbb31ee7"
+  url "https://github.com/hyperrealm/libconfig/archive/refs/tags/v1.8.tar.gz"
+  sha256 "22e13253e652ec583ba0dd5b474bd9c7bd85dc724f2deb0d76a6299c421358ef"
   license "LGPL-2.1-or-later"
+  head "https://github.com/hyperrealm/libconfig.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "8e26840a43c310e9dff1843c58a380ac07163f304996c224e137975a37ab76a1"
@@ -21,22 +22,18 @@ class Libconfig < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1ddc0a7e749416e1a6f0b1eb2f96fc272af064f5f0f447c647b5d996d798eace"
   end
 
-  head do
-    url "https://github.com/hyperrealm/libconfig.git", branch: "master"
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
+  uses_from_macos "flex" => :build
 
-    uses_from_macos "flex" => :build
-
-    on_system :linux, macos: :ventura_or_newer do
-      depends_on "texinfo" => :build
-    end
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "texinfo" => :build
   end
 
   def install
-    system "autoreconf", "--force", "--install", "--verbose" if build.head?
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
     system "make", "install"
   end
