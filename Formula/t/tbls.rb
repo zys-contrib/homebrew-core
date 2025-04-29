@@ -1,8 +1,8 @@
 class Tbls < Formula
   desc "CI-Friendly tool to document a database"
   homepage "https://github.com/k1LoW/tbls"
-  url "https://github.com/k1LoW/tbls/archive/refs/tags/v1.85.1.tar.gz"
-  sha256 "f07cfc0b154328133eb2de5a8167256a173c94b08f1a5d1e01610b97372321d5"
+  url "https://github.com/k1LoW/tbls/archive/refs/tags/v1.85.2.tar.gz"
+  sha256 "74ad380e107f6c7999834ea041b2626030e5d482274816400d48ab5a489de709"
   license "MIT"
   head "https://github.com/k1LoW/tbls.git", branch: "main"
 
