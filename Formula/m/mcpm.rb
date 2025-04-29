@@ -3,8 +3,8 @@ class Mcpm < Formula
 
   desc "Open source, community-driven MCP server and client manager"
   homepage "https://mcpm.sh/"
-  url "https://files.pythonhosted.org/packages/65/1a/5ac31a9c0ddc122628b51560a7bf06508f133db0388fff0a4133c91f8410/mcpm-1.7.0.tar.gz"
-  sha256 "bc062192e5742eb813faaef75b272d630dd3e52d1f5ba7cc9db1b71c2e44af2c"
+  url "https://files.pythonhosted.org/packages/0b/16/692ada4740b7fa63d57a158d4ac7029c1db70fa7cde556f5387ff0b144c4/mcpm-1.7.1.tar.gz"
+  sha256 "74b6537e775e09e788b5f3ae530b16515c083f8c4eec372719ef064cbb4b06d8"
   license "MIT"
 
   bottle do
