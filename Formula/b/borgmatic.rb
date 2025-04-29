@@ -3,8 +3,8 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/27/85/6f2ce3b708327bd18dec4d282fc95fcaf19d38e556c7e7757de4224073c1/borgmatic-2.0.4.tar.gz"
-  sha256 "91e43dda449b27c7352546507479d775a9cc8672627b5c6db1fcc167c4ba20b9"
+  url "https://files.pythonhosted.org/packages/f7/7c/5a1bc692ce34f2556f166e4f346c5c68646ce30b59e8e846cd833756c1e3/borgmatic-2.0.5.tar.gz"
+  sha256 "8e96932db0e6c1c2fc8a1bbc5d30f62ec49f9a7781a4e19255a45c2727924a8e"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -42,8 +42,8 @@ class Borgmatic < Formula
   end
 
   resource "jsonschema-specifications" do
-    url "https://files.pythonhosted.org/packages/10/db/58f950c996c793472e336ff3655b13fbcf1e3b359dcf52dcf3ed3b52c352/jsonschema_specifications-2024.10.1.tar.gz"
-    sha256 "0f38b83639958ce1152d02a7f062902c41c8fd20d558b0c34344292d417ae272"
+    url "https://files.pythonhosted.org/packages/bf/ce/46fbd9c8119cfc3581ee5643ea49464d168028cfb5caff5fc0596d0cf914/jsonschema_specifications-2025.4.1.tar.gz"
+    sha256 "630159c9f4dbea161a6a2205c3011cc4f18ff381b189fff48bb39b9bf26ae608"
   end
 
   resource "packaging" do
