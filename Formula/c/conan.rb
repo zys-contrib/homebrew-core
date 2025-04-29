@@ -3,8 +3,8 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://files.pythonhosted.org/packages/f7/f1/15889cc19b6f67294c70c6b450a39b097b57c49d268fcb001c586da1a723/conan-2.15.1.tar.gz"
-  sha256 "c4114e197f7908409766ad16cea758f088ebc926f8426212b2a6a62829f996a3"
+  url "https://files.pythonhosted.org/packages/ac/07/0bcdd46f7636b4fd6cc53eecb2245c1de77c51dacf06084b4e60e22f1508/conan-2.16.0.tar.gz"
+  sha256 "46d4ff829bcd2e3167b155418b80a18a9ca72070b4cb21885f22db43e32dc837"
   license "MIT"
   head "https://github.com/conan-io/conan.git", branch: "develop"
 
@@ -95,10 +95,10 @@ class Conan < Formula
 
   test do
     system bin/"conan", "profile", "detect"
-    system bin/"conan", "install", "--requires=zlib/1.2.11",
+    system bin/"conan", "install", "--requires=zlib/1.3.1",
                                    "--build=missing",
                                    "--lockfile-out=conan.lock"
     lockfile = JSON.parse(File.read("conan.lock", mode: "r"))
-    refute_predicate lockfile["requires"].select { |req| req.start_with?("zlib/1.2.11") }, :empty?
+    refute_predicate lockfile["requires"].select { |req| req.start_with?("zlib/1.3.1") }, :empty?
   end
 end
