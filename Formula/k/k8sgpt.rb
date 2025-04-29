@@ -7,13 +7,13 @@ class K8sgpt < Formula
   head "https://github.com/k8sgpt-ai/k8sgpt.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "69257b698577fe2b567947a659aef406951a9532c53ef23e336874d2dadc669e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ac8b6a973cc0b2bd7203c229f3b5e3e0ec910e87e12ebd98e40652477a4f8afb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8846c466a7de11c24e7a8bc334470ab15304b3aa8140a158ffc5d6525bb0b891"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3fc04773697058582bef59ccac1ff00674bd3ae5c905deacc91f25e6f4533d03"
-    sha256 cellar: :any_skip_relocation, ventura:       "a58d58fbc2e4713685920f198160a046882d3c64de38c9da16f5355b3ff2f3d8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "551c255afea0d7c6332e353d97f11d2bb6e745c4b9739a1072521d29a5d97c4b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec204403dd07a54b8ff215685f769c73153c355bd04fefc7e228e2767d14ad26"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "920e2b6699f0e32d1ed04e449465ddf5f2d0b48b422e329719b6f0d0606a82f9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "85d0c121c206ef3617dad359c037652fe8735b7f45fd72594430b154afe71723"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4a344a6bbdedc5fa971a66142832a736fd44b9d836cf5fde854eaaf96a736c4f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ca3d90f50afaa5865749ab82b2182c35b1b9292ada2d8fa56aa28a01dfb8d537"
+    sha256 cellar: :any_skip_relocation, ventura:       "5497f87d2c8a51ba584dbcd00e11d00e960bbb594d8d820c20511d1fd0fa1cd5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0729a51436833e0fc5f6d9c1d7566d661c70bd7d1a602f4a1627a6e6a3293915"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e079ef61b59011b4387dcaf1c89fd26ec08d82ecaf9fedc61c022a6f92aaaf24"
   end
 
   depends_on "go" => :build
