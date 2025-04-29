@@ -4,8 +4,8 @@ class Mapproxy < Formula
   desc "Accelerating web map proxy"
   # `mapproxy.org` is 404, upstream bug report, https://github.com/mapproxy/mapproxy/issues/983
   homepage "https://github.com/mapproxy/mapproxy"
-  url "https://files.pythonhosted.org/packages/72/50/523f219aee21e24dab7cf70ae23f30b15515f1f132686476df2265d6fca4/mapproxy-4.0.2.tar.gz"
-  sha256 "c62032f6ae35bb8b63acaf82a3b503562e72fa08712d3a690d9159e387f3db02"
+  url "https://files.pythonhosted.org/packages/34/72/caa97ea0f3e145e62127b29899ac9e04c8e832dc4b14f7c683285c8f7251/mapproxy-4.1.0.tar.gz"
+  sha256 "a9e57679d515fddce37c1b319e7ce474af5dbbc792d23c338d6cfdba651ca68f"
   license "Apache-2.0"
 
   bottle do
@@ -41,8 +41,8 @@ class Mapproxy < Formula
   end
 
   resource "jsonschema-specifications" do
-    url "https://files.pythonhosted.org/packages/10/db/58f950c996c793472e336ff3655b13fbcf1e3b359dcf52dcf3ed3b52c352/jsonschema_specifications-2024.10.1.tar.gz"
-    sha256 "0f38b83639958ce1152d02a7f062902c41c8fd20d558b0c34344292d417ae272"
+    url "https://files.pythonhosted.org/packages/bf/ce/46fbd9c8119cfc3581ee5643ea49464d168028cfb5caff5fc0596d0cf914/jsonschema_specifications-2025.4.1.tar.gz"
+    sha256 "630159c9f4dbea161a6a2205c3011cc4f18ff381b189fff48bb39b9bf26ae608"
   end
 
   resource "markupsafe" do
