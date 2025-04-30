@@ -1,8 +1,8 @@
 class Meli < Formula
   desc "Terminal e-mail client and e-mail client library"
   homepage "https://meli-email.org/"
-  url "https://git.meli-email.org/meli/meli/archive/v0.8.10.tar.gz"
-  sha256 "83573e8f2e8770831e35879c84297e9b353ba251d9a55960615eb1e32b9a1901"
+  url "https://git.meli-email.org/meli/meli/archive/v0.8.12.tar.gz"
+  sha256 "6f03f50b7e3ee29d34716f31d77e75eca72ab651d67ea1de2dffc5813565180f"
   license "GPL-3.0-or-later"
 
   livecheck do
