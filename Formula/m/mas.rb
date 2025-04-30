@@ -7,6 +7,11 @@ class Mas < Formula
   license "MIT"
   head "https://github.com/mas-cli/mas.git", branch: "main"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "045823030abcfdeddcb1c64103b33617a0fe8c41fbaa2b81528cfe6b1a6e3894"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "791ed782d7c9b487055a4be6cd22ce61b8a98d64f23fb956e075063688afc7fc"
