@@ -1,9 +1,9 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/refs/tags/mame0276.tar.gz"
-  version "0.276"
-  sha256 "965dfc33d720b4c3c6e425d5959540bd0bac88e96b878a8560678c2f5b43c44f"
+  url "https://github.com/mamedev/mame/archive/refs/tags/mame0277.tar.gz"
+  version "0.277"
+  sha256 "60055b19fc96306927257c5ffc265ecebcbe5c944cf98113d4d78f6304556c67"
   license "GPL-2.0-or-later"
   head "https://github.com/mamedev/mame.git", branch: "master"
 
@@ -27,7 +27,8 @@ class Mame < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c12ee847115665c408eede1820f7c9a4327cfd0a964f7dde46c60fedca614258"
   end
 
-  depends_on "asio" => :build
+  # `asio`` v1.30.1 is bundled and it is not compatible with the `asio` formula
+  # Unless mame is updated to use the newer one, let's use the bundled one.
   depends_on "glm" => :build
   depends_on "pkgconf" => :build
   depends_on "rapidjson" => :build
@@ -70,7 +71,7 @@ class Mame < Formula
                    "USE_LIBSDL=1",
                    "USE_SYSTEM_LIB_EXPAT=1",
                    "USE_SYSTEM_LIB_ZLIB=1",
-                   "USE_SYSTEM_LIB_ASIO=1",
+                   "USE_SYSTEM_LIB_ASIO=0", # Use bundled one for compatibility
                    "USE_SYSTEM_LIB_FLAC=1",
                    "USE_SYSTEM_LIB_GLM=1",
                    "USE_SYSTEM_LIB_JPEG=1",
