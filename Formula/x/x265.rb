@@ -24,12 +24,12 @@ class X265 < Formula
 
   # cmake 4 workaround, remove in next release
   patch do
-    url "https://bitbucket.org/multicoreware/x265_git/commits/b354c009a60bcd6d7fc04014e200a1ee9c45c167/raw"
-    sha256 "cc24fae87d3af05af3a5ab57041cabc4fb4dc93a6d575d69dd23831fe0856204"
+    url "https://api.bitbucket.org/2.0/repositories/multicoreware/x265_git/diff/b354c009a60bcd6d7fc04014e200a1ee9c45c167"
+    sha256 "f7d3ce261c4b0cd461b55ad00de38ffa6a7cc2fa13ae6f034b3e46d8bb3cb6a8"
   end
   patch do
-    url "https://bitbucket.org/multicoreware/x265_git/commits/51ae8e922bcc4586ad4710812072289af91492a8/raw"
-    sha256 "4ee41ef60ce1f992b4d23f2f76e2113fb8eac936429d4905507370d345a403bd"
+    url "https://api.bitbucket.org/2.0/repositories/multicoreware/x265_git/diff/51ae8e922bcc4586ad4710812072289af91492a8"
+    sha256 "56c78f60cbaac61a44cb6e9889ece3380f9b60d32a4b704e274d9a636a16379d"
   end
 
   def install
