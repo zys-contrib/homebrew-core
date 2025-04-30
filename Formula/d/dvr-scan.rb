@@ -3,9 +3,15 @@ class DvrScan < Formula
 
   desc "Extract scenes with motion from videos"
   homepage "https://www.dvr-scan.com/"
-  url "https://github.com/Breakthrough/DVR-Scan/archive/refs/tags/v1.7-release.tar.gz"
-  sha256 "7e1d291df6184dab8fbd79e2639c90f8b2fe4f8c5c73265ed39f03f79b3167dd"
+  url "https://github.com/Breakthrough/DVR-Scan/archive/refs/tags/v1.7.0.1-release.tar.gz"
+  sha256 "c0bdb1d1963a1df38d30ba6ded04bc37013b143c551360a177fdde4fe33e7fc9"
   license "BSD-2-Clause"
+
+  # All release versions end with `-release` suffix
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)-release$/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "83911a64fc655e2326960f5f9c7e5a0606c706d73ebd2cb909e7473d3bcdcddd"
@@ -45,13 +51,13 @@ class DvrScan < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/13/fc/128cc9cb8f03208bdbf93d3aa862e16d376844a14f9a0ce5cf4507372de4/platformdirs-4.3.6.tar.gz"
-    sha256 "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"
+    url "https://files.pythonhosted.org/packages/b6/2d/7d512a3913d60623e7eb945c6d1b4f0bddf1d0b7ada5225274c87e5b53d1/platformdirs-4.3.7.tar.gz"
+    sha256 "eb437d586b6a0986388f0d6f74aa0cde27b48d0e3d66843640bfb6bdcdb6e351"
   end
 
   resource "scenedetect" do
-    url "https://files.pythonhosted.org/packages/ef/4e/2f20c616b3dc8420dcc456fd1a0efee35e34f3e499843e22a2661e11f73d/scenedetect-0.6.5.2.tar.gz"
-    sha256 "cf1af517409ac7b98905d8962de4fbefad01684355d12b5ccb992cbc6c4f8a52"
+    url "https://files.pythonhosted.org/packages/59/36/1e29ac958e2d2b5e4365fb7de03f94a98b9949c46267e682bcfe22460812/scenedetect-0.6.6.tar.gz"
+    sha256 "4b50946abca886bd623e7a304e30da197f0e7e69cd65d80115d551538261c35b"
   end
 
   resource "screeninfo" do
