@@ -1,8 +1,8 @@
 class TCompletion < Formula
   desc "Completion for CLI power tool for Twitter"
   homepage "https://sferik.github.io/t/"
-  url "https://github.com/sferik/t-ruby/archive/refs/tags/v4.1.1.tar.gz"
-  sha256 "998a884aa5dcd024617427c8cee7574eb3ab52235131bb34875df794b8c3c7d7"
+  url "https://github.com/sferik/t-ruby/archive/refs/tags/v4.2.0.tar.gz"
+  sha256 "3053ce8983ee673c6975bca7235cebea3eeb9bdfa7c5644d44cb7ad6fd9aaf9b"
   license "MIT"
   head "https://github.com/sferik/t-ruby.git", branch: "master"
 
