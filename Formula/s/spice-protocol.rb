@@ -11,8 +11,7 @@ class SpiceProtocol < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "bb1ba08888157c151697bfd2e2ea90d5aea69d25d9771032ba6196536bad74e4"
+    sha256 cellar: :any_skip_relocation, all: "b2fc7486dfc635ac1e89eb2f38d7eebeddf5f51d3fcd5e8f52c35c6ecd70ebea"
   end
 
   depends_on "meson" => :build
