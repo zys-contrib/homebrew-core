@@ -11,7 +11,7 @@ class Checkbashisms < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c1d14358c8e25f6c21d1bc1f3a013ca01d97b96ca689e79a0c6a8430422382d0"
+    sha256 cellar: :any_skip_relocation, all: "59641dd889c8fcd6dd3897cd65a2d0cdbc07082ffb8c783e42baf0bd6b2c6755"
   end
 
   def install
