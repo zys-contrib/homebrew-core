@@ -1,8 +1,8 @@
 class Kyverno < Formula
   desc "Kubernetes Native Policy Management"
   homepage "https://kyverno.io/"
-  url "https://github.com/kyverno/kyverno/archive/refs/tags/v1.13.4.tar.gz"
-  sha256 "c079576b7e96feebc29d7db24f39d3594bee99fd6c1d009c267d8aa8d813728e"
+  url "https://github.com/kyverno/kyverno/archive/refs/tags/v1.14.1.tar.gz"
+  sha256 "e6661e8f2f2fbd547baec0af3836715a40adf5f999232d72947951b982e7daf7"
   license "Apache-2.0"
   head "https://github.com/kyverno/kyverno.git", branch: "main"
 
