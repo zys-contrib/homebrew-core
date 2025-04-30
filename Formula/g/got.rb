@@ -1,8 +1,9 @@
 class Got < Formula
   desc "Version control system"
   homepage "https://gameoftrees.org/"
-  url "https://gameoftrees.org/releases/portable/got-portable-0.110.tar.gz"
-  sha256 "3635e41205e7f85236a6e76ff785d3d8997131cf353c8cdf6f6d25c031661d29"
+  url "https://gameoftrees.org/releases/portable/got-portable-0.111.tar.gz"
+  mirror "https://pkg.freebsd.org/ports-distfiles/got-portable-0.111.tar.gz"
+  sha256 "d096f76e91a700dd0d22fbaf9641c2b94f8a6de16f09b0f4939c9b96a9d878ce"
   license "ISC"
 
   livecheck do
