@@ -12,12 +12,12 @@ class Azurehound < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "91f80021823a8d6af177993e2c1a69de36a2409abe9a96c3eeba1cb7bad9277b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "91f80021823a8d6af177993e2c1a69de36a2409abe9a96c3eeba1cb7bad9277b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "91f80021823a8d6af177993e2c1a69de36a2409abe9a96c3eeba1cb7bad9277b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6857a38cfba768b02e1f6a7eda15412a991d77e1d06eb0bb0b94824018e5dbc7"
-    sha256 cellar: :any_skip_relocation, ventura:       "6857a38cfba768b02e1f6a7eda15412a991d77e1d06eb0bb0b94824018e5dbc7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62a4b33caf7f64dd7d574cb125322f8e3e97344ba9a049930fbc986025ed378d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5e021792cbfbd5388acd8a13a02cc9e49238e1899ef4a5547f10724a340c6521"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5e021792cbfbd5388acd8a13a02cc9e49238e1899ef4a5547f10724a340c6521"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5e021792cbfbd5388acd8a13a02cc9e49238e1899ef4a5547f10724a340c6521"
+    sha256 cellar: :any_skip_relocation, sonoma:        "78ccf787672cc083601d91b193b4bcc4f96b572410bbd121ba0428dbd29fef23"
+    sha256 cellar: :any_skip_relocation, ventura:       "78ccf787672cc083601d91b193b4bcc4f96b572410bbd121ba0428dbd29fef23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4d75fd44efb739dbc8e25698934b337f4daebaebdc805ac0a33a63dc05e8838"
   end
 
   depends_on "go" => :build
