@@ -1,19 +1,19 @@
 class Uv < Formula
   desc "Extremely fast Python package installer and resolver, written in Rust"
   homepage "https://docs.astral.sh/uv/"
-  url "https://github.com/astral-sh/uv/archive/refs/tags/0.7.1.tar.gz"
-  sha256 "e24dfcf3a0089c5e05a97592a02bd5e0f60fdf0430fa7242074ccecc19449878"
+  url "https://github.com/astral-sh/uv/archive/refs/tags/0.7.2.tar.gz"
+  sha256 "bf42c698cff01e7f383351efce7f014af788810fa77d41a8f4a853e073582d1e"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/astral-sh/uv.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2f4d3b59591f6b1d3e0b09b2f06b4126bbed3f7628cc25aaa96ef7401aa96536"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "af2b68ac402b16c141db39b4a8f43ab870f1d1a16947dee74985227bc2a85039"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d0fc02540c8cd6c85d8e80ac6997cf2974679d4419dfd39981fe3623ef671b27"
-    sha256 cellar: :any_skip_relocation, sonoma:        "643f86950cdafaf71ba17a6fcdf17813660956a3b14e0ebb3f9a5265a6e70c60"
-    sha256 cellar: :any_skip_relocation, ventura:       "8f3d2e6a277ab2a1fc5c94093437acf4989cfd8076df7175c2ae9392722d987f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8cf25be422e24217a89cf518fc1975ad0d4c0d207382dc794e4a37a9423e9da6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f2eaff27193ab345a2d129605649a3a38452a4987e8924f643c3e8124c044d4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bb4648deb832ef080d5c6860fb8028720421b8961070fcdcb56a657c5eefef11"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f18ee743c15eb3b32a448681821595766754119fdd96f3d0a7fc1618b3714e14"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a65c334c37d83d3f8b5d0d6b79eeb09a9e1a4b26dd113e354360a6272a19e3ec"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0cd1334ae73e0ef2b2ed9de4f5627181e91b2c80de9c835befaf815998883d91"
+    sha256 cellar: :any_skip_relocation, ventura:       "e151b133fb3a36f1b5b7e74e869fc4122a94698994af94dea8f8cd68b96c6375"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1808127b496d2f113eb7dd9e579498d579548b7aa61f3e46e5a561c9633a4103"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "df11275bf1c27c51017ee0c4a9eafb0603613c6c97a053463606ba1ab048ab12"
   end
 
   depends_on "pkgconf" => :build
