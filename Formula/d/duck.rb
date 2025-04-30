@@ -1,8 +1,8 @@
 class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
-  url "https://dist.duck.sh/duck-src-9.1.3.42945.tar.gz"
-  sha256 "04e7a5db5d2f513f314fdf85e893ab6976ed4495c875722f01a033ed00e946c4"
+  url "https://dist.duck.sh/duck-src-9.1.4.43177.tar.gz"
+  sha256 "96d5447320dd094d1c37d70a8631e321f966dc927179c8b01638c33baf502795"
   license "GPL-3.0-only"
   head "https://github.com/iterate-ch/cyberduck.git", branch: "master"
 
@@ -48,8 +48,8 @@ class Duck < Formula
   conflicts_with "duckscript", because: "both install `duck` binaries"
 
   resource "jna" do
-    url "https://github.com/java-native-access/jna/archive/refs/tags/5.16.0.tar.gz"
-    sha256 "a81f9b6f076d47c22bb83617bace398332c276d8b6bb726c6e1013b613dde1a0"
+    url "https://github.com/java-native-access/jna/archive/refs/tags/5.17.0.tar.gz"
+    sha256 "fe35d85e63ea998ec08f1beaa0162b1e7f233e9e82b8f43ba500a0a824874158"
   end
 
   resource "rococoa" do
