@@ -1,8 +1,8 @@
 class Lmod < Formula
   desc "Lua-based environment modules system to modify PATH variable"
   homepage "https://lmod.readthedocs.io"
-  url "https://github.com/TACC/Lmod/archive/refs/tags/8.7.59.tar.gz"
-  sha256 "37d374544a4556b283ab2dce918c13567ed8cc32f83164aff636065827025b5d"
+  url "https://github.com/TACC/Lmod/archive/refs/tags/8.7.60.tar.gz"
+  sha256 "340bdafedc0d5cdad812ca7372667df95078fd068a09e4fdff23a3fb8a560572"
   license "MIT"
 
   bottle do
@@ -56,8 +56,15 @@ class Lmod < Formula
       end
     end
 
-    # We install `tcl-tk` headers in a subdirectory to avoid conflicts with other formulae.
-    ENV.append_to_cflags "-I#{Formula["tcl-tk@8"].opt_include}/tcl-tk" if OS.linux?
+    # pkgconf cannot find tcl-tk on Linux correctly, so we manually set the include and libs
+    if OS.linux?
+      tcltk_version = Formula["tcl-tk"].version.major_minor
+      ENV["TCL_INCLUDE"] = "-I#{Formula["tcl-tk"].opt_include}/tcl-tk"
+      ENV["TCL_LIBS"] = "-L#{Formula["tcl-tk"].opt_lib} -ltcl#{tcltk_version} -ltclstub"
+      # Homebrew installed tcl-tk library has major_minor version suffix
+      inreplace "configure", "'' tcl tcl8.8 tcl8.7 tcl8.6 tcl8.5", "'' tcl#{tcltk_version}"
+    end
+
     system "./configure", "--with-siteControlPrefix=yes", "--prefix=#{prefix}"
     system "make", "install"
 
