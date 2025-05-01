@@ -6,8 +6,7 @@ class ChalkCli < Formula
   license "MIT"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "34ba6623e9eb8c3903a10be845faa920fec20d6133e17390a16326cb670964c9"
+    sha256 cellar: :any_skip_relocation, all: "888e67d06c5fbe66c72de1de9f759ed9f32fd7a88d9f2158c3626b13f9ecbca6"
   end
 
   depends_on "node"
