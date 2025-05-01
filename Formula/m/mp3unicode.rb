@@ -14,6 +14,11 @@ class Mp3unicode < Formula
     end
   end
 
+  livecheck do
+    url :stable
+    regex(/^mp3unicode-v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia: "805642379132c96276425ef190cc0bcfde0ef174a8ec5770bac012161a8f38f7"
