@@ -1,20 +1,10 @@
 class X11vnc < Formula
   desc "VNC server for real X displays"
   homepage "https://github.com/LibVNC/x11vnc"
+  url "https://github.com/LibVNC/x11vnc/archive/refs/tags/0.9.17.tar.gz"
+  sha256 "3ab47c042bc1c33f00c7e9273ab674665b85ab10592a8e0425589fe7f3eb1a69"
   license "GPL-2.0-or-later" => { with: "x11vnc-openssl-exception" }
-  revision 1
   head "https://github.com/LibVNC/x11vnc.git", branch: "master"
-
-  stable do
-    url "https://github.com/LibVNC/x11vnc/archive/refs/tags/0.9.16.tar.gz"
-    sha256 "885e5b5f5f25eec6f9e4a1e8be3d0ac71a686331ee1cfb442dba391111bd32bd"
-
-    # Fix build with -fno-common. Remove in the next release
-    patch do
-      url "https://github.com/LibVNC/x11vnc/commit/a48b0b1cd887d7f3ae67f525d7d334bd2feffe60.patch?full_index=1"
-      sha256 "c8c699f0dd4af42a91782df4291459ba2855b22661dc9e6698a0a63ca361a832"
-    end
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "9456fa709c106e9b1bd0501fa329ac203f4e1df4458cc73ce44a6dbde525b26c"
