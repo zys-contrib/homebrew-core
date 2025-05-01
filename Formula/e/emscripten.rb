@@ -1,10 +1,8 @@
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://emscripten.org/"
-  # To automate fetching the required resource revisions, you can use this helper script:
-  #   https://gist.github.com/carlocab/2db1d7245fa0cd3e92e01fe37b164021
-  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/4.0.7.tar.gz"
-  sha256 "432874e8d2c14a2fe7b19d5dbf31a5fe42c953a15d1a9ffc1db83b93cd2babfc"
+  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/4.0.8.tar.gz"
+  sha256 "1da4d4129959a579cd1103710fa72433c452ed62d374278d01f69a3945e8b61f"
   license all_of: [
     "Apache-2.0", # binaryen
     "Apache-2.0" => { with: "LLVM-exception" }, # llvm
@@ -64,9 +62,9 @@ class Emscripten < Formula
   # https://chromium.googlesource.com/emscripten-releases/+/<commit>/DEPS
   # Then use the listed binaryen_revision for the revision below.
   resource "binaryen" do
-    url "https://github.com/WebAssembly/binaryen/archive/e6f1c53a2052d7c1e9e06ace64c7c2833aa82a7d.tar.gz"
-    version "e6f1c53a2052d7c1e9e06ace64c7c2833aa82a7d"
-    sha256 "6a9d5737c936c40bef0e3da4bfc5f00f2fdd2a9f893853043c25968415f5a5b6"
+    url "https://github.com/WebAssembly/binaryen/archive/efb987b9ba6a8fdad8dac2aea2c46dce398ce55d.tar.gz"
+    version "efb987b9ba6a8fdad8dac2aea2c46dce398ce55d"
+    sha256 "fb3c499a3b11c3f4235f44d045b4138224ab38ab52ee0428f3b3564147211978"
 
     livecheck do
       url "https://raw.githubusercontent.com/emscripten-core/emsdk/refs/tags/#{LATEST_VERSION}/emscripten-releases-tags.json"
@@ -90,9 +88,9 @@ class Emscripten < Formula
   # See binaryen resource above for instructions on how to update this.
   # Then use the listed llvm_project_revision for the tarball below.
   resource "llvm" do
-    url "https://github.com/llvm/llvm-project/archive/57025b42c43b2f14f7e58692bc19cd53d1b8a45e.tar.gz"
-    version "57025b42c43b2f14f7e58692bc19cd53d1b8a45e"
-    sha256 "bf1ff430f4ccbe8233885676e11479ae299d34393b9343a45d362485a11370f7"
+    url "https://github.com/llvm/llvm-project/archive/23e3cbb2e82b62586266116c8ab77ce68e412cf8.tar.gz"
+    version "23e3cbb2e82b62586266116c8ab77ce68e412cf8"
+    sha256 "3218519af3d27e21e5e1ddd9ff09115e5d80587f2d1e271a13b27a0ffb3cb6ee"
 
     livecheck do
       url "https://raw.githubusercontent.com/emscripten-core/emsdk/refs/tags/#{LATEST_VERSION}/emscripten-releases-tags.json"
