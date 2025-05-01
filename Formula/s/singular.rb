@@ -52,6 +52,7 @@ class Singular < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "flint"
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "ntl"
