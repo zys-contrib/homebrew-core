@@ -14,11 +14,11 @@ class DvrScan < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "83911a64fc655e2326960f5f9c7e5a0606c706d73ebd2cb909e7473d3bcdcddd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c2d29d7f050b083386ec3e363fbc134ef02d8579498577b57d7edecb2c145e41"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cac79911dd503f51e7e6e33987e5e4a8e791aa16f603743a133b3772c98c5579"
-    sha256 cellar: :any_skip_relocation, ventura:       "d01411ccdb13c2b34d99b5b35ed27ab316c771e0b94a4b2f575202a7701a515e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4aa475bd319341a32720e2589256ae7a76390640e25eec4b6cf01bcb88273343"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "986102fcac41135a62884a15d909914ae48e9f2a5932164386800763dad551a1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8b3b52d9b93bfd31ab99d6cc94d335c4b06449aeb32dc2e592b629d76e658979"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a8225c786db4e4b76944d871a97872d1f69cddc5dd81d6fb8e3458697f227a44"
+    sha256 cellar: :any_skip_relocation, ventura:       "f9455478612e42c382db2216da511f8b680eb5304c4cfddd87ccb7698aec9949"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aeece253f4474e20ffa1b16386bf88b76b7cd0aa2862dfa83e1f88e4768a8b53"
   end
 
   depends_on "cmake" => :build
