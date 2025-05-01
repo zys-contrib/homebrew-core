@@ -1,8 +1,8 @@
 class Btop < Formula
   desc "Resource monitor. C++ version and continuation of bashtop and bpytop"
   homepage "https://github.com/aristocratos/btop"
-  url "https://github.com/aristocratos/btop/archive/refs/tags/v1.4.1.tar.gz"
-  sha256 "40f6c54d1bc952c674b677d81dd25f55b61e9c004883c27950dc30780c86f381"
+  url "https://github.com/aristocratos/btop/archive/refs/tags/v1.4.2.tar.gz"
+  sha256 "c7c0fb625af269d47eed926784900c8e154fdf71703f4325cffdf26357338c85"
   license "Apache-2.0"
   head "https://github.com/aristocratos/btop.git", branch: "main"
 
@@ -64,7 +64,7 @@ class Btop < Formula
         log_level=DEBUG
       EOS
 
-      r, w, pid = PTY.spawn(bin/"btop")
+      r, w, pid = PTY.spawn(bin/"btop", "--force-utf")
       r.winsize = [80, 130]
       sleep 5
       w.write "q"
