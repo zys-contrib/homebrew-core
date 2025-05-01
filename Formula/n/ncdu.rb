@@ -12,13 +12,13 @@ class Ncdu < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "65e7b7a4bfa0778f42039831c4b676221dd54dce6b4712dfdf5076b815f314c0"
-    sha256 cellar: :any,                 arm64_sonoma:  "969fcd255d9bd661e21365e892a81a3ec4ba627bff670c191ce9ac6c479547ce"
-    sha256 cellar: :any,                 arm64_ventura: "381da04aa7b67c97792091bef8ab891999999d96f2403609e7046e84b7ea79de"
-    sha256 cellar: :any,                 sonoma:        "b51a05f44c243a25bc59f3fb3748c0c049edc5fc7f339f9378c58b35fc74b2a3"
-    sha256 cellar: :any,                 ventura:       "4f434c0eda07500bd77df9494bf6f81cca0941b4463ba4e0f3fd0aab9181c89b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1b1681ff444ac85caca6d8daa890d29a186b6086b4f6762e26c0ea420a2027a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a146f8836fb916c83063c4eded192bb1d90449b97ea33c8465bbfe86edce901f"
+    sha256 cellar: :any,                 arm64_sequoia: "8c6101ddddef74f72707d35042f89908d7e4809245aac6922f68ca9e802867ab"
+    sha256 cellar: :any,                 arm64_sonoma:  "e2dc1b149d0902dd2a80bbe464dd76a03fc80f60eab9f9310e0ba7918e6ec945"
+    sha256 cellar: :any,                 arm64_ventura: "e38712f677f37a2c2e1f0c4b13232ddb4a9a8d9e865f18a506aece66a2f5dbbf"
+    sha256 cellar: :any,                 sonoma:        "61dcdfbcc8ec7b2363d0d3ed9243bbb6db3e0faa3c9d846ba0ee09702fd56b39"
+    sha256 cellar: :any,                 ventura:       "9e243cfcba2adc77d82a62444d13a200c71f435d203ccdd9241010e47457e58f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "010b5d4e07e41140c166a8066a26a6246f92c9229b6e4327a1a8ca29c99aa096"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3390c8fbb71866adbb6099023254feb4cf1112cf8bb6a59418fde4b3ce2dbdce"
   end
 
   depends_on "pkgconf" => :build
