@@ -5,6 +5,15 @@ class SequoiaChameleonGnupg < Formula
   sha256 "8e204784c83b2f17cdd591bd9e2e3df01f9f68527bb5c97aa181c8bec5c6f857"
   license "GPL-3.0-or-later"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "5b91310a0e9767914f4e236560e5ca9e010e5251386ee843a36bddd67d44b8fa"
+    sha256 cellar: :any,                 arm64_sonoma:  "27b24b86636d9645d07a03f3b317208a030ebf65c4c1d5720ce71b4b6da329ce"
+    sha256 cellar: :any,                 arm64_ventura: "63e79260f1665bd08b3c837dc89484e652494dd77d91ebdecc523bc48ce6e3f1"
+    sha256 cellar: :any,                 sonoma:        "0c04398a6a5a0ec0b24d8c9e17c8d32b60cd6506c3e123478372765d2c110e6e"
+    sha256 cellar: :any,                 ventura:       "b040e893c7a651cf2487981dfa5ddf7efde8d5f7df18e2900757f6c761131709"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3319626d5c818b6482bf2ba1c9cfd267447639975483dde222f430a33ba1dc82"
+  end
+
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
