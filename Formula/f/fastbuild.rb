@@ -1,8 +1,8 @@
 class Fastbuild < Formula
   desc "High performance build system for Windows, OSX and Linux"
   homepage "https://fastbuild.org/"
-  url "https://github.com/fastbuild/fastbuild/archive/refs/tags/v1.14.tar.gz"
-  sha256 "07ebc683634aef24868f3247eedaf6e895869fa4f5b70e26a1d0c7ec892dfbc3"
+  url "https://github.com/fastbuild/fastbuild/archive/refs/tags/v1.15.tar.gz"
+  sha256 "c08d9233d575d6dbbc42363caa64e16cd9709e22f58b492dc1b65620fbdfc297"
   license "Zlib"
 
   bottle do
