@@ -1,10 +1,9 @@
 class Groestlcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://www.groestlcoin.org/groestlcoin-core-wallet/"
-  url "https://github.com/Groestlcoin/groestlcoin/releases/download/v28.0/groestlcoin-28.0.tar.gz"
-  sha256 "4446c49916c6f2c45fcf609270318dc114e166d1c833bb7d0b51d12cb42acba6"
+  url "https://github.com/Groestlcoin/groestlcoin/releases/download/v29.0/groestlcoin-29.0.tar.gz"
+  sha256 "48298150c83e38ca0b9b449c99fd1c18118849397e09261312a052517f504746"
   license "MIT"
-  revision 2
   head "https://github.com/groestlcoin/groestlcoin.git", branch: "master"
 
   bottle do
@@ -17,10 +16,8 @@ class Groestlcoin < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "751568f7603c64c6109ada47fd40fc2f8f32961a069f3a6c1b00307fa0355d7b"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "boost" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "berkeley-db@5"
   depends_on "libevent"
@@ -40,12 +37,9 @@ class Groestlcoin < Formula
   end
 
   def install
-    ENV.runtime_cpu_detection
-    system "./autogen.sh"
-    system "./configure", "--disable-silent-rules",
-                          "--with-boost-libdir=#{Formula["boost"].opt_lib}",
-                          *std_configure_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     pkgshare.install "share/rpcauth"
   end
 
