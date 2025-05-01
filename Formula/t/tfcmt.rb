@@ -7,12 +7,12 @@ class Tfcmt < Formula
   head "https://github.com/suzuki-shunsuke/tfcmt.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "86bd6c7d306a98da5a95b7f99b5fbaed3d5126ebc3a580b534e9b3550564b135"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "86bd6c7d306a98da5a95b7f99b5fbaed3d5126ebc3a580b534e9b3550564b135"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "86bd6c7d306a98da5a95b7f99b5fbaed3d5126ebc3a580b534e9b3550564b135"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9979bc858bd99697684285a13d85f2ca97c2896f6d2e38a50734946ede24da8e"
-    sha256 cellar: :any_skip_relocation, ventura:       "9979bc858bd99697684285a13d85f2ca97c2896f6d2e38a50734946ede24da8e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d73abad2bba2b42121984ee21bdc8a8277847ea947377c57780e87007ff109a4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fd38759529061faca9c17bd9bd4f698709ebc102fb494648490730e240f3be27"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fd38759529061faca9c17bd9bd4f698709ebc102fb494648490730e240f3be27"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "fd38759529061faca9c17bd9bd4f698709ebc102fb494648490730e240f3be27"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7e030f07a67285696d0edd657d313d1aaf6227a58855903cdab41f341a35cb45"
+    sha256 cellar: :any_skip_relocation, ventura:       "7e030f07a67285696d0edd657d313d1aaf6227a58855903cdab41f341a35cb45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52b2bc80de16b004369e2ab6000fee4e10ff873ea41f6234b2ba8d84e03fbf81"
   end
 
   depends_on "go" => :build
