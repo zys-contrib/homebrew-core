@@ -19,6 +19,8 @@ class Infat < Formula
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release", "--static-swift-stdlib"
     bin.install ".build/release/infat"
+
+    generate_completions_from_executable(bin/"infat", "--generate-completion-script")
   end
 
   test do
