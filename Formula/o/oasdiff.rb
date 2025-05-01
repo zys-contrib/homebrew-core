@@ -1,8 +1,8 @@
 class Oasdiff < Formula
   desc "OpenAPI Diff and Breaking Changes"
   homepage "https://www.oasdiff.com/"
-  url "https://github.com/oasdiff/oasdiff/archive/refs/tags/v1.11.3.tar.gz"
-  sha256 "f4cf977e6a00bdc85b380a60d11108985f18916039047489310ddb5eedd7a38e"
+  url "https://github.com/oasdiff/oasdiff/archive/refs/tags/v1.11.4.tar.gz"
+  sha256 "9e000211f5a9561ffeb6ab078e02177349f1f262a69f0619d9b0a507cc73498e"
   license "Apache-2.0"
   head "https://github.com/oasdiff/oasdiff.git", branch: "main"
 
