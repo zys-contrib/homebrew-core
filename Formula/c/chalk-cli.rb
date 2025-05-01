@@ -1,8 +1,8 @@
 class ChalkCli < Formula
   desc "Terminal string styling done right"
   homepage "https://github.com/chalk/chalk-cli"
-  url "https://registry.npmjs.org/chalk-cli/-/chalk-cli-5.0.1.tgz"
-  sha256 "17befe5108e2fd64661305b4f1d7378dfdb2f34ae4e1bba6d895ff427b7b4286"
+  url "https://registry.npmjs.org/chalk-cli/-/chalk-cli-6.0.0.tgz"
+  sha256 "480a85e48da024092e1b63fe260f810880f5f82322d82f62304f32e970112216"
   license "MIT"
 
   bottle do
