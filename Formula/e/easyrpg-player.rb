@@ -39,6 +39,7 @@ class EasyrpgPlayer < Formula
   uses_from_macos "zlib"
 
   on_macos do
+    depends_on "inih"
     depends_on "libogg"
   end
 
