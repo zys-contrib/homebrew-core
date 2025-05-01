@@ -1,13 +1,13 @@
 class Prips < Formula
   desc "Print the IP addresses in a given range"
   homepage "https://devel.ringlet.net/sysutils/prips/"
-  url "https://devel.ringlet.net/files/sys/prips/prips-1.2.0.tar.xz"
-  sha256 "de28d8a5a619a30d0b3c8a76f9c09c3529d197f3e74b04c8aa994096ab8349d4"
+  url "https://devel.ringlet.net/files/sys/prips/prips-1.2.2.tar.xz"
+  sha256 "f9d710ba19ea0d9f68b633b7093092c84f519313ca28ec0632b37c4e5a85a0b2"
   license "GPL-2.0-or-later"
 
   livecheck do
-    url :homepage
-    regex(/current version .*?prips.*?v?(\d+(?:\.\d+)+)/i)
+    url "https://devel.ringlet.net/sysutils/prips/download/"
+    regex(/href=.*?prips[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
