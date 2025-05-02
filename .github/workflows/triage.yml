@@ -251,6 +251,7 @@ jobs:
                 openfast|\
                 openvino|\
                 pcl|\
+                percona-server|\
                 ponyc|\
                 pytorch|\
                 qt|\
