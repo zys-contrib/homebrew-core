@@ -1,12 +1,10 @@
 class Redis < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  # NOTE: Do not bump to v7.4+ as license changed to RSALv2+SSPLv1
-  # https://github.com/redis/redis/pull/13157
-  url "https://download.redis.io/releases/redis-7.2.8.tar.gz"
-  sha256 "6be4fdfcdb2e5ac91454438246d00842d2671f792673390e742dfcaf1bf01574"
+  url "https://download.redis.io/releases/redis-8.0.0.tar.gz"
+  sha256 "cf395665ba5fcecc4ef7aed1d8ab19c268619d98595827565c82344160171262"
   license all_of: [
-    "BSD-3-Clause",
+    "AGPL-3.0-only",
     "BSD-2-Clause", # deps/jemalloc, deps/linenoise, src/lzf*
     "BSL-1.0", # deps/fpconv
     "MIT", # deps/lua
@@ -17,12 +15,7 @@ class Redis < Formula
   livecheck do
     url "https://download.redis.io/releases/"
     regex(/href=.*?redis[._-]v?(\d+(?:\.\d+)+)\.t/i)
-    strategy :page_match do |page, regex|
-      version_limit = Version.new("7.4")
-      page.scan(regex).map do |match|
-        match[0] if Version.new(match[0]) < version_limit
-      end
-    end
+    strategy :page_match
   end
 
   bottle do
@@ -40,8 +33,6 @@ class Redis < Formula
   conflicts_with "valkey", because: "both install `redis-*` binaries"
 
   def install
-    odie "Do not bump to v7.4+" if version.major_minor >= "7.4"
-
     system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes"
 
     %w[run db/redis log].each { |p| (var/p).mkpath }
