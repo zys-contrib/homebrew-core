@@ -8,13 +8,13 @@ class LanggraphCli < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f47a578d36978b020a16c39d8c188ab6c805c1034f60357ffd32f621f1b43611"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f47a578d36978b020a16c39d8c188ab6c805c1034f60357ffd32f621f1b43611"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f47a578d36978b020a16c39d8c188ab6c805c1034f60357ffd32f621f1b43611"
-    sha256 cellar: :any_skip_relocation, sonoma:        "121b96085daf821597772a7abc769a44cca09cbc1e21de9d4d63b06471231224"
-    sha256 cellar: :any_skip_relocation, ventura:       "121b96085daf821597772a7abc769a44cca09cbc1e21de9d4d63b06471231224"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f47a578d36978b020a16c39d8c188ab6c805c1034f60357ffd32f621f1b43611"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f47a578d36978b020a16c39d8c188ab6c805c1034f60357ffd32f621f1b43611"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b241fddc959b0db1e894b11bda211e720f4ba42833efcec531613cfacf433043"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b241fddc959b0db1e894b11bda211e720f4ba42833efcec531613cfacf433043"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b241fddc959b0db1e894b11bda211e720f4ba42833efcec531613cfacf433043"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cfb8aa3486a2aeee634d885b06bbdadf2daf2da6c7b00071cb3bb1c9e947e4a1"
+    sha256 cellar: :any_skip_relocation, ventura:       "cfb8aa3486a2aeee634d885b06bbdadf2daf2da6c7b00071cb3bb1c9e947e4a1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b241fddc959b0db1e894b11bda211e720f4ba42833efcec531613cfacf433043"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b241fddc959b0db1e894b11bda211e720f4ba42833efcec531613cfacf433043"
   end
 
   depends_on "python@3.13"
