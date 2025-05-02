@@ -1,10 +1,37 @@
 class Qemu < Formula
   desc "Generic machine emulator and virtualizer"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-10.0.0.tar.xz"
-  sha256 "22c075601fdcf8c7b2671a839ebdcef1d4f2973eb6735254fd2e1bd0f30b3896"
   license "GPL-2.0-only"
   head "https://gitlab.com/qemu-project/qemu.git", branch: "master"
+
+  stable do
+    url "https://download.qemu.org/qemu-10.0.0.tar.xz"
+    sha256 "22c075601fdcf8c7b2671a839ebdcef1d4f2973eb6735254fd2e1bd0f30b3896"
+
+    # The next four patches fix segmentation faults on macOS 15.0-15.3
+    # See https://github.com/Homebrew/homebrew-core/issues/221154
+    # Changes already merged upstream, remove on next release
+
+    patch do
+      url "https://gitlab.com/qemu-project/qemu/-/commit/563cd698dffb977eea0ccfef3b95f6f9786766f3.diff"
+      sha256 "51d07db06532bdd655bec3fdd7eb15cd2004fc96652f0d4dc25522917c9b129a"
+    end
+
+    patch do
+      url "https://gitlab.com/qemu-project/qemu/-/commit/6804b89fb531f5dd49c1e038214c89272383e220.diff"
+      sha256 "7e17787f09488fa731d6de8304b689df767236009c19a3bb662904189028d687"
+    end
+
+    patch do
+      url "https://gitlab.com/qemu-project/qemu/-/commit/797150d69d2edba8b1bd4a7d8c7ba2df1219c503.diff"
+      sha256 "82f14935f588f7ee103e2ba25852aa3cbf19a4319588f270e09d3bd33fe83001"
+    end
+
+    patch do
+      url "https://gitlab.com/qemu-project/qemu/-/commit/a5b30be534538dc6e44a68ce9734e45dd08f52ec.diff"
+      sha256 "a1ff1e8e7c64e7f7dfe7284277f2bef76b837a4c3a86394dd29768d1b1586818"
+    end
+  end
 
   livecheck do
     url "https://www.qemu.org/download/"
