@@ -6,6 +6,15 @@ class Rofi < Formula
   license "MIT"
   head "https://github.com/davatorium/rofi.git", branch: "next"
 
+  bottle do
+    sha256 arm64_sequoia: "9145e5c0e10e0ad16f63c39596fca4cbbc268f2163764242b1983ccc74beb819"
+    sha256 arm64_sonoma:  "6fc2c12f38a607c36dcea8cb40e1ad8e6bedebe32f6e027ffc1d7db4128a2590"
+    sha256 arm64_ventura: "4521374727e53f0da2f4956fecf809d1f3a3bc6fd7f9bbd8fa731d2c105ffd5b"
+    sha256 sonoma:        "d0e422907890194f159c82e5877b4b4a7df6993de3c778fcd2d96cca62e6b7f9"
+    sha256 ventura:       "d5825c1f770c36b0de8c90fba3c68eb2ec1fe8b2a62e6d5d1d75f908f5918e36"
+    sha256 x86_64_linux:  "132a7447727b17fdc5983bfeaa2317458d65d4146c6c4624588af2724b502f15"
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "check" => :build
