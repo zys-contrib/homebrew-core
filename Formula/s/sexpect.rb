@@ -1,8 +1,8 @@
 class Sexpect < Formula
   desc "Expect for shells"
   homepage "https://github.com/clarkwang/sexpect"
-  url "https://github.com/clarkwang/sexpect/archive/refs/tags/v2.3.14.tar.gz"
-  sha256 "f6801c8b979d56eec54aedd7ede06e2342f382cee291beea88b52869186c557c"
+  url "https://github.com/clarkwang/sexpect/archive/refs/tags/v2.3.15.tar.gz"
+  sha256 "44f5711aa99f3ccf9c4b0edfcd9a7d25fa64b442574624ce451713d1532c1a7e"
   license "GPL-3.0-only"
 
   bottle do
