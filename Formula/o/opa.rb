@@ -7,12 +7,12 @@ class Opa < Formula
   head "https://github.com/open-policy-agent/opa.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6623f6b05c3f341e90ff571c10788635f566465acd8307146f6255b290fec226"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ffb6e38cd91da61daf96153079ba794224ae80d17a45b74020f08ea3b7aa76df"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d6e548da09f5bf1c17cbe495eb28bc50a6c18f95c39c1a2733cd3531111d096b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "27516fb1cba47b9828f00b832f068606169ca461e74eed3094a01951af0983ae"
-    sha256 cellar: :any_skip_relocation, ventura:       "08199c03d72d1a27e83b92bb4401b3ad1b6deedd334822cd07d4ac94d585007c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52442da6f33ae5cfa466bba2601da84807dcf658791ecb9c6163b14ac37037a8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1780093c752ed270c282e895844edb01aefd7bec82fb7dd59af785ac6351e4bc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "66335c7af485bf8364b26be277f924318ccf372ee0ca06b5ac33576f50b6e620"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3f67b41a68718f91d44d50590f4eb93553006e69c962c07f0f1fbadf6c18910e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0b4428e4dc46a7467e2685b9e884c942e3387b16bcb2a0e2cc3772412202d419"
+    sha256 cellar: :any_skip_relocation, ventura:       "c5da8bc813dcc2a24315cc4772f79ef16cbca31ce9c43591fa437c898405b4cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4cb8e4e63a8966f535ea81a71808a846e8d6536430f7e3f04eba3940f2df8179"
   end
 
   depends_on "go" => :build
