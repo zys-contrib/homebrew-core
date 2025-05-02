@@ -1,8 +1,8 @@
 class Chiko < Formula
   desc "Ultimate Beauty gRPC Client for your Terminal"
   homepage "https://github.com/felangga/chiko"
-  url "https://github.com/felangga/chiko/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "0bb2303106b9ff04a71dcd8bb0109e8b5ef7a9ec70783730164ef57b19478bbc"
+  url "https://github.com/felangga/chiko/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "054151d8c8c05ff2ccf0283328221b8143ea17146ef4dde4d63d7f1d31b11748"
   license "MIT"
   head "https://github.com/felangga/chiko.git", branch: "main"
 
