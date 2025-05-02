@@ -11,6 +11,7 @@ class Iccmax < Formula
     sha256 cellar: :any,                 arm64_ventura: "47bc9ddae076560477d5dcb2aba20a1f1ee6a1bfd7abf427bf70aec37c7b911d"
     sha256 cellar: :any,                 sonoma:        "7fb47953f25262626476ffa53e8b9a1062ac2f8dfd1a3c492c4cabb8159da326"
     sha256 cellar: :any,                 ventura:       "0c77e5b40278033497bdf99dd0f667a06b3e8ceb5ec47ee4c32802da98d8e930"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3e4b5ff79e1bec935b036745b9dd4fe399864472e88bfd3f7352130efa91b7bb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0923ecf885cebd5ad8dc4438ca1d594faa37f9139c1a2606494aca2f2a023a1b"
   end
 
