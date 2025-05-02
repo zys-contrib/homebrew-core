@@ -45,6 +45,7 @@
   ["libnghttp2", "nghttp2"],
   ["libngspice", "ngspice"],
   ["libnice", "libnice-gstreamer"],
+  ["libtorrent-rakshasa", "rtorrent"],
   ["llvm", "lld", "flang", "wasi-runtimes"],
   ["qalculate-gtk", "qalculate-qt"],
   ["mame", "rom-tools"],
