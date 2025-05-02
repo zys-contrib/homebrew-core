@@ -5,6 +5,15 @@ class Iccmax < Formula
   sha256 "e3bff2e0e7876faebe4a2097eefa2a190325bcc04c152ef470449f0c01b41fa7"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "1c199d5cf09f566e818d2049fb093faf85d4db8d5523e1434291fa2c9472410b"
+    sha256 cellar: :any,                 arm64_sonoma:  "1b74500262109e0e702597ed2342f488c4517b8f44800534e33c55c88b89bdaf"
+    sha256 cellar: :any,                 arm64_ventura: "47bc9ddae076560477d5dcb2aba20a1f1ee6a1bfd7abf427bf70aec37c7b911d"
+    sha256 cellar: :any,                 sonoma:        "7fb47953f25262626476ffa53e8b9a1062ac2f8dfd1a3c492c4cabb8159da326"
+    sha256 cellar: :any,                 ventura:       "0c77e5b40278033497bdf99dd0f667a06b3e8ceb5ec47ee4c32802da98d8e930"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0923ecf885cebd5ad8dc4438ca1d594faa37f9139c1a2606494aca2f2a023a1b"
+  end
+
   depends_on "cmake" => :build
   depends_on "jpeg"
   depends_on "libpng"
