@@ -11,6 +11,7 @@ class Sexpect < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "80c7bd9c41392b083ffcdfd1535d7bf875203c5560aec4b766ea5742b92b6626"
     sha256 cellar: :any_skip_relocation, sonoma:        "c0e217ae23067d383fcac310f301fba79a01a739cf6c844799d73d81890fd845"
     sha256 cellar: :any_skip_relocation, ventura:       "50abbeb01950ce35c19afdc4dcdee87157994155efbc8822f97c4312ddc8fefb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "49e406f2f6e7e8ec9e7bc0d8c924199d666ae3b033240bd1af9acf3befa3bb52"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b342aeaabdc2a4a4b86cdac1cf606fb8e50308b68087bf56330bdaa529cee66"
   end
 
