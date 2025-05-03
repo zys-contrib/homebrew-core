@@ -1,8 +1,8 @@
 class Libde265 < Formula
   desc "Open h.265 video codec implementation"
   homepage "https://github.com/strukturag/libde265"
-  url "https://github.com/strukturag/libde265/releases/download/v1.0.15/libde265-1.0.15.tar.gz"
-  sha256 "00251986c29d34d3af7117ed05874950c875dd9292d016be29d3b3762666511d"
+  url "https://github.com/strukturag/libde265/releases/download/v1.0.16/libde265-1.0.16.tar.gz"
+  sha256 "b92beb6b53c346db9a8fae968d686ab706240099cdd5aff87777362d668b0de7"
   license "LGPL-3.0-or-later"
 
   bottle do
@@ -37,8 +37,7 @@ class Libde265 < Formula
     system "make", "install"
 
     # Install the test-related executables in libexec.
-    (libexec/"bin").install bin/"acceleration_speed",
-                            bin/"block-rate-estim",
+    (libexec/"bin").install bin/"block-rate-estim",
                             bin/"tests"
   end
 
