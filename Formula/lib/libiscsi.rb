@@ -1,8 +1,8 @@
 class Libiscsi < Formula
   desc "Client library and utilities for iscsi"
   homepage "https://github.com/sahlberg/libiscsi"
-  url "https://github.com/sahlberg/libiscsi/archive/refs/tags/1.20.0.tar.gz"
-  sha256 "6321d802103f2a363d3afd9a5ae772de0b4052c84fe6a301ecb576b34e853caa"
+  url "https://github.com/sahlberg/libiscsi/archive/refs/tags/1.20.1.tar.gz"
+  sha256 "6bd6feef2904de1bb1869cec935b58995bc1311cad57184a2221e09ed6137eec"
   license all_of: [:public_domain, "LGPL-2.1-or-later", "GPL-2.0-or-later"]
   head "https://github.com/sahlberg/libiscsi.git", branch: "master"
 
@@ -22,6 +22,13 @@ class Libiscsi < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "cunit"
+
+  # Fix to error: unknown type name 'pthread_spinlock_t'; did you mean 'pthread_rwlock_t'?, remove on next release
+  # Issue ref: https://github.com/sahlberg/libiscsi/issues/442
+  patch do
+    url "https://github.com/sahlberg/libiscsi/commit/fa37a2136c59a16e3112a957ccdb8197ecf2a302.patch?full_index=1"
+    sha256 "02f21294fcfa9535f6ba984e7c0ac14d7c6aded387db6e744c6ebf892dc69c4f"
+  end
 
   def install
     system "./autogen.sh"
