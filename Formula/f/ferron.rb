@@ -1,8 +1,8 @@
 class Ferron < Formula
   desc "Fast, memory-safe web server written in Rust"
   homepage "https://www.ferronweb.org/"
-  url "https://github.com/ferronweb/ferron/archive/refs/tags/1.1.2.tar.gz"
-  sha256 "d39c9f5bd1b7f8952af850c029411597d62031292589d7301c883c73ec41f83a"
+  url "https://github.com/ferronweb/ferron/archive/refs/tags/1.2.0.tar.gz"
+  sha256 "20516bf2f2d0617b8e8cd44ae9cecc91ba76fa4b482a6d0683d14700310232ad"
   license "MIT"
   head "https://github.com/ferronweb/ferron.git", branch: "develop"
 
