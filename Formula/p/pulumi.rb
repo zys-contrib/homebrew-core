@@ -7,6 +7,8 @@ class Pulumi < Formula
   license "Apache-2.0"
   head "https://github.com/pulumi/pulumi.git", branch: "master"
 
+  no_autobump! because: :bumped_by_upstream
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9a129deb12ea066242a76a12b9368ba23cdfb6450395678f811d234689d3d2a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1fa1a5b0d996049cca4765b818ef7186eaea0b9e6a0af3609058a8ec3315d720"
