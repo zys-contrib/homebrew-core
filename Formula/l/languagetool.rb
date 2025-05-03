@@ -3,7 +3,7 @@ class Languagetool < Formula
   homepage "https://www.languagetool.org/"
   url "https://github.com/languagetool-org/languagetool.git",
       tag:      "v6.6",
-      revision: "ac27103cd54291aad05c3fe2c69f0339bc8498e3"
+      revision: "f13e71a7fe85a122290826fd691d267d64e97c33"
   license "LGPL-2.1-or-later"
   head "https://github.com/languagetool-org/languagetool.git", branch: "master"
 
@@ -47,6 +47,10 @@ class Languagetool < Formula
 
     touch buildpath/"server.properties"
     pkgetc.install "server.properties"
+  end
+
+  def post_install
+    (var/"log/languagetool").mkpath
   end
 
   service do
