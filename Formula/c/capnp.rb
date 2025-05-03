@@ -4,6 +4,7 @@ class Capnp < Formula
   url "https://capnproto.org/capnproto-c++-1.1.0.tar.gz"
   sha256 "07167580e563f5e821e3b2af1c238c16ec7181612650c5901330fa9a0da50939"
   license "MIT"
+  revision 1
   head "https://github.com/capnproto/capnproto.git", branch: "master"
 
   livecheck do
@@ -31,6 +32,7 @@ class Capnp < Formula
   def install
     # Build shared library
     system "cmake", "-S", ".", "-B", "build_shared",
+                    "-DCMAKE_CXX_STANDARD=20", # compile coroutine support, remove with 2.0 update
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
@@ -41,6 +43,7 @@ class Capnp < Formula
 
     # Build static library
     system "cmake", "-S", ".", "-B", "build_static",
+                    "-DCMAKE_CXX_STANDARD=20", # compile coroutine support, remove with 2.0 update
                     "-DBUILD_SHARED_LIBS=OFF",
                     "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
                     "-DCMAKE_CXX_FLAGS=-fPIC",
