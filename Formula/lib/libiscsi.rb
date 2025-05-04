@@ -7,15 +7,13 @@ class Libiscsi < Formula
   head "https://github.com/sahlberg/libiscsi.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "7ed4c8fcbca1477bae283a7263f35afd777bad5c52701fc4613c1a04d2eb97f9"
-    sha256 cellar: :any,                 arm64_sonoma:   "b8b214472ef93143e0d926b7b44a4b8f31ab658a4d32c072bd70290185490ab6"
-    sha256 cellar: :any,                 arm64_ventura:  "e9cade19921a1d5abfe5b3fcde749ea27ac0169ccefe2ad641cbf335041407db"
-    sha256 cellar: :any,                 arm64_monterey: "43ac5887c657c6b82c77fbdef9a4cf0d7619f8aa6d224886bcec9a9441f16695"
-    sha256 cellar: :any,                 sonoma:         "740b7f606b002d81ac103bdc370dcd3e8c2fe8d40c4076f82da099cec369cf84"
-    sha256 cellar: :any,                 ventura:        "b2ef691dddbb78054d97f690f66d232c5342ab532d675202218ae75c4974acf5"
-    sha256 cellar: :any,                 monterey:       "e37fd9ee5cb599780d8b879d39b13c6b8fa123e7d2d259fc958cebadc3600c92"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "1ab407e7c602f475c9a9149103cde804b8164853c07884e7cc1cc1af7aa1950c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f038bc77875a74dcbc70d2db6f0f653ee58b744278833151b0c9a6aea8816dfe"
+    sha256 cellar: :any,                 arm64_sequoia: "dc5f8c6f6c92e1fd412fc04112032eb339d9014208d27819fd92cde2756883e5"
+    sha256 cellar: :any,                 arm64_sonoma:  "be090725b493c5446110fbcc7c05ad6bedc92032360fe05cc5963c940e8580c1"
+    sha256 cellar: :any,                 arm64_ventura: "e710e558774e2b4fcbd1c423b945f4a63f5f55daa8f14298d42f816afcef99ec"
+    sha256 cellar: :any,                 sonoma:        "2636c3307f2421f528d202124664f6a32210bf9603becc186d2cc765c897e2bf"
+    sha256 cellar: :any,                 ventura:       "589f2bce4a2ccd68d527b974723f26a7c22b09faaac24bf0b91b27e383e803bc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "44dedd29ce36ad360bee30ddd330301ecd26ea9a9fbdaee14adaf04417002040"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74a477c46c38281dc7810044580134c904733d949eb3d11e3c63eae2c4a298d8"
   end
 
   depends_on "autoconf" => :build
