@@ -1,8 +1,8 @@
 class Rgbds < Formula
   desc "Rednex GameBoy Development System"
   homepage "https://rgbds.gbdev.io"
-  url "https://github.com/gbdev/rgbds/archive/refs/tags/v0.9.1.tar.gz"
-  sha256 "0eba653065d8ab6aaec9a4269bbd29efc2015189420154b2126ad410f1590e0e"
+  url "https://github.com/gbdev/rgbds/archive/refs/tags/v0.9.2.tar.gz"
+  sha256 "ccba03909a9fd2067969134ef04c4165c1acffac5cd45899405214f9abd4157d"
   license "MIT"
   head "https://github.com/gbdev/rgbds.git", branch: "master"
 
@@ -28,8 +28,8 @@ class Rgbds < Formula
   depends_on "libpng"
 
   resource "rgbobj" do
-    url "https://github.com/gbdev/rgbobj/archive/refs/tags/v0.4.0.tar.gz"
-    sha256 "3871904f78d85ad6686df396d806950f9fc9ed612958c513fda3b962a8d63799"
+    url "https://github.com/gbdev/rgbobj/archive/refs/tags/v0.5.0.tar.gz"
+    sha256 "c05cf86445a4bcf8718389fbe6feeaa6091b9f500ddc746a589cdeb60c7c5519"
   end
 
   def install
