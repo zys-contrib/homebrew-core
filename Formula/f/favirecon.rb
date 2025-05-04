@@ -7,12 +7,12 @@ class Favirecon < Formula
   head "https://github.com/edoardottt/favirecon.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "40f67c348cd32b50b8d6f27c933ff620153503030a5cc12eb38b50fa242de30e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "40f67c348cd32b50b8d6f27c933ff620153503030a5cc12eb38b50fa242de30e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "40f67c348cd32b50b8d6f27c933ff620153503030a5cc12eb38b50fa242de30e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8bc2f04831805761b2c04c30507f59c0b7622334cadfaeacba1d6a5f7de6ec0e"
-    sha256 cellar: :any_skip_relocation, ventura:       "8bc2f04831805761b2c04c30507f59c0b7622334cadfaeacba1d6a5f7de6ec0e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "53e98be9e8cb6265734b57e242db0966079d444498adf9d4387ac6bb3d83d8ec"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3b9ac42b2464890e8bacb8cd97078d61076acef1606c6afd39d0d79a091006e6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3b9ac42b2464890e8bacb8cd97078d61076acef1606c6afd39d0d79a091006e6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3b9ac42b2464890e8bacb8cd97078d61076acef1606c6afd39d0d79a091006e6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "da8cfe24f334fef7b605c84b56ff15f914e6104ce404c6f6bf15311449f9a21c"
+    sha256 cellar: :any_skip_relocation, ventura:       "da8cfe24f334fef7b605c84b56ff15f914e6104ce404c6f6bf15311449f9a21c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6143cce613537c5a78774e7a52e1063a690a1ace00146fc6af9cff593d89692d"
   end
 
   depends_on "go" => :build
