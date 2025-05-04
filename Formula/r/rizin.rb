@@ -1,8 +1,8 @@
 class Rizin < Formula
   desc "UNIX-like reverse engineering framework and command-line toolset"
   homepage "https://rizin.re"
-  url "https://github.com/rizinorg/rizin/releases/download/v0.8.0/rizin-src-v0.8.0.tar.xz"
-  sha256 "da9ac726109719289f908007d1802c6494a23c43cb9950ca42821d42aa5c7e37"
+  url "https://github.com/rizinorg/rizin/releases/download/v0.8.1/rizin-src-v0.8.1.tar.xz"
+  sha256 "ef2b1e6525d7dc36ac43525b956749c1cca07bf17c1fed8b66402d82010a4ec2"
   license "LGPL-3.0-only"
   head "https://github.com/rizinorg/rizin.git", branch: "dev"
 
@@ -32,13 +32,6 @@ class Rizin < Formula
   depends_on "zstd"
 
   uses_from_macos "zlib"
-
-  # Fix to use `rizin-grammar-c` unconditionally, should be removed in next release
-  # PR Ref: https://github.com/rizinorg/rizin/pull/5103
-  patch do
-    url "https://github.com/rizinorg/rizin/commit/e196efaefbd2aa47204185c6b280654d9d964723.patch?full_index=1"
-    sha256 "0dfa2792793a7cafe35f08bf630dbfd943c05f7778c66f5054833d92d6475caa"
-  end
 
   def install
     args = %W[
