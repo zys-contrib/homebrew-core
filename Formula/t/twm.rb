@@ -1,8 +1,8 @@
 class Twm < Formula
   desc "Tab Window Manager for X Window System"
   homepage "https://www.x.org/"
-  url "https://www.x.org/releases/individual/app/twm-1.0.12.tar.xz"
-  sha256 "aaf201d4de04c1bb11eed93de4bee0147217b7bdf61b7b761a56b2fdc276afe4"
+  url "https://www.x.org/releases/individual/app/twm-1.0.13.tar.xz"
+  sha256 "966c4df15757645943a916c1beee4ff4065b44fde00cf01f8477d8c1d0cba2b6"
   license "X11"
 
   bottle do
