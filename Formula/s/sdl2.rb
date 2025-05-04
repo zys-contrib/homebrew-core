@@ -1,10 +1,9 @@
 class Sdl2 < Formula
   desc "Low-level access to audio, keyboard, mouse, joystick, and graphics"
   homepage "https://www.libsdl.org/"
-  url "https://github.com/libsdl-org/SDL/releases/download/release-2.32.4/SDL2-2.32.4.tar.gz"
-  sha256 "f15b478253e1ff6dac62257ded225ff4e7d0c5230204ac3450f1144ee806f934"
+  url "https://github.com/libsdl-org/SDL/releases/download/release-2.32.6/SDL2-2.32.6.tar.gz"
+  sha256 "6a7a40d6c2e00016791815e1a9f4042809210bdf10cc78d2c75b45c4f52f93ad"
   license "Zlib"
-  revision 1
 
   livecheck do
     url :stable
@@ -41,14 +40,6 @@ class Sdl2 < Formula
     depends_on "libxrandr"
     depends_on "libxscrnsaver"
     depends_on "pulseaudio"
-  end
-
-  # Fixes a crash when game controllers disconnect
-  # https://github.com/libsdl-org/SDL/issues/12807
-  # Will be fixed in the next release
-  patch do
-    url "https://github.com/libsdl-org/SDL/commit/7fc5edab8e939523dba9e10b6375fcdfb0f875f4.patch?full_index=1"
-    sha256 "e6275f870e77bc91b0b171e9a4c88be480216c48886e23967af2a4655ed8b978"
   end
 
   def install
