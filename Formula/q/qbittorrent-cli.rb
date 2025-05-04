@@ -7,13 +7,12 @@ class QbittorrentCli < Formula
   head "https://github.com/ludviglundgren/qbittorrent-cli.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5e96b29807392f7c74e501cd2f719318d3e770ec2b8876cd227e423533383c69"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5e96b29807392f7c74e501cd2f719318d3e770ec2b8876cd227e423533383c69"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5e96b29807392f7c74e501cd2f719318d3e770ec2b8876cd227e423533383c69"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f3d31377614b1fb573a91e316f8f87609bb3b1187c5eef077e8ef1be12548164"
-    sha256 cellar: :any_skip_relocation, ventura:       "f3d31377614b1fb573a91e316f8f87609bb3b1187c5eef077e8ef1be12548164"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "318e10b9ca3a6e4ae318c4588473da21110f6e7dfaeca1354ce3f634341687e5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e89063ee1ee9e114a32ce09eff29422cfb5b50f8a3ed324139e60828ab10123b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e89063ee1ee9e114a32ce09eff29422cfb5b50f8a3ed324139e60828ab10123b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e89063ee1ee9e114a32ce09eff29422cfb5b50f8a3ed324139e60828ab10123b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "78d01479e9ca94aa71093187fba7d532eca1057bd9b020bdf0440cb502c1ad0e"
+    sha256 cellar: :any_skip_relocation, ventura:       "78d01479e9ca94aa71093187fba7d532eca1057bd9b020bdf0440cb502c1ad0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0949049acfbe454c435d710c62a96ca0651d32108511aefbc1d9f07e6daebc68"
   end
 
   depends_on "go" => :build
