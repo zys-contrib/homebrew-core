@@ -1,8 +1,8 @@
 class Favirecon < Formula
   desc "Uses favicon.ico to improve the target recon phase"
   homepage "https://github.com/edoardottt/favirecon"
-  url "https://github.com/edoardottt/favirecon/archive/refs/tags/v0.1.3.tar.gz"
-  sha256 "ab11b19ac7f78e41cd00df5832f4ead73a33a2e8e9a3f9c9099f596d3fe11405"
+  url "https://github.com/edoardottt/favirecon/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "f86508313ece963c8bd173561bf2d3e98fd995a762acc2f8e4a071f695e6759d"
   license "MIT"
   head "https://github.com/edoardottt/favirecon.git", branch: "main"
 
@@ -22,7 +22,9 @@ class Favirecon < Formula
   end
 
   test do
-    output = shell_output("#{bin}/favirecon -u https://www.github.com")
-    assert_match "[GitHub] https://www.github.com/favicon.ico", output
+    assert_match version.to_s, shell_output("#{bin}/favirecon --help")
+
+    output = shell_output("#{bin}/favirecon -u https://www.github.com -verbose 2>&1")
+    assert_match "Checking favicon for https://www.github.com/favicon.ico", output
   end
 end
