@@ -11,8 +11,7 @@ class Logcheck < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "2108089f5ec41e1a09d4ee019baa9129713f445efea218138d079bcb6df60d67"
+    sha256 cellar: :any_skip_relocation, all: "e864079731abec3d06b575a68ab48bbf59267493962665690bae3aa55ad43502"
   end
 
   on_macos do
