@@ -6,6 +6,15 @@ class Yeet < Formula
   license "MIT"
   head "https://github.com/TecharoHQ/yeet.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bd2fe022c2cc94d2cb6997c3eccf7ff7b7ef738f1509a1b69737254b1a250f35"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bd2fe022c2cc94d2cb6997c3eccf7ff7b7ef738f1509a1b69737254b1a250f35"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "bd2fe022c2cc94d2cb6997c3eccf7ff7b7ef738f1509a1b69737254b1a250f35"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d8a6ca7d3a6a25c07ec08c2177e32ff3fe978e7986d103eb49856728898021f4"
+    sha256 cellar: :any_skip_relocation, ventura:       "d8a6ca7d3a6a25c07ec08c2177e32ff3fe978e7986d103eb49856728898021f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2dd5767d76731ba8711a36e15c90a326218e8ca2bfa075266af81c7d644a85a5"
+  end
+
   depends_on "go" => :build
 
   def install
