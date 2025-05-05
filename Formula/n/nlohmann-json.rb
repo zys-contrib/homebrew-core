@@ -12,6 +12,13 @@ class NlohmannJson < Formula
 
   depends_on "cmake" => :build
 
+  # Fix to error: unknown type name 'char8_t' for clang, remove in next release
+  # PR ref: https://github.com/nlohmann/json/pull/4736
+  patch do
+    url "https://github.com/nlohmann/json/commit/34868f90149de02432ea758a29227a6ad74f098c.patch?full_index=1"
+    sha256 "fb4db3640ce333b145b53acc64c78eb3011f57012dc4b9c6689d5d485d2434cd"
+  end
+
   def install
     system "cmake", "-S", ".", "-B", "build",
                     "-DJSON_BuildTests=OFF", "-DJSON_MultipleHeaders=ON", *std_cmake_args
