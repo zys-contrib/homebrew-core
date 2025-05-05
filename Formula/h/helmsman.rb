@@ -1,8 +1,8 @@
 class Helmsman < Formula
   desc "Helm Charts as Code tool"
   homepage "https://github.com/Praqma/helmsman"
-  url "https://github.com/Praqma/helmsman/archive/refs/tags/v4.0.0.tar.gz"
-  sha256 "c09615c43d195f119ef057ce293b475833fd5d5c52058e39b6052f49ddfb24ca"
+  url "https://github.com/Praqma/helmsman/archive/refs/tags/v4.0.1.tar.gz"
+  sha256 "1fd57af9978681f0c148157e5ef7929b5154e6e79bc13c41711892340320254e"
   license "MIT"
   head "https://github.com/Praqma/helmsman.git", branch: "master"
 
