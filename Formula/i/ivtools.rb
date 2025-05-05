@@ -4,7 +4,7 @@ class Ivtools < Formula
   url "https://github.com/vectaport/ivtools/archive/refs/tags/ivtools-2.1.1.tar.gz"
   sha256 "4fa680b9d0fd2af610e9012258e150249d9a8abbc3b1f65eb17d01c959142cfc"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_sequoia: "b27e3ccddafd5fc89c69fb691f636e16dc83cd351371c60fdd63d8c1f6983b83"
@@ -24,6 +24,13 @@ class Ivtools < Formula
     on_arm do
       depends_on "automake" => :build
     end
+  end
+
+  # Fix to error: unknown type name '_LIBCPP_INLINE_VISIBILITY' and '_VSTD'
+  # PR ref: https://github.com/vectaport/ivtools/pull/25
+  patch do
+    url "https://github.com/vectaport/ivtools/commit/6c4f2afb11d76fc34fb918c2ba53c4c4c5db55ae.patch?full_index=1"
+    sha256 "5aaa198d2c2721d30b1f31ea9817ca7fbf1a518dde782d6441cf5946a7b83ee2"
   end
 
   def install
