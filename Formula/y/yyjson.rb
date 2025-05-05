@@ -1,8 +1,8 @@
 class Yyjson < Formula
   desc "High performance JSON library written in ANSI C"
   homepage "https://github.com/ibireme/yyjson"
-  url "https://github.com/ibireme/yyjson/archive/refs/tags/0.10.0.tar.gz"
-  sha256 "0d901cb2c45c5586e3f3a4245e58c2252d6b24bf4b402723f6179523d389b165"
+  url "https://github.com/ibireme/yyjson/archive/refs/tags/0.11.0.tar.gz"
+  sha256 "0cc453318ff299ab61ec233b5b92dd474dee39028ad77904b19a45a79651574e"
   license "MIT"
   head "https://github.com/ibireme/yyjson.git", branch: "master"
 
