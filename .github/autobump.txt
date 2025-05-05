@@ -3982,6 +3982,7 @@ yaws
 yaz
 yazi
 ydiff
+yeet
 yewtube
 yices2
 ykman
