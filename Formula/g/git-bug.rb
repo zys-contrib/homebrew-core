@@ -2,8 +2,8 @@ class GitBug < Formula
   desc "Distributed, offline-first bug tracker embedded in git, with bridges"
   homepage "https://github.com/MichaelMure/git-bug"
   url "https://github.com/MichaelMure/git-bug.git",
-      tag:      "v0.8.0",
-      revision: "a3fa445a9c76631c4cd16f93e1c1c68a954adef7"
+      tag:      "v0.8.1",
+      revision: "96c7a111a3cb075b5ce485f709c3eb82da121a50"
   license "GPL-3.0-or-later"
   head "https://github.com/MichaelMure/git-bug.git", branch: "master"
 
@@ -42,15 +42,15 @@ class GitBug < Formula
     assert_match version.to_s, shell_output("git bug version")
 
     mkdir testpath/"git-repo" do
-      system "git", "init"
+      system "git", "init", "--initial-branch=main"
       system "git", "config", "user.name", "homebrew"
       system "git", "config", "user.email", "a@a.com"
-      system "yes 'a b http://www/www' | git bug user create"
-      system "git", "bug", "add", "-t", "Issue 1", "-m", "Issue body"
-      system "git", "bug", "add", "-t", "Issue 2", "-m", "Issue body"
-      system "git", "bug", "add", "-t", "Issue 3", "-m", "Issue body"
+      system "yes 'a b http://www/www' | git bug user new"
+      system "git", "bug", "bug", "new", "-t", "Issue 1", "-m", "Issue body"
+      system "git", "bug", "bug", "new", "-t", "Issue 2", "-m", "Issue body"
+      system "git", "bug", "bug", "new", "-t", "Issue 3", "-m", "Issue body"
 
-      assert_match "Issue 2", shell_output("git bug ls")
+      assert_match "Issue 2", shell_output("git bug bug 'Issue 2'")
     end
   end
 end
