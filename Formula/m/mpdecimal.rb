@@ -1,8 +1,8 @@
 class Mpdecimal < Formula
   desc "Library for decimal floating point arithmetic"
   homepage "https://www.bytereef.org/mpdecimal/"
-  url "https://www.bytereef.org/software/mpdecimal/releases/mpdecimal-4.0.0.tar.gz"
-  sha256 "942445c3245b22730fd41a67a7c5c231d11cb1b9936b9c0f76334fb7d0b4468c"
+  url "https://www.bytereef.org/software/mpdecimal/releases/mpdecimal-4.0.1.tar.gz"
+  sha256 "96d33abb4bb0070c7be0fed4246cd38416188325f820468214471938545b1ac8"
   license "BSD-2-Clause"
 
   livecheck do
