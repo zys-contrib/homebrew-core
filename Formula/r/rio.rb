@@ -12,11 +12,11 @@ class Rio < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "92eff0d911ab241d56f665285833e252c775f0af163df0767b49f61dc9ed75c6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a5c55ee098e55f5e49f6ff92989366d58a96db66922b78e927c618692abdc483"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6e7e8aba4b847f8f005c334f9576603c56484e92ee5e3c8695958b74bb4326bb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e4405f2b8759856f307e15fd3f4832f0b63cecd48aa73369fea88aa1f47d6c07"
-    sha256 cellar: :any_skip_relocation, ventura:       "a0a70301c5a3f98ec3d87cb303b187cffe018107ef5fe574947a3c1c13267039"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "500f493f49830023b6501bf4b37f33c5cc474f25b43cd172ce46e9107b357ecd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6eed7c03672ebc16bdc0f509591e9ecf0c4d53d9e97afe423a368cf9eb80e98f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "56a33f47eff94a0d2f14445470ffbb969d0723e4d3f84bba05f2fc9c733248b9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7719719ebb16f9a80bba7a162639d2c9848f5eda06fa84e9a998abe84b98a7cf"
+    sha256 cellar: :any_skip_relocation, ventura:       "2667430f44fc41eb3dbe7d97fb12d30e39272a1ba556161e2d4e32cbb9d1cdff"
   end
 
   depends_on "rust" => :build
