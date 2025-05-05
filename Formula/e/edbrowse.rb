@@ -1,8 +1,8 @@
 class Edbrowse < Formula
   desc "Command-line editor and web browser"
   homepage "https://edbrowse.org"
-  url "https://github.com/CMB/edbrowse/archive/refs/tags/v3.8.11.tar.gz"
-  sha256 "7c614d50e89245d3caf48189954dcf9988427e2953c0eaeea622fe38f19ceb44"
+  url "https://github.com/CMB/edbrowse/archive/refs/tags/v3.8.12.tar.gz"
+  sha256 "b5125c7d13c2ed4491dc0d5a31116b244db62ae1c417ba5d29910311d1194632"
   license "GPL-2.0-or-later"
   head "https://github.com/cmb/edbrowse.git", branch: "master"
 
