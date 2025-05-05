@@ -1,8 +1,8 @@
 class K6 < Formula
   desc "Modern load testing tool, using Go and JavaScript"
   homepage "https://k6.io"
-  url "https://github.com/grafana/k6/archive/refs/tags/v0.58.0.tar.gz"
-  sha256 "013c5deb43264afc2f17a2f059fa27a706464abb235af401acfda26bb45fd8e7"
+  url "https://github.com/grafana/k6/archive/refs/tags/v0.59.0.tar.gz"
+  sha256 "a2c5ed79dd93d19b97df3a377883245883b3ec86869ec1309b3f090d4d402942"
   license "AGPL-3.0-or-later"
   head "https://github.com/grafana/k6.git", branch: "master"
 
@@ -19,7 +19,7 @@ class K6 < Formula
 
   def install
     # see comment, https://github.com/Homebrew/homebrew-core/pull/217383#issuecomment-2766058674
-    odie "Revert the version check for 0.58.0" if build.stable? && version > "0.58.0"
+    odie "Revert the version check for 0.58.0" if build.stable? && version > "0.59.0"
 
     system "go", "build", *std_go_args(ldflags: "-s -w")
 
