@@ -7,12 +7,12 @@ class Helmsman < Formula
   head "https://github.com/Praqma/helmsman.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d2de3885cb7a17b827660373aa92fbe109be6401057485089181452dbda7fafd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d2de3885cb7a17b827660373aa92fbe109be6401057485089181452dbda7fafd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d2de3885cb7a17b827660373aa92fbe109be6401057485089181452dbda7fafd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "539ad1ff618e53f3c159aa2d79e5c6f7089af120747ba55d35174a9cf497ba54"
-    sha256 cellar: :any_skip_relocation, ventura:       "539ad1ff618e53f3c159aa2d79e5c6f7089af120747ba55d35174a9cf497ba54"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3244639ab2f71fc1507f9f6d95b0bea56b33c37f3ac5821059e38a4d211f4669"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3d0929fc620f2b70c7ac8d73882af83e4ad75945ecff541943b115153ba051b0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3d0929fc620f2b70c7ac8d73882af83e4ad75945ecff541943b115153ba051b0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3d0929fc620f2b70c7ac8d73882af83e4ad75945ecff541943b115153ba051b0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a9218db433fded2e7250b6e8c2c4eb0c05de5f4704dbe91fb3a8211482bbd8b0"
+    sha256 cellar: :any_skip_relocation, ventura:       "a9218db433fded2e7250b6e8c2c4eb0c05de5f4704dbe91fb3a8211482bbd8b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15db5f87deb842220d669913fcba8cb8ec6437b773411f966ce56f515259779c"
   end
 
   depends_on "go" => :build
