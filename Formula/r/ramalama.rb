@@ -8,13 +8,13 @@ class Ramalama < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d307f042288498f5bc81c1e895a298917e573c8363e07a3fb3344dda9ad91408"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d307f042288498f5bc81c1e895a298917e573c8363e07a3fb3344dda9ad91408"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d307f042288498f5bc81c1e895a298917e573c8363e07a3fb3344dda9ad91408"
-    sha256 cellar: :any_skip_relocation, sonoma:        "89b2d2b67d0333f7df695f2e820db314e7b0a2b662d05eb71ab60a0b7c0361c6"
-    sha256 cellar: :any_skip_relocation, ventura:       "89b2d2b67d0333f7df695f2e820db314e7b0a2b662d05eb71ab60a0b7c0361c6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "331cfd8b27333448a8f36806def92e84504a655ef987d2ec7b459fe85c3f597c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "331cfd8b27333448a8f36806def92e84504a655ef987d2ec7b459fe85c3f597c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "046d79ee163ab2a551cb24586ee1a5e4dbeb5f72e64b38d0b9e03a60baac19b2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "046d79ee163ab2a551cb24586ee1a5e4dbeb5f72e64b38d0b9e03a60baac19b2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "046d79ee163ab2a551cb24586ee1a5e4dbeb5f72e64b38d0b9e03a60baac19b2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6e0e4c1ac15c72e838b6dff204061dbb64df2e175f8c8aba59de3aa5df83b33f"
+    sha256 cellar: :any_skip_relocation, ventura:       "6e0e4c1ac15c72e838b6dff204061dbb64df2e175f8c8aba59de3aa5df83b33f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "63a8b35b92840deea8e310a94b607108556492051208c0b509b5823026ab69bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63a8b35b92840deea8e310a94b607108556492051208c0b509b5823026ab69bb"
   end
 
   depends_on "llama.cpp"
