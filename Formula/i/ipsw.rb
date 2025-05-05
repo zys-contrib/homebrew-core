@@ -1,8 +1,8 @@
 class Ipsw < Formula
   desc "Research tool for iOS & macOS devices"
   homepage "https://blacktop.github.io/ipsw"
-  url "https://github.com/blacktop/ipsw/archive/refs/tags/v3.1.597.tar.gz"
-  sha256 "c6bd4f7935d54a778a90b6e8455be1baa4f5ef1f5186683829d4a57b8f4c90e6"
+  url "https://github.com/blacktop/ipsw/archive/refs/tags/v3.1.598.tar.gz"
+  sha256 "d33036458e33c66b15c08a4fbe9a2644881f78331ddc2997b03d336b7a9cb617"
   license "MIT"
   head "https://github.com/blacktop/ipsw.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Ipsw < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3022e37d77e6a1217ad36ed2904b937a7310f24cb10ac033ee1fc07aa0be55c6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "72427a13f8407756b5caad56582b499c4d008c328f25872950945c2d20ce8246"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6781c0bdbec984dd3af25c1ae9abf876e7fbb342eef10ea02c4be56239b986c1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "78ba9d704058f6102bf933d425621ae381e94846898d9d6976bba0ec6967f8cc"
-    sha256 cellar: :any_skip_relocation, ventura:       "61be652a24a2743376658f4c178871a1d8acc235d108d1b5084e7b844e106e48"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6ae8240222bc7aa6d6f41a7f46529701bf65bd718aad226a2e3072680ffc5465"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28c9c6d901fcc0fc820d1387afc6d1ff54268f9710c2eb008f05efa8fa2882e0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "529b73c7ea66eeeb9470a8c4b1b47814b138b85721ecda902fde0db750ae4988"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e75c22110321cc39bc5c2f7d662961e5064c0b652c33d995cfa24fbecc90dd2f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "733017376ee8f083c64e6685c83e7f6db9431094b1e143f27f0cfa8752f5e263"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2fcaf07c28f7b824e725922c3b410d051de570b5542e259b58237002b24dc1e6"
+    sha256 cellar: :any_skip_relocation, ventura:       "47f877d1698b447c74b26de0305ab70f72f7a5941b980821c79eb8628389b87b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fc690ecefe8a3579e0fc7e5958755f8a76ebaf172f8e405b9f8dc92987f60baa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "936aef356088a51447df3f6c1c35fb3bf0525307d941bc5a99ed8503a6f9e4bb"
   end
 
   depends_on "go" => :build
