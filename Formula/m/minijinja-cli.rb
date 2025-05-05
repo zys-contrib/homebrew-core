@@ -6,6 +6,10 @@ class MinijinjaCli < Formula
   license "Apache-2.0"
   head "https://github.com/mitsuhiko/minijinja.git", branch: "main"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8bfc430da95444a4c58d6d750d847aa725871aec4808a19f7bbc42a0f85e486d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f81d2fd0aada13a072ffb500401d593c4204a2cba0b50a792f98b2fdf72fdb9"
