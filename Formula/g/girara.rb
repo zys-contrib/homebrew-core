@@ -10,6 +10,15 @@ class Girara < Formula
     regex(/girara[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 arm64_sequoia: "be06762224f503f78a683cce58ebb79c29b1debe98b6b6c65100119ffb559444"
+    sha256 arm64_sonoma:  "c59225a3fb9db2fdfaf89c19a755bd7d4426a659a83db5330820835b37597bdc"
+    sha256 arm64_ventura: "388b59083580d34bf7de60f3ef3bdf77dfb8eb4902f9b61084ab15c7a2b599e7"
+    sha256 sonoma:        "858bea2192e09d07c39586ffbcb5fad2d8fb2999ed89ef12c32fd0842d7e0c76"
+    sha256 ventura:       "a5effb75f802f10a8ce1c5f48d79183119ce88f8110ff3276f29d9cd557e8e00"
+    sha256 x86_64_linux:  "3c368c1cf542567633f37aabdd1d7e2ff1c745c9885d8bbe827cbc0fab1404e9"
+  end
+
   depends_on "doxygen" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
