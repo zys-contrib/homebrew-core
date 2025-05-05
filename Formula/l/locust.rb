@@ -3,8 +3,8 @@ class Locust < Formula
 
   desc "Scalable user load testing tool written in Python"
   homepage "https://locust.io/"
-  url "https://files.pythonhosted.org/packages/6d/90/55d4fbc8911e5e6ec4072caaca9e8b7b2b11279435c0d1330c9966b0c898/locust-2.36.2.tar.gz"
-  sha256 "604aff7535f5a83b7f666d32373b2dc74ad260c7c3d1dc274f4c82844be72eb6"
+  url "https://files.pythonhosted.org/packages/88/c7/02dc461ba86b58bfee8b812d3e0ce556ce41e84597bd04d3d1490649e797/locust-2.37.0.tar.gz"
+  sha256 "9e3982e325d2ca7bca1641f8100dc102366f600ed752b6d33c9439d6ad4cf5ac"
   license "MIT"
 
   bottle do
@@ -39,8 +39,8 @@ class Locust < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
-    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
+    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
+    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
   end
 
   resource "click" do
@@ -104,8 +104,8 @@ class Locust < Formula
   end
 
   resource "locust-cloud" do
-    url "https://files.pythonhosted.org/packages/e9/0a/19a1fe79968b499e2ffd2a24b33335ea1383b32d2d7c7de2874e196c4c16/locust_cloud-1.20.5-py3-none-any.whl"
-    sha256 "db76c98883a3bf114e1994af618a98207595fc3767800d9674c42e43e5e80eff"
+    url "https://files.pythonhosted.org/packages/22/b7/7612b19f900d547f278aef8834a4dccb40c3524d12e268c4449267eea4da/locust_cloud-1.21.1.tar.gz"
+    sha256 "942101a069ddc82ec22b9085c30bd6b94816b952e957448be7253ac89c3d5ebe"
   end
 
   resource "markupsafe" do
@@ -149,8 +149,8 @@ class Locust < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/bb/71/b6365e6325b3290e14957b2c3a804a529968c77a049b2ed40c095f749707/setuptools-79.0.1.tar.gz"
-    sha256 "128ce7b8f33c3079fd1b067ecbb4051a66e8526e7b65f6cec075dfc650ddfa88"
+    url "https://files.pythonhosted.org/packages/70/dc/3976b322de9d2e87ed0007cf04cc7553969b6c7b3f48a565d0333748fbcd/setuptools-80.3.1.tar.gz"
+    sha256 "31e2c58dbb67c99c289f51c16d899afedae292b978f8051efaf6262d8212f927"
   end
 
   resource "simple-websocket" do
