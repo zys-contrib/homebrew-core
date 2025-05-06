@@ -15,12 +15,12 @@ class Virtctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cb3c2bc4d91b38c2dcca3afd30df6bf0986691e2aa616e56926cb862e462377b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cb3c2bc4d91b38c2dcca3afd30df6bf0986691e2aa616e56926cb862e462377b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cb3c2bc4d91b38c2dcca3afd30df6bf0986691e2aa616e56926cb862e462377b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5c252788f12e9efc5a32c678e7e556c247549823600d6fed447f4082e47f9f9e"
-    sha256 cellar: :any_skip_relocation, ventura:       "5c252788f12e9efc5a32c678e7e556c247549823600d6fed447f4082e47f9f9e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1df0e7ecff25621fd7ef4996d81dd7f7e7950096f47e7646c0054d3b9efae6aa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dc4a56033d0adccf05a78db34b863fb7156c8f5024b585a31e8e8da93f3ceaba"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dc4a56033d0adccf05a78db34b863fb7156c8f5024b585a31e8e8da93f3ceaba"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "dc4a56033d0adccf05a78db34b863fb7156c8f5024b585a31e8e8da93f3ceaba"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a5eb0c28d110befc9a5f228390b5bafbe20f469c3df5968be98a8a89aa9894f0"
+    sha256 cellar: :any_skip_relocation, ventura:       "a5eb0c28d110befc9a5f228390b5bafbe20f469c3df5968be98a8a89aa9894f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5010b9ecdeea1508663b2b8e7c6e995785a56d6db2874960c444863965d7411c"
   end
 
   depends_on "go" => :build
