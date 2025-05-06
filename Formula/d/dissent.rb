@@ -1,8 +1,8 @@
 class Dissent < Formula
   desc "GTK4 Discord client in Go"
   homepage "https://github.com/diamondburned/dissent"
-  url "https://github.com/diamondburned/dissent/archive/refs/tags/v0.0.33.tar.gz"
-  sha256 "1ea88cd525836d2e9f206c9d00aa3451ec6074590444d0f038eebd85f360b5ff"
+  url "https://github.com/diamondburned/dissent/archive/refs/tags/v0.0.34.tar.gz"
+  sha256 "54b437cd2ae63c32cf3fa71d4da327c32de949c68911685031c96752d89b2d1a"
   license "GPL-3.0-or-later"
   head "https://github.com/diamondburned/dissent.git", branch: "main"
 
