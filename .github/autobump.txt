@@ -3086,6 +3086,7 @@ risor
 river
 rizin
 rke
+rlwrap
 rmlint
 rmw
 rnr
