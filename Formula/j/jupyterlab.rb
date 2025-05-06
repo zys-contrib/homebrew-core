@@ -3,13 +3,12 @@ class Jupyterlab < Formula
 
   desc "Interactive environments for writing and running code"
   homepage "https://jupyter.org/"
-  url "https://files.pythonhosted.org/packages/f6/55/3ef7e6bfe988d7df3d453cc27912846d50590c90790848594f7228c89569/jupyterlab-4.4.1.tar.gz"
-  sha256 "c75c4f33056fbd84f0b31eb44622a00c7a5f981b85adfeb198a83721f0465808"
+  url "https://files.pythonhosted.org/packages/f4/3c/12a8b27ff2c3b4005bbb5e11c7747246965776d2b821193e53ffd61f1332/jupyterlab-4.4.2.tar.gz"
+  sha256 "afa9caf28c0cb966488be18e5e8daba9f018a1c4273a406b7d5006344cbc6d16"
   license all_of: [
     "BSD-3-Clause",
     "MIT", # semver.py
   ]
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "25bba2f9f638353497806d63a12044ac10b3eec4c3924ebb35c177c59c9f6efc"
@@ -96,8 +95,8 @@ class Jupyterlab < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
-    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
+    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
+    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
   end
 
   resource "comm" do
@@ -436,8 +435,8 @@ class Jupyterlab < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/bb/71/b6365e6325b3290e14957b2c3a804a529968c77a049b2ed40c095f749707/setuptools-79.0.1.tar.gz"
-    sha256 "128ce7b8f33c3079fd1b067ecbb4051a66e8526e7b65f6cec075dfc650ddfa88"
+    url "https://files.pythonhosted.org/packages/70/dc/3976b322de9d2e87ed0007cf04cc7553969b6c7b3f48a565d0333748fbcd/setuptools-80.3.1.tar.gz"
+    sha256 "31e2c58dbb67c99c289f51c16d899afedae292b978f8051efaf6262d8212f927"
   end
 
   resource "six" do
@@ -481,8 +480,8 @@ class Jupyterlab < Formula
   end
 
   resource "trove-classifiers" do
-    url "https://files.pythonhosted.org/packages/52/db/cd8510702ed0ac1215e960ab3511a7f5750d63b56f2ae94d94fb4a6425af/trove_classifiers-2025.4.11.15.tar.gz"
-    sha256 "634728aa6698dc1ae3db161da94d9e4c7597a9a5da2c4410211b36f15fed60fc"
+    url "https://files.pythonhosted.org/packages/dc/81/a43db75173e49b1204d2a826b2a3a0e2dee45fb0d9abfac2ce1ff928eebf/trove_classifiers-2025.5.1.12.tar.gz"
+    sha256 "28d24c3d043dc6b0459813d6bf4a231e788509b55ee3d54ba08ce72638031182"
   end
 
   resource "types-python-dateutil" do
