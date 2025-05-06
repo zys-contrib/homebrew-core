@@ -7,12 +7,12 @@ class KubectlRookCeph < Formula
   head "https://github.com/rook/kubectl-rook-ceph.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b64737ae9d5c44cf8cb94f4de40c80fafbb4f3cd38f4d6d233b4f8486fdff144"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b64737ae9d5c44cf8cb94f4de40c80fafbb4f3cd38f4d6d233b4f8486fdff144"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b64737ae9d5c44cf8cb94f4de40c80fafbb4f3cd38f4d6d233b4f8486fdff144"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a5e5e5938020925a5153d4bc3b8535334b3d4b32c02d1a184db3243d3bedf06c"
-    sha256 cellar: :any_skip_relocation, ventura:       "a5e5e5938020925a5153d4bc3b8535334b3d4b32c02d1a184db3243d3bedf06c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13378c8a5004db1dfbb29384d11381d1f90be0e4f19e687800337ddd85d32155"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "66846017ec19f2ad1b58b8124eb7a9ebe8a4974ae2e56258b28ab46d159630e7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "66846017ec19f2ad1b58b8124eb7a9ebe8a4974ae2e56258b28ab46d159630e7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "66846017ec19f2ad1b58b8124eb7a9ebe8a4974ae2e56258b28ab46d159630e7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "de8ab2a58f43a6ef500d7e1606c56c5a01f946661195e8d739676f50cceb9fc9"
+    sha256 cellar: :any_skip_relocation, ventura:       "de8ab2a58f43a6ef500d7e1606c56c5a01f946661195e8d739676f50cceb9fc9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "417f22e25f795938c98bd6ce4d979aaa043696f3305f4ff2579a9a5d8ff46e61"
   end
 
   depends_on "go" => :build
