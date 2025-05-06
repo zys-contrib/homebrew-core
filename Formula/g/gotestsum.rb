@@ -7,12 +7,12 @@ class Gotestsum < Formula
   head "https://github.com/gotestyourself/gotestsum.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dbdf7a8635af342e9b88eef20356de2802c900b8fe3492c53a6189e444d315b9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dbdf7a8635af342e9b88eef20356de2802c900b8fe3492c53a6189e444d315b9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "dbdf7a8635af342e9b88eef20356de2802c900b8fe3492c53a6189e444d315b9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "62fab5469ef63bb0d107be8cf90fbb4388c1dd731776fafb333c699f374954d3"
-    sha256 cellar: :any_skip_relocation, ventura:       "62fab5469ef63bb0d107be8cf90fbb4388c1dd731776fafb333c699f374954d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f9acf461a7e12a69a721bde63dd127334d49bd0f397b9f23319d2d27edabf4de"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c8b98801b467e6d6a9b1eeeae41eee2abba57d727a4aa2c80ac02067715a5979"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c8b98801b467e6d6a9b1eeeae41eee2abba57d727a4aa2c80ac02067715a5979"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c8b98801b467e6d6a9b1eeeae41eee2abba57d727a4aa2c80ac02067715a5979"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b0abdce26ad91243473e6be948adfe8b7fdf924a7c39fa79dd63fdca4d36f7dc"
+    sha256 cellar: :any_skip_relocation, ventura:       "b0abdce26ad91243473e6be948adfe8b7fdf924a7c39fa79dd63fdca4d36f7dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb0af3a5b3c0a9bdd33d9495851bedcc4faaa185721a41534154244a10fa9986"
   end
 
   depends_on "go" => [:build, :test]
