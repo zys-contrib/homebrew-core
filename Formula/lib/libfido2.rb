@@ -1,10 +1,9 @@
 class Libfido2 < Formula
   desc "Provides library functionality for FIDO U2F & FIDO 2.0, including USB"
   homepage "https://developers.yubico.com/libfido2/"
-  url "https://github.com/Yubico/libfido2/archive/refs/tags/1.15.0.tar.gz"
-  sha256 "32e3e431cfe29b45f497300fdb7076971cb77fc584fcfa80084d823a6ed94fbb"
+  url "https://github.com/Yubico/libfido2/archive/refs/tags/1.16.0.tar.gz"
+  sha256 "7d86088ef4a48f9faad4ff6f41343328157849153a8dc94d88f4b5461cb29474"
   license "BSD-2-Clause"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "77a7f87267cbe477df703af3d80958c0de22f3a8466c1fa56c6f0dfbbdf790b8"
