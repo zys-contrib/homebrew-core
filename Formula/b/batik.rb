@@ -7,7 +7,7 @@ class Batik < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "dc1915341d14ca4382529ecaf9380335e11d318ede8af0a0054bb3ee4dde65d9"
+    sha256 cellar: :any_skip_relocation, all: "acd7a808bfc88b232db45029fa1f85609d72b2f313cdf2e2b17a6c8f6e38c011"
   end
 
   depends_on "openjdk"
