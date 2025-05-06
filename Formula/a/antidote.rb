@@ -6,7 +6,7 @@ class Antidote < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6a34af2755e7140262a3eb11687a43136c4630d6b1570c878ebe7d9022f7e5ab"
+    sha256 cellar: :any_skip_relocation, all: "f137ff897aab2a92deb3b181c4e1809cfb47ec02e033b567d4ad83a49c1ddeb9"
   end
 
   uses_from_macos "zsh"
