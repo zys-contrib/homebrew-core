@@ -1,8 +1,8 @@
 class Coder < Formula
   desc "Tool for provisioning self-hosted development environments with Terraform"
   homepage "https://coder.com"
-  url "https://github.com/coder/coder/archive/refs/tags/v2.20.3.tar.gz"
-  sha256 "d1175b481da69996b8c09d37f9e258b4e4d938a750ed7fbc004717fa4b87309f"
+  url "https://github.com/coder/coder/archive/refs/tags/v2.21.3.tar.gz"
+  sha256 "8c4c27c02a7b0088f5194a1eba7e6be4cb61fb244e1926d4bb54eb6ab9fc1996"
   license "AGPL-3.0-only"
   head "https://github.com/coder/coder.git", branch: "main"
 
@@ -25,6 +25,12 @@ class Coder < Formula
   end
 
   depends_on "go" => :build
+
+  # purego build patch, upstream pr ref, https://github.com/coder/coder/pull/18021
+  patch do
+    url "https://github.com/coder/coder/commit/e3915cb199a05a21a6dd17b525068a6cb5949d65.patch?full_index=1"
+    sha256 "ec0f27618f69d867ecc04c8eae648eca188e4db5b1d27e1d6bcc1bde64383cdf"
+  end
 
   def install
     ldflags = %W[
