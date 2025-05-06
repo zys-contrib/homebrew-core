@@ -1,8 +1,8 @@
 class KamalProxy < Formula
   desc "Lightweight proxy server for Kamal"
   homepage "https://kamal-deploy.org/"
-  url "https://github.com/basecamp/kamal-proxy/archive/refs/tags/v0.8.7.tar.gz"
-  sha256 "cb53b4f73ec9fd8ab6fa888e4994223fa09a6095b8dd40d9ada58815c991d658"
+  url "https://github.com/basecamp/kamal-proxy/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "406c27bf296c2ae4b9e03e7b7bb9f97203dd190142d4464f4111520501184abb"
   license "MIT"
   head "https://github.com/basecamp/kamal-proxy.git", branch: "main"
 
