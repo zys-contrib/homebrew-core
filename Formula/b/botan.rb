@@ -12,13 +12,13 @@ class Botan < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "4b99b6b1fbd3e8f79d834dfd7aedc4c965ed5324be305039306f79600c6bba47"
-    sha256 arm64_sonoma:  "fce0ad44a2808ebd116abfa266002bbbfe963f82a9ccc2d431399e0e07854cff"
-    sha256 arm64_ventura: "17f8b2ddfef80c6d7bfe7fd1f8667ed85a919231e0d6721a76fa6d2c6f4fc5e5"
-    sha256 sonoma:        "017161cab3bb069ba19443e80a721083fff6a37b87826d92b9c5fd3de47a2df2"
-    sha256 ventura:       "01b2b53465073d0e3309756d767ae6884b3a00653afce73a421333d32276c859"
-    sha256 arm64_linux:   "93ed08c305025c7dd68a163a5724e4f1777e333746d2ae79e01f0fd7e01d3050"
-    sha256 x86_64_linux:  "b1885d55ab656d8e509999458bbe6c5d91055bb4d84237f6de59dc01044ce94e"
+    sha256 arm64_sequoia: "828c6482aa84b598e9e7814b840f1540c7970fc8b339efe9b4d2cdf6cd2a37c4"
+    sha256 arm64_sonoma:  "6949d51bc49e0926e0887e1faa0cada0cfef2d1b1ac4626ad8c7b96e45de3d3b"
+    sha256 arm64_ventura: "ed129b0d70088270e69701049fb5dfd19a9f234105cee83e1c3ab1d088c28094"
+    sha256 sonoma:        "70de9a26d70616dfa6a9688d9ad0c0bcd9ba551f14faa5ffc8073541d4c522c6"
+    sha256 ventura:       "b921480c1e85f1dc574754898bc21b778b3e450945c6c2e4e579a52ef3a3c355"
+    sha256 arm64_linux:   "ef40bc156a84dd5fcb9a62cee8a70ab50cbd323b3b194e2bf6764fa9afe34a14"
+    sha256 x86_64_linux:  "fbc259942cc0414e004fdb16e9b810c7110d1d411705ac64c1f2969756f506d2"
   end
 
   depends_on "pkgconf" => :build
