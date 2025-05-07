@@ -1,8 +1,8 @@
 class Tgpt < Formula
   desc "AI Chatbots in terminal without needing API keys"
   homepage "https://github.com/aandrew-me/tgpt"
-  url "https://github.com/aandrew-me/tgpt/archive/refs/tags/v2.9.6.tar.gz"
-  sha256 "6800b06059de1f5bab2aa3bbf61c3d43ec63498a9dccb7a4918e7f8790c04bd8"
+  url "https://github.com/aandrew-me/tgpt/archive/refs/tags/v2.10.0.tar.gz"
+  sha256 "0e312176908d581eeb7f0df8fcd0524a4aa4702029d50f553f0f75d6c15bc0d9"
   license "GPL-3.0-only"
   head "https://github.com/aandrew-me/tgpt.git", branch: "main"
 
@@ -25,6 +25,6 @@ class Tgpt < Formula
     assert_match version.to_s, shell_output("#{bin}/tgpt --version")
 
     output = shell_output("#{bin}/tgpt --provider pollinations \"What is 1+1\"")
-    assert_match "1 + 1 equals 2.", output
+    assert_match(/(1|one)\s*(\+|\splus\s|\sand\s)\s*(1|one)\s*(\sequals\s|\sis\s|=)\s*(2|two)/i, output)
   end
 end
