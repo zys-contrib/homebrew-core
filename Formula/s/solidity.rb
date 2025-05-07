@@ -1,10 +1,9 @@
 class Solidity < Formula
   desc "Contract-oriented programming language"
   homepage "https://soliditylang.org"
-  url "https://github.com/ethereum/solidity/releases/download/v0.8.29/solidity_0.8.29.tar.gz"
-  sha256 "fe76237f513b7d6727a93cd5b83f92747650c8dc5f8f89457a41e8f54119ed38"
+  url "https://github.com/ethereum/solidity/releases/download/v0.8.30/solidity_0.8.30.tar.gz"
+  sha256 "5e8d58dff551a18205e325c22f1a3b194058efbdc128853afd75d31b0568216d"
   license all_of: ["GPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0", "CC0-1.0"]
-  revision 1
 
   livecheck do
     url :stable
@@ -30,18 +29,6 @@ class Solidity < Formula
 
   conflicts_with "solc-select", because: "both install `solc` binaries"
 
-  # build patch to use system fmt, nlohmann-json, and range-v3, upstream PR ref, https://github.com/ethereum/solidity/pull/15414
-  patch do
-    url "https://github.com/ethereum/solidity/commit/aa47181eef8fa63a6b4f52bff2c05517c66297a2.patch?full_index=1"
-    sha256 "b73e52a235087b184b8813a15a52c4b953046caa5200bf0aa60773ec4bb28300"
-  end
-
-  # Support Boost 1.88.0, pr ref: https://github.com/ethereum/solidity/pull/15976
-  patch do
-    url "https://github.com/ethereum/solidity/commit/23587f9427bbd3d2147f32de5ede968c9c9aa133.patch?full_index=1"
-    sha256 "d66489933a5c7ff71a72cb5eaa2426d3ff10dad494304c432c4a567ac4d42db7"
-  end
-
   def install
     rm_r("deps")
 
@@ -49,6 +36,7 @@ class Solidity < Formula
                     "-DBoost_USE_STATIC_LIBS=OFF",
                     "-DSTRICT_Z3_VERSION=OFF",
                     "-DTESTS=OFF",
+                    "-DIGNORE_VENDORED_DEPENDENCIES=ON",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
