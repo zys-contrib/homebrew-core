@@ -2,11 +2,17 @@ class Sfml < Formula
   # Don't update SFML until there's a corresponding CSFML release
   desc "Multi-media library with bindings for multiple languages"
   homepage "https://www.sfml-dev.org/"
-  url "https://www.sfml-dev.org/files/SFML-3.0.0-sources.zip"
-  sha256 "8cc41db46b59f07c44ecf21c74a0f956d37735dec9d90ff4522856cb162ba642"
+  url "https://github.com/SFML/SFML/archive/refs/tags/3.0.1.tar.gz"
+  sha256 "f99f71bb2f2608835b1a37e078512b75dd39d52b89e13e12246603a950da3c1f"
   license "Zlib"
-  revision 1
   head "https://github.com/SFML/SFML.git", branch: "master"
+
+  # Exclude release candidates
+  livecheck do
+    url :stable
+    regex(/v?(\d+(?:\.\d+)+)/i)
+    strategy :github_releases
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "841d0e1423e34e33e51de92e86b4467d6d5d22d3ee69a2f6860336d9fa36225b"
@@ -52,6 +58,7 @@ class Sfml < Formula
       "-DBUILD_SHARED_LIBS=ON",
       "-DCMAKE_INSTALL_RPATH=#{rpath}",
       "-DSFML_INSTALL_PKGCONFIG_FILES=TRUE",
+      "-DSFML_PKGCONFIG_INSTALL_DIR=#{lib}/pkgconfig",
       "-DSFML_BUILD_DOC=TRUE",
       "-DSFML_USE_SYSTEM_DEPS=ON",
     ]
