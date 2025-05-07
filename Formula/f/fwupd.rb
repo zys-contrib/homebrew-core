@@ -3,8 +3,8 @@ class Fwupd < Formula
 
   desc "Firmware update daemon"
   homepage "https://github.com/fwupd/fwupd"
-  url "https://github.com/fwupd/fwupd/releases/download/2.0.8/fwupd-2.0.8.tar.xz"
-  sha256 "9aac805d18ed8a48fb37c7e8d9644520c33984326b7954584fe38ee2d10a3988"
+  url "https://github.com/fwupd/fwupd/releases/download/2.0.9/fwupd-2.0.9.tar.xz"
+  sha256 "091947258ffe7d7d0724864afdc79fcc3c64a42303622b1577a829e7d8ebc2c9"
   license "LGPL-2.1-or-later"
   head "https://github.com/fwupd/fwupd.git", branch: "main"
 
@@ -36,6 +36,7 @@ class Fwupd < Formula
   depends_on "libusb"
   depends_on "libxmlb"
   depends_on "protobuf-c"
+  depends_on "readline"
   depends_on "sqlite"
   depends_on "usb.ids"
   depends_on "xz"
