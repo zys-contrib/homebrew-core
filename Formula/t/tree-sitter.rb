@@ -27,6 +27,7 @@ class TreeSitter < Formula
   def install
     system "make", "install", "AMALGAMATED=1", "PREFIX=#{prefix}"
     system "cargo", "install", *std_cargo_args(path: "cli")
+    generate_completions_from_executable(bin/"tree-sitter", "complete", shell_parameter_format: :arg)
   end
 
   test do
