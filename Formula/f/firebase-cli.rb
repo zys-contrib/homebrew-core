@@ -1,8 +1,8 @@
 class FirebaseCli < Formula
   desc "Firebase command-line tools"
   homepage "https://firebase.google.com/docs/cli/"
-  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-14.2.2.tgz"
-  sha256 "3493b9d12c491d06cf9fb32009edf40d376dccc3d34158dc52af15bb5db5017b"
+  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-14.3.0.tgz"
+  sha256 "2238f5d821af3e66d6b89e6e0b09596c7aa034ef12067dc320645d5d5fc467ec"
   license "MIT"
   head "https://github.com/firebase/firebase-tools.git", branch: "master"
 
@@ -29,7 +29,7 @@ class FirebaseCli < Formula
       assert_match "Failed to authenticate", shell_output("#{bin}/firebase init", 1)
     end
 
-    output = pipe_output("#{bin}/firebase login:ci --interactive --no-localhost", "dummy-code")
-    assert_match "Unable to authenticate", output
+    output = shell_output("#{bin}/firebase use dev 2>&1", 1)
+    assert_match "Failed to authenticate, have you run \e[1mfirebase login\e[22m?", output
   end
 end
