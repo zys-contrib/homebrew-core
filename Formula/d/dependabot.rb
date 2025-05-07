@@ -1,8 +1,8 @@
 class Dependabot < Formula
   desc "Tool for testing and debugging Dependabot update jobs"
   homepage "https://github.com/dependabot/cli"
-  url "https://github.com/dependabot/cli/archive/refs/tags/v1.62.2.tar.gz"
-  sha256 "bf350da9f1bf3dec4073ff80da72bfaa6d401f38dbe72bf1beff76fca200524f"
+  url "https://github.com/dependabot/cli/archive/refs/tags/v1.63.0.tar.gz"
+  sha256 "0c8296efdcdead61b903efa794bcf6e8f296106c79b61adc131968636997f63a"
   license "MIT"
   head "https://github.com/dependabot/cli.git", branch: "main"
 
