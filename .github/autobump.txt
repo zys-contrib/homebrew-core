@@ -3627,6 +3627,7 @@ tmt
 tmux-mem-cpu-load
 tmux-sessionizer
 tmux-xpanes
+tmuxai
 tmuxp
 tmx
 toast
