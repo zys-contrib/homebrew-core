@@ -3,8 +3,8 @@ class Azqr < Formula
   homepage "https://azure.github.io/azqr/"
   # pull from git tag to get submodules
   url "https://github.com/Azure/azqr.git",
-      tag:      "v.2.4.5",
-      revision: "669aca130d6232a413934b1cfdd4e67c2dc7efcf"
+      tag:      "v.2.4.6",
+      revision: "551b1b787fcb838840785f6d4f289f4a2b46232a"
   license "MIT"
   head "https://github.com/Azure/azqr.git", branch: "main"
 
@@ -20,7 +20,11 @@ class Azqr < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/Azure/azqr/cmd/azqr.version=#{version}"), "./cmd"
+    ldflags = %W[
+      -s -w
+      -X github.com/Azure/azqr/cmd/azqr/commands.version=#{version}
+    ]
+    system "go", "build", *std_go_args(ldflags:), "./cmd/azqr"
 
     generate_completions_from_executable(bin/"azqr", "completion")
   end
