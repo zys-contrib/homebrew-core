@@ -12,13 +12,13 @@ class Mavsdk < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "ff0a007d74a6a2a9ec0f51cfcbc896f3328f45521e75169d9c62b157f9b56531"
-    sha256                               arm64_sonoma:  "9586411c13dbc2d3a5ee97dcd65f421402477d7989acd3c2c1e20cdbd1dd327e"
-    sha256                               arm64_ventura: "74f21f093cad288a8cadddacacbc1a32f04fd7466e1d61c968d89d28432ad4c2"
-    sha256 cellar: :any,                 sonoma:        "534d6b08c8b4b28d14a1bd4c8b40e16782e03b85109a8c738696a5b09fd5abbb"
-    sha256 cellar: :any,                 ventura:       "dace0c2df2e88148caa5704d839c436f900705514b83f0750fac8b7da6864494"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8d985d27c1a882ccf46970dee3cf1e85cec71f545a45e5a6782d56342691869c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "780fb91eb1c18e7e7302fc227a5800b669171bb73f1d32dc9007aab6655cb7f6"
+    sha256                               arm64_sequoia: "74920dc18002f7ba61c0eee1ab2a5eed0919b266445c2a3d5439d9b872029305"
+    sha256                               arm64_sonoma:  "e1f4c9b80fe65d77417c467c5d40bb23b89ad2567ecc74a2bddeb9f5c7c4474e"
+    sha256                               arm64_ventura: "3d57c09d077b9b93dfc6ce8dbbd4496365a5acd877d9849dc33400845ab87ae7"
+    sha256 cellar: :any,                 sonoma:        "7ad08bebf9607e873ae1e9ff716fc14fec11ef3fb580624ce9b7f229ac50632b"
+    sha256 cellar: :any,                 ventura:       "93154fe5b8999ce5ff3b485d38de421cd2c34a102d164ca49b0ee567901bbb17"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0081aad01e59c58aec4eaaf061dd75c1b445b77f22b63ae1f605362a36628401"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9f87312ae2623f655288035474c76c1ee7ccde89cb42be2a6ca735ef68cb4f6"
   end
 
   depends_on "cmake" => :build
