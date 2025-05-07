@@ -7,6 +7,8 @@ class Mesheryctl < Formula
   license "Apache-2.0"
   head "https://github.com/meshery/meshery.git", branch: "master"
 
+  no_autobump! because: :bumped_by_upstream
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bd8146c1badf70040a7127bd029ee8cf302c11a38305c494e3a1b2deded3fbee"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bd8146c1badf70040a7127bd029ee8cf302c11a38305c494e3a1b2deded3fbee"
