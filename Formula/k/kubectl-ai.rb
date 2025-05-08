@@ -6,12 +6,12 @@ class KubectlAi < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0c78bd9e8304415fbce8aaf0ff11d9bc39e8ee0e78025aed9332c9f421574b9c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0c78bd9e8304415fbce8aaf0ff11d9bc39e8ee0e78025aed9332c9f421574b9c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0c78bd9e8304415fbce8aaf0ff11d9bc39e8ee0e78025aed9332c9f421574b9c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6e05526307b272cbc582299b3cd5a818b94d9e88e69775a0bb4a18a77159c8fe"
-    sha256 cellar: :any_skip_relocation, ventura:       "6e05526307b272cbc582299b3cd5a818b94d9e88e69775a0bb4a18a77159c8fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dee44cc8114fc5a5cddc3fd5aaadf7caf0f27bb6df5fb6f4a17dea3818111bff"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ecddd7b1d507131d8eee3d2d0d96a752328c8e8b36eca148d3e9358a97f1699c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ecddd7b1d507131d8eee3d2d0d96a752328c8e8b36eca148d3e9358a97f1699c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ecddd7b1d507131d8eee3d2d0d96a752328c8e8b36eca148d3e9358a97f1699c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "22491d946f000e2cc97310fba5748fcdb955f49635ba4556b7927dad682fd69d"
+    sha256 cellar: :any_skip_relocation, ventura:       "22491d946f000e2cc97310fba5748fcdb955f49635ba4556b7927dad682fd69d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e894616c1423a4a1a75ddcee5782445bf4d6ddfd5e93b7efa1239baf9ee4b7c"
   end
 
   depends_on "go" => :build
