@@ -1,8 +1,8 @@
 class MariadbAT1011 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://archive.mariadb.org/mariadb-10.11.11/source/mariadb-10.11.11.tar.gz"
-  sha256 "6f29d4d7e40fc49af4a0fe608984509ef2d153df3cd8afe4359dce3ca0e27890"
+  url "https://archive.mariadb.org/mariadb-10.11.12/source/mariadb-10.11.12.tar.gz"
+  sha256 "d61f23090cfc14f43e8a27c2d3ce7f80247e74481bb26a2d3a6308b8d194e167"
   license "GPL-2.0-only"
 
   livecheck do
@@ -58,23 +58,6 @@ class MariadbAT1011 < Formula
   on_linux do
     depends_on "linux-pam"
     depends_on "readline" # uses libedit on macOS
-  end
-
-  # system libfmt patch, upstream pr ref, https://github.com/MariaDB/server/pull/3786
-  patch do
-    url "https://github.com/MariaDB/server/commit/b6a924b8478d2fab5d51245ff6719b365d7db7f4.patch?full_index=1"
-    sha256 "77b65b35cf0166b8bb576254ac289845db5a8e64e03b41f1bf4b2045ac1cd2d1"
-  end
-
-  # Backport fix for CMake 4.0
-  patch do
-    url "https://github.com/MariaDB/server/commit/2a5a12b227845e03575f1b1eb0f6366dccc3e026.patch?full_index=1"
-    sha256 "f3a4b5871141451edf3936bcad0861e3a38418c3a8c6a69dfeddb8d073ac3253"
-  end
-  patch do
-    url "https://github.com/codership/wsrep-lib/commit/324b01e4315623ce026688dd9da1a5f921ce7084.patch?full_index=1"
-    sha256 "eaa0c3b648b712b3dbab3d37dfca7fef8a072908dc28f2ed383fbe8d217be421"
-    directory "wsrep-lib"
   end
 
   def install
