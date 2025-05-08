@@ -1,8 +1,8 @@
 class Snowball < Formula
   desc "Stemming algorithms"
   homepage "https://snowballstem.org"
-  url "https://github.com/snowballstem/snowball/archive/refs/tags/v2.2.0.tar.gz"
-  sha256 "425cdb5fba13a01db59a1713780f0662e984204f402d3dae1525bda9e6d30f1a"
+  url "https://github.com/snowballstem/snowball/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "4100b983cec95e1e6c998ea57b220d235f082b9ef6e837afb97dee0bb0a65d14"
   license "BSD-3-Clause"
 
   bottle do
