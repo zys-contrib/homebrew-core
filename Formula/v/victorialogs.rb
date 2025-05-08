@@ -1,8 +1,8 @@
 class Victorialogs < Formula
   desc "Open source user-friendly database for logs from VictoriaMetrics"
   homepage "https://docs.victoriametrics.com/victorialogs/"
-  url "https://github.com/VictoriaMetrics/VictoriaMetrics/archive/refs/tags/v1.22.0-victorialogs.tar.gz"
-  sha256 "53091ba141368382edb7a6daacee88b5cdf5025214800f2e0dc323041f8362dd"
+  url "https://github.com/VictoriaMetrics/VictoriaMetrics/archive/refs/tags/v1.22.1-victorialogs.tar.gz"
+  sha256 "f4ecd43d942490370b437d709712159a1c6f7228dcd66c143f8034f75be0a84c"
   license "Apache-2.0"
 
   # There are tags like `pmm-6401-v1.89.1` in the upstream repo. They don't
