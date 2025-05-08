@@ -7,12 +7,12 @@ class Tgpt < Formula
   head "https://github.com/aandrew-me/tgpt.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "163aa59bc4dd9c67e3ce54511a684e320a601918eb72d8f472d1eea2aba8b119"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "163aa59bc4dd9c67e3ce54511a684e320a601918eb72d8f472d1eea2aba8b119"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "163aa59bc4dd9c67e3ce54511a684e320a601918eb72d8f472d1eea2aba8b119"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4c38b7cb01d247c012fdb613946a14aa4b7131a6e159f9e58c198938e898e831"
-    sha256 cellar: :any_skip_relocation, ventura:       "4c38b7cb01d247c012fdb613946a14aa4b7131a6e159f9e58c198938e898e831"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2593ebb991c8ee46269554aea50ec20af8fd15c2465a08a2570e792d9afaa948"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7ac29989e7df6f0eb1779469e3c07608422bcc9b9dd16a52f3d422f3b7522a33"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7ac29989e7df6f0eb1779469e3c07608422bcc9b9dd16a52f3d422f3b7522a33"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7ac29989e7df6f0eb1779469e3c07608422bcc9b9dd16a52f3d422f3b7522a33"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9cb050173265ba399c3884be9fd64fcaccf69931a729c66a550dbcfc47c41fce"
+    sha256 cellar: :any_skip_relocation, ventura:       "9cb050173265ba399c3884be9fd64fcaccf69931a729c66a550dbcfc47c41fce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "822a8e1a33f876b00a794681e74f6c687a2dabfcdbd811bc345c8ef684309383"
   end
 
   depends_on "go" => :build
