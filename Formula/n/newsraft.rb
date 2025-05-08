@@ -18,7 +18,6 @@ class Newsraft < Formula
   depends_on "scdoc" => :build
   depends_on "gumbo-parser"
   depends_on "ncurses"
-  depends_on "yajl"
 
   uses_from_macos "curl"
   uses_from_macos "expat"
