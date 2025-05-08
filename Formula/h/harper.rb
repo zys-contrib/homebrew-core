@@ -1,8 +1,8 @@
 class Harper < Formula
   desc "Grammar Checker for Developers"
   homepage "https://writewithharper.com/"
-  url "https://github.com/Automattic/harper/archive/refs/tags/v0.33.0.tar.gz"
-  sha256 "6abc9d0ae180da80b1862a980ab6258cea85daa21c2ac35b5fc65e44b4d2a10e"
+  url "https://github.com/Automattic/harper/archive/refs/tags/v0.34.0.tar.gz"
+  sha256 "81759aa513435ff0c92c12ddb3b0d2fac84e0e982696b3446547256aa290653c"
   license "Apache-2.0"
   head "https://github.com/Automattic/harper.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Harper < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ad26b0d31afc1eb923d9e4e8b273ca3cb4ac4264d0d02482c57ff45cc1009dcf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "63308eeeebadfbd021dd2e458f045c8fa3843a903d1321c987f3e594293e0137"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "23904d34d8bad88fc3703a944f6c217822673980e77c6819acdfa88ef3af2cc3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0d0d25be7d6d0a3aea17dcee768a378c0f836a1c5bd89a7c8e79f6c881fa7d36"
-    sha256 cellar: :any_skip_relocation, ventura:       "bdfd494775a5a1a160330e1884ceb73d38d4d61782b8b3550e33ae156b96f64d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f0f0d152cd7b6f8f35386e4dce79b87c316e446ab170288c7ee2bf8c079cdb0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb733fdf412ffdbe11994fda7c6b99f4940851b7d81d887231dc81219ad5801d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "766977016cd03322a0a355ca838585858ffae6533b54821134f077e08e3cc98c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "874c27777c7c695874ea876ed8730108a7b628a56cd890254d50d711e31f0c6a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a673f40b3de830cc0cd85eaaeb2028c344643dbae14992a058dcb8113f93ae3b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4391efd83f263b7015ca598d2488d1c8e7c7379e9b5d5798bd3256bd361a3384"
+    sha256 cellar: :any_skip_relocation, ventura:       "ff2b5c26387dd345dc64035b0b453390e98127eefe062d593c4ed1e957137830"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a58f03d149faaa06f092810af9e2ad6e54ac6b4d80129b07a327a2242169aac6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc275879acaeca994648d01dfc7509f032c5967c720eca41e6de16cdaccd2b4c"
   end
 
   depends_on "rust" => :build
