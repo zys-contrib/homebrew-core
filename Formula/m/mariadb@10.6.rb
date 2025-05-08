@@ -1,8 +1,8 @@
 class MariadbAT106 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://archive.mariadb.org/mariadb-10.6.21/source/mariadb-10.6.21.tar.gz"
-  sha256 "8d7f97169b3ba2044858965b8cfc254364400df43e905042f92e24b8fa7b0d96"
+  url "https://archive.mariadb.org/mariadb-10.6.22/source/mariadb-10.6.22.tar.gz"
+  sha256 "2ca600dc7e85ead1f33c212f9d76b1f2f812d249c8bde02e5f38ead098ade420"
   license "GPL-2.0-only"
 
   livecheck do
@@ -57,17 +57,6 @@ class MariadbAT106 < Formula
   on_linux do
     depends_on "linux-pam"
     depends_on "readline" # uses libedit on macOS
-  end
-
-  # Backport fix for CMake 4.0
-  patch do
-    url "https://github.com/MariaDB/server/commit/2a5a12b227845e03575f1b1eb0f6366dccc3e026.patch?full_index=1"
-    sha256 "f3a4b5871141451edf3936bcad0861e3a38418c3a8c6a69dfeddb8d073ac3253"
-  end
-  patch do
-    url "https://github.com/codership/wsrep-lib/commit/324b01e4315623ce026688dd9da1a5f921ce7084.patch?full_index=1"
-    sha256 "eaa0c3b648b712b3dbab3d37dfca7fef8a072908dc28f2ed383fbe8d217be421"
-    directory "wsrep-lib"
   end
 
   def install
