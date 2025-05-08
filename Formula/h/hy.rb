@@ -8,8 +8,7 @@ class Hy < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "42597ff82da7cdb389a796c62a21df69df5e342fbe8d52de5cb58cb26fa09de0"
+    sha256 cellar: :any_skip_relocation, all: "06373055a6ecfc7909dbc3ac76d49381920669abd8e375bc1c96317f0f05dba5"
   end
 
   depends_on "python@3.13"
