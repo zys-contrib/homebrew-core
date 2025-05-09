@@ -1,17 +1,17 @@
 class Codex < Formula
   desc "OpenAI's coding agent that runs in your terminal"
   homepage "https://github.com/openai/codex"
-  url "https://registry.npmjs.org/@openai/codex/-/codex-0.1.2504301751.tgz"
-  sha256 "534efae4ced56e98b136a13bee4523acebf261267fecc11ea3df9a2854875186"
+  url "https://registry.npmjs.org/@openai/codex/-/codex-0.1.2505021246.tgz"
+  sha256 "70d27f89af3eb9d2697de0a9ba68564d32fc6faecb6f8dfcd2cca7e6ab919ab8"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "902627d20eec97ccfea442b6ad5aba8b3be30b39620e248e444af2f3557e83e9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "902627d20eec97ccfea442b6ad5aba8b3be30b39620e248e444af2f3557e83e9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "902627d20eec97ccfea442b6ad5aba8b3be30b39620e248e444af2f3557e83e9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4b0bf800246962f876e5c30c65e36c8cd1aef87c62e62880957fbf5aba88bcec"
-    sha256 cellar: :any_skip_relocation, ventura:       "4b0bf800246962f876e5c30c65e36c8cd1aef87c62e62880957fbf5aba88bcec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "902627d20eec97ccfea442b6ad5aba8b3be30b39620e248e444af2f3557e83e9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "85df5edd03aa3806252b9868d83ca32cba01d252889970f77bbc020c37933d9d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "85df5edd03aa3806252b9868d83ca32cba01d252889970f77bbc020c37933d9d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "85df5edd03aa3806252b9868d83ca32cba01d252889970f77bbc020c37933d9d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9c0511f07c5d8b0ee0d5bd810f802fafe569a9b002590afa8e2452bdced54c37"
+    sha256 cellar: :any_skip_relocation, ventura:       "9c0511f07c5d8b0ee0d5bd810f802fafe569a9b002590afa8e2452bdced54c37"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85df5edd03aa3806252b9868d83ca32cba01d252889970f77bbc020c37933d9d"
   end
 
   depends_on "node"
