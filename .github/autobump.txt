@@ -3829,7 +3829,11 @@ vte3
 vtk
 vue-language-server
 vulkan-extensionlayer
+vulkan-headers
+vulkan-loader
 vulkan-profiles
+vulkan-tools
+vulkan-utility-libraries
 vulkan-validationlayers
 vulkan-volk
 vulsio-gost
