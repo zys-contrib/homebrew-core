@@ -1,8 +1,8 @@
 class Llgo < Formula
   desc "Go compiler based on LLVM integrate with the C ecosystem and Python"
   homepage "https://github.com/goplus/llgo"
-  url "https://github.com/goplus/llgo/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "f7b55b0d91527c11adbfde4e95f78ab8238e8a35066cd8663882074ac18f2b6b"
+  url "https://github.com/goplus/llgo/archive/refs/tags/v0.11.3.tar.gz"
+  sha256 "6e51c300d49b33ce66f562b721fcf4f27d7ed6502382682d02b83786ba49e313"
   license "Apache-2.0"
   head "https://github.com/goplus/llgo.git", branch: "main"
 
@@ -83,6 +83,11 @@ class Llgo < Formula
     goos = shell_output("go env GOOS").chomp
     goarch = shell_output("go env GOARCH").chomp
     assert_equal "llgo v#{version} #{goos}/#{goarch}", shell_output("#{bin}/llgo version").chomp
+
+    # Add bdw-gc library path to LD_LIBRARY_PATH, this is a workaround for the libgc.so not found issue
+    # Will be fixed in the next release
+    bdwgc = find_dep("bdw-gc")
+    ENV.prepend_path "LD_LIBRARY_PATH", bdwgc.opt_lib
 
     (testpath/"hello.go").write <<~GO
       package main
