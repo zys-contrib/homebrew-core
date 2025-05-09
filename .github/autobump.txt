@@ -1487,6 +1487,7 @@ hcxtools
 heartbeat
 hebcal
 helix
+hellwal
 helm
 helm-docs
 helm-ls
