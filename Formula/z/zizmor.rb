@@ -20,6 +20,8 @@ class Zizmor < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    generate_completions_from_executable(bin/"zizmor", shell_parameter_format: "--completions=")
   end
 
   test do
