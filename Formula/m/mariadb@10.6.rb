@@ -18,13 +18,13 @@ class MariadbAT106 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "f62b858d8c013e4458a536cabb429cbb9b4b4bfacbe2ab3cc88f813cb2ee780e"
-    sha256 arm64_sonoma:  "bb3025f391d669e9442d8df1eca9bd0dbcee97883dd4abc8118229fbbb30314c"
-    sha256 arm64_ventura: "58f3634df92e8b7c58f30f91295f88472d977577e2b2666342fd04f3f8eb16fd"
-    sha256 sonoma:        "81af7a0000ff278c3070ce3db9546af93eb06279def2f79f1087ded07d1123a3"
-    sha256 ventura:       "41569c954dd0c2961c84e8ec6fb02041a6fa82e38ac7be909d28cff8638e9bc8"
-    sha256 arm64_linux:   "cedd156e1c90e2d4644064c4c4d5f0fb9348526c114ede82ffc7a821c7c76551"
-    sha256 x86_64_linux:  "586cec21d3568a0528d1d222ebdeb5b3bc98503d93794e87b387e786ed4d14b9"
+    sha256 arm64_sequoia: "942a2ce7b84cc905ac82fa13d235d7f38bbf53a77f1d3d68ca66bad93d047a55"
+    sha256 arm64_sonoma:  "c716ee48c769c11bece7fb3e7c8cba9ca6aca9201474089695b676a4a7fd2c6a"
+    sha256 arm64_ventura: "ce6ec0d37c64f103680b05280fed1cfb35a23a7746320a5b8584923b87205cdf"
+    sha256 sonoma:        "f5e97c072d4943f9423669205f43914485f7154731d3cee33d2d67db93ee8bc9"
+    sha256 ventura:       "689b21abf431d8ea1904f684c69a6b4d4ab994bda8a32a750f41a235013e0003"
+    sha256 arm64_linux:   "1e1dd55600e0864ed9a58760bd6f77486d9db76b6fb2ca9c69af2b0b6fbc63f3"
+    sha256 x86_64_linux:  "0d482c2aed000e5bc0fcba8673782af0479b0313bf2a2f78c223a9d742c51e6b"
   end
 
   keg_only :versioned_formula
