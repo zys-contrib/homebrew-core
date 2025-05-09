@@ -3,8 +3,8 @@ class Grokj2k < Formula
   homepage "https://github.com/GrokImageCompression/grok"
   # pull from git tag to get submodules
   url "https://github.com/GrokImageCompression/grok.git",
-      tag:      "v14.3.0",
-      revision: "1542410d2ee31c881ef46f491d613d7cea76e75b"
+      tag:      "v15.0.0",
+      revision: "5f1a8a754fe6a5b3265616544adccd37f4a83e52"
   license "AGPL-3.0-or-later"
   head "https://github.com/GrokImageCompression/grok.git", branch: "master"
 
@@ -52,6 +52,13 @@ class Grokj2k < Formula
   fails_with :gcc do
     version "9"
     cause "GNU compiler version must be at least 10.0"
+  end
+
+  # Fix to cmake 4 compatibility
+  # PR ref: https://github.com/GrokImageCompression/grok/pull/376
+  patch do
+    url "https://github.com/GrokImageCompression/grok/commit/40af3b5f2b9343d162a829e91868976ed2bbf563.patch?full_index=1"
+    sha256 "8e3d7b46efe3e12744383ade949e16d4a3046436c744cc728a4c1aecba26369a"
   end
 
   def install
