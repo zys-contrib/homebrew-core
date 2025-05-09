@@ -4,7 +4,6 @@ class Cdk8s < Formula
   url "https://registry.npmjs.org/cdk8s-cli/-/cdk8s-cli-2.200.64.tgz"
   sha256 "9ca3fc24103218fc6d2bf0e2e698a65db6ae9813659948bf8c24272965649508"
   license "Apache-2.0"
-  head "https://github.com/cdk8s-team/cdk8s-cli.git", branch: "2.x"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d7674735ad35dca33f679601370c04bcf1334563ddf9514b78faf5c917514d90"
