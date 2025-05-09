@@ -606,6 +606,7 @@ coder
 codesnap
 codespell
 codevis
+codex
 cog
 coin3d
 coinutils
