@@ -6,13 +6,14 @@ class Zizmor < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f70ae4fb964b1cf3740c0613db1f3b5fea6ca19085c47a29a492ccd81cb4f671"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d8e00f1e155a4a00464cc5ad0c2128152a58a2302d032b26b529d47cd669490"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b8d76923ae416df44d70d3d6ef31b878a2ec906e66562c9dab97f96872a1c9ec"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3da95aa53caa2597862f03ffd357270a47e13e27a91a7eeec12b9243912ecaa2"
-    sha256 cellar: :any_skip_relocation, ventura:       "f686808a51217cd1df4f499f688c661f50fc6cf651765a2dfb5a2f9414ff0fae"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7dbef99a06b10f436ace04fdc5542691431122a8e539ce671c958ae89fedcdfa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb26678f3ac7345ea29e4bb12b355f0ad97b8f9f1508fe764b2f265b64672c70"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fe997f8811e7eed3e1435a75557269e5ae510b047dfc169a641555a699ad2dc6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "89921f02ba68bac05eaff29c8c1f7cb3a707f9b89710b25b51dfaa1b4755f86b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c43af3dd890eb1782e27aeeb772cf589f724529b4199c879d598360a7bbb5c44"
+    sha256 cellar: :any_skip_relocation, sonoma:        "29dfae0331e97244575914cabd1858f30d7f5b17d18fa36524fbff4e0287a5a4"
+    sha256 cellar: :any_skip_relocation, ventura:       "b8c53542d2d4c4c99c370c4e313013afec187bc3394cdf9e443858c52575325f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bcce1f98efb0beaafd24de5f3aa74a6d2d5dd8d2d563d4589d5df0959194aebd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f32ca3503f3465cad4d5fe6fab6905e10753b9c41b16887350b3d3cc69020821"
   end
 
   depends_on "pkgconf" => :build
