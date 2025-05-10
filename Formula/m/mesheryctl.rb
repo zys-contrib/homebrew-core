@@ -2,21 +2,21 @@ class Mesheryctl < Formula
   desc "Command-line utility for Meshery, the cloud native management plane"
   homepage "https://meshery.io"
   url "https://github.com/meshery/meshery.git",
-      tag:      "v0.8.72",
-      revision: "1b9996e62a3b6eb0df41ca8f2d3b613cc87b1cec"
+      tag:      "v0.8.77",
+      revision: "b4f623bd45805568472a4260e782361fe1e6d81f"
   license "Apache-2.0"
   head "https://github.com/meshery/meshery.git", branch: "master"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bd8146c1badf70040a7127bd029ee8cf302c11a38305c494e3a1b2deded3fbee"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bd8146c1badf70040a7127bd029ee8cf302c11a38305c494e3a1b2deded3fbee"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bd8146c1badf70040a7127bd029ee8cf302c11a38305c494e3a1b2deded3fbee"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ee5b84ac93296f459a3997dc594e2fe8943f9cb696a8d2f43634b4ae22a732c2"
-    sha256 cellar: :any_skip_relocation, ventura:       "ee5b84ac93296f459a3997dc594e2fe8943f9cb696a8d2f43634b4ae22a732c2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "78e970f3ea0af59eaa44abed30e811b40ae7f08698699f29710bd921519df6e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0411dd70f010826b7c56ec3e5f88f92489c7479767aa1c514a079df6dabd7c55"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8897b97553dc6092355d5d725a77b429322ccc2dc818aca5ac4d122cbd5ccc7a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8897b97553dc6092355d5d725a77b429322ccc2dc818aca5ac4d122cbd5ccc7a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8897b97553dc6092355d5d725a77b429322ccc2dc818aca5ac4d122cbd5ccc7a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bfc586a1a72e492aa53d3b60347b9f533db6f64ab7ece499ee4e5eef53b816e6"
+    sha256 cellar: :any_skip_relocation, ventura:       "bfc586a1a72e492aa53d3b60347b9f533db6f64ab7ece499ee4e5eef53b816e6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3be9086ca099289b2384e3f33c98957a6525b80ebda8533bb67304e2c52edcf2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b503fca9f69785b90550e426aa8d17777e8ae078e8322653de37b53cfcbb35d"
   end
 
   depends_on "go" => :build
