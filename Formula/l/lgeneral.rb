@@ -23,7 +23,6 @@ class Lgeneral < Formula
   depends_on "gettext"
   depends_on "sdl12-compat"
   depends_on "sdl2"
-  depends_on "sdl2_mixer"
 
   def install
     # Applied in community , to remove in next release
@@ -48,6 +47,7 @@ class Lgeneral < Formula
       https://sourceforge.net/projects/lgeneral/files/lgeneral-data/pg-data.tar.gz/download
       To install use:
         lgc-pg -s <pg-data-unzipped-dir> -d #{opt_pkgshare}
+      ⚠️ Note: Sound and music are not supported in this build
     EOS
   end
 
