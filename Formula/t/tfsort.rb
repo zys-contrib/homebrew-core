@@ -1,8 +1,8 @@
 class Tfsort < Formula
   desc "CLI to sort Terraform variables and outputs"
   homepage "https://github.com/AlexNabokikh/tfsort"
-  url "https://github.com/AlexNabokikh/tfsort/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "0fb2952c52d1f13fbf2a939d5bdd80b6bea3943f94f587ca73b04c6a107ab7c3"
+  url "https://github.com/AlexNabokikh/tfsort/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "b1efeee957a11314aa6dfe2cb9f6ae3e8ee8bed18351daaf7348b13bbd818d4c"
   license "Apache-2.0"
   head "https://github.com/AlexNabokikh/tfsort.git", branch: "master"
 
@@ -22,14 +22,13 @@ class Tfsort < Formula
     system "go", "build", *std_go_args(ldflags:)
 
     # install testdata
-    pkgshare.install "tsort/testdata"
+    pkgshare.install "internal/hclsort/testdata"
   end
 
   test do
     cp_r pkgshare/"testdata/.", testpath
 
-    output = shell_output("#{bin}/tfsort invalid.tf 2>&1", 1)
-    assert_match "file invalid.tf is not a valid Terraform file", output
+    assert_empty shell_output("#{bin}/tfsort invalid.tf 2>&1")
 
     system bin/"tfsort", "valid.tofu"
     assert_equal (testpath/"expected.tofu").read, (testpath/"valid.tofu").read
