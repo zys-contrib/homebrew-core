@@ -1,8 +1,8 @@
 class Bold < Formula
   desc "Drop-in replacement for Apple system linker ld"
   homepage "https://github.com/kubkon/bold"
-  url "https://github.com/kubkon/bold/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "2496f04e47c9d5e17ef273b26519abf429b5c3e3df6d264f2941735088253ec0"
+  url "https://github.com/kubkon/bold/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "7b12aceeabe32249784347f3bb1befde6dcf621668d0352497ee8ef8c381d9ee"
   license "MIT"
 
   bottle do
