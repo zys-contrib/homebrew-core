@@ -50,7 +50,10 @@ class Caddy < Formula
     keep_alive true
     error_log_path var/"log/caddy.log"
     log_path var/"log/caddy.log"
-    environment_variables XDG_DATA_HOME: "#{HOMEBREW_PREFIX}/var/lib"
+    environment_variables(
+      XDG_DATA_HOME: "#{HOMEBREW_PREFIX}/var/lib",
+      HOME:          "#{HOMEBREW_PREFIX}/var/lib",
+    )
   end
 
   test do
