@@ -16,12 +16,12 @@ class Snapcraft < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9f5b53aca62e53ffceea2516be7f4bdb51fcd4f7240c6b32eb53a8ca1d06a14c"
-    sha256 cellar: :any,                 arm64_sonoma:  "e53e316829963af8b4614f6eb01df3526cb9f8f7b83f293a54c4ffb809cb8e03"
-    sha256 cellar: :any,                 arm64_ventura: "a6c8ada91d164868ef19d8424dfc5568d3e0d7864626f88e888b5b49c74f5c97"
-    sha256 cellar: :any,                 sonoma:        "d5e46fc724992e97b6713c2b1d99a52873b9bed2fff3406bbf05ff4c47f98444"
-    sha256 cellar: :any,                 ventura:       "d4e4bdfd88d2f131dd3388030a7acda899637e0768a59472c8ae60792b5d3648"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "168cc401d0ca12c64622005028eccfa872f84a0c6904a6d3aec4920139e38dc5"
+    sha256 cellar: :any,                 arm64_sequoia: "d4af1b551f044d338799c5a3c00c74e57e28bcf8c27667f957afe9dc577e426d"
+    sha256 cellar: :any,                 arm64_sonoma:  "030a3a605f2a4811a3498bb0f316579d6e1b00ca03f8b34bce76625d8b5d97af"
+    sha256 cellar: :any,                 arm64_ventura: "121cc78cac09991f79a84bd7db68da674751a37e4e17f9eb5bc8ee89d152cedb"
+    sha256 cellar: :any,                 sonoma:        "dda2737f0b583b0385491073fee7fe249ed549c5710b97033506e348e58acfb4"
+    sha256 cellar: :any,                 ventura:       "e828c346984b224b9bec260fe3704e95a3ad8006636070cfd108e980d0b1efa5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a544ba8e4fb9a5a31be7102df3185dac8e96803d54e442c35326a51e2dc258d4"
   end
 
   depends_on "rust" => :build # for pydantic_core
