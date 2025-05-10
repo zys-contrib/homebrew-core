@@ -15,6 +15,15 @@ class PiecesCli < Formula
     end
   end
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "4d9815455763b274a4d08e888875257af71212813fc7d0e492b3e06b79993231"
+    sha256 cellar: :any,                 arm64_sonoma:  "88922a51c7c77e7bacf9eedcb4853105d13825d245eb0bb12821fe3c23a610b2"
+    sha256 cellar: :any,                 arm64_ventura: "093dff983a32c3a28d2d5602396222f2a373aa195fe647f281822f8b76c73c21"
+    sha256 cellar: :any,                 sonoma:        "4a7f8b42c8f1cd1c9dbc5478aec25d9daeec2527a42f0a6def51805a49fd4655"
+    sha256 cellar: :any,                 ventura:       "1d751ae27246eeacc08b539951dffb077c72f9eabbd8476139bb475ede98ebf5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ee24ddbabab556682a2c0068b146f156ef3b7d25ad67946bcc5fb2ce0780f4d"
+  end
+
   depends_on "libyaml"
   depends_on "python@3.13"
 
