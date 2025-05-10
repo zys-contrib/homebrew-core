@@ -6,7 +6,7 @@ class PythonSetuptools < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6cfde665b7b65c9df882bdbdd488d4e91af78f4e4d3af30716b6fae79bb153ca"
+    sha256 cellar: :any_skip_relocation, all: "de6898d8f686d1a127cf9e9b6afc127a4ac90c3a5b0410ba896857c13de129cc"
   end
 
   depends_on "python@3.12" => [:build, :test]
