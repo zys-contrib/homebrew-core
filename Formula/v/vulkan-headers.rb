@@ -12,7 +12,7 @@ class VulkanHeaders < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e0fdfa71d9efe84ef911b80e149b9e84b3e24bbb9a5494f61bb76c42d21a6c22"
+    sha256 cellar: :any_skip_relocation, all: "139b1706725982bdf168904c597ee0549a1303d47e70acb0553d4e3ba8999c90"
   end
 
   depends_on "cmake" => :build
