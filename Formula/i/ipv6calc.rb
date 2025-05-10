@@ -1,8 +1,8 @@
 class Ipv6calc < Formula
   desc "Small utility for manipulating IPv6 addresses"
   homepage "https://www.deepspace6.net/projects/ipv6calc.html"
-  url "https://github.com/pbiering/ipv6calc/archive/refs/tags/4.3.0.tar.gz"
-  sha256 "0255b811b09ddbfb4afdffe639b5eb91406a67134def5230d2c53ac80f8f4dd0"
+  url "https://github.com/pbiering/ipv6calc/archive/refs/tags/4.3.1.tar.gz"
+  sha256 "b1c5006edebaad3e2e286d12f70d136bf05658e9e8bda8d67ef7c477322a1a47"
   license "GPL-2.0-only"
 
   # Upstream creates stable version tags (e.g., `v1.2.3`) before a release but
