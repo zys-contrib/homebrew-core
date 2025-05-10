@@ -8,13 +8,13 @@ class Memray < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "17272f7adecc072265492748044ce2c047b91abf8dc8b7cb2a2c9459a67292c4"
-    sha256 cellar: :any,                 arm64_sonoma:  "55beb65ee82ab38f96bf48c7839fe865fc67c2e05456f62d9d47afbaa35a54ec"
-    sha256 cellar: :any,                 arm64_ventura: "5bcb4c8963c4b2959df6bb62c41d080a1d0650fde140abe50d52fd8902951dd8"
-    sha256 cellar: :any,                 sonoma:        "472f1211109502aa37ce2d48b2373eaacebdf86564d90eb57a36cb45797fb7d6"
-    sha256 cellar: :any,                 ventura:       "0c1429e3702c1a7e6f08a9d5f0e9a629231c2d8667692f701b38753643dbf933"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cd233f927a7de10aa99ec08084168cd82f32abb40a1e7fc652d80dcf7e971d9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da998e77dd56ebccb30c64aa5fafd350474d92d72135ea4d9beee1cf6a54a9c0"
+    sha256 cellar: :any,                 arm64_sequoia: "1c4efb8fb7ecbf0afe0d4caabec09224e2b2536bd9ed879d158c889328707a6a"
+    sha256 cellar: :any,                 arm64_sonoma:  "6339196a5e610a541f4e9514ba7f39f4964e32e034a7a3c813f476a5526badc9"
+    sha256 cellar: :any,                 arm64_ventura: "0441f370654154a80c6ff3d829b604608f65e7f470e4e57995231bb4ec1c7071"
+    sha256 cellar: :any,                 sonoma:        "bf7bad5d0a61b6bb39e233627bde0270b2491667a44f65fb788afb39824df938"
+    sha256 cellar: :any,                 ventura:       "f9385c4a945339ff46b94106acb15adb96d44ff77f57908219663000618121f2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "025020899fa12f0a4dd1889e0680836d51e3c83dbd720ac6e480f38e246cfe23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25a28919d12faf4b7c84f982a791ec7b034d4606c03563973220eb0cf6315af6"
   end
 
   depends_on "lz4"
