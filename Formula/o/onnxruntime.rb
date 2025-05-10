@@ -2,8 +2,8 @@ class Onnxruntime < Formula
   desc "Cross-platform, high performance scoring engine for ML models"
   homepage "https://github.com/microsoft/onnxruntime"
   url "https://github.com/microsoft/onnxruntime.git",
-      tag:      "v1.21.1",
-      revision: "8f7cce3a49fdbdac96e0868b75b7d0159db7ac7f"
+      tag:      "v1.22.0",
+      revision: "f217402897f40ebba457e2421bc0a4702771968e"
   license "MIT"
 
   livecheck do
@@ -39,7 +39,7 @@ class Onnxruntime < Formula
   # element_wise_ops.cc:708:32: error: no matching member function for call to 'min'
   #
   # https://github.com/microsoft/onnxruntime/blob/v#{version}/cmake/deps.txt#L25
-  resource "eigen" do
+  resource "eigen3" do
     url "https://gitlab.com/libeigen/eigen/-/archive/1d8b82b0740839c0de7f1242a3585e3390ff5f33/eigen-1d8b82b0740839c0de7f1242a3585e3390ff5f33.tar.bz2"
     sha256 "37c2385d5b18471d46ac8c971ce9cf6a5a25d30112f5e4a2761a18c968faa202"
   end
