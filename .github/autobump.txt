@@ -1002,6 +1002,7 @@ exim
 exiv2
 exodriver
 exploitdb
+extra-cmake-modules
 exult
 eza
 f2
@@ -1733,6 +1734,7 @@ kamel
 kanata
 kapacitor
 kapp
+karchive
 karmadactl
 kaskade
 katago
@@ -1742,6 +1744,7 @@ kcat
 kcgi
 kcov
 kcptun
+kdoctools
 kea
 keep-sorted
 keeper-commander
@@ -1754,6 +1757,7 @@ keyring
 kfr
 khal
 ki
+ki18n
 kickstart
 kics
 killport
@@ -1785,6 +1789,7 @@ krep
 krew
 ksh93
 ksops
+ktexttemplate
 ktfmt
 ktor
 kty
@@ -3600,6 +3605,7 @@ tgui
 thanos
 the-way
 theharvester
+threadweaver
 threatcl
 thrift
 thriftgo
