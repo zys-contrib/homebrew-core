@@ -1,10 +1,9 @@
 class Nmap < Formula
   desc "Port scanning utility for large networks"
   homepage "https://nmap.org/"
-  url "https://nmap.org/dist/nmap-7.95.tar.bz2"
-  sha256 "e14ab530e47b5afd88f1c8a2bac7f89cd8fe6b478e22d255c5b9bddb7a1c5778"
+  url "https://nmap.org/dist/nmap-7.97.tar.bz2"
+  sha256 "af98f27925c670c257dd96a9ddf2724e06cb79b2fd1e0d08c9206316be1645c0"
   license :cannot_represent
-  revision 1
   head "https://svn.nmap.org/nmap/"
 
   livecheck do
@@ -40,6 +39,10 @@ class Nmap < Formula
   conflicts_with cask: "zenmap", because: "both install `nmap` binaries"
 
   def install
+    # Fix to missing VERSION file
+    # https://github.com/nmap/nmap/pull/3111
+    mv "libpcap/VERSION.txt", "libpcap/VERSION"
+
     ENV.deparallelize
 
     libpcap_path = if OS.mac?
@@ -56,6 +59,7 @@ class Nmap < Formula
       --without-nmap-update
       --disable-universal
       --without-zenmap
+      --without-ndiff
     ]
 
     system "./configure", *args, *std_configure_args
@@ -63,12 +67,6 @@ class Nmap < Formula
     system "make", "install"
 
     bin.glob("uninstall_*").map(&:unlink) # Users should use brew uninstall.
-    return unless (bin/"ndiff").exist? # Needs Python
-
-    # We can't use `rewrite_shebang` here because `detected_python_shebang` only works
-    # for shebangs that start with `/usr/bin`, but the shebang we want to replace
-    # might start with `/Applications` (for the `python3` inside Xcode.app).
-    inreplace bin/"ndiff", %r{\A#!.*/python(\d+(\.\d+)?)?$}, "#!/usr/bin/env python3"
   end
 
   def caveats
