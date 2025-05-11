@@ -2,9 +2,9 @@ class Puzzles < Formula
   desc "Collection of one-player puzzle games"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/"
   # Extract https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles.tar.gz to get the version number
-  url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-20250303.7da4641.tar.gz"
-  version "20250303"
-  sha256 "7f0a61478ef3515f87f80be3728d0395bf784de1feb3abfcd4c53f1fe99b1009"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-20250510.50985e9.tar.gz"
+  version "20250510"
+  sha256 "c402a196133e0d1c9fc082a831c016f189f7446baf830d533378337df5ec3f44"
   license "MIT"
   head "https://git.tartarus.org/simon/puzzles.git", branch: "main"
 
@@ -16,6 +16,8 @@ class Puzzles < Formula
     url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/doc/"
     regex(/version v?(\d{6,8})(?:\.[a-z0-9]+)?/i)
   end
+
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ebccba95ecacd2f2ba9538066efb4482e3ccdd7404516e8509bae34076f8f8eb"
