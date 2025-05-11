@@ -1,8 +1,8 @@
 class GumboParser < Formula
   desc "C99 library for parsing HTML5"
   homepage "https://codeberg.org/gumbo-parser/gumbo-parser"
-  url "https://codeberg.org/gumbo-parser/gumbo-parser/archive/0.13.0.tar.gz"
-  sha256 "7ad2ee259f35e8951233e4c9ad80968fb880f20d8202cb9c48f0b65f67d38e61"
+  url "https://codeberg.org/gumbo-parser/gumbo-parser/archive/0.13.1.tar.gz"
+  sha256 "1a054d1e53d556641a6666537247411a77b0c18ef6ad5df23e30d2131676ef81"
   license "Apache-2.0"
 
   bottle do
