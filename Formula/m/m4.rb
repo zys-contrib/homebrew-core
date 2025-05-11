@@ -1,9 +1,9 @@
 class M4 < Formula
   desc "Macro processing language"
   homepage "https://www.gnu.org/software/m4/"
-  url "https://ftp.gnu.org/gnu/m4/m4-1.4.19.tar.xz"
+  url "https://ftp.gnu.org/gnu/m4/m4-1.4.20.tar.xz"
   mirror "https://ftpmirror.gnu.org/m4/m4-1.4.19.tar.xz"
-  sha256 "63aede5c6d33b6d9b13511cd0be2cac046f2e70fd0a07aa9573a04a82783af96"
+  sha256 "e236ea3a1ccf5f6c270b1c4bb60726f371fa49459a8eaaebc90b216b328daf2b"
   license "GPL-3.0-or-later"
 
   bottle do
