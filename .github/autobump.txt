@@ -2205,6 +2205,7 @@ lz4
 lzip
 lziprecover
 lzlib
+m4
 m68k-elf-gcc
 macchina
 mackup
