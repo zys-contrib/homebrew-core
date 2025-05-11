@@ -2235,6 +2235,7 @@ mapcidr
 mapnik
 mapproxy
 mapserver
+marcli
 mariadb
 mariadb-connector-c
 mariadb-connector-odbc
