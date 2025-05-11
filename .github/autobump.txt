@@ -1051,6 +1051,7 @@ fdk-aac-encoder
 fdroidcl
 fdroidserver
 fdupes
+fedify
 feh
 feishu2md
 felinks
