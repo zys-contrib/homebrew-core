@@ -7,13 +7,14 @@ class PixiPack < Formula
   head "https://github.com/quantco/pixi-pack.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "da11e187c8b12f4b031f7a973dca314cc56fc06a39331728b7d4c06ef5192355"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "10259f011466b9f5ff5fb38f99352696c2b653161b5b69c3a42f5c81fdd534e8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d5cb97266044d45744aeaf63baff5221267c56af821ebf756dea12225c25186c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6553a1b2c3a246d2a2372376411658484ff15eb634e3d761be72d904b53d6542"
-    sha256 cellar: :any_skip_relocation, ventura:       "64220c1a2e2c0f17fa9c9b5d1bfde6ccab7e2168ca1f40832a882e42be31436a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a36c83baacd059e2120d0b6cbe4b6895a21b6c77ed890014b63ee99bdc89f9e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ca7ab72018759fc9df103b39507512e366ded4c7bfeae26708f259cc8c9a756"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d31fabaca7ad3e5ff43938eb6780118c3769f7f8da9b8ff77e9188840aca9c56"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a345181ec3f97f756b4011ca0a0426a61215d994b2d2ae86330ea5e9840f254a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d1ca47df2d8a8b82a014fba811e3275eb00559cbd533cec1577336a7aeaadcc1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f978e42fe8dd18c7efb1a170bcbdbfce8768c1e62e96b327f048f80c9c91f29f"
+    sha256 cellar: :any_skip_relocation, ventura:       "e7c414a0fb061b803fa709ab7ee8325d1bc25c6cab58b0396b4c7cdef1650a55"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "67692fc93c9bc0e68d0fa2d792574992821c1dcbedf5eae664a470c44e31f531"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6af820f22d39ec80cd3a27099473eeafad8200fc6a5854f89c4c8040b5ccb943"
   end
 
   depends_on "cmake" => :build
@@ -28,6 +29,8 @@ class PixiPack < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    generate_completions_from_executable(bin/"pixi-pack", "completion", "-s")
   end
 
   test do
