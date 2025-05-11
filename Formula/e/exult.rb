@@ -1,8 +1,8 @@
 class Exult < Formula
   desc "Recreation of Ultima 7"
   homepage "https://exult.sourceforge.io/"
-  url "https://github.com/exult/exult/archive/refs/tags/v1.10.1.tar.gz"
-  sha256 "f55f682a47009fdc5138571f80ac42eb1fe5c07c8d9ccacaa9de66caed039fd3"
+  url "https://github.com/exult/exult/archive/refs/tags/v1.12.0.tar.gz"
+  sha256 "1734fb8fc76696c7697f00d53e1c5c04b889ab4cabd95e4a3e0380bc35ee5392"
   license "GPL-2.0-or-later"
   head "https://github.com/exult/exult.git", branch: "master"
 
