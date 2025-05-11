@@ -7,12 +7,12 @@ class Tfsort < Formula
   head "https://github.com/AlexNabokikh/tfsort.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a9e96459085e375e9e275166fc1f74db6f2852c8fbfe51ec5111b8d05d7885de"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a9e96459085e375e9e275166fc1f74db6f2852c8fbfe51ec5111b8d05d7885de"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a9e96459085e375e9e275166fc1f74db6f2852c8fbfe51ec5111b8d05d7885de"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5ab204f1c18c71186e2309b3c6af78d3ab6898e68928948191e0b405ff68c481"
-    sha256 cellar: :any_skip_relocation, ventura:       "5ab204f1c18c71186e2309b3c6af78d3ab6898e68928948191e0b405ff68c481"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a9db22f4974fdb7edac5af591e89afbe81fa9f14a77d89dc1a59648d8e56814"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "59fe21c616a425dfa59d7a05b1cea91427d43b853641492804a8aba4d7ee202d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "59fe21c616a425dfa59d7a05b1cea91427d43b853641492804a8aba4d7ee202d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "59fe21c616a425dfa59d7a05b1cea91427d43b853641492804a8aba4d7ee202d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c9e422de4603bda51a952451bd408bd01c2962be21e9a514ad10c5359946bcbd"
+    sha256 cellar: :any_skip_relocation, ventura:       "c9e422de4603bda51a952451bd408bd01c2962be21e9a514ad10c5359946bcbd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f719d148a0502350a980736ff85a2ad01fd2fb9fe07c79ad8e9f6a0a7101d8d"
   end
 
   depends_on "go" => :build
