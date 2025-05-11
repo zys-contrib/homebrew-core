@@ -11,13 +11,13 @@ class Knot < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "fb2a03707bca3a30c4920b387fc26b5bfea3a04194ed0373237d69dd8f5808b2"
-    sha256 arm64_sonoma:  "70c3e6f73fc410caae5d8b61a229f8c26b678d3e7d92ced6eb7e385c79c95026"
-    sha256 arm64_ventura: "781ee000ccc02d1b49270855c65d622c24a44fbf7379e8bffc908155ef09e20a"
-    sha256 sonoma:        "d35aeb28f9d0f3793e0d77c91e8a015584f252981cdfb33aa6f5c0b76820169c"
-    sha256 ventura:       "a46e505e12ba13083f5211cbd0ddec4a1c92d434c4572c33dcc8274a746619f7"
-    sha256 arm64_linux:   "9e36f319c1c0b26372ade4e49936fcf0e7db00aabae7ec187a789e6c382f6dc7"
-    sha256 x86_64_linux:  "c58465073d06cb6ad06de3830b35f12650d5e1741e3026b18fad27277cbfbcb3"
+    sha256 arm64_sequoia: "62241ba2192c8ffce58930ecd47a88899eaccc4251bfb9f7ba23fe18f2e60c03"
+    sha256 arm64_sonoma:  "94f5f562fe7533cb29fc2e53fb6f9308fe16b36b4f1cf41bb7caa273c16f0bfb"
+    sha256 arm64_ventura: "d7b76b9ed9be9a503cc6a21c5c896f0125411dbf119e4f225894f8d2a1d03867"
+    sha256 sonoma:        "9d65336182f586b314fd29bfee25c8652839c3032f9f9afa405e02ae502c8d63"
+    sha256 ventura:       "f2353253ac4781bbb3436823a9e56389edf0091d03874caa3157e042fb7cba2d"
+    sha256 arm64_linux:   "719cc905109bf0ca8a68b009af89ba49a9e2b6f0caa1d90c82a845abd1d1ef55"
+    sha256 x86_64_linux:  "8e0bf75312b54c8edd092dd36139829eaefb5b0f0160f5053d5b47d3a65dedf2"
   end
 
   head do
