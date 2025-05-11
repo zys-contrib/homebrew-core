@@ -2463,6 +2463,7 @@ neovim-qt
 nerdctl
 nerdfetch
 nerdfix
+nerdlog
 nest
 nestopia-ue
 netaddr
