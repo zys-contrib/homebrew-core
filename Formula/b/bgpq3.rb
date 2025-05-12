@@ -1,8 +1,8 @@
 class Bgpq3 < Formula
   desc "BGP filtering automation for Cisco, Juniper, BIRD and OpenBGPD routers"
   homepage "http://snar.spb.ru/prog/bgpq3/"
-  url "https://github.com/snar/bgpq3/archive/refs/tags/v0.1.36.1.tar.gz"
-  sha256 "68d602434d072115b848f6047a7a29812d53c709835a4fbd0ba34dcc31553bcd"
+  url "https://github.com/snar/bgpq3/archive/refs/tags/v0.1.38.tar.gz"
+  sha256 "c4a424825e6c9c9ec48c2583dcbbfc3016d15cc0be1dc55d07827e1b9b79888c"
   license "BSD-2-Clause"
   head "https://github.com/snar/bgpq3.git", branch: "master"
 
