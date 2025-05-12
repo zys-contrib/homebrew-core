@@ -4,6 +4,7 @@ class Proteinortho < Formula
   url "https://gitlab.com/paulklemm_PHD/proteinortho/-/archive/v6.3.5/proteinortho-v6.3.5.tar.gz"
   sha256 "1b477657c44eeba304d3ec6d5179733d4c2b3857ad92dcbfe151564790328ce0"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     rebuild 1
@@ -17,19 +18,34 @@ class Proteinortho < Formula
   end
 
   depends_on "diamond"
-  depends_on "libomp"
   depends_on "openblas"
+
+  on_macos do
+    depends_on "libomp"
+  end
 
   def install
     ENV.cxx11
 
+    # Enable OpenMP
+    if OS.mac?
+      ENV.append_to_cflags "-Xpreprocessor -fopenmp -I#{Formula["libomp"].opt_include}"
+      ENV.append "LDFLAGS", "-L#{Formula["libomp"].opt_lib} -lomp"
+    end
+
     bin.mkpath
     system "make", "install", "PREFIX=#{bin}"
     doc.install "manual.html"
+    pkgshare.install "test"
   end
 
   test do
     system bin/"proteinortho", "-test"
     system bin/"proteinortho_clustering", "-test"
+
+    # This test exercises OpenMP
+    cp_r pkgshare/"test", testpath
+    files = Dir[testpath/"test/*.faa"]
+    system bin/"proteinortho", *files
   end
 end
