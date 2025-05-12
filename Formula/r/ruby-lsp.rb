@@ -1,8 +1,8 @@
 class RubyLsp < Formula
   desc "Opinionated language server for Ruby"
   homepage "https://shopify.github.io/ruby-lsp"
-  url "https://github.com/Shopify/ruby-lsp/archive/refs/tags/v0.23.17.tar.gz"
-  sha256 "73a4ffe9fca491e97d0d677ac6a54b1b932ebacc3981477fc800966c7cceecbb"
+  url "https://github.com/Shopify/ruby-lsp/archive/refs/tags/v0.23.18.tar.gz"
+  sha256 "227b14eeb47ca32c2222117e458a7986ba4e86f610efb340bb2b64d433498030"
   license "MIT"
   head "https://github.com/Shopify/ruby-lsp.git", branch: "main"
 
