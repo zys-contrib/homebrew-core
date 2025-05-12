@@ -1241,6 +1241,7 @@ ginac
 gismo
 git-absorb
 git-annex
+git-bug
 git-cinnabar
 git-cliff
 git-codereview
