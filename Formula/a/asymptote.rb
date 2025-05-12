@@ -12,13 +12,13 @@ class Asymptote < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "67f15e6b7d17e0385699acf4eebc33a38f1f67e79b6cd95efe44577520969d1f"
-    sha256 arm64_sonoma:  "c8de9421dbd32ea9db35db3e59128fa295cf798927af145005c514685aadc3de"
-    sha256 arm64_ventura: "8980e8eb202cef2dc3a700ce3eb2a94e9d91e3c622bee708edca72a8ccab5055"
-    sha256 sonoma:        "70e4febd6d1122b2686e3d4ac514427fc4c3f1be969222e7acbb60bbcb343968"
-    sha256 ventura:       "6c42ca247cc3863cf6abe840b7fdd228347b16cfb3288b6903d4fe0d73c0774d"
-    sha256 arm64_linux:   "8acb662cb0391fbcfdca9c1225332f96a85debba2076427b6d4a5df4b5d37092"
-    sha256 x86_64_linux:  "d16f7a686b15adc49bf5553d98e7a33aaf768a4b6d8025674e17cb5046c75ba9"
+    sha256 arm64_sequoia: "0f44efa2b77ba2a37e39201dc4e7c5e66a72cad31ce1a084a1f965f216e5631b"
+    sha256 arm64_sonoma:  "b86dbae74deda3128abd84da31fc4343407e778379e569d742bde42cb5cbd854"
+    sha256 arm64_ventura: "a779939f5a010187830e000e9068ea2c18fed522da98f6750766d01bdd347204"
+    sha256 sonoma:        "5822b3bcb86256d00dd3d2b65e6d75df07bcc7e5914df9c287bf8cc259d4de68"
+    sha256 ventura:       "7eeba78fa5c23d5485b4d8efa65e79e4b603f5ab415043a88588eaa87c1ce0ba"
+    sha256 arm64_linux:   "1f4f6f30d1cd456dc8f0f7d0d9c03662cebf33aea448d162881b806d6881eba6"
+    sha256 x86_64_linux:  "4004e2418e853c20a3375db06e1562a0c283a5e6e1f6590a4fcd2258d8cf180d"
   end
 
   depends_on "glm" => :build
