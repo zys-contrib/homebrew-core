@@ -1,8 +1,8 @@
 class Codex < Formula
   desc "OpenAI's coding agent that runs in your terminal"
   homepage "https://github.com/openai/codex"
-  url "https://registry.npmjs.org/@openai/codex/-/codex-0.1.2505021246.tgz"
-  sha256 "70d27f89af3eb9d2697de0a9ba68564d32fc6faecb6f8dfcd2cca7e6ab919ab8"
+  url "https://registry.npmjs.org/@openai/codex/-/codex-0.1.2505111730.tgz"
+  sha256 "87fe060703384b92745904d6fb94c3763877af8173c9f0b796458cc8b8a2ca65"
   license "Apache-2.0"
 
   bottle do
@@ -20,6 +20,10 @@ class Codex < Formula
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    # Remove incompatible pre-built binaries
+    libexec.glob("lib/node_modules/@openai/codex/bin/*")
+           .each { |f| rm_r(f) if f.extname != ".js" }
 
     generate_completions_from_executable(bin/"codex", "completion")
   end
