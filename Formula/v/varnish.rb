@@ -1,9 +1,9 @@
 class Varnish < Formula
   desc "High-performance HTTP accelerator"
   homepage "https://www.varnish-cache.org/"
-  url "https://varnish-cache.org/_downloads/varnish-7.6.1.tgz"
-  mirror "https://fossies.org/linux/www/varnish-7.6.1.tgz"
-  sha256 "5a9bb5a149ff27867b54a66ce16d2a4b93edffa5473cb87c9c71f7699cf845ba"
+  url "https://varnish-cache.org/_downloads/varnish-7.7.1.tgz"
+  mirror "https://fossies.org/linux/www/varnish-7.7.1.tgz"
+  sha256 "4c06c5c99680a429b72934f9fd513963f7e1ba8553b33ca7ec12c85a5c2b751a"
   license "BSD-2-Clause"
 
   livecheck do
@@ -30,6 +30,16 @@ class Varnish < Formula
   uses_from_macos "python" => :build
   uses_from_macos "libedit"
   uses_from_macos "ncurses"
+
+  # macos compatibility patches, upstream pr ref, https://github.com/varnishcache/varnish-cache/pull/4339
+  patch do
+    url "https://github.com/varnishcache/varnish-cache/commit/3e679cd0aa093f7b1c426857d24a88d3db747f24.patch?full_index=1"
+    sha256 "677881ed5cd0eda2e1aa799ca54601b44a96675763233966c4d101b83ccdfd73"
+  end
+  patch do
+    url "https://github.com/varnishcache/varnish-cache/commit/acbb1056896f6cf4115cc2a6947c9dbd8003176e.patch?full_index=1"
+    sha256 "915c5b560aa473ed139016b40c9e6c8a0a4cce138dd1126a63e75b58d8345e73"
+  end
 
   def install
     system "./configure", "--localstatedir=#{var}", *std_configure_args
