@@ -344,6 +344,7 @@ broot
 brotli
 brpc
 bruno-cli
+btfs
 btop
 btrfs-progs
 bubblewrap
