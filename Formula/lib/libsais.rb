@@ -1,8 +1,8 @@
 class Libsais < Formula
   desc "Fast linear time suffix array, lcp array and bwt construction"
   homepage "https://github.com/IlyaGrebnov/libsais"
-  url "https://github.com/IlyaGrebnov/libsais/archive/refs/tags/v2.10.0.tar.gz"
-  sha256 "25c80c99945d7148b61ee4108dbda77e3dda605619ebfc7b880fd074af212b50"
+  url "https://github.com/IlyaGrebnov/libsais/archive/refs/tags/v2.10.1.tar.gz"
+  sha256 "ecf4611c18fefd8d4377343e4dc3f257ae17a501301a13f7cb7585c836405d39"
   license "Apache-2.0"
   head "https://github.com/IlyaGrebnov/libsais.git", branch: "master"
 
@@ -23,8 +23,7 @@ class Libsais < Formula
                     "-DLIBSAIS_BUILD_SHARED_LIB=ON",
                     *std_cmake_args
     system "cmake", "--build", "build"
-    lib.install shared_library("build/liblibsais")
-    lib.install_symlink shared_library("liblibsais") => shared_library("libsais")
+    lib.install shared_library("build/libsais")
     include.install "include/libsais.h"
   end
 
