@@ -3,8 +3,8 @@ class Mcpm < Formula
 
   desc "Open source, community-driven MCP server and client manager"
   homepage "https://mcpm.sh/"
-  url "https://files.pythonhosted.org/packages/44/f7/b7fff1838c836868e3d6e0c14b4eaa992341f428a8683fc7e5f9dee592d6/mcpm-1.9.0.tar.gz"
-  sha256 "97c112cb6d40e9bbcb4091c1db79da4eeda256bfa48083fa1f3abb260b814686"
+  url "https://files.pythonhosted.org/packages/94/f1/0a218ec45d409d7de6784f746fb159b1a47fe8d4b5ac742bab7421a324f1/mcpm-1.10.0.tar.gz"
+  sha256 "53925f2c88b9ca67df7751c6fc9a6e1954dc235c3e1236fdbef24605205dad86"
   license "MIT"
 
   bottle do
@@ -41,8 +41,8 @@ class Mcpm < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
-    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
+    url "https://files.pythonhosted.org/packages/cd/0f/62ca20172d4f87d93cf89665fbaedcd560ac48b465bd1d92bfc7ea6b0a41/click-8.2.0.tar.gz"
+    sha256 "f5452aeddd9988eefa20f90f05ab66f17fce1ee2a36907fd30b05bbb5953814d"
   end
 
   resource "duckdb" do
@@ -81,8 +81,8 @@ class Mcpm < Formula
   end
 
   resource "mcp" do
-    url "https://files.pythonhosted.org/packages/25/ae/588691c45b38f4fbac07fa3d6d50cea44cc6b35d16ddfdf26e17a0467ab2/mcp-1.7.1.tar.gz"
-    sha256 "eb4f1f53bd717f75dda8a1416e00804b831a8f3c331e23447a03b78f04b43a6e"
+    url "https://files.pythonhosted.org/packages/ff/97/0a3e08559557b0ac5799f9fb535fbe5a4e4dcdd66ce9d32e7a74b4d0534d/mcp-1.8.0.tar.gz"
+    sha256 "263dfb700540b726c093f0c3e043f66aded0730d0b51f04eb0a3eb90055fe49b"
   end
 
   resource "mdurl" do
