@@ -3,8 +3,9 @@ class Openrct2 < Formula
   homepage "https://openrct2.io/"
   url "https://github.com/OpenRCT2/OpenRCT2.git",
       tag:      "v0.4.23",
-      revision: "a18956c01bdb88f16427bd2e6259cdf95d3e2ada"
+      revision: "b8d73b523c906993a593a2c2b80d661dbe3da5ee"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/OpenRCT2/OpenRCT2.git", branch: "develop"
 
   bottle do
@@ -46,8 +47,8 @@ class Openrct2 < Formula
   end
 
   resource "objects" do
-    url "https://github.com/OpenRCT2/objects/releases/download/v1.6.1/objects.zip"
-    sha256 "6829186630e52c332b6a4847ebb936c549a522fcadaf8f5e5e4579c4c91a4450"
+    url "https://github.com/OpenRCT2/objects/releases/download/v1.7.0/objects.zip"
+    sha256 "c6fdbcb85816fac7cd870cad63aa067376b6bca579991400e8941c0e2b78bbd2"
   end
 
   resource "openmusic" do
@@ -90,10 +91,7 @@ class Openrct2 < Formula
 
     # By default, the macOS build only looks for data in app bundle Resources.
     libexec.install bin/"openrct2"
-    (bin/"openrct2").write <<~BASH
-      #!/bin/bash
-      exec "#{libexec}/openrct2" "$@" "--openrct2-data-path=#{pkgshare}"
-    BASH
+    (bin/"openrct2").write_env_script "#{libexec}/openrct2", "--openrct2-data-path=#{pkgshare}", {}
   end
 
   test do
