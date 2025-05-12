@@ -1,8 +1,8 @@
 class Netatalk < Formula
   desc "File server for Macs, compliant with Apple Filing Protocol (AFP)"
   homepage "https://netatalk.io"
-  url "https://github.com/Netatalk/netatalk/releases/download/netatalk-4-2-2/netatalk-4.2.2.tar.xz"
-  sha256 "8f772804ce4322a4e8fb159528209450927e9df067daa5cc02ab59b35f4b450c"
+  url "https://github.com/Netatalk/netatalk/releases/download/netatalk-4-2-3/netatalk-4.2.3.tar.xz"
+  sha256 "10a3c3a4c11acec657df9c33c69a6269e319dba759c5e1dfa41ee5a3f1b80c43"
   license all_of: [
     "GPL-2.0-only",
     "GPL-2.0-or-later",
@@ -13,6 +13,8 @@ class Netatalk < Formula
     "MIT",
   ]
   head "https://github.com/Netatalk/netatalk.git", branch: "main"
+
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 arm64_sequoia: "ac81b1b9d7ca8deef169399a06ea00c0301cdeafc21acf8d2ad5e6dad5efd4f2"
