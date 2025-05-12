@@ -7,9 +7,8 @@ class Btfs < Formula
   head "https://github.com/johang/btfs.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "741d3c7890097ee5b9e337e0cfd18e8b0c9d221eff0512c3ee9dad59e9052c5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c13f8e1ccf19a55a3bfe37a185a7f58d79ec7a2a69e318e662434b917c17b5d1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "cb3c4a3351015895e992b3c059b012aa24410edfa4795decafdbe7a850b9201c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "de0d62491fcf2a7793531a3b1e3900f10cca457b2a2f67d04f19588f9f1c0b62"
   end
 
   depends_on "autoconf" => :build
