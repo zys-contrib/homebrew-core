@@ -1,8 +1,8 @@
 class Nixpacks < Formula
   desc "App source + Nix packages + Docker = Image"
   homepage "https://nixpacks.com/docs/getting-started"
-  url "https://github.com/railwayapp/nixpacks/archive/refs/tags/v1.38.0.tar.gz"
-  sha256 "071c00fa80b8816029b93618f243b54c215fcb1d7be7e464683d8cbaedc21fa9"
+  url "https://github.com/railwayapp/nixpacks/archive/refs/tags/v1.39.0.tar.gz"
+  sha256 "ec65a45ddf5a9c33797c1efb73bbcf161c66083ce13c18439d2fb32d50462c21"
   license "MIT"
   head "https://github.com/railwayapp/nixpacks.git", branch: "main"
 
