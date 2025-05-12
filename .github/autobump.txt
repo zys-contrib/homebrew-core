@@ -278,6 +278,7 @@ benthos
 berglas
 bettercap
 bfs
+bgpq3
 bgpq4
 biber
 bibtex-tidy
