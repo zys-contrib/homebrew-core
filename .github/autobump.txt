@@ -278,6 +278,7 @@ benthos
 berglas
 bettercap
 bfs
+bgpq3
 bgpq4
 biber
 bibtex-tidy
@@ -344,6 +345,7 @@ broot
 brotli
 brpc
 bruno-cli
+btfs
 btop
 btrfs-progs
 bubblewrap
@@ -1182,6 +1184,7 @@ gabo
 gallery-dl
 gama
 gambit
+gamdl
 game-music-emu
 gammaray
 garble
@@ -1241,6 +1244,7 @@ ginac
 gismo
 git-absorb
 git-annex
+git-bug
 git-cinnabar
 git-cliff
 git-codereview
@@ -2454,6 +2458,7 @@ ne
 neatvi
 nebula
 needle
+nelm
 neo4j
 neocmakelsp
 neomutt
