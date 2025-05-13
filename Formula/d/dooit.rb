@@ -3,8 +3,8 @@ class Dooit < Formula
 
   desc "TUI todo manager"
   homepage "https://github.com/kraanzu/dooit"
-  url "https://files.pythonhosted.org/packages/00/41/5b1dc3820a54506a12c33c84467f6a12e51b845500a5df39c42cdb3fe4e0/dooit-3.2.0.tar.gz"
-  sha256 "c7e41bfc57e6f0fae941015936e78025baf77f0bde542f3e5e4c7030ce72656c"
+  url "https://files.pythonhosted.org/packages/17/9e/8718c30df1b4e2e71fe1617722dedc70bf981b834547ca40595ae8e4ad23/dooit-3.2.1.tar.gz"
+  sha256 "b1c0634006b009e983a5eb4c4d003363faac0ea437bec333f76ae31479be7594"
   license "MIT"
   head "https://github.com/kraanzu/dooit.git", branch: "main"
 
