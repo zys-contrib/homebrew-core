@@ -3098,6 +3098,7 @@ riemann
 riemann-client
 rio
 rip2
+ripgrep-all
 ripsecrets
 riscv64-elf-gcc
 risor
