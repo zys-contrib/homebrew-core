@@ -1,8 +1,8 @@
 class Gauge < Formula
   desc "Test automation tool that supports executable documentation"
   homepage "https://gauge.org"
-  url "https://github.com/getgauge/gauge/archive/refs/tags/v1.6.14.tar.gz"
-  sha256 "ed86c8b8d244c5558ddb220a429c7375dc0e9caf1d9e3c37f624b72839ab70c7"
+  url "https://github.com/getgauge/gauge/archive/refs/tags/v1.6.15.tar.gz"
+  sha256 "19cb937635bbc260452b1ab7979d017c5dab7f483f465f43cac24509057b3ee5"
   license "Apache-2.0"
   head "https://github.com/getgauge/gauge.git", branch: "master"
 
