@@ -23,6 +23,8 @@ class Gitsign < Formula
       -X github.com/sigstore/gitsign/pkg/version.gitVersion=#{version}
     ]
     system "go", "build", *std_go_args(ldflags:)
+    system "go", "build", *std_go_args(ldflags:, output: bin/"gitsign-credential-cache"),
+      "./cmd/gitsign-credential-cache"
 
     generate_completions_from_executable(bin/"gitsign", "completion")
   end
