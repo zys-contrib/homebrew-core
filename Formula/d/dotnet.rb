@@ -7,12 +7,12 @@ class Dotnet < Formula
 
   stable do
     # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-    url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.4.tar.gz"
-    sha256 "5e698595d2614c41993c4579be09c1304bde57842ad101719873ef67ee3941ad"
+    url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.5.tar.gz"
+    sha256 "0ff026271b8e21db503284b5cfae8e0546f009d18581497ba754084729dc74c3"
 
     resource "release.json" do
-      url "https://github.com/dotnet/dotnet/releases/download/v9.0.4/release.json"
-      sha256 "8c3f0005b9c02634d917bfaf07d9ce70c72ba48e84e6d96de4c03d76b304658b"
+      url "https://github.com/dotnet/dotnet/releases/download/v9.0.5/release.json"
+      sha256 "36900c37e54d780ade35f2eaeaa9bf2dc1e7789b5d82c6c11a63d0da2853f813"
 
       livecheck do
         formula :parent
