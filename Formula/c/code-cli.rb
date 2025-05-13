@@ -1,8 +1,8 @@
 class CodeCli < Formula
   desc "Command-line interface built-in Visual Studio Code"
   homepage "https://github.com/microsoft/vscode"
-  url "https://github.com/microsoft/vscode/archive/refs/tags/1.100.0.tar.gz"
-  sha256 "b47bb68595466c9182fa5cdcc1d3298486e5f914fd9892cd11ce1a5eb254cea7"
+  url "https://github.com/microsoft/vscode/archive/refs/tags/1.100.1.tar.gz"
+  sha256 "628afc21dacd066eccaae5ce1ee71b6b552f035703d825e26aa78528925c4f15"
   license "MIT"
   head "https://github.com/microsoft/vscode.git", branch: "main"
 
