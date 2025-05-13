@@ -1,8 +1,8 @@
 class Soci < Formula
   desc "Database access library for C++"
   homepage "https://soci.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/soci/soci/soci-4.0.3/soci-4.0.3.zip"
-  sha256 "598abf573252caf71790af5ff15beca20af548440b610e70468edfd3c12d47b0"
+  url "https://downloads.sourceforge.net/project/soci/soci/soci-4.1.1/soci-4.1.1.zip"
+  sha256 "b59bc01ec20fd9776cdb071f600acbe66b5a3f3350561abb97f5707649921d9c"
   license "BSL-1.0"
 
   livecheck do
@@ -29,15 +29,16 @@ class Soci < Formula
   depends_on "sqlite"
 
   def install
-    args = %w[
-      -DCMAKE_CXX_STANDARD=11
-      -DSOCI_TESTS:BOOL=OFF
-      -DWITH_SQLITE3:BOOL=ON
-      -DWITH_BOOST:BOOL=OFF
-      -DWITH_MYSQL:BOOL=OFF
-      -DWITH_ODBC:BOOL=OFF
-      -DWITH_ORACLE:BOOL=OFF
-      -DWITH_POSTGRESQL:BOOL=OFF
+    args = %W[
+      -DCMAKE_CXX_STANDARD=14
+      -DSOCI_TESTS=OFF
+      -DWITH_SQLITE3=ON
+      -DWITH_BOOST=OFF
+      -DWITH_MYSQL=OFF
+      -DWITH_ODBC=OFF
+      -DWITH_ORACLE=OFF
+      -DWITH_POSTGRESQL=OFF
+      -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
@@ -60,7 +61,7 @@ class Soci < Formula
         soci::session sql(backEnd, connectString);
       }
     CPP
-    system ENV.cxx, "-o", "test", "test.cxx", "-std=c++11", "-L#{lib}", "-lsoci_core", "-lsoci_empty"
+    system ENV.cxx, "-o", "test", "test.cxx", "-std=c++14", "-L#{lib}", "-lsoci_core", "-lsoci_empty"
     system "./test"
   end
 end
