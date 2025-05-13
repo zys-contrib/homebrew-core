@@ -7,13 +7,13 @@ class Kew < Formula
   head "https://github.com/ravachol/kew.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1c712be978ea3db621047c10fdc39516d88954b53eb6f2a87063e164eb876de2"
-    sha256 cellar: :any,                 arm64_sonoma:  "a79e91436d8469140d9758150f8dc08c835f54e914e49330259362b7219447cd"
-    sha256 cellar: :any,                 arm64_ventura: "c8c49addba389a35fd75c8962fa762304b65ab76903b2972d1957c04579beb99"
-    sha256 cellar: :any,                 sonoma:        "d88894eb75f99e78fa95d3634ff87a1ba69ad37732ccac33664d7da4c4f3929b"
-    sha256 cellar: :any,                 ventura:       "e55d85b4233710730f9312b701798b64a1241f3914da01f655e1547100fab3a3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c1127b6e3b95392e76323cceac2a4b876b47c92984594d5b198e447d5f877cfd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a4639820ac751eaee647846b14902d9eb9aec3513d9b8a07a758460a2c378fb"
+    sha256 cellar: :any,                 arm64_sequoia: "2ce80a01fc75059293ee66208190d499a52d4f32a8b7e9919f819eb351210b35"
+    sha256 cellar: :any,                 arm64_sonoma:  "6cfec841b1e60c2aef87aa648a790592010a664fb087ba52d93a0ce46f20681d"
+    sha256 cellar: :any,                 arm64_ventura: "ed2272e22450924248a6d9096faa123311b40a22e3eba67656063128e0242288"
+    sha256 cellar: :any,                 sonoma:        "d4b3f837e58363dd4900b0162826e7eab4f3ad3556dc15c54138be179aae0c8b"
+    sha256 cellar: :any,                 ventura:       "78fe764681c69279aa1e434f6e44175abe43ec0c28cff50a92d5b3ae6f4ea274"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "34e56c94bef89398c9621e5ef86fa59bb4562ff7a4e18277cb9574c775145acd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80c6c483fc263417a274fb886f36fcd01a82dc8f2bd34c2c82ce8402a7e367a1"
   end
 
   depends_on "pkgconf" => :build
