@@ -2565,6 +2565,7 @@ oauth2_proxy
 oauth2c
 oauth2l
 objfw
+observerward
 ocaml-findlib
 ocaml-zarith
 ocamlbuild
