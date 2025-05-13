@@ -28,6 +28,7 @@ class Lsd < Formula
     bash_completion.install "lsd.bash" => "lsd"
     fish_completion.install "lsd.fish"
     zsh_completion.install "_lsd"
+    pwsh_completion.install "_lsd.ps1"
 
     system "pandoc", "doc/lsd.md", "--standalone", "--to=man", "-o", "doc/lsd.1"
     man1.install "doc/lsd.1"
