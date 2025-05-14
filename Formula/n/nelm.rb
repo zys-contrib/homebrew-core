@@ -12,6 +12,7 @@ class Nelm < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8260419b0e66803645057099c7e4b0d847d78179f225c3d818df693e2eb79239"
     sha256 cellar: :any_skip_relocation, sonoma:        "a695fb7343cfb94b0fbd6e54a5b3c77b9c01eb01bca03fa143dad7aaa695deca"
     sha256 cellar: :any_skip_relocation, ventura:       "c240543c746bd7876174e8006167065e101368bcc38025ed687a33df6adc9bad"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8062c2e5b4f6d3e7095118301ee654384ddf181f063d61fdd85b1a0d65a30a49"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c320376a4a1a5827b7e9dd78740d627ad96d411dc1958dadccd4e56cfdf4c143"
   end
 
