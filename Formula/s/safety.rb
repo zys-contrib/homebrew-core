@@ -3,8 +3,8 @@ class Safety < Formula
 
   desc "Checks Python dependencies for known vulnerabilities and suggests remediations"
   homepage "https://safetycli.com/product/safety-cli"
-  url "https://files.pythonhosted.org/packages/c2/31/e4875edebb8fd5885ff8e52d0522c44a4d9bc2abe26f11225b8e64b31868/safety-3.5.0.tar.gz"
-  sha256 "7223af388bde5323867eca5495f9817746289be9fd5b1896f168dc7082ea8ff1"
+  url "https://files.pythonhosted.org/packages/2d/9c/df6ab5f077e22bb4a10aa9208691c6be5c0ad15193439435216ed536f7f3/safety-3.5.1.tar.gz"
+  sha256 "7fde2dbb497f2a167fe2dd864c8ab3296bbcd6e8a4f0490b047d5c84a60a653f"
   license "MIT"
   head "https://github.com/pyupio/safety.git", branch: "main"
 
@@ -165,8 +165,8 @@ class Safety < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/70/dc/3976b322de9d2e87ed0007cf04cc7553969b6c7b3f48a565d0333748fbcd/setuptools-80.3.1.tar.gz"
-    sha256 "31e2c58dbb67c99c289f51c16d899afedae292b978f8051efaf6262d8212f927"
+    url "https://files.pythonhosted.org/packages/95/32/0cc40fe41fd2adb80a2f388987f4f8db3c866c69e33e0b4c8b093fdf700e/setuptools-80.4.0.tar.gz"
+    sha256 "5a78f61820bc088c8e4add52932ae6b8cf423da2aff268c23f813cfbb13b4006"
   end
 
   resource "shellingham" do
