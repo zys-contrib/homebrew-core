@@ -1,8 +1,8 @@
 class BehaviortreeCpp < Formula
   desc "Behavior Trees Library in C++"
   homepage "https://www.behaviortree.dev/"
-  url "https://github.com/BehaviorTree/BehaviorTree.CPP/archive/refs/tags/4.7.0.tar.gz"
-  sha256 "ee71a20daa245b4a8eb27c8352b0cb144831c456bdac4ed894694a1f78e407da"
+  url "https://github.com/BehaviorTree/BehaviorTree.CPP/archive/refs/tags/4.7.1.tar.gz"
+  sha256 "7fccfad1bbe6fd0b3dffff0e439fcd508ca2983deec1b7447a5c8d66540dd91c"
   license "MIT"
 
   bottle do
@@ -22,11 +22,12 @@ class BehaviortreeCpp < Formula
   uses_from_macos "sqlite"
 
   def install
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                    "-DBTCPP_UNIT_TESTS=OFF",
-                    "-DBTCPP_EXAMPLES=OFF",
-                    *std_cmake_args
+    args = %W[
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DBTCPP_UNIT_TESTS=OFF
+      -DBTCPP_EXAMPLES=OFF
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     pkgshare.install "examples"
