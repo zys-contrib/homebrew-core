@@ -6,6 +6,15 @@ class Cookcli < Formula
   license "MIT"
   head "https://github.com/cooklang/cookcli.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "01306fee0d7da8501ff32659dcdab40c5705d12d042641a666708dfebb3efe17"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "952bef99a47f0fed5596abc7c6a0e842aeaec2d3d4bc10abd49eb95d0eefe943"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "266922100f1e6d6722969acc076b1580e6a5e6a66c7c7a37856529740449564d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a1657416d697b0cb55e057aa31658b514814b349c106c8576c096cac9c333b81"
+    sha256 cellar: :any_skip_relocation, ventura:       "792fc80ab06153e4a6291dfbe1a450c270a3b9cc6f71e2ad32b82b4c77c191c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "edb7a7f5ca3d7610a1ae9fe6e6963313a146a366440c4f948ba37697cd543be9"
+  end
+
   depends_on "rust" => :build
   depends_on "openssl@3"
 
