@@ -1,8 +1,8 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.4.7.tar.bz2"
-  sha256 "7b24706e4da7e0e3b06ca068231027401f238102c41c909631349dcc3b85eb46"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.4.8.tar.bz2"
+  sha256 "b58c80d79b04d3243ff49c1c3fc6b5f83138eb3784689563bcdd060595318616"
   license "GPL-3.0-or-later"
 
   # GnuPG appears to indicate stable releases with an even-numbered minor
