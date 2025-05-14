@@ -1,8 +1,8 @@
 class Dwarfs < Formula
   desc "Fast high compression read-only file system for Linux, Windows, and macOS"
   homepage "https://github.com/mhx/dwarfs"
-  url "https://github.com/mhx/dwarfs/releases/download/v0.12.3/dwarfs-0.12.3.tar.xz"
-  sha256 "bd2d54178c59e229f2280eea747479a569e6f6d38340e90360220d00988f5589"
+  url "https://github.com/mhx/dwarfs/releases/download/v0.12.4/dwarfs-0.12.4.tar.xz"
+  sha256 "352d13a3c7d9416e0a7d0d959306a25908b58d1ff47fb97e30a7c8490fcff259"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -56,13 +56,6 @@ class Dwarfs < Formula
   fails_with :clang do
     build 1500
     cause "Not all required C++20 features are supported"
-  end
-
-  # Backport folly fix for LLVM 20
-  patch do
-    url "https://github.com/facebook/folly/commit/ef5160f6b02fb8eb971adf7edd3aea96ef73bc66.patch?full_index=1"
-    sha256 "66db8650dc30d285064fcccb93c5d4e7384cefae091b1fc76eddede279271332"
-    directory "folly"
   end
 
   # Apply folly fix for LLVM 20 from https://github.com/facebook/folly/pull/2404
