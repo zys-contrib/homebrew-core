@@ -7,12 +7,12 @@ class Kompose < Formula
   head "https://github.com/kubernetes/kompose.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8a1f7efbb5e2682fac567d6c79fefda78afd2dbda5ff5bf43bfb11deed27226e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a1f7efbb5e2682fac567d6c79fefda78afd2dbda5ff5bf43bfb11deed27226e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8a1f7efbb5e2682fac567d6c79fefda78afd2dbda5ff5bf43bfb11deed27226e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e3138bdd286644aa82c92e2a7e1cbf42050bbf28718a530b86859dda4bd80c3f"
-    sha256 cellar: :any_skip_relocation, ventura:       "e3138bdd286644aa82c92e2a7e1cbf42050bbf28718a530b86859dda4bd80c3f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ceded0602876400f1766545fc317947265dfea772974032346ea33703434576"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "328f85907fa8a4e2f36c434d441ab901181d36da837163eb9d7b24880f338236"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "328f85907fa8a4e2f36c434d441ab901181d36da837163eb9d7b24880f338236"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "328f85907fa8a4e2f36c434d441ab901181d36da837163eb9d7b24880f338236"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0f1963be82154e27dcf9be0340ad8636d4b13905cf67b4d8ba6226d5d0930557"
+    sha256 cellar: :any_skip_relocation, ventura:       "0f1963be82154e27dcf9be0340ad8636d4b13905cf67b4d8ba6226d5d0930557"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6de242b6fdabbff5cf33b7e409bc17e1062fafa575e42d4305e3dcf9523af22f"
   end
 
   depends_on "go" => :build
