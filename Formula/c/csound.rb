@@ -23,21 +23,10 @@ class Csound < Formula
     end
 
     # Fix build failure due to incorrect member name on macOS 15+
-    patch <<~DIFF
-      diff --git a/include/plugin.h b/include/plugin.h
-      index dcf011e6b..55e8055bf 100644
-      --- a/include/plugin.h
-      +++ b/include/plugin.h
-      @@ -1002,7 +1002,7 @@ template <std::size_t N> struct InPlug : OPDS {
-         /** check if this opcode runs at perf time
-         */
-         bool is_perf() {
-      -      return this->opaddr ? true : false;
-      +      return this->opadr ? true : false;
-         }
-
-       };
-    DIFF
+    patch do
+      url "https://github.com/csound/csound/commit/bb9bafcfa17a87d3733eda1e25a812fd0be08ac6.patch?full_index=1"
+      sha256 "b1492e344a7cc067989ef600a08319d388bebb344fee616d83dce969f3afe8cb"
+    end
   end
 
   livecheck do
