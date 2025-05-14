@@ -3,7 +3,7 @@ class Csound < Formula
   homepage "https://csound.com"
   license "LGPL-2.1-or-later"
   revision 11
-  head "https://github.com/csound/csound.git", branch: "master"
+  head "https://github.com/csound/csound.git", branch: "develop"
 
   # Remove `stable` block when patches are no longer needed
   stable do
@@ -76,8 +76,8 @@ class Csound < Formula
   conflicts_with "libextractor", because: "both install `extract` binaries"
 
   resource "ableton-link" do
-    url "https://github.com/Ableton/link/archive/refs/tags/Link-3.1.2.tar.gz"
-    sha256 "2673dfad75b1484e8388deb8393673c3304b3ab5662dd5828e08e029ca8797aa"
+    url "https://github.com/Ableton/link/archive/bdcda7474114b39dea5a371cdc802536dda00d03.tar.gz"
+    sha256 "61f93d9b26b3f518bb37b0f0c27bf21f2594b79d5dd6b2948c40d3550479aa96"
   end
 
   resource "csound-plugins" do
@@ -242,6 +242,7 @@ class Csound < Formula
     assert_path_exists testpath/"test.mp3"
 
     (testpath/"opcode-existence.orc").write <<~ORC
+      gi_programHandle faustcompile "process = _;", "--vectorize --loop-variant 1"
       JackoInfo
       instr 1
           i_ websocket 8888, 0
