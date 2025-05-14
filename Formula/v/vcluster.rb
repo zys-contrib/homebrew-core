@@ -2,8 +2,8 @@ class Vcluster < Formula
   desc "Creates fully functional virtual k8s cluster inside host k8s cluster's namespace"
   homepage "https://www.vcluster.com"
   url "https://github.com/loft-sh/vcluster.git",
-      tag:      "v0.24.1",
-      revision: "7fd3db2a571227bec10e7b92571db329ac51339a"
+      tag:      "v0.25.0",
+      revision: "f82ff4096581aeba8b00391479b8b44913d5a144"
   license "Apache-2.0"
   head "https://github.com/loft-sh/vcluster.git", branch: "main"
 
@@ -30,26 +30,17 @@ class Vcluster < Formula
   depends_on "kubernetes-cli"
 
   def install
-    ldflags = %W[
-      -s -w
-      -X main.commitHash=#{Utils.git_head}
-      -X main.buildDate=#{time.iso8601}
-      -X main.version=#{version}
-    ]
+    ldflags = "-s -w -X main.commitHash=#{Utils.git_head} -X main.buildDate=#{time.iso8601} -X main.version=#{version}"
     system "go", "generate", "./..."
-    system "go", "build", "-mod", "vendor", *std_go_args(ldflags:), "./cmd/vclusterctl/main.go"
+    system "go", "build", "-mod", "vendor", *std_go_args(ldflags:), "./cmd/vclusterctl"
+
     generate_completions_from_executable(bin/"vcluster", "completion")
   end
 
   test do
-    help_output = "vcluster root command"
-    assert_match help_output, shell_output("#{bin}/vcluster --help")
+    assert_match version.to_s, shell_output("#{bin}/vcluster version")
 
-    create_output = "there is an error loading your current kube config " \
-                    "(invalid configuration: no configuration has been provided, " \
-                    "try setting KUBERNETES_MASTER environment variable), " \
-                    "please make sure you have access to a kubernetes cluster and the command " \
-                    "`kubectl get namespaces` is working"
-    assert_match create_output, shell_output("#{bin}/vcluster create vcluster -n vcluster --create-namespace 2>&1", 1)
+    output = shell_output("#{bin}/vcluster create vcluster -n vcluster --create-namespace 2>&1", 1)
+    assert_match "try setting KUBERNETES_MASTER environment variable", output
   end
 end
