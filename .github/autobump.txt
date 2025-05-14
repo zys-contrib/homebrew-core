@@ -635,6 +635,7 @@ contentful-cli
 convco
 convmv
 convox
+cookcli
 cookiecutter
 copa
 copier
