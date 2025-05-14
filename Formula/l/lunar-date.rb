@@ -1,8 +1,8 @@
 class LunarDate < Formula
   desc "Chinese lunar date library"
   homepage "https://github.com/yetist/lunar-date"
-  url "https://github.com/yetist/lunar-date/releases/download/v3.0.1/lunar-date-3.0.1.tar.xz"
-  sha256 "de00cf81fc7a31c08ea679c4a876dd6d4ea661b33bb8c192bbc016e8f3e16aca"
+  url "https://github.com/yetist/lunar-date/releases/download/v3.0.2/lunar-date-3.0.2.tar.xz"
+  sha256 "608d6e984d4eadae836706c0099f3721b878506b04e053058f694e9fd93933bc"
   license "LGPL-2.1-or-later"
 
   bottle do

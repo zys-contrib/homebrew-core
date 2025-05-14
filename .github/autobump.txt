@@ -2197,6 +2197,7 @@ lucky-commit
 ludusavi
 luit
 lume
+lunar-date
 lune
 lunzip
 lutok
