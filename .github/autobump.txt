@@ -1691,6 +1691,7 @@ joker
 jolie
 joplin-cli
 jose
+jove
 jp2a
 jpeg-turbo
 jpeg-xl
