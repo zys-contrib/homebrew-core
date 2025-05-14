@@ -6,6 +6,7 @@ class AwsSamCli < Formula
   url "https://files.pythonhosted.org/packages/16/be/7f78c36d95549e2173fd16fe5ecd1957cbdf4cc6c96f40839193ccf30223/aws_sam_cli-1.138.0.tar.gz"
   sha256 "bdc9ef12830926cc6391c287f65a96a2f7bf1a0049933ad83f76d43f601342c1"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "a786cdc60ba0db8daa01f207f098487123233997c0739404a2300a87addfee6b"
@@ -62,8 +63,8 @@ class AwsSamCli < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/ab/43/3c2d1bbbef0d187c1dc0e7ec7e8f213c7653c8464ba903613bf856656fcb/boto3-1.38.7.tar.gz"
-    sha256 "0269f793f0affc646b95c2cd12d42a4db49d5f30ef1073f616a112a384933f8e"
+    url "https://files.pythonhosted.org/packages/e2/b5/f2cdcc4f909bd4a3b545571da9e7faa69a7ecc54bc5cc103f39dac53d115/boto3-1.38.15.tar.gz"
+    sha256 "dca60f7a3ead91c05cf471f7750e54d63b92bfc0e61fa122e2e3f5140e020a8d"
   end
 
   resource "boto3-stubs" do
@@ -72,13 +73,13 @@ class AwsSamCli < Formula
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/44/c7/e290008036749e43f615adada8b7e73bf2405d4b1913de375b5c8f01daa1/botocore-1.38.7.tar.gz"
-    sha256 "5c6df7171390437683072aadc0d2dfbcbfa72df52a134a5d4bed811ed214c3df"
+    url "https://files.pythonhosted.org/packages/00/35/0591b8cda1af4f308a0c073b838b02618547ae306504dc5a165a0ee88fd8/botocore-1.38.15.tar.gz"
+    sha256 "6adb3b1b0739153d5dc9758e5e06f7596290999c07ed8f9167ca62a1f97c6592"
   end
 
   resource "botocore-stubs" do
-    url "https://files.pythonhosted.org/packages/ad/b6/cfafe07642fdbb49108a29512e57f811b548892a61095ee08060b0b90533/botocore_stubs-1.38.7.tar.gz"
-    sha256 "c61f6353217ef0f993da9ac59162ae45b79038431ea3a68475af2f4403b08e95"
+    url "https://files.pythonhosted.org/packages/34/f1/2c164e940453418f2ed19ad37d66290871e0e40e04d426ea84c6903a5bb4/botocore_stubs-1.38.15.tar.gz"
+    sha256 "f84a6efc7b9554fecdf4d875909a28bc8bd63a7def23dd5ceadb5b7759ea0524"
   end
 
   resource "cfn-lint" do
@@ -102,8 +103,8 @@ class AwsSamCli < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
-    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
+    url "https://files.pythonhosted.org/packages/cd/0f/62ca20172d4f87d93cf89665fbaedcd560ac48b465bd1d92bfc7ea6b0a41/click-8.2.0.tar.gz"
+    sha256 "f5452aeddd9988eefa20f90f05ab66f17fce1ee2a36907fd30b05bbb5953814d"
   end
 
   resource "cookiecutter" do
@@ -122,8 +123,8 @@ class AwsSamCli < Formula
   end
 
   resource "flask" do
-    url "https://files.pythonhosted.org/packages/89/50/dff6380f1c7f84135484e176e0cac8690af72fa90e932ad2a0a60e28c69b/flask-3.1.0.tar.gz"
-    sha256 "5f873c5184c897c8d9d1b05df1e3d01b14910ce69607a117bd3277098a5836ac"
+    url "https://files.pythonhosted.org/packages/c0/de/e47735752347f4128bcf354e0da07ef311a78244eba9e3dc1d4a5ab21a98/flask-3.1.1.tar.gz"
+    sha256 "284c7b8f2f58cb737f0cf1c30fd7eaf0ccfcde196099d24ecede3fc2005aa59e"
   end
 
   resource "idna" do
@@ -337,8 +338,8 @@ class AwsSamCli < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/aa/b2/bd26ed086b842b68c8fe9aac380ad7e5118cf84fa7abd45bb059a88368a8/setuptools-80.1.0.tar.gz"
-    sha256 "2e308396e1d83de287ada2c2fd6e64286008fe6aca5008e0b6a8cb0e2c86eedd"
+    url "https://files.pythonhosted.org/packages/95/32/0cc40fe41fd2adb80a2f388987f4f8db3c866c69e33e0b4c8b093fdf700e/setuptools-80.4.0.tar.gz"
+    sha256 "5a78f61820bc088c8e4add52932ae6b8cf423da2aff268c23f813cfbb13b4006"
   end
 
   resource "six" do
@@ -362,8 +363,8 @@ class AwsSamCli < Formula
   end
 
   resource "types-awscrt" do
-    url "https://files.pythonhosted.org/packages/db/29/d0597055f1b700193463361b4b2284cf4548acbb10287d6253ce429728d5/types_awscrt-0.26.1.tar.gz"
-    sha256 "aca96f889b3745c0e74f42f08f277fed3bf6e9baa2cf9b06a36f78d77720e504"
+    url "https://files.pythonhosted.org/packages/f9/21/4d519305ec33f9bcd3c317e76aa860a1962fa40ded99c39ec49e1d5cdebe/types_awscrt-0.27.1.tar.gz"
+    sha256 "3c2bee52ee45022daaf4f106d5d1b5f0ff0a8e3e6093dda65f5315b7669bc418"
   end
 
   resource "types-python-dateutil" do
