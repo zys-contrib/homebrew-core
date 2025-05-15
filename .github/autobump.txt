@@ -546,6 +546,7 @@ clangql
 claws-mail
 clazy
 clblast
+clearlooks-phenix
 clhep
 cli11
 cli53
