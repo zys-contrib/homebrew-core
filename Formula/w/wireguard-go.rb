@@ -1,8 +1,8 @@
 class WireguardGo < Formula
   desc "Userspace Go implementation of WireGuard"
   homepage "https://www.wireguard.com/"
-  url "https://git.zx2c4.com/wireguard-go/snapshot/wireguard-go-0.0.20230223.tar.xz"
-  sha256 "ed3694e808d96720e79e17ae396f89f7c2024da07f3449ff0af8fbc6dbfa7f6a"
+  url "https://git.zx2c4.com/wireguard-go/snapshot/wireguard-go-0.0.20250515.tar.xz"
+  sha256 "c2861e387555fe8b93a123dc34a2e150971b831dda26dbac65a8db006654c859"
   license "MIT"
   head "https://git.zx2c4.com/wireguard-go.git", branch: "master"
 
@@ -27,8 +27,7 @@ class WireguardGo < Formula
   depends_on "go" => :build
 
   def install
-    odie "Remove `-checklinkname=0` workaround" if build.stable? && version > "0.0.20230223"
-    system "go", "build", *std_go_args(ldflags: "-s -w -checklinkname=0")
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
