@@ -9,13 +9,13 @@ class Wtfis < Formula
   head "https://github.com/pirxthepilot/wtfis.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9f67e5cb3e4597ec2846f277b93941bd1539efb7acd1382f8aa08be5f28d2cc4"
-    sha256 cellar: :any,                 arm64_sonoma:  "ad126b3fb7e3675d4642559e4778d9850af638b3ac373cda16e20870d2bd0fea"
-    sha256 cellar: :any,                 arm64_ventura: "b3cea14bc70ce4be51f0261cce5cff533476ed6e9ab87740a8d0a6f826905ae6"
-    sha256 cellar: :any,                 sonoma:        "159585efcf2720da648bb530252fbe10230693ad9cdc33673d18e9f169367663"
-    sha256 cellar: :any,                 ventura:       "beb2d717e08193cd8b861574b9eca3535af18aefc7fc7b430808f07ee037d032"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3519b6326df353a1a35b3486d169836cac37d04e8bb2205adb8aa7e9a5093309"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d1bf45dbc5d42947f184e34e7f5e9d7d7008e9c59b44eb108d845db96664221"
+    sha256 cellar: :any,                 arm64_sequoia: "eaafe902a56a5a912c14a7644901bac6bc4e4c93dff8b3c87dad223a684099fd"
+    sha256 cellar: :any,                 arm64_sonoma:  "19f0b9519fddfd0bc314161592839c0f5f2863dc169e34a054e11beef682273b"
+    sha256 cellar: :any,                 arm64_ventura: "c25e15272c1afbf6070efc936885961ec88dd31875b0e8529eb4e7f0b98460d0"
+    sha256 cellar: :any,                 sonoma:        "b3f38c1166827cd8718f27062cd2ea4737bd92e74a98b6c42ae9584dd7c5aec9"
+    sha256 cellar: :any,                 ventura:       "f64f4260d6d4433e6feaceea6c161332b91424ab37102e4454f22e7fd424ee3c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "52b7f972b0cef387855e206aa604474a21907b79e5adb285731b20be2286be7e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bdd053e9e05fe28356e8d5fe5d4887eab877c41212c3f90a87ec6bb1e83a341f"
   end
 
   depends_on "rust" => :build
