@@ -1880,6 +1880,7 @@ leaf-proxy
 leakcanary-shark
 lean-cli
 leapp-cli
+ledit
 leetcode-cli
 leetgo
 leetup
