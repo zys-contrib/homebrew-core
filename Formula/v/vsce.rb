@@ -1,8 +1,8 @@
 class Vsce < Formula
   desc "Tool for packaging, publishing and managing VS Code extensions"
   homepage "https://code.visualstudio.com/api/working-with-extensions/publishing-extension#vsce"
-  url "https://registry.npmjs.org/@vscode/vsce/-/vsce-3.3.2.tgz"
-  sha256 "7951916bcc8532023decdb5eccd2c88944b3191acbe8fd6c63dc7c371a14f2eb"
+  url "https://registry.npmjs.org/@vscode/vsce/-/vsce-3.4.0.tgz"
+  sha256 "c32c2df34a752388f3fec0fc02ab15a3db2b11a57b58af15556dd1f1288c52b0"
   license "MIT"
   head "https://github.com/microsoft/vscode-vsce.git", branch: "main"
 
