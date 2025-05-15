@@ -3,8 +3,8 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/f7/7c/5a1bc692ce34f2556f166e4f346c5c68646ce30b59e8e846cd833756c1e3/borgmatic-2.0.5.tar.gz"
-  sha256 "8e96932db0e6c1c2fc8a1bbc5d30f62ec49f9a7781a4e19255a45c2727924a8e"
+  url "https://files.pythonhosted.org/packages/86/8c/0a80f219d9ca4c70cf345489b55a9c3e5c859c4d7bc99675ac1bc09eadb7/borgmatic-2.0.6.tar.gz"
+  sha256 "cb102d0fbb0a3a8d2fa04f01bdf2f41c6b273f42f6b1cd5fd1481704db7f6905"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -27,8 +27,8 @@ class Borgmatic < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
-    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
+    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
+    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
   end
 
   resource "idna" do
