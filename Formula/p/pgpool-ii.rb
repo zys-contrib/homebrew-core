@@ -1,8 +1,8 @@
 class PgpoolIi < Formula
   desc "PostgreSQL connection pool server"
   homepage "https://www.pgpool.net/mediawiki/index.php/Main_Page"
-  url "https://www.pgpool.net/mediawiki/images/pgpool-II-4.6.0.tar.gz"
-  sha256 "f68a6571442d7ea53b69f39d749ad457790b00180e19b019fc82e235bab07321"
+  url "https://www.pgpool.net/mediawiki/images/pgpool-II-4.6.1.tar.gz"
+  sha256 "0f8805d93bc40002c8019dc40ae03a71a3d144bd39f3dffe6fa01f7fc19bb8e8"
   license all_of: ["HPND", "ISC"] # ISC is only for src/utils/strlcpy.c
 
   livecheck do
@@ -27,14 +27,14 @@ class PgpoolIi < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 
   def install
-    system "./configure", *std_configure_args,
-                          "--sysconfdir=#{etc}",
-                          "--with-memcached=#{Formula["libmemcached"].opt_include}"
+    system "./configure", "--sysconfdir=#{etc}",
+                          "--with-memcached=#{Formula["libmemcached"].opt_include}",
+                          *std_configure_args
     system "make", "install"
 
     # Install conf file with low enough memory limits for default `memqcache_method = 'shmem'`
