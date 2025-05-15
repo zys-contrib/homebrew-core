@@ -50,9 +50,19 @@ class Xfig < Formula
                           "--disable-silent-rules",
                           *std_configure_args
     system "make", "install-strip"
+
+    if OS.mac?
+      (etc/"X11/app-defaults/Fig").append_lines <<~X11_DEFAULTS
+        ! Disable internationalization to stop segfaults
+        ! https://github.com/Homebrew/homebrew-core/issues/221146
+        ! https://sourceforge.net/p/mcj/tickets/177/#7c23
+        Fig.international: False
+      X11_DEFAULTS
+    end
   end
 
   test do
     assert_equal "Xfig #{version}", shell_output("#{bin}/xfig -V 2>&1").strip
+    assert_equal "Error: Can't open display:", shell_output("DISPLAY= #{bin}/xfig 2>&1", 1).strip
   end
 end
