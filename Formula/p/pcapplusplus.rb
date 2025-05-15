@@ -1,8 +1,8 @@
 class Pcapplusplus < Formula
   desc "C++ network sniffing, packet parsing and crafting framework"
   homepage "https://pcapplusplus.github.io"
-  url "https://github.com/seladb/PcapPlusPlus/archive/refs/tags/v24.09.tar.gz"
-  sha256 "def261fd9c64455d5f793e1e859108f706d5a6917e7aeb31dc8828543e00bc63"
+  url "https://github.com/seladb/PcapPlusPlus/archive/refs/tags/v25.05.tar.gz"
+  sha256 "66c11d61f3c8019eaf74171ad10229dfaeab27eb86859c897fb0ba1298f80c94"
   license "Unlicense"
 
   bottle do
@@ -20,7 +20,11 @@ class Pcapplusplus < Formula
   uses_from_macos "libpcap"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    cmake_args = %w[
+      -DPCAPPP_BUILD_EXAMPLES=OFF
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
