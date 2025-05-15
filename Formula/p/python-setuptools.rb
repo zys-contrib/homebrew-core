@@ -1,8 +1,8 @@
 class PythonSetuptools < Formula
   desc "Easily download, build, install, upgrade, and uninstall Python packages"
   homepage "https://setuptools.pypa.io/"
-  url "https://files.pythonhosted.org/packages/2b/22/2e66d286bf92bc5f0d0822346e53fc856b5e6ad38b2a53bcde7ea5eb1299/setuptools-80.7.0.tar.gz"
-  sha256 "d3b6ba519cc2b1e0b14195ef1a9560f675b1f873dc0d42969e139b2b58e763d6"
+  url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
+  sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
   license "MIT"
 
   bottle do
