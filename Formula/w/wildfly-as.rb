@@ -1,8 +1,8 @@
 class WildflyAs < Formula
   desc "Managed application runtime for building applications"
   homepage "https://www.wildfly.org/"
-  url "https://github.com/wildfly/wildfly/releases/download/36.0.0.Final/wildfly-36.0.0.Final.tar.gz"
-  sha256 "348d17ead028b09a28b11aa271b99f27105e051db89b6fd2ecdaf2b2c736e009"
+  url "https://github.com/wildfly/wildfly/releases/download/36.0.1.Final/wildfly-36.0.1.Final.tar.gz"
+  sha256 "1a0f71680cac962cef03173e81f5ff8886175f18292db158b75c8077cf4ac38d"
   license "Apache-2.0"
 
   livecheck do
@@ -24,15 +24,15 @@ class WildflyAs < Formula
 
   def install
     buildpath.glob("bin/*.{bat,ps1}").map(&:unlink)
-    buildpath.glob("**/win-x86_64").map(&:rmtree)
-    buildpath.glob("**/linux-i686").map(&:rmtree)
-    buildpath.glob("**/linux-s390x").map(&:rmtree)
-    buildpath.glob("**/linux-x86_64").map(&:rmtree)
-    buildpath.glob("**/netty-transport-native-epoll/**/native").map(&:rmtree)
+    rm_r buildpath.glob("**/win-x86_64")
+    rm_r buildpath.glob("**/linux-i686")
+    rm_r buildpath.glob("**/linux-s390x")
+    rm_r buildpath.glob("**/linux-x86_64")
+    rm_r buildpath.glob("**/netty-transport-native-epoll/**/native")
     if Hardware::CPU.intel?
       buildpath.glob("**/*_aarch_64.jnilib").map(&:unlink)
     else
-      buildpath.glob("**/macosx-x86_64").map(&:rmtree)
+      rm_r buildpath.glob("**/macosx-x86_64")
       buildpath.glob("**/*_x86_64.jnilib").map(&:unlink)
     end
 
