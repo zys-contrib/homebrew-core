@@ -6,7 +6,7 @@ class Gitmoji < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4612d8c1939abc4b346006657182504187885cda852adfc84c5192d5b000a282"
+    sha256 cellar: :any_skip_relocation, all: "b103f8ae76bd0bdc19d308f7f172644396759fd8a646e1afb85ec0682a4eb6e5"
   end
 
   depends_on "node"
