@@ -2806,6 +2806,7 @@ php@8.1
 php@8.2
 php@8.3
 phpmyadmin
+phpstan
 phpunit
 phylum-cli
 pianobar
