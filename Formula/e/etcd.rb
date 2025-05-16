@@ -8,13 +8,13 @@ class Etcd < Formula
   head "https://github.com/etcd-io/etcd.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1f7df9c92b0178937ca77e6902881e3ee68674b5a08801da80798f469cda3d18"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1f7df9c92b0178937ca77e6902881e3ee68674b5a08801da80798f469cda3d18"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1f7df9c92b0178937ca77e6902881e3ee68674b5a08801da80798f469cda3d18"
-    sha256 cellar: :any_skip_relocation, sonoma:        "be8125212266c3e3c07819e542d6025060778991c973ac7c8e0adf8a47028994"
-    sha256 cellar: :any_skip_relocation, ventura:       "be8125212266c3e3c07819e542d6025060778991c973ac7c8e0adf8a47028994"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "975b889dce6a6f9f45e99375e08c441c5f37b6cceab13699e76cd921a1fa8135"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09f2a324b713c3e1dbbfde336753899e8553bf3587b8e5dc9abf79a7ef60be03"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5822986b8b37a8bbceb63036e641d42b5175b87b01089194a85877f488310318"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5822986b8b37a8bbceb63036e641d42b5175b87b01089194a85877f488310318"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5822986b8b37a8bbceb63036e641d42b5175b87b01089194a85877f488310318"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aa393ee9597f642ac5cc08e19f0b2c203fef8e2ac4fad8c77803c4322aac889e"
+    sha256 cellar: :any_skip_relocation, ventura:       "aa393ee9597f642ac5cc08e19f0b2c203fef8e2ac4fad8c77803c4322aac889e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "de410cd80c4ad81664ec078f17fe0a9e5c8247a7a716933450a1c4f703665aa2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "37c4e1d721ce6952be9d64a35feb382c0e09d7c4e1c8d50e899fa8d5611db9cf"
   end
 
   depends_on "go" => :build
