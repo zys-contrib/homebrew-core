@@ -7,12 +7,12 @@ class Cyphernetes < Formula
   head "https://github.com/AvitalTamir/cyphernetes.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "64eca76d22d73e2ffd5b3d3658248683b77c20c8d9be0f2addb335444406c006"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "64eca76d22d73e2ffd5b3d3658248683b77c20c8d9be0f2addb335444406c006"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "64eca76d22d73e2ffd5b3d3658248683b77c20c8d9be0f2addb335444406c006"
-    sha256 cellar: :any_skip_relocation, sonoma:        "401165017fb820a352671efd89e263894ab0364e52cf9ac09928619b5020372e"
-    sha256 cellar: :any_skip_relocation, ventura:       "401165017fb820a352671efd89e263894ab0364e52cf9ac09928619b5020372e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a2da0e9d3966580d50c10c9954a060469294dbaff7f2d49f27d1fb33998efd6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9f9aad0b201d8f6bc34a97ac1da7784f1ceab865321577fc3687a15f1d87e9dc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f9aad0b201d8f6bc34a97ac1da7784f1ceab865321577fc3687a15f1d87e9dc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9f9aad0b201d8f6bc34a97ac1da7784f1ceab865321577fc3687a15f1d87e9dc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8495f244906bd38f6ec3b29700b887412c9f13100fdf11e75e11c3914ef610d9"
+    sha256 cellar: :any_skip_relocation, ventura:       "8495f244906bd38f6ec3b29700b887412c9f13100fdf11e75e11c3914ef610d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "295f7a3df74900d3832f7ae150e7e897b960c6ba0c4684d601a27c400b3f0801"
   end
 
   depends_on "go" => :build
