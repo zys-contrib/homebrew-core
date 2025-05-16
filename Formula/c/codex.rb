@@ -1,8 +1,8 @@
 class Codex < Formula
   desc "OpenAI's coding agent that runs in your terminal"
   homepage "https://github.com/openai/codex"
-  url "https://registry.npmjs.org/@openai/codex/-/codex-0.1.2505160811.tgz"
-  sha256 "9848e3ac48e2eddd0f2ce01d612de26ccdfec9e8459b28fdad6a3e9e133014cc"
+  url "https://registry.npmjs.org/@openai/codex/-/codex-0.1.2505161243.tgz"
+  sha256 "b47ac6af5a516f7685eddd51dfd69df31c03859e7692fbb79716377cd34eeaa1"
   license "Apache-2.0"
 
   bottle do
@@ -29,8 +29,7 @@ class Codex < Formula
   end
 
   test do
+    # codex is a TUI application
     assert_match version.to_s, shell_output("#{bin}/codex --version")
-
-    assert_match "Missing openai API key", shell_output("#{bin}/codex brew 2>&1", 1)
   end
 end
