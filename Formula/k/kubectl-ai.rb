@@ -1,8 +1,8 @@
 class KubectlAi < Formula
   desc "AI powered Kubernetes Assistant"
   homepage "https://github.com/GoogleCloudPlatform/kubectl-ai"
-  url "https://github.com/GoogleCloudPlatform/kubectl-ai/archive/refs/tags/v0.0.8.tar.gz"
-  sha256 "d4547d69a2b1014ed23989349eb210829373d43b94514896d2d4fecb6bb3488a"
+  url "https://github.com/GoogleCloudPlatform/kubectl-ai/archive/refs/tags/v0.0.9.tar.gz"
+  sha256 "9cdcc413143572b90bdbf371369ad6a6d531a0f3579e5683f10eb69b38429424"
   license "Apache-2.0"
 
   bottle do
@@ -17,7 +17,7 @@ class KubectlAi < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd"
   end
 
   test do
