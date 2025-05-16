@@ -8,7 +8,7 @@ class TerraformLocal < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "fa674b0894bfd4d8db2645936e3be768e3a618515238ecf447559cf777d6e874"
+    sha256 cellar: :any_skip_relocation, all: "0dd79bcf14897f294199a12bfeea2abae996498421d7abdb16b3c02c8531912e"
   end
 
   depends_on "localstack"
