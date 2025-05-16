@@ -1,10 +1,12 @@
 class Lefthook < Formula
   desc "Fast and powerful Git hooks manager for any type of projects"
   homepage "https://github.com/evilmartians/lefthook"
-  url "https://github.com/evilmartians/lefthook/archive/refs/tags/v1.11.12.tar.gz"
-  sha256 "725f048940791dd56acd2c54e2d0896e7cbb65a5b9896a12e797ef52e3cd0fef"
+  url "https://github.com/evilmartians/lefthook/archive/refs/tags/v1.11.13.tar.gz"
+  sha256 "c5e4b1d24fa700bec2f3c1ac5332ff2c55db76a8a13b26783fa72f6ea4970370"
   license "MIT"
   head "https://github.com/evilmartians/lefthook.git", branch: "master"
+
+  no_autobump! because: :bumped_by_upstream
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "fa031368754a5a721b38c306a9f90fc7fde36b3dd8c8b34cecad51b263766195"
