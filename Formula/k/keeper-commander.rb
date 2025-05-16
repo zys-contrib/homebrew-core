@@ -3,8 +3,8 @@ class KeeperCommander < Formula
 
   desc "Command-line and SDK interface to Keeper Password Manager"
   homepage "https://docs.keeper.io/en/privileged-access-manager/commander-cli/overview"
-  url "https://files.pythonhosted.org/packages/e9/15/800c62255244e49cdce534099480361c27dcd7ba2003cfeaa1fd6bf6a412/keepercommander-17.0.18.tar.gz"
-  sha256 "7f94a46a713f25fadbe8d6becad1df142ad03d365b122855f81f3d2891ab7386"
+  url "https://files.pythonhosted.org/packages/62/5b/5f0976956f5093486391438be158178f15c8dd574d45a0cf2d0565e09572/keepercommander-17.0.19.tar.gz"
+  sha256 "eb4c6da19ba3b3f3b399c23dc0910e5634847883fe73a9465ea156369a8da122"
   license "MIT"
   head "https://github.com/Keeper-Security/Commander.git", branch: "master"
 
@@ -39,8 +39,8 @@ class KeeperCommander < Formula
   end
 
   resource "aiortc" do
-    url "https://files.pythonhosted.org/packages/91/60/7bb59c28c6e65e5d74258d392f531f555f12ab519b0f467ffd6b76650c20/aiortc-1.11.0.tar.gz"
-    sha256 "50b9d86f6cba87d95ce7c6b051949208b48f8062b231837aed8f049045f11a28"
+    url "https://files.pythonhosted.org/packages/0d/a8/cebfc59aaa13fd48466db152f9fbb81c476bda387ecddfc340cd62411aec/aiortc-1.12.0.tar.gz"
+    sha256 "c99d89a60a473074532020329de7ee23253bac17606d85ba4aab4c6148e94b39"
   end
 
   resource "annotated-types" do
@@ -54,8 +54,8 @@ class KeeperCommander < Formula
   end
 
   resource "av" do
-    url "https://files.pythonhosted.org/packages/f8/b6/83129e0337376214b0304893cbf0ad0a54718bb47845517fa5870439ca0b/av-14.2.0.tar.gz"
-    sha256 "132b5d52ca262b97b0356e8f48cbbe54d0ac232107a722ab8cc8c0c19eafa17b"
+    url "https://files.pythonhosted.org/packages/86/f6/0b473dab52dfdea05f28f3578b1c56b6c796ce85e76951bab7c4e38d5a74/av-14.4.0.tar.gz"
+    sha256 "3ecbf803a7fdf67229c0edada0830d6bfaea4d10bfb24f0c3f4e607cd1064b42"
   end
 
   resource "bcrypt" do
@@ -114,8 +114,8 @@ class KeeperCommander < Formula
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/c8/8c/cf2ac658216eebe49eaedf1e06bc06cbf6a143469236294a1171a51357c3/protobuf-6.30.2.tar.gz"
-    sha256 "35c859ae076d8c56054c25b59e5e59638d86545ed6e2b6efac6be0b6ea3ba048"
+    url "https://files.pythonhosted.org/packages/13/48/718c1e104a2e89970a8ff3b06d87e152834b576c570a6908f8c17ba88d65/protobuf-6.31.0.tar.gz"
+    sha256 "314fab1a6a316469dc2dd46f993cbbe95c861ea6807da910becfe7475bc26ffe"
   end
 
   resource "pycryptodomex" do
@@ -129,8 +129,8 @@ class KeeperCommander < Formula
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/42/fa/5f682f3db14e14f7b5b7f5008ac24594b93943d1da4facbacff5876624cf/pydantic_core-2.34.1.tar.gz"
-    sha256 "6bf31628ab6d0e7c7c0372419898c52ef0a447b33ab47c7f62053bd013cc5b09"
+    url "https://files.pythonhosted.org/packages/ad/88/5f2260bdfae97aabf98f1778d43f69574390ad787afb646292a638c923d4/pydantic_core-2.33.2.tar.gz"
+    sha256 "7cb8bc3605c29176e1b105350d2e6474142d7c1bd1d9327c4a9bdb46bf827acc"
   end
 
   resource "pyee" do
