@@ -922,6 +922,7 @@ dynare
 dynein
 dysk
 dzr
+e2b
 e2fsprogs
 e2tools
 earthly
