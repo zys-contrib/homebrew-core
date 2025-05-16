@@ -1,8 +1,8 @@
 class Vcftools < Formula
   desc "Tools for working with VCF files"
   homepage "https://vcftools.github.io/"
-  url "https://github.com/vcftools/vcftools/releases/download/v0.1.16/vcftools-0.1.16.tar.gz"
-  sha256 "dbfc774383c106b85043daa2c42568816aa6a7b4e6abc965eeea6c47dde914e3"
+  url "https://github.com/vcftools/vcftools/releases/download/v0.1.17/vcftools-0.1.17.tar.gz"
+  sha256 "b9e0e1c3e86533178edb35e02c6c4de9764324ea0973bebfbb747018c2d2a42c"
   license "LGPL-3.0-only"
 
   bottle do
