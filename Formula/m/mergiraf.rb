@@ -1,8 +1,8 @@
 class Mergiraf < Formula
   desc "Syntax-aware git merge driver"
   homepage "https://mergiraf.org"
-  url "https://codeberg.org/mergiraf/mergiraf/archive/v0.8.0.tar.gz"
-  sha256 "77a7e27c317a60b6babd3fad426b8db648887cc2d48e59dbc62ef1484f673105"
+  url "https://codeberg.org/mergiraf/mergiraf/archive/v0.8.1.tar.gz"
+  sha256 "b9f76cd133dbd60382a00705e4bed67727b94082f6c6a72d43fd6b7593a18595"
   license "GPL-3.0-only"
   head "https://codeberg.org/mergiraf/mergiraf.git", branch: "main"
 
