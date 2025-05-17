@@ -1,18 +1,18 @@
 class Codex < Formula
   desc "OpenAI's coding agent that runs in your terminal"
   homepage "https://github.com/openai/codex"
-  url "https://registry.npmjs.org/@openai/codex/-/codex-0.1.2505161800.tgz"
-  sha256 "4cf4af6c0f52cc0865d088e1c931f19117009d527b983c676ce6a3615368a146"
+  url "https://registry.npmjs.org/@openai/codex/-/codex-0.1.2505171529.tgz"
+  sha256 "b4ddf4cd6e179d640d800cc54179a6bfce80fbd3585e086ee1684eaeb831629b"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e226d7dddeaa4dc898058f01614548b358a7eb50192ae139fa5e272e67c99cdf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e226d7dddeaa4dc898058f01614548b358a7eb50192ae139fa5e272e67c99cdf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e226d7dddeaa4dc898058f01614548b358a7eb50192ae139fa5e272e67c99cdf"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c222b0bd287011bc637d22c0cdbf2df9dfc0a0364f07fd31eb113fac0cd17bd6"
-    sha256 cellar: :any_skip_relocation, ventura:       "c222b0bd287011bc637d22c0cdbf2df9dfc0a0364f07fd31eb113fac0cd17bd6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e226d7dddeaa4dc898058f01614548b358a7eb50192ae139fa5e272e67c99cdf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e226d7dddeaa4dc898058f01614548b358a7eb50192ae139fa5e272e67c99cdf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3db2cde26b9899be08646088d24de0fab878ada766fa75831de6f5d916ec8ad5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3db2cde26b9899be08646088d24de0fab878ada766fa75831de6f5d916ec8ad5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3db2cde26b9899be08646088d24de0fab878ada766fa75831de6f5d916ec8ad5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bd0c3144c8071850fc1e40f0e145e98c5c84b0dbdc602edfa5ebc9679eaa77a5"
+    sha256 cellar: :any_skip_relocation, ventura:       "bd0c3144c8071850fc1e40f0e145e98c5c84b0dbdc602edfa5ebc9679eaa77a5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3db2cde26b9899be08646088d24de0fab878ada766fa75831de6f5d916ec8ad5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3db2cde26b9899be08646088d24de0fab878ada766fa75831de6f5d916ec8ad5"
   end
 
   depends_on "node"
