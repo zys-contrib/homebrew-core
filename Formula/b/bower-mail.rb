@@ -22,6 +22,8 @@ class BowerMail < Formula
   depends_on "ncurses"
   depends_on "notmuch"
 
+  conflicts_with "bower", because: "both install `bower` binaries"
+
   def install
     system "make"
     system "make", "man"
