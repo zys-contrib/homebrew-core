@@ -1807,6 +1807,7 @@ ksh93
 ksops
 ktexttemplate
 ktfmt
+ktoblzcheck
 ktor
 kty
 kube-bench
