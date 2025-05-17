@@ -1,8 +1,8 @@
 class Marisa < Formula
   desc "Matching Algorithm with Recursively Implemented StorAge"
   homepage "https://github.com/s-yata/marisa-trie"
-  url "https://github.com/s-yata/marisa-trie/archive/refs/tags/v0.2.6.tar.gz"
-  sha256 "1063a27c789e75afa2ee6f1716cc6a5486631dcfcb7f4d56d6485d2462e566de"
+  url "https://github.com/s-yata/marisa-trie/archive/refs/tags/v0.2.7.tar.gz"
+  sha256 "d4e0097d3a78e2799dfc55c73420d1a43797a2986a4105facfe9a33f4b0ba3c2"
   license all_of: ["BSD-2-Clause", "LGPL-2.1-or-later"]
 
   bottle do
