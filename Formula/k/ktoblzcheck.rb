@@ -1,8 +1,8 @@
 class Ktoblzcheck < Formula
   desc "Library for German banks"
   homepage "https://ktoblzcheck.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/ktoblzcheck/ktoblzcheck-1.57.tar.gz"
-  sha256 "4c3b782e5d8e31e219c3e2ece0c6e84a93929ae0b2f36080d4c183a644d05672"
+  url "https://downloads.sourceforge.net/project/ktoblzcheck/ktoblzcheck-1.58.tar.gz"
+  sha256 "f598678afa22bf06d8952d31bc7f66faed253e3fa3cf87f4a948ade0bcdb91cd"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -28,8 +28,8 @@ class Ktoblzcheck < Formula
   uses_from_macos "curl"
 
   resource "et-xmlfile" do
-    url "https://files.pythonhosted.org/packages/3d/5d/0413a31d184a20c763ad741cc7852a659bf15094c24840c5bdd1754765cd/et_xmlfile-1.1.0.tar.gz"
-    sha256 "8eb9e2bc2f8c97e37a2dc85a09ecdcdec9d8a396530a6d5a33b30b9a92da0c5c"
+    url "https://files.pythonhosted.org/packages/d3/38/af70d7ab1ae9d4da450eeec1fa3918940a5fafb9055e934af8d6eb0c2313/et_xmlfile-2.0.0.tar.gz"
+    sha256 "dab3f4764309081ce75662649be815c4c9081e88f0837825f90fd28317d4da54"
   end
 
   resource "openpyxl" do
@@ -53,6 +53,9 @@ class Ktoblzcheck < Formula
     # OSError: dlopen(ktoblzcheck, 0x0006): tried: 'ktoblzcheck' (no such file), ...
     # OSError: dlopen(libktoblzcheck.so.1, 0x0006): tried: 'libktoblzcheck.so.1' (no such file), ...
     inreplace "src/python/ktoblzcheck.py", /'libktoblzcheck\.so\.(\d+)'/, "'libktoblzcheck.\\1.dylib'" if OS.mac?
+
+    # Fix to changed filename for `NL_BANK_WEBSITE_URL`
+    inreplace "CMakeLists.txt", "BIC-lijst-NL.xlsx", "BIC-lijst-NL-2.xlsx"
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{opt_lib}"
     system "cmake", "--build", "build"
