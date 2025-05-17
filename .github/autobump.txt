@@ -501,6 +501,7 @@ chaoskube
 charm-tools
 charmcraft
 chars
+chart-releaser
 chart-testing
 chatblade
 chdig
