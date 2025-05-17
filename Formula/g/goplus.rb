@@ -12,12 +12,12 @@ class Goplus < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "f51cfefc2db9795e1f893d9eeb0fa2732c253822457610bdb65a6f0764b29fc9"
-    sha256 arm64_sonoma:  "c5379db482e0fc17712066512e92e5ae6b19871e196f2c8bf908041364487d16"
-    sha256 arm64_ventura: "87ae4ae61e709bba7f628b6fa4f7ebf120b3b5486b5623f62bd44f6de1b71ab4"
-    sha256 sonoma:        "f57140541bb05d2442f524cf367fc97b010a2cbb9bbb734f98830da3f9800afb"
-    sha256 ventura:       "64541d5ae52eeee89ae7d025cc96b6c4382133f3e11592ba5a8b4ec14931bccb"
-    sha256 x86_64_linux:  "21ab27babdbfcf7dbe1ebbd48ee96e0f15ec0607fbf852380cc3e15c1b41b20f"
+    sha256 arm64_sequoia: "d556727f1e6cb56b06f1851457c6e3b94bfca1d50b87f5f05a90c6ef2346dcdd"
+    sha256 arm64_sonoma:  "81c3254b90f1833cdc31dc15e0d1efa32fff8ac8ea8416960f05a67efa245402"
+    sha256 arm64_ventura: "d2276d233f29972191e738a151cf429fe550a21cc3e3600a23940de5a9b4e441"
+    sha256 sonoma:        "56e4a13c100648a2bede7d14ffded3a54c1676def2f225125206829327e451cc"
+    sha256 ventura:       "fd33ec0bacd82b47a82cebe9934ef57c20efdf59f5347f6f645d1883ed20b8c4"
+    sha256 x86_64_linux:  "f5d0266671fde199602da645abb1da0c9480217e19037a67303d137debf1f72a"
   end
 
   depends_on "go"
