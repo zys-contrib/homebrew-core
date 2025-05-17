@@ -1,8 +1,8 @@
 class Quicktype < Formula
   desc "Generate types and converters from JSON, Schema, and GraphQL"
   homepage "https://github.com/glideapps/quicktype"
-  url "https://registry.npmjs.org/quicktype/-/quicktype-23.2.0.tgz"
-  sha256 "b6f257badbb64c56fca9e5a30a09d69ffd5927504ed443d0b291fcba0231a426"
+  url "https://registry.npmjs.org/quicktype/-/quicktype-23.2.1.tgz"
+  sha256 "e9f0f858aaa6e1bfe87e5348507e3f9565e3706341448da50ef5f71017231e33"
   license "Apache-2.0"
   head "https://github.com/glideapps/quicktype.git", branch: "master"
 
