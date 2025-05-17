@@ -100,6 +100,10 @@ class Ruby < Formula
     # Correct MJIT_CC to not use superenv shim
     args << "MJIT_CC=/usr/bin/#{DevelopmentTools.default_compiler}"
 
+    # Avoid stdckdint.h on macOS 15 as it's not available in Xcode 16.0-16.2,
+    # and if the build system picks it up it'll use it for runtime builds too.
+    args << "ac_cv_header_stdckdint_h=no" if OS.mac? && MacOS.version == :sequoia
+
     system "./configure", *args
 
     # Ruby has been configured to look in the HOMEBREW_PREFIX for the
