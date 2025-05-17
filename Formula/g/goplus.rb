@@ -1,8 +1,8 @@
 class Goplus < Formula
   desc "Programming language for engineering, STEM education, and data science"
   homepage "https://goplus.org"
-  url "https://github.com/goplus/gop/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "b3332363f70cc1dc4a28e283ff4885923fdaa90b215e03770bf1b6f94969dc20"
+  url "https://github.com/goplus/gop/archive/refs/tags/v1.4.6.tar.gz"
+  sha256 "ab74706ad2796255b9da9c4dd40398fb9be6432dcf2f1343478d2e28ed5d677f"
   license "Apache-2.0"
   head "https://github.com/goplus/gop.git", branch: "main"
 
@@ -31,22 +31,15 @@ class Goplus < Formula
   end
 
   test do
+    system bin/"gop", "mod", "init", "hello"
     (testpath/"hello.gop").write <<~GOP
       println("Hello World")
     GOP
 
     # Run gop fmt, run, build
-    ENV.prepend "GO111MODULE", "on"
-
     assert_equal "v#{version}", shell_output("#{bin}/gop env GOPVERSION").chomp
     system bin/"gop", "fmt", "hello.gop"
     assert_equal "Hello World\n", shell_output("#{bin}/gop run hello.gop 2>&1")
-
-    (testpath/"go.mod").write <<~GOMOD
-      module hello
-    GOMOD
-
-    system "go", "get", "github.com/goplus/gop/builtin"
     system bin/"gop", "build", "-o", "hello"
     assert_equal "Hello World\n", shell_output("./hello 2>&1")
   end
