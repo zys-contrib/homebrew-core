@@ -7,15 +7,13 @@ class Snappy < Formula
   head "https://github.com/google/snappy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "45275e26a466be03a8a2b81ef27afc862038b220cdf7d8cd63f6ff9f47f18e56"
-    sha256 cellar: :any,                 arm64_sonoma:   "2b905dfed7d6c0b44de9c89a79a6aa69824758c2727dcffe95bc6ebef465cf3f"
-    sha256 cellar: :any,                 arm64_ventura:  "ca5b33ef7fd245020808bcb339f5b7799a4d4441b50c430c9bdd4eeca6a7d785"
-    sha256 cellar: :any,                 arm64_monterey: "a3ad18bfdb378542375074f5f3423bb4972147595ee7b3ec38acd04469bff5db"
-    sha256 cellar: :any,                 sonoma:         "4a39b310e4c5a726de262265e14cb0ee219f89c0da0afd19328007d965dba7f8"
-    sha256 cellar: :any,                 ventura:        "80fa828013ffa932262d110a351fc4f28f44524cc783d23c15b61328182170ac"
-    sha256 cellar: :any,                 monterey:       "e31f618776a2346ae18b6aa8bc035e0edc3c1dbf421498ef13f8b5a1e75fd1be"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "039293445a70911dc94d20f009811e1ae86a0364c2df18f6ff5934586129b4e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c33db20cdc5d828f5f90eb3996f6729a02ebf697bf0a67d28f59feeb24bed42"
+    sha256 cellar: :any,                 arm64_sequoia: "326d8c9a73e0990a43fefe96d2e29355fcd6f42906710017bd1a3baf4401bb33"
+    sha256 cellar: :any,                 arm64_sonoma:  "28b0702ed678a35c6d03cb4d91f975e17b3b5af7480418f3c82f46365e55533d"
+    sha256 cellar: :any,                 arm64_ventura: "9e4594baee5654ab46bf4542d4e1867c6a6700cc11948ee7f496a7a681a1fd28"
+    sha256 cellar: :any,                 sonoma:        "47444cd920b4f3232d1d77f51ead8a18e0a77fb5b154bff7c024bf17d700d273"
+    sha256 cellar: :any,                 ventura:       "026d656d0beaf42781437e7fe70012b18eb73f16db024f7e46f35891e2e8a1b1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c2d7ecfa6475c2ad07a45025ad99940c75bf03c7b3772850d830a3dd571ff09c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "462767a5fd6f73305aa7fd232bc5119e96491ad17222092d8b532fe2616ca24e"
   end
 
   depends_on "cmake" => :build
