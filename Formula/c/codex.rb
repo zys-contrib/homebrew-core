@@ -1,8 +1,8 @@
 class Codex < Formula
   desc "OpenAI's coding agent that runs in your terminal"
   homepage "https://github.com/openai/codex"
-  url "https://registry.npmjs.org/@openai/codex/-/codex-0.1.2505161243.tgz"
-  sha256 "b47ac6af5a516f7685eddd51dfd69df31c03859e7692fbb79716377cd34eeaa1"
+  url "https://registry.npmjs.org/@openai/codex/-/codex-0.1.2505161800.tgz"
+  sha256 "4cf4af6c0f52cc0865d088e1c931f19117009d527b983c676ce6a3615368a146"
   license "Apache-2.0"
 
   bottle do
