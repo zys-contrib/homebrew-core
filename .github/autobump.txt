@@ -560,6 +560,7 @@ clinfo
 cling
 clingo
 clipboard
+clive
 cljfmt
 cloc
 clojure
