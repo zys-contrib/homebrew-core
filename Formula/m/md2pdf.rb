@@ -7,12 +7,12 @@ class Md2pdf < Formula
   head "https://github.com/solworktech/mdtopdf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fe15170715e7929a4f32c28cf8fdc869074e1d61f6686015c038c70df0f30643"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe15170715e7929a4f32c28cf8fdc869074e1d61f6686015c038c70df0f30643"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fe15170715e7929a4f32c28cf8fdc869074e1d61f6686015c038c70df0f30643"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fe47f4128efb7f929da33f2b4517d74be49b04a9d6de441bdc4e5219782fb124"
-    sha256 cellar: :any_skip_relocation, ventura:       "fe47f4128efb7f929da33f2b4517d74be49b04a9d6de441bdc4e5219782fb124"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "795b3c1070eaaa6c22d9ba0d8c4a42023b399db5a03cc26897bf92ce192fe94f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "618ca3284115e532e2ce80889792492b1d22077124cedb2cc7085a7b2212b026"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "618ca3284115e532e2ce80889792492b1d22077124cedb2cc7085a7b2212b026"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "618ca3284115e532e2ce80889792492b1d22077124cedb2cc7085a7b2212b026"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c9ad997fa07601ffe927913ea0e9c05dbdccdddee707770086057a79ad5f7ec4"
+    sha256 cellar: :any_skip_relocation, ventura:       "c9ad997fa07601ffe927913ea0e9c05dbdccdddee707770086057a79ad5f7ec4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee9e901ede7735cbee52dee13ccb89fd7f1cf4b8450b35574f533065273501f0"
   end
 
   depends_on "go" => :build
