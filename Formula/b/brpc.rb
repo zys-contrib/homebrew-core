@@ -1,10 +1,9 @@
 class Brpc < Formula
   desc "Better RPC framework"
   homepage "https://brpc.apache.org/"
-  url "https://dlcdn.apache.org/brpc/1.12.1/apache-brpc-1.12.1-src.tar.gz"
-  sha256 "6b315b33ae264e17e4f84bebbd4c3b7c313f5a64de7b398764c68a1dbb4a9e8e"
+  url "https://dlcdn.apache.org/brpc/1.13.0/apache-brpc-1.13.0-src.tar.gz"
+  sha256 "106f6be8bbc6038b975f611c0e7a862a1c3ea3f8c82ec83d3915790a1ca7f5d8"
   license "Apache-2.0"
-  revision 2
   head "https://github.com/apache/brpc.git", branch: "master"
 
   bottle do
@@ -29,12 +28,6 @@ class Brpc < Formula
     depends_on "pkgconf" => :test
   end
 
-  # `GFLAGS_NS` build patch, upstream pr ref, https://github.com/apache/brpc/pull/2878
-  patch do
-    url "https://github.com/apache/brpc/commit/cf6b81f9f7ab31626e942c2ef1b56432a242d1a1.patch?full_index=1"
-    sha256 "12c062d417e32a1810a8b223d5582748c2f3c4521864a2dd74575b4a10c4484d"
-  end
-
   def install
     inreplace "CMakeLists.txt", "/usr/local/opt/openssl",
                                 Formula["openssl@3"].opt_prefix
@@ -51,6 +44,7 @@ class Brpc < Formula
       -DBUILD_UNIT_TESTS=OFF
       -DDOWNLOAD_GTEST=OFF
       -DWITH_DEBUG_SYMBOLS=OFF
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
