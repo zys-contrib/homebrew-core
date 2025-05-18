@@ -14,6 +14,7 @@ class Xml2rfc < Formula
     sha256 cellar: :any,                 arm64_ventura: "200d6b1f33b1936898fdcfcd92434171d140fe4987b6224d3bee32003a3105f9"
     sha256 cellar: :any,                 sonoma:        "fffae6f1d3be9df52221047be7a43ffda10b45c2f5b91e58222ea715dfa29356"
     sha256 cellar: :any,                 ventura:       "9f2dddcf991e8d75c0313d7874baa2c94fd80617790d7bbd6786d4a79c47a0f5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4557209e3e4dbb9d0f6d4b7a4140f601495dc36f95523e2d4104f505013bebc7"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "476e0bec1830d5ab810bcef54231012ef1697eeb0968f2f644a991255fb36979"
   end
 
