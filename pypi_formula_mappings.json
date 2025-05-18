@@ -176,8 +176,7 @@
     "exclude_packages": ["pycparser"]
   },
   "charm-tools": {
-    "exclude_packages": ["certifi", "cryptography"],
-    "extra_packages": ["pip==22.3.1"]
+    "exclude_packages": ["certifi", "cryptography"]
   },
   "charmcraft": {
     "extra_packages": ["jeepney", "secretstorage"],
