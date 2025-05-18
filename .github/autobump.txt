@@ -1152,6 +1152,7 @@ fox
 fpart
 fping
 fplll
+fpm
 fq
 fred
 freebayes
