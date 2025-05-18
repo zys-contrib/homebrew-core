@@ -8,7 +8,7 @@ class Urlscan < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "be64bb1ca7c78bd13312b59f17f761051b64857476413d41952af71d0d5de7cd"
+    sha256 cellar: :any_skip_relocation, all: "f06e24ee723a5d356f9b82a54abf7c29f3104c509865c4a014d948f306b73bed"
   end
 
   depends_on "python@3.13"
