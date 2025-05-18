@@ -8,6 +8,15 @@ class Xml2rfc < Formula
   license "BSD-3-Clause"
   head "https://github.com/ietf-tools/xml2rfc.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "edf0d2a76759f3a8a6c9459c2c05e4442b889e66d7fadbedf0d841dceb1b151e"
+    sha256 cellar: :any,                 arm64_sonoma:  "d93dea3b5ef178c6b10fd8b5bc76faee5310be43e6dadc30134b0a4e4864125b"
+    sha256 cellar: :any,                 arm64_ventura: "200d6b1f33b1936898fdcfcd92434171d140fe4987b6224d3bee32003a3105f9"
+    sha256 cellar: :any,                 sonoma:        "fffae6f1d3be9df52221047be7a43ffda10b45c2f5b91e58222ea715dfa29356"
+    sha256 cellar: :any,                 ventura:       "9f2dddcf991e8d75c0313d7874baa2c94fd80617790d7bbd6786d4a79c47a0f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "476e0bec1830d5ab810bcef54231012ef1697eeb0968f2f644a991255fb36979"
+  end
+
   depends_on "libyaml"
   depends_on "python@3.13"
   uses_from_macos "libxml2", since: :ventura
