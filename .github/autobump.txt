@@ -227,6 +227,7 @@ baidupcs-go
 balena-cli
 ballerburg
 ballerina
+bamtools
 bandicoot
 bandit
 bandwhich
