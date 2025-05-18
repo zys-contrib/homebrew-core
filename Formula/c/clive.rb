@@ -1,8 +1,8 @@
 class Clive < Formula
   desc "Automates terminal operations"
   homepage "https://github.com/koki-develop/clive"
-  url "https://github.com/koki-develop/clive/archive/refs/tags/v0.12.10.tar.gz"
-  sha256 "68b124c27a14c10c072fbd8acc478e4ec7ba933e1fa2e1e080725dc7814ccbec"
+  url "https://github.com/koki-develop/clive/archive/refs/tags/v0.12.11.tar.gz"
+  sha256 "c406ff8c8a959f5de0730ecfd393c432587f824b86cc91979ee54e4e96b44ac0"
   license "MIT"
   head "https://github.com/koki-develop/clive.git", branch: "main"
 
