@@ -1,8 +1,9 @@
 class Vfox < Formula
   desc "Version manager with support for Java, Node.js, Flutter, .NET & more"
-  homepage "https://vfox.dev/"
-  url "https://github.com/version-fox/vfox/archive/refs/tags/v0.6.7.tar.gz"
-  sha256 "19755743d88d4ab6d01d431c2c1dcdc7fea005abda9fc8ef067389ae50a30346"
+  # homepage site issue report, https://github.com/version-fox/vfox/issues/426
+  homepage "https://github.com/version-fox/vfox"
+  url "https://github.com/version-fox/vfox/archive/refs/tags/v0.6.8.tar.gz"
+  sha256 "f9408ce990fe613f1b9dfdcf860e0ef41cb179e7f75863bcfd90549ca3f4216e"
   license "Apache-2.0"
   head "https://github.com/version-fox/vfox.git", branch: "main"
 
@@ -21,12 +22,6 @@ class Vfox < Formula
   end
 
   depends_on "go" => :build
-
-  # bump purego to build against go 1.24.3, upstream pr ref, https://github.com/version-fox/vfox/pull/468
-  patch do
-    url "https://github.com/version-fox/vfox/commit/95fafd2b5b5243054c53bf5cb9f6b5b64c5b039a.patch?full_index=1"
-    sha256 "05704a0a326ba669311b8b38b1433aff30a91a9db165bae2c681ec7cbc80bd8a"
-  end
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
