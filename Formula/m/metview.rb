@@ -1,11 +1,10 @@
 class Metview < Formula
   desc "Meteorological workstation software"
   homepage "https://metview.readthedocs.io/en/latest/"
-  url "https://confluence.ecmwf.int/download/attachments/51731119/MetviewBundle-2024.11.0-Source.tar.gz"
-  version "5.23.1"
-  sha256 "4af1333431664bdbf0a11a6ff20bac847f83647358319864d1b1ad421d33970a"
+  url "https://confluence.ecmwf.int/download/attachments/51731119/MetviewBundle-2025.4.0-Source.tar.gz"
+  version "5.25.0"
+  sha256 "ebfa17e3db63c72a2caad5a13136d0e86f300cc8cdaa31c98ed4ff5034aebc09"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url "https://confluence.ecmwf.int/display/METV/The+Metview+Source+Bundle"
@@ -32,6 +31,7 @@ class Metview < Formula
   depends_on "libpng"
   depends_on "lz4"
   depends_on "netcdf"
+  depends_on "netcdf-cxx"
   depends_on "openssl@3"
   depends_on "pango"
   depends_on "proj"
@@ -55,6 +55,8 @@ class Metview < Formula
   end
 
   def install
+    # https://jira.ecmwf.int/plugins/servlet/desk/portal/4/SD-110363
+    inreplace "metview/CMakeLists.txt", "cmake_policy(SET CMP0046 OLD)", "cmake_policy(SET CMP0046 NEW)"
     args = %W[
       -DBUNDLE_SKIP_ECCODES=1
       -DENABLE_MIR_DOWNLOAD_MASKS=OFF
