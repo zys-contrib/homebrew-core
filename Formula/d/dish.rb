@@ -7,12 +7,12 @@ class Dish < Formula
   head "https://github.com/thevxn/dish.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3d25c8c7528a83c822fee959c1f96e19fa2046d5504f947deb0f47cd1f4c42bd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3d25c8c7528a83c822fee959c1f96e19fa2046d5504f947deb0f47cd1f4c42bd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3d25c8c7528a83c822fee959c1f96e19fa2046d5504f947deb0f47cd1f4c42bd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "72e5b5e1221c875430f1f223cf67eee61cd510e4c118a015689e5a59f292f6b2"
-    sha256 cellar: :any_skip_relocation, ventura:       "72e5b5e1221c875430f1f223cf67eee61cd510e4c118a015689e5a59f292f6b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eada0861871db7ef90b354073c67436c08047b230ced37ae3c5a782e31da635f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3215eff5fce1b0eca049f90df81d980a3201df0431956f0da031196bd574f095"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3215eff5fce1b0eca049f90df81d980a3201df0431956f0da031196bd574f095"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3215eff5fce1b0eca049f90df81d980a3201df0431956f0da031196bd574f095"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f42cb17f7387a4673aa5f912ca620bb48e772a167cdc934263816bfb8019ba34"
+    sha256 cellar: :any_skip_relocation, ventura:       "f42cb17f7387a4673aa5f912ca620bb48e772a167cdc934263816bfb8019ba34"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0954f4e438d7d0fba720e26ccf2fe1561658b55dd5fcf208b55132e1a2dab289"
   end
 
   depends_on "go" => :build
