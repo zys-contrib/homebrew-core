@@ -42,7 +42,7 @@ class P11Kit < Formula
     args = %W[
       -Dsystem_config=#{etc}
       -Dmodule_config=#{etc}/pkcs11/modules
-      -Dtrust_paths=#{etc}/ca-certificates/cert.pem"
+      -Dtrust_paths=#{etc}/ca-certificates/cert.pem
       -Dsystemd=disabled
     ]
 
