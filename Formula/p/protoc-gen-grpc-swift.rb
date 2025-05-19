@@ -13,9 +13,9 @@ class ProtocGenGrpcSwift < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e57d5d774c7744e571795d8425a8737e2ccaa05c166110340e5b4de912f9ae48"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2071381a7b1744b63fc6fd3f853f335e8fec96ab8acc759d5acec4550729ff06"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b6e68af5721a017a348cd215ae95026eb35360a5b1f1c86f7f46698b9a1cccd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a3750dc134f8c2ffdd812b9f16420cd35bf1e48504c0e3c510ff6b0ad9941d20"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2f3cef9ef3de12f5271180a0caed835da583254aefaea90ad00111d8864edae3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8df60e3d84856a1c95e85e8bdc08f8c43a4c41df42eed371e433625fc223a43b"
   end
 
   depends_on xcode: ["15.0", :build]
