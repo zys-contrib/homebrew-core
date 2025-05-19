@@ -1,14 +1,16 @@
 class Cdo < Formula
   desc "Climate Data Operators"
   homepage "https://code.mpimet.mpg.de/projects/cdo"
-  url "https://code.mpimet.mpg.de/attachments/download/29864/cdo-2.5.1.tar.gz"
-  sha256 "418bf91e864cbfe547c3c8e150d31419cfa715e7d345508c5591b1abda5457d1"
+  url "https://code.mpimet.mpg.de/attachments/download/29938/cdo-2.5.2.tar.gz"
+  sha256 "3b28da72d75547663b1b9b08332bfe3f884d27742d0eeeb7f3c8b2c70f521fa9"
   license "GPL-2.0-only"
 
   livecheck do
     url "https://code.mpimet.mpg.de/projects/cdo/news"
     regex(/Version (\d+(?:\.\d+)+) released/i)
   end
+
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "dd1d32211a82e1cf891757e379a638b80e7eb672fd2a8d2f611372af12c743ff"
@@ -25,6 +27,7 @@ class Cdo < Formula
   depends_on "libaec"
   depends_on "netcdf"
   depends_on "proj"
+
   uses_from_macos "python" => :build
 
   on_macos do
