@@ -3375,6 +3375,7 @@ sngrep
 sniffer
 sniffglue
 sniffnet
+snobol4
 snort
 snowflake
 snowflake-cli
