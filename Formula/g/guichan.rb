@@ -15,6 +15,8 @@ class Guichan < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "41d93c438a1966464eb85c1bc4f9d9743e9015502a06d90105e2f5b438c2df56"
   end
 
+  depends_on "pkgconf" => :test
+
   on_linux do
     depends_on "mesa"
     depends_on "mesa-glu"
@@ -41,12 +43,8 @@ class Guichan < Formula
       }
     EOS
 
-    flags = [
-      "-L#{lib}", "-lguichan"
-    ]
-    flags << (OS.mac? ? "-lc++" : "-lstdc++")
-    system ENV.cxx, "helloworld.cpp", ENV.cppflags,
-                   *flags, "-o", "helloworld"
+    pkg_config_flags = shell_output("pkg-config --cflags --libs guichan-0.8").chomp.split
+    system ENV.cxx, "helloworld.cpp", *pkg_config_flags, "-o", "helloworld"
     system "./helloworld"
   end
 end
