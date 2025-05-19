@@ -1,8 +1,8 @@
 class Rofi < Formula
   desc "Window switcher, application launcher and dmenu replacement"
   homepage "https://davatorium.github.io/rofi/"
-  url "https://github.com/davatorium/rofi/releases/download/1.7.8/rofi-1.7.8.tar.gz"
-  sha256 "469fba08ad99f286a4a8c65f857c9f66c07e7b9a3496ac1fe3dcd856f3c687d3"
+  url "https://github.com/davatorium/rofi/releases/download/1.7.9/rofi-1.7.9.tar.gz"
+  sha256 "6a2861ab8a2332fdf99bfcb8bfe0ffc85f42ea20900f7b0c30f4575ca5699e5b"
   license "MIT"
   head "https://github.com/davatorium/rofi.git", branch: "next"
 
