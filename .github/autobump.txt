@@ -1146,6 +1146,7 @@ fortio
 fortitude
 fortls
 fossil
+foundry
 fourmolu
 fourstore
 fox
