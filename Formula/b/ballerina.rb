@@ -18,7 +18,7 @@ class Ballerina < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "bc11d797ee0c6cdfd8d3ec5bca8aee20553c792209690cdc07d0194ce46c33a1"
+    sha256 cellar: :any_skip_relocation, all: "21812fe6e70612fe41c01a0865ae0021e39c58e707fb4262a5052eb47f27c282"
   end
 
   depends_on "openjdk"
