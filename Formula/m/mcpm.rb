@@ -3,8 +3,8 @@ class Mcpm < Formula
 
   desc "Open source, community-driven MCP server and client manager"
   homepage "https://mcpm.sh/"
-  url "https://files.pythonhosted.org/packages/35/07/cc64bc0a475a1124ac24f2d47ef7b768649d257ed5019a6b4eaa1ec9448f/mcpm-1.11.0.tar.gz"
-  sha256 "36602aa78318b74ef2aabcee9846497c2955cd8cbea7792ff43970aa6d80c5ce"
+  url "https://files.pythonhosted.org/packages/8b/02/f32c6cd5412adcb028de835f1af9a3560980458e21092e16baf56ae6d060/mcpm-1.12.0.tar.gz"
+  sha256 "e9d2b852b90d7fd62dede584f035dd6b2b3d068d233e96b82aead835f81a911a"
   license "MIT"
 
   bottle do
@@ -81,8 +81,8 @@ class Mcpm < Formula
   end
 
   resource "mcp" do
-    url "https://files.pythonhosted.org/packages/95/d2/f587cb965a56e992634bebc8611c5b579af912b74e04eb9164bd49527d21/mcp-1.6.0.tar.gz"
-    sha256 "d9324876de2c5637369f43161cd71eebfd803df5a95e46225cab8d280e366723"
+    url "https://files.pythonhosted.org/packages/bc/8d/0f4468582e9e97b0a24604b585c651dfd2144300ecffd1c06a680f5c8861/mcp-1.9.0.tar.gz"
+    sha256 "905d8d208baf7e3e71d70c82803b89112e321581bcd2530f9de0fe4103d28749"
   end
 
   resource "mdurl" do
@@ -123,6 +123,11 @@ class Mcpm < Formula
   resource "python-dotenv" do
     url "https://files.pythonhosted.org/packages/88/2c/7bb1416c5620485aa793f2de31d3df393d3686aa8a8506d11e10e13c5baf/python_dotenv-1.1.0.tar.gz"
     sha256 "41f90bc6f5f177fb41f53e87666db362025010eb28f60a01c9143bfa33a2b2d5"
+  end
+
+  resource "python-multipart" do
+    url "https://files.pythonhosted.org/packages/f3/87/f44d7c9f274c7ee665a29b885ec97089ec5dc034c7f3fafa03da9e39a09e/python_multipart-0.0.20.tar.gz"
+    sha256 "8dd0cab45b8e23064ae09147625994d090fa46f5b0d1e13af944c331a7fa9d13"
   end
 
   resource "requests" do
