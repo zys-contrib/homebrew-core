@@ -1,8 +1,8 @@
 class Mvfst < Formula
   desc "QUIC transport protocol implementation"
   homepage "https://github.com/facebook/mvfst"
-  url "https://github.com/facebook/mvfst/archive/refs/tags/v2025.04.28.00.tar.gz"
-  sha256 "10f47a23f96dfbe14587666821b5a8f06eb38972c5ef403a1bfb2135fae8976a"
+  url "https://github.com/facebook/mvfst/archive/refs/tags/v2025.05.19.00.tar.gz"
+  sha256 "01a636b7f5ad7c9cd57f07a7d8c1f74875be74720e1df1bd8029833ee0874e49"
   license "MIT"
   head "https://github.com/facebook/mvfst.git", branch: "main"
 
@@ -74,7 +74,7 @@ class Mvfst < Formula
     Open3.popen3(
       "./build/echo", "--mode", "client",
                 "--host", "127.0.0.1", "--port", server_port.to_s
-    ) do |stdin, _, stderr|
+    ) do |stdin, _, stderr, w|
       stdin.write "Hello world!\n"
       Timeout.timeout(60) do
         stderr.each do |line|
@@ -82,6 +82,8 @@ class Mvfst < Formula
         end
       end
       stdin.close
+    ensure
+      Process.kill "TERM", w.pid
     end
   ensure
     Process.kill "TERM", server_pid
