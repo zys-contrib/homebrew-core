@@ -3072,6 +3072,7 @@ raven
 raxml-ng
 raylib
 rbenv
+rbspy
 rbw
 rclone
 rcs
