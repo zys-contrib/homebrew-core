@@ -18,11 +18,21 @@ class Cloudflared < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "install",
-      "VERSION=#{version}",
-      "DATE=#{time.iso8601}",
-      "PACKAGE_MANAGER=#{tap.user}",
-      "PREFIX=#{prefix}"
+    # We avoid using the `Makefile` to ensure usage of our own `go` toolchain.
+    # Set `gobuildid` to create an LC_UUID load command.
+    # This is needed to grant user permissions for local network access.
+    ldflags = %W[
+      -B gobuildid
+      -X main.Version=#{version}
+      -X main.BuildTime=#{time.iso8601}
+      -X github.com/cloudflare/cloudflared/cmd/cloudflared/updater.BuiltForPackageManager=#{tap.user}
+    ]
+    system "go", "build", *std_go_args(ldflags:), "./cmd/cloudflared"
+    inreplace "cloudflared_man_template" do |s|
+      s.gsub! "${DATE}", time.iso8601
+      s.gsub! "${VERSION}", version.to_s
+    end
+    man1.install "cloudflared_man_template" => "cloudflared.1"
   end
 
   service do
@@ -40,5 +50,9 @@ class Cloudflared < Formula
     assert_match "Error locating origin cert", shell_output("#{bin}/cloudflared tunnel run abcd 2>&1", 1)
     assert_match "cloudflared was installed by #{tap.user}. Please update using the same method.",
       shell_output("#{bin}/cloudflared update 2>&1")
+
+    return unless OS.mac?
+
+    refute_empty shell_output("dwarfdump --uuid #{bin}/cloudflared").chomp
   end
 end
