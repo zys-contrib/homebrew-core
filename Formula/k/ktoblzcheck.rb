@@ -1,8 +1,8 @@
 class Ktoblzcheck < Formula
   desc "Library for German banks"
   homepage "https://ktoblzcheck.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/ktoblzcheck/ktoblzcheck-1.58.tar.gz"
-  sha256 "f598678afa22bf06d8952d31bc7f66faed253e3fa3cf87f4a948ade0bcdb91cd"
+  url "https://downloads.sourceforge.net/project/ktoblzcheck/ktoblzcheck-1.59.tar.gz"
+  sha256 "3cd33880d2425e8fa3be9918c85485514f53e04b0b986bcf7bd003fc53071fa7"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -36,6 +36,12 @@ class Ktoblzcheck < Formula
     sha256 "cf0e3cf56142039133628b5acffe8ef0c12bc902d2aadd3e0fe5878dc08d1050"
   end
 
+  # Bankdata resource
+  resource "ktoblzcheck-data" do
+    url "https://downloads.sourceforge.net/project/ktoblzcheck/ktoblzcheck-data-20250515.tar.gz"
+    sha256 "307479cd3c487ba6d6c4f5966634a6023c1f29d4386b93a5e96cea7541bebe4c"
+  end
+
   def python3
     "python3.13"
   end
@@ -43,18 +49,26 @@ class Ktoblzcheck < Formula
   def install
     ENV.append_path "PYTHONPATH", buildpath/Language::Python.site_packages(python3)
     resources.each do |r|
+      next if r.name == "ktoblzcheck-data"
+
       r.stage do
         system python3, "-m", "pip", "install", *std_pip_args(prefix: buildpath, build_isolation: true), "."
       end
+    end
+
+    resource("ktoblzcheck-data").stage do
+      system "cmake", "-S", ".", "-B", "data", *std_cmake_args
+      system "cmake", "--build", "data"
+      system "cmake", "--install", "data"
+
+      # Move built bankdata to the path of bankdata for `ktoblzcheck`
+      (buildpath/"src/bankdata").install "data"
     end
 
     # Work around to help Python bindings find shared library on macOS.
     # OSError: dlopen(ktoblzcheck, 0x0006): tried: 'ktoblzcheck' (no such file), ...
     # OSError: dlopen(libktoblzcheck.so.1, 0x0006): tried: 'libktoblzcheck.so.1' (no such file), ...
     inreplace "src/python/ktoblzcheck.py", /'libktoblzcheck\.so\.(\d+)'/, "'libktoblzcheck.\\1.dylib'" if OS.mac?
-
-    # Fix to changed filename for `NL_BANK_WEBSITE_URL`
-    inreplace "CMakeLists.txt", "BIC-lijst-NL.xlsx", "BIC-lijst-NL-2.xlsx"
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{opt_lib}"
     system "cmake", "--build", "build"
