@@ -6,6 +6,7 @@ class Pyinstaller < Formula
   url "https://files.pythonhosted.org/packages/a8/b1/2949fe6d3874e961898ca5cfc1bf2cf13bdeea488b302e74a745bc28c8ba/pyinstaller-6.13.0.tar.gz"
   sha256 "38911feec2c5e215e5159a7e66fdb12400168bd116143b54a8a7a37f08733456"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/pyinstaller/pyinstaller.git", branch: "develop"
 
   bottle do
@@ -33,18 +34,18 @@ class Pyinstaller < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   resource "pyinstaller-hooks-contrib" do
-    url "https://files.pythonhosted.org/packages/99/14/6725808804b52cc2420a659c8935e511221837ad863e3bbc4269897d5b4d/pyinstaller_hooks_contrib-2025.2.tar.gz"
-    sha256 "ccdd41bc30290f725f3e48f4a39985d11855af81d614d167e3021e303acb9102"
+    url "https://files.pythonhosted.org/packages/e3/94/dfc5c7903306211798f990e6794c2eb7b8685ac487b26979e9255790419c/pyinstaller_hooks_contrib-2025.4.tar.gz"
+    sha256 "5ce1afd1997b03e70f546207031cfdf2782030aabacc102190677059e2856446"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/a9/5a/0db4da3bc908df06e5efae42b44e75c81dd52716e10192ff36d0c1c8e379/setuptools-78.1.0.tar.gz"
-    sha256 "18fd474d4a82a5f83dac888df697af65afa82dec7323d09c3e37d1f14288da54"
+    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
+    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
   end
 
   def install
