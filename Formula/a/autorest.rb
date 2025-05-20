@@ -6,14 +6,13 @@ class Autorest < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e83b47baa0ca32e782bee30fb9370448ffc422da79bc9e908456cf1703e1e80e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e83b47baa0ca32e782bee30fb9370448ffc422da79bc9e908456cf1703e1e80e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e83b47baa0ca32e782bee30fb9370448ffc422da79bc9e908456cf1703e1e80e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a723686fd868adf61661dc45f12e286dac112866af987abb041ad828aad82988"
-    sha256 cellar: :any_skip_relocation, ventura:       "a723686fd868adf61661dc45f12e286dac112866af987abb041ad828aad82988"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "64ffb4481a753a24a50ec78c9ce070b516f7ebdce473b829be961c172b763370"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e83b47baa0ca32e782bee30fb9370448ffc422da79bc9e908456cf1703e1e80e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6840e5f417fa145ce6576a18e7c82e45f866ea344555b58c06a35ac88fa47b66"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6840e5f417fa145ce6576a18e7c82e45f866ea344555b58c06a35ac88fa47b66"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6840e5f417fa145ce6576a18e7c82e45f866ea344555b58c06a35ac88fa47b66"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c1c3cc8270cdd3353fb2ee10ba5c5023351c6ae8eb7d291f97a3685c116576a6"
+    sha256 cellar: :any_skip_relocation, ventura:       "c1c3cc8270cdd3353fb2ee10ba5c5023351c6ae8eb7d291f97a3685c116576a6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6840e5f417fa145ce6576a18e7c82e45f866ea344555b58c06a35ac88fa47b66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6840e5f417fa145ce6576a18e7c82e45f866ea344555b58c06a35ac88fa47b66"
   end
 
   depends_on "node"
