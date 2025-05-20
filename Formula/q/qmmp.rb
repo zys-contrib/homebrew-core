@@ -1,8 +1,8 @@
 class Qmmp < Formula
   desc "Qt-based Multimedia Player"
   homepage "https://qmmp.ylsoftware.com/"
-  url "https://qmmp.ylsoftware.com/files/qmmp/2.2/qmmp-2.2.5.tar.bz2"
-  sha256 "58211f327ac385abbc7d75e6a5d8dd64bcdb5cc0f1119329f2927d1631097e18"
+  url "https://qmmp.ylsoftware.com/files/qmmp/2.2/qmmp-2.2.6.tar.bz2"
+  sha256 "270eca6fd728d9a0bc7f19e94e0e0e1f6a3c44dade648dffa58a0dbb7396cb4b"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -44,6 +44,7 @@ class Qmmp < Formula
   depends_on "mad"
   depends_on "mpg123"
   depends_on "mplayer"
+  depends_on "musepack"
   depends_on "opus"
   depends_on "opusfile"
   depends_on "projectm"
@@ -58,9 +59,6 @@ class Qmmp < Formula
   on_macos do
     depends_on "gettext"
     depends_on "glib"
-    # musepack is not bottled on Linux
-    # https://github.com/Homebrew/homebrew-core/pull/92041
-    depends_on "musepack"
   end
 
   on_linux do
