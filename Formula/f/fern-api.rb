@@ -7,7 +7,7 @@ class FernApi < Formula
   head "https://github.com/fern-api/fern.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6e2d49d8be03bd9fc0028386fb8a58b92a30ef90c05daa5f18e465ed5f66bcde"
+    sha256 cellar: :any_skip_relocation, all: "fd6c1e20a3cbe83170c7b98f1f9fbcdd8c0bf19b95e92b04229c41a75d1fe1b8"
   end
 
   depends_on "node"
