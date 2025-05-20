@@ -74,7 +74,7 @@
     "extra_packages": ["fitsio"]
   },
   "aws-elasticbeanstalk": {
-    "exclude_packages": ["certifi"]
+    "exclude_packages": ["certifi", "cryptography"]
   },
   "aws-google-auth": {
     "exclude_packages": ["certifi", "pillow"]
