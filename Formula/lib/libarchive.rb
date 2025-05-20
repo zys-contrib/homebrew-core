@@ -1,8 +1,8 @@
 class Libarchive < Formula
   desc "Multi-format archive and compression library"
   homepage "https://www.libarchive.org"
-  url "https://www.libarchive.org/downloads/libarchive-3.7.9.tar.xz"
-  sha256 "ed8b5732e4cd6e30fae909fb945cad8ff9cb7be5c6cdaa3944ec96e4a200c04c"
+  url "https://www.libarchive.org/downloads/libarchive-3.8.0.tar.xz"
+  sha256 "67bfac3798a778143f4b1cadcdb3792b4269486f8e1b70ca5c0ee5841398bfdf"
   license "BSD-2-Clause"
 
   livecheck do
@@ -45,12 +45,6 @@ class Libarchive < Formula
     inreplace lib/"pkgconfig/libarchive.pc", prefix.to_s, opt_prefix.to_s
 
     return unless OS.mac?
-
-    # fixes https://github.com/libarchive/libarchive/issues/1819
-    inreplace lib/"pkgconfig/libarchive.pc" do |s|
-      s.gsub! "Libs.private: ", "Libs.private: -liconv "
-      s.gsub! "Requires.private: iconv", ""
-    end
 
     # Just as apple does it.
     ln_s bin/"bsdtar", bin/"tar"
