@@ -9,13 +9,13 @@ class Yamlfix < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "badcb1e0519bceb4de7cd7db81a69c4947230941656959a170cd0a98668a66b1"
-    sha256 cellar: :any,                 arm64_sonoma:  "a9cf9fbed2979245068bd2e15cac71ffc87623f77bd35fac4a9ba68836c1fdb2"
-    sha256 cellar: :any,                 arm64_ventura: "d1e35c718ba628e672c8ae7b4d6970f4d6baa180425764b839c1e98be5d28166"
-    sha256 cellar: :any,                 sonoma:        "a4fdb343c7e93340801caf53a1b4c7ef98f657d149d93985d7f480dade902c82"
-    sha256 cellar: :any,                 ventura:       "54c2f7af91fa5db4af9520a588bfe788ff2aa5235adbd48e7940c07e89297091"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "37cd912b1a80fb673bc4bbb83a370e840e392bcad4c29fec5dba54bec555f575"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e2329c6594e7413ce24f09fd3ad8d601204d5c985667ce8a6aa12f86566cfe2"
+    sha256 cellar: :any,                 arm64_sequoia: "e88dc2c841ca7281bea7728c94da6249b84c3eec37e3af45a7e4df8ae98dda70"
+    sha256 cellar: :any,                 arm64_sonoma:  "6bb3222bccb1dd5dbc522e44443ab4e349102bbf224225de8c80300aed2084bc"
+    sha256 cellar: :any,                 arm64_ventura: "d557584a6d6c134e0b28d7cb6ae1822e02c4c42e6dae7e9e0b6f7744ec798d4a"
+    sha256 cellar: :any,                 sonoma:        "f2544cd1f120fa8c45d7caae4c9cce0f1e628e37dabc9f9520361335f29fa04c"
+    sha256 cellar: :any,                 ventura:       "6038a7c186c310701dd56d1a90c044fb3ee59e8ce8c53701e718594db607d0d2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2113eda75d9df2870158f71322a97186e88ec93cfdedb0de42c16e63c543ee9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83d1aa0f54f512923df57b0044d55a09f9493e6fb973586db7f6261978cd1a30"
   end
 
   depends_on "rust" => :build # for pydantic_core
