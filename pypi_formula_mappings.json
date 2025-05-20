@@ -617,7 +617,7 @@
       "python-cloudkittyclient", "python-designateclient",
       "python-glanceclient", "python-heatclient", "python-ironicclient",
       "python-magnumclient", "python-manilaclient", "python-mistralclient",
-      "python-octaviaclient", "setuptools"
+      "python-octaviaclient"
     ],
     "exclude_packages": ["certifi", "cryptography"]
   },
