@@ -3,8 +3,8 @@ class SnowflakeCli < Formula
 
   desc "CLI for snowflake"
   homepage "https://docs.snowflake.com/developer-guide/snowflake-cli/index"
-  url "https://files.pythonhosted.org/packages/44/5b/c2a6d51bbede5ad99b8ee0ff33190e4f9d22e62665dfaf861b3971a9ffe7/snowflake_cli-3.8.0.tar.gz"
-  sha256 "b16875455cb124d4e74804dcd0111210f13cbcbc21237f26881781b862fb341b"
+  url "https://files.pythonhosted.org/packages/df/67/be32d5966d844a0c678b281635c24e74686193e1885982a713c041f8d1e8/snowflake_cli-3.8.1.tar.gz"
+  sha256 "ee386e21de3d2b77839e77b1b4e74802a5214597185d25d22ee0f6ffb0d3bc50"
   license "Apache-2.0"
 
   bottle do
@@ -36,13 +36,13 @@ class SnowflakeCli < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/a5/dd/68ea8ab6dfbed46b75fcfe0bbd5ae19e4d3ef094b749ff8d944398e90f2d/boto3-1.38.17.tar.gz"
-    sha256 "6058feef976ece2878ad3555f39933e63d20d02e2bbd40610ab2926d4555710a"
+    url "https://files.pythonhosted.org/packages/29/3a/eec45ce28d36913074547a06198c4f9f3855062ca18ab266e9e6a27b47c9/boto3-1.38.19.tar.gz"
+    sha256 "fdd69f23e6216a508bbc1fbda9486791c161f3ecd5933ac7090d7290f6f2d0f5"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/33/73/8b831403be00dbea152d4827929a5772f58e0413dd3e6b6d4b3592d88d39/botocore-1.38.17.tar.gz"
-    sha256 "f2db4c4bdcfbc41d78bfe73b9affe7d217c7840f8ce120cff815536969418b18"
+    url "https://files.pythonhosted.org/packages/7f/78/c1b2fa6a267018062a66470e6e779366b4e64ab1178de8870ccc3a393cac/botocore-1.38.19.tar.gz"
+    sha256 "796b948c05017eb33385b798990cd91ed4af0e881eb9eb1ee6e17666be02abc9"
   end
 
   resource "charset-normalizer" do
@@ -171,8 +171,8 @@ class SnowflakeCli < Formula
   end
 
   resource "pyopenssl" do
-    url "https://files.pythonhosted.org/packages/9f/26/e25b4a374b4639e0c235527bbe31c0524f26eda701d79456a7e1877f4cc5/pyopenssl-25.0.0.tar.gz"
-    sha256 "cd2cef799efa3936bb08e8ccb9433a575722b9dd986023f1cabc4ae64e9dac16"
+    url "https://files.pythonhosted.org/packages/04/8c/cd89ad05804f8e3c17dea8f178c3f40eeab5694c30e0c9f5bcd49f576fc3/pyopenssl-25.1.0.tar.gz"
+    sha256 "8d031884482e0c67ee92bf9a4d8cceb08d92aba7136432ffb0703c5280fc205b"
   end
 
   resource "python-dateutil" do
@@ -235,14 +235,14 @@ class SnowflakeCli < Formula
     sha256 "26ea65a03958fa0c8a1c7e8c7a58fdc77221b8910f6be2131affade476898ad5"
   end
 
-  resource "snowflake-core" do
-    url "https://files.pythonhosted.org/packages/ff/80/90c836a5d1dab83dea632d4286ab60e9f07aadef3e887785f33f7d6a2ff1/snowflake_core-1.5.0.tar.gz"
-    sha256 "c042c69c0cc95485898379b6c3ca4a236664908a56f4f688a415e7683e661a78"
-  end
-
   resource "snowflake-connector-python" do
     url "https://files.pythonhosted.org/packages/99/ff/7c1b2cbb5a43b21abebfa58c83926266e9f5ea05123e795753da6ce84f96/snowflake_connector_python-3.15.0.tar.gz"
     sha256 "1ef52e2fb3ecc295139737d3d759f85d962ef7278c6990c3bd9c17fcb82508d6"
+  end
+
+  resource "snowflake-core" do
+    url "https://files.pythonhosted.org/packages/5d/b8/338479e7e16c4ec70411e076ffc08b209ad78df0b24abd34cc13c97e1b10/snowflake_core-1.4.0.tar.gz"
+    sha256 "dc1ccedece41b52fdcb85f89c0ab801bc52c71ae68a3bf5f7e9df74d750fe44f"
   end
 
   resource "sortedcontainers" do
