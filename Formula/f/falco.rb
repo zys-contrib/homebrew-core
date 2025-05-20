@@ -1,8 +1,8 @@
 class Falco < Formula
   desc "VCL parser and linter optimized for Fastly"
   homepage "https://github.com/ysugimoto/falco"
-  url "https://github.com/ysugimoto/falco/archive/refs/tags/v1.17.0.tar.gz"
-  sha256 "a4006ba07678f1cd82dfaf3eaf2747fabb23a0abc38e661936dd8f2f38a141b0"
+  url "https://github.com/ysugimoto/falco/archive/refs/tags/v1.18.0.tar.gz"
+  sha256 "3743e5fb0cd8d7ec76c728c74434633ad46c7e65c27d1cebfb8afb96b7443b96"
   license "MIT"
   head "https://github.com/ysugimoto/falco.git", branch: "main"
 
