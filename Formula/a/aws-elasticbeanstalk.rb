@@ -3,8 +3,8 @@ class AwsElasticbeanstalk < Formula
 
   desc "Client for Amazon Elastic Beanstalk web service"
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html"
-  url "https://files.pythonhosted.org/packages/0b/83/f46a06e9f16d5062041654cf1b6bc386e9072ffd8f74f559ba742e6d95e9/awsebcli-3.24.tar.gz"
-  sha256 "fe4bc174672bfa4df357347533f169a4c21b979d559b33ea138aaccaf4b9c2f2"
+  url "https://files.pythonhosted.org/packages/d8/70/e6910c4d2e18e39b577219533fd25941ce34aea64845c9df5cea6955e8fb/awsebcli-3.24.1.tar.gz"
+  sha256 "72242ff65890d8193483c24463430ed05137f88cd597d5ab302d16c32958deaf"
   license "Apache-2.0"
 
   bottle do
@@ -127,8 +127,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
-    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
+    url "https://files.pythonhosted.org/packages/8d/d2/ec1acaaff45caed5c2dedb33b67055ba9d4e96b091094df90762e60135fe/setuptools-80.8.0.tar.gz"
+    sha256 "49f7af965996f26d43c8ae34539c8d99c5042fbff34302ea151eaa9c207cd257"
   end
 
   resource "six" do
