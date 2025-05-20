@@ -6,6 +6,7 @@ class Gdtoolkit < Formula
   url "https://files.pythonhosted.org/packages/5e/71/0563b7f812c4db67ead1d47cf6710c3e9c6e1a7d505321240efc7638c08b/gdtoolkit-4.3.3.tar.gz"
   sha256 "f17089c3e33d0053ab229a637a9faabc0fb8ebb07412fe719ed00b2e66adc343"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "18c9d3e8faaf0038a293dc1ee6d5b8a57f0d46c50f43e1b164b8dea6a4a6e7e9"
@@ -56,8 +57,8 @@ class Gdtoolkit < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/ac/57/e6f0bde5a2c333a32fbcce201f906c1fd0b3a7144138712a5e9d9598c5ec/setuptools-75.7.0.tar.gz"
-    sha256 "886ff7b16cd342f1d1defc16fc98c9ce3fde69e087a4e1983d7ab634e5f41f4f"
+    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
+    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
   end
 
   resource "six" do
