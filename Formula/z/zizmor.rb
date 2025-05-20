@@ -1,8 +1,8 @@
 class Zizmor < Formula
   desc "Find security issues in GitHub Actions setups"
   homepage "https://docs.zizmor.sh/"
-  url "https://github.com/zizmorcore/zizmor/archive/refs/tags/v1.7.0.tar.gz"
-  sha256 "9564db26f6e134a8f23f6d92c48a25c7cf457fed5de5ac76643cd45abf098129"
+  url "https://github.com/zizmorcore/zizmor/archive/refs/tags/v1.8.0.tar.gz"
+  sha256 "6f5f4da30eb7e0fa4b7558a9418b58abd7c5ab467cb2dce330c8189a00668355"
   license "MIT"
   head "https://github.com/zizmorcore/zizmor.git", branch: "main"
 
@@ -21,7 +21,7 @@ class Zizmor < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(path: "crates/zizmor")
 
     generate_completions_from_executable(bin/"zizmor", shell_parameter_format: "--completions=")
   end
