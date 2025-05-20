@@ -1,5 +1,5 @@
 class Tenv < Formula
-  desc "OpenTofu / Terraform / Terragrunt / Atmos version manager"
+  desc "OpenTofu / Terraform / Terragrunt / Terramate / Atmos version manager"
   homepage "https://tofuutils.github.io/tenv/"
   url "https://github.com/tofuutils/tenv/archive/refs/tags/v4.6.2.tar.gz"
   sha256 "f3ebd348301163509d23c0cb6963c6f69bc9b942c54188c09605cd63f08475a0"
@@ -33,7 +33,7 @@ class Tenv < Formula
   def install
     ENV["CGO_ENABLED"] = "0"
     ldflags = "-s -w -X main.version=#{version}"
-    %w[tenv terraform terragrunt tf tofu atmos].each do |f|
+    %w[tenv terraform terragrunt terramate tf tofu atmos].each do |f|
       system "go", "build", *std_go_args(ldflags:, output: bin/f), "./cmd/#{f}"
     end
     generate_completions_from_executable(bin/"tenv", "completion")
