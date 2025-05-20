@@ -9,13 +9,13 @@ class JenkinsJobBuilder < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "466d288ce985277fabc03dc07dcf8a14bdfd1e938caab7a85bd9c3753103bd25"
-    sha256 cellar: :any,                 arm64_sonoma:  "e5a926b49ab3229738c88e48238ac4bc8044a38661d77c9d7e35eaf379c88e19"
-    sha256 cellar: :any,                 arm64_ventura: "bb40c3437843345877eaa8855552e404d01de9b79864cfdc31eea072e0bc1d7d"
-    sha256 cellar: :any,                 sonoma:        "7fd8695bedd1e037d7a4a15c51ff31fba6415830471dfc69c4035073b5847816"
-    sha256 cellar: :any,                 ventura:       "00617cf898606deaa7e7859c3b6b015b6fadbeb8b096f37f962cf79f6422420e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "34b0e66ad76aedc5b9c813ebb7ce8840611eb9a011afb3ae75cb71b750a36216"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13ff9e3be7f4ff98f0ca825084a4737fb4b5ad8c07caaa5a9f42f38c7e72ad96"
+    sha256 cellar: :any,                 arm64_sequoia: "07389edb02f025d4ba1e0846d8bb552731a179452f51a1dad74a1b5069fc5171"
+    sha256 cellar: :any,                 arm64_sonoma:  "6e621244e73b2bc2fa85664d42ca96d776c1430338b564ec95e499a292b49f2b"
+    sha256 cellar: :any,                 arm64_ventura: "862eda0e71bfef0bb932e68a7b523f487838a019fd50aec44c62903b427ce2f0"
+    sha256 cellar: :any,                 sonoma:        "df7bfd298990a4a5a204dd085922b476f99b69d1bce082118db41f163772d51e"
+    sha256 cellar: :any,                 ventura:       "544009d0311e416ac16aa2e1250d3c5e10a2a1cd3278e46045434964bd2928a2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b9b6bb4808a2e81bfabdb907681869634bccd63f466b9885479378fb5028608b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "841b7e2b14f81c6583f295bb87041517386a10ae448c44019f240baee346eafb"
   end
 
   depends_on "certifi"
