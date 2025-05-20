@@ -7,6 +7,7 @@ class GobjectIntrospection < Formula
   url "https://download.gnome.org/sources/gobject-introspection/1.84/gobject-introspection-1.84.0.tar.xz"
   sha256 "945b57da7ec262e5c266b89e091d14be800cc424277d82a02872b7d794a84779"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "MIT"]
+  revision 1
 
   bottle do
     sha256 arm64_sequoia: "1940c1701f91ae5e7ef183e793b97be639d16e0f280d3732cecefb77bfd548f9"
@@ -31,13 +32,13 @@ class GobjectIntrospection < Formula
   uses_from_macos "libffi", since: :catalina
 
   resource "mako" do
-    url "https://files.pythonhosted.org/packages/62/4f/ddb1965901bc388958db9f0c991255b2c469349a741ae8c9cd8a562d70a6/mako-1.3.9.tar.gz"
-    sha256 "b5d65ff3462870feec922dbccf38f6efb44e5714d7b593a656be86663d8600ac"
+    url "https://files.pythonhosted.org/packages/9e/38/bd5b78a920a64d708fe6bc8e0a2c075e1389d53bef8413725c63ba041535/mako-1.3.10.tar.gz"
+    sha256 "99579a6f39583fa7e5630a28c3c1f440e4e97a414b80372649c0ce338da2ea28"
   end
 
   resource "markdown" do
-    url "https://files.pythonhosted.org/packages/54/28/3af612670f82f4c056911fbbbb42760255801b3068c48de792d354ff4472/markdown-3.7.tar.gz"
-    sha256 "2ae2471477cfd02dbbf038d5d9bc226d40def84b4fe2986e49b59b6b472bbed2"
+    url "https://files.pythonhosted.org/packages/2f/15/222b423b0b88689c266d9eac4e61396fe2cc53464459d6a37618ac863b24/markdown-3.8.tar.gz"
+    sha256 "7df81e63f0df5c4b24b7d156eb81e4690595239b7d70937d0409f1b0de319c6f"
   end
 
   resource "markupsafe" do
@@ -46,8 +47,8 @@ class GobjectIntrospection < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/32/d2/7b171caf085ba0d40d8391f54e1c75a1cda9255f542becf84575cfd8a732/setuptools-76.0.0.tar.gz"
-    sha256 "43b4ee60e10b0d0ee98ad11918e114c70701bc6051662a9a675a0496c1a158f4"
+    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
+    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
   end
 
   # Fix library search path on non-/usr/local installs (e.g. Apple Silicon)
