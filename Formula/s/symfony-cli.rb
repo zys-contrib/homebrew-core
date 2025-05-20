@@ -18,11 +18,14 @@ class SymfonyCli < Formula
   depends_on "composer" => :test
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}", output: bin/"symfony")
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version} -X main.channel=stable", output: bin/"symfony")
   end
 
   test do
     system bin/"symfony", "new", "--no-git", testpath/"my_project"
     assert_path_exists testpath/"my_project/symfony.lock"
+    output = shell_output("#{bin}/symfony -V")
+    assert_match version.to_s, output
+    assert_match "stable", output
   end
 end
