@@ -9,14 +9,13 @@ class Coconut < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "25a6f46e119a250f8d10b8dd2df6a214823c1068b28fb5c332867e7b8ab8d2fd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d6b8cf2ffa687f0c101bdc413edf820eb96c6642b31f94fba3142499e0f507e2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "19088d74ca2b35b02d63aec0edd71d0e38c6ec3054879b542f029f65f25a22e2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "edeff6b15686362384e4fa5334bca7d95393e27e47f9ca5a1401d4f6d1e596b8"
-    sha256 cellar: :any_skip_relocation, ventura:       "5ea59853688e12fa9585572ecbfed6d46633eb9ac63aae0b4a22f7cef6babe0c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0143d784e8e81c960cb5cf4b7aa2ecc52ae8e0fe539c1fabeb6224df88d43112"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54bd43552fdf9f556039fdba27670f50e5fd699df7b967ff9648c05b3bd26059"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aca72ab34ede7dbd58511c74d31dcebe2b90c7948d65a2ce92401e1698bd3e32"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3bb036eec407591dbd4d31cdc97c01f696460ad656dcc5d0a21eb63848c551ee"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c486d46e3415d8c0f5064f71687f0664ad5dfe149a5ec130e459e02582b892fd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "35c3781561619654eeaf06241ab7b28e448cb3c6b8a7207757b8a00bef0428a1"
+    sha256 cellar: :any_skip_relocation, ventura:       "f2c4749a3c72981112af8c425aba75e6e249c865deb2bfcfbd38117405cfd490"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1e4fd56117be54c41ce2ab71455b742018dd7a75a615f1c0098531738aeaa4d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe45beaba4b1485125f179ada7eb31ced16be05bed6fe7d515f4eb982f04e6cb"
   end
 
   depends_on "python@3.13"
