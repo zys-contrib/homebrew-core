@@ -511,6 +511,7 @@ cheat
 check-jsonschema
 checkbashisms
 checkmake
+checkdmarc
 checkov
 checkstyle
 cherrytree
