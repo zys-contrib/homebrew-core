@@ -23,6 +23,7 @@ class Xdotool < Formula
 
   depends_on "pkgconf" => :build
   depends_on "libx11"
+  depends_on "libxi"
   depends_on "libxinerama"
   depends_on "libxkbcommon"
   depends_on "libxtst"
