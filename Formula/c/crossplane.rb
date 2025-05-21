@@ -1,8 +1,8 @@
 class Crossplane < Formula
   desc "Build control planes without needing to write code"
   homepage "https://github.com/crossplane/crossplane"
-  url "https://github.com/crossplane/crossplane/archive/refs/tags/v1.19.1.tar.gz"
-  sha256 "254d93eccab65904c8f4572ef7878c95d96a0cd7cc509d0050396960e7b4b89f"
+  url "https://github.com/crossplane/crossplane/archive/refs/tags/v1.20.0.tar.gz"
+  sha256 "19bc2126a636ba9e67b70de951f69854c85e13333ce01329bd8356a2696792c5"
   license "Apache-2.0"
   head "https://github.com/crossplane/crossplane.git", branch: "main"
 
