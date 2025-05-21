@@ -1,8 +1,8 @@
 class PysideAT2 < Formula
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
-  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.16-src/pyside-setup-opensource-src-5.15.16.tar.xz"
-  sha256 "6d3ed6fd17275ea74829ab56df9c2e7641bfca6b5b201cf244998fa81cf07360"
+  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.17-src/pyside-setup-opensource-src-5.15.17.tar.xz"
+  sha256 "84a4b328f6a60235b8717ad522b88a7b600059260c57a2189ed005109f24c527"
   # NOTE: We omit some licenses:
   # 1. LICENSE.COMMERCIAL is removed from "OR" options as non-free
   # 2. GFDL-1.3-only is only used by not installed docs, e.g. sources/{pyside2,shiboken2}/doc
