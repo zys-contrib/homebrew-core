@@ -433,6 +433,7 @@ cargo-outdated
 cargo-public-api
 cargo-release
 cargo-run-bin
+cargo-shear
 cargo-shuttle
 cargo-sort
 cargo-spellcheck
