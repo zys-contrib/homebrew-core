@@ -1,8 +1,8 @@
 class Kind < Formula
   desc "Run local Kubernetes cluster in Docker"
   homepage "https://kind.sigs.k8s.io/"
-  url "https://github.com/kubernetes-sigs/kind/archive/refs/tags/v0.28.0.tar.gz"
-  sha256 "14779aecccaa159a9221ffdc9fe92ac347553952a260c72671bd128a4419ab16"
+  url "https://github.com/kubernetes-sigs/kind/archive/refs/tags/v0.29.0.tar.gz"
+  sha256 "32fcd55671f241b7a782400e1bf1c762f9729526850e7eda08f56451f12268ea"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/kind.git", branch: "main"
 
