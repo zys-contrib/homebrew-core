@@ -1,8 +1,8 @@
 class Ktfmt < Formula
   desc "Kotlin code formatter"
   homepage "https://facebook.github.io/ktfmt/"
-  url "https://github.com/facebook/ktfmt/archive/refs/tags/v0.54.tar.gz"
-  sha256 "604e7bd519856c3e2a8b44accf6ed9fd4c4b86ae7f7dd0a9b598d483dce18206"
+  url "https://github.com/facebook/ktfmt/archive/refs/tags/v0.55.tar.gz"
+  sha256 "edcb30aea63af6b0665bced302b47ac70a9fdae639c626827bc85fddbc69ae39"
   license "Apache-2.0"
 
   bottle do
@@ -15,14 +15,15 @@ class Ktfmt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "24e562f6d2d1c82a7cbd980cbd70506a60f7d873b23e03e120ac861aa8fac226"
   end
 
-  depends_on "maven" => :build
-  depends_on "openjdk"
+  depends_on "gradle" => :build
+  depends_on "openjdk@17"
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
-    system "mvn", "clean", "package", "-DskipTests=true", "-Dmaven.javadoc.skip=true"
-    libexec.install "core/target/ktfmt-#{version}-jar-with-dependencies.jar"
-    bin.write_jar_script libexec/"ktfmt-#{version}-jar-with-dependencies.jar", "ktfmt"
+    ENV["JAVA_HOME"] = Formula["openjdk@17"].opt_prefix
+
+    system "gradle", "shadowJar", "--no-daemon"
+    libexec.install "core/build/libs/ktfmt-#{version}-with-dependencies.jar"
+    bin.write_jar_script libexec/"ktfmt-#{version}-with-dependencies.jar", "ktfmt", java_version: "17"
   end
 
   test do
