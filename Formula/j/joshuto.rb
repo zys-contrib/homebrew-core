@@ -1,19 +1,10 @@
 class Joshuto < Formula
   desc "Ranger-like terminal file manager written in Rust"
   homepage "https://github.com/kamiyaa/joshuto"
+  url "https://github.com/kamiyaa/joshuto/archive/refs/tags/v0.9.9.tar.gz"
+  sha256 "85a230183f7478dee7c29229d78313ee07b759e596e19292acf024d2e5735efa"
   license "LGPL-3.0-or-later"
   head "https://github.com/kamiyaa/joshuto.git", branch: "main"
-
-  stable do
-    url "https://github.com/kamiyaa/joshuto/archive/refs/tags/v0.9.8.tar.gz"
-    sha256 "877d841b2e26d26d0f0f2e6f1dab3ea2fdda38c345abcd25085a3f659c24e013"
-
-    # rust 1.80 build patch
-    patch do
-      url "https://github.com/kamiyaa/joshuto/commit/1245124fcd264e25becfd75258840708d7b8b4bb.patch?full_index=1"
-      sha256 "089a7b5ab92aafa6ed9472328c0ad4401db415cc1b08e102c0751430f0f61465"
-    end
-  end
 
   bottle do
     rebuild 2
