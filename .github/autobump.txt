@@ -1702,6 +1702,7 @@ joker
 jolie
 joplin-cli
 jose
+joshuto
 jove
 jp2a
 jpeg-turbo
