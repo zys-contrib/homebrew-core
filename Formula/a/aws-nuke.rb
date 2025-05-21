@@ -1,8 +1,8 @@
 class AwsNuke < Formula
   desc "Nuke a whole AWS account and delete all its resources"
   homepage "https://github.com/ekristen/aws-nuke"
-  url "https://github.com/ekristen/aws-nuke/archive/refs/tags/v3.54.0.tar.gz"
-  sha256 "c47178ca467934bec1dd86a931aa0f8b88898678a14e717368be87c048800b8c"
+  url "https://github.com/ekristen/aws-nuke/archive/refs/tags/v3.54.1.tar.gz"
+  sha256 "dcfacc119e072ebf89056921c3855b65eafbe55083ebdff14fe641656fbf9180"
   license "MIT"
   head "https://github.com/ekristen/aws-nuke.git", branch: "main"
 
