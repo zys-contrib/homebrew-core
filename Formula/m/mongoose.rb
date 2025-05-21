@@ -1,8 +1,8 @@
 class Mongoose < Formula
   desc "Web server build on top of Libmongoose embedded library"
   homepage "https://mongoose.ws/"
-  url "https://github.com/cesanta/mongoose/archive/refs/tags/7.17.tar.gz"
-  sha256 "b6a6f69912c2cd0c67f85633c6b578d4dcdf385c3628acdcd21de28787c676e5"
+  url "https://github.com/cesanta/mongoose/archive/refs/tags/7.18.tar.gz"
+  sha256 "8b661e8aceb00528fc21993afe218b1da0f0154575a61b63ce0791ad8b66b112"
   license "GPL-2.0-only"
 
   bottle do
@@ -32,7 +32,7 @@ class Mongoose < Formula
     end
     lib.install shared_library("libmongoose")
     include.install "mongoose.h"
-    pkgshare.install "examples"
+    pkgshare.install "tutorials"
     doc.install Dir["docs/*"]
   end
 
