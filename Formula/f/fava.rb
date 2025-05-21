@@ -3,10 +3,9 @@ class Fava < Formula
 
   desc "Web interface for the double-entry bookkeeping software Beancount"
   homepage "https://beancount.github.io/fava/"
-  url "https://files.pythonhosted.org/packages/3e/12/776037b8eda9122e861055ac64af15b38ca0bbb46c242bf6792f90820a0f/fava-1.30.2.tar.gz"
-  sha256 "aecd71ffbb2e5ec2b17bcde27abfbebe507b34b89f1aaab55c2a5ea57b800a84"
+  url "https://files.pythonhosted.org/packages/08/b5/e81c3255851e9425198c5038d71604a3a32fa78e768f45a7506932b740f5/fava-1.30.3.tar.gz"
+  sha256 "ab0827ad2ffe628459614d260d5aea1374c4b830bbdd1e398afb3db799e5f88c"
   license "MIT"
-  revision 1
   head "https://github.com/beancount/fava.git", branch: "main"
 
   bottle do
@@ -80,8 +79,8 @@ class Fava < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/cd/0f/62ca20172d4f87d93cf89665fbaedcd560ac48b465bd1d92bfc7ea6b0a41/click-8.2.0.tar.gz"
-    sha256 "f5452aeddd9988eefa20f90f05ab66f17fce1ee2a36907fd30b05bbb5953814d"
+    url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
+    sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
   end
 
   resource "flask" do
