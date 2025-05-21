@@ -1,8 +1,8 @@
 class Ipfs < Formula
   desc "Peer-to-peer hypermedia protocol"
   homepage "https://docs.ipfs.tech/how-to/command-line-quick-start/"
-  url "https://github.com/ipfs/kubo/archive/refs/tags/v0.34.1.tar.gz"
-  sha256 "297b1c85940b5894831b85ffae3acfd81ee7c4495bec5166ca1250080c44ee7a"
+  url "https://github.com/ipfs/kubo/archive/refs/tags/v0.35.0.tar.gz"
+  sha256 "973ff52e34903174c886494af755a393a456b13379883796ea268e9485fa9324"
   license all_of: [
     "MIT",
     any_of: ["MIT", "Apache-2.0"],
