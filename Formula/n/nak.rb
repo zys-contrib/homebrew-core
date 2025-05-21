@@ -7,12 +7,12 @@ class Nak < Formula
   head "https://github.com/fiatjaf/nak.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5cacf6f0b6f40719a2c144fe6fa654cd9c822e7ec5ccc21eebf49a3b81a4716c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5cacf6f0b6f40719a2c144fe6fa654cd9c822e7ec5ccc21eebf49a3b81a4716c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5cacf6f0b6f40719a2c144fe6fa654cd9c822e7ec5ccc21eebf49a3b81a4716c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cb1df2c9bc9ceee0ac90c31b5aaffd4cb9ec6a614475b6f0615141ae4c02a949"
-    sha256 cellar: :any_skip_relocation, ventura:       "cb1df2c9bc9ceee0ac90c31b5aaffd4cb9ec6a614475b6f0615141ae4c02a949"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08bd417d012989c03343b52af9e121e5a75dd8810f7f7f84c4cb6777923fed54"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9710ce1bc50252a59a8ee8f696078c8ae3bba90de19ef892ebf37e6eedc0702"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b9710ce1bc50252a59a8ee8f696078c8ae3bba90de19ef892ebf37e6eedc0702"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b9710ce1bc50252a59a8ee8f696078c8ae3bba90de19ef892ebf37e6eedc0702"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a62841b9e983ddf9c23cba72c8da9a23cf50efb15b6075ccff599b5f9eaaf7a0"
+    sha256 cellar: :any_skip_relocation, ventura:       "a62841b9e983ddf9c23cba72c8da9a23cf50efb15b6075ccff599b5f9eaaf7a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c810fe36a9cf19cd0fde659d652bf238402903d493fe312c0b599b76f083626"
   end
 
   depends_on "go" => :build
