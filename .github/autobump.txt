@@ -1053,6 +1053,7 @@ fatal
 faudio
 fauna-shell
 faust
+fava
 favirecon
 fb303
 fblog
