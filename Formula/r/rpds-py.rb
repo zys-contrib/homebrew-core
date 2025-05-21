@@ -8,13 +8,13 @@ class RpdsPy < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "bf2e7fe41dc568ae43cd22cd19a324807f8ce7918ce6ff0cfaa0654653a48ba6"
-    sha256 cellar: :any,                 arm64_sonoma:  "250de2d26549d0f07bafe0b9c22efcae1aace5e655147576f12e20666b4f3d2d"
-    sha256 cellar: :any,                 arm64_ventura: "2b856f712a46755ea73b20242da87bf0649bf6400888239d399c73ada69c8064"
-    sha256 cellar: :any,                 sonoma:        "1ec7938b506d48b42b31a9344a8bca3fdcc2b6a98fef68462697c38b9f8f089d"
-    sha256 cellar: :any,                 ventura:       "1fafa494d6590399b88428153993f3c6105387103be546ea90724e89fac53078"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ad664c871c65d9d5782cc746f6b1b7ec0533b8ad2899dcee095e55766e0c105e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fdab7eea61662af87f54d0e5cab7374bdffabf7b849c5dfb5c4e957aa4ec14d2"
+    sha256 cellar: :any,                 arm64_sequoia: "861d730b8272341a70880c589bd68bc6dbae3a281bc4733b9c61c0a26e3d1445"
+    sha256 cellar: :any,                 arm64_sonoma:  "236798bd2bb430633396f72d81861a4195ae9bbb61f8caaa1cc719e1b7ea58b8"
+    sha256 cellar: :any,                 arm64_ventura: "f11e2eddb045ea64ed825be18ccf3dd5ea1ea722271526be719ba850375db349"
+    sha256 cellar: :any,                 sonoma:        "101cfa99276d97abcf8c9271cc5288c68753f08f0845c355eb62862fbf0bf48f"
+    sha256 cellar: :any,                 ventura:       "c47efc703935b0802434b0cb7195a2e831fd484c90411cfb8fd4c0b302407dcf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d97dc7e126e9fe57ae7c7b4fc0710c0b6e0aa2f7e42bc1aefec132dec2e1bed9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac767aa702f065dc74258d02f39ae3b47ea7a30ab1ae5b94c4b99ed15750128e"
   end
 
   depends_on "maturin" => :build
