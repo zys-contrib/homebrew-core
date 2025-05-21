@@ -3,8 +3,8 @@ class SnowflakeCli < Formula
 
   desc "CLI for snowflake"
   homepage "https://docs.snowflake.com/developer-guide/snowflake-cli/index"
-  url "https://files.pythonhosted.org/packages/df/67/be32d5966d844a0c678b281635c24e74686193e1885982a713c041f8d1e8/snowflake_cli-3.8.1.tar.gz"
-  sha256 "ee386e21de3d2b77839e77b1b4e74802a5214597185d25d22ee0f6ffb0d3bc50"
+  url "https://files.pythonhosted.org/packages/32/32/d7aa7fc9ef3544c8e4c54e50a462b98d72f4d71c79bc99431d712dccf06d/snowflake_cli-3.8.2.tar.gz"
+  sha256 "a682e06372614db4eb492ad79ca32e018cdc0bf21a9ab6df9c1a83f4bc9f4015"
   license "Apache-2.0"
 
   bottle do
@@ -36,13 +36,13 @@ class SnowflakeCli < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/29/3a/eec45ce28d36913074547a06198c4f9f3855062ca18ab266e9e6a27b47c9/boto3-1.38.19.tar.gz"
-    sha256 "fdd69f23e6216a508bbc1fbda9486791c161f3ecd5933ac7090d7290f6f2d0f5"
+    url "https://files.pythonhosted.org/packages/b8/38/27f7e3944daa6c8f4422e412ebf7073cbe9e59e14e7f3219a89b6c752837/boto3-1.38.20.tar.gz"
+    sha256 "aa1424213678a249fe828fb9345deac5e33f9a2266fd1b23ec72e02857b018a2"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/7f/78/c1b2fa6a267018062a66470e6e779366b4e64ab1178de8870ccc3a393cac/botocore-1.38.19.tar.gz"
-    sha256 "796b948c05017eb33385b798990cd91ed4af0e881eb9eb1ee6e17666be02abc9"
+    url "https://files.pythonhosted.org/packages/87/c6/61fa4699aa7f6230cf018d110849388904493b4e179050b6f0fc20a0f353/botocore-1.38.20.tar.gz"
+    sha256 "03a5027a207fc66cd0bf8cd1abb98db41fd4d23e6bd5f43f68586af9736240fc"
   end
 
   resource "charset-normalizer" do
@@ -261,8 +261,8 @@ class SnowflakeCli < Formula
   end
 
   resource "types-setuptools" do
-    url "https://files.pythonhosted.org/packages/38/b1/a52ff157d80464beabb2f0e86881eca28fbc2d519f67ad2f274ef2fe9724/types_setuptools-80.7.0.20250516.tar.gz"
-    sha256 "57274b58e05434de42088a86074c9e630e5786f759cf9cc1e3015e886297ca21"
+    url "https://files.pythonhosted.org/packages/e6/2e/947172e12515ff815979b78377b47c3c434df7097e02241f4c80b960d1a4/types_setuptools-80.8.0.20250521.tar.gz"
+    sha256 "7360b33b1ed3cda6e5a1f379701a61ec9dbee6e59e8bda072b88226157d8da80"
   end
 
   resource "typing-extensions" do
