@@ -4,6 +4,7 @@ class Orbuculum < Formula
   url "https://github.com/orbcode/orbuculum/archive/refs/tags/V2.2.0.tar.gz"
   sha256 "6614fba7044aa62e486b29ff4a81d0408d6e88499249bf2b839ccadfc54eec83"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
