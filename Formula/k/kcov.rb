@@ -4,6 +4,7 @@ class Kcov < Formula
   url "https://github.com/SimonKagstrom/kcov/archive/refs/tags/v43.tar.gz"
   sha256 "4cbba86af11f72de0c7514e09d59c7927ed25df7cebdad087f6d3623213b95bf"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/SimonKagstrom/kcov.git", branch: "master"
 
   # We check the Git tags because, as of writing, the "latest" release on GitHub
@@ -40,6 +41,10 @@ class Kcov < Formula
   end
 
   def install
+    # Fix to find libdwarf header files
+    # Issue ref: https://github.com/SimonKagstrom/kcov/issues/475
+    inreplace "cmake/FindDwarfutils.cmake", "libdwarf-0", "libdwarf-#{Formula["dwarfutils"].version.major}"
+
     system "cmake", "-S", ".", "-B", "build", "-DSPECIFY_RPATH=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
