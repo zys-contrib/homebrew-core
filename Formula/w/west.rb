@@ -3,10 +3,9 @@ class West < Formula
 
   desc "Zephyr meta-tool"
   homepage "https://github.com/zephyrproject-rtos/west"
-  url "https://files.pythonhosted.org/packages/d1/aa/288fc09dee13631538ad040d1b8e09f78594cdf3b53ff869c283d245bf20/west-1.3.0.tar.gz"
-  sha256 "89320034be87099d16e75f4760ac0d1ed67e8978928e468ab993e3fba0cfe92f"
+  url "https://files.pythonhosted.org/packages/ac/d0/4fc4d6ded3cca8736a982a33a39d2fad7a6170624323e8f7afdabd27e329/west-1.4.0.tar.gz"
+  sha256 "908a07ae7cc334a88cb2f069b430484dfdfdda0c3422d14b9e23a43030cf9cc6"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/zephyrproject-rtos/west.git", branch: "main"
 
   bottle do
@@ -55,11 +54,6 @@ class West < Formula
   resource "ruamel-yaml" do
     url "https://files.pythonhosted.org/packages/ea/46/f44d8be06b85bc7c4d8c95d658be2b68f27711f279bf9dd0612a5e4794f5/ruamel.yaml-0.18.10.tar.gz"
     sha256 "20c86ab29ac2153f80a428e1254a8adf686d3383df04490514ca3b79a362db58"
-  end
-
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
-    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
   end
 
   resource "six" do
