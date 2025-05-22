@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/c0/d7/a5a8e88a5fa7f420ccd79819159c06db90208305e6c0df58088542ddf0a4/snakemake-9.4.1.tar.gz"
-  sha256 "5f31a7ff4334fc6547534f1aae2a08cd450b0b7c410db979439b748f3d5d6b08"
+  url "https://files.pythonhosted.org/packages/c5/3f/f0a99f837d942945530b0df32163b4111545382f2fb1a8c33afd7ff5b9a5/snakemake-9.5.0.tar.gz"
+  sha256 "56fa26510087290172bb6780dac0cf860875a215d2707890b7e8aba679514d09"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -175,8 +175,8 @@ class Snakemake < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/96/d2/7bed8453e53f6c9dea7ff4c19ee980fd87be607b2caf023d62c6579e6c30/rpds_py-0.25.0.tar.gz"
-    sha256 "4d97661bf5848dd9e5eb7ded480deccf9d32ce2cd500b88a26acbf7bd2864985"
+    url "https://files.pythonhosted.org/packages/8c/a6/60184b7fc00dd3ca80ac635dd5b8577d444c57e8e8742cecabfacb829921/rpds_py-0.25.1.tar.gz"
+    sha256 "8960b6dac09b62dac26e75d7e2c4a22efb835d827a7278c34f72b2b84fa160e3"
   end
 
   resource "smart-open" do
