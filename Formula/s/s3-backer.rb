@@ -2,8 +2,8 @@ class S3Backer < Formula
   desc "FUSE-based single file backing store via Amazon S3"
   homepage "https://github.com/archiecobbs/s3backer"
   # Release distributions listed at https://github.com/archiecobbs/s3backer/wiki/Downloads
-  url "https://s3.amazonaws.com/archie-public/s3backer/s3backer-2.1.4.tar.gz"
-  sha256 "0451471209cc872708e91b2784a4a1b9f3ca44c89a7bffb8f6145aed28c941e7"
+  url "https://s3.amazonaws.com/archie-public/s3backer/s3backer-2.1.5.tar.gz"
+  sha256 "d834eef512fa99cedd7920586cae03729693613f67d380c1ac980564eed76c8e"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -14,7 +14,7 @@ class S3Backer < Formula
   depends_on "pkgconf" => :build
   depends_on "curl"
   depends_on "expat"
-  depends_on "libfuse@2"
+  depends_on "libfuse"
   depends_on :linux # on macOS, requires closed-source macFUSE
   depends_on "openssl@3"
   depends_on "zlib"
