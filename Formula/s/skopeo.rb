@@ -1,8 +1,8 @@
 class Skopeo < Formula
   desc "Work with remote images registries"
   homepage "https://github.com/containers/skopeo"
-  url "https://github.com/containers/skopeo/archive/refs/tags/v1.18.0.tar.gz"
-  sha256 "8a711db2bba3a357bebbbaf607ec731df6ea24c2d3cd9e0fef5e8fe9cefb154b"
+  url "https://github.com/containers/skopeo/archive/refs/tags/v1.19.0.tar.gz"
+  sha256 "043e9f568440accf1aafca122a25c4d21441f16de49475192ec4abeef7430358"
   license "Apache-2.0"
 
   bottle do
@@ -30,7 +30,6 @@ class Skopeo < Formula
 
     tags = [
       "containers_image_ostree_stub",
-      Utils.safe_popen_read("hack/btrfs_tag.sh").chomp,
       Utils.safe_popen_read("hack/btrfs_installed_tag.sh").chomp,
       Utils.safe_popen_read("hack/libsubid_tag.sh").chomp,
     ].uniq
