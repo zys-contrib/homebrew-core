@@ -22,6 +22,7 @@ class Asdf < Formula
   end
 
   depends_on "go" => :build
+  depends_on "git"
 
   def install
     # fix https://github.com/asdf-vm/asdf/issues/1992
