@@ -6,11 +6,11 @@ class Libgr < Formula
   license "MIT"
 
   bottle do
-    sha256 arm64_sonoma:  "25d75e0c573e987d0035a222f568cecc3f73fce26cf4640a26b8962bba2f8285"
-    sha256 arm64_ventura: "c0b9b2054536961ef7fefccec928e621606cade0cf47227e38f04347a7c64200"
-    sha256 sonoma:        "c38bf438c727c03e4fa72ca074954f1055ae5af3584a353bc34090e711db89bd"
-    sha256 ventura:       "2976d95df169970922aaa0e1f915e2cc6aaf394f97224b2f2600ea325f89c87c"
-    sha256 x86_64_linux:  "251dbe2c16cb42b6ee3c2ad8f03df31e5b0c993176e7efc2bb1f8c0269d09717"
+    sha256 arm64_sonoma:  "78ef4c2f85700a0055b133da7be7b0204137577c98ad2da304ccf60f0f6813f3"
+    sha256 arm64_ventura: "d47d6eff87e5aa504546c5612c79f0b6a2829cbe6ccb61f18cde7f143a5fb415"
+    sha256 sonoma:        "35697aafce1f55e52c564092901cd6d29e278e65267f009d02d5ce38ec99d423"
+    sha256 ventura:       "7aa0b7f1aa20a9b7dce302339aa27eb8101f350b7aefb61ae7d36c8c98aeff7c"
+    sha256 x86_64_linux:  "a0d2ea23a2e2041d57525c8bce1f1566b32945b2c8f147a12394f5e02f15cee1"
   end
 
   depends_on "cmake" => :build
