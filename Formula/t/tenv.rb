@@ -26,6 +26,7 @@ class Tenv < Formula
   conflicts_with "opentofu", "tofuenv", because: "both install tofu binary"
   conflicts_with "terraform", because: "both install terraform binary"
   conflicts_with "terragrunt", because: "both install terragrunt binary"
+  conflicts_with "terramate", because: "both install terramate binary"
   conflicts_with "atmos", because: "both install atmos binary"
   conflicts_with "tfenv", because: "tfenv symlinks terraform binaries"
   conflicts_with "tgenv", because: "tgenv symlinks terragrunt binaries"
