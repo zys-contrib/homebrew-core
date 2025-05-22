@@ -4,7 +4,7 @@ class Agda < Formula
   # agda2hs.cabal specifies BSD-3-Clause but it installs an MIT LICENSE file.
   # Everything else specifies MIT license and installs corresponding file.
   license all_of: ["MIT", "BSD-3-Clause"]
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/agda/agda/archive/refs/tags/v2.7.0.1.tar.gz"
@@ -22,14 +22,8 @@ class Agda < Formula
     end
 
     resource "cubical" do
-      url "https://github.com/agda/cubical/archive/refs/tags/v0.7.tar.gz"
-      sha256 "25a0d1a0a01ba81888a74dfe864883547dbc1b06fa89ac842db13796b7389641"
-
-      # Bump Agda compat
-      patch do
-        url "https://github.com/agda/cubical/commit/6220641fc7c297a84c5e2c49614fae518cf6307d.patch?full_index=1"
-        sha256 "c6919e394ac9dc6efa016fa6b4e9163ce58142d48f7100b6bc354678fc982986"
-      end
+      url "https://github.com/agda/cubical/archive/refs/tags/v0.8.tar.gz"
+      sha256 "27b22f2ed981d608f3cbf5d132e9016510c859435b5ce46adc3b76078c136275"
     end
 
     resource "categories" do
@@ -140,7 +134,9 @@ class Agda < Formula
     # so generated interface files work on basic use case. Options like -Werror
     # will need re-generation: https://github.com/agda/agda/issues/5151
     system "make", "-C", agdalib, "listings", "AGDA_OPTIONS="
-    system "make", "-C", cubicallib, "gen-everythings", "listings", "AGDA_FLAGS="
+    # We need to force order between these next two lines, so they can't be combined.
+    system "make", "-C", cubicallib, "gen-everythings", "AGDA_FLAGS="
+    system "make", "-C", cubicallib, "listings", "AGDA_FLAGS="
     system "make", "-C", categorieslib, "html", "OTHEROPTS="
 
     # Clean up references to Homebrew shims and temporary generated files
