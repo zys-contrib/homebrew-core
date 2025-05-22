@@ -1,9 +1,9 @@
 class ApachePulsar < Formula
   desc "Cloud-native distributed messaging and streaming platform"
   homepage "https://pulsar.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=pulsar/pulsar-4.0.4/apache-pulsar-4.0.4-src.tar.gz"
-  mirror "https://archive.apache.org/dist/pulsar/pulsar-4.0.4/apache-pulsar-4.0.4-src.tar.gz"
-  sha256 "9afe7736d3678d2e22bb44b46b1a47ee5e880bb7025f3e84f2df3d448688e15d"
+  url "https://www.apache.org/dyn/closer.lua?path=pulsar/pulsar-4.0.5/apache-pulsar-4.0.5-src.tar.gz"
+  mirror "https://archive.apache.org/dist/pulsar/pulsar-4.0.5/apache-pulsar-4.0.5-src.tar.gz"
+  sha256 "1b4b1c955c30e6402e779d09848fd7efba48336ba7dc0bf9776ef755eec1cfd0"
   license "Apache-2.0"
   head "https://github.com/apache/pulsar.git", branch: "master"
 
