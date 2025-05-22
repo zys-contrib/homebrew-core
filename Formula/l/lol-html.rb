@@ -1,8 +1,8 @@
 class LolHtml < Formula
   desc "Low output latency streaming HTML parser/rewriter with CSS selector-based API"
   homepage "https://github.com/cloudflare/lol-html"
-  url "https://github.com/cloudflare/lol-html/archive/refs/tags/v2.3.0.tar.gz"
-  sha256 "b36ad8ccafce9da350f4d9c32bb31bf46dddae0798d4ad6213cabd7e166e159e"
+  url "https://github.com/cloudflare/lol-html/archive/refs/tags/v2.4.0.tar.gz"
+  sha256 "0fe9df689654735f1f4e1e6dd31aecbdb0e52f52784d082c9471a357144202e8"
   license "BSD-3-Clause"
   head "https://github.com/cloudflare/lol-html.git", branch: "master"
 
@@ -19,9 +19,6 @@ class LolHtml < Formula
   depends_on "cargo-c" => :build
   depends_on "rust" => :build
   depends_on "pkgconf" => :test
-
-  # update cargo.lock, upstream pr ref, https://github.com/cloudflare/lol-html/pull/266
-  patch :DATA
 
   def install
     system "cargo", "cinstall", "--jobs", ENV.make_jobs.to_s, "--release", "--locked",
@@ -49,27 +46,3 @@ class LolHtml < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/c-api/Cargo.lock b/c-api/Cargo.lock
-index 954418c..14d2c9c 100644
---- a/c-api/Cargo.lock
-+++ b/c-api/Cargo.lock
-@@ -176,7 +176,7 @@ checksum = "a7a70ba024b9dc04c27ea2f0c0548feb474ec5c54bba33a7f72f873a39d07b24"
- 
- [[package]]
- name = "lol_html"
--version = "2.2.0"
-+version = "2.3.0"
- dependencies = [
-  "bitflags 2.6.0",
-  "cfg-if",
-@@ -191,7 +191,7 @@ dependencies = [
- 
- [[package]]
- name = "lol_html_c_api"
--version = "1.1.2"
-+version = "1.3.0"
- dependencies = [
-  "encoding_rs",
-  "libc",
