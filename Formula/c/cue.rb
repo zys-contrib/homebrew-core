@@ -7,12 +7,12 @@ class Cue < Formula
   head "https://github.com/cue-lang/cue.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "579de2e923c0c7d7db17ec8e410a86186d3aca8930af2d99ae0690d6aa1884bf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "579de2e923c0c7d7db17ec8e410a86186d3aca8930af2d99ae0690d6aa1884bf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "579de2e923c0c7d7db17ec8e410a86186d3aca8930af2d99ae0690d6aa1884bf"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b79869217afdcd5dc25eb65dde44d021330105b285f0fe592195c845bba423e3"
-    sha256 cellar: :any_skip_relocation, ventura:       "b79869217afdcd5dc25eb65dde44d021330105b285f0fe592195c845bba423e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7f102fafb95b80f149b82a86f57fea7dc694f9369037cb5d09115aed545eba8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ca9b64555ac8c9f93d83ccc774115fbfbd0271fb20837f6db01518298d3c0ee3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ca9b64555ac8c9f93d83ccc774115fbfbd0271fb20837f6db01518298d3c0ee3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ca9b64555ac8c9f93d83ccc774115fbfbd0271fb20837f6db01518298d3c0ee3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4e53f7a8a0e6ca5c2db1e0939a7661d938a7b8f8d25151405b55729847b079fc"
+    sha256 cellar: :any_skip_relocation, ventura:       "4e53f7a8a0e6ca5c2db1e0939a7661d938a7b8f8d25151405b55729847b079fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0fa2cdbb299be876c54849082fc15caef7e340750bed44848753f06012e170a3"
   end
 
   depends_on "go" => :build
