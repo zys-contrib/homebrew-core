@@ -1,8 +1,8 @@
 class Superfile < Formula
   desc "Modern and pretty fancy file manager for the terminal"
   homepage "https://superfile.netlify.app/"
-  url "https://github.com/yorukot/superfile/archive/refs/tags/v1.2.1.tar.gz"
-  sha256 "371235eda1b4bf31e5ed23b4dd2e60de40cb09a86a061ba44dea9eff9d13c608"
+  url "https://github.com/yorukot/superfile/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "77fc02ce0ef406fd2e9b42e0746f2282a85b4a148316d274bef3dc6c933127a5"
   license "MIT"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -23,6 +23,13 @@ class Superfile < Formula
   end
 
   depends_on "go" => :build
+
+  # Fix to link: duplicated definition of symbol dlopen
+  # PR ref: https://github.com/yorukot/superfile/pull/837
+  patch do
+    url "https://github.com/yorukot/superfile/commit/50a4f662f3cea8ca1cad685a89f5dc2282da5d92.patch?full_index=1"
+    sha256 "959fb00c6b3491ac68ca21214139da9415f63f9a47ae44cc70ed9e3e3ce1adea"
+  end
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"spf")
