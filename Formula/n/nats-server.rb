@@ -12,12 +12,12 @@ class NatsServer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b3976757fcebb042cc22f8ee3c9204aed53b7980840768d022b3da4840691041"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b3976757fcebb042cc22f8ee3c9204aed53b7980840768d022b3da4840691041"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b3976757fcebb042cc22f8ee3c9204aed53b7980840768d022b3da4840691041"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f83052e32158f7684730217b10da5dc328e4967a6b7ac4b43abd46d15582d511"
-    sha256 cellar: :any_skip_relocation, ventura:       "f83052e32158f7684730217b10da5dc328e4967a6b7ac4b43abd46d15582d511"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b049f6bdd69e0bbc9c1e0270669c767e31e89c52c9e0f26dae39938f03503e0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eada66f55acb3ea421c4c518d9b0a68124486de7510605fd7098ee6f3aae6b6d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eada66f55acb3ea421c4c518d9b0a68124486de7510605fd7098ee6f3aae6b6d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "eada66f55acb3ea421c4c518d9b0a68124486de7510605fd7098ee6f3aae6b6d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f679c6447ab6103fda5decaae6aae1898516c8be20ec114d1c4973ff70c8685b"
+    sha256 cellar: :any_skip_relocation, ventura:       "f679c6447ab6103fda5decaae6aae1898516c8be20ec114d1c4973ff70c8685b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c486300d2c3d23037cb88b2394694a05e3db75bd47b9d6ec41cdf552e19fbc9f"
   end
 
   depends_on "go" => :build
