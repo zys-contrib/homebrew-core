@@ -12,12 +12,12 @@ class WireguardGo < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "20c2f87b999037bd44a18393bbe55def385c0149d88aef6fb42b0fcd18ec52bf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "20c2f87b999037bd44a18393bbe55def385c0149d88aef6fb42b0fcd18ec52bf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "20c2f87b999037bd44a18393bbe55def385c0149d88aef6fb42b0fcd18ec52bf"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4c64d6ba51816e5412f0b16d861bafbd2c19e0df4e1f7ad8664d2602d432f78e"
-    sha256 cellar: :any_skip_relocation, ventura:       "4c64d6ba51816e5412f0b16d861bafbd2c19e0df4e1f7ad8664d2602d432f78e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49b377d62c441fa03196469d4c2fe3d8e88a056c2687ebc4c7fdb95fe9638ff8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b1c19618a231e9ca6c62dd268de8ab8905256d96540a252f0cebf05548a3939c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b1c19618a231e9ca6c62dd268de8ab8905256d96540a252f0cebf05548a3939c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b1c19618a231e9ca6c62dd268de8ab8905256d96540a252f0cebf05548a3939c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "db6d403f493b281677d95e79448776275d37b728b966fe23f80f1079ecf35d61"
+    sha256 cellar: :any_skip_relocation, ventura:       "db6d403f493b281677d95e79448776275d37b728b966fe23f80f1079ecf35d61"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0fa36967d0cf07ae25e5af14c9b136de29cf5d53f6bfc4f58e66574d3a5aa61"
   end
 
   depends_on "go" => :build
