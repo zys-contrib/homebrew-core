@@ -4,6 +4,7 @@ class Mpv < Formula
   url "https://github.com/mpv-player/mpv/archive/refs/tags/v0.40.0.tar.gz"
   sha256 "10a0f4654f62140a6dd4d380dcf0bbdbdcf6e697556863dc499c296182f081a3"
   license :cannot_represent
+  revision 1
   head "https://github.com/mpv-player/mpv.git", branch: "master"
 
   bottle do
