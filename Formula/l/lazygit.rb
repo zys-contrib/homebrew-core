@@ -14,12 +14,12 @@ class Lazygit < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b070dcf7835e4b889cf570379e5b4287f9593d3e8a0f6b6ed5098f167349574a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b070dcf7835e4b889cf570379e5b4287f9593d3e8a0f6b6ed5098f167349574a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b070dcf7835e4b889cf570379e5b4287f9593d3e8a0f6b6ed5098f167349574a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "63bc6f8aebc85132c9ed24fab7e6f19ec0b95e9a7cbca1549837a12780f12cc5"
-    sha256 cellar: :any_skip_relocation, ventura:       "63bc6f8aebc85132c9ed24fab7e6f19ec0b95e9a7cbca1549837a12780f12cc5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee9c1a96bdd15717d8cadb43b9c32247dd0db77b6493257a3699eafdb4c57541"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e42a5e6d5da3df8e8b3a40d4fd2728f1e76a8d18b3b5ca9f2d3dc2e55c399c8f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e42a5e6d5da3df8e8b3a40d4fd2728f1e76a8d18b3b5ca9f2d3dc2e55c399c8f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e42a5e6d5da3df8e8b3a40d4fd2728f1e76a8d18b3b5ca9f2d3dc2e55c399c8f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "973f2879428d835eb3dc72daac7d5c7b41fcbfbfb178ef00ba62453b95f0517c"
+    sha256 cellar: :any_skip_relocation, ventura:       "973f2879428d835eb3dc72daac7d5c7b41fcbfbfb178ef00ba62453b95f0517c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c009000f1ff8e8433f19c87c3a033bd013012ecac287f14e3f923879fd9f973"
   end
 
   depends_on "go" => :build
