@@ -3,8 +3,8 @@ class Graphviz2drawio < Formula
 
   desc "Convert graphviz (dot) files into draw.io / lucid (mxGraph) format"
   homepage "https://github.com/hbmartin/graphviz2drawio/"
-  url "https://files.pythonhosted.org/packages/2d/c5/bb43966bc97368fc7eed9d8a79f0bc7eba8484cf6066f687720b616e957a/graphviz2drawio-1.0.0.tar.gz"
-  sha256 "5409f11cd080b28d77408817559b6481250b3053cec757ab933b92b3075606a5"
+  url "https://files.pythonhosted.org/packages/fb/e9/2ba4114579f8e708b6b5d671afe355c9b8cdd52b15a9d126ec188a2bcad6/graphviz2drawio-1.1.0.tar.gz"
+  sha256 "8758b9eefbac5d8c03a0358c0158845235c9c3caa99887f0f6026cfecc2895f2"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -22,8 +22,8 @@ class Graphviz2drawio < Formula
   depends_on "python@3.13"
 
   resource "puremagic" do
-    url "https://files.pythonhosted.org/packages/09/2d/40599f25667733e41bbc3d7e4c7c36d5e7860874aa5fe9c584e90b34954d/puremagic-1.28.tar.gz"
-    sha256 "195893fc129657f611b86b959aab337207d6df7f25372209269ed9e303c1a8c0"
+    url "https://files.pythonhosted.org/packages/d6/de/c9dbb741a2e0e657147c6125699e4a2a3b9003840fed62528e17c87c0989/puremagic-1.29.tar.gz"
+    sha256 "67c115db3f63d43b13433860917b11e2b767e5eaec696a491be2fb544f224f7a"
   end
 
   resource "pygraphviz" do
