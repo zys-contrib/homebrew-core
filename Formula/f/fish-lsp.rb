@@ -1,8 +1,8 @@
 class FishLsp < Formula
   desc "LSP implementation for the fish shell language"
   homepage "https://www.fish-lsp.dev"
-  url "https://registry.npmjs.org/fish-lsp/-/fish-lsp-1.0.8-4.tgz"
-  sha256 "5ab1efa4a3a28f97e934bf1dc7ba56347d6cbadd3817cbf3839e333108170597"
+  url "https://registry.npmjs.org/fish-lsp/-/fish-lsp-1.0.9-1.tgz"
+  sha256 "c28799ee8b7e3a17b7892aa3f9d80ebe638313b9bce772ac364faee3ced5d43a"
   license "MIT"
   head "https://github.com/ndonfris/fish-lsp.git", branch: "master"
 
@@ -22,6 +22,8 @@ class FishLsp < Formula
   def install
     ENV.append "CXXFLAGS", "-std=c++20"
 
+    # tree-sitter<0.22 fails with clang>=18 but is actually unused
+    system "npm", "uninstall", "tree-sitter", "--package-lock-only"
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
 
