@@ -53,13 +53,13 @@ class Agda < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "490a11d0bbcbd3f24f5f93b9bb3e3ddafd5eb12f146102947f694f7beef4f265"
-    sha256 arm64_sonoma:  "82eeeadbf9509eb0aa895ae08816a0e44360be3d37446bfb7d43e9314d81e9fc"
-    sha256 arm64_ventura: "36482626ec686b45ccbdd4b3687a9712b9e6536289aa9ca837800ef7c412a94f"
-    sha256 sonoma:        "4fc274813a4bd8253be86441068fe9d9839ec63f9b0e2054353363924c93afda"
-    sha256 ventura:       "a308ed26bc07c352ddc0dcaca281fe4071394dafe727634df199dbce741b9df9"
-    sha256 arm64_linux:   "71576e2ceb209a3c7ffeb5d81893b0cd6467ce31a1fa3f72fec9541701d5058b"
-    sha256 x86_64_linux:  "5f40483798d6b0f2bee203693b81ff5c500c1bd8ebf93386e0fb2ca6bee803d4"
+    sha256 arm64_sequoia: "6ccb91547fa1089a51f5509ae6adfcf32a9221dfcc6bc0a7c280c1b251311f2a"
+    sha256 arm64_sonoma:  "427d2fb8a22bc5929eadb1e855e02b24658b3cda05645dc03fc02ee10f1ecee4"
+    sha256 arm64_ventura: "9ab79232aae4d1781b046d4a620faade6047ab1a1512d55fe3fc01ee201951e4"
+    sha256 sonoma:        "7249da70860667e11c32532966eb455be22832e87efb318f753b2282f74fee50"
+    sha256 ventura:       "9ecfc864ab875692abf9f83092938261c5596f456fa86efafa296025c752f11c"
+    sha256 arm64_linux:   "d172a07287def95bfc0245f351a1ef52bc9b7f16b36dfcada31fddc77673c414"
+    sha256 x86_64_linux:  "0383a41e66f1487ea96b3d616d54e1fd9c6890be1aa4965be3365429b9d49ba0"
   end
 
   head do
