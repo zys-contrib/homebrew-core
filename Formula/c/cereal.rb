@@ -17,8 +17,7 @@ class Cereal < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "dd568ffbaa2689d64040eea49404b91b65a33657ea8a6567255fb738185c1199"
+    sha256 cellar: :any_skip_relocation, all: "dc981dc92c83e4642a9ae88b2f9c19df8eed192e09c458ff80d4ad7216c71f25"
   end
 
   depends_on "cmake" => :build
