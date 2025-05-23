@@ -11,6 +11,8 @@ class Lazygit < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :bumped_by_upstream
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b070dcf7835e4b889cf570379e5b4287f9593d3e8a0f6b6ed5098f167349574a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b070dcf7835e4b889cf570379e5b4287f9593d3e8a0f6b6ed5098f167349574a"
