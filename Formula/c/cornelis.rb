@@ -12,6 +12,7 @@ class Cornelis < Formula
     sha256 cellar: :any,                 arm64_ventura: "410c0032ecb66fb98642251a207bfad302f466c1334f317f02d641a3e353f9c8"
     sha256 cellar: :any,                 sonoma:        "568be9e2acb19617e368400204f1664ed5b2839e6c96bf6adad497dd602b9511"
     sha256 cellar: :any,                 ventura:       "218969d2f9bd9584c280135fd53704646386bcac869f77ffad1586c458095547"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5323616822e8de7e0390a4f8ad65399e27810da6f12587cffabae1896663b712"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9f0f3d6779acf8d5586343012554985bf180d316cdf9e58874e0a0b02913ec3"
   end
 
