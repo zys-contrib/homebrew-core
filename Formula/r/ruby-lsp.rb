@@ -7,13 +7,13 @@ class RubyLsp < Formula
   head "https://github.com/Shopify/ruby-lsp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d3b292f7e192cf21fb3eafa065f22b3de7d5f9ef5dbc3bc7a4f9f776f92a262b"
-    sha256 cellar: :any,                 arm64_sonoma:  "962eee0d596424d618663eac21555b9d8d1840b6d780dc76c5eaec4d171e2acd"
-    sha256 cellar: :any,                 arm64_ventura: "113df93f1d1e1fdeeae13d4837f3726ddb7651ed32635462532e9e2a4343355d"
-    sha256 cellar: :any,                 sonoma:        "78713a06856251b59c86574b409ad375c23240fd368581739525b37bf50473f2"
-    sha256 cellar: :any,                 ventura:       "81eea948d877b92326c8c40429ce3da76ac3528cd99a491db67532d5d6e22b9d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b92017656a5c2e93be00de97fc3a63dd8b07ff4648a059c9edf584ffbf8e47a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ac1946dbe5ddf9a816344c8bfb1478772338118540901b10531185e5e0f5d45"
+    sha256 cellar: :any,                 arm64_sequoia: "2fd0c2b73be8ed2bd5914eebe81475b738621349b32b74a80f3034ca2dd2bc3b"
+    sha256 cellar: :any,                 arm64_sonoma:  "5a6be1cb4edcef2a338e7c6dc96efad26fc9ae7c6ed4830976535475a9025ea5"
+    sha256 cellar: :any,                 arm64_ventura: "0aa242e225cc970d0883c1e145e58a556220d786e40f0f8af547ebd738114ae7"
+    sha256 cellar: :any,                 sonoma:        "5150dc500281c6444d6178eb918f538e4088719862d6d538ca3d7c73c79909e1"
+    sha256 cellar: :any,                 ventura:       "b714ce31cf1554d03404540a56ed6bc9ff43ed8a491380bbf72635c6cbe923bd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ff6f2121f144b532b833d2c43dd34eafe1b6998439a80814127fdbb6296bb03e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31238c86b18eefb542db05a433847ed93e5ec47bbe5c2a2974a54ccde0b48a7f"
   end
 
   depends_on "ruby"
