@@ -1,8 +1,8 @@
 class Kool < Formula
   desc "Web apps development with containers made easy"
   homepage "https://kool.dev"
-  url "https://github.com/kool-dev/kool/archive/refs/tags/3.5.0.tar.gz"
-  sha256 "dde59df46f342028a7dd5ad7454363f4fbf2c0340c48888cc0228d3363a52d71"
+  url "https://github.com/kool-dev/kool/archive/refs/tags/3.5.2.tar.gz"
+  sha256 "b6a49d48ae596eb05aea46fce052744cc8cf10f21753f9224ba339d29a04e1e8"
   license "MIT"
   head "https://github.com/kool-dev/kool.git", branch: "main"
 
