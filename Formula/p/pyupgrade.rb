@@ -3,8 +3,8 @@ class Pyupgrade < Formula
 
   desc "Upgrade syntax for newer versions of Python"
   homepage "https://github.com/asottile/pyupgrade"
-  url "https://files.pythonhosted.org/packages/35/3a/efa8e75cf84d53f1b3f0113387ab120ef460396a4068e41b6cf18a3d216d/pyupgrade-3.19.1.tar.gz"
-  sha256 "d10e8c5f54b8327211828769e98d95d95e4715de632a3414f1eef3f51357b9e2"
+  url "https://files.pythonhosted.org/packages/c0/75/3df66861bca41394f05c5b818943fd0535bc02d5c5c512f9d859dec921f3/pyupgrade-3.20.0.tar.gz"
+  sha256 "dd6a16c13fc1a7db45796008689a9a35420bd364d681430f640c5e54a3d351ea"
   license "MIT"
   head "https://github.com/asottile/pyupgrade.git", branch: "main"
 
