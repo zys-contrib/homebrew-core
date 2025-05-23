@@ -7,12 +7,12 @@ class Dockerfilegraph < Formula
   head "https://github.com/patrickhoefler/dockerfilegraph.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d2f06756c8b0633109ef6a7b53ae5ccabf5782ca6bd4635b69aad24d24ee2f84"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d2f06756c8b0633109ef6a7b53ae5ccabf5782ca6bd4635b69aad24d24ee2f84"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d2f06756c8b0633109ef6a7b53ae5ccabf5782ca6bd4635b69aad24d24ee2f84"
-    sha256 cellar: :any_skip_relocation, sonoma:        "06ff104186010a4abed01a1dd0901a917907bf422104daa628b2ba76507445a3"
-    sha256 cellar: :any_skip_relocation, ventura:       "06ff104186010a4abed01a1dd0901a917907bf422104daa628b2ba76507445a3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd7d7ec20c7bed42f090e8e5c8a95bee2bf8e8cde5c12f869f8839c709538f16"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3d0798d500cb4af3cb36efeb6b06a9ff5dd678e5a882743463ce7d5a75a35204"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3d0798d500cb4af3cb36efeb6b06a9ff5dd678e5a882743463ce7d5a75a35204"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3d0798d500cb4af3cb36efeb6b06a9ff5dd678e5a882743463ce7d5a75a35204"
+    sha256 cellar: :any_skip_relocation, sonoma:        "75f9716145a142a5c073dbe76e8fbf0c8dffd683c3dc65b5cc47ee89bdaa50fc"
+    sha256 cellar: :any_skip_relocation, ventura:       "75f9716145a142a5c073dbe76e8fbf0c8dffd683c3dc65b5cc47ee89bdaa50fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8daef23fb06b8555dce020ba348e386e2be81ce864ca28545065622c4764ae0"
   end
 
   depends_on "go" => :build
