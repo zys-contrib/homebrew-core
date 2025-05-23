@@ -11,6 +11,7 @@ class AwsLc < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4f373de0b10f182fd87ca4c462bf8d04d6a314f705f0c1be8bc22da214c9d091"
     sha256 cellar: :any_skip_relocation, sonoma:        "57f30b6dc0c3d315207a21aa6ec600a1ca9c4354a37f21fc105fcae454ee8f85"
     sha256 cellar: :any_skip_relocation, ventura:       "6288987d3f9df3ecdd3d91337c4368fd2c37485721345c11c180037010915539"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c5f8ee6dcd133db7e2c517c79044118ba19ca8ac7e31114f0cb6b8fb6bbc64b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf56421c33080a4388a596d1b548cc8b97289079056d49bf289b1d6a64530f66"
   end
 
