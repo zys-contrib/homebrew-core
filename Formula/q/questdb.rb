@@ -1,8 +1,8 @@
 class Questdb < Formula
   desc "Time Series Database"
   homepage "https://questdb.io"
-  url "https://github.com/questdb/questdb/releases/download/8.3.1/questdb-8.3.1-no-jre-bin.tar.gz"
-  sha256 "cba6ce74034444cfb6d64aafe6d9fa8915711179f7774295cf63fc6243b4ff43"
+  url "https://github.com/questdb/questdb/releases/download/8.3.2/questdb-8.3.2-no-jre-bin.tar.gz"
+  sha256 "e72695f9e85c6a65c855066fb5edbec94774168b1e476905ba1bf365bdd2658f"
   license "Apache-2.0"
 
   livecheck do
