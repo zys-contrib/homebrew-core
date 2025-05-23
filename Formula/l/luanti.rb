@@ -4,8 +4,8 @@ class Luanti < Formula
   license "LGPL-2.1-or-later"
 
   stable do
-    url "https://github.com/luanti-org/luanti/archive/refs/tags/5.11.0.tar.gz"
-    sha256 "70e531d0776988ce6e579ea5490fdf6be3e349a4ade5281f5111aa4fdd8ee510"
+    url "https://github.com/luanti-org/luanti/archive/refs/tags/5.12.0.tar.gz"
+    sha256 "876867ac874492f20968f2c2eb4e403231e8e9f29e0e06efa512200bd5152355"
 
     resource "minetest_game" do
       url "https://github.com/luanti-org/minetest_game/archive/refs/tags/5.8.0.tar.gz"
@@ -50,6 +50,7 @@ class Luanti < Formula
   depends_on "ncurses"
   depends_on "openal-soft"
   depends_on "openssl@3"
+  depends_on "sdl2"
   depends_on "sqlite"
   depends_on "xinput"
   depends_on "zlib"
