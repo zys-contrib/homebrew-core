@@ -3,8 +3,8 @@ class LinodeCli < Formula
 
   desc "CLI for the Linode API"
   homepage "https://github.com/linode/linode-cli"
-  url "https://files.pythonhosted.org/packages/4c/b8/f65c0d0c578fc5c7e0fa85aa62c5da6fb60ecc661d54672b72c01602df26/linode_cli-5.57.1.tar.gz"
-  sha256 "ed5a338ca8c1a0db36710d04f169d6563f3359d6f728796c70852d71ce0fbe8e"
+  url "https://files.pythonhosted.org/packages/eb/a7/878af962dd9c6f8138d6b1771bc4685ceededdbde81f54537839ce761374/linode_cli-5.58.0.tar.gz"
+  sha256 "011fc9c1e8ecc0d90cc46f8d77814f173e658eafe4a148a3d229cc89f09165e4"
   license "BSD-3-Clause"
   head "https://github.com/linode/linode-cli.git", branch: "main"
 
@@ -53,8 +53,8 @@ class LinodeCli < Formula
   end
 
   resource "linode-metadata" do
-    url "https://files.pythonhosted.org/packages/37/d0/648f568aac2d016bc3c8c7e88934181d679d84c49dcd808b2398f0eddb5f/linode_metadata-0.3.0.tar.gz"
-    sha256 "6450aff5fe216e205a26e2afcecfc1185a0ffa6005c156bc385176d9bdb6be82"
+    url "https://files.pythonhosted.org/packages/c1/99/e65884e8b7b72ecf487d438fdafaa19b0c1154d76ea174bf39a296aa3747/linode_metadata-0.3.1.tar.gz"
+    sha256 "127396de8dd8ffac335fccf82485aacb4cd290fda2c9041f0f11c15e62adde64"
   end
 
   resource "markdown-it-py" do
