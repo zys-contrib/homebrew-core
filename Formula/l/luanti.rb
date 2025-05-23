@@ -19,8 +19,8 @@ class Luanti < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "b99c0038fa9684ceebf2e258fd0dc7f46cf2e84338afde2890d906654903b7ab"
-    sha256 x86_64_linux: "a569fcf42e7b1541322d1e6164eb8e15331efc65d8accb33418629b62fbb525a"
+    sha256 arm64_linux:  "1fd142a559c013099e3cf03f96e1707409f1afde051fdf3dd691a29666f88264"
+    sha256 x86_64_linux: "40e5c2756d0188f68d28f0418203c0b4b855b612303cd9a9e3b676bc067ebff6"
   end
 
   head do
