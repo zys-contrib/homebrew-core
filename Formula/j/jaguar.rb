@@ -36,12 +36,12 @@ class Jaguar < Formula
   test do
     assert_match "Version:\t v#{version}", shell_output(bin/"jag --no-analytics version 2>&1")
 
-    (testpath/"hello.toil").write <<~TOIL
+    (testpath/"hello.toit").write <<~TOIT
       main:
         print "Hello, world!"
-    TOIL
+    TOIT
 
     # Cannot do anything without installing SDK to $HOME/.cache/jaguar/
-    assert_match "You must setup the SDK", shell_output(bin/"jag run #{testpath}/hello.toil 2>&1", 1)
+    assert_match "You must setup the SDK", shell_output(bin/"jag run #{testpath}/hello.toit 2>&1", 1)
   end
 end
