@@ -2327,6 +2327,7 @@ meson
 meta-package-manager
 metabase
 metals
+metaproxy
 metricbeat
 mfem
 mgba
