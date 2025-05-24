@@ -4,9 +4,9 @@ class Thrift < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://www.apache.org/dyn/closer.lua?path=thrift/0.21.0/thrift-0.21.0.tar.gz"
-    mirror "https://archive.apache.org/dist/thrift/0.21.0/thrift-0.21.0.tar.gz"
-    sha256 "9a24f3eba9a4ca493602226c16d8c228037db3b9291c6fc4019bfe3bd39fc67c"
+    url "https://www.apache.org/dyn/closer.lua?path=thrift/0.22.0/thrift-0.22.0.tar.gz"
+    mirror "https://archive.apache.org/dist/thrift/0.22.0/thrift-0.22.0.tar.gz"
+    sha256 "794a0e455787960d9f27ab92c38e34da27e8deeda7a5db0e59dc64a00df8a1e5"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
