@@ -1881,6 +1881,7 @@ latexindent
 latexml
 latino
 lazydocker
+lazygit
 lazyjj
 lazyjournal
 lazysql
