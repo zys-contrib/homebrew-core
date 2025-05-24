@@ -14,13 +14,13 @@ class Shadowenv < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "93a3aa92e6d4f3d71f2096def300b3d503b06af579212990958fb29a5cf53dac"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "926abc552d85283e6507cd2668bdf5af33ce5d2b0a3515fc14ab3a9250d8c6d3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "801c925456a0220534c28009729ddb366a5925a61857c3ea053d39d6b44982b9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a584d3fa65f210eb2ea6dffd8d50b59b6cab767f11b7e97cf9bb2dde03fa2f2e"
-    sha256 cellar: :any_skip_relocation, ventura:       "50f747135333edf3cc9f6252e6e4abc86ee20523c285af87a0d6411b843ae0d1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "304f0b91b0e1699a4dbca9fffe327975fd4f86aa7d0a2a393233619c97d189b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4209ba91154dc46bc9254f7117cc25f46a7bc9ee0ce160321cc91d3a1bc81380"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dcea2f7cf59a7931a0d01f2418741839db84fe32c63e245b58e8dc7a2cacde4c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "201b6122ba97b02c416c6e0eaad546c1cf02ce7603b4f2926e8bac164ca55613"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3410ab00b6cc4e35cf3ec29c63bd94076c277453f773bc2a0ed3231c4a624779"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f0f2ffb340fb507e7bea9cfab10bf5906a2cd3d0277436927cafab628e009d76"
+    sha256 cellar: :any_skip_relocation, ventura:       "f8ee16f106a7088f298cde2a4f8086f18487ed55cdfebbab97a695b15b81f641"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "153277ad82d51bfa7ae899b1bb8798b863fc421c9c0a7fcfaf0db1bd3662d9ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49b2be347183407b5a356c147defe9b8eaf418d735380865e1e1e4250e0b083d"
   end
 
   depends_on "rust" => :build
