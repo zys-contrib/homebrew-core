@@ -1,8 +1,8 @@
 class UutilsCoreutils < Formula
   desc "Cross-platform Rust rewrite of the GNU coreutils"
   homepage "https://uutils.github.io/coreutils/"
-  url "https://github.com/uutils/coreutils/archive/refs/tags/0.0.30.tar.gz"
-  sha256 "732c0ac646be7cc59a51cdfdb2d0ff1a4d2501c28f900a2d447c77729fdfca22"
+  url "https://github.com/uutils/coreutils/archive/refs/tags/0.1.0.tar.gz"
+  sha256 "55c528f2b53c1b30cb704550131a806e84721c87b3707b588a961a6c97f110d8"
   license "MIT"
   head "https://github.com/uutils/coreutils.git", branch: "main"
 
@@ -30,6 +30,10 @@ class UutilsCoreutils < Formula
   end
 
   conflicts_with "unp", because: "both install `ucat` binaries"
+
+  # Temporary patch to fix the error; Failed to find 'selinux/selinux.h'
+  # Issue ref: https://github.com/uutils/coreutils/issues/7996
+  patch :DATA
 
   def install
     man1.mkpath
@@ -97,3 +101,18 @@ class UutilsCoreutils < Formula
     system bin/"uln", "-f", "test", "test.sha1"
   end
 end
+
+__END__
+diff --git a/GNUmakefile b/GNUmakefile
+index f46126a82..58bf7fbdd 100644
+--- a/GNUmakefile
++++ b/GNUmakefile
+@@ -181,8 +181,6 @@ SELINUX_PROGS := \
+ 
+ ifneq ($(OS),Windows_NT)
+ 	PROGS := $(PROGS) $(UNIX_PROGS)
+-# Build the selinux command even if not on the system
+-	PROGS := $(PROGS) $(SELINUX_PROGS)
+ endif
+ 
+ UTILS ?= $(PROGS)
