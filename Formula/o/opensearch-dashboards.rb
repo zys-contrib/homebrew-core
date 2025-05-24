@@ -12,13 +12,13 @@ class OpensearchDashboards < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "95d945ea43dec1783d7bdc106aed4b69700c5180d6e9226b83e424d29d13c8d9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "95d945ea43dec1783d7bdc106aed4b69700c5180d6e9226b83e424d29d13c8d9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "95d945ea43dec1783d7bdc106aed4b69700c5180d6e9226b83e424d29d13c8d9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "69656dbbd31c1c65560db170f3fd53f80600df218b94b49694a6c9e0ef864e7d"
-    sha256 cellar: :any_skip_relocation, ventura:       "69656dbbd31c1c65560db170f3fd53f80600df218b94b49694a6c9e0ef864e7d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7b6abff88ff2905b620ba16d9c8040074e8291b92fb71816a7f128eb954fb072"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5dadc59e74bce5e73e3a3b628b96186912e52bd9f32998d8437441ebeef72258"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "876fbfe98451b347628282dec9ba9367d99882e57cb430f3b2a86cdf5ad33928"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "876fbfe98451b347628282dec9ba9367d99882e57cb430f3b2a86cdf5ad33928"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "876fbfe98451b347628282dec9ba9367d99882e57cb430f3b2a86cdf5ad33928"
+    sha256 cellar: :any_skip_relocation, sonoma:        "27e0f5bd26347b34a44324d9f035b60c5ada940e4f65ecd8cd39269d266fc5eb"
+    sha256 cellar: :any_skip_relocation, ventura:       "27e0f5bd26347b34a44324d9f035b60c5ada940e4f65ecd8cd39269d266fc5eb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "438ea67e9fad0910fa64b1063a167c1633395fa1d563aa829cd9ee2a549dc67b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd97261527b6b511eb78eb5f79e796d282c1acc182a6beeac6671436e871d26c"
   end
 
   depends_on "yarn" => :build
