@@ -1,8 +1,8 @@
 class Metaproxy < Formula
   desc "Z39.50 proxy and router utilizing Yaz toolkit"
   homepage "https://www.indexdata.com/resources/software/metaproxy/"
-  url "https://ftp.indexdata.com/pub/metaproxy/metaproxy-1.22.0.tar.gz"
-  sha256 "0e23e251509451170f26e7adf649fa8cc40bd9ade36cdac24a6045ec9efb93ac"
+  url "https://ftp.indexdata.com/pub/metaproxy/metaproxy-1.22.1.tar.gz"
+  sha256 "d67a9f7fc9d36ccea8c4770c96c4ae2bc4250f484f941cbeec2a11695ec8d7b8"
   license "GPL-2.0-or-later"
 
   # The homepage doesn't link to the latest source file, so we have to check
