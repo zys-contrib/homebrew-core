@@ -11,6 +11,7 @@ class Sylph < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "76d50d6ad5c25502e1d71a0a181cc620904ae158527033a9161a9da8c4565ba0"
     sha256 cellar: :any_skip_relocation, sonoma:        "5070cc49e003cb41107c381f915f10edeabb2dbf96fe44fec23801d0e5646104"
     sha256 cellar: :any_skip_relocation, ventura:       "eae42b22d269a0b84c5f5563f287c27162ec28a7cd0f5bc64e9f5d02d447de4a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "46bf1127605e65216e0a72b8002756a99d5c92b29b90561c41e9428ff48127dc"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "60c3f96393a71348348ca80657d9cb13de8acd19744b8744f138a8d42c774b7d"
   end
 
