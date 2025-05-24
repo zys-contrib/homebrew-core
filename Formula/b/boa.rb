@@ -12,6 +12,7 @@ class Boa < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "08fb899017323c8854209da3d3b9190337803ef635a8b6a7d960f17141ccda6b"
     sha256 cellar: :any_skip_relocation, sonoma:        "a2f8fba394237d297214d94a2f78a2da249cf19b481a7dcf0b41cde97b9ea2e6"
     sha256 cellar: :any_skip_relocation, ventura:       "e55c1d32124a5dc83dad035ec5d3e6631b10b3d9cf41a6a92c949fc47e3d29c4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6f78e3b85b68cf071b0ead92403cbbc1be6e54b8a2247ffcff31494834f76b39"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "28ed6dc310185ff69da5a53d22b4c557b63dfa736557687ec11cc6591089b774"
   end
 
