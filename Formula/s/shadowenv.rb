@@ -1,8 +1,8 @@
 class Shadowenv < Formula
   desc "Reversible directory-local environment variable manipulations"
   homepage "https://shopify.github.io/shadowenv/"
-  url "https://github.com/Shopify/shadowenv/archive/refs/tags/3.0.3.tar.gz"
-  sha256 "ad04e1d5ae88e358f0ee6ec987bd88b7f8c489409fafc6286690aeacb074ddea"
+  url "https://github.com/Shopify/shadowenv/archive/refs/tags/3.3.1.tar.gz"
+  sha256 "726c2a655749213cd7f0efe9dca199f65c11b58774c5550ea4834d5b2334b27c"
   license "MIT"
 
   # There can be a notable gap between when a version is tagged and a
@@ -56,11 +56,11 @@ class Shadowenv < Formula
       ],
     }
     # Read ...'\"'\"'... on the next line as a ruby `...' + "'" + '...` but for bash
-    shadowenv_command = "#{bin}/shadowenv hook '\"'\"'#{hash}:#{data.to_json}'\"'\"' 2> /dev/null"
+    shadowenv_cmd = "export __shadowenv_data='\"'\"'#{hash}:#{data.to_json}'\"'\"'; #{bin}/shadowenv hook"
     print_vars =
       "echo EXAMPLE:$EXAMPLE; echo EXAMPLE2:$EXAMPLE2; echo EXAMPLE3:$EXAMPLE3; echo EXAMPLE_PATH:$EXAMPLE_PATH;"
 
     assert_equal expected_output,
-      shell_output("bash -c '#{environment} #{print_vars} echo ---; eval \"$(#{shadowenv_command})\"; #{print_vars}'")
+      shell_output("bash -c '#{environment} #{print_vars} echo ---; eval \"$(#{shadowenv_cmd})\"; #{print_vars}'")
   end
 end
