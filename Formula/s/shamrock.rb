@@ -6,6 +6,15 @@ class Shamrock < Formula
   license "CECILL-2.1"
   head "https://github.com/Shamrock-code/Shamrock.git", branch: "main"
 
+  bottle do
+    sha256 arm64_sequoia: "996d6ea9bc4daa22a38d922a145a48acd22cc66672fdc2f0fe783ee09a6d6a9f"
+    sha256 arm64_sonoma:  "b938862a15a7506af458f490c308167db0acea6c78d5c7ca2453e0d5bc394803"
+    sha256 arm64_ventura: "dd30c19495510479bb8685688d763ba45d5d91fb10b4942627d1c0af6a1ed3c9"
+    sha256 sonoma:        "6a7e28451a49e6cbb113288938dd702d2fba632014733ad731ea73c2daa153d8"
+    sha256 ventura:       "f1fb942740b2635114c912785f46a4490da6cb35675ce58c2f9025748e99e7cc"
+    sha256 x86_64_linux:  "90c5da30d8aae853303c544c5852bd14e024a7fbe4d18f6441edfc89b4b7fd54"
+  end
+
   depends_on "cmake" => :build
   depends_on "adaptivecpp"
   depends_on "boost"
