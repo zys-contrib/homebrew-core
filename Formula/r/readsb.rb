@@ -11,6 +11,7 @@ class Readsb < Formula
     sha256 cellar: :any,                 arm64_ventura: "d2949c6a7e2375c46f7f9dbc4cd3d0b70caea24109d44d698433ec11d2fa1d69"
     sha256 cellar: :any,                 sonoma:        "0dbf2f65a48e0a6443cda320b14e9308e9af8a378d4e0d3fb0876cb969817c8e"
     sha256 cellar: :any,                 ventura:       "cc083e102cfa71c65f2f2ceb8c9ff0c4c8b34f2484674cda4f9f9eadb10b1b82"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a22b4abedaee52459d0f9ed5b62fc5552d94035799ad88b05a7092074c88675"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "040bcb76f64363160946bf9567ad296c1bf4120869d55f03d0fc93c9c7629275"
   end
 
