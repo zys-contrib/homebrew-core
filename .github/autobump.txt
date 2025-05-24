@@ -2116,6 +2116,7 @@ libvirt
 libvirt-python
 libvisio
 libvncserver
+libvoikko
 libvpx
 libwbxml
 libwebsockets
