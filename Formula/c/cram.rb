@@ -7,6 +7,10 @@ class Cram < Formula
   sha256 "7da7445af2ce15b90aad5ec4792f857cef5786d71f14377e9eb994d8b8337f2f"
   license "GPL-2.0-or-later"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "380d5fde8323ac893ae796f88c68426acda8933ef993101014a5ab839a8abcfd"
+  end
+
   depends_on "python@3.13"
 
   def install
