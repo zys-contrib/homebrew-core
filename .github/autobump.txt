@@ -511,8 +511,8 @@ chdig
 cheat
 check-jsonschema
 checkbashisms
-checkmake
 checkdmarc
+checkmake
 checkov
 checkstyle
 cherrytree
@@ -1430,6 +1430,7 @@ graphql-inspector
 graphqurl
 graphqxl
 graphviz
+graphviz2drawio
 grayskull
 greenmask
 grep
