@@ -12,6 +12,7 @@ class Alejandra < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d220e43933b6412b9b2c55193af67aa046a935f282f7bb2bcbe73ce0987561fe"
     sha256 cellar: :any_skip_relocation, sonoma:        "82324a20fbc443a94c675997c412c0394d9dc511f7bb72e9b36e1861deeee324"
     sha256 cellar: :any_skip_relocation, ventura:       "bbdac460582dfb76e32ca4976eae2ca4a58ab2ce5aa54091136040d9634b9af8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cc7e20816b52cb47ab33221af91747fdf9e537a7b4bc252ed3aab37602cd4e65"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "34b9aa4a4f9d81bec8bd22b0f2199000be9469a732f3c140f5fabd7a4e766c04"
   end
 
