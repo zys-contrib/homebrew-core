@@ -1,8 +1,8 @@
 class Libdiscid < Formula
   desc "C library for creating MusicBrainz and freedb disc IDs"
   homepage "https://musicbrainz.org/doc/libdiscid"
-  url "https://ftp.musicbrainz.org/pub/musicbrainz/libdiscid/libdiscid-0.6.4.tar.gz"
-  sha256 "dd5e8f1c9aead442e23b749a9cc9336372e62e88ad7079a2b62895b0390cb282"
+  url "https://ftp.musicbrainz.org/pub/musicbrainz/libdiscid/libdiscid-0.6.5.tar.gz"
+  sha256 "72dbb493e07336418fe2056f0ebc7ce544eedb500bb896cc1cc04bd078c2d530"
   license "LGPL-2.1-or-later"
 
   livecheck do

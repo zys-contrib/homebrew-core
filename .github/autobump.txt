@@ -1943,6 +1943,7 @@ libdap
 libdeflate
 libdex
 libdicom
+libdiscid
 libdivide
 libdmtx
 libdnet
