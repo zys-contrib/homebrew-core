@@ -320,6 +320,7 @@ blueutil
 bluez
 bmake
 bnd
+boa
 bob
 bochs
 bold
