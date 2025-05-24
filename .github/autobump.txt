@@ -1390,6 +1390,7 @@ goreman
 goresym
 gorilla-cli
 gosec
+goshs
 gossip
 gostatic
 gosu
