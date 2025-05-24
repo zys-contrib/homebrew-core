@@ -9,7 +9,7 @@ class ReorderPythonImports < Formula
   head "https://github.com/asottile/reorder-python-imports.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "996295cdcb8ea1816cdfc2c4154773b5a06f44d94d2ac20c11475ec39fb22b08"
+    sha256 cellar: :any_skip_relocation, all: "60a5c4874fe039ea50a85d1cb5ca3eb465220be116ebb63de2d0025874961d53"
   end
 
   depends_on "python@3.13"
