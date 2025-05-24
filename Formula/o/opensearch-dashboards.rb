@@ -2,8 +2,8 @@ class OpensearchDashboards < Formula
   desc "Open source visualization dashboards for OpenSearch"
   homepage "https://opensearch.org/docs/dashboards/index/"
   url "https://github.com/opensearch-project/OpenSearch-Dashboards.git",
-      tag:      "2.19.1",
-      revision: "782801008fa7d872292e48caca1aca74be5304a6"
+      tag:      "3.0.0",
+      revision: "c378e1f95a58498ad41c4c99f39e2072b2629085"
   license "Apache-2.0"
 
   livecheck do
@@ -21,13 +21,9 @@ class OpensearchDashboards < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5dadc59e74bce5e73e3a3b628b96186912e52bd9f32998d8437441ebeef72258"
   end
 
-  # Match deprecation date of `node@18`.
-  # disable! date: "2025-04-30", because: "uses deprecated `node@18`"
-  deprecate! date: "2024-10-29", because: "uses deprecated `node@18`"
-
   depends_on "yarn" => :build
   depends_on "opensearch" => :test
-  depends_on "node@18" # https://github.com/opensearch-project/OpenSearch-Dashboards/issues/9459
+  depends_on "node@20"
 
   # - Do not download node and discard all actions related to this node
   patch :DATA
@@ -41,7 +37,7 @@ class OpensearchDashboards < Formula
     cd "build/opensearch-dashboards-#{version}-#{os}-#{arch}" do
       inreplace "bin/use_node",
                 /NODE=".+"/,
-                "NODE=\"#{Formula["node@18"].opt_bin/"node"}\""
+                "NODE=\"#{Formula["node@20"].opt_bin/"node"}\""
 
       inreplace "config/opensearch_dashboards.yml",
                 /#\s*pid\.file: .+$/,
