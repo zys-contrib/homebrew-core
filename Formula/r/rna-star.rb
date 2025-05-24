@@ -6,6 +6,15 @@ class RnaStar < Formula
   sha256 "3f65305e4112bd154c7e22b333dcdaafc681f4a895048fa30fa7ae56cac408e7"
   license all_of: ["MIT", "BSD-2-Clause"]
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "df53db303004a937634a3eaa227119f92eac00286bc80df0558dd1db1e5bb314"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c12dcd41638c9578c39ee0ecb0ec33996ee390690eb95d68b49f56f0f129c608"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "eef8d5c492f1e608a796350bd6a1fd0acfd46487c18ce901aeaf7aae8d570607"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b53c13aeff5e16110831413444b3bea8e6bdecbf068950a7431d8e8744f8583b"
+    sha256 cellar: :any_skip_relocation, ventura:       "bf2216ad5cce311a52543ea4e1921a203ca6c1f03ed99057f977d804ed8326c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8766e41ed4f092c6fc9715603a34309012200a8db2cb2cd0bdea1c40534f64d6"
+  end
+
   uses_from_macos "vim" => :build # needed for xxd
   uses_from_macos "zlib"
 
