@@ -12,6 +12,7 @@ class Shamrock < Formula
     sha256 arm64_ventura: "dd30c19495510479bb8685688d763ba45d5d91fb10b4942627d1c0af6a1ed3c9"
     sha256 sonoma:        "6a7e28451a49e6cbb113288938dd702d2fba632014733ad731ea73c2daa153d8"
     sha256 ventura:       "f1fb942740b2635114c912785f46a4490da6cb35675ce58c2f9025748e99e7cc"
+    sha256 arm64_linux:   "c45b56cd6956bcf249ba0e6ef106793c0ea0d9d8fe9cf3b947212cd1fbf295ea"
     sha256 x86_64_linux:  "90c5da30d8aae853303c544c5852bd14e024a7fbe4d18f6441edfc89b4b7fd54"
   end
 
