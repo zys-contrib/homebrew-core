@@ -1,8 +1,8 @@
 class Libslax < Formula
   desc "Implementation of the SLAX language (an XSLT alternative)"
   homepage "https://github.com/Juniper/libslax/wiki"
-  url "https://github.com/Juniper/libslax/releases/download/3.1.2/libslax-3.1.2.tar.gz"
-  sha256 "ec1a08620201ac27800fc85f36602b5b9d46f8963647fffe8f9269083b677189"
+  url "https://github.com/Juniper/libslax/releases/download/3.1.3/libslax-3.1.3.tar.gz"
+  sha256 "d3ea2e117d4f2a79c8145ceb43a5ca47f5018a81f69c4e80f44685b2be88f11b"
   license "BSD-3-Clause"
 
   livecheck do
