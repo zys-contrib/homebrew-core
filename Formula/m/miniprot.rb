@@ -11,6 +11,7 @@ class Miniprot < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f39904ebe6936462b9085da494f0b34ae5d1fad683cceaf3bf00c4ccb13a4858"
     sha256 cellar: :any_skip_relocation, sonoma:        "4b28c82f409c10bdb36c3c13c6099dcd3403d0bbf412d9baa3c355f79f257a6c"
     sha256 cellar: :any_skip_relocation, ventura:       "b01af7870345d5431c97f341c6a3b85b1d0251b1a555dd517dd8d1ecab4ab2e8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ebe5daf8b63da151acc89253bb7b39aa5ed97631350285cee29c3e24b985c17"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f11874854e4cbbcf2ab76855067feeb33321cd860a3ef46068ce070aa7758d60"
   end
 
