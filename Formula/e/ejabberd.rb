@@ -26,7 +26,7 @@ class Ejabberd < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "erlang"
+  depends_on "erlang@27" # https://github.com/processone/ejabberd/issues/4354
   depends_on "gd"
   depends_on "libyaml"
   depends_on "openssl@3"
