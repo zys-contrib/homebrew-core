@@ -1,8 +1,8 @@
 class Nping < Formula
   desc "Ping Tool in Rust with Real-Time Data and Visualizations"
   homepage "https://github.com/hanshuaikang/Nping"
-  url "https://github.com/hanshuaikang/Nping/archive/refs/tags/v0.3.1.tar.gz"
-  sha256 "2332facafc52ab150cc1e7932af2cae5c524c6aaa10c192193e0277b53a41030"
+  url "https://github.com/hanshuaikang/Nping/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "9f3cc2cdd8da55e41390ccd3a506f14ceb08169e1c09b9f0362f4a1bfb70bb36"
   license "MIT"
 
   bottle do
