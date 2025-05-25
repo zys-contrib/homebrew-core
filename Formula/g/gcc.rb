@@ -25,15 +25,14 @@ class Gcc < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256                               arm64_sequoia: "b3756b97898275550311155f8b2fe8e6918d420565887e04c009edd5c39899a7"
-    sha256                               arm64_sonoma:  "599548f182eee4f24936350156fc4f2a4809eecb433d4db2dbfc730d420a8eb6"
-    sha256                               arm64_ventura: "1881ab7db2ffdc3bd97b7c4dd13ebe3a208c3dbf70ae9c65e7a358ad691708fb"
-    sha256                               sequoia:       "8756fa03f2d4e7a9a2967461ad224f47e64a21a29d4799c8e529f42f45c166de"
-    sha256                               sonoma:        "99ee6135474fb1833f3e2d168ffba1eb0df03442e3189e0a8a559a03c05a0356"
-    sha256                               ventura:       "d641daaccbc0341408c2b3cf9fe22c5d784d07e2098965bef4c3c95f914b5cdb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3923ad4db968009ad4c041cfc2ff54703f2b265b3c4274e8a77bfbcc463d7e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6896a9db63403ec98c340a3b3b6bb7251e47b11a26012961adfdece46b96ee93"
+    sha256                               arm64_sequoia: "c805973f31312379b26ab86a4c7b8076392f8fa0c82cfc7fa0b0b77210b8b645"
+    sha256                               arm64_sonoma:  "e303f1155c61e85f35bba806ea975d6bf4fc0425bf7c0a11c0b368c3b852a5b2"
+    sha256                               arm64_ventura: "47bb2181ba767978af01831a7a5252fddea53dbc8c83ecc6a5044fb4a70a737b"
+    sha256                               sequoia:       "e1a3544b1d6447b03bdd912a5f479eb5f80870b1bd75fc054e765291bd97a1eb"
+    sha256                               sonoma:        "70d96023c835d25f95bbfe2ed9c38fbba338bee57d4c9bcbad132c2fad1e4b60"
+    sha256                               ventura:       "51491f90bea9c25ecd372ef13375232d8f75e3550e663021d3a5ecf6ed36bf46"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4ecb05357b3eabeccb3783253df23e946f8f91bfd2c97a3fbf484ee6c1efec19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9bf8afcd6fd5670f6a9aa88bfe8615359e080a3d6d0f6b4fcbbb24faba7f6531"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
