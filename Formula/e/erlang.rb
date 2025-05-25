@@ -3,8 +3,8 @@ class Erlang < Formula
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
   # Don't forget to update the documentation resource along with the url!
-  url "https://github.com/erlang/otp/releases/download/OTP-27.3.4/otp_src_27.3.4.tar.gz"
-  sha256 "c3a0a0b51df08f877eed88378f3d2da7026a75b8559803bd78071bb47cd4783b"
+  url "https://github.com/erlang/otp/releases/download/OTP-28.0/otp_src_28.0.tar.gz"
+  sha256 "71b5bf16e5b7b5d9fae98576c87aceac447964aaa3b4b457a5f60906839af92c"
   license "Apache-2.0"
 
   livecheck do
@@ -42,9 +42,9 @@ class Erlang < Formula
   end
 
   resource "html" do
-    url "https://github.com/erlang/otp/releases/download/OTP-27.3.4/otp_doc_html_27.3.4.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_html_27.3.4.tar.gz"
-    sha256 "58e0110a4fbcd8ad5ae4bace64a8082135e4ed19ac88d5fe9763bee6244c84d1"
+    url "https://github.com/erlang/otp/releases/download/OTP-28.0/otp_doc_html_28.0.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_html_28.0.tar.gz"
+    sha256 "9eebbb8820f0a75d70d88758b32d3d9009828cf7d954f448a586639e74c5c65d"
 
     livecheck do
       formula :parent
@@ -53,8 +53,8 @@ class Erlang < Formula
 
   # https://github.com/erlang/otp/blob/OTP-#{version}/make/ex_doc_link
   resource "ex_doc" do
-    url "https://github.com/elixir-lang/ex_doc/releases/download/v0.37.3/ex_doc_otp_26"
-    sha256 "b127190c72fe456ee4c291d4ca94eb955d0b3c0ca2d061481f65cbf0975e13dc"
+    url "https://github.com/elixir-lang/ex_doc/releases/download/v0.38.1/ex_doc_otp_27"
+    sha256 "4aaafd13d056aeeca8b23a016b330114947c8d33ea657c22f637259e626e701e"
   end
 
   def install
