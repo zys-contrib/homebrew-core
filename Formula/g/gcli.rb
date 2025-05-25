@@ -12,6 +12,7 @@ class Gcli < Formula
     sha256 cellar: :any,                 arm64_ventura: "9e59f53d2961339dc80707fea298b53a08c6878394c869610511c42086fa093b"
     sha256 cellar: :any,                 sonoma:        "2d36090b72facfba829e0c6794f5ba899f219695f7a23f2c4c7fce6de611e7e9"
     sha256 cellar: :any,                 ventura:       "49c5783f3e053707f650b2a4d1713b04d06e657517487bfcf017130a708241e7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6138729b4d1b55d52616dc6e819c1418ffd1a58c41ec9a02be7f00e06702882a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5852a7a4dea782cf9ba7d0d9c0fe1be0b874661429cc8d81e3169861b76f057a"
   end
 
