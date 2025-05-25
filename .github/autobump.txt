@@ -2366,6 +2366,7 @@ minikube
 minimal-racket
 minimap2
 minio
+minio-mc
 minio-warp
 minipro
 miniserve
