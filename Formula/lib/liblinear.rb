@@ -1,8 +1,8 @@
 class Liblinear < Formula
   desc "Library for large linear classification"
   homepage "https://www.csie.ntu.edu.tw/~cjlin/liblinear/"
-  url "https://www.csie.ntu.edu.tw/~cjlin/liblinear/oldfiles/liblinear-2.48.tar.gz"
-  sha256 "72ea3853a9fb430b49c3196177d8acdffd2dadb5901832ee323465792087e8cc"
+  url "https://www.csie.ntu.edu.tw/~cjlin/liblinear/oldfiles/liblinear-2.49.tar.gz"
+  sha256 "166ca3c741b2207a74978cdb55077261be43b1e58e55f2b4c4f40e6ec1d8a347"
   license "BSD-3-Clause"
   head "https://github.com/cjlin1/liblinear.git", branch: "master"
 
