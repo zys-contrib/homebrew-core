@@ -1,8 +1,8 @@
 class Tfsort < Formula
   desc "CLI to sort Terraform variables and outputs"
   homepage "https://github.com/AlexNabokikh/tfsort"
-  url "https://github.com/AlexNabokikh/tfsort/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "318b025f4e0f4807df30b6f26271ae583bf7942b9829214927de7a1a4ec8ecc8"
+  url "https://github.com/AlexNabokikh/tfsort/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "efbbb75b44d0a48e0871d6955c11d7210207b3d752c99d34c48468e4c2c8fe76"
   license "Apache-2.0"
   head "https://github.com/AlexNabokikh/tfsort.git", branch: "master"
 
