@@ -5,6 +5,15 @@ class AddonsLinter < Formula
   sha256 "465faac15bc050894113b57dbcabf8abcc63240366f309c94f4bfab07eb1b414"
   license "MPL-2.0"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d5f08c19e0418c13d38ef542ed8b07c649c1c08aac568559ca84d8f719870f3e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d5f08c19e0418c13d38ef542ed8b07c649c1c08aac568559ca84d8f719870f3e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d5f08c19e0418c13d38ef542ed8b07c649c1c08aac568559ca84d8f719870f3e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cd61842b2e81d2c6cfd32149f61b6c6c77f74b37f1de6ec57105c59e7d7ec31b"
+    sha256 cellar: :any_skip_relocation, ventura:       "cd61842b2e81d2c6cfd32149f61b6c6c77f74b37f1de6ec57105c59e7d7ec31b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5f08c19e0418c13d38ef542ed8b07c649c1c08aac568559ca84d8f719870f3e"
+  end
+
   depends_on "node"
 
   def install
