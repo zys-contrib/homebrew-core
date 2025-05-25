@@ -7,7 +7,7 @@ class Xtensor < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "2348111bd2e2567d4f0a1d9958b625ec145dbfb6666989e164c99700bedbf12a"
+    sha256 cellar: :any_skip_relocation, all: "23748f41560d55a42246189b6d61d66fd35ef922ae55e9379f493d46abbd868d"
   end
 
   depends_on "cmake" => :build
