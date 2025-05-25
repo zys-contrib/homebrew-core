@@ -4,6 +4,7 @@ class PhoronixTestSuite < Formula
   url "https://github.com/phoronix-test-suite/phoronix-test-suite/archive/refs/tags/v10.8.4.tar.gz"
   sha256 "7b5da7193c0190c648fc0c7ad6cdfbde5d935e88c7bfa5e99cd3a720cd5e2c5a"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/phoronix-test-suite/phoronix-test-suite.git", branch: "master"
 
   livecheck do
@@ -27,6 +28,9 @@ class PhoronixTestSuite < Formula
   depends_on "php"
 
   def install
+    # Use homebrew's share directory
+    inreplace "phoronix-test-suite", "/usr/share/phoronix-test-suite/", "#{pkgshare}/"
+
     ENV["DESTDIR"] = buildpath/"dest"
     system "./install-sh", prefix
     prefix.install (buildpath/"dest/#{prefix}").children
