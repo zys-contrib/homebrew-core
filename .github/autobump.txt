@@ -3102,6 +3102,7 @@ rdfind
 re-flex
 re2c
 readpe
+readsb
 rebar3
 recc
 recode
