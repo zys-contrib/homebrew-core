@@ -1,8 +1,8 @@
 class Sleek < Formula
   desc "CLI tool for formatting SQL"
   homepage "https://github.com/nrempel/sleek"
-  url "https://github.com/nrempel/sleek/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "d4ebd91cfa8478cc5da1e3b5a4ebe0acc4a854970e1fc3638f6dd15b21eccf7b"
+  url "https://github.com/nrempel/sleek/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "fcb589fdc5ece8c050883ff0b56aec6bd25e2e4d6e77a1d52e870535d66fdf67"
   license "MIT"
 
   bottle do
