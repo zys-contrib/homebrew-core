@@ -6,6 +6,15 @@ class Autocycler < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/rrwick/Autocycler.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "85ccc0eb7168ad90a9a199d5ce858b53967ee484cbf02ef6f67deca592a37835"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0969f41334ef0e8de7f958b7ab09143ec334c5a3edac84c211ad7abfd5fd3486"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "007926a3b46baa917a944c0d61964820bd8ab3779198f5c648f2a38bb5f211a8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2afedeb613f52e319f265b5ebfc2f1ff7d58b7edccd49e9943a1a1bd1d6e25c6"
+    sha256 cellar: :any_skip_relocation, ventura:       "fc87ea4795c07d2622573c26c4e0afff33ee7dfd3ee737b37cec90304cbf66bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8aeab2771d3d4f19e0db987892f0f07c31ec06482c4ff0be352915f76fa2c1be"
+  end
+
   depends_on "rust" => :build
 
   def install
