@@ -1,9 +1,9 @@
 class Bc < Formula
   desc "Arbitrary precision numeric processing language"
   homepage "https://www.gnu.org/software/bc/"
-  url "https://ftp.gnu.org/gnu/bc/bc-1.08.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/bc/bc-1.08.1.tar.gz"
-  sha256 "b71457ffeb210d7ea61825ff72b3e49dc8f2c1a04102bbe23591d783d1bfe996"
+  url "https://ftp.gnu.org/gnu/bc/bc-1.08.2.tar.gz"
+  mirror "https://ftpmirror.gnu.org/bc/bc-1.08.2.tar.gz"
+  sha256 "ae470fec429775653e042015edc928d07c8c3b2fc59765172a330d3d87785f86"
   license "GPL-3.0-or-later"
 
   bottle do
