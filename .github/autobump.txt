@@ -1331,6 +1331,7 @@ gmsh
 gnmic
 gnome-autoar
 gnome-builder
+gnome-online-accounts
 gnu-apl
 gnu-chess
 gnu-getopt
@@ -1979,6 +1980,7 @@ libgetdata
 libgit2
 libgit2-glib
 libgit2@1.8
+libgoa
 libgpg-error
 libgr
 libgsf
