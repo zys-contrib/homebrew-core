@@ -3526,6 +3526,7 @@ strongswan
 structurizr-cli
 sttr
 stunnel
+style-dictionary
 stylelint
 stylish-haskell
 subfinder
