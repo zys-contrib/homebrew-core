@@ -1,8 +1,8 @@
 class Gssh < Formula
   desc "SSH automation tool based on Groovy DSL"
   homepage "https://gradle-ssh-plugin.github.io/"
-  url "https://github.com/int128/groovy-ssh/archive/refs/tags/2.11.2.tar.gz"
-  sha256 "0e078b37fe1ba1a9ca7191e706818e3b423588cac55484dda82dbbd1cdfe0b24"
+  url "https://github.com/int128/groovy-ssh/archive/refs/tags/2.12.0.tar.gz"
+  sha256 "b2ce4ddc0d208e90ab4e986a1b1d759955783bdf3fe046f770eba98e6e6a13a9"
   license "Apache-2.0"
 
   bottle do
@@ -18,11 +18,10 @@ class Gssh < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "db58030c9483c22ecde1258a00dd0bd3f1da7649e1114178e0495e0195296ef6"
   end
 
+  deprecate! date: "2025-05-25", because: :repo_archived
+
   depends_on "gradle" => :build
   depends_on "openjdk@21"
-
-  # gradle 8 build patch, remove in next release
-  patch :DATA
 
   def install
     ENV["CIRCLE_TAG"] = version
@@ -36,20 +35,3 @@ class Gssh < Formula
     assert_match "groovy-ssh-#{version}", shell_output("#{bin}/gssh --version")
   end
 end
-
-__END__
-diff --git a/cli/build.gradle b/cli/build.gradle
-index 8044c6e..e6c2815 100644
---- a/cli/build.gradle
-+++ b/cli/build.gradle
-@@ -32,7 +32,7 @@ jar {
- }
-
- shadowJar {
--    baseName = 'gssh'
--    classifier = ''
--    version = ''
-+    archiveBaseName = 'gssh'
-+    archiveVersion = ''
-+    archiveClassifier = ''
- }
