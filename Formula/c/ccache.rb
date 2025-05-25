@@ -8,13 +8,13 @@ class Ccache < Formula
   head "https://github.com/ccache/ccache.git", branch: "master"
 
   bottle do
-    sha256               arm64_sequoia: "b0150ab64610ce9048d6a1e546890969ca5275eace8ab165cedb554566cd2086"
-    sha256 cellar: :any, arm64_sonoma:  "7ff1f6c9d9f827479c2fd28e132d81a92fec384264b5b912033dba8163b3832e"
-    sha256               arm64_ventura: "254e15d0b3c459251a14fbed5d131afb5bd7713156834776d99a08478eb6f78c"
-    sha256 cellar: :any, sonoma:        "e87ac5aeba2bb3eac30df9f11e3db06df741be895ac9e88c62b148752dc18718"
-    sha256 cellar: :any, ventura:       "e1618c259a9dc5f954d73cc8ab936a32dc5c5c27b3e22a021c6a9aa9e219ce39"
-    sha256               arm64_linux:   "2854130bf7727dbe7f1b68b5fb7acd5e1d31886de381733174dd78f83c3c40d9"
-    sha256               x86_64_linux:  "1371745bdec3e4799b66d2c11c7bd212cdda3175843b682ab52062191aea4004"
+    sha256               arm64_sequoia: "e99e59f16c682d93fe0b9b5c7681cdce749f0b90291108fa74edcad569286d96"
+    sha256 cellar: :any, arm64_sonoma:  "aa9c9558b72ef410e13c8718080ee0d98f67b2c3c04d11bf3ade424965bdd098"
+    sha256               arm64_ventura: "35fed775f7dc5b4822e3b0ca5e59950b289a7840e776e7501133feb5c7830391"
+    sha256 cellar: :any, sonoma:        "4bac698f691b21bb8209121c23e5330397e5eb139646e94dc05f78372f450e85"
+    sha256 cellar: :any, ventura:       "ab684bfb9e86f230652977ef4a3d4fb7ea25856ad094ca029fba3ea8b56ad001"
+    sha256               arm64_linux:   "3bda7b43285d7c6151c7703a56ce4f6ff0047cac34e36d2ed48541dcaebd8a55"
+    sha256               x86_64_linux:  "a504ce0e91c2ad0a929a7fd15a23579f6bbb725e32e952b0ef549f003c69d344"
   end
 
   depends_on "asciidoctor" => :build
