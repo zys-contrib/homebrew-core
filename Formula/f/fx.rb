@@ -7,13 +7,12 @@ class Fx < Formula
   head "https://github.com/antonmedv/fx.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8222f75e23b7eb70afe08accc15e5e47edb4fb2a7f292783c3e519860334ea6b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8222f75e23b7eb70afe08accc15e5e47edb4fb2a7f292783c3e519860334ea6b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8222f75e23b7eb70afe08accc15e5e47edb4fb2a7f292783c3e519860334ea6b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9415000df5544c72bd65cc45416747ab76b065ea72619f9e8e5de6bf9e189cc3"
-    sha256 cellar: :any_skip_relocation, ventura:       "9415000df5544c72bd65cc45416747ab76b065ea72619f9e8e5de6bf9e189cc3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd3499b53ebeaf36e154444504aaa4659576c5248921fb1b3ac1e6212de1aa48"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "38c4dd8401dc13d0c6fdd76577b8d2a5bcf2dc05800822bf119bab66807e452a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "38c4dd8401dc13d0c6fdd76577b8d2a5bcf2dc05800822bf119bab66807e452a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "38c4dd8401dc13d0c6fdd76577b8d2a5bcf2dc05800822bf119bab66807e452a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "55d435e4982f61d12202515e9931b575aff7cbce75524f1d50d4d269e73b7c5a"
+    sha256 cellar: :any_skip_relocation, ventura:       "55d435e4982f61d12202515e9931b575aff7cbce75524f1d50d4d269e73b7c5a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0baa93b6324a8566c9bfc070321244f326697571eec5bdaad9e22b855cede26a"
   end
 
   depends_on "go" => :build
