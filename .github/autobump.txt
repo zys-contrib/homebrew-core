@@ -2377,6 +2377,7 @@ minizip
 minizip-ng
 mintoolkit
 minuit2
+mise
 mist-cli
 mk-configure
 mkdocs
