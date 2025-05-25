@@ -1219,6 +1219,7 @@ gaze
 gcalcli
 gcem
 gci
+gcli
 gcovr
 gcr
 gcsfuse
