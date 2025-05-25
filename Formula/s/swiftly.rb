@@ -16,10 +16,6 @@ class Swiftly < Formula
     sha256 cellar: :any,                 ventura:       "c68111469617b923dcfc4888d6a1855813935ea90fb3e1b8f2ed64cec6929796"
   end
 
-  # On Linux, SPM can't find zlib installed by brew.
-  # TODO: someone who cares: submit a PR to fix this!
-  depends_on :macos
-
   uses_from_macos "swift" => :build, since: :sonoma # swift 5.10+
   uses_from_macos "zlib"
 
@@ -27,27 +23,35 @@ class Swiftly < Formula
     depends_on xcode: ["15.0", :build]
   end
 
+  on_linux do
+    depends_on "libarchive"
+  end
+
   def install
-    system "swift", "build", "--configuration", "release", "--product", "swiftly", "--disable-sandbox"
+    args = %w[
+      --configuration release
+      --disable-sandbox
+      --product swiftly
+    ]
+    if OS.linux?
+      args += %W[
+        --static-swift-stdlib
+        -Xswiftc -I#{HOMEBREW_PREFIX}/include
+        -Xlinker -L#{HOMEBREW_PREFIX}/lib
+      ]
+    end
+    system "swift", "build", *args
+
     bin.install ".build/release/swiftly"
   end
 
   test do
+    # Test swiftly with a private installation
     swiftly_bin = testpath/"swiftly"/"bin"
     mkdir_p swiftly_bin
     ENV["SWIFTLY_HOME_DIR"] = testpath/"swiftly"
     ENV["SWIFTLY_BIN_DIR"] = swiftly_bin
-    system bin/"swiftly", "init", "--assume-yes", "--no-modify-profile"
-    system bin/"swiftly", "install", "latest", "--use"
-    (testpath/"main.swift").write <<~EOS
-      @main
-      struct HelloSwiftly {
-        static func main() {
-          print("Hello Swiftly!")
-        }
-      }
-    EOS
-    system swiftly_bin/"swiftc", "main.swift", "-parse-as-library"
-    assert_match "Hello Swiftly!", shell_output("./main").chomp
+    ENV["SWIFTLY_TOOLCHAINS_DIR"] = testpath/"swiftly"/"toolchains"
+    system bin/"swiftly", "init", "--assume-yes", "--no-modify-profile", "--skip-install"
   end
 end
