@@ -3,8 +3,8 @@ class AnsibleCreator < Formula
 
   desc "CLI tool for scaffolding Ansible Content"
   homepage "https://ansible.readthedocs.io/projects/creator/"
-  url "https://files.pythonhosted.org/packages/26/1d/413ab25deb3559ba6644664c4f2d2a75992bf39ac90706a38a0a64e5ced9/ansible_creator-25.4.1.tar.gz"
-  sha256 "eaf957414e278c85dcd622544011b20aec61f689c94d574c2358e4115b1b92e7"
+  url "https://files.pythonhosted.org/packages/d9/e3/923f5c8d6a26a13b2d6a3b640db1923708bd439c5fc368677d61e056e5e2/ansible_creator-25.5.0.tar.gz"
+  sha256 "cb050df5af0fa398a43464fcde8e761170e1cf12131c014dc4bc0c8f64f80632"
   license "Apache-2.0"
 
   bottle do
