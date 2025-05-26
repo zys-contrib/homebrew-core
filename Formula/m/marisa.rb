@@ -6,13 +6,13 @@ class Marisa < Formula
   license any_of: ["BSD-2-Clause", "LGPL-2.1-or-later"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0bedacd84d336fe4bb03ba64d12c4b9558342bdc885ed1a730cc6c085cdac419"
-    sha256 cellar: :any,                 arm64_sonoma:  "795ef8dde700a58b25068458ee84b339203647fdf847f65d9ec315f319569099"
-    sha256 cellar: :any,                 arm64_ventura: "a2411485b60b2f253d201eb1499a94561a79d027742063e90e610d9ad0aa24b9"
-    sha256 cellar: :any,                 sonoma:        "7b2008113fb52501f543358aa694c0050fba22e722d4fe2283d8515f39046025"
-    sha256 cellar: :any,                 ventura:       "ae6b75381f71824e572676ee4a85f8164b306a08d8280ce729d21f36a2711f89"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d7ead9e59cdf466bf7908110f309200ae4e4f47fd4fd7bc6fd933924b072fa79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e15098e332fd27b0948bbdbb2fa592205f01521413605557085bcef124e124f9"
+    sha256 cellar: :any,                 arm64_sequoia: "9b617849fc8bb7a8c9ed63b5ee71fab11ba94ba0f00e8b63db1e2bc573ae4862"
+    sha256 cellar: :any,                 arm64_sonoma:  "dc850a0aa5890573f4bb3805b44dd1595748ea7527aafc94d164f9a5a2ab8363"
+    sha256 cellar: :any,                 arm64_ventura: "cbe7c42f5ed3dc9ac48d00460b63f21abc11e705a78271ab97a9ad33f8518719"
+    sha256 cellar: :any,                 sonoma:        "d8cc02d1a54409724d92e360b3de75428f8e790121efcb06661f2451595f85f5"
+    sha256 cellar: :any,                 ventura:       "e4a170f02d2eba533082e3f0f8c6197046963a35c3a4bf5c5e11d508d9b256c0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "673092e00b51563cfc9ecbceed7d8ade2636d31ea545e15d9404525f516e4f42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c72c3f928765d60e2ecb504f95f3ed2b2e8e2ae2454b1e31d9b4b5ce6e4e3cf"
   end
 
   depends_on "cmake" => :build
