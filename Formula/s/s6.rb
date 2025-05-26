@@ -20,66 +20,24 @@ class S6 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a50281696347be24e9cbfc2a0beb51ad926bdc10bf8efb86b55e57ee3d6afd4c"
   end
 
-  resource "skalibs" do
-    url "https://skarnet.org/software/skalibs/skalibs-2.14.4.0.tar.gz"
-    sha256 "0e626261848cc920738f92fd50a24c14b21e30306dfed97b8435369f4bae00a5"
-  end
-
-  resource "execline" do
-    url "https://skarnet.org/software/execline/execline-2.9.7.0.tar.gz"
-    sha256 "73c9160efc994078d8ea5480f9161bfd1b3cf0b61f7faab704ab1898517d0207"
-  end
+  depends_on "pkgconf" => :build
+  depends_on "execline"
+  depends_on "skalibs"
 
   def install
-    resources.each { |r| r.stage(buildpath/r.name) }
-    build_dir = buildpath/"build"
-
-    cd "skalibs" do
-      system "./configure", "--disable-shared", "--prefix=#{build_dir}", "--libdir=#{build_dir}/lib"
-      system "make", "install"
-    end
-
-    cd "execline" do
-      system "./configure",
-        "--prefix=#{build_dir}",
-        "--bindir=#{libexec}/execline",
-        "--with-include=#{build_dir}/include",
-        "--with-lib=#{build_dir}/lib",
-        "--with-sysdeps=#{build_dir}/lib/skalibs/sysdeps",
-        "--disable-shared"
-      system "make", "install"
-    end
-
-    system "./configure",
-      "--prefix=#{prefix}",
-      "--libdir=#{build_dir}/lib",
-      "--includedir=#{build_dir}/include",
-      "--with-include=#{build_dir}/include",
-      "--with-lib=#{build_dir}/lib",
-      "--with-lib=#{build_dir}/lib/execline",
-      "--with-sysdeps=#{build_dir}/lib/skalibs/sysdeps",
-      "--disable-static",
-      "--disable-shared"
+    # Shared libraries are linux targets and not supported on macOS.
+    args = %W[
+      --disable-silent-rules
+      --disable-shared
+      --enable-pkgconfig
+      --with-pkgconfig=#{Formula["pkgconf"].opt_bin}/pkg-config
+      --with-sysdeps=#{Formula["skalibs"].opt_lib}/skalibs/sysdeps
+    ]
+    system "./configure", *args, *std_configure_args
     system "make", "install"
-
-    # Some S6 tools expect execline binaries to be on the path
-    bin.env_script_all_files(libexec/"bin", PATH: "#{libexec}/execline:$PATH")
-    sbin.env_script_all_files(libexec/"sbin", PATH: "#{libexec}/execline:$PATH")
-    (bin/"execlineb").write_env_script libexec/"execline/execlineb", PATH: "#{libexec}/execline:$PATH"
-    doc.install Dir["doc/*"]
   end
 
   test do
-    (testpath/"test.eb").write <<~EOS
-      foreground
-      {
-        sleep 1
-      }
-      "echo"
-      "Homebrew"
-    EOS
-    assert_match "Homebrew", shell_output("#{bin}/execlineb test.eb")
-
     (testpath/"log").mkpath
     pipe_output("#{bin}/s6-log #{testpath}/log", "Test input\n", 0)
     assert_equal "Test input\n", File.read(testpath/"log/current")
