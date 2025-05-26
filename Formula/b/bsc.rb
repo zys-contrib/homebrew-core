@@ -7,6 +7,15 @@ class Bsc < Formula
   license "BSD-3-Clause"
   head "https://github.com/B-Lang-org/bsc.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "023b416fedba9f986345a7b06763995b843fedf2fc45d0428d0f6410fedb8b12"
+    sha256 cellar: :any,                 arm64_sonoma:  "bb8dea8de8ae93ed8c76cbb488ea19645acc76e8aebc3560063024fa381c026a"
+    sha256 cellar: :any,                 arm64_ventura: "5fa279ba7f86d9b0fff2ab75b8d8890b852764e67baeebbcd0125b8c7239825a"
+    sha256 cellar: :any,                 sonoma:        "c8959d3244856dc6562bea2cd1f06ff782195bde78363b1a8dd104176ec6c5f9"
+    sha256 cellar: :any,                 ventura:       "9b975bff3f3232bd26626bc308ccba6d24d433575c88c0b72af4a17059ce4d36"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14fba2d067b4da9b16420abf741db79db7eb696f9ff25f629dd205af07409a93"
+  end
+
   depends_on "autoconf" => :build
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
