@@ -1,9 +1,9 @@
 class Miniupnpc < Formula
   desc "UPnP IGD client library and daemon"
   homepage "https://miniupnp.tuxfamily.org"
-  url "https://miniupnp.tuxfamily.org/files/download.php?file=miniupnpc-2.3.2.tar.gz"
-  mirror "http://miniupnp.free.fr/files/miniupnpc-2.3.2.tar.gz"
-  sha256 "985de16d2e5449c3ba0d3663a0c76cb2bff82472a0eb7a306107d93f44586ffe"
+  url "https://miniupnp.tuxfamily.org/files/download.php?file=miniupnpc-2.3.3.tar.gz"
+  mirror "http://miniupnp.free.fr/files/miniupnpc-2.3.3.tar.gz"
+  sha256 "d52a0afa614ad6c088cc9ddff1ae7d29c8c595ac5fdd321170a05f41e634bd1a"
   license "BSD-3-Clause"
 
   # We only match versions with only a major/minor since versions like 2.1 are
