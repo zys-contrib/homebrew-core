@@ -1,9 +1,9 @@
 class Marisa < Formula
   desc "Matching Algorithm with Recursively Implemented StorAge"
   homepage "https://github.com/s-yata/marisa-trie"
-  url "https://github.com/s-yata/marisa-trie/archive/refs/tags/v0.2.7.tar.gz"
-  sha256 "d4e0097d3a78e2799dfc55c73420d1a43797a2986a4105facfe9a33f4b0ba3c2"
-  license all_of: ["BSD-2-Clause", "LGPL-2.1-or-later"]
+  url "https://github.com/s-yata/marisa-trie/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "a3057d0c2da0a9a57f43eb8e07b73715bc5ff053467ee8349844d01da91b5efb"
+  license any_of: ["BSD-2-Clause", "LGPL-2.1-or-later"]
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "0bedacd84d336fe4bb03ba64d12c4b9558342bdc885ed1a730cc6c085cdac419"
@@ -15,15 +15,15 @@ class Marisa < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e15098e332fd27b0948bbdbb2fa592205f01521413605557085bcef124e124f9"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
 
   def install
-    system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", *std_configure_args
-    system "make"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build",
+                     "-DBUILD_SHARED_LIBS=ON",
+                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                     *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -45,7 +45,7 @@ class Marisa < Formula
       }
     CPP
 
-    system ENV.cxx, "./test.cc", "-o", "test"
+    system ENV.cxx, "-std=c++17", "./test.cc", "-o", "test"
     assert_equal "200,100", shell_output("./test").strip
   end
 end
