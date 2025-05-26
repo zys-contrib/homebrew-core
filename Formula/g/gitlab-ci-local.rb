@@ -6,13 +6,13 @@ class GitlabCiLocal < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "117c1a898f2ea93631a1efd156572d0cf0c0c818b888db4086a08246fb0b4b00"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "117c1a898f2ea93631a1efd156572d0cf0c0c818b888db4086a08246fb0b4b00"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "117c1a898f2ea93631a1efd156572d0cf0c0c818b888db4086a08246fb0b4b00"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0120a291a6b156fb627017052818beb2298755578bff54161d9bf3b070a2c021"
-    sha256 cellar: :any_skip_relocation, ventura:       "0120a291a6b156fb627017052818beb2298755578bff54161d9bf3b070a2c021"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "afcf353556e703d9e21d2c77d8368084da470282dea0f327505952ba44e56474"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd637b080caabebbea777983525b3aa5d4cd05700eb63e4ffa2d699fe6a09008"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f5eaf32f97b932b85a301bdb798b82904eea4cbb3bed3b4423ac4ec14cef7b82"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f5eaf32f97b932b85a301bdb798b82904eea4cbb3bed3b4423ac4ec14cef7b82"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f5eaf32f97b932b85a301bdb798b82904eea4cbb3bed3b4423ac4ec14cef7b82"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2a191bfce691767a4f72b10ad9236432427810f1f2abe71ca359d6760c3c242c"
+    sha256 cellar: :any_skip_relocation, ventura:       "2a191bfce691767a4f72b10ad9236432427810f1f2abe71ca359d6760c3c242c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e9e045efe09080870a4059fa1ad2193a10d9d8b891e44bd78452ee7cc9c8ae9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "770f39d23e2c4e5f32182511f9dc01b13ed174c82ec28d13f7e4f8a69ff64678"
   end
 
   depends_on "node"
