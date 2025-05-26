@@ -8,25 +8,23 @@ class Swiftly < Formula
   head "https://github.com/swiftlang/swiftly.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b75aea1e89e30fd9a79bb0b85e40a495a000a701cd6c886e6d521fc6f04dc3a1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e5b1fc6281e6008f944cac681007dd86280c49789299a0cb822efb64185d73e"
-    sha256 cellar: :any,                 arm64_ventura: "2e68af78a8cdaaa0f30e692374e2f8f12d70d8badb54ba751661d30ebdff07e7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c29010ed4b5be4cecdead4a32071a73efe827101eb3f1261194557fa290c4df4"
-    sha256 cellar: :any,                 ventura:       "cfb17a9c3409df62c02b0422efddf79a568db0deab23034e2a4b6c38fe9cd8c6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc28dabc0146237e42d87249c82ab5de387cd086d42357319fa3ad0890e5918f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c3ad3dcdfd507f2a0ba89e9872761c41a77b6b963e0847f19093bc4c725d3097"
+    sha256 cellar: :any,                 arm64_ventura: "65f03c9c0a746e983762be67e249b28b283e7db72c8b92fad0d91e28697d5a4d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f6e40c56ca0228978f8c16ae882f562b5a9c4110d6216e3bb57951fd1efb3f7e"
+    sha256 cellar: :any,                 ventura:       "c68111469617b923dcfc4888d6a1855813935ea90fb3e1b8f2ed64cec6929796"
   end
 
   # On Linux, SPM can't find zlib installed by brew.
   # TODO: someone who cares: submit a PR to fix this!
   depends_on :macos
 
-  depends_on macos: :ventura
-  depends_on xcode: "8.0"
-
   uses_from_macos "swift" => :build, since: :sonoma # swift 5.10+
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "libarchive"
+  on_sonoma :or_older do
+    depends_on xcode: ["15.0", :build]
   end
 
   def install
