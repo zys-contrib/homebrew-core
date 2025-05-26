@@ -3,10 +3,9 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://ansible-lint.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/24/50/3d0bb7e77aed2a66fce4b87aec249adb11070ef2025db1215b1c0fb14b51/ansible_lint-25.4.0.tar.gz"
-  sha256 "f2f2b31ad199925b2343f660552fb9468970f16c2c5d57da9feae70ec4eeca7d"
+  url "https://files.pythonhosted.org/packages/b8/11/3644b4821c0b6ea3d09ec2860b2896d6324ee90cffe0440d6e4f98c62917/ansible_lint-25.5.0.tar.gz"
+  sha256 "4182520f233eef4248bc4cf4b6074e25cdaf5be21cf9be944aabc85df5407e9c"
   license all_of: ["MIT", "GPL-3.0-or-later"]
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "642f4902a31a0e5d45c88efcac49602303a17a8c4c0f62403f00fce3c7a3fe81"
@@ -121,13 +120,18 @@ class AnsibleLint < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/96/d2/7bed8453e53f6c9dea7ff4c19ee980fd87be607b2caf023d62c6579e6c30/rpds_py-0.25.0.tar.gz"
-    sha256 "4d97661bf5848dd9e5eb7ded480deccf9d32ce2cd500b88a26acbf7bd2864985"
+    url "https://files.pythonhosted.org/packages/8c/a6/60184b7fc00dd3ca80ac635dd5b8577d444c57e8e8742cecabfacb829921/rpds_py-0.25.1.tar.gz"
+    sha256 "8960b6dac09b62dac26e75d7e2c4a22efb835d827a7278c34f72b2b84fa160e3"
   end
 
   resource "ruamel-yaml" do
-    url "https://files.pythonhosted.org/packages/ea/46/f44d8be06b85bc7c4d8c95d658be2b68f27711f279bf9dd0612a5e4794f5/ruamel.yaml-0.18.10.tar.gz"
-    sha256 "20c86ab29ac2153f80a428e1254a8adf686d3383df04490514ca3b79a362db58"
+    url "https://files.pythonhosted.org/packages/9d/8f/dfbab2d5ec83da0605ab935fb43ffa8ab5828455e2c910b7314fdd18e0b8/ruamel.yaml-0.18.11.tar.gz"
+    sha256 "b586a3416676566ed45bf679a0909719f7ea7b58c03a9b6e03f905a1e2cd5076"
+  end
+
+  resource "ruamel-yaml-clib" do
+    url "https://files.pythonhosted.org/packages/20/84/80203abff8ea4993a87d823a5f632e4d92831ef75d404c9fc78d0176d2b5/ruamel.yaml.clib-0.2.12.tar.gz"
+    sha256 "6c8fbb13ec503f99a91901ab46e0b07ae7941cd527393187039aec586fdfd36f"
   end
 
   resource "subprocess-tee" do
