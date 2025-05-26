@@ -2,7 +2,7 @@ class Ppsspp < Formula
   desc "PlayStation Portable emulator"
   homepage "https://ppsspp.org/"
   license all_of: ["GPL-2.0-or-later", "BSD-3-Clause"]
-  revision 3
+  revision 4
   head "https://github.com/hrydgard/ppsspp.git", branch: "master"
 
   # TODO: Can remove CMAKE_POLICY_VERSION_MINIMUM when bumping version to 1.18+
