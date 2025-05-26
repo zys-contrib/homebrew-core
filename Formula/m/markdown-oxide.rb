@@ -1,8 +1,8 @@
 class MarkdownOxide < Formula
   desc "Personal Knowledge Management System for the LSP"
   homepage "https://oxide.md"
-  url "https://github.com/Feel-ix-343/markdown-oxide/archive/refs/tags/v0.25.1.tar.gz"
-  sha256 "2c711aa5f191de202b8496f397b74403c252a6fefc47e69dccc3f335972cc14e"
+  url "https://github.com/Feel-ix-343/markdown-oxide/archive/refs/tags/v0.25.2.tar.gz"
+  sha256 "1200d35118f61687273f63069efbdc2f29c818a52d1dbf50a560136e69dff594"
   license "Apache-2.0"
 
   bottle do
