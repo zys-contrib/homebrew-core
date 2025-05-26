@@ -6,6 +6,15 @@ class Skani < Formula
   license "MIT"
   head "https://github.com/bluenote-1577/skani.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9cb6481c4334cccd0a6e3726ef1accc7f03f916949d6c04cbf57bb281f1ddf3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4ed2e71f080f76d0b993299eabf00956d8026d3b71ceae1b5f24f57c099bb20e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9b482265be8c35b99d56e95aeefb841282973b4f4064a994ca347ee0560367bc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2c95bf7f3b7011ff70ce9368fceabae4f0506d65791ec5270dde9e166ee8759a"
+    sha256 cellar: :any_skip_relocation, ventura:       "c51ceb4edd8b3120325ccf9e998f41bebd599584ae29c3ae80c61d65830d9dc4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4174c57cd1ef4f16398f92d8dd944bcbb5f42c262fda36a092fa09e59b43e510"
+  end
+
   depends_on "rust" => :build
 
   def install
