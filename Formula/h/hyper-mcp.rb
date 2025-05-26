@@ -6,6 +6,15 @@ class HyperMcp < Formula
   license "Apache-2.0"
   head "https://github.com/tuananh/hyper-mcp.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2a47ba9534141b16a9f7599a0ae988a98c6d12c21d57655be20330833a1b9324"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "68f718a26b90661c85b10b330128bc2176c5eddbc2e7f762057f212b8c34c330"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d1cae9171ecf44e4af0685fb6b33300bf4be6aa66392903e83672d84578a7315"
+    sha256 cellar: :any_skip_relocation, sonoma:        "54ab3644c4c208c07084484366629734e2eea3fc969bbe840b92213571a0675c"
+    sha256 cellar: :any_skip_relocation, ventura:       "10086f91485d4a86d7688d8b77a8c2145a2ac67fb799c3d45d4d365852989268"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e6bece954e8e2edbe6cd19a2a8817dc3776c1d3db12157f7d1dce12998daace8"
+  end
+
   depends_on "rust" => :build
 
   on_linux do
