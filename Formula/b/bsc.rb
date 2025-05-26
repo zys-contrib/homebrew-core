@@ -13,6 +13,7 @@ class Bsc < Formula
     sha256 cellar: :any,                 arm64_ventura: "5fa279ba7f86d9b0fff2ab75b8d8890b852764e67baeebbcd0125b8c7239825a"
     sha256 cellar: :any,                 sonoma:        "c8959d3244856dc6562bea2cd1f06ff782195bde78363b1a8dd104176ec6c5f9"
     sha256 cellar: :any,                 ventura:       "9b975bff3f3232bd26626bc308ccba6d24d433575c88c0b72af4a17059ce4d36"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "de1d37f49533298da63ccbbff21907afbc8952df0ef6ef5d5553a2b720939ae1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "14fba2d067b4da9b16420abf741db79db7eb696f9ff25f629dd205af07409a93"
   end
 
