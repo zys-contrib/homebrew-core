@@ -12,13 +12,13 @@ class Varnish < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "c27410d2620eb90cdd55fe2d2f2cb9263e50b7e38f1657ed829933b2ba42d7dd"
-    sha256 arm64_sonoma:  "dca58a2dd40ff2cd995d8ca52be858a63656a37c2098dd676ede5d2fb8ef5fc1"
-    sha256 arm64_ventura: "63ce70bd5ed1b4c5c6fb069732f9619cdacc43d664fe20e6ff036e8a2ada733a"
-    sha256 sonoma:        "bc34ed9be333dbdc5459f969058a42808385e76e3b2ae62bb2cee111b970ebe4"
-    sha256 ventura:       "f67e4e5eb341516ad0229efe39a4012a55e840fe4f38befc9e153baabfae757e"
-    sha256 arm64_linux:   "223fe086adcc8058bb06ea141b750201fb1460c235adca0969cf84f8f68e51c0"
-    sha256 x86_64_linux:  "edb61c2b757d063387fcb8de36074a1dbfcec2cbe7e0637d0e9cf0966c988109"
+    sha256 arm64_sequoia: "fb5cbe8656ede605c0237b5547fd8597cc28f6610f7c6a0055eb4c1abce170f8"
+    sha256 arm64_sonoma:  "ffb66142d7b11573ae3678aeabb73a3562f4d88d1ed685275ec6bd2a455c1a96"
+    sha256 arm64_ventura: "83d569419f98c2f552bf12e7976933c06951923659c0c5f7e78cabd15145f802"
+    sha256 sonoma:        "be72b7f7e58cb4978f546ee7fef88b54e524217a4626712872933103a52c70f4"
+    sha256 ventura:       "d098652ecc801d17d010faf7e18ce1767773bd41c2b8fd8562657279f9ba506f"
+    sha256 arm64_linux:   "87f26a2116f5a9345eb1bdd23bf3573d27daafdfb93f5a160d1a32fc8cbed8bc"
+    sha256 x86_64_linux:  "58c14e678d32e15e03fb6f88bf4cc886244dd7e8d47521e57a97bce1c3c68d9f"
   end
 
   depends_on "docutils" => :build
