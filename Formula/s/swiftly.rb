@@ -8,12 +8,13 @@ class Swiftly < Formula
   head "https://github.com/swiftlang/swiftly.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc28dabc0146237e42d87249c82ab5de387cd086d42357319fa3ad0890e5918f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c3ad3dcdfd507f2a0ba89e9872761c41a77b6b963e0847f19093bc4c725d3097"
-    sha256 cellar: :any,                 arm64_ventura: "65f03c9c0a746e983762be67e249b28b283e7db72c8b92fad0d91e28697d5a4d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f6e40c56ca0228978f8c16ae882f562b5a9c4110d6216e3bb57951fd1efb3f7e"
-    sha256 cellar: :any,                 ventura:       "c68111469617b923dcfc4888d6a1855813935ea90fb3e1b8f2ed64cec6929796"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "77df84071ef43c8f4365c79c36723cf5db0581fd9e539609cf6a30dd2fd963db"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "88c73ca2afd6e1e9f0c6ecee6f9730437c2ce9b09d7e5dcdecc387ef5b6e0c1b"
+    sha256 cellar: :any,                 arm64_ventura: "f2a0ef49f2b9f8d444c36437390a2af05a90b12e5c330eca47946d3dfbb9c120"
+    sha256 cellar: :any_skip_relocation, sonoma:        "87f9a8f5cc42d9d42316214d1311b46049effe1b577ed9c9a84d391d08f31892"
+    sha256 cellar: :any,                 ventura:       "93f3e10f00be6a1bb295063045ff1fb78c5560e893bbc1cfbb3f3260812418c5"
+    sha256                               x86_64_linux:  "d806e18a0d9e3efa67efe31f4cd6dcaca6a4bfa9b8ea1a7b3cc1b67fa21e0b7f"
   end
 
   uses_from_macos "swift" => :build, since: :sonoma # swift 5.10+
