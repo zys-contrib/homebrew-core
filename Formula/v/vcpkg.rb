@@ -1,9 +1,9 @@
 class Vcpkg < Formula
   desc "C++ Library Manager"
   homepage "https://github.com/microsoft/vcpkg"
-  url "https://github.com/microsoft/vcpkg-tool/archive/refs/tags/2025-04-16.tar.gz"
-  version "2025.04.16"
-  sha256 "d0a1fdee0af8172991c12a02e6f3ed1ee4c33760a7680eea93685165335dc8b8"
+  url "https://github.com/microsoft/vcpkg-tool/archive/refs/tags/2025-05-19.tar.gz"
+  version "2025.05.19"
+  sha256 "1925704ef97ad66ac46dd035d1d0fe28f587eaa212115bbc590664ce53981c92"
   license "MIT"
   head "https://github.com/microsoft/vcpkg-tool.git", branch: "main"
 
@@ -47,7 +47,6 @@ class Vcpkg < Formula
                     "-DVCPKG_VERSION=#{version}",
                     "-DVCPKG_DEPENDENCY_EXTERNAL_FMT=ON",
                     "-DVCPKG_DEPENDENCY_CMAKERC=ON",
-                    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", # FIXME: workaround for CMake 4+
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
