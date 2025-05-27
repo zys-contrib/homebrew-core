@@ -1,8 +1,8 @@
 class Dcm2niix < Formula
   desc "DICOM to NIfTI converter"
   homepage "https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage"
-  url "https://github.com/rordenlab/dcm2niix/archive/refs/tags/v1.0.20241211.tar.gz"
-  sha256 "3c7643ac6a1cd9517209eb06f430ad5e2b39583e6a35364f015e5ec3380f9ee2"
+  url "https://github.com/rordenlab/dcm2niix/archive/refs/tags/v1.0.20250505.tar.gz"
+  sha256 "3750e719596d310798722468a763d90e6a5d9edb720d321ca233926a0a508e32"
   license "BSD-3-Clause"
   version_scheme 1
   head "https://github.com/rordenlab/dcm2niix.git", branch: "master"
@@ -25,6 +25,9 @@ class Dcm2niix < Formula
   depends_on "cmake" => :build
 
   def install
+    # Workaround to build with CMake 4
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
