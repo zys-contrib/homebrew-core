@@ -32,8 +32,9 @@ class Gh < Formula
     end
 
     with_env(
-      "GH_VERSION" => gh_version,
-      "GO_LDFLAGS" => "-s -w -X main.updaterEnabled=cli/cli",
+      "GH_VERSION"   => gh_version,
+      "GO_LDFLAGS"   => "-s -w",
+      "GO_BUILDTAGS" => "updateable",
     ) do
       system "make", "bin/gh", "manpages"
     end
