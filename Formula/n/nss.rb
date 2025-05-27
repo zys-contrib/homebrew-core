@@ -1,8 +1,8 @@
 class Nss < Formula
   desc "Libraries for security-enabled client and server applications"
   homepage "https://firefox-source-docs.mozilla.org/security/nss/index.html"
-  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_111_RTM/src/nss-3.111.tar.gz"
-  sha256 "5a4d5a44e91ef03cdc0c4897cf616e3c92f4e590ea835d3e0ccad8b005bd73c6"
+  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_112_RTM/src/nss-3.112.tar.gz"
+  sha256 "33ae72d43b275957252adc8639e84229d3ae692a57b6191b059d9456b8568a68"
   license "MPL-2.0"
 
   livecheck do
@@ -12,6 +12,8 @@ class Nss < Formula
       page.scan(regex).map { |match| match.first.tr("_", ".") }
     end
   end
+
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "83cbf29ef48c82f08f81c27dfc531570353e5c0585ea72d78b6a62fdd4fde9a2"
