@@ -7,6 +7,8 @@ class Glab < Formula
   license "MIT"
   head "https://gitlab.com/gitlab-org/cli.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d0c22c20b75a00d002190700bca50f94ca55a470558674354c5e3879eee06363"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d0c22c20b75a00d002190700bca50f94ca55a470558674354c5e3879eee06363"
