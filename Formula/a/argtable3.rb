@@ -1,9 +1,9 @@
 class Argtable3 < Formula
   desc "ANSI C library for parsing GNU-style command-line options"
   homepage "https://www.argtable.org"
-  url "https://github.com/argtable/argtable3/archive/refs/tags/v3.2.2.f25c624.tar.gz"
-  version "3.2.2"
-  sha256 "a5c66d819fa0be0435f37ed2fb3f23e371091722ff74219de97b65f6b9914e51"
+  url "https://github.com/argtable/argtable3/archive/refs/tags/v3.3.0.116da6c.tar.gz"
+  version "3.3.0"
+  sha256 "7c24a61d4ba780ce150adb33f9e815f8b45d65a1a709e63a9bc94ae201490cd2"
   license "BSD-3-Clause"
   head "https://github.com/argtable/argtable3.git", branch: "master"
 
@@ -14,6 +14,8 @@ class Argtable3 < Formula
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)(?:\.\h+)?$/i)
   end
+
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "977cc6d2b39d50551e00be1cb664891ba886e3e63779769713815ab5c830d4f7"
