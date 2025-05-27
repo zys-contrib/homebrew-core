@@ -6,8 +6,8 @@ class Kapacitor < Formula
 
   stable do
     url "https://github.com/influxdata/kapacitor.git",
-        tag:      "v1.7.6",
-        revision: "3347c7d9aec8e031a3eb05f501461fb106c20529"
+        tag:      "v1.7.7",
+        revision: "f59b0b1f0c0681f37a7aa62d79600009d2f168c8"
 
     # TODO: Remove when release uses flux >= 0.195.0 to get following fix for rust >= 1.78
     # Ref: https://github.com/influxdata/flux/commit/68c831c40b396f0274f6a9f97d77707c39970b02
@@ -20,13 +20,19 @@ class Kapacitor < Formula
         url "https://github.com/influxdata/flux/commit/08b6cb784759242fd1455f1d28e653194745c0c6.patch?full_index=1"
         sha256 "3c40b88897c1bd34c70f277e13320148cbee44b8ac7b8029be6bf4f541965302"
       end
+
+      # go1.22 patch for flux 0.194.5
+      patch do
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/4928e7c7ac070ca64e2c62393c1e7ae95db7889f/kapacitor/flux-0.194.5-go1.22.patch"
+        sha256 "3290b34f688edad2dc10a4abd88ea2ee8821cd547ee99325fbbbe4652ad62bea"
+      end
     end
 
     # build patch to upgrade flux so that it can be built with rust 1.72.0+
     # upstream PR ref, https://github.com/influxdata/kapacitor/pull/2811
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/e1d275be21f72a5d07dfe920c4ce7692f818761e/kapacitor/1.7.6-rust-1.72.patch"
-      sha256 "4e82470590dcaaac7e56c52f659e31107116e426456b74789daf9364039907f0"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/c004d4600a284d62ba74741ffb60f0474403478e/kapacitor/1.7.7.patch"
+      sha256 "c70370136bb4b32112157ce4cc9748a0287a6d9dc92e6651711baa75eb5514be"
     end
   end
 
