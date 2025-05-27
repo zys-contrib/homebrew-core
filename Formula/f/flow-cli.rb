@@ -11,6 +11,8 @@ class FlowCli < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "91bcee800d7f33e6830dc5a3a61e881e9f0525570f8ef6cad89070c84f5c8793"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "28f0490d981659684f244cf192baab2ea8090edd50dc35aa7b07edd74cef16e4"
