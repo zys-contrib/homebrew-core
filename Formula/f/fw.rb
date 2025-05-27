@@ -15,13 +15,13 @@ class Fw < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "17217d03e13f9d6bb51bff058d4906abeefd0d88d41ebfd8a0b58de179b84f22"
-    sha256 cellar: :any,                 arm64_sonoma:  "bed94da930d816240dc2afa69c16df737d90d48fc830075a3b945025312cf800"
-    sha256 cellar: :any,                 arm64_ventura: "44e8ec3e5844f12c3ee137ab19a3e8062bff39957dc7e837a9665a04a54df54c"
-    sha256 cellar: :any,                 sonoma:        "1dfb39b2365411508a694fa9832e315674fb00a19b8aead534c13ef20ea998a2"
-    sha256 cellar: :any,                 ventura:       "7a1d6b4ad35e3a7631b67bc1c78637a8c8292ee904cdfbc7a45f04cd39e9b032"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b1cca454737de3f42364aa83b5bb61322c384620f3ae78556c1df38777599265"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbf2ad75164a1529751022a7a25f8b7e0e1c543ff4227032cf73bcec07ab32e9"
+    sha256 cellar: :any,                 arm64_sequoia: "eb202098914bbc6a57f1934081506e50fccd9ee67ee37b9ef91b2b2484976f7b"
+    sha256 cellar: :any,                 arm64_sonoma:  "b99fcb8532b6b7bc74ca0a292e56587a9965c4a01027b556ff1d508637490f11"
+    sha256 cellar: :any,                 arm64_ventura: "75b0b011571ecad44d356a4faef9a567b6c5bb0ba21902bf6ac8fbd4a482e505"
+    sha256 cellar: :any,                 sonoma:        "70ae18ac9fba06db184692a0ae3cf8572968a3551315371a7d0bb720f3f900e3"
+    sha256 cellar: :any,                 ventura:       "5cbef520c888d19d9a8e0371ff1a6c3df79ad7e9feed67eff8e9f387da2e18de"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "de1fc07bfe852cd4530592303da3b6918413467777ae9f9becc6845a1113ab94"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "37b9bd2e6018551c47b3c0774add1b88594f21a608b0a801c3a2154d28a006ed"
   end
 
   depends_on "rust" => :build
