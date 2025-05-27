@@ -1,8 +1,8 @@
 class PixiPack < Formula
   desc "Pack and unpack conda environments created with pixi"
   homepage "https://pixi.sh/latest/advanced/production_deployment/#pixi-pack"
-  url "https://github.com/quantco/pixi-pack/archive/refs/tags/v0.6.5.tar.gz"
-  sha256 "6ca87106a44632c49394c42fb34b5f78f393bfd66b959787263c7730d7eea598"
+  url "https://github.com/quantco/pixi-pack/archive/refs/tags/v0.6.6.tar.gz"
+  sha256 "3ac701432aa850d27f5e02656f740f9710b39df41c9196b9c60ac2599d322982"
   license "BSD-3-Clause"
   head "https://github.com/quantco/pixi-pack.git", branch: "main"
 
