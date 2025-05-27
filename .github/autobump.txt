@@ -3392,6 +3392,7 @@ slumber
 slurm
 smake
 smartdns
+smenu
 smimesign
 smug
 sn0int
