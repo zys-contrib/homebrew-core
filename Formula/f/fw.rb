@@ -1,8 +1,8 @@
 class Fw < Formula
   desc "Workspace productivity booster"
   homepage "https://github.com/brocode/fw"
-  url "https://github.com/brocode/fw/archive/refs/tags/v2.20.0.tar.gz"
-  sha256 "b7212f782eefb24e481dd0c361525cbb3ee46ac0cbf2f27bbd6011b4ba49d572"
+  url "https://github.com/brocode/fw/archive/refs/tags/v2.21.0.tar.gz"
+  sha256 "9a8b3b1f483118597e07de9561c0fac3412b896aa950243726ef553a705561ac"
   license "WTFPL"
 
   # This repository also contains version tags for other tools (e.g., `v4.4.0`
@@ -30,8 +30,12 @@ class Fw < Formula
   uses_from_macos "zlib"
 
   resource "fw.1" do
-    url "https://github.com/brocode/fw/releases/download/v2.19.0/fw.1"
-    sha256 "b19e2ccb837e4210d7ee8bb7a33b7c967a5734e52c6d050cc716490cac061470"
+    url "https://github.com/brocode/fw/releases/download/v2.21.0/fw.1"
+    sha256 "2c27213d3c5dea906000ccb363ca70f167da0f67e74c243a890a935a102b3972"
+
+    livecheck do
+      formula :parent
+    end
   end
 
   def install
