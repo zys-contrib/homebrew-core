@@ -1080,6 +1080,7 @@ fend
 fennel
 fern-api
 feroxbuster
+ferron
 fetchmail
 ffmpeg
 ffmpeg@4
