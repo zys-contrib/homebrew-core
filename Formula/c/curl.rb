@@ -3,12 +3,23 @@ class Curl < Formula
   homepage "https://curl.se"
   # Don't forget to update both instances of the version in the GitHub mirror URL.
   # `url` goes below this comment when the `stable` block is removed.
-  url "https://curl.se/download/curl-8.13.0.tar.bz2"
-  mirror "https://github.com/curl/curl/releases/download/curl-8_13_0/curl-8.13.0.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/curl-8.13.0.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/legacy/curl-8.13.0.tar.bz2"
-  sha256 "e0d20499260760f9865cb6308928223f4e5128910310c025112f592a168e1473"
+
   license "curl"
+
+  stable do
+    url "https://curl.se/download/curl-8.14.0.tar.bz2"
+    mirror "https://github.com/curl/curl/releases/download/curl-8_14_0/curl-8.14.0.tar.bz2"
+    mirror "http://fresh-center.net/linux/www/curl-8.14.0.tar.bz2"
+    mirror "http://fresh-center.net/linux/www/legacy/curl-8.14.0.tar.bz2"
+    sha256 "efa1403c5ac4490c8d50fc0cabe97710abb1bf2a456e375a56d960b20a1cba80"
+
+    # fix https://github.com/curl/curl/issues/17473
+    # curl_multi_add_handle() returning OOM when using more than 400 handles
+    patch do
+      url "https://github.com/curl/curl/commit/d16ccbd55de80c271fe822f4ba8b6271fd9166ff.patch?full_index=1"
+      sha256 "d30d4336e2422bedba66600b4c05a3bed7f9c51c1163b75d9ee8a27424104745"
+    end
+  end
 
   livecheck do
     url "https://curl.se/download/"
@@ -50,18 +61,6 @@ class Curl < Formula
 
   on_system :linux, macos: :monterey_or_older do
     depends_on "libidn2"
-  end
-
-  # Fixes failure to download certdata.txt due to a redirect
-  patch do
-    url "https://github.com/curl/curl/commit/eeed87f0563d3ca73ff53813418d1f9f03c81fe5.patch?full_index=1"
-    sha256 "f7461a8042ca8ef86492338458ccd79ee286d17773487513928d7ed6ae25818c"
-  end
-
-  # Fixes build on macOS 10.12 and earlier
-  patch do
-    url "https://github.com/curl/curl/commit/d7914f75aa8ecdd68cdbb130c1351a7432597fe4.patch?full_index=1"
-    sha256 "2ba45be5c9238abc914c2a47cd604cbd08972583b310c9079b7b7909b352001b"
   end
 
   def install
