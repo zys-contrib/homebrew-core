@@ -3,8 +3,8 @@ class Ykman < Formula
 
   desc "Tool for managing your YubiKey configuration"
   homepage "https://developers.yubico.com/yubikey-manager/"
-  url "https://files.pythonhosted.org/packages/a5/27/f0ab65a7a0204714df832dc16d3ce79777f76985d7c7fc96657ec32e061f/yubikey_manager-5.6.1.tar.gz"
-  sha256 "730da1358504de6616f1868bf48ddb788ada4b39137fb3ada435efbf39070160"
+  url "https://files.pythonhosted.org/packages/d1/e2/7037a16f72d10939384744366f3797cc3052fc726a7bd001f9ed28bfe1c9/yubikey_manager-5.7.0.tar.gz"
+  sha256 "9a69212ac32ed82a78a287417d0cf476043388c28f84c356a8196f0f5c29a830"
   license "BSD-2-Clause"
   head "https://github.com/Yubico/yubikey-manager.git", branch: "main"
 
@@ -27,13 +27,13 @@ class Ykman < Formula
   # pin pyscard to 2.0.8, upstream bug report, https://github.com/LudovicRousseau/pyscard/issues/169
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
-    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
+    url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
+    sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
   end
 
   resource "fido2" do
-    url "https://files.pythonhosted.org/packages/83/91/e31b08aa0045e86f0a59882528a07ae8e268cd50509abab1261bcdbc8b5f/fido2-2.0.0b1.tar.gz"
-    sha256 "5be55f9cb33b2b688c670b3f1c4099be2229b77db6736d52b2ff13342badc1c6"
+    url "https://files.pythonhosted.org/packages/8d/b9/6ec8d8ec5715efc6ae39e8694bd48d57c189906f0628558f56688d0447b2/fido2-2.0.0.tar.gz"
+    sha256 "3061cd05e73b3a0ef6afc3b803d57c826aa2d6a9732d16abd7277361f58e7964"
   end
 
   resource "jaraco-classes" do
@@ -62,13 +62,13 @@ class Ykman < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/88/3b/7fa1fe835e2e93fd6d7b52b2f95ae810cf5ba133e1845f726f5a992d62c2/more-itertools-10.6.0.tar.gz"
-    sha256 "2cd7fad1009c31cc9fb6a035108509e6547547a7a738374f10bd49a09eb3ee3b"
+    url "https://files.pythonhosted.org/packages/ce/a0/834b0cebabbfc7e311f30b46c8188790a37f89fc8d756660346fe5abfd09/more_itertools-10.7.0.tar.gz"
+    sha256 "9fddd5403be01a94b204faadcff459ec3568cf110265d3c54323e1e866ad29d3"
   end
 
   resource "pyscard" do
-    url "https://files.pythonhosted.org/packages/fe/19/73e8fc37356a4232f9a86acf3794a0f6d8e014430f1f88153ae19fc21d88/pyscard-2.2.1.tar.gz"
-    sha256 "920e688a5108224cb19b915c3fd7ea7cf3d1aa379587ffd087973e84c13f8d94"
+    url "https://files.pythonhosted.org/packages/24/17/a52a6ceb0a58afc1c8b9274bd9fff8ac971a7d5ee886bf31297768a88aa0/pyscard-2.2.2.tar.gz"
+    sha256 "c77481fb86f4a17bc441d7b36551c1d36a9d3a48c4bb30ab8118886e6f275081"
   end
 
   resource "secretstorage" do
