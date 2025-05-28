@@ -4,6 +4,7 @@ class GitlabCiLocal < Formula
   url "https://registry.npmjs.org/gitlab-ci-local/-/gitlab-ci-local-4.60.1.tgz"
   sha256 "2945d0322fd00ab9b734c6bda95a23b29162a906048ca8bda394466cb75a2f68"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f5eaf32f97b932b85a301bdb798b82904eea4cbb3bed3b4423ac4ec14cef7b82"
@@ -19,7 +20,7 @@ class GitlabCiLocal < Formula
 
   def install
     system "npm", "install", *std_npm_args
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install_symlink libexec.glob("bin/*")
   end
 
   test do
