@@ -1,10 +1,10 @@
 class ApacheSpark < Formula
   desc "Engine for large-scale data processing"
   homepage "https://spark.apache.org/"
-  url "https://dlcdn.apache.org/spark/spark-3.5.5/spark-3.5.5-bin-hadoop3.tgz"
-  mirror "https://archive.apache.org/dist/spark/spark-3.5.5/spark-3.5.5-bin-hadoop3.tgz"
-  version "3.5.5"
-  sha256 "8daa3f7fb0af2670fe11beb8a2ac79d908a534d7298353ec4746025b102d5e31"
+  url "https://dlcdn.apache.org/spark/spark-4.0.0/spark-4.0.0-bin-hadoop3.tgz"
+  mirror "https://archive.apache.org/dist/spark/spark-4.0.0/spark-4.0.0-bin-hadoop3.tgz"
+  version "4.0.0"
+  sha256 "2ebac46b59be8b85b0aecc5a479d6de26672265fb7f6570bde2e72859fd87cc4"
   license "Apache-2.0"
   head "https://github.com/apache/spark.git", branch: "master"
 
@@ -32,9 +32,29 @@ class ApacheSpark < Formula
   end
 
   test do
-    command = "#{bin}/spark-shell --conf spark.driver.bindAddress=127.0.0.1"
-    trivial_attribute_name = "jdk.incubator.foreign.FunctionDescriptor.TRIVIAL_ATTRIBUTE_NAME"
-    assert_match "Long = 1000", pipe_output(command, "sc.parallelize(1 to 1000).count()", 0)
-    assert_match "String = abi/trivial", pipe_output(command, trivial_attribute_name, 0)
+    require "pty"
+
+    output = ""
+    PTY.spawn(bin/"spark-shell") do |r, w, pid|
+      w.puts "sc.parallelize(1 to 1000).count()"
+      w.puts "jdk.incubator.foreign.FunctionDescriptor.TRIVIAL_ATTRIBUTE_NAME"
+      w.puts ":quit"
+      begin
+        r.each_line { |line| output += line }
+      rescue Errno::EIO
+        # GNU/Linux raises EIO when read is done on closed pty
+      end
+      # remove ANSI colors
+      output.encode!("UTF-8", "binary",
+        invalid: :replace,
+        undef:   :replace,
+        replace: "")
+      output.gsub!(/\e\[([;\d]+)?m/, "")
+    ensure
+      Process.kill("TERM", pid)
+    end
+
+    assert_match "Long = 1000", output
+    assert_match "String = abi/trivial", output
   end
 end
