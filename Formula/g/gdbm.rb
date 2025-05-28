@@ -18,8 +18,8 @@ class Gdbm < Formula
 
   # Backport fix for macOS
   patch do
-    url "https://git.savannah.gnu.org/cgit/gdbm.git/patch/?id=ed0a865345681982ea02c6159c0f3d7702c928a1"
-    sha256 "d2ba39d1948f5b1f048997716beaaa96d07fba594e81854cb01574378f645e07"
+    url "https://git.savannah.gnu.org/cgit/gdbm.git/rawdiff/?id=ed0a865345681982ea02c6159c0f3d7702c928a1"
+    sha256 "cdba23a8da0bbdf91921247d226f9ca13e2a1c9541434f7a9132ba39346762ad"
   end
 
   def install
