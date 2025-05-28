@@ -7,16 +7,14 @@ class Automake < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7e4b29a71b7f3b192f6dcc3bcf5b794a4548786c66df2f2ef71cf097099c6825"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aaf3cb57d50c48af4886c0cd24340aa6ca5628feac4a566254a878f378aaa2e5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aaf3cb57d50c48af4886c0cd24340aa6ca5628feac4a566254a878f378aaa2e5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "aaf3cb57d50c48af4886c0cd24340aa6ca5628feac4a566254a878f378aaa2e5"
-    sha256 cellar: :any_skip_relocation, sequoia:        "3b8ba6298652b182425648330075f40f7fa6e55296a7463accc47884ecd26c67"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5548bc61f131a45a0aad86b38f044530a51b10243a95188101438e42842f10d9"
-    sha256 cellar: :any_skip_relocation, ventura:        "5548bc61f131a45a0aad86b38f044530a51b10243a95188101438e42842f10d9"
-    sha256 cellar: :any_skip_relocation, monterey:       "5548bc61f131a45a0aad86b38f044530a51b10243a95188101438e42842f10d9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "560980404766bba3c998179b0055afd67cfbab0ce09d8f001530fe31988b7565"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca591433edbdc896db26cea86f61dfbacea15e794828e7280482de2126d89e3e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cf9250abf354e8df5599dff2ee55ca457910868623ce1687c0573580fb810eb9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cf9250abf354e8df5599dff2ee55ca457910868623ce1687c0573580fb810eb9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cf9250abf354e8df5599dff2ee55ca457910868623ce1687c0573580fb810eb9"
+    sha256 cellar: :any_skip_relocation, sequoia:       "228f799a70023d702f770919a1d3d13a79291c48b72247b6722c7fa3682a81a9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "228f799a70023d702f770919a1d3d13a79291c48b72247b6722c7fa3682a81a9"
+    sha256 cellar: :any_skip_relocation, ventura:       "228f799a70023d702f770919a1d3d13a79291c48b72247b6722c7fa3682a81a9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "16c798f7c786e7be9c7e1b8f6daa56680c1b301a36bc13815e492553fedaf700"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16c798f7c786e7be9c7e1b8f6daa56680c1b301a36bc13815e492553fedaf700"
   end
 
   depends_on "autoconf"
