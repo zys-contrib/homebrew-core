@@ -13,13 +13,13 @@ class Dcm2niix < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5aafa3077e9b091f3794393cb261df879354d5e601dc6de66247361900ad24f3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e00f4172fa0e74a4a8c962a0989276ccb3220cab7c694dba275ff98271c67af5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e6d093932363eee682d6875916944672fd2ba8393e14318e1a746c26f3933730"
-    sha256 cellar: :any_skip_relocation, sonoma:        "02e8f2faa36c8c6e262c2c00e7ae54a9c35c5e57061513fa25469d26ecabd32e"
-    sha256 cellar: :any_skip_relocation, ventura:       "60b7dcddebdb73c35be26a2ebf73a928ed4135764637f24d6a2d44a56c99abfc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4367a8327072a9769ec29464e996cbbe36cb97c50f53036816a410e1eeee8d7c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "130292490d094cd918bec552ec8460536699b0ff9c08e5ef5c5f271829d953f9"
+    sha256                               arm64_sequoia: "cc953772d891f078f91fd15f340853dfba970634f20e22165987259f607b7155"
+    sha256                               arm64_sonoma:  "ca821734148aff6d0baebd8c83c68f2fc20f26ac06e7b3351344fed94a8e4e39"
+    sha256                               arm64_ventura: "260b608922b27a33915650bc66b36fd0aaa4415f139f09a5402877484cd60f1f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "91a28ea73ffecf684bbc7d96d7ad551927c1cfc334f57f294708e04edaa422ea"
+    sha256 cellar: :any_skip_relocation, ventura:       "ac1a9f60a17fedba7485333d8992fa1bac206d6083e6cc23ba8e70b3db7e950f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "71555b10ff6f721b9ab11c482a6d8d0385987d34cebd7d19186e70fcc43fa903"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d28346e349db8dd0a7cdb4b08242e52f79ca6c6a5214aa7a6987cb3142e870e"
   end
 
   depends_on "cmake" => :build
