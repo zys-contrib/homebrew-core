@@ -20,6 +20,8 @@ class Libbsc < Formula
     depends_on "libomp"
   end
 
+  conflicts_with "bsc", because: "both install `bsc` binaries"
+
   def install
     args = %W[
       -DBSC_ENABLE_NATIVE_COMPILATION=OFF
