@@ -4,6 +4,7 @@ class Monika < Formula
   url "https://registry.npmjs.org/@hyperjumptech/monika/-/monika-1.22.0.tgz"
   sha256 "2b2ed6ac3186d72a9f060efb62d183c4b156494b2c37de9808c108f54655b84c"
   license "MIT"
+  revision 1
 
   bottle do
     sha256                               arm64_sequoia: "b454a3a9c3ab9b5ae518e59e49ffa26ef65cf251158612f1bf035de1d8a94e73"
@@ -25,7 +26,7 @@ class Monika < Formula
 
   def install
     system "npm", "install", *std_npm_args
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install_symlink libexec.glob("bin/*")
 
     # Remove incompatible pre-built binaries
     os = OS.kernel_name.downcase
