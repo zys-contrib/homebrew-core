@@ -1,9 +1,9 @@
 class Sapling < Formula
   desc "Source control client"
   homepage "https://sapling-scm.com"
-  url "https://github.com/facebook/sapling/archive/refs/tags/0.2.20241203-120811+a2174689.tar.gz"
-  version "0.2.20241203-120811-a2174689"
-  sha256 "f05c5b08b914d2b2ab4788a55d2fd42f395b50d05fb284f4d120042122d77802"
+  url "https://github.com/facebook/sapling/archive/refs/tags/0.2.20250521-115337+25ed6ac4.tar.gz"
+  version "0.2.20250521-115337-25ed6ac4"
+  sha256 "53c48bb807a7c65965a9f9f154f955ec4ccbce6696f721db73d0873e4bf03244"
   license "GPL-2.0-or-later"
   head "https://github.com/facebook/sapling.git", branch: "main"
 
@@ -33,6 +33,7 @@ class Sapling < Formula
   depends_on "openssl@3"
   depends_on "python@3.12" # Python 3.13 issue: https://github.com/facebook/sapling/issues/980
 
+  uses_from_macos "llvm" => :build # for libclang
   uses_from_macos "bzip2"
   # curl-config on ventura builds do not report http2 feature,
   # this is a workaround to allow to build against system curl
