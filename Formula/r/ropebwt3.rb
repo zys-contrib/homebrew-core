@@ -6,6 +6,15 @@ class Ropebwt3 < Formula
   license all_of: ["MIT", "Apache-2.0"]
   head "https://github.com/lh3/ropebwt3.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "bd66115bce6f069c5b16a3c87fba2a4e3e0a158965a4062ebba86e2f2598d0a5"
+    sha256 cellar: :any,                 arm64_sonoma:  "9f099ff6a4f3cff8d08cda4f651550cc8a8767f264133aba3e1052381619da6e"
+    sha256 cellar: :any,                 arm64_ventura: "4a8827a9eeb1208e28f6b81e6c075863d3db3851ebeab0ff606f34bbb32cbc93"
+    sha256 cellar: :any,                 sonoma:        "8b5139751d4261dc40d196fcd21065c987cf1c41c53466b70cdb488c07dedff7"
+    sha256 cellar: :any,                 ventura:       "e3626c7ebb2560e191e053f1ad58e4fdf00fac77607e5ac4ed135a311a8a059c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd94cda69d5a156c7c72a9dae14176f3dc38f2c2855dcad7f64753b1832a4c80"
+  end
+
   uses_from_macos "zlib"
 
   on_macos do
