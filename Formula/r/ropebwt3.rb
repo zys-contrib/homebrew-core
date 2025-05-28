@@ -12,6 +12,7 @@ class Ropebwt3 < Formula
     sha256 cellar: :any,                 arm64_ventura: "4a8827a9eeb1208e28f6b81e6c075863d3db3851ebeab0ff606f34bbb32cbc93"
     sha256 cellar: :any,                 sonoma:        "8b5139751d4261dc40d196fcd21065c987cf1c41c53466b70cdb488c07dedff7"
     sha256 cellar: :any,                 ventura:       "e3626c7ebb2560e191e053f1ad58e4fdf00fac77607e5ac4ed135a311a8a059c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "79e746f565e4e6ad4e0eeba31edf33a40dc74bb964e87f86895f5f549c094b1f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd94cda69d5a156c7c72a9dae14176f3dc38f2c2855dcad7f64753b1832a4c80"
   end
 
