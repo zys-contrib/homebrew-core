@@ -7,12 +7,12 @@ class Yeet < Formula
   head "https://github.com/TecharoHQ/yeet.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6bff957d4bdbdf2536c79c130db94cb06a6bba14767a3d1db009324001c86bfe"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6bff957d4bdbdf2536c79c130db94cb06a6bba14767a3d1db009324001c86bfe"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6bff957d4bdbdf2536c79c130db94cb06a6bba14767a3d1db009324001c86bfe"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f595ad2f46ef59eae6262318ed0e9ea4bc2dac6177f207f778062142053662cb"
-    sha256 cellar: :any_skip_relocation, ventura:       "f595ad2f46ef59eae6262318ed0e9ea4bc2dac6177f207f778062142053662cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03f6a10ea7f02baf9c1db412df94e2cd1f464fd740a59286afbdf36b5f67511d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "581f6c91c29b075efd137b64eeb72d1d94d85debb562f97a062b37e554602a2b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "581f6c91c29b075efd137b64eeb72d1d94d85debb562f97a062b37e554602a2b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "581f6c91c29b075efd137b64eeb72d1d94d85debb562f97a062b37e554602a2b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "23db5e623efe63f6dc69f14f13453567fcd2b481a9f5201993b8dd35c2406573"
+    sha256 cellar: :any_skip_relocation, ventura:       "23db5e623efe63f6dc69f14f13453567fcd2b481a9f5201993b8dd35c2406573"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4909eb48b1ab44fcfc096dd1ee1655d23d08f9dc26c729a2e62d82744d151573"
   end
 
   depends_on "go" => :build
