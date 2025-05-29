@@ -2807,6 +2807,7 @@ pdftk-java
 pdm
 pdns
 pdnsrec
+pdtm
 pedump
 pegtl
 percona-toolkit
