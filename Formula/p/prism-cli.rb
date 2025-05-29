@@ -7,13 +7,13 @@ class PrismCli < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c8333b92f1cfcab951b0ebd6506a1c3449a31e7ea128bfdb68c09a43f8f925fe"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c8333b92f1cfcab951b0ebd6506a1c3449a31e7ea128bfdb68c09a43f8f925fe"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c8333b92f1cfcab951b0ebd6506a1c3449a31e7ea128bfdb68c09a43f8f925fe"
-    sha256 cellar: :any_skip_relocation, sonoma:        "54e69a8479659e2bb814608927794cb89b42b50e0d76f8d7694696bfa62dd390"
-    sha256 cellar: :any_skip_relocation, ventura:       "54e69a8479659e2bb814608927794cb89b42b50e0d76f8d7694696bfa62dd390"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c8333b92f1cfcab951b0ebd6506a1c3449a31e7ea128bfdb68c09a43f8f925fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8333b92f1cfcab951b0ebd6506a1c3449a31e7ea128bfdb68c09a43f8f925fe"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ea3b321d160363a5e006b5166598ce3c14fd567390622e0393f6824329768730"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ea3b321d160363a5e006b5166598ce3c14fd567390622e0393f6824329768730"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ea3b321d160363a5e006b5166598ce3c14fd567390622e0393f6824329768730"
+    sha256 cellar: :any_skip_relocation, sonoma:        "71efe36b05538b5c2cc27803232915af9558f28edeba405272a0fbbbaed043b7"
+    sha256 cellar: :any_skip_relocation, ventura:       "71efe36b05538b5c2cc27803232915af9558f28edeba405272a0fbbbaed043b7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ea3b321d160363a5e006b5166598ce3c14fd567390622e0393f6824329768730"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea3b321d160363a5e006b5166598ce3c14fd567390622e0393f6824329768730"
   end
 
   depends_on "node"
