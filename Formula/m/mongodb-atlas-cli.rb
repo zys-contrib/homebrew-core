@@ -1,8 +1,8 @@
 class MongodbAtlasCli < Formula
   desc "Atlas CLI enables you to manage your MongoDB Atlas"
   homepage "https://www.mongodb.com/docs/atlas/cli/stable/"
-  url "https://github.com/mongodb/mongodb-atlas-cli/archive/refs/tags/atlascli/v1.42.2.tar.gz"
-  sha256 "8b7565024b6e73ed00c8b451cd76aefa3944951198d676305879e80a223e54d1"
+  url "https://github.com/mongodb/mongodb-atlas-cli/archive/refs/tags/atlascli/v1.43.0.tar.gz"
+  sha256 "4ea9c80bd3956f92bfc0a0189b973050a77c187931e6b5adc8da91800fd4f204"
   license "Apache-2.0"
   head "https://github.com/mongodb/mongodb-atlas-cli.git", branch: "master"
 
@@ -24,6 +24,12 @@ class MongodbAtlasCli < Formula
   depends_on "mongosh"
 
   conflicts_with "atlas", "nim", because: "both install `atlas` executable"
+
+  # purego build patch, upstream pr ref, https://github.com/mongodb/mongodb-atlas-cli/pull/3925
+  patch do
+    url "https://github.com/mongodb/mongodb-atlas-cli/commit/5537ad011ddc25b6cbe7fd7cab10bf20d0277316.patch?full_index=1"
+    sha256 "8201cb67f844c7c52478e82590ac150a926f3d09bf5480949fb53e8db6a1d96c"
+  end
 
   def install
     ENV["ATLAS_VERSION"] = version.to_s
