@@ -1,8 +1,8 @@
 class Kew < Formula
   desc "Command-line music player"
   homepage "https://github.com/ravachol/kew"
-  url "https://github.com/ravachol/kew/archive/refs/tags/v3.3.2.tar.gz"
-  sha256 "fb9370e78da2861cbae9ebf2b16e77a4fbba964999fd19e311184b50b117a6ca"
+  url "https://github.com/ravachol/kew/archive/refs/tags/v3.3.3.tar.gz"
+  sha256 "114edb5eead345a5311cdfecda15bf935c1c30ae1f78f97f1a5c3518e829b690"
   license "GPL-2.0-only"
   head "https://github.com/ravachol/kew.git", branch: "main"
 
@@ -23,6 +23,7 @@ class Kew < Formula
   depends_on "glib"
   depends_on "libogg"
   depends_on "libvorbis"
+  depends_on "opus"
   depends_on "opusfile"
   depends_on "taglib"
 
@@ -30,7 +31,6 @@ class Kew < Formula
 
   on_macos do
     depends_on "gettext"
-    depends_on "opus"
   end
 
   on_linux do
