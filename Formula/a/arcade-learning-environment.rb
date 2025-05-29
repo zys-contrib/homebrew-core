@@ -3,8 +3,8 @@ class ArcadeLearningEnvironment < Formula
 
   desc "Platform for AI research"
   homepage "https://github.com/Farama-Foundation/Arcade-Learning-Environment"
-  url "https://github.com/Farama-Foundation/Arcade-Learning-Environment/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "300717009d18c784bf4b407f608e269d7c87e40769c277206230011352e65b97"
+  url "https://github.com/Farama-Foundation/Arcade-Learning-Environment/archive/refs/tags/v0.11.1.tar.gz"
+  sha256 "2b878ae1b7febb498c7ab5351791c6d9838dc214b4825eec0df1b53b58b6aaa3"
   license "GPL-2.0-only"
   head "https://github.com/Farama-Foundation/Arcade-Learning-Environment.git", branch: "master"
 
@@ -69,8 +69,12 @@ class ArcadeLearningEnvironment < Formula
       (buildpath/"src/python/roms").install pwd.glob("ROM/*/*.bin")
     end
 
-    # error: no member named 'signbit' in the global namespace
-    inreplace "setup.py", "cmake_args = [", "\\0\"-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}\"," if OS.mac?
+    inreplace "setup.py" do |s|
+      # error: no member named 'signbit' in the global namespace
+      s.gsub! "cmake_args = [", "\\0\"-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}\"," if OS.mac?
+      # Remove XLA support for now
+      s.gsub! "-DBUILD_VECTOR_XLA_LIB=ON", ""
+    end
     system python3, "-m", "pip", "install", *std_pip_args, "."
 
     # Replace vendored `libSDL2` with a symlink to our own.
