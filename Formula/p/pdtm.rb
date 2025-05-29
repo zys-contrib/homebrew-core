@@ -6,6 +6,15 @@ class Pdtm < Formula
   license "MIT"
   head "https://github.com/projectdiscovery/pdtm.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c9ef2bbd6f036e5c3ce6629905c5c02908ca51440cad3319094771c32077962f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "96751029319e738c50fa86960e7764d68def5c5b0a08b86d4bb7aa1aafabb1ce"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1f8cff333aeb9050e11e8e346b54855c55a2690b697ae033db3b41a239310df1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c0f4d7527f5baa186c8cfad4d0d956b7494af38818efeee4adbc09f908b7e0cd"
+    sha256 cellar: :any_skip_relocation, ventura:       "1783d258be29384be1a3db469de6e1cd8bdfc9d077f0c6bd4bfe8861fc00f1fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6dfea4fd9e25c41239d8126f941591db53887aa456d43396bfbad42fe29b19bd"
+  end
+
   depends_on "go" => :build
 
   def install
