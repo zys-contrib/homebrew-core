@@ -1,8 +1,8 @@
 class CargoExpand < Formula
   desc "Show what Rust code looks like with macros expanded"
   homepage "https://github.com/dtolnay/cargo-expand"
-  url "https://github.com/dtolnay/cargo-expand/archive/refs/tags/1.0.106.tar.gz"
-  sha256 "3917f35b54b4186ac5697648a673a70ab58567bebbee926d5d60cbea5f342471"
+  url "https://github.com/dtolnay/cargo-expand/archive/refs/tags/1.0.107.tar.gz"
+  sha256 "ab217b3e73b06066c95922404889c229d9bf9d9ab41fb9cd21fa7ce43ff145fb"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/dtolnay/cargo-expand.git", branch: "master"
 
