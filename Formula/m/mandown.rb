@@ -4,6 +4,7 @@ class Mandown < Formula
   url "https://github.com/Titor8115/mandown/archive/refs/tags/v1.0.5.2.tar.gz"
   sha256 "9903203fb95364a8b2774fe4eb4260daa725873d8f9a6e079d4c2ace81bede92"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "16dc6fc0dce771f2568a38212dbb8ee9a4c262d737e83ae2a05575f1f29931bc"
