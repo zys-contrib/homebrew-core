@@ -4,6 +4,7 @@ class PandocCrossref < Formula
   url "https://github.com/lierdakil/pandoc-crossref/archive/refs/tags/v0.3.19.tar.gz"
   sha256 "8a30bf9a1d5d716ddfb5fb05bb17e96c121e63a31f95d82d7f369380147e5a06"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4efb5dff57473f27b655851490202f3a90c292e91aeb0403b2971005987f1a73"
