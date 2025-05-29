@@ -3,8 +3,8 @@ class MagicWormhole < Formula
 
   desc "Securely transfers data between computers"
   homepage "https://github.com/magic-wormhole/magic-wormhole"
-  url "https://files.pythonhosted.org/packages/30/45/af319226523f023e380fe1d5f0076dd1b80a5b1f3313327d934da901affa/magic_wormhole-0.19.0.tar.gz"
-  sha256 "861378db76b376434b1a2d39be2fb4307da29b294322638cc2cd4a1ebecc37cb"
+  url "https://files.pythonhosted.org/packages/04/30/28c28af5c0d52e67ea417882b548a619450e9bf62555749e38f071fe6c01/magic_wormhole-0.19.1.tar.gz"
+  sha256 "b1e51d9ab913b3ce1133b678cea84b6e6e38e3d37bd0128786be98370e4ca769"
   license "MIT"
   head "https://github.com/magic-wormhole/magic-wormhole.git", branch: "master"
 
