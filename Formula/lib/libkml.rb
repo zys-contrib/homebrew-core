@@ -34,7 +34,13 @@ class Libkml < Formula
   uses_from_macos "zlib"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Workaround to build with CMake 4
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_CXX_STANDARD=14",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -75,7 +81,7 @@ class Libkml < Formula
     CPP
 
     flags = shell_output("pkgconf --cflags --libs libkml gtest").chomp.split
-    system ENV.cxx, "test.cpp", "-std=c++14", "-o", "test", *flags
+    system ENV.cxx, "test.cpp", "-std=c++17", "-o", "test", *flags
     assert_match "PASSED", shell_output("./test")
   end
 end
