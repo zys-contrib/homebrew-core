@@ -11,6 +11,7 @@ class Elf2uf2Rs < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5e0726aed0c347586d3a4eef4b49ce9ef93d2560f31ae686f48381babae5f508"
     sha256 cellar: :any_skip_relocation, sonoma:        "592612fe9e209df4f432354b7cc471f83a41ab679a13ce2ab904dd1431ffd9ab"
     sha256 cellar: :any_skip_relocation, ventura:       "5942db8bcb33f094ba359873643e78f39ec73e12e2b85fdc076a4abbb63ab08d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bee91ffd1bed1d4f42d0eb45e4c21539b1f8089710b08d007d00a1090bfb352d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "85a5d2a22806dbd123281e4ab4d9f078ae31a81c29f0ad10ee199e4fc7375e5b"
   end
 
