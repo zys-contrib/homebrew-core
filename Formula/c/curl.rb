@@ -62,6 +62,8 @@ class Curl < Formula
     depends_on "libidn2"
   end
 
+  conflicts_with "wcurl", because: "both install `wcurl` binary"
+
   def install
     tag_name = "curl-#{version.to_s.tr(".", "_")}"
     if build.stable? && stable.mirrors.grep(/github\.com/).first.exclude?(tag_name)
