@@ -7,13 +7,13 @@ class GitlabCiLocal < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f5eaf32f97b932b85a301bdb798b82904eea4cbb3bed3b4423ac4ec14cef7b82"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f5eaf32f97b932b85a301bdb798b82904eea4cbb3bed3b4423ac4ec14cef7b82"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f5eaf32f97b932b85a301bdb798b82904eea4cbb3bed3b4423ac4ec14cef7b82"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2a191bfce691767a4f72b10ad9236432427810f1f2abe71ca359d6760c3c242c"
-    sha256 cellar: :any_skip_relocation, ventura:       "2a191bfce691767a4f72b10ad9236432427810f1f2abe71ca359d6760c3c242c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e9e045efe09080870a4059fa1ad2193a10d9d8b891e44bd78452ee7cc9c8ae9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "770f39d23e2c4e5f32182511f9dc01b13ed174c82ec28d13f7e4f8a69ff64678"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a8df418f3d52221f021eccfde1ac3feb75cec1f14491b3b0015437c3f6ab795e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a8df418f3d52221f021eccfde1ac3feb75cec1f14491b3b0015437c3f6ab795e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a8df418f3d52221f021eccfde1ac3feb75cec1f14491b3b0015437c3f6ab795e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8164c92a39c20fda63c5a14e6b2560b6c91b2db7635ac212e4d623746354f930"
+    sha256 cellar: :any_skip_relocation, ventura:       "8164c92a39c20fda63c5a14e6b2560b6c91b2db7635ac212e4d623746354f930"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "001682515a95f8b8113ea08519e02c65b6a008debd67965ed7fc9adb6f0b1e8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa5a41c2900efcd4c9a01c2b0fbf41359d4f401b37844222182feb7685cd4ae8"
   end
 
   depends_on "node"
