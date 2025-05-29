@@ -1,8 +1,8 @@
 class Lazyjournal < Formula
   desc "TUI for logs from journalctl, file system, Docker, Podman and Kubernetes pods"
   homepage "https://github.com/Lifailon/lazyjournal"
-  url "https://github.com/Lifailon/lazyjournal/archive/refs/tags/0.7.8.tar.gz"
-  sha256 "64b23ee8a4d2c0588f0ffc372f8aa0a4841cc9bc2ec7b5d6a4cd0603b4feb687"
+  url "https://github.com/Lifailon/lazyjournal/archive/refs/tags/0.7.9.tar.gz"
+  sha256 "e28bec9a54f890e4af0c3ffeab3c12727eb55f684573cb651e97594b46f17630"
   license "MIT"
   head "https://github.com/Lifailon/lazyjournal.git", branch: "main"
 
