@@ -7,13 +7,13 @@ class Karmadactl < Formula
   head "https://github.com/karmada-io/karmada.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "33bf7253e7453dc5742c1b7234c365b84e0a1a6e8c2869cb961b47aa21f68a3f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9e8c55cdc92e41c0a71b92eb6358b0eca97ec602bc5859245460e593e2225038"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "26653dd1634b3306c039d057b49fc78e5228793008b34f68d53a594c1af935ab"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ad80360ee1252a9b99de5403bde29d7d75c4559b17ae2d0c9707c1df5fb0204f"
-    sha256 cellar: :any_skip_relocation, ventura:       "4cfade08a6b011814844ad08f6a5eaf8bc0a2beb18608f56015336e684c41ab9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ea7b627988c96f7e68e046543c6c428ae023e332ba074dc150381dc08c4deaf5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1017bbbf5e977c309b5767d8d037427878bd40fd179adf89d59a161f2f17fce"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "608ac5bb07946468c6c55928d344c0f5a0b8278ac16a3c263ba9c427aa7c7f57"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a103227dff8cdb8437d12de6c28e6ee052be528ffcf38697b92c1498dd97dcd4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c1029a7b0e899142c71cf67e4cfe19a6ec6cd45acb8642ae9c06008f26ef2fe9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b25c87bc5e8adc2db5db216aca0a9353e4cd3848ee8ed7d63a8f6453ab08fc55"
+    sha256 cellar: :any_skip_relocation, ventura:       "624e8c2224b967ad18a09582c445026b711bb4da817c53b7020047eb76aa0940"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ddbb2010619b4a3c3d777322f808cc0e6c3596f754cc7c542d33083982d63cc3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "527b513d41860faff19afdbac1b5f42cd3d890253eb83dd3bee64ce71c670fa8"
   end
 
   depends_on "go" => :build
