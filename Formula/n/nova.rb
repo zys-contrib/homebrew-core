@@ -6,6 +6,15 @@ class Nova < Formula
   license "Apache-2.0"
   head "https://github.com/FairwindsOps/nova.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "19ce1ddbf6213ebb146cd2036bebafdea269c333f6292e36f13a22101c9bd5a1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "19ce1ddbf6213ebb146cd2036bebafdea269c333f6292e36f13a22101c9bd5a1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "19ce1ddbf6213ebb146cd2036bebafdea269c333f6292e36f13a22101c9bd5a1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e4fd80c52ad1b119cb9b7e2482217be94e8967c59bc631220d94b96babaf905d"
+    sha256 cellar: :any_skip_relocation, ventura:       "e4fd80c52ad1b119cb9b7e2482217be94e8967c59bc631220d94b96babaf905d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e1784c91e78d8ec6667bbea4bd7bd46c266cdd3415f8b6703b1d3cdba697e30"
+  end
+
   depends_on "go" => :build
 
   def install
