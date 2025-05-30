@@ -1,8 +1,8 @@
 class Hcloud < Formula
   desc "Command-line interface for Hetzner Cloud"
   homepage "https://github.com/hetznercloud/cli"
-  url "https://github.com/hetznercloud/cli/archive/refs/tags/v1.50.0.tar.gz"
-  sha256 "61fb1823a176ec77c102c30b3a7de50c67df7eda6dd8a3bf1f17c882e8c78011"
+  url "https://github.com/hetznercloud/cli/archive/refs/tags/v1.51.0.tar.gz"
+  sha256 "530b5925a93da73b7f346e61ff7f8742fae400cd6dfaa1374963b1adbe594138"
   license "MIT"
   head "https://github.com/hetznercloud/cli.git", branch: "main"
 
