@@ -7,12 +7,12 @@ class Oxen < Formula
   head "https://github.com/Oxen-AI/Oxen.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "308c4e9b10b4f4504ca2970baea5b518f96e3770a814c8da40ef96f4c29992d2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f8614beac1f930c3b5aa9fb3b500d13498c3f335e064cfb7dfbd9d7ef7f588c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "aafaaff87750438c8c1386acfcf298c86020efa9fb034db390f7566afeba4bf0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8336f2b93dc0d97cb20576cfb2004d7ba67f4c4b8ffdb5db1bd8604f628721a2"
-    sha256 cellar: :any_skip_relocation, ventura:       "2ba25b20500f7fd7ab49dd5cb3f73d069d62d26acbb20ae7f2a9e943c659ac58"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6019a6c82e0fda3ce82deee832e65a7116a4d7ba17499c126b1ccc12c8626cff"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cf023290d39aaeca2a5a308d5ae5d5d54fc7cebf72bd07f8c9c031f1e626f76d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cd6f8abf358d3ef9984dbf0f9668f591edf0c83a52f6d43a4291319bb393a64d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "70fa9e5ff497fc6b62ca73ac4ee5b3cde7e0c2bf5ef0e66e14c3a38bd351378a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "115c1a15e529afde7dd1d1428277047d65467673d2fa3eba645635f5f7592b26"
+    sha256 cellar: :any_skip_relocation, ventura:       "061821746e20be4c5035579223ae8566007b796f7e56e8b4c87fefbedcddad0c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d71ae7c3a406f091c0da0e282ab4b973b209dd5401be82f3ebae126a234ef8ca"
   end
 
   depends_on "cmake" => :build # for libz-ng-sys
