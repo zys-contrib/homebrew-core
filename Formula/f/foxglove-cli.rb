@@ -6,6 +6,15 @@ class FoxgloveCli < Formula
   license "MIT"
   head "https://github.com/foxglove/foxglove-cli.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5f868121298b783e4e1927a784877025ba11502f91f49914959b1f07b6851a66"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2bb87cd65e811de27dfcbb9ace613a8f604b808fa78524dd6739b058b8b610b0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e424bc77713cf56c62d2b92593305450f5054e09c6b550cd6e4bb216ef9ecf41"
+    sha256 cellar: :any_skip_relocation, sonoma:        "82d81528a09e5e8a1afbf7be0f138b08d76faf8551055a0fb4dea833afd9b836"
+    sha256 cellar: :any_skip_relocation, ventura:       "9c46958968f102fa996048c85a8e5d575f58a545bcc932ff49f7dcf71744c681"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5dac5a6cf8e65d148242235fb04cd40624a43fde0fd060876a08e332fc30707"
+  end
+
   depends_on "go" => :build
 
   def install
