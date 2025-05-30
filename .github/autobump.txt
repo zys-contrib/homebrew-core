@@ -2574,6 +2574,7 @@ notcurses
 noti
 notifiers
 notify
+nova
 nox
 nping
 npm-check-updates
