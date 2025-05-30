@@ -6,6 +6,15 @@ class Polaris < Formula
   license "Apache-2.0"
   head "https://github.com/FairwindsOps/polaris.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "91ccfe006b778c8f49eb585f5042ec9164039a229fb559753ec078c6c26fe165"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "91ccfe006b778c8f49eb585f5042ec9164039a229fb559753ec078c6c26fe165"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "91ccfe006b778c8f49eb585f5042ec9164039a229fb559753ec078c6c26fe165"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e174637f3fef3c0fd5cc3ca45042f4102f317ea1ee57abca42b41c894e7932db"
+    sha256 cellar: :any_skip_relocation, ventura:       "e174637f3fef3c0fd5cc3ca45042f4102f317ea1ee57abca42b41c894e7932db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f58b895b961f875ee4f2d8db147dc206f00e39fc6586a36e0abdd114b69d0644"
+  end
+
   depends_on "go" => :build
 
   def install
