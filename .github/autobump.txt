@@ -3113,6 +3113,7 @@ readpe
 readsb
 rebar3
 recc
+reckoner
 recode
 recoverpy
 redict
