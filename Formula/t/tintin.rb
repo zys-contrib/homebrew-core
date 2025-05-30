@@ -1,8 +1,8 @@
 class Tintin < Formula
   desc "MUD client"
   homepage "https://tintin.mudhalla.net/"
-  url "https://github.com/scandum/tintin/releases/download/2.02.42/tintin-2.02.42.tar.gz"
-  sha256 "ae3396fe40a246dd09d8c31a232202db1827a11e6fbebfa9b1f413e7fd1807c4"
+  url "https://github.com/scandum/tintin/releases/download/2.02.51/tintin-2.02.51.tar.gz"
+  sha256 "9279f25d18defddf449863f4bad6ec971feacd297a9d9ddaac28c9b5d5eced02"
   license "GPL-3.0-or-later"
 
   livecheck do
