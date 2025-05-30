@@ -1,13 +1,13 @@
 class Psalm < Formula
   desc "PHP Static Analysis Tool"
   homepage "https://psalm.dev"
-  url "https://github.com/vimeo/psalm/releases/download/6.11.0/psalm.phar"
-  sha256 "dc3704e135a7d45fc3ca163874f84bd1572f61cfdbb70736bc01c662c2928946"
+  url "https://github.com/vimeo/psalm/releases/download/6.12.0/psalm.phar"
+  sha256 "8e8846f3a5ed8c39ae17da6dea2e178bfbee642cc5e7bf674399afcd68c6fddb"
   license "MIT"
 
   livecheck do
     url :stable
-    strategy :github_latest
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
