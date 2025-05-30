@@ -7,13 +7,13 @@ class Codesnap < Formula
   head "https://github.com/codesnap-rs/codesnap.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "57ae94bd2e89509e4361eb43ae744b6f800aa4fc06cdab6f60376b625ee774d7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ae3d83f193d4648ed80cd3423cc558153014898c0ee1e45ef8c18a031496b138"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4980f31d0c6da5982094d7b75de2123d758d0f7ae58094450781f411d4c97e6e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "517b769bb4782a5876a60c31a396a614c4705b6cdda8783cd6b509dd084df3de"
-    sha256 cellar: :any_skip_relocation, ventura:       "9860c76aaaba3aeacc3dfdfab0b08e142a06e800d845021335dca9bd76de6ae0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bc4fe32c8a7527a273dc72cce1d8cb5a838cf3369b389bbf1f4c4f6ef90dcf0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4e42c9a85a6a9ec350ea882bd48dbb2719110d534c0a9ed23a4599a94f29e4d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e23a58c15d4dbc40b28e6027fc8352bad561c8cbbad93d15c92e5787c8e6de5b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "005b1adb479741b5bd0b39264107098d19bba547e1805d5adffa6c4154b4166f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6e337a05ce4d966c9799fd8bd52e51dfdac62e29c84aaef1b4a3316832508e91"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6f531d38c2731831b260fb41a60941b3a30ec06fb227a629a7d853ce80bfd2d0"
+    sha256 cellar: :any_skip_relocation, ventura:       "ee774c1ae669214b4bb31e372806414234d479f510f4fe561503e1636633cb14"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7456b517fb09d6a6e7ecd619dbe1c962e6ca2524e0abe2019f29b0ea4091083a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "087dba1ec960a55dbdbdbfda15c7159070b5df0bd224a2800174313da9af090d"
   end
 
   depends_on "pkgconf" => :build
