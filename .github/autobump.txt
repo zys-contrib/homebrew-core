@@ -1827,6 +1827,7 @@ ksops
 ktexttemplate
 ktfmt
 ktoblzcheck
+ktop
 ktor
 kty
 kube-bench
