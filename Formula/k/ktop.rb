@@ -12,6 +12,7 @@ class Ktop < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8f1f6ea705c0e224f579de2942b1357175d968068ac957ed3a0d834ba8322ba0"
     sha256 cellar: :any_skip_relocation, sonoma:        "555129b8c4e47a3d0970565e549a45e6b7d89538d0627447e1677ef9a24529e4"
     sha256 cellar: :any_skip_relocation, ventura:       "f789416596ffa2aad19c396c10272e8ea3baa235170624caed537af6b05e7f6e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dfdbcdfe0eaf7686d1c3fc44f06d71b560c8373223efca80645c41f720f405de"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7dd56b99d45d6be35775b409b463ba47df2eac8ca4499e83902d0fed78179457"
   end
 
