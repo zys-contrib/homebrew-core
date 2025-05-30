@@ -3,8 +3,8 @@ class Diffoscope < Formula
 
   desc "In-depth comparison of files, archives, and directories"
   homepage "https://diffoscope.org"
-  url "https://files.pythonhosted.org/packages/dd/da/208187b9a1df4a01f1d64aacdc353a07a8304b3b2cf7689938db5c191d35/diffoscope-296.tar.gz"
-  sha256 "a1e9f43052a8b99984ba0bb13649ba0b18fd7da65a359e4f87170c89f8da325e"
+  url "https://files.pythonhosted.org/packages/36/d4/fd9ace669685018df7d711f41524e3713ae51065514b2cc3d7bfd55a8dda/diffoscope-297.tar.gz"
+  sha256 "25532061c640b4be7496f9a726640e20ca0fcb8e46a8a1a46e51ac940a5f4e57"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -27,8 +27,8 @@ class Diffoscope < Formula
   end
 
   resource "libarchive-c" do
-    url "https://files.pythonhosted.org/packages/bc/0d/c45fe1307564cf550a407fca69cab3969a093d1d41bcd633b278440b4c30/libarchive_c-5.2.tar.gz"
-    sha256 "fd44a8e28509af6e78262c98d1a54f306eabd2963dfee57bf298977de5057417"
+    url "https://files.pythonhosted.org/packages/26/23/e72434d5457c24113e0c22605cbf7dd806a2561294a335047f5aa8ddc1ca/libarchive_c-5.3.tar.gz"
+    sha256 "5ddb42f1a245c927e7686545da77159859d5d4c6d00163c59daff4df314dae82"
   end
 
   resource "progressbar" do
