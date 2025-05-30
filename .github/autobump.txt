@@ -2912,6 +2912,7 @@ podofo
 podsync
 poetry
 poke
+polaris
 policy_sentry
 policy-engine
 polkit
