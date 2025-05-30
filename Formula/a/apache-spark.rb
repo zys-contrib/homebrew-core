@@ -16,7 +16,7 @@ class ApacheSpark < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ee6cf6111d441cd77534189b45edf345a560aff75a2a547ea223d3ccb613f2af"
+    sha256 cellar: :any_skip_relocation, all: "57dc64a028ae181115603613203c66f9bc249c87b547f83cd17cff03399b8509"
   end
 
   depends_on "openjdk@17"
