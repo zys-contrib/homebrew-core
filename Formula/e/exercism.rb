@@ -1,8 +1,8 @@
 class Exercism < Formula
   desc "Command-line tool to interact with exercism.io"
   homepage "https://exercism.io/cli/"
-  url "https://github.com/exercism/cli/archive/refs/tags/v3.5.4.tar.gz"
-  sha256 "58dcd1a62552466b6fa3d3ad62747b1cfeafae5fca3b511c08f5efa9af22539c"
+  url "https://github.com/exercism/cli/archive/refs/tags/v3.5.5.tar.gz"
+  sha256 "7e01a838877d6fc9faea5a6ad3834351b8e485acc9053bbdf59ce3ab3ce0d3b8"
   license "MIT"
   head "https://github.com/exercism/cli.git", branch: "main"
 
