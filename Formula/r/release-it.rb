@@ -11,13 +11,13 @@ class ReleaseIt < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "46e2b43473116c1d1503893eeeb35f0d1e24426e514a0a2459b30556b625d309"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "46e2b43473116c1d1503893eeeb35f0d1e24426e514a0a2459b30556b625d309"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "46e2b43473116c1d1503893eeeb35f0d1e24426e514a0a2459b30556b625d309"
-    sha256 cellar: :any_skip_relocation, sonoma:        "afd352d5a5a5ae9fd7925685e4245fbfe1b3ba37e6d9ff6a9497d1b84c9712eb"
-    sha256 cellar: :any_skip_relocation, ventura:       "afd352d5a5a5ae9fd7925685e4245fbfe1b3ba37e6d9ff6a9497d1b84c9712eb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "46e2b43473116c1d1503893eeeb35f0d1e24426e514a0a2459b30556b625d309"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46e2b43473116c1d1503893eeeb35f0d1e24426e514a0a2459b30556b625d309"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "657dca8091343594aa109d9fd3eb2d2b476d7b4ccb9adaa9032b4e80180d285a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "657dca8091343594aa109d9fd3eb2d2b476d7b4ccb9adaa9032b4e80180d285a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "657dca8091343594aa109d9fd3eb2d2b476d7b4ccb9adaa9032b4e80180d285a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "250475385c0db58c64e62b832b4e9cd8b7d52ac3a95e293867a9be5674a4f874"
+    sha256 cellar: :any_skip_relocation, ventura:       "250475385c0db58c64e62b832b4e9cd8b7d52ac3a95e293867a9be5674a4f874"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "657dca8091343594aa109d9fd3eb2d2b476d7b4ccb9adaa9032b4e80180d285a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "657dca8091343594aa109d9fd3eb2d2b476d7b4ccb9adaa9032b4e80180d285a"
   end
 
   depends_on "node"
