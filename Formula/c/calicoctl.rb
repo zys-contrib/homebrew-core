@@ -2,8 +2,8 @@ class Calicoctl < Formula
   desc "Calico CLI tool"
   homepage "https://www.projectcalico.org"
   url "https://github.com/projectcalico/calico.git",
-      tag:      "v3.30.0",
-      revision: "572a32dd9b2f9784d66d74712d5ec2e703d25083"
+      tag:      "v3.30.1",
+      revision: "393b14e729a67f9bc9a96eba65ff0be5f2f7b94a"
   license "Apache-2.0"
   head "https://github.com/projectcalico/calico.git", branch: "master"
 
