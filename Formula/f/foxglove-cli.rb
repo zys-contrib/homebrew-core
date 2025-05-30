@@ -12,6 +12,7 @@ class FoxgloveCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e424bc77713cf56c62d2b92593305450f5054e09c6b550cd6e4bb216ef9ecf41"
     sha256 cellar: :any_skip_relocation, sonoma:        "82d81528a09e5e8a1afbf7be0f138b08d76faf8551055a0fb4dea833afd9b836"
     sha256 cellar: :any_skip_relocation, ventura:       "9c46958968f102fa996048c85a8e5d575f58a545bcc932ff49f7dcf71744c681"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2eda7e6f62d7a7fc87d9cb7e3d6aca29a7c2c94eb9009d7e84c30c022759f208"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5dac5a6cf8e65d148242235fb04cd40624a43fde0fd060876a08e332fc30707"
   end
 
