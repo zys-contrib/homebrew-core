@@ -1,8 +1,8 @@
 class Gcsfuse < Formula
   desc "User-space file system for interacting with Google Cloud"
   homepage "https://github.com/googlecloudplatform/gcsfuse"
-  url "https://github.com/GoogleCloudPlatform/gcsfuse/archive/refs/tags/v2.12.1.tar.gz"
-  sha256 "f2645cfb7e485df0791bf8774d3b39081132c1e9bedc173f8952759a46a1b76c"
+  url "https://github.com/GoogleCloudPlatform/gcsfuse/archive/refs/tags/v2.12.2.tar.gz"
+  sha256 "500048d3659454ada2d2cad790ec8641dde5ffb2419d040218d7e35f46bce251"
   license "Apache-2.0"
   head "https://github.com/GoogleCloudPlatform/gcsfuse.git", branch: "master"
 
@@ -20,8 +20,6 @@ class Gcsfuse < Formula
   depends_on "libfuse"
   depends_on :linux # on macOS, requires closed-source macFUSE
 
-  patch :DATA
-
   def install
     # Build the build_gcsfuse tool. Ensure that it doesn't pick up any
     # libraries from the user's GOPATH; it should have no dependencies.
@@ -38,18 +36,3 @@ class Gcsfuse < Formula
     system "#{sbin}/mount.gcsfuse", "--help"
   end
 end
-
-__END__
-diff --git a/tools/build_gcsfuse/main.go b/tools/build_gcsfuse/main.go
-index b1a4022..678f747 100644
---- a/tools/build_gcsfuse/main.go
-+++ b/tools/build_gcsfuse/main.go
-@@ -134,8 +134,6 @@ func buildBinaries(dstDir, srcDir, version string, buildArgs []string) (err erro
- 		cmd := exec.Command(
- 			"go",
- 			"build",
--			"-C",
--			srcDir,
- 			"-o",
- 			path.Join(dstDir, bin.outputPath))
- 
