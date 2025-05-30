@@ -20,12 +20,24 @@ class Systemc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6db51dd6f15d86564a1d9a5758497d514b1328222c0635fa9b20ccc86b0a9716"
   end
 
-  depends_on "cmake" => :build
+  depends_on "autoconf" => :build
+  depends_on "autoconf-archive" => :build
+  depends_on "automake" => :build
+  depends_on "doxygen" => :build
+  depends_on "libtool" => :build
+
+  # Workaround "No rule to make target 'DEVELOPMENT.md', needed by 'all-am'":
+  # Ref: https://forums.accellera.org/topic/8068-no-rule-to-make-target-developmentmd-needed-by-all-am/
+  patch do
+    url "https://sources.debian.org/data/main/s/systemc/3.0.1-1/debian/patches/doc-targets.patch"
+    sha256 "3c4c79453599fed2a0082b9564e6a2dd845615afcc173d0e235933b2d2b18bf4"
+  end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_CXX_STANDARD=17", *std_cmake_args
-    system "cmake", "--build", "build"
-    system "cmake", "--install", "build"
+    ENV.append "CXXFLAGS", "-std=gnu++17"
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", "--with-unix-layout", *std_configure_args
+    system "make", "install"
   end
 
   test do
