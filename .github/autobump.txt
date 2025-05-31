@@ -15,6 +15,7 @@ actionlint
 activemq
 ad
 ada-url
+adamstark-audiofile
 adapterremoval
 adaptivecpp
 adb-enhanced
