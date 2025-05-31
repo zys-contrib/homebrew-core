@@ -1,8 +1,8 @@
 class Csvlens < Formula
   desc "Command-line csv viewer"
   homepage "https://github.com/YS-L/csvlens"
-  url "https://github.com/YS-L/csvlens/archive/refs/tags/v0.12.0.tar.gz"
-  sha256 "d95a3029e4ec471feb337f465e36910f712c790e629c8b23357d00b705399f6d"
+  url "https://github.com/YS-L/csvlens/archive/refs/tags/v0.13.0.tar.gz"
+  sha256 "99d172e85b108242da13d51ac379e45cddd2cd79da2ec2e92edb680f78fba562"
   license "MIT"
   head "https://github.com/YS-L/csvlens.git", branch: "main"
 
