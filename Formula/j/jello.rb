@@ -8,8 +8,7 @@ class Jello < Formula
   license "MIT"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, all: "43347f90e4a60a965ce88773aad8fc8bebed4a5ee29f20adc7a31d921b5ce507"
+    sha256 cellar: :any_skip_relocation, all: "6aee2f309a909d8f46313936879821ecd4dfbef13d3a1c75732fee794eb941b4"
   end
 
   depends_on "python@3.13"
