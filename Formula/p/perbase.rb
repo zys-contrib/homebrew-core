@@ -6,6 +6,15 @@ class Perbase < Formula
   license "MIT"
   head "https://github.com/sstadick/perbase.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7e10cf0a82a532a75ceefcbbbd3f57966848dfc051b17adb69ef89331cc3caad"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "36518d86e409d3fa652505da67ce0496dbdaf0d77e3a71ec554e29513d0b66fc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5e3175e41b1eb99a08d1da49411c2b823d4761832f50d90c590f6e7c9b6b486d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3c0ee0199bc40ac70d07d35c029dede0cb84748592b10cfa2c1c0a8f3af91ad7"
+    sha256 cellar: :any_skip_relocation, ventura:       "491387c47a53f4c3e838874a33c206d40c08317aa419988f44dac62e15fa30b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a110b4abaaede69fb54db905c39ba0f274fde0bf422e1f99e18bb285cb26279"
+  end
+
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
