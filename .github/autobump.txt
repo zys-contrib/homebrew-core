@@ -263,6 +263,7 @@ bbot
 bbtools
 bc
 bc-gh
+bcftools
 bcoin
 bcpp
 bde
@@ -1566,6 +1567,7 @@ htmlq
 htmltest
 htop
 htpdate
+htslib
 httm
 httpd
 httpie
@@ -3246,6 +3248,7 @@ safety
 sagittarius-scheme
 samba
 saml2aws
+samtools
 sbcl
 sbom-tool
 sbt
