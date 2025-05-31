@@ -12,6 +12,7 @@ class Crd2pulumi < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "34e1288847de72027899d4fd4ad491a98b1182f1a7d601dec396435dcd79fbaa"
     sha256 cellar: :any_skip_relocation, sonoma:        "e3e04265eaa6c1910e0d05fec10abcdd1a16609965b2ecbf3c31928a78ec87db"
     sha256 cellar: :any_skip_relocation, ventura:       "8d722d5239b46bf83507362e64a913c85c5cbb768d4e40dfc31bfcf59baa0331"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "462512fa6286cb7b402803013123c20beb38cfaf02fec22ee111ed82a6108da8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a6f39e942c24af8ab6577bed69d1ce3c27fdcad9310225d2e248448b22da5ea"
   end
 
