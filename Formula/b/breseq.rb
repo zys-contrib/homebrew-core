@@ -6,6 +6,15 @@ class Breseq < Formula
   license all_of: ["GPL-2.0-or-later", "MIT", "BSD-3-Clause"]
   head "https://github.com/barricklab/breseq.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f22120bae403eb392bec70333093e7176e565853bf5108b51ed37b82a8b39d54"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a5d0b6591968d4b5747cf81d8f377560da5e8b2633d401d5e60f36e954655e49"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "251cb721ac1cedfb266a35557af31efc3964d9265c302c21186173c4089c5a3e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f071fdaf4fb3b7b454b94674075cabe7bed6bbc630b5e3979971f62a35de4401"
+    sha256 cellar: :any_skip_relocation, ventura:       "a7c5e18cc7968fd3e50450807eb1d84d2e1074b920e5a89011033c017621d248"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fecf53100efc095e8c48e3be539d2d40d12f285983ba02d64333326b3acc4040"
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
