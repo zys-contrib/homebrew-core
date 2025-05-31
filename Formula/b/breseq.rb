@@ -12,6 +12,7 @@ class Breseq < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "251cb721ac1cedfb266a35557af31efc3964d9265c302c21186173c4089c5a3e"
     sha256 cellar: :any_skip_relocation, sonoma:        "f071fdaf4fb3b7b454b94674075cabe7bed6bbc630b5e3979971f62a35de4401"
     sha256 cellar: :any_skip_relocation, ventura:       "a7c5e18cc7968fd3e50450807eb1d84d2e1074b920e5a89011033c017621d248"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "987988b2b8ade6641d0559570e3bb0b42dc96ab16e89d0a8fe6de973ae5f4ccc"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fecf53100efc095e8c48e3be539d2d40d12f285983ba02d64333326b3acc4040"
   end
 
