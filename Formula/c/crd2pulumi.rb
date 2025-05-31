@@ -6,6 +6,15 @@ class Crd2pulumi < Formula
   license "Apache-2.0"
   head "https://github.com/pulumi/crd2pulumi.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8170fedbf98664acb53a30c8534c6c879b1726ccf71d11a15a43005e76e3db3e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bd3797b91aa02e1f26a4f8a38e9eed076ba077c801eaa258fcc14b5b6c9f5ec3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "34e1288847de72027899d4fd4ad491a98b1182f1a7d601dec396435dcd79fbaa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e3e04265eaa6c1910e0d05fec10abcdd1a16609965b2ecbf3c31928a78ec87db"
+    sha256 cellar: :any_skip_relocation, ventura:       "8d722d5239b46bf83507362e64a913c85c5cbb768d4e40dfc31bfcf59baa0331"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a6f39e942c24af8ab6577bed69d1ce3c27fdcad9310225d2e248448b22da5ea"
+  end
+
   depends_on "go" => :build
 
   def install
