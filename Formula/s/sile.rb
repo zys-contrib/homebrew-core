@@ -1,8 +1,8 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.15.12/sile-0.15.12.tar.zst"
-  sha256 "a3234111d56bb22f0cba2608954ec88df260eb4772f054ed29770912003ec8a0"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.15.13/sile-0.15.13.tar.zst"
+  sha256 "5e97c19651aff710687b93292d5361cb411652094bcc8c62c811c19f7a81464b"
   license "MIT"
 
   bottle do
@@ -45,8 +45,8 @@ class Sile < Formula
   end
 
   resource "compat53" do
-    url "https://luarocks.org/manifests/lunarmodules/compat53-0.14.3-1.rockspec"
-    sha256 "16218188112c20e9afa9e9057f753d29d7affb10fe3fb2ac74cab17c6de9a030"
+    url "https://luarocks.org/manifests/lunarmodules/compat53-0.14.4-1.rockspec"
+    sha256 "80b4929c84eae8c00b4bca49a7d049d27d7e89cf3aefeb37cd7dc5f3cc725005"
   end
 
   resource "linenoise" do
@@ -55,8 +55,8 @@ class Sile < Formula
   end
 
   resource "lpeg" do
-    url "https://luarocks.org/manifests/gvvaughan/lpeg-1.1.0-1.src.rock"
-    sha256 "6637fcf4d3ddef7be490a2f0155bd2dcd053272d1bb78c015498709ef9fa75dd"
+    url "https://luarocks.org/manifests/gvvaughan/lpeg-1.1.0-2.src.rock"
+    sha256 "836d315b920a5cdd62e21786c6c9fad547c4faa131d5583ebca64f0b6595ee76"
   end
 
   resource "loadkit" do
@@ -70,8 +70,8 @@ class Sile < Formula
   end
 
   resource "lua-zlib" do
-    url "https://luarocks.org/manifests/brimworks/lua-zlib-1.2-2.rockspec"
-    sha256 "adc3e279ce67fb477ce7bf88cfb87607491d1c50d9c785b1567066c353f192f9"
+    url "https://luarocks.org/manifests/brimworks/lua-zlib-1.3-0.rockspec"
+    sha256 "8806be122f5621a657078e8038c7c4ff58720aedcb21da8fdd2b01304981b31a"
   end
 
   # This resource cannot be updated
@@ -110,8 +110,8 @@ class Sile < Formula
 
   # depends on luafilesystem
   resource "penlight" do
-    url "https://luarocks.org/manifests/tieske/penlight-1.14.0-2.src.rock"
-    sha256 "f36affa14fb43e208a59f2e96d214f774b957bcd05d9c07ec52b39eac7f4a05d"
+    url "https://luarocks.org/manifests/tieske/penlight-1.14.0-3.src.rock"
+    sha256 "84e4d23126694a57997d5499490023468190a4b14a64931da61de627ce4fe0c2"
   end
 
   # depends on penlight
