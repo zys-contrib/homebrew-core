@@ -694,6 +694,7 @@ crabz
 cracklib
 crane
 crates-tui
+crd2pulumi
 cri-tools
 crispy-doom
 croaring
