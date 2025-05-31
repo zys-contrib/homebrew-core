@@ -11,13 +11,13 @@ class Psalm < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2f05cdcc12a0d8f798d0180674d9cc8a1c085fa0d4b2d35d2d4a74451328e3ce"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2f05cdcc12a0d8f798d0180674d9cc8a1c085fa0d4b2d35d2d4a74451328e3ce"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2f05cdcc12a0d8f798d0180674d9cc8a1c085fa0d4b2d35d2d4a74451328e3ce"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6efaeed249b8109c5b87b4d5636809b23692d3f958f448cebec37bdb2992155b"
-    sha256 cellar: :any_skip_relocation, ventura:       "6efaeed249b8109c5b87b4d5636809b23692d3f958f448cebec37bdb2992155b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2f05cdcc12a0d8f798d0180674d9cc8a1c085fa0d4b2d35d2d4a74451328e3ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f05cdcc12a0d8f798d0180674d9cc8a1c085fa0d4b2d35d2d4a74451328e3ce"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0a392046edf7cf7eeb814bd52c73070494458548d1b21895c3bfd08759e02125"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0a392046edf7cf7eeb814bd52c73070494458548d1b21895c3bfd08759e02125"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0a392046edf7cf7eeb814bd52c73070494458548d1b21895c3bfd08759e02125"
+    sha256 cellar: :any_skip_relocation, sonoma:        "345919daa60e237e859f577b92fb1846236463c118861b382565da6e6fc5c368"
+    sha256 cellar: :any_skip_relocation, ventura:       "345919daa60e237e859f577b92fb1846236463c118861b382565da6e6fc5c368"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a392046edf7cf7eeb814bd52c73070494458548d1b21895c3bfd08759e02125"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a392046edf7cf7eeb814bd52c73070494458548d1b21895c3bfd08759e02125"
   end
 
   depends_on "composer" => :test
