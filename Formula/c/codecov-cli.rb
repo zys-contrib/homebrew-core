@@ -3,8 +3,8 @@ class CodecovCli < Formula
 
   desc "Codecov's command-line interface"
   homepage "https://cli.codecov.io/"
-  url "https://files.pythonhosted.org/packages/a2/75/6dfaf3d51c106b417483b5e917075a9621e9a39c8da7e13d81af7218b6e5/codecov_cli-11.0.2.tar.gz"
-  sha256 "fcd7e0aec98445aa4951114fa65a54485d463f5d56ccc4d9ab23aeabd7736107"
+  url "https://files.pythonhosted.org/packages/3a/7e/7d916fa02a49d1f16fbb74498bdb95d005d008eb9792626b2468336297cb/codecov_cli-11.0.3.tar.gz"
+  sha256 "0a6d92f51bc6bfb3c5bb6b59722ba3c32e1325f2d23562b4596e2c93782cadad"
   license "Apache-2.0"
   head "https://github.com/codecov/codecov-cli.git", branch: "main"
 
