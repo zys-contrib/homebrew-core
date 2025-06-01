@@ -1724,6 +1724,7 @@ jp2a
 jpeg-turbo
 jpeg-xl
 jprq
+jq
 jql
 jr
 jreleaser
