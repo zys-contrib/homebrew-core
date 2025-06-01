@@ -30,15 +30,27 @@ class Lume < Formula
     end
   end
 
+  service do
+    run [opt_bin/"lume", "serve"]
+    keep_alive true
+    working_dir var
+    log_path var/"log/lume.log"
+    error_log_path var/"log/lume.log"
+  end
+
   test do
     # Test ipsw command
     assert_match "Found latest IPSW URL", shell_output("#{bin}/lume ipsw")
 
     # Test management HTTP server
-    # Serves 404 Not found if no machines created
     port = free_port
-    fork { exec bin/"lume", "serve", "--port", port.to_s }
+    pid = spawn bin/"lume", "serve", "--port", port.to_s
     sleep 5
-    assert_match %r{^HTTP/\d(.\d)? (200|404)}, shell_output("curl -si localhost:#{port}/lume").lines.first
+    begin
+      # Serves 404 Not found if no machines created
+      assert_match %r{^HTTP/\d(.\d)? (200|404)}, shell_output("curl -si localhost:#{port}/lume").lines.first
+    ensure
+      Process.kill "SIGTERM", pid
+    end
   end
 end
