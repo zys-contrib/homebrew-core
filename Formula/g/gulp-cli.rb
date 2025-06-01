@@ -1,8 +1,8 @@
 class GulpCli < Formula
   desc "Command-line utility for Gulp"
   homepage "https://github.com/gulpjs/gulp-cli"
-  url "https://registry.npmjs.org/gulp-cli/-/gulp-cli-3.0.0.tgz"
-  sha256 "f90ba044fd1486dcc0f5e7ec07aba39fc62079cd0f3df78f2ba123b404f8094b"
+  url "https://registry.npmjs.org/gulp-cli/-/gulp-cli-3.1.0.tgz"
+  sha256 "683fa88d8d15b49a8adf760f25e4e46f068f1e065fe234e1199b27fe6bf0376e"
   license "MIT"
 
   bottle do
