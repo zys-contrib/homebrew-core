@@ -1,8 +1,8 @@
 class EvilHelix < Formula
   desc "Soft fork of the helix editor"
   homepage "https://github.com/usagi-flow/evil-helix"
-  url "https://github.com/usagi-flow/evil-helix/archive/refs/tags/release-20250601.tar.gz"
-  sha256 "8b4466988a06e2ba2bb12b9e423fc0a9613755d3e7f71a0ecb97f4407fb22b66"
+  url "https://github.com/usagi-flow/evil-helix/archive/refs/tags/release-20250601b.tar.gz"
+  sha256 "920b36721a6a984c39208ea8825b1f0c68b0bf7d15e029e8ac6896c3442ccc78"
   license "MPL-2.0"
   head "https://github.com/usagi-flow/evil-helix.git", branch: "main"
 
