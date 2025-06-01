@@ -7,13 +7,13 @@ class EvilHelix < Formula
   head "https://github.com/usagi-flow/evil-helix.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b1e3c0ba1218793a8b7ba5d15fd5798b2bf6b0c6780f1e8e60cdb8164ce6cf9c"
-    sha256 cellar: :any,                 arm64_sonoma:  "5641c78dbf7e337d2383e4031645175d2cc7ae0c81997736164adc20ef520832"
-    sha256 cellar: :any,                 arm64_ventura: "d8b286207a5d5a4af13450a7f86e29ff55f19ecb0ea42bc0278308f83e02f862"
-    sha256 cellar: :any,                 sonoma:        "18af39d241bda37f98a777f9980261727ee63ca001fb9ef07893754372309248"
-    sha256 cellar: :any,                 ventura:       "5636a0702d8468604d26f698208fc237125a6fdf0f1412d9553bc8fc9e063375"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "be7405c37721a2caac27ae5b416288c4ba05a06ac2fe0594e2a58491de2595c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "beda696a5384eeaea0fc78f8eec67141f169e4ca905c0073ac9d2dd453b9b109"
+    sha256 cellar: :any,                 arm64_sequoia: "68dc4d8bef7fcc1f8f18a1c64517ad01e6ef805d64341280dddd7d1c289f49c1"
+    sha256 cellar: :any,                 arm64_sonoma:  "06b4bbb5146045a2bf7a59b072dc714814de620a6a85fae8af74673d7f0b2080"
+    sha256 cellar: :any,                 arm64_ventura: "5db089395faf9358a74b855b5bd8e4cbea2817d566043c64f895dcac813e3bcc"
+    sha256 cellar: :any,                 sonoma:        "34f35cd6a6ab36ace85e8b13a26fc9472641cd14cea9cb8c7571e4b96891b460"
+    sha256 cellar: :any,                 ventura:       "5e8789b7774a150997f7e48f777f2faf888197b35097168d69867098c3578dd5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6584904445e70cca9317738c1f66adfa6760736a5b0583607d9c03318916b2f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "421f47a0feeae88f1a6129e38e95c6121937abe1b1432d5c1385d75b467b5c66"
   end
 
   depends_on "rust" => :build
