@@ -3,10 +3,9 @@ class Kaskade < Formula
 
   desc "TUI for Kafka"
   homepage "https://github.com/sauljabin/kaskade"
-  url "https://files.pythonhosted.org/packages/34/1d/468734b0d4acf041dbc50a25562694de23dd732761376b18083b940b1bbf/kaskade-4.0.4.tar.gz"
-  sha256 "42090569c7b2ad5baf62568dba6bd23064daec643ae12d2d5022651d78edc785"
+  url "https://files.pythonhosted.org/packages/b5/6a/4a51af28c5537eb45ab7199a3220e25385171767e86ffabfb908ced2635e/kaskade-4.0.5.tar.gz"
+  sha256 "7eedc2040f8c32a1870dcd1018ac0e20e4feab3b9a45a8152764dcc11a6e860e"
   license "MIT"
-  revision 1
   head "https://github.com/sauljabin/kaskade.git", branch: "main"
 
   bottle do
@@ -177,8 +176,8 @@ class Kaskade < Formula
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/34/99/8408761a1a1076b2bb69d4859ec110d74be7515552407ac1cb6b68630eb6/textual-3.2.0.tar.gz"
-    sha256 "d2f3b0c39e02535bb5f2aec1c45e10bd3ee7508ed1e240b7505c3cf02a6f00ed"
+    url "https://files.pythonhosted.org/packages/6d/96/02751746cf6950e9e8968186cb42eed1e52d91e2c80cc52bb19589e25900/textual-3.3.0.tar.gz"
+    sha256 "aa162b92dde93c5231e3689cdf26b141e86a77ac0a5ba96069bc9547e44119ae"
   end
 
   resource "typing-extensions" do
