@@ -7,12 +7,12 @@ class Logdy < Formula
   head "https://github.com/logdyhq/logdy-core.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f824b88435510732a6b795cf100cd9de6249febc70afa7d339d817a7d7f31739"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f824b88435510732a6b795cf100cd9de6249febc70afa7d339d817a7d7f31739"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f824b88435510732a6b795cf100cd9de6249febc70afa7d339d817a7d7f31739"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e48f5faaa1c82aff7dffaa7d9fc55b1b2552b60ca51c3921133eb950402d2891"
-    sha256 cellar: :any_skip_relocation, ventura:       "e48f5faaa1c82aff7dffaa7d9fc55b1b2552b60ca51c3921133eb950402d2891"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dee1e1e42f5737edbf37da5cb2c2a16882702063a656436e71af979d6c2ed31f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "44c71c2408d41cd551f14112ad6001b2237d6ed04afd76963e6414ad84ff6d27"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "44c71c2408d41cd551f14112ad6001b2237d6ed04afd76963e6414ad84ff6d27"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "44c71c2408d41cd551f14112ad6001b2237d6ed04afd76963e6414ad84ff6d27"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1cbf8423a12870ffff21d6f88defc4f6ca59e7cf0994182003e08ad653499d6c"
+    sha256 cellar: :any_skip_relocation, ventura:       "1cbf8423a12870ffff21d6f88defc4f6ca59e7cf0994182003e08ad653499d6c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3135fa76591aaf207651163fa26f2f1b96015861af9fcf38c2ea9e892140f26"
   end
 
   depends_on "go" => :build
