@@ -1,8 +1,8 @@
 class Geeqie < Formula
   desc "Lightweight Gtk+ based image viewer"
   homepage "https://www.geeqie.org/"
-  url "https://github.com/BestImageViewer/geeqie/releases/download/v2.5/geeqie-2.5.tar.xz"
-  sha256 "cc991c9d4c78c58668105a15f7ece953bfc21b6b78cedc26ccbaaee6a12b8952"
+  url "https://github.com/BestImageViewer/geeqie/releases/download/v2.6.1/geeqie-2.6.1.tar.xz"
+  sha256 "164b768b8a387edf654112428adb8fd88c265c76b7bc84a490158e6923da3a55"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -39,6 +39,7 @@ class Geeqie < Formula
   depends_on "gspell" # for spell checks support
   depends_on "gtk+3"
   depends_on "imagemagick"
+  depends_on "imath"
   depends_on "jpeg-turbo"
   depends_on "jpeg-xl"
   depends_on "libarchive"
@@ -47,12 +48,14 @@ class Geeqie < Formula
   depends_on "libtiff"
   depends_on "libx11"
   depends_on "little-cms2"
+  depends_on "openexr"
   depends_on "openjpeg"
   depends_on "pango"
   depends_on "poppler" # for pdf support # for video thumbnails support
   depends_on "webp"
   depends_on "webp-pixbuf-loader" # for webp support
 
+  uses_from_macos "libxslt" => :build # for xsltproc
   uses_from_macos "python" => :build
   uses_from_macos "vim" => :build # for xxd
 
