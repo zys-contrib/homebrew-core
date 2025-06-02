@@ -1,8 +1,8 @@
 class ProtocGenGrpcSwift < Formula
   desc "Protoc plugin for generating gRPC Swift stubs"
   homepage "https://github.com/grpc/grpc-swift-protobuf"
-  url "https://github.com/grpc/grpc-swift-protobuf/archive/refs/tags/1.3.0.tar.gz"
-  sha256 "0dc2eeb4d04d3909b20d6bcccb79ff828d5a3f800a5f12bca3118828f9dde554"
+  url "https://github.com/grpc/grpc-swift-protobuf/archive/refs/tags/2.0.0.tar.gz"
+  sha256 "308e62a9160603310f055a8fa02484f80e245ad49e094cef4193b520a1736adf"
   license "Apache-2.0"
   version_scheme 1
   head "https://github.com/grpc/grpc-swift-protobuf.git", branch: "main"
@@ -32,8 +32,8 @@ class ProtocGenGrpcSwift < Formula
     else
       ["--static-swift-stdlib"]
     end
-    system "swift", "build", *args, "-c", "release", "--product", "protoc-gen-grpc-swift"
-    bin.install ".build/release/protoc-gen-grpc-swift"
+    system "swift", "build", *args, "-c", "release", "--product", "protoc-gen-grpc-swift-2"
+    bin.install ".build/release/protoc-gen-grpc-swift-2"
   end
 
   test do
@@ -52,7 +52,7 @@ class ProtocGenGrpcSwift < Formula
         string text = 1;
       }
     PROTO
-    system Formula["protobuf"].opt_bin/"protoc", "echo.proto", "--grpc-swift_out=."
+    system Formula["protobuf"].opt_bin/"protoc", "echo.proto", "--grpc-swift-2_out=."
     assert_path_exists testpath/"echo.grpc.swift"
   end
 end
