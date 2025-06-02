@@ -1,8 +1,8 @@
 class Tailspin < Formula
   desc "Log file highlighter"
   homepage "https://github.com/bensadeh/tailspin"
-  url "https://github.com/bensadeh/tailspin/archive/refs/tags/5.4.3.tar.gz"
-  sha256 "f024fc4cbfd9217014912ed9a3d8636be6bd587f473b97ff2bd729eb2227729c"
+  url "https://github.com/bensadeh/tailspin/archive/refs/tags/5.4.4.tar.gz"
+  sha256 "5c7829245c1b02cc19e0c5a23222ab955dd0b36e8c11e135db4257e393a7c236"
   license "MIT"
   head "https://github.com/bensadeh/tailspin.git", branch: "main"
 
