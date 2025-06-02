@@ -1,8 +1,8 @@
 class WasmMicroRuntime < Formula
   desc "WebAssembly Micro Runtime (WAMR)"
   homepage "https://github.com/bytecodealliance/wasm-micro-runtime"
-  url "https://github.com/bytecodealliance/wasm-micro-runtime/archive/refs/tags/WAMR-2.2.0.tar.gz"
-  sha256 "93b6ba03f681e061967106046b1908631ee705312b9a6410f3baee7af7c6aac9"
+  url "https://github.com/bytecodealliance/wasm-micro-runtime/archive/refs/tags/WAMR-2.3.1.tar.gz"
+  sha256 "542d93386f032101635e7f7cf67bdd172adfe2d49dd9eb92c0bbea5cfafd1f8e"
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/bytecodealliance/wasm-micro-runtime.git", branch: "main"
 
@@ -36,6 +36,7 @@ class WasmMicroRuntime < Formula
       -DWAMR_BUILD_JIT=0
       -DWAMR_BUILD_LIBC_UVWASI=0
       -DCMAKE_STRIP=0
+      -DWAMR_BUILD_SIMD=0
     ]
     cmake_source = buildpath/"product-mini/platforms"/OS.kernel_name.downcase
 
