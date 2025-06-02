@@ -59,6 +59,7 @@ class Openldap < Formula
       --enable-refint
       --enable-retcode
       --enable-seqmod
+      --enable-sssvlv
       --enable-translucent
       --enable-unique
       --enable-valsort
