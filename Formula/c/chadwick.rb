@@ -1,13 +1,13 @@
 class Chadwick < Formula
-  desc "Tools for parsing Retrosheet MLB play-by-play files"
-  homepage "https://chadwick.sourceforge.net/doc/index.html"
-  url "https://downloads.sourceforge.net/project/chadwick/chadwick-0.7/chadwick-0.7.2/chadwick-0.7.2.tar.gz"
-  sha256 "f7b3af15281106e101e2ccc4cb182a3f15dbdc3327f2bcb045bfc486a8fda46e"
+  desc "Tools for manipulating baseball data"
+  homepage "https://chadwick.readthedocs.io"
+  url "https://github.com/chadwickbureau/chadwick/releases/download/v0.10.0/chadwick-0.10.0.tar.gz"
+  sha256 "a4128934286edf5f9938923aad2000f7549dcccfb3b3f149a417534ef7eb29e9"
   license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/chadwick[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    strategy :github_latest
   end
 
   bottle do
@@ -24,12 +24,6 @@ class Chadwick < Formula
     sha256 cellar: :any,                 mojave:         "a068fd25b1e8b3d6f9a56a8a1d4ac18a49f07f82450b1ab3f3766b86fb0a362a"
     sha256 cellar: :any,                 high_sierra:    "427b5c0fca10b23b66c56bda3537080df2ba467edea59a9dfd2f0fba56f50f9b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a384612258d503ddcdf39abc98c60e3cfdad289aaaad89169ee18f6f4e596639"
-  end
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
   end
 
   def install
