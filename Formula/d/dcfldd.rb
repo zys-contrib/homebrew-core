@@ -1,8 +1,8 @@
 class Dcfldd < Formula
   desc "Enhanced version of dd for forensics and security"
   homepage "https://github.com/resurrecting-open-source-projects/dcfldd"
-  url "https://github.com/resurrecting-open-source-projects/dcfldd/archive/refs/tags/v1.9.2.tar.gz"
-  sha256 "52468122e915273eaffde94cb0b962adaefe260b8af74e98e1282e2177f01194"
+  url "https://github.com/resurrecting-open-source-projects/dcfldd/archive/refs/tags/v1.9.3.tar.gz"
+  sha256 "e5813e97bbc8f498f034f5e05178489c1be86de015e8da838de59f90f68491e7"
   license "GPL-2.0-or-later"
 
   bottle do
