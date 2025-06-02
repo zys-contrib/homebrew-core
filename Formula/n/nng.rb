@@ -1,8 +1,8 @@
 class Nng < Formula
   desc "Nanomsg-next-generation -- light-weight brokerless messaging"
   homepage "https://nng.nanomsg.org/"
-  url "https://github.com/nanomsg/nng/archive/refs/tags/v1.10.1.tar.gz"
-  sha256 "a05936a64851809ea4b6d4d96d80f2a1b815ef14d6c4f6dd2c8716bd38dd1822"
+  url "https://github.com/nanomsg/nng/archive/refs/tags/v1.11.tar.gz"
+  sha256 "12aaff6f8f183ba0fec378af8620c47cf4be6da975d016ec6cdec2fbac0d3534"
   license "MIT"
 
   livecheck do
