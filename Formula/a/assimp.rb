@@ -1,8 +1,8 @@
 class Assimp < Formula
   desc "Portable library for importing many well-known 3D model formats"
   homepage "https://www.assimp.org/"
-  url "https://github.com/assimp/assimp/archive/refs/tags/v6.0.0.tar.gz"
-  sha256 "95a7263db4a8478bf0ffa22cedd249f5ef02d7dcafd14d288bbc9a5ca24e5c1d"
+  url "https://github.com/assimp/assimp/archive/refs/tags/v6.0.1.tar.gz"
+  sha256 "0c6ec0e601cab4700019c1e60b5cd332cc6355e63e59c11344693623c08a7d38"
   # NOTE: BSD-2-Clause is omitted as contrib/Open3DGC/o3dgcArithmeticCodec.c is not used
   license all_of: [
     "BSD-3-Clause",
