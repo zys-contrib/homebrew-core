@@ -1,9 +1,9 @@
 class Cheapglk < Formula
   desc "Extremely minimal Glk library"
   homepage "https://www.eblong.com/zarf/glk/"
-  url "https://www.eblong.com/zarf/glk/cheapglk-106.tar.gz"
-  version "1.0.6"
-  sha256 "2753562a173b4d03ae2671df2d3c32ab7682efd08b876e7e7624ebdc8bf1510b"
+  url "https://www.eblong.com/zarf/glk/cheapglk-107.tar.gz"
+  version "1.0.7"
+  sha256 "87b9a19d741c71a8d3bffbb0fd7833410672006d3815717c70860e1681043d4c"
   license "MIT"
 
   livecheck do
