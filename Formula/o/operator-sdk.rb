@@ -2,8 +2,8 @@ class OperatorSdk < Formula
   desc "SDK for building Kubernetes applications"
   homepage "https://sdk.operatorframework.io/"
   url "https://github.com/operator-framework/operator-sdk.git",
-      tag:      "v1.39.2",
-      revision: "f01ea5405979ab9ce7049877f9a0c23927ccb2ec"
+      tag:      "v1.40.0",
+      revision: "c975e3a03ef8e3d589806b679638f55036b56212"
   license "Apache-2.0"
   head "https://github.com/operator-framework/operator-sdk.git", branch: "master"
 
@@ -22,11 +22,15 @@ class OperatorSdk < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "50747c090a3153b7e2d2604b66870551c4a5a5a0496c885d7c6dc1dde3d7b12b"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "go"
+  depends_on "gpgme"
+  depends_on "libassuan"
+  depends_on "libgpg-error"
 
   def install
     ENV["GOBIN"] = bin
-    system "make", "install"
+    system "make", "install", "CGO_ENABLED=1"
 
     generate_completions_from_executable(bin/"operator-sdk", "completion")
   end
