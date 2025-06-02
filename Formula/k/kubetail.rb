@@ -1,8 +1,8 @@
 class Kubetail < Formula
   desc "Logging tool for Kubernetes with a real-time web dashboard"
   homepage "https://www.kubetail.com/"
-  url "https://github.com/kubetail-org/kubetail/archive/refs/tags/cli/v0.6.0.tar.gz"
-  sha256 "1d79ce110dc70223741a118d736fcc3cbc7f31421b046d15690d13fd81b86352"
+  url "https://github.com/kubetail-org/kubetail/archive/refs/tags/cli/v0.7.0.tar.gz"
+  sha256 "cce8d3aef284bb4426f31984d716b4de1a8facc1e9e47b5b8fcf15f49244611d"
   license "Apache-2.0"
   head "https://github.com/kubetail-org/kubetail.git", branch: "main"
 
