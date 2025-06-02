@@ -1,8 +1,8 @@
 class Diamond < Formula
   desc "Accelerated BLAST compatible local sequence aligner"
   homepage "https://www.wsi.uni-tuebingen.de/lehrstuehle/algorithms-in-bioinformatics/software/diamond/"
-  url "https://github.com/bbuchfink/diamond/archive/refs/tags/v2.1.11.tar.gz"
-  sha256 "e669e74ac4a7e45d86024a6b9bfda0642fabb02a8b6ce90a2ec7fb3aeb0f8233"
+  url "https://github.com/bbuchfink/diamond/archive/refs/tags/v2.1.12.tar.gz"
+  sha256 "0a11a09ee58f95a3b2e864d61957066faae8a37abaa120353c0faad5d0ff0778"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -19,14 +19,8 @@ class Diamond < Formula
 
   uses_from_macos "zlib"
 
-  # fix compile issue, upstream pr ref, https://github.com/bbuchfink/diamond/pull/852
-  patch do
-    url "https://github.com/bbuchfink/diamond/commit/a50338f6033f55cbeb2db3526005f649a189c656.patch?full_index=1"
-    sha256 "67b2998afa133a77497dc2e928af488237d5d8d419bd916df893a318470fd49b"
-  end
-
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
