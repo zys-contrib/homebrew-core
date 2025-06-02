@@ -2,9 +2,9 @@ class Odin < Formula
   desc "Programming language with focus on simplicity, performance and modern systems"
   homepage "https://odin-lang.org/"
   url "https://github.com/odin-lang/Odin.git",
-      tag:      "dev-2025-04",
-      revision: "d9f990d42e2a1bccf3e7be8ba02efa6504e9af9b"
-  version "2025-04"
+      tag:      "dev-2025-06",
+      revision: "cd1f66e85c22b019adf53835f5d24231cb071e6d"
+  version "2025-06"
   license "BSD-3-Clause"
   head "https://github.com/odin-lang/Odin.git", branch: "master"
 
@@ -30,6 +30,7 @@ class Odin < Formula
 
   def install
     llvm = deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+(\.\d+)*)?$/) }
+    ENV.llvm_clang if OS.linux?
     ENV["LLVM_CONFIG"] = (llvm.opt_bin/"llvm-config").to_s
     ENV.append "LDFLAGS", "-Wl,-rpath,#{llvm.opt_lib}" if OS.linux?
 
