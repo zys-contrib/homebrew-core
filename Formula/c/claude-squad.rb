@@ -6,6 +6,15 @@ class ClaudeSquad < Formula
   license "AGPL-3.0-only"
   head "https://github.com/smtg-ai/claude-squad.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "abf592d9a27f321cc6654eeba356d98f164de9c1345dd6b28d45eafcd683739e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "abf592d9a27f321cc6654eeba356d98f164de9c1345dd6b28d45eafcd683739e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "abf592d9a27f321cc6654eeba356d98f164de9c1345dd6b28d45eafcd683739e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0a1b902a8120cb20125cb483ae698ba096f57c0ba3d4616bdc9a4064ed8c3471"
+    sha256 cellar: :any_skip_relocation, ventura:       "0a1b902a8120cb20125cb483ae698ba096f57c0ba3d4616bdc9a4064ed8c3471"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec66bbab559e3a66c78cb20994f2b8412624ea8787f030b2686c05ce3953712e"
+  end
+
   depends_on "go" => :build
 
   def install
