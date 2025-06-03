@@ -7,9 +7,9 @@ class Macmon < Formula
   head "https://github.com/vladkens/macmon.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "86c4a08eb9ef5a4dc0d03f4f8d042ceed0757406e901d9121d6d7965743ade58"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "53b56d5b51966957a43c9899dfbb766e623fdf43021d59147bb047d22052daf8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cb50d512e081d21d590426196c8e5de0a95d0b8ed70933a548acfefa532a2adc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "40c85d57a50a820f9bce74cc027391722b92db792c96103d08e3be6bd5f3f066"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8fa72082accd0a061484259af4d817129ced58675f02a9d6bcf580aeb5d347cf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8e22dab57f3054c606a653676b0f0c8f09675a504f0c707814b08668cb0036c6"
   end
 
   depends_on "rust" => :build
