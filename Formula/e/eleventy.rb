@@ -7,7 +7,7 @@ class Eleventy < Formula
   head "https://github.com/11ty/eleventy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "bd17d0b480dd7ffdcda8420d3fa497e36ec2e47b63ef586b2ebebd53e389c054"
+    sha256 cellar: :any_skip_relocation, all: "5ad4a19fb02401364c5066a30b5dd4fe0e3c01c0947fd8ddb39477d49f0593b9"
   end
 
   depends_on "node"
