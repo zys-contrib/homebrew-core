@@ -1,8 +1,8 @@
 class Infisical < Formula
   desc "CLI for Infisical"
   homepage "https://infisical.com/docs/cli/overview"
-  url "https://github.com/Infisical/infisical/archive/refs/tags/infisical-cli/v0.41.5.tar.gz"
-  sha256 "a8cb24c0ff750504cbe1683a2962d0c8114d3a3c12f266c0b811e0b151877995"
+  url "https://github.com/Infisical/infisical/archive/refs/tags/infisical-cli/v0.41.7.tar.gz"
+  sha256 "b789d44012c7bbb858b33f09aa8e1a02228b559f3131c24af20d186ac00ceec1"
   license "MIT"
   head "https://github.com/Infisical/infisical.git", branch: "main"
 
@@ -38,7 +38,7 @@ class Infisical < Formula
     output = shell_output("#{bin}/infisical reset")
     assert_match "Reset successful", output
 
-    output = shell_output("#{bin}/infisical init 2>&1", 1)
-    assert_match "You must be logged in to run this command.", output
+    output = shell_output("#{bin}/infisical agent 2>&1")
+    assert_match "starting Infisical agent", output
   end
 end
