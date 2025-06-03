@@ -3,8 +3,8 @@ class OciCli < Formula
 
   desc "Oracle Cloud Infrastructure CLI"
   homepage "https://docs.cloud.oracle.com/iaas/Content/API/Concepts/cliconcepts.htm"
-  url "https://files.pythonhosted.org/packages/15/43/06ae658d4c3de1c4ee3420660ab40191aedc95a53f6259e9dbf0f1b60333/oci_cli-3.57.0.tar.gz"
-  sha256 "2e0a2d7bf2aa7b96c0deee895cbab06c0d4d6b865f4fa668fff921ebc85739cc"
+  url "https://files.pythonhosted.org/packages/93/31/8d966c54dbc4b389222a3e3aed585d08292f140224ea7d867d0c9c6de8c7/oci_cli-3.58.0.tar.gz"
+  sha256 "fceecab675a04a7deb80c0c45636e2f7fa7f0fd8522dd40f573da141b5cf1fc0"
   license any_of: ["UPL-1.0", "Apache-2.0"]
   head "https://github.com/oracle/oci-cli.git", branch: "master"
 
@@ -44,8 +44,8 @@ class OciCli < Formula
   end
 
   resource "oci" do
-    url "https://files.pythonhosted.org/packages/d7/a2/97ad6bb85467ef3331202929a7ef45292bc7b291f0d69d6adcbe3670939c/oci-2.153.0.tar.gz"
-    sha256 "2acccc4394af18d34117d3f3b6a4c5f7ceaa4cafa55f54fa9accdbd21b309dbd"
+    url "https://files.pythonhosted.org/packages/90/6f/650287d9acdc8950903228d170a392670716f9c178c95e0bbe91e0aba4bc/oci-2.154.0.tar.gz"
+    sha256 "0066064fd14a2301fad515a7e1d81a0fb33a34f49ad0a172168d0050630777a9"
   end
 
   resource "prompt-toolkit" do
@@ -94,9 +94,6 @@ class OciCli < Formula
   end
 
   def install
-    # Loosen `pyyaml` version pin: https://github.com/oracle/oci-cli/pull/858
-    inreplace "setup.py", "PyYAML>=5.4,<=6.0.1", "PyYAML>=5.4,<=6.0.2"
-
     venv = virtualenv_install_with_resources without: "terminaltables"
 
     # Switch build-system to poetry-core to avoid rust dependency on Linux.
