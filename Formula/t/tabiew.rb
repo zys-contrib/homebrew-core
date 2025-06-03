@@ -1,17 +1,18 @@
 class Tabiew < Formula
   desc "TUI to view and query tabular files (CSV,TSV, Parquet, etc.)"
   homepage "https://github.com/shshemi/tabiew"
-  url "https://github.com/shshemi/tabiew/archive/refs/tags/v0.8.1.tar.gz"
-  sha256 "912c45cf26d83b96a0003c0134c2971c82cbdf2dda630fa8fa11e41c4ce28150"
+  url "https://github.com/shshemi/tabiew/archive/refs/tags/v0.9.4.tar.gz"
+  sha256 "4b466e72a17e9dc9d8cf59a92398eba1fde361932bc644c2c1badc937fba0e44"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f55b4fa7f134115b01bba141a3ac58ecffcb7b7162c89729e1eec1d44837108a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1e7ec10c3b14aabc55eaa6c5239da79100cbe673eb552a8f7b09db8569c83b8e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "09b84a0bde191d419be974b78fd6cbbe5b291579418392a495b773abb0ee18f7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a1af34fbbd32732ef6c60e731f217cd3e75f0ced2edc4b728b2db2044e547d16"
-    sha256 cellar: :any_skip_relocation, ventura:       "1d27866c282863c2d6135f009dd67affaa6e6545268a5c078260aa71f37f9eac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5dce88d9d2b6081e9d637447d6e7fd3e92c8850aebc97d20afe5eda9619fdac5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ef11e7b97169d0843d91ea84cb2508720d5e14ea4244a273d1c8da823bd5b316"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6086e407d6e3e6f7fb00972c1e2b03d4b5c83e5eff56ca851d45f4c213bc981b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "dbc553069a5738242f2d8d592b758d8219f7a01fe6b9680845015884930d6389"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eceae1ef2d389972a3ef414b3bc0dc8f565e7bb93aa8c91d7e953ac0718525ea"
+    sha256 cellar: :any_skip_relocation, ventura:       "afd72e67da0dcf5fd93fc5260ef97fd7d4301269c7c0d54cff82767d3bcc1b38"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "67ac5f2c7b85568c6c5ef28a79079e159c926c89908460ded52d7e007f932b29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd5507813514018a791c355965e06f1b0f2fe79abec74158bfc3eab5d3591562"
   end
 
   depends_on "rust" => :build

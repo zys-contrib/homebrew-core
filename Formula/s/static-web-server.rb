@@ -1,18 +1,19 @@
 class StaticWebServer < Formula
   desc "High-performance and asynchronous web server for static files-serving"
   homepage "https://static-web-server.net"
-  url "https://github.com/static-web-server/static-web-server/archive/refs/tags/v2.35.0.tar.gz"
-  sha256 "adf260f0aa3ccc18955f9f68ce11356c8d0e3fbb0d9b9446b137430427dafb3b"
+  url "https://github.com/static-web-server/static-web-server/archive/refs/tags/v2.36.1.tar.gz"
+  sha256 "e242e21b3e4b46395bda21b351438df6b5c54b1319a41a86b52eb49ed5567a40"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/static-web-server/static-web-server.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b58e4ff611253884ed0e43e25c3c610e5e3b28a16b9bb0200e0e98bb4f4bceae"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f87a17dcbbc6f0b5cb89f9eca07c4a7e53bd7c2fac86057b231f8d5fd23ef9a4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "74946d5a408aa4c2a8163c4cfa507b84a65abbac032d32c1f720538fe918af39"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0f82cd0627276009db7cc83b543f6cfa2145f1f05ef48ff15413d5bd7f00d9fe"
-    sha256 cellar: :any_skip_relocation, ventura:       "b590e6cb31e898961e9597a50ad13314eaa7f6fbd4ff2a4eb575c4eb29419efd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01cf8ae595d525edf667ee2ad54d13293c3efb055ff5e0f3cd4cee19abcfb5a2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "961892661d638d43440d72d12cf9d95d29e8eb9c16d3e017c9497c12ddf37641"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aa3f2cdbd8fcee585015b12043d2413993e322fc234a5370fad67dcde63d607d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4c188eefa1d2ef79045abdb878232b8ccaf7c922bec2ea1053ecfc97d802f61c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2a56085747d95bbe1361d9084eaac5c1cad770f136149b72b0355f15f03b701f"
+    sha256 cellar: :any_skip_relocation, ventura:       "bb19099fc589fd07295b4dd3b5dbc9202f4b22216c1861396376d2ff3f5e7ac6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d412e72dc12299e27b90c30919801f7daa38cfa935b18a9155bc76a64bcefabf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "58a94eee1b902bc277127a9280424a47f6868a67ac51349c72df40dd0356c512"
   end
 
   depends_on "rust" => :build

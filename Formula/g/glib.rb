@@ -3,18 +3,18 @@ class Glib < Formula
 
   desc "Core application library for C"
   homepage "https://docs.gtk.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.82/glib-2.82.4.tar.xz"
-  sha256 "37dd0877fe964cd15e9a2710b044a1830fb1bd93652a6d0cb6b8b2dff187c709"
+  url "https://download.gnome.org/sources/glib/2.84/glib-2.84.2.tar.xz"
+  sha256 "88e960dd937057407d61fcb3b45a860704b25923c37ae2478b85f2ecb5a4021f"
   license "LGPL-2.1-or-later"
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "cb7e1e45b994e3bf05cc2b21427368d9e417589017786f789c7aefa585b2c0b3"
-    sha256 arm64_sonoma:  "26c4a5cd06dc075dabe28e94dba63742d881343d4fde244b29126086eefb3711"
-    sha256 arm64_ventura: "7108b33ae6d63a669c4bc13a60c2c664b5498691c5dcdb3d40e0e8fbd66a0585"
-    sha256 sonoma:        "1c127e38938c337d06f4dcbee381249f5caee71ae479d2c69c2fe37aad02d0f6"
-    sha256 ventura:       "d13fc9b102ae989dcc0da96b2162269020479da5523f3df1d3d05373345a7ae2"
-    sha256 x86_64_linux:  "275da32f00d6860c91be2ece5094c320638252f1a066fd53ba891ecd378e694e"
+    sha256 arm64_sequoia: "4c797e5a42c6e0cb3eb846e15634662d4cc29f10e47609353bbad80c51fec38d"
+    sha256 arm64_sonoma:  "fdd4ba3170e88633247a549e762975ac8bbc5a96b83c00ec5344589f7b23f4d3"
+    sha256 arm64_ventura: "19c865731de411165c2483c724aa24eaac93148c53586e2319fb17b261e894a3"
+    sha256 sonoma:        "a6dd1ee84d6b53274e54f71967d4399d70abde7b6d58724c1169311f1db1de72"
+    sha256 ventura:       "fdea4e18b6a38635abe211f39ca8b8af2d22208ca81d070ae284f72f37ed4d8d"
+    sha256 arm64_linux:   "2db2d2450692ed5cbd6d0f0229689e693f5fbdc06a3afd28bb70e63a50177325"
+    sha256 x86_64_linux:  "112d241effbde9f06aa8310fce62a4a874022312a7359b803ea29ecc04d58c17"
   end
 
   depends_on "bison" => :build # for gobject-introspection
@@ -23,12 +23,12 @@ class Glib < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "python-setuptools" => :build # for gobject-introspection
+  depends_on "python@3.13" => :build
   depends_on "pcre2"
-  depends_on "python-packaging"
-  depends_on "python@3.13"
 
   uses_from_macos "flex" => :build # for gobject-introspection
   uses_from_macos "libffi", since: :catalina
+  uses_from_macos "python"
   uses_from_macos "zlib"
 
   on_macos do
@@ -50,8 +50,12 @@ class Glib < Formula
                  "share/gir-1.0/GObject-2.0.gir", "share/gir-1.0/Gio-2.0.gir"
 
   resource "gobject-introspection" do
-    url "https://download.gnome.org/sources/gobject-introspection/1.82/gobject-introspection-1.82.0.tar.xz"
-    sha256 "0f5a4c1908424bf26bc41e9361168c363685080fbdb87a196c891c8401ca2f09"
+    url "https://download.gnome.org/sources/gobject-introspection/1.84/gobject-introspection-1.84.0.tar.xz"
+    sha256 "945b57da7ec262e5c266b89e091d14be800cc424277d82a02872b7d794a84779"
+
+    livecheck do
+      formula "gobject-introspection"
+    end
   end
 
   # replace several hardcoded paths with homebrew counterparts
@@ -61,12 +65,8 @@ class Glib < Formula
   end
 
   def install
-    python = "python3.13"
     # Avoid the sandbox violation when an empty directory is created outside of the formula prefix.
     inreplace "gio/meson.build", "install_emptydir(glib_giomodulesdir)", ""
-
-    python_packaging_site_packages = Formula["python-packaging"].opt_prefix/Language::Python.site_packages(python)
-    (share/"glib-2.0").install_symlink python_packaging_site_packages.children
 
     # build patch for `ld: missing LC_LOAD_DYLIB (must link with at least libSystem.dylib) \
     # in ../gobject-introspection-1.80.1/build/tests/offsets/liboffsets-1.0.1.dylib`
@@ -117,7 +117,6 @@ class Glib < Formula
 
     (buildpath/"gio/completion/.gitignore").unlink
     bash_completion.install (buildpath/"gio/completion").children
-    rewrite_shebang detected_python_shebang, *bin.children
     return unless OS.mac?
 
     # `pkg-config --libs glib-2.0` includes -lintl, and gettext itself does not
@@ -188,7 +187,7 @@ class Glib < Formula
                                 "--c-namespace", "MyApp",
                                 "--interface-prefix", "net.corp.MyApp.",
                                 "net.Corp.MyApp.Frobber.xml"
-    assert_predicate testpath/"myapp-generated.c", :exist?
+    assert_path_exists testpath/"myapp-generated.c"
     assert_match "my_app_net_corp_my_app_frobber_call_hello_world", (testpath/"myapp-generated.h").read
 
     # Keep (u)int64_t and g(u)int64 aligned. See install comment for details

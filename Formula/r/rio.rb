@@ -1,8 +1,8 @@
 class Rio < Formula
   desc "Hardware-accelerated GPU terminal emulator powered by WebGPU"
   homepage "https://raphamorim.io/rio/"
-  url "https://github.com/raphamorim/rio/archive/refs/tags/v0.2.3.tar.gz"
-  sha256 "92a42c41d76d133b7e32644c89522f2e1223eeb2c65b3f07d99094fe1d5aade5"
+  url "https://github.com/raphamorim/rio/archive/refs/tags/v0.2.16.tar.gz"
+  sha256 "0645113a1677d4a15320b1a8705abd905ab05286113f44b3eada9a142849de20"
   license "MIT"
   head "https://github.com/raphamorim/rio.git", branch: "main"
 
@@ -12,17 +12,20 @@ class Rio < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1264444dc48715ce54633c7b287de861872f97fb590c8a80e57a578b61330e6a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "455a4075883002ffbdf1bcb67b00a4a95f2fdc5aaa915522fd3c5d0fa05c6aa2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cac37183735e9d9119253e89fb49926f6f46fcd74adfa230f29cef0f640c9e2e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4257569d84e2aa5bd0c7c68b6cae8837938ba6297f7aaf343b9d670bac14afb8"
-    sha256 cellar: :any_skip_relocation, ventura:       "6411565ce5da1c7c4fa53b7eb682eba6a3dfb6bfa99bcafcb3316c9b0a8205e2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "60e0f7815ac005bdb04aaeda741ee0c8f8fbb36710d3f6d91064f567890bd740"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1040cd0896cafd0e9ab1000e2bd7492187ebd39f375d355024bafeed04b4db6c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "24b8a8dfc3457e66622a02e77a386b79d47cdde3a298746d78ca4d8f4707630a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3212ba394d58f010e249d572de9200a19cce94d99bb65f4293af56ee363bd908"
+    sha256 cellar: :any_skip_relocation, ventura:       "acfc487866381e11c305e80bfb2b1a4778422106f4e2045d3e37da155b97d305"
   end
 
   depends_on "rust" => :build
   # Rio does work for Linux although it requires a specification of which
   # window manager will be used (x11 or wayland) otherwise will not work.
   depends_on :macos
+
+  conflicts_with "rasterio", because: "both install `rio` binaries"
+  conflicts_with cask: "rio", because: "both install `rio` binaries"
 
   def install
     system "cargo", "install", *std_cargo_args(path: "frontends/rioterm")
@@ -36,6 +39,6 @@ class Rio < Formula
     # which is the case of x86 in the CI
 
     system bin/"rio", "-e", "touch", testpath/"testfile"
-    assert_predicate testpath/"testfile", :exist?
+    assert_path_exists testpath/"testfile"
   end
 end

@@ -1,14 +1,9 @@
 class Ghc < Formula
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/9.12.1/ghc-9.12.1-src.tar.xz"
-  sha256 "4a7410bdeec70f75717087b8f94bf5a6598fd61b3a0e1f8501d8f10be1492754"
-  # We build bundled copies of libffi and GMP so GHC inherits the licenses
-  license all_of: [
-    "BSD-3-Clause",
-    "MIT", # libffi
-    any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"], # GMP
-  ]
+  url "https://downloads.haskell.org/~ghc/9.12.2/ghc-9.12.2-src.tar.xz"
+  sha256 "0e49cd5dde43f348c5716e5de9a5d7a0f8d68d945dc41cf75dfdefe65084f933"
+  license "BSD-3-Clause"
   head "https://gitlab.haskell.org/ghc/ghc.git", branch: "master"
 
   livecheck do
@@ -17,12 +12,14 @@ class Ghc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0cbc0801cb71cda95756b1926ee60ccfcff38a5113b0eedfbbae8f3bcbe03216"
-    sha256 cellar: :any,                 arm64_sonoma:  "2b87f819d22a4f5dfb112dc02bcea4e9f7abefc792192b1623c5dfb2dedf488f"
-    sha256 cellar: :any,                 arm64_ventura: "8a321896cc41c9cd2b626ddd87ac23dc10c6744da2fe2c445ae638b5f8eb7c03"
-    sha256 cellar: :any,                 sonoma:        "a9ea60687b80e702b59a4435abe8938d8d73335655453ef1bf6c498ef900007f"
-    sha256 cellar: :any,                 ventura:       "0415a4cda74b5b5377eb9e8711973af0b48953608453c3277a634178a4b78b57"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a582bb99457e8305100a0b452a51879b4ab029205e7fec58853fbf022bb2f157"
+    rebuild 1
+    sha256 cellar: :any, arm64_sequoia: "91d82d69656f28ec22846128f6d28205b8f99f8a7abcce0406c309c394cef384"
+    sha256 cellar: :any, arm64_sonoma:  "9de5f90e23350b914387674883157faa793a58619d87ece4f9bc90fe5001737c"
+    sha256 cellar: :any, arm64_ventura: "1027b79cd2c730cc7268f5f1582fa94a23cb66c99d1d937f5395379e1e5c7d2b"
+    sha256 cellar: :any, sonoma:        "9a399cf1d62161f0d278b106af0dd02f5ba2bad96d911e1a96704bca34985914"
+    sha256 cellar: :any, ventura:       "ef06c3ecf24f8855afe44cd10f40088db82aead9ac408425fdf731e73a70c41b"
+    sha256               arm64_linux:   "787493ddf23e1220aa1cda774272ac80bbfeb95a0ee69f585c1836c32dd18d10"
+    sha256               x86_64_linux:  "8ddfb5d203315132ae9a5ea1f05a3398bf781c1e41b077cd2c88084dbce548c8"
   end
 
   depends_on "autoconf" => :build
@@ -30,8 +27,10 @@ class Ghc < Formula
   depends_on "python@3.13" => :build
   depends_on "sphinx-doc" => :build
   depends_on "xz" => :build
+  depends_on "gmp"
 
   uses_from_macos "m4" => :build
+  uses_from_macos "libffi"
   uses_from_macos "ncurses"
 
   # Build uses sed -r option, which is not available in Catalina shipped sed.
@@ -40,7 +39,20 @@ class Ghc < Formula
   end
 
   on_linux do
-    depends_on "gmp" => :build
+    on_arm do
+      depends_on "gcc" => :build if DevelopmentTools.gcc_version("gcc") < 12
+
+      fails_with :gcc do
+        version "11"
+        cause <<~CAUSE
+          _build/stage1/compiler/build/GHC.p_dyn_o:(.text..LsO3B_info+0x198):
+          relocation truncated to fit: R_AARCH64_JUMP26 against symbol
+          `ghczm9zi12zi2zminplace_GHCziUtilsziPanic_showGhcException_info'
+          defined in .text.ghczm9zi12zi2zminplace_GHCziUtilsziPanic_showGhcException_info
+          section in _build/stage1/compiler/build/GHC/Utils/Panic.p_dyn_o
+        CAUSE
+      end
+    end
   end
 
   # A binary of ghc is needed to bootstrap ghc
@@ -104,14 +116,12 @@ class Ghc < Formula
     ENV["PYTHON"] = which("python3.13")
 
     binary = buildpath/"binary"
+    args = %W[
+      --with-gmp-includes=#{Formula["gmp"].opt_include}
+      --with-gmp-libraries=#{Formula["gmp"].opt_lib}
+    ]
     resource("binary").stage do
-      binary_args = []
-      if OS.linux?
-        binary_args << "--with-gmp-includes=#{Formula["gmp"].opt_include}"
-        binary_args << "--with-gmp-libraries=#{Formula["gmp"].opt_lib}"
-      end
-
-      system "./configure", "--prefix=#{binary}", *binary_args
+      system "./configure", "--prefix=#{binary}", *args
       ENV.deparallelize { system "make", "install" }
     end
 
@@ -127,15 +137,13 @@ class Ghc < Formula
       system "./boot"
     end
 
-    args = []
     if OS.mac?
       # https://gitlab.haskell.org/ghc/ghc/-/issues/22595#note_468423
       args << "--with-ffi-libraries=#{MacOS.sdk_path_if_needed}/usr/lib"
       args << "--with-ffi-includes=#{MacOS.sdk_path_if_needed}/usr/include/ffi"
-      args << "--with-system-libffi"
     end
 
-    system "./configure", "--prefix=#{prefix}", "--disable-numa", "--with-intree-gmp", *args
+    system "./configure", "--prefix=#{prefix}", "--disable-numa", "--with-system-libffi", *args
     hadrian_args = %W[
       -j#{ENV.make_jobs}
       --prefix=#{prefix}

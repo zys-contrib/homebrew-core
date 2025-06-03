@@ -3,8 +3,8 @@ class Systemd < Formula
 
   desc "System and service manager"
   homepage "https://systemd.io"
-  url "https://github.com/systemd/systemd/archive/refs/tags/v257.1.tar.gz"
-  sha256 "375365b9f3718ba5fc2a972445eefcd9e229cc18bffe95818220c2a52efe8ed9"
+  url "https://github.com/systemd/systemd/archive/refs/tags/v257.5.tar.gz"
+  sha256 "4d65f9482608cf9f7823df42a6d7796f0e0dfcfb94301df75effff86d40da33e"
   license all_of: [
     # Main license is LGPL-2.1-or-later while systemd-udevd is GPL-2.0-or-later
     "LGPL-2.1-or-later",
@@ -27,23 +27,26 @@ class Systemd < Formula
     { any_of: ["MIT", "GPL-2.0-or-later" => { with: "Linux-syscall-note" }] },
     { any_of: ["GPL-2.0-only", "BSD-2-Clause"] },
   ]
-  revision 1
   head "https://github.com/systemd/systemd.git", branch: "main"
 
   bottle do
-    sha256 x86_64_linux: "bd9ac3858baa447a60bf6f1eb8c2b9b0dfb4c23d91d0a049cb4a6d00630f8eab"
+    sha256 arm64_linux:  "6f8f6f3017a35c59abfb80c6fb609d2ba1a2ebad8c851ca0b5526f27945e1203"
+    sha256 x86_64_linux: "c7609af448f6ac3e55428f908769e4cec7382c0ad306674c7346cd46e3608ed3"
   end
+
+  keg_only "it will shadow system systemd if linked"
 
   depends_on "coreutils" => :build
   depends_on "docbook-xsl" => :build
   depends_on "gettext" => :build
   depends_on "gperf" => :build
+  depends_on "icu4c@77" => :build # FIXME: brew should add to PKG_CONFIG_PATH as dependency of libxml2
   depends_on "libxml2" => :build
   depends_on "libxslt" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "glib"
   depends_on "libcap"
   depends_on "libxcrypt"
@@ -55,13 +58,13 @@ class Systemd < Formula
   depends_on "zstd"
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/e7/6b/20c3a4b24751377aaa6307eb230b66701024012c29dd374999cc92983269/lxml-5.3.0.tar.gz"
-    sha256 "4e109ca30d1edec1ac60cdbe341905dc3b8f55b16855e03a54aaf59e51ec8c6f"
+    url "https://files.pythonhosted.org/packages/ef/f6/c15ca8e5646e937c148e147244817672cf920b56ac0bf2cc1512ae674be8/lxml-5.3.1.tar.gz"
+    sha256 "106b7b5d2977b339f1e97efe2778e2ab20e99994cbb0ec5e55771ed0795920c8"
   end
 
   resource "markupsafe" do
@@ -70,7 +73,7 @@ class Systemd < Formula
   end
 
   def install
-    venv = virtualenv_create(buildpath/"venv", "python3.12")
+    venv = virtualenv_create(buildpath/"venv", "python3.13")
     venv.pip_install resources
     ENV.prepend_path "PATH", venv.root/"bin"
     ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/systemd"

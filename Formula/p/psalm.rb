@@ -1,17 +1,23 @@
 class Psalm < Formula
   desc "PHP Static Analysis Tool"
   homepage "https://psalm.dev"
-  url "https://github.com/vimeo/psalm/releases/download/6.0.0/psalm.phar"
-  sha256 "ba24a93743e90c9f41099c87cd1e19817f6cc93dec98e5f7258ca16da554d231"
+  url "https://github.com/vimeo/psalm/releases/download/6.12.0/psalm.phar"
+  sha256 "8e8846f3a5ed8c39ae17da6dea2e178bfbee642cc5e7bf674399afcd68c6fddb"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "435306651b07260a672cf755e3e65c819289d2a2ffd501b31008f67aefb278d1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "435306651b07260a672cf755e3e65c819289d2a2ffd501b31008f67aefb278d1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "435306651b07260a672cf755e3e65c819289d2a2ffd501b31008f67aefb278d1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1eb1a3a6210662fdfd0ebdbdebb03d2f9f1ba1ebfdb4b2b36f51c5cdd2408232"
-    sha256 cellar: :any_skip_relocation, ventura:       "1eb1a3a6210662fdfd0ebdbdebb03d2f9f1ba1ebfdb4b2b36f51c5cdd2408232"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "435306651b07260a672cf755e3e65c819289d2a2ffd501b31008f67aefb278d1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0a392046edf7cf7eeb814bd52c73070494458548d1b21895c3bfd08759e02125"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0a392046edf7cf7eeb814bd52c73070494458548d1b21895c3bfd08759e02125"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0a392046edf7cf7eeb814bd52c73070494458548d1b21895c3bfd08759e02125"
+    sha256 cellar: :any_skip_relocation, sonoma:        "345919daa60e237e859f577b92fb1846236463c118861b382565da6e6fc5c368"
+    sha256 cellar: :any_skip_relocation, ventura:       "345919daa60e237e859f577b92fb1846236463c118861b382565da6e6fc5c368"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a392046edf7cf7eeb814bd52c73070494458548d1b21895c3bfd08759e02125"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a392046edf7cf7eeb814bd52c73070494458548d1b21895c3bfd08759e02125"
   end
 
   depends_on "composer" => :test

@@ -1,8 +1,8 @@
 class Jruby < Formula
   desc "Ruby implementation in pure Java"
   homepage "https://www.jruby.org/"
-  url "https://search.maven.org/remotecontent?filepath=org/jruby/jruby-dist/9.4.10.0/jruby-dist-9.4.10.0-bin.tar.gz"
-  sha256 "0b325bb6e64896dfcf235bbc6506ca9b5af78f1c8fec7f048bc4188b1793b5e0"
+  url "https://search.maven.org/remotecontent?filepath=org/jruby/jruby-dist/10.0.0.1/jruby-dist-10.0.0.1-bin.tar.gz"
+  sha256 "0ba34ac5dfec7c22659b14db668a06284db7fc1c820c49c04b92271a6636bafb"
   license any_of: ["EPL-2.0", "GPL-2.0-only", "LGPL-2.1-only"]
 
   livecheck do
@@ -11,12 +11,13 @@ class Jruby < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3f3330a7e9413afa5ad1677fc5c68bd1803b5d976a3fa5f88f30942943bbe4e6"
-    sha256 cellar: :any,                 arm64_sonoma:  "3f3330a7e9413afa5ad1677fc5c68bd1803b5d976a3fa5f88f30942943bbe4e6"
-    sha256 cellar: :any,                 arm64_ventura: "3f3330a7e9413afa5ad1677fc5c68bd1803b5d976a3fa5f88f30942943bbe4e6"
-    sha256 cellar: :any,                 sonoma:        "bc13189a0f27d4b0f7eb1ee9ce856a247181d594ac4c2a6fdd3827b281c4897b"
-    sha256 cellar: :any,                 ventura:       "bc13189a0f27d4b0f7eb1ee9ce856a247181d594ac4c2a6fdd3827b281c4897b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7797250814f6d55c9a6378b802c46eec34e3b24d4d342d10b0ca62b185ab8ef"
+    sha256 cellar: :any,                 arm64_sequoia: "c82c17f18e1078d370cb8ca36dce63593a500bef026a4367a76e18919d909818"
+    sha256 cellar: :any,                 arm64_sonoma:  "c82c17f18e1078d370cb8ca36dce63593a500bef026a4367a76e18919d909818"
+    sha256 cellar: :any,                 arm64_ventura: "c82c17f18e1078d370cb8ca36dce63593a500bef026a4367a76e18919d909818"
+    sha256 cellar: :any,                 sonoma:        "592788c3ca665d10bd368ad18aef56ee21ea79b799c05122027c9e29fc7b958b"
+    sha256 cellar: :any,                 ventura:       "592788c3ca665d10bd368ad18aef56ee21ea79b799c05122027c9e29fc7b958b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "47a46c4290e0a4645eca1156283f62dd5d7cc565bff0c3cf9b00eb714afaed54"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3412f241bda3335c86a77ca999e6460c41a90a698135de8c2cbd289fe1b8c4a"
   end
 
   depends_on "openjdk"

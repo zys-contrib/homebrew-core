@@ -4,21 +4,22 @@ class ProtocGenJs < Formula
   url "https://github.com/protocolbuffers/protobuf-javascript/archive/refs/tags/v3.21.4.tar.gz"
   sha256 "8cef92b4c803429af0c11c4090a76b6a931f82d21e0830760a17f9c6cb358150"
   license "BSD-3-Clause"
-  revision 7
+  revision 9
   head "https://github.com/protocolbuffers/protobuf-javascript.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "10a6dc802499f1666dd19e86c0edada7bbda19d07580da53e1a006539338c18b"
-    sha256 cellar: :any,                 arm64_sonoma:  "c36d467208286205d4d2d146f8855b4664d5e2f94e2a986563e52a8022cffccb"
-    sha256 cellar: :any,                 arm64_ventura: "4de2c36868a911ea09814303d961351b73baa9c7cdb822e5e66b184ead56b9de"
-    sha256 cellar: :any,                 sonoma:        "4432f9ef2b0d3a8d6097c4a5eb5feee2578863db91b10466a21ddc5f20ba9713"
-    sha256 cellar: :any,                 ventura:       "c8a8278f6a1de7e6405d79d45fee1b10b0c0f88d38957522749ef9f69e279e70"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0f6aeb71ad79dd68b09b710f35be757f370939fc436ce7e2e232794f2f0e7c7"
+    sha256 cellar: :any,                 arm64_sequoia: "e1d3eb4bac2263ba923f679559e88d7b4c12f678e17399438356941b18604643"
+    sha256 cellar: :any,                 arm64_sonoma:  "61cd3b85437197c9c3032340d1eb85ba1f94843487e60ce1b6338f61204c7f30"
+    sha256 cellar: :any,                 arm64_ventura: "04cd632b292fabc0152c3943e52cd82ed5e8e069d5ad4098177f9498d7e34988"
+    sha256 cellar: :any,                 sonoma:        "4e1ad32e594ae4a51b04667c0a136ef07a9db1e568fe9d6a303ae8308efcee55"
+    sha256 cellar: :any,                 ventura:       "101b027ec794658d1a0684c7da07966c1a62463216e02c6a13b959009da82e92"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b33b76262e0a6ea80580c7b069b844f3e6de051d1dd0ca0abea845dd95d859c1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c81f134c3f3caa2d1e6a79ff11568332a896a1d102b5ff686b8f9f90601eb657"
   end
 
   depends_on "pkgconf" => :build
   depends_on "abseil"
-  depends_on "protobuf"
+  depends_on "protobuf@29"
 
   # We manually build rather than use Bazel as Bazel will build its own copy of Abseil
   # and Protobuf that get statically linked into binary. Check for any upstream changes at
@@ -38,7 +39,7 @@ class ProtocGenJs < Formula
         string name = 2;
       }
     PROTO
-    system Formula["protobuf"].bin/"protoc", "--js_out=import_style=commonjs:.", "person.proto"
+    system Formula["protobuf@29"].bin/"protoc", "--js_out=import_style=commonjs:.", "person.proto"
     assert_path_exists testpath/"person_pb.js"
     refute_predicate (testpath/"person_pb.js").size, :zero?
   end

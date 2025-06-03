@@ -1,10 +1,9 @@
 class Securefs < Formula
   desc "Filesystem with transparent authenticated encryption"
   homepage "https://github.com/netheril96/securefs"
-  url "https://github.com/netheril96/securefs/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "de888359734a05ca0db56d006b4c9774f18fd9e6f9253466a86739b5f6ac3753"
+  url "https://github.com/netheril96/securefs/archive/refs/tags/v1.1.1.tar.gz"
+  sha256 "a4b0ceaaca98d25ed062bce0649bd43c83d5ea78d93d1fa4f227a2d59bfb7e62"
   license "MIT"
-  revision 12
   head "https://github.com/netheril96/securefs.git", branch: "master"
 
   livecheck do
@@ -13,7 +12,8 @@ class Securefs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "439a8dd518c1a5fbe99292fa9cb4d5e941fe41cc0a9173245982af5d28bc0d33"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "bd3859fa0e66a8ddcf4d10c2d5f5c4e6603ed59deac9b9411673b95bc7b0cbd1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "64e1385d7accecb9dfa73a938ec5192bab09c159e0202b17473be9aaed75f119"
   end
 
   depends_on "cmake" => :build

@@ -1,12 +1,13 @@
 class Astgen < Formula
   desc "Generate AST in json format for JS/TS"
   homepage "https://github.com/joernio/astgen"
-  url "https://github.com/joernio/astgen/archive/refs/tags/v3.22.0.tar.gz"
-  sha256 "2452a5a428218bf47c68e4176e65aa192681e7d69acc004d3cfc3741e2a3bbc0"
+  url "https://github.com/joernio/astgen/archive/refs/tags/v3.29.0.tar.gz"
+  sha256 "4f841f76daa13cb6e8e3c1c8b173084d005b4fdbe49e68092c4e9dc4132fa244"
   license "Apache-2.0"
+  head "https://github.com/joernio/astgen.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b512a4689cf7988db396e17090218487836954ca2eb76e494356284b959326c6"
+    sha256 cellar: :any_skip_relocation, all: "93cfdd571ea5cfa13c9e5ae1f5246cd740a8f7ad12749d8969d69496d45554cb"
   end
 
   depends_on "node"
@@ -18,11 +19,8 @@ class Astgen < Formula
     system "npm", "install", *std_npm_args(prefix: false), "-D"
     system "npm", "run", "build"
 
-    # NOTE: We have to manually install `typescript` along with the package
-    # dependencies because it's `require`d in `TscUtils.js` but is only
-    # specified as a `devDependency`.
-    system "npm", "install", *std_npm_args, "typescript"
-    bin.install_symlink Dir["#{libexec}/bin/astgen"]
+    system "npm", "install", *std_npm_args
+    bin.install_symlink libexec.glob("bin/*")
   end
 
   test do

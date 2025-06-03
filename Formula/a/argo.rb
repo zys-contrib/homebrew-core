@@ -2,18 +2,18 @@ class Argo < Formula
   desc "Get stuff done with container-native workflows for Kubernetes"
   homepage "https://argoproj.io"
   url "https://github.com/argoproj/argo-workflows.git",
-      tag:      "v3.6.2",
-      revision: "741ab0ef7b6432925e49882cb4294adccf5912ec"
+      tag:      "v3.6.8",
+      revision: "23eda86c404b1f11cde47083ed7a7a6eb3e9bdf9"
   license "Apache-2.0"
+  head "https://github.com/argoproj/argo-workflows.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bc785afda51481f2174d7ae417d0f42ab9dc0e61b2cd5a660e785f7e5bf3c4dd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ac0a3c670c3e3248b8717561d81160dae8aa9c3ea9c321965092c9deee1ced37"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1ea83eff3f3a6f9234450a12c7c2ec0ab8357e96c0844c528dad98465ae946c2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b6838e9684cf6fcc43a01260ef3a1c1c89b67fec2c3032311a4db546a9aa1445"
-    sha256 cellar: :any_skip_relocation, ventura:       "1af8257d727cac30fca26fff098c296ef5d4deb406541f6aa826dad6883ed882"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d99221df86b8a57717a0e0eb49a9758f264e7229796cc3f531ac9036c870fc20"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3da4a26a6486416f7a2fe55df225681de31709f28355fd8fac7cada06a165a84"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "603993c968005c06d0f549bfb4cca81e4a57589b0c51ed3b00066509d9f127c8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "93de893620518fe5397bd5bc10beb7a0024bd46836881b6da70c83ff615db0fe"
+    sha256 cellar: :any_skip_relocation, sonoma:        "be6a4c8710c535c8c7e83d7aaf0daa94109cb981c6365cf5511c6c1dce5a5fd4"
+    sha256 cellar: :any_skip_relocation, ventura:       "94a707cd34d957876513f30996a2606d7fd781a2948b986f62899b36d02da2e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a304887349678148623aac1cc24e86c54a381032b2bda7f1715bb816da4cbf5e"
   end
 
   depends_on "go" => :build

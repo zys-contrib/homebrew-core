@@ -2,10 +2,11 @@ class PhpAT82 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.2.27.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.2.27.tar.xz"
-  sha256 "3eec91294d8c09b3df80b39ec36d574ed9b05de4c8afcb25fa215d48f9ecbc6b"
+  url "https://www.php.net/distributions/php-8.2.28.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.2.28.tar.xz"
+  sha256 "af8c9153153a7f489153b7a74f2f29a5ee36f5cb2c6c6929c98411a577e89c91"
   license "PHP-3.01"
+  revision 1
 
   livecheck do
     url "https://www.php.net/downloads"
@@ -13,13 +14,13 @@ class PhpAT82 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "2fa84dc0a945c66c512b24247ca7925c07204b376702caf137b41eaae748767a"
-    sha256 arm64_sonoma:  "07f421f411fd1370ed020acc58208dea583939f3256b17fe03b27a2d657d30f1"
-    sha256 arm64_ventura: "2706084009efa5b4389f70357c45401c65a713d63686bbe80b1c3486a10fd933"
-    sha256 sonoma:        "1f0243d4bb7fabd7026813146279a8d27f2a149b569d621d4179278751ca6b86"
-    sha256 ventura:       "e3db5c81ad9fd886a49ae0924ca9258ad5c4eb9d34ac09b0afd88cb4c3f12c8c"
-    sha256 x86_64_linux:  "e72ea8e94acd9150055659dd033121564f312c1c26b3e2a90fa32e9f6010c1a0"
+    sha256 arm64_sequoia: "e2246998dd5e7e7afec8fca2021d72ed1649d895893c5547d0bb029497f8c44c"
+    sha256 arm64_sonoma:  "11e6e340314c547ddbb00f158b752da356b8b6818b41f4a365fc582729ee1c5e"
+    sha256 arm64_ventura: "35103bc809c21c425335f36677e68863488a247ed5069b41e050d090911c331e"
+    sha256 sonoma:        "869dae33045c9f7aca8ae21ac65e1fe847e096427a65cf5885a777ebe124855e"
+    sha256 ventura:       "596b75299759024eb833f033284ffa70b454e1b0cf0dbe09aca2c9786f3782d4"
+    sha256 arm64_linux:   "8460ac3ae3ca87db6f41494ab1c0fdb54225eb3524f16f325fb48afe72942ab1"
+    sha256 x86_64_linux:  "31f6e8f11605a676b758e586f6e74219a5fdb31dfb71c3ee0edeb1491679d827"
   end
 
   keg_only :versioned_formula
@@ -40,7 +41,7 @@ class PhpAT82 < Formula
   depends_on "gd"
   depends_on "gettext"
   depends_on "gmp"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "krb5"
   depends_on "libpq"
   depends_on "libsodium"

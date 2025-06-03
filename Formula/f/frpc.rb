@@ -1,25 +1,26 @@
 class Frpc < Formula
   desc "Client app of fast reverse proxy to expose a local server to the internet"
   homepage "https://github.com/fatedier/frp"
-  url "https://github.com/fatedier/frp/archive/refs/tags/v0.61.1.tar.gz"
-  sha256 "95c567188d5635a7ac8897a6f93ae0568d0ac4892581a96c89874a992dd6a73c"
+  url "https://github.com/fatedier/frp/archive/refs/tags/v0.62.1.tar.gz"
+  sha256 "d0513f1c08f7a6b31f91ddeca64ccdec43726c20d20103de5220055daa04b903"
   license "Apache-2.0"
   head "https://github.com/fatedier/frp.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "15f4bee00e11455b79bafed49fe4add3577ac9d7bb33ff4e363ee7ab5f11a0ac"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "15f4bee00e11455b79bafed49fe4add3577ac9d7bb33ff4e363ee7ab5f11a0ac"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "15f4bee00e11455b79bafed49fe4add3577ac9d7bb33ff4e363ee7ab5f11a0ac"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ba1df73f8be1274af6316e810541b3bf9c8daa35d082dc47514e8191826b8273"
-    sha256 cellar: :any_skip_relocation, ventura:       "ba1df73f8be1274af6316e810541b3bf9c8daa35d082dc47514e8191826b8273"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd36f31abb88e23d44410e851fdee362224e877c5a1998ad72085c88b51b9f26"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "03d8fc5b6b3824a3bedeb16ec8143e323713f9be8a27dc1c2ff4d0074e52dc13"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "03d8fc5b6b3824a3bedeb16ec8143e323713f9be8a27dc1c2ff4d0074e52dc13"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "03d8fc5b6b3824a3bedeb16ec8143e323713f9be8a27dc1c2ff4d0074e52dc13"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fbf2624e561538a9b840afbef0e5d7a60c26dd0b7bf4b2f41d96c03136a006b4"
+    sha256 cellar: :any_skip_relocation, ventura:       "fbf2624e561538a9b840afbef0e5d7a60c26dd0b7bf4b2f41d96c03136a006b4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "16bf7f6bbf18503d86f6ec7a3e007cd16422b329a8d25a8d74e537996d9bba6a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1cc7c7b3d48585edd09aabb7d4042c4cee5d6f3bf05c3e405d1b597022503237"
   end
 
   depends_on "go" => :build
 
   def install
     ENV["CGO_ENABLED"] = "0"
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "-tags=frpc", "./cmd/frpc"
+    system "go", "build", *std_go_args(ldflags: "-s -w", tags: "frpc"), "./cmd/frpc"
     (etc/"frp").install "conf/frpc.toml"
   end
 

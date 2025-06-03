@@ -2,21 +2,12 @@ class Gnuradio < Formula
   include Language::Python::Virtualenv
 
   desc "SDK for signal processing blocks to implement software radios"
-  homepage "https://gnuradio.org/"
+  homepage "https://www.gnuradio.org/"
+  url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.12.0.tar.gz"
+  sha256 "fe78ad9f74c8ebf93d5c8ad6fa2c13236af330f3c67149d91a0647b3dc6f3958"
   license "GPL-3.0-or-later"
-  revision 5
+  revision 1
   head "https://github.com/gnuradio/gnuradio.git", branch: "main"
-
-  stable do
-    url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.11.0.tar.gz"
-    sha256 "9ca658e6c4af9cfe144770757b34ab0edd23f6dcfaa6c5c46a7546233e5ecd29"
-
-    # Backport support for Boost 1.87.0
-    patch do
-      url "https://github.com/gnuradio/gnuradio/commit/111a4ff8b868791dae74d8cdf8c1e0684840f51a.patch?full_index=1"
-      sha256 "1a18b00346a149562ea2a1c8117039162896eb9ccab3290ed2a7a568ca9b642e"
-    end
-  end
 
   livecheck do
     url :stable
@@ -24,19 +15,18 @@ class Gnuradio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b5a69ca98194f4a789b67b278e12c5b21a6d55b25759cc1884176c8e26e6015f"
-    sha256 cellar: :any,                 arm64_sonoma:  "f3281080346ffc818c23199ad5d04de2888b824b3b9c0410f1a64805e6c7c824"
-    sha256 cellar: :any,                 arm64_ventura: "f98f7c0aebad4a933246718e007d6b17cd73e695b4589437ac2ee6ec26ac2d13"
-    sha256 cellar: :any,                 sonoma:        "90603f72df66f994cc93b5cf8a551217900fad96053fc8c24d49ffa95b38d617"
-    sha256 cellar: :any,                 ventura:       "72ccfe1ec4474abc73d60dafd1a7843f9e99fb172f9e9a94d46d001e7f3db0bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cdd9096bf4fd0914ce2b68483a50ec240ab42ee331dfad7bdc3284de9098161d"
+    sha256 cellar: :any,                 arm64_sequoia: "764d4cd2ae0dfd4d3bdb4fb3b7c7bcb947f7758449ecb38f1daca1383a0ee748"
+    sha256 cellar: :any,                 arm64_sonoma:  "f5d8e2235a7f96d47fa52aadb21bd7f0b5b533368944b8c9d86aff7cda853fce"
+    sha256 cellar: :any,                 arm64_ventura: "ef06ea9e6e2feb630198c086ebadd974a76e1e293cdc1d05ed8ae4030f5c00b9"
+    sha256 cellar: :any,                 sonoma:        "c0d8795ae4992f9b44626822118245016c91312242e778a13b94573cdbeefc3b"
+    sha256 cellar: :any,                 ventura:       "6114da91738bef6577e4e573d11502d7b3d51355cac0ede95433a18a730e6d94"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b0357eed145763df02fc65f861c55754cf5f9f2f9ad6c7cd32f09afbd51bb78b"
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "pkgconf" => :build
   depends_on "pybind11" => :build
-  depends_on "rust" => :build # for rpds-py
   depends_on "adwaita-icon-theme"
   depends_on "boost"
   depends_on "cppzmq"
@@ -48,14 +38,14 @@ class Gnuradio < Formula
   depends_on "jack"
   depends_on "libsndfile"
   depends_on "libyaml"
-  depends_on "log4cpp"
   depends_on "numpy"
   depends_on "portaudio"
   depends_on "pygobject3"
   depends_on "pyqt@5"
   depends_on "python@3.13"
-  depends_on "qt@5"
+  depends_on "qt@5" # Qt6 issue: https://github.com/gnuradio/gnuradio/issues/7708
   depends_on "qwt-qt5"
+  depends_on "rpds-py"
   depends_on "soapyrtlsdr"
   depends_on "soapysdr"
   depends_on "spdlog"
@@ -85,13 +75,13 @@ class Gnuradio < Formula
   # * setuptools - gr-utils/modtool/cli/base.py
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/fc/0f/aafca9af9315aee06a89ffde799a10a582fe8de76c563ee80bbcdc08b3fb/attrs-24.2.0.tar.gz"
-    sha256 "5cfb1b9148b5b086569baec03f20d7b6bf3bcacc9a42bebf87ffaaca362f6346"
+    url "https://files.pythonhosted.org/packages/5a/b0/1367933a8532ee6ff8d63537de4f1177af4bff9f3e829baf7331f595bb24/attrs-25.3.0.tar.gz"
+    sha256 "75d7cefc7fb576747b2c81b4442d4d4a1ce0900973527c011d1030fd3bf4af1b"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
-    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
+    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
+    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
   end
 
   resource "jsonschema" do
@@ -105,13 +95,13 @@ class Gnuradio < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/e7/6b/20c3a4b24751377aaa6307eb230b66701024012c29dd374999cc92983269/lxml-5.3.0.tar.gz"
-    sha256 "4e109ca30d1edec1ac60cdbe341905dc3b8f55b16855e03a54aaf59e51ec8c6f"
+    url "https://files.pythonhosted.org/packages/ef/f6/c15ca8e5646e937c148e147244817672cf920b56ac0bf2cc1512ae674be8/lxml-5.3.1.tar.gz"
+    sha256 "106b7b5d2977b339f1e97efe2778e2ab20e99994cbb0ec5e55771ed0795920c8"
   end
 
   resource "mako" do
-    url "https://files.pythonhosted.org/packages/fa/0b/29bc5a230948bf209d3ed3165006d257e547c02c3c2a96f6286320dfe8dc/mako-1.3.6.tar.gz"
-    sha256 "9ec3a1583713479fae654f83ed9fa8c9a4c16b7bb0daba0e6bbebff50c0d983d"
+    url "https://files.pythonhosted.org/packages/62/4f/ddb1965901bc388958db9f0c991255b2c469349a741ae8c9cd8a562d70a6/mako-1.3.9.tar.gz"
+    sha256 "b5d65ff3462870feec922dbccf38f6efb44e5714d7b593a656be86663d8600ac"
   end
 
   resource "markupsafe" do
@@ -125,8 +115,8 @@ class Gnuradio < Formula
   end
 
   resource "pygccxml" do
-    url "https://files.pythonhosted.org/packages/83/16/36c43ffd40f8b7326bb0d095fc705ccadee2ae0a6e5bcbbfa002185959a2/pygccxml-2.6.0.tar.gz"
-    sha256 "7185c55867561e2b1082eadc5ddc3b3019b0328a1fd9e64d4b813a83e06131a6"
+    url "https://files.pythonhosted.org/packages/5e/ef/e2752b28eb259e5ecc82dd1c4063cb0289969fae414d33445b533cc97ea3/pygccxml-3.0.2.tar.gz"
+    sha256 "e1a8c738765f4eb2819cc7439975631f838e59a1cf3fa49896e0a1967c5e2bee"
   end
 
   resource "pyyaml" do
@@ -135,18 +125,13 @@ class Gnuradio < Formula
   end
 
   resource "referencing" do
-    url "https://files.pythonhosted.org/packages/99/5b/73ca1f8e72fff6fa52119dbd185f73a907b1989428917b24cff660129b6d/referencing-0.35.1.tar.gz"
-    sha256 "25b42124a6c8b632a425174f24087783efb348a6f1e0008e63cd4466fedf703c"
-  end
-
-  resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/23/80/afdf96daf9b27d61483ef05b38f282121db0e38f5fd4e89f40f5c86c2a4f/rpds_py-0.21.0.tar.gz"
-    sha256 "ed6378c9d66d0de903763e7706383d60c33829581f0adff47b6535f1802fa6db"
+    url "https://files.pythonhosted.org/packages/2f/db/98b5c277be99dd18bfd91dd04e1b759cad18d1a338188c936e92f921c7e2/referencing-0.36.2.tar.gz"
+    sha256 "df2e89862cd09deabbdba16944cc3f10feb6b3e6f18e902f7cc25609a34775aa"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/43/54/292f26c208734e9a7f067aea4a7e282c080750c4546559b58e2e45413ca0/setuptools-75.6.0.tar.gz"
-    sha256 "8199222558df7c86216af4f84c30e9b34a61d8ba19366cc914424cdbd28252f6"
+    url "https://files.pythonhosted.org/packages/a9/5a/0db4da3bc908df06e5efae42b44e75c81dd52716e10192ff36d0c1c8e379/setuptools-78.1.0.tar.gz"
+    sha256 "18fd474d4a82a5f83dac888df697af65afa82dec7323d09c3e37d1f14288da54"
   end
 
   def python3
@@ -256,11 +241,10 @@ class Gnuradio < Formula
 
     boost = Formula["boost"]
     system ENV.cxx, testpath/"test.c++", "-std=c++17", "-I#{boost.opt_include}", "-L#{lib}",
-           "-lgnuradio-blocks", "-lgnuradio-runtime", "-lgnuradio-pmt",
-           "-L#{boost.opt_lib}", "-lboost_system",
-           "-L#{Formula["log4cpp"].opt_lib}", "-llog4cpp",
-           "-L#{Formula["fmt"].opt_lib}", "-lfmt",
-           "-o", testpath/"test"
+                    "-lgnuradio-blocks", "-lgnuradio-runtime", "-lgnuradio-pmt",
+                    "-L#{boost.opt_lib}", "-lboost_system",
+                    "-L#{Formula["fmt"].opt_lib}", "-lfmt",
+                    "-o", testpath/"test"
     system "./test"
 
     (testpath/"test.py").write <<~PYTHON

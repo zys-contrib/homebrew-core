@@ -5,14 +5,16 @@ class Libpulsar < Formula
   mirror "https://archive.apache.org/dist/pulsar/pulsar-client-cpp-3.7.0/apache-pulsar-client-cpp-3.7.0.tar.gz"
   sha256 "3223cfeda484ab7b580f4a8768b5a85739cc064005c765c06cde67c3238639c9"
   license "Apache-2.0"
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2762cb88dd01d626ab6dd265e2264b195133c4874b82f189ea8001a918869c7b"
-    sha256 cellar: :any,                 arm64_sonoma:  "34bf8ce2ebbc5f95e33a1dc572e8f08927e8c1adb14bcb68e18b30e978baf6d6"
-    sha256 cellar: :any,                 arm64_ventura: "2aa84c52798c6a67d233b56df26029742569b882c6cca6907cbc7ab46283f3f1"
-    sha256 cellar: :any,                 sonoma:        "28e17003491d94d95f5330fa8345aaea561dd9a021f30fdad0068246faf1e4b5"
-    sha256 cellar: :any,                 ventura:       "b734145006bc1f4cf5697518cd9dec720c42ba7743c6d6f8e21721bc14fede9f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bcca0ff004a931852586876682e27da0345e55fea30a522c50772a15bef394f1"
+    sha256 cellar: :any,                 arm64_sequoia: "17409dae5bc4dfeae755a2e7ebc4d0e255a56f12f6c8d658a8f631cdbfe35bec"
+    sha256 cellar: :any,                 arm64_sonoma:  "054c0c3c347a1b55e64eb24978acaf7fdfb72162ed35277f4bf16093a2e1a3ff"
+    sha256 cellar: :any,                 arm64_ventura: "1e28e6732875416affdcc4afc3763e798882dd589424e168bb67bd7517411c6d"
+    sha256 cellar: :any,                 sonoma:        "f87f6563fb986d754764ec158a2deddded5cbfef795bd67c52f83ae0a72e8e8b"
+    sha256 cellar: :any,                 ventura:       "3061a6de50f7659f859917ad16f20f0e9b312efa90d7123533534ad3a60111e6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5054b692852656ba4580739f5ec8ba057f330c1e15ca36196277c4688b8cac17"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2438a72ed70e421eae87a6e3fa2c4db58d3f4e7ec8b1bce6893421546c533d95"
   end
 
   depends_on "asio" => :build # FIXME: Not compatible with Boost.Asio 1.87+
@@ -22,7 +24,7 @@ class Libpulsar < Formula
 
   depends_on "abseil"
   depends_on "openssl@3"
-  depends_on "protobuf"
+  depends_on "protobuf@29"
   depends_on "snappy"
   depends_on "zstd"
 

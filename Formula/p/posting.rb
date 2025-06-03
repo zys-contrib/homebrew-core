@@ -3,18 +3,18 @@ class Posting < Formula
 
   desc "Modern API client that lives in your terminal"
   homepage "https://github.com/darrenburns/posting"
-  url "https://github.com/darrenburns/posting/archive/refs/tags/2.3.0.tar.gz"
-  sha256 "960b95c8bb2ae11db3cc4cb6b7ec20af87cd47218f77b62b80a527c8c590a595"
+  url "https://files.pythonhosted.org/packages/57/c5/50f29f97c0d477b0bc70362230e195ef49e4776a5f719e8db8866a615d81/posting-2.6.0.tar.gz"
+  sha256 "d4654399299b2d0d226c5ad806d452fe6a94931569609cb283f100052745bf91"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "d1e1abeec94bb888ea6549df88e0eed4e60f714770c60de56c052c0fd4b0423b"
-    sha256 cellar: :any,                 arm64_sonoma:  "8f30ea9df52a0e28779d4a35111f4b041a36400c1f10091bca484bb2266a470b"
-    sha256 cellar: :any,                 arm64_ventura: "f8272e44085616ef40d575e76b1fd6bdce35a52deed313dcc49785c6d159d56a"
-    sha256 cellar: :any,                 sonoma:        "06ee31748eae16f0158364e0c0fd0cfb37b7f43f6f40b584e0ab98c27519843e"
-    sha256 cellar: :any,                 ventura:       "6c547d736a01f64ec37f78f9dff26792e42144d5316a6ec3867b1a768b8f5230"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e1ab39d1e3eedaa8bc7f635c05cafec0831094da5f10d2ba80686c71d4b52a4"
+    sha256 cellar: :any,                 arm64_sequoia: "104b4c64dbb8364e1b09952405db0c48bf5a901ef9b90681b05f6b5e3c9934f4"
+    sha256 cellar: :any,                 arm64_sonoma:  "9b76d6af1d70bdbe77ed393853e29eca2c8f4893a6a82e1b91f30f3a699e4fb3"
+    sha256 cellar: :any,                 arm64_ventura: "44848246f531e8800cd1eb38b11a81047b32ff9ce9d4b64735e5c6902852b98d"
+    sha256 cellar: :any,                 sonoma:        "9170fd60a78cc6aba8081ba0492897dbfccacea60c16ae9c7c6aabf52a264a29"
+    sha256 cellar: :any,                 ventura:       "4424415f29b6e9553eeabc773f7dd80e08e80dadca79e6998bdc5874235cf4c1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d22e0c1da88f01a742e41cd3ad3d16c303a5b1d76fd375c8bcd0e4e92b3fa4b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b4aaa8fbcfa8112aa69e36d8b10af8c88f1c12db9bffa4b983574d37d4c8095d"
   end
 
   depends_on "cmake" => :build
@@ -32,13 +32,13 @@ class Posting < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/9f/09/45b9b7a6d4e45c6bcb5bf61d19e3ab87df68e0601fa8c5293de3542546cc/anyio-4.6.2.post1.tar.gz"
-    sha256 "4c8bc31ccdb51c7f7bd251f51c609e038d63e34219b44aa86e47576389880b4c"
+    url "https://files.pythonhosted.org/packages/a3/73/199a98fc2dae33535d6b8e8e6ec01f8c1d76c9adb096c6b7d64823038cde/anyio-4.8.0.tar.gz"
+    sha256 "1d9fe889df5212298c0c0723fa20479d1b94883a2df44bd3897aa91083316f7a"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
-    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
+    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
+    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
   end
 
   resource "click-default-group" do
@@ -57,8 +57,8 @@ class Posting < Formula
   end
 
   resource "httpx" do
-    url "https://files.pythonhosted.org/packages/78/82/08f8c936781f67d9e6b9eeb8a0c8b4e406136ea4c3d1f89a5db71d42e0e6/httpx-0.27.2.tar.gz"
-    sha256 "f7c2be1d2f3c3c3160d441802406b206c2b76f5947b11115e6df10c6c65e66c2"
+    url "https://files.pythonhosted.org/packages/b1/df/48c586a5fe32a0f01324ee087459e112ebb7224f646c0b5023f5e79e9956/httpx-0.28.1.tar.gz"
+    sha256 "75e98c5f16b0f35b567856f597f06ff2270a374470a5c2392242528e3e3e42fc"
   end
 
   resource "idna" do
@@ -86,29 +86,34 @@ class Posting < Formula
     sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
   end
 
+  resource "openapi-pydantic" do
+    url "https://files.pythonhosted.org/packages/02/2e/58d83848dd1a79cb92ed8e63f6ba901ca282c5f09d04af9423ec26c56fd7/openapi_pydantic-0.5.1.tar.gz"
+    sha256 "ff6835af6bde7a459fb93eb93bb92b8749b754fc6e51b2f1590a19dc3005ee0d"
+  end
+
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/13/fc/128cc9cb8f03208bdbf93d3aa862e16d376844a14f9a0ce5cf4507372de4/platformdirs-4.3.6.tar.gz"
-    sha256 "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"
+    url "https://files.pythonhosted.org/packages/b6/2d/7d512a3913d60623e7eb945c6d1b4f0bddf1d0b7ada5225274c87e5b53d1/platformdirs-4.3.7.tar.gz"
+    sha256 "eb437d586b6a0986388f0d6f74aa0cde27b48d0e3d66843640bfb6bdcdb6e351"
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/45/0f/27908242621b14e649a84e62b133de45f84c255eecb350ab02979844a788/pydantic-2.10.3.tar.gz"
-    sha256 "cb5ac360ce894ceacd69c403187900a02c4b20b693a9dd1d643e1effab9eadf9"
+    url "https://files.pythonhosted.org/packages/b0/41/832125a41fe098b58d1fdd04ae819b4dc6b34d6b09ed78304fd93d4bc051/pydantic-2.11.2.tar.gz"
+    sha256 "2138628e050bd7a1e70b91d4bf4a91167f4ad76fdb83209b107c8d84b854917e"
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/a6/9f/7de1f19b6aea45aeb441838782d68352e71bfa98ee6fa048d5041991b33e/pydantic_core-2.27.1.tar.gz"
-    sha256 "62a763352879b84aa31058fc931884055fd75089cccbd9d58bb6afd01141b235"
+    url "https://files.pythonhosted.org/packages/17/19/ed6a078a5287aea7922de6841ef4c06157931622c89c2a47940837b5eecd/pydantic_core-2.33.1.tar.gz"
+    sha256 "bcc9c6fdb0ced789245b02b7d6603e17d1563064ddcfc36f046b61c0c05dd9df"
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/b5/d4/9dfbe238f45ad8b168f5c96ee49a3df0598ce18a0795a983b419949ce65b/pydantic_settings-2.6.1.tar.gz"
-    sha256 "e0f92546d8a9923cb8941689abf85d6601a8c19a23e97a34b2964a2e3f813ca0"
+    url "https://files.pythonhosted.org/packages/88/82/c79424d7d8c29b994fb01d277da57b0a9b09cc03c3ff875f9bd8a86b2145/pydantic_settings-2.8.1.tar.gz"
+    sha256 "d5c663dfbe9db9d5e1c646b2e161da12f0d734d422ee56f567d0ea2cee4e8585"
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz"
-    sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
+    url "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
+    sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
   end
 
   resource "pyperclip" do
@@ -117,8 +122,8 @@ class Posting < Formula
   end
 
   resource "python-dotenv" do
-    url "https://files.pythonhosted.org/packages/bc/57/e84d88dfe0aec03b7a2d4327012c1627ab5f03652216c63d49846d7a6c58/python-dotenv-1.0.1.tar.gz"
-    sha256 "e324ee90a023d808f1959c46bcbc04446a10ced277783dc6ee09987c37ec10ca"
+    url "https://files.pythonhosted.org/packages/88/2c/7bb1416c5620485aa793f2de31d3df393d3686aa8a8506d11e10e13c5baf/python_dotenv-1.1.0.tar.gz"
+    sha256 "41f90bc6f5f177fb41f53e87666db362025010eb28f60a01c9143bfa33a2b2d5"
   end
 
   resource "pyyaml" do
@@ -127,8 +132,8 @@ class Posting < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/ab/3a/0316b28d0761c6734d6bc14e770d85506c986c85ffb239e688eeaab2c2bc/rich-13.9.4.tar.gz"
-    sha256 "439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"
+    url "https://files.pythonhosted.org/packages/a1/53/830aa4c3066a8ab0ae9a9955976fb770fe9c6102117c8ec4ab3ea62d89e8/rich-14.0.0.tar.gz"
+    sha256 "82f1bc23a6a21ebca4ae0c45af9bdbc492ed20231dcb63f297d6d1021a9d5725"
   end
 
   resource "sniffio" do
@@ -137,13 +142,13 @@ class Posting < Formula
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/a4/e8/76b3aa49dd2f83410ab78b5ab04d65fee095e4720d2811f9ef72f073d11f/textual-0.88.1.tar.gz"
-    sha256 "9c56d953dc7d1a8ddf06acc910d9224027e02416551f92920e70f435bd28e062"
+    url "https://files.pythonhosted.org/packages/28/7f/9423d4d9e1aabaa6841a7f77e2bf8249a7cae4209c4d6b33d77f55ed24c3/textual-3.0.0.tar.gz"
+    sha256 "0bf9f8523541340d5357724d60868db652fb287ac7b13e6cf4553d45a6d9a9d5"
   end
 
   resource "textual-autocomplete" do
-    url "https://files.pythonhosted.org/packages/bd/d3/7837e2ee1807c72e2a8a185c6e5e729dbe68161d8476055d989f3a2db348/textual_autocomplete-3.0.0a13.tar.gz"
-    sha256 "db5a4ae956dd7d6dece53f7f695e97f2ab75819dd96b8a1c064ec5966b3ab113"
+    url "https://files.pythonhosted.org/packages/7a/cf/9cf23ac193c70e7b0a6999dc9409650e9ab9960b1be167e7dda54f1028a8/textual_autocomplete-4.0.4.tar.gz"
+    sha256 "0969987b90a53c1f75753dfe3ad2c7ea0d974b5839dc2a00a2d332c000057871"
   end
 
   # Unmaintained package and so use a fork of original
@@ -154,8 +159,13 @@ class Posting < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
-    sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
+    url "https://files.pythonhosted.org/packages/76/ad/cd3e3465232ec2416ae9b983f27b9e94dc8171d56ac99b345319a9475967/typing_extensions-4.13.1.tar.gz"
+    sha256 "98795af00fb9640edec5b8e31fc647597b4691f099ad75f469a2616be1a76dff"
+  end
+
+  resource "typing-inspection" do
+    url "https://files.pythonhosted.org/packages/82/5c/e6082df02e215b846b4b8c0b887a64d7d08ffaba30605502639d44c06b82/typing_inspection-0.4.0.tar.gz"
+    sha256 "9765c87de36671694a67904bf2c96e395be9c6439bb6c87b5142569dcdd65122"
   end
 
   resource "uc-micro-py" do
@@ -164,13 +174,13 @@ class Posting < Formula
   end
 
   resource "watchfiles" do
-    url "https://files.pythonhosted.org/packages/9e/5e/5a9dfb8594b075d7c225d5fb628d498001c5dfae62298e9eb85b8754668f/watchfiles-1.0.0.tar.gz"
-    sha256 "37566c844c9ce3b5deb964fe1a23378e575e74b114618d211fbda8f59d7b5dab"
+    url "https://files.pythonhosted.org/packages/f5/26/c705fc77d0a9ecdb9b66f1e2976d95b81df3cae518967431e7dbf9b5e219/watchfiles-1.0.4.tar.gz"
+    sha256 "6ba473efd11062d73e4f00c2b730255f9c1bdd73cd5f9fe5b5da8dbd4a717205"
   end
 
   resource "xdg-base-dirs" do
-    url "https://files.pythonhosted.org/packages/98/58/bf6650c4eba25375f923703b645f8b245ecee75c722ded29189d8b515167/xdg_base_dirs-6.0.1.tar.gz"
-    sha256 "b4c8f4ba72d1286018b25eea374ec6fbf4fddda3d4137edf50de95de53e195a6"
+    url "https://files.pythonhosted.org/packages/bf/d0/bbe05a15347538aaf9fa5b51ac3b97075dfb834931fcb77d81fbdb69e8f6/xdg_base_dirs-6.0.2.tar.gz"
+    sha256 "950504e14d27cf3c9cb37744680a43bf0ac42efefc4ef4acf98dc736cab2bced"
   end
 
   def install
@@ -184,9 +194,9 @@ class Posting < Formula
     # https://web.archive.org/web/20230505222426/https://swagger.io/docs/specification/basic-structure/
     (testpath/"minimal.yaml").write <<~YAML
       ---
-      openapi: 3.0.3
+      openapi: 3.1.1
       info:
-        version: 0.0.0
+        version: "0.0.0"
         title: Sample API
       servers:
         - url: http://api.example.com/v1
@@ -206,6 +216,7 @@ class Posting < Formula
                       type: array
                       items:
                         type: string
+      components: {}
     YAML
     output = shell_output("#{bin}/posting import minimal.yaml")
     assert_match "Successfully imported OpenAPI spec", output

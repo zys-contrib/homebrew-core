@@ -4,10 +4,13 @@ class PerconaServerAT80 < Formula
   url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.40-31/source/tarball/percona-server-8.0.40-31.tar.gz"
   sha256 "1318670d8e176c24df74019f748f5f233e2787f865dd3d41d61790ab5a772c4e"
   license "BSD-3-Clause"
+  revision 3
 
   livecheck do
-    url "https://docs.percona.com/percona-server/#{version.major_minor}/"
-    regex(/href=.*?v?(\d+(?:[.-]\d+)+)\.html/i)
+    url "https://www.percona.com/products-api.php", post_form: {
+      version: "Percona-Server-#{version.major_minor}",
+    }
+    regex(/value=["']?[^"' >]*?v?(\d+(?:[.-]\d+)+)[|"' >]/i)
     strategy :page_match do |page, regex|
       page.scan(regex).map do |match|
         # Convert a version like 1.2.3-4.0 to 1.2.3-4 (but leave a version like
@@ -18,12 +21,13 @@ class PerconaServerAT80 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "3874ba009695e9129492858dcf8f330aa4aa6f6beb0a268d0c767ac940b20acd"
-    sha256 arm64_sonoma:  "5454eb67a2865024f19eff4255d196a56fd719b99c15048da71ce2966e150bed"
-    sha256 arm64_ventura: "e136deee3b6ee381aa98ab2a76f5f4eaca3d1e9127268aea175d0461e9e71863"
-    sha256 sonoma:        "4589cfa0478a5fa1097b710a669d968afe26117afd048fa783d02b01b054be6a"
-    sha256 ventura:       "7dd7eaaca4a533017df910d30a1552d688113fd8ff60d6e143d2429da4709215"
-    sha256 x86_64_linux:  "ea4b86f1771f4d3ecc78bcacd53f662ae6a31a766bc13732d820d75e39efcdcf"
+    sha256 arm64_sequoia: "32768a4fd0fe75e7a288731d9a3a1789548cbc6091f95a55cd068ea589340e27"
+    sha256 arm64_sonoma:  "d209d4ad284ebc053169ab6f615ef487eaeedb76b17b8a71d77e8821dfe3bf75"
+    sha256 arm64_ventura: "0c920c59d823d73888e88abc3102626ab4574422f71a391428d2e18b198d5008"
+    sha256 sonoma:        "450c309327f0a71240e8b6c54bd561749a930d662343e002ddde4eadc982154d"
+    sha256 ventura:       "d289a66cdfd3de7ed9f87d98dda41ebeba1dc18ac8223604b92e122ccd37d8e0"
+    sha256 arm64_linux:   "558a1988053cb70145a837ca6b62fe99396a02f4191a2801c7c5ddde6da00bb4"
+    sha256 x86_64_linux:  "5614bdeb9028553c82137264547db91e208c016ad98c2796eb703c8f66959848"
   end
 
   keg_only :versioned_formula
@@ -32,13 +36,13 @@ class PerconaServerAT80 < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "abseil"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "libevent"
   depends_on "libfido2"
   depends_on "lz4"
   depends_on "openldap" # Needs `ldap_set_urllist_proc`, not provided by LDAP.framework
   depends_on "openssl@3"
-  depends_on "protobuf"
+  depends_on "protobuf@29"
   depends_on "zlib" # Zlib 1.2.13+
   depends_on "zstd"
 
@@ -82,6 +86,13 @@ class PerconaServerAT80 < Formula
   patch do
     url "https://github.com/percona/percona-server/commit/a693e5d67abf6f27f5284c86361604babec529c6.patch?full_index=1"
     sha256 "d4afcdfb0dd8dcb7c0f7e380a88605b515874628107295ab5b892e8f1e019604"
+  end
+
+  # Backport fix for CMake 4.0
+  patch do
+    url "https://github.com/Percona-Lab/coredumper/commit/715fa9da1d7958e39d69e9b959c7a23fec8650ab.patch?full_index=1"
+    sha256 "632a6aff4091d9cbe010ed600eeb548ae7762ac7e822113f9c93e3fef9aafb4f"
+    directory "extra/coredumper"
   end
 
   def datadir
@@ -138,9 +149,10 @@ class PerconaServerAT80 < Formula
       -DWITH_UNIT_TESTS=OFF
       -DWITH_INNODB_MEMCACHED=ON
       -DROCKSDB_BUILD_ARCH=#{ENV.effective_arch}
+      -DALLOW_NO_ARMV81A_CRYPTO=ON
+      -DALLOW_NO_SSE42=ON
     ]
     args << "-DROCKSDB_DISABLE_AVX2=ON" if build.bottle?
-    args << "-DALLOW_NO_SSE42=ON" if Hardware::CPU.intel? && (!OS.mac? || !MacOS.version.requires_sse42?)
     args << "-DWITH_KERBEROS=system" unless OS.mac?
 
     ENV.append "CXXFLAGS", "-std=c++17"

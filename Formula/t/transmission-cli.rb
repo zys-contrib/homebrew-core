@@ -1,10 +1,10 @@
 class TransmissionCli < Formula
   desc "Lightweight BitTorrent client"
-  homepage "https://www.transmissionbt.com/"
+  homepage "https://transmissionbt.com/"
   url "https://github.com/transmission/transmission/releases/download/4.0.6/transmission-4.0.6.tar.xz"
   sha256 "2a38fe6d8a23991680b691c277a335f8875bdeca2b97c6b26b598bc9c7b0c45f"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
-  revision 2
+  revision 4
 
   livecheck do
     url :stable
@@ -12,12 +12,13 @@ class TransmissionCli < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "ae8206cd8a14489774e7bf2581d7e0ab55c2b5868d7667be203a69f76cf4b631"
-    sha256 arm64_sonoma:  "0520fc63dc94fb29d64eec122c55903ef45f2ada76d1e6c732da8ced05f3cce1"
-    sha256 arm64_ventura: "a516aea8e739d2e38cc2378ee5fe5e18ee8a1c676d8254ea5cea32cb2196c3e2"
-    sha256 sonoma:        "2a49dc19a425a257071fa3dbebfaf2cc53dbbb49c58f6eefd37f463793f47a57"
-    sha256 ventura:       "50466452e65aa64a5d3272b76e0c728f60396c69f025357f949ed22c55fae994"
-    sha256 x86_64_linux:  "ffb3eef78632cc6ab975c547536163e0ddd6b7620c7bc76b9b040bcba13efacd"
+    sha256 arm64_sequoia: "542c4fe40c57c427680eb5a982e0a6437bbaa9adac9b174fcb5f9fc5cf98dffe"
+    sha256 arm64_sonoma:  "2e13ac5fce4a74345d5e02ae860fea0b05c7d6fbe7f94a448d14a121d9586fea"
+    sha256 arm64_ventura: "61e957019a73bb95a8805af721ce6b7f9f9acdc30c6bc8a65ab0b47b273f869b"
+    sha256 sonoma:        "498982b372e53a61addf98d76169e5c01851d89bce7b70bc3915894f184ca558"
+    sha256 ventura:       "f25b459d033bdf9842d66e09ec65989a0336caca52b195206b6dfaf39cd9ee6d"
+    sha256 arm64_linux:   "a34e16ce8d16148d11ff1eedca2ba0bbfa45a5942a272d281d88d9936be05290"
+    sha256 x86_64_linux:  "d05e4a68c07c6fa2b73df241d91d566d6af0e5ea0008cdc360ad6e65d7379624"
   end
 
   depends_on "cmake" => :build
@@ -38,6 +39,9 @@ class TransmissionCli < Formula
   patch :DATA
 
   def install
+    # CMake 4 compatibility for third-parties of miniupnpc
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+
     args = %w[
       -DENABLE_CLI=ON
       -DENABLE_DAEMON=ON

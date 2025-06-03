@@ -1,18 +1,19 @@
 class Coreutils < Formula
   desc "GNU File, Shell, and Text utilities"
   homepage "https://www.gnu.org/software/coreutils/"
-  url "https://ftp.gnu.org/gnu/coreutils/coreutils-9.6.tar.xz"
-  mirror "https://ftpmirror.gnu.org/coreutils/coreutils-9.6.tar.xz"
-  sha256 "7a0124327b398fd9eb1a6abde583389821422c744ffa10734b24f557610d3283"
+  url "https://ftp.gnu.org/gnu/coreutils/coreutils-9.7.tar.xz"
+  mirror "https://ftpmirror.gnu.org/coreutils/coreutils-9.7.tar.xz"
+  sha256 "e8bb26ad0293f9b5a1fc43fb42ba970e312c66ce92c1b0b16713d7500db251bf"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sequoia: "637db884c3812f07eeebcb05ab48ef4a248d646abd8279aa29f1e78669fd99b4"
-    sha256 arm64_sonoma:  "99ce6ca149108ad1200010db99705cf85ae18943f6f5b56f4f232a017b94fcf2"
-    sha256 arm64_ventura: "814584f9614444db24b0ea77601ea247423e2bb818ba98e3870b9205fd207734"
-    sha256 sonoma:        "39047ec7fd266612c34dfae46b3692551c760eaa6c04890235586b6bb32bb373"
-    sha256 ventura:       "bee341a327e6d240c6559f31f7d2f4939b4f6a773de1e9d26892157154a16bdb"
-    sha256 x86_64_linux:  "7ecc01bb0a85a7e890857390b773e74448c0ce7e69fb55806b85d7d3285555e9"
+    sha256 arm64_sequoia: "5d3e3c74de367a4d8ae6f22457732a8e5d39030c46f8f585b1780c0a916d0c8e"
+    sha256 arm64_sonoma:  "4092845c230a1b20213f3896125f12484cf72dcaca28e111544dbacb1110c8eb"
+    sha256 arm64_ventura: "84dc5707dd057de5ed4c6b79ae33c807dd00890cf470a64d3f200295974dec33"
+    sha256 sonoma:        "c7580a41bcd888acda07bd8b2c6c0c194a3763a27d36b1a48210a96f22ee773c"
+    sha256 ventura:       "838f1374519d8ddab94bfb910d57f802d6551baf4b97d6580e323d7d01f3180c"
+    sha256 arm64_linux:   "485b2b05cc5e1293ef2e7dc4b3471e916dddb170424d5a4a57483f2d829d0a60"
+    sha256 x86_64_linux:  "b4c41fd3102b03845f5ed8163a09dea3534db3773415524ddb5be10145aecb78"
   end
 
   head do
@@ -53,6 +54,7 @@ class Coreutils < Formula
   end
 
   def install
+    ENV.runtime_cpu_detection
     system "./bootstrap" if build.head?
 
     args = %W[

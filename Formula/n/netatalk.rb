@@ -1,8 +1,8 @@
 class Netatalk < Formula
   desc "File server for Macs, compliant with Apple Filing Protocol (AFP)"
   homepage "https://netatalk.io"
-  url "https://github.com/Netatalk/netatalk/releases/download/netatalk-4-1-1/netatalk-4.1.1.tar.xz"
-  sha256 "2c8d312245b39a8b734ac9a8eb45110bc03de3088928e574310a990d3b800241"
+  url "https://github.com/Netatalk/netatalk/releases/download/netatalk-4-2-4/netatalk-4.2.4.tar.xz"
+  sha256 "4f07bbe118a951dd740d3f51a87b5cafba2496bd0b22e704438f421aa6670f99"
   license all_of: [
     "GPL-2.0-only",
     "GPL-2.0-or-later",
@@ -14,28 +14,30 @@ class Netatalk < Formula
   ]
   head "https://github.com/Netatalk/netatalk.git", branch: "main"
 
+  no_autobump! because: :incompatible_version_format
+
   bottle do
-    sha256 arm64_sequoia: "98d2d0eef0ad5f18f0b54ea341b162e48d333437f0cce5c5c7b3ecf9289a717b"
-    sha256 arm64_sonoma:  "c531f2dedc2082b1ccbedd817c72c2d17f43fd0de60d21ed4a3ebfd0b62c43ac"
-    sha256 arm64_ventura: "50fbda62692131ab35638f65c31a299f7e5837a737382eb2fb0b4bacbf6d2229"
-    sha256 sonoma:        "5f380da46f4b53739379d95c44882159a30cc4bc5dc81bc08bc0551937dcaab8"
-    sha256 ventura:       "130668fbcc2bcc4a277658b0a9331e5148d44cb3c47c112982026c074c8eb5d9"
-    sha256 x86_64_linux:  "95b47b65ca54ae8e2040621c542b95fd72991cebe5856321a04205a8c5fed7f8"
+    sha256 arm64_sequoia: "17e4d6ffd0039fbe4adfc873f576685a068a1755974d14890e5592371d9ac960"
+    sha256 arm64_sonoma:  "d74905541c89f537266a677868cb5ff6cc0230975e1e619dbeacbdc82fa1437a"
+    sha256 arm64_ventura: "1404002f05914d1cdfaa843e113499bfe67d05cfeac50ed6e91304b9b2b9f1e1"
+    sha256 sonoma:        "759e86a275a1ac958615fc9d837bea59a2d4f13ad7cf60b3e40ce34816bd34d7"
+    sha256 ventura:       "d0ce9f60f70a3896ca49ac8d13ac87c9946342f5225e467b8e50b88b3e7e7fdc"
+    sha256 arm64_linux:   "c792a362f93a358adc2a44683c83649eb54b7513254cc444ea18c7b04830a5be"
+    sha256 x86_64_linux:  "ead1152fc2b9997022839c082bc9419328858bd46426f0b0fb673944cf4b2df8"
   end
 
-  depends_on "docbook-xsl" => :build
+  depends_on "cmark-gfm" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
 
   depends_on "berkeley-db@5" # macOS bdb library lacks DBC type etc.
   depends_on "cracklib"
+  depends_on "iniparser"
   depends_on "libevent"
   depends_on "libgcrypt"
   depends_on "mariadb-connector-c"
   depends_on "openldap" # macOS LDAP.Framework is not fork safe
-
-  uses_from_macos "libxslt" => :build
 
   uses_from_macos "krb5"
   uses_from_macos "libxcrypt"
@@ -48,6 +50,8 @@ class Netatalk < Formula
     depends_on "linux-pam"
   end
 
+  conflicts_with "ad", because: "both install `ad` binaries"
+
   def install
     inreplace "distrib/initscripts/macos.netatalk.in", "@sbindir@", opt_sbin
     inreplace "distrib/initscripts/macos.netatalk.plist.in", "@bindir@", opt_bin
@@ -59,15 +63,18 @@ class Netatalk < Formula
       "-Dwith-afpstats=false",
       "-Dwith-appletalk=#{OS.linux?}", # macOS doesn't have an AppleTalk stack
       "-Dwith-bdb-path=#{Formula["berkeley-db@5"].opt_prefix}",
-      "-Dwith-docbook-path=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl",
+      "-Dwith-cups-libdir-path=#{libexec}",
+      "-Dwith-cups-pap-backend=#{OS.linux?}",
+      "-Dwith-docs=man,readmes,html_manual",
+      "-Dwith-homebrew=true",
       "-Dwith-init-dir=#{prefix}",
       "-Dwith-init-hooks=false",
       "-Dwith-install-hooks=false",
       "-Dwith-lockfile-path=#{var}/run",
-      "-Dwith-statedir-path=#{var}",
       "-Dwith-pam-config-path=#{etc}/pam.d",
       "-Dwith-rpath=false",
       "-Dwith-spotlight=false",
+      "-Dwith-statedir-path=#{var}",
     ]
 
     system "meson", "setup", "build", *args, *std_meson_args

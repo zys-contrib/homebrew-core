@@ -3,8 +3,8 @@ class Prestodb < Formula
 
   desc "Distributed SQL query engine for big data"
   homepage "https://prestodb.io"
-  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.290/presto-server-0.290.tar.gz", using: :nounzip
-  sha256 "5799462745535d808d66b7710c3f8e941ac6b778ff25e39db92c62aa0a6e8e6d"
+  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.292/presto-server-0.292.tar.gz", using: :nounzip
+  sha256 "4063126a908867f143e9c16b6cd3afeb49f6ad1de298dfc9810c4045f1c78693"
   license "Apache-2.0"
 
   # Upstream has said that we should check Maven for Presto version information
@@ -16,15 +16,16 @@ class Prestodb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d30d6eb96fbe4775a63e37d0141b95d0e7bc77d67e2c788d64897a52f792a179"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "4eddb6530bd68a0cdcbfc9ffa891dcbef3a359110881db51d89af58fce4629bb"
   end
 
-  depends_on "openjdk@11"
+  depends_on "openjdk@17"
   depends_on "python@3.13"
 
   resource "presto-cli" do
-    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.290/presto-cli-0.290-executable.jar"
-    sha256 "2f759c801f2ac0f6ced0b6ced67b93a1156263562716048a48d85baa94753e3e"
+    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.292/presto-cli-0.292-executable.jar"
+    sha256 "874fb6c5adea4544e1dc297e20362d24a2bf5ef280900ab967ff735cc2c9abdb"
 
     livecheck do
       formula :parent
@@ -32,6 +33,7 @@ class Prestodb < Formula
   end
 
   def install
+    java_version = "17"
     odie "presto-cli resource needs to be updated" if version != resource("presto-cli").version
 
     # Manually extract tarball to avoid multiple copies/moves of over 2GB of files
@@ -71,13 +73,12 @@ class Prestodb < Formula
     (libexec/"etc/catalog/jmx.properties").write "connector.name=jmx"
 
     rewrite_shebang detected_python_shebang, libexec/"bin/launcher.py"
-    env = Language::Java.overridable_java_home_env("11")
-    env["PATH"] = "$JAVA_HOME/bin:$PATH"
+    env = Language::Java.overridable_java_home_env(java_version)
     (bin/"presto-server").write_env_script libexec/"bin/launcher", env
 
     resource("presto-cli").stage do
       libexec.install "presto-cli-#{version}-executable.jar"
-      bin.write_jar_script libexec/"presto-cli-#{version}-executable.jar", "presto", java_version: "11"
+      bin.write_jar_script(libexec/"presto-cli-#{version}-executable.jar", "presto", java_version:)
     end
 
     # Remove incompatible pre-built binaries

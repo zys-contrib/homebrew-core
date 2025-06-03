@@ -3,18 +3,19 @@ class Fonttools < Formula
 
   desc "Library for manipulating fonts"
   homepage "https://github.com/fonttools/fonttools"
-  url "https://files.pythonhosted.org/packages/49/2e/0b11e907b90665253dbad425479e874e38a9e81ced397a4e3312b9116935/fonttools-4.55.6.tar.gz"
-  sha256 "1beb4647a0df5ceaea48015656525eb8081af226fe96554089fd3b274d239ef0"
+  url "https://files.pythonhosted.org/packages/3e/7a/30c581aeaa86d94e7a29344bccefd2408870bf5b0e7640b6f4ffede61bd0/fonttools-4.58.1.tar.gz"
+  sha256 "cbc8868e0a29c3e22628dfa1432adf7a104d86d1bc661cecc3e9173070b6ab2d"
   license "MIT"
   head "https://github.com/fonttools/fonttools.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c1ad03ba56ce1079e64cccfaa46fa2e82a159be8717086294708b619c3fe2e92"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e701c1f9f122b7ca34546220d5687fb22fe5600cf8a6e6fb57c0174bdcc3bf7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "257ada49b3c468a1e5bc97207dba3c6d89d77ee5b48de08a42e4f3f3f685019e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4acf6dc00bc73eaad51f52d03f07f6d113e3cc3f028614c667890a26bd6084bc"
-    sha256 cellar: :any_skip_relocation, ventura:       "fc0ec63a6a7a8f91d6ef1ef81490591b8ab652b07e7450eae7792ca208c76ce5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c71db355de9ac52c3165a042a551bd1e36611d1d9da1990a05ab33887e6e1580"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "588bfcf36f5f17eabc691520fc83c5c1c839bdc65bfe4303212f80a9ee703892"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3c21a428411bfd83dd48be7699d80fa62beaf2346391bd4e28b2af423441fe99"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "206625e701b9b8466e3bcf1890b50845e78e77d707f112492514b910ec318fa9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d650913fe4d04925d4c05b4b4b12cb0239d25721ad9bd9866b2999b42affe550"
+    sha256 cellar: :any_skip_relocation, ventura:       "689448e8a968adc032cc59efc0a16713b93f076a0fb6b5054b53e9dc959d9d60"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "654a0d82ae42fb0f15848299042e12c2028ba0b778c47c41047b87fbbea7d2b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "435d6ac0e8dbbacf8252429d9c1f563d5106f008caf237eccddb883417a00489"
   end
 
   depends_on "python@3.13"
@@ -38,9 +39,9 @@ class Fonttools < Formula
       cp "/System/Library/Fonts/ZapfDingbats.ttf", testpath
 
       system bin/"ttx", "ZapfDingbats.ttf"
-      assert_predicate testpath/"ZapfDingbats.ttx", :exist?
+      assert_path_exists testpath/"ZapfDingbats.ttx"
       system bin/"fonttools", "ttLib.woff2", "compress", "ZapfDingbats.ttf"
-      assert_predicate testpath/"ZapfDingbats.woff2", :exist?
+      assert_path_exists testpath/"ZapfDingbats.woff2"
     else
       assert_match "usage", shell_output("#{bin}/ttx -h")
     end

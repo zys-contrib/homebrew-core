@@ -1,8 +1,8 @@
 class Spot < Formula
   desc "Platform for LTL and ω-automata manipulation"
   homepage "https://spot.lre.epita.fr"
-  url "https://www.lrde.epita.fr/dload/spot/spot-2.12.2.tar.gz"
-  sha256 "f2785a47faa6732bc7baec7c39468c443d37c8adc7f42faa1258761954a96bb4"
+  url "https://www.lrde.epita.fr/dload/spot/spot-2.13.1.tar.gz"
+  sha256 "b9d1de4abcd069f923e1a3263f58ccafcc54896aa818b455928ca2b1a4466dc9"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,12 +11,13 @@ class Spot < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "82c09d875f4e37b130c36270f35f83fb4ec296a5f62620adcee6cf7ad9b71f4b"
-    sha256 cellar: :any,                 arm64_sonoma:  "7a6a26e2561b4420d81d9dc14e183ddeb3abc291cddae35f45dd124c17ad8c2a"
-    sha256 cellar: :any,                 arm64_ventura: "7f798e72df761b27eb9546475ceb39dfcb8c164f9e07dfad789cfc5ca804b71d"
-    sha256 cellar: :any,                 sonoma:        "48fc323e63d1e0d7efc50a44ece6301fa03983a4b6df4596e43be9d7f01b0b34"
-    sha256 cellar: :any,                 ventura:       "2957d881e871e1168b47668b2c5d066f0bf92ab762a028ce9048d0b6c9b6c1e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f43e975ba5ef966d887256c7674e2b7b5755e54dbf5311f2b506fb80dc00fe56"
+    sha256 cellar: :any,                 arm64_sequoia: "d515aee932792bd7473a2b062a3d6aec2359a57478d79feac44b0ff991bf882b"
+    sha256 cellar: :any,                 arm64_sonoma:  "d62b1d2427fe1faa94d027dd06fc7953261edb275b3649f1399da3a3e036da13"
+    sha256 cellar: :any,                 arm64_ventura: "18cb2c3876c10b5d546390a4ddd297497491e10e11a09c7d37a7e8bfa8c995a0"
+    sha256 cellar: :any,                 sonoma:        "7dd821d2fda923457b8eb993367a94333cea891b9482f8ec6923da938eb9b677"
+    sha256 cellar: :any,                 ventura:       "3ec81346e00152d9635aa757e1ea13cd510f878e7fb6c3f11c2c402956d7a9ea"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5777648e4a06ef9c4cc634b38f6d3102f01bda9976ff214d1b51603bcb3afa1b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99ad6dc363664791bfba111064393043c9e906494b64279ab5f4204fa145ac6c"
   end
 
   depends_on "python@3.13" => :build

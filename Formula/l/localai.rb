@@ -3,17 +3,18 @@ class Localai < Formula
 
   desc "OpenAI alternative"
   homepage "https://localai.io"
-  url "https://github.com/mudler/LocalAI/archive/refs/tags/v2.25.0.tar.gz"
-  sha256 "f9d7a8ceae6987a7ad3ac3a67bc604bea2f539275015fc88203e2762ec5fc697"
+  url "https://github.com/mudler/LocalAI/archive/refs/tags/v2.28.0.tar.gz"
+  sha256 "b75f7cffb3b105c1f5e7cd4aa2d5c18cf461b6af0977d150d654d596f1dc8d79"
   license "MIT"
+  head "https://github.com/mudler/LocalAI.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "904d279970c6299905286e715bb500218893aec94a2fc1ce39da45ea2c266bfb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f716e429d99817ece6065bf898c17211053cd33247360fd986ac03609ce71750"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "311f2c6871548f143436fe724c28587d89bde8f51db1ee3324306941eaf2b0f3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d8531f0a4e4e4aa70aa9940dc9ab785237baabb93a11c5920cb04bab49d49ded"
-    sha256 cellar: :any_skip_relocation, ventura:       "baab0b7f85d1caf7a74c140b50d5cd73ff61556cc9ec71edff0faba53a4701eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9bb2343ae59d232ecf625a5ad23fec90aea9883066bae1a49ec9c1f3fdb4c768"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b50f832facfac7f166ca59de5d3b7f241b10bcfe0dcdee6afec90b3d557e1812"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2c82bb99e40beb0bb781ecf1087d0a0c3deeca7f2423d177c831e5ee639db516"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "27a1f5a845087a4604800f0eee1642747f95f68a4f9eb268f6180aba2cbd4638"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dc8a9eb26fe99a47a098f82f050302a548f6f529b86c14f1b90f5f602e204b07"
+    sha256 cellar: :any_skip_relocation, ventura:       "71df6ef43bb378c2fac806673579b47e5a717e0805a17227fd9ddea6b0070043"
+    sha256                               x86_64_linux:  "3a36fc178cc6108855d3f75d2c7751d616e9a176901ecc5dc6dca9e2ff5e134e"
   end
 
   depends_on "abseil" => :build
@@ -26,8 +27,8 @@ class Localai < Formula
   depends_on "python@3.13" => :build
 
   resource "grpcio-tools" do
-    url "https://files.pythonhosted.org/packages/64/ec/1c25136ca1697eaa09a02effe3e74959fd9fb6aba9960d7340dd6341c5ce/grpcio_tools-1.69.0.tar.gz"
-    sha256 "3e1a98f4d9decb84979e1ddd3deb09c0a33a84b6e3c0776d5bde4097e3ab66dd"
+    url "https://files.pythonhosted.org/packages/05/d2/c0866a48c355a6a4daa1f7e27e210c7fa561b1f3b7c0bce2671e89cfa31e/grpcio_tools-1.71.0.tar.gz"
+    sha256 "38dba8e0d5e0fb23a034e09644fdc6ed862be2371887eee54901999e8f6792a8"
   end
 
   def python3
@@ -35,6 +36,9 @@ class Localai < Formula
   end
 
   def install
+    # Fix to CMake Error at encodec.cpp/ggml/CMakeLists.txt:1 (cmake_minimum_required):
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+
     ENV["SDKROOT"] = MacOS.sdk_path if OS.mac?
 
     venv = virtualenv_create(buildpath/"venv", python3)
@@ -50,7 +54,7 @@ class Localai < Formula
 
     spawn bin/"local-ai", "run", "--address", addr
     sleep 5
-    sleep 10 if OS.mac? && Hardware::CPU.intel?
+    sleep 20 if OS.mac? && Hardware::CPU.intel?
 
     response = shell_output("curl -s -i #{addr}")
     assert_match "HTTP/1.1 200 OK", response

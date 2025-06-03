@@ -1,18 +1,17 @@
 class StripeMock < Formula
   desc "Mock HTTP server that responds like the real Stripe API"
   homepage "https://github.com/stripe/stripe-mock"
-  url "https://github.com/stripe/stripe-mock/archive/refs/tags/v0.192.0.tar.gz"
-  sha256 "9b38137b879d3c3b580ce6697dfe4de074a0178a7c96ea55502f26417b1e37e4"
+  url "https://github.com/stripe/stripe-mock/archive/refs/tags/v0.195.0.tar.gz"
+  sha256 "830a70cdbefc14b77f1c397ed29b401ea79a8f2bfdc2bbf9708a901e17208559"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a2ba9c9c2bcf0036489d84d279a8c80bf7d72d483112bb6db13e1a78d89e156d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a2ba9c9c2bcf0036489d84d279a8c80bf7d72d483112bb6db13e1a78d89e156d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a2ba9c9c2bcf0036489d84d279a8c80bf7d72d483112bb6db13e1a78d89e156d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f9df4eb35c18303d84efdc994c16aa5bf83c0a45175b1379d756ca08f73ab336"
-    sha256 cellar: :any_skip_relocation, ventura:       "f9df4eb35c18303d84efdc994c16aa5bf83c0a45175b1379d756ca08f73ab336"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d7cd69e545b5998185ed466614cf0c7bef58d33e38589be6caf94d52cd701be"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eb00df69c89beb8cb7465d9aea84b30e20e669a320dfa1d1f2fde9f1a3f20734"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eb00df69c89beb8cb7465d9aea84b30e20e669a320dfa1d1f2fde9f1a3f20734"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "eb00df69c89beb8cb7465d9aea84b30e20e669a320dfa1d1f2fde9f1a3f20734"
+    sha256 cellar: :any_skip_relocation, sonoma:        "db97b4f234bf4e99abe4fcf7f94e23aa6c66613536875987d90cbb149b257bf3"
+    sha256 cellar: :any_skip_relocation, ventura:       "db97b4f234bf4e99abe4fcf7f94e23aa6c66613536875987d90cbb149b257bf3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cfb32a534ce1b0ab692a753f11cc4c00b28d05b0a161e472798c504f7d5f683a"
   end
 
   depends_on "go" => :build

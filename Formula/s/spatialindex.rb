@@ -1,6 +1,6 @@
 class Spatialindex < Formula
   desc "General framework for developing spatial indices"
-  homepage "https://libspatialindex.org/"
+  homepage "https://libspatialindex.org/en/latest/"
   url "https://github.com/libspatialindex/libspatialindex/releases/download/2.1.0/spatialindex-src-2.1.0.tar.bz2"
   sha256 "c59932395e98896038d59199f2e2453595df6d730ffbe09d69df2a661bcb619b"
   license "MIT"
@@ -16,6 +16,7 @@ class Spatialindex < Formula
     sha256 cellar: :any,                 arm64_ventura: "ccdbb7d96b49d3a30ad83530034142629350a725e64e1cba2e260b41c7ef15d0"
     sha256 cellar: :any,                 sonoma:        "ffd3cfa50eb1ed66c896081d61ce335c968c1f432a95770ffc80233f41ab0571"
     sha256 cellar: :any,                 ventura:       "117276faf402a1afed33a420fc9e59f66434612f4f735e307cc13e3d45669f7e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d53c0ec9bb0548fba0c58da85496b6da22089392f2c4a3517db8890664c1f52f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "359128f10b75e3ef834f3fbc988856b763caddb96bc006302cf2e6d2a9fb2a99"
   end
 

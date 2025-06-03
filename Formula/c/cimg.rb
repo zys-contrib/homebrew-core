@@ -1,8 +1,8 @@
 class Cimg < Formula
   desc "C++ toolkit for image processing"
   homepage "https://cimg.eu/"
-  url "https://cimg.eu/files/CImg_3.5.0.zip"
-  sha256 "6126e66e44b447748fb8cd97246707ac90b598e36ca1575e58104b03aa834c62"
+  url "https://cimg.eu/files/CImg_3.5.5.zip"
+  sha256 "92289c69713f05bd02792c18eefcd1d5abd1cb57f25fb5993d49cd597aa2efa6"
   license "CECILL-2.0"
 
   livecheck do
@@ -11,12 +11,13 @@ class Cimg < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f5a8bda491f815b8b397fd314a42e73fccf4ba33a88bbe0f40650166632d6890"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f5a8bda491f815b8b397fd314a42e73fccf4ba33a88bbe0f40650166632d6890"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f5a8bda491f815b8b397fd314a42e73fccf4ba33a88bbe0f40650166632d6890"
-    sha256 cellar: :any_skip_relocation, sonoma:        "698fbcbf0794dfbd76b3932a0af7b5eeb3fa35cdc08035ab5680907a586d3c7e"
-    sha256 cellar: :any_skip_relocation, ventura:       "698fbcbf0794dfbd76b3932a0af7b5eeb3fa35cdc08035ab5680907a586d3c7e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5a8bda491f815b8b397fd314a42e73fccf4ba33a88bbe0f40650166632d6890"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e626d2b1fc49db2e10550bbd6886259802b4c1c26f0ee637189e51d3c68bfda"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1e626d2b1fc49db2e10550bbd6886259802b4c1c26f0ee637189e51d3c68bfda"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1e626d2b1fc49db2e10550bbd6886259802b4c1c26f0ee637189e51d3c68bfda"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f37630fd09733c60ce21471bd08217aea720309a028910e5130e58b858aa2426"
+    sha256 cellar: :any_skip_relocation, ventura:       "f37630fd09733c60ce21471bd08217aea720309a028910e5130e58b858aa2426"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1e626d2b1fc49db2e10550bbd6886259802b4c1c26f0ee637189e51d3c68bfda"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e626d2b1fc49db2e10550bbd6886259802b4c1c26f0ee637189e51d3c68bfda"
   end
 
   def install

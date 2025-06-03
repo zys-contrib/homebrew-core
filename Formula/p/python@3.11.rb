@@ -1,9 +1,10 @@
 class PythonAT311 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.11.11/Python-3.11.11.tgz"
-  sha256 "883bddee3c92fcb91cf9c09c5343196953cbb9ced826213545849693970868ed"
+  url "https://www.python.org/ftp/python/3.11.12/Python-3.11.12.tgz"
+  sha256 "379c9929a989a9d65a1f5d854e011f4872b142259f4fc0a8c4062d2815ed7fba"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -11,12 +12,13 @@ class PythonAT311 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "df6d9256d4f66b3b119d91471d693bcde4f7d02b49121b8ae5605d8c9c5b7552"
-    sha256 arm64_sonoma:  "b233aa4049c7412eeba3f0b5df05adf9389a4e2f6e2fe2edf88da428bab57edd"
-    sha256 arm64_ventura: "d4ad2d448031b72e8627a8ccc97fd6c24da485baa505ae5b842d10d253e9b54d"
-    sha256 sonoma:        "f6d08d2fd8405af14cf6b1c1f9f86cbcb24837920482124dcf25bc720f440649"
-    sha256 ventura:       "ee9aaacdb633337b49e6294d76317bcbfbab475b6f220f2ee62e67353250c8a6"
-    sha256 x86_64_linux:  "6fee52fb963435ec6ed7659b1755b214e9206e2e00e623090361e8d9db39a1a2"
+    sha256 arm64_sequoia: "9073513918086d2d7264ea10c5096c17374921cc729f43820b9d45832d74f5d8"
+    sha256 arm64_sonoma:  "e0d8adeb873da451d9ea9ac9978ef14e8068f8ceaa221edd6d3456b41cdceb67"
+    sha256 arm64_ventura: "d882e62bbaf83136613f7e4718cc685eee6ac62a9eae1c36591f3777f4d17e41"
+    sha256 sonoma:        "9671b5e234746b4c6250fd8f5fef4d8e70012f8b2a212ac379f2ac5707eb130f"
+    sha256 ventura:       "8f915363f0d59a1a9182d47f647d179916282ff47abcd61a041218a3fd41bf04"
+    sha256 arm64_linux:   "c223bd6149e241f464ac692597b62c0724e3bef1d4a1f08f090457c9a293101e"
+    sha256 x86_64_linux:  "51441f0c000c5975d43511d5680b1aa1aa37ba7caf54e33c759b44136c797516"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -45,18 +47,18 @@ class PythonAT311 < Formula
 
   # Always update to latest release
   resource "flit-core" do
-    url "https://files.pythonhosted.org/packages/d5/ae/09427bea9227a33ec834ed5461432752fd5d02b14f93dd68406c91684622/flit_core-3.10.1.tar.gz"
-    sha256 "66e5b87874a0d6e39691f0e22f09306736b633548670ad3c09ec9db03c5662f7"
+    url "https://files.pythonhosted.org/packages/69/59/b6fc2188dfc7ea4f936cd12b49d707f66a1cb7a1d2c16172963534db741b/flit_core-3.12.0.tar.gz"
+    sha256 "18f63100d6f94385c6ed57a72073443e1a71a4acb4339491615d0f16d6ff01b2"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/f4/b1/b422acd212ad7eedddaf7981eee6e5de085154ff726459cf2da7c5a184c1/pip-24.3.1.tar.gz"
-    sha256 "ebcb60557f2aefabc2e0f918751cd24ea0d56d8ec5445fe1807f1d2109660b99"
+    url "https://files.pythonhosted.org/packages/59/de/241caa0ca606f2ec5fe0c1f4261b0465df78d786a38da693864a116c37f4/pip-25.1.1.tar.gz"
+    sha256 "3de45d411d308d5054c2168185d8da7f9a2cd753dbac8acbfa88a8909ecd9077"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/43/54/292f26c208734e9a7f067aea4a7e282c080750c4546559b58e2e45413ca0/setuptools-75.6.0.tar.gz"
-    sha256 "8199222558df7c86216af4f84c30e9b34a61d8ba19366cc914424cdbd28252f6"
+    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
+    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
   end
 
   resource "wheel" do

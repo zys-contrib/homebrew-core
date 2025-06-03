@@ -1,8 +1,8 @@
 class Freeciv < Formula
   desc "Free and Open Source empire-building strategy game"
   homepage "https://freeciv.org/"
-  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%203.1/3.1.4/freeciv-3.1.4.tar.xz"
-  sha256 "14999bb903c4507cc287d5a8dd1b89eee623bb41b4e01e0836567fb5f13296e4"
+  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%203.1/3.1.5/freeciv-3.1.5.tar.xz"
+  sha256 "0d9f687ff950a77a9fa0af66108a7f67da717fd40c3a0ca4c0a4f4a3f0214b33"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,12 +11,13 @@ class Freeciv < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "7fd05a35fcec8d2c5799f5f91c1d6043cdac5dfc85a109ad2db14e2615a28a75"
-    sha256 arm64_sonoma:  "b8d4bc8ed3a79cec1946c1747cc83970f6629b0c5d9fa47b2b3b525b436e76ce"
-    sha256 arm64_ventura: "b44bf3fcf731182c4c7d8953a26d5654f6bfcc8609f49d1fb60a92185ae6d3b9"
-    sha256 sonoma:        "deef682ea166bf0bdd69a321eade1c1ff34101287cd7a7fbba3af6a9dad178f4"
-    sha256 ventura:       "f8e960463d636caafc9294de686ea3a997a70eb36f1b68ba024ce4cbd823c471"
-    sha256 x86_64_linux:  "7fdf4dc1402870e3c45e8d4b8c6ad7bb4a1f977f573a835750a535433a007014"
+    sha256 arm64_sequoia: "41b72392d0c7bda4ef87ebb4c3cb23a75437d47589e67947bc62429e53e86faa"
+    sha256 arm64_sonoma:  "d7d140af12010c0adc38d54cfdd9750803799a99ce5411a69d1c6e355c54a4e6"
+    sha256 arm64_ventura: "2694d772632c1c690fcb8398888753b44d06156ad79dd3c7dbccc1a63a6214e9"
+    sha256 sonoma:        "14192305f9802303a698451bef2b3985888ff2929b30754d1a4b4f4a90699db7"
+    sha256 ventura:       "5ea34567361cbccb36c9421ba3b8a10ce14579e25dc059181f4316d0760619ef"
+    sha256 arm64_linux:   "2bc1f434418b08b9fe66ef1c3b3d924559e4a99b7ffb4d9e6c68b709a2153b1c"
+    sha256 x86_64_linux:  "0da80ceb53a0bd7e464cab9b9a5806a57c3cdde7c408fdc6becd8b405822f0b4"
   end
 
   head do
@@ -38,7 +39,7 @@ class Freeciv < Formula
   depends_on "glib"
   depends_on "gtk+3"
   depends_on "harfbuzz"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "pango"
   depends_on "readline"
   depends_on "sdl2"

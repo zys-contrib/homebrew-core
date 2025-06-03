@@ -1,17 +1,19 @@
 class Monika < Formula
   desc "Synthetic monitoring made easy"
   homepage "https://monika.hyperjump.tech"
-  url "https://registry.npmjs.org/@hyperjumptech/monika/-/monika-1.21.2.tgz"
-  sha256 "a9280ac4c288a79c77c28263042fab1d4cc785ef08f94d0cfd3cb25b7e40dce4"
+  url "https://registry.npmjs.org/@hyperjumptech/monika/-/monika-1.22.0.tgz"
+  sha256 "2b2ed6ac3186d72a9f060efb62d183c4b156494b2c37de9808c108f54655b84c"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256                               arm64_sequoia: "cf7bd831f3b50b22b53a45be3fc9468fd3449e77d16ecc6a14a7fc91a0c2048e"
-    sha256                               arm64_sonoma:  "02f1de44e451e3bf0595b7d12f1905534d9bbb377e062c61828221464f41b370"
-    sha256                               arm64_ventura: "ee92b0a0707890c6ec213c46e5d2f4812ba1fc4a867eb82129c8e1a8cbb1f95f"
-    sha256                               sonoma:        "d7a43499c51096dbfb3c6e75ff208c97f56a455f8280d24d64e99a8e17f959dd"
-    sha256                               ventura:       "e29d95f54d6d00802440e3531649ac1253ba2a4843e029cb61f10d7badfb3753"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad68335a7a0fad36f34fa12a266e997cbc583f6ade8c160bc70278bf6e3f82ca"
+    sha256                               arm64_sequoia: "f3e91a0c2e44a73268d2ad097f66b186d557e7c29bd6cc9bfbf5cdf6f83a51a4"
+    sha256                               arm64_sonoma:  "f2ae79c53a534008b89160ae1c8ae3fdda47aee6fc61218267468b19836a2369"
+    sha256                               arm64_ventura: "1a4b455c1dff23c63b60585ddfe58e19f9028fca8b7ebf5f48b63d2a83fca64b"
+    sha256                               sonoma:        "4ebb6355f4ed47cd9c1e85566eed9c2836b710bb5f79a6160ed7449d6217902b"
+    sha256                               ventura:       "ed6f5ea7a08fc1201b8e41b4172caf6bfaba98c1ddc7fce30c288516fe3e9f26"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ddaf84cdd4938c7a6884cad00e978282ba40458b44714405566a90bd9b412e41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e525f7478ff11969327f3a1a65e22bb296716c68a3ef064196029f816e19e4c"
   end
 
   depends_on "node"
@@ -24,7 +26,7 @@ class Monika < Formula
 
   def install
     system "npm", "install", *std_npm_args
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install_symlink libexec.glob("bin/*")
 
     # Remove incompatible pre-built binaries
     os = OS.kernel_name.downcase

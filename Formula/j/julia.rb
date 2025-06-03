@@ -1,12 +1,24 @@
 class Julia < Formula
   desc "Fast, Dynamic Programming Language"
   homepage "https://julialang.org/"
-  # Use the `-full` tarball to avoid having to download during the build.
-  # TODO: Check if we can unbundle `curl`: https://github.com/JuliaLang/Downloads.jl/issues/260
-  url "https://github.com/JuliaLang/julia/releases/download/v1.11.3/julia-1.11.3-full.tar.gz"
-  sha256 "027b258b47b4e1a81d1ecdd355adeffdb6c0181c9ad988e717f5e475a12a1de8"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
-  head "https://github.com/JuliaLang/julia.git", branch: "master"
+
+  stable do
+    # Use the `-full` tarball to avoid having to download during the build.
+    # TODO: Check if we can unbundle `curl`: https://github.com/JuliaLang/Downloads.jl/issues/260
+    url "https://github.com/JuliaLang/julia/releases/download/v1.11.5/julia-1.11.5-full.tar.gz"
+    sha256 "147626db6b6887bfb6612cb6cd2a48d689806649fae34dc749fddc8375c2c625"
+
+    depends_on "libgit2@1.8"
+
+    # Link against libgcc_s.1.1.dylib, not libgcc_s.1.dylib
+    # https://github.com/JuliaLang/julia/pull/56965#event-15826575851
+    # Remove in 1.12
+    patch do
+      url "https://github.com/JuliaLang/julia/commit/75cdffeb0f37b438950534712755a4f7cebbdd8c.patch?full_index=1"
+      sha256 "7b62554131a2627c70570b800c8fea35048e863ba2e11fc6c93d6fe26920cda8"
+    end
+  end
 
   # Upstream creates GitHub releases for both stable and LTS versions, so the
   # "latest" release on GitHub may be an LTS version instead of a "stable"
@@ -18,26 +30,29 @@ class Julia < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "94518bc424efed0ed491c60dd9e59fe49579b88d1e7440b1309af168bf5d7db1"
-    sha256 cellar: :any,                 arm64_sonoma:  "edd292bee7c874addca11584dbd896938b475b24247a9058c0451bd38590650f"
-    sha256                               arm64_ventura: "2a1fb1e68f1ab84fe82415bfafb9707d24a16502d5f56cb442461dafd11b5919"
-    sha256 cellar: :any,                 sonoma:        "c5636dcbe31c7290e677bcdd96236ebba9c057d17b711d50fa142d22045b7a98"
-    sha256 cellar: :any,                 ventura:       "3eaa1ab4ea41515ffa84472efc80a92337a4c519f78557932cecaaf66675fa61"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd669e58000ccd79453c249009c0aa4f6ddb25c05a6142da06c2aadc6d02b532"
+    sha256                               arm64_sequoia: "fff9bac64500a16448e97bab12228d2cd3981a7c9c8d861c3a687670338bd6ce"
+    sha256 cellar: :any,                 arm64_sonoma:  "791f0898da48873ef1657063aa5f5c771cf044b76532d4b6b90a902baa12977c"
+    sha256 cellar: :any,                 arm64_ventura: "473b46f21f2299a9c1b40e05b86c451a7f8430b39c68954a863df1e18d2bee9f"
+    sha256 cellar: :any,                 sonoma:        "febaa008940f15e71b5728953ce561930b0cbf1f6a2e468cf9e2142c2d15f9e9"
+    sha256                               ventura:       "87dff6175625d649b7286cb870f5713fd49c32ceae760fa5ffa6bdb84472901d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e910379b335ae1cbe40fc342ceba229ddd9fc4ad76d685d6ef53718e68c8756f"
+  end
+
+  head do
+    url "https://github.com/JuliaLang/julia.git", branch: "master"
+
+    depends_on "curl"
+    depends_on "libgit2"
+    depends_on "openssl@3"
   end
 
   depends_on "cmake" => :build # Needed to build LLVM
   depends_on "gcc" => :build # for gfortran
   depends_on "ca-certificates"
-  # Julia is currently incompatible with curl >= 8.10
-  # Issue ref: https://github.com/JuliaLang/Downloads.jl/issues/260
-  # TODO: depends_on "curl"
   depends_on "gmp"
   depends_on "libblastrampoline"
-  depends_on "libgit2@1.8"
   depends_on "libnghttp2"
   depends_on "libssh2"
-  depends_on "mbedtls@2"
   depends_on "mpfr"
   depends_on "openblas"
   depends_on "openlibm"
@@ -58,14 +73,6 @@ class Julia < Formula
 
   conflicts_with "juliaup", because: "both install `julia` binaries"
 
-  # Link against libgcc_s.1.1.dylib, not libgcc_s.1.dylib
-  # https://github.com/JuliaLang/julia/pull/56965#event-15826575851
-  # Remove in 1.12
-  patch do
-    url "https://github.com/JuliaLang/julia/commit/75cdffeb0f37b438950534712755a4f7cebbdd8c.patch?full_index=1"
-    sha256 "7b62554131a2627c70570b800c8fea35048e863ba2e11fc6c93d6fe26920cda8"
-  end
-
   def install
     # Build documentation available at
     # https://github.com/JuliaLang/julia/blob/v#{version}/doc/build/build.md
@@ -77,17 +84,16 @@ class Julia < Formula
       USE_BINARYBUILDER=0
       USE_SYSTEM_BLAS=1
       USE_SYSTEM_CSL=1
-      USE_SYSTEM_CURL=0
       USE_SYSTEM_GMP=1
       USE_SYSTEM_LAPACK=1
       USE_SYSTEM_LIBBLASTRAMPOLINE=1
       USE_SYSTEM_LIBGIT2=1
       USE_SYSTEM_LIBSSH2=1
       USE_SYSTEM_LIBSUITESPARSE=1
-      USE_SYSTEM_MBEDTLS=1
       USE_SYSTEM_MPFR=1
       USE_SYSTEM_NGHTTP2=1
       USE_SYSTEM_OPENLIBM=1
+      USE_SYSTEM_OPENSSL=1
       USE_SYSTEM_P7ZIP=1
       USE_SYSTEM_PATCHELF=1
       USE_SYSTEM_PCRE=1
@@ -149,9 +155,10 @@ class Julia < Formula
       ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}"
     end
 
-    # Remove library versions from MbedTLS_jll, nghttp2_jll and others
+    # Remove library versions from nghttp2_jll and others
     # https://git.archlinux.org/svntogit/community.git/tree/trunk/julia-hardcoded-libs.patch?h=packages/julia
-    %w[MbedTLS nghttp2 LibGit2 OpenLibm SuiteSparse].each do |dep|
+    stdlib_deps = %w[nghttp2 LibGit2 OpenLibm SuiteSparse]
+    stdlib_deps.each do |dep|
       inreplace (buildpath/"stdlib").glob("**/#{dep}_jll.jl") do |s|
         s.gsub!(%r{@rpath/lib(\w+)(\.\d+)*\.dylib}, "@rpath/lib\\1.dylib")
         s.gsub!(/lib(\w+)\.so(\.\d+)*/, "lib\\1.so")
@@ -161,9 +168,19 @@ class Julia < Formula
     # Make Julia use a CA cert from `ca-certificates`
     (buildpath/"usr/share/julia").install_symlink Formula["ca-certificates"].pkgetc/"cert.pem"
 
-    # Workaround to install bundled curl without bundling other libs
-    odie "Remove `make install-curl` workaround!" if deps.any? { |dep| dep.name == "curl" }
-    system "make", "-C", "deps", "install-curl", *args
+    if build.head?
+      args << "USE_SYSTEM_CURL=1"
+    else
+      # Fix for cmake version 4 compatibility
+      inreplace "deps/tools/common.mk", "CMAKE_COMMON :=", "CMAKE_COMMON := -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+      args += ["USE_SYSTEM_CURL=0", "USE_SYSTEM_MBEDTLS=0"]
+      # Julia 1.11 is incompatible with curl >= 8.10
+      # Issue ref: https://github.com/JuliaLang/Downloads.jl/issues/260
+      odie "Try unbundling curl and removing mbedtls references!" if version >= "1.12"
+      # Workaround to install bundled curl without bundling other libs
+      system "make", "-C", "deps", "install-mbedtls", *args
+      system "make", "-C", "deps", "install-curl", *args
+    end
 
     system "make", *args, "install"
 
@@ -221,7 +238,7 @@ class Julia < Formula
     # Most of these also check that Julia can load Homebrew-provided libraries.
     jlls = %w[
       MPFR_jll SuiteSparse_jll Zlib_jll OpenLibm_jll
-      nghttp2_jll MbedTLS_jll LibGit2_jll GMP_jll
+      nghttp2_jll LibGit2_jll GMP_jll
       OpenBLAS_jll CompilerSupportLibraries_jll dSFMT_jll LibUV_jll
       LibSSH2_jll LibCURL_jll libLLVM_jll PCRE2_jll
     ]

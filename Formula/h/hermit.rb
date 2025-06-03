@@ -1,17 +1,19 @@
 class Hermit < Formula
   desc "Manages isolated, self-bootstrapping sets of tools in software projects"
   homepage "https://cashapp.github.io/hermit"
-  url "https://github.com/cashapp/hermit/archive/refs/tags/v0.43.0.tar.gz"
-  sha256 "074423ba79c4784704d84f1e31d80d4666723542a0a4d08d313e0ba7d44ed10a"
+  url "https://github.com/cashapp/hermit/archive/refs/tags/v0.44.8.tar.gz"
+  sha256 "9bc7a4142e0d10cccefbb637e9d3be46b441c8e80614044ab0d8940470b610d4"
   license "Apache-2.0"
+  head "https://github.com/cashapp/hermit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "66bc204347a73b68331e2a3f3f0669deddc756a7882f0876c7abd6dc22978c34"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "285121b40cb14952ce0db14c3fd16a3377400a6503ebd79eb2057cb2c6eca047"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f95b5aafc0122ad428969a1bb73d367451d6c8f6419603a78d52cfa380cdb76f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "64986f0b15d1ee627f9bbc68f0ee87bc5a97a1b3c8d7740b00e138d19ec68d93"
-    sha256 cellar: :any_skip_relocation, ventura:       "c995db892d4f29d23b3500f46a510c7681f312ecb7fe3e80c4bbd0ba76453d09"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0806d78091a3b50b3a6e4206423f5a13ed7a2b3ffc9cba214e51d6d5a274455"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b56a205c2ccedf1190954e940fa8eccd675f6a2944e9302b2603344713c5a1ad"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5ea3e9c3d486fcd9e22923d7b81569a16895bdc400fd22651cb4681fce5d1691"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d6e2e0b2a7fcf04e3d8e0a9c500ac93b7467c3088d94ec56a08570c3b70cce78"
+    sha256 cellar: :any_skip_relocation, sonoma:        "576cc5864a37c0b780e77b6ac7b87837a19eee8108992697c431154eff65bf4d"
+    sha256 cellar: :any_skip_relocation, ventura:       "7b9364cea9afe0265d4526b94a6b9792c7309167ec34136afddd12892474a5e7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6e30f258d750c56d219dd2c21a332721cc23a7daaf042da650210b65405803d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ded6a6a78f7547f5d75c7f201b20c44d93e14905e598110bc4ec11d97c102f66"
   end
 
   depends_on "go" => :build
@@ -40,6 +42,6 @@ class Hermit < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/hermit version")
     system bin/"hermit", "init", "."
-    assert_predicate testpath/"bin/hermit.hcl", :exist?
+    assert_path_exists testpath/"bin/hermit.hcl"
   end
 end

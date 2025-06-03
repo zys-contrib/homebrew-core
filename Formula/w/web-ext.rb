@@ -1,17 +1,18 @@
 class WebExt < Formula
   desc "Command-line tool to help build, run, and test web extensions"
   homepage "https://github.com/mozilla/web-ext"
-  url "https://registry.npmjs.org/web-ext/-/web-ext-8.3.0.tgz"
-  sha256 "c653efdb1e8082f80512a1b635dea6b475748bff4f363f7e59e36fe0b4eb3503"
+  url "https://registry.npmjs.org/web-ext/-/web-ext-8.7.1.tgz"
+  sha256 "574c1caa9265b6d47c5aeb907df0d189196c8b70273e523f96650922ffd678b7"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "847da99b4c45299aa173a610674bc9eea5881887d31f366b1888fbd9ba1e2cb7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "847da99b4c45299aa173a610674bc9eea5881887d31f366b1888fbd9ba1e2cb7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "847da99b4c45299aa173a610674bc9eea5881887d31f366b1888fbd9ba1e2cb7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "73a0f4a766251f92aef4a57637d12b6df26c52a55fd9d43de0bfa0f11b32b1eb"
-    sha256 cellar: :any_skip_relocation, ventura:       "73a0f4a766251f92aef4a57637d12b6df26c52a55fd9d43de0bfa0f11b32b1eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e311108a697d9f161f1b31b9068724ef0aca3729ca2b529bb7ccd9f298d801c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "33ae8e47f8043f1e795c071c8f97580ba32eba2f300dc4017726f3b1a2a0777a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "33ae8e47f8043f1e795c071c8f97580ba32eba2f300dc4017726f3b1a2a0777a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "33ae8e47f8043f1e795c071c8f97580ba32eba2f300dc4017726f3b1a2a0777a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2f60e52a9832aeeb3cfeea89a0107ec2638e18de4c0b67fdda42047a9c231d26"
+    sha256 cellar: :any_skip_relocation, ventura:       "2f60e52a9832aeeb3cfeea89a0107ec2638e18de4c0b67fdda42047a9c231d26"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b7a001e6d87af957d2406a8110a80e94dc5c4b22c311442e9274fb0e0933d560"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7a001e6d87af957d2406a8110a80e94dc5c4b22c311442e9274fb0e0933d560"
   end
 
   depends_on "node"

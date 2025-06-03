@@ -17,6 +17,7 @@ class Lcm < Formula
     sha256 cellar: :any,                 arm64_ventura: "1cd041a8337c350c38de47ce7c2ac015a1819b2a1efb090f6563f42a729fa7fb"
     sha256 cellar: :any,                 sonoma:        "c442066258d99654dfcc78ba143cb04d5fc74ef1306a14be1d70baafba7ba6bb"
     sha256 cellar: :any,                 ventura:       "b07445d9724d1e720b4fb24983df5adbbab9fff80cc0621f97aa1429485e8dbb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8a79f1fdc4e500d5b9d21c79802b3d17a9d1c5150ba0a4c11e1fb2b6c7553485"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2140c559088413340306e19ad843419a48fa5e5747269a25ed975c2945b4340"
   end
 
@@ -60,13 +61,13 @@ class Lcm < Formula
       }
     EOS
     system bin/"lcm-gen", "-c", "example_t.lcm"
-    assert_predicate testpath/"exlcm_example_t.h", :exist?, "lcm-gen did not generate C header file"
-    assert_predicate testpath/"exlcm_example_t.c", :exist?, "lcm-gen did not generate C source file"
+    assert_path_exists testpath/"exlcm_example_t.h", "lcm-gen did not generate C header file"
+    assert_path_exists testpath/"exlcm_example_t.c", "lcm-gen did not generate C source file"
     system bin/"lcm-gen", "-x", "example_t.lcm"
-    assert_predicate testpath/"exlcm/example_t.hpp", :exist?, "lcm-gen did not generate C++ header file"
+    assert_path_exists testpath/"exlcm/example_t.hpp", "lcm-gen did not generate C++ header file"
     system bin/"lcm-gen", "-j", "example_t.lcm"
-    assert_predicate testpath/"exlcm/example_t.java", :exist?, "lcm-gen did not generate Java source file"
+    assert_path_exists testpath/"exlcm/example_t.java", "lcm-gen did not generate Java source file"
     system bin/"lcm-gen", "-p", "example_t.lcm"
-    assert_predicate testpath/"exlcm/example_t.py", :exist?, "lcm-gen did not generate Python source file"
+    assert_path_exists testpath/"exlcm/example_t.py", "lcm-gen did not generate Python source file"
   end
 end

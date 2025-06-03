@@ -1,18 +1,19 @@
 class Neovide < Formula
   desc "No Nonsense Neovim Client in Rust"
-  homepage "https://github.com/neovide/neovide"
-  url "https://github.com/neovide/neovide/archive/refs/tags/0.14.0.tar.gz"
-  sha256 "33aade5dcc2962aadcd7c885876a52f096397356c56aab90c71cf12aa368e87d"
+  homepage "https://neovide.dev/"
+  url "https://github.com/neovide/neovide/archive/refs/tags/0.15.0.tar.gz"
+  sha256 "89900673314f4dba66a1716197aca3b51f01365d9f8351563c3dc5604b3e48ab"
   license "MIT"
   head "https://github.com/neovide/neovide.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d38da184be6acf398b2c83a383effd56e59a3309db2909a05d7d378d5a1bd457"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "181d93123769252f063c8695ae6346631b419a0fe3d34e3c11538677160c17df"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8f1c8d257b736235af43eff70921bf63d360c4b208038ae099806ef5502bbb06"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3886268d9d53ce4e061880e3248fc313356a830c5cd90e3e3d85858d5f28728e"
-    sha256 cellar: :any_skip_relocation, ventura:       "a8b58a4337f647d7980aea34c021d9e3ca93b87179886cdd4c702c8d51a1daf8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ea24502baf0a789cbe1208d7c865203cf6486e4d59308b7d7994ba82eb415e7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "beadfba290080cf999c7cec2415e8e2000b6d3d2cd8d43be6acd235a97c57482"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6db047e1f2a6180d2bdf1341448f9f64c5414371fa5c33c664258d23bd803b11"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "71903190f94bd7018ecf017d70bc02e1dabdf795391cb2921831437ca58f3876"
+    sha256 cellar: :any_skip_relocation, sonoma:        "20f05f6186c0cb44b9f67c0968117cc157a081cbc8aefb24bfb6ec19c99ce63b"
+    sha256 cellar: :any_skip_relocation, ventura:       "f89ba563de5b80e997b90c80e8efe1d03d4813de13ef0b70af325ac1392afc51"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "441334ea72a94f2eb7fa628194f9730e15c38778001568b9afc00eab460ed7af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2473d65387128d4bb25a636fee7200ef68cbf875cb0ba135cb54f7fe25a2cdae"
   end
 
   depends_on "ninja" => :build
@@ -31,7 +32,7 @@ class Neovide < Formula
     depends_on "fontconfig"
     depends_on "freetype"
     depends_on "harfbuzz"
-    depends_on "icu4c@76"
+    depends_on "icu4c@77"
     depends_on "jpeg-turbo"
     depends_on "libpng"
     # `libxcursor` is loaded when using X11 (DISPLAY) instead of Wayland (WAYLAND_DISPLAY).

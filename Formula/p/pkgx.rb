@@ -1,18 +1,19 @@
 class Pkgx < Formula
   desc "Standalone binary that can run anything"
   homepage "https://pkgx.sh"
-  url "https://github.com/pkgxdev/pkgx/archive/refs/tags/v2.1.3.tar.gz"
-  sha256 "56d822bb4466e7e8bd8d558ba4d1ea5035d42509ecfc08c5ea8e39492eb3e7b8"
+  url "https://github.com/pkgxdev/pkgx/archive/refs/tags/v2.7.tar.gz"
+  sha256 "479897abc6d51df25bda10b98ab6efef8424cb14bfd3003148d55216e6ca353b"
   license "Apache-2.0"
   head "https://github.com/pkgxdev/pkgx.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5db861d5f844f07ff273f5bfffaaa426530f3a59c30c3087cbb81d43401d71fc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "438816d6231a2560e73594f0777f77c80305eb9d94f71a0aa8e72c8cf9c024e4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f7eb9ed002eca692826701ab35f09b65ce9e5609cf7c0aa4819b3d812693b02c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c5fe40e0067d15e4aa5e73ed7754d2c1f198ef9319612fd3cb04990c3c75c256"
-    sha256 cellar: :any_skip_relocation, ventura:       "2c28ee5e5b8b86533f3a600b16715820c055be28954faf051d48a760e8545c6b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c5471617a2ddeca0689f1731e1aa49023bfc60dc325fb6d35d0c0029f8bbec4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d54923e20f0940729bec3cda7d4d597ea3b5535776e8aaaffa76927a5d83fdf4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d02236c3096e6cb1755fe79a4f35002f20afd3ec72debc05c5e23c85e287c81f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c74465ddc16dded699648b040ec1d7a7d45bd1d0ed5f3fb64c2155379f1d5372"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8b4a08f77e540968ad06d9910b56f2aeaf3e95a8e9eb62a71f6ca5047f7eea5d"
+    sha256 cellar: :any_skip_relocation, ventura:       "a8931040aed065d0d8374df553904f6da327fdc3b6b22b0516893de41447bef6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d2bf05af625f05d00d025bf90f48d195a3ad1e78f514cb000827260a18aeed11"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cdeed2e0e4c6d5943a8edacddbe544ac18eb1a6fd7024d7d476cdf5342ae1afb"
   end
 
   depends_on "rust" => :build

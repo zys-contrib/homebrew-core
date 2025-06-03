@@ -1,18 +1,24 @@
 class UutilsCoreutils < Formula
   desc "Cross-platform Rust rewrite of the GNU coreutils"
-  homepage "https://github.com/uutils/coreutils"
-  url "https://github.com/uutils/coreutils/archive/refs/tags/0.0.29.tar.gz"
-  sha256 "e1904ed6e5b8b441bedcba5afa7e8e8c744ef701f6d392de8c8dcc2ea17a34e2"
+  homepage "https://uutils.github.io/coreutils/"
+  url "https://github.com/uutils/coreutils/archive/refs/tags/0.1.0.tar.gz"
+  sha256 "55c528f2b53c1b30cb704550131a806e84721c87b3707b588a961a6c97f110d8"
   license "MIT"
   head "https://github.com/uutils/coreutils.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "739eef468c041b9846714c0db9dc0ff44d6a399b0fce3406a156dd3269dec126"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eb279f00c47c399ea7841e8f917aedd8b68a23ca0e286fb09a5ccb4d41ef1ced"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "93744e1afcd2218f6775584055a2f8e6246fab4f6e98ca71cc00c85c2f311a60"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0e152be33e45f3fedc7b4a17d5f132e539b02abbca73a7935a076ef07493b2c0"
-    sha256 cellar: :any_skip_relocation, ventura:       "4d6dc55cf589c1eb1ea1de4ae9be84a59e9521ef67daf12636811ca5c0d2e031"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75273d2a035762393bb3a75f5747cf51b21ed124013c51323ebc949fbee7999b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "efc20adfb97e84ed67eeddd69dfad9600b64d916a30b6ddb37ec1ec86e1b0d65"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f8e49f4ecacb9a3ff50258bc2b33e04eb049b68149bf4bdd362590995ea9dc1a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "72b467ed6f6f15ec60a3cee34fa365bd1121364afb925999c00304b8a33fde62"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c8af817bc30896c6ee0a6d37f0f58345a0c5a9f81ddc1e4f479a9ab79ac5ecdd"
+    sha256 cellar: :any_skip_relocation, ventura:       "b695ba77c5d41cff1f0856d9287c72994b8d94d54de414b0447194675c8d37db"
+    sha256                               arm64_linux:   "5f63af088aaf76c4349dd441b1423d5df8a6c722247c66d1663b8023d03d8feb"
+    sha256                               x86_64_linux:  "a7b684d72256a852a02a9261707c51e1098033aa25bac60b08629d3ae879631a"
   end
 
   depends_on "make" => :build
@@ -24,6 +30,10 @@ class UutilsCoreutils < Formula
   end
 
   conflicts_with "unp", because: "both install `ucat` binaries"
+
+  # Temporary patch to fix the error; Failed to find 'selinux/selinux.h'
+  # Issue ref: https://github.com/uutils/coreutils/issues/7996
+  patch :DATA
 
   def install
     man1.mkpath
@@ -91,3 +101,18 @@ class UutilsCoreutils < Formula
     system bin/"uln", "-f", "test", "test.sha1"
   end
 end
+
+__END__
+diff --git a/GNUmakefile b/GNUmakefile
+index f46126a82..58bf7fbdd 100644
+--- a/GNUmakefile
++++ b/GNUmakefile
+@@ -181,8 +181,6 @@ SELINUX_PROGS := \
+ 
+ ifneq ($(OS),Windows_NT)
+ 	PROGS := $(PROGS) $(UNIX_PROGS)
+-# Build the selinux command even if not on the system
+-	PROGS := $(PROGS) $(SELINUX_PROGS)
+ endif
+ 
+ UTILS ?= $(PROGS)

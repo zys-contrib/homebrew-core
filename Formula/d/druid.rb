@@ -1,9 +1,9 @@
 class Druid < Formula
   desc "High-performance, column-oriented, distributed data store"
   homepage "https://druid.apache.org/"
-  url "https://dlcdn.apache.org/druid/31.0.1/apache-druid-31.0.1-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/druid/31.0.1/apache-druid-31.0.1-bin.tar.gz"
-  sha256 "8c20158c9fb50c3429083324ecf448df48f4f2313a0cd5f89a68708a6615b204"
+  url "https://dlcdn.apache.org/druid/33.0.0/apache-druid-33.0.0-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/druid/33.0.0/apache-druid-33.0.0-bin.tar.gz"
+  sha256 "5ee5ddbcc2273834af8a18dd173b2a04b9a911cb7ce516279db605788abd7d79"
   license "Apache-2.0"
 
   livecheck do
@@ -12,15 +12,17 @@ class Druid < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ebaae455f183a3e0c68085f2de51aa7371b1c06dd8d977cff2c77d1dda9c7878"
+    sha256 cellar: :any_skip_relocation, all: "6142abfc9a042da4990f758ac9e284b7f59ede3e94dc30e85a7fc357d06ba917"
   end
 
   depends_on "zookeeper" => :test
-  depends_on "openjdk@11"
+  depends_on "openjdk@17" # JDK 21 issue: https://github.com/apache/druid/issues/17429
 
+  # check https://github.com/apache/druid/blob/master/docs/development/extensions-core/mysql.md#install-mysql-connectorj
+  # for mysql-connector-java version compatibility
   resource "mysql-connector-java" do
-    url "https://search.maven.org/remotecontent?filepath=mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar"
-    sha256 "5bba9ff50e5e637a0996a730619dee19ccae274883a4d28c890d945252bb0e12"
+    url "https://search.maven.org/remotecontent?filepath=com/mysql/mysql-connector-j/8.2.0/mysql-connector-j-8.2.0.jar"
+    sha256 "06f14fbd664d0e382347489e66495ca27ab7e6c2e1d9969a496931736197465f"
   end
 
   def install
@@ -51,7 +53,7 @@ class Druid < Formula
     end
 
     bin.install Dir["#{libexec}/bin/*.sh"]
-    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env("11")
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env("17")
 
     Pathname.glob("#{bin}/*.sh") do |file|
       mv file, bin/"druid-#{file.basename}"

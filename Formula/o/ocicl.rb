@@ -1,17 +1,19 @@
 class Ocicl < Formula
   desc "OCI-based ASDF system distribution and management tool for Common Lisp"
   homepage "https://github.com/ocicl/ocicl"
-  url "https://github.com/ocicl/ocicl/archive/refs/tags/v2.5.20.tar.gz"
-  sha256 "a5e87e5880bb5415e9a4cdff4fd4334fc2a19a497c7aca469f359f57675eb913"
+  url "https://github.com/ocicl/ocicl/archive/refs/tags/v2.5.24.tar.gz"
+  sha256 "2a3c6b8c5d3e4fcb0da3f5796143a35aeb202215b56e7b7d7c2755f994d29377"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 arm64_sequoia: "6da00308938406dc535c0cf9fc6e201a6fe05e739a96f2bea3abdb200f3bd27e"
-    sha256 arm64_sonoma:  "7d963b1c25f82b11a89debd3efebef6ad860a20c25c1f1ffe312098b792c65c6"
-    sha256 arm64_ventura: "a0e5ed798702e26b6512f0289f7ad5aa3b12314fb79f62aa0ff7fb5681c03b17"
-    sha256 sonoma:        "a13f556ac030a51de7d48e279faf65ccd38d8b419eb451bb808ff3d18bef4b4d"
-    sha256 ventura:       "dbede385b0c9ca59836bb97e39e4582536f64f51dd45ccd44fd2133780c388b9"
-    sha256 x86_64_linux:  "ee78c7132c09e8062570a61e65c002519f38307726bbfbc89d4469a089c78e91"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a06f8f6b722e51f7cd09a9500ed6092e09c690e2c6d5e347ca6d32b5a4f5a115"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "df30f690994546b91ccf886db5a91f314b1c5499ed50f1b534307c7c6f7ea798"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f49435d7cfcef4d789346a1fdb42f6dfa81e4d7fe5c0fbf1b5bf9c8fb601d508"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e3ffc9b6b1895c613400f1855009439968acb2f8ba370ba83c26e089df952dbb"
+    sha256 cellar: :any_skip_relocation, ventura:       "b0e2a6dfba7f65bd09cdc5d9098f33603db6a9e8f765322845f82c702a630df4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cc7f54e836c1097d1a7950c7e39b21624146a056f055d59380717b4b64db79c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69c590b1efcd1e986a39053023f181607f2447be6455374421626f8cbd47669e"
   end
 
   depends_on "sbcl"
@@ -47,9 +49,9 @@ class Ocicl < Formula
 
   test do
     system bin/"ocicl", "install", "chat"
-    assert_predicate testpath/"systems.csv", :exist?
+    assert_path_exists testpath/"ocicl.csv"
 
-    version_files = testpath.glob("systems/cl-chat*/_00_OCICL_VERSION")
+    version_files = testpath.glob("ocicl/cl-chat*/_00_OCICL_VERSION")
     assert_equal 1, version_files.length, "Expected exactly one _00_OCICL_VERSION file"
 
     (testpath/"init.lisp").write shell_output("#{bin}/ocicl setup")

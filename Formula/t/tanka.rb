@@ -1,9 +1,8 @@
 class Tanka < Formula
   desc "Flexible, reusable and concise configuration for Kubernetes using Jsonnet"
   homepage "https://tanka.dev"
-  url "https://github.com/grafana/tanka.git",
-      tag:      "v0.31.2",
-      revision: "6de85c304c5f3f416d07a6b007cb6c8797b0da13"
+  url "https://github.com/grafana/tanka/archive/refs/tags/v0.32.0.tar.gz"
+  sha256 "5d328d3a499787b1eb5d20ddbe20119048636e972db6cd75a3bb83c415f1cce3"
   license "Apache-2.0"
   head "https://github.com/grafana/tanka.git", branch: "main"
 
@@ -13,12 +12,13 @@ class Tanka < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d54baac79128b9d9a49ee4c50e32e64e68b8703a3822c5630f75f1e721a30d1a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d54baac79128b9d9a49ee4c50e32e64e68b8703a3822c5630f75f1e721a30d1a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d54baac79128b9d9a49ee4c50e32e64e68b8703a3822c5630f75f1e721a30d1a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "afab90f615ba32ae74b4c75c0e9c381f762177e9922dad3f805a7de4d4321808"
-    sha256 cellar: :any_skip_relocation, ventura:       "afab90f615ba32ae74b4c75c0e9c381f762177e9922dad3f805a7de4d4321808"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9076896004af6516b143d467ba7538095319c43b9ee794d0e6d53e7c2eee14c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "68f328c212a17e0770693e85a98492e7c7bd5db2717f253addda414898213394"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "68f328c212a17e0770693e85a98492e7c7bd5db2717f253addda414898213394"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "68f328c212a17e0770693e85a98492e7c7bd5db2717f253addda414898213394"
+    sha256 cellar: :any_skip_relocation, sonoma:        "699264d6515427f4c916a519a014946b2d6d8483f70a9f7c8d05a5e9b805a67b"
+    sha256 cellar: :any_skip_relocation, ventura:       "699264d6515427f4c916a519a014946b2d6d8483f70a9f7c8d05a5e9b805a67b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "93a66c137ec158f06004a53ac11fc6472e637f7a31aeecf77dbee1982b1f4f4f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab0a88919e82c9def686caac9958e5e902234cba479cc562e8fabf22397187da"
   end
 
   depends_on "go" => :build

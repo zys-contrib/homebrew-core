@@ -1,9 +1,8 @@
 class Ssh3 < Formula
   desc "Faster and richer secure shell using HTTP/3"
   homepage "https://github.com/francoismichel/ssh3"
-  url "https://github.com/francoismichel/ssh3.git",
-      tag:      "v0.1.7",
-      revision: "31f8242cf30b675c25b981b862f36e73f9fa1d9d"
+  url "https://github.com/francoismichel/ssh3/archive/refs/tags/v0.1.7.tar.gz"
+  sha256 "23a88d0d7f54f80d752c22ee5f879fa1daf8c320ece364287209c58b3e98b6b5"
   license "Apache-2.0"
   head "https://github.com/francoismichel/ssh3.git", branch: "main"
 
@@ -15,6 +14,7 @@ class Ssh3 < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "b59edc9f47796dcbf9009dd3e862e5558e21cfe78b8260cb0a6e5d519632e865"
     sha256 cellar: :any_skip_relocation, ventura:        "fd05c0f9fc69ee952285dbdd8becacfc88fc69fb06aeb705035906fc166dad5e"
     sha256 cellar: :any_skip_relocation, monterey:       "994b1e63734368f14718507f653b797d99cc472c22482f8cb68a86165ffeab21"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "f5d55521952438ac8b31391476252c88f70bb6d59e3d978c86c2287a9bf46825"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "89a55c20f0e83d74d05032b6e832bcd761d6377a226183e99d4102c1ad66935a"
   end
 
@@ -32,7 +32,7 @@ class Ssh3 < Formula
            "-generate-selfsigned-cert",
            "-key", "test.key",
            "-cert", "test.pem"
-    assert_predicate testpath/"test.key", :exist?
-    assert_predicate testpath/"test.pem", :exist?
+    assert_path_exists testpath/"test.key"
+    assert_path_exists testpath/"test.pem"
   end
 end

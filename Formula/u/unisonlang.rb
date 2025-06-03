@@ -5,12 +5,12 @@ class Unisonlang < Formula
 
   stable do
     url "https://github.com/unisonweb/unison.git",
-        tag:      "release/0.5.32",
-        revision: "d3dea937070606cca5be8c9f874943b8122db327"
+        tag:      "release/0.5.41",
+        revision: "b3a897b08561b767e16b1752a852b84ddf461c70"
 
     resource "local-ui" do
-      url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/0.5.32.tar.gz"
-      sha256 "69ed790cba455677e864467446791650271cf163fd7a2246e4c45eddb317dd13"
+      url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/0.5.41.tar.gz"
+      sha256 "f7643f1c060bbe8c6f132144be810596212506b292d2777d5ee7f403195c12d0"
 
       livecheck do
         formula :parent
@@ -24,12 +24,12 @@ class Unisonlang < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ff20a6e33021a558826efc620fd942c33f6c37d4b24f68259ee27235029d65d3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4249a0fd8346538ffb35240e69786a8e429573ecc87b746cf1d01867fc1d25f7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d9fc9d00e8931cbe593d89206728232e5dc262279c354ac4a0fa1c0198df06dd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2e9040aeffcc3bcce6bbdf3f9c003876ec36b9ca575daa772da85692b30e2d18"
-    sha256 cellar: :any_skip_relocation, ventura:       "f14c6d1da1dcc2dcddd6938a437efc5a067c9efbdfc1c8196e0dc209825f2f2f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "251ff442ba8c3b83960da3bd37f5bb79385598e01ea4d19d5558c1f5144ee0c6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7288f618107ef7219c83b37000e1ecd77a4a0c53ea9754d034dfbc371524bc68"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "22b5df5387fbd61df1462e9a60353ca6ff55009de7e24ff999e3f0699a3c4382"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9beb031cb32d0d6d530c6026538a66d34b0112d4e7d2de27304d040b265fdaed"
+    sha256 cellar: :any_skip_relocation, sonoma:        "feabda3b06c49dc2d20b8cea08511fa917afc2a92d2ed0f0a558b74b4687c2ae"
+    sha256 cellar: :any_skip_relocation, ventura:       "c21471a4e53803f59f43c69a8b523ad503e2e376ff39ca495e536c8eb0fbe46c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c6b1fcca23a8705cbcac4c89d3f67fa5e35ff13430e8a292b618b982ee7ccbf"
   end
 
   head do

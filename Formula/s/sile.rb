@@ -1,17 +1,18 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.15.9/sile-0.15.9.tar.zst"
-  sha256 "fbda59503b333d82661601db647d1a2ad67aa8b7098e1ef78c6d8216844ac567"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.15.13/sile-0.15.13.tar.zst"
+  sha256 "5e97c19651aff710687b93292d5361cb411652094bcc8c62c811c19f7a81464b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9bdd2cd36903daa4b456bff978de83e2053867b0c187e5b163920fac341f7f25"
-    sha256 cellar: :any,                 arm64_sonoma:  "ce23e8b0ef5eb85d0c56e51223391ddfc3dcaeb5c271f97ee407537c455535e8"
-    sha256 cellar: :any,                 arm64_ventura: "e0b404b8ed9e486e26ad6d23e612bbb1a3c1cdf2cad2eb01f0e342194fc9d8e1"
-    sha256 cellar: :any,                 sonoma:        "22e42228910cf28c6369830370ad692651d4ee1c18e94c38272aca96cc6653e1"
-    sha256 cellar: :any,                 ventura:       "575b248e7130192e728a1191be84a9f7960d110f81026c4eefa321dd38975893"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e99d6d665c1caeed954d772dee426485bbb13c5225cd2b6a97071ae8eb16f2f9"
+    sha256 cellar: :any,                 arm64_sequoia: "791057d65933cb50c4d8ad27484f2b6d6d838e153de29fc8f95312e7e2785a53"
+    sha256 cellar: :any,                 arm64_sonoma:  "47955878faf528c2cb3c9bb91853a58c02e56e6dd00587d2e9d1dd5a3a31dbd7"
+    sha256 cellar: :any,                 arm64_ventura: "2947a239426f6aa1aa7db9e14340a18225473a00c1135f5ddead063d9448e202"
+    sha256 cellar: :any,                 sonoma:        "9d5cbae91ce3fb80c09381d1236fbbfdc302b62e9a21f179f0b6f3f12f96c680"
+    sha256 cellar: :any,                 ventura:       "e2322341d5537d844173bf3e002fc5a91c175e18e5f0519db2f91c28e3806850"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a169fa67dd41e38518571a68c655de8597e5c02fa7f2eea25d8b57876c6cfe29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "58dcf197e11ada5600481377945cbd70f41cd3ed5e6ff737a355aa48b19f9215"
   end
 
   head do
@@ -29,7 +30,7 @@ class Sile < Formula
 
   depends_on "fontconfig"
   depends_on "harfbuzz"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "libpng"
   depends_on "luajit"
   depends_on "luarocks"
@@ -44,8 +45,8 @@ class Sile < Formula
   end
 
   resource "compat53" do
-    url "https://luarocks.org/manifests/lunarmodules/compat53-0.14.3-1.rockspec"
-    sha256 "16218188112c20e9afa9e9057f753d29d7affb10fe3fb2ac74cab17c6de9a030"
+    url "https://luarocks.org/manifests/lunarmodules/compat53-0.14.4-1.rockspec"
+    sha256 "80b4929c84eae8c00b4bca49a7d049d27d7e89cf3aefeb37cd7dc5f3cc725005"
   end
 
   resource "linenoise" do
@@ -54,8 +55,8 @@ class Sile < Formula
   end
 
   resource "lpeg" do
-    url "https://luarocks.org/manifests/gvvaughan/lpeg-1.1.0-1.src.rock"
-    sha256 "6637fcf4d3ddef7be490a2f0155bd2dcd053272d1bb78c015498709ef9fa75dd"
+    url "https://luarocks.org/manifests/gvvaughan/lpeg-1.1.0-2.src.rock"
+    sha256 "836d315b920a5cdd62e21786c6c9fad547c4faa131d5583ebca64f0b6595ee76"
   end
 
   resource "loadkit" do
@@ -69,8 +70,8 @@ class Sile < Formula
   end
 
   resource "lua-zlib" do
-    url "https://luarocks.org/manifests/brimworks/lua-zlib-1.2-2.rockspec"
-    sha256 "adc3e279ce67fb477ce7bf88cfb87607491d1c50d9c785b1567066c353f192f9"
+    url "https://luarocks.org/manifests/brimworks/lua-zlib-1.3-0.rockspec"
+    sha256 "8806be122f5621a657078e8038c7c4ff58720aedcb21da8fdd2b01304981b31a"
   end
 
   # This resource cannot be updated
@@ -109,8 +110,8 @@ class Sile < Formula
 
   # depends on luafilesystem
   resource "penlight" do
-    url "https://luarocks.org/manifests/tieske/penlight-1.14.0-2.src.rock"
-    sha256 "f36affa14fb43e208a59f2e96d214f774b957bcd05d9c07ec52b39eac7f4a05d"
+    url "https://luarocks.org/manifests/tieske/penlight-1.14.0-3.src.rock"
+    sha256 "84e4d23126694a57997d5499490023468190a4b14a64931da61de627ce4fe0c2"
   end
 
   # depends on penlight

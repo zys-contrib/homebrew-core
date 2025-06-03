@@ -1,18 +1,19 @@
 class Pioneer < Formula
   desc "Game of lonely space adventure"
   homepage "https://pioneerspacesim.net/"
-  url "https://github.com/pioneerspacesim/pioneer/archive/refs/tags/20240710.tar.gz"
-  sha256 "65549552df84edaecf0c2547d01dec137282c9fe20a1299f9494b739c90ef7ed"
+  url "https://github.com/pioneerspacesim/pioneer/archive/refs/tags/20250501.tar.gz"
+  sha256 "959902d98a79536bd44f25bd7b29e48da94aeac597228776b0f91635877f362e"
   license "GPL-3.0-only"
   head "https://github.com/pioneerspacesim/pioneer.git", branch: "master"
 
   bottle do
-    sha256                               arm64_sequoia: "47094faa61901883b86867f338971f2ae6f1ddd27de5cce9b9386f47561db222"
-    sha256                               arm64_sonoma:  "2b2d1798ef9cacac6aae436bc1ebb9e99fb0ce64d5bab9a117c67b9abc329a69"
-    sha256                               arm64_ventura: "35c406419857a82e18cede4a8820d226b0f0a83e7013a2b388529a48338fba3a"
-    sha256                               sonoma:        "cbf97b200ffbea940d4fb5e6c6d7845b8f0c2830642a5ed60231075fbd157e10"
-    sha256                               ventura:       "1c238e95d5c2ddc4477d0844cc4b21b2bbf871e274d0c88ad0b50b07f916c971"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9b9014de6fef65eece99be722a6fdcc5636c2f26bee124fd42263ff0dc8c649"
+    sha256                               arm64_sequoia: "3f0963e3b117f8b462cd62d28d0d4d6508d3a3cb72a71f23049f938ce5df6a2c"
+    sha256                               arm64_sonoma:  "9b016db2cf4b55cf30719eebdada5c22714e2cff5e0af527f22396a189127ce1"
+    sha256                               arm64_ventura: "6395cbe506ea3c1ce1df39cbde8bdd182e8283611befd8ee8669ee6c9c4cbc82"
+    sha256                               sonoma:        "b8db4414b2f2075a425ad8db7d8fbe1e2bcb62ad053c4b8bd28b02a43f0f784c"
+    sha256                               ventura:       "2ba87a5173d1a17393017efa27b5c7c3b28f9ab3d5e7c493ce25e45507c88395"
+    sha256                               arm64_linux:   "5392c601ef313258e8c2d24fe0cec56462216610a32993f951982e5b6e9700d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab19f4af575a7c78812be7530e593d02a1bd931db8f320153de1ecb94ed51f56"
   end
 
   depends_on "cmake" => :build
@@ -38,7 +39,7 @@ class Pioneer < Formula
   end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

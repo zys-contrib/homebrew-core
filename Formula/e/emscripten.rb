@@ -1,10 +1,8 @@
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://emscripten.org/"
-  # To automate fetching the required resource revisions, you can use this helper script:
-  #   https://gist.github.com/carlocab/2db1d7245fa0cd3e92e01fe37b164021
-  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/4.0.1.tar.gz"
-  sha256 "bf0d1cba7b05f0eb4814d2278a11ed9c8f1b9724f848c61d63193079d10dd9a7"
+  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/4.0.9.tar.gz"
+  sha256 "11a7d950453ee31da03ee3c3b261934ad3d7d2e470e41ea3222a13cecb9b98ef"
   license all_of: [
     "Apache-2.0", # binaryen
     "Apache-2.0" => { with: "LLVM-exception" }, # llvm
@@ -18,12 +16,13 @@ class Emscripten < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b3dfe758865342c2d0e36c7deeeb06dc5c437c63f3a2671f321ad1e2a932775a"
-    sha256 cellar: :any,                 arm64_sonoma:  "d3083a7fb4f1d309dbb2abe6dccca479e98280303c5a5b15f7eebefedd9e4b8b"
-    sha256 cellar: :any,                 arm64_ventura: "1efb5436cc88243829631028e2bca160d90857e7e9812b83f710261f047371e2"
-    sha256 cellar: :any,                 sonoma:        "5c0f3b5e3ded0336ada62eae10803d348622ad9f5d66e37500c388f40b6d67d1"
-    sha256 cellar: :any,                 ventura:       "a0b7f1a491ff1223763eeb1e51956b3aa86320f7ca3ec18902b9f374814239f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f672f4f602d8a6507ce7d3649a870b1bc5c10738e11b661d88dcadcd11569f0d"
+    sha256 cellar: :any,                 arm64_sequoia: "2172717941515d34cc80061ad2bfccb1cb27a55495d883df02f9e76a43e970fa"
+    sha256 cellar: :any,                 arm64_sonoma:  "f2e6d1639aea6a5b695207c32bcd4c159e002994cda047903198b227eca788b7"
+    sha256 cellar: :any,                 arm64_ventura: "23fd15bf9e53d26a30834f744cdab323b1a87126209846ded22d50622f88b05c"
+    sha256 cellar: :any,                 sonoma:        "404e86ec1e428220236c61e7a720eaa2e0d6d6d52cadd77c89c08e3507b759ab"
+    sha256 cellar: :any,                 ventura:       "af21274ed062c984df57aadb10138617b29bfa8d5a8aec0072a33f88e5412b8d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "14a217b33aafc741a2a89504874bb21f7359ad95edb91c14d7a324b2c3c276df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08fcca1a2ea98d64cb1d92d6ab9117e65717495a53b00a031534d08fb50a303f"
   end
 
   depends_on "cmake" => :build
@@ -63,8 +62,25 @@ class Emscripten < Formula
   # https://chromium.googlesource.com/emscripten-releases/+/<commit>/DEPS
   # Then use the listed binaryen_revision for the revision below.
   resource "binaryen" do
-    url "https://github.com/WebAssembly/binaryen.git",
-        revision: "e4bfcd2a06db0640bfbf1654f575239ecab72443"
+    url "https://github.com/WebAssembly/binaryen/archive/1217a95eb3b3b9a294788ab841ed7363ea8cf173.tar.gz"
+    version "1217a95eb3b3b9a294788ab841ed7363ea8cf173"
+    sha256 "6cb297e5f3948e99da4be56016b5fc3b23d11267e834873cd72db8122abdf73c"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/emscripten-core/emsdk/refs/tags/#{LATEST_VERSION}/emscripten-releases-tags.json"
+      regex(/["']binaryen_revision["']:\s*["']([0-9a-f]+)["']/i)
+      strategy :json do |json, regex|
+        # TODO: Find a way to replace `json.dig("aliases", "latest")` with substituted LATEST_VERSION
+        release_hash = json.dig("releases", json.dig("aliases", "latest"))
+        next if release_hash.blank?
+
+        release_url = "https://chromium.googlesource.com/emscripten-releases/+/#{release_hash}/DEPS?format=TEXT"
+        match = Base64.decode64(Homebrew::Livecheck::Strategy.page_content(release_url)[:content]).match(regex)
+        next if match.blank?
+
+        match[1]
+      end
+    end
   end
 
   # emscripten does not support using the stable version of LLVM.
@@ -72,8 +88,25 @@ class Emscripten < Formula
   # See binaryen resource above for instructions on how to update this.
   # Then use the listed llvm_project_revision for the tarball below.
   resource "llvm" do
-    url "https://github.com/llvm/llvm-project/archive/a32e36faf84bd7da3df0c7d50bb9020568128417.tar.gz"
-    sha256 "ef59e10e9df3aa5eb4152871c170be719469e691951c52b310cd0185b7fbde7b"
+    url "https://github.com/llvm/llvm-project/archive/ad3136689090f79b52afcb5a95ec87e893006877.tar.gz"
+    version "ad3136689090f79b52afcb5a95ec87e893006877"
+    sha256 "afce51e2823dc26863e665317955f08bd0c0375bb03f4ce62b7cc036a92cf386"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/emscripten-core/emsdk/refs/tags/#{LATEST_VERSION}/emscripten-releases-tags.json"
+      regex(/["']llvm_project_revision["']:\s*["']([0-9a-f]+)["']/i)
+      strategy :json do |json, regex|
+        # TODO: Find a way to replace `json.dig("aliases", "latest")` with substituted LATEST_VERSION
+        release_hash = json.dig("releases", json.dig("aliases", "latest"))
+        next if release_hash.blank?
+
+        release_url = "https://chromium.googlesource.com/emscripten-releases/+/#{release_hash}/DEPS?format=TEXT"
+        match = Base64.decode64(Homebrew::Livecheck::Strategy.page_content(release_url)[:content]).match(regex)
+        next if match.blank?
+
+        match[1]
+      end
+    end
   end
 
   def install
@@ -161,7 +194,9 @@ class Emscripten < Formula
     end
 
     resource("binaryen").stage do
-      system "cmake", "-S", ".", "-B", "build", *std_cmake_args(install_prefix: libexec/"binaryen")
+      system "cmake", "-S", ".", "-B", "build",
+                      "-DBUILD_TESTS=OFF",
+                      *std_cmake_args(install_prefix: libexec/"binaryen")
       system "cmake", "--build", "build"
       system "cmake", "--install", "build"
     end
@@ -169,10 +204,22 @@ class Emscripten < Formula
     cd libexec do
       system "npm", "install", *std_npm_args(prefix: false)
       # Delete native GraalVM image in incompatible platforms.
-      if OS.linux?
+      if OS.linux? && Hardware::CPU.intel?
         rm_r("node_modules/google-closure-compiler-linux")
-      elsif Hardware::CPU.arm?
+      elsif OS.mac? && Hardware::CPU.arm?
         rm_r("node_modules/google-closure-compiler-osx")
+      end
+
+      # Remove incompatible pre-built binaries
+      os = OS.kernel_name.downcase
+      arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
+      rollup = libexec/"node_modules/@rollup"
+      platform = OS.linux? ? "#{os}-#{arch}-gnu" : "#{os}-#{arch}"
+      permitted_dir = "rollup-#{platform}"
+      rollup.glob(rollup/"rollup-*").each do |dir|
+        next if Dir.glob("#{dir}/rollup.*.node").empty?
+
+        rm_r(dir) if permitted_dir != dir.basename.to_s
       end
     end
 

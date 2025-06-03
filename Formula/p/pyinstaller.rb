@@ -3,18 +3,20 @@ class Pyinstaller < Formula
 
   desc "Bundle a Python application and all its dependencies"
   homepage "https://pyinstaller.org/"
-  url "https://files.pythonhosted.org/packages/55/d4/54f5f5c73b803e6256ea97ffc6ba8a305d9a5f57f85f9b00b282512bf18a/pyinstaller-6.11.1.tar.gz"
-  sha256 "491dfb4d9d5d1d9650d9507daec1ff6829527a254d8e396badd60a0affcb72ef"
+  url "https://files.pythonhosted.org/packages/a8/b1/2949fe6d3874e961898ca5cfc1bf2cf13bdeea488b302e74a745bc28c8ba/pyinstaller-6.13.0.tar.gz"
+  sha256 "38911feec2c5e215e5159a7e66fdb12400168bd116143b54a8a7a37f08733456"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/pyinstaller/pyinstaller.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8052aa74552ec718de23f417304d6a9398f04e3f5fa561771c728b34a0edfa74"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e30d4fb9ee32eb5fd4a34126deadaab56ab4b16bcf44e8c9b2c569d21e59ce5e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "760f8bb9d5458554315f1473605230bc3b59ee16e0239c7d16e9d9d4788be5f6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "81d25c2b49a062cdfda2296c419401751f0369ed03532f4e851cc6be9532773f"
-    sha256 cellar: :any_skip_relocation, ventura:       "20dd57ee3e134800991d2f58bf6285741b50b456e169adcc54deb577e86efc29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e68541f4edcb4280d1d630d02c2635c7d2eab5b08a42fcb8ecca0288e9a6a55"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a51eb5d4a30eb9d14b11702b4117b82349c522009a5c8033d9a65f40cf8c5c6a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d2dae95c589e9932968ccf27a812a2a531d6817ca3accc62feb1a87b590a09fa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "54b817a369f17b6f98a88782c20f262c8d6fc77c5790d1690ba51e54ce38b280"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e57d2505fc506b0dccbc951b8b7ad225b36766284603b6381ad2430ee42d2ec4"
+    sha256 cellar: :any_skip_relocation, ventura:       "c7aeac3531d4596f3a0755334e2964cdd31d7b4929e08a69c65fed78ff978256"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f7dd4fbb05f686d3e1b0a9cc27d0f567db9da655900d23d7af9f7aa1daff73fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e86bada842aee68d6e21123209a0e375a88a219a63a8f7934a82d5ca7b792396"
   end
 
   depends_on "python@3.13"
@@ -32,18 +34,18 @@ class Pyinstaller < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   resource "pyinstaller-hooks-contrib" do
-    url "https://files.pythonhosted.org/packages/73/6a/9d0057e312b85fbd17a79e1c1955d115fd9bbc78b85bab757777c8ef2307/pyinstaller_hooks_contrib-2024.10.tar.gz"
-    sha256 "8a46655e5c5b0186b5e527399118a9b342f10513eb1425c483fa4f6d02e8800c"
+    url "https://files.pythonhosted.org/packages/e3/94/dfc5c7903306211798f990e6794c2eb7b8685ac487b26979e9255790419c/pyinstaller_hooks_contrib-2025.4.tar.gz"
+    sha256 "5ce1afd1997b03e70f546207031cfdf2782030aabacc102190677059e2856446"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/ed/22/a438e0caa4576f8c383fa4d35f1cc01655a46c75be358960d815bfbb12bd/setuptools-75.3.0.tar.gz"
-    sha256 "fba5dd4d766e97be1b1681d98712680ae8f2f26d7881245f2ce9e40714f1a686"
+    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
+    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
   end
 
   def install
@@ -63,6 +65,6 @@ class Pyinstaller < Formula
     PYTHON
     system bin/"pyinstaller", "-F", "--distpath=#{testpath}/dist", "--workpath=#{testpath}/build",
                               "#{testpath}/easy_install.py"
-    assert_predicate testpath/"dist/easy_install", :exist?
+    assert_path_exists testpath/"dist/easy_install"
   end
 end

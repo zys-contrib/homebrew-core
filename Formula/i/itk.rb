@@ -1,8 +1,8 @@
 class Itk < Formula
   desc "Insight Toolkit is a toolkit for performing registration and segmentation"
   homepage "https://itk.org"
-  url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.4.0/InsightToolkit-5.4.0.tar.gz"
-  sha256 "cdd6ce44f15c1246c3c7a439bbbb431dc09706d6465d79fafb6fb14a02517e3b"
+  url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.4.3/InsightToolkit-5.4.3.tar.gz"
+  sha256 "dd3f286716ee291221407a67539f2197c184bd80d4a8f53de1fb7d19351c7eca"
   license "Apache-2.0"
   head "https://github.com/InsightSoftwareConsortium/ITK.git", branch: "master"
 
@@ -12,16 +12,17 @@ class Itk < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:  "59ae9aa0b8491af1972441322070ed97c8fa4c1fc70d5c8f09f4d71b708332af"
-    sha256                               arm64_ventura: "e2299872d6fd931f2d11d7bf8b7c3546fb1cd4600b0e373e92638ecccb056eed"
-    sha256                               sonoma:        "b0b120dc29fd81d6715b46fd48a2a7eb2d0ffe9e3b12d0b4b376fcf9c4bcad9c"
-    sha256                               ventura:       "feb698370fb7e2d8aeec2dc8eded0d3445faf63ef225acb6d75abb6d49ab00ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "27c315dfc3d6c8c5c4ad54a209c25343f46b501121ea701772264b1ebe336e55"
+    sha256                               arm64_sonoma:  "ae807a63310b53705b6f0e2d9a2b516efb1519aea5872ee1343068e4c67e0edd"
+    sha256                               arm64_ventura: "da205f1d8c8c34092aaeac9cc503c57b3b936573919b783fed65ed55992d2ba9"
+    sha256                               sonoma:        "60075661e500e59497c31b98486d5b8a03f784aff0454dc3fcfdea74a50d1b26"
+    sha256                               ventura:       "742b3de29a8603ea9644ff8a3030bd69bad915179a53f210f6aed05b397a2d17"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec5e4bc7f694ffba16ee04174557a1954cac0841310c500fc85dfe591adbead4"
   end
 
   depends_on "cmake" => :build
 
   depends_on "double-conversion"
+  depends_on "expat"
   depends_on "fftw"
   depends_on "gdcm"
   depends_on "hdf5"
@@ -30,7 +31,6 @@ class Itk < Formula
   depends_on "libtiff"
   depends_on "vtk"
 
-  uses_from_macos "expat"
   uses_from_macos "zlib"
 
   on_macos do

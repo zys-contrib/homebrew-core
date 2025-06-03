@@ -1,8 +1,8 @@
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "https://www.gtk.org/docs/architecture/pango"
-  url "https://download.gnome.org/sources/pango/1.56/pango-1.56.1.tar.xz"
-  sha256 "426be66460c98b8378573e7f6b0b2ab450f6bb6d2ec7cecc33ae81178f246480"
+  url "https://download.gnome.org/sources/pango/1.56/pango-1.56.3.tar.xz"
+  sha256 "2606252bc25cd8d24e1b7f7e92c3a272b37acd6734347b73b47a482834ba2491"
   license "LGPL-2.0-or-later"
   head "https://gitlab.gnome.org/GNOME/pango.git", branch: "main"
 
@@ -15,12 +15,13 @@ class Pango < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "48507210c600d918ab097c8be972714d2d221ec7d57590aa01a7543dd73ff96d"
-    sha256 cellar: :any, arm64_sonoma:  "10d30603c08a15d21c900460daed6d3393c7b3f11a1efcfaa95dfbc045023f30"
-    sha256 cellar: :any, arm64_ventura: "4cfd2e2270153041accfa3058a3775be97269cd8c25714108ef31bd1713ffd3a"
-    sha256 cellar: :any, sonoma:        "b8f0e79a0f83ea4217c6cf8c99cc1162e4c1b53e35ef07e0716f1046e05b2e2a"
-    sha256 cellar: :any, ventura:       "092ccfa014c748aa3b6c29fbbe55ab05b59615ad169fafd52339533b06adb2e5"
-    sha256               x86_64_linux:  "afb0dbe85b9754c5daddb614add5e0092dbfec27a3e0fc88ab1cb71a6623ed23"
+    sha256 cellar: :any, arm64_sequoia: "39c8338524e71bf6019b72a2bbebebc78c6935dfad75a76db43ff9a8815bfe6b"
+    sha256 cellar: :any, arm64_sonoma:  "10d76601d1eee9482d66a31d570c6704bb318eead6f83ec1404d6e520be581f2"
+    sha256 cellar: :any, arm64_ventura: "4d619b28828586db45c6eee3e82b1aca65596af17195a6b975c3b9fa7ccad963"
+    sha256 cellar: :any, sonoma:        "2e141cb0c33eb33fd2771efbac614b75dad3db4ed332ef84526e81e6a64b7d01"
+    sha256 cellar: :any, ventura:       "cbc5448e13f060afeb0aee80cba9fd228f4a8e199761c4a4114b39700e840c39"
+    sha256               arm64_linux:   "751a44f3853807b2ed64eaa5bfddf90cbd5bd4095a2d3e6c5939196355e219e8"
+    sha256               x86_64_linux:  "cdcdca05be1495b3afd63d5b1951040e359278ee8bfbcbb65e37128c844a3737"
   end
 
   depends_on "gobject-introspection" => :build

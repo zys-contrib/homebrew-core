@@ -1,8 +1,8 @@
 class PostgresqlAT16 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v16.6/postgresql-16.6.tar.bz2"
-  sha256 "23369cdaccd45270ac5dcc30fa9da205d5be33fa505e1f17a0418d2caeca477b"
+  url "https://ftp.postgresql.org/pub/source/v16.9/postgresql-16.9.tar.bz2"
+  sha256 "07c00fb824df0a0c295f249f44691b86e3266753b380c96f633c3311e10bd005"
   license "PostgreSQL"
 
   livecheck do
@@ -11,13 +11,13 @@ class PostgresqlAT16 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "a125571f9fef1986bedf7300e3d99ad0b9c7b1f7d2798adcc7dc84af7f8b6173"
-    sha256 arm64_sonoma:  "cba3ec296592f3a10b8f9c412524610aa56eaf7d9cab8f498cd9a1264d5f1adf"
-    sha256 arm64_ventura: "a36cab1b111803ca1ad88fec990d5a5d3d5a6d5f20667d1322217e2ac2072c6c"
-    sha256 sonoma:        "17ce2aafc8b68a7560e6650240466cc0d5a83df0eca998f8420cc6d818acc79d"
-    sha256 ventura:       "da6354aa893f7de19811cca70816556df8257011bc1e9b16f4eb0ad447d3ed47"
-    sha256 x86_64_linux:  "50858f007990ab7356c183b6b1d02dffabc4fa058321a44e71de67efe33a8d95"
+    sha256 arm64_sequoia: "8e883e6e9e7231d49b90965f42ebc53981efb02e6ed7fdcbd1ebfdc2bfb5959a"
+    sha256 arm64_sonoma:  "1cb655cb347c5395da0b1b8de82e16dfd20f18f9833c1f9195b2f43a50f53908"
+    sha256 arm64_ventura: "6b979f6f6f69d679edead92cce444a040698dead47ce11042f032c4ed0f99bf5"
+    sha256 sonoma:        "93db108d959400a8f55a1161c0b0ca78face7370e4e44c374c9d1819f8335487"
+    sha256 ventura:       "4082217252ea7be1c2cb20851ce039e72a7c0a6835d7bdc5ad88650bdbc8b113"
+    sha256 arm64_linux:   "f5192ae99aa883cb0a1f5806af14ac45c0d10d3592c455c2e1e820244d02bcc7"
+    sha256 x86_64_linux:  "0f3b5ffbb0a01071af4e4e565de8125894c621d8087781cc63442f3fa3f7902e"
   end
 
   keg_only :versioned_formula
@@ -27,7 +27,7 @@ class PostgresqlAT16 < Formula
 
   depends_on "gettext" => :build
   depends_on "pkgconf" => :build
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
 
   # GSSAPI provided by Kerberos.framework crashes when forked.
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
@@ -54,6 +54,7 @@ class PostgresqlAT16 < Formula
   end
 
   def install
+    ENV.runtime_cpu_detection
     ENV.delete "PKG_CONFIG_LIBDIR"
     ENV.prepend "LDFLAGS", "-L#{Formula["openssl@3"].opt_lib} -L#{Formula["readline"].opt_lib}"
     ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@3"].opt_include} -I#{Formula["readline"].opt_include}"

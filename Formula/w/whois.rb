@@ -1,20 +1,19 @@
 class Whois < Formula
   desc "Lookup tool for domain names and other internet resources"
   homepage "https://github.com/rfc1036/whois"
-  url "https://github.com/rfc1036/whois/archive/refs/tags/v5.5.23.tar.gz"
-  sha256 "dcfc08f3362c74ec8ae30691941909ebccf0cb3d27da04236f7e2790dbc7757c"
+  url "https://github.com/rfc1036/whois/archive/refs/tags/v5.6.1.tar.gz"
+  sha256 "d219c7f130c6f1565f769b0e079d9509a6aadfe6690423b4428d027fdd43ecd1"
   license "GPL-2.0-or-later"
   head "https://github.com/rfc1036/whois.git", branch: "next"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "6bbafe8f28a7bc249fa13317f3214a3d337514804fb2b08ad71249d4c6000d5c"
-    sha256 cellar: :any,                 arm64_sonoma:   "8d6091c37f0dacdfc405f47bccf139e045b7e25c8a80308b39e0e86dcd52244e"
-    sha256 cellar: :any,                 arm64_ventura:  "c57142742802829d13211473d7ec414d0d160aee0ac6d8d28c185add741c05c4"
-    sha256 cellar: :any,                 arm64_monterey: "624fdd325d3df32e527638eebbcf96bf102a671b81edb03500a2f759874c53a6"
-    sha256 cellar: :any,                 sonoma:         "a600dfa4f23f1dca739a6db788bc8e3195919aa6c579c91543e987ce08a56da1"
-    sha256 cellar: :any,                 ventura:        "cc3648f1c7a32ce79016a47160f023b31784d2d5f69960cd21c062c5eebd98aa"
-    sha256 cellar: :any,                 monterey:       "8a9bbfded4c82b0cc9fcca6baade71b6302407fa364b5330e45c6d4cc6a1e179"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd142b3ede0a61f81a5170d74999237bb663cce79de305d607d4d88a28216571"
+    sha256 cellar: :any,                 arm64_sequoia: "0b9980ce74dccd2db75e71fc993fca8e7349ad9ac53afe5526733a3a95a54a5c"
+    sha256 cellar: :any,                 arm64_sonoma:  "5b241adffad818826ee2d8a03c95e9cf7f818436e142fa8444d3fcb485bd57e5"
+    sha256 cellar: :any,                 arm64_ventura: "3ae63df848ede6c098bf46af84018c502efb960a356f28ce67de290ebb94908c"
+    sha256 cellar: :any,                 sonoma:        "ae44dc18f2b8a408b8b9aad625c1a95ee4df3353bed0101ba7aaf0039d783905"
+    sha256 cellar: :any,                 ventura:       "32db1168ea21c3c94774318be6dca256f8a3a207f5dde742803b20427cecae0b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9d3dd5f7356299c04c87745672edc38f70cfdb16fbf4bc38bbdc8118f5275db3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b16b682d44bee04915e4fd039b7ac36361dd7dcf17c990beca96ec588f809c3"
   end
 
   keg_only :provided_by_macos

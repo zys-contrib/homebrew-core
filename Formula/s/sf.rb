@@ -1,8 +1,8 @@
 class Sf < Formula
   desc "Command-line toolkit for Salesforce development"
   homepage "https://developer.salesforce.com/tools/salesforcecli"
-  url "https://registry.npmjs.org/@salesforce/cli/-/cli-2.73.9.tgz"
-  sha256 "e35f08cf59a0b5c27d8b4adc5890795f89c1051e592db4bea041e57cf5814feb"
+  url "https://registry.npmjs.org/@salesforce/cli/-/cli-2.90.4.tgz"
+  sha256 "1dc28f6521e6ea56ddf18332becb1734636049152263ea827ab29b30e58a9eaa"
   license "BSD-3-Clause"
 
   livecheck do
@@ -13,12 +13,13 @@ class Sf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f183681d40b3c869ee2039043f06ca534fcfced5c3623bf8ca95b69765eec66e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f183681d40b3c869ee2039043f06ca534fcfced5c3623bf8ca95b69765eec66e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f183681d40b3c869ee2039043f06ca534fcfced5c3623bf8ca95b69765eec66e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "924cf267ac95ee594b3e238e1c88bb85c601734ebbf2339390b62c27934dde2b"
-    sha256 cellar: :any_skip_relocation, ventura:       "924cf267ac95ee594b3e238e1c88bb85c601734ebbf2339390b62c27934dde2b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f183681d40b3c869ee2039043f06ca534fcfced5c3623bf8ca95b69765eec66e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "af3aa10c60e9f1c79f13f85c460c068b38105e3abb93e7809c05942bbc21addb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "af3aa10c60e9f1c79f13f85c460c068b38105e3abb93e7809c05942bbc21addb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "af3aa10c60e9f1c79f13f85c460c068b38105e3abb93e7809c05942bbc21addb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cc454ae1500edd2f952078e71f61041286b932f5e6b91ae2903f7a9b0697b78e"
+    sha256 cellar: :any_skip_relocation, ventura:       "cc454ae1500edd2f952078e71f61041286b932f5e6b91ae2903f7a9b0697b78e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "af3aa10c60e9f1c79f13f85c460c068b38105e3abb93e7809c05942bbc21addb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af3aa10c60e9f1c79f13f85c460c068b38105e3abb93e7809c05942bbc21addb"
   end
 
   depends_on "node"
@@ -30,10 +31,10 @@ class Sf < Formula
 
   test do
     system bin/"sf", "project", "generate", "-n", "projectname", "-t", "empty"
-    assert_predicate testpath/"projectname", :exist?
-    assert_predicate testpath/"projectname/config/project-scratch-def.json", :exist?
-    assert_predicate testpath/"projectname/README.md", :exist?
-    assert_predicate testpath/"projectname/sfdx-project.json", :exist?
-    assert_predicate testpath/"projectname/.forceignore", :exist?
+    assert_path_exists testpath/"projectname"
+    assert_path_exists testpath/"projectname/config/project-scratch-def.json"
+    assert_path_exists testpath/"projectname/README.md"
+    assert_path_exists testpath/"projectname/sfdx-project.json"
+    assert_path_exists testpath/"projectname/.forceignore"
   end
 end

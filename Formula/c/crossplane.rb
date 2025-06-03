@@ -1,18 +1,18 @@
 class Crossplane < Formula
   desc "Build control planes without needing to write code"
   homepage "https://github.com/crossplane/crossplane"
-  url "https://github.com/crossplane/crossplane/archive/refs/tags/v1.18.2.tar.gz"
-  sha256 "3f13e256fedf3c775ba23cad6a1664aa2091b89ff6a0d1e4fc44db7014d32c43"
+  url "https://github.com/crossplane/crossplane/archive/refs/tags/v1.20.0.tar.gz"
+  sha256 "19bc2126a636ba9e67b70de951f69854c85e13333ce01329bd8356a2696792c5"
   license "Apache-2.0"
   head "https://github.com/crossplane/crossplane.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e27b637209991db9ee3d5b699d91145bbcda0133479f3dac1fa143aad76ca5a9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e27b637209991db9ee3d5b699d91145bbcda0133479f3dac1fa143aad76ca5a9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e27b637209991db9ee3d5b699d91145bbcda0133479f3dac1fa143aad76ca5a9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "79f611cf1fd19c654c4c32944e60736bbd51c50851c6fe28fd66195d053e8da1"
-    sha256 cellar: :any_skip_relocation, ventura:       "79f611cf1fd19c654c4c32944e60736bbd51c50851c6fe28fd66195d053e8da1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67590d7ee5199a011162a17b7fb05613a09c9f445a620b48061c0a6608b75d60"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b3c0fa4e896acbca0d698a7c6cf9831de2c64fac3412d38ccf9c1501ad896df5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "df018239abfffd81c0d556fbfd9c31abb59a8ef276af02d55bdbeb8789179621"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f1094404b8fbd8b73c726825cfb042383bc82074f086c13865f7270ca1bd19ee"
+    sha256 cellar: :any_skip_relocation, sonoma:        "337334604189b629066db5daab3cb40603683598f2456891c37157e8548f628c"
+    sha256 cellar: :any_skip_relocation, ventura:       "96466ae3815085b90101c68c18c9e281f71b09fce1a3728c8c66503c8b1c4b1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "586e15acc3c504a23fe4b06968a92f39d11dcb61a0e8e71a128aa6f4882da46d"
   end
 
   depends_on "go" => :build

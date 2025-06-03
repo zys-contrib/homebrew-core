@@ -1,22 +1,33 @@
 class Oxipng < Formula
   desc "Multithreaded PNG optimizer written in Rust"
   homepage "https://github.com/shssoichiro/oxipng"
-  url "https://github.com/shssoichiro/oxipng/archive/refs/tags/v9.1.3.tar.gz"
-  sha256 "5f34bc3a9eba661a686106261720061b1136301ccd67cc653c9c70d71fa33c09"
+  url "https://github.com/shssoichiro/oxipng/archive/refs/tags/v9.1.5.tar.gz"
+  sha256 "8f99d5c67efa2a7550023bf610b90e65d421375c9ed7f37097f83ae5c05f85bd"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "da7a006b93d7ee3fe9f667cf1a11a62d8cd79b8f705947c6ffaa5fa42074fec2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4b77742c78b5e0e7c3eac52db69bd1f791c7662afccaf910bbd12314f73a89bc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6abc255325194b6d36c4c788f44af641f1a208f8d2a5d9ecb8093c10e902e0b4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4dd9ae7f31cf980b3fcef1dd36b5e8e0beaa5c0cbc0ba22641cbe7322fec29c2"
-    sha256 cellar: :any_skip_relocation, ventura:       "107479be718136c8c684d9e22abcda1a3f2aad75f9444150cdd98264000cc71b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca221ba914561373dd85ae276ac981f361414ba12eff445739ee30ea327c8b15"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6eed490e9f3c9a9668213862587fed4ec27f6aa1230a5556618bc7e3de86b9a9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "865784029579b8c2b4446dba962ef46379c015c554cf7f99bcdb20b94fb8b9a4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2c4e48bbdb999086c8a73ceaf4bc3d1fb88e61f044bdcb0b37e21277a952cd07"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a30bed265b000ba4a8ae568c40244ba8005b9cf9d8afaa41da56ba42759b3831"
+    sha256 cellar: :any_skip_relocation, ventura:       "ce9a889f4f0df4bddaf29a866971bbabc78c35a32c07807ab3e0a8f57668a0c2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a3d37e577eb6aa04680c7714a307eeb1714ac3bd9eb46d25b48dec8819983356"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d810a1834a72c9c2ae54ff64a67c6fd0f6100e70d52dac77ca1638b80327ab17"
   end
 
   depends_on "rust" => :build
 
   def install
+    # Upstream uses qemu to cross compile for Linux aarch64, which is not desirable in brew.
+    # https://github.com/shssoichiro/oxipng/commit/1f2e0f336a826bd578a49c1dd477fb38773dd6ce
+    #
+    # cargo allows setting the variable to some other non-empty string, but not fully
+    # unsetting it, so remove the assignment from the source file.
+    # https://github.com/toml-lang/toml/issues/30
+    # https://doc.rust-lang.org/cargo/reference/config.html#environment-variables
+    # https://doc.rust-lang.org/cargo/reference/config.html#command-line-overrides
+    inreplace ".cargo/config.toml", "runner = \"qemu-aarch64\"", ""
+
     system "cargo", "install", *std_cargo_args
     system "cargo", "run",
            "--manifest-path", "xtask/Cargo.toml",

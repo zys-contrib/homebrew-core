@@ -1,18 +1,19 @@
 class Thriftgo < Formula
   desc "Implementation of thrift compiler in go language with plugin mechanism"
   homepage "https://github.com/cloudwego/thriftgo"
-  url "https://github.com/cloudwego/thriftgo/archive/refs/tags/v0.3.18.tar.gz"
-  sha256 "f3985b20cae4f4e52cce559ad9b9d9fcde4af84e9cb867a1f3a83dc49b9f0a8a"
+  url "https://github.com/cloudwego/thriftgo/archive/refs/tags/v0.4.1.tar.gz"
+  sha256 "b6a1555e5fb0264075231ff72babe5c28ccfb1893aec4dd26baf9a0e8fc1908f"
   license "Apache-2.0"
   head "https://github.com/cloudwego/thriftgo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c6c5270b2b94f160e70ffb2cc833968fbbeeb96089eeb647477b69efbf18cd80"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c6c5270b2b94f160e70ffb2cc833968fbbeeb96089eeb647477b69efbf18cd80"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c6c5270b2b94f160e70ffb2cc833968fbbeeb96089eeb647477b69efbf18cd80"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2c8b5217bf9d0d891e5fc5d901f862f5d63ab7cfbd313b2de1344f96553523f6"
-    sha256 cellar: :any_skip_relocation, ventura:       "2c8b5217bf9d0d891e5fc5d901f862f5d63ab7cfbd313b2de1344f96553523f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab12f0ffd14c2d0402873ef2318e4e53951f8fc676a3cf6dd00f9d3601edf09f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "53f3fbca6aa77b1b588d06197096cfea7ba232bb3b1e2cabb0b9b390e16e93a5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "53f3fbca6aa77b1b588d06197096cfea7ba232bb3b1e2cabb0b9b390e16e93a5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "53f3fbca6aa77b1b588d06197096cfea7ba232bb3b1e2cabb0b9b390e16e93a5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8837a082a7a66b5f89a4f707077cf73c278d84a41f6c4ec6d001059885b272ce"
+    sha256 cellar: :any_skip_relocation, ventura:       "8837a082a7a66b5f89a4f707077cf73c278d84a41f6c4ec6d001059885b272ce"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6fbae7d271c1b3f8435066c5b35b9efb82ac79439ba7ebddb805953c8ff54ab4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "887cf03d5742f5eb02c9e8dabaeb50dcc22b44f4e580f6a61422d5223b276c00"
   end
 
   depends_on "go" => :build
@@ -39,7 +40,7 @@ class Thriftgo < Formula
       }
     THRIFT
     system bin/"thriftgo", "-o=.", "-g=go", "test.thrift"
-    assert_predicate testpath/"api"/"test.go", :exist?
+    assert_path_exists testpath/"api"/"test.go"
     refute_predicate (testpath/"api"/"test.go").size, :zero?
   end
 end

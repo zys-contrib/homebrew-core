@@ -1,19 +1,19 @@
 class Resvg < Formula
   desc "SVG rendering tool and library"
   homepage "https://github.com/RazrFalcon/resvg"
-  url "https://github.com/RazrFalcon/resvg/archive/refs/tags/v0.44.0.tar.gz"
-  sha256 "b45c906b4c72ff46405d74eb98ec1b93842f1528a8e835860f22b057b210306a"
+  url "https://github.com/linebender/resvg/archive/refs/tags/v0.45.1.tar.gz"
+  sha256 "02915519b7409f43110f3cbdc5f87724efd58da1d8516914bdabf060c8a9a178"
   license "MPL-2.0"
   head "https://github.com/RazrFalcon/resvg.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "800f2849d0fd12d9eb86ae9c0d419a73dfd51e2b604b0c43b467bdd87969dea0"
-    sha256 cellar: :any,                 arm64_sonoma:  "bc4b170d07afd902670101419319e9179fd613bd7b1b0dc701ead93ca7f74747"
-    sha256 cellar: :any,                 arm64_ventura: "e1db465f10d7532c8143aeb443835a143e8782b298711b4d2a28d30f3a0e5f28"
-    sha256 cellar: :any,                 sonoma:        "378c71885d632bf7f9515faebf9498669167ec8484be7acef543c463363b867f"
-    sha256 cellar: :any,                 ventura:       "173495b3638c1913bd176046ed06a7c3e2bff5d9ebaea0e5aabed8f5656858b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6794d803e9bdcbb48cf5c3b0843363e4e606f32fdd0638b6c036aa7561ec5da"
+    sha256 cellar: :any,                 arm64_sequoia: "034dd22dbb4bf616d68ca85e3b2bdd929f780fcad78ba5b961daba8644f897da"
+    sha256 cellar: :any,                 arm64_sonoma:  "08fe0cffbd93de9a3e9a264c3df96614db26d18eb7afc77f14a30a2a6d5779da"
+    sha256 cellar: :any,                 arm64_ventura: "cde09970ac7839b75906d8c3e7937eb66cefe1c6d3e931e4632a00bf7877aa21"
+    sha256 cellar: :any,                 sonoma:        "3551c00ad4ce2fae49386e1a1fb5a6c63c33ca00c602aa04d9aa988a50a1afb3"
+    sha256 cellar: :any,                 ventura:       "544d2b12b296cfc510382c6ed8ff519224c0cb3d9e9ba127023d18c67535bc41"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "91f4bf60e4faa8f86d61d65d2cc7f51589643721cd565b48cee80492cba5150a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b219d496cf0be62b4172762515ccf8039ec43e9864b2d80b641fff9e5a8ea7f9"
   end
 
   depends_on "cargo-c" => :build
@@ -37,10 +37,10 @@ class Resvg < Formula
     EOS
 
     system bin/"resvg", testpath/"circle.svg", testpath/"test.png"
-    assert_predicate testpath/"test.png", :exist?
+    assert_path_exists testpath/"test.png"
 
     system bin/"usvg", testpath/"circle.svg", testpath/"test.svg"
-    assert_predicate testpath/"test.svg", :exist?
+    assert_path_exists testpath/"test.svg"
 
     (testpath/"test.c").write <<~C
       #include <stdlib.h>

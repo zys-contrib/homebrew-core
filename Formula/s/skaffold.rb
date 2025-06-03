@@ -2,18 +2,19 @@ class Skaffold < Formula
   desc "Easy and Repeatable Kubernetes Development"
   homepage "https://skaffold.dev/"
   url "https://github.com/GoogleContainerTools/skaffold.git",
-      tag:      "v2.14.0",
-      revision: "f132ab25adf1599c7fbdce733144991126565386"
+      tag:      "v2.16.0",
+      revision: "7912f7ef4381533e3a9f98d7966211af1dd0f940"
   license "Apache-2.0"
   head "https://github.com/GoogleContainerTools/skaffold.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2c7a9a12223e92d0c2dd786c00e835515aca820c11aa0afdf634ffd109e9cd84"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "02411f2c1d277e6cced1e7600292154505d07d940e9965b825cc352dcef8ef69"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6abb2b3baba0356bc5ad66342d62d744128ec4e9d5c3847cae2be64859b4033e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0ba5176faa942b5fecdf3e3ed18bb3edbdb5a2f546fc4da75f2edf09acd6e537"
-    sha256 cellar: :any_skip_relocation, ventura:       "b87e8fcc8bbebd9deba20c6e48827663a3852b1699f79bda8d3155b3317f42f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "caf4f8fb762ba28541e476312f96edd4500abc763f7ff26811d990a93907ac61"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "16e73e45fca368c8214236995d0c35b192764306d468799d3a9e77ffa2591efd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dc974754e526c5067077d344f1b66f88848a9e8f933789a0324a36cca8010561"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3c6e4771736a4cd5d8b1d904493a894d70fdec4827b2a8c6d44296ebd0b65db5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "16bfdeb146f0ab00f055f1116304d95806ba5508c6993f115124bd30aaa13416"
+    sha256 cellar: :any_skip_relocation, ventura:       "4bd83e35ad8540593fa916ea5a871dec0fb288cf2c278ce91f46f0a7b749b069"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4ac1717855e4f17f892888c29b9203be1fc61ec4d36bb9349b3c8e54915dfb52"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17f9e9b54277a851a4e01adf13b2cb6386452f6fe5a32c10139d7f1601121237"
   end
 
   depends_on "go" => :build

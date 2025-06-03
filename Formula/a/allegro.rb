@@ -4,6 +4,7 @@ class Allegro < Formula
   url "https://github.com/liballeg/allegro5/releases/download/5.2.10.1/allegro-5.2.10.1.tar.gz"
   sha256 "2ef9f77f0b19459ea2c7645cc4762fc35c74d3d297bfc38d8592307757166f05"
   license "Zlib"
+  revision 1
   head "https://github.com/liballeg/allegro5.git", branch: "master"
 
   livecheck do
@@ -12,19 +13,21 @@ class Allegro < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "79f3b5c3b0bd394ed78f59d83c0c600bab8a40de1048dfba4044addb8ce84e48"
-    sha256 cellar: :any,                 arm64_sonoma:  "0bff19547f67acd417d503ffa601c4abbc1c0677018383608f74231bed2181e1"
-    sha256 cellar: :any,                 arm64_ventura: "aa3dea47c0887752b899daed2e4d672094a197c321e4c2dc21dbb1f6d299b3ee"
-    sha256 cellar: :any,                 sonoma:        "165885c74f91990ba86bacdd0b27e655e51e3a1c628b3b9dde8e8b17a890fca4"
-    sha256 cellar: :any,                 ventura:       "1357c95194e2a91e4520515c8730067a0cd22606e7717f8923266c4cdd3437c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f335668957c66cd3f4a6151af0b45cc19e0b1963d9fc304711907237f5e49c76"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "db24d012cd88b23d8587898aceab3203169a995e7bc874e0db849942459ececa"
+    sha256 cellar: :any,                 arm64_sonoma:  "871af04f1451b1064666dc3b696f810cb105fa4f0245125a61007d11d3210442"
+    sha256 cellar: :any,                 arm64_ventura: "cc0ab101b41137fa5ea75ca65427c21e51164ad3ddd0af841816d068e932de97"
+    sha256 cellar: :any,                 sonoma:        "0285e3c404d3351c218ed93958d982001a32092a6be106454772e5b981eebddb"
+    sha256 cellar: :any,                 ventura:       "4b0d776e4d1539a4826a9e6eb721a9c769110cd33d20657d5ca1c870ff47c4da"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7b00b980e261ff3cab81d54a8952e7e46868c55c03bce69da9a38b0314d21298"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77d8fa148090e9335b24c1bcd37d711c5206657ac0124c6dc7275e7c8f3e8da2"
   end
 
   depends_on "cmake" => :build
-  depends_on "dumb"
   depends_on "flac"
   depends_on "freetype"
   depends_on "libogg"
+  depends_on "libopenmpt"
   depends_on "libvorbis"
   depends_on "opusfile"
   depends_on "physfs"
@@ -49,12 +52,14 @@ class Allegro < Formula
   end
 
   def install
-    cmake_args = std_cmake_args + %W[
+    cmake_args = %W[
       -DWANT_DOCS=OFF
+      -DWANT_DUMB=OFF
       -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     ]
 
-    system "cmake", "-S", ".", "-B", "build", *cmake_args
+    system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

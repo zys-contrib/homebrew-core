@@ -1,8 +1,8 @@
 class Mupdf < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
-  url "https://mupdf.com/downloads/archive/mupdf-1.25.3-source.tar.gz"
-  sha256 "b974d706a9680533d104b4112224c7bf3de93f27be7ca41b4bfb51552624f0a9"
+  url "https://mupdf.com/downloads/archive/mupdf-1.26.1-source.tar.gz"
+  sha256 "bdce017c776744c288b02102977ee0378cb436c78df8127a23f281f1360406fd"
   license "AGPL-3.0-or-later"
   head "https://git.ghostscript.com/mupdf.git", branch: "master"
 
@@ -12,17 +12,19 @@ class Mupdf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "118736ccef5df8b3279264fd62b56f31900402f3efde0816650e429a8059d793"
-    sha256 cellar: :any,                 arm64_sonoma:  "7307b11cc7c8e78d1bd6ded31b62be96cf3226b299fde6775c15ee2a1b00399f"
-    sha256 cellar: :any,                 arm64_ventura: "203e21b3e35a9e3bafffc070202af3dc8c695e92fc7bf9dca140fe48b069b179"
-    sha256 cellar: :any,                 sonoma:        "9f96dbdcb8101814661a9c7cafba11046abb3e06e7cdffd982d5bf77ba74a566"
-    sha256 cellar: :any,                 ventura:       "0608075eac469288340c76811ed5ba89dc4b3a551c714540af2d3da5a8320951"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0e1d422c223e749df75b74b497c268bfc9b4f7c9278849fda44d3e4defc531f"
+    sha256 cellar: :any,                 arm64_sequoia: "de5a5f9c08c1cdd8b45a4ba3695f3d9457c05c93b855fe7ab2cddc1e2371a7ac"
+    sha256 cellar: :any,                 arm64_sonoma:  "dbc3e504c023f1ba7d38d78e0cce041537ddc71b861e7f39c0da6588e8c58d21"
+    sha256 cellar: :any,                 arm64_ventura: "eabb21694d84c850a1f4793117715e1037c1899f858e5765867a4cc053f2d56f"
+    sha256 cellar: :any,                 sonoma:        "064dedd64affd017a712a1f6240e2b795d60405e9a50ad7830b6c14be7d35337"
+    sha256 cellar: :any,                 ventura:       "bc5dc57dd38afc48d4d4b34354b70090f1e897ed08604171358f348b72f39c52"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0ab4d14a076b454ddcef8a020aa5c4dce2f298ca6da55ca566e4ab5cce72df57"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7e27a34604cb151f83714df8499434921a4adb5c2577ff19460fc0924f16e65"
   end
 
   depends_on "llvm" => :build
   depends_on "pkgconf" => :build
   depends_on "swig" => :build
+  depends_on "brotli"
   depends_on "freetype"
   depends_on "gumbo-parser"
   depends_on "harfbuzz"
@@ -36,6 +38,10 @@ class Mupdf < Formula
   depends_on "tesseract"
 
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "libarchive"
+  end
 
   on_linux do
     depends_on "freeglut"
@@ -77,6 +83,7 @@ class Mupdf < Formula
         ["LEPTONICA", "lept"],
         ["LIBJPEG", "libjpeg"],
         ["OPENJPEG", "libopenjp2"],
+        ["TESSERACT", "tesseract"],
       ].each do |argname, libname|
         args << "SYS_#{argname}_CFLAGS=#{Utils.safe_popen_read("pkgconf", "--cflags", libname).strip}"
         args << "SYS_#{argname}_LIBS=#{Utils.safe_popen_read("pkgconf", "--libs", libname).strip}"

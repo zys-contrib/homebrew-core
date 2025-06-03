@@ -1,18 +1,19 @@
 class Scipy < Formula
   desc "Software for mathematics, science, and engineering"
   homepage "https://www.scipy.org"
-  url "https://files.pythonhosted.org/packages/76/c6/8eb0654ba0c7d0bb1bf67bf8fbace101a8e4f250f7722371105e8b6f68fc/scipy-1.15.1.tar.gz"
-  sha256 "033a75ddad1463970c96a88063a1df87ccfddd526437136b6ee81ff0312ebdf6"
+  url "https://files.pythonhosted.org/packages/0f/37/6964b830433e654ec7485e45a00fc9a27cf868d622838f6b6d9c5ec0d532/scipy-1.15.3.tar.gz"
+  sha256 "eae3cf522bc7df64b42cad3925c876e1b0b6c35c1337c93e12c0f366f55b0eaf"
   license "BSD-3-Clause"
   head "https://github.com/scipy/scipy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6472d44d3dfa4a422c6cdfab4b8a1cc9ee16b0c9e06b03f0c43c65ef8b6b479a"
-    sha256 cellar: :any,                 arm64_sonoma:  "bc753cc567ec613d2e608bdc3f281d317924a942653ca97c6706854ac86bb75f"
-    sha256 cellar: :any,                 arm64_ventura: "1439cbcfcdbd2703c0dc49255e2687ab98b816d783a3d000da41d1fd0a74b7e1"
-    sha256 cellar: :any,                 sonoma:        "f1704b5265584a54bc1f7ecd6f01f0d111a574a6dae91a6afade3dab17181690"
-    sha256 cellar: :any,                 ventura:       "0399839970756650f097d49c8f690b1c6ef4c6b8e82249b34732970f4aaca0a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33c52f32ca50f844b879507689f4be97a0f6a82b17e95059adc17ccf434e473f"
+    sha256 cellar: :any,                 arm64_sequoia: "40cea0dc46f7aa2d88fc5a140f1fe386b55455de1cd09cefca45b8b45776a614"
+    sha256 cellar: :any,                 arm64_sonoma:  "f7c9fe1a35de9df3a6d1a92511d2d4d8e5f7c1896c1110a7c54c79276bd2c55a"
+    sha256 cellar: :any,                 arm64_ventura: "961e2fa1986097233fdc3103e7acd39816be4a22ca5cd4fd326abf47827dd7f5"
+    sha256 cellar: :any,                 sonoma:        "61704bc83e517fe3032a787f08cab4beb81fe4e48ad5aa9aa774183ba885f519"
+    sha256 cellar: :any,                 ventura:       "4e20878042bf0982ce80c571507b33c3c654092c5679d24564c954e6cf943741"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ff04634fffe1e28ed408efbd1a9902c9eb74d279ce6e1202b87637763d439313"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3897bebc7e283cee35014239d82102cb0ddc96fe987c3ecf98e9ccc08c5c6a9f"
   end
 
   depends_on "meson" => :build

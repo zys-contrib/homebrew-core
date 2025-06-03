@@ -1,18 +1,20 @@
 class Sbt < Formula
   desc "Build tool for Scala projects"
   homepage "https://www.scala-sbt.org/"
-  url "https://github.com/sbt/sbt/releases/download/v1.10.7/sbt-1.10.7.tgz"
-  mirror "https://sbt-downloads.cdnedge.bluemix.net/releases/v1.10.7/sbt-1.10.7.tgz"
-  sha256 "32c15233c636c233ee25a2c31879049db7021cfef70807c187515c39b96b0fe6"
+  url "https://github.com/sbt/sbt/releases/download/v1.11.1/sbt-1.11.1.tgz"
+  mirror "https://sbt-downloads.cdnedge.bluemix.net/releases/v1.11.1/sbt-1.11.1.tgz"
+  sha256 "a554d36fddd2677abcd55b0a3f0dce03ab494e350ae32da2936e76c211d85ee4"
   license "Apache-2.0"
 
+  # Upstream sometimes creates releases that use a stable tag (e.g., `v1.2.3`)
+  # but are labeled as "pre-release" on GitHub.
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_latest
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "244f33ca77e6c34891b8e3bdb2af29a3b7d26d49f902331916858b27c34db15e"
+    sha256 cellar: :any_skip_relocation, all: "74b59c79bbf821743c42e8581117b60046a3d8fdd75e526b3bd232622c06c405"
   end
 
   depends_on "openjdk"

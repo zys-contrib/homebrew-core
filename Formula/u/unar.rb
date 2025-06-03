@@ -4,17 +4,17 @@ class Unar < Formula
   url "https://github.com/MacPaw/XADMaster/archive/refs/tags/v1.10.8.tar.gz"
   sha256 "652953d7988b3c33f4f52b61c357afd1a7c2fc170e5e6e2219f4432b0c4cd39f"
   license "LGPL-2.1-or-later"
-  revision 4
+  revision 6
   head "https://github.com/MacPaw/XADMaster.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "d4b0a3b71bc47380d1943926d4a6c83a99bed46a56926f8b76a74a76acda48ae"
-    sha256 cellar: :any,                 arm64_sonoma:  "9837652e6d7199c4f646a7b0f051277114de2ebcfca8697fc584bfeeca4da371"
-    sha256 cellar: :any,                 arm64_ventura: "833640682b2af5f3efbdf529ddf4cbe142e3d393a3b5731dee82c0e852cc9bf7"
-    sha256 cellar: :any,                 sonoma:        "5280a2f2372afc63774151b2d317d808c3b7364d66b302ad66d54604a11dd86f"
-    sha256 cellar: :any,                 ventura:       "3e631ff43685b02c54e4e97a3aa478ceadd50eb46ec8382a5e32e7fe10204d49"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91434ce00eb53726ccecd0958606598d911e396a5e09e65d9e55f05340adb81c"
+    sha256 cellar: :any,                 arm64_sequoia: "3c3885c3e70e7e37ad4d2d2a4a3d8840cf53e9f675a6642f57ad93d4da4fa8a8"
+    sha256 cellar: :any,                 arm64_sonoma:  "456de86a2a8cf4b63c7b598f9b4740a4598af1b8dcfe066724601075da938739"
+    sha256 cellar: :any,                 arm64_ventura: "b9d20ecd5c6627f96ff7554775a5944848ff89ffc666e4b841bb67ab51782950"
+    sha256 cellar: :any,                 sonoma:        "e398cb80ec4fe5195312ecef6986e96858c7a172bf0aa5fb310d7a5738ba4bd8"
+    sha256 cellar: :any,                 ventura:       "ff08a4c92f3b66fc3bbd8f8e6ddfab7c4f82a7cad165c116a773402054131a74"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c9447a1e19c7166109c05fbd7760c44e33442a3523857f0f7e71d1e46d8f59a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19ffbed9a0f8c86c8b688e347e6b4bcb4f63aeaee730d511aa90b9e553a3060e"
   end
 
   depends_on xcode: :build
@@ -25,7 +25,7 @@ class Unar < Formula
 
   on_linux do
     depends_on "gnustep-base"
-    depends_on "icu4c@76"
+    depends_on "icu4c@77"
     depends_on "libobjc2"
     depends_on "wavpack"
   end

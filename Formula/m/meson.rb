@@ -1,13 +1,13 @@
 class Meson < Formula
   desc "Fast and user friendly build system"
   homepage "https://mesonbuild.com/"
-  url "https://github.com/mesonbuild/meson/releases/download/1.7.0/meson-1.7.0.tar.gz"
-  sha256 "08efbe84803eed07f863b05092d653a9d348f7038761d900412fddf56deb0284"
+  url "https://github.com/mesonbuild/meson/releases/download/1.8.1/meson-1.8.1.tar.gz"
+  sha256 "b4e3b80e8fa633555abf447a95a700aba1585419467b2710d5e5bf88df0a7011"
   license "Apache-2.0"
   head "https://github.com/mesonbuild/meson.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "8b5f67168c5bb0899e7e8251f7ee75af31be65d8be0a6133e0da063afd94ff80"
+    sha256 cellar: :any_skip_relocation, all: "f6e7ffd7915e9e65e7e2b58c08a611615969e73ca6f4f1cc59d67c22baf850af"
   end
 
   depends_on "ninja"
@@ -66,7 +66,7 @@ class Meson < Formula
     MESON
 
     system bin/"meson", "setup", "build"
-    assert_predicate testpath/"build/build.ninja", :exist?
+    assert_path_exists testpath/"build/build.ninja"
 
     system bin/"meson", "compile", "-C", "build", "--verbose"
     assert_equal "hi", shell_output("build/hello").chomp

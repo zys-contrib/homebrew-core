@@ -3,18 +3,18 @@ class Cekit < Formula
 
   desc "Container Evolution Kit"
   homepage "https://cekit.io"
-  url "https://files.pythonhosted.org/packages/c6/b0/12fffe7912cf673213a7422353e167b8d6415cce82a20005e5b63d9a465a/cekit-4.14.0.tar.gz"
-  sha256 "ccfd56a3cf7140e448b8a22a1357a300fc662480854b5bd70c6f74c2530b22fa"
+  url "https://files.pythonhosted.org/packages/19/bf/e6f731ca9eae441dbf08d4af91ed3fc76eb021f1e5870dff3692936bb50b/cekit-4.15.0.tar.gz"
+  sha256 "3ced63835728e6fe43c63583ca0b1a45e65b573230ec9cb73dcd3aa9aa0a5aa9"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c3f67a2079625296cab085ccf82c68fcfff6904f8a04041df9fa329693ce2e3d"
-    sha256 cellar: :any,                 arm64_sonoma:  "28d6bba702f3450b6618f7b2b50bba5e700b6b85c4d12e20b42fa597dfe166fa"
-    sha256 cellar: :any,                 arm64_ventura: "860bca53e9ab0e83b36c15d6242467d996fca1b29f8367619caff88ba8317434"
-    sha256 cellar: :any,                 sonoma:        "2018d73c01ec3490d485e745ca57315c61063a81570355623bd7597c1128f9b8"
-    sha256 cellar: :any,                 ventura:       "5e76d111b2f93f3975f3eece8f0c0e0bf4a76224f501c955c5d3777e98a0c93d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81d6a14d90541ba0aafa333acbc7e09bf86d7e2185c4b7eec8ecba5670fbbf62"
+    sha256 cellar: :any,                 arm64_sequoia: "b8b3f0bbe83f0c8a5aa1074e8d0c0eb203b9984cca78a2c33d131a23d55344e5"
+    sha256 cellar: :any,                 arm64_sonoma:  "edd7964819caef1448222ace74fcd6662bfaaa86b217f6d4a2ea375d68743819"
+    sha256 cellar: :any,                 arm64_ventura: "11b5a994c414eb5da1d067ceff2d0e39e9283ac76c483aefca3e0e28a6e930e3"
+    sha256 cellar: :any,                 sonoma:        "3bbd6a4ccd41e14f74656f9955f6a1e9e35a4fe6e5149d524be0acd7f1839e03"
+    sha256 cellar: :any,                 ventura:       "7f260afdeb6c019731fad22987af4f1d58669b7d9148dccc501766a05c09c150"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0ce6285077882bc971758f48c71d22202d3bcdf105cc923daea26f1ad5037d82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "071761f34a39ecb8ce7b7a806b5cd29b47a01402bf57c29ad376d3835d294d6d"
   end
 
   depends_on "libyaml"
@@ -36,8 +36,8 @@ class Cekit < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "markupsafe" do
@@ -46,8 +46,8 @@ class Cekit < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   resource "pykwalify" do
@@ -66,8 +66,8 @@ class Cekit < Formula
   end
 
   resource "ruamel-yaml" do
-    url "https://files.pythonhosted.org/packages/29/81/4dfc17eb6ebb1aac314a3eb863c1325b907863a1b8b1382cdffcb6ac0ed9/ruamel.yaml-0.18.6.tar.gz"
-    sha256 "8b27e6a217e786c6fbe5634d8f3f11bc63e0f80f6a5890f28863d9c45aac311b"
+    url "https://files.pythonhosted.org/packages/ea/46/f44d8be06b85bc7c4d8c95d658be2b68f27711f279bf9dd0612a5e4794f5/ruamel.yaml-0.18.10.tar.gz"
+    sha256 "20c86ab29ac2153f80a428e1254a8adf686d3383df04490514ca3b79a362db58"
   end
 
   resource "six" do
@@ -93,7 +93,7 @@ class Cekit < Formula
     assert_match "INFO  Finished!",
 shell_output("#{bin}/cekit --descriptor #{testpath}/test.yml build --dry-run docker 2>&1")
     system bin/"cekit", "--descriptor", "#{testpath}/test.yml", "build", "--dry-run", "docker"
-    assert_predicate testpath/"target/image/Dockerfile", :exist?
+    assert_path_exists testpath/"target/image/Dockerfile"
     assert_match "FROM scratch", File.read(testpath/"target/image/Dockerfile")
   end
 end

@@ -1,25 +1,28 @@
 class CargoShuttle < Formula
   desc "Build & ship backends without writing any infrastructure files"
   homepage "https://shuttle.dev"
-  url "https://github.com/shuttle-hq/shuttle/archive/refs/tags/v0.51.0.tar.gz"
-  sha256 "5a5ef70767e9e07867fe2ad4b51909e2d4ec05d79065ca016b77cd9070b1eafd"
+  url "https://github.com/shuttle-hq/shuttle/archive/refs/tags/v0.55.0.tar.gz"
+  sha256 "e8a6741ef28375ec2b0839dbe79d8cb7375cd45098e78ca0d28166628df2e795"
   license "Apache-2.0"
   head "https://github.com/shuttle-hq/shuttle.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d7e0375b6ff7e78008897970d60d625da968968532a0a80f8466b1e6fb9682bd"
-    sha256 cellar: :any,                 arm64_sonoma:  "d83e7dfee3f20a5e45fb9388904afe22e4552afa383b1d3a5c9178e906587086"
-    sha256 cellar: :any,                 arm64_ventura: "859d686e36437d785ad838fb12f49657dcaf6d53a840048489332f4d663034bb"
-    sha256 cellar: :any,                 sonoma:        "c45c44264a65ffc3d1ff6f4c934193f57f9cdf282ac7ac4f6d1e487c44777941"
-    sha256 cellar: :any,                 ventura:       "13e6fac1142d482f01cb233ef9dba93565ebdf676e33939fe8b80d0016843348"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc5ffccc7b1d0cd97869cdccaa58540ee20516b3920ff0512a3f5d9396020a59"
+    sha256 cellar: :any,                 arm64_sequoia: "79302d321300df5809f962361d20e3228b15288545b36573e58267894eb98381"
+    sha256 cellar: :any,                 arm64_sonoma:  "959f8db81b4c1b99ddf26974df1653886e75c29ca8058119d36297c04b65b55b"
+    sha256 cellar: :any,                 arm64_ventura: "f6761d4a43a1ac123445e2da1563828bf01a51dd6fd10e0c00194c116aa4ada9"
+    sha256 cellar: :any,                 sonoma:        "80e738313cc71a9f735589ec32cb2ca47ec4572669b3957663d581a5345d8fe7"
+    sha256 cellar: :any,                 ventura:       "6ebb4a19c713ed2c2a2e90dd9a9c7465918f6a8f2301d1777875c70e3c6ea532"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1b35e09e5bd2af336faf8543d843442c87ac85065ca994cfbbeac3fe22201af2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7764b21c7a32741098395bb843c5282cf15228ad21541836ecb3f8ba742fe81e"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "libgit2@1.8" # needs https://github.com/rust-lang/git2-rs/issues/1109 to support libgit2 1.9
+  depends_on "libgit2"
 
   uses_from_macos "bzip2"
+
+  conflicts_with "shuttle", because: "both install `shuttle` binaries"
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
@@ -35,7 +38,8 @@ class CargoShuttle < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/shuttle --version")
-    assert_match "Forbidden", shell_output("#{bin}/shuttle account 2>&1", 1)
-    assert_match "Error: failed to get cargo metadata", shell_output("#{bin}/shuttle deployment status 2>&1", 1)
+    assert_match "Unauthorized", shell_output("#{bin}/shuttle account 2>&1", 1)
+    output = shell_output("#{bin}/shuttle deployment status 2>&1", 1)
+    assert_match "ailed to find a Rust project in this directory.", output
   end
 end

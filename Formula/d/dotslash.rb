@@ -1,17 +1,18 @@
 class Dotslash < Formula
   desc "Simplified executable deployment"
   homepage "https://dotslash-cli.com"
-  url "https://github.com/facebook/dotslash/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "4498ee0cb369d2678962384d1777650d1e1446dba730740882e5d2f06f0a667a"
+  url "https://github.com/facebook/dotslash/archive/refs/tags/v0.5.4.tar.gz"
+  sha256 "92e8f39796931436e122e6c57bfd49d2050eae07d800a920ce2bf52238c1ff02"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8dd44a76f36d0b62396641acc690ef41aa814137ca06ee9485a5f1b8a7d7d3e9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9532370edb7745aff8c37e0770b65111f69443542e0642a8136ccd43193540d3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "013e2763c9c3f64943efb8b4212ac55547b9dd227121ea90516d774d3ee81fcb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "799650645a653f2701522970c7944dadf4f4f2705288083ff3cac6e8cfa093eb"
-    sha256 cellar: :any_skip_relocation, ventura:       "ee8b837f39a5e25cb1343691c7d65526265377430c7488b058db2ca6ead01f91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c51683c122a28b504aac71e703234a453bb72e9767e36c7d9fc7f84eb821b24"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "91b6b4a9b932a4dd6cfbe44ac4d3ffc00a1e1e501cd806a5b97460687119ed3c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "45e7b52fd8f24163f285681fe6314ee0e660ebe99a7c42252a295b434ce9c55d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2e5a9805bffb4a46c1b2e587f17a116da53a2eae9c22ccb0d12dddaaa6394841"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bd36b90ae165d74df24b50f2bafbf0d3fb8ebf39921bbc81d4c844f9c7495da6"
+    sha256 cellar: :any_skip_relocation, ventura:       "3da81ec9fc051eac5058dd6c75847a4f2257e9d48ee6671413381efcd88ed425"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8a2604418e667cca15f3408471e1e1061cd9572fde2414b5da461e46db2ccbf8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f6683eddc86a7a15762fa7f1a0b77cf630eb0a1d889783ecac448f743377ae5"
   end
 
   depends_on "rust" => :build
@@ -51,6 +52,18 @@ class Dotslash < Formula
             "providers": [
               {
                 "url": "https://nodejs.org/dist/v18.19.0/node-v18.19.0-darwin-x64.tar.gz"
+              }
+            ]
+          },
+          "linux-aarch64": {
+            "size": 44559104,
+            "hash": "blake3",
+            "digest": "bd605f5957f792def0885db18a9595202ba13f64d2e8d92514f95fb8c8ee5de5",
+            "format": "tar.gz",
+            "path": "node-v18.19.0-linux-arm64/bin/node",
+            "providers": [
+              {
+                "url": "https://nodejs.org/dist/v18.19.0/node-v18.19.0-linux-arm64.tar.gz"
               }
             ]
           },

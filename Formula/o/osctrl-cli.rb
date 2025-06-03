@@ -1,23 +1,24 @@
 class OsctrlCli < Formula
   desc "Fast and efficient osquery management"
   homepage "https://osctrl.net"
-  url "https://github.com/jmpsec/osctrl/archive/refs/tags/v0.4.2.tar.gz"
-  sha256 "afc854ecef0d877f5b56ae93b9e9b115964d8fa1a9762b5e40fc9ef4f0e2f1d0"
+  url "https://github.com/jmpsec/osctrl/archive/refs/tags/v0.4.4.tar.gz"
+  sha256 "1c4f8ef27539e071ce8af437b2a1d046f2e0af34eb2a7aa8016ee201cc55b0bf"
   license "MIT"
+  head "https://github.com/jmpsec/osctrl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7c8d5f1045e561c7be280f0c211f5cbe9b3206892bd0b315eedcdd6263e76611"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7c8d5f1045e561c7be280f0c211f5cbe9b3206892bd0b315eedcdd6263e76611"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7c8d5f1045e561c7be280f0c211f5cbe9b3206892bd0b315eedcdd6263e76611"
-    sha256 cellar: :any_skip_relocation, sonoma:        "728c62d39a674d59bb5191ba2d00234c8cc4a4cf5006baf2e74ce23d1fe0a9b6"
-    sha256 cellar: :any_skip_relocation, ventura:       "728c62d39a674d59bb5191ba2d00234c8cc4a4cf5006baf2e74ce23d1fe0a9b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a94cbc386481347069fa4f4fb2b6a75f23802f12d5fdbf8c9dcae2dcb85ce40a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cfa9cc7ba8022d4aedfb2f06d055927fb41fc4738a43f6857e067d64448d8583"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cfa9cc7ba8022d4aedfb2f06d055927fb41fc4738a43f6857e067d64448d8583"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cfa9cc7ba8022d4aedfb2f06d055927fb41fc4738a43f6857e067d64448d8583"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c599bda781744313a18a705dbcfe69748c2e0afceb9031a15d5adc75005518c3"
+    sha256 cellar: :any_skip_relocation, ventura:       "c599bda781744313a18a705dbcfe69748c2e0afceb9031a15d5adc75005518c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c22023d1893395c2a9e550527e492d7b4cc92000697bdecc6a29495836216524"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cli"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/cli"
   end
 
   test do

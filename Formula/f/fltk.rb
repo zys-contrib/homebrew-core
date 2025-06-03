@@ -1,8 +1,8 @@
 class Fltk < Formula
   desc "Cross-platform C++ GUI toolkit"
   homepage "https://www.fltk.org/"
-  url "https://github.com/fltk/fltk/releases/download/release-1.4.1/fltk-1.4.1-source.tar.bz2"
-  sha256 "bff25d1c79fa0620e37ee17871f13fc2b35aa56d17e7576aa9a8d2ce5ed0e57e"
+  url "https://github.com/fltk/fltk/releases/download/release-1.4.3/fltk-1.4.3-source.tar.bz2"
+  sha256 "76ecc922b6d708f75ab29abe2810494575b66b00735e692cff6d96686ed0fc4a"
   license "LGPL-2.0-only" => { with: "FLTK-exception" }
 
   livecheck do
@@ -11,12 +11,13 @@ class Fltk < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "bd6ac8890d23ab42b9e8b18f3a37347d018505dd32400784f815ba7f4785cc40"
-    sha256 arm64_sonoma:  "8d6663fa83b28dce17eccaab7d451d4e9972b9578a947317c536c91f0c264a9e"
-    sha256 arm64_ventura: "ced3c83d58132c8c96491b2fa254a76818bd52e5b851fe6964529b1d9cea86e2"
-    sha256 sonoma:        "78ac157cb68a35256aae2fbd1a713d4991b74222d7e7548eedd1313447dbfefb"
-    sha256 ventura:       "1816f4b3d07cfdcfb6563f0b258a80cfbe90ba289db42b4696fd0eeaf5dc01dc"
-    sha256 x86_64_linux:  "2ee9844a83a586c602bb1a598f3dba7ff5bc1a9e54f6d2a0a9e01ca5c771cf36"
+    sha256 arm64_sequoia: "938a50ae988efbb07d3975c992a47b4f696be0a28635496c565e725ecaa7fb39"
+    sha256 arm64_sonoma:  "7b9f54c0bb23c4eda241d34fd807698e20d7a9654e9d879ed2e52297a173b6b5"
+    sha256 arm64_ventura: "d0e1ecf48f53ce925ba57a1c26719de8769196e28d9ba19a8ceab5769251976f"
+    sha256 sonoma:        "604d447081fe46632730bb4a33b6758c9d87fca421662198d1756cc55de13184"
+    sha256 ventura:       "f78d210049fe429633dc6815be381af85b6c6911df8ca39eaf50bd091a7fb0fc"
+    sha256 arm64_linux:   "33c4d377b9ababaad8209c598c2db0451aed544c04dfc23715bad0f8fa269d5e"
+    sha256 x86_64_linux:  "08732bbef64880963a6ba5d27bf117c1e824f49c9df5eb1850d08f43ab3cb13d"
   end
 
   head do
@@ -24,12 +25,12 @@ class Fltk < Formula
     depends_on "cmake" => :build
   end
 
+  depends_on "pkgconf" => :build
   depends_on "jpeg-turbo"
   depends_on "libpng"
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "pkgconf" => :build
     depends_on "fontconfig"
     depends_on "libx11"
     depends_on "libxext"

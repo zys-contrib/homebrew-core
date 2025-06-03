@@ -1,18 +1,19 @@
 class Tuisky < Formula
   desc "TUI client for bluesky"
   homepage "https://github.com/sugyan/tuisky"
-  url "https://github.com/sugyan/tuisky/archive/refs/tags/v0.1.5.tar.gz"
-  sha256 "bd777120b20618c72c6dfe064ca29f7de21e1314fae9be8550f3c527aec5dea7"
+  url "https://github.com/sugyan/tuisky/archive/refs/tags/v0.2.1.tar.gz"
+  sha256 "b87e50c8483624a2ccb4beeceb0503c3ad1f0a7ff3ac20a6da92eb952752c85d"
   license "MIT"
   head "https://github.com/sugyan/tuisky.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fdd3cd4bae5e615c5998482164dd60d6b4af71090877a5fc8ce502baf026c507"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "abe534534245333207c7bcbc7cfeb9437c43e6f416aad2aac5052e587778b3ac"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6c5334e7ab773d0a0c86e876cd8c5e9e9790a9db7aeaef43560832292f43ad1c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "86aef90f8d8d4fab7abde6b5f82ccef66db610b6f382e6ee2c3bf269ea213509"
-    sha256 cellar: :any_skip_relocation, ventura:       "3450e4c9b5066717095354391061520c60fa89f3da742f5349540a84b7d9b940"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e40debfffda75edcd330e3e46de47bf17073dc8e07dcb4a0ae0443a8118c1deb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b34ae115c6eec39e76460e02f3bb6756d12715293f45979205c44f5d775f019f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "58424b63780eb01f0eccbc9aef4e75120b18b8b7616dc60d12c4c04033502196"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "00bdf438a3637643b47f76f00eab585301fad00c9259fd37f524a4538f0608e6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "28edebdbb9dafc02fe03363746e2469db444a4bb7890bdbe9dd26fbcedfcfe2e"
+    sha256 cellar: :any_skip_relocation, ventura:       "2f0f1a04028c894d1a914b5ccf8a270005f8fa67b09327a53f45470ad413248f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf2ca0fca8f43e3f2281cdb30d8dd6224496e6bcdd64702b310bc1334b065c8d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59d75761a312d19428ef28dbba6eae4a03cbb60c50975689470e16a795b458b4"
   end
 
   depends_on "pkgconf" => :build

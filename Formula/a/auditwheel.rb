@@ -3,25 +3,25 @@ class Auditwheel < Formula
 
   desc "Auditing and relabeling cross-distribution Linux wheels"
   homepage "https://github.com/pypa/auditwheel"
-  url "https://files.pythonhosted.org/packages/6f/00/4fbdf82259d8aa4c45912f46ed51a51ccb49515138ce2537f27d1686478b/auditwheel-6.2.0.tar.gz"
-  sha256 "4fc9f778cd81dac56820e8cdee9842dc44b8f435f8783606dabd4964d4638b30"
+  url "https://files.pythonhosted.org/packages/fb/f3/b61e3b5ccceee2c25baff6c16146d031f6f5c75b1c09d598bfbfe498adec/auditwheel-6.4.0.tar.gz"
+  sha256 "20990ccb2416fdb81983ef654d10df72f9f25b388e30105bc3d97b06d6aecafb"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ed7e4d6d91cd9ac6d655127ccaf2619d493aedbeed65cfea6801dfb736d0144c"
+    sha256 cellar: :any_skip_relocation, all: "e46bbb1c73158a8ad508e7197f7d07c8625906d776efe6f86796c81463c3ed80"
   end
 
   depends_on :linux
   depends_on "python@3.13"
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   resource "pyelftools" do
-    url "https://files.pythonhosted.org/packages/88/56/0f2d69ed9a0060da009f672ddec8a71c041d098a66f6b1d80264bf6bbdc0/pyelftools-0.31.tar.gz"
-    sha256 "c774416b10310156879443b81187d182d8d9ee499660380e645918b50bc88f99"
+    url "https://files.pythonhosted.org/packages/b9/ab/33968940b2deb3d92f5b146bc6d4009a5f95d1d06c148ea2f9ee965071af/pyelftools-0.32.tar.gz"
+    sha256 "6de90ee7b8263e740c8715a925382d4099b354f29ac48ea40d840cf7aa14ace5"
   end
 
   def install
@@ -31,14 +31,25 @@ class Auditwheel < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/auditwheel -V")
 
-    resource "homebrew-test-wheel" do
-      url "https://files.pythonhosted.org/packages/4c/00/e17e2a8df0ff5aca2edd9eeebd93e095dd2515f2dd8d591d84a3233518f6/cffi-1.16.0-cp312-cp312-musllinux_1_1_x86_64.whl"
-      sha256 "2d92b25dbf6cae33f65005baf472d2c245c050b1ce709cc4588cdcdd5495b520"
+    if Hardware::CPU.intel?
+      resource "homebrew-test-wheel" do
+        url "https://files.pythonhosted.org/packages/f1/47/d7145bf2dc04684935d57d67dff9d6d795b2ba2796806bb109864be3a151/cffi-1.17.1-cp313-cp313-musllinux_1_1_x86_64.whl"
+        sha256 "72e72408cad3d5419375fc87d289076ee319835bdfa2caad331e377589aebba9"
+      end
+      platform_tag = "musllinux_1_2_x86_64"
+      wheel_file = "cffi-1.17.1-cp313-cp313-musllinux_1_1_x86_64.whl"
+    else
+      resource "homebrew-test-wheel" do
+        url "https://files.pythonhosted.org/packages/5f/e4/fb8b3dd8dc0e98edf1135ff067ae070bb32ef9d509d6cb0f538cd6f7483f/cffi-1.17.1-cp313-cp313-musllinux_1_1_aarch64.whl"
+        sha256 "3edc8d958eb099c634dace3c7e16560ae474aa3803a5df240542b305d14e14ed"
+      end
+      platform_tag = "musllinux_1_2_aarch64"
+      wheel_file = "cffi-1.17.1-cp313-cp313-musllinux_1_1_aarch64.whl"
     end
 
     resource("homebrew-test-wheel").stage testpath
 
-    output = shell_output("#{bin}/auditwheel show cffi-1.16.0-cp312-cp312-musllinux_1_1_x86_64.whl")
-    assert_match "is consistent with\nthe following platform tag: \"linux_x86_64\"", output
+    output = shell_output("#{bin}/auditwheel show #{wheel_file}")
+    assert_match "is consistent with\nthe following platform tag: \"#{platform_tag}\"", output
   end
 end

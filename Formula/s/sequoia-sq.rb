@@ -1,19 +1,19 @@
 class SequoiaSq < Formula
   desc "Sequoia-PGP command-line tool"
   homepage "https://sequoia-pgp.org"
-  url "https://gitlab.com/sequoia-pgp/sequoia-sq/-/archive/v1.1.0/sequoia-sq-v1.1.0.tar.gz"
-  sha256 "3316902e1f52e8f01829b72014bda006ad9712ec3802703d395dbc6dbf50cb9d"
+  url "https://gitlab.com/sequoia-pgp/sequoia-sq/-/archive/v1.3.1/sequoia-sq-v1.3.1.tar.gz"
+  sha256 "9f112096f413e195ec737c81abb5649604f16e1f6dbe64a8accc5bb3ad39e239"
   license "LGPL-2.0-or-later"
   head "https://gitlab.com/sequoia-pgp/sequoia-sq.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "ac0a88e3da8b1ca1e58bd4cabe8f6856e33ced6ca76b199cd17a2525f266eaca"
-    sha256 cellar: :any,                 arm64_sonoma:  "ac235bd5c73d7089051988d1e7dfc3dd50565ffc68b40bff128f74b2feebedd8"
-    sha256 cellar: :any,                 arm64_ventura: "11d615f16715a94f9ecc916e698bcf7efdad504d0f7c5d1559f1fc5be68d8c21"
-    sha256 cellar: :any,                 sonoma:        "10f79c2b3e41e4ac18562e18dcf950e6053cd956d77d7d02581ed48dd7a17bc8"
-    sha256 cellar: :any,                 ventura:       "e7e1a11322a46eb655a10b1d2243ac86ec92065d5c4cfe6533de46a0f726581f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5bca0098990831f6be4e0431f32009a7a2030b464f870180cbb5a9464d5d86b"
+    sha256 cellar: :any,                 arm64_sequoia: "748da0543b832cadfa5607c47bd93938bb09a31447ba6470bed0eecd9eed5abe"
+    sha256 cellar: :any,                 arm64_sonoma:  "3de29e0d109f761a2354bb4b2ca540c430f11f402616453c6e01d6f936a1df41"
+    sha256 cellar: :any,                 arm64_ventura: "c5877c6019980cb390b99241687b16e6ab4b41dc8eb1472d3a7654c6cac966c2"
+    sha256 cellar: :any,                 sonoma:        "6b3a8b05eca43acd239476880e5515cc75b283173a0226c7568e5ba84fcc7e14"
+    sha256 cellar: :any,                 ventura:       "f45c40f7187c727f4ab15f925d02125cedb72cc50227f2c30a1bb540adf1ca28"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6cc134524aab57fd7d7e15586e4410b1081998bf03a2dd7b7393044b8729a30a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9bdca043f7be55ffe5682aacbc18863cf02eb7fbb698f176e7a880de304cc1da"
   end
 
   depends_on "capnp" => :build

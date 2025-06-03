@@ -1,19 +1,20 @@
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.dev/"
-  url "https://github.com/ccache/ccache/releases/download/v4.10.2/ccache-4.10.2.tar.xz"
-  sha256 "c0b85ddfc1a3e77b105ec9ada2d24aad617fa0b447c6a94d55890972810f0f5a"
+  url "https://github.com/ccache/ccache/releases/download/v4.11.3/ccache-4.11.3.tar.xz"
+  sha256 "d5a340e199977b7b1e89c0add794132c977fdc2ecc7ca5451e03d43627a1b1be"
   license "GPL-3.0-or-later"
-  revision 3
+  revision 1
   head "https://github.com/ccache/ccache.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "1637e115c7ad8076b28d4390668cb53ba62dd0212b63ea04651ae5f1dd8fd6e8"
-    sha256 cellar: :any, arm64_sonoma:  "87b642aef800b89a2c9b3d5b42c29d11460712dbe0191b35bec0c9866a58d3fb"
-    sha256 cellar: :any, arm64_ventura: "5d8db605c9242c99c0f59a84aef01913d92def6ace4ea7f86fd2f6aaac384ee0"
-    sha256               sonoma:        "ecf556f969e1862e016805662661e2abb54313adbd79721715e04203bd857c5b"
-    sha256               ventura:       "dc2fb6d9b4c9afdc86c94752c1da42e0c92e2a7bf6a6469fffb45af91d28e34e"
-    sha256               x86_64_linux:  "f68fec802336b5c30194b627a06b0fc06bbda4459d2f88beab863766910c950f"
+    sha256               arm64_sequoia: "e99e59f16c682d93fe0b9b5c7681cdce749f0b90291108fa74edcad569286d96"
+    sha256 cellar: :any, arm64_sonoma:  "aa9c9558b72ef410e13c8718080ee0d98f67b2c3c04d11bf3ade424965bdd098"
+    sha256               arm64_ventura: "35fed775f7dc5b4822e3b0ca5e59950b289a7840e776e7501133feb5c7830391"
+    sha256 cellar: :any, sonoma:        "4bac698f691b21bb8209121c23e5330397e5eb139646e94dc05f78372f450e85"
+    sha256 cellar: :any, ventura:       "ab684bfb9e86f230652977ef4a3d4fb7ea25856ad094ca029fba3ea8b56ad001"
+    sha256               arm64_linux:   "3bda7b43285d7c6151c7703a56ce4f6ff0047cac34e36d2ed48541dcaebd8a55"
+    sha256               x86_64_linux:  "a504ce0e91c2ad0a929a7fd15a23579f6bbb725e32e952b0ef549f003c69d344"
   end
 
   depends_on "asciidoctor" => :build
@@ -58,12 +59,15 @@ class Ccache < Formula
       gcc gcc2 gcc3 gcc-3.3 gcc-4.0
       gcc-4.2 gcc-4.3 gcc-4.4 gcc-4.5 gcc-4.6 gcc-4.7 gcc-4.8 gcc-4.9
       gcc-5 gcc-6 gcc-7 gcc-8 gcc-9 gcc-10 gcc-11 gcc-12 gcc-13 gcc-14
+      gcc-15
       c++ c++3 c++-3.3 c++-4.0
       c++-4.2 c++-4.3 c++-4.4 c++-4.5 c++-4.6 c++-4.7 c++-4.8 c++-4.9
       c++-5 c++-6 c++-7 c++-8 c++-9 c++-10 c++-11 c++-12 c++-13 c++-14
+      c++-15
       g++ g++2 g++3 g++-3.3 g++-4.0
       g++-4.2 g++-4.3 g++-4.4 g++-4.5 g++-4.6 g++-4.7 g++-4.8 g++-4.9
       g++-5 g++-6 g++-7 g++-8 g++-9 g++-10 g++-11 g++-12 g++-13 g++-14
+      g++-15
       i686-w64-mingw32-gcc i686-w64-mingw32-g++
       x86_64-w64-mingw32-gcc x86_64-w64-mingw32-g++
     ].each do |prog|

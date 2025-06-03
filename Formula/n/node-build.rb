@@ -1,8 +1,8 @@
 class NodeBuild < Formula
   desc "Install NodeJS versions"
   homepage "https://github.com/nodenv/node-build"
-  url "https://github.com/nodenv/node-build/archive/refs/tags/v5.3.24.tar.gz"
-  sha256 "109328bc7b66805c6234f3902e475cd150b1c713359b349acd110d2d53dfa555"
+  url "https://github.com/nodenv/node-build/archive/refs/tags/v5.4.2.tar.gz"
+  sha256 "5a8477cbdc3a8423a635f91f0e21ba35d60a151cba494cae95d55e9aaf3f941b"
   license "MIT"
   head "https://github.com/nodenv/node-build.git", branch: "master"
 
@@ -12,7 +12,7 @@ class NodeBuild < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "367187b306796a8c7db6ca13a6ac1ec1cfb71b3a061b9a356b58bd864f8679ef"
+    sha256 cellar: :any_skip_relocation, all: "7b7709e560f098ad9c7b451396a8a94b665f1006804672467d9af50064a0d484"
   end
 
   depends_on "autoconf"

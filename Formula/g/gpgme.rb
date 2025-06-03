@@ -1,8 +1,8 @@
 class Gpgme < Formula
   desc "Library access to GnuPG"
   homepage "https://www.gnupg.org/related_software/gpgme/"
-  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.24.1.tar.bz2"
-  sha256 "ea05d0258e71061d61716584ec34cef59330a91340571edc46b78374973ba85f"
+  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.24.3.tar.bz2"
+  sha256 "bfc17f5bd1b178c8649fdd918956d277080f33df006a2dc40acdecdce68c50dd"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,12 +11,13 @@ class Gpgme < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4817886d1fd2a4bfaa9b895ef0a57ae83b2728ed2ccf4430a6c46ea130764a14"
-    sha256 cellar: :any,                 arm64_sonoma:  "647b8377a6821214e63e6367692acf707217c2f961cc682727dd855a5a1ae13e"
-    sha256 cellar: :any,                 arm64_ventura: "25c16405a157103f48b918a8205c2bc6329a58de7ac1a40e6d47c63ab76e5763"
-    sha256 cellar: :any,                 sonoma:        "ada24cc3c379aab878c538753ce1d112d2a5d7ac43a521755ade797eb984100d"
-    sha256 cellar: :any,                 ventura:       "9654900d27991ce8b5f69d2ef5010237b2a47b5d12fd108ae9da8adc94654646"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7484caa7a112dc0d76711a3861dcac6cd8c48d3125317b8330e03dbca15e0c0a"
+    sha256                               arm64_sequoia: "2c66995cde33a82fe56ec3a9310e8510cbf222da60b2a4602ee3fc64c6f93b8f"
+    sha256                               arm64_sonoma:  "f7fbaccad97dba68beba223f6968fbd0ad5414a4cb67743eaf11ee1cb7ed394f"
+    sha256                               arm64_ventura: "735a2f620ddc067d162045dbd56f0dda6f34494ee8fc2c6d79db5cb035fb9955"
+    sha256 cellar: :any,                 sonoma:        "9d7d49aec57a889c8505ab5d4fd5a42604b244f671432e88dbb5eedbfa6cd2a0"
+    sha256 cellar: :any,                 ventura:       "ce54ced3aba72951eafcb9cda15e1a5fb98a5fd4969f5f180bbabe9e312c1e0d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5cfb6e3fddc6cb22702693c3e5c63dea2adeac6da18ba8796459081d67691ece"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb901798817b1ffebf06359bcf72f1fd4cc31d8f008b8ff8ae79d015823058f9"
   end
 
   depends_on "python-setuptools" => :build

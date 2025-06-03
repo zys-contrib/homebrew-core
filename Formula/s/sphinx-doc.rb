@@ -3,18 +3,19 @@ class SphinxDoc < Formula
 
   desc "Tool to create intelligent and beautiful documentation"
   homepage "https://www.sphinx-doc.org/"
-  url "https://files.pythonhosted.org/packages/6f/6d/be0b61178fe2cdcb67e2a92fc9ebb488e3c51c4f74a36a7824c0adf23425/sphinx-8.1.3.tar.gz"
-  sha256 "43c1911eecb0d3e161ad78611bc905d1ad0e523e4ddc202a58a821773dc4c927"
+  url "https://files.pythonhosted.org/packages/38/ad/4360e50ed56cb483667b8e6dadf2d3fda62359593faabbe749a27c4eaca6/sphinx-8.2.3.tar.gz"
+  sha256 "398ad29dee7f63a75888314e9424d40f52ce5a6a87ae88e7071e80af296ec348"
   license "BSD-2-Clause"
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "76fd3e0a21c0ae02860e7125a723917d1da17318f425eb00dcba89e72a069255"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c5d6c97eebb9c8fe4605b396c2a0b106af8f35cce5209e05c13bba605c173c20"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0babe1c2a374c2e5ebd1e1056c87febeac3ad1b293fc9a06f225c22e4935b013"
-    sha256 cellar: :any_skip_relocation, sonoma:        "24e6e392d9abb79b65eaa8cf4f24e75fd78774029a9e2035d3d3a5807ee7143e"
-    sha256 cellar: :any_skip_relocation, ventura:       "3bec04b6ef81f4b2ca5a65978c527cf040f3f8442111fe54cdec4c328d158bec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "542cf43209b6b6863d27694ff3878e01260d15314eaa5ba9d2c60cb40e50f5b0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "691cd69cca4a6d522bd06cf691cd7b450d27a0dc235112728739dc016c2b44c0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f3a734c24c10a65149d9f89105cb1bdbb4711069b7efa64fc68f7c8e7dca08d8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2fad580adc896cde5f8105f9d3924ee0ca04561598dff4f391ee22ae33da5b8c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "09d1c77c4f771137e6e41ac634ecfaccd1c36a0a55a6e07656cc7e414c73b2ce"
+    sha256 cellar: :any_skip_relocation, ventura:       "eabce5bedad52520c84e39d39322d0ad97e574c68c665e1eabe6e122aadaa48c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "160e4ef2c3d8c2fd927314880937480263ae1a79f66f76f98ebec81b8dd28541"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "014b492b36572f23a4c95795f9a7cfccdf54da714c2841e35064443a32b58e85"
   end
 
   depends_on "certifi"
@@ -26,13 +27,13 @@ class SphinxDoc < Formula
   end
 
   resource "babel" do
-    url "https://files.pythonhosted.org/packages/2a/74/f1bc80f23eeba13393b7222b11d95ca3af2c1e28edca18af487137eefed9/babel-2.16.0.tar.gz"
-    sha256 "d1f3554ca26605fe173f3de0c65f750f5a42f924499bf134de6423582298e316"
+    url "https://files.pythonhosted.org/packages/7d/6b/d52e42361e1aa00709585ecc30b3f9684b3ab62530771402248b1b1d6240/babel-2.17.0.tar.gz"
+    sha256 "0c54cffb19f690cdcc52a3b50bcbf71e07a808d1c80d549f2459b9d2cf0afb9d"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
-    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
+    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
+    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
   end
 
   resource "docutils" do
@@ -51,8 +52,8 @@ class SphinxDoc < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "markupsafe" do
@@ -71,13 +72,18 @@ class SphinxDoc < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz"
-    sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
+    url "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
+    sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
   end
 
   resource "requests" do
     url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
     sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+  end
+
+  resource "roman-numerals-py" do
+    url "https://files.pythonhosted.org/packages/30/76/48fd56d17c5bdbdf65609abbc67288728a98ed4c02919428d4f52d23b24b/roman_numerals_py-3.1.0.tar.gz"
+    sha256 "be4bf804f083a4ce001b5eb7e3c0862479d10f94c936f6c4e5f250aa5ff5bd2d"
   end
 
   resource "snowballstemmer" do
@@ -132,6 +138,6 @@ class SphinxDoc < Formula
   test do
     system bin/"sphinx-quickstart", "-pProject", "-aAuthor", "-v1.0", "-q", testpath
     system bin/"sphinx-build", testpath, testpath/"build"
-    assert_predicate testpath/"build/index.html", :exist?
+    assert_path_exists testpath/"build/index.html"
   end
 end

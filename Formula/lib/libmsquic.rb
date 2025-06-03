@@ -2,17 +2,18 @@ class Libmsquic < Formula
   desc "Cross-platform, C implementation of the IETF QUIC protocol"
   homepage "https://github.com/microsoft/msquic"
   url "https://github.com/microsoft/msquic.git",
-      tag:      "v2.4.7",
-      revision: "622a72573000fef2400b12097f5011b2c5657f5e"
+      tag:      "v2.4.11",
+      revision: "18b58030a1aee72d94d705d5738cfb87650b063a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2b2f6837e911856a5aeee49d322e4dc1d63000d55a2b6403702b6f58075ba42b"
-    sha256 cellar: :any,                 arm64_sonoma:  "fd2b7a19b194f60a16a0a92751a4ecf79c8c36fa918f0589803814c1974a5e17"
-    sha256 cellar: :any,                 arm64_ventura: "50914e7db8dd09e19f3cd7c1ed048319ca6683a6166e73f034a34d8de68e0e60"
-    sha256 cellar: :any,                 sonoma:        "f69bdde7657ca164673c7a701e11836cfef18df7df19b1978471895810ab5019"
-    sha256 cellar: :any,                 ventura:       "ebafc94ba6d2f3c9c3f5ca65a3cea2b7275d1611c4c64614b7137432fbd99465"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d5067ecdfa0af223939dc3c838521c4894bd89cdb29b8d50171d80ebd69eac7"
+    sha256 cellar: :any,                 arm64_sequoia: "89bbdc9b1db3f643d9f223538b09cbf0b4bb1133c662630e65430db4692a94ae"
+    sha256 cellar: :any,                 arm64_sonoma:  "8325d65147aec0bda760fff3877c7a5906317d15f49f21c644e8fd994ce749ee"
+    sha256 cellar: :any,                 arm64_ventura: "1fcbd01c40f6eec8d01052e3635e61af732e8fae1f53ad4e1b1125ea119819e3"
+    sha256 cellar: :any,                 sonoma:        "3eac3ea81c90f349167dcacfdfc2f98447f700c297f8060d5f4f7f302aaf6147"
+    sha256 cellar: :any,                 ventura:       "f4a98a03a312f0cb685d111690cd7687bfc15250d22d768e642b69528b11d4c2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8c01a5f417fe2d51b8f21803595b2091745d2eeb0f5ab0653ecc9c836ef17ffa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d79cb6eaecbe706a86c2a93feb7f45841395d5a2ee2ab7101f5570e77c2482a"
   end
 
   depends_on "cmake" => :build

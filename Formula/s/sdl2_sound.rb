@@ -9,12 +9,18 @@ class Sdl2Sound < Formula
   ]
   head "https://github.com/icculus/SDL_sound.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^(?:release[._-])?v?(2(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "ebf816ab8b81d1c57a8fa8464015be9e6e7c1bb59e6756cb1ab955193468933d"
     sha256 cellar: :any,                 arm64_sonoma:  "1a336df9cbf4dbecdf17c4bd11f1d4fa86a8f8d7b4e31f90e2cd61f80d12b211"
     sha256 cellar: :any,                 arm64_ventura: "92094e5c2c9ec2fd6962e76d3c61be76c1f87789052a30dfed282ebf268163d5"
     sha256 cellar: :any,                 sonoma:        "91a1de8932cf5e4dc446e771044d807f000101c18dcbd5f421d5ac0b3d78160d"
     sha256 cellar: :any,                 ventura:       "fa892b1c33146ebd0a36d74065f18100a787cd4d59d76db28e907ccf8b53a543"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "05781d5093994a57c5634764fda5a783aabb96b4a81bf39c4e1ce91d455eb450"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b2e558d66a31ac41604bab87abc6c42b41c8a7624bcc4c64ecb75c614b4916d3"
   end
 

@@ -1,17 +1,18 @@
 class Eza < Formula
   desc "Modern, maintained replacement for ls"
   homepage "https://github.com/eza-community/eza"
-  url "https://github.com/eza-community/eza/archive/refs/tags/v0.20.18.tar.gz"
-  sha256 "b123a29747fe164d8f9851dae42155111bf38c8820b6bb51cd2453bd7f9be6bc"
+  url "https://github.com/eza-community/eza/archive/refs/tags/v0.21.4.tar.gz"
+  sha256 "dbe04448febef15b144e86551db633146864f4afb272f96c4d586e0bc8284ffb"
   license "EUPL-1.2"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "02387d0536d4b60a4152dc715f89b4b37274170948073c0856e855545206500a"
-    sha256 cellar: :any,                 arm64_sonoma:  "d339f9ab69eaca3066c2ed7e00b263671112c9062219c8a58f9a1fb6b08c179d"
-    sha256 cellar: :any,                 arm64_ventura: "a017d9cfc60f038e4a84443ee2af0ba3aae432273d746175ef00cca79cebec6b"
-    sha256 cellar: :any,                 sonoma:        "45c31669d17e6b0af9e51eb35902ba6b8111b061e639d73c55f2cec6433465ba"
-    sha256 cellar: :any,                 ventura:       "521483ac6a9ece9ff04a079f72d2f96ab87225bbab9ef8330a8279fdc3b6ad48"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac2aa5776e14e7a00fff10a38dc26461aac2330fb4bbe0c62a5b134e0de6a0d5"
+    sha256 cellar: :any,                 arm64_sequoia: "cde99ea220d3447d975c3a87333156c97631cb196772c6805d1b4442f9eddcc9"
+    sha256 cellar: :any,                 arm64_sonoma:  "f51d4301fcaaff8c1a9d3c15ee35fc9623cff9ec6fac4e0fd359178640f71a0b"
+    sha256 cellar: :any,                 arm64_ventura: "d638b9bb8eb143bc16f8ede4456777bdc31a70ddbf7c50e9b387a9d2bfc78f75"
+    sha256 cellar: :any,                 sonoma:        "efc2fa25806fa2338a7ced9e9a4cc7e0d37360f1a15e846a514355a3e345c3d8"
+    sha256 cellar: :any,                 ventura:       "8f9f142d97468ee7f3e24401fd89ae437dc38d4eecbd06d30f41509c76804f2b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dc082bca9b783112876c08d3f07881909c47cb60dff4774941131e4246037925"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db9c85d3b74aa56e285ab0d2475dc5c8c6bf2322ab7cb9aa064754a37d763504"
   end
 
   depends_on "pandoc" => :build

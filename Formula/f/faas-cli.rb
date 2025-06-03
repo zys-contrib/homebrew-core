@@ -1,8 +1,8 @@
 class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "https://www.openfaas.com/"
-  url "https://github.com/openfaas/faas-cli/archive/refs/tags/0.17.0.tar.gz"
-  sha256 "1199ceaac8657b00ef61699004fdef5230d6f1af5d202db7de1e7ec392ea69af"
+  url "https://github.com/openfaas/faas-cli/archive/refs/tags/0.17.4.tar.gz"
+  sha256 "7a76aede9f9b22e758ab58310d3f6d23c3c07b2668f2871b11d46ce7f322cae0"
   license "MIT"
   head "https://github.com/openfaas/faas-cli.git", branch: "master"
 
@@ -12,12 +12,12 @@ class FaasCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "43d7d884b9f53a188206a3db6af3502a911cdd2cac19eaff18fb92e652a3ead7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "43d7d884b9f53a188206a3db6af3502a911cdd2cac19eaff18fb92e652a3ead7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "43d7d884b9f53a188206a3db6af3502a911cdd2cac19eaff18fb92e652a3ead7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "160e8fddc915cc0fdce3bfb6682c82894b77a163b76c8e06652c154c7fee1dda"
-    sha256 cellar: :any_skip_relocation, ventura:       "160e8fddc915cc0fdce3bfb6682c82894b77a163b76c8e06652c154c7fee1dda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfe5d5a3b4ebc114eaf479bd577c62046219ba6cb906c66738c509162c0ac610"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6f1620d873e37dd71e118c6983ec244850170934fdc4722038c040516842924b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6f1620d873e37dd71e118c6983ec244850170934fdc4722038c040516842924b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6f1620d873e37dd71e118c6983ec244850170934fdc4722038c040516842924b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3a0a1946dde7070d6b5fa0de51b5cc480b5683b9d122fe29abb7349d20b2056a"
+    sha256 cellar: :any_skip_relocation, ventura:       "3a0a1946dde7070d6b5fa0de51b5cc480b5683b9d122fe29abb7349d20b2056a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "720bdbd39fe46ae65c716347d695f0dbb67d7501a6d45cb43bbe0124138ff8f6"
   end
 
   depends_on "go" => :build
@@ -74,8 +74,8 @@ class FaasCli < Formula
       output = shell_output("#{bin}/faas-cli deploy --tls-no-verify -yaml test.yml 2>&1", 1)
       assert_match "stat ./template/python/template.yml", output
 
-      assert_match "ruby", shell_output("#{bin}/faas-cli template pull 2>&1")
-      assert_match "node", shell_output("#{bin}/faas-cli new --list")
+      assert_match "dockerfile", shell_output("#{bin}/faas-cli template pull 2>&1")
+      assert_match "node20", shell_output("#{bin}/faas-cli new --list")
 
       output = shell_output("#{bin}/faas-cli deploy --tls-no-verify -yaml test.yml", 1)
       assert_match "Deploying: dummy_function.", output

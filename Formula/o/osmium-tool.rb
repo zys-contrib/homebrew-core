@@ -1,17 +1,19 @@
 class OsmiumTool < Formula
   desc "Libosmium-based command-line tool for processing OpenStreetMap data"
   homepage "https://osmcode.org/osmium-tool/"
-  url "https://github.com/osmcode/osmium-tool/archive/refs/tags/v1.17.0.tar.gz"
-  sha256 "a7c8e5ee108258a3867c21e80d8bf50ee5b7784c56a12523750d882814e3d6df"
+  url "https://github.com/osmcode/osmium-tool/archive/refs/tags/v1.18.0.tar.gz"
+  sha256 "5438f57043c9df05137ca4bd1b1e4a5fb1c9c8c49cb4bec43a5f1ef30ed68fb5"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "101bc0c6519988ec87d24ba7197ff8bb65c2346745b4450478b8d3465c20b302"
-    sha256 cellar: :any,                 arm64_sonoma:  "fd9cb93ea74208732f720f634ce9a0926cabe2a823ab4c986c6aae9008d66f62"
-    sha256 cellar: :any,                 arm64_ventura: "bd7171d46cf4973de8a3731b4ee70220656197e986fe40e1ad936a213e90a43d"
-    sha256 cellar: :any,                 sonoma:        "6bf9507be87996fb4547c9a498578abc9855b8723e457e08f24bbd76a2850b9c"
-    sha256 cellar: :any,                 ventura:       "646c0077105152279a309b63581789fcbb2893b6345d56ac9d85620085bc6a00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7ac2102e5c453bd92a04e7d203172a4c5a48a1606f95ef2fc6df1b7eec83056"
+    sha256 cellar: :any,                 arm64_sequoia: "0cab1102b6f99a0d5556f3f928b3ce66c47168a3af0a2c9f68515688b66cb725"
+    sha256 cellar: :any,                 arm64_sonoma:  "40315fb6f5f58d47790c6157cf87b558f77cb69c2b58b26bf1d614b059304a68"
+    sha256 cellar: :any,                 arm64_ventura: "0a22fe26b6c72c6e121016d76297cf9d27554bca154d89615bb7b6c810c4b396"
+    sha256 cellar: :any,                 sonoma:        "367ed9eedac294312bfd850de02a3b473756c5087a29bc9aa419cd866aad6667"
+    sha256 cellar: :any,                 ventura:       "34d3160c4d7488c5a7bde951b81de589cd93477d7d75ba69ba6209424fa7e2a5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "68645a5288ae2d775939bdd3d860712854ad59d7595ce3bfd167a093f6f2e9be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4b896b74aeb6e8c6104bfec7cf7c29f6e0b79d97830c518e8a8331800695edf"
   end
 
   depends_on "cmake" => :build

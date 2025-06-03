@@ -5,16 +5,17 @@ class Ncmpcpp < Formula
   url "https://github.com/ncmpcpp/ncmpcpp/archive/refs/tags/0.10.1.tar.gz"
   sha256 "ddc89da86595d272282ae8726cc7913867b9517eec6e765e66e6da860b58e2f9"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 4
   head "https://github.com/ncmpcpp/ncmpcpp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a994876375a1db76829cbc6a8e19d3fb15e54d9e39c4ca08560c5ccc43f826f6"
-    sha256 cellar: :any,                 arm64_sonoma:  "2bfbdb1fb89fb3f0131925d136e0f828fd4367d4fd04345966cd85952c77aad9"
-    sha256 cellar: :any,                 arm64_ventura: "79daf4e1a2fd5d87a1b8fb52217e984f8770d96cbd9bb15fc643af7fc694203f"
-    sha256 cellar: :any,                 sonoma:        "1b7bd50bbad8a2b761210ff1afb18dd8ead6dcceb0c93323dc2148317ff8f494"
-    sha256 cellar: :any,                 ventura:       "0c632676de91a027cbfbeb31d91709d47b82f83183add3cca8a9229ca53c6372"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c668f7f2d18ca0dd37efef5eac7e0a5b9bad851883f2e14775901c6531631739"
+    sha256 cellar: :any,                 arm64_sequoia: "85bce87b0b6063cdbf8be5b857c8a2d411a645d11f37f12d66dc99431bf7b034"
+    sha256 cellar: :any,                 arm64_sonoma:  "ac040b1f822500333c9193ebab20bd7910598c23a8e6aaada597ade970137a91"
+    sha256 cellar: :any,                 arm64_ventura: "317dbae909e32339ebf1134a8ae55bf0f609d04c5050a183cd644fcf2c301c10"
+    sha256 cellar: :any,                 sonoma:        "f6d94110dc3839f47f1011b489eb4aaf82d7afa2e8bd55484baeae6d178c41c3"
+    sha256 cellar: :any,                 ventura:       "0651a6f3101ce2af14a7e4af064bc6a765244966db3fe9afa6da2adf0fcc8c4b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "08416eed22effd6c038ac64dfa1a7955df0ed74633fc8bb105b64207c22047c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fad7efcda3ef45c061a14d4b0517d8b4eed7ba186085e7abc6ad559167bc4873"
   end
 
   depends_on "autoconf" => :build
@@ -23,7 +24,7 @@ class Ncmpcpp < Formula
   depends_on "pkgconf" => :build
   depends_on "boost"
   depends_on "fftw"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "libmpdclient"
   depends_on "ncurses"
   depends_on "readline"

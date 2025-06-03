@@ -2,17 +2,18 @@ class Openfast < Formula
   desc "NREL-supported OpenFAST whole-turbine simulation code"
   homepage "https://openfast.readthedocs.io"
   url "https://github.com/openfast/openfast.git",
-      tag:      "v4.0.0",
-      revision: "da685d4997fd17ea845812c785325efa72edcf47"
+      tag:      "v4.0.4",
+      revision: "d28a823169e75029d73362b07a2942d0a454f03b"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6011d2e3412e31860c39930ab33ef4ec7d691cb1a2df590de5ab0b84ad355b1f"
-    sha256 cellar: :any,                 arm64_sonoma:  "5ac345426fe4c2c76e65d1d6c96837743079092bb790fadd382d2cd8dce74d67"
-    sha256 cellar: :any,                 arm64_ventura: "867a21611383da85141308a12cc66b9dad4fc2b0c36e257e24258e3bf6560698"
-    sha256 cellar: :any,                 sonoma:        "bbe62040b3ac7ef796397567e1937c048ddab57e39c14fc9483cf036cd2cc6ec"
-    sha256 cellar: :any,                 ventura:       "0aba092881a376bf010a1420560c1041db25c2c6d59b77fefcd42effa387747b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e804242164afeada61dab7af3c51e5206738d75e25aa0373ff567158d0837ae"
+    sha256 cellar: :any,                 arm64_sequoia: "2e89b7a85921381093c8ebb7c03d3453287725e32bf548a78c4d96687e13984d"
+    sha256 cellar: :any,                 arm64_sonoma:  "aae62eb732843dccd695d0228166fb77bd7f39350464ebec9b1dadf83116434c"
+    sha256 cellar: :any,                 arm64_ventura: "a651f9197f973c8b9846d3e5d4d8415d4f846dd074b44d4c9cc6aee38027c2d5"
+    sha256 cellar: :any,                 sonoma:        "baaeffca5e7d33ecea19f76071bd3679845c3626dda3d3fef36506609b13569c"
+    sha256 cellar: :any,                 ventura:       "56d53252d63b0ef61aa6465401500bc692c2ea3bc90324f10d72f5370bb8dd63"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4660629844154eb7e200d48e84b842108d3649096881db26348b0472a7d66cdb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d8a1b246f53b43a2e7db5d6fd5c3ec12209be17374cdc5b310e1129e43843c6"
   end
 
   depends_on "cmake" => :build

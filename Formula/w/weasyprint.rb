@@ -3,17 +3,18 @@ class Weasyprint < Formula
 
   desc "Convert HTML to PDF"
   homepage "https://www.courtbouillon.org/weasyprint"
-  url "https://files.pythonhosted.org/packages/2b/f0/1ac7d241b8cabaaf047278ef67b64869473a4e0a2218a1cbc0a6ffb0d8fd/weasyprint-63.1.tar.gz"
-  sha256 "cb424e63e8dd3f14195bfe5f203527646aa40a2f00ac819f9d39b8304cec0044"
+  url "https://files.pythonhosted.org/packages/38/76/7f865f0019120be20276813097b5729b8487b93dd4aff339aa77ed8c7ad2/weasyprint-65.1.tar.gz"
+  sha256 "120281bdbd42ffaa7d7e5cedbe3182a2cef36ea5ad97fe9f357e43be6a1e58ea"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b5b012f713e519add08e47b4f909a31efacc420a4c31c6c66571a4f48e50c22d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "63cf630515a874763c0bb9c551a3f4ddf26ac08b2aa9cfe6109ad53586157cf3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "391cf932d971125cd7d57ad322a0b0960c33ed5972472db10c1913a60bd15cc5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "61beff592575c38786320e8e8867c528f65a0e1a6e7cf30f84c1b5f7e075d39d"
-    sha256 cellar: :any_skip_relocation, ventura:       "87ccf0b4f7df1615889ff91fa35192e612104eb5edf665567edea63b44e2baa5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22042851994d5b41f6110f065ae4b3996ed1c2016d9a15a51ea23a497d4b937a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cb19a24a4ae05930d0e9569829598c313b81abc3c30330a488b2cf18c8c50e5f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "46eacde53c64bd14ddab0737f962a8254ed322a7825b08bbd9e6ddfab28099bb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "abc7ccfa638b28bbd7215c148252bfdb38d2344c36fbf417cc05b7114b169a55"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cc783f64a91be14e3ba8eb986f463c3a87204aff040ad2e438ff75f309afc94b"
+    sha256 cellar: :any_skip_relocation, ventura:       "4a2dda03c424995de22317715d54ab20dee50c2e5c0705c3125ee58383805557"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a9c4b5c226d70448bc68b2d4ff559a880ae710993604fca91091343abed92983"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5cf3e1a1d6c6bff570b8cec3e029951f06976f0dd0e803e5318c386efad2a427"
   end
 
   depends_on "pango"
@@ -33,13 +34,13 @@ class Weasyprint < Formula
   end
 
   resource "cssselect2" do
-    url "https://files.pythonhosted.org/packages/e7/fc/326cb6f988905998f09bb54a3f5d98d4462ba119363c0dfad29750d48c09/cssselect2-0.7.0.tar.gz"
-    sha256 "1ccd984dab89fc68955043aca4e1b03e0cf29cad9880f6e28e3ba7a74b14aa5a"
+    url "https://files.pythonhosted.org/packages/9f/86/fd7f58fc498b3166f3a7e8e0cddb6e620fe1da35b02248b1bd59e95dbaaa/cssselect2-0.8.0.tar.gz"
+    sha256 "7674ffb954a3b46162392aee2a3a0aedb2e14ecf99fcc28644900f4e6e3e9d3a"
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/f4/3a/6ab28db8f90c99e6b502436fb642912b590c352d5ba83e0b22b46db209da/fonttools-4.55.2.tar.gz"
-    sha256 "45947e7b3f9673f91df125d375eb57b9a23f2a603f438a1aebf3171bffa7a205"
+    url "https://files.pythonhosted.org/packages/03/2d/a9a0b6e3a0cf6bd502e64fc16d894269011930cabfc89aee20d1635b1441/fonttools-4.57.0.tar.gz"
+    sha256 "727ece10e065be2f9dd239d15dd5d60a66e17eac11aea47d447f9f03fdbc42de"
   end
 
   resource "pycparser" do
@@ -53,8 +54,8 @@ class Weasyprint < Formula
   end
 
   resource "pyphen" do
-    url "https://files.pythonhosted.org/packages/66/46/3dd0ae4b52016496069af6c4fca3b5918b0281fc92678f739edb8f3eb377/pyphen-0.17.0.tar.gz"
-    sha256 "1d13acd1ce37a384d7612954ae6c7801bb4c5316da0e2b937b2127ba702a3da4"
+    url "https://files.pythonhosted.org/packages/69/56/e4d7e1bd70d997713649c5ce530b2d15a5fc2245a74ca820fc2d51d89d4d/pyphen-0.17.2.tar.gz"
+    sha256 "f60647a9c9b30ec6c59910097af82bc5dd2d36576b918e44148d8b07ef3b4aa3"
   end
 
   resource "tinycss2" do
@@ -86,7 +87,7 @@ class Weasyprint < Formula
       <p>This is a PDF</p>
     HTML
     system bin/"weasyprint", "example.html", "example.pdf"
-    assert_predicate testpath/"example.pdf", :exist?
+    assert_path_exists testpath/"example.pdf"
     File.open(testpath/"example.pdf", encoding: "iso-8859-1") do |f|
       contents = f.read
       assert_match(/^%PDF-1.7\n/, contents)

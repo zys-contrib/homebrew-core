@@ -1,18 +1,19 @@
 class Trafficserver < Formula
   desc "HTTP/1.1 and HTTP/2 compliant caching proxy server"
   homepage "https://trafficserver.apache.org/"
-  url "https://downloads.apache.org/trafficserver/trafficserver-10.0.2.tar.bz2"
-  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-10.0.2.tar.bz2"
-  sha256 "21b42ec8bcae0ec22f55688d83e7ca13821b73261ebb25f9d1fdded5e804c657"
+  url "https://downloads.apache.org/trafficserver/trafficserver-10.0.5.tar.bz2"
+  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-10.0.5.tar.bz2"
+  sha256 "79d4efc02a94b38cf75ad3bfc0652d84155b4cdd5cf2cdcdb53399aa6ab8e397"
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_sequoia: "ac295e2be0157ee5c1b85450ec723a6da7f69f5c7733fea17176b09837f7cc80"
-    sha256 arm64_sonoma:  "8b94765353338915e12cf310316df54f95a4a24dd281da11e2eb1a5437bd6870"
-    sha256 arm64_ventura: "05464a026d9c405703061cf3ac88ad71e97acb6cf6e0a680c78aa9a03789c142"
-    sha256 sonoma:        "577215262b7bd8094314d2a521e8b4c0fcb72d2978a3741fc919ec659ed2d8a8"
-    sha256 ventura:       "07737dd01472d55d6b590c1a4eb19d7c91a92f054c11305a62d6323277ec5e48"
-    sha256 x86_64_linux:  "56795be7b8ba2852b92de0f92df9489a5eb2700ba9bc06f1683330e7b826995c"
+    sha256 arm64_sequoia: "8036860308c3d5a166f8e67334892d79dd185b759a88f0bda448dc55e4d152d9"
+    sha256 arm64_sonoma:  "e4b4b50ca4ccd123f27e6b140bc9db7faab0c793f71de15660336a1fc495ada2"
+    sha256 arm64_ventura: "947ce75f85a4f4e40da713ca19d9700ea6dff56340433f52dae608a81bb14c1a"
+    sha256 sonoma:        "5f8f1e5de63f3a656df0c660d47b5394942ea922e1a47397ab62aff7bcf34bb5"
+    sha256 ventura:       "f5d7187b184a23f594b870f252f494fcdad54ec0376244a174d608ac4eb68386"
+    sha256 arm64_linux:   "d5686131b0ae392e9b63efd83df2fb98e8214ccb4db7d8d2b2ec899c0708b7f7"
+    sha256 x86_64_linux:  "bba4bdd8d52ab6650c7957d16818fc22ad7db80032a6490635b9f2e4892efdc2"
   end
 
   depends_on "cmake" => :build
@@ -27,6 +28,7 @@ class Trafficserver < Formula
   depends_on "nuraft"
   depends_on "openssl@3"
   depends_on "pcre" # PCRE2 issue: https://github.com/apache/trafficserver/issues/8780
+  depends_on "pcre2"
   depends_on "xz"
   depends_on "yaml-cpp"
 

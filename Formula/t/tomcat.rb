@@ -1,13 +1,13 @@
 class Tomcat < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-11/v11.0.2/bin/apache-tomcat-11.0.2.tar.gz"
-  mirror "https://archive.apache.org/dist/tomcat/tomcat-11/v11.0.2/bin/apache-tomcat-11.0.2.tar.gz"
-  sha256 "c1b31a6989d30a7344c1a3655da74679ce9f9b48a271e864647a141de3b78cb8"
+  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-11/v11.0.7/bin/apache-tomcat-11.0.7.tar.gz"
+  mirror "https://archive.apache.org/dist/tomcat/tomcat-11/v11.0.7/bin/apache-tomcat-11.0.7.tar.gz"
+  sha256 "2fcece641c62ba1f28e1d7b257493151fc44f161fb391015ee6a95fa71632fb9"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "71c14e8939230e4b7b4b9e8e716a5920c89c68c68ffa16288574d156355f1461"
+    sha256 cellar: :any_skip_relocation, all: "2407524101991450c2c48e0ffe61ceb9b05f51ca08742fc3ac8775c5136cea1b"
   end
 
   depends_on "openjdk"
@@ -52,6 +52,6 @@ class Tomcat < Formula
     ensure
       Process.wait pid
     end
-    assert_predicate testpath/"logs/catalina.out", :exist?
+    assert_path_exists testpath/"logs/catalina.out"
   end
 end

@@ -1,8 +1,8 @@
 class AwsSdkCpp < Formula
   desc "AWS SDK for C++"
   homepage "https://github.com/aws/aws-sdk-cpp"
-  url "https://github.com/aws/aws-sdk-cpp/archive/refs/tags/1.11.480.tar.gz"
-  sha256 "7d6a2e4ba851d773236745ac399a5120bcb04e8122e45b589742bd45ebc72a7f"
+  url "https://github.com/aws/aws-sdk-cpp/archive/refs/tags/1.11.570.tar.gz"
+  sha256 "d9f47c914d8cf21ce9c4447e1c14e98d7db51f61ba6d37382bb730eca989313c"
   license "Apache-2.0"
   head "https://github.com/aws/aws-sdk-cpp.git", branch: "main"
 
@@ -11,12 +11,13 @@ class AwsSdkCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "71b15e826f962515dd14adeb876ab95d633ccd4d284bb15aac2094a061f5e4eb"
-    sha256 cellar: :any,                 arm64_sonoma:  "0db2abbe798907acb6cc5846c1d8346646a08b7d635d93f49ba37dded71abe6c"
-    sha256 cellar: :any,                 arm64_ventura: "c1c83718cbf49352b98dd04e3fe68bcd05e353d649ece3c564b0a5a6120725c5"
-    sha256 cellar: :any,                 sonoma:        "37df18081f54c2079e6a40dadc84c45f9941e34c1a86d5e6f25b2216a61f2100"
-    sha256 cellar: :any,                 ventura:       "1102038dc9539dce0a076ef0f7b6f69752898605645ffacad7e5cf3137a986e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96226da9e716bb42689c1baa5406636b9353574276a718f86036d13b46b1793f"
+    sha256                               arm64_sequoia: "91aa2a095753824a745a75c042d483391775e69e19065cd11d30411e9bc9062f"
+    sha256                               arm64_sonoma:  "9b666a3ac627142fcef34e248a34a15abd4a7360337e9c987d87ad1117c0da9d"
+    sha256                               arm64_ventura: "3c49fc9735e0346b1ec069dbc652eb74e45fb75030dcbaf637e4ff360626e09a"
+    sha256 cellar: :any,                 sonoma:        "1cb29cadf72a4f7054f5046a4d3ec63353570eaed4949654b2284fbc07497068"
+    sha256 cellar: :any,                 ventura:       "836de4f0587a6f24e0ff482c3e399b53504330c1e04a522ef1c4151ac8eca931"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cc34a6aeee18ecb2f760397f237bd95a15a4c3194a42fe2abc15239e26a15b1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1f1df7094df9a842464e3e3fda3eb24dea5f9125db8ea326841ab899d23d3ad"
   end
 
   depends_on "cmake" => :build
@@ -41,7 +42,7 @@ class AwsSdkCpp < Formula
 
     args = %W[
       -DBUILD_DEPS=OFF
-      -DCMAKE_MODULE_PATH=#{Formula["aws-c-common"].opt_lib}/cmake
+      -DCMAKE_MODULE_PATH=#{Formula["aws-c-common"].opt_lib}/cmake/aws-c-common/modules
       -DCMAKE_SHARED_LINKER_FLAGS=#{linker_flags.join(" ")}
       -DENABLE_TESTING=OFF
     ]

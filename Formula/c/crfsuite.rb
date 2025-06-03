@@ -15,6 +15,7 @@ class Crfsuite < Formula
     sha256 cellar: :any,                 ventura:        "9044e7b8b91b781be38409cc180e7889fdf5430699025628726dc21919324704"
     sha256 cellar: :any,                 monterey:       "72d451e62bf3ab7b5b2d73d9cb4757946e1c0aa75c3c5f28c1c2d899d052bdd1"
     sha256 cellar: :any,                 big_sur:        "72b8c9d618a16bd4287990ae6c7b46bfdfd964cbe20582d4fa10f5b4b12f09ba"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "057472092e2730abbd995d9b23b61f77e9b6f5f829f36b63786110ef657c27f2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "45a6dd13114c20e2a4bd3d82033e463316b635d8c7a61c582e299bca8832ec58"
   end
 
@@ -26,11 +27,6 @@ class Crfsuite < Formula
   uses_from_macos "python" => :test
 
   conflicts_with "freeling", because: "both install `crfsuite` binaries"
-
-  resource "homebrew-conll2000-training-data" do
-    url "https://www.cnts.ua.ac.be/conll2000/chunking/train.txt.gz"
-    sha256 "bcbbe17c487d0939d48c2d694622303edb3637ca9c4944776628cd1815c5cb34"
-  end
 
   # Fix autoconf failure.
   patch do
@@ -50,6 +46,11 @@ class Crfsuite < Formula
   end
 
   test do
+    resource "homebrew-conll2000-training-data" do
+      url "https://www.cnts.ua.ac.be/conll2000/chunking/train.txt.gz"
+      sha256 "bcbbe17c487d0939d48c2d694622303edb3637ca9c4944776628cd1815c5cb34"
+    end
+
     resource("homebrew-conll2000-training-data").stage testpath
 
     # Use spawn instead of {shell,pipe}_output to directly read and write
@@ -60,6 +61,6 @@ class Crfsuite < Formula
     Process.wait(pid)
 
     system bin/"crfsuite", "learn", "--model", "CoNLL2000.model", "train.crfsuite.txt"
-    assert_predicate testpath/"CoNLL2000.model", :exist?
+    assert_path_exists testpath/"CoNLL2000.model"
   end
 end

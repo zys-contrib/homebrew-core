@@ -1,8 +1,8 @@
 class Onednn < Formula
   desc "Basic building blocks for deep learning applications"
   homepage "https://www.oneapi.io/open-source/"
-  url "https://github.com/oneapi-src/oneDNN/archive/refs/tags/v3.6.2.tar.gz"
-  sha256 "e79db0484dcefe2c7ff6604c295d1de2830c828941898878c80dfb062eb344d1"
+  url "https://github.com/oneapi-src/oneDNN/archive/refs/tags/v3.8.1.tar.gz"
+  sha256 "4b0638061a789a1efbefdcd2e85eb257c7b432b3b6a71ba8909e19d75f50b163"
   license "Apache-2.0"
   head "https://github.com/oneapi-src/onednn.git", branch: "master"
 
@@ -12,12 +12,13 @@ class Onednn < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "55a871e4cc85c375e85afc4c0033e2454009ed781b9ff1891f10a79dbe4c0a8d"
-    sha256 cellar: :any,                 arm64_sonoma:  "a4d8ad31b54d27832580f64674e73cc9507fd58e43de3efcffc02d7a344cf565"
-    sha256 cellar: :any,                 arm64_ventura: "3836cbb64b46944560d612d896db06fab94bfcf5b85934003678278093946887"
-    sha256 cellar: :any,                 sonoma:        "b5618c3b968f3ffbffc9606958de1417bd07c7fbb804515c8b7b0dfc21049a2a"
-    sha256 cellar: :any,                 ventura:       "9f42b41e4f17f44deca0516b523ceb311551b20794e2992ac5c600dc0dc728fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8e0bdffcf7d4f862a71f286061142d90bea9889a12efb887054731b54a71085"
+    sha256 cellar: :any,                 arm64_sequoia: "2a3870ad069946d15ecc4a9277abb53f537704f0bff97c513c0555147307ad96"
+    sha256 cellar: :any,                 arm64_sonoma:  "babcfa25adcc7751b653dac1df07392d4366f0dabf7e0a3bd7d0cf4d19d9eaac"
+    sha256 cellar: :any,                 arm64_ventura: "254925ab3e63d3a1e3446d481a1bcb94ea832386dc039b98da8221dbd3000d8e"
+    sha256 cellar: :any,                 sonoma:        "1cda78cd98975d6a09429d16c1ce69ba8d6ae2f55cbdc2a58eeb1f0d17c584d1"
+    sha256 cellar: :any,                 ventura:       "5ae520034af5413e29d35a8e74abc1a11e7e7dac16c078db757266d2d418ae2d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2d79c96332e57b65c385bedd7aa95ca82ecc33616c7b7485ab8a3f0cb24e9e04"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d298110a7fff028faebc21047f71344eb13b5d5464b076b7853ad32e141086b"
   end
 
   depends_on "cmake" => :build

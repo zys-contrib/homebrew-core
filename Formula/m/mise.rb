@@ -1,8 +1,8 @@
 class Mise < Formula
   desc "Polyglot runtime manager (asdf rust clone)"
   homepage "https://mise.jdx.dev/"
-  url "https://github.com/jdx/mise/archive/refs/tags/v2025.1.15.tar.gz"
-  sha256 "d3f2db473b9639e77f63e1dca462b7ca8b5a3fee8083ce7f196c1463745fc69d"
+  url "https://github.com/jdx/mise/archive/refs/tags/v2025.5.16.tar.gz"
+  sha256 "88f426c2db4d92cfa42f1179fac8d227c0137e174989cec1f58eec7ff8881d22"
   license "MIT"
   head "https://github.com/jdx/mise.git", branch: "main"
 
@@ -11,13 +11,16 @@ class Mise < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :bumped_by_upstream
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7c5e89258276e7a45b21b05f75879af1c761ae1ba9e2d309f5b030e2e74bcbc3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d2efb7fac03646bd3d1eb292f6170cd5bde4925001d0de48beb1fd62eea1b7a4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "00f969830bc796411a0ce8987a43d8b0c32429a26ca9bf19fc21870fc2d6826f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "affcbdd7dff9b06bddfd1f29a53816a6af1b878fdc73aec8d3026f6d015f71b1"
-    sha256 cellar: :any_skip_relocation, ventura:       "275bff5396fcec6d74cd8788d67565d1c3e7c083522da75f40ccd4433abed032"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d56e910308c31f3e4a1310cb4958aff932db5eab392cac49d74e23eccaee260e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "db4f626f5a1d6dabe526ac436f29337484e70755420de8effaaae59a21074d3a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "38e689bd6ddbb02073bcca4b8838f0e7ca9f27e8a7119ea12df7c52ca15ec0b1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "bcde07e9e5609acb8f7bb80a9aacd3c45bd7e555d023d957b4f7bc651480ee86"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fa284efb9aee5c13a683151eb0014800e8330b04aded50def0f6bbab1607e9b9"
+    sha256 cellar: :any_skip_relocation, ventura:       "4c8fba5c56497a521a8bc137a425429cb15042a166e120862b78c051153ba252"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb1d2a40460d3daba0226fd5f08da830350d6a0edddbc821976526208eed52e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "786196e3522f508bdbb0e6170722db1aa2d538799fbe16f771af1e2724e99ba3"
   end
 
   depends_on "pkgconf" => :build
@@ -52,14 +55,6 @@ class Mise < Formula
     <<~EOS
       If you are using fish shell, mise will be activated for you automatically.
     EOS
-  end
-
-  def check_binary_linkage(binary, library)
-    binary.dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == File.realpath(library)
-    end
   end
 
   test do

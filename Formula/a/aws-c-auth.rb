@@ -1,17 +1,18 @@
 class AwsCAuth < Formula
   desc "C99 library implementation of AWS client-side authentication"
   homepage "https://github.com/awslabs/aws-c-auth"
-  url "https://github.com/awslabs/aws-c-auth/archive/refs/tags/v0.8.1.tar.gz"
-  sha256 "15241d7284aa0ac552589b61d04be455413af76fb2e1f13084a784a41f5faee5"
+  url "https://github.com/awslabs/aws-c-auth/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "aa6e98864fefb95c249c100da4ae7aed36ba13a8a91415791ec6fad20bec0427"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "dd17fa84772737aef6d36e53b3359078dd908c040166a3111a7864ad0c35b7cb"
-    sha256 cellar: :any,                 arm64_sonoma:  "2b3a1e15bb2f3ce6b00b973a6ca0a2d00400bd2c82ca11bfb0a71cb69b430927"
-    sha256 cellar: :any,                 arm64_ventura: "d0e8f8d09808d5598c4315ce9f18478ed55f67b2fb9953ff7c32cccc853af601"
-    sha256 cellar: :any,                 sonoma:        "944b5b65af067396b4d97e8fc460289e1d81967ecd0ef2d1402dd776d48b41ba"
-    sha256 cellar: :any,                 ventura:       "8688b9b3ddf2b54c4e96c794dee37078b8693d089a6977bcf7b74fc9b0135cef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7bad3db0dc215fe6e1ec3e9c193878283b22a37d18968be394405bf2b0fed6b"
+    sha256 cellar: :any,                 arm64_sequoia: "06df88080fcfaf6fe91a2c540b871a0c77a141ae1dbe8b73668e03eb55d0b67e"
+    sha256 cellar: :any,                 arm64_sonoma:  "0c3c13ae6687460c5f29617c7c486260d3bc39cc7a496cde5daa2f3c36e42dd4"
+    sha256 cellar: :any,                 arm64_ventura: "cf5e60be0f03a5525711c583ffd9c493a04a98e4826761cfd5ff14545ab8b69e"
+    sha256 cellar: :any,                 sonoma:        "49dfff5ac5771443df5b68926932e75f0a40a16843b4178ffcbac5112321142c"
+    sha256 cellar: :any,                 ventura:       "c317c5c9f21dfac42f85f26189bae9b63dc40930e013c18a56eb9b50318ce2b6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "75e6ac9faec17da32024b9facb7f1ff8ab418e069d3657ee98c3e73a96202384"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ad423d2062cee09491d1c0fcdbf1f9699bdaa65ec2072552108fa0ce2070f3f"
   end
 
   depends_on "cmake" => :build
@@ -22,10 +23,7 @@ class AwsCAuth < Formula
   depends_on "aws-c-sdkutils"
 
   def install
-    args = %W[
-      -DBUILD_SHARED_LIBS=ON
-      -DCMAKE_MODULE_PATH=#{Formula["aws-c-common"].opt_lib}/cmake
-    ]
+    args = ["-DBUILD_SHARED_LIBS=ON"]
     # Avoid linkage to `aws-c-compression`
     args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
 

@@ -1,18 +1,19 @@
 class Tailspin < Formula
   desc "Log file highlighter"
   homepage "https://github.com/bensadeh/tailspin"
-  url "https://github.com/bensadeh/tailspin/archive/refs/tags/4.0.0.tar.gz"
-  sha256 "f13ab53eb3bd59733d3fe53a6f03dd42be3801eef7456155f520139036ffb865"
+  url "https://github.com/bensadeh/tailspin/archive/refs/tags/5.4.4.tar.gz"
+  sha256 "5c7829245c1b02cc19e0c5a23222ab955dd0b36e8c11e135db4257e393a7c236"
   license "MIT"
   head "https://github.com/bensadeh/tailspin.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bc0f5319f4a545ebe6e44c215cea5429977c59b15a713af8a0a1f88b0e8d6b8e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9f38a6c0490868ed638fb1adc1a58af504a357ae2c3d9f942fdac537457d813"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fe92869a22866f07cdbb43f7fa6f8ed00e1c761c1984a2d747c07838ba75c68d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "adc970b3a392071b76afd3181d018b879c7bb5cba8031b6c9310fdbbeb79bc36"
-    sha256 cellar: :any_skip_relocation, ventura:       "bc73db9b555ffea1603aaf4048ec5b1c216e1563502d2533b04f242f002532c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dbbf542e120a9accf74c4c1972c8a11738e13efa0dc41ac19ed2ffbbc2dce291"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "12dd8c6a640bcbf84f4ba351978399a055c9b84521abc96de5f3514a7cf0e99c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a4d0884fa13813f1a516fc60f3550ec163ea25cdfc4d8005c7c8d38d26fc5955"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "15bcab094c86d4a6470fb0f1791f8484725961f4dcd0e2d5d50229fe65578218"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4ab40356b2b2d8da2f1d98a8fde3cb7dfb9c2b39b2a26cad56fa5de1e010ee19"
+    sha256 cellar: :any_skip_relocation, ventura:       "d5e93420e1c8be0c6e991882f309b5fa76c875d52ade5686709926b48f4967de"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "786524577485d83a41abace9600a7a8b00ccfc5717dcefb83401614d045a53ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "102926218f5e5efd1bc1388ddec3fa0a3ced925acfc9c2d06eb4170eac84c44f"
   end
 
   depends_on "rust" => :build
@@ -20,20 +21,16 @@ class Tailspin < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    generate_completions_from_executable(bin/"tspin", "--hidden-generate-shell-completions")
+    bash_completion.install "completions/tspin.bash" => "tspin"
+    fish_completion.install "completions/tspin.fish"
+    zsh_completion.install "completions/tspin.zsh" => "_tspin"
     man1.install "man/tspin.1"
   end
 
   test do
-    output = shell_output("#{bin}/tspin --start-at-end 2>&1")
-
-    expected = if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-      ""
-    else
-      "Missing filename"
-    end
-    assert_match expected, output
-
     assert_match version.to_s, shell_output("#{bin}/tspin --version")
+
+    (testpath/"test.log").write("test\n")
+    system bin/"tspin", "test.log"
   end
 end

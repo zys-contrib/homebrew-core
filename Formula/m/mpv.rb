@@ -1,19 +1,20 @@
 class Mpv < Formula
   desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
-  url "https://github.com/mpv-player/mpv/archive/refs/tags/v0.39.0.tar.gz"
-  sha256 "2ca92437affb62c2b559b4419ea4785c70d023590500e8a52e95ea3ab4554683"
+  url "https://github.com/mpv-player/mpv/archive/refs/tags/v0.40.0.tar.gz"
+  sha256 "10a0f4654f62140a6dd4d380dcf0bbdbdcf6e697556863dc499c296182f081a3"
   license :cannot_represent
   revision 1
   head "https://github.com/mpv-player/mpv.git", branch: "master"
 
   bottle do
-    sha256 arm64_sequoia: "6ca65c7edfb41534bf8a22a8f17284717c699680c43e23246258f919ed2545ac"
-    sha256 arm64_sonoma:  "17e235319eb2611e7a828444a64954cc340effb0eb16b909b9d247a402c177c2"
-    sha256 arm64_ventura: "b4de2eb8f40a03737d705d157921d61e5f3a1f8be83e3d1bfde7144a29ab15af"
-    sha256 sonoma:        "ae496a7e51e9c5f4636b2f868b1371c157ca7010d6f353c70b3788b2a9381a44"
-    sha256 ventura:       "8c2c5be6917b47240078eabfc1208f54f4a621c8d74e7aee60e2acbcec000c55"
-    sha256 x86_64_linux:  "a80f7ba627052cc08ac3433bda05d6abf36220a5832f1d965c1f12facb7ae182"
+    sha256 arm64_sequoia: "075f2b0b6d833026b82de77f9d9f83c87d433bb5acab784280205171e9f3e963"
+    sha256 arm64_sonoma:  "627375c7edf7973228eeef4d28388ce62174f7f9271e060caa867bec62ae4b11"
+    sha256 arm64_ventura: "8a54c14a9d145a19211ed6b2942436e1dacddcbe0a90cb45ef76ff3ccc4a9b21"
+    sha256 sonoma:        "0dbbe3e8f84cbaf4b7e7683c446c1ea0bc60477d33fe54888cab47da9da92073"
+    sha256 ventura:       "7fbcb23ec59afca855b5ec49dfbfa90f906c942bdd40b59c11f1a4497c4de837"
+    sha256 arm64_linux:   "e52250cf1766f3e138d0f74bf34e9e0d305500c687e120784920a373ee8fbf1a"
+    sha256 x86_64_linux:  "85efa3602606e59abf48705c91220416dbf3420cdef86229c9943c363763d10b"
   end
 
   depends_on "docutils" => :build
@@ -43,6 +44,10 @@ class Mpv < Formula
     depends_on "molten-vk"
   end
 
+  on_ventura :or_older do
+    depends_on "lld" => :build
+  end
+
   on_linux do
     depends_on "alsa-lib"
     depends_on "libdrm"
@@ -58,7 +63,10 @@ class Mpv < Formula
     depends_on "mesa"
     depends_on "pulseaudio"
     depends_on "wayland"
+    depends_on "wayland-protocols" # needed by mpv.pc
   end
+
+  conflicts_with cask: "stolendata-mpv", because: "both install `mpv` binaries"
 
   def install
     # LANG is unset by default on macOS and causes issues when calling getlocale
@@ -71,6 +79,15 @@ class Mpv < Formula
 
     # libarchive is keg-only
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libarchive"].opt_lib/"pkgconfig" if OS.mac?
+
+    # Work around https://github.com/mpv-player/mpv/issues/15591
+    # This bug happens running classic ld, which is the default
+    # prior to Xcode 15 and we enable it in the superenv prior to
+    # Xcode 15.3 when using -dead_strip_dylibs (default for meson).
+    if OS.mac? && MacOS.version <= :ventura
+      ENV.append "LDFLAGS", "-fuse-ld=lld"
+      ENV.O1 # -Os is not supported for lld and we don't have ENV.O2
+    end
 
     args = %W[
       -Dbuild-date=false

@@ -1,11 +1,19 @@
 class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
-  url "https://github.com/containers/podman/archive/refs/tags/v5.3.2.tar.gz"
-  sha256 "e7d7abf2d4ecae7217af017a4199d555563721bf6c3ae52e68704ee8268c432b"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
-  revision 1
   head "https://github.com/containers/podman.git", branch: "main"
+
+  stable do
+    url "https://github.com/containers/podman/archive/refs/tags/v5.5.0.tar.gz"
+    sha256 "a4abfc72ef9a59ba80d081ea604ad2976ff967ae526e50e234edc1d2481bd9d1"
+
+    # build patch for go1.24.3, upstream pr ref, https://github.com/containers/podman/pull/26137
+    patch do
+      url "https://github.com/containers/podman/commit/db65baaa215b68d73996ca17dd8c596901ab8bdb.patch?full_index=1"
+      sha256 "b9e8ca69b6c9d4bf99307f0afca96c4c9c6d39674628d88358e5df56b1cac839"
+    end
+  end
 
   # There can be a notable gap between when a version is tagged and a
   # corresponding release is created and upstream uses GitHub releases to
@@ -18,12 +26,12 @@ class Podman < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8d3c5a1c99fe2e4309ea96158e12f9132da072786b5cca5d2a6ddeb57a9b49eb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d54aef6a18d43715e8cc5e1e486cf255e3e5931654e46bf95012a83c7341904"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b2779601ca3ae538593ee8399591f51c625027194d28d2c9768b7831f4b8f261"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2aab6be60b444c3dd2470f3b11a5414bb19901f27b6f49e64716f093801e2a9d"
-    sha256 cellar: :any_skip_relocation, ventura:       "4de740a6f9e3a1d5dd61985d03c6a5e5ba0ac62aee27ab1219f2bb617f831fa5"
-    sha256                               x86_64_linux:  "eb228f53621c5be1b1fcec6efca2b06790cd8f1d5ea602e1b91e33de30d0d4b1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8326e41b43e41f71fa6cf9c32197bd6326249edb1abe5d56f182c5a4ae5491ea"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe77f82f04ef18c3a3ad6457340e8bbc1451467c0babc7a27ebed477ab3a7efd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "184ef91d1d9262339e77cbf68af5230b2d4e3fa2c02919eea92ece9e69429fc2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "56c83d6ce5ee4811cb81388fb1d98b561a7384a72d4fef58180d1ba5ba0101ec"
+    sha256 cellar: :any_skip_relocation, ventura:       "c03c4bda67fda6af378728aa48cfc5b54627a8462b79c6a0ec917f0f708a3702"
+    sha256                               x86_64_linux:  "41451408fa6ba525f18d8389aef3a4f174a6cddd9c1891ed3e20a065374d0db7"
   end
 
   depends_on "go" => :build
@@ -52,17 +60,21 @@ class Podman < Formula
     depends_on "systemd"
   end
 
+  # Bump these resources versions to match those in the corresponding version-tagged Makefile
+  # at https://github.com/containers/podman/blob/#{version}/contrib/pkginstaller/Makefile
+  #
+  # More context: https://github.com/Homebrew/homebrew-core/pull/205303
   resource "gvproxy" do
     on_macos do
-      url "https://github.com/containers/gvisor-tap-vsock/archive/refs/tags/v0.8.1.tar.gz"
-      sha256 "9b7fb12dfc37b0a727f2209ff8b557c4ec922d11cec30a778c192da360db4a2f"
+      url "https://github.com/containers/gvisor-tap-vsock/archive/refs/tags/v0.8.6.tar.gz"
+      sha256 "eb08309d452823ca7e309da2f58c031bb42bb1b1f2f0bf09ca98b299e326b215"
     end
   end
 
   resource "vfkit" do
     on_macos do
-      url "https://github.com/crc-org/vfkit/archive/refs/tags/v0.6.0.tar.gz"
-      sha256 "4efaf318729101076d3bf821baf88e5f5bf89374684b35b2674c824a76feafdf"
+      url "https://github.com/crc-org/vfkit/archive/refs/tags/v0.6.1.tar.gz"
+      sha256 "e35b44338e43d465f76dddbd3def25cbb31e56d822db365df9a79b13fc22698c"
     end
   end
 
@@ -75,21 +87,22 @@ class Podman < Formula
 
   resource "netavark" do
     on_linux do
-      url "https://github.com/containers/netavark/archive/refs/tags/v1.13.1.tar.gz"
-      sha256 "b3698021677fb3b0fd1dc5f669fd62b49a7f4cf26bb70f977663f6d1a5046a31"
+      url "https://github.com/containers/netavark/archive/refs/tags/v1.15.0.tar.gz"
+      sha256 "efda776e538ce33050b1f6ce58c5070efeb45653d48fe4d17a47524c8fc17cf1"
     end
   end
 
   resource "aardvark-dns" do
     on_linux do
-      url "https://github.com/containers/aardvark-dns/archive/refs/tags/v1.13.1.tar.gz"
-      sha256 "8c21dbdb6831d61d52dde6ebc61c851cfc96ea674cf468530b44de6ee9e6f49e"
+      url "https://github.com/containers/aardvark-dns/archive/refs/tags/v1.15.0.tar.gz"
+      sha256 "4ecc3996eeb8c579fbfe50901a2d73662441730ca4101e88983751a96b9fc010"
     end
   end
 
   def install
     if OS.mac?
       ENV["CGO_ENABLED"] = "1"
+      ENV["BUILD_ORIGIN"] = "brew"
 
       system "gmake", "podman-remote"
       bin.install "bin/darwin/podman" => "podman-remote"
@@ -127,6 +140,7 @@ class Podman < Formula
       ENV.O0
       ENV["PREFIX"] = prefix
       ENV["HELPER_BINARIES_DIR"] = opt_libexec/"podman"
+      ENV["BUILD_ORIGIN"] = "brew"
 
       system "make"
       system "make", "install", "install.completions"

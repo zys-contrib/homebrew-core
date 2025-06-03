@@ -1,8 +1,8 @@
 class Composer < Formula
   desc "Dependency Manager for PHP"
   homepage "https://getcomposer.org/"
-  url "https://getcomposer.org/download/2.8.5/composer.phar"
-  sha256 "9cef18212e222351aeb476b81de7b2a5383f775336474467bf5c7ccfe84ab0cc"
+  url "https://getcomposer.org/download/2.8.9/composer.phar"
+  sha256 "8e8829ec2b97fcb05158236984bc252bef902e7b8ff65555a1eeda4ec13fb82b"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,13 @@ class Composer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3be8b1d9eef803f6f102d3ea027f6495cd9dccd39a904c5cf9b91ee64c67a53c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3be8b1d9eef803f6f102d3ea027f6495cd9dccd39a904c5cf9b91ee64c67a53c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3be8b1d9eef803f6f102d3ea027f6495cd9dccd39a904c5cf9b91ee64c67a53c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ca89a52c5a4d3f2b48c7ad0570199fff153a5a1c06e5830c6a6bedafd98f5ec6"
-    sha256 cellar: :any_skip_relocation, ventura:       "ca89a52c5a4d3f2b48c7ad0570199fff153a5a1c06e5830c6a6bedafd98f5ec6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "280f7da2db2db2f2ab2327885cad084a2d5e4a213fc3c113ec096c63592a6b0e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a05a5caf378a6feffbe8eb20a6df237f2fbdcd4ad95c330523721cba76c5ae24"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a05a5caf378a6feffbe8eb20a6df237f2fbdcd4ad95c330523721cba76c5ae24"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a05a5caf378a6feffbe8eb20a6df237f2fbdcd4ad95c330523721cba76c5ae24"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1f0caa6188458c601c106506cc548b99c711f6cd267cbe757ea80cc0307aac40"
+    sha256 cellar: :any_skip_relocation, ventura:       "1f0caa6188458c601c106506cc548b99c711f6cd267cbe757ea80cc0307aac40"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "00b726600dae89baf262d48d9919975579522b14e5a163506aedba18a74d3eab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "00b726600dae89baf262d48d9919975579522b14e5a163506aedba18a74d3eab"
   end
 
   depends_on "php"

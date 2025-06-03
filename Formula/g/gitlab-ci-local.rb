@@ -1,25 +1,26 @@
 class GitlabCiLocal < Formula
   desc "Run gitlab pipelines locally as shell executor or docker executor"
   homepage "https://github.com/firecow/gitlab-ci-local"
-  url "https://registry.npmjs.org/gitlab-ci-local/-/gitlab-ci-local-4.57.0.tgz"
-  sha256 "9a86c4e8ab6a8e0617b9244c100f50eddd272a9f080c370607cd993e24c8c45e"
+  url "https://registry.npmjs.org/gitlab-ci-local/-/gitlab-ci-local-4.60.1.tgz"
+  sha256 "2945d0322fd00ab9b734c6bda95a23b29162a906048ca8bda394466cb75a2f68"
   license "MIT"
-  head "https://github.com/firecow/gitlab-ci-local.git", branch: "master"
+  revision 1
 
   bottle do
-    sha256                               arm64_sequoia: "c554226dcc01a2b63a7692aa2b44d70b4cc707f7fc15902f4502a6359c5a692a"
-    sha256                               arm64_sonoma:  "dc5482ed2feb9841fc1f26457f3e0f570f1d47523dab77a439e372be836aad4e"
-    sha256                               arm64_ventura: "2570917dd299c4ef3354ab8d70c7509be56c7d2d0af624b5042aba0e32d25d6d"
-    sha256                               sonoma:        "05c77cb4111fccddbf1c9ae21cc8dad185915dbd2c22b62b57d4f9d815bb5ed2"
-    sha256                               ventura:       "0664b3036f576b3454e1eb4c8ecdb4115a4bcd06aed4bb517d241d202937bae0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac1f3233695e3223a14a8a2468e509d069d346c8b0a87cdda98ad15266d5dca9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a8df418f3d52221f021eccfde1ac3feb75cec1f14491b3b0015437c3f6ab795e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a8df418f3d52221f021eccfde1ac3feb75cec1f14491b3b0015437c3f6ab795e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a8df418f3d52221f021eccfde1ac3feb75cec1f14491b3b0015437c3f6ab795e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8164c92a39c20fda63c5a14e6b2560b6c91b2db7635ac212e4d623746354f930"
+    sha256 cellar: :any_skip_relocation, ventura:       "8164c92a39c20fda63c5a14e6b2560b6c91b2db7635ac212e4d623746354f930"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "001682515a95f8b8113ea08519e02c65b6a008debd67965ed7fc9adb6f0b1e8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa5a41c2900efcd4c9a01c2b0fbf41359d4f401b37844222182feb7685cd4ae8"
   end
 
   depends_on "node"
 
   def install
     system "npm", "install", *std_npm_args
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install_symlink libexec.glob("bin/*")
   end
 
   test do

@@ -1,9 +1,9 @@
 class Inform6 < Formula
   desc "Design system for interactive fiction"
   homepage "https://inform-fiction.org/inform6.html"
-  url "https://ifarchive.org/if-archive/infocom/compilers/inform6/source/inform-6.42-r6.tar.gz"
-  version "6.42-r6"
-  sha256 "495b0886f95654ad145a0c8bf3962eb9e13dd8243d44081a501aee20ecc6a30c"
+  url "https://ifarchive.org/if-archive/infocom/compilers/inform6/source/inform-6.42-r8.tar.gz"
+  version "6.42-r8"
+  sha256 "0a8dd735caf42c319e1184f12059aa4ec68a9b8ab95692e956c4cd9c91d45fca"
   license "Artistic-2.0"
   head "https://gitlab.com/DavidGriffith/inform6unix.git", branch: "master"
 
@@ -13,12 +13,13 @@ class Inform6 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "08efdc6b03b5d780921e28a6b2c592adaa4ef611f002f832185bd06868daf96d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8add27532fbcf6b1f77212958581cb96fb58197ae6822e0b029b124c6187ff93"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "788226d2bab59288932ae188f1fad70763d15e0cec48c99a29818c5448e9afd1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8c6e07b2ced98ce5569037b148cc7f891a3f7f0e72ad6d10012b678fc8ec57c4"
-    sha256 cellar: :any_skip_relocation, ventura:       "d274681d031f1238217f95ab2ebfc3405b1fcf419a16e624f9ef7ef270c6b07a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26e8af3f4de94383537d8a8f92dd031bea47a668a27f7617feac3941bc7d88fb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cf50a43cf6ad1bc5002808d0d54881f67ac354b4bcb8a5f667dc91f541bfaa29"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c56ad26a5f0b7ee5b1546a2323fcc1011727219c94f85d37e3c1f56c56218c9d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b047ddfaa9d4a2ed217f9db0848ae6ed4f81da101f483eb2d8ef181845114739"
+    sha256 cellar: :any_skip_relocation, sonoma:        "151021e2da3438b0fd19a89a5c11a0368bf64dedbb08dc92d32bf97254409dd2"
+    sha256 cellar: :any_skip_relocation, ventura:       "6ceed800af41932e57fc4f44c9fb35fbf68d112e67509cb46355918dcfd4769f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dd487ca3d4116c71e15bd22d38ee373a8b1bcd2e45ba5d042689b13c23ea6567"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b36578068913f30bbe928390054a167147038167d3b42781e9e066e5695a6f0"
   end
 
   def install
@@ -35,7 +36,7 @@ class Inform6 < Formula
 
     resource("homebrew-test_resource").stage do
       system bin/"inform", "Adventureland.inf"
-      assert_predicate Pathname.pwd/"Adventureland.z5", :exist?
+      assert_path_exists Pathname.pwd/"Adventureland.z5"
     end
   end
 end

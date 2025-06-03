@@ -1,8 +1,8 @@
 class Yaz < Formula
   desc "Toolkit for Z39.50/SRW/SRU clients/servers"
   homepage "https://www.indexdata.com/resources/software/yaz/"
-  url "https://ftp.indexdata.com/pub/yaz/yaz-5.34.3.tar.gz"
-  sha256 "ce4cb9e483e865ce57d32c2956b6ab65eed28cfe6dc904068c3abe4c54dba4c0"
+  url "https://ftp.indexdata.com/pub/yaz/yaz-5.35.1.tar.gz"
+  sha256 "db030d6d66880398a44215e26132630ee94f5e462d838809e43f97e6399c1353"
   license "BSD-3-Clause"
 
   # The latest version text is currently omitted from the homepage for this
@@ -13,12 +13,13 @@ class Yaz < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "65518d2c2df2c6c4ec6f7a9f0dfe274d790a581226bdf414d5249b2df29d2886"
-    sha256 cellar: :any,                 arm64_sonoma:  "39aae1432cd9dbe5a61f20eee14b53f47d1ff7055aabf25c31b76e220eb96a11"
-    sha256 cellar: :any,                 arm64_ventura: "217a709a081272964ed3fb136b1e1ba9bf8b7b07767ae23aa680cc896412c86e"
-    sha256 cellar: :any,                 sonoma:        "1d7bb3180287d7526099784cadf721ed1234efac4ff76fd845080c9ccad180d0"
-    sha256 cellar: :any,                 ventura:       "f74577c87219ab04264c78c157a2262ca8462c6ff519bcc657c09eb4afbcd913"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31d0cdbc299e8f2759a05e41bd1add117fe7d15379f79480c2733c329c875a52"
+    sha256 cellar: :any,                 arm64_sequoia: "24497a672f546f23ee52b7ff9b83863795545bd58a0c1561f3f634dcf220da7f"
+    sha256 cellar: :any,                 arm64_sonoma:  "e37f1921f43470a9a19b506b89f16e8f9b75a9965b8787dd5cf0e4ac28108555"
+    sha256 cellar: :any,                 arm64_ventura: "3ea0e0e6977e0a3bf1808e954386310246bdbc908051d9b653687cdd0b64e13b"
+    sha256 cellar: :any,                 sonoma:        "88022627e10356d887045d2d1be55bde3d09065ece5cbaec875047c748c7598c"
+    sha256 cellar: :any,                 ventura:       "280d60697fd3cb7fd04fdfb3ee24bd4df75e1de94408db54042d66786a7736a2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "403a708cb2e5a97a3702dea76a7b43ef8b23a1974aa6d6eebd8aaf3a07c37dad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b26f737c242d969fa3a4c151fe73e72949af1e049a9f0fefae57533e2db44fe6"
   end
 
   head do
@@ -35,7 +36,7 @@ class Yaz < Formula
 
   depends_on "pkgconf" => :build
   depends_on "gnutls"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "readline" # Possible opportunistic linkage. TODO: Check if this can be removed.
 
   uses_from_macos "libxml2"

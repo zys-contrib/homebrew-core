@@ -4,8 +4,8 @@ class Samba < Formula
   # option. The shared folder appears in the guest as "\\10.0.2.4\qemu".
   desc "SMB/CIFS file, print, and login server for UNIX"
   homepage "https://www.samba.org/"
-  url "https://download.samba.org/pub/samba/stable/samba-4.21.3.tar.gz"
-  sha256 "ae2179a613e7a5d4088735ab100d4ca1cae0f92374d6307e22eaec13ad90125c"
+  url "https://download.samba.org/pub/samba/stable/samba-4.22.1.tar.gz"
+  sha256 "6a1f89f1ab25916e255f1c2c3a4a88235a854af2eca40bb9d9bba7545b684a0a"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -14,12 +14,13 @@ class Samba < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "a5520caa74cc1e35e667127cb1513e01faa608bd555118140e78440e8a7f1725"
-    sha256 arm64_sonoma:  "059d7232026a74f9fa10880a33e16afae6b76c87870094ed6947e5b74d97edfe"
-    sha256 arm64_ventura: "864f78e791f20b4ee84966098f38afdb2238376b1a1c94fc6dc27f0979e0b4ae"
-    sha256 sonoma:        "256b0ec08c5dee33d8ceb8245a5b9a854199974fbf7236ed8f15aa5fd706b40d"
-    sha256 ventura:       "a5e6e9739e8e009396a48c4b13f3bdb28db78e4d32d384ae04f76c13fede745f"
-    sha256 x86_64_linux:  "10d9de8517de2d06632495ad1bbc3aa91c2562dc1bb6a5c2ae5d0ce6ed1ff88b"
+    sha256 arm64_sequoia: "6a50855da503fa3c549fcab426036621a05f9466b4c11c5ead379b31e4601cdc"
+    sha256 arm64_sonoma:  "8928a60e525aa1da34b279cba632191096d5f10aad8d100adb2b702283e0d4ea"
+    sha256 arm64_ventura: "385dfe476b11f57a631bb02276c453a8f6284a918d3105f6ac77e7e957d64196"
+    sha256 sonoma:        "bb808e23b5d932cb9968d13d6597c230d387ceb8cfac61d028ac7c139dfee18e"
+    sha256 ventura:       "4c3248d19b3d4ff0d5372424bceef92ec7045ce64449cfc4921d0322f491c152"
+    sha256 arm64_linux:   "7a33830f7c142f5074fe2169c45c0df9dffd8417f4faaf86daeb70651a932ed9"
+    sha256 x86_64_linux:  "3778f1720cf1ebf04f5373e0c3aab993054c6fd0c4fe7a2e163317220a9c3b29"
   end
 
   depends_on "bison" => :build
@@ -28,9 +29,10 @@ class Samba < Formula
   depends_on "gnutls"
   # icu4c can get linked if detected by pkg-config and there isn't a way to force disable
   # without disabling spotlight support. So we just enable the feature for all systems.
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "krb5"
   depends_on "libtasn1"
+  depends_on "libxcrypt"
   depends_on "lmdb"
   depends_on "popt"
   depends_on "readline"

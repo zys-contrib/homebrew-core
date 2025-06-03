@@ -1,9 +1,9 @@
 class Xterm < Formula
   desc "Terminal emulator for the X Window System"
   homepage "https://invisible-island.net/xterm/"
-  url "https://invisible-mirror.net/archives/xterm/xterm-397.tgz"
-  mirror "https://deb.debian.org/debian/pool/main/x/xterm/xterm_397.orig.tar.gz"
-  sha256 "2e9b742b9cba44ecec58074e513237f6cd6d5923f1737cb36a4e5625f4ae8662"
+  url "https://invisible-mirror.net/archives/xterm/xterm-399.tgz"
+  mirror "https://deb.debian.org/debian/pool/main/x/xterm/xterm_399.orig.tar.gz"
+  sha256 "9db34ad0f53ddb1223d70b247c8391e52f3e4b166d6ad85426a4c47813d1b1e3"
   license "X11"
 
   livecheck do
@@ -12,12 +12,13 @@ class Xterm < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "803caefe590cf40f979bf52cb02714530a45d8a0118610a8cc2a48eeb5b45958"
-    sha256 arm64_sonoma:  "0ce8273bfb6bf5d63ca880d8cef4fefde2e9a3616c7f0428136d24a9bcee1f8d"
-    sha256 arm64_ventura: "05b283d09d97a253433501436a4f6f02587d0fa820b9449ba7dfdcf19102acc8"
-    sha256 sonoma:        "ef8d34366adbe5b875ce5bcbf42f987e40a9ca721734b39a2cd04334703ca9db"
-    sha256 ventura:       "b8b2cc0219cf147eff1a5832691b910ac52778c7fb86e5550ab0002696c3f551"
-    sha256 x86_64_linux:  "87a20371ba9a7e4c384d8614a4619424053cf519a058836ef7160187aa59f325"
+    sha256 arm64_sequoia: "b3619c9f1ff955055521052c6117f5cfff7785c8a5ab57fceb1d37bd65546c8f"
+    sha256 arm64_sonoma:  "28a1331530edd423ad5d09aaf681468637c936296f6a74e57a4dc7c19be15a41"
+    sha256 arm64_ventura: "648f6fd46f877c4cc9ec1a952974b20cadabb2568b297ff67940a582697c7258"
+    sha256 sonoma:        "e0e252d8064a7ba2c8997f6dc64a7074f1559e891196e905dc2242f9d2e341bd"
+    sha256 ventura:       "950dcadcc3c8ab1eaef9ac0409faffa7914a1fd2b344af5f0657299547c1129b"
+    sha256 arm64_linux:   "8e46eb7f6b3b616825c7975964630d06b9108ad6c8debfd4337737cb06606159"
+    sha256 x86_64_linux:  "1ff02296f611413e715865bc8fada1d87ef8cb6984ad02f3feba6187ff8be108"
   end
 
   depends_on "fontconfig"
@@ -44,7 +45,7 @@ class Xterm < Formula
 
   test do
     %w[koi8rxterm resize uxterm xterm].each do |exe|
-      assert_predicate bin/exe, :exist?
+      assert_path_exists bin/exe
       assert_predicate bin/exe, :executable?
     end
   end

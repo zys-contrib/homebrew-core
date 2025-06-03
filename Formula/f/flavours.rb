@@ -16,21 +16,22 @@ class Flavours < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "cf8bb2e1d3c20d057a79a8dca7c8249e93e63ed04178b910740b07767df38829"
     sha256 cellar: :any_skip_relocation, monterey:       "963a8dbb9b4cfdfda2a65bdb5a16df394bab78f96bf2e707b1e5cbd11dd575e2"
     sha256 cellar: :any_skip_relocation, big_sur:        "c976365af9c8ce579298e8232dda3605ad0a20116276dfda4084cd413e599b0a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "c5cf394608a4a2d38ad428f8b5510a64d370aae95411629cb9758378ad744fae"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "35fe79bebc20bfc9453e7b313a5ffa5fc5040de4b7c896e98dcba4011425ade4"
   end
 
   depends_on "rust" => :build
-
-  resource("homebrew-testdata") do
-    url "https://assets2.razerzone.com/images/pnx.assets/618c0b65424070a1017a7168ea1b6337/razer-wallpapers-page-hero-mobile.jpg"
-    sha256 "890f0d8fb6ec49ae3b35530a507e54281dd60e5ade5546d7f1d1817934759670"
-  end
 
   def install
     system "cargo", "install", *std_cargo_args
   end
 
   test do
+    resource "homebrew-testdata" do
+      url "https://assets2.razerzone.com/images/pnx.assets/618c0b65424070a1017a7168ea1b6337/razer-wallpapers-page-hero-mobile.jpg"
+      sha256 "890f0d8fb6ec49ae3b35530a507e54281dd60e5ade5546d7f1d1817934759670"
+    end
+
     resource("homebrew-testdata").stage do
       cmd = "#{bin}/flavours generate --stdout dark razer-wallpapers-page-hero-mobile.jpg"
       expected = /---\n

@@ -1,24 +1,30 @@
 class Azqr < Formula
   desc "Azure Quick Review"
   homepage "https://azure.github.io/azqr/"
+  # pull from git tag to get submodules
   url "https://github.com/Azure/azqr.git",
-      tag:      "v.2.1.0",
-      revision: "450943d3fd63880d774413efff05a59676507ab9"
+      tag:      "v.2.4.6",
+      revision: "551b1b787fcb838840785f6d4f289f4a2b46232a"
   license "MIT"
+  head "https://github.com/Azure/azqr.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "87b2decd7866550a03a99a43085f43d3cc1f5ff2e9a67012de2776f0704c630a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "87b2decd7866550a03a99a43085f43d3cc1f5ff2e9a67012de2776f0704c630a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "87b2decd7866550a03a99a43085f43d3cc1f5ff2e9a67012de2776f0704c630a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "439f8e9753623d9e4d78919c82213b8cfe56d745ac6cb64af9e50a2304678792"
-    sha256 cellar: :any_skip_relocation, ventura:       "439f8e9753623d9e4d78919c82213b8cfe56d745ac6cb64af9e50a2304678792"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0f341fae0293cef9f3447384ffaaa113efddb1592776bb57020a0c8f5a652c5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d829e1f2103f30449c954c50bbedf34ff1fcb28a6578e214737f1956d6cdc4c5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d829e1f2103f30449c954c50bbedf34ff1fcb28a6578e214737f1956d6cdc4c5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d829e1f2103f30449c954c50bbedf34ff1fcb28a6578e214737f1956d6cdc4c5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "be7bc031429270ed7d21c266aaf8507c3e807840605151b29bab9224508ffead"
+    sha256 cellar: :any_skip_relocation, ventura:       "be7bc031429270ed7d21c266aaf8507c3e807840605151b29bab9224508ffead"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d8b0d8a49ba4051f5b388eaa978473d7f1a756ebaf54693fa972b0352342273"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/Azure/azqr/cmd/azqr.version=#{version}"), "./cmd"
+    ldflags = %W[
+      -s -w
+      -X github.com/Azure/azqr/cmd/azqr/commands.version=#{version}
+    ]
+    system "go", "build", *std_go_args(ldflags:), "./cmd/azqr"
 
     generate_completions_from_executable(bin/"azqr", "completion")
   end

@@ -1,13 +1,14 @@
 class Nerdctl < Formula
   desc "ContaiNERD CTL - Docker-compatible CLI for containerd"
   homepage "https://github.com/containerd/nerdctl"
-  url "https://github.com/containerd/nerdctl/archive/refs/tags/v2.0.3.tar.gz"
-  sha256 "50118ed245f814ac39fe4598ba0cc5e401f820ba7260d706d544daea6d1c9d56"
+  url "https://github.com/containerd/nerdctl/archive/refs/tags/v2.1.2.tar.gz"
+  sha256 "0d07600ef9f54943893634559ef67b903530656efc0b5069cbc174efdf273e21"
   license "Apache-2.0"
   head "https://github.com/containerd/nerdctl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "32867f7c22edda8ea82df5f181b870e7c214f64a2ca3ccfa6953587bfc8beaee"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "c5e8e0fe5fd723e1fbf2f314a5378282faa16a38a685b6d7136db8aeaf8c3cad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "f44a73732505955154324970f98c5fd9b2197f33462ffec7200dd2a72be86c5e"
   end
 
   depends_on "go" => :build

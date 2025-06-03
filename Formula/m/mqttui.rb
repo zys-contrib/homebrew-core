@@ -1,18 +1,18 @@
 class Mqttui < Formula
   desc "Subscribe to a MQTT Topic or publish something quickly from the terminal"
   homepage "https://github.com/EdJoPaTo/mqttui"
-  url "https://github.com/EdJoPaTo/mqttui/archive/refs/tags/v0.21.1.tar.gz"
-  sha256 "34caa9a540c107738b7156f8a67cbbd2d1f6a25522f964142943aae7d3099501"
+  url "https://github.com/EdJoPaTo/mqttui/archive/refs/tags/v0.22.1.tar.gz"
+  sha256 "c8a65a1aef2e96484e09972de50fb6150a868cd30ce16d26df1466fdac1a6c75"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "785c02e782d4705b8856b3a2e7efafcf4316c96b82ef40f09b1941be8d890ad4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "46e79fe9bd4008a24b0a4747578225a3c7499ab6325d0b4409df68e8ca511f6e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1cdd4e2052248e29d0c8d68187310d53cbaf4b64eee1d9b2fdcdc788f02bdf72"
-    sha256 cellar: :any_skip_relocation, sonoma:        "446294e3a949a6d148b8f9910a2bd8de85f6fe20a63aeabbac6c05000dad1b72"
-    sha256 cellar: :any_skip_relocation, ventura:       "5f7ffb503ce101b1e29010d9b35e22f9816e3168cd89b7aa62bf4ab5e21891f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "51fede45d21c05b4d32da4164d1305d8b8021b20e3103b18fa70f62b2b26a192"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "65186b346d1af06bc34f626f5f5bed22ca0b2eaf458bc1850afb3c07aa3b66cb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "17e16b8a943e3b1190d5295eedf18ee730dad9a0090e3f5b88af24372410b3f8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "74704675148861672b2356a54a27113270df8066815ecf4307afd13558f764fa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "77140e798abd551e3da4a845473aa93e5737dcb2900a2605d2810e93c051b5ec"
+    sha256 cellar: :any_skip_relocation, ventura:       "e5827a0c24cf1a4989e249ef9425440dfc2254045945abcfd1481c60393ba195"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "09274a577c3e10a6cb0092a7bb38fccf5d1c1c1fdbf7d5d79783e94b52d1f99b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5cb9b3f506f2cff73d1a6ef21969575a3e24646be804577b179e5735666dbe53"
   end
 
   depends_on "rust" => :build

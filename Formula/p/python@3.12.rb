@@ -1,9 +1,10 @@
 class PythonAT312 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.12.8/Python-3.12.8.tgz"
-  sha256 "5978435c479a376648cb02854df3b892ace9ed7d32b1fead652712bee9d03a45"
+  url "https://www.python.org/ftp/python/3.12.10/Python-3.12.10.tgz"
+  sha256 "15d9c623abfd2165fe816ea1fb385d6ed8cf3c664661ab357f1782e3036a6dac"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -11,12 +12,14 @@ class PythonAT312 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "20eb89eda4a412238d217124182c11c941036190003b39c87770d9f3cdc36ef0"
-    sha256 arm64_sonoma:  "bcccf419f310137cf017b6fb26120743ccc5f05f6dc5bde11f8b9a620544ec3d"
-    sha256 arm64_ventura: "d5d026a7e01ff74b8a591a67753a2dd28ebfdf68d6dd6eee456e8812b7130dcc"
-    sha256 sonoma:        "a7c54bc038bfba48875c4a972f85fa678c958a3ed28acbed44451ea0e495f7c2"
-    sha256 ventura:       "27bca8c5925f6cb42a706eab224fb199a98477515c585052303e34ae446bbd89"
-    sha256 x86_64_linux:  "8bf357ada068767c6f65e5a7eb04b137d9df1e02ba2d7277845fa3b11791954f"
+    sha256 arm64_sequoia: "9ac46b3e4cc9112888d9e65a7181384f887f3a148968dc3ddb773c41fbecab4b"
+    sha256 arm64_sonoma:  "52ef364833de3a6b75420aa16442b554a2805d1a7da286035b294216912f7ae0"
+    sha256 arm64_ventura: "b86f573ab8f94c50a5d8392d19fdd31432a97a04099b4727b3e133d13068810a"
+    sha256 sequoia:       "aea7c6547a86d1805f5c192860ccd16e5db251d884b9946ce12b08ef7e490c23"
+    sha256 sonoma:        "d644be510342f2922d3ab4411d0265212aae7aa9205fabfa4e1a46edfaa146e9"
+    sha256 ventura:       "f23dd043c8908461bb9ad51d421ff1595d31bc10a546f8618d3023f26ee1f533"
+    sha256 arm64_linux:   "c2e4689b73071625a5bc63a39cad73186b6273bb3a653d64b657dc1906ec7b5a"
+    sha256 x86_64_linux:  "943a77d622bf0cf2afa52b19d6834474b0f9012207a48e1f3110b33c08344ca5"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -44,20 +47,23 @@ class PythonAT312 < Formula
     depends_on "libtirpc"
   end
 
+  link_overwrite "lib/python3.12/site-packages/pip*"
+  link_overwrite "lib/python3.12/site-packages/wheel*"
+
   # Always update to latest release
   resource "flit-core" do
-    url "https://files.pythonhosted.org/packages/d5/ae/09427bea9227a33ec834ed5461432752fd5d02b14f93dd68406c91684622/flit_core-3.10.1.tar.gz"
-    sha256 "66e5b87874a0d6e39691f0e22f09306736b633548670ad3c09ec9db03c5662f7"
+    url "https://files.pythonhosted.org/packages/69/59/b6fc2188dfc7ea4f936cd12b49d707f66a1cb7a1d2c16172963534db741b/flit_core-3.12.0.tar.gz"
+    sha256 "18f63100d6f94385c6ed57a72073443e1a71a4acb4339491615d0f16d6ff01b2"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/f4/b1/b422acd212ad7eedddaf7981eee6e5de085154ff726459cf2da7c5a184c1/pip-24.3.1.tar.gz"
-    sha256 "ebcb60557f2aefabc2e0f918751cd24ea0d56d8ec5445fe1807f1d2109660b99"
+    url "https://files.pythonhosted.org/packages/59/de/241caa0ca606f2ec5fe0c1f4261b0465df78d786a38da693864a116c37f4/pip-25.1.1.tar.gz"
+    sha256 "3de45d411d308d5054c2168185d8da7f9a2cd753dbac8acbfa88a8909ecd9077"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/43/54/292f26c208734e9a7f067aea4a7e282c080750c4546559b58e2e45413ca0/setuptools-75.6.0.tar.gz"
-    sha256 "8199222558df7c86216af4f84c30e9b34a61d8ba19366cc914424cdbd28252f6"
+    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
+    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
   end
 
   resource "wheel" do
@@ -253,7 +259,7 @@ class PythonAT312 < Formula
     end
 
     # Remove the site-packages that Python created in its Cellar.
-    rm_r(site_packages_cellar)
+    rm_r site_packages_cellar.children
 
     # Prepare a wheel of wheel to install later.
     common_pip_args = %w[
@@ -278,21 +284,16 @@ class PythonAT312 < Formula
 
     # Replace bundled pip with our own.
     rm lib_cellar.glob("ensurepip/_bundled/pip-*.whl")
-    %w[pip].each do |r|
-      resource(r).stage do
-        system whl_build/"bin/pip3", "wheel", *common_pip_args,
-                                              "--wheel-dir=#{lib_cellar}/ensurepip/_bundled",
-                                              "."
-      end
+    resource("pip").stage do
+      system whl_build/"bin/pip3", "wheel", *common_pip_args,
+                                            "--wheel-dir=#{lib_cellar}/ensurepip/_bundled",
+                                            "."
     end
 
     # Patch ensurepip to bootstrap our updated version of pip
     inreplace lib_cellar/"ensurepip/__init__.py" do |s|
       s.gsub!(/_PIP_VERSION = .*/, "_PIP_VERSION = \"#{resource("pip").version}\"")
     end
-
-    # Write out sitecustomize.py
-    (lib_cellar/"sitecustomize.py").atomic_write(sitecustomize)
 
     # Install unversioned and major-versioned symlinks in libexec/bin.
     {
@@ -307,33 +308,8 @@ class PythonAT312 < Formula
     }.each do |short_name, long_name|
       (libexec/"bin").install_symlink (bin/long_name).realpath => short_name
     end
-  end
 
-  def post_install
-    ENV.delete "PYTHONPATH"
-
-    # Fix up the site-packages so that user-installed Python software survives
-    # minor updates, such as going from 3.3.2 to 3.3.3:
-
-    # Create a site-packages in HOMEBREW_PREFIX/lib/python#{version.major_minor}/site-packages
-    site_packages.mkpath
-
-    # Symlink the prefix site-packages into the cellar.
-    site_packages_cellar.unlink if site_packages_cellar.exist?
-    site_packages_cellar.parent.install_symlink site_packages
-
-    # Remove old sitecustomize.py. Now stored in the cellar.
-    rm_r(Dir["#{site_packages}/sitecustomize.py[co]"])
-
-    # Remove old setuptools installations that may still fly around and be
-    # listed in the easy_install.pth. This can break setuptools build with
-    # zipimport.ZipImportError: bad local file header
-    # setuptools-0.9.8-py3.3.egg
-    rm_r(Dir["#{site_packages}/distribute[-_.][0-9]*", "#{site_packages}/distribute"])
-    rm_r(Dir["#{site_packages}/pip[-_.][0-9]*", "#{site_packages}/pip"])
-    rm_r(Dir["#{site_packages}/wheel[-_.][0-9]*", "#{site_packages}/wheel"])
-
-    (lib_cellar/"EXTERNALLY-MANAGED").unlink if (lib_cellar/"EXTERNALLY-MANAGED").exist?
+    # Bootstrap initial install of pip.
     system python3, "-Im", "ensurepip"
 
     # Install desired versions of pip, wheel using the version of
@@ -341,22 +317,23 @@ class PythonAT312 < Formula
     # Note that while we replaced the ensurepip wheels, there's no guarantee
     # ensurepip actually used them, since other existing installations could
     # have been picked up (and we can't pass --ignore-installed).
+    root_site_packages = lib/"python#{version.major_minor}/site-packages"
     bundled = lib_cellar/"ensurepip/_bundled"
     system python3, "-Im", "pip", "install", "-v",
            "--no-deps",
            "--no-index",
            "--upgrade",
            "--isolated",
-           "--target=#{site_packages}",
+           "--target=#{root_site_packages}",
            bundled/"pip-#{resource("pip").version}-py3-none-any.whl",
            libexec/"wheel-#{resource("wheel").version}-py3-none-any.whl"
 
     # pip install with --target flag will just place the bin folder into the
     # target, so move its contents into the appropriate location
-    mv (site_packages/"bin").children, bin
-    rmdir site_packages/"bin"
+    mv (root_site_packages/"bin").children, bin
+    rmdir root_site_packages/"bin"
 
-    rm_r(bin.glob("pip{,3}"))
+    rm bin.glob("pip{,3}")
     mv bin/"wheel", bin/"wheel#{version.major_minor}"
 
     # Install unversioned and major-versioned symlinks in libexec/bin.
@@ -369,10 +346,14 @@ class PythonAT312 < Formula
       (libexec/"bin").install_symlink (bin/long_name).realpath => short_name
     end
 
-    # post_install happens after link
-    %W[wheel#{version.major_minor} pip#{version.major_minor}].each do |e|
-      (HOMEBREW_PREFIX/"bin").install_symlink bin/e
+    if OS.mac?
+      # Replace framework site-packages with a symlink to the real one.
+      rm_r site_packages_cellar
+      site_packages_cellar.parent.install_symlink root_site_packages
     end
+
+    # Write out sitecustomize.py
+    (lib_cellar/"sitecustomize.py").atomic_write(sitecustomize)
 
     # Mark Homebrew python as externally managed: https://peps.python.org/pep-0668/#marking-an-interpreter-as-using-an-external-package-manager
     # Placed after ensurepip since it invokes pip in isolated mode, meaning
@@ -438,7 +419,7 @@ class PythonAT312 < Formula
           sys.path.extend(library_packages)
           # the Cellar site-packages is a symlink to the HOMEBREW_PREFIX
           # site_packages; prefer the shorter paths
-          long_prefix = re.compile(r'#{rack}/[0-9\\._abrc]+/Frameworks/Python\\.framework/Versions/#{version.major_minor}/lib/python#{version.major_minor}/site-packages')
+          long_prefix = re.compile(r'#{rack}/(?:[0-9\\._abrc]+/Frameworks/Python\\.framework/Versions/#{version.major_minor}/)?lib/python#{version.major_minor}/site-packages')
           sys.path = [long_prefix.sub('#{site_packages}', p) for p in sys.path]
           # Set the sys.executable to use the opt_prefix. Only do this if PYTHONEXECUTABLE is not
           # explicitly set and we are not in a virtualenv:
@@ -448,16 +429,21 @@ class PythonAT312 < Formula
           cellar_prefix = re.compile(r'#{rack}/[0-9\\._abrc]+/')
           if os.path.realpath(sys.base_prefix).startswith('#{rack}'):
               new_prefix = cellar_prefix.sub('#{opt_prefix}/', sys.base_prefix)
+              site.PREFIXES[:] = [new_prefix if x == sys.base_prefix else x for x in site.PREFIXES]
               if sys.prefix == sys.base_prefix:
-                  site.PREFIXES[:] = [new_prefix if x == sys.prefix else x for x in site.PREFIXES]
                   sys.prefix = new_prefix
               sys.base_prefix = new_prefix
           if os.path.realpath(sys.base_exec_prefix).startswith('#{rack}'):
               new_exec_prefix = cellar_prefix.sub('#{opt_prefix}/', sys.base_exec_prefix)
+              site.PREFIXES[:] = [new_exec_prefix if x == sys.base_exec_prefix else x for x in site.PREFIXES]
               if sys.exec_prefix == sys.base_exec_prefix:
-                  site.PREFIXES[:] = [new_exec_prefix if x == sys.exec_prefix else x for x in site.PREFIXES]
                   sys.exec_prefix = new_exec_prefix
               sys.base_exec_prefix = new_exec_prefix
+      # Make site.getsitepackages() return the HOMEBREW_PREFIX site-packages,
+      # but only if we are outside a venv or in one with include-system-site-packages.
+      if sys.base_prefix in site.PREFIXES:
+          site.PREFIXES.insert(site.PREFIXES.index(sys.base_prefix), '#{HOMEBREW_PREFIX}')
+          site.addsitedir('#{site_packages}')
       # Check for and add the prefix of split Python formulae.
       for split_module in ["tk", "gdbm"]:
           split_prefix = f"#{HOMEBREW_PREFIX}/opt/python-{split_module}@#{version.major_minor}/libexec"

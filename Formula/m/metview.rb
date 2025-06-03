@@ -1,9 +1,9 @@
 class Metview < Formula
   desc "Meteorological workstation software"
   homepage "https://metview.readthedocs.io/en/latest/"
-  url "https://confluence.ecmwf.int/download/attachments/51731119/MetviewBundle-2024.11.0-Source.tar.gz"
-  version "5.23.1"
-  sha256 "4af1333431664bdbf0a11a6ff20bac847f83647358319864d1b1ad421d33970a"
+  url "https://confluence.ecmwf.int/download/attachments/51731119/MetviewBundle-2025.4.0-Source.tar.gz"
+  version "5.25.0"
+  sha256 "ebfa17e3db63c72a2caad5a13136d0e86f300cc8cdaa31c98ed4ff5034aebc09"
   license "Apache-2.0"
 
   livecheck do
@@ -12,11 +12,11 @@ class Metview < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:  "1314f5c83a7a6ad72a56bfdb8fd4bc19014028236c37269c686ec9a519c28aca"
-    sha256 arm64_ventura: "0f7b60d920d345f33b58eba7dbfdcfe8afbe00cfc7c33dd0eebb608ea93f7eb2"
-    sha256 sonoma:        "367af12844ef7651bfabcec56b81cf3cbb95e76ad3ad5e897e70478015ea8a17"
-    sha256 ventura:       "ed0d9f837e4dff2db019d3b43116eb434bbc2191eeee6a4fee35f0c287e13273"
-    sha256 x86_64_linux:  "958440b3d5bac08713c4b13ad6911ef885b8b4fdddcc5bd158a51cb91cc8be4a"
+    sha256 arm64_sonoma:  "876917b5c9621b6efb3b45381e33741484588dbbda49fa69d01c1af12f79f830"
+    sha256 arm64_ventura: "328738471e53512d4f170c1792eb7dd4f44210ae134391e5aefb87f14a5dc719"
+    sha256 sonoma:        "8436e13d3f7adbd5862345c1d8e366d5b479121f0d089c428573c5853a619872"
+    sha256 ventura:       "4b989db8ccf78dbec26dddc01b0a4601b47f647bc4896271ff80f71bcbf424c4"
+    sha256 x86_64_linux:  "9913a8f66586218ffe992531c8fb2d29ba5d45282b428fe18beb00166ac1550d"
   end
 
   depends_on "cmake" => :build
@@ -31,6 +31,7 @@ class Metview < Formula
   depends_on "libpng"
   depends_on "lz4"
   depends_on "netcdf"
+  depends_on "netcdf-cxx"
   depends_on "openssl@3"
   depends_on "pango"
   depends_on "proj"
@@ -54,6 +55,8 @@ class Metview < Formula
   end
 
   def install
+    # https://jira.ecmwf.int/plugins/servlet/desk/portal/4/SD-110363
+    inreplace "metview/CMakeLists.txt", "cmake_policy(SET CMP0046 OLD)", "cmake_policy(SET CMP0046 NEW)"
     args = %W[
       -DBUNDLE_SKIP_ECCODES=1
       -DENABLE_MIR_DOWNLOAD_MASKS=OFF

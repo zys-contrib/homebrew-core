@@ -8,6 +8,7 @@ class Grails < Formula
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_releases
   end
 
   bottle do
@@ -16,6 +17,7 @@ class Grails < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e3e2858977f849082460aa6a92b6ad8f702a55663df1c8a48dcbfdbe9c524560"
     sha256 cellar: :any_skip_relocation, sonoma:        "6d99581afd8f11f9c5064cc312865fc0d6fe2ec04a20035c02f47add859c2ae8"
     sha256 cellar: :any_skip_relocation, ventura:       "6d99581afd8f11f9c5064cc312865fc0d6fe2ec04a20035c02f47add859c2ae8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0d496d2a0d69e0670260bf7b187668e2ac4ee292363a85eee8f1c5583674124d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3e2858977f849082460aa6a92b6ad8f702a55663df1c8a48dcbfdbe9c524560"
   end
 
@@ -30,6 +32,10 @@ class Grails < Formula
     end
   end
 
+  def java_version
+    "17"
+  end
+
   def install
     odie "cli resource needs to be updated" if version != resource("cli").version
 
@@ -42,7 +48,7 @@ class Grails < Formula
       bash_completion.install "bin/grails_completion" => "grails"
     end
 
-    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env("17")
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env(java_version)
   end
 
   def caveats
@@ -53,10 +59,36 @@ class Grails < Formula
   end
 
   test do
+    assert_match "Grails Version: #{version}", shell_output("#{bin}/grails --version")
+
     system bin/"grails", "create-app", "brew-test"
-    assert_predicate testpath/"brew-test/gradle.properties", :exist?
+    assert_path_exists testpath/"brew-test/gradle.properties"
     assert_match "brew.test", File.read(testpath/"brew-test/build.gradle")
 
-    assert_match "Grails Version: #{version}", shell_output("#{bin}/grails --version")
+    cd "brew-test" do
+      system bin/"grails", "create-controller", "greeting"
+      rm "grails-app/controllers/brew/test/GreetingController.groovy"
+      Pathname("grails-app/controllers/brew/test/GreetingController.groovy").write <<~GROOVY
+        package brew.test
+        class GreetingController {
+            def index() {
+                render "Hello Homebrew"
+            }
+        }
+      GROOVY
+
+      # Test that scripts are compatible with OpenJDK version
+      port = free_port
+      ENV["JAVA_HOME"] = Language::Java.java_home(java_version)
+      system "./gradlew", "--no-daemon", "assemble"
+      pid = spawn "./gradlew", "--no-daemon", "bootRun", "-Dgrails.server.port=#{port}"
+      begin
+        sleep 20
+        assert_equal "Hello Homebrew", shell_output("curl --silent http://localhost:#{port}/greeting/index")
+      ensure
+        Process.kill "TERM", pid
+        Process.wait pid
+      end
+    end
   end
 end

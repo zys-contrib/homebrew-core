@@ -1,8 +1,10 @@
 class Mysql < Formula
   desc "Open source relational database management system"
-  homepage "https://dev.mysql.com/doc/refman/9.2/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-9.2/mysql-9.2.0.tar.gz"
-  sha256 "a39d11fdf6cf8d1b03b708d537a9132de4b99a9eb4d610293937f0687cd37a12"
+  # FIXME: Actual homepage fails audit due to Homebrew's user-agent
+  # homepage "https://dev.mysql.com/doc/refman/9.3/en/"
+  homepage "https://github.com/mysql/mysql-server"
+  url "https://cdn.mysql.com/Downloads/MySQL-9.3/mysql-9.3.0.tar.gz"
+  sha256 "1a3ee236f1daac5ef897c6325c9b0e0aae486389be1b8001deb3ff77ce682d60"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -11,22 +13,23 @@ class Mysql < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "e68409722ac0d0f2cb7632458bcb29dfca76c395c99e6a97a2ea973710089208"
-    sha256 arm64_sonoma:  "01f9df0f35e6b977d394bba0c2df1c77486d6d89cf902e453efdf4749182b4db"
-    sha256 arm64_ventura: "23bbbd590674f0e08d0baa08f2aeba8cb9443df521e3c97d0cba3564f1b12db8"
-    sha256 sonoma:        "a7ca40f8824b33fb1d6061820e152c885c28632b3584a9303e5660f3d4c74ec3"
-    sha256 ventura:       "bba71c25b8bb0520448d4e54f776c1c46e46d55200a1d04db4ec48734fe76999"
-    sha256 x86_64_linux:  "9d6aebb967cfb22f09bdd8e37f15e6051af802ce0eacf6373537b3d58457fdd9"
+    sha256 arm64_sequoia: "a1c4bcbfc9cd29ebd827d898ee23fa671d38e53fe38ed941d4de9dc5f2925bab"
+    sha256 arm64_sonoma:  "a85846ee100275d3aff0e1fb367d236efe2f08b01486a4e17d95f44065a99777"
+    sha256 arm64_ventura: "bbd5331e6cad86f69fd249644870e12298fb7700941c4b442766d6b39ad2efcd"
+    sha256 sonoma:        "246637314ceb5efb5f4df6e8e9548523fd24bf99d2ab2249baf55c990323a083"
+    sha256 ventura:       "e3485cdac165beee6846f57b678938929e2339e80fa83f1f16f152130c1f46b1"
+    sha256 arm64_linux:   "6b3feff6a22a3dc3ebc0b52aa20be21de6c15c4508236e6c2c718c6630f235b0"
+    sha256 x86_64_linux:  "4f4f12f8b6e178121b92995ed4a3153dca966f6c304fc74765066761aa86a56e"
   end
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "abseil"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "lz4"
   depends_on "openssl@3"
-  depends_on "protobuf"
+  depends_on "protobuf@29"
   depends_on "zlib" # Zlib 1.2.13+
   depends_on "zstd"
 
@@ -34,11 +37,14 @@ class Mysql < Formula
   uses_from_macos "cyrus-sasl"
   uses_from_macos "libedit"
 
-  # std::string_view is not fully compatible with the libc++ shipped
-  # with ventura, so we need to use the LLVM libc++ instead.
   on_ventura :or_older do
-    depends_on "llvm@18"
-    fails_with :clang
+    depends_on "llvm"
+    fails_with :clang do
+      cause <<~EOS
+        std::string_view is not fully compatible with the libc++ shipped
+        with ventura, so we need to use the LLVM libc++ instead.
+      EOS
+    end
   end
 
   on_linux do
@@ -66,25 +72,18 @@ class Mysql < Formula
     # Remove bundled libraries other than explicitly allowed below.
     # `boost` and `rapidjson` must use bundled copy due to patches.
     # `lz4` is still needed due to xxhash.c used by mysqlgcs
-    keep = %w[boost duktape libbacktrace libcno lz4 rapidjson unordered_dense]
+    keep = %w[boost duktape libbacktrace libcno lz4 rapidjson unordered_dense xxhash]
     (buildpath/"extra").each_child { |dir| rm_r(dir) unless keep.include?(dir.basename.to_s) }
 
     if OS.linux?
       # Disable ABI checking
       inreplace "cmake/abi_check.cmake", "RUN_ABI_CHECK 1", "RUN_ABI_CHECK 0"
     elsif MacOS.version <= :ventura
-      ENV["CC"] = Formula["llvm@18"].opt_bin/"clang"
-      ENV["CXX"] = Formula["llvm@18"].opt_bin/"clang++"
-
-      # The dependencies need to be explicitly added to the environment
-      deps.each do |dep|
-        next if dep.build? || dep.test?
-
-        ENV.append "CXXFLAGS", "-I#{dep.to_formula.opt_include}"
-        ENV.append "LDFLAGS", "-L#{dep.to_formula.opt_lib}"
-      end
-
-      ENV.append "LDFLAGS", "-L#{Formula["llvm@18"].opt_lib}/c++ -L#{Formula["llvm@18"].opt_lib} -lunwind"
+      ENV.llvm_clang
+      ENV.append "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/unwind -lunwind"
+      # When using Homebrew's superenv shims, we need to use HOMEBREW_LIBRARY_PATHS
+      # rather than LDFLAGS for libc++ in order to correctly link to LLVM's libc++.
+      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib/"c++"
     end
 
     icu4c = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
@@ -114,19 +113,6 @@ class Mysql < Formula
       -DWITH_ZSTD=system
       -DWITH_UNIT_TESTS=OFF
     ]
-
-    # Add the dependencies to the CMake args
-    if OS.mac? && MacOS.version <=(:ventura)
-      args += %W[
-        -DABSL_INCLUDE_DIR=#{Formula["abseil"].opt_include}
-        -DICU_ROOT=#{Formula["icu4c@76"].opt_prefix}
-        -DLZ4_INCLUDE_DIR=#{Formula["lz4"].opt_include}
-        -DOPENSSL_INCLUDE_DIR=#{Formula["openssl@3"].opt_include}
-        -DPROTOBUF_INCLUDE_DIR=#{Formula["protobuf"].opt_include}
-        -DZLIB_INCLUDE_DIR=#{Formula["zlib"].opt_include}
-        -DZSTD_INCLUDE_DIR=#{Formula["zstd"].opt_include}
-      ]
-    end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

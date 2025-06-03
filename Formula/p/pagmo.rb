@@ -4,15 +4,16 @@ class Pagmo < Formula
   url "https://github.com/esa/pagmo2/archive/refs/tags/v2.19.1.tar.gz"
   sha256 "ecc180e669fa6bbece959429ac7d92439e89e1fd1c523aa72b11b6c82e414a1d"
   license any_of: ["LGPL-3.0-or-later", "GPL-3.0-or-later"]
-  revision 2
+  revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0a031d339069e2a7e9c7ff555af7115bd8006e7173bf63b7ca9e98b98fcd3307"
-    sha256 cellar: :any,                 arm64_sonoma:  "0d6d3d94b2a82cd212bdefb87a42be22bb49aaa78c4da81f8dd840f25a2b4a80"
-    sha256 cellar: :any,                 arm64_ventura: "35b1e055788d6f1182d369c07e941e86936987d3b57a186b6412a6a7ead8c776"
-    sha256 cellar: :any,                 sonoma:        "ac51821a1e4d156ab8b81f70ba3587e0a91cd7fa3ee803e4084f5c09a0cc404d"
-    sha256 cellar: :any,                 ventura:       "a532bd3297ff9107bdfb50e4113f75f9d603b970ac214734945e26baa213fd16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "125a255a07d86ad58c44317d4e17c75b8ddd957b3392c2e0992b50d95cea368e"
+    sha256 cellar: :any,                 arm64_sequoia: "de89536a11df055792e5438ec658c6cd16c55315b84c6c424b49e3982a9dbd44"
+    sha256 cellar: :any,                 arm64_sonoma:  "b3ebceb0271d0a389f1ae4078941e8269c9efbec372e5305a172102de4b74f8f"
+    sha256 cellar: :any,                 arm64_ventura: "1154611438e8b1316c7f3f8ce0951deab54322bf5537b59494eec4106f8a7e48"
+    sha256 cellar: :any,                 sonoma:        "5f3bef1e0ed24dfbbde890a7b5b2474b585a1cdbd412c559d6a54043ed378c76"
+    sha256 cellar: :any,                 ventura:       "d4f0b7cbda497ce7f766efd08984bd52534a2ceddb7e070c91213bfba60a0567"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c3a36065e0fc45e3705fac89c77412947deb37532f777538d8aa98bb71d8abd9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c3b4f42b1a460e73058cf7e82ce44fccd069ba476755ba37c0c07ff78787d34"
   end
 
   depends_on "cmake" => :build

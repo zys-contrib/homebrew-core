@@ -3,18 +3,19 @@ class CyclonedxPython < Formula
 
   desc "Creates CycloneDX Software Bill of Materials (SBOM) from Python projects"
   homepage "https://cyclonedx.org/"
-  url "https://files.pythonhosted.org/packages/68/1e/78106d309f58e06247c3c2a19dd475f36c5ad7c3b04492dd54c0430dd313/cyclonedx_bom-5.1.2.tar.gz"
-  sha256 "69cbabd884d1ca0c500d0307c42bdd93b0e42ee302a316fc5e45b5609bd898c7"
+  url "https://files.pythonhosted.org/packages/98/a5/796b6e58ea9a13af3a9776ff4a4c7ee9108debe9461a129d121257146cd3/cyclonedx_bom-6.1.1.tar.gz"
+  sha256 "2523a1879b5cd4fd77be68a000c718cde80c17908a8374a17414eb8c9aa7cf20"
   license "Apache-2.0"
   head "https://github.com/CycloneDX/cyclonedx-python.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a2becf2f0290f93f2275fa05923c713c3c53aece6b5e982bc7c3e365cace19d9"
-    sha256 cellar: :any,                 arm64_sonoma:  "1a2224af96e908514ea47391e6cec5cc1b00546f9aa8b4564b1e385863c4e1ef"
-    sha256 cellar: :any,                 arm64_ventura: "23eb0d17469c2f7b83cccde44d7cb1267f3a67d0865b7838f55e3966cbf6fdde"
-    sha256 cellar: :any,                 sonoma:        "79c68019d982b27a8226dd68eeb1491eac76d0f878af5345d96b1e3f77a8d65f"
-    sha256 cellar: :any,                 ventura:       "a9be60f438140a96ea3dba43f0f3568eefc0f25be6b23605a030fd1bae7104e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "70160bd63ad093eb3c84a074addb8709a7dbf0016267659824910ee4a3ba6c8d"
+    sha256 cellar: :any,                 arm64_sequoia: "207bc5a3afa9ede34792825e9e5e0804b2d4f5ddcc1ce91df087edd87648c27a"
+    sha256 cellar: :any,                 arm64_sonoma:  "fe19b0b8809615f6e5a3c318992d326e440b6115fcc6c4922306873f55734b98"
+    sha256 cellar: :any,                 arm64_ventura: "c3f219cd7b18cada9994055590c49767f75fc8932fd57d5e312e7f0e7300ab1c"
+    sha256 cellar: :any,                 sonoma:        "d2e9e72dcc36a618823be8e687379277305c8c8629766dcb61331f9c90b38170"
+    sha256 cellar: :any,                 ventura:       "ad3569ee277cf642f66a26b6200a72d8c2268675f7f2fab371e13b5a69bf1d61"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a0f9f5d14e014409d650d5467c01eb754f30a8f08749de4a9785392a2cfd1fad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14989decb820fef2e8eb9d59ce44a79b80bc3b9481e8c2b6fd2bdbf4984eb564"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -29,13 +30,13 @@ class CyclonedxPython < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/48/c8/6260f8ccc11f0917360fc0da435c5c9c7504e3db174d5a12a1494887b045/attrs-24.3.0.tar.gz"
-    sha256 "8f5c07333d543103541ba7be0e2ce16eeee8130cb0b3f9238ab904ce1e85baff"
+    url "https://files.pythonhosted.org/packages/5a/b0/1367933a8532ee6ff8d63537de4f1177af4bff9f3e829baf7331f595bb24/attrs-25.3.0.tar.gz"
+    sha256 "75d7cefc7fb576747b2c81b4442d4d4a1ce0900973527c011d1030fd3bf4af1b"
   end
 
   resource "boolean-py" do
-    url "https://files.pythonhosted.org/packages/a2/d9/b6e56a303d221fc0bdff2c775e4eef7fedd58194aa5a96fa89fb71634cc9/boolean.py-4.0.tar.gz"
-    sha256 "17b9a181630e43dde1851d42bef546d616d5d9b4480357514597e78b203d06e4"
+    url "https://files.pythonhosted.org/packages/c4/cf/85379f13b76f3a69bca86b60237978af17d6aa0bc5998978c3b8cf05abb2/boolean_py-5.0.tar.gz"
+    sha256 "60cbc4bad079753721d32649545505362c754e121570ada4658b852a3a318d95"
   end
 
   resource "chardet" do
@@ -44,8 +45,8 @@ class CyclonedxPython < Formula
   end
 
   resource "cyclonedx-python-lib" do
-    url "https://files.pythonhosted.org/packages/67/a8/c735131c5e2a4e778c335b9f2c0500829d947b095e20331c401cfd0b6ef6/cyclonedx_python_lib-8.5.0.tar.gz"
-    sha256 "35f7a139042e4df17ff414fa228cec83c7e4e493bdec990847357791ca72f3a5"
+    url "https://files.pythonhosted.org/packages/bf/70/c5ab120047230e2c9db8e04b55f9b547fcf52ec6a4a5155dd5a3a3185fd2/cyclonedx_python_lib-10.0.1.tar.gz"
+    sha256 "6c7a8c27a28279d22d92d4e0982e59beed3076a1aa4928a27830b0eaa2ca4f29"
   end
 
   resource "defusedxml" do
@@ -79,8 +80,8 @@ class CyclonedxPython < Formula
   end
 
   resource "jsonschema-specifications" do
-    url "https://files.pythonhosted.org/packages/10/db/58f950c996c793472e336ff3655b13fbcf1e3b359dcf52dcf3ed3b52c352/jsonschema_specifications-2024.10.1.tar.gz"
-    sha256 "0f38b83639958ce1152d02a7f062902c41c8fd20d558b0c34344292d417ae272"
+    url "https://files.pythonhosted.org/packages/bf/ce/46fbd9c8119cfc3581ee5643ea49464d168028cfb5caff5fc0596d0cf914/jsonschema_specifications-2025.4.1.tar.gz"
+    sha256 "630159c9f4dbea161a6a2205c3011cc4f18ff381b189fff48bb39b9bf26ae608"
   end
 
   resource "license-expression" do
@@ -89,8 +90,8 @@ class CyclonedxPython < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/e7/6b/20c3a4b24751377aaa6307eb230b66701024012c29dd374999cc92983269/lxml-5.3.0.tar.gz"
-    sha256 "4e109ca30d1edec1ac60cdbe341905dc3b8f55b16855e03a54aaf59e51ec8c6f"
+    url "https://files.pythonhosted.org/packages/76/3d/14e82fc7c8fb1b7761f7e748fd47e2ec8276d137b6acfe5a4bb73853e08f/lxml-5.4.0.tar.gz"
+    sha256 "d12832e1dbea4be280b22fd0ea7c9b87f0d8fc51ba06e92dc62d52f804f78ebd"
   end
 
   resource "packageurl-python" do
@@ -99,8 +100,8 @@ class CyclonedxPython < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   resource "pip-requirements-parser" do
@@ -109,13 +110,13 @@ class CyclonedxPython < Formula
   end
 
   resource "py-serializable" do
-    url "https://files.pythonhosted.org/packages/16/cf/6e482507764034d6c41423a19f33fdd59655052fdb2ca4358faa3b0bcfd1/py_serializable-1.1.2.tar.gz"
-    sha256 "89af30bc319047d4aa0d8708af412f6ce73835e18bacf1a080028bb9e2f42bdb"
+    url "https://files.pythonhosted.org/packages/f0/75/813967eae0542776314c6def33feac687642a193b9d5591c20684b2eafd8/py_serializable-2.0.0.tar.gz"
+    sha256 "e9e6491dd7d29c31daf1050232b57f9657f9e8a43b867cca1ff204752cf420a5"
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/8b/1a/3544f4f299a47911c2ab3710f534e52fea62a633c96806995da5d25be4b2/pyparsing-3.2.1.tar.gz"
-    sha256 "61980854fd66de3a90028d679a954d5f2623e83144b5afe5ee86f43d762e5f0a"
+    url "https://files.pythonhosted.org/packages/bb/22/f1129e69d94ffff626bdb5c835506b3a5b4f3d070f17ea295e12c2c6f60f/pyparsing-3.2.3.tar.gz"
+    sha256 "b9c13f1ab8b3b542f72e28f634bad4de758ab3ce4546e4301970ad6fa77c38be"
   end
 
   resource "python-dateutil" do
@@ -124,8 +125,8 @@ class CyclonedxPython < Formula
   end
 
   resource "referencing" do
-    url "https://files.pythonhosted.org/packages/27/32/fd98246df7a0f309b58cae68b10b6b219ef2eb66747f00dfb34422687087/referencing-0.36.1.tar.gz"
-    sha256 "ca2e6492769e3602957e9b831b94211599d2aade9477f5d44110d2530cf9aade"
+    url "https://files.pythonhosted.org/packages/2f/db/98b5c277be99dd18bfd91dd04e1b759cad18d1a338188c936e92f921c7e2/referencing-0.36.2.tar.gz"
+    sha256 "df2e89862cd09deabbdba16944cc3f10feb6b3e6f18e902f7cc25609a34775aa"
   end
 
   resource "rfc3339-validator" do
@@ -139,8 +140,8 @@ class CyclonedxPython < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/01/80/cce854d0921ff2f0a9fa831ba3ad3c65cee3a46711addf39a2af52df2cfd/rpds_py-0.22.3.tar.gz"
-    sha256 "e32fee8ab45d3c2db6da19a5323bc3362237c8b653c70194414b892fd06a080d"
+    url "https://files.pythonhosted.org/packages/0b/b3/52b213298a0ba7097c7ea96bee95e1947aa84cc816d48cebb539770cdf41/rpds_py-0.24.0.tar.gz"
+    sha256 "772cc1b2cd963e7e17e6cc55fe0371fb9c704d63e44cacec7b9b7f523b78919e"
   end
 
   resource "six" do
@@ -169,8 +170,8 @@ class CyclonedxPython < Formula
   end
 
   def install
-    # attrs > hatchling, fix to `ZIP does not support timestamps before 1980` error
-    ENV["SOURCE_DATE_EPOCH"] = Time.now.to_i.to_s
+    # The source doesn't have a valid SOURCE_DATE_EPOCH, so here we set default.
+    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
 
     virtualenv_install_with_resources
   end

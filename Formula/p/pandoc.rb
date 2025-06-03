@@ -1,18 +1,19 @@
 class Pandoc < Formula
   desc "Swiss-army knife of markup format conversion"
   homepage "https://pandoc.org/"
-  url "https://github.com/jgm/pandoc/archive/refs/tags/3.6.2.tar.gz"
-  sha256 "068a0fd99dcd34e99aec0cd039d8d7cdb6b16bf20e338549cc562717c8bcb21f"
+  url "https://github.com/jgm/pandoc/archive/refs/tags/3.7.0.2.tar.gz"
+  sha256 "a098c1dc8051844e3992f8396c6c947dccbc57b6ca3df2f2c47b9f7fa9f11246"
   license "GPL-2.0-or-later"
   head "https://github.com/jgm/pandoc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a69ed0a7cbd710771e76b783cf18b2645fa6f44b843d03b94c9436220b245ac4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4e6e717d28ea8bb1d4b667ba3daf705bb1eb846350dd882c18e0f8306f1cec47"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8e9f292efa0d6330cd188ae552124e78504ce67e545ddf26f54d6a3b3a99d24d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b76630f198e24fe2cc38742b479d70a8dce5bdf0831abd96c85b61156d7a25eb"
-    sha256 cellar: :any_skip_relocation, ventura:       "337aa31dabb8bf7c8b61ab51452e023388f113bd23314091f5d9c51b9c0cc5ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "658b51bd383ad3331964efcc3eb3040191ccbb99dc6ad60f1d2df141a96d7440"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c1a49a901b2ced92b8a50547723d4f7452772b8a1b2da9bce66639e129afda0e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b60bd93b5547842d7d0a0c7cd370190d886f8668202d193d41fbd647c7e231b9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "574b5c9ff56741b0618351e730cf57c77769df09c2773f4e078edcf040b59119"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4ed6bbed48caac1f712c44ffd320688294573ee0a9c0b37bb69c7f7a2d5799c5"
+    sha256 cellar: :any_skip_relocation, ventura:       "ae245cd313803946f6944125ad75eb46436b4165ad287ef35efbcec5e5e22c33"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a67e9016e774478bb11e236cfb3e471598bbe327c184749767408b9e5ea31ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "95c14392f3a2a9ed82b48f2fed4f34044899148c8bd35e04dd684b700ecff99f"
   end
 
   depends_on "cabal-install" => :build

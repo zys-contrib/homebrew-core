@@ -1,10 +1,9 @@
 class Micromamba < Formula
   desc "Fast Cross-Platform Package Manager"
   homepage "https://github.com/mamba-org/mamba"
-  url "https://github.com/mamba-org/mamba/archive/refs/tags/micromamba-2.0.5.tar.gz"
-  sha256 "f3c4d39921b2036aa77e1093cb21006bf8787f720a11a2a1ef9a80568d660bf3"
+  url "https://github.com/mamba-org/mamba/archive/refs/tags/2.1.1.tar.gz"
+  sha256 "789d3d89fe8ca9f06344da21797e3d949ad1ff0ae4c633dc242a333e0ee37485"
   license "BSD-3-Clause"
-  revision 2
   head "https://github.com/mamba-org/mamba.git", branch: "main"
 
   livecheck do
@@ -15,12 +14,13 @@ class Micromamba < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "98e6925fbd830cc6d97519d156ad96b9cbf084c105e69e6011552c9350269919"
-    sha256 cellar: :any,                 arm64_sonoma:  "fa02f1e214165e3d129d748a381eece8d8e3dc54e170b69f1dfc70caa30924c5"
-    sha256 cellar: :any,                 arm64_ventura: "d40632ab7e49c6c0507b219805638062a3beab449ccea7206686f3f6c1f63a9c"
-    sha256 cellar: :any,                 sonoma:        "90c2f3094ea6f654fd6fb861e8f37e3be10cef230dd753c096259e16c8327baf"
-    sha256 cellar: :any,                 ventura:       "fbf91b7946c5f582c35738ad659f7cd94c9f51df8597ec4e9bd43dd055c7a06f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7effa46da6d8528914ecd827b2271fc40fee8d67c9aa93c3cc9e110981e3781"
+    sha256 cellar: :any,                 arm64_sequoia: "74d15240890ade0f18fc3177f478b15637cd472afa8b07394c658cf318719e51"
+    sha256 cellar: :any,                 arm64_sonoma:  "928e0f64d19adf80b818f62bd1fd62bbeecf751b7c8aaf2ed3cad596f22feb4c"
+    sha256 cellar: :any,                 arm64_ventura: "afdc521ae40b2719038bb2f823dd2aeae29f2228f3dd3cc52222dba2f44740b6"
+    sha256 cellar: :any,                 sonoma:        "a04b81ba206040796ad0bea5aa1a86271b4223e5b56d2c2e7fa7b26e9f7e81f7"
+    sha256 cellar: :any,                 ventura:       "58cb2cf31fddd3bd268c6d7a129beddf92c475d3d10e8dd11ddfbdf05c8b5c55"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3bdda7e4d68b3a7956c17afba45ede0f90c80ad5a406258a815fa216fac1150f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f22521844f3e9957a8be3a860443643ee5a38220163c20b496f083404fe020ce"
   end
 
   depends_on "cli11" => :build

@@ -3,18 +3,19 @@ class Tach < Formula
 
   desc "Tool to enforce dependencies using modular architecture"
   homepage "https://docs.gauge.sh/getting-started/introduction"
-  url "https://files.pythonhosted.org/packages/d9/4b/de2e7ad0a22e63fbed979064381da1290391dd623a3fd80d0728ea72d545/tach-0.23.0.tar.gz"
-  sha256 "ae123491231ab0712417d579b9a3259014d713d72626805ff64552955e43e912"
+  url "https://files.pythonhosted.org/packages/c0/03/71dc08afb67a98f75f338cbe06cafa4d4266a80b5f3192fae73289a38412/tach-0.29.0.tar.gz"
+  sha256 "0b27b9265eee34f396515a2e918fa783d3d02e69edfb6ea1dfd1843d49021429"
   license "MIT"
   head "https://github.com/gauge-sh/tach.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5dc450c4441debb8d3358b786086583f865a8ef46c6e05b54de759c1993c6896"
-    sha256 cellar: :any,                 arm64_sonoma:  "8ac4a6a43f71d228bd72680176d56125d672db150df57d48e80f65b43a2f88d5"
-    sha256 cellar: :any,                 arm64_ventura: "5911b4ca10b7bb8b2ea798b29c307e25f1669b89cdccdb9fb1ff34b03a33efe0"
-    sha256 cellar: :any,                 sonoma:        "0d6083324e08ddb350f052d8fe0349df174a4f655c74463593f535059874c8f0"
-    sha256 cellar: :any,                 ventura:       "fbb07616d97c04385f3584926b141422fe13ecfab37dc935a85e52ef5386fae7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9555581324b1c85e1875c9d71655e61e477f3b7caa3f32853d85d0baad1ee835"
+    sha256 cellar: :any,                 arm64_sequoia: "3db427a6caea76c846eebb8f2502c86a7171710e5aca628f989f48f129d615c1"
+    sha256 cellar: :any,                 arm64_sonoma:  "8e47442497921fc872a084a677eed665d3f4c89c0ff48655d3957de71d59e72f"
+    sha256 cellar: :any,                 arm64_ventura: "734364a31ada8e5a32e67bc23c9c1b4f63bedcbdf51b0408c666a8f8ef771e67"
+    sha256 cellar: :any,                 sonoma:        "5ab56efd8069aa51bc53d2685947c7cf9499b7514c82fc9aaa37676682833b71"
+    sha256 cellar: :any,                 ventura:       "78b97642cb747a584f1db63c6def4e35b96e702b44e496c81e86c92558bbd269"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7fb188552bb18d4c3b8e5f9c74be9ccedfbf4532ef9e6c74b633d565a33d04a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0192a66caa3854171fc723bfa00a586e82162896159e703c3beb5b7ae9ed2f9"
   end
 
   depends_on "rust" => :build
@@ -47,8 +48,8 @@ class Tach < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/a1/e1/bd15cb8ffdcfeeb2bdc215de3c3cffca11408d829e4b8416dcfe71ba8854/prompt_toolkit-3.0.50.tar.gz"
-    sha256 "544748f3860a2623ca5cd6d2795e7a14f3d0e1c3c9728359013f79877fc89bab"
+    url "https://files.pythonhosted.org/packages/bb/6e/9d084c929dfe9e3bfe0c6a47e31f78a25c54627d64a66e884a8bf5474f1c/prompt_toolkit-3.0.51.tar.gz"
+    sha256 "931a162e3b27fc90c86f1b48bb1fb2c528c2761475e57c9c06de13311c7b54ed"
   end
 
   resource "pydot" do
@@ -62,8 +63,8 @@ class Tach < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/8b/1a/3544f4f299a47911c2ab3710f534e52fea62a633c96806995da5d25be4b2/pyparsing-3.2.1.tar.gz"
-    sha256 "61980854fd66de3a90028d679a954d5f2623e83144b5afe5ee86f43d762e5f0a"
+    url "https://files.pythonhosted.org/packages/bb/22/f1129e69d94ffff626bdb5c835506b3a5b4f3d070f17ea295e12c2c6f60f/pyparsing-3.2.3.tar.gz"
+    sha256 "b9c13f1ab8b3b542f72e28f634bad4de758ab3ce4546e4301970ad6fa77c38be"
   end
 
   resource "pyyaml" do
@@ -103,6 +104,6 @@ class Tach < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/tach --version")
 
-    assert_match "tach.toml not found", shell_output("#{bin}/tach server 2>&1", 1)
+    assert_match "Configuration file not found.", shell_output("#{bin}/tach server 2>&1", 1)
   end
 end

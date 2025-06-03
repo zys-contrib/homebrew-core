@@ -1,22 +1,25 @@
 class PnpmAT9 < Formula
   desc "Fast, disk space efficient package manager"
   homepage "https://pnpm.io/"
-  url "https://registry.npmjs.org/pnpm/-/pnpm-9.15.4.tgz"
-  sha256 "9bee59c7313a216722c079c1e22160dea7f88df4e0c3450b1d7b01b882336c6a"
+  url "https://registry.npmjs.org/pnpm/-/pnpm-9.15.9.tgz"
+  sha256 "cf86a7ad764406395d4286a6d09d730711720acc6d93e9dce9ac7ac4dc4a28a7"
   license "MIT"
 
   livecheck do
     url "https://registry.npmjs.org/pnpm/latest-9"
-    regex(/["']version["']:\s*?["']([^"']+)["']/i)
+    strategy :json do |json|
+      json["version"]
+    end
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6ff60c8771feb0aef2902ace289b67971ffb9c3073a33e843553b4d6c3f6372a"
-    sha256 cellar: :any,                 arm64_sonoma:  "6ff60c8771feb0aef2902ace289b67971ffb9c3073a33e843553b4d6c3f6372a"
-    sha256 cellar: :any,                 arm64_ventura: "6ff60c8771feb0aef2902ace289b67971ffb9c3073a33e843553b4d6c3f6372a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6dba7e1d848bcc4f65d46a3669ac528e0d5d07b2f5f02b009294aea54170ce8b"
-    sha256 cellar: :any_skip_relocation, ventura:       "6dba7e1d848bcc4f65d46a3669ac528e0d5d07b2f5f02b009294aea54170ce8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07ebb08635c6819c1eaf35ba3c8bc1303d0f018782e68289a8cfcd33880abc0c"
+    sha256 cellar: :any,                 arm64_sequoia: "ae74b37d814b99dd613cb07f94b593dab2bb1dca09ff9ade108ff180aba53db5"
+    sha256 cellar: :any,                 arm64_sonoma:  "ae74b37d814b99dd613cb07f94b593dab2bb1dca09ff9ade108ff180aba53db5"
+    sha256 cellar: :any,                 arm64_ventura: "ae74b37d814b99dd613cb07f94b593dab2bb1dca09ff9ade108ff180aba53db5"
+    sha256 cellar: :any,                 sonoma:        "4ecc62fb50f7704d9afa60dc3e161ec772c59f85d0df91808813f26bd7fe3ace"
+    sha256 cellar: :any,                 ventura:       "4ecc62fb50f7704d9afa60dc3e161ec772c59f85d0df91808813f26bd7fe3ace"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b604d8e5694ed2c72031680e1ad2a3b56a88dc9a808c6714f47969ecd7ccd02d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b604d8e5694ed2c72031680e1ad2a3b56a88dc9a808c6714f47969ecd7ccd02d"
   end
 
   keg_only :versioned_formula
@@ -48,6 +51,6 @@ class PnpmAT9 < Formula
 
   test do
     system bin/"pnpm", "init"
-    assert_predicate testpath/"package.json", :exist?, "package.json must exist"
+    assert_path_exists testpath/"package.json", "package.json must exist"
   end
 end

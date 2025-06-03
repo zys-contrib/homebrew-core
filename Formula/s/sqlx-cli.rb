@@ -1,23 +1,24 @@
 class SqlxCli < Formula
   desc "Command-line utility for SQLx, the Rust SQL toolkit"
   homepage "https://github.com/launchbadge/sqlx"
-  url "https://github.com/launchbadge/sqlx/archive/refs/tags/v0.8.3.tar.gz"
-  sha256 "35b1598670e6701021b2622dbc5e05acaba60ced5285b3fdc97b26910fed4bfb"
+  url "https://github.com/launchbadge/sqlx/archive/refs/tags/v0.8.6.tar.gz"
+  sha256 "75d0b4d1f3081a877c7b75936f069f9327bb2ceb4dc206f5a7fc89e0cd9bc31e"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "331d0242afed8925d3c05ede24458de34689fbb50d45107764d7986dd3648b65"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b7d2c265450b36ec7fcfccab40228c1a7c5edeb0fc0252be2d86c2d517577f3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e666d726788aad08b2f4bc2239facd2fbb8a3e50ab4ba7e7159ba3535655f1fa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "09c26b1c79b13a2490dd4d879ecbf991caecc6b8c664a9ea58a879b1bb7c8791"
-    sha256 cellar: :any_skip_relocation, ventura:       "53d1e78bb72ffcd53aadb31f29cf16e8498dd33eb1f3e070b62122578cc2f302"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe41a753bd41e992ae110e22f50855eb3e5bcdc3f796308bee36fa2efac12a3f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "54230ed1ed41400afdd696fb0883096bdce65b91d9e7fe015177b5ba44ac22ff"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "afb223fc9e104c0bfc99b6661ff4e458b9514eb1b1ce029cb0e1d9483ec64da8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "12cbddb5d45554d8d553ac0d7082d992bd9bb71208e9dece395991d81a4a92e4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bdbfce8c38a02084c3cb88267371c470aa8154df798ab046a61a491fb616cbbd"
+    sha256 cellar: :any_skip_relocation, ventura:       "63cf0e3541f8472296dfb4664cb62ecd5b0beb131f268f8b971f444a63bf3056"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "920ad5c889e0bd02b9dcf7aa520297c37fff4b14f6a04314b51f16ddcbda9ec4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "92a8ccbb9b00c9e1fc1e2fb632ab628a46cbf84011d82e78c0564c7f88b20290"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "pkgconf" => :build
     depends_on "openssl@3"
   end
 

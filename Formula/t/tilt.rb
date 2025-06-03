@@ -2,18 +2,19 @@ class Tilt < Formula
   desc "Define your dev environment as code. For microservice apps on Kubernetes"
   homepage "https://tilt.dev/"
   url "https://github.com/tilt-dev/tilt.git",
-      tag:      "v0.33.22",
-      revision: "cf2aeb6b71095e6411e7f31c69e62b51a1df6e59"
+      tag:      "v0.34.5",
+      revision: "0b2f9287b2900a854f0e474a10b2f8496a857ff7"
   license "Apache-2.0"
   head "https://github.com/tilt-dev/tilt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b45357566c67648cbd4bb20424c233a2001aa99b8a4d849cb3d97daee3972e69"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a438a821b54c66dbe7e47d8dc11ffa86f32ce429a68b570771d5cfa8ed702908"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "27bc8335ab9bd9dd678344e99396d838df574347f56b746be4dfb8cf2a2ecf9f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "79db027fd46308fe2a990cb88877b541e2609b2df1ad3cdf485efe90f265e247"
-    sha256 cellar: :any_skip_relocation, ventura:       "cd977ff5a8a8a9c91864087091af44cacd0fff51d710a3e436e1074a8252a5d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c65bb536c401c5f9c21eac0da0f1e5624ebd7e1f08129820ce8fac7c2e4365f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "50700b10519453046b074ef94fe983543fa7e547acf2e40ecad9672ee80cda73"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d62e2b6a4797fb58944e00d063d31ad67e8d436c4830f7ef79ad3a4007b5418"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c48ba2a219909ebda580824da9126d69bb08a7a062e357cfb4906d63e5406454"
+    sha256 cellar: :any_skip_relocation, sonoma:        "db39ef09e74e2ee75f164d3ff90a5c289f4e0c5419b9636f6dc97749f97b588e"
+    sha256 cellar: :any_skip_relocation, ventura:       "c294090151ebbad8ae1aeca12573f7b365a030c21c4291c6436e8e0f32cb8c71"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2ffb6524dac9087097f754d352c5bdc2cd02583dd1cdf73dfa3f4a8788c8845f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eed76e76a3368a0372321099a6f69530d764739e7ff524fa4ca56a1e1727e369"
   end
 
   depends_on "go" => :build

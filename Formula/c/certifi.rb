@@ -1,12 +1,12 @@
 class Certifi < Formula
   desc "Mozilla CA bundle for Python"
   homepage "https://github.com/certifi/python-certifi"
-  url "https://files.pythonhosted.org/packages/0f/bd/1d41ee578ce09523c81a15426705dd20969f5abf006d1afe8aeff0dd776a/certifi-2024.12.14.tar.gz"
-  sha256 "b650d30f370c2b724812bee08008be0c4163b163ddaec3f2546c1caf65f191db"
+  url "https://files.pythonhosted.org/packages/e8/9e/c05b3920a3b7d20d3d3310465f50348e5b3694f4f88c6daf736eef3024c4/certifi-2025.4.26.tar.gz"
+  sha256 "0a816057ea3cdefcef70270d2c515e4506bbc954f417fa5ade2021213bb8f0c6"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "44725646c779db4d1acc62eb13b8c129bde28644b2a7c0c51c34d3cf3c59ecd0"
+    sha256 cellar: :any_skip_relocation, all: "dcfa5f1e36c7a81a60eed0accdde0afe0f37be1af5021a2aa4493735d78a6d40"
   end
 
   depends_on "python@3.12" => [:build, :test]

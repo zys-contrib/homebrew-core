@@ -6,24 +6,23 @@ class LiterateGit < Formula
   url "https://files.pythonhosted.org/packages/67/0e/e37f96177ca5227416bbf06e96d23077214fbb3968b02fe2a36c835bf49e/literategit-0.5.1.tar.gz"
   sha256 "3db9099c9618afd398444562738ef3142ef3295d1f6ce56251ba8d22385afe44"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bdea2b194b7f348c15c88755d5ef0d975cd839dfdacc463bae9f36c7979ba822"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "efc79779edc2107eea264ac7c7c712136d42a6de1111239f030e8958f8521788"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3b67ced36559322a068d9d5d68975732a7b9eb0e957d59bb790cafd4a293276c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a894afe0669bc1c7dbdf7443fd16288203f67a162bc0f6469d1c801bf862d762"
-    sha256 cellar: :any_skip_relocation, ventura:       "213b4b3ee58237156691e35265a46e5e5b92765fe642d7eb0ecec5aaa27fe37f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cdd8ab9dcc85ecd5ce09b20c08732ff7017994b8053008c9acda85aeedd129d0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c78fca9768aa28cc91c7fcd0fdb6f74e6d2edab8ff267912ee079a0d13667188"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "97beb2e869acd67d690d1a51a32f49366b73e3cc6aaad8ea0e7384b8ee493645"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "72e3eb02cd1b9f4656d7c2a1cc941f9c61caebc5c3d134f18364bc0cd896f889"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2d21c7e6ada9f49184787a19d7fd67dda9e933e3c267f5af318ad90fad3a9aa4"
+    sha256 cellar: :any_skip_relocation, ventura:       "4719c71162e17145fcafbd29a0b78341fbba740191ea2b4533072350560db2dd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "44e546f0a8bcc036eb4925142d5f5c60b41ac909d6bba3cd89b21e800a02fb33"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "98a17d82f86fca6482e0d1ef72023b9f8ba90837247c7116661a2c8b8cc9e001"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "pygit2"
   depends_on "python@3.13"
 
   uses_from_macos "libffi"
-
-  on_linux do
-    depends_on "pkgconf" => :build
-  end
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
@@ -31,13 +30,13 @@ class LiterateGit < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "markdown2" do
-    url "https://files.pythonhosted.org/packages/a0/61/d3c0c21280ba1fc348822a4410847cf78f99bba8625755a5062a44d2e228/markdown2-2.5.2.tar.gz"
-    sha256 "3ac02226a901c4b2f6fc21dbd17c26d118d2c25bcbb28cee093a1f8b5c46f3f1"
+    url "https://files.pythonhosted.org/packages/44/52/d7dcc6284d59edb8301b8400435fbb4926a9b0f13a12b5cbaf3a4a54bb7b/markdown2-2.5.3.tar.gz"
+    sha256 "4d502953a4633408b0ab3ec503c5d6984d1b14307e32b325ec7d16ea57524895"
   end
 
   resource "markupsafe" do
@@ -51,8 +50,8 @@ class LiterateGit < Formula
   end
 
   def install
-    # pygments > hatchling, fix to `ZIP does not support timestamps before 1980` error
-    ENV["SOURCE_DATE_EPOCH"] = Time.now.to_i.to_s
+    # The source doesn't have a valid SOURCE_DATE_EPOCH, so here we set default.
+    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
 
     virtualenv_install_with_resources
   end

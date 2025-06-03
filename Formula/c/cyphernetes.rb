@@ -1,17 +1,18 @@
 class Cyphernetes < Formula
   desc "Kubernetes Query Language"
   homepage "https://cyphernet.es"
-  url "https://github.com/AvitalTamir/cyphernetes/archive/refs/tags/v0.15.3.tar.gz"
-  sha256 "8e60e68dd260e5ef01c796535b19b712749c45b887c0cb8033e5c5091f7921f2"
+  url "https://github.com/AvitalTamir/cyphernetes/archive/refs/tags/v0.17.2.tar.gz"
+  sha256 "7547e10c1776d59a4744c5e91f1723c9c382cdce65da73948fb6424c90c06fd0"
   license "Apache-2.0"
+  head "https://github.com/AvitalTamir/cyphernetes.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f462f836991c6e166732b8e85b25f30c6d31d9a8262be472fdbb89818beec67b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f462f836991c6e166732b8e85b25f30c6d31d9a8262be472fdbb89818beec67b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f462f836991c6e166732b8e85b25f30c6d31d9a8262be472fdbb89818beec67b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "890404e2e099a3a26f72aea1fe414a4776c6c3095f431437a0cd938502545f7c"
-    sha256 cellar: :any_skip_relocation, ventura:       "890404e2e099a3a26f72aea1fe414a4776c6c3095f431437a0cd938502545f7c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34cfacc5355e0b595f57de98b151d7ecebca58c0fe330442d8d8b2b7a356fae1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9f9aad0b201d8f6bc34a97ac1da7784f1ceab865321577fc3687a15f1d87e9dc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f9aad0b201d8f6bc34a97ac1da7784f1ceab865321577fc3687a15f1d87e9dc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9f9aad0b201d8f6bc34a97ac1da7784f1ceab865321577fc3687a15f1d87e9dc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8495f244906bd38f6ec3b29700b887412c9f13100fdf11e75e11c3914ef610d9"
+    sha256 cellar: :any_skip_relocation, ventura:       "8495f244906bd38f6ec3b29700b887412c9f13100fdf11e75e11c3914ef610d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "295f7a3df74900d3832f7ae150e7e897b960c6ba0c4684d601a27c400b3f0801"
   end
 
   depends_on "go" => :build

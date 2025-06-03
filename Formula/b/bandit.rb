@@ -3,18 +3,20 @@ class Bandit < Formula
 
   desc "Security-oriented static analyser for Python code"
   homepage "https://github.com/PyCQA/bandit"
-  url "https://files.pythonhosted.org/packages/9b/e2/c229cdb4eefc124e5b77ac2557eb0a3cb5b9fc89bc465dd2b8dc1033dbb8/bandit-1.8.2.tar.gz"
-  sha256 "e00ad5a6bc676c0954669fe13818024d66b70e42cf5adb971480cf3b671e835f"
+  url "https://files.pythonhosted.org/packages/1a/a5/144a45f8e67df9d66c3bc3f7e69a39537db8bff1189ab7cff4e9459215da/bandit-1.8.3.tar.gz"
+  sha256 "f5847beb654d309422985c36644649924e0ea4425c76dec2e89110b87506193a"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/PyCQA/bandit.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "67885aa54ed00e6423064b484c1fd2f3c224e60e4ad385b6c3b87d473118ee5a"
-    sha256 cellar: :any,                 arm64_sonoma:  "b801600a7375e2a294f1b07910082ec21e0d44de11af37bd940c5d89d51a6705"
-    sha256 cellar: :any,                 arm64_ventura: "5a0d7c72b11c837d511691f6710a958029579f1b34cfb0cdb94f7ec09c6c1d75"
-    sha256 cellar: :any,                 sonoma:        "3c06a3552079d348c5a1dfb14260631c4a278e944fdc410e2411b18d78f29f24"
-    sha256 cellar: :any,                 ventura:       "47f4fbf1e8fc154a1fa20e553293852d14589c32d817d2270092eebfe7581615"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f9b7281c882be109f49d5390b0df7ba93bf33e192ad44e2f3dfb9c10a6fd1f0"
+    sha256 cellar: :any,                 arm64_sequoia: "964e40d6436049ce517cebd56a98939ea0eeb4405858f971c5a92e6c7d35771c"
+    sha256 cellar: :any,                 arm64_sonoma:  "86b80a53756ed989f5387e99ffc2cdf66471de8ebb1e13613cb6d8687803c0b1"
+    sha256 cellar: :any,                 arm64_ventura: "2b0d40a68e816b4c22a454e1ad537d2159dd324db64f6c252a1aade66b23a576"
+    sha256 cellar: :any,                 sonoma:        "2e8d5dc4e55e16ca0182caf25594fad20de87751965c2209cc35d7f8cd8aad7d"
+    sha256 cellar: :any,                 ventura:       "eba00adfe42e1862711d1e0da30a88a081dcf9d73b463ca44fa2090e22c33db1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "756d1d881affc851dec0c7c3f8670cbd1444f47054aa23e343102e5f2341a8ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dda916adc0015f3f5169e61bbd390979dc962f59a346624d0cad5fa824f37034"
   end
 
   depends_on "libyaml"
@@ -31,8 +33,8 @@ class Bandit < Formula
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/b2/35/80cf8f6a4f34017a7fe28242dc45161a1baa55c41563c354d8147e8358b2/pbr-6.1.0.tar.gz"
-    sha256 "788183e382e3d1d7707db08978239965e8b9e4e5ed42669bf4758186734d5f24"
+    url "https://files.pythonhosted.org/packages/01/d2/510cc0d218e753ba62a1bc1434651db3cd797a9716a0a66cc714cb4f0935/pbr-6.1.1.tar.gz"
+    sha256 "93ea72ce6989eb2eed99d0f75721474f69ad88128afdef5ac377eb797c4bf76b"
   end
 
   resource "pygments" do
@@ -46,13 +48,18 @@ class Bandit < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/ab/3a/0316b28d0761c6734d6bc14e770d85506c986c85ffb239e688eeaab2c2bc/rich-13.9.4.tar.gz"
-    sha256 "439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"
+    url "https://files.pythonhosted.org/packages/a1/53/830aa4c3066a8ab0ae9a9955976fb770fe9c6102117c8ec4ab3ea62d89e8/rich-14.0.0.tar.gz"
+    sha256 "82f1bc23a6a21ebca4ae0c45af9bdbc492ed20231dcb63f297d6d1021a9d5725"
+  end
+
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
+    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
   end
 
   resource "stevedore" do
-    url "https://files.pythonhosted.org/packages/4a/e9/4eedccff8332cc40cc60ddd3b28d4c3e255ee7e9c65679fa4533ab98f598/stevedore-5.4.0.tar.gz"
-    sha256 "79e92235ecb828fe952b6b8b0c6c87863248631922c8e8e0fa5b17b232c4514d"
+    url "https://files.pythonhosted.org/packages/28/3f/13cacea96900bbd31bb05c6b74135f85d15564fc583802be56976c940470/stevedore-5.4.1.tar.gz"
+    sha256 "3135b5ae50fe12816ef291baff420acb727fcd356106e3e9cbfa9e5985cd6f4b"
   end
 
   def install

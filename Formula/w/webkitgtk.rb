@@ -1,8 +1,8 @@
 class Webkitgtk < Formula
   desc "GTK interface to WebKit"
   homepage "https://webkitgtk.org"
-  url "https://webkitgtk.org/releases/webkitgtk-2.46.5.tar.xz"
-  sha256 "bad4020bb0cfb3e740df3082c2d9cbf67cf4095596588a56aecdde6702137805"
+  url "https://webkitgtk.org/releases/webkitgtk-2.48.3.tar.xz"
+  sha256 "d4dc5970f0fc6a529ff7fd67bcbfab2bbb5e91be789b2e9279640b3217a782c3"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,7 +11,8 @@ class Webkitgtk < Formula
   end
 
   bottle do
-    sha256 x86_64_linux: "5e91774ea2bb63e94ec2f9c05d9ed2a290fce390a108434a4e008a05dfdd1b98"
+    sha256 arm64_linux:  "a20463eb5d50e1404ad6c62e5e06b9b232eb1f9f9b52dddc5ba48f044715c570"
+    sha256 x86_64_linux: "07b7feb68e5a235c2d5844ff3e9d6b9ee5f26029a1f4a0f22fc89cbb5390fd88"
   end
 
   depends_on "cmake" => :build
@@ -33,7 +34,7 @@ class Webkitgtk < Formula
   depends_on "gstreamer"
   depends_on "gtk+3"
   depends_on "harfbuzz"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "jpeg-turbo"
   depends_on "jpeg-xl"
   depends_on "libavif"
@@ -65,12 +66,6 @@ class Webkitgtk < Formula
   depends_on "wpebackend-fdo"
   depends_on "zlib"
 
-  # Backport support for ICU 76+
-  patch do
-    url "https://github.com/WebKit/WebKit/commit/63f7badbada070ebaadd318b2801818ecf7e7ea0.patch?full_index=1"
-    sha256 "0fd1774e02d0c8c91b100aa6189da28df28a65f3d683f87e0e806a80340305dc"
-  end
-
   def install
     args = %W[
       -DPORT=GTK
@@ -78,6 +73,7 @@ class Webkitgtk < Formula
       -DENABLE_DOCUMENTATION=OFF
       -DENABLE_GAMEPAD=OFF
       -DENABLE_MINIBROWSER=ON
+      -DENABLE_SPEECH_SYNTHESIS=OFF
       -DUSE_AVIF=ON
       -DUSE_GTK4=OFF
       -DUSE_JPEGXL=ON

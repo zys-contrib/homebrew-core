@@ -1,17 +1,18 @@
 class LibxmpLite < Formula
   desc "Lite libxmp"
   homepage "https://xmp.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/xmp/libxmp/4.6.1/libxmp-lite-4.6.1.tar.gz"
-  sha256 "d2096d0ad04d90556a88856a3a9e093d434ed3b6b6791907be73db7e2b9b7837"
+  url "https://downloads.sourceforge.net/project/xmp/libxmp/4.6.3/libxmp-lite-4.6.3.tar.gz"
+  sha256 "fa6465d8b911363ae602c7baaa625ca1f5223142d10bb4682029c4d2f630cb62"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "45f2bf9d9951767cf6b3432907a7d78c4e64ad758b28bd691f763446ee84eeb1"
-    sha256 cellar: :any,                 arm64_sonoma:  "04a21a3c396232c2ab897af6d7becbfd7e983e53f230082cf7852f2cdc76956a"
-    sha256 cellar: :any,                 arm64_ventura: "3e1bc29593bab4b7cfc75fa8127468f79e04f2664abe204b246c029b02b5acea"
-    sha256 cellar: :any,                 sonoma:        "cfb0b254511b6c25751c6ba6ba0af28ac18e8bfc7d5b14aa2a1794199d06098d"
-    sha256 cellar: :any,                 ventura:       "f82931dcaf8023784413cf966e64085f0d31083e25b39296bbd36cf3fe5d9fea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "422e9bdeaf10af4d9b4d587653ad89aa5cf2e4fedd7d7ee2581b0f899982af7d"
+    sha256 cellar: :any,                 arm64_sequoia: "33f736a998df705e0a4c9cdecbbea17c46ddab5803f97e7834d121079e97b03e"
+    sha256 cellar: :any,                 arm64_sonoma:  "ec6e0e00af014526d3f1f96741fb564e724354169f8c9798725c45f174793f50"
+    sha256 cellar: :any,                 arm64_ventura: "7d29fddef4290da3d16092ae368fe48e493fd7cab53734986ee72508e404607f"
+    sha256 cellar: :any,                 sonoma:        "04ed96a9057040484ce1972869065a2fb281b17a34f987ba0518b49032f8d8af"
+    sha256 cellar: :any,                 ventura:       "fb44f2c897a35488b9a0029a4f5df90e2f2943b3f9f3166a4ec4afaf1b079d6e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "122f92680e34ed0d76488a405c5e97e1b18280224b2870d1563f1fe6878e3297"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b188d2359801030bbd31a68715f74fd271898ea4dd537c3c12def7bdba7b0a5"
   end
 
   def install

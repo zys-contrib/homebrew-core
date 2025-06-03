@@ -1,18 +1,18 @@
 class Terramaid < Formula
   desc "Utility for generating Mermaid diagrams from Terraform configurations"
   homepage "https://github.com/RoseSecurity/Terramaid"
-  url "https://github.com/RoseSecurity/Terramaid/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "43f4fe29997f3090ef82b3e46893426c88be5ea991e9c61966ef5660a40ae851"
+  url "https://github.com/RoseSecurity/Terramaid/archive/refs/tags/v2.4.0.tar.gz"
+  sha256 "fb7a6686e5d8845e457a0838ad689ea654beb569283b80591bf59556dee3bcf1"
   license "Apache-2.0"
   head "https://github.com/RoseSecurity/Terramaid.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0b708fb015e343fd29aa37342862ebc9a72c3a56f94dac88da396e29d9170e3c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0b708fb015e343fd29aa37342862ebc9a72c3a56f94dac88da396e29d9170e3c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0b708fb015e343fd29aa37342862ebc9a72c3a56f94dac88da396e29d9170e3c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "21c7c598280a8abffa40957530bb551694805449f224f443eb9f7d411ad6cf79"
-    sha256 cellar: :any_skip_relocation, ventura:       "21c7c598280a8abffa40957530bb551694805449f224f443eb9f7d411ad6cf79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39be4c218d20994c8b69045f94711ed4ef8d9c767770c81a17d385147bf27e00"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3d9abf66f02f175a1ee5a3ffb00dfa0d67bf67cdc51b66d68fd9a1b92925c6ca"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3d9abf66f02f175a1ee5a3ffb00dfa0d67bf67cdc51b66d68fd9a1b92925c6ca"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3d9abf66f02f175a1ee5a3ffb00dfa0d67bf67cdc51b66d68fd9a1b92925c6ca"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5b7d9d4df774d6be1ec76e26df93fbfa26c9936cb3ca813a3fa84092c20b9008"
+    sha256 cellar: :any_skip_relocation, ventura:       "5b7d9d4df774d6be1ec76e26df93fbfa26c9936cb3ca813a3fa84092c20b9008"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "423a09cccf5152a5db5e2272b0d277297f4655266fce49017b3430fe0722b3d5"
   end
 
   depends_on "go" => [:build, :test]
@@ -36,7 +36,7 @@ class Terramaid < Formula
     HCL
 
     system bin/"terramaid", "run", "-w", testpath.to_s, "-o", testpath/"output.mmd"
-    assert_predicate testpath/"output.mmd", :exist?
+    assert_path_exists testpath/"output.mmd"
 
     assert_match version.to_s, shell_output("#{bin}/terramaid version")
   end

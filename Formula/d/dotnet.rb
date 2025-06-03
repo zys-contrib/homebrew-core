@@ -2,16 +2,17 @@ class Dotnet < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   license "MIT"
+  version_scheme 1
   head "https://github.com/dotnet/dotnet.git", branch: "main"
 
   stable do
     # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-    url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.101.tar.gz"
-    sha256 "2e19ec615afe23e318d15bb7cbceabb00b3c8fb8cdca8d3a4a0b98eae66411c7"
+    url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.5.tar.gz"
+    sha256 "0ff026271b8e21db503284b5cfae8e0546f009d18581497ba754084729dc74c3"
 
     resource "release.json" do
-      url "https://github.com/dotnet/dotnet/releases/download/v9.0.101/release.json"
-      sha256 "02c7435a19fefd8646c641dcf43072b79c0e868ec80a1a12ced108b2b6639819"
+      url "https://github.com/dotnet/dotnet/releases/download/v9.0.5/release.json"
+      sha256 "36900c37e54d780ade35f2eaeaa9bf2dc1e7789b5d82c6c11a63d0da2853f813"
 
       livecheck do
         formula :parent
@@ -19,19 +20,25 @@ class Dotnet < Formula
     end
   end
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+\.\d+\.\d{1,2})$/i)
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "47acc69a9fd491ec36514f381aa6eccac49707d7d71126c4c74846e92ebdfdc3"
-    sha256 cellar: :any,                 arm64_sonoma:  "49ddbb78a70576f163403dec659cb963dcaa546596c3a84f78e70e761a73a3e4"
-    sha256 cellar: :any,                 arm64_ventura: "f5c8b63bece516ba93e36f66994485d6db8ba00cd75c43a4d3128e666ac1ce4f"
-    sha256 cellar: :any,                 ventura:       "640cb159a004891af6988e6ccfe5e07ca21898ee886879593c87fced7fd575d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d3be239a0c0da2a87799299dff29ce7e9701605b30d058755453417a7d25797"
+    sha256 cellar: :any,                 arm64_sequoia: "9a9c0fea3897f713604263ce3d25755cdc1cc34e9728ce384b1674a23adaf081"
+    sha256 cellar: :any,                 arm64_sonoma:  "a6be60a96abea6c0c5262c1ee7ef44396cf96837c434beb2f1d7ae0643cffaad"
+    sha256 cellar: :any,                 arm64_ventura: "73b20278e33fb2c051e60b19b9aaf216c6edfb6e9b4b615f8a65ee53edff7d00"
+    sha256 cellar: :any,                 ventura:       "e8e49e3b7d72dbd6adf719f368d0a38bb78a3e29e0368b828339657f765c2fa5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4bc91b3b6e5934256b7c52e0e4028442cc0c263786408f7c10cab58ecdc96942"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "238d53cd94923a17447e797249358c06e6e5f8b4574a51bd87fb3c7734c7c39b"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "rapidjson" => :build
   depends_on "brotli"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "openssl@3"
 
   uses_from_macos "python" => :build, since: :catalina
@@ -46,6 +53,11 @@ class Dotnet < Formula
     depends_on "libunwind"
     depends_on "lttng-ust"
   end
+
+  conflicts_with cask: "dotnet"
+  conflicts_with cask: "dotnet-sdk"
+  conflicts_with cask: "dotnet-sdk@preview"
+  conflicts_with cask: "dotnet@preview"
 
   def install
     if OS.mac?
@@ -96,10 +108,10 @@ class Dotnet < Formula
   end
 
   def caveats
-    <<~TEXT
+    <<~CAVEATS
       For other software to find dotnet you may need to set:
         export DOTNET_ROOT="#{opt_libexec}"
-    TEXT
+    CAVEATS
   end
 
   test do
@@ -149,8 +161,8 @@ class Dotnet < Formula
     # Test to avoid uploading broken Intel Sonoma bottle which has stack overflow on restore.
     # See https://github.com/Homebrew/homebrew-core/issues/197546
     resource "docfx" do
-      url "https://github.com/dotnet/docfx/archive/refs/tags/v2.78.2.tar.gz"
-      sha256 "0b0f53532fc887a1b7444d8c45f89d49250b6d26d8a24f8865563c4e916c1621"
+      url "https://github.com/dotnet/docfx/archive/refs/tags/v2.78.3.tar.gz"
+      sha256 "d97142ff71bd84e200e6d121f09f57d28379a0c9d12cb58f23badad22cc5c1b7"
     end
     resource("docfx").stage do
       system bin/"dotnet", "restore", "src/docfx", "--disable-build-servers", "--no-cache"

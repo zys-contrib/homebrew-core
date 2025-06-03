@@ -1,8 +1,8 @@
 class OpenjdkAT17 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk17u/archive/refs/tags/jdk-17.0.14-ga.tar.gz"
-  sha256 "6e964d51834d01e304d25dbe46eb7613175f906032885e4fb0770785a9d10759"
+  url "https://github.com/openjdk/jdk17u/archive/refs/tags/jdk-17.0.15-ga.tar.gz"
+  sha256 "ae623441d95d0563690f85edad765a12fc89bbb89ed1877ec5cf677a5ae4fbd7"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
 
   livecheck do
@@ -11,12 +11,13 @@ class OpenjdkAT17 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "d267604139ce635df62b5acb65ae886091055cf1b4838e2b202e102727547d1d"
-    sha256 cellar: :any, arm64_sonoma:  "e538e4ccd5d8b758e6b391b87e63ec6b634e3a3d2b86cdc2a73c6371f6dfa1af"
-    sha256 cellar: :any, arm64_ventura: "83d7cba0e0e2e071deefbfd5dd33b8417e3807469583a867c8a5d596e4ee9377"
-    sha256 cellar: :any, sonoma:        "c4b9e043faa95edd98c2e8a2363c903b0cab59b197ae19a152b23395e4333c31"
-    sha256 cellar: :any, ventura:       "61283d2a3103bfca129a9ea7b20bf95b2f2ad3c0b249b4d1cb32107dba023077"
-    sha256               x86_64_linux:  "9ad511e1c487b8f914a6a726b4478448602a0837c517cdf5691619d6fe82d775"
+    sha256 cellar: :any, arm64_sequoia: "18263028ef126d4c4c24fe38950378da312cd399f0c30ec0728c60064bbb172a"
+    sha256 cellar: :any, arm64_sonoma:  "35988993a9c667c35b1f69c60e6a843ada498d2584eb408f791e8812300114e3"
+    sha256 cellar: :any, arm64_ventura: "c6f435fba43d3474fa6e6ee5551af7e573dc38b77e1bd4b3f719789c8d687552"
+    sha256 cellar: :any, sonoma:        "54797db5cd75643fb6089c5e9b9f7e67f85337688aa39598b056d8520b1a9559"
+    sha256 cellar: :any, ventura:       "39b359e24c430d3f92f1b71ba1f50d3638a242152116b7ba2c5bd3f9dd278c18"
+    sha256               arm64_linux:   "e175372ab81054272e82d0878b6dc181cccd6921ba7034d4ead6ba4e281484f0"
+    sha256               x86_64_linux:  "5067c93f3183b79b01ae789f71e9f454b517a70a30c8ffbd40ca48aa5572c706"
   end
 
   keg_only :versioned_formula
@@ -36,16 +37,6 @@ class OpenjdkAT17 < Formula
   uses_from_macos "unzip"
   uses_from_macos "zip"
   uses_from_macos "zlib"
-
-  on_macos do
-    if DevelopmentTools.clang_build_version == 1600
-      depends_on "llvm" => :build
-
-      fails_with :clang do
-        cause "fatal error while optimizing exploded image for BUILD_JIGSAW_TOOLS"
-      end
-    end
-  end
 
   on_linux do
     depends_on "alsa-lib"
@@ -84,16 +75,6 @@ class OpenjdkAT17 < Formula
   end
 
   def install
-    if DevelopmentTools.clang_build_version == 1600
-      ENV.llvm_clang
-      ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
-      # ptrauth.h is not available in brew LLVM
-      inreplace "src/hotspot/os_cpu/bsd_aarch64/pauth_bsd_aarch64.inline.hpp" do |s|
-        s.sub! "#include <ptrauth.h>", ""
-        s.sub! "return ptrauth_strip(ptr, ptrauth_key_asib);", "return ptr;"
-      end
-    end
-
     boot_jdk = buildpath/"boot-jdk"
     resource("boot-jdk").stage boot_jdk
     boot_jdk /= "Contents/Home" if OS.mac?
@@ -145,6 +126,10 @@ class OpenjdkAT17 < Formula
       ]
     end
     args << "--with-extra-ldflags=#{ldflags.join(" ")}"
+
+    if DevelopmentTools.clang_build_version == 1600 && MacOS::Xcode.version < "16.2"
+      args << "--with-extra-cflags=-mllvm -enable-constraint-elimination=0"
+    end
 
     system "bash", "configure", *args
 

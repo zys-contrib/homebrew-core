@@ -1,17 +1,18 @@
 class Topiary < Formula
   desc "Uniform formatter for simple languages, as part of the Tree-sitter ecosystem"
   homepage "https://topiary.tweag.io/"
-  url "https://github.com/tweag/topiary/archive/refs/tags/v0.5.1.tar.gz"
-  sha256 "7c84c7f1c473609153895c8857a35925e2c0d623e60f3ee00255202c2461785a"
+  url "https://github.com/tweag/topiary/archive/refs/tags/v0.6.1.tar.gz"
+  sha256 "e2bbac9cb46a3743cc41ca55245026580308722242c9df84bc0ef3cbb989aa81"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7dac6336757b9a2022c2c3f2225672165f4f9170da6f15d65151e0719b2921d2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ca84b527d6ec8ae8c6c234dae9278ed8242061f2a45ac291a8ca77854066cfc1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5df3f21270366090265f6c68b953625b7bfa204938abc7cb59f65d09123e3b17"
-    sha256 cellar: :any_skip_relocation, sonoma:        "19e95fdbdbfec39a3f1d6b39dfca4a95bb10d7ad50b569a558b31cb806ae77e6"
-    sha256 cellar: :any_skip_relocation, ventura:       "76cf060cb6a4f5710fa74e884833445e4c67ca7e3da7fbf4c4e13acc3a6c0b54"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6267e1f52e835088fb505f9c267f9684f278d1e874297386b43e59ab8960292f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ff6e9f5f0ba1896fed926e9f708b6963c1e5340067a32300fad8837d63a9861"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3fab50ec587b88dc7aae8a6749dc27e5b71101059a6055dde8b6e142d8e6a751"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f891576edc8f8c888ddec6065c05c1bf1c7d85638ea7040b5a4616ecfdd6c5c1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4e332169f12e5ce6bca20a04bcef4f43da972455a1b8957e6f860916667b1939"
+    sha256 cellar: :any_skip_relocation, ventura:       "6ff37a98ed98b3572c53dfa85ce8ef34c2a2d92a9a31be38d032b07ee1d48f7d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2222cab84529fa6b8043d52d4c0e6f6d06473a988d0b0d4de7a29c7f52083885"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5aa363b87cdb615b19b242655d855caed29388a8c93a85db2b5946a2a979752"
   end
 
   depends_on "rust" => :build
@@ -32,14 +33,7 @@ class Topiary < Formula
       }
     RUST
 
-    (testpath/"config.toml").write <<~TOML
-      [language]
-      name = "rust"
-      extensions = ["rs"]
-      indent = "    " # 4 spaces
-    TOML
-
-    system bin/"topiary", "format", "-C", testpath/"config.toml", testpath/"test.rs"
+    system bin/"topiary", "format", testpath/"test.rs"
 
     assert_match <<~RUST, File.read("#{testpath}/test.rs")
       fn main() {

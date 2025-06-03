@@ -1,9 +1,10 @@
 class Libical < Formula
   desc "Implementation of iCalendar protocols and data formats"
   homepage "https://libical.github.io/libical/"
-  url "https://github.com/libical/libical/releases/download/v3.0.19/libical-3.0.19.tar.gz"
-  sha256 "6a1e7f0f50a399cbad826bcc286ce10d7151f3df7cc103f641de15160523c73f"
+  url "https://github.com/libical/libical/releases/download/v3.0.20/libical-3.0.20.tar.gz"
+  sha256 "e73de92f5a6ce84c1b00306446b290a2b08cdf0a80988eca0a2c9d5c3510b4c2"
   license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
+  revision 1
 
   livecheck do
     url :stable
@@ -11,18 +12,19 @@ class Libical < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a6dae4a92f065ebc7e06843b2983b42133df6ce2ed2e6168a9b1b970c5fdd105"
-    sha256 cellar: :any,                 arm64_sonoma:  "d207372138129605cd50e713d8167f58b71f8c19d6e77ba7898673c3fe821070"
-    sha256 cellar: :any,                 arm64_ventura: "2d89c11b85761c3cf357f27b7e3b6712faefbabba77368ab12946ca4d97951c2"
-    sha256 cellar: :any,                 sonoma:        "ee002ff8085136d6603c358c3b6256c5d6c4dc2609d6f9d2afaa86e9e5d8ad75"
-    sha256 cellar: :any,                 ventura:       "efd1e91cb898f2c97697c3cd5611b75826b10f5028f7cdb0705645017d92f75d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b97de9662735ed49c86b83c73eefaa27e3dd3e0f699d337f605f8d5aa0121fe"
+    sha256 cellar: :any,                 arm64_sequoia: "f9456c87474eaba72b8161d536585beead8a8be4de54b053b8876e1e5ee8c455"
+    sha256 cellar: :any,                 arm64_sonoma:  "78b1a1c587516767bd8d12e977fac2e5df784c46b93c61a9a3b503475aa1592e"
+    sha256 cellar: :any,                 arm64_ventura: "989541e8c1084836db8846d7fee606fa7c62c1d4e2087af88cdcd0b76911862b"
+    sha256 cellar: :any,                 sonoma:        "6c42ef3607c1a8d19f558b65bc237a9f9bf8a1a224b0f9ea92e1a25baa493b58"
+    sha256 cellar: :any,                 ventura:       "15a4f6945fd75f1bef1338746aca9445c9ad57899c6ceb3a23ae63b12592a20b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "37201920b3eb04236602e79071bd3300397f251eb55751840567e4be26756d54"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e37f1ea7e90528d641fdb663673c6b29d9aac026f1ae932c4ea2c510a4152fa"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "glib"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
 
   uses_from_macos "libxml2"
 

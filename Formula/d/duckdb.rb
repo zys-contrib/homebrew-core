@@ -2,17 +2,18 @@ class Duckdb < Formula
   desc "Embeddable SQL OLAP Database Management System"
   homepage "https://www.duckdb.org"
   url "https://github.com/duckdb/duckdb.git",
-      tag:      "v1.1.3",
-      revision: "19864453f7d0ed095256d848b46e7b8630989bac"
+      tag:      "v1.3.0",
+      revision: "71c5c07cdd295e9409c0505885033ae9eb6b5ddd"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c0ee4c114f855cda3cedf3aa3ebc55e98d2478abd8f82afdb6c2f77b35f69a99"
-    sha256 cellar: :any,                 arm64_sonoma:  "e64f1b902ef3ff598494153defca23bba62975d122bf16264421278553d775dc"
-    sha256 cellar: :any,                 arm64_ventura: "06aff3e01d6a7727dc4c202df223e37d71daf63a8ba6f21d21b1a48655d1a3df"
-    sha256 cellar: :any,                 sonoma:        "56920ddb8940e09ac52352b2b05dc9daa0f39dfd03fd146894754b6e425b034a"
-    sha256 cellar: :any,                 ventura:       "3f0270c622867c1944df25c1b7e1085bacc4ac751b6b540ed58ac6e21d933f8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25d8fcc9c429a718e5e97d8312efd04672a9b91d5aa7b9cc1af42e2178851dc8"
+    sha256 cellar: :any,                 arm64_sequoia: "19bfba7d3b110722048d3cd663ad0a77d80eb4d2f18909cf435db1cd25c17dd4"
+    sha256 cellar: :any,                 arm64_sonoma:  "8a0d96caf3655adcc53fbf2153e219bfb2ba81ab19d31399b5f016addfaeedaf"
+    sha256 cellar: :any,                 arm64_ventura: "9b756019e17326131a1652c6a1491a489a97616b1c08f4ee72456e5ad2003bfe"
+    sha256 cellar: :any,                 sonoma:        "74443b6d66e5b9094a4ecbb29d1c81fed73c711753314b8fbfa00baf75250b65"
+    sha256 cellar: :any,                 ventura:       "b5be86d3c40213aed75bfb84b6ec373618bd8570a25f8d428ae3b28d4e4b7472"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f4e6edba3e24af826aaf67ce25fe6a7d7f1a7c8498a585aae3d114576dd00cc5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1c7f3dfa1d74142faa6533a6a626264cb12841c2769175dd06388f306d1f7bf"
   end
 
   depends_on "cmake" => :build
@@ -32,6 +33,8 @@ class Duckdb < Formula
     # The cli tool was renamed (0.1.8 -> 0.1.9)
     # Create a symlink to not break compatibility
     bin.install_symlink bin/"duckdb" => "duckdb_cli"
+
+    rm lib.glob("*.a")
   end
 
   test do

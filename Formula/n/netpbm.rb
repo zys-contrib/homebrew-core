@@ -3,8 +3,8 @@ class Netpbm < Formula
   homepage "https://netpbm.sourceforge.net/"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for stable versions and matching revisions.
-  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "4982"
-  version "11.02.12"
+  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "5086"
+  version "11.02.17"
   license "GPL-3.0-or-later"
   version_scheme 1
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
@@ -16,24 +16,40 @@ class Netpbm < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "564aa426f9e1597c64ebb51b50b5c2776231517b423634764fa06fda93ebff49"
-    sha256 arm64_sonoma:  "e4b174e0c025ec65cfc1cb8567ae2124372a27864f5046af0da8928b8f45b921"
-    sha256 arm64_ventura: "d4bd64f740a35ca3c49a85d0c27950c67db45a10bd94cfad62fc43cc297e8484"
-    sha256 sonoma:        "31fd82cf18d2bc3cd9af829b1a2fc6cee96886acdf923620b3d046e71800ef80"
-    sha256 ventura:       "6c6baced2256efd2a0032c1282a2ec36d8c63573cfeb459edc34e6cd31ec9e98"
-    sha256 x86_64_linux:  "389525c1edd732598087f85a27752cf394815d6984321285f77941a0086ba366"
+    sha256 arm64_sequoia: "3aec77cc9b5bdf4f773cfbd5f96f9f9fcea7f0310d51a5c37e66bfe4c6fc0163"
+    sha256 arm64_sonoma:  "eb2dce6698988891bf98963ff3d3fb7ed7efe42458b2153e91b128eb1f14d316"
+    sha256 arm64_ventura: "be38633b7906116e068d6a42fceb6d30d4f52a1f4b935f164b9b0e2d215735ef"
+    sha256 sonoma:        "d5be0b1f440f519cb78feac6434ebe88bc76b7cfa94b76e7773b8e681a2e1e7e"
+    sha256 ventura:       "ce47c7ca34228c67d98e1211b4add2a377a09f4c6ec33d6012d0c1b361979bad"
+    sha256 arm64_linux:   "3a6e1d26558e005bcb19bc7dde5a0710e4af3d4e98ad23d02eb8a01d0d7755f9"
+    sha256 x86_64_linux:  "33cf9013a148c7f95d8bc1d273b7ad568814302e970743a78575f1b2927ba3d9"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "jasper"
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
 
   uses_from_macos "flex" => :build
+  uses_from_macos "python" => :build
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
   conflicts_with "jbigkit", because: "both install `pbm.5` and `pgm.5` files"
+
+  resource "html" do
+    # Rolling release, latest revision also documents previous software versions
+    # NOTE: Keep "revision" and "version" in sync
+    url "https://svn.code.sf.net/p/netpbm/code/userguide", revision: "5071"
+    version "5071"
+
+    livecheck do
+      url "https://sourceforge.net/p/netpbm/code/HEAD/log/?path=/userguide"
+      regex(/\[r?(\d+)\]/i)
+      strategy :page_match
+    end
+  end
 
   def install
     cp "config.mk.in", "config.mk"
@@ -57,6 +73,7 @@ class Netpbm < Formula
         s.change_make_var! "CFLAGS_SHLIB", "-fPIC"
       end
     end
+    inreplace "buildtools/manpage.mk", "python", "python3"
 
     ENV.deparallelize
 
@@ -78,17 +95,28 @@ class Netpbm < Formula
       (lib/"pkgconfig").install "pkgconfig_template" => "netpbm.pc"
     end
 
-    # We don't run `make install`, so an unversioned library symlink is never generated.
-    # FIXME: Check whether we can call `make install` instead of creating this manually.
+    # Generate unversioned library symlink (upstream does not do this)
     libnetpbm = lib.glob(shared_library("libnetpbm", "*")).reject(&:symlink?).first.basename
     lib.install_symlink libnetpbm => shared_library("libnetpbm")
+
+    resource("html").stage buildpath/"userguide"
+    make_args = %W[
+      USERGUIDE=#{buildpath}/userguide
+      -f
+      #{buildpath}/buildtools/manpage.mk
+    ]
+    mkdir buildpath/"netpbmdoc" do
+      system "make", *make_args, "manpages"
+      [man1, man3, man5].map(&:mkpath)
+      system "make", "MANDIR=#{man}", *make_args, "installman"
+    end
   end
 
   test do
     fwrite = shell_output("#{bin}/pngtopam #{test_fixtures("test.png")} -alphapam")
     (testpath/"test.pam").write fwrite
     system bin/"pamdice", "test.pam", "-outstem", testpath/"testing"
-    assert_predicate testpath/"testing_0_0.pam", :exist?
+    assert_path_exists testpath/"testing_0_0.pam"
     (testpath/"test.xpm").write <<~EOS
       /* XPM */
       static char * favicon_xpm[] = {

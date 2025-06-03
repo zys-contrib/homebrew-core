@@ -1,29 +1,25 @@
 class AwsCSdkutils < Formula
   desc "C99 library implementing AWS SDK specific utilities"
   homepage "https://github.com/awslabs/aws-c-sdkutils"
-  url "https://github.com/awslabs/aws-c-sdkutils/archive/refs/tags/v0.2.2.tar.gz"
-  sha256 "75defbfd4d896b8bdc0790bd25d854218acae61b9409d1956d33832924b82045"
+  url "https://github.com/awslabs/aws-c-sdkutils/archive/refs/tags/v0.2.4.tar.gz"
+  sha256 "493cbed4fa57e0d4622fcff044e11305eb4fc12445f32c8861025597939175fc"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "87b13e606415b05e8a037200721d1182cb581e899417e6e1fc38d76846a74f23"
-    sha256 cellar: :any,                 arm64_sonoma:  "0430cab23d4855b405caff327b9c1e5c5f2fee3e4f680e00372cc83aeab07751"
-    sha256 cellar: :any,                 arm64_ventura: "f814da6c00d06ed124d8135bbed62ebba76f227c1aca6ffdd4a88289c18e6f35"
-    sha256 cellar: :any,                 sonoma:        "93dd3dc8848c4c5a9fcaec57b3fec8e956d5e81943936bb5436959cec65acb39"
-    sha256 cellar: :any,                 ventura:       "1746f08e4640b9d878ff7f292494cf09a31816fef210a4cdb269047ef1ab6d1f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "37ee0b7e7ec766a099fe5a49abe256da4b613aed4cd10fa2969f19f423f87412"
+    sha256 cellar: :any,                 arm64_sequoia: "507738d55485b9455c59f6bff4a7280445483dce69963ac052190135bc53bccf"
+    sha256 cellar: :any,                 arm64_sonoma:  "a5583794b7a383d70c8a3814609660b0a886482b10e520c7bbfa403b4d7a6c98"
+    sha256 cellar: :any,                 arm64_ventura: "24a84103b826055429f427388ab4c3591724cc5acc68ff9fb1118f9ee81935ce"
+    sha256 cellar: :any,                 sonoma:        "6159606530f7ed2acd4b495413389c2efc43cc65a7cbb7b86dfcecfd5cf677cb"
+    sha256 cellar: :any,                 ventura:       "15f6671877aa6cb73bcfc14c91b040265c5e57cbc29b523cfec3457bc9e5aeaa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "50513535d8578d5536701e223d3b31f0ded0977a1d1350ce96b70913f556515f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "775f9fce83bb072b3a9d381a496bded25d40fba78a1d6a609888e58e573d3fbe"
   end
 
   depends_on "cmake" => :build
   depends_on "aws-c-common"
 
   def install
-    args = %W[
-      -DBUILD_SHARED_LIBS=ON
-      -DCMAKE_MODULE_PATH=#{Formula["aws-c-common"].opt_lib}/cmake
-    ]
-
-    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

@@ -1,18 +1,18 @@
 class FishLsp < Formula
   desc "LSP implementation for the fish shell language"
   homepage "https://www.fish-lsp.dev"
-  url "https://registry.npmjs.org/fish-lsp/-/fish-lsp-1.0.8-3.tgz"
-  sha256 "54b36663eb1ae807969d30399189285cea578d8b65e8943705601a98c81ee4b6"
+  url "https://registry.npmjs.org/fish-lsp/-/fish-lsp-1.0.9-1.tgz"
+  sha256 "c28799ee8b7e3a17b7892aa3f9d80ebe638313b9bce772ac364faee3ced5d43a"
   license "MIT"
-  head "https://github.com/ndonfris/fish-lsp.git", branch: "master"
 
   bottle do
-    sha256                               arm64_sequoia: "262affd100aa67d1959987036404ee1a1da277b5e3033ebf56f0add5152f86ca"
-    sha256                               arm64_sonoma:  "cc5d172d38d3e7cf02243da09f0269478abd5da536eb2c3fc6df0b69cb232f4d"
-    sha256                               arm64_ventura: "dee73c808f55636618f4d2794ec1def3bfff0d0ed24c5166fe817d1e27f2076c"
-    sha256                               sonoma:        "b0dfe36d799467431c8cadbdf830cef2ef82337005e4e59f6f7119172e3899d4"
-    sha256                               ventura:       "9015110d31f885b970a44fe7c735aa17166a595b93f70ccd2ee376cc01dfba21"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5b261fb388f3f2d5ef74091c9292bd4689a7fce09dc590b7ad15ffda20b7159"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fd0aa44217f04dce7a0016c07e1f232552092de2958a862b3dbba59ff98e5d4e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "31e2b3079d69b9d7f960399e6ff205aafdaacae5c0d9e39bb8ada0a17a4b2763"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "391c5738ba7d009359573d185d550c9ad0f838eb6089de88e1598c373532b738"
+    sha256 cellar: :any_skip_relocation, sonoma:        "768ba6503c8d30a8d32c58fdbbd5bf92dd38ccc7d969a8423a24e68d77c28499"
+    sha256 cellar: :any_skip_relocation, ventura:       "cd00a2257cfb0ad4288201717a2d731d0b0b77709a169efca97c2c55460c8d49"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "653f8c99ce4ef102e2a428dcd2168ace89f63b090819f8c62f8f91267de2046f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43d125c5114e65b3a8b767b686a5f9d91fc12cd81c35a67b3d565c7310ece8ad"
   end
 
   depends_on "fish" => [:build, :test]
@@ -21,6 +21,8 @@ class FishLsp < Formula
   def install
     ENV.append "CXXFLAGS", "-std=c++20"
 
+    # tree-sitter<0.22 fails with clang>=18 but is actually unused
+    system "npm", "uninstall", "tree-sitter", "--package-lock-only"
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
 

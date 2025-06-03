@@ -1,18 +1,19 @@
 class Sk < Formula
   desc "Fuzzy Finder in rust!"
   homepage "https://github.com/lotabout/skim"
-  url "https://github.com/lotabout/skim/archive/refs/tags/v0.16.0.tar.gz"
-  sha256 "dd596fdb57fc8f7e94ad240839d93b14b775d3be38e74293922c2e048ef13f15"
+  url "https://github.com/lotabout/skim/archive/refs/tags/v0.18.0.tar.gz"
+  sha256 "028cabc0df171c34343fae340132a2b718aae4f405320b11c47f22173ca43b57"
   license "MIT"
   head "https://github.com/lotabout/skim.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0be328faef845b2b3490ce105de3b026f9265d8d8e72ce573bf4979ba028f2f2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d6ea1dd5e88db4f4cb36b5cf644358e011df94855d832f9ec5bc4bc1d61b30fa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "126b17461e79ab9bdbee50636819e514029a283a5e3bfc14ee7a3eb8fc26eb29"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b022bf9f9366756910a9d54daf458e2818b153c65eb202fab8aa7e1d1f0a2bcd"
-    sha256 cellar: :any_skip_relocation, ventura:       "b0cbaf308d3d484511a538d8a45b330f250247c1beb47ab3e5999c046764cf27"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5d3ba32079a800d01bf8507e2c168ee59df66b20039a2892fb6ae6dd9cc35fe"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6868f9fe96ec5c0d7b8902d899c18890891e7544ac1bc28162eaf87b50f99093"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9431659a7982069217f83e05d3056ba129ea6992f1870ceff013471d6bd9fb3b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "57d6f0a86b72e1e127a3ff1554ddc95c1001ee82f67e8598b46a65eb80b32258"
+    sha256 cellar: :any_skip_relocation, sonoma:        "42de4cacd02a57631206da340a0cf41c61024646249ff5b10e575548f8c52e8b"
+    sha256 cellar: :any_skip_relocation, ventura:       "f6bf0f7d06c271897b7d4a40efd03a1ef9cb2ea4975fb559a08a2fa2f010c76b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d36d7c3228f09efeb00b2ffaa959ebd0d624f56bc4110acb31a6e1e34d3ff7bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "84e4800542eed80c43148e2cc06e81291c10452c831bcfbeb4c141e617034059"
   end
 
   depends_on "rust" => :build

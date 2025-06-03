@@ -1,17 +1,18 @@
 class Bbtools < Formula
   desc "Brian Bushnell's tools for manipulating reads"
   homepage "https://jgi.doe.gov/data-and-tools/software-tools/bbtools/"
-  url "https://downloads.sourceforge.net/bbmap/BBMap_39.15.tar.gz"
-  sha256 "b6698469a2a90f4930537c575ff1f70332f88a933dd5e286c83ea0ff30802344"
+  url "https://downloads.sourceforge.net/bbmap/BBMap_39.26.tar.gz"
+  sha256 "cbeaeb53b7d9051b16f5b15a1628012f053491da0c1684bc88ff9aec69b331c8"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2e2e6c9eb71acb93e422d74890feb41685a82583fa2818e5a9ea14115dfb0449"
-    sha256 cellar: :any,                 arm64_sonoma:  "83f8ae6c0ec72386ed6e7eb4ea40b50aa0ac51b580ec16c3d0b720ab8d80083b"
-    sha256 cellar: :any,                 arm64_ventura: "0f601648af71fcfd0a1c0b4a0b044eb581a0c90d7d92532e402e5ce8b39187a1"
-    sha256 cellar: :any,                 sonoma:        "3d6795a1b502dbabcc421e6fd4e412edb5e1277c7ab88fd6fc75b45b12e9a703"
-    sha256 cellar: :any,                 ventura:       "620f945600f738511aa7748dfd0a56b885d6667f160002445da05ff8348b7e19"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be664a227d87e399d4b64b65bf39abec66d1181524f37dbdc940452f93ebe96f"
+    sha256 cellar: :any,                 arm64_sequoia: "cb28c1f4ff3be3c7602cadf26545918f9de4109cd46589d25cdca6418ded0e87"
+    sha256 cellar: :any,                 arm64_sonoma:  "29b4482d36bcba130bbdf7f1d53cda1ca62213fbcc8dcaab820839c2682f889d"
+    sha256 cellar: :any,                 arm64_ventura: "fafe4b36afa6c86ae609a3ddddfe44018a0391a92a9b402e5318569e9a3a79bf"
+    sha256 cellar: :any,                 sonoma:        "0b7ed3abed41c512005587820d92103dd73a0dba6e034a436c8f7454a39bd972"
+    sha256 cellar: :any,                 ventura:       "55d25df7794df66887421f58f9fc7ddf13e09cbf3c2ed8698c7d02a687da056f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "331c0d52304a402f5820d55321e2388824855d26826d71e20742a994ec79671f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "90f4ebc32fe181eadd79d64d2863450d5f29f5bce8ab3d17192f132c91a5e8d8"
   end
 
   depends_on "openjdk"

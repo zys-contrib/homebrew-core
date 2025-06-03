@@ -1,8 +1,8 @@
 class Libshumate < Formula
   desc "Shumate is a GTK toolkit providing widgets for embedded maps"
   homepage "https://gitlab.gnome.org/GNOME/libshumate"
-  url "https://download.gnome.org/sources/libshumate/1.3/libshumate-1.3.1.tar.xz"
-  sha256 "6efe9352d91744822d41ead4714a2ab4b378481a86a2204b7bec4082dffc1b8b"
+  url "https://download.gnome.org/sources/libshumate/1.4/libshumate-1.4.0.tar.xz"
+  sha256 "3984368e0259862b3810d1ddc86d2dadd6d372a2b32376ccf4aff7c2e48c6d30"
   license "LGPL-2.1-or-later"
 
   # libshumate doesn't use GNOME's "even-numbered minor is stable" version
@@ -14,12 +14,13 @@ class Libshumate < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "8d6650eb26fef5c8fdc34133cc672cf4d112e39589924291350c5f6344a6d349"
-    sha256 cellar: :any, arm64_sonoma:  "c22e2372194637890cb28c858eaea452cbe956092b2faaee8c916c410f726347"
-    sha256 cellar: :any, arm64_ventura: "abbf4c76fd535b4a5cf262f125555796d542dcdd1017c852e0f01b565a1f5554"
-    sha256 cellar: :any, sonoma:        "1c7781442dd71a4cdd82d55d5c2762449b8bfea651d5e522ab8cdcbed836365d"
-    sha256 cellar: :any, ventura:       "9c59b7858b81fe0c9052cc601a79927c4dc111e0fc3fbee5110dc7a435428a01"
-    sha256               x86_64_linux:  "2574f1139c9c8405281d70dfc1734c0bd63d54bde7877c94c76c313f0fadd483"
+    sha256 cellar: :any, arm64_sequoia: "03c1e1cfe5e5ac378561a0081970a7574c9df54720b1f3533da47b2dd27301cf"
+    sha256 cellar: :any, arm64_sonoma:  "f6ce2c8bf83ee72de1952489b5c47bbbe66ba4b8b6e0996d1d92a38511c900ea"
+    sha256 cellar: :any, arm64_ventura: "326ee03a217fb356f82ed670d865e10e2529972766a8bd96d795244b635083f8"
+    sha256 cellar: :any, sonoma:        "fd7a41758706f61a84c0779e173ddbd5321b1dac57e3412795a5130b3603c8d5"
+    sha256 cellar: :any, ventura:       "b5c97ff3a747979999e3545e1bdaca0b3fc3d2e4397b66c7566709d945bba25b"
+    sha256               arm64_linux:   "a51d6cf1dd5e4637380a9677578e5f8d6ba0eac1b612f1bf5a14406fc55c9ac3"
+    sha256               x86_64_linux:  "37ea17a35de56d99e74e9cd1cc22dadd604e9e661c1e3555715d65e5098342fe"
   end
 
   depends_on "gettext" => :build

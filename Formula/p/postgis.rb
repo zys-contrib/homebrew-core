@@ -1,8 +1,8 @@
 class Postgis < Formula
   desc "Adds support for geographic objects to PostgreSQL"
   homepage "https://postgis.net/"
-  url "https://download.osgeo.org/postgis/source/postgis-3.5.2.tar.gz"
-  sha256 "fb9f95d56e3aaef6a296473c76a3b99005ac41864d486c197cd478c9b14f791a"
+  url "https://download.osgeo.org/postgis/source/postgis-3.5.3.tar.gz"
+  sha256 "650e44de788d38175e3719df1d2ca4356bd987f54fe3d2030808de76464a2a06"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Postgis < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "edabf542e344ecf2e40a4b1db0c110b1857b4c479a1b59a138a0536da64ce60f"
-    sha256 cellar: :any,                 arm64_sonoma:  "4ea1ef6c4f59331a5f77e113dc2e65e7bcfbc953e695f641e06cc2b5787c2fe9"
-    sha256 cellar: :any,                 arm64_ventura: "19b606bdfaecdfe0233b315019a927701f854ec7afec4b3596a77a86676e11e6"
-    sha256 cellar: :any,                 sonoma:        "acf583d17d81f067583bfd5e2e430c11e9122b05fe1c59c5d41b0858dc833ac7"
-    sha256 cellar: :any,                 ventura:       "87a07800f976390905c25b7fc92bfeaf78c8977dbb2d2bd46269bc4da917f51f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3ff7e5e3bb03272bb54faef506571493b0b4d1ba841e981308786fa3178c2ae"
+    sha256 cellar: :any,                 arm64_sequoia: "4d77e55e3a992c86b7fb55f78ad0d5661735680d55162f7555ba375d6a9ae2b9"
+    sha256 cellar: :any,                 arm64_sonoma:  "d5eddc168c4a7158110015064b89ca1076e9345c02639b5665292894f8874d09"
+    sha256 cellar: :any,                 arm64_ventura: "55ac1beb155c3aa9f2fb13d2a0caa37e984171ba338588693caa890a7c97cd47"
+    sha256 cellar: :any,                 sonoma:        "73251c8a848a26bed7ab684a942e34b2dfb958ab0fbb36716b0c82f5da3af6ec"
+    sha256 cellar: :any,                 ventura:       "6c632fed3fe0d90c558c4d94650159a0162e894f56af1aff34f2a1870c8142bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "acdcb64101e9ef22b5d91bb1f3129c8052676908dcc51e9a0f1b87ed2c3a9ac2"
   end
 
   head do
@@ -33,7 +33,7 @@ class Postgis < Formula
 
   depends_on "gdal"
   depends_on "geos"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "json-c"
   depends_on "libpq"
   depends_on "libxml2"

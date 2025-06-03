@@ -1,28 +1,19 @@
 class Ripsecrets < Formula
   desc "Prevent committing secret keys into your source code"
   homepage "https://github.com/sirwart/ripsecrets"
+  url "https://github.com/sirwart/ripsecrets/archive/refs/tags/v0.1.11.tar.gz"
+  sha256 "786c1b7555c1f9562d7eb3994d932445ab869791be65bc77b8bd1fbbae3890b8"
   license "MIT"
   head "https://github.com/sirwart/ripsecrets.git", branch: "main"
 
-  stable do
-    url "https://github.com/sirwart/ripsecrets/archive/refs/tags/v0.1.8.tar.gz"
-    sha256 "4d7209605d3babde73092fed955628b0ecf280d8d68633b9056d2f859741109d"
-
-    # shell completion generation patch, upstream pr ref, https://github.com/sirwart/ripsecrets/pull/89
-    patch do
-      url "https://github.com/sirwart/ripsecrets/commit/06168aaa3571503bf191bf8403dcabcd2709c0e7.patch?full_index=1"
-      sha256 "8733b9e9006af2c03312831fb2b67e992f68bcefd5d09ee878f0e8d40ac43039"
-    end
-  end
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ba853f83dde44a9483c4554889ead1de75c52ee339dc5796909857754597c748"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "216528d31c239eade91c680af65d4bdce83e0eaeb54eb19c5e901d6396c9e186"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "38d98aaf362d5f18351a65963c7285df501f7a9968d9b3dd83c26d965088e756"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e9acbf3dac2fdb2b49bd5c73bc96758d67c27a77d2c76e1e0ff3b77de23e12fa"
-    sha256 cellar: :any_skip_relocation, ventura:       "fc12cbfb7110bf63a098b56bc9f1688383a2d8395574abf2299f144a58f64bf4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9391621360399a4d739cbdc7966ff5d87e13c0cc5aaa4266dff3319b79b4c3e1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2be229f02f517c7c9f809999ab00daee0b4650f7bf6eab3e31132c4dacc7c1db"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "da96cf200c77669126e46472b94098c5e14cad9d75eb648a6fc05feafb754946"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7b7c30db103b32ff7a4b8ed285a9aa61dd648cd0fb8d2fd30b165930ffa193b6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "58ce1e4409a7648607e32cfb9a1a43b5b25656f83d9570dc66137bd97a7971ef"
+    sha256 cellar: :any_skip_relocation, ventura:       "5d8a3bf678aa0016c6c28511bd19b7689248dca8291169bc2e2fbe97cfe486ae"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0b5fcd9d6cb13c93553bdca9e23f0b1b2c0d5de7dbcbe082ab1537edf610bd78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fb68c8ad22e92b64ce40f6380978572e9857d8e13fdba1e9efbbb0c8a0e004a"
   end
 
   depends_on "rust" => :build

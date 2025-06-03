@@ -1,25 +1,29 @@
 class RakudoStar < Formula
   desc "Rakudo compiler and commonly used packages"
   homepage "https://rakudo.org/"
-  url "https://github.com/rakudo/star/releases/download/2024.12/rakudo-star-2024.12.tar.gz"
-  sha256 "a38aa8b02a7792ed9919d75e224bce84493bb7ed34ee0508382b29279f53623b"
+  url "https://github.com/rakudo/star/releases/download/2025.05/rakudo-star-2025.05.tar.gz"
+  sha256 "b5f6b5135599db0a18baf1ec660e78dddc8d8ca46d80576407bd5dcf70a4d574"
   license "Artistic-2.0"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "5f333665dfe2213e47659de5c105161f240f0b451907a3041996cec27975db3c"
-    sha256 arm64_sonoma:  "f8fe89c21b5a88b97144615679ce401d28249ed1e4b9e692d5224aded1ca7068"
-    sha256 arm64_ventura: "05e6ee91230256c4e845ecb13005dc39eead7bc11c4c85cc3ed492673ef74850"
-    sha256 sonoma:        "3ca9539f0917ca056c321887a9d848d608310f61dae42ef2b756a4f700227968"
-    sha256 ventura:       "24ce60a9c53bdd182b70b308dabdf32c2932656f52cf292bc583e3b90f813c89"
-    sha256 x86_64_linux:  "1187c0324314df2a54a8e37352f2578b5c70d7899abf8eb351d47472c40b863c"
+    sha256 arm64_sequoia: "7a895bdf00ddf27ce11aa6efb3ab0bb6d75fca0a5434741504f663f647b1a906"
+    sha256 arm64_sonoma:  "45729625f5031385c361cf6c4f90fc9666605428da1b04e1268bdaff3af20143"
+    sha256 arm64_ventura: "55e28472b5488f597e09a23ea81f990d56f4e796879b261d4460be8374158907"
+    sha256 sonoma:        "2cdeb1c478e4da7097659e9c5ddf405e0499638343b6d2392d798404c6b7f0fb"
+    sha256 ventura:       "d48e786a4ee839ec4b3ac52169816f41bccb525ab0a70a9ea9ef3fa755c647ba"
+    sha256 arm64_linux:   "dd91e8d891e1b584f9ee9954a0d7d8956d21da8052144a13c876c095b63ddb91"
+    sha256 x86_64_linux:  "d29b7a6848a5fb3295166adc2b1fdbbc77c85bc5480048f644c79241431b51d9"
   end
 
   depends_on "bash" => :build
   depends_on "pkgconf" => :build
   depends_on "sqlite" => [:build, :test]
   depends_on "libtommath"
-  depends_on "libuv"
   depends_on "mimalloc"
   depends_on "openssl@3" # for OpenSSL module, loaded by path
   depends_on "readline" # for Readline module, loaded by path
@@ -28,6 +32,10 @@ class RakudoStar < Formula
   uses_from_macos "perl" => :build
   uses_from_macos "libffi", since: :catalina
   uses_from_macos "libxml2"
+
+  on_macos do
+    depends_on "libuv"
+  end
 
   conflicts_with "moar", because: "both install `moar` binaries"
   conflicts_with "moarvm", "nqp", because: "rakudo-star currently ships with moarvm and nqp included"
@@ -48,15 +56,20 @@ class RakudoStar < Formula
   def install
     # Unbundle libraries in MoarVM
     moarvm_3rdparty = buildpath.glob("src/moarvm-*/MoarVM-*/3rdparty").first
-    %w[dyncall libatomicops libtommath libuv mimalloc].each { |dir| rm_r(moarvm_3rdparty/dir) }
+    %w[dyncall libatomicops libtommath mimalloc].each { |dir| rm_r(moarvm_3rdparty/dir) }
     moarvm_configure_args = %W[
       --c11-atomics
       --has-libffi
       --has-libtommath
-      --has-libuv
       --has-mimalloc
       --pkgconfig=#{Formula["pkgconf"].opt_bin}/pkgconf
     ]
+    # FIXME: brew `libuv` causes runtime failures on Linux, e.g.
+    # "Cannot find method 'made' on object of type NQPMu"
+    if OS.mac?
+      moarvm_configure_args << "--has-libuv"
+      rm_r(moarvm_3rdparty/"libuv")
+    end
     inreplace "lib/actions/install.bash", "@@MOARVM_CONFIGURE_ARGS@@", moarvm_configure_args.join(" ")
 
     # Help Readline module find brew `readline` on Linux
@@ -73,21 +86,14 @@ class RakudoStar < Formula
     # Help DBIish module find sqlite shared library
     ENV["DBIISH_SQLITE_LIB"] = Formula["sqlite"].opt_lib/shared_library("libsqlite3")
 
-    # openssl module's brew --prefix openssl probe fails so
-    # set value here
-    openssl_prefix = Formula["openssl@3"].opt_prefix
-    ENV["OPENSSL_PREFIX"] = openssl_prefix.to_s
+    # openssl module's brew --prefix openssl probe fails so set value here
+    ENV["OPENSSL_PREFIX"] = Formula["openssl@3"].opt_prefix
 
     system "bin/rstar", "install", "-p", prefix.to_s
 
     #  Installed scripts are now in share/perl/{site|vendor}/bin, so we need to symlink it too.
     bin.install_symlink (share/"perl6/vendor/bin").children
     bin.install_symlink (share/"perl6/site/bin").children
-
-    # Move the man pages out of the top level into share.
-    # Not all backends seem to generate man pages at this point (moar does not, parrot does),
-    # so we need to check if the directory exists first.
-    share.install prefix/"man" if (prefix/"man").directory?
   end
 
   def post_install

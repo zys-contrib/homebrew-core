@@ -4,16 +4,17 @@ class Augustus < Formula
   url "https://github.com/Gaius-Augustus/Augustus/archive/refs/tags/v3.5.0.tar.gz"
   sha256 "5ed6ce6106303b800c5e91d37a250baff43b20824657b853ae04d11ad8bdd686"
   license "Artistic-1.0"
-  revision 8
+  revision 10
   head "https://github.com/Gaius-Augustus/Augustus.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4cc459090f1dc6db0b5403e451bad565ffba82a4b922fcc666c14a776fc50a17"
-    sha256 cellar: :any,                 arm64_sonoma:  "db3ab9673ae0e90212a7684eaae3a4cef4a652a3c57d3e59705e44d0cd2d946d"
-    sha256 cellar: :any,                 arm64_ventura: "a0c7f465a466c6a32433581d54579330ee7baab1747bad2510f22fa37c498e17"
-    sha256 cellar: :any,                 sonoma:        "dfb128fd5b03c199862f2d8b90d25a69527b8068727d1b127fa952d520cdbd6d"
-    sha256 cellar: :any,                 ventura:       "ad0a9a0a4e5c59580885ad6cdc43dc7068af49aee93b9510a3f73435ad0c8e6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dea2f0b6705a6fb821d6abba6ffc4d40afdc2cd3f0759d53aa12ff3d907006e7"
+    sha256 cellar: :any,                 arm64_sequoia: "f47cdb45ef4200baba259b2121c4ff8a891718d1fdb05d2dde50bf05cff4c6e9"
+    sha256 cellar: :any,                 arm64_sonoma:  "f1aebc2cc4d9edea554a9d6c8d97fe7a9cc1c5472f4fce02a52ef24bdafb39b3"
+    sha256 cellar: :any,                 arm64_ventura: "c1ca454de2e8c22ba3bf665bbeaaaf817bcfeab300cc0bb4c554304d7438e80c"
+    sha256 cellar: :any,                 sonoma:        "a90a9c0bc0d71ea9e05ac892b70674c96761a58cd7de65d9c1faf88da530019b"
+    sha256 cellar: :any,                 ventura:       "66bb31467b3216cf1f87dd1dde80d276a32efc9e66b20e1bc7c06874fc3b77c3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b8ba8fa93a2f0295ca879dc553cf209e47f831519aad7d7aa45a7423eb77d8cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac23536a2d77a19a651f49b26ff56382cbc3c9b535b1ce015831375165548dfa"
   end
 
   depends_on "bamtools"

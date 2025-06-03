@@ -1,8 +1,10 @@
 class MysqlAT84 < Formula
   desc "Open source relational database management system"
-  homepage "https://dev.mysql.com/doc/refman/8.4/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.4.tar.gz"
-  sha256 "fb290ef748894434085249c31bca52ac71853124446ab218bb3bc502bf0082a5"
+  # FIXME: Actual homepage fails audit due to Homebrew's user-agent
+  # homepage "https://dev.mysql.com/doc/refman/8.4/en/"
+  homepage "https://github.com/mysql/mysql-server"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.5.tar.gz"
+  sha256 "53639592a720a719fdfadf2c921b947eac86c06e333202e47667852a5781bd1a"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -11,12 +13,13 @@ class MysqlAT84 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "96af3be0319915c3a5679021d4b19dad33a50cba1ee8728ef9e37521940f951b"
-    sha256 arm64_sonoma:  "5d431233e5953398d1b93824e7b1ea0eb1ae7a2e0140ae0d083d3277caa01e51"
-    sha256 arm64_ventura: "60d06049ea564304f4f97ee1297ac45275fe040d0a8679895d5b8e57cffbbb72"
-    sha256 sonoma:        "9678e17789b85dd2f104aba429ff186b1875f61216c2d4adf7a415d89221362c"
-    sha256 ventura:       "480b3fbb61c5e059c78ff463a4e9fa7e46e77026e2b13991f7514121976e2798"
-    sha256 x86_64_linux:  "73d2082432dba4e5d6a68e96bbc21fdcba21b82f76d776b29f38740f46a95327"
+    sha256 arm64_sequoia: "c87d556622e48fbd47e0be9a7c5de2c9fb5824358c2dd2c897fe4ea2e604878e"
+    sha256 arm64_sonoma:  "a050552d7300ac04971d466c4d04d747a7ff15dbe15a41ab21d9f6bb0d4b92b0"
+    sha256 arm64_ventura: "8d64b363c45a52693e7b53a9c95a94f9878462c2bd5e3d8505a8ae10759d560e"
+    sha256 sonoma:        "13ef76f34992f0d2c4fc474eced6910b417c242f6568a8dd3a66d08edf56dc04"
+    sha256 ventura:       "6dfd8121bb7fcef0b6381cafddaa2db986e0cd852b68149a22241f562b6c4015"
+    sha256 arm64_linux:   "284529229c8646bee5bb018659f1d796ed309a4115edd212347b18abba80906c"
+    sha256 x86_64_linux:  "0f0eae4f5736c9b2e12e3209c59089c7d7545048c6b513dbfe6ecfc1cc169922"
   end
 
   keg_only :versioned_formula
@@ -25,10 +28,10 @@ class MysqlAT84 < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "abseil"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "lz4"
   depends_on "openssl@3"
-  depends_on "protobuf"
+  depends_on "protobuf@29"
   depends_on "zlib" # Zlib 1.2.13+
   depends_on "zstd"
 
@@ -68,7 +71,7 @@ class MysqlAT84 < Formula
     # Remove bundled libraries other than explicitly allowed below.
     # `boost` and `rapidjson` must use bundled copy due to patches.
     # `lz4` is still needed due to xxhash.c used by mysqlgcs
-    keep = %w[boost libbacktrace libcno lz4 rapidjson unordered_dense]
+    keep = %w[boost libbacktrace libcno lz4 rapidjson unordered_dense xxhash]
     (buildpath/"extra").each_child { |dir| rm_r(dir) unless keep.include?(dir.basename.to_s) }
 
     if OS.linux?

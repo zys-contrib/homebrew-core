@@ -1,17 +1,18 @@
 class Tt < Formula
   desc "Command-line utility to manage Tarantool applications"
   homepage "https://github.com/tarantool/tt"
-  url "https://github.com/tarantool/tt/releases/download/v2.7.0/tt-2.7.0-complete.tar.gz"
-  sha256 "05afbe400da1459ccac218750d354f7f2c362e995b65f771d537ccb21abdeac3"
+  url "https://github.com/tarantool/tt/releases/download/v2.9.1/tt-2.9.1-complete.tar.gz"
+  sha256 "c2db35772470cdfba8b2e1cba06391d848cfec3c50163e635be305aedd23c04a"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "26ed5dbb8e03e8bfc9e7a08351554c814afcd7388c28ee623a45b901f2f16328"
-    sha256 cellar: :any,                 arm64_sonoma:  "348a4e516cfb09283edace39503219a8bf84bc109808df76149d30472bf154bf"
-    sha256 cellar: :any,                 arm64_ventura: "3349d4003dd186905a14b65864e7715328486ff40ec5076fec6047fa5488142d"
-    sha256                               sonoma:        "4678e3aa80b432beb59db63f818f6138ac2fb1d6366fa81a38eb2e64ec2ca056"
-    sha256                               ventura:       "b1b73a7bbe06c999e8dfa98fba773b150d6d23a1d2d7111bf8e73837c8efc7e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3feed242b0fa7b383135ac27668051ec9a40858a990692b786be43eea3c975ae"
+    sha256 cellar: :any,                 arm64_sequoia: "6d04aa04e9bed0b14ad572a06872d32e48c2df523e38221943908806d0ef0140"
+    sha256 cellar: :any,                 arm64_sonoma:  "b7bfef5b73cf784b28eea0ff9e2cadc4e4d66f3caa8518d85362f01de5d2a596"
+    sha256 cellar: :any,                 arm64_ventura: "17e36ad39cc6eff36ba4417a514e33b899b9d2cfac9beadb6256d21a9a827793"
+    sha256                               sonoma:        "eb3ed8f61cc6b844e6728ad12a202768352d1be5b46a0e4be684d54e8d145724"
+    sha256                               ventura:       "5f3bf271f86d10e3082cfaa3208e919ff1d60bd14966b9fb497d13c7c3007ebf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "49e0d720c0028f079bbdd709b9b2737bc821e768fb5144952c308cd997f56d89"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6e685ed345c8e6fe62a1d357fdade38e242354eab0842ac0152723baaf74168c"
   end
 
   depends_on "go" => :build

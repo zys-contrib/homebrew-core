@@ -1,18 +1,18 @@
 class Nfpm < Formula
   desc "Simple deb and rpm packager"
   homepage "https://nfpm.goreleaser.com/"
-  url "https://github.com/goreleaser/nfpm/archive/refs/tags/v2.41.2.tar.gz"
-  sha256 "d0b864904b21f2aae6a3066954c8f75bdc456ee1ffa2f76110c24af23b5b3473"
+  url "https://github.com/goreleaser/nfpm/archive/refs/tags/v2.42.1.tar.gz"
+  sha256 "02188194076de423a5e496dfb8a09d4da000e9c812ed30310a1c8bf7dc6c7ee3"
   license "MIT"
   head "https://github.com/goreleaser/nfpm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "008c765df6a276b766de022374317039ac6f93ea327ba38f21a73dac7dfdf30b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "008c765df6a276b766de022374317039ac6f93ea327ba38f21a73dac7dfdf30b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "008c765df6a276b766de022374317039ac6f93ea327ba38f21a73dac7dfdf30b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0f6ff2785fe44e2bab92e30512ff568866c91c84254db886a7c0ba3490c96c56"
-    sha256 cellar: :any_skip_relocation, ventura:       "0f6ff2785fe44e2bab92e30512ff568866c91c84254db886a7c0ba3490c96c56"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aaaa53b362dda9e766e5713263fe63866983b3ebf981a72fce8bd729efc80692"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d52862fabd2d42630ba0b1acdf518db4e425fc61c601cfb2dd68701524cba266"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d52862fabd2d42630ba0b1acdf518db4e425fc61c601cfb2dd68701524cba266"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d52862fabd2d42630ba0b1acdf518db4e425fc61c601cfb2dd68701524cba266"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e4311f4ba1a9f7cce4b1cac8ac69feca786b408a3db7d58a896ab06bea6432c0"
+    sha256 cellar: :any_skip_relocation, ventura:       "e4311f4ba1a9f7cce4b1cac8ac69feca786b408a3db7d58a896ab06bea6432c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f8cba097ac5d4aaeebad337943a72f50578c8192496e2a9a535cacc6c0bd03b"
   end
 
   depends_on "go" => :build
@@ -42,6 +42,6 @@ class Nfpm < Formula
     YAML
 
     system bin/"nfpm", "pkg", "--packager", "deb", "--target", "."
-    assert_predicate testpath/"foo_1.0.0_amd64.deb", :exist?
+    assert_path_exists testpath/"foo_1.0.0_amd64.deb"
   end
 end

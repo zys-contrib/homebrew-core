@@ -1,8 +1,8 @@
 class NodeAT22 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v22.13.1/node-v22.13.1.tar.xz"
-  sha256 "cfce282119390f7e0c2220410924428e90dadcb2df1744c0c4a0e7baae387cc2"
+  url "https://nodejs.org/dist/v22.16.0/node-v22.16.0.tar.xz"
+  sha256 "720894f323e5c1ac24968eb2676660c90730d715cb7f090be71a668662a17c37"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,13 @@ class NodeAT22 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "48c655457ef71270ea52a0b0bb5bba9ff1fd5f8e4896abce5f8f5f5b9c1d65cd"
-    sha256 arm64_sonoma:  "dec070d69c12d5feb7af9d3ef3b8b027c956620ae6dc9dd562f376b85242b9be"
-    sha256 arm64_ventura: "b6303af22e9b88ed9ca87eb5c027574e561d8c8f52cacba5db5a372acacee07f"
-    sha256 sonoma:        "d6d71961dea8c69527b7a038a41f53a6d2fc13578398d7ca9303cfaaf05aaa43"
-    sha256 ventura:       "b528303b6af305975bfe90d4b683023018e74e3ffdb5e335bfad6095d704b172"
-    sha256 x86_64_linux:  "e913b1b7b7ed4721e01d4878f4f1326bffcc990bb9d5cb40f7155dd032c36325"
+    sha256 arm64_sequoia: "f6a34ddf910b7f3ba4b611789063aadaae4620b7d6277d4f0ee078d6ec88987f"
+    sha256 arm64_sonoma:  "0e3bca28afec6f2686dc8a48026fbdc3d2a2e926ef430bd76f25535ceb2dfa87"
+    sha256 arm64_ventura: "7b9e5801dcfa72870f178cb5c2c13888f385497fc90451f925cd325820190436"
+    sha256 sonoma:        "ea2bf865b706b2983dd6a62384ff89640707b849b5de120c952ccd4bc334af48"
+    sha256 ventura:       "a9e0914ae5626bee58bb6576635224c50e68c85dbc9489598ef3af98211a647e"
+    sha256 arm64_linux:   "595dad3006df8ec2657b406da944852630babc5648603bb2a22d4ed95b19336a"
+    sha256 x86_64_linux:  "7a651c186e7fbff474c3233d3030823694cd6cf85d6cb04640e064987dbf8626"
   end
 
   keg_only :versioned_formula
@@ -29,7 +30,7 @@ class NodeAT22 < Formula
   depends_on "python@3.13" => :build
   depends_on "brotli"
   depends_on "c-ares"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "openssl@3"
@@ -112,12 +113,12 @@ class NodeAT22 < Formula
     ENV.prepend_path "PATH", opt_bin
     ENV.delete "NVM_NODEJS_ORG_MIRROR"
     assert_equal which("node"), opt_bin/"node"
-    assert_predicate bin/"npm", :exist?, "npm must exist"
+    assert_path_exists bin/"npm", "npm must exist"
     assert_predicate bin/"npm", :executable?, "npm must be executable"
     npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
     system bin/"npm", *npm_args, "install", "npm@latest"
     system bin/"npm", *npm_args, "install", "nan"
-    assert_predicate bin/"npx", :exist?, "npx must exist"
+    assert_path_exists bin/"npx", "npx must exist"
     assert_predicate bin/"npx", :executable?, "npx must be executable"
     assert_match "< hello >", shell_output("#{bin}/npx --yes cowsay hello")
   end

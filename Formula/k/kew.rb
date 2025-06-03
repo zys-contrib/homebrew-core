@@ -1,18 +1,19 @@
 class Kew < Formula
   desc "Command-line music player"
   homepage "https://github.com/ravachol/kew"
-  url "https://github.com/ravachol/kew/archive/refs/tags/v3.0.3.tar.gz"
-  sha256 "fac446e2c78b6341dff46a88767dd0b9f75a4b2b60e03fc0623b09aa28ec5bba"
+  url "https://github.com/ravachol/kew/archive/refs/tags/v3.3.3.tar.gz"
+  sha256 "114edb5eead345a5311cdfecda15bf935c1c30ae1f78f97f1a5c3518e829b690"
   license "GPL-2.0-only"
   head "https://github.com/ravachol/kew.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4e4be42aa4620ace00caa1f3b3865d5c87c56ba063fa1d6729be8333d55a22a0"
-    sha256 cellar: :any,                 arm64_sonoma:  "fd6f2dca29cb1305aa4313f2d93df4be26747ca9bc2850154a186e4c605e7137"
-    sha256 cellar: :any,                 arm64_ventura: "2e84bd91e5cb5b0d79d39f45d271398854d32fc6b231a9c10a89ccc07622eb02"
-    sha256 cellar: :any,                 sonoma:        "aa5ed55a172dfca5ddc5623c23a4c2acc8e8fff944e67c55434ac91950cb9158"
-    sha256 cellar: :any,                 ventura:       "01b423a432cf7f30192fdf0c24334a6aac0da4ef4c7b0a1f4bbe4d0c95ca89ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1b566987f3414fc73bac5c130d52094bc419aabea6c63bd57f119c700f0a811"
+    sha256 cellar: :any,                 arm64_sequoia: "1eb528a5d86c0d323893475db6e338fec41d0a2a96524c07723ef57a083e3917"
+    sha256 cellar: :any,                 arm64_sonoma:  "5e23b0779f4099e22b06e7e03e3179d34f3bff188f24af9748cfe2947520715b"
+    sha256 cellar: :any,                 arm64_ventura: "82230366bf3f8b7df82d7ba21e24f7f87b7762ea3d12b27a2ce1f68ccaccca11"
+    sha256 cellar: :any,                 sonoma:        "a35814d5ab11476f9b463846d3d7cd910926c149adc4b3a94e9825e0ed8961b7"
+    sha256 cellar: :any,                 ventura:       "6a00129fb4c1a12ae1464b4132b6d98d231d0dc12d618dc767f162edbce64409"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c680304658cf72393014732165a32826fcedf5b91cf97abb28b0a57a63c0114b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb22fcd28b51df5c37d6d842e86ab0659a360ea65b3a9f55022a0331c037dca9"
   end
 
   depends_on "pkgconf" => :build
@@ -22,12 +23,14 @@ class Kew < Formula
   depends_on "glib"
   depends_on "libogg"
   depends_on "libvorbis"
+  depends_on "opus"
   depends_on "opusfile"
   depends_on "taglib"
 
+  uses_from_macos "curl"
+
   on_macos do
     depends_on "gettext"
-    depends_on "opus"
   end
 
   on_linux do

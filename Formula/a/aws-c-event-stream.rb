@@ -1,17 +1,18 @@
 class AwsCEventStream < Formula
   desc "C99 implementation of the vnd.amazon.eventstream content-type"
   homepage "https://github.com/awslabs/aws-c-event-stream"
-  url "https://github.com/awslabs/aws-c-event-stream/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "3a53a9d05f9e2fd06036a12854a8b4f05a0c4858bb5b8df8a30edba9de8532b5"
+  url "https://github.com/awslabs/aws-c-event-stream/archive/refs/tags/v0.5.4.tar.gz"
+  sha256 "cef8b78e362836d15514110fb43a0a0c7a86b0a210d5fe25fd248a82027a7272"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "341c67fa8bc012d3808b06a909f07c51cb8ad0bcf19d30a498f598b7846f3fab"
-    sha256 cellar: :any,                 arm64_sonoma:  "593c848b1436f0f925cb39de34a24b5e41588ed28a87e471c0ff02e591a90d44"
-    sha256 cellar: :any,                 arm64_ventura: "58d9787fc6e7308d1aeae5570a5fc527ee23cdbc6cfb38bc54fff0507afa8808"
-    sha256 cellar: :any,                 sonoma:        "54e1c0118960594197f0485588d45e48d043b34863597199023b4f073be0bbcc"
-    sha256 cellar: :any,                 ventura:       "b353703f2a89a6d5cbf1706c4a672d606ea04b910d3dfbf72da48f42d9741ad3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9cc5974ad9d4ba76a472638f30123e2e8f5aaa77885c6d0545b4e03fe65ad82"
+    sha256 cellar: :any,                 arm64_sequoia: "7bb1c234fc76207143274392938efa1c7912b82db36c2d7bd3e1ff31c2b21a97"
+    sha256 cellar: :any,                 arm64_sonoma:  "22adf47866d7f196b5296469044723b94223a3c536590517605930a8c76461ec"
+    sha256 cellar: :any,                 arm64_ventura: "fea45020a2341c46d9671671bc59bc788c4301615d5365e44cde87fca734f0f6"
+    sha256 cellar: :any,                 sonoma:        "50ab76b1c74f6639a8af58478426de6e91201d1f0a32a81d3d20b63c6da44de1"
+    sha256 cellar: :any,                 ventura:       "7cb1403ff68bd39da60c9051539cb3b9f88447baf5e199e6805bcdb8ec2a2ea2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c2903ade590868a253d877b9c85684fa1a128d263141a3360833ea67692bf3d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4bd0d80ba4c490b1e0548caad95670e5c6937e5056b8945e11c2f58bde41d36"
   end
 
   depends_on "cmake" => :build
@@ -20,10 +21,7 @@ class AwsCEventStream < Formula
   depends_on "aws-checksums"
 
   def install
-    args = %W[
-      -DBUILD_SHARED_LIBS=ON
-      -DCMAKE_MODULE_PATH=#{Formula["aws-c-common"].opt_lib}/cmake
-    ]
+    args = ["-DBUILD_SHARED_LIBS=ON"]
     # Avoid linkage to `aws-c-cal`
     args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
 

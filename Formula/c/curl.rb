@@ -3,12 +3,23 @@ class Curl < Formula
   homepage "https://curl.se"
   # Don't forget to update both instances of the version in the GitHub mirror URL.
   # `url` goes below this comment when the `stable` block is removed.
-  url "https://curl.se/download/curl-8.11.1.tar.bz2"
-  mirror "https://github.com/curl/curl/releases/download/curl-8_11_1/curl-8.11.1.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/curl-8.11.1.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/legacy/curl-8.11.1.tar.bz2"
-  sha256 "e9773ad1dfa21aedbfe8e1ef24c9478fa780b1b3d4f763c98dd04629b5e43485"
+
   license "curl"
+
+  stable do
+    url "https://curl.se/download/curl-8.14.0.tar.bz2"
+    mirror "https://github.com/curl/curl/releases/download/curl-8_14_0/curl-8.14.0.tar.bz2"
+    mirror "http://fresh-center.net/linux/www/curl-8.14.0.tar.bz2"
+    mirror "http://fresh-center.net/linux/www/legacy/curl-8.14.0.tar.bz2"
+    sha256 "efa1403c5ac4490c8d50fc0cabe97710abb1bf2a456e375a56d960b20a1cba80"
+
+    # fix https://github.com/curl/curl/issues/17473
+    # curl_multi_add_handle() returning OOM when using more than 400 handles
+    patch do
+      url "https://github.com/curl/curl/commit/d16ccbd55de80c271fe822f4ba8b6271fd9166ff.patch?full_index=1"
+      sha256 "d30d4336e2422bedba66600b4c05a3bed7f9c51c1163b75d9ee8a27424104745"
+    end
+  end
 
   livecheck do
     url "https://curl.se/download/"
@@ -16,12 +27,14 @@ class Curl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9becff07bed074d7ccf57b6875c54e0f81313faf5304d0a83c3b4a5f030fb7d5"
-    sha256 cellar: :any,                 arm64_sonoma:  "abe90ee3f273e4101cc2a6d597341de4f0fcff5add2ac70664bf6abd045cc204"
-    sha256 cellar: :any,                 arm64_ventura: "a2a7f0e1b2ec4b1444c6fb74e747801da3b2cc17fa2defab8e8766ca66fa2317"
-    sha256 cellar: :any,                 sonoma:        "d3f0ef75ee89823890173bae4caf3eff9cf552361dc400ea576e439b69045a5b"
-    sha256 cellar: :any,                 ventura:       "af443263f1ce0d8330fc4a8863b5bcd094686cf5e7c7352b5670f3137008fe0e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76e0a5154b41a48c92434df18bc22727f50e1c5d85dbda724c7353ce0bbe385a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "69efd2fd516be31f0c79b1af0a989c52f4d64d9003d39a0cefc6e64350e738c6"
+    sha256 cellar: :any,                 arm64_sonoma:  "e552078c530a8315d4877daf4906bf7745bd24cc3941b7f44980bba20db5ff46"
+    sha256 cellar: :any,                 arm64_ventura: "5034cef9debaa38a5466af6b88694c4430f7851470a5b24f0afb0322fae9e607"
+    sha256 cellar: :any,                 sonoma:        "e30b8516c64ac2ed9b2e0ac4afecdb6f5166327a6e5f1b900ece864992b9a320"
+    sha256 cellar: :any,                 ventura:       "78cef1a6e06b1a5118e33b907a3adadf8c7861573a69c201f9e6524502c8a5b6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "91a9a666d78f78e18ea810640354b311dc13fa08680ecac0aac0ac452ff1300a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da5123da4f2bb51d5ddb60cfed48b7f5223f1dadef133ebc892d292636924517"
   end
 
   head do
@@ -44,7 +57,7 @@ class Curl < Formula
 
   uses_from_macos "krb5"
   uses_from_macos "openldap"
-  uses_from_macos "zlib"
+  uses_from_macos "zlib", since: :sierra
 
   on_system :linux, macos: :monterey_or_older do
     depends_on "libidn2"
@@ -57,7 +70,10 @@ class Curl < Formula
            "Please make sure the URL is correct."
     end
 
-    system "./buildconf" if build.head?
+    # Use our `curl` formula with `wcurl`
+    inreplace "scripts/wcurl", 'CMD="curl "', "CMD=\"#{opt_bin}/curl \""
+
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
 
     args = %W[
       --disable-silent-rules

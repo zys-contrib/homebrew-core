@@ -6,7 +6,7 @@ class FfmpegAT6 < Formula
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 7
+  revision 10
 
   livecheck do
     url "https://ffmpeg.org/download.html"
@@ -14,12 +14,13 @@ class FfmpegAT6 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "e8a11eea09ec3800874c6db22f5b37270fce05fb7c1fca401a721f4e26aa74fa"
-    sha256 arm64_sonoma:  "ad01c4945806c0c7f1aee4d87170b918a584cdab7f9ff0f66b61871dd747bdef"
-    sha256 arm64_ventura: "64d9fc785f992fe271f6ea375ff64529619ceae5e9f8ebf7bb9ea77f601d0434"
-    sha256 sonoma:        "77922b41b119b65a161f9df1583353da3febd51818cf69df9e5c31c76c433d72"
-    sha256 ventura:       "4bd3c1b5b4d73c764ef9508cbf866142ce847074d9a0b3febb5f39c6b2de6374"
-    sha256 x86_64_linux:  "6b5f3f76676660d7dfea88fbfb63c6e240f6e21f715ff12bea7e37887a4a45e4"
+    sha256 arm64_sequoia: "3813b85a9438ad27df75ca35f8fa7ceb5b3e22270f23750626b06f6ca0018866"
+    sha256 arm64_sonoma:  "2444fddd5f5aafe512d53a3c5b74f0405d30a209806304eb618e8cc0c34e1cb3"
+    sha256 arm64_ventura: "500932112f074c3597a918cabe1772bf9729634bbfc85419cbade06af048a857"
+    sha256 sonoma:        "4528ff212b1e9efeb42c338aae89c4f91221adeb8abcf6ffc7fa6ebc7ce8d5a2"
+    sha256 ventura:       "de1ef312738e010862afdc27244de9ecf66c627490200709a9e99f76427c49a6"
+    sha256 arm64_linux:   "7929f407841b68211dd972398f86b46ba02c5b2ee6b29ec572c789058124e513"
+    sha256 x86_64_linux:  "ed69104b895f9d18a3a76476d5c4be427b03e9bfc4bb1a9ae7d11e77ca1e0bbd"
   end
 
   keg_only :versioned_formula
@@ -91,6 +92,12 @@ class FfmpegAT6 < Formula
   patch do
     url "https://gitlab.archlinux.org/archlinux/packaging/packages/ffmpeg/-/raw/5670ccd86d3b816f49ebc18cab878125eca2f81f/add-av_stream_get_first_dts-for-chromium.patch"
     sha256 "57e26caced5a1382cb639235f9555fc50e45e7bf8333f7c9ae3d49b3241d3f77"
+  end
+
+  # Backport support for recent svt-av1 (3.0.0)
+  patch do
+    url "https://github.com/FFmpeg/FFmpeg/commit/d1ed5c06e3edc5f2b5f3664c80121fa55b0baa95.patch?full_index=1"
+    sha256 "0eb23ab90c0e5904590731dd3b81c86a4127785bc2b367267d77723990fb94a2"
   end
 
   def install

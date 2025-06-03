@@ -13,6 +13,7 @@ class Periscope < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1d3a14af2b8bbc5def8dc556de099ddb30f2c4f129743ddfde14226af0f2397a"
     sha256 cellar: :any_skip_relocation, sonoma:        "9a2d6787de19316613a10a7c2e1cc921047575b031ac6363e2dadf9425e91ca5"
     sha256 cellar: :any_skip_relocation, ventura:       "2eef76919c4d079f13b3f67dc36c45e24b64daced55875b33d3537fdaee34c9c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "37af0b84717118647d205579a7afda747ba18dd3be41d9506c9c046e5d00799f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "730c36044c98b82acf32c59bb4137e3b572970e0b8bd0d05198f8bd24d79ac83"
   end
 
@@ -46,12 +47,12 @@ class Periscope < Formula
 
     # rm allows deleting dupes but not uniques
     shell_output "#{bin}/psc rm #{scandir/"a"}"
-    refute_predicate (scandir/"a"), :exist?
+    refute_path_exists (scandir/"a")
     # now b is unique
     shell_output "#{bin}/psc rm #{scandir/"b"} 2>/dev/null", 1
-    assert_predicate (scandir/"b"), :exist?
+    assert_path_exists (scandir/"b")
     shell_output "#{bin}/psc rm #{scandir/"c"} 2>/dev/null", 1
-    assert_predicate (scandir/"c"), :exist?
+    assert_path_exists (scandir/"c")
 
     # cleanup
     shell_output("#{bin}/psc finish")

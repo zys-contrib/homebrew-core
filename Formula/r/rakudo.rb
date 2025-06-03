@@ -1,8 +1,8 @@
 class Rakudo < Formula
   desc "Mature, production-ready implementation of the Raku language"
   homepage "https://rakudo.org"
-  url "https://github.com/rakudo/rakudo/releases/download/2024.12/rakudo-2024.12.tar.gz"
-  sha256 "15d1ba405ea5cd74bde7c2a7e51546b74394ba0b01b23c9d215362cfc718c96a"
+  url "https://github.com/rakudo/rakudo/releases/download/2025.05/rakudo-2025.05.tar.gz"
+  sha256 "8dcfe832801aab6c45de07c053c3ce528cc9b0fb0d3c89143e0602346c62a210"
   license "Artistic-2.0"
 
   livecheck do
@@ -11,22 +11,19 @@ class Rakudo < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "f7473c8d62a7f552668679cd32acfeaffa66e550555443e8cccf34a31c833fa7"
-    sha256 arm64_sonoma:  "b750c763232be865a4c0b65c88090c9a7375e9ab2059f56ded70b75382dbf4d5"
-    sha256 arm64_ventura: "70daf3bd0127a20ccc7818909a65fc593e97ff454a1bb14095de607d9c361c9c"
-    sha256 sonoma:        "eb28e95a442cd5d7457e12567429820903439953096f9a981b5eae59638bccbc"
-    sha256 ventura:       "bc18bf1fc019c4e7d9dc1019be9a12f70e5afeb759aa012f3669e13c0e4781dc"
-    sha256 x86_64_linux:  "13d529274a9972da1986f66c5a25a9ca5159f5e0deb65ac222ad9b983bfe9b6f"
+    sha256 arm64_sequoia: "5e193601af57f8038d8d16c7587d803b2bb010c41c3cc05eb29d5538bdd53120"
+    sha256 arm64_sonoma:  "018a3f47de8d34dc43c6813459b5d1a8c22daed7f06eac0fd8bd93aa152bb8ed"
+    sha256 arm64_ventura: "daf836a9ec00e2f0513a76ad6e8db1c081e525c22b45c013276c22e488a7b8cc"
+    sha256 sonoma:        "b9b65bd488486ac1b9ea0a68cc1d2eefa7c83dc0cb9164e7f5b3df622af7f859"
+    sha256 ventura:       "a4c62efc8d1ab2d3421a000f53aa8dacf88a3c41477e24b8a1e6fb26c879f71c"
+    sha256 arm64_linux:   "33c9c2bd481163588190647ad68e11e7fad517edcdd2044d1067e12fc4aa649c"
+    sha256 x86_64_linux:  "5968786d431fc2667a8c4ade871c2b4f77f33139b4dd225f113656de0375e32c"
   end
 
-  depends_on "libtommath"
-  depends_on "libuv"
   depends_on "moarvm"
   depends_on "nqp"
-  depends_on "zstd"
 
   uses_from_macos "perl" => :build
-  uses_from_macos "libffi"
 
   conflicts_with "rakudo-star"
 
@@ -35,6 +32,14 @@ class Rakudo < Formula
                    "--backends=moar",
                    "--prefix=#{prefix}",
                    "--with-nqp=#{Formula["nqp"].bin}/nqp"
+
+    # Reduce overlinking on macOS
+    if OS.mac?
+      inreplace "Makefile" do |s|
+        s.change_make_var! "M_LDFLAGS", "#{s.get_make_var("M_LDFLAGS")} -Wl,-dead_strip_dylibs"
+      end
+    end
+
     system "make"
     system "make", "install"
     bin.install "tools/install-dist.raku" => "raku-install-dist"

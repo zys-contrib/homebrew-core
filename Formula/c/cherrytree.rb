@@ -1,10 +1,9 @@
 class Cherrytree < Formula
   desc "Hierarchical note taking application featuring rich text and syntax highlighting"
   homepage "https://www.giuspen.com/cherrytree/"
-  url "https://www.giuspen.com/software/cherrytree_1.2.0.tar.xz"
-  sha256 "b9d9c9a0d7853e846657ceccdf74730f79190e19af296eeb955e5f4b54425ec2"
+  url "https://www.giuspen.com/software/cherrytree_1.4.0.tar.xz"
+  sha256 "3ab77aa7de62a0285ea9d227e640b0b20afc2f0b5b0dd1dbacde8bfe4791e8ab"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/giuspen/cherrytree.git", branch: "master"
 
   livecheck do
@@ -13,12 +12,13 @@ class Cherrytree < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "f3876c40c8ce23942721414871f91de6f5923c4d291e09bdcb3bbd8b6dac50d0"
-    sha256 arm64_sonoma:  "e7beb83cd769765c49866dec5157d3d91abe89dd76aa5a70b4537e7ce17907f1"
-    sha256 arm64_ventura: "8fe04de9ad5a41b54eac69ad39d204ee4369c6f15dd80c3d1e595d1c68d1091b"
-    sha256 sonoma:        "af90c242b21ca2bf9859deecdd461f97d1617170948804564378849acd588ead"
-    sha256 ventura:       "fced9c8a668436bea65ecae91d794d0c8850c1045dac00801299c9b840df8322"
-    sha256 x86_64_linux:  "bab50a450df78f7839faa8b08bce999163d4eee8fbf905f3f05afd77e98f1d71"
+    sha256 arm64_sequoia: "cdd548683777d14b185e4f60d2a4337fda25754b4f8fc9eabbdec6e3ea89106a"
+    sha256 arm64_sonoma:  "d8653e2a55d6efd5745f87ce983e80cbaf4635e8e3509e41f01700173c88133f"
+    sha256 arm64_ventura: "e03d39eb6764bf96846ab34a01ff85475f7575ff3c0dc564e1f07f1d41a4ea26"
+    sha256 sonoma:        "1c8c218312899191f0cc05b99b85be07d210b21e54f383f56a88b08402de3d07"
+    sha256 ventura:       "d0c0125118e201a163a06c6b22ed70a73359659becf77c87d0a62f2108b526db"
+    sha256 arm64_linux:   "0668d760e7a35fdd3521a5f6eebb90bbaa2ae90fd3203bcb1eb1e6951680b8e3"
+    sha256 x86_64_linux:  "deb1306276cf94028307e484688644a0e419a9723ad2169a83a64e00957d193b"
   end
 
   depends_on "cmake" => :build
@@ -90,7 +90,7 @@ class Cherrytree < Formula
     XML
 
     system bin/"cherrytree", testpath/"homebrew.ctd", "--export_to_txt_dir", testpath, "--export_single_file"
-    assert_predicate testpath/"homebrew.ctd.txt", :exist?
+    assert_path_exists testpath/"homebrew.ctd.txt"
     assert_match "rich text", (testpath/"homebrew.ctd.txt").read
     assert_match "this is a simple command line test for homebrew", (testpath/"homebrew.ctd.txt").read
     assert_match "code", (testpath/"homebrew.ctd.txt").read

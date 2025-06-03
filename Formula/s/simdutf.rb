@@ -1,8 +1,8 @@
 class Simdutf < Formula
   desc "Unicode conversion routines, fast"
-  homepage "https://github.com/simdutf/simdutf"
-  url "https://github.com/simdutf/simdutf/archive/refs/tags/v6.1.1.tar.gz"
-  sha256 "34f2e28ad9bbc1cd5909abe20b819e877200d48eb86d5839e042011909cbdf7a"
+  homepage "https://simdutf.github.io/simdutf/"
+  url "https://github.com/simdutf/simdutf/archive/refs/tags/v7.3.0.tar.gz"
+  sha256 "e337abe416898d1d997d729cc04370c89c8dddf688648e876f37970e98cf93aa"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/simdutf/simdutf.git", branch: "master"
 
@@ -12,15 +12,17 @@ class Simdutf < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "2cb7575954dd9b8b89074cd779a565ded8341fab90054eb56071d5003e11fdeb"
-    sha256 cellar: :any, arm64_sonoma:  "3e470497dec88685546f2a06356df09a66012113db5fa64bf884545bc4d4aa93"
-    sha256 cellar: :any, arm64_ventura: "630e2a2c1b0423e3de5ff513ee240c92eeb58183667fe214fb045714f01195b6"
-    sha256 cellar: :any, sonoma:        "927c905a133cc08a1c5b4850cf1a2578ac0417a5edcc3339d40a8ddf4c60f50b"
-    sha256 cellar: :any, ventura:       "faedb7bb08728b818b03d69eec78ef227bcc6767c0fc1edb596f419ecb2517ca"
+    sha256 cellar: :any,                 arm64_sequoia: "6a9b20ff5eedd441325216819e22e42420200f7738ccead54dd1aee9dd99d557"
+    sha256 cellar: :any,                 arm64_sonoma:  "6cb738dbfcba72277f7bfea52b0471577ab23aec6fa8bc4f27e004513f1b5529"
+    sha256 cellar: :any,                 arm64_ventura: "40c3c1577a8c5494a3dc22a3ba4f9596c0fd0550a197f90c3e248dafffbafe3b"
+    sha256 cellar: :any,                 sonoma:        "86917209f8009cdaaee70170adbe529a204ef6742ccc9099f94a94feaa38d5b0"
+    sha256 cellar: :any,                 ventura:       "e59bf45c9a87d09b451b6023904b138c572aebbbf87da540b86f6bc0894baaaa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "81a1452432282fe777d02cae642c9717cd6f0bf08d73bb0de3325c4a0027e223"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75f0837ac8f666e8f08b813c0495723014c7be124849938bde434808087acb2e"
   end
 
   depends_on "cmake" => :build
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
 
   uses_from_macos "python" => :build
 
@@ -48,6 +50,6 @@ class Simdutf < Formula
   end
 
   test do
-    system bin/"sutf-benchmark", "--random-utf8", "1024", "-I", "20"
+    system bin/"sutf-benchmark", "--random-utf8", "10240", "-I", "100"
   end
 end

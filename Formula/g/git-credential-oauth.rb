@@ -1,18 +1,18 @@
 class GitCredentialOauth < Formula
   desc "Git credential helper that authenticates in browser using OAuth"
   homepage "https://github.com/hickford/git-credential-oauth"
-  url "https://github.com/hickford/git-credential-oauth/archive/refs/tags/v0.14.0.tar.gz"
-  sha256 "0b9c23264e67a6cdd423031749ab9c6679c14ce88b1e2c4c5c2219501c70f628"
+  url "https://github.com/hickford/git-credential-oauth/archive/refs/tags/v0.15.1.tar.gz"
+  sha256 "0a0aea60bfeb19c9fa9d8bc2428c71a8b08c2b20b939a16b0709baf24d2ec7fa"
   license "Apache-2.0"
   head "https://github.com/hickford/git-credential-oauth.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2f35466f105b369eae00115a115dfb2861b411d3a916ac7c8bd0b06ba481d9d4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2f35466f105b369eae00115a115dfb2861b411d3a916ac7c8bd0b06ba481d9d4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2f35466f105b369eae00115a115dfb2861b411d3a916ac7c8bd0b06ba481d9d4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8dbf30c9780ad7d0f97c3045c9ee3a43c50769a2b35fc1f2d8e772b682056ae5"
-    sha256 cellar: :any_skip_relocation, ventura:       "8dbf30c9780ad7d0f97c3045c9ee3a43c50769a2b35fc1f2d8e772b682056ae5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "338032f925aed60be65c0fdf372b543b4a88a2822a72bcd58ff2a23c13468253"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "80a29ec6e73aac63a5438c5f5aadfdb76f5255995b9f7074592033645bc286df"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "80a29ec6e73aac63a5438c5f5aadfdb76f5255995b9f7074592033645bc286df"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "80a29ec6e73aac63a5438c5f5aadfdb76f5255995b9f7074592033645bc286df"
+    sha256 cellar: :any_skip_relocation, sonoma:        "198d17566ed638fcc048dc8192d9d6207d870c113695f9f55b6a1bfba5e807b8"
+    sha256 cellar: :any_skip_relocation, ventura:       "198d17566ed638fcc048dc8192d9d6207d870c113695f9f55b6a1bfba5e807b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b64f14ad4f84b3c3d6c876a61b6e81197824c76d27c8764229b92032be20ea09"
   end
 
   depends_on "go" => :build

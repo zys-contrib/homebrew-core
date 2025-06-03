@@ -1,18 +1,19 @@
 class Html2markdown < Formula
   desc "Convert HTML to Markdown"
   homepage "https://html-to-markdown.com"
-  url "https://github.com/JohannesKaufmann/html-to-markdown/archive/refs/tags/v2.2.2.tar.gz"
-  sha256 "6d45930df912143f7f8bc8097e28f9c93f39d733e7536a3801e294abbfe7eddb"
+  url "https://github.com/JohannesKaufmann/html-to-markdown/archive/refs/tags/v2.3.3.tar.gz"
+  sha256 "4087f3626b5b2870fa491e58d19438cfe68ef8cfd61ce2468b759ec785c0ca02"
   license "MIT"
   head "https://github.com/JohannesKaufmann/html-to-markdown.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4c49578941f00d7f66318cdef1ece3d09b9cced00e27a76ac7bde1b9db6b115c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4c49578941f00d7f66318cdef1ece3d09b9cced00e27a76ac7bde1b9db6b115c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4c49578941f00d7f66318cdef1ece3d09b9cced00e27a76ac7bde1b9db6b115c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "662ab7768938a28f8135a1f4f3a6d6f2f218b1c2217ba73b78df0a6b9d51d0a0"
-    sha256 cellar: :any_skip_relocation, ventura:       "662ab7768938a28f8135a1f4f3a6d6f2f218b1c2217ba73b78df0a6b9d51d0a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca32e272b8621aad6ecd4572399e61d614d2af2dec2157741f31203a3fa672b4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0af127ee9d2c7d801f6b3f8be67310af5020dd56ba36e5ed773d723293a49371"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0af127ee9d2c7d801f6b3f8be67310af5020dd56ba36e5ed773d723293a49371"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0af127ee9d2c7d801f6b3f8be67310af5020dd56ba36e5ed773d723293a49371"
+    sha256 cellar: :any_skip_relocation, sonoma:        "282a7afb34d97435b007ebea0aa115189263c877ada23f233d49ba20f6c6fde5"
+    sha256 cellar: :any_skip_relocation, ventura:       "282a7afb34d97435b007ebea0aa115189263c877ada23f233d49ba20f6c6fde5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1830efb4694d844aca450a73286954e6a3e9cdde9830f2fd66aac9e3644d23d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc59b7de7a93f2737cedf83313cddb20d231d5edc33d59b396901abe9502141a"
   end
 
   depends_on "go" => :build

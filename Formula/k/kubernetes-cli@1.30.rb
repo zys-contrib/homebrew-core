@@ -2,8 +2,8 @@ class KubernetesCliAT130 < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/docs/reference/kubectl/"
   url "https://github.com/kubernetes/kubernetes.git",
-      tag:      "v1.30.9",
-      revision: "a87cd6906120a367bf6787420e943103a463acba"
+      tag:      "v1.30.13",
+      revision: "50af91c466658b6a33d123fae8a487db1630971c"
   license "Apache-2.0"
 
   livecheck do
@@ -12,12 +12,13 @@ class KubernetesCliAT130 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d0cfad8821bf8524058d33696cf1c8a4ddb96d790d185f803b4ccfa045483a3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9db1d32c2474cd7a79f0042d7f25a4d4b5d0d471ac94c29278b4f7f7202346ad"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1803b9fb52b6ce4980d231f103fb0fb974cf82cd9bc5110cdf64ce6cf1e52e29"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c17dc81daf072362d80b0d6984858f23750397e2fa5b18a5360722162e19144a"
-    sha256 cellar: :any_skip_relocation, ventura:       "4df26dd9aeeb1042b579b547dd4f8dc572f85499b4ad2df63ad815d70633040f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40c67c38ed269cfba56410c63129013f85d23ec266e6b888d856fd4a21744eb9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "449a3876eac5b7508ae83162e78df0cc0ab7c7e849a8637beb5fa0a21b547e60"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d5b7b3e0df3acf0fb2e27f40369396f0e9b3f848dec675bfaa9af47330271992"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "da1188cec14b2b23fbf60944bf20b4bb6ccf286631c9b27230af67c98cd226c7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9b221c81f9fa3df54591ab48d787b164adf37b8e19c7144045ee3b90d83bdce2"
+    sha256 cellar: :any_skip_relocation, ventura:       "f4cae26ad2e69c8999f723671fe85feb2284a3185afdd3d688ab51182e5bdef5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7355e559217d879541552e3ca34fba6ff7bcc75a64fe6284d761ba65bd80e2b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8b4d29bbb01ca18b79ef79d9210ce4677dde1675fef4a83a8a887ed68a8feac"
   end
 
   keg_only :versioned_formula

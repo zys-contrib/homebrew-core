@@ -1,8 +1,8 @@
 class MongodbAtlasCli < Formula
   desc "Atlas CLI enables you to manage your MongoDB Atlas"
   homepage "https://www.mongodb.com/docs/atlas/cli/stable/"
-  url "https://github.com/mongodb/mongodb-atlas-cli/archive/refs/tags/atlascli/v1.36.0.tar.gz"
-  sha256 "0965197a2cae73e55a18eb73b6f6f13ddc41d8abb6cb4dad90571434ad325c2e"
+  url "https://github.com/mongodb/mongodb-atlas-cli/archive/refs/tags/atlascli/v1.43.0.tar.gz"
+  sha256 "4ea9c80bd3956f92bfc0a0189b973050a77c187931e6b5adc8da91800fd4f204"
   license "Apache-2.0"
   head "https://github.com/mongodb/mongodb-atlas-cli.git", branch: "master"
 
@@ -12,18 +12,24 @@ class MongodbAtlasCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d28aa87d844f190dd68536bbd77a41e44bff2cee1dca9f8ecec532dc5caa4820"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6410b8a8672da796dadd3f922db88bd7afe8d59d3e3fb995648796cb67dd857d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "30335c74f810500376fc6a643eb1478ce59547d8a9a03ffb7bf247a331925d5c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4926e7834cfbc1057ab2ac948fbf68364b19a95ad2004f802985672a0755293b"
-    sha256 cellar: :any_skip_relocation, ventura:       "2fe4f237e3d7543722d2915ab4c75ed570b0d127020719978966808e5528c51d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17014113312f703631d1dc2e4119896f2c7aa3306ec822d3ea5b71026b86371e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8b101a4656b8188a04122e85a10d5979d756c60e76d64bb76a5b8397adf23eaf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "29ed778f2475dd172e3bd442b341cc9337d48ad95df847beaf8b9c97322088e1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "11538a8177fa9e2980293eaeff7e6761abc6380e17ba688ddf2b851ca592c44a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aa5e015dd0fa9911d47c73bc46efab1062ce415decb9fdbbce543d7eaba2f0ec"
+    sha256 cellar: :any_skip_relocation, ventura:       "cd62bc38ef94b36e5283ee7f148f16212889ce36010a9af165b7213a89f25d1b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "220fc728a264f4d2648b16edf73065113d4cf512591a7ca188ebbe7cd8a15a6e"
   end
 
   depends_on "go" => :build
   depends_on "mongosh"
 
   conflicts_with "atlas", "nim", because: "both install `atlas` executable"
+
+  # purego build patch, upstream pr ref, https://github.com/mongodb/mongodb-atlas-cli/pull/3925
+  patch do
+    url "https://github.com/mongodb/mongodb-atlas-cli/commit/5537ad011ddc25b6cbe7fd7cab10bf20d0277316.patch?full_index=1"
+    sha256 "8201cb67f844c7c52478e82590ac150a926f3d09bf5480949fb53e8db6a1d96c"
+  end
 
   def install
     ENV["ATLAS_VERSION"] = version.to_s

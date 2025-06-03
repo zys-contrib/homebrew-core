@@ -1,8 +1,8 @@
 class Zeek < Formula
   desc "Network security monitor"
   homepage "https://zeek.org/"
-  url "https://github.com/zeek/zeek/releases/download/v7.1.0/zeek-7.1.0.tar.gz"
-  sha256 "9a40199c5f6c97b4c79e968caa3a83742bf4fd45c293b21c9bfb3b632d4849c0"
+  url "https://github.com/zeek/zeek/releases/download/v7.2.1/zeek-7.2.1.tar.gz"
+  sha256 "9dbab6e531aafc7b9b4df032b31b951d4df8c69dc0909a7cc811c1db4165502d"
   license "BSD-3-Clause"
   head "https://github.com/zeek/zeek.git", branch: "master"
 
@@ -12,12 +12,13 @@ class Zeek < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "0cb1561fae1e9f05853d88a507619329c233d3a780c1b13dcbfb0c1578944147"
-    sha256 arm64_sonoma:  "7fb32a2554210fa6112bfb1c5817401cac686dd556b0551b82dea2fa0f29884b"
-    sha256 arm64_ventura: "002083175e96e35197d3faa06e686a593571e0c476715aeb360ca5699ffac8c4"
-    sha256 sonoma:        "736147e3868e41b67acb04aca99cf5028c71bf9ce50a7b4f05ceeaa2d4d939b1"
-    sha256 ventura:       "201e30eb46c09bc1c865ec5fcf21b92263c6a831bbc3bf0930d0983804ea7c85"
-    sha256 x86_64_linux:  "11eddbd32d64c8d7e4281f60d2831cda0fce32ecd67ad0011394c2ef3dfeaf9f"
+    sha256 arm64_sequoia: "d85c899cfb82397bfc0d0a1062236eb9f89fb0c4eeb92ded5802075d0b5b0d9b"
+    sha256 arm64_sonoma:  "8e317980b6728b45e31017e6773b950aca6a36c0c97436da9102303afc603e4c"
+    sha256 arm64_ventura: "8f7faf31cbe74dc1b1da6bbedd88346410f91d1893a30f77c75bbca580e98882"
+    sha256 sonoma:        "0da4a6958a2ef671788752134fc548e640d86185fb3b7805f4d2e98672b553aa"
+    sha256 ventura:       "b382e76061b33a4dc6f34891793377e4b615dceabb06f8c02e163ddf193b1bb8"
+    sha256 arm64_linux:   "96ffdf8de675436a684d3c74e03430cf70a3c00902fa855693498a377985d0c1"
+    sha256 x86_64_linux:  "35fd41a4861a8d49a2c41be8ce132f3e32a334235c740daf5c8c4adb1aad72c6"
   end
 
   depends_on "bison" => :build
@@ -45,6 +46,27 @@ class Zeek < Formula
 
     # Avoid references to the Homebrew shims directory
     inreplace "auxil/spicy/hilti/toolchain/src/config.cc.in", "${CMAKE_CXX_COMPILER}", ENV.cxx
+
+    # Benchmarks are not installed, but building them on Linux breaks in the
+    # bundled google-benchmark dependency. Exclude the benchmark targets and
+    # their library dependencies.
+    #
+    # TODO: Revisit this for the next release including
+    # https://github.com/zeek/spicy/pull/2068. With that patch we should be
+    # able to disable test and benchmark binaries with a CMake flag.
+    inreplace "auxil/spicy/hilti/runtime/CMakeLists.txt",
+      "add_executable(hilti-rt-fiber-benchmark src/benchmarks/fiber.cc)",
+      "add_executable(hilti-rt-fiber-benchmark EXCLUDE_FROM_ALL src/benchmarks/fiber.cc)"
+    inreplace "auxil/spicy/spicy/runtime/tests/benchmarks/CMakeLists.txt",
+      "add_executable(spicy-rt-parsing-benchmark parsing.cc ${_generated_sources})",
+      "add_executable(spicy-rt-parsing-benchmark EXCLUDE_FROM_ALL parsing.cc ${_generated_sources})"
+    inreplace "auxil/spicy/3rdparty/justrx/src/tests/CMakeLists.txt",
+      "add_executable(bench benchmark.cc)",
+      "add_executable(bench EXCLUDE_FROM_ALL benchmark.cc)"
+    (buildpath/"auxil/spicy/3rdparty/CMakeLists.txt").append_lines <<~CMAKE
+      set_target_properties(benchmark PROPERTIES EXCLUDE_FROM_ALL ON)
+      set_target_properties(benchmark_main PROPERTIES EXCLUDE_FROM_ALL ON)
+    CMAKE
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DBROKER_DISABLE_TESTS=on",

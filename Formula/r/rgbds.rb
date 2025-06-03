@@ -1,8 +1,8 @@
 class Rgbds < Formula
   desc "Rednex GameBoy Development System"
   homepage "https://rgbds.gbdev.io"
-  url "https://github.com/gbdev/rgbds/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "2be649a6b3c3b4a462e222b3082fa2e1c83142f317ba862b17899f5a25717380"
+  url "https://github.com/gbdev/rgbds/archive/refs/tags/v0.9.2.tar.gz"
+  sha256 "ccba03909a9fd2067969134ef04c4165c1acffac5cd45899405214f9abd4157d"
   license "MIT"
   head "https://github.com/gbdev/rgbds.git", branch: "master"
 
@@ -12,12 +12,13 @@ class Rgbds < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f87dfc01d98b7680f8649848bb7ce740f65d40a2fe29d13bf19e797d68017263"
-    sha256 cellar: :any,                 arm64_sonoma:  "4dd20f6948588fbf2014fd1ac758c3e9b58ffe959fc55a436f1a3e5d0c88ea8f"
-    sha256 cellar: :any,                 arm64_ventura: "bbb63d0c35cd30abdf979ada4bbacd9e7af240cd4d95f791d26f0baef17f5c21"
-    sha256 cellar: :any,                 sonoma:        "12e3c9959a097c87290512e26fc609d5e26fe99a89658cb20561f94102953661"
-    sha256 cellar: :any,                 ventura:       "9194b4cacf21ff1ea05970d7e3861f21eb4f6f78b4c2ebdd17eaaf949d6d2ec1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8d11ec5b3e1c034bfda24f02aeafca94dab736b403381b9e41628a9c25be21a"
+    sha256 cellar: :any,                 arm64_sequoia: "61f9327d50b1584d5b4b3809292b7724cfb7d82acb7a5c4d9c245f60403c61bc"
+    sha256 cellar: :any,                 arm64_sonoma:  "56c1d55f4e3c04c940954e109746e636711f445fa971ef73e126a2f16713e627"
+    sha256 cellar: :any,                 arm64_ventura: "95a36a5c8b9652693eb768ecce13f5456ac0aa1debe21f363b8bf6f520903fd6"
+    sha256 cellar: :any,                 sonoma:        "765ef83e85524937bb0552c7e303312512fbd1b0a1dda9ce9683cc0d3818f6dd"
+    sha256 cellar: :any,                 ventura:       "b0ac3c426aec5a5610f8c6e7736b36b99d6693d8bc413cd64e443130651feb02"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d5b2817a166380f0cf4b80b579a0eeb761f7dc6c011a3c5f47381158bdffdb44"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6fa0e0ee6496f99733f2ecf3b871716363c3b1ae79a248c9770ac218bd92dd59"
   end
 
   depends_on "bison" => :build
@@ -27,8 +28,8 @@ class Rgbds < Formula
   depends_on "libpng"
 
   resource "rgbobj" do
-    url "https://github.com/gbdev/rgbobj/archive/refs/tags/v0.4.0.tar.gz"
-    sha256 "3871904f78d85ad6686df396d806950f9fc9ed612958c513fda3b962a8d63799"
+    url "https://github.com/gbdev/rgbobj/archive/refs/tags/v0.5.0.tar.gz"
+    sha256 "c05cf86445a4bcf8718389fbe6feeaa6091b9f500ddc746a589cdeb60c7c5519"
   end
 
   def install
@@ -54,6 +55,6 @@ class Rgbds < Formula
     system bin/"rgbasm", "-o", "output.o", "source.asm"
     system bin/"rgbobj", "-A", "-s", "data", "-p", "data", "output.o"
     system bin/"rgbgfx", test_fixtures("test.png"), "-o", testpath/"test.2bpp"
-    assert_predicate testpath/"test.2bpp", :exist?
+    assert_path_exists testpath/"test.2bpp"
   end
 end

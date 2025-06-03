@@ -17,16 +17,12 @@ class G2o < Formula
     sha256 cellar: :any,                 arm64_ventura: "ee55fcb396513cf2bdd28f279f6616c2e47cb5d86d19a7b2a4b5a0b30323952f"
     sha256 cellar: :any,                 sonoma:        "b5dd18e068c2dd0e29b798854806ed1a441beca2b6d1c9b763b9891c7b6e4514"
     sha256 cellar: :any,                 ventura:       "70d60d6efa8c3216129d34777c0715f7cfa5fa0c3a23f86335b0609ffb989dea"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d017827ecc09b2036bee06e95bd388c87b95f57dc5f3b6a2c2790580a8676bb4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "432f0cc70da40868d5e102a30d2d4d0ce26c70b2431e5fa5fc4922de981b7046"
   end
 
   depends_on "cmake" => :build
   depends_on "eigen"
-
-  resource "homebrew-testdata" do
-    url "https://raw.githubusercontent.com/OpenSLAM-org/openslam_g2o/2362b9e1e9dab318625cd0af9ba314c47ba8de48/data/2d/intel/intel.g2o"
-    sha256 "4d87aaf96e1e04e47c723c371386b15358c71e98c05dad16b786d585f9fd70ff"
-  end
 
   def install
     cmake_args = std_cmake_args + %w[-DG2O_BUILD_EXAMPLES=OFF]
@@ -56,6 +52,11 @@ class G2o < Formula
   end
 
   test do
+    resource "homebrew-testdata" do
+      url "https://raw.githubusercontent.com/OpenSLAM-org/openslam_g2o/2362b9e1e9dab318625cd0af9ba314c47ba8de48/data/2d/intel/intel.g2o"
+      sha256 "4d87aaf96e1e04e47c723c371386b15358c71e98c05dad16b786d585f9fd70ff"
+    end
+
     cp_r pkgshare/"examples/simple_optimize", testpath/"src"
     libs = %w[-lg2o_core -lg2o_solver_eigen -lg2o_stuff -lg2o_types_slam2d -lg2o_types_slam3d]
     cd "src" do

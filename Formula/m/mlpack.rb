@@ -1,18 +1,19 @@
 class Mlpack < Formula
   desc "Scalable C++ machine learning library"
   homepage "https://www.mlpack.org"
-  url "https://mlpack.org/files/mlpack-4.5.1.tar.gz"
-  sha256 "58059b911a78b8bda91eef4cfc6278383b24e71865263c2e0569cf5faa59dda3"
+  url "https://mlpack.org/files/mlpack-4.6.2.tar.gz"
+  sha256 "2fe772da383a935645ced07a07b51942ca178d38129df3bf685890bc3c1752cf"
   license all_of: ["BSD-3-Clause", "MPL-2.0", "BSL-1.0", "MIT"]
   head "https://github.com/mlpack/mlpack.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "14103e2ce794d0e8cda3bb85a4ca003bb15e696294865e788cd2f5bbab1f33c2"
-    sha256 cellar: :any,                 arm64_sonoma:  "f08fb3c4bd5fecca6e3000d55d50930981abc3b18c990ba266199f85c466afaa"
-    sha256 cellar: :any,                 arm64_ventura: "6d19da72724ba1093b67d027fb8fe78fc1432056331a8ad762b8064f20e47ae4"
-    sha256 cellar: :any,                 sonoma:        "3d7638fd522a387521743fcee1baf6e5cbfaf0e64d594c16a96f04f75083a03e"
-    sha256 cellar: :any,                 ventura:       "7bbd042a5ce26f803ed770587a64805486f84c1955ec6ab926634e6150148285"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec3664885fb3cf60787a14f0a0b2492a4ffa18c90a6a95561e75bf506a18b119"
+    sha256 cellar: :any,                 arm64_sequoia: "87d4f5a4302156c12ad5da5ee62eec7452fc8b349b6e1d05df1cac7533f6c7b8"
+    sha256 cellar: :any,                 arm64_sonoma:  "4c580314cc58e6bc4c04db0ab99879fd160bd70bab73e2947e83cd96015f8862"
+    sha256 cellar: :any,                 arm64_ventura: "1532059fed0f7386245634600d530316cd95cd9feee65035827d59a1cece22bc"
+    sha256 cellar: :any,                 sonoma:        "20313ef032c389344b54f3575b9a1b66e97210312f6524920c1c1978998a86f0"
+    sha256 cellar: :any,                 ventura:       "c6d37fb700c00e29ed57b56c189a42075147fbe58ab291db202f97dca826b5bf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3bb9c75a232e157e6e8e3599da1a24659181cb8d37baebc119518fd86bc935e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e03bdd94e227e2904ddbcee6d449899391c5f89f555ceeb30d5b68a4fff22ac1"
   end
 
   depends_on "cmake" => :build
@@ -23,13 +24,13 @@ class Mlpack < Formula
   depends_on "ensmallen"
 
   resource "stb_image" do
-    url "https://raw.githubusercontent.com/nothings/stb/0bc88af4de5fb022db643c2d8e549a0927749354/stb_image.h"
-    version "2.29"
-    sha256 "c54b15a689e6a1f32c75e2ec23afa442e3e0e37e894b73c1974d08679b20dd5c"
+    url "https://raw.githubusercontent.com/nothings/stb/013ac3beddff3dbffafd5177e7972067cd2b5083/stb_image.h"
+    version "2.30"
+    sha256 "594c2fe35d49488b4382dbfaec8f98366defca819d916ac95becf3e75f4200b3"
   end
 
   resource "stb_image_write" do
-    url "https://raw.githubusercontent.com/nothings/stb/1ee679c/stb_image_write.h"
+    url "https://raw.githubusercontent.com/nothings/stb/1ee679ca2ef753a528db5ba6801e1067b40481b8/stb_image_write.h"
     version "1.16"
     sha256 "cbd5f0ad7a9cf4468affb36354a1d2338034f2c12473cf1a8e32053cb6914a05"
   end

@@ -1,9 +1,9 @@
 class Go < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://go.dev/"
-  url "https://go.dev/dl/go1.23.5.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.23.5.src.tar.gz"
-  sha256 "a6f3f4bbd3e6bdd626f79b668f212fbb5649daf75084fb79b678a0ae4d97423b"
+  url "https://go.dev/dl/go1.24.3.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.24.3.src.tar.gz"
+  sha256 "229c08b600b1446798109fae1f569228102c8473caba8104b6418cb5bc032878"
   license "BSD-3-Clause"
   head "https://go.googlesource.com/go.git", branch: "master"
 
@@ -21,24 +21,25 @@ class Go < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "ffe37169c9f03d4648871fba9d58c4342e59c1665c7ef68493765702ca2a3a44"
-    sha256 arm64_sonoma:  "ffe37169c9f03d4648871fba9d58c4342e59c1665c7ef68493765702ca2a3a44"
-    sha256 arm64_ventura: "ffe37169c9f03d4648871fba9d58c4342e59c1665c7ef68493765702ca2a3a44"
-    sha256 sonoma:        "91888e640405268fa1033ef7b30ae5505078414a34beaa32936dd331412d87cb"
-    sha256 ventura:       "91888e640405268fa1033ef7b30ae5505078414a34beaa32936dd331412d87cb"
-    sha256 x86_64_linux:  "e0d762728d9b395274427ef357610269206b288bd876e8fd345a0f96e4136514"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7333b18cd1ba62bb1bcc7b7e24fc1084fa1bbb77003d4ed647d539f530bcc2cf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7333b18cd1ba62bb1bcc7b7e24fc1084fa1bbb77003d4ed647d539f530bcc2cf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7333b18cd1ba62bb1bcc7b7e24fc1084fa1bbb77003d4ed647d539f530bcc2cf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "20ade196c57038f73f5ba7d29dcf4abcbe4bc56e238929a0efa0068de335a129"
+    sha256 cellar: :any_skip_relocation, ventura:       "20ade196c57038f73f5ba7d29dcf4abcbe4bc56e238929a0efa0068de335a129"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "503115ac69ffbcef21dff5d62154c8a505a164e9b821a1be4052e02bb9ce4bc7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "885e20364acb6df6c86e437a853ad0d649945e50542fd5bb914e2d8989e5fc27"
   end
 
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
     checksums = {
-      "darwin-arm64" => "6da3f76164b215053daf730a9b8f1d673dbbaa4c61031374a6744b75cb728641",
-      "darwin-amd64" => "754363489e2244e72cb49b4ec6ddfd6a2c60b0700f8c4876e11befb1913b11c5",
-      "linux-arm64"  => "2096507509a98782850d1f0669786c09727053e9fe3c92b03c0d96f48700282b",
-      "linux-amd64"  => "ff445e48af27f93f66bd949ae060d97991c83e11289009d311f25426258f9c44",
+      "darwin-arm64" => "416c35218edb9d20990b5d8fc87be655d8b39926f15524ea35c66ee70273050d",
+      "darwin-amd64" => "e7bbe07e96f0bd3df04225090fe1e7852ed33af37c43a23e16edbbb3b90a5b7c",
+      "linux-arm64"  => "fd017e647ec28525e86ae8203236e0653242722a7436929b1f775744e26278e7",
+      "linux-amd64"  => "4fa4f869b0f7fc6bb1eb2660e74657fbf04cdd290b5aef905585c86051b34d43",
     }
 
-    version "1.20.14"
+    version "1.22.12"
 
     on_arm do
       on_macos do
@@ -63,26 +64,24 @@ class Go < Formula
   end
 
   def install
+    libexec.install Dir["*"]
     (buildpath/"gobootstrap").install resource("gobootstrap")
     ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
 
-    cd "src" do
-      ENV["GOROOT_FINAL"] = libexec
+    cd libexec/"src" do
       # Set portable defaults for CC/CXX to be used by cgo
       with_env(CC: "cc", CXX: "c++") { system "./make.bash" }
     end
 
-    rm_r("gobootstrap") # Bootstrap not required beyond compile.
-    libexec.install Dir["*"]
     bin.install_symlink Dir[libexec/"bin/go*"]
-
-    system bin/"go", "install", "std", "cmd"
 
     # Remove useless files.
     # Breaks patchelf because folder contains weird debug/test files
     rm_r(libexec/"src/debug/elf/testdata")
     # Binaries built for an incompatible architecture
     rm_r(libexec/"src/runtime/pprof/testdata")
+    # Remove testdata with binaries for non-native architectures.
+    rm_r(libexec/"src/debug/dwarf/testdata")
   end
 
   test do

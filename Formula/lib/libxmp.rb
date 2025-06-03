@@ -1,17 +1,18 @@
 class Libxmp < Formula
   desc "C library for playback of module music (MOD, S3M, IT, etc)"
   homepage "https://xmp.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/xmp/libxmp/4.6.1/libxmp-4.6.1.tar.gz"
-  sha256 "af605e72c83b24abaf03269347e24ebc3fc06cd7b495652a2c619c1f514bc5cb"
+  url "https://downloads.sourceforge.net/project/xmp/libxmp/4.6.3/libxmp-4.6.3.tar.gz"
+  sha256 "b189a2ff3f3eef0008512e0fb27c2cdc27480bc1066b82590a84d02548fab96d"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7221a84d10e70543b1a038487f3ba79e51a820441e7e9bd91bec492d94a567a8"
-    sha256 cellar: :any,                 arm64_sonoma:  "75cd02122e6e123f76b3edf2b2e463a7b332da21ce5c4b2c18248d10fda3c7b9"
-    sha256 cellar: :any,                 arm64_ventura: "16f5e6cf7416fbf9e41a143279bb08ee8dfc4d00b8dfe3d8a7d7307b8eb089f2"
-    sha256 cellar: :any,                 sonoma:        "7f3cf128ae887cf581b87085847568fc5ed15c87fe79a1c4df670fe8364338e0"
-    sha256 cellar: :any,                 ventura:       "839d29df4edf70ea6cc0626b74b40bfdc5128de75c56aeebf8fc0d6d73650d14"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7802dd184e45c01811f34636e77424930583a34b0dfe0f524ff9c74a701c7f87"
+    sha256 cellar: :any,                 arm64_sequoia: "746c3d92562469f5200fe2bb32f18f43c7bac6416e4e6cfa4ceb825d10ee13c8"
+    sha256 cellar: :any,                 arm64_sonoma:  "7bad2e453d99d72bf38ab45f8c843c3ca96f9e845a24493d889000afe5a1cbd9"
+    sha256 cellar: :any,                 arm64_ventura: "d69cfd7a46845980beb6169e957088d81259cbfc22149f86d0d81e47b8ea261c"
+    sha256 cellar: :any,                 sonoma:        "c632e6c890ccb5aa8fd15b67323a25b197465771515088844cb6d3a9f739eae6"
+    sha256 cellar: :any,                 ventura:       "dc9a1c17688c400188dbb91726bb2b8d4749ff477d494df1b1c8d6c4d8f010b1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a6533f946457471d6fc7fe7fe7481085be039c7ac7bf4f0813939b21d9f74e34"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a650c8549008d6e0b13fc813e9988372a943b0a2a8859b303d755da69e5deea"
   end
 
   head do

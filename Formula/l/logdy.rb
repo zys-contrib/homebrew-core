@@ -1,17 +1,18 @@
 class Logdy < Formula
   desc "Web based real-time log viewer"
   homepage "https://logdy.dev"
-  url "https://github.com/logdyhq/logdy-core/archive/refs/tags/v0.14.0.tar.gz"
-  sha256 "8ab02af3ad7e98006d86c27d4cc649063b4809d831445aad3028f2bbcc46ba1b"
+  url "https://github.com/logdyhq/logdy-core/archive/refs/tags/v0.17.1.tar.gz"
+  sha256 "bd5db124e736e42d3671697787a26b354e0be6e787a95e69c054ad873058fcec"
   license "Apache-2.0"
+  head "https://github.com/logdyhq/logdy-core.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a4296d168c8a6c66083cb020645a7024291c344af7c1c24b672ae2e6f49a3103"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a4296d168c8a6c66083cb020645a7024291c344af7c1c24b672ae2e6f49a3103"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a4296d168c8a6c66083cb020645a7024291c344af7c1c24b672ae2e6f49a3103"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f91006a38c00c4976655af72266e022bac80480da6474c6951df7604840aad5a"
-    sha256 cellar: :any_skip_relocation, ventura:       "f91006a38c00c4976655af72266e022bac80480da6474c6951df7604840aad5a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "41c282f95e279e2cc1d7388a95342f2601017ccba195b9f6417f7543b033797a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9d3eeee30fcc05e4c7265ee505fd23095dff74d6154866ddeeaeaa76ef5d240b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9d3eeee30fcc05e4c7265ee505fd23095dff74d6154866ddeeaeaa76ef5d240b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9d3eeee30fcc05e4c7265ee505fd23095dff74d6154866ddeeaeaa76ef5d240b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "282b0cb5c348d5d7bd00ba2c20df88ec44f27ae6d18bf38a4f8b3bbfda8a1859"
+    sha256 cellar: :any_skip_relocation, ventura:       "282b0cb5c348d5d7bd00ba2c20df88ec44f27ae6d18bf38a4f8b3bbfda8a1859"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6799e27353bd503dd977227b839131b17ff91a0006562464465eaa6d165a0bf"
   end
 
   depends_on "go" => :build

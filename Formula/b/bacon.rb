@@ -1,18 +1,19 @@
 class Bacon < Formula
   desc "Background rust code check"
   homepage "https://dystroy.org/bacon/"
-  url "https://github.com/Canop/bacon/archive/refs/tags/v3.9.0.tar.gz"
-  sha256 "64f65248e4be36347611315b3168b015324b137cb35207342dfdc9712051bd83"
+  url "https://github.com/Canop/bacon/archive/refs/tags/v3.15.0.tar.gz"
+  sha256 "b162a0e9f827d849c962a5a0623ba9435182e3bf6c8e3fe4630a2446a8326bc7"
   license "AGPL-3.0-or-later"
   head "https://github.com/Canop/bacon.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e2788faccb99d04ab5b8e7a69589c376456fb668c24d468c2a4e428ccfa82698"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "602db850cbcffe619afeeeec30a9a8b3ea57ed9fef82a408cf6ba17f273e8708"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4bc6dd3389a3fe67e276df9f75b8da9a35c4e4f357513dd7e3316413fe23c110"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f8bd2119fe7dc22fbae451914946b81e6cee9e95aa01c84b5cf1da2b48ba300b"
-    sha256 cellar: :any_skip_relocation, ventura:       "0048c2f949fe99a3aabc40de4228d7e3f1c4f555547a728a6720c9ecc1b313bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1721e9d8e2d3a402b1c7826c041ce8e2eb6c10ba6748dea96183e8c25f23912d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6bec10b9beaf96bc4bbc6b868d369741c1291a12c18e97223af18203d8f6e0d4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "94f284281c13953f8847250463e09c36129d26d505defa17d81d9c461ca2fae4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7500b10d06f6fcf4775966c117720a39005e12c48f37bb5ab5e7d903b38fb21e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c9b34f95d12be979d536325391e843111973094a1a04e776395aa6a2336c3a99"
+    sha256 cellar: :any_skip_relocation, ventura:       "5954ad20e803ff9d68ef08ae9e3b224e1d988f37561e5fa655b6dc4f00f9f756"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e38d8e553f79c0e5da15984d4f9f2b4d55505fc610f711ea8d85c1e65c3c7f51"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f42d4795e429efca0f607b1acfe7c3ec544bad1ee8106e9d805e658b05bfb37"
   end
 
   depends_on "pkgconf" => :build
@@ -31,8 +32,8 @@ class Bacon < Formula
     # Show that we can use a different toolchain than the one provided by the `rust` formula.
     # https://github.com/Homebrew/homebrew-core/pull/134074#pullrequestreview-1484979359
     ENV.prepend_path "PATH", Formula["rustup"].bin
-    system "rustup", "default", "beta"
     system "rustup", "set", "profile", "minimal"
+    system "rustup", "default", "beta"
 
     crate = testpath/"demo-crate"
     mkdir crate do

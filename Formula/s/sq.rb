@@ -11,6 +11,7 @@ class Sq < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5e352f3207dda7031075cf6e4031a7274ba697139aaae5d51c3fb31b57515268"
     sha256 cellar: :any_skip_relocation, sonoma:        "e33bcf953cb6bbf0e7f89f7a77d127842aecb0a51da794ce70bfebcb1cd75d0a"
     sha256 cellar: :any_skip_relocation, ventura:       "53b3b4140bc973c5165e5e14f0314691c24dc1f1e2be90e9f44b86d408426917"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "28c043142fcd8006a7f83674be8c19ae724188da40c169597033525c23c1d74e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "17617b679286e017c0fc9fb0e487caf28d5692a1e86ae502c619611a0931b4eb"
   end
 
@@ -32,7 +33,7 @@ class Sq < Formula
       netgo sqlite_vtable sqlite_stat4 sqlite_fts5 sqlite_introspect
       sqlite_json sqlite_math_functions
     ]
-    system "go", "build", *std_go_args(ldflags:), "-tags", tags.join(" ")
+    system "go", "build", *std_go_args(ldflags:, tags:)
     generate_completions_from_executable(bin/"sq", "completion")
     (man1/"sq.1").write Utils.safe_popen_read(bin/"sq", "man")
   end

@@ -1,8 +1,8 @@
 class Objfw < Formula
   desc "Portable, lightweight framework for the Objective-C language"
   homepage "https://objfw.nil.im/"
-  url "https://objfw.nil.im/downloads/objfw-1.2.3.tar.gz"
-  sha256 "8324d3b352121544f817f40f71c21005457ee0255104c7e0d5aedbd6d968bced"
+  url "https://objfw.nil.im/downloads/objfw-1.3.tar.gz"
+  sha256 "de9e8a84437c01dacb9e83d7de0e3f7add3152165707d51a4caec640e4f56ba6"
   license "LGPL-3.0-only"
   head "https://objfw.nil.im/", using: :fossil
 
@@ -12,13 +12,13 @@ class Objfw < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "966443a0101b0f019e8262a412f7da946240e2b5bf0ad1204e00e69ec583caff"
-    sha256 arm64_sonoma:  "41177507640d9144e188db893c30bba5a4b42e4e70950a18fa26a3cefa371305"
-    sha256 arm64_ventura: "b7df0cab9a10b59be982906cbe2c8c9da0cbe13edaaf48f442050587301dab8d"
-    sha256 sonoma:        "f3c5c01bdcbb88edbeb6bcadfbc5dc59d360fa0e453fcf6f66a29f4b81f9a854"
-    sha256 ventura:       "0491d3bef0c7c449afcc2555ebef680fb884c2dfb9c1af17c89aeec2918b809c"
-    sha256 x86_64_linux:  "d13ccc8c605d43fe373327d0588ba5e877f5350866af1b458fb2cd196f66511b"
+    sha256 arm64_sequoia: "4c9acb6b2cbb4c5f60327bc0b45eaded42f416f56efcaa4b079b1841b563e486"
+    sha256 arm64_sonoma:  "e07a67967f009dad95cac824238475e5509ddabb2908c8a8318ed600b54bef8c"
+    sha256 arm64_ventura: "c2263362599830bcb994be5ec834960386f52542d8aed892837c418d6b821fb8"
+    sha256 sonoma:        "105960305b587763883ef15b78e9babb71bd74d64328e37d4c438ab4dbaedfe2"
+    sha256 ventura:       "e13c3bf6a4a1f6d389d75978d3c8ccc3236d0c599a4c24b133a024dcf48274fc"
+    sha256 arm64_linux:   "02e8e1ec91e72f84e041911ab4fadd221c5d54d78b3660dcd84d4d705a028f6d"
+    sha256 x86_64_linux:  "abc0b34c221438f218cb7b667bde87c888d05a1c6f4bafe333e2052d668305a4"
   end
 
   depends_on "autoconf" => :build
@@ -27,11 +27,17 @@ class Objfw < Formula
   on_linux do
     depends_on "llvm"
     depends_on "openssl@3"
+    depends_on "zlib"
   end
 
   fails_with :gcc
 
   patch :DATA
+  patch do
+    # Fix building for macOS 13 with old SDK, as used by Homebrew.
+    url "https://github.com/ObjFW/ObjFW/commit/2d297b2d3702d24662819016b57f0a67d902990d.patch?full_index=1"
+    sha256 "39ccc15f5f5123dae4c86ce6dfbb21ce08a4b4b600e6d6faa19268657e5cf3e8"
+  end
 
   def install
     ENV.clang if OS.linux?

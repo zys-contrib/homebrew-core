@@ -1,24 +1,27 @@
 class Futhark < Formula
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
-  url "https://github.com/diku-dk/futhark/archive/refs/tags/v0.25.26.tar.gz"
-  sha256 "f1fb769bded311d5798cf64859c6f0f76528fa370fd5ca59263d68d6a243f4df"
+  url "https://github.com/diku-dk/futhark/archive/refs/tags/v0.25.31.tar.gz"
+  sha256 "676a0e720f1e102353a99cca111b3502fd0c594d82e81063b84ad9f8b52de718"
   license "ISC"
   head "https://github.com/diku-dk/futhark.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5555255583c8e17457d6cb08bd636c664454ca144c0c9d5290ba7b6984973e78"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5f24cf6cc6ad945adde6cd765f8d3546798278e2a40fdf57017015a10b134678"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f6d58e8c1f1fe408f739a587059d8471f6df4b9a7704f730ddea6cf2fedb3c1b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bcaa6d49ec21823dbbbf058a9e20f8b9dd555ac0061212bc8af5d3c06fc276a7"
-    sha256 cellar: :any_skip_relocation, ventura:       "26589dda8e36014b1942fb2d9a7f5d4dbbeb3aed75f8f2961c6703c5e8e9697b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c0d680c0642863741c6d82becbe99bf0662a7021885f3b083d0eca382370da3"
+    sha256 cellar: :any,                 arm64_sequoia: "3ccfd1e707cb8620757768ebec43f468189054e5ce67a262ec422e9923e58658"
+    sha256 cellar: :any,                 arm64_sonoma:  "4073ca8eb145c04f4e3a542710580e31c30bfca53a53fba41be336906a91cb37"
+    sha256 cellar: :any,                 arm64_ventura: "07316dbde0b53430ead0cbf0be40270f1cf3a346258f8b2ecf85dce4d6894367"
+    sha256 cellar: :any,                 sonoma:        "fa0acdf21bd637f2067fff8fb338c9e92a08bf0f7a7a0ccc22402b787fc38a2b"
+    sha256 cellar: :any,                 ventura:       "1d921859887712a305cc8377cd14b5db05c8b7e1a03b0e0048f68dfbaf0fd434"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6d5e06d73fbddba92c8035439a35233c24fdb93bbbac344b76e4f7ce6a1cb65e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86d7f02f4138116b450a6242829ff894014586447ff5a78db27a22fd2a83fe52"
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
   depends_on "sphinx-doc" => :build
+  depends_on "gmp"
 
+  uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 

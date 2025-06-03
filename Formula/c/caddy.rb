@@ -1,18 +1,20 @@
 class Caddy < Formula
   desc "Powerful, enterprise-ready, open source web server with automatic HTTPS"
   homepage "https://caddyserver.com/"
-  url "https://github.com/caddyserver/caddy/archive/refs/tags/v2.9.1.tar.gz"
-  sha256 "beb52478dfb34ad29407003520d94ee0baccbf210d1af72cebf430d6d7dd7b63"
+  url "https://github.com/caddyserver/caddy/archive/refs/tags/v2.10.0.tar.gz"
+  sha256 "e07e2747c394a6549751950ec8f7457ed346496f131ee38538ae39cf89ebcc68"
   license "Apache-2.0"
   head "https://github.com/caddyserver/caddy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "36487e2468a464bd4810d86c4323d1107a6d374f573b43ea07d2b9abf4a6998a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "36487e2468a464bd4810d86c4323d1107a6d374f573b43ea07d2b9abf4a6998a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "36487e2468a464bd4810d86c4323d1107a6d374f573b43ea07d2b9abf4a6998a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7372c7baf68a2da18554d74f44c3f386a441c115c782f89fa1107a9d44a87598"
-    sha256 cellar: :any_skip_relocation, ventura:       "7372c7baf68a2da18554d74f44c3f386a441c115c782f89fa1107a9d44a87598"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dff8317e8eb4749f085266a92ca5b3d7e6a0b6df45ea257744dbcba8a4842f19"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0a0def155db07e2c3212e3c290b9a675e38935fdfae37e2dbe71f0e0238f5ab4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0a0def155db07e2c3212e3c290b9a675e38935fdfae37e2dbe71f0e0238f5ab4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0a0def155db07e2c3212e3c290b9a675e38935fdfae37e2dbe71f0e0238f5ab4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7e2e30ad4694c7cb0f9d4066a45cef177c0a36293526b8e61d58d72fbb1284d5"
+    sha256 cellar: :any_skip_relocation, ventura:       "7e2e30ad4694c7cb0f9d4066a45cef177c0a36293526b8e61d58d72fbb1284d5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "edfead41ad5b1c16440cfd7a9bb0a600a58d80ca7bffa23466d2510aba4d20cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4055b37a0e00a1209288f8e49b72632ee97fd2d80ca8aa195731cff4111c90c3"
   end
 
   depends_on "go" => :build
@@ -49,7 +51,10 @@ class Caddy < Formula
     keep_alive true
     error_log_path var/"log/caddy.log"
     log_path var/"log/caddy.log"
-    environment_variables XDG_DATA_HOME: "#{HOMEBREW_PREFIX}/var/lib"
+    environment_variables(
+      XDG_DATA_HOME: "#{HOMEBREW_PREFIX}/var/lib",
+      HOME:          "#{HOMEBREW_PREFIX}/var/lib",
+    )
   end
 
   test do

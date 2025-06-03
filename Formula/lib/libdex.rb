@@ -1,18 +1,27 @@
 class Libdex < Formula
   desc "Future-based programming for GLib-based applications"
   homepage "https://gitlab.gnome.org/GNOME/libdex"
-  url "https://gitlab.gnome.org/GNOME/libdex/-/archive/0.9.0/libdex-0.9.0.tar.gz"
-  sha256 "c4da72a9215dc30e51c7ca17be169233e26ed56298645c28445d0da71e69aec2"
+  url "https://gitlab.gnome.org/GNOME/libdex/-/archive/0.10.0/libdex-0.10.0.tar.gz"
+  sha256 "1795d8cb281df4e4d292725d4ed8982a424bf258f13e866bd1a3818c5bd4ea4c"
   license "LGPL-2.1-or-later"
   head "https://gitlab.gnome.org/GNOME/libdex.git", branch: "main"
 
+  # We restrict matching to versions with an even-numbered minor version number,
+  # as an odd-numbered minor version number indicates a development version:
+  # https://gitlab.gnome.org/GNOME/libdex/-/issues/22#note_2368290
+  livecheck do
+    url :stable
+    regex(/^v?(\d+\.\d*[02468](?:\.\d+)*)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "fd7e47eec144b2219e9fa13736ca950a43b79e6ea75133baee8371f810733a5a"
-    sha256 cellar: :any,                 arm64_sonoma:  "0e8fddeff33873f745286c9aada0b6d16d789716bbb39ffbee9260d778b7940f"
-    sha256 cellar: :any,                 arm64_ventura: "26bf1efaa77e5feb426a0f9c5d4d875b547dcea3655731fdfcce3c2d703ddb6d"
-    sha256 cellar: :any,                 sonoma:        "ff91f2e1c9d9d86ca4ebf64540ccc5e9109e2a0282039e723f36f4ad9be0f817"
-    sha256 cellar: :any,                 ventura:       "1ebe34a708a5f6059dfbeb8bbb774e11971fac8b9b074111b2ed74ad0b2a508b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5665f555b8598f23ab43594e38e587dd195337ebb5c09aa12713622d1e5f2e91"
+    sha256 cellar: :any, arm64_sequoia: "c0e9bbf2bcc49dc00563b61dc7d7af875afb2238a4ba624888507fa78497036a"
+    sha256 cellar: :any, arm64_sonoma:  "7225def607ef3bf0c9e4ef35c5a4e342bfd2c50316fc6801261568d6abc7741d"
+    sha256 cellar: :any, arm64_ventura: "d028731c282bd751c94e87bec4f93a3657b6b48b3f318f9cfa28f7eb3cd29bf5"
+    sha256 cellar: :any, sonoma:        "b1442c9ce97b8d63af832cb2b9a0b6e0c340433e8b212131a7abf2e52034f6c4"
+    sha256 cellar: :any, ventura:       "7a6ac6f6fe4b4225cec26e320f583eaba048f5091ebeda8ce983d4529c5a33cd"
+    sha256               arm64_linux:   "4a02e4429ff5407511b8ed686677109a083179c634528c6079434195dc082d62"
+    sha256               x86_64_linux:  "6015425230e2435737f5a901fea985eec735f26e60c0d788a0a989378a73dd50"
   end
 
   depends_on "gobject-introspection" => :build
@@ -23,7 +32,12 @@ class Libdex < Formula
   depends_on "glib"
 
   def install
-    system "meson", "setup", "build", "-Dexamples=false", "-Dsysprof=false", "-Dtests=false", *std_meson_args
+    args = %w[
+      -Dexamples=false
+      -Dtests=false
+    ]
+
+    system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
     pkgshare.install "examples", "build/config.h"

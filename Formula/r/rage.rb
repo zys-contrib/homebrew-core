@@ -12,6 +12,7 @@ class Rage < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8c083e92caadb55e63ba0a77f37e06a6e2c0d8bfdc8a60a3e19ccc4de0102745"
     sha256 cellar: :any_skip_relocation, sonoma:        "5030ea9c84062928ec800a5101edf75e70ec4459984aaa51858b9d250e80bcdb"
     sha256 cellar: :any_skip_relocation, ventura:       "c1ef3aec2a5cb8148d8928a1585142e9b761e2d0f35c1acaee7da19c0e3a876e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e76cd438e4e721db962eb18c5e7d2d22c134be7b38fb9a3c2c197fa56a429399"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "87a45f4a404552dd7911b5f35180e7ca31a130628b420607d32c8699849deaa4"
   end
 
@@ -34,13 +35,13 @@ class Rage < Formula
   test do
     # Test key generation
     system bin/"rage-keygen", "-o", "#{testpath}/output.txt"
-    assert_predicate testpath/"output.txt", :exist?
+    assert_path_exists testpath/"output.txt"
 
     # Test encryption
     (testpath/"test.txt").write("Hello World!\n")
     system bin/"rage", "-r", "age1y8m84r6pwd4da5d45zzk03rlgv2xr7fn9px80suw3psrahul44ashl0usm",
       "-o", "#{testpath}/test.txt.age", "#{testpath}/test.txt"
-    assert_predicate testpath/"test.txt.age", :exist?
+    assert_path_exists testpath/"test.txt.age"
     assert File.read(testpath/"test.txt.age").start_with?("age-encryption.org")
 
     # Test decryption

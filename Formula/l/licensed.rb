@@ -2,18 +2,18 @@ class Licensed < Formula
   desc "Cache and verify the licenses of dependencies"
   homepage "https://github.com/github/licensed"
   url "https://github.com/github/licensed.git",
-      tag:      "v5.0.1",
-      revision: "d74f3bcf74c241eb79b9b82d7ae3d4bad22bc791"
+      tag:      "v5.0.4",
+      revision: "6f7a4675fdf69647f524af3facd1d55f6f221d46"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ff62a265e124b6dfa61060017d0ec1c861083f2dcada89e8b08bab249575288b"
-    sha256 cellar: :any,                 arm64_sonoma:  "77d2b90ddeb1201923133997788dc353e87815d3b32f6de90ecf1e87b88d672b"
-    sha256 cellar: :any,                 arm64_ventura: "13556d3679589482caaeb4d7c3073583447a9a0123cebbaec555e4449f67d5e0"
-    sha256 cellar: :any,                 sonoma:        "46eeb6cb7f8eb7e815b2ee960608945c988e539064e866929b1541a279117804"
-    sha256 cellar: :any,                 ventura:       "0f12df0a2caf888b9b35102c87d98d4c493147c5628f7dbc9b18d4814418f119"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ee93a8cb1c187dfbaeb94dab3ebe70157d14360a3b93f88c8187f315e3f61f9"
+    sha256 cellar: :any,                 arm64_sequoia: "543bec232b40015977c4333399b598789a8f9ac60b7595ba6e7b807d03d81c67"
+    sha256 cellar: :any,                 arm64_sonoma:  "3467c73fc50b835d6b2b3796690358f82dc32f32cb62a1aadcf7efe457593151"
+    sha256 cellar: :any,                 arm64_ventura: "7682dce3e7873abeb6fac39d330cfbc31fa42f2624dd9f5ab61975aa593d15d1"
+    sha256 cellar: :any,                 sonoma:        "3e4f67c15d5a96ca3902b719b31fd71ffe667f73ff988a76dba79f3619ef8f78"
+    sha256 cellar: :any,                 ventura:       "0b4aa564d2e769211cd7cf49606b5742b31c518c2c4a4e70d00c683452e19dff"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "698bdaab6300aac978818d9eb3df3bf2572b6bc37d5406ff0c50a279de70e421"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c9220f30c3818fae859fc15e013631c34d0fef0ea2bec69116b5bbc9d5eeffc"
   end
 
   depends_on "cmake" => :build
@@ -28,12 +28,15 @@ class Licensed < Formula
   end
 
   def install
+    ENV["BUNDLE_VERSION"] = "system" # Avoid installing Bundler into the keg
     ENV["GEM_HOME"] = libexec
+
     system "bundle", "config", "set", "without", "development", "test"
     system "bundle", "install"
-    system "gem", "build", "licensed.gemspec"
-    system "gem", "install", "licensed-#{version}.gem"
-    bin.install libexec/"bin/licensed"
+    system "gem", "build", "#{name}.gemspec"
+    system "gem", "install", "#{name}-#{version}.gem"
+
+    bin.install libexec/"bin/#{name}"
     bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
 
     # Avoid references to the Homebrew shims directory

@@ -1,8 +1,8 @@
 class Kotlin < Formula
   desc "Statically typed programming language for the JVM"
   homepage "https://kotlinlang.org/"
-  url "https://github.com/JetBrains/kotlin/releases/download/v2.1.0/kotlin-compiler-2.1.0.zip"
-  sha256 "b6698d5728ad8f9edcdd01617d638073191d8a03139cc538a391b4e3759ad297"
+  url "https://github.com/JetBrains/kotlin/releases/download/v2.1.21/kotlin-compiler-2.1.21.zip"
+  sha256 "1ba08a8b45da99339a0601134cc037b54cf85e9bc0edbe76dcbd27c2d684a977"
   license "Apache-2.0"
 
   # Upstream maintains multiple major/minor versions and the "latest" release
@@ -14,10 +14,12 @@ class Kotlin < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1829b67565f5afe2f73e80074c295449d8f530d1c8e950d2f7263a539f1b5670"
+    sha256 cellar: :any_skip_relocation, all: "6e6e5ee2272357a918c3b94dea13c00f9a943dac1d80becb8ed8d70e6e3ec876"
   end
 
   depends_on "openjdk"
+
+  conflicts_with cask: "kotlin-native"
 
   def install
     libexec.install "bin", "build.txt", "lib"

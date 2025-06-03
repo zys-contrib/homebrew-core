@@ -1,8 +1,8 @@
 class Clarinet < Formula
   desc "Command-line tool and runtime for the Clarity smart contract language"
   homepage "https://www.hiro.so/clarinet"
-  url "https://github.com/hirosystems/clarinet/archive/refs/tags/v2.12.0.tar.gz"
-  sha256 "0afe6a2ad612c97ce3e1abe8d4bb2359fb557f5c1e11a65362bd08fb55e7c542"
+  url "https://github.com/hirosystems/clarinet/archive/refs/tags/v3.0.2.tar.gz"
+  sha256 "5af2a139214e832a8e00cf017439d782a8927939ed1b42b2642315e317076da4"
   license "GPL-3.0-only"
   head "https://github.com/hirosystems/clarinet.git", branch: "main"
 
@@ -12,12 +12,13 @@ class Clarinet < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fffcbe661877bb2354c84f80177e00ef35ca86060d312defc3b547f4d474c4b0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e5acafd900d476d0c35c97bec825e9eccffaeb43f306c9a2b8974b8c38f53f2c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "62c60796f9b4a20e576d34b8b1f1d2d472b4d642f58883a2e485a1a68bab7459"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c4d553d2d7b8e7626b31dc343e8afde180e177379840e412cf32f7b45810b96a"
-    sha256 cellar: :any_skip_relocation, ventura:       "e9b95a3b15460bca97b170bce06c6d2334439378f631c1ef9b3e1a9f4602bd07"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe7a6db685af160134a88ea14249bea343298b9ffe6575e1276b62ad7e0b4893"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9144a6664f831f9c73471a23c46c25b9bac30947b522e82934af99dce3309908"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "480507ea6fd6a9b5423e85110771261854b0b8f6a47a5c2553a7469086936fb5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "53739b6da1e966aa060c5d06c0b3eb3d847ccb511122bc0c2de160967d4f094b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a9e4822a6f43e6d78c3d284e819da874fb640cefa2de260d82816a80541e9a17"
+    sha256 cellar: :any_skip_relocation, ventura:       "6d15c2314a51d508fab91353a54f41d8aa196e4607fe7cbea9c352383efdf1b4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "90f25b1588fb618a303982815aa195aaa1881fb473bd61062da3bcf5fcce2ca7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fccaec5eba5c0a4c4f020ea11da6bfe508a64b500732b4200df1be1128b810e3"
   end
 
   depends_on "rust" => :build

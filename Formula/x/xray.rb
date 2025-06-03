@@ -1,8 +1,8 @@
 class Xray < Formula
   desc "Platform for building proxies to bypass network restrictions"
   homepage "https://xtls.github.io/"
-  url "https://github.com/XTLS/Xray-core/archive/refs/tags/v24.12.31.tar.gz"
-  sha256 "e3c24b561ab422785ee8b7d4a15e44db159d9aa249eb29a36ad1519c15267be0"
+  url "https://github.com/XTLS/Xray-core/archive/refs/tags/v25.5.16.tar.gz"
+  sha256 "c856cd9abed7d28d3c7b856c0661cec5c85ba0669affa740c979cf40c2f73ee4"
   license all_of: ["MPL-2.0", "CC-BY-SA-4.0"]
   head "https://github.com/XTLS/Xray-core.git", branch: "main"
 
@@ -12,30 +12,34 @@ class Xray < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2a6c92d8fa2d32bb77ee3f3948091f7f6f7e18d535e260d0cac5b5fcf7752d3f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2a6c92d8fa2d32bb77ee3f3948091f7f6f7e18d535e260d0cac5b5fcf7752d3f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2a6c92d8fa2d32bb77ee3f3948091f7f6f7e18d535e260d0cac5b5fcf7752d3f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "813e4bb05d696111d0948115390a5eb3f9d43612fccb650c2e515f6667a05c50"
-    sha256 cellar: :any_skip_relocation, ventura:       "813e4bb05d696111d0948115390a5eb3f9d43612fccb650c2e515f6667a05c50"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b43a56b5582270adc50723054e21c51657aa3b50e49c496dc9f0f43e60fb328a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e1e778492bc1119a5675cd15a7481d155822a431b87f412fe8b4fe31681cd60e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e1e778492bc1119a5675cd15a7481d155822a431b87f412fe8b4fe31681cd60e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e1e778492bc1119a5675cd15a7481d155822a431b87f412fe8b4fe31681cd60e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0d5bba1bf75d922ebc48892ee6259ec81306d10c6772377806cba4d231a38624"
+    sha256 cellar: :any_skip_relocation, ventura:       "0d5bba1bf75d922ebc48892ee6259ec81306d10c6772377806cba4d231a38624"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6eafd0e37c03de62a0c567b23cd6c044ce0db56b80edd8e0d841ef03990b3859"
   end
 
   depends_on "go" => :build
 
   resource "geoip" do
-    url "https://github.com/v2fly/geoip/releases/download/202412260052/geoip.dat"
-    sha256 "139100814bdf9a6823b85783fdedce3a5e62d1432965b5c3f97541e117a7f83f"
+    url "https://github.com/v2fly/geoip/releases/download/202505050146/geoip.dat"
+    sha256 "8023379316bca4713dcfa5ba4ea2fe7f4c127fff64a0cb7859d4756142b2c4dc"
   end
 
   resource "geosite" do
-    url "https://github.com/v2fly/domain-list-community/releases/download/20241221105938/dlc.dat"
-    sha256 "aa65cee72dd6afbf9dd4c474b4ff28ceb063f6abf99249a084091adb4f282f09"
+    url "https://github.com/v2fly/domain-list-community/releases/download/20250508005311/dlc.dat"
+    sha256 "ff833c7e95d0dadb97ba7d96598563d159fabb0b774dcebea15f335797259f42"
   end
 
   resource "example_config" do
     # borrow v2ray example config
-    url "https://raw.githubusercontent.com/v2fly/v2ray-core/v5.22.0/release/config/config.json"
+    url "https://raw.githubusercontent.com/v2fly/v2ray-core/v5.31.0/release/config/config.json"
     sha256 "15a66415d72df4cd77fcd037121f36604db244dcfa7d45d82a0c33de065c6a87"
+
+    livecheck do
+      url "https://github.com/v2fly/v2ray-core.git"
+    end
   end
 
   def install
@@ -99,6 +103,6 @@ class Xray < Formula
     output = shell_output "#{bin}/xray -c #{testpath}/config.json -test"
 
     assert_match "Configuration OK", output
-    assert_predicate testpath/"log", :exist?
+    assert_path_exists testpath/"log"
   end
 end

@@ -1,18 +1,18 @@
 class I2pd < Formula
   desc "Full-featured C++ implementation of I2P client"
   homepage "https://i2pd.website/"
-  url "https://github.com/PurpleI2P/i2pd/archive/refs/tags/2.55.0.tar.gz"
-  sha256 "f5792a1c0499143c716663e90bfb105aaa7ec47d1c4550b5f90ebfc25da00c6c"
+  url "https://github.com/PurpleI2P/i2pd/archive/refs/tags/2.57.0.tar.gz"
+  sha256 "e2327f816d92a369eaaf9fd1661bc8b350495199e2f2cb4bfd4680107cd1d4b4"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "bedb396fecb27939e03ecb75dd319d6a044684d48a8f82c6207fcbfb9152178e"
-    sha256 cellar: :any,                 arm64_sonoma:  "4f389b2602c0f19e0fffe658bbb6fbfa629f0d6433e47dfa171189990bfca1cd"
-    sha256 cellar: :any,                 arm64_ventura: "e2a56100608d855f3faf070c81e0fda796b932f6389d53967e3b4e9ff2ba9a16"
-    sha256 cellar: :any,                 sonoma:        "e22ba89ca2bc7802a0748abfc37496bea830173b13790489f198aaef06653321"
-    sha256 cellar: :any,                 ventura:       "3d8c4d99e64ab6c2384a722c4fdde1cb38cefc89e184971bbf49fb5406e3b578"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5c85d194614531c9825616f5d31ef7025e51a817bcca55b2d1e04153bc0fa50"
+    sha256 cellar: :any,                 arm64_sequoia: "17d7aec839b3a8641b2c40e084d459a787368d3090438ef57603038555504d0c"
+    sha256 cellar: :any,                 arm64_sonoma:  "c609b3a58bcde479df1eb5d34c2dd6753812d5fb9a4e014a39f51a9cc2b8adf3"
+    sha256 cellar: :any,                 arm64_ventura: "0d2ee21f5fa22ec7f632bf58cfbbe8799ad44d0bcb7797a6aa577f7e772a0751"
+    sha256 cellar: :any,                 sonoma:        "4bc1ede8c8c592f58fd622f6dd1e230e1c134d787c0b94bf116d6f75d9e846f8"
+    sha256 cellar: :any,                 ventura:       "415d938ffca8249d8ad6e32c1a07b35862277e42017ad7dade8fd8d0d554b19f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "773fde1a3a3f651d5fa7a1f14e3975f98b10abeec2a38c7f4f8f38fce9a39162"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8dd3123a2ddbb8e77da092236ed4152535742b9b49e57989d55b25bd50f4945c"
   end
 
   depends_on "boost"
@@ -70,6 +70,10 @@ class I2pd < Formula
     sleep 5
     assert_path_exists testpath/"router.keys", "Failed to start i2pd"
     pid = pidfile.read.chomp.to_i
-    Process.kill "TERM", pid
+    begin
+      Process.kill("TERM", pid)
+    rescue Errno::ESRCH
+      # Process already terminated
+    end
   end
 end

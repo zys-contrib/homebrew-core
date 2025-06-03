@@ -1,9 +1,10 @@
 class Kubeshark < Formula
   desc "API Traffic Analyzer providing real-time visibility into Kubernetes network"
   homepage "https://www.kubeshark.co/"
-  url "https://github.com/kubeshark/kubeshark/archive/refs/tags/v52.3.96.tar.gz"
-  sha256 "655087c553a2c008b14b50f44a0832f3732bf337b9f38ceb14979cc0ab870feb"
+  url "https://github.com/kubeshark/kubeshark/archive/refs/tags/v52.7.0.tar.gz"
+  sha256 "95352f8e7ac71c570b1dc23e2504d6eed70952af6c4d352fbc3dc276c613f7ce"
   license "Apache-2.0"
+  head "https://github.com/kubeshark/kubeshark.git", branch: "master"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
   # labeled as "pre-release" on GitHub before the version is released, so it's
@@ -14,12 +15,13 @@ class Kubeshark < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aa3fc5e10121682223590ae5b6fcacbdd8eab3438c16cd09d1cefba5747785bf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5009a5c435ed5d2629836e047a50f2c7626c6b6bd492bcbe39b27a9e39189b95"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3cc2688ba1a0fb46223564b4792885ac5be057f3b7825b284374e0a7cc868958"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5672d8ee3bb877f8ff608cf25c87c6c7e08d45020601a0f6e91aafd1ffe7ed95"
-    sha256 cellar: :any_skip_relocation, ventura:       "9bbd7597f334842cd49614e5056b5726423e21600d679b6d0865f387fce83b58"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74a6a2812aa8bc7ceee1de05b85a5f36dfd8706ebc9a65ef941f9fd2b04afd7e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "11c4aff6f7604d4b12dd72e875a950e422d2eeddc920048e7e18fa89f92da13e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "742f2d7552d895d2453b9e677fccceeb31cd0759fa9538b6b4f77da5e0793ea0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1eca067494bcae2976ba547e30f339a0b86021dc6b0d83e7e73b962ba859edca"
+    sha256 cellar: :any_skip_relocation, sonoma:        "879f5828040e1eaf58815b6ba001598a4d43e23057123be77b6052646783bf85"
+    sha256 cellar: :any_skip_relocation, ventura:       "dc05e98a496777e3183afbfa8e9000db2360083bc59adf418b6a93fd75a5b09a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d85015784abc15bb2f5506d007018c86cb4ff72b5bcb15d78cd6c6adde04957e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e27bbc7ba14bc4baf3bc15e2b2c7244b8eb0356af83b16f5f79d2edc92850710"
   end
 
   depends_on "go" => :build

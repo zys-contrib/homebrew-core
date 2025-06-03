@@ -3,26 +3,29 @@ class Fava < Formula
 
   desc "Web interface for the double-entry bookkeeping software Beancount"
   homepage "https://beancount.github.io/fava/"
-  url "https://files.pythonhosted.org/packages/fe/ef/4ca533948f1e92a1efa005e58baf8c75157534dc4e22bb157f3ea70cd85d/fava-1.30.tar.gz"
-  sha256 "1c1bec15f94a18f5651dcf691c1f15086183d562c34fd4db8cbd55e350b784a5"
+  url "https://files.pythonhosted.org/packages/08/b5/e81c3255851e9425198c5038d71604a3a32fa78e768f45a7506932b740f5/fava-1.30.3.tar.gz"
+  sha256 "ab0827ad2ffe628459614d260d5aea1374c4b830bbdd1e398afb3db799e5f88c"
   license "MIT"
   head "https://github.com/beancount/fava.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "60d40b59af46518f1a9450d26f00adc12415fe9924c77a160334fc63039c344d"
-    sha256 cellar: :any,                 arm64_sonoma:  "1ac0d5517a56acf1d8a38910957a6bfcfa54251dddece53fb55f8f310019faa8"
-    sha256 cellar: :any,                 arm64_ventura: "f7b1b7deb1f8771f9476feea68bdb0f55c54c67d7791b53221eec1a9938127d7"
-    sha256 cellar: :any,                 sonoma:        "d8599d6d5355d344337d49e805901b8c486b7dca29689cb9261fc7ff86d312b4"
-    sha256 cellar: :any,                 ventura:       "980baded75d5464301f5de212601d4ecda33c122d8a72de1bdea7effe73d8b85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d53a63a9aa00ee18a02216f65fad0f7faf74dab486ccd1a9272f69b94883468d"
+    sha256 cellar: :any,                 arm64_sequoia: "6cb62b1ea354ffebbde7eed3fdee4003d81e82559f24e71f29b75cf91f607dba"
+    sha256 cellar: :any,                 arm64_sonoma:  "71feae7976e052220f1812581623420d7ae2eef8bac3dea5d22772bcaaac03f8"
+    sha256 cellar: :any,                 arm64_ventura: "9b7af170f25136353f8363d7c0dca743cab644343dfe79d648bc6a7d28bfb522"
+    sha256 cellar: :any,                 sonoma:        "2e214bd3b911575170683df7f09188613294c3ec128130056cb80801b1b843c5"
+    sha256 cellar: :any,                 ventura:       "45b39ddc1f728e14ca1c5c0822863bdfa3fdb51e650680cb6f412eb977454301"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b7de3c624f3cb70c19d5bcca8e4c0984ef807d0f372ad1c04b3208f4c10dcf18"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ede87930151305e6185eee0306ba5f265ef4e480ca3264fc18bf21e8bf348ab0"
   end
 
+  depends_on "bison" => :build # for beancount
   depends_on "meson" => :build # for beancount
   depends_on "ninja" => :build # for beancount
   depends_on "rust" => :build # for watchfiles
   depends_on "certifi"
   depends_on "python@3.13"
 
+  uses_from_macos "flex" => :build # for beancount
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
 
@@ -31,33 +34,33 @@ class Fava < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/f6/40/318e58f669b1a9e00f5c4453910682e2d9dd594334539c7b7817dabb765f/anyio-4.7.0.tar.gz"
-    sha256 "2f834749c602966b7d456a7567cafcb309f96482b5081d14ac93ccd457f9dd48"
+    url "https://files.pythonhosted.org/packages/95/7d/4c1bd541d4dffa1b52bd83fb8527089e097a106fc90b467a7313b105f840/anyio-4.9.0.tar.gz"
+    sha256 "673c0c244e15788651a4ff38710fea9675823028a6f08a5eda409e0c9840a028"
   end
 
   resource "babel" do
-    url "https://files.pythonhosted.org/packages/2a/74/f1bc80f23eeba13393b7222b11d95ca3af2c1e28edca18af487137eefed9/babel-2.16.0.tar.gz"
-    sha256 "d1f3554ca26605fe173f3de0c65f750f5a42f924499bf134de6423582298e316"
+    url "https://files.pythonhosted.org/packages/7d/6b/d52e42361e1aa00709585ecc30b3f9684b3ab62530771402248b1b1d6240/babel-2.17.0.tar.gz"
+    sha256 "0c54cffb19f690cdcc52a3b50bcbf71e07a808d1c80d549f2459b9d2cf0afb9d"
   end
 
   resource "beancount" do
-    url "https://files.pythonhosted.org/packages/bb/0d/4bfa4e10c1dac42a8cf4bf43a7867b32b7779ff44272639b765a04b8553e/beancount-3.0.0.tar.gz"
-    sha256 "cf6686869c7ea3eefc094ee13ed866bf5f7a2bb0c61e4d4f5df3e35f846cffdf"
+    url "https://files.pythonhosted.org/packages/93/a6/973010277d08f95ba3c6f4685010fe00c6858a136ed357c7e797a0ccbc04/beancount-3.1.0.tar.gz"
+    sha256 "1e70aba21fae648bc069452999d62c94c91edd7567f41697395c951be791ee0b"
   end
 
   resource "beangulp" do
-    url "https://files.pythonhosted.org/packages/48/17/34f6901c68cb4f28bc6892e0c3058f3ac682e55bfa4dcb0351045c07a7ce/beangulp-0.1.1.tar.gz"
-    sha256 "1fd131c76e5fda8c056efcc2f8a0d2bf5cd8141ef29060762601358f80f4a9b5"
+    url "https://files.pythonhosted.org/packages/39/e6/5b3307d3035439f60da4372395edec8261852a083278fdbf3a96df0e6395/beangulp-0.2.0.tar.gz"
+    sha256 "5c908c45c62c07c4efadd0b03d3cdd145ad3b5e2bab5f5f277e0093a5891241a"
   end
 
   resource "beanquery" do
-    url "https://files.pythonhosted.org/packages/cd/04/8d9f3a48065fbf3f58826e8ea08bff35710ea8d542ed04654e87ec7b7b94/beanquery-0.1.0.tar.gz"
-    sha256 "b69e099b8421b219bbcc3293af77e3c4ccad7ab25bf520fee48788672ffbf64a"
+    url "https://files.pythonhosted.org/packages/7c/90/801eec23a07072dcf8df061cb6f27be6045e08c12a90b287e872ce0a12d3/beanquery-0.2.0.tar.gz"
+    sha256 "2d72b50a39003435c7fed183666572b8ea878b9860499d0f196b38469384cd2c"
   end
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/b3/ca/824b1195773ce6166d388573fc106ce56d4a805bd7427b624e063596ec58/beautifulsoup4-4.12.3.tar.gz"
-    sha256 "74e3d1928edc070d21748185c46e3fb33490f22f52a3addee9aee0f4f7781051"
+    url "https://files.pythonhosted.org/packages/d8/e4/0c4c39e18fd76d6a628d4dd8da40543d136ce2d1752bd6eeeab0791f4d6b/beautifulsoup4-4.13.4.tar.gz"
+    sha256 "dbb3c4e1ceae6aefebdaf2423247260cd062430a410e38c66f2baa50a8437195"
   end
 
   resource "blinker" do
@@ -76,13 +79,13 @@ class Fava < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
-    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
+    url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
+    sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
   end
 
   resource "flask" do
-    url "https://files.pythonhosted.org/packages/89/50/dff6380f1c7f84135484e176e0cac8690af72fa90e932ad2a0a60e28c69b/flask-3.1.0.tar.gz"
-    sha256 "5f873c5184c897c8d9d1b05df1e3d01b14910ce69607a117bd3277098a5836ac"
+    url "https://files.pythonhosted.org/packages/c0/de/e47735752347f4128bcf354e0da07ef311a78244eba9e3dc1d4a5ab21a98/flask-3.1.1.tar.gz"
+    sha256 "284c7b8f2f58cb737f0cf1c30fd7eaf0ccfcde196099d24ecede3fc2005aa59e"
   end
 
   resource "flask-babel" do
@@ -106,18 +109,18 @@ class Fava < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/e7/6b/20c3a4b24751377aaa6307eb230b66701024012c29dd374999cc92983269/lxml-5.3.0.tar.gz"
-    sha256 "4e109ca30d1edec1ac60cdbe341905dc3b8f55b16855e03a54aaf59e51ec8c6f"
+    url "https://files.pythonhosted.org/packages/76/3d/14e82fc7c8fb1b7761f7e748fd47e2ec8276d137b6acfe5a4bb73853e08f/lxml-5.4.0.tar.gz"
+    sha256 "d12832e1dbea4be280b22fd0ea7c9b87f0d8fc51ba06e92dc62d52f804f78ebd"
   end
 
   resource "markdown2" do
-    url "https://files.pythonhosted.org/packages/a0/61/d3c0c21280ba1fc348822a4410847cf78f99bba8625755a5062a44d2e228/markdown2-2.5.2.tar.gz"
-    sha256 "3ac02226a901c4b2f6fc21dbd17c26d118d2c25bcbb28cee093a1f8b5c46f3f1"
+    url "https://files.pythonhosted.org/packages/44/52/d7dcc6284d59edb8301b8400435fbb4926a9b0f13a12b5cbaf3a4a54bb7b/markdown2-2.5.3.tar.gz"
+    sha256 "4d502953a4633408b0ab3ec503c5d6984d1b14307e32b325ec7d16ea57524895"
   end
 
   resource "markupsafe" do
@@ -126,8 +129,8 @@ class Fava < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/51/78/65922308c4248e0eb08ebcbe67c95d48615cc6f27854b6f2e57143e9178f/more-itertools-10.5.0.tar.gz"
-    sha256 "5482bfef7849c25dc3c6dd53a6173ae4795da2a41a80faea6700d9f5846c5da6"
+    url "https://files.pythonhosted.org/packages/ce/a0/834b0cebabbfc7e311f30b46c8188790a37f89fc8d756660346fe5abfd09/more_itertools-10.7.0.tar.gz"
+    sha256 "9fddd5403be01a94b204faadcff459ec3568cf110265d3c54323e1e866ad29d3"
   end
 
   resource "ply" do
@@ -146,8 +149,8 @@ class Fava < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/3a/31/3c70bf7603cc2dca0f19bdc53b4537a797747a58875b552c8c413d963a3f/pytz-2024.2.tar.gz"
-    sha256 "2aa355083c50a0f93fa581709deac0c9ad65cca8a9e9beac660adcbd493c798a"
+    url "https://files.pythonhosted.org/packages/f8/bf/abbd3cdfb8fbc7fb3d4d38d320f2441b1e7cbe29be4f23797b4a2b5d8aac/pytz-2025.2.tar.gz"
+    sha256 "360b9e3dbb49a209c21ad61809c7fb453643e048b38924c765813546746e81c3"
   end
 
   resource "regex" do
@@ -156,8 +159,8 @@ class Fava < Formula
   end
 
   resource "simplejson" do
-    url "https://files.pythonhosted.org/packages/3d/29/085111f19717f865eceaf0d4397bf3e76b08d60428b076b64e2a1903706d/simplejson-3.19.3.tar.gz"
-    sha256 "8e086896c36210ab6050f2f9f095a5f1e03c83fa0e7f296d6cba425411364680"
+    url "https://files.pythonhosted.org/packages/af/92/51b417685abd96b31308b61b9acce7ec50d8e1de8fbc39a7fd4962c60689/simplejson-3.20.1.tar.gz"
+    sha256 "e64139b4ec4f1f24c142ff7dcafe55a22b811a74d86d66560c8815687143037d"
   end
 
   resource "six" do
@@ -171,18 +174,23 @@ class Fava < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/d7/ce/fbaeed4f9fb8b2daa961f90591662df6a86c1abf25c548329a86920aedfb/soupsieve-2.6.tar.gz"
-    sha256 "e2e68417777af359ec65daac1057404a3c8a5455bb8abc36f1a9866ab1a51abb"
+    url "https://files.pythonhosted.org/packages/3f/f4/4a80cd6ef364b2e8b65b15816a843c0980f7a5a2b4dc701fc574952aa19f/soupsieve-2.7.tar.gz"
+    sha256 "ad282f9b6926286d2ead4750552c8a6142bc4c783fd66b0293547c8fe6ae126a"
   end
 
-  resource "tatsu" do
-    url "https://files.pythonhosted.org/packages/09/f6/d53b45ea138e24199486e11deadedf06d0bedc9373911582b57a484f3d59/TatSu-5.7.4.zip"
-    sha256 "ebd8212323328115bc4967db9a40d7f15b627db4663290c64e5ef8fe71dca0ae"
+  resource "tatsu-lts" do
+    url "https://files.pythonhosted.org/packages/4a/40/4bbdba35865ebaf33a192cea87bfafb4f4ca6b4bf45c18b89c6eed086b98/tatsu_lts-5.13.1.tar.gz"
+    sha256 "b9f0d38bf820d92077b5722bad26f68020c8e4ee663f7e35d4a0d95e4ebc5623"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/f6/37/23083fcd6e35492953e8d2aaaa68b860eb422b34627b13f2ce3eb6106061/typing_extensions-4.13.2.tar.gz"
+    sha256 "e6c81219bd689f51865d9e372991c540bda33a0379d5573cddb9a3a23f7caaef"
   end
 
   resource "watchfiles" do
-    url "https://files.pythonhosted.org/packages/3c/7e/4569184ea04b501840771b8fcecee19b2233a8b72c196061263c0ef23c0b/watchfiles-1.0.3.tar.gz"
-    sha256 "f3ff7da165c99a5412fe5dd2304dd2dbaaaa5da718aad942dcb3a178eaa70c56"
+    url "https://files.pythonhosted.org/packages/03/e2/8ed598c42057de7aa5d97c472254af4906ff0a59a66699d426fc9ef795d7/watchfiles-1.0.5.tar.gz"
+    sha256 "b7529b5dcc114679d43827d8c35a07c493ad6f083633d573d81c660abc5979e9"
   end
 
   resource "werkzeug" do

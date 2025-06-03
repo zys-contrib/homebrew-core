@@ -1,8 +1,8 @@
 class ImagemagickAT6 < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://legacy.imagemagick.org/"
-  url "https://imagemagick.org/archive/releases/ImageMagick-6.9.13-21.tar.xz"
-  sha256 "985b9bf373c8b67c9df66d53247bdbb44aa79d133e75fb84d73179b238af8471"
+  url "https://imagemagick.org/archive/releases/ImageMagick-6.9.13-25.tar.xz"
+  sha256 "17ba5ee0e0ce4a2248db5115d3683dd7c24e82eec96515da028997c9f926a121"
   license "ImageMagick"
   head "https://github.com/imagemagick/imagemagick6.git", branch: "main"
 
@@ -12,12 +12,14 @@ class ImagemagickAT6 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "883d833cc4b4d73394462e670b2045dadb5fd72890139be300fc3afe7c3e2290"
-    sha256 arm64_sonoma:  "71dc5227c21a696569df729aa7244c63d365ab29b8af623b80709a2eb966e93c"
-    sha256 arm64_ventura: "0a79d069a2133bd49f8f123c1d53153a8918a32e144b84c06605cf59d1fdb7eb"
-    sha256 sonoma:        "65eec90889e97d8de48e25f795286f206c8168f23e7dc94124da50d2d14a525c"
-    sha256 ventura:       "618129f7759c73dc98b5c80049c47ed017a62439194ac69be758c9e751519529"
-    sha256 x86_64_linux:  "dc7fae28370c80192f7c0e798beb80067eebb563af9cba904f9b39a6925bd1bb"
+    rebuild 1
+    sha256 arm64_sequoia: "09cae28da4c71a6004c02518ffea95ef4df07fcc7f211eab10d6eac87eb48fb5"
+    sha256 arm64_sonoma:  "3f7492a6a7040334c307e36e780a4e34a9148c2d644713c939ab8ccd4c82bf6e"
+    sha256 arm64_ventura: "0736732b7c46c6fcbbf5106695758e428ef862d2a03414bd97c9986f0e1f96c7"
+    sha256 sonoma:        "57a9fb490b1378cc28e1df03706e8d3c937c1d0aad8210c18880fc186069a6ec"
+    sha256 ventura:       "68eeb42ec14914a27303bb7748bce2ced67135dd6824fba1a138f1967b67e8dd"
+    sha256 arm64_linux:   "4d83ead3cbb27e2c7aff3f58e5796c07691a16c2574aede0ce4aa35f99bbc057"
+    sha256 x86_64_linux:  "5487c6a697e5ec21472cadd645e053b289700c75c169a1ae9e0eaf52b482f090"
   end
 
   keg_only :versioned_formula
@@ -26,7 +28,6 @@ class ImagemagickAT6 < Formula
 
   depends_on "fontconfig"
   depends_on "freetype"
-  depends_on "ghostscript"
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
@@ -59,7 +60,7 @@ class ImagemagickAT6 < Formula
       --with-modules
       --with-webp=yes
       --with-openjp2
-      --with-gslib
+      --without-gslib
       --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
       --without-djvu
       --without-fftw
@@ -70,6 +71,13 @@ class ImagemagickAT6 < Formula
 
     system "./configure", *args, *std_configure_args
     system "make", "install"
+  end
+
+  def caveats
+    <<~EOS
+      Ghostscript is not installed by default as a dependency.
+      If you need PS or PDF support, ImageMagick will still use the ghostscript formula if installed directly.
+    EOS
   end
 
   test do

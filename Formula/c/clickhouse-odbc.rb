@@ -5,7 +5,7 @@ class ClickhouseOdbc < Formula
   url "https://github.com/ClickHouse/clickhouse-odbc/archive/refs/tags/v1.2.1.20220905.tar.gz"
   sha256 "ca8666cbc7af9e5d4670cd05c9515152c34543e4f45e2bc8fa94bee90d724f1b"
   license "Apache-2.0"
-  revision 7
+  revision 9
   head "https://github.com/ClickHouse/clickhouse-odbc.git", branch: "master"
 
   livecheck do
@@ -14,18 +14,19 @@ class ClickhouseOdbc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2dede9beae8a3bccb0bb370835ceba0a5621746db5fb07bb1d04d62a180ea621"
-    sha256 cellar: :any,                 arm64_sonoma:  "cebcb25fe92aaa4157a764a170d377b983e5966b01e499eae89f822b7784f5d2"
-    sha256 cellar: :any,                 arm64_ventura: "c3fb8ef17692a36c5119115db53f2f2ddd83f7833ac5e02c87ef628cccc3c984"
-    sha256 cellar: :any,                 sonoma:        "2cc6e5bf96a77fe04b61f9edc073d21aed7b6a24b000acbade86f6b8bee3f8c6"
-    sha256 cellar: :any,                 ventura:       "f8309c8c83b07dfff445dd2c094b7c64ac2e6251d459f0036897d8adffc7096c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ab019654dc81b5162e4575b3a3118653fe3ea9d9b884b6820599a0df6925b26"
+    sha256 cellar: :any,                 arm64_sequoia: "823b627489c0eb6132863b4801bbb35d72d0a0a94e6a05e1db727626d6610a97"
+    sha256 cellar: :any,                 arm64_sonoma:  "e3319686c6b8b190cac07657b005815d52b5e9ae2cdce502dc0547b2beec2d33"
+    sha256 cellar: :any,                 arm64_ventura: "fd57a1b662562034e4438ef7a3f504a13b9bb41fd1fdf0fba65881457c3dbad9"
+    sha256 cellar: :any,                 sonoma:        "9e6d19fe3f32091196b620af7a2505a67e1bff07af8379a328f98e99ae5f8c6e"
+    sha256 cellar: :any,                 ventura:       "b05b85f7872bdea82c386d7f6f8a865237e6691539f9f7fa51d0b91513fabde0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "83be34ed8d3397d1b48962b0c5584093442d667208061fab3f699401d943f580"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d8fcd33563bd470e0c3642123a9be187196aa6678061134a4590d4679e841a1"
   end
 
   depends_on "cmake" => :build
   depends_on "folly" => :build
   depends_on "pkgconf" => :build
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "openssl@3"
   depends_on "poco"
   depends_on "utf8proc"

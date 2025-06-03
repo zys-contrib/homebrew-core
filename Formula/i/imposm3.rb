@@ -1,18 +1,19 @@
 class Imposm3 < Formula
   desc "Imports OpenStreetMap data into PostgreSQL/PostGIS databases"
-  homepage "https://imposm.org"
-  url "https://github.com/omniscale/imposm3/archive/refs/tags/v0.14.0.tar.gz"
-  sha256 "d6b012497eff1b8faa25d125ce0becb97f68c95a68dd2c35cf65a0bf3c34b833"
+  homepage "https://imposm.org/docs/imposm3/latest/"
+  url "https://github.com/omniscale/imposm3/archive/refs/tags/v0.14.2.tar.gz"
+  sha256 "dc779a274a7ec7e86ffdb97c881b6410f82a6d21924d08b9ed0785d2cf266113"
   license "Apache-2.0"
+  head "https://github.com/omniscale/imposm3.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "6e6978e709dcf02b68670fe3989e91597ad345f4c5aa33e4ad118e433d44c918"
-    sha256 cellar: :any,                 arm64_sonoma:  "688528b320a8a29762059b6396c81591bb8bccdbb0fc38401b6bdbd368f271c2"
-    sha256 cellar: :any,                 arm64_ventura: "392619f76111001dae5e466bd44fe49048a07bcdd4322bd6c825bd26fd660371"
-    sha256 cellar: :any,                 sonoma:        "95fa7c5fde0ca11df2bc4b6a7fd491e7202ab380b6c7baddd1f47b43506059af"
-    sha256 cellar: :any,                 ventura:       "adaec3d25f4e2e91faccbeb55c8b1fe73203cbfdf3182cdc870bdf7dac04e314"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da189939a9103dfca0b32d55b6a2160687c972018c01232e752f9eb89c8b142c"
+    sha256 cellar: :any,                 arm64_sequoia: "ef0edd9832c108b40a6eea993c88ce7c2716f05dbac67e18f4c45085acdef838"
+    sha256 cellar: :any,                 arm64_sonoma:  "f9c1f47003a67cac4718eee990bce3a96fdce764d7003670edcc9e782da1939d"
+    sha256 cellar: :any,                 arm64_ventura: "e73b325a6bff285c9dfe4cc6736703881518972216c2ac0cd01e0b147db07632"
+    sha256 cellar: :any,                 sonoma:        "d665afcf5f6f08652ed1af431e1aa4d38eb0dd747b57ed3e7c6726d8cb75a175"
+    sha256 cellar: :any,                 ventura:       "49aacfcbcbf3e519f8257f24a8366aca51460e96c51036a5232d5d1324e60f3c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2545034b671e36df257d6adbc876eb1e0eec26c15469c0bf0d4ab20c16638285"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5f69476d6817e049c7177e14a69cff62546d2a436aff1334c83a34ee6c07d69"
   end
 
   depends_on "go" => :build
@@ -64,9 +65,9 @@ class Imposm3 < Formula
     system bin/"imposm", "import", "-read", testpath/"sample.osm.pbf", "-mapping", testpath/"mapping.yml",
             "-cachedir", testpath/"cache"
 
-    assert_predicate testpath/"cache/coords/LOG", :exist?
-    assert_predicate testpath/"cache/nodes/LOG", :exist?
-    assert_predicate testpath/"cache/relations/LOG", :exist?
-    assert_predicate testpath/"cache/ways/LOG", :exist?
+    assert_path_exists testpath/"cache/coords/LOG"
+    assert_path_exists testpath/"cache/nodes/LOG"
+    assert_path_exists testpath/"cache/relations/LOG"
+    assert_path_exists testpath/"cache/ways/LOG"
   end
 end

@@ -1,26 +1,26 @@
 class Emqx < Formula
   desc "MQTT broker for IoT"
   homepage "https://www.emqx.io/"
-  url "https://github.com/emqx/emqx/archive/refs/tags/v5.8.4.tar.gz"
-  sha256 "39a5acafdd72cd9b6d05407c677c063448b8551eed272681a9809636441f2bfd"
+  url "https://github.com/emqx/emqx/archive/refs/tags/v5.8.6.tar.gz"
+  sha256 "7652c6365cac87143ef8fc99bd4d3ece932dfde15c19d315b7a37bd1026cd98f"
   license "Apache-2.0"
   head "https://github.com/emqx/emqx.git", branch: "master"
 
-  # There can be a notable gap between when a version is tagged and a
-  # corresponding release is created, so we check the "latest" release instead
-  # of the Git tags.
+  # Exclude beta and release canditate tags (`-rc` and `-beta` suffixes)
+  # and enterprise versions with BUSL license (their tag starts with `e`)
   livecheck do
     url :stable
-    strategy :github_latest
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "62e49049372084a41a83c9a5a577f915034528cc36848e6f7f93e3156d9b0dd9"
-    sha256 cellar: :any,                 arm64_sonoma:  "6174bc5b183c7144c5ede7636bb48340840daa98cc0c6ff39b7957486fafe738"
-    sha256 cellar: :any,                 arm64_ventura: "34ee1b72100e19063f8211b7c25ba42e4c1fb0b0e159d576fba6d2a66a96f582"
-    sha256 cellar: :any,                 sonoma:        "8f1f95b150ce1955edffc39fb31d2db268c002f7b47f909e820ae59bc2e2c330"
-    sha256 cellar: :any,                 ventura:       "b8d80c62c26259ac4bdbc93917dee2aecdc58e30c0b1535e10ee4c5188472e7c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d3a044d03cdf72861c9b666d2c981eeed4f3d2bf3e3b659b9c21a657ed540a8"
+    sha256 cellar: :any,                 arm64_sequoia: "635f75a36b9a684d3d12e3140fe227b626f97cbc7aedbd1d3d4187f19125202c"
+    sha256 cellar: :any,                 arm64_sonoma:  "14b3027a6c06f5cc1aa958f6e62bad88a5ba843795d588ebd2a23cb216703384"
+    sha256 cellar: :any,                 arm64_ventura: "58475350df25bc890b392fbf7b4f1996e37577b795ec7a5d1989928d546719d9"
+    sha256 cellar: :any,                 sonoma:        "d2d97364d818a40e08f0a047c470b682647bb0859d9ddf4d0bdd1220a46ddf9f"
+    sha256 cellar: :any,                 ventura:       "d95d5ea7d09407b8e129f609adb486d8cff5f3cd14f9ac2a8aa36ec6783f43ac"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4d138f648c78ee92a50839a66f94c447fcb16e877d4240476dae5b2eb191fa5d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebe73f248da88a0c7be48c539cd4d56a28688ec75ecbc4e0c53bf202fa2cab90"
   end
 
   depends_on "autoconf"  => :build

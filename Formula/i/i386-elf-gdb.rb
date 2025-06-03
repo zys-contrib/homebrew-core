@@ -1,9 +1,9 @@
 class I386ElfGdb < Formula
   desc "GNU debugger for i386-elf cross development"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-16.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-16.1.tar.xz"
-  sha256 "c2cc5ccca029b7a7c3879ce8a96528fdfd056b4d884f2b0511e8f7bc723355c6"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-16.3.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-16.3.tar.xz"
+  sha256 "bcfcd095528a987917acf9fff3f1672181694926cc18d609c99d0042c00224c5"
   license "GPL-3.0-or-later"
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
@@ -12,12 +12,13 @@ class I386ElfGdb < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "3b8c8f3be5c6b5900e5ca45d3b9e06d9ac378765aeb8dd577157da95e7fa48b8"
-    sha256 arm64_sonoma:  "71ba38489994cca65572c63b3825222fa3c34ca9ab8184a638679348bd1ecd52"
-    sha256 arm64_ventura: "ec93c6548af09e56471c202bc22573598cf40e853558e9b5b2d4bc9c7a511014"
-    sha256 sonoma:        "673a13fe944418196dd6af6051538088f2689e91fedf780418f6355ff62225a2"
-    sha256 ventura:       "0e267be3e06b4e463c93082a36723aed46f3c0743f6e3ea25fe43656f700ffac"
-    sha256 x86_64_linux:  "4be9bb16712be288a58ad95d0f77f3fa370fa96dc2a33dd145570ee024af89db"
+    sha256 arm64_sequoia: "af939496c6245db5f2f812e196fb9e4b3623f15a2db5035716f392d6633ffe8c"
+    sha256 arm64_sonoma:  "951dac8073ae7de6fb7d74db8b7694a4bc323e02013f1ac541b1f03f45e8d319"
+    sha256 arm64_ventura: "b8c97775ea52dfbb3459fae62aa433402a2fb23a1d3b4553be7c206b38e63701"
+    sha256 sonoma:        "a7a43697ffade75a422458eb851588a15b042272729d9850339ae465069cd5cf"
+    sha256 ventura:       "c9d550dcb8ddb0db49e41f7a72339424e320ee23537ed52e8f66b2887185d889"
+    sha256 arm64_linux:   "2a7f9f61e3f2faac56dfd439e1488567643896454a98acf4d03fa7e201a6d57f"
+    sha256 x86_64_linux:  "3f2f5cd65a663532604928725a87b015fd9f596ae92b647a4ee6b4fb9c61fd97"
   end
 
   depends_on "i686-elf-gcc" => :test
@@ -26,17 +27,20 @@ class I386ElfGdb < Formula
   depends_on "python@3.13"
   depends_on "xz" # required for lzma support
 
-  uses_from_macos "expat"
+  uses_from_macos "expat", since: :sequoia # minimum macOS due to python
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
+
+  # Workaround for https://github.com/Homebrew/brew/issues/19315
+  on_sequoia :or_newer do
+    on_intel do
+      depends_on "expat"
+    end
+  end
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build
   end
-
-  # Fix build on Linux
-  # Ref: https://sourceware.org/bugzilla/show_bug.cgi?id=32578
-  patch :DATA
 
   def install
     target = "i386-elf"
@@ -70,31 +74,3 @@ class I386ElfGdb < Formula
     assert_match "Symbol \"_start\" is a function at address 0x", output
   end
 end
-
-__END__
-diff --git a/bfd/Makefile.in b/bfd/Makefile.in
-index aec3717485a..ee674a36c5b 100644
---- a/bfd/Makefile.in
-+++ b/bfd/Makefile.in
-@@ -1318,7 +1318,7 @@ REGEN_TEXI = \
- 	$(MKDOC) -f $(srcdir)/doc/doc.str < $< > $@.tmp; \
- 	texi=$@; \
- 	texi=$${texi%.stamp}.texi; \
--	test -e $$texi || test ! -f $(srcdir)/$$texi || $(LN_S) $(srcdir)/$$texi $$texi; \
-+	test -e $$texi || test ! -f $(srcdir)/$$texi || $(LN_S) $(abs_srcdir)/$$texi $$texi; \
- 	$(SHELL) $(srcdir)/../move-if-change $@.tmp $$texi; \
- 	touch $@; \
- 	)
-diff --git a/bfd/doc/local.mk b/bfd/doc/local.mk
-index 97d658b5a48..9b75402387c 100644
---- a/bfd/doc/local.mk
-+++ b/bfd/doc/local.mk
-@@ -101,7 +101,7 @@ REGEN_TEXI = \
- 	$(MKDOC) -f $(srcdir)/%D%/doc.str < $< > $@.tmp; \
- 	texi=$@; \
- 	texi=$${texi%.stamp}.texi; \
--	test -e $$texi || test ! -f $(srcdir)/$$texi || $(LN_S) $(srcdir)/$$texi $$texi; \
-+	test -e $$texi || test ! -f $(srcdir)/$$texi || $(LN_S) $(abs_srcdir)/$$texi $$texi; \
- 	$(SHELL) $(srcdir)/../move-if-change $@.tmp $$texi; \
- 	touch $@; \
- 	)

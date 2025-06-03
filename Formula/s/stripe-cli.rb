@@ -1,17 +1,18 @@
 class StripeCli < Formula
   desc "Command-line tool for Stripe"
-  homepage "https://stripe.com/docs/stripe-cli"
-  url "https://github.com/stripe/stripe-cli/archive/refs/tags/v1.23.8.tar.gz"
-  sha256 "0f399e6da38d57dea07c59728eee17fe44c9f96a83427801b9bb196d3255e8da"
+  homepage "https://docs.stripe.com/stripe-cli"
+  url "https://github.com/stripe/stripe-cli/archive/refs/tags/v1.27.0.tar.gz"
+  sha256 "217f1462003fb7dd6e8ca14507211301ef128107ded2fb03cc19cdf608a9fec4"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "04936f4e38bb683ad0639081225e0dfc79c97d2ff07da9802696242cdabe5f41"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c30d351399c587078a2ec6b73d182f9f79414a050d2a05094c04b7dd753aaa82"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b0cd70ab93adc99155dac9874cad9ab08435d7cee2d71ed180009bf1a5784db3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b123495584ba0c196230305ec261fed932c7f70af86c510f1b8a5e93017f5901"
-    sha256 cellar: :any_skip_relocation, ventura:       "9fa9b9416cd2f305134d5d3d79a304615a2e68d9fe9a4282b2a3be8f0c488013"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3e4f81b76d744c208eb196fe2523d082ffb49f001a15b59236661093325f93c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7da1b9fa0419c5e31d804191ac6ab9a6147e4a9e5e0baebdc905ef031fedb02f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e0f7ced54283e77628ba5db93ae35e37aa6f71c3ece339f147c74b7fe4350170"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "26a1d8cbabe334c407ddbb61386004dc3d445c3009ae800d2b9d436abdba0319"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8fc7c85bbb01ab2276896cc208ea7cb29615147b47bae10f5cbfdfb1f55adb1c"
+    sha256 cellar: :any_skip_relocation, ventura:       "2586abf0092dd9080ff993e4ef7a837aaa8620f260228d7490d778d1bbfa736d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8996ac34581849c34f7d86c5332e550e0185e789c5826e5da3d16603adfb442"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54e05811de441326503f42f3f29f724f894fb975bc5e9c56f3dfbd487aedb14f"
   end
 
   depends_on "go" => :build

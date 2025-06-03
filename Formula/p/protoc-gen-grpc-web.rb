@@ -4,7 +4,7 @@ class ProtocGenGrpcWeb < Formula
   url "https://github.com/grpc/grpc-web/archive/refs/tags/1.5.0.tar.gz"
   sha256 "d3043633f1c284288e98e44c802860ca7203c7376b89572b5f5a9e376c2392d5"
   license "Apache-2.0"
-  revision 8
+  revision 10
 
   livecheck do
     url :stable
@@ -12,12 +12,13 @@ class ProtocGenGrpcWeb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "30dd0a651796f75265b4b0fe9bf9f054624db2d6f580046d0f8ea53f3883851f"
-    sha256 cellar: :any,                 arm64_sonoma:  "260ac56d4d09cd8bcb5555dfc27ec1b0ba4163b1d14a825d1325c3a2d72acad4"
-    sha256 cellar: :any,                 arm64_ventura: "3a156731dd5f7f73438a0e03051fb35f1a3d9c1edc13a1d96e47eeb8f7042655"
-    sha256 cellar: :any,                 sonoma:        "9ca144190fd8e1c91da480c8fd1ee1cdf02eeb80c5e26999d8c3632f1bb967cc"
-    sha256 cellar: :any,                 ventura:       "841391e26f36ce0bae1a18ddca59b43e030faa9491c6fddd2826be22acb6104f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6716b249cd8a3f36a35dc2538c17f2469710c282b5cff78e403dc935bd4e95d"
+    sha256 cellar: :any,                 arm64_sequoia: "5f15c9d2e0c6f55a452fc236d472a1463edfc821b0d04998d200b1d4e535e199"
+    sha256 cellar: :any,                 arm64_sonoma:  "ad9341d5ec52e3f58bfa1503c39ee620cab932e2cd052b0fc9d779144b1f6359"
+    sha256 cellar: :any,                 arm64_ventura: "e75fe6e52a34704e491c74ba4ec5b7b666ce5981395525608b600777172d0714"
+    sha256 cellar: :any,                 sonoma:        "e4ffa319ad9007d9a03c708c7cb66db24e7a8f377763544db0c30ae0894c06c6"
+    sha256 cellar: :any,                 ventura:       "6ea7c8bc3e7ef2e5920f352f956f22f0c877b2e167969e0218a7611a88fedcf5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "777cde709def0014575f71ae1d8b7393b4174040239e55f90a3d15709fb4ed65"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ffc6a7234cf346ecf50d21f4835314df63946f01d3a5df6960db7ef5281783e3"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +26,7 @@ class ProtocGenGrpcWeb < Formula
   depends_on "node" => :test
   depends_on "typescript" => :test
   depends_on "abseil"
-  depends_on "protobuf"
+  depends_on "protobuf@29"
   depends_on "protoc-gen-js"
 
   # Backport of https://github.com/grpc/grpc-web/commit/2c39859be8e5bcf55eef129e5a5330149ce460ab
@@ -44,7 +45,7 @@ class ProtocGenGrpcWeb < Formula
 
   test do
     # First use the plugin to generate the files.
-    testdata = <<~PROTO
+    (testpath/"test.proto").write <<~PROTO
       syntax = "proto3";
       package test;
       message TestCase {
@@ -60,10 +61,10 @@ class ProtocGenGrpcWeb < Formula
         rpc RunTest(Test) returns (TestResult);
       }
     PROTO
-    (testpath/"test.proto").write testdata
-    system "protoc", "test.proto", "--plugin=#{bin}/protoc-gen-grpc-web",
-                     "--js_out=import_style=commonjs:.",
-                     "--grpc-web_out=import_style=typescript,mode=grpcwebtext:."
+    protoc = Formula["protobuf@29"].bin/"protoc"
+    system protoc, "test.proto", "--plugin=#{bin}/protoc-gen-grpc-web",
+                   "--js_out=import_style=commonjs:.",
+                   "--grpc-web_out=import_style=typescript,mode=grpcwebtext:."
 
     # Now see if we can import them.
     (testpath/"test.ts").write <<~TYPESCRIPT

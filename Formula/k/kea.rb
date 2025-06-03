@@ -1,12 +1,13 @@
 class Kea < Formula
   desc "DHCP server"
   homepage "https://www.isc.org/kea/"
+  url "https://ftp.isc.org/isc/kea/2.6.3/kea-2.6.3.tar.gz"
+  mirror "https://dl.cloudsmith.io/public/isc/kea-2-6/raw/versions/2.6.3/kea-2.6.3.tar.gz"
+  sha256 "00241a5955ffd3d215a2c098c4527f9d7f4b203188b276f9a36250dd3d9dd612"
+  license "MPL-2.0"
+
   # NOTE: the livecheck block is a best guess at excluding development versions.
   #       Check https://www.isc.org/download/#Kea to make sure we're using a stable version.
-  url "https://ftp.isc.org/isc/kea/2.6.1/kea-2.6.1.tar.gz"
-  mirror "https://dl.cloudsmith.io/public/isc/kea-2-6/raw/versions/2.6.1/kea-2.6.1.tar.gz"
-  sha256 "d2ce14a91c2e248ad2876e29152d647bcc5e433bc68dafad0ee96ec166fcfad1"
-  license "MPL-2.0"
 
   livecheck do
     url "ftp://ftp.isc.org/isc/kea/"
@@ -16,14 +17,13 @@ class Kea < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "1c084c993083468c76a0729dfb4b2b231a737fe7323f9f99f6490098cb74f147"
-    sha256 arm64_sonoma:   "198b4e13a2d22180c619d3cdd825e06c2ea6deacf1e1e0f1edb4bf8a4f811a56"
-    sha256 arm64_ventura:  "dd9a0ee71e6edb0445804e2acdac49e4ac9f14e954c8716f2bccf217b3c42960"
-    sha256 arm64_monterey: "4d6ef86f0bc8fd533f67de887f6aa0244fa0199c82fd3f596e8ca7af6616b9fc"
-    sha256 sonoma:         "b12c07c7ea8512625d415ac5f90b2acf153f49bd57764a3c173448235906b0ee"
-    sha256 ventura:        "d2443974aad0fdc56d03a21795d83e8101928ff0605467ee6055b9939d34ef9d"
-    sha256 monterey:       "29c57e487849a00ae7bcf4ee78afade4e64503cb197b63684dbe60777fae4d22"
-    sha256 x86_64_linux:   "b45ed2602b200d7f2ea8ccad1a72b9c8362e63766b606edf9ae3ddb5a780abea"
+    sha256 arm64_sequoia: "4c66f8f52593d9e945699305f4fe64388472f6de31a061733c5a87370fb6479c"
+    sha256 arm64_sonoma:  "f8053d8a6fcd8b24e825049ec6debc1122c66e476e87bc969a526d7322aeeb79"
+    sha256 arm64_ventura: "d1371ae2cc23ff1ec5af366b12d241b67d019caa9310728c570c3f7d8d84d153"
+    sha256 sonoma:        "b977974fce305b9e45b45c3cf9f3686d21a0ab4cc37ec90405c65894af2b70ce"
+    sha256 ventura:       "9cf0169cc4bb7ba9ecef631cca6c083014fda86a7a064d9919245840c6be6ea2"
+    sha256 arm64_linux:   "fe9d2c5f9a9c911c0191ecc7c9e24c3b756e4665d65b7dc19224e3458f9374c7"
+    sha256 x86_64_linux:  "c9d151d10c0ebd376294c91e4f5b353217d3226d9c711633cfcd23198b8d603b"
   end
 
   head do
@@ -40,6 +40,9 @@ class Kea < Formula
   depends_on "openssl@3"
 
   def install
+    # Workaround to build with Boost 1.87.0+
+    ENV.append "CXXFLAGS", "-std=gnu++14"
+
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-silent-rules",
                           "--with-openssl=#{Formula["openssl@3"].opt_prefix}",

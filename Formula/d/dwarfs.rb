@@ -1,23 +1,24 @@
 class Dwarfs < Formula
   desc "Fast high compression read-only file system for Linux, Windows, and macOS"
   homepage "https://github.com/mhx/dwarfs"
-  url "https://github.com/mhx/dwarfs/releases/download/v0.10.2/dwarfs-0.10.2.tar.xz"
-  sha256 "36767290a39f92782e41daaa3eb45e39550ad1a4294a6d8365bc0f456f75f00c"
+  url "https://github.com/mhx/dwarfs/releases/download/v0.12.4/dwarfs-0.12.4.tar.xz"
+  sha256 "352d13a3c7d9416e0a7d0d959306a25908b58d1ff47fb97e30a7c8490fcff259"
   license "GPL-3.0-or-later"
-  revision 3
 
   livecheck do
     url :stable
     regex(/^(?:release[._-])?v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_latest
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b3295a906a2769b117158edfadfb182303977fa0c9aa86028c95f3b3069183c5"
-    sha256 cellar: :any,                 arm64_sonoma:  "d4a2d3d472b38ced6d9d646c0cb98fc08fc1b4ba63fcfed9aad35db24a0dc232"
-    sha256 cellar: :any,                 arm64_ventura: "2f36eecea4eb4e7d1bc1698f3b0d098dfb8fd7afad2b3281ae7d8924df685588"
-    sha256 cellar: :any,                 sonoma:        "60d623dd533d8266bcdf05d72a26f047c11c4b8db629ac4742f1c69b0f59d838"
-    sha256 cellar: :any,                 ventura:       "7caf6651292b203f8e45e2447ae89a5c9c05b088932cf6b8f7642ae9e78dad1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4906a428cf911605baf12d2c8c7e066cb90f231d33019eea5a333424712e7ba6"
+    sha256                               arm64_sequoia: "3ff65a78a4f52826d19180d5d197218cb7e3fbe8d4b9ad6c16d85c8fb734e6a0"
+    sha256                               arm64_sonoma:  "0da0d156eaa75c1655cc3ea0a912028f92cf1b4b90a2c0b88b0966e4fa1319f7"
+    sha256                               arm64_ventura: "5099e0966d6a3b0a764bbb820d3e40172cfce51adb8b8e4c5314c8b5988da1e0"
+    sha256 cellar: :any,                 sonoma:        "a1e74d5a71e125918909c2f220b48df2e430de3ceb9fb5057e8f51c619b02677"
+    sha256 cellar: :any,                 ventura:       "a811e4738557e2962e0f8182a54228ab7a4b4209c5595cf4955dbc0486d5d9c5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "de340355a70a1bd71d61ece366abad774b8bc4fbf9a0d1654115b1ff7852f22a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97a7815ccb7ee637d0a712b3cee46753b82e8c4f66864a860b8900052c535d72"
   end
 
   depends_on "cmake" => :build
@@ -45,7 +46,7 @@ class Dwarfs < Formula
   depends_on "zstd"
 
   on_macos do
-    depends_on "llvm" if DevelopmentTools.clang_build_version < 1500
+    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1500
   end
 
   on_linux do
@@ -53,8 +54,15 @@ class Dwarfs < Formula
   end
 
   fails_with :clang do
-    build 1499
+    build 1500
     cause "Not all required C++20 features are supported"
+  end
+
+  # Apply folly fix for LLVM 20 from https://github.com/facebook/folly/pull/2404
+  patch do
+    url "https://github.com/facebook/folly/commit/1215a574e29ea94653dd8c48f72e25b5503ced18.patch?full_index=1"
+    sha256 "14a584c4f0a166d065d45eb691c23306289a5287960806261b605946166de590"
+    directory "folly"
   end
 
   def install
@@ -75,12 +83,13 @@ class Dwarfs < Formula
       -DPREFER_SYSTEM_GTEST=ON
     ]
 
-    if OS.mac? && DevelopmentTools.clang_build_version < 1500
+    if OS.mac? && DevelopmentTools.clang_build_version <= 1500
       ENV.llvm_clang
 
       # Needed in order to find the C++ standard library
       # See: https://github.com/Homebrew/homebrew-core/issues/178435
-      ENV.prepend "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/c++ -L#{Formula["llvm"].opt_lib} -lunwind"
+      ENV.prepend "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/unwind -lunwind"
+      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib/"c++"
     end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
@@ -121,7 +130,7 @@ class Dwarfs < Formula
     CPP
 
     # ENV.llvm_clang doesn't work in the test block
-    ENV["CXX"] = Formula["llvm"].opt_bin/"clang++" if OS.mac? && DevelopmentTools.clang_build_version < 1500
+    ENV["CXX"] = Formula["llvm"].opt_bin/"clang++" if OS.mac? && DevelopmentTools.clang_build_version <= 1500
 
     system ENV.cxx, "-std=c++20", "test.cpp", "-I#{include}", "-L#{lib}", "-o", "test", "-ldwarfs_common"
 

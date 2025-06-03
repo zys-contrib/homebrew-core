@@ -4,8 +4,8 @@
 class Mu < Formula
   desc "Tool for searching e-mail messages stored in the maildir-format"
   homepage "https://www.djcbsoftware.nl/code/mu/"
-  url "https://github.com/djcb/mu/releases/download/v1.12.8/mu-1.12.8.tar.xz"
-  sha256 "6c7d43e95ad228990defe5dfd61101aa7a7217d631add303cce1fb29f7a204d0"
+  url "https://github.com/djcb/mu/releases/download/v1.12.11/mu-1.12.11.tar.xz"
+  sha256 "c6e463f4936edc7f2c0a0b0d038183783b35430b35887b79301072bf1d5e9daf"
   license "GPL-3.0-or-later"
   head "https://github.com/djcb/mu.git", branch: "master"
 
@@ -18,12 +18,13 @@ class Mu < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "bd21f7afbcdbbf99cea1b4b448fc18061af53cf6905fd5dc1607ed46ef253811"
-    sha256 cellar: :any, arm64_sonoma:  "9fedabf1413897ab7c5d00c6c4fe86a7f2ad463db8232ec700eaed827ea32df9"
-    sha256 cellar: :any, arm64_ventura: "99bd6352ebf8244bc10bd79268faa622026db5c9915e87bd5598343b84110b8c"
-    sha256 cellar: :any, sonoma:        "876264ceac69288357d99a9e79e8207a24e75220af2e3437e9d75987ca5ec3ac"
-    sha256 cellar: :any, ventura:       "5a423d8cc16836297af967d12f09ab74da31091409bb93f62f0c3a7f16d4214d"
-    sha256               x86_64_linux:  "9ddb8fceff83dd45696bb55158caec1678820ae038d6a25a97cdf1dd7424e6f5"
+    sha256 cellar: :any, arm64_sequoia: "e49a9a1faec9d09e51fd82bd1428f536bab37ae41446c469b0db4f153c49cdf5"
+    sha256 cellar: :any, arm64_sonoma:  "444bfab5ed4d65febfd676d59e00b8de3b6b58418c1de8f5f6497a2869473d21"
+    sha256 cellar: :any, arm64_ventura: "ccc8d27a9f9303f1a276a63de329f09d51f6a5b6c8f401c101f416472909092b"
+    sha256 cellar: :any, sonoma:        "0bd5ed64c5018490820f6e665e42cced0b6a1c4f4b00aa97f355baf31b422185"
+    sha256 cellar: :any, ventura:       "28239f6e4b080a37103b0449219db681c1fb2c77adbeabbf751f7b36411fa9e6"
+    sha256               arm64_linux:   "691b2119acd7c04413b29a07de72c046e19dfa24b66f74b6a62e1f75edee4a9d"
+    sha256               x86_64_linux:  "de514ad234daf1ff4026f6cf26efd26b90dabb8f08a679124b9949ece069cb2f"
   end
 
   depends_on "emacs" => :build

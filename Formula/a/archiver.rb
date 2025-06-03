@@ -20,6 +20,8 @@ class Archiver < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "461a212b25cc90af84996b43067bbd096cf343bbe04a39b4aa40d10cb235e238"
   end
 
+  deprecate! date: "2025-04-27", because: :repo_archived
+
   depends_on "go" => :build
 
   def install
@@ -37,7 +39,7 @@ class Archiver < Formula
     system bin/"arc", "archive", "test.zip",
            "test1", "test2", "test3"
 
-    assert_predicate testpath/"test.zip", :exist?
+    assert_path_exists testpath/"test.zip"
     assert_match "Zip archive data",
                  shell_output("file -b #{testpath}/test.zip")
 

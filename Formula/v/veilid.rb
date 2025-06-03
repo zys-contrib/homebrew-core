@@ -1,18 +1,19 @@
 class Veilid < Formula
   desc "Peer-to-peer network for easily sharing various kinds of data"
   homepage "https://veilid.com/"
-  url "https://gitlab.com/veilid/veilid/-/archive/v0.4.1/veilid-v0.4.1.tar.bz2"
-  sha256 "f7b3871fca4ffc032ed131721386d7c0a619cd9775a3e26666f9f5bbc9acc4ce"
+  url "https://gitlab.com/veilid/veilid/-/archive/v0.4.6/veilid-v0.4.6.tar.bz2"
+  sha256 "bb1f7f2e0360860d37f5744c909b135890ae876862cd8c01db1b138debbbdd83"
   license "MPL-2.0"
   head "https://gitlab.com/veilid/veilid.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f4735b64b4f9c8046ad27bb172bcab0cc59e193da526743cb448b9c252eb2d15"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "93f2185a1412cb3a4a80655551200a58f005d9628f6d46f01ec2113efe6575e6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0e099f7dcb706845b9b1e668c4d62e37d317052b866b4acb808746236339d06b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "edd98681cbac350cd7f9b9978d4b0149530c917870bf39fabddf0e1ffcc7514c"
-    sha256 cellar: :any_skip_relocation, ventura:       "a26be37482264472296714d9c0f2d6294c78a0fe8bd176b4d548ecb59bfb1362"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "410e7b357cc11816a0339e78b1772d83b66be297909141fbe02abdc04ce5d899"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e209b9c1b7b0b07db54429e05d94412f439f75831fb3c229c442fd5979c4433a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d80e22029053fd1dfaaf5c724ed22322a7a3b3cb38c7f0483418ac69246429e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cd12ce3289797749e329333463657b9bd3df67cb1bb7da30236378ceb21101b2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b03dce08deab12500a080f1abf3c4d0e76dcba45b8e5eec255eb721fbf657b43"
+    sha256 cellar: :any_skip_relocation, ventura:       "8461c72e64a1ccab0996a88cae5dc3b55a1dfbb920582c571e8e8f0e5ecc76c3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4d01721bfe5eb57ffb8fc01447e737773d77dc6424ffad336ea65fa3b5e4edcd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35d30c4cc18b0fef161b437c8c77019a23cebf901971204390a32533f4ac74e2"
   end
 
   depends_on "cmake" => :build

@@ -1,8 +1,8 @@
 class Mbedtls < Formula
   desc "Cryptographic & SSL/TLS library"
   homepage "https://tls.mbed.org/"
-  url "https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-3.6.2/mbedtls-3.6.2.tar.bz2"
-  sha256 "8b54fb9bcf4d5a7078028e0520acddefb7900b3e66fec7f7175bb5b7d85ccdca"
+  url "https://github.com/Mbed-TLS/mbedtls/releases/download/v3.6.3.1/mbedtls-3.6.3.1.tar.bz2"
+  sha256 "243ed496d5f88a5b3791021be2800aac821b9a4cc16e7134aa413c58b4c20e0c"
   license "Apache-2.0"
   head "https://github.com/Mbed-TLS/mbedtls.git", branch: "development"
 
@@ -13,12 +13,13 @@ class Mbedtls < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "451fa9222bdfef8a77fc116ed9d4c7d060e39e07f7f71a12cacb7747f077f38f"
-    sha256 cellar: :any,                 arm64_sonoma:  "57cc0f45f4fb406f0b4e28b21c3f9694c9867f6ef469086803e97519b4008d08"
-    sha256 cellar: :any,                 arm64_ventura: "7b09a07c271d4ea1f91d084e95118793d1ea9cc54d49124b975786ebe43ad820"
-    sha256 cellar: :any,                 sonoma:        "ce7b2b5556e35cb94435e318e93d4878d36d3ef78d271aba6fa1cdb842d44d1f"
-    sha256 cellar: :any,                 ventura:       "696fabe2b3da431fe4852751ef036a790cb4ea4d27f3c5bf22a397dece28c0f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0591255d3f83ef14d18eadf4383876d2826cdd913477e4dba7f7539a11155ce1"
+    sha256 cellar: :any,                 arm64_sequoia: "955569c801c16788823d7ec5bdf0b714f102a441fdcebb8ce1ff298be9e9db03"
+    sha256 cellar: :any,                 arm64_sonoma:  "dc2afa1e238c1d4b6fe7d6ad4a3a6d1f3a0a482c14db98ccca1f3a7678885e6c"
+    sha256 cellar: :any,                 arm64_ventura: "f38f21dd538c3cb363069bb5d43e6d44ace47001d454779d39d57020a8502d82"
+    sha256 cellar: :any,                 sonoma:        "89609c7efd08458940996172f6ea99fefbfad4f58d077154f88e8f435a3af04d"
+    sha256 cellar: :any,                 ventura:       "4bded975092a689f6d9d140ac667479f21b43be609456b19b99e466ab8c36df0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "be6abfb1e54fb3560e84a331d060ae48652381d081d6773735080183d4974a49"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0cacb8597a11ff32804b981c95ac43147d0e141cb50080784628cd5760dfcc57"
   end
 
   depends_on "cmake" => :build

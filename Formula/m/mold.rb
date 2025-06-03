@@ -1,18 +1,27 @@
 class Mold < Formula
   desc "Modern Linker"
   homepage "https://github.com/rui314/mold"
-  url "https://github.com/rui314/mold/archive/refs/tags/v2.36.0.tar.gz"
-  sha256 "3f57fe75535500ecce7a80fa1ba33675830b7d7deb1e5ee9a737e2bc43cdb1c7"
+  url "https://github.com/rui314/mold/archive/refs/tags/v2.40.0.tar.gz"
+  sha256 "ee93ef0868cd54d1f30dfba1070dbacf04c1a35428bbea307a4b9242a883ad20"
   license "MIT"
   head "https://github.com/rui314/mold.git", branch: "main"
 
+  # There can be a notable gap between when a version is tagged and a
+  # corresponding release is created, so we check the "latest" release instead
+  # of the Git tags.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2c242a765890cc9a7a1806b1c4730f1ad89d8d18f9ab82881b24e16b6d641ebf"
-    sha256 cellar: :any,                 arm64_sonoma:  "d1a2f6af8f141288a548f8aa567abf10a76da1cc3cc3610452005fc2ac236662"
-    sha256 cellar: :any,                 arm64_ventura: "fc50abf568516ff9a4253c4651ea98c0c3fe293e222ea328d40533e7926743db"
-    sha256 cellar: :any,                 sonoma:        "bc95ea9a4f7855f5a522ec7327ccfe85b70881c2fee5847086ad52ebaadbb2e7"
-    sha256 cellar: :any,                 ventura:       "90fa1a16a6297a8cc1f1aa868f008bea859cd61fdd2d59f2bc7504eb1e7bc3b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "575316d2b12e2bae5a7708e37674a82b468d57123f09a1e2ae9e73a9a3da3353"
+    sha256 cellar: :any,                 arm64_sequoia: "6a3b7de9bbbfb364a531a64be2832a97129435985c6dede2f315eab17e5951ce"
+    sha256 cellar: :any,                 arm64_sonoma:  "a651e31a2f57f6064a86070467e4db12fecb379106d4bf5d0f297a788295bcc7"
+    sha256 cellar: :any,                 arm64_ventura: "bf6d2d220e4773eaf8b3e9cfeadae57145dda34462c9a10dbe2f1bda7cd3b01f"
+    sha256 cellar: :any,                 sonoma:        "ef35ce5f2a6a069ad4b37794241c305bf6d17bb2918b5ad1c59dd68aebe31868"
+    sha256 cellar: :any,                 ventura:       "de59aa1cfb6098e23df1cc96e3d62550b39d1a0ffd1ae3c558c82198fa5c1368"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b750229fe4364318e4a7ba0db1fc60089b7df5fcdec75cf97974f8ed86c90f48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4edd2600bf10982548f59bf8073afecf049daa14d74c074fedc3ca06516355fc"
   end
 
   depends_on "cmake" => :build
@@ -65,7 +74,6 @@ class Mold < Formula
   def caveats
     <<~EOS
       Support for Mach-O targets has been removed.
-      See https://github.com/bluewhalesystems/sold for macOS/iOS support.
     EOS
   end
 

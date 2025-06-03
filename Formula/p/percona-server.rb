@@ -4,10 +4,13 @@ class PerconaServer < Formula
   url "https://downloads.percona.com/downloads/Percona-Server-8.4/Percona-Server-8.4.3-3/source/tarball/percona-server-8.4.3-3.tar.gz"
   sha256 "dfb5b46fccd8284ad3a09054f9a62d0a6423a2b703b6fb86d186cec09cee660a"
   license "BSD-3-Clause"
+  revision 3
 
   livecheck do
-    url "https://docs.percona.com/percona-server/#{version.major_minor}/"
-    regex(/href=.*?v?(\d+(?:[.-]\d+)+)\.html/i)
+    url "https://www.percona.com/products-api.php", post_form: {
+      version: "Percona-Server-#{version.major_minor}",
+    }
+    regex(/value=["']?[^"' >]*?v?(\d+(?:[.-]\d+)+)[|"' >]/i)
     strategy :page_match do |page, regex|
       page.scan(regex).map do |match|
         # Convert a version like 1.2.3-4.0 to 1.2.3-4 (but leave a version like
@@ -18,24 +21,25 @@ class PerconaServer < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "178d82b3db05a5a7b18d56b3543ca414f8cd39ef81686d3f0b5a22ac6dfa6a7c"
-    sha256 arm64_sonoma:  "102326c938c21077c25a4ccb0e5a86498383d7df20c6ead4511074db8d1ab3a3"
-    sha256 arm64_ventura: "23ca1f5ec39d9c376940923114c2507dfd9d21a294d813f8166944662706902d"
-    sha256 sonoma:        "83f27ea31aec5bfa2135b5cbe052aab9980e0d5aa3466e5f5ecec6f9bfc2e6a4"
-    sha256 ventura:       "bbdc26a2ae63bbaa76f643f28b093db94c60317bf6fa94b961c763959253be6d"
-    sha256 x86_64_linux:  "4c36de24fb32225376a5d306a4c5ef76fe5f0cda206b88aea17552d3901fcafa"
+    sha256 arm64_sequoia: "667692148bc552e299c087fe201d5b3c2433853d83d319f788e12c890d920563"
+    sha256 arm64_sonoma:  "aef3e0bec890a7011a100df94c56d672f0b05c408f45691c3cb65615c67e1937"
+    sha256 arm64_ventura: "7737f1363d22039a2128e182d972582b70d7c7f9857b6b9ae499a41a8b211291"
+    sha256 sonoma:        "5834d901d5a515e4c87d7ca1202039e59d5ce4a305cef02975b32d2ab04d7104"
+    sha256 ventura:       "bdafc8bba5adc53febfa71285d0afd280c5dc2d5d4cea6b02010d201bcca5edf"
+    sha256 arm64_linux:   "051f0ebc2f4ec908ea0303b61153be100ab92e68767951368eeea48f978a13eb"
+    sha256 x86_64_linux:  "ba6a6a6afb166a0de797496fd1cea7ff7114b5a6b594b06f61bb2ac5ff8c79ef"
   end
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "abseil"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "libfido2"
   depends_on "lz4"
   depends_on "openldap" # Needs `ldap_set_urllist_proc`, not provided by LDAP.framework
   depends_on "openssl@3"
-  depends_on "protobuf"
+  depends_on "protobuf@29"
   depends_on "zlib" # Zlib 1.2.13+
   depends_on "zstd"
 
@@ -61,6 +65,13 @@ class PerconaServer < Formula
   fails_with :gcc do
     version "9"
     cause "Requires GCC 10 or newer"
+  end
+
+  # Backport fix for CMake 4.0
+  patch do
+    url "https://github.com/Percona-Lab/coredumper/commit/715fa9da1d7958e39d69e9b959c7a23fec8650ab.patch?full_index=1"
+    sha256 "632a6aff4091d9cbe010ed600eeb548ae7762ac7e822113f9c93e3fef9aafb4f"
+    directory "extra/coredumper"
   end
 
   # Patch out check for Homebrew `boost`.
@@ -118,9 +129,10 @@ class PerconaServer < Formula
       -DWITH_ZSTD=system
       -DWITH_UNIT_TESTS=OFF
       -DROCKSDB_BUILD_ARCH=#{ENV.effective_arch}
+      -DALLOW_NO_ARMV81A_CRYPTO=ON
+      -DALLOW_NO_SSE42=ON
     ]
     args << "-DROCKSDB_DISABLE_AVX2=ON" if build.bottle?
-    args << "-DALLOW_NO_SSE42=ON" if Hardware::CPU.intel? && (!OS.mac? || !MacOS.version.requires_sse42?)
     args << "-DWITH_KERBEROS=system" unless OS.mac?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

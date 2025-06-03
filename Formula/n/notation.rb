@@ -1,18 +1,18 @@
 class Notation < Formula
   desc "CLI tool to sign and verify OCI artifacts and container images"
   homepage "https://notaryproject.dev/"
-  url "https://github.com/notaryproject/notation/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "ed3f59b96470de1d53da64283a0b81000e3d3193f1b8c80f764834d8124a697c"
+  url "https://github.com/notaryproject/notation/archive/refs/tags/v1.3.2.tar.gz"
+  sha256 "f7239ca8155329b57f80e5fb01bf189441b3ade572ad9d6fc4582c1475b8e840"
   license "Apache-2.0"
   head "https://github.com/notaryproject/notation.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "93c93fda8136ff9f88209e2ccc520e4557edad0d5006f6c70d2e7da4b26f27bf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "93c93fda8136ff9f88209e2ccc520e4557edad0d5006f6c70d2e7da4b26f27bf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "93c93fda8136ff9f88209e2ccc520e4557edad0d5006f6c70d2e7da4b26f27bf"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5bc38bf0a9afe139774c69c796856069c5474bd22b687b5d82bf48300babe7d9"
-    sha256 cellar: :any_skip_relocation, ventura:       "5bc38bf0a9afe139774c69c796856069c5474bd22b687b5d82bf48300babe7d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "051c86bc0519f990ade4cdc6c8b60ee5110bffffc19dac693552e80c9f419884"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b4bdb5bb2c42513ae6b08e6fc8da7b11a7e7caf9693d24375f296a9b5fa28386"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b4bdb5bb2c42513ae6b08e6fc8da7b11a7e7caf9693d24375f296a9b5fa28386"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b4bdb5bb2c42513ae6b08e6fc8da7b11a7e7caf9693d24375f296a9b5fa28386"
+    sha256 cellar: :any_skip_relocation, sonoma:        "da080867497c76b99f1499f3394e0dff732029f3c946e46a3a24e670b7ca3e35"
+    sha256 cellar: :any_skip_relocation, ventura:       "da080867497c76b99f1499f3394e0dff732029f3c946e46a3a24e670b7ca3e35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31bd008ba39c788f55adee11eed08cc7da11ef52f052818d000d6b22f3bc1c9a"
   end
 
   depends_on "go" => :build
@@ -23,7 +23,7 @@ class Notation < Formula
       -s -w
       -X #{project}/internal/version.Version=v#{version}
       -X #{project}/internal/version.GitCommit=
-      -X #{project}/internal/version.BuildMetadata=Homebrew
+      -X #{project}/internal/version.BuildMetadata=#{tap.user}
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/notation"
 

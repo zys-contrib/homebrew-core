@@ -1,8 +1,8 @@
 class SpirvTools < Formula
   desc "API and commands for processing SPIR-V modules"
   homepage "https://github.com/KhronosGroup/SPIRV-Tools"
-  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/refs/tags/vulkan-sdk-1.4.304.0.tar.gz"
-  sha256 "ad6e8922538c498e7131bcd82a8d6d9f9863b8d7431c5bfa27dd98e26435be07"
+  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/refs/tags/vulkan-sdk-1.4.313.0.tar.gz"
+  sha256 "6b60f723345ceed5291cceebbcfacf7fea9361a69332261fa08ae57e2a562005"
   license "Apache-2.0"
   version_scheme 1
   head "https://github.com/KhronosGroup/SPIRV-Tools.git", branch: "main"
@@ -13,12 +13,13 @@ class SpirvTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "36d7465828c3835c3ab957726a85b1f79e7e876d26fac5a66032e4c3cc6697ad"
-    sha256 cellar: :any,                 arm64_sonoma:  "c9804b1806f7c0b5a09f7d62f462429ee09d5b1219bf2da56d6ae7c26b438252"
-    sha256 cellar: :any,                 arm64_ventura: "a817b536d023e78af94f9a82f72e9f1ec41dcccda23f620cc720446181a2fe10"
-    sha256 cellar: :any,                 sonoma:        "46409fde53dd1dc9a6905c38f10fe99d02ef0fe4f549accc293811a1ce90a519"
-    sha256 cellar: :any,                 ventura:       "5c2c4f586b3b13dbbc56d194e8cd62790306d78ac943cde34e80d4d301716160"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "efff53f539568f70854f458fa5578d211322e987d8fcb5a04741ab3abbf2909d"
+    sha256 cellar: :any,                 arm64_sequoia: "526f0b2be7bbd832d10573e1504944562ca8bd0ab19ac5c6fc5fcfdf0192ed65"
+    sha256 cellar: :any,                 arm64_sonoma:  "0d90a066a6f63a137cac4c38c8fe51f76a00f9ef2dfc00b92c06fc2aa11c1fa1"
+    sha256 cellar: :any,                 arm64_ventura: "1d294b9fc1c423c9ad997ae94e25c7190a4e82a465cd3031ae282973619284b1"
+    sha256 cellar: :any,                 sonoma:        "9794747ef0fd5434ba74f445d5af1198fec7b8214c7a793a904c414ead9862ab"
+    sha256 cellar: :any,                 ventura:       "4617fd500944d9e90b85ddc05344e9ba8b74122b0a4b8eb73005de8f79ee6824"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a04290d072ea9b93fd08f71a982aac88449c20b6ab226d574c6a4a33bd5e4a18"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3536edf22844dc6dfe7da464204f439302842544a8e5375497abd2a256c89d3"
   end
 
   depends_on "cmake" => :build
@@ -28,7 +29,7 @@ class SpirvTools < Formula
   resource "spirv-headers" do
     # revision number could be found as `spirv_headers_revision` in `./DEPS`
     url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        revision: "3f17b2af6784bfa2c5aa5dbb8e0e74a607dd8b3b"
+        revision: "aa6cef192b8e693916eb713e7a9ccadf06062ceb"
   end
 
   def install

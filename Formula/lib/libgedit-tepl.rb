@@ -1,18 +1,19 @@
 class LibgeditTepl < Formula
   desc "Gedit Technology - Text editor product line"
   homepage "https://gitlab.gnome.org/World/gedit/libgedit-tepl"
-  url "https://gitlab.gnome.org/World/gedit/libgedit-tepl/-/archive/6.12.0/libgedit-tepl-6.12.0.tar.bz2"
-  sha256 "2170a6db99803b08fe7437bd8382ed2938baf4f5838349ba90dee1308a7dc08d"
+  url "https://gitlab.gnome.org/World/gedit/libgedit-tepl/-/archive/6.13.0/libgedit-tepl-6.13.0.tar.bz2"
+  sha256 "5d738ca56ae31facba0d88b0a2e406b2507a3dc95f75bfb9f509ff4b2a9d20d3"
   license "LGPL-2.1-or-later"
   head "https://gitlab.gnome.org/World/gedit/libgedit-tepl.git", branch: "main"
 
   bottle do
-    sha256 arm64_sequoia: "3bd2190b0dc85fa95f6f54efb237fae81c8f8b85c536d963c8d908921be66982"
-    sha256 arm64_sonoma:  "b274c179ab02621eaa256e26e6fcb41ccfa8eb0802ff02fbc4d28be925d7fa30"
-    sha256 arm64_ventura: "9c072da54b10399e2419a09f0a77c379ad078b99cb3bc469b4b436d82cd5140e"
-    sha256 sonoma:        "5adc56a4593f5a01a32579662820fe48d5304beae43071c72c93d33131ecfb7c"
-    sha256 ventura:       "df23620dda9571a0de98491dd967fd3e7b70a506df45037f2e9804a78c344918"
-    sha256 x86_64_linux:  "ad6912a898e0df486baf1927c24db4092293a826f951c38724435d0340ea458e"
+    sha256 arm64_sequoia: "836b139117cb325933282df854052d538ed5ba692b72c2aeaf87c2eeee468d8c"
+    sha256 arm64_sonoma:  "c68c763cd2bbb1f8181553a806f475ca363738443a22bc51b633e8a7c5b8297e"
+    sha256 arm64_ventura: "2159d88ea0072656253b7681c6a7e2bc5e59a62d8b6c55056b7cb14e4822293a"
+    sha256 sonoma:        "2f853ef6c68bb210ac53ce6af23236e1b9d4de9c78c4ef4de8c96b1dc8c6e64b"
+    sha256 ventura:       "5d4eecf87f2f780a100a28671d6da96f7af351c7233c9fd80993ed55e8243c37"
+    sha256 arm64_linux:   "8849a4a7d619fe4fccca378574dbab76b15ae430ff78b98863af8b672d85f6b4"
+    sha256 x86_64_linux:  "4600b539d283d30a8d6a96a74606cffc5ead3212da92e049bb9a391330cbb9ec"
   end
 
   depends_on "gettext" => :build
@@ -23,7 +24,7 @@ class LibgeditTepl < Formula
   depends_on "cairo"
   depends_on "glib"
   depends_on "gtk+3"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "libgedit-amtk"
   depends_on "libgedit-gfls"
   depends_on "libgedit-gtksourceview"

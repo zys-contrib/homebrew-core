@@ -1,17 +1,27 @@
 class MinioWarp < Formula
   desc "S3 benchmarking tool"
   homepage "https://github.com/minio/warp"
-  url "https://github.com/minio/warp/archive/refs/tags/v1.0.8.tar.gz"
-  sha256 "38227c37d1f5618c10e03dfbae8a460983da2678de363674b418155e5278b105"
   license "AGPL-3.0-or-later"
+  head "https://github.com/minio/warp.git", branch: "master"
+
+  stable do
+    url "https://github.com/minio/warp/archive/refs/tags/v1.1.4.tar.gz"
+    sha256 "1a8055bd4a8fc2e9bee6b93ebf3f0fa5dbbc560c8f9f53832ee885c88566fef5"
+
+    # go.sum update
+    patch do
+      url "https://github.com/minio/warp/commit/c830e94367efce6e6d70c337d490a3b6eba5e558.patch?full_index=1"
+      sha256 "69d59f334cb60fd0d8aaf6426c27a1a995cad494e49024187673baba3bf35ec6"
+    end
+  end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2c09cd2c409ce619d91b03e5cb1a77f2af67ac92d420c1c97dd6fe90be09aa37"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fbabb1553fee56501262164cc3d5afe1dbc9e407f170e9da5c55f94e3746bd34"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d9e26a27a81b95185a98b5a73bad22346c879b5ba16b135879431974f00bcf2b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f0bf9cb2bbfd40519620285cd3a18548e4e4a959ab46dbba1c1d0621a872c640"
-    sha256 cellar: :any_skip_relocation, ventura:       "5300787a6659beab98a696d97531c32b9986f94697b9f6147e99108bec67a3fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b1e716599788a9765cb7c3afb46978ddba259f1b1918a433755d7b5c23a5dd2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5f96a3959319137654f59cf95f39b802f4294e903b496f1bb818f55a248fedaa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ad0cc0c54056c3e1a65140276c1a4859222e6866a75343bbf062a0575c50332c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "34275103e3292958edc850991c4b0fa4cb575366cc4f6077b0fc20676f8224c0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8812e75d4f70ae276dcafb3c5e5ce2cfc458b9ad8be9948bad9225ae6abe3231"
+    sha256 cellar: :any_skip_relocation, ventura:       "e51bcfc2fde33bd43e3e9293eb22cec1a3176a3e797487bb1bb654b61210225e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd0deb74bdb394b6f27aa152a0da6eac1ebccaf345233fc5dcf2423910301b82"
   end
 
   depends_on "go" => :build
@@ -30,7 +40,7 @@ class MinioWarp < Formula
 
   test do
     output = shell_output("#{bin}/warp list --no-color 2>&1", 1)
-    assert_match "warp: Preparing server", output
+    assert_match "warp: <ERROR> Error preparing server", output
 
     assert_match version.to_s, shell_output("#{bin}/warp --version")
   end

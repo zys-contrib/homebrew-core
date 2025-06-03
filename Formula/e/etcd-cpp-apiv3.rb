@@ -4,15 +4,16 @@ class EtcdCppApiv3 < Formula
   url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/archive/refs/tags/v0.15.4.tar.gz"
   sha256 "4516ecfa420826088c187efd42dad249367ca94ea6cdfc24e3030c3cf47af7b4"
   license "BSD-3-Clause"
-  revision 23
+  revision 26
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1b75a379c34271e10aa1c66a93e9e43564705bd0f466082c2421eab34d4875ef"
-    sha256 cellar: :any,                 arm64_sonoma:  "2cc4b487d922af2975285f95c72f0f0b6f03f78e9c71ebc0d28df29483d93d26"
-    sha256 cellar: :any,                 arm64_ventura: "b40c36e27f404b45779295b2dec763549d4f88df8c66e68d1e1ac4754064baf9"
-    sha256 cellar: :any,                 sonoma:        "331317ceab9d9715a74e989cb193e3676abd0b643a56384a2e5c26d46f683948"
-    sha256 cellar: :any,                 ventura:       "78da8b94ad86f56b17d566fac989dda9bd0921197fada28489fdcf2556e9becc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "293bda3d1d31363ad8e48e82bfe30e843d77922f36fdd381204f7e6026b05205"
+    sha256 cellar: :any,                 arm64_sequoia: "4dd23f170f12ad42d169695374f924b936cc6cc9449176a895203e6876a1c726"
+    sha256 cellar: :any,                 arm64_sonoma:  "54c0103a1dc76f246a285130f4e2ada7a9213c90cb64077a6c984f7a0cc41b0c"
+    sha256 cellar: :any,                 arm64_ventura: "462d4581862855be71d685d83af2f296f7a012b14c63074bd722230391c0114b"
+    sha256 cellar: :any,                 sonoma:        "d9725ae06d814b43ee37795c9a51918d179cbfb5661fa99a4e0167b2362e25ea"
+    sha256 cellar: :any,                 ventura:       "2bc04fca1a499846d501f4c32e3410952105abfb5bfd0f96950ef0e78d028fa3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0c24deb1cb6462b8a42a8c96eae65d4864985efab9ff56bc9b2eb614c79837f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7dbefaed16e5429bdc6ac50a2d611a59f8354d9f1fbbe9b9f8696a8b2fd2b809"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -33,10 +34,25 @@ class EtcdCppApiv3 < Formula
     sha256 "f3686647436045a9a53b05f81fae02d5a5a2025d5ce78a66aca0ade85c1a99c6"
   end
 
+  # Backport cluster manager api needed for newer `vineyard`
+  patch do
+    url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/commit/17d7b60194e5b6d9005bb10947905a393f432624.patch?full_index=1"
+    sha256 "b0d1bce10cf2f03124af744f2a184162b6b555b09d162b8633ed8ab9b613f8f8"
+  end
+  patch do
+    url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/commit/3ad17314d6e8c26beb88501f8e74e506ccaf26b8.patch?full_index=1"
+    sha256 "52dd6132b03c4c1210bb1c0b8a32ff952f84b198d612903c10a53b7a4f5ce2b9"
+  end
+  patch do
+    url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/commit/ea56cee80f441973a0149b57604e7a7874c61b65.patch?full_index=1"
+    sha256 "bce8ef02bc56f2ac430d580191217ff78210cc6e261d29c7031a22e65cd05693"
+  end
+
   def install
     system "cmake", "-S", ".", "-B", "build",
                     "-DCMAKE_CXX_STANDARD=17",
                     "-DCMAKE_CXX_STANDARD_REQUIRED=TRUE",
+                    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
                     "-DBUILD_ETCD_TESTS=OFF",
                     "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
                     *std_cmake_args
@@ -60,7 +76,7 @@ class EtcdCppApiv3 < Formula
     CPP
 
     (testpath/"CMakeLists.txt").write <<~CMAKE
-      cmake_minimum_required(VERSION 3.5)
+      cmake_minimum_required(VERSION 4.0)
       set(CMAKE_CXX_STANDARD 17)
       project(test LANGUAGES CXX)
       find_package(protobuf CONFIG REQUIRED)
@@ -69,7 +85,6 @@ class EtcdCppApiv3 < Formula
       target_link_libraries(test_etcd_cpp_apiv3 PRIVATE etcd-cpp-api)
     CMAKE
 
-    ENV.append_path "CMAKE_PREFIX_PATH", Formula["boost@1.85"].opt_prefix
     ENV.delete "CPATH"
 
     args = %W[

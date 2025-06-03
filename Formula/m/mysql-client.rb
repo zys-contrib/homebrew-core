@@ -1,8 +1,10 @@
 class MysqlClient < Formula
   desc "Open source relational database management system"
-  homepage "https://dev.mysql.com/doc/refman/9.2/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-9.2/mysql-9.2.0.tar.gz"
-  sha256 "a39d11fdf6cf8d1b03b708d537a9132de4b99a9eb4d610293937f0687cd37a12"
+  # FIXME: Actual homepage fails audit due to Homebrew's user-agent
+  # homepage "https://dev.mysql.com/doc/refman/9.3/en/"
+  homepage "https://github.com/mysql/mysql-server"
+  url "https://cdn.mysql.com/Downloads/MySQL-9.3/mysql-9.3.0.tar.gz"
+  sha256 "1a3ee236f1daac5ef897c6325c9b0e0aae486389be1b8001deb3ff77ce682d60"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -10,12 +12,14 @@ class MysqlClient < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "d7cbacfd9a72ce4175cca92f698bf6d5b0ad876cfe7ad56583da4eb47e711fb8"
-    sha256 arm64_sonoma:  "3518276d4ee3de355b13536159cd12e08806310533dd1f0b0ec0283e8a115b23"
-    sha256 arm64_ventura: "bf42757730352f5e72a9e82aa9f03d57e4489b246c56a26a6eb98a4f374e7ddd"
-    sha256 sonoma:        "d84203856589cfde7c8a240ea663f5867604312857b32c4a012f4f118bd46b68"
-    sha256 ventura:       "4f6d8d1fd35cef9713e9aaa04c363397db6d0956d28a29d0edc3440633ac7daa"
-    sha256 x86_64_linux:  "e701db03a28393941bfe883ad5a7c5f324285cffb16ad19a14a19da669ef54c3"
+    rebuild 1
+    sha256 arm64_sequoia: "975fd82ddc975521c79adc5b8d91c8fe739e2d4b4f2f7716bb52dfaad32cd8cb"
+    sha256 arm64_sonoma:  "b0f29c9fbf56dd9f36ba0518e6a08fcedd7cf39884a2828a34e3c1b69cf5ac5d"
+    sha256 arm64_ventura: "20d77f2b858872d0fdfdddc552d0f0c513bdc4e939bfe43eea57a6b47fb7070d"
+    sha256 sonoma:        "418c9c100877a4dae7dd49b6e78c1aafb0db23bcddbf94e522e39a78c8130398"
+    sha256 ventura:       "3529c333d6cc9ca4925f0297a4ed70cf5d41bbcdb3d45dfee4a81bd16b56a8e7"
+    sha256 arm64_linux:   "b7cb2de7878be31f6896f08617393a83d836620192ad20649361c101a48b591f"
+    sha256 x86_64_linux:  "b19afb43de7e7a05235af8abbabec78a12fddac8278079d449cda6824683205e"
   end
 
   keg_only "it conflicts with mysql (which contains client libraries)"
@@ -23,7 +27,6 @@ class MysqlClient < Formula
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "libevent"
   depends_on "libfido2"
   # GCC is not supported either, so exclude for El Capitan.
   depends_on macos: :sierra if DevelopmentTools.clang_build_version < 900
@@ -33,11 +36,14 @@ class MysqlClient < Formula
 
   uses_from_macos "libedit"
 
-  # std::string_view is not fully compatible with the libc++ shipped
-  # with ventura, so we need to use the LLVM libc++ instead.
   on_ventura :or_older do
-    depends_on "llvm@18"
-    fails_with :clang
+    depends_on "llvm" => :build
+    fails_with :clang do
+      cause <<~EOS
+        std::string_view is not fully compatible with the libc++ shipped
+        with ventura, so we need to use the LLVM libc++ instead.
+      EOS
+    end
   end
 
   on_linux do
@@ -55,25 +61,20 @@ class MysqlClient < Formula
       # Disable ABI checking
       inreplace "cmake/abi_check.cmake", "RUN_ABI_CHECK 1", "RUN_ABI_CHECK 0"
     elsif MacOS.version <= :ventura
-      ENV["CC"] = Formula["llvm@18"].opt_bin/"clang"
-      ENV["CXX"] = Formula["llvm@18"].opt_bin/"clang++"
+      ENV.llvm_clang
     end
+
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
-      -DFORCE_INSOURCE_BUILD=1
       -DCOMPILATION_COMMENT=Homebrew
-      -DDEFAULT_CHARSET=utf8mb4
-      -DDEFAULT_COLLATION=utf8mb4_general_ci
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INCLUDEDIR=include/mysql
       -DINSTALL_INFODIR=share/info
       -DINSTALL_MANDIR=share/man
       -DINSTALL_MYSQLSHAREDIR=share/mysql
       -DWITH_AUTHENTICATION_CLIENT_PLUGINS=yes
-      -DWITH_BOOST=boost
       -DWITH_EDITLINE=system
       -DWITH_FIDO=system
-      -DWITH_LIBEVENT=system
       -DWITH_ZLIB=system
       -DWITH_ZSTD=system
       -DWITH_SSL=yes

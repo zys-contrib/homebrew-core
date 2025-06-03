@@ -11,9 +11,11 @@ class Espflash < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cae222d3a510e1fd99493fc84bc30a7a883913d214dde264c5597f50e0c75d3a"
     sha256 cellar: :any_skip_relocation, sonoma:        "c6504173907b67fc7247bfda8c0bace89f37a1852d540cfd264cab8c391a08ce"
     sha256 cellar: :any_skip_relocation, ventura:       "558ac26ed5f9655a64e6eeecd8a207aa14c0a2cccdb31b341be1a6d5e33eee80"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "042f5da2c9430440c0b144341933160ee4e4d322b6a154051edc3619a5337025"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "50eff44ba9819e9af58b258224a56270d72773c2f445b070ec1b1ecd69310092"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   on_macos do
@@ -21,7 +23,6 @@ class Espflash < Formula
   end
 
   on_linux do
-    depends_on "pkgconf" => :build
     depends_on "systemd" # for libudev
   end
 

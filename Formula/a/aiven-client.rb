@@ -3,21 +3,21 @@ class AivenClient < Formula
 
   desc "Official command-line client for Aiven"
   homepage "https://aiven.io/docs/tools/cli"
-  url "https://files.pythonhosted.org/packages/e1/2e/74c3b1cfcb4f444af4fe23214663d10972a5c8137f28278b6f8f1f498417/aiven_client-4.5.1.tar.gz"
-  sha256 "bcced1c0682a59dc6648aef9ddaaa8e4564fed539ea072efef994c4db311e71d"
+  url "https://files.pythonhosted.org/packages/13/88/3e30de140ad09232e53f03a32feccdcb77f5df56a3412f28eb460e0612c0/aiven_client-4.7.2.tar.gz"
+  sha256 "78e8ea1a93c29e29b9aae77669d700aa3fe05c1c02d699c7c3b86d8f63bd6ec3"
   license "Apache-2.0"
   head "https://github.com/aiven/aiven-client.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "dad3ddcaff32cb602598c5569f1069b434cb95c820d7e73083867582e1688961"
+    sha256 cellar: :any_skip_relocation, all: "d8ddfad37c86b3568d5b0e58e499a1a5776b593dca83cd171142aa68b85c95c9"
   end
 
   depends_on "certifi"
   depends_on "python@3.13"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
-    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
+    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
+    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
   end
 
   resource "idna" do
@@ -36,8 +36,8 @@ class AivenClient < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
-    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
+    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
+    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
   end
 
   def install

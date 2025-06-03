@@ -1,19 +1,19 @@
 class Btop < Formula
   desc "Resource monitor. C++ version and continuation of bashtop and bpytop"
   homepage "https://github.com/aristocratos/btop"
-  url "https://github.com/aristocratos/btop/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "ac0d2371bf69d5136de7e9470c6fb286cbee2e16b4c7a6d2cd48a14796e86650"
+  url "https://github.com/aristocratos/btop/archive/refs/tags/v1.4.3.tar.gz"
+  sha256 "81b133e59699a7fd89c5c54806e16452232f6452be9c14b3a634122e3ebed592"
   license "Apache-2.0"
   head "https://github.com/aristocratos/btop.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dc8485b6b568348d6d5baad6b8683f7d4524c1c5128c2f4525d99c57d458c2bf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aed5321614a38bd8dd92b3a81cb171645baf433cb5710b805956b0e0ea9c1e4e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0cfedfe5bab4746a667e6012323dd1e4457d00880cd9a60778d0a5aac0f2f70f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "60cea9a8675c4fee4b3c69f5c6da46715e34ae5347f0b9a44edd82fd9758139f"
-    sha256 cellar: :any_skip_relocation, ventura:       "caea296cb2d48dee3aefe6038a41a54fb6c1761dca20bd874a1f8dd83ef23663"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3bf71bc7a9e5ceab6fda7308ea326590a21dd7690d966830483f55c8dc9db8c5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "489cced3f7450b6cea1f2261a91ecfbdf1bac5d34345a048493eb3dddeacc851"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b96231c24642d19ff74812f602d6bc01c968feb68bd02cdd5e2989ef757fd0c0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f915571ec57b88e6cf019b23f29bddb8dbe4826cfac1f5497936bbca0d1d4b15"
+    sha256 cellar: :any_skip_relocation, sonoma:        "807770d8ad61da28c1383494f66c464d003d3cf78cb0cc0caa84d34c5b384582"
+    sha256 cellar: :any_skip_relocation, ventura:       "9c59b21f9b75682d4643d9d3feddc7c0d3e22f64bbca95ffa350520242246e1d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1affce02155f1b2919633db263d0e3e4934148a514c7bcece6c1289da20d2a23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97214938f020732369eb717dd8f967519d2131903f3cc10dd0041e6d1c0e1773"
   end
 
   depends_on "lowdown" => :build
@@ -64,7 +64,7 @@ class Btop < Formula
         log_level=DEBUG
       EOS
 
-      r, w, pid = PTY.spawn(bin/"btop")
+      r, w, pid = PTY.spawn(bin/"btop", "--force-utf")
       r.winsize = [80, 130]
       sleep 5
       w.write "q"
@@ -72,7 +72,7 @@ class Btop < Formula
       # Apple silicon raises EIO
     end
 
-    log = (config/"btop.log").read
+    log = (testpath/".local/state/btop.log").read
     # SMC is not available in VMs.
     log = log.lines.grep_v(/ERROR:.* SMC /).join if Hardware::CPU.virtualized?
     assert_match "===> btop++ v.#{version}", log

@@ -1,16 +1,18 @@
 class Solr < Formula
   desc "Enterprise search platform from the Apache Lucene project"
   homepage "https://solr.apache.org/"
-  url "https://dlcdn.apache.org/solr/solr/9.8.0/solr-9.8.0.tgz"
-  mirror "https://archive.apache.org/dist/solr/solr/9.8.0/solr-9.8.0.tgz"
-  sha256 "9948dcf798c196b834c4cbb420d1ea5995479431669d266c33d46548b67e69e1"
+  url "https://dlcdn.apache.org/solr/solr/9.8.1/solr-9.8.1.tgz"
+  mirror "https://archive.apache.org/dist/solr/solr/9.8.1/solr-9.8.1.tgz"
+  sha256 "a789110131bc8cb71b0233d528e4fa5ffa566bab05bc72f280a8cc9275bd9e3e"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3e72be3a0207005b22a718bef417d0bb1740cc8961f8763c02da6425783b6b14"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "1b1b9d9f35f77d275fa2686314998b9a97036b69ecd18fa2e562da1c317150d7"
   end
 
-  depends_on "openjdk"
+  # Can be updated after https://github.com/apache/solr/pull/3153
+  depends_on "openjdk@21"
 
   def install
     pkgshare.install "bin/solr.in.sh"

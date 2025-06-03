@@ -3,25 +3,26 @@ require "json"
 class Webpack < Formula
   desc "Bundler for JavaScript and friends"
   homepage "https://webpack.js.org/"
-  url "https://registry.npmjs.org/webpack/-/webpack-5.97.1.tgz"
-  sha256 "5ac150425eeac3e36d45321024bb365d86c313f64c32f623c7845fb48bff371a"
+  url "https://registry.npmjs.org/webpack/-/webpack-5.99.9.tgz"
+  sha256 "2382f23c1e85641b38cc9d374ca3a50d8c396a51925dfca5f0e747a35f356675"
   license "MIT"
   head "https://github.com/webpack/webpack.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fef7f88f6a85f7eca96812323bdde668f47cc034dde43dfb19c4ae7685c3e71f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fef7f88f6a85f7eca96812323bdde668f47cc034dde43dfb19c4ae7685c3e71f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fef7f88f6a85f7eca96812323bdde668f47cc034dde43dfb19c4ae7685c3e71f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c415d82cebba541e02205b0716efcb044d3dbad39d9df1370805ced0c92056ca"
-    sha256 cellar: :any_skip_relocation, ventura:       "c415d82cebba541e02205b0716efcb044d3dbad39d9df1370805ced0c92056ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fef7f88f6a85f7eca96812323bdde668f47cc034dde43dfb19c4ae7685c3e71f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "07657efb363021560696bc20f052f629c2135fee7f7d528dc3f9f48ff034f4cc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "07657efb363021560696bc20f052f629c2135fee7f7d528dc3f9f48ff034f4cc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "07657efb363021560696bc20f052f629c2135fee7f7d528dc3f9f48ff034f4cc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "06f3bd933cafb18ee7e02eac3d4288b9a3b6dcc82d0e30067c2279a9a21ecc74"
+    sha256 cellar: :any_skip_relocation, ventura:       "06f3bd933cafb18ee7e02eac3d4288b9a3b6dcc82d0e30067c2279a9a21ecc74"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "07657efb363021560696bc20f052f629c2135fee7f7d528dc3f9f48ff034f4cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07657efb363021560696bc20f052f629c2135fee7f7d528dc3f9f48ff034f4cc"
   end
 
   depends_on "node"
 
   resource "webpack-cli" do
-    url "https://registry.npmjs.org/webpack-cli/-/webpack-cli-5.1.4.tgz"
-    sha256 "0d5484af2d1547607f8cac9133431cc175c702ea9bffdf6eb446cc1f492da2ac"
+    url "https://registry.npmjs.org/webpack-cli/-/webpack-cli-6.0.1.tgz"
+    sha256 "f407788079854b0d48fb750da496c59cf00762dce3731520a4b375a377dec183"
   end
 
   def install
@@ -29,7 +30,7 @@ class Webpack < Formula
     buildpath.install resource("webpack-cli")
 
     cd buildpath/"node_modules/webpack" do
-      system "npm", "install", *std_npm_args(prefix: false), "--legacy-peer-deps"
+      system "npm", "install", *std_npm_args(prefix: false), "--force"
     end
 
     # declare webpack as a bundledDependency of webpack-cli
@@ -40,7 +41,7 @@ class Webpack < Formula
 
     system "npm", "install", *std_npm_args
 
-    bin.install_symlink libexec/"bin/webpack-cli"
+    bin.install_symlink libexec.glob("bin/*")
     bin.install_symlink libexec/"bin/webpack-cli" => "webpack"
   end
 
@@ -48,14 +49,14 @@ class Webpack < Formula
     (testpath/"index.js").write <<~JS
       function component() {
         const element = document.createElement('div');
-        element.innerHTML = 'Hello' + ' ' + 'webpack';
+        element.innerHTML = 'Hello webpack';
         return element;
       }
 
       document.body.appendChild(component());
     JS
 
-    system bin/"webpack", "bundle", "--mode", "production", "--entry", testpath/"index.js"
-    assert_match "const e=document.createElement(\"div\");", File.read(testpath/"dist/main.js")
+    system bin/"webpack", "bundle", "--mode=production", testpath/"index.js"
+    assert_match 'const e=document.createElement("div");', (testpath/"dist/main.js").read
   end
 end

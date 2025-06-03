@@ -1,17 +1,18 @@
 class Spacer < Formula
   desc "Small command-line utility for adding spacers to command output"
   homepage "https://github.com/samwho/spacer"
-  url "https://github.com/samwho/spacer/archive/refs/tags/v0.3.1.tar.gz"
-  sha256 "65c14dde2e90827c8b91353824cece614e1e645657ee3200eafa13165f27a3da"
+  url "https://github.com/samwho/spacer/archive/refs/tags/v0.3.9.tar.gz"
+  sha256 "5bbb11699b59f81f74236e1b68ae090dbce5344cda9e386c117747f87d12dd78"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c788e3391fe8dd06b5a6f9cf80819d2fe273aa582562d38dea99bc5ba1736ba1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f9446270b0bed14747c41b85a257fe6ddbf04ef4b8cecf04f56e7a22d8ea720f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "03afc1903f2a05f2b01857e66ab3577f9c1f8dd8a6f915f27670fd928007fe76"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b7fbeb2d5cb59acbb8686dc0bee23948df426a75f82d5844f3cda320a6de7da6"
-    sha256 cellar: :any_skip_relocation, ventura:       "0cc6076dccf36226e875aeff6d1adbed3f52eee43100ad2d1a388def333ed41d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dba9b36ef4b0e1c2b1ba5df6e540e95ea81174644e401205826e96a4a9e38546"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7f9dace2501bdfe433a11173f816898310a005ec63888827fb15866792d188e1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "70b178e65ccd32753ab22859b9a25d965b954e90104ae65a38a1794acaac131f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "38577cf8851f5975d5d7d91896128c47c6fb9498d7886fdfabd7dfae63f88798"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d4f664ad17ce98093fdefe6464a590982f6e5b1adfce2d05a4b0f65bda8b9808"
+    sha256 cellar: :any_skip_relocation, ventura:       "2d325b69609ebe1d06fd8e508d2df50497b8af3119efe9928697661c887fa518"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a689fb76c74d4a6c8f04f69b6beb599e7216bb998e9d88f916f0ebe0a34d36ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "06c0f5a4eb4b8ba31609c37ff87c3e089c4524dbd5cb718c475b461994cae6b5"
   end
 
   depends_on "rust" => :build

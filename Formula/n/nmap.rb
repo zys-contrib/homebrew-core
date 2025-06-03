@@ -1,24 +1,24 @@
 class Nmap < Formula
   desc "Port scanning utility for large networks"
   homepage "https://nmap.org/"
-  url "https://nmap.org/dist/nmap-7.95.tar.bz2"
-  sha256 "e14ab530e47b5afd88f1c8a2bac7f89cd8fe6b478e22d255c5b9bddb7a1c5778"
+  url "https://nmap.org/dist/nmap-7.97.tar.bz2"
+  sha256 "af98f27925c670c257dd96a9ddf2724e06cb79b2fd1e0d08c9206316be1645c0"
   license :cannot_represent
-  revision 1
   head "https://svn.nmap.org/nmap/"
 
   livecheck do
-    url "https://nmap.org/dist/"
+    url "https://nmap.org/download"
     regex(/href=.*?nmap[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 arm64_sequoia: "61a83d0390628d2667adca2335d9093a2f6d11a9501f40ed81c56fef82577ad4"
-    sha256 arm64_sonoma:  "b941d7bcbce3fa7461e4f3a94bc3d1946c7247cb1d82920a9ad786ac5dc067d2"
-    sha256 arm64_ventura: "12d9ac8855eff87666c8cc692a7e9613d7a2080621743f63e35a45bd72568b44"
-    sha256 sonoma:        "dfff65ad50c56d3dcfce4b68ebad5f23fb3b6483607e73670b2dff61a0c9ee02"
-    sha256 ventura:       "068b0bcd068851948112d96628e786e81e7e7845c470e07b26b20e05aa6cc1cd"
-    sha256 x86_64_linux:  "e38545d94571c213618d438533e315ef0dda379bcac8fb903dc172af8fc0067b"
+    sha256 arm64_sequoia: "3248afca88a66d1c05d45184e3ad392d621d0840f7e8cd4414fd9f3dbbc1269b"
+    sha256 arm64_sonoma:  "7016aa0e4002533b53fba111768bc68213f3ea657addb03322a84b0dab9c7808"
+    sha256 arm64_ventura: "a65b39e2ab437dce905172ef2d4a76d163d642b480b64517294ee870cea89e9a"
+    sha256 sonoma:        "5bb32d46f1eb4d1e6dbe2660e5f0638effa1b71c88afb94bf245cda37cd12008"
+    sha256 ventura:       "2a903ba2f7c273438c76f983d0ef047b9777372e29f4323f8fc1891e8873b3bc"
+    sha256 arm64_linux:   "679376aa9188cb49e1b789871c84341ed312c66ab3491be3a1aad245a7357070"
+    sha256 x86_64_linux:  "55ff270118c5f7228041f2b8adc141ed004e860400e1f6980e9ed5b08814bca1"
   end
 
   depends_on "liblinear"
@@ -34,8 +34,14 @@ class Nmap < Formula
   uses_from_macos "zlib"
 
   conflicts_with "cern-ndiff", "ndiff", because: "both install `ndiff` binaries"
+  conflicts_with "nping", because: "both install `nping` binaries"
+  conflicts_with cask: "zenmap", because: "both install `nmap` binaries"
 
   def install
+    # Fix to missing VERSION file
+    # https://github.com/nmap/nmap/pull/3111
+    mv "libpcap/VERSION.txt", "libpcap/VERSION"
+
     ENV.deparallelize
 
     libpcap_path = if OS.mac?
@@ -52,6 +58,7 @@ class Nmap < Formula
       --without-nmap-update
       --disable-universal
       --without-zenmap
+      --without-ndiff
     ]
 
     system "./configure", *args, *std_configure_args
@@ -59,12 +66,6 @@ class Nmap < Formula
     system "make", "install"
 
     bin.glob("uninstall_*").map(&:unlink) # Users should use brew uninstall.
-    return unless (bin/"ndiff").exist? # Needs Python
-
-    # We can't use `rewrite_shebang` here because `detected_python_shebang` only works
-    # for shebangs that start with `/usr/bin`, but the shebang we want to replace
-    # might start with `/Applications` (for the `python3` inside Xcode.app).
-    inreplace bin/"ndiff", %r{\A#!.*/python(\d+(\.\d+)?)?$}, "#!/usr/bin/env python3"
   end
 
   def caveats

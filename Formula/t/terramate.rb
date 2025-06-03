@@ -1,21 +1,23 @@
 class Terramate < Formula
   desc "Managing Terraform stacks with change detections and code generations"
-  homepage "https://terramate.io/docs/cli/"
-  url "https://github.com/terramate-io/terramate/archive/refs/tags/v0.11.8.tar.gz"
-  sha256 "4f14db63677de54059410c6ae3d3e911e0bb4f54eb5e1a183729af09c125c73a"
+  homepage "https://terramate.io/docs/"
+  url "https://github.com/terramate-io/terramate/archive/refs/tags/v0.13.2.tar.gz"
+  sha256 "2604def6adadff105137781d5f3d6d020fc9bc9ade44a51669fbad145a08b0a8"
   license "MPL-2.0"
   head "https://github.com/terramate-io/terramate.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "84754c76c076eef36c167fe8ef8da4e2bbf9e8391e1930c66124471b8064ecc6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "84754c76c076eef36c167fe8ef8da4e2bbf9e8391e1930c66124471b8064ecc6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "84754c76c076eef36c167fe8ef8da4e2bbf9e8391e1930c66124471b8064ecc6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "eff6b2f6dd798d3b14ef8bc0aac018ddc0c7a1089025a236a993b33e0a973e81"
-    sha256 cellar: :any_skip_relocation, ventura:       "eff6b2f6dd798d3b14ef8bc0aac018ddc0c7a1089025a236a993b33e0a973e81"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5528d91d44bd85b48ef42dcb094f8c9db6ff084f8ed638779d23ee096abc1b57"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dacc88bd71513a0f8ce638afdfd76809bef47d8f1054e60e05d3285ad25caa9d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dacc88bd71513a0f8ce638afdfd76809bef47d8f1054e60e05d3285ad25caa9d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "dacc88bd71513a0f8ce638afdfd76809bef47d8f1054e60e05d3285ad25caa9d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "81322d1101c815c322887dec2efc1f7da5cf088aeb823d9d651e3aabe8eb8cc2"
+    sha256 cellar: :any_skip_relocation, ventura:       "81322d1101c815c322887dec2efc1f7da5cf088aeb823d9d651e3aabe8eb8cc2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf56b95d7a813175189c93afc70288a3541b9b2d968e49e4ef26a5684ecb949c"
   end
 
   depends_on "go" => :build
+
+  conflicts_with "tenv", because: "both install terramate binary"
 
   def install
     system "go", "build", *std_go_args(output: bin/"terramate", ldflags: "-s -w"), "./cmd/terramate"

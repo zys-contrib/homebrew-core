@@ -1,18 +1,19 @@
 class Stencil < Formula
   desc "Modern living-template engine for evolving repositories"
   homepage "https://stencil.rgst.io"
-  url "https://github.com/rgst-io/stencil/archive/refs/tags/v2.0.1.tar.gz"
-  sha256 "3a281bca9d895e8b1945e441f3671dacdbc8651bb02685e52019ac0333b0f374"
+  url "https://github.com/rgst-io/stencil/archive/refs/tags/v2.5.1.tar.gz"
+  sha256 "36ec742a7a7c98c2db102aa7b15c5ac681277c7464c2963e9a8f5605da521c46"
   license "Apache-2.0"
   head "https://github.com/rgst-io/stencil.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7aafaa0c5f36fd0e520f53dc690e1ad9dec81ac482096f1959451e4008632feb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a3c16040bfad1cde26531373eae1f172c7685b218919ac76c923fc4c26a15b8f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "18620d3518406d2ba2663f63f0b59e6c0a1eff790a05f8b39f48bc08cb4354e8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c7f9e6b901190997497e7d9166687f06906946c5b9ef1465eb454ef8f06b08b6"
-    sha256 cellar: :any_skip_relocation, ventura:       "8bf00aeac4a32ebd441b88cf7d706612cffd2ea778f1f6b933bba12b786e8673"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c0e47e164119b7b6392a97d14b666b906fca96cc4f9f6d6c9cc5e40a6584053a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c6bcbaaa6ebda6e158c47936eb984ff45c224d718361cefe58239bc61d5c0bde"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d208cfc10eb3a5ce140116312841731067fe817a52e25bcb76e214ab34da38d1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "97ce230be1fc83263a3291ff2b1b4aecfdd783eb32012750504cdad7e6721b7b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "13b22ae590c1e03cb32a248f127aaa85ed31221f3494d55348f50ce0123f642b"
+    sha256 cellar: :any_skip_relocation, ventura:       "544801d751b70cd1366e04e6f4dfad6ecc70a4d67a61b8cc9fbf20826e0a86d9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c04dbfd3e1ea6083fcf68c814aa265112d5cf6e6c6ea154abfd3c2a51d5e916"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78996907ab18277e5a0481d14291a50bf02ca0eb8a9117c636e53733b1d43629"
   end
 
   depends_on "go" => :build
@@ -21,7 +22,7 @@ class Stencil < Formula
     ldflags = %W[
       -s -w
       -X go.rgst.io/stencil/v2/internal/version.version=#{version}
-      -X go.rgst.io/stencil/v2/internal/version.builtBy=homebrew
+      -X go.rgst.io/stencil/v2/internal/version.builtBy=#{tap.user}
     ]
 
     system "go", "build", *std_go_args(ldflags:), "./cmd/stencil"
@@ -30,6 +31,6 @@ class Stencil < Formula
   test do
     (testpath/"service.yaml").write "name: test"
     system bin/"stencil"
-    assert_predicate testpath/"stencil.lock", :exist?
+    assert_path_exists testpath/"stencil.lock"
   end
 end

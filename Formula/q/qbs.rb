@@ -1,8 +1,8 @@
 class Qbs < Formula
   desc "Build tool for developing projects across multiple platforms"
   homepage "https://wiki.qt.io/Qbs"
-  url "https://download.qt.io/official_releases/qbs/2.5.0/qbs-src-2.5.0.tar.gz"
-  sha256 "1801afd4f1fafc3015bd93a60da3896bf211ab4a328cddefde3cd16bafd5a6eb"
+  url "https://download.qt.io/official_releases/qbs/2.6.1/qbs-src-2.6.1.tar.gz"
+  sha256 "9f7f1a1f7daaa4a39fe3604f1851d0e520b576ee7750a7f97bf9401bcb849f2d"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only"] },
     { any_of: ["LGPL-3.0-only", "LGPL-2.1-only" => { with: "Qt-LGPL-exception-1.1" }] },
@@ -16,11 +16,11 @@ class Qbs < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "5fb9a815d1e001831db5ff60098f0ff661f4b71f3e975acb08dcf59d3726dc55"
-    sha256 cellar: :any,                 arm64_ventura: "ab77553e4154463eb7c06ed42c18e4fcf59d12685722143128fb0e7e336bb5f9"
-    sha256 cellar: :any,                 sonoma:        "2bf04cb0a924019586cdde2c5cfe5de73b41269dfb6db62277857894b10d7fbd"
-    sha256 cellar: :any,                 ventura:       "1e0df2143512ec1c0604181b69692edd458e146587e48485eaaa33a458a46aaa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "781a640cada110eb658a14edbc58cd1cfe8bfc7344ce884fce87ea7d12252673"
+    sha256 cellar: :any,                 arm64_sonoma:  "546b89eedb0a9c77b99492f62dd202076d820a57791c5c0838ad05c240a6b409"
+    sha256 cellar: :any,                 arm64_ventura: "0064fe9dc16510cd84ff7da779c309296a45b904698231cd0e11309f7aff6f40"
+    sha256 cellar: :any,                 sonoma:        "0c1f18f7ef4ecbf92980c755820a9e6007e559f11ab7d0c4bc8848ca185da3ec"
+    sha256 cellar: :any,                 ventura:       "a8768d4dc02f5b323d1f3525c6d8f52772217cd47c288b9863248041bd9218d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9223cde738c5a7094813cf1aca6538dd9cd00ff20557f86acef4a46cc3b9f022"
   end
 
   depends_on "cmake" => :build

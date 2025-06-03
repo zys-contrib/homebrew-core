@@ -1,9 +1,8 @@
 class Stolon < Formula
   desc "Cloud native PostgreSQL manager for high availability"
   homepage "https://github.com/sorintlab/stolon"
-  url "https://github.com/sorintlab/stolon.git",
-      tag:      "v0.17.0",
-      revision: "dc942da234caf016a69df599d0bb455c0716f5b6"
+  url "https://github.com/sorintlab/stolon/archive/refs/tags/v0.17.0.tar.gz"
+  sha256 "dad967378e7d0c5ee1df53a543e4f377af2c4fea37e59f3d518d67274cff5b34"
   license "Apache-2.0"
   revision 1
 
@@ -38,19 +37,7 @@ class Stolon < Formula
     end
   end
 
-  def port_open?(ip_address, port, seconds = 1)
-    Timeout.timeout(seconds) do
-      TCPSocket.new(ip_address, port).close
-    end
-    true
-  rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH, Timeout::Error
-    false
-  end
-
   test do
-    require "socket"
-    require "timeout"
-
     endpoint = "http://127.0.0.1:2379"
     pid = spawn "etcd", "--advertise-client-urls", endpoint, "--listen-client-urls", endpoint
 

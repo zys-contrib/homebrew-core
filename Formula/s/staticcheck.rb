@@ -1,19 +1,19 @@
 class Staticcheck < Formula
   desc "State of the art linter for the Go programming language"
-  homepage "https://staticcheck.io/"
-  url "https://github.com/dominikh/go-tools/archive/refs/tags/2024.1.1.tar.gz"
-  sha256 "fa0e5305e91ef126ac7de52c99a04728255fc694d45b0a9a3f1ca026a44828bf"
+  homepage "https://staticcheck.dev/"
+  url "https://github.com/dominikh/go-tools/archive/refs/tags/2025.1.1.tar.gz"
+  sha256 "259aaf528e4d98e7d3652e283e8551cfdb98cd033a7c01003cd377c2444dd6de"
   license "MIT"
-  revision 4
+  revision 2
   head "https://github.com/dominikh/go-tools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3a154301acb8a3fe0b3851a8a6bfed2eb808972a831e1aacb90e12db1659d797"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3a154301acb8a3fe0b3851a8a6bfed2eb808972a831e1aacb90e12db1659d797"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3a154301acb8a3fe0b3851a8a6bfed2eb808972a831e1aacb90e12db1659d797"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bc5ce99ae6a04d01df3ba93e4f22901a7490ec0454467d670891da88f8156ee5"
-    sha256 cellar: :any_skip_relocation, ventura:       "bc5ce99ae6a04d01df3ba93e4f22901a7490ec0454467d670891da88f8156ee5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ffbecfd6893abb420c8c5c74773ab7e0829a39b0b6f642609f3f0f9bd08ac7a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fa358b34210b2a62d257ebe2e788f197cd55656c18acf72c8f783208ef7353aa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fa358b34210b2a62d257ebe2e788f197cd55656c18acf72c8f783208ef7353aa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "fa358b34210b2a62d257ebe2e788f197cd55656c18acf72c8f783208ef7353aa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c22f781e614f17c4836a4a3df8a2744fb764a2bc49efa3530e01d8f46ba87453"
+    sha256 cellar: :any_skip_relocation, ventura:       "c22f781e614f17c4836a4a3df8a2744fb764a2bc49efa3530e01d8f46ba87453"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fcd84b6cdd36306e9403869f94850b25b5a05561fe2740dbba895115ad06974a"
   end
 
   depends_on "go"

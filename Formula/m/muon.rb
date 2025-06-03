@@ -1,19 +1,20 @@
 class Muon < Formula
   desc "Meson-compatible build system"
   homepage "https://muon.build"
-  url "https://git.sr.ht/~lattis/muon/archive/0.3.1.tar.gz"
-  sha256 "14b175b29c4390a69c1d9b5758b4689f0456c749822476af67511f007be2e503"
+  url "https://git.sr.ht/~lattis/muon/archive/0.4.0.tar.gz"
+  sha256 "c2ce8302e886b2d3534ec38896a824dc83f43698d085d57bb19a751611d94e86"
   license "GPL-3.0-only"
+  revision 1
   head "https://git.sr.ht/~lattis/muon", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_sequoia: "5e336a491680267b43243f20cdbcfe57fd1332409035bb03659c58918986a77d"
-    sha256 cellar: :any, arm64_sonoma:  "c2768a449afbd15b502243c3119b6208da3c49b40c1aebaffdf8ef618f9df703"
-    sha256 cellar: :any, arm64_ventura: "ed8593dca5cdbb2a62925ec881dcd89aaf7693663638b63db132e58ddcd13ae0"
-    sha256 cellar: :any, sonoma:        "4fa0ea6e0be923f3ec8f87831cd82de214fbf2f418860a5b2566fa97a77c9553"
-    sha256 cellar: :any, ventura:       "ca0c576169d567306e7c01d366714484af0035cab22150dcf09eb1d2837cce2f"
-    sha256               x86_64_linux:  "000291c5f9b9c0cd5e91f02d9dc6cf9fc3ff0216198587ed814c298241e4be76"
+    sha256 cellar: :any, arm64_sequoia: "c6f0a6432a429272a8dfe0fc8c463ff95cbed4059fcc49c0b2d83e0437e72ba3"
+    sha256 cellar: :any, arm64_sonoma:  "edb4791c7f8790b96b4361e3a4886ad654b977a90f52fb9632b5e4af622e1e34"
+    sha256 cellar: :any, arm64_ventura: "328b33b0c04a614dbc4b5ec87b842530dc75b92ab729d4e0bd79b4922ea4e04f"
+    sha256 cellar: :any, sonoma:        "9f5a94990f9ba7dad39a19b227ab8a43c1e1957a82cd49eff60a33d9015b3d0d"
+    sha256 cellar: :any, ventura:       "1093a8dc08368070464f5c182b80df1196b6e4a04f70978072ae9f66f5297c99"
+    sha256               arm64_linux:   "59e9b0a588a9beb8c1f5f5b953c368f0a5073e5a61884af80325b9b22a566f05"
+    sha256               x86_64_linux:  "e9f55dec1f94791d47db778e7ae1288523f02ec2b3bf676976e678e8915d4aa1"
   end
 
   depends_on "meson" => :build
@@ -53,7 +54,7 @@ class Muon < Formula
     MESON
 
     system bin/"muon", "setup", "build"
-    assert_predicate testpath/"build/build.ninja", :exist?
+    assert_path_exists testpath/"build/build.ninja"
 
     system "ninja", "-C", "build", "--verbose"
     assert_equal "hi", shell_output("build/hello").chomp

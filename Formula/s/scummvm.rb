@@ -1,8 +1,8 @@
 class Scummvm < Formula
   desc "Graphic adventure game interpreter"
   homepage "https://www.scummvm.org/"
-  url "https://downloads.scummvm.org/frs/scummvm/2.9.0/scummvm-2.9.0.tar.xz"
-  sha256 "d5b33532bd70d247f09127719c670b4b935810f53ebb6b7b6eafacaa5da99452"
+  url "https://downloads.scummvm.org/frs/scummvm/2.9.1/scummvm-2.9.1.tar.xz"
+  sha256 "6a82f36afa9de758ab1dd377101a26a53f12417cbfd350bb8e5d7fd5b8c257e3"
   license "GPL-3.0-or-later"
   head "https://github.com/scummvm/scummvm.git", branch: "master"
 
@@ -12,12 +12,13 @@ class Scummvm < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "fd386b790796cd93212f0a48afa615a96f38dab6f8100b9a106d7b162daa575e"
-    sha256 arm64_sonoma:  "b5d4e2c4810e5891a7e4cf6a81a393cefb136ad120542995d5f05ea28c9f7e46"
-    sha256 arm64_ventura: "11a8e89fafed34c094e689e1b93457afd24a56416fe49f3e6eb085dfb40bebe0"
-    sha256 sonoma:        "6043f6417fbbfd4b12b4412804ad9e11ccc1874eb9a846a182aa182f9cf3d30d"
-    sha256 ventura:       "7972f1c506a5241495960fcbc77d366567a7d0f66ecd0b01ebbc351a2e9d5851"
+    sha256 arm64_sequoia: "ab8474a65c3527d55e6ce9fe648b3b882c4a21e07e212a56e31458d6c52f5e3b"
+    sha256 arm64_sonoma:  "ccc56d8a5e804484beda52790e6caf022326c08fc7bbc8213ba123f7adacae40"
+    sha256 arm64_ventura: "aa89c7c11339ef53dba8adcba16397234b251f56572312bc8134b8a8128d83b0"
+    sha256 sonoma:        "53a02155697992a98142a5a47fcb14a77b65f08266b2fbe76636237d558fa8c0"
+    sha256 ventura:       "e5b2a610f0684c5f2fb72f33f848674a0c5182b225061f030625467d485a9926"
+    sha256 arm64_linux:   "fea57115c7c0b57b4d2265c1ff5648ad7f5d5db56530f48aa19413e2153579d7"
+    sha256 x86_64_linux:  "2d2a98f4ee32de3e3537ee2515372bcb8de7e1d9f9f24af3d8443922da92fd1b"
   end
 
   depends_on "a52dec"
@@ -35,11 +36,14 @@ class Scummvm < Formula
   depends_on "libvorbis"
   depends_on "libvpx"
   depends_on "mad"
-  depends_on "musepack"
   depends_on "sdl2"
   depends_on "theora"
 
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "musepack"
+  end
 
   on_linux do
     depends_on "alsa-lib"

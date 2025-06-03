@@ -1,18 +1,20 @@
 class GnuTypist < Formula
   desc "GNU typing tutor"
   homepage "https://www.gnu.org/software/gtypist/"
-  url "https://ftp.gnu.org/gnu/gtypist/gtypist-2.10.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gtypist/gtypist-2.10.tar.xz"
-  sha256 "f1e79cd95742c84c6d035f6d8f393a2a1be0e00b1c016a22462df16d6667562c"
+  url "https://ftp.gnu.org/gnu/gtypist/gtypist-2.10.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gtypist/gtypist-2.10.1.tar.xz"
+  sha256 "ca618054e91f1ed5ef043fcc43500bbad701c959c31844d4688ff22849ac252d"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sequoia: "44219201728a17e0edb4b75bc4092271dac244b8f1465b2e672ce1aed25f3dca"
-    sha256 arm64_sonoma:  "23980151c2b8e59ebd60349a5e40cac0ce0bae1797f50014ed116c901a3a43c2"
-    sha256 arm64_ventura: "259a69f9a71052547624f9df553d4b0e4e3d96490b40d55f4cc88f00028dd175"
-    sha256 sonoma:        "69910310fc08971d9e9381e49bb621f4c263084096f37ed979f67aa5b913db11"
-    sha256 ventura:       "f6157fa38bdc20c64fd6127689963537da49f588a0007dc359f4371c498b0c3c"
-    sha256 x86_64_linux:  "35ac3380d721aae2bd956a1d5dc935491c61eebda265d3f051ce74b591522223"
+    rebuild 1
+    sha256 arm64_sequoia: "15ba375ec67355fe2043282cd1de4a229fd8d29b4857f73e22b05c8d702fe9e2"
+    sha256 arm64_sonoma:  "df74aca9130820bcdbc021116652a23122835e14016003aac9ef0f0d8bdab972"
+    sha256 arm64_ventura: "790643311a056fa38bc014e51107bf0984f25d77506f86e60f3843ac8ee5b3cc"
+    sha256 sonoma:        "7d10079dae92ce4490e710e6fb6ebe12c6d0703ae8d8a0f31b48c4759a8325d4"
+    sha256 ventura:       "7cc31cf6f3f5cd325c69d8b61fe0a75e0f1fd0ab0be47649ca06423a14fed6cf"
+    sha256 arm64_linux:   "879de43a7a494a24e1eb6f732b6dadb1a6c9af1de7911b2872a7322503f6e5dd"
+    sha256 x86_64_linux:  "15b3985018e2cb520b709f0cf8c0b41307c49caf6756255638a1ddc9f37f3ac6"
   end
 
   depends_on "gettext"

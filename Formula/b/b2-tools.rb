@@ -3,17 +3,18 @@ class B2Tools < Formula
 
   desc "B2 Cloud Storage Command-Line Tools"
   homepage "https://github.com/Backblaze/B2_Command_Line_Tool"
-  url "https://files.pythonhosted.org/packages/59/b7/0dbbec4d89ae2fa6744c01e1d6cf1d4151c459e66c3c876025ede5dabe59/b2-4.3.0.tar.gz"
-  sha256 "e4576f5d6417e8b89fe0391022257661ab4d18dc4cea366c16e6baddc673a988"
+  url "https://files.pythonhosted.org/packages/b0/56/7f75c6f64b617f2e4cf71079b21b7fdd440fc90038c8cd367c0b7b5e51ba/b2-4.3.2.tar.gz"
+  sha256 "6c05cfec087c4be88446337689b10f7c61bf164567b1b48dd298f745d053e1e2"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b8b8a38ee4c53eabfbd8501ca0995d1dc8571b5023d637aaa9ce7d148e448db4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b8b8a38ee4c53eabfbd8501ca0995d1dc8571b5023d637aaa9ce7d148e448db4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b8b8a38ee4c53eabfbd8501ca0995d1dc8571b5023d637aaa9ce7d148e448db4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c643304891cb5d10d5676e788a55b47cf43a5df62df97f8b90ef36fd9cba74b8"
-    sha256 cellar: :any_skip_relocation, ventura:       "c643304891cb5d10d5676e788a55b47cf43a5df62df97f8b90ef36fd9cba74b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8069e94efa85df384361b932573729b5213d4dc4ef6773931cda9ba89484cab"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3b9de31799689402a421b419e2e25b49cfbb86c6397661f2fa3e379072f5adbb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3b9de31799689402a421b419e2e25b49cfbb86c6397661f2fa3e379072f5adbb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3b9de31799689402a421b419e2e25b49cfbb86c6397661f2fa3e379072f5adbb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ba1e790a6b2da932e52e28dae95571c3ad74895c34eea62329292b03cc90b05a"
+    sha256 cellar: :any_skip_relocation, ventura:       "ba1e790a6b2da932e52e28dae95571c3ad74895c34eea62329292b03cc90b05a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ae170835b13e87a0a8b32556be68810f3b0564dbae417756744d23a996118963"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae170835b13e87a0a8b32556be68810f3b0564dbae417756744d23a996118963"
   end
 
   depends_on "certifi"
@@ -27,8 +28,8 @@ class B2Tools < Formula
   end
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/0c/be/6c23d80cb966fb8f83fb1ebfb988351ae6b0554d0c3a613ee4531c026597/argcomplete-3.5.3.tar.gz"
-    sha256 "c12bf50eded8aebb298c7b7da7a5ff3ee24dffd9f5281867dfe1424b58c55392"
+    url "https://files.pythonhosted.org/packages/16/0f/861e168fc813c56a78b35f3c30d91c6757d1fd185af1110f1aec784b35d0/argcomplete-3.6.2.tar.gz"
+    sha256 "d0519b1bc867f5f4f4713c41ad0aba73a4a5f007449716b16f385f2166dc6adf"
   end
 
   resource "arrow" do
@@ -37,8 +38,8 @@ class B2Tools < Formula
   end
 
   resource "b2sdk" do
-    url "https://files.pythonhosted.org/packages/82/41/7f57b9246416e51200d9910bc76e20e0001e3cc4a552f557bde44de6fb78/b2sdk-2.7.0.tar.gz"
-    sha256 "efd9a5c59dcddfe626a7860caa7f420ec4b1c50b0ad30972ccebf17392795cf9"
+    url "https://files.pythonhosted.org/packages/7e/22/efb0f884c880c715becc52588dc8ed29578d0aaaa31ac94f3160c972beb7/b2sdk-2.8.1.tar.gz"
+    sha256 "f75d9980259a42915228c3deee475b2b7d5bc252d8c3228a8c3727ad9c68a343"
   end
 
   resource "charset-normalizer" do
@@ -67,8 +68,8 @@ class B2Tools < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/13/fc/128cc9cb8f03208bdbf93d3aa862e16d376844a14f9a0ce5cf4507372de4/platformdirs-4.3.6.tar.gz"
-    sha256 "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"
+    url "https://files.pythonhosted.org/packages/b6/2d/7d512a3913d60623e7eb945c6d1b4f0bddf1d0b7ada5225274c87e5b53d1/platformdirs-4.3.7.tar.gz"
+    sha256 "eb437d586b6a0986388f0d6f74aa0cde27b48d0e3d66843640bfb6bdcdb6e351"
   end
 
   resource "python-dateutil" do
@@ -107,8 +108,8 @@ class B2Tools < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz"
-    sha256 "f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"
+    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
+    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
   end
 
   def install

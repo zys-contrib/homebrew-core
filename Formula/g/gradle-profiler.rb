@@ -1,8 +1,8 @@
 class GradleProfiler < Formula
   desc "Profiling and benchmarking tool for Gradle builds"
   homepage "https://github.com/gradle/gradle-profiler/"
-  url "https://search.maven.org/remotecontent?filepath=org/gradle/profiler/gradle-profiler/0.21.0/gradle-profiler-0.21.0.zip"
-  sha256 "0631e3fdcaa64eef345a55c32a2dbd4cb252b791b1e9457dd7b98790f7e8d0b6"
+  url "https://search.maven.org/remotecontent?filepath=org/gradle/profiler/gradle-profiler/0.22.0/gradle-profiler-0.22.0.zip"
+  sha256 "a269f05861d2682c3b98d050330764200bc322024762295713fab167d133283c"
   license "Apache-2.0"
 
   livecheck do
@@ -12,7 +12,7 @@ class GradleProfiler < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "ee98c908d6a53450edcc507a6492b2ab8ea024ac455ab49c5baca51cc8c327d1"
+    sha256 cellar: :any_skip_relocation, all: "4fdec547a78284921b7ccb437e045ec11fa0d0b16cf4959fbd2ddd8081209498"
   end
 
   depends_on "openjdk"
@@ -27,7 +27,7 @@ class GradleProfiler < Formula
   test do
     (testpath/"settings.gradle").write ""
     (testpath/"build.gradle").write 'println "Hello"'
-    output = shell_output("#{bin}/gradle-profiler --gradle-version 8.11 --profile chrome-trace")
+    output = shell_output("#{bin}/gradle-profiler --gradle-version 8.14 --profile chrome-trace")
     assert_includes output, "* Writing results to"
   end
 end

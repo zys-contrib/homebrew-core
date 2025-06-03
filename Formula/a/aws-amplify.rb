@@ -1,17 +1,18 @@
 class AwsAmplify < Formula
   desc "Build full-stack web and mobile apps in hours. Easy to start, easy to scale"
   homepage "https://aws.amazon.com/amplify/"
-  url "https://registry.npmjs.org/@aws-amplify/cli-internal/-/cli-internal-12.14.1.tgz"
-  sha256 "df63d83a593eb955668d2e019828b02549916e862eab145fa59e0e9aeac557b7"
+  url "https://registry.npmjs.org/@aws-amplify/cli-internal/-/cli-internal-13.0.1.tgz"
+  sha256 "fe7b1b6a7aa426612031a8712a0ae70ab94b24f6072a8866e92c12fe2598cc68"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c4949f7d3af0d80fb711d74642af27516cbd7faf78a420fbdc1639a65b61cf84"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c4949f7d3af0d80fb711d74642af27516cbd7faf78a420fbdc1639a65b61cf84"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c4949f7d3af0d80fb711d74642af27516cbd7faf78a420fbdc1639a65b61cf84"
-    sha256 cellar: :any_skip_relocation, sonoma:        "38a3901a6bc2eb414cde8721b973f05e0fc5c2927afafde0e9419d50e159c2a0"
-    sha256 cellar: :any_skip_relocation, ventura:       "38a3901a6bc2eb414cde8721b973f05e0fc5c2927afafde0e9419d50e159c2a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25e0e00492060234a6a833a34939d7b213da3b5c1230ca8d557afb2255cf27bb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "489dbddaaaa5293c2fc43c1e8f367aec51630d4979f8e9f1557a868a336398dd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "489dbddaaaa5293c2fc43c1e8f367aec51630d4979f8e9f1557a868a336398dd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "489dbddaaaa5293c2fc43c1e8f367aec51630d4979f8e9f1557a868a336398dd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1120ac36e1da8e1521001928f952de2da94dfbf66ea059df558f6be80df9556f"
+    sha256 cellar: :any_skip_relocation, ventura:       "1120ac36e1da8e1521001928f952de2da94dfbf66ea059df558f6be80df9556f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "489dbddaaaa5293c2fc43c1e8f367aec51630d4979f8e9f1557a868a336398dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14ac446d69172e164ece46c26cdf0ea866e0d1c2e57991e4aee0e3157776e4de"
   end
 
   depends_on "node"

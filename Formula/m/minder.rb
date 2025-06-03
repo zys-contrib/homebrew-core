@@ -1,18 +1,18 @@
 class Minder < Formula
   desc "CLI for interacting with Stacklok's Minder platform"
   homepage "https://mindersec.github.io/"
-  url "https://github.com/mindersec/minder/archive/refs/tags/v0.0.82.tar.gz"
-  sha256 "9632095fc9fe470a126b033b17078d7e4c150f3123846f1d563867dfdc4e4bb6"
+  url "https://github.com/mindersec/minder/archive/refs/tags/v0.0.89.tar.gz"
+  sha256 "8cc2ecfd5730d6718d8ffd54b4557aed84f2aa36d524783767345018341c1b84"
   license "Apache-2.0"
   head "https://github.com/mindersec/minder.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6bf59e71e10c4095be8d4f3d2be068202e5317a432b880673a1c4c767972a120"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6bf59e71e10c4095be8d4f3d2be068202e5317a432b880673a1c4c767972a120"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6bf59e71e10c4095be8d4f3d2be068202e5317a432b880673a1c4c767972a120"
-    sha256 cellar: :any_skip_relocation, sonoma:        "db8476113b707ad8cf3cc4fae04b612d53ce72c5dedb284c762b0f2a7adb3a37"
-    sha256 cellar: :any_skip_relocation, ventura:       "09f32c4eb6e1dc9a1588b7c50a3c675871b195bf1916ec56aeb52c0303ef95f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f65807b7544189657dc7e39e39678dda167dfcb34692bf80d3bc320ebdccc96"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1aaf51fbcb5e872ab87fcb71067b8e1499c2a4ea836504be50ff393b42ee8fe8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1aaf51fbcb5e872ab87fcb71067b8e1499c2a4ea836504be50ff393b42ee8fe8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1aaf51fbcb5e872ab87fcb71067b8e1499c2a4ea836504be50ff393b42ee8fe8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a5fe2cbeabb3a3d6840a25d5c91a8d289f98a9b088da2d35c627fa832e614dd6"
+    sha256 cellar: :any_skip_relocation, ventura:       "41c7932e9dd3c308c4c87ae6246e7338f4b09cb2312a0d72e925e5e15599898a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fffc005a4f80bc0ad7392a7e80cf7ecf87d4c1a7a4155cdf6a3c88b09d345d23"
   end
 
   depends_on "go" => :build

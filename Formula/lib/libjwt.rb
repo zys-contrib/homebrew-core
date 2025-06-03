@@ -1,8 +1,8 @@
 class Libjwt < Formula
   desc "JSON Web Token C library"
-  homepage "https://github.com/benmcollins/libjwt"
-  url "https://github.com/benmcollins/libjwt/releases/download/v2.1.1/libjwt-2.1.1.tar.bz2"
-  sha256 "e50e7d88a5a6f04e3dbaffca5218869b7a14a26d8ecc9c791df858a1442a04d7"
+  homepage "https://libjwt.io/"
+  url "https://github.com/benmcollins/libjwt/releases/download/v3.2.1/libjwt-3.2.1.tar.xz"
+  sha256 "b7800a6b085855690b401b41dbdf0bcb49207d5fe43c13abbdc8106c16a9250c"
   license "MPL-2.0"
   head "https://github.com/benmcollins/libjwt.git", branch: "master"
 
@@ -12,26 +12,25 @@ class Libjwt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "daa5896792307e4f7d10abe0d6cc7ddeb73f3d47aa0df00118084bee5bbb99e5"
-    sha256 cellar: :any,                 arm64_sonoma:  "a6d8c2b927ba2a9a2c714a0cad90679740117584a335d09148b27e266da2ad2d"
-    sha256 cellar: :any,                 arm64_ventura: "f1c799be3d920d4ce7733277a44068e149852e4160f01ed12b077443668a482b"
-    sha256 cellar: :any,                 sonoma:        "ea8e79823c9a61dc7c6e9baf5e22751eeac5d88d70f4a32b4d215ea461697128"
-    sha256 cellar: :any,                 ventura:       "abe2f477659a84800560e9e04f1cf75b3a1feedf8b546ce65f0d60c630bd3b6a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "759f89d1e9d8b9ab0fa8fbaada2b5235855d52db35c6106bb4af23d31fb31452"
+    sha256 cellar: :any,                 arm64_sequoia: "2819ec3a3adfc26a3211bad2a92fd63e82288e9eb6f46670d29f95cb2d68fe25"
+    sha256 cellar: :any,                 arm64_sonoma:  "9d00c6b506e1f368e5e3ccf4cf7e6b3971c983d85b8a829a5f70aae20790d879"
+    sha256 cellar: :any,                 arm64_ventura: "a3e9b7bc0361f1f6726ea8863f7fa4f1793f7fcbfab11bd88e66c6e894339d31"
+    sha256 cellar: :any,                 sonoma:        "78d16019a3009299578e2a6cfbe9f09950d534379f37b6e990da35b95d3ac14f"
+    sha256 cellar: :any,                 ventura:       "c87231ba166ec2339d045a88dbd17be3f54a66df254d7e1d67bb9b80d03599a7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "852d7b446652b256221c6cc279838ea377cd1b3d2a2fe706b73577a843320c1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a2f1f5567817e4d996c654b63a80236beedce4c221060d551d184c9780013aa"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "gnutls"
   depends_on "jansson"
   depends_on "openssl@3"
 
   def install
-    system "autoreconf", "--force", "--install", "--verbose" if build.head?
-    system "./configure", "--disable-silent-rules", *std_configure_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", "-DWITH_TESTS=OFF", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -39,9 +38,11 @@ class Libjwt < Formula
       #include <stdlib.h>
       #include <jwt.h>
 
-      int main() {
-        jwt_t *jwt = NULL;
-        if (jwt_new(&jwt) != 0) return 1;
+      int main(void) {
+        jwt_builder_t *builder = jwt_builder_new();
+        char *token = jwt_builder_generate(builder);
+        free(token);
+        jwt_builder_free(builder);
         return 0;
       }
     C

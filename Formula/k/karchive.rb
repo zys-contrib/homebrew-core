@@ -1,8 +1,8 @@
 class Karchive < Formula
   desc "Reading, creating, and manipulating file archives"
   homepage "https://api.kde.org/frameworks/karchive/html/index.html"
-  url "https://download.kde.org/stable/frameworks/6.10/karchive-6.10.0.tar.xz"
-  sha256 "ac5160c19dd110bbdadeba9c5355cbfd3b5c1bd00ce3dbdc4a085776698c8a48"
+  url "https://download.kde.org/stable/frameworks/6.14/karchive-6.14.0.tar.xz"
+  sha256 "2cb2f54cb9f8132daf688a5d4acd7f4bec40203b01551ff06e6da1e9f87f0ef9"
   license all_of: [
     "BSD-2-Clause",
     "LGPL-2.0-only",
@@ -17,17 +17,18 @@ class Karchive < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "cf9010a947aeebdd4755b9f60baaeefcdef0b17023e74be3f8fac01d49abcb1f"
-    sha256 cellar: :any,                 arm64_ventura: "a36d71b78cec67ed38e4f24d4727f2f40b5f1607a145c215f391337f58b2a2c8"
-    sha256 cellar: :any,                 sonoma:        "3e7239bb794e15e2dac11cfd1d745a5b61f9f1547cba5dc0e81dcfae2689c0ef"
-    sha256 cellar: :any,                 ventura:       "bcf3924c71923c865fbcffe075726885b983c56430e05680c15639ead7cf9512"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e37808acc0481eb324c2248a7631cc39e8800b80346e521d2d45460709b019a"
+    sha256 cellar: :any,                 arm64_sonoma:  "0e651267de4d5b6c51562e4ce989ae9b721ef8dbac1fe4168d395a3d16fe4622"
+    sha256 cellar: :any,                 arm64_ventura: "d665606c22c83b6fa3e20cdd68457958e73779acd85047e58b7d6c0614adffb0"
+    sha256 cellar: :any,                 sonoma:        "f57c761c61d43cc49670e32d5e4e1046ca0db4b20130aa5c93a3e98d59dea51d"
+    sha256 cellar: :any,                 ventura:       "ebba0a022d8b60093901ee21fb0a756d49b302064f8a4f02e743034f5e1e15a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1a2d679c1073e15fbe05c9a16d675077b606a39b637775a6f8399725e1e3182"
   end
 
   depends_on "cmake" => [:build, :test]
   depends_on "doxygen" => :build
   depends_on "extra-cmake-modules" => [:build, :test]
   depends_on "pkgconf" => :build
+  depends_on "openssl@3"
   depends_on "qt"
   depends_on "xz"
   depends_on "zstd"

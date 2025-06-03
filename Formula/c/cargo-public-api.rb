@@ -1,18 +1,19 @@
 class CargoPublicApi < Formula
   desc "List and diff the public API of Rust library crates"
   homepage "https://github.com/cargo-public-api/cargo-public-api"
-  url "https://github.com/cargo-public-api/cargo-public-api/archive/refs/tags/v0.43.0.tar.gz"
-  sha256 "eccaf5003bd25180363ccf9a4d01bc392741f427be2d7a1f811f1e2805534324"
+  url "https://github.com/cargo-public-api/cargo-public-api/archive/refs/tags/v0.47.1.tar.gz"
+  sha256 "d91316f162e504f6d23cffc674d2de788299a27407d170c2db734b79c2337323"
   license "MIT"
   head "https://github.com/cargo-public-api/cargo-public-api.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9142f35d99b13b5f29019a2e74d292c790ad3a7fe7069752826b62275a593a21"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bff1d0622ebbeac32d11033708e18ec2f8ff08e57fcfca92b7284b7b6e408f52"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b7b6987dd606de7d62136b02ee6d97528480970113f50a9ac735278e516e7c66"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4e6325b675113f03117f63895c3b96c6f8a7b6dbdbff0ff2ed76341441d9ad3f"
-    sha256 cellar: :any_skip_relocation, ventura:       "55276fede4b82357c7ac7c08867df27bf892173c05ae7e88ef66d6c712262126"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88bcbd2aa87078551c74d5cdc06cbec7604ccd10f77ec39e58f9124ee65d0fa3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4d1795aeac86392044b183e9b2117ff67e7e758cfc8b22ff7176276300d70a40"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "751eca35a24cac6796d1f248a4f7d6171c89f579d0cad99b0a6de76df06d173c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7dc10ab897b029026d85034fa6377e6cbac2c2154d182da31410d25d60e5ad06"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4645db47215bf5d8277044d1d4827d85e5e4620ba98876513ca8903b5308db08"
+    sha256 cellar: :any_skip_relocation, ventura:       "a24303eed3db33b31ea76db2f0c6cae6b8fd8ee3eaa93922c0b5b53304100c66"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "69ff2da3dce7124e0c540092807ca89896ebd68f397231063a7cc2ffa04b2b1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5fa3be24890d9551871cebc8ce7e7f5aa460acc32c9aa958984dd87897dca31c"
   end
 
   depends_on "pkgconf" => :build
@@ -35,8 +36,8 @@ class CargoPublicApi < Formula
     # Show that we can use a different toolchain than the one provided by the `rust` formula.
     # https://github.com/Homebrew/homebrew-core/pull/134074#pullrequestreview-1484979359
     ENV.prepend_path "PATH", Formula["rustup"].bin
-    system "rustup", "default", "beta"
     system "rustup", "set", "profile", "minimal"
+    system "rustup", "default", "beta"
     system "rustup", "toolchain", "install", "nightly"
 
     (testpath/"Cargo.toml").write <<~TOML

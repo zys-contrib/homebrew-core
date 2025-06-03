@@ -1,29 +1,19 @@
 class Sheldon < Formula
   desc "Fast, configurable, shell plugin manager"
   homepage "https://sheldon.cli.rs"
+  url "https://github.com/rossmacarthur/sheldon/archive/refs/tags/0.8.2.tar.gz"
+  sha256 "8b9306902849344bacb9525051c88b34487767086adc93936fdef98c8650cfc8"
   license any_of: ["Apache-2.0", "MIT"]
-  revision 2
   head "https://github.com/rossmacarthur/sheldon.git", branch: "trunk"
 
-  stable do
-    url "https://github.com/rossmacarthur/sheldon/archive/refs/tags/0.8.0.tar.gz"
-    sha256 "71c6c27b30d1555e11d253756a4fce515600221ec6de6c06f9afb3db8122e5b5"
-
-    # libgit2 1.9 patch, upstream pr ref, https://github.com/rossmacarthur/sheldon/pull/192
-    patch do
-      url "https://github.com/rossmacarthur/sheldon/commit/7a195493252ca908b88b5ddd82dd0fe5ce4ab811.patch?full_index=1"
-      sha256 "45432a98ab2e8dbd772e083a826e883ee0a2de3958bda2ea518b31fab91cd9f0"
-    end
-  end
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "1850ceffe1ef0fcba2b1aac07221a9269b63a60d1bb51820ba06aed90d92393d"
-    sha256 cellar: :any,                 arm64_sonoma:  "5acd3bd5f1a97a9c2e1cf24864404ddc565ed3fa88a0ff57578a73cc4a9bbb6a"
-    sha256 cellar: :any,                 arm64_ventura: "883964af1f657a480c7acf478eba931dd962d440d078426d90170d14bc16fbab"
-    sha256 cellar: :any,                 sonoma:        "e8059857164d2809f5c4e3ba1c785c20c4e03dd283a52d437a561dc6010d2c26"
-    sha256 cellar: :any,                 ventura:       "0de5177015a9be8bda748768364b17bfbe1f2cb47e6b7d2439fe143e8c493d42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "135d4a23da11bf70b86fba244b4c2efe4f7bfad83067d282fc8c8718b8ee5647"
+    sha256 cellar: :any,                 arm64_sequoia: "f214f114e23f2a4777938fed3b864625dfbb3f9b30b142e6e05f8170b6cb0211"
+    sha256 cellar: :any,                 arm64_sonoma:  "1c7a01151bab3c23c84b693b28c7b5996596520dc60d7f2356e9084c10fd6df5"
+    sha256 cellar: :any,                 arm64_ventura: "84b4fe77d708fcffffd68cd051868c67ef143b3144cbd813b29f9197cf24b2bf"
+    sha256 cellar: :any,                 sonoma:        "04d04507c5bc4e23dde5ac63cc6b96ce9bd723906d7bbd838f62cd5aa0746287"
+    sha256 cellar: :any,                 ventura:       "9fd9b14e2cbaa4bc025523a6cedaaedf4effa56a49030a977af3d05d16fbdcc0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "12cd2f0c98f949f57fea7345c648bfa96ce51984b08922275ce98fb4fbbce25d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a83fc220e45ca5e917c26541c8f929b8dfcc7684bd81ec2b412fec9d68a3da0"
   end
 
   depends_on "pkgconf" => :build
@@ -50,15 +40,9 @@ class Sheldon < Formula
     zsh_completion.install "completions/sheldon.zsh" => "_sheldon"
   end
 
-  def check_binary_linkage(binary, library)
-    binary.dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == File.realpath(library)
-    end
-  end
-
   test do
+    require "utils/linkage"
+
     touch testpath/"plugins.toml"
     system bin/"sheldon", "--config-dir", testpath, "--data-dir", testpath, "lock"
     assert_path_exists testpath/"plugins.lock"
@@ -72,7 +56,7 @@ class Sheldon < Formula
     libraries << (Formula["curl"].opt_lib/shared_library("libcurl")) if OS.linux?
 
     libraries.each do |library|
-      assert check_binary_linkage(bin/"sheldon", library),
+      assert Utils.binary_linked_to_library?(bin/"sheldon", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
     end
   end

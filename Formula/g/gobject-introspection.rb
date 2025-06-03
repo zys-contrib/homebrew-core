@@ -4,18 +4,19 @@ class GobjectIntrospection < Formula
 
   desc "Generate introspection data for GObject libraries"
   homepage "https://gi.readthedocs.io/en/latest/"
-  url "https://download.gnome.org/sources/gobject-introspection/1.82/gobject-introspection-1.82.0.tar.xz"
-  sha256 "0f5a4c1908424bf26bc41e9361168c363685080fbdb87a196c891c8401ca2f09"
+  url "https://download.gnome.org/sources/gobject-introspection/1.84/gobject-introspection-1.84.0.tar.xz"
+  sha256 "945b57da7ec262e5c266b89e091d14be800cc424277d82a02872b7d794a84779"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "MIT"]
+  revision 1
 
   bottle do
-    rebuild 2
-    sha256 arm64_sequoia: "9d444f7cfd38c5a74765aa51eb6bea35136dde8d9b18e3d01093d19323987b7a"
-    sha256 arm64_sonoma:  "0f98698570fde113ddf8134b93edf7e50a71530fdad4a345dea44307ad489254"
-    sha256 arm64_ventura: "7d63768077cc24f658149b380daaf6c4d736b09dd3b8a7dc44ac1c94b0ff5472"
-    sha256 sonoma:        "893ed8eba9a90e94c95be128bb8acd9a81386204607e8bed4a53c290fb06fc32"
-    sha256 ventura:       "540635fb9a734b24b2f77740f1e7ca457b9b3644121ff9e938c61738be9827f3"
-    sha256 x86_64_linux:  "c34513885c5ac7c1df5e3f1f4ddb972194a572d19097980e6e67e4d8e8047319"
+    sha256 arm64_sequoia: "280f6dd881d72f75e3ca7748d4b352af4018e53b51e8e2f84950de1d55ab5895"
+    sha256 arm64_sonoma:  "bce44ddc571cddb32fb04775bcf97f405e8631b27eb87ffb4eb3c95494340d21"
+    sha256 arm64_ventura: "01197151515f3b361144ef07dbafa2feb0287b2cfd49f2c55d73576da15cedab"
+    sha256 sonoma:        "47ef78ac2d9c8c1fe96971d9170a136db44464ea1c59221ad1734a03e97f42b7"
+    sha256 ventura:       "3a845579c9e1eeb8d9b278f7077c46cfa3b03d25b746231fffb27d3d39df293c"
+    sha256 arm64_linux:   "8845a26bfb3119867b8aa7c40115c555dc0c80d5e88114d8d9c1e947118f7b65"
+    sha256 x86_64_linux:  "030059cda8e7ffc3f90dfecef428999df1dce8d2d34b193063795dc807e5a6a5"
   end
 
   depends_on "bison" => :build
@@ -31,32 +32,29 @@ class GobjectIntrospection < Formula
   uses_from_macos "libffi", since: :catalina
 
   resource "mako" do
-    url "https://files.pythonhosted.org/packages/67/03/fb5ba97ff65ce64f6d35b582aacffc26b693a98053fa831ab43a437cbddb/Mako-1.3.5.tar.gz"
-    sha256 "48dbc20568c1d276a2698b36d968fa76161bf127194907ea6fc594fa81f943bc"
+    url "https://files.pythonhosted.org/packages/9e/38/bd5b78a920a64d708fe6bc8e0a2c075e1389d53bef8413725c63ba041535/mako-1.3.10.tar.gz"
+    sha256 "99579a6f39583fa7e5630a28c3c1f440e4e97a414b80372649c0ce338da2ea28"
   end
 
   resource "markdown" do
-    url "https://files.pythonhosted.org/packages/54/28/3af612670f82f4c056911fbbbb42760255801b3068c48de792d354ff4472/markdown-3.7.tar.gz"
-    sha256 "2ae2471477cfd02dbbf038d5d9bc226d40def84b4fe2986e49b59b6b472bbed2"
+    url "https://files.pythonhosted.org/packages/2f/15/222b423b0b88689c266d9eac4e61396fe2cc53464459d6a37618ac863b24/markdown-3.8.tar.gz"
+    sha256 "7df81e63f0df5c4b24b7d156eb81e4690595239b7d70937d0409f1b0de319c6f"
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz"
-    sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+    url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
+    sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/3e/2c/f0a538a2f91ce633a78daaeb34cbfb93a54bd2132a6de1f6cec028eee6ef/setuptools-74.1.2.tar.gz"
-    sha256 "95b40ed940a1c67eb70fc099094bd6e99c6ee7c23aa2306f4d2697ba7916f9c6"
+    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
+    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
   end
 
   # Fix library search path on non-/usr/local installs (e.g. Apple Silicon)
   # See: https://github.com/Homebrew/homebrew-core/issues/75020
   #      https://gitlab.gnome.org/GNOME/gobject-introspection/-/merge_requests/273
-  patch do
-    url "https://gitlab.gnome.org/GNOME/gobject-introspection/-/commit/a7be304478b25271166cd92d110f251a8742d16b.diff"
-    sha256 "740c9fba499b1491689b0b1216f9e693e5cb35c9a8565df4314341122ce12f81"
-  end
+  patch :DATA
 
   def install
     venv = virtualenv_create(libexec, "python3.13")
@@ -98,3 +96,59 @@ class GobjectIntrospection < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/girepository/gitypelib.c b/girepository/gitypelib.c
+index 29349da..5619cfb 100644
+--- a/girepository/gitypelib.c
++++ b/girepository/gitypelib.c
+@@ -2261,6 +2261,22 @@ load_one_shared_library (const char *shlib)
+ {
+   GSList *p;
+   GModule *m;
++#ifdef EXTRA_LIBRARY_PATHS
++  static gsize extra_libs_initialized = 0;
++
++  if (g_once_init_enter (&extra_libs_initialized))
++    {
++      gchar **paths = g_strsplit(EXTRA_LIBRARY_PATHS, G_SEARCHPATH_SEPARATOR_S, 0);
++      gint i;
++      gsize initialized = 1;
++      for (i = g_strv_length(paths) - 1 ; i >= 0 ; i--)
++        {
++          g_irepository_prepend_library_path(paths[i]);
++	      }
++      g_strfreev(paths);
++      g_once_init_leave (&extra_libs_initialized, initialized);
++    }
++#endif
+ 
+ #ifdef __APPLE__
+   /* On macOS, @-prefixed shlib paths (@rpath, @executable_path, @loader_path)
+diff --git a/meson.build b/meson.build
+index 7b8bf1c..ea29ff5 100644
+--- a/meson.build
++++ b/meson.build
+@@ -222,6 +222,10 @@ if host_system in ['windows', 'cygwin']
+   g_ir_scanner_env.prepend(var, gio_dep.get_variable('giomoduledir'))
+ endif
+ 
++if get_option('extra_library_paths') != ''
++  config.set_quoted('EXTRA_LIBRARY_PATHS', get_option('extra_library_paths'))
++endif
++
+ configure_file(
+   configuration: config,
+   output: 'config.h'
+diff --git a/meson_options.txt b/meson_options.txt
+index cbc63ed..e2e7577 100644
+--- a/meson_options.txt
++++ b/meson_options.txt
+@@ -49,3 +49,7 @@ option('gi_cross_pkgconfig_sysroot_path', type: 'string',
+ option('tests', type: 'boolean', value: true,
+   description: 'Build and run tests'
+ )
++
++option('extra_library_paths', type: 'string',
++  description: 'A list of file paths, joined together using the searchpath separator character, that will be used to search for shared libraries'
++)

@@ -1,17 +1,18 @@
 class Havn < Formula
   desc "Fast configurable port scanner with reasonable defaults"
   homepage "https://github.com/mrjackwills/havn"
-  url "https://github.com/mrjackwills/havn/archive/refs/tags/v0.1.18.tar.gz"
-  sha256 "f8fc24c2c2035f40566e415dcebfaebdf372c225fa1d4d0c997a24fe862836e9"
+  url "https://github.com/mrjackwills/havn/archive/refs/tags/v0.2.1.tar.gz"
+  sha256 "fb6b6020f46da25d47297bc4ef6532d05ab2b4a6e15d2b2fa604c94332d29106"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "81679171ca26be620ac282223f283f4f8d59acc5f447d649f1df8a2159c8606a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "178633eec8a627affd1aa476d6e2250aac58fdcda62b4c5e96dd498b2b2864d0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "89b92e5a474ae5f7d1de6ae4be3c63bdc94dcb8bdb21af2317196ee26d2b9851"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fe6520c7f5083e07d9ba7ff39f00d2624fcb0352848f47f36f3a7095fc82da59"
-    sha256 cellar: :any_skip_relocation, ventura:       "b07884df01031dc58f2509b7059500a7fcde85715f67a566f7284b2b6be9bceb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5610e013072bb4b12a461081266fdb3e180fddc2673fa104b2987d6fea3e9b11"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b24849890d88b43caff250678f08011abb5619f9477bdf0dde46cc66c4bdff7d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1e2aa5db2dabbad41ac44dc6466c5634bb7f0ef76f3a483ee54baf5d8c151cf1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e5a1b929a0b723b86fb32e5d05f0679567ab10e3f31b9f4f7b4e9439eeb8a91a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e5d2b361d8301fbdb0c7cfbd14c237e3c74db5a729c808d134edec50f76633aa"
+    sha256 cellar: :any_skip_relocation, ventura:       "01e81f1daf0bb75b4ce93605f78a74bb7ec2d7cc6c826ecb69f28b279dfa1122"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4d3aa5609f4e2e052f6085a4429b31ea559f5b63610c0dfe0f5786de32cdb1ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "44ae34dc9053eb50a6399cd14ccadc01728801f0b1b69f3db01d16fa805ceff1"
   end
 
   depends_on "rust" => :build

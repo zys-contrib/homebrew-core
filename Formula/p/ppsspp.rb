@@ -2,25 +2,27 @@ class Ppsspp < Formula
   desc "PlayStation Portable emulator"
   homepage "https://ppsspp.org/"
   license all_of: ["GPL-2.0-or-later", "BSD-3-Clause"]
-  revision 2
+  revision 4
   head "https://github.com/hrydgard/ppsspp.git", branch: "master"
 
+  # TODO: Can remove CMAKE_POLICY_VERSION_MINIMUM when bumping version to 1.18+
+  # https://github.com/hrydgard/ppsspp/commit/fe91f246b2d22a25fcd52deb57211f1e86717c35
   stable do
-    url "https://github.com/hrydgard/ppsspp.git",
-        tag:      "v1.17.1",
-        revision: "d479b74ed9c3e321bc3735da29bc125a2ac3b9b2"
+    url "https://github.com/hrydgard/ppsspp/releases/download/v1.17.1/ppsspp-1.17.1.tar.xz"
+    sha256 "23e0b8649cc8124b0c22a62d4d41b592b6bd4064bce8c09b0d4abce895e132ae"
 
     # miniupnpc 2.2.8 compatibility patch
     patch :DATA
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "631cd85f4433e5f7e57765c06edf3e278213c33e150b074373d049eed37d6967"
-    sha256 cellar: :any, arm64_sonoma:  "3e109eb7657dda436d4e0cd6866388b095ced812f13fb852f6eb318ef9525c9b"
-    sha256 cellar: :any, arm64_ventura: "78b24a29c6d0136c9466618766bda3d84b6c0bab61c1ade924b256afe1c23886"
-    sha256 cellar: :any, sonoma:        "c4e232b154687b1203aaaa945e1a64df25737efe2c4eef17e7193f2b4a71a1a3"
-    sha256 cellar: :any, ventura:       "01b141fede058642dee7b98a5fff3f9522f24554cfcb00aaa01b0c2061c0bf31"
-    sha256               x86_64_linux:  "bcda5915ea3d7815b0f224111f033cde3745394a90a764520b5d1c6f4ce3d071"
+    sha256 cellar: :any, arm64_sequoia: "8f5212b45e4cc85e00696a97c7b2f19faf46eaff672261ffe4a9a1600f88918b"
+    sha256 cellar: :any, arm64_sonoma:  "15ea4f6454395652c4bc38f9162265f037c73f6adedc72ee24e1d6d8152da938"
+    sha256 cellar: :any, arm64_ventura: "cb233294259787c8052cbb7bf288ae9f96cfb2409349471c62345a77daf05e2b"
+    sha256 cellar: :any, sonoma:        "0251f2c42361a1a554ad9525992f22009291e6a540a0f5a656d59fd837884817"
+    sha256 cellar: :any, ventura:       "1343d50d74938e6f46ff7b8a478af9437f1195952877c9d964af6b6c71d5fd56"
+    sha256               arm64_linux:   "713d5f95e87d12e957e1c1fe542bc7db12d962164d1c736c711c3eec85319ec3"
+    sha256               x86_64_linux:  "db4ce3ac375ce1f4e6bf06a3453c8cf5b118a2080e7614b244db39da56a0f367"
   end
 
   depends_on "cmake" => :build
@@ -62,16 +64,17 @@ class Ppsspp < Formula
         system "./mac-build.sh"
       else
         rm_r("linux")
-        system "./linux_x86-64.sh"
+        arch = Hardware::CPU.intel? ? "x86-64" : Hardware::CPU.arch
+        system "./linux_#{arch}.sh"
       end
     end
 
     # Replace bundled MoltenVK dylib with symlink to Homebrew-managed dylib
     vulkan_frameworks = buildpath/"ext/vulkan/macOS/Frameworks"
-    rm(vulkan_frameworks/"libMoltenVK.dylib")
     vulkan_frameworks.install_symlink Formula["molten-vk"].opt_lib/"libMoltenVK.dylib"
 
     args = %w[
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
       -DUSE_SYSTEM_LIBZIP=ON
       -DUSE_SYSTEM_SNAPPY=ON
       -DUSE_SYSTEM_LIBSDL2=ON
@@ -102,7 +105,7 @@ class Ppsspp < Formula
     system bin/"ppsspp", "--version"
     if OS.mac?
       app_frameworks = prefix/"PPSSPPSDL.app/Contents/Frameworks"
-      assert_predicate app_frameworks/"libMoltenVK.dylib", :exist?, "Broken linkage with `molten-vk`"
+      assert_path_exists app_frameworks/"libMoltenVK.dylib", "Broken linkage with `molten-vk`"
     end
   end
 end

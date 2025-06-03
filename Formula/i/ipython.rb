@@ -3,18 +3,19 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/01/35/6f90fdddff7a08b7b715fccbd2427b5212c9525cd043d26fdc45bee0708d/ipython-8.31.0.tar.gz"
-  sha256 "b6a2274606bec6166405ff05e54932ed6e5cfecaca1fc05f2cacde7bb074d70b"
+  url "https://files.pythonhosted.org/packages/dc/09/4c7e06b96fbd203e06567b60fb41b06db606b6a82db6db7b2c85bb72a15c/ipython-9.3.0.tar.gz"
+  sha256 "79eb896f9f23f50ad16c3bc205f686f6e030ad246cc309c6279a242b14afe9d8"
   license "BSD-3-Clause"
   head "https://github.com/ipython/ipython.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "20fc452c3852c60dbe8158c9ec0002552dfe18248f05ac86948e2e559d5d0577"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "20fc452c3852c60dbe8158c9ec0002552dfe18248f05ac86948e2e559d5d0577"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "20fc452c3852c60dbe8158c9ec0002552dfe18248f05ac86948e2e559d5d0577"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4fe04f865643025442463f70a73ade9988c0b786d9b045b65d11e28ea2290f57"
-    sha256 cellar: :any_skip_relocation, ventura:       "4fe04f865643025442463f70a73ade9988c0b786d9b045b65d11e28ea2290f57"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20fc452c3852c60dbe8158c9ec0002552dfe18248f05ac86948e2e559d5d0577"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0c3f4bbc8ab62ad88acc4ff79cb11cdd3c3a1bf73c5d8423fc8d374fa125b236"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0c3f4bbc8ab62ad88acc4ff79cb11cdd3c3a1bf73c5d8423fc8d374fa125b236"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0c3f4bbc8ab62ad88acc4ff79cb11cdd3c3a1bf73c5d8423fc8d374fa125b236"
+    sha256 cellar: :any_skip_relocation, sonoma:        "927cf13a39fa6aa40aa8be9e83391abbe390d0b50f7d00662ab71c116dee85b6"
+    sha256 cellar: :any_skip_relocation, ventura:       "927cf13a39fa6aa40aa8be9e83391abbe390d0b50f7d00662ab71c116dee85b6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0c3f4bbc8ab62ad88acc4ff79cb11cdd3c3a1bf73c5d8423fc8d374fa125b236"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c3f4bbc8ab62ad88acc4ff79cb11cdd3c3a1bf73c5d8423fc8d374fa125b236"
   end
 
   depends_on "python@3.13"
@@ -25,13 +26,18 @@ class Ipython < Formula
   end
 
   resource "decorator" do
-    url "https://files.pythonhosted.org/packages/66/0c/8d907af351aa16b42caae42f9d6aa37b900c67308052d10fdce809f8d952/decorator-5.1.1.tar.gz"
-    sha256 "637996211036b6385ef91435e4fae22989472f9d571faba8927ba8253acbc330"
+    url "https://files.pythonhosted.org/packages/43/fa/6d96a0978d19e17b68d634497769987b16c8f4cd0a7a05048bec693caa6b/decorator-5.2.1.tar.gz"
+    sha256 "65f266143752f734b0a7cc83c46f4618af75b8c5911b00ccb61d0ac9b6da0360"
   end
 
   resource "executing" do
-    url "https://files.pythonhosted.org/packages/8c/e3/7d45f492c2c4a0e8e0fad57d081a7c8a0286cdd86372b070cca1ec0caa1e/executing-2.1.0.tar.gz"
-    sha256 "8ea27ddd260da8150fa5a708269c4a10e76161e2496ec3e587da9e3c0fe4b9ab"
+    url "https://files.pythonhosted.org/packages/91/50/a9d80c47ff289c611ff12e63f7c5d13942c65d68125160cefd768c73e6e4/executing-2.2.0.tar.gz"
+    sha256 "5d108c028108fe2551d1a7b2e8b713341e2cb4fc0aa7dcf966fa4327a5226755"
+  end
+
+  resource "ipython-pygments-lexers" do
+    url "https://files.pythonhosted.org/packages/ef/4c/5dd1d8af08107f88c7f741ead7a40854b8ac24ddf9ae850afbcf698aa552/ipython_pygments_lexers-1.1.1.tar.gz"
+    sha256 "09c0138009e56b6854f9535736f4171d855c8c08a563a0dcd8022f78355c7e81"
   end
 
   resource "jedi" do
@@ -55,8 +61,8 @@ class Ipython < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/2d/4f/feb5e137aff82f7c7f3248267b97451da3644f6cdc218edfe549fb354127/prompt_toolkit-3.0.48.tar.gz"
-    sha256 "d6623ab0477a80df74e646bdbc93621143f5caf104206aa29294d53de1a03d90"
+    url "https://files.pythonhosted.org/packages/bb/6e/9d084c929dfe9e3bfe0c6a47e31f78a25c54627d64a66e884a8bf5474f1c/prompt_toolkit-3.0.51.tar.gz"
+    sha256 "931a162e3b27fc90c86f1b48bb1fb2c528c2761475e57c9c06de13311c7b54ed"
   end
 
   resource "ptyprocess" do
@@ -70,8 +76,8 @@ class Ipython < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz"
-    sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
+    url "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
+    sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
   end
 
   resource "stack-data" do

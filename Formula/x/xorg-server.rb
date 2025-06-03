@@ -1,17 +1,19 @@
 class XorgServer < Formula
   desc "X Window System display server"
   homepage "https://www.x.org"
-  url "https://www.x.org/releases/individual/xserver/xorg-server-21.1.15.tar.xz"
-  sha256 "841c82901282902725762df03adbbcd68153d4cdfb0d61df0cfd73ad677ae089"
+  url "https://www.x.org/releases/individual/xserver/xorg-server-21.1.16.tar.xz"
+  sha256 "b14a116d2d805debc5b5b2aac505a279e69b217dae2fae2dfcb62400471a9970"
   license all_of: ["MIT", "APSL-2.0"]
 
   bottle do
-    sha256 arm64_sequoia: "da384bbf7907580328b19bd260d4297133081fec86df0a36397e4c3f26f28bbe"
-    sha256 arm64_sonoma:  "db3cb3b2450ecae3fe883348607120451778f6f2254892cc161c6ca476dbe359"
-    sha256 arm64_ventura: "47bbc240f25c91a73ab35b4df2fa089955ad18ffc1a5f4e796069fe556cb2ed2"
-    sha256 sonoma:        "96d25305aeff7f1ba96090a396cad3ef95e18742c54c4e75095b863ec3298948"
-    sha256 ventura:       "e2ce400b5f1192569337c85792841966eea31d11676673d23ab67fa739b9f3fa"
-    sha256 x86_64_linux:  "10b25721ee179b39c9dbeeb816be020d8f418ab1ec7c54f384f562c29c2d4575"
+    rebuild 1
+    sha256 arm64_sequoia: "e9ff9b62d898703ddca09e82b036a67351e6aa14c1f08ebe4bf2772fadbd7055"
+    sha256 arm64_sonoma:  "36fe7319a1317e7ea64b09a794a0c86d14f2066e887733dda516f23cdd05f773"
+    sha256 arm64_ventura: "725bff18ee85feaa9c758250a57fa14253cd087ab2e25805024a2758fc1c71cf"
+    sha256 sonoma:        "07f8f3a4e8e88b19c022a54f3e5512a95ca5984529ed435a0831284867e5b581"
+    sha256 ventura:       "a593137347c22716ea4098ecda532c2f9d8082c51d128de11059a78645a8e8cb"
+    sha256 arm64_linux:   "dd9f4e8d0a87b0390cf5c76ab45fec1e543cf6f7d3132dbc9cfab558cd9110e4"
+    sha256 x86_64_linux:  "ba290274fa63ac05cfb29e29e31944fe9e9f118ef5ef69b08e1b369c28f1add3"
   end
 
   depends_on "font-util"   => :build
@@ -39,7 +41,7 @@ class XorgServer < Formula
   depends_on "xcb-util-renderutil"
   depends_on "xcb-util-wm"
   depends_on "xkbcomp"
-  depends_on "xkeyboardconfig"
+  depends_on "xkeyboard-config"
 
   on_macos do
     depends_on "libapplewm"

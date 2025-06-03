@@ -1,36 +1,61 @@
 class Taglib < Formula
   desc "Audio metadata library"
   homepage "https://taglib.org/"
-  url "https://taglib.github.io/releases/taglib-1.13.1.tar.gz"
-  sha256 "c8da2b10f1bfec2cd7dbfcd33f4a2338db0765d851a50583d410bacf055cfd0b"
-  license any_of: ["LGPL-2.1-only", "MPL-1.1"]
+  url "https://taglib.github.io/releases/taglib-2.1.tar.gz"
+  sha256 "95b788b39eaebab41f7e6d1c1d05ceee01a5d1225e4b6d11ed8976e96ba90b0c"
+  license all_of: ["LGPL-2.1-only", "MPL-1.1"]
   head "https://github.com/taglib/taglib.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "394ab63cec3e1288117fe9076afce0952b31a549db29de41c4a5f5cc8905aead"
-    sha256 cellar: :any,                 arm64_sonoma:   "5b79928275529b55ab078a708cbfb98e174f7e5b7d668bf86bccb0634f443f0f"
-    sha256 cellar: :any,                 arm64_ventura:  "c921c460750f74d8c025ed12189704bba122e1883c1e034b2cc86d451e81dfbe"
-    sha256 cellar: :any,                 arm64_monterey: "5d012c93d5f25fded733a3b8cb3d834ab25ff121e32265d5bfcf38634b1171e5"
-    sha256 cellar: :any,                 arm64_big_sur:  "f1b3bc322c1588095ffaa5bb957af0e3b53651d022e3b3ec0616c58cb4c6e6cd"
-    sha256 cellar: :any,                 sonoma:         "87427348eee256dd9d02bcfe85d909fedba634ce9325a7c0800a4a40a202b28d"
-    sha256 cellar: :any,                 ventura:        "a0e1acf193f45734d34409416134a0181ef2a70a23db77564b2f6d1e3dfb2f9b"
-    sha256 cellar: :any,                 monterey:       "585afe1f5b71dd705e40075c5fdc898d5aa137a278a64c141ee5e249dcb5a27b"
-    sha256 cellar: :any,                 big_sur:        "ce0540a13cf0cd98e968f40c46e154a3947a0c2d682f5023cd14830ae9b1f0b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1762030a268fcab40eb571d7ac9a6065db25f7b6c1898ce142f49d5f3f7bf80e"
+    sha256 cellar: :any,                 arm64_sequoia: "33bae1ce3df75ae42afe0a00e5ff89c13fe89c55a90492f83936871400bead26"
+    sha256 cellar: :any,                 arm64_sonoma:  "a8407786ef99bff2dacc49c41ee8597bf0e1b320770cf7e375cbcf3dd01edfa2"
+    sha256 cellar: :any,                 arm64_ventura: "5fa5bc0e5f1f0420951a109822212307d4c47eca65e13c80cd12130ef3db7582"
+    sha256 cellar: :any,                 sonoma:        "0bcb92f06b8a816e61db238c4866038e32d939d137ae5a9b2b6a89f6354dc060"
+    sha256 cellar: :any,                 ventura:       "dc45e7bdf7b98bbc8c82fc504d9f9fc439c0ee404c081f3a9d47db3a43440d0e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "578bbf176f2ab333475f9bf2f1aba06cdc376416eab72610354959efe1255441"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "90098d41daac6072c0daf0dc6a9a179811a0a7067809018845ef727a6611ca8f"
   end
 
   depends_on "cmake" => :build
+  depends_on "utf8cpp"
 
   uses_from_macos "zlib"
 
   def install
-    args = ["-DWITH_MP4=ON", "-DWITH_ASF=ON", "-DBUILD_SHARED_LIBS=ON"]
+    args = %w[-DWITH_MP4=ON -DWITH_ASF=ON -DBUILD_SHARED_LIBS=ON]
+
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
 
   test do
+    (testpath/"test.cpp").write <<~EOS
+      #include <taglib/id3v2tag.h>
+      #include <taglib/textidentificationframe.h>
+      #include <iostream>
+
+      int main() {
+        TagLib::ID3v2::Tag tag;
+
+        auto* artistFrame = new TagLib::ID3v2::TextIdentificationFrame("TPE1", TagLib::String::UTF8);
+        artistFrame->setText("Test Artist");
+        tag.addFrame(artistFrame);
+
+        auto* titleFrame = new TagLib::ID3v2::TextIdentificationFrame("TIT2", TagLib::String::UTF8);
+        titleFrame->setText("Test Title");
+        tag.addFrame(titleFrame);
+
+        std::cout << "Artist: " << tag.artist() << std::endl;
+        std::cout << "Title: " << tag.title() << std::endl;
+
+        return 0;
+      }
+    EOS
+
+    system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test", "-L#{lib}", "-ltag", "-I#{include}", "-lz"
+    assert_match "Artist: Test Artist", shell_output("./test")
+
     assert_match version.to_s, shell_output("#{bin}/taglib-config --version")
   end
 end

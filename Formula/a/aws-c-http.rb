@@ -1,17 +1,18 @@
 class AwsCHttp < Formula
   desc "C99 implementation of the HTTP/1.1 and HTTP/2 specifications"
   homepage "https://github.com/awslabs/aws-c-http"
-  url "https://github.com/awslabs/aws-c-http/archive/refs/tags/v0.9.2.tar.gz"
-  sha256 "328013ebc2b5725326cac01941041eec1e1010058c60709da2c23aa8fb967370"
+  url "https://github.com/awslabs/aws-c-http/archive/refs/tags/v0.10.1.tar.gz"
+  sha256 "1550f7bf9666bb8f86514db9e623f07249e3c53e868d2f36ff69b83bd3eadfec"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3f3e7a0e5398811ea35d6630e5729328536bc76426d6730a3e5f515edf136076"
-    sha256 cellar: :any,                 arm64_sonoma:  "266947765c842b1e323314ade182216c5b726e21880b3494c2ce3babbe504d32"
-    sha256 cellar: :any,                 arm64_ventura: "e358788f7ac5f734fb6374499517ac2feab136279fc6725ccaf76c5d286c4574"
-    sha256 cellar: :any,                 sonoma:        "842d551976597a6dc7ace9560920422f5f45f602e1a3ce2948b8decb161eb7bc"
-    sha256 cellar: :any,                 ventura:       "a38183be37c398848ce30a6df991716430080abfd8b0d3232be6d47c80a36872"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6962c6a046821235a33de8a1dcf521e44b477a848d05a0e81c49be0480852f5"
+    sha256 cellar: :any,                 arm64_sequoia: "9c62bac1870464c899f51ea35594c42b899c984ca0ef024ff8b940accd47208a"
+    sha256 cellar: :any,                 arm64_sonoma:  "3ef352a205052d81964cb755837485467b4d38f7919f3311e540002fbb8749b7"
+    sha256 cellar: :any,                 arm64_ventura: "94fffcd8914b2d240343ec248aa2570d67616a5da55410f7db9db5bf2f18112f"
+    sha256 cellar: :any,                 sonoma:        "583fd37b1b5d315e0762cf09d6d7c7914497fc689bf18871e91d30615b33e871"
+    sha256 cellar: :any,                 ventura:       "3f63fd6f3350754cecf0b8b49c29163ff6b15cebc1c7faab73b6ff5bb14d94e2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1fcd2423f617f91732e80d125bbed04c661a655fcd3676f515d509c63c83ead7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6fad1d2a8092a5ce2edf330aceba0be19fe4005f439db68f683e2089f4ad50de"
   end
 
   depends_on "cmake" => :build
@@ -21,12 +22,7 @@ class AwsCHttp < Formula
   depends_on "aws-c-io"
 
   def install
-    args = %W[
-      -DBUILD_SHARED_LIBS=ON
-      -DCMAKE_MODULE_PATH=#{Formula["aws-c-common"].opt_lib}/cmake
-    ]
-
-    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

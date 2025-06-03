@@ -1,8 +1,8 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
-  homepage "https://www.gdal.org/"
-  url "https://github.com/OSGeo/gdal/releases/download/v3.10.1/gdal-3.10.1.tar.gz"
-  sha256 "b1c739256d074be42d67c6c3d33eee94c90a490ebb02fcb7fc21c569a6fc78bd"
+  homepage "https://gdal.org/en/stable/"
+  url "https://github.com/OSGeo/gdal/releases/download/v3.11.0/gdal-3.11.0.tar.gz"
+  sha256 "723d7b04e0f094be2636128d15165b45059ac5e53f143cbbd93280af0b347abd"
   license "MIT"
   revision 1
 
@@ -12,12 +12,13 @@ class Gdal < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "4c531d26f88c43eda29ccfa4ee6d7c7dbe2ef51e002d2163b412a574c2ba5924"
-    sha256 arm64_sonoma:  "424de907ba17642f73493fa706ab291040709391e9d9b8d4f09aa26f95e0a65e"
-    sha256 arm64_ventura: "28083a74e0046e946804d399331a05d617bcd38af511002d4adcf4f2396fe1c7"
-    sha256 sonoma:        "8ad294c5b65e44b95ee37e1d54da3aa73d26530f508ddac0d3ed8c8ce53aeacb"
-    sha256 ventura:       "b561845e5de7251513e4556beecbc0228fa640450410b4f192700706463a02e1"
-    sha256 x86_64_linux:  "d2752f6ae6bca91dd98bfd232920e72160219ec99b66a05167ced49812eee0f6"
+    sha256 arm64_sequoia: "dc9531c2c4651779da397d6879de980e11bc2347a733da358c1a8ebd5b62c1b3"
+    sha256 arm64_sonoma:  "029f81257ef1aca8dbcfb95460f28ac9b2ab177f07413722780f73e9af03038a"
+    sha256 arm64_ventura: "ad3bcf7f00b055a56f68f69a34a080bf7140feabcea9bbfe4c7591d6cdd9bc82"
+    sha256 sonoma:        "9055ffe82344e6868b240491f83c04771eed3bf4451f0ed7389a4a3c45dc0385"
+    sha256 ventura:       "82e51de2a112724da2454c936411650696bad1fdbd40216b9010ff7c9a74a622"
+    sha256 arm64_linux:   "11605d04eecf4643997a3fd17d1cbbfe31b35067517da7acf448f6e678d1040f"
+    sha256 x86_64_linux:  "ea01fe64a6646be61ff4609eec8485622c297d1e5a1d985533bd82998811d801"
   end
 
   head do
@@ -25,7 +26,7 @@ class Gdal < Formula
     depends_on "doxygen" => :build
   end
 
-  depends_on "boost" => :build # for `libkml`
+  depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "python-setuptools" => :build

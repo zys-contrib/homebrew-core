@@ -1,17 +1,18 @@
 class ImessageExporter < Formula
   desc "Command-line tool to export and inspect local iMessage database"
   homepage "https://github.com/ReagentX/imessage-exporter"
-  url "https://github.com/ReagentX/imessage-exporter/archive/refs/tags/2.3.0.tar.gz"
-  sha256 "b4e4b27b48bda00a0d30af3dfa1e5df4c7002cc36b379865f0842ab826600f03"
+  url "https://github.com/ReagentX/imessage-exporter/archive/refs/tags/2.7.0.tar.gz"
+  sha256 "3547b0d2cbaeffff4902d041708baa303e09fdaa05a7093f82d942c9b739e732"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "885867793eb363b75b8eb73a02843ee918318066eb6fe57173296a968385a87f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9ba8243fa5760bfd96fb7cdd22b3d7085a18259833d6b8c0e410dec7d0b82d9a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "79770f48f4e8c92e772f632af1e2118db3164c665d58722af0112ac99eec523b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c97c8e5602e47fc2366bd23b66befcb22c4d692d375f04335b6e55f72752523b"
-    sha256 cellar: :any_skip_relocation, ventura:       "713f14d44bf9ce89c884ffaa354bdf33f0e4c524b0725531a2dd6001b46abbbd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4b218b39b27315c11e3b7a3366c13681b552d299c59501db0cea6b48ed17911"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8bc0a58419257c1785e8d5dd3590c7093c2464f5abd71bede30095a53645ef9b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c06cd8b3fce163217727ba7db8b9b1faed06dfa614f4aec4df354506761d43f0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0f50f24ce9ac8fec391173cfe6eb2b9319e3051bdd6c417a593f2d94e49a8df3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1e4cd22ed236e181e042701aacce339a07e75cf70d0a2f083109ce64b2e906f3"
+    sha256 cellar: :any_skip_relocation, ventura:       "0b59c176198ac3a8b4f13f8d889fb5d9ffba6b1fc68e70416fd0f5e25339ed74"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "37c41ae5ddc563338dafd5a3964f73a4865ece530f62d4c99b841c4e41c9ad93"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3686f45f3c8a6e5ec9651f6a4b92ff03a075c4ada8cd10b47a2ebb30782d2e0e"
   end
 
   depends_on "rust" => :build

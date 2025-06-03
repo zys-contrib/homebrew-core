@@ -2,9 +2,9 @@ class PhpAT83 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.3.16.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.3.16.tar.xz"
-  sha256 "40d3b4e6cac33d3bcefe096d75a28d4fb4e3a9615eb20a4de55ba139fbfacdd5"
+  url "https://www.php.net/distributions/php-8.3.21.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.3.21.tar.xz"
+  sha256 "4dfb329f209a552c3716394fc123bb62e80a468b55ce27fc8cb0fd5f30b9dcd6"
   license "PHP-3.01"
 
   livecheck do
@@ -13,12 +13,13 @@ class PhpAT83 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "cbb2b7531ab4e5fa606830b90d3fd2ca0d5bdf5a71cca94e70c898d971f563af"
-    sha256 arm64_sonoma:  "ca986d19b6082e3c8b8b7bbaf9542e5a29d85cfc61c723325fe4be1c7e9f2b80"
-    sha256 arm64_ventura: "c5525a161bb5a67bd927cae80362e83aaa60becd05ccd7231e0c0f575538f42d"
-    sha256 sonoma:        "9b3f4a30312a3d31698dc15b8b78d28055128b9771df2d58183221f5b4ccc5ec"
-    sha256 ventura:       "ffc20dbfc8f90087531c1b9af25eb3884a429a1c634e0d8fbf9d83560ba0c029"
-    sha256 x86_64_linux:  "5606767445329e75254182651661a979a5cc3446ca413ba7e4bd394a0b267525"
+    sha256 arm64_sequoia: "e3197f9bd177aefd63f9bcce8f7e5dcaf45246dc4170bd946bb06196772b98fa"
+    sha256 arm64_sonoma:  "2eb9ae3177ee96bbe2d478264c169cab5268d4fba837fbf18565e86161a6da6b"
+    sha256 arm64_ventura: "619b9853cd24b379e582d97447bc4460e781a518a53eaab315a95f0f77b2d0c5"
+    sha256 sonoma:        "0ae63bf1ef0935e560f264e3f4b99d18fe58c890686a5e015b641998fad76309"
+    sha256 ventura:       "3aef53edbf54403cfff6a48d62c426a859d67082fde9cefabda16b767d1f6925"
+    sha256 arm64_linux:   "f80bbee7cfeefe6403d9be7660432cd273f0977d6d6aea115496ddcfccc9a0a9"
+    sha256 x86_64_linux:  "c3c97efcd65600bd1c4391e93063df436bd5fa0c206d7984a933cb91feddba2a"
   end
 
   keg_only :versioned_formula
@@ -39,7 +40,7 @@ class PhpAT83 < Formula
   depends_on "gd"
   depends_on "gettext"
   depends_on "gmp"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "krb5"
   depends_on "libpq"
   depends_on "libsodium"

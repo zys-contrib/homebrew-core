@@ -1,17 +1,18 @@
 class AwsCrtCpp < Formula
   desc "C++ wrapper around the aws-c-* libraries"
   homepage "https://github.com/awslabs/aws-crt-cpp"
-  url "https://github.com/awslabs/aws-crt-cpp/archive/refs/tags/v0.29.9.tar.gz"
-  sha256 "d445ab7a26c03a0c0cbb9d82203ee32a56c762a3cef1874783783431b8eb015a"
+  url "https://github.com/awslabs/aws-crt-cpp/archive/refs/tags/v0.32.8.tar.gz"
+  sha256 "db44260452a0296341fb8e7b987e4c328f08f7829b9f1c740fed9c963e081e93"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "113e2e395df58aa46528374eba80bf75ee0a357e77bc197a940e8acf7e8fefba"
-    sha256 cellar: :any,                 arm64_sonoma:  "70a93f20828e6e15392b6c022009ea9866aed91a01c8368d5c832fda007469fb"
-    sha256 cellar: :any,                 arm64_ventura: "b36743bd9e81ec6ad3248b4ef5104075c38eeb2f7152eacf9ee0d602ab83e9f1"
-    sha256 cellar: :any,                 sonoma:        "50f4cd28d792c92f14c96cc81047bc077839944b33920d88d0c5244821738f90"
-    sha256 cellar: :any,                 ventura:       "4e371816120b84b51c124fa67ca5b2901acfd74a583b3b81f141a383162a91a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80ceaa094bcc096ab8ecacfd7fdbb43e0fd970993f9188b719205857e8bcd29f"
+    sha256 cellar: :any,                 arm64_sequoia: "62bbaccce8159136f42ddfa91abae5b242371a8e640a7b1be9fb4bc84c910487"
+    sha256 cellar: :any,                 arm64_sonoma:  "4460e396cdd8899104516f4dba6f6183784c5c9cc88101ab87235f5c15d3d892"
+    sha256 cellar: :any,                 arm64_ventura: "d1fcd9ced3bfc999164734eb16df9aa83cec301dc673a72cebb985e905945398"
+    sha256 cellar: :any,                 sonoma:        "b10168d01be4c2922c92a129c8a8224418d8ff8490a303047555e6c2836d1e86"
+    sha256 cellar: :any,                 ventura:       "9ca14a03b0362d39a633c6b0ec663f3449cab7aff41e7bf6d1d66589743e970f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "50f8c3c367f8eac1d7e23d82b242529a54c74afdcc44f3ebeebddf55ab994729"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4969f10a8061c23b37ca92da6296e9f8e7d25c766d1162eb8f6b67857dce8aa8"
   end
 
   depends_on "cmake" => :build

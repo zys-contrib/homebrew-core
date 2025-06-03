@@ -1,17 +1,18 @@
 class Cppinsights < Formula
   desc "See your source code with the eyes of a compiler"
   homepage "https://cppinsights.io/"
-  url "https://github.com/andreasfertig/cppinsights/archive/refs/tags/v_19.1.tar.gz"
-  sha256 "88853a67b9eaf6917c531071436a275c62f1dcfe6f2e02e521c39ce81b05e6a7"
+  url "https://github.com/andreasfertig/cppinsights/archive/refs/tags/v_20.1.tar.gz"
+  sha256 "672ecc237bc0231510025c9662c0f4880feebb076af46d16840adfb16e8fc4e8"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cd9ff90a4c18618444e8aa6fbb2d3f83fa9450ca19e88b166cb7984e566acf2e"
-    sha256 cellar: :any,                 arm64_sonoma:  "a77a5abbd96b6aa0d47bf09187ede25457ade5570a71f996b174fc631ec38cb0"
-    sha256 cellar: :any,                 arm64_ventura: "181c1ef524e834aa0b2974363173c86c186c9f18b7ab67d593e4d640398b3281"
-    sha256 cellar: :any,                 sonoma:        "506c9a94441c12056bcf5edeb77d1308076a9ac8cb28ed01ee9a7d9025cff28d"
-    sha256 cellar: :any,                 ventura:       "7009e97127fee0124103b9a4966beb85bb6cb5801d708270dffba7702ea4b8eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc1962e932cdd04e649b28111d04e53ba7f5a26441ba702b54d85de7f2ce0a14"
+    sha256 cellar: :any,                 arm64_sequoia: "a633e7409562a57dcb44c9d1dbc216b3aa44ad3cb2a9424ddd3c00380ed06570"
+    sha256 cellar: :any,                 arm64_sonoma:  "4fa5e74d7a8ded4618e8c6ddae47c77404891162e7b1fa38faad2cb9da5e1247"
+    sha256 cellar: :any,                 arm64_ventura: "c79eb403f5dcf43df867b2c2816c44527ee0bdea3c309161555a9f17a8d69762"
+    sha256 cellar: :any,                 sonoma:        "949ca974b680ae7f24ea630bf94c668f69a846047e965aee01a8cb76950e6ca9"
+    sha256 cellar: :any,                 ventura:       "1a8d128dffa08e8846e4d40c6272c094cbca13cf74b097690c3e2ad75762f76b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f2fb8f4a46069faa95fd11d1572e5885b085a030db0d81441d674e5443b2ecba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68e8bd9b586a8a317b8eefbc6f6024a54f05ca22c47e7d016fa6100d18649abf"
   end
 
   depends_on "cmake" => :build

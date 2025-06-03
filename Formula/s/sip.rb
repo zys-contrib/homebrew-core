@@ -3,30 +3,31 @@ class Sip < Formula
 
   desc "Tool to create Python bindings for C and C++ libraries"
   homepage "https://python-sip.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/e2/83/b23f610ef99fa23aa3c8dcd2ff8536c37b943654405ff4f45f3230327a40/sip-6.9.1.tar.gz"
-  sha256 "7904be5190d7879952563b78a3af0e58fa27d9525af7f53f93eac7a83b433e7b"
+  url "https://files.pythonhosted.org/packages/5b/62/f46c9a5634d4f9712721fe6f3c17ec19df89400c4fda3a9fd7e0f960f88e/sip-6.11.1.tar.gz"
+  sha256 "3dae4baaf9e9f781d84bf293e0e2938dc7f44b826837889026eba53bd36c81b5"
   license "BSD-2-Clause"
   head "https://github.com/Python-SIP/sip.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fa15876caa8cb425d1aa7b83a91bce73af45621d373cce6febe2622c39649875"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fa15876caa8cb425d1aa7b83a91bce73af45621d373cce6febe2622c39649875"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fa15876caa8cb425d1aa7b83a91bce73af45621d373cce6febe2622c39649875"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9f857b0b03025a3fdc47792bdd3a6e1124fc83b2901560a9963c88cd095ef290"
-    sha256 cellar: :any_skip_relocation, ventura:       "9f857b0b03025a3fdc47792bdd3a6e1124fc83b2901560a9963c88cd095ef290"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c09df641c9f1b3f4c19361c6313c2219cea6153465db5e8a1e333a16707cd97e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ce4c69155ae1a5ec482636deb7ca18c592dc9f55c81a08ad203ca2665ac51ee0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ce4c69155ae1a5ec482636deb7ca18c592dc9f55c81a08ad203ca2665ac51ee0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ce4c69155ae1a5ec482636deb7ca18c592dc9f55c81a08ad203ca2665ac51ee0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "52a876478482491abbbb2921533ef70fc5e8b5cccc232406674d63345b24e5b9"
+    sha256 cellar: :any_skip_relocation, ventura:       "52a876478482491abbbb2921533ef70fc5e8b5cccc232406674d63345b24e5b9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4c950820f47c4ea50e60161eb8a30c1e9e1ccc2c75a0a8d4d09a5a71da9ccfa0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c950820f47c4ea50e60161eb8a30c1e9e1ccc2c75a0a8d4d09a5a71da9ccfa0"
   end
 
   depends_on "python@3.13"
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/43/54/292f26c208734e9a7f067aea4a7e282c080750c4546559b58e2e45413ca0/setuptools-75.6.0.tar.gz"
-    sha256 "8199222558df7c86216af4f84c30e9b34a61d8ba19366cc914424cdbd28252f6"
+    url "https://files.pythonhosted.org/packages/8d/d2/ec1acaaff45caed5c2dedb33b67055ba9d4e96b091094df90762e60135fe/setuptools-80.8.0.tar.gz"
+    sha256 "49f7af965996f26d43c8ae34539c8d99c5042fbff34302ea151eaa9c207cd257"
   end
 
   def python3

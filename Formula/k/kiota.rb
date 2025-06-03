@@ -1,23 +1,24 @@
 class Kiota < Formula
   desc "OpenAPI based HTTP Client code generator"
   homepage "https://aka.ms/kiota/docs"
-  url "https://github.com/microsoft/kiota/archive/refs/tags/v1.22.3.tar.gz"
-  sha256 "bbb696e3336803d5c9b30e89114dd86c9f62d393b1953a6d3ad5ea70987d4a08"
+  url "https://github.com/microsoft/kiota/archive/refs/tags/v1.26.1.tar.gz"
+  sha256 "aec6a8c4a9b8916e45a63063e8b8f73b3c254b60669f3305d39407eeabac0135"
   license "MIT"
   head "https://github.com/microsoft/kiota.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c6322628e8c4bbabdac5b42d56313f3d6e4fb919849b7d65922d136a94182fc0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a65862d8407acba89eea064be73116ded6583e562284e49fd8926e8764117f0f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1416db0a5095b0c62b4a05fbdae656a2c5e86a22134d46a89b9a911e84ee3b5b"
-    sha256 cellar: :any_skip_relocation, ventura:       "9832f17b4de38c08b2fa2cb66857cbf82b6d655a739c3f4fd0623d4fd9c333d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76e16158020a935e21886ae0bac3b0bfbbd25ad861f9839d70a5d450f93e5450"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "19a38b19ceef31efe51cc4293e1b1ee698710a53a5f8f7b5e9d0e452a92fd2b4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "860325dfc1f9cd1ccba1373ff011c96c47a5e2c7444f4d09a77cadc3ce587af2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "eb077afb1d34e3abb97c60bc1f12606054b95aa1440baf9476ffc5b18e2a23d1"
+    sha256 cellar: :any_skip_relocation, ventura:       "ca7665ea8701539a9a4f8203a8ec60a433a4b9ca4817ca069ad3a79354a90aec"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6723c526799374b78368a0a1d6fc1b2bfcaf4537de8d48e3cfdd4a3e8450503c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7596fe271778ba74bd1f3711d845e7e730919408ef1c718198ebb50192dce91d"
   end
 
-  depends_on "dotnet@8"
+  depends_on "dotnet"
 
   def install
-    dotnet = Formula["dotnet@8"]
+    dotnet = Formula["dotnet"]
 
     args = %W[
       --configuration Release

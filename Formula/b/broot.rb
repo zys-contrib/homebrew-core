@@ -1,18 +1,19 @@
 class Broot < Formula
   desc "New way to see and navigate directory trees"
   homepage "https://dystroy.org/broot/"
-  url "https://github.com/Canop/broot/archive/refs/tags/v1.44.6.tar.gz"
-  sha256 "554abc12c8343a0e921f92740e06bf3a86993f71eb78246c9b494293da13b1df"
+  url "https://github.com/Canop/broot/archive/refs/tags/v1.46.5.tar.gz"
+  sha256 "730f07fd8450476204878f42c27b1db4f965053c2da5a602eae8f2764c5b92ce"
   license "MIT"
   head "https://github.com/Canop/broot.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "689b3bb4b6145531dcfe0b0d2d7bb5206da9de775eaaff6611a72bf089ee8373"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "714f513f224fe58704c14545fec65288818c92288f8535779389c734bc446dba"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "020284e80923e0881768b34c8d1a012a358fe833d7bed1494b07fc5255e3ce98"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a86d8a7b04255aca8e690b989ce4f417a0dcca5811b8354dcd422cb2696e0053"
-    sha256 cellar: :any_skip_relocation, ventura:       "d708e233c0ace8adfb6d2f0a748fe18d45b169db2b35f176a3d4fc2de65aa9b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a96b658660d581b379edb452b7f87796c075048962a17fab15f723830cf5f4f1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "deb4f8f5ee11db2d5706ac793129e95ffecb8b6e766423c6c74852fa2478caa2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0941c64d210e6c6e0a775e446aed517f69a6a28f84ae1ba53f5d71bb17c83b88"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0173ef65f3865b4ff8babd2dbdbc82cfaa60f27e5c655c87e3290846362a9d74"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b58176de1d90f836f0823c5ded5c0f4b850119ee828e9b96f0e5d9b2d46ad553"
+    sha256 cellar: :any_skip_relocation, ventura:       "d1f27fcfd45ffcd9b382ded13e62088e3e26a31b25461e967085522e4d8f7eff"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4467d01e9a685274ae894f05199c7e4cc63957e6d102e0a4ff1317f61f2b46b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1728f2acacd355e6d11300f0089d21c4989e7ce21deadd8c9290cc64dc81fd89"
   end
 
   depends_on "rust" => :build
@@ -51,7 +52,7 @@ class Broot < Formula
     require "io/console"
     PTY.spawn(bin/"broot", "-c", ":print_tree", "--color", "no", "--outcmd", testpath/"output.txt") do |r, w, pid|
       r.winsize = [20, 80] # broot dependency terminal requires width > 2
-      w.write "n\r"
+      w.write "n\r\n"
       output = ""
       begin
         r.each { |line| output += line }

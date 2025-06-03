@@ -1,12 +1,12 @@
 class Zx < Formula
   desc "Tool for writing better scripts"
-  homepage "https://github.com/google/zx"
-  url "https://registry.npmjs.org/zx/-/zx-8.3.0.tgz"
-  sha256 "b2f96100b863355511425d5f116df9e62f8e364a597cb03fa603931f7260d436"
+  homepage "https://google.github.io/zx/"
+  url "https://registry.npmjs.org/zx/-/zx-8.5.4.tgz"
+  sha256 "be31333e3a149071fa4d199f61dce64a66b40c40f6d11a5e183cab6cc4ca4900"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "05f1f69292ec5b531e6eda6d9af88cd2643ccfdcdc0f166858e0467312a09093"
+    sha256 cellar: :any_skip_relocation, all: "0108d87b11cedda3ec3ea5aef2e359fb4f40f717d109f195d61bf51475522bfb"
   end
 
   depends_on "node"
@@ -14,10 +14,6 @@ class Zx < Formula
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
-
-    # Make the bottles uniform
-    inreplace_file = libexec/"lib/node_modules/zx/node_modules/@types/node/process.d.ts"
-    inreplace inreplace_file, "/usr/local/bin", "#{HOMEBREW_PREFIX}/bin"
   end
 
   test do

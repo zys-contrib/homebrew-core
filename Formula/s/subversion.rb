@@ -2,6 +2,7 @@ class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
   license "Apache-2.0"
+  revision 2
 
   stable do
     url "https://www.apache.org/dyn/closer.lua?path=subversion/subversion-1.14.5.tar.bz2"
@@ -16,13 +17,13 @@ class Subversion < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "d9eeed61100f3b3a1592d5d5b46909dbdc9f3a4e7c5345ed7102bbe51e185371"
-    sha256 arm64_sonoma:  "4626f478a97f833c72ecb9167c15f31c6b86fa78e74cd299b84a9c2824f67913"
-    sha256 arm64_ventura: "95783f81a10344c8db29cd9f679f2b25f18bea384c7ae764466dee7a8f6a4deb"
-    sha256 sonoma:        "4f5d44cba58d1b6e991d16664e60f27c56fbd6e897c93b92a8f15093b8848433"
-    sha256 ventura:       "786eed3f8da4bde0f91d5421165056c073cae7ebfbbaabbfbfd91e9cca1edc46"
-    sha256 x86_64_linux:  "607b4b1f1c9dd5c071d3dc9bf6a38068245b6c2a58469b5aff61ec4fb0f6339a"
+    sha256 arm64_sequoia: "dfd28a5fbb1065e271418d833393b6506c38517b8e1035271291cf32c0fbb09d"
+    sha256 arm64_sonoma:  "868351aba4efe60c49f906c85d312d845796566347983b65dd99c8181f84a77f"
+    sha256 arm64_ventura: "21091b526648e54c2925f039e602bde901534dec8bdba8492b7d7ba249b7d664"
+    sha256 sonoma:        "ab78f975d20697547a90ece32b942d1cc6f293409e03f9697125475fcd8f3369"
+    sha256 ventura:       "1769f8d068953dc7565a6258e35c1a8d04473dcb76a3d47e3ad5c9016cf13968"
+    sha256 arm64_linux:   "b72fd0fe9d755c3af711869c33ed08674c0d8c93716156cbd68c345107aab22f"
+    sha256 x86_64_linux:  "ae18ae190c2e2331dfad6c352068449cf677587692a9580ba3b9f7afa6469545"
   end
 
   head do
@@ -243,7 +244,8 @@ class Subversion < Formula
     platform = if OS.mac?
       "darwin-thread-multi-2level"
     else
-      "#{Hardware::CPU.arch}-#{OS.kernel_name.downcase}-thread-multi"
+      arch = Hardware::CPU.arm? ? :aarch64 : Hardware::CPU.arch
+      "#{arch}-#{OS.kernel_name.downcase}-thread-multi"
     end
 
     perl = DevelopmentTools.locate("perl")

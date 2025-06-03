@@ -1,17 +1,18 @@
 class AwsCCal < Formula
   desc "AWS Crypto Abstraction Layer"
   homepage "https://github.com/awslabs/aws-c-cal"
-  url "https://github.com/awslabs/aws-c-cal/archive/refs/tags/v0.8.1.tar.gz"
-  sha256 "4d603641758ef350c3e5401184804e8a6bba4aa5294593cc6228b0dca77b22f5"
+  url "https://github.com/awslabs/aws-c-cal/archive/refs/tags/v0.9.1.tar.gz"
+  sha256 "1245f007e83a66805f7afe80ce4825f910dad0068028dd8efc3b6172e2679be5"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0607a3fe7bcad233f298e291e61156e514f03f117000d71d4ff97321415937d3"
-    sha256 cellar: :any,                 arm64_sonoma:  "023901e6e18522fe48992259c6d2071b8dcf0890c4f7dc56cd47887b1ae447f5"
-    sha256 cellar: :any,                 arm64_ventura: "9a9b77a893e4a0067e6f1f20af8ffe564090beb3e07280f5499ad783be3d348a"
-    sha256 cellar: :any,                 sonoma:        "215a4558417b844d8c3b2864b07824437c830e9e778ff3e4f0ac988a69294b98"
-    sha256 cellar: :any,                 ventura:       "d85a325d01fc261df4f1e96685bf11566b4dcc9d7eb130bbc66c71abd7477acc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be6c321e0f5891b906cebd600232165e6ae17a97c6b699173dee2461c42f5e79"
+    sha256 cellar: :any,                 arm64_sequoia: "a9640efc53558c0d679743f3a3c83e03b96b0e452b1b955db9b70154eefbf46f"
+    sha256 cellar: :any,                 arm64_sonoma:  "1a92bbf83a8759552839062ec749fc8e22f5bab6ae7e2e97d08b1d97f6d23296"
+    sha256 cellar: :any,                 arm64_ventura: "7eaec172d79b9ea032254d3247750f268275b992623027d948d567f743056546"
+    sha256 cellar: :any,                 sonoma:        "2bb8cda36accf57d7fa3ec9c674b7f1da79a5bdff671f03ddb0e0b237c6c8c14"
+    sha256 cellar: :any,                 ventura:       "3f1e7f3d8884cf1ea0b81845410c1d17257dd7b564c1ff48c0fa798d066cc9b9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "40f843e081c414fbeb9ed0f171237f6412dc6b03f67bb842a9a2864c6d5603a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "025e7caa9bb17992fbb6eb4921e28c871623ca90c7eb12cb06d1c0c65f0f33b0"
   end
 
   depends_on "cmake" => :build
@@ -22,10 +23,7 @@ class AwsCCal < Formula
   end
 
   def install
-    args = %W[
-      -DBUILD_SHARED_LIBS=ON
-      -DCMAKE_MODULE_PATH=#{Formula["aws-c-common"].opt_lib}/cmake
-    ]
+    args = ["-DBUILD_SHARED_LIBS=ON"]
     args << "-DUSE_OPENSSL=ON" if OS.linux?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

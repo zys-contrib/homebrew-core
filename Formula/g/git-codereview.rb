@@ -1,18 +1,18 @@
 class GitCodereview < Formula
   desc "Tool for working with Gerrit code reviews"
   homepage "https://pkg.go.dev/golang.org/x/review/git-codereview"
-  url "https://github.com/golang/review/archive/refs/tags/v1.13.0.tar.gz"
-  sha256 "e67f223353f191aca75e8e2af713febd07adf596a1718a03276fbc6bab3db746"
+  url "https://github.com/golang/review/archive/refs/tags/v1.15.0.tar.gz"
+  sha256 "0a8d3ce0124e5bbf394607723a42942b9af91aaa7c03e0037c26bd462519a3b1"
   license "BSD-3-Clause"
+  head "https://github.com/golang/review.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "55a17bd974981216ca94abf561db3213925bb552561363fd50d0085ea4b65747"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "55a17bd974981216ca94abf561db3213925bb552561363fd50d0085ea4b65747"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "55a17bd974981216ca94abf561db3213925bb552561363fd50d0085ea4b65747"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c078cedf877a871f99cc3c09386207021a746d897617245b501a575fe0459a70"
-    sha256 cellar: :any_skip_relocation, ventura:       "c078cedf877a871f99cc3c09386207021a746d897617245b501a575fe0459a70"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7a02745b397413f2566aa8100a23438af7a0f5c3a0c43eb2cab622fae65eb5a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "44771d7e045d4d01e2074dcd75e123b79f547d16965eea79349c85ee297e029a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "44771d7e045d4d01e2074dcd75e123b79f547d16965eea79349c85ee297e029a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "44771d7e045d4d01e2074dcd75e123b79f547d16965eea79349c85ee297e029a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b506403ad1d7da51685259f4ad23b3b0c14b8bfb070608491bbb219e916b512d"
+    sha256 cellar: :any_skip_relocation, ventura:       "b506403ad1d7da51685259f4ad23b3b0c14b8bfb070608491bbb219e916b512d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9f702035fa2d158f94eeec851b805a10e0ec75289cacd5da67fb641202c5a14"
   end
 
   depends_on "go" => :build

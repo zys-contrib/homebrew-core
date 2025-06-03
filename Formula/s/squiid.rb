@@ -1,17 +1,18 @@
 class Squiid < Formula
   desc "Do advanced algebraic and RPN calculations"
   homepage "https://imaginaryinfinity.net/projects/squiid/"
-  url "https://gitlab.com/ImaginaryInfinity/squiid-calculator/squiid/-/archive/1.2.1/squiid-1.2.1.tar.gz"
-  sha256 "36dd7cc418ad3366d47865ffa2fab63189f3115bdc3b693a10ac37b5101a03c7"
+  url "https://gitlab.com/ImaginaryInfinity/squiid-calculator/squiid/-/archive/1.3.0/squiid-1.3.0.tar.gz"
+  sha256 "bcf83dcc8bb1374866ee4fb8b31b96203476bb8cdde80cb0d24edfdbebd11469"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d75e5b1cf12807b0d6eddbe4a80f03adc03e0bd1ba58a1a746f3cdffd88e7576"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "03ab55be031ea0dd115b28d5696468b458b989680995c51a78fb57311bd51f0f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a5b00187760880272bff7e30ab10a8a813baff3a0cd9a50b482be0d7bcc1ec3b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d24608b3d73e5ddb2cbdfa6af660a2d6e21b3ee2766af37404855081712225d3"
-    sha256 cellar: :any_skip_relocation, ventura:       "c453840820bc658a883cbc8f77abe60c6cdb014c62e8f1855f60797b3b52698b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2603c2c5e666331d6b7c870069b14531423486b91059478f6841c8841cf65b75"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "91d532cf3d6df4d588888343fa5ce18f7c2f3dc3b95c435aec001afc51404f58"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2afc1d225a574be54952dc9d99b4287e825c3e7236baded5bb86d12640f8bdd4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1d439fec1f96a0b4ca61a92fc31d73a0588a735bef8fb035d24907dc05b17727"
+    sha256 cellar: :any_skip_relocation, sonoma:        "99fbaf75468bd39f33fac158ba621e21cd057a4fcf8b0aa7da5a88858f69128c"
+    sha256 cellar: :any_skip_relocation, ventura:       "3bccfe7343fa9c5b740f1c3bd29f5364313a8643ac4d2d5ec57dbec64fb09352"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d9271c4fe7fce39db2b4500368e46dc1443d82583c456204d4c9c8838d03a307"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42a8e97c67a0436e66467376c4c913e0025fec990b1ba314b03ecdc0f4f67e06"
   end
 
   depends_on "rust" => :build

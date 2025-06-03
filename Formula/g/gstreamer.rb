@@ -4,23 +4,16 @@ class Gstreamer < Formula
   license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
 
   stable do
-    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.24.11/gstreamer-1.24.11.tar.bz2"
-    sha256 "df174a076509d00e9a6e6b5bf54ecceb6396a4e8cfb1e20ccbda8389b06bc6bf"
+    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.26.2/gstreamer-1.26.2.tar.bz2"
+    sha256 "f0eff99e404d4b2dd4b0ee21a3e156fe2cf44ce619c801140417c1b6b33ad88d"
 
     # When updating this resource, use the tag that matches the GStreamer version.
     resource "rs" do
-      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.24.11/gst-plugins-rs-gstreamer-1.24.11.tar.bz2"
-      sha256 "1a91972a5ff283a6f3a01f734a22b5dbafdc5cc906ff7dc4acc8913daba0a83f"
+      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.26.2/gst-plugins-rs-gstreamer-1.26.2.tar.bz2"
+      sha256 "90e5d06332d567ebc8eb3851380d04144c94132345633f65359aea8dbcb9d5dc"
 
       livecheck do
         formula :parent
-      end
-
-      # Backport support for newer `dav1d`
-      # upstream commit ref, https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/commit/7e1ab086de00125bc0d596f9ec5d74c9b82b2cc0
-      patch do
-        url "https://raw.githubusercontent.com/Homebrew/formula-patches/6fff2c4c62f1fb32b5ade46ec9246fc239935d7a/gstreamer/gst-plugins-rs-dav1d.patch"
-        sha256 "d17677a523af021b226969937550f19151b8042f6962eae9fa39ee0e0fc0fe3a"
       end
     end
   end
@@ -31,12 +24,13 @@ class Gstreamer < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "0ca708d2dac9e42836f705af9e7e435fffe4f4eec9cdad0fc0a95c39534125cf"
-    sha256 arm64_sonoma:  "ec62276379caad60d8fa908827dbb3b8dd0b5cbf7f3b8836b66855d824f50cbc"
-    sha256 arm64_ventura: "eef4dbef615e30133e65f822fd47f2ca278712788eff2a5f3936c8f6e9a53409"
-    sha256 sonoma:        "41780b5581d2574ae95c97b222d6546baf899a87b5d0c3586cf9536140eada7c"
-    sha256 ventura:       "1749b688522ce8bc00cc84744bfaf00f724c4a85d45edd3f4be1b782f213930b"
-    sha256 x86_64_linux:  "e5dd1a31f1aa5ea5ebb163c523283c7d5c77b42b0d3928f27ff00c1e445a2c20"
+    sha256 arm64_sequoia: "4725d81f057d92f0419e0620cb91ff720724f25d1394a7b4c83953a36cb7c6c4"
+    sha256 arm64_sonoma:  "13ed02e6b0f3dfc35b220b240de367a1a455613d358f4f6d5fc8f03c7adf687e"
+    sha256 arm64_ventura: "2860d106a00a9892ca2a2b4b0a255b3301227a0bcb164a719349f279759d7c2e"
+    sha256 sonoma:        "94e44959d4a1ea612cbbf6d68f8179f6e40fa8a9a98a42cc0361516fe584203b"
+    sha256 ventura:       "f7a85d389c84b8f104d00f3c82ae36f885d3659e561833d7e82541f416c4ccec"
+    sha256 arm64_linux:   "399c4b5ef7a4c2d4210a5c1eddc91b2536498808593f28429940e6adaf0bf47d"
+    sha256 x86_64_linux:  "de9e80affa2bfc3432ebcf668bd3c9a34575943be75c71cea33ebd0a47d2b9dc"
   end
 
   head do
@@ -221,9 +215,20 @@ class Gstreamer < Formula
     plugin_dir = lib/"gstreamer-1.0"
     rpath_args = [loader_path, rpath(source: plugin_dir)].map { |path| "-rpath,#{path}" }
     ENV.append "RUSTFLAGS", "--codegen link-args=-Wl,#{rpath_args.join(",")}"
-    inreplace "subprojects/gst-plugins-rs/cargo_wrapper.py",
-              "env['RUSTFLAGS'] = shlex_join(rust_flags)",
-              "env['RUSTFLAGS'] = ' '.join(rust_flags)"
+
+    # On Linux, adjust processing of RUSTFLAGS to avoid using shlex, which may mangle our
+    # RPATH-related flags, due to the presence of `$` in $ORIGIN.
+    if OS.linux?
+      wrapper_files = %w[
+        subprojects/gst-plugins-rs/cargo_wrapper.py
+        subprojects/gst-devtools/dots-viewer/cargo_wrapper.py
+      ]
+      inreplace wrapper_files do |s|
+        s.gsub!(/shlex\.split\(env\.get\(("RUSTFLAGS"|'RUSTFLAGS'), (""|'')\)\)/,
+                "' '.split(env.get(\"RUSTFLAGS\", \"\"))")
+        s.gsub! "shlex_join(rust_flags)", "' '.join(rust_flags)"
+      end
+    end
 
     # Make sure the `openssl-sys` crate uses our OpenSSL.
     ENV["OPENSSL_NO_VENDOR"] = "1"
@@ -296,18 +301,19 @@ diff --git a/subprojects/gst-python/gi/overrides/meson.build b/subprojects/gst-p
 index 20aeb06ac9..3c53eab6d7 100644
 --- a/subprojects/gst-python/gi/overrides/meson.build
 +++ b/subprojects/gst-python/gi/overrides/meson.build
-@@ -7,8 +7,10 @@ python.install_sources(pysources,
+@@ -7,9 +7,11 @@ python.install_sources(pysources,
  host_system = host_machine.system()
  if host_system == 'windows'
    gst_dep_for_gi = gst_dep
 +  python_ext_dep = python_dep
  else
    gst_dep_for_gi = gst_dep.partial_dependency(compile_args: true, includes: true, sources: true)
+   gstanalytics_dep_for_gi = gstbad_dep.partial_dependency(compile_args:true, includes:true, sources:true)
 +  python_ext_dep = python_dep.partial_dependency(compile_args: true)
  endif
 
  gstpython = python.extension_module('_gi_gst',
-@@ -17,7 +19,7 @@ gstpython = python.extension_module('_gi_gst',
+@@ -18,7 +20,7 @@ gstpython = python.extension_module('_gi_gst',
      install_dir : pygi_override_dir,
      install_tag: 'python-runtime',
      include_directories : [configinc],

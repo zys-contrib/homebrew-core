@@ -3,18 +3,19 @@ class Ldeep < Formula
 
   desc "LDAP enumeration utility"
   homepage "https://github.com/franc-pentest/ldeep"
-  url "https://files.pythonhosted.org/packages/df/bb/20c9cfaf741443caf16266e62023b820f5c25f35874e73955025a23ec6c6/ldeep-1.0.81.tar.gz"
-  sha256 "5f71796e3d046f4443827d3d6089a2cec8cee28231989d74b8096c18c322e7be"
+  url "https://files.pythonhosted.org/packages/e3/92/2914cb11ae0a1ee1aca4c6e7c5036c3ce83d0b20613ba13e9519e00cecdb/ldeep-1.0.86.tar.gz"
+  sha256 "4baeea7d1bcaa29867214c47992b2108c5ad0bb7cd09f82ca1c9270d538ae1f7"
   license "MIT"
   head "https://github.com/franc-pentest/ldeep.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "64c07c121fbde67eba314206e295940771995f7d23f52bab5e1a4e98a3e8ef51"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e3a24f34338a07bd85325b029217a6b9a58433327bfb56dcabef7db172d31ecb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0824780cfffc541097b75a339a261d49a64e118460ec349f325cb5c8629bbe8e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5651bbf6f8d4ce1c1d216064b0c846f737835f119b0e777e1b76d370725e5cdd"
-    sha256 cellar: :any_skip_relocation, ventura:       "9a6ab01e22af79b54f9e547b6f603583b64fc0f83f6daf3d422486e784a651ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa049d5e1f1e2cc49a8e00c177f61928fc807075d1bd21c507d5ae36dcbce512"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "82bf16581a7e37876280738dbc31a2e17d697d05078b65aff8b7b5d6d0c8c871"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "83461409b70bf0a9152c2fb620d8c7779febb0315304ceeb0d745242adfab8ad"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1dcb56e2d8d6ebb2a983fdebfaf591a47c3f3f0647cb94ec30d87c2bd1fb0cac"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a559b26b2f5ac8fab7ebc490754ddb7d03f1760815128ac407f7a463f802d1c7"
+    sha256 cellar: :any_skip_relocation, ventura:       "bd7a6866236560c1c0fac00466ce22dd655f50087c1bca9b1fefca7c32397972"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "88cdcf3d796d293dad800ea38741a7ed0bece5a53e4ff89e81911dd6115c27cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d833e14e6074206f1aa205241c59e8b77fafa45fd675883dd832ea8ea523e6ad"
   end
 
   depends_on "cryptography"
@@ -33,8 +34,8 @@ class Ldeep < Formula
   end
 
   resource "decorator" do
-    url "https://files.pythonhosted.org/packages/66/0c/8d907af351aa16b42caae42f9d6aa37b900c67308052d10fdce809f8d952/decorator-5.1.1.tar.gz"
-    sha256 "637996211036b6385ef91435e4fae22989472f9d571faba8927ba8253acbc330"
+    url "https://files.pythonhosted.org/packages/43/fa/6d96a0978d19e17b68d634497769987b16c8f4cd0a7a05048bec693caa6b/decorator-5.2.1.tar.gz"
+    sha256 "65f266143752f734b0a7cc83c46f4618af75b8c5911b00ccb61d0ac9b6da0360"
   end
 
   resource "dnspython" do
@@ -63,13 +64,13 @@ class Ldeep < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/13/52/13b9db4a913eee948152a079fe58d035bd3d1a519584155da8e786f767e6/pycryptodome-3.21.0.tar.gz"
-    sha256 "f7787e0d469bdae763b876174cf2e6c0f7be79808af26b1da96f1a64bcf47297"
+    url "https://files.pythonhosted.org/packages/44/e6/099310419df5ada522ff34ffc2f1a48a11b37fc6a76f51a6854c182dbd3e/pycryptodome-3.22.0.tar.gz"
+    sha256 "fd7ab568b3ad7b77c908d7c3f7e167ec5a8f035c64ff74f10d47a4edd043d723"
   end
 
   resource "pycryptodomex" do
-    url "https://files.pythonhosted.org/packages/11/dc/e66551683ade663b5f07d7b3bc46434bf703491dbd22ee12d1f979ca828f/pycryptodomex-3.21.0.tar.gz"
-    sha256 "222d0bd05381dd25c32dd6065c071ebf084212ab79bab4599ba9e6a3e0009e6c"
+    url "https://files.pythonhosted.org/packages/ba/d5/861a7daada160fcf6b0393fb741eeb0d0910b039ad7f0cd56c39afdd4a20/pycryptodomex-3.22.0.tar.gz"
+    sha256 "a1da61bacc22f93a91cbe690e3eb2022a03ab4123690ab16c46abb693a9df63d"
   end
 
   resource "six" do

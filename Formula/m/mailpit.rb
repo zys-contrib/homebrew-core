@@ -1,17 +1,17 @@
 class Mailpit < Formula
   desc "Web and API based SMTP testing"
   homepage "https://mailpit.axllent.org/"
-  url "https://github.com/axllent/mailpit/archive/refs/tags/v1.22.0.tar.gz"
-  sha256 "2bf80a5f2cd316b6e9c227f43c7f2be4f828acc4a687fac2a8fd5a384610b0fd"
+  url "https://github.com/axllent/mailpit/archive/refs/tags/v1.25.1.tar.gz"
+  sha256 "a07d67df485988ecea25b2db9cc91b31d64c3e6c655e61ceb3fb6473a5815723"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "70b9afe747c81c9e033aca68f095349c3b9f8b48418a139818daf2aef6b247aa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a90a055a221fefd2e747433f281f4c963121226f83fa87b7718bbb8ddfa4e48c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "561612a6c4796c83ceba89d8b75f94a73defb75d0fd22e738c6b1dba47b3505c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5d33e4ebad2ffc30195714cb2c63d5462005ee3400b7b6c605bcaaf0a0993d95"
-    sha256 cellar: :any_skip_relocation, ventura:       "1853594af0dcb84cc190c0a4392a8ab58587426c51f802a7a05bde46f8ddcf4e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55ddffc2432609b7eb58745f0815378f8177ce9d77052bce0d4d63a9bfa840c3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "171dc8924fb3eb676a12b2d2f3c4870957674ea9c054aa0fdcf36c2b0ba0fedc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a3d300309092f081081b5081200d8b4a8775820f2b9a04df0f8b0510c65cd372"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "98ad491e0316259da7c5438718d8c9dbfd3ee21f8048134d741bfa1150d905be"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ee0580ae8fd1d02b45d17d495e9816247d228f02d60001d1f27d1042e7c69d38"
+    sha256 cellar: :any_skip_relocation, ventura:       "804f65100aa5cfeb4696ff83b2a201133cb400a524cd5a7fb4f882dc95f6a4e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "716ea130afe883b8d087dcbabe8f27ffb5a19a0ee263b89e0b19c49830598927"
   end
 
   depends_on "go" => :build

@@ -4,7 +4,7 @@ class Visp < Formula
   url "https://visp-doc.inria.fr/download/releases/visp-3.6.0.tar.gz"
   sha256 "eec93f56b89fd7c0d472b019e01c3fe03a09eda47f3903c38dc53a27cbfae532"
   license "GPL-2.0-or-later"
-  revision 11
+  revision 14
 
   livecheck do
     url "https://visp.inria.fr/download/"
@@ -12,11 +12,11 @@ class Visp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "8de6357bee92823b92ba777a8da84b9675af33b5b6ba5c4615056b03d4051001"
-    sha256 cellar: :any,                 arm64_ventura: "b1775095986f474013a66720ffd491003aa0e5d493a04e44e247cfbe4a67bd84"
-    sha256 cellar: :any,                 sonoma:        "8b05aebbe9cf362755663b48f555f41bee7b028e601ab24ca1d91b1a5b46bab0"
-    sha256 cellar: :any,                 ventura:       "da4233284042269153c4204742777d9511cc5c53abb82e6da7d715eda6a6b54c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ffe814594888a9d0c998fae5dfc4abd0d8e53c61b550a025c4fd2eef0ffcd0aa"
+    sha256 cellar: :any,                 arm64_sonoma:  "aeeb52ede1480fea6884423f6d00f96dc66bef176ae9f48e6cb14284767a4dc3"
+    sha256 cellar: :any,                 arm64_ventura: "f0c9bb028e286ec5781bfb3905d6b42cfcc0f16f3eb2327c4e3cd05fdd314ac5"
+    sha256 cellar: :any,                 sonoma:        "21dbc0cce5d30d7fc180f7c14b7da89d676707c08e490c724c3beed36d5fd98b"
+    sha256 cellar: :any,                 ventura:       "ec0ec868a6802ded32fab187ffe18f1bedc78d7a182f950a3feddedad7639052"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "897659319f02e161dc3522c72e1dd445a021f3a2743ea4e2eb4381382e0e282c"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -148,6 +148,27 @@ class Visp < Formula
     # Make sure software built against visp don't reference opencv's cellar path either
     inreplace [lib/"pkgconfig/visp.pc", lib/"cmake/visp/VISPConfig.cmake", lib/"cmake/visp/VISPModules.cmake"],
               opencv.prefix.realpath, opencv.opt_prefix
+  end
+
+  def post_install
+    # Replace SDK paths in bottle when pouring on different OS version than bottle OS.
+    # This avoids error like https://github.com/orgs/Homebrew/discussions/5853
+    # TODO: Consider handling this in brew, e.g. as part of keg cleaner or bottle relocation
+    if OS.mac? && (tab = Tab.for_formula(self)).poured_from_bottle
+      bottle_os = bottle&.tag&.to_macos_version
+      if bottle_os.nil? && (os_version = tab.built_on.fetch("os_version", "")[/\d+(?:\.\d+)*$/])
+        bottle_os = MacOSVersion.new(os_version).strip_patch
+      end
+      return if bottle_os.nil? || MacOS.version == bottle_os
+
+      sdk_path_files = [
+        lib/"cmake/visp/VISPConfig.cmake",
+        lib/"cmake/visp/VISPModules.cmake",
+        lib/"pkgconfig/visp.pc",
+      ]
+      bottle_sdk_path = MacOS.sdk_for_formula(self, bottle_os).path
+      inreplace sdk_path_files, bottle_sdk_path, MacOS.sdk_for_formula(self).path, audit_result: false
+    end
   end
 
   test do

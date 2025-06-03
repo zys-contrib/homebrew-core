@@ -1,8 +1,8 @@
 class Moarvm < Formula
   desc "VM with adaptive optimization and JIT compilation, built for Rakudo"
   homepage "https://moarvm.org"
-  url "https://github.com/MoarVM/MoarVM/releases/download/2024.12/MoarVM-2024.12.tar.gz"
-  sha256 "7f8ae605a19189ebb48a51bae486bacd32141326df8289509825bdb1bee3984c"
+  url "https://github.com/MoarVM/MoarVM/releases/download/2025.05/MoarVM-2025.05.tar.gz"
+  sha256 "61fc9ecc8b479ccc8d389fc73cce927c9f5b1070a9c62c60a0817f89dc832d91"
   license "Artistic-2.0"
 
   livecheck do
@@ -11,40 +11,55 @@ class Moarvm < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "76ce2ad41c6bd48baa4e6136ba4aba98e28d1cbbf5722f879878c1df1b60e259"
-    sha256 arm64_sonoma:  "508e2ab97bcdc1ecbe2e0cc617321f8a40c6399f1e3a8ed0bba9f154b0db05f2"
-    sha256 arm64_ventura: "ce4a40b33933e373dccd7ad8b26c6f216da5d3c9b860bb8c6e7a23f00907b072"
-    sha256 sonoma:        "1a6b6206952be2c5054a74a5b90c76ff855bfe486fb2f90c3bb8a425d3c29870"
-    sha256 ventura:       "56f13cc512c69691922fbbc66ffbb36de2307c2f23fb232f2fa074b58cb009d6"
-    sha256 x86_64_linux:  "ce44335219f52ecd1d7bdd46de6f2603de1d43d44e2538c3cb78502879494e9c"
+    sha256 arm64_sequoia: "34de90dc55d45a885b4266758435ee5a07c2a08c1d060d3d906263562db0e48d"
+    sha256 arm64_sonoma:  "ed2b051247569eb1146ac68b323b82ae94e5ab437716fdd469f0b035813daa89"
+    sha256 arm64_ventura: "f41d4b67329a915df09209cd70524ec43034305337516a85c1237cf8aa14a497"
+    sha256 sonoma:        "aa3ad74ef5ff21cbbefa69c311e108ee5e90eeeac16c689f92287313d55174f9"
+    sha256 ventura:       "9f15c1612eceb488c7dd36b1ee59493865f59e7e16f6cc13c9dcf90fa90b8e65"
+    sha256 arm64_linux:   "e557552f00cd918410acdfbd1e46ff0eb5efa547f9dd8049b81639090ff698f7"
+    sha256 x86_64_linux:  "665239877afbccff09f81aa945695eca2be3bbdaa1e2eed7bebb218581414ca1"
   end
 
   depends_on "pkgconf" => :build
   depends_on "libtommath"
-  depends_on "libuv"
+  depends_on "mimalloc"
   depends_on "zstd"
 
   uses_from_macos "perl" => :build
   uses_from_macos "libffi"
 
+  on_macos do
+    depends_on "libuv"
+  end
+
   conflicts_with "moar", because: "both install `moar` binaries"
   conflicts_with "rakudo-star", because: "rakudo-star currently ships with moarvm included"
 
   resource "nqp" do
-    url "https://github.com/Raku/nqp/releases/download/2024.12/nqp-2024.12.tar.gz"
-    sha256 "026ff25d7eaae299b2d644e46b389642774cdf51fd803047f4291731dc4b2477"
+    url "https://github.com/Raku/nqp/releases/download/2025.05/nqp-2025.05.tar.gz"
+    sha256 "51f72f3c3cdd8e87fabd1601eab7c6dfef201dd4b65946848a6e38370e99458f"
   end
 
   def install
+    # Remove bundled libraries
+    %w[dyncall libatomicops libtommath mimalloc].each { |dir| rm_r("3rdparty/#{dir}") }
+
     configure_args = %W[
       --c11-atomics
       --has-libffi
       --has-libtommath
-      --has-libuv
+      --has-mimalloc
       --optimize
       --pkgconfig=#{Formula["pkgconf"].opt_bin}/pkgconf
       --prefix=#{prefix}
     ]
+    # FIXME: brew `libuv` causes runtime failures on Linux, e.g.
+    # "Cannot find method 'made' on object of type NQPMu"
+    if OS.mac?
+      configure_args << "--has-libuv"
+      rm_r("3rdparty/libuv")
+    end
+
     system "perl", "Configure.pl", *configure_args
     system "make", "realclean"
     system "make"

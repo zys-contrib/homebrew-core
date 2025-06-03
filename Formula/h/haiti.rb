@@ -1,31 +1,33 @@
 class Haiti < Formula
   desc "Hash type identifier"
   homepage "https://noraj.github.io/haiti/#/"
-  url "https://github.com/noraj/haiti/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "ee1fee20c891db567abe753de25e7f1f1d4c7c59d92b6ce28f2e96606f247828"
+  url "https://github.com/noraj/haiti/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "f6b8bf21104cedda21d1cdfa9931b5f7a6049231aedba984a0e92e49123a3791"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0cc641884533a948e74cddcae36687ab233903722c81582ddf1d365c99d67570"
-    sha256 cellar: :any,                 arm64_sonoma:  "8b0a6b439ca9a9499d344241dcd3350bc14a214b3ce339662d0557db129b580a"
-    sha256 cellar: :any,                 arm64_ventura: "7c0c5a7d08953e7d7a00d105a262fbd083d779dcc3a6854caf8ce268e49102e8"
-    sha256 cellar: :any,                 sonoma:        "f3491dbed77e9cc3a2328492324f1061251e7576bae3f1e15d22e7d5f34b216b"
-    sha256 cellar: :any,                 ventura:       "26b2779b32a9ad7511189ba6347b453cc9b98f62c96228a3832cfbe12c61d48a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c13a3b4a68253847ede94468e90c00ace99cf93095f21fda7064ebc3da96d28"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "437a900ef99a2a9ce151f54852b5ceba54b04b0ae4f7dbdfca33ac96262db51c"
+    sha256 cellar: :any,                 arm64_sonoma:  "d256b2ab7188e82c043c22fc4ca8e5df092d581e4d0c7db6a1feda3110a3054e"
+    sha256 cellar: :any,                 arm64_ventura: "cd3f25be3ff7e82d716d0c04b6703687a104014703d0fca01ef6b743014a1112"
+    sha256 cellar: :any,                 sonoma:        "03b15c6432552b2f1bf9b501292dec5d9981c1b31e48b371c5368248bd3c9498"
+    sha256 cellar: :any,                 ventura:       "eacc0e910d7028495d5ac2dd6fc488fef97f660bd586ab4f4638d90ca9830345"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a7ba6681ea727c139e302ef47608117ceba1ec44781fd0f37ba9eb646cfa3acd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf1cab0eaadd053425ec6af959b808b9b8c60f12e531791ec6215cf009529e33"
   end
 
-  # Requires Ruby >= 2.7
   depends_on "ruby"
 
   def install
+    ENV["BUNDLE_VERSION"] = "system" # Avoid installing Bundler into the keg
     ENV["GEM_HOME"] = libexec
 
     system "bundle", "config", "set", "without", "development", "test"
     system "bundle", "install"
-    system "gem", "build", "haiti.gemspec"
-    system "gem", "install", "haiti-hash-#{version}.gem"
-    bin.install Dir[libexec/"bin/haiti"]
+    system "gem", "build", "#{name}.gemspec"
+    system "gem", "install", "#{name}-hash-#{version}.gem"
+
+    bin.install Dir[libexec/"bin/#{name}"]
     bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
   end
 

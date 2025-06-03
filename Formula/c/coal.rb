@@ -1,10 +1,10 @@
 class Coal < Formula
   desc "Extension of the Flexible Collision Library"
   homepage "https://github.com/coal-library/coal"
-  url "https://github.com/coal-library/coal/releases/download/v3.0.0/coal-3.0.0.tar.gz"
-  sha256 "6a9cbd4684e907fd16577e5227fbace06ac15ca861c0846dfe5bc81e565fb1e7"
+  url "https://github.com/coal-library/coal/releases/download/v3.0.1/coal-3.0.1.tar.gz"
+  sha256 "b9609301baefbbf45b4e0f80865abc2b2dcbb69c323a55b0cd95f141959c478c"
   license "BSD-2-Clause"
-  revision 2
+  revision 1
   head "https://github.com/coal-library/coal.git", branch: "devel"
 
   livecheck do
@@ -13,12 +13,13 @@ class Coal < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f6334d35e66e1d9db8d3d598ff339037bb0b0bc25032789967c3ba0f9c191d8a"
-    sha256 cellar: :any,                 arm64_sonoma:  "f7d995046472136d5d4e4fb5510a51e9ab927632d471ebd78fb7e28c13ed2bfc"
-    sha256 cellar: :any,                 arm64_ventura: "3098293312c10df220f47dcb0086f079eb3ac332b20479b829127e06ae6a1bfb"
-    sha256 cellar: :any,                 sonoma:        "50ad666c545054c491fea1c0dfe2246d40cb36c8c8a4fb5c3f61f4f7b727f115"
-    sha256 cellar: :any,                 ventura:       "3e6347ac04bd3ddb3464956bb3469391db494f009f677818b27e43f464f73248"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2af1b52ae484df6821cd02ce5a93678119fdc3b7423e8ac9c0d087f6fafc626"
+    sha256 cellar: :any,                 arm64_sequoia: "e2d87ef2038acd5dcf9756b87f66d478603dcf2e98bc7eba3aa8ed2455a326ad"
+    sha256 cellar: :any,                 arm64_sonoma:  "f2ef50d3e832c5c63512cb927cc5a7a9e8624f9aa045e58a1433b62e54d9b295"
+    sha256 cellar: :any,                 arm64_ventura: "5915881cfc9032d711eba837fdbaa076ab45b23dffce110114778a2e65d6ce2a"
+    sha256 cellar: :any,                 sonoma:        "28b03d78e18bca9541c8a186667a2cd59d9bf00c63011c7128af67451e7cb019"
+    sha256 cellar: :any,                 ventura:       "51a4cd079554920b83c11f3177af2b2e4aa6d8496384dea819ada476163ab09f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f7a0eee745edc2ab275d7e4ae8fa3a7a4f8cf565da49e94c7a51d6aedb6367ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3909470b234c0176b176fc89c8378c2f778450cadadfe96cdf4a604d4534c5f"
   end
 
   depends_on "cmake" => :build
