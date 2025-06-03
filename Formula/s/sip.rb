@@ -3,8 +3,8 @@ class Sip < Formula
 
   desc "Tool to create Python bindings for C and C++ libraries"
   homepage "https://python-sip.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/5b/62/f46c9a5634d4f9712721fe6f3c17ec19df89400c4fda3a9fd7e0f960f88e/sip-6.11.1.tar.gz"
-  sha256 "3dae4baaf9e9f781d84bf293e0e2938dc7f44b826837889026eba53bd36c81b5"
+  url "https://files.pythonhosted.org/packages/25/fb/67c5ebb38defec74da7a3e2e0fa994809d152e3d4097f260bc7862a7af30/sip-6.12.0.tar.gz"
+  sha256 "083ced94f85315493231119a63970b2ba42b1d38b38e730a70e02a99191a89c6"
   license "BSD-2-Clause"
   head "https://github.com/Python-SIP/sip.git", branch: "main"
 
@@ -26,8 +26,8 @@ class Sip < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/8d/d2/ec1acaaff45caed5c2dedb33b67055ba9d4e96b091094df90762e60135fe/setuptools-80.8.0.tar.gz"
-    sha256 "49f7af965996f26d43c8ae34539c8d99c5042fbff34302ea151eaa9c207cd257"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   def python3
