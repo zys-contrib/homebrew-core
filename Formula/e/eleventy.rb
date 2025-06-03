@@ -1,8 +1,8 @@
 class Eleventy < Formula
   desc "Simpler static site generator"
   homepage "https://www.11ty.dev"
-  url "https://registry.npmjs.org/@11ty/eleventy/-/eleventy-3.1.0.tgz"
-  sha256 "8789663b03755a7155e491abfda9a5139c628ab4da4adc1567e118aa7180f07a"
+  url "https://registry.npmjs.org/@11ty/eleventy/-/eleventy-3.1.1.tgz"
+  sha256 "eff794b0b2d435532af76a75a2049914923e9ab183c517b4061a1cb9d26bf195"
   license "MIT"
   head "https://github.com/11ty/eleventy.git", branch: "main"
 
