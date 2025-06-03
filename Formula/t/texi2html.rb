@@ -27,7 +27,9 @@ class Texi2html < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "13d9124964d4e6a9c99ca57e763e34e40397871bf94b4064cddb5262bf501f47"
   end
 
-  depends_on "gettext"
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     args = []
