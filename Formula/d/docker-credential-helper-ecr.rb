@@ -12,13 +12,13 @@ class DockerCredentialHelperEcr < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fedaf37d87aae03d6e661d21a997d2913dd09e77754f0574ad6936405fcd1597"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fedaf37d87aae03d6e661d21a997d2913dd09e77754f0574ad6936405fcd1597"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fedaf37d87aae03d6e661d21a997d2913dd09e77754f0574ad6936405fcd1597"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4a7e351e896541eb5048280a91cfbfc0888ecdc9f0a6111c2d18391d4dd7366f"
-    sha256 cellar: :any_skip_relocation, ventura:       "4a7e351e896541eb5048280a91cfbfc0888ecdc9f0a6111c2d18391d4dd7366f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "36baad59d47edd5adb202e9c87fab1c00bc7c58c09d2bd3e3cdea6d2e24e7bfb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b885a402893475b5e4fb09e712a50af51a7ad9f1edfae2adaa782f8444fc373"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d817a82ae7464778298aca84b6e213466258f6ac4c5b9e7353f1fba8f7651b01"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d817a82ae7464778298aca84b6e213466258f6ac4c5b9e7353f1fba8f7651b01"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d817a82ae7464778298aca84b6e213466258f6ac4c5b9e7353f1fba8f7651b01"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2792074680b3e09f0dfb3b9944dde57426d02e5762dc13f986eb2203c79b9451"
+    sha256 cellar: :any_skip_relocation, ventura:       "2792074680b3e09f0dfb3b9944dde57426d02e5762dc13f986eb2203c79b9451"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "64e9c2756a81777a9f28028ca958f032346cefec8988dd6c83d927c9d1fe6036"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7ad2c445a7a05f1572cb8c80e143f1d735627e85866ed8e7fa3a50542f51da7"
   end
 
   depends_on "go" => :build
