@@ -7,13 +7,13 @@ class Nb < Formula
   head "https://github.com/xwmx/nb.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3208591411264290fa2633fd21954edf3613e626eaf4b3a52e46eca533a4088b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3208591411264290fa2633fd21954edf3613e626eaf4b3a52e46eca533a4088b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3208591411264290fa2633fd21954edf3613e626eaf4b3a52e46eca533a4088b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7f7aeb517abed3249f3bd69f415ccb3ca6de8492280ab60aab2268a099111907"
-    sha256 cellar: :any_skip_relocation, ventura:       "7f7aeb517abed3249f3bd69f415ccb3ca6de8492280ab60aab2268a099111907"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3208591411264290fa2633fd21954edf3613e626eaf4b3a52e46eca533a4088b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3208591411264290fa2633fd21954edf3613e626eaf4b3a52e46eca533a4088b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b1137153eb724d3518bc346355bab19bb0e4272223a9c47c92fd749bddb0730a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b1137153eb724d3518bc346355bab19bb0e4272223a9c47c92fd749bddb0730a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b1137153eb724d3518bc346355bab19bb0e4272223a9c47c92fd749bddb0730a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "caca87987f57de4883413dad8a52eade0bffa8207688e7ccc2a392801cf59a76"
+    sha256 cellar: :any_skip_relocation, ventura:       "caca87987f57de4883413dad8a52eade0bffa8207688e7ccc2a392801cf59a76"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b1137153eb724d3518bc346355bab19bb0e4272223a9c47c92fd749bddb0730a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1137153eb724d3518bc346355bab19bb0e4272223a9c47c92fd749bddb0730a"
   end
 
   depends_on "bat"
