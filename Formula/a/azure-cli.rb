@@ -3,8 +3,8 @@ class AzureCli < Formula
 
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
-  url "https://github.com/Azure/azure-cli/archive/refs/tags/azure-cli-2.73.0.tar.gz"
-  sha256 "f417d564c21616d87ebdd8bd10ac862c252edd959680506d4e69f2479508faf2"
+  url "https://github.com/Azure/azure-cli/archive/refs/tags/azure-cli-2.74.0.tar.gz"
+  sha256 "e82e0772d5c89e1f404ad925f87d45fe2490b3f8671bc72814f978f5f4b2a951"
   license "MIT"
   head "https://github.com/Azure/azure-cli.git", branch: "dev"
 
@@ -124,6 +124,11 @@ class AzureCli < Formula
     sha256 "77ee2534ba651a1f306c85d7b505bc3ccee8fea77450ebafafc26aec16e5445d"
   end
 
+  resource "azure-keyvault-securitydomain" do
+    url "https://files.pythonhosted.org/packages/a6/18/3a67754d999a0244f3551c8c28031cdfb5d2b6f072df6b55fc2bf2e69ec5/azure_keyvault_securitydomain-1.0.0b1.tar.gz"
+    sha256 "3291a191e778a947e4b28ed01327892a93aedcf8e0a0dd674cf116cb11043776"
+  end
+
   resource "azure-mgmt-advisor" do
     url "https://files.pythonhosted.org/packages/34/96/e28b949dd55e1fc381fae2676c95c8a9410fa4b9768cc02ec3668fc490c4/azure-mgmt-advisor-9.0.0.zip"
     sha256 "fc408b37315fe84781b519124f8cb1b8ac10b2f4241e439d0d3e25fd6ca18d7b"
@@ -200,8 +205,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-containerservice" do
-    url "https://files.pythonhosted.org/packages/35/09/a640bfdb168a42bb23b588f65a4eba363334c6a8c63b7355dfc13ac539cf/azure_mgmt_containerservice-35.0.0.tar.gz"
-    sha256 "71a149b3d65c2bc5c9c9c7843a11f81c3a1fb61ea187326feaa94ad3cee3dc74"
+    url "https://files.pythonhosted.org/packages/49/31/661baddac31b3d53dda14cc4b58da78fa906d66f38f6a5803553caaca8dc/azure_mgmt_containerservice-36.0.0.tar.gz"
+    sha256 "97f3e76d2b3a6ae89e1e6c739848f1e0e0758c7282aa334d57b30086f6f36c9f"
   end
 
   resource "azure-mgmt-core" do
@@ -210,8 +215,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-cosmosdb" do
-    url "https://files.pythonhosted.org/packages/74/2a/3240e83aff38443d334a17467d32a46bab269164ab9477bb17d2277b32f8/azure_mgmt_cosmosdb-9.7.0.tar.gz"
-    sha256 "b5072d319f11953d8f12e22459aded1912d5f27e442e1d8b49596a85005410a1"
+    url "https://files.pythonhosted.org/packages/a1/cd/b5d1eac32515370da90454fe64500d29e20daffd15575550fca5628eb300/azure_mgmt_cosmosdb-9.8.0.tar.gz"
+    sha256 "214ee47165387e578f86e6611fb329b4d54dc295ad79da37b9d92c5d6d20d1b1"
   end
 
   resource "azure-mgmt-databoxedge" do
@@ -350,8 +355,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-recoveryservicesbackup" do
-    url "https://files.pythonhosted.org/packages/d1/10/e3d49f12842a84de410f8ed9831d6dcf6ee04e993f79fe4eb33adf1a9265/azure-mgmt-recoveryservicesbackup-9.1.0.tar.gz"
-    sha256 "1e9fd406c0c9ee2627f5a371f012f877342f7fc6f33b2564fcd14d6f0663cd0f"
+    url "https://files.pythonhosted.org/packages/72/28/99997bb991c8d1d53ec1164a4f07adc520e3c10c55b7e0b814f6e6c6043e/azure_mgmt_recoveryservicesbackup-9.2.0.tar.gz"
+    sha256 "c402b3e22a6c3879df56bc37e0063142c3352c5102599ff102d19824f1b32b29"
   end
 
   resource "azure-mgmt-redhatopenshift" do
@@ -415,8 +420,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-storage" do
-    url "https://files.pythonhosted.org/packages/ca/d2/f06af604fe54231f049c861dd1556495c95ad95620ed3b14337c3e164913/azure_mgmt_storage-22.1.0.tar.gz"
-    sha256 "727b8c8be4aca4551a9b921cdf76bb92b1e988d009de3b983ce72b7343b749e9"
+    url "https://files.pythonhosted.org/packages/7b/97/4f755ec553d95c293390a2871c22bb385f5cde9e0c7709a8ebc2bffa81df/azure_mgmt_storage-23.0.0.tar.gz"
+    sha256 "1c5954d59bddcb979d05bc49e431716a6e2b2f756909b96ba7c43261072afcbf"
   end
 
   resource "azure-mgmt-synapse" do
@@ -680,13 +685,13 @@ class AzureCli < Formula
   end
 
   resource "semver" do
-    url "https://files.pythonhosted.org/packages/31/a9/b61190916030ee9af83de342e101f192bbb436c59be20a4cb0cdb7256ece/semver-2.13.0.tar.gz"
-    sha256 "fa0fe2722ee1c3f57eac478820c3a5ae2f624af8264cbdf9000c980ff7f75e3f"
+    url "https://files.pythonhosted.org/packages/72/d1/d3159231aec234a59dd7d601e9dd9fe96f3afff15efd33c1070019b26132/semver-3.0.4.tar.gz"
+    sha256 "afc7d8c584a5ed0a11033af086e8af226a9c0b206f313e0301f8dd7b6b589602"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/95/32/0cc40fe41fd2adb80a2f388987f4f8db3c866c69e33e0b4c8b093fdf700e/setuptools-80.4.0.tar.gz"
-    sha256 "5a78f61820bc088c8e4add52932ae6b8cf423da2aff268c23f813cfbb13b4006"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   resource "six" do
