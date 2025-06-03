@@ -1,8 +1,8 @@
 class DezoomifyRs < Formula
   desc "Tiled image downloader"
   homepage "https://github.com/lovasoa/dezoomify-rs"
-  url "https://github.com/lovasoa/dezoomify-rs/archive/refs/tags/v2.13.0.tar.gz"
-  sha256 "b10bbb08d1e0f135f9db98a264e1b07dc05520b1968f433de2282cd74f004ebc"
+  url "https://github.com/lovasoa/dezoomify-rs/archive/refs/tags/v2.14.0.tar.gz"
+  sha256 "8b8b7bc2123a14bfd0ead7657f2bfebfe112a33c8ed127ac6fed450dcda525a0"
   license "GPL-3.0-only"
   head "https://github.com/lovasoa/dezoomify-rs.git", branch: "master"
 
@@ -24,8 +24,13 @@ class DezoomifyRs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3db821d32bdad848d8d4241afec374f212cf335fce3320831313faf90de84b4"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "imagemagick" => :test
+
+  on_linux do
+    depends_on "openssl@3"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args
