@@ -4,6 +4,7 @@ class Oq < Formula
   url "https://github.com/Blacksmoke16/oq/archive/refs/tags/v1.3.5.tar.gz"
   sha256 "66b2d879b6e2061121c50b8e584ce82f95fe79348bf3696ca38e5910a6c42495"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "3c85406e1243e64b72d6c6e29e57312acdf1da6bf5ad3bd0ad0103fcd6d5ae9f"
@@ -34,6 +35,8 @@ class Oq < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/oq --version")
+
     assert_equal(
       "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<root><foo>1</foo><bar>2</bar></root>\n",
       pipe_output("#{bin}/oq -o xml --indent 0 .", '{"foo":1, "bar":2}'),
