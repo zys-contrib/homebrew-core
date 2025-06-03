@@ -3,10 +3,9 @@ class PyqtBuilder < Formula
 
   desc "Tool to build PyQt"
   homepage "https://pyqt-builder.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/0b/0a/e7684c054c3b85999354bb3be7ccbd6e6d9b751940cec8ecff5e7a8ea9f7/pyqt_builder-1.18.1.tar.gz"
-  sha256 "3f7a3a2715947a293a97530a76fd59f1309fcb8e57a5830f45c79fe7249b3998"
+  url "https://files.pythonhosted.org/packages/18/cf/9927e22ece4b20e24fb236dba358dd14f55b9e07fcde3a5ad6711da9792e/pyqt_builder-1.18.2.tar.gz"
+  sha256 "56dfea461484a87a8f0c8b0229190defc436d7ec5de71102e20b35e5639180bc"
   license "BSD-2-Clause"
-  revision 1
   head "https://github.com/Python-PyQt/PyQt-builder.git", branch: "main"
 
   bottle do
@@ -27,13 +26,13 @@ class PyqtBuilder < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
-    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   resource "sip" do
-    url "https://files.pythonhosted.org/packages/e3/11/1ad8d00e08f26eaa45c48c085b8fdb6aba32b5c96e601d96b4b821a5b88e/sip-6.11.0.tar.gz"
-    sha256 "237d24ead97a5ef2e8c06521dd94c38626e43702a2984c8a2843d7e67f07e799"
+    url "https://files.pythonhosted.org/packages/25/fb/67c5ebb38defec74da7a3e2e0fa994809d152e3d4097f260bc7862a7af30/sip-6.12.0.tar.gz"
+    sha256 "083ced94f85315493231119a63970b2ba42b1d38b38e730a70e02a99191a89c6"
   end
 
   def python3
