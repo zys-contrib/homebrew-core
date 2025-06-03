@@ -7,13 +7,13 @@ class Ntopng < Formula
   head "https://github.com/ntop/ntopng.git", branch: "dev"
 
   bottle do
-    sha256 arm64_sequoia: "9f6d0f239b8dc0835e0698849377f502301bc4299936fb3d0aba624e11885604"
-    sha256 arm64_sonoma:  "be65c430079ebbe79ab62ce1ffce5aa7d084fc0b33bc7153b0e1b57bb240c3ad"
-    sha256 arm64_ventura: "a80a9b44e9aaa5852b96d308be805bc44099e83487d92f2cd28f6a88442c73f5"
-    sha256 sonoma:        "df1b923da4e9371ba304e9f72713c6672cc124bc803bde6402e93f9e654fdde0"
-    sha256 ventura:       "4da8a2ccd7d3c0092e1a95c73b36b8a01d8b1ed2dab9f64e004a57b37274c565"
-    sha256 arm64_linux:   "9328b2d8059fc248392e57bf053ac1d2c0ced06c1cb997ea93e2cf269936800b"
-    sha256 x86_64_linux:  "81e384a601f5d00d27a9ec914e9bd4b25266999afa15e4e11a9ad3109609a4b9"
+    sha256 arm64_sequoia: "1b62120513879ce4cb6ba349d4ac92223089a6c77e6d6719df29250f61954a7b"
+    sha256 arm64_sonoma:  "40dffa8af2e27119e1ee18f2808f3578f71a437968fb8178e78c80bdb2dac34c"
+    sha256 arm64_ventura: "0fb6b854e3a12b0023d73b05c5f8241bd345d0811fa67e62606e5306ee2646be"
+    sha256 sonoma:        "0f136bffdd96b2f2265f6215872b75b532ed4119035f54e6929fc61ede54983d"
+    sha256 ventura:       "eebfd0cc2d9bf8fcd50ad648370c995967c73a820eb7077c4b335d6567bbc20f"
+    sha256 arm64_linux:   "8c3a45211d5d3e9fca45b73ae7d94d5c4929b1a11825d26fcae495dbb5d97bbd"
+    sha256 x86_64_linux:  "4b68256ead71268544621f9d21828f0fade161f54f6ba3dc3803d28f20bda3fc"
   end
 
   depends_on "autoconf" => :build
