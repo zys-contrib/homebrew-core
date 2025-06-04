@@ -1,8 +1,8 @@
 class Box2d < Formula
   desc "2D physics engine for games"
   homepage "https://box2d.org"
-  url "https://github.com/erincatto/box2d/archive/refs/tags/v3.1.0.tar.gz"
-  sha256 "7fac19801485efb31ee3745b2284d9d4601f9e8138a3383a7b0df6d788ea5785"
+  url "https://github.com/erincatto/box2d/archive/refs/tags/v3.1.1.tar.gz"
+  sha256 "fb6ef914b50f4312d7d921a600eabc12318bb3c55a0b8c0b90608fa4488ef2e4"
   license "MIT"
   head "https://github.com/erincatto/Box2D.git", branch: "main"
 
