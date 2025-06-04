@@ -1430,6 +1430,7 @@ gql
 gradle
 gradle-completion
 gradle-profiler
+gradle@7
 grafana
 grafana-agent
 grafana-alloy
