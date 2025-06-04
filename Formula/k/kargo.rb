@@ -12,6 +12,7 @@ class Kargo < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9a5e157585b2dc55ecaa54d44f1aeae02c74c21d36c830475d82b8689aaa64b2"
     sha256 cellar: :any_skip_relocation, sonoma:        "89800a52d9bf1ee16c89e1ebdc39cef2aaafa2fc15576d1e1140518502387d76"
     sha256 cellar: :any_skip_relocation, ventura:       "811d5306e04efe8e1c3483c2966d11d76a4104129824b3fe5da9c322d5954430"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1000af3a1091d23d94a5a3b8f0f491a8c3d8d0761194c7e5e5700bc988906e59"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e20a30b8511ac545ad3694acfbc316d594b7ed7f4f455c6da3d5ef9b67fcfb5"
   end
 
