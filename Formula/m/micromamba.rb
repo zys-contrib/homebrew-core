@@ -4,6 +4,7 @@ class Micromamba < Formula
   url "https://github.com/mamba-org/mamba/archive/refs/tags/2.1.1.tar.gz"
   sha256 "789d3d89fe8ca9f06344da21797e3d949ad1ff0ae4c633dc242a333e0ee37485"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/mamba-org/mamba.git", branch: "main"
 
   livecheck do
