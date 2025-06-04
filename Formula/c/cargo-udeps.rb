@@ -6,13 +6,13 @@ class CargoUdeps < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3560b35fd8924f4ec6302fa0ea7b863d6c414c3c0b3aa4e6e298492ed0ec8624"
-    sha256 cellar: :any,                 arm64_sonoma:  "606e4b2328d76762bd073eeab96270944674ce07434b3fae9443559a4fe2d9a8"
-    sha256 cellar: :any,                 arm64_ventura: "129f68ff4fe461ab23c956c0f3e51b67bc1b262ae7546d9c2c061ebc95a21f97"
-    sha256 cellar: :any,                 sonoma:        "2da242eca94859097a7baa91d471d939e64e21b111a90b9653af0b32a5a0315a"
-    sha256 cellar: :any,                 ventura:       "4a494ab4fef41d74b00be5c5d6346a46aed3c88a2c22951c7e7736e18a278bbc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2530630d9bc5f7c7a08eb4c16c47c5a86ea709ace3a7db541f7482d2e0bc293e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f50c44c0c93396485ab604ebf9c953afa7a83ef222c41caa1a1d53e9dec89250"
+    sha256 cellar: :any,                 arm64_sequoia: "f2f7cd3deee9604641c42451dee0e5d663bd127212145aa00a908b1033400149"
+    sha256 cellar: :any,                 arm64_sonoma:  "6fb173a888692d55f0fac61b1537239fc09da307ee3871d14d33e01574271de2"
+    sha256 cellar: :any,                 arm64_ventura: "5c06c4a586836d802392ad48eddbc9ca8246c503ddd9c532823bd98b3b81fecc"
+    sha256 cellar: :any,                 sonoma:        "079df8951d874247d38a5403bfc4adf9dbcc2b0a5230fc7221437f97ce3ad486"
+    sha256 cellar: :any,                 ventura:       "4dbf3948659f6e61d036533c648a3ee3b982d7f9d824bde94b20f8ad25647350"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6142c29f98bd224dc5a415f8094eebe384908a894d8c4a80c32b9658e6139f83"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "069f175a29e46fc6efe942306dfce55bc59bed55a97ee517cf470fd7c0b2cbfb"
   end
 
   depends_on "pkgconf" => :build
