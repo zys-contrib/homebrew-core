@@ -11,13 +11,7 @@ class Jetty < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7e7c790eaeadb9bd6e0ef648117963620bc9515c80a46285206c9c409a3e879a"
-    sha256 cellar: :any,                 arm64_sonoma:  "601f49357f56efe738abdd75c5d08e180c953fbdde53b84c0d5e99709a89ff94"
-    sha256 cellar: :any,                 arm64_ventura: "9856be3e6041b17203fe6053cd0740fe906b7f8f0a41d4042e2d3539b69dc787"
-    sha256 cellar: :any,                 sonoma:        "4168e1d01e872605f106067c547b1bcf78354df0975d5937571d911658135ca0"
-    sha256 cellar: :any,                 ventura:       "4168e1d01e872605f106067c547b1bcf78354df0975d5937571d911658135ca0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a9dbbb51964c592d7b53a3aefb6ab3ced9dd94bcfbcf00277a80a97322889b0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8b9972b6503efa46f902c552d6760d9196a9f1d136ca2d1d37238f9a9e82c15"
+    sha256 cellar: :any_skip_relocation, all: "1012db79c9b4b4164fa7c312d7dbea6fbb64503c0307a883866c4bda41afb737"
   end
 
   depends_on "openjdk"
