@@ -1,8 +1,8 @@
 class GradleAT7 < Formula
   desc "Open-source build automation tool based on the Groovy and Kotlin DSL"
   homepage "https://www.gradle.org/"
-  url "https://services.gradle.org/distributions/gradle-7.6.4-all.zip"
-  sha256 "fe696c020f241a5f69c30f763c5a7f38eec54b490db19cd2b0962dda420d7d12"
+  url "https://services.gradle.org/distributions/gradle-7.6.5-all.zip"
+  sha256 "1141950aa278680458c6115d252231b96dc3ecc014ec123d01351d44ca016e8b"
   license "Apache-2.0"
 
   livecheck do
