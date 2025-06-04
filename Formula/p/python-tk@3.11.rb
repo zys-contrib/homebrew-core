@@ -1,8 +1,8 @@
 class PythonTkAT311 < Formula
   desc "Python interface to Tcl/Tk"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.11.12/Python-3.11.12.tgz"
-  sha256 "379c9929a989a9d65a1f5d854e011f4872b142259f4fc0a8c4062d2815ed7fba"
+  url "https://www.python.org/ftp/python/3.11.13/Python-3.11.13.tgz"
+  sha256 "0f1a22f4dfd34595a29cf69ee7ea73b9eff8b1cc89d7ab29b3ab0ec04179dad8"
   license "Python-2.0"
 
   livecheck do
