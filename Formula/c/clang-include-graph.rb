@@ -12,6 +12,7 @@ class ClangIncludeGraph < Formula
     sha256 cellar: :any,                 arm64_ventura: "7f7c3547adc92cfc57c56aa46b50a6cf87986a8be3abae841bdf90859aeb7f49"
     sha256 cellar: :any,                 sonoma:        "86d64bd1b27888c88d760ed89e10c061a4b7438d5df5482aedbf249f8f2259f2"
     sha256 cellar: :any,                 ventura:       "5078292a72af6763ea2f6e0cbca879024344a533f4490f19d69ea4b36214168f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "43c607758cca6ab5d1842cdf9bb39bc05ea422c2e73c1441f3029ca2e70bbf97"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b0b5b89b771bd9d1007e5be39a77f527e7c34be2fa66dc86d1cf1b618487f02"
   end
 
