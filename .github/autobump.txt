@@ -1774,6 +1774,7 @@ kanata
 kapacitor
 kapp
 karchive
+kargo
 karmadactl
 kaskade
 katago
